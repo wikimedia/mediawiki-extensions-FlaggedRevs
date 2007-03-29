@@ -22,7 +22,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
 -- These are attached to specific flagged revisions
 CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   frt_rev_id int(10) NOT NULL,
-  frt_dimension int(2) NOT NULL,
+  frt_dimension varchar(255) NOT NULL,
   frt_value int(2) NOT NULL,
 
   PRIMARY KEY ftr_dimension_value (frt_rev_id,frt_dimension)

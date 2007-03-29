@@ -268,13 +268,13 @@ class FlaggedRevs {
 					$diff = ($revid > $top_frev->fr_rev_id) ? $revid : $top_frev->fr_rev_id;
 					$flaghtml = wfMsgExt('revreview-newest', array('parse'), $top_frev->fr_rev_id, $oldid, $diff, $time );
 				}
-           } # Viewing the page normally: override the page
+			} # Viewing the page normally: override the page
 			else {
 				global $wgUser;
-       		# We will be looking at the reviewed revision...
-       		$visible_id = $top_frev->fr_rev_id;
-       		$revs_since = $this->getUnreviewedRevCount( $wgArticle->getId(), $visible_id );
-       		$flaghtml = wfMsgExt('revreview-replaced', array('parse'), $visible_id, $wgArticle->getLatest(), $revs_since, $time );		
+       			# We will be looking at the reviewed revision...
+       			$visible_id = $top_frev->fr_rev_id;
+       			$revs_since = $this->getUnreviewedRevCount( $wgArticle->getId(), $visible_id );
+       			$flaghtml = wfMsgExt('revreview-replaced', array('parse'), $visible_id, $wgArticle->getLatest(), $revs_since, $time );		
 				$newbodytext = NULL;
 				# Try the stable cache
 				$newbodytext = $this->getPageCache( $wgArticle );
@@ -288,13 +288,13 @@ class FlaggedRevs {
        				# Update the general cache for non-users
        				$this->updatePageCache( $wgArticle, $newbodytext );
        			}
-           }
-           // Construct some tagging
-           $flaghtml .= "<table align='center' cellspadding=\'0\'><tr>";
+			}
+			// Construct some tagging
+			$flaghtml .= "<table align='center' cellspadding=\'0\'><tr>";
 			foreach ( $this->dimensions as $quality => $value ) {
 				$value = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
 				$flaghtml .= "<td>&nbsp;<strong>" . wfMsgHtml("revreview-$quality") . "</strong>: $value&nbsp;</td>\n";    
-           }
+			}
 			$flaghtml .= '</tr></table>';
 			// Should use CSS?
 			$flaghtml = "<small>$flaghtml</small>";
@@ -303,19 +303,19 @@ class FlaggedRevs {
 			$out->mBodytext = '<div class="mw-warning plainlinks">' . $flaghtml . '</div>' . $newbodytext;
 			// Add any notes at the bottom
 			$this->addReviewNotes( $top_frev );
-       } else {
-       	$flaghtml = wfMsgExt('revreview-noflagged', array('parse'));
-       	$out->mBodytext = '<div class="mw-warning plainlinks">' . $flaghtml . '</div>' . $out->mBodytext;
-       }
+		} else {
+			$flaghtml = wfMsgExt('revreview-noflagged', array('parse'));
+			$out->mBodytext = '<div class="mw-warning plainlinks">' . $flaghtml . '</div>' . $out->mBodytext;
+		}
 		// Override our reference ID for permalink/citation hooks
 		$wgArticle->mRevision = Revision::newFromId( $visible_id );
-       // Show review links for the VISIBLE revision
-       // We cannot review deleted revisions
-       if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) return;
-       // Add quick review links IF we did not override, otherwise, they might
-       // review a revision that parses out newer templates/images than what they say
-       // Note: overrides are never done when viewing with "oldid="
-       if( $visible_id==$revid || !$this->pageOverride() ) {
+		// Show review links for the VISIBLE revision
+		// We cannot review deleted revisions
+		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) return;
+		// Add quick review links IF we did not override, otherwise, they might
+		// review a revision that parses out newer templates/images than what they say
+		// Note: overrides are never done when viewing with "oldid="
+		if( $visible_id==$revid || !$this->pageOverride() ) {
 			$this->addQuickReview( $visible_id, false, $out );
 		}
     }
@@ -491,7 +491,6 @@ class FlaggedRevs {
     function findLocalImages( $s ) {
     	global $wgUploadPath;
     	
-    	$fname = 'findLocalImages';
     	$imagelist = array(); $thumblist = array();
     	
     	if( !$s || !strval($s) ) return $imagelist;
