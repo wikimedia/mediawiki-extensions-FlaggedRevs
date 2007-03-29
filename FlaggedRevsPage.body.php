@@ -32,7 +32,7 @@ class Revisionreview extends SpecialPage
 		$this->notes = ($wgFlaggedRevComments) ? $wgRequest->getText('wpNotes') : '';
 		// Get our accuracy/quality array
 		$this->dimensions = array();
-        $this->dimensions['acc']   =  $wgRequest->getIntOrNull('accuracy');
+        $this->dimensions['acc']   =  $wgRequest->getIntOrNull('acc');
         $this->dimensions['depth'] = $wgRequest->getIntOrNull('depth');
         $this->dimensions['style'] = $wgRequest->getIntOrNull('style');
 		// Must be a valid page
@@ -106,8 +106,8 @@ class Revisionreview extends SpecialPage
 		$form .= '</tr><tr><td>';
 		foreach( $this->accRadios as $item ) {
 			list( $message, $name, $field ) = $item;
-			$form .= "<div>" .
-				Xml::radio( 'accuracy', $field, ($field==$this->dimensions['acc']) ) . ' ' . wfMsgHtml($message) .
+			$form .= "<div>".
+				Xml::radio( 'acc', $field, ($field==$this->dimensions['acc']) ) . ' ' . wfMsgHtml($message) .
 				"</div>\n";
 		}
 		$form .= '<td width=\'25\'></td></td><td>';
