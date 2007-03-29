@@ -35,9 +35,9 @@ function efLoadReviewMessages() {
 
 # Revision tagging can slow development...
 # For example, the main user base may become complacent,
-# treating flagged pages as "done",
+# perhaps treat flagged pages as "done",
 # or just be too damn lazy to always click "current".
-# We may just want non-user visitors to see reviewd pages by default.
+# We may just want non-user visitors to see reviewed pages by default.
 $wgFlaggedRevsAnonOnly = true;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
@@ -54,6 +54,7 @@ $wgFlaggedRevValues = 3;
 $wgAvailableRights[] = 'review';
 # Define our reviewer class
 $wgGroupPermissions['reviewer']['rollback']    = true;
+$wgGroupPermissions['reviewer']['autopatrol']  = true;
 $wgGroupPermissions['reviewer']['patrol']      = true;
 $wgGroupPermissions['reviewer']['review']      = true;
 
@@ -234,27 +235,27 @@ class FlaggedRevs {
 	 * Adds stable version status/info tags
 	 * Adds a quick review form on the bottom if needed
 	 */
-    function setPageContent( &$out ) {
-       global $wgArticle, $wgRequest, $wgTitle, $wgOut, $action;
-       // Only trigger on article view, not for protect/delete/hist
-       // Talk pages cannot be validated
-       if( !$wgArticle || !$wgTitle->isContentPage() || $action !='view' )
-           return;
-       // Find out revision id
-       $revid = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
+	function setPageContent( &$out ) {
+		global $wgArticle, $wgRequest, $wgTitle, $action;
+		// Only trigger on article view, not for protect/delete/hist
+		// Talk pages cannot be validated
+		if( !$wgArticle || !$wgTitle->isContentPage() || $action !='view' )
+			return;
+		// Find out revision id
+		$revid = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
 		// Grab the ratings for this revision if any
-       if( !$revid ) return;
-       $visible_id = $revid;
+		if( !$revid ) return;
+		$visible_id = $revid;
        
 		// Set new body html text as that of now
-		$flaghtml = ''; $newbodytext = $out->mBodytext;
+		$flaghtml = ''; $notes = ''; $newbodytext = $out->mBodytext;
 		// Check the newest stable version
 		$top_frev = $this->getLatestFlaggedRev( $wgArticle->getId() );
 		if( $wgRequest->getVal('diff') ) {
 		// Do not clutter up diffs any further...
 		} else if( $top_frev ) {
 			global $wgParser, $wgLang;
-			// Parse the timestamp
+			
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $top_frev->fr_timestamp), true );
 			// Grab the flags
 			$flags = $this->getFlagsForRevision( $top_frev->fr_rev_id );
@@ -262,6 +263,7 @@ class FlaggedRevs {
 			if( $wgRequest->getVal('oldid') || !$this->pageOverride() ) {
 				if( $revid==$top_frev->rev_id ) {
 					$flaghtml = wfMsgExt('revreview-isnewest', array('parse'),$time);
+					$notes = $this->ReviewNotes( $top_frev );
 				} else {
 					# Our compare link should have a reasonable time-ordered old->new combination
 					$oldid = ($revid > $top_frev->fr_rev_id) ? $top_frev->fr_rev_id : $revid;
@@ -281,13 +283,13 @@ class FlaggedRevs {
 				# If no cache is available, get the text and parse it
 				if ( is_null($newbodytext) ) {
 					$text = $this->getFlaggedRevText( $visible_id );
-					# For anons, use standard prefs, for users, get theirs
 					$options = ParserOptions::newFromUser($wgUser);
 					# Parsing this text is kind of funky...
        				$newbodytext = $this->parseStableText( $wgTitle, $text, $visible_id, $options );
        				# Update the general cache for non-users
        				$this->updatePageCache( $wgArticle, $newbodytext );
        			}
+				$notes = $this->ReviewNotes( $top_frev );
 			}
 			// Construct some tagging
 			$flaghtml .= "<table align='center' cellspadding=\'0\'><tr>";
@@ -300,9 +302,7 @@ class FlaggedRevs {
 			$flaghtml = "<small>$flaghtml</small>";
            
 			// Set the new body HTML, place a tag on top
-			$out->mBodytext = '<div class="mw-warning plainlinks">' . $flaghtml . '</div>' . $newbodytext;
-			// Add any notes at the bottom
-			$this->addReviewNotes( $top_frev );
+			$out->mBodytext = '<div class="mw-warning plainlinks">' . $flaghtml . '</div>' . $newbodytext . $notes;
 		} else {
 			$flaghtml = wfMsgExt('revreview-noflagged', array('parse'));
 			$out->mBodytext = '<div class="mw-warning plainlinks">' . $flaghtml . '</div>' . $out->mBodytext;
@@ -321,17 +321,17 @@ class FlaggedRevs {
     }
     
     function addToEditView( &$editform ) {
-       global $wgRequest, $wgTitle, $wgOut;
-       // Talk pages cannot be validated
-       if( !$editform->mArticle || !$wgTitle->isContentPage() )
+		global $wgRequest, $wgTitle, $wgOut;
+		// Talk pages cannot be validated
+		if( !$editform->mArticle || !$wgTitle->isContentPage() )
            return;
-       // Find out revision id
-       if( $editform->mArticle->mRevision )
+		// Find out revision id
+		if( $editform->mArticle->mRevision )
        	$revid = $editform->mArticle->mRevision->mId;
-       else
+		else
        	$revid = $editform->mArticle->getLatest();
 		// Grab the ratings for this revision if any
-       if( !$revid ) return;
+		if( !$revid ) return;
        
 		// Set new body html text as that of now
 		$flaghtml = '';
@@ -406,7 +406,7 @@ class FlaggedRevs {
 					}
        			$new_actions[$action] = $data;
        			$counter++;
-       		}
+       			}
        		# Reset static array
        		$content_actions = $new_actions;
     		}
@@ -461,26 +461,24 @@ class FlaggedRevs {
 		// Hacks, to fiddle around with location a bit
 		if( $ontop && $out ) {
 			$out->mBodytext = $form . '<hr/>' . $out->mBodytext;
-		} else if( $ontop ) {
-			$wgOut->addHTML( $form );
 		} else {
 			$wgOut->addHTML( $form );
 		}
     }
     
-    function addReviewNotes( $row, $breakline=true ) {
-    	global $wgOut, $wgUser, $wgFlaggedRevComments;
-    
-    	if( !$row || !$wgFlaggedRevComments) return;
+    function ReviewNotes( $row, $breakline=true ) {
+    	global $wgUser, $wgFlaggedRevComments;
+    	$notes = '';
+    	if( !$row || !$wgFlaggedRevComments) return $notes;
     	
     	$this->skin = $wgUser->getSkin();
     	if( $row->fr_comment ) {
-    		$notes = ($breakline) ? '<hr/><br/>' : '';
-    		$notes .= '<div class="mw-warning plainlinks">';
+    		$notes = ($breakline) ? '<hr/>' : '';
+    		$notes .= '<p><div class="mw-warning plainlinks">';
     		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
-    		$notes .= '<i>' . $this->skin->formatComment( $row->fr_comment ) . '</i></div>';
-    		$wgOut->addHTML( $notes );	
+    		$notes .= '<i>' . $this->skin->formatComment( $row->fr_comment ) . '</i></div></p>';
     	}
+    	return $notes;
     }
 	
 	/**
