@@ -31,6 +31,8 @@ function efLoadReviewMessages() {
 	}
 }
 
+# When configuring globals, add them to localsettings.php and edit them THERE
+
 # Revision tagging can slow development...
 # For example, the main user base may become complacent,
 # treating flagged pages as "done",
@@ -39,8 +41,15 @@ function efLoadReviewMessages() {
 $wgFlaggedRevsAnonOnly = true;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
-# How long to cache stable versions
+# How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
+
+# When setting up new dimensions or levels, you will need to add some 
+# MediaWiki messages for the UI to show properly; any sysop can do this.
+# Define the tags we can use to rate an article
+$wgFlaggedRevTags = array( 'accuracy', 'depth', 'style' );
+# How high can we rate these revisions?
+$wgFlaggedRevValues = 3;
 
 $wgAvailableRights[] = 'review';
 # Define our reviewer class
@@ -60,18 +69,15 @@ class FlaggedRevs {
 	const MAX_INCLUDE_SIZE = 50000000;
 
 	function __construct() {
-		$this->dimensions = array( 'acc' => array( 0=>'acc-0',
-											1=>'acc-1',
-											2=>'acc-2',
-											3=>'acc-3'),
-									'depth'   => array( 0=>'depth-0',
-											1=>'depth-1',
-											2=>'depth-2',
-											3=>'depth-3'),
-									'style'   => array( 0=>'style-0',
-											1=>'style-1',
-											2=>'style-2',
-											3=>'style-3') );
+		global $wgFlaggedRevTags, $wgFlaggedRevValues;
+		
+		$this->dimensions = array();
+		foreach ( $wgFlaggedRevTags as $tag ) {
+			$this->dimensions[$tag] = array();
+			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
+				$this->dimensions[$tag][$i] = "$tag-$i";
+			}
+		}
 	}
 	
     function pageOverride() {
@@ -98,32 +104,25 @@ class FlaggedRevs {
 		}
        return NULL;
     }
-    
-	/**
-	 * @param string $text
-	 * @returns string
-	 * All included pages are expanded out to keep this text frozen
-	 */
-    function expandText( $text ) {
-    	global $wgParser, $wgTitle;
-    	// Do not treat this as parsing an article on normal view
-    	// enter the title object as wgTitle
-    	$options = new ParserOptions;
-		$options->setRemoveComments( true );
-		$options->setMaxIncludeSize( self::MAX_INCLUDE_SIZE );
-		$output = $wgParser->preprocess( $text, $wgTitle, $options );
-		return $output;
-	}
 
     function getFlagsForRevision( $rev_id ) {
-    	// Set default blank flags
-    	$flags = array( 'acc' => 0, 'depth' => 0, 'style' => 0 );
+    	global $wgFlaggedRevTags;
+    	// Set all flags to zero
+    	$flags = array();
+    	foreach( $wgFlaggedRevTags as $tag ) {
+    		$flags[$tag] = 0;
+    	}
     	
 		$db = wfGetDB( DB_SLAVE );
 		// select a row, this should be unique
-		$result = $db->select( 'flaggedrevs', array('*'), array('fr_rev_id' => $rev_id) );
-		if( $row = $db->fetchObject($result) ) {
-			$flags = array( 'acc' => $row->fr_acc, 'depth' => $row->fr_dep, 'style' => $row->fr_sty );
+		// JOIN on the tag table and grab all the tags for this revision
+		$result = $db->select(
+			array('flaggedrevs', 'flaggedrevtags'),
+			array('frt_dimension', 'frt_value'), 
+			array('fr_rev_id' => $rev_id, 'fr_rev_id = frt_rev_id' ) );
+		// Iterate through each tag
+		while ( $row = $db->fetchObject($result) ) {
+			$flags[$row->frt_dimension] = $row->frt_value;
 		}
 		return $flags;
 	}
@@ -178,6 +177,22 @@ class FlaggedRevs {
        return $db->numRows($result);
     }
     
+	/**
+	 * @param string $text
+	 * @returns string
+	 * All included pages are expanded out to keep this text frozen
+	 */
+    function expandText( $text ) {
+    	global $wgParser, $wgTitle;
+    	// Do not treat this as parsing an article on normal view
+    	// enter the title object as wgTitle
+    	$options = new ParserOptions;
+		$options->setRemoveComments( true );
+		$options->setMaxIncludeSize( self::MAX_INCLUDE_SIZE );
+		$output = $wgParser->preprocess( $text, $wgTitle, $options );
+		return $output;
+	}
+    
     function parseStableText( $title, $text, $id=NULL, $options ) {
     	global $wgUser, $wgParser, $wgUploadDirectory, $wgUseSharedUploads, $wgUploadPath;
     	# hack...temporarily change image directories
@@ -203,7 +218,7 @@ class FlaggedRevs {
        	$HTMLout = $parserOut->getText();
        	# goddamn hack...
        	# Thumbnails are stored based on width, don't do any unscaled resizing
-       	# MW will add height/width based on the metadata in the db for the current image
+       	# MW will add height/width based on the size data in the db for the *current* image
 		$HTMLout = preg_replace( '/(<img[^<>]+ )height="\d+" ([^<>]+>)/i','$1$2', $HTMLout);
        	
        	# Reset our image directories
@@ -416,37 +431,37 @@ class FlaggedRevs {
        
     function addQuickReview( $id, $ontop=false, &$out=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgScript;
-       // We don't want two forms!
-       if( isset($this->formCount) && $this->formCount > 0 ) return;
-       $this->formCount = 1;
+		// We don't want two forms!
+		if( isset($this->formCount) && $this->formCount > 0 ) return;
+		$this->formCount = 1;
 		
 		if( !$wgUser->isAllowed( 'review' ) ) return; 
 
 		$flags = $this->getFlagsForRevision( $id );
        
 		$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-       $form = Xml::openElement( 'form', array( 'method' => 'get', 'action' => $wgScript ) );
+		$form = Xml::openElement( 'form', array( 'method' => 'get', 'action' => $wgScript ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
 		$form .= wfHidden( 'title', $reviewtitle->getPrefixedText() );
-       $form .= wfHidden( 'target', $wgTitle->getPrefixedText() );
-       $form .= wfHidden( 'oldid', $id );
-       foreach ( $this->dimensions as $quality => $levels ) {
-           $form .= wfMsgHtml("revreview-$quality") . ": <select name='$quality'>\n";
-           foreach ( $levels as $idx => $label ) {
-              if( $flags[$quality]==$idx )
-                  $selected = 'selected';
-              else
-                  $selected = '';
-              $form .= "<option value='$idx' $selected>" . wfMsgHtml("revreview-$label") . "</option>\n";    
-           }
-           $form .= "</select>\n";
-       }
+		$form .= wfHidden( 'target', $wgTitle->getPrefixedText() );
+		$form .= wfHidden( 'oldid', $id );
+		foreach ( $this->dimensions as $quality => $levels ) {
+			$form .= wfMsgHtml("revreview-$quality") . ": <select name='wp$quality'>\n";
+			foreach ( $levels as $idx => $label ) {
+				if( $flags[$quality]==$idx )
+					$selected = 'selected';
+				else
+					$selected = '';
+				$form .= "<option value='$idx' $selected>" . wfMsgHtml("revreview-$label") . "</option>\n";    
+			}
+			$form .= "</select>\n";
+		}
 		$form .= Xml::submitButton( wfMsgHtml( 'go' ) ) . "</fieldset>";
 		$form .= Xml::closeElement( 'form' );
 		// Hacks, to fiddle around with location a bit
 		if( $ontop && $out ) {
 			$out->mBodytext = $form . '<hr/>' . $out->mBodytext;
-       } else if( $ontop ) {
+		} else if( $ontop ) {
 			$wgOut->addHTML( $form );
 		} else {
 			$wgOut->addHTML( $form );
@@ -712,7 +727,7 @@ class FlaggedRevs {
     	$result = $db->select(
 			array('flaggedcache'),
 			array('fc_cache'),
-			array('fc_key' => $cachekey, 'fc_date >= ' . $article->getTouched(), 'fc_date >= ' . $cutoff ),
+			array('fc_key' => $cachekey, 'fc_timestamp >= ' . $article->getTouched(), 'fc_timestamp >= ' . $cutoff ),
 			__METHOD__);
 		if ( $row = $db->fetchObject($result) ) {
 			return $row->fc_cache;
@@ -735,7 +750,7 @@ class FlaggedRevs {
     	// Replace the page cache if it is out of date
 		$dbw->replace('flaggedcache',
     		array('fc_key'),
-			array('fc_key' => $cachekey, 'fc_cache' => $value, 'fc_date' => $timestamp),
+			array('fc_key' => $cachekey, 'fc_cache' => $value, 'fc_timestamp' => $timestamp),
 			__METHOD__);
 		
 		return true;

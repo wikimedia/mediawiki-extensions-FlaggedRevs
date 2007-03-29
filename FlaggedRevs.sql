@@ -3,23 +3,29 @@
 -- Table structure for table `revisiontags`
 -- Replace /*$wgDBprefix*/ with the proper prefix
 
--- This stores expanded revision wikitext caches
--- along with rating/user/notes data
+-- This stores which revision where flagged
+-- The page and rev id are stored as is the user/comment/time
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_id int(10) NOT NULL auto_increment,
   fr_page_id int(10) NOT NULL,
   fr_rev_id int(10) NOT NULL,
-  fr_acc int(2) NOT NULL,
-  fr_dep int(2) NOT NULL,
-  fr_sty int(2) NOT NULL,
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob default NULL,
 
-  PRIMARY KEY fr_rev_id (fr_rev_id),  
+  PRIMARY KEY fr_rev_id (fr_rev_id),
   UNIQUE KEY (fr_id),
-  INDEX fr_page_rev (fr_page_id,fr_rev_id),
-  INDEX fr_acc_dep_sty (fr_acc,fr_dep,fr_sty)
+  INDEX fr_page_rev (fr_page_id,fr_rev_id)
+) TYPE=InnoDB;
+
+-- This stores all of our tag data
+-- These are attached to specific flagged revisions
+CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
+  frt_rev_id int(10) NOT NULL,
+  frt_dimension int(2) NOT NULL,
+  frt_value int(2) NOT NULL,
+
+  PRIMARY KEY ftr_dimension_value (frt_rev_id,frt_dimension)
 ) TYPE=InnoDB;
 
 -- This stores expanded (transclusions resolved) revision text
@@ -34,6 +40,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedtext (
 
 -- This stores image usage for the stable image directory
 -- Used for scripts that clear out unused images
+-- Can also be used to list out all images approved in articles
 CREATE TABLE /*$wgDBprefix*/flaggedimages (
   fi_name varchar(255) NOT NULL,
   fi_rev_id int(10) NOT NULL,
@@ -46,7 +53,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
 CREATE TABLE /*$wgDBprefix*/flaggedcache (
   fc_key char(255) binary NOT NULL default '',
   fc_cache mediumblob NOT NULL default '',
-  fc_date char(14) NOT NULL,
+  -- This timestamp is compared against page_touched
+  fc_timestamp char(14) NOT NULL,
 
   PRIMARY KEY fc_key (fc_key)
 ) TYPE=InnoDB;
