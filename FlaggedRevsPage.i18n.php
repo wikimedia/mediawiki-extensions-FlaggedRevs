@@ -32,8 +32,8 @@ $RevisionreviewMessages['en'] = array(
 		
 	'revreview-selected' => "Selected revision of '''$1:'''",
 	'revreview-text'     => "Approved revisions are set as the default revision shown upon page view rather
-	than the top revision. The content of this approved revision will remain constant regardless of any transcluded
-	pages or internal images.",
+	than the top revision. Their content will not be affected by changes to transcluded
+	pages or updates to internal images.",
 	'revreview-images'   => 'Internal images on this page will be copied to the stable image directory, updating
 	existing versions, and stored there until no reviewed revisions use them. The following images are transcluded onto this page:',
 	
