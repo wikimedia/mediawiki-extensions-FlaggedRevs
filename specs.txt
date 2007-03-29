@@ -1,0 +1,94 @@
+== The implementation ==
+
+The specs to implement are a variation of the proposal by Philipp and
+other German Wikipedians, found at:
+http://de.wikipedia.org/wiki/Wikipedia:Gesichtete_Versionen
+http://de.wikipedia.org/wiki/Wikipedia:Gepr%C3%BCfte_Versionen
+
+The changes are aimed mostly at making the feature more flexibly
+configurable, and streamlining some of the UI tasks.
+
+The feature is to be implemented as an extension, if at all possible.
+It must be GPL-licensed and will be committed to the Wikimedia
+Subversion server.
+
+The wiki will allow the configuration of "revision tags", which can
+then be associated with any revision of an article. Tags are organized
+in tag array, where each array represents a set of tags that describe
+a similar attribute, e.g., accuracy-related tags would be organized in
+one array, while those used for flagging materials for export might be
+organized in another. This is to ensure that "levels" of quality
+(unvandalized -> reviewed for accuracy -> featured article etc.) can
+be represented correctly.
+
+Each tag has certain attributes:
+- tag comments: Should the tag support a comment field which explains
+why the revision was tagged in a certain way?
+- permissions: Which user groups have permission to set the tag?
+- stylesheet and UI: not requiring explicit configuration, each tag
+should have a stylesheet class and MediaWiki: namespace message(s)
+associated with it, to allow for differences in visual and textual
+representation
+- implicit tagging: should this tag be implicitly set by any user
+within the associated group when editing? (this will be used for the
+"non-vandalized" tag)
+
+A generic change is required to allow for automatic membership in a
+user group when a user has more than X edits and is older than Y days.
+
+There should be a configuration option which associates a namespace with
+- a tag-array
+- a minimum level in that array.
+
+This option determines that, by default, the revision shown from this
+namespace will be the one from that array which is also >= the minimum
+level. So, for instance, one could determine that pages in the article
+namespace need to be at least checked for vandalism, or at least
+reviewed for accuracy.
+
+As a high priority wishlist item, these view options should also be
+applicable on a per-page basis. The existing protection UI should be
+expanded for this purpose. Implementation (and schedule) of this item
+will depend on overall implementation progress.
+
+Whichever view one ends up with, we expect that the top of the page
+indicates this, and allows you to switch & get diffs to other views.
+
+Because MediaWiki currently does not show templates and revisions in
+time synchronization, this behavior has to be fixed for old revisions.
+When one has expressed a preference for a revision with a specific
+tag/level (e.g. "unvandalized") AND this is the most recent revision,
+it will be shown together with the most recent equally tagged
+templates if they exist, otherwise with the most recent ones.
+
+Example: On a page like the Main Page, which includes many templates,
+one would typically want to have an unvandalized view of the entire
+construction. The Main Page itself rarely changes, but because the
+most recent revision is flagged as "unvandalized", it would be
+synchronized with templates for which this is also true. When viewing
+an older version, however, the templates would be shown as they were
+at that date&time.
+
+It is crucial that queries for revision lookup are highly performant;
+we should aim for a performance impact of less than 10% on uncached
+pageviews with a revision tag preference. Needless to say, the feature
+needs to interact correctly with Squid proxy caching.
+
+Tagging revisions should be possible from three places:
+- when editing (with the help of a collapsible diff)
+- when looking at diffs
+- when looking at revisions without any prior or later tags.
+
+A tag can only be set with reference to a diff to the last version
+that has the same tag. The Special:Recentchanges tool should be
+customizable to have such a diff link to the last version with a given
+tag. It is desirable that this view also includes an icon that
+indicates the state of the logged revision (derived from the tag
+stylesheets).
+
+Wishlist items for the future include things like mass vandalism
+review and advanced queries. I also have some ideas for phase II of
+the project, which I would love to see implemented before the tool is
+switched on on the English Wikipedia, but this will wait until phase I
+and any adjustments needed for its operations are successfully
+completed.
