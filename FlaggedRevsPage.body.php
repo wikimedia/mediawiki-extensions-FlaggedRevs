@@ -32,7 +32,7 @@ class Revisionreview extends SpecialPage
 		$this->notes = ($wgFlaggedRevComments) ? $wgRequest->getText('wpNotes') : '';
 		// Get our accuracy/quality array
 		$this->dimensions = array();
-		foreach ( $wgFlaggedRevTags as $tag ) {
+		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
 			$this->dimensions[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 		}
 		// Must be a valid page
@@ -75,7 +75,7 @@ class Revisionreview extends SpecialPage
 		$wgOut->addWikiText( wfMsgHtml( 'revreview-text' ) );
 		$formradios = array();
 		// Dynamically contruct our radio options
-		foreach ( $wgFlaggedRevTags as $tag ) {
+		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
 			$formradios[$tag] = array();
 			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
 				$formradios[$tag][] = array( "revreview-$tag-$i", "wp$tag", $i );
@@ -93,7 +93,7 @@ class Revisionreview extends SpecialPage
 		$form = "<form name='revisionreview' action='$action' method='post'>";
 		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
 		// Dynamically contruct our review types
-		foreach ( $wgFlaggedRevTags as $tag ) {
+		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
 			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
 		}
 		$form .= '</tr><tr>';
@@ -245,11 +245,11 @@ class Revisionreview extends SpecialPage
 			return true;
 		}
 		// Delete from table
-		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->getId ) );
+		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->getId() ) );
 		// And the text...
-		$db->delete( 'flaggedtext', array( 'ft_rev_id' => $rev->getId ) );
+		$db->delete( 'flaggedtext', array( 'ft_rev_id' => $rev->getId() ) );
 		// And the flags...
-		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->getId ) );
+		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->getId() ) );
 		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dimensions, $this->comment, $this->oldid, false );

@@ -46,8 +46,9 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
-# Define the tags we can use to rate an article
-$wgFlaggedRevTags = array( 'accuracy', 'depth', 'style' );
+# Define the tags we can use to rate an article, 
+# and set the minimum level have it concerned a stable version
+$wgFlaggedRevTags = array( 'accuracy'=>1, 'depth'=>1, 'style'=>1 );
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 3;
 
@@ -73,7 +74,7 @@ class FlaggedRevs {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		
 		$this->dimensions = array();
-		foreach ( $wgFlaggedRevTags as $tag ) {
+		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
 			$this->dimensions[$tag] = array();
 			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
 				$this->dimensions[$tag][$i] = "$tag-$i";
@@ -110,7 +111,7 @@ class FlaggedRevs {
     	global $wgFlaggedRevTags;
     	// Set all flags to zero
     	$flags = array();
-    	foreach( $wgFlaggedRevTags as $tag ) {
+    	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
     		$flags[$tag] = 0;
     	}
     	
@@ -128,7 +129,7 @@ class FlaggedRevs {
 		return $flags;
 	}
 
-	function getLatestFlaggedRev( $page_id ) {
+	function getLatestFlaggedRev_new( $page_id ) {
 		wfProfileIn( __METHOD__ );
 		  
 		$db = wfGetDB( DB_SLAVE );
@@ -141,11 +142,53 @@ class FlaggedRevs {
 			array('ORDER BY' => 'fr_rev_id DESC') );
 		// Sorted from highest to lowest, so just take the first one if any
 		if ( $row = $db->fetchObject( $result ) ) {
+
 			return $row;
 		}
 		return NULL;
 	}
+   
+    function getLatestFlaggedRev( $page_id) {
+        global $wgFlaggedRevTags;
+        wfProfileIn( __METHOD__ );  
+		$db = wfGetDB( DB_SLAVE );
+        $tables=array('flaggedrevs','revision');
+        $vars = array('flaggedrevs.*');
+        $conds=array("fr_page_id = $page_id", 'rev_id = fr_rev_id', 'rev_deleted = 0');
+        $i = 1;
+        foreach ($wgFlaggedRevTags as $dimension=>$minvalue) {
+            $alias = 'd'.$i; 
+            $vars[] = "$alias.frt_value as '$dimension'";
+            $tables[] = "flaggedrevtags as $alias";
+            $conds[] = "fr_rev_id = $alias.frt_rev_id";
+            $conds[] = "$alias.frt_dimension = '$dimension'";
+            $conds[] = "$alias.frt_value >= $minvalue";
+            $i++;
+        }
+        
+        /*$result = $db->select(
+			$tables,
+			$vars,
+			$conds,
+			__METHOD__ ,
+			array('ORDER BY' => 'fr_rev_id DESC') );    */
+        
+        $sql = " SELECT ".implode(',',$vars);
+        $sql.= " FROM ".implode(',',$tables);
+        $sql.= " WHERE ".implode(' and ',$conds);
+        $sql.= " ORDER BY fr_rev_id DESC";
+        
+        #print "$sql\n<br>\n";
+        $result = $db->query($sql,__METHOD__);
+        // Sorted from highest to lowest, so just take the first one if any
+		if ( $row = $db->fetchObject( $result ) ) {
+			return $row;
+		}
+		return NULL;
+    }
+
     
+
     function getReviewedRevs( $page_id ) {   
 		wfProfileIn( __METHOD__ );
 		  
@@ -705,7 +748,7 @@ class FlaggedRevs {
 			// Clear out this revision's entry
 			$db->delete( 'flaggedimages', $where );
 		}
-		$this->deleteStableImages( $unusedimages );
+		FlaggedRevs::deleteStableImages( $unusedimages );
 		return true;
     }
     
