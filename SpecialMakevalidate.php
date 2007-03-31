@@ -14,21 +14,23 @@
 
 if( defined( 'MEDIAWIKI' ) ) {
 
-	define( 'MW_MAKEVALIDATE_GRANT', 1 );
-	define( 'MW_MAKEVALIDATE_REVOKE', 2 );
+	define( 'MW_MAKEVALIDATE_GRANT_GRANT', 1 );
+	define( 'MW_MAKEVALIDATE_REVOKE_GRANT', 2 );
+	define( 'MW_MAKEVALIDATE_REVOKE_REVOKE', 3 );
+	define( 'MW_MAKEVALIDATE_GRANT_REVOKE', 4 );
 	
 	$wgExtensionFunctions[] = 'efMakevalidate';
+	$wgAvailableRights[] = 'makereview';
 	$wgAvailableRights[] = 'makevalidate';
-	$wgExtensionCredits['specialpage'][] = array(
-		'name' => 'MakeBot',
-		'author' => 'Rob Church',
-		'url' => 'http://www.mediawiki.org/wiki/Extension:MakeBot',
-		'description' => 'Special page allows local bureaucrats to grant and revoke bot permissions',
-	 );
 	
 	/**
 	 * Determines who can use the extension; as a default, bureaucrats are permitted
 	 */
+	# Basic rights for sysop
+	$wgGroupPermissions['sysop']['makereview'] = true;
+	# Extra ones for bureaucrats
+	# Add UI page rights just in case we have non-sysop bcrats
+	$wgGroupPermissions['bureaucrat']['makereview'] = true;
 	$wgGroupPermissions['bureaucrat']['makevalidate'] = true;
 	
 	/**
@@ -53,8 +55,10 @@ if( defined( 'MEDIAWIKI' ) ) {
 		$wgLogTypes[] = 'validate';
 		$wgLogNames['validate'] = 'makevalidate-logpage';
 		$wgLogHeaders['validate'] = 'makevalidate-logpagetext';
-		$wgLogActions['validate/grant']  = 'makevalidate-logentrygrant';
-		$wgLogActions['validate/revoke'] = 'makevalidate-logentryrevoke';
+		$wgLogActions['validate/grantE']  = 'makevalidate-logentrygrant-e';
+		$wgLogActions['validate/revokeE'] = 'makevalidate-logentryrevoke-e';
+		$wgLogActions['validate/grantR']  = 'makevalidate-logentrygrant-r';
+		$wgLogActions['validate/revokeR'] = 'makevalidate-logentryrevoke-r';
 	}
 
 } else {

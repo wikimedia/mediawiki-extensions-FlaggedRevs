@@ -20,7 +20,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-newest'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1}} latest reviewed revision] 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$4</i>, rated as:',
-	'revreview-replaced'  => 'This is the latest [[Help:Article validation|quality]] revision of this page, 
+	'revreview-replaced'  => 'This is the latest [[Help:Article validation|stable]] revision of this page, 
 	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$2}} current revision]
 	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',

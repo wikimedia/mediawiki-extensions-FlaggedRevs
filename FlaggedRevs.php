@@ -63,7 +63,7 @@ $wgFlagRestrictions = array(
 );
 # In order for stable versions to override
 # we need some minimum flag requirements
-$wgMinFlagLevels = array('accuracy' => 1, 'depth' => 1, 'style' => 1);
+$wgMinFlagLevels = array('accuracy' => 2, 'depth' => 1, 'style' => 1);
 
 
 # Lets users access the review UI and set some flags
@@ -79,11 +79,7 @@ $wgGroupPermissions['editor']['patrol']      = true;
 $wgGroupPermissions['editor']['unwatched']   = true;
 
 # Defines extra rights for advanced reviewer class
-$wgGroupPermissions['reviewer']['review']      = true;
-$wgGroupPermissions['reviewer']['validate']    = true;
-$wgGroupPermissions['reviewer']['autopatrol']  = true;
-$wgGroupPermissions['reviewer']['patrol']      = true;
-$wgGroupPermissions['reviewer']['unwatched']   = true;
+$wgGroupPermissions['reviewer']['validate']  = true;
 
 # Add review log
 $wgLogTypes[] = 'review';
@@ -118,9 +114,11 @@ class FlaggedRevs {
 	 * Get the text of a stable version
 	 */	
     function getFlaggedRevText( $rev_id ) {
+    	wfProfileIn( __METHOD__ );
+    
  		$db = wfGetDB( DB_SLAVE );
  		// select a row, this should be unique
-		$result = $db->select( 'flaggedrevs', array('fr_text'), array('fr_rev_id' => $rev_id) );
+		$result = $db->select('flaggedrevs', array('fr_text'), array('fr_rev_id' => $rev_id), __METHOD__, 'LIMIT = 1');
 		if( $row = $db->fetchObject($result) ) {
 			return $row->fr_text;
 		}
@@ -133,6 +131,9 @@ class FlaggedRevs {
 	 */	
     function getFlagsForRevision( $rev_id ) {
     	global $wgFlaggedRevTags;
+    	
+    	wfProfileIn( __METHOD__ );
+    	
     	// Set all flags to zero
     	$flags = array();
     	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
@@ -144,7 +145,8 @@ class FlaggedRevs {
 		$result = $db->select(
 			array('flaggedrevtags'),
 			array('frt_dimension', 'frt_value'), 
-			array('frt_rev_id' => $rev_id) );
+			array('frt_rev_id' => $rev_id),
+			__METHOD__ );
 		// Iterate through each tag result
 		while ( $row = $db->fetchObject($result) ) {
 			$flags[$row->frt_dimension] = $row->frt_value;
@@ -180,7 +182,8 @@ class FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_page_id', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment'),
 			array('fr_rev_id' => $rev_id , 'rev_id=fr_rev_id', 'rev_deleted=0'),
-			__METHOD__ );
+			__METHOD__,
+			array('LIMIT' => 1) );
 		// Sorted from highest to lowest, so just take the first one if any
 		if ( $row = $db->fetchObject( $result ) ) {
 			return $row;
@@ -224,7 +227,7 @@ class FlaggedRevs {
         $sql.= " ORDER BY fr_rev_id DESC";
         
         #print "$sql\n<br>\n";
-        $result = $db->query($sql,__METHOD__);
+        $result = $db->query($sql,__METHOD__ );
         // Sorted from highest to lowest, so just take the first one if any
 		if ( $row = $db->fetchObject( $result ) ) {
 			return $row;
@@ -234,6 +237,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get latest rev that meets requirments
+	 * per the $wgMinFlagLevels variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
 	 * @output array ( rev, flags )
@@ -265,10 +269,10 @@ class FlaggedRevs {
 			array('frt_page_id' => $page_id, $tagwhere, 'frt_rev_id=fr_rev_id', 'frt_rev_id=rev_id', 'rev_deleted=0'),
 			__METHOD__,
 			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
-		// Iterate through the rest of the tags for this revision
+		// Iterate through each flagged revision row
 		while ( $row = $db->fetchObject( $result ) ) {
 			// If all of our flags are up to par, we have a stable version
-			if ( $row->app_flag_count == count($wgMinFlagLevels) ) {
+			if ( $row->app_flag_count==count($wgMinFlagLevels) ) {
 				// Try to store results
 				$this->stablefound = true;
 				$this->stablerev = $row;
@@ -314,8 +318,7 @@ class FlaggedRevs {
 			array('revision'),
 			array('rev_id'),
 			array('rev_page' => $page_id, "rev_id > $from_rev"),
-			__METHOD__ ,
-			array('ORDER BY' => 'rev_id DESC') );
+			__METHOD__ );
 		// Return count of revisions
 		return $db->numRows($result);
     }
@@ -344,6 +347,7 @@ class FlaggedRevs {
 		$uploadPath = $wgUploadPath;
 		$uploadDir = $wgUploadDirectory;
 		$useSharedUploads = $wgUseSharedUploads;
+		
 		# Stable thumbnails need to have the right path
 		$wgUploadPath = ($wgUploadPath) ? "{$uploadPath}/stable" : false;
 		# Create <img> tags with the right url
@@ -357,17 +361,17 @@ class FlaggedRevs {
 		$options->setEditSection(false);
 		# Parse the new body, wikitext -> html
        	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
-       	$HTMLout = $parserOut->getText();
-       	
-       	# goddamn hack...
-       	# Thumbnails are stored based on width, don't do any unscaled resizing
-       	# MW will add height/width based on the size data in the db for the *current* image
-		$HTMLout = preg_replace( '/(<img[^<>]+ )height="\d+" ([^<>]+>)/i','$1$2', $HTMLout);
        	
        	# Reset our image directories
        	$wgUploadPath = $uploadPath;
        	$wgUploadDirectory = $uploadDir;
        	$wgUseSharedUploads = $useSharedUploads;
+       	
+       	$HTMLout = $parserOut->getText();      	
+       	# goddamn hack...
+       	# Thumbnails are stored based on width, don't do any unscaled resizing
+       	# MW will add height/width based on the size data in the db for the *current* image
+		$HTMLout = preg_replace( '/(<img[^<>]+ )height="\d+" ([^<>]+>)/i','$1$2', $HTMLout);
 		 	
        	return $HTMLout;
     }
@@ -860,7 +864,7 @@ class FlaggedRevs {
 			$imagename = $nt->getDBkey();
  			$where = array( 'fi_rev_id' => $revid, 'fi_name' => $imagename );
 			// See how many revisions use this image total...
-			$result = $dbw->select( 'flaggedimages', array('fi_id'), array( 'fi_name' => $imagename ) );
+			$result = $dbw->select( 'flaggedimages', array('fi_id'), array( 'fi_name' => $imagename ),__METHOD__ );
 			// If only one, then delete the image
 			// since it's about to be remove from that one
 			if( $db->numRows($result)==1 ) {
@@ -882,14 +886,25 @@ class FlaggedRevs {
     	if ( !$article || !$article->getId() ) return NULL;
     	$cachekey = ParserCache::getKey( $article, $wgUser );
     	
+		wfSeedRandom();
+		if ( 0 == mt_rand( 0, 999 ) ) {
+			# Periodically flush old cache entries
+			global $wgFlaggedRevsExpire;
+
+			$dbw = wfGetDB( DB_MASTER );
+			$cutoff = $dbw->timestamp( time() - $wgFlaggedRevsExpire );
+			$flaggedcache = $dbw->tableName( 'flaggedcache' );
+			$sql = "DELETE FROM $flaggedcache WHERE fc_timestamp < '{$cutoff}'";
+			$dbw->query( $sql );
+		}
+    	
     	$db = wfGetDB( DB_SLAVE );
-    	$cutoff = $db->timestamp( time() - $wgFlaggedRevsExpire );
     	// Replace the page cache if it is out of date
     	$result = $db->select(
 			array('flaggedcache'),
 			array('fc_cache'),
-			array('fc_key' => $cachekey, 'fc_timestamp >= ' . $article->getTouched(), 'fc_timestamp >= ' . $cutoff ),
-			__METHOD__);
+			array('fc_key' => $cachekey, 'fc_timestamp >= ' . $article->getTouched() ),
+			__METHOD__ );
 		if ( $row = $db->fetchObject($result) ) {
 			return $row->fc_cache;
 		}
@@ -912,7 +927,7 @@ class FlaggedRevs {
 		$dbw->replace('flaggedcache',
     		array('fc_key'),
 			array('fc_key' => $cachekey, 'fc_cache' => $value, 'fc_timestamp' => $timestamp),
-			__METHOD__);
+			__METHOD__ );
 		
 		return true;
     }
