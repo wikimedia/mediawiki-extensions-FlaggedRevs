@@ -79,9 +79,11 @@ $wgGroupPermissions['editor']['patrol']      = true;
 $wgGroupPermissions['editor']['unwatched']   = true;
 
 # Defines extra rights for advanced reviewer class
-$wgGroupPermissions['reviewer']['validate']  = true;
-
-$wgGroupPermissions['sysop']['review']  = true;
+$wgGroupPermissions['reviewer']['review']      = true;
+$wgGroupPermissions['reviewer']['validate']    = true;
+$wgGroupPermissions['reviewer']['autopatrol']  = true;
+$wgGroupPermissions['reviewer']['patrol']      = true;
+$wgGroupPermissions['reviewer']['unwatched']   = true;
 
 # Add review log
 $wgLogTypes[] = 'review';
