@@ -165,6 +165,7 @@ class MakeValidate extends SpecialPage {
 	
 		# Start the table
 		$form  = wfOpenElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
+		$form .= '<fieldset><legend>' . wfMsg('makevalidate-legend') . '</legend>';
 		$form .= wfOpenElement( 'table' ) . wfOpenElement( 'tr' );
 		# Grant/revoke buttons
 		$form .= wfElement( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-e' ) );
@@ -200,6 +201,7 @@ class MakeValidate extends SpecialPage {
 		$form .= wfElement( 'input', array( 'type' => 'hidden', 'name' => 'username', 'value' => $this->target ) );
 		# Edit token
 		$form .= wfElement( 'input', array( 'type' => 'hidden', 'name' => 'token', 'value' => $wgUser->editToken( 'makevalidate' ) ) );
+		$form .= '</fieldset>';
 		$form .= wfCloseElement( 'form' );
 		return $form;
 	}

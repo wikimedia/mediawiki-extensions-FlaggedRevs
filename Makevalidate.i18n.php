@@ -12,17 +12,18 @@ function efMakeValidateMessages() {
 /* English (Aaron Schulz) */
 $messages['en'] = array(
 	'makevalidate'       => 'Promote/demote editors',
-	'makevalidate-header'   => '<strong>This form is used by sysops and bureaucrats to promote users to stable 
-	version reviewers.</strong><br> Type the name of the user in the box and press the button 
-	to make the user a validator. Granting users reviewer status will automatically grant them editor status as well.',
+	'makevalidate-header'   => '<strong>This form is used by sysops and bureaucrats to promote users to article 
+	validators.</strong><br> Type the name of the user in the box and press the button to make the user a validator. 
+	Granting users reviewer status will automatically grant them editor status as well.',
 	'makevalidate-username'  => 'Name of the user:',
 	'makevalidate-search' => 'Go',
 	'makevalidate-iseditor' => '[[User:$1|$1]] has editor status.',
 	'makevalidate-noteditor' => '[[User:$1|$1]] does not have editor status.',
 	'makevalidate-isvalidator' => '[[User:$1|$1]] has reviewer status.',
 	'makevalidate-notvalidator' => '[[User:$1|$1]] does not have reviewer status.',
-	'makevalidate-change-e' => 'Change editor status:',
-	'makevalidate-change-r' => 'Change reviewer status:',
+	'makevalidate-legend' => 'Change user rights:',
+	'makevalidate-change-e' => 'Editor status:',
+	'makevalidate-change-r' => 'Reviewer status:',
 	'makevalidate-grantE' => 'Grant',
 	'makevalidate-revokeE' => 'Revoke',
 	'makevalidate-grantR' => 'Grant',
