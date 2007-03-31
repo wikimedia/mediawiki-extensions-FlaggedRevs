@@ -12,6 +12,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob default NULL,
+-- This stores expanded (transclusions resolved) revision text
+  fr_text mediumblob NOT NULL default '',
 
   PRIMARY KEY fr_rev_id (fr_rev_id),
   UNIQUE KEY (fr_id),
@@ -21,21 +23,14 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
 -- This stores all of our tag data
 -- These are attached to specific flagged revisions
 CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
+  frt_page_id int(10) NOT NULL,
   frt_rev_id int(10) NOT NULL,
   frt_dimension varchar(255) NOT NULL,
-  frt_value int(2) NOT NULL,
+  frt_value unsigned int(2) NOT NULL,
 
-  PRIMARY KEY ftr_dimension_value (frt_rev_id,frt_dimension)
-) TYPE=InnoDB;
-
--- This stores expanded (transclusions resolved) revision text
-CREATE TABLE /*$wgDBprefix*/flaggedtext (
-  ft_id int(10) NOT NULL auto_increment,
-  ft_rev_id int(10) NOT NULL,
-  ft_text mediumblob NOT NULL default '',
-
-  PRIMARY KEY ft_id (ft_id),
-  UNIQUE KEY ft_rev_id (ft_rev_id)
+  PRIMARY KEY frt_rev_dimension (frt_rev_id,frt_dimension),
+  INDEX frt_page_rev (frt_page_id,frt_rev_id),
+  INDEX frt_page_rev_val (frt_page_id,frt_rev_id,frt_value)
 ) TYPE=InnoDB;
 
 -- This stores image usage for the stable image directory

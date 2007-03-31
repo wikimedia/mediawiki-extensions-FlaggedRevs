@@ -30,10 +30,27 @@ class Revisionreview extends SpecialPage
 		$this->comment = $wgRequest->getText( 'wpReason' );
 		// Additional notes
 		$this->notes = ($wgFlaggedRevComments) ? $wgRequest->getText('wpNotes') : '';
-		// Get our accuracy/quality array
-		$this->dimensions = array();
+		// Get the revision's current flags, if any
+		$this->oflags = FlaggedRevs::getFlagsForRevision( $this->oldid );
+		// Get our accuracy/quality dimensions
+		$this->dims = array();
 		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
-			$this->dimensions[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
+			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
+			// Must be greater than zero
+			if ( $this->dims[$tag] < 0 ) {
+				$wgOut->showErrorPage( $this->page, 'notargettitle', 'notargettext' );
+				return;
+			}
+			// Check permissions
+			if( !$this->userCan( $tag, $this->oflags[$tag] ) ) {
+				# Users can't take away a status they can't set
+				$wgOut->permissionRequired( 'badaccess-group0' );
+				return;
+			} else if( !$this->userCan( $tag, $this->dims[$tag] ) ) {
+			// Users cannot review to beyond their rights level
+				$wgOut->permissionRequired( 'badaccess-group0' );
+				return;
+			}
 		}
 		// Must be a valid page
 		$this->page = Title::newFromUrl( $this->target );
@@ -49,6 +66,29 @@ class Revisionreview extends SpecialPage
 	}
 	
 	/**
+	 * @param string $tag
+	 * @param int $val
+	 * Returns true if a user can do something
+	 */	
+	function userCan( $tag, $value ) {
+		global $wgFlagRestrictions, $wgUser;
+		
+		if ( !isset($wgFlagRestrictions[$tag]) )
+			return true;
+		// Validators always have full access
+		if ( $wgUser->isAllowed('validate') )
+			return true;
+		// Check if this user has any right that lets him/her set
+		// up to this particular value
+		foreach ( $wgFlagRestrictions[$tag] as $right => $level ) {
+			if ( $value <= $level && $wgUser->isAllowed($right) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * @param webrequest $request
 	 */
 	function showRevision( $request ) {
@@ -59,20 +99,16 @@ class Revisionreview extends SpecialPage
 		$this->skin = $wgUser->getSkin();
 		$rev = Revision::newFromTitle( $this->page, $this->oldid );
 		// Check if rev exists
-		if( !isset( $rev ) ) {
+		// Do not mess with deleted revisions
+		if( !isset( $rev ) || $rev->mDeleted ) {
 			$wgOut->showErrorPage( 'internalerror', 'notargettitle', 'notargettext' );
 			return;
 		}
-		// Do not mess with deleted revisions
-		if ( $rev->mDeleted ) {
-			$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
-			return;
-		}	
 		$wgOut->addHtml( "<ul>" );
 		$wgOut->addHtml( $this->historyLine( $rev ) );
 		$wgOut->addHtml( "</ul>" );
 		
-		$wgOut->addWikiText( wfMsgHtml( 'revreview-text' ) );
+		$wgOut->addWikiText( wfMsg('revreview-text') );
 		$formradios = array();
 		// Dynamically contruct our radio options
 		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
@@ -97,13 +133,15 @@ class Revisionreview extends SpecialPage
 			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
 		}
 		$form .= '</tr><tr>';
-		foreach ( $formradios as $setname => $ratioset ) {
+		foreach ( $formradios as $set => $ratioset ) {
 			$form .= '<td>';
 			foreach( $ratioset as $item ) {
 				list( $message, $name, $field ) = $item;
-				$form .= "<div>".
-					Xml::radio( $name, $field, ($field==$this->dimensions[$setname]) ) . ' ' . wfMsgHtml($message) .
-					"</div>\n";
+				// Don't give options the user can't set unless its the status quo
+				$disabled = ( !$this->userCan($set,$field) ) ? array('disabled' => 'true') : array();
+				$form .= "<div>";
+				$form .= Xml::radio( $name, $field, ($field==$this->dims[$set]), $disabled ) . ' ' . wfMsg($message);
+				$form .= "</div>\n";
 			}
 			$form .= '</td><td width=\'20\'></td>';
 		}
@@ -111,7 +149,7 @@ class Revisionreview extends SpecialPage
 		// List all images about to be copied over
 		list($images,$thumbs) = FlaggedRevs::findLocalImages( FlaggedRevs::expandText( $rev->getText() ) );
 		if ( $images ) {
-			$form .= wfMsg('revreview-images') . "\n";
+			$form .= wfMsgExt('revreview-images', array('parse')) . "\n";
 			$form .= "<ul>";
 			$imglist = '';
 			foreach ( $images as $image ) {
@@ -164,12 +202,14 @@ class Revisionreview extends SpecialPage
 			$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
 			return;
 		}
+		
 		$approved = false;
 		# If all values are set to zero, this has been unnapproved
-		foreach( $this->dimensions as $quality => $value ) {
+		foreach( $this->dims as $quality => $value ) {
 			if( $value ) $approved = true;
 		}
-		$success = ( $approved ) ? $this->approveRevision( $rev ) : $this->unapproveRevision( $rev );
+		$success = ( $approved ) ? 
+			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $rev );
 		// Return to our page			
 		if ( $success ) {
         	$wgOut->redirect( $this->page->escapeLocalUrl() );
@@ -182,7 +222,7 @@ class Revisionreview extends SpecialPage
 	 * @param Revision $rev
 	 * Adds or updates the flagged revision table for this page/id set
 	 */
-	function approveRevision( $rev=NULL ) {
+	function approveRevision( $rev=NULL, $notes='' ) {
 		global $wgUser;
 		if( is_null($rev) ) return false;
 
@@ -195,31 +235,36 @@ class Revisionreview extends SpecialPage
         
         $cache_text = FlaggedRevs::expandText( $rev->getText() );
  		$revset = array(
- 			'fr_page_id' => $rev->getPage(),
-			'fr_rev_id' => $revid,
-			'fr_user' => $user,
+ 			'fr_page_id'   => $rev->getPage(),
+			'fr_rev_id'    => $revid,
+			'fr_user'      => $user,
 			'fr_timestamp' => $timestamp,
-			'fr_comment'=> $this->notes
+			'fr_comment'   => $notes,
+			'fr_text'      => $cache_text
 		);
-		$textset = array('ft_rev_id' => $revid, 'ft_text' => $cache_text);
 		$flagset = array();
-		foreach ( $this->dimensions as $tag => $value ) {
-			$flagset[] = array('frt_dimension' => $tag, 'frt_rev_id' => $revid, 'frt_value' => $value);
+		foreach ( $this->dims as $tag => $value ) {
+			$flagset[] = array(
+				'frt_dimension' => $tag, 
+				'frt_page_id' => $rev->getPage(), 
+				'frt_rev_id' => $revid, 
+				'frt_value' => $value 
+			);
 		}
 		// Update flagrevisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
-		// Store/update the text
-		$dbw->replace( 'flaggedtext', array('ft_rev_id'), $textset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
 		
 		// Update the article review log
-		$this->updateLog( $this->page, $this->dimensions, $this->comment, $this->oldid, true );
+		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
 		// Clone images to stable dir
+		$updateImgs = $wgUser->isAllowed('validate');
 		list($images,$thumbs) = FlaggedRevs::findLocalImages( $cache_text );
-		$copies = FlaggedRevs::makeStableImages( $images );
-		FlaggedRevs::purgeStableThumbnails( $thumbs );
+		$copies = FlaggedRevs::makeStableImages( $images, $updateImgs );
+		if ( $updateImgs )
+			FlaggedRevs::purgeStableThumbnails( $thumbs );
 		// Update stable image table
 		FlaggedRevs::insertStableImages( $revid, $copies );
 		// Clear cache...
@@ -246,13 +291,11 @@ class Revisionreview extends SpecialPage
 		}
 		// Delete from table
 		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->getId() ) );
-		// And the text...
-		$db->delete( 'flaggedtext', array( 'ft_rev_id' => $rev->getId() ) );
 		// And the flags...
 		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->getId() ) );
 		
 		// Update the article review log
-		$this->updateLog( $this->page, $this->dimensions, $this->comment, $this->oldid, false );
+		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 		
 		// Delete stable images if needed
 		list($images,$thumbs) = FlaggedRevs::findLocalImages( $cache_text );

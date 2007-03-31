@@ -21,12 +21,12 @@ $messages['en'] = array(
 	'makevalidate-grant' => 'Grant',
 	'makevalidate-revoke' => 'Revoke',
 	'makevalidate-comment' => 'Comment:',
-	'makevalidate-granted' => '[[User:$1|$1]] now has validator status.',
-	'makevalidate-revoked' => '[[User:$1|$1]] no longer has validator status.',
+	'makevalidate-granted' => '[[User:$1|$1]] now has reviewer status.',
+	'makevalidate-revoked' => '[[User:$1|$1]] no longer has reviewer status.',
 	'makevalidate-logpage' => 'Reviewer status log',
 	'makevalidate-logpagetext' => 'This is a log of changes to users\' [[Help:Article validation|article validation]] status.',
-	'makevalidate-logentrygrant' => 'granted validator status to [[$1]]',
-	'makevalidate-logentryrevoke' => 'removed validator status from [[$1]]',
+	'makevalidate-logentrygrant' => 'granted reviewer status to [[$1]]',
+	'makevalidate-logentryrevoke' => 'removed reviewer status from [[$1]]',
 );
 
 return $messages;

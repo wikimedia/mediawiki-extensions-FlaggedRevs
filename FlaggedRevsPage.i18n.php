@@ -3,10 +3,15 @@ $RevisionreviewMessages = array();
 
 // English (Aaron Schulz)
 $RevisionreviewMessages['en'] = array( 
-	'reviewer'           => 'Reviewer',
-	'group-reviewer'     => 'Reviewers',
-	'group-reviewer'     => 'Reviewer',
-	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
+	'editor'              => 'Editor',
+	'group-editor'        => 'Editors',
+	'group-editor-member' => 'Editor',
+	'grouppage-editor'    => '{{ns:project}}:Editor',
+	
+	'reviewer'              => 'reviewer',
+	'group-reviewer'        => 'reviewers',
+	'group-reviewer-member' => 'reviewer',
+	'grouppage-reviewer'    => '{{ns:project}}:reviewer',
 	
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it has \'\'\'not\'\'\' been
 	 [[Help:Article validation|checked]] for quality.',
@@ -15,7 +20,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-newest'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1}} latest reviewed revision] 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$4</i>, rated as:',
-	'revreview-replaced'  => 'This is the latest [[Help:Article validation|reviewed]] revision of this page, 
+	'revreview-replaced'  => 'This is the latest [[Help:Article validation|quality]] revision of this page, 
 	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$2}} current revision]
 	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
@@ -26,16 +31,16 @@ $RevisionreviewMessages['en'] = array(
     'review-logpage'     => 'Article review log',
 	'review-logpagetext' => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
 	for content pages.',
-	'review-logentrygrant'   => 'approved [[$1]]',
-	'review-logentryrevoke'  => 'unapproved [[$1]]',
-	'review-logaction'  => 'reviewed revision $1',
+	'review-logentrygrant'   => 'reviewed a version of [[$1]]',
+	'review-logentryrevoke'  => 'depreciated a version of [[$1]]',
+	'review-logaction'  => 'revision $1',
 		
 	'revreview-selected' => "Selected revision of '''$1:'''",
-	'revreview-text'     => "Approved revisions are set as the default revision shown upon page view rather
-	than the top revision. Their content will not be affected by changes to transcluded
-	pages or updates to internal images.",
-	'revreview-images'   => 'Internal images on this page will be copied to the stable image directory, updating
-	existing versions, and stored there until no reviewed revisions use them. The following images are transcluded onto this page:',
+	'revreview-text'     => "Approved revisions are set as the default content on page view rather than the newest
+	 revision. Their content will not be affected by changes to transcluded pages and they use the 
+	''stable directory'' for internal images.",
+	'revreview-images'   => "The following images on this page will be copied to the ''stable directory'' (updating 
+	existing versions if you have reviewer status) and stored there until no reviewed revisions use them:",
 	
 	'revreview-hist' => '[reviewed]',
 	
@@ -46,19 +51,22 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-notes'      => 'Observations or notes to display:',
 	'revreview-accuracy'   => 'Accuracy',
 	'revreview-accuracy-0' => 'Unapproved',
-	'revreview-accuracy-1' => 'Not vandalized',
+	'revreview-accuracy-1' => 'Draft level',
 	'revreview-accuracy-2' => 'Accurate',
 	'revreview-accuracy-3' => 'Well sourced',
+	'revreview-accuracy-4' => 'Featured',
 	'revreview-depth'      => 'Depth',
 	'revreview-depth-0'    => 'Unapproved',
 	'revreview-depth-1'    => 'Stub',		
 	'revreview-depth-2'    => 'Moderate',
-	'revreview-depth-3'    => 'Complete',
+	'revreview-depth-3'    => 'High',
+	'revreview-depth-4'    => 'Featured',
 	'revreview-style'      => 'Readability',
 	'revreview-style-0'    => 'Unapproved',
 	'revreview-style-1'    => 'Acceptable',
 	'revreview-style-2'    => 'Good',
 	'revreview-style-3'    => 'Concise',
+	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Log comment:',
 	'revreview-submit'     => 'Apply to selected revision',
 );
