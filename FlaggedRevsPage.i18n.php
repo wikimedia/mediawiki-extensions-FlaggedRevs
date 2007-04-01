@@ -24,6 +24,9 @@ $RevisionreviewMessages['en'] = array(
 	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$2}} current revision]
 	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
+	'revreview-stable'  => 'This is a [[Help:Article validation|stable]] revision of the page \'\'\'$1\'\'\', 
+	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:$1|oldid=$3}} current revision]
+	is editable and may be more up to date.',
 
     'revisionreview'     => 'Review revisions',
     
@@ -69,5 +72,15 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Log comment:',
 	'revreview-submit'     => 'Apply to selected revision',
+	
+	
+	'stableversions'        => 'View stable versions',
+	'stableversions-leg1'   => 'List stable revisions for a page',
+	'stableversions-leg2'   => 'View a stable revision',
+	'stableversions-page'   => 'Page name',
+	'stableversions-rev'    => 'Revision ID',
+	'stableversions-none'   => '[[$1]] has no reviewed revisions',
+	'stableversions-list'   => 'The following revisions of [[$1]] have been reviewed:',
+	'stableversions-review' => 'Reviewed on <i>$1</i>'
 );
 ?>

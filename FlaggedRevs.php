@@ -115,10 +115,10 @@ class FlaggedRevs {
 	 */	
     function getFlaggedRevText( $rev_id ) {
     	wfProfileIn( __METHOD__ );
-    
+    	
  		$db = wfGetDB( DB_SLAVE );
  		// select a row, this should be unique
-		$result = $db->select('flaggedrevs', array('fr_text'), array('fr_rev_id' => $rev_id), __METHOD__, 'LIMIT = 1');
+		$result = $db->select('flaggedrevs', array('fr_text'), array('fr_rev_id' => $rev_id), __METHOD__);
 		if( $row = $db->fetchObject($result) ) {
 			return $row->fr_text;
 		}
@@ -134,6 +134,9 @@ class FlaggedRevs {
     	
     	wfProfileIn( __METHOD__ );
     	
+    	// Cached results?
+    	if ( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
+    		return $this->revflags[$rev_id];  	
     	// Set all flags to zero
     	$flags = array();
     	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
@@ -151,39 +154,23 @@ class FlaggedRevs {
 		while ( $row = $db->fetchObject($result) ) {
 			$flags[$row->frt_dimension] = $row->frt_value;
 		}
-		return $flags;
-	}
-
-	function getLatestFlaggedRev( $page_id ) {
-		wfProfileIn( __METHOD__ );
+		// Try to cache results
+		$this->flags[$rev_id] = true;
+		$this->revflags[$rev_id] = $flags;
 		
-		$db = wfGetDB( DB_SLAVE );
-		// Skip deleted revisions
-		$result = $db->select(
-			array('flaggedrevs', 'revision'),
-			array('fr_page_id', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment'),
-			array('fr_page_id' => $page_id, 'rev_id=fr_rev_id', 'rev_deleted=0'),
-			__METHOD__ ,
-			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
-		// Sorted from highest to lowest, so just take the first one if any
-		if ( $row = $db->fetchObject( $result ) ) {
-
-			return $row;
-		}
-		return NULL;
+		return $flags;
 	}
 	
 	function getFlaggedRev( $rev_id ) {
 		wfProfileIn( __METHOD__ );
-		
+    	
 		$db = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
 		$result = $db->select(
-			array('flaggedrevs', 'revision'),
+			array('flaggedrevs'),
 			array('fr_page_id', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment'),
-			array('fr_rev_id' => $rev_id , 'rev_id=fr_rev_id', 'rev_deleted=0'),
-			__METHOD__,
-			array('LIMIT' => 1) );
+			array('fr_rev_id' => $rev_id),
+			__METHOD__ );
 		// Sorted from highest to lowest, so just take the first one if any
 		if ( $row = $db->fetchObject( $result ) ) {
 			return $row;
@@ -192,56 +179,103 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param int $page_id
-	 * Get the latest flagged revision
+	 * Get latest flagged revision
 	 * This passes rev_deleted revisions
-	 */	  
-    function getLatestFlaggedRev_new( $page_id) {
-        global $wgFlaggedRevTags;
-        wfProfileIn( __METHOD__ );  
+	 * This is based on the current article and caches results
+	 * @output array ( rev, flags )
+	 */
+	function getLatestFlaggedRev() {
+		global $wgArticle;
+		
+		wfProfileIn( __METHOD__ );
+		
+		$page_id = $wgArticle->getId();
+		if( !$page_id ) return NULL;
+		// Cached results available?
+		if ( isset($this->latestfound) ) {
+			return ( $this->latestfound ) ? $this->latestrev : NULL;
+		}
+		
 		$db = wfGetDB( DB_SLAVE );
-        $tables=array('flaggedrevs','revision');
-        $vars = array('flaggedrevs.*');
+		// Skip deleted revisions
+		$result = $db->select(
+			array('flaggedrevs', 'revision'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment'),
+			array('fr_page_id' => $page_id, 'rev_id=fr_rev_id', 'rev_deleted=0'),
+			__METHOD__ ,
+			array('ORDER BY' => 'fr_rev_id DESC') );
+		// Sorted from highest to lowest, so just take the first one if any
+		if ( $row = $db->fetchObject( $result ) ) {
+			// Try to store results
+			$this->latestfound = true;
+			$this->latestrev = $row;
+			return $row;
+		}
+		$this->latestfound = false;
+		return NULL;
+	}
+
+	/**
+	 * Get latest flagged revision that meets requirments
+	 * per the $wgMinFlagLevels variable
+	 * This passes rev_deleted revisions
+	 * This is based on the current article and caches results
+	 * @output array ( rev, flags )
+	 * TODO: this does not seem to work yet :(
+	 */ 
+    function getLatestStableRev_alt() {
+        global $wgFlaggedRevTags, $wgArticle;
+        
+        wfProfileIn( __METHOD__ );
+
+		$page_id = $wgArticle->getId();
+		if( !$page_id ) return NULL;       
+        // Cached results available?
+		if ( isset($this->stablefound) ) {
+			return ( $this->stablefound ) ? $this->stablerev : NULL;
+		}
+        
+		$db = wfGetDB( DB_SLAVE );
+		$tables = $db->tableNames('flaggedrevs','revision');
+		$flaggedrevs = $db->tableName('flaggedrevs');
+		$flaggedrevtags = $db->tableName('flaggedrevtags');
+        $vars = array("$flaggedrevs.*");
         $conds=array("fr_page_id = $page_id", 'rev_id = fr_rev_id', 'rev_deleted = 0');
         $i = 1;
         foreach ($wgFlaggedRevTags as $dimension=>$minvalue) {
             $alias = 'd'.$i; 
             $vars[] = "$alias.frt_value as '$dimension'";
-            $tables[] = "flaggedrevtags as $alias";
+            $tables[] = "$flaggedrevtags as $alias";
             $conds[] = "fr_rev_id = $alias.frt_rev_id";
             $conds[] = "$alias.frt_dimension = '$dimension'";
             $conds[] = "$alias.frt_value >= $minvalue";
             $i++;
         }
         
-        /*$result = $db->select(
-			$tables,
-			$vars,
-			$conds,
-			__METHOD__ ,
-			array('ORDER BY' => 'fr_rev_id DESC') );    */
-        
         $sql = " SELECT ".implode(',',$vars);
         $sql.= " FROM ".implode(',',$tables);
         $sql.= " WHERE ".implode(' and ',$conds);
         $sql.= " ORDER BY fr_rev_id DESC";
         
-        #print "$sql\n<br>\n";
         $result = $db->query($sql,__METHOD__ );
         // Sorted from highest to lowest, so just take the first one if any
 		if ( $row = $db->fetchObject( $result ) ) {
+			// Try to store results
+			$this->stablefound = true;
+			$this->stablerev = $row;
 			return $row;
 		}
+		$this->stablefound = false;
 		return NULL;
     }
-
+    
 	/**
-	 * Get latest rev that meets requirments
+	 * Get latest flagged revision that meets requirments
 	 * per the $wgMinFlagLevels variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
 	 * @output array ( rev, flags )
-	 */	
+	 */
 	function getLatestStableRev() {
 		global $wgMinFlagLevels, $wgArticle;
 		
@@ -265,7 +299,7 @@ class FlaggedRevs {
 		// of key flags that were fulfilled
 		$result = $db->select(
 			array('flaggedrevtags','flaggedrevs','revision'),
-			array('fr_page_id', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'COUNT(*) as app_flag_count'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'COUNT(*) as app_flag_count'),
 			array('frt_page_id' => $page_id, $tagwhere, 'frt_rev_id=fr_rev_id', 'frt_rev_id=rev_id', 'rev_deleted=0'),
 			__METHOD__,
 			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
@@ -290,19 +324,42 @@ class FlaggedRevs {
     function getReviewedRevs( $page_id ) {
 		wfProfileIn( __METHOD__ );
 		  
-       $db = wfGetDB( DB_SLAVE ); 
-       $rows = array();
-       // Skip deleted revisions
-       $result = $db->select(
+		$db = wfGetDB( DB_SLAVE ); 
+		$rows = array();
+		// Skip deleted revisions
+		$result = $db->select(
 			array('flaggedrevs'),
 			array('fr_rev_id'),
 			array('fr_page_id' => $page_id),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC') );
-       while ( $row = $db->fetchObject( $result ) ) {
-           $rows[] = $row;
-       }
-       return $rows;
+		while ( $row = $db->fetchObject( $result ) ) {
+        	$rows[] = $row;
+		}
+		return $rows;
+    }
+    
+	/**
+	 * @param int $page_id
+	 * Get reviewed revs for a page
+	 * Skips archived/deleted revs
+	 */
+    function getReviewedRevsData( $page_id ) {
+		wfProfileIn( __METHOD__ );
+		  
+		$db = wfGetDB( DB_SLAVE ); 
+		$rows = array();
+		// Skip deleted revisions
+		$result = $db->select(
+			array('flaggedrevs','revision'),
+			array('fr_rev_id','fr_timestamp','rev_timestamp'),
+			array('fr_page_id' => $page_id, 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			__METHOD__ ,
+			array('ORDER BY' => 'fr_rev_id DESC') );
+		while ( $row = $db->fetchObject( $result ) ) {
+        	$rows[] = $row;
+		}
+		return $rows;
     }
 
 	/**
@@ -401,12 +458,12 @@ class FlaggedRevs {
 		if ( $this->pageOverride() ) {
 			$top_frev = $this->getLatestStableRev();
 			if ( is_null($top_frev) ) {
-				$top_frev = $this->getLatestFlaggedRev( $pageid );
+				$top_frev = $this->getLatestFlaggedRev();
 			} else {
 				$stable = true;
 			}
 		} else {
-			$top_frev = $this->getLatestFlaggedRev( $pageid );
+			$top_frev = $this->getLatestFlaggedRev();
 		}
 		
 		if( $wgRequest->getVal('diff') ) {
@@ -494,7 +551,7 @@ class FlaggedRevs {
 		// Set new body html text as that of now
 		$flaghtml = '';
 		// Check the newest stable version
-		$top_frev = $this->getLatestFlaggedRev( $editform->mArticle->getId() );
+		$top_frev = $this->getLatestFlaggedRev();
 		if( is_object($top_frev) ) {
 			global $wgParser, $wgLang;		
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $top_frev->fr_timestamp), true );
@@ -940,6 +997,7 @@ if( !function_exists( 'extAddSpecialPage' ) ) {
 	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
 }
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Revisionreview', 'Revisionreview' );
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Stableversions', 'Stableversions' );
 
 # Load approve/unapprove UI
 $wgHooks['LoadAllMessages'][] = 'efLoadReviewMessages';

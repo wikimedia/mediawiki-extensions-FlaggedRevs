@@ -13,8 +13,9 @@ function efMakeValidateMessages() {
 $messages['en'] = array(
 	'makevalidate'       => 'Promote/demote editors',
 	'makevalidate-header'   => '<strong>This form is used by sysops and bureaucrats to promote users to article 
-	validators.</strong><br> Type the name of the user in the box and press the button to make the user a validator. 
-	Granting users reviewer status will automatically grant them editor status as well.',
+	validators.</strong><br> Type the name of the user in the box and press the button to set the user\'s rights. 
+	Granting users reviewer status will automatically grant them editor status. Revoking editor status will
+	automatically revoke reviewer status.',
 	'makevalidate-username'  => 'Name of the user:',
 	'makevalidate-search' => 'Go',
 	'makevalidate-iseditor' => '[[User:$1|$1]] has editor status.',

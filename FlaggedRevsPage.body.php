@@ -26,6 +26,14 @@ class Revisionreview extends SpecialPage
 		$this->target = $wgRequest->getText( 'target' );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
+		
+		// Must be a valid page/Id
+		$this->page = Title::newFromUrl( $this->target );
+		if( is_null($this->page) || is_null($this->oldid) || !$this->page->isContentPage() ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		
 		// Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
 		// Additional notes
@@ -38,7 +46,7 @@ class Revisionreview extends SpecialPage
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			// Must be greater than zero
 			if ( $this->dims[$tag] < 0 ) {
-				$wgOut->showErrorPage( $this->page, 'notargettitle', 'notargettext' );
+				$wgOut->showErrorPage('notargettitle', 'notargettext' );
 				return;
 			}
 			// Check permissions
@@ -51,12 +59,6 @@ class Revisionreview extends SpecialPage
 				$wgOut->permissionRequired( 'badaccess-group0' );
 				return;
 			}
-		}
-		// Must be a valid page
-		$this->page = Title::newFromUrl( $this->target );
-		if( is_null($this->page) || is_null($this->oldid) || !$this->page->isContentPage() ) {
-			$wgOut->showErrorPage( $this->page, 'notargettitle', 'notargettext' );
-			return;
 		}
 		if( $wgRequest->wasPosted() ) {
 			$this->submit( $wgRequest );
@@ -195,19 +197,28 @@ class Revisionreview extends SpecialPage
 	
 	function submit( $request ) {
 		global $wgOut;
-
-		$rev = Revision::newFromTitle( $this->page, $this->oldid );
-		// Do not mess with deleted revisions
-		if ( is_null($rev) || $rev->mDeleted ) {
-			$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
-			return;
-		}
 		
 		$approved = false;
 		# If all values are set to zero, this has been unnapproved
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) $approved = true;
 		}
+		// We can only approve actually revs
+		if ( $approved ) {
+			$rev = Revision::newFromTitle( $this->page, $this->oldid );
+			// Do not mess with archived/deleted revisions
+			if ( is_null($rev) || $rev->mDeleted ) {
+				$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
+				return;
+			}
+		} else {
+			$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
+			if ( is_null($frev) ) {
+				$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
+				return;
+			}
+		}
+		
 		$success = ( $approved ) ? 
 			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $rev );
 		// Return to our page			
@@ -333,6 +344,138 @@ class Revisionreview extends SpecialPage
 			$log->addEntry( 'approve', $title, $comment );
 		} else {
 			$log->addEntry( 'unapprove', $title, $comment );
+		}
+	}
+}
+
+class Stableversions extends SpecialPage
+{
+
+    function Stableversions() {
+        SpecialPage::SpecialPage('Stableversions');
+    }
+
+    function execute( $par ) {
+        global $wgRequest;
+
+		$this->setHeaders();
+		// Our target page
+		$this->page = $wgRequest->getText( 'page' );
+		// Revision ID
+		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
+		
+		if( $this->oldid ) {
+			$this->showStableRevision( $wgRequest );
+		} else if( $this->page ) {
+			$this->showStableList( $wgRequest );
+		} else {
+			$this->showForm( $wgRequest );
+		}
+	}
+	
+	function showForm( $wgRequest ) {
+		global $wgOut, $wgTitle, $wgScript;
+	
+		$encPage = $this->page;
+		$encId = $this->oldid;
+				
+		$form = "<form name='stableversions' action='$wgScript' method='get'>";
+		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>";
+		$form .= "<table><tr>";
+		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
+		$form .= "<td>".wfMsgHtml("stableversions-page").":</td>";
+		$form .= "<td>".Xml::input('page', 50, $encPage, array( 'id' => 'page' ) )."</td>";
+		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
+		$form .= "</tr></table>";
+		$form .= "</fieldset></form>\n";
+		
+		$form .= "<form name='stableversion' action='$wgScript' method='get'>";
+		$form .= "<fieldset><legend>".wfMsg('stableversions-leg2')."</legend>";
+		$form .= "<table><tr>";
+		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedDBkey() )."</td>";
+		$form .= "<td>".wfMsgHtml("stableversions-rev").":</td>";
+		$form .= "<td>".Xml::input('oldid', 15, $encId, array( 'id' => 'oldid' ) )."</td>";
+		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
+		$form .= "</tr></table>";
+		$form .= "</fieldset></form>";
+		$wgOut->addHTML( $form );
+	}
+	
+	function showStableRevision( $frev ) {
+		global $wgParser, $wgLang, $wgUser, $wgOut, $wgTitle;
+			
+		// Get the revision
+		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
+		// Revision must exists
+		if( is_null($frev) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		
+		// Must be a valid page/Id
+		$page = Title::newFromID( $frev->fr_page_id );
+		if( is_null($page) || !$page->isContentPage() ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		// Must be a content page
+		$article = new Article( $page );
+		if( is_null($article) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		$wgOut->setPagetitle( $page->getPrefixedText() );
+		// Modifier instance
+		$RevFlagging = new FlaggedRevs();
+		// Get flags and date
+		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
+		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
+       	// We will be looking at the reviewed revision...
+       	$flaghtml = wfMsgExt('revreview-stable', array('parse'), $page->getPrefixedText(), $time, $article->getLatest());
+		// Parse the text
+		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
+		$options = ParserOptions::newFromUser($wgUser);
+		// Parsing this text is kind of funky...
+       	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options );
+		$notes = $RevFlagging->ReviewNotes( $frev );
+		// Construct some tagging
+		$flaghtml .= $RevFlagging->addTagRatings( $flags );
+		// Set the new body HTML, place a tag on top
+		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>' . $flaghtml . '</small></div>' . $newbody . $notes);
+	}
+	
+	function showStableList() {
+		global $wgOut, $wgUser, $wgLang;
+	
+		$skin = $wgUser->getSkin();
+		// Must be a valid page/Id
+		$page = Title::newFromUrl( $this->page );
+		if( is_null($page) || !$page->isContentPage() ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		$article = new Article( $page );
+		if( is_null($article) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		$page_id = $article->getID();
+		$revs = FlaggedRevs::getReviewedRevsData( $page_id );
+		
+		$special = SpecialPage::getTitleFor( 'Stableversions' );
+		
+		if ( count($revs) ) {
+			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), $page->getPrefixedText() ) );
+			$wgOut->addHTML( '<ul>' );
+			foreach ( $revs as $rev ) {
+				$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $rev->rev_timestamp), true );
+				$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $rev->fr_timestamp), true );
+				$review = wfMsg( 'stableversions-review', $ftime );
+				$wgOut->addHTML('<li>'.$skin->makeKnownLinkObj( $special, $time, 'oldid='.$rev->fr_rev_id ).' ('.$review.')'.'</li>');
+			}
+			$wgOut->addHTML( '</ul>' );
+		} else {
+			$wgOut->addHTML( wfMsgExt('stableversions-none'), array('parse'), $page->getPrefixedText() );
 		}
 	}
 }
