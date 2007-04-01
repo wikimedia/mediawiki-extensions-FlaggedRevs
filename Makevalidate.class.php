@@ -155,11 +155,11 @@ class MakeValidate extends SpecialPage {
 			$grantE = false; $revokeE = true;
 			$grantR = true; $revokeR = false;
 		} else if ( $type == MW_MAKEVALIDATE_REVOKE_REVOKE ) {
-			$grantE = false; $revokeE = true;
+			$grantE = false; $revokeE = $wgUser->isAllowed('makevalidate');
 			$grantR = false; $revokeR = true;
 		} else {
 		// OK, this one should never happen
-			$grantE = true; $revokeE = false;
+			$grantE = true; $revokeE = $wgUser->isAllowed('makevalidate');
 			$grantR = false; $revokeR = true;
 		}
 	
