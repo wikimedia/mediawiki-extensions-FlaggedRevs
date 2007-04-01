@@ -338,29 +338,6 @@ class FlaggedRevs {
 		}
 		return $rows;
     }
-    
-	/**
-	 * @param int $page_id
-	 * Get reviewed revs for a page
-	 * Skips archived/deleted revs
-	 */
-    function getReviewedRevsData( $page_id ) {
-		wfProfileIn( __METHOD__ );
-		  
-		$db = wfGetDB( DB_SLAVE ); 
-		$rows = array();
-		// Skip deleted revisions
-		$result = $db->select(
-			array('flaggedrevs','revision'),
-			array('fr_rev_id','fr_timestamp','rev_timestamp'),
-			array('fr_page_id' => $page_id, 'fr_rev_id=rev_id', 'rev_deleted=0'),
-			__METHOD__ ,
-			array('ORDER BY' => 'fr_rev_id DESC') );
-		while ( $row = $db->fetchObject( $result ) ) {
-        	$rows[] = $row;
-		}
-		return $rows;
-    }
 
 	/**
 	 * @param int $page_id

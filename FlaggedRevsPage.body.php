@@ -460,23 +460,67 @@ class Stableversions extends SpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		$revs = FlaggedRevs::getReviewedRevsData( $page_id );
 		
-		$special = SpecialPage::getTitleFor( 'Stableversions' );
-		
-		if ( count($revs) ) {
+		$pager = new StableRevisionsPager( $this, array(), $page_id );		
+		if ( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), $page->getPrefixedText() ) );
-			$wgOut->addHTML( '<ul>' );
-			foreach ( $revs as $rev ) {
-				$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $rev->rev_timestamp), true );
-				$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $rev->fr_timestamp), true );
-				$review = wfMsg( 'stableversions-review', $ftime );
-				$wgOut->addHTML('<li>'.$skin->makeKnownLinkObj( $special, $time, 'oldid='.$rev->fr_rev_id ).' ('.$review.')'.'</li>');
-			}
-			$wgOut->addHTML( '</ul>' );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
 			$wgOut->addHTML( wfMsgExt('stableversions-none'), array('parse'), $page->getPrefixedText() );
 		}
+	}
+	
+	function formatRow( $row ) {
+		global $wgLang, $wgUser;
+		
+		static $skin=null;
+
+		if( is_null( $skin ) )
+			$skin = $wgUser->getSkin();
+	
+		$special = SpecialPage::getTitleFor( 'Stableversions' );
+		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
+		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
+		$review = wfMsg( 'stableversions-review', $ftime );
+		return '<li>'.$skin->makeKnownLinkObj( $special, $time, 'oldid='.$row->fr_rev_id ).' ('.$review.')'.'</li>';	
+	}
+}
+
+/**
+ *
+ *
+ */
+class StableRevisionsPager extends ReverseChronologicalPager {
+	public $mForm, $mConds;
+
+	function __construct( $form, $conds = array(), $page_id ) {
+		$this->mForm = $form;
+		$this->mConds = $conds;
+		$this->page_id = $page_id;
+		parent::__construct();
+	}
+	
+	function formatRow( $row ) {
+		$block = new Block;
+		return $this->mForm->formatRow( $row );
+	}
+
+	function getQueryInfo() {
+		$conds = $this->mConds;
+		$conds[] = "fr_page_id = $this->page_id";
+		$conds[] = 'fr_rev_id = rev_id';
+		$conds[] = 'rev_deleted = 0';
+		return array(
+			'tables' => array('flaggedrevs','revision'),
+			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp',
+			'conds' => $conds
+		);
+	}
+
+	function getIndexField() {
+		return 'fr_rev_id';
 	}
 }
 ?>
