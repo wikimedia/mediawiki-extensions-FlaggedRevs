@@ -455,11 +455,11 @@ class Stableversions extends SpecialPage
 			return;
 		}
 		$article = new Article( $page );
-		if( is_null($article) ) {
+		$page_id = $article->getID();
+		if( !$page_id ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		$page_id = $article->getID();
 		$revs = FlaggedRevs::getReviewedRevsData( $page_id );
 		
 		$special = SpecialPage::getTitleFor( 'Stableversions' );
