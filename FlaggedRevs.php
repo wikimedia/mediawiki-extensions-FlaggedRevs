@@ -184,12 +184,15 @@ class FlaggedRevs {
 	 * This is based on the current article and caches results
 	 * @output array ( rev, flags )
 	 */
-	function getLatestFlaggedRev() {
+	function getLatestFlaggedRev( $article=NULL ) {
 		global $wgArticle;
 		
 		wfProfileIn( __METHOD__ );
 		
-		$page_id = $wgArticle->getId();
+		$article = ($article) ? $article : $wgArticle;
+		if ( !$article ) return;
+		
+		$page_id = $article->getId();
 		if( !$page_id ) return NULL;
 		// Cached results available?
 		if ( isset($this->latestfound) ) {
@@ -528,7 +531,7 @@ class FlaggedRevs {
 		// Set new body html text as that of now
 		$flaghtml = '';
 		// Check the newest stable version
-		$top_frev = $this->getLatestFlaggedRev();
+		$top_frev = $this->getLatestFlaggedRev( $editform->mArticle );
 		if( is_object($top_frev) ) {
 			global $wgParser, $wgLang;		
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $top_frev->fr_timestamp), true );
