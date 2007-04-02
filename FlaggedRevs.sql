@@ -26,7 +26,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   frt_page_id int(10) NOT NULL,
   frt_rev_id int(10) NOT NULL,
   frt_dimension varchar(255) NOT NULL,
-  frt_value unsigned int(2) NOT NULL,
+  frt_value int(2) NOT NULL,
 
   PRIMARY KEY frt_rev_dimension (frt_rev_id,frt_dimension),
   INDEX frt_page_rev (frt_page_id,frt_rev_id),
