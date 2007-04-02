@@ -430,8 +430,8 @@ class Stableversions extends SpecialPage
 		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$flaghtml = wfMsgExt('revreview-stable', array('parse'), urlencode($page->getPrefixedText()), $time, 
-			$article->getLatest(), $page->getPrefixedText());
+       	$flaghtml = wfMsgExt('revreview-stable', array('parse'), urlencode($page->getPrefixedText()), 
+		   $time, $page->getPrefixedText());
 		// Parse the text
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);

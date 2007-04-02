@@ -24,8 +24,8 @@ $RevisionreviewMessages['en'] = array(
 	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision]
 	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-stable'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'$4\'\'\', 
-	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$4|oldid=$3}} current revision] 
+	'revreview-stable'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'$3\'\'\', 
+	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
 	is editable and may be more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
@@ -74,11 +74,11 @@ $RevisionreviewMessages['en'] = array(
 	
 	'stableversions'        => 'Stable versions',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
-	'stableversions-leg2'   => 'View a stable revision',
+	'stableversions-leg2'   => 'View a reviewed revision',
 	'stableversions-page'   => 'Page name',
 	'stableversions-rev'    => 'Revision ID',
 	'stableversions-none'   => '[[$1]] has no reviewed revisions',
-	'stableversions-list'   => 'The following revisions of [[$1]] have been reviewed:',
+	'stableversions-list'   => 'This following is a list of revisions of [[$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>'
 );
 ?>
