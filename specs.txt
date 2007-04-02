@@ -89,7 +89,8 @@ tag/level (e.g. "unvandalized") AND this is the most recent revision,
 it will be shown together with the most recent equally tagged
 templates if they exist, otherwise with the most recent ones.
 
-###Status: shown with most recent ones
+###Status: shown with most recent ones, images are stored in local
+###        cache
 ###Todo: to it for old revs
 
 Example: On a page like the Main Page, which includes many templates,
