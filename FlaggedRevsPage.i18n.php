@@ -21,14 +21,15 @@ $RevisionreviewMessages['en'] = array(
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$4</i>, rated as:',
 	'revreview-replaced'  => 'This is the latest [[Help:Article validation|stable]] revision of this page, 
-	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$2}} current revision]
+	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision]
 	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-stable'  => 'This is a [[Help:Article validation|stable]] revision of the page \'\'\'$4\'\'\', 
+	'revreview-stable'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'$4\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$4|oldid=$3}} current revision] 
 	is editable and may be more up to date.',
+	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
-    'revisionreview'     => 'Review revisions',
+	'revreview-hist' => '[reviewed]',
     
     'flaggedrevs'        => 'Flagged Revisions',
     'review-logpage'     => 'Article review log',
@@ -37,18 +38,15 @@ $RevisionreviewMessages['en'] = array(
 	'review-logentrygrant'   => 'reviewed a version of [[$1]]',
 	'review-logentryrevoke'  => 'depreciated a version of [[$1]]',
 	'review-logaction'  => 'revision $1',
-		
+	
+
+    'revisionreview'     => 'Review revisions',		
 	'revreview-selected' => "Selected revision of '''$1:'''",
 	'revreview-text'     => "Approved revisions are set as the default content on page view rather than the newest
 	 revision. Their content will not be affected by changes to transcluded pages and they use the 
 	''stable directory'' for internal images.",
 	'revreview-images'   => "The following images on this page will be copied to the ''stable directory'' (updating 
 	existing versions if you have reviewer status) and stored there until no reviewed revisions use them:",
-	
-	'revreview-hist' => '[reviewed]',
-	
-	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
-
 	'revreview-flag'       => 'Review this revision (#$1):',
 	'revreview-legend'     => 'Rate revision content:',
 	'revreview-notes'      => 'Observations or notes to display:',
@@ -74,8 +72,8 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-submit'     => 'Apply to selected revision',
 	
 	
-	'stableversions'        => 'View stable versions',
-	'stableversions-leg1'   => 'List stable revisions for a page',
+	'stableversions'        => 'Stable versions',
+	'stableversions-leg1'   => 'List reviewed revisions for a page',
 	'stableversions-leg2'   => 'View a stable revision',
 	'stableversions-page'   => 'Page name',
 	'stableversions-rev'    => 'Revision ID',

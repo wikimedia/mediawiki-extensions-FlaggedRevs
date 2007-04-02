@@ -107,7 +107,7 @@ class FlaggedRevs {
     function pageOverride() {
     	global $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest;
     	return !( ( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) || 
-			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') );
+			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getText('stable')=='false' );
     }
 	/**
 	 * @param int $rev_id
@@ -160,7 +160,11 @@ class FlaggedRevs {
 		
 		return $flags;
 	}
-	
+
+	/**
+	 * @param int $rev_id
+	 * Returns a revision row
+	 */		
 	function getFlaggedRev( $rev_id ) {
 		wfProfileIn( __METHOD__ );
     	
@@ -589,7 +593,7 @@ class FlaggedRevs {
 						$new_actions['current'] = array(
 							'class' => '',
 							'text' => wfMsg('currentrev'),
-							'href' => $sktmp->mTitle->getLocalUrl( 'oldid=' . $wgArticle->getLatest() )
+							'href' => $sktmp->mTitle->getLocalUrl( 'stable=false' )
 						);
 					}
        			$new_actions[$action] = $data;
