@@ -408,10 +408,9 @@ class Stableversions extends SpecialPage
 		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
 		// Revision must exists
 		if( is_null($frev) ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			$wgOut->showErrorPage('badarticleerror', 'notargettext' );
 			return;
 		}
-		
 		// Must be a valid page/Id
 		$page = Title::newFromID( $frev->fr_page_id );
 		if( is_null($page) || !$page->isContentPage() ) {
@@ -421,7 +420,7 @@ class Stableversions extends SpecialPage
 		// Must be a content page
 		$article = new Article( $page );
 		if( is_null($article) ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			$wgOut->showErrorPage('badarticleerror', 'notargettext' );
 			return;
 		}
 		$wgOut->setPagetitle( $page->getPrefixedText() );
@@ -431,7 +430,8 @@ class Stableversions extends SpecialPage
 		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$flaghtml = wfMsgExt('revreview-stable', array('parse'), $page->getPrefixedText(), $time, $article->getLatest());
+       	$flaghtml = wfMsgExt('revreview-stable', array('parse'), urlencode($page->getPrefixedText()), $time, 
+			$article->getLatest(), $page->getPrefixedText());
 		// Parse the text
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);

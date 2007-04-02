@@ -24,8 +24,8 @@ $RevisionreviewMessages['en'] = array(
 	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$2}} current revision]
 	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-stable'  => 'This is a [[Help:Article validation|stable]] revision of the page \'\'\'$1\'\'\', 
-	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:$1|oldid=$3}} current revision]
+	'revreview-stable'  => 'This is a [[Help:Article validation|stable]] revision of the page \'\'\'$4\'\'\', 
+	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$4|oldid=$3}} current revision] 
 	is editable and may be more up to date.',
 
     'revisionreview'     => 'Review revisions',
