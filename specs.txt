@@ -21,24 +21,46 @@ organized in another. This is to ensure that "levels" of quality
 (unvandalized -> reviewed for accuracy -> featured article etc.) can
 be represented correctly.
 
+###Status: Works so far
+
 Each tag has certain attributes:
 - tag comments: Should the tag support a comment field which explains
 why the revision was tagged in a certain way?
+
+###Status: every tag has a comment so far
+
 - permissions: Which user groups have permission to set the tag?
+
+###Status: for overall flagging permissions can be set
+###Todo: have it on a per flag basis
+
 - stylesheet and UI: not requiring explicit configuration, each tag
 should have a stylesheet class and MediaWiki: namespace message(s)
 associated with it, to allow for differences in visual and textual
 representation
+
+###Status: namespace messages are there
+###Todo: css classes and ids
+
+
 - implicit tagging: should this tag be implicitly set by any user
 within the associated group when editing? (this will be used for the
 "non-vandalized" tag)
 
+###Todo: do it
+
 A generic change is required to allow for automatic membership in a
 user group when a user has more than X edits and is older than Y days.
+
+###Todo: do it
+
 
 There should be a configuration option which associates a namespace with
 - a tag-array
 - a minimum level in that array.
+
+###Status: minimum level per tag, not namespace
+###Todo: do it
 
 This option determines that, by default, the revision shown from this
 namespace will be the one from that array which is also >= the minimum
@@ -46,13 +68,19 @@ level. So, for instance, one could determine that pages in the article
 namespace need to be at least checked for vandalism, or at least
 reviewed for accuracy.
 
+###Status: nearly there on a per tag level, last bugs being fixed
+
 As a high priority wishlist item, these view options should also be
 applicable on a per-page basis. The existing protection UI should be
 expanded for this purpose. Implementation (and schedule) of this item
 will depend on overall implementation progress.
 
+###Todo: do it
+
 Whichever view one ends up with, we expect that the top of the page
 indicates this, and allows you to switch & get diffs to other views.
+
+###Todo: done
 
 Because MediaWiki currently does not show templates and revisions in
 time synchronization, this behavior has to be fixed for old revisions.
@@ -60,6 +88,9 @@ When one has expressed a preference for a revision with a specific
 tag/level (e.g. "unvandalized") AND this is the most recent revision,
 it will be shown together with the most recent equally tagged
 templates if they exist, otherwise with the most recent ones.
+
+###Status: shown with most recent ones
+###Todo: to it for old revs
 
 Example: On a page like the Main Page, which includes many templates,
 one would typically want to have an unvandalized view of the entire
@@ -69,22 +100,35 @@ synchronized with templates for which this is also true. When viewing
 an older version, however, the templates would be shown as they were
 at that date&time.
 
+###Todo: do it
+
 It is crucial that queries for revision lookup are highly performant;
 we should aim for a performance impact of less than 10% on uncached
 pageviews with a revision tag preference. Needless to say, the feature
 needs to interact correctly with Squid proxy caching.
+
+###Todo: comes at the end
+
 
 Tagging revisions should be possible from three places:
 - when editing (with the help of a collapsible diff)
 - when looking at diffs
 - when looking at revisions without any prior or later tags.
 
+###Status: mostly done
+
 A tag can only be set with reference to a diff to the last version
 that has the same tag. The Special:Recentchanges tool should be
+
+###Status: on any diff
+###Todo: limit to last version
+
 customizable to have such a diff link to the last version with a given
 tag. It is desirable that this view also includes an icon that
 indicates the state of the logged revision (derived from the tag
 stylesheets).
+
+###Todo: do it
 
 Wishlist items for the future include things like mass vandalism
 review and advanced queries. I also have some ideas for phase II of
@@ -92,3 +136,6 @@ the project, which I would love to see implemented before the tool is
 switched on on the English Wikipedia, but this will wait until phase I
 and any adjustments needed for its operations are successfully
 completed.
+
+###Extras: Logging
+
