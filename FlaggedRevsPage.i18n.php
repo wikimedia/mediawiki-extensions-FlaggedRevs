@@ -77,7 +77,7 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-leg2'   => 'View a reviewed revision',
 	'stableversions-page'   => 'Page name',
 	'stableversions-rev'    => 'Revision ID',
-	'stableversions-none'   => '[[$1]] has no reviewed revisions',
+	'stableversions-none'   => '[[$1]] has no reviewed revisions.',
 	'stableversions-list'   => 'This following is a list of revisions of [[$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>'
 );
