@@ -468,7 +468,7 @@ class Stableversions extends SpecialPage
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt('stableversions-none'), array('parse'), $page->getPrefixedText() );
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), $page->getPrefixedText() ) );
 		}
 	}
 	
