@@ -220,7 +220,7 @@ class Revisionreview extends SpecialPage
 		}
 		
 		$success = ( $approved ) ? 
-			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $rev );
+			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
 		// Return to our page			
 		if ( $success ) {
         	$wgOut->redirect( $this->page->escapeLocalUrl() );
@@ -295,15 +295,15 @@ class Revisionreview extends SpecialPage
         $user = $wgUser->getId();
         $timestamp = wfTimestampNow();
 		// get the flagged revision to access its cache text
-		$cache_text = FlaggedRevs::getFlaggedRevText( $rev->getId() );
+		$cache_text = FlaggedRevs::getFlaggedRevText( $rev->fr_rev_id );
 		if( is_null($cache_text) ) {
 		// Quietly ignore this...
 			return true;
 		}
 		// Delete from table
-		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->getId() ) );
+		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->fr_rev_id ) );
 		// And the flags...
-		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->getId() ) );
+		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->fr_rev_id ) );
 		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
@@ -314,7 +314,7 @@ class Revisionreview extends SpecialPage
 		// Stable versions must remake this thumbnail
 		FlaggedRevs::purgeStableThumbnails( $thumbs );
 		// Update stable image table
-		FlaggedRevs::removeStableImages( $rev->getId(), $copies );
+		FlaggedRevs::removeStableImages( $rev->fr_rev_id, $copies );
 		// Clear cache...
 		$this->page->invalidateCache();
         return true;
