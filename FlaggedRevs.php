@@ -63,7 +63,8 @@ $wgFlagRestrictions = array(
 );
 # In order for stable versions to override
 # we need some minimum flag requirements
-$wgMinFlagLevels = array('accuracy' => 2, 'depth' => 1, 'style' => 1);
+## changed, so that we don't configure at two different places - jhb
+# $wgMinFlagLevels = array('accuracy' => 1, 'depth' => 1, 'style' => 1);
 
 
 # Lets users access the review UI and set some flags
@@ -127,7 +128,7 @@ class FlaggedRevs {
 
 	/**
 	 * @param int $rev_id
-	 * Return an array output of the glags for a given revision
+	 * Return an array output of the flags for a given revision
 	 */	
     function getFlagsForRevision( $rev_id ) {
     	global $wgFlaggedRevTags;
@@ -224,11 +225,10 @@ class FlaggedRevs {
 
 	/**
 	 * Get latest flagged revision that meets requirments
-	 * per the $wgMinFlagLevels variable
+	 * per the $wgFlaggedRevTags variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
 	 * @output array ( rev, flags )
-	 * TODO: this does not seem to work yet :(
 	 */ 
     function getLatestStableRev_alt() {
         global $wgFlaggedRevTags, $wgArticle;
@@ -263,13 +263,13 @@ class FlaggedRevs {
         $sql.= " FROM ".implode(',',$tables);
         $sql.= " WHERE ".implode(' and ',$conds);
         $sql.= " ORDER BY fr_rev_id DESC";
-        
         $result = $db->query($sql,__METHOD__ );
         // Sorted from highest to lowest, so just take the first one if any
 		if ( $row = $db->fetchObject( $result ) ) {
 			// Try to store results
 			$this->stablefound = true;
 			$this->stablerev = $row;
+
 			return $row;
 		}
 		$this->stablefound = false;
@@ -278,13 +278,13 @@ class FlaggedRevs {
     
 	/**
 	 * Get latest flagged revision that meets requirments
-	 * per the $wgMinFlagLevels variable
+	 * per the $wgFlaggedRevTags variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
 	 * @output array ( rev, flags )
 	 */
 	function getLatestStableRev() {
-		global $wgMinFlagLevels, $wgArticle;
+		global $wgFlaggedRevTags, $wgArticle;
 		
 		wfProfileIn( __METHOD__ );
 		
@@ -296,9 +296,9 @@ class FlaggedRevs {
 		}
 		$db = wfGetDB( DB_SLAVE );
 		$tagwhere = array();
-		// Look for $wgMinFlagLevels key flags only
-		foreach ( $wgMinFlagLevels as $f => $m ) {
-			$tagwhere[] = '(frt_dimension = ' . $db->addQuotes( $f ) . ' AND frt_value >= ' . intval($m) . ')';
+		// Look for $wgFlaggedRevTags key flags only
+		foreach ( $wgFlaggedRevTags as $flag => $minimum ) {
+			$tagwhere[] = '(frt_dimension = ' . $db->addQuotes( $flag ) . ' AND frt_value >= ' . intval($minimum) . ')';
 		}
 		$tagwhere = implode(' OR ', $tagwhere);
 		// Skip archived/deleted revs
@@ -313,7 +313,7 @@ class FlaggedRevs {
 		// Iterate through each flagged revision row
 		while ( $row = $db->fetchObject( $result ) ) {
 			// If all of our flags are up to par, we have a stable version
-			if ( $row->app_flag_count==count($wgMinFlagLevels) ) {
+			if ( $row->app_flag_count==count($wgFlaggedRevTags) ) {
 				// Try to store results
 				$this->stablefound = true;
 				$this->stablerev = $row;
@@ -433,7 +433,6 @@ class FlaggedRevs {
 		$revid = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
 		if( !$revid ) return;
 		$visible_id = $revid;
-       
 		$flaghtml = ''; $notes = ''; $newbody = $out->mBodytext;
 		// Check the newest stable version...
 		// getLatestStableRev() is slower, don't use it if we won't
@@ -449,7 +448,6 @@ class FlaggedRevs {
 		} else {
 			$top_frev = $this->getLatestFlaggedRev();
 		}
-		
 		if( $wgRequest->getVal('diff') ) {
     		// Do not clutter up diffs any further...
 		} else if( !is_null($top_frev) ) {
