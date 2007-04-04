@@ -82,6 +82,14 @@ $wgGroupPermissions['editor']['unwatched']   = true;
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate']  = true;
 
+
+# Define when users get automatically promoted
+
+$wgFlaggedRevsAutopromote = array('editor' => array('days' => 0,
+                                                    'edits' => 1),
+                                'reviewer' => array('days' => 0,
+                                                    'edits' => 3));
+
 # Add review log
 $wgLogTypes[] = 'review';
 $wgLogNames['review'] = 'review-logpage';
@@ -970,6 +978,36 @@ class FlaggedRevs {
 		
 		return true;
     }
+
+    
+	/**
+	* Callback that autopromotes user according to the setting in 
+    * $wgFlaggedRevsAutopromote
+	*/
+
+
+    function autoPromoteUser ($article,$user,$text,$summary,$isminor,$iswatch,$section) {
+        global $wgFlaggedRevsAutopromote;
+
+        $groups = $user->getGroups();
+        $now = time();
+        $usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
+        $userage = floor(($now-$usercreation) / 86400);
+        foreach ($wgFlaggedRevsAutopromote as $group=>$vars) {
+            if (!in_array($group,$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']) {
+                    $user->addGroup($group);
+            }
+        }
+        $newgroups = $user->getGroups();
+        if (1 || $groups != $newgroups) {
+            $log = new LogPage( 'rights' );
+		    $log->addEntry('rights', $user->getUserPage(), "", array("(".implode(',',$groups).")",
+                                                                     "(".implode(',',$newgroups).")"));
+    
+        }
+    }
+
+
 }
 
 # Load expert promotion UI
@@ -991,4 +1029,5 @@ $wgHooks['EditPage::showEditForm:initial'][] = array($flaggedrevs, 'addToEditVie
 $wgHooks['SkinTemplateTabs'][] = array($flaggedrevs, 'setCurrentTab');
 $wgHooks['PageHistoryBeforeList'][] = array($flaggedrevs, 'addToPageHist');
 $wgHooks['PageHistoryLineEnding'][] = array($flaggedrevs, 'addToHistLine');
+$wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
 ?>

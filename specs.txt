@@ -12,6 +12,9 @@ The feature is to be implemented as an extension, if at all possible.
 It must be GPL-licensed and will be committed to the Wikimedia
 Subversion server.
 
+
+
+
 The wiki will allow the configuration of "revision tags", which can
 then be associated with any revision of an article. Tags are organized
 in tag array, where each array represents a set of tags that describe
@@ -28,11 +31,13 @@ Each tag has certain attributes:
 why the revision was tagged in a certain way?
 
 ###Status: every tag has a comment so far
+###Wishlist item: possibility of having no comment field for certain tags.
 
 - permissions: Which user groups have permission to set the tag?
 
 ###Status: for overall flagging permissions can be set
 ###Todo: have it on a per flag basis
+###Priority: 2
 
 - stylesheet and UI: not requiring explicit configuration, each tag
 should have a stylesheet class and MediaWiki: namespace message(s)
@@ -41,19 +46,20 @@ representation
 
 ###Status: namespace messages are there
 ###Todo: css classes and ids
-
+###Priority: 8
 
 - implicit tagging: should this tag be implicitly set by any user
 within the associated group when editing? (this will be used for the
 "non-vandalized" tag)
 
 ###Todo: do it
+###Priority: 7
 
 A generic change is required to allow for automatic membership in a
 user group when a user has more than X edits and is older than Y days.
 
 ###Todo: do it
-
+###Priority: 3
 
 There should be a configuration option which associates a namespace with
 - a tag-array
@@ -61,6 +67,7 @@ There should be a configuration option which associates a namespace with
 
 ###Status: minimum level per tag, not namespace
 ###Todo: do it
+###Priority: 9
 
 This option determines that, by default, the revision shown from this
 namespace will be the one from that array which is also >= the minimum
@@ -69,6 +76,7 @@ namespace need to be at least checked for vandalism, or at least
 reviewed for accuracy.
 
 ###Status: nearly there on a per tag level, last bugs being fixed
+###Priority:10
 
 As a high priority wishlist item, these view options should also be
 applicable on a per-page basis. The existing protection UI should be
@@ -76,6 +84,7 @@ expanded for this purpose. Implementation (and schedule) of this item
 will depend on overall implementation progress.
 
 ###Todo: do it
+###Priority: Wishlist
 
 Whichever view one ends up with, we expect that the top of the page
 indicates this, and allows you to switch & get diffs to other views.
@@ -92,6 +101,7 @@ templates if they exist, otherwise with the most recent ones.
 ###Status: shown with most recent ones, images are stored in local
 ###        cache
 ###Todo: to it for old revs
+###Priority: 1
 
 Example: On a page like the Main Page, which includes many templates,
 one would typically want to have an unvandalized view of the entire
@@ -117,12 +127,14 @@ Tagging revisions should be possible from three places:
 - when looking at revisions without any prior or later tags.
 
 ###Status: mostly done
+###Priority: 4
 
 A tag can only be set with reference to a diff to the last version
 that has the same tag. The Special:Recentchanges tool should be
 
 ###Status: on any diff
 ###Todo: limit to last version
+###Priority: 5
 
 customizable to have such a diff link to the last version with a given
 tag. It is desirable that this view also includes an icon that
@@ -130,6 +142,7 @@ indicates the state of the logged revision (derived from the tag
 stylesheets).
 
 ###Todo: do it
+###Priority: 6
 
 Wishlist items for the future include things like mass vandalism
 review and advanced queries. I also have some ideas for phase II of
@@ -139,4 +152,11 @@ and any adjustments needed for its operations are successfully
 completed.
 
 ###Extras: Logging
+
+
+
+
+
+
+
 
