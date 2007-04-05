@@ -39,6 +39,10 @@ why the revision was tagged in a certain way?
 ###Todo: have it on a per flag basis
 ###Priority: 2
 
+###Update: For each dimension and level necessary rights can be defined
+###        We might need an easier admin interface for this           
+
+
 - stylesheet and UI: not requiring explicit configuration, each tag
 should have a stylesheet class and MediaWiki: namespace message(s)
 associated with it, to allow for differences in visual and textual
@@ -58,7 +62,7 @@ within the associated group when editing? (this will be used for the
 A generic change is required to allow for automatic membership in a
 user group when a user has more than X edits and is older than Y days.
 
-###Todo: do it
+###Todo: done
 ###Priority: 3
 
 There should be a configuration option which associates a namespace with

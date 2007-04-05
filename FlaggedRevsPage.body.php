@@ -60,7 +60,7 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 		}
-		if( $wgRequest->wasPosted() ) {
+		if(1 || $wgRequest->wasPosted() ) {
 			$this->submit( $wgRequest );
 		} else {
 			$this->showRevision( $wgRequest );

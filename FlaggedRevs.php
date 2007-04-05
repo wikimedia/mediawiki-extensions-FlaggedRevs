@@ -50,8 +50,10 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # Define the tags we can use to rate an article, 
 # and set the minimum level have it concerned a stable version
 $wgFlaggedRevTags = array( 'accuracy'=>1, 'depth'=>1, 'style'=>1 );
+
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 4;
+
 # Who can set what flags to what level? (use -1 for not at all)
 # Users cannot lower tags from a level they can't set
 # Users with 'validate' can do anything regardless
@@ -69,6 +71,7 @@ $wgFlagRestrictions = array(
 
 # Lets users access the review UI and set some flags
 $wgAvailableRights[] = 'review';
+
 # Lets users set higher settings and freeze images
 # Images are pooled, so they must be of the highest quality
 $wgAvailableRights[] = 'validate';
@@ -297,40 +300,82 @@ class FlaggedRevs {
 		wfProfileIn( __METHOD__ );
 		
 		$page_id = $wgArticle->getId();
-		if( !$page_id ) return NULL;
-		// Cached results available?
+	
+        if( !$page_id ) return NULL;
+		
+        // Cached results available?
 		if ( isset($this->stablefound) ) {
 			return ( $this->stablefound ) ? $this->stablerev : NULL;
 		}
+
+        $rev = $this->getStableRevs($page_id,Null,1);
+        
+        if (sizeof($rev)) {
+            $this->stablefound = true;
+			$this->stablerev = $out[0];
+            return $out[0];
+        } else {
+            $this->stablefound = false;    
+            return Null;
+        }
+	}
+
+	/**
+	 * Get all the revisions that meet the requirments
+	 * per the $wgFlaggedRevTags variable
+	 * This passes rev_deleted revisions 
+     * @param int $page_id
+     * @param int $max_rev_id the revision ids should be less than this
+     * @param int $limit max amount of rows to return, defaults to 1
+	 */
+
+    function getStableRevs($pageid, $max_rev_id=Null,$limit=1) {
+        global $wgFlaggedRevTags;
+
+		wfProfileIn( __METHOD__ );
+		
 		$db = wfGetDB( DB_SLAVE );
-		$tagwhere = array();
-		// Look for $wgFlaggedRevTags key flags only
+		
+        $tagwhere = array();
+		
+        // Look for $wgFlaggedRevTags key flags only
 		foreach ( $wgFlaggedRevTags as $flag => $minimum ) {
 			$tagwhere[] = '(frt_dimension = ' . $db->addQuotes( $flag ) . ' AND frt_value >= ' . intval($minimum) . ')';
 		}
 		$tagwhere = implode(' OR ', $tagwhere);
-		// Skip archived/deleted revs
+        
+        $maxrevidwhere = '1';
+        
+        if ($max_rev_id) {
+            $maxrevidwhere = " AND frt_rev_id < $max_rev_id";                    
+        }
+		
+        // Skip archived/deleted revs
 		// Get group rows of the newest flagged revs and the number
 		// of key flags that were fulfilled
-		$result = $db->select(
+		
+        $result = $db->select(
 			array('flaggedrevtags','flaggedrevs','revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'COUNT(*) as app_flag_count'),
-			array('frt_page_id' => $page_id, $tagwhere, 'frt_rev_id=fr_rev_id', 'frt_rev_id=rev_id', 'rev_deleted=0'),
+			array('frt_page_id' => $page_id, $tagwhere, $maxrevidwhere, 'frt_rev_id=fr_rev_id', 'frt_rev_id=rev_id', 'rev_deleted=0'),
 			__METHOD__,
-			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
+			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC', 'LIMIT' => $limit) );
 		// Iterate through each flagged revision row
-		while ( $row = $db->fetchObject( $result ) ) {
+		
+        $out = array();
+
+        while ( $row = $db->fetchObject( $result ) ) {
 			// If all of our flags are up to par, we have a stable version
 			if ( $row->app_flag_count==count($wgFlaggedRevTags) ) {
-				// Try to store results
-				$this->stablefound = true;
-				$this->stablerev = $row;
-				return $row;
-			}
-		}
-		$this->stablefound = false;
-		return NULL;
-	}
+                $out[] = $row;
+            }
+	    }
+        
+        return $out;
+    }
+
+
+
 
 	/**
 	 * @param int $page_id
@@ -635,7 +680,7 @@ class FlaggedRevs {
     }
        
     function addQuickReview( $id, $ontop=false, &$out=false ) {
-		global $wgOut, $wgTitle, $wgUser, $wgScript;
+		global $wgOut, $wgTitle, $wgUser, $wgScript, $wgFlaggedRevComments;
 		// Hack, we don't want two forms!
 		if( isset($this->formCount) && $this->formCount > 0 ) return;
 		$this->formCount = 1;
@@ -650,6 +695,8 @@ class FlaggedRevs {
 		$form .= wfHidden( 'title', $reviewtitle->getPrefixedText() );
 		$form .= wfHidden( 'target', $wgTitle->getPrefixedText() );
 		$form .= wfHidden( 'oldid', $id );
+        $form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
+        $form .= wfHidden( 'action', 'submit');
 		foreach ( $this->dimensions as $quality => $levels ) {
 			$options = ''; $disabled = '';
 			foreach ( $levels as $idx => $label ) {
@@ -666,6 +713,13 @@ class FlaggedRevs {
 			$form .= $options;
 			$form .= "</select>\n";
 		}
+
+        if ( $wgFlaggedRevComments ) {
+			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
+			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='2' cols='80' style='width:100%'></textarea>" .	
+			"</fieldset>";
+		}
+        $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>";
 		$form .= Xml::submitButton( wfMsgHtml( 'go' ) ) . "</fieldset>";
 		$form .= Xml::closeElement( 'form' );
 		// Hacks, to fiddle around with location a bit
@@ -999,11 +1053,12 @@ class FlaggedRevs {
             }
         }
         $newgroups = $user->getGroups();
-        if (1 || $groups != $newgroups) {
+        if ($groups != $newgroups) {
             $log = new LogPage( 'rights' );
-		    $log->addEntry('rights', $user->getUserPage(), "", array("(".implode(',',$groups).")",
-                                                                     "(".implode(',',$newgroups).")"));
-    
+		    $log->addEntry('rights', $user->getUserPage(), 
+                           "autopromoted by FlaggedRevs", 
+                           array("(".implode(',',$groups).")",
+                                 "(".implode(',',$newgroups).")"));
         }
     }
 
