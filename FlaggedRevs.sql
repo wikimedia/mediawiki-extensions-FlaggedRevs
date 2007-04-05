@@ -33,12 +33,27 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   INDEX frt_page_rev_val (frt_page_id,frt_rev_id,frt_value)
 ) TYPE=InnoDB;
 
--- This stores image usage for the stable image directory
+-- This stores image usage for the stable revisions
 -- Used for scripts that clear out unused images
 -- Can also be used to list out all images approved in articles
 CREATE TABLE /*$wgDBprefix*/flaggedimages (
   fi_name varchar(255) NOT NULL,
+  -- Use timestamp to keep track of versions, 
+  -- not perfectly unique though...
+  ft_timestamp char(14) NOT NULL,
   fi_rev_id int(10) NOT NULL,
+  
+  PRIMARY KEY (fi_name,fi_rev_id),
+  INDEX fi_name (fi_name)
+) TYPE=InnoDB;
+
+-- This stores template usage for the stable revisions
+-- Used for scripts that clear out unused images
+-- Can also be used to list out all images approved in articles
+CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
+  ft_name varchar(255) NOT NULL,
+  ft_temp_id int(10) NOT NULL,
+  ft_rev_id int(10) NOT NULL,
   
   PRIMARY KEY (fi_name,fi_rev_id),
   INDEX fi_name (fi_name)
