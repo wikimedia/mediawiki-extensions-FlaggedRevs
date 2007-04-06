@@ -329,7 +329,7 @@ class FlaggedRevs {
      * @param int $limit max amount of rows to return, defaults to 1
 	 */
 
-    function getStableRevs($pageid, $max_rev_id=Null,$limit=1) {
+    function getStableRevs($page_id, $max_rev_id=Null,$limit=1) {
         global $wgFlaggedRevTags;
 
 		wfProfileIn( __METHOD__ );
@@ -347,13 +347,13 @@ class FlaggedRevs {
         $maxrevidwhere = '1';
         
         if ($max_rev_id) {
-            $maxrevidwhere = " AND frt_rev_id < $max_rev_id";                    
+            $maxrevidwhere = "frt_rev_id < $max_rev_id";                    
         }
 		
         // Skip archived/deleted revs
 		// Get group rows of the newest flagged revs and the number
 		// of key flags that were fulfilled
-		
+	    $db->debug(true);	
         $result = $db->select(
 			array('flaggedrevtags','flaggedrevs','revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'COUNT(*) as app_flag_count'),
@@ -361,7 +361,7 @@ class FlaggedRevs {
 			__METHOD__,
 			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC', 'LIMIT' => $limit) );
 		// Iterate through each flagged revision row
-		
+		$db->debug(false);
         $out = array();
 
         while ( $row = $db->fetchObject( $result ) ) {
@@ -680,7 +680,7 @@ class FlaggedRevs {
     }
        
     function addQuickReview( $id, $ontop=false, &$out=false ) {
-		global $wgOut, $wgTitle, $wgUser, $wgScript, $wgFlaggedRevComments;
+		global $wgOut, $wgTitle, $wgUser, $wgScript, $wgFlaggedRevComments, $wgArticle, $wgRequest;
 		// Hack, we don't want two forms!
 		if( isset($this->formCount) && $this->formCount > 0 ) return;
 		$this->formCount = 1;
@@ -714,13 +714,38 @@ class FlaggedRevs {
 			$form .= "</select>\n";
 		}
 
+		$form .= Xml::submitButton( wfMsgHtml( 'go' ) );
+        
         if ( $wgFlaggedRevComments ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
 			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='2' cols='80' style='width:100%'></textarea>" .	
 			"</fieldset>";
 		}
         $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>";
-		$form .= Xml::submitButton( wfMsgHtml( 'go' ) ) . "</fieldset>";
+        
+        #Show the diff to the last stable diff, or the first revision if no stable exists 
+        if (!$wgRequest->getVal('diff')) {
+            $old = $this->getStableRevs($wgArticle->getId(),$wgArticle->mRevision->getId());
+            $de = new DifferenceEngine();
+            if (sizeof($old)) {
+                $oldid = $old[0]->fr_rev_id;
+                $legend = wfMsgHtml( 'review-diff2stable' );
+            } else {
+                #TODO: fetch the oldest, not the first
+                $oldid = 1;    
+                $legend = wfMsgHtml( 'review-diff2oldest' );
+            }
+            
+            $form .= "<fieldset><legend>$legend</legend>";
+            $oldrev = Revision::newFromid($oldid);
+            $oldtext = $oldrev->getText();
+            $de->setText($oldtext,$wgArticle->mRevision->getText());
+            $form .= $de->getDiff("Revision ".$oldid,"Revision ".$wgArticle->mRevision->getId());
+
+            $form .= "</fieldset>";
+        }
+
+
 		$form .= Xml::closeElement( 'form' );
 		// Hacks, to fiddle around with location a bit
 		if( $ontop && $out ) {
@@ -728,6 +753,7 @@ class FlaggedRevs {
 		} else {
 			$wgOut->addHTML( $form );
 		}
+
     }
     
     function ReviewNotes( $row, $breakline=true ) {
@@ -1044,14 +1070,20 @@ class FlaggedRevs {
         global $wgFlaggedRevsAutopromote;
 
         $groups = $user->getGroups();
+
+        #how many days has the user been registered?
         $now = time();
         $usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
         $userage = floor(($now-$usercreation) / 86400);
+
+        #Check if we need to promote?
         foreach ($wgFlaggedRevsAutopromote as $group=>$vars) {
             if (!in_array($group,$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']) {
                     $user->addGroup($group);
             }
         }
+
+        #Log where necessary
         $newgroups = $user->getGroups();
         if ($groups != $newgroups) {
             $log = new LogPage( 'rights' );
