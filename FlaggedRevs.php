@@ -732,7 +732,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$form .= wfHidden( 'oldid', $id );
         $form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
         $form .= wfHidden( 'action', 'submit');
-		foreach ( parent::dimensions as $quality => $levels ) {
+		foreach ( $this->dimensions as $quality => $levels ) {
 			$options = ''; $disabled = '';
 			foreach ( $levels as $idx => $label ) {
 				$selected = ( $flags[$quality]==$idx ) ? 'selected' : '';
