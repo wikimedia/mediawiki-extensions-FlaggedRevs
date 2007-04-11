@@ -78,7 +78,7 @@ class MakeValidate extends SpecialPage {
 							# All reviewers are editors too
 							if( !in_array( 'reviewer', $user->mGroups ) )
 								$user->addGroup( 'reviewer' );
-							$this->addLogItem( 'grantR', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'grant2', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-r', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'revokeR' ) ) {
 							# Permission check
@@ -88,13 +88,13 @@ class MakeValidate extends SpecialPage {
 							# Revoke the flag
 							if ( in_array( 'reviewer', $user->mGroups ) )
 								$user->removeGroup( 'reviewer' );
-							$this->addLogItem( 'revokeR', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'revoke2', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-r', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'grantE' ) ) {
 							# Grant the flag
 							if( !in_array( 'editor', $user->mGroups ) )
 								$user->addGroup( 'editor' );
-							$this->addLogItem( 'grantE', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'grant1', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'revokeE' ) ) {
 							if( in_array( 'reviewer', $user->mGroups ) ) {
@@ -108,7 +108,7 @@ class MakeValidate extends SpecialPage {
 								# Revoke the flag
 								$user->removeGroup( 'editor' );
 							}
-							$this->addLogItem( 'revokeE', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'revoke1', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-e', $user->getName() ) );
 						}
 						# Show log entries

@@ -60,7 +60,7 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 		}
-		if(1 || $wgRequest->wasPosted() ) {
+		if( $wgRequest->wasPosted() ) {
 			$this->submit( $wgRequest );
 		} else {
 			$this->showRevision( $wgRequest );
@@ -94,9 +94,10 @@ class Revisionreview extends SpecialPage
 	 * @param webrequest $request
 	 */
 	function showRevision( $request ) {
-		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgOut, $wgUser, $wgTitle, 
+		$wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
 		
-		$wgOut->addWikiText( wfMsgExt( 'revreview-selected', array('parsemag'), $this->page->getPrefixedText() ) );
+		$wgOut->addWikiText( wfMsg( 'revreview-selected', $this->page->getPrefixedText() ) );
 		
 		$this->skin = $wgUser->getSkin();
 		$rev = Revision::newFromTitle( $this->page, $this->oldid );
@@ -148,18 +149,6 @@ class Revisionreview extends SpecialPage
 			$form .= '</td><td width=\'20\'></td>';
 		}
 		$form .= '</tr></table></fieldset>';
-		// List all images about to be copied over
-		list($images,$thumbs) = FlaggedRevs::findLocalImages( FlaggedRevs::expandText( $rev->getText() ) );
-		if ( $images ) {
-			$form .= wfMsgExt('revreview-images', array('parse')) . "\n";
-			$form .= "<ul>";
-			$imglist = '';
-			foreach ( $images as $image ) {
-				$imglist .= "<li>" . $this->skin->makeKnownLink( $image ) . "</li>\n";
-			}
-			$form .= $imglist;
-			$form .= "</ul>\n";
-		}
 		// Add box to add live notes to a flagged revision
 		if ( $wgFlaggedRevComments ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
@@ -234,25 +223,30 @@ class Revisionreview extends SpecialPage
 	 * Adds or updates the flagged revision table for this page/id set
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
-		global $wgUser;
+		global $wgUser, $wgParser;
 		if( is_null($rev) ) return false;
 
 		wfProfileIn( __METHOD__ );
-	
-        $dbw = wfGetDB( DB_MASTER );
+		
         $revid = $rev->getId();
         $user = $wgUser->getId();
-        $timestamp = wfTimestampNow();
         
-        $cache_text = FlaggedRevs::expandText( $rev->getText() );
+        $timestamp = wfTimestampNow();
+        // Get the parsed HTML
+        $text = FlaggedRevs::getFlaggedRevText( $revid );
+        $options = new ParserOptions;
+        $HTMLout = FlaggedRevs::parseStableText( $rev->getTitle(), $text, $rev->getID(), $options, $rev->getTimestamp(), $timestamp );
+		
+		$dbw = wfGetDB( DB_MASTER );
+		// Our revision     
  		$revset = array(
  			'fr_page_id'   => $rev->getPage(),
 			'fr_rev_id'    => $revid,
 			'fr_user'      => $user,
 			'fr_timestamp' => $timestamp,
-			'fr_comment'   => $notes,
-			'fr_text'      => $cache_text
+			'fr_comment'   => $notes
 		);
+		// Our flags
 		$flagset = array();
 		foreach ( $this->dims as $tag => $value ) {
 			$flagset[] = array(
@@ -266,20 +260,14 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
-		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
-		// Clone images to stable dir
 		$updateImgs = $wgUser->isAllowed('validate');
-		list($images,$thumbs) = FlaggedRevs::findLocalImages( $cache_text );
-		$copies = FlaggedRevs::makeStableImages( $images, $updateImgs );
-		if ( $updateImgs )
-			FlaggedRevs::purgeStableThumbnails( $thumbs );
-		// Update stable image table
-		FlaggedRevs::insertStableImages( $revid, $copies );
-		// Clear cache...
-		$this->page->invalidateCache();
+		// Update the cache...
+		$article = new Article( $this->page );
+		FlaggedRevs::updatePageCache( $article, $HTMLout );
+		
         return true;
     }
 
@@ -294,29 +282,18 @@ class Revisionreview extends SpecialPage
         $db = wfGetDB( DB_MASTER );
         $user = $wgUser->getId();
         $timestamp = wfTimestampNow();
-		// get the flagged revision to access its cache text
-		$cache_text = FlaggedRevs::getFlaggedRevText( $rev->fr_rev_id );
-		if( is_null($cache_text) ) {
-		// Quietly ignore this...
-			return true;
-		}
 		// Delete from table
 		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->fr_rev_id ) );
 		// And the flags...
-		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->fr_rev_id ) );
-		
+		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->fr_rev_id ) );		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 		
-		// Delete stable images if needed
-		list($images,$thumbs) = FlaggedRevs::findLocalImages( $cache_text );
-		$copies = FlaggedRevs::deleteStableImages( $images );
-		// Stable versions must remake this thumbnail
-		FlaggedRevs::purgeStableThumbnails( $thumbs );
-		// Update stable image table
-		FlaggedRevs::removeStableImages( $rev->fr_rev_id, $copies );
-		// Clear cache...
+		# Clear the cache...
 		$this->page->invalidateCache();
+		# Purge squid for this page only
+		$this->page->purgeSquid();
+		
         return true;
     }
 
@@ -408,19 +385,19 @@ class Stableversions extends SpecialPage
 		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
 		// Revision must exists
 		if( is_null($frev) ) {
-			$wgOut->showErrorPage('badarticleerror', 'notargettext' );
+			$wgOut->showErrorPage('notargettitle', 'badarticleerror' );
 			return;
 		}
 		// Must be a valid page/Id
 		$page = Title::newFromID( $frev->fr_page_id );
 		if( is_null($page) || !$page->isContentPage() ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
 		// Must be a content page
 		$article = new Article( $page );
 		if( is_null($article) ) {
-			$wgOut->showErrorPage('badarticleerror', 'notargettext' );
+			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
 		$wgOut->setPagetitle( $page->getPrefixedText() );
@@ -430,18 +407,18 @@ class Stableversions extends SpecialPage
 		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$flaghtml = wfMsgExt('revreview-stable', array('parse'), urlencode($page->getPrefixedText()), 
+       	$tag = wfMsgExt('revreview-stable', array('parse'), urlencode($page->getPrefixedText()), 
 		   $time, $page->getPrefixedText());
 		// Parse the text
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
 		// Parsing this text is kind of funky...
-       	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options );
+       	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->rev_timestamp, $frev->fr_timestamp );
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Construct some tagging
-		$flaghtml .= $RevFlagging->addTagRatings( $flags );
+		$tag .= $RevFlagging->addTagRatings( $flags );
 		// Set the new body HTML, place a tag on top
-		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>' . $flaghtml . '</small></div>' . $newbody . $notes);
+		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>' . $tag . '</small></div>' . $newbody . $notes);
 	}
 	
 	function showStableList() {
@@ -451,13 +428,13 @@ class Stableversions extends SpecialPage
 		// Must be a valid page/Id
 		$page = Title::newFromUrl( $this->page );
 		if( is_null($page) || !$page->isContentPage() ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
 		$article = new Article( $page );
 		$page_id = $article->getID();
 		if( !$page_id ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
 		
@@ -476,7 +453,6 @@ class Stableversions extends SpecialPage
 		global $wgLang, $wgUser;
 		
 		static $skin=null;
-
 		if( is_null( $skin ) )
 			$skin = $wgUser->getSkin();
 	

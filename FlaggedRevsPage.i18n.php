@@ -15,18 +15,19 @@ $RevisionreviewMessages['en'] = array(
 	
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it has \'\'\'not\'\'\' been
 	 [[Help:Article validation|checked]] for quality.',
-	'revreview-isnewest'  => 'This is the latest [[Help:Article validation|reviewed]] revision of this page (with 
-	updated images and templates) [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$1</i>.',
-	'revreview-newest'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1}} latest reviewed revision] 
-	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
+	'revreview-isnewest'  => 'This is the latest [[Help:Article validation|reviewed]] (excluding images and templates) 
+	revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page, excluding images and templates, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$1</i>.',
+	'revreview-newest'    => 'This revision has \'\'\'not\'\'\' been [[Help:Article validation|checked]] for 
+	quality. The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$4</i>, rated as:',
-	'revreview-replaced'  => 'This is the latest [[Help:Article validation|stable]] revision of this page, 
-	[{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision]
-	is editable and may be more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
+	'revreview-replaced'  => 'This is the latest [[Help:Article validation|stable]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
+	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
+	is usually editable and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-stable'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'$3\'\'\', 
+	'revreview-stable'  => 'This is a static [[Help:Article validation|reviewed]] revision of the page \'\'\'$3\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
-	is editable and may be more up to date.',
+	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
 	'revreview-hist' => '[reviewed]',
@@ -43,10 +44,7 @@ $RevisionreviewMessages['en'] = array(
     'revisionreview'     => 'Review revisions',		
 	'revreview-selected' => "Selected revision of '''$1:'''",
 	'revreview-text'     => "Approved revisions are set as the default content on page view rather than the newest
-	 revision. Their content will not be affected by changes to transcluded pages and they use the 
-	''stable directory'' for internal images.",
-	'revreview-images'   => "The following images on this page will be copied to the ''stable directory'' (updating 
-	existing versions if you have reviewer status) and stored there until no reviewed revisions use them:",
+	 revision. Their content will not be affected by changes to transcluded pages or internal images.",
 	'revreview-flag'       => 'Review this revision (#$1):',
 	'revreview-legend'     => 'Rate revision content:',
 	'revreview-notes'      => 'Observations or notes to display:',
@@ -78,9 +76,11 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-page'   => 'Page name',
 	'stableversions-rev'    => 'Revision ID',
 	'stableversions-none'   => '[[$1]] has no reviewed revisions.',
-	'stableversions-list'   => 'This following is a list of revisions of [[$1]] that have been reviewed:',
+	'stableversions-list'   => 'The following is a list of revisions of [[$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
     'review-diff2stable'    => 'Diff to the last stable revision',
-    'review-diff2oldest'     => "Diff to the oldest revision",
+    'review-diff2oldest'    => "Diff to the oldest revision",
+    
+    'restriction-stable'   => 'Default revision'
 );
 ?>

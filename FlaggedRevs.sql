@@ -12,8 +12,6 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob default NULL,
--- This stores expanded (transclusions resolved) revision text
-  fr_text mediumblob NOT NULL default '',
 
   PRIMARY KEY fr_rev_id (fr_rev_id),
   UNIQUE KEY (fr_id),
@@ -29,34 +27,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   frt_value int(2) NOT NULL,
 
   PRIMARY KEY frt_rev_dimension (frt_rev_id,frt_dimension),
-  INDEX frt_page_rev (frt_page_id,frt_rev_id),
-  INDEX frt_page_rev_val (frt_page_id,frt_rev_id,frt_value)
-) TYPE=InnoDB;
-
--- This stores image usage for the stable revisions
--- Used for scripts that clear out unused images
--- Can also be used to list out all images approved in articles
-CREATE TABLE /*$wgDBprefix*/flaggedimages (
-  fi_name varchar(255) NOT NULL,
-  -- Use timestamp to keep track of versions, 
-  -- not perfectly unique though...
-  ft_timestamp char(14) NOT NULL,
-  fi_rev_id int(10) NOT NULL,
-  
-  PRIMARY KEY (fi_name,fi_rev_id),
-  INDEX fi_name (fi_name)
-) TYPE=InnoDB;
-
--- This stores template usage for the stable revisions
--- Used for scripts that clear out unused images
--- Can also be used to list out all images approved in articles
-CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
-  ft_name varchar(255) NOT NULL,
-  ft_temp_id int(10) NOT NULL,
-  ft_rev_id int(10) NOT NULL,
-  
-  PRIMARY KEY (fi_name,fi_rev_id),
-  INDEX fi_name (fi_name)
+  INDEX frt_page_rev_val (frt_page_id,frt_rev_id,frt_dimension,frt_value)
 ) TYPE=InnoDB;
 
 -- This stores cached text for page view

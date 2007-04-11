@@ -25,10 +25,10 @@ $messages['en'] = array(
 	'makevalidate-legend' => 'Change user rights:',
 	'makevalidate-change-e' => 'Editor status:',
 	'makevalidate-change-r' => 'Reviewer status:',
-	'makevalidate-grantE' => 'Grant',
-	'makevalidate-revokeE' => 'Revoke',
-	'makevalidate-grantR' => 'Grant',
-	'makevalidate-revokeR' => 'Revoke',
+	'makevalidate-grant1' => 'Grant',
+	'makevalidate-revoke1' => 'Revoke',
+	'makevalidate-grant2' => 'Grant',
+	'makevalidate-revoke2' => 'Revoke',
 	'makevalidate-comment' => 'Comment:',
 	'makevalidate-granted-e' => '[[User:$1|$1]] now has editor status.',
 	'makevalidate-revoked-e' => '[[User:$1|$1]] no longer has editor status.',
@@ -40,6 +40,7 @@ $messages['en'] = array(
 	'makevalidate-logentryrevoke-e' => 'removed editor status from [[$1]]',
 	'makevalidate-logentrygrant-r' => 'granted reviewer status to [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'removed reviewer status from [[$1]]',
+	'makevalidate-autosum' => 'autopromoted',
 );
 
 return $messages;
