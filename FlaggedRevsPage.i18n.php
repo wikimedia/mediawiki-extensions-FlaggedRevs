@@ -16,7 +16,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it has \'\'\'not\'\'\' been
 	 [[Help:Article validation|checked]] for quality.',
 	'revreview-isnewest'  => 'This is the latest [[Help:Article validation|reviewed]] (excluding images and templates) 
-	revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page, excluding images and templates, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$1</i>.',
+	revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$1</i>.',
 	'revreview-newest'    => 'This revision has \'\'\'not\'\'\' been [[Help:Article validation|checked]] for 
 	quality. The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
