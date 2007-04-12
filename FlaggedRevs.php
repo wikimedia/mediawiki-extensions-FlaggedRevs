@@ -146,7 +146,7 @@ class FlaggedRevs {
     	
     	// Cached results?
     	if ( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
-    		return $this->revflags[$rev_id];  	
+    		return $this->revflags[$rev_id];
     	// Set all flags to zero
     	$flags = array();
     	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
@@ -255,12 +255,12 @@ class FlaggedRevs {
     }
     
     function addTagRatings( $flags ) {
-    	$tag = "<table align='center' cellspadding=\'0\'><tr>";
+    	$tag = "<p>";
 		foreach ( $this->dimensions as $quality => $value ) {
 			$value = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
-			$tag .= "<td>&nbsp;<strong>" . wfMsgHtml("revreview-$quality") . "</strong>: $value&nbsp;</td>\n";    
+			$tag .= "&nbsp;<strong>" . wfMsgHtml("revreview-$quality") . "</strong>: $value&nbsp;\n";    
 		}
-		$tag .= '</tr></table>';
+		$tag .= '</p>';
 		return $tag;
     }
     
@@ -446,9 +446,13 @@ class FlaggedArticle extends FlaggedRevs {
 					$diff = ($revid > $tfrev->fr_rev_id) ? $revid : $tfrev->fr_rev_id;
 					# Is this revision flagged?
 					$flags2 = parent::getFlagsForRevision( $revid );
-					if ( $flags2 ) {
+					$app = false;
+					foreach ( $flags2 as $f => $v ) {
+						if ( $v > 0 ) $app=true;
+					}
+					if ( $app ) {
 						$tag .= wfMsgExt('revreview-old', array('parse'));
-						$tag .= parent::addTagRatings( $flags );
+						$tag .= parent::addTagRatings( $flags2 );
 					}
 					$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $oldid, $diff, $time);
 				}
@@ -503,12 +507,11 @@ class FlaggedArticle extends FlaggedRevs {
            return;
 		// Find out revision id
 		if( $editform->mArticle->mRevision )
-       	$revid = $editform->mArticle->mRevision->mId;
+       		$revid = $editform->mArticle->mRevision->mId;
 		else
-       	$revid = $editform->mArticle->getLatest();
+       		$revid = $editform->mArticle->getLatest();
 		// Grab the ratings for this revision if any
 		if( !$revid ) return;
-       
 		// Set new body html text as that of now
 		$tag = '';
 		// Check the newest stable version
@@ -525,7 +528,17 @@ class FlaggedArticle extends FlaggedRevs {
 					# Our compare link should have a reasonable time-ordered old->new combination
 					$oldid = ($revid > $tfrev->fr_rev_id) ? $tfrev->fr_rev_id : $revid;
 					$diff = ($revid > $tfrev->fr_rev_id) ? $revid : $tfrev->fr_rev_id;
-					$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $oldid, $diff, $time );
+					# Is this revision flagged?
+					$flags2 = parent::getFlagsForRevision( $revid );
+					$app = false;
+					foreach ( $flags2 as $f => $v ) {
+						if ( $v > 0 ) $app=true;
+					}
+					if ( $app ) {
+						$tag .= wfMsgExt('revreview-old', array('parse'));
+						$tag .= parent::addTagRatings( $flags2 );
+					}
+					$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $oldid, $diff, $time);
 				}
 			# Editing the page normally
 			} else {
