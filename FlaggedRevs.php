@@ -23,7 +23,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionFunctions[] = 'efLoadReviewMessages';
 
 $wgExtensionCredits['specialpage'][] = array(
-	'author' => 'Aaron Schulz, Jeorg Baach',
+	'author' => 'Aaron Schulz, Joerg Baach',
 	'name' => 'Flagged Revisions',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stablize pages'
@@ -55,8 +55,8 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
 # Define the tags we can use to rate an article, 
-# and set the minimum level to have it become a stable version.
-# Stable revisions override the default page
+# and set the minimum level to have it become a "quality" version.
+# "quality" revisions take precidence over other reviewed revisions
 $wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 4;
@@ -416,15 +416,14 @@ class FlaggedArticle extends FlaggedRevs {
 		$vis_id = $revid;
 		$tag = ''; $notes = ''; $newbody = $out->mBodytext;
 		// Check the newest stable version...
-		// getLatestStableRev() is slower, don't use it if we won't
-		// insert the stable page anyway, such as for oldids or diffs
-		$stable = false;	
+		$quality = false;
 		if ( $this->pageOverride() ) {
+			// getLatestStableRev() is slower, don't use it if we won't need to
 			$tfrev = $this->getLatestStableRev();
 			if ( is_null($tfrev) ) {
 				$tfrev = $this->getLatestFlaggedRev();
 			} else {
-				$stable = true;
+				$quality = true;
 			}
 		} else {
 			$tfrev = $this->getLatestFlaggedRev();
@@ -437,7 +436,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$flags = parent::getFlagsForRevision( $tfrev->fr_rev_id );
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			// Looking at some specific old rev or if flagged revs override only for anons
-			if( !$this->pageOverride() || !$stable ) {
+			if( !$this->pageOverride() ) {
 				if( $revid==$tfrev->fr_rev_id ) {
 					$tag = wfMsgExt('revreview-isnewest', array('parse'), $time);
 					$notes = parent::ReviewNotes( $tfrev );
@@ -455,8 +454,10 @@ class FlaggedArticle extends FlaggedRevs {
        			# We will be looking at the reviewed revision...
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
-				
-       			$tag = wfMsgExt('revreview-replaced', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
+				if ( $quality )
+       				$tag = wfMsgExt('revreview-quality', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
+				else
+					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
 				# Try the stable page cache
 				$newbody = parent::getPageCache( $wgArticle );
 				# If no cache is available, get the text and parse it
@@ -670,10 +671,10 @@ class FlaggedArticle extends FlaggedRevs {
 		if ( !$tfrev ) return;
 		$revid = $tfrev->fr_rev_id;
 		// Replace "permalink" with an actual permanent link
-		$stable = SpecialPage::getTitleFor( 'Stableversions' );
+		$stableversions = SpecialPage::getTitleFor( 'Stableversions' );
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
-			'href' => $stable->getLocalURL( "oldid=$revid" )
+			'href' => $stableversions->getLocalURL( "oldid=$revid" )
 		);
     }
     

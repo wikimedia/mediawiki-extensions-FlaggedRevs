@@ -42,6 +42,7 @@ class Revisionreview extends SpecialPage
 		$this->oflags = FlaggedRevs::getFlagsForRevision( $this->oldid );
 		// Get our accuracy/quality dimensions
 		$this->dims = array();
+		$this->upprovedTags = 0;
 		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			// Must be greater than zero
@@ -49,6 +50,8 @@ class Revisionreview extends SpecialPage
 				$wgOut->showErrorPage('notargettitle', 'notargettext' );
 				return;
 			}
+			if ( $this->dims[$tag]==0 )
+				$this->upprovedTags++;
 			// Check permissions
 			if( !$this->userCan( $tag, $this->oflags[$tag] ) ) {
 				# Users can't take away a status they can't set
@@ -60,7 +63,13 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 		}
-		if( $wgRequest->wasPosted() ) {
+		// We must at least rate each category as 1, the minimum
+		// Exception: we can rate ALL as unapproved to depreciate a revision
+		$this->isValid = true;
+		if ( $this->upprovedTags && $this->upprovedTags < count($wgFlaggedRevTags) )
+			$this->isValid = false;
+		
+		if( $this->isValid && $wgRequest->wasPosted() ) {
 			$this->submit( $wgRequest );
 		} else {
 			$this->showRevision( $wgRequest );
@@ -96,6 +105,9 @@ class Revisionreview extends SpecialPage
 	function showRevision( $request ) {
 		global $wgOut, $wgUser, $wgTitle, 
 		$wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		
+		if ( !$this->isValid )
+			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
 		
 		$wgOut->addWikiText( wfMsg( 'revreview-selected', $this->page->getPrefixedText() ) );
 		
@@ -152,7 +164,7 @@ class Revisionreview extends SpecialPage
 		// Add box to add live notes to a flagged revision
 		if ( $wgFlaggedRevComments ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
-			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'></textarea>" .	
+			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>$this->notes</textarea>" .	
 			"</fieldset>";
 		}
 		
@@ -407,7 +419,7 @@ class Stableversions extends SpecialPage
 		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$tag = wfMsgExt('revreview-stable', array('parse'), urlencode($page->getPrefixedText()), 
+       	$tag = wfMsgExt('revreview-static', array('parse'), urlencode($page->getPrefixedText()), 
 		   $time, $page->getPrefixedText());
 		// Parse the text
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );

@@ -21,11 +21,15 @@ $RevisionreviewMessages['en'] = array(
 	quality. The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} compare]) 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$4</i>, rated as:',
-	'revreview-replaced'  => 'This is the latest [[Help:Article validation|stable]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
+	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
 	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
 	is usually editable and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-stable'  => 'This is a static [[Help:Article validation|reviewed]] revision of the page \'\'\'$3\'\'\', 
+	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
+	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
+	is usually editable and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
+	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
+	'revreview-static'  => 'This is a static [[Help:Article validation|reviewed]] revision of the page \'\'\'[[$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
@@ -68,6 +72,8 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Log comment:',
 	'revreview-submit'     => 'Apply to selected revision',
+	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unnapproved" in order 
+	for a revision to be considered as reviewed. To depreciated a revision, set all fields to "unnapproved".',
 	
 	
 	'stableversions'        => 'Stable versions',
