@@ -30,7 +30,7 @@ $RevisionreviewMessages['en'] = array(
 	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
 	is usually editable and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-static'  => 'This is a static [[Help:Article validation|reviewed]] revision of the page \'\'\'[[$3]]\'\'\', 
+	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'[[$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',

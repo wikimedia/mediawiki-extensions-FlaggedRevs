@@ -12,6 +12,9 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob default NULL,
+  -- Store the text with all transclusions resolved
+  -- This will trade space for more speed and reliability
+  fr_text mediumblob default NULL,
 
   PRIMARY KEY fr_rev_id (fr_rev_id),
   UNIQUE KEY (fr_id),

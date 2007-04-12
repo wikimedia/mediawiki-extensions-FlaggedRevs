@@ -239,24 +239,24 @@ class Revisionreview extends SpecialPage
 		if( is_null($rev) ) return false;
 
 		wfProfileIn( __METHOD__ );
-		
-        $revid = $rev->getId();
-        $user = $wgUser->getId();
         
         $timestamp = wfTimestampNow();
-        // Get the parsed HTML
-        $text = FlaggedRevs::getFlaggedRevText( $revid );
-        $options = new ParserOptions;
-        $HTMLout = FlaggedRevs::parseStableText( $rev->getTitle(), $text, $rev->getID(), $options, $rev->getTimestamp(), $timestamp );
+        // Get the page text
+        $text = $rev->getText();
+        // Resolve all templates
+        $fulltext = FlaggedRevs::expandText( $text, $rev->getTitle() );
+        // Parse the text into HTML
+        $HTML = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $rev->getTimestamp(), $timestamp );
 		
 		$dbw = wfGetDB( DB_MASTER );
-		// Our revision     
+		// Our revision entry
  		$revset = array(
  			'fr_page_id'   => $rev->getPage(),
-			'fr_rev_id'    => $revid,
-			'fr_user'      => $user,
+			'fr_rev_id'    => $rev->getId(),
+			'fr_user'      => $wgUser->getId(),
 			'fr_timestamp' => $timestamp,
-			'fr_comment'   => $notes
+			'fr_comment'   => $notes,
+			'fr_text'      => $fulltext // Store expanded text for good-measure
 		);
 		// Our flags
 		$flagset = array();
@@ -264,7 +264,7 @@ class Revisionreview extends SpecialPage
 			$flagset[] = array(
 				'frt_dimension' => $tag, 
 				'frt_page_id' => $rev->getPage(), 
-				'frt_rev_id' => $revid, 
+				'frt_rev_id' => $rev->getId(), 
 				'frt_value' => $value 
 			);
 		}
@@ -278,7 +278,7 @@ class Revisionreview extends SpecialPage
 		$updateImgs = $wgUser->isAllowed('validate');
 		// Update the cache...
 		$article = new Article( $this->page );
-		FlaggedRevs::updatePageCache( $article, $HTMLout );
+		FlaggedRevs::updatePageCache( $article, $HTML );
 		
         return true;
     }
@@ -419,12 +419,10 @@ class Stableversions extends SpecialPage
 		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$tag = wfMsgExt('revreview-static', array('parse'), urlencode($page->getPrefixedText()), 
-		   $time, $page->getPrefixedText());
-		// Parse the text
+       	$tag = wfMsgExt('revreview-static', array('parse'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());
+		// Parse the text...
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
-		// Parsing this text is kind of funky...
        	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->fr_timestamp );
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Construct some tagging
