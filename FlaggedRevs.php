@@ -444,7 +444,13 @@ class FlaggedArticle extends FlaggedRevs {
 					# Our compare link should have a reasonable time-ordered old->new combination
 					$oldid = ($revid > $tfrev->fr_rev_id) ? $tfrev->fr_rev_id : $revid;
 					$diff = ($revid > $tfrev->fr_rev_id) ? $revid : $tfrev->fr_rev_id;
-					$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $oldid, $diff, $time);
+					# Is this revision flagged?
+					$flags2 = parent::getFlagsForRevision( $revid );
+					if ( $flags2 ) {
+						$tag .= wfMsgExt('revreview-old', array('parse'));
+						$tag .= parent::addTagRatings( $flags );
+					}
+					$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $oldid, $diff, $time);
 				}
 			} # Viewing the page normally: override the page
 			else {
