@@ -49,6 +49,8 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-selected' => "Selected revision of '''$1:'''",
 	'revreview-text'     => "Approved revisions are set as the default content on page view rather than the newest
 	 revision. Their content will not be affected by changes to transcluded pages or internal images.",
+	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unnapproved" in order 
+	for a revision to be considered reviewed. To depreciate a revision, set all fields to "unnapproved".',
 	'revreview-flag'       => 'Review this revision (#$1):',
 	'revreview-legend'     => 'Rate revision content:',
 	'revreview-notes'      => 'Observations or notes to display:',
@@ -72,8 +74,6 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Log comment:',
 	'revreview-submit'     => 'Apply to selected revision',
-	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unnapproved" in order 
-	for a revision to be considered as reviewed. To depreciated a revision, set all fields to "unnapproved".',
 	
 	
 	'stableversions'        => 'Stable versions',
