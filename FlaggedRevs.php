@@ -153,8 +153,7 @@ class FlaggedRevs {
     		$flags[$tag] = 0;
     	}
 		$db = wfGetDB( DB_SLAVE );
-		// select a row, this should be unique
-		// JOIN on the tag table and grab all the tags for this revision
+		// Grab all the tags for this revision
 		$result = $db->select(
 			array('flaggedrevtags'),
 			array('frt_dimension', 'frt_value'), 
@@ -240,7 +239,7 @@ class FlaggedRevs {
 	 * @param int $timeframe, when the revision was reviewed
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
-    function parseStableText( $title, $text, $id=NULL, $options, $revtime, $timeframe=NULL ) {
+    function parseStableText( $title, $text, $id=NULL, $options, $timeframe=NULL ) {
     	global $wgUser, $wgParser;
     	
 		$options->setTidy(true);
@@ -248,7 +247,7 @@ class FlaggedRevs {
 		# They can be old and misleading
 		$options->setEditSection(false);
 		# Parse the new body, wikitext -> html
-       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id, $revtime, $timeframe );     	
+       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id, $timeframe );     	
        	$HTMLout = $parserOut->getText();
        	
        	return $HTMLout;
@@ -289,30 +288,27 @@ class FlaggedRevs {
     	global $wgUser, $wgFlaggedRevsExpire;
     	
     	wfProfileIn( __METHOD__ );
-    	
+		   	
     	// Make sure it is valid
     	if ( !$article || !$article->getId() ) return NULL;
     	$cachekey = ParserCache::getKey( $article, $wgUser );
-    	
+    	// Periodically flush old cache entries
 		wfSeedRandom();
 		if ( 0 == mt_rand( 0, 99 ) ) {
-			# Periodically flush old cache entries
-			global $wgFlaggedRevsExpire;
-
 			$dbw = wfGetDB( DB_MASTER );
 			$cutoff = $dbw->timestamp( time() - $wgFlaggedRevsExpire );
 			$flaggedcache = $dbw->tableName( 'flaggedcache' );
 			$sql = "DELETE FROM $flaggedcache WHERE fc_timestamp < '{$cutoff}'";
 			$dbw->query( $sql );
 		}
-    	$db = wfGetDB( DB_SLAVE );
-    	// Replace the page cache if it is out of date
-    	$result = $db->select(
+    	
+    	$dbr = wfGetDB( DB_SLAVE );   	
+    	$result = $dbr->select(
 			array('flaggedcache'),
 			array('fc_cache'),
 			array('fc_key' => $cachekey, 'fc_timestamp >= ' . $article->getTouched() ),
 			__METHOD__ );
-		if ( $row = $db->fetchObject($result) ) {
+		if ( $row = $dbr->fetchObject($result) ) {
 			return $row->fc_cache;
 		}
 		return NULL;		
@@ -475,7 +471,7 @@ class FlaggedArticle extends FlaggedRevs {
 					$text = parent::getFlaggedRevText( $vis_id );
 					$options = ParserOptions::newFromUser($wgUser);
 					# Parsing this text is kind of funky...
-       				$newbody = parent::parseStableText( $wgTitle, $text, $vis_id, $options, $tfrev->rev_timestamp, $tfrev->fr_timestamp );
+       				$newbody = parent::parseStableText( $wgTitle, $text, $vis_id, $options, $tfrev->fr_timestamp );
        				# Update the general cache for non-users
        				parent::updatePageCache( $wgArticle, $newbody );
        			}

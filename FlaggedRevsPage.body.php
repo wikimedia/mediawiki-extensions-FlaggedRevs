@@ -425,7 +425,7 @@ class Stableversions extends SpecialPage
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
 		// Parsing this text is kind of funky...
-       	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->rev_timestamp, $frev->fr_timestamp );
+       	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->fr_timestamp );
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Construct some tagging
 		$tag .= $RevFlagging->addTagRatings( $flags );
