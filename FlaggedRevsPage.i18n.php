@@ -13,7 +13,7 @@ $RevisionreviewMessages['en'] = array(
 	'group-reviewer-member' => 'reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:reviewer',
 	
-	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it has \'\'\'not\'\'\' been
+	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been
 	 [[Help:Article validation|checked]] for quality.',
 	'revreview-old'  => 'This is a [[Help:Article validation|reviewed]] (excluding images and templates) revision 
 	 of this page, rated as:',

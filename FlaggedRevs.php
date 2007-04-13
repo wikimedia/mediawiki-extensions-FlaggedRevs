@@ -510,15 +510,15 @@ class FlaggedArticle extends FlaggedRevs {
 			$tag .= parent::addTagRatings( $flags );
 			// Some checks for which tag CSS to use
 			if ( $featured )
-				$tag = '<div class="flaggedrevs_tag3 plainlinks">' . $tag . '</div>';
+				$tag = '<div class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
 			else if ( $quality )
-				$tag = '<div class="flaggedrevs_tag2 plainlinks">' . $tag . '</div>';
+				$tag = '<div class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
 			else
-				$tag = '<div class="flaggedrevs_tag1 plainlinks">' . $tag . '</div>';
+				$tag = '<div class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$out->mBodytext = $tag . $newbody . $notes;
 		} else {
-			$tag = wfMsgExt('revreview-noflagged', array('parse'));
+			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
 			$out->mBodytext = $tag . $out->mBodytext;
 		}
 		// Show review links for the VISIBLE revision
