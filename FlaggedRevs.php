@@ -141,6 +141,8 @@ class FlaggedRevs {
     public static function expandText( $text, $title ) {
         global $wgParser, $wgTitle;
         
+        if ( $text==false ) return;
+        
         $options = new ParserOptions;
         $options->setRemoveComments( true );
         $options->setMaxIncludeSize( self::MAX_INCLUDE_SIZE );
@@ -402,9 +404,7 @@ class FlaggedRevs {
     	global $wgFlaggedRevValues;
     	
     	foreach ( $flags as $f => $v ) {
-    		if ( $v < $wgFlaggedRevValues ) {
-    			return false;
-    		}
+    		if ( $v < $wgFlaggedRevValues ) return false;
     	}
     	return true;
     }
@@ -817,8 +817,10 @@ class FlaggedArticle extends FlaggedRevs {
 		$form .= wfHidden( 'title', $reviewtitle->getPrefixedText() );
 		$form .= wfHidden( 'target', $wgTitle->getPrefixedText() );
 		$form .= wfHidden( 'oldid', $id );
+		$form .= wfHidden( 'action', 'submit');
         $form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
-        $form .= wfHidden( 'action', 'submit');
+        // It takes time to review, make sure that we record what the reviewer had in mind
+        $form .= wfHidden( 'wpTimestamp', wfTimestampNow() );
 		foreach ( $this->dimensions as $quality => $levels ) {
 			$options = ''; $disabled = '';
 			foreach ( $levels as $idx => $label ) {

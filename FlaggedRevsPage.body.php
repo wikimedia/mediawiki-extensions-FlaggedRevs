@@ -20,20 +20,19 @@ class Revisionreview extends SpecialPage
 			$wgOut->permissionRequired( 'review' );
 			return;
 		}
-
 		$this->setHeaders();
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		
 		// Must be a valid page/Id
 		$this->page = Title::newFromUrl( $this->target );
 		if( is_null($this->page) || is_null($this->oldid) || !$this->page->isContentPage() ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		
+		// Time of page view when viewd
+		$this->timestamp = $wgRequest->getVal( 'wpTimestamp' );
 		// Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
 		// Additional notes
@@ -236,15 +235,16 @@ class Revisionreview extends SpecialPage
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
 		global $wgUser, $wgParser;
+		
 		if( is_null($rev) ) return false;
+		// No bogus timestamps
+		if ( $this->timestamp && ($this->timestamp < $rev->getTimestamp() || $this->timestamp > wfTimestampNow()) )
+			return false;
 
 		wfProfileIn( __METHOD__ );
         
-        $timestamp = wfTimestampNow();
-        // Get the page text
-        $text = $rev->getText();
-        // Resolve all templates
-        $fulltext = FlaggedRevs::expandText( $text, $rev->getTitle() );
+        // Get the page text and esolve all templates
+        $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
         // Parse the text into HTML
         $HTML = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $rev->getTimestamp(), $timestamp );
 		
@@ -254,7 +254,7 @@ class Revisionreview extends SpecialPage
  			'fr_page_id'   => $rev->getPage(),
 			'fr_rev_id'    => $rev->getId(),
 			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => $timestamp,
+			'fr_timestamp' => $this->timestamp ? $this->timestamp : wfTimestampNow(),
 			'fr_comment'   => $notes,
 			'fr_text'      => $fulltext // Store expanded text for good-measure
 		);
