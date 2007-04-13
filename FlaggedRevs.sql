@@ -38,8 +38,9 @@ CREATE TABLE /*$wgDBprefix*/flaggedcache (
   fc_key char(255) binary NOT NULL default '',
   fc_cache mediumblob NOT NULL default '',
   -- This timestamp is compared against page_touched
-  -- Not all the same links may be uses as the current version
-  -- So it may fall a bit out of date sometimes
+  -- Not all the same links may be used in the current version,
+  -- So it may fall a bit out of date sometimes, since cache
+  -- clearing is based on the current WLH information
   fc_timestamp char(14) NOT NULL,
 
   PRIMARY KEY fc_key (fc_key)

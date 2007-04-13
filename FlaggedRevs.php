@@ -771,11 +771,14 @@ class FlaggedArticle extends FlaggedRevs {
 		// change the edit tab to a "current revision" tab
 		if( !$wgRequest->getVal('oldid') ) {
        		$tfrev = $this->getLatestStableRev();
+       		// No quality revs? Find the last reviewed one
+       		if ( !is_object($tfrev) )
+       			$tfrev = $this->getLatestFlaggedRev();
        		// Note that revisions may not be set to override for users
        		if( is_object($tfrev) && $this->pageOverride() ) {
-       		# Remove edit option altogether
-       		unset( $content_actions['edit']);
-       		unset( $content_actions['viewsource']);
+       			# Remove edit option altogether
+       			unset( $content_actions['edit']);
+       			unset( $content_actions['viewsource']);
 				# Straighten out order
 				$new_actions = array(); $counter = 0;
 				foreach ( $content_actions as $action => $data ) {
@@ -790,8 +793,8 @@ class FlaggedArticle extends FlaggedRevs {
        			$new_actions[$action] = $data;
        			$counter++;
        			}
-       		# Reset static array
-       		$content_actions = $new_actions;
+       			# Reset static array
+       			$content_actions = $new_actions;
     		}
     	}
     }
