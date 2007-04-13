@@ -743,7 +743,7 @@ class FlaggedArticle extends FlaggedRevs {
         return $out;
     }
     
-    function setPermaLink( &$this, &$nav_urls, &$oldid, &$revid ) {
+    function setPermaLink( &$sktmp, &$nav_urls, &$oldid, &$revid ) {
     	global $wgArticle, $wgTitle, $action;
 		// Only trigger on article view, not for protect/delete/hist
 		// Non-content pages cannot be validated
@@ -754,11 +754,17 @@ class FlaggedArticle extends FlaggedRevs {
 		if ( !$tfrev ) return;
 		$revid = $tfrev->fr_rev_id;
 		// Replace "permalink" with an actual permanent link
-		$stableversions = SpecialPage::getTitleFor( 'Stableversions' );
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
-			'href' => $stableversions->getLocalURL( "oldid=$revid" )
+			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "oldid=$revid" )
 		);
+		// Are we using the popular cite extension?
+		if ( isset($nav_urls['cite']) ) {
+			$nav_urls['cite'] = array(
+				'text' => wfMsg( 'cite_article_link' ),
+				'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id=$revid" )
+			);
+		}
     }
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
