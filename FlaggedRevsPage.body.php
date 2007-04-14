@@ -240,13 +240,14 @@ class Revisionreview extends SpecialPage
 		// No bogus timestamps
 		if ( $this->timestamp && ($this->timestamp < $rev->getTimestamp() || $this->timestamp > wfTimestampNow()) )
 			return false;
+		$timestamp = $this->timestamp ? $this->timestamp : wfTimestampNow();
 
 		wfProfileIn( __METHOD__ );
         
         // Get the page text and esolve all templates
         $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
         // Parse the text into HTML
-        $HTML = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $rev->getTimestamp(), $timestamp );
+        $parserOutput = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $timestamp );
 		
 		$dbw = wfGetDB( DB_MASTER );
 		// Our revision entry
@@ -254,7 +255,7 @@ class Revisionreview extends SpecialPage
  			'fr_page_id'   => $rev->getPage(),
 			'fr_rev_id'    => $rev->getId(),
 			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => $this->timestamp ? $this->timestamp : wfTimestampNow(),
+			'fr_timestamp' => $timestamp,
 			'fr_comment'   => $notes,
 			'fr_text'      => $fulltext // Store expanded text for good-measure
 		);
@@ -278,7 +279,7 @@ class Revisionreview extends SpecialPage
 		$updateImgs = $wgUser->isAllowed('validate');
 		// Update the cache...
 		$article = new Article( $this->page );
-		FlaggedRevs::updatePageCache( $article, $HTML );
+		FlaggedRevs::updatePageCache( $article, $parserOutput );
 		
         return true;
     }

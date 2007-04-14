@@ -166,10 +166,9 @@ class FlaggedRevs {
 		# They can be old and misleading
 		$options->setEditSection(false);
 		# Parse the new body, wikitext -> html
-       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id, $timeframe );     	
-       	$HTML = $parserOut->getText();
+       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id, $timeframe );
        	
-       	return $HTML;
+       	return $parserOut;
     }
     
 	/**
@@ -223,7 +222,7 @@ class FlaggedRevs {
 			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted = 0'),
 			__METHOD__ );
 		// Sorted from highest to lowest, so just take the first one if any
-		if ( $row = $db->fetchObject( $result ) ) {
+		if ( $row = $db->fetchObject($result) ) {
 			return $row;
 		}
 		return NULL;
@@ -245,7 +244,7 @@ class FlaggedRevs {
 			array('fr_page_id' => $page_id),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC') );
-		while ( $row = $db->fetchObject( $result ) ) {
+		while ( $row = $db->fetchObject($result) ) {
         	$rows[] = $row;
 		}
 		return $rows;
@@ -277,7 +276,6 @@ class FlaggedRevs {
     	global $wgFlaggedRevTags;
     	
     	wfProfileIn( __METHOD__ );
-    	
     	// Cached results?
     	if ( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
     		return $this->revflags[$rev_id];
@@ -322,7 +320,7 @@ class FlaggedRevs {
     	$skin = $wgUser->getSkin();
     	
     	if( $row->fr_comment ) {
-    		$notes .= '<p><div class="flaggedrevs_tag1 plainlinks">';
+    		$notes .= '<p><div class="flaggedrevs_notes plainlinks">';
     		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
     		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p>';
     	}
@@ -331,31 +329,78 @@ class FlaggedRevs {
     
 	/**
 	* @param Article $article
-	* @param string $value, parsed HTML text
-	* Updates the stable cache if a page with the given value
-	*/
-    public static function updatePageCache( $article, $value=NULL ) {
-    	global $wgUser;
+	* Get the page cache for the top stable revision of an article
+	*/   
+    public static function getPageCache( $article ) {
+    	global $wgUser, $parserMemc, $wgCacheEpoch, $wgFlaggedRevsExpire;
     	
-    	wfProfileIn( __METHOD__ );
+		$fname = 'FlaggedRevs::getPageCache';
+		wfProfileIn( $fname );
+		   	
+    	// Make sure it is valid
+    	if ( !$article || !$article->getId() ) return NULL;
+    	$key = 'stable-' . ParserCache::getKey( $article, $wgUser );
+		// Get the cached HTML
+		wfDebug( "Trying parser cache $key\n" );
+		$value = $parserMemc->get( $key );
+		if ( is_object( $value ) ) {
+			wfDebug( "Found.\n" );
+			# Delete if article has changed since the cache was made
+			$canCache = $article->checkTouched();
+			$cacheTime = $value->getCacheTime();
+			$touched = $article->mTouched;
+			if ( !$canCache || $value->expired( $touched ) ) {
+				if ( !$canCache ) {
+					wfIncrStats( "pcache_miss_invalid" );
+					wfDebug( "Invalid cached redirect, touched $touched, epoch $wgCacheEpoch, cached $cacheTime\n" );
+				} else {
+					wfIncrStats( "pcache_miss_expired" );
+					wfDebug( "Key expired, touched $touched, epoch $wgCacheEpoch, cached $cacheTime\n" );
+				}
+				$parserMemc->delete( $key );
+				$value = false;
+			} else {
+				if ( isset( $value->mTimestamp ) ) {
+					$article->mTimestamp = $value->mTimestamp;
+				}
+				wfIncrStats( "pcache_hit" );
+			}
+		} else {
+			wfDebug( "Parser cache miss.\n" );
+			wfIncrStats( "pcache_miss_absent" );
+			$value = false;
+		}
+		
+		wfProfileOut( $fname );
+		return $value;		
+    }
+    
+	/**
+	* @param Article $article
+	* @param parerOutput $parserOutput
+	* Updates the stable cache of a page with the given $parserOutput
+	*/
+    public static function updatePageCache( $article, $parserOutput=NULL ) {
+    	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
     	
     	// Make sure it is valid
-    	if ( is_null($value) || !$article || !$article->getId() ) return false;
-    	$cachekey = ParserCache::getKey( $article, $wgUser );
-    	// Add cache mark
+    	if ( is_null($parserOutput) || !$article || !$article->getId() ) 
+			return false;
+    	$key = 'stable-' . ParserCache::getKey( $article, $wgUser );
+    	// Add cache mark to HTML
     	$timestamp = wfTimestampNow();
-    	$value .= "\n<!-- Saved in stable version parser cache with key $cachekey and timestamp $timestamp -->";
-    	
-		$dbw = wfGetDB( DB_MASTER );
-    	// Replace the page cache if it is out of date
-		$dbw->replace('flaggedcache',
-    		array('fc_key'),
-			array('fc_key' => $cachekey, 'fc_cache' => $value, 'fc_timestamp' => $timestamp),
-			__METHOD__ );
-			
-		# Update the cache...
+    	$parserOutput->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $timestamp -->";
+		// Set expire time
+		if( $parserOutput->containsOldMagic() ){
+			$expire = 3600; # 1 hour
+		} else {
+			$expire = $wgFlaggedRevsExpire;
+		}
+		// Save to objectcache
+		$parserMemc->set( $key, $parserOutput, $expire );
+		// Update the cache...
 		$article->mTitle->invalidateCache();
-		# Purge squid for this page only
+		// Purge squid for this page only
 		$article->mTitle->purgeSquid();
 		
 		return true;
@@ -365,18 +410,18 @@ class FlaggedRevs {
 	* Callback that autopromotes user according to the setting in 
     * $wgFlaggedRevsAutopromote
 	*/
-	private static function autoPromoteUser( $article, $user, $text, $summary, $isminor, $iswatch, $section) {
+	private static function autoPromoteUser( $article, $user, $text, $summary, $isminor, $iswatch, $section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
 		
 		$groups = $user->getGroups();
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now-$usercreation) / 86400);
-		#Check if we need to promote?
+		// Check if we need to promote?
 		foreach ($wgFlaggedRevsAutopromote as $group=>$vars) {
 			if ( !in_array($group,$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
 				&& ( !$vars['email'] || $wgUser->isAllowed('emailconfirmed') ) ) {
-    			// Do not re-add status if it was previously removed...
+    			# Do not re-add status if it was previously removed...
     			$fname = 'FlaggedRevs::autoPromoteUser';
 				$db = wfGetDB( DB_SLAVE );
     			$result = $db->select(
@@ -385,7 +430,7 @@ class FlaggedRevs {
 					array("log_type='validate'", "log_action='revoke1'", 'log_namespace' => NS_USER, 'log_title' => $user->getName() ),
 					$fname,
 					'LIMIT = 1');
-				// Add rights if they were never removed
+				# Add rights if they were never removed
 				if ( !$db->numRows($result) ) {
 					$user->addGroup($group);
 					# Lets NOT spam RC, set $RC to false
@@ -495,14 +540,15 @@ class FlaggedArticle extends FlaggedRevs {
 				else
 					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
 				# Try the stable page cache
-				$newbody = $this->getPageCache();
+				$newbody = parent::getPageCache( $wgArticle );
 				# If no cache is available, get the text and parse it
-				if ( is_null($newbody) ) {
+				if ( $newbody==false ) {
 					$text = parent::getFlaggedRevText( $vis_id );
 					$options = ParserOptions::newFromUser($wgUser);
-       				$newbody = parent::parseStableText( $wgTitle, $text, $vis_id, $options, $tfrev->fr_timestamp );
+       				$parserOutput = parent::parseStableText( $wgTitle, $text, $vis_id, $options, $tfrev->fr_timestamp );
        				# Update the general cache
-       				parent::updatePageCache( $wgArticle, $newbody );
+       				parent::updatePageCache( $wgArticle, $parserOutput );
+       				$newbody = $parserOutput->getText();
        			}
 				$notes = parent::ReviewNotes( $tfrev );
 			}
@@ -586,40 +632,6 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
 	/**
-	* @param Article $article
-	* @param string $value, HTML text
-	* Get the page cache for the top stable revision of an article
-	*/   
-    function getPageCache() {
-    	global $wgUser, $wgArticle, $wgFlaggedRevsExpire;
-    	
-    	wfProfileIn( __METHOD__ );
-		   	
-    	// Make sure it is valid
-    	if ( !$wgArticle || !$wgArticle->getId() ) return NULL;
-    	$cachekey = ParserCache::getKey( $wgArticle, $wgUser );
-    	// Periodically flush old cache entries
-		wfSeedRandom();
-		if ( 0 == mt_rand( 0, 99 ) ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$cutoff = $dbw->timestamp( time() - $wgFlaggedRevsExpire );
-			$flaggedcache = $dbw->tableName( 'flaggedcache' );
-			$sql = "DELETE FROM $flaggedcache WHERE fc_timestamp < '{$cutoff}'";
-			$dbw->query( $sql );
-		}
-    	$dbr = wfGetDB( DB_SLAVE );   	
-    	$result = $dbr->select(
-			array('flaggedcache'),
-			array('fc_cache'),
-			array('fc_key' => $cachekey, 'fc_timestamp >= ' . $wgArticle->getTouched() ),
-			__METHOD__ );
-		if ( $row = $dbr->fetchObject($result) ) {
-			return $row->fc_cache;
-		}
-		return NULL;		
-    }
-    
-	/**
 	 * Get latest flagged revision
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
@@ -644,16 +656,16 @@ class FlaggedArticle extends FlaggedRevs {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
 		}
 		
-		$db = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
-		$result = $db->select(
+		$result = $dbr->select(
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_page_id' => $page_id, 'rev_id=fr_rev_id', 'rev_deleted=0'),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 		// Sorted from highest to lowest, so just take the first one if any
-		if ( $row = $db->fetchObject( $result ) ) {
+		if ( $row = $dbr->fetchObject($result) ) {
 			// Try to store results
 			$this->latestfound = true;
 			$this->latestrev = $row;
@@ -706,23 +718,18 @@ class FlaggedArticle extends FlaggedRevs {
 
 		wfProfileIn( __METHOD__ );
 		
-		$db = wfGetDB( DB_SLAVE );
-		
-        $tagwhere = array();		
+		$dbr = wfGetDB( DB_SLAVE );
+		$tagwhere = array();
         // Look for $wgFlaggedRevTags key flags only
-		foreach ( $wgFlaggedRevTags as $flag => $minimum ) {
-			$tagwhere[] = '(frt_dimension = ' . $db->addQuotes( $flag ) . ' AND frt_value >= ' . intval($minimum) . ')';
+		foreach ( $wgFlaggedRevTags as $flag => $min) {
+			$tagwhere[] = '(frt_dimension = ' . $dbr->addQuotes($flag) . ' AND frt_value >= ' . intval($min) . ')';
 		}
 		$tagwhere = implode(' OR ', $tagwhere);
-        
-		$maxrevid = '1 = 1';
-        if ($max_rev_id) {
-            $maxrevid = "frt_rev_id < $max_rev_id";                    
-        }
+		$maxrevid = $max_rev_id ? "frt_rev_id < $max_rev_id" : '1 = 1';
         // Skip archived/deleted revs
 		// Get group rows of the newest flagged revs and the number
 		// of key flags that were fulfilled
-        $result = $db->select(
+        $result = $dbr->select(
 			array('flaggedrevtags','flaggedrevs','revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp', 'COUNT(*) as app_flags'),
 			array('frt_page_id' => $page_id, $tagwhere, $maxrevid, 'frt_rev_id=fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
@@ -731,7 +738,7 @@ class FlaggedArticle extends FlaggedRevs {
 		// Iterate through each flagged revision row
         $out = array();
         $counter = 0;
-        while ( $row = $db->fetchObject( $result ) ) {
+        while ( $row = $dbr->fetchObject($result) ) {
 			// Only return so many results
 			if ( $counter > $limit ) break;
 			// If all of our flags are up to par, we have a stable version
