@@ -424,12 +424,12 @@ class Stableversions extends SpecialPage
 		// Parse the text...
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
-       	$newbody = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->fr_timestamp );
+       	$parserOutput = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->fr_timestamp );
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Construct some tagging
 		$tag .= $RevFlagging->addTagRatings( $flags );
 		// Set the new body HTML, place a tag on top
-		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>' . $tag . '</small></div>' . $newbody . $notes);
+		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>'.$tag.'</small></div>' . $parserOutput->getText() . $notes);
 	}
 	
 	function showStableList() {
