@@ -35,6 +35,9 @@ $RevisionreviewMessages['en'] = array(
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
+	'revreview-warning' => 'Content below this line is based on the current version of this page and has not been 
+	reviewed for quality.',
+	
 	'revreview-hist' => '[reviewed]',
     
     'flaggedrevs'        => 'Flagged Revisions',
@@ -87,7 +90,5 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
     'review-diff2stable'    => 'Diff to the last stable revision',
     'review-diff2oldest'    => "Diff to the oldest revision",
-    
-    'restriction-stable'   => 'Default revision'
 );
 ?>

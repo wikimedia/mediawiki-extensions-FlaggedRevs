@@ -37,3 +37,11 @@
 	margin-right: 50px;
 	text-align: center;
 }
+
+.flaggedrevs_notice {
+	font-size: 84%;
+	line-height: 1.2em;
+	margin: 0 0 1.4em 1em;
+	color: #7d7d7d;
+	width: auto;
+}

@@ -13,6 +13,7 @@ $out: OutputPage object
 the resulting HTML is about to be displayed.  
 $parserOutput: the parserOutput (object) that corresponds to the page 
 $text: the text that will be displayed, in HTML (string)
+
 */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -525,8 +526,8 @@ class FlaggedArticle extends FlaggedRevs {
 					}
 					$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $oldid, $diff, $time);
 				}
-			} # Viewing the page normally: override the page
-			else {
+			# Viewing the page normally: override the page
+			} else {
 				global $wgUser;
 
 				$skin = $wgUser->getSkin();
@@ -563,6 +564,10 @@ class FlaggedArticle extends FlaggedRevs {
 				$tag = '<div class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$out->mBodytext = $tag . $newbody . $notes;
+			// Show notice about categories and other unreviewed things
+			if ( count($out->mCategoryLinks) ) {
+				$out->mBodytext .= '<hr/><p><div class="flaggedrevs_notice plainlinks">' . wfMsg('revreview-warning') . '</div></p>';
+			}
 		} else {
 			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
 			$out->mBodytext = $tag . $out->mBodytext;
