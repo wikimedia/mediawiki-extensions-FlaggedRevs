@@ -67,7 +67,7 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # it does have limitations. Using expanded text cache will avoid 
 # this issues with regard to transcluded page moves/deletes. However
 # messages like {{CURRENTDATE}} will not remain dynamic.
-$wgUseExpandedCache = true;
+$wgUseExpandedCache = false;
 
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
@@ -202,7 +202,7 @@ class FlaggedRevs {
 				__METHOD__,
 				array('LIMIT' => 1) );
 			if( $row = $db->fetchObject($result) ) {
-				return $row->fr_text;
+				return $row->old_text;
 			}
 		}
 		return NULL;
@@ -323,7 +323,7 @@ class FlaggedRevs {
     	if( $row->fr_comment ) {
     		$notes .= '<p><div class="flaggedrevs_notes plainlinks">';
     		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
-    		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p>';
+    		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
     	}
     	return $notes;
     }
@@ -383,9 +383,10 @@ class FlaggedRevs {
 	*/
     public static function updatePageCache( $article, $parserOutput=NULL ) {
     	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
-    	
+		// Update the cache...
+		$article->mTitle->invalidateCache();
     	// Make sure it is valid
-    	if ( is_null($parserOutput) || !$article || !$article->getId() ) 
+    	if ( is_null($parserOutput) || !$article )
 			return false;
     	$key = 'stable-' . ParserCache::getKey( $article, $wgUser );
     	// Add cache mark to HTML
@@ -399,8 +400,6 @@ class FlaggedRevs {
 		}
 		// Save to objectcache
 		$parserMemc->set( $key, $parserOutput, $expire );
-		// Update the cache...
-		$article->mTitle->invalidateCache();
 		// Purge squid for this page only
 		$article->mTitle->purgeSquid();
 		
@@ -542,6 +541,7 @@ class FlaggedArticle extends FlaggedRevs {
 					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
 				# Try the stable page cache
 				$newbody = parent::getPageCache( $wgArticle );
+				echo( $newbody );
 				# If no cache is available, get the text and parse it
 				if ( $newbody==false ) {
 					$text = parent::getFlaggedRevText( $vis_id );
@@ -566,7 +566,8 @@ class FlaggedArticle extends FlaggedRevs {
 			$out->mBodytext = $tag . $newbody . $notes;
 			// Show notice about categories and other unreviewed things
 			if ( count($out->mCategoryLinks) ) {
-				$out->mBodytext .= '<hr/><p><div class="flaggedrevs_notice plainlinks">' . wfMsg('revreview-warning') . '</div></p>';
+				$out->mBodytext .= '<hr/><div class="flaggedrevs_notice plainlinks">' . 
+				wfMsgExt('revreview-warning', array('parse')) . '</div>';
 			}
 		} else {
 			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';

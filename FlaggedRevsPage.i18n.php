@@ -35,8 +35,8 @@ $RevisionreviewMessages['en'] = array(
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
-	'revreview-warning' => 'Content below this line is based on the current version of this page and has not been 
-	reviewed for quality.',
+	'revreview-warning' => 'Content below this line is based on the [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
+	of this page and may \'\'\'not\'\'\' not have been reviewed for quality.',
 	
 	'revreview-hist' => '[reviewed]',
     
