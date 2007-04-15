@@ -34,9 +34,6 @@ $RevisionreviewMessages['en'] = array(
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
-
-	'revreview-warning' => 'Content below this line is based on the [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
-	of this page and may \'\'\'not\'\'\' not have been reviewed for quality.',
 	
 	'revreview-hist' => '[reviewed]',
     

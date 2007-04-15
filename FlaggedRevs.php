@@ -556,6 +556,11 @@ class FlaggedArticle extends FlaggedRevs {
        				parent::updatePageCache( $wgArticle, $parserOutput );
        				$newbody = $parserOutput->getText();
        			}
+       			# Show stable categories and interwiki links only
+       			$out->mCategoryLinks = array();
+       			$out->addCategoryLinks( $parserOutput->getCategories() );
+       			$out->mLanguageLinks = array();
+       			$out->addLanguageLinks( $parserOutput->getLanguageLinks() );
 				$notes = parent::ReviewNotes( $tfrev );
 			}
 			// Construct some tagging
@@ -569,11 +574,6 @@ class FlaggedArticle extends FlaggedRevs {
 				$tag = '<div class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$out->mBodytext = $tag . $newbody . $notes;
-			// Show notice about categories and other unreviewed things
-			if ( count($out->mCategoryLinks) ) {
-				$out->mBodytext .= '<hr/><div class="flaggedrevs_notice plainlinks">' . 
-				wfMsgExt('revreview-warning', array('parse')) . '</div>';
-			}
 		} else {
 			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
 			$out->mBodytext = $tag . $out->mBodytext;
