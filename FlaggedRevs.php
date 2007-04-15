@@ -337,10 +337,10 @@ class FlaggedRevs {
     	
 		$fname = 'FlaggedRevs::getPageCache';
 		wfProfileIn( $fname );
-		   	
+		
     	// Make sure it is valid
     	if ( !$article || !$article->getId() ) return NULL;
-    	$key = 'stable-' . ParserCache::getKey( $article, $wgUser );
+    	$key = 'sv-' . ParserCache::getKey( $article, $wgUser );
 		// Get the cached HTML
 		wfDebug( "Trying parser cache $key\n" );
 		$value = $parserMemc->get( $key );
@@ -388,10 +388,15 @@ class FlaggedRevs {
     	// Make sure it is valid
     	if ( is_null($parserOutput) || !$article )
 			return false;
-    	$key = 'stable-' . ParserCache::getKey( $article, $wgUser );
-    	// Add cache mark to HTML
-    	$timestamp = wfTimestampNow();
-    	$parserOutput->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $timestamp -->";
+    	$key = 'sv-' . ParserCache::getKey( $article, $wgUser );
+    	// Add cache mark to HTML	
+		$now = wfTimestampNow();
+		$parserOutput->setCacheTime( $now );
+
+		// Save the timestamp so that we don't have to load the revision row on view
+		$parserOutput->mTimestamp = $article->getTimestamp();
+    	
+    	$parserOutput->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $now -->";
 		// Set expire time
 		if( $parserOutput->containsOldMagic() ){
 			$expire = 3600; # 1 hour
@@ -540,8 +545,8 @@ class FlaggedArticle extends FlaggedRevs {
 				else
 					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
 				# Try the stable page cache
-				$newbody = parent::getPageCache( $wgArticle );
-				echo( $newbody );
+				$parserOutput = parent::getPageCache( $wgArticle );
+				$newbody = $parserOutput ? $parserOutput->getText() : false;
 				# If no cache is available, get the text and parse it
 				if ( $newbody==false ) {
 					$text = parent::getFlaggedRevText( $vis_id );
