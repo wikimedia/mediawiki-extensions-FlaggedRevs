@@ -41,8 +41,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   fp_latest int(10) NOT NULL,
   fp_latest_q int(10) NOT NULL,
   -- minimum quality levels for some pages, csv
-  fp_restrictions blob NOT NULL,
+  fp_restrictions tinyblob NOT NULL,
 
   PRIMARY KEY fp_page_id (fp_page_id),
-  INDEX frt_page_latest (fp_page_id,fp_latest,fp_latest_q)
+  INDEX fp_page_latest (fp_page_id,fp_latest,fp_latest_q)
 ) TYPE=InnoDB;
