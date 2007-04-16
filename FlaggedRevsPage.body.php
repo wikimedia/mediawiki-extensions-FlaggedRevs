@@ -236,21 +236,21 @@ class Revisionreview extends SpecialPage
 	function approveRevision( $rev=NULL, $notes='' ) {
 		global $wgUser, $wgParser;
 		
+		wfProfileIn( __METHOD__ );
+		
 		if( is_null($rev) ) return false;
 		// No bogus timestamps
 		if ( $this->timestamp && ($this->timestamp < $rev->getTimestamp() || $this->timestamp > wfTimestampNow()) )
 			return false;
+			
 		$timestamp = $this->timestamp ? $this->timestamp : wfTimestampNow();
-
-		wfProfileIn( __METHOD__ );
-        
         // Get the page text and esolve all templates
         $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
         // Parse the text into HTML
         $parserOutput = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $timestamp );
 		
 		$dbw = wfGetDB( DB_MASTER );
-		// Our revision entry
+		// Our review entry
  		$revset = array(
  			'fr_page_id'   => $rev->getPage(),
 			'fr_rev_id'    => $rev->getId(),
@@ -273,10 +273,29 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
+		// Update our page table if needed
+		$res = $dbw->select( 'flaggedpages', array('fp_page_id'), array('fp_page_id' => $rev->getPage() ), __METHOD__ );
+		if ( $dbw->numrows($res) ) {
+			# This page has an entry, update it...
+			$dbw->update( 'flaggedpages',
+				array( 'fp_latest' => $rev->getId() ),
+				array( 'fp_page_id' => $rev->getPage(), "fp_latest < {$rev->getId()}" ),
+				__METHOD__ );
+		} else {
+			# Insert our new rows...
+			$dbw->insert( 'flaggedpages',
+				array( 'fp_page_id' => $rev->getPage(), 'fp_latest' => $rev->getId() ),
+				__METHOD__ );
+		}
+		if ( FlaggedRevs::isQuality($this->dims) ) {
+			$dbw->update( 'flaggedpages',
+			array( 'fp_latest_q' => $rev->getId() ),
+			array( 'fp_page_id' => $rev->getPage(), "fp_latest_q < {$rev->getId()}" ),
+			__METHOD__ );
+		}
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
-		$updateImgs = $wgUser->isAllowed('validate');
 		// Update the cache...
 		$article = new Article( $this->page );
 		FlaggedRevs::updatePageCache( $article, $parserOutput );
@@ -290,15 +309,37 @@ class Revisionreview extends SpecialPage
 	 */  
 	function unapproveRevision( $rev=NULL ) {
 		global $wgUser;
+		
+		wfProfileIn( __METHOD__ );
 	
 		if( is_null($rev) ) return false;
-        $db = wfGetDB( DB_MASTER );
-        $user = $wgUser->getId();
-        $timestamp = wfTimestampNow();
+		
+		$user = $wgUser->getId();
+		$timestamp = wfTimestampNow();
+		
+        $dbw = wfGetDB( DB_MASTER );
 		// Delete from table
-		$db->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->fr_rev_id ) );
+		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->fr_rev_id ) );
 		// And the flags...
-		$db->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->fr_rev_id ) );		
+		$dbw->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->fr_rev_id ) );
+		// Update our page table, what is the new top flagged rev?
+		// Read from the master to get up to date values
+		// Check for top remaining rev...
+		$lrev = FlaggedRevs::getStableRevisions( $dbw, $rev->getPage(), 1 );
+		$dbw->update( 'flaggedpages',
+			array( 'fp_latest' => $lrev ? $lrev->fr_rev_id : 0 ),
+			array( 'fp_page_id' => $rev->getPage() ),
+			__METHOD__ );	
+		// Check for top remaining quality rev
+		$lqrev = false;
+		if ( $lrev ) {
+			$lqrev = FlaggedRevs::getQualityRevisions( $dbw, $rev->getPage(), 1 );
+		}
+		// Fallback to the newest remaining one
+		$dbw->update( 'flaggedpages',
+			array( 'fp_latest_q' => $lqrev ? $lrev->fr_rev_id : 0),
+			array( 'fp_page_id' => $rev->getPage() ),
+			__METHOD__ );
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 		

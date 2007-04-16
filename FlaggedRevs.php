@@ -29,7 +29,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => 'Aaron Schulz, Joerg Baach',
 	'name' => 'Flagged Revisions',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
-	'description' => 'Gives editors/reviewers the ability to validate revisions and stablize pages'
+	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages'
 );
 
 # Internationilization
@@ -268,6 +268,87 @@ class FlaggedRevs {
 		// Return count of revisions
 		return $db->numRows($result);
     }
+    
+	/**
+	 * Get all the revisions that meet the requirments
+	 * per the $wgFlaggedRevTags variable
+	 * This can become expensive
+	 * @param database $db
+     * @param int $page_id
+     * @param int $limit
+     * @param int $max_rev_id the revision ids should be less than this
+	 */
+	function getQualityRevisions( $db, $page_id, $limit=1, $max_rev_id=NULL ) {
+        global $wgFlaggedRevTags;
+
+		wfProfileIn( __METHOD__ );
+		
+		$tagwhere = array();
+        // Look for $wgFlaggedRevTags key flags only
+		foreach ( $wgFlaggedRevTags as $flag => $min) {
+			$tagwhere[] = '(frt_dimension = ' . $db->addQuotes($flag) . ' AND frt_value >= ' . intval($min) . ')';
+		}
+		$tagwhere = implode(' OR ', $tagwhere);
+		$maxrevid = $max_rev_id ? "frt_rev_id < $max_rev_id" : '1 = 1';
+        // Skip archived/deleted revs
+		// Get group rows of the newest flagged revs and the number
+		// of key flags that were fulfilled
+        $result = $db->select(
+			array('flaggedrevtags','flaggedrevs','revision'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp', 'COUNT(*) as app_flags'),
+			array('frt_page_id' => $page_id, $tagwhere, $maxrevid, 'frt_rev_id=fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			__METHOD__,
+			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
+		// Iterate through each flagged revision row
+        $out = array();
+        $counter = 0;
+        while ( $row = $dbr->fetchObject($result) ) {
+			// Only return so many results
+			if ( $counter > $limit ) break;
+			// If all of our flags are up to par, we have a stable version
+			else if ( $row->app_flags==count($wgFlaggedRevTags) ) {
+                $out[] = $row;
+                $counter++;
+            }
+	    }
+        return $out;
+    }
+    
+	/**
+	 * Get all the revisions that meet the requirments
+	 * per the $wgFlaggedRevTags variable
+	 * This can become expensive
+	 * @param database $db
+     * @param int $page_id
+     * @param int $limit
+     * @param int $max_rev_id the revision ids should be less than this
+	 */
+	function getStableRevisions( $db, $page_id, $limit=1, $max_rev_id=NULL ) {
+        global $wgFlaggedRevTags;
+
+		wfProfileIn( __METHOD__ );
+		
+		$maxrevid = $max_rev_id ? "fr_rev_id < $max_rev_id" : '1 = 1';
+        // Skip archived/deleted revs
+		// Get group rows of the newest flagged revs and the number
+		// of key flags that were fulfilled
+        $result = $db->select(
+			array('flaggedrevs','revision'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
+			array('fr_page_id' => $page_id, $maxrevid, 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			__METHOD__,
+			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
+		// Iterate through each flagged revision row
+        $out = array();
+        $counter = 0;
+        while ( $row = $dbr->fetchObject($result) ) {
+			// Only return so many results
+			if ( $counter > $limit ) break;
+            $out[] = $row;
+            $counter++;
+	    }
+        return $out;
+    }
 
 	/**
 	 * @param int $rev_id
@@ -445,12 +526,25 @@ class FlaggedRevs {
 			}
 		}
     }
+
+	/**
+	* @param Array $flags
+	* @output bool, is this revision at quality condition?
+	*/
+    public static function isQuality( $flags ) {
+    	global $wgFlaggedRevTags;
+    	
+    	foreach ( $wgFlaggedRevTags as $f => $v ) {
+    		if ( !isset($flags[$f]) || $v > $flags[$f] ) return false;
+    	}
+    	return true;
+    }
     
 	/**
 	* @param Array $flags
 	* @output bool, is this revision at optimal condition?
 	*/
-    function isFeatured( $flags ) {
+    public static function isPristine( $flags ) {
     	global $wgFlaggedRevValues;
     	
     	foreach ( $flags as $f => $v ) {
@@ -492,15 +586,15 @@ class FlaggedArticle extends FlaggedRevs {
 		// Check the newest stable version...
 		$quality = false; $featured = false;
 		if ( $this->pageOverride() ) {
-			// getLatestStableRev() is slower, don't use it if we won't need to
-			$tfrev = $this->getLatestStableRev();
+			// getLatestQualityRev() is slower, don't use it if we won't need to
+			$tfrev = $this->getLatestQualityRev();
 			if ( is_null($tfrev) ) {
-				$tfrev = $this->getLatestFlaggedRev();
+				$tfrev = $this->getLatestStableRev();
 			} else {
 				$quality = true;
 			}
 		} else {
-			$tfrev = $this->getLatestFlaggedRev();
+			$tfrev = $this->getLatestStableRev();
 		}
 		if( $wgRequest->getVal('diff') ) {
     		// Do not clutter up diffs any further...
@@ -536,7 +630,7 @@ class FlaggedArticle extends FlaggedRevs {
 
 				$skin = $wgUser->getSkin();
 				// See if this page is featured
-				$featured = parent::isFeatured( $flags );
+				$featured = parent::isPristine( $flags );
        			# We will be looking at the reviewed revision...
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
@@ -604,7 +698,7 @@ class FlaggedArticle extends FlaggedRevs {
 		// Set new body html text as that of now
 		$tag = '';
 		// Check the newest stable version
-		$tfrev = $this->getLatestFlaggedRev( $editform->mArticle );
+		$tfrev = $this->getLatestStableRev( $editform->mArticle );
 		if( is_object($tfrev) ) {
 			global $wgParser, $wgLang;		
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
@@ -643,6 +737,41 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
 	/**
+	 * Get latest flagged revision that meets requirments
+	 * per the $wgFlaggedRevTags variable
+	 * This passes rev_deleted revisions
+	 * This is based on the current article and caches results
+	 * @output array ( rev, flags )
+	 */
+	function getLatestQualityRev( $article=NULL ) {
+		global $wgArticle;
+		
+		$article = $article ? $article : $wgArticle;
+	
+		wfProfileIn( __METHOD__ );
+        // Cached results available?
+		if ( isset($this->stablefound) ) {
+			return ( $this->stablefound ) ? $this->stablerev : null;
+		}
+		$dbr = wfGetDB( DB_SLAVE );
+		// Skip deleted revisions
+        $result = $dbr->select( 
+			array('flaggedpages', 'flaggedrevs', 'revision'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
+			array('fp_page_id' => $article->getId(), 'fp_latest_q = fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			__METHOD__ );
+		// Do we have one?
+        if ( $row = $dbr->fetchObject($result) ) {
+        	$this->stablefound = true;
+			$this->stablerev = $row;
+			return $row;
+	    } else {
+            $this->stablefound = false;    
+            return null;
+        }
+    }
+    
+	/**
 	 * Get latest flagged revision
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
@@ -652,113 +781,32 @@ class FlaggedArticle extends FlaggedRevs {
 	 * The cache here doesn't make sense for arbitrary articles
 	 * @output array ( rev, flags )
 	 */
-	function getLatestFlaggedRev( $article=NULL ) {
+	function getLatestStableRev( $article=NULL ) {
 		global $wgArticle;
 		
 		wfProfileIn( __METHOD__ );
 		
-		$article = ($article) ? $article : $wgArticle;
-		if ( !$article ) return;
-		
-		$page_id = $article->getId();
-		if( !$page_id ) return NULL;
-		// Cached results available?
+		$article = $article ? $article : $wgArticle;
+        // Cached results available?
 		if ( isset($this->latestfound) ) {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
 		}
-		
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
-		$result = $dbr->select(
-			array('flaggedrevs', 'revision'),
+        $result = $dbr->select( 
+			array('flaggedpages', 'flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_page_id' => $page_id, 'rev_id=fr_rev_id', 'rev_deleted=0'),
-			__METHOD__ ,
-			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
-		// Sorted from highest to lowest, so just take the first one if any
-		if ( $row = $dbr->fetchObject($result) ) {
-			// Try to store results
-			$this->latestfound = true;
+			array('fp_page_id' => $article->getId(), 'fp_latest = fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			__METHOD__ );
+		// Do we have one?
+        if ( $row = $dbr->fetchObject($result) ) {
+        	$this->latestfound = true;
 			$this->latestrev = $row;
 			return $row;
-		}
-		$this->latestfound = false;
-		return NULL;
-	}
-    
-	/**
-	 * Get latest flagged revision that meets requirments
-	 * per the $wgFlaggedRevTags variable
-	 * This passes rev_deleted revisions
-	 * This is based on the current article and caches results
-	 * @output array ( rev, flags )
-	 */
-	function getLatestStableRev() {
-		global $wgFlaggedRevTags, $wgArticle;
-		
-		wfProfileIn( __METHOD__ );
-		
-		$page_id = $wgArticle->getId();
-        if( !$page_id ) return NULL;
-		
-        // Cached results available?
-		if ( isset($this->stablefound) ) {
-			return ( $this->stablefound ) ? $this->stablerev : NULL;
-		}
-
-        $rev = $this->getStableRevs( $page_id, null, 1 );
-        
-        if ( count($rev) ) {
-            $this->stablefound = true;
-			$this->stablerev = $rev[0];
-            return $rev[0];
-        } else {
-            $this->stablefound = false;    
-            return Null;
+	    } else {
+            $this->latestfound = false;    
+            return null;
         }
-	}
-
-	/**
-	 * Get all the revisions that meet the requirments
-	 * per the $wgFlaggedRevTags variable
-     * @param int $page_id
-     * @param int $max_rev_id the revision ids should be less than this
-	 */
-	function getStableRevs( $page_id, $max_rev_id=NULL, $limit=1 ) {
-        global $wgFlaggedRevTags;
-
-		wfProfileIn( __METHOD__ );
-		
-		$dbr = wfGetDB( DB_SLAVE );
-		$tagwhere = array();
-        // Look for $wgFlaggedRevTags key flags only
-		foreach ( $wgFlaggedRevTags as $flag => $min) {
-			$tagwhere[] = '(frt_dimension = ' . $dbr->addQuotes($flag) . ' AND frt_value >= ' . intval($min) . ')';
-		}
-		$tagwhere = implode(' OR ', $tagwhere);
-		$maxrevid = $max_rev_id ? "frt_rev_id < $max_rev_id" : '1 = 1';
-        // Skip archived/deleted revs
-		// Get group rows of the newest flagged revs and the number
-		// of key flags that were fulfilled
-        $result = $dbr->select(
-			array('flaggedrevtags','flaggedrevs','revision'),
-			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp', 'COUNT(*) as app_flags'),
-			array('frt_page_id' => $page_id, $tagwhere, $maxrevid, 'frt_rev_id=fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
-			__METHOD__,
-			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
-		// Iterate through each flagged revision row
-        $out = array();
-        $counter = 0;
-        while ( $row = $dbr->fetchObject($result) ) {
-			// Only return so many results
-			if ( $counter > $limit ) break;
-			// If all of our flags are up to par, we have a stable version
-			else if ( $row->app_flags==count($wgFlaggedRevTags) ) {
-                $out[] = $row;
-                $counter++;
-            }
-	    }
-        return $out;
     }
     
     function setPermaLink( &$sktmp, &$nav_urls, &$oldid, &$revid ) {
@@ -768,7 +816,7 @@ class FlaggedArticle extends FlaggedRevs {
 		if( !$wgArticle || !$wgTitle->isContentPage() || !$this->pageOverride() )
 			return;
 		// Check for an overridabe revision
-		$tfrev = $this->getLatestStableRev();
+		$tfrev = $this->getLatestQualityRev();
 		if ( !$tfrev ) return;
 		$revid = $tfrev->fr_rev_id;
 		// Replace "permalink" with an actual permanent link
@@ -794,10 +842,10 @@ class FlaggedArticle extends FlaggedRevs {
 		// If we are viewing a page normally, and it was overrode
 		// change the edit tab to a "current revision" tab
 		if( !$wgRequest->getVal('oldid') ) {
-       		$tfrev = $this->getLatestStableRev();
+       		$tfrev = $this->getLatestQualityRev();
        		// No quality revs? Find the last reviewed one
        		if ( !is_object($tfrev) )
-       			$tfrev = $this->getLatestFlaggedRev();
+       			$tfrev = $this->getLatestStableRev();
        		// Note that revisions may not be set to override for users
        		if( is_object($tfrev) && $this->pageOverride() ) {
        			# Remove edit option altogether
