@@ -269,28 +269,28 @@ class Revisionreview extends SpecialPage
 				'frt_value' => $value 
 			);
 		}
-		// Update flagrevisions table
+		// Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
-		// Update our page table if needed
+		// Update our flagged page table if needed
 		$res = $dbw->select( 'flaggedpages', array('fp_page_id'), array('fp_page_id' => $rev->getPage() ), __METHOD__ );
 		if ( $dbw->numrows($res) ) {
 			# This page has an entry, update it...
 			$dbw->update( 'flaggedpages',
 				array( 'fp_latest' => $rev->getId() ),
-				array( 'fp_page_id' => $rev->getPage(), "fp_latest < {$rev->getId()}" ),
+				array( 'fp_page_id' => $rev->getPage(), "fp_latest < ".$rev->getId() ),
 				__METHOD__ );
 		} else {
 			# Insert our new rows...
 			$dbw->insert( 'flaggedpages',
-				array( 'fp_page_id' => $rev->getPage(), 'fp_latest' => $rev->getId() ),
+				array( 'fp_page_id' => $rev->getPage(), 'fp_latest' => $rev->getId(), 'fp_latest_q' => 0 ),
 				__METHOD__ );
 		}
 		if ( FlaggedRevs::isQuality($this->dims) ) {
 			$dbw->update( 'flaggedpages',
 			array( 'fp_latest_q' => $rev->getId() ),
-			array( 'fp_page_id' => $rev->getPage(), "fp_latest_q < {$rev->getId()}" ),
+			array( 'fp_page_id' => $rev->getPage(), "fp_latest_q < ".$rev->getId() ),
 			__METHOD__ );
 		}
 		// Update the article review log
@@ -307,38 +307,38 @@ class Revisionreview extends SpecialPage
 	 * @param Revision $rev
 	 * Removes flagged revision data for this page/id set
 	 */  
-	function unapproveRevision( $rev=NULL ) {
+	function unapproveRevision( $row=NULL ) {
 		global $wgUser;
 		
 		wfProfileIn( __METHOD__ );
 	
-		if( is_null($rev) ) return false;
+		if( is_null($row) ) return false;
 		
 		$user = $wgUser->getId();
 		$timestamp = wfTimestampNow();
 		
         $dbw = wfGetDB( DB_MASTER );
 		// Delete from table
-		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $rev->fr_rev_id ) );
+		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $row->fr_rev_id ) );
 		// And the flags...
-		$dbw->delete( 'flaggedrevtags', array( 'frt_rev_id' => $rev->fr_rev_id ) );
+		$dbw->delete( 'flaggedrevtags', array( 'frt_rev_id' => $row->fr_rev_id ) );
 		// Update our page table, what is the new top flagged rev?
 		// Read from the master to get up to date values
 		// Check for top remaining rev...
-		$lrev = FlaggedRevs::getStableRevisions( $dbw, $rev->getPage(), 1 );
+		list($lrev) = FlaggedRevs::getStableRevisions( $dbw, $row->fr_page_id, 1 );
 		$dbw->update( 'flaggedpages',
 			array( 'fp_latest' => $lrev ? $lrev->fr_rev_id : 0 ),
-			array( 'fp_page_id' => $rev->getPage() ),
+			array( 'fp_page_id' => $row->fr_page_id ),
 			__METHOD__ );	
 		// Check for top remaining quality rev
 		$lqrev = false;
 		if ( $lrev ) {
-			$lqrev = FlaggedRevs::getQualityRevisions( $dbw, $rev->getPage(), 1 );
+			list($lqrev) = FlaggedRevs::getQualityRevisions( $dbw, $row->fr_page_id, 1 );
 		}
 		// Fallback to the newest remaining one
 		$dbw->update( 'flaggedpages',
 			array( 'fp_latest_q' => $lqrev ? $lrev->fr_rev_id : 0),
-			array( 'fp_page_id' => $rev->getPage() ),
+			array( 'fp_page_id' => $row->fr_page_id ),
 			__METHOD__ );
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
@@ -444,7 +444,7 @@ class Stableversions extends SpecialPage
 		}
 		// Must be a valid page/Id
 		$page = Title::newFromID( $frev->fr_page_id );
-		if( is_null($page) || !$page->isContentPage() ) {
+		if( is_null($page) ) {
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
@@ -462,13 +462,12 @@ class Stableversions extends SpecialPage
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt('revreview-static', array('parse'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());
+		$tag .= $RevFlagging->addTagRatings( $flags );
 		// Parse the text...
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
        	$parserOutput = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->fr_timestamp );
 		$notes = $RevFlagging->ReviewNotes( $frev );
-		// Construct some tagging
-		$tag .= $RevFlagging->addTagRatings( $flags );
 		// Set the new body HTML, place a tag on top
 		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>'.$tag.'</small></div>' . $parserOutput->getText() . $notes);
 	}

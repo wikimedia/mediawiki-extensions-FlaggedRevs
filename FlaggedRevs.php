@@ -232,6 +232,7 @@ class FlaggedRevs {
 	/**
 	 * @param int $page_id
 	 * Get rev ids of reviewed revs for a page
+	 * Well include deleted revs here
 	 */
     public static function getReviewedRevs( $page_id ) {
 		wfProfileIn( __METHOD__ );
@@ -302,7 +303,7 @@ class FlaggedRevs {
 		// Iterate through each flagged revision row
         $out = array();
         $counter = 0;
-        while ( $row = $dbr->fetchObject($result) ) {
+        while ( $row = $db->fetchObject($result) ) {
 			// Only return so many results
 			if ( $counter > $limit ) break;
 			// If all of our flags are up to par, we have a stable version
@@ -337,11 +338,11 @@ class FlaggedRevs {
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_page_id' => $page_id, $maxrevid, 'fr_rev_id=rev_id', 'rev_deleted=0'),
 			__METHOD__,
-			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
+			array('ORDER BY' => 'fr_rev_id DESC') );
 		// Iterate through each flagged revision row
         $out = array();
         $counter = 0;
-        while ( $row = $dbr->fetchObject($result) ) {
+        while ( $row = $db->fetchObject($result) ) {
 			// Only return so many results
 			if ( $counter > $limit ) break;
             $out[] = $row;
@@ -758,7 +759,7 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select( 
 			array('flaggedpages', 'flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fp_page_id' => $article->getId(), 'fp_latest_q = fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			array('fp_page_id' => $article->getId(), 'fp_latest_q = fr_rev_id', 'fp_latest_q=rev_id', 'rev_deleted=0'),
 			__METHOD__ );
 		// Do we have one?
         if ( $row = $dbr->fetchObject($result) ) {
@@ -796,7 +797,7 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select( 
 			array('flaggedpages', 'flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fp_page_id' => $article->getId(), 'fp_latest = fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
+			array('fp_page_id' => $article->getId(), 'fp_latest = fr_rev_id', 'fp_latest=rev_id', 'rev_deleted=0'),
 			__METHOD__ );
 		// Do we have one?
         if ( $row = $dbr->fetchObject($result) ) {
