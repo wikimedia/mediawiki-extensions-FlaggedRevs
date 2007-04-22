@@ -85,7 +85,14 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-none'   => '[[$1]] has no reviewed revisions.',
 	'stableversions-list'   => 'The following is a list of revisions of [[$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
+	'stableversions-quality' => '[Latest quality revision]',
     'review-diff2stable'    => 'Diff to the last stable revision',
     'review-diff2oldest'    => "Diff to the oldest revision",
+    
+    
+    'unreviewedpages'       => 'Unreviewed pages',
+    'viewunreviewed'        => 'List unreviewed content pages',
+    'included-nonquality'   => 'Include reviewed pages not marked as quality.',
+    'unreviewed-list'       => 'This page lists articles that have not yet been reviewed.',
 );
 ?>

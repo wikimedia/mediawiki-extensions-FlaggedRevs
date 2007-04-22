@@ -23,7 +23,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 if( !defined( 'FLAGGED_CSS' ) ) define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
 
-$wgExtensionFunctions[] = 'efLoadReviewMessages';
+if( !function_exists( 'extAddSpecialPage' ) ) {
+	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
+}
 
 $wgExtensionCredits['other'][] = array(
 	'author' => 'Aaron Schulz, Joerg Baach',
@@ -32,15 +34,25 @@ $wgExtensionCredits['other'][] = array(
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages'
 );
 
-# Internationilization
+$wgExtensionFunctions[] = 'efLoadReviewMessages';
+
+# Load promotion UI
+include_once('SpecialMakevalidate.php');
+# Load review UI
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Revisionreview', 'Revisionreview' );
+# Load stableversions UI
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Stableversions', 'Stableversions' );
+# Load unreviewed pages list
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Unreviewedpages', 'UnreviewedPages' );
+
 function efLoadReviewMessages() {
 	global $wgMessageCache, $RevisionreviewMessages, $wgOut;
+	# Internationalization
 	require( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
-	
 	foreach ( $RevisionreviewMessages as $lang => $langMessages ) {
 		$wgMessageCache->addMessages( $langMessages, $lang );
 	}
-	# Set the CSS
+	# UI CSS
 	$wgOut->addLink( array(
 		'rel'	=> 'stylesheet',
 		'type'	=> 'text/css',
@@ -962,18 +974,6 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
 }
-
-# Load promotion UI
-include_once('SpecialMakevalidate.php');
-
-if( !function_exists( 'extAddSpecialPage' ) ) {
-	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
-}
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Revisionreview', 'Revisionreview' );
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Stableversions', 'Stableversions' );
-
-# Load approve/unapprove UI
-$wgHooks['LoadAllMessages'][] = 'efLoadReviewMessages';
 
 $flaggedrevs = new FlaggedRevs();
 $flaggedarticle = new FlaggedArticle();

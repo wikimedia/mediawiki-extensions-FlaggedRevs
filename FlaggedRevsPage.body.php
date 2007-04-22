@@ -511,7 +511,7 @@ class Stableversions extends SpecialPage
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
 		$review = wfMsg( 'stableversions-review', $ftime );
-		return '<li>'.$skin->makeKnownLinkObj( $special, $time, 'oldid='.$row->fr_rev_id ).' ('.$review.')'.'</li>';	
+		return '<li>'.$skin->makeKnownLinkObj( $special, $time, 'oldid='.$row->fr_rev_id ).' ('.$review.') '.'</li>';	
 	}
 }
 
@@ -537,8 +537,8 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = "fr_page_id = $this->page_id";
-		$conds[] = 'fr_rev_id = rev_id';
-		$conds[] = 'rev_deleted = 0';
+		$conds[] = "fr_rev_id = rev_id";
+		$conds[] = "rev_deleted = 0";
 		return array(
 			'tables' => array('flaggedrevs','revision'),
 			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp',
@@ -548,6 +548,147 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 
 	function getIndexField() {
 		return 'fr_rev_id';
+	}
+}
+
+class Unreviewedpages extends SpecialPage
+{
+
+    function Unreviewedpages() {
+        SpecialPage::SpecialPage('Unreviewedpages');
+    }
+
+    function execute( $par ) {
+        global $wgRequest;
+
+		$this->setHeaders();
+		
+		$this->showList( $wgRequest );
+	}
+	
+	function showList( $wgRequest ) {
+		global $wgOut, $wgUser, $wgScript, $wgTitle;
+	
+		$skin = $wgUser->getSkin();
+		$namespace = $wgRequest->getIntOrNull( 'namespace' );
+		$nonquality = $wgRequest->getVal( 'includenonquality' );
+		
+		$action = htmlspecialchars( $wgScript );
+		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
+			'<fieldset><legend>' . wfMsg('viewunreviewed') . '</legend>' .
+			$this->getNamespaceMenu( $namespace ) . "\n" .
+			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
+			'<p>' . Xml::check( 'includenonquality', $nonquality, array('id' => 'includenonquality') ) . 
+			' ' . Xml::label( wfMsgHtml("included-nonquality"), 'includenonquality' ) . "</p>\n" .
+			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
+			"</fieldset></form>");
+		
+		list( $limit, $offset ) = wfCheckLimits();
+		
+		$sdr = new UnreviewedPagesPage( $namespace, $nonquality );
+		$sdr->doQuery( $offset, $limit );
+	}
+	
+	function getNamespaceMenu( $selected=NULL, $allnamespaces = null, $includehidden=false ) {
+		global $wgContLang, $wgContentNamespaces;
+		
+		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
+		if( $selected !== '' ) {
+			if( is_null( $selected ) ) {
+				// No namespace selected; let exact match work without hitting Main
+				$selected = '';
+			} else {
+				// Let input be numeric strings without breaking the empty match.
+				$selected = intval( $selected );
+			}
+		}
+		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
+		$arr = $wgContLang->getFormattedNamespaces();
+		if( !is_null($allnamespaces) ) {
+			$arr = array($allnamespaces => wfMsg('namespacesall')) + $arr;
+		}
+		foreach ($arr as $index => $name) {
+			# Content only
+			if ($index < NS_MAIN || !isset($wgContentNamespaces[$index]) ) continue;
+
+			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
+
+			if ($index === $selected) {
+				$s .= "\t" . Xml::element("option",
+						array("value" => $index, "selected" => "selected"),
+						$name) . "\n";
+			} else {
+				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
+			}
+		}
+		$s .= "</select>\n";
+		return $s;
+	}
+}
+
+class UnreviewedPagesPage extends PageQueryPage {
+	
+	function __construct( $namespace=NULL, $nonquality=false ) {
+		$this->namespace = $namespace;
+		$this->nonquality = $nonquality;
+	}
+	
+	function getName() {
+		return 'UnreviewedPages';
+	}
+
+	function isExpensive( ) { return true; }
+	function isSyndicated() { return false; }
+
+	function getPageHeader( ) {
+		#FIXME : probably need to add a backlink to the maintenance page.
+		return '<p>'.wfMsg("unreviewed-list")."</p><br />\n";
+	}
+
+	function getSQLText( &$dbr, $namespace, $nonquality = false ) {
+		global $wgContentNamespaces;
+		
+		list( $page, $flaggedpages ) = $dbr->tableNamesN( 'page', 'flaggedpages' );
+
+		$ns = ($namespace !== null) ? "page_namespace=$namespace" : '1 = 1';
+		$where = $nonquality ? 'fp_latest IS NULL OR fp_latest=0' : 'fp_latest_q IS NULL OR fp_latest_q=0';
+		$content = array();
+		foreach( $wgContentNamespaces as $cns ) {
+			$content[] = "page_namespace=$cns";
+		}
+		$content = implode(' OR ',$content);
+		$sql = 
+			"SELECT page_namespace AS namespace,page_title AS title,page_len AS size 
+			FROM $page 
+			LEFT JOIN $flaggedpages ON page_id = fp_page_id 
+			WHERE page_is_redirect=0 AND $ns AND ($where) AND ($content) ";
+		return $sql;
+	}
+	
+	function getSQL() {
+		$dbr = wfGetDB( DB_SLAVE );
+		return $this->getSQLText( $dbr, $this->namespace, $this->nonquality );
+	}
+
+	function getOrder() {
+		return 'ORDER BY page_id DESC';
+	}
+
+	function formatResult( $skin, $result ) {
+		global $wgLang;
+	
+		$fname = 'UnreviewedPagesPage::formatResult';
+		$title = Title::makeTitle( $result->namespace, $result->title );
+		$link = $skin->makeKnownLinkObj( $title );
+		$stxt = '';
+		if (!is_null($size = $result->size)) {
+			if ($size == 0)
+				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
+			else
+				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
+		}
+
+		return( "{$link} {$stxt}" );
 	}
 }
 ?>
