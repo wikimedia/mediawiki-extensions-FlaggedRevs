@@ -149,18 +149,18 @@ class MakeValidate extends SpecialPage {
 		global $wgUser;
 		$thisTitle = Title::makeTitle( NS_SPECIAL, $this->getName() );
 		if( $type == MW_MAKEVALIDATE_GRANT_GRANT ) {
-			$grantE = true; $revokeE = false;
-			$grantR = true; $revokeR = false;
+			$grant1 = true; $revoke1 = false;
+			$grant2 = true; $revoke2 = false;
 		} else if ( $type == MW_MAKEVALIDATE_REVOKE_GRANT ) {
-			$grantE = false; $revokeE = true;
-			$grantR = true; $revokeR = false;
+			$grant1 = false; $revoke1 = true;
+			$grant2 = true; $revoke2 = false;
 		} else if ( $type == MW_MAKEVALIDATE_REVOKE_REVOKE ) {
-			$grantE = false; $revokeE = $wgUser->isAllowed('makevalidate');
-			$grantR = false; $revokeR = true;
+			$grant1 = false; $revoke1 = $wgUser->isAllowed('makevalidate');
+			$grant2 = false; $revoke2 = true;
 		} else {
 		// OK, this one should never happen
-			$grantE = true; $revokeE = $wgUser->isAllowed('makevalidate');
-			$grantR = false; $revokeR = true;
+			$grant1 = true; $revoke1 = $wgUser->isAllowed('makevalidate');
+			$grant2 = false; $revoke2 = true;
 		}
 	
 		# Start the table
@@ -170,7 +170,7 @@ class MakeValidate extends SpecialPage {
 		# Grant/revoke buttons
 		$form .= wfElement( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-e' ) );
 		$form .= wfOpenElement( 'td' );
-		foreach( array( 'grantE', 'revokeE' ) as $button ) {
+		foreach( array( 'grant1', 'revoke1' ) as $button ) {
 			$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makevalidate-' . $button ) );
 			if( !$$button )
 				$attribs['disabled'] = 'disabled';
@@ -181,7 +181,7 @@ class MakeValidate extends SpecialPage {
 		if ( $wgUser->isAllowed('makevalidate') ) {
 			$form .= wfElement( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-r' ) );
 			$form .= wfOpenElement( 'td' );
-			foreach( array( 'grantR', 'revokeR' ) as $button ) {
+			foreach( array( 'grant2', 'revoke2' ) as $button ) {
 				$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makevalidate-' . $button ) );
 				if( !$$button )
 					$attribs['disabled'] = 'disabled';
