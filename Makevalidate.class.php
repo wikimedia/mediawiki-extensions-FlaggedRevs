@@ -67,7 +67,7 @@ class MakeValidate extends SpecialPage {
 								# Not a reviewer; show the grant form
 								$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_GRANT_GRANT ) );
 							}
-						} elseif( $wgRequest->getCheck( 'grantR' ) ) {
+						} elseif( $wgRequest->getCheck( 'grant2' ) ) {
 							# Permission check
 							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
 								$wgOut->permissionRequired( 'makevalidate' ); return;
@@ -80,7 +80,7 @@ class MakeValidate extends SpecialPage {
 								$user->addGroup( 'reviewer' );
 							$this->addLogItem( 'grant2', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-r', $user->getName() ) );
-						} elseif( $wgRequest->getCheck( 'revokeR' ) ) {
+						} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
 							# Permission check
 							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
 								$wgOut->permissionRequired( 'makevalidate' ); return;
@@ -90,13 +90,13 @@ class MakeValidate extends SpecialPage {
 								$user->removeGroup( 'reviewer' );
 							$this->addLogItem( 'revoke2', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-r', $user->getName() ) );
-						} elseif( $wgRequest->getCheck( 'grantE' ) ) {
+						} elseif( $wgRequest->getCheck( 'grant1' ) ) {
 							# Grant the flag
 							if( !in_array( 'editor', $user->mGroups ) )
 								$user->addGroup( 'editor' );
 							$this->addLogItem( 'grant1', $user, trim( $wgRequest->getText( 'comment' ) ) );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
-						} elseif( $wgRequest->getCheck( 'revokeE' ) ) {
+						} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
 							if( in_array( 'reviewer', $user->mGroups ) ) {
 								# Permission check
 								if( !$wgUser->isAllowed( 'makevalidate' ) ) {

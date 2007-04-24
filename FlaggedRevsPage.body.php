@@ -25,9 +25,14 @@ class Revisionreview extends SpecialPage
 		$this->target = $wgRequest->getText( 'target' );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		// Must be a valid page/Id
+		
+		// Must be a valid content page
 		$this->page = Title::newFromUrl( $this->target );
-		if( is_null($this->page) || is_null($this->oldid) || !$this->page->isContentPage() ) {
+		if ( !$this->target || !$this->oldid || !$this->page->isContentPage() ) {
+			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
+			return;
+		}
+		if( is_null($this->page) || is_null($this->oldid) ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
