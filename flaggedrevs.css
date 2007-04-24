@@ -67,3 +67,9 @@
     background-repeat: no-repeat;
     padding: 3px 16px 0px 0px;
 }
+
+.fr-marker-0 {
+    background-image: url(../FlaggedRevs/img/boxQ.png);
+    background-repeat: no-repeat;
+    padding: 3px 16px 0px 0px;
+}
