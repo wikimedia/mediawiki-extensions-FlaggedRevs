@@ -55,10 +55,10 @@ if( defined( 'MEDIAWIKI' ) ) {
 		$wgLogTypes[] = 'validate';
 		$wgLogNames['validate'] = 'makevalidate-logpage';
 		$wgLogHeaders['validate'] = 'makevalidate-logpagetext';
-		$wgLogActions['validate/grantE']  = 'makevalidate-logentrygrant-e';
-		$wgLogActions['validate/revokeE'] = 'makevalidate-logentryrevoke-e';
-		$wgLogActions['validate/grantR']  = 'makevalidate-logentrygrant-r';
-		$wgLogActions['validate/revokeR'] = 'makevalidate-logentryrevoke-r';
+		$wgLogActions['validate/grant1']  = 'makevalidate-logentrygrant-e';
+		$wgLogActions['validate/revoke1'] = 'makevalidate-logentryrevoke-e';
+		$wgLogActions['validate/grant2']  = 'makevalidate-logentrygrant-r';
+		$wgLogActions['validate/revoke2'] = 'makevalidate-logentryrevoke-r';
 	}
 
 } else {

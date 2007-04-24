@@ -44,7 +44,6 @@ $RevisionreviewMessages['en'] = array(
 	'review-logentrygrant'   => 'reviewed a version of [[$1]]',
 	'review-logentryrevoke'  => 'depreciated a version of [[$1]]',
 	'review-logaction'  => 'revision $1',
-	
 
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 
@@ -80,7 +79,6 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-log'        => 'Log comment:',
 	'revreview-submit'     => 'Apply to selected revision',
 	
-	
 	'stableversions'        => 'Stable versions',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
 	'stableversions-leg2'   => 'View a reviewed revision',
@@ -90,9 +88,9 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-list'   => 'The following is a list of revisions of [[$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
 	'stableversions-quality' => '[Latest quality revision]',
+	
     'review-diff2stable'    => 'Diff to the last stable revision',
     'review-diff2oldest'    => "Diff to the oldest revision",
-    
     
     'unreviewedpages'       => 'Unreviewed pages',
     'viewunreviewed'        => 'List unreviewed content pages',
