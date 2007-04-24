@@ -45,3 +45,25 @@
 	color: #7d7d7d;
 	width: auto;
 }
+
+/*.fr-marker-1 span {display: none};*/
+.fr-marker-1 {
+    background-image: url(../FlaggedRevs/img/boxY.png);
+    background-repeat: no-repeat;
+    min-width: 16px;
+    width: 16px;
+    height: 16px
+    min-height: 16px;
+    padding: 3px 16px 0px 0px;
+}
+
+.fr-text-value {
+    font-size:0px;    
+}
+
+
+.fr-marker-2 {
+    background-image: url(../FlaggedRevs/img/boxC.png);
+    background-repeat: no-repeat;
+    padding: 3px 16px 0px 0px;
+}

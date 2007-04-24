@@ -120,6 +120,9 @@ $wgGroupPermissions['reviewer']['review']    = true;
 $wgFlaggedRevsAutopromote = array('editor' => array('days' => 60,
                                                     'edits' => 1000,
 													'email' => true) );
+
+# What icons to display
+
 # Settings below this point should probably not be modified
 ############
 
@@ -398,10 +401,19 @@ class FlaggedRevs {
 	}
     
     public function addTagRatings( $flags ) {
+        global $wgFlaggedRevTags;
     	$tag = "<p>";
 		foreach ( $this->dimensions as $quality => $value ) {
 			$value = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
-			$tag .= "&nbsp;<strong>" . wfMsgHtml("revreview-$quality") . "</strong>: $value&nbsp;\n";    
+            $level = $flags[$quality];
+            $minlevel = $wgFlaggedRevTags[$quality];
+            if ($level >= $minlevel)
+                $classmarker = 2;
+            elseif ($level > 0)
+                $classmarker = 1;
+            else
+                $classmarker = 0;
+			$tag .= "&nbsp;<strong>" . wfMsgHtml("revreview-$quality") . "</strong>: <span class='fr-marker-$classmarker'><span class='fr-text-value'>$value&nbsp;</span>&nbsp;</span>\n";    
 		}
 		$tag .= '</p>';
 		return $tag;
@@ -972,7 +984,9 @@ class FlaggedArticle extends FlaggedRevs {
     		}
 		}
     }
+
     
+
 }
 
 $flaggedrevs = new FlaggedRevs();
