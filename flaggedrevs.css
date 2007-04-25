@@ -2,7 +2,7 @@
 	border: 1px solid #aaa;
 	background-color: #f0f8ff;
 	padding: 5px;
-	font-size: 50%;
+	/*font-size: 50%;*/
 	margin-left: 50px;
 	margin-right: 50px;
 	text-align: center;
@@ -54,13 +54,51 @@
     width: 16px;
     height: 16px
     min-height: 16px;
-    padding: 3px 16px 0px 0px;
+    padding: 3px 16px 0px 20px;
 }
 
 .fr-text-value {
-    font-size:0px;    
+    /*font-size:0px;    */
+    min-width:100px;
+    width: 100px;
+
 }
 
+
+.fr-marker-20 {
+    background-image: url(../FlaggedRevs/img/bar_20.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+.fr-marker-40 {
+    background-image: url(../FlaggedRevs/img/bar_40.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+
+.fr-marker-60 {
+    background-image: url(../FlaggedRevs/img/bar_60.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+
+}
+
+.fr-marker-80 {
+    background-image: url(../FlaggedRevs/img/bar_80.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+
+.fr-marker-100 {
+    background-image: url(../FlaggedRevs/img/bar_100.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
 
 .fr-marker-2 {
     background-image: url(../FlaggedRevs/img/boxC.png);

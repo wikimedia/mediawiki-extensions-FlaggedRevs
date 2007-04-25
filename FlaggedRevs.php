@@ -404,7 +404,7 @@ class FlaggedRevs {
         global $wgFlaggedRevTags;
     	$tag = "<p>";
 		foreach ( $this->dimensions as $quality => $value ) {
-			$value = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
+			$valuetext = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
             $level = $flags[$quality];
             $minlevel = $wgFlaggedRevTags[$quality];
             if ($level >= $minlevel)
@@ -413,7 +413,8 @@ class FlaggedRevs {
                 $classmarker = 1;
             else
                 $classmarker = 0;
-			$tag .= "&nbsp;<strong>" . wfMsgHtml("revreview-$quality") . "</strong>: <span class='fr-marker-$classmarker'><span class='fr-text-value'>$value&nbsp;</span>&nbsp;</span>\n";    
+            $levelmarker = $level * 20 + 20; //XXX do this better
+			$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" . wfMsgHtml("revreview-$quality") . "</strong>: <span class='fr-text-value'>$valuetext&nbsp;</span>&nbsp;</span>\n";    
 		}
 		$tag .= '</p>';
 		return $tag;
