@@ -529,7 +529,9 @@ class FlaggedRevs {
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now-$usercreation) / 86400);
-		// Check if we need to promote?
+		// Do not give this to bots
+		if ( in_array( 'bot', $groups ) ) return;
+		// Check if we need to promote...
 		foreach ($wgFlaggedRevsAutopromote as $group=>$vars) {
 			if ( !in_array($group,$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
 				&& ( !$vars['email'] || $wgUser->isAllowed('emailconfirmed') ) ) {
