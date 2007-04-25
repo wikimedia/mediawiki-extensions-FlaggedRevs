@@ -2,7 +2,7 @@
 	border: 1px solid #aaa;
 	background-color: #f0f8ff;
 	padding: 5px;
-	font-size: 60%;
+	font-size: 80%;
 	margin-left: 50px;
 	margin-right: 50px;
 	text-align: center;
@@ -12,7 +12,7 @@
 	border: 1px solid #aaa;
 	background-color: #f0fff0;
 	padding: 5px;
-	font-size: 60%;
+	font-size: 80%;
 	margin-left: 50px;
 	margin-right: 50px;
 	text-align: center;
@@ -22,7 +22,7 @@
 	border: 1px solid #aaa;
 	background-color: #fffff0;
 	padding: 5px;
-	font-size: 60%;
+	font-size: 80%;
 	margin-left: 50px;
 	margin-right: 50px;
 	text-align: center;
@@ -32,14 +32,14 @@
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
 	padding: 5px;
-	font-size: 50%;
+	font-size: 80%;
 	margin-left: 50px;
 	margin-right: 50px;
 	text-align: center;
 }
 
 .flaggedrevs_notice {
-	font-size: 84%;
+	font-size: 80%;
 	line-height: 1.2em;
 	margin: 0 0 1.4em 1em;
 	color: #7d7d7d;
