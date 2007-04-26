@@ -257,12 +257,12 @@ class FlaggedRevs {
 		// Skip deleted revisions
 		$result = $db->select(
 			array('flaggedrevs'),
-			array('fr_rev_id'),
+			array('fr_rev_id','fr_quality'),
 			array('fr_page_id' => $page_id),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC') );
 		while ( $row = $db->fetchObject($result) ) {
-        	$rows[] = $row;
+        	$rows[$row->fr_rev_id] = $row->fr_quality;
 		}
 		return $rows;
     }
@@ -968,8 +968,8 @@ class FlaggedArticle extends FlaggedRevs {
     	$this->pageFlaggedRevs = array();
     	$rows = $this->getReviewedRevs( $article->getID() );
     	if( !$rows ) return;
-    	foreach( $rows as $row => $data ) {
-    		$this->pageFlaggedRevs[] = $data->fr_rev_id;
+    	foreach( $rows as $rev => $quality ) {
+    		$this->pageFlaggedRevs[$rev] = $quality;
     	}
     }
     
@@ -982,10 +982,11 @@ class FlaggedArticle extends FlaggedRevs {
 			if( is_null( $skin ) )
 				$skin = $wgUser->getSkin();
 			
-    		if( in_array( $row->rev_id, $this->pageFlaggedRevs ) ) {
+    		if( array_key_exists( $row->rev_id, $this->pageFlaggedRevs ) ) {
+    			$msg = ($this->pageFlaggedRevs[$row->rev_id] >= 1) ? 'hist-quality' : 'hist-stable';
     			$special = SpecialPage::getTitleFor( 'Stableversions' );
     			$s .= ' <tt><small><strong>' . 
-				$skin->makeLinkObj( $special, wfMsgHtml('revreview-hist'), 'oldid='.$row->rev_id ) . 
+				$skin->makeLinkObj( $special, wfMsgHtml($msg), 'oldid='.$row->rev_id ) . 
 				'</strong></small></tt>';
     		}
 		}

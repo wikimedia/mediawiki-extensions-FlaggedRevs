@@ -35,7 +35,8 @@ $RevisionreviewMessages['en'] = array(
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 	
-	'revreview-hist' => '[reviewed]',
+	'hist-stable'  => '[stable]',
+	'hist-quality' => '[quality]',
     
     'flaggedrevs'        => 'Flagged Revisions',
     'review-logpage'     => 'Article review log',
