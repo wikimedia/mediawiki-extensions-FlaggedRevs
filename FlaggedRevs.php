@@ -787,7 +787,7 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select( 
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_page_id' => $article->getId(), 'fr_rev_id = rev_id', 'fr_quality=1', 'rev_deleted=0'),
+			array('fr_page_id' => $article->getId(), 'fr_rev_id = rev_id', 'fr_quality >= 1', 'rev_deleted=0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -989,9 +989,7 @@ class FlaggedArticle extends FlaggedRevs {
 				'</strong></small></tt>';
     		}
 		}
-    }
-
-    
+    } 
 
 }
 
