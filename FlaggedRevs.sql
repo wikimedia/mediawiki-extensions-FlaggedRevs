@@ -43,5 +43,5 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   -- The protection level (Sysop, autoconfirmed, etc)
   pr_level varchar(255) NOT NULL,
 
-  PRIMARY KEY (fp_page_id,pr_dimension),
+  PRIMARY KEY (fp_page_id,pr_dimension)
 ) TYPE=InnoDB;
