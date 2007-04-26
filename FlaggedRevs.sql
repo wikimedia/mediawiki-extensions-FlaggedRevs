@@ -12,10 +12,11 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_rev_id int(10) NOT NULL,
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
-  fr_comment mediumblob default NULL,
+  fr_comment mediumblob NOT NULL default '',
   -- Store the text with all transclusions resolved
   -- This will trade space for more speed and reliability
-  fr_text mediumblob default NULL,
+  fr_text mediumblob NOT NULL default '',
+  fr_quality tinyint(1) default 0,
 
   PRIMARY KEY fr_rev_id (fr_rev_id),
   UNIQUE KEY (fr_id),
@@ -34,15 +35,13 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   INDEX frt_page_rev_val (frt_page_id,frt_rev_id,frt_dimension,frt_value)
 ) TYPE=InnoDB;
 
--- This reduces query load by making some complex info available
+-- For future restrictons
 CREATE TABLE /*$wgDBprefix*/flaggedpages (
   fp_page_id int(10) NOT NULL,
-  -- What are the latest reviewed and "quality" revisions
-  fp_latest int(10) NOT NULL,
-  fp_latest_q int(10) NOT NULL,
-  -- minimum quality levels for some pages, csv
-  fp_restrictions tinyblob NOT NULL,
+  -- The tag type
+  pr_dimension varchar(255) NOT NULL,
+  -- The protection level (Sysop, autoconfirmed, etc)
+  pr_level varchar(255) NOT NULL,
 
   PRIMARY KEY fp_page_id (fp_page_id),
-  INDEX fp_page_latest (fp_page_id,fp_latest,fp_latest_q)
 ) TYPE=InnoDB;

@@ -333,7 +333,8 @@ class FlaggedRevs {
 	/**
 	 * Get all the revisions that meet the requirments
 	 * per the $wgFlaggedRevTags variable
-	 * This can become expensive
+	 * This can become expensive, use it if you changed
+	 * your quality criteria
 	 * @param database $db
      * @param int $page_id
      * @param int $limit
@@ -784,10 +785,11 @@ class FlaggedArticle extends FlaggedRevs {
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
         $result = $dbr->select( 
-			array('flaggedpages', 'flaggedrevs', 'revision'),
+			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fp_page_id' => $article->getId(), 'fp_latest_q = fr_rev_id', 'fp_latest_q=rev_id', 'rev_deleted=0'),
-			__METHOD__ );
+			array('fr_page_id' => $article->getId(), 'fr_rev_id = rev_id', 'fr_quality=1', 'rev_deleted=0'),
+			__METHOD__,
+			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
         if ( $row = $dbr->fetchObject($result) ) {
         	$this->stablefound = true;
@@ -822,10 +824,11 @@ class FlaggedArticle extends FlaggedRevs {
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
         $result = $dbr->select( 
-			array('flaggedpages', 'flaggedrevs', 'revision'),
+			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fp_page_id' => $article->getId(), 'fp_latest = fr_rev_id', 'fp_latest=rev_id', 'rev_deleted=0'),
-			__METHOD__ );
+			array('fr_page_id' => $article->getId(), 'fr_rev_id = rev_id', 'rev_deleted=0'),
+			__METHOD__,
+			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
         if ( $row = $dbr->fetchObject($result) ) {
         	$this->latestfound = true;

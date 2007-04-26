@@ -254,6 +254,12 @@ class Revisionreview extends SpecialPage
         // Parse the text into HTML
         $parserOutput = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $timestamp );
 		
+		$quality = 0;
+		if ( FlaggedRevs::isPristine($this->dims) )
+			$quality = 2;
+		else if ( FlaggedRevs::isQuality($this->dims) )
+			$quality = 1;
+		
 		$dbw = wfGetDB( DB_MASTER );
 		// Our review entry
  		$revset = array(
@@ -262,7 +268,8 @@ class Revisionreview extends SpecialPage
 			'fr_user'      => $wgUser->getId(),
 			'fr_timestamp' => $timestamp,
 			'fr_comment'   => $notes,
-			'fr_text'      => $fulltext // Store expanded text for good-measure
+			'fr_text'      => $fulltext, // Store expanded text for good-measure
+			'fr_quality'   => $quality
 		);
 		// Our flags
 		$flagset = array();
@@ -278,26 +285,7 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
-		// Update our flagged page table if needed
-		$res = $dbw->select( 'flaggedpages', array('fp_page_id'), array('fp_page_id' => $rev->getPage() ), __METHOD__ );
-		if ( $dbw->numrows($res) ) {
-			# This page has an entry, update it...
-			$dbw->update( 'flaggedpages',
-				array( 'fp_latest' => $rev->getId() ),
-				array( 'fp_page_id' => $rev->getPage(), "fp_latest < ".$rev->getId() ),
-				__METHOD__ );
-		} else {
-			# Insert our new rows...
-			$dbw->insert( 'flaggedpages',
-				array( 'fp_page_id' => $rev->getPage(), 'fp_latest' => $rev->getId(), 'fp_latest_q' => 0 ),
-				__METHOD__ );
-		}
-		if ( FlaggedRevs::isQuality($this->dims) ) {
-			$dbw->update( 'flaggedpages',
-			array( 'fp_latest_q' => $rev->getId() ),
-			array( 'fp_page_id' => $rev->getPage(), "fp_latest_q < ".$rev->getId() ),
-			__METHOD__ );
-		}
+
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
@@ -327,24 +315,7 @@ class Revisionreview extends SpecialPage
 		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $row->fr_rev_id ) );
 		// And the flags...
 		$dbw->delete( 'flaggedrevtags', array( 'frt_rev_id' => $row->fr_rev_id ) );
-		// Update our page table, what is the new top flagged rev?
-		// Read from the master to get up to date values
-		// Check for top remaining rev...
-		list($lrev) = FlaggedRevs::getStableRevisions( $dbw, $row->fr_page_id, 1 );
-		$dbw->update( 'flaggedpages',
-			array( 'fp_latest' => $lrev ? $lrev->fr_rev_id : 0 ),
-			array( 'fp_page_id' => $row->fr_page_id ),
-			__METHOD__ );	
-		// Check for top remaining quality rev
-		$lqrev = false;
-		if ( $lrev ) {
-			list($lqrev) = FlaggedRevs::getQualityRevisions( $dbw, $row->fr_page_id, 1 );
-		}
-		// Fallback to the newest remaining one
-		$dbw->update( 'flaggedpages',
-			array( 'fp_latest_q' => $lqrev ? $lrev->fr_rev_id : 0),
-			array( 'fp_page_id' => $row->fr_page_id ),
-			__METHOD__ );
+		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 		
@@ -653,20 +624,21 @@ class UnreviewedPagesPage extends PageQueryPage {
 	function getSQLText( &$dbr, $namespace, $nonquality = false ) {
 		global $wgContentNamespaces;
 		
-		list( $page, $flaggedpages ) = $dbr->tableNamesN( 'page', 'flaggedpages' );
+		list( $page, $flaggedrevs ) = $dbr->tableNamesN( 'page', 'flaggedrevs' );
 
 		$ns = ($namespace !== null) ? "page_namespace=$namespace" : '1 = 1';
-		$where = $nonquality ? 'fp_latest IS NULL OR fp_latest=0' : 'fp_latest_q IS NULL OR fp_latest_q=0';
+		$where = $nonquality ? '1 = 1' : 'fr_rev_id IS NULL';
 		$content = array();
 		foreach( $wgContentNamespaces as $cns ) {
 			$content[] = "page_namespace=$cns";
 		}
 		$content = implode(' OR ',$content);
 		$sql = 
-			"SELECT page_namespace AS namespace,page_title AS title,page_len AS size 
+			"SELECT page_namespace,page_title,page_len AS size, MAX(fr_quality) as quality, COUNT(*) as num 
 			FROM $page 
-			LEFT JOIN $flaggedpages ON page_id = fp_page_id 
-			WHERE page_is_redirect=0 AND $ns AND ($where) AND ($content) ";
+			LEFT JOIN $flaggedrevs ON page_id=fr_page_id 
+			WHERE page_is_redirect=0 AND $ns AND ($where) AND ($content) 
+			GROUP BY page_id ";
 		return $sql;
 	}
 	
@@ -681,9 +653,13 @@ class UnreviewedPagesPage extends PageQueryPage {
 
 	function formatResult( $skin, $result ) {
 		global $wgLang;
-	
+		
+		// If the best revision of the page is quality
+		// then skip it...
+		if ( $this->nonquality && $result->quality >= 1 ) 
+			return false;
 		$fname = 'UnreviewedPagesPage::formatResult';
-		$title = Title::makeTitle( $result->namespace, $result->title );
+		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $skin->makeKnownLinkObj( $title );
 		$stxt = '';
 		if (!is_null($size = $result->size)) {
