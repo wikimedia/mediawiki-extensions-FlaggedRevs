@@ -39,9 +39,9 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
 CREATE TABLE /*$wgDBprefix*/flaggedpages (
   fp_page_id int(10) NOT NULL,
   -- The tag type
-  pr_dimension varchar(255) NOT NULL,
+  fp_dimension varchar(255) NOT NULL,
   -- The protection level (Sysop, autoconfirmed, etc)
-  pr_level varchar(255) NOT NULL,
+  fp_level varchar(255) NOT NULL,
 
-  PRIMARY KEY (fp_page_id,pr_dimension)
+  PRIMARY KEY (fp_page_id,fp_dimension)
 ) TYPE=InnoDB;

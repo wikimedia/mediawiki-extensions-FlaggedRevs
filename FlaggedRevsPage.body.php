@@ -204,7 +204,7 @@ class Revisionreview extends SpecialPage
 		global $wgOut;
 		
 		$approved = false;
-		# If all values are set to zero, this has been unnapproved
+		# If all values are set to zero, this has been unapproved
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) $approved = true;
 		}
