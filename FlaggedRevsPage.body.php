@@ -482,11 +482,15 @@ class Stableversions extends SpecialPage
 		if( is_null( $skin ) )
 			$skin = $wgUser->getSkin();
 	
-		$special = SpecialPage::getTitleFor( 'Stableversions' );
+		$SV = SpecialPage::getTitleFor( 'Stableversions' );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
 		$review = wfMsg( 'stableversions-review', $ftime );
-		return '<li>'.$skin->makeKnownLinkObj( $special, $time, 'oldid='.$row->fr_rev_id ).' ('.$review.') '.'</li>';	
+		
+		$lev = wfMsg('hist-stable');
+		if( $row->fr_quality >=1 ) $lev = wfMsg('hist-quality');
+		
+		return '<li>'.$skin->makeKnownLinkObj( $SV, $time, 'oldid='.$row->fr_rev_id ).' ('.$review.') <b>'.$lev.'</b></li>';	
 	}
 }
 
@@ -516,7 +520,7 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 		$conds[] = "rev_deleted = 0";
 		return array(
 			'tables' => array('flaggedrevs','revision'),
-			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp',
+			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality',
 			'conds' => $conds
 		);
 	}
