@@ -251,8 +251,6 @@ class Revisionreview extends SpecialPage
 		$timestamp = $this->timestamp ? $this->timestamp : wfTimestampNow();
         // Get the page text and esolve all templates
         $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
-        // Parse the text into HTML
-        $parserOutput = FlaggedRevs::parseStableText( $rev->getTitle(), $fulltext, $rev->getID(), new ParserOptions, $timestamp );
 		
 		$quality = 0;
 		if ( FlaggedRevs::isPristine($this->dims) )
@@ -289,9 +287,10 @@ class Revisionreview extends SpecialPage
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
-		// Update the cache...
-		$article = new Article( $this->page );
-		FlaggedRevs::updatePageCache( $article, $parserOutput );
+		# Clear the cache...
+		$this->page->invalidateCache();
+		# Purge squid for this page only
+		$this->page->purgeSquid();
 		
         return true;
     }
