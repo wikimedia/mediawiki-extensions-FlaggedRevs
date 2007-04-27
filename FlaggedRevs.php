@@ -311,20 +311,14 @@ class FlaggedRevs {
 		// of key flags that were fulfilled
         $result = $db->select(
 			array('flaggedrevtags','flaggedrevs','revision'),
-			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp', 'COUNT(*) as app_flags'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('frt_page_id' => $page_id, $tagwhere, $maxrevid, 'frt_rev_id=fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
 			__METHOD__,
-			array('GROUP BY' => 'frt_rev_id', 'ORDER BY' => 'frt_rev_id DESC') );
+			array('GROUP BY' => 'frt_rev_id', 'HAVING' => 'COUNT(*)=='.$wgFlaggedRevTags, 'ORDER BY' => 'frt_rev_id DESC', 'LIMIT' => $limit) );
 		// Iterate through each flagged revision row
         $out = array();
-        $counter = 0;
         while ( $row = $db->fetchObject($result) ) {
-			// Only return so many results
-			if ( $counter > $limit ) break;
-			// If all of our flags are up to par, we have a stable version
-			else if ( $row->app_flags==count($wgFlaggedRevTags) ) {
-                $out[] = $row;
-                $counter++;
+            $out[] = $row;
             }
 	    }
         return $out;
