@@ -319,7 +319,6 @@ class FlaggedRevs {
         $out = array();
         while ( $row = $db->fetchObject($result) ) {
             $out[] = $row;
-            }
 	    }
         return $out;
     }
