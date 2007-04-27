@@ -445,6 +445,8 @@ class Stableversions extends SpecialPage
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Set the new body HTML, place a tag on top
 		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>'.$tag.'</small></div>' . $parserOutput->getText() . $notes);
+		# Show stable categories and interwiki links only
+       	$wgOut->addCategoryLinks( $parserOutput->getCategories() );
 	}
 	
 	function showStableList() {
