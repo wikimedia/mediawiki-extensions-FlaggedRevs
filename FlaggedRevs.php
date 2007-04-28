@@ -311,10 +311,10 @@ class FlaggedRevs {
 		// of key flags that were fulfilled
         $result = $db->select(
 			array('flaggedrevtags','flaggedrevs','revision'),
-			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp', 'COUNT(*)'),
 			array('frt_page_id' => $page_id, $tagwhere, $maxrevid, 'frt_rev_id=fr_rev_id', 'fr_rev_id=rev_id', 'rev_deleted=0'),
 			__METHOD__,
-			array('GROUP BY' => 'frt_rev_id', 'HAVING' => 'COUNT(*)=='.$wgFlaggedRevTags, 'ORDER BY' => 'frt_rev_id DESC', 'LIMIT' => $limit) );
+			array('GROUP BY' => 'frt_rev_id', 'HAVING' => 'COUNT(*)='.$wgFlaggedRevTags, 'ORDER BY' => 'frt_rev_id DESC', 'LIMIT' => $limit) );
 		// Iterate through each flagged revision row
         $out = array();
         while ( $row = $db->fetchObject($result) ) {
@@ -573,6 +573,20 @@ class FlaggedRevs {
     		if ( $v < $wgFlaggedRevValues ) return false;
     	}
     	return true;
+    }
+    
+	/**
+	* @param Array $flags
+	* @output integer, lowest rating level
+	*/
+    public static function getLCQuality( $flags ) {
+    	global $wgFlaggedRevValues;
+    	
+    	$min = false;
+    	foreach ( $flags as $f => $v ) {
+    		if ( $min==false || $v < $min ) $min = $v;
+    	}
+    	return $min;
     }
 
 }
