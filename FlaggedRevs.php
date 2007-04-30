@@ -116,10 +116,8 @@ $wgGroupPermissions['reviewer']['validate']  = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review']    = true;
 
-# Define when users get automatically promoted
-$wgFlaggedRevsAutopromote = array('editor' => array('days' => 60,
-                                                    'edits' => 1000,
-													'email' => true) );
+# Define when users get automatically promoted to editors
+$wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 1000, 'email' => true);
 
 # What icons to display
 
@@ -526,25 +524,24 @@ class FlaggedRevs {
 		// Do not give this to bots
 		if ( in_array( 'bot', $groups ) ) return;
 		// Check if we need to promote...
-		foreach ($wgFlaggedRevsAutopromote as $group=>$vars) {
-			if ( !in_array($group,$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
-				&& ( !$vars['email'] || $wgUser->isAllowed('emailconfirmed') ) ) {
-    			# Do not re-add status if it was previously removed...
-    			$fname = 'FlaggedRevs::autoPromoteUser';
-				$db = wfGetDB( DB_SLAVE );
-    			$result = $db->select(
-					array('logging'),
-					array('log_user'),
-					array("log_type='validate'", "log_action='revoke1'", 'log_namespace' => NS_USER, 'log_title' => $user->getName() ),
-					$fname,
-					'LIMIT = 1');
-				# Add rights if they were never removed
-				if ( !$db->numRows($result) ) {
-					$user->addGroup($group);
-					# Lets NOT spam RC, set $RC to false
-					$log = new LogPage( 'validate', false );
-					$log->addEntry('grant1', $user->getUserPage(), wfMsgHtml('makevalidate-autosum') );
-				}
+		$vars = $wgFlaggedRevsAutopromote;
+		if ( !in_array('editor',$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
+			&& ( !$vars['email'] || $wgUser->isAllowed('emailconfirmed') ) ) {
+    		# Do not re-add status if it was previously removed...
+    		$fname = 'FlaggedRevs::autoPromoteUser';
+			$db = wfGetDB( DB_SLAVE );
+    		$result = $db->select(
+				array('logging'),
+				array('log_user'),
+				array("log_type='validate'", "log_action='revoke1'", 'log_namespace' => NS_USER, 'log_title' => $user->getName() ),
+				$fname,
+				array('LIMIT' => 1) );
+			# Add rights if they were never removed
+			if ( !$db->numRows($result) ) {
+				$user->addGroup('editor');
+				# Lets NOT spam RC, set $RC to false
+				$log = new LogPage( 'validate', false );
+				$log->addEntry('grant1', $user->getUserPage(), wfMsgHtml('makevalidate-autosum') );
 			}
 		}
     }

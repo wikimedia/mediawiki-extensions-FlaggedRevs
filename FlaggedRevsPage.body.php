@@ -253,10 +253,10 @@ class Revisionreview extends SpecialPage
         $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
 		
 		$quality = 0;
-		if ( FlaggedRevs::isPristine($this->dims) )
-			$quality = 2;
-		else if ( FlaggedRevs::isQuality($this->dims) )
-			$quality = 1;
+		if ( FlaggedRevs::isQuality($this->dims) ) {
+			$quality = FlaggedRevs::getLCQuality($this->dims);
+			$quality = ($quality > 1) ? $quality : 1;
+		}
 		
 		$dbw = wfGetDB( DB_MASTER );
 		// Our review entry
