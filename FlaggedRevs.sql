@@ -5,7 +5,6 @@
 
 -- This stores all of our reviews, 
 -- the corresponding tags are stored in the tag table
--- The page and rev id are stored as is the user/comment/time
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_id int(10) NOT NULL auto_increment,
   fr_page_id int(10) NOT NULL,
@@ -35,12 +34,12 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   INDEX frt_rev_dim_val (frt_rev_id,frt_dimension,frt_value)
 ) TYPE=InnoDB;
 
--- For future restrictons
+-- For future restrictions
 CREATE TABLE /*$wgDBprefix*/flaggedpages (
   fp_page_id int(10) NOT NULL,
   -- The tag type
   fp_dimension varchar(255) NOT NULL,
-  -- The protection level (Sysop, autoconfirmed, etc)
+  -- Required level to override
   fp_level varchar(255) NOT NULL,
 
   PRIMARY KEY (fp_page_id,fp_dimension)
