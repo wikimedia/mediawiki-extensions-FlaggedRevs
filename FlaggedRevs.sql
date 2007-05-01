@@ -16,11 +16,11 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- Store the text with all transclusions resolved
   -- This will trade space for more speed and reliability
   fr_text mediumblob NOT NULL default '',
+  -- Store the precedence level
   fr_quality tinyint(1) default 0,
-
-  PRIMARY KEY fr_rev_id (fr_rev_id),
-  UNIQUE KEY (fr_id),
-  INDEX fr_page_rev (fr_page_id,fr_rev_id)
+  
+  PRIMARY KEY (fr_page_id,fr_rev_id),
+  UNIQUE KEY (fr_id)
 ) TYPE=InnoDB;
 
 -- This stores all of our tag data
@@ -31,8 +31,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   frt_dimension varchar(255) NOT NULL,
   frt_value tinyint(2) NOT NULL,
   
-  PRIMARY KEY frt_rev_dimension (frt_rev_id,frt_dimension),
-  INDEX frt_page_rev_val (frt_page_id,frt_rev_id,frt_dimension,frt_value)
+  PRIMARY KEY (frt_rev_id,frt_dimension),
+  INDEX frt_rev_dim_val (frt_rev_id,frt_dimension,frt_value)
 ) TYPE=InnoDB;
 
 -- For future restrictons
