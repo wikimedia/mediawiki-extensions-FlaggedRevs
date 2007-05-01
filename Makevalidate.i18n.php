@@ -42,6 +42,38 @@ $messages['en'] = array(
 	'makevalidate-logentryrevoke-r' => 'removed reviewer status from [[$1]]',
 	'makevalidate-autosum' => 'autopromoted',
 );
+/* German (Raimond Spekking) */
+$messages['de'] = array(
+	'makevalidate'       => 'Editor-Recht erteilen/entziehen',
+	'makevalidate-header'   => '<strong>Mit diesem Formular können Administratoren und Bürokraten Benutzern das Recht zur Artikelprüfung erteilen.</strong><br />
+	Geben Sie den Benutzernamen in das Feld ein und drücken Sie auf den Button um das Recht zu setzen.
+	Durch Erteilung des Prüfrechts wird automatisch auch das Editor-Recht erteilt. Der Entzug des Editors-Rechts hat automatisch den Entzug des Prüfrechts zur Folge.',
+	'makevalidate-username'  => 'Benutzername:',
+	'makevalidate-search' => 'Ausführen',
+	'makevalidate-iseditor' => '[[User:$1|$1]] hat das Editor-Recht.',
+	'makevalidate-noteditor' => '[[User:$1|$1]] hat kein Editor-Recht.',
+	'makevalidate-isvalidator' => '[[User:$1|$1]] hat das Prüfrecht.',
+	'makevalidate-notvalidator' => '[[User:$1|$1]] hat kein Prüfrecht.',
+	'makevalidate-legend' => 'Benutzerrechte ändern:',
+	'makevalidate-change-e' => 'Editor-Recht:',
+	'makevalidate-change-r' => 'Prüfrecht:',
+	'makevalidate-grant1' => 'Erteile',
+	'makevalidate-revoke1' => 'Entziehe',
+	'makevalidate-grant2' => 'Erteile',
+	'makevalidate-revoke2' => 'Entziehe',
+	'makevalidate-comment' => 'Kommentar:',
+	'makevalidate-granted-e' => '[[User:$1|$1]] hat nun das Editor-Recht.',
+	'makevalidate-revoked-e' => '[[User:$1|$1]] wurde das Editor-Recht entzogen.',
+	'makevalidate-granted-r' => '[[User:$1|$1]] hat nun das Prüfrecht.',
+	'makevalidate-revoked-r' => '[[User:$1|$1]] wurde das Prüfrecht entzogen.',
+	'makevalidate-logpage' => 'Editor-Rechte-Logbuch',
+	'makevalidate-logpagetext' => 'Dies ist das Änderungs-Logbuch der Benutzer-[[Help:Article validation|Prüfrechte]].',
+	'makevalidate-logentrygrant-e' => 'erteilte das Editor-Recht an [[$1]]',
+	'makevalidate-logentryrevoke-e' => 'entzog das Editor-Recht von [[$1]]',
+	'makevalidate-logentrygrant-r' => 'erteilte das Prüfrecht an [[$1]]',
+	'makevalidate-logentryrevoke-r' => 'entzog das Prüfrecht von [[$1]]',
+	'makevalidate-autosum' => 'automatische Rechtevergabe',
+);
 
 return $messages;
 }

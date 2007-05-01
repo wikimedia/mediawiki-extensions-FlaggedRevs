@@ -98,4 +98,98 @@ $RevisionreviewMessages['en'] = array(
     'included-nonquality'   => 'Include reviewed pages not marked as quality.',
     'unreviewed-list'       => 'This page lists articles that have not yet been reviewed.',
 );
+
+// German (Raimond Spekking)
+$RevisionreviewMessages['de'] = array( 
+	'editor'              => 'Editor',
+	'group-editor'        => 'Editoren',
+	'group-editor-member' => 'Editor',
+	'grouppage-editor'    => '{{ns:project}}:Editor',
+	
+	'reviewer'              => 'Prüfer',
+	'group-reviewer'        => 'Prüfer',
+	'group-reviewer-member' => 'Prüfer',
+	'grouppage-reviewer'    => '{{ns:project}}:Prüfer',
+	
+	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
+	gemacht werden kann.',
+	'revreview-old'  => 'Dies ist eine [[Help:Article validation|geprüfte]] (ausgenommen Bilder und Vorlagen) Version dieser Seite; sie wurde wie folgt bewertet:',
+	'revreview-isnewest'  => 'Dies ist die letzte [[Help:Article validation|geprüfte]] (ausgenommen Bilder und Vorlagen) Version
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) dieser Seite, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben]
+	am <i>$1</i>.',
+	'revreview-newest'    => 'Die [{{fullurl:Special:stableversions|oldid=$1}} letzte geprüfte Version] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} vergleiche])
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>
+	und wie folgt bewertet:',
+	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle])
+	dieser Seite, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version]
+	kann in der Regel bearbeitet werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
+	noch zur Prüfung an.',
+	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Article validation|Qualitätsbewertung]]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) , [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben]
+	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.
+	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
+	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
+	am <i>$2</i>. Die [{{fullurl:$3|stable=false}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
+	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
+	
+	'hist-stable'  => '[stabil]',
+	'hist-quality' => '[Qualität]',
+    
+    'flaggedrevs'        => 'Markierte Versionen',
+    'review-logpage'     => 'Artikel-Prüf-Logbuch',
+	'review-logpagetext' => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
+	'review-logentrygrant'   => 'prüfte eine Version von [[$1]]',
+	'review-logentryrevoke'  => 'verwarf eine Version von [[$1]]',
+	'review-logaction'  => 'Version $1',
+
+    'revisionreview'       => 'Versionsprüfung',		
+    'revreview-main'       => 'Sie müssen eine Artikelversion zur Prüfung auswählen.
+
+    Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste ungeprüfter Versionen.',	
+	'revreview-selected'   => "Gewählte Version von '''$1:'''",
+	'revreview-text'       => "Einer freigegebenen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.",
+	'revreview-toolow'     => 'Sie müssen für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
+	damit eine Version als geprüft gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
+	'revreview-flag'       => 'Prüfe Version #$1:',
+	'revreview-legend'     => 'Inhalt der Version bewerten:',
+	'revreview-notes'      => 'Anzuzeigende Bemerkungen oder Notizen:',
+	'revreview-accuracy'   => 'Genauigkeit',
+	'revreview-accuracy-0' => 'nicht freigegeben',
+	'revreview-accuracy-1' => 'gesichtet',
+	'revreview-accuracy-2' => 'sorgfältig',
+	'revreview-accuracy-3' => 'Quellen geprüft',
+	'revreview-accuracy-4' => 'exzellent',
+	'revreview-depth'      => 'Tiefe',
+	'revreview-depth-0'    => 'nicht freigegeben',
+	'revreview-depth-1'    => 'einfach',		
+	'revreview-depth-2'    => 'mittel',
+	'revreview-depth-3'    => 'hoch',
+	'revreview-depth-4'    => 'exzellent',
+	'revreview-style'      => 'Lesbarkeit',
+	'revreview-style-0'    => 'Unapproved',
+	'revreview-style-1'    => 'akzeptabel',
+	'revreview-style-2'    => 'gut',
+	'revreview-style-3'    => 'präzise',
+	'revreview-style-4'    => 'exzellent',
+	'revreview-log'        => 'Logbuch-Eintrag:',
+	'revreview-submit'     => 'Auf gewählte Version anwenden',
+	
+	'stableversions'        => 'Stabile Versionen',
+	'stableversions-leg1'   => 'Liste der geprüften Versionen für einen Artikel',
+	'stableversions-leg2'   => 'Zeige eine geprüfte Version',
+	'stableversions-page'   => 'Artikelname',
+	'stableversions-rev'    => 'Versionsnummer:',
+	'stableversions-none'   => '[[$1]] hat keine geprüften Versionen.',
+	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von [[$1]]:',
+	'stableversions-review' => 'geprüft am <i>$1</i>',
+	'stableversions-quality' => '[Letzte Version mit Qualitätsbewertung]',
+	
+    'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
+    'review-diff2oldest'    => "Unterschied zur ältesten Version",
+    
+    'unreviewedpages'       => 'Ungeprüfte Artikel',
+    'viewunreviewed'        => 'Liste ungeprüfter Artikel',
+    'included-nonquality'   => 'Schließe geprüfte Artikel ein, die keine Qualitätsbewertung haben.',
+    'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
+);
 ?>
