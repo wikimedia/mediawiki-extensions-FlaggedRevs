@@ -33,14 +33,3 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   PRIMARY KEY (frt_rev_id,frt_dimension),
   INDEX frt_rev_dim_val (frt_rev_id,frt_dimension,frt_value)
 ) TYPE=InnoDB;
-
--- For future restrictions
-CREATE TABLE /*$wgDBprefix*/flaggedpages (
-  fp_page_id int(10) NOT NULL,
-  -- The tag type
-  fp_dimension varchar(255) NOT NULL,
-  -- Required level to override
-  fp_level varchar(255) NOT NULL,
-
-  PRIMARY KEY (fp_page_id,fp_dimension)
-) TYPE=InnoDB;
