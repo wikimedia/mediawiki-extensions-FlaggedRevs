@@ -74,6 +74,36 @@ $messages['de'] = array(
 	'makevalidate-logentryrevoke-r' => 'entzog das Prüfrecht von [[$1]]',
 	'makevalidate-autosum' => 'automatische Rechtevergabe',
 );
+/* Portuguese (Lugusto) */
+$messages['pt'] = array(
+	'makevalidate'       => 'Promover/rebaixar editores',
+	'makevalidate-header'   => '<strong>Este é um formulário utilizado por {{int:group-sysop}} e {{int:group-bureaucrat}} para promover usuários a validadores de páginas.</strong><br>Digite o nome de usuário no espaço indicado e clique no botão correspondente a alteração de privilégios desejada de ser feita. Conceder o estado de {{int:group-reviewer-member}} fará com que a pessoa se torne {{int:group-editor-member}} automaticamente. Revogar o status de {{int:group-editor-member}} automaticamente revogará também o estado de {{int:group-reviewer-member}}.',
+	'makevalidate-username'  => 'Nome de usuário:',
+	'makevalidate-search' => 'Ir',
+	'makevalidate-iseditor' => '[[{{ns:user}}:$1|$1]] possui status de {{int:group-editor-member}}.',
+	'makevalidate-noteditor' => '[[{{ns:user}}:$1|$1]] não possui status de {{int:group-editor-member}}.',
+	'makevalidate-isvalidator' => '[[{{ns:user}}:$1|$1]] possui status de {{int:group-reviewer-member}}.',
+	'makevalidate-notvalidator' => '[[{{ns:user}}:$1|$1]] não possui status de {{int:group-reviewer-member}}.',
+	'makevalidate-legend' => 'Alterar direitos de usuário:',
+	'makevalidate-change-e' => 'Status de {{int:group-editor-member}}:',
+	'makevalidate-change-r' => 'Status de {{int:group-reviewer-member}}:',
+	'makevalidate-grant1' => 'Conceder',
+	'makevalidate-revoke1' => 'Revocar',
+	'makevalidate-grant2' => 'Conceder',
+	'makevalidate-revoke2' => 'Revocar',
+	'makevalidate-comment' => 'Comentário:',
+	'makevalidate-granted-e' => '[[{{ns:user}}:$1|$1]] agora possui status de {{int:group-editor-member}}.',
+	'makevalidate-revoked-e' => '[[{{ns:user}}:$1|$1]] não mais possui status de {{int:group-editor-member}}.',
+	'makevalidate-granted-r' => '[[{{ns:user}}:$1|$1]] agora possui status de {{int:group-reviewer-member}}.',
+	'makevalidate-revoked-r' => '[[{{ns:user}}:$1|$1]] não mais possui status de {{int:group-reviewer-member}}.',
+	'makevalidate-logpage' => 'Registo de status de editores',
+	'makevalidate-logpagetext' => 'Este é um registo de alterações de status de [[{{ns:help}}:Validação de páginas|validadores de páginas]] ([[{{int:grouppage-editor}}|{{int:group-editor}}]] e [[{{int:grouppage-reviewer}}|{{int:group-reviewer}}]]).',
+	'makevalidate-logentrygrant-e' => 'concedido status de {{int:group-editor-member}} para [[$1]]',
+	'makevalidate-logentryrevoke-e' => 'removido status de {{int:group-editor-member}} de [[$1]]',
+	'makevalidate-logentrygrant-r' => 'concedido status de {{int:group-reviewer-member}} para [[$1]]',
+	'makevalidate-logentryrevoke-r' => 'removido status de {{int:group-reviewer-member}} para [[$1]]',
+	'makevalidate-autosum' => 'promovido automaticamente',
+);
 
 return $messages;
 }
