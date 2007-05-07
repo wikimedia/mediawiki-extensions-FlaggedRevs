@@ -224,6 +224,7 @@ class FlaggedRevs {
 	/**
 	 * @param int $rev_id
 	 * Returns a revision row
+	 * Will not return if deleted
 	 */		
 	public static function getFlaggedRev( $rev_id ) {
 		wfProfileIn( __METHOD__ );
@@ -232,7 +233,7 @@ class FlaggedRevs {
 		// Skip deleted revisions
 		$result = $db->select(
 			array('flaggedrevs','revision'),
-			array('fr_page_id', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment','rev_timestamp'),
+			array('fr_namespace', 'fr_title', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted = 0'),
 			__METHOD__ );
 		// Sorted from highest to lowest, so just take the first one if any
@@ -245,9 +246,9 @@ class FlaggedRevs {
 	/**
 	 * @param int $page_id
 	 * Get rev ids of reviewed revs for a page
-	 * Well include deleted revs here
+	 * Will include deleted revs here
 	 */
-    public static function getReviewedRevs( $page_id ) {
+    public static function getReviewedRevs( $page ) {
 		wfProfileIn( __METHOD__ );
 		  
 		$db = wfGetDB( DB_SLAVE ); 
@@ -256,7 +257,7 @@ class FlaggedRevs {
 		$result = $db->select(
 			array('flaggedrevs'),
 			array('fr_rev_id','fr_quality'),
-			array('fr_page_id' => $page_id),
+			array('fr_namespace' => $page->getNamespace(), 'fr_title' => $page->getDBkey() ),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC') );
 		while ( $row = $db->fetchObject($result) ) {
@@ -693,30 +694,45 @@ class FlaggedArticle extends FlaggedRevs {
 			$wgOut->addHTML( '<div class="flaggedrevs_tag1 plainlinks">' . $tag . '</div><br/>' );
        }
     }
+ 
+	/**
+	 * Get latest quality rev, if not, the latest reviewed one
+	 */
+	function getOverridingRev( $article=NULL ) {
+		if ( !$row = getLatestQualityRev( $article=NULL ) ) {
+			if ( !$row = getLatestStableRev( $article=NULL ) ) {
+				return null;
+			}
+		}
+		return $row;
+	}	
     
 	/**
 	 * Get latest flagged revision that meets requirments
 	 * per the $wgFlaggedRevTags variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
+	 * @param Article $article
 	 * @output array ( rev, flags )
 	 */
 	function getLatestQualityRev( $article=NULL ) {
 		global $wgArticle;
 		
-		$article = $article ? $article : $wgArticle;
-	
 		wfProfileIn( __METHOD__ );
+		
+		$article = $article ? $article : $wgArticle;
+		$title = $article->getTitle();
         // Cached results available?
 		if ( isset($this->stablefound) ) {
 			return ( $this->stablefound ) ? $this->stablerev : null;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
-        $result = $dbr->select( 
+        $result = $dbr->select(
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_page_id' => $article->getId(), 'fr_rev_id = rev_id', 'fr_quality >= 1', 'rev_deleted=0'),
+			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
+			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -746,6 +762,7 @@ class FlaggedArticle extends FlaggedRevs {
 		wfProfileIn( __METHOD__ );
 		
 		$article = $article ? $article : $wgArticle;
+		$title = $article->getTitle();
         // Cached results available?
 		if ( isset($this->latestfound) ) {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
@@ -755,7 +772,8 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select( 
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_page_id' => $article->getId(), 'fr_rev_id = rev_id', 'rev_deleted=0'),
+			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
+			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -895,7 +913,7 @@ class FlaggedArticle extends FlaggedRevs {
     
     function addToPageHist( &$article ) {
     	$this->pageFlaggedRevs = array();
-    	$rows = $this->getReviewedRevs( $article->getID() );
+    	$rows = $this->getReviewedRevs( $article->getTitle() );
     	if( !$rows ) return;
     	foreach( $rows as $rev => $quality ) {
     		$this->pageFlaggedRevs[$rev] = $quality;

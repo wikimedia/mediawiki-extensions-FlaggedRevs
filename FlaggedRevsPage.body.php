@@ -258,10 +258,13 @@ class Revisionreview extends SpecialPage
 			$quality = ($quality > 1) ? $quality : 1;
 		}
 		
+		$title = $rev->getTitle();
+		
 		$dbw = wfGetDB( DB_MASTER );
 		// Our review entry
  		$revset = array(
- 			'fr_page_id'   => $rev->getPage(),
+ 			'fr_namespace' => $title->getNamespace(),
+ 			'fr_title'     => $title->getDBkey(),
 			'fr_rev_id'    => $rev->getId(),
 			'fr_user'      => $wgUser->getId(),
 			'fr_timestamp' => $timestamp,
@@ -274,13 +277,12 @@ class Revisionreview extends SpecialPage
 		foreach ( $this->dims as $tag => $value ) {
 			$flagset[] = array(
 				'frt_dimension' => $tag, 
-				'frt_page_id' => $rev->getPage(), 
 				'frt_rev_id' => $rev->getId(), 
 				'frt_value' => $value 
 			);
 		}
 		// Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
+		$dbw->replace( 'flaggedrevs', array( array('fr_namespace','fr_title','fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
 
@@ -418,7 +420,7 @@ class Stableversions extends SpecialPage
 			return;
 		}
 		// Must be a valid page/Id
-		$page = Title::newFromID( $frev->fr_page_id );
+		$page = Title::makeTitle( $frev->fr_namespace, $frev->fr_title );
 		if( is_null($page) ) {
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
@@ -460,13 +462,11 @@ class Stableversions extends SpecialPage
 			return;
 		}
 		$article = new Article( $page );
-		$page_id = $article->getID();
-		if( !$page_id ) {
+		if( !$article ) {
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
-		
-		$pager = new StableRevisionsPager( $this, array(), $page_id );		
+		$pager = new StableRevisionsPager( $this, array(), $page->getNamespace(), $page->getDBkey() );	
 		if ( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), $page->getPrefixedText() ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -503,10 +503,11 @@ class Stableversions extends SpecialPage
 class StableRevisionsPager extends ReverseChronologicalPager {
 	public $mForm, $mConds;
 
-	function __construct( $form, $conds = array(), $page_id ) {
+	function __construct( $form, $conds = array(), $namespace, $title ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
-		$this->page_id = $page_id;
+		$this->namespace = $namespace;
+		$this->title = $title;
 		parent::__construct();
 	}
 	
@@ -517,9 +518,10 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		$conds[] = "fr_page_id = $this->page_id";
+		$conds["fr_namespace"] = $this->namespace;
+		$conds["fr_title"] = $this->title;
 		$conds[] = "fr_rev_id = rev_id";
-		$conds[] = "rev_deleted = 0";
+		$conds["rev_deleted"] = 0;
 		return array(
 			'tables' => array('flaggedrevs','revision'),
 			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality',
@@ -641,7 +643,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 		$sql = 
 			"SELECT page_namespace,page_title,page_len AS size, MAX(fr_quality) as quality, COUNT(*) as num 
 			FROM $page 
-			LEFT JOIN $flaggedrevs ON page_id=fr_page_id 
+			LEFT JOIN $flaggedrevs ON (fr_namespace = page_namespace AND fr_title = page_title) 
 			WHERE page_is_redirect=0 AND $ns AND ($where) AND ($content) 
 			GROUP BY page_id ";
 		return $sql;

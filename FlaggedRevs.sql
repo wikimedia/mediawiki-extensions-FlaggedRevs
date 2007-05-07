@@ -7,7 +7,8 @@
 -- the corresponding tags are stored in the tag table
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_id int(10) NOT NULL auto_increment,
-  fr_page_id int(10) NOT NULL,
+  fr_namespace int NOT NULL default '0',
+  fr_title varchar(255) binary NOT NULL default '',
   fr_rev_id int(10) NOT NULL,
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
@@ -18,14 +19,13 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- Store the precedence level
   fr_quality tinyint(1) default 0,
   
-  PRIMARY KEY (fr_page_id,fr_rev_id),
+  PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
   UNIQUE KEY (fr_id)
 ) TYPE=InnoDB;
 
 -- This stores all of our tag data
 -- These are attached to specific flagged revisions
 CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
-  frt_page_id int(10) NOT NULL,
   frt_rev_id int(10) NOT NULL,
   frt_dimension varchar(255) NOT NULL,
   frt_value tinyint(2) NOT NULL,
