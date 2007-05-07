@@ -511,6 +511,14 @@ class FlaggedRevs {
     	}
     	return $min;
     }
+    
+    function updateFromMove( &$movePageForm , &$oldtitle , &$newtitle ) {
+    	$dbw = wfGetDB( DB_MASTER );
+        $dbw->update( 'flaggedrevs',
+			array('fr_namespace' => $newtitle->getNamespace(), 'fr_title' => $newtitle->getDBkey() ),
+			array('fr_namespace' => $oldtitle->getNamespace(), 'fr_title' => $oldtitle->getDBkey() ),
+			__METHOD__ );
+    }
 
 }
 
@@ -951,4 +959,5 @@ $wgHooks['PageHistoryBeforeList'][] = array($flaggedarticle, 'addToPageHist');
 $wgHooks['PageHistoryLineEnding'][] = array($flaggedarticle, 'addToHistLine');
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedarticle, 'setPermaLink');
 $wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
+$wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 ?>
