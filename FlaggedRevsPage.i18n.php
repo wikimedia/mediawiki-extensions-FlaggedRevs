@@ -132,8 +132,8 @@ $RevisionreviewMessages['de'] = array(
 	am <i>$2</i>. Die [{{fullurl:$3|stable=false}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 	
-	'hist-stable'  => '[stabil]',
-	'hist-quality' => '[Qualität]',
+	'hist-stable'  => '[gesichtet]',
+	'hist-quality' => '[geprüft]',
     
     'flaggedrevs'        => 'Markierte Versionen',
     'review-logpage'     => 'Artikel-Prüf-Logbuch',
