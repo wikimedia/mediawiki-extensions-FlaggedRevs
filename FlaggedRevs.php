@@ -649,15 +649,9 @@ class FlaggedArticle extends FlaggedRevs {
 		$vis_id = $revid;
 		$tag = ''; $notes = '';
 		// Check the newest stable version...
-		$quality = false; $featured = false;
+		$quality = false; $pristine = false;
 		if ( $this->pageOverride() ) {
-			// getLatestQualityRev() is slower, don't use it if we won't need to
-			$tfrev = $this->getLatestQualityRev( $article );
-			if ( is_null($tfrev) ) {
-				$tfrev = $this->getLatestStableRev( $article );
-			} else {
-				$quality = true;
-			}
+			$tfrev = $this->getOverridingRev( $article );
 		} else {
 			$tfrev = $this->getLatestStableRev( $article );
 		}
@@ -694,8 +688,9 @@ class FlaggedArticle extends FlaggedRevs {
 				global $wgUser;
 
 				$skin = $wgUser->getSkin();
-				// See if this page is featured
-				$featured = parent::isPristine( $flags );
+				# See if this page is featured
+				$quality = $this->isQuality( $flags );
+				$pristine = $this->isPristine( $flags );
        			# We will be looking at the reviewed revision...
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
@@ -713,7 +708,7 @@ class FlaggedArticle extends FlaggedRevs {
        				# Update the general cache
        				parent::updatePageCache( $article, $parserOutput );
        			}
-       			$wgOut->addHTML( $parserOutput->getText() );
+       			$wgOut->mBodytext = $parserOutput->getText();
        			# Show stable categories and interwiki links only
        			$wgOut->mCategoryLinks = array();
        			$wgOut->addCategoryLinks( $parserOutput->getCategories() );
@@ -727,7 +722,7 @@ class FlaggedArticle extends FlaggedRevs {
 			// Construct some tagging
 			$tag .= parent::addTagRatings( $flags );
 			// Some checks for which tag CSS to use
-			if ( $featured )
+			if ( $pristine )
 				$tag = '<div class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
 			else if ( $quality )
 				$tag = '<div class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
@@ -738,15 +733,6 @@ class FlaggedArticle extends FlaggedRevs {
 		} else {
 			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
 			$wgOut->addHTML( $tag );
-		}
-		// Show review links for the VISIBLE revision
-		// We cannot review deleted revisions
-		if( is_object($article->mRevision) && $article->mRevision->mDeleted ) return;
-		// Add quick review links IF we did not override, otherwise, they might
-		// review a revision that parses out newer templates/images than what they say
-		// Note: overrides are never done when viewing with "oldid="
-		if( $vis_id==$revid || !$this->pageOverride() ) {
-			$this->addQuickReview( $vis_id, false, $out );
 		}
     }
     
@@ -802,13 +788,27 @@ class FlaggedArticle extends FlaggedRevs {
 			$wgOut->addHTML( '<div class="flaggedrevs_tag1 plainlinks">' . $tag . '</div><br/>' );
        }
     }
+    
+    function addReviewForm( &$out ) {
+    	global $wgArticle;
+
+		if ( !is_object($wgArticle) ) return;
+		$revId = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
+		// Show review links for the VISIBLE revision
+		// We cannot review deleted revisions
+		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) return;
+    	// Add quick review links IF we did not override, otherwise, they might
+		// review a revision that parses out newer templates/images than what they say
+		// Note: overrides are never done when viewing with "oldid="
+		$this->addQuickReview( $revId, false );
+    }
  
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
 	 */
 	function getOverridingRev( $article=NULL ) {
-		if( !$row = $this->getLatestQualityRev() ) {
-			if( !$row = $this->getLatestStableRev() ) {
+		if( !$row = $this->getLatestQualityRev( $article ) ) {
+			if( !$row = $this->getLatestStableRev( $article ) ) {
 				return null;
 			}
 		}
@@ -959,7 +959,7 @@ class FlaggedArticle extends FlaggedRevs {
     	}
     }
        
-    function addQuickReview( $id, $ontop=false, &$out=false ) {
+    function addQuickReview( $id, $ontop=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgScript, $wgFlaggedRevComments, $wgArticle, $wgRequest;
 		// Hack, we don't want two forms!
 		if( isset($this->formCount) && $this->formCount > 0 ) return;
@@ -1005,9 +1005,9 @@ class FlaggedArticle extends FlaggedRevs {
         $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )." ";
 		$form .= Xml::submitButton( wfMsgHtml( 'revreview-submit' ) ) . "</p></fieldset>";
 		$form .= Xml::closeElement( 'form' );
-		// Hacks, to fiddle around with location a bit
-		if( $ontop && $out ) {
-			$out->mBodytext = $form . '<hr/>' . $out->mBodytext;
+		
+		if( $ontop ) {
+			$wgOut->mBodytext = $form . '<hr/>' . $wgOut->mBodytext;
 		} else {
 			$wgOut->addHTML( $form );
 		}
@@ -1054,6 +1054,7 @@ class FlaggedArticle extends FlaggedRevs {
 $flaggedrevs = new FlaggedRevs();
 $flaggedarticle = new FlaggedArticle();
 $wgHooks['ArticleViewHeader'][] = array($flaggedarticle, 'setPageContent');
+$wgHooks['BeforePageDisplay'][] = array($flaggedarticle, 'addReviewForm');
 $wgHooks['DiffViewHeader'][] = array($flaggedarticle, 'addToDiff');
 $wgHooks['EditPage::showEditForm:initial'][] = array($flaggedarticle, 'addToEditView');
 $wgHooks['SkinTemplateTabs'][] = array($flaggedarticle, 'setCurrentTab');
