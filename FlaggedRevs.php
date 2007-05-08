@@ -317,6 +317,39 @@ class FlaggedRevs {
 		
 		return $flags;
 	}
+	
+	/**
+	* static counterpart for getOverridingRev()
+	*/   
+    public static function getOverridingPageRev( $article ) {
+    	if ( !is_object($article) )
+    		return null;
+    	
+    	$title = $article->getTitle();
+    	
+		$dbr = wfGetDB( DB_SLAVE );
+		// Skip deleted revisions
+        $result = $dbr->select(
+			array('flaggedrevs', 'revision'),
+			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
+			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
+			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
+			__METHOD__,
+			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+		// Do we have one?
+        if( !$row = $dbr->fetchObject($result) ) {
+        	$result = $dbr->select(
+				array('flaggedrevs', 'revision'),
+				array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
+				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
+				'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
+				__METHOD__,
+				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+			if( !$row = $dbr->fetchObject($result) )
+				return null;
+		}
+		return $row;
+    }
     
     public function addTagRatings( $flags ) {
         global $wgFlaggedRevTags;
@@ -351,6 +384,46 @@ class FlaggedRevs {
     		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
     	}
     	return $notes;
+    }
+    
+	/**
+	* @param Array $flags
+	* @output bool, is this revision at quality condition?
+	*/
+    public static function isQuality( $flags ) {
+    	global $wgFlaggedRevTags;
+    	
+    	foreach ( $wgFlaggedRevTags as $f => $v ) {
+    		if ( !isset($flags[$f]) || $v > $flags[$f] ) return false;
+    	}
+    	return true;
+    }
+    
+	/**
+	* @param Array $flags
+	* @output bool, is this revision at optimal condition?
+	*/
+    public static function isPristine( $flags ) {
+    	global $wgFlaggedRevValues;
+    	
+    	foreach ( $flags as $f => $v ) {
+    		if ( $v < $wgFlaggedRevValues ) return false;
+    	}
+    	return true;
+    }
+    
+	/**
+	* @param Array $flags
+	* @output integer, lowest rating level
+	*/
+    public static function getLCQuality( $flags ) {
+    	global $wgFlaggedRevValues;
+    	
+    	$min = false;
+    	foreach ( $flags as $f => $v ) {
+    		if ( $min==false || $v < $min ) $min = $v;
+    	}
+    	return $min;
     }
     
 	/**
@@ -435,6 +508,80 @@ class FlaggedRevs {
 		
 		return true;
     }
+    
+    function updateFromMove( &$movePageForm , &$oldtitle , &$newtitle ) {
+    	$dbw = wfGetDB( DB_MASTER );
+        $dbw->update( 'flaggedrevs',
+			array('fr_namespace' => $newtitle->getNamespace(), 'fr_title' => $newtitle->getDBkey() ),
+			array('fr_namespace' => $oldtitle->getNamespace(), 'fr_title' => $oldtitle->getDBkey() ),
+			__METHOD__ );
+    }
+    
+    function extraLinksUpdate( &$article ) {
+    	$fname = 'FlaggedRevs::doIncrementalUpdate';
+    	wfProfileIn( $fname );
+    	# Check if this page has a stable version
+    	$sv = $this->getOverridingPageRev( $article );
+    	if ( !$row ) return;
+    	# Retrieve the text
+    	$text = $this->getFlaggedRevText( $sv->fr_rev_id );
+    	# Parse the revision
+    	$options = ParserOptions::newFromUser($wgUser);
+    	$poutput = $this->parseStableText( $article->mTitle, $text, $sv->fr_rev_id, $options, $sv->fr_timestamp );
+    	
+    	# Update the links tables to include these
+    	# We want the UNION of links between the current 
+		# and stable version. Therefore, we only care about 
+		# links that are in the stable version and not the regular one.
+		$u = new LinksUpdate( $article->mTitle, $poutput );
+		
+		# Page links
+		$existing = $u->getExistingLinks();
+		$u->incrTableUpdate( 'pagelinks', 'pl', array(),
+			$u->getLinkInsertions( $existing ) );
+
+		# Image links
+		$existing = $u->getExistingImages();
+		$u->incrTableUpdate( 'imagelinks', 'il', array(),
+			$u->getImageInsertions( $existing ) );
+
+		# Invalidate all image description pages which had links added
+		$imageUpdates = array_diff_key( $u->mImages, $existing );
+		$u->invalidateImageDescriptions( $imageUpdates );
+
+		# External links
+		$existing = $u->getExistingExternals();
+		$u->incrTableUpdate( 'externallinks', 'el', array(),
+	        $u->getExternalInsertions( $existing ) );
+
+		# Language links
+		$existing = $u->getExistingInterlangs();
+		$u->incrTableUpdate( 'langlinks', 'll', array(),
+			$u->getInterlangInsertions( $existing ) );
+
+		# Template links
+		$existing = $u->getExistingTemplates();
+		$u->incrTableUpdate( 'templatelinks', 'tl', array(),
+			$u->getTemplateInsertions( $existing ) );
+
+		# Category links
+		$existing = $u->getExistingCategories();
+		$u->incrTableUpdate( 'categorylinks', 'cl', array(),
+			$u->getCategoryInsertions( $existing ) );
+
+		# Invalidate all categories which were added, deleted or changed (set symmetric difference)
+		$categoryUpdates = array_diff_assoc( $u->mCategories, $existing );
+		$u->invalidateCategories( $categoryUpdates );
+
+		# Refresh links of all pages including this page
+		# This will be in a separate transaction
+		if ( $u->mRecursive ) {
+			$u->queueRecursiveJobs();
+		}
+		
+		wfProfileOut( $fname );
+    	
+    }
 
 	/**
 	* Callback that autopromotes user according to the setting in 
@@ -471,55 +618,6 @@ class FlaggedRevs {
 			}
 		}
     }
-
-	/**
-	* @param Array $flags
-	* @output bool, is this revision at quality condition?
-	*/
-    public static function isQuality( $flags ) {
-    	global $wgFlaggedRevTags;
-    	
-    	foreach ( $wgFlaggedRevTags as $f => $v ) {
-    		if ( !isset($flags[$f]) || $v > $flags[$f] ) return false;
-    	}
-    	return true;
-    }
-    
-	/**
-	* @param Array $flags
-	* @output bool, is this revision at optimal condition?
-	*/
-    public static function isPristine( $flags ) {
-    	global $wgFlaggedRevValues;
-    	
-    	foreach ( $flags as $f => $v ) {
-    		if ( $v < $wgFlaggedRevValues ) return false;
-    	}
-    	return true;
-    }
-    
-	/**
-	* @param Array $flags
-	* @output integer, lowest rating level
-	*/
-    public static function getLCQuality( $flags ) {
-    	global $wgFlaggedRevValues;
-    	
-    	$min = false;
-    	foreach ( $flags as $f => $v ) {
-    		if ( $min==false || $v < $min ) $min = $v;
-    	}
-    	return $min;
-    }
-    
-    function updateFromMove( &$movePageForm , &$oldtitle , &$newtitle ) {
-    	$dbw = wfGetDB( DB_MASTER );
-        $dbw->update( 'flaggedrevs',
-			array('fr_namespace' => $newtitle->getNamespace(), 'fr_title' => $newtitle->getDBkey() ),
-			array('fr_namespace' => $oldtitle->getNamespace(), 'fr_title' => $oldtitle->getDBkey() ),
-			__METHOD__ );
-    }
-
 }
 
 class FlaggedArticle extends FlaggedRevs {
@@ -707,8 +805,8 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Get latest quality rev, if not, the latest reviewed one
 	 */
 	function getOverridingRev( $article=NULL ) {
-		if ( !$row = getLatestQualityRev( $article=NULL ) ) {
-			if ( !$row = getLatestStableRev( $article=NULL ) ) {
+		if( !$row = $this->getLatestQualityRev() ) {
+			if( !$row = $this->getLatestStableRev() ) {
 				return null;
 			}
 		}
@@ -720,7 +818,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 * per the $wgFlaggedRevTags variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
-	 * @param Article $article
+	 * @param Article $article, used when in edit mode
 	 * @output array ( rev, flags )
 	 */
 	function getLatestQualityRev( $article=NULL ) {
@@ -732,7 +830,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$title = $article->getTitle();
         // Cached results available?
 		if ( isset($this->stablefound) ) {
-			return ( $this->stablefound ) ? $this->stablerev : null;
+			return ( $this->stablerev ) ? $this->stablerev : null;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
@@ -773,7 +871,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$title = $article->getTitle();
         // Cached results available?
 		if ( isset($this->latestfound) ) {
-			return ( $this->latestfound ) ? $this->latestrev : NULL;
+			return ( $this->latestrev ) ? $this->latestrev : NULL;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
@@ -828,12 +926,12 @@ class FlaggedArticle extends FlaggedRevs {
 		// If we are viewing a page normally, and it was overrode
 		// change the edit tab to a "current revision" tab
 		if( !$wgRequest->getVal('oldid') ) {
-       		$tfrev = $this->getLatestQualityRev();
+       		$tfrev = $this->getOverridingRev( $wgArticle );
        		// No quality revs? Find the last reviewed one
        		if ( !is_object($tfrev) )
-       			$tfrev = $this->getLatestStableRev();
+       			return;
        		// Note that revisions may not be set to override for users
-       		if( is_object($tfrev) && $this->pageOverride() ) {
+       		if( $this->pageOverride() ) {
        			# Remove edit option altogether
        			unset( $content_actions['edit']);
        			unset( $content_actions['viewsource']);
@@ -959,5 +1057,6 @@ $wgHooks['PageHistoryBeforeList'][] = array($flaggedarticle, 'addToPageHist');
 $wgHooks['PageHistoryLineEnding'][] = array($flaggedarticle, 'addToHistLine');
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedarticle, 'setPermaLink');
 $wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
+$wgHooks['ArticleEditUpdatesDeleteFromRecentchanges'][] = array($flaggedrevs, 'extraLinksUpdate');
 $wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 ?>
