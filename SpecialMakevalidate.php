@@ -34,15 +34,9 @@ if( defined( 'MEDIAWIKI' ) ) {
 	$wgGroupPermissions['bureaucrat']['makevalidate'] = true;
 	
 	/**
-	 * Toggles whether or not a bot flag can be given to a user who is also a sysop or bureaucrat
-	 */
-	$wgMakeBotPrivileged = false;
-	
-	/**
 	 * Register the special page
 	 */
-	$wgAutoloadClasses['Makevalidate'] = dirname( __FILE__ ) . '/Makevalidate.class.php';
-	$wgSpecialPages['Makevalidate'] = 'Makevalidate';
+	extAddSpecialPage( dirname(__FILE__) . '/Makevalidate.class.php', 'Makevalidate', 'makevalidate' );
 	
 	/**
 	 * Populate the message cache and set up the auditing
