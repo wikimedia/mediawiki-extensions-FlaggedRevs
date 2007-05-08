@@ -522,7 +522,7 @@ class FlaggedRevs {
     	wfProfileIn( $fname );
     	# Check if this page has a stable version
     	$sv = $this->getOverridingPageRev( $article );
-    	if ( !$row ) return;
+    	if ( !$sv ) return;
     	# Retrieve the text
     	$text = $this->getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
@@ -1060,7 +1060,10 @@ $wgHooks['SkinTemplateTabs'][] = array($flaggedarticle, 'setCurrentTab');
 $wgHooks['PageHistoryBeforeList'][] = array($flaggedarticle, 'addToPageHist');
 $wgHooks['PageHistoryLineEnding'][] = array($flaggedarticle, 'addToHistLine');
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedarticle, 'setPermaLink');
+
 $wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
+
 $wgHooks['ArticleEditUpdatesDeleteFromRecentchanges'][] = array($flaggedrevs, 'extraLinksUpdate');
+$wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedrevs, 'extraLinksUpdate');
 $wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 ?>
