@@ -834,7 +834,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$title = $article->getTitle();
         // Cached results available?
 		if ( isset($this->stablefound) ) {
-			return ( $this->stablerev ) ? $this->stablerev : null;
+			return ( $this->stablefound ) ? $this->stablerev : null;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
@@ -875,7 +875,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$title = $article->getTitle();
         // Cached results available?
 		if ( isset($this->latestfound) ) {
-			return ( $this->latestrev ) ? $this->latestrev : NULL;
+			return ( $this->latestfound ) ? $this->latestrev : NULL;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
