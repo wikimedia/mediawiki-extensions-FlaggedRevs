@@ -791,9 +791,11 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function addReviewForm( &$out ) {
-    	global $wgArticle;
+    	global $wgArticle, $action;
 
-		if ( !is_object($wgArticle) ) return;
+		if( !is_object($wgArticle) || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
+			return;
+		
 		$revId = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
 		// Show review links for the VISIBLE revision
 		// We cannot review deleted revisions
