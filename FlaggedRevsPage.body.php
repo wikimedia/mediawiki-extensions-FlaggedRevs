@@ -628,24 +628,25 @@ class UnreviewedPagesPage extends PageQueryPage {
 		return '<p>'.wfMsg("unreviewed-list")."</p><br />\n";
 	}
 
-	function getSQLText( &$dbr, $namespace, $nonquality = false ) {
+	function getSQLText( &$dbr, $namespace, $includenonquality = false ) {
 		global $wgContentNamespaces;
 		
 		list( $page, $flaggedrevs ) = $dbr->tableNamesN( 'page', 'flaggedrevs' );
 
 		$ns = ($namespace !== null) ? "page_namespace=$namespace" : '1 = 1';
-		$where = $nonquality ? '1 = 1' : 'fr_rev_id IS NULL';
+		$where = $includenonquality ? '1 = 1' : 'fr_rev_id IS NULL';
+		$having = $includenonquality ? '(MAX(fr_quality) IS NULL OR MAX(fr_quality) < 1)' : '1 = 1';
 		$content = array();
 		foreach( $wgContentNamespaces as $cns ) {
 			$content[] = "page_namespace=$cns";
 		}
 		$content = implode(' OR ',$content);
 		$sql = 
-			"SELECT page_namespace,page_title,page_len AS size, MAX(fr_quality) as quality, COUNT(*) as num 
+			"SELECT page_namespace,page_title,page_len AS size 
 			FROM $page 
 			LEFT JOIN $flaggedrevs ON (fr_namespace = page_namespace AND fr_title = page_title) 
-			WHERE page_is_redirect=0 AND $ns AND ($where) AND ($content) 
-			GROUP BY page_id ";
+			WHERE page_is_redirect=0 AND $ns AND ($content) AND ($where) 
+			GROUP BY page_id HAVING $having ";
 		return $sql;
 	}
 	
@@ -661,10 +662,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 	function formatResult( $skin, $result ) {
 		global $wgLang;
 		
-		// If the best revision of the page is quality
-		// then skip it...
-		if ( $this->nonquality && $result->quality >= 1 ) 
-			return false;
 		$fname = 'UnreviewedPagesPage::formatResult';
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $skin->makeKnownLinkObj( $title );

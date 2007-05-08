@@ -481,11 +481,12 @@ class FlaggedRevs {
 	*/
     public static function updatePageCache( $article, $parserOutput=NULL ) {
     	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
-		// Update the cache...
-		$article->mTitle->invalidateCache();
     	// Make sure it is valid
     	if ( is_null($parserOutput) || !$article )
 			return false;
+		// Update the cache...
+		$article->mTitle->invalidateCache();
+		
     	$key = 'sv-' . ParserCache::getKey( $article, $wgUser );
     	// Add cache mark to HTML	
 		$now = wfTimestampNow();
@@ -518,7 +519,7 @@ class FlaggedRevs {
     }
     
     function extraLinksUpdate( &$article ) {
-    	$fname = 'FlaggedRevs::doIncrementalUpdate';
+    	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
     	# Check if this page has a stable version
     	$sv = $this->getOverridingPageRev( $article );
