@@ -587,7 +587,7 @@ class FlaggedRevs {
 	* Callback that autopromotes user according to the setting in 
     * $wgFlaggedRevsAutopromote
 	*/
-	private static function autoPromoteUser( $article, $user, $text, $summary, $isminor, $iswatch, $section ) {
+	private static function autoPromoteUser( &$article, &$user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
 		
 		$groups = $user->getGroups();
@@ -603,8 +603,7 @@ class FlaggedRevs {
     		# Do not re-add status if it was previously removed...
     		$fname = 'FlaggedRevs::autoPromoteUser';
 			$db = wfGetDB( DB_SLAVE );
-    		$result = $db->select(
-				array('logging'),
+    		$result = $db->select('logging',
 				array('log_user'),
 				array("log_type='validate'", "log_action='revoke1'", 'log_namespace' => NS_USER, 'log_title' => $user->getName() ),
 				$fname,
@@ -635,31 +634,32 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
 	 */
-	function setPageContent( &$out ) {
-		global $wgArticle, $wgRequest, $wgTitle, $action;
+	function setPageContent( &$article, &$outputDone, &$pcache ) {
+		global $wgRequest, $wgTitle, $wgOut, $action;
 		// Only trigger on article view, not for protect/delete/hist
 		// Talk pages cannot be validated
-		if( !$wgArticle || !$wgTitle->isContentPage() || $action !='view' ) return;
+		if( !$article || !$article->mTitle->isContentPage() || $action !='view' ) 
+			return;
 		// Grab page and rev ids
-		$pageid = $wgArticle->getId();
-		$revid = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
+		$pageid = $article->getId();
+		$revid = ( $article->mRevision ) ? $article->mRevision->mId : $article->getLatest();
 		// There must be a valid rev ID
 		if( !$revid ) return;
 		
 		$vis_id = $revid;
-		$tag = ''; $notes = ''; $newbody = $out->mBodytext;
+		$tag = ''; $notes = '';
 		// Check the newest stable version...
 		$quality = false; $featured = false;
 		if ( $this->pageOverride() ) {
 			// getLatestQualityRev() is slower, don't use it if we won't need to
-			$tfrev = $this->getLatestQualityRev();
+			$tfrev = $this->getLatestQualityRev( $article );
 			if ( is_null($tfrev) ) {
-				$tfrev = $this->getLatestStableRev();
+				$tfrev = $this->getLatestStableRev( $article );
 			} else {
 				$quality = true;
 			}
 		} else {
-			$tfrev = $this->getLatestStableRev();
+			$tfrev = $this->getLatestStableRev( $article );
 		}
 		if( $wgRequest->getVal('diff') ) {
     		// Do not clutter up diffs any further...
@@ -700,27 +700,29 @@ class FlaggedArticle extends FlaggedRevs {
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
        			if ( $quality )
-       				$tag = wfMsgExt('revreview-quality', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
+       				$tag = wfMsgExt('revreview-quality', array('parse'), $vis_id, $article->getLatest(), $revs_since, $time);
 				else
-					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $wgArticle->getLatest(), $revs_since, $time);
+					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $article->getLatest(), $revs_since, $time);
 				# Try the stable page cache
-				$parserOutput = parent::getPageCache( $wgArticle );
-				$newbody = $parserOutput ? $parserOutput->getText() : false;
+				$parserOutput = parent::getPageCache( $article );
 				# If no cache is available, get the text and parse it
-				if ( $newbody==false ) {
+				if ( $parserOutput==false ) {
 					$text = parent::getFlaggedRevText( $vis_id );
 					$options = ParserOptions::newFromUser($wgUser);
        				$parserOutput = parent::parseStableText( $wgTitle, $text, $vis_id, $options, $tfrev->fr_timestamp );
        				# Update the general cache
-       				parent::updatePageCache( $wgArticle, $parserOutput );
-       				$newbody = $parserOutput->getText();
+       				parent::updatePageCache( $article, $parserOutput );
        			}
+       			$wgOut->addHTML( $parserOutput->getText() );
        			# Show stable categories and interwiki links only
-       			$out->mCategoryLinks = array();
-       			$out->addCategoryLinks( $parserOutput->getCategories() );
-       			$out->mLanguageLinks = array();
-       			$out->addLanguageLinks( $parserOutput->getLanguageLinks() );
+       			$wgOut->mCategoryLinks = array();
+       			$wgOut->addCategoryLinks( $parserOutput->getCategories() );
+       			$wgOut->mLanguageLinks = array();
+       			$wgOut->addLanguageLinks( $parserOutput->getLanguageLinks() );
 				$notes = parent::ReviewNotes( $tfrev );
+				// Tell MW that parser output is done
+				$outputDone = true;
+				$pcache = false;
 			}
 			// Construct some tagging
 			$tag .= parent::addTagRatings( $flags );
@@ -732,14 +734,14 @@ class FlaggedArticle extends FlaggedRevs {
 			else
 				$tag = '<div class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
-			$out->mBodytext = $tag . $newbody . $notes;
+			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
 			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
-			$out->mBodytext = $tag . $out->mBodytext;
+			$wgOut->addHTML( $tag );
 		}
 		// Show review links for the VISIBLE revision
 		// We cannot review deleted revisions
-		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) return;
+		if( is_object($article->mRevision) && $article->mRevision->mDeleted ) return;
 		// Add quick review links IF we did not override, otherwise, they might
 		// review a revision that parses out newer templates/images than what they say
 		// Note: overrides are never done when viewing with "oldid="
@@ -818,7 +820,9 @@ class FlaggedArticle extends FlaggedRevs {
 	 * per the $wgFlaggedRevTags variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
-	 * @param Article $article, used when in edit mode
+	 * Accepts an argument because of the fact that the article
+	 * object for edit mode is part of the editform; insert only
+	 * the article object for the current page!
 	 * @output array ( rev, flags )
 	 */
 	function getLatestQualityRev( $article=NULL ) {
@@ -1049,7 +1053,7 @@ class FlaggedArticle extends FlaggedRevs {
 
 $flaggedrevs = new FlaggedRevs();
 $flaggedarticle = new FlaggedArticle();
-$wgHooks['BeforePageDisplay'][] = array($flaggedarticle, 'setPageContent');
+$wgHooks['ArticleViewHeader'][] = array($flaggedarticle, 'setPageContent');
 $wgHooks['DiffViewHeader'][] = array($flaggedarticle, 'addToDiff');
 $wgHooks['EditPage::showEditForm:initial'][] = array($flaggedarticle, 'addToEditView');
 $wgHooks['SkinTemplateTabs'][] = array($flaggedarticle, 'setCurrentTab');
