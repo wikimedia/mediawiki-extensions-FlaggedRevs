@@ -43,7 +43,7 @@ class Revisionreview extends SpecialPage
 		// Additional notes
 		$this->notes = ($wgFlaggedRevComments) ? $wgRequest->getText('wpNotes') : '';
 		// Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getFlagsForRevision( $this->oldid );
+		$this->oflags = FlaggedRevs::getFlagsForPageRev( $this->oldid );
 		// Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->upprovedTags = 0;
@@ -289,6 +289,10 @@ class Revisionreview extends SpecialPage
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
+		# Update our links if needed
+		$article = new Article( $this->page );
+		FlaggedRevs::extraLinksUpdate( $article );
+		
 		# Clear the cache...
 		$this->page->invalidateCache();
 		# Purge squid for this page only
@@ -319,6 +323,10 @@ class Revisionreview extends SpecialPage
 		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
+		
+		# Update our links if needed
+		$article = new Article( $this->page );
+		FlaggedRevs::extraLinksUpdate( $article );
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
@@ -435,7 +443,7 @@ class Stableversions extends SpecialPage
 		// Modifier instance
 		$RevFlagging = new FlaggedRevs();
 		// Get flags and date
-		$flags = $RevFlagging->getFlagsForRevision( $frev->fr_rev_id );
+		$flags = FlaggedRevs::getFlagsForPageRev( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt('revreview-static', array('parse'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());
