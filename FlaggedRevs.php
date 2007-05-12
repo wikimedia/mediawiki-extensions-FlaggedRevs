@@ -76,9 +76,10 @@ $wgFlaggedRevComments = true;
 # How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # MW can try to dynamically parse text from a timeframe, however
-# it does have limitations. Using expanded text cache will avoid 
-# this issues with regard to transcluded page moves/deletes. However
-# messages like {{CURRENTDATE}} will not remain dynamic.
+# it does have limitations when thins such as special:import are used. 
+# However messages like {{CURRENTDATE}} will not remain dynamic if
+# $wgUseExpandedCache is true. Conditional template inclusions will
+# also no longer be updated.
 $wgUseExpandedCache = false;
 
 # When setting up new dimensions or levels, you will need to add some 
@@ -252,9 +253,9 @@ class FlaggedRevs {
     public static function getReviewedRevs( $page ) {
 		wfProfileIn( __METHOD__ );
 		  
-		$db = wfGetDB( DB_SLAVE ); 
+		$db = wfGetDB( DB_SLAVE );
 		$rows = array();
-		// Skip deleted revisions
+		
 		$result = $db->select(
 			array('flaggedrevs'),
 			array('fr_rev_id','fr_quality'),
@@ -276,8 +277,7 @@ class FlaggedRevs {
 		wfProfileIn( __METHOD__ );
 		  
 		$db = wfGetDB( DB_SLAVE );  
-		$count = $db->selectField('revision',
-			'COUNT(*)',
+		$count = $db->selectField('revision', 'COUNT(*)',
 			array('rev_page' => $page_id, "rev_id > $from_rev"),
 			__METHOD__ );
 		
@@ -299,7 +299,7 @@ class FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
+			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -308,7 +308,7 @@ class FlaggedRevs {
 				array('flaggedrevs', 'revision'),
 				array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-				'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
+				'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
 				__METHOD__,
 				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 			if( !$row = $dbr->fetchObject($result) )
@@ -464,6 +464,7 @@ class FlaggedRevs {
 		}
 		
 		wfProfileOut( $fname );
+		
 		return $value;		
     }
     
@@ -475,13 +476,13 @@ class FlaggedRevs {
     public static function updatePageCache( $article, $parserOutput=NULL ) {
     	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
     	// Make sure it is valid
-    	if ( is_null($parserOutput) || !$article )
-			return false;
+    	if ( is_null($parserOutput) || !$article ) return false;
+    	
 		// Update the cache...
 		$article->mTitle->invalidateCache();
 		
     	$key = 'sv-' . ParserCache::getKey( $article, $wgUser );
-    	// Add cache mark to HTML	
+    	// Add cache mark to HTML
 		$now = wfTimestampNow();
 		$parserOutput->setCacheTime( $now );
 
@@ -511,17 +512,23 @@ class FlaggedRevs {
 			__METHOD__ );
     }
     
-    public static function extraLinksUpdate( &$article ) {
+    public static function extraLinksUpdate( &$title ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
+    	
+    	$article = new Article( $title );
+    	if( !$article ) return;
     	# Check if this page has a stable version
     	$sv = self::getOverridingPageRev( $article );
-    	if ( !$sv ) return;
+    	if( !$sv ) return;
     	# Retrieve the text
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
-    	$options = ParserOptions::newFromUser($wgUser);
+    	$options = new ParserOptions;
     	$poutput = self::parseStableText( $article->mTitle, $text, $sv->fr_rev_id, $options, $sv->fr_timestamp );
+    	
+    	# Might as well update the cache while we're at it
+    	FlaggedRevs::updatePageCache( $article, $poutput );
 
     	# Update the links tables to include these
     	# We want the UNION of links between the current 
@@ -916,16 +923,18 @@ class FlaggedArticle extends FlaggedRevs {
     }
 
     function addToDiff( &$diff, &$oldrev, &$newrev ) {
-       $id = $newrev->getId();
-       // We cannot review deleted edits
-       if( $newrev->mDeleted ) return;
-       $this->addQuickReview( $id );
+ 		$id = $newrev->getId();
+		// We cannot review deleted edits
+		if( !$newrev->mDeleted )
+			$this->addQuickReview( $id );
     }
     
     function addToPageHist( &$article ) {
     	$this->pageFlaggedRevs = array();
     	$rows = $this->getReviewedRevs( $article->getTitle() );
+    	
     	if( !$rows ) return;
+    	
     	foreach( $rows as $rev => $quality ) {
     		$this->pageFlaggedRevs[$rev] = $quality;
     	}
@@ -989,7 +998,7 @@ class FlaggedArticle extends FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
+			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -1030,7 +1039,7 @@ class FlaggedArticle extends FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
-			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted=0'),
+			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -1093,7 +1102,7 @@ $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedart
 
 $wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
 
-$wgHooks['ArticleEditUpdatesDeleteFromRecentchanges'][] = array($flaggedrevs, 'extraLinksUpdate');
+$wgHooks['TitleLinkUpdatesAfterCompletion'][] = array($flaggedrevs, 'extraLinksUpdate');
 $wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedrevs, 'extraLinksUpdate');
 $wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 ?>

@@ -289,9 +289,20 @@ class Revisionreview extends SpecialPage
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
-		# Update our links if needed
 		$article = new Article( $this->page );
-		FlaggedRevs::extraLinksUpdate( $article );
+		// Update the links tables as a new stable version
+		// may now be the default page.
+		$parserCache =& ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $wgUser );
+		if ( $poutput==false ) {
+			$text = $article->getContent();
+			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+		}
+		$u = new LinksUpdate( $this->page, $poutput );
+		$u->doUpdate();
+		
+		# Might as well update the cache while we're at it
+		$parserCache->save( $poutput, $article, $wgUser );
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
@@ -324,9 +335,20 @@ class Revisionreview extends SpecialPage
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 		
-		# Update our links if needed
 		$article = new Article( $this->page );
-		FlaggedRevs::extraLinksUpdate( $article );
+		// Update the links tables as a new stable version
+		// may now be the default page.
+		$parserCache =& ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $wgUser );
+		if ( $poutput==false ) {
+			$text = $article->getContent();
+			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+		}
+		$u = new LinksUpdate( $this->page, $poutput );
+		$u->doUpdate();
+		
+		# Might as well update the cache while we're at it
+		$parserCache->save( $poutput, $article, $wgUser );
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
@@ -353,10 +375,14 @@ class Revisionreview extends SpecialPage
 		}
 		$rating = ($approve) ? ' [' . implode(', ',$ratings). ']' : '';
 		// Append comment with action
+		// FIXME: do this better
 		$action = wfMsgExt('review-logaction', array('parsemag'), $oldid );
-		$comment = ($comment) ? "$action: $comment$rating" : "$action $rating"; 
+		if( $approve )
+			$comment = ($comment) ? "$action: $comment$rating" : "$action $rating";
+		else
+			$comment = ($comment) ? "$action: $comment" : "$action";
 			
-		if ( $approve ) {
+		if( $approve ) {
 			$log->addEntry( 'approve', $title, $comment );
 		} else {
 			$log->addEntry( 'unapprove', $title, $comment );
