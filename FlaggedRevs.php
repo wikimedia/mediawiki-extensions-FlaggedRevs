@@ -296,7 +296,7 @@ class FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
+			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one?
@@ -305,7 +305,7 @@ class FlaggedRevs {
 				array('flaggedrevs', 'revision'),
 				array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-				'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
+				'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted = 0'),
 				__METHOD__,
 				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 			if( !$row = $dbr->fetchObject($result) )
