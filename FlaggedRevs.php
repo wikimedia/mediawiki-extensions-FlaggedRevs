@@ -287,11 +287,8 @@ class FlaggedRevs {
 	/**
 	* static counterpart for getOverridingRev()
 	*/
-    public static function getOverridingPageRev( $article ) {
-    	if ( !is_object($article) )
-    		return null;
-    	
-    	$title = $article->getTitle();
+    public static function getOverridingPageRev( $title=NULL ) {
+    	if ( !$article ) return null;
     	
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
@@ -516,10 +513,9 @@ class FlaggedRevs {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
     	
-    	$article = new Article( $title );
-    	if( !$article ) return;
+    	if( !$title->isContentPage() ) return;
     	# Check if this page has a stable version
-    	$sv = self::getOverridingPageRev( $article );
+    	$sv = self::getOverridingPageRev( $title );
     	if( !$sv ) return;
     	# Retrieve the text
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
