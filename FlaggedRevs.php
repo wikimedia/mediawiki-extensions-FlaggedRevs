@@ -288,7 +288,7 @@ class FlaggedRevs {
 	* static counterpart for getOverridingRev()
 	*/
     public static function getOverridingPageRev( $title=NULL ) {
-    	if ( !$article ) return null;
+    	if ( !$title ) return null;
     	
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
