@@ -521,7 +521,7 @@ class FlaggedRevs {
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
     	$options = new ParserOptions;
-    	$poutput = self::parseStableText( $article->mTitle, $text, $sv->fr_rev_id, $options, $sv->fr_timestamp );
+    	$poutput = self::parseStableText( $title, $text, $sv->fr_rev_id, $options, $sv->fr_timestamp );
     	
     	# Might as well update the cache while we're at it
     	FlaggedRevs::updatePageCache( $article, $poutput );
@@ -863,10 +863,10 @@ class FlaggedArticle extends FlaggedRevs {
     	}
     }
        
-    function addQuickReview( $id, $ontop=false ) {
+    function addQuickReview( $id=NULL, $ontop=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgFlaggedRevComments, $wgArticle, $wgRequest;
 		// Hack, we don't want two forms!
-		if( isset($this->formCount) && $this->formCount > 0 ) return;
+		if( !$id || isset($this->formCount) && $this->formCount > 0 ) return;
 		$this->formCount = 1;
 				
 		if( !$wgUser->isAllowed( 'review' ) ) return;
