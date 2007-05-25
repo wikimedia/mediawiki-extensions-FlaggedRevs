@@ -97,7 +97,7 @@ $wgGroupPermissions['reviewer']['validate']  = true;
 $wgGroupPermissions['reviewer']['review']    = true;
 
 # Define when users get automatically promoted to editors
-$wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 1000, 'email' => true);
+$wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 500, 'email' => true);
 
 # What icons to display
 
@@ -667,8 +667,8 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Do the current URL params allow for overriding by stable revisions?
 	 */		
     function pageOverride() {
-    	global $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest, $action;
-    	return !( ( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) || $action !='view' || 
+    	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest, $action;
+    	return !( ($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) || $action !='view' || !$wgTitle->isContentPage() || 
 			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getIntOrNull('stable')===0 );
 	}
 
@@ -862,8 +862,8 @@ class FlaggedArticle extends FlaggedRevs {
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
-       			$new_actions[$action] = $data;
-       			$counter++;
+       				$new_actions[$action] = $data;
+       				$counter++;
        			}
        			# Reset static array
        			$content_actions = $new_actions;
@@ -879,8 +879,8 @@ class FlaggedArticle extends FlaggedRevs {
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
-       			$new_actions[$action] = $data;
-       			$counter++;
+       				$new_actions[$action] = $data;
+       				$counter++;
        			}
        			# Reset static array
        			$content_actions = $new_actions;
@@ -896,8 +896,8 @@ class FlaggedArticle extends FlaggedRevs {
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
-       			$new_actions[$action] = $data;
-       			$counter++;
+       				$new_actions[$action] = $data;
+       				$counter++;
        			}
        			# Reset static array
        			$content_actions = $new_actions;
