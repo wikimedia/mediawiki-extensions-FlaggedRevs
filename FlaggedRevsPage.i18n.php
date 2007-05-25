@@ -7,19 +7,19 @@ $RevisionreviewMessages['en'] = array(
 	'group-editor'        => 'Editors',
 	'group-editor-member' => 'Editor',
 	'grouppage-editor'    => '{{ns:project}}:Editor',
-	
+
 	'reviewer'              => 'reviewer',
 	'group-reviewer'        => 'reviewers',
 	'group-reviewer-member' => 'reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:reviewer',
-	
+
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been
 	 [[Help:Article validation|checked]] for quality.',
 	'revreview-newest'    => 'The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision]  
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) was [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>.
-	
-	There are {{plural:$3|is $3 revision|are $3 revisions}} revisions ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review. It is rated as:',
+
+	There are {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review. It is rated as:',
 	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
 	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
@@ -32,10 +32,10 @@ $RevisionreviewMessages['en'] = array(
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
-	
+
 	'hist-stable'  => '[stable]',
 	'hist-quality' => '[quality]',
-    
+
     'flaggedrevs'        => 'Flagged Revisions',
     'review-logpage'     => 'Article review log',
 	'review-logpagetext' => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
@@ -46,7 +46,7 @@ $RevisionreviewMessages['en'] = array(
 
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 
-	
+
 	See the [[Special:Unreviewedpages]] for a list of 
 	unreviewed pages.',	
 	'revreview-selected'   => "Selected revision of '''$1:'''",
@@ -77,7 +77,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Log comment:',
 	'revreview-submit'     => 'Apply review',
-	
+
 	'stableversions'        => 'Stable versions',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
 	'stableversions-leg2'   => 'View a reviewed revision',
@@ -87,10 +87,10 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-list'   => 'The following is a list of revisions of [[$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
 	'stableversions-quality' => '[Latest quality revision]',
-	
+
     'review-diff2stable'    => 'Diff to the last stable revision',
     'review-diff2oldest'    => "Diff to the oldest revision",
-    
+
     'unreviewedpages'       => 'Unreviewed pages',
     'viewunreviewed'        => 'List unreviewed content pages',
     'included-nonquality'   => 'Include reviewed pages not marked as quality.',
@@ -103,33 +103,32 @@ $RevisionreviewMessages['de'] = array(
 	'group-editor'        => 'Editoren',
 	'group-editor-member' => 'Editor',
 	'grouppage-editor'    => '{{ns:project}}:Editor',
-	
+
 	'reviewer'              => 'Prüfer',
 	'group-reviewer'        => 'Prüfer',
 	'group-reviewer-member' => 'Prüfer',
 	'grouppage-reviewer'    => '{{ns:project}}:Prüfer',
-	
+
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
-	'revreview-old'  => 'Dies ist eine [[Help:Article validation|geprüfte]] (ausgenommen Bilder und Vorlagen) Version dieser Seite; sie wurde wie folgt bewertet:',
-	'revreview-newest'    => 'Die [{{fullurl:Special:stableversions|oldid=$1}} letzte geprüfte Version] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} vergleiche])
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>
-	und wie folgt bewertet:',
+	'revreview-newest'    => 'Die [{{fullurl:Special:stableversions|oldid=$1}} letzte geprüfte Version]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
+	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an. Bewertung:',
 	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle])
 	dieser Seite, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version]
-	kann in der Regel bearbeitet werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
+	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
 	noch zur Prüfung an.',
 	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Article validation|Qualitätsbewertung]]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) , [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben]
-	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.
+	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
 	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
 	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=false}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
-	
+
 	'hist-stable'  => '[gesichtet]',
 	'hist-quality' => '[geprüft]',
-    
+
     'flaggedrevs'        => 'Markierte Versionen',
     'review-logpage'     => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext' => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
@@ -167,8 +166,8 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-style-3'    => 'präzise',
 	'revreview-style-4'    => 'exzellent',
 	'revreview-log'        => 'Logbuch-Eintrag:',
-	'revreview-submit'     => 'Auf gewählte Version anwenden',
-	
+	'revreview-submit'     => 'Prüfung speichern',
+
 	'stableversions'        => 'Stabile Versionen',
 	'stableversions-leg1'   => 'Liste der geprüften Versionen für einen Artikel',
 	'stableversions-leg2'   => 'Zeige eine geprüfte Version',
@@ -178,10 +177,10 @@ $RevisionreviewMessages['de'] = array(
 	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von [[$1]]:',
 	'stableversions-review' => 'geprüft am <i>$1</i>',
 	'stableversions-quality' => '[Letzte Version mit Qualitätsbewertung]',
-	
+
     'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
     'review-diff2oldest'    => "Unterschied zur ältesten Version",
-    
+
     'unreviewedpages'       => 'Ungeprüfte Artikel',
     'viewunreviewed'        => 'Liste ungeprüfter Artikel',
     'included-nonquality'   => 'Schließe geprüfte Artikel ein, die keine Qualitätsbewertung haben.',
@@ -194,23 +193,22 @@ $RevisionreviewMessages['pt'] = array(
 	'group-editor'        => 'Editores',
 	'group-editor-member' => 'Editor',
 	'grouppage-editor'    => '{{ns:project}}:{{int:group-editor}}',
-	
+
 	'reviewer'              => 'Crítico',
 	'group-reviewer'        => 'Críticos',
 	'group-reviewer-member' => 'Crítico',
 	'grouppage-reviewer'    => '{{ns:project}}:{{int:group-reviewer}}',
-	
+
 	'revreview-noflagged' => 'Não há edições críticas para esta página; talvez ainda \'\'\'não\'\'\' tenha sido [[{{ns:help}}:Validação de páginas|verificada]] a sua qualidade.',
-	'revreview-old'  => 'Esta, com exceção das imagens e predefinições, é uma edição [[{{ns:help}}:Validação de páginas|crítica]] desta página, avaliada como:',
 	'revreview-newest'    => 'A [{{fullurl:Special:stableversions|oldid=$1}} mais recente edição crítica] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} dif]) ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ver todas]) foi [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>, avaliada como:',
 	'revreview-basic'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições atuais] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
 	'revreview-quality'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições recentes] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
 	'revreview-static'  => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=false}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
 	'revreview-note' => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
-	
+
 	'hist-stable'  => '[ed. crítica]',
 	'hist-quality' => '[ed. qualificada]',
-    
+
     'flaggedrevs'        => 'Edições Críticas',
     'review-logpage'     => 'Registo de edições críticas',
 	'review-logpagetext' => 'Este é um registo de alterações de status de páginas de conteúdo com [[{{ns:help}}:Validação de páginas|edições críticas]].',
@@ -248,7 +246,7 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'revreview-style-4'    => 'Exemplar',
 	'revreview-log'        => 'Comentário exibido no registo:',
 	'revreview-submit'     => 'Aplicar à edição selecionada',
-	
+
 	'stableversions'        => 'Edições Críticas',
 	'stableversions-leg1'   => 'Listar edições críticas de uma página',
 	'stableversions-leg2'   => 'Ver uma edição crítica',
@@ -258,10 +256,10 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'stableversions-list'   => 'A seguir, uma lista das edições de [[$1]] que são edições críticas:',
 	'stableversions-review' => 'Criticada em <i>$1</i>',
 	'stableversions-quality' => '[Edição mais recente marcada como de qualidade]',
-	
+
     'review-diff2stable'    => 'Comparar com a edição crítica mais recente',
     'review-diff2oldest'    => "Comparar com a edição mais antiga",
-    
+
     'unreviewedpages'       => 'Páginas sem edições críticas',
     'viewunreviewed'        => 'Listar páginas de conteúdo que ainda não possuam uma edição crítica',
     'included-nonquality'   => 'Incluir páginas analisadas que não tenham sido marcadas como de qualidade.',
