@@ -782,31 +782,8 @@ class FlaggedArticle extends FlaggedRevs {
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
-			# Looking at some specific old rev
-			if( $wgRequest->getVal('oldid') ) {
-				if( $revid==$tfrev->fr_rev_id ) {
-					$tag = wfMsgExt('revreview-isnewest', array('parse'),$time);
-				} else {
-					# Our compare link should have a reasonable time-ordered old->new combination
-					$oldid = ($revid > $tfrev->fr_rev_id) ? $tfrev->fr_rev_id : $revid;
-					$diff = ($revid > $tfrev->fr_rev_id) ? $revid : $tfrev->fr_rev_id;
-					# Is this revision flagged?
-					$flags2 = $this->getFlagsForRevision( $revid );
-					$app = false;
-					foreach( $flags2 as $f => $v ) {
-						if( $v > 0 ) $app=true;
-					}
-					if( $app ) {
-						$tag .= wfMsgExt('revreview-old', array('parse'));
-						$tag .= parent::addTagRatings( $flags2 );
-					}
-					$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since);
-				}
-			# Editing the page normally
-			} else {
-				$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since );
-			}
 			// Construct some tagging
+			$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since );
 			$tag .= parent::addTagRatings( $flags );
 			$wgOut->addHTML( '<div class="flaggedrevs_tag1 plainlinks">' . $tag . '</div><br/>' );
        }
