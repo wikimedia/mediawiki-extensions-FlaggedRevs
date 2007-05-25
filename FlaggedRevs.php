@@ -55,7 +55,7 @@ function efLoadReviewMessages() {
 # perhaps treat flagged pages as "done",
 # or just be too damn lazy to always click "current".
 # We may just want non-user visitors to see reviewed pages by default.
-$wgFlaggedRevsAnonOnly = true;
+$wgFlaggedRevsAnonOnly = false;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
 # How long to cache stable versions? (seconds)
@@ -652,7 +652,7 @@ class FlaggedArticle extends FlaggedRevs {
     function pageOverride() {
     	global $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest, $action;
     	return !( ( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) || $action !='view' || 
-			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getInt('stable')===0 );
+			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getIntOrNull('stable')===0 );
 	}
 
 	 /**
@@ -840,15 +840,16 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
-    	global $wgRequest, $wgArticle, $wgFlaggedRevsAnonOnly, $wgUser, $action;
-		// Only trigger on article view, not for protect/delete/hist
+    	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgUser, $action;
+		// Get the subject page
+		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
-		if( !$wgArticle || !$sktmp->mTitle->exists() || !$sktmp->mTitle->isContentPage() )
-			return;
+		if( !$title->isContentPage() || !$title->exists() ) return;
+		$article = new Article( $title );
 		// If we are viewing a page normally, and it was overrode
 		// change the edit tab to a "current revision" tab
 		if( !( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) ) {
-       		$tfrev = $this->getOverridingRev( $wgArticle );
+       		$tfrev = $this->getOverridingRev( $article );
        		// No quality revs? Find the last reviewed one
        		if( !is_object($tfrev) ) return;
        		// Note that revisions may not be set to override for users
@@ -864,7 +865,7 @@ class FlaggedArticle extends FlaggedRevs {
 						$new_actions['current'] = array(
 							'class' => '',
 							'text' => wfMsg('currentrev'),
-							'href' => $sktmp->mTitle->getLocalUrl( 'stable=0' )
+							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
        			$new_actions[$action] = $data;
@@ -872,7 +873,7 @@ class FlaggedArticle extends FlaggedRevs {
        			}
        			# Reset static array
        			$content_actions = $new_actions;
-    		} else if( $action != 'view' || $wgRequest->getVal('oldid') ) {
+    		} else if( $action != 'view' || $wgRequest->getVal('oldid') || $sktmp->mTitle->isTalkPage() ) {
 				# Straighten out order
 				$new_actions = array(); $counter = 0;
 				foreach( $content_actions as $action => $data ) {
@@ -881,7 +882,7 @@ class FlaggedArticle extends FlaggedRevs {
 						$new_actions['current'] = array(
 							'class' => '',
 							'text' => wfMsg('currentrev'),
-							'href' => $sktmp->mTitle->getLocalUrl( 'stable=0' )
+							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
        			$new_actions[$action] = $data;
@@ -898,7 +899,7 @@ class FlaggedArticle extends FlaggedRevs {
 						$new_actions['current'] = array(
 							'class' => 'selected',
 							'text' => wfMsg('currentrev'),
-							'href' => $sktmp->mTitle->getLocalUrl( 'stable=0' )
+							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
        			$new_actions[$action] = $data;
