@@ -36,7 +36,7 @@ if( defined( 'MEDIAWIKI' ) ) {
 	/**
 	 * Register the special page
 	 */
-	extAddSpecialPage( dirname(__FILE__) . '/Makevalidate.class.php', 'Makevalidate', 'makevalidate' );
+	extAddSpecialPage( dirname(__FILE__) . '/Makevalidate.body.php', 'Makevalidate', 'makevalidate' );
 	
 	/**
 	 * Populate the message cache and set up the auditing
