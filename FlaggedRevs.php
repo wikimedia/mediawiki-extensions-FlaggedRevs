@@ -495,6 +495,23 @@ class FlaggedRevs {
 			__METHOD__ );
     }
     
+    public static function articleLinksUpdate( &$title ) {
+    	global $wgUser, $wgParser;
+    
+    	$article = new Article( $title );
+		// Update the links tables as the stable version may now be the default page...
+		$parserCache =& ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $wgUser );
+		if( $poutput==false ) {
+			$text = $article->getContent();
+			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+			# Might as well save the cache while we're at it
+			$parserCache->save( $poutput, $article, $wgUser );
+		}
+		$u = new LinksUpdate( $title, $poutput );
+		$u->doUpdate(); // this will trigger our hook to add stable links too...
+    }
+    
     public static function extraLinksUpdate( &$title ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
@@ -1158,7 +1175,7 @@ $wgHooks['ArticleViewHeader'][] = array($flaggedrevs, 'maybeUpdateMainCache');
 // Adds table link references to include ones from the stable version
 $wgHooks['TitleLinkUpdatesAfterCompletion'][] = array($flaggedrevs, 'extraLinksUpdate');
 // If a stable version is hidden, move to the next one if possible, and update things
-$wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedrevs, 'extraLinksUpdate');
+$wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedrevs, 'articleLinksUpdate');
 // Update our table NS/Titles when things are moved
 $wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 // Parser hooks, selects the desired images/templates
