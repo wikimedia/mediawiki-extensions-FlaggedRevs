@@ -14,7 +14,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob NOT NULL default '',
   -- Store the text with all transclusions resolved
-  -- This will trade space for more speed and reliability
+  -- This will trade space for speed
   fr_text mediumblob NOT NULL default '',
   -- Store the precedence level
   fr_quality tinyint(1) default 0,
@@ -32,4 +32,29 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   
   PRIMARY KEY (frt_rev_id,frt_dimension),
   INDEX frt_rev_dim_val (frt_rev_id,frt_dimension,frt_value)
+) TYPE=InnoDB;
+
+-- This stores all of our transclusion revision pointers
+CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
+  ft_rev_id int(10) NOT NULL,
+  -- Namespace and title of included page
+  ft_namespace int NOT NULL default '0',
+  ft_title varchar(255) binary NOT NULL default '',
+  -- Revisions ID used when reviewed
+  ft_tmp_rev_id int(10) NULL,
+  
+  PRIMARY KEY (ft_rev_id,ft_namespace,ft_title),
+  INDEX (ft_rev_id,ft_namespace,ft_title,ft_tmp_rev_id)
+) TYPE=InnoDB;
+
+-- This stores all of our image revision pointers
+CREATE TABLE /*$wgDBprefix*/flaggedimages (
+  fi_rev_id int(10) NOT NULL,
+  -- Name of included image
+  fi_name varchar(255) binary NOT NULL default '',
+  -- Timestamp of image used when reviewed
+  fi_img_timestamp char(14) NULL,
+  
+  PRIMARY KEY (fi_rev_id,fi_name),
+  INDEX (fi_rev_id,fi_name,fi_img_timestamp)
 ) TYPE=InnoDB;

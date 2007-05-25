@@ -36,7 +36,10 @@ class Revisionreview extends SpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		// Time of page view when viewd
+		// Special parameter mapping
+		$this->templateParams = $wgRequest->getVal( 'templateParams' );
+		$this->imageParams = $wgRequest->getVal( 'imageParams' );
+		// Time of page view when viewed
 		$this->timestamp = $wgRequest->getVal( 'wpTimestamp' );
 		// Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
@@ -178,6 +181,9 @@ class Revisionreview extends SpecialPage
 		foreach( $hidden as $item ) {
 			$form .= $item;
 		}
+		// XXX: hack, versioning params
+		$form .= Xml::hidden( 'templateParams', $this->templateParams );
+		$form .= Xml::hidden( 'imageParams', $this->imageParams );
 		
 		$form .= '</form>';
 		$wgOut->addHtml( $form );
@@ -208,7 +214,7 @@ class Revisionreview extends SpecialPage
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) $approved = true;
 		}
-		// We can only approve actually revs
+		// We can only approve actual revisions...
 		if ( $approved ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
 			// Do not mess with archived/deleted revisions
@@ -249,8 +255,6 @@ class Revisionreview extends SpecialPage
 			return false;
 			
 		$timestamp = $this->timestamp ? $this->timestamp : wfTimestampNow();
-        // Get the page text and esolve all templates
-        $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
 		
 		$quality = 0;
 		if ( FlaggedRevs::isQuality($this->dims) ) {
@@ -260,29 +264,73 @@ class Revisionreview extends SpecialPage
 		
 		$title = $rev->getTitle();
 		
-		$dbw = wfGetDB( DB_MASTER );
-		// Our review entry
- 		$revset = array(
- 			'fr_namespace' => $title->getNamespace(),
- 			'fr_title'     => $title->getDBkey(),
-			'fr_rev_id'    => $rev->getId(),
-			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => $timestamp,
-			'fr_comment'   => $notes,
-			'fr_text'      => $fulltext, // Store expanded text for good-measure
-			'fr_quality'   => $quality
-		);
 		// Our flags
 		$flagset = array();
-		foreach ( $this->dims as $tag => $value ) {
+		foreach( $this->dims as $tag => $value ) {
 			$flagset[] = array(
-				'frt_dimension' => $tag, 
-				'frt_rev_id' => $rev->getId(), 
+				'frt_rev_id' => $rev->getId(),
+				'frt_dimension' => $tag,
 				'frt_value' => $value 
 			);
 		}
+		
+		// XXX: hack, our template version pointers
+		$tmpset = $templates = array();
+		$templateMap = explode('#',trim($this->templateParams) );
+		foreach( $templateMap as $template ) {
+			if( !$template || strpos($template,'|')===false ) continue;
+			list($prefixed_text,$rev_id) = explode('|',$template,2);
+			
+			if( in_array($prefixed_text,$templates) ) continue; // No dups!
+			$templates[] = $prefixed_text;
+			
+			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
+			if( is_null($title) ) continue; // Page must exist!
+			$tmpset[] = array(
+				'ft_rev_id' => $rev->getId(),
+				'ft_namespace' => $tmp_title->getNamespace(),
+				'ft_title' => $tmp_title->getDBKey(),
+				'ft_tmp_rev_id' => intval($rev_id)
+			);
+		}
+		// XXX: hack, our image version pointers
+		$imgset = $images = array();
+		$imageMap = explode('#',trim($this->imageParams) );
+		foreach( $imageMap as $image ) {
+			if( !$image || strpos($image,'|')===false ) continue;
+			list($dbkey,$timestamp) = explode('|',$image,2);
+			
+			if( in_array($dbkey,$images) ) continue; // No dups!
+			$images[] = $dbkey;
+			
+			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize this to be sure...
+			if( is_null($img_title) ) continue; // Page must exist!
+			$imgset[] = array( 
+				'fi_rev_id' => $rev->getId(),
+				'fi_name' => $img_title->getDBKey(),
+				'fi_img_timestamp' => intval($timestamp)
+			);
+		}
+		
+		$dbw = wfGetDB( DB_MASTER );
+		// Update our versioning pointers
+		$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset, __METHOD__ );
+		$dbw->replace( 'flaggedimages', array( array('fi_rev_id','fi_name') ), $imgset, __METHOD__ );
+        // Get the page text and resolve all templates
+        $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
+		// Our review entry
+ 		$revset = array(
+ 			'fr_rev_id'    => $rev->getId(),
+ 			'fr_namespace' => $title->getNamespace(),
+ 			'fr_title'     => $title->getDBkey(),
+			'fr_user'      => $wgUser->getId(),
+			'fr_timestamp' => $timestamp,
+			'fr_comment'   => $notes,
+			'fr_text'      => $fulltext, // Store expanded text for speed
+			'fr_quality'   => $quality
+		);
 		// Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array('fr_namespace','fr_title','fr_rev_id') ), $revset, __METHOD__ );
+		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
 
@@ -290,19 +338,15 @@ class Revisionreview extends SpecialPage
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
 		$article = new Article( $this->page );
-		// Update the links tables as a new stable version
-		// may now be the default page.
+		// Update the links tables as the stable version may now be the default page...
 		$parserCache =& ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
-		if ( $poutput==false ) {
+		if( $poutput==false ) {
 			$text = $article->getContent();
 			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
-		$u->doUpdate();
-		
-		# Might as well update the cache while we're at it
-		$parserCache->save( $poutput, $article, $wgUser );
+		$u->doUpdate(); // this will trigger our hook to add stable links too...
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
@@ -329,11 +373,17 @@ class Revisionreview extends SpecialPage
         $dbw = wfGetDB( DB_MASTER );
 		// Delete from table
 		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $row->fr_rev_id ) );
+		// Wipe versioning pointers
+		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
+		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
 		// And the flags...
 		$dbw->delete( 'flaggedrevtags', array( 'frt_rev_id' => $row->fr_rev_id ) );
 		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
+		
+		# Clear the cache...
+		$this->page->invalidateCache();
 		
 		$article = new Article( $this->page );
 		// Update the links tables as a new stable version
@@ -349,9 +399,6 @@ class Revisionreview extends SpecialPage
 		
 		# Might as well update the cache while we're at it
 		$parserCache->save( $poutput, $article, $wgUser );
-		
-		# Clear the cache...
-		$this->page->invalidateCache();
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 		
@@ -420,7 +467,7 @@ class Stableversions extends SpecialPage
 	
 		$encPage = $this->page;
 		$encId = $this->oldid;
-				
+		
 		$form = "<form name='stableversions' action='$wgScript' method='get'>";
 		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>";
 		$form .= "<table><tr>";
@@ -440,6 +487,7 @@ class Stableversions extends SpecialPage
 		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>";
+		
 		$wgOut->addHTML( $form );
 	}
 	
@@ -477,7 +525,7 @@ class Stableversions extends SpecialPage
 		// Parse the text...
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
-       	$parserOutput = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options, $frev->fr_timestamp );
+       	$parserOutput = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options );
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Set the new body HTML, place a tag on top
 		$wgOut->addHTML('<div class="mw-warning plainlinks"><small>'.$tag.'</small></div>' . $parserOutput->getText() . $notes);
@@ -531,8 +579,7 @@ class Stableversions extends SpecialPage
 }
 
 /**
- *
- *
+ * Query to list out stable versions for a page
  */
 class StableRevisionsPager extends ReverseChronologicalPager {
 	public $mForm, $mConds;
@@ -568,6 +615,9 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 	}
 }
 
+/**
+ * Special page to list unreviewed pages
+ */
 class Unreviewedpages extends SpecialPage
 {
 
@@ -643,6 +693,9 @@ class Unreviewedpages extends SpecialPage
 	}
 }
 
+/**
+ * Query to list out unreviewed pages
+ */
 class UnreviewedPagesPage extends PageQueryPage {
 	
 	function __construct( $namespace=NULL, $nonquality=false ) {
@@ -658,7 +711,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 	function isSyndicated() { return false; }
 
 	function getPageHeader( ) {
-		#FIXME : probably need to add a backlink to the maintenance page.
 		return '<p>'.wfMsg("unreviewed-list")."</p><br />\n";
 	}
 
