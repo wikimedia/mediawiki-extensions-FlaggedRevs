@@ -55,7 +55,7 @@ function efLoadReviewMessages() {
 # perhaps treat flagged pages as "done",
 # or just be too damn lazy to always click "current".
 # We may just want non-user visitors to see reviewed pages by default.
-$wgFlaggedRevsAnonOnly = false;
+$wgFlaggedRevsAnonOnly = true;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
 # How long to cache stable versions? (seconds)
