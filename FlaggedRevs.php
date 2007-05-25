@@ -650,9 +650,9 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Do the current URL params allow for overriding by stable revisions?
 	 */		
     function pageOverride() {
-    	global $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest;
-    	return !( ( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) || 
-			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getText('stable')=='false' );
+    	global $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest, $action;
+    	return !( ( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) || $action !='view' || 
+			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getInt('stable')===0 );
 	}
 
 	 /**
@@ -840,18 +840,17 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
-    	global $wgRequest, $wgArticle, $action;
+    	global $wgRequest, $wgArticle, $wgFlaggedRevsAnonOnly, $wgUser, $action;
 		// Only trigger on article view, not for protect/delete/hist
 		// Non-content pages cannot be validated
-		if( !$wgArticle || !$sktmp->mTitle->exists() || !$sktmp->mTitle->isContentPage() || $action !='view' )
+		if( !$wgArticle || !$sktmp->mTitle->exists() || !$sktmp->mTitle->isContentPage() )
 			return;
 		// If we are viewing a page normally, and it was overrode
 		// change the edit tab to a "current revision" tab
-		if( !$wgRequest->getVal('oldid') ) {
+		if( !( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) ) {
        		$tfrev = $this->getOverridingRev( $wgArticle );
        		// No quality revs? Find the last reviewed one
-       		if( !is_object($tfrev) )
-       			return;
+       		if( !is_object($tfrev) ) return;
        		// Note that revisions may not be set to override for users
        		if( $this->pageOverride() ) {
        			# Remove edit option altogether
@@ -865,7 +864,41 @@ class FlaggedArticle extends FlaggedRevs {
 						$new_actions['current'] = array(
 							'class' => '',
 							'text' => wfMsg('currentrev'),
-							'href' => $sktmp->mTitle->getLocalUrl( 'stable=false' )
+							'href' => $sktmp->mTitle->getLocalUrl( 'stable=0' )
+						);
+					}
+       			$new_actions[$action] = $data;
+       			$counter++;
+       			}
+       			# Reset static array
+       			$content_actions = $new_actions;
+    		} else if( $action != 'view' || $wgRequest->getVal('oldid') ) {
+				# Straighten out order
+				$new_actions = array(); $counter = 0;
+				foreach( $content_actions as $action => $data ) {
+					if( $counter==1 ) {
+       					# Set current rev tab AFTER the main tab is set
+						$new_actions['current'] = array(
+							'class' => '',
+							'text' => wfMsg('currentrev'),
+							'href' => $sktmp->mTitle->getLocalUrl( 'stable=0' )
+						);
+					}
+       			$new_actions[$action] = $data;
+       			$counter++;
+       			}
+       			# Reset static array
+       			$content_actions = $new_actions;
+    		} else {
+				# Straighten out order
+				$new_actions = array(); $counter = 0;
+				foreach( $content_actions as $action => $data ) {
+					if( $counter==1 ) {
+       					# Set current rev tab AFTER the main tab is set
+						$new_actions['current'] = array(
+							'class' => 'selected',
+							'text' => wfMsg('currentrev'),
+							'href' => $sktmp->mTitle->getLocalUrl( 'stable=0' )
 						);
 					}
        			$new_actions[$action] = $data;
