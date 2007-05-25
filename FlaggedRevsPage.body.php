@@ -25,7 +25,6 @@ class Revisionreview extends SpecialPage
 		$this->target = $wgRequest->getText( 'target' );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		
 		// Must be a valid content page
 		$this->page = Title::newFromUrl( $this->target );
 		if ( !$this->target || !$this->oldid || !$this->page->isContentPage() ) {
@@ -34,6 +33,11 @@ class Revisionreview extends SpecialPage
 		}
 		if( is_null($this->page) || is_null($this->oldid) ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		// Check if page is protected
+		if( !$this->page->quickUserCan( 'edit' ) ) {
+			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
 		// Special parameter mapping

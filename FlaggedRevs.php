@@ -793,7 +793,11 @@ class FlaggedArticle extends FlaggedRevs {
 
 		if( !$wgArticle || !$wgArticle->exists() || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
 			return;
-		
+		// Check if page is protected
+		if( !$wgArticle->mTitle->quickUserCan( 'edit' ) ) {
+			return;
+		}
+		// Get revision ID
 		$revId = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
 		// We cannot review deleted revisions
 		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) 
