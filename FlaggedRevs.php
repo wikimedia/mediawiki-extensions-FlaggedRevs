@@ -131,18 +131,18 @@ class FlaggedRevs {
      * All included pages/arguments are expanded out
      */
     public static function expandText( $text, $title ) {
-        global $wgTitle;
-        
-        if( !$text ) return '';
-        
-    	$svParser = new Parser();
-    	$svParser->isStable = true;
+    	global $wgParser;
+    	
+        $text = $text ? $text : '';
+    	$wgParser->isStable = true; // Causes our hooks to trigger
         
         $options = new ParserOptions;
-        $options->setRemoveComments( true ); // Less bandwidth maybe...
-        $output = $svParser->preprocess( $text, $title, $options );
+        $options->setRemoveComments( true ); // Less banwidth?
+        $outputText = $wgParser->preprocess( $text, $title, $options );
         
-        return $output;
+        $wgParser->isStable = false; // Done!
+        
+        return $outputText;
     }
     
 	/**
@@ -154,17 +154,16 @@ class FlaggedRevs {
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
     public static function parseStableText( $title, $text, $id=NULL, $options ) {
-    	global $wgUser;
+    	global $wgParser;
     	
-    	$svParser = new Parser();
-    	$svParser->isStable = true;
-    	
-		$options->setTidy(true);
+    	$wgParser->isStable = true; // Causes our hooks to trigger
 		# Don't show section-edit links
 		# They can be old and misleading
 		$options->setEditSection(false);
 		# Parse the new body, wikitext -> html
-       	$parserOut = $svParser->parse( $text, $title, $options, true, true, $id );
+       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
+       	
+       	$wgParser->isStable = false; // Done!
        	
        	return $parserOut;
     }

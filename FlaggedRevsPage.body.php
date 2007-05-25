@@ -382,9 +382,6 @@ class Revisionreview extends SpecialPage
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 		
-		# Clear the cache...
-		$this->page->invalidateCache();
-		
 		$article = new Article( $this->page );
 		// Update the links tables as a new stable version
 		// may now be the default page.
@@ -397,8 +394,8 @@ class Revisionreview extends SpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate();
 		
-		# Might as well update the cache while we're at it
-		$parserCache->save( $poutput, $article, $wgUser );
+		# Clear the cache...
+		$this->page->invalidateCache();
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 		
