@@ -39,11 +39,13 @@
 }
 
 .flaggedrevs_notice {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
 	font-size: 80%;
-	line-height: 1.2em;
-	margin: 0 0 1.4em 1em;
-	color: #7d7d7d;
-	width: auto;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
 }
 
 /*.fr-marker-1 span {display: none};*/

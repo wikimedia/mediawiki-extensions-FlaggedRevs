@@ -689,7 +689,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$vis_id = $revid;
 		$tag = ''; $notes = '';
 		// Check the newest stable version...
-		$quality = false; $pristine = false;
+		$stable = $quality = $pristine = false;
 		if( $this->pageOverride() ) {
 			$tfrev = $this->getOverridingRev( $article );
 		} else {
@@ -712,6 +712,7 @@ class FlaggedArticle extends FlaggedRevs {
 
 				$skin = $wgUser->getSkin();
 				# See if this page is featured
+				$stable = true;
 				$quality = $this->isQuality( $flags );
 				$pristine = $this->isPristine( $flags );
        			# We will be looking at the reviewed revision...
@@ -749,8 +750,10 @@ class FlaggedArticle extends FlaggedRevs {
 				$tag = '<div class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
 			else if( $quality )
 				$tag = '<div class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
-			else
+			else if( $stable )
 				$tag = '<div class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
+			else
+				$tag = '<div class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
