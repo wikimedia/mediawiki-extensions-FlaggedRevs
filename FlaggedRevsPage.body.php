@@ -354,6 +354,8 @@ class Revisionreview extends SpecialPage
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
+		# Might as well save the cache
+		$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 		
@@ -400,6 +402,8 @@ class Revisionreview extends SpecialPage
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
+		# Might as well save the cache
+		$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 		
