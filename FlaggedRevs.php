@@ -787,7 +787,7 @@ class FlaggedArticle extends FlaggedRevs {
 			// Construct some tagging
 			$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since );
 			$tag .= parent::addTagRatings( $flags );
-			$wgOut->addHTML( '<div class="flaggedrevs_tag1 plainlinks">' . $tag . '</div><br/>' );
+			$wgOut->addHTML( '<div class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
        }
     }
 	
