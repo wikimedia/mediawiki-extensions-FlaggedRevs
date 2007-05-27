@@ -28,7 +28,7 @@ $RevisionreviewMessages['en'] = array(
 	of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'[[$3]]\'\'\', 
+	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'[[:$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} current revision] 
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
@@ -40,8 +40,8 @@ $RevisionreviewMessages['en'] = array(
     'review-logpage'     => 'Article review log',
 	'review-logpagetext' => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
 	for content pages.',
-	'review-logentrygrant'   => 'reviewed a version of [[$1]]',
-	'review-logentryrevoke'  => 'depreciated a version of [[$1]]',
+	'review-logentrygrant'   => 'reviewed a version of [[:$1]]',
+	'review-logentryrevoke'  => 'depreciated a version of [[:$1]]',
 	'review-logaction'  => 'revision $1',
 
     'revisionreview'       => 'Review revisions',		
@@ -83,8 +83,8 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-leg2'   => 'View a reviewed revision',
 	'stableversions-page'   => 'Page name',
 	'stableversions-rev'    => 'Revision ID',
-	'stableversions-none'   => '[[$1]] has no reviewed revisions.',
-	'stableversions-list'   => 'The following is a list of revisions of [[$1]] that have been reviewed:',
+	'stableversions-none'   => '[[:$1]] has no reviewed revisions.',
+	'stableversions-list'   => 'The following is a list of revisions of [[:$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
 	'stableversions-quality' => '[Latest quality revision]',
 
@@ -122,7 +122,7 @@ $RevisionreviewMessages['de'] = array(
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) , [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]
 	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
 	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
-	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
+	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[:$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
@@ -132,8 +132,8 @@ $RevisionreviewMessages['de'] = array(
     'flaggedrevs'        => 'Markierte Versionen',
     'review-logpage'     => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext' => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
-	'review-logentrygrant'   => 'prüfte eine Version von [[$1]]',
-	'review-logentryrevoke'  => 'verwarf eine Version von [[$1]]',
+	'review-logentrygrant'   => 'prüfte eine Version von [[:$1]]',
+	'review-logentryrevoke'  => 'verwarf eine Version von [[:$1]]',
 	'review-logaction'  => 'Version $1',
 
     'revisionreview'       => 'Versionsprüfung',		
@@ -173,8 +173,8 @@ $RevisionreviewMessages['de'] = array(
 	'stableversions-leg2'   => 'Zeige eine geprüfte Version',
 	'stableversions-page'   => 'Artikelname',
 	'stableversions-rev'    => 'Versionsnummer:',
-	'stableversions-none'   => '[[$1]] hat keine geprüften Versionen.',
-	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von [[$1]]:',
+	'stableversions-none'   => '[[:$1]] hat keine geprüften Versionen.',
+	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von [[:$1]]:',
 	'stableversions-review' => 'geprüft am <i>$1</i>',
 	'stableversions-quality' => '[Letzte Version mit Qualitätsbewertung]',
 
@@ -203,7 +203,7 @@ $RevisionreviewMessages['pt'] = array(
 	'revreview-newest'    => 'A [{{fullurl:Special:stableversions|oldid=$1}} mais recente edição crítica] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} dif]) ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ver todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>, avaliada como:',
 	'revreview-basic'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições atuais] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
 	'revreview-quality'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Edições recentes] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
-	'revreview-static'  => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=0}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
+	'revreview-static'  => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[:$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=0}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
 	'revreview-note' => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
 
 	'hist-stable'  => '[ed. crítica]',
@@ -212,8 +212,8 @@ $RevisionreviewMessages['pt'] = array(
     'flaggedrevs'        => 'Edições Críticas',
     'review-logpage'     => 'Registo de edições críticas',
 	'review-logpagetext' => 'Este é um registo de alterações de status de páginas de conteúdo com [[{{ns:help}}:Validação de páginas|edições críticas]].',
-	'review-logentrygrant'   => 'foi criticada uma edição de [[$1]]',
-	'review-logentryrevoke'  => 'foi rebaixada uma edição de [[$1]]',
+	'review-logentrygrant'   => 'foi criticada uma edição de [[:$1]]',
+	'review-logentryrevoke'  => 'foi rebaixada uma edição de [[:$1]]',
 	'review-logaction'  => 'edição $1',
 
     'revisionreview'       => 'Criticar edições',		
@@ -252,8 +252,8 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'stableversions-leg2'   => 'Ver uma edição crítica',
 	'stableversions-page'   => 'Título da página',
 	'stableversions-rev'    => 'ID da edição',
-	'stableversions-none'   => '[[$1]] não possui edições críticas.',
-	'stableversions-list'   => 'A seguir, uma lista das edições de [[$1]] que são edições críticas:',
+	'stableversions-none'   => '[[:$1]] não possui edições críticas.',
+	'stableversions-list'   => 'A seguir, uma lista das edições de [[:$1]] que são edições críticas:',
 	'stableversions-review' => 'Criticada em <i>$1</i>',
 	'stableversions-quality' => '[Edição mais recente marcada como de qualidade]',
 
