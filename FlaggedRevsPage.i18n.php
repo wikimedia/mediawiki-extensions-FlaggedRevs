@@ -21,15 +21,15 @@ $RevisionreviewMessages['en'] = array(
 	
 	There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review. It is rated as:',
 	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
-	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
+	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
 	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
-	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} current revision] 
+	of this page, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
 	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'[[$3]]\'\'\', 
-	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=false}} current revision] 
+	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} current revision] 
 	is usually editable and more up to date.',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
@@ -115,15 +115,15 @@ $RevisionreviewMessages['de'] = array(
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an. Bewertung:',
 	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle])
-	dieser Seite, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version]
+	dieser Seite, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
 	noch zur Prüfung an.',
 	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Article validation|Qualitätsbewertung]]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) , [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} freigegeben]
-	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
+	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
 	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
 	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
-	am <i>$2</i>. Die [{{fullurl:$3|stable=false}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
+	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
 	'hist-stable'  => '[gesichtet]',
@@ -202,8 +202,8 @@ $RevisionreviewMessages['pt'] = array(
 	'revreview-noflagged' => 'Não há edições críticas para esta página; talvez ainda \'\'\'não\'\'\' tenha sido [[{{ns:help}}:Validação de páginas|verificada]] a sua qualidade.',
 	'revreview-newest'    => 'A [{{fullurl:Special:stableversions|oldid=$1}} mais recente edição crítica] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} dif]) ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ver todas]) foi [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>, avaliada como:',
 	'revreview-basic'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições atuais] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
-	'revreview-quality'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições recentes] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
-	'revreview-static'  => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=false}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
+	'revreview-quality'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Edições recentes] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
+	'revreview-static'  => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=0}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
 	'revreview-note' => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
 
 	'hist-stable'  => '[ed. crítica]',
