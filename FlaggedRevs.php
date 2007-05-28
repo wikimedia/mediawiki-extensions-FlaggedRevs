@@ -709,6 +709,8 @@ class FlaggedArticle extends FlaggedRevs {
 			if( !$this->pageOverride() ) {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
 				$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since);
+				// Construct some tagging
+				$tag .= parent::addTagRatings( $flags );
 			# Viewing the page normally: override the page
 			} else {
 				global $wgUser;
@@ -725,6 +727,9 @@ class FlaggedArticle extends FlaggedRevs {
        				$tag = wfMsgExt('revreview-quality', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
 				else
 					$tag = wfMsgExt('revreview-basic', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
+				// Construct some tagging
+				$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+				$tag .= '<span id="mwrevisionratings" style="display:none">' . parent::addTagRatings( $flags ) . '</span>';
 				# Try the stable page cache
 				$parserOutput = parent::getPageCache( $article );
 				# If no cache is available, get the text and parse it
@@ -746,9 +751,6 @@ class FlaggedArticle extends FlaggedRevs {
 				$outputDone = true;
 				$pcache = false;
 			}
-			// Construct some tagging
-			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mwrevisionratings" style="display:none">' . parent::addTagRatings( $flags ) . '</span>';
 			// Some checks for which tag CSS to use
 			if( $pristine )
 				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
