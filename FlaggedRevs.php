@@ -822,25 +822,22 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setPermaLink( &$sktmp, &$nav_urls, &$oldid, &$revid ) {
-    	global $wgArticle, $wgTitle, $action;
-		// Only trigger on article view, not for protect/delete/hist
+    	global $wgTitle;
 		// Non-content pages cannot be validated
-		if( !$wgArticle || !$wgTitle->isContentPage() || !$this->pageOverride() )
-			return;
+		if( !$wgTitle->isContentPage() || !$this->pageOverride() ) return;
 		// Check for an overridabe revision
 		$tfrev = $this->getOverridingRev();
 		if( !$tfrev ) return;
-		$revid = $tfrev->fr_rev_id;
 		// Replace "permalink" with an actual permanent link
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
-			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "oldid=$revid" )
+			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "oldid={$tfrev->fr_rev_id}" )
 		);
 		// Are we using the popular cite extension?
 		if( isset($nav_urls['cite']) ) {
 			$nav_urls['cite'] = array(
 				'text' => wfMsg( 'cite_article_link' ),
-				'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id=$revid" )
+				'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
 			);
 		}
     }
@@ -865,7 +862,7 @@ class FlaggedArticle extends FlaggedRevs {
        			unset( $content_actions['viewsource']);
 				# Straighten out order
 				$new_actions = array(); $counter = 0;
-				foreach( $content_actions as $action => $data ) {
+				foreach( $content_actions as $tab_action => $data ) {
 					if( $counter==1 ) {
        					# Set current rev tab AFTER the main tab is set
 						$new_actions['current'] = array(
@@ -874,7 +871,7 @@ class FlaggedArticle extends FlaggedRevs {
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
-       				$new_actions[$action] = $data;
+       				$new_actions[$tab_action] = $data;
        				$counter++;
        			}
        			# Reset static array
@@ -882,7 +879,7 @@ class FlaggedArticle extends FlaggedRevs {
     		} else if( $action != 'view' || $wgRequest->getVal('oldid') || $sktmp->mTitle->isTalkPage() ) {
 				# Straighten out order
 				$new_actions = array(); $counter = 0;
-				foreach( $content_actions as $action => $data ) {
+				foreach( $content_actions as $tab_action => $data ) {
 					if( $counter==1 ) {
        					# Set current rev tab AFTER the main tab is set
 						$new_actions['current'] = array(
@@ -891,7 +888,7 @@ class FlaggedArticle extends FlaggedRevs {
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
-       				$new_actions[$action] = $data;
+       				$new_actions[$tab_action] = $data;
        				$counter++;
        			}
        			# Reset static array
@@ -899,7 +896,7 @@ class FlaggedArticle extends FlaggedRevs {
     		} else {
 				# Straighten out order
 				$new_actions = array(); $counter = 0;
-				foreach( $content_actions as $action => $data ) {
+				foreach( $content_actions as $tab_action => $data ) {
 					if( $counter==1 ) {
        					# Set current rev tab AFTER the main tab is set
 						$new_actions['current'] = array(
@@ -908,7 +905,7 @@ class FlaggedArticle extends FlaggedRevs {
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
-       				$new_actions[$action] = $data;
+       				$new_actions[$tab_action] = $data;
        				$counter++;
        			}
        			# Reset static array
