@@ -20,12 +20,12 @@ $RevisionreviewMessages['en'] = array(
 	 on <i>$2</i>.
 	
 	There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review. It is rated as:',
-	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
-	of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
+	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision of this page, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
-	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) 
-	of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
+	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision of this page, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
 	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'[[:$3]]\'\'\', 
