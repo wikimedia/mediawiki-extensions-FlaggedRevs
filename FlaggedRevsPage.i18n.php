@@ -112,35 +112,40 @@ $RevisionreviewMessages['de'] = array(
 
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
+
 	'revreview-newest'    => 'Die [{{fullurl:Special:stableversions|oldid=$1}} letzte geprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an. Bewertung:',
-	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle])
-	dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
+
+	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version dieser Seite,
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
 	noch zur Prüfung an.',
+
 	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Article validation|Qualitätsbewertung]]
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) , [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]
-	am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>.
+	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
 	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
+
 	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[:$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
-	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
+	'revreview-toggle' => '(Details umschalten)',
+	'revreview-note' => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
 
 	'hist-stable'  => '[gesichtet]',
 	'hist-quality' => '[geprüft]',
 
-    'flaggedrevs'        => 'Markierte Versionen',
-    'review-logpage'     => 'Artikel-Prüf-Logbuch',
+	'flaggedrevs'        => 'Markierte Versionen',
+	'review-logpage'     => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext' => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
 	'review-logentrygrant'   => 'prüfte eine Version von $1',
 	'review-logentryrevoke'  => 'verwarf eine Version von $1',
-	'review-logaction'  => 'Version $1',
+	'review-logaction'  => 'Version-ID $1',
 
-    'revisionreview'       => 'Versionsprüfung',		
-    'revreview-main'       => 'Sie müssen eine Artikelversion zur Prüfung auswählen.
+	'revisionreview'       => 'Versionsprüfung',		
+	'revreview-main'       => 'Sie müssen eine Artikelversion zur Prüfung auswählen.
 
-    Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste ungeprüfter Versionen.',	
+	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste ungeprüfter Versionen.',	
 	'revreview-selected'   => "Gewählte Version von '''$1:'''",
 	'revreview-text'       => "Einer freigegebenen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.",
 	'revreview-toolow'     => 'Sie müssen für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
@@ -179,13 +184,13 @@ $RevisionreviewMessages['de'] = array(
 	'stableversions-review' => 'geprüft am <i>$1</i>',
 	'stableversions-quality' => '[Letzte Version mit Qualitätsbewertung]',
 
-    'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
-    'review-diff2oldest'    => "Unterschied zur ältesten Version",
+	'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
+	'review-diff2oldest'    => "Unterschied zur ältesten Version",
 
-    'unreviewedpages'       => 'Ungeprüfte Artikel',
-    'viewunreviewed'        => 'Liste ungeprüfter Artikel',
-    'included-nonquality'   => 'Schließe geprüfte Artikel ein, die keine Qualitätsbewertung haben.',
-    'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
+	'unreviewedpages'       => 'Ungeprüfte Artikel',
+	'viewunreviewed'        => 'Liste ungeprüfter Artikel',
+	'included-nonquality'   => 'Schließe geprüfte Artikel ein, die keine Qualitätsbewertung haben.',
+	'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
 );
 
 // Portuguese (Lugusto)
