@@ -533,7 +533,7 @@ class Stableversions extends SpecialPage
        	$parserOutput = $RevFlagging->parseStableText( $page, $text, $this->oldid, $options );
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Set the new body HTML, place a tag on top
-		$wgOut->addHTML('<div class="flaggedrevs_notice plainlinks">'.$tag.'</div>' . $parserOutput->getText() . $notes);
+		$wgOut->addHTML('<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>' . $parserOutput->getText() . $notes);
 		# Show stable categories and interwiki links only
        	$wgOut->addCategoryLinks( $parserOutput->getCategories() );
 	}

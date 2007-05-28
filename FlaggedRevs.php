@@ -7,6 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 if( !defined( 'FLAGGED_CSS' ) ) define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
+if( !defined( 'FLAGGED_JS' ) ) define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
 
 if( !function_exists( 'extAddSpecialPage' ) ) {
 	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
@@ -31,7 +32,7 @@ extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Stableversi
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Unreviewedpages', 'UnreviewedPages' );
 
 function efLoadReviewMessages() {
-	global $wgMessageCache, $RevisionreviewMessages, $wgOut;
+	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType;
 	# Internationalization
 	require( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
 	foreach ( $RevisionreviewMessages as $lang => $langMessages ) {
@@ -44,6 +45,8 @@ function efLoadReviewMessages() {
 		'media'	=> 'screen,projection',
 		'href'	=> FLAGGED_CSS,
 	) );
+	# UI JS
+	$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
 }
 
 #########
@@ -66,7 +69,7 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # Define the tags we can use to rate an article, 
 # and set the minimum level to have it become a "quality" version.
 # "quality" revisions take precidence over other reviewed revisions
-$wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
+$wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>2, 'style'=>1 );
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 4;
 # Who can set what flags to what level? (use -1 for not at all)
@@ -719,9 +722,9 @@ class FlaggedArticle extends FlaggedRevs {
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
        			if( $quality )
-       				$tag = wfMsgExt('revreview-quality', array('parse'), $vis_id, $article->getLatest(), $revs_since, $time);
+       				$tag = wfMsgExt('revreview-quality', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
 				else
-					$tag = wfMsgExt('revreview-basic', array('parse'), $vis_id, $article->getLatest(), $revs_since, $time);
+					$tag = wfMsgExt('revreview-basic', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
 				# Try the stable page cache
 				$parserOutput = parent::getPageCache( $article );
 				# If no cache is available, get the text and parse it
@@ -744,20 +747,21 @@ class FlaggedArticle extends FlaggedRevs {
 				$pcache = false;
 			}
 			// Construct some tagging
-			$tag .= parent::addTagRatings( $flags );
+			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			$tag .= '<span id="mwrevisionratings" style="display:none">' . parent::addTagRatings( $flags ) . '</span>';
 			// Some checks for which tag CSS to use
 			if( $pristine )
-				$tag = '<div class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
 			else if( $quality )
-				$tag = '<div class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
 			else if( $stable )
-				$tag = '<div class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			else
-				$tag = '<div class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
-			$tag = '<div class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
+			$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
 			$wgOut->addHTML( $tag );
 		}
     }
@@ -787,7 +791,7 @@ class FlaggedArticle extends FlaggedRevs {
 			// Construct some tagging
 			$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since );
 			$tag .= parent::addTagRatings( $flags );
-			$wgOut->addHTML( '<div class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
+			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
        }
     }
 	

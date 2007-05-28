@@ -13,8 +13,8 @@ $RevisionreviewMessages['en'] = array(
 	'group-reviewer-member' => 'reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:reviewer',
 
-	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been
-	 [[Help:Article validation|checked]] for quality.',
+	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
+	[[Help:Article validation|checked]] for quality.',
 	'revreview-newest'    => 'The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision]  
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>.
@@ -31,6 +31,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of the page \'\'\'[[:$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} current revision] 
 	is usually editable and more up to date.',
+	'revreview-toggle' => '(toggle details)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
 	'hist-stable'  => '[stable]',
@@ -42,7 +43,7 @@ $RevisionreviewMessages['en'] = array(
 	for content pages.',
 	'review-logentrygrant'   => 'reviewed a version of [[:$1]]',
 	'review-logentryrevoke'  => 'depreciated a version of [[:$1]]',
-	'review-logaction'  => 'revision $1',
+	'review-logaction'  => 'revision ID $1',
 
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 
