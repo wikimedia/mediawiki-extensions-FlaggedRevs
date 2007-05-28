@@ -41,8 +41,8 @@ $RevisionreviewMessages['en'] = array(
     'review-logpage'     => 'Article review log',
 	'review-logpagetext' => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
 	for content pages.',
-	'review-logentrygrant'   => 'reviewed a version of [[:$1]]',
-	'review-logentryrevoke'  => 'depreciated a version of [[:$1]]',
+	'review-logentrygrant'   => 'reviewed a version of $1',
+	'review-logentryrevoke'  => 'depreciated a version of $1',
 	'review-logaction'  => 'revision ID $1',
 
     'revisionreview'       => 'Review revisions',		
@@ -133,8 +133,8 @@ $RevisionreviewMessages['de'] = array(
     'flaggedrevs'        => 'Markierte Versionen',
     'review-logpage'     => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext' => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
-	'review-logentrygrant'   => 'prüfte eine Version von [[:$1]]',
-	'review-logentryrevoke'  => 'verwarf eine Version von [[:$1]]',
+	'review-logentrygrant'   => 'prüfte eine Version von $1',
+	'review-logentryrevoke'  => 'verwarf eine Version von $1',
 	'review-logaction'  => 'Version $1',
 
     'revisionreview'       => 'Versionsprüfung',		
@@ -213,8 +213,8 @@ $RevisionreviewMessages['pt'] = array(
     'flaggedrevs'        => 'Edições Críticas',
     'review-logpage'     => 'Registo de edições críticas',
 	'review-logpagetext' => 'Este é um registo de alterações de status de páginas de conteúdo com [[{{ns:help}}:Validação de páginas|edições críticas]].',
-	'review-logentrygrant'   => 'foi criticada uma edição de [[:$1]]',
-	'review-logentryrevoke'  => 'foi rebaixada uma edição de [[:$1]]',
+	'review-logentrygrant'   => 'foi criticada uma edição de $1',
+	'review-logentryrevoke'  => 'foi rebaixada uma edição de $1',
 	'review-logaction'  => 'edição $1',
 
     'revisionreview'       => 'Criticar edições',		
