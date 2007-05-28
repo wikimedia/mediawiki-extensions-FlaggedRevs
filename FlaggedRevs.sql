@@ -20,6 +20,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_quality tinyint(1) default 0,
   
   PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
+  UNIQUE KEY (fr_rev_id),
   UNIQUE KEY (fr_id)
 ) TYPE=InnoDB;
 
@@ -31,7 +32,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   frt_value tinyint(2) NOT NULL,
   
   PRIMARY KEY (frt_rev_id,frt_dimension),
-  INDEX frt_rev_dim_val (frt_rev_id,frt_dimension,frt_value)
+  INDEX (frt_rev_id,frt_dimension,frt_value)
 ) TYPE=InnoDB;
 
 -- This stores all of our transclusion revision pointers
