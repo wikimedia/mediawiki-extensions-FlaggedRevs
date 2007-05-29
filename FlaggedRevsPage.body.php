@@ -321,7 +321,7 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset, __METHOD__ );
 		$dbw->replace( 'flaggedimages', array( array('fi_rev_id','fi_name') ), $imgset, __METHOD__ );
         // Get the page text and resolve all templates
-        $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle() );
+        $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),

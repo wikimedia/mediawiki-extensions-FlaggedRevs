@@ -133,7 +133,7 @@ class FlaggedRevs {
      * @returns string
      * All included pages/arguments are expanded out
      */
-    public static function expandText( $text, $title ) {
+    public static function expandText( $text, $title, $id=null ) {
     	global $wgParser;
     	
         $text = $text ? $text : '';
@@ -141,7 +141,7 @@ class FlaggedRevs {
         
         $options = new ParserOptions;
         $options->setRemoveComments( true ); // Less banwidth?
-        $outputText = $wgParser->preprocess( $text, $title, $options );
+        $outputText = $wgParser->preprocess( $text, $title, $options, $id );
         
         $wgParser->isStable = false; // Done!
         
@@ -526,7 +526,7 @@ class FlaggedRevs {
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
     	$options = new ParserOptions;
-    	$poutput = self::parseStableText( $title, $text, $sv->fr_rev_id, $options, $sv->fr_timestamp );
+    	$poutput = self::parseStableText( $title, $text, $sv->fr_rev_id, $options );
 
     	# Might as well update the cache while we're at it
     	$article = new Article( $title );
@@ -601,7 +601,6 @@ class FlaggedRevs {
 					'ft_namespace' => $title->getNamespace(), 'ft_title' => $title->getDBkey() ),
 				__METHOD__ );
 		}
-		
 		if( !$id ) {
 			$id = 0; // Zero for not found
 			$skip = true;
@@ -736,7 +735,7 @@ class FlaggedArticle extends FlaggedRevs {
 				if( $parserOutput==false ) {
 					$text = parent::getFlaggedRevText( $vis_id );
 					$options = ParserOptions::newFromUser($wgUser);
-       				$parserOutput = parent::parseStableText( $wgTitle, $text, $vis_id, $options, $tfrev->fr_timestamp );
+       				$parserOutput = parent::parseStableText( $wgTitle, $text, $vis_id, $options );
        				# Update the general cache
        				parent::updatePageCache( $article, $parserOutput );
        			}
