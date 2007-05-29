@@ -8,10 +8,10 @@ $RevisionreviewMessages['en'] = array(
 	'group-editor-member' => 'Editor',
 	'grouppage-editor'    => '{{ns:project}}:Editor',
 
-	'reviewer'              => 'reviewer',
-	'group-reviewer'        => 'reviewers',
-	'group-reviewer-member' => 'reviewer',
-	'grouppage-reviewer'    => '{{ns:project}}:reviewer',
+	'reviewer'              => 'Reviewer',
+	'group-reviewer'        => 'Reviewers',
+	'group-reviewer-member' => 'Reviewer',
+	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
