@@ -708,7 +708,7 @@ class FlaggedArticle extends FlaggedRevs {
 			// Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
-				$tag .= wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since);
+				$tag .= wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 				// Construct some tagging
 				$tag .= parent::addTagRatings( $flags );
 			# Viewing the page normally: override the page
@@ -763,7 +763,7 @@ class FlaggedArticle extends FlaggedRevs {
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
-			$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parse')).'</div>';
+			$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parseinline')).'</div>';
 			$wgOut->addHTML( $tag );
 		}
     }
@@ -791,7 +791,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
 			// Construct some tagging
-			$tag = wfMsgExt('revreview-newest', array('parse'), $tfrev->fr_rev_id, $time, $revs_since );
+			$tag = wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			$tag .= parent::addTagRatings( $flags );
 			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
        }
