@@ -1184,7 +1184,7 @@ $wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedrevs, 'articleLink
 // Update our table NS/Titles when things are moved
 $wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 // Parser hooks, selects the desired images/templates
-$wgHooks['parserBeforerenderImageGallery'][] = array( $flaggedrevs, 'parserMakeGalleryStable');
+$wgHooks['BeforeParserrenderImageGallery'][] = array( $flaggedrevs, 'parserMakeGalleryStable');
 $wgHooks['BeforeGalleryFindFile'][] = array( $flaggedrevs, 'galleryFindStableFileTime');
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $flaggedrevs, 'parserFetchStableTemplate');
 $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedrevs, 'parserMakeStableImageLink');
