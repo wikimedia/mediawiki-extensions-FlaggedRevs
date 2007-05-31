@@ -15,11 +15,20 @@ class Revisionreview extends SpecialPage
 
     function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevComments, $wgFlaggedRevTags;
-        
-		if( !$wgUser->isAllowed( 'review' ) ) {
+
+		$confirm = $wgRequest->wasPosted() &&
+			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
+
+		if( $wgUser->isAllowed( 'review' ) ) {
+			if( $wgUser->isBlocked( !$confirm ) ) {
+				$wgOut->blockedPage();
+				return;
+			}
+		} else {
 			$wgOut->permissionRequired( 'review' );
 			return;
 		}
+		
 		$this->setHeaders();
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
