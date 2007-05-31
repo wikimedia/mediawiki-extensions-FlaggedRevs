@@ -92,7 +92,7 @@ class Revisionreview extends SpecialPage
 	 * @param int $val
 	 * Returns true if a user can do something
 	 */	
-	function userCan( $tag, $value ) {
+	public static function userCan( $tag, $value ) {
 		global $wgFlagRestrictions, $wgUser;
 		
 		if ( !isset($wgFlagRestrictions[$tag]) )

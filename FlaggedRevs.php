@@ -626,6 +626,24 @@ class FlaggedRevs {
 			$skip = true;
 		}
     }
+    
+    static function galleryFindStableFileTime( &$ig, &$nt, &$time ) {
+    	// Trigger for stable version parsing only
+    	if( !isset($ig->isStable) || !$ig->isStable ) return;
+    	
+    	$dbr = wfGetDB( DB_SLAVE );
+        $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
+			array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
+			__METHOD__ );
+		$time = $time ? $time : -1; // hack, will never find this
+    }
+    
+    static function parserMakeGalleryStable( &$parser, &$ig ) {
+    	// Trigger for stable version parsing only
+    	if( !isset($parser->isStable) || !$parser->isStable ) return;
+    	
+    	$ig->isStable = true;
+    }
 
 	/**
 	* Callback that autopromotes user according to the setting in 
@@ -1164,6 +1182,8 @@ $wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedrevs, 'articleLink
 // Update our table NS/Titles when things are moved
 $wgHooks['SpecialMovepageAfterMove'][] = array($flaggedrevs, 'updateFromMove');
 // Parser hooks, selects the desired images/templates
+$wgHooks['parserBeforerenderImageGallery'][] = array( $flaggedrevs, 'parserMakeGalleryStable');
+$wgHooks['BeforeGalleryFindFile'][] = array( $flaggedrevs, 'galleryFindStableFileTime');
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $flaggedrevs, 'parserFetchStableTemplate');
 $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedrevs, 'parserMakeStableImageLink');
 ?>
