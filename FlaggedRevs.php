@@ -886,7 +886,7 @@ class FlaggedArticle extends FlaggedRevs {
        					# Set current rev tab AFTER the main tab is set
 						$new_actions['current'] = array(
 							'class' => '',
-							'text' => wfMsg('currentrev'),
+							'text' => wfMsg('revreview-current'),
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
@@ -903,7 +903,7 @@ class FlaggedArticle extends FlaggedRevs {
        					# Set current rev tab AFTER the main tab is set
 						$new_actions['current'] = array(
 							'class' => '',
-							'text' => wfMsg('currentrev'),
+							'text' => wfMsg('revreview-current'),
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
@@ -920,7 +920,7 @@ class FlaggedArticle extends FlaggedRevs {
        					# Set current rev tab AFTER the main tab is set
 						$new_actions['current'] = array(
 							'class' => 'selected',
-							'text' => wfMsg('currentrev'),
+							'text' => wfMsg('revreview-current'),
 							'href' => $title->getLocalUrl( 'stable=0' )
 						);
 					}
