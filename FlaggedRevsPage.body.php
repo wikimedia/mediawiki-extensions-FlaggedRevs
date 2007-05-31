@@ -294,7 +294,7 @@ class Revisionreview extends SpecialPage
 				'ft_rev_id' => $rev->getId(),
 				'ft_namespace' => $tmp_title->getNamespace(),
 				'ft_title' => $tmp_title->getDBKey(),
-				'ft_tmp_rev_id' => intval($rev_id)
+				'ft_tmp_rev_id' => $rev_id
 			);
 		}
 		// XXX: hack, our image version pointers
@@ -312,7 +312,7 @@ class Revisionreview extends SpecialPage
 			$imgset[] = array( 
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBKey(),
-				'fi_img_timestamp' => intval($timestamp)
+				'fi_img_timestamp' => $timestamp
 			);
 		}
 		
@@ -337,7 +337,6 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
-
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		

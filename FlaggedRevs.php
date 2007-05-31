@@ -588,6 +588,7 @@ class FlaggedRevs {
 	static function parserFetchStableTemplate( &$parser, &$title, &$skip, &$id ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable ) return;
+    	
     	$dbr = wfGetDB( DB_SLAVE );
         $id = $dbr->selectField('flaggedtemplates', 'ft_tmp_rev_id',
 			array('ft_rev_id' => $parser->mRevisionId,
@@ -607,22 +608,23 @@ class FlaggedRevs {
 		}
     }
     
-	static function parserMakeStableImageLink( &$parser, &$nt, &$skip, &$timestamp ) {
+	static function parserMakeStableImageLink( &$parser, &$nt, &$skip, &$time ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable ) return;
+    	
     	$dbr = wfGetDB( DB_SLAVE );
-        $timestamp = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
+        $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
 			array('fi_rev_id' => $parser->mRevisionId, 'fi_name' => $nt->getDBkey() ),
 			__METHOD__ );
 		// Slave lag maybe? try master...
-		if( $timestamp===false ) {
+		if( $time===false ) {
     		$dbw = wfGetDB( DB_MASTER );
-        	$timestamp = $dbw->selectField('flaggedimages', 'fi_img_timestamp',
+        	$time = $dbw->selectField('flaggedimages', 'fi_img_timestamp',
 				array('fi_rev_id' => $parser->mRevisionId, 'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 		}
-		if( !$timestamp ) {
-			$timestamp = 0; // Zero for not found
+		if( !$time ) {
+			$time = 0; // Zero for not found
 			$skip = true;
 		}
     }
@@ -956,7 +958,7 @@ class FlaggedArticle extends FlaggedRevs {
 		foreach( $this->dimensions as $quality => $levels ) {
 			$options = ''; $disabled = '';
 			foreach( $levels as $idx => $label ) {
-				$selected = ( $flags[$quality]==$idx || $flags[$quality]==0 && $idx==1 ) ? 'selected' : '';
+				$selected = ( $flags[$quality]==$idx || $flags[$quality]==0 && $idx==1 ) ? 'selected=\'selected\'' : '';
 				// Do not show options user's can't set unless that is the status quo
 				if( !Revisionreview::userCan($quality, $flags[$quality]) ) {
 					$disabled = 'disabled = true';
