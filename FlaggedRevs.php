@@ -13,9 +13,16 @@ if( !function_exists( 'extAddSpecialPage' ) ) {
 	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
 }
 
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['parserhook'][] = array(
 	'author' => 'Aaron Schulz, Joerg Baach',
 	'name' => 'Flagged Revisions',
+	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
+	'description' => 'Allows for revision of pages to be made static regardless of templates/images'
+);
+
+$wgExtensionCredits['specialpage'][] = array(
+	'author' => 'Aaron Schulz, Joerg Baach',
+	'name' => 'Review revisions',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages'
 );
