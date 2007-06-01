@@ -397,7 +397,9 @@ class FlaggedRevs {
 		
     	// Make sure it is valid
     	if( !$article || !$article->getId() ) return NULL;
-    	$key = 'sv-' . ParserCache::getKey( $article, $wgUser );
+    	
+    	$parserCache =& ParserCache::singleton();
+    	$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
 		// Get the cached HTML
 		wfDebug( "Trying parser cache $key\n" );
 		$value = $parserMemc->get( $key );
@@ -447,7 +449,8 @@ class FlaggedRevs {
 		// Update the cache...
 		$article->mTitle->invalidateCache();
 		
-    	$key = 'sv-' . ParserCache::getKey( $article, $wgUser );
+		$parserCache =& ParserCache::singleton();
+    	$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
     	// Add cache mark to HTML
 		$now = wfTimestampNow();
 		$parserOutput->setCacheTime( $now );
