@@ -68,6 +68,8 @@ function efLoadReviewMessages() {
 $wgFlaggedRevsAnonOnly = true;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
+# Make user's watch pages when reviewed
+$wgFlaggedRevsWatch = true;
 # How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
 

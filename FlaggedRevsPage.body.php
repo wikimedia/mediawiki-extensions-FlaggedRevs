@@ -258,7 +258,7 @@ class Revisionreview extends SpecialPage
 	 * Adds or updates the flagged revision table for this page/id set
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
-		global $wgUser, $wgParser;
+		global $wgUser, $wgParser, $wgFlaggedRevsWatch;
 		
 		wfProfileIn( __METHOD__ );
 		
@@ -266,17 +266,17 @@ class Revisionreview extends SpecialPage
 		// No bogus timestamps
 		if ( $this->timestamp && ($this->timestamp < $rev->getTimestamp() || $this->timestamp > wfTimestampNow()) )
 			return false;
-			
-		$timestamp = $this->timestamp ? $this->timestamp : wfTimestampNow();
 		
 		$quality = 0;
 		if ( FlaggedRevs::isQuality($this->dims) ) {
 			$quality = FlaggedRevs::getLCQuality($this->dims);
 			$quality = ($quality > 1) ? $quality : 1;
 		}
-		
+		// Get the page this corresponds to
 		$title = $rev->getTitle();
-		
+		// Watch it if $wgFlaggedRevsWatch is set to true
+		if( $wgFlaggedRevsWatch )
+			$wgUser->addWatch( $title );
 		// Our flags
 		$flagset = array();
 		foreach( $this->dims as $tag => $value ) {
@@ -311,7 +311,7 @@ class Revisionreview extends SpecialPage
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
 			if( !$image || strpos($image,'|')===false ) continue;
-			list($dbkey,$timestamp) = explode('|',$image,2);
+			list($dbkey,$this->timestamp) = explode('|',$image,2);
 			
 			if( in_array($dbkey,$images) ) continue; // No dups!
 			$images[] = $dbkey;
@@ -321,7 +321,7 @@ class Revisionreview extends SpecialPage
 			$imgset[] = array( 
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBKey(),
-				'fi_img_timestamp' => $timestamp
+				'fi_img_timestamp' => $this->timestamp
 			);
 		}
 		
@@ -337,7 +337,7 @@ class Revisionreview extends SpecialPage
  			'fr_namespace' => $title->getNamespace(),
  			'fr_title'     => $title->getDBkey(),
 			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => $timestamp,
+			'fr_timestamp' => $this->timestamp,
 			'fr_comment'   => $notes,
 			'fr_text'      => $fulltext, // Store expanded text for speed
 			'fr_quality'   => $quality
@@ -382,7 +382,6 @@ class Revisionreview extends SpecialPage
 		if( is_null($row) ) return false;
 		
 		$user = $wgUser->getId();
-		$timestamp = wfTimestampNow();
 		
         $dbw = wfGetDB( DB_MASTER );
 		// Delete from table
