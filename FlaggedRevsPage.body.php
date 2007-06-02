@@ -258,7 +258,7 @@ class Revisionreview extends SpecialPage
 	 * Adds or updates the flagged revision table for this page/id set
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
-		global $wgUser, $wgParser, $wgFlaggedRevsWatch;
+		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
 		
 		wfProfileIn( __METHOD__ );
 		
@@ -274,9 +274,6 @@ class Revisionreview extends SpecialPage
 		}
 		// Get the page this corresponds to
 		$title = $rev->getTitle();
-		// Watch it if $wgFlaggedRevsWatch is set to true
-		if( $wgFlaggedRevsWatch )
-			$wgUser->addWatch( $title );
 		// Our flags
 		$flagset = array();
 		foreach( $this->dims as $tag => $value ) {
@@ -360,6 +357,10 @@ class Revisionreview extends SpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
 		
+		// Watch it if $wgFlaggedRevsWatch is set to true and this users watches his/her edits
+		if( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) )
+			$wgUser->addWatch( $title );
+		
 		# Clear the cache...
 		$this->page->invalidateCache();
 		# Might as well save the cache
@@ -375,7 +376,7 @@ class Revisionreview extends SpecialPage
 	 * Removes flagged revision data for this page/id set
 	 */  
 	function unapproveRevision( $row=NULL ) {
-		global $wgUser;
+		global $wgUser, $wgFlaggedRevsWatch;
 		
 		wfProfileIn( __METHOD__ );
 	
@@ -406,6 +407,10 @@ class Revisionreview extends SpecialPage
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate();
+		
+		// Watch it if $wgFlaggedRevsWatch is set to true and this users watches his/her edits
+		if( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) )
+			$wgUser->addWatch( $title );
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
