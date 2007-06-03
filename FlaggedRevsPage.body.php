@@ -515,22 +515,13 @@ class Stableversions extends SpecialPage
 		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
 		// Revision must exists
 		if( is_null($frev) ) {
-			$wgOut->showErrorPage('notargettitle', 'badarticleerror' );
+			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
 			return;
 		}
-		// Must be a valid page/Id
 		$page = Title::makeTitle( $frev->fr_namespace, $frev->fr_title );
-		if( is_null($page) ) {
-			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
-			return;
-		}
-		// Must be a content page
-		$article = new Article( $page );
-		if( is_null($article) ) {
-			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
-			return;
-		}
+		
 		$wgOut->setPagetitle( $page->getPrefixedText() );
+		
 		// Modifier instance
 		$RevFlagging = new FlaggedRevs();
 		// Get flags and date
