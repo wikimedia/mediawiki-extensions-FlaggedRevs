@@ -665,7 +665,7 @@ class FlaggedRevs {
 	* Callback that autopromotes user according to the setting in 
     * $wgFlaggedRevsAutopromote
 	*/
-	private static function autoPromoteUser( &$article, &$user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
+	public static function autoPromoteUser( &$article, &$user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
 		
 		$groups = $user->getGroups();
