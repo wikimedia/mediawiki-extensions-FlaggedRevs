@@ -112,12 +112,14 @@ $RevisionreviewMessages['de'] = array(
 	'grouppage-reviewer'    => '{{ns:project}}:Prüfer',
 
 	'revreview-current'   => 'Aktuelle Version',
+	'revreview-stable'    => 'Stabile Version',
+	'revreview-rating'    => 'Bewertung:',
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
 
 	'revreview-newest'    => 'Die [{{fullurl:Special:stableversions|oldid=$1}} letzte geprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.<br />
-	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an. Bewertung:',
+	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
 
 	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version dieser Seite,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
