@@ -66,6 +66,8 @@ function efLoadReviewMessages() {
 # or just be too damn lazy to always click "current".
 # We may just want non-user visitors to see reviewed pages by default.
 $wgFlaggedRevsAnonOnly = true;
+# Do flagged revs override the default view?
+$wgFlaggedRevsOverride = false;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
 # Make user's watch pages when reviewed if they watch pages that they edit
@@ -700,9 +702,17 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Do the current URL params allow for overriding by stable revisions?
 	 */		
     function pageOverride() {
-    	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgUser, $wgRequest, $action;
-    	return !( ($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) || $action !='view' || !$wgTitle->isContentPage() || 
-			$wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getIntOrNull('stable')===0 );
+    	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $wgRequest, $action;
+    	// This only applies to content pages
+    	if( $action !='view' || !$wgTitle->isContentPage() ) return;
+    	// If $wgFlaggedRevsAnonOnly is set to false, stable version are only requested explicitly
+    	if( $wgFlaggedRevsOverride ) {
+    		return !( ($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) ||  $wgRequest->getVal('oldid') || 
+				$wgRequest->getVal('diff') || $wgRequest->getIntOrNull('stable')===0 );
+		} else {
+    		return !( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || 
+				$wgRequest->getIntOrNull('stable') !==1 );
+		}
 	}
 
 	 /**
@@ -874,7 +884,8 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
-    	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgUser, $action;
+    	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $action;
+    	
 		// Get the subject page
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
@@ -882,7 +893,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$article = new Article( $title );
 		// If we are viewing a page normally, and it was overrode
 		// change the edit tab to a "current revision" tab
-		if( !( $wgFlaggedRevsAnonOnly && !$wgUser->isAnon() ) ) {
+		if( !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) || !$wgFlaggedRevsOverride ) {
        		$tfrev = $this->getOverridingRev( $article );
        		// No quality revs? Find the last reviewed one
        		if( !is_object($tfrev) ) return;
@@ -891,16 +902,24 @@ class FlaggedArticle extends FlaggedRevs {
        			# Remove edit option altogether
        			unset( $content_actions['edit']);
        			unset( $content_actions['viewsource']);
-				# Straighten out order
 				$new_actions = array(); $counter = 0;
+				# Straighten out order
 				foreach( $content_actions as $tab_action => $data ) {
 					if( $counter==1 ) {
-       					# Set current rev tab AFTER the main tab is set
-						$new_actions['current'] = array(
-							'class' => '',
-							'text' => wfMsg('revreview-current'),
-							'href' => $title->getLocalUrl( 'stable=0' )
-						);
+						# Set the tab AFTER the main tab is set
+						if( $wgFlaggedRevsOverride ) {
+							$new_actions['current'] = array(
+								'class' => '',
+								'text' => wfMsg('revreview-current'),
+								'href' => $title->getLocalUrl( 'stable=0' )
+							);
+						} else {
+							$new_actions['stable'] = array(
+								'class' => 'selected',
+								'text' => wfMsg('revreview-stable'),
+								'href' => $title->getLocalUrl( 'stable=1' )
+							);
+						}
 					}
        				$new_actions[$tab_action] = $data;
        				$counter++;
@@ -908,16 +927,25 @@ class FlaggedArticle extends FlaggedRevs {
        			# Reset static array
        			$content_actions = $new_actions;
     		} else if( $action != 'view' || $wgRequest->getVal('oldid') || $sktmp->mTitle->isTalkPage() ) {
-				# Straighten out order
+    		// We are looking at the talk page
 				$new_actions = array(); $counter = 0;
+				# Straighten out order
 				foreach( $content_actions as $tab_action => $data ) {
 					if( $counter==1 ) {
-       					# Set current rev tab AFTER the main tab is set
-						$new_actions['current'] = array(
-							'class' => '',
-							'text' => wfMsg('revreview-current'),
-							'href' => $title->getLocalUrl( 'stable=0' )
-						);
+						# Set the tab AFTER the main tab is set
+						if( $wgFlaggedRevsOverride ) {
+							$new_actions['current'] = array(
+								'class' => '',
+								'text' => wfMsg('revreview-current'),
+								'href' => $title->getLocalUrl( 'stable=0' )
+							);
+						} else {
+							$new_actions['stable'] = array(
+								'class' => '',
+								'text' => wfMsg('revreview-stable'),
+								'href' => $title->getLocalUrl( 'stable=1' )
+							);
+						}
 					}
        				$new_actions[$tab_action] = $data;
        				$counter++;
@@ -925,16 +953,25 @@ class FlaggedArticle extends FlaggedRevs {
        			# Reset static array
        			$content_actions = $new_actions;
     		} else {
-				# Straighten out order
+			// We are looking at the current revision/history/diffs ect...
 				$new_actions = array(); $counter = 0;
+				# Straighten out order
 				foreach( $content_actions as $tab_action => $data ) {
 					if( $counter==1 ) {
-       					# Set current rev tab AFTER the main tab is set
-						$new_actions['current'] = array(
-							'class' => 'selected',
-							'text' => wfMsg('revreview-current'),
-							'href' => $title->getLocalUrl( 'stable=0' )
-						);
+       					# Set the tab AFTER the main tab is set
+						if( $wgFlaggedRevsOverride ) {
+							$new_actions['current'] = array(
+								'class' => 'selected',
+								'text' => wfMsg('revreview-current'),
+								'href' => $title->getLocalUrl( 'stable=0' )
+							);
+						} else {
+							$new_actions['stable'] = array(
+								'class' => '',
+								'text' => wfMsg('revreview-stable'),
+								'href' => $title->getLocalUrl( 'stable=1' )
+							);
+					 	}
 					}
        				$new_actions[$tab_action] = $data;
        				$counter++;
