@@ -323,7 +323,8 @@ class FlaggedRevs {
     
     public function addTagRatings( $flags ) {
         global $wgFlaggedRevTags;
-    	$tag = "<p>";
+        
+        $tag = '';
 		foreach ( $this->dimensions as $quality => $value ) {
 			$valuetext = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
             $level = $flags[$quality];
@@ -337,7 +338,6 @@ class FlaggedRevs {
             $levelmarker = $level * 20 + 20; //XXX do this better
 			$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" . wfMsgHtml("revreview-$quality") . "</strong>: <span class='fr-text-value'>$valuetext&nbsp;</span>&nbsp;</span>\n";    
 		}
-		$tag .= '</p>';
 		return $tag;
     }
     
@@ -751,7 +751,10 @@ class FlaggedArticle extends FlaggedRevs {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
 				$tag .= wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 				// Construct some tagging
-				$tag .= parent::addTagRatings( $flags );
+				$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+				$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+					wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
+					'</span>';
 			# Viewing the page normally: override the page
 			} else {
 				global $wgUser;
@@ -770,7 +773,9 @@ class FlaggedArticle extends FlaggedRevs {
 					$tag = wfMsgExt('revreview-basic', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
 				// Construct some tagging
 				$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-				$tag .= '<span id="mwrevisionratings" style="display:none">' . parent::addTagRatings( $flags ) . '</span>';
+				$tag .= '<span id="mwrevisionratings" style="display:none"><p>' . 
+					parent::addTagRatings( $flags ) .
+					'</p></span>';
 				# Try the stable page cache
 				$parserOutput = parent::getPageCache( $article );
 				# If no cache is available, get the text and parse it
@@ -833,7 +838,11 @@ class FlaggedArticle extends FlaggedRevs {
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
 			// Construct some tagging
 			$tag = wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
-			$tag .= parent::addTagRatings( $flags );
+			// Construct some tagging
+			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+				wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
+				'</span>';
 			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
        }
     }

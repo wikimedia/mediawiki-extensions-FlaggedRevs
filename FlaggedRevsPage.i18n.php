@@ -13,13 +13,14 @@ $RevisionreviewMessages['en'] = array(
 	'group-reviewer-member' => 'Reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
-	'revreview-current'     => 'Current revision',
-	'revreview-stable'      => 'Stable version',
+	'revreview-current'   => 'Current revision',
+	'revreview-stable'    => 'Stable version',
+	'revreview-rating'    => 'It was rated as:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	'revreview-newest'    => 'The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
-	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review. It is rated as:',
+	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
 	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision of this page, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
