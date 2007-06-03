@@ -207,25 +207,28 @@ $RevisionreviewMessages['pt'] = array(
 	'group-reviewer-member' => 'Crítico',
 	'grouppage-reviewer'    => '{{ns:project}}:{{int:group-reviewer}}',
 
-	'revreview-noflagged' => 'Não há edições críticas para esta página; talvez ainda \'\'\'não\'\'\' tenha sido [[{{ns:help}}:Validação de páginas|verificada]] a sua qualidade.',
-	'revreview-newest'    => 'A [{{fullurl:Special:stableversions|oldid=$1}} mais recente edição crítica] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$2&diff=$3}} dif]) ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ver todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>, avaliada como:',
-	'revreview-basic'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições atuais] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
-	'revreview-quality'  => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} veja todas]) desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Edições recentes] talvez sejam editáveis e mais atualizadas. Existem {{plural:$3|$3 edição|$3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
-	'revreview-static'  => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[:$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=0}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
-	'revreview-note' => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
+	'revreview-current'     => 'Edição atual',
+	'revreview-stable'      => 'Edição analisada',
+	'revreview-noflagged'   => 'Não há edições críticas para esta página; talvez ainda \'\'\'não\'\'\' tenha sido [[{{ns:help}}:Validação de páginas|verificada]] a sua qualidade.',
+	'revreview-newest'      => 'A [{{fullurl:Special:stableversions|oldid=$1}} mais recente edição crítica] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ver todas]) foi [{{fullurl:Special:LogLog|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. {{plural:$3|Existe $3 edição|Existem $3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} diff]) aguardando por análise. A atual foi avaliada como:',
+	'revreview-basic'       => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições atuais] talvez sejam [[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editáveis] e mais atualizadas. {{plural:$3|Existe $3 edição|Existem $3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} diff]) aguardando análise.',
+	'revreview-quality'     => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Edições recentes] talvez sejam [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editáveis] e mais atualizadas. {{plural:$3|Existe $3 edição|Existem $3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
+	'revreview-static'      => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[:$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=0}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
+	'revreview-toggle'      => '(alternar detalhes)',
+	'revreview-note'        => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
 
 	'hist-stable'  => '[ed. crítica]',
 	'hist-quality' => '[ed. qualificada]',
 
-    'flaggedrevs'        => 'Edições Críticas',
-    'review-logpage'     => 'Registo de edições críticas',
-	'review-logpagetext' => 'Este é um registo de alterações de status de páginas de conteúdo com [[{{ns:help}}:Validação de páginas|edições críticas]].',
-	'review-logentrygrant'   => 'foi criticada uma edição de $1',
-	'review-logentryrevoke'  => 'foi rebaixada uma edição de $1',
-	'review-logaction'  => 'edição $1',
+	'flaggedrevs'           => 'Edições Críticas',
+	'review-logpage'        => 'Registo de edições críticas',
+	'review-logpagetext'    => 'Este é um registo de alterações de status de páginas de conteúdo com [[{{ns:help}}:Validação de páginas|edições críticas]].',
+	'review-logentrygrant'  => 'foi criticada uma edição de $1',
+	'review-logentryrevoke' => 'foi rebaixada uma edição de $1',
+	'review-logaction'      => 'ID de edição: $1',
 
-    'revisionreview'       => 'Criticar edições',		
-    'revreview-main'       => 'Você precisa selecionar uma edição em específico de uma página de conteúdo para poder fazer uma edição crítica.
+	'revisionreview'        => 'Criticar edições',		
+	'revreview-main'        => 'Você precisa selecionar uma edição em específico de uma página de conteúdo para poder fazer uma edição crítica.
 
 Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não criticadas.',	
 	'revreview-selected'   => "Edição selecionada de '''$1:'''",
@@ -253,7 +256,7 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'revreview-style-3'    => 'Concisa',
 	'revreview-style-4'    => 'Exemplar',
 	'revreview-log'        => 'Comentário exibido no registo:',
-	'revreview-submit'     => 'Aplicar à edição selecionada',
+	'revreview-submit'     => 'Aplicar crítica',
 
 	'stableversions'        => 'Edições Críticas',
 	'stableversions-leg1'   => 'Listar edições críticas de uma página',
@@ -265,12 +268,12 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'stableversions-review' => 'Criticada em <i>$1</i>',
 	'stableversions-quality' => '[Edição mais recente marcada como de qualidade]',
 
-    'review-diff2stable'    => 'Comparar com a edição crítica mais recente',
-    'review-diff2oldest'    => "Comparar com a edição mais antiga",
+	'review-diff2stable'    => 'Comparar com a edição crítica mais recente',
+	'review-diff2oldest'    => "Comparar com a edição mais antiga",
 
-    'unreviewedpages'       => 'Páginas sem edições críticas',
-    'viewunreviewed'        => 'Listar páginas de conteúdo que ainda não possuam uma edição crítica',
-    'included-nonquality'   => 'Incluir páginas analisadas que não tenham sido marcadas como de qualidade.',
-    'unreviewed-list'       => 'Esta página lista as páginas de conteúdo que ainda não receberam uma edição crítica.',
+	'unreviewedpages'       => 'Páginas sem edições críticas',
+	'viewunreviewed'        => 'Listar páginas de conteúdo que ainda não possuam uma edição crítica',
+	'included-nonquality'   => 'Incluir páginas analisadas que não tenham sido marcadas como de qualidade.',
+	'unreviewed-list'       => 'Esta página lista as páginas de conteúdo que ainda não receberam uma edição crítica.',
 );
 ?>
