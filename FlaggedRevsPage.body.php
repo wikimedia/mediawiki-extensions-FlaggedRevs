@@ -288,14 +288,19 @@ class Revisionreview extends SpecialPage
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
-			if( !$template || strpos($template,'|')===false ) continue;
-			list($prefixed_text,$rev_id) = explode('|',$template,2);
+			if( !$template ) continue;
+			
+			$m = explode('|',$template,2);
+			if( !isset($m[0]) || !isset($m[1]) || !$m[0] || !$m[1] ) continue;
+			
+			list($prefixed_text,$rev_id) = $m;
 			
 			if( in_array($prefixed_text,$templates) ) continue; // No dups!
 			$templates[] = $prefixed_text;
 			
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
 			if( is_null($title) ) continue; // Page must exist!
+			
 			$tmpset[] = array(
 				'ft_rev_id' => $rev->getId(),
 				'ft_namespace' => $tmp_title->getNamespace(),
@@ -307,25 +312,36 @@ class Revisionreview extends SpecialPage
 		$imgset = $images = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
-			if( !$image || strpos($image,'|')===false ) continue;
-			list($dbkey,$this->timestamp) = explode('|',$image,2);
+			if( !$image ) continue;
+			$m = explode('|',$image,2);
+			
+			if( !isset($m[0]) || !isset($m[1]) || !$m[0] || !$m[1] ) continue;
+			
+			list($dbkey,$timestamp) = $m;
 			
 			if( in_array($dbkey,$images) ) continue; // No dups!
 			$images[] = $dbkey;
 			
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize this to be sure...
 			if( is_null($img_title) ) continue; // Page must exist!
+			
 			$imgset[] = array( 
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBKey(),
-				'fi_img_timestamp' => $this->timestamp
+				'fi_img_timestamp' => $timestamp
 			);
 		}
 		
 		$dbw = wfGetDB( DB_MASTER );
 		// Update our versioning pointers
-		$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset, __METHOD__ );
-		$dbw->replace( 'flaggedimages', array( array('fi_rev_id','fi_name') ), $imgset, __METHOD__ );
+		if( !empty( $tmpset ) ) {
+			$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset,
+				__METHOD__ );
+		}
+		if( !empty( $imgset ) ) {
+			$dbw->replace( 'flaggedimages', array( array('fi_rev_id','fi_name') ), $imgset, 
+				__METHOD__ );
+		}
         // Get the page text and resolve all templates
         $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
 		// Our review entry
