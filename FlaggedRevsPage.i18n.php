@@ -14,7 +14,7 @@ $RevisionreviewMessages['en'] = array(
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
 	'revreview-current'     => 'Current revision',
-	'revreview-stable'      => 'Reviewed version',
+	'revreview-stable'      => 'Stable version',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	'revreview-newest'    => 'The [{{fullurl:Special:stableversions|oldid=$1}} latest reviewed revision] 

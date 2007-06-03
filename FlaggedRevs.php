@@ -67,7 +67,7 @@ function efLoadReviewMessages() {
 # We may just want non-user visitors to see reviewed pages by default.
 $wgFlaggedRevsAnonOnly = true;
 # Do flagged revs override the default view?
-$wgFlaggedRevsOverride = false;
+$wgFlaggedRevsOverride = true;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = true;
 # Make user's watch pages when reviewed if they watch pages that they edit
