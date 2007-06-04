@@ -553,8 +553,11 @@ class Stableversions extends SpecialPage
 		$notes = $RevFlagging->ReviewNotes( $frev );
 		// Set the new body HTML, place a tag on top
 		$wgOut->addHTML('<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>' . $parserOutput->getText() . $notes);
-		# Show stable categories and interwiki links only
+       	// Show stable categories and interwiki links only
+       	$wgOut->mCategoryLinks = array();
        	$wgOut->addCategoryLinks( $parserOutput->getCategories() );
+       	$wgOut->mLanguageLinks = array();
+       	$wgOut->addLanguageLinks( $parserOutput->getLanguageLinks() );
 	}
 	
 	function showStableList() {
