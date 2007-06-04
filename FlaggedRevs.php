@@ -738,24 +738,25 @@ class FlaggedArticle extends FlaggedRevs {
 		$vis_id = $revid;
 		$tag = ''; $notes = '';
 		// Check the newest stable version...
-		$stable = $quality = $pristine = false;
-		if( $this->pageOverride() ) {
-			$tfrev = $this->getOverridingRev( $article );
-		} else {
-			$tfrev = $this->getLatestStableRev( $article );
-		}
+		$tfrev = $this->getOverridingRev( $article );
+		$simpleTag = false;
 		if( $wgRequest->getVal('diff') ) {
     		// Do not clutter up diffs any further...
 		} else if( !is_null($tfrev) ) {
-			global $wgParser, $wgLang;
-			// Get flags and date
+			global $wgLang;
+			# Get flags and date
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
+			# Get quality level
+			$quality = $this->isQuality( $flags );
+			$pristine = $this->isPristine( $flags );
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
-			// Looking at some specific old rev or if flagged revs override only for anons
+			# Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
+				$simpleTag = true;
+				# Construct some tagging
 				$tag .= wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
-				// Construct some tagging
+				# Hide clutter
 				$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
 				$tag .= '<span id="mwrevisionratings" style="display:none">' . 
 					wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
@@ -765,10 +766,6 @@ class FlaggedArticle extends FlaggedRevs {
 				global $wgUser;
 
 				$skin = $wgUser->getSkin();
-				# See if this page is featured
-				$stable = true;
-				$quality = $this->isQuality( $flags );
-				$pristine = $this->isPristine( $flags );
        			# We will be looking at the reviewed revision...
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
@@ -798,19 +795,19 @@ class FlaggedArticle extends FlaggedRevs {
        			$wgOut->mLanguageLinks = array();
        			$wgOut->addLanguageLinks( $parserOutput->getLanguageLinks() );
 				$notes = parent::ReviewNotes( $tfrev );
-				// Tell MW that parser output is done
+				# Tell MW that parser output is done
 				$outputDone = true;
 				$pcache = false;
 			}
 			// Some checks for which tag CSS to use
-			if( $pristine )
+			if( $simpleTag )
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
+			else if( $pristine )
 				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
 			else if( $quality )
 				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
-			else if( $stable )
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			else
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
@@ -835,15 +832,15 @@ class FlaggedArticle extends FlaggedRevs {
 		// Set new body html text as that of now
 		$tag = '';
 		// Check the newest stable version
-		$tfrev = $this->getLatestStableRev( $editform->mArticle );
+		$tfrev = $this->getOverridingRev( $editform->mArticle );
 		if( is_object($tfrev) ) {
-			global $wgParser, $wgLang;		
+			global $wgLang;		
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
-			// Construct some tagging
+			# Construct some tagging
 			$tag = wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
-			// Construct some tagging
+			# Hide clutter
 			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
 			$tag .= '<span id="mwrevisionratings" style="display:none">' . 
 				wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
