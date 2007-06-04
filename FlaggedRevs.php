@@ -703,15 +703,20 @@ class FlaggedArticle extends FlaggedRevs {
 	 */		
     function pageOverride() {
     	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $wgRequest, $action;
-    	// This only applies to content pages
+    	// This only applies to viewing content pages
     	if( $action !='view' || !$wgTitle->isContentPage() ) return;
-    	// If $wgFlaggedRevsAnonOnly is set to false, stable version are only requested explicitly
+    	// Does not apply to diffs/old revisions
+    	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') ) return;
+    	// Does the stable version override the current one?
     	if( $wgFlaggedRevsOverride ) {
-    		return !( ($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) ||  $wgRequest->getVal('oldid') || 
-				$wgRequest->getVal('diff') || $wgRequest->getIntOrNull('stable')===0 );
+    		// If $wgFlaggedRevsAnonOnly is set to false, stable version are only requested explicitly
+    		if( $wgFlaggedRevsAnonOnly && $wgUser->isAnon() ) {
+    			return !( $wgRequest->getIntOrNull('stable')===0 );
+    		} else {
+    			return ( $wgRequest->getIntOrNull('stable')===1 );
+    		}
 		} else {
-    		return !( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || 
-				$wgRequest->getIntOrNull('stable') !==1 );
+    		return !( $wgRequest->getIntOrNull('stable') !==1 );
 		}
 	}
 
@@ -894,100 +899,103 @@ class FlaggedArticle extends FlaggedRevs {
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
     	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $action;
-    	
 		// Get the subject page
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
 		if( !$title->isContentPage() || !$title->exists() ) return;
 		$article = new Article( $title );
-		// If we are viewing a page normally, and it was overrode
+		// If we are viewing a page normally, and it was overridden,
 		// change the edit tab to a "current revision" tab
-		if( !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) || !$wgFlaggedRevsOverride ) {
-       		$tfrev = $this->getOverridingRev( $article );
-       		// No quality revs? Find the last reviewed one
-       		if( !is_object($tfrev) ) return;
-       		// Note that revisions may not be set to override for users
-       		if( $this->pageOverride() ) {
-       			# Remove edit option altogether
-       			unset( $content_actions['edit']);
-       			unset( $content_actions['viewsource']);
-				$new_actions = array(); $counter = 0;
-				# Straighten out order
-				foreach( $content_actions as $tab_action => $data ) {
-					if( $counter==1 ) {
-						# Set the tab AFTER the main tab is set
-						if( $wgFlaggedRevsOverride ) {
-							$new_actions['current'] = array(
-								'class' => '',
-								'text' => wfMsg('revreview-current'),
-								'href' => $title->getLocalUrl( 'stable=0' )
-							);
-						} else {
-							$new_actions['stable'] = array(
-								'class' => 'selected',
-								'text' => wfMsg('revreview-stable'),
-								'href' => $title->getLocalUrl( 'stable=1' )
-							);
-						}
+       	$tfrev = $this->getOverridingRev( $article );
+       	// No quality revs? Find the last reviewed one
+       	if( !is_object($tfrev) ) return;
+       	// Note that revisions may not be set to override for users
+       	if( $this->pageOverride() ) {
+       		# Remove edit option altogether
+       		unset( $content_actions['edit']);
+       		unset( $content_actions['viewsource']);
+			$new_actions = array(); $counter = 0;
+			# Straighten out order
+			foreach( $content_actions as $tab_action => $data ) {
+				if( $counter==1 ) {
+					# Set the tab AFTER the main tab is set
+					if( $wgFlaggedRevsOverride && !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) ) {
+						$new_actions['current'] = array(
+							'class' => '',
+							'text' => wfMsg('revreview-current'),
+							'href' => $title->getLocalUrl( 'stable=0' )
+						);
+					} else {
+					# Add 'stable' tab if either $wgFlaggedRevsOverride is off, 
+					# or this is a user viewing the page with $wgFlaggedRevsAnonOnly on
+						$new_actions['stable'] = array(
+							'class' => 'selected',
+							'text' => wfMsg('revreview-stable'),
+							'href' => $title->getLocalUrl( 'stable=1' )
+						);
 					}
-       				$new_actions[$tab_action] = $data;
-       				$counter++;
-       			}
-       			# Reset static array
-       			$content_actions = $new_actions;
-    		} else if( $action != 'view' || $wgRequest->getVal('oldid') || $sktmp->mTitle->isTalkPage() ) {
-    		// We are looking at the talk page
-				$new_actions = array(); $counter = 0;
-				# Straighten out order
-				foreach( $content_actions as $tab_action => $data ) {
-					if( $counter==1 ) {
-						# Set the tab AFTER the main tab is set
-						if( $wgFlaggedRevsOverride ) {
-							$new_actions['current'] = array(
-								'class' => '',
-								'text' => wfMsg('revreview-current'),
-								'href' => $title->getLocalUrl( 'stable=0' )
-							);
-						} else {
-							$new_actions['stable'] = array(
-								'class' => '',
-								'text' => wfMsg('revreview-stable'),
-								'href' => $title->getLocalUrl( 'stable=1' )
-							);
-						}
+				}
+       			$new_actions[$tab_action] = $data;
+       			$counter++;
+       		}
+       		# Reset static array
+       		$content_actions = $new_actions;
+    	} else if( $action !='view' || $wgRequest->getVal('oldid') || $sktmp->mTitle->isTalkPage() ) {
+    	// We are looking at the talk page or diffs/hist/oldids
+			$new_actions = array(); $counter = 0;
+			# Straighten out order
+			foreach( $content_actions as $tab_action => $data ) {
+				if( $counter==1 ) {
+					# Set the tab AFTER the main tab is set
+					if( $wgFlaggedRevsOverride && !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) ) {
+						$new_actions['current'] = array(
+							'class' => '',
+							'text' => wfMsg('revreview-current'),
+							'href' => $title->getLocalUrl( 'stable=0' )
+						);
+					} else {
+					# Add 'stable' tab if either $wgFlaggedRevsOverride is off, 
+					# or this is a user viewing the page with $wgFlaggedRevsAnonOnly on
+						$new_actions['stable'] = array(
+							'class' => '',
+							'text' => wfMsg('revreview-stable'),
+							'href' => $title->getLocalUrl( 'stable=1' )
+						);
 					}
-       				$new_actions[$tab_action] = $data;
-       				$counter++;
-       			}
-       			# Reset static array
-       			$content_actions = $new_actions;
-    		} else {
-			// We are looking at the current revision/history/diffs ect...
-				$new_actions = array(); $counter = 0;
-				# Straighten out order
-				foreach( $content_actions as $tab_action => $data ) {
-					if( $counter==1 ) {
-       					# Set the tab AFTER the main tab is set
-						if( $wgFlaggedRevsOverride ) {
-							$new_actions['current'] = array(
-								'class' => 'selected',
-								'text' => wfMsg('revreview-current'),
-								'href' => $title->getLocalUrl( 'stable=0' )
-							);
-						} else {
-							$new_actions['stable'] = array(
-								'class' => '',
-								'text' => wfMsg('revreview-stable'),
-								'href' => $title->getLocalUrl( 'stable=1' )
-							);
-					 	}
-					}
-       				$new_actions[$tab_action] = $data;
-       				$counter++;
-       			}
-       			# Reset static array
-       			$content_actions = $new_actions;
-    		}
+				}
+       			$new_actions[$tab_action] = $data;
+       			$counter++;
+       		}
+       		# Reset static array
+       		$content_actions = $new_actions;
+    	} else {
+		// We are looking at the current revision
+			$new_actions = array(); $counter = 0;
+			# Straighten out order
+			foreach( $content_actions as $tab_action => $data ) {
+				if( $counter==1 ) {
+       				# Set the tab AFTER the main tab is set
+					if( $wgFlaggedRevsOverride && !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) ) {
+						$new_actions['current'] = array(
+							'class' => 'selected',
+							'text' => wfMsg('revreview-current'),
+							'href' => $title->getLocalUrl( 'stable=0' )
+						);
+					} else {
+					# Add 'stable' tab if either $wgFlaggedRevsOverride is off, 
+					# or this is a user viewing the page with $wgFlaggedRevsAnonOnly on
+						$new_actions['stable'] = array(
+							'class' => '',
+							'text' => wfMsg('revreview-stable'),
+							'href' => $title->getLocalUrl( 'stable=1' )
+						);
+				 	}
+				}
+       			$new_actions[$tab_action] = $data;
+       			$counter++;
+       		}
+       		# Reset static array
+       		$content_actions = $new_actions;
     	}
     }
        
