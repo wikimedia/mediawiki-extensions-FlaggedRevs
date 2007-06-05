@@ -151,7 +151,7 @@ $RevisionreviewMessages['de'] = array(
 
 	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste ungeprüfter Versionen.',	
 	'revreview-selected'   => "Gewählte Version von '''$1:'''",
-	'revreview-text'       => "Einer freigegebenen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.",
+	'revreview-text'       => "Einer stabilen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.",
 	'revreview-toolow'     => 'Sie müssen für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
 	damit eine Version als geprüft gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-flag'       => 'Prüfe Version #$1:',
