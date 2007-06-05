@@ -755,12 +755,14 @@ class FlaggedArticle extends FlaggedRevs {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
 				$simpleTag = true;
 				# Construct some tagging
-				$tag .= wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
-				# Hide clutter
-				$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-				$tag .= '<span id="mwrevisionratings" style="display:none">' . 
-					wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
-					'</span>';
+				if( !$wgOut->isPrintable() ) {
+					$tag .= wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
+					# Hide clutter
+					$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+					$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+						wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
+						'</span>';
+				}
 			# Viewing the page normally: override the page
 			} else {
 				global $wgUser;
@@ -769,15 +771,17 @@ class FlaggedArticle extends FlaggedRevs {
        			# We will be looking at the reviewed revision...
        			$vis_id = $tfrev->fr_rev_id;
        			$revs_since = parent::getRevCountSince( $pageid, $vis_id );
-       			if( $quality )
-       				$tag = wfMsgExt('revreview-quality', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
-				else
-					$tag = wfMsgExt('revreview-basic', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
 				// Construct some tagging
-				$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-				$tag .= '<span id="mwrevisionratings" style="display:none"><p>' . 
-					parent::addTagRatings( $flags ) .
-					'</p></span>';
+				if( !$wgOut->isPrintable() ) {
+       				if( $quality )
+       					$tag = wfMsgExt('revreview-quality', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
+					else
+						$tag = wfMsgExt('revreview-basic', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
+					$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+					$tag .= '<span id="mwrevisionratings" style="display:none"><p>' . 
+						parent::addTagRatings( $flags ) .
+						'</p></span>';
+				}
 				# Try the stable page cache
 				$parserOutput = parent::getPageCache( $article );
 				# If no cache is available, get the text and parse it
@@ -801,13 +805,16 @@ class FlaggedArticle extends FlaggedRevs {
 			}
 			// Some checks for which tag CSS to use
 			if( $simpleTag )
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
+				$tagClass = 'flaggedrevs_notice';
 			else if( $pristine )
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag3 plainlinks">'.$tag.'</div>';
+				$tagClass = 'flaggedrevs_tag3';
 			else if( $quality )
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag2 plainlinks">'.$tag.'</div>';
+				$tagClass = 'flaggedrevs_tag2';
 			else
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_tag1 plainlinks">'.$tag.'</div>';
+				$tagClass = 'flaggedrevs_tag1';
+			// Wrap tag contents in a div
+			if( $tag !='' )
+				$tag = '<div id="mwrevisiontag" class="' . $tagClass . ' plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
@@ -998,10 +1005,12 @@ class FlaggedArticle extends FlaggedRevs {
        
     function addQuickReview( $id=NULL, $out ) {
 		global $wgOut, $wgTitle, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevComments, $wgFlaggedRevsWatch;
-		// Hack, we don't want two forms!
-		$skin = $wgUser->getSkin();
 		// User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) return;
+		// Looks ugly when printed
+		if( $out->isPrintable() ) return;
+		
+		$skin = $wgUser->getSkin();
 		// Already flagged?
 		$flags = $this->getFlagsForRevision( $id );
        
