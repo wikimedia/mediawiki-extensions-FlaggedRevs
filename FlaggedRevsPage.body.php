@@ -422,10 +422,6 @@ class Revisionreview extends SpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate();
 		
-		// Watch it if $wgFlaggedRevsWatch is set to true and this users watches his/her edits
-		if( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) )
-			$wgUser->addWatch( $title );
-		
 		# Clear the cache...
 		$this->page->invalidateCache();
 		# Might as well save the cache
