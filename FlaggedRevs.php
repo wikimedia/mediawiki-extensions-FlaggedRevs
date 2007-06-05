@@ -1,4 +1,4 @@
-<?
+<?php
 #(c) Joerg Baach, Aaron Schulz 2007 GPL
 
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -69,7 +69,7 @@ $wgFlaggedRevsAnonOnly = true;
 # Do flagged revs override the default view?
 $wgFlaggedRevsOverride = true;
 # Can users make comments that will show up below flagged revisions?
-$wgFlaggedRevComments = true;
+$wgFlaggedRevComments = false;
 # Make user's watch pages when reviewed if they watch pages that they edit
 $wgFlaggedRevsWatch = true;
 # How long to cache stable versions? (seconds)
@@ -997,10 +997,9 @@ class FlaggedArticle extends FlaggedRevs {
     }
        
     function addQuickReview( $id=NULL, $out ) {
-		global $wgOut, $wgTitle, $wgUser, $wgFlaggedRevComments, $wgArticle, $wgRequest;
+		global $wgOut, $wgTitle, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevComments, $wgFlaggedRevsWatch;
 		// Hack, we don't want two forms!
-		if( !$id || isset($this->formCount) && $this->formCount > 0 ) return;
-		$this->formCount = 1;
+		$skin = $wgUser->getSkin();
 		// User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) return;
 		// Already flagged?
@@ -1010,7 +1009,10 @@ class FlaggedArticle extends FlaggedRevs {
 		$action = $reviewtitle->escapeLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
-		$form .= wfMsgExt( 'revreview-text', array('parse') );
+		
+		if( $wgFlaggedRevsOverride )
+			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
+		
 		$form .= wfHidden( 'title', $reviewtitle->getPrefixedText() );
 		$form .= wfHidden( 'target', $wgTitle->getPrefixedText() );
 		$form .= wfHidden( 'oldid', $id );
@@ -1039,8 +1041,8 @@ class FlaggedArticle extends FlaggedRevs {
 			"<p><textarea tabindex='1' name='wpNotes' id='wpNotes' rows='2' cols='80' style='width:100%'></textarea>" .	
 			"</p>\n";
 		}
-        $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."\n";
-        $imageParams = $templateParams = '';
+		
+		$imageParams = $templateParams = '';
         if( !isset($out->mTemplateIds) || !isset($out->mImageTimestamps) ) {
         	return; // something went terribly wrong...
         }
@@ -1057,6 +1059,14 @@ class FlaggedArticle extends FlaggedRevs {
         	$imageParams .= $dbkey . "|" . $timestamp . "#";
         }
         $form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+        
+        $watchLabel = wfMsgExt('watchthis', array('parseinline'));
+        $watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
+        $watchChecked = ( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
+		$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
+		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label></p>";
+        
+        $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."\n";
         
 		$form .= Xml::submitButton( wfMsgHtml( 'revreview-submit' ) ) . "</p></fieldset>";
 		$form .= Xml::closeElement( 'form' );

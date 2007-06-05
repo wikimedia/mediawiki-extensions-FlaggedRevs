@@ -220,7 +220,7 @@ class Revisionreview extends SpecialPage
 	}
 	
 	function submit( $request ) {
-		global $wgOut;
+		global $wgOut, $wgUser;
 		
 		$approved = false;
 		# If all values are set to zero, this has been unapproved
@@ -247,6 +247,8 @@ class Revisionreview extends SpecialPage
 			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
 		// Return to our page			
 		if ( $success ) {
+			if( $request->getCheck( 'wpWatchthis' ) )
+				$wgUser->addWatch( $this->page );
         	$wgOut->redirect( $this->page->escapeLocalUrl() );
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
@@ -372,10 +374,6 @@ class Revisionreview extends SpecialPage
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
-		
-		// Watch it if $wgFlaggedRevsWatch is set to true and this users watches his/her edits
-		if( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) )
-			$wgUser->addWatch( $title );
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
