@@ -738,7 +738,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 	function isSyndicated() { return false; }
 
 	function getPageHeader( ) {
-		return '<p>'.wfMsg("unreviewed-list")."</p><br />\n";
+		return '<p>'.wfMsg("unreviewed-list")."</p>\n";
 	}
 
 	function getSQLText( &$dbr, $namespace, $includenonquality = false ) {
