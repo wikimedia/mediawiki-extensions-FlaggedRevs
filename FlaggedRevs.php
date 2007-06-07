@@ -111,6 +111,7 @@ $wgGroupPermissions['reviewer']['validate']  = true;
 $wgGroupPermissions['reviewer']['review']    = true;
 
 # Define when users get automatically promoted to editors
+# Set to false to disable this
 $wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 500, 'email' => true);
 
 # What icons to display
@@ -667,6 +668,8 @@ class FlaggedRevs {
 	*/
 	public static function autoPromoteUser( &$article, &$user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
+		
+		if( !$wgFlaggedRevsAutopromote ) return;
 		
 		$groups = $user->getGroups();
 		$now = time();
