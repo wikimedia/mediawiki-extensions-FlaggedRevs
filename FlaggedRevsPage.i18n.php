@@ -278,4 +278,93 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'included-nonquality'   => 'Incluir páginas analisadas que não tenham sido marcadas como de qualidade.',
 	'unreviewed-list'       => 'Esta página lista as páginas de conteúdo que ainda não receberam uma edição crítica.',
 );
+
+// Slovak (Helix84)
+$RevisionreviewMessage['sk'] = array(
+	'editor'                => 'Redaktor',
+	'group-editor'          => 'Redaktori',
+	'group-editor-member'   => 'Redaktor',
+	'grouppage-editor'      => '{{ns:project}}:Redaktor',
+	'reviewer'              => 'Revízor',
+	'group-reviewer'        => 'Revízori',
+	'group-reviewer-member' => 'Revízor',
+	'grouppage-reviewer'    => '{{ns:project}}:Revízor',
+	'revreview-current'     => 'Aktuálna revízia',
+	'revreview-stable'      => 'Stabilná verzia',
+	'revreview-rating'      => 'Bolo ohodnotené ako:',
+	'revreview-noflagged'   => 'Neexistujú revidované verzie tejto stránky, takže jej
+	kvalita \'\'\'nebola\'\'\' [[Help:Revízia článkov|skontrolovaná]].',
+	'revreview-newest'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Najnovšia stabilná verzia] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená]
+	 <i>$2</i>. <br/> Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$3|jedna zmena|$3 zmeny|$3 zmien}}].',
+	'revreview-basic'       => 'Toto je najnovšia [[Help:Revízia článkov|stabilná]] verzia tejto stránky, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] 
+	je zvyčajne [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} prístupná úpravám] a aktuálnejšia. 
+Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|jedna zmena|$3 zmeny|$3 zmien}}].',
+	'revreview-quality'     => 'Toto je najnovšia [[Help:Revízia článkov|kvalitná]] verzia tejto stránky, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] 
+	je zvyčajne [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} prístupná úpravám] a aktuálnejšia. 
+Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|jedna zmena|$3 zmeny|$3 zmien}}].',
+	'revreview-static'      => 'Toto je [[Help:Revízia článkov|skontrolovaná]] verzia stránky \'\'\'[[:$3]]\'\'\', 
+	[{{fullurl:Special:Log/review|page=$1}} schválená] <i>$2</i>. [{{fullurl:$3|stable=0}} Najnovšia verzia] 
+	je zvyčajne prístupná úpravám a aktuálnejšia.',
+	'revreview-toggle'      => '(prepnúť zobrazenie podrobností)',
+	'revreview-note'        => '[[User:$1]] urobil nasledovné poznámky počas [[Help:Revízia článkov|kontroly]] tejto verzie:',
+	'hist-stable'           => '[stabilná]',
+	'hist-quality'          => '[kvalitná]',
+	'flaggedrevs'           => 'Označené verzie',
+	'review-logpage'        => 'Záznam kontrol stránky',
+	'review-logpagetext'    => 'Toto je záznam zmien stavu [[Help:Revízia článkov|kontroly]] verzií
+	stránok s obsahom.',
+	'review-logentrygrant'  => 'skontrolovaná verzia $1',
+	'review-logentryrevoke' => 'zastaralá verzia $1',
+	'review-logaction'      => 'ID verzie $1',
+	'revisionreview'        => 'Prezrieť kontroly',
+	'revreview-main'        => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. 
+
+	Pozri zoznam neskontrolovaných stránok
+	[[Special:Unreviewedpages]].',
+	'revreview-selected'    => 'Zvolená verzia \'\'\'$1:\'\'\'',
+	'revreview-text'        => 'Stabilné verzie, nie najnovšie verzie, sú nastavené ako štandardný obsah stránky.',
+	'revreview-toolow'      => 'Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako "neschválené", aby bolo možné
+	verziu považovať za skontrolovanú. Ak chcete učiniť verziu zastaralou, nastavte všetky polia na "neschválené".',
+	'revreview-flag'        => 'Skontrolovať túto verziu (#$1):',
+	'revreview-legend'      => 'Ohodnotiť obsah verzie:',
+	'revreview-notes'       => 'Pozorovania alebo poznámky, ktoré sa majú zobraziť:',
+	'revreview-accuracy'    => 'Presnosť',
+	'revreview-accuracy-0'  => 'neschválené',
+	'revreview-accuracy-1'  => 'zbežná',
+	'revreview-accuracy-2'  => 'presná',
+	'revreview-accuracy-3'  => 'dobre uvedené zdroje',
+	'revreview-accuracy-4'  => 'odporúčaný',
+	'revreview-depth'       => 'Hĺbka',
+	'revreview-depth-0'     => 'neschválené',
+	'revreview-depth-1'     => 'základná',
+	'revreview-depth-2'     => 'stredná',
+	'revreview-depth-3'     => 'vysoká',
+	'revreview-depth-4'     => 'odporúčaný',
+	'revreview-style'       => 'Čitateľnosť',
+	'revreview-style-0'     => 'neschválené',
+	'revreview-style-1'     => 'prijateľná',
+	'revreview-style-2'     => 'dobrá',
+	'revreview-style-3'     => 'zhustená',
+	'revreview-style-4'     => 'odporúčaný',
+	'revreview-log'         => 'Komentár záznamu:',
+	'revreview-submit'      => 'Aplikovať kontrolu',
+	'stableversions'        => 'Stabilné verzie',
+	'stableversions-leg1'   => 'Zoznam skontrolovaných verzií stránky',
+	'stableversions-leg2'   => 'Zobraziť skontrolovanú verziu',
+	'stableversions-page'   => 'Názov stránky',
+	'stableversions-rev'    => 'ID verzie',
+	'stableversions-none'   => '[[:$1]] nemá skontrolované verzie.',
+	'stableversions-list'   => 'Nasleduje zoznam verzií stránky [[:$1]], ktoré boli skontrolované:',
+	'stableversions-review' => 'Skontrolované <i>$1</i>',
+	'stableversions-quality' => '[Najnovšia kvalitná verzia]',
+	'review-diff2stable'    => 'Rozdiely oproti poslednej stabilnej verzii',
+	'review-diff2oldest'    => 'Rozdiely oproti najstaršej verzii',
+	'unreviewedpages'       => 'Neskontrolované stránky',
+	'viewunreviewed'        => 'Zoznam neskontrolovaných stránok s obsahom',
+	'included-nonquality'   => 'Vrátane skontrolovaných stránok neoznačených ako kvalitné.',
+	'unreviewed-list'       => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
+);
 ?>
