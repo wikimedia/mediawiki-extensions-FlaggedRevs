@@ -18,10 +18,14 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-rating'    => 'It was rated as:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
-	'revreview-newest'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest stable revision] 
+	
+	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
-	'revreview-basic'  => 'This is the latest [[Help:Article validation|stable]] revision of this page, 
+	'revreview-newest-quality'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
+	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
+	'revreview-basic'  => 'This is the latest [[Help:Article validation|sighted]] revision of this page, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$4</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable] and more up to date. There {{plural:$3|is $3 revision|are $3 revisions}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} changes]) awaiting review.',
@@ -35,7 +39,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-toggle' => '(toggle details)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
-	'hist-stable'  => '[stable]',
+	'hist-stable'  => '[sighted]',
 	'hist-quality' => '[quality]',
 
     'flaggedrevs'        => 'Flagged Revisions',
@@ -49,11 +53,9 @@ $RevisionreviewMessages['en'] = array(
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 
 
-	See the [[Special:Unreviewedpages]] for a list of 
-	unreviewed pages.',	
+	See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',	
 	'revreview-selected'   => "Selected revision of '''$1:'''",
-	'revreview-text'       => "Stable versions are set as the default content on page view rather than the newest
-	 revision.",
+	'revreview-text'       => "Stable versions are set as the default content on page view rather than the newest revision.",
 	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order 
 	for a revision to be considered reviewed. To depreciate a revision, set all fields to "unapproved".',
 	'revreview-flag'       => 'Review this revision (#$1):',
@@ -88,7 +90,6 @@ $RevisionreviewMessages['en'] = array(
 	'stableversions-none'   => '[[:$1]] has no reviewed revisions.',
 	'stableversions-list'   => 'The following is a list of revisions of [[:$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i>',
-	'stableversions-quality' => '[Latest quality revision]',
 
     'review-diff2stable'    => 'Diff to the last stable revision',
     'review-diff2oldest'    => "Diff to the oldest revision",
@@ -186,7 +187,6 @@ $RevisionreviewMessages['de'] = array(
 	'stableversions-none'   => '[[:$1]] hat keine geprüften Versionen.',
 	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von [[:$1]]:',
 	'stableversions-review' => 'geprüft am <i>$1</i>',
-	'stableversions-quality' => '[Letzte Version mit Qualitätsbewertung]',
 
 	'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
 	'review-diff2oldest'    => "Unterschied zur ältesten Version",
@@ -268,7 +268,6 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'stableversions-none'   => '[[:$1]] não possui edições críticas.',
 	'stableversions-list'   => 'A seguir, uma lista das edições de [[:$1]] que são edições críticas:',
 	'stableversions-review' => 'Criticada em <i>$1</i>',
-	'stableversions-quality' => '[Edição mais recente marcada como de qualidade]',
 
 	'review-diff2stable'    => 'Comparar com a edição crítica mais recente',
 	'review-diff2oldest'    => "Comparar com a edição mais antiga",
@@ -359,7 +358,6 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'stableversions-none'   => '[[:$1]] nemá skontrolované verzie.',
 	'stableversions-list'   => 'Nasleduje zoznam verzií stránky [[:$1]], ktoré boli skontrolované:',
 	'stableversions-review' => 'Skontrolované <i>$1</i>',
-	'stableversions-quality' => '[Najnovšia kvalitná verzia]',
 	'review-diff2stable'    => 'Rozdiely oproti poslednej stabilnej verzii',
 	'review-diff2oldest'    => 'Rozdiely oproti najstaršej verzii',
 	'unreviewedpages'       => 'Neskontrolované stránky',

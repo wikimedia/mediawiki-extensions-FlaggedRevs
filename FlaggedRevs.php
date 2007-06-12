@@ -759,7 +759,8 @@ class FlaggedArticle extends FlaggedRevs {
 				$simpleTag = true;
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
-					$tag .= wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
+					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 					# Hide clutter
 					$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
 					$tag .= '<span id="mwrevisionratings" style="display:none">' . 
@@ -849,7 +850,8 @@ class FlaggedArticle extends FlaggedRevs {
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
 			# Construct some tagging
-			$tag = wfMsgExt('revreview-newest', array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
+			$msg = $this->isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
+			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
 			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
 			$tag .= '<span id="mwrevisionratings" style="display:none">' . 
