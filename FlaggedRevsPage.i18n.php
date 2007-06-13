@@ -118,11 +118,15 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
 
-	'revreview-newest'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte stabile Version]
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.<br />
+	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) dieser Seite wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].<br />
 	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
 
-	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|stabile]] Version dieser Seite,
+	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) diese Seite  wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]<br/>
+	There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
+
+	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|gesichtete]] Version dieser Seite,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
 	noch zur Prüfung an.',
