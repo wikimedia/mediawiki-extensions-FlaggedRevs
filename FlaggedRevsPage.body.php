@@ -756,7 +756,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 		$ns = ($namespace !== null) ? "page_namespace=$namespace" : '1 = 1';
 		
 		$where = $includenonquality ? '1 = 1' : 'fr_rev_id IS NULL';
-		$having = $includenonquality ? 'NOT MAX(fr_quality) > 1' : '1 = 1';
+		$having = $includenonquality ? 'MAX(fr_quality) < 1' : '1 = 1';
 		
 		$sql = 
 			"SELECT page_namespace,page_title,page_len AS size 

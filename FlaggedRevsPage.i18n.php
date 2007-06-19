@@ -96,7 +96,7 @@ $RevisionreviewMessages['en'] = array(
 
     'unreviewedpages'       => 'Unreviewed pages',
     'viewunreviewed'        => 'List unreviewed content pages',
-    'included-nonquality'   => 'Include reviewed pages not marked as quality.',
+    'included-nonquality'   => 'Show only reviewed pages not marked as quality.',
     'unreviewed-list'       => 'This page lists articles that have not yet been reviewed.',
 );
 
