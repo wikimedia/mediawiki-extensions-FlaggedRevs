@@ -6,7 +6,6 @@
 -- This stores all of our reviews, 
 -- the corresponding tags are stored in the tag table
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
-  fr_id int(10) NOT NULL auto_increment,
   fr_namespace int NOT NULL default '0',
   fr_title varchar(255) binary NOT NULL default '',
   fr_rev_id int(10) NOT NULL,
@@ -21,7 +20,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   
   PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
   UNIQUE KEY (fr_rev_id),
-  UNIQUE KEY (fr_id)
+  INDEX (fr_namespace,fr_title,fr_quality,fr_rev_id)
 ) TYPE=InnoDB;
 
 -- This stores all of our tag data

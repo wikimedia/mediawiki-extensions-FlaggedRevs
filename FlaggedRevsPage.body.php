@@ -86,7 +86,7 @@ class Revisionreview extends SpecialPage
 		// We must at least rate each category as 1, the minimum
 		// Exception: we can rate ALL as unapproved to depreciate a revision
 		$this->isValid = true;
-		if ( $this->upprovedTags && $this->upprovedTags < count($wgFlaggedRevTags) )
+		if ( $this->upprovedTags && ($this->upprovedTags < count($wgFlaggedRevTags) || !$this->oflags) )
 			$this->isValid = false;
 		
 		if( $this->isValid && $wgRequest->wasPosted() ) {
@@ -173,9 +173,12 @@ class Revisionreview extends SpecialPage
 			foreach( $ratioset as $item ) {
 				list( $message, $name, $field ) = $item;
 				// Don't give options the user can't set unless its the status quo
-				$disabled = ( !$this->userCan($set,$field) ) ? array('disabled' => 'true') : array();
+				$attribs = array('id' => $name.$field);
+				if( !$this->userCan($set,$field) )
+					$attribs['disabled'] = 'true';
 				$form .= "<div>";
-				$form .= Xml::radio( $name, $field, ($field==$this->dims[$set]), $disabled ) . ' ' . wfMsg($message);
+				$form .= Xml::radio( $name, $field, ($field==$this->dims[$set]), $attribs );
+				$form .= Xml::label( wfMsg($message), $name.$field );
 				$form .= "</div>\n";
 			}
 			$form .= '</td><td width=\'20\'></td>';
@@ -225,30 +228,37 @@ class Revisionreview extends SpecialPage
 		$approved = false;
 		# If all values are set to zero, this has been unapproved
 		foreach( $this->dims as $quality => $value ) {
-			if( $value ) $approved = true;
+			if( $value ) {
+				$approved = true;
+				break;
+			}
 		}
 		// We can only approve actual revisions...
 		if ( $approved ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
 			// Do not mess with archived/deleted revisions
 			if ( is_null($rev) || $rev->mDeleted ) {
-				$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
+				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' ); 
 				return;
 			}
 		} else {
 			$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
+			// If we can't find this flagged rev, return to page???
 			if ( is_null($frev) ) {
-				$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
+				$wgOut->redirect( $this->page->escapeLocalUrl() );
 				return;
 			}
 		}
 		
-		$success = ( $approved ) ? 
-			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
+		$success = $approved ? $this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
+		
 		// Return to our page			
 		if ( $success ) {
-			if( $request->getCheck( 'wpWatchthis' ) )
+			if( $request->getCheck( 'wpWatchthis' ) ) {
 				$wgUser->addWatch( $this->page );
+			} else {
+				$wgUser->removeWatch( $this->page );
+			}
         	$wgOut->redirect( $this->page->escapeLocalUrl() );
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
@@ -739,20 +749,20 @@ class UnreviewedPagesPage extends PageQueryPage {
 		global $wgContentNamespaces;
 		
 		list( $page, $flaggedrevs ) = $dbr->tableNamesN( 'page', 'flaggedrevs' );
-
+		
+		# Must be a content page...
+		$contentNS = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
+		
 		$ns = ($namespace !== null) ? "page_namespace=$namespace" : '1 = 1';
+		
 		$where = $includenonquality ? '1 = 1' : 'fr_rev_id IS NULL';
-		$having = $includenonquality ? '(MAX(fr_quality) IS NULL OR MAX(fr_quality) < 1)' : '1 = 1';
-		$content = array();
-		foreach( $wgContentNamespaces as $cns ) {
-			$content[] = "page_namespace=$cns";
-		}
-		$content = implode(' OR ',$content);
+		$having = $includenonquality ? 'NOT MAX(fr_quality) > 1' : '1 = 1';
+		
 		$sql = 
 			"SELECT page_namespace,page_title,page_len AS size 
 			FROM $page 
 			LEFT JOIN $flaggedrevs ON (fr_namespace = page_namespace AND fr_title = page_title) 
-			WHERE page_is_redirect=0 AND $ns AND ($content) AND ($where) 
+			WHERE page_is_redirect=0 AND $ns AND $contentNS AND ($where) 
 			GROUP BY page_id HAVING $having ";
 		return $sql;
 	}
