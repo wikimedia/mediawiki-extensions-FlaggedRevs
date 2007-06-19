@@ -189,7 +189,6 @@ class FlaggedRevs {
 	 */	
     public static function getFlaggedRevText( $rev_id ) {
     	wfProfileIn( __METHOD__ );
-    	
  		$db = wfGetDB( DB_SLAVE );
  		// Get the text from the flagged revisions table
 		$result = $db->select( 
@@ -201,6 +200,8 @@ class FlaggedRevs {
 		if( $row = $db->fetchObject($result) ) {
 			return $row->fr_text;
 		}
+		wfProfileOut( __METHOD__ );
+		
 		return NULL;
     }
     
@@ -211,7 +212,6 @@ class FlaggedRevs {
 	 */		
 	public static function getFlaggedRev( $rev_id ) {
 		wfProfileIn( __METHOD__ );
-    	
 		$db = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
 		$result = $db->select(
@@ -223,6 +223,8 @@ class FlaggedRevs {
 		if( $row = $db->fetchObject($result) ) {
 			return $row;
 		}
+		wfProfileOut( __METHOD__ );
+		
 		return NULL;
 	}
 
@@ -232,10 +234,10 @@ class FlaggedRevs {
 	 * Will include deleted revs here
 	 */
     public static function getReviewedRevs( $page ) {
-		wfProfileIn( __METHOD__ );
-		  
+    	$rows = array();
+    
+		wfProfileIn( __METHOD__ );  
 		$db = wfGetDB( DB_SLAVE );
-		$rows = array();
 		
 		$result = $db->select(
 			array('flaggedrevs'),
@@ -246,6 +248,8 @@ class FlaggedRevs {
 		while ( $row = $db->fetchObject($result) ) {
         	$rows[$row->fr_rev_id] = $row->fr_quality;
 		}
+		wfProfileOut( __METHOD__ );
+		
 		return $rows;
     }
 
@@ -256,11 +260,11 @@ class FlaggedRevs {
 	 */
     public static function getRevCountSince( $page_id, $from_rev ) {   
 		wfProfileIn( __METHOD__ );
-		  
 		$db = wfGetDB( DB_SLAVE );
 		$count = $db->selectField('revision', 'COUNT(*)',
 			array('rev_page' => $page_id, "rev_id > $from_rev"),
 			__METHOD__ );
+		wfProfileOut( __METHOD__ );
 		
 		return $count;
     }
@@ -301,12 +305,13 @@ class FlaggedRevs {
     public static function getFlagsForPageRev( $rev_id ) {
     	global $wgFlaggedRevTags;
     	
-    	wfProfileIn( __METHOD__ );
     	// Set all flags to zero
     	$flags = array();
     	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
     		$flags[$tag] = 0;
     	}
+    	
+    	wfProfileIn( __METHOD__ );
 		$db = wfGetDB( DB_SLAVE );
 		// Grab all the tags for this revision
 		$result = $db->select(
@@ -318,6 +323,7 @@ class FlaggedRevs {
 		while ( $row = $db->fetchObject($result) ) {
 			$flags[$row->frt_dimension] = $row->frt_value;
 		}
+		wfProfileOut( __METHOD__ );
 		
 		return $flags;
 	}
@@ -1141,14 +1147,14 @@ class FlaggedArticle extends FlaggedRevs {
 	function getLatestQualityRev( $article=NULL ) {
 		global $wgArticle;
 		
-		wfProfileIn( __METHOD__ );
-		
 		$article = $article ? $article : $wgArticle;
 		$title = $article->getTitle();
         // Cached results available?
 		if( isset($this->stablefound) ) {
 			return ( $this->stablefound ) ? $this->stablerev : null;
 		}
+		
+		wfProfileIn( __METHOD__ );
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
         $result = $dbr->select(
@@ -1158,6 +1164,7 @@ class FlaggedArticle extends FlaggedRevs {
 			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+		wfProfileOut( __METHOD__ );
 		// Do we have one?
         if( $row = $dbr->fetchObject($result) ) {
         	$this->stablefound = true;
@@ -1182,14 +1189,13 @@ class FlaggedArticle extends FlaggedRevs {
 	function getLatestStableRev( $article=NULL ) {
 		global $wgArticle;
 		
-		wfProfileIn( __METHOD__ );
-		
 		$article = $article ? $article : $wgArticle;
 		$title = $article->getTitle();
         // Cached results available?
 		if( isset($this->latestfound) ) {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
 		}
+		wfProfileIn( __METHOD__ );
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
         $result = $dbr->select( 
@@ -1199,6 +1205,7 @@ class FlaggedArticle extends FlaggedRevs {
 			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+		wfProfileOut( __METHOD__ );
 		// Do we have one?
         if( $row = $dbr->fetchObject($result) ) {
         	$this->latestfound = true;
@@ -1217,7 +1224,6 @@ class FlaggedArticle extends FlaggedRevs {
     public function getFlagsForRevision( $rev_id ) {
     	global $wgFlaggedRevTags;
     	
-    	wfProfileIn( __METHOD__ );
     	// Cached results?
     	if( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
     		return $this->revflags[$rev_id];
@@ -1226,6 +1232,8 @@ class FlaggedArticle extends FlaggedRevs {
     	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
     		$flags[$tag] = 0;
     	}
+    	
+    	wfProfileIn( __METHOD__ );
 		$db = wfGetDB( DB_SLAVE );
 		// Grab all the tags for this revision
 		$result = $db->select(
@@ -1233,6 +1241,8 @@ class FlaggedArticle extends FlaggedRevs {
 			array('frt_dimension', 'frt_value'), 
 			array('frt_rev_id' => $rev_id),
 			__METHOD__ );
+		wfProfileOut( __METHOD__ );
+		
 		// Iterate through each tag result
 		while( $row = $db->fetchObject($result) ) {
 			$flags[$row->frt_dimension] = $row->frt_value;

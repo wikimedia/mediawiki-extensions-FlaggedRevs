@@ -272,8 +272,6 @@ class Revisionreview extends SpecialPage
 	function approveRevision( $rev=NULL, $notes='' ) {
 		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
 		
-		wfProfileIn( __METHOD__ );
-		
 		if( is_null($rev) ) return false;
 		// No bogus timestamps
 		if ( $this->timestamp && ($this->timestamp < $rev->getTimestamp() || $this->timestamp > wfTimestampNow()) )
@@ -344,6 +342,7 @@ class Revisionreview extends SpecialPage
 			);
 		}
 		
+		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
 		// Update our versioning pointers
 		if( !empty( $tmpset ) ) {
@@ -392,6 +391,8 @@ class Revisionreview extends SpecialPage
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 		
+		wfProfileOut( __METHOD__ );
+		
         return true;
     }
 
@@ -401,13 +402,12 @@ class Revisionreview extends SpecialPage
 	 */  
 	function unapproveRevision( $row=NULL ) {
 		global $wgUser, $wgFlaggedRevsWatch;
-		
-		wfProfileIn( __METHOD__ );
 	
 		if( is_null($row) ) return false;
 		
 		$user = $wgUser->getId();
 		
+		wfProfileIn( __METHOD__ );
         $dbw = wfGetDB( DB_MASTER );
 		// Delete from table
 		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $row->fr_rev_id ) );
@@ -438,6 +438,8 @@ class Revisionreview extends SpecialPage
 		$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$this->page->purgeSquid();
+		
+		wfProfileOut( __METHOD__ );
 		
         return true;
     }
