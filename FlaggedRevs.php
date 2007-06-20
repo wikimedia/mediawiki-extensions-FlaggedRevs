@@ -669,17 +669,12 @@ class FlaggedRevs {
     }
     
     static function parserInjectImageTimestamps( &$parser, &$text ) {
-		$images = array();
 		$parser->mOutput->mImageTimestamps = array();
 		# Fetch the timestamps of the images
 		if( !empty($parser->mOutput->mImages) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			foreach( $parser->mOutput->mImages as $name => $v ) {
-				$safename = $dbr->strencode( $name );
-				$images[] = "'$safename'";
-			}
         	$res = $dbr->select('image', array('img_name','img_timestamp'),
-				array('img_name IN(' . implode(',',$images) . ')'),
+				array('img_name IN(' . $dbr->makeList( array_keys($parser->mOutput->mImages) ) . ')'),
 			__METHOD__ );
 			
 			while( $row = $dbr->fetchObject($res) ) {
