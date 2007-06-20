@@ -495,10 +495,11 @@ class FlaggedRevs {
     	global $wgUser;
     	// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
-			return;
+			return true;
 		
-		// User must have review rights
-		if( !$wgUser->isAllowed( 'review' ) ) return;
+		// User must have review rightss
+		if( !$wgUser->isAllowed( 'review' ) ) 
+			return true;
 		
     	$parserOutput = $parserCache->get( $article, $wgUser );
 		if( $parserOutput ) {
@@ -539,7 +540,8 @@ class FlaggedRevs {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
-    	if( !$title->isContentPage() ) return;
+    	if( !$title->isContentPage() ) 
+			return true;
     	# Check if this page has a stable version
     	$sv = self::getOverridingPageRev( $title );
     	if( !$sv ) return;
@@ -608,7 +610,8 @@ class FlaggedRevs {
     
 	static function parserFetchStableTemplate( &$parser, &$title, &$skip, &$id ) {
     	// Trigger for stable version parsing only
-    	if( !isset($parser->isStable) || !$parser->isStable ) return;
+    	if( !isset($parser->isStable) || !$parser->isStable )
+    		return true;
     	
     	$dbr = wfGetDB( DB_SLAVE );
         $id = $dbr->selectField('flaggedtemplates', 'ft_tmp_rev_id',
@@ -631,7 +634,8 @@ class FlaggedRevs {
     
 	static function parserMakeStableImageLink( &$parser, &$nt, &$skip, &$time ) {
     	// Trigger for stable version parsing only
-    	if( !isset($parser->isStable) || !$parser->isStable ) return;
+    	if( !isset($parser->isStable) || !$parser->isStable )
+    		return true;
     	
     	$dbr = wfGetDB( DB_SLAVE );
         $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
@@ -652,7 +656,8 @@ class FlaggedRevs {
     
     static function galleryFindStableFileTime( &$ig, &$nt, &$time ) {
     	// Trigger for stable version parsing only
-    	if( !isset($ig->isStable) || !$ig->isStable ) return;
+    	if( !isset($ig->isStable) || !$ig->isStable )
+    		return true;
     	
     	$dbr = wfGetDB( DB_SLAVE );
         $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
@@ -663,7 +668,8 @@ class FlaggedRevs {
     
     static function parserMakeGalleryStable( &$parser, &$ig ) {
     	// Trigger for stable version parsing only
-    	if( !isset($parser->isStable) || !$parser->isStable ) return;
+    	if( !isset($parser->isStable) || !$parser->isStable )
+    		return true;
     	
     	$ig->isStable = true;
     }
@@ -694,14 +700,16 @@ class FlaggedRevs {
 	public static function autoPromoteUser( &$article, &$user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
 		
-		if( !$wgFlaggedRevsAutopromote ) return;
-		
+		if( !$wgFlaggedRevsAutopromote )
+			return true;
+		// Grab current groups
 		$groups = $user->getGroups();
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now-$usercreation) / 86400);
 		// Do not give this to bots
-		if( in_array( 'bot', $groups ) ) return;
+		if( in_array( 'bot', $groups ) )
+			return true;
 		// Check if we need to promote...
 		$vars = $wgFlaggedRevsAutopromote;
 		if( !in_array('editor',$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
@@ -729,7 +737,7 @@ class FlaggedArticle extends FlaggedRevs {
 	/**
 	 * Do the current URL params allow for overriding by stable revisions?
 	 */		
-    function pageOverride() {
+    static function pageOverride() {
     	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $wgRequest, $action;
     	// This only applies to viewing content pages
     	if( $action !='view' || !$wgTitle->isContentPage() ) return;
@@ -761,7 +769,8 @@ class FlaggedArticle extends FlaggedRevs {
 		// Grab page and rev ids
 		$pageid = $article->getId();
 		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
-		if( !$revid ) return;
+		if( !$revid ) 
+			return true;
 		
 		$vis_id = $revid;
 		$tag = ''; $notes = '';
@@ -864,7 +873,8 @@ class FlaggedArticle extends FlaggedRevs {
        		$revid = $editform->mArticle->getLatest();
        	}
 		// Grab the ratings for this revision if any
-		if( !$revid ) return;
+		if( !$revid ) 
+			return true;
 		// Set new body html text as that of now
 		$tag = '';
 		// Check the newest stable version
@@ -890,44 +900,48 @@ class FlaggedArticle extends FlaggedRevs {
     	global $wgArticle, $action;
 
 		if( !$wgArticle || !$wgArticle->exists() || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
-			return;
+			return true;
 		// Check if page is protected
 		if( !$wgArticle->mTitle->quickUserCan( 'edit' ) ) {
-			return;
+			return true;
 		}
 		// Get revision ID
 		$revId = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
 		// We cannot review deleted revisions
 		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) 
-			return;
+			return true;
     	// Add quick review links IF we did not override, otherwise, they might
 		// review a revision that parses out newer templates/images than what they saw.
 		// Revisions are always reviewed based on current templates/images.
 		if( $this->pageOverride() ) {
 			$tfrev = $this->getOverridingRev();
-			if( $tfrev ) return;
+			if( $tfrev ) return true;
 		}
 		$this->addQuickReview( $revId, $out, false );
     }
     
-    function setPermaLink( &$sktmp, &$nav_urls, &$oldid, &$revid ) {
-    	global $wgTitle;
+    function setPermaLink( &$sktmp, &$nav_urls, &$revid, &$revid ) {
 		// Non-content pages cannot be validated
-		if( !$wgTitle->isContentPage() || !$this->pageOverride() ) return;
+		if( !$this->pageOverride() ) return true;
 		// Check for an overridabe revision
 		$tfrev = $this->getOverridingRev();
-		if( !$tfrev ) return;
+		if( !$tfrev ) 
+			return true;
 		// Replace "permalink" with an actual permanent link
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
 			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "oldid={$tfrev->fr_rev_id}" )
 		);
+		
+		global $wgHooks;
 		// Are we using the popular cite extension?
-		if( isset($nav_urls['cite']) ) {
-			$nav_urls['cite'] = array(
-				'text' => wfMsg( 'cite_article_link' ),
-				'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
-			);
+		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
+			if( $sktmp->mTitle->getNamespace() === NS_MAIN && $revid !== 0 ) {
+				$nav_urls['cite'] = array(
+					'text' => wfMsg( 'cite_article_link' ),
+					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
+				);
+			}
 		}
     }
     
@@ -936,13 +950,15 @@ class FlaggedArticle extends FlaggedRevs {
 		// Get the subject page
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
-		if( !$title->isContentPage() || !$title->exists() ) return;
+		if( !$title->isContentPage() || !$title->exists() ) 
+			return true;
 		$article = new Article( $title );
 		// If we are viewing a page normally, and it was overridden,
 		// change the edit tab to a "current revision" tab
        	$tfrev = $this->getOverridingRev( $article );
        	// No quality revs? Find the last reviewed one
-       	if( !is_object($tfrev) ) return;
+       	if( !is_object($tfrev) ) 
+			return true;
        	// Note that revisions may not be set to override for users
        	if( $this->pageOverride() ) {
        		# Remove edit option altogether
@@ -1032,7 +1048,37 @@ class FlaggedArticle extends FlaggedRevs {
        		$content_actions = $new_actions;
     	}
     }
-       
+    
+    function addToPageHist( &$article ) {
+    	global $wgUser;
+    
+    	$this->pageFlaggedRevs = array();
+    	$rows = $this->getReviewedRevs( $article->getTitle() );
+    	
+    	// Try to keep the skin readily accesible,
+    	// addToHistLine() will use it
+    	$this->skin = $wgUser->getSkin();
+    	
+    	if( !$rows ) 
+			return true;
+    	
+    	foreach( $rows as $rev => $quality ) {
+    		$this->pageFlaggedRevs[$rev] = $quality;
+    	}
+    }
+    
+    function addToHistLine( &$row, &$s ) {
+    	global $wgUser;
+    
+    	if( isset($this->pageFlaggedRevs) && array_key_exists($row->rev_id,$this->pageFlaggedRevs) ) {
+    		$msg = ($this->pageFlaggedRevs[$row->rev_id] >= 1) ? 'hist-quality' : 'hist-stable';
+    		$special = SpecialPage::getTitleFor( 'Stableversions' );
+    		$s .= ' <tt><small><strong>' . 
+				$this->skin->makeLinkObj( $special, wfMsgHtml($msg), 'oldid='.$row->rev_id ) . 
+				'</strong></small></tt>';
+		}
+    }
+    
     function addQuickReview( $id=NULL, $out ) {
 		global $wgOut, $wgTitle, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevComments, $wgFlaggedRevsWatch;
 		// User must have review rights
@@ -1112,41 +1158,13 @@ class FlaggedArticle extends FlaggedRevs {
 		
 		$wgOut->addHTML( '<hr style="clear:both"></hr>' . $form );
     }
-    
-    function addToPageHist( &$article ) {
-    	global $wgUser;
-    
-    	$this->pageFlaggedRevs = array();
-    	$rows = $this->getReviewedRevs( $article->getTitle() );
-    	
-    	// Try to keep the skin readily accesible
-    	$this->skin = $wgUser->getSkin();
-    	
-    	if( !$rows ) return;
-    	
-    	foreach( $rows as $rev => $quality ) {
-    		$this->pageFlaggedRevs[$rev] = $quality;
-    	}
-    }
-    
-    function addToHistLine( &$row, &$s ) {
-    	global $wgUser;
-    
-    	if( isset($this->pageFlaggedRevs) && array_key_exists($row->rev_id,$this->pageFlaggedRevs) ) {
-    		$msg = ($this->pageFlaggedRevs[$row->rev_id] >= 1) ? 'hist-quality' : 'hist-stable';
-    		$special = SpecialPage::getTitleFor( 'Stableversions' );
-    		$s .= ' <tt><small><strong>' . 
-				$this->skin->makeLinkObj( $special, wfMsgHtml($msg), 'oldid='.$row->rev_id ) . 
-				'</strong></small></tt>';
-		}
-    }
 
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
 	 */
-	function getOverridingRev( $article=NULL ) {
-		if( !$row = $this->getLatestQualityRev( $article ) ) {
-			if( !$row = $this->getLatestStableRev( $article ) ) {
+	function getOverridingRev() {
+		if( !$row = $this->getLatestQualityRev() ) {
+			if( !$row = $this->getLatestStableRev() ) {
 				return null;
 			}
 		}
@@ -1158,16 +1176,10 @@ class FlaggedArticle extends FlaggedRevs {
 	 * per the $wgFlaggedRevTags variable
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
-	 * Accepts an argument because of the fact that the article
-	 * object for edit mode is part of the editform; insert only
-	 * the article object for the current page!
 	 * @output array ( rev, flags )
 	 */
-	function getLatestQualityRev( $article=NULL ) {
-		global $wgArticle;
-		
-		$article = $article ? $article : $wgArticle;
-		$title = $article->getTitle();
+	function getLatestQualityRev() {
+		global $wgTitle;
         // Cached results available?
 		if( isset($this->stablefound) ) {
 			return ( $this->stablefound ) ? $this->stablerev : null;
@@ -1179,8 +1191,8 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select(
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
+			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(), 'fr_quality >= 1',
+			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		wfProfileOut( __METHOD__ );
@@ -1199,17 +1211,12 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Get latest flagged revision
 	 * This passes rev_deleted revisions
 	 * This is based on the current article and caches results
-	 * Accepts an argument because of the fact that the article
-	 * object for edit mode is part of the editform; insert only
-	 * the article object for the current page!
 	 * The cache here doesn't make sense for arbitrary articles
 	 * @output array ( rev, flags )
 	 */
-	function getLatestStableRev( $article=NULL ) {
-		global $wgArticle;
+	function getLatestStableRev() {
+		global $wgTitle;
 		
-		$article = $article ? $article : $wgArticle;
-		$title = $article->getTitle();
         // Cached results available?
 		if( isset($this->latestfound) ) {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
@@ -1220,8 +1227,8 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select( 
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
-			'fr_rev_id = rev_id', 'rev_page' => $article->getId(), 'rev_deleted = 0'),
+			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(),
+			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		wfProfileOut( __METHOD__ );
@@ -1276,19 +1283,18 @@ class FlaggedArticle extends FlaggedRevs {
 }
 
 // Our class instances
-$flaggedrevs = new FlaggedRevs();
-$flaggedarticle = new FlaggedArticle();
+$flaggedrevs = new FlaggedArticle();
 // Main hooks, overrides pages content, adds tags, sets tabs and permalink
-$wgHooks['SkinTemplateTabs'][] = array($flaggedarticle, 'setCurrentTab');
-$wgHooks['ArticleViewHeader'][] = array($flaggedarticle, 'setPageContent');
-$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedarticle, 'setPermaLink');
+$wgHooks['SkinTemplateTabs'][] = array($flaggedrevs, 'setCurrentTab');
+$wgHooks['ArticleViewHeader'][] = array($flaggedrevs, 'setPageContent');
+$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedrevs, 'setPermaLink');
 // Add tags do edit view
-$wgHooks['EditPage::showEditForm:initial'][] = array($flaggedarticle, 'addToEditView');
+$wgHooks['EditPage::showEditForm:initial'][] = array($flaggedrevs, 'addToEditView');
 // Add review form
-$wgHooks['BeforePageDisplay'][] = array($flaggedarticle, 'addReviewForm');
+$wgHooks['BeforePageDisplay'][] = array($flaggedrevs, 'addReviewForm');
 // Mark of items in page history
-$wgHooks['PageHistoryBeforeList'][] = array($flaggedarticle, 'addToPageHist');
-$wgHooks['PageHistoryLineEnding'][] = array($flaggedarticle, 'addToHistLine');
+$wgHooks['PageHistoryBeforeList'][] = array($flaggedrevs, 'addToPageHist');
+$wgHooks['PageHistoryLineEnding'][] = array($flaggedrevs, 'addToHistLine');
 // Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
 // Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
