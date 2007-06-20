@@ -492,7 +492,7 @@ class FlaggedRevs {
     }
     
     function maybeUpdateMainCache( &$article, &$outputDone, &$pcache ) {
-    	global $wgUser;
+    	global $wgUser, $action;
     	// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
 			return true;
@@ -501,6 +501,7 @@ class FlaggedRevs {
 		if( !$wgUser->isAllowed( 'review' ) ) 
 			return true;
 		
+		$parserCache =& ParserCache::singleton();
     	$parserOutput = $parserCache->get( $article, $wgUser );
 		if( $parserOutput ) {
 			// Clear older, incomplete, cached versions
@@ -1310,6 +1311,8 @@ class FlaggedArticle extends FlaggedRevs {
 $flaggedrevs = new FlaggedArticle();
 // Main hooks, overrides pages content, adds tags, sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = array($flaggedrevs, 'setCurrentTab');
+// Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+$wgHooks['ArticleViewHeader'][] = array($flaggedrevs, 'maybeUpdateMainCache');
 $wgHooks['ArticleViewHeader'][] = array($flaggedrevs, 'setPageContent');
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedrevs, 'setPermaLink');
 // Add tags do edit view
@@ -1321,8 +1324,6 @@ $wgHooks['PageHistoryBeforeList'][] = array($flaggedrevs, 'addToPageHist');
 $wgHooks['PageHistoryLineEnding'][] = array($flaggedrevs, 'addToHistLine');
 // Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = array($flaggedrevs, 'autoPromoteUser');
-// Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-$wgHooks['ArticleViewHeader'][] = array($flaggedrevs, 'maybeUpdateMainCache');
 // Adds table link references to include ones from the stable version
 $wgHooks['TitleLinkUpdatesAfterCompletion'][] = array($flaggedrevs, 'extraLinksUpdate');
 // If a stable version is hidden, move to the next one if possible, and update things
