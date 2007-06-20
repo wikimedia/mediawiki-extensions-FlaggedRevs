@@ -245,7 +245,7 @@ class FlaggedRevs {
 			array('fr_namespace' => $page->getNamespace(), 'fr_title' => $page->getDBkey() ),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC') );
-		while ( $row = $db->fetchObject($result) ) {
+		while( $row = $db->fetchObject($result) ) {
         	$rows[$row->fr_rev_id] = $row->fr_quality;
 		}
 		wfProfileOut( __METHOD__ );
@@ -666,6 +666,30 @@ class FlaggedRevs {
     	if( !isset($parser->isStable) || !$parser->isStable ) return;
     	
     	$ig->isStable = true;
+    }
+    
+    static function parserInjectImageTimestamps( &$parser, &$text ) {
+		$images = array();
+		$parser->mOutput->mImageTimestamps = array();
+		# Fetch the timestamps of the images
+		if( !empty($parser->mOutput->mImages) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			foreach( $parser->mOutput->mImages as $name => $v ) {
+				$safename = $dbr->strencode( $name );
+				$images[] = "'$safename'";
+			}
+        	$res = $dbr->select('image', array('img_name','img_timestamp'),
+				array('img_name IN(' . implode(',',$images) . ')'),
+			__METHOD__ );
+			
+			while( $row = $dbr->fetchObject($res) ) {
+				$parser->mOutput->mImageTimestamps[$row->img_name] = $row->img_timestamp;
+			}
+		}
+    }
+    
+    static function outputInjectImageTimestamps( &$out, &$parserOutput ) {
+    	$out->mImageTimestamps = $parserOutput->mImageTimestamps;
     }
 
 	/**
@@ -1285,4 +1309,7 @@ $wgHooks['BeforeParserrenderImageGallery'][] = array( $flaggedrevs, 'parserMakeG
 $wgHooks['BeforeGalleryFindFile'][] = array( $flaggedrevs, 'galleryFindStableFileTime');
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $flaggedrevs, 'parserFetchStableTemplate');
 $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedrevs, 'parserMakeStableImageLink');
+// Additional parser versioning
+$wgHooks['ParserAfterTidy'][] = array( $flaggedrevs, 'parserInjectImageTimestamps');
+$wgHooks['OutputPageParserOutput'][] = array( $flaggedrevs, 'outputInjectImageTimestamps');
 ?>
