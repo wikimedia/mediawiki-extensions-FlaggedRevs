@@ -136,20 +136,20 @@ $RevisionreviewMessages['de'] = array(
 	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
 	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
 
-	'revreview-static'  => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[:$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
+	'revreview-static' => "Dies ist eine [[Help:Article validation|geprüfte]] Version der Seite '''„[[:$3]]“''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
 	'revreview-toggle' => '(Details umschalten)',
-	'revreview-note' => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
+	'revreview-note'   => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
 
 	'hist-stable'  => '[gesichtet]',
 	'hist-quality' => '[geprüft]',
 
-	'flaggedrevs'        => 'Markierte Versionen',
-	'review-logpage'     => 'Artikel-Prüf-Logbuch',
-	'review-logpagetext' => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
-	'review-logentrygrant'   => 'prüfte eine Version von $1',
-	'review-logentryrevoke'  => 'verwarf eine Version von $1',
-	'review-logaction'  => 'Version-ID $1',
+	'flaggedrevs'           => 'Markierte Versionen',
+	'review-logpage'        => 'Artikel-Prüf-Logbuch',
+	'review-logpagetext'    => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
+	'review-logentrygrant'  => 'prüfte eine Version von $1',
+	'review-logentryrevoke' => 'verwarf eine Version von $1',
+	'review-logaction'      => 'Version-ID $1',
 
 	'revisionreview'       => 'Versionsprüfung',		
 	'revreview-main'       => 'Sie müssen eine Artikelversion zur Prüfung auswählen.
@@ -197,7 +197,7 @@ $RevisionreviewMessages['de'] = array(
 
 	'unreviewedpages'       => 'Ungeprüfte Artikel',
 	'viewunreviewed'        => 'Liste ungeprüfter Artikel',
-	'included-nonquality'   => 'Schließe geprüfte Artikel ein, die keine Qualitätsbewertung haben.',
+	'included-nonquality'   => 'Zeige nur geprüfte Artikel, die noch keine Qualitätsbewertung haben.',
 	'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
 );
 
