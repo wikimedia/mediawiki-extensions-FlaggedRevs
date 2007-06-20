@@ -509,6 +509,7 @@ class FlaggedRevs {
 				$article->mTitle->invalidateCache();
 			}
 		}
+		return true;
     }
     
     function updateFromMove( &$movePageForm , &$oldtitle , &$newtitle ) {
@@ -517,6 +518,8 @@ class FlaggedRevs {
 			array('fr_namespace' => $newtitle->getNamespace(), 'fr_title' => $newtitle->getDBkey() ),
 			array('fr_namespace' => $oldtitle->getNamespace(), 'fr_title' => $oldtitle->getDBkey() ),
 			__METHOD__ );
+			
+		return true;
     }
     
     public static function articleLinksUpdate( &$title ) {
@@ -534,6 +537,8 @@ class FlaggedRevs {
 		}
 		$u = new LinksUpdate( $title, $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
+		
+		return true;
     }
     
     public static function extraLinksUpdate( &$title ) {
@@ -606,6 +611,7 @@ class FlaggedRevs {
 		}
 
 		wfProfileOut( $fname );
+		return true;
     }
     
 	static function parserFetchStableTemplate( &$parser, &$title, &$skip, &$id ) {
@@ -630,6 +636,7 @@ class FlaggedRevs {
 			$id = 0; // Zero for not found
 			$skip = true;
 		}
+		return true;
     }
     
 	static function parserMakeStableImageLink( &$parser, &$nt, &$skip, &$time ) {
@@ -652,6 +659,7 @@ class FlaggedRevs {
 			$time = 0; // Zero for not found
 			$skip = true;
 		}
+		return true;
     }
     
     static function galleryFindStableFileTime( &$ig, &$nt, &$time ) {
@@ -664,6 +672,8 @@ class FlaggedRevs {
 			array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
 			__METHOD__ );
 		$time = $time ? $time : -1; // hack, will never find this
+		
+		return true;
     }
     
     static function parserMakeGalleryStable( &$parser, &$ig ) {
@@ -672,6 +682,8 @@ class FlaggedRevs {
     		return true;
     	
     	$ig->isStable = true;
+    	
+    	return true;
     }
     
     static function parserInjectImageTimestamps( &$parser, &$text ) {
@@ -687,10 +699,12 @@ class FlaggedRevs {
 				$parser->mOutput->mImageTimestamps[$row->img_name] = $row->img_timestamp;
 			}
 		}
+		return true;
     }
     
     static function outputInjectImageTimestamps( &$out, &$parserOutput ) {
     	$out->mImageTimestamps = $parserOutput->mImageTimestamps;
+    	return true;
     }
 
 	/**
@@ -730,6 +744,7 @@ class FlaggedRevs {
 				$log->addEntry('grant1', $user->getUserPage(), wfMsgHtml('makevalidate-autosum') );
 			}
 		}
+		return true;
     }
 }
 
@@ -765,7 +780,7 @@ class FlaggedArticle extends FlaggedRevs {
 		global $wgRequest, $wgTitle, $wgOut, $action;
 		// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
-			return;
+			return true;
 		// Grab page and rev ids
 		$pageid = $article->getId();
 		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
@@ -859,6 +874,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parseinline')).'</div>';
 			$wgOut->addHTML( $tag );
 		}
+		return true;
     }
     
     function addToEditView( &$editform ) {
@@ -893,7 +909,8 @@ class FlaggedArticle extends FlaggedRevs {
 				wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
 				'</span>';
 			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
-       }
+		}
+		return true;
     }
 	
     function addReviewForm( &$out ) {
@@ -918,6 +935,8 @@ class FlaggedArticle extends FlaggedRevs {
 			if( $tfrev ) return true;
 		}
 		$this->addQuickReview( $revId, $out, false );
+		
+		return true;
     }
     
     function setPermaLink( &$sktmp, &$nav_urls, &$revid, &$revid ) {
@@ -943,6 +962,7 @@ class FlaggedArticle extends FlaggedRevs {
 				);
 			}
 		}
+		return true;
     }
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
@@ -1047,6 +1067,7 @@ class FlaggedArticle extends FlaggedRevs {
        		# Reset static array
        		$content_actions = $new_actions;
     	}
+    	return true;
     }
     
     function addToPageHist( &$article ) {
@@ -1062,9 +1083,10 @@ class FlaggedArticle extends FlaggedRevs {
     	if( !$rows ) 
 			return true;
     	
-    	foreach( $rows as $rev => $quality ) {
+    	foreach( $rows as $rev => $quality )
     		$this->pageFlaggedRevs[$rev] = $quality;
-    	}
+
+    	return true;
     }
     
     function addToHistLine( &$row, &$s ) {
@@ -1077,6 +1099,8 @@ class FlaggedArticle extends FlaggedRevs {
 				$this->skin->makeLinkObj( $special, wfMsgHtml($msg), 'oldid='.$row->rev_id ) . 
 				'</strong></small></tt>';
 		}
+		
+		return true;
     }
     
     function addQuickReview( $id=NULL, $out ) {
