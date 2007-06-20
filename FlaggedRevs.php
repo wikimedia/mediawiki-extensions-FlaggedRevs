@@ -550,7 +550,8 @@ class FlaggedRevs {
 			return true;
     	# Check if this page has a stable version
     	$sv = self::getOverridingPageRev( $title );
-    	if( !$sv ) return;
+    	if( !$sv ) 
+			return true;
     	# Retrieve the text
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
