@@ -883,7 +883,7 @@ class FlaggedArticle extends FlaggedRevs {
 		global $wgRequest, $wgTitle, $wgOut;
 		// Talk pages cannot be validated
 		if( !$editform->mArticle || !$wgTitle->isContentPage() )
-           return;
+			return false;
 		// Find out revision id
 		if( $editform->mArticle->mRevision ) {
        		$revid = $editform->mArticle->mRevision->mId;
