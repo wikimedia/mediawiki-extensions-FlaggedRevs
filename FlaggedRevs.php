@@ -872,13 +872,13 @@ class FlaggedArticle extends FlaggedRevs {
 			if( $tag !='' )
 				$tag = '<div id="mwrevisiontag_open" class="flaggedrevs_tag1 ' . $tagClass1 . ' plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
-			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
-            $extra="<div id='mwrevisiontag_closed' class='flaggedrevs_short $tagClass'></div>
+			
+            $tag .="<div id='mwrevisiontag_closed' class='flaggedrevs_short $tagClass'></div>
                 <script type='text/javascript'>
                                      var review_open = document.getElementById('mwrevisiontag_open');
                                      review_open.style.display = 'none';
 				</script>";
-            $wgOut->addHTML($extra);
+            $wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 
 		} else {
 			$tag = '<div id="mwrevisiontag_open" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parseinline')).'</div>';
