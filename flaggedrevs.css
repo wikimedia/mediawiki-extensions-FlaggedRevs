@@ -1,100 +1,115 @@
-.flaggedrevs_tag1, .flaggedrevs_tag2, .flaggedrevs_tag3, .flaggedrevs_notes {
+.flaggedrevs_tag1 {
 	border: 1px solid #aaa;
 	background-color: #f0f8ff;
-	padding: 10px;
+	padding: 5px;
 	font-size: 80%;
-	margin-left: 12px;
-	width: 200px;
-	position: relative;
-	float: right;
-	top: 5px;
-	right: 15px;
-}
-.flaggedrevs_short {
-	padding: 0px;
-	margin: 0px;
-	width: 27px;
-	position: relative;
-	float: right;
-	top: 5px;
-	right: 15px;
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	height: 27px;
-        cursor: pointer;
-}
-
-.value1 {
-	background-image: url(../FlaggedRevs/img/1.png);
-}    
-
-.value2 {
-	background-image: url(../FlaggedRevs/img/2.png);
-}
-.value3 {
-	background-image: url(../FlaggedRevs/img/3.png);
-}
-.flaggedrevs_notice {
-	font-size: 80%;
-	line-height: 1.2em;
-	margin: 0 0 1.4em 1em;
-	color: #7d7d7d;
-	width: auto;
-}
-
-.fr-text {
-	height: 14px;
-	margin: 0px 7px 0px 0px;
-	padding: 0px;
-	float: left;
-	line-height: 15px;
-	font-weight: bold;
-	width: 80px;
-}
-.fr-marker {
-	height: 14px;
-	width: 95px;
-	left: 0px;
-	top: 0px;
-	margin: 0px;
-	padding: 0px;
-	float: left;
-	background-image: url(../FlaggedRevs/img/fr-marker-20.png);
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	line-height: 15px;
+	margin-left: 50px;
+	margin-right: 50px;
 	text-align: center;
 }
-.value40 {
-	background-image: url(../FlaggedRevs/img/fr-marker-40.png);
-}
-.value60 {
-	background-image: url(../FlaggedRevs/img/fr-marker-60.png);
-}
-.value80 {
-	background-image: url(../FlaggedRevs/img/fr-marker-80.png);
-}
-.value100 {
-	background-image: url(../FlaggedRevs/img/fr-marker-100.png);
-}
-.fr-group {
-	display: block;
-	clear: left;
-	float: left;
-	margin-top: 5px;
-}
-.flaggedrevs_tag1 p {
-	position: relative;
-	margin: 0px;
-	padding: 0px 0px 10px;
-	line-height: 15px;
-}
-#close_review {
-        position:relative;
-        float: right;
-        z-index: 5;
-	font-size: 150%;
-        margin-top: -5px;
-        cursor: pointer;
+
+.flaggedrevs_tag2 {
+	border: 1px solid #aaa;
+	background-color: #f0fff0;
+	padding: 5px;
+	font-size: 80%;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
 }
 
+.flaggedrevs_tag3 {
+	border: 1px solid #aaa;
+	background-color: #fffff0;
+	padding: 5px;
+	font-size: 80%;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+}
+
+.flaggedrevs_notes {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
+	font-size: 80%;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+}
+
+.flaggedrevs_notice {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
+	font-size: 80%;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+}
+
+/*.fr-marker-1 span {display: none};*/
+.fr-marker-1 {
+    background-image: url(../FlaggedRevs/img/boxY.png);
+    background-repeat: no-repeat;
+    min-width: 16px;
+    width: 16px;
+    height: 16px;
+    min-height: 16px;
+    padding: 3px 16px 0px 20px;
+}
+
+.fr-text-value {
+    /*font-size:0px;    */
+    min-width:100px;
+    width: 100px;
+
+}
+
+
+.fr-marker-20 {
+    background-image: url(../FlaggedRevs/img/bar_20.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+.fr-marker-40 {
+    background-image: url(../FlaggedRevs/img/bar_40.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+
+.fr-marker-60 {
+    background-image: url(../FlaggedRevs/img/bar_60.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+
+}
+
+.fr-marker-80 {
+    background-image: url(../FlaggedRevs/img/bar_80.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+
+.fr-marker-100 {
+    background-image: url(../FlaggedRevs/img/bar_100.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;    
+    padding-bottom: 3px;
+}
+
+.fr-marker-2 {
+    background-image: url(../FlaggedRevs/img/boxC.png);
+    background-repeat: no-repeat;
+    padding: 3px 16px 0px 0px;
+}
+
+.fr-marker-0 {
+    background-image: url(../FlaggedRevs/img/boxQ.png);
+    background-repeat: no-repeat;
+    padding: 3px 16px 0px 0px;
+}
