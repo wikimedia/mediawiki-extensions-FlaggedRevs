@@ -957,7 +957,7 @@ class FlaggedArticle extends FlaggedRevs {
 		global $wgHooks;
 		// Are we using the popular cite extension?
 		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
-			if( $skintemplate->mTitle->isContentPage() && $revid !== 0 ) {
+			if( $sktmp->mTitle->isContentPage() && $revid !== 0 ) {
 				$nav_urls['cite'] = array(
 					'text' => wfMsg( 'cite_article_link' ),
 					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
