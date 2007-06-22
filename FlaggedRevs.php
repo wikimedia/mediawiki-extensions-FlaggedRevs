@@ -343,7 +343,8 @@ class FlaggedRevs {
             else
                 $classmarker = 0;
             $levelmarker = $level * 20 + 20; //XXX do this better
-			$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" . wfMsgHtml("revreview-$quality") . "</strong>: <span class='fr-text-value'>$valuetext&nbsp;</span>&nbsp;</span>\n";    
+
+			$tag .= "<div class='fr-group'><span class='fr-text'>" . wfMsgHtml("revreview-$quality") . "&nbsp;</span><span class='fr-marker value$levelmarker'>$valuetext</span></div>\n";    
 		}
 		return $tag;
     }
@@ -807,16 +808,16 @@ class FlaggedArticle extends FlaggedRevs {
 			# Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
-				$simpleTag = true;
+				#$simpleTag = true;
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 					# Hide clutter
-					$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-					$tag .= '<span id="mwrevisionratings" style="display:none">' . 
-						wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
-						'</span>';
+					#$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+					#$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+					$tag .= wfMsg('revreview-rating') . parent::addTagRatings( $flags );
+                    #.'</span>';
 				}
 			# Viewing the page normally: override the page
 			} else {
@@ -832,10 +833,10 @@ class FlaggedArticle extends FlaggedRevs {
        					$tag = wfMsgExt('revreview-quality', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
 					else
 						$tag = wfMsgExt('revreview-basic', array('parseinline'), $vis_id, $article->getLatest(), $revs_since, $time);
-					$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-					$tag .= '<span id="mwrevisionratings" style="display:none"><p>' . 
-						parent::addTagRatings( $flags ) .
-						'</p></span>';
+					#$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+					#$tag .= '<span id="mwrevisionratings" style="display:none"><p>' . 
+					$tag .= 	parent::addTagRatings( $flags );
+                    #.'</p></span>';
 				}
 				# Try the stable page cache
 				$parserOutput = parent::getPageCache( $article );
@@ -860,23 +861,30 @@ class FlaggedArticle extends FlaggedRevs {
 			}
 			// Some checks for which tag CSS to use
 			if( $simpleTag )
-				$tagClass = 'flaggedrevs_notice';
+				$tagClass = 'value1';
 			else if( $pristine )
-				$tagClass = 'flaggedrevs_tag3';
+				$tagClass = 'value3';
 			else if( $quality )
-				$tagClass = 'flaggedrevs_tag2';
+				$tagClass = 'value2';
 			else
-				$tagClass = 'flaggedrevs_tag1';
+				$tagClass = 'value1';
 			// Wrap tag contents in a div
 			if( $tag !='' )
-				$tag = '<div id="mwrevisiontag" class="' . $tagClass . ' plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mwrevisiontag_open" class="flaggedrevs_tag1 ' . $tagClass1 . ' plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
+            $extra="<div id='mwrevisiontag_closed' class='flaggedrevs_short $tagClass'></div>
+                <script type='text/javascript'>
+                                     var review_open = document.getElementById('mwrevisiontag_open');
+                                     review_open.style.display = 'none';
+				</script>";
+            $wgOut->addHTML($extra);
+
 		} else {
-			$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parseinline')).'</div>';
+			$tag = '<div id="mwrevisiontag_open" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parseinline')).'</div>';
 			$wgOut->addHTML( $tag );
 		}
-		return true;
+        		return true;
     }
     
     function addToEditView( &$editform ) {
@@ -906,10 +914,10 @@ class FlaggedArticle extends FlaggedRevs {
 			$msg = $this->isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
-			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mwrevisionratings" style="display:none">' . 
-				wfMsg('revreview-rating') . parent::addTagRatings( $flags ) . 
-				'</span>';
+			#$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			#$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+			$tag .=	wfMsg('revreview-rating') . parent::addTagRatings( $flags );
+            #    .'</span>';
 			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
 		}
 		return true;
