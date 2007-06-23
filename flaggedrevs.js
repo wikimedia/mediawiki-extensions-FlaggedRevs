@@ -8,10 +8,6 @@ function toggleRevRatings() {
 	}
 }
 
-
-
-
-
 function hookAnyEvent(hookName, hookFunct, element) {
         if(!element){
            var element = window;
@@ -23,9 +19,9 @@ function hookAnyEvent(hookName, hookFunct, element) {
 	}
 }
 
-
 var open_review_listen = function(evt){
    var review_closed = document.getElementById('mwrevisiontag_closed');
+   if( !review_closed ) return;
    hookAnyEvent("click", open_the_review, review_closed);
 }
 
@@ -51,5 +47,3 @@ var close_the_review = function(evt){
 }
 
 addOnloadHook(open_review_listen);
-
-
