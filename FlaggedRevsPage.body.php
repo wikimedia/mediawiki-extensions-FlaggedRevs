@@ -707,6 +707,9 @@ class Unreviewedpages extends SpecialPage
 		if( !is_null($allnamespaces) ) {
 			$arr = array($allnamespaces => wfMsg('namespacesall')) + $arr;
 		}
+
+		$s .= "\t" . Xml::element("option", array("value" => "all"), "all") . "\n";
+		
 		foreach ($arr as $index => $name) {
 			# Content only
 			if ($index < NS_MAIN || !in_array($index, $wgContentNamespaces) ) continue;
