@@ -96,7 +96,7 @@ $wgFlagRestrictions = array(
 // For users of the monobook skin, a simplified UI will be used. 
 // Ratings will go by the toolbox. The standard UI still shows 
 // in edit mode and at stable versions.
-$wgSimpleFlaggedRevsUI = true;
+$wgSimpleFlaggedRevsUI = false;
 
 # Lets some users access the review UI and set some flags
 $wgAvailableRights[] = 'review';
@@ -911,9 +911,8 @@ class FlaggedArticle extends FlaggedRevs {
 						# Hide clutter
 						$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mwrevisionratings">' . 
-							wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
-							'</span>';
+						$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
+							wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . '</span>';
 					}
 				}
 			# Viewing the page normally: override the page
@@ -932,9 +931,8 @@ class FlaggedArticle extends FlaggedRevs {
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
 						$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mwrevisionratings">' . 
-							parent::addTagRatings( $flags ) .
-							'</span>';
+						$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
+							parent::addTagRatings( $flags ) . '</span>';
 					}
 				}
 				# Try the stable page cache
@@ -1009,7 +1007,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
 			$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mwrevisionratings">' . 
+			$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
 				wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 				'</span>';
 			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );

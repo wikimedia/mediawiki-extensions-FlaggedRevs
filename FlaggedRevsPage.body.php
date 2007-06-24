@@ -550,8 +550,11 @@ class Stableversions extends SpecialPage
 		$flags = FlaggedRevs::getFlagsForPageRev( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$tag = wfMsgExt('revreview-static', array('parse'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());
-		$tag .= $RevFlagging->addTagRatings( $flags );
+       	$tag = wfMsgExt('revreview-static', array('parseinline'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());
+		$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
+				wfMsg('revreview-oldrating') . $RevFlagging->addTagRatings( $flags ) . 
+				'</span>';
 		// Parse the text...
 		$text = $RevFlagging->getFlaggedRevText( $this->oldid );
 		$options = ParserOptions::newFromUser($wgUser);
