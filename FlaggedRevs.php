@@ -925,7 +925,8 @@ class FlaggedArticle extends FlaggedRevs {
 				if( !$wgOut->isPrintable() ) {
 					if( $this->useSimpleUI() ) {
 						$msg = 'revreview-quick-current';
-						$tag .= "<span class='fr_tab_current plainlinks'></span>" . wfMsgExt($msg,array('parseinline'));
+						$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+							wfMsgExt($msg,array('parseinline'),$tfrev->fr_rev_id,$revs_since);
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
@@ -1070,7 +1071,9 @@ class FlaggedArticle extends FlaggedRevs {
     
     function setCurrentTab( &$sktmp, &$content_actions ) {
     	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $action;
-		// Get the subject page
+		// Get the subject page, not all skins have it :(
+		if( !isset($sktmp->mTitle) )
+			return true;
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
 		if( !$title->isContentPage() || !$title->exists() ) 

@@ -20,9 +20,10 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	
-	'revreview-quick-basic'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See the latest sighted revision]',
-	'revreview-quick-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See the latest quality revision]',
-	'revreview-quick-current' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See the current revision]',
+	'revreview-quick-basic'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest sighted revision]',
+	'revreview-quick-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest quality revision]',
+	'revreview-quick-current' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|change|changes}}])',
 	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
