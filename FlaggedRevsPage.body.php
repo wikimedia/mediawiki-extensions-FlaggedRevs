@@ -709,7 +709,7 @@ class Unreviewedpages extends SpecialPage
 		}
 		foreach ($arr as $index => $name) {
 			# Content only
-			if ($index < NS_MAIN || !isset($wgContentNamespaces[$index]) ) continue;
+			if ($index < NS_MAIN || !in_array($index, $wgContentNamespaces) ) continue;
 
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
 
