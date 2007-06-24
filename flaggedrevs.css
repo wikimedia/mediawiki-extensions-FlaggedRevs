@@ -48,6 +48,18 @@
 	text-align: center;
 }
 
+.flaggedrevs_short {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
+	position: relative;
+	float: right;
+	font-size: 80%;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: left;
+}
+
 /*.fr-marker-1 span {display: none};*/
 .fr-marker-1 {
     background-image: url(../FlaggedRevs/img/boxY.png);
@@ -65,7 +77,6 @@
     width: 100px;
 
 }
-
 
 .fr-marker-20 {
     background-image: url(../FlaggedRevs/img/bar_20.png);
@@ -102,14 +113,134 @@
     padding-bottom: 3px;
 }
 
-.fr-marker-2 {
+.fr-marker-1 {
     background-image: url(../FlaggedRevs/img/boxC.png);
     background-repeat: no-repeat;
     padding: 3px 16px 0px 0px;
 }
 
-.fr-marker-0 {
-    background-image: url(../FlaggedRevs/img/boxQ.png);
-    background-repeat: no-repeat;
-    padding: 3px 16px 0px 0px;
+.fr_tab_current {
+	padding: 0px;
+	margin: 0px;
+	width: 27px;
+	position: relative;
+	float: left;
+	top: -3px;
+	right: 0px;
+	background-image: url(../FlaggedRevs/img/1.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 27px;
+} 
+.fr_tab_stable {
+	padding: 0px;
+	margin: 0px;
+	width: 27px;
+	position: relative;
+	float: left;
+	top: -3px;
+	right: 0px;
+	background-image: url(../FlaggedRevs/img/2.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 27px;
+}    
+.fr_tab_quality {
+	padding: 0px;
+	margin: 0px;
+	width: 27px;
+	position: relative;
+	float: left;
+	top: -3px;
+	right: 0px;
+	background-image: url(../FlaggedRevs/img/3.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 27px;
+}
+
+.fr-text {
+	height: 14px;
+	margin: 0px 7px 0px 0px;
+	padding: 0px;
+	float: center;
+	line-height: 15px;
+	font-weight: bold;
+	width: 80px;
+}
+.fr-marker {
+	height: 14px;
+	width: 95px;
+	left: 0px;
+	top: 0px;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	background-image: url(../FlaggedRevs/img/fr-marker-20.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	line-height: 15px;
+	text-align: center;
+}
+
+.fr_value40 {
+	background-image: url(../FlaggedRevs/img/fr-marker-40.png);
+}
+.fr_value60 {
+	background-image: url(../FlaggedRevs/img/fr-marker-60.png);
+}
+.fr_value80 {
+	background-image: url(../FlaggedRevs/img/fr-marker-80.png);
+}
+.fr_value100 {
+	background-image: url(../FlaggedRevs/img/fr-marker-100.png);
+}
+
+.fr-group {
+	display: block;
+	float: center;
+	margin-top: 5px;
+}
+
+.flaggedrevs_box0 {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	position: relative;
+	text-align: center;
+	font-size: 85%;
+}
+.flaggedrevs_box1 {
+	border: 1px solid #aaa;
+	background-color: #f0f8ff;
+	position: relative;
+	text-align: center;
+	font-size: 85%;
+}
+.flaggedrevs_box2 {
+	border: 1px solid #aaa;
+	background-color: #f0fff0;
+	position: relative;
+	text-align: center;
+	font-size: 85%;
+}
+.flaggedrevs_box3 {
+	border: 1px solid #aaa;
+	background-color: #fffff0;
+	position: relative;
+	text-align: center;
+	font-size: 85%;
+}
+
+/* Hack to avoid extra borders */
+.flaggedrevs_box0a {
+	background-color: #f9f9f9;
+}
+.flaggedrevs_box1a {
+	background-color: #f0f8ff;
+}
+.flaggedrevs_box2a {
+	background-color: #f0fff0;
+}
+.flaggedrevs_box3a {
+	background-color: #fffff0;
 }
