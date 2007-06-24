@@ -93,8 +93,9 @@ $wgFlagRestrictions = array(
 	'style'    => array('review' => 3),
 );
 
-// For users of the monobook skin, a simplified UI
-// will be used. Ratings will go by the toolbox.
+// For users of the monobook skin, a simplified UI will be used. 
+// Ratings will go by the toolbox. The standard UI still shows 
+// in edit mode and at stable versions.
 $wgSimpleFlaggedRevsUI = true;
 
 # Lets some users access the review UI and set some flags
@@ -844,10 +845,10 @@ class FlaggedArticle extends FlaggedRevs {
 			$tagClass = 'flaggedrevs_box1';
         // Construct some tagging
         if( !$wgOut->isPrintable() ) {
-           	$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+           	$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 			$box = parent::addTagRatings( $flags, true, "{$tagClass}a" );
-			$box .= '<h5><a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a></h5>';
-			$box .= '<span id="mwrevisionratings" style="display:none">' . 
+			$box .= '<h5><a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a></h5>';
+			$box .= '<span id="mwrevisionratings">' . 
 				wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since) .
 				'</span>';
         }
@@ -908,9 +909,9 @@ class FlaggedArticle extends FlaggedRevs {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 						# Hide clutter
-						$tag .= ' <a id="mwrevisiontoggle" style="display: none;" href="javascript:toggleRevRatings()">' . 
+						$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+						$tag .= '<span id="mwrevisionratings">' . 
 							wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 							'</span>';
 					}
@@ -928,9 +929,9 @@ class FlaggedArticle extends FlaggedRevs {
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
-						$tag .= ' <a id="mwrevisiontoggle" style="display: none;" href="javascript:toggleRevRatings()">' . 
+						$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+						$tag .= '<span id="mwrevisionratings">' . 
 							parent::addTagRatings( $flags ) .
 							'</span>';
 					}
@@ -1006,8 +1007,8 @@ class FlaggedArticle extends FlaggedRevs {
 			$msg = $this->isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
-			$tag .= ' <a href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mwrevisionratings" style="display:none">' . 
+			$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			$tag .= '<span id="mwrevisionratings">' . 
 				wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 				'</span>';
 			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
