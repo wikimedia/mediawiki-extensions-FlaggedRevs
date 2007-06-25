@@ -119,9 +119,14 @@ $RevisionreviewMessages['de'] = array(
 
 	'revreview-current'   => 'Aktuelle Version',
 	'revreview-stable'    => 'Stabile Version',
-	'revreview-rating'    => 'Bewertung:',
+	'revreview-oldrating' => 'war bewertet als:',
+	'revreview-rating'    => 'Versions-Bewertung:',
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
+
+	'revreview-quick-basic'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte gesichtete Version]',
+	'revreview-quick-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte geprüfte Version]',
+	'revreview-quick-current' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])',
 
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) dieser Seite wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].<br />
@@ -132,14 +137,14 @@ $RevisionreviewMessages['de'] = array(
 	There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
 
 	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|gesichtete]] Version dieser Seite,
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
-	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen])
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
+	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen])
 	noch zur Prüfung an.',
 
 	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Article validation|Qualitätsbewertung]]
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$4</i>.
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
-	{{plural:$3|1 Version steh|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} Änderungen]) noch zur Prüfung an.',
+	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
 
 	'revreview-static' => "Dies ist eine [[Help:Article validation|geprüfte]] Version '''[[:$3|dieser Seite]]''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
