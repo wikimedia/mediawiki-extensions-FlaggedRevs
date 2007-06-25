@@ -946,7 +946,8 @@ class FlaggedArticle extends FlaggedRevs {
 				$tag = '<div id="mwrevisiontag" class="' . $tagClass . ' plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
-		} else {
+		// Add "no reviewed version" tag, but not for main page
+		} else if( !$wgOut->isPrintable() && !$article->mTitle==Title::newMainPage() ) {
 			if( $this->useSimpleUI() ) {
 				$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
 					wfMsgExt('revreview-quick-none',array('parseinline'));
