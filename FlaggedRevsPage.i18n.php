@@ -16,14 +16,16 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-current'   => 'Current revision',
 	'revreview-stable'    => 'Stable version',
 	'revreview-oldrating' => 'It was rated as:',
-	'revreview-rating'    => 'Revision rating:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	
-	'revreview-quick-basic'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest sighted revision]',
-	'revreview-quick-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest quality revision]',
-	'revreview-quick-current' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
+	'revreview-quick-see-quality' => '\'\'\'Current\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest quality revision]',
+	'revreview-quick-see-basic' => '\'\'\'Current\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest sighted revision]',
+	'revreview-quick-basic'  => '\'\'\'Sighted\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|change|changes}}])',
+	'revreview-quick-quality' => '\'\'\'Quality\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|change|changes}}])',
+	'revreview-quick-none' => '\'\'\'Current\'\'\'. Revision not reviewed.',
 	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',

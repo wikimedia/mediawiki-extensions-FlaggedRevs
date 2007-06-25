@@ -93,9 +93,12 @@ $wgFlagRestrictions = array(
 	'style'    => array('review' => 3),
 );
 
-// For users of the monobook skin, a simplified UI will be used. 
-// Ratings will go by the toolbox. The standard UI still shows 
-// in edit mode and at stable versions.
+# Use RC Patrolling to check for vandalism
+# When revisions are flagged, they count as patrolled
+$wgUseRCPatrol = true;
+
+# This will only distinguish "sigted", "quality", and unreviewed
+# A small icon will show in the upper right hand corner
 $wgSimpleFlaggedRevsUI = false;
 
 # Lets some users access the review UI and set some flags
@@ -182,7 +185,7 @@ class FlaggedRevs {
 		$options->setEditSection(false);
 		# Parse the new body, wikitext -> html
        	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
-       	
+       	# Reset $wgParser
        	$wgParser->isStable = false; // Done!
        	
        	return $parserOut;
@@ -244,8 +247,7 @@ class FlaggedRevs {
 		wfProfileIn( __METHOD__ );  
 		$db = wfGetDB( DB_SLAVE );
 		
-		$result = $db->select(
-			array('flaggedrevs'),
+		$result = $db->select('flaggedrevs',
 			array('fr_rev_id','fr_quality'),
 			array('fr_namespace' => $page->getNamespace(), 'fr_title' => $page->getDBkey() ),
 			__METHOD__ ,
@@ -278,7 +280,8 @@ class FlaggedRevs {
 	* static counterpart for getOverridingRev()
 	*/
     public static function getOverridingPageRev( $title=NULL ) {
-    	if( !$title ) return null;
+    	if( is_null($title) )
+			return null;
     	
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
@@ -309,7 +312,6 @@ class FlaggedRevs {
 	*/
     public static function getFlagsForPageRev( $rev_id ) {
     	global $wgFlaggedRevTags;
-    	
     	// Set all flags to zero
     	$flags = array();
     	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
@@ -319,8 +321,7 @@ class FlaggedRevs {
     	wfProfileIn( __METHOD__ );
 		$db = wfGetDB( DB_SLAVE );
 		// Grab all the tags for this revision
-		$result = $db->select(
-			array('flaggedrevtags'),
+		$result = $db->select('flaggedrevtags',
 			array('frt_dimension', 'frt_value'), 
 			array('frt_rev_id' => $rev_id),
 			__METHOD__ );
@@ -333,11 +334,11 @@ class FlaggedRevs {
 		return $flags;
 	}
     
-    public function addTagRatings( $flags, $box=false, $css='' ) {
+    public function addTagRatings( $flags, $prettyBox = false, $css='' ) {
         global $wgFlaggedRevTags;
         
         $tag = '';
-        if( $box )
+        if( $prettyBox )
         	$tag .= "<table align='center' class='$css' cellpading='0'>";
         
 		foreach( $this->dimensions as $quality => $value ) {
@@ -352,7 +353,7 @@ class FlaggedRevs {
                 $classmarker = 0;
 
             $levelmarker = $level * 20 + 20; //XXX do this better
-            if( $box ) {
+            if( $prettyBox ) {
             	$tag .= "<tr><td><span class='fr-group'><span class='fr-text'>" . wfMsgHtml("revreview-$quality") . 
 					"</span></tr><tr><td><span class='fr-marker fr_value$levelmarker'>$valuetext</span></span></td></tr>\n";
             } else {
@@ -362,20 +363,50 @@ class FlaggedRevs {
 					"</span>\n";    
 			}
 		}
-		if( $box )
+		if( $prettyBox )
 			$tag .= '</table>';
 		 
 		return $tag;
     }
+    
+	function prettyRatingBox( $tfrev, $flags, $revs_since, $simpleTag=false ) {
+		global $wgLang, $wgUser;
+		
+        $box = '';
+		# Get quality level
+		$quality = self::isQuality( $flags );
+		$pristine = self::isPristine( $flags );
+		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
+		
+ 		$skin = $wgUser->getSkin();
+		// Some checks for which tag CSS to use
+		if( $simpleTag )
+			$tagClass = 'flaggedrevs_box0';
+		else if( $pristine )
+			$tagClass = 'flaggedrevs_box3';
+		else if( $quality )
+			$tagClass = 'flaggedrevs_box2';
+		else
+			$tagClass = 'flaggedrevs_box1';
+        // Construct some tagging
+        $msg = $quality ? 'revreview-quality' : 'revreview-basic';
+		$box = self::addTagRatings( $flags, true, "{$tagClass}a" );
+		$box .= '<p><a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+			wfMsg('revreview-toggle') . '</a></p>';
+		$box .= '<span id="mwrevisionratings">' . 
+			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since) .
+			'</span>';
+        
+        return $box;
+	}
     
     public static function ReviewNotes( $row ) {
     	global $wgUser, $wgFlaggedRevComments;
     	$notes = '';
     	if( !$row || !$wgFlaggedRevComments) return $notes;
     	
-    	$skin = $wgUser->getSkin();
-    	
     	if( $row->fr_comment ) {
+    		$skin = $wgUser->getSkin();
     		$notes .= '<p><div class="flaggedrevs_notes plainlinks">';
     		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
     		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
@@ -726,6 +757,7 @@ class FlaggedRevs {
     
     static function outputInjectImageTimestamps( &$out, &$parserOutput ) {
     	$out->mImageTimestamps = $parserOutput->mImageTimestamps;
+    	
     	return true;
     }
 
@@ -803,64 +835,6 @@ class FlaggedArticle extends FlaggedRevs {
 		
 		return( $wgSimpleFlaggedRevsUI && $userSkin=='monobook' );
 	}
-	
-	function addPrettyRatingBox( &$tmpl ) {
-		global $wgUser, $wgArticle, $wgOut, $wgRequest, $action, $wgSimpleFlaggedRevsUI;
-		
-		if( !$this->useSimpleUI() )
-			return true;
-		// Only trigger on article view for content pages, not for protect/delete/hist
-		if( !$wgArticle || !$wgArticle->exists() || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
-			return true;
-        // Check the newest stable version...
-        if( !$this->pageOverride() )
-        	return true;
-        
-        $box = '';
-        $tfrev = $this->getOverridingRev();
-        if( is_null($tfrev) )
-        	return true;
-        $simpleTag = false;
-        
-		global $wgLang;
-        # Get flags and date
-        $flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
-		# Get quality level
-		$quality = $this->isQuality( $flags );
-		$pristine = $this->isPristine( $flags );
-		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
-		
- 		$skin = $wgUser->getSkin();
-		# We will be looking at the reviewed revision...
-		$vis_id = $tfrev->fr_rev_id;
-		$revs_since = parent::getRevCountSince( $pageid, $vis_id );
-		// Some checks for which tag CSS to use
-		if( $simpleTag )
-			$tagClass = 'flaggedrevs_box0';
-		else if( $pristine )
-			$tagClass = 'flaggedrevs_box3';
-		else if( $quality )
-			$tagClass = 'flaggedrevs_box2';
-		else
-			$tagClass = 'flaggedrevs_box1';
-        // Construct some tagging
-        if( !$wgOut->isPrintable() ) {
-           	$msg = $quality ? 'revreview-quality' : 'revreview-basic';
-			$box = parent::addTagRatings( $flags, true, "{$tagClass}a" );
-			$box .= '<h5><a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a></h5>';
-			$box .= '<span id="mwrevisionratings">' . 
-				wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since) .
-				'</span>';
-        }
-        // Ugh...
-        print('</ul></div>');
-        print('<h5>' . wfMsgExt('revreview-rating', array('parseinline') ) . '</h5>');
-        print("<div class='$tagClass'>");
-        print($box);
-        print("</div><div class='pBody'><ul>");
-        
-        return true;
-	}
 
 	 /**
 	 * Replaces a page with the last stable version if possible
@@ -892,8 +866,8 @@ class FlaggedArticle extends FlaggedRevs {
 			# Get flags and date
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			# Get quality level
-			$quality = $this->isQuality( $flags );
-			$pristine = $this->isPristine( $flags );
+			$quality = parent::isQuality( $flags );
+			$pristine =  parent::isPristine( $flags );
 			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			# Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
@@ -902,9 +876,8 @@ class FlaggedArticle extends FlaggedRevs {
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					if( $this->useSimpleUI() ) {
-						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
-						$css = $quality ? 'fr_tab_quality' : 'fr_tab_stable';
-						$tag .= "<span class='$css plainlinks'></span>" . wfMsgExt($msg,array('parseinline'));
+						$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
+						$tag .= "<span class='fr_tab_current plainlinks'></span>" . wfMsgExt($msg,array('parseinline'));
 					} else {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
@@ -923,8 +896,9 @@ class FlaggedArticle extends FlaggedRevs {
 				// Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					if( $this->useSimpleUI() ) {
-						$msg = 'revreview-quick-current';
-						$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
+						$css = $quality ? 'fr_tab_quality' : 'fr_tab_stable';
+						$tag .= "<span class='$css plainlinks'></span>" . 
 							wfMsgExt($msg,array('parseinline'),$tfrev->fr_rev_id,$revs_since);
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
@@ -973,7 +947,14 @@ class FlaggedArticle extends FlaggedRevs {
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		} else {
-			$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">'.wfMsgExt('revreview-noflagged', array('parseinline')).'</div>';
+			if( $this->useSimpleUI() ) {
+				$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+					wfMsgExt('revreview-quick-none',array('parseinline'));
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
+			} else {
+				$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">' .
+					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
+			}
 			$wgOut->addHTML( $tag );
 		}
 		return true;
@@ -1003,7 +984,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
 			# Construct some tagging
-			$msg = $this->isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
+			$msg = parent::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
 			$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
@@ -1179,13 +1160,11 @@ class FlaggedArticle extends FlaggedRevs {
     
     	$this->pageFlaggedRevs = array();
     	$rows = $this->getReviewedRevs( $article->getTitle() );
-    	
+    	if( !$rows ) 
+			return true;
     	// Try to keep the skin readily accesible,
     	// addToHistLine() will use it
     	$this->skin = $wgUser->getSkin();
-    	
-    	if( !$rows ) 
-			return true;
     	
     	foreach( $rows as $rev => $quality )
     		$this->pageFlaggedRevs[$rev] = $quality;
@@ -1390,8 +1369,7 @@ class FlaggedArticle extends FlaggedRevs {
     	wfProfileIn( __METHOD__ );
 		$db = wfGetDB( DB_SLAVE );
 		// Grab all the tags for this revision
-		$result = $db->select(
-			array('flaggedrevtags'),
+		$result = $db->select('flaggedrevtags',
 			array('frt_dimension', 'frt_value'), 
 			array('frt_rev_id' => $rev_id),
 			__METHOD__ );
@@ -1441,6 +1419,4 @@ $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedRevsModifier, 'parse
 // Additional parser versioning
 $wgHooks['ParserAfterTidy'][] = array( $flaggedRevsModifier, 'parserInjectImageTimestamps');
 $wgHooks['OutputPageParserOutput'][] = array( $flaggedRevsModifier, 'outputInjectImageTimestamps');
-// Fany monobook UI only
-$wgHooks['MonoBookTemplateToolboxEnd'][] = array( $flaggedRevsModifier, 'addPrettyRatingBox');
 ?>

@@ -51,12 +51,12 @@
 .flaggedrevs_short {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
-	padding: 5px;
+	padding: 4px;
 	position: relative;
 	float: right;
 	font-size: 80%;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 25px;
+	margin-right: 25px;
 	text-align: left;
 }
 
@@ -72,10 +72,8 @@
 }
 
 .fr-text-value {
-    /*font-size:0px;    */
     min-width:100px;
     width: 100px;
-
 }
 
 .fr-marker-20 {
@@ -90,7 +88,6 @@
     background-repeat: no-repeat;    
     padding-bottom: 3px;
 }
-
 .fr-marker-60 {
     background-image: url(../FlaggedRevs/img/bar_60.png);
     background-position: bottom left;
@@ -98,14 +95,12 @@
     padding-bottom: 3px;
 
 }
-
 .fr-marker-80 {
     background-image: url(../FlaggedRevs/img/bar_80.png);
     background-position: bottom left;
     background-repeat: no-repeat;    
     padding-bottom: 3px;
 }
-
 .fr-marker-100 {
     background-image: url(../FlaggedRevs/img/bar_100.png);
     background-position: bottom left;
@@ -123,40 +118,40 @@
 	padding: 0px;
 	margin: 0px;
 	width: 27px;
+	height: 27px;
 	position: relative;
 	float: left;
-	top: -3px;
+	top: -1px;
 	right: 0px;
 	background-image: url(../FlaggedRevs/img/1.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	height: 27px;
 } 
 .fr_tab_stable {
 	padding: 0px;
 	margin: 0px;
 	width: 27px;
+	height: 27px;
 	position: relative;
 	float: left;
-	top: -3px;
+	top: -1px;
 	right: 0px;
 	background-image: url(../FlaggedRevs/img/2.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	height: 27px;
 }    
 .fr_tab_quality {
 	padding: 0px;
 	margin: 0px;
 	width: 27px;
+	height: 27px;
 	position: relative;
 	float: left;
-	top: -3px;
+	top: -1px;
 	right: 0px;
 	background-image: url(../FlaggedRevs/img/3.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	height: 27px;
 }
 
 .fr-text {

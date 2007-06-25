@@ -370,6 +370,13 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
+		
+		// Mark as patrolled
+		$dbw->update( 'recentchanges', 
+			array( 'rc_patrolled' => 1 ), 
+			array( 'rc_this_oldid' => $rev->getId() ), __METHOD__ 
+		);
+		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 		
