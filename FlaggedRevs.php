@@ -333,6 +333,11 @@ class FlaggedRevs {
 		
 		return $flags;
 	}
+	
+	public static function isMainPage( $title ) {
+		$mp = Title::newMainPage();
+		return ( $title->getNamespace()==$mp->getNamespace() && $title->getDBKey()==$mp->getDBKey() );
+	}
     
     public function addTagRatings( $flags, $prettyBox = false, $css='' ) {
         global $wgFlaggedRevTags;
@@ -804,7 +809,8 @@ class FlaggedRevs {
 
 class FlaggedArticle extends FlaggedRevs {
 	/**
-	 * Do the current URL params allow for overriding by stable revisions?
+	 * Does the config and current URL params allow 
+	 * for overriding by stable revisions?
 	 */		
     static function pageOverride() {
     	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $wgRequest, $action;
@@ -824,16 +830,13 @@ class FlaggedArticle extends FlaggedRevs {
     		return !( $wgRequest->getIntOrNull('stable') !==1 );
 		}
 	}
-	
+	/**
+	 * Should this be using a simple icon-based UI?
+	 */	
 	static function useSimpleUI() {
-		global $wgDefaultSkin, $wgSimpleFlaggedRevsUI, $wgUser, $wgRequest;
-		# get the user skin name
-		$userSkin = $wgUser->getOption( 'skin' );
-		$userSkin = $wgRequest->getVal('useskin', $userSkin);
+		global $wgSimpleFlaggedRevsUI;
 		
-		if( !$userSkin ) $userSkin = $wgDefaultSkin;
-		
-		return( $wgSimpleFlaggedRevsUI && $userSkin=='monobook' );
+		return $wgSimpleFlaggedRevsUI;
 	}
 
 	 /**
@@ -947,7 +950,7 @@ class FlaggedArticle extends FlaggedRevs {
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page
-		} else if( !$wgOut->isPrintable() && !$article->mTitle==Title::newMainPage() ) {
+		} else if( !$wgOut->isPrintable() && !parent::isMainPage( $article->mTitle ) ) {
 			if( $this->useSimpleUI() ) {
 				$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
 					wfMsgExt('revreview-quick-none',array('parseinline'));
