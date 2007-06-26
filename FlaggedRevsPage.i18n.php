@@ -121,14 +121,15 @@ $RevisionreviewMessages['de'] = array(
 
 	'revreview-current'   => 'Aktuelle Version',
 	'revreview-stable'    => 'Stabile Version',
-	'revreview-oldrating' => 'war bewertet als:',
-	'revreview-rating'    => 'Versions-Bewertung:',
+	'revreview-oldrating' => 'war eingestuft als:',
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
 
-	'revreview-quick-basic'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte gesichtete Version]',
-	'revreview-quick-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte geprüfte Version]',
-	'revreview-quick-current' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])',
+	'revreview-quick-see-quality' => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte geprüfte Version]",
+	'revreview-quick-see-basic'   => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte gesichtete Version]",
+	'revreview-quick-basic'       => "'''Gesichtet.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
+	'revreview-quick-quality'     => "'''Geprüft.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
+	'revreview-quick-none'        => "'''Aktuell.'''. Es wurde noch keine Version gesichtet.",
 
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) dieser Seite wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].<br />
@@ -138,17 +139,17 @@ $RevisionreviewMessages['de'] = array(
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) diese Seite  wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]<br/>
 	There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
 
-	'revreview-basic'  => 'Dies ist die letzte [[Help:Article validation|gesichtete]] Version dieser Seite,
+	'revreview-basic'  => 'Dies ist die letzte [[Help:Gesichtete Versionen|gesichtete]] Version dieser Seite,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen])
 	noch zur Prüfung an.',
 
-	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Article validation|Qualitätsbewertung]]
+	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Versionsbewertung|Qualitätsbewertung]]
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
 	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
 
-	'revreview-static' => "Dies ist eine [[Help:Article validation|geprüfte]] Version '''[[:$3|dieser Seite]]''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
+	'revreview-static' => "Dies ist eine [[Help:Geprüfte Versionen|geprüfte]] Version '''[[:$3|dieser Seite]]''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
 
 	'revreview-toggle' => '(Details umschalten)',
@@ -164,7 +165,7 @@ $RevisionreviewMessages['de'] = array(
 	'review-logentryrevoke' => 'verwarf eine Version von $1',
 	'review-logaction'      => 'Version-ID $1',
 
-	'revisionreview'       => 'Versionsprüfung',		
+	'revisionreview'       => 'Versionsprüfung',
 	'revreview-main'       => 'Sie müssen eine Artikelversion zur Prüfung auswählen.
 
 	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste ungeprüfter Versionen.',	
@@ -178,21 +179,21 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-accuracy'   => 'Genauigkeit',
 	'revreview-accuracy-0' => 'nicht freigegeben',
 	'revreview-accuracy-1' => 'gesichtet',
-	'revreview-accuracy-2' => 'sorgfältig',
-	'revreview-accuracy-3' => 'Quellen geprüft',
-	'revreview-accuracy-4' => 'exzellent',
-	'revreview-depth'      => 'Tiefe',
-	'revreview-depth-0'    => 'nicht freigegeben',
-	'revreview-depth-1'    => 'einfach',		
-	'revreview-depth-2'    => 'mittel',
-	'revreview-depth-3'    => 'hoch',
-	'revreview-depth-4'    => 'exzellent',
-	'revreview-style'      => 'Lesbarkeit',
-	'revreview-style-0'    => 'nicht freigegeben',
-	'revreview-style-1'    => 'akzeptabel',
-	'revreview-style-2'    => 'gut',
-	'revreview-style-3'    => 'präzise',
-	'revreview-style-4'    => 'exzellent',
+	'revreview-accuracy-2' => 'geprüft',
+	'revreview-accuracy-3' => 'Quellen geprüft', # not used in de.wiki
+	'revreview-accuracy-4' => 'exzellent', # not used in de.wiki
+	'revreview-depth'      => 'Tiefe', # not used in de.wiki
+	'revreview-depth-0'    => 'nicht freigegeben', # not used in de.wiki
+	'revreview-depth-1'    => 'einfach', # not used in de.wiki
+	'revreview-depth-2'    => 'mittel', # not used in de.wiki
+	'revreview-depth-3'    => 'hoch', # not used in de.wiki
+	'revreview-depth-4'    => 'exzellent', # not used in de.wiki
+	'revreview-style'      => 'Lesbarkeit', # not used in de.wiki
+	'revreview-style-0'    => 'nicht freigegeben', # not used in de.wiki
+	'revreview-style-1'    => 'akzeptabel', # not used in de.wiki
+	'revreview-style-2'    => 'gut', # not used in de.wiki
+	'revreview-style-3'    => 'präzise', # not used in de.wiki
+	'revreview-style-4'    => 'exzellent', # not used in de.wiki
 	'revreview-log'        => 'Logbuch-Eintrag:',
 	'revreview-submit'     => 'Prüfung speichern',
 
