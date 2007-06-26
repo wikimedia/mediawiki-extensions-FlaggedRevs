@@ -25,7 +25,7 @@ $RevisionreviewMessages['en'] = array(
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|change|changes}}])',
 	'revreview-quick-quality' => '\'\'\'Quality\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|change|changes}}])',
-	'revreview-quick-none' => '\'\'\'Current\'\'\'. Revision not reviewed.',
+	'revreview-quick-none' => '\'\'\'Current\'\'\'. No reviewed revisions.',
 	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. <br/> There {{plural:$3|is $3 revision|are $3 revisions}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes]) awaiting review.',
