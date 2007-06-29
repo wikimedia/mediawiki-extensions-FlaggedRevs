@@ -232,4 +232,4 @@ class MakeValidate extends SpecialPage {
 
 }
 
-?>
+

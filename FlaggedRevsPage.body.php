@@ -808,4 +808,4 @@ class UnreviewedPagesPage extends PageQueryPage {
 		return( "{$link} {$stxt}" );
 	}
 }
-?>
+

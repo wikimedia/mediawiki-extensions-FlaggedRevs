@@ -170,4 +170,4 @@ $messages['sk'] = array(
 
 return $messages;
 }
-?>
+

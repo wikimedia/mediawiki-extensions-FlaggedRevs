@@ -1423,4 +1423,4 @@ $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedRevsModifier, 'parse
 // Additional parser versioning
 $wgHooks['ParserAfterTidy'][] = array( $flaggedRevsModifier, 'parserInjectImageTimestamps');
 $wgHooks['OutputPageParserOutput'][] = array( $flaggedRevsModifier, 'outputInjectImageTimestamps');
-?>
+
