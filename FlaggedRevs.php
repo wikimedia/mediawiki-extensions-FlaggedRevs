@@ -862,7 +862,7 @@ class FlaggedArticle extends FlaggedRevs {
 		// Check the newest stable version...
 		$tfrev = $this->getOverridingRev();
 		$simpleTag = false;
-		if( $wgRequest->getVal('diff') ) {
+		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
     		// Do not clutter up diffs any further...
 		} else if( !is_null($tfrev) ) {
 			global $wgLang;
