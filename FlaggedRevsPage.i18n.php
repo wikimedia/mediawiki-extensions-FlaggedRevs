@@ -201,6 +201,11 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
 	'revreview-log'        => 'Logbuch-Eintrag:',
 	'revreview-submit'     => 'Prüfung speichern',
+	'revreview-changed'    => '\'\'\'Die Aktion konnte nicht auf diese Version angewendet werden.\'\'\'
+
+	Eine Vorlage oder ein Bild wurden ohne spezifische Versionsnummer angefordert. Dies kann passieren,
+	wenn eine dynamische Vorlage eine weitere Vorlage oder ein Bild einbindet, das von einer Variable abhängig ist, die
+	sich seit Beginn der Prüfung verändert hat. Ein Neuladen der Seite und Neustart der Prüfung kann das Problem beheben.',
 
 	'stableversions'        => 'Stabile Versionen',
 	'stableversions-leg1'   => 'Liste der geprüften Versionen für einen Artikel',
