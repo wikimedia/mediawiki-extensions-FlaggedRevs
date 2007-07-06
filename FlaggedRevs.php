@@ -409,7 +409,7 @@ class FlaggedRevs {
     	global $wgUser, $wgFlaggedRevComments;
     	
     	if( !$row || !$wgFlaggedRevComments ) 
-			return $notes;
+			return '';
     	
     	if( $row->fr_comment ) {
     		$skin = $wgUser->getSkin();
