@@ -52,8 +52,6 @@ class Revisionreview extends SpecialPage
 		// Special parameter mapping
 		$this->templateParams = $wgRequest->getVal( 'templateParams' );
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
-		// Time of page view when viewed
-		$this->timestamp = $wgRequest->getVal( 'wpTimestamp' );
 		// Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
 		// Additional notes
@@ -123,8 +121,8 @@ class Revisionreview extends SpecialPage
 	 * @param webrequest $request
 	 */
 	function showRevision( $request ) {
-		global $wgOut, $wgUser, $wgTitle, 
-		$wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevsOverride,
+			$wgFlaggedRevTags, $wgFlaggedRevValues;
 		
 		if ( !$this->isValid )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
@@ -139,11 +137,14 @@ class Revisionreview extends SpecialPage
 			$wgOut->showErrorPage( 'internalerror', 'notargettitle', 'notargettext' );
 			return;
 		}
+		
 		$wgOut->addHtml( "<ul>" );
 		$wgOut->addHtml( $this->historyLine( $rev ) );
 		$wgOut->addHtml( "</ul>" );
 		
-		$wgOut->addWikiText( wfMsg('revreview-text') );
+		if( $wgFlaggedRevsOverride )
+			$wgOut->addWikiText( wfMsg('revreview-text') );
+		
 		$formradios = array();
 		// Dynamically contruct our radio options
 		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
@@ -261,7 +262,7 @@ class Revisionreview extends SpecialPage
 			}
         	$wgOut->redirect( $this->page->escapeLocalUrl() );
 		} else {
-			$wgOut->showErrorPage( 'internalerror', 'badarticleerror' ); 
+			$wgOut->showErrorPage( 'internalerror', 'revreview-changed' );
 		}
 	}
 
@@ -272,18 +273,16 @@ class Revisionreview extends SpecialPage
 	function approveRevision( $rev=NULL, $notes='' ) {
 		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
 		
-		if( is_null($rev) ) return false;
-		// No bogus timestamps
-		if ( $this->timestamp && ($this->timestamp < $rev->getTimestamp() || $this->timestamp > wfTimestampNow()) )
+		if( is_null($rev) ) 
 			return false;
+		// Get the page this corresponds to
+		$title = $rev->getTitle();
 		
 		$quality = 0;
 		if ( FlaggedRevs::isQuality($this->dims) ) {
 			$quality = FlaggedRevs::getLCQuality($this->dims);
 			$quality = ($quality > 1) ? $quality : 1;
 		}
-		// Get the page this corresponds to
-		$title = $rev->getTitle();
 		// Our flags
 		$flagset = array();
 		foreach( $this->dims as $tag => $value ) {
@@ -301,7 +300,7 @@ class Revisionreview extends SpecialPage
 			if( !$template ) continue;
 			
 			$m = explode('|',$template,2);
-			if( !isset($m[0]) || !isset($m[1]) || !$m[0] || !$m[1] ) continue;
+			if( !isset($m[0]) || !isset($m[1]) || !$m[0] ) continue;
 			
 			list($prefixed_text,$rev_id) = $m;
 			
@@ -325,7 +324,7 @@ class Revisionreview extends SpecialPage
 			if( !$image ) continue;
 			$m = explode('|',$image,2);
 			
-			if( !isset($m[0]) || !isset($m[1]) || !$m[0] || !$m[1] ) continue;
+			if( !isset($m[0]) || !isset($m[1]) || !$m[0] ) continue;
 			
 			list($dbkey,$timestamp) = $m;
 			
@@ -342,8 +341,8 @@ class Revisionreview extends SpecialPage
 			);
 		}
 		
-		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
 		// Update our versioning pointers
 		if( !empty( $tmpset ) ) {
 			$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset,
@@ -354,14 +353,18 @@ class Revisionreview extends SpecialPage
 				__METHOD__ );
 		}
         // Get the page text and resolve all templates
-        $fulltext = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        if( !$complete ) {
+        	$dbw->rollback(); // All versions must be specified, 0 for none
+        	return false;
+        }
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
  			'fr_namespace' => $title->getNamespace(),
  			'fr_title'     => $title->getDBkey(),
 			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => $this->timestamp,
+			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => $notes,
 			'fr_text'      => $fulltext, // Store expanded text for speed
 			'fr_quality'   => $quality
@@ -370,12 +373,13 @@ class Revisionreview extends SpecialPage
 		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
-		
 		// Mark as patrolled
 		$dbw->update( 'recentchanges', 
 			array( 'rc_patrolled' => 1 ), 
-			array( 'rc_this_oldid' => $rev->getId() ), __METHOD__ 
+			array( 'rc_this_oldid' => $rev->getId() ), 
+			__METHOD__ 
 		);
+		$dbw->commit();
 		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
@@ -389,7 +393,7 @@ class Revisionreview extends SpecialPage
 			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
-		$u->doUpdate(); // this will trigger our hook to add stable links too...
+		$u->doUpdate(); // Will trigger our hook to add stable links too...
 		
 		# Clear the cache...
 		$this->page->invalidateCache();
@@ -397,8 +401,6 @@ class Revisionreview extends SpecialPage
 		$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$this->page->purgeSquid();
-		
-		wfProfileOut( __METHOD__ );
 		
         return true;
     }

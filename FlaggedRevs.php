@@ -122,8 +122,6 @@ $wgGroupPermissions['reviewer']['review']    = true;
 # Set to false to disable this
 $wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 500, 'email' => true);
 
-# What icons to display
-
 # Settings below this point should probably not be modified
 ############
 
@@ -140,9 +138,9 @@ class FlaggedRevs {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		
 		$this->dimensions = array();
-		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
+		foreach( array_keys($wgFlaggedRevTags) as $tag ) {
 			$this->dimensions[$tag] = array();
-			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
+			for($i=0; $i <= $wgFlaggedRevValues; $i++) {
 				$this->dimensions[$tag][$i] = "$tag-$i";
 			}
 		}
@@ -150,22 +148,24 @@ class FlaggedRevs {
     
     /**
      * @param string $text
-     * @returns string
+     * @returns array( string, bool )
      * All included pages/arguments are expanded out
      */
-    public static function expandText( $text, $title, $id=null ) {
+    public static function expandText( $text='', $title, $id=null ) {
     	global $wgParser;
-    	
-        $text = $text ? $text : '';
-    	$wgParser->isStable = true; // Causes our hooks to trigger
-        
+    	# Causes our hooks to trigger
+    	$wgParser->isStable = true;
+    	$wgParser->includesMatched = true;
+        # Parse with default options
         $options = new ParserOptions;
-        $options->setRemoveComments( true ); // Less banwidth?
+        $options->setRemoveComments( true ); // Save some bandwidth ;)
         $outputText = $wgParser->preprocess( $text, $title, $options, $id );
+        $expandedText = array( $outputText, $wgParser->includesMatched );
+        # Done!
+        $wgParser->isStable = false;
+        $wgParser->includesMatched = false;
         
-        $wgParser->isStable = false; // Done!
-        
-        return $outputText;
+        return $expandedText;
     }
     
 	/**
@@ -407,12 +407,13 @@ class FlaggedRevs {
     
     public static function ReviewNotes( $row ) {
     	global $wgUser, $wgFlaggedRevComments;
-    	$notes = '';
-    	if( !$row || !$wgFlaggedRevComments) return $notes;
+    	
+    	if( !$row || !$wgFlaggedRevComments ) 
+			return $notes;
     	
     	if( $row->fr_comment ) {
     		$skin = $wgUser->getSkin();
-    		$notes .= '<p><div class="flaggedrevs_notes plainlinks">';
+    		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
     		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
     		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
     	}
@@ -676,21 +677,17 @@ class FlaggedRevs {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
-    	
-    	$dbr = wfGetDB( DB_SLAVE );
-        $id = $dbr->selectField('flaggedtemplates', 'ft_tmp_rev_id',
-			array('ft_rev_id' => $parser->mRevisionId,
+    	// Only called to make fr_text, right after template/image specifiers 
+    	// are added to the DB. It's unlikely for slaves to have it yet
+		$dbw = wfGetDB( DB_MASTER );
+		$id = $dbw->selectField('flaggedtemplates', 'ft_tmp_rev_id',
+			array('ft_rev_id' => $parser->mRevisionId, 
 				'ft_namespace' => $title->getNamespace(), 'ft_title' => $title->getDBkey() ),
 			__METHOD__ );
-		// Slave lag maybe? try master...
-		if( $id===false ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$id = $dbw->selectField('flaggedtemplates', 'ft_tmp_rev_id',
-				array('ft_rev_id' => $parser->mRevisionId, 
-					'ft_namespace' => $title->getNamespace(), 'ft_title' => $title->getDBkey() ),
-				__METHOD__ );
-		}
+				
 		if( !$id ) {
+			if( $id === false )
+				$parser->includesMatched = false; // May want to give an error
 			$id = 0; // Zero for not found
 			$skip = true;
 		}
@@ -702,18 +699,16 @@ class FlaggedRevs {
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
     	
-    	$dbr = wfGetDB( DB_SLAVE );
-        $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
+    	// Only called to make fr_text, right after template/image specifiers 
+    	// are added to the DB. It's unlikely for slaves to have it yet
+    	$dbw = wfGetDB( DB_MASTER );
+       	$time = $dbw->selectField('flaggedimages', 'fi_img_timestamp',
 			array('fi_rev_id' => $parser->mRevisionId, 'fi_name' => $nt->getDBkey() ),
 			__METHOD__ );
-		// Slave lag maybe? try master...
-		if( $time===false ) {
-    		$dbw = wfGetDB( DB_MASTER );
-        	$time = $dbw->selectField('flaggedimages', 'fi_img_timestamp',
-				array('fi_rev_id' => $parser->mRevisionId, 'fi_name' => $nt->getDBkey() ),
-				__METHOD__ );
-		}
+		
 		if( !$time ) {
+			if( $time === false ) 
+				$parser->includesMatched = false; // May want to give an error
 			$time = 0; // Zero for not found
 			$skip = true;
 		}
@@ -1214,8 +1209,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$form .= wfHidden( 'oldid', $id );
 		$form .= wfHidden( 'action', 'submit');
         $form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
-        // It takes time to review, make sure that we record what the reviewer had in mind
-        $form .= wfHidden( 'wpTimestamp', wfTimestampNow() );
+        
 		foreach( $this->dimensions as $quality => $levels ) {
 			$options = ''; $disabled = '';
 			foreach( $levels as $idx => $label ) {
