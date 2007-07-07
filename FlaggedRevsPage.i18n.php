@@ -3,6 +3,7 @@ $RevisionreviewMessages = array();
 
 // English (Aaron Schulz)
 $RevisionreviewMessages['en'] = array( 
+	'makevalidate-autosum'=> 'autopromoted',
 	'editor'              => 'Editor',
 	'group-editor'        => 'Editors',
 	'group-editor-member' => 'Editor',

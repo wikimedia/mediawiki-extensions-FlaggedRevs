@@ -30,7 +30,6 @@ $wgExtensionCredits['specialpage'][] = array(
 $wgExtensionFunctions[] = 'efLoadReviewMessages';
 
 # Load promotion UI
-include_once('SpecialMakevalidate.php');
 # Load review UI
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Revisionreview', 'Revisionreview' );
 # Load stableversions UI
@@ -92,6 +91,20 @@ $wgFlagRestrictions = array(
 	'depth'    => array('review' => 2),
 	'style'    => array('review' => 3),
 );
+
+
+# Allow sysops to grant and revoke 'editor' status.
+$wgGroupPermissions['sysop']['userrights'] = true;
+
+if (isset($wgAddGroups['sysop']))
+	array_push( $wgAddGroups['sysop'], 'editor' );
+else
+	$wgAddGroups['sysop'] = array( 'editor' );
+
+if (isset($wgRemoveGroups['sysop']))
+	array_push( $wgRemoveGroups['sysop'], 'editor' );
+else
+	$wgRemoveGroups['sysop'] = array( 'editor' );
 
 # Use RC Patrolling to check for vandalism
 # When revisions are flagged, they count as patrolled
@@ -782,20 +795,26 @@ class FlaggedRevs {
 		$vars = $wgFlaggedRevsAutopromote;
 		if( !in_array('editor',$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
 			&& ( !$vars['email'] || $wgUser->isAllowed('emailconfirmed') ) ) {
-    		# Do not re-add status if it was previously removed...
     		$fname = 'FlaggedRevs::autoPromoteUser';
-			$db = wfGetDB( DB_SLAVE );
-    		$result = $db->select('logging',
-				array('log_user'),
-				array("log_type='validate'", "log_action='revoke1'", 'log_namespace' => NS_USER, 'log_title' => $user->getName() ),
-				$fname,
-				array('LIMIT' => 1) );
-			# Add rights if they were never removed
-			if( !$db->numRows($result) ) {
-				$user->addGroup('editor');
+
+    		# Do not re-add status if it was previously removed...
+			$dbw = wfGetDB( DB_MASTER );
+			$dbr = $dbw->selectRow( 'logging', 'log_params', 
+				array(
+					'log_type'  => 'rights',
+					'log_title' => $wgUser->getName(),
+					"log_params LIKE '%editor%'" ) ); 
+			
+			if (empty($dbr)) {
+				$newGroups = $groups ;
+				array_push( $newGroups, 'editor');
+
 				# Lets NOT spam RC, set $RC to false
-				$log = new LogPage( 'validate', false );
-				$log->addEntry('grant1', $user->getUserPage(), wfMsgHtml('makevalidate-autosum') );
+				$log = new LogPage( 'rights', false );
+				$log->addEntry('rights', $user->getUserPage(), wfMsgHtml('makevalidate-autosum'), 
+						array( makeGroupNameList( $groups ), makeGroupNameList( $newGroups ) ) );
+
+				$user->addGroup('editor');
 			}
 		}
 		return true;
@@ -1386,6 +1405,10 @@ class FlaggedArticle extends FlaggedRevs {
 
 }
 
+function makeGroupNameList( $ids ) {
+	return implode( ', ', $ids );
+}
+
 // Our class instances
 $flaggedRevsModifier = new FlaggedArticle();
 // Main hooks, overrides pages content, adds tags, sets tabs and permalink
@@ -1417,4 +1440,3 @@ $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedRevsModifier, 'parse
 // Additional parser versioning
 $wgHooks['ParserAfterTidy'][] = array( $flaggedRevsModifier, 'parserInjectImageTimestamps');
 $wgHooks['OutputPageParserOutput'][] = array( $flaggedRevsModifier, 'outputInjectImageTimestamps');
-
