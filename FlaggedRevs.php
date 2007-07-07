@@ -785,7 +785,7 @@ class FlaggedRevs {
     		$fname = 'FlaggedRevs::autoPromoteUser';
 
     		# Do not re-add status if it was previously removed...
-			$db = wfGetDB( DB_SLAVE );
+			$db = wfGetDB( DB_MASTER );
 			$dbr = $dbw->selectRow( 'logging', 'log_params', 
 				array(
 					'log_type'  => 'rights',
