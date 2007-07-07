@@ -42,17 +42,10 @@ if( defined( 'MEDIAWIKI' ) ) {
 	 * Populate the message cache and set up the auditing
 	 */
 	function efMakeValidate() {
-		global $wgMessageCache, $wgLogTypes, $wgLogNames, $wgLogHeaders, $wgLogActions;
+		global $wgMessageCache;
 		require_once( dirname( __FILE__ ) . '/Makevalidate.i18n.php' );
 		foreach( efMakeValidateMessages() as $lang => $messages )
 			$wgMessageCache->addMessages( $messages, $lang );
-		$wgLogTypes[] = 'validate';
-		$wgLogNames['validate'] = 'makevalidate-logpage';
-		$wgLogHeaders['validate'] = 'makevalidate-logpagetext';
-		$wgLogActions['validate/grant1']  = 'makevalidate-logentrygrant-e';
-		$wgLogActions['validate/revoke1'] = 'makevalidate-logentryrevoke-e';
-		$wgLogActions['validate/grant2']  = 'makevalidate-logentrygrant-r';
-		$wgLogActions['validate/revoke2'] = 'makevalidate-logentryrevoke-r';
 	}
 
 } else {

@@ -30,6 +30,7 @@ $wgExtensionCredits['specialpage'][] = array(
 $wgExtensionFunctions[] = 'efLoadReviewMessages';
 
 # Load promotion UI
+include_once('SpecialMakevalidate.php');
 # Load review UI
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Revisionreview', 'Revisionreview' );
 # Load stableversions UI
@@ -91,20 +92,6 @@ $wgFlagRestrictions = array(
 	'depth'    => array('review' => 2),
 	'style'    => array('review' => 3),
 );
-
-
-# Allow sysops to grant and revoke 'editor' status.
-$wgGroupPermissions['sysop']['userrights'] = true;
-
-if (isset($wgAddGroups['sysop']))
-	array_push( $wgAddGroups['sysop'], 'editor' );
-else
-	$wgAddGroups['sysop'] = array( 'editor' );
-
-if (isset($wgRemoveGroups['sysop']))
-	array_push( $wgRemoveGroups['sysop'], 'editor' );
-else
-	$wgRemoveGroups['sysop'] = array( 'editor' );
 
 # Use RC Patrolling to check for vandalism
 # When revisions are flagged, they count as patrolled
@@ -798,7 +785,7 @@ class FlaggedRevs {
     		$fname = 'FlaggedRevs::autoPromoteUser';
 
     		# Do not re-add status if it was previously removed...
-			$dbw = wfGetDB( DB_MASTER );
+			$db = wfGetDB( DB_SLAVE );
 			$dbr = $dbw->selectRow( 'logging', 'log_params', 
 				array(
 					'log_type'  => 'rights',

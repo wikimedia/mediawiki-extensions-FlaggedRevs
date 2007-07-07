@@ -48,6 +48,7 @@ class MakeValidate extends SpecialPage {
 				}
 				# Valid username, check existence
 				if( $user->getID() ) {
+						$oldgroups = $user->getGroups();
 						if( $wgRequest->getCheck( 'dosearch' ) || !$wgRequest->wasPosted() || !$wgUser->matchEditToken( $wgRequest->getVal( 'token' ), 'makevalidate' ) ) {
 							# Exists, check editor & reviewer status
 							# We never just assigned reviewer status alone
@@ -78,7 +79,7 @@ class MakeValidate extends SpecialPage {
 							# All reviewers are editors too
 							if( !in_array( 'reviewer', $user->mGroups ) )
 								$user->addGroup( 'reviewer' );
-							$this->addLogItem( 'grant2', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'grant2', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups);
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-r', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
 							# Permission check
@@ -88,13 +89,13 @@ class MakeValidate extends SpecialPage {
 							# Revoke the flag
 							if ( in_array( 'reviewer', $user->mGroups ) )
 								$user->removeGroup( 'reviewer' );
-							$this->addLogItem( 'revoke2', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'revoke2', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-r', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'grant1' ) ) {
 							# Grant the flag
 							if( !in_array( 'editor', $user->mGroups ) )
 								$user->addGroup( 'editor' );
-							$this->addLogItem( 'grant1', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'grant1', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
 							if( in_array( 'reviewer', $user->mGroups ) ) {
@@ -108,7 +109,7 @@ class MakeValidate extends SpecialPage {
 								# Revoke the flag
 								$user->removeGroup( 'editor' );
 							}
-							$this->addLogItem( 'revoke1', $user, trim( $wgRequest->getText( 'comment' ) ) );
+							$this->addLogItem( 'revoke1', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-e', $user->getName() ) );
 						}
 						# Show log entries
@@ -212,10 +213,13 @@ class MakeValidate extends SpecialPage {
 	 * @param $target User receiving the action
 	 * @param $comment Comment for the log item
 	 */
-	function addLogItem( $type, &$target, $comment = '' ) {
-		$log = new LogPage( 'validate' );
+	function addLogItem( $type, &$target, $comment = '', $oldgroups ) {
+		global $wgUser;
+		$log = new LogPage( 'rights' );
 		$targetPage = $target->getUserPage();
-		$log->addEntry( $type, $targetPage, $comment );
+		$log->addEntry( 'rights', $targetPage, $comment, array( 
+	   		implode( ', ', $oldgroups ),
+			implode( ', ',  $target->getGroups() ) ) );
 	}
 	
 	/**
@@ -225,11 +229,9 @@ class MakeValidate extends SpecialPage {
 	function showLogEntries( &$user ) {
 		global $wgOut;
 		$title = $user->getUserPage();
-		$wgOut->addHtml( wfElement( 'h2', NULL, htmlspecialchars( LogPage::logName( 'validate' ) ) ) );
-		$logViewer = new LogViewer( new LogReader( new FauxRequest( array( 'page' => $title->getPrefixedText(), 'type' => 'validate' ) ) ) );
+		$wgOut->addHtml( wfElement( 'h2', NULL, htmlspecialchars( LogPage::logName( 'rights' ) ) ) );
+		$logViewer = new LogViewer( new LogReader( new FauxRequest( array( 'page' => $title->getPrefixedText(), 'type' => 'rights' ) ) ) );
 		$logViewer->showList( $wgOut );
 	}
 
 }
-
-
