@@ -180,6 +180,7 @@ $messages['sk'] = array(
 	'makevalidate-search'           => 'Choď',
 	'makevalidate-iseditor'         => '[[User:$1|$1]] má status redaktora.',
 	'makevalidate-noteditor'        => '[[User:$1|$1]] nemá status redaktora.',
+	'makevalidate-isvalidator'      => '[[User:$1|$1]] má status kontrolóra.',
 	'makevalidate-notvalidator'     => '[[User:$1|$1]] nemá status kontrolóra.',
 	'makevalidate-legend'           => 'Zmeniť práva používateľa:',
 	'makevalidate-change-e'         => 'Status redaktora:',

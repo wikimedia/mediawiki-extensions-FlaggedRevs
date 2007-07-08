@@ -471,6 +471,7 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 
 // Slovak (Helix84)
 $RevisionreviewMessage['sk'] = array(
+	'makevalidate-autosum'  => 'samopovýšenie',
 	'editor'                => 'Redaktor',
 	'group-editor'          => 'Redaktori',
 	'group-editor-member'   => 'Redaktor',
@@ -481,12 +482,22 @@ $RevisionreviewMessage['sk'] = array(
 	'grouppage-reviewer'    => '{{ns:project}}:Revízor',
 	'revreview-current'     => 'Aktuálna revízia',
 	'revreview-stable'      => 'Stabilná verzia',
-	'revreview-rating'      => 'Bolo ohodnotené ako:',
+	'revreview-oldrating'   => 'Bolo ohodnotené ako:',
 	'revreview-noflagged'   => 'Neexistujú revidované verzie tejto stránky, takže jej
 	kvalita \'\'\'nebola\'\'\' [[Help:Revízia článkov|skontrolovaná]].',
-	'revreview-newest'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Najnovšia stabilná verzia] 
+	'revreview-quick-see-quality' => '\'\'\'Aktuálna\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú kvalitnú revíziu]',
+	'revreview-quick-see-basic' => '\'\'\'Aktuálna\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú skontrolovanú revíziu]',
+	'revreview-quick-basic' => '\'\'\'Skontrolovaná\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])',
+	'revreview-quick-quality' => '\'\'\'Kvalitná\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])',
+	'revreview-quick-none'  => '\'\'\'Aktuálna\'\'\'. Žiadne revízie neboli skontrolvoané..',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná overená revízia] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená]
-	 <i>$2</i>. <br/> Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$3|jedna zmena|$3 zmeny|$3 zmien}}].',
+	 <i>$2</i>. <br/> {{plural:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} zmeny]) čaká na schválenie.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná kvalitná revízia] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená]
+	 <i>$2</i>. <br/> {{plural:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} zmeny]) čaká na schválenie.',
 	'revreview-basic'       => 'Toto je najnovšia [[Help:Revízia článkov|stabilná]] verzia tejto stránky, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] 
 	je zvyčajne [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} prístupná úpravám] a aktuálnejšia. 
@@ -541,6 +552,11 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'revreview-style-4'     => 'odporúčaný',
 	'revreview-log'         => 'Komentár záznamu:',
 	'revreview-submit'      => 'Aplikovať kontrolu',
+	'revreview-changed'     => '\'\'\'Požadovaná činnosť by sa namala vykonávať na tejto revízii.\'\'\'
+	
+	Šablóna alebo obrázok mohlol byť vyžiadaný bez uvedenia konkrétnej verzie. To sa môže stať, keď
+	dynamická šablóna transkluduje iný obrázok alebo šablónu v závislosti od premennej, ktorá sa zmenila, odkedy ste začali
+	s kontrolou tejto stránky. Obnovením stránky a opätovnou kontrolou vyriešite tento problém.',
 	'stableversions'        => 'Stabilné verzie',
 	'stableversions-leg1'   => 'Zoznam skontrolovaných verzií stránky',
 	'stableversions-leg2'   => 'Zobraziť skontrolovanú verziu',
