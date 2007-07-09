@@ -49,7 +49,7 @@ function efLoadReviewMessages() {
 	$wgOut->addLink( array(
 		'rel'	=> 'stylesheet',
 		'type'	=> 'text/css',
-		'media'	=> 'screen,projection',
+		'media'	=> 'screen, projection',
 		'href'	=> FLAGGED_CSS,
 	) );
 	# UI JS
