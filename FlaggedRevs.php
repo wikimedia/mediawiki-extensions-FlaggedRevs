@@ -786,13 +786,15 @@ class FlaggedRevs {
 
     		# Do not re-add status if it was previously removed...
 			$db = wfGetDB( DB_MASTER );
-			$dbr = $dbw->selectRow( 'logging', 'log_params', 
-				array(
-					'log_type'  => 'rights',
+			$removed = $dbw->selectField( 'logging', '1', 
+				array( 'log_namespace' => NS_USER,
 					'log_title' => $wgUser->getName(),
-					"log_params LIKE '%editor%'" ) ); 
+					'log_type'  => 'rights',
+					"log_params LIKE '%editor%'" ),
+				__METHOD__,
+				array('FORCE INDEX' => 'page_time') ); 
 			
-			if (empty($dbr)) {
+			if( $removed===false ) {
 				$newGroups = $groups ;
 				array_push( $newGroups, 'editor');
 
