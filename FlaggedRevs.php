@@ -32,11 +32,11 @@ $wgExtensionFunctions[] = 'efLoadReviewMessages';
 # Load promotion UI
 include_once('SpecialMakevalidate.php');
 # Load review UI
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Revisionreview', 'Revisionreview' );
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Revisionreview', 'Revisionreview' );
 # Load stableversions UI
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Stableversions', 'Stableversions' );
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Stableversions', 'Stableversions' );
 # Load unreviewed pages list
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage.body.php', 'Unreviewedpages', 'UnreviewedPages' );
+extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Unreviewedpages', 'UnreviewedPages' );
 
 function efLoadReviewMessages() {
 	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType;
@@ -131,6 +131,7 @@ $wgLogNames['review'] = 'review-logpage';
 $wgLogHeaders['review'] = 'review-logpagetext';
 $wgLogActions['review/approve']  = 'review-logentrygrant';
 $wgLogActions['review/unapprove'] = 'review-logentryrevoke';
+$wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
 class FlaggedRevs {
 
@@ -174,6 +175,7 @@ class FlaggedRevs {
 	 * @param int $id
 	 * @param ParserOptions $options
 	 * @param int $timeframe, when the revision was reviewed
+	 * @returns ParserOutput
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
     public static function parseStableText( $title, $text, $id=NULL, $options ) {
@@ -193,10 +195,10 @@ class FlaggedRevs {
     
 	/**
 	 * @param int $rev_id
+	 * @returns string
 	 * Get the text of a stable version
 	 */	
     public static function getFlaggedRevText( $rev_id ) {
-    	wfProfileIn( __METHOD__ );
  		$db = wfGetDB( DB_SLAVE );
  		// Get the text from the flagged revisions table
 		$result = $db->select( 
@@ -208,18 +210,16 @@ class FlaggedRevs {
 		if( $row = $db->fetchObject($result) ) {
 			return $row->fr_text;
 		}
-		wfProfileOut( __METHOD__ );
 		
 		return NULL;
     }
     
 	/**
 	 * @param int $rev_id
-	 * Returns a revision row
+	 * @returns Revision
 	 * Will not return if deleted
 	 */		
 	public static function getFlaggedRev( $rev_id ) {
-		wfProfileIn( __METHOD__ );
 		$db = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
 		$result = $db->select(
@@ -231,22 +231,20 @@ class FlaggedRevs {
 		if( $row = $db->fetchObject($result) ) {
 			return $row;
 		}
-		wfProfileOut( __METHOD__ );
 		
 		return NULL;
 	}
 
 	/**
 	 * @param int $page_id
+	 * @returns Row
 	 * Get rev ids of reviewed revs for a page
 	 * Will include deleted revs here
 	 */
     public static function getReviewedRevs( $page ) {
-    	$rows = array();
-    
-		wfProfileIn( __METHOD__ );  
-		$db = wfGetDB( DB_SLAVE );
+		$rows = array();
 		
+		$db = wfGetDB( DB_SLAVE );
 		$result = $db->select('flaggedrevs',
 			array('fr_rev_id','fr_quality'),
 			array('fr_namespace' => $page->getNamespace(), 'fr_title' => $page->getDBkey() ),
@@ -255,7 +253,6 @@ class FlaggedRevs {
 		while( $row = $db->fetchObject($result) ) {
         	$rows[$row->fr_rev_id] = $row->fr_quality;
 		}
-		wfProfileOut( __METHOD__ );
 		
 		return $rows;
     }
@@ -263,15 +260,14 @@ class FlaggedRevs {
 	/**
 	 * @param int $page_id
 	 * @param int $from_rev
+	 * @returns int
 	 * Get number of revs since a certain revision
 	 */
     public static function getRevCountSince( $page_id, $from_rev ) {   
-		wfProfileIn( __METHOD__ );
-		$db = wfGetDB( DB_SLAVE );
-		$count = $db->selectField('revision', 'COUNT(*)',
+		$dbr = wfGetDB( DB_SLAVE );
+		$count = $dbr->selectField('revision', 'COUNT(*)',
 			array('rev_page' => $page_id, "rev_id > $from_rev"),
 			__METHOD__ );
-		wfProfileOut( __METHOD__ );
 		
 		return $count;
     }
@@ -284,7 +280,7 @@ class FlaggedRevs {
 			return null;
     	
 		$dbr = wfGetDB( DB_SLAVE );
-		// Skip deleted revisions
+		// Look for quality revision
         $result = $dbr->select(
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
@@ -292,7 +288,7 @@ class FlaggedRevs {
 			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
-		// Do we have one?
+		// Do we have one? If not, try any reviewed revision...
         if( !$row = $dbr->fetchObject($result) ) {
         	$result = $dbr->select(
 				array('flaggedrevs', 'revision'),
@@ -318,7 +314,6 @@ class FlaggedRevs {
     		$flags[$tag] = 0;
     	}
     	
-    	wfProfileIn( __METHOD__ );
 		$db = wfGetDB( DB_SLAVE );
 		// Grab all the tags for this revision
 		$result = $db->select('flaggedrevtags',
@@ -329,16 +324,26 @@ class FlaggedRevs {
 		while ( $row = $db->fetchObject($result) ) {
 			$flags[$row->frt_dimension] = $row->frt_value;
 		}
-		wfProfileOut( __METHOD__ );
-		
 		return $flags;
 	}
 	
+	/**
+	 * @param int $title
+	 * @returns bool
+	 * Is $title the main page?
+	 */	
 	public static function isMainPage( $title ) {
 		$mp = Title::newMainPage();
 		return ( $title->getNamespace()==$mp->getNamespace() && $title->getDBKey()==$mp->getDBKey() );
 	}
-    
+
+	/**
+	 * @param array $flags
+	 * @param bool $prettybox
+	 * @param string $css
+	 * @returns string
+	 * Generates a review box/tag
+	 */	
     public function addTagRatings( $flags, $prettyBox = false, $css='' ) {
         global $wgFlaggedRevTags;
         
@@ -373,7 +378,14 @@ class FlaggedRevs {
 		 
 		return $tag;
     }
-    
+  
+	/**
+	 * @param Row $trev, flagged revision row
+	 * @param array $flags
+	 * @param int $rev_since, revisions since review
+	 * @returns string
+	 * Generates a review box using a table using addTagRatings()
+	 */	
 	function prettyRatingBox( $tfrev, $flags, $revs_since, $simpleTag=false ) {
 		global $wgLang, $wgUser;
 		
@@ -404,7 +416,12 @@ class FlaggedRevs {
         
         return $box;
 	}
-    
+
+	/**
+	 * @param Row $row
+	 * @returns string
+	 * Generates revision review notes
+	 */	    
     public static function ReviewNotes( $row ) {
     	global $wgUser, $wgFlaggedRevComments;
     	
@@ -422,7 +439,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Array $flags
-	* @output bool, is this revision at quality condition?
+	* @returns bool, is this revision at quality condition?
 	*/
     public static function isQuality( $flags ) {
     	global $wgFlaggedRevTags;
@@ -435,7 +452,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Array $flags
-	* @output bool, is this revision at optimal condition?
+	* @returns bool, is this revision at optimal condition?
 	*/
     public static function isPristine( $flags ) {
     	global $wgFlaggedRevValues;
@@ -448,7 +465,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Array $flags
-	* @output integer, lowest rating level
+	* @returns integer, lowest rating level
 	*/
     public static function getLCQuality( $flags ) {
     	global $wgFlaggedRevValues;
@@ -462,6 +479,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Article $article
+	* @returns ParserOutput
 	* Get the page cache for the top stable revision of an article
 	*/   
     public static function getPageCache( $article ) {
@@ -775,38 +793,38 @@ class FlaggedRevs {
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now-$usercreation) / 86400);
-		// Do not give this to bots
-		if( in_array( 'bot', $groups ) )
+		// Do not give this to current holders or bots
+		if( in_array( array('bot','editor'), $groups ) )
 			return true;
 		// Check if we need to promote...
-		$vars = $wgFlaggedRevsAutopromote;
-		if( !in_array('editor',$groups) && $userage >= $vars['days'] && $user->getEditCount() >= $vars['edits']
-			&& ( !$vars['email'] || $wgUser->isAllowed('emailconfirmed') ) ) {
-    		$fname = 'FlaggedRevs::autoPromoteUser';
-
-    		# Do not re-add status if it was previously removed...
-			$db = wfGetDB( DB_MASTER );
-			$removed = $dbw->selectField( 'logging', '1', 
-				array( 'log_namespace' => NS_USER,
-					'log_title' => $wgUser->getName(),
-					'log_type'  => 'rights',
-					"log_params LIKE '%editor%'" ),
-				__METHOD__,
-				array('FORCE INDEX' => 'page_time') ); 
+		if( $userage < $wgFlaggedRevsAutopromote['days'] )
+			return true;
+		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] )
+			return true;
+		if( $wgFlaggedRevsAutopromote['email'] && !$wgUser->isAllowed('emailconfirmed') )
+			return true;
+    	# Do not re-add status if it was previously removed...
+		$db = wfGetDB( DB_MASTER );
+		$removed = $dbw->selectField( 'logging', '1', 
+			array( 'log_namespace' => NS_USER,
+				'log_title' => $wgUser->getName(),
+				'log_type'  => 'rights',
+				'log_action'  => 'erevoke' ),
+			__METHOD__,
+			array('FORCE INDEX' => 'page_time') ); 
 			
-			if( $removed===false ) {
-				$newGroups = $groups ;
-				array_push( $newGroups, 'editor');
+		if( $removed===false ) {
+			$newGroups = $groups ;
+			array_push( $newGroups, 'editor');
 
-				# Lets NOT spam RC, set $RC to false
-				$log = new LogPage( 'rights', false );
-				$log->addEntry('rights', $user->getUserPage(), wfMsgHtml('makevalidate-autosum'), 
-						array( makeGroupNameList( $groups ), makeGroupNameList( $newGroups ) ) );
+			# Lets NOT spam RC, set $RC to false
+			$log = new LogPage( 'rights', false );
+			$log->addEntry('rights', $user->getUserPage(), wfMsgHtml('makevalidate-autosum'), 
+				array( implode(', ',$groups), implode(', ',$newGroups) ) );
 
-				$user->addGroup('editor');
-			}
+			$user->addGroup('editor');
 		}
-		return true;
+	return true;
     }
 }
 
@@ -1392,10 +1410,6 @@ class FlaggedArticle extends FlaggedRevs {
 		return $flags;
 	}
 
-}
-
-function makeGroupNameList( $ids ) {
-	return implode( ', ', $ids );
 }
 
 // Our class instances

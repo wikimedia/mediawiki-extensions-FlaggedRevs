@@ -111,6 +111,8 @@ $RevisionreviewMessages['en'] = array(
     'viewunreviewed'        => 'List unreviewed content pages',
     'included-nonquality'   => 'Show only reviewed pages not marked as quality.',
     'unreviewed-list'       => 'This page lists articles that have not yet been reviewed.',
+    
+    'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 );
 
 // German (Raimond Spekking)
