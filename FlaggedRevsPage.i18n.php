@@ -117,6 +117,7 @@ $RevisionreviewMessages['en'] = array(
 
 // German (Raimond Spekking)
 $RevisionreviewMessages['de'] = array( 
+	'makevalidate-autosum'=> 'autopromoted', # needs still a nice and short translation :-(
 	'editor'              => 'Editor',
 	'group-editor'        => 'Editoren',
 	'group-editor-member' => 'Editor',
@@ -226,6 +227,8 @@ $RevisionreviewMessages['de'] = array(
 	'viewunreviewed'        => 'Liste ungeprüfter Artikel',
 	'included-nonquality'   => 'Zeige nur geprüfte Artikel, die noch keine Qualitätsbewertung haben.',
 	'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
+
+	'rights-editor-revoke'  => 'entzog das Editor-Recht von [[$1]]',
 );
 
 /* Norwegian (Jon Harald Søby) */
