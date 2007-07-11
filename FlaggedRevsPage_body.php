@@ -29,6 +29,11 @@ class Revisionreview extends SpecialPage
 			return;
 		}
 		
+		if ( wfReadOnly() ) {
+			$wgOut->readOnlyPage();
+			return;
+		}
+		
 		$this->setHeaders();
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
@@ -83,11 +88,13 @@ class Revisionreview extends SpecialPage
 		}
 		// We must at least rate each category as 1, the minimum
 		// Exception: we can rate ALL as unapproved to depreciate a revision
-		$this->isValid = true;
+		$valid = true;
 		if ( $this->upprovedTags && ($this->upprovedTags < count($wgFlaggedRevTags) || !$this->oflags) )
-			$this->isValid = false;
+			$valid = false;
+		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) )
+			$valid = false;
 		
-		if( $this->isValid && $wgRequest->wasPosted() ) {
+		if( $valid && $wgRequest->wasPosted() ) {
 			$this->submit( $wgRequest );
 		} else {
 			$this->showRevision( $wgRequest );
