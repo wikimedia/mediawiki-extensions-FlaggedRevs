@@ -42,6 +42,39 @@ $messages['en'] = array(
 	'makevalidate-logentryrevoke-r' => 'removed reviewer status from [[$1]]',
 	'makevalidate-autosum' => 'autopromoted',
 );
+
+/* Arabic (Meno25) */
+$messages['ar'] = array(
+	'makevalidate'                  => 'ترقية/عزل المحررين',
+	'makevalidate-header'           => '<strong>هذه الاستمارة تستخدم بواسطة مدراء النظام و البيروقراطيين لترقية المستخدمين لمصححي مقالات.</strong><br> اكتب اسم المستخدم في الصندوق و اضغط الزر لضبط صلاحيات المستخدم. 
+	منح المستخدمين صلاحية مراجع سيؤدي لمنحهم صلاحية محرر تلقائيا. سحب صلاحية محرر
+	سيؤدي إلى سحب صلاحية مراجع تلقائيا.',
+	'makevalidate-username'         => 'اسم المستخدم:',
+	'makevalidate-search'           => 'اذهب',
+	'makevalidate-iseditor'         => '[[User:$1|$1]] لديه صلاحية محرر.',
+	'makevalidate-noteditor'        => '[[User:$1|$1]] ليس لديه صلاحية محرر.',
+	'makevalidate-isvalidator'      => '[[User:$1|$1]] لديه صلاحية مراجع.',
+	'makevalidate-notvalidator'     => '[[User:$1|$1]] ليس لديه صلاحية مراجع.',
+	'makevalidate-legend'           => 'تغيير صلاحيات مستخدم:',
+	'makevalidate-change-e'         => 'حالة المحرر:',
+	'makevalidate-change-r'         => 'حالة المراجع:',
+	'makevalidate-grant1'           => 'منح',
+	'makevalidate-revoke1'          => 'سحب',
+	'makevalidate-grant2'           => 'منح',
+	'makevalidate-revoke2'          => 'سحب',
+	'makevalidate-comment'          => 'تعليق:',
+	'makevalidate-granted-e'        => '[[User:$1|$1]] لدية الآن صلاحية محرر.',
+	'makevalidate-revoked-e'        => '[[User:$1|$1]] لم يعد لديه صلاحية محرر.',
+	'makevalidate-granted-r'        => '[[User:$1|$1]] لديه الآن صلاحية مراجع.',
+	'makevalidate-revoked-r'        => '[[User:$1|$1]] لم يعد لديه صلاحية مراجع.',
+	'makevalidate-logpage'          => 'سجل صلاحية المحرر',
+	'makevalidate-logpagetext'      => 'هذا سجل بالتغيير في صلاحيات [[Help:Article validation|تصحيح المقالات]].',
+	'makevalidate-logentrygrant-e'  => 'منح صلاحية محرر ل [[$1]]',
+	'makevalidate-logentryrevoke-e' => 'أزال صلاحية محرر من [[$1]]',
+	'makevalidate-logentrygrant-r'  => 'منح صلاحية مراجع ل [[$1]]',
+	'makevalidate-logentryrevoke-r' => 'أزال صلاحية مراجع من [[$1]]',
+	'makevalidate-autosum'          => 'ترقية تلقائية',
+);
 /* German (Raimond Spekking) */
 $messages['de'] = array(
 	'makevalidate'       => 'Editor-Recht erteilen/entziehen',
