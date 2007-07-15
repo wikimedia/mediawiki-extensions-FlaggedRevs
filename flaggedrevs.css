@@ -3,8 +3,8 @@
 	background-color: #f0f8ff;
 	padding: 5px;
 	font-size: 80%;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
 	text-align: center;
 }
 
@@ -13,8 +13,8 @@
 	background-color: #f0fff0;
 	padding: 5px;
 	font-size: 80%;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
 	text-align: center;
 }
 
@@ -23,22 +23,22 @@
 	background-color: #fffff0;
 	padding: 5px;
 	font-size: 80%;
-	margin-left: 50px;
-	margin-right: 50px;
-	text-align: center;
-}
-
-.flaggedrevs_notes {
-	border: 1px solid #aaa;
-	background-color: #f9f9f9;
-	padding: 5px;
-	font-size: 80%;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
 	text-align: center;
 }
 
 .flaggedrevs_notice {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
+	font-size: 80%;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: center;
+}
+
+.flaggedrevs_notes {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
 	padding: 5px;

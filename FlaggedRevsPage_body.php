@@ -168,7 +168,7 @@ class Revisionreview extends SpecialPage
 			wfHidden( 'target', $this->page->getPrefixedText() ),
 			wfHidden( 'oldid', $this->oldid ) );	
 		
-		$action = $wgTitle->escapeLocalUrl( 'action=submit' );		
+		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
 		$form = "<form name='revisionreview' action='$action' method='post'>";
 		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
 		// Dynamically contruct our review types
@@ -246,7 +246,7 @@ class Revisionreview extends SpecialPage
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
 			// Do not mess with archived/deleted revisions
 			if ( is_null($rev) || $rev->mDeleted ) {
-				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' ); 
+				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
 				return;
 			}
 		} else {
@@ -500,13 +500,15 @@ class Stableversions extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest;
+        global $wgRequest, $wgUser;
 
 		$this->setHeaders();
 		// Our target page
 		$this->page = $wgRequest->getText( 'page' );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
+		
+		$this->skin = $wgUser->getSkin();
 		
 		if( $this->oldid ) {
 			$this->showStableRevision( $wgRequest );
@@ -587,8 +589,7 @@ class Stableversions extends SpecialPage
 	
 	function showStableList() {
 		global $wgOut, $wgUser, $wgLang;
-	
-		$skin = $wgUser->getSkin();
+		
 		// Must be a valid page/Id
 		$page = Title::newFromUrl( $this->page );
 		if( is_null($page) || !$page->isContentPage() ) {
@@ -613,20 +614,16 @@ class Stableversions extends SpecialPage
 	
 	function formatRow( $row ) {
 		global $wgLang, $wgUser;
-		
-		static $skin=null;
-		if( is_null( $skin ) )
-			$skin = $wgUser->getSkin();
 	
 		$SV = SpecialPage::getTitleFor( 'Stableversions' );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
 		$review = wfMsg( 'stableversions-review', $ftime );
 		
-		$lev = wfMsg('hist-stable');
-		if( $row->fr_quality >=1 ) $lev = wfMsg('hist-quality');
+		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
+		$link = $this->skin->makeKnownLinkObj( $SV, $time, 'oldid='.$row->fr_rev_id );
 		
-		return '<li>'.$skin->makeKnownLinkObj( $SV, $time, 'oldid='.$row->fr_rev_id ).' ('.$review.') <b>'.$lev.'</b></li>';	
+		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';	
 	}
 }
 
@@ -687,8 +684,7 @@ class Unreviewedpages extends SpecialPage
 	
 	function showList( $wgRequest ) {
 		global $wgOut, $wgUser, $wgScript, $wgTitle;
-	
-		$skin = $wgUser->getSkin();
+		
 		$namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$nonquality = $wgRequest->getVal( 'includenonquality' );
 		
