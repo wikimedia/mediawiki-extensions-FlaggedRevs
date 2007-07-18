@@ -617,38 +617,38 @@ class FlaggedRevs {
 		return true;
     }
     
-    public static function extraLinksUpdate( &$linkUpdate ) {
+    public static function extraLinksUpdate( &$linksUpdate ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
-    	if( !$linkUpdate->mTitle->isContentPage() ) 
+    	if( !$linksUpdate->mTitle->isContentPage() ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = self::getOverridingPageRev( $linkUpdate->mTitle );
+    	$sv = self::getOverridingPageRev( $linksUpdate->mTitle );
     	if( !$sv )
 			return true;
     	# Retrieve the text
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
     	$options = new ParserOptions;
-    	$parserOutput = self::parseStableText( $linkUpdate->mTitle, $text, $sv->fr_rev_id, $options );
+    	$parserOutput = self::parseStableText( $linksUpdate->mTitle, $text, $sv->fr_rev_id, $options );
     	# Might as well update the cache while we're at it
-    	$article = new Article( $linkUpdate->mTitle );
+    	$article = new Article( $linksUpdate->mTitle );
     	FlaggedRevs::updatePageCache( $article, $parserOutput );
     	# Update the links tables to include these
     	# We want the UNION of links between the current
 		# and stable version. Therefore, we only care about
 		# links that are in the stable version and not the regular one.
-		$linkUpdate->mLinks += $parserOutput->getLinks();
-		$linkUpdate->mImages += $parserOutput->getImages();
-		$linkUpdate->mTemplates += $parserOutput->getTemplates();
-		$linkUpdate->mExternals += $parserOutput->getExternalLinks();
-		$linkUpdate->mCategories += $parserOutput->getCategories();
+		$linksUpdate->mLinks += $parserOutput->getLinks();
+		$linksUpdate->mImages += $parserOutput->getImages();
+		$linksUpdate->mTemplates += $parserOutput->getTemplates();
+		$linksUpdate->mExternals += $parserOutput->getExternalLinks();
+		$linksUpdate->mCategories += $parserOutput->getCategories();
 		# Interlanguage links
 		$ill = $parserOutput->getLanguageLinks();
 		foreach( $ill as $link ) {
 			list( $key, $title ) = explode( ':', $link, 2 );
-			$linkUpdate->mInterlangs[$key] = $title;
+			$linksUpdate->mInterlangs[$key] = $title;
 		}
 
 		wfProfileOut( $fname );
