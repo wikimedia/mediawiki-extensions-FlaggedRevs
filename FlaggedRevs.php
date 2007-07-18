@@ -617,74 +617,38 @@ class FlaggedRevs {
 		return true;
     }
     
-    public static function extraLinksUpdate( &$title ) {
+    public static function extraLinksUpdate( &$linkUpdate ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
-    	if( !$title->isContentPage() ) 
+    	if( !$linkUpdate->mTitle->isContentPage() ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = self::getOverridingPageRev( $title );
-    	if( !$sv ) 
+    	$sv = self::getOverridingPageRev( $linkUpdate->mTitle );
+    	if( !$sv )
 			return true;
     	# Retrieve the text
     	$text = self::getFlaggedRevText( $sv->fr_rev_id );
     	# Parse the revision
     	$options = new ParserOptions;
-    	$poutput = self::parseStableText( $title, $text, $sv->fr_rev_id, $options );
-
+    	$parserOutput = self::parseStableText( $linkUpdate->mTitle, $text, $sv->fr_rev_id, $options );
     	# Might as well update the cache while we're at it
-    	$article = new Article( $title );
-    	FlaggedRevs::updatePageCache( $article, $poutput );
-
+    	$article = new Article( $linkUpdate->mTitle );
+    	FlaggedRevs::updatePageCache( $article, $parserOutput );
     	# Update the links tables to include these
     	# We want the UNION of links between the current
 		# and stable version. Therefore, we only care about
 		# links that are in the stable version and not the regular one.
-		$u = new LinksUpdate( $article->mTitle, $poutput );
-
-		# Page links
-		$existing = $u->getExistingLinks();
-		$u->incrTableUpdate( 'pagelinks', 'pl', array(),
-			$u->getLinkInsertions( $existing ) );
-
-		# Image links
-		$existing = $u->getExistingImages();
-		$u->incrTableUpdate( 'imagelinks', 'il', array(),
-			$u->getImageInsertions( $existing ) );
-
-		# Invalidate all image description pages which had links added
-		$imageUpdates = array_diff_key( $u->mImages, $existing );
-		$u->invalidateImageDescriptions( $imageUpdates );
-
-		# External links
-		$existing = $u->getExistingExternals();
-		$u->incrTableUpdate( 'externallinks', 'el', array(),
-	        $u->getExternalInsertions( $existing ) );
-
-		# Language links
-		$existing = $u->getExistingInterlangs();
-		$u->incrTableUpdate( 'langlinks', 'll', array(),
-			$u->getInterlangInsertions( $existing ) );
-
-		# Template links
-		$existing = $u->getExistingTemplates();
-		$u->incrTableUpdate( 'templatelinks', 'tl', array(),
-			$u->getTemplateInsertions( $existing ) );
-
-		# Category links
-		$existing = $u->getExistingCategories();
-		$u->incrTableUpdate( 'categorylinks', 'cl', array(),
-			$u->getCategoryInsertions( $existing ) );
-
-		# Invalidate all categories which were added, deleted or changed (set symmetric difference)
-		$categoryUpdates = array_diff_assoc( $u->mCategories, $existing );
-		$u->invalidateCategories( $categoryUpdates );
-
-		# Refresh links of all pages including this page
-		# This will be in a separate transaction
-		if( $u->mRecursive ) {
-			$u->queueRecursiveJobs();
+		$linkUpdate->mLinks += $parserOutput->getLinks();
+		$linkUpdate->mImages += $parserOutput->getImages();
+		$linkUpdate->mTemplates += $parserOutput->getTemplates();
+		$linkUpdate->mExternals += $parserOutput->getExternalLinks();
+		$linkUpdate->mCategories += $parserOutput->getCategories();
+		# Interlanguage links
+		$ill = $parserOutput->getLanguageLinks();
+		foreach( $ill as $link ) {
+			list( $key, $title ) = explode( ':', $link, 2 );
+			$linkUpdate->mInterlangs[$key] = $title;
 		}
 
 		wfProfileOut( $fname );
@@ -1430,7 +1394,7 @@ $wgHooks['PageHistoryLineEnding'][] = array($flaggedRevsModifier, 'addToHistLine
 // Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = array($flaggedRevsModifier, 'autoPromoteUser');
 // Adds table link references to include ones from the stable version
-$wgHooks['TitleLinkUpdatesAfterCompletion'][] = array($flaggedRevsModifier, 'extraLinksUpdate');
+$wgHooks['LinksUpdateConstructed'][] = array($flaggedRevsModifier, 'extraLinksUpdate');
 // If a stable version is hidden, move to the next one if possible, and update things
 $wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedRevsModifier, 'articleLinksUpdate');
 // Update our table NS/Titles when things are moved
