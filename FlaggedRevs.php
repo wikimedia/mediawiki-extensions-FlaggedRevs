@@ -393,7 +393,7 @@ class FlaggedRevs {
 		# Get quality level
 		$quality = self::isQuality( $flags );
 		$pristine = self::isPristine( $flags );
-		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
+		$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 		
  		$skin = $wgUser->getSkin();
 		// Some checks for which tag CSS to use
@@ -856,7 +856,7 @@ class FlaggedArticle extends FlaggedRevs {
 			# Get quality level
 			$quality = parent::isQuality( $flags );
 			$pristine =  parent::isPristine( $flags );
-			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
+			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			# Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
 				$revs_since = parent::getRevCountSince( $pageid, $tfrev->fr_rev_id );
@@ -969,7 +969,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$tfrev = $this->getOverridingRev();
 		if( is_object($tfrev) ) {
 			global $wgLang;		
-			$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
+			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
 			# Construct some tagging

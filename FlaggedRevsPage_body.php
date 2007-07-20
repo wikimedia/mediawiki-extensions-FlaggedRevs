@@ -691,6 +691,7 @@ class Unreviewedpages extends SpecialPage
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('viewunreviewed') . '</legend>' .
+			Xml::label( wfMsgHtml("namespace"), 'namespace' ) . ' ' .
 			$this->getNamespaceMenu( $namespace ) . "\n" .
 			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 			'<p>' . Xml::check( 'includenonquality', $nonquality, array('id' => 'includenonquality') ) . 

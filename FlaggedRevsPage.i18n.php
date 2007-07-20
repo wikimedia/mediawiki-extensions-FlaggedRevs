@@ -28,23 +28,23 @@ $RevisionreviewMessages['en'] = array(
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|change|changes}}])',
 	'revreview-quick-none' => '\'\'\'Current\'\'\'. No reviewed revisions.',
 	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
-	 on <i>$2</i>. <br/> There {{plural:$3|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] awaiting review.',
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
+	 on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] {{plural:$3|needs|need}} review.',
 	'revreview-newest-quality'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] 
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} see all]) of this page was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
-	 on <i>$2</i>. <br/> There {{plural:$3|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] awaiting review.',
-	'revreview-basic'  => 'This is the latest [[Help:Article validation|sighted]] revision of this page, 
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
-	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable]. There {{plural:$3|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 
-	$3 {{plural:$3|revision|revisions}}] awaiting review.',
-	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision of this page, 
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
-	is usually [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editable]. There {{plural:$3|is|are}} 
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] awaiting review.',
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
+	 on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] {{plural:$3|needs|need}} review.',
+	'revreview-basic'  => 'This is the latest [[Help:Article validation|sighted]] revision, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current one] 
+	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] 
+	{{plural:$3|awaits|await}} review.',
+	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current one] 
+	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] 
+	{{plural:$3|awaits|await}} review.',
 	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of \'\'\'[[:$3|this page]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} current revision] 
 	is usually editable and more up to date.',
-	'revreview-toggle' => '(toggle details)',
+	'revreview-toggle' => '(details)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
 	'hist-stable'  => '[sighted]',
