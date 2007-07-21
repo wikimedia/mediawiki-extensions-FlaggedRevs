@@ -42,7 +42,7 @@ function efLoadReviewMessages() {
 	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType;
 	# Internationalization
 	require( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
-	foreach ( $RevisionreviewMessages as $lang => $langMessages ) {
+	foreach( $RevisionreviewMessages as $lang => $langMessages ) {
 		$wgMessageCache->addMessages( $langMessages, $lang );
 	}
 	# UI CSS
@@ -154,6 +154,15 @@ class FlaggedRevs {
 		global $wgSimpleFlaggedRevsUI;
 		
 		return $wgSimpleFlaggedRevsUI;
+	}
+	
+	/**
+	 * Should comments be allowed on pages and forms?
+	 */	
+	static function allowComments() {
+		global $wgFlaggedRevComments;
+		
+		return $wgFlaggedRevComments;
 	}
     
     /**
@@ -457,7 +466,7 @@ class FlaggedRevs {
     public static function isQuality( $flags ) {
     	global $wgFlaggedRevTags;
     	
-    	foreach ( $wgFlaggedRevTags as $f => $v ) {
+    	foreach( $wgFlaggedRevTags as $f => $v ) {
     		if( !isset($flags[$f]) || $v > $flags[$f] ) return false;
     	}
     	return true;
@@ -470,7 +479,7 @@ class FlaggedRevs {
     public static function isPristine( $flags ) {
     	global $wgFlaggedRevValues;
     	
-    	foreach ( $flags as $f => $v ) {
+    	foreach( $flags as $f => $v ) {
     		if( $v < $wgFlaggedRevValues ) return false;
     	}
     	return true;
@@ -484,7 +493,7 @@ class FlaggedRevs {
     	global $wgFlaggedRevValues;
     	
     	$min = false;
-    	foreach ( $flags as $f => $v ) {
+    	foreach( $flags as $f => $v ) {
     		if( $min==false || $v < $min ) $min = $v;
     	}
     	return $min;
@@ -579,7 +588,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    function maybeUpdateMainCache( &$article, &$outputDone, &$pcache ) {
+    function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
     	global $wgUser, $action;
     	// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
@@ -601,7 +610,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    function updateFromMove( &$movePageForm , &$oldtitle , &$newtitle ) {
+    function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
     	$dbw = wfGetDB( DB_MASTER );
         $dbw->update( 'flaggedrevs',
 			array('fr_namespace' => $newtitle->getNamespace(), 'fr_title' => $newtitle->getDBkey() ),
@@ -611,7 +620,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    public static function articleLinksUpdate( &$title ) {
+    public static function articleLinksUpdate( $title ) {
     	global $wgUser, $wgParser;
     
     	$article = new Article( $title );
@@ -630,7 +639,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    public function extraLinksUpdate( &$linksUpdate ) {
+    public function extraLinksUpdate( $linksUpdate ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
@@ -668,7 +677,7 @@ class FlaggedRevs {
 		return true;
     }
     
-	static function parserFetchStableTemplate( &$parser, &$title, &$skip, &$id ) {
+	static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
@@ -689,7 +698,7 @@ class FlaggedRevs {
 		return true;
     }
     
-	static function parserMakeStableImageLink( &$parser, &$nt, &$skip, &$time ) {
+	static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
@@ -710,7 +719,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    static function galleryFindStableFileTime( &$ig, &$nt, &$time ) {
+    static function galleryFindStableFileTime( $ig, $nt, &$time ) {
     	// Trigger for stable version parsing only
     	if( !isset($ig->isStable) || !$ig->isStable )
     		return true;
@@ -724,7 +733,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    static function parserMakeGalleryStable( &$parser, &$ig ) {
+    static function parserMakeGalleryStable( $parser, $ig ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
@@ -734,7 +743,7 @@ class FlaggedRevs {
     	return true;
     }
     
-    static function parserInjectImageTimestamps( &$parser, &$text ) {
+    static function parserInjectImageTimestamps( $parser, &$text ) {
 		$parser->mOutput->mImageTimestamps = array();
 		# Fetch the timestamps of the images
 		if( !empty($parser->mOutput->mImages) ) {
@@ -750,7 +759,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    static function outputInjectImageTimestamps( &$out, &$parserOutput ) {
+    static function outputInjectImageTimestamps( $out, $parserOutput ) {
     	$out->mImageTimestamps = $parserOutput->mImageTimestamps;
     	
     	return true;
@@ -760,7 +769,7 @@ class FlaggedRevs {
 	* Callback that autopromotes user according to the setting in 
     * $wgFlaggedRevsAutopromote
 	*/
-	public static function autoPromoteUser( &$article, &$user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
+	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
 		
 		if( !$wgFlaggedRevsAutopromote )
@@ -806,19 +815,19 @@ class FlaggedRevs {
     
     static function pageOverride() { return false; }
     
-    function setPageContent( &$article, &$outputDone, &$pcache ) {}
+    function setPageContent( $article, $outputDone, &$pcache ) {}
     
-    function addToEditView( &$editform ) {}
+    function addToEditView( $editform ) {}
     
-    function addReviewForm( &$out ) {}
+    function addReviewForm( $out ) {}
     
-    function setPermaLink( &$sktmp, &$nav_urls, &$revid, &$revid ) {}
+    function setPermaLink( $sktmp, &$nav_urls, &$revid, &$revid ) {}
     
-    function setCurrentTab( &$sktmp, &$content_actions ) {}
+    function setCurrentTab( $sktmp, &$content_actions ) {}
     
-    function addToPageHist( &$article ) {}
+    function addToPageHist( $article ) {}
     
-    function addToHistLine( &$row, &$s ) {}
+    function addToHistLine( $row, &$s ) {}
     
     function addQuickReview( $id=NULL, $out ) {}
     
@@ -857,7 +866,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
 	 */
-	function setPageContent( &$article, &$outputDone, &$pcache ) {
+	function setPageContent( $article, &$outputDone, &$pcache ) {
 		global $wgRequest, $wgTitle, $wgOut, $action, $wgUser;
 		// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
@@ -969,7 +978,7 @@ class FlaggedArticle extends FlaggedRevs {
 					wfMsgExt('revreview-quick-none',array('parseinline'));
 				$tag = '<div id="mwrevisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
 			} else {
-				$tag = '<div id="mwrevisiontag" class="mw-warning plainlinks">' .
+				$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' .
 					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
 			}
 			$wgOut->addHTML( $tag );
@@ -977,7 +986,7 @@ class FlaggedArticle extends FlaggedRevs {
 		return true;
     }
     
-    function addToEditView( &$editform ) {
+    function addToEditView( $editform ) {
 		global $wgRequest, $wgTitle, $wgOut;
 		// Talk pages cannot be validated
 		if( !$editform->mArticle || !$wgTitle->isContentPage() )
@@ -1013,7 +1022,7 @@ class FlaggedArticle extends FlaggedRevs {
 		return true;
     }
 	
-    function addReviewForm( &$out ) {
+    function addReviewForm( $out ) {
     	global $wgArticle, $action;
 
 		if( !$wgArticle || !$wgArticle->exists() || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
@@ -1039,7 +1048,7 @@ class FlaggedArticle extends FlaggedRevs {
 		return true;
     }
     
-    function setPermaLink( &$sktmp, &$nav_urls, &$revid, &$revid ) {
+    function setPermaLink( $sktmp, &$nav_urls, &$revid, &$revid ) {
 		// Non-content pages cannot be validated
 		if( !$this->pageOverride() ) return true;
 		// Check for an overridabe revision
@@ -1065,7 +1074,7 @@ class FlaggedArticle extends FlaggedRevs {
 		return true;
     }
     
-    function setCurrentTab( &$sktmp, &$content_actions ) {
+    function setCurrentTab( $sktmp, &$content_actions ) {
     	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $action;
 		// Get the subject page, not all skins have it :(
 		if( !isset($sktmp->mTitle) )
@@ -1172,7 +1181,7 @@ class FlaggedArticle extends FlaggedRevs {
     	return true;
     }
     
-    function addToPageHist( &$article ) {
+    function addToPageHist( $article ) {
     	global $wgUser;
     
     	$this->pageFlaggedRevs = array();
@@ -1189,7 +1198,7 @@ class FlaggedArticle extends FlaggedRevs {
     	return true;
     }
     
-    function addToHistLine( &$row, &$s ) {
+    function addToHistLine( $row, &$s ) {
     	global $wgUser;
     
     	if( isset($this->pageFlaggedRevs) && array_key_exists($row->rev_id,$this->pageFlaggedRevs) ) {
