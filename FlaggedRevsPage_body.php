@@ -14,7 +14,7 @@ class Revisionreview extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevComments, $wgFlaggedRevTags;
+        global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevComments, $wgFlaggedRevs;
 
 		$confirm = $wgRequest->wasPosted() &&
 			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
@@ -62,11 +62,11 @@ class Revisionreview extends SpecialPage
 		// Additional notes
 		$this->notes = ($wgFlaggedRevComments) ? $wgRequest->getText('wpNotes') : '';
 		// Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getFlagsForPageRev( $this->oldid );
+		$this->oflags = $wgFlaggedRevs->getFlagsForRevision( $this->oldid );
 		// Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->upprovedTags = 0;
-		foreach ( array_keys($wgFlaggedRevTags) as $tag ) {
+		foreach ( array_keys($wgFlaggedRevs->dimensions) as $tag ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			// Must be greater than zero
 			if ( $this->dims[$tag] < 0 ) {
@@ -549,7 +549,7 @@ class Stableversions extends SpecialPage
 	}
 	
 	function showStableRevision( $frev ) {
-		global $wgParser, $wgLang, $wgUser, $wgOut, $wgTitle;
+		global $wgParser, $wgLang, $wgUser, $wgOut, $wgTitle, $wgFlaggedRevs;
 			
 		// Get the revision
 		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
@@ -561,11 +561,8 @@ class Stableversions extends SpecialPage
 		$page = Title::makeTitle( $frev->fr_namespace, $frev->fr_title );
 		
 		$wgOut->setPagetitle( $page->getPrefixedText() );
-		
-		// Modifier instance
-		$RevFlagging = new FlaggedRevs();
 		// Get flags and date
-		$flags = FlaggedRevs::getFlagsForPageRev( $frev->fr_rev_id );
+		$flags = $wgFlaggedRevs->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt('revreview-static', array('parseinline'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());

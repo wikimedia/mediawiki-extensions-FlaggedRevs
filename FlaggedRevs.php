@@ -147,6 +147,15 @@ class FlaggedRevs {
 		}
 	}
     
+	/**
+	 * Should this be using a simple icon-based UI?
+	 */	
+	static function useSimpleUI() {
+		global $wgSimpleFlaggedRevsUI;
+		
+		return $wgSimpleFlaggedRevsUI;
+	}
+    
     /**
      * @param string $text
      * @returns array( string, bool )
@@ -273,9 +282,11 @@ class FlaggedRevs {
     }
 	
 	/**
-	* static counterpart for getOverridingRev()
+	 * Get latest quality rev, if not, the latest reviewed one
+	 * @param Title $title
+	 * @returns Row
 	*/
-    public static function getOverridingPageRev( $title=NULL ) {
+    public function getOverridingRev( $title=NULL ) {
     	if( is_null($title) )
 			return null;
     	
@@ -304,13 +315,15 @@ class FlaggedRevs {
     }
     
 	/**
-	* static counterpart for getFlagsForRevision()
+	 * Get flags for a revision
+	 * @param int $rev_id
+	 * @returns Array
 	*/
-    public static function getFlagsForPageRev( $rev_id ) {
+    public function getFlagsForRevision( $rev_id ) {
     	global $wgFlaggedRevTags;
     	// Set all flags to zero
     	$flags = array();
-    	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
+    	foreach( array_keys($this->dimensions) as $tag ) {
     		$flags[$tag] = 0;
     	}
     	
@@ -617,14 +630,14 @@ class FlaggedRevs {
 		return true;
     }
     
-    public static function extraLinksUpdate( &$linksUpdate ) {
+    public function extraLinksUpdate( &$linksUpdate ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
     	if( !$linksUpdate->mTitle->isContentPage() ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = self::getOverridingPageRev( $linksUpdate->mTitle );
+    	$sv = $this->getOverridingRev( $linksUpdate->mTitle );
     	if( !$sv )
 			return true;
     	# Retrieve the text
@@ -788,8 +801,31 @@ class FlaggedRevs {
 
 			$user->addGroup('editor');
 		}
-	return true;
+		return true;
     }
+    
+    static function pageOverride() { return false; }
+    
+    function setPageContent( &$article, &$outputDone, &$pcache ) {}
+    
+    function addToEditView( &$editform ) {}
+    
+    function addReviewForm( &$out ) {}
+    
+    function setPermaLink( &$sktmp, &$nav_urls, &$revid, &$revid ) {}
+    
+    function setCurrentTab( &$sktmp, &$content_actions ) {}
+    
+    function addToPageHist( &$article ) {}
+    
+    function addToHistLine( &$row, &$s ) {}
+    
+    function addQuickReview( $id=NULL, $out ) {}
+    
+	function getLatestQualityRev() {}
+    
+	function getLatestStableRev() {}
+    
 }
 
 class FlaggedArticle extends FlaggedRevs {
@@ -814,14 +850,6 @@ class FlaggedArticle extends FlaggedRevs {
 		} else {
     		return !( $wgRequest->getIntOrNull('stable') !==1 );
 		}
-	}
-	/**
-	 * Should this be using a simple icon-based UI?
-	 */	
-	static function useSimpleUI() {
-		global $wgSimpleFlaggedRevsUI;
-		
-		return $wgSimpleFlaggedRevsUI;
 	}
 
 	 /**
@@ -980,7 +1008,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
 				wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 				'</span>';
-			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div><br/>' );
+			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
 		}
 		return true;
     }
@@ -1256,8 +1284,14 @@ class FlaggedArticle extends FlaggedRevs {
 
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
+	 * @returns Row
 	 */
-	function getOverridingRev() {
+	function getOverridingRev( $title = NULL ) {
+		global $wgTitle;
+	
+		if( !is_null($title) && $title->getArticleID() != $wgTitle->getArticleID() )
+			return null; // wtf?
+	
 		if( !$row = $this->getLatestQualityRev() ) {
 			if( !$row = $this->getLatestStableRev() ) {
 				return null;
@@ -1376,34 +1410,38 @@ class FlaggedArticle extends FlaggedRevs {
 
 }
 
-// Our class instances
-$flaggedRevsModifier = new FlaggedArticle();
-// Main hooks, overrides pages content, adds tags, sets tabs and permalink
-$wgHooks['SkinTemplateTabs'][] = array($flaggedRevsModifier, 'setCurrentTab');
-// Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-$wgHooks['ArticleViewHeader'][] = array($flaggedRevsModifier, 'maybeUpdateMainCache');
-$wgHooks['ArticleViewHeader'][] = array($flaggedRevsModifier, 'setPageContent');
-$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($flaggedRevsModifier, 'setPermaLink');
-// Add tags do edit view
-$wgHooks['EditPage::showEditForm:initial'][] = array($flaggedRevsModifier, 'addToEditView');
-// Add review form
-$wgHooks['BeforePageDisplay'][] = array($flaggedRevsModifier, 'addReviewForm');
-// Mark of items in page history
-$wgHooks['PageHistoryBeforeList'][] = array($flaggedRevsModifier, 'addToPageHist');
-$wgHooks['PageHistoryLineEnding'][] = array($flaggedRevsModifier, 'addToHistLine');
-// Autopromote Editors
-$wgHooks['ArticleSaveComplete'][] = array($flaggedRevsModifier, 'autoPromoteUser');
-// Adds table link references to include ones from the stable version
-$wgHooks['LinksUpdateConstructed'][] = array($flaggedRevsModifier, 'extraLinksUpdate');
-// If a stable version is hidden, move to the next one if possible, and update things
-$wgHooks['ArticleRevisionVisiblityUpdates'][] = array($flaggedRevsModifier, 'articleLinksUpdate');
-// Update our table NS/Titles when things are moved
-$wgHooks['SpecialMovepageAfterMove'][] = array($flaggedRevsModifier, 'updateFromMove');
-// Parser hooks, selects the desired images/templates
-$wgHooks['BeforeParserrenderImageGallery'][] = array( $flaggedRevsModifier, 'parserMakeGalleryStable');
-$wgHooks['BeforeGalleryFindFile'][] = array( $flaggedRevsModifier, 'galleryFindStableFileTime');
-$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $flaggedRevsModifier, 'parserFetchStableTemplate');
-$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $flaggedRevsModifier, 'parserMakeStableImageLink');
-// Additional parser versioning
-$wgHooks['ParserAfterTidy'][] = array( $flaggedRevsModifier, 'parserInjectImageTimestamps');
-$wgHooks['OutputPageParserOutput'][] = array( $flaggedRevsModifier, 'outputInjectImageTimestamps');
+// Our global class instances
+$wgFlaggedRevs = new FlaggedRevs();
+$wgFlaggedArticle = new FlaggedArticle();
+
+######### Hook attachments #########
+# Main hooks, overrides pages content, adds tags, sets tabs and permalink
+$wgHooks['SkinTemplateTabs'][] = array($wgFlaggedArticle, 'setCurrentTab');
+# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+$wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'maybeUpdateMainCache');
+$wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'setPageContent');
+$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($wgFlaggedArticle, 'setPermaLink');
+# Add tags do edit view
+$wgHooks['EditPage::showEditForm:initial'][] = array($wgFlaggedArticle, 'addToEditView');
+# Add review form
+$wgHooks['BeforePageDisplay'][] = array($wgFlaggedArticle, 'addReviewForm');
+# Mark of items in page history
+$wgHooks['PageHistoryBeforeList'][] = array($wgFlaggedArticle, 'addToPageHist');
+$wgHooks['PageHistoryLineEnding'][] = array($wgFlaggedArticle, 'addToHistLine');
+# Autopromote Editors
+$wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
+# Adds table link references to include ones from the stable version
+$wgHooks['LinksUpdateConstructed'][] = array($wgFlaggedArticle, 'extraLinksUpdate');
+# If a stable version is hidden, move to the next one if possible, and update things
+$wgHooks['ArticleRevisionVisiblityUpdates'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+# Update our table NS/Titles when things are moved
+$wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
+# Parser hooks, selects the desired images/templates
+$wgHooks['BeforeParserrenderImageGallery'][] = array( $wgFlaggedArticle, 'parserMakeGalleryStable');
+$wgHooks['BeforeGalleryFindFile'][] = array( $wgFlaggedArticle, 'galleryFindStableFileTime');
+$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $wgFlaggedArticle, 'parserFetchStableTemplate');
+$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedArticle, 'parserMakeStableImageLink');
+# Additional parser versioning
+$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedArticle, 'parserInjectImageTimestamps');
+$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedArticle, 'outputInjectImageTimestamps');
+#########
