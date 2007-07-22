@@ -222,7 +222,7 @@ class FlaggedRevs {
 		$result = $db->select( 
 			array('flaggedrevs','revision'),
 			array('fr_text'),
-			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted = 0'), 
+			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'), 
 			__METHOD__,
 			array('LIMIT' => 1) );
 		if( $row = $db->fetchObject($result) ) {
@@ -243,7 +243,7 @@ class FlaggedRevs {
 		$result = $db->select(
 			array('flaggedrevs','revision'),
 			array('fr_namespace', 'fr_title', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted = 0'),
+			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__ );
 		// Sorted from highest to lowest, so just take the first one if any
 		if( $row = $db->fetchObject($result) ) {
@@ -305,7 +305,7 @@ class FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted = 0'),
+			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one? If not, try any reviewed revision...
@@ -314,7 +314,7 @@ class FlaggedRevs {
 				array('flaggedrevs', 'revision'),
 				array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-				'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted = 0'),
+				'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 				__METHOD__,
 				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 			if( !$row = $dbr->fetchObject($result) )
@@ -1330,7 +1330,7 @@ class FlaggedArticle extends FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted = 0'),
+			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		wfProfileOut( __METHOD__ );
@@ -1366,7 +1366,7 @@ class FlaggedArticle extends FlaggedRevs {
 			array('flaggedrevs', 'revision'),
 			array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(),
-			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted = 0'),
+			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		wfProfileOut( __METHOD__ );
