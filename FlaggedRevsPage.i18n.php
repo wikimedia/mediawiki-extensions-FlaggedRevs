@@ -191,27 +191,32 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-quick-none'        => "'''Aktuell.'''. Es wurde noch keine Version gesichtet.",
 
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) dieser Seite wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].<br />
-	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
 	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version]
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) diese Seite  wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]<br/>
-	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
-	'revreview-basic'  => 'Dies ist die letzte [[Help:Gesichtete Versionen|gesichtete]] Version dieser Seite,
+	'revreview-basic'  => 'Dies ist die letzte [[Help:Gesichtete Versionen|gesichtete]] Version,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
-	kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller. {{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen])
-	noch zur Prüfung an.',
+	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}]
+	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
-	'revreview-quality'  => 'Das ist für diesen Artikel die letzte Version mit [[Help:Versionsbewertung|Qualitätsbewertung]]
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
-	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] kann in der Regel [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden und ist aktueller.
-	{{plural:$3|1 Version steht|$3 Versionen stehen}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen]) noch zur Prüfung an.',
+	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision, 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current one] 
+	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|revision|revisions}}] 
+	{{plural:$3|awaits|await}} review.',
+
+	'revreview-quality'  => 'Das ist die letzte Version mit [[Help:Versionsbewertung|Qualitätsbewertung]],
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
+	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}]
+	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
 	'revreview-static' => "Dies ist eine [[Help:Geprüfte Versionen|geprüfte]] Version '''[[:$3|dieser Seite]]''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
-	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann in der Regel bearbeitet werden und ist aktueller.",
+	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann [{{fullurl:$3|action=edit}} bearbeitet] werden.",
 
-	'revreview-toggle' => '(Details umschalten)',
+	'revreview-toggle' => '(Details)',
 	'revreview-note'   => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
 
 	'hist-stable'  => '[gesichtet]',
