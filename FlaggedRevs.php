@@ -1138,7 +1138,7 @@ class FlaggedArticle extends FlaggedRevs {
 					# Add 'stable' tab if either $wgFlaggedRevsOverride is off, 
 					# or this is a user viewing the page with $wgFlaggedRevsAnonOnly on
 						$new_actions['stable'] = array(
-							'class' => 'selected',
+							'class' => '',
 							'text' => wfMsg('revreview-stable'),
 							'href' => $title->getLocalUrl( 'stable=1' )
 						);
