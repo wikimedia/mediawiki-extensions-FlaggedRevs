@@ -631,5 +631,6 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'viewunreviewed'        => 'Zoznam neskontrolovaných stránok s obsahom',
 	'included-nonquality'   => 'Vrátane skontrolovaných stránok neoznačených ako kvalitné.',
 	'unreviewed-list'       => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
+	'rights-editor-revoke'  => 'práva redaktora boli odňaté [[$1]]',
 );
 
