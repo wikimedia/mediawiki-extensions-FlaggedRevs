@@ -44,7 +44,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of \'\'\'[[:$3|this page]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} current revision] 
 	can be [{{fullurl:$3|action=edit}} modified].',
-	'revreview-toggle' => '(details)',
+	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 
 	'hist-stable'  => '[sighted]',
