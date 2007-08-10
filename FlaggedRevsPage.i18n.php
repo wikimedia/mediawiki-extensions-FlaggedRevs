@@ -216,7 +216,7 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-static' => "Dies ist eine [[Help:Geprüfte Versionen|geprüfte]] Version '''[[:$3|dieser Seite]]''', [{{fullurl:Special:Log/review|page=$1}} freigegeben]
 	am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] kann [{{fullurl:$3|action=edit}} bearbeitet] werden.",
 
-	'revreview-toggle' => '(Details)',
+	'revreview-toggle' => '(+/-)',
 	'revreview-note'   => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
 
 	'hist-stable'  => '[gesichtet]',
@@ -390,7 +390,7 @@ $RevisionreviewMessage['pms'] = array(
 	'revreview-static'      => 'Costa a l\'é na version [[Help:Article validation|revisionà]] dë \'\'\'[[:$3|sta pàgina]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} aprovà] dij <i>$2</i>. La [{{fullurl:$3|stable=0}} version corenta] 
 	për sòlit as peul modifichesse e a l\'é pì agiornà.',
-	'revreview-toggle'      => '(visca/dësmòrta ij detaj)',
+	'revreview-toggle'      => '(+/-)',
 	'revreview-note'        => '[[User:$1]] a l\'ha buta-ie ste nòte-sì a la revision, antramentr ch\'a la [[Help:Article validation|controlava]]:',
 	'hist-stable'           => '[vardà]',
 	'hist-quality'          => '[qualità]',
@@ -467,7 +467,7 @@ $RevisionreviewMessages['pt'] = array(
 	'revreview-basic'       => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} Edições atuais] talvez sejam [[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editáveis] e mais atualizadas. {{plural:$3|Existe $3 edição|Existem $3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} diff]) aguardando análise.',
 	'revreview-quality'     => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Edições recentes] talvez sejam [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editáveis] e mais atualizadas. {{plural:$3|Existe $3 edição|Existem $3 edições}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} dif]) aguardando análise.',
 	'revreview-static'      => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] da página \'\'\'[[:$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. [{{fullurl:$3|stable=0}} Edições atuais] talvez sejam editáveis e mais atualizadas.',
-	'revreview-toggle'      => '(alternar detalhes)',
+	'revreview-toggle'      => '(+/-)',
 	'revreview-note'        => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
 
 	'hist-stable'  => '[ed. crítica]',
@@ -569,7 +569,7 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'revreview-static'      => 'Toto je [[Help:Revízia článkov|skontrolovaná]] verzia stránky \'\'\'[[:$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} schválená] <i>$2</i>. [{{fullurl:$3|stable=0}} Najnovšia verzia] 
 	je zvyčajne prístupná úpravám a aktuálnejšia.',
-	'revreview-toggle'      => '(prepnúť zobrazenie podrobností)',
+	'revreview-toggle'      => '(+/-)',
 	'revreview-note'        => '[[User:$1]] urobil nasledovné poznámky počas [[Help:Revízia článkov|kontroly]] tejto verzie:',
 	'hist-stable'           => '[stabilná]',
 	'hist-quality'          => '[kvalitná]',
