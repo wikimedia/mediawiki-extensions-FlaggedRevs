@@ -167,6 +167,8 @@ class FlaggedRevs {
     
     /**
      * @param string $text
+     * @param Title $title
+     * @param Integer $id, revision id
      * @returns array( string, bool )
      * All included pages/arguments are expanded out
      */
