@@ -27,7 +27,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages'
 );
 
-$wgExtensionFunctions[] = 'efLoadReviewMessages';
+$wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 # Load promotion UI
 include_once('SpecialMakevalidate.php');
@@ -38,7 +38,7 @@ extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Stableversi
 # Load unreviewed pages list
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Unreviewedpages', 'UnreviewedPages' );
 
-function efLoadReviewMessages() {
+function efLoadFlaggedRevs() {
 	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType;
 	# Internationalization
 	require( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
@@ -54,11 +54,22 @@ function efLoadReviewMessages() {
 	) );
 	# UI JS
 	$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
+	
+	# Use RC Patrolling to check for vandalism
+	# When revisions are flagged, they count as patrolled
+	$wgUseRCPatrol = true;
+	# Use only our extension mechanisms
+	$wgGroupPermissions['sysop']['autopatrol'] = false;
+	$wgGroupPermissions['sysop']['patrol']     = false;
 }
 
 #########
 # IMPORTANT:
 # When configuring globals, add them to localsettings.php and edit them THERE
+
+# This will only distinguish "sigted", "quality", and unreviewed
+# A small icon will show in the upper right hand corner
+$wgSimpleFlaggedRevsUI = false;
 
 # Revision tagging can slow development...
 # For example, the main user base may become complacent,
@@ -72,6 +83,7 @@ $wgFlaggedRevsOverride = true;
 $wgFlaggedRevComments = false;
 # Make user's watch pages when reviewed if they watch pages that they edit
 $wgFlaggedRevsWatch = true;
+
 # How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
 
@@ -80,7 +92,7 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # Define the tags we can use to rate an article, 
 # and set the minimum level to have it become a "quality" version.
 # "quality" revisions take precidence over other reviewed revisions
-$wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>2, 'style'=>1 );
+$wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 4;
 # Who can set what flags to what level? (use -1 for not at all)
@@ -93,30 +105,20 @@ $wgFlagRestrictions = array(
 	'style'    => array('review' => 3),
 );
 
-# Use RC Patrolling to check for vandalism
-# When revisions are flagged, they count as patrolled
-$wgUseRCPatrol = true;
-
-# This will only distinguish "sigted", "quality", and unreviewed
-# A small icon will show in the upper right hand corner
-$wgSimpleFlaggedRevsUI = false;
-
 # Lets some users access the review UI and set some flags
 $wgAvailableRights[] = 'review';
 # Let some users set higher settings
 $wgAvailableRights[] = 'validate';
 
 # Define our basic reviewer class
-$wgGroupPermissions['editor']['review']        = true;
-$wgGroupPermissions['editor']['autopatrol']    = true;
-$wgGroupPermissions['editor']['patrol']        = true;
+$wgGroupPermissions['editor']['review']         = true;
 $wgGroupPermissions['editor']['unwatchedpages'] = true;
-$wgGroupPermissions['editor']['autoconfirmed'] = true;
+$wgGroupPermissions['editor']['autoconfirmed']  = true;
 
 # Defines extra rights for advanced reviewer class
-$wgGroupPermissions['reviewer']['validate']  = true;
+$wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
-$wgGroupPermissions['reviewer']['review']    = true;
+$wgGroupPermissions['reviewer']['review']   = true;
 
 # Define when users get automatically promoted to editors
 # Set to false to disable this
@@ -1025,7 +1027,7 @@ class FlaggedArticle extends FlaggedRevs {
     }
 	
     function addReviewForm( $out ) {
-    	global $wgArticle, $action;
+    	global $wgArticle, $wgRequest, $action;
 
 		if( !$wgArticle || !$wgArticle->exists() || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
 			return true;
@@ -1034,7 +1036,7 @@ class FlaggedArticle extends FlaggedRevs {
 			return true;
 		}
 		// Get revision ID
-		$revId = ( $wgArticle->mRevision ) ? $wgArticle->mRevision->mId : $wgArticle->getLatest();
+		$revId = $out->mRevisionId ? $out->mRevisionId : $wgArticle->getLatest();
 		// We cannot review deleted revisions
 		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) 
 			return true;
