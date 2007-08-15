@@ -820,9 +820,9 @@ class FlaggedRevs {
     }
     
     public static function injectReviewDiffURLParams( $article, &$extraq ) {
-    	global $wgReviewChangesAfterEdit;
+    	global $wgReviewChangesAfterEdit, $wgUser;
     
-    	if( !$wgReviewChangesAfterEdit )
+    	if( !$wgReviewChangesAfterEdit || !$wgUser->isAllowed( 'review' ) )
     		return;
     
 		$frev = self::getOverridingRev( $article->getTitle() );
