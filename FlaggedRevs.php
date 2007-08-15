@@ -83,6 +83,8 @@ $wgFlaggedRevsOverride = true;
 $wgFlaggedRevComments = false;
 # Make user's watch pages when reviewed if they watch pages that they edit
 $wgFlaggedRevsWatch = true;
+# Redirect users out to review changes since stable version on save?
+$wgReviewChangesAfterEdit = true;
 
 # How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
@@ -592,7 +594,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
+    public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
     	global $wgUser, $action;
     	// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
@@ -614,7 +616,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
+    public static function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
     	$dbw = wfGetDB( DB_MASTER );
         $dbw->update( 'flaggedrevs',
 			array('fr_namespace' => $newtitle->getNamespace(), 'fr_title' => $newtitle->getDBkey() ),
@@ -771,7 +773,7 @@ class FlaggedRevs {
 
 	/**
 	* Callback that autopromotes user according to the setting in 
-    * $wgFlaggedRevsAutopromote
+    * $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
@@ -816,6 +818,24 @@ class FlaggedRevs {
 		}
 		return true;
     }
+    
+    public static function injectReviewDiffURLParams( $article, &$extraq ) {
+    	global $wgReviewChangesAfterEdit;
+    
+    	if( !$wgReviewChangesAfterEdit )
+    		return;
+    
+		$frev = self::getOverridingRev( $article->getTitle() );
+		
+		if( $frev )	{
+			$frev_id = $frev->fr_rev_id;
+			$crev_id = $article->getLatest();
+			$extraq .= "oldid={$frev_id}&diff={$crev_id}&topreview=1";
+		}
+		
+		return true;
+	
+	}
     
     static function pageOverride() { return false; }
     
@@ -1047,7 +1067,7 @@ class FlaggedArticle extends FlaggedRevs {
 			$tfrev = $this->getOverridingRev();
 			if( $tfrev ) return true;
 		}
-		$this->addQuickReview( $revId, $out, false );
+		$this->addQuickReview( $revId, $out, $wgRequest->getBool('topreview') );
 		
 		return true;
     }
@@ -1216,7 +1236,7 @@ class FlaggedArticle extends FlaggedRevs {
 		return true;
     }
     
-    function addQuickReview( $id=NULL, $out ) {
+    function addQuickReview( $id=NULL, $out, $top=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevComments, $wgFlaggedRevsWatch;
 		// User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) return;
@@ -1292,7 +1312,11 @@ class FlaggedArticle extends FlaggedRevs {
 		$form .= Xml::submitButton( wfMsgHtml( 'revreview-submit' ) ) . "</p></fieldset>";
 		$form .= Xml::closeElement( 'form' );
 		
-		$wgOut->addHTML( '<hr style="clear:both"></hr>' . $form );
+		if( $top )
+			$out->mBodytext =  $form . '<hr style="clear:both"></hr>' . $out->mBodytext;
+		else
+			$wgOut->addHTML( '<hr style="clear:both"></hr>' . $form );
+		
     }
 
 	/**
@@ -1429,9 +1453,9 @@ $wgFlaggedArticle = new FlaggedArticle();
 
 ######### Hook attachments #########
 # Main hooks, overrides pages content, adds tags, sets tabs and permalink
-$wgHooks['SkinTemplateTabs'][] = array($wgFlaggedArticle, 'setCurrentTab');
+$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setCurrentTab');
 # Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-$wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'maybeUpdateMainCache');
+$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache');
 $wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'setPageContent');
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($wgFlaggedArticle, 'setPermaLink');
 # Add tags do edit view
@@ -1450,11 +1474,14 @@ $wgHooks['ArticleRevisionVisiblityUpdates'][] = array($wgFlaggedArticle, 'articl
 # Update our table NS/Titles when things are moved
 $wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
 # Parser hooks, selects the desired images/templates
-$wgHooks['BeforeParserrenderImageGallery'][] = array( $wgFlaggedArticle, 'parserMakeGalleryStable');
-$wgHooks['BeforeGalleryFindFile'][] = array( $wgFlaggedArticle, 'galleryFindStableFileTime');
-$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $wgFlaggedArticle, 'parserFetchStableTemplate');
+$wgHooks['BeforeParserrenderImageGallery'][] = array($wgFlaggedArticle, 'parserMakeGalleryStable');
+$wgHooks['BeforeGalleryFindFile'][] = array($wgFlaggedArticle, 'galleryFindStableFileTime');
+$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array($wgFlaggedArticle, 'parserFetchStableTemplate');
 $wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedArticle, 'parserMakeStableImageLink');
 # Additional parser versioning
 $wgHooks['ParserAfterTidy'][] = array( $wgFlaggedArticle, 'parserInjectImageTimestamps');
 $wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedArticle, 'outputInjectImageTimestamps');
+# Page review on edit
+$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams');
+
 #########
