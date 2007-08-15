@@ -819,7 +819,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    public static function injectReviewDiffURLParams( $article, &$extraq ) {
+    public static function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
     	global $wgReviewChangesAfterEdit, $wgUser;
     
     	if( !$wgReviewChangesAfterEdit || !$wgUser->isAllowed( 'review' ) )
