@@ -896,7 +896,7 @@ class FlaggedRevs {
 			$quality = FlaggedRevs::getLCQuality($flags);
 			$quality = ($quality > 1) ? $quality : 1;
 		}
-		$flagset = array();
+		$flagset = $tmpset = $imgset = array();
 		foreach( $flags as $tag => $value ) {
 			$flagset[] = array(
 				'frt_rev_id' => $rev->getId(),
