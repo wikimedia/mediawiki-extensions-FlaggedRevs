@@ -70,6 +70,8 @@ function efLoadFlaggedRevs() {
 # This will only distinguish "sigted", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
 $wgSimpleFlaggedRevsUI = false;
+# Add stable/current revision tabs. May be redundant due to the tags.
+$wgFlaggedRevTabs = false;
 
 # Revision tagging can slow development...
 # For example, the main user base may become complacent,
@@ -88,6 +90,8 @@ $wgReviewChangesAfterEdit = true;
 # Auto-review new pages and edits directly to the stable version by reviewers?
 # Depending on how often templates are edited and by whom, this can possibly
 # Allow for vandalism to slip in :/
+# Users should preview changes perhaps. This doesn't help much for section
+# editing, so they may also want to review the page afterwards.
 $wgFlaggedRevsAutoReview = true;
 
 # How long to cache stable versions? (seconds)
@@ -1304,9 +1308,10 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setCurrentTab( $sktmp, &$content_actions ) {
-    	global $wgRequest, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $action;
+    	global $wgRequest, $wgUser, $action, $wgFlaggedRevsAnonOnly, 
+			$wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		// Get the subject page, not all skins have it :(
-		if( !isset($sktmp->mTitle) )
+		if( !$wgFlaggedRevTabs || !isset($sktmp->mTitle) )
 			return true;
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
@@ -1526,12 +1531,13 @@ class FlaggedArticle extends FlaggedRevs {
         $watchLabel = wfMsgExt('watchthis', array('parseinline'));
         $watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
         $watchChecked = ( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
+        
+        $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
+        
 		$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
-		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label></p>";
+		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";
         
-        $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."\n";
-        
-		$form .= Xml::submitButton( wfMsgHtml( 'revreview-submit' ) ) . "</p></fieldset>";
+		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsgHtml( 'revreview-submit' ) )."</p></fieldset>";
 		$form .= Xml::closeElement( 'form' );
 		
 		if( $top )
