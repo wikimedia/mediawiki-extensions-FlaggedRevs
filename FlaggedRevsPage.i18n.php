@@ -57,7 +57,7 @@ $RevisionreviewMessages['en'] = array(
     'review-logpage'     => 'Article review log',
 	'review-logpagetext' => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
 	for content pages.',
-	'review-logentrygrant'   => 'reviewed a version of $1',
+	'review-logentrygrant'   => 'reviewed $1',
 	'review-logentryrevoke'  => 'depreciated a version of $1',
 	'review-logaction'  => 'revision ID $1',
 

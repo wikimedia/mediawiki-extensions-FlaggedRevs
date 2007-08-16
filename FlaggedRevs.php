@@ -304,10 +304,11 @@ class FlaggedRevs {
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
 	 * @param Title $title
-	 * @param Bool $getText
+	 * @param bool $getText
+	 * @param bool $highPriority, use master DB?
 	 * @returns Row
 	*/
-    public function getOverridingRev( $title=NULL, $getText=false ) {
+    public function getOverridingRev( $title=NULL, $getText=false, $highPriority=false ) {
     	if( is_null($title) )
 			return null;
     	
@@ -315,7 +316,7 @@ class FlaggedRevs {
     	if( $getText )
     		$selectColumns[] = 'fr_text';
     	
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = $highPriority ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		// Look for quality revision
         $result = $dbr->select(
 			array('flaggedrevs', 'revision'),
@@ -606,7 +607,10 @@ class FlaggedRevs {
 		
 		return true;
     }
-    
+
+	/**
+	* Updates parser cache output to included needed versioning params.
+	*/
     public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
     	global $wgUser, $action;
     	// Only trigger on article view for content pages, not for protect/delete/hist
@@ -638,7 +642,10 @@ class FlaggedRevs {
 			
 		return true;
     }
-    
+
+	/**
+	* Clears cache for a page when revisiondelete is used
+	*/
     public static function articleLinksUpdate( $title ) {
     	global $wgUser, $wgParser;
     
@@ -665,15 +672,13 @@ class FlaggedRevs {
     	if( !$linksUpdate->mTitle->isContentPage() ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = $this->getOverridingRev( $linksUpdate->mTitle, true );
+    	$sv = $this->getOverridingRev( $linksUpdate->mTitle, true, true );
     	if( !$sv )
 			return true;
-    	# Retrieve the text
-    	$text = $sv->fr_text;
     	# Parse the revision
     	$options = new ParserOptions;
-    	$parserOutput = self::parseStableText( $linksUpdate->mTitle, $text, $sv->fr_rev_id, $options );
-    	# Might as well update the cache while we're at it
+    	$parserOutput = self::parseStableText( $linksUpdate->mTitle, $sv->fr_text, $sv->fr_rev_id, $options );
+    	# Might as well update the stable cache while we're at it
     	$article = new Article( $linksUpdate->mTitle );
     	FlaggedRevs::updatePageCache( $article, $parserOutput );
     	# Update the links tables to include these
@@ -701,7 +706,7 @@ class FlaggedRevs {
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
     	// Only called to make fr_text, right after template/image specifiers 
-    	// are added to the DB. It's unlikely for slaves to have it yet
+    	// are added to the DB. Slaves may not have it yet...
 		$dbw = wfGetDB( DB_MASTER );
 		$id = $dbw->selectField('flaggedtemplates', 'ft_tmp_rev_id',
 			array('ft_rev_id' => $parser->mRevisionId, 
@@ -723,7 +728,7 @@ class FlaggedRevs {
     		return true;
     	
     	// Only called to make fr_text, right after template/image specifiers 
-    	// are added to the DB. It's unlikely for slaves to have it yet
+    	// are added to the DB. Slaves may not have it yet...
     	$dbw = wfGetDB( DB_MASTER );
        	$time = $dbw->selectField('flaggedimages', 'fi_img_timestamp',
 			array('fi_rev_id' => $parser->mRevisionId, 'fi_name' => $nt->getDBkey() ),
@@ -742,8 +747,8 @@ class FlaggedRevs {
     	// Trigger for stable version parsing only
     	if( !isset($ig->isStable) || !$ig->isStable )
     		return true;
-    	
-    	$dbr = wfGetDB( DB_SLAVE );
+    	// Slaves may not have it yet...
+    	$dbr = wfGetDB( DB_MASTER );
         $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
 			array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
 			__METHOD__ );
@@ -889,7 +894,7 @@ class FlaggedRevs {
 	* Automatically review an edit and add a log entry in the review log.
 	*/ 
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
-		global $wgParser, $wgFlaggedRevsAutoReview;
+		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview;
 		
 		$quality = 0;
 		if( FlaggedRevs::isQuality($flags) ) {
@@ -927,6 +932,7 @@ class FlaggedRevs {
 				'fi_img_timestamp' => $timestamp
 			);
         }
+        
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		// Update our versioning pointers
@@ -966,11 +972,16 @@ class FlaggedRevs {
 			__METHOD__ 
 		);
 		$dbw->commit();
-		# Don't jump to diff
+		
 		global $wgFlaggedRevs;
-		$wgFlaggedRevs->skipReviewDiff = true;
+		$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff
 		# Update the article review log
-		Revisionreview::updateLog( $rev->getTitle(), $flags, wfMsg('revreview-auto'), $rev->getID(), true );
+		Revisionreview::updateLog( $rev->getTitle(), $flags, wfMsg('revreview-auto'), $rev->getID(), true, false );
+		
+		# Might as well save the stable cache
+		$wgFlaggedRevs->updatePageCache( $article, $poutput );
+		# Purge squid for this page only
+		$article->mTitle->purgeSquid();
 		
 		return true;
 	}

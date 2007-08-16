@@ -205,7 +205,7 @@ class Revisionreview extends SpecialPage
 		foreach( $hidden as $item ) {
 			$form .= $item;
 		}
-		// XXX: hack, versioning params
+		// Hack, versioning params
 		$form .= Xml::hidden( 'templateParams', $this->templateParams );
 		$form .= Xml::hidden( 'imageParams', $this->imageParams );
 		
@@ -259,7 +259,6 @@ class Revisionreview extends SpecialPage
 		}
 		
 		$success = $approved ? $this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
-		
 		// Return to our page			
 		if( $success ) {
 			if( $request->getCheck( 'wpWatchthis' ) ) {
@@ -467,9 +466,11 @@ class Revisionreview extends SpecialPage
 	 * @param string $comment
 	 * @param int $revid
 	 * @param bool $approve
+	 * @param bool $RC, add to recentchanges
 	 */	
-	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve ) {
-		$log = new LogPage( 'review' );
+	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve, $RC=true ) {
+		// Lets NOT spam RC, set $RC to false
+		$log = new LogPage( 'review', $RC );
 		// ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dimensions as $quality => $level ) {
