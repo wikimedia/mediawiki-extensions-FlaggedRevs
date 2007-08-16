@@ -131,7 +131,7 @@ class Revisionreview extends SpecialPage
 		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevsOverride,
 			$wgFlaggedRevTags, $wgFlaggedRevValues;
 		
-		if( !$this->upprovedTags )
+		if( $this->upprovedTags )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
 		
 		$wgOut->addWikiText( wfMsg( 'revreview-selected', $this->page->getPrefixedText() ) );
@@ -300,7 +300,7 @@ class Revisionreview extends SpecialPage
 			);
 		}
 		
-		// XXX: hack, our template version pointers
+		// Hack, our template version pointers
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
@@ -324,7 +324,7 @@ class Revisionreview extends SpecialPage
 				'ft_tmp_rev_id' => $rev_id
 			);
 		}
-		// XXX: hack, our image version pointers
+		// Hack, our image version pointers
 		$imgset = $images = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
@@ -468,7 +468,7 @@ class Revisionreview extends SpecialPage
 	 * @param int $revid
 	 * @param bool $approve
 	 */	
-	function updateLog( $title, $dimensions, $comment, $oldid, $approve ) {
+	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve ) {
 		$log = new LogPage( 'review' );
 		// ID, accuracy, depth, style
 		$ratings = array();
