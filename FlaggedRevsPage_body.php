@@ -58,9 +58,11 @@ class Revisionreview extends SpecialPage
 		$this->templateParams = $wgRequest->getVal( 'templateParams' );
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
 		// Log comment
-		$this->comment = $wgRequest->getText( 'wpReason' );
-		// Additional notes
-		$this->notes = $wgFlaggedRevs->allowComments() ? $wgRequest->getText('wpNotes') : '';
+		$this->comment = $wgUser->isAllowed('validate') ? 
+			$wgRequest->getText( 'wpReason' ) : '';
+		// Additional notes (displayed at bottom of page)
+		$this->notes = ($wgFlaggedRevs->allowComments() && $wgUser->isAllowed('validate')) ? 
+			$wgRequest->getText('wpNotes') : '';
 		// Get the revision's current flags, if any
 		$this->oflags = $wgFlaggedRevs->getFlagsForRevision( $this->oldid );
 		// Get our accuracy/quality dimensions
@@ -160,9 +162,6 @@ class Revisionreview extends SpecialPage
 				$formradios[$tag][] = array( "revreview-$tag-$i", "wp$tag", $i );
 			}
 		}
-		$items = array(
-			wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ),
-			wfSubmitButton( wfMsgHtml( 'revreview-submit' ) ) );
 		$hidden = array(
 			wfHidden( 'wpEditToken', $wgUser->editToken() ),
 			wfHidden( 'target', $this->page->getPrefixedText() ),
@@ -193,15 +192,17 @@ class Revisionreview extends SpecialPage
 		}
 		$form .= '</tr></table></fieldset>';
 		// Add box to add live notes to a flagged revision
-		if( $wgFlaggedRevComments ) {
+		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
 			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>$this->notes</textarea>" .	
 			"</fieldset>";
 		}
+       	// Not much to say unless you are a validator
+		if( $wgUser->isAllowed( 'validate' ) )
+			$form .= '<p>'.wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
 		
-		foreach( $items as $item ) {
-			$form .= '<p>' . $item . '</p>';
-		}	
+		$form .= '<p>'.wfSubmitButton( wfMsgHtml( 'revreview-submit' ) ).'</p>';
+		
 		foreach( $hidden as $item ) {
 			$form .= $item;
 		}
@@ -328,22 +329,25 @@ class Revisionreview extends SpecialPage
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
 			if( !$image ) continue;
-			$m = explode('|',$image,2);
+			$m = explode('|',$image,3);
+			# Expand our parameters ... <name>#<timestamp>#<key>
+			if( !isset($m[0]) || !isset($m[1]) || !isset($m[2]) || !$m[0] )
+				continue;
 			
-			if( !isset($m[0]) || !isset($m[1]) || !$m[0] ) continue;
-			
-			list($dbkey,$timestamp) = $m;
+			list($dbkey,$timestamp,$key) = $m;
 			
 			if( in_array($dbkey,$images) ) continue; // No dups!
+			
 			$images[] = $dbkey;
 			
-			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize this to be sure...
+			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
 			if( is_null($img_title) ) continue; // Page must exist!
 			
 			$imgset[] = array( 
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBKey(),
-				'fi_img_timestamp' => $timestamp
+				'fi_img_timestamp' => $timestamp,
+				'fr_img_sha1' => $key
 			);
 		}
 		
@@ -813,4 +817,3 @@ class UnreviewedPagesPage extends PageQueryPage {
 		return( "{$link} {$stxt}" );
 	}
 }
-

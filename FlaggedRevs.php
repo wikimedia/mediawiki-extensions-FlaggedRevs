@@ -428,7 +428,7 @@ class FlaggedRevs {
 	 * @returns string
 	 * Generates a review box using a table using addTagRatings()
 	 */	
-	function prettyRatingBox( $tfrev, $flags, $revs_since, $simpleTag=false ) {
+	public function prettyRatingBox( $tfrev, $flags, $revs_since, $simpleTag=false ) {
 		global $wgLang, $wgUser;
 		
         $box = '';
@@ -620,7 +620,6 @@ class FlaggedRevs {
     	// Only trigger on article view for content pages, not for protect/delete/hist
 		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
 			return true;
-		
 		// User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) 
 			return true;
@@ -630,9 +629,8 @@ class FlaggedRevs {
 		if( $parserOutput ) {
 			// Clear older, incomplete, cached versions
 			// We need the IDs of templates and timestamps of images used
-			if( !isset($parserOutput->mTemplateIds) || !isset($parserOutput->mImageTimestamps) ) {
+			if( !isset($parserOutput->mTemplateIds) || !isset($parserOutput->mImageSHA1Keys) )
 				$article->mTitle->invalidateCache();
-			}
 		}
 		return true;
     }
@@ -707,7 +705,10 @@ class FlaggedRevs {
 		wfProfileOut( $fname );
 		return true;
     }
-    
+ 
+	/**
+	* Select the desired templates based on the selected stable revision IDs
+	*/
 	static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
@@ -719,7 +720,7 @@ class FlaggedRevs {
 			array('ft_rev_id' => $parser->mRevisionId, 
 				'ft_namespace' => $title->getNamespace(), 'ft_title' => $title->getDBkey() ),
 			__METHOD__ );
-				
+		
 		if( !$id ) {
 			if( $id === false )
 				$parser->includesMatched = false; // May want to give an error
@@ -728,12 +729,14 @@ class FlaggedRevs {
 		}
 		return true;
     }
-    
+
+	/**
+	* Select the desired images based on the selected stable revision times/SHA-1s
+	*/  
 	static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
     		return true;
-    	
     	// Only called to make fr_text, right after template/image specifiers 
     	// are added to the DB. Slaves may not have it yet...
     	$dbw = wfGetDB( DB_MASTER );
@@ -749,7 +752,10 @@ class FlaggedRevs {
 		}
 		return true;
     }
-    
+
+	/**
+	* Select the desired images based on the selected stable revision times/SHA-1s
+	*/  
     static function galleryFindStableFileTime( $ig, $nt, &$time ) {
     	// Trigger for stable version parsing only
     	if( !isset($ig->isStable) || !$ig->isStable )
@@ -763,7 +769,10 @@ class FlaggedRevs {
 		
 		return true;
     }
-    
+
+	/**
+	* Flag of an image galley as stable
+	*/  
     static function parserMakeGalleryStable( $parser, $ig ) {
     	// Trigger for stable version parsing only
     	if( !isset($parser->isStable) || !$parser->isStable )
@@ -773,25 +782,32 @@ class FlaggedRevs {
     	
     	return true;
     }
-    
+
+	/**
+	* Insert image timestamps/SHA-1 keys into parser output
+	*/  
     static function parserInjectImageTimestamps( $parser, &$text ) {
-		$parser->mOutput->mImageTimestamps = array();
+		$parser->mOutput->mImageSHA1Keys = array();
 		# Fetch the timestamps of the images
 		if( !empty($parser->mOutput->mImages) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-        	$res = $dbr->select('image', array('img_name','img_timestamp'),
+        	$res = $dbr->select('image', array('img_name','img_timestamp','img_sha1'),
 				array('img_name IN(' . $dbr->makeList( array_keys($parser->mOutput->mImages) ) . ')'),
-			__METHOD__ );
+				__METHOD__ );
 			
 			while( $row = $dbr->fetchObject($res) ) {
-				$parser->mOutput->mImageTimestamps[$row->img_name] = $row->img_timestamp;
+				$parser->mOutput->mImageSHA1Keys[$row->img_name] = array();
+				$parser->mOutput->mImageSHA1Keys[$row->img_name][$row->img_timestamp] = $row->img_sha1;
 			}
 		}
 		return true;
     }
-    
+
+	/**
+	* Insert image timestamps/SHA-1s into page output
+	*/  
     static function outputInjectImageTimestamps( $out, $parserOutput ) {
-    	$out->mImageTimestamps = $parserOutput->mImageTimestamps;
+    	$out->mImageSHA1Keys = $parserOutput->mImageSHA1Keys;
     	
     	return true;
     }
@@ -802,7 +818,6 @@ class FlaggedRevs {
 	*/ 
     public static function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
     	global $wgReviewChangesAfterEdit, $wgFlaggedRevs, $wgUser;
-    	
 		# Was this already autoreviewed?
 		if( $wgFlaggedRevs->skipReviewDiff )
 			return true;
@@ -932,12 +947,15 @@ class FlaggedRevs {
         	}
         }
         # Image -> timestamp mapping
-        foreach( $poutput->mImageTimestamps as $dbkey => $timestamp ) {
-			$imgset[] = array( 
-				'fi_rev_id' => $rev->getId(),
-				'fi_name' => $dbkey,
-				'fi_img_timestamp' => $timestamp
-			);
+        foreach( $poutput->mImageTimestamps as $dbkey => $timeAndSHA1 ) {
+        	foreach( $timeAndSHA1 as $time => $sha1 ) {
+				$imgset[] = array( 
+					'fi_rev_id' => $rev->getId(),
+					'fi_name' => $img_title->getDBKey(),
+					'fi_img_timestamp' => $timestamp,
+					'fr_img_sha1' => $sha1
+				);
+			}
         }
         
 		$dbw = wfGetDB( DB_MASTER );
@@ -1515,14 +1533,14 @@ class FlaggedArticle extends FlaggedRevs {
 			$form .= $options;
 			$form .= "</select>\n";
 		}
-        if( $wgFlaggedRevComments ) {
+        if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<br/><p>" . wfMsgHtml( 'revreview-notes' ) . "</p>" .
 			"<p><textarea tabindex='1' name='wpNotes' id='wpNotes' rows='2' cols='80' style='width:100%'></textarea>" .	
 			"</p>\n";
 		}
 		
 		$imageParams = $templateParams = '';
-        if( !isset($out->mTemplateIds) || !isset($out->mImageTimestamps) ) {
+        if( !isset($out->mTemplateIds) || !isset($out->mImageSHA1Keys) ) {
         	return; // something went terribly wrong...
         }
         // Hack, add NS:title -> rev ID mapping
@@ -1534,16 +1552,19 @@ class FlaggedArticle extends FlaggedRevs {
         }
         $form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
         // Hack, image -> timestamp mapping
-        foreach( $out->mImageTimestamps as $dbkey => $timestamp ) {
-        	$imageParams .= $dbkey . "|" . $timestamp . "#";
+        foreach( $out->mImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
+        	foreach( $timeAndSHA1 as $time => $sha1 ) {
+        		$imageParams .= $dbkey . "|" . $time . "#" . $sha1 . "#";
+        	}
         }
-        $form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
         
         $watchLabel = wfMsgExt('watchthis', array('parseinline'));
         $watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
         $watchChecked = ( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
-        
-        $form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
+       	// Not much to say unless you are a validator
+		if( $wgUser->isAllowed( 'validate' ) )
+        	$form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
         
 		$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
 		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";
