@@ -668,7 +668,10 @@ class FlaggedRevs {
 		
 		return true;
     }
-    
+
+	/**
+	* Inject stable links on LinksUpdate
+	*/
     public function extraLinksUpdate( $linksUpdate ) {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
@@ -1311,7 +1314,7 @@ class FlaggedArticle extends FlaggedRevs {
     	global $wgRequest, $wgUser, $action, $wgFlaggedRevsAnonOnly, 
 			$wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		// Get the subject page, not all skins have it :(
-		if( !$wgFlaggedRevTabs || !isset($sktmp->mTitle) )
+		if( !isset($sktmp->mTitle) )
 			return true;
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
@@ -1324,6 +1327,14 @@ class FlaggedArticle extends FlaggedRevs {
        	// No quality revs? Find the last reviewed one
        	if( !is_object($tfrev) ) 
 			return true;
+     	if( !$wgFlaggedRevTabs ) {
+       		if( $this->pageOverride() ) {
+       			# Remove edit option altogether
+       			unset( $content_actions['edit']);
+       			unset( $content_actions['viewsource']);
+       		}
+       		return true;
+       	}
        	// Note that revisions may not be set to override for users
        	if( $this->pageOverride() ) {
        		# Remove edit option altogether
@@ -1383,7 +1394,7 @@ class FlaggedArticle extends FlaggedRevs {
        		}
        		# Reset static array
        		$content_actions = $new_actions;
-    	} else {
+    	} else if( $wgFlaggedRevTabs ) {
 		// We are looking at the current revision
 			$new_actions = array(); $counter = 0;
 			# Straighten out order
@@ -1552,7 +1563,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Same params for the sake of inheritance
 	 * @returns Row
 	 */
-	function getOverridingRev( $title = NULL, $getText=false ) {
+	function getOverridingRev( $title = NULL, $getText=false, $highPriority=false ) {
 		global $wgTitle;
 	
 		if( !is_null($title) && $title->getArticleID() != $wgTitle->getArticleID() )
