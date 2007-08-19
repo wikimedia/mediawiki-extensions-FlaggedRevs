@@ -851,7 +851,7 @@ class FlaggedRevs {
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
 	
-		$wgOut->addHTML( '<div id="mw--difftostable" class="flaggedrevs_notice plainlinks">' .
+		$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
 			wfMsg('revreview-update').'</div>' );
 		# Set flag for review form to tell it to autoselect tag settings from the
 		# old revision unless the current one is tagged to.
@@ -1264,7 +1264,8 @@ class FlaggedArticle extends FlaggedRevs {
 		// Check the newest stable version
 		$tfrev = $this->getOverridingRev();
 		if( is_object($tfrev) ) {
-			global $wgLang, $wgFlaggedRevsAutoReview;		
+			global $wgLang, $wgUser, $wgFlaggedRevs, $wgFlaggedRevsAutoReview;
+			
 			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
@@ -1277,9 +1278,17 @@ class FlaggedArticle extends FlaggedRevs {
 				wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 				'</span>';
 			$wgOut->addHTML( '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
-
-			// If autoreviewing is on, notify user
-			if( $wgFlaggedRevsAutoReview && $revid==$tfrev->fr_rev_id ) {
+			// If this will be autoreviewed, notify the user...
+			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed( 'review' ) && $revid==$tfrev->fr_rev_id ) {
+				# Grab the flags for this revision
+				$flags = $wgFlaggedRevs->getFlagsForRevision( $tfrev->fr_rev_id );
+				# Check if user is allowed to renew the stable version.
+				# If it has been reviewed too highly for this user, abort.
+				foreach( $flags as $quality => $level ) {
+					if( !Revisionreview::userCan($quality,$level) ) {
+						return true;
+					}
+				}
 				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_notice plainlinks">' . 
 					wfMsgExt('revreview-auto-w',array('parseinline')) . '</div>' );
 			}
