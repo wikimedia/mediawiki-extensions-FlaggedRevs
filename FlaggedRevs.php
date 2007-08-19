@@ -927,7 +927,7 @@ class FlaggedRevs {
 	* Automatically review an edit and add a log entry in the review log.
 	*/ 
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
-		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview;
+		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
 		
 		$quality = 0;
 		if( FlaggedRevs::isQuality($flags) ) {
@@ -958,7 +958,7 @@ class FlaggedRevs {
         	}
         }
         # Image -> timestamp mapping
-        foreach( $poutput->mImageTimestamps as $dbkey => $timeAndSHA1 ) {
+        foreach( $poutput->mImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
         	foreach( $timeAndSHA1 as $time => $sha1 ) {
 				$imgset[] = array( 
 					'fi_rev_id' => $rev->getId(),
