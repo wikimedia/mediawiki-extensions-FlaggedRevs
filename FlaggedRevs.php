@@ -871,7 +871,11 @@ class FlaggedRevs {
 	public static function maybeMakeEditReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
 		
-		if( !$rev || !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+			return true;
+		# Don't jump to diff...
+		$wgFlaggedRevs->skipReviewDiff = true;
+		if( !$rev )
 			return true;
 		
 		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
@@ -901,7 +905,11 @@ class FlaggedRevs {
 	public static function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
 	
-		if(  !$rev || !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+			return true;
+		# Don't jump to diff...
+		$wgFlaggedRevs->skipReviewDiff = true;
+		if( !$rev )
 			return true;
 		# Assume basic flagging level
 		$flags = array();
@@ -917,9 +925,7 @@ class FlaggedRevs {
 	* Automatically review an edit and add a log entry in the review log.
 	*/ 
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
-		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
-		
-		$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff
+		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview;
 		
 		$quality = 0;
 		if( FlaggedRevs::isQuality($flags) ) {
