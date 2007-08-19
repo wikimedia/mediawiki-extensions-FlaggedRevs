@@ -49,6 +49,8 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-update' => 'Please review any changes (shown below) made since stable revision to this page. Templates and images
 	may have also changed.',
 	'revreview-auto' => '(automatic)',
+	'revreview-auto-w' => "'''Note:''' you are making changes to the stable revision, your edits will automatically be reviewed. 
+	You may want to preview the page before saving.",
 
 	'hist-stable'  => '[sighted]',
 	'hist-quality' => '[quality]',
@@ -114,8 +116,6 @@ $RevisionreviewMessages['en'] = array(
     'viewunreviewed'        => 'List unreviewed content pages',
     'included-nonquality'   => 'Show only reviewed pages not marked as quality.',
     'unreviewed-list'       => 'This page lists articles that have not yet been reviewed.',
-    
-    'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 );
 
 /* Arabic (Meno25) */
@@ -285,8 +285,6 @@ $RevisionreviewMessages['de'] = array(
 	'viewunreviewed'        => 'Liste ungeprüfter Artikel',
 	'included-nonquality'   => 'Zeige nur geprüfte Artikel, die noch keine Qualitätsbewertung haben.',
 	'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
-
-	'rights-editor-revoke'  => 'entzog das Editor-Recht von [[$1]]',
 );
 
 $RevisionreviewMessage['nl'] = array(
@@ -384,7 +382,6 @@ $RevisionreviewMessage['nl'] = array(
 	'viewunreviewed'        => 'Lijst van pagina\'s zonder review',
 	'included-nonquality'   => 'Alleen pagina\'s tonen die niet als kwaliteitspagina zijn gemarkeerd.',
 	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen review hebben gehad.',
-	'rights-editor-revoke'  => 'verwijderde redacteurstatus van [[$1]]',
 );
 
 /* Norwegian (Jon Harald Søby) */
@@ -732,6 +729,5 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'viewunreviewed'        => 'Zoznam neskontrolovaných stránok s obsahom',
 	'included-nonquality'   => 'Vrátane skontrolovaných stránok neoznačených ako kvalitné.',
 	'unreviewed-list'       => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
-	'rights-editor-revoke'  => 'práva redaktora boli odňaté [[$1]]',
 );
 

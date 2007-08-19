@@ -49,7 +49,7 @@ class MakeValidate extends SpecialPage {
 						$oldgroups = $user->getGroups();
 						if( $wgRequest->getCheck( 'dosearch' ) || !$wgRequest->wasPosted() || !$wgUser->matchEditToken( $wgRequest->getVal( 'token' ), 'makevalidate' ) ) {
 							# Exists, check editor & reviewer status
-							# We never just assigned reviewer status alone
+							# We never assign reviewer status alone
 							if( in_array( 'editor', $user->mGroups ) && in_array( 'reviewer', $user->mGroups ) ) {
 								# Has a reviewer flag
 								$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
@@ -69,7 +69,8 @@ class MakeValidate extends SpecialPage {
 						} elseif( $wgRequest->getCheck( 'grant2' ) ) {
 							# Permission check
 							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-								$wgOut->permissionRequired( 'makevalidate' ); return;
+								$wgOut->permissionRequired( 'makevalidate' ); 
+								return;
 							}
 							# Grant the flag
 							if( !in_array( 'reviewer', $user->mGroups ) )
@@ -82,7 +83,8 @@ class MakeValidate extends SpecialPage {
 						} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
 							# Permission check
 							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-								$wgOut->permissionRequired( 'makevalidate' ); return;
+								$wgOut->permissionRequired( 'makevalidate' ); 
+								return;
 							}
 							# Revoke the flag
 							if ( in_array( 'reviewer', $user->mGroups ) )
@@ -93,9 +95,14 @@ class MakeValidate extends SpecialPage {
 							# Grant the flag
 							if( !in_array( 'editor', $user->mGroups ) )
 								$user->addGroup( 'editor' );
-							$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
+							$this->addLogItem( 'egrant', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
 							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
 						} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
+							# Permission check
+							if( !$wgUser->isAllowed( 'removereview' ) ) {
+								$wgOut->permissionRequired( 'removereview' ); 
+								return;
+							}
 							if( in_array( 'reviewer', $user->mGroups ) ) {
 								# Permission check
 								if( !$wgUser->isAllowed( 'makevalidate' ) ) {

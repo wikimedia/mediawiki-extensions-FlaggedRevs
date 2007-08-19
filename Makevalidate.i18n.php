@@ -41,6 +41,8 @@ $messages['en'] = array(
 	'makevalidate-logentrygrant-r' => 'granted reviewer status to [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'removed reviewer status from [[$1]]',
 	'makevalidate-autosum' => 'autopromoted',
+    'rights-editor-grant'   => 'granted editor status to [[$1]]',
+    'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 );
 
 /* Arabic (Meno25) */
@@ -106,6 +108,7 @@ $messages['de'] = array(
 	'makevalidate-logentrygrant-r' => 'erteilte das Prüfrecht an [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'entzog das Prüfrecht von [[$1]]',
 	'makevalidate-autosum' => 'automatische Rechtevergabe',
+	'rights-editor-revoke'  => 'entzog das Editor-Recht von [[$1]]',
 );
 
 $messages['nl'] = array(
@@ -136,6 +139,7 @@ $messages['nl'] = array(
 	'makevalidate-logentrygrant-r'  => 'heeft de status reviewer toegekend aan [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'heeft de status reviewer ingetrokken voor [[$1]]',
 	'makevalidate-autosum'          => 'automatisch gepromoveerd',
+	'rights-editor-revoke'  => 'verwijderde redacteurstatus van [[$1]]',
 );
 
 /* Norwegian (Jon Harald Søby) */
@@ -265,6 +269,7 @@ $messages['sk'] = array(
 	'makevalidate-logentrygrant-r'  => 'Stav kontrolór udelený [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'Stav kontrolór odobraný [[$1]]',
 	'makevalidate-autosum'          => 'samopovýšenie',
+	'rights-editor-revoke'  => 'prÃ¡va redaktora boli odÅˆatÃ© [[$1]]',
 );
 
 return $messages;

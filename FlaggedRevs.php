@@ -131,7 +131,7 @@ $wgGroupPermissions['reviewer']['validate'] = true;
 $wgGroupPermissions['reviewer']['review']   = true;
 
 # Define when users get automatically promoted to editors. Set as false to disable.
-$wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 500, 'email' => true);
+$wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 300, 'email' => true);
 
 #
 ############ Variables below this point should probably not be modified ############
@@ -143,6 +143,7 @@ $wgLogHeaders['review'] = 'review-logpagetext';
 $wgLogActions['review/approve']  = 'review-logentrygrant';
 $wgLogActions['review/unapprove'] = 'review-logentryrevoke';
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
+$wgLogActions['rights/egrant']  = 'rights-editor-grant';
 
 class FlaggedRevs {
 
@@ -450,9 +451,9 @@ class FlaggedRevs {
         // Construct some tagging
         $msg = $quality ? 'revreview-quality' : 'revreview-basic';
 		$box = self::addTagRatings( $flags, true, "{$tagClass}a" );
-		$box .= '<p><a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+		$box .= '<p><a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 			wfMsg('revreview-toggle') . '</a></p>';
-		$box .= '<span id="mwrevisionratings">' . 
+		$box .= '<span id="mw-revisionratings">' . 
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since) .
 			'</span>';
         
@@ -850,7 +851,7 @@ class FlaggedRevs {
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
 	
-		$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
+		$wgOut->addHTML( '<div id="mw--difftostable" class="flaggedrevs_notice plainlinks">' .
 			wfMsg('revreview-update').'</div>' );
 		# Set flag for review form to tell it to autoselect tag settings from the
 		# old revision unless the current one is tagged to.
@@ -916,7 +917,9 @@ class FlaggedRevs {
 	* Automatically review an edit and add a log entry in the review log.
 	*/ 
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
-		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview;
+		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
+		
+		$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff
 		
 		$quality = 0;
 		if( FlaggedRevs::isQuality($flags) ) {
@@ -960,7 +963,7 @@ class FlaggedRevs {
         
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
-		// Update our versioning pointers
+		# Update our versioning pointers
 		if( !empty( $tmpset ) ) {
 			$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset,
 				__METHOD__ );
@@ -969,13 +972,13 @@ class FlaggedRevs {
 			$dbw->replace( 'flaggedimages', array( array('fi_rev_id','fi_name') ), $imgset, 
 				__METHOD__ );
 		}
-        // Get the page text and resolve all templates
+        # Get the page text and resolve all templates
         list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$complete ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
-		// Our review entry
+		# Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
  			'fr_namespace' => $rev->getTitle()->getNamespace(),
@@ -986,11 +989,11 @@ class FlaggedRevs {
 			'fr_text'      => $fulltext, // Store expanded text for speed
 			'fr_quality'   => $quality
 		);
-		// Update flagged revisions table
+		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
-		// Set all of our flags
+		# Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
-		// Mark as patrolled
+		# Mark as patrolled
 		$dbw->update( 'recentchanges', 
 			array( 'rc_patrolled' => 1 ), 
 			array( 'rc_this_oldid' => $rev->getId() ), 
@@ -998,8 +1001,6 @@ class FlaggedRevs {
 		);
 		$dbw->commit();
 		
-		global $wgFlaggedRevs;
-		$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff
 		# Update the article review log
 		Revisionreview::updateLog( $rev->getTitle(), $flags, wfMsg('revreview-auto'), $rev->getID(), true, false );
 		
@@ -1159,9 +1160,9 @@ class FlaggedArticle extends FlaggedRevs {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 						# Hide clutter
-						$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+						$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
+						$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 							wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . '</span>';
 					}
 				}
@@ -1180,9 +1181,9 @@ class FlaggedArticle extends FlaggedRevs {
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
-						$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+						$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
+						$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 							parent::addTagRatings( $flags ) . '</span>';
 					}
 				}
@@ -1220,7 +1221,7 @@ class FlaggedArticle extends FlaggedRevs {
 				$tagClass = 'flaggedrevs_tag1';
 			// Wrap tag contents in a div
 			if( $tag !='' )
-				$tag = '<div id="mwrevisiontag" class="' . $tagClass . ' plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mw-revisiontag" class="' . $tagClass . ' plainlinks">'.$tag.'</div>';
 			// Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page
@@ -1228,9 +1229,9 @@ class FlaggedArticle extends FlaggedRevs {
 			if( $this->useSimpleUI() ) {
 				$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
 					wfMsgExt('revreview-quick-none',array('parseinline'));
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
 			} else {
-				$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' .
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' .
 					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
 			}
 			$wgOut->addHTML( $tag );
@@ -1257,7 +1258,7 @@ class FlaggedArticle extends FlaggedRevs {
 		// Check the newest stable version
 		$tfrev = $this->getOverridingRev();
 		if( is_object($tfrev) ) {
-			global $wgLang;		
+			global $wgLang, $wgFlaggedRevsAutoReview;		
 			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 			$revs_since = parent::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
@@ -1265,11 +1266,17 @@ class FlaggedArticle extends FlaggedRevs {
 			$msg = parent::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
-			$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
+			$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 				wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 				'</span>';
-			$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
+			$wgOut->addHTML( '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
+
+			// If autoreviewing is on, notify user
+			if( $wgFlaggedRevsAutoReview && $revid==$tfrev->fr_rev_id ) {
+				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_notice plainlinks">' . 
+					wfMsgExt('revreview-auto-w',array('parseinline')) . '</div>' );
+			}
 		}
 		return true;
     }

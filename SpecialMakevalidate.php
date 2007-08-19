@@ -26,12 +26,17 @@ if( defined( 'MEDIAWIKI' ) ) {
 	/**
 	 * Determines who can use the extension; as a default, bureaucrats are permitted
 	 */
-	# Basic rights for sysop
+	# Basic rights for Sysops
 	$wgGroupPermissions['sysop']['makereview'] = true;
-	# Extra ones for bureaucrats
+	$wgGroupPermissions['sysop']['removereview'] = true;
+	# Extra ones for Bureaucrats
 	# Add UI page rights just in case we have non-sysop bcrats
 	$wgGroupPermissions['bureaucrat']['makereview'] = true;
+	$wgGroupPermissions['bureaucrat']['removereview'] = true;
 	$wgGroupPermissions['bureaucrat']['makevalidate'] = true;
+	# We may want a sort of invitational community system...
+	# $wgGroupPermissions['editor']['makereview'] = true;
+	# $wgGroupPermissions['reviewer']['makereview'] = true;
 	
 	/**
 	 * Register the special page
