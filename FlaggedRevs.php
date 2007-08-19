@@ -847,7 +847,6 @@ class FlaggedRevs {
 			return true;
 		
 		$frev = self::getOverridingRev( $diff->mTitle );
-		
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
 	
@@ -873,11 +872,10 @@ class FlaggedRevs {
 		
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
 			return true;
-		# Don't jump to diff...
-		$wgFlaggedRevs->skipReviewDiff = true;
-		if( !$rev )
+		if( !$rev ) {
+			$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
 			return true;
-		
+		}
 		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
 		if( !$prev_id )
 			return true;
@@ -896,6 +894,8 @@ class FlaggedRevs {
 		}
 		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
 		
+		$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
+		
 		return true;
 	}
 
@@ -907,16 +907,18 @@ class FlaggedRevs {
 	
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
 			return true;
-		# Don't jump to diff...
-		$wgFlaggedRevs->skipReviewDiff = true;
-		if( !$rev )
+		if( !$rev ) {
+			$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
 			return true;
+		}
 		# Assume basic flagging level
 		$flags = array();
     	foreach( array_keys($wgFlaggedRevs->dimensions) as $tag ) {
     		$flags[$tag] = 1;
     	}
 		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
+		
+		$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
 		
 		return true;
 	}
