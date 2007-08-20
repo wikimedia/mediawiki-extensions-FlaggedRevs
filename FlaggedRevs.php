@@ -1582,7 +1582,7 @@ class FlaggedArticle extends FlaggedRevs {
         // Hack, image -> timestamp mapping
         foreach( $out->mImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
         	foreach( $timeAndSHA1 as $time => $sha1 ) {
-        		$imageParams .= $dbkey . "|" . $time . "#" . $sha1 . "#";
+        		$imageParams .= $dbkey . "|" . $time . "|" . $sha1 . "#";
         	}
         }
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";

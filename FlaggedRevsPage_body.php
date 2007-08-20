@@ -347,7 +347,7 @@ class Revisionreview extends SpecialPage
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBKey(),
 				'fi_img_timestamp' => $timestamp,
-				'fr_img_sha1' => $key
+				'fi_img_sha1' => $key
 			);
 		}
 		
