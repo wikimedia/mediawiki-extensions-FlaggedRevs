@@ -109,6 +109,7 @@ $messages['de'] = array(
 	'makevalidate-logentryrevoke-r' => 'entzog das Prüfrecht von [[$1]]',
 	'makevalidate-autosum' => 'automatische Rechtevergabe',
 	'rights-editor-revoke'  => 'entzog das Editor-Recht von [[$1]]',
+	'rights-editor-grant'   => 'erteilte das Editor-Recht an [[$1]]',
 );
 
 $messages['nl'] = array(

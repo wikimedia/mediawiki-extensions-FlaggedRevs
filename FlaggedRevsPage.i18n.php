@@ -221,6 +221,11 @@ $RevisionreviewMessages['de'] = array(
 
 	'revreview-toggle' => '(+/-)',
 	'revreview-note'   => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
+	'revreview-update' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
+	Vorlagen und Bilder können sich ebenfalls geändert haben.',
+	'revreview-auto'   => '(automatisch)',
+	'revreview-auto-w' => "'''Hinweis:''' Du nimmst eine Bearbeitung an einer stabilen Version vor, daher wird deine eigene Bearbeitung automatisch als geprüft markiert. 
+	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
 
 	'hist-stable'  => '[gesichtet]',
 	'hist-quality' => '[geprüft]',
@@ -228,7 +233,7 @@ $RevisionreviewMessages['de'] = array(
 	'flaggedrevs'           => 'Markierte Versionen',
 	'review-logpage'        => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext'    => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
-	'review-logentrygrant'  => 'prüfte eine Version von $1',
+	'review-logentrygrant'  => 'prüfte $1',
 	'review-logentryrevoke' => 'verwarf eine Version von $1',
 	'review-logaction'      => 'Version-ID $1',
 
