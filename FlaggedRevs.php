@@ -963,7 +963,7 @@ class FlaggedRevs {
         	foreach( $timeAndSHA1 as $time => $sha1 ) {
 				$imgset[] = array( 
 					'fi_rev_id' => $rev->getId(),
-					'fi_name' => $img_title->getDBKey(),
+					'fi_name' => $dbkey,
 					'fi_img_timestamp' => $timestamp,
 					'fr_img_sha1' => $sha1
 				);
