@@ -1275,13 +1275,16 @@ class FlaggedArticle extends FlaggedRevs {
 			$msg = parent::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
-			$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
+			$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+				wfMsg('revreview-toggle') . '</a>';
 			$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 				wfMsg('revreview-oldrating') . parent::addTagRatings( $flags ) . 
 				'</span>';
 			$wgOut->addHTML( '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
 			// If this will be autoreviewed, notify the user...
-			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed( 'review' ) && $revid==$tfrev->fr_rev_id ) {
+			if( !$wgFlaggedRevsAutoReview )
+				return true;
+			if( $wgUser->isAllowed('review') && $revid==$tfrev->fr_rev_id && $revid==$editform->mArticle->getLatest() ) {
 				# Grab the flags for this revision
 				$flags = $wgFlaggedRevs->getFlagsForRevision( $tfrev->fr_rev_id );
 				# Check if user is allowed to renew the stable version.
