@@ -55,6 +55,7 @@ function efLoadFlaggedRevs() {
 	# UI JS
 	$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
 	
+	global $wgGroupPermissions, $wgUseRCPatrol;
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
