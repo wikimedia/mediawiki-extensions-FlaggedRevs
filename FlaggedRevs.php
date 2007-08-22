@@ -30,7 +30,7 @@ $wgExtensionCredits['specialpage'][] = array(
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 # Load promotion UI
-include_once('SpecialMakevalidate.php');
+include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 # Load review UI
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Revisionreview', 'Revisionreview' );
 # Load stableversions UI
@@ -41,7 +41,7 @@ extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Unreviewedp
 function efLoadFlaggedRevs() {
 	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType;
 	# Internationalization
-	require( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
+	require_once( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
 	foreach( $RevisionreviewMessages as $lang => $langMessages ) {
 		$wgMessageCache->addMessages( $langMessages, $lang );
 	}
