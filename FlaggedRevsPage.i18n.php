@@ -114,8 +114,11 @@ $RevisionreviewMessages['en'] = array(
 
     'unreviewedpages'       => 'Unreviewed pages',
     'viewunreviewed'        => 'List unreviewed content pages',
-    'included-nonquality'   => 'Show only reviewed pages not marked as quality.',
-    'unreviewed-list'       => 'This page lists articles that have not yet been reviewed.',
+    'unreviewed-outdated'   => 'Show only pages that have revisions made since the last review.',
+    'unreviewed-category'   => 'Category:',
+    'unreviewed-diff'       => 'Unreviewed changes',
+    'unreviewed-list'       => 'This page lists articles that have not yet been reviewed or have unreviewed revisions. Note pages 
+	with out of date "quality" revisions will not be listed here if the current revision is "sighted".',
 );
 
 /* Arabic (Meno25) */

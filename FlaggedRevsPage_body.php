@@ -688,7 +688,8 @@ class Unreviewedpages extends SpecialPage
 		global $wgOut, $wgUser, $wgScript, $wgTitle;
 		
 		$namespace = $wgRequest->getIntOrNull( 'namespace' );
-		$nonquality = $wgRequest->getVal( 'includenonquality' );
+		$showoutdated = $wgRequest->getVal( 'showoutdated' );
+		$category = $wgRequest->getVal( 'category' );
 		
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
@@ -696,14 +697,16 @@ class Unreviewedpages extends SpecialPage
 			Xml::label( wfMsgHtml("namespace"), 'namespace' ) . ' ' .
 			$this->getNamespaceMenu( $namespace ) . "\n" .
 			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-			'<p>' . Xml::check( 'includenonquality', $nonquality, array('id' => 'includenonquality') ) . 
-			' ' . Xml::label( wfMsgHtml("included-nonquality"), 'includenonquality' ) . "</p>\n" .
+			'<p>' . Xml::label( wfMsgHtml("unreviewed-category"), 'category' ) . 
+			' ' . Xml::input( 'category', 30, $category, array('id' => 'category') ) . "</p>\n" .
+			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) . 
+			' ' . Xml::label( wfMsgHtml("unreviewed-outdated"), 'showoutdated' ) . "</p>\n" .
 			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
 			"</fieldset></form>");
 		
 		list( $limit, $offset ) = wfCheckLimits();
 		
-		$sdr = new UnreviewedPagesPage( $namespace, $nonquality );
+		$sdr = new UnreviewedPagesPage( $namespace, $showoutdated, $category );
 		$sdr->doQuery( $offset, $limit );
 	}
 	
@@ -753,9 +756,10 @@ class Unreviewedpages extends SpecialPage
  */
 class UnreviewedPagesPage extends PageQueryPage {
 	
-	function __construct( $namespace=NULL, $nonquality=false ) {
-		$this->namespace = $namespace;
-		$this->nonquality = $nonquality;
+	function __construct( $namespace=NULL, $showOutdated=NULL, $category=NULL ) {
+		$this->namespace = intval($namespace);
+		$this->category = $category;
+		$this->showOutdated = $showOutdated;
 	}
 	
 	function getName() {
@@ -769,31 +773,42 @@ class UnreviewedPagesPage extends PageQueryPage {
 		return '<p>'.wfMsg("unreviewed-list")."</p>\n";
 	}
 
-	function getSQLText( &$dbr, $namespace, $includenonquality = false ) {
+	function getSQLText( &$dbr, $namespace, $showOutdated, $category ) {
 		global $wgContentNamespaces;
 		
-		list( $page, $flaggedrevs ) = $dbr->tableNamesN( 'page', 'flaggedrevs' );
-		
+		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
 		# Must be a content page...
-		$contentNS = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
+		if( is_null($namespace) ) {
+			$ns = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
+		} else if( !array_key_exists($namespace,$wgContentNamespaces) ) {
+			$ns = '1 = 0';
+		} else {
+			$ns = "page_namespace=$namespace";
+		}
+		# Show unreviewed pages or outdated ones?
+		$where = $showOutdated ? 'fr_rev_id IS NOT NULL' : 'fr_rev_id IS NULL';
+		$having = $showOutdated ? 'HAVING page_latest > MAX(fr_rev_id)' : '';
+		# Filter by category
+		if( $category ) {
+			$category = str_replace( ' ', '_', $dbr->strencode($category) );
+			$where .= " AND cl_to = '{$category}'";
+		}
 		
-		$ns = ($namespace !== null) ? "page_namespace=$namespace" : '1 = 1';
+		$sql = "SELECT page_namespace,page_title,page_len,page_latest,MAX(fr_rev_id) AS oldid 
+			FROM $page ";
+		if( $category )
+			$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id) ";
+			
+		$sql .= "LEFT JOIN $flaggedrevs ON (fr_namespace = page_namespace AND fr_title = page_title) 
+			WHERE page_is_redirect=0 AND $ns AND ($where) 
+			GROUP BY page_id $having";
 		
-		$where = $includenonquality ? '1 = 1' : 'fr_rev_id IS NULL';
-		$having = $includenonquality ? 'MAX(fr_quality) < 1' : '1 = 1';
-		
-		$sql = 
-			"SELECT page_namespace,page_title,page_len AS size 
-			FROM $page 
-			LEFT JOIN $flaggedrevs ON (fr_namespace = page_namespace AND fr_title = page_title) 
-			WHERE page_is_redirect=0 AND $ns AND $contentNS AND ($where) 
-			GROUP BY page_id HAVING $having ";
 		return $sql;
 	}
 	
 	function getSQL() {
 		$dbr = wfGetDB( DB_SLAVE );
-		return $this->getSQLText( $dbr, $this->namespace, $this->nonquality );
+		return $this->getSQLText( $dbr, $this->namespace, $this->showOutdated, $this->category );
 	}
 
 	function getOrder() {
@@ -806,14 +821,16 @@ class UnreviewedPagesPage extends PageQueryPage {
 		$fname = 'UnreviewedPagesPage::formatResult';
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $skin->makeKnownLinkObj( $title );
-		$stxt = '';
-		if(!is_null($size = $result->size)) {
+		$stxt = $review = '';
+		if(!is_null($size = $result->page_len)) {
 			if($size == 0)
 				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
+		if( $result->oldid )
+			$review = ' ('.$skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'), "diff=cur&oldid={$result->oldid}" ).')';
 
-		return( "{$link} {$stxt}" );
+		return( "{$link} {$stxt} {$review}" );
 	}
 }
