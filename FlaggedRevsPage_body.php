@@ -780,7 +780,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 		# We don't like filesorts, so the query methods here will be very different
 		if( !$showOutdated ) {
 			# Must be a content page...
-			if( is_null($namespace) ) {
+			if( is_null($namespace) || !in_array($namespace,$wgContentNamespaces) ) {
 				$ns = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
 			} else {
 				$ns = "page_namespace={$namespace}";
@@ -796,7 +796,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 				WHERE ($where) ";
 		} else {
 			# Must be a content page...
-			if( is_null($namespace) ) {
+			if( is_null($namespace) || !in_array($namespace,$wgContentNamespaces) ) {
 				$ns = 'fr_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
 			} else {
 				$ns = "fr_namespace={$namespace}";
