@@ -802,7 +802,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 				$ns = "fr_namespace={$namespace}";
 			}
 			$where = "$ns AND page_is_redirect=0";
-			$sql = "SELECT fr_namespace AS ns,fr_title AS title,page_len FROM $flaggedrevs ";
+			$sql = "SELECT fr_namespace AS ns,fr_title AS title,page_len,MAX(fr_rev_id) as oldid FROM $flaggedrevs ";
 			$sql .= "LEFT JOIN $page ON (fr_namespace = page_namespace AND fr_title = page_title) ";
 			if( $category ) {
 				$category = str_replace( ' ', '_', $dbr->strencode($category) );
@@ -811,8 +811,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 			}
 			$sql .= "WHERE ($where) GROUP BY fr_namespace,fr_title HAVING MAX(page_latest) > MAX(fr_rev_id)";
 		}
-		
-		echo( $sql );
 		return $sql;
 	}
 	
