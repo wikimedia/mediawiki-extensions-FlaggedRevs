@@ -755,8 +755,9 @@ class Unreviewedpages extends SpecialPage
  */
 class UnreviewedPagesPage extends PageQueryPage {
 	
-	function __construct( $namespace, $showOutdated=NULL, $category=NULL ) {
-		$this->namespace = $namespace=='' ? null : intval($namespace);
+	function __construct( $namespace, $showOutdated=false, $category=NULL ) {
+		$this->namespace = is_null($namespace) ? null : intval($namespace);
+		print($namespace==='');
 		$this->category = $category;
 		$this->showOutdated = $showOutdated;
 	}
@@ -790,14 +791,16 @@ class UnreviewedPagesPage extends PageQueryPage {
 		} else {
 			$where .= "AND page_ext_reviewed = 0";
 		}
-		$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable FROM $page ";
+		$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
+			FROM $page";
 		# Filter by category
 		if( $category ) {
+			$sql .= ",$categorylinks ";
 			$category = str_replace( ' ', '_', $dbr->strencode($category) );
-			$where .= " AND cl_from IS NOT NULL";
-			$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
+			$where .= " AND cl_from = page_id AND cl_to = '{$category}' ";
 		}
-		$sql .= "WHERE ($where) ";
+		$sql .= " WHERE ($where) ";
+		echo( $sql );
 		return $sql;
 	}
 	
@@ -807,7 +810,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 	}
 
 	function getOrder() {
-		return 'ORDER BY page_id DESC';
+		return 'ORDER BY page_namespace,page_id DESC';
 	}
 
 	function formatResult( $skin, $result ) {
