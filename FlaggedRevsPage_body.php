@@ -724,11 +724,6 @@ class Unreviewedpages extends SpecialPage
 		}
 		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = $wgContLang->getFormattedNamespaces();
-		if( !is_null($allnamespaces) ) {
-			$arr = array($allnamespaces => wfMsg('namespacesall')) + $arr;
-		}
-
-		$s .= "\t" . Xml::element("option", array("value" => ''), wfMsg('namespacesall')) . "\n";
 		
 		foreach($arr as $index => $name) {
 			# Content only
@@ -756,8 +751,7 @@ class Unreviewedpages extends SpecialPage
 class UnreviewedPagesPage extends PageQueryPage {
 	
 	function __construct( $namespace, $showOutdated=false, $category=NULL ) {
-		$this->namespace = is_null($namespace) ? null : intval($namespace);
-		print($namespace==='');
+		$this->namespace = intval($namespace);
 		$this->category = $category;
 		$this->showOutdated = $showOutdated;
 	}
@@ -791,15 +785,19 @@ class UnreviewedPagesPage extends PageQueryPage {
 		} else {
 			$where .= "AND page_ext_reviewed = 0";
 		}
-		$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
-			FROM $page";
 		# Filter by category
 		if( $category ) {
-			$sql .= ",$categorylinks ";
 			$category = str_replace( ' ', '_', $dbr->strencode($category) );
-			$where .= " AND cl_from = page_id AND cl_to = '{$category}' ";
+			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
+			FROM $page FORCE INDEX(ext_namespace_reviewed) 
+			RIGHT JOIN $categorylinks ON(cl_from = page_id AND cl_to = '{$category}')";
+			#$where .= " AND cl_from IS NOT NULL ";
+		} else {
+			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
+			FROM $page FORCE INDEX(ext_namespace_reviewed)";
 		}
 		$sql .= " WHERE ($where) ";
+		
 		return $sql;
 	}
 	
@@ -809,7 +807,11 @@ class UnreviewedPagesPage extends PageQueryPage {
 	}
 
 	function getOrder() {
-		return 'ORDER BY page_namespace,page_id DESC';
+		return 'ORDER BY page_id DESC';
+	}
+	
+	function linkParameters() {
+		return array( 'category' => $this->category,'showoutdated' => $this->showOutdated );
 	}
 
 	function formatResult( $skin, $result ) {
