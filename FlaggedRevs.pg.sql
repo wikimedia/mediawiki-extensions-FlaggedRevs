@@ -42,4 +42,9 @@ CREATE UNIQUE INDEX fi_rev_name        ON flaggedimages (fi_rev_id,fi_name);
 CREATE INDEX        fi_rev_name_time   ON flaggedimages (fi_rev_id,fi_name,fi_img_timestamp);
 CREATE INDEX        fi_rev_img_sha1    ON flaggedimages (fi_rev_id,fi_name,fi_img_sha1);
 
+ALTER TABLE page 
+	ADD page_ext_reviewed bool NULL,
+	ADD page_ext_stable int(10) NULL;
+CREATE INDEX ext_namespace_reviewed ON page (page_namespace,page_is_redirect,page_ext_reviewed,page_id);
+
 COMMIT;

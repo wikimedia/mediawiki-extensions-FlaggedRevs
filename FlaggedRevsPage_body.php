@@ -10,7 +10,7 @@ class Revisionreview extends SpecialPage
 {
 
     function Revisionreview() {
-        SpecialPage::SpecialPage('Revisionreview', 'review');
+        SpecialPage::SpecialPage( 'Revisionreview', 'review' );
     }
 
     function execute( $par ) {
@@ -279,7 +279,7 @@ class Revisionreview extends SpecialPage
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
 		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
-		
+		// Skip null edits
 		if( is_null($rev) ) 
 			return false;
 		// Get the page this corresponds to
@@ -299,8 +299,7 @@ class Revisionreview extends SpecialPage
 				'frt_value' => $value 
 			);
 		}
-		
-		// Hack, our template version pointers
+		// Our template version pointers
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
@@ -324,7 +323,7 @@ class Revisionreview extends SpecialPage
 				'ft_tmp_rev_id' => $rev_id
 			);
 		}
-		// Hack, our image version pointers
+		// Our image version pointers
 		$imgset = $images = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
@@ -353,7 +352,7 @@ class Revisionreview extends SpecialPage
 		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
-		// Update our versioning pointers
+		// Update our versioning params
 		if( !empty( $tmpset ) ) {
 			$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset,
 				__METHOD__ );
@@ -430,7 +429,7 @@ class Revisionreview extends SpecialPage
         $dbw = wfGetDB( DB_MASTER );
 		// Delete from table
 		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $row->fr_rev_id ) );
-		// Wipe versioning pointers
+		// Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
 		// And the flags...
@@ -765,8 +764,8 @@ class UnreviewedPagesPage extends PageQueryPage {
 	function getName() {
 		return 'UnreviewedPages';
 	}
-
-	function isExpensive( ) { return true; }
+	# Note: updateSpecialPages doesn't support extensions, but this is fast anyway
+	function isExpensive( ) { return false; }
 	function isSyndicated() { return false; }
 
 	function getPageHeader( ) {
@@ -777,40 +776,29 @@ class UnreviewedPagesPage extends PageQueryPage {
 		global $wgContentNamespaces;
 		
 		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
+		# Must be a content page...
+		if( is_null($namespace) || !in_array($namespace,$wgContentNamespaces) ) {
+			$where = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ') ';
+		} else {
+			$where = "page_namespace={$namespace} ";
+		}
+		# No redirects
+		$where .= "AND page_is_redirect=0 ";
 		# We don't like filesorts, so the query methods here will be very different
 		if( !$showOutdated ) {
-			# Must be a content page...
-			if( is_null($namespace) || !in_array($namespace,$wgContentNamespaces) ) {
-				$ns = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
-			} else {
-				$ns = "page_namespace={$namespace}";
-			}
-			$where = "$ns AND fr_rev_id IS NULL AND page_is_redirect=0";
-			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len FROM $page ";
-			if( $category ) {
-				$category = str_replace( ' ', '_', $dbr->strencode($category) );
-				$where .= " AND cl_from IS NOT NULL";
-				$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
-			}
-			$sql .= "LEFT JOIN $flaggedrevs ON (page_namespace = fr_namespace AND page_title = fr_title) 
-				WHERE ($where) ";
+			$where .= "AND page_ext_reviewed IS NULL";
 		} else {
-			# Must be a content page...
-			if( is_null($namespace) || !in_array($namespace,$wgContentNamespaces) ) {
-				$ns = 'fr_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
-			} else {
-				$ns = "fr_namespace={$namespace}";
-			}
-			$where = "$ns AND page_is_redirect=0";
-			$sql = "SELECT fr_namespace AS ns,fr_title AS title,page_len,MAX(fr_rev_id) as oldid FROM $flaggedrevs ";
-			$sql .= "LEFT JOIN $page ON (fr_namespace = page_namespace AND fr_title = page_title) ";
-			if( $category ) {
-				$category = str_replace( ' ', '_', $dbr->strencode($category) );
-				$where .= " AND cl_from IS NOT NULL";
-				$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
-			}
-			$sql .= "WHERE ($where) GROUP BY fr_namespace,fr_title HAVING MAX(page_latest) > MAX(fr_rev_id)";
+			$where .= "AND page_ext_reviewed = 0";
 		}
+		$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable FROM $page ";
+		# Filter by category
+		if( $category ) {
+			$category = str_replace( ' ', '_', $dbr->strencode($category) );
+			$where .= " AND cl_from IS NOT NULL";
+			$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
+		}
+		$sql .= "WHERE ($where) ";
+		
 		return $sql;
 	}
 	
@@ -836,8 +824,9 @@ class UnreviewedPagesPage extends PageQueryPage {
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		if( isset($result->oldid) )
-			$review = ' ('.$skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'), "diff=cur&oldid={$result->oldid}" ).')';
+		if( $result->page_ext_stable )
+			$review = ' ('.$skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'), 
+				"diff=cur&oldid={$result->page_ext_stable}&editreview=1" ).')';
 
 		return( "{$link} {$stxt} {$review}" );
 	}

@@ -236,8 +236,7 @@ class FlaggedRevs {
     public static function getFlaggedRevText( $rev_id ) {
  		$db = wfGetDB( DB_SLAVE );
  		// Get the text from the flagged revisions table
-		$result = $db->select( 
-			array('flaggedrevs','revision'),
+		$result = $db->select( array('flaggedrevs','revision'),
 			array('fr_text'),
 			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'), 
 			__METHOD__,
@@ -257,8 +256,7 @@ class FlaggedRevs {
 	public static function getFlaggedRev( $rev_id ) {
 		$db = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
-		$result = $db->select(
-			array('flaggedrevs','revision'),
+		$result = $db->select( array('flaggedrevs','revision'),
 			array('fr_namespace', 'fr_title', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
 			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__ );
@@ -308,13 +306,13 @@ class FlaggedRevs {
     }
 	
 	/**
-	 * Get latest quality rev, if not, the latest reviewed one
+	 * Get latest quality rev, if not, the latest reviewed one.
 	 * @param Title $title
 	 * @param bool $getText
-	 * @param bool $highPriority, use master DB?
+	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
 	 * @returns Row
 	*/
-    public function getOverridingRev( $title=NULL, $getText=false, $highPriority=false ) {
+    public function getOverridingRev( $title=NULL, $getText=false, $forUpdate=false ) {
     	if( is_null($title) )
 			return null;
     	
@@ -322,25 +320,39 @@ class FlaggedRevs {
     	if( $getText )
     		$selectColumns[] = 'fr_text';
     	
-		$dbr = $highPriority ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+    	if( !$forUpdate ) {
+    		$dbr = wfGetDB( DB_SLAVE );
+			// Skip deleted revisions
+        	$result = $dbr->select( array('page', 'flaggedrevs', 'revision'),
+				$selectColumns,
+				array('page_namespace' => $title->getNamespace(), 'page_title' => $title->getDBkey(),
+					'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 'fr_quality >= 1', 
+					'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+				__METHOD__,
+				array('LIMIT' => 1) );
+			if( !$row = $dbr->fetchObject($result) )
+				return null;
+			
+			return $row;
+		}
+		
+		$dbw = wfGetDB( DB_MASTER );
 		// Look for quality revision
-        $result = $dbr->select(
-			array('flaggedrevs', 'revision'),
+        $result = $dbw->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
 			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one? If not, try any reviewed revision...
-        if( !$row = $dbr->fetchObject($result) ) {
-        	$result = $dbr->select(
-				array('flaggedrevs', 'revision'),
+        if( !$row = $dbw->fetchObject($result) ) {
+        	$result = $dbw->select( array('flaggedrevs', 'revision'),
 				$selectColumns,
 				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
 				'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 				__METHOD__,
 				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
-			if( !$row = $dbr->fetchObject($result) )
+			if( !$row = $dbw->fetchObject($result) )
 				return null;
 		}
 		return $row;
@@ -613,28 +625,20 @@ class FlaggedRevs {
 		
 		return true;
     }
-
-	/**
-	* Updates parser cache output to included needed versioning params.
+    
+ 	/**
+	* @param Article $article
+	* @param Integer $rev_id, the stable version rev_id
+	* Updates the page_ext_stable and page_ext_reviewed fields
 	*/
-    public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
-    	global $wgUser, $action;
-    	// Only trigger on article view for content pages, not for protect/delete/hist
-		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
-			return true;
-		// User must have review rights
-		if( !$wgUser->isAllowed( 'review' ) ) 
-			return true;
-		
-		$parserCache =& ParserCache::singleton();
-    	$parserOutput = $parserCache->get( $article, $wgUser );
-		if( $parserOutput ) {
-			// Clear older, incomplete, cached versions
-			// We need the IDs of templates and timestamps of images used
-			if( !isset($parserOutput->mTemplateIds) || !isset($parserOutput->mImageSHA1Keys) )
-				$article->mTitle->invalidateCache();
-		}
-		return true;
+    function updateArticleOn( $article, $rev_id ) {
+        $dbw = wfGetDB( DB_MASTER );
+        $dbw->update( 'page',
+			array('page_ext_stable' => $rev_id, 
+				'page_ext_reviewed' => ($article->getLatest() == $rev_id) ),
+			array('page_namespace' => $article->mTitle->getNamespace(), 
+				'page_title' => $article->mTitle->getDBkey() ),
+			__METHOD__ );	
     }
     
     public static function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
@@ -650,9 +654,9 @@ class FlaggedRevs {
 	/**
 	* Clears cache for a page when revisiondelete is used
 	*/
-    public static function articleLinksUpdate( $title ) {
+    public static function articleLinksUpdate( $title, $a=null, $b=null ) {
     	global $wgUser, $wgParser;
-    
+    	
     	$article = new Article( $title );
 		// Update the links tables as the stable version may now be the default page...
 		$parserCache =& ParserCache::singleton();
@@ -672,14 +676,16 @@ class FlaggedRevs {
 	/**
 	* Inject stable links on LinksUpdate
 	*/
-    public function extraLinksUpdate( $linksUpdate ) {
+    public static function extraLinksUpdate( $linksUpdate ) {
+    	global $wgFlaggedRevs;
+    
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
     	if( !$linksUpdate->mTitle->isContentPage() ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = $this->getOverridingRev( $linksUpdate->mTitle, true, true );
+    	$sv = $wgFlaggedRevs->getOverridingRev( $linksUpdate->mTitle, true, true );
     	if( !$sv )
 			return true;
     	# Parse the revision
@@ -688,6 +694,8 @@ class FlaggedRevs {
     	# Might as well update the stable cache while we're at it
     	$article = new Article( $linksUpdate->mTitle );
     	FlaggedRevs::updatePageCache( $article, $parserOutput );
+    	# Update page fields
+    	FlaggedRevs::updateArticleOn( $article, $sv->fr_rev_id );
     	# Update the links tables to include these
     	# We want the UNION of links between the current
 		# and stable version. Therefore, we only care about
@@ -926,6 +934,8 @@ class FlaggedRevs {
 	
 	/**
 	* Automatically review an edit and add a log entry in the review log.
+	* LinksUpdate was already called via edit operations, so the page
+	* fields will be up to date. This updates the stable version.
 	*/ 
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
 		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
@@ -943,7 +953,8 @@ class FlaggedRevs {
 				'frt_value' => $value 
 			);
 		}
-		# Parse the text, we cannot rely on cache, may be out of date or not used
+		# Parse the text, we cannot rely on cache, may be out of date or not used.
+		# Also, we need the expanded text anyway.
 		$options = new ParserOptions;
 		$options->setTidy(true);
 		$poutput = $wgParser->parse( $text, $article->mTitle, $options, true, true, $rev->getID() );
@@ -1015,6 +1026,8 @@ class FlaggedRevs {
 		
 		# Might as well save the stable cache
 		$wgFlaggedRevs->updatePageCache( $article, $poutput );
+    	# Update page fields
+    	FlaggedRevs::updateArticleOn( $article, $rev->getID() );
 		# Purge squid for this page only
 		$article->mTitle->purgeSquid();
 		
@@ -1065,6 +1078,29 @@ class FlaggedRevs {
 				array( implode(', ',$groups), implode(', ',$newGroups) ) );
 
 			$user->addGroup('editor');
+		}
+		return true;
+    }
+    
+	/**
+	* Updates parser cache output to included needed versioning params.
+	*/
+    public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
+    	global $wgUser, $action;
+    	// Only trigger on article view for content pages, not for protect/delete/hist
+		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
+			return true;
+		// User must have review rights
+		if( !$wgUser->isAllowed( 'review' ) ) 
+			return true;
+		
+		$parserCache =& ParserCache::singleton();
+    	$parserOutput = $parserCache->get( $article, $wgUser );
+		if( $parserOutput ) {
+			// Clear older, incomplete, cached versions
+			// We need the IDs of templates and timestamps of images used
+			if( !isset($parserOutput->mTemplateIds) || !isset($parserOutput->mImageSHA1Keys) )
+				$article->mTitle->invalidateCache();
 		}
 		return true;
     }
@@ -1612,17 +1648,52 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Same params for the sake of inheritance
 	 * @returns Row
 	 */
-	function getOverridingRev( $title = NULL, $getText=false, $highPriority=false ) {
+	function getOverridingRev( $title = NULL, $getText=false, $forUpdate=false ) {
 		global $wgTitle;
 	
 		if( !is_null($title) && $title->getArticleID() != $wgTitle->getArticleID() )
 			return null; // wtf?
-	
-		if( !$row = $this->getLatestQualityRev( $getText ) ) {
-			if( !$row = $this->getLatestStableRev( $getText ) ) {
-				return null;
+		
+		if( !$forUpdate ) {
+			if( !$row = $this->getLatestQualityRev( $getText ) ) {
+				if( !$row = $this->getLatestStableRev( $getText ) ) {
+            		$this->stablefound = false;
+					return null;
+				}
 			}
+			$this->stablefound = true;
+			$this->stablerev = $row;
+			return $row;
 		}
+        // Cached results available?
+		if( isset($this->stablefound) ) {
+			return ( $this->stablefound ) ? $this->stablerev : null;
+		}
+		
+    	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
+    	if( $getText )
+    		$selectColumns[] = 'fr_text';
+    	
+		$dbw = wfGetDB( DB_MASTER );
+		// Skip deleted revisions
+        $result = $dbw->select( array('page', 'flaggedrevs', 'revision'),
+			$selectColumns,
+			array('page_namespace' => $wgTitle->getNamespace(), 'page_title' => $wgTitle->getDBkey(),
+				'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 'fr_quality >= 1', 
+				'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			__METHOD__,
+			array('LIMIT' => 1) );
+		
+		// Do we have one?
+        if( $row = $dbw->fetchObject($result) ) {
+        	$this->stablefound = true;
+			$this->stablerev = $row;
+			return $row;
+	    } else {
+            $this->stablefound = false;    
+            return null;
+        }
+        
 		return $row;
 	}
     
@@ -1636,8 +1707,8 @@ class FlaggedArticle extends FlaggedRevs {
 	function getLatestQualityRev( $getText=false ) {
 		global $wgTitle;
         // Cached results available?
-		if( isset($this->stablefound) ) {
-			return ( $this->stablefound ) ? $this->stablerev : null;
+		if( isset($this->qualityfound) ) {
+			return ( $this->qualityfound ) ? $this->qualityrev : null;
 		}
 		
     	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
@@ -1646,8 +1717,7 @@ class FlaggedArticle extends FlaggedRevs {
     	
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
-        $result = $dbr->select(
-			array('flaggedrevs', 'revision'),
+        $result = $dbr->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
 			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(), 'fr_quality >= 1',
 			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
@@ -1656,11 +1726,11 @@ class FlaggedArticle extends FlaggedRevs {
 		
 		// Do we have one?
         if( $row = $dbr->fetchObject($result) ) {
-        	$this->stablefound = true;
-			$this->stablerev = $row;
+        	$this->qualityfound = true;
+			$this->qualityrev = $row;
 			return $row;
 	    } else {
-            $this->stablefound = false;    
+            $this->qualityfound = false;    
             return null;
         }
     }
@@ -1686,8 +1756,7 @@ class FlaggedArticle extends FlaggedRevs {
 		
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
-        $result = $dbr->select( 
-			array('flaggedrevs', 'revision'),
+        $result = $dbr->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
 			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(),
 			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
@@ -1764,7 +1833,11 @@ $wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
 # Adds table link references to include ones from the stable version
 $wgHooks['LinksUpdateConstructed'][] = array($wgFlaggedArticle, 'extraLinksUpdate');
 # If a stable version is hidden, move to the next one if possible, and update things
+# Check on undelete/delete too
+$wgHooks['ArticleUndelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+$wgHooks['ArticleDelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
 $wgHooks['ArticleRevisionVisiblityUpdates'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+$wgHooks['ArticleMergeComplete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
 # Update our table NS/Titles when things are moved
 $wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
 # Parser hooks, selects the desired images/templates

@@ -61,3 +61,10 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
   INDEX (fi_rev_id,fi_name,fi_img_timestamp),
   INDEX (fi_rev_id,fi_name,fi_img_sha1)
 ) TYPE=InnoDB;
+
+-- Add page_ext_stable column, similar to page_latest
+-- Add page_ext_upd columns, a boolean for up to date stable versions
+ALTER TABLE /*$wgDBprefix*/page 
+  ADD page_ext_reviewed bool NULL,
+  ADD page_ext_stable int(10) NULL,
+  ADD INDEX ext_namespace_reviewed (page_namespace,page_is_redirect,page_ext_reviewed,page_id);
