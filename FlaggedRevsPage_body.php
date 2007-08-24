@@ -694,14 +694,14 @@ class Unreviewedpages extends SpecialPage
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('viewunreviewed') . '</legend>' .
-			Xml::label( wfMsgHtml("namespace"), 'namespace' ) . ' ' .
-			$this->getNamespaceMenu( $namespace ) . "\n" .
-			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-			'<p>' . Xml::label( wfMsgHtml("unreviewed-category"), 'category' ) . 
-			' ' . Xml::input( 'category', 30, $category, array('id' => 'category') ) . "</p>\n" .
+			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
+			'<p>' . Xml::label( wfMsgHtml("namespace"), 'namespace' ) . ' ' .
+			$this->getNamespaceMenu( $namespace ) .
+			'&nbsp;' . Xml::label( wfMsgHtml("unreviewed-category"), 'category' ) . 
+			' ' . Xml::input( 'category', 30, $category, array('id' => 'category') ) . '</p>' .
 			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) . 
 			' ' . Xml::label( wfMsgHtml("unreviewed-outdated"), 'showoutdated' ) . "</p>\n" .
-			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
+			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 			"</fieldset></form>");
 		
 		list( $limit, $offset ) = wfCheckLimits();
@@ -777,32 +777,42 @@ class UnreviewedPagesPage extends PageQueryPage {
 		global $wgContentNamespaces;
 		
 		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
-		# Must be a content page...
-		if( is_null($namespace) ) {
-			$ns = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
-		} else if( !array_key_exists($namespace,$wgContentNamespaces) ) {
-			$ns = '1 = 0';
+		# We don't like filesorts, so the query methods here will be very different
+		if( !$showOutdated ) {
+			# Must be a content page...
+			if( is_null($namespace) ) {
+				$ns = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
+			} else {
+				$ns = "page_namespace={$namespace}";
+			}
+			$where = "$ns AND fr_rev_id IS NULL AND page_is_redirect=0";
+			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len FROM $page ";
+			if( $category ) {
+				$category = str_replace( ' ', '_', $dbr->strencode($category) );
+				$where .= " AND cl_from IS NOT NULL";
+				$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
+			}
+			$sql .= "LEFT JOIN $flaggedrevs ON (page_namespace = fr_namespace AND page_title = fr_title) 
+				WHERE ($where) ";
 		} else {
-			$ns = "page_namespace=$namespace";
-		}
-		# Show unreviewed pages or outdated ones?
-		$where = $showOutdated ? 'fr_rev_id IS NOT NULL' : 'fr_rev_id IS NULL';
-		$having = $showOutdated ? 'HAVING page_latest > MAX(fr_rev_id)' : '';
-		# Filter by category
-		if( $category ) {
-			$category = str_replace( ' ', '_', $dbr->strencode($category) );
-			$where .= " AND cl_to = '{$category}'";
+			# Must be a content page...
+			if( is_null($namespace) ) {
+				$ns = 'fr_namespace IN(' . implode(',',$wgContentNamespaces) . ')';
+			} else {
+				$ns = "fr_namespace={$namespace}";
+			}
+			$where = "$ns AND page_is_redirect=0";
+			$sql = "SELECT fr_namespace AS ns,fr_title AS title,page_len FROM $flaggedrevs ";
+			$sql .= "LEFT JOIN $page ON (fr_namespace = page_namespace AND fr_title = page_title) ";
+			if( $category ) {
+				$category = str_replace( ' ', '_', $dbr->strencode($category) );
+				$where .= " AND cl_from IS NOT NULL";
+				$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
+			}
+			$sql .= "WHERE ($where) GROUP BY fr_namespace,fr_title HAVING MAX(page_latest) > MAX(fr_rev_id)";
 		}
 		
-		$sql = "SELECT page_namespace,page_title,page_len,page_latest,MAX(fr_rev_id) AS oldid 
-			FROM $page ";
-		if( $category )
-			$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id) ";
-			
-		$sql .= "LEFT JOIN $flaggedrevs ON (fr_namespace = page_namespace AND fr_title = page_title) 
-			WHERE page_is_redirect=0 AND $ns AND ($where) 
-			GROUP BY page_id $having";
-		
+		echo( $sql );
 		return $sql;
 	}
 	
@@ -819,7 +829,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 		global $wgLang;
 		
 		$fname = 'UnreviewedPagesPage::formatResult';
-		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
+		$title = Title::makeTitle( $result->ns, $result->title );
 		$link = $skin->makeKnownLinkObj( $title );
 		$stxt = $review = '';
 		if(!is_null($size = $result->page_len)) {
@@ -828,7 +838,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		if( $result->oldid )
+		if( isset($result->oldid) )
 			$review = ' ('.$skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'), "diff=cur&oldid={$result->oldid}" ).')';
 
 		return( "{$link} {$stxt} {$review}" );
