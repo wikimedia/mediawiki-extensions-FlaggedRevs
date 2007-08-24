@@ -88,12 +88,14 @@ $wgFlaggedRevComments = false;
 $wgFlaggedRevsWatch = true;
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
-# Auto-review new pages and edits directly to the stable version by reviewers?
+# Auto-review edits directly to the stable version by reviewers?
 # Depending on how often templates are edited and by whom, this can possibly
-# Allow for vandalism to slip in :/
+# allow for vandalism to slip in :/
 # Users should preview changes perhaps. This doesn't help much for section
 # editing, so they may also want to review the page afterwards.
 $wgFlaggedRevsAutoReview = true;
+# Auto-review new pages with the minimal level?
+$wgFlaggedRevsAutoReviewNew = false;
 
 # How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
@@ -912,9 +914,9 @@ class FlaggedRevs {
 	* When a new page is made by a reviwer, try to automatically review it.
 	*/ 	
 	public static function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
+		global $wgFlaggedRevsAutoReviewNew, $wgFlaggedRevs;
 	
-		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+		if( !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed( 'review' ) )
 			return true;
 		if( !$rev ) {
 			$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
