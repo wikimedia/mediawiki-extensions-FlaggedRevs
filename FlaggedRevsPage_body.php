@@ -800,7 +800,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 			$where .= " AND cl_from = page_id AND cl_to = '{$category}' ";
 		}
 		$sql .= " WHERE ($where) ";
-		echo( $sql );
 		return $sql;
 	}
 	
