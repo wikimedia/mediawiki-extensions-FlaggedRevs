@@ -728,7 +728,7 @@ class Unreviewedpages extends SpecialPage
 			$arr = array($allnamespaces => wfMsg('namespacesall')) + $arr;
 		}
 
-		$s .= "\t" . Xml::element("option", array("value" => "all"), "all") . "\n";
+		$s .= "\t" . Xml::element("option", array("value" => ''), wfMsg('namespacesall')) . "\n";
 		
 		foreach($arr as $index => $name) {
 			# Content only
@@ -755,8 +755,8 @@ class Unreviewedpages extends SpecialPage
  */
 class UnreviewedPagesPage extends PageQueryPage {
 	
-	function __construct( $namespace=NULL, $showOutdated=NULL, $category=NULL ) {
-		$this->namespace = intval($namespace);
+	function __construct( $namespace, $showOutdated=NULL, $category=NULL ) {
+		$this->namespace = $namespace=='' ? null : intval($namespace);
 		$this->category = $category;
 		$this->showOutdated = $showOutdated;
 	}
@@ -798,7 +798,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 			$sql .= "LEFT JOIN $categorylinks ON (cl_from = page_id AND cl_to = '{$category}') ";
 		}
 		$sql .= "WHERE ($where) ";
-		
 		return $sql;
 	}
 	
