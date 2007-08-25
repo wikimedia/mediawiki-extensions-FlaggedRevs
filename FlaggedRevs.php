@@ -74,6 +74,9 @@ $wgSimpleFlaggedRevsUI = false;
 # Add stable/current revision tabs. May be redundant due to the tags.
 $wgFlaggedRevTabs = false;
 
+# Allowed namespaces of reviewable pages
+$wgFlaggedRevsNamespaces = array( NS_MAIN );
+
 # Revision tagging can slow development...
 # For example, the main user base may become complacent,
 # perhaps treat flagged pages as "done",
@@ -84,7 +87,8 @@ $wgFlaggedRevsAnonOnly = true;
 $wgFlaggedRevsOverride = true;
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = false;
-# Make user's watch pages when reviewed if they watch pages that they edit
+# Automatically checks the 'watch' box on the review form if they set 
+# "watch pages I edit" as true at [[Special:Preferences]].
 $wgFlaggedRevsWatch = true;
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
@@ -536,6 +540,17 @@ class FlaggedRevs {
     	}
     	return $min;
     }
+
+	/**
+	* Is this page in reviewable namespace?
+	* @param Title, $title
+	* @returns bool
+	*/
+    public static function isReviewable( $title ) {
+    	global $wgFlaggedRevsNamespaces;
+    	
+    	return in_array($title->getNamespace(),$wgFlaggedRevsNamespaces);
+    }
     
     ######### Hooked functions #########
     
@@ -684,7 +699,7 @@ class FlaggedRevs {
     	$fname = 'FlaggedRevs::extraLinksUpdate';
     	wfProfileIn( $fname );
 		    	
-    	if( !$linksUpdate->mTitle->isContentPage() ) 
+    	if( !FlaggedRevs::isReviewable( $linksUpdate->mTitle ) ) 
 			return true;
     	# Check if this page has a stable version
     	$sv = $wgFlaggedRevs->getOverridingRev( $linksUpdate->mTitle, true, true );
@@ -1089,11 +1104,10 @@ class FlaggedRevs {
 	*/
     public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
     	global $wgUser, $action;
-    	// Only trigger on article view for content pages, not for protect/delete/hist
-		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
+		// Only trigger on article view for content pages, not for protect/delete/hist
+		if( $action !='view' || !$wgUser->isAllowed( 'review' ) ) 
 			return true;
-		// User must have review rights
-		if( !$wgUser->isAllowed( 'review' ) ) 
+		if( !$article || !$article->exists() || !FlaggedRevs::isReviewable( $article->mTitle ) ) 
 			return true;
 		
 		$parserCache =& ParserCache::singleton();
@@ -1145,9 +1159,11 @@ class FlaggedArticle extends FlaggedRevs {
     static function pageOverride() {
     	global $wgTitle, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsOverride, $wgUser, $wgRequest, $action;
     	# This only applies to viewing content pages
-    	if( $action !='view' || !$wgTitle->isContentPage() ) return;
+    	if( $action !='view' || !FlaggedRevs::isReviewable( $wgTitle ) ) 
+			return;
     	# Does not apply to diffs/old revisions
-    	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') ) return;
+    	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') ) 
+			return;
     	# Does the stable version override the current one?
     	if( $wgFlaggedRevsOverride ) {
     		# If $wgFlaggedRevsAnonOnly is set to false, stable version are only requested explicitly
@@ -1169,7 +1185,7 @@ class FlaggedArticle extends FlaggedRevs {
 	function setPageContent( $article, &$outputDone, &$pcache ) {
 		global $wgRequest, $wgTitle, $wgOut, $action, $wgUser;
 		// Only trigger on article view for content pages, not for protect/delete/hist
-		if( !$article || !$article->exists() || !$article->mTitle->isContentPage() || $action !='view' ) 
+		if( $action !='view' || !$article || !$article->exists() || !FlaggedRevs::isReviewable( $article->mTitle ) ) 
 			return true;
 		// Grab page and rev ids
 		$pageid = $article->getId();
@@ -1289,7 +1305,7 @@ class FlaggedArticle extends FlaggedRevs {
     function addToEditView( $editform ) {
 		global $wgRequest, $wgTitle, $wgOut;
 		// Talk pages cannot be validated
-		if( !$editform->mArticle || !$wgTitle->isContentPage() )
+		if( !$editform->mArticle || !FlaggedRevs::isReviewable( $wgTitle ) )
 			return false;
 		// Find out revision id
 		if( $editform->mArticle->mRevision ) {
@@ -1343,10 +1359,10 @@ class FlaggedArticle extends FlaggedRevs {
     function addReviewForm( $out ) {
     	global $wgArticle, $wgRequest, $action;
 
-		if( !$wgArticle || !$wgArticle->exists() || !$wgArticle->mTitle->isContentPage() || $action !='view' ) 
+		if( !$wgArticle || !$wgArticle->exists() || !FlaggedRevs::isReviewable( $wgArticle->mTitle ) ) 
 			return true;
 		// Check if page is protected
-		if( !$wgArticle->mTitle->quickUserCan( 'edit' ) ) {
+		if( $action !='view' || !$wgArticle->mTitle->quickUserCan( 'edit' ) ) {
 			return true;
 		}
 		// Get revision ID
@@ -1384,7 +1400,7 @@ class FlaggedArticle extends FlaggedRevs {
 		global $wgHooks;
 		// Are we using the popular cite extension?
 		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
-			if( $sktmp->mTitle->isContentPage() && $revid !== 0 ) {
+			if( FlaggedRevs::isReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
 				$nav_urls['cite'] = array(
 					'text' => wfMsg( 'cite_article_link' ),
 					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
@@ -1402,7 +1418,7 @@ class FlaggedArticle extends FlaggedRevs {
 			return true;
 		$title = $sktmp->mTitle->getSubjectPage();
 		// Non-content pages cannot be validated
-		if( !$title->isContentPage() || !$title->exists() ) 
+		if( !FlaggedRevs::isReviewable( $title ) || !$title->exists() ) 
 			return true;
 		$article = new Article( $title );
 		// If we are viewing a page normally, and it was overridden,

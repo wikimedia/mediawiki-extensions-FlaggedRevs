@@ -41,7 +41,7 @@ class Revisionreview extends SpecialPage
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		// Must be a valid content page
 		$this->page = Title::newFromUrl( $this->target );
-		if( !$this->target || !$this->oldid || !$this->page->isContentPage() ) {
+		if( !$this->target || !$this->oldid || !FlaggedRevs::isReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
@@ -593,7 +593,7 @@ class Stableversions extends SpecialPage
 		
 		// Must be a valid page/Id
 		$page = Title::newFromUrl( $this->page );
-		if( is_null($page) || !$page->isContentPage() ) {
+		if( is_null($page) || !FlaggedRevs::isReviewable( $page ) ) {
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
@@ -710,7 +710,7 @@ class Unreviewedpages extends SpecialPage
 	}
 	
 	function getNamespaceMenu( $selected=NULL, $allnamespaces = null, $includehidden=false ) {
-		global $wgContLang, $wgContentNamespaces;
+		global $wgContLang, $wgFlaggedRevsNamespaces;
 		
 		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
 		if( $selected !== '' ) {
@@ -727,7 +727,7 @@ class Unreviewedpages extends SpecialPage
 		
 		foreach($arr as $index => $name) {
 			# Content only
-			if($index < NS_MAIN || !in_array($index, $wgContentNamespaces) ) 
+			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) ) 
 				continue;
 
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
@@ -768,12 +768,12 @@ class UnreviewedPagesPage extends PageQueryPage {
 	}
 
 	function getSQLText( &$dbr, $namespace, $showOutdated, $category ) {
-		global $wgContentNamespaces;
+		global $wgFlaggedRevsNamespaces;
 		
 		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
 		# Must be a content page...
-		if( is_null($namespace) || !in_array($namespace,$wgContentNamespaces) ) {
-			$where = 'page_namespace IN(' . implode(',',$wgContentNamespaces) . ') ';
+		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$where = 'page_namespace IN(' . implode(',',$wgFlaggedRevsNamespaces) . ') ';
 		} else {
 			$where = "page_namespace={$namespace} ";
 		}
