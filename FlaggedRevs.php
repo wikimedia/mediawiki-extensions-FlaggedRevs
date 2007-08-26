@@ -669,9 +669,30 @@ class FlaggedRevs {
     }
 
 	/**
-	* Clears cache for a page when revisiondelete is used
+	* Clears cache for a page when delete is used
 	*/
-    public static function articleLinksUpdate( $title, $a=null, $b=null ) {
+    public static function articleLinksUpdate( $article, $a=null, $b=null ) {
+    	global $wgUser, $wgParser;
+    	
+		// Update the links tables as the stable version may now be the default page...
+		$parserCache =& ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $wgUser );
+		if( $poutput==false ) {
+			$text = $article->getContent();
+			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+			# Might as well save the cache while we're at it
+			$parserCache->save( $poutput, $article, $wgUser );
+		}
+		$u = new LinksUpdate( $article->mTitle, $poutput );
+		$u->doUpdate(); // this will trigger our hook to add stable links too...
+		
+		return true;
+    }
+    
+	/**
+	* Clears cache for a page when revisiondelete/undelete is used
+	*/
+    public static function articleLinksUpdate2( $title, $a=null, $b=null ) {
     	global $wgUser, $wgParser;
     	
     	$article = new Article( $title );
@@ -684,7 +705,7 @@ class FlaggedRevs {
 			# Might as well save the cache while we're at it
 			$parserCache->save( $poutput, $article, $wgUser );
 		}
-		$u = new LinksUpdate( $title, $poutput );
+		$u = new LinksUpdate( $article->mTitle, $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
 		
 		return true;
@@ -1850,11 +1871,10 @@ $wgHooks['PageHistoryLineEnding'][] = array($wgFlaggedArticle, 'addToHistLine');
 $wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
 # Adds table link references to include ones from the stable version
 $wgHooks['LinksUpdateConstructed'][] = array($wgFlaggedArticle, 'extraLinksUpdate');
-# If a stable version is hidden, move to the next one if possible, and update things
-# Check on undelete/delete too
-$wgHooks['ArticleUndelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
-$wgHooks['ArticleDelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
-$wgHooks['ArticleRevisionVisiblityUpdates'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+# Check on undelete/delete/revisiondelete for changes to stable version
+$wgHooks['ArticleDeleteComplete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+$wgHooks['ArticleUndelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
+$wgHooks['ArticleRevisionVisiblitySet'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
 $wgHooks['ArticleMergeComplete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
 # Update our table NS/Titles when things are moved
 $wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
