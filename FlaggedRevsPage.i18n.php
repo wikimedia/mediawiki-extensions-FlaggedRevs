@@ -290,8 +290,10 @@ $RevisionreviewMessages['de'] = array(
 
 	'unreviewedpages'       => 'Ungeprüfte Artikel',
 	'viewunreviewed'        => 'Liste ungeprüfter Artikel',
-	'included-nonquality'   => 'Zeige nur geprüfte Artikel, die noch keine Qualitätsbewertung haben.',
-	'unreviewed-list'       => 'Diese Liste enthält Artikel, die noch nicht geprüft wurden.',
+	'unreviewed-outdated'   => 'Zeige nur Seiten, die ungeprüfte Version nach einer stabilen Version haben.',
+	'unreviewed-category'   => 'Kategorie:',
+	'unreviewed-diff'       => 'Änderungen',
+	'unreviewed-list'       => 'Diese Seite zeigt Artikel, die noch gar nicht geprüft wurden oder ungeprüfte Versionen haben.',
 );
 
 $RevisionreviewMessage['nl'] = array(
