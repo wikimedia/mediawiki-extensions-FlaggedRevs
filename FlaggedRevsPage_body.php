@@ -367,6 +367,8 @@ class Revisionreview extends SpecialPage
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
+        # Compress $fulltext, passed by reference
+        $textFlags = FlaggedRevs::compressText( $fulltext );
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
@@ -375,8 +377,9 @@ class Revisionreview extends SpecialPage
 			'fr_user'      => $wgUser->getId(),
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => $notes,
+			'fr_quality'   => $quality,
 			'fr_text'      => $fulltext, // Store expanded text for speed
-			'fr_quality'   => $quality
+			'fr_flags'     => $textFlags
 		);
 		// Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );

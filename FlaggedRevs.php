@@ -103,6 +103,8 @@ $wgFlaggedRevsAutoReviewNew = false;
 
 # How long to cache stable versions? (seconds)
 $wgFlaggedRevsExpire = 7 * 24 * 3600;
+# Compress pre-processed flagged revision text?
+$wgFlaggedRevsCompression = false;
 
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
@@ -195,7 +197,7 @@ class FlaggedRevs {
      */
     public static function expandText( $text='', $title, $id=null ) {
     	global $wgParser;
-    	# Causes our hooks to trigger
+    	# Make our hooks to trigger
     	$wgParser->isStable = true;
     	$wgParser->includesMatched = true;
         # Parse with default options
@@ -221,8 +223,8 @@ class FlaggedRevs {
 	 */
     public static function parseStableText( $title, $text, $id=NULL, $options ) {
     	global $wgParser;
-    	
-    	$wgParser->isStable = true; // Causes our hooks to trigger
+    	# Make our hooks to trigger
+    	$wgParser->isStable = true;
 		# Don't show section-edit links
 		# They can be old and misleading
 		$options->setEditSection(false);
@@ -234,6 +236,49 @@ class FlaggedRevs {
        	return $parserOut;
     }
     
+    /**
+    * @param string $text
+    * @returns string, flags
+    * Compress pre-processed text, passed by reference
+    */
+    public static function compressText( &$text ) {
+    	global $wgFlaggedRevsCompression;
+    	# Compress text if $wgFlaggedRevsCompression is set.
+		$flags = array( 'utf-8' );
+		if( $wgFlaggedRevsCompression ) {
+			if( function_exists( 'gzdeflate' ) ) {
+				$text = gzdeflate( $text );
+				$flags[] = 'gzip';
+			} else {
+				wfDebug( "Revision::compressRevisionText() -- no zlib support, not compressing\n" );
+			}
+		}
+    	return implode( ',', $flags );
+    }
+    
+    /**
+    * @param string $text
+    * @param mixed $flags, either in string or array form
+    * @returns string
+    * Uncompress pre-processed text, using flags
+    */
+    public static function uncompressText( $text, $flags ) {
+    	global $wgFlaggedRevsCompression;
+    	
+    	if( !is_array($flags) ) {
+    		$flags = explode( ',', $flags );
+    	}
+    	# Lets not mix up types here
+    	if( is_null($text) )
+    		return null;
+    	
+		if( in_array( 'gzip', $flags ) ) {
+			# Deal with optional compression if $wgFlaggedRevsCompression is set.
+			$text = gzinflate( $text );
+		}
+		return $text;
+    }
+    
 	/**
 	 * @param int $rev_id
 	 * @returns string
@@ -243,12 +288,12 @@ class FlaggedRevs {
  		$db = wfGetDB( DB_SLAVE );
  		// Get the text from the flagged revisions table
 		$result = $db->select( array('flaggedrevs','revision'),
-			array('fr_text'),
+			array('fr_text', 'fr_flags'),
 			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'), 
 			__METHOD__,
 			array('LIMIT' => 1) );
 		if( $row = $db->fetchObject($result) ) {
-			return $row->fr_text;
+			return self::uncompressText( $row->fr_text, $row->fr_flags );
 		}
 		
 		return NULL;
@@ -323,8 +368,10 @@ class FlaggedRevs {
 			return null;
     	
     	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
-    	if( $getText )
+    	if( $getText ) {
     		$selectColumns[] = 'fr_text';
+    		$selectColumns[] = 'fr_flags';
+    	}
     	
     	if( !$forUpdate ) {
     		$dbr = wfGetDB( DB_SLAVE );
@@ -728,7 +775,8 @@ class FlaggedRevs {
 			return true;
     	# Parse the revision
     	$options = new ParserOptions;
-    	$parserOutput = self::parseStableText( $linksUpdate->mTitle, $sv->fr_text, $sv->fr_rev_id, $options );
+    	$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
+    	$parserOutput = self::parseStableText( $linksUpdate->mTitle, $text, $sv->fr_rev_id, $options );
     	# Might as well update the stable cache while we're at it
     	$article = new Article( $linksUpdate->mTitle );
     	FlaggedRevs::updatePageCache( $article, $parserOutput );
@@ -1013,8 +1061,8 @@ class FlaggedRevs {
 				$imgset[] = array( 
 					'fi_rev_id' => $rev->getId(),
 					'fi_name' => $dbkey,
-					'fi_img_timestamp' => $timestamp,
-					'fr_img_sha1' => $sha1
+					'fi_img_timestamp' => $time,
+					'fi_img_sha1' => $sha1
 				);
 			}
         }
@@ -1036,6 +1084,8 @@ class FlaggedRevs {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
+        # Compress $fulltext, passed by reference
+        $textFlags = self::compressText( $fulltext );
 		# Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
@@ -1044,8 +1094,9 @@ class FlaggedRevs {
 			'fr_user'      => $user->getId(),
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => '',
+			'fr_quality'   => $quality,
 			'fr_text'      => $fulltext, // Store expanded text for speed
-			'fr_quality'   => $quality
+			'fr_flags'     => $textFlags
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
@@ -1710,8 +1761,10 @@ class FlaggedArticle extends FlaggedRevs {
 		}
 		
     	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
-    	if( $getText )
+    	if( $getText ) {
     		$selectColumns[] = 'fr_text';
+    		$selectColumns[] = 'fr_flags';
+    	}
     	
 		$dbw = wfGetDB( DB_MASTER );
 		// Skip deleted revisions
@@ -1751,8 +1804,10 @@ class FlaggedArticle extends FlaggedRevs {
 		}
 		
     	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
-    	if( $getText )
+    	if( $getText ) {
     		$selectColumns[] = 'fr_text';
+    		$selectColumns[] = 'fr_flags';
+    	}
     	
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions
@@ -1790,8 +1845,10 @@ class FlaggedArticle extends FlaggedRevs {
 		}
 		
     	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
-    	if( $getText )
+    	if( $getText ) {
     		$selectColumns[] = 'fr_text';
+    		$selectColumns[] = 'fr_flags';
+    	}
 		
 		$dbr = wfGetDB( DB_SLAVE );
 		// Skip deleted revisions

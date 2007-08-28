@@ -12,11 +12,14 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob NOT NULL default '',
+  -- Store the precedence level
+  fr_quality tinyint(1) default 0,
   -- Store the text with all transclusions resolved
   -- This will trade space for speed
   fr_text mediumblob NOT NULL default '',
-  -- Store the precedence level
-  fr_quality tinyint(1) default 0,
+  -- Comma-separated list of flags:
+  -- gzip: text is compressed with PHP's gzdeflate() function.
+  fr_flags tinyblob NOT NULL,
   
   PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
   UNIQUE KEY (fr_rev_id),

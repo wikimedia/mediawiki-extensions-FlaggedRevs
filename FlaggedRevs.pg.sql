@@ -10,8 +10,9 @@ CREATE TABLE flaggedrevs (
   fr_user int(5)  INTEGER      NULL REFERENCES mwuser(user_id) ON DELETE SET NULL,
   fr_timestamp    TIMESTAMPTZ,
   fr_comment      TEXT     NOT NULL DEFAULT '',
+  fr_quality      SMALLINT NOT NULL DEFAULT 0,
   fr_text         TEXT     NOT NULL DEFAULT '',
-  fr_quality      SMALLINT NOT NULL DEFAULT 0
+  fr_flags        TEXT     NOT NULL
 );
 CREATE INDEX fr_namespace_title ON flaggedrevs (fr_namespace,fr_title,fr_quality,fr_rev_id);
 
