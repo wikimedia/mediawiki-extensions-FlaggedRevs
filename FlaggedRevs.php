@@ -1132,26 +1132,31 @@ class FlaggedRevs {
 		
 		if( !$wgFlaggedRevsAutopromote )
 			return true;
-		// Grab current groups
+		# Grab current groups
 		$groups = $user->getGroups();
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now-$usercreation) / 86400);
-		// Do not give this to current holders or bots
+		# Do not give this to current holders or bots
 		if( in_array( array('bot','editor'), $groups ) )
 			return true;
-		// Check if we need to promote...
+		# Check if we need to promote...
 		if( $userage < $wgFlaggedRevsAutopromote['days'] )
 			return true;
 		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] )
 			return true;
 		if( $wgFlaggedRevsAutopromote['email'] && !$wgUser->isAllowed('emailconfirmed') )
 			return true;
+		# User must have a user page and talk page
+		$up = $user->getUserPage();
+		$utp = $user->getTalkPage();
+		if( !$up->exists() || !$utp->exists() )
+			return true;
     	# Do not re-add status if it was previously removed...
 		$db = wfGetDB( DB_MASTER );
 		$removed = $dbw->selectField( 'logging', '1', 
 			array( 'log_namespace' => NS_USER,
-				'log_title' => $wgUser->getName(),
+				'log_title' => $wgUser->getUserPage()->getDBkey(),
 				'log_type'  => 'rights',
 				'log_action'  => 'erevoke' ),
 			__METHOD__,

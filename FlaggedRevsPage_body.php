@@ -754,7 +754,7 @@ class Unreviewedpages extends SpecialPage
 class UnreviewedPagesPage extends PageQueryPage {
 	
 	function __construct( $namespace, $showOutdated=false, $category=NULL ) {
-		$this->namespace = intval($namespace);
+		$this->namespace = $namespace;
 		$this->category = $category;
 		$this->showOutdated = $showOutdated;
 	}
@@ -775,13 +775,14 @@ class UnreviewedPagesPage extends PageQueryPage {
 		
 		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
 		# Must be a content page...
+		if( !is_null($namespace) )
+			$namespace = intval($namespace);
+		
 		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$where = 'page_namespace IN(' . implode(',',$wgFlaggedRevsNamespaces) . ') ';
-		} else {
-			$where = "page_namespace={$namespace} ";
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0];
 		}
 		# No redirects
-		$where .= "AND page_is_redirect=0 ";
+		$where = "page_namespace={$namespace} AND page_is_redirect=0 ";
 		# We don't like filesorts, so the query methods here will be very different
 		if( !$showOutdated ) {
 			$where .= "AND page_ext_reviewed IS NULL";
@@ -794,7 +795,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
 			FROM $page FORCE INDEX(ext_namespace_reviewed) 
 			RIGHT JOIN $categorylinks ON(cl_from = page_id AND cl_to = '{$category}')";
-			#$where .= " AND cl_from IS NOT NULL ";
 		} else {
 			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
 			FROM $page FORCE INDEX(ext_namespace_reviewed)";
