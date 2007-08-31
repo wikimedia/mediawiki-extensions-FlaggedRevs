@@ -573,20 +573,6 @@ class FlaggedRevs {
     	}
     	return true;
     }
-    
-	/**
-	* @param Array $flags
-	* @returns integer, lowest rating level
-	*/
-    public static function getLCQuality( $flags ) {
-    	global $wgFlaggedRevValues;
-    	
-    	$min = false;
-    	foreach( $flags as $f => $v ) {
-    		if( $min==false || $v < $min ) $min = $v;
-    	}
-    	return $min;
-    }
 
 	/**
 	* Is this page in reviewable namespace?
@@ -1028,8 +1014,7 @@ class FlaggedRevs {
 		
 		$quality = 0;
 		if( FlaggedRevs::isQuality($flags) ) {
-			$quality = FlaggedRevs::getLCQuality($flags);
-			$quality = ($quality > 1) ? $quality : 1;
+			$quality = FlaggedRevs::isPristine($flags) ? 2 : 1;
 		}
 		$flagset = $tmpset = $imgset = array();
 		foreach( $flags as $tag => $value ) {
