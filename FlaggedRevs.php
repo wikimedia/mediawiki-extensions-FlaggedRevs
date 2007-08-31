@@ -1154,7 +1154,7 @@ class FlaggedRevs {
 			return true;
     	# Do not re-add status if it was previously removed...
 		$db = wfGetDB( DB_MASTER );
-		$removed = $dbw->selectField( 'logging', '1', 
+		$removed = $dbw->selectField( 'logging', 'log_timestamp', 
 			array( 'log_namespace' => NS_USER,
 				'log_title' => $wgUser->getUserPage()->getDBkey(),
 				'log_type'  => 'rights',
