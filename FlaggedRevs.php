@@ -140,7 +140,14 @@ $wgGroupPermissions['reviewer']['validate'] = true;
 $wgGroupPermissions['reviewer']['review']   = true;
 
 # Define when users get automatically promoted to editors. Set as false to disable.
-$wgFlaggedRevsAutopromote = array('days' => 60, 'edits' => 300, 'email' => true);
+$wgFlaggedRevsAutopromote = array(
+	'days' => 60,
+	'edits' => 200,
+	'spacing' => 5,
+	'benchmarks' => 5, // keep this small
+	'email' => true,
+	'userpage' => true
+);
 
 #
 ############ Variables below this point should probably not be modified ############
@@ -1122,6 +1129,7 @@ class FlaggedRevs {
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now-$usercreation) / 86400);
+		$userpage = $user->getUserPage();
 		# Do not give this to current holders or bots
 		if( in_array( array('bot','editor'), $groups ) )
 			return true;
@@ -1132,32 +1140,56 @@ class FlaggedRevs {
 			return true;
 		if( $wgFlaggedRevsAutopromote['email'] && !$wgUser->isAllowed('emailconfirmed') )
 			return true;
-		# User must have a user page and talk page
-		$up = $user->getUserPage();
-		$utp = $user->getTalkPage();
-		if( !$up->exists() || !$utp->exists() )
+		if( $wgFlaggedRevsAutopromote['userpage'] && !$userpage->exists() )
+			return true;
+		if( $user->isBlocked() )
 			return true;
     	# Do not re-add status if it was previously removed...
-		$db = wfGetDB( DB_MASTER );
-		$removed = $dbw->selectField( 'logging', 'log_timestamp', 
+		$dbw = wfGetDB( DB_MASTER );
+		$removed = $dbw->selectField( 'logging',
+			'log_timestamp',
 			array( 'log_namespace' => NS_USER,
 				'log_title' => $wgUser->getUserPage()->getDBkey(),
 				'log_type'  => 'rights',
 				'log_action'  => 'erevoke' ),
 			__METHOD__,
-			array('FORCE INDEX' => 'page_time') ); 
-			
-		if( $removed===false ) {
-			$newGroups = $groups ;
-			array_push( $newGroups, 'editor');
-
-			# Lets NOT spam RC, set $RC to false
-			$log = new LogPage( 'rights', false );
-			$log->addEntry('rights', $user->getUserPage(), wfMsgHtml('makevalidate-autosum'), 
-				array( implode(', ',$groups), implode(', ',$newGroups) ) );
-
-			$user->addGroup('editor');
+			array('USE INDEX' => 'page_time') ); 
+		if( $removed )
+			return true;
+		# Check for edit spacing. This can be expensive...so check it last
+		if( $wgFlaggedRevsAutopromote['spacing'] > 0 && $wgFlaggedRevsAutopromote['benchmarks'] > 1 ) {
+			$spacing = $wgFlaggedRevsAutopromote['spacing'] * 24 * 3600; // Convert to hours
+			# Check the oldest edit
+			$dbr = wfGetDB( DB_SLAVE );
+			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
+				array( 'rev_user' => $user->getID() ),
+				array( 'ORDER BY' => 'rev_timestamp ASC',
+					'USE INDEX' => 'user_timestamp' ) );
+			# Recursevly check for for an edit $spacing days later, until we are done.
+			# The first edit counts, so we have one less scans to do...
+			$benchmarks = 0;
+			$needed = $wgFlaggedRevsAutopromote['benchmarks'] - 1;
+			while( $lower && $benchmarks < $needed ) {
+				$lower += $spacing;
+				$lower = $dbr->selectField( 'revision', 'rev_timestamp',
+					array( "rev_timestamp > {$lower}"),
+					array( 'ORDER BY' => 'rev_timestamp ASC',
+						'USE INDEX' => 'user_timestamp' ) );
+				if( $lower !==false )
+					$benchmarks++;
+			}
+			if( $benchmarks < $wgFlaggedRevsAutopromote['benchmarks'] )
+				return true;
 		}
+		# Add editor rights
+		$newGroups = $groups ;
+		array_push( $newGroups, 'editor');
+		# Lets NOT spam RC, set $RC to false
+		$log = new LogPage( 'rights', false );
+		$log->addEntry('rights', $user->getUserPage(), wfMsgHtml('makevalidate-autosum'), 
+			array( implode(', ',$groups), implode(', ',$newGroups) ) );
+		$user->addGroup('editor');
+		
 		return true;
     }
     
