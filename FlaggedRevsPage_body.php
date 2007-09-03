@@ -401,7 +401,9 @@ class Revisionreview extends SpecialPage
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+			$options = ParserOptions::newFromUser($wgUser);
+			$options->setTidy(true);
+			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
@@ -555,8 +557,7 @@ class Stableversions extends SpecialPage
 	}
 	
 	function showStableRevision( $frev ) {
-		global $wgParser, $wgLang, $wgUser, $wgOut, $wgTitle, $wgFlaggedRevs;
-			
+		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedRevs;
 		// Get the revision
 		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
 		// Revision must exists
@@ -578,8 +579,8 @@ class Stableversions extends SpecialPage
 				'</span>';
 		// Parse the text...
 		$text = $wgFlaggedRevs->getFlaggedRevText( $this->oldid );
-		$options = ParserOptions::newFromUser($wgUser);
-       	$parserOutput = $wgFlaggedRevs->parseStableText( $page, $text, $this->oldid, $options );
+		$article = new Article( $page );
+       	$parserOutput = $wgFlaggedRevs->parseStableText( $article, $text, $this->oldid );
 		$notes = $wgFlaggedRevs->ReviewNotes( $frev );
 		// Set the new body HTML, place a tag on top
 		$wgOut->addHTML('<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>' . $parserOutput->getText() . $notes);

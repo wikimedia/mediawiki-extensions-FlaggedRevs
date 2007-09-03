@@ -71,7 +71,8 @@ function efLoadFlaggedRevs() {
 # This will only distinguish "sigted", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
 $wgSimpleFlaggedRevsUI = false;
-# Add stable/current revision tabs. May be redundant due to the tags.
+# Add stable/draft revision tabs. May be redundant due to the tags.
+# If you have an open wiki, with the simple UI, you may want to enable these.
 $wgFlaggedRevTabs = false;
 
 # Allowed namespaces of reviewable pages
@@ -149,8 +150,8 @@ $wgFlaggedRevsAutopromote = array(
 	'userpage' => true
 );
 
-#
-############ Variables below this point should probably not be modified ############
+# Variables below this point should probably not be modified
+#########
 
 # Add review log
 $wgLogTypes[] = 'review';
@@ -203,12 +204,12 @@ class FlaggedRevs {
      * All included pages/arguments are expanded out
      */
     public static function expandText( $text='', $title, $id=null ) {
-    	global $wgParser;
+    	global $wgParser, $wgUser;
     	# Make our hooks to trigger
     	$wgParser->isStable = true;
     	$wgParser->includesMatched = true;
         # Parse with default options
-        $options = new ParserOptions;
+        $options = new ParserOptions($wgUser);
         $options->setRemoveComments( true ); // Save some bandwidth ;)
         $outputText = $wgParser->preprocess( $text, $title, $options, $id );
         $expandedText = array( $outputText, $wgParser->includesMatched );
@@ -220,23 +221,23 @@ class FlaggedRevs {
     }
     
 	/**
-	 * @param Title $title
+	 * @param Article $article
 	 * @param string $text
 	 * @param int $id
-	 * @param ParserOptions $options
-	 * @param int $timeframe, when the revision was reviewed
 	 * @returns ParserOutput
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
-    public static function parseStableText( $title, $text, $id=NULL, $options ) {
-    	global $wgParser;
+    public static function parseStableText( $article, $text, $id=NULL ) {
+    	global $wgParser, $wgUser;
+    	# Default options for anons if not logged in
+    	$options = ParserOptions::newFromUser($wgUser);
     	# Make our hooks to trigger
     	$wgParser->isStable = true;
-		# Don't show section-edit links
-		# They can be old and misleading
+		# Don't show section-edit links, they can be old and misleading
 		$options->setEditSection(false);
+		//$options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
-       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
+       	$parserOut = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $id );
        	# Reset $wgParser
        	$wgParser->isStable = false; // Done!
        	
@@ -257,7 +258,7 @@ class FlaggedRevs {
 				$text = gzdeflate( $text );
 				$flags[] = 'gzip';
 			} else {
-				wfDebug( "Revision::compressRevisionText() -- no zlib support, not compressing\n" );
+				wfDebug( "FlaggedRevs::compressText() -- no zlib support, not compressing\n" );
 			}
 		}
     	return implode( ',', $flags );
@@ -648,13 +649,13 @@ class FlaggedRevs {
     
 	/**
 	* @param Article $article
-	* @param parerOutput $parserOutput
-	* Updates the stable cache of a page with the given $parserOutput
+	* @param parerOutput $parserOut
+	* Updates the stable cache of a page with the given $parserOut
 	*/
-    public static function updatePageCache( $article, $parserOutput=NULL ) {
+    public static function updatePageCache( $article, $parserOut=NULL ) {
     	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
     	// Make sure it is valid
-    	if( is_null($parserOutput) || !$article ) return false;
+    	if( is_null($parserOut) || !$article ) return false;
     	
 		// Update the cache...
 		$article->mTitle->invalidateCache();
@@ -663,20 +664,20 @@ class FlaggedRevs {
     	$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
     	// Add cache mark to HTML
 		$now = wfTimestampNow();
-		$parserOutput->setCacheTime( $now );
+		$parserOut->setCacheTime( $now );
 
 		// Save the timestamp so that we don't have to load the revision row on view
-		$parserOutput->mTimestamp = $article->getTimestamp();
+		$parserOut->mTimestamp = $article->getTimestamp();
     	
-    	$parserOutput->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $now -->";
+    	$parserOut->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $now -->";
 		// Set expire time
-		if( $parserOutput->containsOldMagic() ){
+		if( $parserOut->containsOldMagic() ){
 			$expire = 3600; # 1 hour
 		} else {
 			$expire = $wgFlaggedRevsExpire;
 		}
 		// Save to objectcache
-		$parserMemc->set( $key, $parserOutput, $expire );
+		$parserMemc->set( $key, $parserOut, $expire );
 		// Purge squid for this page only
 		$article->mTitle->purgeSquid();
 		
@@ -767,25 +768,24 @@ class FlaggedRevs {
     	if( !$sv )
 			return true;
     	# Parse the revision
-    	$options = new ParserOptions;
-    	$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
-    	$parserOutput = self::parseStableText( $linksUpdate->mTitle, $text, $sv->fr_rev_id, $options );
-    	# Might as well update the stable cache while we're at it
     	$article = new Article( $linksUpdate->mTitle );
-    	FlaggedRevs::updatePageCache( $article, $parserOutput );
+    	$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
+    	$parserOut = self::parseStableText( $article, $text, $sv->fr_rev_id );
+    	# Might as well update the stable cache while we're at it
+    	FlaggedRevs::updatePageCache( $article, $parserOut );
     	# Update page fields
     	FlaggedRevs::updateArticleOn( $article, $sv->fr_rev_id );
     	# Update the links tables to include these
     	# We want the UNION of links between the current
 		# and stable version. Therefore, we only care about
 		# links that are in the stable version and not the regular one.
-		$linksUpdate->mLinks += $parserOutput->getLinks();
-		$linksUpdate->mImages += $parserOutput->getImages();
-		$linksUpdate->mTemplates += $parserOutput->getTemplates();
-		$linksUpdate->mExternals += $parserOutput->getExternalLinks();
-		$linksUpdate->mCategories += $parserOutput->getCategories();
+		$linksUpdate->mLinks += $parserOut->getLinks();
+		$linksUpdate->mImages += $parserOut->getImages();
+		$linksUpdate->mTemplates += $parserOut->getTemplates();
+		$linksUpdate->mExternals += $parserOut->getExternalLinks();
+		$linksUpdate->mCategories += $parserOut->getCategories();
 		# Interlanguage links
-		$ill = $parserOutput->getLanguageLinks();
+		$ill = $parserOut->getLanguageLinks();
 		foreach( $ill as $link ) {
 			list( $key, $title ) = explode( ':', $link, 2 );
 			$linksUpdate->mInterlangs[$key] = $title;
@@ -895,8 +895,8 @@ class FlaggedRevs {
 	/**
 	* Insert image timestamps/SHA-1s into page output
 	*/  
-    static function outputInjectImageTimestamps( $out, $parserOutput ) {
-    	$out->mImageSHA1Keys = $parserOutput->mImageSHA1Keys;
+    static function outputInjectImageTimestamps( $out, $parserOut ) {
+    	$out->mImageSHA1Keys = $parserOut->mImageSHA1Keys;
     	
     	return true;
     }
@@ -955,15 +955,18 @@ class FlaggedRevs {
 	* When an edit is made by a reviwer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/ 
-	public static function maybeMakeEditReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
+	public static function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
 		
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
 			return true;
+		# Revision will be null for null edits
 		if( !$rev ) {
 			$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
 			return true;
 		}
+		# Check if this new revision is now the current one.
+		# ArticleSaveComplete may trigger even though a confict blocked insertion.
 		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
 		if( !$prev_id )
 			return true;
@@ -995,6 +998,7 @@ class FlaggedRevs {
 	
 		if( !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed( 'review' ) )
 			return true;
+		# Revision will be null for null edits
 		if( !$rev ) {
 			$wgFlaggedRevs->skipReviewDiff = true; // Don't jump to diff...
 			return true;
@@ -1017,7 +1021,7 @@ class FlaggedRevs {
 	* fields will be up to date. This updates the stable version.
 	*/ 
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
-		global $wgParser, $parserCache, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
+		global $wgParser, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
 		
 		$quality = 0;
 		if( FlaggedRevs::isQuality($flags) ) {
@@ -1031,11 +1035,17 @@ class FlaggedRevs {
 				'frt_value' => $value 
 			);
 		}
-		# Parse the text, we cannot rely on cache, may be out of date or not used.
-		# Also, we need the expanded text anyway.
-		$options = new ParserOptions;
-		$options->setTidy(true);
-		$poutput = $wgParser->parse( $text, $article->mTitle, $options, true, true, $rev->getID() );
+		# Try the parser cache, should be set on the edit before this is called.
+		# If not set or up to date, then parse it...
+		$parserCache =& ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $user );
+		if( $poutput==false ) {
+			$options = ParserOptions::newFromUser($user);
+			$options->setTidy(true);
+			$poutput = $wgParser->parse( $text, $article->mTitle, $options, true, true, $rev->getID() );
+			# Might as well save the cache while we're at it
+			$parserCache->save( $poutput, $article, $user );
+		}
 		# NS:title -> rev ID mapping
         foreach( $poutput->mTemplateIds as $namespace => $title ) {
         	foreach( $title as $dbkey => $id ) {
@@ -1163,6 +1173,7 @@ class FlaggedRevs {
 			$dbr = wfGetDB( DB_SLAVE );
 			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 				array( 'rev_user' => $user->getID() ),
+				__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp ASC',
 					'USE INDEX' => 'user_timestamp' ) );
 			# Recursevly check for for an edit $spacing days later, until we are done.
@@ -1178,7 +1189,7 @@ class FlaggedRevs {
 				if( $lower !==false )
 					$benchmarks++;
 			}
-			if( $benchmarks < $wgFlaggedRevsAutopromote['benchmarks'] )
+			if( $benchmarks < $needed )
 				return true;
 		}
 		# Add editor rights
@@ -1205,11 +1216,11 @@ class FlaggedRevs {
 			return true;
 		
 		$parserCache =& ParserCache::singleton();
-    	$parserOutput = $parserCache->get( $article, $wgUser );
-		if( $parserOutput ) {
+    	$parserOut = $parserCache->get( $article, $wgUser );
+		if( $parserOut ) {
 			// Clear older, incomplete, cached versions
 			// We need the IDs of templates and timestamps of images used
-			if( !isset($parserOutput->mTemplateIds) || !isset($parserOutput->mImageSHA1Keys) )
+			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->mImageSHA1Keys) )
 				$article->mTitle->invalidateCache();
 		}
 		return true;
@@ -1345,21 +1356,20 @@ class FlaggedArticle extends FlaggedRevs {
 					}
 				}
 				# Try the stable page cache
-				$parserOutput = parent::getPageCache( $article );
+				$parserOut = parent::getPageCache( $article );
 				# If no cache is available, get the text and parse it
-				if( $parserOutput==false ) {
+				if( $parserOut==false ) {
 					$text = parent::getFlaggedRevText( $vis_id );
-					$options = ParserOptions::newFromUser($wgUser);
-       				$parserOutput = parent::parseStableText( $wgTitle, $text, $vis_id, $options );
+       				$parserOut = parent::parseStableText( $article, $text, $vis_id );
        				# Update the general cache
-       				parent::updatePageCache( $article, $parserOutput );
+       				parent::updatePageCache( $article, $parserOut );
        			}
-       			$wgOut->mBodytext = $parserOutput->getText();
+       			$wgOut->mBodytext = $parserOut->getText();
        			# Show stable categories and interwiki links only
        			$wgOut->mCategoryLinks = array();
-       			$wgOut->addCategoryLinks( $parserOutput->getCategories() );
+       			$wgOut->addCategoryLinks( $parserOut->getCategories() );
        			$wgOut->mLanguageLinks = array();
-       			$wgOut->addLanguageLinks( $parserOutput->getLanguageLinks() );
+       			$wgOut->addLanguageLinks( $parserOut->getLanguageLinks() );
 				$notes = parent::ReviewNotes( $tfrev );
 				# Tell MW that parser output is done
 				$outputDone = true;
@@ -1519,21 +1529,28 @@ class FlaggedArticle extends FlaggedRevs {
 		// change the edit tab to a "current revision" tab
        	$tfrev = $this->getOverridingRev();
        	// No quality revs? Find the last reviewed one
-       	if( !is_object($tfrev) ) 
+       	if( !is_object($tfrev) )
 			return true;
+       	/* 
+		// If the stable version is the same is the current, move along...
+    	if( $article->getLatest() == $tfrev->fr_rev_id ) {
+       		return true;
+       	}
+       	*/
      	if( !$wgFlaggedRevTabs ) {
        		if( $this->pageOverride() ) {
-       			# Remove edit option altogether
-       			unset( $content_actions['edit']);
-       			unset( $content_actions['viewsource']);
+       			# Remove edit option altogether, unless it's the current revision
+       			unset( $content_actions['edit'] );
+       			unset( $content_actions['viewsource'] );
        		}
        		return true;
        	}
        	// Note that revisions may not be set to override for users
        	if( $this->pageOverride() ) {
        		# Remove edit option altogether
-       		unset( $content_actions['edit']);
-       		unset( $content_actions['viewsource']);
+       		unset( $content_actions['edit'] );
+       		unset( $content_actions['viewsource'] );
+       		
 			$new_actions = array(); $counter = 0;
 			# Straighten out order
 			foreach( $content_actions as $tab_action => $data ) {
@@ -1860,7 +1877,6 @@ class FlaggedArticle extends FlaggedRevs {
 	 */
 	function getLatestStableRev( $getText=false ) {
 		global $wgTitle;
-		
         // Cached results available?
 		if( isset($this->latestfound) ) {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;

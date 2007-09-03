@@ -14,17 +14,17 @@ $RevisionreviewMessages['en'] = array(
 	'group-reviewer-member' => 'Reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
-	'revreview-current'   => 'Current revision',
+	'revreview-current'   => 'Draft (editable)',
 	'revreview-stable'    => 'Stable version',
 	'revreview-oldrating' => 'It was rated as:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	
-	'revreview-quick-see-quality' => '\'\'\'Current\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest quality revision]',
-	'revreview-quick-see-basic' => '\'\'\'Current\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest sighted revision]',
-	'revreview-quick-basic'  => '\'\'\'Sighted\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
+	'revreview-quick-see-quality' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest quality revision]]',
+	'revreview-quick-see-basic' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest sighted revision]]',
+	'revreview-quick-basic'  => '\'\'\'[[Help:Article validation|Sighted]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
-	'revreview-quick-quality' => '\'\'\'Quality\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision] 
+	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Quality]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-none' => '\'\'\'Current\'\'\'. No reviewed revisions.',
 	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
