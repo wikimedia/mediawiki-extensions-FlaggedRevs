@@ -236,9 +236,10 @@ class FlaggedRevs {
     	$wgParser->isStable = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options->setEditSection(false);
-		//$options->setEditSection( $id==$article->getLatest() );
+		// $options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
-       	$parserOut = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $id );
+		$title = $article->getTitle(); // avoid pass-by-reference error
+       	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
        	# Reset $wgParser
        	$wgParser->isStable = false; // Done!
        	
