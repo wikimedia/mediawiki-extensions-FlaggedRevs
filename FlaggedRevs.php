@@ -1540,7 +1540,7 @@ class FlaggedArticle extends FlaggedRevs {
        	}
        	*/
        	// Be clear about what is being edited...
-       	if( !$sktmp->mTitle->isTalkPage() ) {
+       	if( !$sktmp->mTitle->isTalkPage() && !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) ) {
        		if( isset( $content_actions['edit'] ) )
        			$content_actions['edit']['text'] = wfMsg('revreview-edit');
        		if( isset( $content_actions['viewsource'] ) )
