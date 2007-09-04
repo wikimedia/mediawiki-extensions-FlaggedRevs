@@ -286,8 +286,8 @@ class Revisionreview extends SpecialPage
 		$title = $rev->getTitle();
 		
 		$quality = 0;
-		if( FlaggedRevs::isQuality($flags) ) {
-			$quality = FlaggedRevs::isPristine($flags) ? 2 : 1;
+		if( FlaggedRevs::isQuality($this->dims) ) {
+			$quality = FlaggedRevs::isPristine($this->dims) ? 2 : 1;
 		}
 		// Our flags
 		$flagset = array();
