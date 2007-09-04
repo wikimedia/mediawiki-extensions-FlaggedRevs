@@ -134,6 +134,7 @@ $wgAvailableRights[] = 'validate';
 $wgGroupPermissions['editor']['review']         = true;
 $wgGroupPermissions['editor']['unwatchedpages'] = true;
 $wgGroupPermissions['editor']['autoconfirmed']  = true;
+$wgGroupPermissions['editor']['patrolmarks']    = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
