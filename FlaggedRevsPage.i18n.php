@@ -560,9 +560,7 @@ $RevisionreviewMessage['pms'] = array(
 // Portuguese (Lugusto)
 $RevisionreviewMessage['pt'] = array(
 	'makevalidate-autosum'  => 'promovido automaticamente',
-	'editor'                => 'Editor',#identical but defined
 	'group-editor'          => 'Editores',
-	'group-editor-member'   => 'Editor',#identical but defined
 	'grouppage-editor'      => '{{ns:project}}:{{int:group-editor}}',
 	'reviewer'              => 'Crítico',
 	'group-reviewer'        => 'Críticos',
@@ -585,7 +583,6 @@ $RevisionreviewMessage['pt'] = array(
 	'revreview-basic'       => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|crítica]] desta página, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. É possível [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editar] a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versão atual]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|alteração|alterações}}] {{plural:$3|aguarda|aguardam}} revisão.',
 	'revreview-quality'     => 'Esta é a mais recente edição [[{{ns:help}}:Validação de páginas|estável]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. É possível [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editar] a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versão atual]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|alteração|alterações}}] {{plural:$3|aguarda|aguardam}} revisão.',
 	'revreview-static'      => 'Esta é uma edição [[{{ns:help}}:Validação de páginas|crítica]] \'\'\'[[:$3|desta página]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>. É possível [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editar] a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versão atual].',
-	'revreview-toggle'      => '(+/-)',#identical but defined
 	'revreview-note'        => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{ns:help}}:Validação de páginas|criticar]] esta edição:',
 	'revreview-update'      => 'Por gentileza, analise todas as alterações exibidas a seguir, feitas desde a última edição estável desta página. Talvez as predefinições e imagens utilizadas possam ter sido também alteradas.',
 	'revreview-auto'        => '(automático)',
