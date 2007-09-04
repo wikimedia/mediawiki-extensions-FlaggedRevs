@@ -14,7 +14,9 @@ $RevisionreviewMessages['en'] = array(
 	'group-reviewer-member' => 'Reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
-	'revreview-current'   => 'Draft (editable)',
+	'revreview-current'   => 'Draft',
+	'revreview-edit'      => 'Edit draft',
+	'revreview-source'    => 'draft source',
 	'revreview-stable'    => 'Stable version',
 	'revreview-oldrating' => 'It was rated as:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 

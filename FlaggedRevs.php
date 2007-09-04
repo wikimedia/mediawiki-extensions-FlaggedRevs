@@ -1539,20 +1539,19 @@ class FlaggedArticle extends FlaggedRevs {
        		return true;
        	}
        	*/
+       	// Be clear about what is being edited...
+       	if( !$sktmp->mTitle->isTalkPage() ) {
+       		if( isset( $content_actions['edit'] ) )
+       			$content_actions['edit']['text'] = wfMsg('revreview-edit');
+       		if( isset( $content_actions['viewsource'] ) )
+       			$content_actions['viewsource']['text'] = wfMsg('revreview-source');
+       	}
+       	
      	if( !$wgFlaggedRevTabs ) {
-       		if( $this->pageOverride() ) {
-       			# Remove edit option altogether, unless it's the current revision
-       			unset( $content_actions['edit'] );
-       			unset( $content_actions['viewsource'] );
-       		}
        		return true;
        	}
        	// Note that revisions may not be set to override for users
        	if( $this->pageOverride() ) {
-       		# Remove edit option altogether
-       		unset( $content_actions['edit'] );
-       		unset( $content_actions['viewsource'] );
-       		
 			$new_actions = array(); $counter = 0;
 			# Straighten out order
 			foreach( $content_actions as $tab_action => $data ) {
@@ -1781,9 +1780,8 @@ class FlaggedArticle extends FlaggedRevs {
 	 */
 	function getOverridingRev( $title = NULL, $getText=false, $forUpdate=false ) {
 		global $wgTitle;
-	
-		if( !is_null($title) && $title->getArticleID() != $wgTitle->getArticleID() )
-			return null; // wtf?
+		// Get the content page, skip talk
+		$title = $wgTitle->getSubjectPage();
 		
 		if( !$forUpdate ) {
 			if( !$row = $this->getLatestQualityRev( $getText ) ) {
@@ -1811,9 +1809,9 @@ class FlaggedArticle extends FlaggedRevs {
 		// Skip deleted revisions
         $result = $dbw->select( array('page', 'flaggedrevs', 'revision'),
 			$selectColumns,
-			array('page_namespace' => $wgTitle->getNamespace(), 'page_title' => $wgTitle->getDBkey(),
+			array('page_namespace' => $title->getNamespace(), 'page_title' => $title->getDBkey(),
 				'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 'fr_quality >= 1', 
-				'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+				'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('LIMIT' => 1) );
 		
@@ -1839,6 +1837,8 @@ class FlaggedArticle extends FlaggedRevs {
 	 */
 	function getLatestQualityRev( $getText=false ) {
 		global $wgTitle;
+		// Get the content page, skip talk
+		$title = $wgTitle->getSubjectPage();
         // Cached results available?
 		if( isset($this->qualityfound) ) {
 			return ( $this->qualityfound ) ? $this->qualityrev : null;
@@ -1854,8 +1854,8 @@ class FlaggedArticle extends FlaggedRevs {
 		// Skip deleted revisions
         $result = $dbr->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
-			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
+			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		
@@ -1879,6 +1879,8 @@ class FlaggedArticle extends FlaggedRevs {
 	 */
 	function getLatestStableRev( $getText=false ) {
 		global $wgTitle;
+		// Get the content page, skip talk
+		$title = $wgTitle->getSubjectPage();
         // Cached results available?
 		if( isset($this->latestfound) ) {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
@@ -1894,8 +1896,8 @@ class FlaggedArticle extends FlaggedRevs {
 		// Skip deleted revisions
         $result = $dbr->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
-			array('fr_namespace' => $wgTitle->getNamespace(), 'fr_title' => $wgTitle->getDBkey(),
-			'fr_rev_id = rev_id', 'rev_page' => $wgTitle->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
+			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		
@@ -1926,15 +1928,15 @@ class FlaggedArticle extends FlaggedRevs {
     		$flags[$tag] = 0;
     	}
     	
-		$db = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE );
 		// Grab all the tags for this revision
-		$result = $db->select('flaggedrevtags',
+		$result = $dbr->select('flaggedrevtags',
 			array('frt_dimension', 'frt_value'), 
 			array('frt_rev_id' => $rev_id),
 			__METHOD__ );
 		
 		// Iterate through each tag result
-		while( $row = $db->fetchObject($result) ) {
+		while( $row = $dbr->fetchObject($result) ) {
 			$flags[$row->frt_dimension] = $row->frt_value;
 		}
 		// Try to cache results
