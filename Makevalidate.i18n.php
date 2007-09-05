@@ -273,7 +273,7 @@ $messages['sk'] = array(
 	'makevalidate-logentrygrant-r'  => 'Stav kontrolór udelený [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'Stav kontrolór odobraný [[$1]]',
 	'makevalidate-autosum'          => 'samopovýšenie',
-	'rights-editor-revoke'  => 'prÃ¡va redaktora boli odÅˆatÃ© [[$1]]',
+	'rights-editor-revoke'          => 'práva redaktora boli odňaté [[$1]]',
 );
 
 return $messages;
