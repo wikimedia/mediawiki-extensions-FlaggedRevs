@@ -461,6 +461,42 @@ $RevisionreviewMessage['nl'] = array(
 	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen review hebben gehad.',
 );
 
+$RevisionreviewMessage['hsb'] = array(
+	'revreview-current'     => 'Naćisk',
+	'revreview-edit'        => 'Naćisk wobdźěłać',
+	'revreview-source'      => 'Žórło naćiska',
+	'revreview-stable'      => 'Stabilna wersija',
+	'revreview-auto'        => '(awtomatisce)',
+	'hist-quality'          => '[pruwowany]',
+	'review-logaction'      => 'Wersijowy ID $1',
+	'revisionreview'        => 'Wersije přepruwować',
+	'revreview-selected'    => 'Wubrana wersija z \'\'\'$1:\'\'\'',
+	'revreview-accuracy-3'  => 'Žórła přepruwowane',
+	'revreview-depth'       => 'Hłubokosć',
+	'revreview-depth-1'     => 'jednory',
+	'revreview-depth-2'     => 'srěni',
+	'revreview-depth-3'     => 'wysoki',
+	'revreview-style-2'     => 'dobry',
+	'revreview-style-3'     => 'skrótka',
+	'revreview-log'         => 'Protokolowy zapisk:',
+	'revreview-submit'      => 'Přepruwowanje składować',
+	'stableversions'        => 'Stabilne wersije',
+	'stableversions-leg1'   => 'Přepruwowane wersije za nastawk nalistować',
+	'stableversions-leg2'   => 'Přepruwowanu wersiju pokazać',
+	'stableversions-page'   => 'Mjeno nastawka',
+	'stableversions-rev'    => 'Wersijowy ID:',
+	'stableversions-none'   => '[[:$1]] přepruwowane wersije nima.',
+	'stableversions-list'   => 'To je lisćina přepruwowanych wersijow wot [[:$1]]:',
+	'stableversions-review' => 'Přepruwowany dnja <i>$1</i>',
+	'review-diff2stable'    => 'Rozdźěl k poslednjej stabilnej wersiji',
+	'review-diff2oldest'    => 'Rozdźěl k najstaršej wersiji',
+	'unreviewedpages'       => 'Njepruwowane nastawki',
+	'viewunreviewed'        => 'Lisćina njepruwowanych nastawkow',
+	'unreviewed-outdated'   => 'Jenož strony pokazać, kotrež maja njepruwowane wersije po stabilnej wersiji.',
+	'unreviewed-category'   => 'Kategorija:',
+	'unreviewed-diff'       => 'Změny',
+);
+
 /* Norwegian (Jon Harald Søby) */
 $RevisionreviewMessage['no'] = array(
 	'editor'                => 'Redaktør',
