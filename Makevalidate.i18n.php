@@ -71,11 +71,13 @@ $messages['ar'] = array(
 	'makevalidate-revoked-r'        => '[[User:$1|$1]] لم يعد لديه صلاحية مراجع.',
 	'makevalidate-logpage'          => 'سجل صلاحية المحرر',
 	'makevalidate-logpagetext'      => 'هذا سجل بالتغيير في صلاحيات [[Help:Article validation|تصحيح المقالات]].',
-	'makevalidate-logentrygrant-e'  => 'منح صلاحية محرر ل [[$1]]',
-	'makevalidate-logentryrevoke-e' => 'أزال صلاحية محرر من [[$1]]',
-	'makevalidate-logentrygrant-r'  => 'منح صلاحية مراجع ل [[$1]]',
-	'makevalidate-logentryrevoke-r' => 'أزال صلاحية مراجع من [[$1]]',
+	'makevalidate-logentrygrant-e'  => 'منح صلاحية محرر إلى [[$1]]',
+	'makevalidate-logentryrevoke-e' => 'سحب صلاحية محرر من [[$1]]',
+	'makevalidate-logentrygrant-r'  => 'منح صلاحية مراجع إلى [[$1]]',
+	'makevalidate-logentryrevoke-r' => 'سحب صلاحية مراجع من [[$1]]',
 	'makevalidate-autosum'          => 'ترقية تلقائية',
+	'rights-editor-grant'           => 'منح صلاحية محرر إلى [[$1]]',
+	'rights-editor-revoke'          => 'أزال حالة محرر من [[$1]]',
 );
 /* German (Raimond Spekking) */
 $messages['de'] = array(
@@ -275,4 +277,5 @@ $messages['sk'] = array(
 
 return $messages;
 }
+
 

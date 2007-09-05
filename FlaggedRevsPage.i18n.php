@@ -134,18 +134,65 @@ $RevisionreviewMessage['ar'] = array(
 	'group-reviewer-member' => 'مراجع',
 	'grouppage-reviewer'    => '{{ns:project}}:مراجع',
 	'revreview-current'     => 'النسخة الحالية',
+	'revreview-edit'        => 'عدل المسودة',
+	'revreview-source'      => 'مسودة مصدر',
 	'revreview-stable'      => 'نسخة مستقرة',
 	'revreview-oldrating'   => 'تم تقييمها ك:',
+	'revreview-noflagged'   => 'لا توجد نسخ مراجعة لهذه الصفحة، لذا ربما \'\'\'لا\'\'\' تكون قد تم 
+	[[Help:Article validation|التحقق من]] جودتها.',
+	'revreview-quick-see-quality' => '\'\'\'حالي\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} انظر آخر نسخة جودة]',
+	'revreview-quick-see-basic' => '\'\'\'حالي\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض آخر نسخة منظورة]',
+	'revreview-quick-basic' => '\'\'\'منظورة\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض النسخة الحالية] 
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغيير|تغييرات}}])',
+	'revreview-quick-quality' => '\'\'\'جودة\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض النسخة الحالية] 
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغيير|تغييرات}}])',
 	'revreview-quick-none'  => '\'\'\'الحالي\'\'\'. لا نسخ مراجعة.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة الأخيرة المنظورة] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) تم [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها]
+	 في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] {{plural:$3|تحتاج|تحتاج}} مراجعة.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخة الجودة الأخيرة] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) تم [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها]
+	 في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] {{plural:$3|تحتاج|تحتاج}} مراجعة.',
+	'revreview-basic'       => 'هذه آخر نسخة [[Help:Article validation|منظورة]] , 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
+	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
+	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
+	'revreview-quality'     => 'هذه آخر نسخة [[Help:Article validation|جودة]], 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
+	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
+	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
+	'revreview-static'      => 'هذه هي النسخة [[Help:Article validation|المراجعة]] من \'\'\'[[:$3|هذه الصفحة]]\'\'\', 
+	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية] 
+	يمكن [{{fullurl:$3|action=edit}} تعديلها].',
+	'revreview-toggle'      => '(تفاصيل)',
+	'revreview-note'        => '[[User:$1]] كتب الملاحظات التالية [[Help:Article validation|عند مراجعة]] هذه النسخة:',
+	'revreview-update'      => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) تمت منذ النسخة المستقرة لهذه الصفحة. القوالب و الصور
+ربما تكون قد تغيرت أيضا.',
+	'revreview-auto'        => '(تلقائيا)',
+	'revreview-auto-w'      => '\'\'\'ملاحظة:\'\'\' أنت تقوم بتغييرات للنسخة المستقرة، تعديلاتك سيتم مراجعتها تلقائيا. 
+ربما تريد أن تعرض الصفحة عرضا مسبقا قبل الحفظ.',
+	'hist-stable'           => '[منظورة]',
+	'hist-quality'          => '[الجودة]',
 	'flaggedrevs'           => 'نسخ معلمة',
 	'review-logpage'        => 'سجل مراجعة المقالة',
+	'review-logpagetext'    => 'هذا سجل بالتغييرات لحالة\' [[Help:Article validation|الموافقة]] لصفحات المحتوى.',
 	'review-logentrygrant'  => 'راجع نسخة ل $1',
+	'review-logentryrevoke' => 'سحب نسخة من $1',
 	'review-logaction'      => 'رقم النسخة $1',
 	'revisionreview'        => 'مراجعة النسخ',
+	'revreview-main'        => 'يجب أن تختار نسخة معينة من صفحة محتوى لمراجعتها. 
+
+	انظر [[Special:Unreviewedpages]] لقائمة الصفحات غير المراجعة.',
 	'revreview-selected'    => 'النسخة المختارة لصفحة \'\'\'$1:\'\'\'',
+	'revreview-text'        => 'النسخ المستقرة محددة كالمحتوى القياسي عند عرض الصفحة و ليس أحدث نسخة.',
+	'revreview-toolow'      => 'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي 
+تعتبر النسخة مراجعة. لسحب نسخة, اضبط كل الحقول ك "غير مقبولة".',
+	'revreview-flag'        => 'راجع هذه النسخة (#$1):',
 	'revreview-legend'      => 'قيم محتوى النسخة:',
+	'revreview-notes'       => 'الملاحظات للعرض:',
 	'revreview-accuracy'    => 'الدقة',
 	'revreview-accuracy-0'  => 'غير موافق',
+	'revreview-accuracy-1'  => 'معقولة',
 	'revreview-accuracy-2'  => 'دقيقة',
 	'revreview-accuracy-3'  => 'مصادرها جيدة',
 	'revreview-accuracy-4'  => 'مميزة',
@@ -159,16 +206,30 @@ $RevisionreviewMessage['ar'] = array(
 	'revreview-style-0'     => 'غير مقبول',
 	'revreview-style-1'     => 'مقبول',
 	'revreview-style-2'     => 'جيدة',
+	'revreview-style-3'     => 'متوسطة',
 	'revreview-style-4'     => 'مميزة',
 	'revreview-log'         => 'تعليق السجل:',
+	'revreview-submit'      => 'تنفيذ',
+	'revreview-changed'     => '\'\'\'الأمر المطلوب لم يمكن إجراؤه على هذه النسخة.\'\'\'
+	
+	قالب أو صورة ربما يكون قد تم طلبه عندما لم يتم تحديد نسخة معينة. هذا يمكن أن يحدث لو 
+	قالب ديناميكي يضمن صورة أخرى أو قالب معتمدا على متغير تغير منذ أن بدأت 
+مراجعة هذه الصفحة. تحديث الصفحة و إعادة المراجعة يمكن أن يحل هذه المشكلة.',
 	'stableversions'        => 'نسخ مستقرة',
+	'stableversions-leg1'   => 'عرض النسخ المراجعة لصفحة',
 	'stableversions-leg2'   => 'عرض نسخة مراجعة',
 	'stableversions-page'   => 'اسم الصفحة',
 	'stableversions-rev'    => 'رقم النسخة',
 	'stableversions-none'   => '[[:$1]] لا يوجد بها نسخ مراجعة.',
+	'stableversions-list'   => 'هذه قائمة بنسخ صفحة [[:$1]] التي تم مراجعتها:',
+	'stableversions-review' => 'تمت مراجعتها في <i>$1</i>',
+	'review-diff2stable'    => 'فرق لآخر نسخة مستقرة',
 	'review-diff2oldest'    => 'الفرق مع أقدم نسخة',
 	'unreviewedpages'       => 'صفحات غير مراجعة',
 	'viewunreviewed'        => 'عرض صفحات المحتوى غير المراجعة',
+	'unreviewed-outdated'   => 'اعرض فقط الصفحات التي بها نسخ غير مراجعة بعد النسخة المستقرة.',
+	'unreviewed-category'   => 'التصنيف:',
+	'unreviewed-diff'       => 'تغييرات',
 	'unreviewed-list'       => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
 );
 
