@@ -142,6 +142,7 @@ $messages['nl'] = array(
 	'makevalidate-logentrygrant-r'  => 'heeft de status reviewer toegekend aan [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'heeft de status reviewer ingetrokken voor [[$1]]',
 	'makevalidate-autosum'          => 'automatisch gepromoveerd',
+	'rights-editor-grant'           => 'heeft de redacteurstatus gegeven aan [[$1]]',
 	'rights-editor-revoke'  => 'verwijderde redacteurstatus van [[$1]]',
 );
 

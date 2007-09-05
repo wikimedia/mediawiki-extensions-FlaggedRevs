@@ -373,28 +373,31 @@ $RevisionreviewMessage['nl'] = array(
 	'revreview-quick-see-quality' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste kwaliteitsversie]',
 	'revreview-quick-see-basic' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste bekeken versie]',
 	'revreview-quick-basic' => '\'\'\'Bekeken versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|bewerking|bewerkingen}}])',
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])',
 	'revreview-quick-quality' => '\'\'\'Kwaliteitsversie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|bewerking|bewerkingen}}])',
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])',
 	'revreview-quick-none'  => '\'\'\'Huidige versie\'\'\'. Geen gereviewde versies.',
 	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatst bekeken versie] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toon alle]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
+	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
 	'revreview-newest-quality' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatste kwaliteitsversie] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toon alle]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
+	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
 	'revreview-basic'       => 'Dit is de laatst [[Help:Article validation|bekeken]] versie, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] 
-	kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|versie|versies}}] 
+	kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] 
 	{{plural:$3|wacht|wachten}} op review.',
 	'revreview-quality'     => 'Dit is de laatste [[Help:Article validation|kwaliteitsversie]], 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] 
-	kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|versie|versies}}] 
+	kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] 
 	{{plural:$3|wacht|wachten}} op review.',
 	'revreview-static'      => 'Dit is een [[Help:Article validation|gereviewde]] versie van \'\'\'[[:$3|deze pagina]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} gekeurd] op <i>$2</i>. De [{{fullurl:$3|stable=0}} huidige versie] 
 	kan [{{fullurl:$3|action=edit}} bewerkt] worden.',
 	'revreview-note'        => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[Help:Article validation|review]] van deze versie:',
+	'revreview-update'      => 'Controleer alstublieft alle onderstaande wijzigingen die gemaakt zijn sinds de stabiele versie voor deze pagina. Sjablonen en afbeeldingen kunnen ook gewijzigd zijn.',
+	'revreview-auto'        => '(automatisch}',
+	'revreview-auto-w'      => '\'\'\'Opmerking:\'\'\' u wijzigt de stabiele versie. Uw bewerkingen worden automatisch gecontroleerd. Controleer de voorvertoning voordat u de pagina opslaat.',
 	'hist-stable'           => '[bekeken pagina]',
 	'hist-quality'          => '[kwaliteitspagina]',
 	'flaggedrevs'           => 'Aangevinkte versies',
@@ -452,7 +455,9 @@ $RevisionreviewMessage['nl'] = array(
 	'review-diff2oldest'    => 'Verschil met de oudste versie',
 	'unreviewedpages'       => 'Pagina\'s zonder review',
 	'viewunreviewed'        => 'Lijst van pagina\'s zonder review',
-	'included-nonquality'   => 'Alleen pagina\'s tonen die niet als kwaliteitspagina zijn gemarkeerd.',
+	'unreviewed-outdated'   => 'Toon alleen pagina\'s waarvan nog niet gereviewde versies zijn op de stabiele versie.',
+	'unreviewed-category'   => 'Categorie:',
+	'unreviewed-diff'       => 'Wijzigingen',
 	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen review hebben gehad.',
 );
 
