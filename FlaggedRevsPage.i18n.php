@@ -123,7 +123,7 @@ $RevisionreviewMessages['en'] = array(
 );
 
 /* Arabic (Meno25) */
-$RevisionreviewMessage['ar'] = array(
+$RevisionreviewMessages['ar'] = array(
 	'makevalidate-autosum'  => 'ترقية تلقائية',
 	'editor'                => 'محرر',
 	'group-editor'          => 'محررون',
@@ -359,7 +359,7 @@ $RevisionreviewMessages['de'] = array(
 	'unreviewed-list'       => 'Diese Seite zeigt Artikel, die noch gar nicht geprüft wurden oder ungeprüfte Versionen haben.',
 );
 
-$RevisionreviewMessage['nl'] = array(
+$RevisionreviewMessages['nl'] = array(
 	'makevalidate-autosum'  => 'automatisch gepromoveerd',
 	'editor'                => 'Redacteur',
 	'group-editor'          => 'Redacteuren',
@@ -461,7 +461,7 @@ $RevisionreviewMessage['nl'] = array(
 	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen review hebben gehad.',
 );
 
-$RevisionreviewMessage['hsb'] = array(
+$RevisionreviewMessages['hsb'] = array(
 	'revreview-current'     => 'Naćisk',
 	'revreview-edit'        => 'Naćisk wobdźěłać',
 	'revreview-source'      => 'Žórło naćiska',
@@ -498,7 +498,7 @@ $RevisionreviewMessage['hsb'] = array(
 );
 
 /* Norwegian (Jon Harald Søby) */
-$RevisionreviewMessage['no'] = array(
+$RevisionreviewMessages['no'] = array(
 	'editor'                => 'Redaktør',
 	'group-editor'          => 'Redaktøter',
 	'group-editor-member'   => 'Redaktør',
@@ -563,7 +563,7 @@ Se [[Special:Unreviewedpages]] for en liste over sider uten godkjenning.',
 );
 
 /* Piedmontese (Bèrto 'd Sèra) */
-$RevisionreviewMessage['pms'] = array(
+$RevisionreviewMessages['pms'] = array(
 	'editor'                => 'Redator',
 	'group-editor'          => 'Redator',
 	'group-editor-member'   => 'Redator',
@@ -660,7 +660,7 @@ $RevisionreviewMessage['pms'] = array(
 );
 
 // Portuguese (Lugusto)
-$RevisionreviewMessage['pt'] = array(
+$RevisionreviewMessages['pt'] = array(
 	'makevalidate-autosum'  => 'promovido automaticamente',
 	'group-editor'          => 'Editores',
 	'grouppage-editor'      => '{{ns:project}}:{{int:group-editor}}',
@@ -747,7 +747,7 @@ Uma predefinição ou imagem pode ter sido requisitada sem uma edição específ
 );
 
 // Slovak (Helix84)
-$RevisionreviewMessage['sk'] = array(
+$RevisionreviewMessages['sk'] = array(
 	'makevalidate-autosum'  => 'samopovýšenie',
 	'editor'                => 'Redaktor',
 	'group-editor'          => 'Redaktori',
