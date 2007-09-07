@@ -389,8 +389,8 @@ class FlaggedRevs {
         	$result = $dbr->select( array('page', 'flaggedrevs', 'revision'),
 				$selectColumns,
 				array('page_namespace' => $title->getNamespace(), 'page_title' => $title->getDBkey(),
-					'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 'fr_quality >= 1', 
-					'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+					'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 
+				 	'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 				__METHOD__,
 				array('LIMIT' => 1) );
 			if( !$row = $dbr->fetchObject($result) )
@@ -404,7 +404,7 @@ class FlaggedRevs {
         $result = $dbw->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		// Do we have one? If not, try any reviewed revision...
@@ -412,7 +412,7 @@ class FlaggedRevs {
         	$result = $dbw->select( array('flaggedrevs', 'revision'),
 				$selectColumns,
 				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
-				'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+				'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 				__METHOD__,
 				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 			if( !$row = $dbw->fetchObject($result) )
@@ -913,7 +913,7 @@ class FlaggedRevs {
     	if( !$wgReviewChangesAfterEdit || !$wgUser->isAllowed( 'review' ) )
     		return true;
     	
-		$frev = self::getOverridingRev( $article->getTitle() );
+		$frev = $wgFlaggedRevs->getOverridingRev( $article->getTitle() );
 		if( $frev )	{
 			$frev_id = $frev->fr_rev_id;
 			$extraq .= "oldid={$frev_id}&diff=cur&editreview=1";
@@ -933,7 +933,7 @@ class FlaggedRevs {
 		if( !$wgUser->isAllowed( 'review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
 			return true;
 		
-		$frev = self::getOverridingRev( $diff->mTitle );
+		$frev = $wgFlaggedRevs->getOverridingRev( $diff->mTitle );
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
 	
@@ -969,7 +969,7 @@ class FlaggedRevs {
 		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
 		if( !$prev_id )
 			return true;
-		$frev = self::getOverridingRev( $article->mTitle );
+		$frev = $wgFlaggedRevs->getOverridingRev( $article->mTitle );
 		# Is this an edit directly to the stable version?
 		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
 			return true;
@@ -1809,8 +1809,8 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbw->select( array('page', 'flaggedrevs', 'revision'),
 			$selectColumns,
 			array('page_namespace' => $title->getNamespace(), 'page_title' => $title->getDBkey(),
-				'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 'fr_quality >= 1', 
-				'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+				'page_ext_stable = fr_rev_id', 'fr_rev_id = rev_id', 
+				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('LIMIT' => 1) );
 		
@@ -1854,7 +1854,7 @@ class FlaggedArticle extends FlaggedRevs {
         $result = $dbr->select( array('flaggedrevs', 'revision'),
 			$selectColumns,
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
-			'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
 			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 		
