@@ -246,16 +246,18 @@ $RevisionreviewMessages['de'] = array(
 	'group-reviewer-member' => 'Prüfer',
 	'grouppage-reviewer'    => '{{ns:project}}:Prüfer',
 
-	'revreview-current'   => 'Aktuelle Version',
-	'revreview-stable'    => 'Stabile Version',
+	'revreview-edit'      => 'Bearbeite Entwurf',
+	'revreview-source'    => 'Entwurfs-Quelltext',
+	'revreview-current'   => 'Entwurf (bearbeitbar)',
+	'revreview-stable'    => 'Stabil',
 	'revreview-oldrating' => 'war eingestuft als:',
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
 	gemacht werden kann.',
 
 	'revreview-quick-see-quality' => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte geprüfte Version]",
 	'revreview-quick-see-basic'   => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte gesichtete Version]",
-	'revreview-quick-basic'       => "'''Gesichtet.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
-	'revreview-quick-quality'     => "'''Geprüft.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
+	'revreview-quick-basic'       => "'''[[Help:Article validation|Gesichtet.]]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
+	'revreview-quick-quality'     => "'''[[Help:Article validation|Geprüft.]]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 	'revreview-quick-none'        => "'''Aktuell.'''. Es wurde noch keine Version gesichtet.",
 
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
