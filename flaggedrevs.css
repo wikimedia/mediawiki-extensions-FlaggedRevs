@@ -1,6 +1,9 @@
-.flaggedrevs_tag1 {
+/* Standard UI */
+.flaggedrevs_tag1,
+.flaggedrevs_tag2,
+.flaggedrevs_tag3,
+.flaggedrevs_notice {
 	border: 1px solid #aaa;
-	background-color: #f0f8ff;
 	padding: 3px;
 	font-size: 80%;
 	margin-left: 0px;
@@ -9,33 +12,16 @@
 }
 
 .flaggedrevs_tag2 {
-	border: 1px solid #aaa;
+	background-color: #f0f8ff;
+}
+.flaggedrevs_tag2 {
 	background-color: #f0fff0;
-	padding: 5px;
-	font-size: 80%;
-	margin-left: 0px;
-	margin-right: 0px;
-	text-align: center;
 }
-
 .flaggedrevs_tag3 {
-	border: 1px solid #aaa;
 	background-color: #fffff0;
-	padding: 3px;
-	font-size: 80%;
-	margin-left: 0px;
-	margin-right: 0px;
-	text-align: center;
 }
-
 .flaggedrevs_notice {
-	border: 1px solid #aaa;
 	background-color: #f9f9f9;
-	padding: 3px;
-	font-size: 80%;
-	margin-left: 0px;
-	margin-right: 0px;
-	text-align: center;
 }
 
 .flaggedrevs_notes {
@@ -46,29 +32,6 @@
 	margin-left: 50px;
 	margin-right: 50px;
 	text-align: center;
-}
-
-.flaggedrevs_short {
-	border: 1px solid #aaa;
-	background-color: #f9f9f9;
-	padding: 4px;
-	position: relative;
-	float: right;
-	font-size: 80%;
-	margin-left: 25px;
-	margin-right: 25px;
-	text-align: left;
-}
-
-/*.fr-marker-1 span {display: none};*/
-.fr-marker-1 {
-    background-image: url(../FlaggedRevs/img/boxY.png);
-    background-repeat: no-repeat;
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    min-height: 16px;
-    padding: 3px 16px 0px 20px;
 }
 
 .fr-text-value {
@@ -108,38 +71,21 @@
     padding-bottom: 3px;
 }
 
-.fr-marker-1 {
-    background-image: url(../FlaggedRevs/img/boxC.png);
-    background-repeat: no-repeat;
-    padding: 3px 16px 0px 0px;
+/* Short UI */
+.flaggedrevs_short {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 4px;
+	font-size: 80%;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-align: left;
+	float: right;
+	width: 320px;
 }
 
-.fr_tab_current {
-	padding: 0px;
-	margin: 0px;
-	width: 27px;
-	height: 27px;
-	position: relative;
-	float: left;
-	top: -1px;
-	right: 0px;
-	background-image: url(../FlaggedRevs/img/1.png);
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-} 
-.fr_tab_stable {
-	padding: 0px;
-	margin: 0px;
-	width: 27px;
-	height: 27px;
-	position: relative;
-	float: left;
-	top: -1px;
-	right: 0px;
-	background-image: url(../FlaggedRevs/img/2.png);
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-}    
+.fr_tab_current,
+.fr_tab_stable,
 .fr_tab_quality {
 	padding: 0px;
 	margin: 0px;
@@ -149,9 +95,18 @@
 	float: left;
 	top: -1px;
 	right: 0px;
-	background-image: url(../FlaggedRevs/img/3.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
+} 
+
+.fr_tab_current {
+	background-image: url(../FlaggedRevs/img/1.png);
+}
+.fr_tab_stable {
+	background-image: url(../FlaggedRevs/img/2.png);
+}    
+.fr_tab_quality {
+	background-image: url(../FlaggedRevs/img/3.png);
 }
 
 .fr-text {
@@ -197,33 +152,26 @@
 	margin-top: 5px;
 }
 
-.flaggedrevs_box0 {
-	border: 1px solid #aaa;
-	background-color: #f9f9f9;
-	position: relative;
-	text-align: center;
-	font-size: 85%;
-}
-.flaggedrevs_box1 {
-	border: 1px solid #aaa;
-	background-color: #f0f8ff;
-	position: relative;
-	text-align: center;
-	font-size: 85%;
-}
-.flaggedrevs_box2 {
-	border: 1px solid #aaa;
-	background-color: #f0fff0;
-	position: relative;
-	text-align: center;
-	font-size: 85%;
-}
+.flaggedrevs_box0,
+.flaggedrevs_box1,
+.flaggedrevs_box2,
 .flaggedrevs_box3 {
 	border: 1px solid #aaa;
-	background-color: #fffff0;
-	position: relative;
 	text-align: center;
 	font-size: 85%;
+}
+
+.flaggedrevs_box0 {
+	background-color: #f9f9f9;
+}
+.flaggedrevs_box1 {
+	background-color: #f0f8ff;
+}
+.flaggedrevs_box2 {
+	background-color: #f0fff0;
+}
+.flaggedrevs_box3 {
+	background-color: #fffff0;
 }
 
 /* Hack to avoid extra borders */

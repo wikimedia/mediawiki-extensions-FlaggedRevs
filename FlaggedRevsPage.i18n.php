@@ -22,13 +22,13 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	
+	'revreview-quick-none' => '\'\'\'Current\'\'\'. No reviewed revisions.',
 	'revreview-quick-see-quality' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest quality revision]]',
 	'revreview-quick-see-basic' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} See latest sighted revision]]',
 	'revreview-quick-basic'  => '\'\'\'[[Help:Article validation|Sighted]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Quality]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} See current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
-	'revreview-quick-none' => '\'\'\'Current\'\'\'. No reviewed revisions.',
 	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',

@@ -484,7 +484,7 @@ class FlaggedRevs {
             $levelmarker = $level * 20 + 20; //XXX do this better
             if( $prettyBox ) {
             	$tag .= "<tr><td><span class='fr-group'><span class='fr-text'>" . wfMsgHtml("revreview-$quality") . 
-					"</span></tr><tr><td><span class='fr-marker fr_value$levelmarker'>$valuetext</span></span></td></tr>\n";
+					"</span></td><td><span class='fr-marker fr_value$levelmarker'>$valuetext</span></span></td></tr>\n";
             } else {
 				$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" . 
 					wfMsgHtml("revreview-$quality") . 
@@ -502,35 +502,32 @@ class FlaggedRevs {
 	 * @param Row $trev, flagged revision row
 	 * @param array $flags
 	 * @param int $rev_since, revisions since review
+	 * @param bool $cur, are we referring to the visible revision?
 	 * @returns string
 	 * Generates a review box using a table using addTagRatings()
 	 */	
-	public function prettyRatingBox( $tfrev, $flags, $revs_since, $simpleTag=false ) {
-		global $wgLang, $wgUser;
-		
-        $box = '';
+	public function prettyRatingBox( $tfrev, $flags, $revs_since, $cur=true ) {
+		global $wgLang;
 		# Get quality level
 		$quality = self::isQuality( $flags );
 		$pristine = self::isPristine( $flags );
 		$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
-		
- 		$skin = $wgUser->getSkin();
 		// Some checks for which tag CSS to use
-		if( $simpleTag )
-			$tagClass = 'flaggedrevs_box0';
-		else if( $pristine )
+		if( $pristine )
 			$tagClass = 'flaggedrevs_box3';
 		else if( $quality )
 			$tagClass = 'flaggedrevs_box2';
 		else
 			$tagClass = 'flaggedrevs_box1';
         // Construct some tagging
-        $msg = $quality ? 'revreview-quality' : 'revreview-basic';
-		$box = self::addTagRatings( $flags, true, "{$tagClass}a" );
-		$box .= '<p><a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-			wfMsg('revreview-toggle') . '</a></p>';
+        $msg = $cur ? 'revreview-' : 'revreview-newest-';
+        $msg .= $quality ? 'quality' : 'basic';
+        
+		$box = ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+			wfMsg('revreview-toggle') . '</a>';
 		$box .= '<span id="mw-revisionratings">' . 
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since) .
+			self::addTagRatings( $flags, true, "{$tagClass}a" ) .
 			'</span>';
         
         return $box;
@@ -1326,6 +1323,7 @@ class FlaggedArticle extends FlaggedRevs {
 					if( $this->useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
 						$tag .= "<span class='fr_tab_current plainlinks'></span>" . wfMsgExt($msg,array('parseinline'));
+						$tag .= parent::prettyRatingBox( $tfrev, $flags, $revs_since, false );
 					} else {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
@@ -1348,6 +1346,7 @@ class FlaggedArticle extends FlaggedRevs {
 						$css = $quality ? 'fr_tab_quality' : 'fr_tab_stable';
 						$tag .= "<span class='$css plainlinks'></span>" . 
 							wfMsgExt($msg,array('parseinline'),$tfrev->fr_rev_id,$revs_since);
+					 	$tag .= parent::prettyRatingBox( $tfrev, $flags, $revs_since );
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
