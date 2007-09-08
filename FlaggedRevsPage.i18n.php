@@ -852,3 +852,364 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'viewunreviewed'        => 'Zoznam neskontrolovaných stránok s obsahom',
 	'unreviewed-list'       => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
 );
+
+// Cantonese (Shinjiman)
+$RevisionreviewMessages['yue'] = array( 
+	'makevalidate-autosum'=> '自動升格',
+	'editor'              => '編輯',
+	'group-editor'        => '編輯',
+	'group-editor-member' => '編輯',
+	'grouppage-editor'    => '{{ns:project}}:編者',
+
+	'reviewer'              => '評論家',
+	'group-reviewer'        => '評論家',
+	'group-reviewer-member' => '評論家',
+	'grouppage-reviewer'    => '{{ns:project}}:評論家',
+
+	'revreview-current'   => '草稿',
+	'revreview-edit'      => '編輯草稿',
+	'revreview-source'    => '草稿原始碼',
+	'revreview-stable'    => '穩定',
+	'revreview-oldrating' => '曾經評定為:',
+	'revreview-noflagged' => '呢一版無複審過嘅修訂，佢可能\'\'\'未\'\'\'[[Help:文章確認|檢查]]質量。',
+	
+	'revreview-quick-none' => '\'\'\'現時嘅\'\'\'。無已複審嘅修訂。',
+	'revreview-quick-see-quality' => '\'\'\'現時嘅\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇最後嘅質素修訂]]',
+	'revreview-quick-see-basic' => '\'\'\'現時嘅\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇最後檢查過嘅修訂]]',
+	'revreview-quick-basic'  => '\'\'\'[[Help:文章確認|視察過嘅]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]] 
+	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
+	'revreview-quick-quality' => '\'\'\'[[Help:文章確認|有質素嘅]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]] 
+	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
+	'revreview-newest-basic'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過嘅修訂] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
+	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要複審。',
+	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素嘅修訂] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
+	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要複審。',
+	'revreview-basic'  => '呢個係最後[[Help:文章確認|視察過嘅]]修訂，
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
+	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 改]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
+	等緊去複審。',
+	'revreview-quality'  => '呢個係最後[[Help:文章確認|有質素嘅]]修訂，
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂] 
+	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
+	等緊去複審。',
+	'revreview-static'  => '呢個係一個響\'\'\'[[:$3|呢版]]\'\'\'[[Help:文章確認|複審過嘅]]修訂，
+	響<i>$2</i>[{{fullurl:Special:Log/review|page=$1}} 批准]。[{{fullurl:$3|stable=0}} 現時修訂]
+	可以[{{fullurl:$3|action=edit}} 改]。',
+	'revreview-toggle' => '(+/-)',
+	'revreview-note' => '[[User:$1]]響呢次修訂度加咗下面嘅[[Help:文章確認|複審]]註解:',
+	'revreview-update' => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
+	'revreview-auto' => '(自動)',
+	'revreview-auto-w' => "'''注意:''' 你而家係響穩定修訂度做緊更改，你嘅編輯將會自動被複審。
+	你可以響保存之前先預覽一吓。",
+
+	'hist-stable'  => '[睇過]',
+	'hist-quality' => '[質素]',
+
+    'flaggedrevs'        => '加咗旗嘅修訂',
+    'review-logpage'     => '文章複審記錄',
+	'review-logpagetext' => '呢個係內容版[[Help:文章確認|批准]]狀態嘅更改記錄。',
+	'review-logentrygrant'   => '已經複審咗 $1',
+	'review-logentryrevoke'  => '已經捨棄咗 $1 嘅版本',
+	'review-logaction'  => '修訂 ID $1',
+
+    'revisionreview'       => '複審修訂',		
+    'revreview-main'       => '你一定要響一版內容頁度揀一個個別嘅修訂去複審。
+
+	睇[[Special:Unreviewedpages]]去拎未複審嘅版。',	
+	'revreview-selected'   => "已經揀咗 '''$1''' 嘅修訂:",
+	'revreview-text'       => "穩定版會設定做一版睇嗰陣嘅預設內容，而唔係最新嘅修訂。",
+	'revreview-toolow'     => '你一定要最少將下面每一項嘅屬性評定高過"未批准"，去將一個修訂複審。
+	要捨棄一個修訂，設定全部格做"未批准"。',
+	'revreview-flag'       => '複審呢次修訂 (#$1)',
+	'revreview-legend'     => '評定修訂內容',
+	'revreview-notes'      => '要顯示嘅意見或註解:',
+	'revreview-accuracy'   => '準確度',
+	'revreview-accuracy-0' => '未批准',
+	'revreview-accuracy-1' => '視察過',
+	'revreview-accuracy-2' => '準確',
+	'revreview-accuracy-3' => '有好來源',
+	'revreview-accuracy-4' => '正',
+	'revreview-depth'      => '深度',
+	'revreview-depth-0'    => '未批准',
+	'revreview-depth-1'    => '基本',		
+	'revreview-depth-2'    => '中等',
+	'revreview-depth-3'    => '高',
+	'revreview-depth-4'    => '正',
+	'revreview-style'      => '可讀性',
+	'revreview-style-0'    => '未批准',
+	'revreview-style-1'    => '可接受',
+	'revreview-style-2'    => '好',
+	'revreview-style-3'    => '簡潔',
+	'revreview-style-4'    => '正',
+	'revreview-log'        => '記錄註解:',
+	'revreview-submit'     => '遞交複審',
+	'revreview-changed'    => '\'\'\'個複審嘅動作唔可以響呢次修訂度進行。\'\'\'
+	
+	當無一個指定嘅版本嗰陣，一個模或圖已經被請求。
+	當一個動態模包含住圖像或跟變數嘅模響你開始複審之後改過。 
+	重新整理過呢版之後再重新複審就可以解決呢個問題。',
+
+	'stableversions'        => '穩定版',
+	'stableversions-leg1'   => '列示一版複審過嘅修訂',
+	'stableversions-leg2'   => '去睇一個複審過嘅修訂',
+	'stableversions-page'   => '版名',
+	'stableversions-rev'    => '修訂 ID',
+	'stableversions-none'   => '[[:$1]]無複審過嘅修訂。',
+	'stableversions-list'   => '下面係[[:$1]]已經複審過嘅修訂一覽:',
+	'stableversions-review' => '響<i>$1</i>複審過',
+
+    'review-diff2stable'    => '同上次穩定修訂嘅差異',
+    'review-diff2oldest'    => "同最舊修訂嘅差異",
+
+    'unreviewedpages'       => '未複審嘅版',
+    'viewunreviewed'        => '列示未複審嘅內容版',
+    'unreviewed-outdated'   => '只係顯示對穩定版修訂過嘅未複審修訂。',
+    'unreviewed-category'   => '分類:',
+    'unreviewed-diff'       => '更改',
+    'unreviewed-list'       => '呢一版列示出重未複審或視察過嘅文章修訂。',
+);
+
+// Chinese (Simplified) (Shinjiman)
+$RevisionreviewMessages['zh-hans'] = array( 
+	'makevalidate-autosum'=> '自动升格',
+	'editor'              => '编辑',
+	'group-editor'        => '编辑',
+	'group-editor-member' => '编辑',
+	'grouppage-editor'    => '{{ns:project}}:编者',
+
+	'reviewer'              => '评论家',
+	'group-reviewer'        => '评论家',
+	'group-reviewer-member' => '评论家',
+	'grouppage-reviewer'    => '{{ns:project}}:评论家',
+
+	'revreview-current'   => '草稿',
+	'revreview-edit'      => '编辑草稿',
+	'revreview-source'    => '草稿原始码',
+	'revreview-stable'    => '稳定',
+	'revreview-oldrating' => '曾经评定为:',
+	'revreview-noflagged' => '这一页没有复审过的修订，它可能\'\'\'未\'\'\'[[Help:文章确认|检查]]质量。',
+	
+	'revreview-quick-none' => '\'\'\'现时的\'\'\'。没有已复审的修订。',
+	'revreview-quick-see-quality' => '\'\'\'现时的\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看睇最后的质素修订]]',
+	'revreview-quick-see-basic' => '\'\'\'现时的\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看最后检查过的修订]]',
+	'revreview-quick-basic'  => '\'\'\'[[Help:文章确认|视察过的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看现时修订]] 
+	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
+	'revreview-quick-quality' => '\'\'\'[[Help:文章确认|有质素的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看现时修订]] 
+	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
+	'revreview-newest-basic'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后视察过的修订] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 于<i>$2</i>曾经[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
+	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要复审。',
+	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后有质素的修订] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 于<i>$2</i>曾经[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
+	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要复审。',
+	'revreview-basic'  => '这个是最后[[Help:文章确认|视察过的]]修订，
+	于<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 现时修订]
+	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
+	正等候复审。',
+	'revreview-quality'  => '这个是最后[[Help:文章确认|有质素的]]修订，
+	于<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 现时修订] 
+	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
+	正等候复审。',
+	'revreview-static'  => '这个是一个在\'\'\'[[:$3|这页]]\'\'\'[[Help:文章确认|复审过的]]修订，
+	于<i>$2</i>[{{fullurl:Special:Log/review|page=$1}} 批准]。[{{fullurl:$3|stable=0}} 现时修订]
+	可以[{{fullurl:$3|action=edit}} 更改]。',
+	'revreview-toggle' => '(+/-)',
+	'revreview-note' => '[[User:$1]]在这次修订中加入了以下的[[Help:文章确认|复审]]注解:',
+	'revreview-update' => '请复审自从于这页的稳定版以来的任何更改 (在下面显示) 。模版和图像亦可能同时更改。',
+	'revreview-auto' => '(自动)',
+	'revreview-auto-w' => "'''注意:''' 您现在是在稳定修订中作出更改，您的编辑将会自动被复审。
+	您可以在保存前先预览一下。",
+
+	'hist-stable'  => '[已察]',
+	'hist-quality' => '[质素]',
+
+    'flaggedrevs'        => '标注修订',
+    'review-logpage'     => '文章复审记录',
+	'review-logpagetext' => '这个是内容页[[Help:文章确认|批准]]状态的更改记录。',
+	'review-logentrygrant'   => '已复审 $1',
+	'review-logentryrevoke'  => '已舍弃 $1 的版本',
+	'review-logaction'  => '修订 ID $1',
+
+    'revisionreview'       => '复审修订',		
+    'revreview-main'       => '您一定要在一页的内容页中选择一个个别的修订去复审。
+
+	参看[[Special:Unreviewedpages]]去撷取未复审的页面。',	
+	'revreview-selected'   => "已经选择 '''$1''' 的修订:",
+	'revreview-text'       => "稳定版会设置成一页查看时的预设内容，而非最新的修订。",
+	'revreview-toolow'     => '您一定要最少将下面每一项的属性评定高于"未批准"，去将一个修订复审。
+	要舍弃一个修订，设置全部栏位作"未批准"。',
+	'revreview-flag'       => '复审这次修订 (#$1)',
+	'revreview-legend'     => '评定修订内容',
+	'revreview-notes'      => '要显示的意见或注解:',
+	'revreview-accuracy'   => '准确度',
+	'revreview-accuracy-0' => '未批准',
+	'revreview-accuracy-1' => '视察过',
+	'revreview-accuracy-2' => '准确',
+	'revreview-accuracy-3' => '有良好来源',
+	'revreview-accuracy-4' => '特色',
+	'revreview-depth'      => '深度',
+	'revreview-depth-0'    => '未批准',
+	'revreview-depth-1'    => '基本',		
+	'revreview-depth-2'    => '中等',
+	'revreview-depth-3'    => '高',
+	'revreview-depth-4'    => '特色',
+	'revreview-style'      => '可读性',
+	'revreview-style-0'    => '未批准',
+	'revreview-style-1'    => '可接受',
+	'revreview-style-2'    => '好',
+	'revreview-style-3'    => '简洁',
+	'revreview-style-4'    => '特色',
+	'revreview-log'        => '记录注解:',
+	'revreview-submit'     => '递交复审',
+	'revreview-changed'    => '\'\'\'该复审的动作不可以在这次修订中进行。\'\'\'
+	
+	当无一个指定的版本时，一个模版或图像已经被请求。
+	当一个动态模版包含着图像或跟变数的模版在您开始复审后改过。 
+	重新整理这页后再重新复审便可以解决这个问题。',
+
+	'stableversions'        => '稳定版',
+	'stableversions-leg1'   => '列示一版已复审的修订',
+	'stableversions-leg2'   => '查看一个已复审的修订',
+	'stableversions-page'   => '页面名',
+	'stableversions-rev'    => '修订 ID',
+	'stableversions-none'   => '[[:$1]]没有已复审过的修订。',
+	'stableversions-list'   => '以下是[[:$1]]已复审的修订一览:',
+	'stableversions-review' => '于<i>$1</i>复审',
+
+    'review-diff2stable'    => '跟上次稳定修订的差异',
+    'review-diff2oldest'    => "跟最旧修订的差异",
+
+    'unreviewedpages'       => '未复审页面',
+    'viewunreviewed'        => '列示未复审的内容页',
+    'unreviewed-outdated'   => '只显示对稳定版修订过的未复审修订。',
+    'unreviewed-category'   => '分类:',
+    'unreviewed-diff'       => '更改',
+    'unreviewed-list'       => '这一页列示出还未复审或视察的文章修订。',
+);
+
+// Chinese (Traditional) (Shinjiman)
+$RevisionreviewMessages['zh-hant'] = array( 
+	'makevalidate-autosum'=> '自動升格',
+	'editor'              => '編輯',
+	'group-editor'        => '編輯',
+	'group-editor-member' => '編輯',
+	'grouppage-editor'    => '{{ns:project}}:編者',
+
+	'reviewer'              => '評論家',
+	'group-reviewer'        => '評論家',
+	'group-reviewer-member' => '評論家',
+	'grouppage-reviewer'    => '{{ns:project}}:評論家',
+
+	'revreview-current'   => '草稿',
+	'revreview-edit'      => '編輯草稿',
+	'revreview-source'    => '草稿原始碼',
+	'revreview-stable'    => '穩定',
+	'revreview-oldrating' => '曾經評定為:',
+	'revreview-noflagged' => '這一頁沒有複審過的修訂，它可能\'\'\'未\'\'\'[[Help:文章確認|檢查]]質量。',
+	
+	'revreview-quick-none' => '\'\'\'現時的\'\'\'。沒有已複審的修訂。',
+	'revreview-quick-see-quality' => '\'\'\'現時的\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看睇最後的質素修訂]]',
+	'revreview-quick-see-basic' => '\'\'\'現時的\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看最後檢查過的修訂]]',
+	'revreview-quick-basic'  => '\'\'\'[[Help:文章確認|視察過的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看現時修訂]] 
+	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
+	'revreview-quick-quality' => '\'\'\'[[Help:文章確認|有質素的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看現時修訂]] 
+	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
+	'revreview-newest-basic'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過的修訂] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 於<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過的]。
+	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要複審。',
+	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素的修訂] 
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 於<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過的]。
+	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要複審。',
+	'revreview-basic'  => '這個是最後[[Help:文章確認|視察過的]]修訂，
+	於<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
+	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
+	正等候複審。',
+	'revreview-quality'  => '這個是最後[[Help:文章確認|有質素的]]修訂，
+	於<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂] 
+	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
+	正等候複審。',
+	'revreview-static'  => '這個是一個在\'\'\'[[:$3|這頁]]\'\'\'[[Help:文章確認|複審過的]]修訂，
+	於<i>$2</i>[{{fullurl:Special:Log/review|page=$1}} 批准]。[{{fullurl:$3|stable=0}} 現時修訂]
+	可以[{{fullurl:$3|action=edit}} 更改]。',
+	'revreview-toggle' => '(+/-)',
+	'revreview-note' => '[[User:$1]]在這次修訂中加入了以下的[[Help:文章確認|複審]]註解:',
+	'revreview-update' => '請複審自從於這頁的穩定版以來的任何更改 (在下面顯示) 。模版和圖像亦可能同時更改。',
+	'revreview-auto' => '(自動)',
+	'revreview-auto-w' => "'''注意:''' 您現在是在穩定修訂中作出更改，您的編輯將會自動被複審。
+	您可以在保存前先預覽一下。",
+
+	'hist-stable'  => '[已察]',
+	'hist-quality' => '[質素]',
+
+    'flaggedrevs'        => '標註修訂',
+    'review-logpage'     => '文章複審記錄',
+	'review-logpagetext' => '這個是內容頁[[Help:文章確認|批准]]狀態的更改記錄。',
+	'review-logentrygrant'   => '已複審 $1',
+	'review-logentryrevoke'  => '已捨棄 $1 的版本',
+	'review-logaction'  => '修訂 ID $1',
+
+    'revisionreview'       => '複審修訂',		
+    'revreview-main'       => '您一定要在一頁的內容頁中選擇一個個別的修訂去複審。
+
+	參看[[Special:Unreviewedpages]]去擷取未複審的頁面。',	
+	'revreview-selected'   => "已經選擇 '''$1''' 的修訂:",
+	'revreview-text'       => "穩定版會設定成一頁檢視時的預設內容，而非最新的修訂。",
+	'revreview-toolow'     => '您一定要最少將下面每一項的屬性評定高於"未批准"，去將一個修訂複審。
+	要捨棄一個修訂，設定全部欄位作"未批准"。',
+	'revreview-flag'       => '複審這次修訂 (#$1)',
+	'revreview-legend'     => '評定修訂內容',
+	'revreview-notes'      => '要顯示的意見或註解:',
+	'revreview-accuracy'   => '準確度',
+	'revreview-accuracy-0' => '未批准',
+	'revreview-accuracy-1' => '視察過',
+	'revreview-accuracy-2' => '準確',
+	'revreview-accuracy-3' => '有良好來源',
+	'revreview-accuracy-4' => '特色',
+	'revreview-depth'      => '深度',
+	'revreview-depth-0'    => '未批准',
+	'revreview-depth-1'    => '基本',		
+	'revreview-depth-2'    => '中等',
+	'revreview-depth-3'    => '高',
+	'revreview-depth-4'    => '特色',
+	'revreview-style'      => '可讀性',
+	'revreview-style-0'    => '未批准',
+	'revreview-style-1'    => '可接受',
+	'revreview-style-2'    => '好',
+	'revreview-style-3'    => '簡潔',
+	'revreview-style-4'    => '特色',
+	'revreview-log'        => '記錄註解:',
+	'revreview-submit'     => '遞交複審',
+	'revreview-changed'    => '\'\'\'該複審的動作不可以在這次修訂中進行。\'\'\'
+	
+	當無一個指定的版本時，一個模版或圖像已經被請求。
+	當一個動態模版包含著圖像或跟變數的模版在您開始複審後改過。 
+	重新整理這頁後再重新複審便可以解決這個問題。',
+
+	'stableversions'        => '穩定版',
+	'stableversions-leg1'   => '列示一版已複審的修訂',
+	'stableversions-leg2'   => '檢視一個已複審的修訂',
+	'stableversions-page'   => '頁面名',
+	'stableversions-rev'    => '修訂 ID',
+	'stableversions-none'   => '[[:$1]]沒有已複審過的修訂。',
+	'stableversions-list'   => '以下是[[:$1]]已複審的修訂一覽:',
+	'stableversions-review' => '於<i>$1</i>複審',
+
+    'review-diff2stable'    => '跟上次穩定修訂的差異',
+    'review-diff2oldest'    => "跟最舊修訂的差異",
+
+    'unreviewedpages'       => '未複審頁面',
+    'viewunreviewed'        => '列示未複審的內容頁',
+    'unreviewed-outdated'   => '只顯示對穩定版修訂過的未複審修訂。',
+    'unreviewed-category'   => '分類:',
+    'unreviewed-diff'       => '更改',
+    'unreviewed-list'       => '這一頁列示出還未複審或視察的文章修訂。',
+);
+
+$RevisionreviewMessages['zh'] = $RevisionreviewMessages['zh-hans'];
+$RevisionreviewMessages['zh-cn'] = $RevisionreviewMessages['zh-hans'];
+$RevisionreviewMessages['zh-hk'] = $RevisionreviewMessages['zh-hant'];
+$RevisionreviewMessages['zh-sg'] = $RevisionreviewMessages['zh-hans'];
+$RevisionreviewMessages['zh-tw'] = $RevisionreviewMessages['zh-hant'];
+$RevisionreviewMessages['zh-yue'] = $RevisionreviewMessages['yue'];
