@@ -502,11 +502,11 @@ class FlaggedRevs {
 	 * @param Row $trev, flagged revision row
 	 * @param array $flags
 	 * @param int $rev_since, revisions since review
-	 * @param bool $cur, are we referring to the visible revision?
+	 * @param bool $stable, are we referring to the stable revision?
 	 * @returns string
 	 * Generates a review box using a table using addTagRatings()
 	 */	
-	public function prettyRatingBox( $tfrev, $flags, $revs_since, $cur=true ) {
+	public function prettyRatingBox( $tfrev, $flags, $revs_since, $stable=true ) {
 		global $wgLang;
 		# Get quality level
 		$quality = self::isQuality( $flags );
@@ -520,13 +520,15 @@ class FlaggedRevs {
 		else
 			$tagClass = 'flaggedrevs_box1';
         // Construct some tagging
-        $msg = $cur ? 'revreview-' : 'revreview-newest-';
+        $msg = $stable ? 'revreview-' : 'revreview-newest-';
         $msg .= $quality ? 'quality' : 'basic';
+        $msg2 = $stable ? '' : ' '.wfMsg('revreview-oldrating');
         
 		$box = ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 			wfMsg('revreview-toggle') . '</a>';
-		$box .= '<span id="mw-revisionratings">' . 
+		$box .= '<span id="mw-revisionratings">' .
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since) .
+			$msg2 .
 			self::addTagRatings( $flags, true, "{$tagClass}a" ) .
 			'</span>';
         

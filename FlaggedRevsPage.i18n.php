@@ -18,7 +18,7 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-edit'      => 'Edit draft',
 	'revreview-source'    => 'draft source',
 	'revreview-stable'    => 'Stable',
-	'revreview-oldrating' => 'It was rated as:',
+	'revreview-oldrating' => 'It was rated:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
 	
