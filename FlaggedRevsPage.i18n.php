@@ -116,7 +116,7 @@ $RevisionreviewMessages['en'] = array(
 
     'unreviewedpages'       => 'Unreviewed pages',
     'viewunreviewed'        => 'List unreviewed content pages',
-    'unreviewed-outdated'   => 'Show only pages that have unreviewed revisions made to the stable version.',
+    'unreviewed-outdated'   => 'Show pages that have unreviewed revisions made to the stable version instead.',
     'unreviewed-category'   => 'Category:',
     'unreviewed-diff'       => 'Changes',
     'unreviewed-list'       => 'This page lists articles that have not yet been reviewed or have unreviewed revisions.',
