@@ -233,6 +233,14 @@ $RevisionreviewMessages['ar'] = array(
 	'unreviewed-list'       => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
 );
 
+$RevisionreviewMessages['bcl'] = array(
+	'hist-quality'          => '[kalidad]',
+	'revreview-depth'       => 'Rarom',
+	'stableversions-page'   => 'Pangaran kan pahina',
+	'unreviewed-category'   => 'Kategorya:',
+	'unreviewed-diff'       => 'Mga pagbabâgo',
+);
+
 // German (Raimond Spekking)
 $RevisionreviewMessages['de'] = array( 
 	'makevalidate-autosum'=> 'autopromoted', # needs still a nice and short translation :-(
