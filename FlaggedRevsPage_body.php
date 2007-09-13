@@ -41,7 +41,7 @@ class Revisionreview extends SpecialPage
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		// Must be a valid content page
 		$this->page = Title::newFromUrl( $this->target );
-		if( !$this->target || !$this->oldid || !FlaggedRevs::isReviewable( $this->page ) ) {
+		if( !$this->target || !$this->oldid || !$wgFlaggedRevs->isReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
@@ -232,10 +232,9 @@ class Revisionreview extends SpecialPage
 	}
 	
 	function submit( $request ) {
-		global $wgOut, $wgUser;
-		
-		$approved = false;
+		global $wgOut, $wgUser, $wgFlaggedRevs;
 		# If all values are set to zero, this has been unapproved
+		$approved = false;
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) {
 				$approved = true;
@@ -251,7 +250,7 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 		} else {
-			$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
+			$frev = $wgFlaggedRevs->getFlaggedRev( $this->oldid );
 			// If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
 				$wgOut->redirect( $this->page->escapeLocalUrl() );
@@ -278,7 +277,7 @@ class Revisionreview extends SpecialPage
 	 * Adds or updates the flagged revision table for this page/id set
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
-		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
+		global $wgUser, $wgFlaggedRevsWatch, $wgParser, $wgFlaggedRevs;
 		// Skip null edits
 		if( is_null($rev) ) 
 			return false;
@@ -286,8 +285,8 @@ class Revisionreview extends SpecialPage
 		$title = $rev->getTitle();
 		
 		$quality = 0;
-		if( FlaggedRevs::isQuality($this->dims) ) {
-			$quality = FlaggedRevs::isPristine($this->dims) ? 2 : 1;
+		if( $wgFlaggedRevs->isQuality($this->dims) ) {
+			$quality = $wgFlaggedRevs->isPristine($this->dims) ? 2 : 1;
 		}
 		// Our flags
 		$flagset = array();
@@ -361,13 +360,13 @@ class Revisionreview extends SpecialPage
 				__METHOD__ );
 		}
         // Get the page text and resolve all templates
-        list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        list($fulltext,$complete) = $wgFlaggedRevs->expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$complete ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
         # Compress $fulltext, passed by reference
-        $textFlags = FlaggedRevs::compressText( $fulltext );
+        $textFlags = $wgFlaggedRevs->compressText( $fulltext );
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
@@ -559,7 +558,7 @@ class Stableversions extends SpecialPage
 	function showStableRevision( $frev ) {
 		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedRevs;
 		// Get the revision
-		$frev = FlaggedRevs::getFlaggedRev( $this->oldid );
+		$frev = $wgFlaggedRevs->getFlaggedRev( $this->oldid );
 		// Revision must exists
 		if( is_null($frev) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
@@ -592,11 +591,10 @@ class Stableversions extends SpecialPage
 	}
 	
 	function showStableList() {
-		global $wgOut, $wgUser, $wgLang;
-		
+		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
 		// Must be a valid page/Id
 		$page = Title::newFromUrl( $this->page );
-		if( is_null($page) || !FlaggedRevs::isReviewable( $page ) ) {
+		if( is_null($page) || !$wgFlaggedRevs->isReviewable( $page ) ) {
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
