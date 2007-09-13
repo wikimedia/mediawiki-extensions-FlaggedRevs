@@ -119,7 +119,7 @@ $RevisionreviewMessages['en'] = array(
     'unreviewed-outdated'   => 'Show pages that have unreviewed revisions made to the stable version instead.',
     'unreviewed-category'   => 'Category:',
     'unreviewed-diff'       => 'Changes',
-    'unreviewed-list'       => 'This page lists articles that have not yet been reviewed or have unreviewed revisions.',
+    'unreviewed-list'       => 'This page lists articles that have not been reviewed or have new, unreviewed, revisions.',
 );
 
 /* Arabic (Meno25) */
