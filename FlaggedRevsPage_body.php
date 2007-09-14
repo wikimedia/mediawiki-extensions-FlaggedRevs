@@ -818,7 +818,6 @@ class UnreviewedPagesPage extends PageQueryPage {
 	function formatResult( $skin, $result ) {
 		global $wgLang;
 		
-		$fname = 'UnreviewedPagesPage::formatResult';
 		$title = Title::makeTitle( $result->ns, $result->title );
 		$link = $skin->makeKnownLinkObj( $title );
 		$stxt = $review = '';

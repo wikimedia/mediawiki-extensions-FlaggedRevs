@@ -640,7 +640,7 @@ class FlaggedRevs {
 			$value = false;
 		}
 		
-		wfProfileOut( $fname );
+		wfProfileOut( __METHOD__ );
 		
 		return $value;		
     }
@@ -903,7 +903,7 @@ class FlaggedRevs {
 			$linksUpdate->mInterlangs[$key] = $title;
 		}
 
-		wfProfileOut( $fname );
+		wfProfileOut( __METHOD__ );
 		return true;
     }
  
