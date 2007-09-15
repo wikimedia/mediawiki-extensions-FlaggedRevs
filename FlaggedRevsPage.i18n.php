@@ -51,8 +51,8 @@ $RevisionreviewMessages['en'] = array(
 	'revreview-update' => 'Please review any changes (shown below) made since stable revision to this page. Templates and images
 	may have also changed.',
 	'revreview-auto' => '(automatic)',
-	'revreview-auto-w' => "'''Note:''' you are making changes to the stable revision, your edits will automatically be reviewed. 
-	You may want to preview the page before saving.",
+	'revreview-auto-w' => "You are editing to the stable revision, any changes will '''automatically be reviewed. 
+	You may want to preview the page before saving.'''",
 
 	'hist-stable'  => '[sighted]',
 	'hist-quality' => '[quality]',

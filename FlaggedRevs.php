@@ -756,10 +756,10 @@ class FlaggedRevs {
         # Compress $fulltext, passed by reference
         $textFlags = self::compressText( $fulltext );
 		# Our review entry
- 		$revisionset = array(
- 			'fr_rev_id'    => $rev->getId(),
- 			'fr_namespace' => $rev->getTitle()->getNamespace(),
- 			'fr_title'     => $rev->getTitle()->getDBkey(),
+		$revisionset = array(
+			'fr_rev_id'    => $rev->getId(),
+			'fr_namespace' => $rev->getTitle()->getNamespace(),
+			'fr_title'     => $rev->getTitle()->getDBkey(),
 			'fr_user'      => $user->getId(),
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => '',
@@ -1456,7 +1456,7 @@ class FlaggedArticle extends FlaggedRevs {
 						return true;
 					}
 				}
-				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_notice plainlinks">' . 
+				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' . 
 					wfMsgExt('revreview-auto-w',array('parseinline')) . '</div>' );
 			}
 		}

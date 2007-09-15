@@ -2,7 +2,8 @@
 .flaggedrevs_tag1,
 .flaggedrevs_tag2,
 .flaggedrevs_tag3,
-.flaggedrevs_notice {
+.flaggedrevs_notice,
+.flaggedrevs_warning {
 	border: 1px solid #aaa;
 	padding: 3px;
 	font-size: 80%;
@@ -11,7 +12,7 @@
 	text-align: center;
 }
 
-.flaggedrevs_tag2 {
+.flaggedrevs_tag1 {
 	background-color: #f0f8ff;
 }
 .flaggedrevs_tag2 {
@@ -22,6 +23,9 @@
 }
 .flaggedrevs_notice {
 	background-color: #f9f9f9;
+}
+.flaggedrevs_warning {
+	background-color: #fff8c6;
 }
 
 .flaggedrevs_notes {
