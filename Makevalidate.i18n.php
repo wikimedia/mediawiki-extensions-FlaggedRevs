@@ -123,10 +123,33 @@ $messages['de'] = array(
 );
 
 $messages['hsb'] = array(
+	'makevalidate'                  => 'Wobdźěłowarjow zasadźić/wotsadźić',
 	'makevalidate-username'         => 'Wužiwarske mjeno:',
 	'makevalidate-search'           => 'Pytać',
+	'makevalidate-iseditor'         => '[[User:$1|$1]] ma prawo wobdźěłowarja.',
+	'makevalidate-noteditor'        => '[[User:$1|$1]] nima prawo wobdźěłowarja.',
+	'makevalidate-isvalidator'      => '[[User:$1|$1]] ma prawo pruwowarja.',
+	'makevalidate-notvalidator'     => '[[User:$1|$1]] nima prawo pruwowarja.',
 	'makevalidate-legend'           => 'Wužiwarske prawa změnić',
+	'makevalidate-change-e'         => 'Prawo wobdźěłowarja:',
+	'makevalidate-change-r'         => 'Status pruwowarja:',
+	'makevalidate-grant1'           => 'Dać',
+	'makevalidate-revoke1'          => 'Zebrać',
+	'makevalidate-grant2'           => 'Dać',
+	'makevalidate-revoke2'          => 'Zebrać',
 	'makevalidate-comment'          => 'Komentar:',
+	'makevalidate-granted-e'        => '[[User:$1|$1]] ma nětko status wobdźěłowarja.',
+	'makevalidate-revoked-e'        => '[[User:$1|$1]] hižo status wobdźěłowarja nima.',
+	'makevalidate-granted-r'        => '[[User:$1|$1]] ma nětko status pruwowarja.',
+	'makevalidate-revoked-r'        => '[[User:$1|$1]] hižo status pruwowarja nima.',
+	'makevalidate-logpage'          => 'Protokol statusa wobdźěłowarja',
+	'makevalidate-logpagetext'      => 'To je protokol změnow [[Help:Article validation|pruwowanskich prawow]] wužiwarja.',
+	'makevalidate-logentrygrant-e'  => 'Status wobdźěłowarja bu [[$1]] daty.',
+	'makevalidate-logentryrevoke-e' => 'Status wobdźěłowarja bu [[$1]] zebrany.',
+	'makevalidate-logentrygrant-r'  => 'status pruwowarja bu [[$1]] daty.',
+	'makevalidate-logentryrevoke-r' => 'status pruwowarja bu [[$1]] zebrany.',
+	'rights-editor-grant'           => 'status wobdźěłowarja bu [[$1]] daty.',
+	'rights-editor-revoke'          => 'status wobdźěłowarja bu [[$1]] zebrany.',
 );
 
 $messages['nl'] = array(
