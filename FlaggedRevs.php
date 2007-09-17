@@ -39,7 +39,10 @@ extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Stableversi
 extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Unreviewedpages', 'UnreviewedPages' );
 
 function efLoadFlaggedRevs() {
-	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType;
+	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, $wgHooks, $wgFlaggedRevs, $wgFlaggedArticle;
+	$wgFlaggedRevs = new FlaggedRevs();
+	$wgFlaggedArticle = new FlaggedArticle();
+	
 	# Internationalization
 	require_once( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
 	foreach( $RevisionreviewMessages as $lang => $langMessages ) {
@@ -62,6 +65,47 @@ function efLoadFlaggedRevs() {
 	# Use only our extension mechanisms
 	$wgGroupPermissions['sysop']['autopatrol'] = false;
 	$wgGroupPermissions['sysop']['patrol']     = false;
+
+	######### Hook attachments #########
+	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
+	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setCurrentTab');
+	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache');
+	$wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'setPageContent');
+	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($wgFlaggedArticle, 'setPermaLink');
+	# Add tags do edit view
+	$wgHooks['EditPage::showEditForm:initial'][] = array($wgFlaggedArticle, 'addToEditView');
+	# Add review form
+	$wgHooks['BeforePageDisplay'][] = array($wgFlaggedArticle, 'addReviewForm');
+	# Mark of items in page history
+	$wgHooks['PageHistoryBeforeList'][] = array($wgFlaggedArticle, 'addToPageHist');
+	$wgHooks['PageHistoryLineEnding'][] = array($wgFlaggedArticle, 'addToHistLine');
+	# Autopromote Editors
+	$wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
+	# Adds table link references to include ones from the stable version
+	$wgHooks['LinksUpdateConstructed'][] = array($wgFlaggedArticle, 'extraLinksUpdate');
+	# Check on undelete/merge/revisiondelete for changes to stable version
+	$wgHooks['ArticleUndelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
+	$wgHooks['ArticleRevisionVisiblitySet'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
+	$wgHooks['ArticleMergeComplete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+	# Update our table NS/Titles when things are moved
+	$wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
+	# Parser hooks, selects the desired images/templates
+	$wgHooks['BeforeParserrenderImageGallery'][] = array($wgFlaggedArticle, 'parserMakeGalleryStable');
+	$wgHooks['BeforeGalleryFindFile'][] = array($wgFlaggedArticle, 'galleryFindStableFileTime');
+	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array($wgFlaggedArticle, 'parserFetchStableTemplate');
+	$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedArticle, 'parserMakeStableImageLink');
+	# Additional parser versioning
+	$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedArticle, 'parserInjectImageTimestamps');
+	$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedArticle, 'outputInjectImageTimestamps');
+	# Page review on edit
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams');
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
+        # Autoreview stuff
+        $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
+        $wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
+        #########
+
 }
 
 #########
@@ -1942,46 +1986,4 @@ class FlaggedArticle extends FlaggedRevs {
 
 }
 
-// Our global class instances
-$wgFlaggedRevs = new FlaggedRevs();
-$wgFlaggedArticle = new FlaggedArticle();
 
-######### Hook attachments #########
-# Main hooks, overrides pages content, adds tags, sets tabs and permalink
-$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setCurrentTab');
-# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache');
-$wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'setPageContent');
-$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($wgFlaggedArticle, 'setPermaLink');
-# Add tags do edit view
-$wgHooks['EditPage::showEditForm:initial'][] = array($wgFlaggedArticle, 'addToEditView');
-# Add review form
-$wgHooks['BeforePageDisplay'][] = array($wgFlaggedArticle, 'addReviewForm');
-# Mark of items in page history
-$wgHooks['PageHistoryBeforeList'][] = array($wgFlaggedArticle, 'addToPageHist');
-$wgHooks['PageHistoryLineEnding'][] = array($wgFlaggedArticle, 'addToHistLine');
-# Autopromote Editors
-$wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
-# Adds table link references to include ones from the stable version
-$wgHooks['LinksUpdateConstructed'][] = array($wgFlaggedArticle, 'extraLinksUpdate');
-# Check on undelete/merge/revisiondelete for changes to stable version
-$wgHooks['ArticleUndelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
-$wgHooks['ArticleRevisionVisiblitySet'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
-$wgHooks['ArticleMergeComplete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
-# Update our table NS/Titles when things are moved
-$wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
-# Parser hooks, selects the desired images/templates
-$wgHooks['BeforeParserrenderImageGallery'][] = array($wgFlaggedArticle, 'parserMakeGalleryStable');
-$wgHooks['BeforeGalleryFindFile'][] = array($wgFlaggedArticle, 'galleryFindStableFileTime');
-$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array($wgFlaggedArticle, 'parserFetchStableTemplate');
-$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedArticle, 'parserMakeStableImageLink');
-# Additional parser versioning
-$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedArticle, 'parserInjectImageTimestamps');
-$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedArticle, 'outputInjectImageTimestamps');
-# Page review on edit
-$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams');
-$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
-# Autoreview stuff
-$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
-$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
-#########
