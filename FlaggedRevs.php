@@ -1690,13 +1690,14 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function addToHistLine( $row, &$s ) {
-    	global $wgUser;
+    	global $wgUser, $wgTitle;
     
     	if( isset($this->pageFlaggedRevs) && array_key_exists($row->rev_id,$this->pageFlaggedRevs) ) {
     		$msg = ($this->pageFlaggedRevs[$row->rev_id] >= 1) ? 'hist-quality' : 'hist-stable';
     		$special = SpecialPage::getTitleFor( 'Stableversions' );
     		$s .= ' <tt><small><strong>' . 
-				$this->skin->makeLinkObj( $special, wfMsgHtml($msg), 'oldid='.$row->rev_id ) . 
+				$this->skin->makeLinkObj( $special, wfMsgHtml($msg), 
+					'page='.$wgTitle->getPrefixedText().'&oldid='.$row->rev_id ) . 
 				'</strong></small></tt>';
 		}
 		
