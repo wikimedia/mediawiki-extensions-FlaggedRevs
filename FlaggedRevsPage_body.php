@@ -652,7 +652,7 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 		$conds["fr_namespace"] = $this->namespace;
 		$conds["fr_title"] = $this->title;
 		$conds[] = "fr_rev_id = rev_id";
-		$conds["rev_deleted"] = 0;
+		$conds[] = 'rev_deleted & '.Revision::DELETED_TEXT.' = 0';
 		return array(
 			'tables' => array('flaggedrevs','revision'),
 			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality',
