@@ -297,8 +297,10 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-update' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
 	Vorlagen und Bilder können sich ebenfalls geändert haben.',
 	'revreview-auto'   => '(automatisch)',
-	'revreview-auto-w' => "'''Hinweis:''' Du nimmst eine Bearbeitung an einer stabilen Version vor, daher wird deine eigene Bearbeitung automatisch als geprüft markiert. 
+	'revreview-auto-w' => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als geprüft markiert.''' 
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
+        'revreview-auto-w-old' => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch als geprüft markiert.''' 
+        Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
 
 	'hist-stable'  => '[gesichtet]',
 	'hist-quality' => '[geprüft]',
@@ -350,8 +352,8 @@ $RevisionreviewMessages['de'] = array(
 	'stableversions'        => 'Stabile Versionen',
 	'stableversions-leg1'   => 'Liste der geprüften Versionen für einen Artikel',
 	'stableversions-page'   => 'Artikelname',
-	'stableversions-none'   => '[[:$1]] hat keine geprüften Versionen.',
-	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von [[:$1]]:',
+	'stableversions-none'   => '„[[:$1]]“ hat keine geprüften Versionen.',
+	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von „[[:$1]]“:',
 	'stableversions-review' => 'geprüft am <i>$1</i>',
 
 	'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
