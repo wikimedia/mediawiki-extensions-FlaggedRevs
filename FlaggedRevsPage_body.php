@@ -37,10 +37,9 @@ class Revisionreview extends SpecialPage
 		$this->setHeaders();
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
+		$this->page = Title::newFromUrl( $this->target );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		// Must be a valid content page
-		$this->page = Title::newFromUrl( $this->target );
 		if( !$this->target || !$this->oldid || !$wgFlaggedRevs->isReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
@@ -250,7 +249,7 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 		} else {
-			$frev = $wgFlaggedRevs->getFlaggedRev( $this->oldid );
+			$frev = $wgFlaggedRevs->getFlaggedRev( $this->page, $this->oldid );
 			// If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
 				$wgOut->redirect( $this->page->escapeLocalUrl() );
@@ -258,7 +257,8 @@ class Revisionreview extends SpecialPage
 			}
 		}
 		
-		$success = $approved ? $this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
+		$success = $approved ? 
+			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
 		// Return to our page			
 		if( $success ) {
 			if( $request->getCheck( 'wpWatchthis' ) ) {
@@ -380,13 +380,13 @@ class Revisionreview extends SpecialPage
 			'fr_flags'     => $textFlags
 		);
 		// Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id','fr_namespace','fr_title') ), $revset, __METHOD__ );
+		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
 		// Mark as patrolled
-		$dbw->update( 'recentchanges', 
-			array( 'rc_patrolled' => 1 ), 
-			array( 'rc_this_oldid' => $rev->getId() ), 
+		$dbw->update( 'recentchanges',
+			array( 'rc_patrolled' => 1 ),
+			array( 'rc_this_oldid' => $rev->getId() ),
 			__METHOD__ 
 		);
 		$dbw->commit();
@@ -510,26 +510,29 @@ class Stableversions extends SpecialPage
         global $wgRequest, $wgUser;
 
 		$this->setHeaders();
-		// Our target page
-		$this->page = $wgRequest->getText( 'page' );
-		// Revision ID
-		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		
 		$this->skin = $wgUser->getSkin();
+		# Our target page
+		$this->target = $wgRequest->getText( 'page' );
+		$this->page = Title::newFromUrl( $this->target );
+		# Revision ID
+		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
+		# We need a page...
+		if( is_null($this->page) ) {
+			$this->showForm( $wgRequest );
+			return;
+		}
 		
 		if( $this->oldid ) {
 			$this->showStableRevision( $wgRequest );
-		} else if( $this->page ) {
+		} else  {
 			$this->showStableList( $wgRequest );
-		} else {
-			$this->showForm( $wgRequest );
 		}
 	}
 	
 	function showForm( $wgRequest ) {
 		global $wgOut, $wgTitle, $wgScript;
 	
-		$encPage = $this->page;
+		$encPage = $this->target;
 		$encId = $this->oldid;
 		
 		$form = "<form name='stableversions' action='$wgScript' method='get'>";
@@ -537,20 +540,10 @@ class Stableversions extends SpecialPage
 		$form .= "<table><tr>";
 		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
 		$form .= "<td>".wfMsgHtml("stableversions-page").":</td>";
-		$form .= "<td>".Xml::input('page', 50, $encPage, array( 'id' => 'page' ) )."</td>";
+		$form .= "<td>".Xml::input('page', 40, $encPage, array( 'id' => 'page' ) )."</td>";
 		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>\n";
-		
-		$form .= "<form name='stableversion' action='$wgScript' method='get'>";
-		$form .= "<fieldset><legend>".wfMsg('stableversions-leg2')."</legend>";
-		$form .= "<table><tr>";
-		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedDBkey() )."</td>";
-		$form .= "<td>".wfMsgHtml("stableversions-rev").":</td>";
-		$form .= "<td>".Xml::input('oldid', 15, $encId, array( 'id' => 'oldid' ) )."</td>";
-		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
-		$form .= "</tr></table>";
-		$form .= "</fieldset></form>";
 		
 		$wgOut->addHTML( $form );
 	}
@@ -558,31 +551,34 @@ class Stableversions extends SpecialPage
 	function showStableRevision( $frev ) {
 		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedRevs;
 		// Get the revision
-		$frev = $wgFlaggedRevs->getFlaggedRev( $this->oldid );
+		$frev = $wgFlaggedRevs->getFlaggedRev( $this->page, $this->oldid, true );
 		// Revision must exists
 		if( is_null($frev) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
 			return;
 		}
-		$page = Title::makeTitle( $frev->fr_namespace, $frev->fr_title );
-		
-		$wgOut->setPagetitle( $page->getPrefixedText() );
+		$wgOut->setPagetitle( $this->page->getPrefixedText() );
 		// Get flags and date
 		$flags = $wgFlaggedRevs->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$tag = wfMsgExt('revreview-static', array('parseinline'), urlencode($page->getPrefixedText()), $time, $page->getPrefixedText());
-		$tag .= ' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mwrevisionratings" style="display:block;">' . 
-				wfMsg('revreview-oldrating') . $wgFlaggedRevs->addTagRatings( $flags ) . 
-				'</span>';
+       	$tag = wfMsgExt('revreview-static', array('parseinline'), 
+		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText()) .
+			' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+			wfMsg('revreview-toggle') . '</a>' .
+			'<span id="mwrevisionratings" style="display:block;">' . 
+			wfMsg('revreview-oldrating') . $wgFlaggedRevs->addTagRatings( $flags ) . 
+			'</span>';
 		// Parse the text...
-		$text = $wgFlaggedRevs->getFlaggedRevText( $this->oldid );
-		$article = new Article( $page );
+		$article = new Article( $this->page );
+		
+		$text = $wgFlaggedRevs->uncompressText( $frev->fr_text, $frev->fr_flags );
+		
        	$parserOutput = $wgFlaggedRevs->parseStableText( $article, $text, $this->oldid );
 		$notes = $wgFlaggedRevs->ReviewNotes( $frev );
 		// Set the new body HTML, place a tag on top
-		$wgOut->addHTML('<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>' . $parserOutput->getText() . $notes);
+		$wgOut->addHTML('<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' .
+			$tag . '</div>' . $parserOutput->getText() . $notes);
        	// Show stable categories and interwiki links only
        	$wgOut->mCategoryLinks = array();
        	$wgOut->addCategoryLinks( $parserOutput->getCategories() );
@@ -593,8 +589,7 @@ class Stableversions extends SpecialPage
 	function showStableList() {
 		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
 		// Must be a valid page/Id
-		$page = Title::newFromUrl( $this->page );
-		if( is_null($page) || !$wgFlaggedRevs->isReviewable( $page ) ) {
+		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
@@ -603,14 +598,16 @@ class Stableversions extends SpecialPage
 			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
 			return;
 		}
-		$pager = new StableRevisionsPager( $this, array(), $page->getNamespace(), $page->getDBkey() );	
+		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page->getDBkey() );	
 		if( $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), $page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
+				$this->page->getPrefixedText() ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), $page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
+				$this->page->getPrefixedText() ) );
 		}
 	}
 	
@@ -618,12 +615,14 @@ class Stableversions extends SpecialPage
 		global $wgLang, $wgUser;
 	
 		$SV = SpecialPage::getTitleFor( 'Stableversions' );
+		
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
 		$review = wfMsg( 'stableversions-review', $ftime );
 		
 		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
-		$link = $this->skin->makeKnownLinkObj( $SV, $time, 'oldid='.$row->fr_rev_id );
+		$link = $this->skin->makeKnownLinkObj( $SV, $time, 
+			'page='.$this->page->getPrefixedText().'&oldid='.$row->fr_rev_id );
 		
 		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';	
 	}

@@ -6,8 +6,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-if( !defined( 'FLAGGED_CSS' ) ) define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
-if( !defined( 'FLAGGED_JS' ) ) define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
+if( !defined( 'FLAGGED_CSS' ) ) 
+	define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
+if( !defined( 'FLAGGED_JS' ) ) 
+	define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
 
 if( !function_exists( 'extAddSpecialPage' ) ) {
 	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
@@ -164,9 +166,9 @@ $wgFlaggedRevValues = 4;
 # Users with 'validate' can do anything regardless
 # This is mainly for custom, less experienced, groups
 $wgFlagRestrictions = array(
-	'accuracy' => array('review' => 1),
-	'depth'    => array('review' => 2),
-	'style'    => array('review' => 3),
+	'accuracy' => array( 'review' => 1 ),
+	'depth'    => array( 'review' => 2 ),
+	'style'    => array( 'review' => 3 ),
 );
 
 # Lets some users access the review UI and set some flags
@@ -334,38 +336,27 @@ class FlaggedRevs {
     }
     
 	/**
+	 * @param Title $title
 	 * @param int $rev_id
-	 * @returns string
-	 * Get the text of a stable version
-	 */	
-    public function getFlaggedRevText( $rev_id ) {
- 		$dbr = wfGetDB( DB_SLAVE );
- 		// Get the text from the flagged revisions table
-		$result = $dbr->select( array('flaggedrevs','revision'),
-			array('fr_text', 'fr_flags'),
-			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 
-				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'), 
-			__METHOD__,
-			array('LIMIT' => 1) );
-		if( $row = $dbr->fetchObject($result) ) {
-			return self::uncompressText( $row->fr_text, $row->fr_flags );
-		}
-		
-		return NULL;
-    }
-    
-	/**
-	 * @param int $rev_id
+	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @returns Revision
 	 * Will not return if deleted
-	 */		
-	public function getFlaggedRev( $rev_id ) {
+	 */	
+	public function getFlaggedRev( $title, $rev_id, $getText ) {
+    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
+    	if( $getText ) {
+    		$selectColumns[] = 'fr_text';
+    		$selectColumns[] = 'fr_flags';
+    	}
+	
 		$dbr = wfGetDB( DB_SLAVE );
 		# Skip deleted revisions
 		$result = $dbr->select( array('flaggedrevs','revision'),
-			array('fr_namespace', 'fr_title', 'fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp'),
-			array('fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 
-				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			$selectColumns,
+			array( 'fr_namespace' => $title->getNamespace(), 
+				'fr_title' => $title->getDBKey(),
+				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 
+				'rev_deleted & '.Revision::DELETED_TEXT.' = 0' ),
 			__METHOD__ );
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row = $dbr->fetchObject($result) ) {
@@ -387,7 +378,8 @@ class FlaggedRevs {
 		$dbr = wfGetDB( DB_SLAVE );
 		$result = $dbr->select('flaggedrevs',
 			array('fr_rev_id','fr_quality'),
-			array('fr_namespace' => $page->getNamespace(), 'fr_title' => $page->getDBkey() ),
+			array('fr_namespace' => $page->getNamespace(), 
+				'fr_title' => $page->getDBkey() ),
 			__METHOD__ ,
 			array('ORDER BY' => 'fr_rev_id DESC') );
 		while( $row = $dbr->fetchObject($result) ) {
@@ -414,8 +406,8 @@ class FlaggedRevs {
 	
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one.
-	 * @param Title $title
-	 * @param bool $getText
+	 * @param Title $title, unused
+	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
 	 * @returns Row
 	*/
@@ -423,7 +415,7 @@ class FlaggedRevs {
     	if( is_null($title) )
 			return null;
     	
-    	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
+    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
     		$selectColumns[] = 'fr_flags';
@@ -451,7 +443,7 @@ class FlaggedRevs {
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 
 				'fr_quality >= 1', 'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
-			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 		// Do we have one? If not, try any reviewed revision...
         if( !$row = $dbw->fetchObject($result) ) {
         	$result = $dbw->select( array('flaggedrevs', 'revision'),
@@ -459,7 +451,7 @@ class FlaggedRevs {
 				array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(),
 					'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 				__METHOD__,
-				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+				array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 			if( !$row = $dbw->fetchObject($result) )
 				return null;
 		}
@@ -730,7 +722,7 @@ class FlaggedRevs {
 	* fields will be up to date. This updates the stable version.
 	*/ 
 	public function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
-		global $wgParser, $wgFlaggedRevsAutoReview, $wgFlaggedRevs;
+		global $wgParser, $wgFlaggedRevsAutoReview;
 		
 		$quality = 0;
 		if( $this->isQuality($flags) ) {
@@ -801,9 +793,9 @@ class FlaggedRevs {
         $textFlags = self::compressText( $fulltext );
 		# Our review entry
 		$revisionset = array(
-			'fr_rev_id'    => $rev->getId(),
 			'fr_namespace' => $rev->getTitle()->getNamespace(),
 			'fr_title'     => $rev->getTitle()->getDBkey(),
+			'fr_rev_id'    => $rev->getId(),
 			'fr_user'      => $user->getId(),
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => '',
@@ -813,7 +805,7 @@ class FlaggedRevs {
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', 
-			array( array('fr_rev_id','fr_namespace','fr_title') ), $revisionset, 
+			array( array('fr_rev_id') ), $revisionset, 
 			__METHOD__ );
 		# Set all of our flags
 		$dbw->replace( 'flaggedrevtags', 
@@ -913,8 +905,6 @@ class FlaggedRevs {
 	* Inject stable links on LinksUpdate
 	*/
     public function extraLinksUpdate( $linksUpdate ) {
-    	global $wgFlaggedRevs;
-
     	wfProfileIn( __METHOD__ );
 		    	
     	if( !$this->isReviewable( $linksUpdate->mTitle ) ) 
@@ -1062,7 +1052,7 @@ class FlaggedRevs {
 	* Only for people who can review and for pages that have a stable version.
 	*/ 
     public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
-    	global $wgUser, $wgReviewChangesAfterEdit, $wgFlaggedRevs;
+    	global $wgUser, $wgReviewChangesAfterEdit;
 		# Was this already autoreviewed?
 		if( $this->skipReviewDiff )
 			return true;
@@ -1085,7 +1075,7 @@ class FlaggedRevs {
 	* a tag with some explaination for the diff.
 	*/ 
 	public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {
-		global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevs;
+		global $wgRequest, $wgUser, $wgOut;
 		
 		if( !$wgUser->isAllowed( 'review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
 			return true;
@@ -1093,12 +1083,12 @@ class FlaggedRevs {
 		$frev = $this->getOverridingRev( $diff->mTitle );
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
-	
+		
 		$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
 			wfMsg('revreview-update').'</div>' );
 		# Set flag for review form to tell it to autoselect tag settings from the
 		# old revision unless the current one is tagged to.
-		if( !self::getFlaggedRev( $NewRev->getID() ) ) {
+		if( !self::getFlaggedRev( $diff->mTitle, $NewRev->getID() ) ) {
 			global $wgFlaggedArticle;
 			$wgFlaggedArticle->isDiffFromStable = true;
 		}
@@ -1112,7 +1102,7 @@ class FlaggedRevs {
 	* version, try to automatically review it.
 	*/ 
 	public function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevs, $wgFlaggedRevsAutoReview;
+		global $wgFlaggedRevsAutoReview;
 		
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
 			return true;
@@ -1150,7 +1140,7 @@ class FlaggedRevs {
 	* When a new page is made by a reviwer, try to automatically review it.
 	*/ 	
 	public function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevs, $wgFlaggedRevsAutoReviewNew;
+		global $wgFlaggedRevsAutoReviewNew;
 	
 		if( !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed( 'review' ) )
 			return true;
@@ -1254,7 +1244,7 @@ class FlaggedRevs {
 	* Updates parser cache output to included needed versioning params.
 	*/
     public function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
-    	global $wgUser, $action, $wgFlaggedRevs;
+    	global $wgUser, $action;
 		# Only trigger on article view for content pages, not for protect/delete/hist
 		if( $action !='view' || !$wgUser->isAllowed( 'review' ) ) 
 			return true;
@@ -1333,7 +1323,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	function setPageContent( $article, &$outputDone, &$pcache ) {
-		global $wgRequest, $wgTitle, $wgOut, $action, $wgUser, $wgFlaggedRevs;
+		global $wgRequest, $wgTitle, $wgOut, $action, $wgUser;
 		// Only trigger on article view for content pages, not for protect/delete/hist
 		if( $action !='view' || !$article || !$article->exists() || !$this->isReviewable( $article->mTitle ) ) 
 			return true;
@@ -1348,7 +1338,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$vis_id = $revid;
 		$tag = ''; $notes = '';
 		# Check the newest stable version...
-		$tfrev = $this->getOverridingRev();
+		$tfrev = $this->getOverridingRev( null, true );
 		$simpleTag = false;
 		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
     		// Do not clutter up diffs any further...
@@ -1406,7 +1396,7 @@ class FlaggedArticle extends FlaggedRevs {
 				$parserOut = $this->getPageCache( $article );
 				# If no cache is available, get the text and parse it
 				if( $parserOut==false ) {
-					$text = $this->getFlaggedRevText( $vis_id );
+					$text = $this->uncompressText( $tfrev->fr_text, $tfrev->fr_flags );
        				$parserOut = $this->parseStableText( $article, $text, $vis_id );
        				# Update the general cache
        				$this->updatePageCache( $article, $parserOut );
@@ -1454,7 +1444,7 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function addToEditView( $editform ) {
-		global $wgRequest, $wgTitle, $wgOut, $wgFlaggedRevs;
+		global $wgRequest, $wgTitle, $wgOut;
 		# Talk pages cannot be validated
 		if( !$editform->mArticle || !$this->isReviewable( $wgTitle ) )
 			return false;
@@ -1472,7 +1462,7 @@ class FlaggedArticle extends FlaggedRevs {
 		# Check the newest stable version
 		$tfrev = $this->getOverridingRev();
 		if( is_object($tfrev) ) {
-			global $wgLang, $wgUser, $wgFlaggedRevs, $wgFlaggedRevsAutoReview;
+			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
 			
 			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
@@ -1490,7 +1480,7 @@ class FlaggedArticle extends FlaggedRevs {
 			# If this will be autoreviewed, notify the user...
 			if( !$wgFlaggedRevsAutoReview )
 				return true;
-			if( $wgUser->isAllowed('review') && $revid==$tfrev->fr_rev_id && $revid==$editform->mArticle->getLatest() ) {
+			if( $wgUser->isAllowed('review') && $tfrev->fr_rev_id==$editform->mArticle->getLatest() ) {
 				# Grab the flags for this revision
 				$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 				# Check if user is allowed to renew the stable version.
@@ -1500,15 +1490,16 @@ class FlaggedArticle extends FlaggedRevs {
 						return true;
 					}
 				}
+				$msg = ($revid==$tfrev->fr_rev_id) ? 'revreview-auto-w' : 'revreview-auto-w-old';
 				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' . 
-					wfMsgExt('revreview-auto-w',array('parseinline')) . '</div>' );
+					wfMsgExt($msg,array('parseinline')) . '</div>' );
 			}
 		}
 		return true;
     }
 	
     function addReviewForm( $out ) {
-    	global $wgArticle, $wgRequest, $action, $wgFlaggedRevs;
+    	global $wgArticle, $wgRequest, $action;
 
 		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable( $wgArticle->mTitle ) ) 
 			return true;
@@ -1535,7 +1526,6 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setPermaLink( $sktmp, &$nav_urls, &$revid, &$revid ) {
-    	global $wgFlaggedRevs;
 		# Non-content pages cannot be validated
 		if( !$this->pageOverride() ) 
 			return true;
@@ -1548,9 +1538,8 @@ class FlaggedArticle extends FlaggedRevs {
 			'text' => wfMsg( 'permalink' ),
 			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "oldid={$tfrev->fr_rev_id}" )
 		);
-		
-		global $wgHooks;
 		# Are we using the popular cite extension?
+		global $wgHooks;
 		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
 			if( $this->isReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
 				$nav_urls['cite'] = array(
@@ -1563,7 +1552,7 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setCurrentTab( $sktmp, &$content_actions ) {
-    	global $wgRequest, $wgUser, $action, $wgFlaggedRevs, $wgFlaggedRevsAnonOnly, 
+    	global $wgRequest, $wgUser, $action, $wgFlaggedRevsAnonOnly, 
 			$wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
 		if( !isset($sktmp->mTitle) )
@@ -1844,7 +1833,7 @@ class FlaggedArticle extends FlaggedRevs {
 			return ( $this->stablefound ) ? $this->stablerev : null;
 		}
 		
-    	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
+    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
     		$selectColumns[] = 'fr_flags';
@@ -1887,7 +1876,7 @@ class FlaggedArticle extends FlaggedRevs {
 			return ( $this->qualityfound ) ? $this->qualityrev : null;
 		}
 		
-    	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
+    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
     		$selectColumns[] = 'fr_flags';
@@ -1899,7 +1888,7 @@ class FlaggedArticle extends FlaggedRevs {
 			array('fr_namespace' => $title->getNamespace(), 'fr_title' => $title->getDBkey(), 'fr_quality >= 1',
 			'fr_rev_id = rev_id', 'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
-			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 		
 		// Do we have one?
         if( $row = $dbr->fetchObject($result) ) {
@@ -1928,7 +1917,7 @@ class FlaggedArticle extends FlaggedRevs {
 			return ( $this->latestfound ) ? $this->latestrev : NULL;
 		}
 		
-    	$selectColumns = array('fr_rev_id', 'fr_user', 'fr_timestamp', 'fr_comment', 'rev_timestamp');
+    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
     		$selectColumns[] = 'fr_flags';
@@ -1941,7 +1930,7 @@ class FlaggedArticle extends FlaggedRevs {
 				'fr_rev_id = rev_id', 'rev_page' => $title->getArticleID(), 
 				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
-			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+			array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 		# Do we have one?
         if( $row = $dbr->fetchObject($result) ) {
         	$this->latestfound = true;
