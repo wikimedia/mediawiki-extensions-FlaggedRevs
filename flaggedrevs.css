@@ -117,7 +117,6 @@
 	height: 14px;
 	margin: 0px 7px 0px 0px;
 	padding: 0px;
-	float: center;
 	line-height: 15px;
 	font-weight: bold;
 	width: 80px;
@@ -152,7 +151,6 @@
 
 .fr-group {
 	display: block;
-	float: center;
 	margin-top: 5px;
 }
 
