@@ -550,6 +550,7 @@ $RevisionreviewMessages['nl'] = array(
 );
 
 $RevisionreviewMessages['hsb'] = array(
+	'makevalidate-autosum'  => 'Prawo awtomatisce spožčene',
 	'editor'                => 'wobdźěłowar',
 	'group-editor'          => 'wobdźěłowarjo',
 	'group-editor-member'   => 'wobdźěłowar',
@@ -567,6 +568,16 @@ $RevisionreviewMessages['hsb'] = array(
 	'revreview-quick-none'  => '\'\'\'Aktualnje\'\'\'. Žane přehladowane wersije.',
 	'revreview-quick-see-quality' => '\'\'\'Aktualnje\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Hlej poslednju přehladanu wersiju]',
 	'revreview-quick-see-basic' => '\'\'\'Aktualnje\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Hlej poslednju přehladanu wersiju]',
+	'revreview-quick-basic' => '\'\'\'[[Help:Article validation|Wuhladowany.]]\'\'\' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualna wersiju] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změnow|změny|změnje}}])',
+	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Pruwowany.]]\'\'\' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualnu wersiju] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změnow|změny|změnje}}])',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslednja wuhladana wersija]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} hlej wšě]) bu dnja <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena].
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}] {{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so pruwować.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslednja pruwowana wersija]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} hlej wšě]) bu <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}] {{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
+	'revreview-toggle'      => '(+/-)',#identical but defined
+	'revreview-note'        => '[[{{ns:user}}:$1]] činješe slědowace [[Help:Article validation|pruwowanske noticy]] k tutej wersiji:',
 	'revreview-auto'        => '(awtomatisce)',
 	'hist-stable'           => '[wuhladany]',
 	'hist-quality'          => '[pruwowany]',

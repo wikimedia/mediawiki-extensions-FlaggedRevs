@@ -155,6 +155,8 @@ $messages['de'] = array(
 
 $messages['hsb'] = array(
 	'makevalidate'                  => 'Wobdźěłowarjow zasadźić/wotsadźić',
+	'makevalidate-header'           => '<strong>Z tutym formularom móža administratorojo a běrokraća wužiwarjam prawo pruwowanja dać.</strong><br />
+	Zapisaj wužiwarske mjeno do pola a klikń na tłóčatko, zo by wužiwarske prawo                                                                   spožčił. Spožčenje statusa pruwowarja budźe so awtomatisce status wobdźěłowarja spožčeć.',
 	'makevalidate-username'         => 'Wužiwarske mjeno:',
 	'makevalidate-search'           => 'Pytać',
 	'makevalidate-iseditor'         => '[[User:$1|$1]] ma prawo wobdźěłowarja.',
@@ -179,6 +181,7 @@ $messages['hsb'] = array(
 	'makevalidate-logentryrevoke-e' => 'Status wobdźěłowarja bu [[$1]] zebrany.',
 	'makevalidate-logentrygrant-r'  => 'status pruwowarja bu [[$1]] daty.',
 	'makevalidate-logentryrevoke-r' => 'status pruwowarja bu [[$1]] zebrany.',
+	'makevalidate-autosum'          => 'Prawo awtomatisce spožčene',
 	'rights-editor-grant'           => 'status wobdźěłowarja bu [[$1]] daty.',
 	'rights-editor-revoke'          => 'status wobdźěłowarja bu [[$1]] zebrany.',
 );
