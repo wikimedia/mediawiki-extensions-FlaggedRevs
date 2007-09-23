@@ -533,7 +533,7 @@ class Stableversions extends SpecialPage
 	function showForm( $wgRequest ) {
 		global $wgOut, $wgTitle, $wgScript;
 	
-		$encPage = $this->target;
+		$encPage = str_replace( '_', ' ', $this->target );
 		$encId = $this->oldid;
 		
 		$form = "<form name='stableversions' action='$wgScript' method='get'>";
@@ -547,6 +547,27 @@ class Stableversions extends SpecialPage
 		$form .= "</fieldset></form>\n";
 		
 		$wgOut->addHTML( $form );
+	}
+	
+	function showStableList() {
+		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
+		// Must be a content page
+		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
+				$this->page->getPrefixedText() ) );
+			return;
+		}
+		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page->getDBkey() );	
+		if( $pager->getNumRows() ) {
+			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
+				$this->page->getPrefixedText() ) );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+		} else {
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
+				$this->page->getPrefixedText() ) );
+		}
 	}
 	
 	function showStableRevision( $frev ) {
@@ -586,27 +607,6 @@ class Stableversions extends SpecialPage
        	$wgOut->addLanguageLinks( $parserOutput->getLanguageLinks() );
 	}
 	
-	function showStableList() {
-		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
-		// Must be a content page
-		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
-				$this->page->getPrefixedText() ) );
-			return;
-		}
-		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page->getDBkey() );	
-		if( $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
-				$this->page->getPrefixedText() ) );
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
-			$wgOut->addHTML( $pager->getNavigationBar() );
-		} else {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
-				$this->page->getPrefixedText() ) );
-		}
-	}
-	
 	function formatRow( $row ) {
 		global $wgLang, $wgUser;
 	
@@ -614,7 +614,9 @@ class Stableversions extends SpecialPage
 		
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
-		$review = wfMsg( 'stableversions-review', $ftime );
+		$review = wfMsg( 'stableversions-review', $ftime, 
+			$this->skin->userLink( $row->fr_user, $row->user_name ) .
+			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ) );
 		
 		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
 		$link = $this->skin->makeKnownLinkObj( $SV, $time, 
@@ -648,10 +650,12 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 		$conds["fr_namespace"] = $this->namespace;
 		$conds["fr_title"] = $this->title;
 		$conds[] = "fr_rev_id = rev_id";
+		$conds[] = "fr_user = user_id";
 		$conds[] = 'rev_deleted & '.Revision::DELETED_TEXT.' = 0';
 		return array(
-			'tables' => array('flaggedrevs','revision'),
-			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality',
+			'tables' => array('flaggedrevs','revision','user'),
+			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,
+				fr_user,user_name',
 			'conds' => $conds
 		);
 	}
