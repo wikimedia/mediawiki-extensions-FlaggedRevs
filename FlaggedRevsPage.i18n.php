@@ -473,6 +473,22 @@ $RevisionreviewMessages['de'] = array(
 	'unreviewed-list'       => 'Diese Seite zeigt Artikel, die noch gar nicht geprüft wurden oder ungeprüfte Versionen haben.',
 );
 
+$RevisionreviewMessages['la'] = array(
+	'editor'                => 'Recensor',
+	'group-editor'          => 'Recensores',
+	'group-editor-member'   => 'Recensor',
+	'grouppage-editor'      => '{{ns:project}}:Recensor',
+	'reviewer'              => 'Revisor',
+	'group-reviewer'        => 'Revisores',
+	'group-reviewer-member' => 'Revisor',
+	'grouppage-reviewer'    => '{{ns:project}}:Revisor',
+	'revreview-style-2'     => 'Bonus',
+	'revreview-log'         => 'Sententia:',
+	'stableversions-page'   => 'Nomen paginae',
+	'unreviewed-category'   => 'Categoria:',
+	'unreviewed-diff'       => 'Cambiationes',
+);
+
 $RevisionreviewMessages['nl'] = array(
 	'makevalidate-autosum'  => 'automatisch gepromoveerd',
 	'editor'                => 'Redacteur',
@@ -480,19 +496,19 @@ $RevisionreviewMessages['nl'] = array(
 	'group-editor-member'   => 'Redacteur',
 	'grouppage-editor'      => '{{ns:project}}:Redacteur',
 	'revreview-current'     => 'Huidige versie',
-	'revreview-edit'        => 'Concept bewerken',
+	'revreview-edit'        => 'concept bewerken',
 	'revreview-source'      => 'Brontekst concept',
 	'revreview-stable'      => 'Stabiele versie',
 	'revreview-oldrating'   => 'Was gewaardeerd als:',
 	'revreview-noflagged'   => 'Er zijn geen gereviewde versies van deze pagina, dus die is wellicht \'\'\'niet\'\'\' 
 	[[Help:Article validation|gecontroleerd]] op kwaliteit.',
+	'revreview-quick-none'  => '\'\'\'Huidige versie\'\'\'. Geen gereviewde versies.',
 	'revreview-quick-see-quality' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste kwaliteitsversie]',
 	'revreview-quick-see-basic' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste bekeken versie]',
 	'revreview-quick-basic' => '\'\'\'Bekeken versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])',
 	'revreview-quick-quality' => '\'\'\'Kwaliteitsversie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])',
-	'revreview-quick-none'  => '\'\'\'Huidige versie\'\'\'. Geen gereviewde versies.',
 	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatst bekeken versie] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toon alle]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
 	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
@@ -514,6 +530,8 @@ $RevisionreviewMessages['nl'] = array(
 	'revreview-update'      => 'Controleer alstublieft alle onderstaande wijzigingen die gemaakt zijn sinds de stabiele versie voor deze pagina. Sjablonen en afbeeldingen kunnen ook gewijzigd zijn.',
 	'revreview-auto'        => '(automatisch}',
 	'revreview-auto-w'      => '\'\'\'Opmerking:\'\'\' u wijzigt de stabiele versie. Uw bewerkingen worden automatisch gecontroleerd. Controleer de voorvertoning voordat u de pagina opslaat.',
+	'revreview-auto-w-old'  => 'U bent een oude versie aan het bewerken, elke wijziging zal \'\'\'automatisch gereviewed worden\'\'\'.
+Gelieve de bewerking ter controle te tonen voor het oplaan.',
 	'hist-stable'           => '[bekeken pagina]',
 	'hist-quality'          => '[kwaliteitspagina]',
 	'flaggedrevs'           => 'Aangevinkte versies',
@@ -930,17 +948,19 @@ $RevisionreviewMessages['sk'] = array(
 	'group-reviewer-member' => 'Revízor',
 	'grouppage-reviewer'    => '{{ns:project}}:Revízor',
 	'revreview-current'     => 'Aktuálna revízia',
+	'revreview-edit'        => 'Upraviť koncept',
+	'revreview-source'      => 'Zdroj konceptu',
 	'revreview-stable'      => 'Stabilná verzia',
 	'revreview-oldrating'   => 'Bolo ohodnotené ako:',
 	'revreview-noflagged'   => 'Neexistujú revidované verzie tejto stránky, takže jej
 	kvalita \'\'\'nebola\'\'\' [[Help:Revízia článkov|skontrolovaná]].',
+	'revreview-quick-none'  => '\'\'\'Aktuálna\'\'\'. Žiadne revízie neboli skontrolvoané..',
 	'revreview-quick-see-quality' => '\'\'\'Aktuálna\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú kvalitnú revíziu]',
 	'revreview-quick-see-basic' => '\'\'\'Aktuálna\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú skontrolovanú revíziu]',
 	'revreview-quick-basic' => '\'\'\'Skontrolovaná\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])',
 	'revreview-quick-quality' => '\'\'\'Kvalitná\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])',
-	'revreview-quick-none'  => '\'\'\'Aktuálna\'\'\'. Žiadne revízie neboli skontrolvoané..',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná overená revízia] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená]
 	 <i>$2</i>. <br/> {{plural:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} zmeny]) čaká na schválenie.',
@@ -960,6 +980,10 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	je zvyčajne prístupná úpravám a aktuálnejšia.',
 	'revreview-toggle'      => '(prepnúť zobrazenie podrobností)',
 	'revreview-note'        => '[[User:$1]] urobil nasledovné poznámky počas [[Help:Revízia článkov|kontroly]] tejto verzie:',
+	'revreview-update'      => 'Prosím, skontrolujte všetky zmeny (zobrazené nižšie), ktoré boli vykonané od poslednej stabilnej revízie. Šablóny a obrázky sa tiež mohli zmeniť.',
+	'revreview-auto'        => '(automatické)',
+	'revreview-auto-w'      => 'Upravujete stabilnú revíziu, akékoľvek zmeny budú \'\'\'automaticky označené ako skontrolované\'\'\'. Pred uložením by ste mali použiť náhľad.',
+	'revreview-auto-w-old'  => 'Upravujete strú revíziu, akékoľvek zmeny budú \'\'\'automaticky označené ako skontrolované\'\'\'. Pred uložením by ste mali použiť náhľad.',
 	'hist-stable'           => '[stabilná]',
 	'hist-quality'          => '[kvalitná]',
 	'flaggedrevs'           => 'Označené verzie',
@@ -1016,6 +1040,9 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'review-diff2oldest'    => 'Rozdiely oproti najstaršej verzii',
 	'unreviewedpages'       => 'Neskontrolované stránky',
 	'viewunreviewed'        => 'Zoznam neskontrolovaných stránok s obsahom',
+	'unreviewed-outdated'   => 'Zobraziť stránky, ktoré majú neskontrolované revízie stabilnej verzie.',
+	'unreviewed-category'   => 'Kategória:',
+	'unreviewed-diff'       => 'Zmeny',
 	'unreviewed-list'       => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
 );
 

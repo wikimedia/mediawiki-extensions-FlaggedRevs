@@ -218,6 +218,32 @@ $messages['hsb'] = array(
 	'rights-editor-revoke'          => 'status wobdźěłowarja bu [[$1]] zebrany.',
 );
 
+$messages['la'] = array(
+	'makevalidate-username'         => 'Nomen usoris:',
+	'makevalidate-search'           => 'Ire',
+	'makevalidate-iseditor'         => '[[User:$1|$1]] statum recensorem habet.',
+	'makevalidate-noteditor'        => '[[User:$1|$1]] non habet statum recensorem.',
+	'makevalidate-isvalidator'      => '[[User:$1|$1]] statum revisorem habet.',
+	'makevalidate-notvalidator'     => '[[User:$1|$1]] non habet statum revisorem.',
+	'makevalidate-change-e'         => 'Status recensor:',
+	'makevalidate-change-r'         => 'Status revisor:',
+	'makevalidate-grant1'           => 'Licere',
+	'makevalidate-revoke1'          => 'Revocare',
+	'makevalidate-grant2'           => 'Licere',
+	'makevalidate-revoke2'          => 'Revocare',
+	'makevalidate-comment'          => 'Sententia:',
+	'makevalidate-granted-e'        => '[[User:$1|$1]] nunc habet statum recensorem.',
+	'makevalidate-revoked-e'        => '[[User:$1|$1]] non jam habet statum recensorem.',
+	'makevalidate-granted-r'        => '[[User:$1|$1]] nunc habet statum revisorem.',
+	'makevalidate-revoked-r'        => '[[User:$1|$1]] non jam habet statum revisorem.',
+	'makevalidate-logentrygrant-e'  => 'licuit statum recensorem pro [[$1]]',
+	'makevalidate-logentryrevoke-e' => 'removit statum recensorem usoris [[$1]]',
+	'makevalidate-logentrygrant-r'  => 'licuit statum revisorem pro [[$1]]',
+	'makevalidate-logentryrevoke-r' => 'removit statum revisorem usoris [[$1]]',
+	'rights-editor-grant'           => 'licuit statum recensorem pro [[$1]]',
+	'rights-editor-revoke'          => 'removit statum recensorem usoris [[$1]]',
+);
+
 $messages['nl'] = array(
 	'makevalidate'                  => 'Promotie/demotie redacteuren',
 	'makevalidate-header'           => '<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina\'s kunnen valideren.</strong><br> Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de gebruikersrechten in te stellen. Een gebruiker de status reviewer geven, maakt die gebruiker automatisch redacteur. Het intrekken van de status redacteur houdt het intrekken van de status reviewer in.',
@@ -372,12 +398,13 @@ $messages['sk'] = array(
 	'makevalidate-revoked-r'        => '[[User:$1|$1]] odteraz nemá status kontrolóra.',
 	'makevalidate-logpage'          => 'Záznam stavu redaktorov',
 	'makevalidate-logpagetext'      => 'Toto je záznam zmien stausu používateľov pre [[Help:Revízia článkov|kontrolu článkov]].',
-	'makevalidate-logentrygrant-e'  => 'Stav redaktor udelený [[$1]]',
-	'makevalidate-logentryrevoke-e' => 'Stav redaktor odobraný [[$1]]',
-	'makevalidate-logentrygrant-r'  => 'Stav kontrolór udelený [[$1]]',
-	'makevalidate-logentryrevoke-r' => 'Stav kontrolór odobraný [[$1]]',
+	'makevalidate-logentrygrant-e'  => '[[User:$1|$1]] odteraz má status redaktor.',
+	'makevalidate-logentryrevoke-e' => '[[User:$1|$1]] odteraz nemá status redaktor.',
+	'makevalidate-logentrygrant-r'  => '[[User:$1|$1]] odteraz má status kontrolór.',
+	'makevalidate-logentryrevoke-r' => '[[User:$1|$1]] odteraz nemá status kontrolór.',
 	'makevalidate-autosum'          => 'samopovýšenie',
-	'rights-editor-revoke'          => 'práva redaktora boli odňaté [[$1]]',
+	'rights-editor-grant'           => '[[User:$1|$1]] odteraz má status redaktor.',
+	'rights-editor-revoke'          => '[[User:$1|$1]] odteraz nemá status redaktor.',
 );
 
 return $messages;
