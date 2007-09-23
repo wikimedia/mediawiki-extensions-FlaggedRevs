@@ -524,7 +524,8 @@ class Stableversions extends SpecialPage
 		
 		if( $this->oldid ) {
 			$this->showStableRevision( $wgRequest );
-		} else  {
+		} else {
+			$this->showForm( $wgRequest );
 			$this->showStableList( $wgRequest );
 		}
 	}
@@ -557,7 +558,6 @@ class Stableversions extends SpecialPage
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
 			return;
 		}
-		$wgOut->setPagetitle( $this->page->getPrefixedText() );
 		// Get flags and date
 		$flags = $wgFlaggedRevs->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
@@ -588,14 +588,10 @@ class Stableversions extends SpecialPage
 	
 	function showStableList() {
 		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
-		// Must be a valid page/Id
+		// Must be a content page
 		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
-			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
-			return;
-		}
-		$article = new Article( $page );
-		if( !$article ) {
-			$wgOut->showErrorPage('notargettitle', 'allpagesbadtitle' );
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
+				$this->page->getPrefixedText() ) );
 			return;
 		}
 		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page->getDBkey() );	

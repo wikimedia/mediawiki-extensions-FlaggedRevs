@@ -80,7 +80,6 @@ function efLoadFlaggedRevs() {
 	# Add review form
 	$wgHooks['BeforePageDisplay'][] = array($wgFlaggedArticle, 'addReviewForm');
 	# Mark of items in page history
-	$wgHooks['PageHistoryBeforeList'][] = array($wgFlaggedArticle, 'addToPageHist');
 	$wgHooks['PageHistoryLineEnding'][] = array($wgFlaggedArticle, 'addToHistLine');
 	# Autopromote Editors
 	$wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
@@ -103,11 +102,10 @@ function efLoadFlaggedRevs() {
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
-        # Autoreview stuff
-        $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
-        $wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
-        #########
-
+    # Autoreview stuff
+    $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
+	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
+	#########
 }
 
 #########
@@ -365,29 +363,6 @@ class FlaggedRevs {
 		
 		return NULL;
 	}
-
-	/**
-	 * @param int $page_id
-	 * @returns Row
-	 * Get rev ids of reviewed revs for a page
-	 * Will include deleted revs here
-	 */
-    public function getReviewedRevs( $page ) {
-		$rows = array();
-		
-		$dbr = wfGetDB( DB_SLAVE );
-		$result = $dbr->select('flaggedrevs',
-			array('fr_rev_id','fr_quality'),
-			array('fr_namespace' => $page->getNamespace(), 
-				'fr_title' => $page->getDBkey() ),
-			__METHOD__ ,
-			array('ORDER BY' => 'fr_rev_id DESC') );
-		while( $row = $dbr->fetchObject($result) ) {
-        	$rows[$row->fr_rev_id] = $row->fr_quality;
-		}
-		
-		return $rows;
-    }
 
 	/**
 	 * @param int $page_id
@@ -1276,8 +1251,6 @@ class FlaggedRevs {
     
     function setCurrentTab( $sktmp, &$content_actions ) {}
     
-    function addToPageHist( $article ) {}
-    
     function addToHistLine( $row, &$s ) {}
     
     function addQuickReview( $id=NULL, $out ) {}
@@ -1358,7 +1331,8 @@ class FlaggedArticle extends FlaggedRevs {
 				if( !$wgOut->isPrintable() ) {
 					if( $this->useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
-						$tag .= "<span class='fr_tab_current plainlinks'></span>" . wfMsgExt($msg,array('parseinline'));
+						$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+							wfMsgExt($msg,array('parseinline'), $tfrev->fr_rev_id, $revs_since);
 						$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false );
 					} else {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -1673,30 +1647,30 @@ class FlaggedArticle extends FlaggedRevs {
     	return true;
     }
     
-    function addToPageHist( $article ) {
-    	global $wgUser;
-    
-    	$this->pageFlaggedRevs = array();
-    	$rows = $this->getReviewedRevs( $article->getTitle() );
-    	if( !$rows ) 
-			return true;
-    	# Try to keep the skin readily accesible; addToHistLine() will use it
-    	$this->skin = $wgUser->getSkin();
-    	
-    	foreach( $rows as $rev => $quality )
-    		$this->pageFlaggedRevs[$rev] = $quality;
-
-    	return true;
-    }
-    
     function addToHistLine( $row, &$s ) {
     	global $wgUser, $wgTitle;
-    
-    	if( isset($this->pageFlaggedRevs) && array_key_exists($row->rev_id,$this->pageFlaggedRevs) ) {
-    		$msg = ($this->pageFlaggedRevs[$row->rev_id] >= 1) ? 'hist-quality' : 'hist-stable';
+		# Non-content pages cannot be validated
+		if( !$this->isReviewable( $wgTitle ) ) 
+			return true;
+		
+		if( !isset($this->dbw) ) {
+    		$this->dbw = wfGetDB( DB_MASTER );
+    	}
+    	
+    	$quality = $this->dbw->selectField( 'flaggedrevs', 'fr_quality',
+    		array( 'fr_namespace' => $wgTitle->getNamespace(),
+				'fr_title' => $wgTitle->getDBKey(),
+				'fr_rev_id' => $row->rev_id ),
+			__METHOD__,
+			array( 'FORCE INDEX' => 'PRIMARY') );
+    	
+    	if( $quality !== false ) {
+    		$skin = $wgUser->getSkin();
+    		
+    		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
     		$special = SpecialPage::getTitleFor( 'Stableversions' );
     		$s .= ' <tt><small><strong>' . 
-				$this->skin->makeLinkObj( $special, wfMsgHtml($msg), 
+				$skin->makeLinkObj( $special, wfMsgHtml($msg), 
 					'page='.$wgTitle->getPrefixedText().'&oldid='.$row->rev_id ) . 
 				'</strong></small></tt>';
 		}
