@@ -284,9 +284,9 @@ $RevisionreviewMessages['cs'] = array(
 	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Kvalitní]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Vizte nejnovější verzi]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změny|změn}}])',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední prohlédnutá verze] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|změna|změny|změn}}] {{plural:$3|potřebuje|potřebují|potřebuje}} posoudit.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední kvalitní verze] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|změna|změny|změn}}] {{plural:$3|potřebuje|potřebují|potřebuje}} posoudit.',
-	'revreview-basic'       => 'Toto je poslední [[Help:Article validation|prohlédnutá]] verze, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Nejnovější verzi] lze [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|změna|změny|změn}}] čeká na posouzení.',
-	'revreview-quality'     => 'Toto je poslední [[Help:Article validation|kvalitní]] verze, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Nejnovější verzi] lze [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|změna|změny|změn}}] čeká na posouzení.',
-	'revreview-static'      => 'Toto je [[Help:Article validation|posouzená]] verze \'\'\'[[:$3|této stránky]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} schválená] <i>$2</i>. [{{fullurl:$3|stable=0}} Nejnovější verzi] můžete [{{fullurl:$3|action=edit}} změnit].',
+	'revreview-basic'       => 'Toto je poslední [[Help:Article validation|prohlédnutá]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Nejnovější verzi] lze [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|změna|změny|změn}}] čeká na posouzení.',
+	'revreview-quality'     => 'Toto je poslední [[Help:Article validation|kvalitní]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Nejnovější verzi] lze [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|změna|změny|změn}}] čeká na posouzení.',
+	'revreview-static'      => 'Toto je [[Help:Article validation|posouzená]] verze \'\'\'[[:$3|této stránky]]\'\'\' [{{fullurl:Special:Log/review|page=$1}} schválená] <i>$2</i>. [{{fullurl:$3|stable=0}} Nejnovější verzi] můžete [{{fullurl:$3|action=edit}} změnit].',
 	'revreview-note'        => 'Uživatel [[User:$1|$1]] doplnil své [[Help:Article validation|posouzení]] této verze následující poznámkou:',
 	'revreview-update'      => 'Posuďte všechny změny na této stránce vůči stabilní verzi. Šablony a obrázky se také mohly změnit.',
 	'revreview-auto'        => '(automaticky)',
@@ -311,9 +311,9 @@ $RevisionreviewMessages['cs'] = array(
 	'revreview-accuracy'    => 'Přesnost',
 	'revreview-accuracy-0'  => 'Neschváleno',
 	'revreview-accuracy-1'  => 'Prohlédnuto',
-	'revreview-accuracy-2'  => 'Přesné',
-	'revreview-accuracy-3'  => 'Dobře ozdrojované',
-	'revreview-accuracy-4'  => 'Význačné',
+	'revreview-accuracy-2'  => 'Přesná',
+	'revreview-accuracy-3'  => 'Dobře ozdrojovaná',
+	'revreview-accuracy-4'  => 'Význačná',
 	'revreview-depth'       => 'Hloubka',
 	'revreview-depth-0'     => 'Neschváleno',
 	'revreview-depth-1'     => 'Základní',
@@ -602,13 +602,27 @@ $RevisionreviewMessages['hsb'] = array(
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslednja pruwowana wersija]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} hlej wšě]) bu <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}] {{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
+	'revreview-basic'       => 'To je poslednja [[Help:Article validation|wuhladana]] wersija,
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tuchwilna wersija]
+	móže so [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} wobdźěłać]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}]
+	{{plural:$3|dyrbi|dyrbi|dyrbjadyrbjetej}} so hišće pruwować.',
+	'revreview-quality'     => 'To je poslednja [[Help:Versionsbewertung|kwalitna wersija]],
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena]  <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Tuchwilna wersija]
+	móže so [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} wobdźěłać; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}]
+	{{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
+	'revreview-static'      => 'To je [[Help:Article validation|pruwowana]] wersija \'\'\'[[:$3|tuteje strony]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} dopušćena]
+	am <i>$2</i>. [{{fullurl:$3|stable=0}} Tuchwilna wersija] móže so [{{fullurl:$3|action=edit}} wobdźěłać].',
 	'revreview-toggle'      => '(+/-)',#identical but defined
 	'revreview-note'        => '[[{{ns:user}}:$1]] činješe slědowace [[Help:Article validation|pruwowanske noticy]] k tutej wersiji:',
+	'revreview-update'      => 'Prošu pruwuj kóždu změnu wot poslednjeje stabilneje wersije (hlej deleka). Předłohi a wobrazy móža tež změnjene być.',
 	'revreview-auto'        => '(awtomatisce)',
+	'revreview-auto-w'      => 'Wobdźěłuješ runje stabilnu wersiju, wšě změny so \'\'\'awtomatisce pruwować.\'\'\' Ty měł sej tohodla stronu před składowanjom w přehledźe wobhladać.',
+	'revreview-auto-w-old'  => 'Wobdźěłuješ staru wersiju, wšě změny budu so \'\'\'awtomatisce pruwować.\'\'\' Ty měł sej tohodla stronu před składowanjom w přehledźe wobhladać.',
 	'hist-stable'           => '[wuhladany]',
 	'hist-quality'          => '[pruwowany]',
 	'flaggedrevs'           => 'Woznamjenjene wersije',
 	'review-logpage'        => 'Protokol přehladanjow',
+	'review-logpagetext'    => 'To je protokol změnow [[Help:Application validation| dopušćenjow za nastawki.',
 	'review-logentrygrant'  => 'je $1 přehladał',
 	'review-logentryrevoke' => 'je wersiju strony $1 zaćisnył',
 	'review-logaction'      => 'Wersijowy ID $1',
@@ -644,6 +658,7 @@ $RevisionreviewMessages['hsb'] = array(
 	'revreview-style-4'     => 'wuběrna',
 	'revreview-log'         => 'Protokolowy zapisk:',
 	'revreview-submit'      => 'Přepruwowanje składować',
+	'revreview-changed'     => '\'\'\'Naprašowanska akcija njeda so ma tutu wersiju nałožić.\'\'\' Předłoha abo wobraz bu bjez podataje wersije naprašowany. To móže so stać, jeli dynamiska předłoha dalšu předłohu abo dalši wobraz zapřijmje, kotrejž stej wot wariable wotwisnej, kotraž je so wot spočatka pruwowanja změniła. Znowačitanje strony a nowe startowanje pruwowanja móže tón problem rozrisać.',
 	'stableversions'        => 'Stabilne wersije',
 	'stableversions-leg1'   => 'Přepruwowane wersije za nastawk nalistować',
 	'stableversions-page'   => 'Mjeno nastawka',
