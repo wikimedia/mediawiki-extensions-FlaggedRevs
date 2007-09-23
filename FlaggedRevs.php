@@ -340,7 +340,7 @@ class FlaggedRevs {
 	 * @returns Revision
 	 * Will not return if deleted
 	 */	
-	public function getFlaggedRev( $title, $rev_id, $getText ) {
+	public function getFlaggedRev( $title, $rev_id, $getText=false ) {
     	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
