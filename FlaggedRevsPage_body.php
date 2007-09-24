@@ -2,9 +2,10 @@
 
 #(c) Joerg Baach, Aaron Schulz, 2007 GPL
 
-global $IP;
-require_once( "$IP/includes/LogPage.php" );
-require_once( "$IP/includes/SpecialLog.php" );
+if ( !defined( 'MEDIAWIKI' ) ) {
+	echo "FlaggedRevs extension\n";
+	exit( 1 );
+}
 
 class Revisionreview extends SpecialPage
 {

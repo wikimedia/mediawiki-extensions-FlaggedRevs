@@ -1,8 +1,9 @@
 <?php
 
-global $IP;
-require_once( "$IP/includes/LogPage.php" );
-require_once( "$IP/includes/SpecialLog.php" );
+if ( !defined( 'MEDIAWIKI' ) ) {
+	echo "FlaggedRevs extension\n";
+	exit( 1 );
+}
 
 class MakeValidate extends SpecialPage {
 
