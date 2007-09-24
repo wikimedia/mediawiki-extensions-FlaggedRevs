@@ -255,7 +255,7 @@ class Revisionreview extends SpecialPage
 			$frev = $wgFlaggedRevs->getFlaggedRev( $this->page, $this->oldid );
 			// If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
-				$wgOut->redirect( $this->page->escapeLocalUrl() );
+				$wgOut->redirect( $this->page->getFullUrl() );
 				return;
 			}
 		}
@@ -269,7 +269,7 @@ class Revisionreview extends SpecialPage
 			} else {
 				$wgUser->removeWatch( $this->page );
 			}
-        	$wgOut->redirect( $this->page->escapeLocalUrl() );
+        	$wgOut->redirect( $this->page->getFullUrl() );
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed' );
 		}
@@ -623,7 +623,7 @@ class Stableversions extends SpecialPage
 		
 		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
 		$link = $this->skin->makeKnownLinkObj( $SV, $time, 
-			'page='.$this->page->getPrefixedText().'&oldid='.$row->fr_rev_id );
+			'page='.urlencode( $this->page->getPrefixedText() ) . '&oldid='.$row->fr_rev_id );
 		
 		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';	
 	}
