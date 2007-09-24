@@ -194,7 +194,9 @@ class Revisionreview extends SpecialPage
 		// Add box to add live notes to a flagged revision
 		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
-			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>$this->notes</textarea>" .	
+			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>" .
+			htmlspecialchars( $this->notes ) .
+			"</textarea>" .	
 			"</fieldset>";
 		}
        	// Not much to say unless you are a validator
