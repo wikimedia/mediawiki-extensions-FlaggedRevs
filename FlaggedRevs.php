@@ -1177,27 +1177,38 @@ class FlaggedRevs {
 			array('USE INDEX' => 'page_time') ); 
 		if( $removed )
 			return true;
-		# Check for edit spacing. This can be expensive...so check it last
+		
+		// Check for edit spacing. This lets us know that the account has
+		// been used over N different days, rather than all in one lump.
+		// This can be expensive... so check it last.
 		if( $wgFlaggedRevsAutopromote['spacing'] > 0 && $wgFlaggedRevsAutopromote['benchmarks'] > 1 ) {
-			$spacing = $wgFlaggedRevsAutopromote['spacing'] * 24 * 3600; // Convert to hours
-			# Check the oldest edit
+			// Convert days to seconds...
+			$spacing = $wgFlaggedRevsAutopromote['spacing'] * 24 * 3600;
+			
+			// Check the oldest edit
 			$dbr = wfGetDB( DB_SLAVE );
 			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 				array( 'rev_user' => $user->getID() ),
 				__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp ASC',
+				array(
+					'ORDER BY' => 'rev_timestamp ASC',
 					'USE INDEX' => 'user_timestamp' ) );
-			# Recursevly check for for an edit $spacing days later, until we are done.
-			# The first edit counts, so we have one less scans to do...
+			
+			// Recursively check for an edit $spacing seconds later, until we are done.
+			// The first edit counts, so we have one less scans to do...
 			$benchmarks = 0;
 			$needed = $wgFlaggedRevsAutopromote['benchmarks'] - 1;
 			while( $lower && $benchmarks < $needed ) {
-				$lower += $spacing;
+				$next = wfTimestamp( TS_UNIX, $lower ) + $spacing;
 				$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-					array( "rev_timestamp > {$lower}"),
-					array( 'ORDER BY' => 'rev_timestamp ASC',
+					array(
+						'rev_user' => $user->getID(),
+						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ),
+					__METHOD__,
+					array(
+						'ORDER BY' => 'rev_timestamp ASC',
 						'USE INDEX' => 'user_timestamp' ) );
-				if( $lower !==false )
+				if( $lower !== false )
 					$benchmarks++;
 			}
 			if( $benchmarks < $needed )
