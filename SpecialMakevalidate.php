@@ -41,10 +41,11 @@ if( defined( 'MEDIAWIKI' ) ) {
 	/**
 	 * Register the special page
 	 */
-	extAddSpecialPage( dirname(__FILE__) . '/Makevalidate_body.php', 'Makevalidate', 'makevalidate' );
+	$wgSpecialPages['Makevalidate'] = 'MakeValidate';
+	$wgAutoloadClasses['MakeValidate'] = dirname(__FILE__) . '/Makevalidate_body.php';
 	
 	/**
-	 * Populate the message cache and set up the auditing
+	 * Populate the message cache
 	 */
 	function efMakeValidate() {
 		global $wgMessageCache;

@@ -11,10 +11,6 @@ if( !defined( 'FLAGGED_CSS' ) )
 if( !defined( 'FLAGGED_JS' ) ) 
 	define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
 
-if( !function_exists( 'extAddSpecialPage' ) ) {
-	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
-}
-
 $wgExtensionCredits['parserhook'][] = array(
 	'author' => 'Aaron Schulz',
 	'name' => 'Flagged Revisions',
@@ -34,11 +30,15 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 # Load promotion UI
 include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 # Load review UI
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Revisionreview', 'Revisionreview' );
+$wgSpecialPages['Revisionreview'] = 'Revisionreview';
+$wgAutoloadClasses['Revisionreview'] = dirname(__FILE__) . '/FlaggedRevsPage_body.php';
 # Load stableversions UI
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Stableversions', 'Stableversions' );
+$wgSpecialPages['Stableversions'] = 'Stableversions';
+$wgAutoloadClasses['Stableversions'] = dirname(__FILE__) . '/FlaggedRevsPage_body.php';
 # Load unreviewed pages list
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Unreviewedpages', 'UnreviewedPages' );
+$wgSpecialPages['Unreviewedpages'] = 'Unreviewedpages';
+$wgAutoloadClasses['Unreviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage_body.php';
+
 
 function efLoadFlaggedRevs() {
 	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, $wgHooks, $wgFlaggedRevs, $wgFlaggedArticle;
@@ -50,6 +50,8 @@ function efLoadFlaggedRevs() {
 	foreach( $RevisionreviewMessages as $lang => $langMessages ) {
 		$wgMessageCache->addMessages( $langMessages, $lang );
 	}
+	
+	// @fixme this is totally in the wrong place
 	# UI CSS
 	$wgOut->addLink( array(
 		'rel'	=> 'stylesheet',
