@@ -61,13 +61,14 @@ $RevisionreviewMessages['en'] = array(
 	'hist-stable'  => '[sighted]',
 	'hist-quality' => '[quality]',
 
-    'flaggedrevs'        => 'Flagged Revisions',
-    'review-logpage'     => 'Article review log',
-	'review-logpagetext' => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
+    'flaggedrevs'          => 'Flagged Revisions',
+    'review-logpage'       => 'Article review log',
+	'review-logpagetext'   => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
 	for content pages.',
-	'review-logentrygrant'   => 'reviewed $1',
-	'review-logentryrevoke'  => 'depreciated a version of $1',
-	'review-logaction'  => 'revision ID $1',
+	'review-logentry-app'  => 'reviewed $1',
+	'review-logentry-dis'  => 'depreciated a version of $1',
+	'review-logentry-conf' => 'set stable version settings for $1',
+	'review-logaction'     => 'revision ID $1',
 
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 
@@ -108,7 +109,7 @@ $RevisionreviewMessages['en'] = array(
 
 	'stableversions'        => 'Stable versions',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
-	'stableversions-page'   => 'Page name',
+	'stableversions-page'   => 'Page name:',
 	'stableversions-none'   => '"[[:$1]]" has no reviewed revisions.',
 	'stableversions-list'   => 'The following is a list of revisions of "[[:$1]]" that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
@@ -122,6 +123,32 @@ $RevisionreviewMessages['en'] = array(
     'unreviewed-category'   => 'Category:',
     'unreviewed-diff'       => 'Changes',
     'unreviewed-list'       => 'This page lists articles that have not been reviewed or have new, unreviewed, revisions.',
+    
+    'revreview-visibility'  => 'This page has a [[Help:Article validation|stable version]], which can be
+	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
+	
+    'stabilization'         => 'Page stabilization',
+    'stabilization-text'    => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
+    'stabilization-perm'    => 'Your account does not have permission to change the stable version configuration.
+	Here are the current settings for [[:$1|$1]]:',
+	'stabilization-page'    => 'Page name:',
+	'stabilization-leg'     => 'Configure the stable version for a page',
+	'stabilization-select'  => 'How the stable version is selected:',
+	'stabilization-select1' => 'The latest quality revision; if not present, then the latest reviewed one',
+	'stabilization-select2' => 'The latest reviewed revision',
+	'stabilization-def'     => 'Revision displayed on default page view:',
+	'stabilization-def1'    => 'The stable revision',
+	'stabilization-def2'    => 'The current revision',
+	'stabilization-submit'  => 'Confirm',
+	'stabilization-dne'     => 'There is no page called "[[:$1|$1]]". No configuration possible.',
+	'stabilization-success' => 'Stable version configuration for [[:$1|$1]] successfuly set.',
+	
+	'stabilization-sel-short'   => 'Precedence',
+	'stabilization-sel-short-0' => 'Quality',
+	'stabilization-sel-short-1' => 'None',
+	'stabilization-def-short'   => 'Default',
+	'stabilization-def-short-0' => 'Current',
+	'stabilization-def-short-1' => 'Stable',
 );
 
 /* Arabic (Meno25) */

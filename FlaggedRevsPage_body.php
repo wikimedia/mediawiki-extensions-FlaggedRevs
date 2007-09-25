@@ -537,13 +537,12 @@ class Stableversions extends SpecialPage
 		global $wgOut, $wgTitle, $wgScript;
 	
 		$encPage = str_replace( '_', ' ', $this->target );
-		$encId = $this->oldid;
 		
 		$form = "<form name='stableversions' action='$wgScript' method='get'>";
 		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>";
 		$form .= "<table><tr>";
 		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
-		$form .= "<td>".wfMsgHtml("stableversions-page").":</td>";
+		$form .= "<td>".wfMsgHtml("stableversions-page")."</td>";
 		$form .= "<td>".Xml::input('page', 40, $encPage, array( 'id' => 'page' ) )."</td>";
 		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
@@ -834,5 +833,173 @@ class UnreviewedPagesPage extends PageQueryPage {
 				"diff=cur&oldid={$result->page_ext_stable}&editreview=1" ).')';
 
 		return( "{$link} {$stxt} {$review}" );
+	}
+}
+
+class Stabilization extends SpecialPage
+{
+
+    function Stabilization() {
+        SpecialPage::SpecialPage('Stabilization','stablesettings');
+    }
+
+    function execute( $par ) {
+        global $wgRequest, $wgUser, $wgOut;
+
+		$confirm = $wgRequest->wasPosted() &&
+			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
+		$this->isAllowed = $wgUser->isAllowed( 'stablesettings' );
+		# Let anyone view, but not submit...
+		if( $wgRequest->wasPosted() ) {
+			if( $wgUser->isBlocked( !$confirm ) ) {
+				$wgOut->blockedPage();
+				return;
+			} else if( !$this->isAllowed ) {
+				$wgOut->permissionRequired( 'stablesettings' );
+				return;
+			} else if( wfReadOnly() ) {
+				$wgOut->readOnlyPage();
+				return;
+			}
+		}
+
+		$this->setHeaders();
+		$this->skin = $wgUser->getSkin();
+		# Our target page
+		$this->target = $wgRequest->getText( 'page' );
+		$this->page = Title::newFromUrl( $this->target );
+		# Params
+		$this->select = $wgRequest->getInt( 'select' );
+		$this->override = intval( $wgRequest->getBool( 'override' ) );
+		$this->comment = $wgRequest->getVal( 'wpReason' );
+		
+		$this->showForm( $wgRequest );
+		# Only 0 or 1
+		if( $this->select && ($this->select !==0 && $this->select !==1) ) {
+			return;
+		}
+		# We need a page...
+		if( is_null($this->page) ) {
+			return;
+		}
+		# And it must actually be there...
+		if( !$this->page->exists() ) {
+			$wgOut->addHTML( wfMsgExt( 'stabilization-dne', array('parseinline'),
+				$this->page->getPrefixedText() ) );
+			return;
+		}
+		
+		if( $confirm ) {
+			$this->submit();
+		} else {
+			$this->showSettings( $wgRequest );
+		}
+	}
+	
+	function showForm( $wgRequest ) {
+		global $wgOut, $wgTitle, $wgScript;
+	
+		$encPage = str_replace( '_', ' ', $this->target );
+		$form = "<form name='stabilization' action='$wgScript' method='get'>";
+		$form .= "<fieldset><legend>".wfMsg('stabilization-leg')."</legend>";
+		$form .= "<table><tr>";
+		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
+		$form .= "<td>".wfMsgHtml("stabilization-page")."</td>";
+		$form .= "<td>".Xml::input('page', 40, $encPage, array( 'id' => 'page' ) )."</td>";
+		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
+		$form .= "</tr></table>";
+		$form .= "</fieldset></form>\n";
+		
+		$wgOut->addHTML( $form );
+	}
+	
+	function showSettings() {
+		global $wgOut, $wgScript, $wgTitle, $wgUser, $wgFlaggedRevs;
+		// Must be a content page
+		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
+				$this->page->getPrefixedText() ) );
+			return;
+		}
+		// Get visiblity settings...
+		$config = $wgFlaggedRevs->getVisibilitySettings( $this->page, true );
+		$encselect = $this->select ? $this->select : $config['select'];
+		$encoverride = $this->override ? $this->override : $config['override'];
+		
+		if( !$this->isAllowed ) {
+			$form = '<p>'.wfMsgExt( 'stabilization-perm', array('parse'), $this->page->getPrefixedText() ).'</p>';
+			$off = array('disabled' => 'true');
+		} else {
+			$form = wfMsgExt( 'stabilization-text', array('parse'), $this->page->getPrefixedText() );
+			$off = array();
+		}
+		
+		$form .= "<form name='stabilization' action='$wgScript' method='post'>";
+		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
+		$form .= "<table><tr>";
+		
+		$form .= "<td>".Xml::radio( 'select', 0, (0==$encselect), array('id' => 'select1') + $off )."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'select1' )."</td>";
+		$form .= "</tr><tr>";
+		$form .= "<td>".Xml::radio( 'select', 1, (1==$encselect), array('id' => 'select2') + $off )."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'select2' )."</td>";
+		$form .= "</tr></table></fieldset>";
+		
+		$form .= "<fieldset><legend>".wfMsg('stabilization-def')."</legend>";
+		$form .= "<table><tr>";
+		$form .= "<td>".Xml::radio( 'override', 1, (1==$encoverride), array('id' => 'default1') + $off)."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-def1'), 'default1' )."</td>";
+		$form .= "</tr><tr>";
+		$form .= "<td>".Xml::radio( 'override', 0, (0==$encoverride), array('id' => 'default2') + $off)."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-def2'), 'default2' )."</td>";
+		$form .= "</tr></table></fieldset>";
+		
+		$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
+		$form .= Xml::hidden('page', $this->page->getPrefixedText() );
+		$form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
+		
+		$form .= '<p>'.wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
+		$form .= wfSubmitButton( wfMsgHtml( 'stabilization-submit' ) );
+		$form .= '</form>';
+		
+		$wgOut->addHTML( $form );
+	}
+	
+	function submit() {
+		global $wgOut, $wgFlaggedRevs;
+		# Get current config
+		$config = $wgFlaggedRevs->getVisibilitySettings( $this->page, true );
+		
+		$comment = $this->comment;
+		
+		$dbw = wfGetDB( DB_MASTER );
+		$success = $dbw->replace( 'flaggedpages',
+			array( 'fp_page_id' ),
+			array( 'fp_page_id' => $this->page->getArticleID(),
+				'fp_select' => $this->select,
+				'fp_override' => $this->override ),
+			__METHOD__ );
+		
+		$wgOut->addHTML( wfMsgExt('stabilization-success',array('parse'),
+			$this->page->getPrefixedText() ) );
+		# Log if changed	
+		if( $config['select'] != $this->select || $config['override'] != $this->override ) {
+			$log = new LogPage( 'review' );
+			// ID, accuracy, depth, style
+			$set = array();
+			$set[] = wfMsg( "stabilization-sel-short" ) . ": " . 
+				wfMsg("stabilization-sel-short-{$this->select}");
+			$set[] = wfMsg( "stabilization-def-short" ) . ": " . 
+				wfMsg("stabilization-def-short-{$this->override}");
+			
+			$settings = ' [' . implode(', ',$set). ']';
+			// Append comment with action
+			// FIXME: do this better
+			$comment = ($comment) ? "$comment$settings" : "$settings";
+			
+			$log->addEntry( 'config', $this->page, $comment );
+		}
+		// Update the page rows and the stable version
+		$wgFlaggedRevs->articleLinksUpdate2( $this->page );
 	}
 }

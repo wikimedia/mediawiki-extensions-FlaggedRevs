@@ -16,6 +16,12 @@ CREATE TABLE flaggedrevs (
 );
 CREATE INDEX fr_namespace_title ON flaggedrevs (fr_namespace,fr_title,fr_quality,fr_rev_id);
 
+CREATE TABLE flaggedpages (
+  fp_page_id INTEGER NOT NULL PRIMARY KEY DEFAULT 0,
+  fp_select INTEGER NOT NULL DEFAULT 0,
+  fp_override bool NOT NULL
+)
+
 CREATE TABLE flaggedrevtags (
   frt_rev_id     INTEGER  NOT NULL DEFAULT 0 ,
   frt_dimension  TEXT     NOT NULL DEFAULT '',

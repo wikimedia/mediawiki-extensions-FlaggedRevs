@@ -19,11 +19,24 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_text mediumblob NOT NULL default '',
   -- Comma-separated list of flags:
   -- gzip: text is compressed with PHP's gzdeflate() function.
+  -- utf8: in UTF-8
   fr_flags tinyblob NOT NULL,
   
   PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
-  UNIQUE KEY (fr_rev_id),
-  INDEX namespace_title_qal_rev (fr_namespace,fr_title,fr_quality,fr_rev_id)
+  UNIQUE KEY (fr_rev_id)
+) TYPE=InnoDB;
+
+-- This stores settings on how to select the default revision
+CREATE TABLE /*$wgDBprefix*/flaggedpages (
+  fp_page_id int(10) NOT NULL,
+  -- Integers to represent what to show by default:
+  -- 0: quality -> stable -> current
+  -- 1: latest reviewed
+  fp_select int(10) NOT NULL,
+  -- Override the page?
+  fp_override bool NOT NULL,
+  
+  PRIMARY KEY (fps_page_id)
 ) TYPE=InnoDB;
 
 -- This stores all of our tag data
