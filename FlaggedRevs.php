@@ -373,7 +373,7 @@ class FlaggedRevs {
     public function getRevCountSince( $page_id, $from_rev ) {   
 		$dbr = wfGetDB( DB_SLAVE );
 		$count = $dbr->selectField('revision', 'COUNT(*)',
-			array('rev_page' => $page_id, "rev_id > $from_rev" ),
+			array('rev_page' => $page_id, "rev_id > " . intval( $from_rev ) ),
 			__METHOD__ );
 		
 		return $count;
@@ -554,15 +554,13 @@ class FlaggedRevs {
     public function ReviewNotes( $row ) {
     	global $wgUser, $wgFlaggedRevComments;
     	
-    	if( !$row || !$wgFlaggedRevComments ) 
+    	if( !$wgFlaggedRevComments || !$row || $row->fr_comment == '' ) 
 			return '';
     	
-    	if( $row->fr_comment ) {
-    		$skin = $wgUser->getSkin();
-    		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
-    		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
-    		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
-    	}
+   		$skin = $wgUser->getSkin();
+   		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
+   		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
+   		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
     	return $notes;
     }
     
