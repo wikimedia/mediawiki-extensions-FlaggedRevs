@@ -218,7 +218,7 @@ class Revisionreview extends SpecialPage
 	
 	/**
 	 * @param Revision $rev
-	 * @returns string
+	 * @return string
 	 */
 	function historyLine( $rev ) {
 		global $wgContLang;

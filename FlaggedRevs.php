@@ -245,7 +245,7 @@ class FlaggedRevs {
      * @param string $text
      * @param Title $title
      * @param integer $id, revision id
-     * @returns array( string, bool )
+     * @return array( string, bool )
      * All included pages/arguments are expanded out
      */
     public function expandText( $text='', $title, $id=null ) {
@@ -269,7 +269,7 @@ class FlaggedRevs {
 	 * @param Article $article
 	 * @param string $text
 	 * @param int $id
-	 * @returns ParserOutput
+	 * @return ParserOutput
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
     public function parseStableText( $article, $text, $id=NULL ) {
@@ -292,7 +292,7 @@ class FlaggedRevs {
     
     /**
     * @param string $text
-    * @returns string, flags
+    * @return string, flags
     * Compress pre-processed text, passed by reference
     */
     public function compressText( &$text ) {
@@ -313,7 +313,7 @@ class FlaggedRevs {
     /**
     * @param string $text
     * @param mixed $flags, either in string or array form
-    * @returns string
+    * @return string
     * Uncompress pre-processed text, using flags
     */
     public function uncompressText( $text, $flags ) {
@@ -337,7 +337,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param int $rev_id
 	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @returns Revision
+	 * @return Revision
 	 * Will not return if deleted
 	 */	
 	public function getFlaggedRev( $title, $rev_id, $getText=false ) {
@@ -367,13 +367,13 @@ class FlaggedRevs {
 	/**
 	 * @param int $page_id
 	 * @param int $from_rev
-	 * @returns int
+	 * @return int
 	 * Get number of revs since a certain revision
 	 */
     public function getRevCountSince( $page_id, $from_rev ) {   
 		$dbr = wfGetDB( DB_SLAVE );
 		$count = $dbr->selectField('revision', 'COUNT(*)',
-			array('rev_page' => $page_id, "rev_id > $from_rev"),
+			array('rev_page' => $page_id, "rev_id > $from_rev" ),
 			__METHOD__ );
 		
 		return $count;
@@ -384,7 +384,7 @@ class FlaggedRevs {
 	 * @param Title $title, unused
 	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
-	 * @returns Row
+	 * @return Row
 	*/
     public function getOverridingRev( $title=NULL, $getText=false, $forUpdate=false ) {
     	if( is_null($title) )
@@ -436,7 +436,7 @@ class FlaggedRevs {
 	/**
 	 * Get flags for a revision
 	 * @param int $rev_id
-	 * @returns Array
+	 * @return Array
 	*/
     public function getFlagsForRevision( $rev_id ) {
     	# Set all flags to zero
@@ -459,7 +459,7 @@ class FlaggedRevs {
 	
 	/**
 	 * @param int $title
-	 * @returns bool
+	 * @return bool
 	 * Is $title the main page?
 	 */	
 	public function isMainPage( $title ) {
@@ -471,7 +471,7 @@ class FlaggedRevs {
 	 * @param array $flags
 	 * @param bool $prettybox
 	 * @param string $css, class to wrap box in
-	 * @returns string
+	 * @return string
 	 * Generates a review box/tag
 	 */	
     public function addTagRatings( $flags, $prettyBox = false, $css='' ) {
@@ -514,7 +514,7 @@ class FlaggedRevs {
 	 * @param array $flags
 	 * @param int $rev_since, revisions since review
 	 * @param bool $stable, are we referring to the stable revision?
-	 * @returns string
+	 * @return string
 	 * Generates a review box using a table using addTagRatings()
 	 */	
 	public function prettyRatingBox( $tfrev, $flags, $revs_since, $stable=true ) {
@@ -548,7 +548,7 @@ class FlaggedRevs {
 
 	/**
 	 * @param Row $row
-	 * @returns string
+	 * @return string
 	 * Generates revision review notes
 	 */	    
     public function ReviewNotes( $row ) {
@@ -568,7 +568,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Array $flags
-	* @returns bool, is this revision at quality condition?
+	* @return bool, is this revision at quality condition?
 	*/
     public function isQuality( $flags ) {
     	global $wgFlaggedRevTags;
@@ -582,7 +582,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Array $flags
-	* @returns bool, is this revision at optimal condition?
+	* @return bool, is this revision at optimal condition?
 	*/
     public function isPristine( $flags ) {
     	global $wgFlaggedRevTags, $wgFlaggedRevValues;
@@ -597,7 +597,7 @@ class FlaggedRevs {
 	/**
 	* Is this page in reviewable namespace?
 	* @param Title, $title
-	* @returns bool
+	* @return bool
 	*/
     public function isReviewable( $title ) {
     	global $wgFlaggedRevsNamespaces;
@@ -607,7 +607,7 @@ class FlaggedRevs {
     
 	/**
 	* @param Article $article
-	* @returns ParserOutput
+	* @return ParserOutput
 	* Get the page cache for the top stable revision of an article
 	*/   
     public function getPageCache( $article ) {
@@ -1796,7 +1796,7 @@ class FlaggedArticle extends FlaggedRevs {
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
 	 * Same params for the sake of inheritance
-	 * @returns Row
+	 * @return Row
 	 */
 	function getOverridingRev( $title = NULL, $getText=false, $forUpdate=false ) {
 		global $wgTitle;
