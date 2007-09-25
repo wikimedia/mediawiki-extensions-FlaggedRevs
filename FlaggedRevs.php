@@ -616,7 +616,7 @@ class FlaggedRevs {
     	if( !$article || !$article->getId() ) 
 			return NULL;
     	
-    	$parserCache =& ParserCache::singleton();
+    	$parserCache = ParserCache::singleton();
     	$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
 		# Get the cached HTML
 		wfDebug( "Trying parser cache $key\n" );
@@ -667,7 +667,7 @@ class FlaggedRevs {
     	# Update the cache...
 		$article->mTitle->invalidateCache();
 		
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
     	$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
     	# Add cache mark to HTML
 		$now = wfTimestampNow();
@@ -711,7 +711,7 @@ class FlaggedRevs {
 		}
 		# Try the parser cache, should be set on the edit before this is called.
 		# If not set or up to date, then parse it...
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $user );
 		if( $poutput==false ) {
 			$options = ParserOptions::newFromUser($user);
@@ -838,7 +838,7 @@ class FlaggedRevs {
     public function articleLinksUpdate( $article, $a=null, $b=null ) {
     	global $wgUser, $wgParser;
     	# Update the links tables as the stable version may now be the default page...
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
@@ -860,7 +860,7 @@ class FlaggedRevs {
     	
     	$article = new Article( $title );
 		# Update the links tables as the stable version may now be the default page...
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
@@ -1235,7 +1235,7 @@ class FlaggedRevs {
 		if( !$article || !$article->exists() || !$this->isReviewable( $article->mTitle ) ) 
 			return true;
 		
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
     	$parserOut = $parserCache->get( $article, $wgUser );
 		if( $parserOut ) {
 			# Clear older, incomplete, cached versions

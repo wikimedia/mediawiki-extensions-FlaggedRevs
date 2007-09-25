@@ -399,7 +399,7 @@ class Revisionreview extends SpecialPage
 		
 		$article = new Article( $this->page );
 		// Update the links tables as the stable version may now be the default page...
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
@@ -447,7 +447,7 @@ class Revisionreview extends SpecialPage
 		$article = new Article( $this->page );
 		// Update the links tables as a new stable version
 		// may now be the default page.
-		$parserCache =& ParserCache::singleton();
+		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
