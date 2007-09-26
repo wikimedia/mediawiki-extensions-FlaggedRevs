@@ -163,9 +163,9 @@ class Revisionreview extends SpecialPage
 			}
 		}
 		$hidden = array(
-			wfHidden( 'wpEditToken', $wgUser->editToken() ),
-			wfHidden( 'target', $this->page->getPrefixedText() ),
-			wfHidden( 'oldid', $this->oldid ) );	
+			Xml::hidden( 'wpEditToken', $wgUser->editToken() ),
+			Xml::hidden( 'target', $this->page->getPrefixedText() ),
+			Xml::hidden( 'oldid', $this->oldid ) );	
 		
 		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
 		$form = "<form name='revisionreview' action='$action' method='post'>";
@@ -201,9 +201,9 @@ class Revisionreview extends SpecialPage
 		}
        	// Not much to say unless you are a validator
 		if( $wgUser->isAllowed( 'validate' ) )
-			$form .= '<p>'.wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
+			$form .= '<p>'.Xml::inputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
 		
-		$form .= '<p>'.wfSubmitButton( wfMsgHtml( 'revreview-submit' ) ).'</p>';
+		$form .= '<p>'.Xml::submitButton( wfMsgHtml( 'revreview-submit' ) ).'</p>';
 		
 		foreach( $hidden as $item ) {
 			$form .= $item;
@@ -545,7 +545,7 @@ class Stableversions extends SpecialPage
 		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
 		$form .= "<td>".wfMsgHtml("stableversions-page")."</td>";
 		$form .= "<td>".Xml::input('page', 40, $pageName, array( 'id' => 'page' ) )."</td>";
-		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
+		$form .= "<td>".Xml::submitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>\n";
 		
@@ -908,7 +908,7 @@ class Stabilization extends SpecialPage
 		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
 		$form .= "<td>".wfMsgHtml("stabilization-page")."</td>";
 		$form .= "<td>".Xml::input('page', 40, $pageName, array( 'id' => 'page' ) )."</td>";
-		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
+		$form .= "<td>".Xml::submitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>\n";
 		
@@ -959,10 +959,10 @@ class Stabilization extends SpecialPage
 		if( $this->isAllowed ) {
 			$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
 			$form .= Xml::hidden('page', $this->page->getPrefixedText() );
-			$form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
+			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 		
-			$form .= '<p>'.wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
-			$form .= wfSubmitButton( wfMsgHtml( 'stabilization-submit' ) );
+			$form .= '<p>'.Xml::inputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
+			$form .= Xml::submitButton( wfMsgHtml( 'stabilization-submit' ) );
 		}
 		$form .= '</form>';
 		

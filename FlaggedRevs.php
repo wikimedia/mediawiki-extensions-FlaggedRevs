@@ -1818,11 +1818,11 @@ class FlaggedArticle extends FlaggedRevs {
 		if( $wgFlaggedRevsOverride )
 			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
 		
-		$form .= wfHidden( 'title', $reviewtitle->getPrefixedText() );
-		$form .= wfHidden( 'target', $wgTitle->getPrefixedText() );
-		$form .= wfHidden( 'oldid', $id );
-		$form .= wfHidden( 'action', 'submit');
-        $form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
+		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() );
+		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() );
+		$form .= Xml::hidden( 'oldid', $id );
+		$form .= Xml::hidden( 'action', 'submit');
+        $form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
         
 		foreach( $this->dimensions as $quality => $levels ) {
 			$options = ''; $disabled = '';
@@ -1871,7 +1871,7 @@ class FlaggedArticle extends FlaggedRevs {
         $watchChecked = ( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
        	# Not much to say unless you are a validator
 		if( $wgUser->isAllowed( 'validate' ) )
-        	$form .= "<p>".wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
+        	$form .= "<p>".Xml::inputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
         
 		$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
 		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";

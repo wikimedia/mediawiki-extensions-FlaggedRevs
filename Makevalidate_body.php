@@ -36,7 +36,7 @@ class MakeValidate extends SpecialPage {
 		$wgOut->addHtml( $this->makeSearchForm() );
 		
 		if( $this->target != '' ) {
-			$wgOut->addHtml( wfElement( 'p', NULL, NULL ) );
+			$wgOut->addHtml( Xml::element( 'p', NULL, NULL ) );
 			$user = User::newFromName( $this->target );
 			if( is_object( $user ) && !is_null( $user ) ) {
 				global $wgVersion;
@@ -140,11 +140,11 @@ class MakeValidate extends SpecialPage {
 	 */
 	function makeSearchForm() {
 		$thisTitle = Title::makeTitle( NS_SPECIAL, $this->getName() );
-		$form  = wfOpenElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
-		$form .= wfElement( 'label', array( 'for' => 'username' ), wfMsg( 'makevalidate-username' ) ) . ' ';
-		$form .= wfElement( 'input', array( 'type' => 'text', 'name' => 'username', 'id' => 'username', 'value' => $this->target ) ) . ' ';
-		$form .= wfElement( 'input', array( 'type' => 'submit', 'name' => 'dosearch', 'value' => wfMsg( 'makevalidate-search' ) ) );
-		$form .= wfCloseElement( 'form' );
+		$form  = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
+		$form .= Xml::element( 'label', array( 'for' => 'username' ), wfMsg( 'makevalidate-username' ) ) . ' ';
+		$form .= Xml::element( 'input', array( 'type' => 'text', 'name' => 'username', 'id' => 'username', 'value' => $this->target ) ) . ' ';
+		$form .= Xml::element( 'input', array( 'type' => 'submit', 'name' => 'dosearch', 'value' => wfMsg( 'makevalidate-search' ) ) );
+		$form .= Xml::closeElement( 'form' );
 		return $form;
 	}
 	
@@ -173,45 +173,45 @@ class MakeValidate extends SpecialPage {
 		}
 	
 		# Start the table
-		$form  = wfOpenElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
+		$form  = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
 		$form .= '<fieldset><legend>' . wfMsg('makevalidate-legend') . '</legend>';
-		$form .= wfOpenElement( 'table' ) . wfOpenElement( 'tr' );
+		$form .= Xml::openElement( 'table' ) . Xml::openElement( 'tr' );
 		# Grant/revoke buttons
-		$form .= wfElement( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-e' ) );
-		$form .= wfOpenElement( 'td' );
+		$form .= Xml::element( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-e' ) );
+		$form .= Xml::openElement( 'td' );
 		foreach( array( 'grant1', 'revoke1' ) as $button ) {
 			$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makevalidate-' . $button ) );
 			if( !$$button )
 				$attribs['disabled'] = 'disabled';
-			$form .= wfElement( 'input', $attribs );
+			$form .= Xml::element( 'input', $attribs );
 		}
-		$form .= wfCloseElement( 'td' ) . wfCloseElement( 'tr' );
+		$form .= Xml::closeElement( 'td' ) . Xml::closeElement( 'tr' );
 		// Check permissions
 		if ( $wgUser->isAllowed('makevalidate') ) {
-			$form .= wfElement( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-r' ) );
-			$form .= wfOpenElement( 'td' );
+			$form .= Xml::element( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-r' ) );
+			$form .= Xml::openElement( 'td' );
 			foreach( array( 'grant2', 'revoke2' ) as $button ) {
 				$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makevalidate-' . $button ) );
 				if( !$$button )
 					$attribs['disabled'] = 'disabled';
-				$form .= wfElement( 'input', $attribs );
+				$form .= Xml::element( 'input', $attribs );
 			}
-			$form .= wfCloseElement( 'td' ) . wfCloseElement( 'tr' );
+			$form .= Xml::closeElement( 'td' ) . Xml::closeElement( 'tr' );
 		}
 		# Comment field
-		$form .= wfOpenElement( 'td', array( 'align' => 'right' ) );
-		$form .= wfElement( 'label', array( 'for' => 'comment' ), wfMsg( 'makevalidate-comment' ) );
-		$form .= wfOpenElement( 'td' );
-		$form .= wfElement( 'input', array( 'type' => 'text', 'name' => 'comment', 'id' => 'comment', 'size' => 45 ) );
-		$form .= wfCloseElement( 'td' ) . wfCloseElement( 'tr' );
+		$form .= Xml::openElement( 'td', array( 'align' => 'right' ) );
+		$form .= Xml::element( 'label', array( 'for' => 'comment' ), wfMsg( 'makevalidate-comment' ) );
+		$form .= Xml::openElement( 'td' );
+		$form .= Xml::element( 'input', array( 'type' => 'text', 'name' => 'comment', 'id' => 'comment', 'size' => 45 ) );
+		$form .= Xml::closeElement( 'td' ) . Xml::closeElement( 'tr' );
 		# End table
-		$form .= wfCloseElement( 'table' );
+		$form .= Xml::closeElement( 'table' );
 		# Username
-		$form .= wfElement( 'input', array( 'type' => 'hidden', 'name' => 'username', 'value' => $this->target ) );
+		$form .= Xml::element( 'input', array( 'type' => 'hidden', 'name' => 'username', 'value' => $this->target ) );
 		# Edit token
-		$form .= wfElement( 'input', array( 'type' => 'hidden', 'name' => 'token', 'value' => $wgUser->editToken( 'makevalidate' ) ) );
+		$form .= Xml::element( 'input', array( 'type' => 'hidden', 'name' => 'token', 'value' => $wgUser->editToken( 'makevalidate' ) ) );
 		$form .= '</fieldset>';
-		$form .= wfCloseElement( 'form' );
+		$form .= Xml::closeElement( 'form' );
 		return $form;
 	}
 
@@ -240,7 +240,7 @@ class MakeValidate extends SpecialPage {
 	function showLogEntries( &$user ) {
 		global $wgOut;
 		$title = $user->getUserPage();
-		$wgOut->addHtml( wfElement( 'h2', NULL, htmlspecialchars( LogPage::logName( 'rights' ) ) ) );
+		$wgOut->addHtml( Xml::element( 'h2', NULL, htmlspecialchars( LogPage::logName( 'rights' ) ) ) );
 		$logViewer = new LogViewer( new LogReader( new FauxRequest( array( 'page' => $title->getPrefixedText(), 'type' => 'rights' ) ) ) );
 		$logViewer->showList( $wgOut );
 	}
