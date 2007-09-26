@@ -848,6 +848,7 @@ class Stabilization extends SpecialPage
 
 		$confirm = $wgRequest->wasPosted() &&
 			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
+		
 		$this->isAllowed = $wgUser->isAllowed( 'stablesettings' );
 		# Let anyone view, but not submit...
 		if( $wgRequest->wasPosted() ) {
@@ -953,13 +954,14 @@ class Stabilization extends SpecialPage
 		$form .= "<td>".Xml::radio( 'override', 0, (0==$encoverride), array('id' => 'default2') + $off)."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-def2'), 'default2' )."</td>";
 		$form .= "</tr></table></fieldset>";
+		if( $this->isAllowed ) {
+			$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
+			$form .= Xml::hidden('page', $this->page->getPrefixedText() );
+			$form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
 		
-		$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
-		$form .= Xml::hidden('page', $this->page->getPrefixedText() );
-		$form .= wfHidden( 'wpEditToken', $wgUser->editToken() );
-		
-		$form .= '<p>'.wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
-		$form .= wfSubmitButton( wfMsgHtml( 'stabilization-submit' ) );
+			$form .= '<p>'.wfInputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
+			$form .= wfSubmitButton( wfMsgHtml( 'stabilization-submit' ) );
+		}
 		$form .= '</form>';
 		
 		$wgOut->addHTML( $form );
