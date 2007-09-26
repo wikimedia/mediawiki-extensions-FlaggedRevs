@@ -76,7 +76,7 @@ function efLoadFlaggedRevs() {
 	$wgGroupPermissions['sysop']['autopatrol'] = false;
 	$wgGroupPermissions['sysop']['patrol']     = false;
 	# Visiblity settings
-	$wgGroupPermissions['sysop']['stablesettings'] =true;
+	$wgGroupPermissions['sysop']['stablesettings'] = true;
 
 	######### Hook attachments #########
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
@@ -1783,7 +1783,7 @@ class FlaggedArticle extends FlaggedRevs {
     
     function addQuickReview( $id=NULL, $out, $top=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, 
-			$wgFlaggedRevsWatch;
+			$wgFlaggedRevsOverride, $wgFlaggedRevsWatch;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) 
 			return;
