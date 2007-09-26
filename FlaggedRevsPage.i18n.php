@@ -699,8 +699,9 @@ $RevisionreviewMessages['hsb'] = array(
 	'flaggedrevs'           => 'Woznamjenjene wersije',
 	'review-logpage'        => 'Protokol přehladanjow',
 	'review-logpagetext'    => 'To je protokol změnow [[Help:Application validation| dopušćenjow za nastawki.',
-	'review-logentrygrant'  => 'je $1 přehladał',
-	'review-logentryrevoke' => 'je wersiju strony $1 zaćisnył',
+	'review-logentry-app'   => 'je $1 přepruwował',
+	'review-logentry-dis'   => 'je wersiju wot $1 zaćisnył',
+	'review-logentry-conf'  => 'je nastajenja za stabilnu wersiju za $1 stajił',
 	'review-logaction'      => 'Wersijowy ID $1',
 	'revisionreview'        => 'Wersije přepruwować',
 	'revreview-main'        => 'Dyrbiš wěstu wersiju nastawka za přehladanje wubrać.
@@ -749,6 +750,29 @@ $RevisionreviewMessages['hsb'] = array(
 	'unreviewed-category'   => 'Kategorija:',
 	'unreviewed-diff'       => 'Změny',
 	'unreviewed-list'       => 'Tuta strona naliči nastawki kotrež hišće pruwowane njejsu abo maja njepruwowane wersije.',
+	'revreview-visibility'  => 'Tuta strona ma [[Help:Article validation|stabilnu wersiju]], kotraž da so
+	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurować].',
+	'stabilization'         => 'Stabilizacija strony',
+	'stabilization-text'    => 'Změń nastajenja, zo by postajił, kak ma so stabilna wersija wot "[[:$1|$1]]" wubrać a zwobraznić.',
+	'stabilization-perm'    => 'Twoje wužiwarske konto nima trěbne prawo, zo by nastajenja stabilneje wersije změniło.
+	Aktualne nastajenja za „[[:$1|$1]]“ su:',
+	'stabilization-page'    => 'Mjeno strony:',
+	'stabilization-leg'     => 'Stabilnu wersiju za stronu konfigurować',
+	'stabilization-select'  => 'Wuběranje stabilneje wersije',
+	'stabilization-select1' => 'Poslednja pruwowana wersija; jeli žana njeje, potom poslednja přehladana wersija',
+	'stabilization-select2' => 'Poslednja pruwowana wersija',
+	'stabilization-def'     => 'Wersija zwobraznjena w normalnym napohledźe strony',
+	'stabilization-def1'    => 'Stabilna wersija',
+	'stabilization-def2'    => 'Aktualna wersija',
+	'stabilization-submit'  => 'Potwjerdźić',
+	'stabilization-dne'     => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
+	'stabilization-success' => 'Nastajenja za stabilnu wersiju wot "[[:$1|$1]]" wuspěšnje stajene.',
+	'stabilization-sel-short' => 'Priorita',
+	'stabilization-sel-short-0' => 'Kwalita',
+	'stabilization-sel-short-1' => 'Žana',
+	'stabilization-def-short' => 'Standard',
+	'stabilization-def-short-0' => 'Aktualny',
+	'stabilization-def-short-1' => 'Stabilny',
 );
 
 /* Norwegian (Jon Harald Søby) */
