@@ -548,7 +548,7 @@ class FlaggedRevs {
         	$tag .= "<table align='center' class='$css' cellpading='0'>";
         
 		foreach( $this->dimensions as $quality => $value ) {
-			$valuetext = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
+			$encValueText = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
             $level = $flags[$quality];
             $minlevel = $wgFlaggedRevTags[$quality];
             if( $level >= $minlevel )
@@ -567,7 +567,7 @@ class FlaggedRevs {
             } else {
 				$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" . 
 					wfMsgHtml("revreview-$quality") . 
-					"</strong>: <span class='fr-text-value'>$valuetext&nbsp;</span>&nbsp;" .
+					"</strong>: <span class='fr-text-value'>$encValueText&nbsp;</span>&nbsp;" .
 					"</span>\n";    
 			}
 		}
@@ -601,13 +601,13 @@ class FlaggedRevs {
         # Construct some tagging
         $msg = $stable ? 'revreview-' : 'revreview-newest-';
         $msg .= $quality ? 'quality' : 'basic';
-        $msg2 = $stable ? '' : ' '.wfMsg('revreview-oldrating');
+        $encRatingLabel = $stable ? '' : ' ' . wfMsgHtml('revreview-oldrating');
         
 		$box = ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 			wfMsg('revreview-toggle') . '</a>';
 		$box .= '<span id="mw-revisionratings">' .
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since) .
-			$msg2 .
+			$encRatingLabel .
 			self::addTagRatings( $flags, true, "{$tagClass}a" ) .
 			'</span>';
         
@@ -1294,7 +1294,7 @@ class FlaggedRevs {
 		array_push( $newGroups, 'editor');
 		# Lets NOT spam RC, set $RC to false
 		$log = new LogPage( 'rights', false );
-		$log->addEntry('rights', $user->getUserPage(), wfMsgHtml('makevalidate-autosum'), 
+		$log->addEntry('rights', $user->getUserPage(), wfMsg('makevalidate-autosum'), 
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 		
@@ -1774,8 +1774,9 @@ class FlaggedArticle extends FlaggedRevs {
     		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
     		$special = SpecialPage::getTitleFor( 'Stableversions' );
     		$s .= ' <tt><small><strong>' . 
-				$skin->makeLinkObj( $special, wfMsgHtml($msg), 
-					'page='.$wgTitle->getPrefixedText().'&oldid='.$row->rev_id ) . 
+				$skin->makeLinkObj( $special, wfMsgHtml( $msg ),
+					'page=' . urlencode( $wgTitle->getPrefixedText() ) .
+					'&oldid=' . $row->rev_id ) . 
 				'</strong></small></tt>';
 		}
 		
@@ -1825,19 +1826,23 @@ class FlaggedArticle extends FlaggedRevs {
         $form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
         
 		foreach( $this->dimensions as $quality => $levels ) {
-			$options = ''; $disabled = '';
+			$options = array();
+			$disabled = false;
 			foreach( $levels as $idx => $label ) {
-				$selected = ( $flags[$quality]==$idx || $flags[$quality]==0 && $idx==1 ) ? "selected='selected'" : '';
+				$selected = ( $flags[$quality]==$idx || $flags[$quality]==0 && $idx==1 );
 				# Do not show options user's can't set unless that is the status quo
 				if( !Revisionreview::userCan($quality, $flags[$quality]) ) {
-					$disabled = 'disabled = true';
-					$options .= "<option value='$idx' $selected>" . wfMsgHtml("revreview-$label") . "</option>\n";
+					$disabled = true;
+					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected );
 				} else if( Revisionreview::userCan($quality, $idx) ) {
-					$options .= "<option value='$idx' $selected>" . wfMsgHtml("revreview-$label") . "</option>\n";
+					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected );
 				}
 			}
-			$form .= "\n" . wfMsgHtml("revreview-$quality") . ": <select name='wp$quality' $disabled>\n";
-			$form .= $options;
+			$form .= "\n" . wfMsgHtml("revreview-$quality") . ": ";
+			$selectAttribs = array( 'name' => "wp$quality" );
+			if( $disabled ) $selectAttribs['disabled'] = 'disabled';
+			$form .= Xml::openElement( 'select', $selectAttribs );
+			$form .= implode( "\n", $options );
 			$form .= "</select>\n";
 		}
         if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
@@ -1871,12 +1876,12 @@ class FlaggedArticle extends FlaggedRevs {
         $watchChecked = ( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
        	# Not much to say unless you are a validator
 		if( $wgUser->isAllowed( 'validate' ) )
-        	$form .= "<p>".Xml::inputLabel( wfMsgHtml( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
+        	$form .= "<p>".Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
         
 		$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
 		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";
         
-		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsgHtml( 'revreview-submit' ) )."</p></fieldset>";
+		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsg( 'revreview-submit' ) )."</p></fieldset>";
 		$form .= Xml::closeElement( 'form' );
 		
 		if( $top )
