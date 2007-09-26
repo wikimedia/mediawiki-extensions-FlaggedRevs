@@ -390,15 +390,15 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-current'   => 'Entwurf (bearbeitbar)',
 	'revreview-stable'    => 'Stabil',
 	'revreview-oldrating' => 'war eingestuft als:',
-	'revreview-noflagged' => 'Von dieser Seite gibt es keine geprüften Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]]
-	gemacht werden kann.',
+	'revreview-noflagged' => 'Von dieser Seite gibt es keine überprüften Versionen, so dass noch keine Aussage über die 
+	[[Help:Article validation|Artikelqualität]] gemacht werden kann.',
 
-	'revreview-quick-none'        => "'''Aktuell.'''. Es wurde noch keine Version gesichtet.",
+	'revreview-quick-none'        => "'''Aktuell.'''. Es wurde noch keine Version überprüft.",
 
-	'revreview-quick-see-quality' => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte geprüfte Version]
+	'revreview-quick-see-quality' => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-see-basic'   => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte gesichtete Version]
+	'revreview-quick-see-basic'   => "'''Aktuell.''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
 	'revreview-quick-basic'       => "'''[[Help:Article validation|Gesichtet.]]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] 
@@ -407,11 +407,11 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-quick-quality'     => "'''[[Help:Article validation|Geprüft.]]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
+	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte überprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
-	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version]
+	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte überprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben]
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
@@ -420,12 +420,7 @@ $RevisionreviewMessages['de'] = array(
 	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}]
 	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
-	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision, 
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
-	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] 
-	{{plural:$3|awaits|await}} review.',
-
-	'revreview-quality'  => 'Das ist die letzte Version mit [[Help:Versionsbewertung|Qualitätsbewertung]],
+	'revreview-quality'  => 'Das ist die letzte Version mit [[Help:Versionsbewertung|geprüfte]] Version,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}]
 	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
@@ -439,9 +434,9 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-update' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
 	Vorlagen und Bilder können sich ebenfalls geändert haben.',
 	'revreview-auto'   => '(automatisch)',
-	'revreview-auto-w' => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als geprüft markiert.''' 
+	'revreview-auto-w' => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
-        'revreview-auto-w-old' => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch als geprüft markiert.''' 
+        'revreview-auto-w-old' => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
         Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
 
 	'hist-stable'  => '[gesichtet]',
@@ -450,18 +445,19 @@ $RevisionreviewMessages['de'] = array(
 	'flaggedrevs'           => 'Markierte Versionen',
 	'review-logpage'        => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext'    => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
-	'review-logentrygrant'  => 'prüfte $1',
-	'review-logentryrevoke' => 'verwarf eine Version von $1',
+	'review-logentry-app'   => 'überprüfte $1',
+	'review-logentry-dis'   => 'verwarf eine Version von $1',
+	'review-logentry-conf'  => 'setzte Einstellungen für stabile Version für $1',
 	'review-logaction'      => 'Version-ID $1',
 
 	'revisionreview'       => 'Versionsprüfung',
 	'revreview-main'       => 'Du musst eine Artikelversion zur Prüfung auswählen.
 
-	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste ungeprüfter Versionen.',	
+	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste nicht überprüfter Versionen.',	
 	'revreview-selected'   => "Gewählte Version von '''$1:'''",
 	'revreview-text'       => "Einer stabilen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.",
 	'revreview-toolow'     => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
-	damit eine Version als geprüft gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
+	damit eine Version als überprüft gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-flag'       => 'Prüfe Version #$1',
 	'revreview-legend'     => 'Inhalt der Version bewerten',
 	'revreview-notes'      => 'Anzuzeigende Bemerkungen oder Notizen:',
@@ -492,21 +488,47 @@ $RevisionreviewMessages['de'] = array(
 	sich seit Beginn der Prüfung verändert hat. Ein Neuladen der Seite und Neustart der Prüfung kann das Problem beheben.',
 
 	'stableversions'        => 'Stabile Versionen',
-	'stableversions-leg1'   => 'Liste der geprüften Versionen für einen Artikel',
-	'stableversions-page'   => 'Artikelname',
-	'stableversions-none'   => '„[[:$1]]“ hat keine geprüften Versionen.',
-	'stableversions-list'   => 'Dies ist die Liste der geprüften Versionen von „[[:$1]]“:',
-	'stableversions-review' => 'geprüft am <i>$1</i> durch $2',
+	'stableversions-leg1'   => 'Liste der überprüften Versionen für einen Artikel',
+	'stableversions-page'   => 'Artikelname:',
+	'stableversions-none'   => '„[[:$1]]“ hat keine überprüften Versionen.',
+	'stableversions-list'   => 'Dies ist die Liste der überprüften Versionen von „[[:$1]]“:',
+	'stableversions-review' => 'überprüft am <i>$1</i> durch $2',
 
 	'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
 	'review-diff2oldest'    => "Unterschied zur ältesten Version",
 
-	'unreviewedpages'       => 'Ungeprüfte Artikel',
-	'viewunreviewed'        => 'Liste ungeprüfter Artikel',
-	'unreviewed-outdated'   => 'Zeige nur Seiten, die ungeprüfte Version nach einer stabilen Version haben.',
+	'unreviewedpages'       => 'Nicht überprüfte Artikel',
+	'viewunreviewed'        => 'Liste nicht überprüfter Artikel',
+	'unreviewed-outdated'   => 'Zeige nur Seiten, die nicht überprüfte Versionen nach einer stabilen Version haben.',
 	'unreviewed-category'   => 'Kategorie:',
 	'unreviewed-diff'       => 'Änderungen',
-	'unreviewed-list'       => 'Diese Seite zeigt Artikel, die noch gar nicht geprüft wurden oder ungeprüfte Versionen haben.',
+	'unreviewed-list'       => 'Diese Seite zeigt Artikel, die noch nicht nie überprüft wurden oder nicht überprüfte Versionen haben.',
+
+	'revreview-visibility'  => 'Diese Seite hat eine [[Help:Article validation|stabile Version]], welche
+	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] werden kann.',
+
+	'stabilization'         => 'Seiten-Stabilität',
+	'stabilization-text'    => 'Ändere die Einstellungen um festzulegen, wie die stabile Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.',
+	'stabilization-perm'    => 'Dein Benutzerkonto hat nicht die erforderliche Berechtigung, um die Einstellungen der stabilen Version zu ändern.
+	Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
+	'stabilization-page'    => 'Seitenname:',
+	'stabilization-leg'     => 'Einstellungen der stabilen Version für eine Seite',
+	'stabilization-select'  => 'Auswahl der stabilen Version',
+	'stabilization-select1' => 'Die letzte geprüfte Version; wenn keine vorhnanden ist, dann die letzte gesichtete Version',
+	'stabilization-select2' => 'Die letzte gesichtete Version',
+	'stabilization-def'     => 'Angezeigte Version in der normalen Seitenansicht',
+	'stabilization-def1'    => 'Die stabile Version',
+	'stabilization-def2'    => 'Die aktuellste Version',
+	'stabilization-submit'  => 'Bestätigen',
+	'stabilization-dne'     => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
+	'stabilization-success' => 'Einstellungen für die stabile Version von „[[:$1|$1]]“ erfolgreich gespeichert.',
+	
+	'stabilization-sel-short'   => 'Priorität',
+	'stabilization-sel-short-0' => 'Qualität',
+	'stabilization-sel-short-1' => 'keine',
+	'stabilization-def-short'   => 'Standard',
+	'stabilization-def-short-0' => 'Aktuell',
+	'stabilization-def-short-1' => 'Stabil',
 );
 
 $RevisionreviewMessages['la'] = array(
