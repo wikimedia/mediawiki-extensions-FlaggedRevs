@@ -43,7 +43,8 @@ $wgAutoloadClasses['Stableversions'] = dirname(__FILE__) . '/FlaggedRevsPage_bod
 $wgSpecialPages['Unreviewedpages'] = 'Unreviewedpages';
 $wgAutoloadClasses['Unreviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage_body.php';
 # Stable version config
-extAddSpecialPage( dirname(__FILE__) . '/FlaggedRevsPage_body.php', 'Stabilization', 'Stabilization' );
+$wgSpecialPages['Stabilization'] = 'Stabilization';
+$wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage_body.php';
 
 
 function efLoadFlaggedRevs() {
