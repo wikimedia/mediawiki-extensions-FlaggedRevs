@@ -32,7 +32,7 @@ $wgExtensionCredits['specialpage'][] = array(
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 # Load general UI
-include_once( dirname( __FILE__ ) . '/FlaggedArticle.php' );
+$wgAutoloadClasses['FlaggedArticle'] = dirname( __FILE__ ) . '/FlaggedArticle.php';
 # Load promotion UI
 include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 # Load review UI
