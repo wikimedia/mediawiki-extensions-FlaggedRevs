@@ -536,14 +536,15 @@ class Stableversions extends SpecialPage
 	function showForm( $wgRequest ) {
 		global $wgOut, $wgTitle, $wgScript;
 	
-		$encPage = str_replace( '_', ' ', $this->target );
+		$pageName = str_replace( '_', ' ', $this->target );
 		
-		$form = "<form name='stableversions' action='$wgScript' method='get'>";
+		$form = Xml::openElement( 'form',
+			array( 'name' => 'stableversions', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>";
 		$form .= "<table><tr>";
 		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
 		$form .= "<td>".wfMsgHtml("stableversions-page")."</td>";
-		$form .= "<td>".Xml::input('page', 40, $encPage, array( 'id' => 'page' ) )."</td>";
+		$form .= "<td>".Xml::input('page', 40, $pageName, array( 'id' => 'page' ) )."</td>";
 		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>\n";
@@ -900,13 +901,13 @@ class Stabilization extends SpecialPage
 	function showForm( $wgRequest ) {
 		global $wgOut, $wgTitle, $wgScript;
 	
-		$encPage = str_replace( '_', ' ', $this->target );
-		$form = "<form name='stabilization' action='$wgScript' method='get'>";
+		$pageName = str_replace( '_', ' ', $this->target );
+		$form = Xml::openElement( 'form', array( 'name' => 'stablization', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsg('stabilization-leg')."</legend>";
 		$form .= "<table><tr>";
 		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
 		$form .= "<td>".wfMsgHtml("stabilization-page")."</td>";
-		$form .= "<td>".Xml::input('page', 40, $encPage, array( 'id' => 'page' ) )."</td>";
+		$form .= "<td>".Xml::input('page', 40, $pageName, array( 'id' => 'page' ) )."</td>";
 		$form .= "<td>".wfSubmitButton( wfMsgHtml( 'go' ) )."</td>";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>\n";
@@ -924,8 +925,8 @@ class Stabilization extends SpecialPage
 		}
 		// Get visiblity settings...
 		$config = $wgFlaggedRevs->getVisibilitySettings( $this->page, true );
-		$encselect = $this->select ? $this->select : $config['select'];
-		$encoverride = $this->override ? $this->override : $config['override'];
+		$selectSetting = $this->select ? $this->select : $config['select'];
+		$overrideSetting = $this->override ? $this->override : $config['override'];
 		
 		if( !$this->isAllowed ) {
 			$form = '<p>'.wfMsgExt( 'stabilization-perm', array('parse'), $this->page->getPrefixedText() ).'</p>';
@@ -935,23 +936,24 @@ class Stabilization extends SpecialPage
 			$off = array();
 		}
 		
-		$form .= "<form name='stabilization' action='$wgScript' method='post'>";
+		$form .= Xml::openElement( 'form',
+			array( 'name' => 'stabilization', 'action' => $wgScript, 'method' => 'post' ) );
 		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
 		$form .= "<table><tr>";
 		
-		$form .= "<td>".Xml::radio( 'select', 0, (0==$encselect), array('id' => 'select1') + $off )."</td>";
+		$form .= "<td>".Xml::radio( 'select', 0, (0==$selectSetting), array('id' => 'select1') + $off )."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'select1' )."</td>";
 		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'select', 1, (1==$encselect), array('id' => 'select2') + $off )."</td>";
+		$form .= "<td>".Xml::radio( 'select', 1, (1==$selectSetting), array('id' => 'select2') + $off )."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'select2' )."</td>";
 		$form .= "</tr></table></fieldset>";
 		
 		$form .= "<fieldset><legend>".wfMsg('stabilization-def')."</legend>";
 		$form .= "<table><tr>";
-		$form .= "<td>".Xml::radio( 'override', 1, (1==$encoverride), array('id' => 'default1') + $off)."</td>";
+		$form .= "<td>".Xml::radio( 'override', 1, (1==$overrideSetting), array('id' => 'default1') + $off)."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-def1'), 'default1' )."</td>";
 		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'override', 0, (0==$encoverride), array('id' => 'default2') + $off)."</td>";
+		$form .= "<td>".Xml::radio( 'override', 0, (0==$overrideSetting), array('id' => 'default2') + $off)."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-def2'), 'default2' )."</td>";
 		$form .= "</tr></table></fieldset>";
 		if( $this->isAllowed ) {
