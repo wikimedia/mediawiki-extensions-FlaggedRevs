@@ -23,7 +23,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_flags tinyblob NOT NULL,
   
   PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
-  UNIQUE KEY (fr_rev_id)
+  UNIQUE INDEX (fr_rev_id),
+  INDEX namespace_title_qal_rev (fr_namespace,fr_title,fr_quality,fr_rev_id)
 ) TYPE=InnoDB;
 
 -- This stores settings on how to select the default revision
@@ -46,8 +47,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevtags (
   frt_dimension varchar(255) NOT NULL,
   frt_value tinyint(2) NOT NULL,
   
-  PRIMARY KEY (frt_rev_id,frt_dimension),
-  INDEX frt_rev_dim_val (frt_rev_id,frt_dimension,frt_value)
+  PRIMARY KEY (frt_rev_id,frt_dimension)
 ) TYPE=InnoDB;
 
 -- This stores all of our transclusion revision pointers
@@ -59,8 +59,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
   -- Revisions ID used when reviewed
   ft_tmp_rev_id int(10) NULL,
   
-  PRIMARY KEY (ft_rev_id,ft_namespace,ft_title),
-  INDEX rev_namespace_title_id (ft_rev_id,ft_namespace,ft_title,ft_tmp_rev_id)
+  PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 ) TYPE=InnoDB;
 
 -- This stores all of our image revision pointers
@@ -73,9 +72,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
   -- Statistically unique SHA-1 key
   fi_img_sha1 varbinary(32) NOT NULL default '',
   
-  PRIMARY KEY (fi_rev_id,fi_name),
-  INDEX fi_rev_name_time (fi_rev_id,fi_name,fi_img_timestamp),
-  INDEX fi_rev_name_key (fi_rev_id,fi_name,fi_img_sha1)
+  PRIMARY KEY (fi_rev_id,fi_name)
 ) TYPE=InnoDB;
 
 -- Add page_ext_stable column, similar to page_latest

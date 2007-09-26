@@ -28,7 +28,6 @@ CREATE TABLE flaggedrevtags (
   frt_value      SMALLINT NOT NULL DEFAULT 0
 );
 CREATE UNIQUE INDEX frt_rev_dimension ON flaggedrevtags (frt_rev_id,frt_dimension);
-CREATE INDEX        frt_rev_dim_val   ON flaggedrevtags (frt_rev_id,frt_dimension,frt_value);
 
 CREATE TABLE flaggedtemplates (
   ft_rev_id      INTEGER  NOT NULL DEFAULT 0 ,
@@ -37,7 +36,6 @@ CREATE TABLE flaggedtemplates (
   ft_tmp_rev_id  INTEGER  NOT NULL DEFAULT 0
 );
 CREATE UNIQUE INDEX ft_rev_namespace_title ON flaggedtemplates (ft_rev_id,ft_namespace,ft_title);
-CREATE INDEX        rev_namespace_title_id ON flaggedtemplates (ft_rev_id,ft_namespace,ft_title,ft_tmp_rev_id);
 
 CREATE TABLE flaggedimages (
   fi_rev_id         INTEGER   NOT NULL DEFAULT 0 ,
@@ -46,8 +44,6 @@ CREATE TABLE flaggedimages (
   fi_img_sha1       CHAR(64)
 );
 CREATE UNIQUE INDEX fi_rev_name        ON flaggedimages (fi_rev_id,fi_name);
-CREATE INDEX        fi_rev_name_time   ON flaggedimages (fi_rev_id,fi_name,fi_img_timestamp);
-CREATE INDEX        fi_rev_img_key     ON flaggedimages (fi_rev_id,fi_name,fi_img_sha1);
 
 ALTER TABLE page 
 	ADD page_ext_reviewed bool NULL,
