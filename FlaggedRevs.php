@@ -48,7 +48,9 @@ $wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage_body
 
 
 function efLoadFlaggedRevs() {
-	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, $wgHooks, $wgFlaggedRevs, $wgFlaggedArticle;
+	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, $wgHooks, 
+		$wgFlaggedRevs, $wgFlaggedArticle;
+	# Out global page modifier objects
 	$wgFlaggedRevs = new FlaggedRevs();
 	$wgFlaggedArticle = new FlaggedArticle();
 	
@@ -81,41 +83,41 @@ function efLoadFlaggedRevs() {
 
 	######### Hook attachments #########
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
-	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs');
+	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache');
-	$wgHooks['ArticleViewHeader'][] = array($wgFlaggedArticle, 'setPageContent');
-	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array($wgFlaggedArticle, 'setPermaLink');
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
-	$wgHooks['EditPage::showEditForm:initial'][] = array($wgFlaggedArticle, 'addToEditView');
+	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
 	# Add review form
-	$wgHooks['BeforePageDisplay'][] = array($wgFlaggedArticle, 'addReviewForm');
-	$wgHooks['BeforePageDisplay'][] = array($wgFlaggedArticle, 'addVisibilityLink');
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
 	# Mark of items in page history
-	$wgHooks['PageHistoryLineEnding'][] = array($wgFlaggedArticle, 'addToHistLine');
+	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
 	# Autopromote Editors
-	$wgHooks['ArticleSaveComplete'][] = array($wgFlaggedArticle, 'autoPromoteUser');
+	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedRevs, 'autoPromoteUser' );
 	# Adds table link references to include ones from the stable version
-	$wgHooks['LinksUpdateConstructed'][] = array($wgFlaggedArticle, 'extraLinksUpdate');
+	$wgHooks['LinksUpdateConstructed'][] = array( $wgFlaggedRevs, 'extraLinksUpdate' );
 	# Empty flagged page settings row on delete
-	$wgHooks['ArticleDelete'][] = array($wgFlaggedArticle, 'deleteVisiblitySettings');
+	$wgHooks['ArticleDeleteComplete'][] = array( $wgFlaggedArticle, 'deleteVisiblitySettings' );
 	# Check on undelete/merge/revisiondelete for changes to stable version
-	$wgHooks['ArticleUndelete'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
-	$wgHooks['ArticleRevisionVisiblitySet'][] = array($wgFlaggedArticle, 'articleLinksUpdate2');
-	$wgHooks['ArticleMergeComplete'][] = array($wgFlaggedArticle, 'articleLinksUpdate');
+	$wgHooks['ArticleUndelete'][] = array( $wgFlaggedArticle, 'articleLinksUpdate2' );
+	$wgHooks['ArticleRevisionVisiblitySet'][] = array( $wgFlaggedArticle, 'articleLinksUpdate2' );
+	$wgHooks['ArticleMergeComplete'][] = array( $wgFlaggedArticle, 'articleLinksUpdate' );
 	# Update our table NS/Titles when things are moved
-	$wgHooks['SpecialMovepageAfterMove'][] = array($wgFlaggedArticle, 'updateFromMove');
+	$wgHooks['SpecialMovepageAfterMove'][] = array( $wgFlaggedArticle, 'updateFromMove' );
 	# Parser hooks, selects the desired images/templates
-	$wgHooks['BeforeParserrenderImageGallery'][] = array($wgFlaggedArticle, 'parserMakeGalleryStable');
-	$wgHooks['BeforeGalleryFindFile'][] = array($wgFlaggedArticle, 'galleryFindStableFileTime');
-	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array($wgFlaggedArticle, 'parserFetchStableTemplate');
-	$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedArticle, 'parserMakeStableImageLink');
+	$wgHooks['BeforeParserrenderImageGallery'][] = array( $wgFlaggedRevs, 'parserMakeGalleryStable' );
+	$wgHooks['BeforeGalleryFindFile'][] = array( $wgFlaggedArticle, 'galleryFindStableFileTime' );
+	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $wgFlaggedRevs, 'parserFetchStableTemplate' );
+	$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedRevs, 'parserMakeStableImageLink' );
 	# Additional parser versioning
-	$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedArticle, 'parserInjectImageTimestamps');
-	$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedArticle, 'outputInjectImageTimestamps');
+	$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedRevs, 'parserInjectImageTimestamps' );
+	$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedRevs, 'outputInjectImageTimestamps');
 	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams');
-	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
     # Autoreview stuff
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
@@ -420,8 +422,6 @@ class FlaggedRevs {
     		$selectColumns[] = 'fr_flags';
     	}
     	$row = null;
-    	// Get visiblity settings...
-		$config = $this->getVisibilitySettings( $title, $forUpdate );
     	# If we want the text, then get the text flags too
     	if( !$forUpdate ) {
     		$dbr = wfGetDB( DB_SLAVE );
@@ -437,6 +437,8 @@ class FlaggedRevs {
 			if( !$row = $dbr->fetchObject($result) )
 				return null;
 		} else {
+    		// Get visiblity settings...
+			$config = $this->getVisibilitySettings( $title, $forUpdate );
 			$dbw = wfGetDB( DB_MASTER );
 			// Look for the latest quality revision
 			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
@@ -903,9 +905,11 @@ class FlaggedRevs {
     
     public function deleteVisiblitySettings( $article, $user, $reason ) {
     	$dbw = wfGetDB( DB_MASTER );
-    	$dbw->delete( 'flaggedpage_settings',
-    		array('fps_page_id' => $article->getID() ),
+    	$dbw->delete( 'flaggedpages',
+    		array('fp_page_id' => $article->getID() ),
     		__METHOD__ );
+    		
+    	return true;
     }
 
 	/**
@@ -956,7 +960,7 @@ class FlaggedRevs {
 	*/
     public function extraLinksUpdate( $linksUpdate ) {
     	wfProfileIn( __METHOD__ );
-		    	
+		
     	if( !$this->isReviewable( $linksUpdate->mTitle ) ) 
 			return true;
     	# Check if this page has a stable version
@@ -1387,7 +1391,7 @@ class FlaggedArticle extends FlaggedRevs {
 		global $wgFlaggedRevsOverride, $wgFlaggedRevsAnonOnly, $wgUser;
 		
 		$config = $this->getVisibilitySettings();
-	
+		
 		return ( $config['override'] && !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) );
 	}
 
