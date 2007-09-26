@@ -36,7 +36,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   -- Override the page?
   fp_override bool NOT NULL,
   
-  PRIMARY KEY (fps_page_id)
+  PRIMARY KEY (fp_page_id)
 ) TYPE=InnoDB;
 
 -- This stores all of our tag data
