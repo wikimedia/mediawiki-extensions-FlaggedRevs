@@ -255,6 +255,10 @@ class FlaggedArticle extends FlaggedRevs {
     	global $wgUser, $wgRequest, $action;
     	
     	if( $action=='protect' || $action=='unprotect' ) {
+			# Check for an overridabe revision
+			$tfrev = $this->getStableRev();
+			if( !$tfrev )
+				return true;
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
 			$out->mBodytext = '<span class="plainlinks">' .
