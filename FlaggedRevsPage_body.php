@@ -574,7 +574,7 @@ class Stableversions extends SpecialPage
 	}
 	
 	function showStableRevision( $frev ) {
-		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedRevs;
+		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedRevs, $wgFlaggedArticle;
 		// Get the revision
 		$frev = $wgFlaggedRevs->getFlaggedRev( $this->page, $this->oldid, true );
 		// Revision must exists
@@ -586,12 +586,12 @@ class Stableversions extends SpecialPage
 		$flags = $wgFlaggedRevs->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
-       	$tag = wfMsgExt('revreview-static', array('parseinline'), 
-		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText()) .
-			' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+       	$tag = wfMsgExt( 'revreview-static', array('parseinline'), 
+		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText() ) .
+			' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' .
 			wfMsg('revreview-toggle') . '</a>' .
-			'<span id="mwrevisionratings" style="display:block;">' . 
-			wfMsg('revreview-oldrating') . $wgFlaggedRevs->addTagRatings( $flags ) . 
+			'<span id="mwrevisionratings" style="display:block;">' .
+			wfMsg('revreview-oldrating') . $wgFlaggedArticle->addTagRatings( $flags ) .
 			'</span>';
 		// Parse the text...
 		$article = new Article( $this->page );
@@ -970,7 +970,7 @@ class Stabilization extends SpecialPage
 	}
 	
 	function submit() {
-		global $wgOut, $wgFlaggedRevs;
+		global $wgOut, $wgFlaggedRevs, $wgUser, $wgParser;
 		# Get current config
 		$config = $wgFlaggedRevs->getVisibilitySettings( $this->page, true );
 		
@@ -1003,7 +1003,18 @@ class Stabilization extends SpecialPage
 			
 			$log->addEntry( 'config', $this->page, $comment );
 		}
-		// Update the page rows and the stable version
-		$wgFlaggedRevs->articleLinksUpdate2( $this->page );
+		
+    	$article = new Article( $this->page );
+		# Update the links tables as the stable version may now be the default page...
+		$parserCache = ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $wgUser );
+		if( $poutput==false ) {
+			$text = $article->getContent();
+			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+			# Might as well save the cache while we're at it
+			$parserCache->save( $poutput, $article, $wgUser );
+		}
+		$u = new LinksUpdate( $article->mTitle, $poutput );
+		$u->doUpdate(); // this will trigger our hook to add stable links too...
 	}
 }

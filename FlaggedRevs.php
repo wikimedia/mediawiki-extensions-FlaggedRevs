@@ -123,6 +123,7 @@ function efLoadFlaggedRevs() {
     # Autoreview stuff
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
+	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'autoMarkPatrolled' );
 	#########
 }
 
@@ -1091,6 +1092,22 @@ class FlaggedRevs {
 		$this->skipReviewDiff = true; // Don't jump to diff...
 		
 		return true;
+	}
+	
+	/**
+	* When an edit is made to a page that can't be reviewed, treat rc_patrolled
+	* as 1. This avoids marks showing on edits that cannot be reviewed.
+	*/ 	
+	function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
+		global $wgFlaggedRevs;
+		
+		if( !$wgFlaggedRevs->isReviewable( $article->getTitle() ) ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_this_oldid' => $rev->getID() ),
+				__METHOD__ );
+		}
 	}
 
 	/**
