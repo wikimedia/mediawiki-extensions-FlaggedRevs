@@ -154,7 +154,7 @@ $messages['cs'] = array(
 $messages['de'] = array(
 	'makevalidate'       => 'Editor-Recht erteilen/entziehen',
 	'makevalidate-header'   => '<strong>Mit diesem Formular können Administratoren und Bürokraten Benutzern das Recht zur Artikelprüfung erteilen.</strong><br />
-	Geben Sie den Benutzernamen in das Feld ein und drücken Sie auf den Button um das Recht zu setzen.
+	Gebe den Benutzernamen in das Feld ein und klicke auf die Schaltfläche, um das Recht zu setzen.
 	Durch Erteilung des Prüfrechts wird automatisch auch das Editor-Recht erteilt. Der Entzug des Editors-Rechts hat automatisch den Entzug des Prüfrechts zur Folge.',
 	'makevalidate-username'  => 'Benutzername:',
 	'makevalidate-search' => 'Ausführen',
@@ -162,7 +162,7 @@ $messages['de'] = array(
 	'makevalidate-noteditor' => '[[User:$1|$1]] hat kein Editor-Recht.',
 	'makevalidate-isvalidator' => '[[User:$1|$1]] hat das Prüfrecht.',
 	'makevalidate-notvalidator' => '[[User:$1|$1]] hat kein Prüfrecht.',
-	'makevalidate-legend' => 'Benutzerrechte ändern:',
+	'makevalidate-legend' => 'Benutzerrechte ändern',
 	'makevalidate-change-e' => 'Editor-Recht:',
 	'makevalidate-change-r' => 'Prüfrecht:',
 	'makevalidate-grant1' => 'Erteile',
@@ -411,5 +411,3 @@ $messages['sk'] = array(
 
 return $messages;
 }
-
-
