@@ -971,23 +971,22 @@ class Stabilization extends SpecialPage
 	
 	function submit() {
 		global $wgOut, $wgFlaggedRevs, $wgUser, $wgParser;
-		# Get current config
-		$config = $wgFlaggedRevs->getVisibilitySettings( $this->page, true );
-		
-		$comment = $this->comment;
 		
 		$dbw = wfGetDB( DB_MASTER );
+		# Get current config
+		$row = $dbw->selectRow( 'flaggedpages', 
+			array( 'fp_select', 'fp_override' ),
+			array( 'fp_page_id' => $this->page->getArticleID() ),
+			__METHOD__ );
+		# Fire away!
 		$success = $dbw->replace( 'flaggedpages',
 			array( 'fp_page_id' ),
 			array( 'fp_page_id' => $this->page->getArticleID(),
 				'fp_select' => $this->select,
 				'fp_override' => $this->override ),
 			__METHOD__ );
-		
-		$wgOut->addHTML( wfMsgExt('stabilization-success',array('parse'),
-			$this->page->getPrefixedText() ) );
-		# Log if changed	
-		if( $config['select'] != $this->select || $config['override'] != $this->override ) {
+		# Log if changed
+		if( !$row || $row->fp_select != $this->select || $row->fp_override != $this->override ) {
 			$log = new LogPage( 'review' );
 			// ID, accuracy, depth, style
 			$set = array();
@@ -999,7 +998,7 @@ class Stabilization extends SpecialPage
 			$settings = ' [' . implode(', ',$set). ']';
 			// Append comment with action
 			// FIXME: do this better
-			$comment = ($comment) ? "$comment$settings" : "$settings";
+			$comment = ($this->comment) ? "{$this->comment}$settings" : "$settings";
 			
 			$log->addEntry( 'config', $this->page, $comment );
 		}
@@ -1016,5 +1015,9 @@ class Stabilization extends SpecialPage
 		}
 		$u = new LinksUpdate( $article->mTitle, $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
+		
+		# Success message
+		$wgOut->addHTML( wfMsgExt('stabilization-success',array('parse'),
+			$this->page->getPrefixedText() ) );
 	}
 }

@@ -1108,6 +1108,7 @@ class FlaggedRevs {
 				array( 'rc_this_oldid' => $rev->getID() ),
 				__METHOD__ );
 		}
+		return true;
 	}
 
 	/**

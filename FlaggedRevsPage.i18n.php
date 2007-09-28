@@ -67,7 +67,7 @@ $RevisionreviewMessages['en'] = array(
 	for content pages.',
 	'review-logentry-app'  => 'reviewed $1',
 	'review-logentry-dis'  => 'depreciated a version of $1',
-	'review-logentry-conf' => 'set stable version settings for $1',
+	'review-logentry-conf' => 'configured stable versioning for $1',
 	'review-logaction'     => 'revision ID $1',
 
     'revisionreview'       => 'Review revisions',		
