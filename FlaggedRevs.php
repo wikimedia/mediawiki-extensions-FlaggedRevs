@@ -574,7 +574,8 @@ class FlaggedRevs {
     public function isReviewable( $title ) {
     	global $wgFlaggedRevsNamespaces;
     	
-    	return in_array($title->getNamespace(),$wgFlaggedRevsNamespaces);
+    	return ( in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) 
+			&& !$title->isTalkPage() );
     }
     
 	/**

@@ -252,7 +252,10 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function addVisibilityLink( $out ) {
-    	global $wgUser, $wgRequest, $action;
+    	global $wgUser, $wgRequest, $wgTitle, $action;
+    	
+    	if( !$this->isReviewable( $wgTitle ) )
+    		return true;
     	
     	if( $action=='protect' || $action=='unprotect' ) {
 			# Check for an overridabe revision
