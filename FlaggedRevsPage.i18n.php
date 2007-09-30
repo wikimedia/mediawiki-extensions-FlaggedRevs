@@ -27,25 +27,25 @@ $RevisionreviewMessages['en'] = array(
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-see-basic' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} see stable revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
-	'revreview-quick-basic'  => '\'\'\'[[Help:Article validation|Sighted]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} see current revision]] 
+	'revreview-quick-basic' => '\'\'\'[[Help:Article validation|Sighted]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} see current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Quality]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} see current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
-	'revreview-newest-basic'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
+	'revreview-newest-basic' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
-	'revreview-newest-quality'    => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] 
+	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved]
 	 on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
-	'revreview-basic'  => 'This is the latest [[Help:Article validation|sighted]] revision, 
+	'revreview-basic' => 'This is the latest [[Help:Article validation|sighted]] revision, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] 
 	{{plural:$3|awaits|await}} review.',
-	'revreview-quality'  => 'This is the latest [[Help:Article validation|quality]] revision, 
+	'revreview-quality' => 'This is the latest [[Help:Article validation|quality]] revision, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} current revision] 
 	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] 
 	{{plural:$3|awaits|await}} review.',
-	'revreview-static'  => 'This is a [[Help:Article validation|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', 
+	'revreview-static' => 'This is a [[Help:Article validation|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} current revision] 
 	can be [{{fullurl:$3|action=edit}} modified].',
 	'revreview-toggle' => '(+/-)',
@@ -127,21 +127,22 @@ $RevisionreviewMessages['en'] = array(
     'revreview-visibility'  => 'This page has a [[Help:Article validation|stable version]], which can be
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
 	
-    'stabilization'         => 'Page stabilization',
-    'stabilization-text'    => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
-    'stabilization-perm'    => 'Your account does not have permission to change the stable version configuration.
+    'stabilization'            => 'Page stabilization',
+    'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
+    'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.
 	Here are the current settings for [[:$1|$1]]:',
-	'stabilization-page'    => 'Page name:',
-	'stabilization-leg'     => 'Configure the stable version for a page',
-	'stabilization-select'  => 'How the stable version is selected',
-	'stabilization-select1' => 'The latest quality revision; if not present, then the latest reviewed one',
-	'stabilization-select2' => 'The latest reviewed revision',
-	'stabilization-def'     => 'Revision displayed on default page view',
-	'stabilization-def1'    => 'The stable revision; if not present, then the current one',
-	'stabilization-def2'    => 'The current revision',
-	'stabilization-submit'  => 'Confirm',
-	'stabilization-dne'     => 'There is no page called "[[:$1|$1]]". No configuration possible.',
-	'stabilization-success' => 'Stable version configuration for [[:$1|$1]] successfuly set.',
+	'stabilization-page'       => 'Page name:',
+	'stabilization-leg'        => 'Configure the stable version for a page',
+	'stabilization-select'     => 'How the stable version is selected',
+	'stabilization-select1'    => 'The latest quality revision; if not present, then the latest reviewed one',
+	'stabilization-select2'    => 'The latest reviewed revision',
+	'stabilization-def'        => 'Revision displayed on default page view',
+	'stabilization-def1'       => 'The stable revision; if not present, then the current one',
+	'stabilization-def2'       => 'The current revision',
+	'stabilization-submit'     => 'Confirm',
+	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]". No configuration is possible.',
+	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed. No configuration is possible',
+	'stabilization-success'    => 'Stable version configuration for [[:$1|$1]] successfuly set.',
 	
 	'stabilization-sel-short'   => 'Precedence',
 	'stabilization-sel-short-0' => 'Quality',
@@ -546,7 +547,7 @@ $RevisionreviewMessages['de'] = array(
 	'stabilization-def1'    => 'Die stabile Version; wenn keine vorhanden ist, dann die akutelle Version',
 	'stabilization-def2'    => 'Die aktuellste Version',
 	'stabilization-submit'  => 'Bestätigen',
-	'stabilization-dne'     => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
+	'stabilization-notexists'     => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
 	'stabilization-success' => 'Einstellungen für die stabile Version von „[[:$1|$1]]“ erfolgreich gespeichert.',
 
 	'stabilization-sel-short'   => 'Priorität',
@@ -671,7 +672,7 @@ $RevisionreviewMessages['hsb'] = array(
 	'stabilization-def1'    => 'Stabilna wersija',
 	'stabilization-def2'    => 'Aktualna wersija',
 	'stabilization-submit'  => 'Potwjerdźić',
-	'stabilization-dne'     => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
+	'stabilization-notexists'     => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
 	'stabilization-success' => 'Nastajenja za stabilnu wersiju wot "[[:$1|$1]]" wuspěšnje stajene.',
 	'stabilization-sel-short' => 'Priorita',
 	'stabilization-sel-short-0' => 'Kwalita',
@@ -811,7 +812,7 @@ Gelieve de bewerking ter controle te tonen voor het oplaan.',
 	'stabilization-def1'    => 'De stabiele versie',
 	'stabilization-def2'    => 'De huidige versie',
 	'stabilization-submit'  => 'Bevestigen',
-	'stabilization-dne'     => 'Er bestaat geen pagina genaamd "[[:$1|$1]]". Er is geen aanpassing mogelijk.',
+	'stabilization-notexists'     => 'Er bestaat geen pagina genaamd "[[:$1|$1]]". Er is geen aanpassing mogelijk.',
 	'stabilization-success' => 'Aanpassing van de stabiele versie voor [[:$1|$1]] is succesvol uitgevoerd.',
 	'stabilization-sel-short' => 'Voorrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',

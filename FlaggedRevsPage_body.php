@@ -845,7 +845,7 @@ class Stabilization extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+        global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevs;
 
 		$confirm = $wgRequest->wasPosted() &&
 			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
@@ -886,7 +886,11 @@ class Stabilization extends SpecialPage
 		}
 		# And it must actually be there...
 		if( !$this->page->exists() ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-dne', array('parseinline'),
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
+				$this->page->getPrefixedText() ) );
+			return;
+		} else if ( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 			return;
 		}
