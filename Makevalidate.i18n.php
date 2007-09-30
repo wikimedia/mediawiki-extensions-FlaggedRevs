@@ -185,6 +185,11 @@ $messages['de'] = array(
 	'rights-editor-grant'   => 'erteilte das Editor-Recht an [[$1]]',
 );
 
+$messages['ext'] = array(
+	'makevalidate-username'         => 'Nombri el usuáriu:',
+	'makevalidate-search'           => 'Dil',
+);
+
 $messages['hsb'] = array(
 	'makevalidate'                  => 'Wobdźěłowarjow zasadźić/wotsadźić',
 	'makevalidate-header'           => '<strong>Z tutym formularom móža administratorojo a běrokraća wužiwarjam prawo pruwowanja dać.</strong><br />

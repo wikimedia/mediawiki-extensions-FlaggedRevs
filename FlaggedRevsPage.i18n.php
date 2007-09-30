@@ -260,6 +260,7 @@ $RevisionreviewMessages['ar'] = array(
 	'unreviewed-list'       => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
 	'stabilization'         => 'تثبيت الصفحة',
 	'stabilization-page'    => 'اسم الصفحة:',
+	'stabilization-select'  => 'كيفية اختيار النسخة المستقرة',
 	'stabilization-select2' => 'آخر نسخة مراجعة',
 	'stabilization-def2'    => 'النسخة الحالية',
 	'stabilization-submit'  => 'تأكيد',
@@ -558,6 +559,22 @@ $RevisionreviewMessages['de'] = array(
 	'stabilization-def-short-1' => 'Stabil',
 );
 
+$RevisionreviewMessages['ext'] = array(
+	'editor'                => 'Eitol',
+	'group-editor'          => 'Eitoris',
+	'group-editor-member'   => 'Eitol',
+	'grouppage-editor'      => '{{ns:project}}:Eitol',
+	'revreview-auto'        => '(autumáticu)',
+	'revreview-style-2'     => 'Güenu',
+	'stableversions-page'   => 'Nombri la páhina:',
+	'unreviewed-category'   => 'Categoria:',
+	'unreviewed-diff'       => 'Chambus',
+	'stabilization-page'    => 'Nombri la páhina:',
+	'stabilization-sel-short-1' => 'Dengunu',
+	'stabilization-def-short' => 'Defeutu',
+	'stabilization-def-short-0' => 'Atual',
+);
+
 $RevisionreviewMessages['hsb'] = array(
 	'makevalidate-autosum'  => 'Prawo awtomatisce spožčene',
 	'editor'                => 'wobdźěłowar',
@@ -704,61 +721,71 @@ $RevisionreviewMessages['nl'] = array(
 	'group-editor'          => 'Redacteuren',
 	'group-editor-member'   => 'Redacteur',
 	'grouppage-editor'      => '{{ns:project}}:Redacteur',
+	'reviewer'              => 'Beoordelaar',
+	'group-reviewer'        => 'Beoordelaars',
+	'group-reviewer-member' => 'Beoordelaar',
+	'grouppage-reviewer'    => '{{ns:project}}:Beoordelaar',
 	'revreview-current'     => 'Huidige versie',
 	'revreview-edit'        => 'concept bewerken',
 	'revreview-source'      => 'Brontekst concept',
 	'revreview-stable'      => 'Stabiele versie',
 	'revreview-oldrating'   => 'Was gewaardeerd als:',
-	'revreview-noflagged'   => 'Er zijn geen gereviewde versies van deze pagina, dus die is wellicht \'\'\'niet\'\'\' 
+	'revreview-noflagged'   => 'Er zijn geen beoordeelde versies van deze pagina, dus die is wellicht \'\'\'niet\'\'\' 
 	[[Help:Article validation|gecontroleerd]] op kwaliteit.',
-	'revreview-quick-none'  => '\'\'\'Huidige versie\'\'\'. Geen gereviewde versies.',
-	'revreview-quick-see-quality' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste kwaliteitsversie]',
-	'revreview-quick-see-basic' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste bekeken versie]',
-	'revreview-quick-basic' => '\'\'\'Bekeken versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
+	'revreview-quick-none'  => '\'\'\'Huidige versie\'\'\'. Geen beoordeelde versies.',
+	'revreview-quick-see-quality' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste kwaliteitsversie]
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|wijziging|wijzigingen}}])',
+	'revreview-quick-see-basic' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste bekeken versie]
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|wijziging|wijzigingen}}])',
+	'revreview-quick-basic' => '\'\'\'[[Help:Article validation|Beoordeeld]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])',
-	'revreview-quick-quality' => '\'\'\'Kwaliteitsversie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
+	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Kwaliteitsversie]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bekijk huidige versie] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])',
 	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatst bekeken versie] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toon alle]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
+	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een beoordeling nodig.',
 	'revreview-newest-quality' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatste kwaliteitsversie] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toon alle]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een review nodig.',
-	'revreview-basic'       => 'Dit is de laatst [[Help:Article validation|bekeken]] versie, 
+	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een beoordeling nodig.',
+	'revreview-basic'       => 'Dit is de laatst [[Help:Article validation|beoordeelde]] versie, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] 
 	kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] 
-	{{plural:$3|wacht|wachten}} op review.',
+	{{plural:$3|wacht|wachten}} op een beoordeling.',
 	'revreview-quality'     => 'Dit is de laatste [[Help:Article validation|kwaliteitsversie]], 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] 
 	kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] 
-	{{plural:$3|wacht|wachten}} op review.',
-	'revreview-static'      => 'Dit is een [[Help:Article validation|gereviewde]] versie van \'\'\'[[:$3|deze pagina]]\'\'\', 
+	{{plural:$3|wacht|wachten}} op een beoordeling.',
+	'revreview-static'      => 'Dit is een [[Help:Article validation|beoordeelde]] versie van \'\'\'[[:$3|deze pagina]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} gekeurd] op <i>$2</i>. De [{{fullurl:$3|stable=0}} huidige versie] 
 	kan [{{fullurl:$3|action=edit}} bewerkt] worden.',
-	'revreview-note'        => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[Help:Article validation|review]] van deze versie:',
+	'revreview-toggle'      => '(+/-)',#identical but defined
+	'revreview-note'        => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[Help:Article validation|beoordeling]] van deze versie:',
 	'revreview-update'      => 'Controleer alstublieft alle onderstaande wijzigingen die gemaakt zijn sinds de stabiele versie voor deze pagina. Sjablonen en afbeeldingen kunnen ook gewijzigd zijn.',
 	'revreview-auto'        => '(automatisch}',
 	'revreview-auto-w'      => '\'\'\'Opmerking:\'\'\' u wijzigt de stabiele versie. Uw bewerkingen worden automatisch gecontroleerd. Controleer de voorvertoning voordat u de pagina opslaat.',
-	'revreview-auto-w-old'  => 'U bent een oude versie aan het bewerken, elke wijziging zal \'\'\'automatisch gereviewed worden\'\'\'.
-Gelieve de bewerking ter controle te tonen voor het oplaan.',
+	'revreview-auto-w-old'  => 'U bent een oude versie aan het bewerken, elke wijziging wordt \'\'\'automatisch beoordeeld\'\'\'.
+Controleer uw bewerking voordat u deze opslaat.',
 	'hist-stable'           => '[bekeken pagina]',
 	'hist-quality'          => '[kwaliteitspagina]',
 	'flaggedrevs'           => 'Aangevinkte versies',
-	'review-logpage'        => 'Reviewlogboek',
+	'review-logpage'        => 'Logboek beoordelingen',
 	'review-logpagetext'    => 'Dit is een logboek met wijzigingen in de [[Help:Article validation|waarderingsstatus]] van versies
 	van pagina\'s.',
+	'review-logentry-app'   => 'beoordeelde $1',
+	'review-logentry-dis'   => 'heeft een versie van $1 lager beoordeeld',
+	'review-logentry-conf'  => 'heeft stabiele versies ingesteld voor $1',
 	'review-logaction'      => 'versienummer $1',
-	'revisionreview'        => 'Versies reviewen',
-	'revreview-main'        => 'U moet een specifieke versie van een pagina kiezen om te kunnen reviewen. 
+	'revisionreview'        => 'Versies beoordelen',
+	'revreview-main'        => 'U moet een specifieke versie van een pagina kiezen om te kunnen beoordelen. 
 
-	[[Special:Unreviewedpages|Hier]] treft u een lijst aan met pagina\'s waarvoor nog geen review is uitgevoerd.',
+	[[Special:Unreviewedpages|Hier]] treft u een lijst aan met pagina\'s waarvoor nog geen beoordeling is gegeven.',
 	'revreview-selected'    => 'Geselecteerde versie van \'\'\'$1:\'\'\'',
 	'revreview-text'        => 'Stabiele versies worden standaard getoond in plaats van de meest recentie versie.',
-	'revreview-toolow'      => 'U moet tenminste alle onderstaande attributen hoger instellen dan "niet gewaardeerd" om een versie als 
-	gereviewed aan te laten merken. Om de waardering van een versie te verwijderen, stelt u alle velden in op "niet gewaardeerd".',
-	'revreview-flag'        => 'Review deze versie (#$1):',
+	'revreview-toolow'      => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet beoordeeld" om een versie als 
+	beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, stelt u alle velden in op "niet beoordeeld".',
+	'revreview-flag'        => 'Beoordeel deze versie (#$1):',
 	'revreview-legend'      => 'Waardeer versieinhoud:',
-	'revreview-notes'       => 'Weer te geven bbservaties of notities:',
+	'revreview-notes'       => 'Weer te geven observaties of notities:',
 	'revreview-accuracy'    => 'Accuraatheid',
 	'revreview-accuracy-0'  => 'Niet gekeurd',
 	'revreview-accuracy-1'  => 'Bekeken',
@@ -766,53 +793,54 @@ Gelieve de bewerking ter controle te tonen voor het oplaan.',
 	'revreview-accuracy-3'  => 'Goed van bronnen voorzien',
 	'revreview-accuracy-4'  => 'Uitgelicht',
 	'revreview-depth'       => 'Diepgang',
-	'revreview-depth-0'     => 'Niet gewaardeerd',
+	'revreview-depth-0'     => 'Niet beoordeeld',
 	'revreview-depth-1'     => 'Basaal',
 	'revreview-depth-2'     => 'Middelmatig',
 	'revreview-depth-3'     => 'Hoog',
 	'revreview-depth-4'     => 'Uitgelicht',
 	'revreview-style'       => 'Leesbaarheid',
-	'revreview-style-0'     => 'Niet gewaardeerd',
+	'revreview-style-0'     => 'Niet beoordeeld',
 	'revreview-style-1'     => 'Acceptabel',
 	'revreview-style-2'     => 'Goed',
 	'revreview-style-3'     => 'Bondig',
 	'revreview-style-4'     => 'Uitgelicht',
 	'revreview-log'         => 'Logboekopmerking:',
-	'revreview-submit'      => 'Review insturen',
+	'revreview-submit'      => 'Beoordeling opslaan',
 	'revreview-changed'     => '\'\'\'De gevraagde actie kon niet uitgevoerd worden voor deze versie.\'\'\'
 	
 	Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is aangegeven. Dit kan voorkomen als een 
 	dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds
-	u bent begonnen met de review van deze pagina. Ververs de pagina en start de review opnieuw om dit probleem op te lossen.',
+	u bent begonnen met de beoordeling van deze pagina. Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.',
 	'stableversions'        => 'Stabiele versies',
-	'stableversions-leg1'   => 'Lijst van gereviewde versies voor een pagina',
+	'stableversions-leg1'   => 'Lijst van beoordeelde versies voor een pagina',
 	'stableversions-page'   => 'Paginanaam',
-	'stableversions-none'   => '[[:$1]] heeft geen gereviewde versies.',
-	'stableversions-list'   => 'Hieronder staat een lijst met versies van [[:$1]] waarop een review is uitgevoerd:',
-	'stableversions-review' => 'Review uitgevoerd op <i>$1</i>',
+	'stableversions-none'   => '[[:$1]] heeft geen beoordeelde versies.',
+	'stableversions-list'   => 'Hieronder staat een lijst met versies van [[:$1]] waarvoor een beoordeling is uitgevoerd:',
+	'stableversions-review' => 'Beoordeling uitgevoerd op <i>$1</i>',
 	'review-diff2stable'    => 'Verschil met de laatste stabiele versie',
 	'review-diff2oldest'    => 'Verschil met de oudste versie',
-	'unreviewedpages'       => 'Pagina\'s zonder review',
-	'viewunreviewed'        => 'Lijst van pagina\'s zonder review',
-	'unreviewed-outdated'   => 'Toon alleen pagina\'s waarvan nog niet gereviewde versies zijn op de stabiele versie.',
+	'unreviewedpages'       => 'Pagina\'s zonder beoordeling',
+	'viewunreviewed'        => 'Lijst van pagina\'s zonder beoordeling',
+	'unreviewed-outdated'   => 'Toon alleen pagina\'s die nog niet-beoordeelde versies hebben na de stabiele versie.',
 	'unreviewed-category'   => 'Categorie:',
 	'unreviewed-diff'       => 'Wijzigingen',
-	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen review hebben gehad.',
+	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen beoordeling hebben gehad.',
 	'revreview-visibility'  => 'Deze pagina heeft een [[Help:Article validation|stabiele versie]], die
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aangepast] kan worden.',
+	'stabilization'         => 'Paginastabilisatie',
 	'stabilization-text'    => 'Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:$1|$1]] geselecteerd is en getoond wordt.',
 	'stabilization-perm'    => 'Uw account heeft niet de toelating om de stabiele versie te wijzigen.
 	Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-page'    => 'Paginanaam:',
 	'stabilization-leg'     => 'Stabiele versie van een pagina aanpassen',
 	'stabilization-select'  => 'Hoe de stabiele versie wordt geselecteerd',
-	'stabilization-select1' => 'De laatste kwaliteitsversie; als dit er niet is, dan de laatste gereviewde versie',
-	'stabilization-select2' => 'De laatste gereviewde versie',
+	'stabilization-select1' => 'De laatste kwaliteitsversie; als die er niet is, dan de laatste beoordeelde versie',
+	'stabilization-select2' => 'De laatste beoordeelde versie',
 	'stabilization-def'     => 'Versie die standaard getoond wordt',
 	'stabilization-def1'    => 'De stabiele versie',
 	'stabilization-def2'    => 'De huidige versie',
 	'stabilization-submit'  => 'Bevestigen',
-	'stabilization-notexists'     => 'Er bestaat geen pagina genaamd "[[:$1|$1]]". Er is geen aanpassing mogelijk.',
+	'stabilization-dne'     => 'Er bestaat geen pagina genaamd "[[:$1|$1]]". Er is geen aanpassing mogelijk.',
 	'stabilization-success' => 'Aanpassing van de stabiele versie voor [[:$1|$1]] is succesvol uitgevoerd.',
 	'stabilization-sel-short' => 'Voorrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',
