@@ -205,6 +205,7 @@ $RevisionreviewMessages['ar'] = array(
 	'flaggedrevs'           => 'نسخ معلمة',
 	'review-logpage'        => 'سجل مراجعة المقالة',
 	'review-logpagetext'    => 'هذا سجل بالتغييرات لحالة\' [[Help:Article validation|الموافقة]] لصفحات المحتوى.',
+	'review-logentry-app'   => 'راجع $1',
 	'review-logaction'      => 'رقم النسخة $1',
 	'revisionreview'        => 'مراجعة النسخ',
 	'revreview-main'        => 'يجب أن تختار نسخة معينة من صفحة محتوى لمراجعتها. 
@@ -256,6 +257,16 @@ $RevisionreviewMessages['ar'] = array(
 	'unreviewed-category'   => 'التصنيف:',
 	'unreviewed-diff'       => 'تغييرات',
 	'unreviewed-list'       => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
+	'stabilization'         => 'تثبيت الصفحة',
+	'stabilization-page'    => 'اسم الصفحة:',
+	'stabilization-select2' => 'آخر نسخة مراجعة',
+	'stabilization-def2'    => 'النسخة الحالية',
+	'stabilization-submit'  => 'تأكيد',
+	'stabilization-sel-short-0' => 'جودة',
+	'stabilization-sel-short-1' => 'لا شيء',
+	'stabilization-def-short' => 'افتراضي',
+	'stabilization-def-short-0' => 'حالي',
+	'stabilization-def-short-1' => 'مستقر',
 );
 
 $RevisionreviewMessages['bcl'] = array(
@@ -735,8 +746,6 @@ Gelieve de bewerking ter controle te tonen voor het oplaan.',
 	'review-logpage'        => 'Reviewlogboek',
 	'review-logpagetext'    => 'Dit is een logboek met wijzigingen in de [[Help:Article validation|waarderingsstatus]] van versies
 	van pagina\'s.',
-	'review-logentrygrant'  => 'reviewde een versie van $1',
-	'review-logentryrevoke' => 'verlaagde de waardering van een versie van $1',
 	'review-logaction'      => 'versienummer $1',
 	'revisionreview'        => 'Versies reviewen',
 	'revreview-main'        => 'U moet een specifieke versie van een pagina kiezen om te kunnen reviewen. 
@@ -788,6 +797,28 @@ Gelieve de bewerking ter controle te tonen voor het oplaan.',
 	'unreviewed-category'   => 'Categorie:',
 	'unreviewed-diff'       => 'Wijzigingen',
 	'unreviewed-list'       => 'Deze pagina toont pagina\'s die nog geen review hebben gehad.',
+	'revreview-visibility'  => 'Deze pagina heeft een [[Help:Article validation|stabiele versie]], die
+	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aangepast] kan worden.',
+	'stabilization-text'    => 'Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:$1|$1]] geselecteerd is en getoond wordt.',
+	'stabilization-perm'    => 'Uw account heeft niet de toelating om de stabiele versie te wijzigen.
+	Dit zijn de huidige instellingen voor [[:$1|$1]]:',
+	'stabilization-page'    => 'Paginanaam:',
+	'stabilization-leg'     => 'Stabiele versie van een pagina aanpassen',
+	'stabilization-select'  => 'Hoe de stabiele versie wordt geselecteerd',
+	'stabilization-select1' => 'De laatste kwaliteitsversie; als dit er niet is, dan de laatste gereviewde versie',
+	'stabilization-select2' => 'De laatste gereviewde versie',
+	'stabilization-def'     => 'Versie die standaard getoond wordt',
+	'stabilization-def1'    => 'De stabiele versie',
+	'stabilization-def2'    => 'De huidige versie',
+	'stabilization-submit'  => 'Bevestigen',
+	'stabilization-dne'     => 'Er bestaat geen pagina genaamd "[[:$1|$1]]". Er is geen aanpassing mogelijk.',
+	'stabilization-success' => 'Aanpassing van de stabiele versie voor [[:$1|$1]] is succesvol uitgevoerd.',
+	'stabilization-sel-short' => 'Voorrang',
+	'stabilization-sel-short-0' => 'Kwaliteit',
+	'stabilization-sel-short-1' => 'Geen',
+	'stabilization-def-short' => 'Standaard',
+	'stabilization-def-short-0' => 'Huidig',
+	'stabilization-def-short-1' => 'Stabiel',
 );
 
 /* Norwegian (Jon Harald SÃ¸by) */
