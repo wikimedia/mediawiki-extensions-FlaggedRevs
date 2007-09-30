@@ -141,7 +141,7 @@ $RevisionreviewMessages['en'] = array(
 	'stabilization-def2'       => 'The current revision',
 	'stabilization-submit'     => 'Confirm',
 	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]". No configuration is possible.',
-	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed. No configuration is possible',
+	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed. No configuration is possible.',
 	'stabilization-success'    => 'Stable version configuration for [[:$1|$1]] successfuly set.',
 	
 	'stabilization-sel-short'   => 'Precedence',
