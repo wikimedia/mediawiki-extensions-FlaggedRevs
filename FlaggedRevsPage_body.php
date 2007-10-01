@@ -875,7 +875,7 @@ class Stabilization extends SpecialPage
 		$this->override = intval( $wgRequest->getBool( 'override' ) );
 		$this->comment = $wgRequest->getVal( 'wpReason' );
 		
-		$this->showForm( $wgRequest );
+		$this->showForm();
 		# Only 0 or 1
 		if( $this->select && ($this->select !==0 && $this->select !==1) ) {
 			return;
@@ -898,11 +898,11 @@ class Stabilization extends SpecialPage
 		if( $confirm ) {
 			$this->submit();
 		} else {
-			$this->showSettings( $wgRequest );
+			$this->showSettings();
 		}
 	}
 	
-	function showForm( $wgRequest ) {
+	function showForm() {
 		global $wgOut, $wgTitle, $wgScript;
 	
 		$pageName = str_replace( '_', ' ', $this->target );
