@@ -815,7 +815,7 @@ Controleer uw bewerking voordat u deze opslaat.',
 	'revreview-log'         => 'Logboekopmerking:',
 	'revreview-submit'      => 'Beoordeling opslaan',
 	'revreview-changed'     => '\'\'\'De gevraagde actie kon niet uitgevoerd worden voor deze versie.\'\'\'
-	
+
 	Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is aangegeven. Dit kan voorkomen als een 
 	dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds
 	u bent begonnen met de beoordeling van deze pagina. Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.',
@@ -848,7 +848,8 @@ Controleer uw bewerking voordat u deze opslaat.',
 	'stabilization-def1'    => 'De stabiele versie',
 	'stabilization-def2'    => 'De huidige versie',
 	'stabilization-submit'  => 'Bevestigen',
-	'stabilization-dne'     => 'Er bestaat geen pagina genaamd "[[:$1|$1]]". Er is geen aanpassing mogelijk.',
+	'stabilization-notexists' => 'Er is geen pagina "[[:$1|$1]]". Instellen is niet mogelijk.',
+	'stabilization-notcontent' => 'De pagina "[[:$1|$1]]" kan niet beoordeeld worden. Instellen is niet mogelijk.',
 	'stabilization-success' => 'Aanpassing van de stabiele versie voor [[:$1|$1]] is succesvol uitgevoerd.',
 	'stabilization-sel-short' => 'Voorrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',
