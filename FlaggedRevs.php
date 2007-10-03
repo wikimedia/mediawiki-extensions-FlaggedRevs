@@ -510,6 +510,15 @@ class FlaggedRevs {
 	 * @return Array
 	*/
     public function getFlagsForRevision( $rev_id ) {
+		return $this->getRevisionTags( $rev_id );
+	}
+    
+	/**
+	 * Get flags for a revision
+	 * @param int $rev_id
+	 * @return Array
+	*/
+    public function getRevisionTags( $rev_id ) {
     	# Set all flags to zero
     	$flags = array();
     	foreach( array_keys($this->dimensions) as $tag ) {
@@ -523,7 +532,9 @@ class FlaggedRevs {
 			__METHOD__ );
 		# Iterate through each tag result
 		while( $row = $db->fetchObject($result) ) {
-			$flags[$row->frt_dimension] = $row->frt_value;
+			# Add only currently recognized ones
+			if( isset($flags[$row->frt_dimension]) )
+				$flags[$row->frt_dimension] = $row->frt_value;
 		}
 		return $flags;
 	}
@@ -545,6 +556,9 @@ class FlaggedRevs {
     public function isQuality( $flags ) {
     	global $wgFlaggedRevTags;
     	
+    	if( empty($flags) )
+    		return false;
+    	
     	foreach( $wgFlaggedRevTags as $f => $v ) {
     		if( !isset($flags[$f]) || $v > $flags[$f] ) 
 				return false;
@@ -558,6 +572,9 @@ class FlaggedRevs {
 	*/
     public function isPristine( $flags ) {
     	global $wgFlaggedRevTags, $wgFlaggedRevValues;
+    	
+    	if( empty($flags) )
+    		return false;
     	
     	foreach( $wgFlaggedRevTags as $f => $v ) {
     		if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevValues ) 

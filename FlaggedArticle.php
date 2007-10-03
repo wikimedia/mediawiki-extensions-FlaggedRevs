@@ -90,10 +90,12 @@ class FlaggedArticle extends FlaggedRevs {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 						# Hide clutter
-						$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
-							wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
+						if( !empty($flags) ) {
+							$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+								wfMsg('revreview-toggle') . '</a>';
+							$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
+								wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
+						}
 					}
 				}
 			// Viewing the page normally: override the page
@@ -112,10 +114,12 @@ class FlaggedArticle extends FlaggedRevs {
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
-						$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-							wfMsg('revreview-toggle') . '</a>';
-						$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
-							$this->addTagRatings( $flags ) . '</span>';
+						if( !empty($flags) ) {
+							$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+								wfMsg('revreview-toggle') . '</a>';
+							$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
+								$this->addTagRatings( $flags ) . '</span>';
+						}
 					}
 				}
 				# Try the stable page cache
@@ -197,11 +201,13 @@ class FlaggedArticle extends FlaggedRevs {
 			$msg = $this->isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
-			$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-				wfMsg('revreview-toggle') . '</a>';
-			$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
-				wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . 
-				'</span>';
+			if( !empty($flags) ) {
+				$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
+					wfMsg('revreview-toggle') . '</a>';
+				$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
+					wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . 
+					'</span>';
+			}
 			$wgOut->addHTML( '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
 			# If this will be autoreviewed, notify the user...
 			if( !$wgFlaggedRevsAutoReview )
@@ -617,15 +623,16 @@ class FlaggedArticle extends FlaggedRevs {
         # Construct some tagging
         $msg = $stable ? 'revreview-' : 'revreview-newest-';
         $msg .= $quality ? 'quality' : 'basic';
-        $encRatingLabel = $stable ? '' : ' ' . wfMsgHtml('revreview-oldrating');
         
 		$box = ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
 			wfMsg('revreview-toggle') . '</a>';
 		$box .= '<span id="mw-revisionratings">' .
-			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since) .
-			$encRatingLabel .
-			self::addTagRatings( $flags, true, "{$tagClass}a" ) .
-			'</span>';
+			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
+		if( !empty($flags) ) {
+			$encRatingLabel = $stable ? '' : ' ' . wfMsgHtml('revreview-oldrating');
+			$box .= $encRatingLabel . self::addTagRatings( $flags, true, "{$tagClass}a" );
+		}
+		$box .= '</span>';
         
         return $box;
 	}
@@ -707,21 +714,8 @@ class FlaggedArticle extends FlaggedRevs {
     	# Cached results?
     	if( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
     		return $this->revflags[$rev_id];
-    	# Set all flags to zero
-    	$flags = array();
-    	foreach( array_keys($wgFlaggedRevTags) as $tag ) {
-    		$flags[$tag] = 0;
-    	}
-    	# Grab all the tags for this revision
-		$dbr = wfGetDB( DB_SLAVE );
-		$result = $dbr->select( 'flaggedrevtags',
-			array( 'frt_dimension', 'frt_value' ), 
-			array( 'frt_rev_id' => $rev_id ),
-			__METHOD__ );
-		# Iterate through each tag result
-		while( $row = $dbr->fetchObject($result) ) {
-			$flags[$row->frt_dimension] = $row->frt_value;
-		}
+    	# Get the flags
+    	$flags = $this->getRevisionTags( $rev_id );
 		# Try to cache results
 		$this->flags[$rev_id] = true;
 		$this->revflags[$rev_id] = $flags;
