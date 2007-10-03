@@ -311,7 +311,7 @@ class FlaggedArticle extends FlaggedRevs {
     }
     
     function setActionTabs( $sktmp, &$content_actions ) {
-    	global $wgRequest, $wgUser, $action, $wgFlaggedRevsAnonOnly, $wgFlaggedRevTabs;
+    	global $wgRequest, $wgUser, $action, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
 		if( !isset($sktmp->mTitle) )
 			return true;
@@ -344,7 +344,7 @@ class FlaggedArticle extends FlaggedRevs {
 	// If we're set up to only show stable versions on request, this can be overriden
 	// on a per-page basis using Special:Stabilization, and the tab for accessing it
 	// with the current page is inserted here.
-	if(!$wgFlaggedRevsAnonOnly) {
+	if(!$wgFlaggedRevsOverride) {
 		$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
        		$content_actions['qa'] = array(
 			'class' => false,
