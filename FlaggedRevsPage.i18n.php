@@ -15,12 +15,16 @@ $RevisionreviewMessages['en'] = array(
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
 	'revreview-current'   => 'Draft',
+	'tooltip-ca-current'  => 'View the current draft of this page',
 	'revreview-edit'      => 'Edit draft',
 	'revreview-source'    => 'draft source',
 	'revreview-stable'    => 'Stable',
+	'tooltip-ca-stable'   => 'View the stable version of this page',
 	'revreview-oldrating' => 'It was rated:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been 
 	[[Help:Article validation|checked]] for quality.',
+	'stabilization-tab'   => '(qa)',
+	'tooltip-ca-default'  => 'Quality assurance settings',
 	
 	'revreview-quick-none' => '\'\'\'Current\'\'\'. No reviewed revisions.',
 	'revreview-quick-see-quality' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} see stable revision]] 
@@ -129,8 +133,6 @@ $RevisionreviewMessages['en'] = array(
     'revreview-visibility'  => 'This page has a [[Help:Article validation|stable version]], which can be
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
 
-    'stabilization-tab'        => 'qa',
-    'tooltip-ca-qa'            => 'Quality assurance settings',
     'stabilization'            => 'Page stabilization',
     'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
     'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.

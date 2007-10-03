@@ -18,11 +18,15 @@ class FlaggedArticle extends FlaggedRevs {
 		$config = $wgFlaggedRevs->getVisibilitySettings( $wgTitle );
     	# Does the stable version override the current one?
     	if( $config['override'] ) {
-    		# If $wgFlaggedRevsAnonOnly is set to false, stable version are only requested explicitly
+    		# Anon sees stable by default
     		if( $wgFlaggedRevsAnonOnly && $wgUser->isAnon() ) {
     			return !( $wgRequest->getIntOrNull('stable') === 0 );
-    		} else {
+    		# User sees current by default
+    		} else if ( $wgFlaggedRevsAnonOnly ) {
     			return ( $wgRequest->getIntOrNull('stable') === 1 );
+    		# User/anon sees stable by default
+    		} else {
+    			return !( $wgRequest->getIntOrNull('stable') === 0 );
     		}
     	# We are explicity requesting the stable version?
 		} else if( $wgRequest->getIntOrNull('stable') === 1 ) {
@@ -333,29 +337,24 @@ class FlaggedArticle extends FlaggedRevs {
        		return true;
        	}
        	*/
-       	# Be clear about what is being edited...
+       	// Be clear about what is being edited...
        	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() ) {
        		if( isset( $content_actions['edit'] ) )
        			$content_actions['edit']['text'] = wfMsg('revreview-edit');
        		if( isset( $content_actions['viewsource'] ) )
        			$content_actions['viewsource']['text'] = wfMsg('revreview-source');
        	}
-
-	// If we're set up to only show stable versions on request, this can be overriden
-	// on a per-page basis using Special:Stabilization, and the tab for accessing it
-	// with the current page is inserted here.
-	if(!$wgFlaggedRevsOverride) {
+		// We can change the behavoir of stable version for this page to be different
+		// than the site default.
 		$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
-       		$content_actions['qa'] = array(
+       	$content_actions['default'] = array(
 			'class' => false,
 			'text' => wfmsg('stabilization-tab'),
 			'href' => $stabTitle->getLocalUrl('page='.$title->getPrefixedUrl())
 		);
-	}
-
-     	if( !$wgFlaggedRevTabs ) {
+		// Add auxillary tabs...
+     	if( !$wgFlaggedRevTabs )
        		return true;
-       	}
        	// We are looking at the stable version
        	if( $this->pageOverride() ) {
 			$new_actions = array(); $counter = 0;
