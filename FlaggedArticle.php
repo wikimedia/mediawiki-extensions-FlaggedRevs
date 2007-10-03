@@ -469,7 +469,7 @@ class FlaggedArticle extends FlaggedRevs {
     
     function addQuickReview( $id=NULL, $out, $top=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, 
-			$wgFlaggedRevsOverride, $wgFlaggedRevsWatch;
+			$wgFlaggedRevsOverride, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsWatch;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) 
 			return;
@@ -500,7 +500,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
 		
-		if( $wgFlaggedRevsOverride )
+		if( $wgFlaggedRevsOverride && $wgFlaggedRevsAnonOnly )
 			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
 		
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() );
