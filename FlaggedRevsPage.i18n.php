@@ -130,6 +130,7 @@ $RevisionreviewMessages['en'] = array(
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
 
     'stabilization-tab'        => 'qa',
+    'tooltip-ca-qa'            => 'Quality assurance settings',
     'stabilization'            => 'Page stabilization',
     'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
     'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.
