@@ -485,7 +485,7 @@ class Revisionreview extends SpecialPage
 		foreach( $dimensions as $quality => $level ) {
 			$ratings[] = wfMsg( "revreview-$quality" ) . ": " . wfMsg("revreview-$quality-$level");
 		}
-		$rating = ($approve) ? ' [' . implode(', ',$ratings). ']' : '';
+		$rating = ($approve && !empty($ratings) ) ? ' [' . implode(', ',$ratings). ']' : '';
 		// Append comment with action
 		// FIXME: do this better
 		$action = wfMsgExt('review-logaction', array('parsemag'), $oldid );
