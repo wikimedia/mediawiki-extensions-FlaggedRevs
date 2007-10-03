@@ -82,8 +82,8 @@ class Revisionreview extends SpecialPage
 				# Users can't take away a status they can't set
 				$wgOut->permissionRequired( 'badaccess-group0' );
 				return;
-			} else if( !$this->userCan( $tag, $this->dims[$tag] ) ) {
 			// Users cannot review to beyond their rights level
+			} else if( !$this->userCan( $tag, $this->dims[$tag] ) ) {
 				$wgOut->permissionRequired( 'badaccess-group0' );
 				return;
 			}
@@ -234,9 +234,9 @@ class Revisionreview extends SpecialPage
 	}
 	
 	function submit( $request ) {
-		global $wgOut, $wgUser, $wgFlaggedRevs;
+		global $wgOut, $wgUser, $wgFlaggedRevs, $wgFlaggedRevTags;
 		# If all values are set to zero, this has been unapproved
-		$approved = false;
+		$approved = empty($wgFlaggedRevTags);
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) {
 				$approved = true;
