@@ -340,6 +340,19 @@ class FlaggedArticle extends FlaggedRevs {
        		if( isset( $content_actions['viewsource'] ) )
        			$content_actions['viewsource']['text'] = wfMsg('revreview-source');
        	}
+
+	// If we're set up to only show stable versions on request, this can be overriden
+	// on a per-page basis using Special:Stabilization, and the tab for accessing it
+	// with the current page is inserted here.
+	if(!$wgFlaggedRevsAnonOnly) {
+		$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
+       		$content_actions['qa'] = array(
+			'class' => false,
+			'text' => wfmsg('stabilization-tab'),
+			'href' => $stabTitle->getLocalUrl('page='.$title->getPrefixedUrl())
+		);
+	}
+
      	if( !$wgFlaggedRevTabs ) {
        		return true;
        	}

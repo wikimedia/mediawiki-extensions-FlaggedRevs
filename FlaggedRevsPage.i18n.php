@@ -128,7 +128,8 @@ $RevisionreviewMessages['en'] = array(
     
     'revreview-visibility'  => 'This page has a [[Help:Article validation|stable version]], which can be
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
-	
+
+    'stabilization-tab'        => 'qa',
     'stabilization'            => 'Page stabilization',
     'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
     'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.
