@@ -170,15 +170,21 @@ $RevisionreviewMessages['ar'] = array(
 	'group-reviewer-member' => 'مراجع',
 	'grouppage-reviewer'    => '{{ns:project}}:مراجع',
 	'revreview-current'     => 'النسخة الحالية',
+	'tooltip-ca-current'    => 'عرض المسودة الحالية لهذه الصفحة',
 	'revreview-edit'        => 'عدل المسودة',
 	'revreview-source'      => 'مسودة مصدر',
 	'revreview-stable'      => 'نسخة مستقرة',
+	'tooltip-ca-stable'     => 'عرض النسخة المستقرة لهذه الصفحة',
 	'revreview-oldrating'   => 'تم تقييمها ك:',
 	'revreview-noflagged'   => 'لا توجد نسخ مراجعة لهذه الصفحة، لذا ربما \'\'\'لا\'\'\' تكون قد تم 
 	[[Help:Article validation|التحقق من]] جودتها.',
+	'stabilization-tab'     => '(qa)',#identical but defined
+	'tooltip-ca-default'    => 'إعدادات تأكيد الجودة',
 	'revreview-quick-none'  => '\'\'\'الحالي\'\'\'. لا نسخ مراجعة.',
 	'revreview-quick-see-quality' => '\'\'\'حالي\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} انظر آخر نسخة جودة]',
 	'revreview-quick-see-basic' => '\'\'\'حالي\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض آخر نسخة منظورة]',
+	'revreview-quick-seeandis-quality' => '\'\'\'النسخة الحالية، [[Help:Article validation|الجودة]] مراجعة.\'\'\'',
+	'revreview-quick-seeandis-basic' => '\'\'\'النسخة الحالية، [[Help:Article validation|منظورة]] للتخريب.\'\'\'',
 	'revreview-quick-basic' => '\'\'\'منظورة\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض النسخة الحالية] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغيير|تغييرات}}])',
 	'revreview-quick-quality' => '\'\'\'جودة\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض النسخة الحالية] 
@@ -272,7 +278,10 @@ $RevisionreviewMessages['ar'] = array(
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].',
 	'stabilization'         => 'تثبيت الصفحة',
 	'stabilization-text'    => 'غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المستقرة من [[:$1|$1]] يتم اختيارها وعرضها.',
+	'stabilization-perm'    => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المستقرة.
+	هنا الإعدادات الحالية ل[[:$1|$1]]:',
 	'stabilization-page'    => 'اسم الصفحة:',
+	'stabilization-leg'     => 'ضبط النسخة المستقرة لصفحة',
 	'stabilization-select'  => 'كيفية اختيار النسخة المستقرة',
 	'stabilization-select2' => 'آخر نسخة مراجعة',
 	'stabilization-def2'    => 'النسخة الحالية',
