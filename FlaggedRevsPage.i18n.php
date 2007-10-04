@@ -441,14 +441,14 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-source'    => 'Entwurfs-Quelltext',
 	'revreview-stable'    => 'Stabil',
 	'tooltip-ca-stable'   => 'Ansehen der stabilen Version dieser Seite',
-	'revreview-oldrating' => 'war eingestuft als:',
+	'revreview-oldrating' => 'Bisherige Einstufungsaktuell:',
 	'revreview-noflagged' => 'Von dieser Seite gibt es keine überprüften Versionen, so dass noch keine Aussage über die 
 	[[Help:Article validation|Artikelqualität]] gemacht werden kann.',
 
 	'stabilization-tab'   => '(qa)',
 	'tooltip-ca-default'  => 'Einstellungen der Artikel-Qualität',
 
-	'revreview-quick-none'        => "'''Aktuell.'''. Es wurde noch keine Version überprüft.",
+	'revreview-quick-none'        => "'''Aktuell.''' Es wurde noch keine Version überprüft.",
 
 	'revreview-quick-see-quality' => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
@@ -567,7 +567,7 @@ $RevisionreviewMessages['de'] = array(
 
 	'stabilization'           => 'Seiten-Stabilität',
 	'stabilization-text'      => 'Ändere die Einstellungen um festzulegen, wie die stabile Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.',
-	'stabilization-perm'      => 'Dein Benutzerkonto hat nicht die erforderliche Berechtigung, um die Einstellungen der stabilen Version zu ändern.
+	'stabilization-perm'      => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der stabilen Version zu ändern.
 	Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page'      => 'Seitenname:',
 	'stabilization-leg'       => 'Einstellungen der stabilen Version für eine Seite',
@@ -575,7 +575,7 @@ $RevisionreviewMessages['de'] = array(
 	'stabilization-select1'   => 'Die letzte geprüfte Version; wenn keine vorhanden ist, dann die letzte gesichtete Version',
 	'stabilization-select2'   => 'Die letzte gesichtete Version',
 	'stabilization-def'       => 'Angezeigte Version in der normalen Seitenansicht',
-	'stabilization-def1'      => 'Die stabile Version; wenn keine vorhanden ist, dann die akutelle Version',
+	'stabilization-def1'      => 'Die stabile Version; wenn keine vorhanden ist, dann die aktuelle Version',
 	'stabilization-def2'      => 'Die aktuellste Version',
 	'stabilization-submit'    => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
