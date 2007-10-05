@@ -120,6 +120,7 @@ function efLoadFlaggedRevs() {
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedRevs, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedRevs, 'addPatrolLink' );
     # Autoreview stuff
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
@@ -200,6 +201,7 @@ $wgGroupPermissions['editor']['review']         = true;
 $wgGroupPermissions['editor']['unwatchedpages'] = true;
 $wgGroupPermissions['editor']['autoconfirmed']  = true;
 $wgGroupPermissions['editor']['patrolmarks']    = true;
+$wgGroupPermissions['editor']['patrolother']    = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
@@ -1080,6 +1082,58 @@ class FlaggedRevs {
 		return true;
 	
 	}
+	
+	/**
+	* Add a link to patrol non-reviewable pages
+	*/ 
+	public function addPatrolLink( $diff, $OldRev, $NewRev ) {
+		global $wgUser, $wgOut, $wgFlaggedRevs;
+		
+		if( $wgFlaggedRevs->isReviewable( $NewRev->getTitle() ) )
+			return true;
+		// Prepare a change patrol link, if applicable
+		if( $wgUser->isAllowed( 'patrolother' ) ) {
+			// If we've been given an explicit change identifier, use it; saves time
+			if( $diff->mRcidMarkPatrolled ) {
+				$rcid = $diff->mRcidMarkPatrolled;
+			} else {
+				// Look for an unpatrolled change corresponding to this diff
+				$dbr = wfGetDB( DB_SLAVE );
+				$change = RecentChange::newFromConds(
+					array(
+						// Add redundant timestamp condition so we can use the
+						// existing index
+						'rc_timestamp' => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
+						'rc_this_oldid' => $diff->mNewid,
+						'rc_last_oldid' => $diff->mOldid,
+						'rc_patrolled' => 0,
+					),
+					__METHOD__
+				);
+				if( $change instanceof RecentChange ) {
+					$rcid = $change->mAttribs['rc_id'];
+				} else {
+					// None found
+					$rcid = 0;
+				}
+			}
+			// Build the link
+			if( $rcid ) {
+				$skin = $wgUser->getSkin();
+			
+				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
+				$patrol = ' [' . $skin->makeKnownLinkObj( $reviewtitle,
+					wfMsgHtml( 'markaspatrolleddiff' ),
+					"patrolonly=1&rcid={$rcid}"
+				) . ']';
+			} else {
+				$patrol = '';
+			}
+			$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+			
+			return true;
+		}
+	}
 
 	/**
 	* When an edit is made by a reviwer, if the current revision is the stable
@@ -1119,23 +1173,6 @@ class FlaggedRevs {
 		
 		return true;
 	}
-	
-	/**
-	* When an edit is made to a page that can't be reviewed, treat rc_patrolled
-	* as 1. This avoids marks showing on edits that cannot be reviewed.
-	*/ 	
-	public function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevs;
-		
-		if( !$wgFlaggedRevs->isReviewable( $article->getTitle() ) ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_this_oldid' => $rev->getID() ),
-				__METHOD__ );
-		}
-		return true;
-	}
 
 	/**
 	* Don't let users vandalize pages by moving them.
@@ -1156,6 +1193,24 @@ class FlaggedRevs {
 		
 		return true;
 	}
+	
+    /**
+    * When an edit is made to a page that can't be reviewed, autopatrol if allowed.
+    * This is not loggged for perfomance reasons and no one cares if talk pages and such
+    * are autopatrolled.
+    */     
+    public function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
+        global $wgUser, $wgFlaggedRevs;
+        
+        if( !$wgFlaggedRevs->isReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
+            $dbw = wfGetDB( DB_MASTER );
+            $dbw->update( 'recentchanges',
+                array( 'rc_patrolled' => 1 ),
+                array( 'rc_this_oldid' => $rev->getID() ),
+                __METHOD__ );
+        }
+        return true;
+    }
 
 	/**
 	* When a new page is made by a reviwer, try to automatically review it.

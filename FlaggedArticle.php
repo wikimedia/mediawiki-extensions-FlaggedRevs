@@ -53,16 +53,34 @@ class FlaggedArticle extends FlaggedRevs {
 	 */
 	function setPageContent( $article, &$outputDone, &$pcache ) {
 		global $wgRequest, $wgTitle, $wgOut, $action, $wgUser;
-		// Only trigger on article view for content pages, not for protect/delete/hist
-		if( $action !='view' || !$article || !$article->exists() || !$this->isReviewable( $article->mTitle ) ) 
+		
+		$skin = $wgUser->getSkin();
+		# For unreviewable pages, allow for basic patrolling
+		if( !$this->isReviewable( $article->mTitle ) ) {
+			# If we have been passed an &rcid= parameter, we want to give the user a
+			# chance to mark this new article as patrolled.
+			$rcid = $wgRequest->getIntOrNull( 'rcid' );
+			if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'patrolother' ) ) {
+				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
+				$wgOut->addHTML(
+					"<div class='patrollink'>" .
+					wfMsgHtml( 'markaspatrolledlink',
+					$skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml('markaspatrolledtext'),
+						"patrolonly=1&rcid=$rcid" )
+			 		) .
+					'</div>'
+			 	);
+			}
 			return true;
-		// Grab page and rev ids
+		}
+		# Only trigger on article view for content pages, not for protect/delete/hist
+		if( $action !='view' || !$article || !$article->exists() ) 
+			return true;
+		# Grab page and rev ids
 		$pageid = $article->getId();
 		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
 		if( !$revid ) 
 			return true;
-			
-		$skin = $wgUser->getSkin();
 		
 		$vis_id = $revid;
 		$tag = $notes = '';

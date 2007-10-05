@@ -36,6 +36,14 @@ class Revisionreview extends SpecialPage
 		}
 		
 		$this->setHeaders();
+		// Basic patrolling
+		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
+		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
+		if( $this->patrolonly && $this->rcid ) {
+			$this->markPatrolled();
+			return;
+		}
+		
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
 		$this->page = Title::newFromUrl( $this->target );
@@ -124,6 +132,17 @@ class Revisionreview extends SpecialPage
 			}
 		}
 		return false;
+	}
+	
+	function markPatrolled() {
+		global $wgOut;
+	
+		RecentChange::markPatrolled( $this->rcid );
+		PatrolLog::record( $this->rcid );
+		# Inform the user
+		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
+		$wgOut->addWikiText( wfMsgNoTrans( 'markedaspatrolledtext' ) );
+		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 	}
 	
 	/**
@@ -475,10 +494,9 @@ class Revisionreview extends SpecialPage
 	 * @param string $comment
 	 * @param int $revid
 	 * @param bool $approve
-	 * @param bool $RC, add to recentchanges
+	 * @param bool $RC, add to recentchanges (kind of spammy)
 	 */	
-	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve, $RC=true ) {
-		// Lets NOT spam RC, set $RC to false
+	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve, $RC=false ) {
 		$log = new LogPage( 'review', $RC );
 		// ID, accuracy, depth, style
 		$ratings = array();
