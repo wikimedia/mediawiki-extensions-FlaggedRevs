@@ -893,23 +893,27 @@ class Stabilization extends SpecialPage
 		$this->override = intval( $wgRequest->getBool( 'override' ) );
 		$this->comment = $wgRequest->getVal( 'wpReason' );
 		
-		$this->showForm();
+		$isValid = true;
 		# Only 0 or 1
 		if( $this->select && ($this->select !==0 && $this->select !==1) ) {
-			return;
+			$isValid = false;
 		}
+		
 		# We need a page...
 		if( is_null($this->page) ) {
-			return;
-		}
-		# And it must actually be there...
-		if( !$this->page->exists() ) {
+			$isValid = false;
+		} else if( !$this->page->exists() ) {
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
 				$this->page->getPrefixedText() ) );
-			return;
-		} else if ( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+			$isValid = false;
+		} else if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
+			$isValid = false;
+		}
+		
+		if( !$isValid ) {
+			$this->showForm();
 			return;
 		}
 		
