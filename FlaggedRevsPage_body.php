@@ -971,6 +971,12 @@ class Stabilization extends SpecialPage
 		$form .= '</form>';
 		
 		$wgOut->addHTML( $form );
+		
+		$wgOut->addHtml( Xml::element( 'h2', NULL, htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
+		$logViewer = new LogViewer( 
+			new LogReader( new FauxRequest( 
+				array( 'page' => $this->page->getPrefixedText(), 'type' => 'stable' ) ) ) );
+		$logViewer->showList( $wgOut );
 	}
 	
 	function submit() {
@@ -991,7 +997,7 @@ class Stabilization extends SpecialPage
 			__METHOD__ );
 		# Log if changed
 		if( !$row || $row->fp_select != $this->select || $row->fp_override != $this->override ) {
-			$log = new LogPage( 'review' );
+			$log = new LogPage( 'stable' );
 			// ID, accuracy, depth, style
 			$set = array();
 			$set[] = wfMsg( "stabilization-sel-short" ) . ": " . 

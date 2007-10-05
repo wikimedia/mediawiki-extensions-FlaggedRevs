@@ -71,10 +71,14 @@ $RevisionreviewMessages['en'] = array(
     'review-logpage'       => 'Article review log',
 	'review-logpagetext'   => 'This is a log of changes to revisions\' [[Help:Article validation|approval]] status
 	for content pages.',
-	'review-logentry-app'  => 'reviewed $1',
-	'review-logentry-dis'  => 'depreciated a version of $1',
-	'review-logentry-conf' => 'configured stable versioning for $1',
+	'review-logentry-app'  => 'reviewed [[$1]]',
+	'review-logentry-dis'  => 'depreciated a version of [[$1]]',
 	'review-logaction'     => 'revision ID $1',
+	
+	'stable-logpage'     => 'Stable version log',
+	'stable-logpagetext' => 'This is a log of changes to the [[Help:Article validation|stable version]] 
+	configuration of content pages.',
+	'stable-logentry'    => 'configured stable versioning for [[$1]]',
 
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 

@@ -219,13 +219,18 @@ $wgFlaggedRevsAutopromote = array(
 # Variables below this point should probably not be modified
 #########
 
-# Add review log
+# Add review log and such
 $wgLogTypes[] = 'review';
 $wgLogNames['review'] = 'review-logpage';
 $wgLogHeaders['review'] = 'review-logpagetext';
 $wgLogActions['review/approve']  = 'review-logentry-app';
 $wgLogActions['review/unapprove'] = 'review-logentry-dis';
-$wgLogActions['review/config'] = 'review-logentry-conf';
+
+$wgLogTypes[] = 'stable';
+$wgLogNames['stable'] = 'stable-logpage';
+$wgLogHeaders['stable'] = 'stable-logpagetext';
+$wgLogActions['stable/config'] = 'stable-logentry';
+
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 $wgLogActions['rights/egrant']  = 'rights-editor-grant';
 
