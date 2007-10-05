@@ -86,7 +86,7 @@ class FlaggedArticle extends FlaggedRevs {
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					if( $this->useSimpleUI() ) {
-						if($revs_since) {
+						if( $revs_since ) {
 							$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
 							$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
 								wfMsgExt($msg,array('parseinline'), $tfrev->fr_rev_id, $revs_since);

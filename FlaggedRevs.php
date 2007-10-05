@@ -118,12 +118,14 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedRevs, 'parserInjectImageTimestamps' );
 	$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedRevs, 'outputInjectImageTimestamps');
 	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedRevs, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
     # Autoreview stuff
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'autoMarkPatrolled' );
+	# Disallow moves of stable pages
+	$wgHooks['userCan'][] = array( $wgFlaggedRevs, 'userCanMove' );
 	#########
 }
 
@@ -1116,7 +1118,7 @@ class FlaggedRevs {
 	* When an edit is made to a page that can't be reviewed, treat rc_patrolled
 	* as 1. This avoids marks showing on edits that cannot be reviewed.
 	*/ 	
-	function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
+	public function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevs;
 		
 		if( !$wgFlaggedRevs->isReviewable( $article->getTitle() ) ) {
@@ -1126,6 +1128,26 @@ class FlaggedRevs {
 				array( 'rc_this_oldid' => $rev->getID() ),
 				__METHOD__ );
 		}
+		return true;
+	}
+
+	/**
+	* Don't let users vandalize pages by moving them.
+	*/ 		
+	public function userCanMove( $title, $user, $action, $result ) {
+		if( $action != 'move' )
+			return true;
+		# See if there is a stable version
+		$frev = $this->getStableRev( $title );
+		if( !$frev )
+			return true;
+		#  Allow for only editors/reviewers to move this
+		$right = $frev->fr_quality ? 'validate' : 'review';
+		if( !$user->isAllowed( $right ) ) {
+		    $result = false;
+			return false;
+		}
+		
 		return true;
 	}
 
