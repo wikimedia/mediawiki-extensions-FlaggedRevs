@@ -421,7 +421,8 @@ class FlaggedRevs {
 	 * @returns Row
 	*/
     public function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
+    	$selectColumns = array( 'fr_rev_id','fr_user','fr_timestamp','fr_comment',
+			'rev_timestamp','fr_quality' );
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
     		$selectColumns[] = 'fr_flags';
