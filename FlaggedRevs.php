@@ -1070,9 +1070,46 @@ class FlaggedRevs {
 		$frev = $this->getStableRev( $diff->mTitle );
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
+			
+		$changeList = array();
+		$skin = $wgUser->getSkin();
+		# Make a list of each changed template...
+		$dbr = wfGetDB( DB_SLAVE );
+		$ret = $dbr->select( array('flaggedtemplates','page'),
+			array( 'ft_namespace', 'ft_title' ),
+			array( 'ft_rev_id' => $frev->fr_rev_id,
+				'ft_namespace = page_namespace',
+				'ft_title = page_title',
+				'ft_tmp_rev_id != page_latest' ),
+			__METHOD__,
+			array( 'USE INDEX' => 'PRIMARY' ) );
+			
+		while( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
+			$changeList[] = $skin->makeKnownLinkObj( $title );
+		}
+		# And images...
+		$ret = $dbr->select( array('flaggedimages','image'),
+			array( 'fi_name' ),
+			array( 'fi_rev_id' => $frev->fr_rev_id,
+				'fi_name = img_name',
+				'fi_img_sha1 != img_sha1' ),
+			__METHOD__,
+			array( 'USE INDEX' => 'PRIMARY' ) );
+			
+		while( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
+			$changeList[] = $skin->makeKnownLinkObj( $title );
+		}
 		
-		$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
-			wfMsg('revreview-update').'</div>' );
+		if( empty($changeList) ) {
+			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
+				wfMsg('revreview-update-none').'</div>' );
+		} else {
+			$changeList = implode(', ',$changeList);
+			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
+				wfMsg('revreview-update').'</p>'.$changeList.'</div>' );
+		}
 		# Set flag for review form to tell it to autoselect tag settings from the
 		# old revision unless the current one is tagged to.
 		if( !self::getFlaggedRev( $diff->mTitle, $NewRev->getID() ) ) {

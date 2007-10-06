@@ -31,8 +31,6 @@ $RevisionreviewMessages['en'] = array(
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-see-basic' => '\'\'\'Current\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} see stable revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
-	'revreview-quick-seeandis-quality' => '\'\'\'Current revision, [[Help:Article validation|quality]] reviewed.\'\'\'',
-	'revreview-quick-seeandis-basic' => '\'\'\'Current revision, [[Help:Article validation|sighted]] for vandalism.\'\'\'',	
 	'revreview-quick-basic' => '\'\'\'[[Help:Article validation|Sighted]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} see current revision]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-quality' => '\'\'\'[[Help:Article validation|Quality]]\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} see current revision]] 
@@ -56,8 +54,9 @@ $RevisionreviewMessages['en'] = array(
 	can be [{{fullurl:$3|action=edit}} modified].',
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
-	'revreview-update' => 'Please review any changes (shown below) made since stable revision to this page. Templates and images
-	may have also changed.',
+	'revreview-update' => 'Please review any changes (shown below) made since stable revision to this page. The following templates 
+	and images have also been updated:',
+	'revreview-update-none' => 'Please review any changes (shown below) made since stable revision to this page.',
 	'revreview-auto' => '(automatic)',
 	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''. 
 	You may want to preview the page before saving.",

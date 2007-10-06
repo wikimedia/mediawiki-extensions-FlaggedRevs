@@ -104,16 +104,9 @@ class FlaggedArticle extends FlaggedRevs {
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					if( $this->useSimpleUI() ) {
-						if( $revs_since ) {
-							$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
-							$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+						$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
+						$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
 								wfMsgExt($msg,array('parseinline'), $tfrev->fr_rev_id, $revs_since);
-						} else {
-							$msg = $quality ? 'revreview-quick-seeandis-quality': 'revreview-quick-seeandis-basic';
-							$css = $quality ? 'fr_tab_quality' : 'fr_tab_stable';
-							$tag .= "<span class='$css'></span>" . 
-								wfMsgExt($msg,array('parseinline'));
-						}
 						$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false );							
 					} else {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
