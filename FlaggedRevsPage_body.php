@@ -964,15 +964,6 @@ class Stabilization extends SpecialPage
 		
 		$form .= Xml::openElement( 'form',
 			array( 'name' => 'stabilization', 'action' => $wgScript, 'method' => 'post' ) );
-		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
-		$form .= "<table><tr>";
-		
-		$form .= "<td>".Xml::radio( 'select', 0, (0==$selectSetting), array('id' => 'select1') + $off )."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'select1' )."</td>";
-		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'select', 1, (1==$selectSetting), array('id' => 'select2') + $off )."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'select2' )."</td>";
-		$form .= "</tr></table></fieldset>";
 		
 		$form .= "<fieldset><legend>".wfMsg('stabilization-def')."</legend>";
 		$form .= "<table><tr>";
@@ -982,6 +973,16 @@ class Stabilization extends SpecialPage
 		$form .= "<td>".Xml::radio( 'override', 0, (0==$overrideSetting), array('id' => 'default2') + $off)."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-def2'), 'default2' )."</td>";
 		$form .= "</tr></table></fieldset>";
+		
+		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
+		$form .= "<table><tr>";
+		$form .= "<td>".Xml::radio( 'select', 0, (0==$selectSetting), array('id' => 'select1') + $off )."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'select1' )."</td>";
+		$form .= "</tr><tr>";
+		$form .= "<td>".Xml::radio( 'select', 1, (1==$selectSetting), array('id' => 'select2') + $off )."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'select2' )."</td>";
+		$form .= "</tr></table></fieldset>";
+		
 		if( $this->isAllowed ) {
 			$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
 			$form .= Xml::hidden('page', $this->page->getPrefixedText() );
