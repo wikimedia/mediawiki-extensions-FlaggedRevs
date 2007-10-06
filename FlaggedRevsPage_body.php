@@ -1002,7 +1002,9 @@ class Stabilization extends SpecialPage
 	}
 	
 	function submit() {
-		global $wgOut, $wgFlaggedRevs, $wgUser, $wgParser;
+		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevs, $wgFlaggedRevsOverride;
+		
+		$changed = $reset = false;
 		
 		$dbw = wfGetDB( DB_MASTER );
 		# Get current config
@@ -1010,15 +1012,25 @@ class Stabilization extends SpecialPage
 			array( 'fp_select', 'fp_override' ),
 			array( 'fp_page_id' => $this->page->getArticleID() ),
 			__METHOD__ );
-		# Fire away!
-		$success = $dbw->replace( 'flaggedpages',
-			array( 'fp_page_id' ),
-			array( 'fp_page_id' => $this->page->getArticleID(),
-				'fp_select' => $this->select,
-				'fp_override' => $this->override ),
-			__METHOD__ );
+		# If setting to site default values, erase the row if there is one
+		if( $row && $this->select==0 && $this->override==$wgFlaggedRevsOverride ) {
+			$reset = true;
+			$changed = true;
+			$dbw->delete( 'flaggedpages',
+				array( 'fp_page_id' => $this->page->getArticleID() ),
+				__METHOD__ );
+		# Otherwise, add a row unless we are just setting it as the site default
+		} else if( $this->select !=0 || $this->override !=$wgFlaggedRevsOverride ) {
+			$changed = true;
+			$dbw->replace( 'flaggedpages',
+				array( 'fp_page_id' ),
+				array( 'fp_page_id' => $this->page->getArticleID(),
+					'fp_select' => $this->select,
+					'fp_override' => $this->override ),
+				__METHOD__ );
+		}
 		# Log if changed
-		if( !$row || $row->fp_select != $this->select || $row->fp_override != $this->override ) {
+		if( $changed ) {
 			$log = new LogPage( 'stable' );
 			// ID, accuracy, depth, style
 			$set = array();
@@ -1028,11 +1040,14 @@ class Stabilization extends SpecialPage
 				wfMsg("stabilization-def-short-{$this->override}");
 			
 			$settings = ' [' . implode(', ',$set). ']';
-			// Append comment with action
+			// Append comment with settings
 			// FIXME: do this better
 			$comment = ($this->comment) ? "{$this->comment}$settings" : "$settings";
 			
-			$log->addEntry( 'config', $this->page, $comment );
+			if( $reset )
+				$log->addEntry( 'reset', $this->page, $this->comment );
+			else
+				$log->addEntry( 'config', $this->page, $comment );
 		}
 		
     	$article = new Article( $this->page );

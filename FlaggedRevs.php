@@ -232,6 +232,7 @@ $wgLogTypes[] = 'stable';
 $wgLogNames['stable'] = 'stable-logpage';
 $wgLogHeaders['stable'] = 'stable-logpagetext';
 $wgLogActions['stable/config'] = 'stable-logentry';
+$wgLogActions['stable/reset'] = 'stable-logentry2';
 
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 $wgLogActions['rights/egrant']  = 'rights-editor-grant';

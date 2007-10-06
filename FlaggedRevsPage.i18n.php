@@ -79,6 +79,7 @@ $RevisionreviewMessages['en'] = array(
 	'stable-logpagetext' => 'This is a log of changes to the [[Help:Article validation|stable version]] 
 	configuration of content pages.',
 	'stable-logentry'    => 'configured stable versioning for [[$1]]',
+	'stable-logentry2'   => 'reset stable versioning for [[$1]]',
 
     'revisionreview'       => 'Review revisions',		
     'revreview-main'       => 'You must select a particular revision from a content page in order to review. 
