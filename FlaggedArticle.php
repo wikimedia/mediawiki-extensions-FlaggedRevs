@@ -632,7 +632,7 @@ class FlaggedArticle extends FlaggedRevs {
 	/**
 	 * @param Row $trev, flagged revision row
 	 * @param array $flags
-	 * @param int $rev_since, revisions since review
+	 * @param int $revs_since, revisions since review
 	 * @param bool $stable, are we referring to the stable revision?
 	 * @return string
 	 * Generates a review box using a table using addTagRatings()

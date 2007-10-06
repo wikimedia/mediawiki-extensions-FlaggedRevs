@@ -76,7 +76,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
 ) TYPE=InnoDB;
 
 -- Add page_ext_stable column, similar to page_latest
--- Add page_ext_upd columns, a boolean for up to date stable versions
+-- Add page_ext_reviewed column, a boolean for "up to date" stable versions
 ALTER TABLE /*$wgDBprefix*/page 
   ADD page_ext_reviewed bool NULL,
   ADD page_ext_stable int(10) NULL,
