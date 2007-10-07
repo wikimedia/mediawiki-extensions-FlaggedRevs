@@ -1239,6 +1239,9 @@ class FlaggedRevs {
     public function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
         global $wgUser, $wgFlaggedRevs;
         
+        if( !$rev )
+        	return true;
+        
         if( !$wgFlaggedRevs->isReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
             $dbw = wfGetDB( DB_MASTER );
             $dbw->update( 'recentchanges',
