@@ -187,8 +187,6 @@ $RevisionreviewMessages['ar'] = array(
 	'revreview-quick-none'  => '\'\'\'الحالي\'\'\'. لا نسخ مراجعة.',
 	'revreview-quick-see-quality' => '\'\'\'حالي\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} انظر آخر نسخة جودة]',
 	'revreview-quick-see-basic' => '\'\'\'حالي\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض آخر نسخة منظورة]',
-	'revreview-quick-seeandis-quality' => '\'\'\'النسخة الحالية، [[Help:Article validation|الجودة]] مراجعة.\'\'\'',
-	'revreview-quick-seeandis-basic' => '\'\'\'النسخة الحالية، [[Help:Article validation|منظورة]] للتخريب.\'\'\'',
 	'revreview-quick-basic' => '\'\'\'منظورة\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض النسخة الحالية] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغيير|تغييرات}}])',
 	'revreview-quick-quality' => '\'\'\'جودة\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض النسخة الحالية] 
@@ -214,6 +212,7 @@ $RevisionreviewMessages['ar'] = array(
 	'revreview-note'        => '[[User:$1]] كتب الملاحظات التالية [[Help:Article validation|عند مراجعة]] هذه النسخة:',
 	'revreview-update'      => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) تمت منذ النسخة المستقرة لهذه الصفحة. القوالب و الصور
 ربما تكون قد تغيرت أيضا.',
+	'revreview-update-none' => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) منذ النسخة المستقرة لهذه الصفحة.',
 	'revreview-auto'        => '(تلقائيا)',
 	'revreview-auto-w'      => '\'\'\'ملاحظة:\'\'\' أنت تقوم بتغييرات للنسخة المستقرة، تعديلاتك سيتم مراجعتها تلقائيا. 
 ربما تريد أن تعرض الصفحة عرضا مسبقا قبل الحفظ.',
@@ -226,8 +225,12 @@ $RevisionreviewMessages['ar'] = array(
 	'review-logpagetext'    => 'هذا سجل بالتغييرات لحالة\' [[Help:Article validation|الموافقة]] لصفحات المحتوى.',
 	'review-logentry-app'   => 'راجع $1',
 	'review-logentry-dis'   => 'أزال نسخة من $1',
-	'review-logentry-conf'  => 'ضبط النسخ المستقر ل$1',
 	'review-logaction'      => 'رقم النسخة $1',
+	'stable-logpage'        => 'سجل النسخة المستقرة',
+	'stable-logpagetext'    => 'هذا سجل بالتغييرات لضبط [[Help:Article validation|النسخة المستقرة]] 
+	لصفحات المحتوى.',
+	'stable-logentry'       => 'ضبط النسخة المستقرة ل[[$1]]',
+	'stable-logentry2'      => 'أعاد ضبط النسخة المستقرة ل[[$1]]',
 	'revisionreview'        => 'مراجعة النسخ',
 	'revreview-main'        => 'يجب أن تختار نسخة معينة من صفحة محتوى لمراجعتها. 
 
@@ -287,22 +290,21 @@ $RevisionreviewMessages['ar'] = array(
 	'stabilization-page'    => 'اسم الصفحة:',
 	'stabilization-leg'     => 'ضبط النسخة المستقرة لصفحة',
 	'stabilization-select'  => 'كيفية اختيار النسخة المستقرة',
+	'stabilization-select1' => 'آخر نسخة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
 	'stabilization-select2' => 'آخر نسخة مراجعة',
+	'stabilization-def'     => 'النسخة المعروضة عند رؤية الصفحة افتراضيا',
+	'stabilization-def1'    => 'النسخة المستقرة؛ لو غير موجودة، إذا النسخة الحالية',
 	'stabilization-def2'    => 'النسخة الحالية',
 	'stabilization-submit'  => 'تأكيد',
+	'stabilization-notexists' => 'لا توجد صفحة بالاسم "[[:$1|$1]]". لا ضبط ممكن.',
+	'stabilization-notcontent' => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها. لا ضبط ممكن.',
+	'stabilization-success' => 'إعدادات النسخة المستقرة ل[[:$1|$1]] تم ضبطها بنجاح.',
+	'stabilization-sel-short' => 'تنفيذ',
 	'stabilization-sel-short-0' => 'جودة',
 	'stabilization-sel-short-1' => 'لا شيء',
 	'stabilization-def-short' => 'افتراضي',
 	'stabilization-def-short-0' => 'حالي',
 	'stabilization-def-short-1' => 'مستقر',
-);
-
-$RevisionreviewMessages['bcl'] = array(
-	'hist-quality'          => '[kalidad]',
-	'revreview-depth'       => 'Rarom',
-	'stableversions-page'   => 'Pangaran kan pahina',
-	'unreviewed-category'   => 'Kategorya:',
-	'unreviewed-diff'       => 'Mga pagbabâgo',
 );
 
 $RevisionreviewMessages['ca'] = array(
@@ -339,11 +341,15 @@ $RevisionreviewMessages['cs'] = array(
 	'group-reviewer'        => 'Posuzovatelé',
 	'group-reviewer-member' => 'Posuzovatel',
 	'revreview-current'     => 'Návrh',
+	'tooltip-ca-current'    => 'Zobrazit nejnovější návrh této stránky',
 	'revreview-edit'        => 'Editovat návrh',
 	'revreview-source'      => 'zdroj návrhu',
 	'revreview-stable'      => 'Stabilní',
+	'tooltip-ca-stable'     => 'Zobrazit stabilní verzi této stránky',
 	'revreview-oldrating'   => 'Bylo ohodnoceno:',
 	'revreview-noflagged'   => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[Help:Article validation|zkontrolována]] kvalita.',
+	'stabilization-tab'     => 'stabilizace',
+	'tooltip-ca-default'    => 'Nastavení stabilní a zobrazované verze',
 	'revreview-quick-none'  => '\'\'\'Nejnovější verze\'\'\'. Žádné posouzené verze.',
 	'revreview-quick-see-quality' => '\'\'\'Nejnovější verze\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vizte poslední kvalitní verzi]]',
 	'revreview-quick-see-basic' => '\'\'\'Nejnovější verze\'\'\'. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vizte poslední prohlédnutou verzi]]',
@@ -356,6 +362,7 @@ $RevisionreviewMessages['cs'] = array(
 	'revreview-static'      => 'Toto je [[Help:Article validation|posouzená]] verze \'\'\'[[:$3|této stránky]]\'\'\' [{{fullurl:Special:Log/review|page=$1}} schválená] <i>$2</i>. [{{fullurl:$3|stable=0}} Nejnovější verzi] můžete [{{fullurl:$3|action=edit}} změnit].',
 	'revreview-note'        => 'Uživatel [[User:$1|$1]] doplnil své [[Help:Article validation|posouzení]] této verze následující poznámkou:',
 	'revreview-update'      => 'Posuďte všechny změny na této stránce vůči stabilní verzi. Šablony a obrázky se také mohly změnit.',
+	'revreview-update-none' => 'Posuďte všechny změny (zobrazené níže) provedené od stabilní verze.',
 	'revreview-auto'        => '(automaticky)',
 	'revreview-auto-w'      => 'Editujete stabilní verzi, změny budou \'\'\'automaticky označeny jako posouzené\'\'\'. Měli byste zkontrolovat náhled stránky.',
 	'revreview-auto-w-old'  => 'Editujete starou verzi, změny budou \'\'\'automaticky označeny jako posouzené\'\'\'. Měli byste zkontrolovat náhled stránky.',
@@ -366,7 +373,6 @@ $RevisionreviewMessages['cs'] = array(
 	'review-logpagetext'    => 'Tato kniha zobrazuje změny [[Help:Article validation|schválení]] verzí stránek.',
 	'review-logentry-app'   => 'posuzuje stránku $1',
 	'review-logentry-dis'   => 'odmítá verzi stránky $1',
-	'review-logentry-conf'  => 'určuje stabilní verzi stránky $1',
 	'review-logaction'      => 'identifikace verze $1',
 	'revisionreview'        => 'Posouzení verzí',
 	'revreview-main'        => 'Musíte vybrat určitou verzi stránky, aby jste ji mohli posoudit. Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
@@ -411,13 +417,22 @@ $RevisionreviewMessages['cs'] = array(
 	'unreviewed-category'   => 'Kategorie:',
 	'unreviewed-diff'       => 'Změny',
 	'unreviewed-list'       => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
+	'revreview-visibility'  => 'Tato stránka má [[Help:Article validation|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].',
 	'stabilization'         => 'Stabilizace stránky',
+	'stabilization-text'    => 'Změňte nastavení, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.',
+	'stabilization-perm'    => 'Tento účet nemá povoleno měnit nastavení stabilní verze. Níže je současné nastavení stránky [[:$1|$1]]:',
 	'stabilization-page'    => 'Jméno stránky:',
+	'stabilization-leg'     => 'Nastavení stabilní verze stránky',
+	'stabilization-select'  => 'Jako stabilní verze je vybrána',
 	'stabilization-select1' => 'Poslední kvalitní verze; pokud není k dispozici pak poslední posouzená',
 	'stabilization-select2' => 'Poslední posouzená verze',
+	'stabilization-def'     => 'Verze zobrazená jako výchozí',
 	'stabilization-def1'    => 'Stabilní verze',
 	'stabilization-def2'    => 'Současná verze',
 	'stabilization-submit'  => 'Potvrdit',
+	'stabilization-notexists' => 'Neexistuje stránka "[[:$1|$1]]". Nastavení není možné.',
+	'stabilization-notcontent' => 'Stránka „[[:$1|$1]]“ nemůže být posouzena. Nastavení není možné.',
+	'stabilization-success' => 'Nastavení stabilní verze stránky [[:$1|$1]] bylo provedeno.',
 	'stabilization-sel-short' => 'Váha',
 	'stabilization-sel-short-0' => 'kvalitní',
 	'stabilization-sel-short-1' => 'žádná',
@@ -654,6 +669,7 @@ $RevisionreviewMessages['hsb'] = array(
 	'revreview-toggle'      => '(+/-)',#identical but defined
 	'revreview-note'        => '[[{{ns:user}}:$1]] činješe slědowace [[Help:Article validation|pruwowanske noticy]] k tutej wersiji:',
 	'revreview-update'      => 'Prošu pruwuj kóždu změnu wot poslednjeje stabilneje wersije (hlej deleka). Předłohi a wobrazy móža tež změnjene być.',
+	'revreview-update-none' => 'Prošu pruwuj deleka pokazane změny, kotrež su so na tutej stronje wot stabilneje wersije činili.',
 	'revreview-auto'        => '(awtomatisce)',
 	'revreview-auto-w'      => 'Wobdźěłuješ runje stabilnu wersiju, wšě změny so \'\'\'awtomatisce pruwować.\'\'\' Ty měł sej tohodla stronu před składowanjom w přehledźe wobhladać.',
 	'revreview-auto-w-old'  => 'Wobdźěłuješ staru wersiju, wšě změny budu so \'\'\'awtomatisce pruwować.\'\'\' Ty měł sej tohodla stronu před składowanjom w přehledźe wobhladać.',
@@ -665,6 +681,10 @@ $RevisionreviewMessages['hsb'] = array(
 	'review-logentry-app'   => 'je $1 přepruwował',
 	'review-logentry-dis'   => 'je wersiju wot $1 zaćisnył',
 	'review-logaction'      => 'Wersijowy ID $1',
+	'stable-logpage'        => 'Protokol stabilneje wersije',
+	'stable-logpagetext'    => 'To je protokol změnow na konfiguraciji [[Help:Article validation|stabilneje wersije]] nastawkow.',
+	'stable-logentry'       => 'konfigurowaše woznamjenjenje stabilneje wersije za [[$1]]',
+	'stable-logentry2'      => 'woznamjenjenje stabilneje wersije za [[$1]] anulować',
 	'revisionreview'        => 'Wersije přepruwować',
 	'revreview-main'        => 'Dyrbiš wěstu wersiju nastawka za přehladanje wubrać.
 
@@ -738,22 +758,6 @@ $RevisionreviewMessages['hsb'] = array(
 	'stabilization-def-short-1' => 'Stabilny',
 );
 
-$RevisionreviewMessages['la'] = array(
-	'editor'                => 'Recensor',
-	'group-editor'          => 'Recensores',
-	'group-editor-member'   => 'Recensor',
-	'grouppage-editor'      => '{{ns:project}}:Recensor',
-	'reviewer'              => 'Revisor',
-	'group-reviewer'        => 'Revisores',
-	'group-reviewer-member' => 'Revisor',
-	'grouppage-reviewer'    => '{{ns:project}}:Revisor',
-	'revreview-style-2'     => 'Bonus',
-	'revreview-log'         => 'Sententia:',
-	'stableversions-page'   => 'Nomen paginae',
-	'unreviewed-category'   => 'Categoria:',
-	'unreviewed-diff'       => 'Cambiationes',
-);
-
 $RevisionreviewMessages['nl'] = array(
 	'makevalidate-autosum'  => 'automatisch gepromoveerd',
 	'editor'                => 'Redacteur',
@@ -765,12 +769,16 @@ $RevisionreviewMessages['nl'] = array(
 	'group-reviewer-member' => 'Beoordelaar',
 	'grouppage-reviewer'    => '{{ns:project}}:Beoordelaar',
 	'revreview-current'     => 'Huidige versie',
+	'tooltip-ca-current'    => 'Toon de huidige werkversie van deze pagina',
 	'revreview-edit'        => 'concept bewerken',
 	'revreview-source'      => 'Brontekst concept',
 	'revreview-stable'      => 'Stabiele versie',
+	'tooltip-ca-stable'     => 'Toon de stabiele versie van deze pagina',
 	'revreview-oldrating'   => 'Was gewaardeerd als:',
 	'revreview-noflagged'   => 'Er zijn geen beoordeelde versies van deze pagina, dus die is wellicht \'\'\'niet\'\'\' 
 	[[Help:Article validation|gecontroleerd]] op kwaliteit.',
+	'stabilization-tab'     => '(kb)',
+	'tooltip-ca-default'    => 'Instellingen kwaliteitsbewaking',
 	'revreview-quick-none'  => '\'\'\'Huidige versie\'\'\'. Geen beoordeelde versies.',
 	'revreview-quick-see-quality' => '\'\'\'Huidige versie\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste kwaliteitsversie]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|wijziging|wijzigingen}}])',
@@ -800,6 +808,7 @@ $RevisionreviewMessages['nl'] = array(
 	'revreview-toggle'      => '(+/-)',#identical but defined
 	'revreview-note'        => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[Help:Article validation|beoordeling]] van deze versie:',
 	'revreview-update'      => 'Controleer alstublieft alle onderstaande wijzigingen die gemaakt zijn sinds de stabiele versie voor deze pagina. Sjablonen en afbeeldingen kunnen ook gewijzigd zijn.',
+	'revreview-update-none' => 'Beoordeel alstublieft de wijzigingen (hieronder getoond) die sinds de stabiele versie aan deze pagina zijn gemaakt.',
 	'revreview-auto'        => '(automatisch}',
 	'revreview-auto-w'      => '\'\'\'Opmerking:\'\'\' u wijzigt de stabiele versie. Uw bewerkingen worden automatisch gecontroleerd. Controleer de voorvertoning voordat u de pagina opslaat.',
 	'revreview-auto-w-old'  => 'U bent een oude versie aan het bewerken, elke wijziging wordt \'\'\'automatisch beoordeeld\'\'\'.
@@ -812,8 +821,11 @@ Controleer uw bewerking voordat u deze opslaat.',
 	van pagina\'s.',
 	'review-logentry-app'   => 'beoordeelde $1',
 	'review-logentry-dis'   => 'heeft een versie van $1 lager beoordeeld',
-	'review-logentry-conf'  => 'heeft stabiele versies ingesteld voor $1',
 	'review-logaction'      => 'versienummer $1',
+	'stable-logpage'        => 'Logboek stabiele versies',
+	'stable-logpagetext'    => 'Dit is een logboek met wijzigingen aan de instellingen voor [[Help:Article validation|stabiele versies]] voor de hoofdnaamruimte.',
+	'stable-logentry'       => 'stabiele versies zijn ingesteld voor [[$1]]',
+	'stable-logentry2'      => 'stabiele versies voor [[$1]] opnieuw instellen',
 	'revisionreview'        => 'Versies beoordelen',
 	'revreview-main'        => 'U moet een specifieke versie van een pagina kiezen om te kunnen beoordelen. 
 
