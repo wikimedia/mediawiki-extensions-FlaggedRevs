@@ -1168,9 +1168,8 @@ class FlaggedRevs {
 				$patrol = '';
 			}
 			$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
-			
-			return true;
 		}
+		return true;
 	}
 
 	/**
