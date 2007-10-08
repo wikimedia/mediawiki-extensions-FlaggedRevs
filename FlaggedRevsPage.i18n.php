@@ -451,11 +451,11 @@ $RevisionreviewMessages['cs'] = array(
 
 // German (Raimond Spekking)
 $RevisionreviewMessages['de'] = array( 
-	'makevalidate-autosum'=> 'autopromoted', # needs still a nice and short translation :-(
-	'editor'              => 'Editor', # needs still a nice German word :-(
-	'group-editor'        => 'Editoren',
-	'group-editor-member' => 'Editor',
-	'grouppage-editor'    => '{{ns:project}}:Editor',
+	'makevalidate-autosum' => 'automatische Rechtevergabe',
+	'editor'               => 'Sichter',
+	'group-editor'         => 'Sichter',
+	'group-editor-member'  => 'Sichter',
+	'grouppage-editor'     => '{{ns:project}}:Sichter',
 
 	'reviewer'              => 'Prüfer',
 	'group-reviewer'        => 'Prüfer',
@@ -468,9 +468,8 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-source'    => 'Entwurfs-Quelltext',
 	'revreview-stable'    => 'Stabil',
 	'tooltip-ca-stable'   => 'Ansehen der stabilen Version dieser Seite',
-	'revreview-oldrating' => 'Bisherige Einstufungsaktuell:',
-	'revreview-noflagged' => 'Von dieser Seite gibt es keine überprüften Versionen, so dass noch keine Aussage über die 
-	[[Help:Article validation|Artikelqualität]] gemacht werden kann.',
+	'revreview-oldrating' => 'Bisherige Einstufung:',
+	'revreview-noflagged' => 'Von dieser Seite gibt es keine markierten Versionen, so dass noch keine Aussage über die [[Help:Article validation|Artikelqualität]] gemacht werden kann.',
 
 	'stabilization-tab'   => '(qa)',
 	'tooltip-ca-default'  => 'Einstellungen der Artikel-Qualität',
@@ -483,8 +482,8 @@ $RevisionreviewMessages['de'] = array(
 	'revreview-quick-see-basic'   => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-seeandis-quality' => '\'\'\'Aktuelle Version, [[Help:Article validation|geprüfter]] Inhalt.\'\'\'',
-	'revreview-quick-seeandis-basic'   => '\'\'\'Aktuelle Version, auf Vandalismus [[Help:Article validation|überprüfter]] Inhalt.\'\'\'',	
+	//'revreview-quick-seeandis-quality' => '\'\'\'Aktuelle Version, [[Help:Article validation|geprüfter]] Inhalt.\'\'\'',
+	//'revreview-quick-seeandis-basic'   => '\'\'\'Aktuelle Version, auf Vandalismus [[Help:Article validation|überprüfter]] Inhalt.\'\'\'',	
 
 	'revreview-quick-basic'       => "'''[[Help:Article validation|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
@@ -514,14 +513,15 @@ $RevisionreviewMessages['de'] = array(
 	[{{fullurl:Special:Log/review|page=$1}} freigegeben] am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] 
 	kann [{{fullurl:$3|action=edit}} bearbeitet] werden.",
 
-	'revreview-toggle' => '(+/-)',
-	'revreview-note'   => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
-	'revreview-update' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
-	Vorlagen und Bilder können sich ebenfalls geändert haben.',
-	'revreview-auto'   => '(automatisch)',
-	'revreview-auto-w' => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
+	'revreview-toggle'      => '(+/-)',
+	'revreview-note'        => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
+	'revreview-update'      => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
+	Die folgenden Vorlagen und Bilder wurden seitdem ebenfalls verändert:',
+	'revreview-update-none' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).',
+	'revreview-auto'        => '(automatisch)',
+	'revreview-auto-w'      => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
-        'revreview-auto-w-old' => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
+        'revreview-auto-w-old'  => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
         Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
 
 	'hist-stable'  => '[gesichtet]',
@@ -530,10 +530,14 @@ $RevisionreviewMessages['de'] = array(
 	'flaggedrevs'           => 'Markierte Versionen',
 	'review-logpage'        => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext'    => 'Dies ist das Änderungs-Logbuch der [[Help:Article validation|Seiten-Freigaben]].',
-	'review-logentry-app'   => 'überprüfte $1',
-	'review-logentry-dis'   => 'verwarf eine Version von $1',
-	'review-logentry-conf'  => 'setzte Einstellungen für stabile Version für $1',
+	'review-logentry-app'   => 'überprüfte [[$1]]',
+	'review-logentry-dis'   => 'verwarf eine Version von [[$1]]',
 	'review-logaction'      => 'Version-ID $1',
+
+	'stable-logpage'     => 'Stabile-Versionen-Logbuch',
+	'stable-logpagetext' => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[Help:Article validation|Stabilen Versionen]]',
+	'stable-logentry'    => 'konfigurierte die Seiten-Einstellung von [[$1]]',
+	'stable-logentry2'   => 'setzte die Seiten-Einstellung für [[$1]] zurück',
 
 	'revisionreview'       => 'Versionsprüfung',
 	'revreview-main'       => 'Du musst eine Artikelversion zur Prüfung auswählen.
