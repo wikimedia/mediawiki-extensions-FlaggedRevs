@@ -770,6 +770,23 @@ $RevisionreviewMessages['hsb'] = array(
 	'stabilization-def-short-1' => 'Stabilny',
 );
 
+$RevisionreviewMessages['la'] = array(
+	'editor'                => 'Recensor',
+	'group-editor'          => 'Recensores',
+	'group-editor-member'   => 'Recensor',
+	'grouppage-editor'      => '{{ns:project}}:Recensor',
+	'reviewer'              => 'Revisor',
+	'group-reviewer'        => 'Revisores',
+	'group-reviewer-member' => 'Revisor',
+	'grouppage-reviewer'    => '{{ns:project}}:Revisor',
+	'revreview-style-2'     => 'Bonus',
+	'revreview-log'         => 'Sententia:',
+	'stableversions-page'   => 'Nomen paginae:',
+	'unreviewed-category'   => 'Categoria:',
+	'unreviewed-diff'       => 'Cambiationes',
+	'stabilization-page'    => 'Nomen paginae:',
+);
+
 $RevisionreviewMessages['nl'] = array(
 	'makevalidate-autosum'  => 'automatisch gepromoveerd',
 	'editor'                => 'Redacteur',
@@ -870,7 +887,7 @@ Controleer uw bewerking voordat u deze opslaat.',
 	'revreview-log'         => 'Logboekopmerking:',
 	'revreview-submit'      => 'Beoordeling opslaan',
 	'revreview-changed'     => '\'\'\'De gevraagde actie kon niet uitgevoerd worden voor deze versie.\'\'\'
-
+	
 	Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is aangegeven. Dit kan voorkomen als een 
 	dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds
 	u bent begonnen met de beoordeling van deze pagina. Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.',
