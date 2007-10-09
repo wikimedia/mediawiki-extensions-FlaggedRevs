@@ -1040,15 +1040,14 @@ class FlaggedRevs {
 	*/ 
     public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
     	global $wgUser, $wgReviewChangesAfterEdit;
-		# Was this already autoreviewed?
-		if( $this->skipReviewDiff )
-			return true;
-		
-    	if( !$wgReviewChangesAfterEdit || !$wgUser->isAllowed( 'review' ) )
-    		return true;
     	
-		$frev = $this->getStableRev( $article->getTitle() );
-		if( $frev )	{
+    	$frev = $this->getStableRev( $article->getTitle() );
+		# Was this already autoreviewed, are we allowed?
+		if( $this->skipReviewDiff || !$wgReviewChangesAfterEdit || !$wgUser->isAllowed('review') ) {
+			if( $frev )	{
+				$extraq .= "stable=0";
+			}
+    	} else if( $frev )	{
 			$frev_id = $frev->fr_rev_id;
 			$extraq .= "oldid={$frev_id}&diff=cur&editreview=1";
 		}
