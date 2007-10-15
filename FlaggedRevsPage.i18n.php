@@ -504,7 +504,7 @@ $RevisionreviewMessages['de'] = array(
 	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}]
 	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
-	'revreview-quality'  => 'Das ist die letzte Version mit [[Help:Versionsbewertung|geprüfte]] Version,
+	'revreview-quality'  => 'Das ist die letzte [[Help:Versionsbewertung|geprüfte]] Version,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}]
 	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
