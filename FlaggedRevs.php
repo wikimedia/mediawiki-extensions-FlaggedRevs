@@ -1292,7 +1292,7 @@ class FlaggedRevs {
 		$userage = floor(($now-$usercreation) / 86400);
 		$userpage = $user->getUserPage();
 		# Do not give this to current holders or bots
-		if( in_array( array('bot','editor'), $groups ) )
+		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) )
 			return true;
 		# Check if we need to promote...
 		if( $userage < $wgFlaggedRevsAutopromote['days'] )
