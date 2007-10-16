@@ -144,14 +144,15 @@ $wgFlaggedRevTabs = false;
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN );
 
-# Revision tagging can slow development...
-# For example, the main user base may become complacent,
-# perhaps treat flagged pages as "done",
-# or just be too damn lazy to always click "current".
-# We may just want non-user visitors to see reviewed pages by default.
-$wgFlaggedRevsAnonOnly = true;
 # Do flagged revs override the default view?
 $wgFlaggedRevsOverride = true;
+# Revision tagging can slow development...
+# For example, the main user base may become complacent, perhaps treat flagged 
+# pages as "done", or just be too lazy to click "current". We may just want non-user 
+# visitors to see reviewed pages by default.
+# Below are groups that see the current revision by default.
+$wgFlaggedRevsExceptions = array( 'user' );
+
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = false;
 # Automatically checks the 'watch' box on the review form if they set 

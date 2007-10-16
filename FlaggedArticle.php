@@ -6,28 +6,29 @@ class FlaggedArticle extends FlaggedRevs {
 	 * for overriding by stable revisions?
 	 */		
     function pageOverride() {
-    	global $wgFlaggedRevsAnonOnly, $wgFlaggedRevs,
-			$wgTitle, $wgUser, $wgRequest, $action;
+    	global $wgFlaggedRevs, $wgTitle, $wgUser, $wgRequest, $action;
     	# This only applies to viewing content pages
     	if( $action !='view' || !$this->isReviewable( $wgTitle ) ) 
 			return false;
     	# Does not apply to diffs/old revisions
     	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') ) 
 			return false;
-		# Get page config
+		# Get page configuration
 		$config = $wgFlaggedRevs->getVisibilitySettings( $wgTitle );
     	# Does the stable version override the current one?
     	if( $config['override'] ) {
-    		# Anon sees stable by default
-    		if( $wgFlaggedRevsAnonOnly && $wgUser->isAnon() ) {
-    			return !( $wgRequest->getIntOrNull('stable') === 0 );
-    		# User sees current by default
-    		} else if ( $wgFlaggedRevsAnonOnly ) {
-    			return ( $wgRequest->getIntOrNull('stable') === 1 );
-    		# User/anon sees stable by default
-    		} else {
-    			return !( $wgRequest->getIntOrNull('stable') === 0 );
+    		global $wgFlaggedRevsExceptions;
+    		# Viewer sees current by default (editors, insiders, ect...) ?
+    		foreach( $wgFlaggedRevsExceptions as $group ) {
+    			if( $group == 'user' ) {
+    				if( !$wgUser->isAnon() )
+    					return ( $wgRequest->getIntOrNull('stable') === 1 );
+    			} else if( in_array( $group, $wgUser->getGroups() ) ) {
+    				return ( $wgRequest->getIntOrNull('stable') === 1 );
+    			}
     		}
+			# Viewer sees stable by default
+    		return !( $wgRequest->getIntOrNull('stable') === 0 );
     	# We are explicity requesting the stable version?
 		} else if( $wgRequest->getIntOrNull('stable') === 1 ) {
 			return true;
@@ -39,11 +40,21 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Is this user shown the stable version by default for this page?
 	 */	
 	function showStableByDefault() {
-		global $wgFlaggedRevsOverride, $wgFlaggedRevsAnonOnly, $wgUser;
-		
+		global $wgFlaggedRevsOverride, $wgFlaggedRevsExceptions, $wgUser;
+		# Get page configuration
 		$config = $this->getVisibilitySettings();
-		
-		return ( $config['override'] && !($wgFlaggedRevsAnonOnly && !$wgUser->isAnon()) );
+		if( !$config['override'] )
+			return false;
+    	# Viewer sees current by default (editors, insiders, ect...) ?
+    	foreach( $wgFlaggedRevsExceptions as $group ) {
+    		if( $group == 'user' ) {
+    			if( !$wgUser->isAnon() )
+    				return false;
+    		} else if( in_array( $group, $wgUser->getGroups() ) ) {
+    			return false;
+    		}
+    	}
+		return true;
 	}
 
 	 /**
@@ -479,7 +490,7 @@ class FlaggedArticle extends FlaggedRevs {
     
     function addQuickReview( $id=NULL, $out, $top=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, 
-			$wgFlaggedRevsOverride, $wgFlaggedRevsAnonOnly, $wgFlaggedRevsWatch;
+			$wgFlaggedRevsOverride, $wgFlaggedRevsWatch;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) 
 			return;
@@ -510,7 +521,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
 		
-		if( $wgFlaggedRevsOverride && $wgFlaggedRevsAnonOnly )
+		if( $wgFlaggedRevsOverride )
 			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
 		
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() );
