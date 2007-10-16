@@ -118,7 +118,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedRevs, 'parserInjectImageTimestamps' );
 	$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedRevs, 'outputInjectImageTimestamps');
 	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedRevs, 'injectReviewDiffURLParams');
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedRevs, 'addPatrolLink' );
     # Autoreview stuff
@@ -1139,8 +1139,7 @@ class FlaggedRevs {
 				$dbr = wfGetDB( DB_SLAVE );
 				$change = RecentChange::newFromConds(
 					array(
-						// Add redundant timestamp condition so we can use the
-						// existing index
+						// Add redundant timestamp condition so we can use the existing index
 						'rc_timestamp' => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
 						'rc_this_oldid' => $diff->mNewid,
 						'rc_last_oldid' => $diff->mOldid,
