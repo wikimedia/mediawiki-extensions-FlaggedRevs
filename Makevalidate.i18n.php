@@ -310,6 +310,8 @@ $messages['no'] = array(
 	'makevalidate-logentrygrant-r'  => 'ga godkjennerstatus til [[User:$1|$1]]',
 	'makevalidate-logentryrevoke-r' => 'fjernet godkjennerstatus fra [[User:$1|$1]]',
 	'makevalidate-autosum'          => 'autoforfremmet',
+	'rights-editor-grant'           => 'ga [[$1]] redaktørstatus',
+	'rights-editor-revoke'          => 'fjernet redaktørstatus fra [[$1]]',
 );
 
 /* Piedmontese (Bèrto 'd Sèra) */
