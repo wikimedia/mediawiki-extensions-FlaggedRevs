@@ -33,8 +33,6 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedArticle'] = dirname( __FILE__ ) . '/FlaggedArticle.php';
-# Load promotion UI
-include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 # Load review UI
 $wgSpecialPages['Revisionreview'] = 'Revisionreview';
 $wgAutoloadClasses['Revisionreview'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
@@ -47,22 +45,28 @@ $wgAutoloadClasses['Unreviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.ph
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
-
+# Load promotion UI
+include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 
 function efLoadFlaggedRevs() {
-	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, $wgHooks, 
-		$wgFlaggedRevs, $wgFlaggedArticle;
+	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, 
+		$wgHooks, $wgLang, $wgFlaggedRevs, $wgFlaggedArticle;
 	# Out global page modifier objects
 	$wgFlaggedRevs = new FlaggedRevs();
 	$wgFlaggedArticle = new FlaggedArticle();
-	
 	# Internationalization
-	require_once( dirname( __FILE__ ) . '/FlaggedRevsPage.i18n.php' );
-	foreach( $RevisionreviewMessages as $lang => $langMessages ) {
-		$wgMessageCache->addMessages( $langMessages, $lang );
-	}
+	$RevisionreviewMessages = array();
+	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.en.php';
+	include( $f ); // Default to English langauge
 	
-	// @fixme this is totally in the wrong place
+	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.' . $wgLang->getCode() . '.php';
+	if( file_exists( $f ) ) {
+		include( $f );
+	}
+	foreach( $RevisionreviewMessages as $lang => $messages ) {
+		$wgMessageCache->addMessages( $messages, $lang );
+	}
+	# @FIXME: this is totally in the wrong place
 	# UI CSS
 	$wgOut->addLink( array(
 		'rel'	=> 'stylesheet',

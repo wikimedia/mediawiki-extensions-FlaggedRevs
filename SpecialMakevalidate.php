@@ -48,10 +48,20 @@ if( defined( 'MEDIAWIKI' ) ) {
 	 * Populate the message cache
 	 */
 	function efMakeValidate() {
-		global $wgMessageCache;
-		require_once( dirname( __FILE__ ) . '/Makevalidate.i18n.php' );
-		foreach( efMakeValidateMessages() as $lang => $messages )
+		global $wgMessageCache, $wgLang, $MakevalidateMessages;
+		# Internationalization
+		$MakevalidateMessages = array();
+		// Default to English langauge
+		$f = dirname( __FILE__ ) . '/Language/Makevalidate.i18n.en.php';
+		include( $f );
+		
+		$f = dirname( __FILE__ ) . '/Language/Makevalidate.i18n.' . $wgLang->getCode() . '.php';
+		if( file_exists( $f ) ) {
+			include( $f );
+		}
+		foreach( $MakevalidateMessages as $lang => $messages ) {
 			$wgMessageCache->addMessages( $messages, $lang );
+		}
 	}
 
 } else {
