@@ -12,6 +12,10 @@
 	text-align: center;
 }
 
+.flaggedrevs_toggle {
+	color: blue;
+}
+
 .flaggedrevs_tag1 {
 	background-color: #f0f8ff;
 }

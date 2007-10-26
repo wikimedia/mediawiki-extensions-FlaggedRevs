@@ -124,8 +124,8 @@ class FlaggedArticle extends FlaggedRevs {
 						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 						# Hide clutter
 						if( !empty($flags) ) {
-							$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-								wfMsg('revreview-toggle') . '</a>';
+							$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' . 
+								' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 							$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 								wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 						}
@@ -148,8 +148,8 @@ class FlaggedArticle extends FlaggedRevs {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
 						if( !empty($flags) ) {
-							$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-								wfMsg('revreview-toggle') . '</a>';
+							$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
+								' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 							$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 								$this->addTagRatings( $flags ) . '</span>';
 						}
@@ -235,8 +235,8 @@ class FlaggedArticle extends FlaggedRevs {
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
 			# Hide clutter
 			if( !empty($flags) ) {
-				$tag .= ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-					wfMsg('revreview-toggle') . '</a>';
+				$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
+					' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 				$tag .= '<span id="mw-revisionratings" style="display:block;">' . 
 					wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . 
 					'</span>';
@@ -665,8 +665,8 @@ class FlaggedArticle extends FlaggedRevs {
         $msg = $stable ? 'revreview-' : 'revreview-newest-';
         $msg .= $quality ? 'quality' : 'basic';
         
-		$box = ' <a id="mw-revisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' . 
-			wfMsg('revreview-toggle') . '</a>';
+		$box = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;" 
+			onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 		$box .= '<span id="mw-revisionratings">' .
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 		if( !empty($flags) ) {
