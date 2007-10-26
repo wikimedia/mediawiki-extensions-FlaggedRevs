@@ -15,11 +15,9 @@ class Revisionreview extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevs,
-			$wgFlaggedRevTags, $wgFlaggedRevValues;
+        global $wgRequest, $wgUser, $wgOut;
 
-		$confirm = $wgRequest->wasPosted() &&
-			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
+		$confirm = $wgRequest->wasPosted() && $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
 
 		if( $wgUser->isAllowed( 'review' ) ) {
 			if( $wgUser->isBlocked( !$confirm ) ) {
@@ -44,6 +42,7 @@ class Revisionreview extends SpecialPage
 			return;
 		}
 		
+		global $wgFlaggedRevs, $wgFlaggedRevTags, $wgFlaggedRevValues;
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
 		$this->page = Title::newFromUrl( $this->target );

@@ -54,8 +54,8 @@ $RevisionreviewMessages['en'] = array(
 	can be [{{fullurl:$3|action=edit}} modified].',
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
-	'revreview-update' => 'Please review any changes (shown below) made since stable revision to this page. The following templates 
-	and images have also been updated:',
+	'revreview-update' => 'Please review any changes (shown below) made to stable revision. The following 
+	templates/images have been updated:',
 	'revreview-update-none' => 'Please review any changes (shown below) made since stable revision to this page.',
 	'revreview-auto' => '(automatic)',
 	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''. 
