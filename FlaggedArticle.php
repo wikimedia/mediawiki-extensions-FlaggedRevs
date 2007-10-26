@@ -517,7 +517,7 @@ class FlaggedArticle extends FlaggedRevs {
 		}
        
 		$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-		$action = $reviewtitle->escapeLocalUrl( 'action=submit' );
+		$action = $reviewtitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
 		
@@ -694,6 +694,90 @@ class FlaggedArticle extends FlaggedRevs {
    		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
     	return $notes;
     }
+    
+	/**
+	* When comparing the stable revision to the current after editing a page, show
+	* a tag with some explaination for the diff.
+	*/ 
+	public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {
+		global $wgRequest, $wgUser, $wgOut;
+		
+		if( !$wgUser->isAllowed( 'review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
+			return true;
+		
+		$frev = $this->getStableRev( $diff->mTitle );
+		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
+			return true;
+			
+		$changeList = array();
+		$skin = $wgUser->getSkin();
+		# Make a list of each changed template...
+		$dbr = wfGetDB( DB_SLAVE );
+		$ret = $dbr->select( array('flaggedtemplates','page'),
+			array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+			array( 'ft_rev_id' => $frev->fr_rev_id,
+				'ft_namespace = page_namespace',
+				'ft_title = page_title',
+				'ft_tmp_rev_id != page_latest' ),
+			__METHOD__ );
+			
+		while( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
+			$changeList[] = $skin->makeKnownLinkObj( $title, 
+				$title->GetPrefixedText(),
+				"diff=cur&oldid=" . $row->ft_tmp_rev_id );
+		}
+		# And images...
+		$ret = $dbr->select( array('flaggedimages','image'),
+			array( 'fi_name' ),
+			array( 'fi_rev_id' => $frev->fr_rev_id,
+				'fi_name = img_name',
+				'fi_img_sha1 != img_sha1' ),
+			__METHOD__ );
+			
+		while( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
+			$changeList[] = $skin->makeKnownLinkObj( $title );
+		}
+		
+		if( empty($changeList) ) {
+			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
+				wfMsg('revreview-update-none').'</div>' );
+		} else {
+			$changeList = implode(', ',$changeList);
+			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
+				wfMsg('revreview-update').'</p>'.$changeList.'</div>' );
+		}
+		# Set flag for review form to tell it to autoselect tag settings from the
+		# old revision unless the current one is tagged to.
+		if( !self::getFlaggedRev( $diff->mTitle, $NewRev->getID() ) ) {
+			global $wgFlaggedArticle;
+			$wgFlaggedArticle->isDiffFromStable = true;
+		}
+		
+		return true;
+	}
+    
+	/**
+	* Redirect users out to review the changes to the stable version.
+	* Only for people who can review and for pages that have a stable version.
+	*/ 
+    public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
+    	global $wgUser, $wgReviewChangesAfterEdit;
+    	
+    	$frev = $this->getStableRev( $article->getTitle() );
+		# Was this already autoreviewed, are we allowed?
+		if( $this->skipReviewDiff || !$wgReviewChangesAfterEdit || !$wgUser->isAllowed('review') ) {
+			if( $frev )	{
+				$extraq .= "stable=0";
+			}
+    	} else if( $frev )	{
+			$frev_id = $frev->fr_rev_id;
+			$extraq .= "oldid={$frev_id}&diff=cur&editreview=1";
+		}
+		
+		return true;
+	}
     
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
