@@ -48,7 +48,7 @@ class Revisionreview extends SpecialPage
 		$this->page = Title::newFromUrl( $this->target );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		if( !$this->target || !$this->oldid || !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+		if( !$this->target || !$this->oldid || !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
@@ -572,7 +572,7 @@ class Stableversions extends SpecialPage
 	function showStableList() {
 		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
 		// Must be a content page
-		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+		if( !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
 				$this->page->getPrefixedText() ) );
 			return;
@@ -905,7 +905,7 @@ class Stabilization extends SpecialPage
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 			$isValid = false;
-		} else if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+		} else if( !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 			$isValid = false;
@@ -943,7 +943,7 @@ class Stabilization extends SpecialPage
 	function showSettings() {
 		global $wgOut, $wgScript, $wgTitle, $wgUser, $wgFlaggedRevs;
 		// Must be a content page
-		if( !$wgFlaggedRevs->isReviewable( $this->page ) ) {
+		if( !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
 				$this->page->getPrefixedText() ) );
 			return;

@@ -104,7 +104,7 @@ function efLoadFlaggedRevs() {
 	# Autopromote Editors
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedRevs, 'autoPromoteUser' );
 	# Adds table link references to include ones from the stable version
-	$wgHooks['LinksUpdateConstructed'][] = array( $wgFlaggedRevs, 'extraLinksUpdate' );
+	$wgHooks['LinksUpdateConstructed'][] = array( $wgFlaggedArticle, 'extraLinksUpdate' );
 	# Empty flagged page settings row on delete
 	$wgHooks['ArticleDeleteComplete'][] = array( $wgFlaggedArticle, 'deleteVisiblitySettings' );
 	# Check on undelete/merge/revisiondelete for changes to stable version
@@ -124,7 +124,7 @@ function efLoadFlaggedRevs() {
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedRevs, 'addPatrolLink' );
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolLink' );
     # Autoreview stuff
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
@@ -373,7 +373,7 @@ class FlaggedRevs {
 	 * @param int $rev_id
 	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @return Revision
-	 * Will not return if deleted
+	 * Will not return a revision if deleted
 	 */	
 	public function getFlaggedRev( $title, $rev_id, $getText=false ) {
     	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
@@ -413,17 +413,6 @@ class FlaggedRevs {
 		
 		return $count;
     }
-	
-	/**
-	 * Get latest quality rev, if not, the latest reviewed one.
-	 * @param Title $title, page title
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
-	 * @return Row
-	*/
-    public function getStableRev( $title, $getText=false, $forUpdate=false ) {
-		return $this->getStablePageRev( $title, $getText, $forUpdate );
-    }
     
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one.
@@ -457,7 +446,7 @@ class FlaggedRevs {
 				return null;
 		} else {
     		// Get visiblity settings...
-			$config = $this->getVisibilitySettings( $title, $forUpdate );
+			$config = $this->getPageVisibilitySettings( $title, $forUpdate );
 			$dbw = wfGetDB( DB_MASTER );
 			// Look for the latest quality revision
 			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
@@ -488,16 +477,6 @@ class FlaggedRevs {
 		}
 		return $row;
     }
-    
-    /**
-	 * Get visiblity restrictions on page
-	 * @param Title $title, page title
-	 * @param bool $forUpdate, use master DB?
-	 * @returns Array
-	*/
-    public function getVisibilitySettings( $title, $forUpdate=false ) {
-		return $this->getPageVisibilitySettings( $title, $forUpdate );
-	}
 	
     /**
 	 * Get visiblity restrictions on page
@@ -518,15 +497,6 @@ class FlaggedRevs {
 			return array('select' => 0, 'override' => $override);
 		}
 		return array('select' => $row->fp_select, 'override' => $row->fp_override);
-	}
-    
-	/**
-	 * Get flags for a revision
-	 * @param int $rev_id
-	 * @return Array
-	*/
-    public function getFlagsForRevision( $rev_id ) {
-		return $this->getRevisionTags( $rev_id );
 	}
     
 	/**
@@ -604,7 +574,7 @@ class FlaggedRevs {
 	* @param Title, $title
 	* @return bool
 	*/
-    public function isReviewable( $title ) {
+    public function isPageReviewable( $title ) {
     	global $wgFlaggedRevsNamespaces;
     	
     	return ( in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) 
@@ -899,10 +869,10 @@ class FlaggedRevs {
     public function extraLinksUpdate( $linksUpdate ) {
     	wfProfileIn( __METHOD__ );
 		
-    	if( !$this->isReviewable( $linksUpdate->mTitle ) ) 
+    	if( !$this->isPageReviewable( $linksUpdate->mTitle ) ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = $this->getStableRev( $linksUpdate->mTitle, true, true );
+    	$sv = $this->getStablePageRev( $linksUpdate->mTitle, true, true );
     	if( !$sv )
 			return true;
     	# Parse the revision
@@ -1043,9 +1013,9 @@ class FlaggedRevs {
 	* Add a link to patrol non-reviewable pages
 	*/ 
 	public function addPatrolLink( $diff, $OldRev, $NewRev ) {
-		global $wgUser, $wgOut, $wgFlaggedRevs;
+		global $wgUser, $wgOut;
 		
-		if( $wgFlaggedRevs->isReviewable( $NewRev->getTitle() ) )
+		if( $this->isPageReviewable( $NewRev->getTitle() ) )
 			return true;
 		// Prepare a change patrol link, if applicable
 		if( $wgUser->isAllowed( 'patrolother' ) ) {
@@ -1108,7 +1078,7 @@ class FlaggedRevs {
 		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
 		if( !$prev_id )
 			return true;
-		$frev = $this->getStableRev( $article->mTitle );
+		$frev = $this->getStablePageRev( $article->mTitle );
 		# Is this an edit directly to the stable version?
 		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
 			return true;
@@ -1135,7 +1105,7 @@ class FlaggedRevs {
 		if( $action != 'move' )
 			return true;
 		# See if there is a stable version
-		$frev = $this->getStableRev( $title );
+		$frev = $this->getStablePageRev( $title );
 		if( !$frev )
 			return true;
 		#  Allow for only editors/reviewers to move this
@@ -1154,12 +1124,12 @@ class FlaggedRevs {
     * are autopatrolled.
     */     
     public function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-        global $wgUser, $wgFlaggedRevs;
+        global $wgUser;
         
         if( !$rev )
         	return true;
         
-        if( !$wgFlaggedRevs->isReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
+        if( !$this->isPageReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
             $dbw = wfGetDB( DB_MASTER );
             $dbw->update( 'recentchanges',
                 array( 'rc_patrolled' => 1 ),
@@ -1292,7 +1262,7 @@ class FlaggedRevs {
 		# Only trigger on article view for content pages, not for protect/delete/hist
 		if( $action !='view' || !$wgUser->isAllowed( 'review' ) ) 
 			return true;
-		if( !$article || !$article->exists() || !$this->isReviewable( $article->mTitle ) ) 
+		if( !$article || !$article->exists() || !$this->isPageReviewable( $article->mTitle ) ) 
 			return true;
 		
 		$parserCache = ParserCache::singleton();
@@ -1307,10 +1277,28 @@ class FlaggedRevs {
     }
 	
 	######### Stub functions, overridden by subclass #########
+	
+    public function pageOverride() { return false; }
     
-    function pageOverride() { return false; }
+    public function showStableByDefault() { return false; }
     
-    function showStableByDefault() { return false; }
+    public function addTagRatings( $flags, $prettyBox = false, $css='' ) {}
+    
+    public function prettyRatingBox( $tfrev, $flags, $revs_since, $stable=true ) {}
+    
+    public function ReviewNotes( $row ) {}
+    
+    public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {}
+    
+    public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {}
+    
+    public function getStableRev( $getText=false, $forUpdate=false ) {}
+    
+    public function getVisibilitySettings( $forUpdate=false ) {}
+    
+    public function getFlagsForRevision( $rev_id ) {}
+    
+    public function isReviewable() {}
     
     function setPageContent( $article, &$outputDone, &$pcache ) {}
     
@@ -1328,16 +1316,6 @@ class FlaggedRevs {
     
     function addVisibilityLink( $out ) {}
     
-    public function addTagRatings( $flags, $prettyBox = false, $css='' ) {}
-    
-    public function prettyRatingBox( $tfrev, $flags, $revs_since, $stable=true ) {}
-    
-    public function ReviewNotes( $row ) {}
-    
-    public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {}
-    
-    public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {}
-	
 	#########
     
 }

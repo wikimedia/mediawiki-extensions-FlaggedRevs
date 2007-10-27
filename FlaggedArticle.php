@@ -5,16 +5,16 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Does the config and current URL params allow 
 	 * for overriding by stable revisions?
 	 */		
-    function pageOverride() {
+    public function pageOverride() {
     	global $wgFlaggedRevs, $wgTitle, $wgUser, $wgRequest, $action;
     	# This only applies to viewing content pages
-    	if( $action !='view' || !$this->isReviewable( $wgTitle ) ) 
+    	if( $action !='view' || !$this->isReviewable() ) 
 			return false;
     	# Does not apply to diffs/old revisions
     	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') ) 
 			return false;
 		# Get page configuration
-		$config = $wgFlaggedRevs->getVisibilitySettings( $wgTitle );
+		$config = $wgFlaggedRevs->getVisibilitySettings();
     	# Does the stable version override the current one?
     	if( $config['override'] ) {
     		global $wgFlaggedRevsExceptions;
@@ -39,7 +39,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 /**
 	 * Is this user shown the stable version by default for this page?
 	 */	
-	function showStableByDefault() {
+	public function showStableByDefault() {
 		global $wgFlaggedRevsOverride, $wgFlaggedRevsExceptions, $wgUser;
 		# Get page configuration
 		$config = $this->getVisibilitySettings();
@@ -56,6 +56,15 @@ class FlaggedArticle extends FlaggedRevs {
     	}
 		return true;
 	}
+	
+	 /**
+	 * Is this article reviewable?
+	 */	
+	public function isReviewable() {
+		global $wgTitle;
+		
+		return $this->isPageReviewable( $wgTitle );
+	}
 
 	 /**
 	 * Replaces a page with the last stable version if possible
@@ -67,7 +76,7 @@ class FlaggedArticle extends FlaggedRevs {
 		
 		$skin = $wgUser->getSkin();
 		# For unreviewable pages, allow for basic patrolling
-		if( !$this->isReviewable( $article->mTitle ) ) {
+		if( !$this->isPageReviewable( $article->mTitle ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
 			# chance to mark this new article as patrolled.
 			$rcid = $wgRequest->getIntOrNull( 'rcid' );
@@ -96,7 +105,7 @@ class FlaggedArticle extends FlaggedRevs {
 		$vis_id = $revid;
 		$tag = $notes = '';
 		# Check the newest stable version...
-		$tfrev = $this->getStableRev( null, true );
+		$tfrev = $this->getStableRev( true );
 		$simpleTag = false;
 		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
     		// Do not clutter up diffs any further...
@@ -209,7 +218,7 @@ class FlaggedArticle extends FlaggedRevs {
     function addToEditView( $editform ) {
 		global $wgRequest, $wgTitle, $wgOut;
 		# Talk pages cannot be validated
-		if( !$editform->mArticle || !$this->isReviewable( $wgTitle ) )
+		if( !$editform->mArticle || !$this->isReviewable() )
 			return false;
 		# Find out revision id
 		if( $editform->mArticle->mRevision ) {
@@ -266,7 +275,7 @@ class FlaggedArticle extends FlaggedRevs {
     function addReviewForm( $out ) {
     	global $wgArticle, $wgRequest, $action;
 
-		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable( $wgArticle->mTitle ) ) 
+		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable() ) 
 			return true;
 		# Check if page is protected
 		if( $action !='view' || !$wgArticle->mTitle->quickUserCan( 'edit' ) ) {
@@ -293,7 +302,7 @@ class FlaggedArticle extends FlaggedRevs {
     function addVisibilityLink( $out ) {
     	global $wgUser, $wgRequest, $wgTitle, $action;
     	
-    	if( !$this->isReviewable( $wgTitle ) )
+    	if( !$this->isReviewable() )
     		return true;
     	
     	if( $action=='protect' || $action=='unprotect' ) {
@@ -326,7 +335,7 @@ class FlaggedArticle extends FlaggedRevs {
 		# Are we using the popular cite extension?
 		global $wgHooks;
 		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
-			if( $this->isReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
+			if( $this->isPageReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
 				$nav_urls['cite'] = array(
 					'text' => wfMsg( 'cite_article_link' ),
 					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
@@ -343,7 +352,7 @@ class FlaggedArticle extends FlaggedRevs {
 			return true;
 		$title = $sktmp->mTitle->getSubjectPage();
 		# Non-content pages cannot be validated
-		if( !$this->isReviewable( $title ) || !$title->exists() )
+		if( !$this->isPageReviewable( $title ) || !$title->exists() )
 			return true;
 		$article = new Article( $title );
 		# If we are viewing a page normally, and it was overridden,
@@ -459,7 +468,7 @@ class FlaggedArticle extends FlaggedRevs {
     function addToHistLine( $row, &$s ) {
     	global $wgUser, $wgTitle;
 		# Non-content pages cannot be validated
-		if( !$this->isReviewable( $wgTitle ) ) 
+		if( !$this->isReviewable() ) 
 			return true;
 		
 		if( !isset($this->dbw) ) {
@@ -705,7 +714,7 @@ class FlaggedArticle extends FlaggedRevs {
 		if( !$wgUser->isAllowed( 'review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
 			return true;
 		
-		$frev = $this->getStableRev( $diff->mTitle );
+		$frev = $this->getStableRev();
 		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
 			return true;
 			
@@ -765,7 +774,7 @@ class FlaggedArticle extends FlaggedRevs {
     public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
     	global $wgUser, $wgReviewChangesAfterEdit;
     	
-    	$frev = $this->getStableRev( $article->getTitle() );
+    	$frev = $this->getStableRev();
 		# Was this already autoreviewed, are we allowed?
 		if( $this->skipReviewDiff || !$wgReviewChangesAfterEdit || !$wgUser->isAllowed('review') ) {
 			if( $frev )	{
@@ -784,7 +793,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Same params for the sake of inheritance
 	 * @return Row
 	 */
-	function getStableRev( $t=null, $getText=false, $forUpdate=false ) {
+	public function getStableRev( $getText=false, $forUpdate=false ) {
 		global $wgTitle, $wgFlaggedRevs;
         # Cached results available?
         if( $getText ) {
@@ -814,7 +823,7 @@ class FlaggedArticle extends FlaggedRevs {
 	 * Same params for the sake of inheritance
 	 * @returns Array
 	*/
-    public function getVisibilitySettings( $t=null, $forUpdate=false ) {
+    public function getVisibilitySettings( $forUpdate=false ) {
     	global $wgTitle;
         # Cached results available?
 		if( isset($this->pageconfig) ) {
