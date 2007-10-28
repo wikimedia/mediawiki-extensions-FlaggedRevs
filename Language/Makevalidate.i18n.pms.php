@@ -30,4 +30,6 @@ $messages = array(
 	'makevalidate-logentrygrant-r'  => 'Butaje la qualìfica da revisor a [[$1]]',
 	'makevalidate-logentryrevoke-r' => 'Gavaje la qualìfica da revisor a [[$1]]',
 	'makevalidate-autosum'          => 'promossion aotomàtica',
+	'rights-editor-grant'           => 'Daje la qualìfica da revisor a [[$1]]',
+	'rights-editor-revoke'          => 'gava-je la qualìfica ëd redator a [[$1]]',
 );
