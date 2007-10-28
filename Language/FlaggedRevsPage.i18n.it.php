@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['it'] = array(
+$messages = array(
 	'reviewer'              => 'Revisore',
 	'group-reviewer'        => 'Revisori',
 	'group-reviewer-member' => 'Revisore',

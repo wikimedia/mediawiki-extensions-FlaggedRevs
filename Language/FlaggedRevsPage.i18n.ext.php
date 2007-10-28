@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['ext'] = array(
+$messages = array(
 	'editor'                => 'Eitol',
 	'group-editor'          => 'Eitoris',
 	'group-editor-member'   => 'Eitol',

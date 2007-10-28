@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['ca'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'autoconcedit',
 	'reviewer'              => 'Supervisor',
 	'group-reviewer'        => 'Supervisors',

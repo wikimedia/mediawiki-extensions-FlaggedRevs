@@ -1,6 +1,6 @@
 <?php
 /* Piedmontese (Bèrto 'd Sèra) */
-$MakevalidateMessages['pms'] = array(
+$messages = array(
 	'makevalidate'                  => 'Promeuv/dësbassa ij redator',
 	'makevalidate-header'           => '<strong>Sta pàgina-sì a la dòvro aministrator e mangiapapé për buteje a j\'utent la qualìfica da convalidator
 	dj\'artìcoj.</strong><br> Ch\'a scriva lë stranòm dl\'utent ant ël camp e peuj ch\'a-i bata dzora al boton për travajr ant sla qualìfica dl\'utent. 

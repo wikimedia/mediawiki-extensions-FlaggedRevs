@@ -1,6 +1,6 @@
 <?php
 // Slovak (Helix84)
-$RevisionreviewMessages['sk'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'samopovýšenie',
 	'editor'                => 'Redaktor',
 	'group-editor'          => 'Redaktori',

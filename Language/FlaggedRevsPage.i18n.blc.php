@@ -1,6 +1,5 @@
 <?php
-
-$RevisionreviewMessages['bcl'] = array(
+$messages = array(
 	'hist-quality'          => '[kalidad]',
 	'revreview-depth'       => 'Rarom',
 	'stableversions-page'   => 'Pangaran kan pahina',

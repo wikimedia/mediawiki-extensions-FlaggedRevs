@@ -49,13 +49,13 @@ $wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php'
 include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 
 function efLoadFlaggedRevs() {
-	global $wgMessageCache, $RevisionreviewMessages, $wgOut, $wgJsMimeType, 
+	global $wgMessageCache, $wgOut, $wgJsMimeType, 
 		$wgHooks, $wgLang, $wgFlaggedRevs, $wgFlaggedArticle;
 	# Out global page modifier objects
 	$wgFlaggedRevs = new FlaggedRevs();
 	$wgFlaggedArticle = new FlaggedArticle();
 	# Internationalization
-	$RevisionreviewMessages = array();
+	$messages = array();
 	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.en.php';
 	include( $f ); // Default to English langauge
 	
@@ -63,9 +63,7 @@ function efLoadFlaggedRevs() {
 	if( file_exists( $f ) ) {
 		include( $f );
 	}
-	foreach( $RevisionreviewMessages as $lang => $messages ) {
-		$wgMessageCache->addMessages( $messages, $lang );
-	}
+	$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
 	# @FIXME: this is totally in the wrong place
 	# UI CSS
 	$wgOut->addLink( array(

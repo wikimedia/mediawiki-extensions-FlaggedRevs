@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['nl'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'automatisch gepromoveerd',
 	'editor'                => 'Redacteur',
 	'group-editor'          => 'Redacteuren',

@@ -1,6 +1,6 @@
 <?php
 // Slovak (Helix84)
-$MakevalidateMessages['sk'] = array(
+$messages = array(
 	'makevalidate'                  => 'Povýšiť/degradovať používateľov',
 	'makevalidate-header'           => '<strong>Tento formulár používajú správcovia a byrokrati pre povýšenie používateľov na overovateľov
 	článkov.</strong><br> Napíšte meno používateľa do poľa a stlačte tlačidlo. Tým sa nastavia používateľovu práva.

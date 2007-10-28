@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['hsb'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'Prawo awtomatisce spožčene',
 	'editor'                => 'wobdźěłowar',
 	'group-editor'          => 'wobdźěłowarjo',

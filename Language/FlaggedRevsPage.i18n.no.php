@@ -1,6 +1,6 @@
 <?php
 /* Norwegian (Jon Harald SÃ¸by) */
-$RevisionreviewMessages['no'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'autoforfremmet',
 	'editor'                => 'Redaktør',
 	'group-editor'          => 'Redaktøter',

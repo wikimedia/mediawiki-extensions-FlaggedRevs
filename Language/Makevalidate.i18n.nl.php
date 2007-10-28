@@ -1,5 +1,5 @@
 <?php
-$MakevalidateMessages['nl'] = array(
+$messages = array(
 	'makevalidate'                  => 'Promotie/demotie redacteuren',
 	'makevalidate-header'           => '<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina\'s kunnen valideren.</strong><br> Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de gebruikersrechten in te stellen. Een gebruiker de status reviewer geven, maakt die gebruiker automatisch redacteur. Het intrekken van de status redacteur houdt het intrekken van de status reviewer in.',
 	'makevalidate-username'         => 'Gebruiker:',

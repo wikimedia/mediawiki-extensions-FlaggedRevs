@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['cs'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'automaticky povýšen',
 	'group-editor'          => 'Editoři',
 	'reviewer'              => 'Posuzovatel',

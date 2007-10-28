@@ -1,6 +1,6 @@
 <?php
 // Chinese (Simplified) (Shinjiman)
-$RevisionreviewMessages['zh-hans'] = array(
+$messages = array(
 	'makevalidate-autosum'  => '自动升格',
 	'editor'                => '编辑',
 	'group-editor'          => '编辑',

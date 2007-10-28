@@ -48,9 +48,9 @@ if( defined( 'MEDIAWIKI' ) ) {
 	 * Populate the message cache
 	 */
 	function efMakeValidate() {
-		global $wgMessageCache, $wgLang, $MakevalidateMessages;
+		global $wgMessageCache, $wgLang;
 		# Internationalization
-		$MakevalidateMessages = array();
+		$messages = array();
 		// Default to English langauge
 		$f = dirname( __FILE__ ) . '/Language/Makevalidate.i18n.en.php';
 		include( $f );
@@ -59,9 +59,7 @@ if( defined( 'MEDIAWIKI' ) ) {
 		if( file_exists( $f ) ) {
 			include( $f );
 		}
-		foreach( $MakevalidateMessages as $lang => $messages ) {
-			$wgMessageCache->addMessages( $messages, $lang );
-		}
+		$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
 	}
 
 } else {

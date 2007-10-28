@@ -1,6 +1,6 @@
 <?php
 /* Arabic (Meno25) */
-$RevisionreviewMessages['ar'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'ترقية تلقائية',
 	'editor'                => 'محرر',
 	'group-editor'          => 'محررون',

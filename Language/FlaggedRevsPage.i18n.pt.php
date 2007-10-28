@@ -1,6 +1,6 @@
 <?php
 // Portuguese (Lugusto)
-$RevisionreviewMessages['pt'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'promovido automaticamente',
 	'group-editor'          => 'Editores',
 	'grouppage-editor'      => '{{ns:project}}:{{int:group-editor}}',

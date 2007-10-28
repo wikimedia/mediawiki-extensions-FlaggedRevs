@@ -1,6 +1,6 @@
 <?php
 // Cantonese (Shinjiman)
-$RevisionreviewMessages['yue'] = array(
+$messages = array(
 	'makevalidate-autosum'  => '自動升格',
 	'editor'                => '編輯',
 	'group-editor'          => '編輯',

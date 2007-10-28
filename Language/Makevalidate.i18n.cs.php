@@ -1,5 +1,5 @@
 <?php
-$MakevalidateMessages['cs'] = array(
+$messages = array(
 	'makevalidate'                  => 'Přidat nebo odebrat editory',
 	'makevalidate-header'           => '<strong>Tento formulář slouží správcům a byrokratům k povyšování uživatelů na editory s právem schvalovat články.</strong><br> Přidělením statusu posuzovatele se automaticky přidělí i status editora. Odebráním statusu editora se automaticky odebere i status posuzovatele.',
 	'makevalidate-username'         => 'Jméno uživatele',

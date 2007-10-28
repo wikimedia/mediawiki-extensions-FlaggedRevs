@@ -1,5 +1,5 @@
 <?php
-$MakevalidateMessages['ca'] = array(
+$messages = array(
 	'makevalidate'                  => 'Promociona o degrada un usuari',
 	'makevalidate-header'           => '<strong>Aquest formulari serveix perquè els administradors i buròcrates puguin promocionar els usuaris per a validar articles.</strong><br /> Escriviu el nom de l\'usuari en la casella i premeu el botó per adjudicar-li els nivells que cregueu necessaris. El fet de donar el nivell de supervisor a un usuari farà que automàticament rebi també el d\'editor, i treure el nivell d\'editor a un usuari provocarà que també perdi el de supervisor (si el té).',
 	'makevalidate-username'         => 'Nom d\'usuari:',

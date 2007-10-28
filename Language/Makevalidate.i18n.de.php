@@ -1,6 +1,6 @@
 <?php
 /* German (Raimond Spekking) */
-$MakevalidateMessages['de'] = array(
+$messages = array(
 	'makevalidate'                  => 'Sichter/Prüf-Recht erteilen/entziehen',
 	'makevalidate-header'           => '<strong>Mit diesem Formular können Administratoren und Bürokraten Benutzern das Recht zur Artikelprüfung erteilen.</strong><br />
 	Gebe den Benutzernamen in das Feld ein und klicke auf die Schaltfläche, um das Recht zu setzen.

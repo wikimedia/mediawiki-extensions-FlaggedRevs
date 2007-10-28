@@ -1,5 +1,5 @@
 <?php
-$RevisionreviewMessages['la'] = array(
+$messages = array(
 	'editor'                => 'Recensor',
 	'group-editor'          => 'Recensores',
 	'group-editor-member'   => 'Recensor',

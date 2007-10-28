@@ -1,6 +1,6 @@
 <?php
 // German (Raimond Spekking)
-$RevisionreviewMessages['de'] = array( 
+$messages = array( 
 	'makevalidate-autosum' => 'automatische Rechtevergabe',
 	'editor'               => 'Sichter',
 	'group-editor'         => 'Sichter',

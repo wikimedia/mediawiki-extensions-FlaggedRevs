@@ -1,6 +1,6 @@
 <?php
 /* Norwegian (Jon Harald Søby) */
-$MakevalidateMessages['no'] = array(
+$messages = array(
 	'makevalidate'                  => 'Forfrem eller degrader bidragsytere',
 	'makevalidate-header'           => '<strong>Dette skjemaet brukes av administratorer og byråkrater for å forfremme brukere til artikkelgodkjennere.</strong><br />Skriv inn navnet på brukeren i boksen og trykk knappen for å sette brukerrettigheter. Å gi brukere godkjennerstatus vil automatisk gi dem redaktørstatus. Fjerning av redaktørstatus vil automatisk føre til fjerning av godkjennerstatus.',
 	'makevalidate-username'         => 'Brukernavn:',

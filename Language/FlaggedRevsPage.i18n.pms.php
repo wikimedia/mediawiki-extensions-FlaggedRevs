@@ -1,6 +1,6 @@
 <?php
 /* Piemontèis (Bèrto 'd Sèra - 71) */
-$RevisionreviewMessages['pms'] = array(
+$messages = array(
 	'makevalidate-autosum'  => 'promossion aotomàtica',
 	'editor'                => 'Redator',
 	'group-editor'          => 'Redator',

@@ -1,5 +1,5 @@
 <?php
-$MakevalidateMessages['bcl'] = array(
+$messages = array(
 	'makevalidate-username'         => 'Pangaran kan parágamit:',
 	'makevalidate-search'           => 'Dumanán',
 	'makevalidate-legend'           => 'Ribayan an derechos kan parágamit:',

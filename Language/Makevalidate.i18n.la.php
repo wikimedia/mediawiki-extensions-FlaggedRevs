@@ -1,5 +1,5 @@
 <?php
-$MakevalidateMessages['la'] = array(
+$messages = array(
 	'makevalidate-username'         => 'Nomen usoris:',
 	'makevalidate-search'           => 'Ire',
 	'makevalidate-iseditor'         => '[[User:$1|$1]] statum recensorem habet.',

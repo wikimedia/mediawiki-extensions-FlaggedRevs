@@ -1,6 +1,6 @@
 <?php
 // English (Aaron Schulz)
-$RevisionreviewMessages['en'] = array( 
+$messages = array( 
 	'makevalidate-autosum'=> 'autopromoted',
 	'editor'              => 'Editor',
 	'group-editor'        => 'Editors',

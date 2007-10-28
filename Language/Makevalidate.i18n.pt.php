@@ -1,6 +1,6 @@
 <?php
 /* Portuguese (Lugusto) */
-$MakevalidateMessages['pt'] = array(
+$messages = array(
 	'makevalidate'                  => 'Promover/rebaixar editores',
 	'makevalidate-header'           => '<strong>Este é um formulário utilizado por {{int:group-sysop}} e {{int:group-bureaucrat}} para promover usuários a validadores de páginas.</strong><br>Digite o nome de usuário no espaço indicado e clique no botão correspondente a alteração de privilégios desejada de ser feita. Conceder o estado de {{int:group-reviewer-member}} fará com que a pessoa se torne {{int:group-editor-member}} automaticamente. Revogar o status de {{int:group-editor-member}} automaticamente revogará também o estado de {{int:group-reviewer-member}}.',
 	'makevalidate-username'         => 'Nome de usuário:',

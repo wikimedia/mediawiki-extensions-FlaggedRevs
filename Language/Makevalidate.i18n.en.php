@@ -1,6 +1,6 @@
 <?php
 /* English (Aaron Schulz) */
-$MakevalidateMessages['en'] = array(
+$messages = array(
 	'makevalidate'       => 'Promote/demote editors',
 	'makevalidate-header'   => '<strong>This form is used by sysops and bureaucrats to promote users to article 
 	validators.</strong><br> Type the name of the user in the box and press the button to set the user\'s rights. 

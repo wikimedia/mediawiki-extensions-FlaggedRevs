@@ -1,5 +1,5 @@
 <?php
-$MakevalidateMessages['hsb'] = array(
+$messages = array(
 	'makevalidate'                  => 'Wobdźěłowarjow zasadźić/wotsadźić',
 	'makevalidate-header'           => '<strong>Z tutym formularom móža administratorojo a běrokraća wužiwarjam prawo pruwowanja dać.</strong><br />
 	Zapisaj wužiwarske mjeno do pola a klikń na tłóčatko, zo by wužiwarske prawo                                                                   spožčił. Spožčenje statusa pruwowarja budźe so awtomatisce status wobdźěłowarja spožčeć.',
