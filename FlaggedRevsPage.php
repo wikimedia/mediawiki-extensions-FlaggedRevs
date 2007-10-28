@@ -600,7 +600,7 @@ class Stableversions extends SpecialPage
 			return;
 		}
 		// Get flags and date
-		$flags = $wgFlaggedRevs->getFlagsForRevision( $frev->fr_rev_id );
+		$flags = $wgFlaggedArticle->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt( 'revreview-static', array('parseinline'), 

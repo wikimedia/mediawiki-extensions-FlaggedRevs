@@ -618,9 +618,9 @@ class FlaggedArticle extends FlaggedRevs {
         $tag = '';
         if( $prettyBox )
         	$tag .= "<table align='center' class='$css' cellpading='0'>";
-        
 		foreach( $this->dimensions as $quality => $value ) {
-			$encValueText = wfMsgHtml('revreview-' . $this->dimensions[$quality][$flags[$quality]]);
+			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
+			$encValueText = wfMsgHtml('revreview-' . $this->dimensions[$quality][$level]);
             $level = $flags[$quality];
             $minlevel = $wgFlaggedRevTags[$quality];
             if( $level >= $minlevel )
