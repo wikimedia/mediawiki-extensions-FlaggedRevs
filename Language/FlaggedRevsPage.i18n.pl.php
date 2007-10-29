@@ -1,5 +1,8 @@
 <?php
+
 $messages = array(
+	'revreview-toggle'          => '(+/-)',#identical but defined
+	'stable-logpage'            => 'Rejestr wersji stabilnych',
 	'revreview-notes'           => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-accuracy'        => 'Dokładność',
 	'revreview-accuracy-0'      => 'Nieakceptowany',
@@ -40,6 +43,10 @@ $messages = array(
 	'stabilization-page'        => 'Nazwa strony:',
 	'stabilization-leg'         => 'Konfiguracja wersji stabilnej strony',
 	'stabilization-select'      => 'Jak wybierana jest wersja stabilna strony',
+	'stabilization-def'         => 'Wersja prezentowana w domyślnym widoku strony',
+	'stabilization-def1'        => 'Wersja stabilna; jeśli jej nie ma - wersja aktualna',
+	'stabilization-def2'        => 'Aktualna wersja',
+	'stabilization-submit'      => 'Potwierdź',
 	'stabilization-notexists'   => 'Nie ma strony zatytułowanej "[[:$1|$1]]". Nie jest możliwa jej konfiguracja.',
 	'stabilization-notcontent'  => 'Strona "[[:$1|$1]]" nie może być oceniona. Nie jest możliwa jej konfiguracja.',
 	'stabilization-success'     => 'Konfiguracja wersji stabilnej [[:$1|$1]] została pomyślnie ustawiona.',
