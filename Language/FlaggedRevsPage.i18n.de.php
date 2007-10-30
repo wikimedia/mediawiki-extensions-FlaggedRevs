@@ -66,7 +66,7 @@ $messages = array(
 	'revreview-toggle'      => '(+/-)',
 	'revreview-note'        => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
 	'revreview-update'      => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
-	Die folgenden Vorlagen und Bilder wurden seitdem ebenfalls verändert:',
+	Die folgenden Vorlagen und Bilder wurden ebenfalls verändert:',
 	'revreview-update-none' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).',
 	'revreview-auto'        => '(automatisch)',
 	'revreview-auto-w'      => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
