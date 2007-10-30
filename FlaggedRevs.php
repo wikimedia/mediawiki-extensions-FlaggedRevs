@@ -255,6 +255,7 @@ class FlaggedRevs {
 		}
 		$this->isDiffFromStable = false;
 		$this->skipReviewDiff = false;
+		$this->skipAutoReview = false;
 	}
     
 	/**
@@ -1057,6 +1058,32 @@ class FlaggedRevs {
 		}
 		return true;
 	}
+	
+	/**
+	* When a new page is made by a reviwer, try to automatically review it.
+	*/ 	
+	public function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
+		global $wgFlaggedRevsAutoReviewNew;
+	
+		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed('review') )
+			return true;
+		# Revision will be null for null edits
+		if( !$rev ) {
+			$this->skipReviewDiff = true; // Don't jump to diff...
+			return true;
+		}
+		# Assume basic flagging level
+		$flags = array();
+    	foreach( array_keys($this->dimensions) as $tag ) {
+    		$flags[$tag] = 1;
+    	}
+		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
+		
+		$this->skipReviewDiff = true; // Don't jump to diff...
+		$this->skipAutoReview = true; // Be sure not to do stuff twice
+		
+		return true;
+	}
 
 	/**
 	* When an edit is made by a reviwer, if the current revision is the stable
@@ -1065,15 +1092,14 @@ class FlaggedRevs {
 	public function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevsAutoReview;
 		
-		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
 			return true;
 		# Revision will be null for null edits
 		if( !$rev ) {
 			$this->skipReviewDiff = true; // Don't jump to diff...
 			return true;
 		}
-		# Check if this new revision is now the current one.
-		# ArticleSaveComplete may trigger even though a confict blocked insertion.
+		# The previous revision was the current one.
 		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
 		if( !$prev_id )
 			return true;
@@ -1093,6 +1119,7 @@ class FlaggedRevs {
 		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
 		
 		$this->skipReviewDiff = true; // Don't jump to diff...
+		$this->skipAutoReview = true; // Be sure not to do stuff twice
 		
 		return true;
 	}
@@ -1104,7 +1131,7 @@ class FlaggedRevs {
 	public function maybeMakeRollbackReviewed( $article, $user, $rev ) {
 		global $wgFlaggedRevsAutoReview;
 		
-		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
 			return true;
 		# Was this revision flagged?
 		$frev = $this->getFlaggedRev( $article->getTitle(), $rev->getID() );
@@ -1126,6 +1153,7 @@ class FlaggedRevs {
 		self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
 		
 		$this->skipReviewDiff = true; // Don't jump to diff...
+		$this->skipAutoReview = true; // Be sure not to do stuff twice
 		
 		return true;
 	}
@@ -1170,31 +1198,6 @@ class FlaggedRevs {
         }
         return true;
     }
-
-	/**
-	* When a new page is made by a reviwer, try to automatically review it.
-	*/ 	
-	public function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReviewNew;
-	
-		if( !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed( 'review' ) )
-			return true;
-		# Revision will be null for null edits
-		if( !$rev ) {
-			$this->skipReviewDiff = true; // Don't jump to diff...
-			return true;
-		}
-		# Assume basic flagging level
-		$flags = array();
-    	foreach( array_keys($this->dimensions) as $tag ) {
-    		$flags[$tag] = 1;
-    	}
-		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
-		
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		
-		return true;
-	}
 
 	/**
 	* Callback that autopromotes user according to the setting in 
