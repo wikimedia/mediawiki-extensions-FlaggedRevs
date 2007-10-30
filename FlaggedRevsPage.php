@@ -71,7 +71,7 @@ class Revisionreview extends SpecialPage
 		$this->notes = ($wgFlaggedRevs->allowComments() && $wgUser->isAllowed('validate')) ? 
 			$wgRequest->getText('wpNotes') : '';
 		// Get the revision's current flags, if any
-		$this->oflags = $wgFlaggedRevs->getFlagsForRevision( $this->oldid );
+		$this->oflags = $wgFlaggedRevs->getRevisionTags( $this->oldid );
 		// Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->upprovedTags = 0;

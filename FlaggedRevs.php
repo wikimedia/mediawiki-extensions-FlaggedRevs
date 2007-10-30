@@ -126,6 +126,7 @@ function efLoadFlaggedRevs() {
     # Autoreview stuff
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
+	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'autoMarkPatrolled' );
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = array( $wgFlaggedRevs, 'userCanMove' );
@@ -1081,7 +1082,7 @@ class FlaggedRevs {
 		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
 			return true;
 		# Grab the flags for this revision
-		$flags = $this->getFlagsForRevision( $frev->fr_rev_id );
+		$flags = $this->getRevisionTags( $frev->fr_rev_id );
 		# Check if user is allowed to renew the stable version.
 		# If it has been reviewed too highly for this user, abort.
 		foreach( $flags as $quality => $level ) {
@@ -1090,6 +1091,39 @@ class FlaggedRevs {
 			}
 		}
 		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
+		
+		$this->skipReviewDiff = true; // Don't jump to diff...
+		
+		return true;
+	}
+	
+	/**
+	* When a rollback is made by a reviwer, if the current revision is the stable
+	* version, try to automatically review it.
+	*/ 	
+	public function maybeMakeRollbackReviewed( $article, $user, $rev ) {
+		global $wgFlaggedRevsAutoReview;
+		
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed( 'review' ) )
+			return true;
+		# Was this revision flagged?
+		$frev = $this->getFlaggedRev( $article->getTitle(), $rev->getID() );
+		if( is_null($frev) )
+			return true;
+		# Grab the flags for this revision
+		$flags = $this->getRevisionTags( $rev->getID() );
+		# Check if user is allowed to renew the stable version.
+		# If it has been reviewed too highly for this user, abort.
+		foreach( $flags as $quality => $level ) {
+			if( !Revisionreview::userCan($quality,$level) ) {
+				return true;
+			}
+		}
+		# Select the version that is now current. Create a new article object
+		# to avoid using one with outdated field data.
+		$article = new Article( $article->getTitle() );
+		$newRev = Revision::newFromId( $article->getLatest() );
+		self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
 		
 		$this->skipReviewDiff = true; // Don't jump to diff...
 		
