@@ -48,8 +48,7 @@ $messages = array(
 	can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] 
 	{{plural:$3|awaits|await}} review.',
 	'revreview-static' => 'This is a [[Help:Article validation|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', 
-	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>. The [{{fullurl:$3|stable=0}} draft] 
-	can be [{{fullurl:$3|action=edit}} modified].',
+	[{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>.',
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[Help:Article validation|reviewing]] this revision:',
 	'revreview-update' => 'Please review any changes (shown below) made since the stable revision. Some 
