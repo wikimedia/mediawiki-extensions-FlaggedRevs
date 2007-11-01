@@ -765,7 +765,8 @@ class FlaggedRevs {
 		# Mark as patrolled
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => 1 ),
-			array( 'rc_this_oldid' => $rev->getId() ),
+			array( 'rc_this_oldid' => $rev->getId(),
+				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 			__METHOD__ 
 		);
 		$dbw->commit();
@@ -1125,8 +1126,7 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* When a rollback is made by a reviwer, if the current revision is the stable
-	* version, try to automatically review it.
+	* When a rollback is made by a reviwer, try to automatically review it.
 	*/ 	
 	public function maybeMakeRollbackReviewed( $article, $user, $rev ) {
 		global $wgFlaggedRevsAutoReview;
@@ -1193,7 +1193,8 @@ class FlaggedRevs {
             $dbw = wfGetDB( DB_MASTER );
             $dbw->update( 'recentchanges',
                 array( 'rc_patrolled' => 1 ),
-                array( 'rc_this_oldid' => $rev->getID() ),
+                array( 'rc_this_oldid' => $rev->getID(),
+					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
                 __METHOD__ );
         }
         return true;

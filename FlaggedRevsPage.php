@@ -407,7 +407,8 @@ class Revisionreview extends SpecialPage
 		// Mark as patrolled
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => 1 ),
-			array( 'rc_this_oldid' => $rev->getId() ),
+			array( 'rc_this_oldid' => $rev->getId(),
+				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 			__METHOD__ 
 		);
 		$dbw->commit();
