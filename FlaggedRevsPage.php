@@ -950,7 +950,7 @@ class Stabilization extends SpecialPage
 			return;
 		}
 		// Get visiblity settings...
-		$config = $wgFlaggedRevs->getVisibilitySettings( $this->page, true );
+		$config = $wgFlaggedRevs->getPageVisibilitySettings( $this->page, true );
 		$selectSetting = $this->select ? $this->select : $config['select'];
 		$overrideSetting = $this->override ? $this->override : $config['override'];
 		
