@@ -1,0 +1,35 @@
+<?php
+
+$messages = array(
+	'makevalidate'                  => 'Promover/degradar editores',
+	'makevalidate-header'           => '<strong>Este formulario é usado por administradores e burócratas para promover aos usuarios de artigos 		máis válidos.</strong><br> Introduza o nome do usuario na caixa e prema o botón para establecer os dereitos dos usuarios.
+	A concesión do estatus de revisor de usuarios automaticamente lles concede o estatus de editor.  Revocar o estatus de editor
+	automaticamente revocará o estatus de revisor.',
+	'makevalidate-username'         => 'Nome do usuario:',
+	'makevalidate-search'           => 'Ir',
+	'makevalidate-iseditor'         => '[[User:$1|$1]] ten o estatus de editor.',
+	'makevalidate-noteditor'        => '[[User:$1|$1]] non ten o estatus de editor.',
+	'makevalidate-isvalidator'      => '[[User:$1|$1]] ten o estatus de revisor.',
+	'makevalidate-notvalidator'     => '[[User:$1|$1]] non ten o estatus de revisor.',
+	'makevalidate-legend'           => 'Mudar dereitos de usuario',
+	'makevalidate-change-e'         => 'Estatus de editor:',
+	'makevalidate-change-r'         => 'Estatus de revisor:',
+	'makevalidate-grant1'           => 'Conceder',
+	'makevalidate-revoke1'          => 'Retirar',
+	'makevalidate-grant2'           => 'Conceder',
+	'makevalidate-revoke2'          => 'Retirar',
+	'makevalidate-comment'          => 'Comentario:',
+	'makevalidate-granted-e'        => '[[User:$1|$1]] agora ten o estatus de editor.',
+	'makevalidate-revoked-e'        => '[[User:$1|$1]] xa non ten o estatus de editor.',
+	'makevalidate-granted-r'        => '[[User:$1|$1]] agora ten o estatuto de revisor.',
+	'makevalidate-revoked-r'        => '[[User:$1|$1]] xa non ten o estatuto de revisor.',
+	'makevalidate-logpage'          => 'Rexistro do estatuto de editor',
+	'makevalidate-logpagetext'      => 'Este é un rexistro dos cambios do estatuto de usuarios [[Help:Article validation|validación artigos]]',
+	'makevalidate-logentrygrant-e'  => 'outorgado o estatuto de editor a [[$1]]',
+	'makevalidate-logentryrevoke-e' => 'eliminado o estatuto de editor a [[$1]]',
+	'makevalidate-logentrygrant-r'  => 'outorgado estatuto de revisor a [[$1]]',
+	'makevalidate-logentryrevoke-r' => 'eliminado estatuto de revisor de [[$1]]',
+	'makevalidate-autosum'          => 'autopromocionado',
+	'rights-editor-grant'           => 'outorgado estatuto de editor a [[$1]]',
+	'rights-editor-revoke'          => 'eliminado o estatuto de editor de [[$1]]',
+);
