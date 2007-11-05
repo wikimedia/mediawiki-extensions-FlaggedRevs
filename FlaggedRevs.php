@@ -58,6 +58,7 @@ function efLoadFlaggedRevs() {
 	$messages = array();
 	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.en.php';
 	include( $f ); // Default to English langauge
+	$wgMessageCache->addMessages( $messages, 'en' );
 	
 	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.' . $wgLang->getCode() . '.php';
 	if( file_exists( $f ) ) {

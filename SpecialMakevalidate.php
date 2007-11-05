@@ -34,9 +34,6 @@ if( defined( 'MEDIAWIKI' ) ) {
 	$wgGroupPermissions['bureaucrat']['makereview'] = true;
 	$wgGroupPermissions['bureaucrat']['removereview'] = true;
 	$wgGroupPermissions['bureaucrat']['makevalidate'] = true;
-	# We may want a sort of invitational community system...
-	# $wgGroupPermissions['editor']['makereview'] = true;
-	# $wgGroupPermissions['reviewer']['makereview'] = true;
 	
 	/**
 	 * Register the special page
@@ -54,6 +51,7 @@ if( defined( 'MEDIAWIKI' ) ) {
 		// Default to English langauge
 		$f = dirname( __FILE__ ) . '/Language/Makevalidate.i18n.en.php';
 		include( $f );
+		$wgMessageCache->addMessages( $messages, 'en' );
 		
 		$f = dirname( __FILE__ ) . '/Language/Makevalidate.i18n.' . $wgLang->getCode() . '.php';
 		if( file_exists( $f ) ) {
