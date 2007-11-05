@@ -60,8 +60,7 @@ $messages = array(
 	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
 
 	'revreview-static' => "Dies ist eine [[Help:Geprüfte Versionen|geprüfte]] Version von '''[[:$3|$3]]''', 
-	[{{fullurl:Special:Log/review|page=$1}} freigegeben] am <i>$2</i>. Die [{{fullurl:$3|stable=0}} derzeitige Version] 
-	kann [{{fullurl:$3|action=edit}} bearbeitet] werden.",
+	[{{fullurl:Special:Log/review|page=$1}} freigegeben] am <i>$2</i>.",
 
 	'revreview-toggle'      => '(+/-)',
 	'revreview-note'        => '[[{{ns:user}}:$1]] machte die folgende [[Help:Article validation|Prüfnotiz]] zu dieser Version:',
