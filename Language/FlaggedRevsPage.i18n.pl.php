@@ -1,6 +1,12 @@
 <?php
 
 $messages = array(
+	'revreview-current'         => 'Szkic',
+	'tooltip-ca-current'        => 'Zobacz aktualny szkic tej strony',
+	'revreview-edit'            => 'Edytuj szkic',
+	'revreview-source'          => 'źródło szkicu',
+	'revreview-stable'          => 'Stabilna',
+	'tooltip-ca-stable'         => 'Zobacz wersję stabilną tej strony',
 	'revreview-toggle'          => '(+/-)',#identical but defined
 	'stable-logpage'            => 'Rejestr wersji stabilnych',
 	'revreview-notes'           => 'Obserwacje lub uwagi do wyświetlenia:',
