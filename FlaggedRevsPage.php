@@ -42,13 +42,13 @@ class Revisionreview extends SpecialPage
 			return;
 		}
 		
-		global $wgFlaggedRevs, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		// Our target page
 		$this->target = $wgRequest->getText( 'target' );
 		$this->page = Title::newFromUrl( $this->target );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		if( !$this->target || !$this->oldid || !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
+		if( !$this->target || !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
@@ -68,10 +68,10 @@ class Revisionreview extends SpecialPage
 		$this->comment = $wgUser->isAllowed('validate') ? 
 			$wgRequest->getText( 'wpReason' ) : '';
 		// Additional notes (displayed at bottom of page)
-		$this->notes = ($wgFlaggedRevs->allowComments() && $wgUser->isAllowed('validate')) ? 
+		$this->notes = (FlaggedRevs::allowComments() && $wgUser->isAllowed('validate')) ? 
 			$wgRequest->getText('wpNotes') : '';
 		// Get the revision's current flags, if any
-		$this->oflags = $wgFlaggedRevs->getRevisionTags( $this->oldid );
+		$this->oflags = FlaggedRevs::getRevisionTags( $this->oldid );
 		// Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->upprovedTags = 0;
@@ -252,7 +252,7 @@ class Revisionreview extends SpecialPage
 	}
 	
 	function submit( $request ) {
-		global $wgOut, $wgUser, $wgFlaggedRevs, $wgFlaggedRevTags;
+		global $wgOut, $wgUser, $wgFlaggedRevTags;
 		# If all values are set to zero, this has been unapproved
 		$approved = empty($wgFlaggedRevTags);
 		foreach( $this->dims as $quality => $value ) {
@@ -270,7 +270,7 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 		} else {
-			$frev = $wgFlaggedRevs->getFlaggedRev( $this->page, $this->oldid );
+			$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid );
 			// If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
 				$wgOut->redirect( $this->page->getFullUrl() );
@@ -298,7 +298,7 @@ class Revisionreview extends SpecialPage
 	 * Adds or updates the flagged revision table for this page/id set
 	 */
 	function approveRevision( $rev=NULL, $notes='' ) {
-		global $wgUser, $wgFlaggedRevsWatch, $wgParser, $wgFlaggedRevs;
+		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
 		// Skip null edits
 		if( is_null($rev) ) 
 			return false;
@@ -306,8 +306,8 @@ class Revisionreview extends SpecialPage
 		$title = $rev->getTitle();
 		
 		$quality = 0;
-		if( $wgFlaggedRevs->isQuality($this->dims) ) {
-			$quality = $wgFlaggedRevs->isPristine($this->dims) ? 2 : 1;
+		if( FlaggedRevs::isQuality($this->dims) ) {
+			$quality = FlaggedRevs::isPristine($this->dims) ? 2 : 1;
 		}
 		// Our flags
 		$flagset = array();
@@ -381,13 +381,13 @@ class Revisionreview extends SpecialPage
 				__METHOD__ );
 		}
         // Get the page text and resolve all templates
-        list($fulltext,$complete) = $wgFlaggedRevs->expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$complete ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
         # Compress $fulltext, passed by reference
-        $textFlags = $wgFlaggedRevs->compressText( $fulltext );
+        $textFlags = FlaggedRevs::compressText( $fulltext );
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
@@ -571,9 +571,9 @@ class Stableversions extends SpecialPage
 	}
 	
 	function showStableList() {
-		global $wgOut, $wgUser, $wgLang, $wgFlaggedRevs;
+		global $wgOut, $wgUser, $wgLang;
 		// Must be a content page
-		if( !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
+		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
 				$this->page->getPrefixedText() ) );
 			return;
@@ -592,9 +592,9 @@ class Stableversions extends SpecialPage
 	}
 	
 	function showStableRevision( $frev ) {
-		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedRevs, $wgFlaggedArticle;
+		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedArticle;
 		// Get the revision
-		$frev = $wgFlaggedRevs->getFlaggedRev( $this->page, $this->oldid, true );
+		$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid, true );
 		// Revision must exists
 		if( is_null($frev) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
@@ -614,13 +614,14 @@ class Stableversions extends SpecialPage
 		// Parse the text...
 		$article = new Article( $this->page );
 		
-		$text = $wgFlaggedRevs->uncompressText( $frev->fr_text, $frev->fr_flags );
+		$text = FlaggedRevs::uncompressText( $frev->fr_text, $frev->fr_flags );
 		
-       	$parserOutput = $wgFlaggedRevs->parseStableText( $article, $text, $this->oldid );
-		$notes = $wgFlaggedRevs->ReviewNotes( $frev );
+       	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $this->oldid );
+		
+		wfRunHooks( 'OutputPageParserOutput', array( &$wgOut, $parserOutput ) );
 		// Set the new body HTML, place a tag on top
-		$wgOut->addHTML('<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' .
-			$tag . '</div>' . $parserOutput->getText() . $notes);
+		$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' .
+			$tag . '</div>' . $parserOutput->getText() . $wgFlaggedArticle->ReviewNotes( $frev ) );
        	// Show stable categories and interwiki links only
        	$wgOut->mCategoryLinks = array();
        	$wgOut->addCategoryLinks( $parserOutput->getCategories() );
@@ -863,7 +864,7 @@ class Stabilization extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut, $wgFlaggedRevs;
+        global $wgRequest, $wgUser, $wgOut;
 
 		$confirm = $wgRequest->wasPosted() &&
 			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
@@ -906,7 +907,7 @@ class Stabilization extends SpecialPage
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 			$isValid = false;
-		} else if( !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
+		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 			$isValid = false;
@@ -942,15 +943,15 @@ class Stabilization extends SpecialPage
 	}
 	
 	function showSettings() {
-		global $wgOut, $wgScript, $wgTitle, $wgUser, $wgFlaggedRevs;
+		global $wgOut, $wgScript, $wgTitle, $wgUser;
 		// Must be a content page
-		if( !$wgFlaggedRevs->isPageReviewable( $this->page ) ) {
+		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), 
 				$this->page->getPrefixedText() ) );
 			return;
 		}
 		// Get visiblity settings...
-		$config = $wgFlaggedRevs->getPageVisibilitySettings( $this->page, true );
+		$config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
 		$selectSetting = $this->select ? $this->select : $config['select'];
 		$overrideSetting = $this->override ? $this->override : $config['override'];
 		
@@ -1003,7 +1004,7 @@ class Stabilization extends SpecialPage
 	}
 	
 	function submit() {
-		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevs, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevsOverride;
 		
 		$changed = $reset = false;
 		
@@ -1031,6 +1032,7 @@ class Stabilization extends SpecialPage
 				__METHOD__ );
 		}
 		# Log if changed
+		# @FIXME: do this better
 		if( $changed ) {
 			$log = new LogPage( 'stable' );
 			// ID, accuracy, depth, style
@@ -1042,7 +1044,6 @@ class Stabilization extends SpecialPage
 			
 			$settings = ' [' . implode(', ',$set). ']';
 			// Append comment with settings
-			// FIXME: do this better
 			$comment = ($this->comment) ? "{$this->comment}$settings" : "$settings";
 			
 			if( $reset )

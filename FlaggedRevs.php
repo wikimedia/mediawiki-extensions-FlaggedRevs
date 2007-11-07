@@ -49,10 +49,9 @@ $wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php'
 include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
 
 function efLoadFlaggedRevs() {
-	global $wgMessageCache, $wgOut, $wgJsMimeType, 
-		$wgHooks, $wgLang, $wgFlaggedRevs, $wgFlaggedArticle;
-	# Out global page modifier objects
-	$wgFlaggedRevs = new FlaggedRevs();
+	global $wgMessageCache, $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle;
+	# Initialize
+	FlaggedRevs::load();
 	$wgFlaggedArticle = new FlaggedArticle();
 	# Internationalization
 	$messages = array();
@@ -65,16 +64,6 @@ function efLoadFlaggedRevs() {
 		include( $f );
 	}
 	$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
-	# @FIXME: this is totally in the wrong place
-	# UI CSS
-	$wgOut->addLink( array(
-		'rel'	=> 'stylesheet',
-		'type'	=> 'text/css',
-		'media'	=> 'screen, projection',
-		'href'	=> FLAGGED_CSS,
-	) );
-	# UI JS
-	$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
 	
 	global $wgGroupPermissions, $wgUseRCPatrol;
 	# Use RC Patrolling to check for vandalism
@@ -87,10 +76,11 @@ function efLoadFlaggedRevs() {
 	$wgGroupPermissions['sysop']['stablesettings'] = true;
 
 	######### Hook attachments #########
+	$wgHooks['OutputPageParserOutput'][] = array( 'FlaggedRevs::InjectStyle' );
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
+	$wgHooks['ArticleViewHeader'][] = array( 'FlaggedRevs::maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
@@ -101,9 +91,9 @@ function efLoadFlaggedRevs() {
 	# Mark of items in page history
 	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
 	# Autopromote Editors
-	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedRevs, 'autoPromoteUser' );
+	$wgHooks['ArticleSaveComplete'][] = array( 'FlaggedRevs::autoPromoteUser' );
 	# Adds table link references to include ones from the stable version
-	$wgHooks['LinksUpdateConstructed'][] = array( $wgFlaggedArticle, 'extraLinksUpdate' );
+	$wgHooks['LinksUpdateConstructed'][] = array( 'FlaggedRevs::extraLinksUpdate' );
 	# Empty flagged page settings row on delete
 	$wgHooks['ArticleDeleteComplete'][] = array( $wgFlaggedArticle, 'deleteVisiblitySettings' );
 	# Check on undelete/merge/revisiondelete for changes to stable version
@@ -113,13 +103,13 @@ function efLoadFlaggedRevs() {
 	# Update our table NS/Titles when things are moved
 	$wgHooks['SpecialMovepageAfterMove'][] = array( $wgFlaggedArticle, 'updateFromMove' );
 	# Parser hooks, selects the desired images/templates
-	$wgHooks['BeforeParserrenderImageGallery'][] = array( $wgFlaggedRevs, 'parserMakeGalleryStable' );
-	$wgHooks['BeforeGalleryFindFile'][] = array( $wgFlaggedArticle, 'galleryFindStableFileTime' );
-	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( $wgFlaggedRevs, 'parserFetchStableTemplate' );
-	$wgHooks['BeforeParserMakeImageLinkObj'][] = array( $wgFlaggedRevs, 'parserMakeStableImageLink' );
+	$wgHooks['BeforeParserrenderImageGallery'][] = array( 'FlaggedRevs::parserMakeGalleryStable' );
+	$wgHooks['BeforeGalleryFindFile'][] = array( 'FlaggedRevs::galleryFindStableFileTime' );
+	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( 'FlaggedRevs::parserFetchStableTemplate' );
+	$wgHooks['BeforeParserMakeImageLinkObj'][] = array( 'FlaggedRevs::parserMakeStableImageLink' );
 	# Additional parser versioning
-	$wgHooks['ParserAfterTidy'][] = array( $wgFlaggedRevs, 'parserInjectImageTimestamps' );
-	$wgHooks['OutputPageParserOutput'][] = array( $wgFlaggedRevs, 'outputInjectImageTimestamps');
+	$wgHooks['ParserAfterTidy'][] = array( 'FlaggedRevs::parserInjectImageTimestamps' );
+	$wgHooks['OutputPageParserOutput'][] = array( 'FlaggedRevs::outputInjectImageTimestamps');
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
@@ -128,9 +118,9 @@ function efLoadFlaggedRevs() {
     $wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
 	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'autoMarkPatrolled' );
+	$wgHooks['ArticleSaveComplete'][] = array( 'FlaggedRevs::autoMarkPatrolled' );
 	# Disallow moves of stable pages
-	$wgHooks['userCan'][] = array( $wgFlaggedRevs, 'userCanMove' );
+	$wgHooks['userCan'][] = array( 'FlaggedRevs::userCanMove' );
 	#########
 }
 
@@ -243,26 +233,23 @@ $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 $wgLogActions['rights/egrant']  = 'rights-editor-grant';
 
 class FlaggedRevs {
-
-	function __construct() {
+	public static $dimensions = array();
+	
+	function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		
-		$this->dimensions = array();
-		foreach( array_keys($wgFlaggedRevTags) as $tag ) {
-			$this->dimensions[$tag] = array();
-			for($i=0; $i <= $wgFlaggedRevValues; $i++) {
-				$this->dimensions[$tag][$i] = "$tag-$i";
+		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
+			self::$dimensions[$tag] = array();
+			for( $i=0; $i <= $wgFlaggedRevValues; $i++ ) {
+				self::$dimensions[$tag][$i] = "$tag-$i";
 			}
 		}
-		$this->isDiffFromStable = false;
-		$this->skipReviewDiff = false;
-		$this->skipAutoReview = false;
 	}
     
 	/**
 	 * Should this be using a simple icon-based UI?
 	 */	
-	static function useSimpleUI() {
+	public static function useSimpleUI() {
 		global $wgSimpleFlaggedRevsUI;
 		
 		return $wgSimpleFlaggedRevsUI;
@@ -271,7 +258,7 @@ class FlaggedRevs {
 	/**
 	 * Should comments be allowed on pages and forms?
 	 */	
-	static function allowComments() {
+	public static function allowComments() {
 		global $wgFlaggedRevComments;
 		
 		return $wgFlaggedRevComments;
@@ -284,19 +271,19 @@ class FlaggedRevs {
      * @return array( string, bool )
      * All included pages/arguments are expanded out
      */
-    public function expandText( $text='', $title, $id=null ) {
-    	global $wgParser, $wgUser;
+    public static function expandText( $text='', $title, $id=null ) {
+    	global $wgParser;
     	# Make our hooks to trigger
-    	$wgParser->isStable = true;
-    	$wgParser->includesMatched = true;
+    	$wgParser->fr_isStable = true;
+    	$wgParser->fr_includesMatched = true;
         # Parse with default options
-        $options = new ParserOptions($wgUser);
+        $options = new ParserOptions();
         $options->setRemoveComments( true ); // Save some bandwidth ;)
         $outputText = $wgParser->preprocess( $text, $title, $options, $id );
-        $expandedText = array( $outputText, $wgParser->includesMatched );
+        $expandedText = array( $outputText, $wgParser->fr_includesMatched );
         # Done!
-        $wgParser->isStable = false;
-        $wgParser->includesMatched = false;
+        $wgParser->fr_isStable = false;
+        $wgParser->fr_includesMatched = false;
         
         return $expandedText;
     }
@@ -308,12 +295,12 @@ class FlaggedRevs {
 	 * @return ParserOutput
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
-    public function parseStableText( $article, $text, $id=NULL ) {
+    public static function parseStableText( $article, $text, $id=NULL ) {
     	global $wgParser, $wgUser;
     	# Default options for anons if not logged in
     	$options = ParserOptions::newFromUser($wgUser);
     	# Make our hooks to trigger
-    	$wgParser->isStable = true;
+    	$wgParser->fr_isStable = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options->setEditSection(false);
 		// $options->setEditSection( $id==$article->getLatest() );
@@ -321,7 +308,7 @@ class FlaggedRevs {
 		$title = $article->getTitle(); // avoid pass-by-reference error
        	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
        	# Reset $wgParser
-       	$wgParser->isStable = false; // Done!
+       	$wgParser->fr_isStable = false; // Done!
        	
        	return $parserOut;
     }
@@ -331,7 +318,7 @@ class FlaggedRevs {
     * @return string, flags
     * Compress pre-processed text, passed by reference
     */
-    public function compressText( &$text ) {
+    public static function compressText( &$text ) {
     	global $wgFlaggedRevsCompression;
     	# Compress text if $wgFlaggedRevsCompression is set.
 		$flags = array( 'utf-8' );
@@ -352,7 +339,7 @@ class FlaggedRevs {
     * @return string
     * Uncompress pre-processed text, using flags
     */
-    public function uncompressText( $text, $flags ) {
+    public static function uncompressText( $text, $flags ) {
     	global $wgFlaggedRevsCompression;
     	
     	if( !is_array($flags) ) {
@@ -376,7 +363,7 @@ class FlaggedRevs {
 	 * @return Revision
 	 * Will not return a revision if deleted
 	 */	
-	public function getFlaggedRev( $title, $rev_id, $getText=false ) {
+	public static function getFlaggedRev( $title, $rev_id, $getText=false ) {
     	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
@@ -406,7 +393,7 @@ class FlaggedRevs {
 	 * @return int
 	 * Get number of revs since a certain revision
 	 */
-    public function getRevCountSince( $page_id, $from_rev ) {   
+    public static function getRevCountSince( $page_id, $from_rev ) {   
 		$dbr = wfGetDB( DB_SLAVE );
 		$count = $dbr->selectField('revision', 'COUNT(*)',
 			array('rev_page' => $page_id, "rev_id > " . intval( $from_rev ) ),
@@ -423,7 +410,7 @@ class FlaggedRevs {
 	 * @param bool $def, is this for the default version of a page?
 	 * @returns Row
 	*/
-    public function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
+    public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
     	$selectColumns = array( 'fr_rev_id','fr_user','fr_timestamp','fr_comment',
 			'rev_timestamp','fr_quality' );
     	if( $getText ) {
@@ -447,7 +434,7 @@ class FlaggedRevs {
 				return null;
 		} else {
     		// Get visiblity settings...
-			$config = $this->getPageVisibilitySettings( $title, $forUpdate );
+			$config = self::getPageVisibilitySettings( $title, $forUpdate );
 			$dbw = wfGetDB( DB_MASTER );
 			// Look for the latest quality revision
 			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
@@ -485,7 +472,7 @@ class FlaggedRevs {
 	 * @param bool $forUpdate, use master DB?
 	 * @returns Array
 	*/
-    public function getPageVisibilitySettings( $title, $forUpdate=false ) {
+    public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
     	$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpages', 
 			array( 'fp_select', 'fp_override' ),
@@ -505,10 +492,10 @@ class FlaggedRevs {
 	 * @param int $rev_id
 	 * @return Array
 	*/
-    public function getRevisionTags( $rev_id ) {
+    public static function getRevisionTags( $rev_id ) {
     	# Set all flags to zero
     	$flags = array();
-    	foreach( array_keys($this->dimensions) as $tag ) {
+    	foreach( self::$dimensions as $tag => $minQL ) {
     		$flags[$tag] = 0;
     	}
     	# Grab all the tags for this revision
@@ -531,7 +518,7 @@ class FlaggedRevs {
 	 * @return bool
 	 * Is $title the main page?
 	 */	
-	public function isMainPage( $title ) {
+	public static function isMainPage( $title ) {
 		$mp = Title::newMainPage();
 		return ( $title->getNamespace()==$mp->getNamespace() && $title->getDBKey()==$mp->getDBKey() );
 	}
@@ -540,7 +527,7 @@ class FlaggedRevs {
 	* @param Array $flags
 	* @return bool, is this revision at quality condition?
 	*/
-    public function isQuality( $flags ) {
+    public static function isQuality( $flags ) {
     	global $wgFlaggedRevTags;
     	
     	if( empty($flags) )
@@ -557,10 +544,10 @@ class FlaggedRevs {
 	* @param Array $flags
 	* @return bool, is this revision at optimal condition?
 	*/
-    public function isPristine( $flags ) {
+    public static function isPristine( $flags ) {
     	global $wgFlaggedRevTags, $wgFlaggedRevValues;
     	
-    	if( empty($flags) )
+    	if( !$flags )
     		return false;
     	
     	foreach( $wgFlaggedRevTags as $f => $v ) {
@@ -575,7 +562,7 @@ class FlaggedRevs {
 	* @param Title, $title
 	* @return bool
 	*/
-    public function isPageReviewable( $title ) {
+    public static function isPageReviewable( $title ) {
     	global $wgFlaggedRevsNamespaces;
     	
     	return ( in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) 
@@ -587,7 +574,7 @@ class FlaggedRevs {
 	* @return ParserOutput
 	* Get the page cache for the top stable revision of an article
 	*/   
-    public function getPageCache( $article ) {
+    public static function getPageCache( $article ) {
     	global $wgUser, $parserMemc, $wgCacheEpoch, $wgFlaggedRevsExpire;
     	
 		wfProfileIn( __METHOD__ );
@@ -638,7 +625,7 @@ class FlaggedRevs {
 	* @param parerOutput $parserOut
 	* Updates the stable cache of a page with the given $parserOut
 	*/
-    public function updatePageCache( $article, $parserOut=NULL ) {
+    public static function updatePageCache( $article, $parserOut=NULL ) {
     	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
     	# Make sure it is valid
     	if( is_null($parserOut) || !$article ) 
@@ -668,17 +655,35 @@ class FlaggedRevs {
 		return true;
     }
     
+    /** 
+	* Add FlaggedRevs css/js
+    */
+    public static function InjectStyle( $out, $parserOut ) {
+    	global $wgJsMimeType;
+    	# UI CSS
+		$out->addLink( array(
+			'rel'	=> 'stylesheet',
+			'type'	=> 'text/css',
+			'media'	=> 'screen, projection',
+			'href'	=> FLAGGED_CSS,
+		) );
+		# UI JS
+		$out->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
+		
+		return true;
+    }
+    
 	/**
 	* Automatically review an edit and add a log entry in the review log.
 	* LinksUpdate was already called via edit operations, so the page
 	* fields will be up to date. This updates the stable version.
 	*/ 
-	public function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
+	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
 		global $wgParser, $wgFlaggedRevsAutoReview;
 		
 		$quality = 0;
-		if( $this->isQuality($flags) ) {
-			$quality = $this->isPristine($flags) ? 2 : 1;
+		if( self::isQuality($flags) ) {
+			$quality = self::isPristine($flags) ? 2 : 1;
 		}
 		$flagset = $tmpset = $imgset = array();
 		foreach( $flags as $tag => $value ) {
@@ -711,7 +716,7 @@ class FlaggedRevs {
         	}
         }
         # Image -> timestamp mapping
-        foreach( $poutput->mImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
+        foreach( $poutput->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
         	foreach( $timeAndSHA1 as $time => $sha1 ) {
 				$imgset[] = array( 
 					'fi_rev_id' => $rev->getId(),
@@ -736,7 +741,7 @@ class FlaggedRevs {
 				__METHOD__ );
 		}
         # Get the page text and resolve all templates
-        list($fulltext,$complete) = $this->expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        list($fulltext,$complete) = self::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$complete ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
@@ -777,9 +782,9 @@ class FlaggedRevs {
 			$rev->getID(), true, false );
 		
 		# Might as well save the stable version cache
-		$this->updatePageCache( $article, $poutput );
+		self::updatePageCache( $article, $poutput );
     	# Update page fields
-    	$this->updateArticleOn( $article, $rev->getID() );
+    	self::updateArticleOn( $article, $rev->getID() );
 		# Purge squid for this page only
 		$article->mTitle->purgeSquid();
 		
@@ -791,7 +796,7 @@ class FlaggedRevs {
 	* @param Integer $rev_id, the stable version rev_id
 	* Updates the page_ext_stable and page_ext_reviewed fields
 	*/
-    function updateArticleOn( $article, $rev_id ) {
+    public static function updateArticleOn( $article, $rev_id ) {
         $dbw = wfGetDB( DB_MASTER );
         $dbw->update( 'page',
 			array('page_ext_stable' => $rev_id, 
@@ -801,7 +806,7 @@ class FlaggedRevs {
 			__METHOD__ );	
     }
     
-    public function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
+    public static function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
     	$dbw = wfGetDB( DB_MASTER );
         $dbw->update( 'flaggedrevs',
 			array('fr_namespace' => $newtitle->getNamespace(), 
@@ -813,7 +818,7 @@ class FlaggedRevs {
 		return true;
     }
     
-    public function deleteVisiblitySettings( $article, $user, $reason ) {
+    public static function deleteVisiblitySettings( $article, $user, $reason ) {
     	$dbw = wfGetDB( DB_MASTER );
     	$dbw->delete( 'flaggedpages',
     		array('fp_page_id' => $article->getID() ),
@@ -826,7 +831,7 @@ class FlaggedRevs {
 	* Clears cache for a page when merges are done.
 	* We may have lost the stable revision to another page.
 	*/
-    public function articleLinksUpdate( $article, $a=null, $b=null ) {
+    public static function articleLinksUpdate( $article, $a=null, $b=null ) {
     	global $wgUser, $wgParser;
     	# Update the links tables as the stable version may now be the default page...
 		$parserCache = ParserCache::singleton();
@@ -846,35 +851,22 @@ class FlaggedRevs {
 	/**
 	* Clears cache for a page when revisiondelete/undelete is used
 	*/
-    public function articleLinksUpdate2( $title, $a=null, $b=null ) {
-    	global $wgUser, $wgParser;
-    	
+    public static function articleLinksUpdate2( $title, $a=null, $b=null ) {
     	$article = new Article( $title );
-		# Update the links tables as the stable version may now be the default page...
-		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput==false ) {
-			$text = $article->getContent();
-			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
-			# Might as well save the cache while we're at it
-			$parserCache->save( $poutput, $article, $wgUser );
-		}
-		$u = new LinksUpdate( $article->mTitle, $poutput );
-		$u->doUpdate(); // this will trigger our hook to add stable links too...
 		
-		return true;
+		return self::articleLinksUpdate( $article, $a, $b );
     }
 
 	/**
 	* Inject stable links on LinksUpdate
 	*/
-    public function extraLinksUpdate( $linksUpdate ) {
+    public static function extraLinksUpdate( $linksUpdate ) {
     	wfProfileIn( __METHOD__ );
 		
-    	if( !$this->isPageReviewable( $linksUpdate->mTitle ) ) 
+    	if( !self::isPageReviewable( $linksUpdate->mTitle ) ) 
 			return true;
     	# Check if this page has a stable version
-    	$sv = $this->getStablePageRev( $linksUpdate->mTitle, true, true );
+    	$sv = self::getStablePageRev( $linksUpdate->mTitle, true, true );
     	if( !$sv )
 			return true;
     	# Parse the revision
@@ -882,18 +874,30 @@ class FlaggedRevs {
     	$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
     	$parserOut = self::parseStableText( $article, $text, $sv->fr_rev_id );
     	# Might as well update the stable cache while we're at it
-    	$this->updatePageCache( $article, $parserOut );
+    	self::updatePageCache( $article, $parserOut );
     	# Update page fields
-    	$this->updateArticleOn( $article, $sv->fr_rev_id );
+    	self::updateArticleOn( $article, $sv->fr_rev_id );
     	# Update the links tables to include these
     	# We want the UNION of links between the current
 		# and stable version. Therefore, we only care about
 		# links that are in the stable version and not the regular one.
-		$linksUpdate->mLinks += $parserOut->getLinks();
-		$linksUpdate->mImages += $parserOut->getImages();
-		$linksUpdate->mTemplates += $parserOut->getTemplates();
-		$linksUpdate->mExternals += $parserOut->getExternalLinks();
-		$linksUpdate->mCategories += $parserOut->getCategories();
+		foreach( $parserOut->getLinks() as $ns => $titles ) {
+			foreach( $titles as $title => $id )
+				$linksUpdate->mLinks[$ns][$title] = $id;
+		}
+		foreach( $parserOut->getImages() as $image => $n ) {
+			$linksUpdate->mImages[$image] = $n;
+		}
+		foreach( $parserOut->getTemplates() as $ns => $titles ) {
+			foreach( $titles as $title => $id )
+				$linksUpdate->mTemplates[$ns][$title] = $id;
+		}
+		foreach( $parserOut->getExternalLinks() as $image => $n ) {
+			$linksUpdate->mExternals[$image] = $n;
+		}
+		foreach( $parserOut->getCategories() as $category => $sort ) {
+			$linksUpdate->mCategories[$category] = $sort;
+		}
 		# Interlanguage links
 		$ill = $parserOut->getLanguageLinks();
 		foreach( $ill as $link ) {
@@ -908,9 +912,9 @@ class FlaggedRevs {
 	/**
 	* Select the desired templates based on the selected stable revision IDs
 	*/
-	function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
+	public static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
     	# Trigger for stable version parsing only
-    	if( !isset($parser->isStable) || !$parser->isStable )
+    	if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
     		return true;
     	# Only called to make fr_text, right after template/image specifiers 
     	# are added to the DB. Slaves may not have it yet...
@@ -922,7 +926,7 @@ class FlaggedRevs {
 		
 		if( !$id ) {
 			if( $id === false )
-				$parser->includesMatched = false; // May want to give an error
+				$parser->fr_includesMatched = false; // May want to give an error
 			$id = 0; // Zero for not found
 			$skip = true;
 		}
@@ -932,9 +936,9 @@ class FlaggedRevs {
 	/**
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/  
-	function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
+	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
     	# Trigger for stable version parsing only
-    	if( !isset($parser->isStable) || !$parser->isStable )
+    	if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
     		return true;
     	# Only called to make fr_text, right after template/image specifiers 
     	# are added to the DB. Slaves may not have it yet...
@@ -945,7 +949,7 @@ class FlaggedRevs {
 		
 		if( !$time ) {
 			if( $time === false ) 
-				$parser->includesMatched = false; // May want to give an error
+				$parser->fr_includesMatched = false; // May want to give an error
 			$time = 0; // Zero for not found
 			$skip = true;
 		}
@@ -955,9 +959,9 @@ class FlaggedRevs {
 	/**
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/  
-    function galleryFindStableFileTime( $ig, $nt, &$time ) {
+    public static function galleryFindStableFileTime( $ig, $nt, &$time ) {
     	# Trigger for stable version parsing only
-    	if( !isset($ig->isStable) || !$ig->isStable )
+    	if( !isset($ig->fr_isStable) || !$ig->fr_isStable )
     		return true;
     	# Slaves may not have it yet...
     	$dbr = wfGetDB( DB_MASTER );
@@ -972,12 +976,12 @@ class FlaggedRevs {
 	/**
 	* Flag of an image galley as stable
 	*/  
-    function parserMakeGalleryStable( $parser, $ig ) {
+    public static function parserMakeGalleryStable( $parser, $ig ) {
     	# Trigger for stable version parsing only
-    	if( !isset($parser->isStable) || !$parser->isStable )
+    	if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
     		return true;
     	
-    	$ig->isStable = true;
+    	$ig->fr_isStable = true;
     	
     	return true;
     }
@@ -985,8 +989,8 @@ class FlaggedRevs {
 	/**
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/  
-    function parserInjectImageTimestamps( $parser, &$text ) {
-		$parser->mOutput->mImageSHA1Keys = array();
+    public static function parserInjectImageTimestamps( $parser, &$text ) {
+		$parser->mOutput->fr_ImageSHA1Keys = array();
 		# Fetch the timestamps of the images
 		if( !empty($parser->mOutput->mImages) ) {
 			$dbr = wfGetDB( DB_SLAVE );
@@ -995,8 +999,8 @@ class FlaggedRevs {
 				__METHOD__ );
 			
 			while( $row = $dbr->fetchObject($res) ) {
-				$parser->mOutput->mImageSHA1Keys[$row->img_name] = array();
-				$parser->mOutput->mImageSHA1Keys[$row->img_name][$row->img_timestamp] = $row->img_sha1;
+				$parser->mOutput->fr_ImageSHA1Keys[$row->img_name] = array();
+				$parser->mOutput->fr_ImageSHA1Keys[$row->img_name][$row->img_timestamp] = $row->img_sha1;
 			}
 		}
 		return true;
@@ -1005,168 +1009,42 @@ class FlaggedRevs {
 	/**
 	* Insert image timestamps/SHA-1s into page output
 	*/  
-    function outputInjectImageTimestamps( $out, $parserOut ) {
-    	$out->mImageSHA1Keys = $parserOut->mImageSHA1Keys;
+    public static function outputInjectImageTimestamps( $out, $parserOut ) {
+    	$out->fr_ImageSHA1Keys = $parserOut->fr_ImageSHA1Keys;
     	
     	return true;
 	}
 	
 	/**
-	* Add a link to patrol non-reviewable pages
-	*/ 
-	public function addPatrolLink( $diff, $OldRev, $NewRev ) {
-		global $wgUser, $wgOut;
-		
-		if( $this->isPageReviewable( $NewRev->getTitle() ) )
+	* Updates parser cache output to included needed versioning params.
+	*/
+    public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
+    	global $wgUser, $action;
+		# Only trigger on article view for content pages, not for protect/delete/hist
+		if( $action !='view' || !$wgUser->isAllowed( 'review' ) ) 
 			return true;
-		// Prepare a change patrol link, if applicable
-		if( $wgUser->isAllowed( 'patrolother' ) ) {
-			// If we've been given an explicit change identifier, use it; saves time
-			if( $diff->mRcidMarkPatrolled ) {
-				$rcid = $diff->mRcidMarkPatrolled;
-			} else {
-				// Look for an unpatrolled change corresponding to this diff
-				$dbr = wfGetDB( DB_SLAVE );
-				$change = RecentChange::newFromConds(
-					array(
-						// Add redundant timestamp condition so we can use the existing index
-						'rc_timestamp' => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
-						'rc_this_oldid' => $diff->mNewid,
-						'rc_last_oldid' => $diff->mOldid,
-						'rc_patrolled' => 0,
-					),
-					__METHOD__
-				);
-				if( $change instanceof RecentChange ) {
-					$rcid = $change->mAttribs['rc_id'];
-				} else {
-					// None found
-					$rcid = 0;
-				}
-			}
-			// Build the link
-			if( $rcid ) {
-				$skin = $wgUser->getSkin();
-			
-				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-				$patrol = ' [' . $skin->makeKnownLinkObj( $reviewtitle,
-					wfMsgHtml( 'markaspatrolleddiff' ),
-					"patrolonly=1&rcid={$rcid}"
-				) . ']';
-			} else {
-				$patrol = '';
-			}
-			$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+		if( !$article || !$article->exists() || !self::isPageReviewable( $article->mTitle ) ) 
+			return true;
+		
+		$parserCache = ParserCache::singleton();
+    	$parserOut = $parserCache->get( $article, $wgUser );
+		if( $parserOut ) {
+			# Clear older, incomplete, cached versions
+			# We need the IDs of templates and timestamps of images used
+			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->fr_ImageSHA1Keys) )
+				$article->mTitle->invalidateCache();
 		}
 		return true;
-	}
-	
-	/**
-	* When a new page is made by a reviwer, try to automatically review it.
-	*/ 	
-	public function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReviewNew;
-	
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed('review') )
-			return true;
-		# Revision will be null for null edits
-		if( !$rev ) {
-			$this->skipReviewDiff = true; // Don't jump to diff...
-			return true;
-		}
-		# Assume basic flagging level
-		$flags = array();
-    	foreach( array_keys($this->dimensions) as $tag ) {
-    		$flags[$tag] = 1;
-    	}
-		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
-		
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		$this->skipAutoReview = true; // Be sure not to do stuff twice
-		
-		return true;
-	}
-
-	/**
-	* When an edit is made by a reviwer, if the current revision is the stable
-	* version, try to automatically review it.
-	*/ 
-	public function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReview;
-		
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
-			return true;
-		# Revision will be null for null edits
-		if( !$rev ) {
-			$this->skipReviewDiff = true; // Don't jump to diff...
-			return true;
-		}
-		# The previous revision was the current one.
-		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
-		if( !$prev_id )
-			return true;
-		$frev = $this->getStablePageRev( $article->mTitle );
-		# Is this an edit directly to the stable version?
-		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
-			return true;
-		# Grab the flags for this revision
-		$flags = $this->getRevisionTags( $frev->fr_rev_id );
-		# Check if user is allowed to renew the stable version.
-		# If it has been reviewed too highly for this user, abort.
-		foreach( $flags as $quality => $level ) {
-			if( !Revisionreview::userCan($quality,$level) ) {
-				return true;
-			}
-		}
-		self::autoReviewEdit( $article, $user, $text, $rev, $flags );
-		
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		$this->skipAutoReview = true; // Be sure not to do stuff twice
-		
-		return true;
-	}
-	
-	/**
-	* When a rollback is made by a reviwer, try to automatically review it.
-	*/ 	
-	public function maybeMakeRollbackReviewed( $article, $user, $rev ) {
-		global $wgFlaggedRevsAutoReview;
-		
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
-			return true;
-		# Was this revision flagged?
-		$frev = $this->getFlaggedRev( $article->getTitle(), $rev->getID() );
-		if( is_null($frev) )
-			return true;
-		# Grab the flags for this revision
-		$flags = $this->getRevisionTags( $rev->getID() );
-		# Check if user is allowed to renew the stable version.
-		# If it has been reviewed too highly for this user, abort.
-		foreach( $flags as $quality => $level ) {
-			if( !Revisionreview::userCan($quality,$level) ) {
-				return true;
-			}
-		}
-		# Select the version that is now current. Create a new article object
-		# to avoid using one with outdated field data.
-		$article = new Article( $article->getTitle() );
-		$newRev = Revision::newFromId( $article->getLatest() );
-		self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
-		
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		$this->skipAutoReview = true; // Be sure not to do stuff twice
-		
-		return true;
-	}
+    }
 
 	/**
 	* Don't let users vandalize pages by moving them.
 	*/ 		
-	public function userCanMove( $title, $user, $action, $result ) {
+	public static function userCanMove( $title, $user, $action, $result ) {
 		if( $action != 'move' )
 			return true;
 		# See if there is a stable version
-		$frev = $this->getStablePageRev( $title );
+		$frev = self::getStablePageRev( $title );
 		if( !$frev )
 			return true;
 		#  Allow for only editors/reviewers to move this
@@ -1184,13 +1062,13 @@ class FlaggedRevs {
     * This is not loggged for perfomance reasons and no one cares if talk pages and such
     * are autopatrolled.
     */     
-    public function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
+    public static function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
         global $wgUser;
         
         if( !$rev )
         	return true;
         
-        if( !$this->isPageReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
+        if( !self::isPageReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
             $dbw = wfGetDB( DB_MASTER );
             $dbw->update( 'recentchanges',
                 array( 'rc_patrolled' => 1 ),
@@ -1205,7 +1083,7 @@ class FlaggedRevs {
 	* Callback that autopromotes user according to the setting in 
     * $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
-	public function autoPromoteUser( $article, $user, &$text, &$summary, &$isminor, &$iswatch, &$section ) {
+	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$w, &$s ) {
 		global $wgUser, $wgFlaggedRevsAutopromote;
 		
 		if( !$wgFlaggedRevsAutopromote )
@@ -1242,7 +1120,6 @@ class FlaggedRevs {
 			array('USE INDEX' => 'page_time') ); 
 		if( $removed )
 			return true;
-		
 		// Check for edit spacing. This lets us know that the account has
 		// been used over N different days, rather than all in one lump.
 		// This can be expensive... so check it last.
@@ -1290,69 +1167,5 @@ class FlaggedRevs {
 		
 		return true;
     }
-    
-	/**
-	* Updates parser cache output to included needed versioning params.
-	*/
-    public function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
-    	global $wgUser, $action;
-		# Only trigger on article view for content pages, not for protect/delete/hist
-		if( $action !='view' || !$wgUser->isAllowed( 'review' ) ) 
-			return true;
-		if( !$article || !$article->exists() || !$this->isPageReviewable( $article->mTitle ) ) 
-			return true;
-		
-		$parserCache = ParserCache::singleton();
-    	$parserOut = $parserCache->get( $article, $wgUser );
-		if( $parserOut ) {
-			# Clear older, incomplete, cached versions
-			# We need the IDs of templates and timestamps of images used
-			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->mImageSHA1Keys) )
-				$article->mTitle->invalidateCache();
-		}
-		return true;
-    }
-	
-	######### Stub functions, overridden by subclass #########
-	
-    public function pageOverride() { return false; }
-    
-    public function showStableByDefault() { return false; }
-    
-    public function addTagRatings( $flags, $prettyBox = false, $css='' ) {}
-    
-    public function prettyRatingBox( $tfrev, $flags, $revs_since, $stable=true ) {}
-    
-    public function ReviewNotes( $row ) {}
-    
-    public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {}
-    
-    public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {}
-    
-    public function getStableRev( $getText=false, $forUpdate=false ) {}
-    
-    public function getVisibilitySettings( $forUpdate=false ) {}
-    
-    public function getFlagsForRevision( $rev_id ) {}
-    
-    public function isReviewable() {}
-    
-    function setPageContent( $article, &$outputDone, &$pcache ) {}
-    
-    function addToEditView( $editform ) {}
-    
-    function addReviewForm( $out ) {}
-    
-    function setPermaLink( $sktmp, &$nav_urls, &$revid, &$revid ) {}
-    
-    function setActionTabs( $sktmp, &$content_actions ) {}
-    
-    function addToHistLine( $row, &$s ) {}
-    
-    function addQuickReview( $id=NULL, $out ) {}
-    
-    function addVisibilityLink( $out ) {}
-    
-	#########
-    
+
 }
