@@ -56,6 +56,7 @@ modelos
 	'review-logpagetext'        => 'Este é un rexistro dos cambios para as revisións de [[Help:Article validation|aprobación]] do status
 	para o contido das páxinas.',
 	'review-logentry-app'       => 'revisados [[$1]]',
+	'review-logentry-dis'       => 'devaluada a versión de [[$1]]',
 	'review-logaction'          => 'revisión ID $1',
 	'stable-logpage'            => 'Rexistro de versión estábeis',
 	'stable-logpagetext'        => 'Este é un rexistro dos cambios de [[Help:Article validation|versión estábel]]
@@ -65,7 +66,7 @@ modelos
 	'revisionreview'            => 'Examinar revisións',
 	'revreview-main'            => 'Vostede debe seleccionar unha revisión particular dun contido da páxina de cara á revisión.
 
-	Véxa a [[Special:Unreviewedpages]] para a listaxe de páxinas sen revisar.',
+	Vexa a [[Special:Unreviewedpages]] para a listaxe de páxinas sen revisar.',
 	'revreview-selected'        => 'Seleccionada a revisión de \'\'\'$1:\'\'\'',
 	'revreview-text'            => 'As versións estábeis son o contido predefinido ao ver unha páxina en vez da revisión máis recente.',
 	'revreview-flag'            => 'Examinada esta revisión (#$1)',
