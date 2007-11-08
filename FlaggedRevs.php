@@ -95,13 +95,13 @@ function efLoadFlaggedRevs() {
 	# Adds table link references to include ones from the stable version
 	$wgHooks['LinksUpdateConstructed'][] = array( 'FlaggedRevs::extraLinksUpdate' );
 	# Empty flagged page settings row on delete
-	$wgHooks['ArticleDeleteComplete'][] = array( $wgFlaggedArticle, 'deleteVisiblitySettings' );
+	$wgHooks['ArticleDeleteComplete'][] = array( 'FlaggedRevs::deleteVisiblitySettings' );
 	# Check on undelete/merge/revisiondelete for changes to stable version
-	$wgHooks['ArticleUndelete'][] = array( $wgFlaggedArticle, 'articleLinksUpdate2' );
-	$wgHooks['ArticleRevisionVisiblitySet'][] = array( $wgFlaggedArticle, 'articleLinksUpdate2' );
-	$wgHooks['ArticleMergeComplete'][] = array( $wgFlaggedArticle, 'articleLinksUpdate' );
+	$wgHooks['ArticleUndelete'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
+	$wgHooks['ArticleRevisionVisiblitySet'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
+	$wgHooks['ArticleMergeComplete'][] = array( 'FlaggedRevs::articleLinksUpdate' );
 	# Update our table NS/Titles when things are moved
-	$wgHooks['SpecialMovepageAfterMove'][] = array( $wgFlaggedArticle, 'updateFromMove' );
+	$wgHooks['SpecialMovepageAfterMove'][] = array( 'FlaggedRevs::updateFromMove' );
 	# Parser hooks, selects the desired images/templates
 	$wgHooks['BeforeParserrenderImageGallery'][] = array( 'FlaggedRevs::parserMakeGalleryStable' );
 	$wgHooks['BeforeGalleryFindFile'][] = array( 'FlaggedRevs::galleryFindStableFileTime' );
@@ -235,7 +235,7 @@ $wgLogActions['rights/egrant']  = 'rights-editor-grant';
 class FlaggedRevs {
 	public static $dimensions = array();
 	
-	function load() {
+	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
