@@ -25,6 +25,7 @@ $messages = array(
 	'makevalidate-revoked-r'        => '[[User:$1|$1]] لم يعد لديه صلاحية مراجع.',
 	'makevalidate-logpage'          => 'سجل صلاحية المحرر',
 	'makevalidate-logpagetext'      => 'هذا سجل بالتغيير في صلاحيات [[{{MediaWiki:Makevalidate-page}}|تصحيح المقالات]].',
+	'makevalidate-page'             => '{{ns:help}}:توكيد المقالات',
 	'makevalidate-logentrygrant-e'  => 'منح صلاحية محرر إلى [[$1]]',
 	'makevalidate-logentryrevoke-e' => 'سحب صلاحية محرر من [[$1]]',
 	'makevalidate-logentrygrant-r'  => 'منح صلاحية مراجع إلى [[$1]]',

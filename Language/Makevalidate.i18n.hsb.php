@@ -1,4 +1,5 @@
 <?php
+
 $messages = array(
 	'makevalidate'                  => 'Wobdźěłowarjow zasadźić/wotsadźić',
 	'makevalidate-header'           => '<strong>Z tutym formularom móža administratorojo a běrokraća wužiwarjam prawo pruwowanja dać.</strong><br />
@@ -23,6 +24,7 @@ $messages = array(
 	'makevalidate-revoked-r'        => '[[User:$1|$1]] hižo status pruwowarja nima.',
 	'makevalidate-logpage'          => 'Protokol statusa wobdźěłowarja',
 	'makevalidate-logpagetext'      => 'To je protokol změnow [[{{MediaWiki:Makevalidate-page}}|pruwowanskich prawow]] wužiwarja.',
+	'makevalidate-page'             => '{{ns:help}}:Pruwowanje nastawkow',
 	'makevalidate-logentrygrant-e'  => 'Status wobdźěłowarja bu [[$1]] daty.',
 	'makevalidate-logentryrevoke-e' => 'Status wobdźěłowarja bu [[$1]] zebrany.',
 	'makevalidate-logentrygrant-r'  => 'status pruwowarja bu [[$1]] daty.',
