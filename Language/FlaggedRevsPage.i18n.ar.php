@@ -34,19 +34,19 @@ $messages = array(
 	'revreview-newest-quality'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخة الجودة الأخيرة] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) تم [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها]
 	 في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] {{plural:$3|تحتاج|تحتاج}} مراجعة.',
-	'revreview-basic'           => 'هذه آخر نسخة [[Help:Article validation|منظورة]] , 
+	'revreview-basic'           => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|منظورة]] , 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
 	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
-	'revreview-quality'         => 'هذه آخر نسخة [[Help:Article validation|جودة]], 
+	'revreview-quality'         => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|جودة]], 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
 	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
-	'revreview-static'          => 'هذه هي النسخة [[Help:Article validation|المراجعة]] من \'\'\'[[:$3|هذه الصفحة]]\'\'\', 
+	'revreview-static'          => 'هذه هي النسخة [[{{MediaWiki:Makevalidate-page}}|المراجعة]] من \'\'\'[[:$3|هذه الصفحة]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:$3|action=edit}} تعديلها].',
 	'revreview-toggle'          => '(+/-)',#identical but defined
-	'revreview-note'            => '[[User:$1]] كتب الملاحظات التالية [[Help:Article validation|عند مراجعة]] هذه النسخة:',
+	'revreview-note'            => '[[User:$1]] كتب الملاحظات التالية [[{{MediaWiki:Makevalidate-page}}|عند مراجعة]] هذه النسخة:',
 	'revreview-update'          => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) تمت منذ النسخة المستقرة لهذه الصفحة. القوالب و الصور
 ربما تكون قد تغيرت أيضا.',
 	'revreview-update-none'     => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) منذ النسخة المستقرة لهذه الصفحة.',
@@ -59,7 +59,7 @@ $messages = array(
 	'hist-quality'              => '[الجودة]',
 	'flaggedrevs'               => 'نسخ معلمة',
 	'review-logpage'            => 'سجل مراجعة المقالة',
-	'review-logpagetext'        => 'هذا سجل بالتغييرات لحالة\' [[Help:Article validation|الموافقة]] لصفحات المحتوى.',
+	'review-logpagetext'        => 'هذا سجل بالتغييرات لحالة\' [[{{MediaWiki:Makevalidate-page}}|الموافقة]] لصفحات المحتوى.',
 	'review-logentry-app'       => 'راجع $1',
 	'review-logentry-dis'       => 'أزال نسخة من $1',
 	'review-logaction'          => 'رقم النسخة $1',
