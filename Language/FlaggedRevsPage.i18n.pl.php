@@ -1,5 +1,4 @@
 <?php
-
 $messages = array(
 	'revreview-current'         => 'Szkic',
 	'tooltip-ca-current'        => 'Zobacz aktualny szkic tej strony',
@@ -42,7 +41,7 @@ $messages = array(
 	'unreviewed-category'       => 'Kategoria:',
 	'unreviewed-diff'           => 'Zmiany',
 	'unreviewed-list'           => 'Ta strona pokazuje artykuły, które nie zostały ocenione lub mają nowe, nieocenione wersje.',
-	'revreview-visibility'      => 'Ta strona ma [[Help:Article validation|wersję stabilną]], która może być [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurowana].',
+	'revreview-visibility'      => 'Ta strona ma [[{{MediaWiki:Makevalidate-page}}|wersję stabilną]], która może być [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurowana].',
 	'stabilization'             => 'Stabilizacja strony',
 	'stabilization-text'        => 'Zmień ustawienia poniżej by dostosować sposób, w jaki wersja stabilna strony [[:$1|$1]] będzie wybierana i wyświetlana.',
 	'stabilization-perm'        => 'Twoje konto nie ma wystarczających uprawnień by zmienić konfigurację stabilnej wersji. Oto aktualne ustawienia dla strony [[:$1|$1]]:',

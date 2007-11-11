@@ -17,15 +17,15 @@ $messages = array(
 	'tooltip-ca-stable'         => 'Vardé la version stàbila dla pàgina',
 	'revreview-oldrating'       => 'A l\'é stait giudicà për:',
 	'revreview-noflagged'       => 'A-i é pa gnun-a version revisionà dë sta pàgina-sì, donca a l\'é belfé ch\'a la sia \'\'\'nen\'\'\' staita
-	[[Help:Article validation|controlà]] coma qualità.',
+	[[{{MediaWiki:Makevalidate-page}}|controlà]] coma qualità.',
 	'stabilization-tab'         => '(c.q.)',
 	'tooltip-ca-default'        => 'Regolassion dij Contròj ëd Qualità',
 	'revreview-quick-none'      => '\'\'\'Corenta\'\'\'. Pa gnun-a version revisionà.',
 	'revreview-quick-see-quality' => '\'\'\'Corenta\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltima version votà për qualità]',
 	'revreview-quick-see-basic' => '\'\'\'Corenta\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltima version vardà]',
-	'revreview-quick-basic'     => '\'\'\'Vardà\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta] 
+	'revreview-quick-basic'     => '\'\'\'[[{{MediaWiki:Makevalidate-page}}|Vardà]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|modìfica|modìfiche}}])',
-	'revreview-quick-quality'   => '\'\'\'Qualità\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta] 
+	'revreview-quick-quality'   => '\'\'\'[[{{MediaWiki:Makevalidate-page}}|Qualità]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|modìfica|modìfiche}}])',
 	'revreview-newest-basic'    => 'L\'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltima version vardà] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vardeje tute]) dë sta pàgina-sì a l\'é staita [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà]
@@ -33,19 +33,19 @@ $messages = array(
 	'revreview-newest-quality'  => 'L\'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltim vot ëd qualità] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vardeje tuti]) dë sta pàgina-sì a l\'é stait [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà]
 	 dël <i>$2</i>. <br/> A-i {{plural:$3|é|son}} $3 version ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modìfiche]) ch\'a speto d\'esse revisionà.',
-	'revreview-basic'           => 'Costa-sì a l\'é l\'ùltima version [[Help:Article validation|vardà]] dla pàgina, 
+	'revreview-basic'           => 'Costa-sì a l\'é l\'ùltima version [[{{MediaWiki:Makevalidate-page}}|vardà]] dla pàgina, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta] 
 	për sòlit as peul [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifichesse] e a l\'é pì agiornà. A-i {{plural:$3|é $3 revision|son $3 version}} 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modìfiche]) ch\'a speto d\'esse vardà.',
-	'revreview-quality'         => 'Costa-sì a l\'é l\'ùltima revision ëd [[Help:Article validation|qualità]] dë sta pàgina, e a l\'é staita
+	'revreview-quality'         => 'Costa-sì a l\'é l\'ùltima revision ëd [[{{MediaWiki:Makevalidate-page}}|qualità]] dë sta pàgina, e a l\'é staita
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta] 
 	për sòlit as peul [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifichesse] e a l\'é pì agiornà. A-i {{plural:$3|é|son}} $3 version 
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modìfiche]) da revisioné.',
-	'revreview-static'          => 'Costa a l\'é na version [[Help:Article validation|revisionà]] dë \'\'\'[[:$3|sta pàgina]]\'\'\', 
+	'revreview-static'          => 'Costa a l\'é na version [[{{MediaWiki:Makevalidate-page}}|revisionà]] dë \'\'\'[[:$3|sta pàgina]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} aprovà] dij <i>$2</i>. La [{{fullurl:$3|stable=0}} version corenta] 
 	për sòlit as peul modifichesse e a l\'é pì agiornà.',
 	'revreview-toggle'          => '(visca/dësmòrta ij detaj)',
-	'revreview-note'            => '[[User:$1]] a l\'ha buta-ie ste nòte-sì a la revision, antramentr ch\'a la [[Help:Article validation|controlava]]:',
+	'revreview-note'            => '[[User:$1]] a l\'ha buta-ie ste nòte-sì a la revision, antramentr ch\'a la [[{{MediaWiki:Makevalidate-page}}|controlava]]:',
 	'revreview-update'          => 'Për piasì, ch\'a contròla le modìfiche (smonùe ambelessì sota) faite da quand a l\'é staita publicà la revision stàbila dla pàgina. A son stait modificà ëdcò jë stamp e le figure smonùe ambelessì dapress:',
 	'revreview-update-none'     => 'Për piasì, ch\'a contròla le modìfiche (smonùe ambelessì sota) faite da quand a l\'é staita publicà la revision stàbila dla pàgina.',
 	'revreview-auto'            => '(aotomàtich)',
@@ -55,13 +55,13 @@ $messages = array(
 	'hist-quality'              => '[qualità]',
 	'flaggedrevs'               => 'Revision marcà',
 	'review-logpage'            => 'Registr dij contròj dj\'artìcoj',
-	'review-logpagetext'        => 'Sossì a l\'é un registr dle modìfiche dlë stat d\'[[Help:Article validation|aprovassion]] 
+	'review-logpagetext'        => 'Sossì a l\'é un registr dle modìfiche dlë stat d\'[[{{MediaWiki:Makevalidate-page}}|aprovassion]] 
 	dle pàgine ëd contnù.',
 	'review-logentry-app'       => 'controlà [[$1]]',
 	'review-logentry-dis'       => 'depressà na version ëd [[$1]]',
 	'review-logaction'          => 'Nùmer ëd revision $1',
 	'stable-logpage'            => 'Registr dle version stàbij',
-	'stable-logpagetext'        => 'Cost-sì a l\'é un registr dle modìfiche faite a la regolassion dla [[Help:Article validation|version stàbil]] dle pàgine ëd contnù.',
+	'stable-logpagetext'        => 'Cost-sì a l\'é un registr dle modìfiche faite a la regolassion dla [[{{MediaWiki:Makevalidate-page}}|version stàbil]] dle pàgine ëd contnù.',
 	'stable-logentry'           => 'regolà la version stàbila ëd [[$1]]',
 	'stable-logentry2'          => 'azerà la version stàbila për [[$1]]',
 	'revisionreview'            => 'Revisioné le version',
@@ -114,7 +114,7 @@ $messages = array(
 	'unreviewed-category'       => 'Categorìa:',
 	'unreviewed-diff'           => 'Modìfiche',
 	'unreviewed-list'           => 'Costa-sì a l\'é na lista d\'artìcoj ch\'a son anco\' pa stait revisionà.',
-	'revreview-visibility'      => 'Sta pàgina-sì a l\'ha na [[Help:Article validation|version stàbila]], ch\'as peul [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} regolesse].',
+	'revreview-visibility'      => 'Sta pàgina-sì a l\'ha na [[{{MediaWiki:Makevalidate-page}}|version stàbila]], ch\'as peul [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} regolesse].',
 	'stabilization'             => 'Stabilisassion dla pàgina',
 	'stabilization-text'        => 'Ch\'a toca le regolassion ambelessì sota për rangé coma la version stàbila ëd [[:$1|$1]] a debia esse sërnùa e smonùa.',
 	'stabilization-perm'        => 'Sò cont a l\'ha pa ij përmess dont a fa da manca për toché le regolassion dla version stàbila. Ambelessì a-i son le regolassion corente për [[:$1|$1]]:',
