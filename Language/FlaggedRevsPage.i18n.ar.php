@@ -34,9 +34,9 @@ $messages = array(
 	'revreview-newest-quality'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخة الجودة الأخيرة] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) تم [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها]
 	 في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] {{plural:$3|تحتاج|تحتاج}} مراجعة.',
-	'revreview-basic'           => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|منظورة]] , 
+	'revreview-basic'           => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|منظورة]] ، 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
-	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
+	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
 	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
 	'revreview-quality'         => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|جودة]], 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
