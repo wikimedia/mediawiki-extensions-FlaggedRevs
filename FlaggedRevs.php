@@ -271,7 +271,7 @@ class FlaggedRevs {
      * @return array( string, bool )
      * All included pages/arguments are expanded out
      */
-    public static function expandText( $text='', $title, $id=null ) {
+    public static function expandText( $text='', $title, $id ) {
     	global $wgParser;
     	# Make our hooks to trigger
     	$wgParser->fr_isStable = true;
@@ -295,10 +295,10 @@ class FlaggedRevs {
 	 * @return ParserOutput
 	 * Get the HTML of a revision based on how it was during $timeframe
 	 */
-    public static function parseStableText( $article, $text, $id=NULL ) {
-    	global $wgParser, $wgUser;
+    public static function parseStableText( $article, $text, $id ) {
+    	global $wgParser;
     	# Default options for anons if not logged in
-    	$options = ParserOptions::newFromUser($wgUser);
+    	$options = new ParserOptions();
     	# Make our hooks to trigger
     	$wgParser->fr_isStable = true;
 		# Don't show section-edit links, they can be old and misleading
@@ -360,7 +360,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param int $rev_id
 	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @return Revision
+	 * @return Row
 	 * Will not return a revision if deleted
 	 */	
 	public static function getFlaggedRev( $title, $rev_id, $getText=false ) {
@@ -407,7 +407,6 @@ class FlaggedRevs {
 	 * @param Title $title, page title
 	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
-	 * @param bool $def, is this for the default version of a page?
 	 * @returns Row
 	*/
     public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
@@ -470,7 +469,7 @@ class FlaggedRevs {
 	 * Get visiblity restrictions on page
 	 * @param Title $title, page title
 	 * @param bool $forUpdate, use master DB?
-	 * @returns Array
+	 * @returns Array (select,override)
 	*/
     public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
     	$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
@@ -514,9 +513,8 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * @param int $title
-	 * @return bool
-	 * Is $title the main page?
+	 * @param Title $title
+	 * @return bool, is $title the main page?
 	 */	
 	public static function isMainPage( $title ) {
 		$mp = Title::newMainPage();
@@ -805,7 +803,10 @@ class FlaggedRevs {
 				'page_title' => $article->mTitle->getDBkey() ),
 			__METHOD__ );	
     }
-    
+
+	/**
+	* Update flaggedrevs table on page move
+	*/
     public static function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
     	$dbw = wfGetDB( DB_MASTER );
         $dbw->update( 'flaggedrevs',
@@ -817,7 +818,10 @@ class FlaggedRevs {
 			
 		return true;
     }
-    
+
+	/**
+	* Clears visiblity settings on page delete
+	*/    
     public static function deleteVisiblitySettings( $article, $user, $reason ) {
     	$dbw = wfGetDB( DB_MASTER );
     	$dbw->delete( 'flaggedpages',
@@ -852,9 +856,7 @@ class FlaggedRevs {
 	* Clears cache for a page when revisiondelete/undelete is used
 	*/
     public static function articleLinksUpdate2( $title, $a=null, $b=null ) {
-    	$article = new Article( $title );
-		
-		return self::articleLinksUpdate( $article, $a, $b );
+		return self::articleLinksUpdate( new Article( $title ), $a, $b );
     }
 
 	/**

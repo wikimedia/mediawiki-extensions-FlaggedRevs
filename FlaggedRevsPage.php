@@ -294,14 +294,12 @@ class Revisionreview extends SpecialPage
 	}
 
 	/**
-	 * @param Revision $rev
 	 * Adds or updates the flagged revision table for this page/id set
+	 * @param Revision $rev
+	 * @param string $notes
 	 */
-	function approveRevision( $rev=NULL, $notes='' ) {
+	function approveRevision( $rev, $notes='' ) {
 		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
-		// Skip null edits
-		if( is_null($rev) ) 
-			return false;
 		// Get the page this corresponds to
 		$title = $rev->getTitle();
 		
@@ -371,14 +369,20 @@ class Revisionreview extends SpecialPage
 		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
+		// Clear out any previous garbage.
+		// We want to be able to use this for tracking...
+		$dbw->delete( 'flaggedtemplates', 
+			array('ft_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		$dbw->delete( 'flaggedimages', 
+			array('fi_rev_id' => $rev->getId() ),
+			__METHOD__ );
 		// Update our versioning params
 		if( !empty( $tmpset ) ) {
-			$dbw->replace( 'flaggedtemplates', array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset,
-				__METHOD__ );
+			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__ );
 		}
 		if( !empty( $imgset ) ) {
-			$dbw->replace( 'flaggedimages', array( array('fi_rev_id','fi_name') ), $imgset, 
-				__METHOD__ );
+			$dbw->insert( 'flaggedimages', $imgset, __METHOD__ );
 		}
         // Get the page text and resolve all templates
         list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );

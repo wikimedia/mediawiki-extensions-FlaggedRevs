@@ -226,6 +226,9 @@ class FlaggedArticle {
 		return true;
     }
     
+    /**
+	 * Adds latest stable version tag to page when editing
+	 */
     function addToEditView( $editform ) {
 		global $wgRequest, $wgTitle, $wgOut;
 		# Talk pages cannot be validated
@@ -282,7 +285,10 @@ class FlaggedArticle {
 		}
 		return true;
     }
-	
+
+	 /**
+	 * Add review form to page when necessary
+	 */	
     function addReviewForm( $out ) {
     	global $wgArticle, $wgRequest, $action;
 
@@ -309,7 +315,10 @@ class FlaggedArticle {
 		
 		return true;
     }
-    
+  
+	 /**
+	 * Add link to stable version setting to protection form
+	 */
     function addVisibilityLink( $out ) {
     	global $wgUser, $wgRequest, $wgTitle, $action;
     	
@@ -329,7 +338,11 @@ class FlaggedArticle {
 		}
 		return true;
     }
-    
+
+	 /**
+	 * Set permalink to stable version if we are viewing a stable version.
+	 * Also sets the citation link if that extension is on.
+	 */  
     function setPermaLink( $sktmp, &$nav_urls, &$revid, &$revid ) {
 		# Non-content pages cannot be validated
 		if( !$this->pageOverride() ) 
@@ -355,7 +368,10 @@ class FlaggedArticle {
 		}
 		return true;
     }
-    
+
+	 /**
+	 * Add stable version tabs. Rename some of the others if necessary.
+	 */  
     function setActionTabs( $sktmp, &$content_actions ) {
     	global $wgRequest, $wgUser, $action, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
@@ -476,6 +492,9 @@ class FlaggedArticle {
     	return true;
     }
     
+	 /**
+	 * Add link to stable version of reviewed revisions
+	 */
     function addToHistLine( $row, &$s ) {
     	global $wgUser, $wgTitle;
 		# Non-content pages cannot be validated
@@ -507,8 +526,14 @@ class FlaggedArticle {
 		
 		return true;
     }
-    
-    function addQuickReview( $id=NULL, $out, $top=false ) {
+
+	 /**
+	 * Adds a brief review form to a page.
+	 * @param Integer $id, the revision ID
+	 * @param OutputPage $out
+	 * @param bool $top, should this form always go on top?
+	 */
+    function addQuickReview( $id, $out, $top=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, 
 			$wgFlaggedRevsOverride, $wgFlaggedRevsWatch;
 		# User must have review rights
@@ -699,8 +724,7 @@ class FlaggedArticle {
 	
 	/**
 	 * @param Row $row
-	 * @return string
-	 * Generates revision review notes
+	 * @return string, revision review notes
 	 */	    
     public function ReviewNotes( $row ) {
     	global $wgUser, $wgFlaggedRevComments;
@@ -984,7 +1008,7 @@ class FlaggedArticle {
     /**
 	 * Get visiblity restrictions on page
 	 * @param Bool $forUpdate, use DB master?
-	 * @returns Array
+	 * @returns Array (select,override)
 	*/
     public function getVisibilitySettings( $forUpdate=false ) {
     	global $wgTitle;
