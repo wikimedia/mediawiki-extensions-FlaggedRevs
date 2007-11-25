@@ -13,6 +13,7 @@ $messages = array(
 	'tooltip-ca-current'        => 'Voir l\'ébauche courante de cette page',
 	'revreview-edit'            => 'Ébauche de modification',
 	'revreview-source'          => 'Source de l\'ébauche',
+	'revreview-stable'          => 'Stable',#identical but defined
 	'tooltip-ca-stable'         => 'Voir la version stable de cette page',
 	'revreview-oldrating'       => 'Son pointage :',
 	'revreview-noflagged'       => 'Il n\'y a pas de version révisée de cette page, sa [[{{MediaWiki:Makevalidate-page}}|qualité]] est incertaine.',
@@ -28,6 +29,7 @@ $messages = array(
 	'revreview-basic'           => 'C\'est la dernière [[{{MediaWiki:Makevalidate-page}}|version vue]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le \'\'$2\'\'. L\'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.',
 	'revreview-quality'         => 'C\'est la dernière [[{{MediaWiki:Makevalidate-page}}|version de qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le \'\'$2\'\'. L\'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.',
 	'revreview-static'          => 'C\'est une [[{{MediaWiki:Makevalidate-page}}|version vue]] de \'\'\'[[:$3|$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} approuvée] le \'\'$2\'\'.',
+	'revreview-toggle'          => '(+/-)',#identical but defined
 	'revreview-note'            => '[[User:$1]] a écrit ces notes de révision :',
 	'revreview-update'          => 'Prière de revoir les modifications faites à partir de la dernière version stable. Quelques images ou modèles sont mis à jour :',
 	'revreview-update-none'     => 'Prière de revoir les modifications faites à partir de la dernière version stable.',
