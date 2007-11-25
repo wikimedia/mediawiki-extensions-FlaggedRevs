@@ -99,7 +99,7 @@ function efLoadFlaggedRevs() {
 	# Check on undelete/merge/revisiondelete for changes to stable version
 	$wgHooks['ArticleUndelete'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
 	$wgHooks['ArticleRevisionVisiblitySet'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
-	$wgHooks['ArticleMergeComplete'][] = array( 'FlaggedRevs::articleLinksUpdate' );
+	$wgHooks['ArticleMergeComplete'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
 	# Update our table NS/Titles when things are moved
 	$wgHooks['SpecialMovepageAfterMove'][] = array( 'FlaggedRevs::updateFromMove' );
 	# Parser hooks, selects the desired images/templates
