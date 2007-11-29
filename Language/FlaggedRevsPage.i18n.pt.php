@@ -82,4 +82,8 @@ Uma predefinição ou imagem pode ter sido requisitada sem uma edição específ
 	'unreviewed-category'       => 'Categoria',
 	'unreviewed-diff'           => 'Alterações',
 	'unreviewed-list'           => 'Esta página lista as páginas de conteúdo que ainda não receberam uma edição crítica ou que possuam uma nova edição a ser analisada.',
+	'stabilization'             => 'Estabilização de página',
+	'stabilization-page'        => 'Nome da página:',
+	'stabilization-def2'        => 'A revisão actual',
+	'stabilization-submit'      => 'Confirmar',
 );
