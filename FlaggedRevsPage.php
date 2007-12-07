@@ -1,6 +1,5 @@
 <?php
-
-#(c) Joerg Baach, Aaron Schulz, 2007 GPL
+#(c) Aaron Schulz, Joerg Baach, 2007 GPL
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
@@ -10,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class Revisionreview extends SpecialPage
 {
 
-    function Revisionreview() {
+    function __construct() {
         SpecialPage::SpecialPage( 'Revisionreview', 'review' );
     }
 
@@ -395,8 +394,7 @@ class Revisionreview extends SpecialPage
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
- 			'fr_namespace' => $title->getNamespace(),
- 			'fr_title'     => $title->getDBkey(),
+ 			'fr_page_id'   => $title->getArticleID(),
 			'fr_user'      => $wgUser->getId(),
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => $notes,
@@ -405,7 +403,7 @@ class Revisionreview extends SpecialPage
 			'fr_flags'     => $textFlags
 		);
 		// Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array('fr_rev_id') ), $revset, __METHOD__ );
+		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		// Set all of our flags
 		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
 		// Mark as patrolled
@@ -456,8 +454,10 @@ class Revisionreview extends SpecialPage
 		
 		wfProfileIn( __METHOD__ );
         $dbw = wfGetDB( DB_MASTER );
-		// Delete from table
-		$dbw->delete( 'flaggedrevs', array( 'fr_rev_id' => $row->fr_rev_id ) );
+		// Delete from flaggedrevs table
+		$dbw->delete( 'flaggedrevs', 
+			array( 'fr_page_id' => $row->fr_page_id, 
+				'fr_rev_id' => $row->fr_rev_id ) );
 		// Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
@@ -527,7 +527,7 @@ class Revisionreview extends SpecialPage
 class Stableversions extends SpecialPage
 {
 
-    function Stableversions() {
+    function __construct() {
         SpecialPage::SpecialPage('Stableversions');
     }
 
@@ -582,7 +582,7 @@ class Stableversions extends SpecialPage
 				$this->page->getPrefixedText() ) );
 			return;
 		}
-		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page->getDBkey() );	
+		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page );	
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
 				$this->page->getPrefixedText() ) );
@@ -662,19 +662,23 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->namespace = $namespace;
-		$this->title = $title;
+		$this->pageID = $title->getArticleID();
 		parent::__construct();
 	}
 	
 	function formatRow( $row ) {
-		$block = new Block;
 		return $this->mForm->formatRow( $row );
 	}
 
 	function getQueryInfo() {
+		global $wgFlaggedRevsNamespaces;
+	
 		$conds = $this->mConds;
-		$conds["fr_namespace"] = $this->namespace;
-		$conds["fr_title"] = $this->title;
+		// Must be in a reviewable namespace
+		if( !in_array($this->namespace, $wgFlaggedRevsNamespaces) ) {
+			$conds[] = "1 = 0";
+		}
+		$conds["fr_page_id"] = $this->pageID;
 		$conds[] = "fr_rev_id = rev_id";
 		$conds[] = "fr_user = user_id";
 		$conds[] = 'rev_deleted & '.Revision::DELETED_TEXT.' = 0';
@@ -682,7 +686,8 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 			'tables' => array('flaggedrevs','revision','user'),
 			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,
 				fr_user,user_name',
-			'conds' => $conds
+			'conds' => $conds,
+			'options' => array('USE INDEX' => 'PRIMARY')
 		);
 	}
 
@@ -697,8 +702,8 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 class Unreviewedpages extends SpecialPage
 {
 
-    function Unreviewedpages() {
-        SpecialPage::SpecialPage('Unreviewedpages');
+    function __construct() {
+        SpecialPage::SpecialPage('Unreviewedpages','unreviewedpages');
     }
 
     function execute( $par ) {
@@ -721,7 +726,7 @@ class Unreviewedpages extends SpecialPage
 			'<fieldset><legend>' . wfMsg('viewunreviewed') . '</legend>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
 			'<p>' . Xml::label( wfMsg("namespace"), 'namespace' ) . ' ' .
-			$this->getNamespaceMenu( $namespace ) .
+			FlaggedRevs::getNamespaceMenu( $namespace ) .
 			'&nbsp;' . Xml::label( wfMsg("unreviewed-category"), 'category' ) . 
 			' ' . Xml::input( 'category', 30, $category, array('id' => 'category') ) . '</p>' .
 			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) . 
@@ -733,41 +738,6 @@ class Unreviewedpages extends SpecialPage
 		
 		$sdr = new UnreviewedPagesPage( $namespace, $showoutdated, $category );
 		$sdr->doQuery( $offset, $limit );
-	}
-	
-	function getNamespaceMenu( $selected=NULL, $allnamespaces = null, $includehidden=false ) {
-		global $wgContLang, $wgFlaggedRevsNamespaces;
-		
-		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
-		if( $selected !== '' ) {
-			if( is_null( $selected ) ) {
-				// No namespace selected; let exact match work without hitting Main
-				$selected = '';
-			} else {
-				// Let input be numeric strings without breaking the empty match.
-				$selected = intval( $selected );
-			}
-		}
-		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
-		$arr = $wgContLang->getFormattedNamespaces();
-		
-		foreach($arr as $index => $name) {
-			# Content only
-			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) ) 
-				continue;
-
-			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
-
-			if($index === $selected) {
-				$s .= "\t" . Xml::element("option",
-						array("value" => $index, "selected" => "selected"),
-						$name) . "\n";
-			} else {
-				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
-			}
-		}
-		$s .= "</select>\n";
-		return $s;
 	}
 }
 
@@ -837,7 +807,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 	}
 	
 	function linkParameters() {
-		return array( 'category' => $this->category,'showoutdated' => $this->showOutdated );
+		return array( 'category' => $this->category, 'showoutdated' => $this->showOutdated );
 	}
 
 	function formatResult( $skin, $result ) {
@@ -860,10 +830,119 @@ class UnreviewedPagesPage extends PageQueryPage {
 	}
 }
 
+class Reviewedpages extends SpecialPage
+{
+
+    function __construct() {
+        SpecialPage::SpecialPage('Reviewedpages');
+    }
+
+    function execute( $par ) {
+        global $wgRequest, $wgUser;
+
+		$this->setHeaders();
+		$this->skin = $wgUser->getSkin();
+		# Our target page
+		$this->type = $wgRequest->getInt( 'level' );
+		$this->namespace = $wgRequest->getInt( 'namespace' );
+		
+		$this->showForm();
+		$this->showPageList();
+	}
+	
+	function showForm() {
+		global $wgOut, $wgTitle, $wgScript;
+		
+		$form = Xml::openElement( 'form',
+			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
+		$form .= "<fieldset><legend>".wfMsg('reviewedpages-leg')."</legend>\n";
+		
+		$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . ' ' .
+			FlaggedRevs::getNamespaceMenu( $this->namespace ) . ' ';
+		
+		$form .= Xml::openElement( 'select', array('name' => 'level') );
+		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $this->type==0 );
+		$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $this->type==1 );
+		$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $this->type==2 );
+		$form .= Xml::closeElement('select')."\n";
+
+		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
+		$form .= "</fieldset></form>\n";
+		
+		$wgOut->addHTML( $form );
+	}
+	
+	function showPageList() {
+		global $wgOut, $wgUser, $wgLang;
+		
+		$pager = new ReviewedPagesPager( $this, array(), $this->type );	
+		if( $pager->getNumRows() ) {
+			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse') ) );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+		} else {
+			$wgOut->addHTML( wfMsgExt('reviewedpages-none', array('parse') ) );
+		}
+	}
+	
+	function formatRow( $row ) {
+		global $wgLang, $wgUser;
+	
+		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+		
+		return '<li>'.$link.'</li>';	
+	}
+}
+
+/**
+ * Query to list out stable versions for a page
+ */
+class ReviewedPagesPager extends ReverseChronologicalPager {
+	public $mForm, $mConds;
+
+	function __construct( $form, $conds = array(), $type=0, $namespace=0 ) {
+		$this->mForm = $form;
+		$this->mConds = $conds;
+		$this->type = $type;
+		$this->namespace = $namespace;
+
+		parent::__construct();
+	}
+	
+	function formatRow( $row ) {
+		return $this->mForm->formatRow( $row );
+	}
+
+	function getQueryInfo() {
+		global $wgFlaggedRevsNamespaces;
+	
+		$conds = $this->mConds;
+		// Must be in a reviewable namespace
+		if( !in_array($this->namespace, $wgFlaggedRevsNamespaces) ) {
+			$conds[] = "1 = 0";
+		}
+		$conds['page_namespace'] = $this->namespace;
+		$conds['page_ext_quality'] = $this->type;
+		return array(
+			'tables' => array('page'),
+			'fields' => 'page_namespace,page_title,page_id',
+			'conds'  => $conds,
+			'options' => array('USE INDEX' => 'ext_namespace_quality')
+		);
+	}
+
+	function getIndexField() {
+		return 'page_title';
+	}
+}
+
 class Stabilization extends SpecialPage
 {
 
-    function Stabilization() {
+    function __construct() {
         SpecialPage::SpecialPage('Stabilization','stablesettings');
     }
 
@@ -1014,25 +1093,25 @@ class Stabilization extends SpecialPage
 		
 		$dbw = wfGetDB( DB_MASTER );
 		# Get current config
-		$row = $dbw->selectRow( 'flaggedpages', 
-			array( 'fp_select', 'fp_override' ),
-			array( 'fp_page_id' => $this->page->getArticleID() ),
+		$row = $dbw->selectRow( 'flaggedpage_config', 
+			array( 'fpc_select', 'fpc_override' ),
+			array( 'fpc_page_id' => $this->page->getArticleID() ),
 			__METHOD__ );
 		# If setting to site default values, erase the row if there is one
 		if( $row && $this->select==0 && $this->override==$wgFlaggedRevsOverride ) {
 			$reset = true;
 			$changed = true;
-			$dbw->delete( 'flaggedpages',
-				array( 'fp_page_id' => $this->page->getArticleID() ),
+			$dbw->delete( 'flaggedpage_config',
+				array( 'fpc_page_id' => $this->page->getArticleID() ),
 				__METHOD__ );
 		# Otherwise, add a row unless we are just setting it as the site default
 		} else if( $this->select !=0 || $this->override !=$wgFlaggedRevsOverride ) {
 			$changed = true;
-			$dbw->replace( 'flaggedpages',
-				array( 'fp_page_id' ),
-				array( 'fp_page_id' => $this->page->getArticleID(),
-					'fp_select' => $this->select,
-					'fp_override' => $this->override ),
+			$dbw->replace( 'flaggedpage_config',
+				array( 'fpc_page_id' ),
+				array( 'fpc_page_id' => $this->page->getArticleID(),
+					'fpc_select' => $this->select,
+					'fpc_override' => $this->override ),
 				__METHOD__ );
 		}
 		# Log if changed

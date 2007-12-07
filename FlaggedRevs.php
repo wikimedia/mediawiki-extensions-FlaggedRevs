@@ -1,5 +1,5 @@
 <?php
-#(c) Joerg Baach, Aaron Schulz 2007 GPL
+#(c) Aaron Schulz, Joerg Baach, 2007 GPL
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
@@ -42,6 +42,9 @@ $wgAutoloadClasses['Stableversions'] = dirname(__FILE__) . '/FlaggedRevsPage.php
 # Load unreviewed pages list
 $wgSpecialPages['Unreviewedpages'] = 'Unreviewedpages';
 $wgAutoloadClasses['Unreviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
+# Load reviewed pages list
+$wgSpecialPages['Reviewedpages'] = 'Reviewedpages';
+$wgAutoloadClasses['Reviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
@@ -70,8 +73,10 @@ function efLoadFlaggedRevs() {
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
 	# Use only our extension mechanisms
-	$wgGroupPermissions['sysop']['autopatrol'] = false;
-	$wgGroupPermissions['sysop']['patrol']     = false;
+	foreach( $wgGroupPermissions as $group => $rights ) {
+		$wgGroupPermissions[$group]['patrol'] = false;
+		$wgGroupPermissions[$group]['autopatrol'] = false;
+	}
 	# Visiblity settings
 	$wgGroupPermissions['sysop']['stablesettings'] = true;
 
@@ -99,9 +104,9 @@ function efLoadFlaggedRevs() {
 	# Check on undelete/merge/revisiondelete for changes to stable version
 	$wgHooks['ArticleUndelete'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
 	$wgHooks['ArticleRevisionVisiblitySet'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
-	$wgHooks['ArticleMergeComplete'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
-	# Update our table NS/Titles when things are moved
-	$wgHooks['SpecialMovepageAfterMove'][] = array( 'FlaggedRevs::updateFromMove' );
+	$wgHooks['ArticleMergeComplete'][] = array( 'FlaggedRevs::updateFromMerge' );
+	# Clean up after undeletion
+	$wgHooks['ArticleRevisionUndeleted'][] = array( 'FlaggedRevs::updateFromRestore' );
 	# Parser hooks, selects the desired images/templates
 	$wgHooks['BeforeParserrenderImageGallery'][] = array( 'FlaggedRevs::parserMakeGalleryStable' );
 	$wgHooks['BeforeGalleryFindFile'][] = array( 'FlaggedRevs::galleryFindStableFileTime' );
@@ -168,6 +173,9 @@ $wgFlaggedRevsExpire = 7 * 24 * 3600;
 # Compress pre-processed flagged revision text?
 $wgFlaggedRevsCompression = false;
 
+# If a template to be transcluded has a stable version, use that
+$wgFlaggedRevsStableTemplates = false;
+
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
 # Define the tags we can use to rate an article, 
@@ -192,11 +200,12 @@ $wgAvailableRights[] = 'review';
 $wgAvailableRights[] = 'validate';
 
 # Define our basic reviewer class
-$wgGroupPermissions['editor']['review']         = true;
-$wgGroupPermissions['editor']['unwatchedpages'] = true;
-$wgGroupPermissions['editor']['autoconfirmed']  = true;
-$wgGroupPermissions['editor']['patrolmarks']    = true;
-$wgGroupPermissions['editor']['patrolother']    = true;
+$wgGroupPermissions['editor']['review']          = true;
+$wgGroupPermissions['editor']['unwatchedpages']  = true;
+$wgGroupPermissions['editor']['autoconfirmed']   = true;
+$wgGroupPermissions['editor']['patrolmarks']     = true;
+$wgGroupPermissions['editor']['patrolother']     = true;
+$wgGroupPermissions['editor']['unreviewedpages'] = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
@@ -206,9 +215,9 @@ $wgGroupPermissions['reviewer']['review']   = true;
 # Define when users get automatically promoted to editors. Set as false to disable.
 $wgFlaggedRevsAutopromote = array(
 	'days'       => 60,
-	'edits'      => 200,
+	'edits'      => 150,
 	'spacing'    => 5,
-	'benchmarks' => 5, // keep this small
+	'benchmarks' => 10, // keep this small
 	'email'      => true,
 	'userpage'   => true
 );
@@ -374,8 +383,7 @@ class FlaggedRevs {
 		# Skip deleted revisions
 		$result = $dbr->select( array('flaggedrevs','revision'),
 			$selectColumns,
-			array( 'fr_namespace' => $title->getNamespace(), 
-				'fr_title' => $title->getDBKey(),
+			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id', 
 				'rev_deleted & '.Revision::DELETED_TEXT.' = 0' ),
 			__METHOD__ );
@@ -410,8 +418,7 @@ class FlaggedRevs {
 	 * @returns Row
 	*/
     public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-    	$selectColumns = array( 'fr_rev_id','fr_user','fr_timestamp','fr_comment',
-			'rev_timestamp','fr_quality' );
+    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','fr_quality');
     	if( $getText ) {
     		$selectColumns[] = 'fr_text';
     		$selectColumns[] = 'fr_flags';
@@ -420,13 +427,11 @@ class FlaggedRevs {
     	# If we want the text, then get the text flags too
     	if( !$forUpdate ) {
     		$dbr = wfGetDB( DB_SLAVE );
-        	$result = $dbr->select( array('page', 'flaggedrevs', 'revision'),
+        	$result = $dbr->select( array('page', 'flaggedrevs'),
 				$selectColumns,
-				array('page_namespace' => $title->getNamespace(),
+				array( 'page_namespace' => $title->getNamespace(),
 					'page_title' => $title->getDBkey(),
-					'page_ext_stable = fr_rev_id',
-					'fr_rev_id = rev_id',
-				 	'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+					'page_ext_stable = fr_rev_id' ),
 				__METHOD__,
 				array('LIMIT' => 1) );
 			if( !$row = $dbr->fetchObject($result) )
@@ -439,25 +444,23 @@ class FlaggedRevs {
 			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
         		$result = $dbw->select( array('flaggedrevs', 'revision'),
 					$selectColumns,
-					array('fr_namespace' => $title->getNamespace(), 
-						'fr_title' => $title->getDBkey(), 
+					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_quality >= 1', 
 						'fr_rev_id = rev_id', 
 						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 					__METHOD__,
-					array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
+					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 				$row = $dbw->fetchObject($result);
 			}
 			// Do we have one? If not, try the latest reviewed revision...
         	if( !$row ) {
         		$result = $dbw->select( array('flaggedrevs', 'revision'),
 					$selectColumns,
-					array('fr_namespace' => $title->getNamespace(), 
-						'fr_title' => $title->getDBkey(),
+					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_rev_id = rev_id', 
 						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 					__METHOD__,
-					array('ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
+					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 				if( !$row = $dbw->fetchObject($result) )
 					return null;
 			}
@@ -473,9 +476,9 @@ class FlaggedRevs {
 	*/
     public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
     	$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$row = $db->selectRow( 'flaggedpages', 
-			array( 'fp_select', 'fp_override' ),
-			array( 'fp_page_id' => $title->getArticleID() ),
+		$row = $db->selectRow( 'flaggedpage_config', 
+			array( 'fpc_select', 'fpc_override' ),
+			array( 'fpc_page_id' => $title->getArticleID() ),
 			__METHOD__ );
 		if( !$row ) {
 			global $wgFlaggedRevsOverride;
@@ -483,7 +486,7 @@ class FlaggedRevs {
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
 			return array('select' => 0, 'override' => $override);
 		}
-		return array('select' => $row->fp_select, 'override' => $row->fp_override);
+		return array('select' => $row->fpc_select, 'override' => $row->fpc_override);
 	}
     
 	/**
@@ -629,7 +632,7 @@ class FlaggedRevs {
     	if( is_null($parserOut) || !$article ) 
 			return false;
     	# Update the cache...
-		$article->mTitle->invalidateCache();
+		$article->getTitle()->invalidateCache();
 		
 		$parserCache = ParserCache::singleton();
     	$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
@@ -648,7 +651,7 @@ class FlaggedRevs {
 		# Save to objectcache
 		$parserMemc->set( $key, $parserOut, $expire );
 		# Purge squid for this page only
-		$article->mTitle->purgeSquid();
+		$article->getTitle()->purgeSquid();
 		
 		return true;
     }
@@ -698,7 +701,7 @@ class FlaggedRevs {
 		if( $poutput==false ) {
 			$options = ParserOptions::newFromUser($user);
 			$options->setTidy(true);
-			$poutput = $wgParser->parse( $text, $article->mTitle, $options, true, true, $rev->getID() );
+			$poutput = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $rev->getID() );
 			# Might as well save the cache while we're at it
 			$parserCache->save( $poutput, $article, $user );
 		}
@@ -748,8 +751,7 @@ class FlaggedRevs {
         $textFlags = self::compressText( $fulltext );
 		# Our review entry
 		$revisionset = array(
-			'fr_namespace' => $rev->getTitle()->getNamespace(),
-			'fr_title'     => $rev->getTitle()->getDBkey(),
+			'fr_page_id'   => $rev->getPage(),
 			'fr_rev_id'    => $rev->getId(),
 			'fr_user'      => $user->getId(),
 			'fr_timestamp' => wfTimestampNow(),
@@ -760,7 +762,7 @@ class FlaggedRevs {
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', 
-			array( array('fr_rev_id') ), $revisionset, 
+			array( array('fr_page_id','fr_rev_id') ), $revisionset, 
 			__METHOD__ );
 		# Set all of our flags
 		$dbw->replace( 'flaggedrevtags', 
@@ -784,7 +786,7 @@ class FlaggedRevs {
     	# Update page fields
     	self::updateArticleOn( $article, $rev->getID() );
 		# Purge squid for this page only
-		$article->mTitle->purgeSquid();
+		$article->getTitle()->purgeSquid();
 		
 		return true;
 	}
@@ -796,26 +798,72 @@ class FlaggedRevs {
 	*/
     public static function updateArticleOn( $article, $rev_id ) {
         $dbw = wfGetDB( DB_MASTER );
+        // Get the highest quality revision (not necessarily this one).
+        $maxQuality = $dbw->selectField( array('flaggedrevs', 'revision'),
+			'fr_quality',
+			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
+				'fr_rev_id = rev_id', 
+				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			__METHOD__,
+			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
+		$maxQuality = $maxQuality===false ? null : $maxQuality;
+		// Alter table metadata
         $dbw->update( 'page',
 			array('page_ext_stable' => $rev_id, 
-				'page_ext_reviewed' => ($article->getLatest() == $rev_id) ),
-			array('page_namespace' => $article->mTitle->getNamespace(), 
-				'page_title' => $article->mTitle->getDBkey() ),
+				'page_ext_reviewed' => ($article->getLatest() == $rev_id),
+				'page_ext_quality' => $maxQuality ),
+			array('page_namespace' => $article->getTitle()->getNamespace(), 
+				'page_title' => $article->getTitle()->getDBkey() ),
 			__METHOD__ );	
     }
 
 	/**
-	* Update flaggedrevs table on page move
+	* Update flaggedrevs table on revision restore
 	*/
-    public static function updateFromMove( $movePageForm, $oldtitle, $newtitle ) {
+    public static function updateFromRestore( $title, $revision, $oldPageID ) {
     	$dbw = wfGetDB( DB_MASTER );
+    	# Some revisions may have had null rev_id values stored when deleted.
+    	# This hook is called after insertOn() however, in which case it is set
+    	# as a new one.
         $dbw->update( 'flaggedrevs',
-			array('fr_namespace' => $newtitle->getNamespace(), 
-				'fr_title' => $newtitle->getDBkey() ),
-			array('fr_namespace' => $oldtitle->getNamespace(), 
-				'fr_title' => $oldtitle->getDBkey() ),
+			array( 'fr_page_id' => $revision->getPage() ),
+			array( 'fr_page_id' => $oldPageID,
+				'fr_rev_id' => $revision->getID() ),
 			__METHOD__ );
-			
+		
+		return true;
+    }
+    
+	/**
+	* Update flaggedrevs table on article history merge
+	*/
+    public static function updateFromMerge( $sourceTitle, $destTitle ) {
+    	$oldPageID = $sourceTitle->getArticleID();
+    	$newPageID = $destTitle->getArticleID();
+    	// Get flagged revisions from old page id that point to destination page
+    	$dbw = wfGetDB( DB_MASTER );
+    	$result = $dbw->select( array('flaggedrevs','revision'),
+    		array( 'fr_rev_id' ),
+    		array( 'fr_page_id' => $oldPageID,
+    			'fr_rev_id = rev_id',
+    			'rev_page' => $newPageID ),
+    		__METHOD__ );
+    	// Update these rows
+    	$revIDs = array();
+    	while( $row = $dbw->fetchObject($result) ) {
+			$revIDs[] = $row->fr_rev_id;
+		}
+		if( !empty($revIDs) ) {
+			$dbw->update( 'flaggedrevs',
+				array( 'fr_page_id' => $newPageID ),
+				array( 'fr_page_id' => $oldPageID,
+					'fr_rev_id' => $revIDs ),
+				__METHOD__ );
+		}
+		// Update pages
+		self::articleLinksUpdate2( $sourceTitle );
+		self::articleLinksUpdate2( $destTitle );
+		
 		return true;
     }
 
@@ -824,8 +872,8 @@ class FlaggedRevs {
 	*/    
     public static function deleteVisiblitySettings( $article, $user, $reason ) {
     	$dbw = wfGetDB( DB_MASTER );
-    	$dbw->delete( 'flaggedpages',
-    		array('fp_page_id' => $article->getID() ),
+    	$dbw->delete( 'flaggedpage_config',
+    		array('fpc_page_id' => $article->getID() ),
     		__METHOD__ );
     		
     	return true;
@@ -842,11 +890,11 @@ class FlaggedRevs {
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
+			$poutput = $wgParser->parse($text, $article->getTitle(), ParserOptions::newFromUser($wgUser));
 			# Might as well save the cache while we're at it
 			$parserCache->save( $poutput, $article, $wgUser );
 		}
-		$u = new LinksUpdate( $article->mTitle, $poutput );
+		$u = new LinksUpdate( $article->getTitle(), $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
 		
 		return true;
@@ -921,10 +969,26 @@ class FlaggedRevs {
     	# Only called to make fr_text, right after template/image specifiers 
     	# are added to the DB. Slaves may not have it yet...
 		$dbw = wfGetDB( DB_MASTER );
-		$id = $dbw->selectField('flaggedtemplates', 'ft_tmp_rev_id',
-			array('ft_rev_id' => $parser->mRevisionId, 
-				'ft_namespace' => $title->getNamespace(), 'ft_title' => $title->getDBkey() ),
+		$id = null;
+    	# Check for stable version of template if this feature is enabled.
+    	# Should be in reviewable namespace, this saves unneeded DB checks as
+    	# well as enforce site settings if they are later changed.
+    	global $wgFlaggedRevsStableTemplates, $wgFlaggedRevsNamespaces;
+    	if( $wgFlaggedRevsStableTemplates && in_array($title->getNamespace(), $wgFlaggedRevsNamespaces) ) {
+    		$id = $dbw->selectField( 'page', 'page_ext_stable',
+			array( 'page_namespace' => $title->getNamespace(),
+				'page_title' => $title->getDBkey() ),
 			__METHOD__ );
+    	}
+    	// If there is not stable version (or that feature is not enabled), use
+    	// the template revision during review time.
+		if( !$id ) {
+			$id = $dbw->selectField('flaggedtemplates', 'ft_tmp_rev_id',
+				array( 'ft_rev_id' => $parser->mRevisionId, 
+					'ft_namespace' => $title->getNamespace(),
+					'ft_title' => $title->getDBkey() ),
+				__METHOD__ );
+		}
 		
 		if( !$id ) {
 			if( $id === false )
@@ -945,8 +1009,9 @@ class FlaggedRevs {
     	# Only called to make fr_text, right after template/image specifiers 
     	# are added to the DB. Slaves may not have it yet...
     	$dbw = wfGetDB( DB_MASTER );
-       	$time = $dbw->selectField('flaggedimages', 'fi_img_timestamp',
-			array('fi_rev_id' => $parser->mRevisionId, 'fi_name' => $nt->getDBkey() ),
+       	$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
+			array('fi_rev_id' => $parser->mRevisionId,
+				'fi_name' => $nt->getDBkey() ),
 			__METHOD__ );
 		
 		if( !$time ) {
@@ -967,8 +1032,9 @@ class FlaggedRevs {
     		return true;
     	# Slaves may not have it yet...
     	$dbr = wfGetDB( DB_MASTER );
-        $time = $dbr->selectField('flaggedimages', 'fi_img_timestamp',
-			array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
+        $time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
+			array('fi_rev_id' => $ig->mRevisionId,
+				'fi_name' => $nt->getDBkey() ),
 			__METHOD__ );
 		$time = $time ? $time : -1; // hack, will never find this
 		
@@ -1025,7 +1091,7 @@ class FlaggedRevs {
 		# Only trigger on article view for content pages, not for protect/delete/hist
 		if( $action !='view' || !$wgUser->isAllowed( 'review' ) ) 
 			return true;
-		if( !$article || !$article->exists() || !self::isPageReviewable( $article->mTitle ) ) 
+		if( !$article || !$article->exists() || !self::isPageReviewable( $article->getTitle() ) ) 
 			return true;
 		
 		$parserCache = ParserCache::singleton();
@@ -1034,7 +1100,7 @@ class FlaggedRevs {
 			# Clear older, incomplete, cached versions
 			# We need the IDs of templates and timestamps of images used
 			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->fr_ImageSHA1Keys) )
-				$article->mTitle->invalidateCache();
+				$article->getTitle()->invalidateCache();
 		}
 		return true;
     }
@@ -1055,7 +1121,6 @@ class FlaggedRevs {
 		    $result = false;
 			return false;
 		}
-		
 		return true;
 	}
 	
@@ -1065,12 +1130,10 @@ class FlaggedRevs {
     * are autopatrolled.
     */     
     public static function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-        global $wgUser;
-        
         if( !$rev )
         	return true;
         
-        if( !self::isPageReviewable( $article->getTitle() ) && $wgUser->isAllowed('patrolother') ) {
+        if( !self::isPageReviewable( $article->getTitle() ) && $user->isAllowed('patrolother') ) {
             $dbw = wfGetDB( DB_MASTER );
             $dbw->update( 'recentchanges',
                 array( 'rc_patrolled' => 1 ),
@@ -1169,5 +1232,44 @@ class FlaggedRevs {
 		
 		return true;
     }
+    
+   	/**
+	* Get a selector of reviewable namespaces
+    * @param int $selected, namespace selected
+	*/ 
+	public static function getNamespaceMenu( $selected=NULL ) {
+		global $wgContLang, $wgFlaggedRevsNamespaces;
+		
+		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
+		if( $selected !== '' ) {
+			if( is_null( $selected ) ) {
+				// No namespace selected; let exact match work without hitting Main
+				$selected = '';
+			} else {
+				// Let input be numeric strings without breaking the empty match.
+				$selected = intval( $selected );
+			}
+		}
+		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
+		$arr = $wgContLang->getFormattedNamespaces();
+		
+		foreach($arr as $index => $name) {
+			# Content only
+			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) ) 
+				continue;
+
+			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
+
+			if($index === $selected) {
+				$s .= "\t" . Xml::element("option",
+						array("value" => $index, "selected" => "selected"),
+						$name) . "\n";
+			} else {
+				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
+			}
+		}
+		$s .= "</select>\n";
+		return $s;
+	}
 
 }

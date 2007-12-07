@@ -85,14 +85,13 @@ class FlaggedArticle {
 		
 		$skin = $wgUser->getSkin();
 		# For unreviewable pages, allow for basic patrolling
-		if( !FlaggedRevs::isPageReviewable( $article->mTitle ) ) {
+		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
 			# chance to mark this new article as patrolled.
 			$rcid = $wgRequest->getIntOrNull( 'rcid' );
 			if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'patrolother' ) ) {
 				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-				$wgOut->addHTML(
-					"<div class='patrollink'>" .
+				$wgOut->addHTML( "<div class='patrollink'>" .
 					wfMsgHtml( 'markaspatrolledlink',
 					$skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml('markaspatrolledtext'),
 						"patrolonly=1&rcid=$rcid" )
@@ -211,7 +210,7 @@ class FlaggedArticle {
 			# Set the new body HTML, place a tag on top
 			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page
-		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->mTitle ) ) {
+		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->getTitle() ) ) {
 			if( FlaggedRevs::useSimpleUI() ) {
 				$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
 					wfMsgExt('revreview-quick-none',array('parseinline'));
@@ -295,7 +294,7 @@ class FlaggedArticle {
 		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable() ) 
 			return true;
 		# Check if page is protected
-		if( $action !='view' || !$wgArticle->mTitle->quickUserCan( 'edit' ) ) {
+		if( $action !='view' || !$wgArticle->getTitle()->quickUserCan( 'edit' ) ) {
 			return true;
 		}
 		# Get revision ID
@@ -354,7 +353,7 @@ class FlaggedArticle {
 		# Replace "permalink" with an actual permanent link
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
-			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "oldid={$tfrev->fr_rev_id}" )
+			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&oldid={$tfrev->fr_rev_id}" )
 		);
 		# Are we using the popular cite extension?
 		global $wgHooks;
@@ -389,12 +388,6 @@ class FlaggedArticle {
        	if( !is_object($tfrev) ) {
 			return true;
 		}
-       	/* 
-		// If the stable version is the same is the current, move along...
-    	if( $article->getLatest() == $tfrev->fr_rev_id ) {
-       		return true;
-       	}
-       	*/
        	// Be clear about what is being edited...
        	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() ) {
        		if( isset( $content_actions['edit'] ) )
@@ -506,11 +499,10 @@ class FlaggedArticle {
     	}
     	
     	$quality = $this->dbw->selectField( 'flaggedrevs', 'fr_quality',
-    		array( 'fr_namespace' => $wgTitle->getNamespace(),
-				'fr_title' => $wgTitle->getDBKey(),
+    		array( 'fr_page_id' => $wgTitle->getArticleID(),
 				'fr_rev_id' => $row->rev_id ),
 			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY') );
+			array( 'FORCE INDEX' => 'PRIMARY' ) );
     	
     	if( $quality !== false ) {
     		$skin = $wgUser->getSkin();
@@ -590,10 +582,11 @@ class FlaggedArticle {
 			}
 			$form .= "\n" . wfMsgHtml("revreview-$quality") . ": ";
 			$selectAttribs = array( 'name' => "wp$quality" );
-			if( $disabled ) $selectAttribs['disabled'] = 'disabled';
+			if( $disabled ) 
+				$selectAttribs['disabled'] = 'disabled';
 			$form .= Xml::openElement( 'select', $selectAttribs );
 			$form .= implode( "\n", $options );
-			$form .= "</select>\n";
+			$form .= Xml::closeElement('select')."\n";
 		}
         if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<br/><p>" . wfMsgHtml( 'revreview-notes' ) . "</p>" .
@@ -638,7 +631,6 @@ class FlaggedArticle {
 			$out->mBodytext =  $form . $out->mBodytext;
 		else
 			$wgOut->addHTML( '<hr style="clear:both"/>' . $form );
-		
     }
     
 	/**
@@ -864,10 +856,10 @@ class FlaggedArticle {
 			return true;
 		}
 		# The previous revision was the current one.
-		$prev_id = $article->mTitle->getPreviousRevisionID( $rev->getID() );
+		$prev_id = $article->getTitle()->getPreviousRevisionID( $rev->getID() );
 		if( !$prev_id )
 			return true;
-		$frev = FlaggedRevs::getStablePageRev( $article->mTitle );
+		$frev = FlaggedRevs::getStablePageRev( $article->getTitle() );
 		# Is this an edit directly to the stable version?
 		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
 			return true;

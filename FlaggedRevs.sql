@@ -1,4 +1,4 @@
--- (c) Joerg Baach, Aaron Schulz, 2007
+-- (c) Aaron Schulz, Joerg Baach, 2007
 
 -- Table structure for table `Flagged Revisions`
 -- Replace /*$wgDBprefix*/ with the proper prefix
@@ -6,9 +6,11 @@
 -- This stores all of our reviews, 
 -- the corresponding tags are stored in the tag table
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
-  fr_namespace int NOT NULL default '0',
-  fr_title varchar(255) binary NOT NULL default '',
+  -- Foreign key to page.page_id
+  fr_page_id int(10) NOT NULL,
+  -- Foreign key to revision.rev_id
   fr_rev_id int(10) NOT NULL,
+  -- Foreign key to user.user_id
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob NOT NULL default '',
@@ -22,22 +24,21 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- utf8: in UTF-8
   fr_flags tinyblob NOT NULL,
   
-  PRIMARY KEY (fr_namespace,fr_title,fr_rev_id),
-  UNIQUE INDEX (fr_rev_id),
-  INDEX namespace_title_qal_rev (fr_namespace,fr_title,fr_quality,fr_rev_id)
+  PRIMARY KEY (fr_page_id,fr_rev_id),
+  INDEX namespace_title_qal_rev (fr_page_id,fr_quality,fr_rev_id)
 ) TYPE=InnoDB;
 
 -- This stores settings on how to select the default revision
-CREATE TABLE /*$wgDBprefix*/flaggedpages (
-  fp_page_id int(10) NOT NULL,
+CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
+  fpc_page_id int(10) NOT NULL,
   -- Integers to represent what to show by default:
   -- 0: quality -> stable -> current
   -- 1: latest reviewed
-  fp_select int(10) NOT NULL,
+  fpc_select int(10) NOT NULL,
   -- Override the page?
-  fp_override bool NOT NULL,
+  fpc_override bool NOT NULL,
   
-  PRIMARY KEY (fp_page_id)
+  PRIMARY KEY (fpc_page_id)
 ) TYPE=InnoDB;
 
 -- This stores all of our tag data
@@ -80,4 +81,9 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
 ALTER TABLE /*$wgDBprefix*/page 
   ADD page_ext_reviewed bool NULL,
   ADD page_ext_stable int(10) NULL,
-  ADD INDEX ext_namespace_reviewed (page_namespace,page_is_redirect,page_ext_reviewed,page_id);
+  -- The highest quality of the page's reviewed revisions.
+  -- Note that this may not be set to display by default though.
+  ADD page_ext_quality tinyint(1) default NULL,
+  
+  ADD INDEX ext_namespace_reviewed (page_namespace,page_is_redirect,page_ext_reviewed,page_id),
+  ADD INDEX ext_namespace_quality (page_namespace,page_ext_quality,page_title);

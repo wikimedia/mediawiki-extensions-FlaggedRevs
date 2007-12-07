@@ -1,7 +1,6 @@
 <?php
 // English (Aaron Schulz)
 $messages = array( 
-	'makevalidate-autosum'=> 'autopromoted',
 	'editor'              => 'Editor',
 	'group-editor'        => 'Editors',
 	'group-editor-member' => 'Editor',
@@ -142,7 +141,7 @@ $messages = array(
 	'stabilization-leg'        => 'Configure the stable version for a page',
 	'stabilization-select'     => 'How the stable version is selected',
 	'stabilization-select1'    => 'The latest quality revision; if not present, then the latest sighted one',
-	'stabilization-select2'    => 'The latest sighted revision',
+	'stabilization-select2'    => 'The latest reviewed revision',
 	'stabilization-def'        => 'Revision displayed on default page view',
 	'stabilization-def1'       => 'The stable revision; if not present, then the current one',
 	'stabilization-def2'       => 'The current revision',
@@ -157,4 +156,12 @@ $messages = array(
 	'stabilization-def-short'   => 'Default',
 	'stabilization-def-short-0' => 'Current',
 	'stabilization-def-short-1' => 'Stable',
+	
+	'reviewedpages'             => 'Reviewed pages',
+	'reviewedpages-leg'         => 'List pages reviewed to a certain level',
+	'reviewedpages-list'        => 'The following pages have been reviewed to the specified level',
+	'reviewedpages-none'        => 'There are not pages in this list',
+	'reviewedpages-lev-0'       => 'Sighted',
+	'reviewedpages-lev-1'       => 'Quality',
+	'reviewedpages-lev-2'       => 'Featured'
 );

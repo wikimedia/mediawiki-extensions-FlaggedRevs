@@ -4,8 +4,7 @@
 BEGIN;
 
 CREATE TABLE flaggedrevs (
-  fr_namespace    SMALLINT NOT NULL DEFAULT 0,
-  fr_title        TEXT     NOT NULL DEFAULT '',
+  fr_page_id      INTEGER  NOT NULL DEFAULT 0 ,
   fr_rev_id       INTEGER  NOT NULL DEFAULT 0 ,
   fr_user int(5)  INTEGER      NULL REFERENCES mwuser(user_id) ON DELETE SET NULL,
   fr_timestamp    TIMESTAMPTZ,
@@ -13,15 +12,14 @@ CREATE TABLE flaggedrevs (
   fr_quality      SMALLINT NOT NULL DEFAULT 0,
   fr_text         TEXT     NOT NULL DEFAULT '',
   fr_flags        TEXT     NOT NULL,
-  PRIMARY KEY (fr_namespace,fr_title,fr_rev_id)
+  PRIMARY KEY (fr_page_id,fr_rev_id)
 );
-CREATE UNIQUE INDEX fr_rev_id ON flaggedrevs (fr_rev_id);
-CREATE INDEX fr_namespace_title ON flaggedrevs (fr_namespace,fr_title,fr_quality,fr_rev_id);
+CREATE INDEX fr_namespace_title ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 
-CREATE TABLE flaggedpages (
-  fp_page_id   INTEGER NOT NULL PRIMARY KEY DEFAULT 0,
-  fp_select    INTEGER NOT NULL DEFAULT 0,
-  fp_override  bool NOT NULL
+CREATE TABLE flaggedpage_config (
+  fpc_page_id   INTEGER NOT NULL PRIMARY KEY DEFAULT 0,
+  fpc_select    INTEGER NOT NULL DEFAULT 0,
+  fpc_override  bool NOT NULL
 )
 
 CREATE TABLE flaggedrevtags (
@@ -49,7 +47,10 @@ CREATE TABLE flaggedimages (
 
 ALTER TABLE page 
 	ADD page_ext_reviewed bool NULL,
-	ADD page_ext_stable int(10) NULL;
+	ADD page_ext_stable INTEGER NULL,
+	ADD page_ext_quality SMALLINT DEFAULT NULL;
+
 CREATE INDEX ext_namespace_reviewed ON page (page_namespace,page_is_redirect,page_ext_reviewed,page_id);
+CREATE INDEX ext_namespace_quality ON page (page_namespace,page_ext_quality,page_title);
 
 COMMIT;
