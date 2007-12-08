@@ -582,7 +582,7 @@ class Stableversions extends SpecialPage
 				$this->page->getPrefixedText() ) );
 			return;
 		}
-		$pager = new StableRevisionsPager( $this, array(), $this->page, $this->type );	
+		$pager = new StableRevisionsPager( $this, array(), $this->page );	
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
 				$this->page->getPrefixedText() ) );
