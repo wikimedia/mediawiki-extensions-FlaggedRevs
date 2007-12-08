@@ -1,4 +1,4 @@
--- (c) Joerg Baach, Aaron Schulz, 2007
+-- (c) Aaron Schulz, 2007
 -- See FlaggedRevs.sql for details
 
 BEGIN;
