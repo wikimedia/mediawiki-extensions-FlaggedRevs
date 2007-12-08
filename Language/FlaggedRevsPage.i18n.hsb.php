@@ -1,6 +1,5 @@
 <?php
 $messages = array(
-	'makevalidate-autosum'      => 'Prawo awtomatisce spožčene',
 	'editor'                    => 'wobdźěłowar',
 	'group-editor'              => 'wobdźěłowarjo',
 	'group-editor-member'       => 'wobdźěłowar',
@@ -130,4 +129,11 @@ $messages = array(
 	'stabilization-def-short'   => 'Standard',
 	'stabilization-def-short-0' => 'Aktualny',
 	'stabilization-def-short-1' => 'Stabilny',
+	'reviewedpages'             => 'Pruwowane strony',
+	'reviewedpages-leg'         => 'Lisćinowe strony na wěstu runinu přepruwowane',
+	'reviewedpages-list'        => 'Slědowace strony buchu za podatu runinu přepruwowane',
+	'reviewedpages-none'        => 'W tutej lisćinje strony njejsu',
+	'reviewedpages-lev-0'       => 'Přehladany',
+	'reviewedpages-lev-1'       => 'Kwalita',
+	'reviewedpages-lev-2'       => 'Z funkcijemi',
 );
