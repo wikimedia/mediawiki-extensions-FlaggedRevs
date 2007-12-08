@@ -13,8 +13,8 @@
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
-    echo "error blah blah";;
-    exit;
+	echo "FlaggedRevs extension\n";
+	exit( 1 );
 }
 
 define( 'MW_MAKEVALIDATE_GRANT_GRANT', 1 );

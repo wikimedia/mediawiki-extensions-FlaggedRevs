@@ -543,31 +543,31 @@ class Stableversions extends SpecialPage
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		# We need a page...
 		if( is_null($this->page) ) {
-			$this->showForm( $wgRequest );
+			$this->showForm();
 			return;
 		}
 		
 		if( $this->oldid ) {
-			$this->showStableRevision( $wgRequest );
+			$this->showStableRevision();
 		} else {
-			$this->showForm( $wgRequest );
-			$this->showStableList( $wgRequest );
+			$this->showForm();
+			$this->showStableList();
 		}
 	}
 	
-	function showForm( $wgRequest ) {
+	function showForm() {
 		global $wgOut, $wgTitle, $wgScript;
 	
 		$pageName = str_replace( '_', ' ', $this->target );
 		
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'stableversions', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>";
-		$form .= "<table><tr>";
-		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
-		$form .= "<td>".wfMsgHtml("stableversions-page")."</td>";
-		$form .= "<td>".Xml::input('page', 40, $pageName, array( 'id' => 'page' ) )."</td>";
-		$form .= "<td>".Xml::submitButton( wfMsg( 'go' ) )."</td>";
+		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>\n";
+		$form .= "<table><tr>\n";
+		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>\n";
+		$form .= "<td>".wfMsgHtml("stableversions-page")."</td>\n";
+		$form .= "<td>".Xml::input('page', 35, $pageName, array( 'id' => 'page' ) )."</td>\n";
+		$form .= "<td>".Xml::submitButton( wfMsg( 'go' ) )."</td>\n";
 		$form .= "</tr></table>";
 		$form .= "</fieldset></form>\n";
 		
@@ -582,7 +582,7 @@ class Stableversions extends SpecialPage
 				$this->page->getPrefixedText() ) );
 			return;
 		}
-		$pager = new StableRevisionsPager( $this, array(), $this->page->getNamespace(), $this->page );	
+		$pager = new StableRevisionsPager( $this, array(), $this->page, $this->type );	
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
 				$this->page->getPrefixedText() ) );
@@ -595,7 +595,7 @@ class Stableversions extends SpecialPage
 		}
 	}
 	
-	function showStableRevision( $frev ) {
+	function showStableRevision() {
 		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedArticle;
 		// Get the revision
 		$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid, true );
@@ -658,11 +658,12 @@ class Stableversions extends SpecialPage
 class StableRevisionsPager extends ReverseChronologicalPager {
 	public $mForm, $mConds;
 
-	function __construct( $form, $conds = array(), $namespace, $title ) {
+	function __construct( $form, $conds = array(), $title ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
-		$this->namespace = $namespace;
+		$this->namespace = $title->getNamespace();
 		$this->pageID = $title->getArticleID();
+		
 		parent::__construct();
 	}
 	
@@ -842,7 +843,7 @@ class Reviewedpages extends SpecialPage
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
-		# Our target page
+		
 		$this->type = $wgRequest->getInt( 'level' );
 		$this->namespace = $wgRequest->getInt( 'namespace' );
 		
@@ -1134,19 +1135,9 @@ class Stabilization extends SpecialPage
 			else
 				$log->addEntry( 'config', $this->page, $comment );
 		}
-		
-    	$article = new Article( $this->page );
 		# Update the links tables as the stable version may now be the default page...
-		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput==false ) {
-			$text = $article->getContent();
-			$poutput = $wgParser->parse($text, $article->mTitle, ParserOptions::newFromUser($wgUser));
-			# Might as well save the cache while we're at it
-			$parserCache->save( $poutput, $article, $wgUser );
-		}
-		$u = new LinksUpdate( $article->mTitle, $poutput );
-		$u->doUpdate(); // this will trigger our hook to add stable links too...
+    	$article = new Article( $this->page );
+		FlaggedRevs::articleLinksUpdate( $article );
 		
 		# Success message
 		$wgOut->addHTML( wfMsgExt('stabilization-success',array('parse'),

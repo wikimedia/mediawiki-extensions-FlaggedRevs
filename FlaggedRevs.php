@@ -77,8 +77,6 @@ function efLoadFlaggedRevs() {
 		$wgGroupPermissions[$group]['patrol'] = false;
 		$wgGroupPermissions[$group]['autopatrol'] = false;
 	}
-	# Visiblity settings
-	$wgGroupPermissions['sysop']['stablesettings'] = true;
 
 	######### Hook attachments #########
 	$wgHooks['OutputPageParserOutput'][] = array( 'FlaggedRevs::InjectStyle' );
@@ -178,9 +176,9 @@ $wgFlaggedRevsStableTemplates = false;
 
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
-# Define the tags we can use to rate an article, 
-# and set the minimum level to have it become a "quality" version.
-# "quality" revisions take precidence over other reviewed revisions
+# Define the tags we can use to rate an article, and set the minimum level 
+# to have it become a "quality" version. "Quality" revisions take precedence 
+# over other reviewed revisions
 $wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 4;
@@ -211,6 +209,10 @@ $wgGroupPermissions['editor']['unreviewedpages'] = true;
 $wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review']   = true;
+
+# Stable version selection and default page revision selection
+# can be set per page.
+$wgGroupPermissions['sysop']['stablesettings'] = true;
 
 # Define when users get automatically promoted to editors. Set as false to disable.
 $wgFlaggedRevsAutopromote = array(
