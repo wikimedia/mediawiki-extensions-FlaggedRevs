@@ -148,4 +148,6 @@ $messages = array(
 	'reviewedpages-lev-0'       => 'منظورة',
 	'reviewedpages-lev-1'       => 'جودة',
 	'reviewedpages-lev-2'       => 'مختارة',
+	'reviewedpages-all'         => 'نسخ مراجعة',
+	'reviewedpages-best'        => 'آخر نسخة بأعلى تقييم',
 );
