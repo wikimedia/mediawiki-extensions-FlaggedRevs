@@ -163,5 +163,7 @@ $messages = array(
 	'reviewedpages-none'        => 'There are not pages in this list',
 	'reviewedpages-lev-0'       => 'Sighted',
 	'reviewedpages-lev-1'       => 'Quality',
-	'reviewedpages-lev-2'       => 'Featured'
+	'reviewedpages-lev-2'       => 'Featured',
+	'reviewedpages-all'         => 'reviewed versions',
+	'reviewedpages-best'        => 'latest highest rated revision'
 );

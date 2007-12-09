@@ -540,7 +540,8 @@ class Stableversions extends SpecialPage
 		$this->target = $wgRequest->getText( 'page' );
 		$this->page = Title::newFromUrl( $this->target );
 		# Revision ID
-		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
+		$this->oldid = $wgRequest->getVal( 'oldid' );
+		$this->oldid = ($this->oldid=='best') ? 'best' : intval($this->oldid);
 		# We need a page...
 		if( is_null($this->page) ) {
 			$this->showForm();
@@ -598,7 +599,21 @@ class Stableversions extends SpecialPage
 	function showStableRevision() {
 		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedArticle;
 		// Get the revision
-		$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid, true );
+		if( $this->oldid =='best' ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			// Get the highest quality revision (not necessarily this one).
+			$oldid = $dbr->selectField( array('flaggedrevs', 'revision'),
+				'fr_rev_id',
+				array( 'fr_page_id' => $this->page->getArticleID(),
+					'fr_rev_id = rev_id', 
+					'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+				__METHOD__,
+				array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
+			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, true );
+		} else {
+			$oldid = $this->oldid;
+			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, true );
+		}
 		// Revision must exists
 		if( is_null($frev) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
@@ -620,7 +635,7 @@ class Stableversions extends SpecialPage
 		
 		$text = FlaggedRevs::uncompressText( $frev->fr_text, $frev->fr_flags );
 		
-       	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $this->oldid );
+       	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
 		
 		wfRunHooks( 'OutputPageParserOutput', array( &$wgOut, $parserOutput ) );
 		// Set the new body HTML, place a tag on top
@@ -646,7 +661,7 @@ class Stableversions extends SpecialPage
 		
 		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
 		$link = $this->skin->makeKnownLinkObj( $SV, $time, 
-			'page='.urlencode( $this->page->getPrefixedText() ) . '&oldid='.$row->fr_rev_id );
+			'page='.$this->page->getPrefixedUrl().'&oldid='.$row->fr_rev_id );
 		
 		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';	
 	}
@@ -894,7 +909,13 @@ class Reviewedpages extends SpecialPage
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 		
-		return '<li>'.$link.'</li>';	
+		$SV = SpecialPage::getTitleFor( 'Stableversions' );
+		$list = $this->skin->makeKnownLinkObj( $SV, wfMsgHtml('reviewedpages-all'), 
+			'page=' . $title->getPrefixedUrl() );
+		$best = $this->skin->makeKnownLinkObj( $SV, wfMsgHtml('reviewedpages-best'), 
+			'page=' . $title->getPrefixedUrl() . '&oldid=best' );
+		
+		return '<li>'.$link.' ('.$list.') ['.$best.'] </li>';	
 	}
 }
 
