@@ -1,7 +1,6 @@
 <?php
 /* Arabic (Meno25) */
 $messages = array(
-	'makevalidate-autosum'      => 'ترقية تلقائية',
 	'editor'                    => 'محرر',
 	'group-editor'              => 'محررون',
 	'group-editor-member'       => 'محرر',
@@ -142,4 +141,11 @@ $messages = array(
 	'stabilization-def-short'   => 'افتراضي',
 	'stabilization-def-short-0' => 'حالي',
 	'stabilization-def-short-1' => 'مستقر',
+	'reviewedpages'             => 'صفحات مراجعة',
+	'reviewedpages-leg'         => 'عرض الصفحات المراجعة حتى مستوى معين',
+	'reviewedpages-list'        => 'الصفحات التالية تمت مراجعتها حتى المستوى المحدد',
+	'reviewedpages-none'        => 'لا توجد صفحات في هذه القائمة',
+	'reviewedpages-lev-0'       => 'منظورة',
+	'reviewedpages-lev-1'       => 'جودة',
+	'reviewedpages-lev-2'       => 'مختارة',
 );
