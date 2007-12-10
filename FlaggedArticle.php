@@ -176,7 +176,13 @@ class FlaggedArticle {
 				$parserOut = FlaggedRevs::getPageCache( $article );
 				# If no cache is available, get the text and parse it
 				if( $parserOut==false ) {
-					$text = FlaggedRevs::uncompressText( $tfrev->fr_text, $tfrev->fr_flags );
+					global $wgUseStableTemplates;
+					if( $wgUseStableTemplates ) {
+						$rev = Revision::newFromId( $frev->fr_rev_id );
+						$text = $rev->getText();
+					} else {
+						$text = self::uncompressText( $frev->fr_text, $frev->fr_flags );
+					}
        				$parserOut = FlaggedRevs::parseStableText( $article, $text, $vis_id );
        				# Update the general cache
        				FlaggedRevs::updatePageCache( $article, $parserOut );

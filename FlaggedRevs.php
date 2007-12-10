@@ -10,6 +10,7 @@ if( !defined( 'FLAGGED_CSS' ) )
 	define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
 if( !defined( 'FLAGGED_JS' ) )
 	define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
+
 if( !defined( 'FLAGGED_VIS_NORMAL' ) )
 	define('FLAGGED_VIS_NORMAL',0);
 if( !defined( 'FLAGGED_VIS_LATEST' ) )
@@ -166,13 +167,22 @@ $wgFlaggedRevsAutoReview = true;
 # Auto-review new pages with the minimal level?
 $wgFlaggedRevsAutoReviewNew = false;
 
-# How long to cache stable versions? (seconds)
-$wgFlaggedRevsExpire = 7 * 24 * 3600;
 # Compress pre-processed flagged revision text?
 $wgFlaggedRevsCompression = false;
 
-# If a template to be transcluded has a stable version, use that
-$wgFlaggedRevsStableTemplates = false;
+# When parsing a reviewed revision, if a template to be transcluded 
+# has a stable version, use that version. If not present, use the one 
+# specified when the reviewed revision was reviewed.
+$wgUseStableTemplates = false;
+# We may have templates that do not have stable version. Given situational 
+# inclusion of templates (such as parser functions that select template 
+# X or Y depending), there may also be no ID pointed to by the metadata 
+# of how the article was when it was reviewed. An example would be an 
+# article that selects a template based on time. The template to be
+# selected will change, and the metadata only points to the reviewed ID 
+# of the old template. This can be a problem if $wgUseStableTemplates is 
+# enabled. In such cases, we can select the current (unreviewed) revision.
+$wgUseCurrentTemplates = false;
 
 # When setting up new dimensions or levels, you will need to add some 
 # MediaWiki messages for the UI to show properly; any sysop can do this.
@@ -213,6 +223,7 @@ $wgGroupPermissions['reviewer']['review']   = true;
 # Stable version selection and default page revision selection
 # can be set per page.
 $wgGroupPermissions['sysop']['stablesettings'] = true;
+$wgGroupPermissions['sysop']['patrolother']     = true;
 
 # Define when users get automatically promoted to editors. Set as false to disable.
 $wgFlaggedRevsAutopromote = array(
@@ -304,7 +315,7 @@ class FlaggedRevs {
 	 * @param string $text
 	 * @param int $id
 	 * @return ParserOutput
-	 * Get the HTML of a revision based on how it was during $timeframe
+	 * Get the HTML output of a revision based on $text
 	 */
     public static function parseStableText( $article, $text, $id ) {
     	global $wgParser;
@@ -578,7 +589,7 @@ class FlaggedRevs {
 	* Get the page cache for the top stable revision of an article
 	*/   
     public static function getPageCache( $article ) {
-    	global $wgUser, $parserMemc, $wgCacheEpoch, $wgFlaggedRevsExpire;
+    	global $wgUser, $parserMemc, $wgCacheEpoch;
     	
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
@@ -629,7 +640,7 @@ class FlaggedRevs {
 	* Updates the stable cache of a page with the given $parserOut
 	*/
     public static function updatePageCache( $article, $parserOut=NULL ) {
-    	global $wgUser, $parserMemc, $wgFlaggedRevsExpire;
+    	global $wgUser, $parserMemc, $wgParserCacheExpireTime;
     	# Make sure it is valid
     	if( is_null($parserOut) || !$article ) 
 			return false;
@@ -648,7 +659,7 @@ class FlaggedRevs {
 		if( $parserOut->containsOldMagic() ){
 			$expire = 3600; # 1 hour
 		} else {
-			$expire = $wgFlaggedRevsExpire;
+			$expire = $wgParserCacheExpireTime;
 		}
 		# Save to objectcache
 		$parserMemc->set( $key, $parserOut, $expire );
@@ -917,13 +928,21 @@ class FlaggedRevs {
 		
     	if( !self::isPageReviewable( $linksUpdate->mTitle ) ) 
 			return true;
-    	# Check if this page has a stable version
-    	$sv = self::getStablePageRev( $linksUpdate->mTitle, true, true );
+    	# Check if this page has a stable version by fetching it. Do not 
+		# get the fr_text field if we are to use the latest stable template revisions.
+		global $wgUseStableTemplates;
+    	$sv = self::getStablePageRev( $linksUpdate->mTitle, !$wgUseStableTemplates, true );
     	if( !$sv )
 			return true;
-    	# Parse the revision
+    	# Get the either the full flagged revision text or the revision text
     	$article = new Article( $linksUpdate->mTitle );
-    	$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
+		if( $wgUseStableTemplates ) {
+			$rev = Revision::newFromId( $sv->fr_rev_id );
+			$text = $rev->getText();
+		} else {
+			$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
+		}
+		# Parse the text
     	$parserOut = self::parseStableText( $article, $text, $sv->fr_rev_id );
     	# Might as well update the stable cache while we're at it
     	self::updatePageCache( $article, $parserOut );
@@ -975,8 +994,8 @@ class FlaggedRevs {
     	# Check for stable version of template if this feature is enabled.
     	# Should be in reviewable namespace, this saves unneeded DB checks as
     	# well as enforce site settings if they are later changed.
-    	global $wgFlaggedRevsStableTemplates, $wgFlaggedRevsNamespaces;
-    	if( $wgFlaggedRevsStableTemplates && in_array($title->getNamespace(), $wgFlaggedRevsNamespaces) ) {
+    	global $wgUseStableTemplates, $wgFlaggedRevsNamespaces;
+    	if( $wgUseStableTemplates && in_array($title->getNamespace(), $wgFlaggedRevsNamespaces) ) {
     		$id = $dbw->selectField( 'page', 'page_ext_stable',
 			array( 'page_namespace' => $title->getNamespace(),
 				'page_title' => $title->getDBkey() ),
@@ -985,7 +1004,7 @@ class FlaggedRevs {
     	// If there is not stable version (or that feature is not enabled), use
     	// the template revision during review time.
 		if( !$id ) {
-			$id = $dbw->selectField('flaggedtemplates', 'ft_tmp_rev_id',
+			$id = $dbw->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->mRevisionId, 
 					'ft_namespace' => $title->getNamespace(),
 					'ft_title' => $title->getDBkey() ),
@@ -993,9 +1012,12 @@ class FlaggedRevs {
 		}
 		
 		if( !$id ) {
+			global $wgUseCurrentTemplates;
+		
 			if( $id === false )
 				$parser->fr_includesMatched = false; // May want to give an error
-			$id = 0; // Zero for not found
+			if( !$wgUseCurrentTemplates )
+				$id = 0; // Zero for not found
 			$skip = true;
 		}
 		return true;

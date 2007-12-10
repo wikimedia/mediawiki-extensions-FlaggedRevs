@@ -630,11 +630,16 @@ class Stableversions extends SpecialPage
 			'<span id="mwrevisionratings" style="display:block;">' .
 			wfMsg('revreview-oldrating') . $wgFlaggedArticle->addTagRatings( $flags ) .
 			'</span>';
-		// Parse the text...
+		# Get the either the full flagged revision text or the revision text
+		global $wgUseStableTemplates;
 		$article = new Article( $this->page );
-		
-		$text = FlaggedRevs::uncompressText( $frev->fr_text, $frev->fr_flags );
-		
+		if( $wgUseStableTemplates ) {
+			$rev = Revision::newFromId( $frev->fr_rev_id );
+			$text = $rev->getText();
+		} else {
+			$text = self::uncompressText( $frev->fr_text, $frev->fr_flags );
+		}
+		# Parse the revision text
        	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
 		
 		wfRunHooks( 'OutputPageParserOutput', array( &$wgOut, $parserOutput ) );
