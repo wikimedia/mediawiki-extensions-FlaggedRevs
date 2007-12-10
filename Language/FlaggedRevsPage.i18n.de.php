@@ -1,7 +1,6 @@
 <?php
 // German (Raimond Spekking)
 $messages = array( 
-	'makevalidate-autosum' => 'automatische Rechtevergabe',
 	'editor'               => 'Sichter',
 	'group-editor'         => 'Sichter',
 	'group-editor-member'  => 'Sichter',
@@ -150,7 +149,7 @@ $messages = array(
 	'stabilization-leg'       => 'Einstellungen der stabilen Version für eine Seite',
 	'stabilization-select'    => 'Auswahl der stabilen Version',
 	'stabilization-select1'   => 'Die letzte geprüfte Version; wenn keine vorhanden ist, dann die letzte gesichtete Version',
-	'stabilization-select2'   => 'Die letzte gesichtete Version',
+	'stabilization-select2'   => 'Die letzte überprüfte Version',
 	'stabilization-def'       => 'Angezeigte Version in der normalen Seitenansicht',
 	'stabilization-def1'      => 'Die stabile Version; wenn keine vorhanden ist, dann die aktuelle Version',
 	'stabilization-def2'      => 'Die aktuellste Version',
@@ -164,4 +163,14 @@ $messages = array(
 	'stabilization-def-short'   => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
+
+	'reviewedpages'             => 'Überprüfte Seiten',
+	'reviewedpages-leg'         => 'Liste der überprüften Seiten',
+	'reviewedpages-list'        => 'Die folgenden Seiten wurden überprüft und haben den angegebenen Status erhalten',
+	'reviewedpages-none'        => 'Die Liste ist leer.',
+	'reviewedpages-lev-0'       => 'Gesichtet',
+	'reviewedpages-lev-1'       => 'Quality',
+	'reviewedpages-lev-2'       => 'Exzellent',
+	'reviewedpages-all'         => 'überprüfte Versionen',
+	'reviewedpages-best'        => 'letzte am höchsten bewertete Version',
 );
