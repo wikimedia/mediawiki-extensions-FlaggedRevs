@@ -1,6 +1,5 @@
 <?php
 $messages = array(
-	'makevalidate-autosum'      => 'autopromocionado',
 	'editor'                    => 'Editor',#identical but defined
 	'group-editor'              => 'Editores',
 	'group-editor-member'       => 'Editor',#identical but defined
@@ -128,4 +127,10 @@ modelos
 	'stabilization-def-short'   => 'Por defecto',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Estábel',
+	'reviewedpages'             => 'Páxinas revisadas',
+	'reviewedpages-leg'         => 'Listaxe das páxinas revisadas a un certo nivel',
+	'reviewedpages-list'        => 'As seguintes páxinas foron revisadas a un nivel específico',
+	'reviewedpages-none'        => 'Non hai páxinas nesta listaxe',
+	'reviewedpages-lev-1'       => 'Calidade',
+	'reviewedpages-all'         => 'Versións revisadas',
 );

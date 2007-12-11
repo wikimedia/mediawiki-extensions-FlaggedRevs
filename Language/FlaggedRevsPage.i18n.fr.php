@@ -1,6 +1,5 @@
 <?php
 $messages = array(
-	'makevalidate-autosum'      => 'Autopromu',
 	'editor'                    => 'Contributeur',
 	'group-editor'              => 'Contributeurs',
 	'group-editor-member'       => 'Contributeur',
@@ -115,4 +114,12 @@ Un modèle ou une image peut avoir été demandé alors qu\'aucune version préc
 	'stabilization-def-short'   => 'Défaut',
 	'stabilization-def-short-0' => 'Courante',
 	'stabilization-def-short-1' => 'Stable',#identical but defined
+	'reviewedpages'             => 'Pages passées en revue',
+	'reviewedpages-leg'         => 'Liste des pages passées en revue à un certain niveau',
+	'reviewedpages-list'        => 'Les pages suivantes ont été passées en revue au niveau spécifié',
+	'reviewedpages-none'        => 'Cette liste est vide',
+	'reviewedpages-lev-0'       => 'Vu',
+	'reviewedpages-lev-1'       => 'Qualité',
+	'reviewedpages-lev-2'       => 'Mis en avant',
+	'reviewedpages-all'         => 'versions passées en revue',
 );
