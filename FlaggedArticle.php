@@ -181,7 +181,7 @@ class FlaggedArticle {
 						$rev = Revision::newFromId( $tfrev->fr_rev_id );
 						$text = $rev->getText();
 					} else {
-						$text = FlaggedRevs::uncompressText( $frev->fr_text, $frev->fr_flags );
+						$text = FlaggedRevs::uncompressText( $tfrev->fr_text, $tfrev->fr_flags );
 					}
        				$parserOut = FlaggedRevs::parseStableText( $article, $text, $vis_id );
        				# Update the general cache
