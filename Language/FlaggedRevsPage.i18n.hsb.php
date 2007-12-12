@@ -136,4 +136,6 @@ $messages = array(
 	'reviewedpages-lev-0'       => 'Přehladany',
 	'reviewedpages-lev-1'       => 'Kwalita',
 	'reviewedpages-lev-2'       => 'Z funkcijemi',
+	'reviewedpages-all'         => 'přepruwowane wersije',
+	'reviewedpages-best'        => 'poslednja najwyše pohódnoćena wersija',
 );
