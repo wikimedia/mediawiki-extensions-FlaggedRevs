@@ -637,7 +637,7 @@ class Stableversions extends SpecialPage
 			$rev = Revision::newFromId( $frev->fr_rev_id );
 			$text = $rev->getText();
 		} else {
-			$text = self::uncompressText( $frev->fr_text, $frev->fr_flags );
+			$text = FlaggedRevs::uncompressText( $frev->fr_text, $frev->fr_flags );
 		}
 		# Parse the revision text
        	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
