@@ -226,11 +226,14 @@ class MakeValidate extends SpecialPage {
 		
 		$log = new LogPage( 'rights' );
 		$targetPage = $user->getUserPage();
-		$newgroups = $user->getGroups();
 		
-		$log->addEntry( $type, $targetPage, $comment, 
-			array( implode( ', ',$oldgroups ), implode( ', ',$newgroups ) )
-		);
+		$params = array();
+		if( $type=='rights' ) {
+			$newgroups = $user->getGroups();
+			$params = array( implode( ', ',$oldgroups ), implode( ', ',$newgroups ) );
+		}
+		
+		$log->addEntry( $type, $targetPage, $comment, $params );
 	}
 	
 	/**

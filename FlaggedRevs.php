@@ -174,16 +174,20 @@ $wgFlaggedRevsCompression = false;
 
 # When parsing a reviewed revision, if a template to be transcluded
 # has a stable version, use that version. If not present, use the one
-# specified when the reviewed revision was reviewed.
+# specified when the reviewed revision was reviewed. Note that the 
+# fr_text column will not be used, which may reduce performance. It will
+# still be populated however, so that these settings can be retroactively
+# changed.
 $wgUseStableTemplates = false;
 # We may have templates that do not have stable version. Given situational
 # inclusion of templates (such as parser functions that select template
-# X or Y depending), there may also be no ID pointed to by the metadata
-# of how the article was when it was reviewed. An example would be an
-# article that selects a template based on time. The template to be
-# selected will change, and the metadata only points to the reviewed ID
-# of the old template. This can be a problem if $wgUseStableTemplates is
-# enabled. In such cases, we can select the current (unreviewed) revision.
+# X or Y depending), there may also be no revision ID for each template 
+# pointed to by the metadata of how the article was when it was reviewed. 
+# An example would be an article that selects a template based on time. 
+# The template to be selected will change, and the metadata only points 
+# to the reviewed revision ID of the old template. This can be a problem if 
+# $wgUseStableTemplates is enabled. In such cases, we can select the 
+# current (unreviewed) revision.
 $wgUseCurrentTemplates = false;
 
 # When setting up new dimensions or levels, you will need to add some

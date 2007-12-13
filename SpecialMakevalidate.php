@@ -5,7 +5,7 @@
  * for a particular user
  *
  * @addtogroup Extensions
- * Tiny modifications by Aaron Schulz to MakeBot
+ * Modifications by Aaron Schulz to MakeBot
  * MakeBot extension:
  ** @author Rob Church <robchur@gmail.com>
  ** @copyright © 2006 Rob Church
@@ -25,7 +25,9 @@ define( 'MW_MAKEVALIDATE_GRANT_REVOKE', 4 );
 $wgExtensionFunctions[] = 'efMakevalidate';
 $wgAvailableRights[] = 'makereview';
 $wgAvailableRights[] = 'makevalidate';
-	
+
+$wgHooks['UserRights'][] = array( 'efMakeValidateDemote' );
+
 /**	
 * Determines who can use the extension; as a default, bureaucrats are permitted
 */
@@ -61,4 +63,15 @@ function efMakeValidate() {
 		include( $f );
 	}
 	$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
+}
+
+function efMakeValidateDemote( $u, $addgroup, $removegroup ) {
+	if( $removegroup && in_array( 'editor', $removegroup ) ) {
+		$log = new LogPage( 'rights' );
+		$targetPage = $u->getUserPage();
+		# Add dummy entry to mark that a user's editor rights
+		# were removed. This avoid auto-promotion.
+		$log->addEntry( 'erevoke', $targetPage, '', array() );
+	}
+	return true;
 }
