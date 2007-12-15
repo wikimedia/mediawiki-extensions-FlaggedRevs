@@ -113,5 +113,12 @@ $messages = array(
 	'stabilization-def-short-0'   => 'Correnta',
 	'stabilization-def-short-1'   => 'Establa',
 	'reviewedpages'               => 'Pagina passadas en revista',
+	'reviewedpages-leg'           => 'Lista de las paginas passadas en revista a un cèrt nivèl',
+	'reviewedpages-list'          => 'Las paginas seguentas son estadas passadas en revista al nivèl especificat',
+	'reviewedpages-none'          => 'Aquesta lista es voida',
+	'reviewedpages-lev-0'         => 'Vist',
+	'reviewedpages-lev-1'         => 'Qualitat',
+	'reviewedpages-lev-2'         => 'Mes en abans',
+	'reviewedpages-all'           => 'versions passadas en revista',
 
 );
