@@ -120,5 +120,4 @@ $messages = array(
 	'reviewedpages-lev-1'         => 'Qualitat',
 	'reviewedpages-lev-2'         => 'Mes en abans',
 	'reviewedpages-all'           => 'versions passadas en revista',
-
 );
