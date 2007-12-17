@@ -744,7 +744,7 @@ class FlaggedArticle {
 	public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {
 		global $wgRequest, $wgUser, $wgOut;
 		
-		if( !$wgUser->isAllowed( 'review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
+		if( !$wgUser->isAllowed('review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
 			return true;
 		
 		$frev = $this->getStableRev();
@@ -920,15 +920,30 @@ class FlaggedArticle {
 	}
 	
 	/**
-	* Add a link to patrol non-reviewable pages
+	* Add a link to patrol non-reviewable pages.
+	* Also add a diff to stable for other pages if possible.
 	*/ 
 	public function addPatrolLink( $diff, $OldRev, $NewRev ) {
 		global $wgUser, $wgOut;
-		
-		if( FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) )
-			return true;
+		// Is there a stable version?
+		if( FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) ) {
+			global $wgFlaggedArticle;
+			
+			$frev = $this->getStableRev();
+			if( $frev && $frev->fr_rev_id==$OldRev->getID() && $NewRev->isCurrent() ) {
+				$wgFlaggedArticle->isDiffFromStable = true;
+			}
+			// Give a link to the diff-to-stable if needed
+			if( $frev && !$wgFlaggedArticle->isDiffFromStable ) {
+				$skin = $wgUser->getSkin();
+			
+				$patrol = '(' . $skin->makeKnownLinkObj( $NewRev->getTitle(),
+					wfMsgHtml( 'review-diff2stable' ),
+					"oldid={$frev->fr_rev_id}&diff=cur&editreview=1" ) . ')';
+				$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+			}
 		// Prepare a change patrol link, if applicable
-		if( $wgUser->isAllowed( 'patrolother' ) ) {
+		} else if( $wgUser->isAllowed( 'patrolother' ) ) {
 			// If we've been given an explicit change identifier, use it; saves time
 			if( $diff->mRcidMarkPatrolled ) {
 				$rcid = $diff->mRcidMarkPatrolled;
@@ -957,10 +972,9 @@ class FlaggedArticle {
 				$skin = $wgUser->getSkin();
 			
 				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-				$patrol = ' [' . $skin->makeKnownLinkObj( $reviewtitle,
+				$patrol = '[' . $skin->makeKnownLinkObj( $reviewtitle,
 					wfMsgHtml( 'markaspatrolleddiff' ),
-					"patrolonly=1&rcid={$rcid}"
-				) . ']';
+					"patrolonly=1&rcid={$rcid}") . ']';
 			} else {
 				$patrol = '';
 			}

@@ -60,6 +60,8 @@ class Revisionreview extends SpecialPage
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
+		// Watch checkbox
+		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
 		// Special parameter mapping
 		$this->templateParams = $wgRequest->getVal( 'templateParams' );
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
@@ -103,7 +105,7 @@ class Revisionreview extends SpecialPage
 			$valid = false;
 		
 		if( $valid && $wgRequest->wasPosted() ) {
-			$this->submit( $wgRequest );
+			$this->submit();
 		} else {
 			$this->showRevision();
 		}
@@ -250,7 +252,7 @@ class Revisionreview extends SpecialPage
 			"<li> $difflink $revlink " . $this->skin->revUserLink( $rev ) . " " . $this->skin->revComment( $rev ) . "</li>";
 	}
 	
-	function submit( $request ) {
+	function submit() {
 		global $wgOut, $wgUser, $wgFlaggedRevTags;
 		# If all values are set to zero, this has been unapproved
 		$approved = empty($wgFlaggedRevTags);
@@ -281,7 +283,7 @@ class Revisionreview extends SpecialPage
 			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
 		// Return to our page			
 		if( $success ) {
-			if( $request->getCheck( 'wpWatchthis' ) ) {
+			if( $this->watchThis ) {
 				$wgUser->addWatch( $this->page );
 			} else {
 				$wgUser->removeWatch( $this->page );
@@ -999,6 +1001,8 @@ class Stabilization extends SpecialPage
 		# Our target page
 		$this->target = $wgRequest->getText( 'page' );
 		$this->page = Title::newFromUrl( $this->target );
+		# Watch checkbox
+		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
 		# Params
 		$this->select = $wgRequest->getInt( 'select' );
 		$this->override = intval( $wgRequest->getBool( 'override' ) );
@@ -1095,6 +1099,13 @@ class Stabilization extends SpecialPage
 		$form .= "</tr></table></fieldset>";
 		
 		if( $this->isAllowed ) {
+			$watchLabel = wfMsgExt('watchthis', array('parseinline'));
+			$watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
+			$watchChecked = ( $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
+		
+			$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
+			$form .= "&nbsp;<label for='wpWatchthis'".$this->skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";
+		
 			$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
 			$form .= Xml::hidden('page', $this->page->getPrefixedText() );
 			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
@@ -1164,6 +1175,12 @@ class Stabilization extends SpecialPage
 		# Update the links tables as the stable version may now be the default page...
     	$article = new Article( $this->page );
 		FlaggedRevs::articleLinksUpdate( $article );
+		
+		if( $this->watchThis ) {
+			$wgUser->addWatch( $this->page );
+		} else {
+			$wgUser->removeWatch( $this->page );
+		}
 		
 		# Success message
 		$wgOut->addHTML( wfMsgExt('stabilization-success',array('parse'),
