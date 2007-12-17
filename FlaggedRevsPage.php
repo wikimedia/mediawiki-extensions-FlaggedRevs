@@ -448,7 +448,7 @@ class Revisionreview extends SpecialPage
 	 * Removes flagged revision data for this page/id set
 	 */  
 	function unapproveRevision( $row=NULL ) {
-		global $wgUser, $wgFlaggedRevsWatch;
+		global $wgUser, $wgParser, $wgFlaggedRevsWatch;
 	
 		if( is_null($row) ) return false;
 		
