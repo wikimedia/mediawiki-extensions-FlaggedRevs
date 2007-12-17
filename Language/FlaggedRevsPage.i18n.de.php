@@ -128,8 +128,7 @@ $messages = array(
 	'stableversions-list'   => 'Dies ist die Liste der überprüften Versionen von „[[:$1]]“:',
 	'stableversions-review' => 'überprüft am <i>$1</i> durch $2',
 
-	'review-diff2stable'    => 'Unterschied zur letzten stabilen Version',
-	'review-diff2oldest'    => "Unterschied zur ältesten Version",
+	'review-diff2stable'    => 'Unterschied zur stabilen Version',
 
 	'unreviewedpages'       => 'Nicht überprüfte Artikel',
 	'viewunreviewed'        => 'Liste nicht überprüfter Artikel',
@@ -156,7 +155,7 @@ $messages = array(
 	'stabilization-submit'    => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
 	'stabilization-success'   => 'Einstellungen für die stabile Version von „[[:$1|$1]]“ erfolgreich gespeichert.',
-
+	'stabilization-comment'     => 'Kommentar:',
 	'stabilization-sel-short'   => 'Priorität',
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'keine',
