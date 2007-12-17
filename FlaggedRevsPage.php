@@ -1099,19 +1099,19 @@ class Stabilization extends SpecialPage
 		$form .= "</tr></table></fieldset>";
 		
 		if( $this->isAllowed ) {
+			$form .= '<p>'.Xml::inputLabel( wfMsg( 'stabilization-comment' ), 'wpReason', 'wpReason', 60 ).'</p>';
+			
 			$watchLabel = wfMsgExt('watchthis', array('parseinline'));
 			$watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
-		
 			$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
 			$form .= "&nbsp;<label for='wpWatchthis'".$this->skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";
-		
+			
 			$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
 			$form .= Xml::hidden('page', $this->page->getPrefixedText() );
 			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 		
-			$form .= '<p>'.Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
-			$form .= Xml::submitButton( wfMsg( 'stabilization-submit' ) );
+			$form .= '<p>'.Xml::submitButton( wfMsg( 'stabilization-submit' ) ).'</p>';
 		}
 		$form .= '</form>';
 		

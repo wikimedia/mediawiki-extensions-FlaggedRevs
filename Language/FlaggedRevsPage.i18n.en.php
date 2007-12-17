@@ -148,6 +148,7 @@ $messages = array(
 	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]". No configuration is possible.',
 	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed. No configuration is possible.',
 	'stabilization-success'    => 'Stable version configuration for [[:$1|$1]] successfuly set.',
+	'stabilization-comment'     => 'Comment:',
 	
 	'stabilization-sel-short'   => 'Precedence',
 	'stabilization-sel-short-0' => 'Quality',
@@ -164,5 +165,5 @@ $messages = array(
 	'reviewedpages-lev-1'       => 'Quality',
 	'reviewedpages-lev-2'       => 'Featured',
 	'reviewedpages-all'         => 'reviewed versions',
-	'reviewedpages-best'        => 'latest highest rated revision'
+	'reviewedpages-best'        => 'latest highest rated revision',
 );
