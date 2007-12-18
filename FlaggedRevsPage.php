@@ -1153,9 +1153,9 @@ class Stabilization extends SpecialPage
 			$set[] = wfMsg( "stabilization-def-short" ) . ": " . 
 				wfMsg("stabilization-def-short-{$this->override}");
 			
-			$settings = ' [' . implode(', ',$set). ']';
+			$settings = '[' . implode(', ',$set). ']';
 			// Append comment with settings
-			$comment = ($this->comment) ? "{$this->comment}$settings" : "$settings";
+			$comment = $this->comment ? "{$this->comment} $settings" : "$settings";
 			
 			if( $reset )
 				$log->addEntry( 'reset', $this->page, $this->comment );
@@ -1172,8 +1172,6 @@ class Stabilization extends SpecialPage
 			$wgUser->removeWatch( $this->page );
 		}
 		
-		# Success message
-		$wgOut->addHTML( wfMsgExt('stabilization-success',array('parse'),
-			$this->page->getPrefixedText() ) );
+		$wgOut->redirect( $this->page->getFullUrl() );
 	}
 }
