@@ -120,7 +120,7 @@ class FlaggedArticle {
 		} else if( !is_null($tfrev) ) {
 			global $wgLang;
 			# Get flags and date
-			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
+			$flags = FlaggedRevs::expandRevisionTags( $tfrev->fr_tags );
 			# Get quality level
 			$quality = FlaggedRevs::isQuality( $flags );
 			$pristine =  FlaggedRevs::isPristine( $flags );
@@ -256,7 +256,7 @@ class FlaggedArticle {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
 			
 			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
-			$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
+			$flags = FlaggedRevs::expandRevisionTags( $tfrev->fr_tags );
 			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
 			# Construct some tagging
 			$msg = FlaggedRevs::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -274,8 +274,6 @@ class FlaggedArticle {
 			if( !$wgFlaggedRevsAutoReview )
 				return true;
 			if( $wgUser->isAllowed('review') && $tfrev->fr_rev_id==$editform->mArticle->getLatest() ) {
-				# Grab the flags for this revision
-				$flags = $this->getFlagsForRevision( $tfrev->fr_rev_id );
 				# Check if user is allowed to renew the stable version.
 				# If it has been reviewed too highly for this user, abort.
 				foreach( $flags as $quality => $level ) {
@@ -870,7 +868,7 @@ class FlaggedArticle {
 		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
 			return true;
 		# Grab the flags for this revision
-		$flags = FlaggedRevs::getRevisionTags( $frev->fr_rev_id );
+		$flags = FlaggedRevs::expandRevisionTags( $frev->fr_tags );
 		# Check if user is allowed to renew the stable version.
 		# If it has been reviewed too highly for this user, abort.
 		foreach( $flags as $quality => $level ) {
@@ -1045,12 +1043,11 @@ class FlaggedArticle {
     	global $wgFlaggedRevTags;
     	# Cached results?
     	if( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
-    		return $this->revflags[$rev_id];
+    		return $this->flags[$rev_id];
     	# Get the flags
     	$flags = FlaggedRevs::getRevisionTags( $rev_id );
 		# Try to cache results
-		$this->flags[$rev_id] = true;
-		$this->revflags[$rev_id] = $flags;
+		$this->flags[$rev_id] = $flags;
 		
 		return $flags;
 	}

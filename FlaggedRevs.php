@@ -267,6 +267,11 @@ class FlaggedRevs {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
+			if( strpos($tag,':') ) {
+				throw new MWException( 'FlaggedRevs given invalid tag name!' );
+			} else if( intval($minQL) != $minQL ) {
+				throw new MWException( 'FlaggedRevs given invalid tag value!' );
+			}
 			self::$dimensions[$tag] = array();
 			for( $i=0; $i <= $wgFlaggedRevValues; $i++ ) {
 				self::$dimensions[$tag][$i] = "$tag-$i";
@@ -392,16 +397,16 @@ class FlaggedRevs {
 	 * Will not return a revision if deleted
 	 */
 	public static function getFlaggedRev( $title, $rev_id, $getText=false ) {
-    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp');
+    	$columns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp','fr_tags');
     	if( $getText ) {
-    		$selectColumns[] = 'fr_text';
-    		$selectColumns[] = 'fr_flags';
+    		$columns[] = 'fr_text';
+    		$columns[] = 'fr_flags';
     	}
 
 		$dbr = wfGetDB( DB_SLAVE );
 		# Skip deleted revisions
 		$result = $dbr->select( array('flaggedrevs','revision'),
-			$selectColumns,
+			$columns,
 			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id',
 				'rev_deleted & '.Revision::DELETED_TEXT.' = 0' ),
@@ -437,17 +442,17 @@ class FlaggedRevs {
 	 * @returns Row
 	*/
     public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-    	$selectColumns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','fr_quality');
+    	$columns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
     	if( $getText ) {
-    		$selectColumns[] = 'fr_text';
-    		$selectColumns[] = 'fr_flags';
+    		$columns[] = 'fr_text';
+    		$columns[] = 'fr_flags';
     	}
     	$row = null;
     	# If we want the text, then get the text flags too
     	if( !$forUpdate ) {
     		$dbr = wfGetDB( DB_SLAVE );
         	$result = $dbr->select( array('page', 'flaggedrevs'),
-				$selectColumns,
+				$columns,
 				array( 'page_namespace' => $title->getNamespace(),
 					'page_title' => $title->getDBkey(),
 					'page_ext_stable = fr_rev_id' ),
@@ -462,7 +467,7 @@ class FlaggedRevs {
 			// Look for the latest quality revision
 			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
         		$result = $dbw->select( array('flaggedrevs', 'revision'),
-					$selectColumns,
+					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_quality >= 1',
 						'fr_rev_id = rev_id',
@@ -474,7 +479,7 @@ class FlaggedRevs {
 			// Do we have one? If not, try the latest reviewed revision...
         	if( !$row ) {
         		$result = $dbw->select( array('flaggedrevs', 'revision'),
-					$selectColumns,
+					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_rev_id = rev_id',
 						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
@@ -510,28 +515,58 @@ class FlaggedRevs {
 
 	/**
 	 * Get flags for a revision
-	 * @param int $rev_id
+	 * @param string $tags
 	 * @return Array
 	*/
-    public static function getRevisionTags( $rev_id ) {
+    public static function expandRevisionTags( $tags ) {
     	# Set all flags to zero
     	$flags = array();
     	foreach( self::$dimensions as $tag => $minQL ) {
     		$flags[$tag] = 0;
     	}
-    	# Grab all the tags for this revision
-		$db = wfGetDB( DB_SLAVE );
-		$result = $db->select('flaggedrevtags',
-			array('frt_dimension', 'frt_value'),
-			array('frt_rev_id' => $rev_id),
-			__METHOD__ );
-		# Iterate through each tag result
-		while( $row = $db->fetchObject($result) ) {
-			# Add only currently recognized ones
-			if( isset($flags[$row->frt_dimension]) )
-				$flags[$row->frt_dimension] = $row->frt_value;
+		$tags = explode('\n',$tags);
+		foreach( $tags as $tuple ) {
+			$set = explode(':',$tuple,2);
+			if( count($set) == 2 ) {
+				list($tag,$value) = $set;
+				# Add only currently recognized ones
+				if( isset($flags[$tag]) ) {
+					$flags[$tag] = intval($value);
+				}
+			}
 		}
 		return $flags;
+	}
+	
+	/**
+	 * Get flags for a revision
+	 * @param Array $tags
+	 * @return string
+	*/
+    public static function flattenRevisionTags( $tags ) {
+		$flags = '';
+		foreach( $tags as $tag => $value ) {
+			# Add only currently recognized ones
+			if( isset(self::$dimensions[$tag]) ) {
+				$flags .= $tag . ':' . intval($value) . '\n';
+			}
+		}
+		return $flags;
+	}
+	
+	/**
+	 * Get flags for a revision
+	 * @param int $rev_id
+	 * @return Array
+	*/
+	public static function getRevisionTags( $rev_id ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$tags = $dbr->selectField('flaggedrevs', 'fr_tags',
+			array('fr_rev_id' => $rev_id ),
+			__METHOD__ );
+		$tags = strval($tags);
+		
+		return self::expandRevisionTags( $tags );
 	}
 
 	/**
@@ -705,14 +740,7 @@ class FlaggedRevs {
 		if( self::isQuality($flags) ) {
 			$quality = self::isPristine($flags) ? 2 : 1;
 		}
-		$flagset = $tmpset = $imgset = array();
-		foreach( $flags as $tag => $value ) {
-			$flagset[] = array(
-				'frt_rev_id' => $rev->getId(),
-				'frt_dimension' => $tag,
-				'frt_value' => $value
-			);
-		}
+		$tmpset = $imgset = array();
 		# Try the parser cache, should be set on the edit before this is called.
 		# If not set or up to date, then parse it...
 		$parserCache = ParserCache::singleton();
@@ -776,16 +804,13 @@ class FlaggedRevs {
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => '',
 			'fr_quality'   => $quality,
+			'fr_tags'      => self::flattenRevisionTags( $flags ),
 			'fr_text'      => $fulltext, // Store expanded text for speed
 			'fr_flags'     => $textFlags
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
 			array( array('fr_page_id','fr_rev_id') ), $revisionset,
-			__METHOD__ );
-		# Set all of our flags
-		$dbw->replace( 'flaggedrevtags',
-			array( array('frt_rev_id','frt_dimension') ), $flagset,
 			__METHOD__ );
 		# Mark as patrolled
 		$dbw->update( 'recentchanges',

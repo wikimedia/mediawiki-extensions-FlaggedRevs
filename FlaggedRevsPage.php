@@ -309,14 +309,7 @@ class Revisionreview extends SpecialPage
 			$quality = FlaggedRevs::isPristine($this->dims) ? 2 : 1;
 		}
 		// Our flags
-		$flagset = array();
-		foreach( $this->dims as $tag => $value ) {
-			$flagset[] = array(
-				'frt_rev_id' => $rev->getId(),
-				'frt_dimension' => $tag,
-				'frt_value' => $value 
-			);
-		}
+		$flags = $this->dims;
 		// Our template version pointers
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
@@ -401,13 +394,12 @@ class Revisionreview extends SpecialPage
 			'fr_timestamp' => wfTimestampNow(),
 			'fr_comment'   => $notes,
 			'fr_quality'   => $quality,
+			'fr_tags'      => FlaggedRevs::flattenRevisionTags( $flags ),
 			'fr_text'      => $fulltext, // Store expanded text for speed
 			'fr_flags'     => $textFlags
 		);
 		// Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
-		// Set all of our flags
-		$dbw->replace( 'flaggedrevtags', array( array('frt_rev_id','frt_dimension') ), $flagset, __METHOD__ );
 		// Mark as patrolled
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => 1 ),
@@ -463,8 +455,6 @@ class Revisionreview extends SpecialPage
 		// Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
-		// And the flags...
-		$dbw->delete( 'flaggedrevtags', array( 'frt_rev_id' => $row->fr_rev_id ) );
 		
 		// Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );

@@ -10,6 +10,7 @@ CREATE TABLE flaggedrevs (
   fr_timestamp    TIMESTAMPTZ,
   fr_comment      TEXT     NOT NULL DEFAULT '',
   fr_quality      SMALLINT NOT NULL DEFAULT 0,
+  fr_tags         TEXT     NOT NULL DEFAULT '',
   fr_text         TEXT     NOT NULL DEFAULT '',
   fr_flags        TEXT     NOT NULL,
   PRIMARY KEY (fr_page_id,fr_rev_id)
@@ -21,13 +22,6 @@ CREATE TABLE flaggedpage_config (
   fpc_select    INTEGER NOT NULL DEFAULT 0,
   fpc_override  bool NOT NULL
 )
-
-CREATE TABLE flaggedrevtags (
-  frt_rev_id     INTEGER  NOT NULL DEFAULT 0 ,
-  frt_dimension  TEXT     NOT NULL DEFAULT '',
-  frt_value      SMALLINT NOT NULL DEFAULT 0,
-  PRIMARY KEY (frt_rev_id,frt_dimension)
-);
 
 CREATE TABLE flaggedtemplates (
   ft_rev_id      INTEGER  NOT NULL DEFAULT 0 ,
