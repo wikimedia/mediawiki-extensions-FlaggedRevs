@@ -189,12 +189,8 @@ class FlaggedArticle {
        				# Update the general cache
        				FlaggedRevs::updatePageCache( $article, $parserOut );
        			}
-       			$wgOut->mBodytext = $parserOut->getText();
-       			# Show stable categories and interwiki links only
-       			$wgOut->mCategoryLinks = array();
-       			$wgOut->addCategoryLinks( $parserOut->getCategories() );
-       			$wgOut->mLanguageLinks = array();
-       			$wgOut->addLanguageLinks( $parserOut->getLanguageLinks() );
+				# Output HTML
+       			$wgOut->addParserOutput( $parserOut );
 				$notes = $this->ReviewNotes( $tfrev );
 				# Tell MW that parser output is done
 				$outputDone = true;
