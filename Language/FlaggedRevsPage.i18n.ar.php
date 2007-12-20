@@ -23,6 +23,7 @@ $messages = array(
 	[[{{MediaWiki:Validationpage}}|التحقق من]] جودتها.",
 	'stabilization-tab'           => '(تج)',
 	'tooltip-ca-default'          => 'إعدادات تأكيد الجودة',
+	'validationpage'              => '{{ns:help}}:تحقيق المقالات',
 	'revreview-quick-none'        => "'''الحالي'''. لا نسخ مراجعة.",
 	'revreview-quick-see-quality' => "'''حالي'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} انظر آخر نسخة جودة]",
 	'revreview-quick-see-basic'   => "'''حالي'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض آخر نسخة منظورة]",

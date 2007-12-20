@@ -1,4 +1,7 @@
 <?php
+/** Galician (Galego)
+ * @author Alma
+ */
 $messages = array(
 	'makereviewer'                  => 'Promover/degradar editores',
 	'makereviewer-header'           => '<strong>Este formulario é usado por administradores e burócratas para promover aos usuarios de artigos 		máis válidos.</strong><br> Introduza o nome do usuario na caixa e prema o botón para establecer os dereitos dos usuarios.
@@ -23,8 +26,6 @@ $messages = array(
 	'makereviewer-granted-r'        => '[[User:$1|$1]] agora ten o status de revisor.',
 	'makereviewer-revoked-r'        => '[[User:$1|$1]] xa non ten o status de revisor.',
 	'makereviewer-logpage'          => 'Rexistro do status de editor',
-	'makereviewer-logpagetext'      => 'Este é un rexistro dos cambios do status de usuarios [[{{MediaWiki:Makevalidate-page}}|validación de artigos]].',
-	'makereviewer-page'             => '{{ns:help}}:Validación de artigos',
 	'makereviewer-logentrygrant-e'  => 'outorgado o status de editor a [[$1]]',
 	'makereviewer-logentryrevoke-e' => 'eliminado o status de editor a [[$1]]',
 	'makereviewer-logentrygrant-r'  => 'outorgado o status de revisor a [[$1]]',

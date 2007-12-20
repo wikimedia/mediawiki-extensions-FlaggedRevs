@@ -2,9 +2,9 @@
 /** Dutch (Nederlands)
  * @author Siebrand
  * @author SPQRobin
+ * @author Annabel
  */
 $messages = array(
-	'validationpage'              => '{{ns:help}}:Stabiele versies',
 	'editor'                      => 'Redacteur',
 	'group-editor'                => 'Redacteuren',
 	'group-editor-member'         => 'Redacteur',
@@ -23,6 +23,7 @@ $messages = array(
 	'revreview-noflagged'         => "Er zijn geen beoordeelde versies van deze pagina, dus die is wellicht '''niet''' [[{{MediaWiki:Validationpage}}|gecontroleerd]] op kwaliteit.",
 	'stabilization-tab'           => '(kb)',
 	'tooltip-ca-default'          => 'Instellingen kwaliteitsbewaking',
+	'validationpage'              => '{{ns:help}}:Stabiele versies',
 	'revreview-quick-none'        => "'''Huidige versie'''. Geen beoordeelde versies.",
 	'revreview-quick-see-quality' => "'''Huidige versie'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Bekijk laatste kwaliteitsversie]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|wijziging|wijzigingen}}])",
