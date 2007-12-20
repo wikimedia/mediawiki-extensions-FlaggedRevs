@@ -565,9 +565,10 @@ class FlaggedRevs {
 		$tags = $dbr->selectField('flaggedrevs', 'fr_tags',
 			array('fr_rev_id' => $rev_id ),
 			__METHOD__ );
-		$tags = strval($tags);
+		if( !$tags )
+			return false;
 		
-		return self::expandRevisionTags( $tags );
+		return self::expandRevisionTags( strval($tags) );
 	}
 
 	/**

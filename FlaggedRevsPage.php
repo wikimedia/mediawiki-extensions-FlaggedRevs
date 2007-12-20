@@ -99,8 +99,10 @@ class Revisionreview extends SpecialPage
 		// We must at least rate each category as 1, the minimum
 		// Exception: we can rate ALL as unapproved to depreciate a revision
 		$valid = true;
-		if( $this->unapprovedTags && ($this->unapprovedTags < count($wgFlaggedRevTags) || !$this->oflags) )
-			$valid = false;
+		if( $this->unapprovedTags > 0 ) {
+			if( $this->unapprovedTags < count($wgFlaggedRevTags) || !$this->oflags )
+				$valid = false;
+		}
 		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) )
 			$valid = false;
 		
@@ -270,6 +272,7 @@ class Revisionreview extends SpecialPage
 				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
 				return;
 			}
+		// We can only unapprove approved revisions...
 		} else {
 			$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid );
 			// If we can't find this flagged rev, return to page???
@@ -439,11 +442,8 @@ class Revisionreview extends SpecialPage
 	 * @param Revision $rev
 	 * Removes flagged revision data for this page/id set
 	 */  
-	function unapproveRevision( $row=NULL ) {
+	function unapproveRevision( $row ) {
 		global $wgUser, $wgParser, $wgFlaggedRevsWatch;
-	
-		if( is_null($row) )
-			return false;
 		
 		$user = $wgUser->getId();
 		
@@ -451,8 +451,7 @@ class Revisionreview extends SpecialPage
         $dbw = wfGetDB( DB_MASTER );
 		// Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs', 
-			array( 'fr_page_id' => $row->fr_page_id, 
-				'fr_rev_id' => $row->fr_rev_id ) );
+			array( 'fr_page_id' => $this->page->getArticleID(), 'fr_rev_id' => $row->fr_rev_id ) );
 		// Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
