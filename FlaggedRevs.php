@@ -47,7 +47,7 @@ $wgAutoloadClasses['Reviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php'
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
 # Load promotion UI
-include_once( dirname( __FILE__ ) . '/SpecialMakevalidate.php' );
+include_once( dirname( __FILE__ ) . '/SpecialMakeReviewer.php' );
 
 function efLoadFlaggedRevs() {
 	global $wgMessageCache, $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle;

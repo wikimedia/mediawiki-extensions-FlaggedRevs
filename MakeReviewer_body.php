@@ -5,15 +5,15 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class MakeValidate extends SpecialPage {
+class MakeReviewer extends SpecialPage {
 
 	var $target = '';
 
 	/**
 	 * Constructor
 	 */
-	function MakeValidate() {
-		SpecialPage::SpecialPage( 'Makevalidate', 'makereview' );
+	function __construct() {
+		SpecialPage::SpecialPage( 'MakeReviewer', 'makereviewer' );
 	}
 	
 	/**
@@ -21,10 +21,10 @@ class MakeValidate extends SpecialPage {
 	 * @param $par Parameters passed to the page
 	 */
 	function execute( $par ) {
-		global $wgRequest, $wgOut, $wgmakevalidatePrivileged, $wgUser;
+		global $wgRequest, $wgOut, $wgUser;
 		
-		if( !$wgUser->isAllowed( 'makereview' ) ) {
-			$wgOut->permissionRequired( 'makereview' );
+		if( !$wgUser->isAllowed( 'makereviewer' ) ) {
+			$wgOut->permissionRequired( 'makereviewer' );
 			return;
 		}
 		
@@ -32,7 +32,7 @@ class MakeValidate extends SpecialPage {
 
 		$this->target = $par ? $par : $wgRequest->getText( 'username', '' );
 
-		$wgOut->addWikiText( wfMsgNoTrans( 'makevalidate-header' ) );
+		$wgOut->addWikiText( wfMsgNoTrans( 'makereviewer-header' ) );
 		$wgOut->addHtml( $this->makeSearchForm() );
 		
 		if( $this->target != '' ) {
@@ -48,17 +48,17 @@ class MakeValidate extends SpecialPage {
 				# Valid username, check existence
 				if( $user->getID() ) {
 					$oldgroups = $user->getGroups();
-					if( $wgRequest->getCheck( 'dosearch' ) || !$wgRequest->wasPosted() || !$wgUser->matchEditToken( $wgRequest->getVal( 'token' ), 'makevalidate' ) ) {
+					if( $wgRequest->getCheck( 'dosearch' ) || !$wgRequest->wasPosted() || !$wgUser->matchEditToken( $wgRequest->getVal( 'token' ), 'makereviewer' ) ) {
 						# Exists, check editor & reviewer status
 						# We never assign reviewer status alone
 						if( in_array( 'editor', $user->mGroups ) && in_array( 'reviewer', $user->mGroups ) ) {
 							# Has a reviewer flag
-							$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
-							$wgOut->addWikiText( wfMsg( 'makevalidate-isvalidator', $user->getName() ) );
+							$wgOut->addWikiText( wfMsg( 'makereviewer-iseditor', $user->getName() ) );
+							$wgOut->addWikiText( wfMsg( 'makereviewer-isvalidator', $user->getName() ) );
 							$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_REVOKE_REVOKE ) );
 						} else if( in_array( 'editor', $user->mGroups ) ) {
 							# Has a editor flag
-							$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
+							$wgOut->addWikiText( wfMsg( 'makereviewer-iseditor', $user->getName() ) );
 							$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_REVOKE_GRANT ) );
 						} else if( in_array( 'reviewer', $user->mGroups ) ) {
 							# This shouldn't happen...
@@ -69,8 +69,8 @@ class MakeValidate extends SpecialPage {
 						}
 					} elseif( $wgRequest->getCheck( 'grant2' ) ) {
 						# Permission check
-						if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-							$wgOut->permissionRequired( 'makevalidate' ); 
+						if( !$wgUser->isAllowed( 'makevalidator' ) ) {
+							$wgOut->permissionRequired( 'makevalidator' ); 
 							return;
 						}
 						# Grant the flag
@@ -80,24 +80,24 @@ class MakeValidate extends SpecialPage {
 						if( !in_array( 'editor', $user->mGroups ) )
 							$user->addGroup( 'editor' );
 						$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups);
-						$wgOut->addWikiText( wfMsg( 'makevalidate-granted-r', $user->getName() ) );
+						$wgOut->addWikiText( wfMsg( 'makereviewer-granted-r', $user->getName() ) );
 					} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
 						# Permission check
-						if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-							$wgOut->permissionRequired( 'makevalidate' ); 
+						if( !$wgUser->isAllowed( 'makevalidator' ) ) {
+							$wgOut->permissionRequired( 'makevalidator' ); 
 							return;
 						}
 						# Revoke the flag
 						if ( in_array( 'reviewer', $user->mGroups ) )
 							$user->removeGroup( 'reviewer' );
 						$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
-						$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-r', $user->getName() ) );
+						$wgOut->addWikiText( wfMsg( 'makereviewer-revoked-r', $user->getName() ) );
 					} elseif( $wgRequest->getCheck( 'grant1' ) ) {
 						# Grant the flag
 						if( !in_array( 'editor', $user->mGroups ) )
 							$user->addGroup( 'editor' );
 						$this->addLogItem( 'egrant', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
-						$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
+						$wgOut->addWikiText( wfMsg( 'makereviewer-granted-e', $user->getName() ) );
 					} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
 						# Permission check
 						if( !$wgUser->isAllowed( 'removereview' ) ) {
@@ -106,8 +106,8 @@ class MakeValidate extends SpecialPage {
 						}
 						if( in_array( 'reviewer', $user->mGroups ) ) {
 							# Permission check
-							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-								$wgOut->permissionRequired( 'makevalidate' ); 
+							if( !$wgUser->isAllowed( 'makevalidator' ) ) {
+								$wgOut->permissionRequired( 'makevalidator' ); 
 								return;
 							}
 							$user->removeGroup( 'editor' );
@@ -118,7 +118,7 @@ class MakeValidate extends SpecialPage {
 							$user->removeGroup( 'editor' );
 						}
 						$this->addLogItem( 'erevoke', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
-						$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-e', $user->getName() ) );
+						$wgOut->addWikiText( wfMsg( 'makereviewer-revoked-e', $user->getName() ) );
 					}
 					# Show log entries
 					$this->showLogEntries( $user );
@@ -141,9 +141,9 @@ class MakeValidate extends SpecialPage {
 	function makeSearchForm() {
 		$thisTitle = Title::makeTitle( NS_SPECIAL, $this->getName() );
 		$form  = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
-		$form .= Xml::element( 'label', array( 'for' => 'username' ), wfMsg( 'makevalidate-username' ) ) . ' ';
+		$form .= Xml::element( 'label', array( 'for' => 'username' ), wfMsg( 'makereviewer-username' ) ) . ' ';
 		$form .= Xml::element( 'input', array( 'type' => 'text', 'name' => 'username', 'id' => 'username', 'value' => $this->target ) ) . ' ';
-		$form .= Xml::element( 'input', array( 'type' => 'submit', 'name' => 'dosearch', 'value' => wfMsg( 'makevalidate-search' ) ) );
+		$form .= Xml::element( 'input', array( 'type' => 'submit', 'name' => 'dosearch', 'value' => wfMsg( 'makereviewer-search' ) ) );
 		$form .= Xml::closeElement( 'form' );
 		return $form;
 	}
@@ -164,34 +164,34 @@ class MakeValidate extends SpecialPage {
 			$grant1 = false; $revoke1 = true;
 			$grant2 = true; $revoke2 = false;
 		} else if ( $type == MW_MAKEVALIDATE_REVOKE_REVOKE ) {
-			$grant1 = false; $revoke1 = $wgUser->isAllowed('makevalidate');
+			$grant1 = false; $revoke1 = $wgUser->isAllowed('makevalidator');
 			$grant2 = false; $revoke2 = true;
 		} else {
 		// OK, this one should never happen
-			$grant1 = true; $revoke1 = $wgUser->isAllowed('makevalidate');
+			$grant1 = true; $revoke1 = $wgUser->isAllowed('makevalidator');
 			$grant2 = false; $revoke2 = true;
 		}
 	
 		# Start the table
 		$form  = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
-		$form .= '<fieldset><legend>' . wfMsg('makevalidate-legend') . '</legend>';
+		$form .= '<fieldset><legend>' . wfMsg('makereviewer-legend') . '</legend>';
 		$form .= Xml::openElement( 'table' ) . Xml::openElement( 'tr' );
 		# Grant/revoke buttons
-		$form .= Xml::element( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-e' ) );
+		$form .= Xml::element( 'td', array( 'align' => 'right' ), wfMsg( 'makereviewer-change-e' ) );
 		$form .= Xml::openElement( 'td' );
 		foreach( array( 'grant1', 'revoke1' ) as $button ) {
-			$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makevalidate-' . $button ) );
+			$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makereviewer-' . $button ) );
 			if( !$$button )
 				$attribs['disabled'] = 'disabled';
 			$form .= Xml::element( 'input', $attribs );
 		}
 		$form .= Xml::closeElement( 'td' ) . Xml::closeElement( 'tr' );
 		// Check permissions
-		if ( $wgUser->isAllowed('makevalidate') ) {
-			$form .= Xml::element( 'td', array( 'align' => 'right' ), wfMsg( 'makevalidate-change-r' ) );
+		if ( $wgUser->isAllowed('makevalidator') ) {
+			$form .= Xml::element( 'td', array( 'align' => 'right' ), wfMsg( 'makereviewer-change-r' ) );
 			$form .= Xml::openElement( 'td' );
 			foreach( array( 'grant2', 'revoke2' ) as $button ) {
-				$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makevalidate-' . $button ) );
+				$attribs = array( 'type' => 'submit', 'name' => $button, 'value' => wfMsg( 'makereviewer-' . $button ) );
 				if( !$$button )
 					$attribs['disabled'] = 'disabled';
 				$form .= Xml::element( 'input', $attribs );
@@ -200,7 +200,7 @@ class MakeValidate extends SpecialPage {
 		}
 		# Comment field
 		$form .= Xml::openElement( 'td', array( 'align' => 'right' ) );
-		$form .= Xml::element( 'label', array( 'for' => 'comment' ), wfMsg( 'makevalidate-comment' ) );
+		$form .= Xml::element( 'label', array( 'for' => 'comment' ), wfMsg( 'makereviewer-comment' ) );
 		$form .= Xml::openElement( 'td' );
 		$form .= Xml::element( 'input', array( 'type' => 'text', 'name' => 'comment', 'id' => 'comment', 'size' => 45 ) );
 		$form .= Xml::closeElement( 'td' ) . Xml::closeElement( 'tr' );
@@ -209,7 +209,7 @@ class MakeValidate extends SpecialPage {
 		# Username
 		$form .= Xml::element( 'input', array( 'type' => 'hidden', 'name' => 'username', 'value' => $this->target ) );
 		# Edit token
-		$form .= Xml::element( 'input', array( 'type' => 'hidden', 'name' => 'token', 'value' => $wgUser->editToken( 'makevalidate' ) ) );
+		$form .= Xml::element( 'input', array( 'type' => 'hidden', 'name' => 'token', 'value' => $wgUser->editToken( 'makereviewer' ) ) );
 		$form .= '</fieldset>';
 		$form .= Xml::closeElement( 'form' );
 		return $form;

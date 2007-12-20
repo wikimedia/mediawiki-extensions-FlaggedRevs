@@ -1,0 +1,36 @@
+<?php
+/* Arabic (Meno25) */
+$messages = array(
+	'makereviewer'                  => 'ترقية/عزل المحررين',
+	'makereviewer-header'           => '<strong>هذه الاستمارة تستخدم بواسطة مدراء النظام و البيروقراطيين لترقية المستخدمين لمصححي مقالات.</strong><br> اكتب اسم المستخدم في الصندوق واضغط الزر لضبط صلاحيات المستخدم. 
+	منح المستخدمين صلاحية مراجع سيؤدي لمنحهم صلاحية محرر تلقائيا. سحب صلاحية محرر
+	سيؤدي إلى سحب صلاحية مراجع تلقائيا.',
+	'makereviewer-username'         => 'اسم المستخدم:',
+	'makereviewer-search'           => 'اذهب',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] لديه صلاحية محرر.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] ليس لديه صلاحية محرر.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] لديه صلاحية مراجع.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] ليس لديه صلاحية مراجع.',
+	'makereviewer-legend'           => 'تغيير صلاحيات مستخدم:',
+	'makereviewer-change-e'         => 'حالة المحرر:',
+	'makereviewer-change-r'         => 'حالة المراجع:',
+	'makereviewer-grant1'           => 'منح',
+	'makereviewer-revoke1'          => 'سحب',
+	'makereviewer-grant2'           => 'منح',
+	'makereviewer-revoke2'          => 'سحب',
+	'makereviewer-comment'          => 'تعليق:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] لدية الآن صلاحية محرر.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] لم يعد لديه صلاحية محرر.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] لديه الآن صلاحية مراجع.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] لم يعد لديه صلاحية مراجع.',
+	'makereviewer-logpage'          => 'سجل صلاحية المحرر',
+	'makereviewer-logpagetext'      => 'هذا سجل بالتغيير في صلاحيات [[{{MediaWiki:Makevalidate-page}}|تصحيح المقالات]].',
+	'makereviewer-page'             => '{{ns:help}}:توكيد المقالات',
+	'makereviewer-logentrygrant-e'  => 'منح صلاحية محرر إلى [[$1]]',
+	'makereviewer-logentryrevoke-e' => 'سحب صلاحية محرر من [[$1]]',
+	'makereviewer-logentrygrant-r'  => 'منح صلاحية مراجع إلى [[$1]]',
+	'makereviewer-logentryrevoke-r' => 'سحب صلاحية مراجع من [[$1]]',
+	'makereviewer-autosum'          => 'ترقية تلقائية',
+	'rights-editor-grant'           => 'منح صلاحية محرر إلى [[$1]]',
+	'rights-editor-revoke'          => 'أزال حالة محرر من [[$1]]',
+);
