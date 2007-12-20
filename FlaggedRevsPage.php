@@ -75,7 +75,7 @@ class Revisionreview extends SpecialPage
 		$this->oflags = FlaggedRevs::getRevisionTags( $this->oldid );
 		// Get our accuracy/quality dimensions
 		$this->dims = array();
-		$this->upprovedTags = 0;
+		$this->unapprovedTags = 0;
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			// Must be greater than zero
@@ -84,7 +84,7 @@ class Revisionreview extends SpecialPage
 				return;
 			}
 			if( $this->dims[$tag]==0 )
-				$this->upprovedTags++;
+				$this->unapprovedTags++;
 			// Check permissions
 			if( !$this->userCan( $tag, $this->oflags[$tag] ) ) {
 				# Users can't take away a status they can't set
@@ -99,7 +99,7 @@ class Revisionreview extends SpecialPage
 		// We must at least rate each category as 1, the minimum
 		// Exception: we can rate ALL as unapproved to depreciate a revision
 		$valid = true;
-		if( $this->upprovedTags && ($this->upprovedTags < count($wgFlaggedRevTags) || !$this->oflags) )
+		if( $this->unapprovedTags && ($this->unapprovedTags < count($wgFlaggedRevTags) || !$this->oflags) )
 			$valid = false;
 		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) )
 			$valid = false;
@@ -152,7 +152,7 @@ class Revisionreview extends SpecialPage
 		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevsOverride,
 			$wgFlaggedRevTags, $wgFlaggedRevValues;
 		
-		if( $this->upprovedTags )
+		if( $this->unapprovedTags )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
 		
 		$wgOut->addWikiText( wfMsg( 'revreview-selected', $this->page->getPrefixedText() ) );
@@ -442,7 +442,8 @@ class Revisionreview extends SpecialPage
 	function unapproveRevision( $row=NULL ) {
 		global $wgUser, $wgParser, $wgFlaggedRevsWatch;
 	
-		if( is_null($row) ) return false;
+		if( is_null($row) )
+			return false;
 		
 		$user = $wgUser->getId();
 		
@@ -504,9 +505,9 @@ class Revisionreview extends SpecialPage
 		// FIXME: do this better
 		$action = wfMsgExt('review-logaction', array('parsemag'), $oldid );
 		if( $approve )
-			$comment = ($comment) ? "$action: $comment$rating" : "$action $rating";
+			$comment = $comment ? "$action: $comment$rating" : "$action $rating";
 		else
-			$comment = ($comment) ? "$action: $comment" : "$action";
+			$comment = $comment ? "$action: $comment" : "$action";
 			
 		if( $approve ) {
 			$log->addEntry( 'approve', $title, $comment );

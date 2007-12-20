@@ -47,81 +47,81 @@ class MakeValidate extends SpecialPage {
 				}
 				# Valid username, check existence
 				if( $user->getID() ) {
-						$oldgroups = $user->getGroups();
-						if( $wgRequest->getCheck( 'dosearch' ) || !$wgRequest->wasPosted() || !$wgUser->matchEditToken( $wgRequest->getVal( 'token' ), 'makevalidate' ) ) {
-							# Exists, check editor & reviewer status
-							# We never assign reviewer status alone
-							if( in_array( 'editor', $user->mGroups ) && in_array( 'reviewer', $user->mGroups ) ) {
-								# Has a reviewer flag
-								$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
-								$wgOut->addWikiText( wfMsg( 'makevalidate-isvalidator', $user->getName() ) );
-								$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_REVOKE_REVOKE ) );
-							} else if( in_array( 'editor', $user->mGroups ) ) {
-								# Has a editor flag
-								$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
-								$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_REVOKE_GRANT ) );
-							} else if( in_array( 'reviewer', $user->mGroups ) ) {
-								# This shouldn't happen...
-								$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_GRANT_REVOKE ) );
-							} else {
-								# Not a reviewer; show the grant form
-								$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_GRANT_GRANT ) );
-							}
-						} elseif( $wgRequest->getCheck( 'grant2' ) ) {
-							# Permission check
-							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-								$wgOut->permissionRequired( 'makevalidate' ); 
-								return;
-							}
-							# Grant the flag
-							if( !in_array( 'reviewer', $user->mGroups ) )
-								$user->addGroup( 'reviewer' );
-							# All reviewers are editors too
-							if( !in_array( 'editor', $user->mGroups ) )
-								$user->addGroup( 'editor' );
-							$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups);
-							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-r', $user->getName() ) );
-						} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
-							# Permission check
-							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-								$wgOut->permissionRequired( 'makevalidate' ); 
-								return;
-							}
-							# Revoke the flag
-							if ( in_array( 'reviewer', $user->mGroups ) )
-								$user->removeGroup( 'reviewer' );
-							$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
-							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-r', $user->getName() ) );
-						} elseif( $wgRequest->getCheck( 'grant1' ) ) {
-							# Grant the flag
-							if( !in_array( 'editor', $user->mGroups ) )
-								$user->addGroup( 'editor' );
-							$this->addLogItem( 'egrant', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
-							$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
-						} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
-							# Permission check
-							if( !$wgUser->isAllowed( 'removereview' ) ) {
-								$wgOut->permissionRequired( 'removereview' ); 
-								return;
-							}
-							if( in_array( 'reviewer', $user->mGroups ) ) {
-								# Permission check
-								if( !$wgUser->isAllowed( 'makevalidate' ) ) {
-									$wgOut->permissionRequired( 'makevalidate' ); 
-									return;
-								}
-								$user->removeGroup( 'editor' );
-								# Reviewer flag falls of too
-								$user->removeGroup( 'reviewer' );
-							} else if( in_array( 'editor', $user->mGroups ) ) {
-								# Revoke the flag
-								$user->removeGroup( 'editor' );
-							}
-							$this->addLogItem( 'erevoke', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
-							$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-e', $user->getName() ) );
+					$oldgroups = $user->getGroups();
+					if( $wgRequest->getCheck( 'dosearch' ) || !$wgRequest->wasPosted() || !$wgUser->matchEditToken( $wgRequest->getVal( 'token' ), 'makevalidate' ) ) {
+						# Exists, check editor & reviewer status
+						# We never assign reviewer status alone
+						if( in_array( 'editor', $user->mGroups ) && in_array( 'reviewer', $user->mGroups ) ) {
+							# Has a reviewer flag
+							$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
+							$wgOut->addWikiText( wfMsg( 'makevalidate-isvalidator', $user->getName() ) );
+							$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_REVOKE_REVOKE ) );
+						} else if( in_array( 'editor', $user->mGroups ) ) {
+							# Has a editor flag
+							$wgOut->addWikiText( wfMsg( 'makevalidate-iseditor', $user->getName() ) );
+							$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_REVOKE_GRANT ) );
+						} else if( in_array( 'reviewer', $user->mGroups ) ) {
+							# This shouldn't happen...
+							$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_GRANT_REVOKE ) );
+						} else {
+							# Not a reviewer; show the grant form
+							$wgOut->addHtml( $this->makeGrantForm( MW_MAKEVALIDATE_GRANT_GRANT ) );
 						}
-						# Show log entries
-						$this->showLogEntries( $user );
+					} elseif( $wgRequest->getCheck( 'grant2' ) ) {
+						# Permission check
+						if( !$wgUser->isAllowed( 'makevalidate' ) ) {
+							$wgOut->permissionRequired( 'makevalidate' ); 
+							return;
+						}
+						# Grant the flag
+						if( !in_array( 'reviewer', $user->mGroups ) )
+							$user->addGroup( 'reviewer' );
+						# All reviewers are editors too
+						if( !in_array( 'editor', $user->mGroups ) )
+							$user->addGroup( 'editor' );
+						$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups);
+						$wgOut->addWikiText( wfMsg( 'makevalidate-granted-r', $user->getName() ) );
+					} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
+						# Permission check
+						if( !$wgUser->isAllowed( 'makevalidate' ) ) {
+							$wgOut->permissionRequired( 'makevalidate' ); 
+							return;
+						}
+						# Revoke the flag
+						if ( in_array( 'reviewer', $user->mGroups ) )
+							$user->removeGroup( 'reviewer' );
+						$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
+						$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-r', $user->getName() ) );
+					} elseif( $wgRequest->getCheck( 'grant1' ) ) {
+						# Grant the flag
+						if( !in_array( 'editor', $user->mGroups ) )
+							$user->addGroup( 'editor' );
+						$this->addLogItem( 'egrant', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
+						$wgOut->addWikiText( wfMsg( 'makevalidate-granted-e', $user->getName() ) );
+					} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
+						# Permission check
+						if( !$wgUser->isAllowed( 'removereview' ) ) {
+							$wgOut->permissionRequired( 'removereview' ); 
+							return;
+						}
+						if( in_array( 'reviewer', $user->mGroups ) ) {
+							# Permission check
+							if( !$wgUser->isAllowed( 'makevalidate' ) ) {
+								$wgOut->permissionRequired( 'makevalidate' ); 
+								return;
+							}
+							$user->removeGroup( 'editor' );
+							# Reviewer flag falls of too
+							$user->removeGroup( 'reviewer' );
+						} else if( in_array( 'editor', $user->mGroups ) ) {
+							# Revoke the flag
+							$user->removeGroup( 'editor' );
+						}
+						$this->addLogItem( 'erevoke', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
+						$wgOut->addWikiText( wfMsg( 'makevalidate-revoked-e', $user->getName() ) );
+					}
+					# Show log entries
+					$this->showLogEntries( $user );
 				} else {
 					# Doesn't exist
 					$wgOut->addWikiText( wfMsg( 'nosuchusershort', htmlspecialchars( $this->target ) ) );
