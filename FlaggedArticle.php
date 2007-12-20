@@ -17,7 +17,7 @@ class FlaggedArticle {
     public function pageOverride() {
     	global $wgUser, $wgRequest, $action;
     	# This only applies to viewing content pages
-    	if( $action !='view' || !$this->isReviewable() )
+    	if( ($action !='view' && $action !='purge') || !$this->isReviewable() )
 			return false;
     	# Does not apply to diffs/old revisions
     	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') )
@@ -102,7 +102,7 @@ class FlaggedArticle {
 			return true;
 		}
 		# Only trigger on article view for content pages, not for protect/delete/hist
-		if( $action !='view' || !$article || !$article->exists() ) 
+		if( ($action !='view' && $action !='purge') || !$article || !$article->exists() ) 
 			return true;
 		# Grab page and rev ids
 		$pageid = $article->getId();
@@ -298,7 +298,7 @@ class FlaggedArticle {
 		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable() ) 
 			return true;
 		# Check if page is protected
-		if( $action !='view' || !$wgArticle->getTitle()->quickUserCan( 'edit' ) ) {
+		if( ($action !='view' && $action !='purge') || !$wgArticle->getTitle()->quickUserCan( 'edit' ) ) {
 			return true;
 		}
 		# Get revision ID
@@ -435,7 +435,7 @@ class FlaggedArticle {
        		}
        		# Reset static array
        		$content_actions = $new_actions;
-    	} else if( $action !='view' || $sktmp->mTitle->isTalkPage() ) {
+    	} else if( ($action !='view' && $action !='purge') || $sktmp->mTitle->isTalkPage() ) {
     	// We are looking at the talk page or diffs/hist/oldids, or in edit mode
 			$new_actions = array(); $counter = 0;
 			# Straighten out order, set the tab AFTER the main tab is set
