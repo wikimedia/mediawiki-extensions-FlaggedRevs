@@ -1,5 +1,7 @@
 <?php
-// German (Raimond Spekking)
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
 $messages = array( 
 	'editor'               => 'Sichter',
 	'group-editor'         => 'Sichter',
@@ -18,10 +20,12 @@ $messages = array(
 	'revreview-stable'    => 'Stabil',
 	'tooltip-ca-stable'   => 'Ansehen der stabilen Version dieser Seite',
 	'revreview-oldrating' => 'Bisherige Einstufung:',
-	'revreview-noflagged' => 'Von dieser Seite gibt es keine markierten Versionen, so dass noch keine Aussage über die [[{{MediaWiki:Makevalidate-page}}|Qualität]] gemacht werden kann.',
+	'revreview-noflagged' => 'Von dieser Seite gibt es keine markierten Versionen, so dass noch keine Aussage über die [[{{MediaWiki:Validationpage}}|Qualität]] gemacht werden kann.',
 
 	'stabilization-tab'   => '(qa)',
 	'tooltip-ca-default'  => 'Einstellungen der Artikel-Qualität',
+
+	'validationpage'      => '{{ns:help}}:Stabile Versionen',
 
 	'revreview-quick-none'        => "'''Aktuell.''' Es wurde noch keine Version überprüft.",
 
@@ -31,10 +35,10 @@ $messages = array(
 	'revreview-quick-see-basic'   => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Makevalidate-page}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Makevalidate-page}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte überprüfte Version]
@@ -59,7 +63,7 @@ $messages = array(
 	[{{fullurl:Special:Log/review|page=$1}} freigegeben] am <i>$2</i>.",
 
 	'revreview-toggle'      => '(+/-)',
-	'revreview-note'        => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Makevalidate-page}}|Prüfnotiz]] zu dieser Version:',
+	'revreview-note'        => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 	'revreview-update'      => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
 	Die folgenden Vorlagen und Bilder wurden ebenfalls verändert:',
 	'revreview-update-none' => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).',
@@ -74,13 +78,13 @@ $messages = array(
 
 	'flaggedrevs'           => 'Markierte Versionen',
 	'review-logpage'        => 'Artikel-Prüf-Logbuch',
-	'review-logpagetext'    => 'Dies ist das Änderungs-Logbuch der [[{{MediaWiki:Makevalidate-page}}|Seiten-Freigaben]].',
+	'review-logpagetext'    => 'Dies ist das Änderungs-Logbuch der [[{{MediaWiki:Validationpage}}|Seiten-Freigaben]].',
 	'review-logentry-app'   => 'überprüfte [[$1]]',
 	'review-logentry-dis'   => 'verwarf eine Version von [[$1]]',
 	'review-logaction'      => 'Version-ID $1',
 
 	'stable-logpage'     => 'Stabile-Versionen-Logbuch',
-	'stable-logpagetext' => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Makevalidate-page}}|Stabilen Versionen]]',
+	'stable-logpagetext' => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Stabilen Versionen]]',
 	'stable-logentry'    => 'konfigurierte die Seiten-Einstellung von [[$1]]',
 	'stable-logentry2'   => 'setzte die Seiten-Einstellung für [[$1]] zurück',
 
@@ -137,7 +141,7 @@ $messages = array(
 	'unreviewed-diff'       => 'Änderungen',
 	'unreviewed-list'       => 'Diese Seite zeigt Artikel, die noch nicht nie überprüft wurden oder nicht überprüfte Versionen haben.',
 
-	'revreview-visibility'  => 'Diese Seite hat eine [[{{MediaWiki:Makevalidate-page}}|stabile Version]], welche
+	'revreview-visibility'  => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|stabile Version]], welche
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] werden kann.',
 
 	'stabilization'           => 'Seiten-Stabilität',

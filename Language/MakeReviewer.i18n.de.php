@@ -1,5 +1,8 @@
 <?php
-/* German (Raimond Spekking) */
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
+
 $messages = array(
 	'makereviewer'                  => 'Sichter/Prüf-Recht erteilen/entziehen',
 	'makereviewer-header'           => '<strong>Mit diesem Formular können Administratoren und Bürokraten Benutzern das Recht zur Artikelprüfung erteilen.</strong><br />
@@ -24,7 +27,6 @@ $messages = array(
 	'makereviewer-granted-r'        => '[[User:$1|$1]] hat nun das Prüfrecht.',
 	'makereviewer-revoked-r'        => '[[User:$1|$1]] wurde das Prüfrecht entzogen.',
 	'makereviewer-logpage'          => 'Sichter-/Prüf-Rechte-Logbuch',
-	'makereviewer-logpagetext'      => 'Dies ist das Änderungs-Logbuch der Benutzer-[[{{MediaWiki:Makevalidate-page}}|Sichter-/Prüf-Rechte]].',
 	'makereviewer-logentrygrant-e'  => 'erteilte das Sichter-Recht an [[$1]]',
 	'makereviewer-logentryrevoke-e' => 'entzog das Sichter-Recht von [[$1]]',
 	'makereviewer-logentrygrant-r'  => 'erteilte das Prüfrecht an [[$1]]',
