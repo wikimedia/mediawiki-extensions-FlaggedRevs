@@ -15,8 +15,9 @@ class FlaggedArticle {
 	 * for overriding by stable revisions?
 	 */		
     public function pageOverride() {
-    	global $wgUser, $wgRequest, $action;
+    	global $wgUser, $wgRequest;
     	# This only applies to viewing content pages
+		$action = $wgRequest->getVal( 'action', 'view' );
     	if( ($action !='view' && $action !='purge') || !$this->isReviewable() )
 			return false;
     	# Does not apply to diffs/old revisions
@@ -81,9 +82,10 @@ class FlaggedArticle {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	function setPageContent( $article, &$outputDone, &$pcache ) {
-		global $wgRequest, $wgTitle, $wgOut, $action, $wgUser;
+		global $wgRequest, $wgTitle, $wgOut, $wgUser;
 		
 		$skin = $wgUser->getSkin();
+		$action = $wgRequest->getVal( 'action', 'view' );
 		# For unreviewable pages, allow for basic patrolling
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
@@ -293,11 +295,12 @@ class FlaggedArticle {
 	 * Add review form to page when necessary
 	 */	
     function addReviewForm( $out ) {
-    	global $wgArticle, $wgRequest, $action;
+    	global $wgArticle, $wgRequest;
 
 		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable() ) 
 			return true;
 		# Check if page is protected
+		$action = $wgRequest->getVal( 'action', 'view' );
 		if( ($action !='view' && $action !='purge') || !$wgArticle->getTitle()->quickUserCan( 'edit' ) ) {
 			return true;
 		}
@@ -323,11 +326,12 @@ class FlaggedArticle {
 	 * Add link to stable version setting to protection form
 	 */
     function addVisibilityLink( $out ) {
-    	global $wgUser, $wgRequest, $wgTitle, $action;
+    	global $wgUser, $wgRequest, $wgTitle;
     	
     	if( !$this->isReviewable() )
     		return true;
-    	
+		
+    	$action = $wgRequest->getVal( 'action', 'view' );
     	if( $action=='protect' || $action=='unprotect' ) {
 			# Check for an overridabe revision
 			$tfrev = $this->getStableRev();
@@ -376,7 +380,7 @@ class FlaggedArticle {
 	 * Add stable version tabs. Rename some of the others if necessary.
 	 */  
     function setActionTabs( $sktmp, &$content_actions ) {
-    	global $wgRequest, $wgUser, $action, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
+    	global $wgRequest, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
 		if( !isset($sktmp->mTitle) )
 			return true;
@@ -385,6 +389,7 @@ class FlaggedArticle {
 		if( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
 			return true;
 		$article = new Article( $title );
+		$action = $wgRequest->getVal( 'action', 'view' );
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
        	$tfrev = $this->getStableRev();
@@ -1050,6 +1055,30 @@ class FlaggedArticle {
 		$this->flags[$rev_id] = $flags;
 		
 		return $flags;
+	}
+	
+	/**
+	* Updates parser cache output to included needed versioning params.
+	*/
+	function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
+		global $wgUser, $wgRequest;
+		
+		$action = $wgRequest->getVal( 'action', 'view' );
+		# Only trigger on article view for content pages, not for protect/delete/hist
+		if( ($action !='view' && $action !='purge') || !$wgUser->isAllowed( 'review' ) )
+			return true;
+		if( !$article || !$article->exists() || !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
+			return true;
+		
+		$parserCache = ParserCache::singleton();
+		$parserOut = $parserCache->get( $article, $wgUser );
+		if( $parserOut ) {
+			# Clear older, incomplete, cached versions
+			# We need the IDs of templates and timestamps of images used
+			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->fr_ImageSHA1Keys) )
+				$article->getTitle()->invalidateCache();
+		}
+		return true;
 	}
 
 }

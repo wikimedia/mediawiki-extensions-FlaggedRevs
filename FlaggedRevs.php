@@ -87,7 +87,7 @@ function efLoadFlaggedRevs() {
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-	$wgHooks['ArticleViewHeader'][] = array( 'FlaggedRevs::maybeUpdateMainCache' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
@@ -1145,28 +1145,6 @@ class FlaggedRevs {
 	public static function outputInjectImageTimestamps( $out, $parserOut ) {
 		$out->fr_ImageSHA1Keys = $parserOut->fr_ImageSHA1Keys;
 
-		return true;
-	}
-
-	/**
-	* Updates parser cache output to included needed versioning params.
-	*/
-	public static function maybeUpdateMainCache( $article, &$outputDone, &$pcache ) {
-		global $wgUser, $action;
-		# Only trigger on article view for content pages, not for protect/delete/hist
-		if( $action !='view' || !$wgUser->isAllowed( 'review' ) )
-			return true;
-		if( !$article || !$article->exists() || !self::isPageReviewable( $article->getTitle() ) )
-			return true;
-		
-		$parserCache = ParserCache::singleton();
-		$parserOut = $parserCache->get( $article, $wgUser );
-		if( $parserOut ) {
-			# Clear older, incomplete, cached versions
-			# We need the IDs of templates and timestamps of images used
-			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->fr_ImageSHA1Keys) )
-				$article->getTitle()->invalidateCache();
-		}
 		return true;
 	}
 
