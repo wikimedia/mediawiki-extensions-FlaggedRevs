@@ -682,6 +682,7 @@ class FlaggedRevs {
 	public static function getCacheKey( $parserCache, $article, &$user ) {
 		$key = $parserCache->getKey( $article, $user );
 		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
+		return $key;
 	}
 
 	/**
