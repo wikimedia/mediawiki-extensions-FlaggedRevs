@@ -111,7 +111,6 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
 	'stabilization-submit'        => 'Confirmer',
 	'stabilization-notexists'     => "Il n'y a pas de page « [[:$1|$1]], pas de paramétrage possible",
 	'stabilization-notcontent'    => 'La page « [[:$1|$1]] » ne peut être révisée, pas de paramétrage possible',
-	'stabilization-success'       => 'Les paramètres pour la version stable de « [[:$1|$1]] » sont entrées.',
 	'stabilization-comment'       => 'Commentaire :',
 	'stabilization-sel-short'     => 'Priorité',
 	'stabilization-sel-short-0'   => 'Qualité',
@@ -127,4 +126,5 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
 	'reviewedpages-lev-1'         => 'Qualité',
 	'reviewedpages-lev-2'         => 'Mis en avant',
 	'reviewedpages-all'           => 'versions passées en revue',
+	'reviewedpages-best'          => 'Dernière révision la mieux notée',
 );
