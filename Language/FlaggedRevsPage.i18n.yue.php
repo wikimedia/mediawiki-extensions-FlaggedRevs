@@ -1,6 +1,7 @@
 <?php
 // Cantonese (Shinjiman)
 $messages = array(
+	'validationpage' => '{{ns:help}}:文章確認',
 	'makevalidate-autosum'  => '自動升格',
 	'editor'                => '編輯',
 	'group-editor'          => '編輯',
@@ -15,13 +16,13 @@ $messages = array(
 	'revreview-source'      => '草稿原始碼',
 	'revreview-stable'      => '穩定',
 	'revreview-oldrating'   => '曾經評定為:',
-	'revreview-noflagged'   => '呢一版無複審過嘅修訂，佢可能\'\'\'未\'\'\'[[Help:文章確認|檢查]]質量。',
+	'revreview-noflagged'   => '呢一版無複審過嘅修訂，佢可能\'\'\'未\'\'\'[[{{MediaWiki:Validationpage}}|檢查]]質量。',
 	'revreview-quick-none'  => '\'\'\'現時嘅\'\'\'。無已複審嘅修訂。',
 	'revreview-quick-see-quality' => '\'\'\'現時嘅\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇最後嘅質素修訂]]',
 	'revreview-quick-see-basic' => '\'\'\'現時嘅\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇最後檢查過嘅修訂]]',
-	'revreview-quick-basic' => '\'\'\'[[Help:文章確認|視察過嘅]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]] 
+	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|視察過嘅]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]] 
 	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
-	'revreview-quick-quality' => '\'\'\'[[Help:文章確認|有質素嘅]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]] 
+	'revreview-quick-quality' => '\'\'\'[[{{MediaWiki:Validationpage}}|有質素嘅]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]] 
 	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過嘅修訂] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
@@ -29,18 +30,18 @@ $messages = array(
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素嘅修訂] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要複審。',
-	'revreview-basic'       => '呢個係最後[[Help:文章確認|視察過嘅]]修訂，
+	'revreview-basic'       => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂，
 	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 改]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
 	等緊去複審。',
-	'revreview-quality'     => '呢個係最後[[Help:文章確認|有質素嘅]]修訂，
+	'revreview-quality'     => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂，
 	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂] 
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
 	等緊去複審。',
-	'revreview-static'      => '呢個係一個響\'\'\'[[:$3|呢版]]\'\'\'[[Help:文章確認|複審過嘅]]修訂，
+	'revreview-static'      => '呢個係一個響\'\'\'[[:$3|呢版]]\'\'\'[[{{MediaWiki:Validationpage}}|複審過嘅]]修訂，
 	響<i>$2</i>[{{fullurl:Special:Log/review|page=$1}} 批准]。[{{fullurl:$3|stable=0}} 現時修訂]
 	可以[{{fullurl:$3|action=edit}} 改]。',
-	'revreview-note'        => '[[User:$1]]響呢次修訂度加咗下面嘅[[Help:文章確認|複審]]註解:',
+	'revreview-note'        => '[[User:$1]]響呢次修訂度加咗下面嘅[[{{MediaWiki:Validationpage}}|複審]]註解:',
 	'revreview-update'      => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
 	'revreview-auto'        => '(自動)',
 	'revreview-auto-w'      => '\'\'\'注意:\'\'\' 你而家係響穩定修訂度做緊更改，你嘅編輯將會自動被複審。
@@ -49,7 +50,7 @@ $messages = array(
 	'hist-quality'          => '[質素]',
 	'flaggedrevs'           => '加咗旗嘅修訂',
 	'review-logpage'        => '文章複審記錄',
-	'review-logpagetext'    => '呢個係內容版[[Help:文章確認|批准]]狀態嘅更改記錄。',
+	'review-logpagetext'    => '呢個係內容版[[{{MediaWiki:Validationpage}}|批准]]狀態嘅更改記錄。',
 	'review-logaction'      => '修訂 ID $1',
 	'revisionreview'        => '複審修訂',
 	'revreview-main'        => '你一定要響一版內容頁度揀一個個別嘅修訂去複審。

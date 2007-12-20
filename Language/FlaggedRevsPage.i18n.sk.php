@@ -17,15 +17,15 @@ $messages = array(
 	'tooltip-ca-stable'         => 'Zobraziť stabilnú verziu tejto stránky',
 	'revreview-oldrating'       => 'Bolo ohodnotené ako:',
 	'revreview-noflagged'       => 'Neexistujú revidované verzie tejto stránky, takže jej
-	kvalita \'\'\'nebola\'\'\' [[{{MediaWiki:Makevalidate-page}}|skontrolovaná]].',
+	kvalita \'\'\'nebola\'\'\' [[{{MediaWiki:Validationpage}}|skontrolovaná]].',
 	'stabilization-tab'         => '(kk)',
 	'tooltip-ca-default'        => 'Nastavenia kontroly kvality',
 	'revreview-quick-none'      => '\'\'\'Aktuálna\'\'\'. Žiadne revízie neboli skontrolvoané..',
 	'revreview-quick-see-quality' => '\'\'\'Aktuálna\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú kvalitnú revíziu]',
 	'revreview-quick-see-basic' => '\'\'\'Aktuálna\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú skontrolovanú revíziu]',
-	'revreview-quick-basic'     => '\'\'\'[[{{MediaWiki:Makevalidate-page}}|Skontrolovaná]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
+	'revreview-quick-basic'     => '\'\'\'[[{{MediaWiki:Validationpage}}|Skontrolovaná]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])',
-	'revreview-quick-quality'   => '\'\'\'[[{{MediaWiki:Makevalidate-page}}|Kvalitná]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
+	'revreview-quick-quality'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Kvalitná]]\'\'\'. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])',
 	'revreview-newest-basic'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná overená revízia] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená]
@@ -33,19 +33,19 @@ $messages = array(
 	'revreview-newest-quality'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná kvalitná revízia] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená]
 	 <i>$2</i>. <br/> {{plural:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} zmeny]) čaká na schválenie.',
-	'revreview-basic'           => 'Toto je najnovšia [[{{MediaWiki:Makevalidate-page}}|stabilná]] verzia tejto stránky, 
+	'revreview-basic'           => 'Toto je najnovšia [[{{MediaWiki:Validationpage}}|stabilná]] verzia tejto stránky, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] 
 	je zvyčajne [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} prístupná úpravám] a aktuálnejšia. 
 Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|jedna zmena|$3 zmeny|$3 zmien}}].',
-	'revreview-quality'         => 'Toto je najnovšia [[{{MediaWiki:Makevalidate-page}}|kvalitná]] verzia tejto stránky, 
+	'revreview-quality'         => 'Toto je najnovšia [[{{MediaWiki:Validationpage}}|kvalitná]] verzia tejto stránky, 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$4</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] 
 	je zvyčajne [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} prístupná úpravám] a aktuálnejšia. 
 Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|jedna zmena|$3 zmeny|$3 zmien}}].',
-	'revreview-static'          => 'Toto je [[{{MediaWiki:Makevalidate-page}}|skontrolovaná]] verzia stránky \'\'\'[[:$3]]\'\'\', 
+	'revreview-static'          => 'Toto je [[{{MediaWiki:Validationpage}}|skontrolovaná]] verzia stránky \'\'\'[[:$3]]\'\'\', 
 	[{{fullurl:Special:Log/review|page=$1}} schválená] <i>$2</i>. [{{fullurl:$3|stable=0}} Najnovšia verzia] 
 	je zvyčajne prístupná úpravám a aktuálnejšia.',
 	'revreview-toggle'          => '(prepnúť zobrazenie podrobností)',
-	'revreview-note'            => '[[User:$1]] urobil nasledovné poznámky počas [[{{MediaWiki:Makevalidate-page}}|kontroly]] tejto verzie:',
+	'revreview-note'            => '[[User:$1]] urobil nasledovné poznámky počas [[{{MediaWiki:Validationpage}}|kontroly]] tejto verzie:',
 	'revreview-update'          => 'Prosím, skontrolujte všetky zmeny (zobrazené nižšie), ktoré boli vykonané od poslednej stabilnej revízie. Šablóny a obrázky sa tiež mohli zmeniť.',
 	'revreview-update-none'     => 'Prosím, skontrolujte všetky zmeny (zobrazené nižšie), ktoré boli urobené od stabilnej verzie tejto stránky.',
 	'revreview-auto'            => '(automatické)',
@@ -55,13 +55,13 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'hist-quality'              => '[kvalitná]',
 	'flaggedrevs'               => 'Označené verzie',
 	'review-logpage'            => 'Záznam kontrol stránky',
-	'review-logpagetext'        => 'Toto je záznam zmien stavu [[{{MediaWiki:Makevalidate-page}}|kontroly]] verzií
+	'review-logpagetext'        => 'Toto je záznam zmien stavu [[{{MediaWiki:Validationpage}}|kontroly]] verzií
 	stránok s obsahom.',
 	'review-logentry-app'       => 'skontrolované [[$1]]',
 	'review-logentry-dis'       => 'neodporúča sa verzia [[$1]]',
 	'review-logaction'          => 'ID verzie $1',
 	'stable-logpage'            => 'Záznam stabilných verzií',
-	'stable-logpagetext'        => 'Toto je záznam zmien v konfigurácii [[{{MediaWiki:Makevalidate-page}}|stabilnej verzie]] článkov.',
+	'stable-logpagetext'        => 'Toto je záznam zmien v konfigurácii [[{{MediaWiki:Validationpage}}|stabilnej verzie]] článkov.',
 	'stable-logentry'           => 'nastavil stabilné verzie [[$1]]',
 	'stable-logentry2'          => 'zrušil stabilné verzie [[$1]]',
 	'revisionreview'            => 'Prezrieť kontroly',
@@ -115,7 +115,7 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'unreviewed-category'       => 'Kategória:',
 	'unreviewed-diff'           => 'Zmeny',
 	'unreviewed-list'           => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
-	'revreview-visibility'      => 'Táto stránka má [[{{MediaWiki:Makevalidate-page}}|stabilnú verziu]], ktorú je možné [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastaviť].',
+	'revreview-visibility'      => 'Táto stránka má [[{{MediaWiki:Validationpage}}|stabilnú verziu]], ktorú je možné [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastaviť].',
 	'stabilization'             => 'Stabilizácia stránky',
 	'stabilization-text'        => 'Voľby nižšie menia spôsob výberu a zobrazenia stabilnej verzie stránky [[:$1|$1]].',
 	'stabilization-perm'        => 'Váš účet nemá oprávnenie meniť nastavenia stabilnej verzie. Tu sú súčasné nastavenia [[:$1|$1]]:',

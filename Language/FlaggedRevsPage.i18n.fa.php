@@ -19,16 +19,16 @@ $messages = array(
 	'tooltip-ca-stable'           => 'مشاهده نسخه پایدار این صفحه',
 	'revreview-oldrating'         => 'نمره داده شده:',
 	'revreview-noflagged'         => 'نسخهٔ مرورشده‌ای از این صفحه وجود ندارد، احتمالاً به این دلیل که ای صفحه از نظر کیفیت بررسی
-[[{{MediaWiki:Makevalidate-page}}|نشده‌است]].',
+[[{{MediaWiki:Validationpage}}|نشده‌است]].',
 	'stabilization-tab'           => '(کک)',
 	'tooltip-ca-default'          => 'تنظیمات کنترل کیفیت',
 	'revreview-quick-none'        => "'''فعلی'''. فاقد نسخه مرورشده",
 	'revreview-quick-see-quality' => "'''فعلی'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهده نسخه پایدار]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغییر|تغییر}}])",
 	'revreview-quick-see-basic'   => "'''فعلی'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهده نسخه پایدار]] 
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغییر|تغییر}}])",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Makevalidate-page}}|بررسی‌شده]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهده نسخه فعلی]] 
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهده نسخه فعلی]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغییر|تغییر}}])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Makevalidate-page}}|با کیفیت]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهده نسخه فعلی]] 
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|با کیفیت]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهده نسخه فعلی]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغییر|تغییر}}])",
 	'revreview-newest-basic'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخرین نسخه بررسی‌شده] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} فهرست کامل]) در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است].
@@ -36,18 +36,18 @@ $messages = array(
 	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخرین نسخه باکیفیت] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} فهرست کامل]) در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغییر|تغییر}}] نیازمند بررسی {{plural:$3|است|هستند}}.',
-	'revreview-basic'             => 'این آخرین نسخه [[{{MediaWiki:Makevalidate-page}}|بررسی‌ شده]] است که در <i>$2</i> 
+	'revreview-basic'             => 'این آخرین نسخه [[{{MediaWiki:Validationpage}}|بررسی‌ شده]] است که در <i>$2</i> 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش‌نویس] 
 	قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} ویرایش] است؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغییر|تغییر}}] 
 نیازمند بررسی {{plural:$3|است|هستند}}.',
-	'revreview-quality'           => 'این آخرین نسخه [[{{MediaWiki:Makevalidate-page}}|باکیفیت]] است که در <i>$2</i> 
+	'revreview-quality'           => 'این آخرین نسخه [[{{MediaWiki:Validationpage}}|باکیفیت]] است که در <i>$2</i> 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش‌نویس] 
 	قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} ویرایش] است؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغییر|تغییر}}] 
 	نیازمند بررسی {{plural:$3|است|هستند}}.',
-	'revreview-static'            => "این یک نسخه [[{{MediaWiki:Makevalidate-page}}|بررسی شده]] از  '''[[:$3|$3]]''' است، که در <i>$2</i>  
+	'revreview-static'            => "این یک نسخه [[{{MediaWiki:Validationpage}}|بررسی شده]] از  '''[[:$3|$3]]''' است، که در <i>$2</i>  
 	[{{fullurl:Special:Log/review|page=$1}} تائید شده‌است].",
 	'revreview-toggle'            => '(+/-)',
-	'revreview-note'              => '[[User:$1]] این توضیحات را ضمن [[{{MediaWiki:Makevalidate-page}}|بررسی]] این نسخه ثبت کرد:',
+	'revreview-note'              => '[[User:$1]] این توضیحات را ضمن [[{{MediaWiki:Validationpage}}|بررسی]] این نسخه ثبت کرد:',
 	'revreview-update'            => 'لطفاً تمام تغییراتی که از آخرین نسخه پایدار صورت گرفته را بررسی کنید. برخی الگوها/تصویرها تغییر یافته‌اند:',
 	'revreview-update-none'       => 'لطفاً تمام تغییراتی که پس از آخرین نسخه پایدار اعمال شده‌اند را بررسی کنید.',
 	'revreview-auto'              => '(خودکار)',
@@ -57,12 +57,12 @@ $messages = array(
 	'hist-quality'                => '[با کیفیت]',
 	'flaggedrevs'                 => 'نسخه‌های علامت‌دار',
 	'review-logpage'              => 'سیاهه بررسی مقاله',
-	'review-logpagetext'          => 'این سیاهه‌ای از تعییرات وضعیت [[{{MediaWiki:Makevalidate-page}}|تائید]] نسخه‌های صفحه‌ها است.',
+	'review-logpagetext'          => 'این سیاهه‌ای از تعییرات وضعیت [[{{MediaWiki:Validationpage}}|تائید]] نسخه‌های صفحه‌ها است.',
 	'review-logentry-app'         => '[[$1]] را بررسی کرد',
 	'review-logentry-dis'         => 'نسخه‌ای از [[$1]] را کم‌بها کرد',
 	'review-logaction'            => 'شماره نسخه $1',
 	'stable-logpage'              => 'سیاهه نسخه پایدار',
-	'stable-logpagetext'          => 'این سیاهه‌ای از تنظیمات [[{{MediaWiki:Makevalidate-page}}|نسخه پایدار]] صفحه‌ها است.',
+	'stable-logpagetext'          => 'این سیاهه‌ای از تنظیمات [[{{MediaWiki:Validationpage}}|نسخه پایدار]] صفحه‌ها است.',
 	'stable-logentry'             => 'نسخه پایدار [[$1]] را تنظیم کرد',
 	'stable-logentry2'            => 'بازنشاندن نسخه پایدار [[$1]]',
 	'revisionreview'              => 'نسخه‌های بررسی',
@@ -112,7 +112,7 @@ $messages = array(
 	'unreviewed-category'         => 'رده:',
 	'unreviewed-diff'             => 'تغییرات',
 	'unreviewed-list'             => 'این صفحه فهرستی از مقاله‌هایی را نشان می‌دهد که بررسی نشده‌اند یا دارای نسخه‌های جدید بررسی نشده‌ای هستند.',
-	'revreview-visibility'        => 'این صفحه دارای یک [[{{MediaWiki:Makevalidate-page}}|نسخه پایدار است]] که قابل 
+	'revreview-visibility'        => 'این صفحه دارای یک [[{{MediaWiki:Validationpage}}|نسخه پایدار است]] که قابل 
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} تنظیم] است.',
 	'stabilization'               => 'پایدارسازی صفحه‌ها',
 	'stabilization-text'          => 'تغییر تنظیمات زیر به منظور تعیین این که نسخه پایدار [[:$1|$1]] چگونه انتخاب و نمایش داده می‌شود.',

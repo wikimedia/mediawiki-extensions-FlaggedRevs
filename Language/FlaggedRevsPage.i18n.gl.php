@@ -20,7 +20,7 @@ $messages = array(
 	'revreview-stable'            => 'Estábel',
 	'tooltip-ca-stable'           => 'Ver a versión estábel desta páxina',
 	'revreview-oldrating'         => 'Foi valorado:',
-	'revreview-noflagged'         => "Non hai revisións examinadas desta páxina,  polo que pode que '''non''' foran [[{{MediaWiki:Makevalidate-page}}|revisadas]] na súa calidade.",
+	'revreview-noflagged'         => "Non hai revisións examinadas desta páxina,  polo que pode que '''non''' foran [[{{MediaWiki:Validationpage}}|revisadas]] na súa calidade.",
 	'stabilization-tab'           => '(qa)',
 	'tooltip-ca-default'          => 'Configuración de garantía da calidade',
 	'revreview-quick-none'        => "'''Actualización'''. Non examinou as revisións.",
@@ -28,22 +28,22 @@ $messages = array(
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
 	'revreview-quick-see-basic'   => "'''Actualización'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} véxase revisión estábel]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Makevalidate-page}}|Sighted]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} véxase revisión actual]] 
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Sighted]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} véxase revisión actual]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Makevalidate-page}}|Calidade]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} véxase revisión actual]] 
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Calidade]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} véxase revisión actual]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
 	'revreview-newest-quality'    => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidade] 
 	([{{fullurl:Special:Stableversions|páxina={{FULLPAGENAMEE}}}} de toda a listaxe]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]
 	 en <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|cambios}}] {{plural:$3|needs|precisan}} revisión.',
-	'revreview-quality'           => 'Esta é a última revisión de [[{{MediaWiki:Makevalidate-page}}|calidade]], 
+	'revreview-quality'           => 'Esta é a última revisión de [[{{MediaWiki:Validationpage}}|calidade]], 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>. A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} revisión actual] 
 	pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|cambios}}] 
 	{{plural:$3|awaits|agardan}} ser revisados.',
-	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Makevalidate-page}}|examinada]] de '''[[:$3|$3]]''', 
+	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Validationpage}}|examinada]] de '''[[:$3|$3]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} aprobada] en <i>$2</i>. A [{{fullurl:$3|stable=0}} revisión actual] 
 	pode ser [{{fullurl:$3|action=edit}} modificada].",
 	'revreview-toggle'            => '(+/-)',
-	'revreview-note'              => '[[User:$1]] fixo as seguintes notas [[{{MediaWiki:Makevalidate-page}}|examinando]] esta revisión:',
+	'revreview-note'              => '[[User:$1]] fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
 	'revreview-update'            => 'Revise os cambios (amósanse embaixo) feitos desde a revisión estábel desta páxina. Os seguintes
 modelos
 	e imaxes tamén foron actualizados:',
@@ -56,13 +56,13 @@ modelos
 	'hist-quality'                => '[calidade]',
 	'flaggedrevs'                 => 'Revisións marcadas',
 	'review-logpage'              => 'Rexistro de revisións do artigo',
-	'review-logpagetext'          => 'Este é un rexistro dos cambios para as revisións de [[{{MediaWiki:Makevalidate-page}}|aprobación]] do status
+	'review-logpagetext'          => 'Este é un rexistro dos cambios para as revisións de [[{{MediaWiki:Validationpage}}|aprobación]] do status
 	para o contido das páxinas.',
 	'review-logentry-app'         => 'revisados [[$1]]',
 	'review-logentry-dis'         => 'devaluada a versión de [[$1]]',
 	'review-logaction'            => 'revisión ID $1',
 	'stable-logpage'              => 'Rexistro de versión estábeis',
-	'stable-logpagetext'          => 'Este é un rexistro dos cambios de [[{{MediaWiki:Makevalidate-page}}|versión estábel]]
+	'stable-logpagetext'          => 'Este é un rexistro dos cambios de [[{{MediaWiki:Validationpage}}|versión estábel]]
 	de configuración do contido das páxinas.',
 	'stable-logentry'             => 'configurada a versión estábel para [[$1]]',
 	'stable-logentry2'            => 'resetear a versión estábel para [[$1]]',
@@ -107,7 +107,7 @@ modelos
 	'unreviewed-category'         => 'Categoría:',
 	'unreviewed-diff'             => 'Cambios',
 	'unreviewed-list'             => 'Esta páxina lista artigos que non foron revisados ou que teñen novas revisións sen examinar.',
-	'revreview-visibility'        => 'Esta páxina ten unha [[{{MediaWiki:Makevalidate-page}}|versión estábel]], a cal pode ser
+	'revreview-visibility'        => 'Esta páxina ten unha [[{{MediaWiki:Validationpage}}|versión estábel]], a cal pode ser
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurada].',
 	'stabilization'               => 'Estabilización da páxina',
 	'stabilization-text'          => 'Mude a configuración a continuación para axustar a forma na que a versión estábel de [[:$1|$1]] foi seleccionada e se amosa.',

@@ -1,6 +1,7 @@
 <?php
 // Chinese (Simplified) (Shinjiman)
 $messages = array(
+	'validationpage' => '{{ns:help}}:文章确认',
 	'makevalidate-autosum'  => '自动升格',
 	'editor'                => '编辑',
 	'group-editor'          => '编辑',
@@ -15,13 +16,13 @@ $messages = array(
 	'revreview-source'      => '草稿原始码',
 	'revreview-stable'      => '稳定',
 	'revreview-oldrating'   => '曾经评定为:',
-	'revreview-noflagged'   => '这一页没有复审过的修订，它可能\'\'\'未\'\'\'[[Help:文章确认|检查]]质量。',
+	'revreview-noflagged'   => '这一页没有复审过的修订，它可能\'\'\'未\'\'\'[[{{MediaWiki:Validationpage}}|检查]]质量。',
 	'revreview-quick-none'  => '\'\'\'现时的\'\'\'。没有已复审的修订。',
 	'revreview-quick-see-quality' => '\'\'\'现时的\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看睇最后的质素修订]]',
 	'revreview-quick-see-basic' => '\'\'\'现时的\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看最后检查过的修订]]',
-	'revreview-quick-basic' => '\'\'\'[[Help:文章确认|视察过的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看现时修订]] 
+	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|视察过的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看现时修订]] 
 	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
-	'revreview-quick-quality' => '\'\'\'[[Help:文章确认|有质素的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看现时修订]] 
+	'revreview-quick-quality' => '\'\'\'[[{{MediaWiki:Validationpage}}|有质素的]]\'\'\'。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看现时修订]] 
 	($2[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} 次更改])',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后视察过的修订] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 于<i>$2</i>曾经[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
@@ -29,18 +30,18 @@ $messages = array(
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后有质素的修订] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 于<i>$2</i>曾经[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改]需要复审。',
-	'revreview-basic'       => '这个是最后[[Help:文章确认|视察过的]]修订，
+	'revreview-basic'       => '这个是最后[[{{MediaWiki:Validationpage}}|视察过的]]修订，
 	于<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 现时修订]
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
 	正等候复审。',
-	'revreview-quality'     => '这个是最后[[Help:文章确认|有质素的]]修订，
+	'revreview-quality'     => '这个是最后[[{{MediaWiki:Validationpage}}|有质素的]]修订，
 	于<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 现时修订] 
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3次更改] 
 	正等候复审。',
-	'revreview-static'      => '这个是一个在\'\'\'[[:$3|这页]]\'\'\'[[Help:文章确认|复审过的]]修订，
+	'revreview-static'      => '这个是一个在\'\'\'[[:$3|这页]]\'\'\'[[{{MediaWiki:Validationpage}}|复审过的]]修订，
 	于<i>$2</i>[{{fullurl:Special:Log/review|page=$1}} 批准]。[{{fullurl:$3|stable=0}} 现时修订]
 	可以[{{fullurl:$3|action=edit}} 更改]。',
-	'revreview-note'        => '[[User:$1]]在这次修订中加入了以下的[[Help:文章确认|复审]]注解:',
+	'revreview-note'        => '[[User:$1]]在这次修订中加入了以下的[[{{MediaWiki:Validationpage}}|复审]]注解:',
 	'revreview-update'      => '请复审自从于这页的稳定版以来的任何更改 (在下面显示) 。模版和图像亦可能同时更改。',
 	'revreview-auto'        => '(自动)',
 	'revreview-auto-w'      => '\'\'\'注意:\'\'\' 您现在是在稳定修订中作出更改，您的编辑将会自动被复审。
@@ -49,7 +50,7 @@ $messages = array(
 	'hist-quality'          => '[质素]',
 	'flaggedrevs'           => '标注修订',
 	'review-logpage'        => '文章复审记录',
-	'review-logpagetext'    => '这个是内容页[[Help:文章确认|批准]]状态的更改记录。',
+	'review-logpagetext'    => '这个是内容页[[{{MediaWiki:Validationpage}}|批准]]状态的更改记录。',
 	'review-logaction'      => '修订 ID $1',
 	'revisionreview'        => '复审修订',
 	'revreview-main'        => '您一定要在一页的内容页中选择一个个别的修订去复审。

@@ -20,7 +20,7 @@ $messages = array(
 	'tooltip-ca-stable'           => 'عرض النسخة المستقرة لهذه الصفحة',
 	'revreview-oldrating'         => 'تم تقييمها ك:',
 	'revreview-noflagged'         => "لا توجد نسخ مراجعة لهذه الصفحة، لذا ربما '''لا''' تكون قد تم 
-	[[{{MediaWiki:Makevalidate-page}}|التحقق من]] جودتها.",
+	[[{{MediaWiki:Validationpage}}|التحقق من]] جودتها.",
 	'stabilization-tab'           => '(تج)',
 	'tooltip-ca-default'          => 'إعدادات تأكيد الجودة',
 	'revreview-quick-none'        => "'''الحالي'''. لا نسخ مراجعة.",
@@ -36,19 +36,19 @@ $messages = array(
 	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخة الجودة الأخيرة] 
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) تم [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها]
 	 في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] {{plural:$3|تحتاج|تحتاج}} مراجعة.',
-	'revreview-basic'             => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|منظورة]] ، 
+	'revreview-basic'             => 'هذه آخر نسخة [[{{MediaWiki:Validationpage}}|منظورة]] ، 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
 	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
-	'revreview-quality'           => 'هذه آخر نسخة [[{{MediaWiki:Makevalidate-page}}|جودة]], 
+	'revreview-quality'           => 'هذه آخر نسخة [[{{MediaWiki:Validationpage}}|جودة]], 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|تغيير|تغييرات}}] 
 	{{plural:$3|تنتظر|تنتظر}} مراجعة.',
-	'revreview-static'            => "هذه هي النسخة [[{{MediaWiki:Makevalidate-page}}|المراجعة]] من '''[[:$3|هذه الصفحة]]''', 
+	'revreview-static'            => "هذه هي النسخة [[{{MediaWiki:Validationpage}}|المراجعة]] من '''[[:$3|هذه الصفحة]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:$3|action=edit}} تعديلها].",
 	'revreview-toggle'            => '(+/-)',
-	'revreview-note'              => '[[User:$1]] كتب الملاحظات التالية [[{{MediaWiki:Makevalidate-page}}|عند مراجعة]] هذه النسخة:',
+	'revreview-note'              => '[[User:$1]] كتب الملاحظات التالية [[{{{MediaWiki:Validationpage}}|عند مراجعة]] هذه النسخة:',
 	'revreview-update'            => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) تمت منذ النسخة المستقرة لهذه الصفحة. القوالب و الصور
 ربما تكون قد تغيرت أيضا.',
 	'revreview-update-none'       => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) منذ النسخة المستقرة لهذه الصفحة.',
@@ -61,12 +61,12 @@ $messages = array(
 	'hist-quality'                => '[الجودة]',
 	'flaggedrevs'                 => 'نسخ معلمة',
 	'review-logpage'              => 'سجل مراجعة المقالة',
-	'review-logpagetext'          => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Makevalidate-page}}|الموافقة]] لصفحات المحتوى.",
+	'review-logpagetext'          => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.",
 	'review-logentry-app'         => 'راجع $1',
 	'review-logentry-dis'         => 'أزال نسخة من $1',
 	'review-logaction'            => 'رقم النسخة $1',
 	'stable-logpage'              => 'سجل النسخة المستقرة',
-	'stable-logpagetext'          => 'هذا سجل بالتغييرات لضبط [[{{MediaWiki:Makevalidate-page}}|النسخة المستقرة]] 
+	'stable-logpagetext'          => 'هذا سجل بالتغييرات لضبط [[{{MediaWiki:Validationpage}}|النسخة المستقرة]] 
 	لصفحات المحتوى.',
 	'stable-logentry'             => 'ضبط النسخة المستقرة ل[[$1]]',
 	'stable-logentry2'            => 'أعاد ضبط النسخة المستقرة ل[[$1]]',
@@ -119,7 +119,7 @@ $messages = array(
 	'unreviewed-category'         => 'التصنيف:',
 	'unreviewed-diff'             => 'تغييرات',
 	'unreviewed-list'             => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
-	'revreview-visibility'        => 'هذه الصفحة لديها [[{{MediaWiki:Makevalidate-page}}|نسخة مستقرة]]، يمكن
+	'revreview-visibility'        => 'هذه الصفحة لديها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]]، يمكن
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].',
 	'stabilization'               => 'تثبيت الصفحة',
 	'stabilization-text'          => 'غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المستقرة من [[:$1|$1]] يتم اختيارها وعرضها.',

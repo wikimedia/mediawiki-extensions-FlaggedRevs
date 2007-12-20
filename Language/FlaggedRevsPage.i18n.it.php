@@ -11,5 +11,5 @@ $messages = array(
 	'revreview-stable'          => 'Stabile',
 	'tooltip-ca-stable'         => 'Vedi la versione stabile di questa voce',
 	'revreview-oldrating'       => 'È stata giudicata:',
-	'revreview-noflagged'       => 'Non ci sono revisioni convalidate di questa voce, perciò potrebbe \'\'\'non\'\'\' essere stata [[{{MediaWiki:Makevalidate-page}}|controllata]] la sua qualità.',
+	'revreview-noflagged'       => 'Non ci sono revisioni convalidate di questa voce, perciò potrebbe \'\'\'non\'\'\' essere stata [[{{MediaWiki:Validationpage}}|controllata]] la sua qualità.',
 );

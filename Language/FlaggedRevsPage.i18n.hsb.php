@@ -20,32 +20,32 @@ $messages = array(
 	'revreview-stable'            => 'Stabilna wersija',
 	'tooltip-ca-stable'           => 'Stabilnu wersiju tuteje strony wobhladać',
 	'revreview-oldrating'         => 'Zastopnjowanje:',
-	'revreview-noflagged'         => 'Njeje přehladowanych wersijow tuteje strony, tak zo njejsu wuprajenja k [[{{MediaWiki:Makevalidate-page}}|spušćomnosći nastawka]] móžne.',
+	'revreview-noflagged'         => 'Njeje přehladowanych wersijow tuteje strony, tak zo njejsu wuprajenja k [[{{MediaWiki:Validationpage}}|spušćomnosći nastawka]] móžne.',
 	'stabilization-tab'           => '(Kwalitne zawěsćenje)',
 	'tooltip-ca-default'          => 'Nastajenja kwalitneho zawěsćenja',
 	'revreview-quick-none'        => "'''Aktualnje'''. Žane přehladowane wersije.",
 	'revreview-quick-see-quality' => "'''Aktualnje'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Hlej poslednju přehladanu wersiju]",
 	'revreview-quick-see-basic'   => "'''Aktualnje'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Hlej poslednju přehladanu wersiju]",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Makevalidate-page}}|Wuhladowany]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualna wersiju] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změnow|změny|změnje}}])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Makevalidate-page}}|Pruwowany]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualnu wersiju] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změnow|změny|změnje}}])",
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Wuhladowany]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualna wersiju] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změnow|změny|změnje}}])",
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Pruwowany]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualnu wersiju] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změnow|změny|změnje}}])",
 	'revreview-newest-basic'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslednja wuhladana wersija]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} hlej wšě]) bu dnja <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}] {{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so pruwować.',
 	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslednja pruwowana wersija]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} hlej wšě]) bu <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}] {{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
-	'revreview-basic'             => 'To je poslednja [[{{MediaWiki:Makevalidate-page}}|wuhladana]] wersija,
+	'revreview-basic'             => 'To je poslednja [[{{MediaWiki:Validationpage}}|wuhladana]] wersija,
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tuchwilna wersija]
 	móže so [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} wobdźěłać]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}]
 	{{plural:$3|dyrbi|dyrbi|dyrbjadyrbjetej}} so hišće pruwować.',
-	'revreview-quality'           => 'To je poslednja [[{{MediaWiki:Makevalidate-page}}|kwalitna wersija]],
+	'revreview-quality'           => 'To je poslednja [[{{MediaWiki:Validationpage}}|kwalitna wersija]],
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena]  <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Tuchwilna wersija]
 	móže so [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} wobdźěłać; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|wersija|wersijow|wersije|wersiji}}]
 	{{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
-	'revreview-static'            => "To je [[{{MediaWiki:Makevalidate-page}}|pruwowana]] wersija '''[[:$3|tuteje strony]]''', [{{fullurl:Special:Log/review|page=$1}} dopušćena]
+	'revreview-static'            => "To je [[{{MediaWiki:Validationpage}}|pruwowana]] wersija '''[[:$3|tuteje strony]]''', [{{fullurl:Special:Log/review|page=$1}} dopušćena]
 	am <i>$2</i>. [{{fullurl:$3|stable=0}} Tuchwilna wersija] móže so [{{fullurl:$3|action=edit}} wobdźěłać].",
 	'revreview-toggle'            => '(+/-)',
-	'revreview-note'              => '[[{{ns:user}}:$1]] činješe slědowace [[{{MediaWiki:Makevalidate-page}}|pruwowanske noticy]] k tutej wersiji:',
+	'revreview-note'              => '[[{{ns:user}}:$1]] činješe slědowace [[{{MediaWiki:Validationpage}}|pruwowanske noticy]] k tutej wersiji:',
 	'revreview-update'            => 'Prošu pruwuj kóždu změnu wot poslednjeje stabilneje wersije (hlej deleka). Předłohi a wobrazy móža tež změnjene być.',
 	'revreview-update-none'       => 'Prošu pruwuj deleka pokazane změny, kotrež su so na tutej stronje wot stabilneje wersije činili.',
 	'revreview-auto'              => '(awtomatisce)',
@@ -55,12 +55,12 @@ $messages = array(
 	'hist-quality'                => '[pruwowany]',
 	'flaggedrevs'                 => 'Woznamjenjene wersije',
 	'review-logpage'              => 'Protokol přehladanjow',
-	'review-logpagetext'          => 'To je protokol změnow [[{{MediaWiki:Makevalidate-page}}|dopušćenjow]] za nastawki.',
+	'review-logpagetext'          => 'To je protokol změnow [[{{MediaWiki:Validationpage}}|dopušćenjow]] za nastawki.',
 	'review-logentry-app'         => 'je $1 přepruwował',
 	'review-logentry-dis'         => 'je wersiju wot $1 zaćisnył',
 	'review-logaction'            => 'Wersijowy ID $1',
 	'stable-logpage'              => 'Protokol stabilneje wersije',
-	'stable-logpagetext'          => 'To je protokol změnow na konfiguraciji [[{{MediaWiki:Makevalidate-page}}|stabilneje wersije]] nastawkow.',
+	'stable-logpagetext'          => 'To je protokol změnow na konfiguraciji [[{{MediaWiki:Validationpage}}|stabilneje wersije]] nastawkow.',
 	'stable-logentry'             => 'konfigurowaše woznamjenjenje stabilneje wersije za [[$1]]',
 	'stable-logentry2'            => 'woznamjenjenje stabilneje wersije za [[$1]] anulować',
 	'revisionreview'              => 'Wersije přepruwować',
@@ -109,7 +109,7 @@ $messages = array(
 	'unreviewed-category'         => 'Kategorija:',
 	'unreviewed-diff'             => 'Změny',
 	'unreviewed-list'             => 'Tuta strona naliči nastawki kotrež hišće pruwowane njejsu abo maja njepruwowane wersije.',
-	'revreview-visibility'        => 'Tuta strona ma [[{{MediaWiki:Makevalidate-page}}|stabilnu wersiju]], kotraž da so
+	'revreview-visibility'        => 'Tuta strona ma [[{{MediaWiki:Validationpage}}|stabilnu wersiju]], kotraž da so
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurować].',
 	'stabilization'               => 'Stabilizacija strony',
 	'stabilization-text'          => 'Změń nastajenja, zo by postajił, kak ma so stabilna wersija wot "[[:$1|$1]]" wubrać a zwobraznić.',
