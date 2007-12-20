@@ -195,7 +195,6 @@ class FlaggedArticle {
 				# Tell MW that parser output is done
 				$outputDone = true;
 				$pcache = false;
-				wfRunHooks( 'OutputPageParserOutput', array( &$wgOut, $parserOut ) );
 			}
 			# Some checks for which tag CSS to use
 			if( FlaggedRevs::useSimpleUI() )
