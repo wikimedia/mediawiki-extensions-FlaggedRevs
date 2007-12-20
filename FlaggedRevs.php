@@ -639,7 +639,7 @@ class FlaggedRevs {
 			return NULL;
 		
 		$parserCache = ParserCache::singleton();
-		$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
+		$key = self::getCacheKey( $parserCache, $article, $wgUser );
 		# Get the cached HTML
 		wfDebug( "Trying parser cache $key\n" );
 		$value = $parserMemc->get( $key );
@@ -677,6 +677,14 @@ class FlaggedRevs {
 	}
 
 	/**
+	 * Like ParserCache::getKey() with stable-pcache instead of pcache
+	 */
+	public static function getCacheKey( $parserCache, $article, &$user ) {
+		$key = $parserCache->getKey( $article, $user );
+		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
+	}
+
+	/**
 	* @param Article $article
 	* @param parerOutput $parserOut
 	* Updates the stable cache of a page with the given $parserOut
@@ -690,7 +698,7 @@ class FlaggedRevs {
 		$article->getTitle()->invalidateCache();
 		
 		$parserCache = ParserCache::singleton();
-		$key = 'sv-' . $parserCache->getKey( $article, $wgUser );
+		$key = self::getCacheKey( $parserCache, $article, $wgUser );
 		# Add cache mark to HTML
 		$now = wfTimestampNow();
 		$parserOut->setCacheTime( $now );
