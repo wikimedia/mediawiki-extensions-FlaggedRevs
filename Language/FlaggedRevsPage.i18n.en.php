@@ -60,6 +60,7 @@ $messages = array(
 	You may want to preview the page before saving.",
 	'revreview-auto-w-old' => "You are editing an old revision, any changes will '''automatically be reviewed'''. 
 	You may want to preview the page before saving.",
+	'revreview-patrolled' => 'The selected revision of [[:$1|$1]] has been marked as patrolled.',
 
 	'hist-stable'  => '[sighted]',
 	'hist-quality' => '[quality]',

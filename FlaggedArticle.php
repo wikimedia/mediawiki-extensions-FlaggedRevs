@@ -951,10 +951,10 @@ class FlaggedArticle {
 				$change = RecentChange::newFromConds(
 					array(
 						// Add redundant timestamp condition so we can use the existing index
-						'rc_timestamp' => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
+						'rc_timestamp'  => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
 						'rc_this_oldid' => $diff->mNewid,
 						'rc_last_oldid' => $diff->mOldid,
-						'rc_patrolled' => 0,
+						'rc_patrolled'  => 0,
 					),
 					__METHOD__
 				);
@@ -970,9 +970,8 @@ class FlaggedArticle {
 				$skin = $wgUser->getSkin();
 			
 				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-				$patrol = '[' . $skin->makeKnownLinkObj( $reviewtitle,
-					wfMsgHtml( 'markaspatrolleddiff' ),
-					"patrolonly=1&rcid={$rcid}") . ']';
+				$patrol = '[' . $skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'markaspatrolleddiff' ),
+					"patrolonly=1&target=" . $NewRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" ) . ']';
 			} else {
 				$patrol = '';
 			}

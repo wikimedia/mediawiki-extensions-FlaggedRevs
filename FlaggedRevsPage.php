@@ -33,26 +33,28 @@ class Revisionreview extends SpecialPage
 		}
 		
 		$this->setHeaders();
+		// Our target page
+		$this->target = $wgRequest->getText( 'target' );
+		$this->page = Title::newFromUrl( $this->target );
 		// Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
 		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
+		
+		if( is_null($this->page) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		// Patrol the edit if requested
 		if( $this->patrolonly && $this->rcid ) {
 			$this->markPatrolled();
 			return;
 		}
 		
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
-		// Our target page
-		$this->target = $wgRequest->getText( 'target' );
-		$this->page = Title::newFromUrl( $this->target );
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		if( !$this->target || !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
-			return;
-		}
-		if( is_null($this->page) || is_null($this->oldid) ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
 		// Check if page is protected
@@ -143,7 +145,7 @@ class Revisionreview extends SpecialPage
 		PatrolLog::record( $this->rcid );
 		# Inform the user
 		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
-		$wgOut->addWikiText( wfMsgNoTrans( 'markedaspatrolledtext' ) );
+		$wgOut->addWikiText( wfMsgNoTrans( 'revreview-patrolled', $this->page->getPrefixedText() ) );
 		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 	}
 	
