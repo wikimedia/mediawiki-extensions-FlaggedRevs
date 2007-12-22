@@ -49,6 +49,7 @@ $messages = array(
 	'revreview-static'            => "هذه هي النسخة [[{{MediaWiki:Validationpage}}|المراجعة]] من '''[[:$3|هذه الصفحة]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:$3|action=edit}} تعديلها].",
+	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه النسخة:',
 	'revreview-update'            => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) تمت منذ النسخة المستقرة لهذه الصفحة. القوالب و الصور
 ربما تكون قد تغيرت أيضا.',
@@ -58,6 +59,7 @@ $messages = array(
 ربما تريد أن تعرض الصفحة عرضا مسبقا قبل الحفظ.",
 	'revreview-auto-w-old'        => "أنت تحرر نسخة قديمة، أية تغييرات ستتم '''مراجعتها تلقائيا'''. 
 	ربما تريد عرض الصفحة عرضا مسبقا قبل الحفظ.",
+	'revreview-patrolled'         => 'النسخة المختارة من [[:$1|$1]] تم التعليم عليها كمراجعة.',
 	'hist-stable'                 => '[منظورة]',
 	'hist-quality'                => '[الجودة]',
 	'flaggedrevs'                 => 'نسخ معلمة',
