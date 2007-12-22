@@ -1,6 +1,7 @@
 <?php
 /** Persian (فارسی)
  * @author Huji
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'ویرایشگر',
@@ -46,7 +47,6 @@ $messages = array(
 	نیازمند بررسی {{plural:$3|است|هستند}}.',
 	'revreview-static'            => "این یک نسخه [[{{MediaWiki:Validationpage}}|بررسی شده]] از  '''[[:$3|$3]]''' است، که در <i>$2</i>  
 	[{{fullurl:Special:Log/review|page=$1}} تائید شده‌است].",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] این توضیحات را ضمن [[{{MediaWiki:Validationpage}}|بررسی]] این نسخه ثبت کرد:',
 	'revreview-update'            => 'لطفاً تمام تغییراتی که از آخرین نسخه پایدار صورت گرفته را بررسی کنید. برخی الگوها/تصویرها تغییر یافته‌اند:',
 	'revreview-update-none'       => 'لطفاً تمام تغییراتی که پس از آخرین نسخه پایدار اعمال شده‌اند را بررسی کنید.',
@@ -129,7 +129,6 @@ $messages = array(
 	'stabilization-submit'        => 'تائید',
 	'stabilization-notexists'     => 'صفحه‌ای با عنوان «[[:$1|$1]]» وجود ندارد. تنظیمات ممکن نیست.',
 	'stabilization-notcontent'    => 'صفحه «[[:$1|$1]]» قابل بررسی نیست. تنظیمات ممکن نیست.',
-	'stabilization-success'       => 'تنظیم نسخه پایدار «[[:$1|$1]]» با موفقیت انجام شد.',
 	'stabilization-comment'       => 'توضیح:',
 	'stabilization-sel-short'     => 'تقدم',
 	'stabilization-sel-short-0'   => 'با کیفیت',

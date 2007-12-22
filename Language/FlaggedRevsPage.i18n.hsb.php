@@ -2,6 +2,7 @@
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  * @author Dundak
+ * @author Siebrand
  * @author SPQRobin
  */
 $messages = array(
@@ -44,7 +45,6 @@ $messages = array(
 	{{plural:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
 	'revreview-static'            => "To je [[{{MediaWiki:Validationpage}}|pruwowana]] wersija '''[[:$3|tuteje strony]]''', [{{fullurl:Special:Log/review|page=$1}} dopušćena]
 	am <i>$2</i>. [{{fullurl:$3|stable=0}} Tuchwilna wersija] móže so [{{fullurl:$3|action=edit}} wobdźěłać].",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[{{ns:user}}:$1]] činješe slědowace [[{{MediaWiki:Validationpage}}|pruwowanske noticy]] k tutej wersiji:',
 	'revreview-update'            => 'Prošu pruwuj kóždu změnu wot poslednjeje stabilneje wersije (hlej deleka). Předłohi a wobrazy móža tež změnjene być.',
 	'revreview-update-none'       => 'Prošu pruwuj deleka pokazane změny, kotrež su so na tutej stronje wot stabilneje wersije činili.',
@@ -55,7 +55,7 @@ $messages = array(
 	'hist-quality'                => '[pruwowany]',
 	'flaggedrevs'                 => 'Woznamjenjene wersije',
 	'review-logpage'              => 'Protokol přehladanjow',
-	'review-logpagetext'          => 'To je protokol změnow [[{{MediaWiki:Validationpage}}|dopušćenjow]] za nastawki.',
+	'review-logpagetext'          => 'To je protokol změnow [[{{MediaWiki:Makevalidate-page}}|dopušćenjow]] za nastawki.',
 	'review-logentry-app'         => 'je $1 přepruwował',
 	'review-logentry-dis'         => 'je wersiju wot $1 zaćisnył',
 	'review-logaction'            => 'Wersijowy ID $1',
@@ -126,7 +126,6 @@ $messages = array(
 	'stabilization-submit'        => 'Potwjerdźić',
 	'stabilization-notexists'     => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
 	'stabilization-notcontent'    => 'Strona "[[:$1|$1]]" njeda so pruwować. Žana konfiguracija móžno.',
-	'stabilization-success'       => 'Nastajenja za stabilnu wersiju wot "[[:$1|$1]]" wuspěšnje stajene.',
 	'stabilization-comment'       => 'Komentar:',
 	'stabilization-sel-short'     => 'Priorita',
 	'stabilization-sel-short-0'   => 'Kwalita',

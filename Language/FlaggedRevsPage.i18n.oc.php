@@ -1,13 +1,13 @@
 <?php
 /** Occitan (Occitan)
  * @author Cedric31
+ * @author Siebrand
  * @author SPQRobin
  */
 $messages = array(
 	'editor'                      => 'Contributor',
 	'group-editor'                => 'Contributors',
 	'group-editor-member'         => 'Contributor',
-	'grouppage-editor'            => '{{ns:project}}:Editor',
 	'reviewer'                    => 'Revisor',
 	'group-reviewer'              => 'Revisors',
 	'group-reviewer-member'       => 'Revisor',
@@ -39,7 +39,7 @@ $messages = array(
 	'hist-quality'                => '[qualitat]',
 	'flaggedrevs'                 => 'Revisions marcadas',
 	'review-logpage'              => "Jornal de las revisions de l'article",
-	'review-logpagetext'          => "Es un jornal de las modificacions per [[{{MediaWiki:Validationpage}}|l'aprobacion]] de las revisions.",
+	'review-logpagetext'          => "Es un jornal de las modificacions per [[{{MediaWiki:Makevalidate-page}}|l'aprobacion]] de las revisions.",
 	'review-logentry-app'         => 'Revista [[$1]]',
 	'review-logentry-dis'         => 'Version depreciada de [[$1]]',
 	'review-logaction'            => 'Version ID $1',

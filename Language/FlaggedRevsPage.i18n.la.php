@@ -1,4 +1,8 @@
 <?php
+/** Latin (Latina)
+ * @author SPQRobin
+ * @author UV
+ */
 $messages = array(
 	'editor'                => 'Recensor',
 	'group-editor'          => 'Recensores',

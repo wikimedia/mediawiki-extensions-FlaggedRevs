@@ -2,13 +2,11 @@
 /** Galician (Galego)
  * @author Alma
  * @author Xosé
+ * @author Siebrand
  * @author SPQRobin
  */
 $messages = array(
-	'editor'                      => 'Editor',
 	'group-editor'                => 'Editores',
-	'group-editor-member'         => 'Editor',
-	'grouppage-editor'            => '{{ns:project}}:Editor',
 	'reviewer'                    => 'Revisor',
 	'group-reviewer'              => 'Revisores',
 	'group-reviewer-member'       => 'Revisor',
@@ -21,7 +19,6 @@ $messages = array(
 	'tooltip-ca-stable'           => 'Ver a versión estábel desta páxina',
 	'revreview-oldrating'         => 'Foi valorado:',
 	'revreview-noflagged'         => "Non hai revisións examinadas desta páxina,  polo que pode que '''non''' foran [[{{MediaWiki:Validationpage}}|revisadas]] na súa calidade.",
-	'stabilization-tab'           => '(qa)',
 	'tooltip-ca-default'          => 'Configuración de garantía da calidade',
 	'revreview-quick-none'        => "'''Actualización'''. Non examinou as revisións.",
 	'revreview-quick-see-quality' => "'''Actualización'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} véxase revisión estábel]] 
@@ -42,7 +39,6 @@ $messages = array(
 	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Validationpage}}|examinada]] de '''[[:$3|$3]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} aprobada] en <i>$2</i>. A [{{fullurl:$3|stable=0}} revisión actual] 
 	pode ser [{{fullurl:$3|action=edit}} modificada].",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
 	'revreview-update'            => 'Revise os cambios (amósanse embaixo) feitos desde a revisión estábel desta páxina. Os seguintes
 modelos
@@ -56,7 +52,7 @@ modelos
 	'hist-quality'                => '[calidade]',
 	'flaggedrevs'                 => 'Revisións marcadas',
 	'review-logpage'              => 'Rexistro de revisións do artigo',
-	'review-logpagetext'          => 'Este é un rexistro dos cambios para as revisións de [[{{MediaWiki:Validationpage}}|aprobación]] do status
+	'review-logpagetext'          => 'Este é un rexistro dos cambios para as revisións de [[{{MediaWiki:Makevalidate-page}}|aprobación]] do status
 	para o contido das páxinas.',
 	'review-logentry-app'         => 'revisados [[$1]]',
 	'review-logentry-dis'         => 'devaluada a versión de [[$1]]',
@@ -124,7 +120,6 @@ modelos
 	'stabilization-submit'        => 'Confirmar',
 	'stabilization-notexists'     => 'Non hai unha páxina chamada "[[:$1|$1]]". A non configuración é posíbel.',
 	'stabilization-notcontent'    => 'A páxina "[[:$1|$1]]" non pode ser revisada. A non configuración é posíbel.',
-	'stabilization-success'       => 'A configuración da versión estábel para [[:$1|$1]] estableceuse con éxito.',
 	'stabilization-comment'       => 'Comentario:',
 	'stabilization-sel-short'     => 'Precedencia',
 	'stabilization-sel-short-0'   => 'Calidade',

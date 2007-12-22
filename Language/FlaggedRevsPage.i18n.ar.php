@@ -1,6 +1,7 @@
 <?php
 /** Arabic (العربية)
  * @author Meno25
+ * @author Siebrand
  * @author SPQRobin
  */
 $messages = array(
@@ -48,8 +49,7 @@ $messages = array(
 	'revreview-static'            => "هذه هي النسخة [[{{MediaWiki:Validationpage}}|المراجعة]] من '''[[:$3|هذه الصفحة]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:$3|action=edit}} تعديلها].",
-	'revreview-toggle'            => '(+/-)',
-	'revreview-note'              => '[[User:$1]] كتب الملاحظات التالية [[{{{MediaWiki:Validationpage}}|عند مراجعة]] هذه النسخة:',
+	'revreview-note'              => '[[User:$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه النسخة:',
 	'revreview-update'            => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) تمت منذ النسخة المستقرة لهذه الصفحة. القوالب و الصور
 ربما تكون قد تغيرت أيضا.',
 	'revreview-update-none'       => 'من فضلك راجع أية تغييرات (معروضة بالأسفل) منذ النسخة المستقرة لهذه الصفحة.',
@@ -62,7 +62,7 @@ $messages = array(
 	'hist-quality'                => '[الجودة]',
 	'flaggedrevs'                 => 'نسخ معلمة',
 	'review-logpage'              => 'سجل مراجعة المقالة',
-	'review-logpagetext'          => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.",
+	'review-logpagetext'          => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Makevalidate-page}}|الموافقة]] لصفحات المحتوى.",
 	'review-logentry-app'         => 'راجع $1',
 	'review-logentry-dis'         => 'أزال نسخة من $1',
 	'review-logaction'            => 'رقم النسخة $1',
@@ -137,7 +137,6 @@ $messages = array(
 	'stabilization-submit'        => 'تأكيد',
 	'stabilization-notexists'     => 'لا توجد صفحة بالاسم "[[:$1|$1]]". لا ضبط ممكن.',
 	'stabilization-notcontent'    => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها. لا ضبط ممكن.',
-	'stabilization-success'       => 'إعدادات النسخة المستقرة ل[[:$1|$1]] تم ضبطها بنجاح.',
 	'stabilization-comment'       => 'تعليق:',
 	'stabilization-sel-short'     => 'تنفيذ',
 	'stabilization-sel-short-0'   => 'جودة',

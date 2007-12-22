@@ -1,4 +1,8 @@
 <?php
+/** Polish (Polski)
+ * @author Derbeth
+ * @author Siebrand
+ */
 $messages = array(
 	'revreview-current'         => 'Szkic',
 	'tooltip-ca-current'        => 'Zobacz aktualny szkic tej strony',
@@ -6,7 +10,6 @@ $messages = array(
 	'revreview-source'          => 'źródło szkicu',
 	'revreview-stable'          => 'Stabilna',
 	'tooltip-ca-stable'         => 'Zobacz wersję stabilną tej strony',
-	'revreview-toggle'          => '(+/-)',#identical but defined
 	'stable-logpage'            => 'Rejestr wersji stabilnych',
 	'revreview-notes'           => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-accuracy'        => 'Dokładność',
@@ -36,7 +39,6 @@ $messages = array(
 	'stableversions-list'       => 'Oto lista wersji strony "[[:$1]]", które były ocenione:',
 	'stableversions-review'     => '<i>$1</i>, oceniona przez $2',
 	'review-diff2stable'        => 'Różnica z ostatnią wersją stabilną',
-	'review-diff2oldest'        => 'Różnica z najstarszą wersją',
 	'unreviewedpages'           => 'Nieocenione strony',
 	'unreviewed-category'       => 'Kategoria:',
 	'unreviewed-diff'           => 'Zmiany',
@@ -54,7 +56,6 @@ $messages = array(
 	'stabilization-submit'      => 'Potwierdź',
 	'stabilization-notexists'   => 'Nie ma strony zatytułowanej "[[:$1|$1]]". Nie jest możliwa jej konfiguracja.',
 	'stabilization-notcontent'  => 'Strona "[[:$1|$1]]" nie może być oceniona. Nie jest możliwa jej konfiguracja.',
-	'stabilization-success'     => 'Konfiguracja wersji stabilnej [[:$1|$1]] została pomyślnie ustawiona.',
 	'stabilization-sel-short'   => 'Kolejność',
 	'stabilization-sel-short-0' => 'Jakość',
 	'stabilization-sel-short-1' => 'Brak',

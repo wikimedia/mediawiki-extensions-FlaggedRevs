@@ -1,6 +1,7 @@
 <?php
 /** Czech (Česky)
  * @author Li-sung
+ * @author Siebrand
  * @author SPQRobin
  */
 $messages = array(
@@ -40,7 +41,7 @@ $messages = array(
 	'hist-quality'                => '[kvalitní]',
 	'flaggedrevs'                 => 'Označování verzí',
 	'review-logpage'              => 'Kniha posuzování článků',
-	'review-logpagetext'          => 'Tato kniha zobrazuje změny [[{{MediaWiki:Validationpage}}|schválení]] verzí stránek.',
+	'review-logpagetext'          => 'Tato kniha zobrazuje změny [[{{MediaWiki:Makevalidate-page}}|schválení]] verzí stránek.',
 	'review-logentry-app'         => 'posuzuje stránku $1',
 	'review-logentry-dis'         => 'odmítá verzi stránky $1',
 	'review-logaction'            => 'identifikace verze $1',
@@ -82,7 +83,6 @@ $messages = array(
 	'stableversions-list'         => 'Toto je seznam verzí stránky [[:$1]], které byly posouzeny:',
 	'stableversions-review'       => 'Posouzeno <i>$1</i>',
 	'review-diff2stable'          => 'Rozdíl oproti poslední stabilní verzi',
-	'review-diff2oldest'          => 'Rozdíl oproti nejstarší verzi',
 	'unreviewedpages'             => 'Neposouzené stránky',
 	'viewunreviewed'              => 'Seznam neposouzených stránek',
 	'unreviewed-outdated'         => 'Zobrazit stránky, které mají neposouzené verze do stabilní verze.',
@@ -104,7 +104,6 @@ $messages = array(
 	'stabilization-submit'        => 'Potvrdit',
 	'stabilization-notexists'     => 'Neexistuje stránka "[[:$1|$1]]". Nastavení není možné.',
 	'stabilization-notcontent'    => 'Stránka „[[:$1|$1]]“ nemůže být posouzena. Nastavení není možné.',
-	'stabilization-success'       => 'Nastavení stabilní verze stránky [[:$1|$1]] bylo provedeno.',
 	'stabilization-sel-short'     => 'Váha',
 	'stabilization-sel-short-0'   => 'kvalitní',
 	'stabilization-sel-short-1'   => 'žádná',
@@ -120,5 +119,4 @@ $messages = array(
 	'reviewedpages-lev-2'         => 'význačné',
 	'reviewedpages-all'           => 'posouzené verze',
 	'reviewedpages-best'          => 'verze s nejvyšším ohodnocením',
-
 );
