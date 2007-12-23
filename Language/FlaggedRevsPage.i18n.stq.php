@@ -118,6 +118,14 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'unreviewed-list'             => 'Disse Siede wiest Artikkele, do der noch sieläärge nit wröiged wuuden of nit wröigede Versione hääbe.',
 	'revreview-visibility'        => 'Disse Siede häd ne [[{{MediaWiki:Validationpage}}|stoabile Version]], ju der
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurierd] wäide kon.',
+	'stabilization'               => 'Sieden-Stabilität',
+	'stabilization-text'          => 'Annerje do Ienstaalengen uum fäästtoulääsen, wo ju stoabile Version fon „[[:$1|$1]]“ uutwääld un anwiesd wäide schäl.',
+	'stabilization-perm'          => 'Du hääst nit ju ärfoarderelke Begjuchtigenge, uum do Ienstaalengen fon ju stoabile Version tou annerjen. Do aktuelle Begjuchtigengen foar „[[:$1|$1]]“ sunt:',
+	'stabilization-page'          => 'Siedennoome:',
+	'stabilization-leg'           => 'Ienstaalengen fon ju stoabile Version foar ne Siede',
+	'stabilization-select'        => 'Uutwoal fon ju stoabile Version',
+	'stabilization-select1'       => 'Ju lääste wröigede Version; wan neen deer is, dan ju lääste sieuwede Version',
+	'stabilization-select2'       => 'Ju lääste wröigede Version',
 	'stabilization-def1'          => 'Ju stoabile Version; wan neen deer is, dan ju aktuelle Version.',
 	'stabilization-def2'          => 'Ju aktuellste Version',
 	'stabilization-submit'        => 'Bestäätigje',
@@ -136,4 +144,6 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'reviewedpages-lev-0'         => 'Sieuwed',
 	'reviewedpages-lev-1'         => 'Qualität',
 	'reviewedpages-lev-2'         => 'Exzellent',
+	'reviewedpages-all'           => 'wröigede Versione',
+	'reviewedpages-best'          => 'lääste ap hoochste wäidierde Version',
 );

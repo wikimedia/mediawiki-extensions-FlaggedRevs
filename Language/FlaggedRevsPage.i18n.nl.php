@@ -40,6 +40,7 @@ $messages = array(
 	'revreview-basic'             => 'Dit is de laatst [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|wacht|wachten}} op een beoordeling.',
 	'revreview-quality'           => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|wacht|wachten}} op een beoordeling.',
 	'revreview-static'            => "Dit is een [[{{MediaWiki:Validationpage}}|beoordeelde]] versie van '''[[:$3|deze pagina]]''', [{{fullurl:Special:Log/review|page=$1}} gekeurd] op <i>$2</i>. De [{{fullurl:$3|stable=0}} huidige versie] kan [{{fullurl:$3|action=edit}} bewerkt] worden.",
+	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[{{MediaWiki:Validationpage}}|beoordeling]] van deze versie:',
 	'revreview-update'            => 'Controleer alstublieft alle onderstaande wijzigingen die gemaakt zijn sinds de stabiele versie voor deze pagina. Sjablonen en afbeeldingen kunnen ook gewijzigd zijn.',
 	'revreview-update-none'       => 'Beoordeel alstublieft de wijzigingen (hieronder getoond) die sinds de stabiele versie aan deze pagina zijn gemaakt.',
@@ -47,6 +48,7 @@ $messages = array(
 	'revreview-auto-w'            => "'''Opmerking:''' u wijzigt de stabiele versie. Uw bewerkingen worden automatisch gecontroleerd. Controleer de voorvertoning voordat u de pagina opslaat.",
 	'revreview-auto-w-old'        => "U bent een oude versie aan het bewerken, elke wijziging wordt '''automatisch beoordeeld'''.
 Controleer uw bewerking voordat u deze opslaat.",
+	'revreview-patrolled'         => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
 	'hist-stable'                 => '[bekeken pagina]',
 	'hist-quality'                => '[kwaliteitspagina]',
 	'flaggedrevs'                 => 'Aangevinkte versies',
