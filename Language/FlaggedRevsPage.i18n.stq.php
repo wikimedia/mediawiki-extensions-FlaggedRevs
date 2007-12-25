@@ -126,6 +126,7 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'stabilization-select'        => 'Uutwoal fon ju stoabile Version',
 	'stabilization-select1'       => 'Ju lääste wröigede Version; wan neen deer is, dan ju lääste sieuwede Version',
 	'stabilization-select2'       => 'Ju lääste wröigede Version',
+	'stabilization-def'           => 'Anwiesde Version in ju normoale Siedenansicht',
 	'stabilization-def1'          => 'Ju stoabile Version; wan neen deer is, dan ju aktuelle Version.',
 	'stabilization-def2'          => 'Ju aktuellste Version',
 	'stabilization-submit'        => 'Bestäätigje',
