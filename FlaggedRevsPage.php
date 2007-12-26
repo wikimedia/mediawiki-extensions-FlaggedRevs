@@ -780,6 +780,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 
 	function getSQLText( &$dbr, $namespace, $showOutdated, $category ) {
 		global $wgFlaggedRevsNamespaces;
+		$dbr = wfGetDB( DB_SLAVE );
 		
 		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
 		# Must be a content page...
@@ -798,14 +799,15 @@ class UnreviewedPagesPage extends PageQueryPage {
 			$where .= "AND page_ext_reviewed = 0";
 		}
 		# Filter by category
+		$use_index = $dbr->useIndexClause( 'ext_namespace_reviewed' );
 		if( $category ) {
 			$category = str_replace( ' ', '_', $dbr->strencode($category) );
 			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
-			FROM $page FORCE INDEX(ext_namespace_reviewed) 
+			FROM $page $use_index
 			RIGHT JOIN $categorylinks ON(cl_from = page_id AND cl_to = '{$category}')";
 		} else {
 			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
-			FROM $page FORCE INDEX(ext_namespace_reviewed)";
+			FROM $page $use_index";
 		}
 		$sql .= " WHERE ($where) ";
 		
