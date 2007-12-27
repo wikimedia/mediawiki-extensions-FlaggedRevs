@@ -3,6 +3,10 @@
  * @author Lejonel
  */
 $messages = array(
+	'editor'                   => 'Redaktör',
+	'group-editor'             => 'Redaktörer',
+	'group-editor-member'      => 'Redaktör',
+	'grouppage-editor'         => '{{ns:project}}:Redaktörer',
 	'reviewer'                 => 'Granskare',
 	'group-reviewer'           => 'Granskare',
 	'group-reviewer-member'    => 'Granskare',
