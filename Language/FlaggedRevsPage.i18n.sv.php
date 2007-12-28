@@ -1,6 +1,7 @@
 <?php
 /** Swedish (Svenska)
  * @author Lejonel
+ * @author SPQRobin
  */
 $messages = array(
 	'editor'                   => 'Redaktör',
@@ -27,7 +28,7 @@ $messages = array(
 	'revreview-accuracy-0'     => 'ej godkänd',
 	'revreview-accuracy-1'     => 'sedd',
 	'revreview-style'          => 'Läsbarhet',
-	'revreview-style-1'        => 'acceptabel',
+	'revreview-style-1'        => 'godtagbar',
 	'revreview-style-2'        => 'bra',
 	'revreview-style-3'        => 'koncis',
 	'stableversions'           => 'Stabila versioner',
