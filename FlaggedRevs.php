@@ -11,18 +11,10 @@ if( !defined('FLAGGED_VIS_NORMAL') )
 if( !defined('FLAGGED_VIS_LATEST') )
 	define('FLAGGED_VIS_LATEST',1);
 
-$wgExtensionCredits['parserhook'][] = array(
-	'author' => 'Aaron Schulz',
-	'version' => '0.5',
-	'name' => 'Flagged Revisions',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
-	'description' => 'Allows for revisions of pages to be made static regardless of internal templates and images',
-);
-
 $wgExtensionCredits['specialpage'][] = array(
 	'author' => 'Aaron Schulz, Joerg Baach',
-	'version' => '0.5',
-	'name' => 'Review revisions',
+	'version' => '1.0',
+	'name' => 'Flagged Revisions',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages',
 );
@@ -83,7 +75,7 @@ function efLoadFlaggedRevs() {
 		define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
 	
 	######### Hook attachments #########
-	$wgHooks['OutputPageParserOutput'][] = array( 'FlaggedRevs::InjectStyle' );
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
@@ -98,25 +90,25 @@ function efLoadFlaggedRevs() {
 	# Mark of items in page history
 	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
 	# Autopromote Editors
-	$wgHooks['ArticleSaveComplete'][] = array( 'FlaggedRevs::autoPromoteUser' );
+	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
 	# Adds table link references to include ones from the stable version
-	$wgHooks['LinksUpdateConstructed'][] = array( 'FlaggedRevs::extraLinksUpdate' );
+	$wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevs::extraLinksUpdate';
 	# Empty flagged page settings row on delete
-	$wgHooks['ArticleDeleteComplete'][] = array( 'FlaggedRevs::deleteVisiblitySettings' );
+	$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
 	# Check on undelete/merge/revisiondelete for changes to stable version
-	$wgHooks['ArticleUndelete'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
-	$wgHooks['ArticleRevisionVisiblitySet'][] = array( 'FlaggedRevs::articleLinksUpdate2' );
-	$wgHooks['ArticleMergeComplete'][] = array( 'FlaggedRevs::updateFromMerge' );
+	$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::articleLinksUpdate2';
+	$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::articleLinksUpdate2';
+	$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
 	# Clean up after undeletion
-	$wgHooks['ArticleRevisionUndeleted'][] = array( 'FlaggedRevs::updateFromRestore' );
+	$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
 	# Parser hooks, selects the desired images/templates
-	$wgHooks['BeforeParserrenderImageGallery'][] = array( 'FlaggedRevs::parserMakeGalleryStable' );
-	$wgHooks['BeforeGalleryFindFile'][] = array( 'FlaggedRevs::galleryFindStableFileTime' );
-	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = array( 'FlaggedRevs::parserFetchStableTemplate' );
-	$wgHooks['BeforeParserMakeImageLinkObj'][] = array( 'FlaggedRevs::parserMakeStableImageLink' );
+	$wgHooks['BeforeParserrenderImageGallery'][] = 'FlaggedRevs::parserMakeGalleryStable';
+	$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
+	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
+	$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImageLink';
 	# Additional parser versioning
-	$wgHooks['ParserAfterTidy'][] = array( 'FlaggedRevs::parserInjectImageTimestamps' );
-	$wgHooks['OutputPageParserOutput'][] = array( 'FlaggedRevs::outputInjectImageTimestamps');
+	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectImageTimestamps';
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectImageTimestamps';
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
@@ -125,9 +117,9 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
 	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = array( 'FlaggedRevs::autoMarkPatrolled' );
+	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
 	# Disallow moves of stable pages
-	$wgHooks['userCan'][] = array( 'FlaggedRevs::userCanMove' );
+	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	#########
 }
 

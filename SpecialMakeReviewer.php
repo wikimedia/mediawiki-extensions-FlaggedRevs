@@ -26,7 +26,7 @@ $wgExtensionFunctions[] = 'efMakeReviewer';
 $wgAvailableRights[] = 'makereviewer';
 $wgAvailableRights[] = 'makevalidator';
 
-$wgHooks['UserRights'][] = array( 'efMakeReviewerDemote' );
+$wgHooks['UserRights'][] = 'efMakeReviewerDemote';
 
 /**	
 * Determines who can use the extension; as a default, bureaucrats are permitted
