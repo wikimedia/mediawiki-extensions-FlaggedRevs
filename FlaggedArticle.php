@@ -707,14 +707,15 @@ class FlaggedArticle {
         $msg .= $quality ? 'quality' : 'basic';
         
 		$box = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;" 
-			onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
-		$box .= '<span id="mw-revisionratings">' .
+			onclick="javascript:toggleRevRatings();">'.wfMsg('revreview-toggle').'</span>';
+		$box .= '<span id="mw-revisionratings"><hr/>' .
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
-		if( !empty($flags) ) {
-			$encRatingLabel = $stable ? '' : ' ' . wfMsgHtml('revreview-oldrating');
-			$box .= $encRatingLabel . $this->addTagRatings( $flags, true, "{$tagClass}a" );
+		
+		if( $stable && !empty($flags) ) {
+			$box .= $this->addTagRatings( $flags, true, "{$tagClass}a" );
 		}
 		$box .= '</span>';
+		
         return $box;
 	}
 	
@@ -732,6 +733,7 @@ class FlaggedArticle {
    		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
    		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
    		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
+		
     	return $notes;
     }
     
