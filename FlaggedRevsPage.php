@@ -545,7 +545,6 @@ class Stableversions extends UnlistedSpecialPage
 		if( $this->oldid ) {
 			$this->showStableRevision();
 		} else {
-			$this->showForm();
 			$this->showStableList();
 		}
 	}
