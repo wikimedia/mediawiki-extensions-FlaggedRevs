@@ -6,11 +6,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class Revisionreview extends SpecialPage
+class Revisionreview extends UnlistedSpecialPage
 {
 
     function __construct() {
-        SpecialPage::SpecialPage( 'Revisionreview', 'review' );
+        UnlistedSpecialPage::UnlistedSpecialPage( 'Revisionreview', 'review' );
     }
 
     function execute( $par ) {
@@ -53,7 +53,7 @@ class Revisionreview extends SpecialPage
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		// Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		if( !$this->target || !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
+		if( !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
@@ -518,11 +518,11 @@ class Revisionreview extends SpecialPage
 	}
 }
 
-class Stableversions extends SpecialPage
+class Stableversions extends UnlistedSpecialPage
 {
 
     function __construct() {
-        SpecialPage::SpecialPage('Stableversions');
+        UnlistedSpecialPage::UnlistedSpecialPage('Stableversions');
     }
 
     function execute( $par ) {
@@ -962,11 +962,11 @@ class ReviewedPagesPager extends ReverseChronologicalPager {
 	}
 }
 
-class Stabilization extends SpecialPage
+class Stabilization extends UnlistedSpecialPage
 {
 
     function __construct() {
-        SpecialPage::SpecialPage('Stabilization','stablesettings');
+        UnlistedSpecialPage::UnlistedSpecialPage('Stabilization','stablesettings');
     }
 
     function execute( $par ) {
