@@ -617,16 +617,8 @@ class FlaggedArticle {
         	}
         }
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
-        
-        $watchLabel = wfMsgExt('watchthis', array('parseinline'));
-        $watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
-        $watchChecked = ( $wgFlaggedRevsWatch && $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
-       	# Not much to say unless you are a validator
-		if( $wgUser->isAllowed( 'validate' ) )
-        	$form .= "<p>".Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 )."</p>\n";
-        
-		$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
-		$form .= "&nbsp;<label for='wpWatchthis'".$skin->tooltipAndAccesskey('watch').">{$watchLabel}</label>";
+		
+		$form .= "<p>".Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 50 )."\n";
         
 		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsg( 'revreview-submit' ) )."</p></fieldset>";
 		$form .= Xml::closeElement( 'form' );

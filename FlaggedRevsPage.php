@@ -62,14 +62,11 @@ class Revisionreview extends UnlistedSpecialPage
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
-		// Watch checkbox
-		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
 		// Special parameter mapping
 		$this->templateParams = $wgRequest->getVal( 'templateParams' );
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
 		// Log comment
-		$this->comment = $wgUser->isAllowed('validate') ? 
-			$wgRequest->getText( 'wpReason' ) : '';
+		$this->comment = $wgRequest->getText( 'wpReason' );
 		// Additional notes (displayed at bottom of page)
 		$this->notes = (FlaggedRevs::allowComments() && $wgUser->isAllowed('validate')) ? 
 			$wgRequest->getText('wpNotes') : '';
@@ -222,9 +219,8 @@ class Revisionreview extends UnlistedSpecialPage
 			"</textarea>" .	
 			"</fieldset>";
 		}
-       	// Not much to say unless you are a validator
-		if( $wgUser->isAllowed( 'validate' ) )
-			$form .= '<p>'.Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
+       	
+		$form .= '<p>'.Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
 		
 		$form .= '<p>'.Xml::submitButton( wfMsg( 'revreview-submit' ) ).'</p>';
 		
@@ -288,11 +284,6 @@ class Revisionreview extends UnlistedSpecialPage
 			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
 		// Return to our page			
 		if( $success ) {
-			if( $this->watchThis ) {
-				$wgUser->addWatch( $this->page );
-			} else {
-				$wgUser->removeWatch( $this->page );
-			}
         	$wgOut->redirect( $this->page->getFullUrl() );
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed' );
@@ -305,7 +296,7 @@ class Revisionreview extends UnlistedSpecialPage
 	 * @param string $notes
 	 */
 	function approveRevision( $rev, $notes='' ) {
-		global $wgUser, $wgFlaggedRevsWatch, $wgParser;
+		global $wgUser, $wgParser;
 		// Get the page this corresponds to
 		$title = $rev->getTitle();
 		
@@ -445,7 +436,7 @@ class Revisionreview extends UnlistedSpecialPage
 	 * Removes flagged revision data for this page/id set
 	 */  
 	function unapproveRevision( $row ) {
-		global $wgUser, $wgParser, $wgFlaggedRevsWatch;
+		global $wgUser, $wgParser;
 		
 		$user = $wgUser->getId();
 		

@@ -108,7 +108,7 @@ $messages = array(
 	'revreview-style-2'    => 'Good',
 	'revreview-style-3'    => 'Concise',
 	'revreview-style-4'    => 'Featured',
-	'revreview-log'        => 'Log comment:',
+	'revreview-log'        => 'Comment:',
 	'revreview-submit'     => 'Submit review',
 	'revreview-changed'    => '\'\'\'The requestion action could not be performed on this revision.\'\'\'
 	

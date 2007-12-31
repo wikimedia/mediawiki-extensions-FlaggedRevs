@@ -148,9 +148,6 @@ $wgFlaggedRevsExceptions = array( 'user' );
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = false;
-# Automatically checks the 'watch' box on the review form if they set
-# "watch pages I edit" as true at [[Special:Preferences]].
-$wgFlaggedRevsWatch = true;
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
 # Auto-review edits directly to the stable version by reviewers?
