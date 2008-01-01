@@ -90,7 +90,7 @@ Controleer uw bewerking voordat u deze opslaat.",
 	'revreview-style-2'           => 'Goed',
 	'revreview-style-3'           => 'Bondig',
 	'revreview-style-4'           => 'Uitgelicht',
-	'revreview-log'               => 'Logboekopmerking:',
+	'revreview-log'               => 'Opmerking:',
 	'revreview-submit'            => 'Beoordeling opslaan',
 	'revreview-changed'           => "'''De gevraagde actie kon niet uitgevoerd worden voor deze versie.'''
 	
