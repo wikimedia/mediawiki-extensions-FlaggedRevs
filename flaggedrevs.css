@@ -92,9 +92,9 @@
 	width: 320px;
 }
 
-.fr_tab_current,
-.fr_tab_stable,
-.fr_tab_quality {
+.fr-tab_current,
+.fr-tab_stable,
+.fr-tab_quality {
 	padding: 0px;
 	margin: 0px;
 	width: 27px;
@@ -107,55 +107,53 @@
 	background-position: 0px 0px;
 } 
 
-.fr_tab_current {
+.fr-tab_current {
 	background-image: url(../FlaggedRevs/img/1.png);
 }
-.fr_tab_stable {
+.fr-tab_stable {
 	background-image: url(../FlaggedRevs/img/2.png);
 }    
-.fr_tab_quality {
+.fr-tab_quality {
 	background-image: url(../FlaggedRevs/img/3.png);
 }
 
 .fr-text {
 	height: 14px;
+	line-height: 15px;
 	margin: 0px 7px 0px 0px;
 	padding: 0px;
-	line-height: 15px;
 	font-weight: bold;
 	width: 80px;
 }
-.fr-marker {
+
+.fr-value20,
+.fr-value40,
+.fr-value60,
+.fr-value80,
+.fr-value100 {
 	height: 14px;
-	width: 95px;
-	left: 0px;
-	top: 0px;
-	margin: 0px;
-	padding: 0px;
-	float: left;
-	background-image: url(../FlaggedRevs/img/fr-marker-20.png);
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
 	line-height: 15px;
+	width: 95px;
+	float: left;
+	background-repeat: no-repeat;
+	background-position: center center;
 	text-align: center;
 }
 
-.fr_value40 {
+.fr-value20 {
+	background-image: url(../FlaggedRevs/img/fr-marker-20.png);
+}
+.fr-value40 {
 	background-image: url(../FlaggedRevs/img/fr-marker-40.png);
 }
-.fr_value60 {
+.fr-value60 {
 	background-image: url(../FlaggedRevs/img/fr-marker-60.png);
 }
-.fr_value80 {
+.fr-value80 {
 	background-image: url(../FlaggedRevs/img/fr-marker-80.png);
 }
-.fr_value100 {
+.fr-value100 {
 	background-image: url(../FlaggedRevs/img/fr-marker-100.png);
-}
-
-.fr-group {
-	display: block;
-	margin-top: 5px;
 }
 
 .flaggedrevs_box0,

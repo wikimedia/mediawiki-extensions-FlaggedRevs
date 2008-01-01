@@ -135,7 +135,7 @@ class FlaggedArticle {
 				if( !$wgOut->isPrintable() ) {
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
-						$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+						$tag .= "<span class='fr-tab_current plainlinks'></span>" . 
 								wfMsgExt($msg,array('parseinline'), $tfrev->fr_rev_id, $revs_since);
 						$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false );							
 					} else {
@@ -159,7 +159,7 @@ class FlaggedArticle {
 				if( !$wgOut->isPrintable() ) {
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
-						$css = $quality ? 'fr_tab_quality' : 'fr_tab_stable';
+						$css = $quality ? 'fr-tab_quality' : 'fr-tab_stable';
 						$tag .= "<span class='$css plainlinks'></span>" . 
 							wfMsgExt($msg,array('parseinline'),$tfrev->fr_rev_id,$revs_since);
 					 	$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since );
@@ -215,7 +215,7 @@ class FlaggedArticle {
 		// Add "no reviewed version" tag, but not for main page
 		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->getTitle() ) ) {
 			if( FlaggedRevs::useSimpleUI() ) {
-				$tag .= "<span class='fr_tab_current plainlinks'></span>" . 
+				$tag .= "<span class='fr-tab_current plainlinks'></span>" . 
 					wfMsgExt('revreview-quick-none',array('parseinline'));
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
 			} else {
@@ -641,7 +641,7 @@ class FlaggedArticle {
         
         $tag = '';
         if( $prettyBox )
-        	$tag .= "<table align='center' class='$css' cellpading='0'>";
+        	$tag .= "<table align='center' class='$css' cellpadding='0'>";
 		foreach( FlaggedRevs::$dimensions as $quality => $value ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMsgHtml('revreview-' . FlaggedRevs::$dimensions[$quality][$level]);
@@ -656,10 +656,9 @@ class FlaggedArticle {
 
             $levelmarker = $level * 20 + 20;
             if( $prettyBox ) {
-            	$tag .= "<tr><td><span class='fr-group'><span class='fr-text'>" . 
-					wfMsgHtml("revreview-$quality") . 
-					"</span></td><td><span class='fr-marker fr_value$levelmarker'>" .
-					$encValueText . "</span></span></td></tr>\n";
+            	$tag .= "<tr><td class='fr-text' valign='middle'>" . wfMsgHtml("revreview-$quality") . 
+					"</td><td class='fr-value$levelmarker' valign='middle'>" . 
+					$encValueText . "</td></tr>\n";
             } else {
 				$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" . 
 					wfMsgHtml("revreview-$quality") . 
@@ -700,13 +699,13 @@ class FlaggedArticle {
         
 		$box = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;" 
 			onclick="javascript:toggleRevRatings();">'.wfMsg('revreview-toggle').'</span>';
-		$box .= '<span id="mw-revisionratings"><hr/>' .
+		$box .= '<div id="mw-revisionratings" style="clear: both;">' .
 			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
 		
 		if( $stable && !empty($flags) ) {
 			$box .= $this->addTagRatings( $flags, true, "{$tagClass}a" );
 		}
-		$box .= '</span>';
+		$box .= '</div>';
 		
         return $box;
 	}
