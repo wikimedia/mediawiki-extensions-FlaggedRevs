@@ -27,18 +27,18 @@ $messages = array(
 
 	'validationpage'      => '{{ns:help}}:Stabile Versionen',
 
-	'revreview-quick-none'        => "'''Aktuell.''' Es wurde noch keine Version überprüft.",
+	'revreview-quick-none'        => "'''Aktuell''' (es wurde noch keine Version überprüft)",
 
-	'revreview-quick-see-quality' => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]]
+	'revreview-quick-see-quality' => "'''Entwurf''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-see-basic'   => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Siehe die letzte überprüfte Version]]
+	'revreview-quick-see-basic'   => "'''Entwurf''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe Entwurf]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Siehe die aktuelle Version]] 
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe Entwurf]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte überprüfte Version]
@@ -72,6 +72,7 @@ $messages = array(
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
         'revreview-auto-w-old'  => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch als überprüft markiert.''' 
         Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
+	'revreview-patrolled'   => 'Die ausgewählte Version von [[:$1|$1]] wurde als kontrolliert markiert.',
 
 	'hist-stable'  => '[gesichtet]',
 	'hist-quality' => '[geprüft]',
@@ -117,7 +118,7 @@ $messages = array(
 	'revreview-style-2'    => 'gut', # not used in de.wiki
 	'revreview-style-3'    => 'präzise', # not used in de.wiki
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
-	'revreview-log'        => 'Logbuch-Eintrag:',
+	'revreview-log'        => 'Kommentar:',
 	'revreview-submit'     => 'Prüfung speichern',
 	'revreview-changed'    => '\'\'\'Die Aktion konnte nicht auf diese Version angewendet werden.\'\'\'
 
