@@ -248,7 +248,6 @@ $wgLogActions['stable/config'] = 'stable-logentry';
 $wgLogActions['stable/reset'] = 'stable-logentry2';
 
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
-$wgLogActions['rights/egrant']  = 'rights-editor-grant';
 
 class FlaggedRevs {
 	public static $dimensions = array();

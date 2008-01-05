@@ -30,6 +30,5 @@ $messages = array(
 	'makereviewer-logentrygrant-r' => 'granted reviewer status to [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'removed reviewer status from [[$1]]',
 	'makereviewer-autosum' => 'autopromoted',
-    'rights-editor-grant'   => 'granted editor status to [[$1]]',
     'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 );

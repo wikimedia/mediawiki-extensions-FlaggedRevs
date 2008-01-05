@@ -96,12 +96,12 @@ class MakeReviewer extends SpecialPage {
 						# Grant the flag
 						if( !in_array( 'editor', $user->mGroups ) )
 							$user->addGroup( 'editor' );
-						$this->addLogItem( 'egrant', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
+						$this->addLogItem( 'rights', $user, trim( $wgRequest->getText( 'comment' ) ), $oldgroups );
 						$wgOut->addWikiText( wfMsg( 'makereviewer-granted-e', $user->getName() ) );
 					} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
 						# Permission check
-						if( !$wgUser->isAllowed( 'removereview' ) ) {
-							$wgOut->permissionRequired( 'removereview' ); 
+						if( !$wgUser->isAllowed( 'removereviewer' ) ) {
+							$wgOut->permissionRequired( 'removereviewer' ); 
 							return;
 						}
 						if( in_array( 'reviewer', $user->mGroups ) ) {
