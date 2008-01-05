@@ -1259,7 +1259,7 @@ class FlaggedRevs {
 		array_push( $newGroups, 'editor' );
 		# Lets NOT spam RC, set $RC to false
 		$log = new LogPage( 'rights', false );
-		$log->addEntry('rights', $user->getUserPage(), wfMsg('makevalidate-autosum'),
+		$log->addEntry('rights', $user->getUserPage(), wfMsg('makereviewer-autosum'),
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 		
