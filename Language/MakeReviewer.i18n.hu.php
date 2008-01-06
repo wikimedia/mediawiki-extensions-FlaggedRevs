@@ -1,27 +1,28 @@
 <?php
 
 /** Hungarian (Magyar)
+ * @author Bdanee
  * @author KossuthRad
  */
 $messages = array(
-	'makereviewer'              => 'Kinevezett/lefokozott szerkesztők',
-	'makereviewer-username'     => 'A User neve:',
+	'makereviewer'              => 'Szerkesztők kinevezése/lefokozása',
+	'makereviewer-username'     => 'A felhasználó neve:',
 	'makereviewer-search'       => 'Menj',
-	'makereviewer-iseditor'     => '[[User:$1|$1]] -nek szerkesztői státusza van.',
-	'makereviewer-noteditor'    => '[[User:$1|$1]] -nek nincs szerkesztői státusza.',
-	'makereviewer-isvalidator'  => '[[User:$1|$1]] -nek van vizsgáló státusza.',
-	'makereviewer-notvalidator' => '[[User:$1|$1]] -nek nincs továbbiakban vizsgáló státusza.',
-	'makereviewer-legend'       => 'Megváltoztatni a User jogait',
-	'makereviewer-change-e'     => 'Szerkesztői státusz:',
-	'makereviewer-change-r'     => 'Vizsgáló státusza:',
-	'makereviewer-grant1'       => 'hozzájárul',
-	'makereviewer-revoke1'      => 'Érvénytelenít',
-	'makereviewer-grant2'       => 'hozzájárul',
-	'makereviewer-revoke2'      => 'Érvénytelenít',
-	'makereviewer-comment'      => 'Komment:',
-	'makereviewer-granted-e'    => '[[User:$1|$1]] -nek most van szerkesztői státusza.',
-	'makereviewer-revoked-e'    => '[[User:$1|$1]] -nek nincs továbbiakban szerkesztői státusza.',
-	'makereviewer-granted-r'    => '[[User:$1|$1]] -nek most van vizsgáló státusza.',
-	'makereviewer-revoked-r'    => '[[User:$1|$1]] -nek nincs továbbiakban vizsgáló státusza.',
-	'rights-editor-revoke'      => 'A [[$1]]-ből elmozgatott szerkesztő státusz',
+	'makereviewer-iseditor'     => '[[User:$1|$1]] szerkesztői joggal rendelkezik.',
+	'makereviewer-noteditor'    => '[[User:$1|$1]] nem rendelkezik szerkesztői jogokkal.',
+	'makereviewer-isvalidator'  => '[[User:$1|$1]] rendelkezik áttekintői joggal.',
+	'makereviewer-notvalidator' => '[[User:$1|$1]] nem rendelkezik áttekintői jogokkal.',
+	'makereviewer-legend'       => 'Szerkesztő jogainak megváltoztatása',
+	'makereviewer-change-e'     => 'Szerkesztő állapota:',
+	'makereviewer-change-r'     => 'Áttekintői állapot:',
+	'makereviewer-grant1'       => 'Megadás',
+	'makereviewer-revoke1'      => 'Visszavonás',
+	'makereviewer-grant2'       => 'Megadás',
+	'makereviewer-revoke2'      => 'Visszavonás',
+	'makereviewer-comment'      => 'Megjegyzés:',
+	'makereviewer-granted-e'    => '[[User:$1|$1]] ezentúl rendelkezik szerkesztői jogokkal.',
+	'makereviewer-revoked-e'    => '[[User:$1|$1]] ezentúl nem rendelkezik szerkesztői jogokkal.',
+	'makereviewer-granted-r'    => '[[User:$1|$1]] ezentúl rendelkezik áttekintői jogokkal.',
+	'makereviewer-revoked-r'    => '[[User:$1|$1]] ezentúl nem rendelkezik áttekintői jogokkal.',
+	'rights-editor-revoke'      => '[[$1]] szerkesztői jogai meg lettek vonva',
 );
