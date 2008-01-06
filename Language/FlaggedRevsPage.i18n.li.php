@@ -1,0 +1,43 @@
+<?php
+
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages = array(
+	'editor'                => 'Bewèrker',
+	'group-editor'          => 'Bewèrkers',
+	'group-editor-member'   => 'Bewèrker',
+	'grouppage-editor'      => '{{ns:project}}:Bewèrker',
+	'reviewer'              => 'Bekieker',
+	'group-reviewer'        => 'Bekiekers',
+	'group-reviewer-member' => 'Bekieker',
+	'grouppage-reviewer'    => '{{ns:project}}:Bekieker',
+	'revreview-current'     => 'Hujige versie',
+	'tooltip-ca-current'    => 'hujige wèrkversie van dees pazjena toeane',
+	'stabilization-tab'     => '(kb)',
+	'revreview-auto'        => '(automatisch)',
+	'hist-stable'           => '[bekeke]',
+	'hist-quality'          => '[kwaliteit]',
+	'flaggedrevs'           => 'Aangevinkdje versies',
+	'review-logentry-app'   => 'bekeek [[$1]]',
+	'revreview-accuracy'    => 'Nejkeurigheid',
+	'revreview-accuracy-0'  => 'Neet bekeke',
+	'revreview-accuracy-1'  => 'Bekeke',
+	'revreview-accuracy-2'  => 'Nejkeurig',
+	'revreview-accuracy-3'  => 'Good van brónne veurzeen',
+	'revreview-accuracy-4'  => 'Oetgelich',
+	'revreview-depth'       => 'Deepgank',
+	'revreview-depth-0'     => 'Neet bekeke',
+	'revreview-depth-1'     => 'Basis',
+	'revreview-depth-2'     => 'Middelmaotig',
+	'revreview-depth-3'     => 'Hoog',
+	'revreview-depth-4'     => 'Oetgelich',
+	'revreview-style'       => 'Laesbaarheid',
+	'revreview-style-0'     => 'Neet bekeke',
+	'revreview-style-1'     => 'Aanvaardbaar',
+	'revreview-style-2'     => 'Good',
+	'revreview-style-3'     => 'Bónjig',
+	'revreview-style-4'     => 'Oetgelich',
+	'revreview-log'         => 'Opmerking:',
+	'revreview-submit'      => 'Bekiek opslaon',
+);
