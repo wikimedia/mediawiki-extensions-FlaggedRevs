@@ -1,4 +1,5 @@
 <?php
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  * @author Dundak
@@ -145,3 +146,4 @@ $messages = array(
 	'reviewedpages-all'           => 'přepruwowane wersije',
 	'reviewedpages-best'          => 'poslednja najwyše pohódnoćena wersija',
 );
+
