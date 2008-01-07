@@ -23,6 +23,7 @@ $messages = array(
 [[{{MediaWiki:Validationpage}}|نشده‌است]].',
 	'stabilization-tab'           => '(کک)',
 	'tooltip-ca-default'          => 'تنظیمات کنترل کیفیت',
+	'validationpage'              => '{{ns:help}}:تایید اعتبار مقاله‌ها',
 	'revreview-quick-none'        => "'''فعلی'''. فاقد نسخه مرورشده",
 	'revreview-quick-see-quality' => "'''فعلی'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهده نسخه پایدار]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|تغییر|تغییر}}])",
 	'revreview-quick-see-basic'   => "'''فعلی'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهده نسخه پایدار]] 
@@ -47,12 +48,14 @@ $messages = array(
 	نیازمند بررسی {{plural:$3|است|هستند}}.',
 	'revreview-static'            => "این یک نسخه [[{{MediaWiki:Validationpage}}|بررسی شده]] از  '''[[:$3|$3]]''' است، که در <i>$2</i>  
 	[{{fullurl:Special:Log/review|page=$1}} تائید شده‌است].",
+	'revreview-toggle'            => '(-/+)',
 	'revreview-note'              => '[[User:$1]] این توضیحات را ضمن [[{{MediaWiki:Validationpage}}|بررسی]] این نسخه ثبت کرد:',
 	'revreview-update'            => 'لطفاً تمام تغییراتی که از آخرین نسخه پایدار صورت گرفته را بررسی کنید. برخی الگوها/تصویرها تغییر یافته‌اند:',
 	'revreview-update-none'       => 'لطفاً تمام تغییراتی که پس از آخرین نسخه پایدار اعمال شده‌اند را بررسی کنید.',
 	'revreview-auto'              => '(خودکار)',
 	'revreview-auto-w'            => "شما در حال ویرایش نسخه پایدار هستید و تغییرات شما '''به طور خودکار بررسی خواهند شد'''. ممکن است مایل باشید قبل از ذخیره کردن صحفه پیش‌نمایش آن را ببینید.",
 	'revreview-auto-w-old'        => "شما در حال ویرایش یک نسخه قدیمی هستید و تغییرات شما '''به طور خودکار بررسی خواهند شد'''. ممکن است مایل باشید قبل از ذخیره کردن صحفه پیش‌نمایش آن را ببینید.",
+	'revreview-patrolled'         => 'نسخهٔ انتخاب شده از [[:$1|$1]] به عنوان بررسی‌شده علامت خورده‌است.',
 	'hist-stable'                 => '[بررسی شده]',
 	'hist-quality'                => '[با کیفیت]',
 	'flaggedrevs'                 => 'نسخه‌های علامت‌دار',
@@ -145,4 +148,5 @@ $messages = array(
 	'reviewedpages-lev-2'         => 'برگزیده',
 	'reviewedpages-all'           => 'نسخه‌های بررسی شده',
 	'reviewedpages-best'          => 'آخرین نسخه با بالاترین نمره',
+
 );
