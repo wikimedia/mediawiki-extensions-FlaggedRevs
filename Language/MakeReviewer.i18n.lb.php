@@ -5,4 +5,5 @@
 $messages = array(
 	'makereviewer-username' => 'Benotzernumm:',
 	'makereviewer-search'   => 'Status offroen',
+	'makereviewer-comment'  => 'Bemierkung:',
 );

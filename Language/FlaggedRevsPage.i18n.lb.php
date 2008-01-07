@@ -1,9 +1,10 @@
 <?php
-
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
 $messages = array(
+	'revreview-auto'            => '(automatesch)',
+	'revreview-log'             => 'Bemierkung:',
 	'stableversions'            => 'Stabil Versioun',
 	'stableversions-page'       => 'Säitenumm:',
 	'unreviewed-category'       => 'Kategorie:',
