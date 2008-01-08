@@ -1,15 +1,27 @@
 <?php
 /** Polish (Polski)
  * @author Derbeth
+ * @author Sp5uhe
  * @author Siebrand
  */
 $messages = array(
+	'editor'                    => 'Redaktor',
+	'group-editor'              => 'Redaktorzy',
+	'group-editor-member'       => 'Redaktor',
+	'grouppage-editor'          => '{{ns:project}}:Redaktor',
+	'reviewer'                  => 'Krytyk',
+	'group-reviewer'            => 'Krytycy',
+	'group-reviewer-member'     => 'Krytyk',
+	'grouppage-reviewer'        => '{{ns:project}}:Krytyk',
 	'revreview-current'         => 'Szkic',
 	'tooltip-ca-current'        => 'Zobacz aktualny szkic tej strony',
 	'revreview-edit'            => 'Edytuj szkic',
 	'revreview-source'          => 'źródło szkicu',
 	'revreview-stable'          => 'Stabilna',
 	'tooltip-ca-stable'         => 'Zobacz wersję stabilną tej strony',
+	'revreview-oldrating'       => 'Uzyskana ocena:',
+	'revreview-noflagged'       => "Brak zweryfikowanej przez krytyka wersji tej strony, możliwe że jakość merytoryczna '''nie''' została [[{{MediaWiki:Validationpage}}|sprawdzona]].",
+	'revreview-toggle'          => '(+/-)',
 	'stable-logpage'            => 'Rejestr wersji stabilnych',
 	'revreview-notes'           => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-accuracy'        => 'Dokładność',
