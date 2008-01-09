@@ -77,8 +77,8 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	[[Special:Unreviewedpages]].',
 	'revreview-selected'          => "Zvolená verzia '''$1:'''",
 	'revreview-text'              => 'Stabilné verzie, nie najnovšie verzie, sú nastavené ako štandardný obsah stránky.',
-	'revreview-toolow'            => 'Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako "neschválené", aby bolo možné
-	verziu považovať za skontrolovanú. Ak chcete učiniť verziu zastaralou, nastavte všetky polia na "neschválené".',
+	'revreview-toolow'            => 'Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako „neschválené“, aby bolo možné
+	verziu považovať za skontrolovanú. Ak chcete učiniť verziu zastaralou, nastavte všetky polia na „neschválené“.',
 	'revreview-flag'              => 'Skontrolovať túto verziu (#$1):',
 	'revreview-legend'            => 'Ohodnotiť obsah verzie:',
 	'revreview-notes'             => 'Pozorovania alebo poznámky, ktoré sa majú zobraziť:',
