@@ -4,6 +4,7 @@
  * @author SpeedyGonsales
  */
 $messages = array(
+	'makereviewer'                  => 'Promoviraj/ukini prava suradniku',
 	'makereviewer-header'           => '<strong>Ovaj obrazac koriste administratori i birokrati da promoviraju suradnike u ocjenjivace
 clanaka.</strong><br> Unesite ime suradnika u rubriku i pritisnie tipku da postavite prava korisnika.  
 Dodjeljivanje prava ocjenjivaca ce automatski dodijeliti status urednika. Oduzimanje prava urednika ce
