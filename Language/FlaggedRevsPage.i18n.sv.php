@@ -15,11 +15,17 @@ $messages = array(
 	'revreview-edit'           => 'redigera utkast',
 	'revreview-oldrating'      => 'Bedömningen var:',
 	'revreview-noflagged'      => "Det finns inga granskade versioner av den här sidan, så dess kvalitet har kanske '''inte''' [[{{MediaWiki:Validationpage}}|kontrollerats]].",
+	'stabilization-tab'        => 'kvalitet',
+	'tooltip-ca-default'       => 'Inställlningar för kvalitetssäkring',
 	'validationpage'           => '{{ns:help}}:Sidgranskning',
 	'revreview-newest-basic'   => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} senaste sedda versionen av sidan]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} visa alla]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkändes]
 den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|ändring|ändringar}}] behöver granskas.',
 	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} senaste kvalitetsversionen av sidan]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} visa alla]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkändes] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|ändring|ändringar}}] behöver granskas.',
+	'revreview-basic'          => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|sedda]] sidversionen, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>.  [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet till sidan] kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} redigeras]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|ändring|ändringar}}] har ännu inte granskats.',
+	'revreview-quality'        => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|kvalitetsversionen]] av sidan,  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet till sidan]  
+kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} redigeras]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|ändring|ändringar}}]  
+har ännu inte granskats.',
 	'revreview-static'         => "Det här är en [[{{MediaWiki:Validationpage}}|granskad]] version av '''[[:$3|$3]]''', [{{fullurl:Special:Log/review|page=$1}} godkänd] den <i>$2</i>.",
 	'revreview-auto'           => '(automatiskt)',
 	'hist-stable'              => '[sedd]',
@@ -57,6 +63,7 @@ den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 
 	'revreview-style-3'        => 'koncis',
 	'revreview-style-4'        => 'utmärkt',
 	'revreview-log'            => 'Kommentar:',
+	'revreview-submit'         => 'Spara granskning',
 	'stableversions'           => 'Stabila versioner',
 	'stableversions-leg1'      => 'Lista granskade versioner av en sida',
 	'stableversions-page'      => 'Sidnamn:',
@@ -69,6 +76,7 @@ den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 
 	'unreviewed-category'      => 'Kategori:',
 	'unreviewed-diff'          => 'ändringar',
 	'unreviewed-list'          => 'Den här listan innehåller sidor som inte har granskats eller som har ogranskade nya versioner.',
+	'stabilization'            => 'Sidstabilisering',
 	'stabilization-perm'       => 'Ditt konto har inte behörighet att ändra inställningar för stabila sidversioner.
 Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-page'       => 'Sidnamn:',
