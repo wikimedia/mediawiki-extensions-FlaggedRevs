@@ -1191,7 +1191,7 @@ class FlaggedRevs {
 		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) )
 			return true;
 		# Check if results are cached to avoid DB queries
-		$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
+		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
 		$value = $wgMemc->get( $key );
 		if( $value == 'true' ) {
 			return true;
@@ -1224,7 +1224,7 @@ class FlaggedRevs {
 			array('USE INDEX' => 'page_time') );
 		if( $removed ) {	
 			# Make a key to store the results
-			$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
+			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
 			$wgMemc->set( $key, 'true', 3600*24*30 );
 			return true;
 		}
@@ -1263,7 +1263,7 @@ class FlaggedRevs {
 			}
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
-				$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks-$needed) );
 				return true;
 			}
