@@ -1264,7 +1264,7 @@ class FlaggedRevs {
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
-				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks-$needed) );
+				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks-$needed-1) );
 				return true;
 			}
 		}
