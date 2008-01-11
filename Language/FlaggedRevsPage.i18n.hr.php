@@ -1,7 +1,7 @@
 <?php
 /** Croatian (Hrvatski)
- * @author Dnik
  * @author SpeedyGonsales
+ * @author Dnik
  */
 $messages = array(
 	'editor'                    => 'Suradnik',
@@ -18,8 +18,11 @@ $messages = array(
 	'stable-logpage'            => 'Evidencija stabilnih verzija',
 	'revreview-flag'            => 'Ocijeni izmjenu (#$1)',
 	'revreview-accuracy'        => 'Točnost',
-	'revreview-accuracy-0'      => 'Neodobren',
-	'revreview-accuracy-2'      => 'Točan',
+	'revreview-accuracy-0'      => 'Članak ne zadovoljava',
+	'revreview-accuracy-1'      => 'Članak zadovoljava',
+	'revreview-accuracy-2'      => 'Dobar',
+	'revreview-accuracy-3'      => 'Vrlo dobar (potkrijepljen izvorima)',
+	'revreview-accuracy-4'      => 'Izvrstan',
 	'revreview-depth'           => 'Dubina',
 	'revreview-depth-0'         => 'Neodobren',
 	'revreview-depth-1'         => 'Osnovan',

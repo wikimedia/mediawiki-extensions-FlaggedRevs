@@ -1,5 +1,4 @@
 <?php
-
 /** Hungarian (Magyar)
  * @author Bdanee
  * @author KossuthRad
@@ -21,7 +20,7 @@ $messages = array(
 	'tooltip-ca-stable'           => 'Az oldal elfogadott változatának megtekintése',
 	'revreview-oldrating'         => 'Osztályozása:',
 	'revreview-noflagged'         => "Az oldal még nem rendelkezik ellenőrzött változatokkal, így '''nem''' lehetett
-[[{{MediaWiki:Validationpage}}|ellenőrízni]] minőség alapján.",
+[[{{MediaWiki:Validationpage}}|ellenőrizni]] minőség alapján.",
 	'stabilization-tab'           => '(qa)',
 	'tooltip-ca-default'          => 'Minőségbiztosítási beállítások',
 	'validationpage'              => '{{ns:help}}:Szócikk ellenőrzése',
@@ -36,10 +35,10 @@ $messages = array(
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} változás])",
 	'revreview-newest-basic'      => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi megtekintett változat]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes megjelenítése]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]
-ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 változást] kell ellenőrízni.',
+ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 változást] kell ellenőrizni.',
 	'revreview-newest-quality'    => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi minőségi változat]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes megjelenítése]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]
-ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 változást] kell ellenőrízni.',
+ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 változást] kell ellenőrizni.',
 	'revreview-basic'             => 'Ez a legutóbbi [[{{MediaWiki:Validationpage}}|áttekintett]] változat,  
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva] ekkor: <i>$2</i>. A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vázlat]  
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} módosítható]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 változás]  
@@ -52,13 +51,13 @@ vár áttekintésre.',
 ekkor [{{fullurl:Special:Log/review|page=$1}} fogadtak el]: <i>$2</i>.",
 	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] az alábbi megjegyzéseket tette ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzésekor]]:',
-	'revreview-update'            => 'Ellenőrízz minden változást (lenn láthatóak), amelyek az elfogadott változat óta készültek.
+	'revreview-update'            => 'Ellenőrizz minden változást (lenn láthatóak), amelyek az elfogadott változat óta készültek.
 Néhány sablon vagy kép frissítve lett:',
-	'revreview-update-none'       => 'Ellenőrízz minden változást (lenn láthatóak), amelyek az elfogadott változat óta készültek.',
+	'revreview-update-none'       => 'Ellenőrizz minden változást (lenn láthatóak), amelyek az elfogadott változat óta készültek.',
 	'revreview-auto'              => '(automatikus)',
-	'revreview-auto-w'            => "Jelenleg az elfogadott változatot szerkeszted, bármilyen változás '''automatikusan ellenőrízve lesz'''.
+	'revreview-auto-w'            => "Jelenleg az elfogadott változatot szerkeszted, bármilyen változás '''automatikusan ellenőrizve lesz'''.
 Megtekintheted a lap előnézetét mentés előtt.",
-	'revreview-auto-w-old'        => "Jelenleg egy korábbi változatot szerkesztesz, bármilyen változás '''automatikusan ellenőrízve lesz'''.
+	'revreview-auto-w-old'        => "Jelenleg egy korábbi változatot szerkesztesz, bármilyen változás '''automatikusan ellenőrizve lesz'''.
 Megtekintheted a lap előnézetét mentés előtt.",
 	'revreview-patrolled'         => '[[:$1|$1]] kiválasztott változata ellenőrzöttnek lett jelölve.',
 	'hist-stable'                 => '[áttekintve]',
@@ -78,28 +77,28 @@ naplója.',
 	'revisionreview'              => 'Változatok ellenőrzése',
 	'revreview-main'              => 'Ki kell választanod egy oldal adott változatát az ellenőrzéshez.
 
-Lásd az [[Special:Unreviewedpages|ellenőrízetlen lapok listáját]].',
+Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-selected'          => "'''$1''' kiválasztott változata:",
 	'revreview-text'              => 'Az oldalon alapértelmezettként az elfogadott változatok jelennek meg az újabbak helyett.',
-	'revreview-toolow'            => 'Ahhoz, hogy egy változat ellenőrzött legyen, minden értéknek az „ellenőrízetlen”-től különböző 
-értéket kell adnod. Egy változat ellenőrzésének törléséhez állíts mindent erre az értékre.',
+	'revreview-toolow'            => 'Ahhoz, hogy egy változat ellenőrzött legyen, minhol az „ellenőrizetlen”-től különböző 
+értéket kell megadnod. Egy változat ellenőrzésének törléséhez állíts mindent erre az értékre.',
 	'revreview-flag'              => 'Változat ellenőrzése (#$1)',
 	'revreview-legend'            => 'Változat tartalmának értékelése',
 	'revreview-notes'             => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-accuracy'          => 'Pontosság',
-	'revreview-accuracy-0'        => 'Ellenőrízetlen',
+	'revreview-accuracy-0'        => 'Ellenőrizetlen',
 	'revreview-accuracy-1'        => 'Megtekintett',
 	'revreview-accuracy-2'        => 'Pontos',
 	'revreview-accuracy-3'        => 'Forrásokkal megfelelően ellátva',
 	'revreview-accuracy-4'        => 'Kiemelt',
 	'revreview-depth'             => 'Mélység',
-	'revreview-depth-0'           => 'Ellenőrízetlen',
+	'revreview-depth-0'           => 'Ellenőrizetlen',
 	'revreview-depth-1'           => 'Alapszintű',
 	'revreview-depth-2'           => 'Átlagos',
 	'revreview-depth-3'           => 'Részletes',
 	'revreview-depth-4'           => 'Kiemelt',
 	'revreview-style'             => 'Olvashatóság',
-	'revreview-style-0'           => 'Ellenőrízetlen',
+	'revreview-style-0'           => 'Ellenőrizetlen',
 	'revreview-style-1'           => 'Elfogadható',
 	'revreview-style-2'           => 'Jó',
 	'revreview-style-3'           => 'Tömör',
@@ -110,24 +109,24 @@ Lásd az [[Special:Unreviewedpages|ellenőrízetlen lapok listáját]].',
 
 Egy sablon vagy kép lett kérve, mikor nem lett adott változat megadva. Ez akkor történhet meg,  
 mikor egy dinamikus sablon más képet vagy sablont illeszt be egy változótól függően, amely megváltozott,
-mióta elkezdted ellenőrízni a lapot. Az oldal frissítése és az ellenőrzés újbóli elvégzése megoldhatja a problémát.",
+mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés újbóli elvégzése megoldhatja a problémát.",
 	'stableversions'              => 'Elfogadott változatok',
 	'stableversions-leg1'         => 'Oldal ellenőrzött változatainak listája',
 	'stableversions-page'         => 'A lap neve:',
 	'stableversions-none'         => '„[[:$1]]” nem rendelkezik ellenőrzött változatokkal',
-	'stableversions-list'         => '„[[:$1]]” következő változatai lettek ellenőrízve:',
+	'stableversions-list'         => '„[[:$1]]” következő változatai lettek ellenőrizve:',
 	'stableversions-review'       => 'Ellenőrízte $2, <i>$1</i>-kor',
 	'review-diff2stable'          => 'Eltérések az elfogadott változathoz képest',
-	'unreviewedpages'             => 'Ellenőrízetlen lapok',
-	'viewunreviewed'              => 'Ellenőrízetlen tartalmú oldalak listája',
-	'unreviewed-outdated'         => 'Azon oldalak listája, amelyek ellenőrízetlen változatokkal rendelkeznek ellenőrzöttek helyett.',
+	'unreviewedpages'             => 'Ellenőrizetlen lapok',
+	'viewunreviewed'              => 'Ellenőrizetlen tartalmú oldalak listája',
+	'unreviewed-outdated'         => 'Azon oldalak listája, amelyek ellenőrizetlen változatokkal rendelkeznek ellenőrzöttek helyett.',
 	'unreviewed-category'         => 'Kategória:',
 	'unreviewed-diff'             => 'Eltérések',
-	'unreviewed-list'             => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrízve, vagy rendelkeznek új, ellenőrízetlen változatokkal.',
+	'unreviewed-list'             => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
 	'revreview-visibility'        => 'Ez az oldal rendelkezik [[{{MediaWiki:Validationpage}}|elfogadott változattal]], amelyet
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} be lehet állítani].',
 	'stabilization'               => 'Oldal elfogadása',
-	'stabilization-text'          => 'Az alábbi beállítások megváltoztatásával állíthatod be [[:$1|$1]] elfogadot változatát, és annak megjelenítését.',
+	'stabilization-text'          => 'Az alábbi beállítások megváltoztatásával állíthatod be [[:$1|$1]] elfogadott változatát, és annak megjelenítését.',
 	'stabilization-perm'          => 'Nincs jogosultságod megváltoztatni az elfogadott változat beállításait.
 [[:$1|$1]] jelenlegi beállításai itt találhatóak:',
 	'stabilization-page'          => 'A lap neve:',
@@ -140,7 +139,7 @@ mióta elkezdted ellenőrízni a lapot. Az oldal frissítése és az ellenőrzé
 	'stabilization-def2'          => 'A jelenlegi változat',
 	'stabilization-submit'        => 'Megerősítés',
 	'stabilization-notexists'     => 'Nincs „[[:$1|$1]]” nevű lap, így nem lehet beállítani.',
-	'stabilization-notcontent'    => '„[[:$1|$1]]” nem ellenőrízhető, így nem is lehet beállítani.',
+	'stabilization-notcontent'    => '„[[:$1|$1]]” nem ellenőrizhető, így nem is lehet beállítani.',
 	'stabilization-comment'       => 'Megjegyzés:',
 	'stabilization-sel-short'     => 'Precendencia',
 	'stabilization-sel-short-0'   => 'Minőség',
@@ -150,7 +149,7 @@ mióta elkezdted ellenőrízni a lapot. Az oldal frissítése és az ellenőrzé
 	'stabilization-def-short-1'   => 'Elfogadott',
 	'reviewedpages'               => 'Ellenőrzött lapok',
 	'reviewedpages-leg'           => 'Valamilyen szinten ellenőrzött lapok',
-	'reviewedpages-list'          => 'Az alábbi lapok valamilyen szinten ellenőrízve vannak',
+	'reviewedpages-list'          => 'Az alábbi lapok egy adott szinten ellenőrizve vannak',
 	'reviewedpages-none'          => 'A lista nem tartalmaz lapokat',
 	'reviewedpages-lev-0'         => 'Áttekintett',
 	'reviewedpages-lev-1'         => 'Minőségi',
