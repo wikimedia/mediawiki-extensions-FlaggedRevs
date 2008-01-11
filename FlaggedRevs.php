@@ -1190,12 +1190,6 @@ class FlaggedRevs {
 		# Do not give this to current holders or bots
 		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) )
 			return true;
-		
-		$now = time();
-		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
-		$userage = floor(($now-$usercreation) / 86400);
-		$userpage = $user->getUserPage();	
-			
 		# Check if results are cached to avoid DB queries
 		$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
 		$value = $wgMemc->get( $key );
@@ -1203,6 +1197,10 @@ class FlaggedRevs {
 			return true;
 		}
 		
+		$now = time();
+		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
+		$userage = floor(($now-$usercreation) / 86400);
+		$userpage = $user->getUserPage();
 		# Check if we need to promote...
 		if( $userage < $wgFlaggedRevsAutopromote['days'] )
 			return true;
