@@ -1181,19 +1181,28 @@ class FlaggedRevs {
 	* $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$w, &$s ) {
-		global $wgUser, $wgFlaggedRevsAutopromote;
+		global $wgUser, $wgFlaggedRevsAutopromote, $wgMemc;
 		
 		if( !$wgFlaggedRevsAutopromote )
 			return true;
 		# Grab current groups
 		$groups = $user->getGroups();
-		$now = time();
-		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
-		$userage = floor(($now-$usercreation) / 86400);
-		$userpage = $user->getUserPage();
 		# Do not give this to current holders or bots
 		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) )
 			return true;
+		
+		$now = time();
+		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
+		$userage = floor(($now-$usercreation) / 86400);
+		$userpage = $user->getUserPage();	
+			
+		# Check if results are cached to avoid DB queries
+		$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
+		$value = $wgMemc->get( $key );
+		if( $value == 'true' ) {
+			return true;
+		}
+		
 		# Check if we need to promote...
 		if( $userage < $wgFlaggedRevsAutopromote['days'] )
 			return true;
@@ -1215,8 +1224,12 @@ class FlaggedRevs {
 				'log_action'  => 'erevoke' ),
 			__METHOD__,
 			array('USE INDEX' => 'page_time') );
-		if( $removed )
+		if( $removed ) {	
+			# Make a key to store the results
+			$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
+			$wgMemc->set( $key, 'true', 3600*24*30 );
 			return true;
+		}
 		// Check for edit spacing. This lets us know that the account has
 		// been used over N different days, rather than all in one lump.
 		// This can be expensive... so check it last.
@@ -1250,8 +1263,12 @@ class FlaggedRevs {
 				if( $lower !== false )
 					$benchmarks++;
 			}
-			if( $benchmarks < $needed )
+			if( $benchmarks < $needed ) {
+				# Make a key to store the results
+				$key = wfMemcKey( 'flaggedrevs', 'skip-autopromote', $wgUser->getID() );
+				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks-$needed) );
 				return true;
+			}
 		}
 		# Add editor rights
 		$newGroups = $groups ;
