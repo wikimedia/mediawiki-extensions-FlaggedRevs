@@ -85,11 +85,14 @@
 	background-color: #f9f9f9;
 	padding: 3px;
 	font-size: 80%;
-	margin-left: 10px;
-	margin-right: 0px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 4px;
+	margin-bottom: 3px;
 	text-align: left;
 	float: right;
 	width: 320px;
+	clear: both;
 }
 
 .fr-tab_current,

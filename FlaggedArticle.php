@@ -10,6 +10,8 @@ class FlaggedArticle {
 	public $flags = null;
 	
 	protected $dbw = null;
+	
+	protected $simpleNotice = '';
 	/**
 	 * Does the config and current URL params allow 
 	 * for overriding by stable revisions?
@@ -211,7 +213,12 @@ class FlaggedArticle {
 			if( $tag !='' )
 				$tag = '<div id="mw-revisiontag" class="'.$tagClass.' plainlinks">'.$tag.'</div>';
 			# Set the new body HTML, place a tag on top
-			$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
+			if( FlaggedRevs::useSimpleUI() ) {
+				$this->simpleNotice = $tag;
+				$wgOut->mBodytext = $wgOut->mBodytext . $notes;
+			} else {
+				$wgOut->mBodytext = $tag . $wgOut->mBodytext . $notes;
+			}
 		// Add "no reviewed version" tag, but not for main page
 		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->getTitle() ) ) {
 			if( FlaggedRevs::useSimpleUI() ) {
@@ -227,6 +234,21 @@ class FlaggedArticle {
 		
 		return true;
     }
+
+    /**
+	 * Adds the simple tag by the title
+	 */	
+	function addSimpleTag( $notice ) {
+		global $wgFlaggedArticle;
+		
+		if( !FlaggedRevs::useSimpleUI() )
+			return true;
+		
+		$notice .= $wgFlaggedArticle->simpleNotice;
+		
+		return true;
+	
+	}
     
     /**
 	 * Adds latest stable version tag to page when editing

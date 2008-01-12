@@ -81,6 +81,7 @@ function efLoadFlaggedRevs() {
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'addSimpleTag' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
 	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
