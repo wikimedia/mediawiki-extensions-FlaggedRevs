@@ -225,11 +225,12 @@ class FlaggedArticle {
 				$tag .= "<span class='fr-tab_current plainlinks'></span>" . 
 					wfMsgExt('revreview-quick-none',array('parseinline'));
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
+				$this->simpleNotice = $tag;
 			} else {
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' .
 					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
+				$wgOut->addHTML( $tag );
 			}
-			$wgOut->addHTML( $tag );
 		}
 		
 		return true;
