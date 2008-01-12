@@ -3,8 +3,9 @@
  * @author Sherbrooke
  * @author Dereckson
  * @author Siebrand
- * @author SPQRobin
+ * @author ChrisPtDe
  * @author Grondin
+ * @author SPQRobin
  */
 $messages = array(
 	'editor'                      => 'Contributeur',
@@ -113,7 +114,7 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
 	'stabilization-def1'          => 'La version stable, sinon la version courante',
 	'stabilization-def2'          => 'La version courante',
 	'stabilization-submit'        => 'Confirmer',
-	'stabilization-notexists'     => "Il n'y a pas de page « [[:$1|$1]], pas de paramétrage possible",
+	'stabilization-notexists'     => "Il n'y a pas de page « [[:$1|$1]] », pas de paramétrage possible",
 	'stabilization-notcontent'    => 'La page « [[:$1|$1]] » ne peut être révisée, pas de paramétrage possible',
 	'stabilization-comment'       => 'Commentaire :',
 	'stabilization-sel-short'     => 'Priorité',

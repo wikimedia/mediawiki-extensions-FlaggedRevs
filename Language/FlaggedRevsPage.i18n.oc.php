@@ -2,12 +2,14 @@
 /** Occitan (Occitan)
  * @author Cedric31
  * @author Siebrand
+ * @author ChrisPtDe
  * @author SPQRobin
  */
 $messages = array(
 	'editor'                      => 'Contributor',
 	'group-editor'                => 'Contributors',
 	'group-editor-member'         => 'Contributor',
+	'grouppage-editor'            => '{{ns:project}}:Editor',
 	'reviewer'                    => 'Revisor',
 	'group-reviewer'              => 'Revisors',
 	'group-reviewer-member'       => 'Revisor',
@@ -102,7 +104,7 @@ $messages = array(
 	'stabilization-def1'          => 'La version establa, siquenon la version correnta',
 	'stabilization-def2'          => 'La version correnta',
 	'stabilization-submit'        => 'Confirmar',
-	'stabilization-notexists'     => 'I a pas de pagina « [[:$1|$1]], pas de parametratge possible',
+	'stabilization-notexists'     => 'I a pas de pagina « [[:$1|$1]] », pas de parametratge possible',
 	'stabilization-notcontent'    => 'La pagina « [[:$1|$1]] » pòt pas èsser revisada, pas de parametratge possible',
 	'stabilization-comment'       => 'Comentari :',
 	'stabilization-sel-short'     => 'Prioritat',
