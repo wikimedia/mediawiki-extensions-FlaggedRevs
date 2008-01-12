@@ -29,18 +29,18 @@ $messages = array(
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|правка|правки|правок}}])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Досмотренная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} см. черновик]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|правка|правки|правок}}])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Качественная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} см. черновик]]  
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Выверенная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} см. черновик]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|правка|правки|правок}}])",
 	'revreview-newest-basic'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя досмотренная версия]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]) была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмечена]
 <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|требует|требуют|требуют}} просмотра.',
-	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя качественная версия]  
+	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя выверенная версия]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]) была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмечена]
 <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|требует|требуют|требуют}} просмотра.',
 	'revreview-basic'             => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия,  
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Возможно, [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновик]  
 уже [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} изменён]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} рецензии.',
-	'revreview-quality'           => 'Это последняя [[{{MediaWiki:Validationpage}}|качественная]] версия,  
+	'revreview-quality'           => 'Это последняя [[{{MediaWiki:Validationpage}}|выверенная]] версия,  
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Возможно, [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновик]  
 уже [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} изменён]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} просмотра.',
 	'revreview-static'            => "Это [[{{MediaWiki:Validationpage}}|отрецензированная]] версия '''[[:$3|$3]]''',  
@@ -54,7 +54,7 @@ $messages = array(
 	'revreview-auto-w-old'        => "Вы правите старую версию, все изменения будут '''автоматически отмечены как проверенные'''. Возможно, перед записью страницы следует воспользоваться предпросмотром.",
 	'revreview-patrolled'         => 'Выбранная версия [[:$1|$1]] была отмечена как патрулированная.',
 	'hist-stable'                 => '[досмотрена]',
-	'hist-quality'                => '[качественная]',
+	'hist-quality'                => '[выверенная]',
 	'flaggedrevs'                 => 'Отмеченные версии',
 	'review-logpage'              => 'Журнал рецензий',
 	'review-logpagetext'          => 'Это журнал изменений статусов версий страниц.',
@@ -130,7 +130,7 @@ $messages = array(
 	'stabilization-notcontent'    => 'Страница «[[:$1|$1]]» не может быть отрецензирована. Настройка невозможна.',
 	'stabilization-comment'       => 'Примечание:',
 	'stabilization-sel-short'     => 'Порядок следования',
-	'stabilization-sel-short-0'   => 'Качественная',
+	'stabilization-sel-short-0'   => 'Выверенная',
 	'stabilization-sel-short-1'   => 'Нет',
 	'stabilization-def-short'     => 'По умолчанию',
 	'stabilization-def-short-0'   => 'Текущая',
@@ -140,7 +140,7 @@ $messages = array(
 	'reviewedpages-list'          => 'Следующие страницы были отрецензированы и оценены на указанный уровень',
 	'reviewedpages-none'          => 'В списке отсутствуют страницы',
 	'reviewedpages-lev-0'         => 'Досмотрена',
-	'reviewedpages-lev-1'         => 'Качественная',
+	'reviewedpages-lev-1'         => 'Выверенная',
 	'reviewedpages-lev-2'         => 'Избранная',
 	'reviewedpages-all'           => 'отрецензированные версии',
 	'reviewedpages-best'          => 'последняя версия с наивысшей оценкой',
