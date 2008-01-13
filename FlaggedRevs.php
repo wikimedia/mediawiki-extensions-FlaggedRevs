@@ -822,7 +822,7 @@ class FlaggedRevs {
 		$dbw->commit();
 		
 		# Update the article review log
-		Revisionreview::updateLog( $rev->getTitle(), $flags, wfMsg('revreview-auto'),
+		Revisionreview::updateLog( $article->getTitle(), $flags, wfMsg('revreview-auto'),
 			$rev->getID(), true, false );
 
 		# Might as well save the stable version cache
