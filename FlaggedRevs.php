@@ -789,7 +789,7 @@ class FlaggedRevs {
 				__METHOD__ );
 		}
 		# Get the page text and resolve all templates
-		list($fulltext,$complete) = self::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+		list($fulltext,$complete) = self::expandText( $rev->getText(), $article->getTitle(), $rev->getId() );
 		if( !$complete ) {
 			$dbw->rollback(); // All versions must be specified, 0 for none
 			return false;
