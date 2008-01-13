@@ -109,7 +109,6 @@ class FlaggedArticle {
 		if( ($action !='view' && $action !='purge') || !$article || !$article->exists() ) 
 			return true;
 		# Grab page and rev ids
-		$pageid = $article->getId();
 		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
 		if( !$revid ) 
 			return true;
@@ -131,7 +130,7 @@ class FlaggedArticle {
 			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			# Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
-				$revs_since = FlaggedRevs::getRevCountSince( $pageid, $tfrev->fr_rev_id );
+				$revs_since = FlaggedRevs::getRevCountSince( $article, $tfrev->fr_rev_id );
 				$simpleTag = true;
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
@@ -156,7 +155,7 @@ class FlaggedArticle {
 			} else {
        			# We will be looking at the reviewed revision...
        			$vis_id = $tfrev->fr_rev_id;
-       			$revs_since = FlaggedRevs::getRevCountSince( $pageid, $vis_id );
+       			$revs_since = FlaggedRevs::getRevCountSince( $article, $vis_id );
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					if( FlaggedRevs::useSimpleUI() ) {
@@ -277,7 +276,7 @@ class FlaggedArticle {
 			
 			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
 			$flags = FlaggedRevs::expandRevisionTags( $tfrev->fr_tags );
-			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle->getID(), $tfrev->fr_rev_id );
+			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle, $tfrev->fr_rev_id );
 			# Construct some tagging
 			$msg = FlaggedRevs::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );

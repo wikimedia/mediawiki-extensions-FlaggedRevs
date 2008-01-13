@@ -19,111 +19,6 @@ $wgExtensionCredits['specialpage'][] = array(
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages',
 );
 
-$wgExtensionFunctions[] = 'efLoadFlaggedRevs';
-
-# Load general UI
-$wgAutoloadClasses['FlaggedArticle'] = dirname( __FILE__ ) . '/FlaggedArticle.php';
-# Load review UI
-$wgSpecialPages['Revisionreview'] = 'Revisionreview';
-$wgAutoloadClasses['Revisionreview'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
-# Load stableversions UI
-$wgSpecialPages['Stableversions'] = 'Stableversions';
-$wgAutoloadClasses['Stableversions'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
-# Load unreviewed pages list
-$wgSpecialPages['Unreviewedpages'] = 'Unreviewedpages';
-$wgAutoloadClasses['Unreviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
-# Load reviewed pages list
-$wgSpecialPages['Reviewedpages'] = 'Reviewedpages';
-$wgAutoloadClasses['Reviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
-# Stable version config
-$wgSpecialPages['Stabilization'] = 'Stabilization';
-$wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
-# Load promotion UI
-include_once( dirname( __FILE__ ) . '/SpecialMakeReviewer.php' );
-
-function efLoadFlaggedRevs() {
-	global $wgMessageCache, $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle;
-	# Initialize
-	FlaggedRevs::load();
-	$wgFlaggedArticle = new FlaggedArticle();
-	# Internationalization
-	$messages = array();
-	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.en.php';
-	include( $f ); // Default to English langauge
-	$wgMessageCache->addMessages( $messages, 'en' );
-
-	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.' . $wgLang->getCode() . '.php';
-	if( file_exists( $f ) ) {
-		include( $f );
-	}
-	$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
-
-	global $wgGroupPermissions, $wgUseRCPatrol;
-	# Use RC Patrolling to check for vandalism
-	# When revisions are flagged, they count as patrolled
-	$wgUseRCPatrol = true;
-	# Use only our extension mechanisms
-	foreach( $wgGroupPermissions as $group => $rights ) {
-		$wgGroupPermissions[$group]['patrol'] = false;
-		$wgGroupPermissions[$group]['autopatrol'] = false;
-	}
-	
-	global $wgScriptPath;
-	if( !defined( 'FLAGGED_CSS' ) )
-		define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
-	if( !defined( 'FLAGGED_JS' ) )
-		define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
-	
-	######### Hook attachments #########
-	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';
-	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
-	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
-	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
-	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'addSimpleTag' );
-	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
-	# Add tags do edit view
-	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
-	# Add review form
-	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
-	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
-	# Mark of items in page history
-	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
-	# Autopromote Editors
-	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
-	# Adds table link references to include ones from the stable version
-	$wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevs::extraLinksUpdate';
-	# Empty flagged page settings row on delete
-	$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
-	# Check on undelete/merge/revisiondelete for changes to stable version
-	$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::articleLinksUpdate2';
-	$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::articleLinksUpdate2';
-	$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
-	# Clean up after undeletion
-	$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
-	# Parser hooks, selects the desired images/templates
-	$wgHooks['BeforeParserrenderImageGallery'][] = 'FlaggedRevs::parserMakeGalleryStable';
-	$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
-	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
-	$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImageLink';
-	# Additional parser versioning
-	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectImageTimestamps';
-	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectImageTimestamps';
-	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolLink' );
-	# Autoreview stuff
-	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
-	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
-	# Disallow moves of stable pages
-	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
-	#########
-}
-
 #########
 # IMPORTANT:
 # When configuring globals, add them to localsettings.php and edit them THERE
@@ -231,9 +126,113 @@ $wgFlaggedRevsAutopromote = array(
 	'email'	     => true,
 	'userpage'   => true
 );
-
-# Variables below this point should probably not be modified
+# End of configuration variables.
 #########
+
+$wgExtensionFunctions[] = 'efLoadFlaggedRevs';
+
+# Load general UI
+$wgAutoloadClasses['FlaggedArticle'] = dirname( __FILE__ ) . '/FlaggedArticle.php';
+# Load review UI
+$wgSpecialPages['Revisionreview'] = 'Revisionreview';
+$wgAutoloadClasses['Revisionreview'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
+# Load stableversions UI
+$wgSpecialPages['Stableversions'] = 'Stableversions';
+$wgAutoloadClasses['Stableversions'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
+# Load unreviewed pages list
+$wgSpecialPages['Unreviewedpages'] = 'Unreviewedpages';
+$wgAutoloadClasses['Unreviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
+# Load reviewed pages list
+$wgSpecialPages['Reviewedpages'] = 'Reviewedpages';
+$wgAutoloadClasses['Reviewedpages'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
+# Stable version config
+$wgSpecialPages['Stabilization'] = 'Stabilization';
+$wgAutoloadClasses['Stabilization'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
+# Load promotion UI
+include_once( dirname( __FILE__ ) . '/SpecialMakeReviewer.php' );
+
+function efLoadFlaggedRevs() {
+	global $wgMessageCache, $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle;
+	# Initialize
+	FlaggedRevs::load();
+	$wgFlaggedArticle = new FlaggedArticle();
+	# Internationalization
+	$messages = array();
+	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.en.php';
+	include( $f ); // Default to English langauge
+	$wgMessageCache->addMessages( $messages, 'en' );
+
+	$f = dirname( __FILE__ ) . '/Language/FlaggedRevsPage.i18n.' . $wgLang->getCode() . '.php';
+	if( file_exists( $f ) ) {
+		include( $f );
+	}
+	$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
+
+	global $wgGroupPermissions, $wgUseRCPatrol;
+	# Use RC Patrolling to check for vandalism
+	# When revisions are flagged, they count as patrolled
+	$wgUseRCPatrol = true;
+	# Use only our extension mechanisms
+	foreach( $wgGroupPermissions as $group => $rights ) {
+		$wgGroupPermissions[$group]['patrol'] = false;
+		$wgGroupPermissions[$group]['autopatrol'] = false;
+	}
+	
+	global $wgScriptPath;
+	if( !defined( 'FLAGGED_CSS' ) )
+		define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
+	if( !defined( 'FLAGGED_JS' ) )
+		define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
+	
+	######### Hook attachments #########
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';
+	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
+	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
+	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'addSimpleTag' );
+	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
+	# Add tags do edit view
+	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
+	# Add review form
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
+	# Mark of items in page history
+	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
+	# Autopromote Editors
+	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
+	# Adds table link references to include ones from the stable version
+	$wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevs::extraLinksUpdate';
+	# Empty flagged page settings row on delete
+	$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
+	# Check on undelete/merge/revisiondelete for changes to stable version
+	$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::articleLinksUpdate2';
+	$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::articleLinksUpdate2';
+	$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
+	# Clean up after undeletion
+	$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
+	# Parser hooks, selects the desired images/templates
+	$wgHooks['BeforeParserrenderImageGallery'][] = 'FlaggedRevs::parserMakeGalleryStable';
+	$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
+	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
+	$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImageLink';
+	# Additional parser versioning
+	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectImageTimestamps';
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectImageTimestamps';
+	# Page review on edit
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolLink' );
+	# Autoreview stuff
+	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
+	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
+	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
+	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
+	# Disallow moves of stable pages
+	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
+	#########
+}
 
 # Add review log and such
 $wgLogTypes[] = 'review';
@@ -410,16 +409,31 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * @param int $page_id
+	 * @param Article $article
 	 * @param int $from_rev
 	 * @return int
 	 * Get number of revs since a certain revision
 	 */
-	public static function getRevCountSince( $page_id, $from_rev ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		$count = $dbr->selectField('revision', 'COUNT(*)',
-			array('rev_page' => $page_id, "rev_id > " . intval($from_rev) ),
-			__METHOD__ );
+	public static function getRevCountSince( $article, $from_rev ) {
+		# Check if the count is zero by using $article->getLatest().
+		# I don't trust using memcache and PHP for values like '0'
+		# as it may confuse "expired" with "0".
+		if( $article->getLatest()==$from_rev ) {
+			return 0;
+		}
+		global $wgMemc;
+		# Try the cache
+		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
+		$count = intval( $wgMemc->get($key) );
+		
+		if( !$count ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$count = $dbr->selectField('revision', 'COUNT(*)',
+				array('rev_page' => $page_id, "rev_id > " . intval($from_rev) ),
+				__METHOD__ );
+			# Save to cache
+			$wgMemc->set( $key, $count, 3600*24*7 );
+		}
 		
 		return $count;
 	}
@@ -841,8 +855,10 @@ class FlaggedRevs {
 	* Updates the page_ext_stable and page_ext_reviewed fields
 	*/
 	public static function updateArticleOn( $article, $rev_id ) {
+		global $wgMemc;
+	
 		$dbw = wfGetDB( DB_MASTER );
-		// Get the highest quality revision (not necessarily this one).
+		# Get the highest quality revision (not necessarily this one).
 		$maxQuality = $dbw->selectField( array('flaggedrevs', 'revision'),
 			'fr_quality',
 			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
@@ -851,7 +867,7 @@ class FlaggedRevs {
 			__METHOD__,
 			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
 		$maxQuality = $maxQuality===false ? null : $maxQuality;
-		// Alter table metadata
+		# Alter table metadata
 		$dbw->update( 'page',
 			array('page_ext_stable' => $rev_id,
 				'page_ext_reviewed' => ($article->getLatest() == $rev_id),
@@ -859,6 +875,9 @@ class FlaggedRevs {
 			array('page_namespace' => $article->getTitle()->getNamespace(),
 				'page_title' => $article->getTitle()->getDBkey() ),
 			__METHOD__ );
+		# Update the cache
+		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
+		$wgMemc->set( $key, $rev_id, 3600*24*7 );
 	}
 
 	/**
@@ -1252,12 +1271,10 @@ class FlaggedRevs {
 			while( $lower && $benchmarks < $needed ) {
 				$next = wfTimestamp( TS_UNIX, $lower ) + $spacing;
 				$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-					array(
-						'rev_user' => $user->getID(),
-						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ),
+					array( 'rev_user' => $user->getID(),
+						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp($next) ) ),
 					__METHOD__,
-					array(
-						'ORDER BY' => 'rev_timestamp ASC',
+					array( 'ORDER BY' => 'rev_timestamp ASC',
 						'USE INDEX' => 'user_timestamp' ) );
 				if( $lower !== false )
 					$benchmarks++;
