@@ -1,5 +1,4 @@
 <?php
-
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
  */
@@ -15,6 +14,9 @@ $messages = array(
 	'revreview-current'     => 'Hujige versie',
 	'tooltip-ca-current'    => 'hujige wèrkversie van dees pazjena toeane',
 	'stabilization-tab'     => '(kb)',
+	'tooltip-ca-default'    => 'Instellinge kwaliteitsbewaking',
+	'validationpage'        => '{{ns:help}}:Pazjenakontraol',
+	'revreview-toggle'      => '(+/-)',
 	'revreview-auto'        => '(automatisch)',
 	'hist-stable'           => '[bekeke]',
 	'hist-quality'          => '[kwaliteit]',

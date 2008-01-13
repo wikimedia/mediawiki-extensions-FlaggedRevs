@@ -115,7 +115,7 @@ mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés
 	'stableversions-page'         => 'A lap neve:',
 	'stableversions-none'         => '„[[:$1]]” nem rendelkezik ellenőrzött változatokkal',
 	'stableversions-list'         => '„[[:$1]]” következő változatai lettek ellenőrizve:',
-	'stableversions-review'       => 'Ellenőrízte $2, <i>$1</i>-kor',
+	'stableversions-review'       => 'Ellenőrizte $2, <i>$1</i>-kor',
 	'review-diff2stable'          => 'Eltérések az elfogadott változathoz képest',
 	'unreviewedpages'             => 'Ellenőrizetlen lapok',
 	'viewunreviewed'              => 'Ellenőrizetlen tartalmú oldalak listája',

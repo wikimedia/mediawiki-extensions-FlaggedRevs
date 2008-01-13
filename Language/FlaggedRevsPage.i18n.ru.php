@@ -38,11 +38,10 @@ $messages = array(
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]) была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмечена]
 <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|требует|требуют|требуют}} просмотра.',
 	'revreview-basic'             => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия,  
-[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Возможно, [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновик]  
-уже [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} изменён]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} рецензии.',
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Можно [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} править] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} текущую версию];  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} рецензии.',
 	'revreview-quality'           => 'Это последняя [[{{MediaWiki:Validationpage}}|выверенная]] версия,  
-[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Возможно, [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновик]  
-уже [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} изменён]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} просмотра.',
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Можно [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} править] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} текущую версию]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} рецензии.',
 	'revreview-static'            => "Это [[{{MediaWiki:Validationpage}}|отрецензированная]] версия '''[[:$3|$3]]''',  
 [{{fullurl:Special:Log/review|page=$1}} отмеченная] <i>$2</i>.",
 	'revreview-toggle'            => '(+/-)',
