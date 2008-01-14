@@ -24,6 +24,8 @@ $messages = array(
 	'tooltip-ca-default'        => 'Postavke važeće inačice',
 	'validationpage'            => '{{ns:help}}:Ocjenjivanje članaka',
 	'revreview-quick-none'      => "'''Važeća inačica''' (nema ocijenjenih inačica)",
+	'revreview-static'          => "Ovo je [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena članka '''[[:$3|$3]]''',  
+[{{fullurl:Special:Log/review|page=$1}} odobrena] dana <i>$2</i>.",
 	'revreview-toggle'          => '(+/-)',
 	'revreview-note'            => '[User:$1]] je zabilježio slijedeće pri [[{{MediaWiki:Validationpage}}|ocjenjivanju]] ove inačice:',
 	'revreview-update'          => 'Molim pregledajte sve promjene (prikazane dolje) učinjene od stabilne inačice. Neki
@@ -44,7 +46,14 @@ Možda želite pregledati vaše izmjene prije snimanja.",
 	'review-logentry-dis'       => 'zastarjela inačica stranice [[$1]]',
 	'review-logaction'          => 'ocjena broj $1',
 	'stable-logpage'            => 'Evidencija stabilnih verzija',
+	'stable-logpagetext'        => 'Ovo je evidencija promjena [[{{MediaWiki:Validationpage}}|važećih inačica]] 
+članaka u glavnom imenskom prostoru.',
+	'stable-logentry'           => 'postavljena važeća inačica stranice [[$1]]',
+	'stable-logentry2'          => 'poništi važeću inačicu članka [[$1]]',
 	'revisionreview'            => 'Ocijeni inačice',
+	'revreview-main'            => 'Morate odabrati neku izmjenu stranice u glavnom imenskom prostoru za ocjenjivanje.
+
+Pogledajte popis [[Special:Unreviewedpages|neocijenjenih stranica]] za to.',
 	'revreview-selected'        => "Odabrane promjene '''$1:'''",
 	'revreview-flag'            => 'Ocijeni izmjenu (#$1)',
 	'revreview-legend'          => 'Ocijeni sadržaj inačice',
