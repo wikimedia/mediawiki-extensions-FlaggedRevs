@@ -326,7 +326,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$tmpset[] = array(
 				'ft_rev_id' => $rev->getId(),
 				'ft_namespace' => $tmp_title->getNamespace(),
-				'ft_title' => $tmp_title->getDBKey(),
+				'ft_title' => $tmp_title->getDBkey(),
 				'ft_tmp_rev_id' => $rev_id
 			);
 		}
@@ -351,7 +351,7 @@ class Revisionreview extends UnlistedSpecialPage
 			
 			$imgset[] = array( 
 				'fi_rev_id' => $rev->getId(),
-				'fi_name' => $img_title->getDBKey(),
+				'fi_name' => $img_title->getDBkey(),
 				'fi_img_timestamp' => $timestamp,
 				'fi_img_sha1' => $key
 			);

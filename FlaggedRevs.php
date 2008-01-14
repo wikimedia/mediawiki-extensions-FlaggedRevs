@@ -580,7 +580,7 @@ class FlaggedRevs {
 	 */
 	public static function isMainPage( $title ) {
 		$mp = Title::newMainPage();
-		return ( $title->getNamespace()==$mp->getNamespace() && $title->getDBKey()==$mp->getDBKey() );
+		return ( $title->getNamespace()==$mp->getNamespace() && $title->getDBkey()==$mp->getDBkey() );
 	}
 
 	/**
