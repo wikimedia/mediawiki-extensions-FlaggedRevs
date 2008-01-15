@@ -582,7 +582,7 @@ class Stableversions extends UnlistedSpecialPage
 	
 	function showStableRevision() {
 		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedArticle;
-		// Get the revision
+		# Get the revision
 		if( $this->oldid =='best' ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			// Get the highest quality revision (not necessarily this one).
@@ -598,12 +598,12 @@ class Stableversions extends UnlistedSpecialPage
 			$oldid = $this->oldid;
 			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, true );
 		}
-		// Revision must exists
+		# Revision must exists
 		if( is_null($frev) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
 			return;
 		}
-		// Get flags and date
+		# Get flags and date
 		$flags = $wgFlaggedArticle->getFlagsForRevision( $frev->fr_rev_id );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
@@ -614,6 +614,7 @@ class Stableversions extends UnlistedSpecialPage
 			'<span id="mwrevisionratings" style="display:block;">' .
 			wfMsg('revreview-oldrating') . $wgFlaggedArticle->addTagRatings( $flags ) .
 			'</span>';
+		$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';	
 		# Get the either the full flagged revision text or the revision text
 		global $wgUseStableTemplates;
 		$article = new Article( $this->page );
@@ -625,16 +626,10 @@ class Stableversions extends UnlistedSpecialPage
 		}
 		# Parse the revision text
        	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
-		
-		wfRunHooks( 'OutputPageParserOutput', array( &$wgOut, $parserOutput ) );
-		// Set the new body HTML, place a tag on top
-		$wgOut->addHTML( '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' .
-			$tag . '</div>' . $parserOutput->getText() . $wgFlaggedArticle->ReviewNotes( $frev ) );
-       	// Show stable categories and interwiki links only
-       	$wgOut->mCategoryLinks = array();
-       	$wgOut->addCategoryLinks( $parserOutput->getCategories() );
-       	$wgOut->mLanguageLinks = array();
-       	$wgOut->addLanguageLinks( $parserOutput->getLanguageLinks() );
+		# Output HTML
+       	$wgOut->addParserOutput( $parserOutput );
+		# Add tag and comment text
+		$wgOut->mBodytext = $tag . $wgOut->mBodytext . $wgFlaggedArticle->ReviewNotes( $frev );
 	}
 	
 	function formatRow( $row ) {
