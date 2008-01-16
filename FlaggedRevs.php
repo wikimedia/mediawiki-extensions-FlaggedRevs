@@ -429,7 +429,7 @@ class FlaggedRevs {
 		if( !$count ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$count = $dbr->selectField('revision', 'COUNT(*)',
-				array('rev_page' => $page_id, "rev_id > " . intval($from_rev) ),
+				array('rev_page' => $article->getId(), "rev_id > " . intval($from_rev) ),
 				__METHOD__ );
 			# Save to cache
 			$wgMemc->set( $key, $count, 3600*24*7 );
@@ -877,7 +877,12 @@ class FlaggedRevs {
 			__METHOD__ );
 		# Update the cache
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
-		$wgMemc->set( $key, $rev_id, 3600*24*7 );
+		
+		$count = $dbw->selectField( 'revision', 'COUNT(*)',
+			array('rev_page' => $article->getId(), "rev_id > " . intval($rev_id) ),
+			__METHOD__ );
+		
+		$wgMemc->set( $key, $count, 3600*24*7 );
 	}
 
 	/**
@@ -1260,8 +1265,7 @@ class FlaggedRevs {
 			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 				array( 'rev_user' => $user->getID() ),
 				__METHOD__,
-				array(
-					'ORDER BY' => 'rev_timestamp ASC',
+				array( 'ORDER BY' => 'rev_timestamp ASC',
 					'USE INDEX' => 'user_timestamp' ) );
 
 			// Recursively check for an edit $spacing seconds later, until we are done.
