@@ -123,7 +123,7 @@ $messages = array(
 	'stableversions-list'   => 'The following is a list of revisions of "[[:$1]]" that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
 
-    'review-diff2stable'    => 'Diff to the stable revision',
+    'review-diff2stable'    => 'Changes between the stable and current revisions',
 
     'unreviewedpages'       => 'Unreviewed pages',
     'viewunreviewed'        => 'List unreviewed content pages',
