@@ -3,8 +3,8 @@
  * @author Sherbrooke
  * @author Dereckson
  * @author Siebrand
- * @author ChrisPtDe
  * @author Grondin
+ * @author ChrisPtDe
  * @author SPQRobin
  */
 $messages = array(
@@ -94,7 +94,7 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
 	'stableversions-none'         => "« [[:$1]] » n'a pas de versions révisées.",
 	'stableversions-list'         => 'La liste qui suit contient des versions de « [[:$1]] » qui ont été révisées :',
 	'stableversions-review'       => "Révisée le ''$1'' par $2",
-	'review-diff2stable'          => 'Différence avec la dernière version stable',
+	'review-diff2stable'          => 'Différence entre la dernière version stable et les versions actuelles',
 	'unreviewedpages'             => 'Pages non revues',
 	'viewunreviewed'              => 'Lister les pages non révisées',
 	'unreviewed-outdated'         => 'Afficher les pages qui ont des révisions faites à une version stable.',

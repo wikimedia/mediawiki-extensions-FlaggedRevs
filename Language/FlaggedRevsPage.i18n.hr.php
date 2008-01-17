@@ -114,7 +114,7 @@ nakon što ste počeli ocjenjivati članak. Ctrl + R može riješiti taj problem
 	'stableversions-none'         => 'Članak "[[:$1]]" nema pregledanih inačica.',
 	'stableversions-list'         => 'Slijedi popis inačica članka "[[:$1]]" koje su ocijenjene:',
 	'stableversions-review'       => 'Ocijenjeno <i>$1</i> od suradnika $2',
-	'review-diff2stable'          => "Razlika od važeće (''stabilne'') inačice",
+	'review-diff2stable'          => "Promjene između važeće (''stabilne'') i trenutne inačice",
 	'unreviewedpages'             => 'Neocijenjene stranice',
 	'viewunreviewed'              => 'Ispiši stranice s neocjenjenim sadržajem',
 	'unreviewed-outdated'         => "Prikaži članke koji imaju neocijenjene promjene važeće (''stabilne'') inačice.",
