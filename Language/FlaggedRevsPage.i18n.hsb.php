@@ -1,5 +1,4 @@
 <?php
-
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  * @author Dundak
@@ -105,7 +104,7 @@ $messages = array(
 	'stableversions-none'         => '[[:$1]] přepruwowane wersije nima.',
 	'stableversions-list'         => 'To je lisćina přepruwowanych wersijow wot [[:$1]]:',
 	'stableversions-review'       => 'Přepruwowany dnja <i>$1</i>',
-	'review-diff2stable'          => 'Rozdźěl k poslednjej stabilnej wersiji',
+	'review-diff2stable'          => 'Rozdźěl k stabilnej wersiji',
 	'unreviewedpages'             => 'Njepruwowane nastawki',
 	'viewunreviewed'              => 'Lisćina njepruwowanych nastawkow',
 	'unreviewed-outdated'         => 'Jenož strony pokazać, kotrež maja njepruwowane wersije po stabilnej wersiji.',
@@ -146,4 +145,3 @@ $messages = array(
 	'reviewedpages-all'           => 'přepruwowane wersije',
 	'reviewedpages-best'          => 'poslednja najwyše pohódnoćena wersija',
 );
-

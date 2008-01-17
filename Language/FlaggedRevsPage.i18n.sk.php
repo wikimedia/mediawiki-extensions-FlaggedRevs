@@ -113,7 +113,7 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'stableversions-none'         => '[[:$1]] nemá skontrolované verzie.',
 	'stableversions-list'         => 'Nasleduje zoznam verzií stránky [[:$1]], ktoré boli skontrolované:',
 	'stableversions-review'       => 'Skontrolované <i>$1</i>',
-	'review-diff2stable'          => 'Rozdiely oproti poslednej stabilnej verzii',
+	'review-diff2stable'          => 'Rozdiely medzi stabilnou a aktuálnou revíziou',
 	'unreviewedpages'             => 'Neskontrolované stránky',
 	'viewunreviewed'              => 'Zoznam neskontrolovaných stránok s obsahom',
 	'unreviewed-outdated'         => 'Zobraziť stránky, ktoré majú neskontrolované revízie stabilnej verzie.',
