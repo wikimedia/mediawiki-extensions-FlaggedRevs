@@ -90,7 +90,7 @@ Un modèlo ou una émâge pôt avêr étâ demandâ pendent que niona vèrsion p
 	'stableversions-none'         => '« [[:$1]] » at pas de vèrsions rèvisâs.',
 	'stableversions-list'         => 'La lista que siut contint des vèrsions de « [[:$1]] » qu’ont étâ rèvisâs :',
 	'stableversions-review'       => 'Rèvisâ lo <i>$1</i> per $2',
-	'review-diff2stable'          => 'Difèrence avouéc la dèrriére vèrsion stâbla',
+	'review-diff2stable'          => 'Difèrence entre la dèrriére vèrsion stâbla et les vèrsions corentes',
 	'unreviewedpages'             => 'Pâges pas revues',
 	'viewunreviewed'              => 'Listar les pâges pas rèvisâs',
 	'unreviewed-outdated'         => 'Afichiér les pâges qu’ont des vèrsions fêtes a una vèrsion stâbla.',
