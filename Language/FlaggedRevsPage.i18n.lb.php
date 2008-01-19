@@ -3,7 +3,10 @@
  * @author Robby
  */
 $messages = array(
+	'revreview-current'         => 'Virbereedung',
 	'revreview-auto'            => '(automatesch)',
+	'review-logaction'          => 'Versiounsnummer $1',
+	'revisionreview'            => 'Versiounen nokucken',
 	'revreview-log'             => 'Bemierkung:',
 	'stableversions'            => 'Stabil Versioun',
 	'stableversions-page'       => 'Säitenumm:',
