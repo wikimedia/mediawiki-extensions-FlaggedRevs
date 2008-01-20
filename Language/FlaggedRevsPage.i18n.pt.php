@@ -93,7 +93,7 @@ Uma predefinição ou imagem pode ter sido requisitada sem uma edição específ
 	'stableversions-none'         => '[[:$1]] não possui edições analisadas.',
 	'stableversions-list'         => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
 	'stableversions-review'       => 'Analisada às <i>$1</i> por $2',
-	'review-diff2stable'          => 'Comparar com a edição estável',
+	'review-diff2stable'          => 'Alterações entre a edição estável e a atual',
 	'unreviewedpages'             => 'Páginas não revistas',
 	'viewunreviewed'              => 'Listar páginas de conteúdo que ainda não tenham sido revistas',
 	'unreviewed-outdated'         => 'Exibir páginas que possuam edições posteriores à considerada como estável que ainda não tenham sido avaliadas.',
@@ -133,3 +133,4 @@ Seguem-se as configurações para [[:$1|$1]]:',
 	'reviewedpages-all'           => 'edições analisadas',
 	'reviewedpages-best'          => 'a mais recente edição de classificação mais alta',
 );
+

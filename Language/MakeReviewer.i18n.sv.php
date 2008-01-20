@@ -1,6 +1,7 @@
 <?php
 /** Swedish (Svenska)
  * @author Lejonel
+ * @author Max sonnelid
  */
 $messages = array(
 	'makereviewer'                  => 'Befordra/degradera redaktörer',
@@ -30,6 +31,7 @@ Att ge användare granskarstatus ger dem automatiskt också redaktörstatus. Om 
 	'makereviewer-logentryrevoke-e' => 'tog ifrån [[$1]] redaktörstatus',
 	'makereviewer-logentrygrant-r'  => 'gav [[$1]] granskarstatus',
 	'makereviewer-logentryrevoke-r' => 'tog ifrån [[$1]] granskarstatus',
-	'rights-editor-grant'           => 'gav [[$1]] redaktörstatus',
+	'makereviewer-autosum'          => 'autobefodring',
 	'rights-editor-revoke'          => 'tog ifrån [[$1]] redaktörstatus',
 );
+

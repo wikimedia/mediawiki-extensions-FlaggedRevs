@@ -101,7 +101,7 @@ modelos
 	'stableversions-none'         => '"[[:$1]]" non ten revisións examinadas.',
 	'stableversions-list'         => 'A seguinte é unha listaxe das revisións de "[[:$1]]" que foron revisadas:',
 	'stableversions-review'       => 'Revisado en <i>$1</i> por $2',
-	'review-diff2stable'          => 'Diff coa última revisión estábel',
+	'review-diff2stable'          => 'Diferenzas entre a versión estábel e a actual',
 	'unreviewedpages'             => 'Páxinas sen revisar',
 	'viewunreviewed'              => 'Listaxe de páxinas de contido sen revisar',
 	'unreviewed-outdated'         => 'Amosar páxinas que teñen revisións sen examinar feitas desde a versión estábel.',
