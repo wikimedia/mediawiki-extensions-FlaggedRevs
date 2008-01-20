@@ -32,6 +32,7 @@ $messages = array(
 	'revreview-basic'             => "Cen est la dèrriére [[{{MediaWiki:Validationpage}}|vèrsion vua]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo ''$2''. Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} començon] pôt étre [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiâ] ; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 changement atend|$3 changements atendont}}] una rèvision.",
 	'revreview-quality'           => "Cen est la dèrriére [[{{MediaWiki:Validationpage}}|vèrsion de qualitât]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo ''$2''. Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} començon] pôt étre [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiâ] ; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 changement atend|$3 changements atendont}}] una rèvision.",
 	'revreview-static'            => "Cen est una [[{{MediaWiki:Validationpage}}|vèrsion vua]] de '''[[:$3|$3]]''', [{{fullurl:Special:Log/review|page=$1}} aprovâ] lo ''$2''.",
+	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] at ècrit cetes notes [[{{MediaWiki:Validationpage}}|de rèvision]] :',
 	'revreview-update'            => 'Preyére de revêre les modificacions (ce-desot) fêtes dês la dèrriére vèrsion stâbla. Doux-três émâges ou modèlos sont betâs a jorn :',
 	'revreview-update-none'       => 'Preyére de revêre les modificacions (ce-desot) fêtes dês la dèrriére vèrsion stâbla.',
@@ -129,3 +130,4 @@ Un modèlo ou una émâge pôt avêr étâ demandâ pendent que niona vèrsion p
 	'reviewedpages-all'           => 'vèrsions passâs en revua',
 	'reviewedpages-best'          => 'Dèrriére vèrsion la ples notâ',
 );
+

@@ -116,7 +116,7 @@ mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés
 	'stableversions-none'         => '„[[:$1]]” nem rendelkezik ellenőrzött változatokkal',
 	'stableversions-list'         => '„[[:$1]]” következő változatai lettek ellenőrizve:',
 	'stableversions-review'       => 'Ellenőrizte $2, <i>$1</i>-kor',
-	'review-diff2stable'          => 'Eltérések az elfogadott változathoz képest',
+	'review-diff2stable'          => 'Eltérések az elfogadott és a jelenlegi változat között',
 	'unreviewedpages'             => 'Ellenőrizetlen lapok',
 	'viewunreviewed'              => 'Ellenőrizetlen tartalmú oldalak listája',
 	'unreviewed-outdated'         => 'Azon oldalak listája, amelyek ellenőrizetlen változatokkal rendelkeznek ellenőrzöttek helyett.',
@@ -157,3 +157,4 @@ mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés
 	'reviewedpages-all'           => 'Ellenőrzött változatok',
 	'reviewedpages-best'          => 'legutóbbi legjobban értékelt változat',
 );
+
