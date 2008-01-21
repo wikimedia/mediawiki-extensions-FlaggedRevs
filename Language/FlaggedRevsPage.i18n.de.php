@@ -159,6 +159,7 @@ $messages = array(
 	'stabilization-def2'      => 'Die aktuellste Version',
 	'stabilization-submit'    => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
+	'stabilization-notcontent'  => 'Die Seite „[[:$1|$1]]“ kann nicht geprüft werden. Konfiguration ist nicht möglich.',
 	'stabilization-comment'     => 'Kommentar:',
 	'stabilization-sel-short'   => 'Priorität',
 	'stabilization-sel-short-0' => 'Qualität',
