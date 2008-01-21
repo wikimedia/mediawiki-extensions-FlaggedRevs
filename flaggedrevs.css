@@ -135,11 +135,11 @@
 .fr-value80,
 .fr-value100 {
 	height: 14px;
-	line-height: 15px;
+	line-height: 14px;
 	width: 95px;
 	float: left;
 	background-repeat: no-repeat;
-	background-position: 50% 70%;
+	background-position: 50% 60%;
 	text-align: center;
 }
 
