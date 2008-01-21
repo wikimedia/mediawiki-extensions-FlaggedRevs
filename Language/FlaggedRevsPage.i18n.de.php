@@ -133,7 +133,7 @@ $messages = array(
 	'stableversions-list'   => 'Dies ist die Liste der überprüften Versionen von „[[:$1]]“:',
 	'stableversions-review' => 'überprüft am <i>$1</i> durch $2',
 
-	'review-diff2stable'    => 'Unterschied zur stabilen Version',
+	'review-diff2stable'    => 'Unterschiede zwischen der stabilen und der aktuellen Version',
 
 	'unreviewedpages'       => 'Nicht überprüfte Artikel',
 	'viewunreviewed'        => 'Liste nicht überprüfter Artikel',
