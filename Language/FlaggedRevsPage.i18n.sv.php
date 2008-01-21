@@ -24,7 +24,7 @@ $messages = array(
 	'stabilization-tab'           => 'kvalitet',
 	'tooltip-ca-default'          => 'Inställlningar för kvalitetssäkring',
 	'validationpage'              => '{{ns:help}}:Sidgranskning',
-	'revreview-quick-none'        => "'''Nuvarande''' (inga granskade revideringar)",
+	'revreview-quick-none'        => "'''Nuvarande''' (inga granskade versioner)",
 	'revreview-quick-see-quality' => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} visa stabil artikel]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|ändring|ändringar}}])",
 	'revreview-quick-see-basic'   => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} visa stabil artikel]]  
