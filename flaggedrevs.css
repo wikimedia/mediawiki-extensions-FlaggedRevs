@@ -86,7 +86,7 @@
 	padding: 3px;
 	font-size: 80%;
 	margin-left: 3px;
-	margin-right: 3px;
+	margin-right: 0px;
 	margin-top: 5px;
 	margin-bottom: 0px;
 	text-align: left;
@@ -139,7 +139,7 @@
 	width: 95px;
 	float: left;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: 50% 70%;
 	text-align: center;
 }
 
