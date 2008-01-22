@@ -9,6 +9,7 @@ $messages = array(
 	'reviewer'                    => 'Posuzovatel',
 	'group-reviewer'              => 'Posuzovatelé',
 	'group-reviewer-member'       => 'Posuzovatel',
+	'grouppage-reviewer'          => '{{ns:project}}:Posuzovatel',
 	'revreview-current'           => 'Návrh',
 	'tooltip-ca-current'          => 'Zobrazit nejnovější návrh této stránky',
 	'revreview-edit'              => 'Editovat návrh',
@@ -19,6 +20,7 @@ $messages = array(
 	'revreview-noflagged'         => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[{{MediaWiki:Validationpage}}|zkontrolována]] kvalita.',
 	'stabilization-tab'           => 'stabilizace',
 	'tooltip-ca-default'          => 'Nastavení stabilní a zobrazované verze',
+	'validationpage'              => '{{ns:help}}:Stabilní verze',
 	'revreview-quick-none'        => "'''Nejnovější verze'''. Žádné posouzené verze.",
 	'revreview-quick-see-quality' => "'''Nejnovější verze'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vizte stabilní verzi]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|změna|změny|změn}}])",
