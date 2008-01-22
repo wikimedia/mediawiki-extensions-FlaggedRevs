@@ -121,8 +121,8 @@
 }
 
 .fr-text {
-	height: 14px;
-	line-height: 15px;
+	height: 1em;
+	line-height: 1em;
 	margin: 0px 7px 0px 0px;
 	padding: 0px;
 	font-weight: bold;
@@ -134,12 +134,12 @@
 .fr-value60,
 .fr-value80,
 .fr-value100 {
-	height: 14px;
-	line-height: 14px;
+	height: 1em;
+	line-height: 1em;
 	width: 95px;
 	float: left;
 	background-repeat: no-repeat;
-	background-position: 50% 60%;
+	background-position: 50% 50%;
 	text-align: center;
 }
 
