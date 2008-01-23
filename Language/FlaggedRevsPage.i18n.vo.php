@@ -4,7 +4,10 @@
  * @author Smeira
  */
 $messages = array(
-	'revreview-toggle'          => '(+/-)',
+	'editor'                    => 'Redakan',
+	'group-editor'              => 'Redakans',
+	'group-editor-member'       => 'Redakan',
+	'grouppage-editor'          => '{{ns:project}}:Redakan',
 	'revreview-auto'            => '(itjäfidik)',
 	'revreview-depth'           => 'Dib',
 	'revreview-style-2'         => 'Gudik',
@@ -14,7 +17,10 @@ $messages = array(
 	'unreviewed-category'       => 'Klad:',
 	'unreviewed-diff'           => 'Votükams',
 	'stabilization-page'        => 'Nem pada:',
+	'stabilization-submit'      => 'Fümedön',
+	'stabilization-notexists'   => 'Pad tiädü "[[:$1|$1]]" no dabinon. Fomükam no mögon.',
 	'stabilization-sel-short-1' => 'Nonik',
 	'stabilization-def-short-0' => 'Anuik',
 	'reviewedpages-none'        => 'Lised at labon padis nonik',
 );
+
