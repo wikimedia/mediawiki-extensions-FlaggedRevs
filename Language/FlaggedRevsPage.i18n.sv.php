@@ -16,22 +16,22 @@ $messages = array(
 	'revreview-current'           => 'Utkast',
 	'tooltip-ca-current'          => 'Visa det senaste utkastet för denna sida',
 	'revreview-edit'              => 'redigera utkast',
-	'revreview-source'            => 'utkast källa',
+	'revreview-source'            => 'utkastets källa',
 	'revreview-stable'            => 'Stabil',
 	'tooltip-ca-stable'           => 'Visa den stabila versionen av denna sida',
 	'revreview-oldrating'         => 'Bedömningen var:',
 	'revreview-noflagged'         => "Det finns inga granskade versioner av den här sidan, så dess kvalitet har kanske '''inte''' [[{{MediaWiki:Validationpage}}|kontrollerats]].",
 	'stabilization-tab'           => 'kvalitet',
-	'tooltip-ca-default'          => 'Inställlningar för kvalitetssäkring',
+	'tooltip-ca-default'          => 'Inställningar för kvalitetssäkring',
 	'validationpage'              => '{{ns:help}}:Sidgranskning',
 	'revreview-quick-none'        => "'''Nuvarande''' (inga granskade versioner)",
-	'revreview-quick-see-quality' => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} visa stabil artikel]]  
+	'revreview-quick-see-quality' => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} visa stabil version]]
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|ändring|ändringar}}])",
-	'revreview-quick-see-basic'   => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} visa stabil artikel]]  
+	'revreview-quick-see-basic'   => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} visa stabil version]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|ändring|ändringar}}])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Sedd]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visa utkast]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|ändring|ändringar}}])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Kvalite]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visa utkast]]  
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Kvalitet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visa utkast]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|ändring|ändringar}}])",
 	'revreview-newest-basic'      => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} senaste sedda versionen av sidan]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} visa alla]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkändes]
@@ -42,11 +42,13 @@ den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 
 kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} redigeras]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|ändring|ändringar}}]  
 har ännu inte granskats.',
 	'revreview-static'            => "Det här är en [[{{MediaWiki:Validationpage}}|granskad]] version av '''[[:$3|$3]]''', [{{fullurl:Special:Log/review|page=$1}} godkänd] den <i>$2</i>.",
-	'revreview-toggle'            => '(+/-)',
-	'revreview-note'              => '[[User:$1]] gjorde dom följande noterna att [[{{MediaWiki:Validationpage}}|granska]] denna revidering:',
+	'revreview-note'              => '[[User:$1]] gjorde följande noteringar när den här sidversionen [[{{MediaWiki:Validationpage}}|granskades]]:',
+	'revreview-update'            => 'Granska de ändringar (visade härunder) som gjorts sedan den stabila versionen av sidan. Några mallar eller bilder har ändrats:',
 	'revreview-update-none'       => 'Granska de ändringar (visade härunder) som gjorts sedan den stabila versionen av sidan.',
 	'revreview-auto'              => '(automatiskt)',
-	'revreview-patrolled'         => 'Den väljda revideringen av [[:$1|$1]] har blivigt märkt som patrullerad.',
+	'revreview-auto-w'            => "Du redigerar en stabil sidversion. De ändringar du gör kommer att '''granskas automatiskt'''. Använd därför förhandsgranskning innan du sparar sidan.",
+	'revreview-auto-w-old'        => "Du redigerar en gammal sidversion. De ändringar du gör kommer att '''granskas automatiskt'''. Använd därför förhandsgranskning innan du sparar sidan.",
+	'revreview-patrolled'         => 'Den valda versionen av [[:$1|$1]] har märkts som patrullerad.',
 	'hist-stable'                 => '[sedd]',
 	'hist-quality'                => '[kvalitet]',
 	'flaggedrevs'                 => 'Flaggade Revideringar',
@@ -60,15 +62,15 @@ har ännu inte granskats.',
 	'stable-logentry'             => 'ändrade inställningar för stabila versioner av [[$1]]',
 	'stable-logentry2'            => 'återställde inställningar för stabila versioner av [[$1]]',
 	'revisionreview'              => 'Granska sidversioner',
-	'revreview-main'              => 'Du måste välja en skärdskild revidering från en innehålls sida i ordning till granskning.  
+	'revreview-main'              => 'Du måste välja en viss version av en sida för att kunna granska den.
 
-Se [[Special:Unreviewedpages]] för en lista över ogranskade sidor.',
+På [[Special:Unreviewedpages]] finns en lista över sidor som inte har granskats.',
 	'revreview-selected'          => "Vald version av '''$1''':",
 	'revreview-text'              => 'Den här sidan är inställd så att den stabila versionen visas som standard i stället för den senaste versionen.',
 	'revreview-toolow'            => 'Din bedömning av sidan måste vara högre än "ej godkänd" för alla egenskaper nedan för att versionen ska anses vara granskad. För att ta bort ett godkännande av en version, ange "ej godkänd" för alla egenskaper.',
 	'revreview-flag'              => 'Granska denna sidversion (#$1)',
 	'revreview-legend'            => 'Bedöm versionens innehåll',
-	'revreview-notes'             => 'Anmärkningar eller noter till display:',
+	'revreview-notes'             => 'Anmärkningar eller noteringar som kommer visas:',
 	'revreview-accuracy'          => 'Riktighet',
 	'revreview-accuracy-0'        => 'ej godkänd',
 	'revreview-accuracy-1'        => 'sedd',

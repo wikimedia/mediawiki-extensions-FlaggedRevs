@@ -3,7 +3,8 @@
  * @author Matasg
  */
 $messages = array(
-	'revreview-toggle' => '(+/-)',
-	'revreview-auto'   => '(automatinis)',
+	'revreview-auto'            => '(automatinis)',
+	'stabilization-comment'     => 'Komentaras:',
+	'stabilization-sel-short-0' => 'Kokybė',
 );
 

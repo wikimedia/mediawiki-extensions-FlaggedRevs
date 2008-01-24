@@ -47,7 +47,6 @@ $messages = array(
 	{{plural:$3|stoant|stounde}} noch tou Wröigenge an.',
 	'revreview-static'            => "Dit is ne [[Help:Wröigede Versione|wröigede]] Version fon '''[[:$3|$3]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} fräiroat] ap n <i>$2</i>.",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[{{ns:user}}:$1]] moakede ju foulgendje [[{{MediaWiki:Validationpage}}|Wröignotiz]] tou disse Version:',
 	'revreview-update'            => 'Wröig älke Annerenge siet ju lääste stoabile Version (sjuch hierunner).
 	Do foulgjende Foarloagen un Bielden wuden ieuwenso ferannerd:',
@@ -57,6 +56,7 @@ $messages = array(
 	Du schuust ju Siede deeruum foar dät Spiekerjen in ju Foarschau bekiekje.",
 	'revreview-auto-w-old'        => "Du beoarbaidest ne oolde Version, dien Beoarbaidenge wäd '''automatisk as wröiged markierd.'''
 Du schuust ju Siede deeruum foar dät Spiekerjen in ju Foarschau bekiekje.",
+	'revreview-patrolled'         => 'Ju uutwäälde Version fon [[:$1|S1]] wuude as kontrollierd markierd.',
 	'hist-stable'                 => '[sieuwed]',
 	'hist-quality'                => '[wröiged]',
 	'flaggedrevs'                 => 'Markierde Versione',
@@ -109,7 +109,7 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'stableversions-none'         => '„[[:$1]]“ häd neen wröigede Versione.',
 	'stableversions-list'         => 'Dit is ju Lieste fon do wröigede Versione fon „[[:$1]]“:',
 	'stableversions-review'       => 'wröiged ap n <i>$1</i> truch $2',
-	'review-diff2stable'          => 'Unnerscheed tou ju stoabile Version',
+	'review-diff2stable'          => 'Unnerscheede twiske ju stoabile Version un ju aktuelle Version',
 	'unreviewedpages'             => 'Nit wröigede Artikkele',
 	'viewunreviewed'              => 'Lieste fon nit wröigede Artikkele',
 	'unreviewed-outdated'         => 'Wies bloot Sieden, do der nit wröigede Versione ätter ne stoabile Verison hääbe.',
@@ -131,6 +131,7 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'stabilization-def2'          => 'Ju aktuellste Version',
 	'stabilization-submit'        => 'Bestäätigje',
 	'stabilization-notexists'     => 'Dät rakt neen Siede „[[:$1|$1]]“. Neen Ienstaalengen muugelk.',
+	'stabilization-notcontent'    => 'Ju Siede "[[:$1|$1]]" kon nit wröiged wäide. Konfiguration nit muugelk.',
 	'stabilization-comment'       => 'Kommentoar:',
 	'stabilization-sel-short'     => 'Priorität',
 	'stabilization-sel-short-0'   => 'Qualität',
@@ -148,3 +149,4 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'reviewedpages-all'           => 'wröigede Versione',
 	'reviewedpages-best'          => 'lääste ap hoochste wäidierde Version',
 );
+
