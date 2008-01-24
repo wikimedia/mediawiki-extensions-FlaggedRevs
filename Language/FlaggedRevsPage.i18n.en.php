@@ -117,6 +117,7 @@ $messages = array(
 	reviewed this page. Refreshing the page and rereviewing can solve this problem.',
 
 	'stableversions'        => 'Stable versions',
+	'stableversions-title'  => 'Stable versions of "$1"',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
 	'stableversions-page'   => 'Page name:',
 	'stableversions-none'   => '"[[:$1]]" has no reviewed revisions.',

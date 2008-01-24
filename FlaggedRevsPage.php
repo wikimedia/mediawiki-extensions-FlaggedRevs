@@ -567,6 +567,9 @@ class Stableversions extends UnlistedSpecialPage
 				$this->page->getPrefixedText() ) );
 			return;
 		}
+		
+		$wgOut->setPageTitle( wfMsg( 'stableversions-title', $this->page->getPrefixedText() ) );
+		
 		$pager = new StableRevisionsPager( $this, array(), $this->page );	
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'), 
@@ -582,6 +585,8 @@ class Stableversions extends UnlistedSpecialPage
 	
 	function showStableRevision() {
 		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedArticle;
+		
+		$wgOut->setPageTitle( wfMsg( 'stableversions-title', $this->page->getPrefixedText() ) );
 		# Get the revision
 		if( $this->oldid =='best' ) {
 			$dbr = wfGetDB( DB_SLAVE );
