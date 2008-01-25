@@ -127,6 +127,7 @@ $messages = array(
 	sich seit Beginn der Prüfung verändert hat. Ein Neuladen der Seite und Neustart der Prüfung kann das Problem beheben.',
 
 	'stableversions'        => 'Stabile Versionen',
+	'stableversions-title'  => 'Stabile Version von „$1“',
 	'stableversions-leg1'   => 'Liste der überprüften Versionen für einen Artikel',
 	'stableversions-page'   => 'Artikelname:',
 	'stableversions-none'   => '„[[:$1]]“ hat keine überprüften Versionen.',
