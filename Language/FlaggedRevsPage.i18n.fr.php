@@ -37,7 +37,6 @@ $messages = array(
 	'revreview-basic'             => "C'est la dernière [[{{MediaWiki:Validationpage}}|version vue]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.",
 	'revreview-quality'           => "C'est la dernière [[{{MediaWiki:Validationpage}}|version de qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.",
 	'revreview-static'            => "C'est une [[{{MediaWiki:Validationpage}}|version vue]] de '''[[:$3|$3]]''', [{{fullurl:Special:Log/review|page=$1}} approuvée] le ''$2''.",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] a écrit ces notes de révision :',
 	'revreview-update'            => 'Prière de revoir les modifications faites à partir de la dernière version stable. Quelques images ou modèles sont mis à jour :',
 	'revreview-update-none'       => 'Prière de revoir les modifications faites à partir de la dernière version stable.',
@@ -89,6 +88,7 @@ $messages = array(
 	
 Un modèle ou une image peut avoir été demandé alors qu'aucune version précise n'était choisie. Cela peut survenir lorsque qu'un modèle (ou une image) remplace dynamiquement un autre modèle (ou une autre image) selon une variable qui dépend de la version de la page. Rafraîchir la page et reviser à nouveau celle-ci peut corriger ce problème.",
 	'stableversions'              => 'Versions stables',
+	'stableversions-title'        => 'Versions stables de « $1 »',
 	'stableversions-leg1'         => "Dernières révisions revues d'une page",
 	'stableversions-page'         => 'Nom de la page :',
 	'stableversions-none'         => "« [[:$1]] » n'a pas de versions révisées.",

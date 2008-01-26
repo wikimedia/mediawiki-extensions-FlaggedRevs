@@ -104,6 +104,7 @@ deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal
 
 Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Dit kon passierje, wan ne dynamiske Foarloage ne wiedere Foarloage of ne Bielde änthaalt, ju der von ne Variable ouhongich is, ju sik siet Ounfang fon ju Pröiwenge annerd häd. Fonnäien Leeden fon ju Siede un Startjen fon ju Wröigenge kon dät Problem ouhälpe.",
 	'stableversions'              => 'Stoabile Versione',
+	'stableversions-title'        => 'Stabile Versione fon „$1“',
 	'stableversions-leg1'         => 'Lieste fon do wröigede Versione foar n Artikkel',
 	'stableversions-page'         => 'Artikkelnoome:',
 	'stableversions-none'         => '„[[:$1]]“ häd neen wröigede Versione.',
@@ -149,4 +150,3 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'reviewedpages-all'           => 'wröigede Versione',
 	'reviewedpages-best'          => 'lääste ap hoochste wäidierde Version',
 );
-

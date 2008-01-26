@@ -92,6 +92,7 @@ På [[Special:Unreviewedpages]] finns en lista över sidor som inte har granskat
 	'revreview-log'               => 'Kommentar:',
 	'revreview-submit'            => 'Spara granskning',
 	'stableversions'              => 'Stabila versioner',
+	'stableversions-title'        => 'Stabila versioner av "$1"',
 	'stableversions-leg1'         => 'Lista granskade versioner av en sida',
 	'stableversions-page'         => 'Sidnamn:',
 	'stableversions-none'         => '"[[:$1]]" har inga granskade versioner.',
@@ -138,4 +139,3 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'reviewedpages-all'           => 'granskade versioner',
 	'reviewedpages-best'          => 'senaste versionen med högsta nivån',
 );
-

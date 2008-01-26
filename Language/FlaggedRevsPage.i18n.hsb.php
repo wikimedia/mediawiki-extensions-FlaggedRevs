@@ -99,6 +99,7 @@ $messages = array(
 	'revreview-submit'            => 'Přepruwowanje składować',
 	'revreview-changed'           => "'''Naprašowanska akcija njeda so ma tutu wersiju nałožić.''' Předłoha abo wobraz bu bjez podataje wersije naprašowany. To móže so stać, jeli dynamiska předłoha dalšu předłohu abo dalši wobraz zapřijmje, kotrejž stej wot wariable wotwisnej, kotraž je so wot spočatka pruwowanja změniła. Znowačitanje strony a nowe startowanje pruwowanja móže tón problem rozrisać.",
 	'stableversions'              => 'Stabilne wersije',
+	'stableversions-title'        => 'Stabilne wersije wot "$1"',
 	'stableversions-leg1'         => 'Přepruwowane wersije za nastawk nalistować',
 	'stableversions-page'         => 'Mjeno nastawka',
 	'stableversions-none'         => '[[:$1]] přepruwowane wersije nima.',
