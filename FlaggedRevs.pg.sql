@@ -40,7 +40,7 @@ CREATE TABLE flaggedimages (
 );
 
 ALTER TABLE page 
-	ADD page_ext_reviewed bool NULL,
+	ADD page_ext_reviewed INTEGER NULL,
 	ADD page_ext_stable INTEGER NULL,
 	ADD page_ext_quality SMALLINT DEFAULT NULL;
 
