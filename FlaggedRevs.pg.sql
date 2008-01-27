@@ -6,13 +6,13 @@ BEGIN;
 CREATE TABLE flaggedrevs (
   fr_page_id      INTEGER  NOT NULL DEFAULT 0 ,
   fr_rev_id       INTEGER  NOT NULL DEFAULT 0 ,
-  fr_user int(5)  INTEGER      NULL REFERENCES mwuser(user_id) ON DELETE SET NULL,
+  fr_user         INTEGER      NULL REFERENCES mwuser(user_id) ON DELETE SET NULL,
   fr_timestamp    TIMESTAMPTZ,
-  fr_comment      TEXT     NOT NULL DEFAULT '',
-  fr_quality      SMALLINT NOT NULL DEFAULT 0,
-  fr_tags         TEXT     NOT NULL DEFAULT '',
-  fr_text         TEXT     NOT NULL DEFAULT '',
-  fr_flags        TEXT     NOT NULL,
+  fr_comment      TEXT      NOT NULL DEFAULT '',
+  fr_quality      INTEGER  NOT NULL DEFAULT 0,
+  fr_tags         TEXT      NOT NULL DEFAULT '',
+  fr_text         TEXT      NOT NULL DEFAULT '',
+  fr_flags        TEXT      NOT NULL,
   PRIMARY KEY (fr_page_id,fr_rev_id)
 );
 CREATE INDEX fr_namespace_title ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
@@ -33,7 +33,7 @@ CREATE TABLE flaggedtemplates (
 
 CREATE TABLE flaggedimages (
   fi_rev_id         INTEGER   NOT NULL DEFAULT 0 ,
-  fi_name           TEXT      NOT NULL PRIMARY KEY,
+  fi_name           TEXT       NOT NULL,
   fi_img_timestamp  TIMESTAMPTZ,
   fi_img_sha1       CHAR(64),
   PRIMARY KEY (fi_rev_id,fi_name)
