@@ -387,7 +387,7 @@ class Revisionreview extends UnlistedSpecialPage
  			'fr_rev_id'    => $rev->getId(),
  			'fr_page_id'   => $title->getArticleID(),
 			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => wfTimestampNow(),
+			'fr_timestamp' => $dbw->timestamp( wfTimestampNow() ),
 			'fr_comment'   => $notes,
 			'fr_quality'   => $quality,
 			'fr_tags'      => FlaggedRevs::flattenRevisionTags( $flags ),
