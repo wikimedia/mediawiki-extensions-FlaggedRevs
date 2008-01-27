@@ -26,7 +26,7 @@ CREATE TABLE flaggedpage_config (
 CREATE TABLE flaggedtemplates (
   ft_rev_id      INTEGER  NOT NULL DEFAULT 0 ,
   ft_namespace   SMALLINT NOT NULL DEFAULT 0,
-  ft_title       TEXT     NOT NULL DEFAULT '',
+  ft_title       TEXT      NOT NULL DEFAULT '',
   ft_tmp_rev_id  INTEGER  NOT NULL DEFAULT 0,
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 );
@@ -40,9 +40,9 @@ CREATE TABLE flaggedimages (
 );
 
 ALTER TABLE page 
-	ADD page_ext_reviewed INTEGER NULL,
-	ADD page_ext_stable INTEGER NULL,
-	ADD page_ext_quality SMALLINT DEFAULT NULL;
+	ADD page_ext_reviewed  INTEGER NULL,
+	ADD page_ext_stable    INTEGER NULL,
+	ADD page_ext_quality   SMALLINT DEFAULT NULL;
 
 CREATE INDEX ext_namespace_reviewed ON page (page_namespace,page_is_redirect,page_ext_reviewed,page_id);
 CREATE INDEX ext_namespace_quality ON page (page_namespace,page_ext_quality,page_title);

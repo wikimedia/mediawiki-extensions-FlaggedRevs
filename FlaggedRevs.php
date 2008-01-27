@@ -870,7 +870,7 @@ class FlaggedRevs {
 		# Alter table metadata
 		$dbw->update( 'page',
 			array('page_ext_stable' => $rev_id,
-				'page_ext_reviewed' => ($article->getLatest() == $rev_id),
+				'page_ext_reviewed' => ($article->getLatest() == $rev_id) ? 1 : 0,
 				'page_ext_quality' => $maxQuality ),
 			array('page_namespace' => $article->getTitle()->getNamespace(),
 				'page_title' => $article->getTitle()->getDBkey() ),
