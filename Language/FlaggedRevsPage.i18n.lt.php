@@ -14,6 +14,7 @@ $messages = array(
 	'stabilization-submit'      => 'Patvirtinti',
 	'stabilization-comment'     => 'Komentaras:',
 	'stabilization-sel-short-0' => 'Kokybė',
+	'stabilization-def-short'   => 'Standartinis',
 	'stabilization-def-short-0' => 'Esamas',
 );
 

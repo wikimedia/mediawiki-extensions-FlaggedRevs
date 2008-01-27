@@ -9,6 +9,7 @@ $messages = array(
 	'revisionreview'            => 'Versiounen nokucken',
 	'revreview-log'             => 'Bemierkung:',
 	'stableversions'            => 'Stabil Versioun',
+	'stableversions-title'      => 'Stabil Versioune vun "$1"',
 	'stableversions-page'       => 'Säitenumm:',
 	'unreviewed-category'       => 'Kategorie:',
 	'unreviewed-diff'           => 'Ännerungen',
@@ -17,3 +18,4 @@ $messages = array(
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
 );
+

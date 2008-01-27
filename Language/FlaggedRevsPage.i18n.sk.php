@@ -108,6 +108,7 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	dynamická šablóna transkluduje iný obrázok alebo šablónu v závislosti od premennej, ktorá sa zmenila, odkedy ste začali
 	s kontrolou tejto stránky. Obnovením stránky a opätovnou kontrolou vyriešite tento problém.",
 	'stableversions'              => 'Stabilné verzie',
+	'stableversions-title'        => 'Stabilné verzie „$1“',
 	'stableversions-leg1'         => 'Zoznam skontrolovaných verzií stránky',
 	'stableversions-page'         => 'Názov stránky',
 	'stableversions-none'         => '[[:$1]] nemá skontrolované verzie.',
@@ -152,3 +153,4 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'reviewedpages-all'           => 'skontrolované verzie',
 	'reviewedpages-best'          => 'najnovšia najvyššie hodnotená revízia',
 );
+

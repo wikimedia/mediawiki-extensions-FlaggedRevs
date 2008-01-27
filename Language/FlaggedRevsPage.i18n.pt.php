@@ -34,7 +34,6 @@ $messages = array(
 	'revreview-basic'             => 'Esta é a mais recente edição [[{{MediaWiki:Validationpage}}|analisada]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editado]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|alteração aguarda|alterações aguardam}}] revisão.',
 	'revreview-quality'           => 'Esta é a mais recente edição [[{{MediaWiki:Validationpage}}|estável]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editado]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|alteração aguarda|alterações aguardam}}] revisão.',
 	'revreview-static'            => "Esta é uma edição [[{{MediaWiki:Validationpage}}|revista]] de '''[[:$3|$3]]''', [{{fullurl:Special:Log/review|page=$1}} aprovada] em <i>$2</i>.",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{MediaWiki:Validationpage}}|analisar]] esta edição:',
 	'revreview-update'            => 'Por gentileza, analise todas as alterações exibidas a seguir, feitas desde a última edição estável desta página. Talvez as predefinições e imagens utilizadas possam ter sido também alteradas.',
 	'revreview-update-none'       => 'Por gentileza, reveja todas as alterações (exibidas a seguir) feitas desde a edição estável.',
@@ -88,6 +87,7 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	
 Uma predefinição ou imagem pode ter sido requisitada sem uma edição específica ter sido informada. Isso pode ocorrer quando uma predefinição dinâmica faz transclusão de outra imagem ou predefinição através de uma variável que pode ter sido alterada enquanto era feita a edição crítica nesta página. Recarregar a página e enviar uma nova edição crítica talvez seja suficiente para contornar este contratempo.",
 	'stableversions'              => 'Edições Estáveis',
+	'stableversions-title'        => 'Versões estáveis de "$1"',
 	'stableversions-leg1'         => 'Listar as edições revistas de uma página',
 	'stableversions-page'         => 'Título da página',
 	'stableversions-none'         => '[[:$1]] não possui edições analisadas.',
