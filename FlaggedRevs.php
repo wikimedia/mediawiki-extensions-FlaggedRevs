@@ -13,7 +13,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 
 $wgExtensionCredits['specialpage'][] = array(
 	'author' => 'Aaron Schulz, Joerg Baach',
-	'version' => '1.0',
+	'version' => '1.01',
 	'name' => 'Flagged Revisions',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages',
@@ -371,7 +371,7 @@ class FlaggedRevs {
 		if( is_null($text) )
 			return null;
 		
-		if( in_array( 'gzip', $flags ) ) {
+		if( $text !== false && in_array( 'gzip', $flags ) ) {
 			# Deal with optional compression if $wgFlaggedRevsCompression is set.
 			$text = gzinflate( $text );
 		}
