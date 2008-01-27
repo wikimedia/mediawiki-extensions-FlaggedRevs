@@ -598,18 +598,26 @@ class Stableversions extends UnlistedSpecialPage
 					'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 				__METHOD__,
 				array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
-			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, true );
 		} else {
 			$oldid = $this->oldid;
+		}
+		
+		# Get the either the full flagged revision text or the revision text
+		global $wgUseStableTemplates;
+		if( $wgUseStableTemplates ) {
+			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, false );
+		} else {
 			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, true );
 		}
+		
 		# Revision must exists
 		if( is_null($frev) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
 			return;
 		}
+		
 		# Get flags and date
-		$flags = $wgFlaggedArticle->getFlagsForRevision( $frev->fr_rev_id );
+		$flags = FlaggedRevs::expandRevisionTags( $frev->fr_tags );
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt( 'revreview-static', array('parseinline'), 
@@ -620,8 +628,8 @@ class Stableversions extends UnlistedSpecialPage
 			wfMsg('revreview-oldrating') . $wgFlaggedArticle->addTagRatings( $flags ) .
 			'</span>';
 		$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';	
-		# Get the either the full flagged revision text or the revision text
-		global $wgUseStableTemplates;
+		
+		# Expand the either the full flagged revision text or the revision text
 		$article = new Article( $this->page );
 		if( $wgUseStableTemplates ) {
 			$rev = Revision::newFromId( $frev->fr_rev_id );

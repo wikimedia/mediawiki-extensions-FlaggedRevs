@@ -362,8 +362,6 @@ class FlaggedRevs {
 	* Uncompress pre-processed text, using flags
 	*/
 	public static function uncompressText( $text, $flags ) {
-		global $wgFlaggedRevsCompression;
-		
 		if( !is_array($flags) ) {
 			$flags = explode( ',', $flags );
 		}
