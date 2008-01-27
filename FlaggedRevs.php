@@ -816,7 +816,7 @@ class FlaggedRevs {
 			'fr_rev_id'	=> $rev->getId(),
 			'fr_user'	  => $user->getId(),
 			'fr_timestamp' => $dbw->timestamp( wfTimestampNow() ),
-			'fr_comment'   => '',
+			'fr_comment'   => "",
 			'fr_quality'   => $quality,
 			'fr_tags'	  => self::flattenRevisionTags( $flags ),
 			'fr_text'	  => $fulltext, // Store expanded text for speed
