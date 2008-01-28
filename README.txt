@@ -1,4 +1,4 @@
-Complete online documenation: 
+﻿Complete online documenation: 
 http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 == Setup ==
@@ -25,6 +25,6 @@ expains these further.
 * Run maintenance/refreshLinks.php from the command line to flush out the stable version links
 
 == Licensing ==
-� GPL, Aaron Schulz, Joerg Baach, 2007
+© GPL, Aaron Schulz, Joerg Baach, 2007
 
 
