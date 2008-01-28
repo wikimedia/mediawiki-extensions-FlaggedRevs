@@ -707,7 +707,7 @@ class FlaggedArticle {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		$time = $wgLang->date( $tfrev->getRevId(), true );
+		$time = $wgLang->date( $tfrev->getTimestamp(), true );
 		# Some checks for which tag CSS to use
 		if( $pristine )
 			$tagClass = 'flaggedrevs_box3';
