@@ -386,8 +386,8 @@ class Revisionreview extends UnlistedSpecialPage
 		
 		// Write to external storage if required
 		global $wgDefaultExternalStore;
-		if ( $wgDefaultExternalStore ) {
-			if ( is_array( $wgDefaultExternalStore ) ) {
+		if( $wgDefaultExternalStore ) {
+			if( is_array( $wgDefaultExternalStore ) ) {
 				// Distribute storage across multiple clusters
 				$store = $wgDefaultExternalStore[mt_rand(0, count( $wgDefaultExternalStore ) - 1)];
 			} else {
@@ -395,11 +395,11 @@ class Revisionreview extends UnlistedSpecialPage
 			}
 			// Store and get the URL
 			$fulltext = ExternalStore::insert( $store, $fulltext );
-			if ( !$fulltext ) {
+			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
 				throw new MWException( "Unable to store text to external storage $store" );
 			}
-			if ( $textFlags ) {
+			if( $textFlags ) {
 				$textFlags .= ',';
 			}
 			$textFlags .= 'external';
@@ -641,7 +641,7 @@ class Stableversions extends UnlistedSpecialPage
 		
 		# Get flags and date
 		$flags = $frev->getTags();
-		$time = $wgLang->timeanddate( $frev->getTimetstamp(), true );
+		$time = $wgLang->timeanddate( $frev->getTimestamp(), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt( 'revreview-static', array('parseinline'), 
 		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText() ) .

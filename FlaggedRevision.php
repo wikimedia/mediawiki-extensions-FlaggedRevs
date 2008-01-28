@@ -21,7 +21,7 @@ class FlaggedRevision {
 		$this->mTimestamp = $row->fr_timestamp;
 		$this->mComment = $row->fr_comment;
 		$this->mQuality = intval( $row->fr_quality );
-		$this->mTags = FlaggedRevs::expandRevisionTags( strval( $row->fr_quality ) );
+		$this->mTags = FlaggedRevs::expandRevisionTags( strval( $row->fr_tags ) );
 		# Optional fields
 		$this->mUser = isset($row->fr_user) ? $row->fr_user : 0;
 		$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : array();
@@ -35,9 +35,11 @@ class FlaggedRevision {
 				} else {
 					$this->mText = ExternalStore::fetchFromURL( $url );
 				}
+			} else {
+				$this->mText = $row->fr_text;
 			}
 			# Uncompress if needed
-			FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
+			$this->mText = FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
 		} else {
 			$this->mText = null;
 		}

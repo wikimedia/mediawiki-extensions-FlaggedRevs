@@ -370,7 +370,6 @@ class FlaggedRevs {
 		# Lets not mix up types here
 		if( is_null($text) )
 			return null;
-		
 		if( $text !== false && in_array( 'gzip', $flags ) ) {
 			# Deal with optional compression if $wgFlaggedRevsCompression is set.
 			$text = gzinflate( $text );
@@ -813,8 +812,8 @@ class FlaggedRevs {
 		
 		# Write to external storage if required
 		global $wgDefaultExternalStore;
-		if ( $wgDefaultExternalStore ) {
-			if ( is_array( $wgDefaultExternalStore ) ) {
+		if( $wgDefaultExternalStore ) {
+			if( is_array( $wgDefaultExternalStore ) ) {
 				# Distribute storage across multiple clusters
 				$store = $wgDefaultExternalStore[mt_rand(0, count( $wgDefaultExternalStore ) - 1)];
 			} else {
@@ -822,11 +821,11 @@ class FlaggedRevs {
 			}
 			# Store and get the URL
 			$fulltext = ExternalStore::insert( $store, $fulltext );
-			if ( !$fulltext ) {
+			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
 				throw new MWException( "Unable to store text to external storage $store" );
 			}
-			if ( $textFlags ) {
+			if( $textFlags ) {
 				$textFlags .= ',';
 			}
 			$textFlags .= 'external';
