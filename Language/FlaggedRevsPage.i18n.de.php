@@ -74,8 +74,8 @@ $messages = array(
         Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
 	'revreview-patrolled'   => 'Die ausgewählte Version von [[:$1|$1]] wurde als kontrolliert markiert.',
 
-	'hist-stable'  => '[gesichtet]',
-	'hist-quality' => '[geprüft]',
+	'hist-stable'  => '[gesichtete Version]',
+	'hist-quality' => '[geprüfte Version]',
 
 	'flaggedrevs'           => 'Markierte Versionen',
 	'review-logpage'        => 'Artikel-Prüf-Logbuch',
