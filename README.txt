@@ -21,7 +21,8 @@ expains these further.
 
 == Uninstallation ==
 * Remove the include line from LocalSettings.php
-* Drop the tables in FlaggedRevs.sql. Drop the columns 'page_ext_reviewed' and 'page_ext_stable', and the index 'ext_namespace_reviewed' from the page table.
+* Drop the tables in FlaggedRevs.sql. Drop the columns 'page_ext_reviewed', 'page_ext_quality' and 'page_ext_stable', 
+and the index 'ext_namespace_reviewed' from the page table.
 * Run maintenance/refreshLinks.php from the command line to flush out the stable version links
 
 == Licensing ==
