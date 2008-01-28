@@ -25,6 +25,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- Comma-separated list of flags:
   -- gzip: text is compressed with PHP's gzdeflate() function.
   -- utf8: in UTF-8
+  -- external: the fr_text column is a url to an external storage object
   fr_flags tinyblob NOT NULL,
   
   PRIMARY KEY (fr_page_id,fr_rev_id),
