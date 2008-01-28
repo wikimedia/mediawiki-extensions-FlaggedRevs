@@ -9,7 +9,7 @@ class FlaggedArticle {
 	public $pageconfig = null;
 	public $flags = null;
 	
-	protected $dbw = null;
+	protected $dbr = null;
 	
 	protected $simpleNotice = '';
 	/**
@@ -123,25 +123,25 @@ class FlaggedArticle {
 		} else if( !is_null($tfrev) ) {
 			global $wgLang;
 			# Get flags and date
-			$flags = FlaggedRevs::expandRevisionTags( $tfrev->fr_tags );
+			$flags = $tfrev->getTags();
 			# Get quality level
 			$quality = FlaggedRevs::isQuality( $flags );
 			$pristine =  FlaggedRevs::isPristine( $flags );
-			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
+			$time = $wgLang->date( $tfrev->getTimestamp(), true );
 			# Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
-				$revs_since = FlaggedRevs::getRevCountSince( $article, $tfrev->fr_rev_id );
+				$revs_since = FlaggedRevs::getRevCountSince( $article, $tfrev->getRevId() );
 				$simpleTag = true;
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
 						$tag .= "<span class='fr-tab_current plainlinks'></span>" . 
-								wfMsgExt($msg,array('parseinline'), $tfrev->fr_rev_id, $revs_since);
+								wfMsgExt( $msg,array('parseinline'), $tfrev->getRevId(), $revs_since );
 						$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false );							
 					} else {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-						$tag .= wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
+						$tag .= wfMsgExt ($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 						# Hide clutter
 						if( !empty($flags) ) {
 							$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' . 
@@ -154,7 +154,7 @@ class FlaggedArticle {
 			// Viewing the page normally: override the page
 			} else {
        			# We will be looking at the reviewed revision...
-       			$vis_id = $tfrev->fr_rev_id;
+       			$vis_id = $tfrev->getRevId();
        			$revs_since = FlaggedRevs::getRevCountSince( $article, $vis_id );
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
@@ -162,11 +162,11 @@ class FlaggedArticle {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$css = $quality ? 'fr-tab_quality' : 'fr-tab_stable';
 						$tag .= "<span class='$css plainlinks'></span>" . 
-							wfMsgExt($msg,array('parseinline'),$tfrev->fr_rev_id,$revs_since);
+							wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $revs_since );
 					 	$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since );
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
-						$tag = wfMsgExt($msg, array('parseinline'), $vis_id, $time, $revs_since);
+						$tag = wfMsgExt( $msg, array('parseinline'), $vis_id, $time, $revs_since );
 						if( !empty($flags) ) {
 							$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
 								' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
@@ -184,7 +184,7 @@ class FlaggedArticle {
 						$rev = Revision::newFromId( $tfrev->fr_rev_id );
 						$text = $rev->getText();
 					} else {
-						$text = FlaggedRevs::uncompressText( $tfrev->fr_text, $tfrev->fr_flags );
+						$text = $tfrev->getText();
 					}
        				$parserOut = FlaggedRevs::parseStableText( $article, $text, $vis_id );
        				# Update the general cache
@@ -271,15 +271,15 @@ class FlaggedArticle {
 		$tag = '';
 		# Check the newest stable version
 		$tfrev = $this->getStableRev();
-		if( is_object($tfrev) ) {
+		if( !is_null($tfrev) ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
 			
-			$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
-			$flags = FlaggedRevs::expandRevisionTags( $tfrev->fr_tags );
-			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle, $tfrev->fr_rev_id );
+			$time = $wgLang->date( $tfrev->getTimestamp(), true );
+			$flags = $tfrev->getTags();
+			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle, $tfrev->getRevId() );
 			# Construct some tagging
 			$msg = FlaggedRevs::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
-			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since );
+			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 			# Hide clutter
 			if( !empty($flags) ) {
 				$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
@@ -292,7 +292,7 @@ class FlaggedArticle {
 			# If this will be autoreviewed, notify the user...
 			if( !$wgFlaggedRevsAutoReview )
 				return true;
-			if( $wgUser->isAllowed('review') && $tfrev->fr_rev_id==$editform->mArticle->getLatest() ) {
+			if( $wgUser->isAllowed('review') && $tfrev->getRevId()==$editform->mArticle->getLatest() ) {
 				# Check if user is allowed to renew the stable version.
 				# If it has been reviewed too highly for this user, abort.
 				foreach( $flags as $quality => $level ) {
@@ -300,7 +300,7 @@ class FlaggedArticle {
 						return true;
 					}
 				}
-				$msg = ($revid==$tfrev->fr_rev_id) ? 'revreview-auto-w' : 'revreview-auto-w-old';
+				$msg = ($revid==$tfrev->getRevId()) ? 'revreview-auto-w' : 'revreview-auto-w-old';
 				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' . 
 					wfMsgExt($msg,array('parseinline')) . '</div>' );
 			}
@@ -324,7 +324,7 @@ class FlaggedArticle {
 		# Get revision ID
 		$revId = $out->mRevisionId ? $out->mRevisionId : $wgArticle->getLatest();
 		# We cannot review deleted revisions
-		if( is_object($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) 
+		if( !is_null($wgArticle->mRevision) && $wgArticle->mRevision->mDeleted ) 
 			return true;
     	# Add quick review links IF we did not override, otherwise, they might
 		# review a revision that parses out newer templates/images than what they saw.
@@ -378,7 +378,7 @@ class FlaggedArticle {
 		# Replace "permalink" with an actual permanent link
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
-			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&oldid={$tfrev->fr_rev_id}" )
+			'href' => $sktmp->makeSpecialUrl( 'Stableversions', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&oldid={$tfrev->getRevId()}" )
 		);
 		# Are we using the popular cite extension?
 		global $wgHooks;
@@ -386,7 +386,7 @@ class FlaggedArticle {
 			if( FlaggedRevs::isPageReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
 				$nav_urls['cite'] = array(
 					'text' => wfMsg( 'cite_article_link' ),
-					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->fr_rev_id}" )
+					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$tfrev->getRevId()}" )
 				);
 			}
 		}
@@ -411,7 +411,7 @@ class FlaggedArticle {
 		# change the edit tab to a "current revision" tab
        	$tfrev = $this->getStableRev();
        	# No quality revs? Find the last reviewed one
-       	if( !is_object($tfrev) ) {
+       	if( is_null($tfrev) ) {
 			return true;
 		}
        	// Be clear about what is being edited...
@@ -520,11 +520,11 @@ class FlaggedArticle {
 		if( !$this->isReviewable() ) 
 			return true;
 		
-		if( !$this->dbw ) {
-    		$this->dbw = wfGetDB( DB_MASTER );
+		if( !$this->dbr ) {
+    		$this->dbr = wfGetDB( DB_SLAVE );
     	}
     	
-    	$quality = $this->dbw->selectField( 'flaggedrevs', 'fr_quality',
+    	$quality = $this->dbr->selectField( 'flaggedrevs', 'fr_quality',
     		array( 'fr_page_id' => $wgTitle->getArticleID(),
 				'fr_rev_id' => $row->rev_id ),
 			__METHOD__,
@@ -707,7 +707,7 @@ class FlaggedArticle {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		$time = $wgLang->date( wfTimestamp(TS_MW, $tfrev->fr_timestamp), true );
+		$time = $wgLang->date( $tfrev->getRevId(), true );
 		# Some checks for which tag CSS to use
 		if( $pristine )
 			$tagClass = 'flaggedrevs_box3';
@@ -722,7 +722,7 @@ class FlaggedArticle {
 		$box = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;" 
 			onclick="javascript:toggleRevRatings();">'.wfMsg('revreview-toggle').'</span>';
 		$box .= '<div id="mw-revisionratings" style="clear: both;">' .
-			wfMsgExt($msg, array('parseinline'), $tfrev->fr_rev_id, $time, $revs_since);
+			wfMsgExt($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since);
 		
 		if( $stable && !empty($flags) ) {
 			$box .= $this->addTagRatings( $flags, true, "{$tagClass}a" );
@@ -733,10 +733,10 @@ class FlaggedArticle {
 	}
 	
 	/**
-	 * @param Row $row
+	 * @param FlaggedRevision $frev
 	 * @return string, revision review notes
 	 */	    
-    public function ReviewNotes( $row ) {
+    public function ReviewNotes( $frev ) {
     	global $wgUser, $wgFlaggedRevComments;
     	
     	if( !$wgFlaggedRevComments || !$row || $row->fr_comment == '' ) 
@@ -745,7 +745,7 @@ class FlaggedArticle {
    		$skin = $wgUser->getSkin();
    		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
    		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
-   		$notes .= '<i>' . $skin->formatComment( $row->fr_comment ) . '</i></div></p><br/>';
+   		$notes .= '<i>' . $skin->formatComment( $frev->getComment() ) . '</i></div></p><br/>';
 		
     	return $notes;
     }
@@ -761,7 +761,7 @@ class FlaggedArticle {
 			return true;
 		
 		$frev = $this->getStableRev();
-		if( !$frev || $frev->fr_rev_id != $OldRev->getID() )
+		if( !$frev || $frev->getRevId() != $OldRev->getID() )
 			return true;
 			
 		$changeList = array();
@@ -770,7 +770,7 @@ class FlaggedArticle {
 		$dbr = wfGetDB( DB_SLAVE );
 		$ret = $dbr->select( array('flaggedtemplates','page'),
 			array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
-			array( 'ft_rev_id' => $frev->fr_rev_id,
+			array( 'ft_rev_id' => $frev->getRevId(),
 				'ft_namespace = page_namespace',
 				'ft_title = page_title',
 				'ft_tmp_rev_id != page_latest' ),
@@ -785,7 +785,7 @@ class FlaggedArticle {
 		# And images...
 		$ret = $dbr->select( array('flaggedimages','image'),
 			array( 'fi_name' ),
-			array( 'fi_rev_id' => $frev->fr_rev_id,
+			array( 'fi_rev_id' => $frev->getRevId(),
 				'fi_name = img_name',
 				'fi_img_sha1 != img_sha1' ),
 			__METHOD__ );
@@ -823,12 +823,11 @@ class FlaggedArticle {
     	$frev = $this->getStableRev();
 		# Was this already autoreviewed, are we allowed?
 		if( $this->skipReviewDiff || !$wgReviewChangesAfterEdit || !$wgUser->isAllowed('review') ) {
-			if( $frev )	{
+			if( !is_null($frev) ) {
 				$extraq .= "stable=0";
 			}
     	} else if( $frev )	{
-			$frev_id = $frev->fr_rev_id;
-			$extraq .= "oldid={$frev_id}&diff=cur&editreview=1";
+			$extraq .= "oldid={$frev->getRevId()}&diff=cur&editreview=1";
 		}
 		
 		return true;
@@ -880,10 +879,10 @@ class FlaggedArticle {
 			return true;
 		$frev = FlaggedRevs::getStablePageRev( $article->getTitle() );
 		# Is this an edit directly to the stable version?
-		if( is_null($frev) || $prev_id != $frev->fr_rev_id )
+		if( is_null($frev) || $prev_id != $frev->getRevId() )
 			return true;
 		# Grab the flags for this revision
-		$flags = FlaggedRevs::expandRevisionTags( $frev->fr_tags );
+		$flags = $frev->getTags();
 		# Check if user is allowed to renew the stable version.
 		# If it has been reviewed too highly for this user, abort.
 		foreach( $flags as $quality => $level ) {
@@ -943,7 +942,7 @@ class FlaggedArticle {
 			global $wgFlaggedArticle;
 			
 			$frev = $this->getStableRev();
-			if( $frev && $frev->fr_rev_id==$OldRev->getID() && $NewRev->isCurrent() ) {
+			if( $frev && $frev->getRevId()==$OldRev->getID() && $NewRev->isCurrent() ) {
 				$wgFlaggedArticle->isDiffFromStable = true;
 			}
 			// Give a link to the diff-to-stable if needed
@@ -952,7 +951,7 @@ class FlaggedArticle {
 			
 				$patrol = '(' . $skin->makeKnownLinkObj( $NewRev->getTitle(),
 					wfMsgHtml( 'review-diff2stable' ),
-					"oldid={$frev->fr_rev_id}&diff=cur&editreview=1" ) . ')';
+					"oldid={$frev->getRevId()}&diff=cur&editreview=1" ) . ')';
 				$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
 			}
 		// Prepare a change patrol link, if applicable

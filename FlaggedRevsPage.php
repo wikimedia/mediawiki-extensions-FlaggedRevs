@@ -68,7 +68,7 @@ class Revisionreview extends UnlistedSpecialPage
 		// Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
 		// Additional notes (displayed at bottom of page)
-		$this->notes = (FlaggedRevs::allowComments() && $wgUser->isAllowed('validate')) ? 
+		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ? 
 			$wgRequest->getText('wpNotes') : '';
 		// Get the revision's current flags, if any
 		$this->oflags = FlaggedRevs::getRevisionTags( $this->oldid );
@@ -380,8 +380,31 @@ class Revisionreview extends UnlistedSpecialPage
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
-        # Compress $fulltext, passed by reference
+		
+        // Compress $fulltext, passed by reference
         $textFlags = FlaggedRevs::compressText( $fulltext );
+		
+		// Write to external storage if required
+		global $wgDefaultExternalStore;
+		if ( $wgDefaultExternalStore ) {
+			if ( is_array( $wgDefaultExternalStore ) ) {
+				// Distribute storage across multiple clusters
+				$store = $wgDefaultExternalStore[mt_rand(0, count( $wgDefaultExternalStore ) - 1)];
+			} else {
+				$store = $wgDefaultExternalStore;
+			}
+			// Store and get the URL
+			$fulltext = ExternalStore::insert( $store, $fulltext );
+			if ( !$fulltext ) {
+				# This should only happen in the case of a configuration error, where the external store is not valid
+				throw new MWException( "Unable to store text to external storage $store" );
+			}
+			if ( $textFlags ) {
+				$textFlags .= ',';
+			}
+			$textFlags .= 'external';
+		}
+		
 		// Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
@@ -617,8 +640,8 @@ class Stableversions extends UnlistedSpecialPage
 		}
 		
 		# Get flags and date
-		$flags = FlaggedRevs::expandRevisionTags( $frev->fr_tags );
-		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $frev->fr_timestamp), true );
+		$flags = $frev->getTags();
+		$time = $wgLang->timeanddate( $frev->getTimetstamp(), true );
        	// We will be looking at the reviewed revision...
        	$tag = wfMsgExt( 'revreview-static', array('parseinline'), 
 		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText() ) .
@@ -632,10 +655,10 @@ class Stableversions extends UnlistedSpecialPage
 		# Expand the either the full flagged revision text or the revision text
 		$article = new Article( $this->page );
 		if( $wgUseStableTemplates ) {
-			$rev = Revision::newFromId( $frev->fr_rev_id );
+			$rev = Revision::newFromId( $frev->getRevId() );
 			$text = $rev->getText();
 		} else {
-			$text = FlaggedRevs::uncompressText( $frev->fr_text, $frev->fr_flags );
+			$text = $frev->getText();
 		}
 		# Parse the revision text
        	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
@@ -648,7 +671,7 @@ class Stableversions extends UnlistedSpecialPage
 	function formatRow( $row ) {
 		global $wgLang, $wgUser;
 	
-		$SV = SpecialPage::getTitleFor( 'Stableversions' );
+		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );
 		
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
@@ -657,7 +680,7 @@ class Stableversions extends UnlistedSpecialPage
 			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ) );
 		
 		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
-		$link = $this->skin->makeKnownLinkObj( $SV, $time, 
+		$link = $this->skin->makeKnownLinkObj( $SVtitle, $time, 
 			'page='.$this->page->getPrefixedUrl().'&oldid='.$row->fr_rev_id );
 		
 		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';	
@@ -908,10 +931,10 @@ class Reviewedpages extends SpecialPage
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 		
-		$SV = SpecialPage::getTitleFor( 'Stableversions' );
-		$list = $this->skin->makeKnownLinkObj( $SV, wfMsgHtml('reviewedpages-all'), 
+		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );
+		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-all'), 
 			'page=' . $title->getPrefixedUrl() );
-		$best = $this->skin->makeKnownLinkObj( $SV, wfMsgHtml('reviewedpages-best'), 
+		$best = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-best'), 
 			'page=' . $title->getPrefixedUrl() . '&oldid=best' );
 		
 		return '<li>'.$link.' ('.$list.') ['.$best.'] </li>';	

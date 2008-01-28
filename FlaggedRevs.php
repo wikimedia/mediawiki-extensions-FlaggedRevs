@@ -13,7 +13,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 
 $wgExtensionCredits['specialpage'][] = array(
 	'author' => 'Aaron Schulz, Joerg Baach',
-	'version' => '1.01',
+	'version' => '1.02',
 	'name' => 'Flagged Revisions',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'description' => 'Gives editors/reviewers the ability to validate revisions and stabilize pages',
@@ -133,6 +133,8 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedArticle'] = dirname( __FILE__ ) . '/FlaggedArticle.php';
+# Load FlaggedRevision object class
+$wgAutoloadClasses['FlaggedRevision'] = dirname( __FILE__ ) . '/FlaggedRevision.php';
 # Load review UI
 $wgSpecialPages['Revisionreview'] = 'Revisionreview';
 $wgAutoloadClasses['Revisionreview'] = dirname(__FILE__) . '/FlaggedRevsPage.php';
@@ -380,16 +382,15 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param int $rev_id
 	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @return Row
+	 * @returns mixed FlaggedRevision (null on failure)
 	 * Will not return a revision if deleted
 	 */
 	public static function getFlaggedRev( $title, $rev_id, $getText=false ) {
-		$columns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','rev_timestamp','fr_tags');
+		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
 		if( $getText ) {
 			$columns[] = 'fr_text';
 			$columns[] = 'fr_flags';
 		}
-		
 		$dbr = wfGetDB( DB_SLAVE );
 		# Skip deleted revisions
 		$result = $dbr->select( array('flaggedrevs','revision'),
@@ -400,12 +401,70 @@ class FlaggedRevs {
 			__METHOD__ );
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row = $dbr->fetchObject($result) ) {
-			return $row;
+			return new FlaggedRevision( $row );
 		}
 		
 		return NULL;
 	}
 
+	/**
+	 * Get latest quality rev, if not, the latest reviewed one.
+	 * @param Title $title, page title
+	 * @param bool $getText, fetch fr_text and fr_flags too?
+	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
+	 * @returns mixed FlaggedRevision (null on failure)
+	*/
+	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
+		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
+		if( $getText ) {
+			$columns[] = 'fr_text';
+			$columns[] = 'fr_flags';
+		}
+		$row = null;
+		# If we want the text, then get the text flags too
+		if( !$forUpdate ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$result = $dbr->select( array('page', 'flaggedrevs'),
+				$columns,
+				array( 'page_namespace' => $title->getNamespace(),
+					'page_title' => $title->getDBkey(),
+					'page_ext_stable = fr_rev_id' ),
+				__METHOD__,
+				array('LIMIT' => 1) );
+			if( !$row = $dbr->fetchObject($result) )
+				return null;
+		} else {
+			# Get visiblity settings...
+			$config = self::getPageVisibilitySettings( $title, $forUpdate );
+			$dbw = wfGetDB( DB_MASTER );
+			# Look for the latest quality revision
+			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
+				$result = $dbw->select( array('flaggedrevs', 'revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'fr_quality >= 1',
+						'fr_rev_id = rev_id',
+						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
+				$row = $dbw->fetchObject($result);
+			}
+			# Do we have one? If not, try the latest reviewed revision...
+			if( !$row ) {
+				$result = $dbw->select( array('flaggedrevs', 'revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'fr_rev_id = rev_id',
+						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
+				if( !$row = $dbw->fetchObject($result) )
+					return null;
+			}
+		}
+		return new FlaggedRevision( $row );
+	}
+	
 	/**
 	 * @param Article $article
 	 * @param int $from_rev
@@ -437,64 +496,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get latest quality rev, if not, the latest reviewed one.
-	 * @param Title $title, page title
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
-	 * @returns Row
-	*/
-	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-		$columns = array('fr_rev_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
-		if( $getText ) {
-			$columns[] = 'fr_text';
-			$columns[] = 'fr_flags';
-		}
-		$row = null;
-		# If we want the text, then get the text flags too
-		if( !$forUpdate ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$result = $dbr->select( array('page', 'flaggedrevs'),
-				$columns,
-				array( 'page_namespace' => $title->getNamespace(),
-					'page_title' => $title->getDBkey(),
-					'page_ext_stable = fr_rev_id' ),
-				__METHOD__,
-				array('LIMIT' => 1) );
-			if( !$row = $dbr->fetchObject($result) )
-				return null;
-		} else {
-			// Get visiblity settings...
-			$config = self::getPageVisibilitySettings( $title, $forUpdate );
-			$dbw = wfGetDB( DB_MASTER );
-			// Look for the latest quality revision
-			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
-				$result = $dbw->select( array('flaggedrevs', 'revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'fr_quality >= 1',
-						'fr_rev_id = rev_id',
-						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
-				$row = $dbw->fetchObject($result);
-			}
-			// Do we have one? If not, try the latest reviewed revision...
-			if( !$row ) {
-				$result = $dbw->select( array('flaggedrevs', 'revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'fr_rev_id = rev_id',
-						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
-				if( !$row = $dbw->fetchObject($result) )
-					return null;
-			}
-		}
-		return $row;
-	}
-
-	/**
 	 * Get visiblity restrictions on page
 	 * @param Title $title, page title
 	 * @param bool $forUpdate, use master DB?
@@ -508,7 +509,7 @@ class FlaggedRevs {
 			__METHOD__ );
 		if( !$row ) {
 			global $wgFlaggedRevsOverride;
-			// Keep this consistent across settings. 1 -> override, 0 -> don't
+			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
 			return array('select' => 0, 'override' => $override);
 		}
@@ -806,19 +807,42 @@ class FlaggedRevs {
 			$dbw->rollback(); // All versions must be specified, 0 for none
 			return false;
 		}
+		
 		# Compress $fulltext, passed by reference
 		$textFlags = self::compressText( $fulltext );
+		
+		# Write to external storage if required
+		global $wgDefaultExternalStore;
+		if ( $wgDefaultExternalStore ) {
+			if ( is_array( $wgDefaultExternalStore ) ) {
+				# Distribute storage across multiple clusters
+				$store = $wgDefaultExternalStore[mt_rand(0, count( $wgDefaultExternalStore ) - 1)];
+			} else {
+				$store = $wgDefaultExternalStore;
+			}
+			# Store and get the URL
+			$fulltext = ExternalStore::insert( $store, $fulltext );
+			if ( !$fulltext ) {
+				# This should only happen in the case of a configuration error, where the external store is not valid
+				throw new MWException( "Unable to store text to external storage $store" );
+			}
+			if ( $textFlags ) {
+				$textFlags .= ',';
+			}
+			$textFlags .= 'external';
+		}
+		
 		# Our review entry
 		$revisionset = array(
 			'fr_page_id'   => $rev->getPage(),
-			'fr_rev_id'	=> $rev->getId(),
-			'fr_user'	  => $user->getId(),
+			'fr_rev_id'	   => $rev->getId(),
+			'fr_user'	   => $user->getId(),
 			'fr_timestamp' => $dbw->timestamp( wfTimestampNow() ),
 			'fr_comment'   => "",
 			'fr_quality'   => $quality,
-			'fr_tags'	  => self::flattenRevisionTags( $flags ),
-			'fr_text'	  => $fulltext, // Store expanded text for speed
-			'fr_flags'	 => $textFlags
+			'fr_tags'	   => self::flattenRevisionTags( $flags ),
+			'fr_text'	   => $fulltext, // Store expanded text for speed
+			'fr_flags'	   => $textFlags
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
@@ -990,17 +1014,17 @@ class FlaggedRevs {
 		# Get the either the full flagged revision text or the revision text
 		$article = new Article( $linksUpdate->mTitle );
 		if( $wgUseStableTemplates ) {
-			$rev = Revision::newFromId( $sv->fr_rev_id );
+			$rev = Revision::newFromId( $sv->getRevId() );
 			$text = $rev->getText();
 		} else {
-			$text = self::uncompressText( $sv->fr_text, $sv->fr_flags );
+			$text = $sv->getText();
 		}
 		# Parse the text
-		$parserOut = self::parseStableText( $article, $text, $sv->fr_rev_id );
+		$parserOut = self::parseStableText( $article, $text, $sv->getRevId() );
 		# Might as well update the stable cache while we're at it
 		self::updatePageCache( $article, $parserOut );
 		# Update page fields
-		self::updateArticleOn( $article, $sv->fr_rev_id );
+		self::updateArticleOn( $article, $sv->getRevId() );
 		# Update the links tables to include these
 		# We want the UNION of links between the current
 		# and stable version. Therefore, we only care about
@@ -1171,7 +1195,7 @@ class FlaggedRevs {
 		if( !$frev )
 			return true;
 		#  Allow for only editors/reviewers to move this
-		$right = $frev->fr_quality ? 'validate' : 'review';
+		$right = $frev->getQuality() ? 'validate' : 'review';
 		if( !$user->isAllowed( $right ) ) {
 			$result = false;
 			return false;
