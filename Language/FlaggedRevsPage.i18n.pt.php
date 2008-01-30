@@ -41,8 +41,8 @@ $messages = array(
 	'revreview-auto-w'            => "Você está editando a edição estável. Todas as alterações serão '''automaticamente tidas como revistas'''. Talvez deseje prever a página antes de a salvar.",
 	'revreview-auto-w-old'        => "Você está editando uma edição antiga. Todas as alterações serão '''automaticamente tidas como revistas'''. Talvez deseje prever a página antes de a salvar.",
 	'revreview-patrolled'         => 'A edição selecionada de [[:$1|$1]] foi marcada como patrulhada.',
-	'hist-stable'                 => '[analisada]',
-	'hist-quality'                => '[estável]',
+	'hist-stable'                 => '[edição analisada]',
+	'hist-quality'                => '[edição estável]',
 	'flaggedrevs'                 => 'Edições Analisadas',
 	'review-logpage'              => 'Registo de análise de edições',
 	'review-logpagetext'          => 'Este é um registo de alterações nas [[{{MediaWiki:Validationpage}}|análises]] de páginas de conteúdo.',
@@ -133,4 +133,3 @@ Seguem-se as configurações para [[:$1|$1]]:',
 	'reviewedpages-all'           => 'edições analisadas',
 	'reviewedpages-best'          => 'a mais recente edição de classificação mais alta',
 );
-

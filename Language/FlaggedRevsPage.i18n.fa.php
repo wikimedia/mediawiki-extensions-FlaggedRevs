@@ -148,5 +148,4 @@ $messages = array(
 	'reviewedpages-lev-2'         => 'برگزیده',
 	'reviewedpages-all'           => 'نسخه‌های بررسی شده',
 	'reviewedpages-best'          => 'آخرین نسخه با بالاترین نمره',
-
 );

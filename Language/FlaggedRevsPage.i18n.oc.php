@@ -35,7 +35,6 @@ $messages = array(
 	'revreview-basic'             => "Es la darrièra [[{{MediaWiki:Validationpage}}|version vista]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.",
 	'revreview-quality'           => "Es la darrièra [[{{MediaWiki:Validationpage}}|version de qualitat]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.",
 	'revreview-static'            => "Es una [[{{MediaWiki:Validationpage}}|version vista]] de '''[[:$3|$3]]''', [{{fullurl:Special:Log/review|page=$1}} aprobada] lo ''$2''.",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] a escrich aquestas nòtas de revision :',
 	'revreview-update'            => 'Prec de tornar veire las modificacions fachas a partir de la darrièra version establa. Qualques imatges o modèls son meses a jorn :',
 	'revreview-update-none'       => 'Prec de tornar veire las modificacions fachas a partir de la darrièra version establa.',

@@ -23,7 +23,6 @@ $messages = array(
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|wieziging|wieziginge}}])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Bekeke]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige versie bekieke] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkinge}}])",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige versie bekieke] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkinge}}])",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-auto'              => '(automatisch)',
 	'hist-stable'                 => '[bekeke]',
 	'hist-quality'                => '[kwaliteit]',
@@ -74,4 +73,3 @@ $messages = array(
 	'stabilization-sel-short-1'   => 'Gein',
 	'stabilization-def-short'     => 'Standerd',
 );
-

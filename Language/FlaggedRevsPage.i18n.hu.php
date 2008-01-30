@@ -49,7 +49,6 @@ lehet [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} módosítani]; [{{fullurl:{{FUL
 vár áttekintésre.',
 	'revreview-static'            => "Ez '''[[:$3|$3]]''' egy [[{{MediaWiki:Validationpage}}|ellenőrzött]] változata, melyet
 ekkor [{{fullurl:Special:Log/review|page=$1}} fogadtak el]: <i>$2</i>.",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] az alábbi megjegyzéseket tette ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzésekor]]:',
 	'revreview-update'            => 'Ellenőrizz minden változást (lenn láthatóak), amelyek az elfogadott változat óta készültek.
 Néhány sablon vagy kép frissítve lett:',
@@ -111,6 +110,7 @@ Egy sablon vagy kép lett kérve, mikor nem lett adott változat megadva. Ez akk
 mikor egy dinamikus sablon más képet vagy sablont illeszt be egy változótól függően, amely megváltozott,
 mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés újbóli elvégzése megoldhatja a problémát.",
 	'stableversions'              => 'Elfogadott változatok',
+	'stableversions-title'        => '„$1” ellenőrzött változatai',
 	'stableversions-leg1'         => 'Oldal ellenőrzött változatainak listája',
 	'stableversions-page'         => 'A lap neve:',
 	'stableversions-none'         => '„[[:$1]]” nem rendelkezik ellenőrzött változatokkal',
@@ -157,4 +157,3 @@ mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés
 	'reviewedpages-all'           => 'Ellenőrzött változatok',
 	'reviewedpages-best'          => 'legutóbbi legjobban értékelt változat',
 );
-

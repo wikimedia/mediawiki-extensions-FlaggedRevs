@@ -48,8 +48,8 @@ $messages = array(
 	'revreview-auto-w-old'        => "U bent een oude versie aan het bewerken, elke wijziging wordt '''automatisch beoordeeld'''.
 Controleer uw bewerking voordat u deze opslaat.",
 	'revreview-patrolled'         => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
-	'hist-stable'                 => '[beoordeeld]',
-	'hist-quality'                => '[kwaliteit]',
+	'hist-stable'                 => '[beoordeelde versie]',
+	'hist-quality'                => '[kwaliteitsversie]',
 	'flaggedrevs'                 => 'Aangevinkte versies',
 	'review-logpage'              => 'Beoordelingslogboek',
 	'review-logpagetext'          => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Makevalidate-page}}|waarderingsstatus]] van versies van pagina's.",

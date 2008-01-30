@@ -48,7 +48,6 @@ možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FUL
 {{plural:$3|čeka|čekaju|čeka}} ocjenjivanje.',
 	'revreview-static'            => "Ovo je [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena članka '''[[:$3|$3]]''',  
 [{{fullurl:Special:Log/review|page=$1}} odobrena] dana <i>$2</i>.",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[User:$1]] je zabilježio slijedeće pri [[{{MediaWiki:Validationpage}}|ocjenjivanju]] ove inačice:',
 	'revreview-update'            => 'Molim pregledajte sve promjene (prikazane dolje) učinjene od stabilne inačice. Neki
 predlošci/slike su promijenjeni:',
@@ -109,6 +108,7 @@ Tražen je prdeložak ili slika bez navođenja verzije. To se može dogoditi uko
 predložak uključuje sliku ili drugi predložak koji ovisi o varijabli koja se promijenila
 nakon što ste počeli ocjenjivati članak. Ctrl + R može riješiti taj problem.",
 	'stableversions'              => 'Stabilna inačica',
+	'stableversions-title'        => 'Stabilne inačice "$1"',
 	'stableversions-leg1'         => 'Prikaži pregledane inačice stranice',
 	'stableversions-page'         => 'Ime stranice:',
 	'stableversions-none'         => 'Članak "[[:$1]]" nema pregledanih inačica.',

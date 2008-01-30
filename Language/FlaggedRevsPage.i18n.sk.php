@@ -57,8 +57,8 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'revreview-auto-w'            => "Upravujete stabilnú revíziu, akékoľvek zmeny budú '''automaticky označené ako skontrolované'''. Pred uložením by ste mali použiť náhľad.",
 	'revreview-auto-w-old'        => "Upravujete strú revíziu, akékoľvek zmeny budú '''automaticky označené ako skontrolované'''. Pred uložením by ste mali použiť náhľad.",
 	'revreview-patrolled'         => 'Vybraná revízia [[:$1|$1]] bola označená ako strážená.',
-	'hist-stable'                 => '[stabilná]',
-	'hist-quality'                => '[kvalitná]',
+	'hist-stable'                 => '[videná revízia]',
+	'hist-quality'                => '[kvalitná revízia]',
 	'flaggedrevs'                 => 'Označené verzie',
 	'review-logpage'              => 'Záznam kontrol stránky',
 	'review-logpagetext'          => 'Toto je záznam zmien stavu [[{{MediaWiki:Makevalidate-page}}|kontroly]] verzií
@@ -153,4 +153,3 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'reviewedpages-all'           => 'skontrolované verzie',
 	'reviewedpages-best'          => 'najnovšia najvyššie hodnotená revízia',
 );
-

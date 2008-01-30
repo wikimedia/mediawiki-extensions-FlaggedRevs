@@ -26,16 +26,58 @@ $messages = array(
 	'revreview-quick-none'        => "'''Actual''' (ensin revisiones revisaes)",
 	'revreview-quick-see-quality' => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver artículu estable]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|cambéu|cambeos}}])",
+	'revreview-quick-see-basic'   => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver artículu estable]]  
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|cambéu|cambeos}}])",
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Vista]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver borrador]]  
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|cambéu|cambeos}}])",
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Calidable]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver borrador]]  
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|cambéu|cambeos}}])",
+	'revreview-newest-basic'      => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} cabera revisión vista]  
+([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} llistar toes]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobóse]'l 
+<i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|cambéu|cambeos}}] {{plural:$3|necesita|necesiten}} revisión.",
+	'revreview-newest-quality'    => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} cabera revisión calidable]  
+([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} llistar toes]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobóse]'l 
+<i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|cambéu|cambeos}}] {{plural:$3|necesita|necesiten}} revisión.",
+	'revreview-basic'             => "Esta ye la cabera revisión [[{{MediaWiki:Validationpage}}|vista]],  
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]'l <i>$2</i>. El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador]  
+pue ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificáu]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|cambéu|cambeos}}]  
+{{plural:$3|espera|esperen}} revisión.",
+	'revreview-quality'           => "Esta ye la cabera [[{{MediaWiki:Validationpage}}|quality]] revisión,  
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]'l <i>$2</i>. El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador]  
+pue ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificáu]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|cambéu|cambeos}}]  
+{{plural:$3|espera|esperen}} revisión.",
 	'revreview-static'            => "Esta ye una revisión [[{{MediaWiki:Validationpage}}|revisada]] de '''[[:$3|$3]]''',  
 [{{fullurl:Special:Log/review|page=$1}} aprobada]'l <i>$2</i>.",
 	'revreview-note'              => '[[User:$1]] fizo les siguientes notes al [[{{MediaWiki:Validationpage}}|revisar]] esta revisión:',
+	'revreview-update'            => 'Por favor revisa tolos cambeos (amosaos embaxo) fechos dende la revisión estable. Dalgunes plantíes/imáxenes foron actualizaes:',
+	'revreview-update-none'       => 'Por favor revisa tolos cambeos (amosaos embaxo) fechos dende la revisión estable.',
 	'revreview-auto'              => '(automático)',
+	'revreview-auto-w'            => "Tas editando la revisión estable, cualesquier cambéu va ser '''revisáu automáticamente'''.
+Seique quieras previsualizar la páxina enantes de grabala.",
+	'revreview-auto-w-old'        => "tas editando una revisión antigua, cualesquier cambéu va ser '''revisáu atuomáticamente'''.
+Seique quieras previsualizar la páxina enantes de grabala.",
 	'revreview-patrolled'         => 'La revisión seleicionada de [[:$1|$1]] marcóse como supervisada.',
-	'hist-quality'                => '[calidá]',
+	'hist-stable'                 => '[vista]',
+	'hist-quality'                => '[calidable]',
 	'flaggedrevs'                 => 'Revisiones marcaes',
 	'review-logpage'              => "Rexistru de revisión d'artículos",
+	'review-logpagetext'          => 'Esti ye un rexistru de los cambeos fechos na [[{{MediaWiki:Validationpage}}|aprobación]] 
+de les revisiones de les páxines de conteníu.',
+	'review-logentry-app'         => 'revisó [[$1]]',
+	'review-logentry-dis'         => 'despreció una versión de [[$1]]',
+	'review-logaction'            => 'identificador de revisión $1',
 	'stable-logpage'              => 'Rexistru de versiones estables',
+	'stable-logpagetext'          => 'Esti ye un rexistru de los cambeos fechos na configuración de la [[{{Mediawiki:Validationpage}}|versión estable]]
+de les páxines de conteníu.',
+	'stable-logentry'             => 'configuró la versión estable de [[$1]]',
+	'stable-logentry2'            => 'restablecer el rexistru de les versiones estables de [[$1]]',
+	'revisionreview'              => 'Revisar revisiones',
+	'revreview-main'              => "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.
+
+Vete a [[Special:Unreviewedpages]] pa ver una llista de les páxines non revisaes.",
 	'revreview-selected'          => "Revisión seleicionada de '''$1:'''",
+	'revreview-text'              => "Les versiones estables son el conteníu por defeutu d'una vista de páxina en cuenta de la revisión más nueva.",
+	'revreview-toolow'            => 'Tienes que calificar tolos atributos d\'embaxo percima de "non aprobáu" pa qu\'una revisión seya considerada como revisada. Pa despreciar una revisión, pon tolos campos como "non aprobáu".',
 	'revreview-flag'              => 'Revisar esta revisión (#$1)',
 	'revreview-legend'            => 'Calificar el conteníu de la revisión',
 	'revreview-notes'             => "Observaciones o notes p'amosar:",
@@ -58,19 +100,55 @@ $messages = array(
 	'revreview-style-3'           => 'Concisa',
 	'revreview-style-4'           => 'Destacada',
 	'revreview-log'               => 'Comentariu:',
+	'revreview-submit'            => 'Grabar revisión',
+	'revreview-changed'           => "'''Nun se pudo efeutuar l'aición solicitada nesta revisión.'''
+
+Seique se solicitara una plantía o una imaxe cuando nun s'especificara nenguna versión específica. Esto pue asoceder si una plantía dinámica reemplaza otra plantía o imaxe según una variable que tenga camudao dende qu'empecipiaras a revisar esta páxina. Refrescar la páxina y volver a revisar pue solucionar esti problema.",
 	'stableversions'              => 'Versiones estables',
 	'stableversions-title'        => 'Versiones estables de "$1"',
+	'stableversions-leg1'         => "Llista de les revisiones revisaes d'una páxina",
 	'stableversions-page'         => 'Nome de la páxina:',
 	'stableversions-none'         => '"[[:$1]]" nun tien revisiones revisaes.',
+	'stableversions-list'         => 'La siguiente ye una llista de revisiones de "[[:$1]]" que foron revisaes:',
+	'stableversions-review'       => "Revisada'l <i>$1</i> por $2",
+	'review-diff2stable'          => 'Cambeos ente les revisiones estable y actual',
 	'unreviewedpages'             => 'Páxines non revisaes',
+	'viewunreviewed'              => 'Llista de páxines con conteníu non revisáu',
+	'unreviewed-outdated'         => 'Amosar les páxines que tienen feches les revisiones non revisaes como versión estable.',
 	'unreviewed-category'         => 'Categoría:',
 	'unreviewed-diff'             => 'Cambeos',
+	'unreviewed-list'             => 'Esta páxina llista artículos que nun fueron revisaos o que tienen revisiones nueves o non revisaes.',
+	'revreview-visibility'        => 'Esta páxina tien una [[{{MediaWiki:Validationpage}}|versión estable]], que pue ser
+[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurada].',
+	'stabilization'               => 'Estabilización de páxines',
+	'stabilization-text'          => "Camudar la configuración d'embaxo p'axustar cómo se seleiciona y s'amuesa la versión estable de [[:$1|$1]].",
+	'stabilization-perm'          => 'La to cuenta nun tienen permisos pa camudar la configuración de la versión estable.
+Esta ye la configuración de [[:$1|$1]]:',
 	'stabilization-page'          => 'Nome de la páxina:',
+	'stabilization-leg'           => "Configurar la versión estable d'una páxina",
+	'stabilization-select'        => 'Cómo se seleiciona la versión estable',
+	'stabilization-select1'       => 'La cabera revisión calidable; si nun la hai, entós la cabera vista',
+	'stabilization-select2'       => 'La cabera revisión revisada',
+	'stabilization-def'           => 'Revisión amosada na vista de páxina por defeutu',
+	'stabilization-def1'          => "La revisión estable; si nun la hai, entós l'actual",
+	'stabilization-def2'          => 'La revisión actual',
 	'stabilization-submit'        => 'Confirmar',
+	'stabilization-notexists'     => 'Nun esiste la páxina "[[:$1|$1]]". Nun ye posible la configuración.',
+	'stabilization-notcontent'    => 'La páxina "[[:$1|$1]]" nun pue ser revisada. Nun ye posible la configuración.',
 	'stabilization-comment'       => 'Comentariu:',
+	'stabilization-sel-short'     => 'Prioridá',
+	'stabilization-sel-short-0'   => 'Calidable',
+	'stabilization-sel-short-1'   => 'Nenguna',
+	'stabilization-def-short'     => 'Por defeutu',
+	'stabilization-def-short-0'   => 'Actual',
+	'stabilization-def-short-1'   => 'Estable',
 	'reviewedpages'               => 'Páxines revisaes',
+	'reviewedpages-leg'           => 'Llista de les páxines revisaes a un ciertu nivel',
+	'reviewedpages-list'          => 'Les páxines siguientes foron revisaes al nivel especificáu',
 	'reviewedpages-none'          => 'Nun hai páxines nesta llista',
+	'reviewedpages-lev-0'         => 'Vistes',
+	'reviewedpages-lev-1'         => 'Calidables',
+	'reviewedpages-lev-2'         => 'Destacaes',
 	'reviewedpages-all'           => 'versiones revisaes',
 	'reviewedpages-best'          => 'cabera revisión meyor calificada',
 );
-

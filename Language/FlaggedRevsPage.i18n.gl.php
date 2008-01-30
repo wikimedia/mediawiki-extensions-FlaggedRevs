@@ -43,7 +43,6 @@ $messages = array(
 	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Validationpage}}|examinada]] de '''[[:$3|$3]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} aprobada] en <i>$2</i>. A [{{fullurl:$3|stable=0}} revisión actual] 
 	pode ser [{{fullurl:$3|action=edit}} modificada].",
-	'revreview-toggle'            => '(+/-)',
 	'revreview-note'              => '[[User:$1]] fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
 	'revreview-update'            => 'Revise os cambios (amósanse embaixo) feitos desde a revisión estábel desta páxina. Os seguintes
 modelos
@@ -54,7 +53,7 @@ modelos
 	Se o desexa pode obter unha vista previa da páxina antes de gardala.",
 	'revreview-auto-w-old'        => "Vostede está editando unha revisión vella, calquera cambio '''será automaticamente revisado'''.
 	Se o desexa pode obter unha vista previa da páxina antes de gardala.",
-	'hist-quality'                => '[calidade]',
+	'hist-quality'                => '[revisión de calidade]',
 	'flaggedrevs'                 => 'Revisións marcadas',
 	'review-logpage'              => 'Rexistro de revisións do artigo',
 	'review-logpagetext'          => 'Este é un rexistro dos cambios para as revisións de [[{{MediaWiki:Makevalidate-page}}|aprobación]] do status
@@ -96,6 +95,7 @@ modelos
 	'revreview-log'               => 'Comentario para o rexistro:',
 	'revreview-submit'            => 'Enviar revisión',
 	'stableversions'              => 'Versións estábeis',
+	'stableversions-title'        => 'Versión estábeis de "$1"',
 	'stableversions-leg1'         => 'Listar as revisións revisadas dunha páxina',
 	'stableversions-page'         => 'Nome da páxina:',
 	'stableversions-none'         => '"[[:$1]]" non ten revisións examinadas.',
@@ -139,4 +139,3 @@ modelos
 	'reviewedpages-lev-1'         => 'Calidade',
 	'reviewedpages-all'           => 'Versións revisadas',
 );
-

@@ -40,8 +40,8 @@ $messages = array(
 	'revreview-auto-w'            => "Editujete stabilní verzi, změny budou '''automaticky označeny jako posouzené'''. Měli byste zkontrolovat náhled stránky.",
 	'revreview-auto-w-old'        => "Editujete starou verzi, změny budou '''automaticky označeny jako posouzené'''. Měli byste zkontrolovat náhled stránky.",
 	'revreview-patrolled'         => 'Vybraná verze stránky [[:$1|$1]] byla označena jako prověřená.',
-	'hist-stable'                 => '[prohlédnutá]',
-	'hist-quality'                => '[kvalitní]',
+	'hist-stable'                 => '[prohlédnutá verze]',
+	'hist-quality'                => '[kvalitní verze]',
 	'flaggedrevs'                 => 'Označování verzí',
 	'review-logpage'              => 'Kniha posuzování článků',
 	'review-logpagetext'          => 'Tato kniha zobrazuje změny [[{{MediaWiki:Makevalidate-page}}|schválení]] verzí stránek.',
@@ -126,4 +126,3 @@ $messages = array(
 	'reviewedpages-all'           => 'posouzené verze',
 	'reviewedpages-best'          => 'verze s nejvyšším ohodnocením',
 );
-
