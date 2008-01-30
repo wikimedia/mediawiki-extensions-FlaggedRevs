@@ -59,7 +59,7 @@ Možda želite pregledati vaše izmjene prije snimanja.",
 Možda želite pregledati vaše izmjene prije snimanja.",
 	'revreview-patrolled'         => 'Odabrana izmjena stranice [[:$1|$1]] je označena pregledanom (patroliranom).',
 	'hist-stable'                 => '[pregledana]',
-	'hist-quality'                => '[kvaliteta]',
+	'hist-quality'                => '[kvalitetna]',
 	'flaggedrevs'                 => 'Označene promjene',
 	'review-logpage'              => 'Evidencija ocjena članka',
 	'review-logpagetext'          => 'Ovo je evidencija promjena [[{{MediaWiki:Validationpage}}|ocjena]] članaka.',
@@ -155,3 +155,4 @@ Slijede važeće postavke za [[:$1|$1]]:',
 	'reviewedpages-all'           => 'ocjenjene verzije',
 	'reviewedpages-best'          => 'posljednja najviše ocijenjena inačica',
 );
+
