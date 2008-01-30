@@ -39,8 +39,8 @@ $messages = array(
 	'revreview-auto-w'            => "Vos modifiâd una vèrsion stâbla, tota modificacion serat '''ôtomaticament rèvisâ'''. Demandâd una prèvisualisacion devant que sôvar.",
 	'revreview-auto-w-old'        => "Vos modifiâd una vielye vèrsion, tota modificacion serat '''ôtomaticament rèvisâ'''. Demandâd una prèvisualisacion devant que sôvar.",
 	'revreview-patrolled'         => 'La vèrsion sèlèccionâ de [[:$1|$1]] at étâ marcâ coment survelyê.',
-	'hist-stable'                 => '[vua]',
-	'hist-quality'                => '[qualitât]',
+	'hist-stable'                 => '[vèrsion vua]',
+	'hist-quality'                => '[vèrsion de qualitât]',
 	'flaggedrevs'                 => 'Vèrsions marcâs',
 	'review-logpage'              => 'Jornal de les rèvisions de l’articllo',
 	'review-logpagetext'          => 'Cen est un jornal de les modificacions por l’[[{{MediaWiki:Makevalidate-page}}|aprobacion]] de les rèvisions.',
@@ -130,3 +130,4 @@ Un modèlo ou una émâge pôt avêr étâ demandâ pendent que niona vèrsion p
 	'reviewedpages-all'           => 'vèrsions passâs en revua',
 	'reviewedpages-best'          => 'Dèrriére vèrsion la ples notâ',
 );
+
