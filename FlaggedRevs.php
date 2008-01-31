@@ -547,7 +547,7 @@ class FlaggedRevs {
 			global $wgFlaggedRevsOverride;
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
-			return array('select' => 0, 'override' => $override, 'expiry' => 'infinite');
+			return array('select' => 0, 'override' => $override, 'expiry' => 'infinity');
 		}
 		
 		return array('select' => $row->fpc_select, 'override' => $row->fpc_override, 'expiry' => $row->fpc_expiry);

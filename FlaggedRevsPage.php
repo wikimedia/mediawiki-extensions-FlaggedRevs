@@ -1037,7 +1037,7 @@ class Stabilization extends UnlistedSpecialPage
 		$config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
 		$this->select = $config['select'];
 		$this->override = $config['override'];
-		$this->expiry = $config['expiry'] !== 'infinite' ? wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
+		$this->expiry = $config['expiry'] !== 'infinity' ? wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
 		if( $wgRequest->wasPosted() ) {
 			$this->select = $wgRequest->getInt( 'mwStableconfig-select' );
 			$this->override = intval( $wgRequest->getBool( 'mwStableconfig-override' ) );
