@@ -8,7 +8,7 @@ $messages = array(
 	'group-reviewer'            => 'సమీక్షకులు',
 	'group-reviewer-member'     => 'సమీక్షకులు',
 	'grouppage-reviewer'        => '{{ns:project}}:సమీక్షకులు',
-	'hist-quality'              => '[నాణ్యత]',
+	'hist-quality'              => '[నాణ్యమైన కూర్పు]',
 	'revisionreview'            => 'కూర్పులను సమీక్షించు',
 	'revreview-accuracy'        => 'ఖచ్చితత్వం',
 	'revreview-accuracy-2'      => 'ఖచ్చితం',
@@ -26,3 +26,4 @@ $messages = array(
 	'reviewedpages-none'        => 'ఈ జాబితాలో పేజీలు లేవు.',
 	'reviewedpages-lev-1'       => 'నాణ్యత',
 );
+

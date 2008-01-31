@@ -137,12 +137,16 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'stabilization-notexists'     => 'Neexistuje stránka s názvom „[[:$1|$1]]“. Konfigurácia nie je možná.',
 	'stabilization-notcontent'    => 'Stránku „[[:$1|$1]]“ nie je možné skontrolovať. Konfigurácia nie je možná.',
 	'stabilization-comment'       => 'Komentár:',
+	'stabilization-expiry'        => 'Vyprší:',
 	'stabilization-sel-short'     => 'Precedencia',
 	'stabilization-sel-short-0'   => 'Kvalita',
 	'stabilization-sel-short-1'   => 'žiadna',
 	'stabilization-def-short'     => 'štandard',
 	'stabilization-def-short-0'   => 'aktuálna',
 	'stabilization-def-short-1'   => 'stabilná',
+	'stabilize_expiry_invalid'    => 'Neplatný dátum vypršania.',
+	'stabilize_expiry_old'        => 'Čas vypršania už prešiel.',
+	'stabilize-expiring'          => 'vyprší $1 (UTC)',
 	'reviewedpages'               => 'Skontrolované stránky',
 	'reviewedpages-leg'           => 'Zoznam stránok skontrolovaných do určenej úrovne',
 	'reviewedpages-list'          => 'Nasledujúce stránky boli skontrolované do určenej úrovne',
@@ -153,3 +157,4 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'reviewedpages-all'           => 'skontrolované verzie',
 	'reviewedpages-best'          => 'najnovšia najvyššie hodnotená revízia',
 );
+
