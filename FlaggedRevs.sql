@@ -41,6 +41,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
   fpc_select int(10) NOT NULL,
   -- Override the page?
   fpc_override bool NOT NULL,
+  -- Field for time-limited settings
+  fpc_expiry varbinary(14) NULL,
   
   PRIMARY KEY (fpc_page_id)
 ) TYPE=InnoDB;

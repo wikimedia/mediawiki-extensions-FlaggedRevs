@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // English (Aaron Schulz)
 $messages = array( 
 	'editor'              => 'Editor',
@@ -151,7 +151,8 @@ $messages = array(
 	'stabilization-submit'     => 'Confirm',
 	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]". No configuration is possible.',
 	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed. No configuration is possible.',
-	'stabilization-comment'     => 'Comment:',
+	'stabilization-comment'    => 'Comment:',
+	'stabilization-expiry'     => 'Expires:',
 	
 	'stabilization-sel-short'   => 'Precedence',
 	'stabilization-sel-short-0' => 'Quality',
@@ -159,6 +160,11 @@ $messages = array(
 	'stabilization-def-short'   => 'Default',
 	'stabilization-def-short-0' => 'Current',
 	'stabilization-def-short-1' => 'Stable',
+	
+	'stabilize_expiry_invalid'  => 'Invalid expiration date.',
+	'stabilize_expiry_old'      => 'This expiration time has already passed.',
+	
+	'stabilize-expiring'        => 'expires $1 (UTC)',
 	
 	'reviewedpages'             => 'Reviewed pages',
 	'reviewedpages-leg'         => 'List pages reviewed to a certain level',

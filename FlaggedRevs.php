@@ -251,6 +251,21 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
+
+function efFlaggedRevsSchemaUpdates() {
+	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields;
+	
+	$base = dirname(__FILE__);
+	if( $wgDBtype == 'mysql' ) {
+		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
+	} else if( $wgDBtype == 'postgres' ) {
+		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
+	}
+	
+	return true;
+}
+
 class FlaggedRevs {
 	public static $dimensions = array();
 
@@ -375,6 +390,16 @@ class FlaggedRevs {
 			$text = gzinflate( $text );
 		}
 		return $text;
+	}
+	
+	/**
+	 * Purge expired restrictions from the flaggedpage_config table
+	 */
+	public static function purgeExpiredConfigurations() {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpage_config',
+			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
+			__METHOD__ );
 	}
 
 	/**
@@ -503,15 +528,28 @@ class FlaggedRevs {
 	public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
-			array( 'fpc_select', 'fpc_override' ),
+			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $title->getArticleID() ),
 			__METHOD__ );
+		
+		if( $row ) {
+			$now = wfTimestampNow();
+			# This code should be refactored, now that it's being used more generally.
+			$expiry = Block::decodeExpiry( $row->fpc_expiry );
+			# Only apply the settigns if they haven't expired
+			if( !$expiry || $expiry > $now ) {
+				$row = null;
+				self::purgeExpiredConfigurations();
+			}
+		}
+		
 		if( !$row ) {
 			global $wgFlaggedRevsOverride;
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
 			return array('select' => 0, 'override' => $override);
 		}
+		
 		return array('select' => $row->fpc_select, 'override' => $row->fpc_override);
 	}
 
