@@ -1,7 +1,6 @@
 <?php
-/** Persian (فارسی)
+/** فارسی (فارسی)
  * @author Huji
- * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'ویرایشگر',
@@ -103,6 +102,7 @@ $messages = array(
 یک تصویر یا الگو درخواست شده بدون ان که نسخه خاصی تعیین شده باشد. این اتفاق می‌تواند زمانی رخ دهد که یک الگوی پویا یک الگو یا تصویر دیگر را شامل شود که به متغیری بستگی دارد که از زمانی که شما صفحه را تغییر داده‌اید تغییر کرده‌است.
 بارگذاری دوباره صحفه و بررسی دوباره می‌تواند مشکل را برطرف کند.",
 	'stableversions'              => 'نسخه‌های پایدار',
+	'stableversions-title'        => 'نسخهٔ پایدار «$1»',
 	'stableversions-leg1'         => 'فهرست کردن نسخه‌های بررسی شده یک صفحه',
 	'stableversions-page'         => 'نام صفحه:',
 	'stableversions-none'         => '"[[:$1]]" هیچ نسخه بررسی‌ شده‌ای ندارد.',
@@ -133,12 +133,16 @@ $messages = array(
 	'stabilization-notexists'     => 'صفحه‌ای با عنوان «[[:$1|$1]]» وجود ندارد. تنظیمات ممکن نیست.',
 	'stabilization-notcontent'    => 'صفحه «[[:$1|$1]]» قابل بررسی نیست. تنظیمات ممکن نیست.',
 	'stabilization-comment'       => 'توضیح:',
+	'stabilization-expiry'        => 'انقضا:',
 	'stabilization-sel-short'     => 'تقدم',
 	'stabilization-sel-short-0'   => 'با کیفیت',
 	'stabilization-sel-short-1'   => 'هیچ',
 	'stabilization-def-short'     => 'پیش‌فرض',
 	'stabilization-def-short-0'   => 'فعلی',
 	'stabilization-def-short-1'   => 'پایدار',
+	'stabilize_expiry_invalid'    => 'تاریخ انقضای غیرمجاز',
+	'stabilize_expiry_old'        => 'این تاریخ انقضا همینک سپری شده‌است.',
+	'stabilize-expiring'          => 'در $1 (UTC) منقضی می‌شود.',
 	'reviewedpages'               => 'صفحه‌های بررسی شده',
 	'reviewedpages-leg'           => 'نمایش صفحه‌هایی که تا حد خاصی بررسی شده‌اند',
 	'reviewedpages-list'          => 'صفحه‌های زیر تا حد تعیین شده مورد بررسی قرار گرفته‌اند',
@@ -148,4 +152,5 @@ $messages = array(
 	'reviewedpages-lev-2'         => 'برگزیده',
 	'reviewedpages-all'           => 'نسخه‌های بررسی شده',
 	'reviewedpages-best'          => 'آخرین نسخه با بالاترین نمره',
+
 );
