@@ -1010,39 +1010,56 @@ class Stabilization extends UnlistedSpecialPage
 				return;
 			}
 		}
-
+		
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
+		
+		$isValid = true;
 		# Our target page
 		$this->target = $wgRequest->getText( 'page' );
 		$this->page = Title::newFromUrl( $this->target );
-		# Watch checkbox
-		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
-		# Params
-		$this->select = $wgRequest->getInt( 'stable-select' );
-		$this->override = intval( $wgRequest->getBool( 'page-override' ) );
-		$this->comment = $wgRequest->getVal( 'wpReason' );
-		$this->expiry = $wgRequest->getVal( 'expiry' );
-		if( strlen( $this->expiry ) == 0 ) {
-			$this->expiry = 'infinite';
+		# We need a page...
+		if( is_null($this->page) ) {
+			$isValid = false;
+		} else if( !$this->page->exists() ) {
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'), $this->page->getPrefixedText() ) );
+			$isValid = false;
+		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'), $this->page->getPrefixedText() ) );
+			$isValid = false;
 		}
 		
-		$isValid = true;
-		# Only 0 or 1
-		if( $this->select && ($this->select !==0 && $this->select !==1) ) {
-			$isValid = false;
+		# Watch checkbox
+		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
+		# Reason
+		$this->comment = $wgRequest->getVal( 'wpReason' );
+		# Get visiblity settings...
+		$config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
+		$this->select = $config['select'];
+		$this->override = $config['override'];
+		$this->expiry = wfTimestamp( TS_RFC2822, $config['expiry'] );
+		
+		if( $wgRequest->wasPosted() ) {
+			$this->select = $wgRequest->getInt( 'mwStableconfig-select' );
+			$this->override = intval( $wgRequest->getBool( 'mwStableconfig-override' ) );
+			$this->expiry = $wgRequest->getText( 'mwStableconfig-expiry' );
+			if( strlen( $this->expiry ) == 0 ) {
+				$this->expiry = 'infinite';
+			}
+			# Only 0 or 1
+			if( $this->select && ($this->select !==0 && $this->select !==1) ) {
+				$isValid = false;
+			}
 		}
 		
 		# We need a page...
 		if( is_null($this->page) ) {
 			$isValid = false;
 		} else if( !$this->page->exists() ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
-				$this->page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'), $this->page->getPrefixedText() ) );
 			$isValid = false;
 		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
-				$this->page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'), $this->page->getPrefixedText() ) );
 			$isValid = false;
 		}
 		
@@ -1090,11 +1107,6 @@ class Stabilization extends UnlistedSpecialPage
 			$wgOut->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
 		
-		// Get visiblity settings...
-		$config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
-		$selectSetting = $this->select ? $this->select : $config['select'];
-		$overrideSetting = $this->override ? $this->override : $config['override'];
-		
 		if( !$this->isAllowed ) {
 			$form = wfMsgExt( 'stabilization-perm', array('parse'), $this->page->getPrefixedText() );
 			$off = array('disabled' => 'disabled');
@@ -1108,19 +1120,19 @@ class Stabilization extends UnlistedSpecialPage
 		
 		$form .= "<fieldset><legend>".wfMsg('stabilization-def')."</legend>";
 		$form .= "<table><tr>";
-		$form .= "<td>".Xml::radio( 'page-override', 1, (1==$overrideSetting), array('id' => 'default-stable')+$off)."</td>";
+		$form .= "<td>".Xml::radio( 'mwStableconfig-override', 1, (1==$this->override), array('id' => 'default-stable')+$off)."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-def1'), 'default-stable' )."</td>";
 		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'page-override', 0, (0==$overrideSetting), array('id' => 'default-current')+$off)."</td>";
+		$form .= "<td>".Xml::radio( 'mwStableconfig-override', 0, (0==$this->override), array('id' => 'default-current')+$off)."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-def2'), 'default-current' )."</td>";
 		$form .= "</tr></table></fieldset>";
 		
 		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
 		$form .= "<table><tr>";
-		$form .= "<td>".Xml::radio( 'stable-select', 0, (0==$selectSetting), array('id' => 'stable-select1')+$off )."</td>";
+		$form .= "<td>".Xml::radio( 'mwStableconfig-select', 0, (0==$this->select), array('id' => 'stable-select1')+$off )."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'stable-select1' )."</td>";
 		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'stable-select', 1, (1==$selectSetting), array('id' => 'stable-select2')+$off )."</td>";
+		$form .= "<td>".Xml::radio( 'mwStableconfig-select', 1, (1==$this->select), array('id' => 'stable-select2')+$off )."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'stable-select2' )."</td>";
 		$form .= "</tr></table></fieldset>";
 		
@@ -1131,7 +1143,7 @@ class Stabilization extends UnlistedSpecialPage
 		}
 		$form .= '<tr>';
 		$form .= '<td><label for="expires">' . wfMsgExt( 'stabilization-expiry', array( 'parseinline' ) ) . '</label></td>';
-		$form .= '<td>' . Xml::input( 'expiry', 60, $this->expiry, array('id' => 'expires')+$off ) . '</td>';
+		$form .= '<td>' . Xml::input( 'mwStableconfig-expiry', 60, $this->expiry, array('id' => 'expires')+$off ) . '</td>';
 		$form .= '</tr>';
 		$form .= '</table>';
 		
@@ -1164,10 +1176,9 @@ class Stabilization extends UnlistedSpecialPage
 	function submit() {
 		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevsOverride;
 		
+		$changed = $reset = false;
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
-		
-		$changed = $reset = false;
 		
 		if( $this->expiry == 'infinite' || $this->expiry == 'indefinite' ) {
 			$expiry = Block::infinity();
@@ -1186,7 +1197,6 @@ class Stabilization extends UnlistedSpecialPage
 				$this->showSettings( wfMsg( 'stabilize_expiry_old' ) );
 				return false;
 			}
-
 		}
 		
 		$dbw = wfGetDB( DB_MASTER );
@@ -1205,14 +1215,14 @@ class Stabilization extends UnlistedSpecialPage
 		# Otherwise, add a row unless we are just setting it as the site default
 		# or it is the same the current one
 		} else if( $this->select !=0 || $this->override !=$wgFlaggedRevsOverride ) {
-			if( $row->fpc_select != $this->select || $row->fpc_override != $this->override || $row->fpc_expiry != $expiry ) {
+			if( $row->fpc_select != $this->select || $row->fpc_override != $this->override || $row->fpc_expiry !== $expiry ) {
 				$changed = true;
 				$dbw->replace( 'flaggedpage_config',
-					array( 'fpc_page_id' ),
+					array( 'PRIMARY' ),
 					array( 'fpc_page_id' => $this->page->getArticleID(),
-						'fpc_select' => $this->select,
+						'fpc_select'   => $this->select,
 						'fpc_override' => $this->override,
-						'fpc_expiry' => $expiry ),
+						'fpc_expiry'   => $expiry ),
 					__METHOD__ );
 			}
 		}

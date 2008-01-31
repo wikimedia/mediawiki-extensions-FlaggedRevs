@@ -537,7 +537,7 @@ class FlaggedRevs {
 			# This code should be refactored, now that it's being used more generally.
 			$expiry = Block::decodeExpiry( $row->fpc_expiry );
 			# Only apply the settigns if they haven't expired
-			if( !$expiry || $expiry > $now ) {
+			if( !$expiry || $expiry < $now ) {
 				$row = null;
 				self::purgeExpiredConfigurations();
 			}
