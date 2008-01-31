@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // English (Aaron Schulz)
 $messages = array( 
 	'editor'              => 'Editor',
