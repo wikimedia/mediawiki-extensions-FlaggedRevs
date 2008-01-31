@@ -18,9 +18,10 @@ CREATE TABLE flaggedrevs (
 CREATE INDEX fr_namespace_title ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 
 CREATE TABLE flaggedpage_config (
-  fpc_page_id   INTEGER NOT NULL PRIMARY KEY DEFAULT 0,
-  fpc_select    INTEGER NOT NULL DEFAULT 0,
-  fpc_override  INTEGER NOT NULL
+  fpc_page_id   INTEGER     NOT NULL PRIMARY KEY DEFAULT 0,
+  fpc_select    INTEGER     NOT NULL DEFAULT 0,
+  fpc_override  INTEGER     NOT NULL,
+  fpc_expiry    TIMESTAMPTZ  NULL,
 )
 
 CREATE TABLE flaggedtemplates (
