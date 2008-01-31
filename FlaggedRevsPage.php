@@ -540,7 +540,7 @@ class Stableversions extends UnlistedSpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser;
+        global $wgRequest, $wgUser, $wgOut;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
@@ -552,7 +552,7 @@ class Stableversions extends UnlistedSpecialPage
 		$this->oldid = ($this->oldid=='best') ? 'best' : intval($this->oldid);
 		# We need a page...
 		if( is_null($this->page) ) {
-			$this->showForm();
+			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
 		
@@ -561,25 +561,6 @@ class Stableversions extends UnlistedSpecialPage
 		} else {
 			$this->showStableList();
 		}
-	}
-	
-	function showForm() {
-		global $wgOut, $wgTitle, $wgScript;
-	
-		$pageName = str_replace( '_', ' ', $this->target );
-		
-		$form = Xml::openElement( 'form',
-			array( 'name' => 'stableversions', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>".wfMsg('stableversions-leg1')."</legend>\n";
-		$form .= "<table><tr>\n";
-		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>\n";
-		$form .= "<td>".wfMsgHtml("stableversions-page")."</td>\n";
-		$form .= "<td>".Xml::input('page', 35, $pageName, array( 'id' => 'page' ) )."</td>\n";
-		$form .= "<td>".Xml::submitButton( wfMsg( 'go' ) )."</td>\n";
-		$form .= "</tr></table>";
-		$form .= "</fieldset></form>\n";
-		
-		$wgOut->addHTML( $form );
 	}
 	
 	function showStableList() {
@@ -1020,13 +1001,14 @@ class Stabilization extends UnlistedSpecialPage
 		$this->page = Title::newFromUrl( $this->target );
 		# We need a page...
 		if( is_null($this->page) ) {
-			$isValid = false;
+			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
+			return;
 		} else if( !$this->page->exists() ) {
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'), $this->page->getPrefixedText() ) );
-			$isValid = false;
+			return;
 		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'), $this->page->getPrefixedText() ) );
-			$isValid = false;
+			return;
 		}
 		
 		# Watch checkbox
@@ -1051,48 +1033,15 @@ class Stabilization extends UnlistedSpecialPage
 			}
 		}
 		
-		# We need a page...
-		if( is_null($this->page) ) {
-			$isValid = false;
-		} else if( !$this->page->exists() ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'), $this->page->getPrefixedText() ) );
-			$isValid = false;
-		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'), $this->page->getPrefixedText() ) );
-			$isValid = false;
-		}
-		
-		if( !$isValid ) {
-			$this->showForm();
-			return;
-		}
-		
-		if( $confirm ) {
+		if( $isValid && $confirm ) {
 			$this->submit();
 		} else {
 			$this->showSettings();
 		}
 	}
 	
-	function showForm() {
-		global $wgOut, $wgTitle, $wgScript;
-	
-		$pageName = str_replace( '_', ' ', $this->target );
-		$form = Xml::openElement( 'form', array( 'name' => 'stablization', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>".wfMsg('stabilization-leg')."</legend>";
-		$form .= "<table><tr>";
-		$form .= "<td>".Xml::hidden( 'title', $wgTitle->getPrefixedText() )."</td>";
-		$form .= "<td>".wfMsgHtml("stabilization-page")."</td>";
-		$form .= "<td>".Xml::input('page', 40, $pageName, array( 'id' => 'page' ) )."</td>";
-		$form .= "<td>".Xml::submitButton( wfMsg( 'go' ) )."</td>";
-		$form .= "</tr></table>";
-		$form .= "</fieldset></form>\n";
-		
-		$wgOut->addHTML( $form );
-	}
-	
 	function showSettings( $err = null ) {
-		global $wgOut, $wgScript, $wgTitle, $wgUser;
+		global $wgOut, $wgTitle, $wgUser;
 		
 		$wgOut->setRobotpolicy( 'noindex,nofollow' );
 		// Must be a content page
@@ -1114,8 +1063,8 @@ class Stabilization extends UnlistedSpecialPage
 			$off = array();
 		}
 		
-		$form .= Xml::openElement( 'form',
-			array( 'name' => 'stabilization', 'action' => $wgScript, 'method' => 'post' ) );
+		$special = SpecialPage::getTitleFor( 'Stabilization' );
+		$form .= Xml::openElement( 'form', array( 'name' => 'stabilization', 'action' => $special->getLocalUrl( ), 'method' => 'post' ) );
 		
 		$form .= "<fieldset><legend>".wfMsg('stabilization-def')."</legend>";
 		$form .= "<table><tr>";
@@ -1154,8 +1103,8 @@ class Stabilization extends UnlistedSpecialPage
 			$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
 			$form .= "&nbsp;<label for='wpWatchthis'".$this->skin->tooltipAndAccesskey('watch').">{$watchLabel}</label></p>";
 			
-			$form .= Xml::hidden('title', $wgTitle->getPrefixedText() );
-			$form .= Xml::hidden('page', $this->page->getPrefixedText() );
+			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
+			$form .= Xml::hidden( 'page', $this->page->getPrefixedText() );
 			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 		
 			$form .= '<p>'.Xml::submitButton( wfMsg( 'stabilization-submit' ) ).'</p>';
