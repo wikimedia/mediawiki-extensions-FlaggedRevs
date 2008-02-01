@@ -21,6 +21,7 @@ $messages = array(
 	'revreview-oldrating'         => 'পূর্বে মূল্যায়ন ছিল:',
 	'stabilization-tab'           => '(qa)',
 	'tooltip-ca-default'          => 'গুণাগুল নিশ্চিতকরণ সেটিংস',
+	'validationpage'              => '{ns:help}}:নিবন্ধ বৈধকরণ',
 	'revreview-quick-none'        => "'''বর্তমান''' (কোন সংশোধিত সংস্করণ নাই)",
 	'revreview-quick-see-quality' => "'''খসড়া''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সুস্থিত নিবন্ধ দেখুন]]  
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|পরিবর্তন|পরিবর্তনসমূহ}}])",
@@ -33,8 +34,8 @@ $messages = array(
 	'revreview-newest-basic'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতি দেখা সংস্করণ]  
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} সমস্ত তালিকা])  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে
 <i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{plural:$3|প্রয়োজন|প্রয়োজন}}।',
-	'revreview-toggle'            => '(+/-)',
 	'revreview-auto'              => '(সয়ংক্রিয়)',
+	'stable-logpage'              => 'সুদৃঢ় সংস্করণ লগ',
 	'revreview-accuracy'          => 'প্রাসঙ্গিকতা',
 	'revreview-accuracy-0'        => 'অননুমদিত',
 	'revreview-accuracy-2'        => 'হুবুহু',
@@ -47,6 +48,8 @@ $messages = array(
 	'revreview-style-1'           => 'গ্রহণযোগ্য',
 	'revreview-style-2'           => 'ভাল',
 	'revreview-log'               => 'মন্তব্য:',
+	'stableversions'              => 'সুদৃঢ় সংস্করণসমূহ',
+	'stableversions-title'        => '"$1" এর সুদৃঢ় সংস্করণসমূহ',
 	'stableversions-page'         => 'পাতার নাম:',
 	'unreviewed-category'         => 'বিষয়শ্রেণী:',
 	'unreviewed-diff'             => 'পরিবর্তনসমূহ',

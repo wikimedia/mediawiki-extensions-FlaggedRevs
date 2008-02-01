@@ -128,12 +128,16 @@ $messages = array(
 	'stabilization-notexists'     => 'Отсутствует страница с названием «[[:$1|$1]]». Настройка невозможна.',
 	'stabilization-notcontent'    => 'Страница «[[:$1|$1]]» не может быть отрецензирована. Настройка невозможна.',
 	'stabilization-comment'       => 'Примечание:',
+	'stabilization-expiry'        => 'Истекает:',
 	'stabilization-sel-short'     => 'Порядок следования',
 	'stabilization-sel-short-0'   => 'Выверенная',
 	'stabilization-sel-short-1'   => 'Нет',
 	'stabilization-def-short'     => 'По умолчанию',
 	'stabilization-def-short-0'   => 'Текущая',
 	'stabilization-def-short-1'   => 'Чистовая',
+	'stabilize_expiry_invalid'    => 'Ошибочная дата истечения.',
+	'stabilize_expiry_old'        => 'Указанное время окончания действия уже прошло.',
+	'stabilize-expiring'          => 'истекает $1 (UTC)',
 	'reviewedpages'               => 'Отрецензированые страницы',
 	'reviewedpages-leg'           => 'Список страниц, получивших определённую оценку',
 	'reviewedpages-list'          => 'Следующие страницы были отрецензированы и оценены на указанный уровень',
@@ -144,3 +148,4 @@ $messages = array(
 	'reviewedpages-all'           => 'отрецензированные версии',
 	'reviewedpages-best'          => 'последняя версия с наивысшей оценкой',
 );
+
