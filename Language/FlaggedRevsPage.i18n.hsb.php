@@ -130,12 +130,16 @@ $messages = array(
 	'stabilization-notexists'     => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
 	'stabilization-notcontent'    => 'Strona "[[:$1|$1]]" njeda so pruwować. Žana konfiguracija móžno.',
 	'stabilization-comment'       => 'Komentar:',
+	'stabilization-expiry'        => 'Spadnje:',
 	'stabilization-sel-short'     => 'Priorita',
 	'stabilization-sel-short-0'   => 'Kwalita',
 	'stabilization-sel-short-1'   => 'Žana',
 	'stabilization-def-short'     => 'Standard',
 	'stabilization-def-short-0'   => 'Aktualny',
 	'stabilization-def-short-1'   => 'Stabilny',
+	'stabilize_expiry_invalid'    => 'Njepłaćiwy datum spadnjenja.',
+	'stabilize_expiry_old'        => 'Tutón čas spadnjenja je hižo zańdźeny.',
+	'stabilize-expiring'          => 'spadnje $1 hodź. (UTC)',
 	'reviewedpages'               => 'Pruwowane strony',
 	'reviewedpages-leg'           => 'Lisćinowe strony na wěstu runinu přepruwowane',
 	'reviewedpages-list'          => 'Slědowace strony buchu za podatu runinu přepruwowane',
@@ -146,3 +150,4 @@ $messages = array(
 	'reviewedpages-all'           => 'přepruwowane wersije',
 	'reviewedpages-best'          => 'poslednja najwyše pohódnoćena wersija',
 );
+

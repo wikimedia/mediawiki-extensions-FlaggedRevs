@@ -59,8 +59,8 @@ Megtekintheted a lap előnézetét mentés előtt.",
 	'revreview-auto-w-old'        => "Jelenleg egy korábbi változatot szerkesztesz, bármilyen változás '''automatikusan ellenőrizve lesz'''.
 Megtekintheted a lap előnézetét mentés előtt.",
 	'revreview-patrolled'         => '[[:$1|$1]] kiválasztott változata ellenőrzöttnek lett jelölve.',
-	'hist-stable'                 => '[áttekintve]',
-	'hist-quality'                => '[minőségi]',
+	'hist-stable'                 => '[áttekintett változat]',
+	'hist-quality'                => '[minőségi változat]',
 	'flaggedrevs'                 => 'Ellenőrzött változatok',
 	'review-logpage'              => 'Cikk-áttekintési napló',
 	'review-logpagetext'          => 'Ez a lap a lapok verzióinak [[{{MediaWiki:Validationpage}}|elfogadottsági]] állapotában történt változások
@@ -141,12 +141,16 @@ mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés
 	'stabilization-notexists'     => 'Nincs „[[:$1|$1]]” nevű lap, így nem lehet beállítani.',
 	'stabilization-notcontent'    => '„[[:$1|$1]]” nem ellenőrizhető, így nem is lehet beállítani.',
 	'stabilization-comment'       => 'Megjegyzés:',
+	'stabilization-expiry'        => 'Lejárat:',
 	'stabilization-sel-short'     => 'Precendencia',
 	'stabilization-sel-short-0'   => 'Minőség',
 	'stabilization-sel-short-1'   => 'Semmi',
 	'stabilization-def-short'     => 'Alapértelmezett',
 	'stabilization-def-short-0'   => 'Jelenlegi',
 	'stabilization-def-short-1'   => 'Elfogadott',
+	'stabilize_expiry_invalid'    => 'Hibás lejárati dátum.',
+	'stabilize_expiry_old'        => 'A lejárati idő már elmúlt.',
+	'stabilize-expiring'          => 'lejár $1-kor (UTC)',
 	'reviewedpages'               => 'Ellenőrzött lapok',
 	'reviewedpages-leg'           => 'Valamilyen szinten ellenőrzött lapok',
 	'reviewedpages-list'          => 'Az alábbi lapok egy adott szinten ellenőrizve vannak',
@@ -157,3 +161,4 @@ mióta elkezdted ellenőrizni a lapot. Az oldal frissítése és az ellenőrzés
 	'reviewedpages-all'           => 'Ellenőrzött változatok',
 	'reviewedpages-best'          => 'legutóbbi legjobban értékelt változat',
 );
+

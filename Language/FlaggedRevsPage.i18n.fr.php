@@ -2,8 +2,8 @@
 /** French (Français)
  * @author Sherbrooke
  * @author Dereckson
- * @author Siebrand
  * @author Grondin
+ * @author Siebrand
  * @author ChrisPtDe
  * @author SPQRobin
  */
@@ -117,12 +117,16 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
 	'stabilization-notexists'     => "Il n'y a pas de page « [[:$1|$1]] », pas de paramétrage possible",
 	'stabilization-notcontent'    => 'La page « [[:$1|$1]] » ne peut être révisée, pas de paramétrage possible',
 	'stabilization-comment'       => 'Commentaire :',
+	'stabilization-expiry'        => 'Expire :',
 	'stabilization-sel-short'     => 'Priorité',
 	'stabilization-sel-short-0'   => 'Qualité',
 	'stabilization-sel-short-1'   => 'Nulle',
 	'stabilization-def-short'     => 'Défaut',
 	'stabilization-def-short-0'   => 'Courante',
 	'stabilization-def-short-1'   => 'Stable',
+	'stabilize_expiry_invalid'    => "Date d'expiration invalide.",
+	'stabilize_expiry_old'        => "Cette durée d'expiration est déjà écoulée.",
+	'stabilize-expiring'          => 'Expire le $1 (UTC)',
 	'reviewedpages'               => 'Pages passées en revue',
 	'reviewedpages-leg'           => 'Liste des pages passées en revue à un certain niveau',
 	'reviewedpages-list'          => 'Les pages suivantes ont été passées en revue au niveau spécifié',
@@ -133,3 +137,4 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
 	'reviewedpages-all'           => 'versions passées en revue',
 	'reviewedpages-best'          => 'Dernière révision la mieux notée',
 );
+
