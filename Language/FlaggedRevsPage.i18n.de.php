@@ -160,14 +160,20 @@ $messages = array(
 	'stabilization-def2'      => 'Die aktuellste Version',
 	'stabilization-submit'    => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
-	'stabilization-notcontent'  => 'Die Seite „[[:$1|$1]]“ kann nicht geprüft werden. Konfiguration ist nicht möglich.',
-	'stabilization-comment'     => 'Kommentar:',
+	'stabilization-notcontent' => 'Die Seite „[[:$1|$1]]“ kann nicht geprüft werden. Konfiguration ist nicht möglich.',
+	'stabilization-comment'    => 'Kommentar:',
+	'stabilization-expiry'     => 'Gültig bis:',
+
 	'stabilization-sel-short'   => 'Priorität',
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'keine',
 	'stabilization-def-short'   => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
+
+	'stabilize_expiry_invalid'  => 'Ungültiges Ablaufdatum.',
+	'stabilize_expiry_old'      => 'Das Ablaufdatum wurde überschritten.',
+	'stabilize-expiring'        => 'erlischt $1 (UTC)',
 
 	'reviewedpages'             => 'Überprüfte Seiten',
 	'reviewedpages-leg'         => 'Liste der überprüften Seiten',
