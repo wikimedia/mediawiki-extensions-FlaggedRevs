@@ -91,6 +91,9 @@ På [[Special:Unreviewedpages]] finns en lista över sidor som inte har granskat
 	'revreview-style-4'           => 'utmärkt',
 	'revreview-log'               => 'Kommentar:',
 	'revreview-submit'            => 'Spara granskning',
+	'revreview-changed'           => "'''Den efterfrågade åtgärden kunde inte utföras på denna sidversion.'''
+
+En mall eller bild har efterfrågats utan att någon specifik version angavs. Detta kan hända om en mall inkluderar en annan bild eller mall beroende på en variabel som ändrats sedan du startade att granska denna sida. Att ladda om sidan och granska igen kan lösa detta problem.",
 	'stableversions'              => 'Stabila versioner',
 	'stableversions-title'        => 'Stabila versioner av "$1"',
 	'stableversions-leg1'         => 'Lista granskade versioner av en sida',
