@@ -29,7 +29,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_flags tinyblob NOT NULL,
   
   PRIMARY KEY (fr_page_id,fr_rev_id),
-  INDEX namespace_title_qal_rev (fr_page_id,fr_quality,fr_rev_id)
+  INDEX page_qal_rev (fr_page_id,fr_quality,fr_rev_id)
 ) TYPE=InnoDB;
 
 -- This stores settings on how to select the default revision
