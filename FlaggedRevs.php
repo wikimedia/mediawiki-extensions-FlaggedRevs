@@ -193,7 +193,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
 	# Set image version
-	$wgHooks['ArticleFromTitle'][] = array( 'FlaggedRevs::setImageVersion' );
+	$wgHooks['ArticleFromTitle'][] = 'FlaggedRevs::setImageVersion';
 	# Add page notice
 	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'addSimpleTag' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
