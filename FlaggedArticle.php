@@ -181,7 +181,7 @@ class FlaggedArticle {
 				if( $parserOut==false ) {
 					global $wgUseStableTemplates;
 					if( $wgUseStableTemplates ) {
-						$rev = Revision::newFromId( $tfrev->fr_rev_id );
+						$rev = Revision::newFromId( $tfrev->getRevId() );
 						$text = $rev->getText();
 					} else {
 						$text = $tfrev->getText();
@@ -552,8 +552,7 @@ class FlaggedArticle {
 	 * @param bool $top, should this form always go on top?
 	 */
     function addQuickReview( $id, $out, $top=false ) {
-		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, 
-			$wgFlaggedRevsOverride, $wgFlaggedRevsWatch;
+		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) 
 			return;
@@ -582,7 +581,7 @@ class FlaggedArticle {
 		$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
 		$action = $reviewtitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
-		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag' ) . "</legend>\n";
 		
 		if( $wgFlaggedRevsOverride )
 			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
@@ -638,6 +637,12 @@ class FlaggedArticle {
         		$imageParams .= $dbkey . "|" . $time . "|" . $sha1 . "#";
         	}
         }
+		# For image pages, note the current image version
+		if( $wgTitle->getNamespace() == NS_IMAGE ) {
+			$file = wfFindFile( $wgTitle );
+			$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+		}
+		
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
 		
 		$form .= "<p>".Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 50 )."\n";

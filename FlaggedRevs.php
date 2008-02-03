@@ -76,6 +76,10 @@ $wgUseStableTemplates = false;
 # current (unreviewed) revision.
 $wgUseCurrentTemplates = true;
 
+# Similar to above...
+$wgUseStableImages = false;
+$wgUseCurrentImages = true;
+
 # When setting up new dimensions or levels, you will need to add some
 # MediaWiki messages for the UI to show properly; any sysop can do this.
 # Define the tags we can use to rate an article, and set the minimum level
@@ -193,6 +197,9 @@ function efLoadFlaggedRevs() {
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	# Set image version
+	$wgHooks['ArticleFromTitle'][] = array( 'FlaggedRevs::setImageVersion' );
+	# Add page notice
 	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'addSimpleTag' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
@@ -1104,19 +1111,18 @@ class FlaggedRevs {
 		# Only called to make fr_text, right after template/image specifiers
 		# are added to the DB. Slaves may not have it yet...
 		$dbw = wfGetDB( DB_MASTER );
-		$id = null;
 		# Check for stable version of template if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		global $wgUseStableTemplates, $wgFlaggedRevsNamespaces;
-		if( $wgUseStableTemplates && in_array($title->getNamespace(), $wgFlaggedRevsNamespaces) ) {
+		if( $wgUseStableTemplates && in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) ) {
 			$id = $dbw->selectField( 'page', 'page_ext_stable',
-			array( 'page_namespace' => $title->getNamespace(),
-				'page_title' => $title->getDBkey() ),
-			__METHOD__ );
+				array( 'page_namespace' => $title->getNamespace(),
+					'page_title' => $title->getDBkey() ),
+				__METHOD__ );
 		}
-		// If there is not stable version (or that feature is not enabled), use
-		// the template revision during review time.
+		# If there is no stable version (or that feature is not enabled), use
+		# the template revision during review time.
 		if( !$id ) {
 			$id = $dbw->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->mRevisionId,
@@ -1128,11 +1134,14 @@ class FlaggedRevs {
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
 
-			if( $id === false )
+			if( $id === false ) {
 				$parser->fr_includesMatched = false; // May want to give an error
-			if( !$wgUseCurrentTemplates )
-				$id = 0; // Zero for not found
-			$skip = true;
+				if( !$wgUseCurrentTemplates ) {
+					$skip = true;
+				}
+			} else {
+				$skip = true;
+			}
 		}
 		return true;
 	}
@@ -1147,16 +1156,41 @@ class FlaggedRevs {
 		# Only called to make fr_text, right after template/image specifiers
 		# are added to the DB. Slaves may not have it yet...
 		$dbw = wfGetDB( DB_MASTER );
-	   	$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
-			array('fi_rev_id' => $parser->mRevisionId,
-				'fi_name' => $nt->getDBkey() ),
-			__METHOD__ );
+		# Check for stable version of image if this feature is enabled.
+		# Should be in reviewable namespace, this saves unneeded DB checks as
+		# well as enforce site settings if they are later changed.
+		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
+		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
+			$id = $dbw->selectField( 'page', 'page_ext_stable',
+				array( 'page_namespace' => $nt->getNamespace(),
+					'page_title' => $nt->getDBkey() ),
+				__METHOD__ );
+			
+			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
+				array('fi_rev_id' => $id,
+					'fi_name' => $nt->getDBkey() ),
+				__METHOD__ );
+		}
+		# If there is no stable version (or that feature is not enabled), use
+		# the image revision during review time.
+		if( !$time ) {
+			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
+				array('fi_rev_id' => $parser->mRevisionId,
+					'fi_name' => $nt->getDBkey() ),
+				__METHOD__ );
+		}
 		
 		if( !$time ) {
-			if( $time === false )
+			global $wgUseCurrentImages;
+		
+			if( $time === false ) {
 				$parser->fr_includesMatched = false; // May want to give an error
-			$time = 0; // Zero for not found
-			$skip = true;
+				if( !$wgUseCurrentImages ) {
+					$skip = true;
+				}
+			} else {
+				$skip = true;
+			}
 		}
 		return true;
 	}
@@ -1169,12 +1203,34 @@ class FlaggedRevs {
 		if( !isset($ig->fr_isStable) || !$ig->fr_isStable )
 			return true;
 		# Slaves may not have it yet...
-		$dbr = wfGetDB( DB_MASTER );
-		$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
-			array('fi_rev_id' => $ig->mRevisionId,
-				'fi_name' => $nt->getDBkey() ),
-			__METHOD__ );
-		$time = $time ? $time : -1; // hack, will never find this
+		$dbw = wfGetDB( DB_MASTER );
+		# Check for stable version of image if this feature is enabled.
+		# Should be in reviewable namespace, this saves unneeded DB checks as
+		# well as enforce site settings if they are later changed.
+		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
+		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
+			$id = $dbw->selectField( 'page', 'page_ext_stable',
+				array( 'page_namespace' => $nt->getNamespace(),
+					'page_title' => $nt->getDBkey() ),
+				__METHOD__ );
+			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
+				array('fi_rev_id' => $id,
+					'fi_name' => $nt->getDBkey() ),
+				__METHOD__ );
+		}
+		# If there is no stable version (or that feature is not enabled), use
+		# the image revision during review time.
+		if( !$time ) {
+			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
+				array('fi_rev_id' => $ig->mRevisionId,
+					'fi_name' => $nt->getDBkey() ),
+				__METHOD__ );
+		}
+		if( !$time ) {
+			global $wgUseCurrentImages;
+			
+			$time = !$wgUseCurrentImages ? -1 : $time; // hack, will never find this
+		}
 		
 		return true;
 	}
@@ -1188,6 +1244,34 @@ class FlaggedRevs {
 			return true;
 		
 		$ig->fr_isStable = true;
+		
+		return true;
+	}
+	
+	/** 
+	* Set the image revision to display
+	*/
+	function setImageVersion( $title, $article ) {
+		if( NS_MEDIA == $title->getNamespace() ) {
+			// FIXME: where should this go?
+			$title = Title::makeTitle( NS_IMAGE, $title->getDBkey() );
+		}
+	
+		if( $title->getNamespace() == NS_IMAGE && self::isPageReviewable( $title ) ) {
+			global $wgFlaggedArticle;
+			
+			if( $wgFlaggedArticle->pageOverride() ) {
+				$frev = $wgFlaggedArticle->getStableRev();
+				
+				$dbr = wfGetDB( DB_SLAVE );
+				$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
+					array('fi_rev_id' => $frev->getRevId(),
+						'fi_name' => $title->getDBkey() ),
+					__METHOD__ );
+				# NOTE: if not found, this will use the current
+				$article = new ImagePage( $title, $time );
+			}
+		}
 		
 		return true;
 	}
