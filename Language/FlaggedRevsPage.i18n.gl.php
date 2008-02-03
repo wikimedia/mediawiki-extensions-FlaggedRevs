@@ -72,7 +72,7 @@ modelos
 	Vexa a [[Special:Unreviewedpages]] para a listaxe de páxinas sen revisar.',
 	'revreview-selected'          => "Seleccionada a revisión de '''$1:'''",
 	'revreview-text'              => 'As versións estábeis son o contido predefinido ao ver unha páxina en vez da revisión máis recente.',
-	'revreview-flag'              => 'Examinada esta revisión (#$1)',
+	'revreview-flag'              => 'Examinada esta revisión',
 	'revreview-legend'            => 'Valorar o contido da revisión',
 	'revreview-notes'             => 'Observacións ou notas para amosar:',
 	'revreview-accuracy'          => 'Exactitude',
@@ -139,3 +139,4 @@ modelos
 	'reviewedpages-lev-1'         => 'Calidade',
 	'reviewedpages-all'           => 'Versións revisadas',
 );
+

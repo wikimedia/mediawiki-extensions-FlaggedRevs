@@ -76,7 +76,7 @@ $messages = array(
 	'revreview-text'              => "Për sòlit pitòst che nen j'ùltime, as ësmon-o për contnù le version stàbij.",
 	'revreview-toolow'            => 'A venta ch\'a buta tuti j\'atribut ambelessì sota almanch pì àot che "pa aprovà" përché
 	na version ës conta da revisionà. Për dëspresié na version ch\'a-i buta tuti ij camp a "pa aprovà".',
-	'revreview-flag'              => 'Revisioné sta version (#$1):',
+	'revreview-flag'              => 'Revisioné sta version',
 	'revreview-legend'            => "Deje 'l vot al contnù dla version:",
 	'revreview-notes'             => 'Osservation ò nòte da smon-e:',
 	'revreview-accuracy'          => 'Cura',
@@ -139,3 +139,4 @@ $messages = array(
 	'stabilization-def-short-0'   => 'version corenta',
 	'stabilization-def-short-1'   => 'version stàbila',
 );
+

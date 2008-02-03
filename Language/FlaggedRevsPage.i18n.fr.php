@@ -2,8 +2,8 @@
 /** French (Français)
  * @author Sherbrooke
  * @author Dereckson
- * @author Grondin
  * @author Siebrand
+ * @author Grondin
  * @author ChrisPtDe
  * @author SPQRobin
  */
@@ -61,7 +61,7 @@ $messages = array(
 	'revreview-selected'          => "Version choisie de '''$1 :'''",
 	'revreview-text'              => 'Les versions stables sont choisies par défaut, plutôt que les dernières versions.',
 	'revreview-toolow'            => 'Pour les attributs ci-dessous, vous devez donner un pointage plus élevé que « non approuvé » pour que la version soit considérée revue. Pour déprécier une version, mettre tous les champs à « non approuvé ».',
-	'revreview-flag'              => 'Évaluer cette version (#$1)',
+	'revreview-flag'              => 'Évaluer cette version',
 	'revreview-legend'            => 'Évaluer le contenu de la version',
 	'revreview-notes'             => 'Observations et notes à afficher :',
 	'revreview-accuracy'          => 'Précision',

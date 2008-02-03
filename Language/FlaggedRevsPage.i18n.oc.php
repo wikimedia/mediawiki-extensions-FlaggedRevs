@@ -59,7 +59,7 @@ $messages = array(
 	'revreview-selected'          => "Version causida de '''$1 :'''",
 	'revreview-text'              => 'Las versions establas son causidas per defaut, puslèu que las darrièras versions.',
 	'revreview-toolow'            => 'Pels atributs çaijós, devètz donar un puntatge mai elevat que « non aprobat » per que la version sia considerada coma revista. Per depreciar una version, metetz totes los camps a « non aprobat ».',
-	'revreview-flag'              => 'Evaluar aquesta version (#$1)',
+	'revreview-flag'              => 'Evaluar aquesta version',
 	'revreview-legend'            => 'Evaluar lo contengut de la version',
 	'revreview-notes'             => "Observacions e nòtas d'afichar :",
 	'revreview-accuracy'          => 'Precision',
@@ -128,3 +128,4 @@ $messages = array(
 	'reviewedpages-all'           => 'versions passadas en revista',
 	'reviewedpages-best'          => 'Darrièra revision mièlh notada',
 );
+

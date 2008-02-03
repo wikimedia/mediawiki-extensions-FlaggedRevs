@@ -2,6 +2,7 @@
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Editor',
@@ -60,7 +61,7 @@ Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não
 	'revreview-selected'          => "Edição selecionada de '''$1:'''",
 	'revreview-text'              => 'As edições aprovadas são exibidas por padrão no lugar de edições mais recentes.',
 	'revreview-toolow'            => 'Você precisará atribuir em cada um dos atributos valores mais altos do que "rejeitada" para que uma edição seja considerada aprovada. Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
-	'revreview-flag'              => 'Analise esta edição (#$1)',
+	'revreview-flag'              => 'Analise esta edição',
 	'revreview-legend'            => 'Avaliar conteúdo da edição',
 	'revreview-notes'             => 'Observações ou notas a serem exibidas:',
 	'revreview-accuracy'          => 'Precisão',

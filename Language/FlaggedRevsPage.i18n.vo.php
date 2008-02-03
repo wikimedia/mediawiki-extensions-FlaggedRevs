@@ -54,7 +54,7 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'revreview-auto'              => '(itjäfidik)',
 	'revreview-auto-w'            => "Anu redakol fomami fümöfik: votükams seimik '''pokrütons itjäfidiko'''. Logolös, begö! büologedi pada at büä odakipon oni.",
 	'revreview-auto-w-old'        => "Anu redakol fomami büik: votükams valik '''pokrütons itjäfidiko'''. Logolös, begö! büologedi pada at büä odakipol oni.",
-	'revreview-patrolled'         => 'Fomam at pada: [[:$1|$1]] pevälon ad papatrulön.',
+	'revreview-patrolled'         => 'Fomam at pada: [[:$1|$1]] pefümükon.',
 	'hist-stable'                 => '[fomam pelogöl]',
 	'hist-quality'                => '[kalietakrüt]',
 	'review-logpage'              => 'Lised yegedikrütamas',
@@ -71,6 +71,7 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 
 Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pekrütölas.',
 	'revreview-selected'          => "Krütam pevälöl pada: '''$1:'''",
+	'revreview-text'              => 'Fomams fümöfik - no fomams nulikün! - binons uts, kels pajonons, ven pad palogon.',
 	'revreview-flag'              => 'Krütön fomami at (#$1)',
 	'revreview-legend'            => 'Dadilädön ninädi',
 	'revreview-notes'             => 'Küpets ad pajonön:',
@@ -121,3 +122,4 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 	'reviewedpages-lev-1'         => 'Kaliet',
 	'reviewedpages-all'           => 'fomams pekrütöl',
 );
+

@@ -57,7 +57,7 @@ $messages = array(
 	'revreview-selected'          => "Vybrané verze stránky '''$1:'''",
 	'revreview-text'              => 'Stabilní verze je nastavena jako výchozí zobrazený obsah před nejnovější verzí.',
 	'revreview-toolow'            => 'Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než "neschváleno". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení "neschváleno".',
-	'revreview-flag'              => 'Posoudit tuto verzi (#$1)',
+	'revreview-flag'              => 'Posoudit tuto verzi',
 	'revreview-legend'            => 'Ohodnoťte obsah verze',
 	'revreview-notes'             => 'Poznámky k zobrazení:',
 	'revreview-accuracy'          => 'Přesnost',
@@ -126,3 +126,4 @@ $messages = array(
 	'reviewedpages-all'           => 'posouzené verze',
 	'reviewedpages-best'          => 'verze s nejvyšším ohodnocením',
 );
+

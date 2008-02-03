@@ -2,6 +2,7 @@
 /** Hungarian (Magyar)
  * @author Bdanee
  * @author KossuthRad
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Szerkesztő',
@@ -81,7 +82,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-text'              => 'Az oldalon alapértelmezettként az elfogadott változatok jelennek meg az újabbak helyett.',
 	'revreview-toolow'            => 'Ahhoz, hogy egy változat ellenőrzött legyen, minhol az „ellenőrizetlen”-től különböző 
 értéket kell megadnod. Egy változat ellenőrzésének törléséhez állíts mindent erre az értékre.',
-	'revreview-flag'              => 'Változat ellenőrzése (#$1)',
+	'revreview-flag'              => 'Változat ellenőrzése',
 	'revreview-legend'            => 'Változat tartalmának értékelése',
 	'revreview-notes'             => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-accuracy'          => 'Pontosság',

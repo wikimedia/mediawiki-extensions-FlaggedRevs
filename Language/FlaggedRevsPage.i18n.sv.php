@@ -3,6 +3,7 @@
  * @author Lejonel
  * @author Max sonnelid
  * @author SPQRobin
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Redaktör',
@@ -68,7 +69,7 @@ På [[Special:Unreviewedpages]] finns en lista över sidor som inte har granskat
 	'revreview-selected'          => "Vald version av '''$1''':",
 	'revreview-text'              => 'Den här sidan är inställd så att den stabila versionen visas som standard i stället för den senaste versionen.',
 	'revreview-toolow'            => 'Din bedömning av sidan måste vara högre än "ej godkänd" för alla egenskaper nedan för att versionen ska anses vara granskad. För att ta bort ett godkännande av en version, ange "ej godkänd" för alla egenskaper.',
-	'revreview-flag'              => 'Granska denna sidversion (#$1)',
+	'revreview-flag'              => 'Granska denna sidversion',
 	'revreview-legend'            => 'Bedöm versionens innehåll',
 	'revreview-notes'             => 'Anmärkningar eller noteringar som kommer visas:',
 	'revreview-accuracy'          => 'Riktighet',

@@ -1,6 +1,7 @@
 <?php
 /** Franco-Provençal (Arpetan)
  * @author ChrisPtDe
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Contributor',
@@ -58,7 +59,7 @@ Vêde les [[Special:Unreviewedpages|vèrsions pas rèvisâs]] por una lista de p
 	'revreview-selected'          => "Vèrsion chouèsia/cièrdua de '''$1 :'''",
 	'revreview-text'              => 'Les vèrsions stâbles sont chouèsies/cièrdues per dèfôt, pletout que les dèrriéres vèrsions.',
 	'revreview-toolow'            => 'Por los atributs ce-desot, vos dête balyér un pouentâjo ples hôt que « pas aprovâ » por que la vèrsion seye considèrâ coment revua. Por dèprèciyér una vèrsion, betâd tôs los champs a « pas aprovâ ».',
-	'revreview-flag'              => 'Èstimar ceta vèrsion (#$1)',
+	'revreview-flag'              => 'Èstimar ceta vèrsion',
 	'revreview-legend'            => 'Èstimar lo contegnu de la vèrsion',
 	'revreview-notes'             => 'Remârques et notes a afichiér :',
 	'revreview-accuracy'          => 'Prècision',

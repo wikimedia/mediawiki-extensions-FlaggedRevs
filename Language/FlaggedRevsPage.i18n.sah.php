@@ -1,6 +1,7 @@
 <?php
 /** Yakut (Саха тыла)
  * @author HalanTul
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Көннөрөөччү',
@@ -19,6 +20,7 @@ $messages = array(
 	'tooltip-ca-stable'           => 'Бу сирэй чистовигын көрүү',
 	'revreview-oldrating'         => 'Сыаналаммыт:',
 	'revreview-noflagged'         => "Бу сирэй ырытыллыбыт торума суох, арааһа кини хаачыстыбата [[{{MediaWiki:Validationpage}}|'''сыаналамматах''']] быһыылаах.",
+	'stabilization-tab'           => '(хх)',
 	'tooltip-ca-default'          => 'Хаачыстыба хонтуруолун туруоруулара',
 	'validationpage'              => '{{ns:help}}:Ыстатыйа бэрэбиэркэтэ',
 	'revreview-quick-none'        => "'''Бүтэһик торум''' (ырытыллыбыт торума суох)",
@@ -36,6 +38,15 @@ $messages = array(
 	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Бүтэһик кичэйэн көрүллүбүт торума]   
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} торумнар испииһэктэрэ]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит]
 <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 көннөрүү {{plural:$3|көрүллүөхтээх|көрүллүөхтээхтэр}}].',
+	'revreview-basic'             => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|көрүллүбүт]] торум,   
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит:] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Хойукку торумун] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} уларытыахха] сөп;   
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|уларытыы|уларытыылар}}] ырытыллыыны {{plural:$3|кэтэһэр|кэтэһэллэр}}.',
+	'revreview-quality'           => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бэрэбиэркэлэммит]] торум,   
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит:] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Хойукку торумун] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} уларытыахха] сөп;   
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|уларытыы|уларытыылар}}] ырытыллыыны {{plural:$3|кэтэһэр|кэтэһэллэр}}.',
+	'revreview-static'            => "Бу [[{{MediaWiki:Validationpage}}|ырытыллыбыт]] торум '''[[:$3|$3]]''',   
+[{{fullurl:Special:Log/review|page=$1}} маннык бэлиэтэммит]: <i>$2</i>.",
+	'revreview-note'              => '[[User:$1]] бу торуму [[{{MediaWiki:Validationpage}}|ырыта]] олорон маннык эппит:',
 	'revreview-update'            => 'Бука диэн манна аллара бэриллибит чистовик статуһун биэрии кэннэ оҥоһуллубут уларытыылары бэрэбиэркэлээ (ханныгы баҕараргын). Сорох халыыптар уонна ойуулар саҥардыллыбыттар:',
 	'revreview-update-none'       => 'Бука диэн чистовой торум кэнниттэн оноһуллубут уларытыылары (аллара бааллар) көр.',
 	'revreview-auto'              => '(аптамаатынан)',
@@ -52,13 +63,16 @@ $messages = array(
 	'review-logaction'            => '$1 торумун идентификатора',
 	'stable-logpage'              => 'Бүтэһик (чистовой) торумнар сурунааллара',
 	'stable-logpagetext'          => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бигэргэтиллибит]] торумнар туруорууларын уларытыы сурунаала.',
+	'stable-logentry'             => 'установка чистового версионирования для [[$1]]',
+	'stable-logentry2'            => 'сброс чистового версионирования для [[$1]]',
 	'revisionreview'              => 'Торумнары ырытыы',
 	'revreview-main'              => 'Ырытарга сирэй биир эмит торумун талыахтааххын. 
 
 Ырытыллыбатах сирэйдэри [[Special:Unreviewedpages|манна]] көр.',
 	'revreview-selected'          => "'''$1''' талыллыбыт торума:",
 	'revreview-text'              => 'Анаан туруоруллубатаҕына чистовой торумнар көстөллөр (саҥа, хойукку торумнар буолбатах).',
-	'revreview-flag'              => '(#$1) торуму ырытыы',
+	'revreview-toolow'            => 'Бу торуму ырытыллыбыт диир буоллаххына «бигэргэтиллибэтэх» диэнтэн үөһээ таһымы туруоруохтааххын. Ырытыыта суох оҥорорго туох баар суолталарын «бигэргэтиллибэтэх» диэҥҥэ туруор.',
+	'revreview-flag'              => 'торуму ырытыы',
 	'revreview-legend'            => 'Торум ис хоһоонун сыаналааһын',
 	'revreview-notes'             => 'Көрдөрүллэр кэтээһиннэр уонна самычаанньалар:',
 	'revreview-accuracy'          => 'Чопчута',
@@ -98,7 +112,12 @@ $messages = array(
 	'unreviewed-category'         => 'Категория:',
 	'unreviewed-diff'             => 'Уларыйыылар',
 	'unreviewed-list'             => 'Манна көрүллүбэтэх, эбэтэр ырытыллыбатах уларытыылардаах сирэйдэр испииһэктэрэ көрдөрүлүннэ.',
+	'revreview-visibility'        => 'Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть  
+[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].',
 	'stabilization'               => 'Сирэй стабилизацията',
+	'stabilization-text'          => 'Манна баар туруорууларынан [[:$1|$1]] сирэй чистовой торумун талары уонна хайдах көстүөҕүн уларытыахха сөп.',
+	'stabilization-perm'          => 'Эн аккаунуҥ чистовой торум туруорууларын уларытар кыаҕы биэрбэт.
+Манна [[:$1|$1]] билигин үлэлиир туруоруулара көстөллөр:',
 	'stabilization-page'          => 'Сирэй аата:',
 	'stabilization-leg'           => 'Сирэй чистовой торумун туруорууларын уларыт',
 	'stabilization-select'        => 'Чистовой торуму хайдах талар туһунан',

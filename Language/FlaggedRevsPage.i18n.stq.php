@@ -1,6 +1,7 @@
 <?php
 /** Seeltersk (Seeltersk)
  * @author Pyt
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Sieuwer',
@@ -77,7 +78,7 @@ Sjuch [[{{ns:special}}:Unreviewedpages]] foar ne Lieste fon nit pröiwede Versio
 	'revreview-text'              => 'Ne stoabile Version wäd bie ju Siedendeerstaalenge ljauer nuumen as ne näiere Version.',
 	'revreview-toolow'            => 'Du moast foar älk fon do unnerstoundende Attribute n Wäid haager as „{{int:revreview-accuracy-0}}“ ienstaale, 
 deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal Attribute ap „{{int:revreview-accuracy-0}}“ stounde.',
-	'revreview-flag'              => 'Wröig Version (#$1)',
+	'revreview-flag'              => 'Wröig Version',
 	'revreview-legend'            => 'Inhoold fon ju Version wäidierje',
 	'revreview-notes'             => 'Antouwiesende Bemäärkengen un Notizen:',
 	'revreview-accuracy'          => 'Akroategaid',
@@ -150,3 +151,4 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 	'reviewedpages-all'           => 'wröigede Versione',
 	'reviewedpages-best'          => 'lääste ap hoochste wäidierde Version',
 );
+

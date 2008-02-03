@@ -68,7 +68,7 @@ Controleer uw bewerking voordat u deze opslaat.",
 	'revreview-text'              => 'Stabiele versies worden standaard getoond in plaats van de nieuwste versie.',
 	'revreview-toolow'            => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet gekeurd" om een versie als 
 	beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, stelt u alle velden in op "niet gekeurd".',
-	'revreview-flag'              => 'Deze versie beoordelen (#$1):',
+	'revreview-flag'              => 'Deze versie beoordelen',
 	'revreview-legend'            => 'Versieinhoud waarderen',
 	'revreview-notes'             => 'Weer te geven observaties of notities:',
 	'revreview-accuracy'          => 'Nauwkeurigheid',

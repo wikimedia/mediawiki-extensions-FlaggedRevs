@@ -2,6 +2,7 @@
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  * @author Dnik
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'Suradnik',
@@ -79,7 +80,7 @@ Pogledajte popis [[Special:Unreviewedpages|neocijenjenih stranica]] za to.',
 	'revreview-text'              => "Važeća (''stabilna'') inačica stranice prikazuje se svima umjesto najnovije inačice.",
 	'revreview-toolow'            => 'Morate ocijeniti po svakom od donjih kriterija ocjenom višom od "Ne zadovoljava"
 da bi promjena bila pregledana/ocijenjena. U suprotnom, ostavite sve na "Ne zadovoljava".',
-	'revreview-flag'              => 'Ocijeni izmjenu (#$1)',
+	'revreview-flag'              => 'Ocijeni izmjenu',
 	'revreview-legend'            => 'Ocijeni sadržaj inačice',
 	'revreview-notes'             => 'Primjedbe ili napomene koje treba prikazati:',
 	'revreview-accuracy'          => 'Točnost',

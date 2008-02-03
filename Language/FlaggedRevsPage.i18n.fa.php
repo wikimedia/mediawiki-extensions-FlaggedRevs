@@ -1,6 +1,7 @@
 <?php
-/** فارسی (فارسی)
+/** Persian (فارسی)
  * @author Huji
+ * @author Siebrand
  */
 $messages = array(
 	'editor'                      => 'ویرایشگر',
@@ -74,7 +75,7 @@ $messages = array(
 	'revreview-selected'          => "نسخه انتخابی '''$1:'''",
 	'revreview-text'              => 'نسخه پایدار (و نه آخرین نسخه) هر صفحه به عنوان پیش‌فرض محتوای صفحه تنظیم شد.',
 	'revreview-toolow'            => 'شما باید هر یک از موارد زیر را با درجه‌ای بیش از «تائیدنشده» علامت بزنید تا آن نسخه بررسی شده به حساب بیاید. برای بی‌بها کردن یک نسخه، تمام موارد را «تائیدنشده» علامت بزنید.',
-	'revreview-flag'              => 'بررسی این نسخه (#$1)',
+	'revreview-flag'              => 'بررسی این نسخه',
 	'revreview-legend'            => 'نمره دادن به محتوای بررسی شده',
 	'revreview-notes'             => 'مشاهدات یا ملاحظات',
 	'revreview-accuracy'          => 'دقت',
@@ -152,5 +153,5 @@ $messages = array(
 	'reviewedpages-lev-2'         => 'برگزیده',
 	'reviewedpages-all'           => 'نسخه‌های بررسی شده',
 	'reviewedpages-best'          => 'آخرین نسخه با بالاترین نمره',
-
 );
+
