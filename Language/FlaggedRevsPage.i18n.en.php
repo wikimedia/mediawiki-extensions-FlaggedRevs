@@ -87,7 +87,7 @@ $messages = array(
 	'revreview-text'       => "Stable versions are set as the default content on page view rather than the newest revision.",
 	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order 
 	for a revision to be considered reviewed. To depreciate a revision, set all fields to "unapproved".',
-	'revreview-flag'       => 'Review this revision (#$1)',
+	'revreview-flag'       => 'Review this revision',
 	'revreview-legend'     => 'Rate revision content',
 	'revreview-notes'      => 'Observations or notes to display:',
 	'revreview-accuracy'   => 'Accuracy',
