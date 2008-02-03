@@ -931,14 +931,14 @@ class FlaggedRevs {
 				'fr_rev_id = rev_id',
 				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
 			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
+			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
 		$maxQuality = $maxQuality===false ? null : $maxQuality;
 		# Alter table metadata
 		$dbw->update( 'page',
-			array('page_ext_stable' => $rev_id,
+			array( 'page_ext_stable' => $rev_id,
 				'page_ext_reviewed' => ($article->getLatest() == $rev_id) ? 1 : 0,
 				'page_ext_quality' => $maxQuality ),
-			array('page_namespace' => $article->getTitle()->getNamespace(),
+			array( 'page_namespace' => $article->getTitle()->getNamespace(),
 				'page_title' => $article->getTitle()->getDBkey() ),
 			__METHOD__ );
 		# Update the cache
