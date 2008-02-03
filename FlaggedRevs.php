@@ -1161,13 +1161,11 @@ class FlaggedRevs {
 		# well as enforce site settings if they are later changed.
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
-			$id = $dbw->selectField( 'page', 'page_ext_stable',
+			$time = $dbw->selectField( array('page', 'flaggedimages'), 
+				'fi_img_timestamp',
 				array( 'page_namespace' => $nt->getNamespace(),
-					'page_title' => $nt->getDBkey() ),
-				__METHOD__ );
-			
-			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
-				array('fi_rev_id' => $id,
+					'page_title' => $nt->getDBkey(),
+					'page_ext_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 		}
@@ -1209,12 +1207,11 @@ class FlaggedRevs {
 		# well as enforce site settings if they are later changed.
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
-			$id = $dbw->selectField( 'page', 'page_ext_stable',
+			$time = $dbw->selectField( array('page', 'flaggedimages'), 
+				'fi_img_timestamp',
 				array( 'page_namespace' => $nt->getNamespace(),
-					'page_title' => $nt->getDBkey() ),
-				__METHOD__ );
-			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
-				array('fi_rev_id' => $id,
+					'page_title' => $nt->getDBkey(),
+					'page_ext_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 		}
