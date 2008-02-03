@@ -149,6 +149,13 @@ $messages['bn'] = array(
 	'makereviewer-logpage'  => 'সম্পাদকের অবস্থার লগ',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'makereviewer-search' => 'Mont',
+);
+
 $messages['ca'] = array(
 	'makereviewer'                  => 'Promociona o degrada un usuari',
 	'makereviewer-header'           => '<strong>Aquest formulari serveix perquè els administradors i buròcrates puguin promocionar els usuaris per a validar articles.</strong>
@@ -1133,3 +1140,4 @@ $messages['vo'] = array(
 	'makereviewer-logentryrevoke-r' => 'emoükon krütanastadi gebana: [[$1]]',
 	'rights-editor-revoke'          => 'emoükon redakanastadi gebana: [[$1]]',
 );
+
