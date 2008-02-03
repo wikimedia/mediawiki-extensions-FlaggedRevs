@@ -1197,7 +1197,8 @@ class Stabilization extends UnlistedSpecialPage
 				
 				$encodedExpiry = Block::encodeExpiry($expiry, $dbw );
 				if( $encodedExpiry != 'infinity' ) {
-					$expiry_description = ' (' . wfMsgForContent( 'stabilize-expiring', $wgContLang->timeanddate($expiry) ).')';
+					$expiry_description = ' (' . wfMsgForContent( 'stabilize-expiring', 
+						$wgContLang->timeanddate($expiry, false, false) ) . ')';
 					$comment .= "$expiry_description";
 				}
 			}
