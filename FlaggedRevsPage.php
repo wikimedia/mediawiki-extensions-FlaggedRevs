@@ -643,6 +643,7 @@ class Stableversions extends UnlistedSpecialPage
 		}
 		# Parse the revision text
        	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
+		
 		# Output HTML
        	$wgOut->addParserOutput( $parserOutput );
 		# Add tag and comment text
@@ -895,7 +896,7 @@ class Reviewedpages extends SpecialPage
 	function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 		
-		$pager = new ReviewedPagesPager( $this, array(), $this->type );	
+		$pager = new ReviewedPagesPager( $this, array(), $this->type, $this->namespace );	
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
