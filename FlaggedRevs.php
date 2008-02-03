@@ -1262,6 +1262,8 @@ class FlaggedRevs {
 			
 			if( $wgFlaggedArticle->pageOverride() ) {
 				$frev = $wgFlaggedArticle->getStableRev();
+				if( !$frev )
+					return true;
 				
 				$dbr = wfGetDB( DB_SLAVE );
 				$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
