@@ -15,7 +15,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob NOT NULL default '',
   -- Store the precedence level
-  fr_quality tinyint(1) default 0,
+  fr_quality tinyint(1) NOT NULL default 0,
   -- Store tag metadata as newline separated, 
   -- colon separated tag:value pairs
   fr_tags mediumblob NOT NULL default '',
