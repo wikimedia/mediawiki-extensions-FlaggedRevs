@@ -21,14 +21,14 @@ define( 'MW_MAKEVALIDATE_GRANT_GRANT', 1 );
 define( 'MW_MAKEVALIDATE_REVOKE_GRANT', 2 );
 define( 'MW_MAKEVALIDATE_REVOKE_REVOKE', 3 );
 define( 'MW_MAKEVALIDATE_GRANT_REVOKE', 4 );
-	
+
 $wgExtensionFunctions[] = 'efMakeReviewer';
 $wgAvailableRights[] = 'makereviewer';
 $wgAvailableRights[] = 'makevalidator';
 
 $wgHooks['UserRights'][] = 'efMakeReviewerDemote';
 
-/**	
+/**
 * Determines who can use the extension; as a default, bureaucrats are permitted
 */
 # Basic rights for Sysops
@@ -39,30 +39,19 @@ $wgGroupPermissions['sysop']['removereviewer'] = true;
 $wgGroupPermissions['bureaucrat']['makereviewer'] = true;
 $wgGroupPermissions['bureaucrat']['removereviewer'] = true;
 $wgGroupPermissions['bureaucrat']['makevalidator'] = true;
-	
+
 /**
  * Register the special page
  */
 $wgSpecialPages['MakeReviewer'] = 'MakeReviewer';
 $wgAutoloadClasses['MakeReviewer'] = dirname(__FILE__) . '/MakeReviewer_body.php';
-	
+
 /**
  * Populate the message cache
  */
 function efMakeReviewer() {
-	global $wgMessageCache, $wgLang;
-	# Internationalization
-	$messages = array();
-	// Default to English langauge
-	$f = dirname( __FILE__ ) . '/Language/MakeReviewer.i18n.en.php';
-	include( $f );
-	$wgMessageCache->addMessages( $messages, 'en' );
-	
-	$f = dirname( __FILE__ ) . '/Language/MakeReviewer.i18n.' . $wgLang->getCode() . '.php';
-	if( file_exists( $f ) ) {
-		include( $f );
-	}
-	$wgMessageCache->addMessages( $messages, $wgLang->getCode() );
+	// can probably be delayed
+	wfLoadExtensionMessages( 'MakeReviewer' );
 }
 
 function efMakeReviewerDemote( $u, $addgroup, $removegroup ) {

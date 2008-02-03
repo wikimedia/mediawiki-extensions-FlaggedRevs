@@ -15,26 +15,26 @@ class MakeReviewer extends SpecialPage {
 	function __construct() {
 		SpecialPage::SpecialPage( 'MakeReviewer', 'makereviewer' );
 	}
-	
+
 	/**
 	 * Main execution function
 	 * @param $par Parameters passed to the page
 	 */
 	function execute( $par ) {
 		global $wgRequest, $wgOut, $wgUser;
-		
+
 		if( !$wgUser->isAllowed( 'makereviewer' ) ) {
 			$wgOut->permissionRequired( 'makereviewer' );
 			return;
 		}
-		
+
 		$this->setHeaders();
 
 		$this->target = $par ? $par : $wgRequest->getText( 'username', '' );
 
 		$wgOut->addWikiText( wfMsgNoTrans( 'makereviewer-header' ) );
 		$wgOut->addHtml( $this->makeSearchForm() );
-		
+
 		if( $this->target != '' ) {
 			$wgOut->addHtml( Xml::element( 'p', NULL, NULL ) );
 			$user = User::newFromName( $this->target );
@@ -70,7 +70,7 @@ class MakeReviewer extends SpecialPage {
 					} elseif( $wgRequest->getCheck( 'grant2' ) ) {
 						# Permission check
 						if( !$wgUser->isAllowed( 'makevalidator' ) ) {
-							$wgOut->permissionRequired( 'makevalidator' ); 
+							$wgOut->permissionRequired( 'makevalidator' );
 							return;
 						}
 						# Grant the flag
@@ -84,7 +84,7 @@ class MakeReviewer extends SpecialPage {
 					} elseif( $wgRequest->getCheck( 'revoke2' ) ) {
 						# Permission check
 						if( !$wgUser->isAllowed( 'makevalidator' ) ) {
-							$wgOut->permissionRequired( 'makevalidator' ); 
+							$wgOut->permissionRequired( 'makevalidator' );
 							return;
 						}
 						# Revoke the flag
@@ -101,13 +101,13 @@ class MakeReviewer extends SpecialPage {
 					} elseif( $wgRequest->getCheck( 'revoke1' ) ) {
 						# Permission check
 						if( !$wgUser->isAllowed( 'removereviewer' ) ) {
-							$wgOut->permissionRequired( 'removereviewer' ); 
+							$wgOut->permissionRequired( 'removereviewer' );
 							return;
 						}
 						if( in_array( 'reviewer', $user->mGroups ) ) {
 							# Permission check
 							if( !$wgUser->isAllowed( 'makevalidator' ) ) {
-								$wgOut->permissionRequired( 'makevalidator' ); 
+								$wgOut->permissionRequired( 'makevalidator' );
 								return;
 							}
 							$user->removeGroup( 'editor' );
@@ -131,9 +131,9 @@ class MakeReviewer extends SpecialPage {
 				$wgOut->addWikiText( wfMsg( 'noname' ) );
 			}
 		}
-		
+
 	}
-	
+
 	/**
 	 * Produce a form to allow for entering a username
 	 * @return string
@@ -147,7 +147,7 @@ class MakeReviewer extends SpecialPage {
 		$form .= Xml::closeElement( 'form' );
 		return $form;
 	}
-	
+
 	/**
 	 * Produce a form to allow granting or revocation of the flag
 	 * @param $type Either MW_makevalidate_GRANT or MW_makevalidate_REVOKE
@@ -171,7 +171,7 @@ class MakeReviewer extends SpecialPage {
 			$grant1 = true; $revoke1 = $wgUser->isAllowed('makevalidator');
 			$grant2 = false; $revoke2 = true;
 		}
-	
+
 		# Start the table
 		$form  = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $thisTitle->getLocalUrl() ) );
 		$form .= '<fieldset><legend>' . wfMsg('makereviewer-legend') . '</legend>';
@@ -223,19 +223,19 @@ class MakeReviewer extends SpecialPage {
 	 */
 	function addLogItem( $type, &$user, $comment = '', $oldgroups ) {
 		global $wgUser;
-		
+
 		$log = new LogPage( 'rights' );
 		$targetPage = $user->getUserPage();
-		
+
 		$params = array();
 		if( $type=='rights' ) {
 			$newgroups = $user->getGroups();
 			$params = array( implode( ', ',$oldgroups ), implode( ', ',$newgroups ) );
 		}
-		
+
 		$log->addEntry( $type, $targetPage, $comment, $params );
 	}
-	
+
 	/**
 	 * Show the bot status log entries for the specified user
 	 * @param $user User to show the log for
@@ -247,5 +247,4 @@ class MakeReviewer extends SpecialPage {
 		$logViewer = new LogViewer( new LogReader( new FauxRequest( array( 'page' => $title->getPrefixedText(), 'type' => 'rights' ) ) ) );
 		$logViewer->showList( $wgOut );
 	}
-
 }

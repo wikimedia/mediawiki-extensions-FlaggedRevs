@@ -10,7 +10,7 @@ class FlaggedRevision {
 	private $mText;
 	private $mFlags;
 	private $mUser;
-	
+
 	/**
 	 * @param object $row (from database)
 	 * @access private
@@ -44,56 +44,56 @@ class FlaggedRevision {
 			$this->mText = null;
 		}
 	}
-	
+
 	/**
 	 * @returns Integer revision ID
 	 */
 	public function getRevId() {
 		return $this->mRevId;
 	}
-	
+
 	/**
 	 * @returns Integer page ID
 	 */
 	public function getPage() {
 		return $this->mPageId;
 	}
-	
+
 	/**
 	 * @returns String revision timestamp in MW format
 	 */
 	public function getTimestamp() {
 		return wfTimestamp(TS_MW, $this->mTimestamp);
 	}
-	
+
 	/**
 	 * @returns String review comment
 	 */
 	public function getComment() {
 		return $this->mComment;
 	}
-	
+
 	/**
 	 * @returns Integer revision timestamp in MW format
 	 */
 	public function getQuality() {
 		return $this->mQuality;
 	}
-	
+
 	/**
 	 * @returns Array tag metadata
 	 */
 	public function getTags() {
 		return $this->mTags;
 	}
-	
+
 	/**
 	 * @returns String expanded text
 	 */
 	public function getText() {
 		return $this->mText;
 	}
-	
+
 	/**
 	 * @returns Integer the user ID of the reviewer
 	 */
