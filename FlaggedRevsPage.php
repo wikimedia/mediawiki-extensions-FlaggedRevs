@@ -513,12 +513,12 @@ class Revisionreview extends UnlistedSpecialPage
 		// ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dimensions as $quality => $level ) {
-			$ratings[] = wfMsg( "revreview-$quality" ) . ": " . wfMsg("revreview-$quality-$level");
+			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . wfMsgForContent("revreview-$quality-$level");
 		}
 		$rating = ($approve && !empty($ratings) ) ? ' [' . implode(', ',$ratings). ']' : '';
 		// Append comment with action
 		// FIXME: do this better
-		$action = wfMsgExt('review-logaction', array('parsemag'), $oldid );
+		$action = wfMsgExt('review-logaction', array('parsemag','content'), $oldid );
 		if( $approve )
 			$comment = $comment ? "$action: $comment$rating" : "$action $rating";
 		else
