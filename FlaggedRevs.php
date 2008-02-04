@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.02',
+	'version' => '1.03',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -1277,14 +1277,11 @@ class FlaggedRevs {
 		$parser->mOutput->fr_ImageSHA1Keys = array();
 		# Fetch the timestamps of the images
 		if( !empty($parser->mOutput->mImages) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select('image', array('img_name','img_timestamp','img_sha1'),
-				array('img_name IN(' . $dbr->makeList( array_keys($parser->mOutput->mImages) ) . ')'),
-				__METHOD__ );
-
-			while( $row = $dbr->fetchObject($res) ) {
-				$parser->mOutput->fr_ImageSHA1Keys[$row->img_name] = array();
-				$parser->mOutput->fr_ImageSHA1Keys[$row->img_name][$row->img_timestamp] = $row->img_sha1;
+			$filenames = array_keys($parser->mOutput->mImages);
+			foreach( $filenames as $filename ) {
+				$file = wfFindFile( Title::makeTitle( NS_IMAGE, $filename ) );
+				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
+				$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
 			}
 		}
 		return true;
