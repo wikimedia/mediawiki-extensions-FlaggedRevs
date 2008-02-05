@@ -138,15 +138,30 @@ $messages['bg'] = array(
  * @author Bellayet
  */
 $messages['bn'] = array(
-	'makereviewer-username' => 'ব্যবহারকারীর নাম:',
-	'makereviewer-search'   => 'যাও',
-	'makereviewer-legend'   => 'ব্যবহারকারীর অধিকারসমূহ পরিবর্তন করো',
-	'makereviewer-change-e' => 'সম্পাদকের অবস্থা:',
-	'makereviewer-change-r' => 'সংশোধনের অবস্থা:',
-	'makereviewer-grant1'   => 'অনুমোদন',
-	'makereviewer-grant2'   => 'অনুমোদন',
-	'makereviewer-comment'  => 'মন্তব্য:',
-	'makereviewer-logpage'  => 'সম্পাদকের অবস্থার লগ',
+	'makereviewer-username'         => 'ব্যবহারকারীর নাম:',
+	'makereviewer-search'           => 'যাও',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] এর সস্পাদক পদমর্যাদা রয়েছে।',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] এর সম্পাদক পদমর্যাদা নাই।',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] এর পর্যালোচক পদমর্যাদা রয়েছে।',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] এর পর্যালোচক পদমর্যাদা নাই।',
+	'makereviewer-legend'           => 'ব্যবহারকারীর অধিকারসমূহ পরিবর্তন করো',
+	'makereviewer-change-e'         => 'সম্পাদকের অবস্থা:',
+	'makereviewer-change-r'         => 'সংশোধনের অবস্থা:',
+	'makereviewer-grant1'           => 'অনুমোদন',
+	'makereviewer-revoke1'          => 'বাতিল',
+	'makereviewer-grant2'           => 'অনুমোদন',
+	'makereviewer-revoke2'          => 'বাতিল',
+	'makereviewer-comment'          => 'মন্তব্য:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] এর এখন সম্পাদক পদমর্যাদা রয়েছে।',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] এর এখন আর সম্পাদক পদমর্যাদা নাই।',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] এর এখন পর্যালোচক পদমর্যাদা রয়েছে।',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] এর এখন আর পর্যালোচক পদমর্যাদা নাই।',
+	'makereviewer-logpage'          => 'সম্পাদকের অবস্থার লগ',
+	'makereviewer-logentrygrant-e'  => '[[$1]] এর সম্পাদক পদমর্যাদা অনুমোদন করুন',
+	'makereviewer-logentryrevoke-e' => '[[$1]] এর সম্পাদক পদমর্যাদা প্রত্যাহার করুন',
+	'makereviewer-logentrygrant-r'  => '[[$1]] এর পর্যালোচক পদমর্যাদা অনুমোদন করুন',
+	'makereviewer-logentryrevoke-r' => '[[$1]] এর পর্যালোচক পদমর্যাদা প্রত্যাহার করুন',
+	'rights-editor-revoke'          => '[[$1]] এর সম্পাদক পদমর্যাদা প্রত্যাহার করুন',
 );
 
 /** Breton (Brezhoneg)
@@ -682,7 +697,23 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
-	'makereviewer-search' => 'Gao',
+	'makereviewer-username'     => 'Gebroekersnaam:',
+	'makereviewer-search'       => 'Gao',
+	'makereviewer-iseditor'     => '[[User:$1|$1]] haet redacteursstatus.',
+	'makereviewer-noteditor'    => '[[User:$1|$1]] haet gein redacteursstatus.',
+	'makereviewer-isvalidator'  => '[[User:$1|$1]] haet bekiekersstatus.',
+	'makereviewer-notvalidator' => '[[User:$1|$1]] haet gein bekiekersstatus.',
+	'makereviewer-legend'       => 'Veranger gebroekersrech:',
+	'makereviewer-change-e'     => 'Redacteursstatus:',
+	'makereviewer-change-r'     => 'Bekiekersstatus:',
+	'makereviewer-grant1'       => 'Gaeve',
+	'makereviewer-revoke1'      => 'Innömme',
+	'makereviewer-grant2'       => 'Gaeve',
+	'makereviewer-revoke2'      => 'Innömme',
+	'makereviewer-comment'      => 'Opmèrking:',
+	'makereviewer-granted-e'    => '[[User:$1|$1]] haet noe de redacteursstatus.',
+	'makereviewer-revoked-e'    => '[[User:$1|$1]] haet gein redacteursstaus mieë.',
+	'makereviewer-granted-r'    => '[[User:$1|$1]] haet noe de bekiekersstatus.',
 );
 
 /** Lithuanian (Lietuvių)
