@@ -220,8 +220,8 @@ $messages['ar'] = array(
 	'revreview-auto-w-old'        => "أنت تحرر نسخة قديمة، أية تغييرات ستتم '''مراجعتها تلقائيا'''. 
 	ربما تريد عرض الصفحة عرضا مسبقا قبل الحفظ.",
 	'revreview-patrolled'         => 'النسخة المختارة من [[:$1|$1]] تم التعليم عليها كمراجعة.',
-	'hist-stable'                 => '[منظورة]',
-	'hist-quality'                => '[الجودة]',
+	'hist-stable'                 => '[نسخة منظورة]',
+	'hist-quality'                => '[نسخة جودة]',
 	'flaggedrevs'                 => 'نسخ معلمة',
 	'review-logpage'              => 'سجل مراجعة المقالة',
 	'review-logpagetext'          => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Makevalidate-page}}|الموافقة]] لصفحات المحتوى.",
@@ -301,6 +301,7 @@ $messages['ar'] = array(
 	'stabilization-notexists'     => 'لا توجد صفحة بالاسم "[[:$1|$1]]". لا ضبط ممكن.',
 	'stabilization-notcontent'    => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها. لا ضبط ممكن.',
 	'stabilization-comment'       => 'تعليق:',
+	'stabilization-expiry'        => 'تنتهي:',
 	'stabilization-sel-short'     => 'تنفيذ',
 	'stabilization-sel-short-0'   => 'جودة',
 	'stabilization-sel-short-1'   => 'لا شيء',
@@ -4063,6 +4064,7 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
  * @author Siebrand
  */
 $messages['sv'] = array(
+	'flaggedrevs-desc'            => 'Ger redaktörer/granskare möjlighet att granska sidversioner och ändra hur stabila sidor visas',
 	'editor'                      => 'Redaktör',
 	'group-editor'                => 'Redaktörer',
 	'group-editor-member'         => 'Redaktör',
@@ -4267,6 +4269,7 @@ $messages['te'] = array(
 $messages['tg'] = array(
 	'editor'                    => 'Вироишгар',
 	'group-editor'              => 'Вироишгарон',
+	'group-editor-member'       => 'Вироишгар',
 	'grouppage-editor'          => '{{ns:project}}:Вироишгар',
 	'reviewer'                  => 'Мурургар',
 	'group-reviewer'            => 'Мурургарон',
@@ -4473,7 +4476,7 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pekrütölas.',
 	'revreview-selected'          => "Krütam pevälöl pada: '''$1:'''",
 	'revreview-text'              => 'Fomams fümöfik - no fomams nulikün! - binons uts, kels pajonons, ven pad palogon.',
-	'revreview-flag'              => 'Krütön fomami at (#$1)',
+	'revreview-flag'              => 'Krütön fomami at',
 	'revreview-legend'            => 'Dadilädön ninädi',
 	'revreview-notes'             => 'Küpets ad pajonön:',
 	'revreview-accuracy-0'        => 'No pezepöl',
