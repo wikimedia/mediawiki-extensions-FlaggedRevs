@@ -757,7 +757,7 @@ $messages['cs'] = array(
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'flaggedrevs-desc'            => 'Stabilen Versionen',
+	'flaggedrevs-desc'            => 'Stabile Versionen',
 	'editor'                      => 'Sichter',
 	'group-editor'                => 'Sichter',
 	'group-editor-member'         => 'Sichter',
