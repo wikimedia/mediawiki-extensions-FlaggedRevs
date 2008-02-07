@@ -951,11 +951,11 @@ $messages['ext'] = array(
 	'stabilization-def-short-0' => 'Atual',
 );
 
-/** Persian (فارسی)
+/** فارسی (فارسی)
  * @author Huji
- * @author Siebrand
  */
 $messages['fa'] = array(
+	'flaggedrevs-desc'            => 'به ویرایشگرها/مرورکنندگان امکان تایید کردن نسخه‌ها و پایدار ساختن صفحه‌ها را می‌دهد',
 	'editor'                      => 'ویرایشگر',
 	'group-editor'                => 'ویرایشگران',
 	'group-editor-member'         => 'ویرایشگر',
@@ -1105,6 +1105,7 @@ $messages['fa'] = array(
 	'reviewedpages-lev-2'         => 'برگزیده',
 	'reviewedpages-all'           => 'نسخه‌های بررسی شده',
 	'reviewedpages-best'          => 'آخرین نسخه با بالاترین نمره',
+
 );
 
 /** French (Français)
