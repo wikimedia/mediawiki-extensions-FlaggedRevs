@@ -166,6 +166,7 @@ See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
  * @author SPQRobin
  */
 $messages['ar'] = array(
+	'flaggedrevs-desc'            => 'يعطي المحررين/المراجعين القدرة على التأكد من صحة النسخ وتثبيت الصفحات',
 	'editor'                      => 'محرر',
 	'group-editor'                => 'محررون',
 	'group-editor-member'         => 'محرر',
@@ -308,6 +309,9 @@ $messages['ar'] = array(
 	'stabilization-def-short'     => 'افتراضي',
 	'stabilization-def-short-0'   => 'حالي',
 	'stabilization-def-short-1'   => 'مستقر',
+	'stabilize_expiry_invalid'    => 'تاريخ انتهاء غير صحيح.',
+	'stabilize_expiry_old'        => 'تاريخ الانتهاء هذا مر بالفعل.',
+	'stabilize-expiring'          => 'تنتهي في $1 (UTC)',
 	'reviewedpages'               => 'صفحات مراجعة',
 	'reviewedpages-leg'           => 'عرض الصفحات المراجعة حتى مستوى معين',
 	'reviewedpages-list'          => 'الصفحات التالية تمت مراجعتها حتى المستوى المحدد',
@@ -627,7 +631,10 @@ $messages['ca'] = array(
  */
 $messages['cs'] = array(
 	'flaggedrevs-desc'            => 'Umožňuje editorům a posuzovatelům hodnotit verze a stabilizovat stránky',
+	'editor'                      => 'Editor',
 	'group-editor'                => 'Editoři',
+	'group-editor-member'         => 'Editor',
+	'grouppage-editor'            => '{{ns:Project}}:Editor',
 	'reviewer'                    => 'Posuzovatel',
 	'group-reviewer'              => 'Posuzovatelé',
 	'group-reviewer-member'       => 'Posuzovatel',
@@ -1253,6 +1260,7 @@ Un modèle ou une image peut avoir été demandé alors qu'aucune version préci
  * @author Siebrand
  */
 $messages['frp'] = array(
+	'flaggedrevs-desc'            => 'Balye la possibilitât ux èditors ou ben ux rèvisors de validar les modificacions et de stabilisar les pâges.',
 	'editor'                      => 'Contributor',
 	'group-editor'                => 'Contributors',
 	'group-editor-member'         => 'Contributor',
@@ -1854,6 +1862,7 @@ $messages['hsb'] = array(
  * @author Siebrand
  */
 $messages['hu'] = array(
+	'flaggedrevs-desc'            => 'Lehetővé teszi a szerkesztők/ellenőrök számára, hogy ellenőrízzék és elfogadják lapok adott változatait',
 	'editor'                      => 'Szerkesztő',
 	'group-editor'                => 'Szerkesztők',
 	'group-editor-member'         => 'Szerkesztő',
@@ -2559,6 +2568,7 @@ $messages['lb'] = array(
 	'stabilization-comment'     => 'Bemierkung:',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
+	'reviewedpages-none'        => 'Dës Lëscht ass eidel',
 );
 
 /** Limburgish (Limburgs)
@@ -4221,12 +4231,14 @@ $messages['te'] = array(
 	'group-reviewer-member'     => 'సమీక్షకులు',
 	'grouppage-reviewer'        => '{{ns:project}}:సమీక్షకులు',
 	'tooltip-ca-current'        => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
+	'revreview-source'          => 'ప్రతి మూలం',
 	'revreview-oldrating'       => 'రేటింగు:',
 	'revreview-noflagged'       => "ఈ పేజీకి సమీక్షిత కూర్పులేమీ లేవు, కాబట్టి దీన్ని నాణ్యత కొరకు [[{{MediaWiki:Validationpage}}|సరిచూసి]] '''ఉండక'''పోవచ్చు.",
 	'tooltip-ca-default'        => 'నాణ్యతా భరోసా అమరికలు',
 	'revreview-quick-none'      => "'''ప్రస్తుత''' (సమీక్షిత కూర్పులు లేవు)",
 	'revreview-note'            => 'ఈ కూర్పుని [[{{MediaWiki:Validationpage}}|సమీక్షిస్తూ]], [[User:$1]] ఈ వ్యాఖ్యలు చేసారు:',
 	'hist-quality'              => '[నాణ్యమైన కూర్పు]',
+	'review-logpage'            => 'వ్యాసాల సమీక్ష లాగ్',
 	'review-logentry-app'       => '[[$1]]ని సమీక్షించారు',
 	'review-logaction'          => 'కూర్పు ID $1',
 	'revisionreview'            => 'కూర్పులను సమీక్షించు',
@@ -4235,7 +4247,10 @@ $messages['te'] = array(
 	'revreview-accuracy'        => 'ఖచ్చితత్వం',
 	'revreview-accuracy-2'      => 'ఖచ్చితం',
 	'revreview-depth-1'         => 'ప్రాథమిక',
+	'revreview-style-1'         => 'ఆమోదయోగ్యం',
+	'revreview-style-4'         => 'విశేషనీయం',
 	'revreview-log'             => 'వ్యాఖ్య:',
+	'revreview-submit'          => 'సమీక్షని దాఖలు చెయ్యండి',
 	'stableversions-leg1'       => 'పేజీ యొక్క సమీక్షిత కూర్పులను చూపించు',
 	'stableversions-page'       => 'పేజీ పేరు:',
 	'stableversions-none'       => '"[[:$1]]"కి సమీక్షిత కూర్పులేమీ లేవు.',
@@ -4256,9 +4271,12 @@ $messages['te'] = array(
 	'stabilization-sel-short-0' => 'నాణ్యత',
 	'stabilization-sel-short-1' => 'ఏమీలేదు',
 	'stabilization-def-short-0' => 'ప్రస్తుత',
+	'stabilize_expiry_invalid'  => 'తప్పుడు కాలపరిమితి తేదీ.',
 	'stabilize_expiry_old'      => 'ఈ కాలం ఎప్పుడో చెల్లిపోయింది.',
 	'stabilize-expiring'        => '$1 (UTC) నాడు కాలం చెల్లుతుంది',
 	'reviewedpages'             => 'సమీక్షించిన పేజీలు',
+	'reviewedpages-leg'         => 'ఏదో ఒక స్థాయి వరకు సమీక్షిత పేజీలను చూపించు',
+	'reviewedpages-list'        => 'ఈ క్రింద పేర్కొన్న పేజీలు మీరడిగిన స్థాయివరకు సమీక్షించినవి',
 	'reviewedpages-none'        => 'ఈ జాబితాలో పేజీలు లేవు.',
 	'reviewedpages-lev-1'       => 'నాణ్యత',
 	'reviewedpages-all'         => 'సమీక్షిత కూర్పులు',
@@ -4508,6 +4526,7 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 	'unreviewed-category'         => 'Klad:',
 	'unreviewed-diff'             => 'Votükams',
 	'unreviewed-list'             => 'Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls',
+	'revreview-visibility'        => 'Pad at labon [[{{MediaWiki:Validationpage}}|fomami fümöfik]], kela parametem kanon [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} pafümetön].',
 	'stabilization'               => 'Fümöfükam pada',
 	'stabilization-text'          => 'Votükolös parametis dono ad sludön, lio fomam fümöfik pada: [[:$1|$1]] pavälon e pajonon.',
 	'stabilization-perm'          => 'Kal olik no dälon ad votükön parametemi fomama fümöfik. Is palisedon parametem anuik pro pad: [[:$1|$1]]:',
@@ -4515,8 +4534,11 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 	'stabilization-leg'           => 'Välön parametis fomama fümöfik pada',
 	'stabilization-select'        => 'Lio fomam fümöfik pavälon',
 	'stabilization-select2'       => 'Fomam pekrütöl lätik',
+	'stabilization-def1'          => 'Fomam fümöfik; if no dabinon, tän fomam anuik',
+	'stabilization-def2'          => 'Fomam anuik',
 	'stabilization-submit'        => 'Fümedön',
 	'stabilization-notexists'     => 'Pad tiädü "[[:$1|$1]]" no dabinon. Fomükam no mögon.',
+	'stabilization-notcontent'    => 'Pad: "[[:$1|$1]]" no kanon pakrütön. Parametem nonik mögon.',
 	'stabilization-comment'       => 'Küpet:',
 	'stabilization-sel-short-0'   => 'Kaliet',
 	'stabilization-sel-short-1'   => 'Nonik',

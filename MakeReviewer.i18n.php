@@ -83,7 +83,7 @@ $messages['ar'] = array(
  */
 $messages['ast'] = array(
 	'makereviewer'                  => 'Ascender/rebaxar editores',
-	'makereviewer-header'           => "<strong>Esti formulariu ye usáu polos alministradores y los burócrate p'ascender a usuario a correutores d'artículos.</strong>
+	'makereviewer-header'           => "<strong>Esti formulariu ye usáu polos alministradores y los burócrates p'ascender usuarios a correutores d'artículos.</strong>
 
 Escribi'l nome del usuariu nel caxellu y calca nel botón pa configurar los derechos del usuariu. Conceder a un usuariu estatus de revisor concéde-y automáticamente l'estatus d'editor. Revocar l'estatus d'editor revóca-y automáticamente l'estatus de revisor.",
 	'makereviewer-username'         => 'Nome del usuariu:',
