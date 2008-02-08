@@ -640,7 +640,9 @@ class FlaggedArticle {
 		# For image pages, note the current image version
 		if( $wgTitle->getNamespace() == NS_IMAGE ) {
 			$file = wfFindFile( $wgTitle );
-			$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+			if( $file ) {
+				$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+			}
 		}
 
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";

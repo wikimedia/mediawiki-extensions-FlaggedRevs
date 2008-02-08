@@ -99,7 +99,9 @@ See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Comment:',
 	'revreview-submit'     => 'Submit review',
-	'revreview-changed'    => '\'\'\'The requestion action could not be performed on this revision.\'\'\' A template or image may have been requested when no specific version was specified. This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewed this page. Refreshing the page and rereviewing can solve this problem.',
+	'revreview-changed'    => '\'\'\'The requestion action could not be performed on this revision of [[:$1|$1]].\'\'\' 
+	
+	A template or image may have been requested when no specific version was specified. This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewed this page. Refreshing the page and rereviewing can solve this problem.',
 
 	'stableversions'        => 'Stable versions',
 	'stableversions-title'  => 'Stable versions of "$1"',

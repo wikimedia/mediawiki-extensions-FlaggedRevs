@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.03',
+	'version' => '1.04',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -342,14 +342,17 @@ class FlaggedRevs {
 		$options = new ParserOptions();
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
+		$wgParser->fr_includesMatched = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options->setEditSection(false);
 		// $options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
 		$title = $article->getTitle(); // avoid pass-by-reference error
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
-	   	# Reset $wgParser
-	   	$wgParser->fr_isStable = false; // Done!
+		$parserOut->fr_includesMatched = $wgParser->fr_includesMatched;
+	   	# Done!
+	   	$wgParser->fr_isStable = false;
+		$wgParser->fr_includesMatched = false;
 
 	   	return $parserOut;
 	}
@@ -842,10 +845,6 @@ class FlaggedRevs {
 		}
 		# Get the page text and resolve all templates
 		list($fulltext,$complete) = self::expandText( $rev->getText(), $article->getTitle(), $rev->getId() );
-		if( !$complete ) {
-			$dbw->rollback(); // All versions must be specified, 0 for none
-			return false;
-		}
 
 		# Compress $fulltext, passed by reference
 		$textFlags = self::compressText( $fulltext );
@@ -1099,9 +1098,10 @@ class FlaggedRevs {
 	/**
 	* Select the desired templates based on the selected stable revision IDs
 	*/
-	public static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
+	public static function parserFetchStableTemplate( $parser=false, $title, &$skip, &$id ) {
+		global $wgParser;
 		# Trigger for stable version parsing only
-		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
+		if( !isset($wgParser->fr_isStable) || !$wgParser->fr_isStable )
 			return true;
 		# Only called to make fr_text, right after template/image specifiers
 		# are added to the DB. Slaves may not have it yet...
@@ -1120,17 +1120,17 @@ class FlaggedRevs {
 		# the template revision during review time.
 		if( !$id ) {
 			$id = $dbw->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
-				array( 'ft_rev_id' => $parser->mRevisionId,
+				array( 'ft_rev_id' => $wgParser->mRevisionId,
 					'ft_namespace' => $title->getNamespace(),
 					'ft_title' => $title->getDBkey() ),
 				__METHOD__ );
 		}
-
+		
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
-
+			
 			if( $id === false ) {
-				$parser->fr_includesMatched = false; // May want to give an error
+				$wgParser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentTemplates ) {
 					$skip = true;
 				}
@@ -1145,6 +1145,7 @@ class FlaggedRevs {
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
 	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
+	$parser->fr_includesMatched = false; // May want to give an error
 		# Trigger for stable version parsing only
 		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
 			return true;
@@ -1172,17 +1173,17 @@ class FlaggedRevs {
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 		}
-
+		
 		if( !$time ) {
 			global $wgUseCurrentImages;
-
+			
 			if( $time === false ) {
 				$parser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentImages ) {
-					$skip = true;
+					$time = 0;
 				}
 			} else {
-				$skip = true;
+				$time = 0;
 			}
 		}
 		return true;
@@ -1220,8 +1221,8 @@ class FlaggedRevs {
 		}
 		if( !$time ) {
 			global $wgUseCurrentImages;
-
-			$time = !$wgUseCurrentImages ? -1 : $time; // hack, will never find this
+			
+			$time = $wgUseCurrentImages ? $time : -1; // hack, will never find this
 		}
 
 		return true;
@@ -1281,7 +1282,11 @@ class FlaggedRevs {
 			foreach( $filenames as $filename ) {
 				$file = wfFindFile( Title::makeTitle( NS_IMAGE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
-				$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
+				if( $file ) {
+					$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
+				} else {
+					$parser->mOutput->fr_ImageSHA1Keys[$filename][0] = '';
+				}
 			}
 		}
 		return true;

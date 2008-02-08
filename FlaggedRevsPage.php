@@ -286,7 +286,7 @@ class Revisionreview extends UnlistedSpecialPage
 		if( $success ) {
         	$wgOut->redirect( $this->page->getFullUrl() );
 		} else {
-			$wgOut->showErrorPage( 'internalerror', 'revreview-changed' );
+			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
 		}
 	}
 
@@ -313,15 +313,18 @@ class Revisionreview extends UnlistedSpecialPage
 			if( !$template ) continue;
 
 			$m = explode('|',$template,2);
-			if( !isset($m[0]) || !isset($m[1]) || !$m[0] ) continue;
+			if( !isset($m[0]) || !isset($m[1]) || !$m[0] )
+				continue;
 
 			list($prefixed_text,$rev_id) = $m;
 
-			if( in_array($prefixed_text,$templates) ) continue; // No dups!
+			if( in_array($prefixed_text,$templates) )
+				continue; // No dups!
 			$templates[] = $prefixed_text;
 
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
-			if( is_null($title) ) continue; // Page must exist!
+			if( is_null($title) )
+				continue; // Page must exist!
 
 			$tmpset[] = array(
 				'ft_rev_id' => $rev->getId(),
@@ -342,12 +345,14 @@ class Revisionreview extends UnlistedSpecialPage
 
 			list($dbkey,$timestamp,$key) = $m;
 
-			if( in_array($dbkey,$images) ) continue; // No dups!
+			if( in_array($dbkey,$images) )
+				continue; // No dups!
 
 			$images[] = $dbkey;
 
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
-			if( is_null($img_title) ) continue; // Page must exist!
+			if( is_null($img_title) )
+				continue; // Page must exist!
 
 			$imgset[] = array(
 				'fi_rev_id' => $rev->getId(),
@@ -368,10 +373,10 @@ class Revisionreview extends UnlistedSpecialPage
 			array('fi_rev_id' => $rev->getId() ),
 			__METHOD__ );
 		// Update our versioning params
-		if( !empty( $tmpset ) ) {
+		if( !empty($tmpset) ) {
 			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__ );
 		}
-		if( !empty( $imgset ) ) {
+		if( !empty($imgset) ) {
 			$dbw->insert( 'flaggedimages', $imgset, __METHOD__ );
 		}
         // Get the page text and resolve all templates
@@ -380,7 +385,13 @@ class Revisionreview extends UnlistedSpecialPage
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
-
+		// Check if the rest matches up
+		$stableOutput = FlaggedRevs::parseStableText( new Article( $rev->getTitle() ), $fulltext, $rev->getId() );
+		if( !$stableOutput->fr_includesMatched ) {
+        	$dbw->rollback(); // All versions must be specified, 0 for none
+        	return false;
+        }
+		
         // Compress $fulltext, passed by reference
         $textFlags = FlaggedRevs::compressText( $fulltext );
 
@@ -397,6 +408,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$fulltext = ExternalStore::insert( $store, $fulltext );
 			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
+				$dbw->rollback();
 				throw new MWException( "Unable to store text to external storage $store" );
 			}
 			if( $textFlags ) {
