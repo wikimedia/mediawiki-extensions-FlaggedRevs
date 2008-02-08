@@ -697,6 +697,9 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'makereviewer-header'       => "<strong>Dit formulier wörd gebroek door beheerders en bureaucrate om gebroekers aan te wieze die pagina's kinne validere.</strong>
+
+Veur de naam van 'ne gebroeker in 't inveurveld in en klik op de knoep om de gebroekersrech in te stelle. 'ne Gebroeker de status reviewer gaeve, maak dae gebroeker automatisch redacteur. 't Intrekke van de status redacteur haajt 't intrekke van de status reviewer in.",
 	'makereviewer-username'     => 'Gebroekersnaam:',
 	'makereviewer-search'       => 'Gao',
 	'makereviewer-iseditor'     => '[[User:$1|$1]] haet redacteursstatus.',

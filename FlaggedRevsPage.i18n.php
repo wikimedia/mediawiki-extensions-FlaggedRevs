@@ -2600,6 +2600,14 @@ $messages['li'] = array(
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|wieziging|wieziginge}}])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Bekeke]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige versie bekieke] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkinge}}])",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige versie bekieke] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkinge}}])",
+	'revreview-newest-basic'      => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lets beoordeilde versie]  
+([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alles tone]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
+op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|haet|höbbe}} 'n beoordeiling neudig.",
+	'revreview-newest-quality'    => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letste kwaliteitsversie]  
+([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alles tone]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
+op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|haet|höbbe}} 'n beoordeiling neudig.",
+	'revreview-basic'             => "Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeilde]] versie, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|wach|wachte}} op 'n beoordeiling.",
+	'revreview-quality'           => "Dit is de letste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|wach|wachte}} op 'n beoordeiling.",
 	'revreview-auto'              => '(automatisch)',
 	'hist-stable'                 => '[bekeke versie]',
 	'hist-quality'                => '[kwaliteitsversie]',
@@ -3737,8 +3745,8 @@ $messages['sk'] = array(
 	'tooltip-ca-default'          => 'Nastavenia kontroly kvality',
 	'validationpage'              => '{{ns:help}}:Overovanie článkov',
 	'revreview-quick-none'        => "'''Aktuálna'''. Žiadne revízie neboli skontrolvoané..",
-	'revreview-quick-see-quality' => "'''Aktuálna'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú kvalitnú revíziu]",
-	'revreview-quick-see-basic'   => "'''Aktuálna'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Pozri poslednú skontrolovanú revíziu]",
+	'revreview-quick-see-quality' => "'''Rozpísaná''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zobraziť stabilnú verziu]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|zmena|zmeny|zmien}}])",
+	'revreview-quick-see-basic'   => "'''Rozpísaná''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zobraziť stabilnú verziu]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|zmena|zmeny|zmien}}])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Skontrolovaná]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Kvalitná]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Pozri aktuálnu revíziu] 
@@ -4232,6 +4240,8 @@ $messages['te'] = array(
 	'grouppage-reviewer'        => '{{ns:project}}:సమీక్షకులు',
 	'tooltip-ca-current'        => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
 	'revreview-source'          => 'ప్రతి మూలం',
+	'revreview-stable'          => 'సుస్థిరం',
+	'tooltip-ca-stable'         => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'revreview-oldrating'       => 'రేటింగు:',
 	'revreview-noflagged'       => "ఈ పేజీకి సమీక్షిత కూర్పులేమీ లేవు, కాబట్టి దీన్ని నాణ్యత కొరకు [[{{MediaWiki:Validationpage}}|సరిచూసి]] '''ఉండక'''పోవచ్చు.",
 	'tooltip-ca-default'        => 'నాణ్యతా భరోసా అమరికలు',
@@ -4246,11 +4256,17 @@ $messages['te'] = array(
 	'revreview-flag'            => 'ఈ కూర్పుని సమీక్షించండి',
 	'revreview-accuracy'        => 'ఖచ్చితత్వం',
 	'revreview-accuracy-2'      => 'ఖచ్చితం',
+	'revreview-accuracy-4'      => 'విశేష్యం',
+	'revreview-depth'           => 'లోతైనది',
 	'revreview-depth-1'         => 'ప్రాథమిక',
+	'revreview-depth-2'         => 'మధ్యస్తం',
+	'revreview-depth-4'         => 'విశేష్యం',
 	'revreview-style-1'         => 'ఆమోదయోగ్యం',
 	'revreview-style-4'         => 'విశేషనీయం',
 	'revreview-log'             => 'వ్యాఖ్య:',
 	'revreview-submit'          => 'సమీక్షని దాఖలు చెయ్యండి',
+	'stableversions'            => 'సుస్థిర కూర్పులు',
+	'stableversions-title'      => '"$1" యొక్క సుస్థిర కూర్పులు',
 	'stableversions-leg1'       => 'పేజీ యొక్క సమీక్షిత కూర్పులను చూపించు',
 	'stableversions-page'       => 'పేజీ పేరు:',
 	'stableversions-none'       => '"[[:$1]]"కి సమీక్షిత కూర్పులేమీ లేవు.',
