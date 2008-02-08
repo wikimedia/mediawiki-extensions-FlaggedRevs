@@ -1145,7 +1145,6 @@ class FlaggedRevs {
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
 	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
-	$parser->fr_includesMatched = false; // May want to give an error
 		# Trigger for stable version parsing only
 		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
 			return true;
