@@ -790,7 +790,7 @@ class FlaggedArticle {
 	public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {
 		global $wgRequest, $wgUser, $wgOut;
 
-		if( !$wgUser->isAllowed('review') || !$wgRequest->getBool('editreview') || !$NewRev->isCurrent() )
+		if( !$wgUser->isAllowed('review') || !$NewRev->isCurrent() )
 			return true;
 
 		$frev = $this->getStableRev();
