@@ -443,12 +443,14 @@ class FlaggedArticle {
        	}
 		// We can change the behavoir of stable version for this page to be different
 		// than the site default.
-		$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
-       	$content_actions['default'] = array(
-			'class' => false,
-			'text' => wfmsg('stabilization-tab'),
-			'href' => $stabTitle->getLocalUrl('page='.$title->getPrefixedUrl())
-		);
+		if( $wgUser->isAllowed('stablesettings') ) {
+			$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
+			$content_actions['default'] = array(
+				'class' => false,
+				'text' => wfmsg('stabilization-tab'),
+				'href' => $stabTitle->getLocalUrl('page='.$title->getPrefixedUrl())
+			);
+		}
 		// Add auxillary tabs...
      	if( !$wgFlaggedRevTabs )
        		return true;

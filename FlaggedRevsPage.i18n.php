@@ -30,7 +30,7 @@ $messages['en'] = array(
 	'tooltip-ca-stable'   => 'View the stable version of this page',
 	'revreview-oldrating' => 'It was rated:',
 	'revreview-noflagged' => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been [[{{MediaWiki:Validationpage}}|checked]] for quality.',
-	'stabilization-tab'   => '(qa)',
+	'stabilization-tab'   => 'vet',
 	'tooltip-ca-default'  => 'Quality assurance settings',
 
 	'validationpage' => '{{ns:help}}:Article validation',
