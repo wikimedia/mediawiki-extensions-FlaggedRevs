@@ -1095,6 +1095,7 @@ Skriv användarens namn i rutan  och tryck på knappen för att ändra användar
 
 /** Telugu (తెలుగు)
  * @author Veeven
+ * @author వైజాసత్య
  */
 $messages['te'] = array(
 	'makereviewer-username'         => 'వాడుకరి పేరు:',
@@ -1106,11 +1107,16 @@ $messages['te'] = array(
 	'makereviewer-legend'           => 'వాడుకరి హక్కులను మార్చండి',
 	'makereviewer-change-e'         => 'ఎడిటర్ హోదా:',
 	'makereviewer-change-r'         => 'సమీక్షకుని హోదా:',
+	'makereviewer-grant1'           => 'ఇవ్వు',
+	'makereviewer-revoke1'          => 'వెనక్కి తీసుకో',
+	'makereviewer-grant2'           => 'ఇవ్వు',
+	'makereviewer-revoke2'          => 'వెనక్కి తీసుకో',
 	'makereviewer-comment'          => 'వ్యాఖ్య:',
 	'makereviewer-granted-e'        => '[[User:$1|$1]]కి ఇప్పుడు ఎడిటర్ హోదా ఉంది.',
 	'makereviewer-revoked-e'        => '[[User:$1|$1]]కి ఇక ఎడిటర్ హోదా లేదు.',
 	'makereviewer-granted-r'        => '[[User:$1|$1]]కి ఇప్పుడు సమీక్షకుల హోదా ఉంది.',
 	'makereviewer-revoked-r'        => '[[User:$1|$1]]కి ఇక సమీక్షకులు హోదా లేదు.',
+	'makereviewer-logpage'          => 'సంపాదకుల స్థాయి లాగ్',
 	'makereviewer-logentrygrant-e'  => '[[$1]]కి ఎడిటర్ హోదా ఇచ్చారు',
 	'makereviewer-logentryrevoke-e' => '[[$1]] నుండి ఎడిటర్ హోదా తొలగించారు',
 	'makereviewer-logentrygrant-r'  => '[[$1]]కి సమీక్షకుల హోదా ఇచ్చారు',
