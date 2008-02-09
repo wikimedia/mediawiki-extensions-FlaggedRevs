@@ -481,22 +481,23 @@ class Revisionreview extends UnlistedSpecialPage
     }
 
 	/**
-	 * @param Revision $rev
+	 * @param FlaggedRevision $frev
 	 * Removes flagged revision data for this page/id set
 	 */
-	function unapproveRevision( $row ) {
+	function unapproveRevision( $frev ) {
 		global $wgUser, $wgParser;
 
 		$user = $wgUser->getId();
 
 		wfProfileIn( __METHOD__ );
+		
         $dbw = wfGetDB( DB_MASTER );
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
-			array( 'fr_page_id' => $this->page->getArticleID(), 'fr_rev_id' => $row->fr_rev_id ) );
+			array( 'fr_page_id' => $this->page->getArticleID(), 'fr_rev_id' => $frev->getRevId() ) );
 		# Wipe versioning params
-		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
-		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
+		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
+		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
 
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
