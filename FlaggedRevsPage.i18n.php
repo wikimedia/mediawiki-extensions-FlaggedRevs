@@ -47,7 +47,7 @@ $messages['en'] = array(
 	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', [{{fullurl:Special:Log/review|page=$1}} approved] on <i>$2</i>.',
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
-	'revreview-update' => 'Please review any changes (shown below) made since the stable revision. Some templates/images were updated:',
+	'revreview-update' => 'Please review any changes made since the stable revision was reviewed. Some templates/images were updated:',
 	'revreview-update-none' => 'Please review any changes (shown below) made since the stable revision.',
 	'revreview-auto' => '(automatic)',
 	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''. You may want to preview the page before saving.",

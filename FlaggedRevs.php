@@ -345,7 +345,7 @@ class FlaggedRevs {
 		$wgParser->fr_includesMatched = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options->setEditSection(false);
-		// $options->setEditSection( $id==$article->getLatest() );
+		$options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
 		$title = $article->getTitle(); // avoid pass-by-reference error
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
