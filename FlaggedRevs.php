@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.05',
+	'version' => '1.06',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -97,6 +97,10 @@ $wgFlagRestrictions = array(
 	'depth'	   => array( 'review' => 2 ),
 	'style'	   => array( 'review' => 3 ),
 );
+
+# Please set these as something different.
+# There must be four, and only the first four are checked.
+$wgReviewCodes = array( 'first one', 'second code', 'yet another', 'the last' );
 
 # Lets some users access the review UI and set some flags
 $wgAvailableRights[] = 'review';

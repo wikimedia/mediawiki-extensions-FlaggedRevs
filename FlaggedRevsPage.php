@@ -33,10 +33,10 @@ class Revisionreview extends UnlistedSpecialPage
 		}
 
 		$this->setHeaders();
-		// Our target page
+		# Our target page
 		$this->target = $wgRequest->getText( 'target' );
 		$this->page = Title::newFromUrl( $this->target );
-		// Basic patrolling
+		# Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
 		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
 
@@ -44,59 +44,71 @@ class Revisionreview extends UnlistedSpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		// Patrol the edit if requested
+		# Patrol the edit if requested
 		if( $this->patrolonly && $this->rcid ) {
 			$this->markPatrolled();
 			return;
 		}
 
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
-		// Revision ID
+		# Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		if( !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
-		// Check if page is protected
+		# Check if page is protected
 		if( !$this->page->quickUserCan( 'edit' ) ) {
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
-		// Special parameter mapping
+		# Special parameter mapping
 		$this->templateParams = $wgRequest->getVal( 'templateParams' );
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
-		// Log comment
+		$this->validatedParams = $wgRequest->getVal( 'validatedParams' );
+		
+		global $wgReviewCodes;
+		# Special token to discourage fiddling...
+		$checkCode = MD5( $wgReviewCodes[3] . MD5( MD5($this->imageParams.$wgReviewCodes[0]) . 
+			 sha1($wgReviewCodes[1].$wgUser->getID()) . MD5($this->templateParams.$wgReviewCodes[2]) ) );
+		# Must match up
+		if( $this->validatedParams != $checkCode ) {
+			$this->templateParams = '';
+			$this->imageParams = '';
+		}
+		
+		# Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
-		// Additional notes (displayed at bottom of page)
+		# Additional notes (displayed at bottom of page)
 		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ?
 			$wgRequest->getText('wpNotes') : '';
-		// Get the revision's current flags, if any
+		# Get the revision's current flags, if any
 		$this->oflags = FlaggedRevs::getRevisionTags( $this->oldid );
-		// Get our accuracy/quality dimensions
+		# Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->unapprovedTags = 0;
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
-			// Must be greater than zero
+			# Must be greater than zero
 			if( $this->dims[$tag] < 0 || $this->dims[$tag] > $wgFlaggedRevValues ) {
 				$wgOut->showErrorPage('notargettitle', 'notargettext' );
 				return;
 			}
 			if( $this->dims[$tag]==0 )
 				$this->unapprovedTags++;
-			// Check permissions
+			# Check permissions
 			if( !$this->userCan( $tag, $this->oflags[$tag] ) ) {
 				# Users can't take away a status they can't set
 				$wgOut->permissionRequired( 'badaccess-group0' );
 				return;
-			// Users cannot review to beyond their rights level
+			# Users cannot review to beyond their rights level
 			} else if( !$this->userCan( $tag, $this->dims[$tag] ) ) {
 				$wgOut->permissionRequired( 'badaccess-group0' );
 				return;
 			}
 		}
-		// We must at least rate each category as 1, the minimum
-		// Exception: we can rate ALL as unapproved to depreciate a revision
+		# We must at least rate each category as 1, the minimum
+		# Exception: we can rate ALL as unapproved to depreciate a revision
 		$valid = true;
 		if( $this->unapprovedTags > 0 ) {
 			if( $this->unapprovedTags < count($wgFlaggedRevTags) || !$this->oflags )
@@ -122,11 +134,11 @@ class Revisionreview extends UnlistedSpecialPage
 
 		if( !isset($wgFlagRestrictions[$tag]) )
 			return true;
-		// Validators always have full access
+		# Validators always have full access
 		if( $wgUser->isAllowed('validate') )
 			return true;
-		// Check if this user has any right that lets him/her set
-		// up to this particular value
+		# Check if this user has any right that lets him/her set
+		# up to this particular value
 		foreach( $wgFlagRestrictions[$tag] as $right => $level ) {
 			if( $value <= $level && $wgUser->isAllowed($right) ) {
 				return true;
@@ -160,8 +172,8 @@ class Revisionreview extends UnlistedSpecialPage
 
 		$this->skin = $wgUser->getSkin();
 		$rev = Revision::newFromTitle( $this->page, $this->oldid );
-		// Check if rev exists
-		// Do not mess with deleted revisions
+		# Check if rev exists
+		# Do not mess with deleted revisions
 		if( !isset( $rev ) || $rev->mDeleted ) {
 			$wgOut->showErrorPage( 'internalerror', 'notargettitle', 'notargettext' );
 			return;
@@ -175,7 +187,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$wgOut->addWikiText( wfMsg('revreview-text') );
 
 		$formradios = array();
-		// Dynamically contruct our radio options
+		# Dynamically contruct our radio options
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$formradios[$tag] = array();
 			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
@@ -190,7 +202,7 @@ class Revisionreview extends UnlistedSpecialPage
 		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
 		$form = "<form name='revisionreview' action='$action' method='post'>";
 		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
-		// Dynamically contruct our review types
+		# Dynamically contruct our review types
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
 		}
@@ -199,7 +211,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$form .= '<td>';
 			foreach( $ratioset as $item ) {
 				list( $message, $name, $field ) = $item;
-				// Don't give options the user can't set unless its the status quo
+				# Don't give options the user can't set unless its the status quo
 				$attribs = array('id' => $name.$field);
 				if( !$this->userCan($set,$field) )
 					$attribs['disabled'] = 'true';
@@ -211,7 +223,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$form .= '</td><td width=\'20\'></td>';
 		}
 		$form .= '</tr></table></fieldset>';
-		// Add box to add live notes to a flagged revision
+		# Add box to add live notes to a flagged revision
 		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
 			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>" .
@@ -227,7 +239,7 @@ class Revisionreview extends UnlistedSpecialPage
 		foreach( $hidden as $item ) {
 			$form .= $item;
 		}
-		// Hack, versioning params
+		# Hack, versioning params
 		$form .= Xml::hidden( 'templateParams', $this->templateParams );
 		$form .= Xml::hidden( 'imageParams', $this->imageParams );
 
@@ -262,18 +274,18 @@ class Revisionreview extends UnlistedSpecialPage
 				break;
 			}
 		}
-		// We can only approve actual revisions...
+		# We can only approve actual revisions...
 		if( $approved ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
-			// Do not mess with archived/deleted revisions
+			# Do not mess with archived/deleted revisions
 			if( is_null($rev) || $rev->mDeleted ) {
 				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
 				return;
 			}
-		// We can only unapprove approved revisions...
+		# We can only unapprove approved revisions...
 		} else {
 			$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid );
-			// If we can't find this flagged rev, return to page???
+			# If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
 				$wgOut->redirect( $this->page->getFullUrl() );
 				return;
@@ -282,7 +294,7 @@ class Revisionreview extends UnlistedSpecialPage
 
 		$success = $approved ?
 			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
-		// Return to our page
+		# Return to our page
 		if( $success ) {
         	$wgOut->redirect( $this->page->getFullUrl() );
 		} else {
@@ -297,16 +309,16 @@ class Revisionreview extends UnlistedSpecialPage
 	 */
 	function approveRevision( $rev, $notes='' ) {
 		global $wgUser, $wgParser;
-		// Get the page this corresponds to
+		# Get the page this corresponds to
 		$title = $rev->getTitle();
 
 		$quality = 0;
 		if( FlaggedRevs::isQuality($this->dims) ) {
 			$quality = FlaggedRevs::isPristine($this->dims) ? 2 : 1;
 		}
-		// Our flags
+		# Our flags
 		$flags = $this->dims;
-		// Our template version pointers
+		# Our template version pointers
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
@@ -333,7 +345,7 @@ class Revisionreview extends UnlistedSpecialPage
 				'ft_tmp_rev_id' => $rev_id
 			);
 		}
-		// Our image version pointers
+		# Our image version pointers
 		$imgset = $images = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
@@ -364,47 +376,47 @@ class Revisionreview extends UnlistedSpecialPage
 
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
-		// Clear out any previous garbage.
-		// We want to be able to use this for tracking...
+		# Clear out any previous garbage.
+		# We want to be able to use this for tracking...
 		$dbw->delete( 'flaggedtemplates',
 			array('ft_rev_id' => $rev->getId() ),
 			__METHOD__ );
 		$dbw->delete( 'flaggedimages',
 			array('fi_rev_id' => $rev->getId() ),
 			__METHOD__ );
-		// Update our versioning params
+		# Update our versioning params
 		if( !empty($tmpset) ) {
 			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__ );
 		}
 		if( !empty($imgset) ) {
 			$dbw->insert( 'flaggedimages', $imgset, __METHOD__ );
 		}
-        // Get the page text and resolve all templates
+        # Get the page text and resolve all templates
         list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$complete ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
-		// Check if the rest matches up
+		# Check if the rest matches up
 		$stableOutput = FlaggedRevs::parseStableText( new Article( $rev->getTitle() ), $fulltext, $rev->getId() );
 		if( !$stableOutput->fr_includesMatched ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
 		
-        // Compress $fulltext, passed by reference
+        # Compress $fulltext, passed by reference
         $textFlags = FlaggedRevs::compressText( $fulltext );
 
-		// Write to external storage if required
+		# Write to external storage if required
 		global $wgDefaultExternalStore;
 		if( $wgDefaultExternalStore ) {
 			if( is_array( $wgDefaultExternalStore ) ) {
-				// Distribute storage across multiple clusters
+				# Distribute storage across multiple clusters
 				$store = $wgDefaultExternalStore[mt_rand(0, count( $wgDefaultExternalStore ) - 1)];
 			} else {
 				$store = $wgDefaultExternalStore;
 			}
-			// Store and get the URL
+			# Store and get the URL
 			$fulltext = ExternalStore::insert( $store, $fulltext );
 			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
@@ -417,7 +429,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$textFlags .= 'external';
 		}
 
-		// Our review entry
+		# Our review entry
  		$revset = array(
  			'fr_rev_id'    => $rev->getId(),
  			'fr_page_id'   => $title->getArticleID(),
@@ -426,12 +438,12 @@ class Revisionreview extends UnlistedSpecialPage
 			'fr_comment'   => $notes,
 			'fr_quality'   => $quality,
 			'fr_tags'      => FlaggedRevs::flattenRevisionTags( $flags ),
-			'fr_text'      => $fulltext, // Store expanded text for speed
+			'fr_text'      => $fulltext, # Store expanded text for speed
 			'fr_flags'     => $textFlags
 		);
-		// Update flagged revisions table
+		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
-		// Mark as patrolled
+		# Mark as patrolled
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => 1 ),
 			array( 'rc_this_oldid' => $rev->getId(),
@@ -440,11 +452,11 @@ class Revisionreview extends UnlistedSpecialPage
 		);
 		$dbw->commit();
 
-		// Update the article review log
+		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 
 		$article = new Article( $this->page );
-		// Update the links tables as the stable version may now be the default page...
+		# Update the links tables as the stable version may now be the default page...
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
@@ -477,19 +489,19 @@ class Revisionreview extends UnlistedSpecialPage
 
 		wfProfileIn( __METHOD__ );
         $dbw = wfGetDB( DB_MASTER );
-		// Delete from flaggedrevs table
+		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
 			array( 'fr_page_id' => $this->page->getArticleID(), 'fr_rev_id' => $row->fr_rev_id ) );
-		// Wipe versioning params
+		# Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $row->fr_rev_id ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $row->fr_rev_id ) );
 
-		// Update the article review log
+		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
 
 		$article = new Article( $this->page );
-		// Update the links tables as a new stable version
-		// may now be the default page.
+		# Update the links tables as a new stable version
+		# may now be the default page.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
@@ -522,14 +534,14 @@ class Revisionreview extends UnlistedSpecialPage
 	 */
 	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve, $RC=false ) {
 		$log = new LogPage( 'review', $RC );
-		// ID, accuracy, depth, style
+		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dimensions as $quality => $level ) {
 			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . wfMsgForContent("revreview-$quality-$level");
 		}
 		$rating = ($approve && !empty($ratings) ) ? ' [' . implode(', ',$ratings). ']' : '';
-		// Append comment with action
-		// FIXME: do this better
+		# Append comment with action
+		# FIXME: do this better
 		$action = wfMsgExt('review-logaction', array('parsemag','content'), $oldid );
 		if( $approve )
 			$comment = $comment ? "$action: $comment$rating" : "$action $rating";
@@ -577,7 +589,7 @@ class Stableversions extends UnlistedSpecialPage
 
 	function showStableList() {
 		global $wgOut, $wgUser, $wgLang;
-		// Must be a content page
+		# Must be a content page
 		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'),
 				$this->page->getPrefixedText() ) );
@@ -606,7 +618,7 @@ class Stableversions extends UnlistedSpecialPage
 		# Get the revision
 		if( $this->oldid =='best' ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			// Get the highest quality revision (not necessarily this one).
+			# Get the highest quality revision (not necessarily this one).
 			$oldid = $dbr->selectField( array('flaggedrevs', 'revision'),
 				'fr_rev_id',
 				array( 'fr_page_id' => $this->page->getArticleID(),
@@ -635,7 +647,7 @@ class Stableversions extends UnlistedSpecialPage
 		# Get flags and date
 		$flags = $frev->getTags();
 		$time = $wgLang->timeanddate( $frev->getTimestamp(), true );
-       	// We will be looking at the reviewed revision...
+       	# We will be looking at the reviewed revision...
        	$tag = wfMsgExt( 'revreview-static', array('parseinline'),
 		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText() ) .
 			' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' .
@@ -704,7 +716,7 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 		global $wgFlaggedRevsNamespaces;
 
 		$conds = $this->mConds;
-		// Must be in a reviewable namespace
+		# Must be in a reviewable namespace
 		if( !in_array($this->namespace, $wgFlaggedRevsNamespaces) ) {
 			$conds[] = "1 = 0";
 		}
@@ -958,7 +970,7 @@ class ReviewedPagesPager extends ReverseChronologicalPager {
 		global $wgFlaggedRevsNamespaces;
 
 		$conds = $this->mConds;
-		// Must be in a reviewable namespace
+		# Must be in a reviewable namespace
 		if( !in_array($this->namespace, $wgFlaggedRevsNamespaces) ) {
 			$conds[] = "1 = 0";
 		}
@@ -1057,7 +1069,7 @@ class Stabilization extends UnlistedSpecialPage
 		global $wgOut, $wgTitle, $wgUser;
 
 		$wgOut->setRobotpolicy( 'noindex,nofollow' );
-		// Must be a content page
+		# Must be a content page
 		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), $this->page->getPrefixedText() ) );
 			return;
@@ -1194,7 +1206,7 @@ class Stabilization extends UnlistedSpecialPage
 			global $wgContLang;
 
 			$log = new LogPage( 'stable' );
-			// ID, accuracy, depth, style
+			# ID, accuracy, depth, style
 			$set = array();
 			$set[] = wfMsg( "stabilization-sel-short" ) . ": " .
 				wfMsg("stabilization-sel-short-{$this->select}");
@@ -1203,7 +1215,7 @@ class Stabilization extends UnlistedSpecialPage
 			$settings = '[' . implode(', ',$set). ']';
 
 			$comment = '';
-			// Append comment with settings (other than for resets)
+			# Append comment with settings (other than for resets)
 			if( !$reset ) {
 				$comment = $this->comment ? "{$this->comment} $settings" : "$settings";
 

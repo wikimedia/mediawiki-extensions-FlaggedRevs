@@ -666,8 +666,14 @@ class FlaggedArticle {
 				$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
 			}
 		}
-
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+		
+		global $wgReviewCodes;
+		# Special token to discourage fiddling...
+		$checkCode = MD5( $wgReviewCodes[3] . MD5( MD5($imageParams.$wgReviewCodes[0]) . 
+			 sha1($wgReviewCodes[1].$wgUser->getID()) . MD5($templateParams.$wgReviewCodes[2]) ) );
+		
+		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
 		$form .= "<p>".Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 50 )."\n";
 
@@ -826,11 +832,11 @@ class FlaggedArticle {
 
 		if( empty($changeList) ) {
 			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
-				wfMsg('revreview-update-none').'</div>' );
+				wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
 		} else {
 			$changeList = implode(', ',$changeList);
 			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
-				wfMsg('revreview-update').'</p>'.$changeList.'</div>' );
+				wfMsgExt('revreview-update', array('parseinline')) . $changeList . '</div>' );
 		}
 		# Set flag for review form to tell it to autoselect tag settings from the
 		# old revision unless the current one is tagged to.
