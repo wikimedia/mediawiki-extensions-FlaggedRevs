@@ -161,14 +161,14 @@ class FlaggedArticle {
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$css = $quality ? 'fr-tab_quality' : 'fr-tab_stable';
-						$tag .= "<span class='$css plainlinks'></span>" .
+						$tag = "<span class='$css plainlinks'></span>" .
 							wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $revs_since );
 					 	$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since );
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$tag = wfMsgExt( $msg, array('parseinline'), $vis_id, $time, $revs_since );
 						if( !empty($flags) ) {
-							$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
+							$tag = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
 								' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 							$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 								$this->addTagRatings( $flags ) . '</span>';
@@ -278,17 +278,37 @@ class FlaggedArticle {
 			$flags = $tfrev->getTags();
 			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle, $tfrev->getRevId() );
 			# Construct some tagging
-			$msg = FlaggedRevs::isQuality( $flags ) ? 'revreview-newest-quality' : 'revreview-newest-basic';
-			$tag = wfMsgExt($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+			$quality = FlaggedRevs::isQuality( $flags );
 			# Hide clutter
+			if( FlaggedRevs::useSimpleUI() ) {
+				$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
+				$tag = "<span class='fr-tab_current plainlinks'></span>" .
+					wfMsgExt( $msg,array('parseinline'), $tfrev->getRevId(), $revs_since );
+				$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false );
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
+				
+				$this->simpleNotice = $tag;
+			} else {
+				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+				$tag .= wfMsgExt ($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+				# Hide clutter
+				if( !empty($flags) ) {
+					$tag = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
+						' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
+					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
+						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
+				}
+				
+				$wgOut->addHTML( '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
+			}
+			
 			if( !empty($flags) ) {
-				$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
+				$tag = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
 					' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 				$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 					wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) .
 					'</span>';
 			}
-			$wgOut->addHTML( '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>' );
 			# If this will be autoreviewed, notify the user...
 			if( !$wgFlaggedRevsAutoReview )
 				return true;

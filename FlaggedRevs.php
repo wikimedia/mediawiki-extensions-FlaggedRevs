@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.04',
+	'version' => '1.05',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -503,7 +503,7 @@ class FlaggedRevs {
 	public static function getRevCountSince( $article, $from_rev ) {
 		# Check if the count is zero by using $article->getLatest().
 		# I don't trust using memcache and PHP for values like '0'
-		# as it may confuse "expired" with "0".
+		# as it may confuse "expired" with "0". -aaron
 		if( $article->getLatest()==$from_rev ) {
 			return 0;
 		}
@@ -1179,10 +1179,10 @@ class FlaggedRevs {
 			if( $time === false ) {
 				$parser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentImages ) {
-					$time = 0;
+					$time = -1;
 				}
 			} else {
-				$time = 0;
+				$time = -1;
 			}
 		}
 		return true;
