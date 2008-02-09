@@ -400,7 +400,21 @@ class FlaggedRevs {
 		}
 		return $text;
 	}
-
+	
+	/**
+	* Get a validation key from versioning metadata
+	* @param string $templateParams
+	* @param string $imageParams
+	* @param integer $uid user ID
+	* @return string
+	*/
+	public static function getValidationKey( $templateParams, $imageParams, $uid ) {
+		global $wgReviewCodes;
+	
+		return MD5( $wgReviewCodes[3] . MD5( MD5($imageParams.$wgReviewCodes[0]) . 
+			 sha1($wgReviewCodes[1].$uid) . MD5($templateParams.$wgReviewCodes[2]) ) );
+	}
+	
 	/**
 	 * Purge expired restrictions from the flaggedpage_config table
 	 */

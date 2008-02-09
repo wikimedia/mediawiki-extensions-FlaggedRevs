@@ -668,10 +668,8 @@ class FlaggedArticle {
 		}
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
 		
-		global $wgReviewCodes;
 		# Special token to discourage fiddling...
-		$checkCode = MD5( $wgReviewCodes[3] . MD5( MD5($imageParams.$wgReviewCodes[0]) . 
-			 sha1($wgReviewCodes[1].$wgUser->getID()) . MD5($templateParams.$wgReviewCodes[2]) ) );
+		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
 		
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
@@ -1124,3 +1122,4 @@ class FlaggedArticle {
 		return true;
 	}
 }
+

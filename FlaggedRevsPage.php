@@ -69,8 +69,7 @@ class Revisionreview extends UnlistedSpecialPage
 		
 		global $wgReviewCodes;
 		# Special token to discourage fiddling...
-		$checkCode = MD5( $wgReviewCodes[3] . MD5( MD5($this->imageParams.$wgReviewCodes[0]) . 
-			 sha1($wgReviewCodes[1].$wgUser->getID()) . MD5($this->templateParams.$wgReviewCodes[2]) ) );
+		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID() );
 		# Must match up
 		if( $this->validatedParams != $checkCode ) {
 			$this->templateParams = '';
