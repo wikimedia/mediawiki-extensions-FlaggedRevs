@@ -886,11 +886,7 @@ class FlaggedArticle {
 			$extraq .= "oldid={$frev->getRevId()}&diff=cur&editreview=1";
 		} else {
 			if( !is_null($frev) ){
-				if( $wgUser->isAllowed('review') ) {
-					$extraq .= "stable=1";
-				} else {
-					$extraq .= "stable=0";
-				}
+				$extraq .= "stable=0";
 			}
 		}
 

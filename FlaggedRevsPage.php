@@ -399,8 +399,10 @@ class Revisionreview extends UnlistedSpecialPage
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
+		
+		$article = new Article( $this->page );
 		# Check if the rest matches up
-		$stableOutput = FlaggedRevs::parseStableText( new Article( $rev->getTitle() ), $fulltext, $rev->getId() );
+		$stableOutput = FlaggedRevs::parseStableText( $article, $rev->getText(), $rev->getId() );
 		if( !$stableOutput->fr_includesMatched ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
@@ -443,6 +445,7 @@ class Revisionreview extends UnlistedSpecialPage
 			'fr_text'      => $fulltext, # Store expanded text for speed
 			'fr_flags'     => $textFlags
 		);
+		
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		# Mark as patrolled
@@ -457,8 +460,8 @@ class Revisionreview extends UnlistedSpecialPage
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
 
-		$article = new Article( $this->page );
-		# Update the links tables as the stable version may now be the default page...
+		# Update the links tables as the stable version may now be the default page.
+		# Try using the parser cache first since we didn't actually edit the current version.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
@@ -467,15 +470,18 @@ class Revisionreview extends UnlistedSpecialPage
 			$options->setTidy(true);
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
+		# Clear the cache...
+		$this->page->invalidateCache();
+		# Might as well update the stable cache while we're at it
+		FlaggedRevs::updatePageCache( $article, $stableOutput );
+
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
 
-		# Clear the cache...
-		$this->page->invalidateCache();
-		# Might as well save the cache
+		# Might as well save the cache, since it should be the same
 		$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
-		$this->page->purgeSquid();
+		$article->getTitle()->purgeSquid();
 
         return true;
     }

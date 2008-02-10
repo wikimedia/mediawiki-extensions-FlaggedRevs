@@ -525,7 +525,7 @@ class FlaggedRevs {
 			return new FlaggedRevision( $row );
 		}
 
-		return NULL;
+		return null;
 	}
 
 	/**
@@ -774,7 +774,7 @@ class FlaggedRevs {
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
 		if( !$article->getId() )
-			return NULL;
+			return null;
 
 		$parserCache = ParserCache::singleton();
 		$key = self::getCacheKey( $parserCache, $article, $wgUser );
@@ -828,13 +828,11 @@ class FlaggedRevs {
 	* @param parerOutput $parserOut
 	* Updates the stable cache of a page with the given $parserOut
 	*/
-	public static function updatePageCache( $article, $parserOut=NULL ) {
+	public static function updatePageCache( $article, $parserOut=null ) {
 		global $wgUser, $parserMemc, $wgParserCacheExpireTime;
 		# Make sure it is valid
 		if( is_null($parserOut) || !$article )
 			return false;
-		# Update the cache...
-		$article->getTitle()->invalidateCache();
 
 		$parserCache = ParserCache::singleton();
 		$key = self::getCacheKey( $parserCache, $article, $wgUser );
@@ -852,8 +850,6 @@ class FlaggedRevs {
 		}
 		# Save to objectcache
 		$parserMemc->set( $key, $parserOut, $expire );
-		# Purge squid for this page only
-		$article->getTitle()->purgeSquid();
 
 		return true;
 	}
@@ -1144,16 +1140,18 @@ class FlaggedRevs {
 			return true;
 		# Get the either the full flagged revision text or the revision text
 		$article = new Article( $linksUpdate->mTitle );
-		if( $wgUseStableTemplates ) {
-			$rev = Revision::newFromId( $sv->getRevId() );
-			$text = $rev->getText();
-		} else {
-			$text = $sv->getText();
+		# Try stable version cache. This should be updated before this is called.
+		$parserOut = self::getPageCache( $article );
+		if( $parserOut==false ) {
+			if( $wgUseStableTemplates ) {
+				$rev = Revision::newFromId( $sv->getRevId() );
+				$text = $rev->getText();
+			} else {
+				$text = $sv->getText();
+			}
+			# Parse the text
+			$parserOut = self::parseStableText( $article, $text, $sv->getRevId() );
 		}
-		# Parse the text
-		$parserOut = self::parseStableText( $article, $text, $sv->getRevId() );
-		# Might as well update the stable cache while we're at it
-		self::updatePageCache( $article, $parserOut );
 		# Update page fields
 		self::updateArticleOn( $article, $sv->getRevId() );
 		# Update the links tables to include these
@@ -1390,8 +1388,8 @@ class FlaggedRevs {
 		$parser->mOutput->fr_newestImageTime = $maxTimestamp;
 		# Record the max template revision ID
 		if( !empty($parser->mOutput->mTemplateIds) ) {
-			foreach( $parser->mOutput->mTemplateIds as $namespace => $title_rev ) {
-				foreach( $title_rev as $title => $revID ) {
+			foreach( $parser->mOutput->mTemplateIds as $namespace => $DBkey_rev ) {
+				foreach( $DBkey_rev as $DBkey => $revID ) {
 					if( $revID > $maxRevision ) {
 						$maxRevision = $revID;
 					} 
@@ -1410,8 +1408,6 @@ class FlaggedRevs {
 		# Leave as defaults if missing. Relevant things will be updated only when needed.
 		# We don't want to go around resetting caches all over the place if avoidable...
 		$out->fr_ImageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ? $parserOut->fr_ImageSHA1Keys : array();
-		$out->fr_newestImageTime = isset($parserOut->fr_newestImageTime) ? $parserOut->fr_newestImageTime : "0";
-		$out->fr_newestTemplateID = isset($parserOut->fr_newestTemplateID) ? $parserOut->fr_newestTemplateID : 0;
 
 		return true;
 	}
@@ -1560,7 +1556,7 @@ class FlaggedRevs {
 	* Get a selector of reviewable namespaces
 	* @param int $selected, namespace selected
 	*/
-	public static function getNamespaceMenu( $selected=NULL ) {
+	public static function getNamespaceMenu( $selected=null ) {
 		global $wgContLang, $wgFlaggedRevsNamespaces;
 
 		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
