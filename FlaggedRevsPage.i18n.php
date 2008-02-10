@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Internationalisation file for extension FlaggedRevs (group FlaggedRevsPage).
  *
@@ -40,13 +40,20 @@ $messages['en'] = array(
 	'revreview-quick-see-basic' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view stable article]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
 	'revreview-quick-quality' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|changes}}])',
+	'revreview-quick-basic-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted]]\'\'\' (no unreviewed changes)',
+	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality]]\'\'\' (no unreviewed changes)',
+
 	'revreview-newest-basic' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
 	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
 	'revreview-basic' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|awaits|await}} review.',
 	'revreview-quality' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|change|changes}}] {{plural:$3|awaits|await}} review.',
-	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', [{{fullurl:Special:Log|type=review&page=$1}} approved] on <i>$2</i>.',
+	'revreview-basic-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The page can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified].',
+	'revreview-quality-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The page can be [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified].',
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
+
+	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', [{{fullurl:Special:Log|type=review&page=$1}} approved] on <i>$2</i>.',
+
 	'revreview-update' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].
 
 '''Some templates/images were updated:'''",
@@ -4943,4 +4950,5 @@ $messages['zh-hant'] = array(
 	'unreviewed-diff'             => '更改',
 	'unreviewed-list'             => '這一頁列示出還未複審或視察的文章修訂。',
 );
+
 

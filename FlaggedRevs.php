@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.06',
+	'version' => '1.07',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -98,8 +98,9 @@ $wgFlagRestrictions = array(
 	'style'	   => array( 'review' => 3 ),
 );
 
-# Please set these as something different.
-# There must be four, and only the first four are checked.
+# Please set these as something different. Any text will do, though it probably
+# shouldn't be very short (less secure) or very long (waste of resources).
+# There must be four codes, and only the first four are checked.
 $wgReviewCodes = array( 'first one', 'second code', 'yet another', 'the last' );
 
 # Lets some users access the review UI and set some flags
@@ -108,12 +109,12 @@ $wgAvailableRights[] = 'review';
 $wgAvailableRights[] = 'validate';
 
 # Define our basic reviewer class
-$wgGroupPermissions['editor']['review']		  = true;
-$wgGroupPermissions['editor']['unwatchedpages']  = true;
-$wgGroupPermissions['editor']['autoconfirmed']   = true;
-$wgGroupPermissions['editor']['patrolmarks']	 = true;
-$wgGroupPermissions['editor']['patrolother']	 = true;
-$wgGroupPermissions['editor']['unreviewedpages'] = true;
+$wgGroupPermissions['editor']['review']		  	= true;
+$wgGroupPermissions['editor']['unwatchedpages'] 	= true;
+$wgGroupPermissions['editor']['autoconfirmed']  	= true;
+$wgGroupPermissions['editor']['patrolmarks']	    = true;
+$wgGroupPermissions['editor']['patrolother']	  	= true;
+$wgGroupPermissions['editor']['unreviewedpages']	= true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
@@ -122,15 +123,17 @@ $wgGroupPermissions['reviewer']['review']   = true;
 
 # Stable version selection and default page revision selection
 # can be set per page.
-$wgGroupPermissions['sysop']['stablesettings'] = true;
-$wgGroupPermissions['sysop']['patrolother']	 = true;
+$wgGroupPermissions['sysop']['stablesettings']	= true;
+$wgGroupPermissions['sysop']['patrolother']		= true;
 
 # Define when users get automatically promoted to editors. Set as false to disable.
+# 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
+# edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
 	'days'	     => 60,
 	'edits'	     => 150,
-	'spacing'	 => 5, // in days
-	'benchmarks' => 10, // keep this small
+	'spacing'	 => 5, # in days
+	'benchmarks' => 10, # keep this small
 	'email'	     => true,
 	'userpage'   => true
 );
@@ -226,8 +229,8 @@ function efLoadFlaggedRevs() {
 	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
 	$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImageLink';
 	# Additional parser versioning
-	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectImageTimestamps';
-	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectImageTimestamps';
+	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
@@ -359,6 +362,77 @@ class FlaggedRevs {
 		$wgParser->fr_includesMatched = false;
 
 	   	return $parserOut;
+	}
+	
+	/**
+	* @param FlaggedRevision $frev
+	* @param Article $article
+	* @param ParserOutput $flaggedOutput, will fetch if not given
+	* @param ParserOutput $currentOutput, will fetch if not given
+	* @return bool
+	* See if a flagged revision is synced with the current
+	*/	
+	public static function flaggedRevIsSynced( $frev, $article, $flaggedOutput=null, $currentOutput=null ) {
+		# Must be the same revision
+		if( $frev->getRevId() != $article->getLatest() ) {
+			return false;
+		}
+		global $wgMemc;
+		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
+		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId() . '-' . $article->getTouched() );
+		$syncData = $wgMemc->get($key);
+		# Convert string value to boolean and return it
+		if( $syncData ) {
+			list($syncvalue,$timestamp) = explode('-',$syncData,2);
+			return ( $syncvalue === 'true' ) ? true : false;
+		}
+		# If parseroutputs not given, fetch them...
+		if( is_null($flaggedOutput) || !isset($flaggedOutput->fr_newestTemplateID) ) {
+			# Get parsed stable version
+			$flaggedOutput = FlaggedRevs::getPageCache( $article );
+			if( $flaggedOutput==false ) {
+				global $wgUseStableTemplates;
+				if( $wgUseStableTemplates ) {
+					$rev = Revision::newFromId( $frev->getRevId() );
+					$text = $rev->getText();
+				} else {
+					$text = $frev->getText();
+				}
+       			$flaggedOutput = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
+       			# Update the stable version cache
+       			FlaggedRevs::updatePageCache( $article, $flaggedOutput );
+       		}
+		}
+		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
+			global $wgUser, $wgParser;
+			# Get parsed current version
+			$parserCache = ParserCache::singleton();
+			$currentOutput = $parserCache->get( $article, $wgUser );
+			if( $currentOutput==false ) {
+				$text = $article->getContent();
+				$currentOutput = $wgParser->parse($text, $article->getTitle(), ParserOptions::newFromUser($wgUser));
+				# Might as well save the cache while we're at it
+				$parserCache->save( $currentOutput, $article, $wgUser );
+			}
+		}
+		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
+		# have the same text, the only thing that can make them different is updating a template or image.
+		# If this is the case, the current revision will have a newer template or image version used somewhere. 
+		if( $currentOutput->fr_newestImageTime > $flaggedOutput->fr_newestImageTime ) {
+			$synced = false;
+		} else if( $currentOutput->fr_newestTemplateID > $flaggedOutput->fr_newestTemplateID ) {
+			$synced = false;
+		} else {
+			$synced = true;
+		}
+		# Save to cache. This will be updated whenever the page is re-parsed as well. This means
+		# that MW can check a light-weight key first. Uses format <page ID>-<UNIX timestamp>.
+		global $wgParserCacheExpireTime;
+		$syncData = $synced ? 'true' : 'false';
+		$syncData .= '-' . $article->getTouched();
+		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
+		
+		return $synced;
 	}
 
 	/**
@@ -656,6 +730,7 @@ class FlaggedRevs {
 			if( !isset($flags[$f]) || $v > $flags[$f] )
 				return false;
 		}
+		
 		return true;
 	}
 
@@ -673,6 +748,7 @@ class FlaggedRevs {
 			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevValues )
 				return false;
 		}
+		
 		return true;
 	}
 
@@ -684,8 +760,7 @@ class FlaggedRevs {
 	public static function isPageReviewable( $title ) {
 		global $wgFlaggedRevsNamespaces;
 
-		return ( in_array($title->getNamespace(),$wgFlaggedRevsNamespaces)
-			&& !$title->isTalkPage() );
+		return ( in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
 	}
 
 	/**
@@ -771,7 +846,7 @@ class FlaggedRevs {
 		$parserOut->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $now -->";
 		# Set expire time
 		if( $parserOut->containsOldMagic() ){
-			$expire = 3600; # 1 hour
+			$expire = 3600; // 1 hour
 		} else {
 			$expire = $wgParserCacheExpireTime;
 		}
@@ -897,7 +972,7 @@ class FlaggedRevs {
 			'fr_comment'   => "",
 			'fr_quality'   => $quality,
 			'fr_tags'	   => self::flattenRevisionTags( $flags ),
-			'fr_text'	   => $fulltext, // Store expanded text for speed
+			'fr_text'	   => $fulltext, # Store expanded text for speed
 			'fr_flags'	   => $textFlags
 		);
 		# Update flagged revisions table
@@ -986,7 +1061,7 @@ class FlaggedRevs {
 	public static function updateFromMerge( $sourceTitle, $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
-		// Get flagged revisions from old page id that point to destination page
+		# Get flagged revisions from old page id that point to destination page
 		$dbw = wfGetDB( DB_MASTER );
 		$result = $dbw->select( array('flaggedrevs','revision'),
 			array( 'fr_rev_id' ),
@@ -994,7 +1069,7 @@ class FlaggedRevs {
 				'fr_rev_id = rev_id',
 				'rev_page' => $newPageID ),
 			__METHOD__ );
-		// Update these rows
+		# Update these rows
 		$revIDs = array();
 		while( $row = $dbw->fetchObject($result) ) {
 			$revIDs[] = $row->fr_rev_id;
@@ -1006,7 +1081,7 @@ class FlaggedRevs {
 					'fr_rev_id' => $revIDs ),
 				__METHOD__ );
 		}
-		// Update pages
+		# Update pages
 		self::articleLinksUpdate2( $sourceTitle );
 		self::articleLinksUpdate2( $destTitle );
 
@@ -1143,7 +1218,7 @@ class FlaggedRevs {
 					'ft_title' => $title->getDBkey() ),
 				__METHOD__ );
 		}
-		
+		# If none specified, see if we are allowed to use the current revision
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
 			
@@ -1190,7 +1265,7 @@ class FlaggedRevs {
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 		}
-		
+		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
 			global $wgUseCurrentImages;
 			
@@ -1239,7 +1314,7 @@ class FlaggedRevs {
 		if( !$time ) {
 			global $wgUseCurrentImages;
 			
-			$time = $wgUseCurrentImages ? $time : -1; // hack, will never find this
+			$time = $wgUseCurrentImages ? $time : -1;
 		}
 
 		return true;
@@ -1263,7 +1338,7 @@ class FlaggedRevs {
 	*/
 	public static function setImageVersion( $title, $article ) {
 		if( NS_MEDIA == $title->getNamespace() ) {
-			// FIXME: where should this go?
+			# FIXME: where should this go?
 			$title = Title::makeTitle( NS_IMAGE, $title->getDBkey() );
 		}
 
@@ -1291,8 +1366,10 @@ class FlaggedRevs {
 	/**
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/
-	public static function parserInjectImageTimestamps( $parser, &$text ) {
+	public static function parserInjectTimestamps( $parser, &$text ) {
 		$parser->mOutput->fr_ImageSHA1Keys = array();
+		$maxTimestamp = "0";
+		$maxRevision = 0;
 		# Fetch the timestamps of the images
 		if( !empty($parser->mOutput->mImages) ) {
 			$filenames = array_keys($parser->mOutput->mImages);
@@ -1300,20 +1377,41 @@ class FlaggedRevs {
 				$file = wfFindFile( Title::makeTitle( NS_IMAGE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
 				if( $file ) {
+					if( $file->getTimestamp() > $maxTimestamp ) {
+						$maxTimestamp = $file->getTimestamp();
+					}
 					$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
 				} else {
 					$parser->mOutput->fr_ImageSHA1Keys[$filename][0] = '';
 				}
 			}
 		}
+		# Record the max timestamp
+		$parser->mOutput->fr_newestImageTime = $maxTimestamp;
+		# Record the max template revision ID
+		if( !empty($parser->mOutput->mTemplateIds) ) {
+			foreach( $parser->mOutput->mTemplateIds as $namespace => $title_rev ) {
+				foreach( $title_rev as $title => $revID ) {
+					if( $revID > $maxRevision ) {
+						$maxRevision = $revID;
+					} 
+				}
+			}
+		}
+		$parser->mOutput->fr_newestTemplateID = $maxRevision;
+
 		return true;
 	}
 
 	/**
 	* Insert image timestamps/SHA-1s into page output
 	*/
-	public static function outputInjectImageTimestamps( $out, $parserOut ) {
-		$out->fr_ImageSHA1Keys = $parserOut->fr_ImageSHA1Keys;
+	public static function outputInjectTimestamps( $out, $parserOut ) {
+		# Leave as defaults if missing. Relevant things will be updated only when needed.
+		# We don't want to go around resetting caches all over the place if avoidable...
+		$out->fr_ImageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ? $parserOut->fr_ImageSHA1Keys : array();
+		$out->fr_newestImageTime = isset($parserOut->fr_newestImageTime) ? $parserOut->fr_newestImageTime : "0";
+		$out->fr_newestTemplateID = isset($parserOut->fr_newestTemplateID) ? $parserOut->fr_newestTemplateID : 0;
 
 		return true;
 	}
@@ -1328,7 +1426,7 @@ class FlaggedRevs {
 		$frev = self::getStablePageRev( $title );
 		if( !$frev )
 			return true;
-		#  Allow for only editors/reviewers to move this
+		# Allow for only editors/reviewers to move this
 		$right = $frev->getQuality() ? 'validate' : 'review';
 		if( !$user->isAllowed( $right ) ) {
 			$result = false;
@@ -1409,14 +1507,14 @@ class FlaggedRevs {
 			$wgMemc->set( $key, 'true', 3600*24*30 );
 			return true;
 		}
-		// Check for edit spacing. This lets us know that the account has
-		// been used over N different days, rather than all in one lump.
-		// This can be expensive... so check it last.
+		# Check for edit spacing. This lets us know that the account has
+		# been used over N different days, rather than all in one lump.
+		# This can be expensive... so check it last.
 		if( $wgFlaggedRevsAutopromote['spacing'] > 0 && $wgFlaggedRevsAutopromote['benchmarks'] > 1 ) {
-			// Convert days to seconds...
+			# Convert days to seconds...
 			$spacing = $wgFlaggedRevsAutopromote['spacing'] * 24 * 3600;
 
-			// Check the oldest edit
+			# Check the oldest edit
 			$dbr = wfGetDB( DB_SLAVE );
 			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 				array( 'rev_user' => $user->getID() ),
@@ -1424,8 +1522,8 @@ class FlaggedRevs {
 				array( 'ORDER BY' => 'rev_timestamp ASC',
 					'USE INDEX' => 'user_timestamp' ) );
 
-			// Recursively check for an edit $spacing seconds later, until we are done.
-			// The first edit counts, so we have one less scans to do...
+			# Recursively check for an edit $spacing seconds later, until we are done.
+			# The first edit counts, so we have one less scans to do...
 			$benchmarks = 0;
 			$needed = $wgFlaggedRevsAutopromote['benchmarks'] - 1;
 			while( $lower && $benchmarks < $needed ) {
@@ -1468,10 +1566,10 @@ class FlaggedRevs {
 		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
 		if( $selected !== '' ) {
 			if( is_null( $selected ) ) {
-				// No namespace selected; let exact match work without hitting Main
+				# No namespace selected; let exact match work without hitting Main
 				$selected = '';
 			} else {
-				// Let input be numeric strings without breaking the empty match.
+				# Let input be numeric strings without breaking the empty match.
 				$selected = intval($selected);
 			}
 		}
