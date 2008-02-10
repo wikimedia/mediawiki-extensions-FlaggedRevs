@@ -695,28 +695,38 @@ $messages['lb'] = array(
 
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
+ * @author Matthias
  */
 $messages['li'] = array(
-	'makereviewer-header'       => "<strong>Dit formulier wörd gebroek door beheerders en bureaucrate om gebroekers aan te wieze die pagina's kinne validere.</strong>
+	'makereviewer'                  => 'Promotie/demotie redacteure',
+	'makereviewer-header'           => "<strong>Dit formulier wörd gebroek door beheerders en bureaucrate om gebroekers aan te wieze die pagina's kinne validere.</strong>
 
 Veur de naam van 'ne gebroeker in 't inveurveld in en klik op de knoep om de gebroekersrech in te stelle. 'ne Gebroeker de status reviewer gaeve, maak dae gebroeker automatisch redacteur. 't Intrekke van de status redacteur haajt 't intrekke van de status reviewer in.",
-	'makereviewer-username'     => 'Gebroekersnaam:',
-	'makereviewer-search'       => 'Gao',
-	'makereviewer-iseditor'     => '[[User:$1|$1]] haet redacteursstatus.',
-	'makereviewer-noteditor'    => '[[User:$1|$1]] haet gein redacteursstatus.',
-	'makereviewer-isvalidator'  => '[[User:$1|$1]] haet bekiekersstatus.',
-	'makereviewer-notvalidator' => '[[User:$1|$1]] haet gein bekiekersstatus.',
-	'makereviewer-legend'       => 'Veranger gebroekersrech:',
-	'makereviewer-change-e'     => 'Redacteursstatus:',
-	'makereviewer-change-r'     => 'Bekiekersstatus:',
-	'makereviewer-grant1'       => 'Gaeve',
-	'makereviewer-revoke1'      => 'Innömme',
-	'makereviewer-grant2'       => 'Gaeve',
-	'makereviewer-revoke2'      => 'Innömme',
-	'makereviewer-comment'      => 'Opmèrking:',
-	'makereviewer-granted-e'    => '[[User:$1|$1]] haet noe de redacteursstatus.',
-	'makereviewer-revoked-e'    => '[[User:$1|$1]] haet gein redacteursstaus mieë.',
-	'makereviewer-granted-r'    => '[[User:$1|$1]] haet noe de bekiekersstatus.',
+	'makereviewer-username'         => 'Gebroekersnaam:',
+	'makereviewer-search'           => 'Gao',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] haet redacteursstatus.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] haet gein redacteursstatus.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] haet bekiekersstatus.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] haet gein bekiekersstatus.',
+	'makereviewer-legend'           => 'Veranger gebroekersrech:',
+	'makereviewer-change-e'         => 'Redacteursstatus:',
+	'makereviewer-change-r'         => 'Bekiekersstatus:',
+	'makereviewer-grant1'           => 'Gaeve',
+	'makereviewer-revoke1'          => 'Innömme',
+	'makereviewer-grant2'           => 'Gaeve',
+	'makereviewer-revoke2'          => 'Innömme',
+	'makereviewer-comment'          => 'Opmèrking:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] haet noe de redacteursstatus.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] haet gein redacteursstaus mieë.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] haet noe de bekiekersstatus.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] heeft neet langer de status reviewer.',
+	'makereviewer-logpage'          => 'Logbook status redacteur',
+	'makereviewer-logentrygrant-e'  => 'heeft de status redacteur toegekend aan [[$1]]',
+	'makereviewer-logentryrevoke-e' => 'heeft de status redacteur ingetrokke veur [[$1]]',
+	'makereviewer-logentrygrant-r'  => 'heeft de status reviewer toegekend aan [[$1]]',
+	'makereviewer-logentryrevoke-r' => 'heeft de status reviewer ingetrokke veur [[$1]]',
+	'makereviewer-autosum'          => 'automatisch gepromoveerd',
+	'rights-editor-revoke'          => 'verwijderde redacteurstatus van [[$1]]',
 );
 
 /** Lithuanian (Lietuvių)
