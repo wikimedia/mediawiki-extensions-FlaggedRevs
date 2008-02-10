@@ -89,10 +89,6 @@ class FlaggedArticle {
 		$skin = $wgUser->getSkin();
 		
 		$action = $wgRequest->getVal( 'action', 'view' );
-		# Do not clutter up diffs any further...
-		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
-    		return true;
-		}
 		# For unreviewable pages, allow for basic patrolling
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
@@ -109,6 +105,10 @@ class FlaggedArticle {
 			 	);
 			}
 			return true;
+		}
+		# Do not clutter up diffs any further...
+		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
+    		return true;
 		}
 		# Only trigger on article view for content pages, not for protect/delete/hist
 		if( ($action !='view' && $action !='purge') || !$article || !$article->exists() )
