@@ -354,7 +354,7 @@ class FlaggedArticle {
 			if( $tfrev )
 				return true;
 		}
-		$this->addQuickReview( $revId, $out, $wgRequest->getBool('editreview') );
+		$this->addQuickReview( $revId, $out, ($wgRequest->getBool('editreview') || $this->isDiffFromStable) );
 
 		return true;
     }
