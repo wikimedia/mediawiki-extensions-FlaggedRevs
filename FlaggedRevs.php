@@ -278,6 +278,7 @@ function efFlaggedRevsSchemaUpdates() {
 
 class FlaggedRevs {
 	public static $dimensions = array();
+	public static $styleLoaded = false;
 
 	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
@@ -861,6 +862,9 @@ class FlaggedRevs {
 	*/
 	public static function InjectStyle( $out, $parserOut ) {
 		global $wgJsMimeType;
+		
+		if( self::$styleLoaded )
+			return true;
 		# UI CSS
 		$out->addLink( array(
 			'rel'	=> 'stylesheet',
@@ -870,6 +874,8 @@ class FlaggedRevs {
 		) );
 		# UI JS
 		$out->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
+
+		self::$styleLoaded = true;
 
 		return true;
 	}
