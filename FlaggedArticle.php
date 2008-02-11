@@ -205,7 +205,7 @@ class FlaggedArticle {
 						
 						$tag = wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
-							$tag = " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
 								" onclick='javascript:toggleRevRatings()'>" . wfMsg('revreview-toggle') . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
 								$this->addTagRatings( $flags ) . '</span>';
