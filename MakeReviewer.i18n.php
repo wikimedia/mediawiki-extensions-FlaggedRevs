@@ -887,6 +887,14 @@ Ch\'a scriva lë stranòm dl\'utent ant ël camp e peuj ch\'a-i bata dzora al bo
 	'rights-editor-revoke'          => 'gava-je la qualìfica ëd redator a [[$1]]',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'makereviewer-username' => 'د کارونکي نوم:',
+	'makereviewer-search'   => 'ورځه',
+);
+
 /* Portuguese (Lugusto) */
 $messages['pt'] = array(
 	'makereviewer'                  => 'Promover/rebaixar editores',
