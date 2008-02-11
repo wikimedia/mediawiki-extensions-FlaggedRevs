@@ -224,6 +224,7 @@ function efLoadFlaggedRevs() {
 	# Clean up after undeletion
 	$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
 	# Parser hooks, selects the desired images/templates
+	$wgHooks['ParserBeforeStrip'][] = 'FlaggedRevs::parserAddFields';
 	$wgHooks['BeforeParserrenderImageGallery'][] = 'FlaggedRevs::parserMakeGalleryStable';
 	$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
 	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
@@ -351,7 +352,6 @@ class FlaggedRevs {
 		$wgParser->fr_isStable = true;
 		$wgParser->fr_includesMatched = true;
 		# Don't show section-edit links, they can be old and misleading
-		$options->setEditSection(false);
 		$options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
 		$title = $article->getTitle(); // avoid pass-by-reference error
@@ -380,11 +380,14 @@ class FlaggedRevs {
 		global $wgMemc;
 		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId() . '-' . $article->getTouched() );
-		$syncData = $wgMemc->get($key);
+		$syncvalue = $wgMemc->get($key);
 		# Convert string value to boolean and return it
-		if( $syncData ) {
-			list($syncvalue,$timestamp) = explode('-',$syncData,2);
-			return ( $syncvalue === 'true' ) ? true : false;
+		if( $syncvalue ) {
+			if( $syncvalue == "true" ) {
+				return true;
+			} else if( $syncvalue == "false" ) {
+				return false;
+			}
 		}
 		# If parseroutputs not given, fetch them...
 		if( is_null($flaggedOutput) || !isset($flaggedOutput->fr_newestTemplateID) ) {
@@ -428,8 +431,7 @@ class FlaggedRevs {
 		# Save to cache. This will be updated whenever the page is re-parsed as well. This means
 		# that MW can check a light-weight key first. Uses format <page ID>-<UNIX timestamp>.
 		global $wgParserCacheExpireTime;
-		$syncData = $synced ? 'true' : 'false';
-		$syncData .= '-' . $article->getTouched();
+		$syncData = $synced ? "true" : "false";
 		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
 		
 		return $synced;
@@ -1185,6 +1187,17 @@ class FlaggedRevs {
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
+	
+	/**
+	* Add special fields to parser
+	*/
+	public static function parserAddFields( $parser, $text, $stripState ) {
+		$parser->mOutput->fr_ImageSHA1Keys = array();
+		$parser->mOutput->fr_newestImageTime = "0";
+		$parser->mOutput->fr_newestTemplateID = 0;
+		
+		return true;
+	}
 
 	/**
 	* Select the desired templates based on the selected stable revision IDs
@@ -1245,23 +1258,29 @@ class FlaggedRevs {
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
+		$sha1 = '';
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
-			$time = $dbw->selectField( array('page', 'flaggedimages'),
-				'fi_img_timestamp',
+			$row = $dbw->selectRow( array('page', 'flaggedimages'),
+				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'page_namespace' => $nt->getNamespace(),
 					'page_title' => $nt->getDBkey(),
 					'page_ext_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
+			$time = $row ? $row->fi_img_timestamp : $time;
+			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
 		if( !$time ) {
-			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
-				array('fi_rev_id' => $parser->mRevisionId,
+			$row = $dbw->selectRow( 'flaggedimages', 
+				array( 'fi_img_timestamp', 'fi_img_sha1' ),
+				array( 'fi_rev_id' => $parser->mRevisionId,
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
+			$time = $row ? $row->fi_img_timestamp : $time;
+			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
@@ -1271,11 +1290,22 @@ class FlaggedRevs {
 				$parser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentImages ) {
 					$time = -1;
+				} else {
+					$file = wFindFile( $nt );
+					$time = $file ? $file->getTimestamp() : "0";
 				}
 			} else {
 				$time = -1;
 			}
 		}
+		# Add image metadata to parser output
+		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
+		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
+		
+		if( $time > $parser->mOutput->fr_newestImageTime ) {
+			$parser->mOutput->fr_newestImageTime = $time;
+		}
+		
 		return true;
 	}
 
@@ -1293,26 +1323,44 @@ class FlaggedRevs {
 		# well as enforce site settings if they are later changed.
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
-			$time = $dbw->selectField( array('page', 'flaggedimages'),
-				'fi_img_timestamp',
+			$row = $dbw->selectRow( array('page', 'flaggedimages'),
+				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'page_namespace' => $nt->getNamespace(),
 					'page_title' => $nt->getDBkey(),
 					'page_ext_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
+			$time = $row ? $row->fi_img_timestamp : $time;
+			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
 		if( !$time ) {
-			$time = $dbw->selectField( 'flaggedimages', 'fi_img_timestamp',
+			$row = $dbw->selectRow( 'flaggedimages', 
+				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
+			$time = $row ? $row->fi_img_timestamp : $time;
+			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
 		}
+		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
+			$ig->fr_parentParser->fr_includesMatched = false; // May want to give an error
 			global $wgUseCurrentImages;
-			
-			$time = $wgUseCurrentImages ? $time : -1;
+			if( !$wgUseCurrentImages ) {
+				$time = -1;
+			} else {
+				$file = wFindFile( $nt );
+				$time = $file ? $file->getTimestamp() : "0";
+			}
+		}
+		# Add image metadata to parser output
+		$ig->fr_parentParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
+		$ig->fr_parentParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
+		
+		if( $time > $ig->fr_parentParser->mOutput->fr_newestImageTime ) {
+			$ig->fr_parentParser->mOutput->fr_newestImageTime = $time;
 		}
 
 		return true;
@@ -1327,6 +1375,7 @@ class FlaggedRevs {
 			return true;
 
 		$ig->fr_isStable = true;
+		$ig->fr_parentParser =& $parser; // hack
 
 		return true;
 	}
@@ -1365,10 +1414,25 @@ class FlaggedRevs {
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/
 	public static function parserInjectTimestamps( $parser, &$text ) {
-		$parser->mOutput->fr_ImageSHA1Keys = array();
-		$maxTimestamp = "0";
 		$maxRevision = 0;
-		# Fetch the timestamps of the images
+		# Record the max template revision ID
+		if( !empty($parser->mOutput->mTemplateIds) ) {
+			foreach( $parser->mOutput->mTemplateIds as $namespace => $DBkey_rev ) {
+				foreach( $DBkey_rev as $DBkey => $revID ) {
+					if( $revID > $maxRevision ) {
+						$maxRevision = $revID;
+					} 
+				}
+			}
+		}
+		# Don't trigger image stuff for stable version parsing.
+		# It will do it on separately.
+		if( isset($parser->fr_isStable) && $parser->fr_isStable )
+			return true;
+			
+		$maxTimestamp = "0";
+		# Fetch the current timestamps of the images.
+		# Don't do this for stable versions
 		if( !empty($parser->mOutput->mImages) ) {
 			$filenames = array_keys($parser->mOutput->mImages);
 			foreach( $filenames as $filename ) {
@@ -1386,17 +1450,6 @@ class FlaggedRevs {
 		}
 		# Record the max timestamp
 		$parser->mOutput->fr_newestImageTime = $maxTimestamp;
-		# Record the max template revision ID
-		if( !empty($parser->mOutput->mTemplateIds) ) {
-			foreach( $parser->mOutput->mTemplateIds as $namespace => $DBkey_rev ) {
-				foreach( $DBkey_rev as $DBkey => $revID ) {
-					if( $revID > $maxRevision ) {
-						$maxRevision = $revID;
-					} 
-				}
-			}
-		}
-		$parser->mOutput->fr_newestTemplateID = $maxRevision;
 
 		return true;
 	}
@@ -1572,7 +1625,7 @@ class FlaggedRevs {
 		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = $wgContLang->getFormattedNamespaces();
 
-		foreach($arr as $index => $name) {
+		foreach( $arr as $index => $name ) {
 			# Content only
 			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) )
 				continue;
