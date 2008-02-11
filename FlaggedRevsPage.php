@@ -770,7 +770,7 @@ class Unreviewedpages extends SpecialPage
 
 		$namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$showoutdated = $wgRequest->getVal( 'showoutdated' );
-		$category = $wgRequest->getVal( 'category' );
+		$category = trim( $wgRequest->getVal( 'category' ) );
 
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
@@ -837,15 +837,15 @@ class UnreviewedPagesPage extends PageQueryPage {
 		# Filter by category
 		$use_index = $dbr->useIndexClause( 'ext_namespace_reviewed' );
 		if( $category ) {
-			$category = str_replace( ' ', '_', $dbr->strencode($category) );
-			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable
-			FROM $page $use_index
-			RIGHT JOIN $categorylinks ON(cl_from = page_id AND cl_to = '{$category}')";
+			$category = $dbr->strencode( str_replace(' ','_',$category) );
+			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
+			FROM $page $use_index 
+			RIGHT JOIN $categorylinks ON(cl_from = page_id AND cl_to = '{$category}') 
+			WHERE ($where) ";
 		} else {
 			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable
-			FROM $page $use_index";
+			FROM $page $use_index WHERE ($where) ";
 		}
-		$sql .= " WHERE ($where) ";
 
 		return $sql;
 	}
