@@ -312,10 +312,10 @@ class FlaggedArticle {
 				$this->simpleNotice = $tag;
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-				$tag .= wfMsgExt ($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+				$tag = wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 				# Hide clutter
 				if( !empty($flags) ) {
-					$tag = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
+					$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
 						' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
