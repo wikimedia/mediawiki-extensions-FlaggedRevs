@@ -799,6 +799,7 @@ $messages['de'] = array(
 	'tooltip-ca-stable'           => 'Ansehen der stabilen Version dieser Seite',
 	'revreview-oldrating'         => 'Bisherige Einstufung:',
 	'revreview-noflagged'         => 'Von dieser Seite gibt es keine markierten Versionen, so dass noch keine Aussage über die [[{{MediaWiki:Validationpage}}|Qualität]] gemacht werden kann.',
+	'stabilization-tab'           => 'prüfe',
 	'tooltip-ca-default'          => 'Einstellungen der Artikel-Qualität',
 	'validationpage'              => '{{ns:help}}:Stabile Versionen',
 	'revreview-quick-none'        => "'''Aktuell''' (es wurde noch keine Version überprüft)",
@@ -810,6 +811,8 @@ $messages['de'] = array(
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe Entwurf]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|Änderung|Änderungen}}])",
+	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Gesichtet]]\'\'\' (keine ungeprüften Änderungen)',
+	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Geprüft]]\'\'\' (keine ungeprüften Änderungen)',
 	'revreview-newest-basic'      => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte überprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} siehe alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Prüfung an.',
@@ -824,12 +827,17 @@ $messages['de'] = array(
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
 	kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|Version|Versionen}}]
 	{{plural:$3|steht|stehen}} noch zur Prüfung an.',
-	'revreview-static'            => "Dies ist eine [[Help:Geprüfte Versionen|geprüfte]] Version von '''[[:$3|$3]]''',
-	[{{fullurl:Special:Log/review|page=$1}} freigegeben] am <i>$2</i>.",
+	'revreview-basic-same'        => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden.',
+	'revreview-quality-same'      => 'Das ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet] werden.',
 	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
-	'revreview-update'            => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).
-	Die folgenden Vorlagen und Bilder wurden ebenfalls verändert:',
-	'revreview-update-none'       => 'Bitte prüfe jede Änderung seit der letzten stabilen Version (siehe unten).',
+	'revreview-static'            => "Dies ist eine [[Help:Geprüfte Versionen|geprüfte]] Version von '''[[:$3|$3]]''',
+	[{{fullurl:Special:Log|type=review&page=$1}} freigegeben] am <i>$2</i>.",
+	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte stabile Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
+
+	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
+	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte stabile Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde",
 	'revreview-auto'              => '(automatisch)',
 	'revreview-auto-w'            => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch als überprüft markiert.'''
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
@@ -879,7 +887,7 @@ $messages['de'] = array(
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
 	'revreview-log'               => 'Kommentar:',
 	'revreview-submit'            => 'Prüfung speichern',
-	'revreview-changed'           => "'''Die Aktion konnte nicht auf diese Version angewendet werden.'''
+	'revreview-changed'           => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
 
 	Eine Vorlage oder ein Bild wurden ohne spezifische Versionsnummer angefordert. Dies kann passieren,
 	wenn eine dynamische Vorlage eine weitere Vorlage oder ein Bild einbindet, das von einer Variable abhängig ist, die
@@ -891,7 +899,7 @@ $messages['de'] = array(
 	'stableversions-none'         => '„[[:$1]]“ hat keine überprüften Versionen.',
 	'stableversions-list'         => 'Dies ist die Liste der überprüften Versionen von „[[:$1]]“:',
 	'stableversions-review'       => 'überprüft am <i>$1</i> durch $2',
-	'review-diff2stable'          => 'Unterschiede zwischen der stabilen und der aktuellen Version',
+	'review-diff2stable'          => 'Unterschiede zwischen der stabilen und der aktuellen Version ansehen',
 	'unreviewedpages'             => 'Nicht überprüfte Artikel',
 	'viewunreviewed'              => 'Liste nicht überprüfter Artikel',
 	'unreviewed-outdated'         => 'Zeige nur Seiten, die nicht überprüfte Versionen nach einer stabilen Version haben.',
