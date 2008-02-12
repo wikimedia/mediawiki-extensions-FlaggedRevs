@@ -276,6 +276,13 @@ Durch Erteilung des Prüfrechts wird automatisch auch das Sichter-Recht erteilt.
 	'rights-editor-grant'           => 'erteilte das Sichter-Recht an [[$1]]',
 );
 
+/** Ewe (Eʋegbe)
+ * @author M.M.S.
+ */
+$messages['ee'] = array(
+	'makereviewer-search' => 'Yi',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */
@@ -806,6 +813,14 @@ Skriv inn navnet på brukeren i boksen og trykk knappen for å sette brukerretti
 	'makereviewer-autosum'          => 'autoforfremmet',
 	'rights-editor-grant'           => 'ga [[$1]] redaktørstatus',
 	'rights-editor-revoke'          => 'fjernet redaktørstatus fra [[$1]]',
+);
+
+/** Northern Sotho (Sesotho sa Leboa)
+ * @author Mohau
+ */
+$messages['nso'] = array(
+	'makereviewer-username' => 'Leina la mošomiši:',
+	'makereviewer-search'   => 'Sepela',
 );
 
 /** Occitan (Occitan)
