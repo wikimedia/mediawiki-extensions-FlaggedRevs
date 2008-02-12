@@ -168,6 +168,9 @@ $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
 # Load promotion UI
 include_once( $dir . 'SpecialMakeReviewer.php' );
 
+# Remove stand-alone patrolling
+$wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
+
 function efLoadFlaggedRevs() {
 	global $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle;
 	# Initialize
@@ -176,15 +179,10 @@ function efLoadFlaggedRevs() {
 
 	wfLoadExtensionMessages( 'FlaggedRevsPage' );
 
-	global $wgGroupPermissions, $wgUseRCPatrol;
+	global $wgUseRCPatrol;
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
-	# Use only our extension mechanisms
-	foreach( $wgGroupPermissions as $group => $rights ) {
-		$wgGroupPermissions[$group]['patrol'] = false;
-		$wgGroupPermissions[$group]['autopatrol'] = false;
-	}
 
 	global $wgScriptPath;
 	if( !defined( 'FLAGGED_CSS' ) )
@@ -854,6 +852,19 @@ class FlaggedRevs {
 		# Save to objectcache
 		$parserMemc->set( $key, $parserOut, $expire );
 
+		return true;
+	}
+	
+	/**
+	* Remove 'patrol' and 'autopatrol' rights. Reviewing revisions will patrol them as well.
+	*/
+	public static function stripPatrolRights( $user, &$rights ) {
+		# Use only our extension mechanisms
+		foreach( $rights as $n => $right ) {
+			if( $right == 'patrol' || $rights == 'autopatrol' ) {
+				unset($rights[$n]);
+			}
+		}
 		return true;
 	}
 
