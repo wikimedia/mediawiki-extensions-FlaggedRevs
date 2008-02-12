@@ -817,6 +817,9 @@ class FlaggedArticle {
 	public function addDiffNoticeAfterEdit( $diff, $OldRev, $NewRev ) {
 		global $wgRequest, $wgUser, $wgOut;
 
+		if( $wgOut->isPrintable() )
+			return true;
+
 		if( !$wgUser->isAllowed('review') || !$NewRev->isCurrent() )
 			return true;
 
