@@ -1308,7 +1308,7 @@ class FlaggedRevs {
 				if( !$wgUseCurrentImages ) {
 					$time = -1;
 				} else {
-					$file = wFindFile( $nt );
+					$file = wfFindFile( $nt );
 					$time = $file ? $file->getTimestamp() : "0";
 				}
 			} else {
@@ -1368,7 +1368,7 @@ class FlaggedRevs {
 			if( !$wgUseCurrentImages ) {
 				$time = -1;
 			} else {
-				$file = wFindFile( $nt );
+				$file = wfFindFile( $nt );
 				$time = $file ? $file->getTimestamp() : "0";
 			}
 		}
