@@ -1634,9 +1634,10 @@ možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FUL
 	'revreview-note'              => '[User:$1]] je zabilježio slijedeće pri [[{{MediaWiki:Validationpage}}|ocjenjivanju]] ove inačice:',
 	'revreview-static'            => "Ovo je [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena članka '''[[:$3|$3]]''',  
 [{{fullurl:Special:Log/review|page=$1}} odobrena] dana <i>$2</i>.",
-	'revreview-update'            => 'Molim pregledajte sve promjene (prikazane dolje) učinjene od stabilne inačice. Neki
-predlošci/slike su promijenjeni:',
-	'revreview-update-none'       => 'Molim, pregledajte sve promjene (prikazane dolje) učinjene od stabilne inačice.',
+	'revreview-update'            => "Molim [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(prikazane dolje)'' učinjene od kad je  stabilna inačica [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} odobrena]. 
+
+'''Neki predlošci/slike su promijenjeni:'''",
+	'revreview-update-none'       => "Molim, [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(prikazane dolje)'' učinjene od kad je stabilna inačica [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} odobrena].",
 	'revreview-auto'              => '(automatski)',
 	'revreview-auto-w'            => "Uređujete važeću inačicu stranice, svaka vaša promjena biti će '''automatski ocijenjena'''.
 Možda želite pregledati vaše izmjene prije snimanja.",
@@ -1699,7 +1700,7 @@ nakon što ste počeli ocjenjivati članak. Ctrl + R može riješiti taj problem
 	'stableversions-none'         => 'Članak "[[:$1]]" nema pregledanih inačica.',
 	'stableversions-list'         => 'Slijedi popis inačica članka "[[:$1]]" koje su ocijenjene:',
 	'stableversions-review'       => 'Ocijenjeno <i>$1</i> od suradnika $2',
-	'review-diff2stable'          => "Promjene između važeće (''stabilne'') i trenutne inačice",
+	'review-diff2stable'          => 'Promjene između važeće i trenutne inačice',
 	'unreviewedpages'             => 'Neocijenjene stranice',
 	'viewunreviewed'              => 'Ispiši stranice s neocjenjenim sadržajem',
 	'unreviewed-outdated'         => "Prikaži članke koji imaju neocijenjene promjene važeće (''stabilne'') inačice.",
@@ -3577,10 +3578,14 @@ $messages['ru'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} рецензии.',
 	'revreview-quality'            => 'Это последняя [[{{MediaWiki:Validationpage}}|выверенная]] версия,  
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмеченная] <i>$2</i>. Можно [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} править] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} текущую версию]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|ожидает|ожидают|ожидают}} рецензии.',
+	'revreview-basic-same'         => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>. Страницу можно [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} править].',
+	'revreview-quality-same'       => 'Это последняя [[{{MediaWiki:Validationpage}}|выверенная]] версия, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>. Страницу можно [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} править].',
 	'revreview-note'               => '[[Участник:$1]] сделал следующее замечание, [[{{MediaWiki:Validationpage}}|рецензирую]] эту версию:',
 	'revreview-static'             => "Это [[{{MediaWiki:Validationpage}}|отрецензированная]] версия '''[[:$3|$3]]''',  
 [{{fullurl:Special:Log/review|page=$1}} отмеченная] <i>$2</i>.",
-	'revreview-update'             => 'Пожалуйста, отрецензируйте любую правку (показаны ниже), сделанную после принятия статуса чистовика. Некоторые шаблоны или изображения были обновлены:',
+	'revreview-update'             => "Пожалуйста, [[{{MediaWiki:Validationpage}}|отрецензируйте] любую правку (показаны ниже), сделанную после принятия статуса [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} чистовика].
+
+'''Некоторые шаблоны или изображения были обновлены:'''",
 	'revreview-update-none'        => "Пожалуйста, [[{{MediaWiki:Validationpage}}|просмотрите]] изменения ''(показаны ниже)'', сделанные после [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} установки] чистовой версии.",
 	'revreview-auto'               => '(автоматически)',
 	'revreview-auto-w'             => "Вы правите чистовую версию, все изменения будут '''автоматически отмечены как проверенные'''. Возможно, перед записью страницы следует воспользоваться предпросмотром.",
@@ -3628,9 +3633,10 @@ $messages['ru'] = array(
 	'revreview-style-4'            => 'избранная',
 	'revreview-log'                => 'Примечание:',
 	'revreview-submit'             => 'Отправить рецензию',
-	'revreview-changed'            => "'''Запрошенное действие не может быть выполнено с этой версией.'''
+	'revreview-changed'            => "'''Запрошенное действие не может быть выполнено с этой версией страницы [[:$1|$1]].'''
 
-Возможно, шаблон или изображение были запрошены без указания конкретной версии. Это могло случиться, если динамический шаблон включает другой шаблон или изображение, зависящие от переменной, которая изменилась с момента начала рецензирования. Обновите страницу и начните рецензирование заново, проблема может исчезнуть.",
+Возможно, шаблон или изображение были запрошены без указания конкретной версии. Это могло случиться, если динамический шаблон включает другой шаблон или изображение, зависящие от переменной, которая изменилась с момента начала рецензирования.
+Обновите страницу и начните рецензирование заново, это может снять проблему.",
 	'stableversions'               => 'Чистовые версии',
 	'stableversions-title'         => 'Чистовые версии «$1»',
 	'stableversions-leg1'          => 'Список отрецензированных версий страницы',
@@ -4377,8 +4383,13 @@ $messages['te'] = array(
 	'revreview-noflagged'          => "ఈ పేజీకి సమీక్షిత కూర్పులేమీ లేవు, కాబట్టి దీన్ని నాణ్యత కొరకు [[{{MediaWiki:Validationpage}}|సరిచూసి]] '''ఉండక'''పోవచ్చు.",
 	'tooltip-ca-default'           => 'నాణ్యతా భరోసా అమరికలు',
 	'revreview-quick-none'         => "'''ప్రస్తుత''' (సమీక్షిత కూర్పులు లేవు)",
+	'revreview-quick-see-quality'  => "'''ప్రతి''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర పేజీ చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
+	'revreview-quick-see-basic'    => "'''ప్రతి''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర పేజీని చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
+	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ప్రతిని చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]''' (సమీక్షించని మార్పులు లేవు)",
+	'revreview-newest-quality'     => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చివరి నాణ్యతా కూర్పు] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} అన్నీ చూపించు]) <i>$2</i>న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించారు]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$3|1 మార్పు|$3 మార్పుల}}]ను సమీక్షించాలి.',
 	'revreview-note'               => 'ఈ కూర్పుని [[{{MediaWiki:Validationpage}}|సమీక్షిస్తూ]], [[User:$1]] ఈ వ్యాఖ్యలు చేసారు:',
+	'revreview-update-none'        => "సుస్థిర కూర్పుని [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత చేసిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].",
 	'hist-quality'                 => '[నాణ్యమైన కూర్పు]',
 	'flaggedrevs'                  => 'జండాపాతిన కూర్పులు',
 	'review-logpage'               => 'వ్యాసాల సమీక్ష లాగ్',
@@ -4424,6 +4435,7 @@ $messages['te'] = array(
 	'stabilization'                => 'పేజీ స్ధిరీకరణ',
 	'stabilization-perm'           => 'మీ ఖాతాకు సుస్థిర కూర్పును మార్చే అనుమతి లేదు. [[:$1|$1]]కి ప్రస్తుత అమరికల ఇవీ:',
 	'stabilization-page'           => 'పేజీ పేరు:',
+	'stabilization-select'         => 'సుస్థిర కూర్పుని ఎలా ఎంచుకుంటారు',
 	'stabilization-select2'        => 'చివరి సమీక్షిత కూర్పు',
 	'stabilization-def2'           => 'ప్రస్తుత కూర్పు',
 	'stabilization-submit'         => 'నిర్ధారించు',
