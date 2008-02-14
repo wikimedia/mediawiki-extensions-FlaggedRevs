@@ -21,8 +21,9 @@ CREATE TABLE flaggedpage_config (
   fpc_page_id   INTEGER     NOT NULL PRIMARY KEY DEFAULT 0,
   fpc_select    INTEGER     NOT NULL DEFAULT 0,
   fpc_override  INTEGER     NOT NULL,
-  fpc_expiry    TIMESTAMPTZ  NULL,
+  fpc_expiry    TIMESTAMPTZ  NULL
 )
+CREATE INDEX fpc_expiry ON flaggedpage_config (fpc_expiry);
 
 CREATE TABLE flaggedtemplates (
   ft_rev_id      INTEGER  NOT NULL DEFAULT 0 ,

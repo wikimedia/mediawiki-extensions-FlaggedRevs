@@ -44,7 +44,8 @@ CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
   -- Field for time-limited settings
   fpc_expiry varbinary(14) NOT NULL default 'infinity',
   
-  PRIMARY KEY (fpc_page_id)
+  PRIMARY KEY (fpc_page_id),
+  INDEX (fpc_expiry)
 ) TYPE=InnoDB;
 
 -- This stores all of our transclusion revision pointers
