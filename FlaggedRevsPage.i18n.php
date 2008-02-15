@@ -4383,10 +4383,12 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 
 /** Telugu (తెలుగు)
  * @author Veeven
+ * @author Chaduvari
  * @author వైజాసత్య
  * @author Mpradeep
  */
 $messages['te'] = array(
+	'flaggedrevs-desc'             => 'ఎడిటర్లకి/సమీక్షకులకి కూర్పులను సరిచూసే మరియు పేజీలను సుస్థిరపరచే వీలును కల్పిస్తుంది',
 	'editor'                       => 'ఎడిటర్',
 	'group-editor'                 => 'ఎడిటర్లు',
 	'group-editor-member'          => 'ఎడిటర్',
@@ -4403,18 +4405,37 @@ $messages['te'] = array(
 	'tooltip-ca-stable'            => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'revreview-oldrating'          => 'రేటింగు:',
 	'revreview-noflagged'          => "ఈ పేజీకి సమీక్షిత కూర్పులేమీ లేవు, కాబట్టి దీన్ని నాణ్యత కొరకు [[{{MediaWiki:Validationpage}}|సరిచూసి]] '''ఉండక'''పోవచ్చు.",
+	'stabilization-tab'            => 'vet',
 	'tooltip-ca-default'           => 'నాణ్యతా భరోసా అమరికలు',
+	'validationpage'               => '{{ns:help}}:వ్యాస మూల్యాంకన',
 	'revreview-quick-none'         => "'''ప్రస్తుత''' (సమీక్షిత కూర్పులు లేవు)",
 	'revreview-quick-see-quality'  => "'''ప్రతి''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర పేజీ చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
 	'revreview-quick-see-basic'    => "'''ప్రతి''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర పేజీని చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
+	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|కనబడ్డాయి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ప్రతిని చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|మార్పు|మార్పులు}}])",
+	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|కనబడ్డాయి]]''' (సమీక్షించని మార్పులేమీ లేవు)",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]''' (సమీక్షించని మార్పులు లేవు)",
+	'revreview-newest-basic'       => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చిట్టచివరిగా కనబడిన ఈ కూర్పు] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} అన్నిటినీ చూపించు]) <i>$2</i> న  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|మార్పుకు|మార్పులకు}}] సమీక్ష {{plural:$3|అవసరం|అవసరం}}.',
 	'revreview-newest-quality'     => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చివరి నాణ్యతా కూర్పు] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} అన్నీ చూపించు]) <i>$2</i>న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించారు]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$3|1 మార్పు|$3 మార్పుల}}]ను సమీక్షించాలి.',
+	'revreview-basic'              => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు; <i>$2</i> న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{plural:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.',
+	'revreview-quality'            => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు; <i>$2</i> న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{plural:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.',
+	'revreview-basic-same'         => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు, <i>$2</i> న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
+	'revreview-quality-same'       => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు, <i>$2</i> న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
 	'revreview-note'               => 'ఈ కూర్పుని [[{{MediaWiki:Validationpage}}|సమీక్షిస్తూ]], [[User:$1]] ఈ వ్యాఖ్యలు చేసారు:',
+	'revreview-static'             => "ఇది <i>$2</i> నాడు [{{fullurl:Special:Log|type=review&page=$1}} అనుమతించిన]  '''[[:$3|$3]]''' యొక్క [[{{MediaWiki:Validationpage}}|సమీక్షిత]] కూర్పు.",
+	'revreview-update'             => "సుస్థిర కూర్పుని [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
+
+'''కొన్ని మూసలు/బొమ్మలను తాజాకరించారు:'''",
 	'revreview-update-none'        => "సుస్థిర కూర్పుని [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత చేసిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].",
+	'revreview-auto'               => '(ఆటోమెటిక్)',
+	'revreview-auto-w'             => "మీకు సుస్థిర కూర్పుని సరిదిద్దుతున్నారు, మీ మార్పులు '''ఆటోమెటిగ్గా సమీక్షితమౌతాయి'''. భద్రపరిచేముందు పేజీని సరిచూసుకోండి.",
+	'revreview-auto-w-old'         => "మీరు పాత కూర్పులో దిద్దుబాటు చేస్తున్నారు. చేసిన మార్పులన్నీ '''ఆటోమాటిగ్గా వెనక్కి చూస్తాయి'''. భద్రపరచేముందు ఓసారి సరి చూస్తే మంచిది.",
+	'revreview-patrolled'          => 'మీరు ఎంచుకున్న [[:$1|$1]] యొక్క కూర్పు నిఘాలో ఉంది.',
+	'hist-stable'                  => '[కనబడిన కూర్పు]',
 	'hist-quality'                 => '[నాణ్యమైన కూర్పు]',
 	'flaggedrevs'                  => 'జండాపాతిన కూర్పులు',
 	'review-logpage'               => 'వ్యాసాల సమీక్ష లాగ్',
+	'review-logpagetext'           => 'ఇది విషయపు పేజీల కూర్పుల యొక్క [[{{MediaWiki:Validationpage}}|అనుమతి]] స్థాయికి జరిగిన మార్పుల లాగ్.',
 	'review-logentry-app'          => '[[$1]]ని సమీక్షించారు',
 	'review-logaction'             => 'కూర్పు ID $1',
 	'stable-logpage'               => 'సుస్థిర కూర్పుల లాగ్',
@@ -4450,6 +4471,7 @@ $messages['te'] = array(
 	'review-diff2stable'           => 'సుస్థిర మరియు ప్రస్తుత కూర్పుల మధ్య మార్పులను చూడండి',
 	'unreviewedpages'              => 'సమీక్షించని పేజీలు',
 	'viewunreviewed'               => 'సమీక్షించని విషయ పేజీలను చూపించు',
+	'unreviewed-outdated'          => 'బదులుగా సుస్థిర కూర్పుకి సమీక్షించని మార్పులున్న పేజీలను చూపించు',
 	'unreviewed-category'          => 'వర్గం:',
 	'unreviewed-diff'              => 'మార్పులు',
 	'unreviewed-list'              => 'ఈ పేజీలో సమీక్షించని వ్యాసాలు లేదా కొత్త, సమీక్షించని కూర్పులున్న వ్యాసాలు ఉంటాయి.',
@@ -4457,10 +4479,12 @@ $messages['te'] = array(
 	'stabilization'                => 'పేజీ స్ధిరీకరణ',
 	'stabilization-perm'           => 'మీ ఖాతాకు సుస్థిర కూర్పును మార్చే అనుమతి లేదు. [[:$1|$1]]కి ప్రస్తుత అమరికల ఇవీ:',
 	'stabilization-page'           => 'పేజీ పేరు:',
+	'stabilization-leg'            => 'పేజీకి సుస్థిర కూర్పుని నిర్ధేశించండి',
 	'stabilization-select'         => 'సుస్థిర కూర్పుని ఎలా ఎంచుకుంటారు',
 	'stabilization-select2'        => 'చివరి సమీక్షిత కూర్పు',
 	'stabilization-def2'           => 'ప్రస్తుత కూర్పు',
 	'stabilization-submit'         => 'నిర్ధారించు',
+	'stabilization-notexists'      => '"[[:$1|$1]]" అనే పేజీ లేదు. స్వరూపణం వీలుపడదు.',
 	'stabilization-comment'        => 'వ్యాఖ్య:',
 	'stabilization-sel-short'      => 'ప్రాధాన్యత',
 	'stabilization-sel-short-0'    => 'నాణ్యత',
@@ -4670,10 +4694,10 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'revreview-note'              => '[[User:$1]] äpenon küpetis sököl dü [[{{MediaWiki:Validationpage}}|krütam]] padafomama at:',
 	'revreview-static'            => "Is pajonon [[{{MediaWiki:Validationpage}}|fomam pekrütöl]] pada: '''[[:$3|$3]]''', kel 
 [{{fullurl:Special:Log/review|page=$1}} päzepon] tü <i>$2</i>.",
-	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükamis valik ''(dono pejonölis)'', kels pedunons sis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} fomam fümöfik].
+	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükamis valik ''(dono pejonölis)'', kels pedunons sis fomam fümöfik [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} päzepon].
 
 '''Samafomots e/u magods aniks pekoräkons:'''",
-	'revreview-update-none'       => 'Reidolös e krütolös votükamis valik (dono pejonölis), kels pedunons sis fomam fümöfik.',
+	'revreview-update-none'       => "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükams valik ''(dono pajonölis)'', kels pedunons sis fomam fümöfik [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} päzepon].",
 	'revreview-auto'              => '(itjäfidik)',
 	'revreview-auto-w'            => "Anu redakol fomami fümöfik: votükams seimik '''pokrütons itjäfidiko'''. Logolös, begö! büologedi pada at büä odakipon oni.",
 	'revreview-auto-w-old'        => "Anu redakol fomami büik: votükams valik '''pokrütons itjäfidiko'''. Logolös, begö! büologedi pada at büä odakipol oni.",
@@ -4734,6 +4758,7 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 	'stabilization-leg'           => 'Välön parametis fomama fümöfik pada',
 	'stabilization-select'        => 'Lio fomam fümöfik pavälon',
 	'stabilization-select2'       => 'Fomam pekrütöl lätik',
+	'stabilization-def'           => 'Fomam jonabik pö padilogams kösömik',
 	'stabilization-def1'          => 'Fomam fümöfik; if no dabinon, tän fomam anuik',
 	'stabilization-def2'          => 'Fomam anuik',
 	'stabilization-submit'        => 'Fümedön',
