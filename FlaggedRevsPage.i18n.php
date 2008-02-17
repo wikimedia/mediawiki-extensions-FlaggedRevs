@@ -569,29 +569,59 @@ $messages['bn'] = array(
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} সমস্ত তালিকা])  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে
 <i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} $3 {{plural:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{plural:$3|প্রয়োজন|প্রয়োজন}}।',
 	'revreview-auto'              => '(সয়ংক্রিয়)',
+	'hist-stable'                 => '[সাইট করা সংশোধন]',
+	'hist-quality'                => '[কোয়ালিটি সংশোধন]',
+	'flaggedrevs'                 => 'চিহ্নিত সংশোধনসমূহ',
+	'review-logpage'              => 'নিবন্ধ পর্যালোচনা লগ',
+	'review-logpagetext'          => 'এটি বিষয়বস্তু পাতাগুলিতে সংশোধনসমূহের [[{{MediaWiki:Validationpage}}|অনুমোদন]] মর্যাদা পরিবর্তনের একটি লগ।',
+	'review-logentry-app'         => '[[$1]] পর্যালোচনা করা হয়েছে',
 	'stable-logpage'              => 'সুদৃঢ় সংস্করণ লগ',
+	'revisionreview'              => 'সংশোধনগুলি পর্যালোচনা করুন',
+	'revreview-main'              => 'আপনাকে অবশ্যই কোন একটি বিষয়বস্তু পাতা থেকে একটি নির্দিষ্ট সংশোধন পর্যালোচনা করার জন্য বাছাই করতে হবে।
+
+পর্যালোচনা করা হয়নি এমন পাতাগুলির একটি তালিকার জন্য [[Special:Unreviewedpages]] দেখুন।',
+	'revreview-selected'          => "'''$1'''-এর যে সংশোধন নির্বাচন করা হয়েছে:",
+	'revreview-text'              => 'নতুনতম সংস্করণের বদলে স্থিতিশীল সংস্করণগুলি পাতার দর্শনের মূল বিষয়বস্তু হিসেবে সেট করা আছে।',
+	'revreview-toolow'            => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।',
+	'revreview-flag'              => 'এই সংশোধনটি পর্যালোচনা করুন',
+	'revreview-legend'            => 'সংশোধনের বিষয়বস্তুর রেটিং দিন',
+	'revreview-notes'             => 'প্রদর্শনের জন্য পর্যবেক্ষণ বা মন্তব্য:',
 	'revreview-accuracy'          => 'প্রাসঙ্গিকতা',
 	'revreview-accuracy-0'        => 'অননুমদিত',
+	'revreview-accuracy-1'        => 'সাইট করা হয়েছে',
 	'revreview-accuracy-2'        => 'হুবুহু',
+	'revreview-accuracy-3'        => 'ভালো তথ্যসূত্র যোগ করা হয়েছে',
+	'revreview-accuracy-4'        => 'ফিচার করা হয়েছে',
+	'revreview-depth'             => 'গভীরতা',
 	'revreview-depth-0'           => 'অননুমদিত',
 	'revreview-depth-1'           => 'সাধারণ',
 	'revreview-depth-2'           => 'মুটামোটি',
 	'revreview-depth-3'           => 'উচ্চ',
+	'revreview-depth-4'           => 'ফিচার করা হয়েছে',
 	'revreview-style'             => 'পঠনযোগ্যতা',
 	'revreview-style-0'           => 'অননুমদিত',
 	'revreview-style-1'           => 'গ্রহণযোগ্য',
 	'revreview-style-2'           => 'ভাল',
+	'revreview-style-3'           => 'সংক্ষিপ্ত',
+	'revreview-style-4'           => 'ফিচার করা হয়েছে',
 	'revreview-log'               => 'মন্তব্য:',
+	'revreview-submit'            => 'পর্যালোচনা জমা দিন',
+	'revreview-changed'           => "'''[[:$1|$1]]-এর এই সংশোধনটির উপর অনুরোধকৃত কাজটি সম্পাদন করা যায়নি'''
+
+কোন নির্দিষ্ট সংস্করণ নির্দেশ না করেই একটি টেম্পলেট বা ছবি হয়ত অনুরোধ করা হয়েছে। যদি কোন চলমান টেম্পলেট কোন একটি ভ্যারিয়েবলের উপর নির্ভর করে আরেকটি টেম্পলেট বা ছবিকে অন্তর্ভুক্ত করে, এবং সেই ভ্যারিয়েবলটি যদি আপনি পর্যালোচনা শুরু করার পর পরিবর্তিত হয়ে থাকে, তবে এমনটি ঘটতে পারে।
+পাতাটি রিফ্রেশ করে পুনরায় পর্যালোচনা করলে সমস্যাটির সমাধান হতে পারে।",
 	'stableversions'              => 'সুদৃঢ় সংস্করণসমূহ',
 	'stableversions-title'        => '"$1" এর সুদৃঢ় সংস্করণসমূহ',
 	'stableversions-page'         => 'পাতার নাম:',
 	'unreviewed-category'         => 'বিষয়শ্রেণী:',
 	'unreviewed-diff'             => 'পরিবর্তনসমূহ',
+	'stabilization'               => 'পাতা স্থিতিকরণ',
 	'stabilization-page'          => 'পাতার নাম:',
 	'stabilization-def2'          => 'বর্তমান সংশোধন',
 	'stabilization-submit'        => 'নিশ্চিত করো',
 	'stabilization-comment'       => 'মন্তব্য:',
 	'stabilization-expiry'        => 'মেয়াদ উত্তীর্ণ:',
+	'stabilization-sel-short'     => 'অগ্রাধিকার',
 	'stabilization-sel-short-0'   => 'গুণ',
 	'stabilization-sel-short-1'   => 'কিছু না',
 	'stabilization-def-short-0'   => 'বর্তমান',
@@ -1466,9 +1496,9 @@ $messages['gl'] = array(
 	'tooltip-ca-default'          => 'Configuración de garantía da calidade',
 	'validationpage'              => '{{ns:help}}:Confirmación do artigo',
 	'revreview-quick-none'        => "'''Actualización'''. Non examinou as revisións.",
-	'revreview-quick-see-quality' => "'''Actualización'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} véxase revisión estábel]] 
+	'revreview-quick-see-quality' => "'''Actualización'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} véxase páxina estábel]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
-	'revreview-quick-see-basic'   => "'''Actualización'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} véxase revisión estábel]] 
+	'revreview-quick-see-basic'   => "'''Actualización'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} véxase páxina estábel]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Sighted]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} véxase revisión actual]] 
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&editreview=1}} {{plural:$2|change|cambios}}])",
@@ -1485,10 +1515,10 @@ $messages['gl'] = array(
 	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Validationpage}}|examinada]] de '''[[:$3|$3]]''', 
 	[{{fullurl:Special:Log/review|page=$1}} aprobada] en <i>$2</i>. A [{{fullurl:$3|stable=0}} revisión actual] 
 	pode ser [{{fullurl:$3|action=edit}} modificada].",
-	'revreview-update'            => 'Revise os cambios (amósanse embaixo) feitos desde a revisión estábel desta páxina. Os seguintes
-modelos
-	e imaxes tamén foron actualizados:',
-	'revreview-update-none'       => 'Revise os cambios (amósanse embaixo) feitos desde a revisión estábel desta páxina.',
+	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Revise]] os cambios ''(amósanse embaixo)'' feitos desde a revisión estábel [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]. 
+
+'''Os seguintes modelos e imaxes tamén foron actualizados:'''",
+	'revreview-update-none'       => "[[{{MediaWiki:Validationpage}}|Revise]] os cambios ''(amósanse embaixo)'' feitos desde a revisión estábel que foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
 	'revreview-auto'              => '(automático)',
 	'revreview-auto-w'            => "Vostede está editando unha revisión estábel, calquera cambio '''será automaticamente revisado'''.
 	Se o desexa pode obter unha vista previa da páxina antes de gardala.",
@@ -1543,7 +1573,7 @@ modelos
 	'stableversions-none'         => '"[[:$1]]" non ten revisións examinadas.',
 	'stableversions-list'         => 'A seguinte é unha listaxe das revisións de "[[:$1]]" que foron revisadas:',
 	'stableversions-review'       => 'Revisado en <i>$1</i> por $2',
-	'review-diff2stable'          => 'Diferenzas entre a versión estábel e a actual',
+	'review-diff2stable'          => 'Ver os cambios entre as revisións estábel e a actual',
 	'unreviewedpages'             => 'Páxinas sen revisar',
 	'viewunreviewed'              => 'Listaxe de páxinas de contido sen revisar',
 	'unreviewed-outdated'         => 'Amosar páxinas que teñen revisións sen examinar feitas desde a versión estábel.',
@@ -4437,12 +4467,18 @@ $messages['te'] = array(
 	'review-logpage'               => 'వ్యాసాల సమీక్ష లాగ్',
 	'review-logpagetext'           => 'ఇది విషయపు పేజీల కూర్పుల యొక్క [[{{MediaWiki:Validationpage}}|అనుమతి]] స్థాయికి జరిగిన మార్పుల లాగ్.',
 	'review-logentry-app'          => '[[$1]]ని సమీక్షించారు',
+	'review-logentry-dis'          => '[[$1]] యొక్క ఓ కూర్పుని నిరాదరించారు',
 	'review-logaction'             => 'కూర్పు ID $1',
 	'stable-logpage'               => 'సుస్థిర కూర్పుల లాగ్',
 	'stable-logpagetext'           => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల లాగ్',
 	'stable-logentry'              => '[[$1]]కి సుస్థిర కూర్పుని అమర్చారు',
+	'stable-logentry2'             => '[[$1]]కి సుస్థిర కూర్పుని పునర్నిర్ణయించండి',
 	'revisionreview'               => 'కూర్పులను సమీక్షించు',
+	'revreview-main'               => 'సమీక్షించడానికి మీరు విషయపు పేజీ యొక్క ఓ నిర్ధిష్ట కూర్పుని ఎంచుకోవాలి.
+
+సమీక్షించని పేజీల జాబితా కొరకు [[Special:Unreviewedpages]]ని చూడండి.',
 	'revreview-selected'           => "'''$1''' యొక్క ఎంచుకున్న కూర్పు:",
+	'revreview-text'               => 'పేజీలో విషయంగా కొత్త కూర్పులు కాకుండా సుస్థిర కూర్పులు కనిపిస్తాయి.',
 	'revreview-flag'               => 'ఈ కూర్పుని సమీక్షించండి',
 	'revreview-legend'             => 'ఈ కూర్పు యొక్క సారాన్ని వెలకట్టండి',
 	'revreview-notes'              => 'చూపించాల్సిన గమనికలు:',
@@ -4481,11 +4517,13 @@ $messages['te'] = array(
 	'unreviewed-list'              => 'ఈ పేజీలో సమీక్షించని వ్యాసాలు లేదా కొత్త, సమీక్షించని కూర్పులున్న వ్యాసాలు ఉంటాయి.',
 	'revreview-visibility'         => 'ఈ పేజీకి ఓ [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాన్ని [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].',
 	'stabilization'                => 'పేజీ స్ధిరీకరణ',
+	'stabilization-text'           => '[[:$1|$1]] యొక్క సుస్థిర కూర్పు ఎలా ఎంచుకోవాలి మరియు చూపించబడాలో సరిదిద్దడానికి క్రింది అమరికలు మార్చండి.',
 	'stabilization-perm'           => 'మీ ఖాతాకు సుస్థిర కూర్పును మార్చే అనుమతి లేదు. [[:$1|$1]]కి ప్రస్తుత అమరికల ఇవీ:',
 	'stabilization-page'           => 'పేజీ పేరు:',
 	'stabilization-leg'            => 'పేజీకి సుస్థిర కూర్పుని నిర్ధేశించండి',
 	'stabilization-select'         => 'సుస్థిర కూర్పుని ఎలా ఎంచుకుంటారు',
 	'stabilization-select2'        => 'చివరి సమీక్షిత కూర్పు',
+	'stabilization-def1'           => 'సుస్థిర కూర్పు; అది లేకపోతే, ప్రస్తుత కూర్పు',
 	'stabilization-def2'           => 'ప్రస్తుత కూర్పు',
 	'stabilization-submit'         => 'నిర్ధారించు',
 	'stabilization-notexists'      => '"[[:$1|$1]]" అనే పేజీ లేదు. స్వరూపణం వీలుపడదు.',
