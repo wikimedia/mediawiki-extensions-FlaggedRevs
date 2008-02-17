@@ -820,11 +820,11 @@ class FlaggedArticle {
 		if( $wgOut->isPrintable() )
 			return true;
 
-		if( !$wgUser->isAllowed('review') || !$NewRev->isCurrent() )
+		if( !$wgUser->isAllowed('review') || !$NewRev->isCurrent() || !$OldRev )
 			return true;
 
 		$frev = $this->getStableRev();
-		if( !$frev || $frev->getRevId() != $OldRev->getID() )
+		if( is_null($frev) || $frev->getRevId() != $OldRev->getID() )
 			return true;
 
 		$changeList = array();
@@ -1004,11 +1004,14 @@ class FlaggedArticle {
 		if( FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) ) {
 			global $wgFlaggedArticle;
 
+			if( !$OldRev )
+				return true;
+
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId()==$OldRev->getID() && $NewRev->isCurrent() ) {
 				$wgFlaggedArticle->isDiffFromStable = true;
 			}
-			// Give a link to the diff-to-stable if needed
+			# Give a link to the diff-to-stable if needed
 			if( $frev && !$wgFlaggedArticle->isDiffFromStable ) {
 				$skin = $wgUser->getSkin();
 
@@ -1023,11 +1026,11 @@ class FlaggedArticle {
 			if( $diff->mRcidMarkPatrolled ) {
 				$rcid = $diff->mRcidMarkPatrolled;
 			} else {
-				// Look for an unpatrolled change corresponding to this diff
+				# Look for an unpatrolled change corresponding to this diff
 				$dbr = wfGetDB( DB_SLAVE );
 				$change = RecentChange::newFromConds(
 					array(
-						// Add redundant timestamp condition so we can use the existing index
+						# Add redundant timestamp condition so we can use the existing index
 						'rc_timestamp'  => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
 						'rc_this_oldid' => $diff->mNewid,
 						'rc_last_oldid' => $diff->mOldid,
@@ -1038,8 +1041,7 @@ class FlaggedArticle {
 				if( $change instanceof RecentChange ) {
 					$rcid = $change->mAttribs['rc_id'];
 				} else {
-					// None found
-					$rcid = 0;
+					$rcid = 0; // None found
 				}
 			}
 			// Build the link
