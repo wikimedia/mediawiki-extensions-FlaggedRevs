@@ -40,7 +40,9 @@ Type the name of the user in the box and press the button to set the user\'s rig
 	'rights-editor-revoke'          => 'removed editor status from [[$1]]',
 );
 
-/* Arabic (Meno25) */
+/** Arabic (العربية)
+ * @author Meno25
+ */
 $messages['ar'] = array(
 	'makereviewer'                  => 'ترقية/عزل المحررين',
 	'makereviewer-header'           => '<strong>هذه الاستمارة تستخدم بواسطة مدراء النظام و البيروقراطيين لترقية المستخدمين لمصححي مقالات.</strong>
@@ -67,14 +69,11 @@ $messages['ar'] = array(
 	'makereviewer-granted-r'        => '[[User:$1|$1]] لديه الآن صلاحية مراجع.',
 	'makereviewer-revoked-r'        => '[[User:$1|$1]] لم يعد لديه صلاحية مراجع.',
 	'makereviewer-logpage'          => 'سجل صلاحية المحرر',
-	'makereviewer-logpagetext'      => 'هذا سجل بالتغيير في صلاحيات [[{{MediaWiki:Makevalidate-page}}|تصحيح المقالات]].',
-	'makereviewer-page'             => '{{ns:help}}:توكيد المقالات',
 	'makereviewer-logentrygrant-e'  => 'منح صلاحية محرر إلى [[$1]]',
 	'makereviewer-logentryrevoke-e' => 'سحب صلاحية محرر من [[$1]]',
 	'makereviewer-logentrygrant-r'  => 'منح صلاحية مراجع إلى [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'سحب صلاحية مراجع من [[$1]]',
 	'makereviewer-autosum'          => 'ترقية تلقائية',
-	'rights-editor-grant'           => 'منح صلاحية محرر إلى [[$1]]',
 	'rights-editor-revoke'          => 'أزال حالة محرر من [[$1]]',
 );
 
@@ -1098,7 +1097,8 @@ $messages['sv'] = array(
 	'makereviewer'                  => 'Befordra/degradera redaktörer',
 	'makereviewer-header'           => '<strong>Det här formuläret används av administratörer och byråkrater för att befordra användare till sidgranskare</strong>
 
-Skriv användarens namn i rutan  och tryck på knappen för att ändra användarens rättigheter. Att ge användare granskarstatus ger dem automatiskt också redaktörstatus. Om redaktörstatus tas ifrån användare, så tas samtidigt automatiskt deras granskarstatus ifrån dem.',
+Skriv användarens namn i rutan och tryck på knappen för att ändra användarens rättigheter.
+När användare ges granskarstatus så får de automatiskt också redaktörstatus. Om redaktörstatus tas ifrån användare, så tas samtidigt automatiskt deras granskarstatus ifrån dem.',
 	'makereviewer-username'         => 'Användarnamn:',
 	'makereviewer-search'           => 'Gå till',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] har redaktörsbehörighet.',
@@ -1181,6 +1181,13 @@ $messages['tr'] = array(
  */
 $messages['vi'] = array(
 	'makereviewer-username' => 'Tên thành viên:',
+	'makereviewer-search'   => 'Hiển thị',
+	'makereviewer-grant1'   => 'Phong cờ',
+	'makereviewer-revoke1'  => 'Rút cờ',
+	'makereviewer-grant2'   => 'Phong cờ',
+	'makereviewer-revoke2'  => 'Rút cờ',
+	'makereviewer-comment'  => 'Lý do:',
+	'makereviewer-autosum'  => 'tự phong cờ',
 );
 
 /** Volapük (Volapük)
