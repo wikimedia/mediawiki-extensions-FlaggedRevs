@@ -1349,6 +1349,7 @@ class FlaggedRevs {
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
+		$sha1 = '';
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
 			$row = $dbw->selectRow( array('page', 'flaggedimages'),
@@ -1521,7 +1522,7 @@ class FlaggedRevs {
 		if( $action != 'read' )
 			return true;
 		# Admin may set this to false, rather than array()...
-		if( empty($wgFlaggedRevsVisible) || array_intersect($user->getGroups(),$wgFlaggedRevsVisible) )
+		if( empty($wgFlaggedRevsVisible) || !array_intersect($user->getGroups(),$wgFlaggedRevsVisible) )
 			return true;
 		# See if there is a stable version. Also, see if, given the page 
 		# config and URL params, the page can be overriden.
