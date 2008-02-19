@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.08',
+	'version' => '1.010',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -41,6 +41,10 @@ $wgFlaggedRevsOverride = true;
 # visitors to see reviewed pages by default.
 # Below are groups that see the current revision by default.
 $wgFlaggedRevsExceptions = array( 'user' );
+
+# Flagged revisions are always visible to users in the groups below.
+# Use '*' for non-user accounts.
+$wgFlaggedRevsVisible = array();
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = false;
@@ -113,7 +117,7 @@ $wgGroupPermissions['editor']['review']		  	= true;
 $wgGroupPermissions['editor']['unwatchedpages'] 	= true;
 $wgGroupPermissions['editor']['autoconfirmed']  	= true;
 $wgGroupPermissions['editor']['patrolmarks']	    = true;
-$wgGroupPermissions['editor']['patrolother']	  	= true;
+$wgGroupPermissions['editor']['autopatrolother']	= true;
 $wgGroupPermissions['editor']['unreviewedpages']	= true;
 
 # Defines extra rights for advanced reviewer class
@@ -121,10 +125,12 @@ $wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review']   = true;
 
-# Stable version selection and default page revision selection
-# can be set per page.
-$wgGroupPermissions['sysop']['stablesettings']	= true;
-$wgGroupPermissions['sysop']['patrolother']		= true;
+# Stable version selection and default page revision selection can be set per page.
+$wgGroupPermissions['sysop']['stablesettings'] = true;
+
+# Try to avoid flood by having autoconfirmed user edits to non-reviewable
+# namespaces autopatrolled.
+$wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 
 # Define when users get automatically promoted to editors. Set as false to disable.
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
@@ -192,6 +198,7 @@ function efLoadFlaggedRevs() {
 
 	######### Hook attachments #########
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';
+	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyle';
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
@@ -200,7 +207,7 @@ function efLoadFlaggedRevs() {
 	# Set image version
 	$wgHooks['ArticleFromTitle'][] = 'FlaggedRevs::setImageVersion';
 	# Add page notice
-	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'addSimpleTag' );
+	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'displayReviewTag' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
 	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
@@ -232,8 +239,8 @@ function efLoadFlaggedRevs() {
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAfterEdit' );
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolLink' );
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
+	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolAndDiffLink' );
 	# Autoreview stuff
 	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
@@ -241,6 +248,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
+	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
 	#########
 }
 
@@ -871,22 +879,22 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Add FlaggedRevs css/js
+	* Add FlaggedRevs css/js. Attached to two different hooks, neglect inputs.
 	*/
-	public static function InjectStyle( $out, $parserOut ) {
-		global $wgJsMimeType;
-		
+	public static function InjectStyle( $a=false, $b=false ) {
+		global $wgOut, $wgJsMimeType;
+		# Don't double-load
 		if( self::$styleLoaded )
 			return true;
 		# UI CSS
-		$out->addLink( array(
+		$wgOut->addLink( array(
 			'rel'	=> 'stylesheet',
 			'type'	=> 'text/css',
 			'media'	=> 'screen, projection',
 			'href'	=> FLAGGED_CSS,
 		) );
 		# UI JS
-		$out->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
+		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
 
 		self::$styleLoaded = true;
 
@@ -1000,6 +1008,7 @@ class FlaggedRevs {
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => 1 ),
 			array( 'rc_this_oldid' => $rev->getId(),
+				'rc_user_text' => $rev->getRawUserText(),
 				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 			__METHOD__
 		);
@@ -1502,6 +1511,25 @@ class FlaggedRevs {
 		}
 		return true;
 	}
+	
+	/**
+	* Allow users to view reviewed pages.
+	*/
+	public static function userCanView( $title, $user, $action, $result ) {
+		global $wgFlaggedRevsVisible, $wgFlaggedArticle;
+		# Assume $action may still not be set, in which case, treat it as 'view'...
+		if( $action != 'read' )
+			return true;
+		# Admin may set this to false, rather than array()...
+		if( empty($wgFlaggedRevsVisible) || array_intersect($user->getGroups(),$wgFlaggedRevsVisible) )
+			return true;
+		# See if there is a stable version. Also, see if, given the page 
+		# config and URL params, the page can be overriden.
+		if( $wgFlaggedArticle->pageOverride() && $wgFlaggedArticle->getStableRev() ) {
+			$result = true;
+		}
+		return true;
+	}
 
 	/**
 	* When an edit is made to a page that can't be reviewed, autopatrol if allowed.
@@ -1512,11 +1540,12 @@ class FlaggedRevs {
 		if( !$rev )
 			return true;
 
-		if( !self::isPageReviewable( $article->getTitle() ) && $user->isAllowed('patrolother') ) {
+		if( !self::isPageReviewable( $article->getTitle() ) && $user->isAllowed('autopatrolother') ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->update( 'recentchanges',
 				array( 'rc_patrolled' => 1 ),
 				array( 'rc_this_oldid' => $rev->getID(),
+					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 				__METHOD__ );
 		}
@@ -1663,3 +1692,4 @@ class FlaggedRevs {
 		return $s;
 	}
 }
+

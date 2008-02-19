@@ -7,8 +7,11 @@
 	border: 1px solid #aaa;
 	padding: 3px;
 	font-size: 80%;
+	font-weight: normal;
+	margin-top: 6px;
 	margin-left: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
 	text-align: center;
 }
 
@@ -30,6 +33,7 @@
 }
 .flaggedrevs_warning {
 	background-color: #fffff0;
+	margin-top: 0px;
 }
 
 .flaggedrevs_notes {
@@ -45,6 +49,20 @@
 .fr-text-value {
     min-width:100px;
     width: 100px;
+}
+
+.fr-checkbox {
+	padding: 0px;
+	margin: .25em;
+	width: 16px;
+	height: 16px;
+	position: relative;
+	float: left;
+	top: 0px;
+	right: 0px;
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+    background-image: url(../FlaggedRevs/img/boxC.png);
 }
 
 .fr-marker-20 {

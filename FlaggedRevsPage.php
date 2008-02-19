@@ -452,6 +452,7 @@ class Revisionreview extends UnlistedSpecialPage
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => 1 ),
 			array( 'rc_this_oldid' => $rev->getId(),
+				'rc_user_text' => $rev->getRawUserText(),
 				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 			__METHOD__
 		);
