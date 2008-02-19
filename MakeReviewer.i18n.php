@@ -554,6 +554,30 @@ $messages['is'] = array(
 	'makereviewer-comment'  => 'Athugasemd:',
 );
 
+/** Japanese (日本語)
+ * @author JtFuruhata
+ */
+$messages['ja'] = array(
+	'makereviewer'              => '編集者権限の付与/剥奪',
+	'makereviewer-header'       => '<strong>{{int:group-sysop}}または{{int:group-bureaucrat}}が利用者の記事査読権限を変更するためのフォームです。</strong>
+
+権限を変更する利用者名を入力してボタンを押してください。査読者権限を付与すると、自動的に編集者権限も付与されます。編集者権限を剥奪すると、自動的に査読者権限も剥奪されます。',
+	'makereviewer-username'     => '利用者名:',
+	'makereviewer-search'       => '査読権限表示',
+	'makereviewer-iseditor'     => '[[{{ns:user}}:$1|$1]] には、編集者権限が付与されています。',
+	'makereviewer-noteditor'    => '[[{{ns:user}}:$1|$1]] に、編集者権限は付与されていません。',
+	'makereviewer-isvalidator'  => '[[{{ns:user}}:$1|$1]] には、査読者権限が付与されています。',
+	'makereviewer-notvalidator' => '[[{{ns:user}}:$1|$1]] に、査読者権限は付与されていません。',
+	'makereviewer-legend'       => '利用者権限の変更',
+	'makereviewer-change-e'     => '編集者権限:',
+	'makereviewer-change-r'     => '査読者権限:',
+	'makereviewer-grant1'       => '付与する',
+	'makereviewer-revoke1'      => '付与しない',
+	'makereviewer-grant2'       => '付与する',
+	'makereviewer-revoke2'      => '付与しない',
+	'makereviewer-comment'      => '変更内容の要約:',
+);
+
 /** Kazakh (Arabic) (قازاقشا (توتە))
  * @author AlefZet
  */
