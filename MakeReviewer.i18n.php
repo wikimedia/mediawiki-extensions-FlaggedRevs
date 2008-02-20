@@ -558,24 +558,35 @@ $messages['is'] = array(
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'makereviewer'              => '編集者権限の付与/剥奪',
-	'makereviewer-header'       => '<strong>{{int:group-sysop}}または{{int:group-bureaucrat}}が利用者の記事査読権限を変更するためのフォームです。</strong>
+	'makereviewer'                  => '記事査読権限の付与/剥奪',
+	'makereviewer-header'           => '<strong>{{int:group-sysop}}または{{int:group-bureaucrat}}が利用者の記事査読権限を変更するためのフォームです。</strong>
 
 権限を変更する利用者名を入力してボタンを押してください。査読者権限を付与すると、自動的に編集者権限も付与されます。編集者権限を剥奪すると、自動的に査読者権限も剥奪されます。',
-	'makereviewer-username'     => '利用者名:',
-	'makereviewer-search'       => '査読権限表示',
-	'makereviewer-iseditor'     => '[[{{ns:user}}:$1|$1]] には、編集者権限が付与されています。',
-	'makereviewer-noteditor'    => '[[{{ns:user}}:$1|$1]] に、編集者権限は付与されていません。',
-	'makereviewer-isvalidator'  => '[[{{ns:user}}:$1|$1]] には、査読者権限が付与されています。',
-	'makereviewer-notvalidator' => '[[{{ns:user}}:$1|$1]] に、査読者権限は付与されていません。',
-	'makereviewer-legend'       => '利用者権限の変更',
-	'makereviewer-change-e'     => '編集者権限:',
-	'makereviewer-change-r'     => '査読者権限:',
-	'makereviewer-grant1'       => '付与する',
-	'makereviewer-revoke1'      => '付与しない',
-	'makereviewer-grant2'       => '付与する',
-	'makereviewer-revoke2'      => '付与しない',
-	'makereviewer-comment'      => '変更内容の要約:',
+	'makereviewer-username'         => '利用者名:',
+	'makereviewer-search'           => '査読権限表示',
+	'makereviewer-iseditor'         => '[[{{ns:user}}:$1|$1]] には、編集者権限が付与されています。',
+	'makereviewer-noteditor'        => '[[{{ns:user}}:$1|$1]] に、編集者権限は付与されていません。',
+	'makereviewer-isvalidator'      => '[[{{ns:user}}:$1|$1]] には、査読者権限が付与されています。',
+	'makereviewer-notvalidator'     => '[[{{ns:user}}:$1|$1]] に、査読者権限は付与されていません。',
+	'makereviewer-legend'           => '利用者権限の変更',
+	'makereviewer-change-e'         => '編集者権限:',
+	'makereviewer-change-r'         => '査読者権限:',
+	'makereviewer-grant1'           => '付与する',
+	'makereviewer-revoke1'          => '付与しない',
+	'makereviewer-grant2'           => '付与する',
+	'makereviewer-revoke2'          => '付与しない',
+	'makereviewer-comment'          => '変更内容の要約:',
+	'makereviewer-granted-e'        => '[[{{ns:user}}:$1|$1]] に、編集者権限が付与されました。',
+	'makereviewer-revoked-e'        => '[[{{ns:user}}:$1|$1]] に、編集者権限はありません。',
+	'makereviewer-granted-r'        => '[[{{ns:user}}:$1|$1]] に、査読者権限が付与されました。',
+	'makereviewer-revoked-r'        => '[[{{ns:user}}:$1|$1]] に、査読者権限はありません。',
+	'makereviewer-logpage'          => '記事査読権限変更ログ',
+	'makereviewer-logentrygrant-e'  => '[[$1]] へ編集者権限付与',
+	'makereviewer-logentryrevoke-e' => '[[$1]] の編集者権限取り消し',
+	'makereviewer-logentrygrant-r'  => '[[$1]] へ査読者権限付与',
+	'makereviewer-logentryrevoke-r' => '[[$1]] の査読者権限取り消し',
+	'makereviewer-autosum'          => '自動権限付与',
+	'rights-editor-revoke'          => '[[$1]] の編集者権限取り消し',
 );
 
 /** Kazakh (Arabic) (قازاقشا (توتە))
