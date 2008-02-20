@@ -1032,9 +1032,8 @@ $messages['ext'] = array(
 	'stabilization-def-short-0' => 'Atual',
 );
 
-/** Persian (فارسی)
+/** فارسی (فارسی)
  * @author Huji
- * @author Siebrand
  */
 $messages['fa'] = array(
 	'flaggedrevs-desc'             => 'به ویرایشگرها/مرورکنندگان امکان تایید کردن نسخه‌ها و پایدار ساختن صفحه‌ها را می‌دهد',
@@ -1106,6 +1105,7 @@ $messages['fa'] = array(
 	'stable-logpagetext'           => 'این سیاهه‌ای از تنظیمات [[{{MediaWiki:Validationpage}}|نسخه پایدار]] صفحه‌ها است.',
 	'stable-logentry'              => 'نسخه پایدار [[$1]] را تنظیم کرد',
 	'stable-logentry2'             => 'بازنشاندن نسخه پایدار [[$1]]',
+	'revreview-patrol'             => 'علامت زدن این تغییر به عنوان بررسی‌شده',
 	'revisionreview'               => 'نسخه‌های بررسی',
 	'revreview-main'               => 'شما باید یک نسخه خاص از یک صفحه را برگزینید تا بررسی کنید.
 
