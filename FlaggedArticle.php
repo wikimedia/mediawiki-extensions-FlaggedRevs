@@ -259,7 +259,7 @@ class FlaggedArticle {
 			} else {
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' .
 					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
-				$wgOut->addHTML( $tag );
+				$this->reviewNotice = $tag;
 			}
 		}
 
