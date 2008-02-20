@@ -1522,7 +1522,9 @@ class FlaggedRevs {
 		if( $action != 'read' )
 			return true;
 		# Admin may set this to false, rather than array()...
-		if( empty($wgFlaggedRevsVisible) || !array_intersect($user->getGroups(),$wgFlaggedRevsVisible) )
+		$groups = $user->getGroups();
+		$groups[] = '*';
+		if( empty($wgFlaggedRevsVisible) || !array_intersect($groups,$wgFlaggedRevsVisible) )
 			return true;
 		# See if there is a stable version. Also, see if, given the page 
 		# config and URL params, the page can be overriden.
