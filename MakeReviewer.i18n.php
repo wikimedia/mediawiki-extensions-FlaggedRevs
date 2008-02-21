@@ -814,14 +814,16 @@ Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de geb
 	'rights-editor-revoke'          => 'verwijderde redacteurstatus van [[$1]]',
 );
 
-/* Norwegian (Jon Harald Søby) */
+/** Norwegian (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
 $messages['no'] = array(
 	'makereviewer'                  => 'Forfrem eller degrader bidragsytere',
 	'makereviewer-header'           => '<strong>Dette skjemaet brukes av administratorer og byråkrater for å forfremme brukere til artikkelgodkjennere.</strong>
 
 Skriv inn navnet på brukeren i boksen og trykk knappen for å sette brukerrettigheter. Å gi brukere godkjennerstatus vil automatisk gi dem redaktørstatus. Fjerning av redaktørstatus vil automatisk føre til fjerning av godkjennerstatus.',
 	'makereviewer-username'         => 'Brukernavn:',
-	'makereviewer-search'           => 'Gå',
+	'makereviewer-search'           => '{{int:Go}}',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] har redaktørstatus.',
 	'makereviewer-noteditor'        => '[[User:$1|$1]] har ikke redaktørstatus.',
 	'makereviewer-isvalidator'      => '[[User:$1|$1]] har godkjennerstatus.',
@@ -839,13 +841,11 @@ Skriv inn navnet på brukeren i boksen og trykk knappen for å sette brukerretti
 	'makereviewer-granted-r'        => '[[User:$1|$1]] har nå godkjennerstatus.',
 	'makereviewer-revoked-r'        => '[[User:$1|$1]] har ikke lenger godkjennerstatus.',
 	'makereviewer-logpage'          => 'Godkjennerstatuslogg',
-	'makereviewer-logpagetext'      => 'Dette er en logg over endringer i brukeres [[{{MediaWiki:Makevalidate-page}}|artikkelvalderingsstatus]].',
 	'makereviewer-logentrygrant-e'  => 'ga redaktørstatus til [[User:$1|$1]]',
 	'makereviewer-logentryrevoke-e' => 'fjernet redaktørstatus fra [[User:$1|$1]]',
 	'makereviewer-logentrygrant-r'  => 'ga godkjennerstatus til [[User:$1|$1]]',
 	'makereviewer-logentryrevoke-r' => 'fjernet godkjennerstatus fra [[User:$1|$1]]',
 	'makereviewer-autosum'          => 'autoforfremmet',
-	'rights-editor-grant'           => 'ga [[$1]] redaktørstatus',
 	'rights-editor-revoke'          => 'fjernet redaktørstatus fra [[$1]]',
 );
 
@@ -1164,8 +1164,10 @@ När användare ges granskarstatus så får de automatiskt också redaktörstatu
 /** Telugu (తెలుగు)
  * @author Veeven
  * @author వైజాసత్య
+ * @author Chaduvari
  */
 $messages['te'] = array(
+	'makereviewer'                  => 'రచయితలను పదోన్నతి/నిమ్నత చెయ్యండి',
 	'makereviewer-username'         => 'వాడుకరి పేరు:',
 	'makereviewer-search'           => 'వెళ్ళు',
 	'makereviewer-iseditor'         => '[[User:$1|$1]]కి ఎడిటర్ హోదా ఉంది.',
@@ -1189,6 +1191,7 @@ $messages['te'] = array(
 	'makereviewer-logentryrevoke-e' => '[[$1]] నుండి ఎడిటర్ హోదా తొలగించారు',
 	'makereviewer-logentrygrant-r'  => '[[$1]]కి సమీక్షకుల హోదా ఇచ్చారు',
 	'makereviewer-logentryrevoke-r' => '[[$1]] నుండి సమీక్షకుల హోదా తొలగించారు',
+	'makereviewer-autosum'          => 'ఆటోమాటిగ్గా పదోన్నతి చెయ్యబడ్డారు',
 	'rights-editor-revoke'          => '[[$1]] నుండి ఎడిటర్ హోదా తొలగించారు',
 );
 
