@@ -174,6 +174,13 @@ Refreshing the page and rereviewing can solve this problem.',
 	'reviewedpages-best'        => 'latest highest rated revision',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'stableversions-list' => 'A siguient ye una lista de bersions de "[[:$1]]" que s\'han rebisato:',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author Siebrand
@@ -417,6 +424,7 @@ de les revisiones de les páxines de conteníu.',
 de les páxines de conteníu.',
 	'stable-logentry'             => 'configuró la versión estable de [[$1]]',
 	'stable-logentry2'            => 'restablecer el rexistru de les versiones estables de [[$1]]',
+	'revreview-patrol'            => 'Marcar esti cambéu como supervisáu',
 	'revisionreview'              => 'Revisar revisiones',
 	'revreview-main'              => "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.
 
