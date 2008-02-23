@@ -126,6 +126,7 @@ $messages['bcl'] = array(
  */
 $messages['bg'] = array(
 	'makereviewer-username' => 'Име на потребителя:',
+	'makereviewer-legend'   => 'Промяна на потребителските права',
 	'makereviewer-grant1'   => 'Предоставяне',
 	'makereviewer-revoke1'  => 'Отнемане',
 	'makereviewer-grant2'   => 'Предоставяне',
