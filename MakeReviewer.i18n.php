@@ -332,14 +332,15 @@ $messages['fa'] = array(
 );
 
 /** French (Français)
+ * @author Urhixidur
  * @author Sherbrooke
  * @author ChrisPtDe
  */
 $messages['fr'] = array(
 	'makereviewer'                  => 'Promouvoir/Démettre les éditeurs',
-	'makereviewer-header'           => "'''Ce formulaire est utilisé par les administrateurs et les bureaucrates pour promouvoir les contributeurs au poste de réviseur d'articles.'''
+	'makereviewer-header'           => "'''Ce formulaire est utilisé par les administrateurs et les bureaucrates pour promouvoir les contributeurs au poste de réviseur d’articles.'''
 
-Saisir le nom du contributeur dans la boîte de dialogue pour lui donner ces droits. Donner les droits de réviseur donne automatiquement les droits d'éditeur. Révoquer les droits de réviseur révoquen automatiquement les droits d'éditeur.",
+Saisir le nom du contributeur dans la boîte de dialogue pour lui donner ces droits. Donner les droits de réviseur donne automatiquement les droits d’éditeur. Révoquer les droits de réviseur révoque automatiquement les droits d’éditeur.",
 	'makereviewer-username'         => 'Nom du contributeur :',
 	'makereviewer-search'           => 'Aller',
 	'makereviewer-iseditor'         => "[[User:$1|$1]] a les droits d'éditeur.",
@@ -352,7 +353,7 @@ Saisir le nom du contributeur dans la boîte de dialogue pour lui donner ces dro
 	'makereviewer-grant1'           => 'Accorder',
 	'makereviewer-revoke1'          => 'Révoquer',
 	'makereviewer-grant2'           => 'Accorder',
-	'makereviewer-revoke2'          => 'Révoquer.',
+	'makereviewer-revoke2'          => 'Révoquer',
 	'makereviewer-comment'          => 'Commentaire :',
 	'makereviewer-granted-e'        => "[[User:$1|$1]] a les droits d'éditeur.",
 	'makereviewer-revoked-e'        => "[[User:$1|$1]] n'a plus les droits d'éditeur.",

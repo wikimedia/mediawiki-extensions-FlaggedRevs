@@ -178,6 +178,9 @@ Refreshing the page and rereviewing can solve this problem.',
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'flaggedrevs-desc'    => 'Premite á os editors/rebisors de balidar rebisions y fer estables as pachinas',
+	'editor'              => 'Editor',
+	'group-editor'        => 'Editors',
 	'stableversions-list' => 'A siguient ye una lista de bersions de [[:$1]] que s\'han rebisato:',
 );
 
@@ -1211,6 +1214,7 @@ $messages['fa'] = array(
  * @author Grondin
  * @author Dereckson
  * @author Siebrand
+ * @author Urhixidur
  * @author ChrisPtDe
  * @author SPQRobin
  */
@@ -1282,13 +1286,13 @@ $messages['fr'] = array(
 	'revreview-accuracy'           => 'Précision',
 	'revreview-accuracy-0'         => 'Non approuvée',
 	'revreview-accuracy-1'         => 'Vue',
-	'revreview-accuracy-2'         => 'Précis',
+	'revreview-accuracy-2'         => 'Précise',
 	'revreview-accuracy-3'         => 'Bien sourcée',
 	'revreview-accuracy-4'         => 'Remarquable',
 	'revreview-depth'              => 'Profondeur',
 	'revreview-depth-0'            => 'Non approuvée',
 	'revreview-depth-1'            => 'De base',
-	'revreview-depth-2'            => 'Modéré',
+	'revreview-depth-2'            => 'Modérée',
 	'revreview-depth-3'            => 'Élevée',
 	'revreview-depth-4'            => 'Remarquable',
 	'revreview-style'              => 'Lisibilité',
@@ -1299,9 +1303,9 @@ $messages['fr'] = array(
 	'revreview-style-4'            => 'Remarquable',
 	'revreview-log'                => 'Commentaire au journal :',
 	'revreview-submit'             => 'Sauvegarder revue',
-	'revreview-changed'            => "'''L'action demandée n'a pu être accomplie pour cette version de [[:$1|$1]].'''
+	'revreview-changed'            => "'''L’action demandée n’a pu être accomplie pour cette version de [[:$1|$1]].'''
 	
-Un modèle ou une image peut avoir été demandé alors qu'aucune version précise n'était choisie. Ceci peut survenir si un modèle dynamique opère une transclusion d'un autre image ou d'un modèle dépendant d'une variable qui a changé depuis que vous avez commencé à prévisualiser cette page. Le rechargement de la page et sa revisualisation  peut corriger ce problème.",
+Un modèle ou une image peuvent avoir été demandés alors qu’aucune version précise n’était choisie. Ceci peut survenir si un modèle dynamique opère une transclusion d’une autre image ou d’un modèle dépendant d’une variable qui a changé depuis que vous avez commencé à prévisualiser cette page. Le rechargement de la page et sa revisualisation peuvent corriger ce problème.",
 	'stableversions'               => 'Versions stables',
 	'stableversions-title'         => 'Versions stables de « $1 »',
 	'stableversions-leg1'          => "Dernières révisions revues d'une page",
@@ -3720,8 +3724,8 @@ $messages['pt'] = array(
 	'revreview-newest-quality'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição com qualidade] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|alteração|alterações}}] {{plural:$3|necessita|necessitam}} análise.',
 	'revreview-basic'              => 'Esta é a mais recente edição [[{{MediaWiki:Validationpage}}|analisada]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editado]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|alteração aguarda|alterações aguardam}}] revisão.',
 	'revreview-quality'            => 'Esta é a mais recente edição [[{{MediaWiki:Validationpage}}|estável]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} editado]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|alteração aguarda|alterações aguardam}}] revisão.',
-	'revreview-basic-same'         => 'Esta é a última edição [[{{MediaWiki:Validationpage}}|avistada]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. A página pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
-	'revreview-quality-same'       => 'Esta é a última edição [[{{MediaWiki:Validationpage}}|de qualidade]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. A página pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
+	'revreview-basic-same'         => 'Esta é a última edição [[{{MediaWiki:Validationpage}}|verificada]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. A página pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
+	'revreview-quality-same'       => 'Esta é a última edição [[{{MediaWiki:Validationpage}}|de qualidade]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. A página pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
 	'revreview-note'               => '[[{{ns:user}}:$1|$1]] deixou as seguintes observações ao [[{{MediaWiki:Validationpage}}|analisar]] esta edição:',
 	'revreview-static'             => "Esta é uma edição [[{{MediaWiki:Validationpage}}|revista]] de '''[[:$3|$3]]''', [{{fullurl:Special:Log|type=review&page=$1}} aprovada] em <i>$2</i>.",
 	'revreview-update'             => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].
@@ -5042,6 +5046,7 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'stable-logpagetext'          => 'Is palisedons votükams parametas [[{{MediaWiki:Validationpage}}|fomama fümöfik]] padas ninädilabik.',
 	'stable-logentry'             => '„Fomam fümöfik“ pemögükon pro [[$1]]',
 	'stable-logentry2'            => 'Vagükön lisedi: „fomams fümöfik“ pro [[$1]]',
+	'revreview-patrol'            => 'Malön votükami at as pezepöl',
 	'revisionreview'              => 'Logön krütamis',
 	'revreview-main'              => 'Mutol välön fomami semik pada ninädilabik ad krütön oni.
 
