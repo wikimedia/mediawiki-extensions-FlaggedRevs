@@ -453,7 +453,7 @@ class FlaggedArticle {
        	}
 		# We can change the behavoir of stable version for this page to be different
 		# than the site default.
-		if( $wgUser->isAllowed('stablesettings') ) {
+		if( !$sktmp->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
 			$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			$content_actions['default'] = array(
 				'class' => false,
