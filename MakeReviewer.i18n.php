@@ -700,6 +700,13 @@ Qatıswşı quqıqtarın tapsırw üşin qatıswşı atın jolaqta teriñiz de b
 
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Chhorran
+ */
+$messages['km'] = array(
+	'makereviewer-username' => 'ឈ្មោះ នៃអ្នកប្រើប្រាស់ ៖',
+);
+
 $messages['la'] = array(
 	'makereviewer-username'         => 'Nomen usoris:',
 	'makereviewer-search'           => 'Ire',

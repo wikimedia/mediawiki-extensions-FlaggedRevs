@@ -2813,6 +2813,22 @@ Betti jañartw jäne qaýta sın berw bul mäseleni şeşw mümkin.",
 	'reviewedpages-best'          => 'eñ soñğı eñ joğarı deñgeý berilgen nusqası',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Chhorran
+ */
+$messages['km'] = array(
+	'revreview-current'    => 'ព្រាង',
+	'revreview-source'     => 'ប្រភពព្រាង',
+	'revreview-auto'       => '(ស្វ័យប្រវត្តិ)',
+	'revreview-style-1'    => 'អាចព្រមទទួល',
+	'revreview-style-2'    => 'ល្អ',
+	'stableversions-page'  => 'ឈ្មោះទំព័រ ៖',
+	'unreviewed-category'  => 'ចំណាត់ក្រុម ៖',
+	'unreviewed-diff'      => 'បំលាស់ប្តូរ',
+	'stabilization-page'   => 'ឈ្មោះ ទំព័រ ៖',
+	'stabilization-submit' => 'បញ្ជាក់ទទួលស្គាល់',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  * @author UV
