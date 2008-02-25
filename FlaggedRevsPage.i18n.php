@@ -3051,6 +3051,29 @@ $messages['lt'] = array(
 	'stabilization-def-short-0' => 'Esamas',
 );
 
+/** Marathi (मराठी)
+ * @author Mahitgar
+ */
+$messages['mr'] = array(
+	'editor'                    => 'संपादक',
+	'group-editor'              => 'संपादक',
+	'group-editor-member'       => 'संपादक',
+	'grouppage-editor'          => '{{ns:project}}:संपादक',
+	'reviewer'                  => 'समीक्षक',
+	'review-logaction'          => 'आवर्तन क्र. $1',
+	'revreview-accuracy'        => 'अचूकता',
+	'revreview-accuracy-3'      => 'सुयोग्य स्रोतातून',
+	'revreview-style-2'         => 'चांगले',
+	'revreview-style-3'         => 'संक्षिप्त',
+	'revreview-log'             => 'प्रतिक्रीया:',
+	'stableversions-page'       => 'पानाचे नाव',
+	'unreviewed-category'       => 'वर्ग:',
+	'unreviewed-diff'           => 'बदल',
+	'stabilization-sel-short-0' => 'दर्जा',
+	'stabilization-def-short-0' => 'सद्य',
+	'stabilization-def-short-1' => 'स्थीर',
+);
+
 /** Erzya (эрзянь кель)
  * @author Amdf
  */

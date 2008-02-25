@@ -788,6 +788,14 @@ $messages['lt'] = array(
 	'makereviewer-comment'  => 'Komentaras:',
 );
 
+/** Marathi (मराठी)
+ * @author Mahitgar
+ */
+$messages['mr'] = array(
+	'makereviewer-search'  => 'चला',
+	'makereviewer-comment' => 'प्रतिक्रीया',
+);
+
 $messages['nl'] = array(
 	'makereviewer'                  => 'Promotie/demotie redacteuren',
 	'makereviewer-header'           => '<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina\'s kunnen valideren.</strong>
