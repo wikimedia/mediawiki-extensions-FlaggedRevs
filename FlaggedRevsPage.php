@@ -149,8 +149,10 @@ class Revisionreview extends UnlistedSpecialPage
 	function markPatrolled() {
 		global $wgOut;
 
-		RecentChange::markPatrolled( $this->rcid );
-		PatrolLog::record( $this->rcid );
+		$changed = RecentChange::markPatrolled( $this->rcid );
+		if( $changed ) {
+			PatrolLog::record( $this->rcid );
+		}
 		# Inform the user
 		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
 		$wgOut->addWikiText( wfMsgNoTrans( 'revreview-patrolled', $this->page->getPrefixedText() ) );
