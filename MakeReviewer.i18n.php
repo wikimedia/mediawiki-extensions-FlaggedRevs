@@ -546,6 +546,41 @@ $messages['hu'] = array(
 	'rights-editor-revoke'          => '[[$1]] szerkesztői jogai meg lettek vonva',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
+$messages['id'] = array(
+	'makereviewer'                  => 'Pengangkatan/penurunan editor',
+	'makereviewer-header'           => '<strong>Isian ini digunakan oleh pengurus dan birokrat untuk mengangkat pengguna menjadi pemvalidasi artikel.</strong>
+
+Masukkan nama pengguna pada kotak isian dan tekan tombol untuk mengatur hak pengguna. Memberikan status peninjau akan secara otomatis memberikan juga status editor. Mencabut status editor akan secara otomatis mencabut status peninjau.',
+	'makereviewer-username'         => 'Nama pengguna:',
+	'makereviewer-search'           => 'Cari',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] memiliki status editor.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] tak memiliki status editor.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] memiliki status peninjau.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] tak memiliki status peninjau.',
+	'makereviewer-legend'           => 'Ganti hak pengguna',
+	'makereviewer-change-e'         => 'Status editor:',
+	'makereviewer-change-r'         => 'Status peninjau:',
+	'makereviewer-grant1'           => 'Berikan',
+	'makereviewer-revoke1'          => 'Cabut',
+	'makereviewer-grant2'           => 'Berikan',
+	'makereviewer-revoke2'          => 'Cabut',
+	'makereviewer-comment'          => 'Komentar:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] sekarang memiliki status editor.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] tak lagi memiliki status editor.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] sekarang memiliki status peninjau.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] tak lagi memiliki status peninjau.',
+	'makereviewer-logpage'          => 'Log status editor',
+	'makereviewer-logentrygrant-e'  => 'memberikan status editor untuk [[$1]]',
+	'makereviewer-logentryrevoke-e' => 'mencabut status editor dari [[$1]]',
+	'makereviewer-logentrygrant-r'  => 'memberikan status peninjau untuk [[$1]]',
+	'makereviewer-logentryrevoke-r' => 'mencabut status peninjau dari [[$1]]',
+	'makereviewer-autosum'          => 'promosi otomatis',
+	'rights-editor-revoke'          => 'mencabut status editor dari [[$1]]',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  */
