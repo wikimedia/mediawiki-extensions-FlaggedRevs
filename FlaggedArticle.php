@@ -646,7 +646,7 @@ class FlaggedArticle {
 			$form .= Xml::closeElement('select')."\n";
 		}
         if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
-			$form .= "<br/><p>" . wfMsgHtml( 'revreview-notes' ) . "</p>" .
+			$form .= "<br /><p>" . wfMsgHtml( 'revreview-notes' ) . "</p>" .
 			"<p><textarea tabindex='1' name='wpNotes' id='wpNotes' rows='2' cols='80' style='width:100%'></textarea>" .
 			"</p>\n";
 		}
@@ -793,7 +793,7 @@ class FlaggedArticle {
    		$skin = $wgUser->getSkin();
    		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
    		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
-   		$notes .= '<i>' . $skin->formatComment( $frev->getComment() ) . '</i></div></p><br/>';
+   		$notes .= '<i>' . $skin->formatComment( $frev->getComment() ) . '</i></div></p><br />';
 
     	return $notes;
     }
