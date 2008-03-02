@@ -291,6 +291,17 @@ $messages['el'] = array(
 	'makereviewer-comment'  => 'Σχόλιο:',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'makereviewer-search'    => 'Ek!',
+	'makereviewer-granted-e' => '[[User:$1|$1]] nun havas statuson redaktanto.',
+	'makereviewer-revoked-e' => '[[User:$1|$1]] ne plu havas statuson redaktanto.',
+	'makereviewer-granted-r' => '[[User:$1|$1]] nun havas statuson reekzamenanto.',
+	'makereviewer-revoked-r' => '[[User:$1|$1]] ne plu havas statuson reekzamenanto.',
+);
+
 $messages['ext'] = array(
 	'makereviewer-username'         => 'Nombri el usuáriu:',
 	'makereviewer-search'           => 'Dil',
@@ -740,6 +751,9 @@ Qatıswşı quqıqtarın tapsırw üşin qatıswşı atın jolaqta teriñiz de b
  */
 $messages['km'] = array(
 	'makereviewer-username' => 'ឈ្មោះ នៃអ្នកប្រើប្រាស់ ៖',
+	'makereviewer-search'   => 'ទៅ',
+	'makereviewer-legend'   => 'ផ្លាស់ប្តូរ សិទ្ធិ នៃ អ្នកប្រើប្រាស់',
+	'makereviewer-comment'  => 'វិចារ ៖',
 );
 
 $messages['la'] = array(
