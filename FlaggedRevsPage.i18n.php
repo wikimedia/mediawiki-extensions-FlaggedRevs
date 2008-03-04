@@ -176,12 +176,13 @@ Refreshing the page and rereviewing can solve this problem.',
 
 /** Aragonese (Aragonés)
  * @author Juanpabl
+ * @author Siebrand
  */
 $messages['an'] = array(
 	'flaggedrevs-desc'    => 'Premite á os editors/rebisors de balidar rebisions y fer estables as pachinas',
 	'editor'              => 'Editor',
 	'group-editor'        => 'Editors',
-	'stableversions-list' => 'A siguient ye una lista de bersions de [[:$1]] que s\'han rebisato:',
+	'stableversions-list' => "A siguient ye una lista de bersions de [[:$1]] que s'han rebisato:",
 );
 
 /** Arabic (العربية)
@@ -206,7 +207,7 @@ $messages['ar'] = array(
 	'revreview-stable'             => 'مستقرة',
 	'tooltip-ca-stable'            => 'عرض النسخة المستقرة لهذه الصفحة',
 	'revreview-oldrating'          => 'تم تقييمها ك:',
-	'revreview-noflagged'          => "لا توجد نسخ مراجعة لهذه الصفحة، لذا ربما '''لا''' تكون قد تم
+	'revreview-noflagged'          => "لا توجد نسخ مراجعة لهذه الصفحة، لذا ربما '''لا''' تكون قد تم 
 	[[{{MediaWiki:Validationpage}}|التحقق من]] جودتها.",
 	'stabilization-tab'            => '(تج)',
 	'tooltip-ca-default'           => 'إعدادات تأكيد الجودة',
@@ -237,8 +238,8 @@ $messages['ar'] = array(
 	'revreview-basic-same'         => 'هذه هي آخر نسخة [[{{MediaWiki:Validationpage}}|منظورة]]، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. الصفحة يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها].',
 	'revreview-quality-same'       => 'هذه هي آخر نسخة [[{{MediaWiki:Validationpage}}|جودة]]، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. الصفحة يمكن [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تعديلها].',
 	'revreview-note'               => '[[User:$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه النسخة:',
-	'revreview-static'             => "هذه هي النسخة [[{{MediaWiki:Validationpage}}|المراجعة]] من '''[[:$3|هذه الصفحة]]''',
-	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية]
+	'revreview-static'             => "هذه هي النسخة [[{{MediaWiki:Validationpage}}|المراجعة]] من '''[[:$3|هذه الصفحة]]''', 
+	[{{fullurl:Special:Log/review|page=$1}} تمت الموافقة عليها] في <i>$2</i>. The [{{fullurl:$3|stable=0}} النسخة الحالية] 
 	يمكن [{{fullurl:$3|action=edit}} تعديلها].",
 	'revreview-update'             => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات ''(معروضة بالأسفل)'' تمت منذ النسخة المستقرة تمت  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها].
 
@@ -248,7 +249,7 @@ $messages['ar'] = array(
 	'revreview-auto-w'             => "'''ملاحظة:''' أنت تقوم بتغييرات للنسخة المستقرة، تعديلاتك سيتم مراجعتها تلقائيا.
 ربما تريد أن تعرض الصفحة عرضا مسبقا قبل الحفظ.",
 	'revreview-auto-w-old'         => "أنت تحرر نسخة قديمة، أية تغييرات ستتم '''مراجعتها تلقائيا'''.
-	ربما تريد عرض الصفحة عرضا مسبقا قبل الحفظ.",
+ربما تريد عرض الصفحة عرضا مسبقا قبل الحفظ.",
 	'revreview-patrolled'          => 'النسخة المختارة من [[:$1|$1]] تم التعليم عليها كمراجعة.',
 	'hist-stable'                  => '[نسخة منظورة]',
 	'hist-quality'                 => '[نسخة جودة]',
@@ -260,17 +261,17 @@ $messages['ar'] = array(
 	'review-logaction'             => 'رقم النسخة $1',
 	'stable-logpage'               => 'سجل النسخة المستقرة',
 	'stable-logpagetext'           => 'هذا سجل بالتغييرات لضبط [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]
-	لصفحات المحتوى.',
+لصفحات المحتوى.',
 	'stable-logentry'              => 'ضبط النسخة المستقرة ل[[$1]]',
 	'stable-logentry2'             => 'أعاد ضبط النسخة المستقرة ل[[$1]]',
 	'revreview-patrol'             => 'علم على هذا التغيير كمراجع',
 	'revisionreview'               => 'مراجعة النسخ',
-	'revreview-main'               => 'يجب أن تختار نسخة معينة من صفحة محتوى لمراجعتها.
+	'revreview-main'               => 'يجب أن تختار نسخة معينة من صفحة محتوى لمراجعتها. 
 
 	انظر [[Special:Unreviewedpages]] لقائمة الصفحات غير المراجعة.',
 	'revreview-selected'           => "النسخة المختارة لصفحة '''$1:'''",
 	'revreview-text'               => 'النسخ المستقرة محددة كالمحتوى القياسي عند عرض الصفحة و ليس أحدث نسخة.',
-	'revreview-toolow'             => 'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي
+	'revreview-toolow'             => 'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي 
 تعتبر النسخة مراجعة. لسحب نسخة, اضبط كل الحقول ك "غير مقبولة".',
 	'revreview-flag'               => 'راجع هذه النسخة',
 	'revreview-legend'             => 'قيم محتوى النسخة',
@@ -297,8 +298,8 @@ $messages['ar'] = array(
 	'revreview-submit'             => 'تنفيذ المراجعة',
 	'revreview-changed'            => "'''الأمر المطلوب لم يمكن إجراؤه على هذه النسخة من [[:$1|$1]].'''
 
-	قالب أو صورة ربما يكون قد تم طلبه عندما لم يتم تحديد نسخة معينة. هذا يمكن أن يحدث لو
-	قالب ديناميكي يضمن صورة أخرى أو قالب معتمدا على متغير تغير منذ أن بدأت
+قالب أو صورة ربما يكون قد تم طلبه عندما لم يتم تحديد نسخة معينة. هذا يمكن أن يحدث لو
+قالب ديناميكي يضمن صورة أخرى أو قالب معتمدا على متغير تغير منذ أن بدأت
 مراجعة هذه الصفحة. تحديث الصفحة وإعادة المراجعة يمكن أن يحل هذه المشكلة.",
 	'stableversions'               => 'نسخ مستقرة',
 	'stableversions-title'         => 'النسخ المستقرة ل"$1"',
@@ -526,26 +527,70 @@ $messages['bcl'] = array(
 );
 
 /** Bulgarian (Български)
+ * @author Borislav
  * @author DCLXVI
  */
 $messages['bg'] = array(
-	'editor'                  => 'Редактор',
-	'group-editor'            => 'Редактори',
-	'group-editor-member'     => 'Редактор',
-	'revreview-current'       => 'Чернова',
-	'tooltip-ca-current'      => 'Преглед на текущата чернова на страницата',
-	'revreview-edit'          => 'Редактиране на черновата',
-	'revreview-auto'          => '(автоматично)',
-	'review-logaction'        => 'номер на редакция $1',
-	'revreview-selected'      => "Избрана редакция на '''$1:'''",
-	'stableversions-page'     => 'Име на страницата:',
-	'unreviewed-category'     => 'Категория:',
-	'unreviewed-diff'         => 'Промени',
-	'stabilization-page'      => 'Име на страницата:',
-	'stabilization-def2'      => 'Текущата версия',
-	'stabilization-submit'    => 'Потвърждаване',
-	'stabilization-notexists' => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
-	'stabilization-comment'   => 'Коментар:',
+	'flaggedrevs-desc'          => 'Дава възможността на редактори/рецензенти да одобряват версии и да определят страници като устойчиви',
+	'editor'                    => 'Редактор',
+	'group-editor'              => 'Редактори',
+	'group-editor-member'       => 'Редактор',
+	'grouppage-editor'          => '{{ns:project}}:Редактор',
+	'reviewer'                  => 'Рецензент',
+	'group-reviewer'            => 'Рецензенти',
+	'group-reviewer-member'     => 'Рецензент',
+	'grouppage-reviewer'        => '{{ns:project}}:Рецензент',
+	'revreview-current'         => 'Чернова',
+	'tooltip-ca-current'        => 'Преглед на текущата чернова на страницата',
+	'revreview-edit'            => 'Редактиране на черновата',
+	'revreview-source'          => 'изходен код на черновата',
+	'revreview-stable'          => 'Устойчива',
+	'tooltip-ca-stable'         => 'Преглед на устойчивата версия на страницата',
+	'revreview-oldrating'       => 'Досегашна оценка:',
+	'revreview-auto'            => '(автоматично)',
+	'review-logaction'          => 'номер на редакция $1',
+	'revreview-selected'        => "Избрана редакция на '''$1:'''",
+	'revreview-style-0'         => 'Неодобрена',
+	'revreview-style-1'         => 'Приемлива',
+	'revreview-style-2'         => 'Добра',
+	'revreview-style-3'         => 'Издържана',
+	'revreview-style-4'         => 'Избрана',
+	'revreview-log'             => 'Коментар:',
+	'revreview-submit'          => 'Пращане на рецензията',
+	'stableversions-leg1'       => 'Преглед на рецензираните версии на страницата',
+	'stableversions-page'       => 'Име на страницата:',
+	'stableversions-none'       => 'Страницата „[[:$1]]“ няма рецензирани версии.',
+	'stableversions-review'     => 'Рецензирана на <i>$1</i> от $2',
+	'unreviewedpages'           => 'Нерецензирани страници',
+	'viewunreviewed'            => 'Преглед на нерецензираните статии',
+	'unreviewed-category'       => 'Категория:',
+	'unreviewed-diff'           => 'Промени',
+	'stabilization'             => 'Устойчивост на страницата',
+	'stabilization-page'        => 'Име на страницата:',
+	'stabilization-leg'         => 'Настройка на устойчивата версия на страницата',
+	'stabilization-select2'     => 'Последната рецензирана версия',
+	'stabilization-def2'        => 'Текущата версия',
+	'stabilization-submit'      => 'Потвърждаване',
+	'stabilization-notexists'   => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
+	'stabilization-comment'     => 'Коментар:',
+	'stabilization-expiry'      => 'Изтича на:',
+	'stabilization-sel-short'   => 'Предимство',
+	'stabilization-sel-short-0' => 'Качество',
+	'stabilization-sel-short-1' => 'Никоя',
+	'stabilization-def-short'   => 'По подразбиране',
+	'stabilization-def-short-0' => 'Текуща',
+	'stabilization-def-short-1' => 'Устойчива',
+	'stabilize_expiry_invalid'  => 'Невалидна дата на изтичане.',
+	'stabilize-expiring'        => 'изтича на $1 (UTC)',
+	'reviewedpages'             => 'Рецензирани страници',
+	'reviewedpages-leg'         => 'Преглед на страниците, получили определена оценка',
+	'reviewedpages-list'        => 'Следните страници са получили оценка до определената',
+	'reviewedpages-none'        => 'Няма страници в списъка',
+	'reviewedpages-lev-0'       => 'Прегледани',
+	'reviewedpages-lev-1'       => 'Качество',
+	'reviewedpages-lev-2'       => 'Избрани',
+	'reviewedpages-all'         => 'рецензирани версии',
+	'reviewedpages-best'        => 'последната най-високо оценена версия',
 );
 
 /** Bengali (বাংলা)
@@ -1564,12 +1609,12 @@ $messages['gl'] = array(
 	pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|cambios}}]
 	{{plural:$3|awaits|agardan}} ser revisados.',
 	'revreview-note'              => '[[User:$1]] fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
-	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Validationpage}}|examinada]] de '''[[:$3|$3]]''',
-	[{{fullurl:Special:Log/review|page=$1}} aprobada] en <i>$2</i>. A [{{fullurl:$3|stable=0}} revisión actual]
+	'revreview-static'            => "Esta é a revisión [[{{MediaWiki:Validationpage}}|examinada]] de '''[[:$3|$3]]''', 
+	[{{fullurl:Special:Log/review|page=$1}} aprobada] en <i>$2</i>. A [{{fullurl:$3|stable=0}} revisión actual] 
 	pode ser [{{fullurl:$3|action=edit}} modificada].",
-	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Revise]] os cambios ''(amósanse embaixo)'' feitos desde a revisión estábel [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].
+	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Revise]] os cambios ''(amósanse embaixo)'' feitos desde a revisión estábel [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]. 
 
-'''Os seguintes modelos e imaxes tamén foron actualizados:'''",
+'''Actualizáronse algúns modelos/imaxes:'''",
 	'revreview-update-none'       => "[[{{MediaWiki:Validationpage}}|Revise]] os cambios ''(amósanse embaixo)'' feitos desde a revisión estábel que foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
 	'revreview-auto'              => '(automático)',
 	'revreview-auto-w'            => "Vostede está editando unha revisión estábel, calquera cambio '''será automaticamente revisado'''.
@@ -1590,6 +1635,7 @@ $messages['gl'] = array(
 	de configuración do contido das páxinas.',
 	'stable-logentry'             => 'configurada a versión estábel para [[$1]]',
 	'stable-logentry2'            => 'resetear a versión estábel para [[$1]]',
+	'revreview-patrol'            => 'Marcar este cambio como patrullado',
 	'revisionreview'              => 'Examinar revisións',
 	'revreview-main'              => 'Vostede debe seleccionar unha revisión particular dun contido da páxina de cara á revisión.
 
@@ -1623,7 +1669,7 @@ $messages['gl'] = array(
 	'stableversions-leg1'         => 'Listar as revisións revisadas dunha páxina',
 	'stableversions-page'         => 'Nome da páxina:',
 	'stableversions-none'         => '"[[:$1]]" non ten revisións examinadas.',
-	'stableversions-list'         => 'A seguinte é unha listaxe das revisións de [[:$1]] que foron revisadas:',
+	'stableversions-list'         => 'A seguinte é unha listaxe das revisións de "[[:$1]]" que foron revisadas:',
 	'stableversions-review'       => 'Revisado en <i>$1</i> por $2',
 	'review-diff2stable'          => 'Ver os cambios entre as revisións estábel e a actual',
 	'unreviewedpages'             => 'Páxinas sen revisar',
@@ -1940,7 +1986,7 @@ $messages['hsb'] = array(
 	'revreview-style-4'            => 'wuběrna',
 	'revreview-log'                => 'Protokolowy zapisk:',
 	'revreview-submit'             => 'Přepruwowanje składować',
-	'revreview-changed'            => "Naprašowanska akcija njeda so na tutu wersiju wot [[:$1|$1]] nałožować.'''
+	'revreview-changed'            => "'''Naprašowanska akcija njeda so na tutu wersiju wot [[:$1|$1]] nałožować.''' 
 
 Předłoha abo wobraz bu bjez podaća wersije požadana/požadany. To móže so stać, jeli dynamiska předłoha dalšu předłohu abo dalši wobraz zapřijmje, kotrejž stej wot wariable wotwisnej, kotraž je so wot spočatka pruwowanja strony změniła. Znowazačitanje strony a nowe pruwowanje móže tón problem rozrisać.",
 	'stableversions'               => 'Stabilne wersije',
@@ -5072,6 +5118,7 @@ $messages['vi'] = array(
 /** Volapük (Volapük)
  * @author Smeira
  * @author Malafaya
+ * @author Siebrand
  */
 $messages['vo'] = array(
 	'flaggedrevs-desc'            => 'Dälon redakanes/krütanes ad zepön fomamis/votükamis ed ad fümöfükön padis',

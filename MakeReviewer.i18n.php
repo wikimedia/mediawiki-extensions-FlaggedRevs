@@ -122,16 +122,34 @@ $messages['bcl'] = array(
 );
 
 /** Bulgarian (Български)
+ * @author Borislav
  * @author DCLXVI
  */
 $messages['bg'] = array(
-	'makereviewer-username' => 'Име на потребителя:',
-	'makereviewer-legend'   => 'Промяна на потребителските права',
-	'makereviewer-grant1'   => 'Предоставяне',
-	'makereviewer-revoke1'  => 'Отнемане',
-	'makereviewer-grant2'   => 'Предоставяне',
-	'makereviewer-revoke2'  => 'Отнемане',
-	'makereviewer-comment'  => 'Коментар:',
+	'makereviewer-username'         => 'Име на потребителя:',
+	'makereviewer-search'           => 'Отиване',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] има правата на редактор.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] няма правата на редактор.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] има правата на рецензент.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] няма правата на рецензент.',
+	'makereviewer-legend'           => 'Промяна на потребителските права',
+	'makereviewer-change-e'         => 'Права на редактор:',
+	'makereviewer-change-r'         => 'Права на рецензент:',
+	'makereviewer-grant1'           => 'Предоставяне',
+	'makereviewer-revoke1'          => 'Отнемане',
+	'makereviewer-grant2'           => 'Предоставяне',
+	'makereviewer-revoke2'          => 'Отнемане',
+	'makereviewer-comment'          => 'Коментар:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] вече има права на редактор.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] повече няма права на редактор.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] вече има права на рецензент.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] повече няма права на рецензент.',
+	'makereviewer-logpage'          => 'Дневник на редакторските права',
+	'makereviewer-logentrygrant-e'  => 'даде права на редактор на [[$1]]',
+	'makereviewer-logentryrevoke-e' => 'отне правата на редактор на [[$1]]',
+	'makereviewer-logentrygrant-r'  => 'даде права на рецензент на [[$1]]',
+	'makereviewer-logentryrevoke-r' => 'отне правата на рецензент на [[$1]]',
+	'rights-editor-revoke'          => 'отне правата на редактор на [[$1]]',
 );
 
 /** Bengali (বাংলা)
