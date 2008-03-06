@@ -548,6 +548,7 @@ $messages['bg'] = array(
 	'tooltip-ca-stable'         => 'Преглед на устойчивата версия на страницата',
 	'revreview-oldrating'       => 'Досегашна оценка:',
 	'revreview-auto'            => '(автоматично)',
+	'revreview-patrolled'       => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
 	'review-logaction'          => 'номер на редакция $1',
 	'revreview-selected'        => "Избрана редакция на '''$1:'''",
 	'revreview-style-0'         => 'Неодобрена',
@@ -4956,6 +4957,7 @@ $messages['te'] = array(
  * @author Ibrahim
  */
 $messages['tg'] = array(
+	'flaggedrevs-desc'          => 'Ба вироишгархо/мурукунандагон имкони таъйид кардани нусхаҳо ва пойдор сохтани саҳифаҳоро медиҳад',
 	'editor'                    => 'Вироишгар',
 	'group-editor'              => 'Вироишгарон',
 	'group-editor-member'       => 'Вироишгар',
@@ -4970,6 +4972,11 @@ $messages['tg'] = array(
 	'revreview-source'          => 'манбаъи пешнавис',
 	'revreview-stable'          => 'Пойдор',
 	'tooltip-ca-stable'         => 'Мушоҳидаи нусхаи пойдори ин саҳифа',
+	'revreview-oldrating'       => 'Дараҷаи дода шуда:',
+	'revreview-noflagged'       => 'Нусхаи муруршудае аз ин саҳифа вуҷуд надорад, ба ин далел, ки ин саҳифа аз назари кайфият ва сифат баррасӣ [[{{MediaWiki:Validationpage}}|нашудааст]].',
+	'tooltip-ca-default'        => 'Танзимоти итминони кайфият',
+	'validationpage'            => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
+	'revreview-quick-none'      => "Нусхаҳои вуруднашудаи '''Феълӣ'''' (на нусхаҳои муруршуда)",
 	'stable-logpage'            => 'Гузориши нусхаи пойдор',
 	'revisionreview'            => 'Нусхаҳои баррасӣ',
 	'revreview-accuracy'        => 'Дақиқ',
