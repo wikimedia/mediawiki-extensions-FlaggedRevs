@@ -1142,7 +1142,7 @@ $messages['ext'] = array(
 	'stabilization-def-short-0' => 'Atual',
 );
 
-** Persian (فارسی)
+/* Persian (فارسی)
  * @author Huji
  * @author Siebrand
  */
@@ -5766,4 +5766,3 @@ $messages['ru'] = array(
 	'reviewedpages-all'            => 'отрецензированные версии',
 	'reviewedpages-best'           => 'последняя версия с наивысшей оценкой',
 );
-
