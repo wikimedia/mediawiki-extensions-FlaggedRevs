@@ -1111,8 +1111,9 @@ $messages['ext'] = array(
 	'stabilization-def-short-0' => 'Atual',
 );
 
-/** فارسی (فارسی)
+** Persian (فارسی)
  * @author Huji
+ * @author Siebrand
  */
 $messages['fa'] = array(
 	'flaggedrevs-desc'             => 'به ویرایشگرها/مرورکنندگان امکان تایید کردن نسخه‌ها و پایدار ساختن صفحه‌ها را می‌دهد',
@@ -1164,7 +1165,7 @@ $messages['fa'] = array(
 	'revreview-quality-same'       => 'این آخرین نسخهٔ [{{MediaWiki:Validationpage}}|با کیفیت]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است]. این صفحه قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تغییر] است.',
 	'revreview-toggle'             => '(-/+)',
 	'revreview-note'               => '[[User:$1]] این توضیحات را ضمن [[{{MediaWiki:Validationpage}}|بررسی]] این نسخه ثبت کرد:',
-	'revreview-static'             => "این یک نسخه [[{{MediaWiki:Validationpage}}|بررسی شده]] از  '''[[:$3|$3]]''' است، که در <i>$2</i>
+	'revreview-static'             => "این یک نسخه [[{{MediaWiki:Validationpage}}|بررسی شده]] از  '''[[:$3|$3]]''' است، که در <i>$2</i>  
 	[{{fullurl:Special:Log/review|page=$1}} تائید شده‌است].",
 	'revreview-update'             => 'لطفاً تمام تغییراتی که از آخرین نسخه پایدار صورت گرفته را بررسی کنید. برخی الگوها/تصویرها تغییر یافته‌اند:',
 	'revreview-update-none'        => 'لطفاً تمام تغییراتی که پس از آخرین نسخه پایدار اعمال شده‌اند را بررسی کنید.',
@@ -1224,7 +1225,7 @@ $messages['fa'] = array(
 	'stableversions-leg1'          => 'فهرست کردن نسخه‌های بررسی شده یک صفحه',
 	'stableversions-page'          => 'نام صفحه:',
 	'stableversions-none'          => '"[[:$1]]" هیچ نسخه بررسی‌ شده‌ای ندارد.',
-	'stableversions-list'          => 'در زیر فهرستی از نسخه‌ةای بررسی شده [[:$1]] را می‌بینید:',
+	'stableversions-list'          => 'در زیر فهرستی از نسخه‌ةای بررسی شده «[[:$1]]» را می‌بینید:',
 	'stableversions-review'        => 'بررسی شده در <i>$1</i> توسط $2',
 	'review-diff2stable'           => 'تفاوت با نسخه پایدار',
 	'unreviewedpages'              => 'صفحه‌های بررسی نشده',
@@ -1233,7 +1234,7 @@ $messages['fa'] = array(
 	'unreviewed-category'          => 'رده:',
 	'unreviewed-diff'              => 'تغییرات',
 	'unreviewed-list'              => 'این صفحه فهرستی از مقاله‌هایی را نشان می‌دهد که بررسی نشده‌اند یا دارای نسخه‌های جدید بررسی نشده‌ای هستند.',
-	'revreview-visibility'         => 'این صفحه دارای یک [[{{MediaWiki:Validationpage}}|نسخه پایدار است]] که قابل
+	'revreview-visibility'         => 'این صفحه دارای یک [[{{MediaWiki:Validationpage}}|نسخه پایدار است]] که قابل 
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} تنظیم] است.',
 	'stabilization'                => 'پایدارسازی صفحه‌ها',
 	'stabilization-text'           => 'تغییر تنظیمات زیر به منظور تعیین این که نسخه پایدار [[:$1|$1]] چگونه انتخاب و نمایش داده می‌شود.',
