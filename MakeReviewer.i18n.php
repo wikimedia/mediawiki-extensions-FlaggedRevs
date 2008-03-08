@@ -850,9 +850,15 @@ Veur de naam van 'ne gebroeker in 't inveurveld in en klik op de knoep om de geb
  * @author Matasg
  */
 $messages['lt'] = array(
-	'makereviewer-username' => 'Naudotojo vardas:',
-	'makereviewer-search'   => 'Ieškoti',
-	'makereviewer-comment'  => 'Komentaras:',
+	'makereviewer-username'  => 'Naudotojo vardas:',
+	'makereviewer-search'    => 'Ieškoti',
+	'makereviewer-iseditor'  => '[[User:$1|$1]] turi redaktoriaus statusą.',
+	'makereviewer-noteditor' => '[[User:$1|$1]] neturi redaktoriaus statuso.',
+	'makereviewer-grant1'    => 'Suteikti',
+	'makereviewer-revoke1'   => 'Panaikinti',
+	'makereviewer-grant2'    => 'Suteikti',
+	'makereviewer-revoke2'   => 'Panaikinti',
+	'makereviewer-comment'   => 'Komentaras:',
 );
 
 /** Marathi (मराठी)
@@ -863,14 +869,17 @@ $messages['mr'] = array(
 	'makereviewer-comment' => 'प्रतिक्रीया',
 );
 
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
 $messages['nl'] = array(
 	'makereviewer'                  => 'Promotie/demotie redacteuren',
-	'makereviewer-header'           => '<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina\'s kunnen valideren.</strong>
+	'makereviewer-header'           => "<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina's kunnen valideren.</strong>
 
-Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de gebruikersrechten in te stellen. Een gebruiker de status reviewer geven, maakt die gebruiker automatisch redacteur. Het intrekken van de status redacteur houdt het intrekken van de status reviewer in.',
+Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de gebruikersrechten in te stellen. Een gebruiker de status reviewer geven, maakt die gebruiker automatisch redacteur. Het intrekken van de status redacteur houdt het intrekken van de status reviewer in.",
 	'makereviewer-username'         => 'Gebruiker:',
 	'makereviewer-search'           => 'OK',
-	'makereviewer-iseditor'         => '[[User:$1|$1]] heeft status redacteur.',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] heeft de status redacteur.',
 	'makereviewer-noteditor'        => '[[User:$1|$1]] heeft niet de status redacteur.',
 	'makereviewer-isvalidator'      => '[[User:$1|$1]] heeft de status reviewer.',
 	'makereviewer-notvalidator'     => '[[User:$1|$1]] heeft niet de status reviewer.',
@@ -887,14 +896,11 @@ Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de geb
 	'makereviewer-granted-r'        => '[[User:$1|$1]] heeft nu de status reviewer.',
 	'makereviewer-revoked-r'        => '[[User:$1|$1]] heeft niet langer de status reviewer.',
 	'makereviewer-logpage'          => 'Logboek status redacteur',
-	'makereviewer-logpagetext'      => 'Dit is een logboek met wijzigingen in de status voor [[{{MediaWiki:Makevalidate-page}}|paginawaardering]] door gebruikers.',
-	'makereviewer-page'             => '{{ns:help}}:Paginawaardering',
 	'makereviewer-logentrygrant-e'  => 'heeft de status redacteur toegekend aan [[$1]]',
 	'makereviewer-logentryrevoke-e' => 'heeft de status redacteur ingetrokken voor [[$1]]',
 	'makereviewer-logentrygrant-r'  => 'heeft de status reviewer toegekend aan [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'heeft de status reviewer ingetrokken voor [[$1]]',
 	'makereviewer-autosum'          => 'automatisch gepromoveerd',
-	'rights-editor-grant'           => 'heeft de redacteurstatus gegeven aan [[$1]]',
 	'rights-editor-revoke'          => 'verwijderde redacteurstatus van [[$1]]',
 );
 

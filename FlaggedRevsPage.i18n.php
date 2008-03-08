@@ -549,8 +549,24 @@ $messages['bg'] = array(
 	'revreview-oldrating'       => 'Досегашна оценка:',
 	'revreview-auto'            => '(автоматично)',
 	'revreview-patrolled'       => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
+	'hist-quality'              => '[качествена версия]',
 	'review-logaction'          => 'номер на редакция $1',
+	'stable-logpage'            => 'Дневник на устойчивите версии',
+	'revreview-patrol'          => 'Отбелязване на промяната като проверена',
 	'revreview-selected'        => "Избрана редакция на '''$1:'''",
+	'revreview-legend'          => 'Оценка на съдържанието на версията',
+	'revreview-accuracy'        => 'Точност',
+	'revreview-accuracy-0'      => 'Неодобрена',
+	'revreview-accuracy-1'      => 'Прегледана',
+	'revreview-accuracy-2'      => 'Точна',
+	'revreview-accuracy-4'      => 'Избрана',
+	'revreview-depth'           => 'Дълбочина',
+	'revreview-depth-0'         => 'Неодобрена',
+	'revreview-depth-1'         => 'Начална',
+	'revreview-depth-2'         => 'Средна',
+	'revreview-depth-3'         => 'Висока',
+	'revreview-depth-4'         => 'Избрана',
+	'revreview-style'           => 'Четимост',
 	'revreview-style-0'         => 'Неодобрена',
 	'revreview-style-1'         => 'Приемлива',
 	'revreview-style-2'         => 'Добра',
@@ -558,10 +574,13 @@ $messages['bg'] = array(
 	'revreview-style-4'         => 'Избрана',
 	'revreview-log'             => 'Коментар:',
 	'revreview-submit'          => 'Пращане на рецензията',
+	'stableversions'            => 'Устойчиви версии',
+	'stableversions-title'      => 'Устойчиви версии на „$1“',
 	'stableversions-leg1'       => 'Преглед на рецензираните версии на страницата',
 	'stableversions-page'       => 'Име на страницата:',
 	'stableversions-none'       => 'Страницата „[[:$1]]“ няма рецензирани версии.',
 	'stableversions-review'     => 'Рецензирана на <i>$1</i> от $2',
+	'review-diff2stable'        => 'Преглед на разликите между устойчивата и текущата версия',
 	'unreviewedpages'           => 'Нерецензирани страници',
 	'viewunreviewed'            => 'Преглед на нерецензираните статии',
 	'unreviewed-category'       => 'Категория:',
@@ -569,7 +588,9 @@ $messages['bg'] = array(
 	'stabilization'             => 'Устойчивост на страницата',
 	'stabilization-page'        => 'Име на страницата:',
 	'stabilization-leg'         => 'Настройка на устойчивата версия на страницата',
+	'stabilization-select1'     => 'Последната качествена версия; ако няма такава, тогава последната прегледана',
 	'stabilization-select2'     => 'Последната рецензирана версия',
+	'stabilization-def1'        => 'Устойчивата версия; ако няма такава, тогава текущата',
 	'stabilization-def2'        => 'Текущата версия',
 	'stabilization-submit'      => 'Потвърждаване',
 	'stabilization-notexists'   => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
@@ -582,6 +603,7 @@ $messages['bg'] = array(
 	'stabilization-def-short-0' => 'Текуща',
 	'stabilization-def-short-1' => 'Устойчива',
 	'stabilize_expiry_invalid'  => 'Невалидна дата на изтичане.',
+	'stabilize_expiry_old'      => 'Дата на изтичане вече е отминала.',
 	'stabilize-expiring'        => 'изтича на $1 (UTC)',
 	'reviewedpages'             => 'Рецензирани страници',
 	'reviewedpages-leg'         => 'Преглед на страниците, получили определена оценка',
@@ -707,10 +729,13 @@ $messages['br'] = array(
 
 /** Catalan (Català)
  * @author SMP
+ * @author Toniher
  * @author Siebrand
  */
 $messages['ca'] = array(
 	'flaggedrevs-desc'            => "Dóna als editors/revisors l'habilitat de validar revisions de pàgines i declarar-les estables.",
+	'editor'                      => 'Editor',
+	'group-editor-member'         => 'Editor',
 	'reviewer'                    => 'Supervisor',
 	'group-reviewer'              => 'Supervisors',
 	'group-reviewer-member'       => 'Supervisor',
@@ -738,6 +763,12 @@ $messages['ca'] = array(
 	'revreview-auto'              => '(automàtic)',
 	'hist-stable'                 => '[versió revisada]',
 	'hist-quality'                => '[versió de qualitat]',
+	'unreviewed-category'         => 'Categoria:',
+	'unreviewed-diff'             => 'Canvis',
+	'stabilization-submit'        => 'Confirma',
+	'stabilization-comment'       => 'Comentari:',
+	'stabilization-expiry'        => 'Venç:',
+	'stabilization-sel-short-0'   => 'Qualitat',
 );
 
 /** Czech (Česky)
@@ -3107,6 +3138,12 @@ $messages['lb'] = array(
 	'review-logaction'          => 'Versiounsnummer $1',
 	'revisionreview'            => 'Versiounen nokucken',
 	'revreview-selected'        => "Ausgewielte Versioune vun '''$1''':",
+	'revreview-depth'           => 'Déift',
+	'revreview-depth-1'         => 'Einfach',
+	'revreview-depth-2'         => 'Moderat',
+	'revreview-depth-3'         => 'Héich',
+	'revreview-style-1'         => 'Akzeptabel',
+	'revreview-style-2'         => 'Gudd',
 	'revreview-style-4'         => 'exzellent',
 	'revreview-log'             => 'Bemierkung:',
 	'stableversions'            => 'Stabil Versioun',
@@ -3397,12 +3434,12 @@ Controleer uw bewerking voordat u deze opslaat.",
 	'stable-logentry2'             => 'stabiele versies voor [[$1]] opnieuw instellen',
 	'revreview-patrol'             => 'Deze bewerking als gecontroleerd markeren',
 	'revisionreview'               => 'Versies beoordelen',
-	'revreview-main'               => "U moet een specifieke versie van een pagina kiezen om te kunnen beoordelen.
+	'revreview-main'               => "U moet een specifieke versie van een pagina kiezen om te kunnen beoordelen. 
 
 	Zie  [[Special:Unreviewedpages]] voor een lijst met pagina's waarvoor nog geen beoordeling is gegeven.",
 	'revreview-selected'           => "Geselecteerde versie van '''$1:'''",
 	'revreview-text'               => 'Stabiele versies worden standaard getoond in plaats van de nieuwste versie.',
-	'revreview-toolow'             => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet gekeurd" om een versie als
+	'revreview-toolow'             => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet gekeurd" om een versie als 
 	beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, stelt u alle velden in op "niet gekeurd".',
 	'revreview-flag'               => 'Deze versie beoordelen',
 	'revreview-legend'             => 'Versieinhoud waarderen',
@@ -3428,7 +3465,7 @@ Controleer uw bewerking voordat u deze opslaat.",
 	'revreview-log'                => 'Opmerking:',
 	'revreview-submit'             => 'Beoordeling opslaan',
 	'revreview-changed'            => "'''De gevraagde actie kon niet uitgevoerd worden voor deze versie van [[:$1|$1]].'''
-
+	
 Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is aangegeven. Dit kan voorkomen als een dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds u bent begonnen met de beoordeling van deze pagina. Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.",
 	'stableversions'               => 'Stabiele versies',
 	'stableversions-title'         => 'Stabiele versies van "$1"',
@@ -3447,8 +3484,8 @@ Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is 
 	'revreview-visibility'         => 'Deze pagina heeft een [[{{MediaWiki:Validationpage}}|stabiele versie]], die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aangepast] kan worden.',
 	'stabilization'                => 'Paginastabilisatie',
 	'stabilization-text'           => 'Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:$1|$1]] geselecteerd is en getoond wordt.',
-	'stabilization-perm'           => 'Uw account heeft niet de toelating om de stabiele versie te wijzigen.
-	Dit zijn de huidige instellingen voor [[:$1|$1]]:',
+	'stabilization-perm'           => 'U hebt geen rechten om de stabiele versie te wijzigen.
+Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-page'           => 'Paginanaam:',
 	'stabilization-leg'            => 'Stabiele versie van een pagina aanpassen',
 	'stabilization-select'         => 'Hoe de stabiele versie wordt geselecteerd',
