@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.010',
+	'version' => '1.011',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -229,7 +229,7 @@ function efLoadFlaggedRevs() {
 	# Clean up after undeletion
 	$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
 	# Parser hooks, selects the desired images/templates
-	$wgHooks['ParserBeforeStrip'][] = 'FlaggedRevs::parserAddFields';
+	$wgHooks['ParserClearState'][] = 'FlaggedRevs::parserAddFields';
 	$wgHooks['BeforeParserrenderImageGallery'][] = 'FlaggedRevs::parserMakeGalleryStable';
 	$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
 	$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
@@ -1217,9 +1217,9 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* Add special fields to parser
+	* Add special fields to parser.
 	*/
-	public static function parserAddFields( $parser, $text, $stripState ) {
+	public static function parserAddFields( $parser ) {
 		$parser->mOutput->fr_ImageSHA1Keys = array();
 		$parser->mOutput->fr_newestImageTime = "0";
 		$parser->mOutput->fr_newestTemplateID = 0;
@@ -1455,7 +1455,7 @@ class FlaggedRevs {
 			}
 		}
 		# Don't trigger image stuff for stable version parsing.
-		# It will do it on separately.
+		# It will do it separately.
 		if( isset($parser->fr_isStable) && $parser->fr_isStable )
 			return true;
 			
@@ -1473,7 +1473,7 @@ class FlaggedRevs {
 					}
 					$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
 				} else {
-					$parser->mOutput->fr_ImageSHA1Keys[$filename][0] = '';
+					$parser->mOutput->fr_ImageSHA1Keys[$filename]['0'] = '';
 				}
 			}
 		}
