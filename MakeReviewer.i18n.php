@@ -1289,9 +1289,35 @@ $messages['te'] = array(
  * @author Ibrahim
  */
 $messages['tg'] = array(
-	'makereviewer-username' => 'Номи корбар:',
-	'makereviewer-search'   => 'Бирав',
-	'makereviewer-legend'   => 'Тағйири ихтиёроти корбар',
+	'makereviewer'                  => 'Таъриф/таназул додани вироишгарон',
+	'makereviewer-header'           => '<strong>Ин форм аз тарафи мудирон ва девонсолорон таъриф додани корбарон ба дараҷаи бозбиникунандаҳои мақола, истифода бурда мешавад.</strong>
+
+Номи корбари мавриди назарро дар ҷаъба ворид куне ва тугмаро фишор диҳед то ихтиёроти корбарро бубинед. Додани ихтиёроти бозбинӣ ба як корбар худ ба худ ба онҳо ихтиёроти виросториро ҳам медиҳад. Пас гирифтани инхтиёроти виростори аз як корбар ҳам ихтиёроти бозбиниро аз ӯ ба таври худкор мегирад.',
+	'makereviewer-username'         => 'Номи корбар:',
+	'makereviewer-search'           => 'Бирав',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] дорои ихтиёроти виросторӣ аст.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] дорои ихтиёроти виросторӣ нест.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] дорои ихтиёроти бозбин аст.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] дорои ихтиёроти бозбин нест.',
+	'makereviewer-legend'           => 'Тағйири ихтиёроти корбар',
+	'makereviewer-change-e'         => 'Вазъи виростор:',
+	'makereviewer-change-r'         => 'Вазъи бозбин:',
+	'makereviewer-grant1'           => 'Ато',
+	'makereviewer-revoke1'          => 'Бозпасгирӣ',
+	'makereviewer-grant2'           => 'Ато',
+	'makereviewer-revoke2'          => 'Бозпасгирӣ',
+	'makereviewer-comment'          => 'Тавзеҳ:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] акнун дорои ихтиёроти виросторӣ аст.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] дигар дорои ихтиёроти виросторӣ нест.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] акнун дорои ихтиёроти бозбин аст.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] дигар дорои ихтиёроти бозбин нест.',
+	'makereviewer-logpage'          => 'Гузориши вазъи виростор',
+	'makereviewer-logentrygrant-e'  => 'ба [[$1]] ихтиёроти виросторӣ дода шуд',
+	'makereviewer-logentryrevoke-e' => 'аз [[$1]] ихтиёроти виросторӣ гирифта шуд',
+	'makereviewer-logentrygrant-r'  => 'ба [[$1]] ихтиёроти бозбин дода шуд',
+	'makereviewer-logentryrevoke-r' => 'аз [[$1]] ихтиёроти бозбин гирифта шуд',
+	'makereviewer-autosum'          => 'Ба таври худкор пешбарӣ шудан',
+	'rights-editor-revoke'          => 'Ихтиёроти виростор аз [[$1]] гирифта шуд',
 );
 
 /** Turkish (Türkçe)
