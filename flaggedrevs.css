@@ -110,7 +110,7 @@
 	margin-bottom: 0px;
 	text-align: left;
 	float: right;
-	width: 330px;
+	max-width: 350px;
 	clear: both;
 }
 
