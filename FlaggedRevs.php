@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.011',
+	'version' => '1.012',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -1235,6 +1235,9 @@ class FlaggedRevs {
 		# Trigger for stable version parsing only
 		if( !isset($wgParser->fr_isStable) || !$wgParser->fr_isStable )
 			return true;
+		# Special namespace ... ?
+		if( $title->getNamespace() < 0 )
+			return true;
 		# Only called to make fr_text, right after template/image specifiers
 		# are added to the DB. Slaves may not have it yet...
 		$dbw = wfGetDB( DB_MASTER );
@@ -1260,7 +1263,6 @@ class FlaggedRevs {
 		# If none specified, see if we are allowed to use the current revision
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
-			
 			if( $id === false ) {
 				$wgParser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentTemplates ) {
@@ -1286,7 +1288,7 @@ class FlaggedRevs {
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
-		$sha1 = '';
+		$sha1 = "";
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
 			$row = $dbw->selectRow( array('page', 'flaggedimages'),
@@ -1313,17 +1315,17 @@ class FlaggedRevs {
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
 			global $wgUseCurrentImages;
-			
+			# If the DB found nothing...
 			if( $time === false ) {
 				$parser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentImages ) {
-					$time = -1;
+					$time = "0";
 				} else {
 					$file = wfFindFile( $nt );
-					$time = $file ? $file->getTimestamp() : "0";
+					$time = $file ? $file->getTimestamp() : "0"; // Use current
 				}
 			} else {
-				$time = -1;
+				$time = "0";
 			}
 		}
 		# Add image metadata to parser output
@@ -1349,7 +1351,7 @@ class FlaggedRevs {
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
-		$sha1 = '';
+		$sha1 = "";
 		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
 		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
 			$row = $dbw->selectRow( array('page', 'flaggedimages'),
@@ -1375,13 +1377,18 @@ class FlaggedRevs {
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
-			$ig->fr_parentParser->fr_includesMatched = false; // May want to give an error
 			global $wgUseCurrentImages;
-			if( !$wgUseCurrentImages ) {
-				$time = -1;
+			# If the DB found nothing...
+			if( $time === false ) {
+				$ig->fr_parentParser->fr_includesMatched = false; // May want to give an error
+				if( !$wgUseCurrentImages ) {
+					$time = "0";
+				} else {
+					$file = wfFindFile( $nt );
+					$time = $file ? $file->getTimestamp() : "0";
+				}
 			} else {
-				$file = wfFindFile( $nt );
-				$time = $file ? $file->getTimestamp() : "0";
+				$time = "0";
 			}
 		}
 		# Add image metadata to parser output
@@ -1473,7 +1480,7 @@ class FlaggedRevs {
 					}
 					$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
 				} else {
-					$parser->mOutput->fr_ImageSHA1Keys[$filename]['0'] = '';
+					$parser->mOutput->fr_ImageSHA1Keys[$filename]["0"] = '';
 				}
 			}
 		}

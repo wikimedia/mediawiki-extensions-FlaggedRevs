@@ -326,7 +326,8 @@ class Revisionreview extends UnlistedSpecialPage
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
-			if( !$template ) continue;
+			if( !$template )
+				continue;
 
 			$m = explode('|',$template,2);
 			if( !isset($m[0]) || !isset($m[1]) || !$m[0] )
@@ -340,7 +341,7 @@ class Revisionreview extends UnlistedSpecialPage
 
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
 			if( is_null($title) )
-				continue; // Page must exist!
+				continue; // Page be valid!
 
 			$tmpset[] = array(
 				'ft_rev_id' => $rev->getId(),
@@ -353,7 +354,8 @@ class Revisionreview extends UnlistedSpecialPage
 		$imgset = $images = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
-			if( !$image ) continue;
+			if( !$image )
+				continue;
 			$m = explode('|',$image,3);
 			# Expand our parameters ... <name>#<timestamp>#<key>
 			if( !isset($m[0]) || !isset($m[1]) || !isset($m[2]) || !$m[0] )
@@ -368,7 +370,7 @@ class Revisionreview extends UnlistedSpecialPage
 
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
 			if( is_null($img_title) )
-				continue; // Page must exist!
+				continue; // Page be valid!
 
 			$imgset[] = array(
 				'fi_rev_id' => $rev->getId(),
