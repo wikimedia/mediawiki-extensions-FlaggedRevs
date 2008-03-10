@@ -929,10 +929,10 @@ $messages['de'] = array(
 	'group-reviewer'              => 'Prüfer',
 	'group-reviewer-member'       => 'Prüfer',
 	'grouppage-reviewer'          => '{{ns:project}}:Prüfer',
-	'revreview-current'           => 'Entwurf (bearbeitbar)',
-	'tooltip-ca-current'          => 'Ansehen des aktuellen Entwurfes dieser Seite',
-	'revreview-edit'              => 'Bearbeite Entwurf',
-	'revreview-source'            => 'Entwurfs-Quelltext',
+	'revreview-current'           => 'Unkontrolliert (bearbeitbar)',
+	'tooltip-ca-current'          => 'Ansehen der aktuellen, unkontrollierten Seite',
+	'revreview-edit'              => 'Bearbeite unkontrollierte Seite',
+	'revreview-source'            => 'Quelltext (unkontrollierte Seite)',
 	'revreview-stable'            => 'Stabil',
 	'tooltip-ca-stable'           => 'Ansehen der stabilen Version dieser Seite',
 	'revreview-oldrating'         => 'Bisherige Einstufung:',
@@ -942,13 +942,13 @@ $messages['de'] = array(
 	'validationpage'              => '{{ns:help}}:Stabile Versionen',
 
 	'revreview-quick-none'        => "'''Aktuell''' (es wurde noch keine Version überprüft)",
-	'revreview-quick-see-quality' => "'''Entwurf''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
+	'revreview-quick-see-quality' => "'''Unkontrollierte Seite''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
-	'revreview-quick-see-basic'   => "'''Entwurf''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
+	'revreview-quick-see-basic'   => "'''Unkontrollierte Seite''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe Entwurf]]
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe unkontrollierte Seite]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe Entwurf]]
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe unkontrollierte Seite]]
 	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
 	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Gesichtet]]\'\'\' (keine ungeprüften Änderungen)',
 	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Geprüft]]\'\'\' (keine ungeprüften Änderungen)',
@@ -990,8 +990,8 @@ $messages['de'] = array(
 	'flaggedrevs'                 => 'Markierte Versionen',
 	'review-logpage'              => 'Artikel-Prüf-Logbuch',
 	'review-logpagetext'          => 'Dies ist das Änderungs-Logbuch der [[{{MediaWiki:Validationpage}}|Seiten-Freigaben]].',
-	'review-logentry-app'         => 'überprüfte [[$1]]',
-	'review-logentry-dis'         => 'verwarf eine Version von [[$1]]',
+	'review-logentry-app'         => 'markierte „[[$1]]“',
+	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
 	'review-logaction'            => 'Version-ID $1',
 	'stable-logpage'              => 'Stabile-Versionen-Logbuch',
 	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Stabilen Versionen]]',
@@ -1009,7 +1009,7 @@ $messages['de'] = array(
 	'revreview-flag'              => 'Prüfe Version #$1',
 	'revreview-legend'            => 'Inhalt der Version bewerten',
 	'revreview-notes'             => 'Anzuzeigende Bemerkungen oder Notizen:',
-	'revreview-accuracy'          => 'Genauigkeit',
+	'revreview-accuracy'          => 'Status',
 	'revreview-accuracy-0'        => 'nicht freigegeben',
 	'revreview-accuracy-1'        => 'gesichtet',
 	'revreview-accuracy-2'        => 'geprüft',
