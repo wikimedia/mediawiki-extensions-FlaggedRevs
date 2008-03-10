@@ -1081,6 +1081,7 @@ $messages['de'] = array(
 	'reviewedpages-list'          => 'Die folgenden Seiten wurden markierten und haben den angegebenen Status erhalten',
 	'reviewedpages-none'          => 'Die Liste ist leer.',
 	'reviewedpages-lev-0'         => 'Gesichtet',
+	'reviewedpages-lev-1'         => 'Geprüfte',
 	'reviewedpages-lev-2'         => 'Exzellent',
 	'reviewedpages-all'           => 'markierte Versionen',
 	'reviewedpages-best'          => 'letzte am hÃ¶chsten bewertete Version',
