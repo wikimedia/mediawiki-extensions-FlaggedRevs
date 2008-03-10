@@ -1006,7 +1006,7 @@ $messages['de'] = array(
 	'revreview-text'              => 'Einer stabilen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.',
 	'revreview-toolow'            => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
 	damit eine Version als überprüft gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
-	'revreview-flag'              => 'Prüfe Version #$1',
+	'revreview-flag'              => 'Markiere Version',
 	'revreview-legend'            => 'Inhalt der Version bewerten',
 	'revreview-notes'             => 'Anzuzeigende Bemerkungen oder Notizen:',
 	'revreview-accuracy'          => 'Status',
@@ -2844,7 +2844,7 @@ $messages['kk-cyrl'] = array(
 	'revreview-text'              => 'Тиянақты нұсқалар ең жаңа нұсқасынан гөрі бет көрінісіндегі әдепкі мағлұмат деп тапсырылады.',
 	'revreview-toolow'            => 'Нұсқаға сын берілген деп саналуы үшін төмендегі қасиеттердің қай-қайсысын «бекітілмеген»
 дегеннен жоғары деңгей беруіңіз керек. Нұсқаны кеміту үшін, барлық өрістерді «бекітілмеген» деп тапсырылсын.',
-	'revreview-flag'              => 'Бұл нұсқаға (#$1) сын беру',
+	'revreview-flag'              => 'Бұл нұсқаға сын беру',
 	'revreview-legend'            => 'Нұсқа мағлұматына деңгей беру',
 	'revreview-notes'             => 'Көрсетілетін пікірлер мен аңғартпалар:',
 	'revreview-accuracy'          => 'Дәлдігі',
@@ -3000,7 +3000,7 @@ Sın berilmegen bet tizimi üşin [[{{ns:special}}:Unreviewedpages]] betin qara�
 	'revreview-text'              => 'Tïyanaqtı nusqalar eñ jaña nusqasınan göri bet körinisindegi ädepki mağlumat dep tapsırıladı.',
 	'revreview-toolow'            => 'Nusqağa sın berilgen dep sanalwı üşin tömendegi qasïetterdiñ qaý-qaýsısın «bekitilmegen»
 degennen joğarı deñgeý berwiñiz kerek. Nusqanı kemitw üşin, barlıq öristerdi «bekitilmegen» dep tapsırılsın.',
-	'revreview-flag'              => 'Bul nusqağa (#$1) sın berw',
+	'revreview-flag'              => 'Bul nusqağa sın berw',
 	'revreview-legend'            => 'Nusqa mağlumatına deñgeý berw',
 	'revreview-notes'             => 'Körsetiletin pikirler men añğartpalar:',
 	'revreview-accuracy'          => 'Däldigi',
@@ -5437,7 +5437,7 @@ $messages['yue'] = array(
 	'revreview-text'              => '穩定版會設定做一版睇嗰陣嘅預設內容，而唔係最新嘅修訂。',
 	'revreview-toolow'            => '你一定要最少將下面每一項嘅屬性評定高過"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部格做"未批准"。',
-	'revreview-flag'              => '複審呢次修訂 (#$1)',
+	'revreview-flag'              => '複審呢次修訂',
 	'revreview-legend'            => '評定修訂內容',
 	'revreview-notes'             => '要顯示嘅意見或註解:',
 	'revreview-accuracy'          => '準確度',
@@ -5542,7 +5542,7 @@ $messages['zh-hans'] = array(
 	'revreview-text'              => '稳定版会设置成一页查看时的预设内容，而非最新的修订。',
 	'revreview-toolow'            => '您一定要最少将下面每一项的属性评定高于"未批准"，去将一个修订复审。
 	要舍弃一个修订，设置全部栏位作"未批准"。',
-	'revreview-flag'              => '复审这次修订 (#$1)',
+	'revreview-flag'              => '复审这次修订',
 	'revreview-legend'            => '评定修订内容',
 	'revreview-notes'             => '要显示的意见或注解:',
 	'revreview-accuracy'          => '准确度',
@@ -5647,7 +5647,7 @@ $messages['zh-hant'] = array(
 	'revreview-text'              => '穩定版會設定成一頁檢視時的預設內容，而非最新的修訂。',
 	'revreview-toolow'            => '您一定要最少將下面每一項的屬性評定高於"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部欄位作"未批准"。',
-	'revreview-flag'              => '複審這次修訂 (#$1)',
+	'revreview-flag'              => '複審這次修訂',
 	'revreview-legend'            => '評定修訂內容',
 	'revreview-notes'             => '要顯示的意見或註解:',
 	'revreview-accuracy'          => '準確度',
