@@ -101,6 +101,8 @@ $wgFlagRestrictions = array(
 	'depth'	   => array( 'review' => 2 ),
 	'style'	   => array( 'review' => 3 ),
 );
+# bump this number every time you change flaggedrevs.css/flaggedrevs.js
+$wgFlaggedRevStyleVersion = 1;
 
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).
@@ -192,9 +194,9 @@ function efLoadFlaggedRevs() {
 
 	global $wgScriptPath;
 	if( !defined( 'FLAGGED_CSS' ) )
-		define('FLAGGED_CSS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.css' );
+		define( 'FLAGGED_CSS', $wgScriptPath . '/extensions/FlaggedRevs/flaggedrevs.css?' . $wgFlaggedRevStyleVersion );
 	if( !defined( 'FLAGGED_JS' ) )
-		define('FLAGGED_JS', $wgScriptPath.'/extensions/FlaggedRevs/flaggedrevs.js' );
+		define( 'FLAGGED_JS', $wgScriptPath . '/extensions/FlaggedRevs/flaggedrevs.js?' . $wgFlaggedRevStyleVersion );
 
 	######### Hook attachments #########
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';

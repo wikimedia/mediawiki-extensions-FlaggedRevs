@@ -1,3 +1,4 @@
+/* Every time you change this JS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
 function toggleRevRatings() {
 	var ratings = document.getElementById('mw-revisionratings');
 	if( !ratings ) return;
