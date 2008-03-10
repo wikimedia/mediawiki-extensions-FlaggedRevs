@@ -192,7 +192,7 @@ function efLoadFlaggedRevs() {
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
 
-	global $wgScriptPath;
+	global $wgScriptPath, $wgFlaggedRevStyleVersion;
 	if( !defined( 'FLAGGED_CSS' ) )
 		define( 'FLAGGED_CSS', $wgScriptPath . '/extensions/FlaggedRevs/flaggedrevs.css?' . $wgFlaggedRevStyleVersion );
 	if( !defined( 'FLAGGED_JS' ) )
