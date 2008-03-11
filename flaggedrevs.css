@@ -105,26 +105,28 @@
 	padding: 3px;
 	font-size: 80%;
 	font-weight: normal;
-	margin-left: 3px;
-	margin-right: 0px;
-	margin-top: 5px;
-	margin-bottom: 0px;
+	margin: 8px;
 	text-align: left;
 	float: right;
-	max-width: 380px;
+	max-width: 350px;
 	clear: both;
 }
+/* IE 7 only */ 
+*+html .flaggedrevs_short {
+	margin: 9px;
+}
+
 
 .fr-tab_current,
 .fr-tab_stable,
 .fr-tab_quality {
 	padding: 0px;
 	margin: 0px;
-	width: 27px;
-	height: 27px;
+	width: 20px;
+	height: 18px;;
 	position: relative;
 	float: left;
-	top: -2px;
+	top: -3px;
 	right: 0px;
 	background-repeat: no-repeat;
 	background-position: 0px 0px;

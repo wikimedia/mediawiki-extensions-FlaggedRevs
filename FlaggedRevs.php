@@ -147,7 +147,7 @@ $wgFlaggedRevsAutopromote = array(
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 2;
+$wgFlaggedRevStyleVersion = 3;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
