@@ -890,6 +890,9 @@ class FlaggedArticle {
 
 		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed('review') )
 			return true;
+		# Must be in reviewable namespace
+		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
+			return true;
 		# Revision will be null for null edits
 		if( !$rev ) {
 			$this->skipReviewDiff = true; // Don't jump to diff...
@@ -916,6 +919,9 @@ class FlaggedArticle {
 		global $wgFlaggedRevsAutoReview;
 
 		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
+			return true;
+		# Must be in reviewable namespace
+		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
 			return true;
 		# Revision will be null for null edits
 		if( !$rev ) {
@@ -954,6 +960,9 @@ class FlaggedArticle {
 		global $wgFlaggedRevsAutoReview;
 
 		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
+			return true;
+		# Must be in reviewable namespace
+		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
 			return true;
 		# Was this revision flagged?
 		$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $rev->getID() );
