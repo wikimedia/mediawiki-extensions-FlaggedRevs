@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.012',
+	'version' => '1.013',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -101,8 +101,6 @@ $wgFlagRestrictions = array(
 	'depth'	   => array( 'review' => 2 ),
 	'style'	   => array( 'review' => 3 ),
 );
-# bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 1;
 
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).
@@ -147,6 +145,9 @@ $wgFlaggedRevsAutopromote = array(
 );
 # End of configuration variables.
 #########
+
+# Bump this number every time you change flaggedrevs.css/flaggedrevs.js
+$wgFlaggedRevStyleVersion = 2;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
