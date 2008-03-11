@@ -35,7 +35,7 @@ $messages['en'] = array(
 
 	'validationpage' => '{{ns:help}}:Article validation',
 
-	'revreview-quick-none' => '\'\'\'Current\'\'\' (unreviewed)',
+	'revreview-quick-none' => '\'\'\'[[{{MediaWiki:Validationpage}}|Current revision]]\'\'\' (unreviewed)',
 	'revreview-quick-see-quality' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view stable page]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
 	'revreview-quick-see-basic' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view stable page]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
 	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
