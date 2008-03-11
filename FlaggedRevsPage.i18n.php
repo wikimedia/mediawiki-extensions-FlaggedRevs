@@ -920,7 +920,7 @@ $messages['cs'] = array(
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'flaggedrevs-desc'            => 'Stabile Versionen',
+	'flaggedrevs-desc'            => 'Markierte Versionen',
 	'editor'                      => 'Sichter',
 	'group-editor'                => 'Sichter',
 	'group-editor-member'         => 'Sichter',
@@ -933,23 +933,23 @@ $messages['de'] = array(
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unkontrollierten Seite',
 	'revreview-edit'              => 'Bearbeite unkontrollierte Seite',
 	'revreview-source'            => 'Quelltext (unkontrollierte Seite)',
-	'revreview-stable'            => 'Stabil',
-	'tooltip-ca-stable'           => 'Ansehen der stabilen Version dieser Seite',
+	'revreview-stable'            => 'Markiert',
+	'tooltip-ca-stable'           => 'Ansehen der markierten Version dieser Seite',
 	'revreview-oldrating'         => 'Bisherige Einstufung:',
 	'revreview-noflagged'         => 'Von dieser Seite gibt es keine markierten Versionen, so dass noch keine Aussage über die [[{{MediaWiki:Validationpage}}|Qualität]] gemacht werden kann.',
-	'stabilization-tab'           => 'prüfe',
+	'stabilization-tab'           => 'Konfig.',
 	'tooltip-ca-default'          => 'Einstellungen der Artikel-Qualität',
 	'validationpage'              => '{{ns:help}}:Stabile Versionen',
 
-	'revreview-quick-none'        => "'''Es wurde noch keine Version gesichtet.",
-	'revreview-quick-see-quality' => "'''Unkontrollierte Seite''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
-	'revreview-quick-see-basic'   => "'''Unkontrollierte Seite''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siehe stabile Version]]
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
+	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
+	'revreview-quick-see-quality' => "'''Nicht markierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
+	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
+	'revreview-quick-see-basic'   => "'''Nicht markierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
+	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe nicht markierte Seite]]
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
+	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} siehe nicht markierte Seite]]
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|Änderung|Änderungen}}])",
+	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Gesichtet]]\'\'\' (keine nicht markierten Änderungen)',
 	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Geprüft]]\'\'\' (keine nicht markierten Änderungen)',
 
@@ -975,12 +975,12 @@ $messages['de'] = array(
 	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 	'revreview-static'            => "Dies ist eine [[{{MediaWiki:Validationpage}}|geprüfte]] Version von '''[[:$3|$3]]''',
 	[{{fullurl:Special:Log|type=review&page=$1}} freigegeben] am <i>$2</i>.",
-	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte stabile Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
+	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
 
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
-	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte stabile Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde",
+	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde",
 	'revreview-auto'              => '(automatisch)',
-	'revreview-auto-w'            => "Du bearbeitest eine stabile Version, deine Bearbeitung wird '''automatisch markiert.'''
+	'revreview-auto-w'            => "Du bearbeitest eine markierte Version, deine Bearbeitung wird '''automatisch markiert.'''
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
 	'revreview-auto-w-old'        => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch markiert.'''
 	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
@@ -988,13 +988,13 @@ $messages['de'] = array(
 	'hist-stable'                 => '[gesichtete Version]',
 	'hist-quality'                => '[geprüfte Version]',
 	'flaggedrevs'                 => 'Markierte Versionen',
-	'review-logpage'              => 'Artikel-Prüf-Logbuch',
-	'review-logpagetext'          => 'Dies ist das Änderungs-Logbuch der [[{{MediaWiki:Validationpage}}|Seiten-Freigaben]].',
+	'review-logpage'              => 'Versions-Markierungs-Logbuch',
+	'review-logpagetext'          => 'In diesem Logbuch werden die Markierungen von Artikeln als [[{{MediaWiki:Validationpage}}|„gesichtet“ oder „geprüft“]] protokolliert.',
 	'review-logentry-app'         => 'markierte „[[$1]]“',
 	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
-	'review-logaction'            => 'Version-ID $1',
-	'stable-logpage'              => 'Stabile-Versionen-Logbuch',
-	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Stabilen Versionen]]',
+	'review-logaction'            => 'Versions-ID $1',
+	'stable-logpage'              => 'Markierte-Versionen-Logbuch',
+	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Markierten Versionen]]',
 	'stable-logentry'             => 'konfigurierte die Seiten-Einstellung von [[$1]]',
 	'stable-logentry2'            => 'setzte die Seiten-Einstellung für [[$1]] zurück',
 	'revreview-patrol'            => 'Markiere diese Änderung als kontrolliert',
@@ -1003,7 +1003,7 @@ $messages['de'] = array(
 
 	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste nicht markierten Versionen.',
 	'revreview-selected'          => "Gewählte Version von '''$1:'''",
-	'revreview-text'              => 'Einer stabilen Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.',
+	'revreview-text'              => 'Einer markierten Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.',
 	'revreview-toolow'            => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
 	damit eine Version als markierte gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-flag'              => 'Markiere Version',
@@ -1034,33 +1034,33 @@ $messages['de'] = array(
 	Eine Vorlage oder ein Bild wurden ohne spezifische Versionsnummer angefordert. Dies kann passieren,
 	wenn eine dynamische Vorlage eine weitere Vorlage oder ein Bild einbindet, das von einer Variable abhängig ist, die
 	sich seit Beginn der Markierung verändert hat. Ein Neuladen der Seite und Neustart der Markierung kann das Problem beheben.",
-	'stableversions'              => 'Stabile Versionen',
-	'stableversions-title'        => 'Stabile Version von „$1“',
+	'stableversions'              => 'Markierte Versionen',
+	'stableversions-title'        => 'Markierte Version von „$1“',
 	'stableversions-leg1'         => 'Liste der markierten Versionen für einen Artikel',
 	'stableversions-page'         => 'Artikelname:',
 	'stableversions-none'         => '„[[:$1]]“ hat keine markierten Versionen.',
 	'stableversions-list'         => 'Dies ist die Liste der markierten Versionen von [[:$1]]:',
 	'stableversions-review'       => 'markiert <i>$1</i> durch $2',
-	'review-diff2stable'          => 'Unterschiede zwischen der stabilen und der aktuellen Version ansehen',
+	'review-diff2stable'          => 'Unterschiede zwischen der markierten und der aktuellen Version ansehen',
 	'unreviewedpages'             => 'Nicht markierte Artikel',
 	'viewunreviewed'              => 'Liste nicht markierter Artikel',
-	'unreviewed-outdated'         => 'Zeige nur Seiten, die nicht markierte Versionen nach einer stabilen Version haben.',
+	'unreviewed-outdated'         => 'Zeige nur Seiten, die nicht markierte Versionen nach einer markierten Version haben.',
 	'unreviewed-category'         => 'Kategorie:',
 	'unreviewed-diff'             => 'Änderungen',
 	'unreviewed-list'             => 'Diese Seite zeigt Artikel, die noch keinen markierte Versionen haben.',
-	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|stabile Version]], welche
+	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]], welche
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] werden kann.',
-	'stabilization'               => 'Seiten-Stabilität',
-	'stabilization-text'          => 'Ändere die Einstellungen um festzulegen, wie die stabile Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.',
-	'stabilization-perm'          => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der stabilen Version zu ändern.
+	'stabilization'               => 'Seiten-Markierung',
+	'stabilization-text'          => 'Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.',
+	'stabilization-perm'          => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
 	Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page'          => 'Seitenname:',
-	'stabilization-leg'           => 'Einstellungen der stabilen Version für eine Seite',
-	'stabilization-select'        => 'Auswahl der stabilen Version',
+	'stabilization-leg'           => 'Einstellungen der markierten Version für eine Seite',
+	'stabilization-select'        => 'Auswahl der markierten Version',
 	'stabilization-select1'       => 'Die letzte geprüfte Version; wenn keine vorhanden ist, dann die letzte gesichtete Version',
 	'stabilization-select2'       => 'Die letzte markierte Version',
 	'stabilization-def'           => 'Angezeigte Version in der normalen Seitenansicht',
-	'stabilization-def1'          => 'Die stabile Version; wenn keine vorhanden ist, dann die aktuelle Version',
+	'stabilization-def1'          => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version',
 	'stabilization-def2'          => 'Die aktuellste Version',
 	'stabilization-submit'        => 'Bestätigen',
 	'stabilization-notexists'     => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
@@ -1072,7 +1072,7 @@ $messages['de'] = array(
 	'stabilization-sel-short-1'   => 'keine',
 	'stabilization-def-short'     => 'Standard',
 	'stabilization-def-short-0'   => 'Aktuell',
-	'stabilization-def-short-1'   => 'Stabil',
+	'stabilization-def-short-1'   => 'Markiert',
 	'stabilize_expiry_invalid'    => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old'        => 'Das Ablaufdatum wurde überschritten.',
 	'stabilize-expiring'          => 'erlischt $1 (UTC)',
