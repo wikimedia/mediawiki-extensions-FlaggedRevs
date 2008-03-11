@@ -171,7 +171,7 @@ class FlaggedArticle {
 						# Hide clutter
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
-								" onclick='javascript:toggleRevRatings()'>".wfMsg('revreview-toggle') . "</span>";
+								" onclick='toggleRevRatings()'>" . wfMsg( 'revreview-toggle' ) . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
 								wfMsgHtml('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 						}
@@ -215,7 +215,7 @@ class FlaggedArticle {
 						$tag = wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
-								" onclick='javascript:toggleRevRatings()'>" . wfMsg('revreview-toggle') . "</span>";
+								" onclick='toggleRevRatings()'>" . wfMsg('revreview-toggle') . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
 								$this->addTagRatings( $flags ) . '</span>';
 						}
@@ -310,7 +310,7 @@ class FlaggedArticle {
 				# Hide clutter
 				if( !empty($flags) ) {
 					$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
-						' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
+						' onclick="toggleRevRatings()">' . wfMsg( 'revreview-toggle' ) . '</span>';
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
@@ -321,7 +321,7 @@ class FlaggedArticle {
 			
 			if( !empty($flags) ) {
 				$tag = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
-					' onclick="javascript:toggleRevRatings()">'.wfMsg('revreview-toggle').'</span>';
+					' onclick="toggleRevRatings()">' . wfMsg( 'revreview-toggle' ) . '</span>';
 				$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 					wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) .
 					'</span>';
@@ -768,7 +768,7 @@ class FlaggedArticle {
 		}
 		# Make facny box...
 		$box = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"
-			onclick="javascript:toggleRevRatings();">'.wfMsgHtml('revreview-toggle').'</span>';
+			onclick="toggleRevRatings();">' . wfMsgHtml( 'revreview-toggle' ) . '</span>';
 		$box .= '<div id="mw-revisionratings" style="clear: both;">' .
 			wfMsgExt($msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since);
 
