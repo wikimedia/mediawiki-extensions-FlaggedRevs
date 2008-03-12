@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.013',
+	'version' => '1.014',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -147,7 +147,7 @@ $wgFlaggedRevsAutopromote = array(
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 3;
+$wgFlaggedRevStyleVersion = 4;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -210,7 +210,6 @@ function efLoadFlaggedRevs() {
 	# Set image version
 	$wgHooks['ArticleFromTitle'][] = 'FlaggedRevs::setImageVersion';
 	# Add page notice
-	$wgHooks['SiteNoticeAfter'][] =  array( $wgFlaggedArticle, 'displayReviewTag' );
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
 	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );

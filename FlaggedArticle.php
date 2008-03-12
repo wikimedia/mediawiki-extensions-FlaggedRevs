@@ -77,13 +77,21 @@ class FlaggedArticle {
 
 		return FlaggedRevs::isPageReviewable( $wgTitle );
 	}
-
-    /**
-	 * Adds the review notic tag by the title
+	
+	 /**
+	 * Is this article reviewable?
 	 */
-	public function displayReviewTag( $notice ) {
-		$notice .= $this->reviewNotice;
-
+	private function displayTag() {
+		global $wgOut;
+	
+		if( !$this->reviewNotice ) {
+			return false;
+		}
+		if( FlaggedRevs::useSimpleUI() ) {
+			$wgOut->mBodytext = $this->reviewNotice . $wgOut->mBodytext;
+		} else {
+			$wgOut->setSubtitle( $this->reviewNotice );
+		}
 		return true;
 	}
 
@@ -126,7 +134,6 @@ class FlaggedArticle {
 		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
 		if( !$revid )
 			return true;
-		
 		$tag = $notes = '';
 		# Check the newest stable version...
 		$tfrev = $this->getStableRev( true );
@@ -146,28 +153,41 @@ class FlaggedArticle {
 				$revs_since = FlaggedRevs::getRevCountSince( $article, $tfrev->getRevId() );
 				
 				$synced = FlaggedRevs::flaggedRevIsSynced( $tfrev, $article, null, null );
+				# Give notice to newewer users if unreviewed edit completed...
+				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
+					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">' .
+						wfMsgExt('revreview-edited',array('parseinline')) . '</div>';
+					# Notice should always use subtitle
+					if( FlaggedRevs::useSimpleUI() ) {
+						$wgOut->setSubtitle( $pending );
+					} else {
+						$this->reviewNotice = $pending;
+					}
+				}
 				# If they are synced, do special styling
 				$simpleTag = !$synced;
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
+					$css = 'fr-icon-current';
 					if( FlaggedRevs::useSimpleUI() ) {
 						if( $synced ) {
 							$msg = $quality ? 'revreview-quick-quality-same' : 'revreview-quick-basic-same';
-							$css = $quality ? 'fr-tab_quality' : 'fr-tab_stable';
+							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 						} else {
 							$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
-							$css = 'fr-tab_current';
 						}
-						$tag .= "<span class='{$css} plainlinks'></span>" .
+						$tag .= "<span class='{$css}'></span>" .
 								wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $revs_since );
-						$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false, $synced );
+						$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, $synced, $synced );
 					} else {
 						if( $synced ) {
 							$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
+							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 						} else {
 							$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						}
-						$tag .= wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+						$tag .= "<span class='{$css}'></span>" . 
+							wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 						# Hide clutter
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
@@ -200,23 +220,24 @@ class FlaggedArticle {
 				$synced = FlaggedRevs::flaggedRevIsSynced( $tfrev, $article, $parserOut, null );
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
+					$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$msg = $synced ? $msg . '-same' : $msg;
-						$css = $quality ? 'fr-tab_quality' : 'fr-tab_stable';
 						
-						$tag = "<span class='{$css} plainlinks'></span>" .
+						$tag = "<span class='{$css}'></span>" .
 							wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $revs_since );
 					 	$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, true, $synced );
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$msg = $synced ? $msg . '-same' : $msg;
 						
-						$tag = wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+						$tag = "<span class='{$css} plainlinks'></span>" .
+							wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
 								" onclick='toggleRevRatings()'>" . wfMsg('revreview-toggle') . "</span>";
-							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
+							$tag .= "<span id='mw-revisionratings' style='display:block;'>" . 
 								$this->addTagRatings( $flags ) . '</span>';
 						}
 					}
@@ -234,34 +255,35 @@ class FlaggedArticle {
 			else if( $simpleTag )
 				$tagClass = 'flaggedrevs_notice';
 			else if( $pristine )
-				$tagClass = 'flaggedrevs_tag3';
+				$tagClass = 'flaggedrevs_pristine';
 			else if( $quality )
-				$tagClass = 'flaggedrevs_tag2';
+				$tagClass = 'flaggedrevs_quality';
 			else
-				$tagClass = 'flaggedrevs_tag1';
+				$tagClass = 'flaggedrevs_basic';
 			# Wrap tag contents in a div
 			if( $tag !='' )
-				$tag = '<div id="mw-revisiontag" class="'.$tagClass.' plainlinks">'.$tag.'</div>';
+				$tag = '<div id="mw-revisiontag" style="overflow: visible;" class="'.$tagClass.' plainlinks">'.$tag.'</div>';
 			# Set the new body HTML, place a tag on top
 			if( FlaggedRevs::useSimpleUI() ) {
-				$this->reviewNotice = $tag;
+				$this->reviewNotice .= $tag;
 			} else {
-				$this->reviewNotice = $tag;
+				$this->reviewNotice .= $tag;
 			}
 			$wgOut->mBodytext = $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page
 		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->getTitle() ) ) {
 			if( FlaggedRevs::useSimpleUI() ) {
-				$tag .= "<span class='fr-tab_current plainlinks'></span>" .
+				$tag .= "<span class='fr-icon-current plainlinks'></span>" .
 					wfMsgExt('revreview-quick-none',array('parseinline'));
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
-				$this->reviewNotice = $tag;
+				$this->reviewNotice .= $tag;
 			} else {
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' .
 					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
-				$this->reviewNotice = $tag;
+				$this->reviewNotice .= $tag;
 			}
 		}
+		$this->displayTag();
 
 		return true;
     }
@@ -284,7 +306,7 @@ class FlaggedArticle {
 		if( !$revid )
 			return true;
 		# Set new body html text as that of now
-		$tag = '';
+		$tag = $warning = '';
 		# Check the newest stable version
 		$tfrev = $this->getStableRev();
 		if( !is_null($tfrev) ) {
@@ -295,18 +317,31 @@ class FlaggedArticle {
 			$revs_since = FlaggedRevs::getRevCountSince( $editform->mArticle, $tfrev->getRevId() );
 			# Construct some tagging
 			$quality = FlaggedRevs::isQuality( $flags );
-			# Hide clutter
+			# If this will be autoreviewed, notify the user...
+			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') && $tfrev->getRevId()==$editform->mArticle->getLatest() ) {
+				# Check if user is allowed to renew the stable version.
+				# If it has been reviewed too highly for this user, abort.
+				foreach( $flags as $quality => $level ) {
+					if( !Revisionreview::userCan($quality,$level) ) {
+						return true;
+					}
+				}
+				$msg = ($revid==$tfrev->getRevId()) ? 'revreview-auto-w' : 'revreview-auto-w-old';
+				$warning = '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' .
+					wfMsgExt($msg,array('parseinline')) . '</div>';
+			}
+			# Streamlined UI
 			if( FlaggedRevs::useSimpleUI() ) {
-				$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
-				$tag = "<span class='fr-tab_current plainlinks'></span>" .
-					wfMsgExt( $msg,array('parseinline'), $tfrev->getRevId(), $revs_since );
-				$tag .= $this->prettyRatingBox( $tfrev, $flags, $revs_since, false );
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
-				
-				$this->reviewNotice = $tag;
+				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+				$tag = "<span class='fr-checkbox'></span>" . 
+					wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
+				$wgOut->setSubtitle( $tag . $warning );
+			# Standard UI
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-				$tag = wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+				$tag = "<span class='fr-checkbox'></span>" . 
+					wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 				# Hide clutter
 				if( !empty($flags) ) {
 					$tag .= ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
@@ -316,31 +351,9 @@ class FlaggedArticle {
 				}
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
 				
-				$this->reviewNotice = $tag;
+				$this->reviewNotice .= $tag . $warning;
 			}
-			
-			if( !empty($flags) ) {
-				$tag = ' <span id="mw-revisiontoggle" class="flaggedrevs_toggle" style="display:none; cursor:pointer;"' .
-					' onclick="toggleRevRatings()">' . wfMsg( 'revreview-toggle' ) . '</span>';
-				$tag .= '<span id="mw-revisionratings" style="display:block;">' .
-					wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) .
-					'</span>';
-			}
-			# If this will be autoreviewed, notify the user...
-			if( !$wgFlaggedRevsAutoReview )
-				return true;
-			if( $wgUser->isAllowed('review') && $tfrev->getRevId()==$editform->mArticle->getLatest() ) {
-				# Check if user is allowed to renew the stable version.
-				# If it has been reviewed too highly for this user, abort.
-				foreach( $flags as $quality => $level ) {
-					if( !Revisionreview::userCan($quality,$level) ) {
-						return true;
-					}
-				}
-				$msg = ($revid==$tfrev->getRevId()) ? 'revreview-auto-w' : 'revreview-auto-w-old';
-				$wgOut->addHTML( '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' .
-					'<span class="fr-checkbox"></span>' . wfMsgExt($msg,array('parseinline')) . '</div>' );
-			}
+			$this->displayTag();
 		}
 		return true;
     }
@@ -876,6 +889,9 @@ class FlaggedArticle {
 		} else {
 			if( $frev ){
 				$extraq .= "stable=0";
+				if( !$wgUser->isAllowed('review') && $this->showStableByDefault() ) {
+					$extraq .= "&shownotice=1";
+				}
 			}
 		}
 

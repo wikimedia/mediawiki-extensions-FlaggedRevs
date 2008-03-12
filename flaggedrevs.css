@@ -1,32 +1,32 @@
 /* Every time you change this CSS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
 /* Standard UI */
-.flaggedrevs_tag1,
-.flaggedrevs_tag2,
-.flaggedrevs_tag3,
+.flaggedrevs_basic,
+.flaggedrevs_quality,
+.flaggedrevs_pristine,
 .flaggedrevs_notice,
-.flaggedrevs_warning {
+.flaggedrevs_warning,
+.flaggedrevs_preview {
 	border: 1px solid #aaa;
-	padding: 3px;
+	padding: 7px;
 	font-size: 80%;
 	font-weight: normal;
-	margin-top: 6px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
+	margin: .5em 1em 0em 0em;
 	text-align: center;
+	float: center;
+	clear: both;
 }
 
 .flaggedrevs_toggle {
 	color: blue;
 }
 
-.flaggedrevs_tag1 {
+.flaggedrevs_basic {
 	background-color: #f0f8ff;
 }
-.flaggedrevs_tag2 {
+.flaggedrevs_quality {
 	background-color: #f0fff0;
 }
-.flaggedrevs_tag3 {
+.flaggedrevs_pristine {
 	background-color: #fffff0;
 }
 .flaggedrevs_notice {
@@ -34,7 +34,10 @@
 }
 .flaggedrevs_warning {
 	background-color: #fffff0;
-	margin-top: 0px;
+}
+.flaggedrevs_preview {
+	background-color: #f9f9f9;
+	color: darkred;
 }
 
 .flaggedrevs_notes {
@@ -54,7 +57,6 @@
 
 .fr-checkbox {
 	padding: 0px;
-	margin: .25em;
 	width: 16px;
 	height: 16px;
 	position: relative;
@@ -102,43 +104,37 @@
 .flaggedrevs_short {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
-	padding: 3px;
+	padding: 5px;
 	font-size: 80%;
 	font-weight: normal;
-	margin: 8px;
-	text-align: left;
+	margin: 0em 0em 0em .5em;
 	float: right;
+	text-align: left;
 	max-width: 350px;
-	clear: both;
-}
-/* IE 7 only */ 
-*+html .flaggedrevs_short {
-	margin: 9px;
+	line-height: 18px;
 }
 
-
-.fr-tab_current,
-.fr-tab_stable,
-.fr-tab_quality {
+.fr-icon-current,
+.fr-icon-stable,
+.fr-icon-quality {
 	padding: 0px;
 	margin: 0px;
 	width: 20px;
-	height: 18px;;
+	height: 18px;
 	position: relative;
 	float: left;
-	top: -3px;
-	right: 0px;
+	vertical-align: middle;
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 } 
 
-.fr-tab_current {
+.fr-icon-current {
 	background-image: url(../FlaggedRevs/img/1.png);
 }
-.fr-tab_stable {
+.fr-icon-stable {
 	background-image: url(../FlaggedRevs/img/2.png);
 }    
-.fr-tab_quality {
+.fr-icon-quality {
 	background-image: url(../FlaggedRevs/img/3.png);
 }
 
