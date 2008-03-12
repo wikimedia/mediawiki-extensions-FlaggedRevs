@@ -943,6 +943,9 @@ $messages['de'] = array(
 	'revreview-noflagged'         => 'Von dieser Seite gibt es keine markierten Versionen, so dass noch keine Aussage über die [[{{MediaWiki:Validationpage}}|Qualität]] gemacht werden kann.',
 	'stabilization-tab'           => 'Konfig.',
 	'tooltip-ca-default'          => 'Einstellungen der Artikel-Qualität',
+
+	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|markierte Version]] übernommen, sobald ein Benutzer mit Markierungs-Recht diese sich angeschaut hat. Die ''aktuelle Version'' wird unten angezeigt!'''",
+
 	'validationpage'              => '{{ns:help}}:Stabile Versionen',
 
 	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
@@ -997,10 +1000,10 @@ $messages['de'] = array(
 	'review-logentry-app'         => 'markierte „[[$1]]“',
 	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
 	'review-logaction'            => 'Versions-ID $1',
-	'stable-logpage'              => 'Markierte-Versionen-Logbuch',
+	'stable-logpage'              => 'Seitenkonfigurations-Logbuch',
 	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Markierten Versionen]]',
-	'stable-logentry'             => 'konfigurierte die Seiten-Einstellung von [[$1]]',
-	'stable-logentry2'            => 'setzte die Seiten-Einstellung für [[$1]] zurück',
+	'stable-logentry'             => 'konfigurierte die Seiten-Einstellung von „[[$1]]“',
+	'stable-logentry2'            => 'setzte die Seiten-Einstellung für „[[$1]]“ zurück',
 	'revreview-patrol'            => 'Markiere diese Änderung',
 	'revisionreview'              => 'Versionsprüfung',
 	'revreview-main'              => 'Du musst eine Artikelversion zur Markierung auswählen.
