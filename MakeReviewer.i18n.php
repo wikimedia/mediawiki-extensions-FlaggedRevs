@@ -766,11 +766,12 @@ Qatıswşı quqıqtarın tapsırw üşin qatıswşı atın jolaqta teriñiz de b
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
+ * @author Lovekhmer
  */
 $messages['km'] = array(
-	'makereviewer-username' => 'ឈ្មោះ នៃអ្នកប្រើប្រាស់ ៖',
+	'makereviewer-username' => 'ឈ្មោះអ្នកប្រើ៖',
 	'makereviewer-search'   => 'ទៅ',
-	'makereviewer-legend'   => 'ផ្លាស់ប្តូរ សិទ្ធិ នៃ អ្នកប្រើប្រាស់',
+	'makereviewer-legend'   => 'ផ្លាស់ប្តូរសិទ្ធិនៃអ្នកប្រើប្រាស់',
 	'makereviewer-comment'  => 'វិចារ ៖',
 );
 
@@ -981,14 +982,20 @@ $messages['oc'] = array(
 	'rights-editor-revoke'          => "a revocat los dreches d'editor de [[$1]]",
 );
 
+/** Polish (Polski)
+ * @author Masti
+ */
 $messages['pl'] = array(
-	'makereviewer-username'         => 'Nazwa użytkownika:',
-	'makereviewer-search'           => 'Pokaż',
-	'makereviewer-grant1'           => 'Przyznaj',
-	'makereviewer-revoke1'          => 'Odbierz',
-	'makereviewer-grant2'           => 'Przyznaj',
-	'makereviewer-revoke2'          => 'Odbierz',
-	'makereviewer-comment'          => 'Komentarz:',
+	'makereviewer-username'  => 'Nazwa użytkownika:',
+	'makereviewer-search'    => 'Pokaż',
+	'makereviewer-iseditor'  => '[[User:$1|$1]] ma status edytora.',
+	'makereviewer-noteditor' => '[[User:$1|$1]] nie ma statusu edytora.',
+	'makereviewer-legend'    => 'Zmień uprawnienia użytkownika',
+	'makereviewer-grant1'    => 'Przyznaj',
+	'makereviewer-revoke1'   => 'Odbierz',
+	'makereviewer-grant2'    => 'Przyznaj',
+	'makereviewer-revoke2'   => 'Odbierz',
+	'makereviewer-comment'   => 'Komentarz:',
 );
 
 /* Piedmontese (Bèrto 'd Sèra) */
@@ -1216,7 +1223,7 @@ Reek dän Benutsernoome in dät Fäild ien un klik ap ju Schaltfläche, uum dät
 
 /** Swedish (Svenska)
  * @author Lejonel
- * @author Max sonnelid
+ * @author M.M.S.
  */
 $messages['sv'] = array(
 	'makereviewer'                  => 'Befordra/degradera redaktörer',

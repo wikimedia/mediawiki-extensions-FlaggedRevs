@@ -549,6 +549,7 @@ $messages['bg'] = array(
 	'revreview-stable'          => 'Устойчива',
 	'tooltip-ca-stable'         => 'Преглед на устойчивата версия на страницата',
 	'revreview-oldrating'       => 'Досегашна оценка:',
+	'revreview-quick-none'      => "'''Текуща''' (няма рецензирани версии)",
 	'revreview-auto'            => '(автоматично)',
 	'revreview-patrolled'       => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
 	'hist-quality'              => '[качествена версия]',
@@ -561,8 +562,9 @@ $messages['bg'] = array(
 	'revreview-accuracy-0'      => 'Неодобрена',
 	'revreview-accuracy-1'      => 'Прегледана',
 	'revreview-accuracy-2'      => 'Точна',
+	'revreview-accuracy-3'      => 'Добри източници',
 	'revreview-accuracy-4'      => 'Избрана',
-	'revreview-depth'           => 'Дълбочина',
+	'revreview-depth'           => 'Пълнота',
 	'revreview-depth-0'         => 'Неодобрена',
 	'revreview-depth-1'         => 'Начална',
 	'revreview-depth-2'         => 'Средна',
@@ -1105,6 +1107,10 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'editor'                    => 'Redaktanto',
+	'group-editor'              => 'Redaktantoj',
+	'group-editor-member'       => 'Redaktanto',
+	'grouppage-editor'          => '{{ns:project}}:Redaktanto',
 	'revreview-auto'            => '(aŭtomata)',
 	'revreview-depth'           => 'Profundeco',
 	'revreview-style-2'         => 'Bona',
@@ -1116,6 +1122,7 @@ $messages['eo'] = array(
 	'stabilization-submit'      => 'Konfirmu',
 	'stabilization-comment'     => 'Komento:',
 	'stabilization-sel-short-1' => 'Neniu',
+	'stabilize-expiring'        => 'findato $1 (UTC)',
 );
 
 /** Estonian (Eesti)
@@ -3081,30 +3088,32 @@ Betti jañartw jäne qaýta sın berw bul mäseleni şeşw mümkin.",
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
+ * @author Lovekhmer
  */
 $messages['km'] = array(
-	'editor'                    => 'ឧបករ កែប្រែ',
-	'group-editor'              => 'ឧបករ កែប្រែ',
-	'group-editor-member'       => 'ឧបករ កែប្រែ',
+	'editor'                    => 'អ្នកកែសំរួល',
+	'group-editor'              => 'អ្នកកែសំរួល',
+	'group-editor-member'       => 'អ្នកកែសំរួល',
 	'grouppage-editor'          => '{{ns:project}}:ឧបករ កែប្រែ',
-	'revreview-current'         => 'ព្រាង',
-	'tooltip-ca-current'        => 'មើល ពង្រាងបច្ចុប្បន្ន​ នៃ ទំព័រ នេះ',
-	'revreview-edit'            => 'កែប្រែ ពង្រាង',
-	'revreview-source'          => 'ប្រភពព្រាង',
+	'revreview-current'         => 'សេចក្តីព្រាង',
+	'tooltip-ca-current'        => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
+	'revreview-edit'            => 'កែប្រែសេចក្តីពង្រាង',
+	'revreview-source'          => 'ប្រភពសេចក្តីព្រាង',
 	'revreview-auto'            => '(ស្វ័យប្រវត្តិ)',
-	'revreview-style-1'         => 'អាចព្រមទទួល',
+	'revreview-style-1'         => 'អាចទទួលយកបាន',
 	'revreview-style-2'         => 'ល្អ',
 	'revreview-log'             => 'វិចារ ៖',
-	'stableversions-page'       => 'ឈ្មោះទំព័រ ៖',
+	'stableversions-page'       => 'ឈ្មោះទំព័រ៖',
 	'unreviewed-category'       => 'ចំណាត់ក្រុម ៖',
 	'unreviewed-diff'           => 'បំលាស់ប្តូរ',
-	'stabilization-page'        => 'ឈ្មោះ ទំព័រ ៖',
+	'stabilization-page'        => 'ឈ្មោះទំព័រ៖',
 	'stabilization-submit'      => 'បញ្ជាក់ទទួលស្គាល់',
 	'stabilization-comment'     => 'វិចារ ៖',
 	'stabilization-expiry'      => 'ផុតកំណត់៖',
 	'stabilization-sel-short-0' => 'គុណភាព',
 	'stabilization-sel-short-1' => 'ទទេ',
 	'stabilization-def-short'   => 'លំនាំដើម',
+	'stabilization-def-short-0' => 'បច្ចុប្បន្ន',
 	'reviewedpages-lev-1'       => 'គុណភាព',
 );
 
@@ -3385,11 +3394,11 @@ $messages['nl'] = array(
 	'group-reviewer-member'        => 'Beoordelaar',
 	'grouppage-reviewer'           => '{{ns:project}}:Beoordelaar',
 	'revreview-current'            => 'Huidige versie',
-	'tooltip-ca-current'           => 'huidige werkversie van deze pagina tonen',
+	'tooltip-ca-current'           => 'huidige werkversie van deze pagina bekijken',
 	'revreview-edit'               => 'concept bewerken',
 	'revreview-source'             => 'Brontekst concept',
 	'revreview-stable'             => 'Stabiele versie',
-	'tooltip-ca-stable'            => 'stabiele versie van deze pagina tonen',
+	'tooltip-ca-stable'            => 'stabiele versie van deze pagina bekijken',
 	'revreview-oldrating'          => 'Was gewaardeerd als:',
 	'revreview-noflagged'          => "Er zijn geen beoordeelde versies van deze pagina, dus die is wellicht '''niet''' [[{{MediaWiki:Validationpage}}|gecontroleerd]] op kwaliteit.",
 	'stabilization-tab'            => '(kb)',
@@ -3402,12 +3411,10 @@ $messages['nl'] = array(
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige versie bekijken] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|bewerking|bewerkingen}}])",
 	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Beoordeeld]]''' (geen wijzigingen die niet beoordeeld zijn)",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]''' (geen wijzigingen die niet beoordeeld zijn)",
-	'revreview-newest-basic'       => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatst beoordeelde versie]
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alles tonen]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een beoordeling nodig.',
-	'revreview-newest-quality'     => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatste kwaliteitsversie]
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alles tonen]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-	 op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een beoordeling nodig.',
+	'revreview-newest-basic'       => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatst beoordeelde versie] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alles bekijken]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een beoordeling nodig.',
+	'revreview-newest-quality'     => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} laatste kwaliteitsversie] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alles bekijken]) is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|heeft|hebben}} een beoordeling nodig.',
 	'revreview-basic'              => 'Dit is de laatst [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|wacht|wachten}} op een beoordeling.',
 	'revreview-quality'            => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} huidige] kan [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerkt] worden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|versie|versies}}] {{plural:$3|wacht|wachten}} op een beoordeling.',
 	'revreview-basic-same'         => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>. De pagina is te [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerken].',
@@ -3441,7 +3448,7 @@ Controleer uw bewerking voordat u deze opslaat.",
 
 	Zie  [[Special:Unreviewedpages]] voor een lijst met pagina's waarvoor nog geen beoordeling is gegeven.",
 	'revreview-selected'           => "Geselecteerde versie van '''$1:'''",
-	'revreview-text'               => 'Stabiele versies worden standaard getoond in plaats van de nieuwste versie.',
+	'revreview-text'               => 'Stabiele versies worden standaard weergegeven in plaats van de nieuwste versie.',
 	'revreview-toolow'             => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet gekeurd" om een versie als 
 	beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, stelt u alle velden in op "niet gekeurd".',
 	'revreview-flag'               => 'Deze versie beoordelen',
@@ -3480,13 +3487,13 @@ Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is 
 	'review-diff2stable'           => 'Verschillen tussen stabiele en huidige versies bekijken',
 	'unreviewedpages'              => "Pagina's zonder beoordeling",
 	'viewunreviewed'               => "Lijst van pagina's zonder beoordeling",
-	'unreviewed-outdated'          => "Toon alleen pagina's die nog niet-beoordeelde versies hebben na de stabiele versie.",
+	'unreviewed-outdated'          => "Alleen pagina's die nog niet-beoordeelde versies hebben na de stabiele versie weergeven.",
 	'unreviewed-category'          => 'Categorie:',
 	'unreviewed-diff'              => 'Wijzigingen',
-	'unreviewed-list'              => "Deze pagina toont pagina's die nog geen beoordeling hebben gehad.",
+	'unreviewed-list'              => "Deze pagina geeft een overzicht van pagina's die nog geen beoordeling hebben gehad.",
 	'revreview-visibility'         => 'Deze pagina heeft een [[{{MediaWiki:Validationpage}}|stabiele versie]], die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aangepast] kan worden.',
 	'stabilization'                => 'Paginastabilisatie',
-	'stabilization-text'           => 'Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:$1|$1]] geselecteerd is en getoond wordt.',
+	'stabilization-text'           => 'Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:$1|$1]] geselecteerd is en weergegeven wordt.',
 	'stabilization-perm'           => 'U hebt geen rechten om de stabiele versie te wijzigen.
 Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-page'           => 'Paginanaam:',
@@ -3494,7 +3501,7 @@ Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-select'         => 'Hoe de stabiele versie wordt geselecteerd',
 	'stabilization-select1'        => 'De laatste kwaliteitsversie; als die er niet is, dan de laatste beoordeelde versie',
 	'stabilization-select2'        => 'De laatste beoordeelde versie',
-	'stabilization-def'            => 'Versie die standaard getoond wordt',
+	'stabilization-def'            => 'Versie die standaard weergegeven wordt',
 	'stabilization-def1'           => 'De stabiele versie',
 	'stabilization-def2'           => 'De huidige versie',
 	'stabilization-submit'         => 'Bevestigen',
@@ -3778,6 +3785,7 @@ Un modèl o un imatge pòt èsser estat demandat alara que cap de version precis
  * @author Derbeth
  * @author Sp5uhe
  * @author Holek
+ * @author Masti
  * @author Siebrand
  */
 $messages['pl'] = array(
@@ -3802,6 +3810,7 @@ $messages['pl'] = array(
 	'revreview-quick-see-basic'    => "'''Szkic''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zobacz wersję stabilną]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|zmiana|zmiany|zmian}}])",
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobacz szkic]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|zmiana|zmiany|zmian}}])",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' (brak niesprawdzonych wersji)",
+	'review-logpage'               => 'Rejestr przeglądu artykułów',
 	'stable-logpage'               => 'Rejestr wersji stabilnych',
 	'revreview-notes'              => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-accuracy'           => 'Dokładność',
@@ -3850,6 +3859,7 @@ $messages['pl'] = array(
 	'stabilization-notexists'      => 'Nie ma strony zatytułowanej "[[:$1|$1]]". Nie jest możliwa jej konfiguracja.',
 	'stabilization-notcontent'     => 'Strona "[[:$1|$1]]" nie może być oceniona. Nie jest możliwa jej konfiguracja.',
 	'stabilization-comment'        => 'Komentarz:',
+	'stabilization-expiry'         => 'Wygasa:',
 	'stabilization-sel-short'      => 'Kolejność',
 	'stabilization-sel-short-0'    => 'Jakość',
 	'stabilization-sel-short-1'    => 'Brak',
@@ -4701,7 +4711,7 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 
 /** Swedish (Svenska)
  * @author Lejonel
- * @author Max sonnelid
+ * @author M.M.S.
  * @author M.M.S.
  * @author SPQRobin
  * @author Siebrand
@@ -5021,6 +5031,7 @@ $messages['tg'] = array(
 	'tooltip-ca-stable'            => 'Мушоҳидаи нусхаи пойдори ин саҳифа',
 	'revreview-oldrating'          => 'Дараҷаи дода шуда:',
 	'revreview-noflagged'          => 'Нусхаи муруршудае аз ин саҳифа вуҷуд надорад, ба ин далел, ки ин саҳифа аз назари кайфият ва сифат баррасӣ [[{{MediaWiki:Validationpage}}|нашудааст]].',
+	'stabilization-tab'            => 'санҷиш',
 	'tooltip-ca-default'           => 'Танзимоти итминони кайфият',
 	'validationpage'               => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
 	'revreview-quick-none'         => "Нусхаҳои вуруднашудаи '''Феълӣ'''' (на нусхаҳои муруршуда)",
