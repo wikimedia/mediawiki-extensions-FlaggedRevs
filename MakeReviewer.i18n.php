@@ -765,14 +765,18 @@ Qatıswşı quqıqtarın tapsırw üşin qatıswşı atın jolaqta teriñiz de b
 );
 
 /** Khmer (ភាសាខ្មែរ)
- * @author Chhorran
  * @author Lovekhmer
+ * @author Chhorran
  */
 $messages['km'] = array(
 	'makereviewer-username' => 'ឈ្មោះអ្នកប្រើ៖',
 	'makereviewer-search'   => 'ទៅ',
 	'makereviewer-legend'   => 'ផ្លាស់ប្តូរសិទ្ធិនៃអ្នកប្រើប្រាស់',
-	'makereviewer-comment'  => 'វិចារ ៖',
+	'makereviewer-grant1'   => 'ផ្តល់ឱ្យ',
+	'makereviewer-revoke1'  => 'ដកហូត',
+	'makereviewer-grant2'   => 'ផ្តល់ឱ្យ',
+	'makereviewer-revoke2'  => 'ដកហូត',
+	'makereviewer-comment'  => 'យោបល់៖',
 );
 
 $messages['la'] = array(
@@ -868,6 +872,13 @@ $messages['lt'] = array(
 $messages['mr'] = array(
 	'makereviewer-search'  => 'चला',
 	'makereviewer-comment' => 'प्रतिक्रीया',
+);
+
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ */
+$messages['nds'] = array(
+	'makereviewer-search' => 'Status affragen',
 );
 
 /** Dutch (Nederlands)
