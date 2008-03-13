@@ -108,7 +108,8 @@
 	padding: 5px;
 	font-size: 80%;
 	font-weight: normal;
-	margin: 0em 0em 1em 1em;
+	margin: 0em 0em 0em 1em;
+	position: relative;
 	float: right;
 	text-align: left;
 	max-width: 400px;

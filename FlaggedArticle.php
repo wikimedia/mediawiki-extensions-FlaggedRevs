@@ -87,11 +87,8 @@ class FlaggedArticle {
 		if( !$this->reviewNotice ) {
 			return false;
 		}
-		if( FlaggedRevs::useSimpleUI() ) {
-			$wgOut->mBodytext = $this->reviewNotice . $wgOut->mBodytext;
-		} else {
-			$wgOut->setSubtitle( $this->reviewNotice );
-		}
+		$wgOut->setSubtitle( $this->reviewNotice );
+		
 		return true;
 	}
 
@@ -134,7 +131,7 @@ class FlaggedArticle {
 		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
 		if( !$revid )
 			return true;
-		$tag = $notes = '';
+		$tag = $notes = $pending = '';
 		# Check the newest stable version...
 		$tfrev = $this->getStableRev( true );
 		$simpleTag = false;
@@ -151,24 +148,26 @@ class FlaggedArticle {
 			// Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
 				$revs_since = FlaggedRevs::getRevCountSince( $article, $tfrev->getRevId() );
-				
 				$synced = FlaggedRevs::flaggedRevIsSynced( $tfrev, $article, null, null );
 				# Give notice to newewer users if unreviewed edit completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
-					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">' .
-						wfMsgExt('revreview-edited',array('parseinline')) . '</div>';
+					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$pending = "<span class='fr-icon-current'></span>" . wfMsgExt('revreview-edited',array('parseinline')) .
+						'<br/>' . wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
 					# Notice should always use subtitle
 					if( FlaggedRevs::useSimpleUI() ) {
-						$wgOut->setSubtitle( $pending );
+						$this->reviewNotice = $pending;
 					} else {
 						$this->reviewNotice = $pending;
 					}
 				}
 				# If they are synced, do special styling
 				$simpleTag = !$synced;
-				# Construct some tagging
-				if( !$wgOut->isPrintable() ) {
-					$css = 'fr-icon-current';
+				# Construct some tagging for non-printable outputs. Note that the pending
+				# notice has all this info already.
+				if( !$wgOut->isPrintable() && !$pending ) {
+					$css = 'fr-icon-current'; // default
 					if( FlaggedRevs::useSimpleUI() ) {
 						if( $synced ) {
 							$msg = $quality ? 'revreview-quick-quality-same' : 'revreview-quick-basic-same';
@@ -336,7 +335,6 @@ class FlaggedArticle {
 				$tag = "<span class='fr-checkbox'></span>" . 
 					wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
-				$wgOut->setSubtitle( $tag . $warning );
 			# Standard UI
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -350,9 +348,9 @@ class FlaggedArticle {
 						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
-				
-				$this->reviewNotice .= $tag . $warning;
 			}
+			$this->reviewNotice .= $tag . $warning;
+			
 			$this->displayTag();
 		}
 		return true;
