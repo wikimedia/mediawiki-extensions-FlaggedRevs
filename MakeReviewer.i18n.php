@@ -12,7 +12,9 @@ $messages['en'] = array(
 	'makereviewer'                  => 'Promote/demote editors',
 	'makereviewer-header'           => '<strong>This form is used by sysops and bureaucrats to promote users to article validators.</strong>
 
-Type the name of the user in the box and press the button to set the user\'s rights. Granting users reviewer status will automatically grant them editor status. Revoking editor status will automatically revoke reviewer status.',
+Type the name of the user in the box and press the button to set the user\'s rights.
+Granting users reviewer status will automatically grant them editor status.
+Revoking editor status will automatically revoke reviewer status.',
 	'makereviewer-username'         => 'Name of the user:',
 	'makereviewer-search'           => 'Go',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] has editor status.',

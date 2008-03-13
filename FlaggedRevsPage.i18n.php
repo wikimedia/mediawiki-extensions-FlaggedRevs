@@ -11,7 +11,7 @@ $messages = array();
  * @author Aaron Schulz
  */
 $messages['en'] = array(
-	'flaggedrevs-desc'    => 'Gives editors/reviewers the ability to validate revisions and stabilize pages',
+	'flaggedrevs-desc'    => 'Gives editors and reviewers the ability to validate revisions and stabilize pages',
 	'editor'              => 'Editor',
 	'group-editor'        => 'Editors',
 	'group-editor-member' => 'Editor',
@@ -33,36 +33,51 @@ $messages['en'] = array(
 	'stabilization-tab'   => 'vet',
 	'tooltip-ca-default'  => 'Quality assurance settings',
 	
-	'revreview-edited' => "'''New edits will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an established user reviews them. The ''draft'' is shown below. Thanks!'''",
+	'revreview-edited' => "'''New edits will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an established user reviews them.
+The ''draft'' is shown below. Thanks!'''",
 
 	'validationpage' => '{{ns:help}}:Article validation',
 
 	'revreview-quick-none' => '\'\'\'[[{{MediaWiki:Validationpage}}|Current revision]]\'\'\' (unreviewed)',
-	'revreview-quick-see-quality' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
-	'revreview-quick-see-basic' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
+	'revreview-quick-see-quality' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
+	'revreview-quick-see-basic' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
 	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
 	'revreview-quick-quality' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
 	'revreview-quick-basic-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\'',
 	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\'',
 
-	'revreview-newest-basic' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
-	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
-	'revreview-basic' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|awaits|await}} review.',
-	'revreview-quality' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|awaits|await}} review.',
-	'revreview-basic-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'.',
-	'revreview-quality-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'.',
+	'revreview-newest-basic' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
+	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
+	'revreview-basic' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\';
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|awaits|await}} review.',
+	'revreview-quality' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\';
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|awaits|await}} review.',
+	'revreview-basic-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'.',
+	'revreview-quality-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]),
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'.',
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 
-	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\', [{{fullurl:Special:Log|type=review&page=$1}} approved] on <i>$2</i>.',
+	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\',
+[{{fullurl:Special:Log|type=review&page=$1}} approved] on <i>$2</i>.',
 
 	'revreview-update' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].
 
 '''Some templates/images were updated:'''",
 	'revreview-update-none' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].",
 	'revreview-auto' => '(automatic)',
-	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''. You may want to preview the page before saving.",
-	'revreview-auto-w-old' => "You are editing an old revision, any changes will '''automatically be reviewed'''. You may want to preview the page before saving.",
+	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''.
+You may want to preview the page before saving.",
+	'revreview-auto-w-old' => "You are editing an old revision, any changes will '''automatically be reviewed'''.
+You may want to preview the page before saving.",
 	'revreview-patrolled' => 'The selected revision of [[:$1|$1]] has been marked as patrolled.',
 
 	'hist-stable'  => '[sighted revision]',
@@ -88,7 +103,8 @@ $messages['en'] = array(
 See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-selected'   => "Selected revision of '''$1:'''",
 	'revreview-text'       => "Stable versions are set as the default content on page view rather than the newest revision.",
-	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed. To depreciate a revision, set all fields to "unapproved".',
+	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
+To depreciate a revision, set all fields to "unapproved".',
 	'revreview-flag'       => 'Review this revision',
 	'revreview-legend'     => 'Rate revision content',
 	'revreview-notes'      => 'Observations or notes to display:',
@@ -114,7 +130,8 @@ See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-submit'     => 'Submit review',
 	'revreview-changed'    => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
-A template or image may have been requested when no specific version was specified. This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewing this page.
+A template or image may have been requested when no specific version was specified.
+This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewing this page.
 Refreshing the page and rereviewing can solve this problem.',
 
 	'stableversions'        => 'Stable versions',
@@ -134,22 +151,28 @@ Refreshing the page and rereviewing can solve this problem.',
 	'unreviewed-diff'       => 'Changes',
 	'unreviewed-list'       => 'This page lists articles that have not been reviewed or have new, unreviewed, revisions.',
 
-	'revreview-visibility'  => 'This page has a [[{{MediaWiki:Validationpage}}|stable version]], which can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
+	'revreview-visibility'  => 'This page has a [[{{MediaWiki:Validationpage}}|stable version]],
+which can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
 
 	'stabilization'            => 'Page stabilization',
 	'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
-	'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration. Here are the current settings for [[:$1|$1]]:',
+	'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.
+Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page'       => 'Page name:',
 	'stabilization-leg'        => 'Configure the stable version for a page',
 	'stabilization-select'     => 'How the stable version is selected',
-	'stabilization-select1'    => 'The latest quality revision; if not present, then the latest sighted one',
+	'stabilization-select1'    => 'The latest quality revision;
+if not present, then the latest sighted one',
 	'stabilization-select2'    => 'The latest reviewed revision',
 	'stabilization-def'        => 'Revision displayed on default page view',
-	'stabilization-def1'       => 'The stable revision; if not present, then the current one',
+	'stabilization-def1'       => 'The stable revision;
+if not present, then the current one',
 	'stabilization-def2'       => 'The current revision',
 	'stabilization-submit'     => 'Confirm',
-	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]". No configuration is possible.',
-	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed. No configuration is possible.',
+	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]".
+No configuration is possible.',
+	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed.
+No configuration is possible.',
 	'stabilization-comment'    => 'Comment:',
 	'stabilization-expiry'     => 'Expires:',
 
