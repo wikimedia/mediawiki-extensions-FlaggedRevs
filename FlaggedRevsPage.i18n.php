@@ -196,7 +196,7 @@ No configuration is possible.',
 	'reviewedpages-lev-1'       => 'Quality',
 	'reviewedpages-lev-2'       => 'Featured',
 	'reviewedpages-all'         => 'reviewed versions',
-	'reviewedpages-best'        => 'latest highest rated revision',
+	'reviewedpages-best'        => 'prime revision',
 );
 
 /** Aragonese (Aragonés)
