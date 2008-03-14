@@ -153,7 +153,7 @@ class FlaggedArticle {
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$pending = "<span class='fr-icon-current'></span>" . wfMsgExt('revreview-edited',array('parseinline')) .
-						'<br/>' . wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
+						' ' . wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
 					# Notice should always use subtitle
 					if( FlaggedRevs::useSimpleUI() ) {
