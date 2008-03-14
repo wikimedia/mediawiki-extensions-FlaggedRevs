@@ -55,7 +55,7 @@ The ''draft'' is shown below.'''",
 	'revreview-basic' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] awaiting review.',
 	'revreview-quality' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] can has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] awaiting review.',
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] awaiting review.',
 	'revreview-basic-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'.',
 	'revreview-quality-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]),
