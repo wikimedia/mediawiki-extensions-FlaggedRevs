@@ -869,18 +869,50 @@ $messages['lt'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Kaustubh
  * @author Mahitgar
  */
 $messages['mr'] = array(
-	'makereviewer-search'  => 'चला',
-	'makereviewer-comment' => 'प्रतिक्रीया',
+	'makereviewer'                  => 'संपादकाना पदोन्नती/पदावनती द्या',
+	'makereviewer-header'           => '<strong>हा अर्ज प्रबंधक तसेच प्रचालक यांना सदस्यांना पदोन्नती देण्यासाठी वापरला जातो.</strong>
+
+सदस्य अधिकार बदलण्यासाठी सदस्याचे नाव पॄष्ठपेटीमध्ये लिहून त्यापुढील कळीवर टिचकी मारा.
+सदस्याला तपासनीसाचा दर्जा दिल्यास आपोआप त्याला संपादकाचे अधिकार मिळतील.
+संपादकाचे अधिकार रद्द केल्यास आपोआप तपासनीसाचे अधिकार रद्द होतील.',
+	'makereviewer-username'         => 'सदस्याचे नाव:',
+	'makereviewer-search'           => 'चला',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] ला संपादक अधिकार आहेत.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] ला संपादक अधिकार नाहीत.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] ला तपासनीस अधिकार आह्त.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] ला तपासनीस अधिकार नाहीत.',
+	'makereviewer-legend'           => 'सदस्य अधिकार बदला',
+	'makereviewer-change-e'         => 'संपादक अधिकार:',
+	'makereviewer-change-r'         => 'तपासनीस अधिकार:',
+	'makereviewer-grant1'           => 'अधिकार द्या',
+	'makereviewer-revoke1'          => 'अधिकार काढून घ्या',
+	'makereviewer-grant2'           => 'अधिकार द्या',
+	'makereviewer-revoke2'          => 'अधिकार काढून घ्या',
+	'makereviewer-comment'          => 'प्रतिक्रीया',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] ला आता संपादक अधिकार आहेत.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] ला आता संपादक अधिकार नाहीत.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] ला आता तपासनीस अधिकार आहेत.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] ला आता तपासनीस अधिकार नाहीत.',
+	'makereviewer-logpage'          => 'संपादक अधिकार सूची',
+	'makereviewer-logentrygrant-e'  => '[[$1]] ला संपादक अधिकार दिले',
+	'makereviewer-logentryrevoke-e' => '[[$1]] चे संपादक अधिकार काढून घेतले',
+	'makereviewer-logentrygrant-r'  => '[[$1]] ला तपासनीस अधिकार दिले',
+	'makereviewer-logentryrevoke-r' => '[[$1]] चे तपासनीस अधिकार काढून घेतले',
+	'makereviewer-autosum'          => 'आपोआप पदोन्नती',
+	'rights-editor-revoke'          => '[[$1]] चे संपादक अधिकार काढून घेतले',
 );
 
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
 $messages['nds'] = array(
-	'makereviewer-search' => 'Status affragen',
+	'makereviewer-search'  => 'Status affragen',
+	'makereviewer-legend'  => 'Brukerrechten ännern',
+	'makereviewer-comment' => 'Kommentar:',
 );
 
 /** Dutch (Nederlands)
