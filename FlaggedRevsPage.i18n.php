@@ -234,6 +234,8 @@ $messages['ar'] = array(
 	[[{{MediaWiki:Validationpage}}|التحقق من]] جودتها.",
 	'stabilization-tab'            => '(تج)',
 	'tooltip-ca-default'           => 'إعدادات تأكيد الجودة',
+	'revreview-edited'             => "'''التعديلات سيتم دمجها في [[{{MediaWiki:Validationpage}}|النسخة المستقرة]] متى راجعها أحد المستخدمين.
+''المسودة'' معروضة بالأسفل.'''",
 	'validationpage'               => '{{ns:help}}:تحقيق المقالات',
 	'revreview-quick-none'         => "'''الحالي'''. لا نسخ مراجعة.",
 	'revreview-quick-see-quality'  => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة المستقرة]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|تغيير|تغيير}}])",
@@ -373,7 +375,7 @@ $messages['ar'] = array(
 	'reviewedpages-lev-1'          => 'جودة',
 	'reviewedpages-lev-2'          => 'مختارة',
 	'reviewedpages-all'            => 'نسخ مراجعة',
-	'reviewedpages-best'           => 'آخر نسخة بأعلى تقييم',
+	'reviewedpages-best'           => 'نسخة فائقة',
 );
 
 /** Asturian (Asturianu)
@@ -783,6 +785,9 @@ $messages['ca'] = array(
 	'revreview-auto'              => '(automàtic)',
 	'hist-stable'                 => '[versió revisada]',
 	'hist-quality'                => '[versió de qualitat]',
+	'stableversions'              => 'Versions estables',
+	'stableversions-title'        => 'Versions estables de «$1»',
+	'stableversions-page'         => 'Nom de la pàgina:',
 	'unreviewed-category'         => 'Categoria:',
 	'unreviewed-diff'             => 'Canvis',
 	'stabilization-submit'        => 'Confirma',
@@ -1124,22 +1129,50 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'editor'                    => 'Redaktanto',
-	'group-editor'              => 'Redaktantoj',
-	'group-editor-member'       => 'Redaktanto',
-	'grouppage-editor'          => '{{ns:project}}:Redaktanto',
-	'revreview-auto'            => '(aŭtomata)',
-	'revreview-depth'           => 'Profundeco',
-	'revreview-style-2'         => 'Bona',
-	'revreview-style-4'         => 'Elstara',
-	'stableversions-page'       => 'Nomo de paĝo:',
-	'unreviewed-category'       => 'Kategorio:',
-	'unreviewed-diff'           => 'Ŝanĝoj',
-	'stabilization-def2'        => 'La nuna revizio:',
-	'stabilization-submit'      => 'Konfirmu',
-	'stabilization-comment'     => 'Komento:',
-	'stabilization-sel-short-1' => 'Neniu',
-	'stabilize-expiring'        => 'findato $1 (UTC)',
+	'editor'                      => 'Redaktanto',
+	'group-editor'                => 'Redaktantoj',
+	'group-editor-member'         => 'Redaktanto',
+	'grouppage-editor'            => '{{ns:project}}:Redaktanto',
+	'reviewer'                    => 'Kontrolanto',
+	'group-reviewer'              => 'Kontrolantoj',
+	'revreview-stable'            => 'Stabila',
+	'tooltip-ca-stable'           => 'Rigardu la stabilan version de ĉi paĝo',
+	'validationpage'              => '{{ns:help}}:Validigo de artikolo',
+	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Nuna revizio]]''' (nekontrolita)",
+	'revreview-quick-see-quality' => "'''Malneto''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardu artikolon]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} komparu])",
+	'revreview-auto'              => '(aŭtomata)',
+	'hist-quality'                => '[kvalita revizio]',
+	'review-logaction'            => 'identigo de revizio $1',
+	'stable-logpage'              => 'Loglibro pri stabilaj versioj',
+	'revreview-selected'          => "Elektis revizion de '''$1:'''",
+	'revreview-accuracy'          => 'Fideleco',
+	'revreview-depth'             => 'Profundeco',
+	'revreview-depth-1'           => 'Baza',
+	'revreview-style-2'           => 'Bona',
+	'revreview-style-4'           => 'Elstara',
+	'stableversions'              => 'Stabilaj versioj',
+	'stableversions-title'        => 'Stabilaj versioj de "$1"',
+	'stableversions-page'         => 'Nomo de paĝo:',
+	'unreviewed-category'         => 'Kategorio:',
+	'unreviewed-diff'             => 'Ŝanĝoj',
+	'stabilization'               => 'Paĝa stabiligado',
+	'stabilization-page'          => 'Paĝnomo:',
+	'stabilization-def1'          => 'La stabila revizio;
+se ĝi ne ekzistas, la nuna versio',
+	'stabilization-def2'          => 'La nuna revizio:',
+	'stabilization-submit'        => 'Konfirmu',
+	'stabilization-comment'       => 'Komento:',
+	'stabilization-expiry'        => 'Fintempo:',
+	'stabilization-sel-short-0'   => 'Kvalito',
+	'stabilization-sel-short-1'   => 'Neniu',
+	'stabilization-def-short'     => 'Defaŭlta',
+	'stabilization-def-short-0'   => 'Nuna',
+	'stabilization-def-short-1'   => 'Stabila',
+	'stabilize_expiry_invalid'    => 'Nevalida findato.',
+	'stabilize-expiring'          => 'findato $1 (UTC)',
+	'reviewedpages-none'          => 'Neniuj paĝoj estas en ĉi listo',
+	'reviewedpages-lev-2'         => 'Elstara',
 );
 
 /** Estonian (Eesti)
@@ -2628,7 +2661,13 @@ $messages['jut'] = array(
 	'group-reviewer-member' => 'Reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 	'revreview-current'     => 'Dråft',
+	'tooltip-ca-current'    => "Se'n draft nuværende detter side",
+	'revreview-edit'        => 'Redigær draft',
+	'revreview-source'      => 'draft sårs',
 	'stabilization-tab'     => 'vet',
+	'hist-stable'           => '[sæn reviisje]',
+	'hist-quality'          => '[kwalitæ reviisje]',
+	'flaggedrevs'           => 'Flagged Reviisje',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬)
@@ -3829,8 +3868,8 @@ $messages['nso'] = array(
 /** Occitan (Occitan)
  * @author Cedric31
  * @author Siebrand
- * @author SPQRobin
  * @author ChrisPtDe
+ * @author SPQRobin
  */
 $messages['oc'] = array(
 	'flaggedrevs-desc'             => "Balha la possibilitat als editors o als relectors de validar las modificacions e d'estabilizar las paginas.",
@@ -3852,6 +3891,7 @@ $messages['oc'] = array(
 	'revreview-noflagged'          => "I a pas de version revisada d'aquesta pagina, sa [[{{MediaWiki:Validationpage}}|qualitat]] es incèrtana.",
 	'stabilization-tab'            => '(qa)',
 	'tooltip-ca-default'           => "Paramètres per l'assegurança-qualitat",
+	'revreview-edited'             => "'''Las modificacions novèlas seràn incorporadas dins [[{{MediaWiki:Validationpage}}|la version establa]] un còp qu’un utilizaire autorizat las aurà relegidas. Lo ''borrolhon'' es visible çaijós. Mercés !'''",
 	'validationpage'               => "{{ns:help}}:Validacion de l'article",
 	'revreview-quick-none'         => "'''Correnta''' (pas de revisions evaluadas)",
 	'revreview-quick-see-quality'  => "'''Borrolhon'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vejatz la version establa]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|modificacion|modificacions}}])",
@@ -3968,7 +4008,7 @@ Un modèl o un imatge pòt èsser estat demandat alara que cap de version precis
 	'reviewedpages-lev-1'          => 'Qualitat',
 	'reviewedpages-lev-2'          => 'Mes en abans',
 	'reviewedpages-all'            => 'versions passadas en revista',
-	'reviewedpages-best'           => 'Darrièra revision mièlh notada',
+	'reviewedpages-best'           => 'Revision principala',
 );
 
 /** Polish (Polski)
@@ -4211,6 +4251,7 @@ $messages['ps'] = array(
 	'tooltip-ca-current'        => 'د همدې مخ اوسنی ګارليک ښکاره کول',
 	'revreview-source'          => 'د ګارليک سرچينه',
 	'revreview-auto'            => '(خپلسري)',
+	'revreview-style-1'         => 'د منلو وړ',
 	'stableversions-page'       => 'د مخ نوم:',
 	'unreviewed-category'       => 'وېشنيزه:',
 	'unreviewed-diff'           => 'بدلونونه',
@@ -4369,6 +4410,7 @@ Seguem-se as configurações para [[:$1|$1]]:',
 
 /** Russian (Русский)
  * @author .:Ajvol:.
+ * @author Siebrand
  */
 $messages['ru'] = array(
 	'flaggedrevs-desc'             => 'Предоставление возможности редакторам/рецензентам проверять версии страниц и устанавливать чистовые версии',
@@ -4390,6 +4432,8 @@ $messages['ru'] = array(
 	'revreview-noflagged'          => "У этой страницы нет отрецензированных версий, вероятно, её качество '''не''' [[{{MediaWiki:Validationpage}}|оценивалось]].",
 	'stabilization-tab'            => '(кк)',
 	'tooltip-ca-default'           => 'Настройки контроля качества',
+	'revreview-edited'             => "'''Правки буду перенесены в [[{{MediaWiki:Validationpage}}|чистовую версию]] после того как определённый участник проверит их.
+''Черновик'' показан ниже.'''",
 	'validationpage'               => '{{ns:help}}:Проверка статьи',
 	'revreview-quick-none'         => "'''Текущая''' (нет отрецензированных версий)",
 	'revreview-quick-see-quality'  => "'''Черновик''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} см. чистовик]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|правка|правки|правок}}])",
@@ -4519,7 +4563,7 @@ $messages['ru'] = array(
 	'reviewedpages-lev-1'          => 'Выверенная',
 	'reviewedpages-lev-2'          => 'Избранная',
 	'reviewedpages-all'            => 'отрецензированные версии',
-	'reviewedpages-best'           => 'последняя версия с наивысшей оценкой',
+	'reviewedpages-best'           => 'наилучшая версия',
 );
 
 /** Yakut (Саха тыла)
@@ -4702,6 +4746,8 @@ $messages['sk'] = array(
 	kvalita '''nebola''' [[{{MediaWiki:Validationpage}}|skontrolovaná]].",
 	'stabilization-tab'            => '(kk)',
 	'tooltip-ca-default'           => 'Nastavenia kontroly kvality',
+	'revreview-edited'             => "'''Úpravy budú zapracované do [[{{MediaWiki:Validationpage}}|stabilnej verzie]] potom, čo ich skontroluje dôveryhodný používateľ.
+Dolu je zobrazený ''návrh'' stránky.'''",
 	'validationpage'               => '{{ns:help}}:Overovanie článkov',
 	'revreview-quick-none'         => "'''Aktuálna'''. Žiadne revízie neboli skontrolvoané..",
 	'revreview-quick-see-quality'  => "'''Rozpísaná''' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zobraziť stabilnú verziu] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|zmena|zmeny|zmien}}])",
@@ -4837,7 +4883,7 @@ Obnovením stránky a opätovnou kontrolou vyriešite tento problém.",
 	'reviewedpages-lev-1'          => 'Kvalita',
 	'reviewedpages-lev-2'          => 'Odporúčané',
 	'reviewedpages-all'            => 'skontrolované verzie',
-	'reviewedpages-best'           => 'najnovšia najvyššie hodnotená revízia',
+	'reviewedpages-best'           => 'primárna revízia',
 );
 
 /** ћирилица (ћирилица)
@@ -5378,8 +5424,8 @@ $messages['tg'] = array(
 	'revreview-quick-none'         => "Нусхаҳои вуруднашудаи '''Феълӣ'''' (на нусхаҳои муруршуда)",
 	'revreview-quick-see-quality'  => "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|тағйир|тағйирот}}])",
 	'revreview-quick-see-basic'    => "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{plural:$2|тағйир|тағйирот}}])",
-	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} мушоҳидаи нусхаи феълӣ]]",
-	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Сифат]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} мушоҳидаи нусхаи феълӣ]]",
+	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ниг. пешнавис]]",
+	'revreview-quick-quality'      => "[[{{MediaWiki:Validationpage}}|Мақолаи босифат]]''' [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ниг. пешнавис]]",
 	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' (фақат тағйироти баррасишуда)",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Сифат]]''' (фақат тағйироти баррасишуда)",
 	'revreview-newest-basic'       => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Охирин нусхаи баррасишуда] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} феҳристи комил]) дар  <i>$2</i>  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|тағйир|тағйирот}}] ниёзманди баррасӣ {{plural:$3|аст|ҳастанд}}.',
@@ -5493,7 +5539,7 @@ $messages['tg'] = array(
 	'reviewedpages-lev-1'          => 'Бо кайфият',
 	'reviewedpages-lev-2'          => 'Баргузида',
 	'reviewedpages-all'            => 'нусхаҳои баррасӣ шуда',
-	'reviewedpages-best'           => 'охирин нусхае бо болотарин баҳо',
+	'reviewedpages-best'           => 'нусхаи беҳтарин',
 );
 
 /** Turkish (Türkçe)

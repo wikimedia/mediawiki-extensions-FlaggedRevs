@@ -315,7 +315,11 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'makereviewer-username'  => 'Nomo de la uzanto:',
 	'makereviewer-search'    => 'Ek!',
+	'makereviewer-iseditor'  => '[[User:$1|$1]] havas statuson de redaktanto.',
+	'makereviewer-noteditor' => '[[User:$1|$1]] ne havas statuson de redaktanto.',
+	'makereviewer-comment'   => 'Komento:',
 	'makereviewer-granted-e' => '[[User:$1|$1]] nun havas statuson redaktanto.',
 	'makereviewer-revoked-e' => '[[User:$1|$1]] ne plu havas statuson redaktanto.',
 	'makereviewer-granted-r' => '[[User:$1|$1]] nun havas statuson reekzamenanto.',
