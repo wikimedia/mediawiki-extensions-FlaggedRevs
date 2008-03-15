@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.015',
+	'version' => '1.016',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -531,7 +531,7 @@ class FlaggedRevs {
 			$columns,
 			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id',
-				'rev_deleted & '.Revision::DELETED_TEXT.' = 0' ),
+				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__ );
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row = $dbr->fetchObject($result) ) {
@@ -578,7 +578,7 @@ class FlaggedRevs {
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_quality >= 1',
 						'fr_rev_id = rev_id',
-						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
 					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
 				$row = $dbw->fetchObject($result);
@@ -589,7 +589,7 @@ class FlaggedRevs {
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_rev_id = rev_id',
-						'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
 					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
 				if( !$row = $dbw->fetchObject($result) )
@@ -1044,7 +1044,7 @@ class FlaggedRevs {
 			'fr_quality',
 			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
 				'fr_rev_id = rev_id',
-				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__,
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
 		$maxQuality = $maxQuality===false ? null : $maxQuality;

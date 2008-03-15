@@ -67,6 +67,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\',
 [{{fullurl:Special:Log|type=review&page=$1}} approved] on <i>$2</i>.',
 
+	'revreview-old' => 'A [{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}&oldid=$1}} reviewed version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
+
 	'revreview-update' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].
 
 '''Some templates/images were updated:'''",

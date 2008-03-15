@@ -98,11 +98,7 @@ class FlaggedArticle {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	public function setPageContent( $article, &$outputDone, &$pcache ) {
-		global $wgRequest, $wgOut, $wgUser;
-
-		$skin = $wgUser->getSkin();
-		
-		$action = $wgRequest->getVal( 'action', 'view' );
+		global $wgRequest, $wgOut, $wgUser, $wgLang;
 		# For unreviewable pages, allow for basic patrolling
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
@@ -112,7 +108,7 @@ class FlaggedArticle {
 				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
 				$wgOut->addHTML( "<div class='patrollink'>" .
 					wfMsgHtml( 'markaspatrolledlink',
-					$skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml('markaspatrolledtext'),
+					$wgUser->getSkin()->makeKnownLinkObj( $reviewtitle, wfMsgHtml('markaspatrolledtext'),
 						"patrolonly=1&target={$article->getTitle()->getPrefixedUrl()}&rcid={$rcid}" )
 			 		) .
 					'</div>'
@@ -120,31 +116,46 @@ class FlaggedArticle {
 			}
 			return true;
 		}
-		# Do not clutter up diffs any further...
-		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
-    		return true;
-		}
-		# Only trigger on article view for content pages, not for protect/delete/hist
+		# Only trigger on article view for content pages, not for protect/delete/hist...
+		$action = $wgRequest->getVal( 'action', 'view' );
 		if( ($action !='view' && $action !='purge') || !$article || !$article->exists() )
 			return true;
-		# Grab page and rev ids
-		$revid = $article->mRevision ? $article->mRevision->mId : $article->getLatest();
-		if( !$revid )
+		# Do not clutter up diffs any further...
+		if( $wgRequest->getVal('diff') ) {
+    		return true;
+		} else if( $wgRequest->getVal('oldid') ) {
+			# We may have nav links like "direction=prev&oldid=x", in which case
+			# we do not care for the oldid...
+			$revID = $article->getOldIDFromRequest();
+			$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $revID );
+			if( !is_null($frev) ) {
+				$time = $wgLang->date( $frev->getTimestamp(), true );
+				$flags = $frev->getTags();
+				$tag = wfMsgExt( 'revreview-old', array('parseinline'), $frev->getRevId(), $time );
+				# Hide clutter
+				if( !empty($flags) ) {
+					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+						" onclick='toggleRevRatings()'>" . wfMsg( 'revreview-toggle' ) . "</span>";
+					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
+						wfMsgHtml('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
+				}
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
+				$wgOut->addHTML( $tag );
+			}
 			return true;
+		}
 		$tag = $notes = $pending = '';
 		# Check the newest stable version...
 		$tfrev = $this->getStableRev( true );
 		$simpleTag = false;
 		// Is there a stable version?
 		if( !is_null($tfrev) ) {
-			global $wgLang;
 			# Get flags and date
+			$time = $wgLang->date( $tfrev->getTimestamp(), true );
 			$flags = $tfrev->getTags();
 			# Get quality level
 			$quality = FlaggedRevs::isQuality( $flags );
 			$pristine =  FlaggedRevs::isPristine( $flags );
-			
-			$time = $wgLang->date( $tfrev->getTimestamp(), true );
 			// Looking at some specific old rev or if flagged revs override only for anons
 			if( !$this->pageOverride() ) {
 				$revs_since = FlaggedRevs::getRevCountSince( $article, $tfrev->getRevId() );
@@ -156,11 +167,7 @@ class FlaggedArticle {
 						' ' . wfMsgExt( $msg, array('parseinline'), $tfrev->getRevId(), $time, $revs_since );
 					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
 					# Notice should always use subtitle
-					if( FlaggedRevs::useSimpleUI() ) {
-						$this->reviewNotice = $pending;
-					} else {
-						$this->reviewNotice = $pending;
-					}
+					$this->reviewNotice = $pending;
 				}
 				# If they are synced, do special styling
 				$simpleTag = !$synced;
@@ -261,13 +268,10 @@ class FlaggedArticle {
 				$tagClass = 'flaggedrevs_basic';
 			# Wrap tag contents in a div
 			if( $tag !='' )
-				$tag = '<div id="mw-revisiontag" style="overflow: visible;" class="'.$tagClass.' plainlinks">'.$tag.'</div>';
-			# Set the new body HTML, place a tag on top
-			if( FlaggedRevs::useSimpleUI() ) {
-				$this->reviewNotice .= $tag;
-			} else {
-				$this->reviewNotice .= $tag;
-			}
+				$tag = '<div id="mw-revisiontag" class="'.$tagClass.' plainlinks">'.$tag.'</div>';
+			# Set UI html
+			$this->reviewNotice .= $tag;
+			# Add revision notes
 			$wgOut->mBodytext = $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page
 		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->getTitle() ) ) {
