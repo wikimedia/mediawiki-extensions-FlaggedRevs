@@ -52,7 +52,6 @@
 }
 
 .fr-text-value {
-    min-width:100px;
     width: 100px;
 }
 
@@ -69,36 +68,30 @@
     background-image: url(../FlaggedRevs/img/boxC.png);
 }
 
-.fr-marker-20 {
-    background-image: url(../FlaggedRevs/img/bar_20.png);
+.fr-marker-20,
+.fr-marker-40,
+.fr-marker-60,
+.fr-marker-80,
+.fr-marker-100 {
     background-position: bottom left;
     background-repeat: no-repeat;    
     padding-bottom: 3px;
+}
+
+.fr-marker-20 {
+    background-image: url(../FlaggedRevs/img/bar_20.png);
 }
 .fr-marker-40 {
     background-image: url(../FlaggedRevs/img/bar_40.png);
-    background-position: bottom left;
-    background-repeat: no-repeat;    
-    padding-bottom: 3px;
 }
 .fr-marker-60 {
     background-image: url(../FlaggedRevs/img/bar_60.png);
-    background-position: bottom left;
-    background-repeat: no-repeat;    
-    padding-bottom: 3px;
-
 }
 .fr-marker-80 {
     background-image: url(../FlaggedRevs/img/bar_80.png);
-    background-position: bottom left;
-    background-repeat: no-repeat;    
-    padding-bottom: 3px;
 }
 .fr-marker-100 {
     background-image: url(../FlaggedRevs/img/bar_100.png);
-    background-position: bottom left;
-    background-repeat: no-repeat;    
-    padding-bottom: 3px;
 }
 
 /* Short UI */
@@ -113,7 +106,7 @@
 	float: right;
 	text-align: left;
 	max-width: 400px;
-	line-height: 18px;
+	line-height: 16px;
 }
 
 .fr-icon-current,
@@ -186,6 +179,7 @@
 	border: 1px solid #aaa;
 	text-align: center;
 	font-size: 85%;
+	clear: both;
 }
 
 .flaggedrevs_box0 {
