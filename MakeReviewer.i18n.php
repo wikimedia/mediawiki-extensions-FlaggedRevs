@@ -319,6 +319,7 @@ $messages['eo'] = array(
 	'makereviewer-search'    => 'Ek!',
 	'makereviewer-iseditor'  => '[[User:$1|$1]] havas statuson de redaktanto.',
 	'makereviewer-noteditor' => '[[User:$1|$1]] ne havas statuson de redaktanto.',
+	'makereviewer-change-e'  => 'Statuso de redaktanto:',
 	'makereviewer-comment'   => 'Komento:',
 	'makereviewer-granted-e' => '[[User:$1|$1]] nun havas statuson redaktanto.',
 	'makereviewer-revoked-e' => '[[User:$1|$1]] ne plu havas statuson redaktanto.',
@@ -443,9 +444,9 @@ Buchiér lo nom du contributor dens la bouèta por lui balyér celos drêts. Bal
  */
 $messages['gl'] = array(
 	'makereviewer'                  => 'Promover/degradar editores',
-	'makereviewer-header'           => '<strong>Este formulario é usado por administradores e burócratas para promover aos usuarios de artigos máis válidos.</strong>
-
-Introduza o nome do usuario na caixa e prema o botón para establecer os dereitos dos usuarios. A concesión do status de revisor de usuarios automaticamente lles concede o status de editor. Revocar o status de editor automaticamente revocará o status de revisor.',
+	'makereviewer-header'           => '<strong>Este formulario é usado por administradores e burócratas para promover aos usuarios de artigos 		máis válidos.</strong><br> Introduza o nome do usuario na caixa e prema o botón para establecer os dereitos dos usuarios.
+	A concesión do status de revisor de usuarios automaticamente lles concede o status de editor.  Revocar o status de editor
+	automaticamente revocará o status de revisor.',
 	'makereviewer-username'         => 'Nome do usuario:',
 	'makereviewer-search'           => 'Ir',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] ten o status de editor.',
@@ -470,7 +471,6 @@ Introduza o nome do usuario na caixa e prema o botón para establecer os dereito
 	'makereviewer-logentrygrant-r'  => 'outorgado o status de revisor a [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'eliminado o status de revisor de [[$1]]',
 	'makereviewer-autosum'          => 'autopromocionado',
-	'rights-editor-grant'           => 'outorgado o status de editor a [[$1]]',
 	'rights-editor-revoke'          => 'eliminado o status de editor de [[$1]]',
 );
 
@@ -480,9 +480,10 @@ Introduza o nome do usuario na caixa e prema o botón para establecer os dereito
  */
 $messages['hr'] = array(
 	'makereviewer'                  => 'Promoviraj/ukini prava suradniku',
-	'makereviewer-header'           => '<strong>Ovaj obrazac koriste administratori i birokrati da promoviraju suradnike u ocjenjivače članaka.</strong>
-
-Unesite ime suradnika u rubriku i pritisnie tipku da postavite prava korisnika. Dodjeljivanje prava ocjenjivača će automatski dodijeliti status urednika. Oduzimanje prava urednika će automatski oduzeti status ocjenjivača.',
+	'makereviewer-header'           => '<strong>Ovaj obrazac koriste administratori i birokrati da promoviraju suradnike u ocjenjivače
+članaka.</strong><br> Unesite ime suradnika u rubriku i pritisnie tipku da postavite prava korisnika.  
+Dodjeljivanje prava ocjenjivača će automatski dodijeliti status urednika. Oduzimanje prava urednika će
+automatski oduzeti status ocjenjivača.',
 	'makereviewer-username'         => 'Ime suradnika:',
 	'makereviewer-search'           => 'Kreni',
 	'makereviewer-iseditor'         => '[[Suradnik:$1|$1]] ima status urednika.',
@@ -548,12 +549,16 @@ Zapisaj wužiwarske mjeno do pola a klikń na tłóčatko, zo by wužiwarske pra
 /** Hungarian (Magyar)
  * @author Bdanee
  * @author KossuthRad
+ * @author Tgr
  */
 $messages['hu'] = array(
 	'makereviewer'                  => 'Szerkesztők kinevezése/lefokozása',
-	'makereviewer-header'           => '<strong>Ezen űrlap segítségével az adminisztrátorok és bürokraták szerkesztőket nevezhetnek ki szócikkek ellenőrzőjévé.</strong>
+	'makereviewer-header'           => '<strong>Ezen űrlap segítségével az adminisztrátorok és bürokraták szerkesztőket nevezhetnek ki szócikkek
+ellenőrzőjévé.</strong>
 
-Írd be a nevet a dobozba, és kattints a gombra, hogy beállíthasd a jogait. Az ellenőri jogok megadása egyben a szerkesztői jogok megadását is jelenti, míg a szerkesztői jogok megvonása az ellenőri jogok megvonását is jelenti.',
+Írd be a nevet a dobozba, és kattints a gombra, hogy beállíthasd a jogait.  
+Az ellenőri jogok megadása egyben a szerkesztői jogok megadását is jelenti, míg a szerkesztői jogok megvonása
+az ellenőri jogok megvonását is jelenti.',
 	'makereviewer-username'         => 'A felhasználó neve:',
 	'makereviewer-search'           => 'Menj',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] rendelkezik szerkesztői joggal.',
@@ -659,6 +664,13 @@ $messages['ja'] = array(
 	'makereviewer-logentryrevoke-r' => '[[$1]] の査読者権限取り消し',
 	'makereviewer-autosum'          => '自動権限付与',
 	'rights-editor-revoke'          => '[[$1]] の編集者権限取り消し',
+);
+
+/** Jutish (Jysk)
+ * @author Huslåke
+ */
+$messages['jut'] = array(
+	'makereviewer-search' => 'Gå',
 );
 
 /** Kazakh (Arabic) (قازاقشا (توتە))
@@ -1090,12 +1102,17 @@ $messages['ps'] = array(
 	'makereviewer-search'   => 'ورځه',
 );
 
-/* Portuguese (Lugusto) */
+/** Portuguese (Português)
+ * @author 555
+ */
 $messages['pt'] = array(
 	'makereviewer'                  => 'Promover/rebaixar editores',
 	'makereviewer-header'           => '<strong>Este é um formulário utilizado por {{int:group-sysop}} e {{int:group-bureaucrat}} para promover usuários a validadores de páginas.</strong>
 
-Digite o nome de usuário no espaço indicado e clique no botão correspondente a alteração de privilégios desejada de ser feita. Conceder o estado de {{int:group-reviewer-member}} fará com que a pessoa se torne {{int:group-editor-member}} automaticamente. Revogar o status de {{int:group-editor-member}} automaticamente revogará também o estado de {{int:group-reviewer-member}}.',
+Digite o nome de usuário no espaço indicado e clique no botão correspondente a alteração de privilégios desejada de ser feita. 
+
+Conceder o estado de {{int:group-reviewer-member}} fará com que a pessoa se torne {{int:group-editor-member}} automaticamente. 
+Revogar o status de {{int:group-editor-member}} automaticamente revogará também o estado de {{int:group-reviewer-member}}.',
 	'makereviewer-username'         => 'Nome de usuário:',
 	'makereviewer-search'           => 'Ir',
 	'makereviewer-iseditor'         => '[[{{ns:user}}:$1|$1]] possui privilégios de {{int:group-editor-member}}.',
@@ -1115,13 +1132,11 @@ Digite o nome de usuário no espaço indicado e clique no botão correspondente 
 	'makereviewer-granted-r'        => '[[{{ns:user}}:$1|$1]] agora possui privilégios de {{int:group-reviewer-member}}.',
 	'makereviewer-revoked-r'        => '[[{{ns:user}}:$1|$1]] não mais possui privilégios de {{int:group-reviewer-member}}.',
 	'makereviewer-logpage'          => 'Registo de privilégios de editores',
-	'makereviewer-logpagetext'      => 'Este é um registo de alterações de privilégios de [[{{MediaWiki:Makevalidate-page}}|validadores de páginas]].',
 	'makereviewer-logentrygrant-e'  => 'concedidos privilégios de {{int:group-editor-member}} para [[$1]]',
 	'makereviewer-logentryrevoke-e' => 'removidos privilégios de {{int:group-editor-member}} de [[$1]]',
 	'makereviewer-logentrygrant-r'  => 'concedidos privilégios de {{int:group-reviewer-member}} para [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'removidos privilégios de {{int:group-reviewer-member}} para [[$1]]',
 	'makereviewer-autosum'          => 'promovido automaticamente',
-	'rights-editor-grant'           => 'concedidos privilégios de {{int:group-editor-member}} para [[$1]]',
 	'rights-editor-revoke'          => 'removidos privilégios de {{int:group-editor-member}} para [[$1]]',
 );
 
@@ -1132,7 +1147,9 @@ $messages['ru'] = array(
 	'makereviewer'                  => 'Повышение/понижение статуса редакторов',
 	'makereviewer-header'           => '<strong>Эта форма используется администраторами и бюрократами чтобы повысить статус участника до уровня рецензента.</strong>
 
-Наберите имя участника и и нажмите кнопку, чтобы установить права. Присвоение участнику статуса рецензента автоматически влечёт за собой присвоение ему статуса редактора. Отзыв статуса редактора приведёт к автоматическому отзыву статуса рецензента.',
+Наберите имя участника и и нажмите кнопку, чтобы установить права.
+Присвоение участнику статуса рецензента автоматически влечёт за собой присвоение ему статуса редактора.
+Отзыв статуса редактора приведёт к автоматическому отзыву статуса рецензента.',
 	'makereviewer-username'         => 'Имя участника:',
 	'makereviewer-search'           => 'Найти',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] имеет статус редактора.',
@@ -1165,9 +1182,8 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'makereviewer'                  => 'Эрэдээктэрдэри үрдээтии/намтатыы',
-	'makereviewer-header'           => '<strong>Манна бюрокрааттар уонна админнар кыттааччы таһымын ырытааччы таһымыгар дылы үрдэтэллэр.</strong>
-
-Уларытарга кыттааччы аатын киллэр уонна тимэҕи баттаа. Ырытааччы таһыма эрэдээктэр быраабын аптамаатынан биэрэр. Киһи эрэдээктэриттэн ууратылыннаҕына ырытааччы буолан эмиэ бүтэр.',
+	'makereviewer-header'           => '<strong>Манна бюрокрааттар уонна админнар кыттааччы таһымын ырытааччы таһымыгар дылы үрдэтэллэр.</strong><br> Уларытарга кыттааччы аатын киллэр уонна тимэҕи баттаа.
+Ырытааччы таһыма эрэдээктэр быраабын аптамаатынан биэрэр. Киһи эрэдээктэриттэн ууратылыннаҕына ырытааччы буолан эмиэ бүтэр.',
 	'makereviewer-username'         => 'Кыттааччы аата:',
 	'makereviewer-search'           => 'Бул',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] эрэдээктэр статустаах.',
