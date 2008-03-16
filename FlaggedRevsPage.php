@@ -553,19 +553,15 @@ class Revisionreview extends UnlistedSpecialPage
 		foreach( $dimensions as $quality => $level ) {
 			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . wfMsgForContent("revreview-$quality-$level");
 		}
-		$rating = ($approve && !empty($ratings) ) ? ' [' . implode(', ',$ratings). ']' : '';
-		# Append comment with action
-		# FIXME: do this better
-		$action = wfMsgExt('review-logaction', array('parsemag','content'), $oldid );
-		if( $approve )
-			$comment = $comment ? "$action: $comment$rating" : "$action $rating";
-		else
-			$comment = $comment ? "$action: $comment" : "$action";
-
+		# Append comment with ratings
 		if( $approve ) {
-			$log->addEntry( 'approve', $title, $comment );
+			$rating = !empty($ratings) ? '[' . implode(', ',$ratings). ']' : '';
+			$comment .= $comment ? " $rating" : $rating;
+		}
+		if( $approve ) {
+			$log->addEntry( 'approve', $title, $comment, array($oldid) );
 		} else {
-			$log->addEntry( 'unapprove', $title, $comment );
+			$log->addEntry( 'unapprove', $title, $comment, array($oldid) );
 		}
 	}
 }
