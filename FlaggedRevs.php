@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.016',
+	'version' => '1.017',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -1720,11 +1720,11 @@ class FlaggedRevs {
 	public static function reviewLogLine( $log_type = '', $log_action = '', $title = null, 
 		$paramArray = array(), &$comment = '', &$revert = '', $time = '' ) {
 		# Show link to page with oldid=x
-		if( $log_type == 'review' && $log_action == 'approve' ) {
+		if( $log_type == 'review' && ($log_action == 'approve' || $log_action == 'unapprove') ) {
 			global $wgUser;
 			if( isset($paramArray[0]) ) {
-				$revert = $wgUser->getSkin()->makeKnownLinkObj( $title, 
-					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}");
+				$revert = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
+					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}") . ')';
 			}
 		}
 		return true;

@@ -88,7 +88,7 @@ You may want to preview the page before saving.",
 	'review-logpagetext'   => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.',
 	'review-logentry-app'  => 'reviewed [[$1]]',
 	'review-logentry-dis'  => 'depreciated a version of [[$1]]',
-	'review-logentry-id'   => '(revision ID $1)',
+	'review-logentry-id'   => 'revision ID $1',
 
 	'stable-logpage'     => 'Stable version log',
 	'stable-logpagetext' => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.',
