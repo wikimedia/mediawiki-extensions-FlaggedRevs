@@ -970,17 +970,17 @@ $messages['de'] = array(
 
 	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|markierte Version]] übernommen, sobald ein Benutzer mit Markierungs-Recht diese sich angeschaut hat. Die ''aktuelle Version'' wird unten angezeigt!'''",
 
-	'validationpage'              => '{{ns:help}}:Stabile Versionen',
+	'validationpage'              => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 
 	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
-	'revreview-quick-see-quality' => "'''Nicht markierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
+	'revreview-quick-see-quality' => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
-	'revreview-quick-see-basic'   => "'''Nicht markierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
+	'revreview-quick-see-basic'   => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte nicht markierte Seite]]",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte nicht markierte Seite]]",
-	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Gesichtet]]\'\'\' (keine nicht markierten Änderungen)',
-	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Geprüft]]\'\'\' (keine nicht markierten Änderungen)',
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
+	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' (keine unmarkierten Änderungen)",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' (keine unmarkierten Änderungen)",
 
 	'revreview-newest-basic'      => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
@@ -1029,7 +1029,7 @@ $messages['de'] = array(
 	'revisionreview'              => 'Versionsprüfung',
 	'revreview-main'              => 'Du musst eine Artikelversion zur Markierung auswählen.
 
-	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste nicht markierten Versionen.',
+	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste unmarkierter Versionen.',
 	'revreview-selected'          => "Gewählte Version von '''$1:'''",
 	'revreview-text'              => 'Einer markierten Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.',
 	'revreview-toolow'            => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
@@ -1070,9 +1070,9 @@ $messages['de'] = array(
 	'stableversions-list'         => 'Dies ist die Liste der markierten Versionen von [[:$1]]:',
 	'stableversions-review'       => 'markiert <i>$1</i> durch $2',
 	'review-diff2stable'          => 'Unterschiede zwischen der markierten und der aktuellen Version ansehen',
-	'unreviewedpages'             => 'Nicht markierte Artikel',
-	'viewunreviewed'              => 'Liste nicht markierter Artikel',
-	'unreviewed-outdated'         => 'Zeige nur Seiten, die nicht markierte Versionen nach einer markierten Version haben.',
+	'unreviewedpages'             => 'Unmarkierte Artikel',
+	'viewunreviewed'              => 'Liste unmarkierter Artikel',
+	'unreviewed-outdated'         => 'Zeige nur Seiten, die unmarkierte Versionen nach einer markierten Version haben.',
 	'unreviewed-category'         => 'Kategorie:',
 	'unreviewed-diff'             => 'Änderungen',
 	'unreviewed-list'             => 'Diese Seite zeigt Artikel, die noch keinen markierte Versionen haben.',
