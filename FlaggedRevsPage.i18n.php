@@ -989,14 +989,10 @@ $messages['de'] = array(
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Markierung an.',
 
-	'revreview-basic'             => 'Dies ist die letzte [[Help:Gesichtete Versionen|gesichtete]] Version,
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
-	kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}]
-	{{plural:$3|steht|stehen}} noch zur Markierung an.',
-	'revreview-quality'           => 'Das ist die letzte [[Help:Versionsbewertung|geprüfte]] Version,
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version]
-	kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}]
-	{{plural:$3|steht|stehen}} noch zur Markierung an.',
+	'revreview-basic'             => 'Dies ist die letzte [[Help:Gesichtete Versionen|gesichtete]] Version.
+	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] hat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 nicht markierte {{plural:$3|Änderung|Änderungen}}].',
+	'revreview-quality'           => 'Das ist die letzte [[Help:Versionsbewertung|geprüfte]] Version.
+	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] hat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 nicht markierte {{plural:$3|Änderung|Änderungen}}].',
 	'revreview-basic-same'        => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
 	'revreview-quality-same'      => 'Das ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
@@ -1004,6 +1000,9 @@ $messages['de'] = array(
 	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 	'revreview-static'            => "Dies ist eine [[{{MediaWiki:Validationpage}}|geprüfte]] Version von '''[[:$3|$3]]''',
 	[{{fullurl:Special:Log|type=review&page=$1}} freigegeben] am <i>$2</i>.",
+
+	'revreview-old'               => 'Eine [{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}&oldid=$1}} markierte Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>, basiert auf dieser Version.',
+
 	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
 
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
