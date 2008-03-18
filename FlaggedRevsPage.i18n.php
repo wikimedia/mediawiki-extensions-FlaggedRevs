@@ -976,12 +976,17 @@ $messages['de'] = array(
 	'validationpage'              => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 
 	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
+	'revreview-quick-invalid'     => "'''Ungültige Versions-ID'''",
+	'revreview-invalid'           => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Artikelversion der angegebenen Versions-ID.",
 	'revreview-quick-see-quality' => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-see-basic'   => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
+	'revreview-quick-basic-old'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}}} letzte unmarkierte Seite]]",
+
 	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' (keine unmarkierten Änderungen)",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' (keine unmarkierten Änderungen)",
 
@@ -997,24 +1002,28 @@ $messages['de'] = array(
 	'revreview-quality'           => 'Das ist die letzte [[Help:Versionsbewertung|geprüfte]] Version.
 	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] hat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 nicht markierte {{plural:$3|Änderung|Änderungen}}].',
 	'revreview-basic-same'        => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
 	'revreview-quality-same'      => 'Das ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
-	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
-	'revreview-static'            => "Dies ist eine [[{{MediaWiki:Validationpage}}|geprüfte]] Version von '''[[:$3|$3]]''',
-	[{{fullurl:Special:Log|type=review&page=$1}} freigegeben] am <i>$2</i>.",
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
+	'revreview-basic-old'         => 'Das ist eine [[{{MediaWiki:Validationpage}}|gesichtete]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
+	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
+	'revreview-quality-old'       => 'Das ist eine [[{{MediaWiki:Validationpage}}|geprüfte]]  Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
+	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 
-	'revreview-old'               => 'Eine [{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}&oldid=$1}} markierte Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>, basiert auf dieser Version.',
+	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
+
+	'revreview-basic-source'      => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gesichtete Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>, basierte auf dieser Version.',
+	'revreview-quality-source'    => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} geprüfte Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>, basierte auf dieser Version.',
 
 	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
 
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
 	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde",
 	'revreview-auto'              => '(automatisch)',
-	'revreview-auto-w'            => "Du bearbeitest eine markierte Version, deine Bearbeitung wird '''automatisch markiert.'''
-	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
-	'revreview-auto-w-old'        => "Du bearbeitest eine alte Version, deine Bearbeitung wird '''automatisch markiert.'''
-	Du solltest die Seite daher vor dem Speichern in der Vorschau betrachten.",
+	'revreview-auto-w'            => "Du bearbeitest eine markierte Version; Bearbeitungen werden '''automatisch markiert.'''",
+	'revreview-auto-w-old'        => "Du bearbeitest eine alte Version; Bearbeitungen werden '''automatisch markiert.'''",
 	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde markiert.',
 	'hist-stable'                 => '[gesichtete Version]',
 	'hist-quality'                => '[geprüfte Version]',
@@ -1066,7 +1075,6 @@ $messages['de'] = array(
 	wenn eine dynamische Vorlage eine weitere Vorlage oder ein Bild einbindet, das von einer Variable abhängig ist, die
 	sich seit Beginn der Markierung verändert hat. Ein Neuladen der Seite und Neustart der Markierung kann das Problem beheben.",
 	'stableversions'              => 'Markierte Versionen',
-	'stableversions-title'        => 'Markierte Version von „$1“',
 	'stableversions-leg1'         => 'Liste der markierten Versionen für einen Artikel',
 	'stableversions-page'         => 'Artikelname:',
 	'stableversions-none'         => '„[[:$1]]“ hat keine markierten Versionen.',
