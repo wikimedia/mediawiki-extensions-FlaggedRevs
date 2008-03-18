@@ -441,12 +441,15 @@ Buchiér lo nom du contributor dens la bouèta por lui balyér celos drêts. Bal
 
 /** Galician (Galego)
  * @author Alma
+ * @author Toliño
  */
 $messages['gl'] = array(
 	'makereviewer'                  => 'Promover/degradar editores',
-	'makereviewer-header'           => '<strong>Este formulario é usado por administradores e burócratas para promover aos usuarios de artigos 		máis válidos.</strong><br> Introduza o nome do usuario na caixa e prema o botón para establecer os dereitos dos usuarios.
-	A concesión do status de revisor de usuarios automaticamente lles concede o status de editor.  Revocar o status de editor
-	automaticamente revocará o status de revisor.',
+	'makereviewer-header'           => '<strong>Este formulario é usado polos administradores e burócratas para outorgar aos usuarios o status de validación de artigos.</strong>
+
+Introduza o nome do usuario na caixa e prema o botón para establecer os dereitos de usuario.
+A concesión do status de revisor de usuarios automaticamente lles concede o status de editor.
+Revogar o status de editor automaticamente revogará o status de revisor.',
 	'makereviewer-username'         => 'Nome do usuario:',
 	'makereviewer-search'           => 'Ir',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] ten o status de editor.',
@@ -667,10 +670,24 @@ $messages['ja'] = array(
 );
 
 /** Jutish (Jysk)
+ * @author Ælsån
  * @author Huslåke
  */
 $messages['jut'] = array(
-	'makereviewer-search' => 'Gå',
+	'makereviewer'          => 'Pråmåvær/dæmåvær bruger',
+	'makereviewer-username' => 'Brugernavn:',
+	'makereviewer-search'   => 'Gå',
+	'makereviewer-legend'   => 'Ændre brugerregter',
+	'makereviewer-change-e' => 'Redigærerståt:',
+	'makereviewer-change-r' => 'Hersægerståt:',
+	'makereviewer-grant1'   => 'Gæv',
+	'makereviewer-revoke1'  => 'Næm en',
+	'makereviewer-grant2'   => 'Gæv',
+	'makereviewer-revoke2'  => 'Næm en',
+	'makereviewer-comment'  => 'Bemærkenge:',
+	'makereviewer-logpage'  => 'Brugerståt log',
+	'makereviewer-autosum'  => 'åtåpråmåværn',
+	'rights-editor-revoke'  => 'slettet redigærerståt der [[$1]]',
 );
 
 /** Kazakh (Arabic) (قازاقشا (توتە))
