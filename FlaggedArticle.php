@@ -307,6 +307,38 @@ class FlaggedArticle {
 
 		return true;
     }
+	
+	/**
+	* Set the image revision to display
+	*/
+	public static function setImageVersion( $title, $article ) {
+		if( NS_MEDIA == $title->getNamespace() ) {
+			# FIXME: where should this go?
+			$title = Title::makeTitle( NS_IMAGE, $title->getDBkey() );
+		}
+
+		if( $title->getNamespace() == NS_IMAGE && FlaggedRevs::isPageReviewable( $title ) ) {
+			global $wgFlaggedArticle, $wgRequest;
+			# A reviewed version may have explicitly been requested...
+			$frev = null;
+			if( $reqId = $wgRequest->getVal('stableid') ) {
+				$frev = FlaggedRevs::getFlaggedRev( $title, $reqId );
+			} else if( $wgFlaggedArticle->pageOverride() ) {
+				$frev = $wgFlaggedArticle->getStableRev();
+			}
+			if( !is_null($frev) ) {
+				$dbr = wfGetDB( DB_SLAVE );
+				$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
+					array( 'fi_rev_id' => $frev->getRevId(),
+						'fi_name' => $title->getDBkey() ),
+					__METHOD__ );
+				# NOTE: if not found, this will use the current
+				$article = new ImagePage( $title, $time );
+			}
+		}
+
+		return true;
+	}
 
     /**
 	 * Adds latest stable version tag to page when editing

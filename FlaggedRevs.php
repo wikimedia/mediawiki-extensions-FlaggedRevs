@@ -211,7 +211,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
 	# Set image version
-	$wgHooks['ArticleFromTitle'][] = 'FlaggedRevs::setImageVersion';
+	$wgHooks['ArticleFromTitle'][] = array( $wgFlaggedArticle, 'setImageVersion' );
 	# Add page notice
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
@@ -1051,12 +1051,13 @@ class FlaggedRevs {
 		# (which it probably is), save it to the cache...
 		$sv = self::getStablePageRev( $article->getTitle(), false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
+			# Update stable cache
 			FlaggedRevs::updatePageCache( $article, $poutput );
+			# Update page fields
+			self::updateArticleOn( $article, $rev->getID() );
+			# Purge squid for this page only
+			$article->getTitle()->purgeSquid();
 		}
-		# Update page fields
-		self::updateArticleOn( $article, $rev->getID() );
-		# Purge squid for this page only
-		$article->getTitle()->purgeSquid();
 
 		return true;
 	}
@@ -1445,36 +1446,6 @@ class FlaggedRevs {
 
 		$ig->fr_isStable = true;
 		$ig->fr_parentParser =& $parser; // hack
-
-		return true;
-	}
-
-	/**
-	* Set the image revision to display
-	*/
-	public static function setImageVersion( $title, $article ) {
-		if( NS_MEDIA == $title->getNamespace() ) {
-			# FIXME: where should this go?
-			$title = Title::makeTitle( NS_IMAGE, $title->getDBkey() );
-		}
-
-		if( $title->getNamespace() == NS_IMAGE && self::isPageReviewable( $title ) ) {
-			global $wgFlaggedArticle;
-
-			if( $wgFlaggedArticle->pageOverride() ) {
-				$frev = $wgFlaggedArticle->getStableRev();
-				if( !$frev )
-					return true;
-
-				$dbr = wfGetDB( DB_SLAVE );
-				$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
-					array('fi_rev_id' => $frev->getRevId(),
-						'fi_name' => $title->getDBkey() ),
-					__METHOD__ );
-				# NOTE: if not found, this will use the current
-				$article = new ImagePage( $title, $time );
-			}
-		}
 
 		return true;
 	}
