@@ -45,9 +45,10 @@ The ''draft'' is shown below.'''",
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
 	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
 	'revreview-quick-quality' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-basic-old' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:$1|stable=0}} view draft]]',
+	'revreview-quick-quality-old' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:$1|stable=0}} view draft]]',
 	'revreview-quick-basic-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\'',
 	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\'',
-
 	'revreview-newest-basic' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
 	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
@@ -61,23 +62,23 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'revreview-quality-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]),
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'.',
+	'revreview-basic-old' => 'This is a [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes] may have been made.',
+	'revreview-quality-old' => 'This is a [[{{MediaWiki:Validationpage}}|quality]]  revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes] may have been made.',
+	
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 
-	'revreview-static' => 'This is a [[{{MediaWiki:Validationpage}}|reviewed]] revision of \'\'\'[[:$3|$3]]\'\'\',
-[{{fullurl:Special:Log|type=review&page=$1}} approved] on <i>$2</i>.',
-
-	'revreview-old' => 'A [{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}&oldid=$1}} reviewed version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
+	'revreview-old' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} reviewed version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
 
 	'revreview-update' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].
 
 '''Some templates/images were updated:'''",
 	'revreview-update-none' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].",
 	'revreview-auto' => '(automatic)',
-	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''.
-You may want to preview the page before saving.",
-	'revreview-auto-w-old' => "You are editing an old revision, any changes will '''automatically be reviewed'''.
-You may want to preview the page before saving.",
+	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''.",
+	'revreview-auto-w-old' => "You are editing an old revision, any changes will '''automatically be reviewed'''.",
 	'revreview-patrolled' => 'The selected revision of [[:$1|$1]] has been marked as patrolled.',
 
 	'hist-stable'  => '[sighted revision]',
@@ -134,8 +135,7 @@ A template or image may have been requested when no specific version was specifi
 This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewing this page.
 Refreshing the page and rereviewing can solve this problem.',
 
-	'stableversions'        => 'Stable versions',
-	'stableversions-title'  => 'Stable versions of "$1"',
+	'stableversions'        => 'View stable versions',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
 	'stableversions-page'   => 'Page name:',
 	'stableversions-none'   => '"[[:$1]]" has no reviewed revisions.',

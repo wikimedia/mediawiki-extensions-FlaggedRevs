@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.017',
+	'version' => '1.018',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -35,6 +35,8 @@ $wgFlaggedRevsNamespaces = array( NS_MAIN );
 
 # Do flagged revs override the default view?
 $wgFlaggedRevsOverride = true;
+# Do quality revisions show instead of sighted if present by default?
+$wgFlaggedRevsPrecedence = true;
 # Revision tagging can slow development...
 # For example, the main user base may become complacent, perhaps treat flagged
 # pages as "done", or just be too lazy to click "current". We may just want non-user
@@ -207,6 +209,7 @@ function efLoadFlaggedRevs() {
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
 	# Set image version
 	$wgHooks['ArticleFromTitle'][] = 'FlaggedRevs::setImageVersion';
 	# Add page notice
@@ -537,10 +540,29 @@ class FlaggedRevs {
 			__METHOD__ );
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row = $dbr->fetchObject($result) ) {
-			return new FlaggedRevision( $row );
+			return new FlaggedRevision( $title, $row );
 		}
 
 		return null;
+	}
+
+	/**
+	 * Get the "prime" flagged revision of a page
+	 * @param Title $title
+	 * @returns integer
+	 * Will not return a revision if deleted
+	 */
+	public static function getPrimeFlaggedRevId( $title ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		# Get the highest quality revision (not necessarily this one).
+		$oldid = $dbr->selectField( array('flaggedrevs', 'revision'),
+			'fr_rev_id',
+			array( 'fr_page_id' => $title->getArticleID(),
+				'fr_rev_id = rev_id',
+				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			__METHOD__,
+			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
+		return $oldid;
 	}
 
 	/**
@@ -549,7 +571,7 @@ class FlaggedRevs {
 	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
 	 * @returns mixed FlaggedRevision (null on failure)
-	*/
+	 */
 	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
 		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
 		if( $getText ) {
@@ -598,7 +620,7 @@ class FlaggedRevs {
 					return null;
 			}
 		}
-		return new FlaggedRevision( $row );
+		return new FlaggedRevision( $title, $row );
 	}
 
 	/**
@@ -656,9 +678,11 @@ class FlaggedRevs {
 		}
 
 		if( !$row ) {
-			global $wgFlaggedRevsOverride;
+			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
+			# Keep this consistent across settings. 0 -> precedence, 0 -> none
+			$select = $wgFlaggedRevsPrecedence ? 0 : 1;
 			return array('select' => 0, 'override' => $override, 'expiry' => 'infinity');
 		}
 
@@ -846,7 +870,7 @@ class FlaggedRevs {
 	public static function updatePageCache( $article, $parserOut=null ) {
 		global $wgUser, $parserMemc, $wgParserCacheExpireTime;
 		# Make sure it is valid
-		if( is_null($parserOut) || !$article )
+		if( is_null($parserOut) )
 			return false;
 
 		$parserCache = ParserCache::singleton();

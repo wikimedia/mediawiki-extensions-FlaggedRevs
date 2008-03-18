@@ -478,8 +478,9 @@ class Revisionreview extends UnlistedSpecialPage
 		# Clear the cache...
 		$this->page->invalidateCache();
 		# Might as well update the stable cache while we're at it
-		FlaggedRevs::updatePageCache( $article, $stableOutput );
-
+		if( $rev->getId() == $article->getLatest() ) {
+			FlaggedRevs::updatePageCache( $article, $stableOutput );
+		}
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
 
@@ -590,11 +591,7 @@ class Stableversions extends UnlistedSpecialPage
 			return;
 		}
 
-		if( $this->oldid ) {
-			$this->showStableRevision();
-		} else {
-			$this->showStableList();
-		}
+		$this->showStableList();
 	}
 
 	function showStableList() {
@@ -605,9 +602,6 @@ class Stableversions extends UnlistedSpecialPage
 				$this->page->getPrefixedText() ) );
 			return;
 		}
-
-		$wgOut->setPageTitle( wfMsg( 'stableversions-title', $this->page->getPrefixedText() ) );
-
 		$pager = new StableRevisionsPager( $this, array(), $this->page );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'),
@@ -621,73 +615,8 @@ class Stableversions extends UnlistedSpecialPage
 		}
 	}
 
-	function showStableRevision() {
-		global $wgParser, $wgLang, $wgUser, $wgOut, $wgFlaggedArticle;
-
-		$wgOut->setPageTitle( wfMsg( 'stableversions-title', $this->page->getPrefixedText() ) );
-		# Get the revision
-		if( $this->oldid =='best' ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			# Get the highest quality revision (not necessarily this one).
-			$oldid = $dbr->selectField( array('flaggedrevs', 'revision'),
-				'fr_rev_id',
-				array( 'fr_page_id' => $this->page->getArticleID(),
-					'fr_rev_id = rev_id',
-					'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
-				__METHOD__,
-				array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
-		} else {
-			$oldid = $this->oldid;
-		}
-
-		# Get the either the full flagged revision text or the revision text
-		global $wgUseStableTemplates;
-		if( $wgUseStableTemplates ) {
-			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, false );
-		} else {
-			$frev = FlaggedRevs::getFlaggedRev( $this->page, $oldid, true );
-		}
-
-		# Revision must exists
-		if( is_null($frev) ) {
-			$wgOut->showErrorPage( 'notargettitle', 'revnotfoundtext' );
-			return;
-		}
-
-		# Get flags and date
-		$flags = $frev->getTags();
-		$time = $wgLang->timeanddate( $frev->getTimestamp(), true );
-       	# We will be looking at the reviewed revision...
-       	$tag = wfMsgExt( 'revreview-static', array('parseinline'),
-		   urlencode($this->page->getPrefixedText()), $time, $this->page->getPrefixedText() ) .
-			' <a id="mwrevisiontoggle" style="display:none;" href="javascript:toggleRevRatings()">' .
-			wfMsg('revreview-toggle') . '</a>' .
-			'<span id="mwrevisionratings" style="display:block;">' .
-			wfMsg('revreview-oldrating') . $wgFlaggedArticle->addTagRatings( $flags ) .
-			'</span>';
-		$tag = '<div id="mwrevisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
-
-		# Expand the either the full flagged revision text or the revision text
-		$article = new Article( $this->page );
-		if( $wgUseStableTemplates ) {
-			$rev = Revision::newFromId( $frev->getRevId() );
-			$text = $rev->getText();
-		} else {
-			$text = $frev->getText();
-		}
-		# Parse the revision text
-       	$parserOutput = FlaggedRevs::parseStableText( $article, $text, $oldid  );
-
-		# Output HTML
-       	$wgOut->addParserOutput( $parserOutput );
-		# Add tag and comment text
-		$wgOut->mBodytext = $tag . $wgOut->mBodytext . $wgFlaggedArticle->ReviewNotes( $frev );
-	}
-
 	function formatRow( $row ) {
 		global $wgLang, $wgUser;
-
-		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );
 
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
 		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
@@ -696,8 +625,8 @@ class Stableversions extends UnlistedSpecialPage
 			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ) );
 
 		$lev = ( $row->fr_quality >=1 ) ? wfMsg('hist-quality') : wfMsg('hist-stable');
-		$link = $this->skin->makeKnownLinkObj( $SVtitle, $time,
-			'page='.$this->page->getPrefixedUrl().'&oldid='.$row->fr_rev_id );
+		$link = $this->skin->makeKnownLinkObj( $this->page, $time,
+			'stableid='.$row->fr_rev_id );
 
 		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';
 	}
@@ -950,8 +879,8 @@ class Reviewedpages extends SpecialPage
 		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );
 		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-all'),
 			'page=' . $title->getPrefixedUrl() );
-		$best = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-best'),
-			'page=' . $title->getPrefixedUrl() . '&oldid=best' );
+		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('reviewedpages-best'),
+			'stableid=best' );
 
 		return '<li>'.$link.' ('.$list.') ['.$best.'] </li>';
 	}

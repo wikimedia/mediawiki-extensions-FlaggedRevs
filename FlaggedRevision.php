@@ -10,18 +10,20 @@ class FlaggedRevision {
 	private $mText;
 	private $mFlags;
 	private $mUser;
+	private $mTitle;
 
 	/**
 	 * @param object $row (from database)
 	 * @access private
 	 */
-	function __construct( $row ) {
+	function __construct( $title, $row ) {
+		$this->mTitle = $title;
 		$this->mRevId = intval( $row->fr_rev_id );
 		$this->mPageId = intval( $row->fr_page_id );
 		$this->mTimestamp = $row->fr_timestamp;
 		$this->mComment = $row->fr_comment;
 		$this->mQuality = intval( $row->fr_quality );
-		$this->mTags = FlaggedRevs::expandRevisionTags( strval( $row->fr_tags ) );
+		$this->mTags = FlaggedRevs::expandRevisionTags( strval($row->fr_tags) );
 		# Optional fields
 		$this->mUser = isset($row->fr_user) ? $row->fr_user : 0;
 		$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : array();
@@ -50,6 +52,13 @@ class FlaggedRevision {
 	 */
 	public function getRevId() {
 		return $this->mRevId;
+	}
+	
+	/**
+	 * @returns Title title
+	 */
+	public function getTitle() {
+		return $this->mTitle;
 	}
 
 	/**
