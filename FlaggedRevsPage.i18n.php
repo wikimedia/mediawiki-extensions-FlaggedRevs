@@ -72,7 +72,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'revreview-toggle' => '(+/-)',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 
-	'revreview-old' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} reviewed version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
+	'revreview-basic-source' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sighted version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
+	'revreview-quality-source' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} quality version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
 
 	'revreview-update' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].
 

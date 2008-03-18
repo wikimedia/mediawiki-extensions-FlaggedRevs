@@ -116,9 +116,11 @@ class FlaggedArticle {
 			if( !is_null($frev) ) {
 				$time = $wgLang->date( $frev->getTimestamp(), true );
 				$flags = $frev->getTags();
-				$tag = wfMsgExt( 'revreview-old', array('parseinline'), $frev->getRevId(), $time );
+				$quality = FlaggedRevs::isQuality( $flags );
+				$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
+				$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 				# Hide clutter
-				if( !empty($flags) ) {
+				if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
 					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
 						" onclick='toggleRevRatings()'>" . wfMsg( 'revreview-toggle' ) . "</span>";
 					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
