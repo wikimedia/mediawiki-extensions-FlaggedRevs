@@ -7,9 +7,10 @@
 .flaggedrevs_warning,
 .flaggedrevs_preview {
 	border: 1px solid #aaa;
-	padding: 7px;
+	padding: 5px;
 	font-size: 80%;
 	font-weight: normal;
+	line-height: 1.5em;
 	margin: .5em 1em 0em 0em;
 	text-align: center;
 	float: center;

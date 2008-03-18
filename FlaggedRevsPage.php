@@ -477,8 +477,10 @@ class Revisionreview extends UnlistedSpecialPage
 		}
 		# Clear the cache...
 		$this->page->invalidateCache();
-		# Might as well update the stable cache while we're at it
-		if( $rev->getId() == $article->getLatest() ) {
+		# If we know that this is now the new stable version 
+		# (which it probably is), save it to the cache...
+		$sv = FlaggedRevs::getStablePageRev( $this->page, false, true );
+		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			FlaggedRevs::updatePageCache( $article, $stableOutput );
 		}
 		$u = new LinksUpdate( $this->page, $poutput );

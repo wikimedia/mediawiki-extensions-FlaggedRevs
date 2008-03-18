@@ -77,8 +77,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 '''Some templates/images were updated:'''",
 	'revreview-update-none' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].",
 	'revreview-auto' => '(automatic)',
-	'revreview-auto-w' => "You are editing the stable revision, any changes will '''automatically be reviewed'''.",
-	'revreview-auto-w-old' => "You are editing an old revision, any changes will '''automatically be reviewed'''.",
+	'revreview-auto-w' => "You are editing the stable revision; changes will '''automatically be reviewed'''.",
+	'revreview-auto-w-old' => "You are editing an old reviewed revision; changes will '''automatically be reviewed'''.",
 	'revreview-patrolled' => 'The selected revision of [[:$1|$1]] has been marked as patrolled.',
 
 	'hist-stable'  => '[sighted revision]',

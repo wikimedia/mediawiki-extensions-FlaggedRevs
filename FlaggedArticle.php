@@ -142,7 +142,7 @@ class FlaggedArticle {
 		}
 		if( $stableId && $reqId ) {
 			if( $reqId != $stableId ) {
-				$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $stableId, true );
+				$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $reqId, true );
 				$old = true; // old reviewed version requested by ID
 			} else {
 				$stable = true; // stable version requested by ID
@@ -338,17 +338,40 @@ class FlaggedArticle {
 			# Construct some tagging
 			$quality = FlaggedRevs::isQuality( $flags );
 			# If this will be autoreviewed, notify the user...
-			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') && $frev->getRevId()==$editform->mArticle->getLatest() ) {
-				# Check if user is allowed to renew the stable version.
-				# If it has been reviewed too highly for this user, abort.
-				foreach( $flags as $quality => $level ) {
-					if( !Revisionreview::userCan($quality,$level) ) {
-						return true;
+			$notice = false;
+			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
+				// We are editing the stable version
+				if( $revid == $frev->getRevId() ) {
+					$notice = true;
+					# Check if user is allowed to renew the stable version.
+					# If it has been reviewed too highly for this user, abort.
+					foreach( $flags as $qal => $level ) {
+						if( !Revisionreview::userCan($qal,$level) ) {
+							$notice = false;
+							break;
+						}
+					}
+				} else {
+					// We are editing some other reviewed revision
+					$ofrev = FlaggedRevs::getFlaggedRev( $editform->mArticle->getTitle(), $revid );
+					if( !is_null($ofrev) ) {
+						$flags = $ofrev->getTags();
+						$notice = true;
+						# Check if user is allowed to renew the stable version.
+						# If it has been reviewed too highly for this user, abort.
+						foreach( $flags as $qal => $level ) {
+							if( !Revisionreview::userCan($qal,$level) ) {
+								$notice = false;
+								break;
+							}
+						}
 					}
 				}
-				$msg = ($revid==$frev->getRevId()) ? 'revreview-auto-w' : 'revreview-auto-w-old';
-				$warning = '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' .
-					wfMsgExt($msg,array('parseinline')) . '</div>';
+				if( $notice ) {
+					$msg = ( $revid==$frev->getRevId() ) ? 'revreview-auto-w' : 'revreview-auto-w-old';
+					$warning = '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' .
+						wfMsgExt($msg,array('parseinline')) . '</div>';
+				}
 			}
 			# Streamlined UI
 			if( FlaggedRevs::useSimpleUI() ) {
@@ -370,9 +393,7 @@ class FlaggedArticle {
 				}
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
 			}
-			$this->reviewNotice .= $tag . $warning;
-			
-			$this->displayTag();
+			$wgOut->addHTML( $tag . $warning );
 		}
 		return true;
     }
@@ -974,11 +995,11 @@ class FlaggedArticle {
 	}
 
 	/**
-	* When an edit is made by a reviwer, if the current revision is the stable
+	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
 	public function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReview;
+		global $wgFlaggedRevsAutoReview, $wgRequest;
 
 		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
 			return true;
@@ -990,13 +1011,11 @@ class FlaggedArticle {
 			$this->skipReviewDiff = true; // Don't jump to diff...
 			return true;
 		}
-		# The previous revision was the current one.
-		$prev_id = $article->getTitle()->getPreviousRevisionID( $rev->getID() );
-		if( !$prev_id )
-			return true;
-		$frev = FlaggedRevs::getStablePageRev( $article->getTitle() );
+		# Get the revision the incoming one was based off
+		$baseRevID = $wgRequest->getVal('baseRevId');
+		$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $baseRevID );
 		# Is this an edit directly to the stable version?
-		if( is_null($frev) || $prev_id != $frev->getRevId() )
+		if( is_null($frev) )
 			return true;
 		# Grab the flags for this revision
 		$flags = $frev->getTags();
@@ -1048,6 +1067,21 @@ class FlaggedArticle {
 		$this->skipReviewDiff = true; // Don't jump to diff...
 		$this->skipAutoReview = true; // Be sure not to do stuff twice
 
+		return true;
+	}
+	
+	/**
+	* Add a hidden revision ID field to edit form.
+	* Needed for autoreview so it can select the flags from said revision.
+	*/
+	public function addRevisionIDField( $editform, $out ) {
+		# Find out revision id
+		if( $editform->mArticle->mRevision ) {
+       		$revid = $editform->mArticle->mRevision->mId;
+		} else {
+       		$revid = $editform->mArticle->getLatest();
+       	}
+		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revid ) );
 		return true;
 	}
 

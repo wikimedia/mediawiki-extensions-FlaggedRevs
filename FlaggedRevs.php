@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.018',
+	'version' => '1.019',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -149,7 +149,7 @@ $wgFlaggedRevsAutopromote = array(
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 5;
+$wgFlaggedRevStyleVersion = 6;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -247,6 +247,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
 	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolAndDiffLink' );
 	# Autoreview stuff
+	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
 	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
 	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
@@ -1046,8 +1047,12 @@ class FlaggedRevs {
 		Revisionreview::updateLog( $article->getTitle(), $flags, wfMsg('revreview-auto'),
 			$rev->getID(), true, false );
 
-		# Might as well save the stable version cache
-		self::updatePageCache( $article, $poutput );
+		# If we know that this is now the new stable version 
+		# (which it probably is), save it to the cache...
+		$sv = self::getStablePageRev( $article->getTitle(), false, true );
+		if( $sv && $sv->getRevId() == $rev->getId() ) {
+			FlaggedRevs::updatePageCache( $article, $poutput );
+		}
 		# Update page fields
 		self::updateArticleOn( $article, $rev->getID() );
 		# Purge squid for this page only
