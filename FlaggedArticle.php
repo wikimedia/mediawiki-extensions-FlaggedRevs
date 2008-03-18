@@ -288,18 +288,20 @@ class FlaggedArticle {
 			$this->reviewNotice .= $tag;
 			# Add revision notes
 			$wgOut->mBodytext = $wgOut->mBodytext . $notes;
-		// Add "no reviewed version" tag, but not for main page
+		// Add "no reviewed version" tag, but not for main page or printable output.
 		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $article->getTitle() ) ) {
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
+				$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
 				$tag .= "<span class='fr-icon-current plainlinks'></span>" .
-					wfMsgExt('revreview-quick-none',array('parseinline'));
+					wfMsgExt($msg,array('parseinline'));
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
 				$this->reviewNotice .= $tag;
 			// Standard UI
 			} else {
+				$msg = $old ? 'revreview-invalid' : 'revreview-noflagged';
 				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' .
-					wfMsgExt('revreview-noflagged', array('parseinline')) . '</div>';
+					wfMsgExt($msg, array('parseinline')) . '</div>';
 				$this->reviewNotice .= $tag;
 			}
 		}

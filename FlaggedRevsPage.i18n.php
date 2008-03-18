@@ -39,6 +39,8 @@ The ''draft'' is shown below.'''",
 	'validationpage' => '{{ns:help}}:Article validation',
 
 	'revreview-quick-none' => '\'\'\'[[{{MediaWiki:Validationpage}}|Current revision]]\'\'\' (unreviewed)',
+	'revreview-quick-invalid' => "'''Invalid revision ID'''",
+	'revreview-invalid' => "'''Invalid target:''' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.",
 	'revreview-quick-see-quality' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
 	'revreview-quick-see-basic' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
