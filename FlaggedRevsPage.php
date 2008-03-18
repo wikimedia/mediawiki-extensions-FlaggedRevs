@@ -476,20 +476,29 @@ class Revisionreview extends UnlistedSpecialPage
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
 		# If we know that this is now the new stable version 
-		# (which it probably is), save it to the cache...
+		# (which it probably is), save it to the stable cache...
 		$sv = FlaggedRevs::getStablePageRev( $this->page, false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Clear the cache...
 			$this->page->invalidateCache();
-			# Update stable cache
+			# Update stable cache with the revision we reviewed
 			FlaggedRevs::updatePageCache( $article, $stableOutput );
-			# Might as well save the cache, since it should be the same
-			$parserCache->save( $poutput, $article, $wgUser );
-			# Purge squid for this page only
-			$article->getTitle()->purgeSquid();
+		} else {
+			# Get the old stable cache
+			$stableOutput = FlaggedRevs::getPageCache( $article );
+			# Clear the cache...(for page histories)
+			$this->page->invalidateCache();
+			if( $stableOutput !== false ) {
+				# Reset stable cache if it existed, since we know it is the same.
+				FlaggedRevs::updatePageCache( $article, $stableOutput );
+			}
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
+		# Might as well save the cache, since it should be the same
+		$parserCache->save( $poutput, $article, $wgUser );
+		# Purge squid for this page only
+		$article->getTitle()->purgeSquid();
 
         return true;
     }
