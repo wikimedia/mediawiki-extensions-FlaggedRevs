@@ -683,7 +683,7 @@ class FlaggedRevs {
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
 			# Keep this consistent across settings. 0 -> precedence, 0 -> none
 			$select = $wgFlaggedRevsPrecedence ? 0 : 1;
-			return array('select' => 0, 'override' => $override, 'expiry' => 'infinity');
+			return array('select' => $select, 'override' => $override, 'expiry' => 'infinity');
 		}
 
 		return array('select' => $row->fpc_select, 'override' => $row->fpc_override, 'expiry' => $row->fpc_expiry);
