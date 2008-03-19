@@ -124,9 +124,10 @@ class Revisionreview extends UnlistedSpecialPage
 	}
 
 	/**
-	 * @param string $tag
-	 * @param int $val
 	 * Returns true if a user can do something
+	 * @param string $tag
+	 * @param int $value
+	 * @returns bool
 	 */
 	public static function userCan( $tag, $value ) {
 		global $wgFlagRestrictions, $wgUser;
@@ -144,6 +145,22 @@ class Revisionreview extends UnlistedSpecialPage
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Returns true if a user can set $flags.
+	 * This checks if the user has the right to review
+	 * to the given levels for each tag.
+	 * @param array $flags
+	 * @returns bool
+	 */
+	public static function userCanSetFlags( $flags ) {
+		foreach( $flags as $qal => $level ) {
+			if( !self::userCan($qal,$level) ) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	function markPatrolled() {

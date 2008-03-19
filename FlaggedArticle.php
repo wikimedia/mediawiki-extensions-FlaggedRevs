@@ -415,29 +415,17 @@ class FlaggedArticle {
 			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
 				// We are editing the stable version
 				if( $revid == $frev->getRevId() ) {
-					$notice = true;
 					# Check if user is allowed to renew the stable version.
 					# If it has been reviewed too highly for this user, abort.
-					foreach( $flags as $qal => $level ) {
-						if( !Revisionreview::userCan($qal,$level) ) {
-							$notice = false;
-							break;
-						}
-					}
+					$notice = Revisionreview::userCanSetFlags( $flags );
 				} else {
 					// We are editing some other reviewed revision
 					$ofrev = FlaggedRevs::getFlaggedRev( $editform->mArticle->getTitle(), $revid );
 					if( !is_null($ofrev) ) {
 						$flags = $ofrev->getTags();
-						$notice = true;
 						# Check if user is allowed to renew the stable version.
 						# If it has been reviewed too highly for this user, abort.
-						foreach( $flags as $qal => $level ) {
-							if( !Revisionreview::userCan($qal,$level) ) {
-								$notice = false;
-								break;
-							}
-						}
+						$notice = Revisionreview::userCanSetFlags( $flags );
 					}
 				}
 				if( $notice ) {
@@ -748,11 +736,8 @@ class FlaggedArticle {
 			# Check if user is allowed to renew the stable version.
 			# It may perhaps have been reviewed too highly for this user, if so,
 			# then get the flags for the new revision itself.
-			foreach( $flags as $quality => $level ) {
-				if( !Revisionreview::userCan($quality,$level) ) {
-					$flags = $this->getFlagsForRevision( $id );
-					break;
-				}
+			if( !Revisionreview::userCanSetFlags( $flags ) ) {
+				$flags = $this->getFlagsForRevision( $id );
 			}
 		} else {
 			$flags = $this->getFlagsForRevision( $id );
@@ -1094,10 +1079,8 @@ class FlaggedArticle {
 		$flags = $frev->getTags();
 		# Check if user is allowed to renew the stable version.
 		# If it has been reviewed too highly for this user, abort.
-		foreach( $flags as $quality => $level ) {
-			if( !Revisionreview::userCan($quality,$level) ) {
-				return true;
-			}
+		if( !Revisionreview::userCanSetFlags( $flags ) ) {
+			return true;
 		}
 		FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags );
 
@@ -1126,10 +1109,8 @@ class FlaggedArticle {
 		$flags = FlaggedRevs::getRevisionTags( $rev->getID() );
 		# Check if user is allowed to renew the stable version.
 		# If it has been reviewed too highly for this user, abort.
-		foreach( $flags as $quality => $level ) {
-			if( !Revisionreview::userCan($quality,$level) ) {
-				return true;
-			}
+		if( !Revisionreview::userCanSetFlags( $flags ) ) {
+			return true;
 		}
 		# Select the version that is now current. Create a new article object
 		# to avoid using one with outdated field data.
