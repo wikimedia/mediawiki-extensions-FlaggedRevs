@@ -285,8 +285,8 @@ $messages['ar'] = array(
 	'revreview-auto-w'             => "'''ملاحظة:''' أنت تقوم بتغييرات للنسخة المستقرة، تعديلاتك سيتم مراجعتها تلقائيا.",
 	'revreview-auto-w-old'         => "أنت تحرر نسخة مراجعة قديمة، أية تغييرات ستتم '''مراجعتها تلقائيا'''.",
 	'revreview-patrolled'          => 'النسخة المختارة من [[:$1|$1]] تم التعليم عليها كمراجعة.',
-	'hist-stable'                  => '[نسخة منظورة]',
-	'hist-quality'                 => '[نسخة جودة]',
+	'hist-stable'                  => 'نسخة منظورة',
+	'hist-quality'                 => 'نسخة جودة',
 	'flaggedrevs'                  => 'نسخ معلمة',
 	'review-logpage'               => 'سجل مراجعة المقالة',
 	'review-logpagetext'           => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Makevalidate-page}}|الموافقة]] لصفحات المحتوى.",
@@ -443,8 +443,8 @@ Seique quieras previsualizar la páxina enantes de grabala.",
 	'revreview-auto-w-old'        => "tas editando una revisión antigua, cualesquier cambéu va ser '''revisáu atuomáticamente'''.
 Seique quieras previsualizar la páxina enantes de grabala.",
 	'revreview-patrolled'         => 'La revisión seleicionada de [[:$1|$1]] marcóse como supervisada.',
-	'hist-stable'                 => '[versión vista]',
-	'hist-quality'                => '[versión calidable]',
+	'hist-stable'                 => 'versión vista',
+	'hist-quality'                => 'versión calidable',
 	'flaggedrevs'                 => 'Revisiones marcaes',
 	'review-logpage'              => "Rexistru de revisión d'artículos",
 	'review-logpagetext'          => 'Esti ye un rexistru de los cambeos fechos na [[{{MediaWiki:Validationpage}}|aprobación]]
@@ -545,9 +545,10 @@ Esta ye la configuración de [[:$1|$1]]:',
 
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
+ * @author Siebrand
  */
 $messages['bcl'] = array(
-	'hist-quality'        => '[kalidad]',
+	'hist-quality'        => 'kalidad',
 	'revreview-depth'     => 'Rarom',
 	'stableversions-page' => 'Pangaran kan pahina',
 	'unreviewed-category' => 'Kategorya:',
@@ -557,6 +558,7 @@ $messages['bcl'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Siebrand
  */
 $messages['bg'] = array(
 	'flaggedrevs-desc'          => 'Дава възможността на редактори/рецензенти да одобряват версии и да определят страници като устойчиви',
@@ -578,7 +580,7 @@ $messages['bg'] = array(
 	'revreview-quick-none'      => "'''Текуща''' (няма рецензирани версии)",
 	'revreview-auto'            => '(автоматично)',
 	'revreview-patrolled'       => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
-	'hist-quality'              => '[качествена версия]',
+	'hist-quality'              => 'качествена версия',
 	'review-logentry-id'        => 'номер на редакция $1',
 	'stable-logpage'            => 'Дневник на устойчивите версии',
 	'revreview-patrol'          => 'Отбелязване на промяната като проверена',
@@ -648,6 +650,7 @@ $messages['bg'] = array(
 /** Bengali (বাংলা)
  * @author Zaheen
  * @author Bellayet
+ * @author Siebrand
  */
 $messages['bn'] = array(
 	'editor'                      => 'সম্পাদক',
@@ -679,8 +682,8 @@ $messages['bn'] = array(
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} সমস্ত তালিকা])  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে
 <i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{plural:$3|প্রয়োজন|প্রয়োজন}}।',
 	'revreview-auto'              => '(সয়ংক্রিয়)',
-	'hist-stable'                 => '[সাইট করা সংশোধন]',
-	'hist-quality'                => '[কোয়ালিটি সংশোধন]',
+	'hist-stable'                 => 'সাইট করা সংশোধন',
+	'hist-quality'                => 'কোয়ালিটি সংশোধন',
 	'flaggedrevs'                 => 'চিহ্নিত সংশোধনসমূহ',
 	'review-logpage'              => 'নিবন্ধ পর্যালোচনা লগ',
 	'review-logpagetext'          => 'এটি বিষয়বস্তু পাতাগুলিতে সংশোধনসমূহের [[{{MediaWiki:Validationpage}}|অনুমোদন]] মর্যাদা পরিবর্তনের একটি লগ।',
@@ -787,8 +790,8 @@ $messages['ca'] = array(
 
 '''Algunes plantilles i imatges poden haver canviat:'''",
 	'revreview-auto'              => '(automàtic)',
-	'hist-stable'                 => '[versió revisada]',
-	'hist-quality'                => '[versió de qualitat]',
+	'hist-stable'                 => 'versió revisada',
+	'hist-quality'                => 'versió de qualitat',
 	'stableversions'              => 'Versions estables',
 	'stableversions-page'         => 'Nom de la pàgina:',
 	'unreviewed-category'         => 'Categoria:',
@@ -848,8 +851,8 @@ $messages['cs'] = array(
 	'revreview-auto-w'             => "Editujete stabilní verzi, změny budou '''automaticky označeny jako posouzené'''. Měli byste zkontrolovat náhled stránky.",
 	'revreview-auto-w-old'         => "Editujete starou verzi, změny budou '''automaticky označeny jako posouzené'''. Měli byste zkontrolovat náhled stránky.",
 	'revreview-patrolled'          => 'Vybraná verze stránky [[:$1|$1]] byla označena jako prověřená.',
-	'hist-stable'                  => '[prohlédnutá verze]',
-	'hist-quality'                 => '[kvalitní verze]',
+	'hist-stable'                  => 'prohlédnutá verze',
+	'hist-quality'                 => 'kvalitní verze',
 	'flaggedrevs'                  => 'Označování verzí',
 	'review-logpage'               => 'Kniha posuzování článků',
 	'review-logpagetext'           => 'Tato kniha zobrazuje změny [[{{MediaWiki:Makevalidate-page}}|schválení]] verzí stránek.',
@@ -1135,6 +1138,7 @@ $messages['el'] = array(
 
 /** Esperanto (Esperanto)
  * @author Yekrats
+ * @author Siebrand
  */
 $messages['eo'] = array(
 	'editor'                      => 'Redaktanto',
@@ -1150,7 +1154,7 @@ $messages['eo'] = array(
 	'revreview-quick-see-quality' => "'''Malneto''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardu artikolon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} komparu])",
 	'revreview-auto'              => '(aŭtomata)',
-	'hist-quality'                => '[kvalita revizio]',
+	'hist-quality'                => 'kvalita revizio',
 	'review-logentry-dis'         => 'evitinda versio de [[$1]]',
 	'review-logentry-id'          => 'identigo de revizio $1',
 	'stable-logpage'              => 'Loglibro pri stabilaj versioj',
@@ -1472,8 +1476,8 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peu
 	'revreview-auto-w'             => "Vous êtes en train de modifier une version stable : Les modifications '''seront automatiquement relues'''.",
 	'revreview-auto-w-old'         => "Vous êtes en train de modifier une ancienne version relue ; les modifications  '''seront automatiquement relues'''.",
 	'revreview-patrolled'          => 'La version sélectionnée de [[:$1|$1]] a été marquée comme patrouillée.',
-	'hist-stable'                  => '[Version visualisée]',
-	'hist-quality'                 => '[qualité de la version]',
+	'hist-stable'                  => 'Version visualisée',
+	'hist-quality'                 => 'qualité de la version',
 	'flaggedrevs'                  => 'Révisions marquées',
 	'review-logpage'               => "Journal des révisions de l'article",
 	'review-logpagetext'           => "C'est un journal des modifications pour [[{{MediaWiki:Makevalidate-page}}|l'approbation]] des révisions.",
@@ -1613,8 +1617,8 @@ $messages['frp'] = array(
 	'revreview-auto-w'             => "Vos modifiâd una vèrsion stâbla, tota modificacion serat '''ôtomaticament rèvisâ'''. Demandâd una prèvisualisacion devant que sôvar.",
 	'revreview-auto-w-old'         => "Vos modifiâd una vielye vèrsion, tota modificacion serat '''ôtomaticament rèvisâ'''. Demandâd una prèvisualisacion devant que sôvar.",
 	'revreview-patrolled'          => 'La vèrsion sèlèccionâ de [[:$1|$1]] at étâ marcâ coment survelyê.',
-	'hist-stable'                  => '[vèrsion vua]',
-	'hist-quality'                 => '[vèrsion de qualitât]',
+	'hist-stable'                  => 'vèrsion vua',
+	'hist-quality'                 => 'vèrsion de qualitât',
 	'flaggedrevs'                  => 'Vèrsions marcâs',
 	'review-logpage'               => 'Jornal de les rèvisions de l’articllo',
 	'review-logpagetext'           => 'Cen est un jornal de les modificacions por l’[[{{MediaWiki:Makevalidate-page}}|aprobacion]] de les rèvisions.',
@@ -1713,8 +1717,8 @@ Lo rechargement de la pâge et sa revisualisacion pôt corregiér cél problèmo
 /** Galician (Galego)
  * @author Alma
  * @author Xosé
- * @author Toliño
  * @author Siebrand
+ * @author Toliño
  * @author SPQRobin
  */
 $messages['gl'] = array(
@@ -1762,7 +1766,7 @@ $messages['gl'] = array(
 	'revreview-auto-w'             => "Está editando unha revisión estábel; calquera cambio '''será automaticamente revisado'''.",
 	'revreview-auto-w-old'         => "Está editando unha revisión vella xa revisada; calquera cambio '''será automaticamente revisado'''.",
 	'revreview-patrolled'          => 'A revisión seleccionada de [[:$1|$1]] foi marcada como revisada.',
-	'hist-quality'                 => '[revisión de calidade]',
+	'hist-quality'                 => 'revisión de calidade',
 	'flaggedrevs'                  => 'Revisións marcadas',
 	'review-logpage'               => 'Rexistro de revisións do artigo',
 	'review-logpagetext'           => 'Este é un rexistro dos cambios para as revisións de [[{{MediaWiki:Makevalidate-page}}|aprobación]] do status
@@ -1911,8 +1915,8 @@ Možda želite pregledati vaše izmjene prije snimanja.",
 	'revreview-auto-w-old'        => "Uređujete staru inačicu članka, svaka promjena bit će '''automatski ocijenjena'''.
 Možda želite pregledati vaše izmjene prije snimanja.",
 	'revreview-patrolled'         => 'Odabrana izmjena stranice [[:$1|$1]] je označena pregledanom (patroliranom).',
-	'hist-stable'                 => '[pregledana]',
-	'hist-quality'                => '[kvalitetna]',
+	'hist-stable'                 => 'pregledana',
+	'hist-quality'                => 'kvalitetna',
 	'flaggedrevs'                 => 'Označene promjene',
 	'review-logpage'              => 'Evidencija ocjena članka',
 	'review-logpagetext'          => 'Ovo je evidencija promjena [[{{MediaWiki:Validationpage}}|ocjena]] članaka.',
@@ -2074,8 +2078,8 @@ $messages['hsb'] = array(
 	'revreview-auto-w'             => "Wobdźěłuješ runje stabilnu wersiju, wšě změny so '''awtomatisce pruwować.''' Ty měł sej tohodla stronu před składowanjom w přehledźe wobhladać.",
 	'revreview-auto-w-old'         => "Wobdźěłuješ staru wersiju, wšě změny budu so '''awtomatisce pruwować.''' Ty měł sej tohodla stronu před składowanjom w přehledźe wobhladać.",
 	'revreview-patrolled'          => 'Wubrana wersija bu wot [[:$1|$1]] bu jako dohladowana marěkrowana.',
-	'hist-stable'                  => '[wuhladana wersija]',
-	'hist-quality'                 => '[pruwowana wersija]',
+	'hist-stable'                  => 'wuhladana wersija',
+	'hist-quality'                 => 'pruwowana wersija',
 	'flaggedrevs'                  => 'Woznamjenjene wersije',
 	'review-logpage'               => 'Protokol přehladanjow',
 	'review-logpagetext'           => 'To je protokol změnow [[{{MediaWiki:Makevalidate-page}}|dopušćenjow]] za nastawki.',
@@ -2235,8 +2239,8 @@ Megtekintheted a lap előnézetét mentés előtt.",
 	'revreview-auto-w-old'         => "Jelenleg egy korábbi változatot szerkesztesz, bármilyen változás '''automatikusan ellenőrizve lesz'''.
 Megtekintheted a lap előnézetét mentés előtt.",
 	'revreview-patrolled'          => '[[:$1|$1]] kiválasztott változata ellenőrzöttnek lett jelölve.',
-	'hist-stable'                  => '[áttekintett változat]',
-	'hist-quality'                 => '[minőségi változat]',
+	'hist-stable'                  => 'áttekintett változat',
+	'hist-quality'                 => 'minőségi változat',
 	'flaggedrevs'                  => 'Ellenőrzött változatok',
 	'review-logpage'               => 'Cikk-áttekintési napló',
 	'review-logpagetext'           => 'Ez a lap a lapok verzióinak [[{{MediaWiki:Validationpage}}|elfogadottsági]] állapotában történt változások
@@ -2588,8 +2592,8 @@ $messages['ja'] = array(
 	'revreview-auto-w'             => "あなたは査読版を編集していますが、全ての変更は'''自動的に査読'''されます。保存する前のページプレビューをお勧めします。",
 	'revreview-auto-w-old'         => "あなたは過去の版を編集していますが、全ての変更は'''自動的に査読'''されます。保存する前のページプレビューをお勧めします。",
 	'revreview-patrolled'          => '選択された [[:$1|$1]] の版は、パトロール済みにマークされます。',
-	'hist-stable'                  => '[採用版]',
-	'hist-quality'                 => '[内容充実版]',
+	'hist-stable'                  => '採用版',
+	'hist-quality'                 => '内容充実版',
 	'flaggedrevs'                  => '判定による版表示',
 	'review-logpage'               => '査読ログ',
 	'review-logpagetext'           => 'ページの版に対する[[{{MediaWiki:Validationpage}}|承認]]状況の変更ログです。',
@@ -2707,8 +2711,8 @@ $messages['jut'] = array(
 	'stabilization-tab'         => 'vet',
 	'tooltip-ca-default'        => 'Kwalitæt assurans endstellenger',
 	'validationpage'            => '{{ns:help}}:Artikel vålidåsje',
-	'hist-stable'               => '[sæn reviisje]',
-	'hist-quality'              => '[kwalitæ reviisje]',
+	'hist-stable'               => 'sæn reviisje',
+	'hist-quality'              => 'kwalitæ reviisje',
 	'flaggedrevs'               => 'Flagged Reviisje',
 	'revreview-accuracy'        => 'Klopthed',
 	'revreview-accuracy-0'      => 'Niveauen',
@@ -3372,8 +3376,8 @@ op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|ve
 	'revreview-auto-w-old'         => "U bent een oude versie aan het bewerken, elke wijziging wordt '''automatisch beoordeeld'''.
 Controleer uw bewerking voordat u deze opslaat.",
 	'revreview-patrolled'          => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
-	'hist-stable'                  => '[bekeke versie]',
-	'hist-quality'                 => '[kwaliteitsversie]',
+	'hist-stable'                  => 'bekeke versie',
+	'hist-quality'                 => 'kwaliteitsversie',
 	'flaggedrevs'                  => 'Aangevinkdje versies',
 	'review-logpage'               => 'Beoordeilingslogbook',
 	'review-logpagetext'           => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Makevalidate-page}}|waarderingsstatus]] van versies van pagina's.",
@@ -3550,8 +3554,8 @@ $messages['mr'] = array(
 	'revreview-auto-w-old'         => "तुम्ही जुनी आवृत्ती संपादित आहात, कुठलेही बदल हे '''आपोआप तपासले''' जातील.
 तुम्ही जतन करण्याआधी झलक पाहू शकता.",
 	'revreview-patrolled'          => '[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर पहाण्याची नोंद केलेली आहे.',
-	'hist-stable'                  => '[निवडलेली आवृत्ती]',
-	'hist-quality'                 => '[गुणवत्तापूर्ण आवृत्ती]',
+	'hist-stable'                  => 'निवडलेली आवृत्ती',
+	'hist-quality'                 => 'गुणवत्तापूर्ण आवृत्ती',
 	'flaggedrevs'                  => 'चिन्हांकित आवृत्ती',
 	'review-logpage'               => 'लेख तपासणी सूची',
 	'review-logpagetext'           => 'ही कंटेंट पानांच्या आवृत्त्यांमधील बदलांच्या [[{{MediaWiki:Validationpage}}|प्रमाणिकरणाची]] सूची आहे.',
@@ -3750,8 +3754,8 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} wijzigingen] g
 	'revreview-auto-w'             => "U bent de stabiele versie aan het bewerken. Wijzigingen worden '''automatisch voor eindredactie gekeurd'''.",
 	'revreview-auto-w-old'         => "U bent een oude versie aan het bewerken. Wijzigingen worden '''automatisch voor eindredactie gekeurd'''.",
 	'revreview-patrolled'          => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
-	'hist-stable'                  => '[beoordeelde versie]',
-	'hist-quality'                 => '[kwaliteitsversie]',
+	'hist-stable'                  => 'beoordeelde versie',
+	'hist-quality'                 => 'kwaliteitsversie',
 	'flaggedrevs'                  => 'Aangevinkte versies',
 	'review-logpage'               => 'Eindredactielogboek',
 	'review-logpagetext'           => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Makevalidate-page}}|waarderingsstatus]] van versies van pagina's.",
@@ -4011,8 +4015,8 @@ $messages['oc'] = array(
 	'revreview-auto-w'             => "Modificatz una version establa, tota modificacion serà '''automaticament revisada'''. Demandatz una previsualizacion abans de salvagardar.",
 	'revreview-auto-w-old'         => "Modificatz una version anciana, tota modificacion serà '''automaticament revisada'''. Demandatz una previsualizacion abans de salvagardar.",
 	'revreview-patrolled'          => 'La version seleccionada de [[:$1|$1]] es estada marcada coma patrolhada.',
-	'hist-stable'                  => '[Version visualizada]',
-	'hist-quality'                 => '[qualitat de la version]',
+	'hist-stable'                  => 'Version visualizada',
+	'hist-quality'                 => 'qualitat de la version',
 	'flaggedrevs'                  => 'Revisions marcadas',
 	'review-logpage'               => "Jornal de las revisions de l'article",
 	'review-logpagetext'           => "Es un jornal de las modificacions per [[{{MediaWiki:Makevalidate-page}}|l'aprobacion]] de las revisions.",
@@ -4250,8 +4254,8 @@ $messages['pms'] = array(
 	'revreview-auto'              => '(aotomàtich)',
 	'revreview-auto-w'            => "A l'é antramentr ch'a-i fa dle modìfiche ansima a la version stàbila, tute le modìfiche a saran '''controlà n<nowiki>'</nowiki>aotomàtich'''. A peul ëvnì a taj vardé na preuva dla pàgina anans che fé che salvé.",
 	'revreview-auto-w-old'        => "A l'é antramentr ch'a-i fa dle modìfiche ansima a na revision veja, tute le modìfiche a saran '''controlà n<nowiki>'</nowiki>aotomàtich'''. A peul ëvnì a taj vardé na preuva dla pàgina anans che fé che salvé.",
-	'hist-stable'                 => '[vardà]',
-	'hist-quality'                => '[qualità]',
+	'hist-stable'                 => 'vardà',
+	'hist-quality'                => 'qualità',
 	'flaggedrevs'                 => 'Revision marcà',
 	'review-logpage'              => "Registr dij contròj dj'artìcoj",
 	'review-logpagetext'          => "Sossì a l'é un registr dle modìfiche dlë stat d'[[{{MediaWiki:Makevalidate-page}}|aprovassion]] 
@@ -4421,8 +4425,8 @@ A página pode ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
 	'revreview-auto-w'             => "Você está editando a edição estável. As alterações serão '''automaticamente tidas como revistas'''.",
 	'revreview-auto-w-old'         => "Você está editando uma edição antiga. As alterações serão '''automaticamente tidas como revistas'''.",
 	'revreview-patrolled'          => 'A edição seleccionada de [[:$1|$1]] foi marcada como patrulhada.',
-	'hist-stable'                  => '[edição analisada]',
-	'hist-quality'                 => '[edição confiável]',
+	'hist-stable'                  => 'edição analisada',
+	'hist-quality'                 => 'edição confiável',
 	'flaggedrevs'                  => 'Edições Analisadas',
 	'review-logpage'               => 'Registo de análise de edições',
 	'review-logpagetext'           => 'Este é um registo de alterações nas [[{{MediaWiki:Validationpage}}|análises]] de páginas de conteúdo.',
@@ -4592,8 +4596,8 @@ $messages['ru'] = array(
 	'revreview-auto-w'             => "Вы правите чистовую версию, изменения будут '''автоматически отмечены как проверенные'''.",
 	'revreview-auto-w-old'         => "Вы правите старую проверенную версию страницы, изменения будут '''автоматически отмечены как проверенные'''.",
 	'revreview-patrolled'          => 'Выбранная версия [[:$1|$1]] была отмечена как патрулированная.',
-	'hist-stable'                  => '[досмотренная версия]',
-	'hist-quality'                 => '[выверенная версия]',
+	'hist-stable'                  => 'досмотренная версия',
+	'hist-quality'                 => 'выверенная версия',
 	'flaggedrevs'                  => 'Отмеченные версии',
 	'review-logpage'               => 'Журнал рецензий',
 	'review-logpagetext'           => 'Это журнал изменений статусов версий страниц.',
@@ -4744,8 +4748,8 @@ $messages['sah'] = array(
 	'revreview-auto-w'             => "Чистовой торуму уларытан эрэҕин, туох баар уларытыылар '''аптамаатынан бэрэбиэркэлэммит курдук бэлиэтэниэхтэрэ'''. Уларытыыны бигэргэтиэх иннинэ хайдах буолуохтааҕын көрөр ордук буолуо.",
 	'revreview-auto-w-old'         => "Эргэрбит торуму уларытан эрэҕин, туох баар уларытыылар '''аптамаатынан бэрэбиэркэлэммит курдук бэлиэтэниэхтэрэ'''. Уларытыыны бигэргэтиэх иннинэ хайдах буолуохтааҕын көрөр ордук буолуо.",
 	'revreview-patrolled'          => 'Талбыт торумуҥ [[:$1|$1]] бэрэбиэркэлэммит курдук бэлиэтэннэ.',
-	'hist-stable'                  => '[торум көрүлүннэ/көрүллүбүт]',
-	'hist-quality'                 => '[үрдүк хаачыстыбалаах торум]',
+	'hist-stable'                  => 'торум көрүлүннэ/көрүллүбүт',
+	'hist-quality'                 => 'үрдүк хаачыстыбалаах торум',
 	'flaggedrevs'                  => 'Бэлиэтэммит торумнар',
 	'review-logpage'               => 'Рецензиялар сурунааллара',
 	'review-logpagetext'           => 'Бу сирэйдэр торумнарын [[{{MediaWiki:Validationpage}}|бигэргэтиллибит]] уларытыыларын сурунаала.',
@@ -4904,8 +4908,8 @@ Na revíziu čaká [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} {{plural:$3|j
 	'revreview-auto-w'             => "Upravujete stabilnú revíziu, akékoľvek zmeny budú '''automaticky označené ako skontrolované'''. Pred uložením by ste mali použiť náhľad.",
 	'revreview-auto-w-old'         => "Upravujete strú revíziu, akékoľvek zmeny budú '''automaticky označené ako skontrolované'''. Pred uložením by ste mali použiť náhľad.",
 	'revreview-patrolled'          => 'Vybraná revízia [[:$1|$1]] bola označená ako strážená.',
-	'hist-stable'                  => '[videná revízia]',
-	'hist-quality'                 => '[kvalitná revízia]',
+	'hist-stable'                  => 'videná revízia',
+	'hist-quality'                 => 'kvalitná revízia',
 	'flaggedrevs'                  => 'Označené verzie',
 	'review-logpage'               => 'Záznam kontrol stránky',
 	'review-logpagetext'           => 'Toto je záznam zmien stavu [[{{MediaWiki:Makevalidate-page}}|kontroly]] verzií
@@ -5020,7 +5024,7 @@ $messages['sr-ec'] = array(
 	'revreview-stable'          => 'Стабилан',
 	'tooltip-ca-stable'         => 'Погледајте стабилну верзију ове странице',
 	'revreview-auto'            => '(аутоматски)',
-	'hist-quality'              => '[квалитет]',
+	'hist-quality'              => 'квалитет',
 	'review-logpage'            => 'Историја прегледа чланка',
 	'review-logentry-app'       => 'прегледан [[$1]]',
 	'revreview-accuracy-4'      => 'Изабрани',
@@ -5113,8 +5117,8 @@ $messages['stq'] = array(
 	'revreview-auto-w-old'         => "Du beoarbaidest ne oolde Version, dien Beoarbaidenge wäd '''automatisk as wröiged markierd.'''
 Du schuust ju Siede deeruum foar dät Spiekerjen in ju Foarschau bekiekje.",
 	'revreview-patrolled'          => 'Ju uutwäälde Version fon [[:$1|S1]] wuude as kontrollierd markierd.',
-	'hist-stable'                  => '[sieuwede Version]',
-	'hist-quality'                 => '[wröigede Version]',
+	'hist-stable'                  => 'sieuwede Version',
+	'hist-quality'                 => 'wröigede Version',
 	'flaggedrevs'                  => 'Markierde Versione',
 	'review-logpage'               => 'Artikkel-Wröig-Logbouk',
 	'review-logpagetext'           => 'Dit is dät Annerengs-Logbouk fon do [[{{MediaWiki:Validationpage}}|Sieden-Fräigoawen]].',
@@ -5214,8 +5218,8 @@ Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Di
 /** Swedish (Svenska)
  * @author Lejonel
  * @author M.M.S.
- * @author SPQRobin
  * @author Siebrand
+ * @author SPQRobin
  */
 $messages['sv'] = array(
 	'flaggedrevs-desc'             => 'Ger redaktörer/granskare möjlighet att granska sidversioner och ändra hur stabila sidor visas',
@@ -5266,10 +5270,10 @@ har ännu inte granskats.',
 	'revreview-update-none'        => "[[{{MediaWiki:Validationpage}}|Granska]] de ändringar ''(visade härunder)'' som gjorts sedan den stabila versionen av sidan [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkändes].",
 	'revreview-auto'               => '(automatiskt)',
 	'revreview-auto-w'             => "Du redigerar en stabil sidversion. De ändringar du gör kommer att '''granskas automatiskt'''. Använd därför förhandsgranskning innan du sparar sidan.",
-	'revreview-auto-w-old'         => "Du redigerar en gammal sidversion. De ändringar du gör kommer att '''granskas automatiskt'''. Använd därför förhandsgranskning innan du sparar sidan.",
+	'revreview-auto-w-old'         => "Du redigerar en gammal granskad version; ändringar kommer '''automatiskt granskas'''.",
 	'revreview-patrolled'          => 'Den valda versionen av [[:$1|$1]] har märkts som patrullerad.',
-	'hist-stable'                  => '[sedd version]',
-	'hist-quality'                 => '[kvalitetsversion]',
+	'hist-stable'                  => 'sedd version',
+	'hist-quality'                 => 'kvalitetsversion',
 	'flaggedrevs'                  => 'Flaggade sidversioner',
 	'review-logpage'               => 'Granskningslogg',
 	'review-logpagetext'           => 'Det här är en logg över ändringar av [[{{MediaWiki:Validationpage}}|granskningsstatusen]] för sidversioner.',
@@ -5314,7 +5318,7 @@ På [[Special:Unreviewedpages]] finns en lista över sidor som inte har granskat
 	'revreview-changed'            => "'''Den begärda åtgärden kunde inte utföras på denna version av [[:$1|$1]].'''
 
 En mall eller bild har efterfrågats utan att någon specifik version angavs. Detta kan hända om en mall inkluderar en annan bild eller mall beroende på en variabel som ändrats sedan du startade att granska denna sida. Att ladda om sidan och granska igen kan lösa detta problem.",
-	'stableversions'               => 'Stabila versioner',
+	'stableversions'               => 'Visa stabila versioner',
 	'stableversions-leg1'          => 'Lista granskade versioner av en sida',
 	'stableversions-page'          => 'Sidnamn:',
 	'stableversions-none'          => '"[[:$1]]" har inga granskade versioner.',
@@ -5369,8 +5373,8 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
  * @author Veeven
  * @author Chaduvari
  * @author వైజాసత్య
- * @author Mpradeep
  * @author Siebrand
+ * @author Mpradeep
  */
 $messages['te'] = array(
 	'flaggedrevs-desc'             => 'ఎడిటర్లకి/సమీక్షకులకి కూర్పులను సరిచూసే మరియు పేజీలను సుస్థిరపరచే వీలును కల్పిస్తుంది',
@@ -5415,8 +5419,8 @@ $messages['te'] = array(
 	'revreview-auto-w'             => "మీకు సుస్థిర కూర్పుని సరిదిద్దుతున్నారు, మీ మార్పులు '''ఆటోమెటిగ్గా సమీక్షితమౌతాయి'''. భద్రపరిచేముందు పేజీని సరిచూసుకోండి.",
 	'revreview-auto-w-old'         => "మీరు పాత కూర్పులో దిద్దుబాటు చేస్తున్నారు. చేసిన మార్పులన్నీ '''ఆటోమాటిగ్గా వెనక్కి చూస్తాయి'''. భద్రపరచేముందు ఓసారి సరి చూస్తే మంచిది.",
 	'revreview-patrolled'          => 'మీరు ఎంచుకున్న [[:$1|$1]] యొక్క కూర్పు నిఘాలో ఉంది.',
-	'hist-stable'                  => '[కనబడిన కూర్పు]',
-	'hist-quality'                 => '[నాణ్యమైన కూర్పు]',
+	'hist-stable'                  => 'కనబడిన కూర్పు',
+	'hist-quality'                 => 'నాణ్యమైన కూర్పు',
 	'flaggedrevs'                  => 'జండాపాతిన కూర్పులు',
 	'review-logpage'               => 'వ్యాసాల సమీక్ష లాగ్',
 	'review-logpagetext'           => 'ఇది విషయపు పేజీల కూర్పుల యొక్క [[{{MediaWiki:Validationpage}}|అనుమతి]] స్థాయికి జరిగిన మార్పుల లాగ్.',
@@ -5555,8 +5559,8 @@ $messages['tg'] = array(
 	'revreview-auto-w'             => "Шумо дар ҳоли вироиши нусхаи пойдор ҳастед ва тағйироти шумо ба таври '''худкор баррасӣ хоҳанд шуд'''. Шумо мумкин майли пешнамоиш карданро пеш аз захира кардан, дошта бошед.",
 	'revreview-auto-w-old'         => "Шумо дар ҳоли вироиши як нусхаи кӯҳна ҳастед ва тағйироти шумо ба таври '''худкор баррасӣ хоҳанд шуд'''. Шумо мумкин майли пешнамоиш карданро пеш аз захира кардан, дошта бошед.",
 	'revreview-patrolled'          => 'Нусхаи интихобшуда аз [[:$1|$1]] ба унвони баррасишуда аломат хӯрдааст.',
-	'hist-stable'                  => '[нусхаи баррасишуда]',
-	'hist-quality'                 => '[нусхаи бокайфият]',
+	'hist-stable'                  => 'нусхаи баррасишуда',
+	'hist-quality'                 => 'нусхаи бокайфият',
 	'flaggedrevs'                  => 'Нусхаҳои аломатдор',
 	'review-logpage'               => 'Гузориши баррасии мақола',
 	'review-logpagetext'           => 'Ин гузорише аз тағйирот ба вазъияти [[{{MediaWiki:Validationpage}}|таъйиди]] нусхаҳо барои мӯҳтавои саҳифаҳо аст.',
@@ -5669,7 +5673,7 @@ $messages['tr'] = array(
 	'revreview-stable'          => 'Sabit',
 	'tooltip-ca-default'        => 'Kalite güvencesi ayarlar',
 	'revreview-auto'            => '(otomatik)',
-	'hist-quality'              => '[kalite revizyon]',
+	'hist-quality'              => 'kalite revizyon',
 	'review-logentry-id'        => 'revizyon ID $1',
 	'revreview-accuracy'        => 'Doğruluk',
 	'revreview-accuracy-0'      => 'Onaylanmamış',
@@ -5708,7 +5712,7 @@ $messages['vi'] = array(
 	'revreview-quick-see-basic'   => "'''Bản phác thảo''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} xem trang ổn định]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} thay đổi])",
 	'revreview-auto'              => '(tự động)',
 	'revreview-patrolled'         => 'Phiên bản được chọn của [[:$1|$1]] đã được đánh dấu đã tuần tra.',
-	'hist-quality'                => '[phiên bản chất lượng cao]',
+	'hist-quality'                => 'phiên bản chất lượng cao',
 	'review-logentry-id'          => 'phiên bản số $1',
 	'stable-logpage'              => 'Nhật trình phiên bản ổn định',
 	'stable-logentry'             => 'đã thiết lập phiên bản ổn định của [[$1]]',
@@ -5807,8 +5811,8 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'revreview-auto-w'            => "Anu redakol fomami fümöfik: votükams seimik '''pokrütons itjäfidiko'''. Logolös, begö! büologedi pada at büä odakipon oni.",
 	'revreview-auto-w-old'        => "Anu redakol fomami büik: votükams valik '''pokrütons itjäfidiko'''. Logolös, begö! büologedi pada at büä odakipol oni.",
 	'revreview-patrolled'         => 'Fomam at pada: [[:$1|$1]] pefümükon.',
-	'hist-stable'                 => '[fomam pelogöl]',
-	'hist-quality'                => '[kalietakrüt]',
+	'hist-stable'                 => 'fomam pelogöl',
+	'hist-quality'                => 'kalietakrüt',
 	'review-logpage'              => 'Lised yegedikrütamas',
 	'review-logpagetext'          => 'Is palisedons votükams [[{{MediaWiki:Validationpage}}|zepastada]] padas ninädilabik.',
 	'review-logentry-app'         => 'ekrüton padi: [[$1]]',
