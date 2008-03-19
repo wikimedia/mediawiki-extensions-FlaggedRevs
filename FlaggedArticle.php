@@ -133,7 +133,6 @@ class FlaggedArticle {
 		}
 		$simpleTag = $old = $stable = false;
 		$tag = $notes = $pending = '';
-		$same = true;
 		# Check the newest stable version.
 		$frev = $this->getStableRev( true );
 		$stableId = $frev ? $frev->getRevId() : 0;
@@ -158,11 +157,57 @@ class FlaggedArticle {
 			# Get quality level
 			$quality = FlaggedRevs::isQuality( $flags );
 			$pristine =  FlaggedRevs::isPristine( $flags );
-			// Looking at some specific old rev or if flagged revs are not
+			// Looking at some specific old stable revision ("&stableid=x")
 			// set to override given the relevant conditions. If the user is
 			// requesting the stable revision ("&stableid=x"), defer to override 
 			// behavior below, since it is the same as ("&stable=1").
-			if( !$stable && !$this->pageOverride() ) {
+			if( $old ) {
+				$revs_since = FlaggedRevs::getRevCountSince( $article, $frev->getRevId() );
+				global $wgUseStableTemplates;
+				if( $wgUseStableTemplates ) {
+					$rev = Revision::newFromId( $frev->getRevId() );
+					$text = $rev->getText();
+				} else {
+					$text = $frev->getText();
+				}
+       			$parserOut = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
+				# Construct some tagging for non-printable outputs. Note that the pending
+				# notice has all this info already, so don't do this if we added that already.
+				if( !$wgOut->isPrintable() ) {
+					$css = 'fr-icon-current'; // default
+					// Simple icon-based UI
+					if( FlaggedRevs::useSimpleUI() ) {
+						$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
+						$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
+						$tag .= "<span class='{$css}'></span>" . 
+							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time ) . 
+							$this->prettyRatingBox( $frev, $revs_since, true, $synced, $old );
+					// Standard UI
+					} else {
+						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
+						$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
+						$tag .= "<span class='{$css}'></span>" . 
+							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
+						# Hide clutter
+						if( !empty($flags) ) {
+							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+								" onclick='toggleRevRatings()'>" . wfMsg( 'revreview-toggle' ) . "</span>";
+							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
+								wfMsgHtml('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
+						}
+					}
+				}
+				# Output HTML
+       			$wgOut->addParserOutput( $parserOut );
+				$notes = $this->ReviewNotes( $frev );
+				# Tell MW that parser output is done
+				$outputDone = true;
+				$pcache = false;
+			// Looking at some specific old revision or if FlaggedRevs is not
+			// set to override given the relevant conditions. If the user is
+			// requesting the stable revision ("&stableid=x"), defer to override 
+			// behavior below, since it is the same as ("&stable=1").
+			} else if( !$stable && !$this->pageOverride() ) {
 				$revs_since = FlaggedRevs::getRevCountSince( $article, $frev->getRevId() );
 				$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article, null, null );
 				# Give notice to newewer users if an unreviewed edit was completed...
@@ -175,7 +220,7 @@ class FlaggedArticle {
 					$this->reviewNotice = $pending;
 				}
 				# If they are synced, do special styling
-				$simpleTag = !$synced && !$old;
+				$simpleTag = !$synced;
 				# Construct some tagging for non-printable outputs. Note that the pending
 				# notice has all this info already, so don't do this if we added that already.
 				if( !$wgOut->isPrintable() && !$pending ) {
@@ -186,26 +231,18 @@ class FlaggedArticle {
 							$msg = $quality ? 'revreview-quick-quality-same' : 'revreview-quick-basic-same';
 							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
-						} else if( $old ) {
-							$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
-							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						} else {
 							$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 						}
 						$tag .= "<span class='{$css}'></span>" . $msgHTML . 
-							$this->prettyRatingBox( $frev, $revs_since, $synced || $old, $synced, $old );
+							$this->prettyRatingBox( $frev, $revs_since, $synced, $synced, $old );
 					// Standard UI
 					} else {
 						if( $synced ) {
 							$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
 							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
-						} else if( $old ) {
-							$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
-							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						} else {
 							$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
@@ -220,7 +257,7 @@ class FlaggedArticle {
 						}
 					}
 				}
-			// Viewing the page normally: override the page
+			// The relevant conditions are met to override the page with the stable version.
 			} else {
        			# We will be looking at the reviewed revision...
        			$revs_since = FlaggedRevs::getRevCountSince( $article, $frev->getRevId() );
@@ -245,7 +282,7 @@ class FlaggedArticle {
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
-						$msg = $synced ? $msg . '-same' : $msg;
+						$msg = $synced ? "{$msg}-same" : $msg;
 						
 						$tag = "<span class='{$css}'></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
@@ -253,7 +290,7 @@ class FlaggedArticle {
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
-						$msg = $synced ? $msg . '-same' : $msg;
+						$msg = $synced ? "{$msg}-same" : $msg;
 						
 						$tag = "<span class='{$css} plainlinks'></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
