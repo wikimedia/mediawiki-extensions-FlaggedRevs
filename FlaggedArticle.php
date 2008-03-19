@@ -181,7 +181,7 @@ class FlaggedArticle {
 						$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 						$tag .= "<span class='{$css}'></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time ) . 
-							$this->prettyRatingBox( $frev, $revs_since, true, $synced, $old );
+							$this->prettyRatingBox( $frev, $revs_since, true, false, $old );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
