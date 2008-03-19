@@ -84,8 +84,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'revreview-auto-w-old' => "You are editing an old reviewed revision; changes will '''automatically be reviewed'''.",
 	'revreview-patrolled' => 'The selected revision of [[:$1|$1]] has been marked as patrolled.',
 
-	'hist-stable'  => '[sighted revision]',
-	'hist-quality' => '[quality revision]',
+	'hist-stable'  => 'sighted revision',
+	'hist-quality' => 'quality revision',
 
 	'flaggedrevs'          => 'Flagged Revisions',
 	'review-logpage'       => 'Article review log',

@@ -639,7 +639,7 @@ class Stableversions extends UnlistedSpecialPage
 		$link = $this->skin->makeKnownLinkObj( $this->page, $time,
 			'stableid='.$row->fr_rev_id );
 
-		return '<li>'.$link.' ('.$review.') <strong>'.$lev.'</strong></li>';
+		return '<li>'.$link.' ('.$review.') <strong>['.$lev.']</strong></li>';
 	}
 }
 

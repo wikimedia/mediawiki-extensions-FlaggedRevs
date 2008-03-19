@@ -716,10 +716,10 @@ class FlaggedArticle {
     		$skin = $wgUser->getSkin();
 
     		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
-    		$s .= ' <small><strong>' .
+    		$s .= ' <small><strong>[' .
 				$skin->makeLinkObj( $wgTitle, wfMsgHtml( $msg ),
 					'stableid=' . $row->rev_id ) .
-				'</strong></small>';
+				']</strong></small>';
 		}
 
 		return true;
