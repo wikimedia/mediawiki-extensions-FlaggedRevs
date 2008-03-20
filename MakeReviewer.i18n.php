@@ -305,9 +305,11 @@ $messages['ee'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author ZaDiak
  */
 $messages['el'] = array(
 	'makereviewer-username' => 'Όνομα του χρήστη:',
+	'makereviewer-search'   => 'Πήγαινε',
 	'makereviewer-comment'  => 'Σχόλιο:',
 );
 
@@ -953,18 +955,18 @@ $messages['nds'] = array(
  */
 $messages['nl'] = array(
 	'makereviewer'                  => 'Promotie/demotie redacteuren',
-	'makereviewer-header'           => "<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina's kunnen valideren.</strong>
+	'makereviewer-header'           => "<strong>Dit formulier wordt gebruikt door beheerders en bureaucraten om gebruikers aan te wijzen die pagina's kunnen beoordelen.</strong>
 
-Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de gebruikersrechten in te stellen. Een gebruiker de status reviewer geven, maakt die gebruiker automatisch redacteur. Het intrekken van de status redacteur houdt het intrekken van de status reviewer in.",
+Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de gebruikersrechten in te stellen. Een gebruiker de status eindredacteur geven, maakt die gebruiker automatisch redacteur. Het intrekken van de status redacteur houdt het intrekken van de status eindredacteur in.",
 	'makereviewer-username'         => 'Gebruiker:',
 	'makereviewer-search'           => 'OK',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] heeft de status redacteur.',
 	'makereviewer-noteditor'        => '[[User:$1|$1]] heeft niet de status redacteur.',
-	'makereviewer-isvalidator'      => '[[User:$1|$1]] heeft de status reviewer.',
-	'makereviewer-notvalidator'     => '[[User:$1|$1]] heeft niet de status reviewer.',
-	'makereviewer-legend'           => 'Wijzig gebruikersrechten:',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] is eindredacteur.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] is geen eindredacteur.',
+	'makereviewer-legend'           => 'Gebruikersrechten wijzigen',
 	'makereviewer-change-e'         => 'Status redacteur:',
-	'makereviewer-change-r'         => 'Status reviewer:',
+	'makereviewer-change-r'         => 'Status eindredacteur:',
 	'makereviewer-grant1'           => 'Toekennen',
 	'makereviewer-revoke1'          => 'Intrekken',
 	'makereviewer-grant2'           => 'Toekennen',
@@ -977,8 +979,8 @@ Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de geb
 	'makereviewer-logpage'          => 'Logboek status redacteur',
 	'makereviewer-logentrygrant-e'  => 'heeft de status redacteur toegekend aan [[$1]]',
 	'makereviewer-logentryrevoke-e' => 'heeft de status redacteur ingetrokken voor [[$1]]',
-	'makereviewer-logentrygrant-r'  => 'heeft de status reviewer toegekend aan [[$1]]',
-	'makereviewer-logentryrevoke-r' => 'heeft de status reviewer ingetrokken voor [[$1]]',
+	'makereviewer-logentrygrant-r'  => 'heeft de status eindredacteur toegekend aan [[$1]]',
+	'makereviewer-logentryrevoke-r' => 'heeft de status eindredacteur ingetrokken voor [[$1]]',
 	'makereviewer-autosum'          => 'automatisch gepromoveerd',
 	'rights-editor-revoke'          => 'verwijderde redacteurstatus van [[$1]]',
 );
@@ -1269,12 +1271,15 @@ $messages['ss'] = array(
 
 /** Seeltersk (Seeltersk)
  * @author Pyt
+ * @author Siebrand
  */
 $messages['stq'] = array(
 	'makereviewer'                  => 'Sieuwer-/Wröig-Gjucht reeke/äntluuke',
 	'makereviewer-header'           => '<strong>Mäd dit Formular konnen Administratore un Bürokrate Benutsere dät Gjucht tou Artikkelpröiwenge reeke.</strong>
 
-Reek dän Benutsernoome in dät Fäild ien un klik ap ju Schaltfläche, uum dät Gjucht tou sätten. Truch Reeken fon dät Wröiggjucht wäd automatisk uk dät Sieuwer-Gjucht roat. Dät Äntluuken fon dät Sieuwer-Gjucht häd automatisk dät Äntluuken fon dät Wröiggjucht as Foulge.',
+Reek dän Benutsernoome in dät Fäild ien un klik ap ju Schaltfläche, uum dät Gjucht tou sätten.
+Truch Reeken fon dät Wröiggjucht wäd automatisk uk dät Sieuwer-Gjucht roat.
+Dät Äntluuken fon dät Sieuwer-Gjucht häd automatisk dät Äntluuken fon dät Wröiggjucht as Foulge.',
 	'makereviewer-username'         => 'Benutsernoome:',
 	'makereviewer-search'           => 'Stoatus oufräigje',
 	'makereviewer-iseditor'         => '[[User:$1|$1]] häd dät Sieuwer-Gjucht.',
@@ -1299,7 +1304,6 @@ Reek dän Benutsernoome in dät Fäild ien un klik ap ju Schaltfläche, uum dät
 	'makereviewer-logentrygrant-r'  => 'roate dät Wröiggjucht an [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'äntlook dät Wröiggjucht fon [[$1]]',
 	'makereviewer-autosum'          => 'automatiske Gjuchte-uutgoawe',
-	'rights-editor-grant'           => 'roate dät Sieuwer-Gjucht an [[$1]]',
 	'rights-editor-revoke'          => 'äntlook dät Sieuwer-Gjucht fon [[$1]]',
 );
 
