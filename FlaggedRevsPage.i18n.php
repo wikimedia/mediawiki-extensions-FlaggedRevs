@@ -2225,7 +2225,7 @@ Předłoha abo wobraz bu bjez podaća wersije požadana/požadany. To móže so 
 );
 
 /** Hungarian (Magyar)
- * @author Bdanee
+ * @author Dani
  * @author KossuthRad
  * @author Siebrand
  */

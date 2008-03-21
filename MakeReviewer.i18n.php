@@ -553,7 +553,7 @@ Zapisaj wužiwarske mjeno do pola a klikń na tłóčatko, zo by wužiwarske pra
 );
 
 /** Hungarian (Magyar)
- * @author Bdanee
+ * @author Dani
  * @author KossuthRad
  * @author Tgr
  */
