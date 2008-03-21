@@ -13,7 +13,8 @@ class FlaggedRevision {
 	private $mTitle;
 
 	/**
-	 * @param object $row (from database)
+	 * @param Title $title
+	 * @param Row $row (from database)
 	 * @access private
 	 */
 	function __construct( $title, $row ) {
