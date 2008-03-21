@@ -1006,7 +1006,9 @@ class FlaggedArticle {
 	*/
     public function injectReviewDiffURLParams( $article, &$sectionanchor, &$extraq ) {
     	global $wgUser, $wgReviewChangesAfterEdit;
-
+		# Don't show this for the talk page
+		if( !$this->isReviewable() || $article->getTitle()->isTalkPage() )
+			return true;
     	$frev = $this->getStableRev();
 		# Was this already autoreviewed, are we allowed?
 		if( $wgReviewChangesAfterEdit && !$this->skipReviewDiff && $frev && $wgUser->isAllowed('review') ) {
