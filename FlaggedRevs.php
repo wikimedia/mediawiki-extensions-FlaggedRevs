@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.02',
+	'version' => '1.021',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -1465,6 +1465,7 @@ class FlaggedRevs {
 				}
 			}
 		}
+		$parser->mOutput->fr_newestTemplateID = $maxRevision;
 		# Don't trigger image stuff for stable version parsing.
 		# It will do it separately.
 		if( isset($parser->fr_isStable) && $parser->fr_isStable )

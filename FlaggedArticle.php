@@ -209,7 +209,7 @@ class FlaggedArticle {
 			// behavior below, since it is the same as ("&stable=1").
 			} else if( !$stable && !$this->pageOverride() ) {
 				$revs_since = FlaggedRevs::getRevCountSince( $article, $frev->getRevId() );
-				$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article, null, null );
+				$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article );
 				# Give notice to newewer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
