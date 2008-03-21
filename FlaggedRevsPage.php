@@ -317,7 +317,7 @@ class Revisionreview extends UnlistedSpecialPage
 			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
 		# Return to our page
 		if( $success ) {
-        	$wgOut->redirect( $this->page->getFullUrl( 'stable=1' ) );
+        	$wgOut->redirect( $this->page->getFullUrl( 'redirect=no&stable=1' ) );
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
 		}
