@@ -327,6 +327,7 @@ $messages['eo'] = array(
 	'makereviewer-revoked-e' => '[[User:$1|$1]] ne plu havas statuson redaktanto.',
 	'makereviewer-granted-r' => '[[User:$1|$1]] nun havas statuson reekzamenanto.',
 	'makereviewer-revoked-r' => '[[User:$1|$1]] ne plu havas statuson reekzamenanto.',
+	'makereviewer-logpage'   => 'Loglibro pri statuso de redaktantoj',
 );
 
 $messages['ext'] = array(
