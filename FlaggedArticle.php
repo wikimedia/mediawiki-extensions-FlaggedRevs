@@ -4,7 +4,7 @@ class FlaggedArticle {
 	public $isDiffFromStable = false;
 	public $skipReviewDiff = false;
 	public $skipAutoReview = false;
-	public $stablerev = null;
+	public $stableRev = null;
 	public $pageconfig = null;
 	public $flags = null;
 	protected $reviewNotice = '';
@@ -199,6 +199,7 @@ class FlaggedArticle {
 				}
 				# Output HTML
        			$wgOut->addParserOutput( $parserOut );
+				$wgOut->setRevisionId( $frev->getRevId() );
 				$notes = $this->ReviewNotes( $frev );
 				# Tell MW that parser output is done
 				$outputDone = true;
@@ -304,6 +305,7 @@ class FlaggedArticle {
 				}
 				# Output HTML
        			$wgOut->addParserOutput( $parserOut );
+				$wgOut->setRevisionId( $frev->getRevId() );
 				$notes = $this->ReviewNotes( $frev );
 				# Tell MW that parser output is done
 				$outputDone = true;
@@ -472,13 +474,8 @@ class FlaggedArticle {
 		if( ($action !='view' && $action !='purge') || !$wgArticle->getTitle()->quickUserCan( 'edit' ) ) {
 			return true;
 		}
-		# Get revision ID
-		$revId = $out->mRevisionId ? $out->mRevisionId : $wgArticle->getLatest();
-		# We cannot review deleted revisions
-		if( !is_null($wgArticle->mRevision) && $wgArticle->mRevision->isDeleted( Revision::DELETED_TEXT ) )
-			return true;
 		# Add review form
-		$this->addQuickReview( $revId, $out, $this->isDiffFromStable );
+		$this->addQuickReview( $out, $this->isDiffFromStable );
 
 		return true;
     }
@@ -715,11 +712,10 @@ class FlaggedArticle {
 
 	 /**
 	 * Adds a brief review form to a page.
-	 * @param Integer $id, the revision ID
 	 * @param OutputPage $out
 	 * @param bool $top, should this form always go on top?
 	 */
-    public function addQuickReview( $id, $out, $top=false ) {
+    public function addQuickReview( $out, $top=false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) )
@@ -727,7 +723,7 @@ class FlaggedArticle {
 		# Looks ugly when printed
 		if( $out->isPrintable() )
 			return;
-
+		$id = $out->mRevisionId;
 		$skin = $wgUser->getSkin();
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
@@ -1212,17 +1208,17 @@ class FlaggedArticle {
 	 * @return Row
 	 */
 	public function getStableRev( $getText=false, $forUpdate=false ) {
-		if( $this->stablerev === false ) {
+		if( $this->stableRev === false ) {
 			return null; // We already looked and found nothing...
 		}
         # Cached results available?
         if( $getText ) {
-  			if( !is_null($this->stablerev) && isset($this->stablerev->fr_text) ) {
-				return $this->stablerev;
+  			if( !is_null($this->stableRev) && isset($this->stableRev->fr_text) ) {
+				return $this->stableRev;
 			}
         } else {
- 			if( !is_null($this->stablerev) ) {
-				return $this->stablerev;
+ 			if( !is_null($this->stableRev) ) {
+				return $this->stableRev;
 			}
         }
 		# Get the content page, skip talk
@@ -1231,10 +1227,10 @@ class FlaggedArticle {
 		# Do we have one?
 		$row = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
         if( $row ) {
-			$this->stablerev = $row;
+			$this->stableRev = $row;
 			return $row;
 	    } else {
-            $this->stablerev = false;
+            $this->stableRev = false;
             return null;
         }
 	}
