@@ -835,7 +835,7 @@ class UnreviewedPagesPage extends PageQueryPage {
 		}
 		if( $result->page_ext_stable )
 			$review = ' ('.$skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
-				"diff=cur&oldid={$result->page_ext_stable}&editreview=1" ).')';
+				"diff=cur&oldid={$result->page_ext_stable}" ).')';
 
 		return( "{$link} {$stxt} {$review}" );
 	}
