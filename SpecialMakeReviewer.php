@@ -26,8 +26,6 @@ $wgExtensionFunctions[] = 'efMakeReviewer';
 $wgAvailableRights[] = 'makereviewer';
 $wgAvailableRights[] = 'makevalidator';
 
-$wgHooks['UserRights'][] = 'efMakeReviewerDemote';
-
 /**
 * Determines who can use the extension; as a default, bureaucrats are permitted
 */
@@ -52,15 +50,4 @@ $wgAutoloadClasses['MakeReviewer'] = dirname(__FILE__) . '/MakeReviewer_body.php
 function efMakeReviewer() {
 	// can probably be delayed
 	wfLoadExtensionMessages( 'MakeReviewer' );
-}
-
-function efMakeReviewerDemote( $u, $addgroup, $removegroup ) {
-	if( $removegroup && in_array( 'editor', $removegroup ) ) {
-		$log = new LogPage( 'rights' );
-		$targetPage = $u->getUserPage();
-		# Add dummy entry to mark that a user's editor rights
-		# were removed. This avoid auto-promotion.
-		$log->addEntry( 'erevoke', $targetPage, '', array() );
-	}
-	return true;
 }

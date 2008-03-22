@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.021',
+	'version' => '1.022',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -145,6 +145,16 @@ $wgFlaggedRevsAutopromote = array(
 	'email'	     => true,
 	'userpage'   => true
 );
+
+# Special:Userrights settings
+## Basic rights for Sysops
+//$wgAddGroups['sysop'] = array( 'editor' );
+//$wgRemoveGroups['sysop'] = 'array( editor' );
+## Extra ones for Bureaucrats
+## Add UI page rights just in case we have non-sysop bcrats
+//$wgAddGroups['bureaucrat'] = array( 'reviewer' );
+//$wgRemoveGroups['bureaucrat'] = array( 'reviewer' );
+
 # End of configuration variables.
 #########
 
@@ -257,6 +267,8 @@ function efLoadFlaggedRevs() {
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
 	# Log parameter
 	$wgHooks['LogLine'][] = 'FlaggedRevs::reviewLogLine';
+	# Disable auto-promotion
+	$wgHooks['UserRights'][] = 'FlaggedRevs::recordDemote';
 	#########
 }
 
@@ -1665,6 +1677,20 @@ class FlaggedRevs {
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 
+		return true;
+	}
+	
+   	/**
+	* Record demotion sso that auto-promote will be disabled
+	*/
+	public static function recordDemote( $u, $addgroup, $removegroup ) {
+		if( $removegroup && in_array('editor',$removegroup) ) {
+			$log = new LogPage( 'rights' );
+			$targetPage = $u->getUserPage();
+			# Add dummy entry to mark that a user's editor rights
+			# were removed. This avoid auto-promotion.
+			$log->addEntry( 'erevoke', $targetPage, '', array() );
+		}
 		return true;
 	}
 
