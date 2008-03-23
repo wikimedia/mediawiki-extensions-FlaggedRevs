@@ -88,7 +88,7 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'hist-quality' => 'quality revision',
 
 	'flaggedrevs'          => 'Flagged Revisions',
-	'review-logpage'       => 'Article review log',
+	'review-logpage'       => 'Review log',
 	'review-logpagetext'   => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.',
 	'review-logentry-app'  => 'reviewed [[$1]]',
 	'review-logentry-dis'  => 'depreciated a version of [[$1]]',
