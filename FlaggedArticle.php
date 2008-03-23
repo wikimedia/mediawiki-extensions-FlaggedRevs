@@ -744,9 +744,9 @@ class FlaggedArticle {
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag' ) . "</legend>\n";
 
-		if( $wgFlaggedRevsOverride )
+		if( $wgFlaggedRevsOverride ) {
 			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
-
+		}
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() );
 		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() );
 		$form .= Xml::hidden( 'oldid', $id );
@@ -806,6 +806,8 @@ class FlaggedArticle {
 			}
 		}
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+		# Pass this in if given; useful for new page patrol
+		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
 		
 		# Special token to discourage fiddling...
 		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );

@@ -258,8 +258,9 @@ class Revisionreview extends UnlistedSpecialPage
 			$form .= $item;
 		}
 		# Hack, versioning params
-		$form .= Xml::hidden( 'templateParams', $this->templateParams );
-		$form .= Xml::hidden( 'imageParams', $this->imageParams );
+		$form .= Xml::hidden( 'templateParams', $this->templateParams ) . "\n";
+		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
+		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
 		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
@@ -477,6 +478,16 @@ class Revisionreview extends UnlistedSpecialPage
 				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 			__METHOD__
 		);
+		# New page patrol may be enabled. If so, the rc_id may be the first
+		# edit and not this one. If it is different, mark it too.
+		if( $this->rcid && $this->rcid != $rev->getId() ) {
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_id' => $this->rcid,
+					'rc_type' => RC_NEW ),
+				__METHOD__
+		);
+		}
 		$dbw->commit();
 
 		# Update the article review log
