@@ -1199,6 +1199,8 @@ $messages['eo'] = array(
 	'reviewer'                    => 'Kontrolanto',
 	'group-reviewer'              => 'Kontrolantoj',
 	'group-reviewer-member'       => 'Kontrolanto',
+	'revreview-current'           => 'Malneto',
+	'tooltip-ca-current'          => 'Vidigu la nunan malneton de ĉi tiu paĝo',
 	'revreview-edit'              => 'Redaktu malneton',
 	'revreview-stable'            => 'Stabila',
 	'tooltip-ca-stable'           => 'Rigardu la stabilan version de ĉi paĝo',
@@ -1218,12 +1220,13 @@ $messages['eo'] = array(
 	'revreview-depth-1'           => 'Baza',
 	'revreview-style-2'           => 'Bona',
 	'revreview-style-4'           => 'Elstara',
-	'stableversions'              => 'Stabilaj versioj',
+	'stableversions'              => 'Rigardu stabilajn versiojn',
 	'stableversions-page'         => 'Nomo de paĝo:',
 	'unreviewed-category'         => 'Kategorio:',
 	'unreviewed-diff'             => 'Ŝanĝoj',
 	'stabilization'               => 'Paĝa stabiligado',
 	'stabilization-page'          => 'Paĝnomo:',
+	'stabilization-select2'       => 'La lasta kontrolita revizio',
 	'stabilization-def1'          => 'La stabila revizio;
 se ĝi ne ekzistas, la nuna versio',
 	'stabilization-def2'          => 'La nuna revizio:',
@@ -2149,8 +2152,7 @@ $messages['hsb'] = array(
 	'revisionreview'               => 'Wersije přepruwować',
 	'revreview-main'               => 'Dyrbiš wěstu wersiju nastawka za přehladanje wubrać.
 
-
-	Hlej [[{{ns:special}}:Unreviewedpages]] za lisćinu njepřehladanych wersijow.',
+Hlej [[{{ns:special}}:Unreviewedpages]] za lisćinu njepřehladanych wersijow.',
 	'revreview-selected'           => "Wubrana wersija z '''$1:'''",
 	'revreview-text'               => 'Při zwobraznjenju strony preferuja so stabilne wersije bóle hač nowše.',
 	'revreview-toolow'             => 'Dyrbiš za kóždy z deleka naspomnjenych atributow hódnotu wyše hač „{{int:revreview-accuracy-0}}“ zapodać,
@@ -3949,8 +3951,6 @@ $messages['no'] = array(
 	'revreview-basic'           => 'Dette er den siste [[{{MediaWiki:Validationpage}}|stabile]] revisjonen ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} se alle]) av denne siden, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} godkjent] <i>$4</i>. Den [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} nåværende revisjonen] kan vanligvis redigeres, og er mer oppdatert. Det er $3 {{PLURAL:$3|revisjon|revisjoner}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=$2}} endringer]) som venter på godkjenning.',
 	'revreview-quality'         => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsrevisjonen]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} se alle]) av denne siden, [{{fullurl:Special:Log/review|page={{FULLPAGENAMEE}}}} godkjent] <i>$4</i>. Den [{{fullurl:{{FULLPAGENAMEE}}|stable=false}} nåværende revisjonen] kan vanligvis redigeres, og er mer oppdatert. Det er $3 {{PLURAL:$3|revisjon|revisjoner}} ([{{fullurl:{{FULLPAGENAME}}|oldid=$1&diff=$2}} endringer]) som venter på godkjenning.',
 	'revreview-note'            => '[[User:$1]] hadde følgende merknader under [[{{MediaWiki:Validationpage}}|godkjenning]] av denne revisjonen:',
-	'revreview-static'          => "Dette er en [[{{MediaWiki:Validationpage}}|godkjent]] revisjon av siden '''[[$3]]''', [{{fullurl:Special:Log/review|page=$1}} godkjent] <i>$2</i>. Den [{{fullurl:$3|stable=false}} nåværende revisjonen] er kan vanligvis redigeres, og er mer oppdatert.",
-	'revreview-old'             => 'Dette er en [[Help:Article validation|godkjent]] (utenom bilder og maler) revisjon av denne siden, med status som:',
 	'revreview-auto'            => '(automatisk)',
 	'hist-stable'               => '[stabil]',
 	'hist-quality'              => '[kvalitet]',
