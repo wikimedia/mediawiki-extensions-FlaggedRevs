@@ -985,6 +985,15 @@ Voer de naam van een gebruiker in het invoerveld in en klik op de knop om de geb
 	'rights-editor-revoke'          => 'verwijderde redacteurstatus van [[$1]]',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Jon Harald Søby
+ */
+$messages['nn'] = array(
+	'makereviewer-grant1'  => 'Gi',
+	'makereviewer-grant2'  => 'Gi',
+	'makereviewer-comment' => 'Kommentar:',
+);
+
 /** Norwegian (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
