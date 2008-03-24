@@ -369,6 +369,16 @@ $messages['fa'] = array(
 	'rights-editor-revoke'          => 'اختیارات ویراستاری را از [[$1]] گرفت',
 );
 
+/** Finnish (Suomi)
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'makereviewer-username' => 'Käyttäjätunnus',
+	'makereviewer-search'   => 'Siirry',
+	'makereviewer-grant1'   => 'Myönnä',
+	'makereviewer-grant2'   => 'Myönnä',
+);
+
 /** French (Français)
  * @author Urhixidur
  * @author Sherbrooke
