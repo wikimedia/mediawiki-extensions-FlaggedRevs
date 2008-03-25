@@ -287,7 +287,6 @@ Durch Erteilung des Prüfrechts wird automatisch auch das Sichter-Recht erteilt.
 	'makereviewer-revoked-r'        => '[[User:$1|$1]] wurde das Prüfrecht entzogen.',
 	'makereviewer-logpage'          => 'Sichter-/Prüf-Rechte-Logbuch',
 	'makereviewer-logentrygrant-e'  => 'erteilte das Sichter-Recht an [[$1]]',
-	'makereviewer-logentryrevoke-e' => 'entzog das Sichter-Recht von [[$1]]',
 	'makereviewer-logentrygrant-r'  => 'erteilte das Prüfrecht an [[$1]]',
 	'makereviewer-logentryrevoke-r' => 'entzog das Prüfrecht von [[$1]]',
 	'makereviewer-autosum'          => 'automatische Rechtevergabe',
@@ -1488,4 +1487,3 @@ $messages['vo'] = array(
 	'makereviewer-logentryrevoke-r' => 'emoükon krütanastadi gebana: [[$1]]',
 	'rights-editor-revoke'          => 'emoükon redakanastadi gebana: [[$1]]',
 );
-
