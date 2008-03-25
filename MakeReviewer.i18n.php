@@ -1327,6 +1327,28 @@ Dät Äntluuken fon dät Sieuwer-Gjucht häd automatisk dät Äntluuken fon dät
 	'rights-editor-revoke'          => 'äntlook dät Sieuwer-Gjucht fon [[$1]]',
 );
 
+/** Sundanese (Basa Sunda)
+ * @author Kandar
+ */
+$messages['su'] = array(
+	'makereviewer-username'        => 'Ngaran pamaké:',
+	'makereviewer-search'          => 'Jung',
+	'makereviewer-iseditor'        => '[[User:$1|$1]] boga status éditor.',
+	'makereviewer-noteditor'       => '[[User:$1|$1]] teu boga status éditor.',
+	'makereviewer-legend'          => 'Robah hak pamaké',
+	'makereviewer-change-e'        => 'Status éditor:',
+	'makereviewer-grant1'          => 'Leler',
+	'makereviewer-revoke1'         => 'Cabut',
+	'makereviewer-grant2'          => 'Leler',
+	'makereviewer-revoke2'         => 'Cabut',
+	'makereviewer-comment'         => 'Kamandang:',
+	'makereviewer-granted-e'       => 'Ayeuna, [[User:$1|$1]] geus boga status éditor.',
+	'makereviewer-revoked-e'       => '[[User:$1|$1]] geus teu boga status éditor.',
+	'makereviewer-logpage'         => 'Log status éditor',
+	'makereviewer-logentrygrant-e' => 'ngaleler status éditor ka [[$1]]',
+	'rights-editor-revoke'         => 'nyabut status éditor ti [[$1]]',
+);
+
 /** Swedish (Svenska)
  * @author Lejonel
  * @author M.M.S.
@@ -1487,3 +1509,4 @@ $messages['vo'] = array(
 	'makereviewer-logentryrevoke-r' => 'emoükon krütanastadi gebana: [[$1]]',
 	'rights-editor-revoke'          => 'emoükon redakanastadi gebana: [[$1]]',
 );
+
