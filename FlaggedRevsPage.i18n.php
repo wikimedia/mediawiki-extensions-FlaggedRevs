@@ -107,8 +107,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-selected'   => "Selected revision of '''$1:'''",
 	'revreview-text'       => "Stable versions are set as the default content on page view rather than the newest revision.",
-	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
-To depreciate a revision, set all fields to "unapproved".',
+	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than “unapproved” in order for a revision to be considered reviewed.
+To depreciate a revision, set all fields to “unapproved”.',
 	'revreview-flag'       => 'Review this revision',
 	'revreview-legend'     => 'Rate revision content',
 	'revreview-notes'      => 'Observations or notes to display:',
@@ -141,7 +141,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'stableversions'        => 'View stable versions',
 	'stableversions-leg1'   => 'List reviewed revisions for a page',
 	'stableversions-page'   => 'Page name:',
-	'stableversions-none'   => '"[[:$1]]" has no reviewed revisions.',
+	'stableversions-none'   => '“[[:$1]]” has no reviewed revisions.',
 	'stableversions-list'   => 'The following is a list of revisions of [[:$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
 
@@ -172,9 +172,9 @@ if not present, then the latest sighted one',
 if not present, then the current one',
 	'stabilization-def2'       => 'The current revision',
 	'stabilization-submit'     => 'Confirm',
-	'stabilization-notexists'  => 'There is no page called "[[:$1|$1]]".
+	'stabilization-notexists'  => 'There is no page called “[[:$1|$1]]”.
 No configuration is possible.',
-	'stabilization-notcontent' => 'The page "[[:$1|$1]]" cannot be reviewed.
+	'stabilization-notcontent' => 'The page “[[:$1|$1]]” cannot be reviewed.
 No configuration is possible.',
 	'stabilization-comment'    => 'Comment:',
 	'stabilization-expiry'     => 'Expires:',
