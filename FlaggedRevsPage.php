@@ -860,20 +860,24 @@ class Reviewedpages extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser;
+        global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 
+		# Check if there is a featured level
+		$maxType = $wgFlaggedRevPristine <= $wgFlaggedRevValues ? 2 : 1;
 		$this->type = $wgRequest->getInt( 'level' );
+		$this->type = $this->type <= $maxType ? $this->type : 0;
+		
 		$this->namespace = $wgRequest->getInt( 'namespace' );
-
+		
 		$this->showForm();
 		$this->showPageList();
 	}
 
 	function showForm() {
-		global $wgOut, $wgTitle, $wgScript;
+		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevValues, $wgFlaggedRevPristine;
 
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -885,7 +889,10 @@ class Reviewedpages extends SpecialPage
 		$form .= Xml::openElement( 'select', array('name' => 'level') );
 		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $this->type==0 );
 		$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $this->type==1 );
-		$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $this->type==2 );
+		# Check if there is a featured level
+		if( $wgFlaggedRevPristine <= $wgFlaggedRevValues ) {
+			$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $this->type==2 );
+		}
 		$form .= Xml::closeElement('select')."\n";
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );

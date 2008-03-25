@@ -997,6 +997,70 @@ class FlaggedArticle {
 
 		return true;
 	}
+	
+	/**
+	* Add a link to patrol non-reviewable pages.
+	* Also add a diff to stable for other pages if possible.
+	*/
+	public function addPatrolAndDiffLink( $diff, $OldRev, $NewRev ) {
+		global $wgUser, $wgOut;
+		// Is there a stable version?
+		if( FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) ) {
+			if( !$OldRev )
+				return true;
+
+			$frev = $this->getStableRev();
+			if( $frev && $frev->getRevId()==$OldRev->getID() && $NewRev->isCurrent() ) {
+				$this->isDiffFromStable = true;
+			}
+			# Give a link to the diff-to-stable if needed
+			if( $frev && !$this->isDiffFromStable ) {
+				$skin = $wgUser->getSkin();
+
+				$patrol = '(' . $skin->makeKnownLinkObj( $NewRev->getTitle(),
+					wfMsgHtml( 'review-diff2stable' ),
+					"oldid={$frev->getRevId()}&diff=cur" ) . ')';
+				$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+			}
+		// Prepare a change patrol link, if applicable
+		} else if( $wgUser->isAllowed( 'review' ) ) {
+			// If we've been given an explicit change identifier, use it; saves time
+			if( $diff->mRcidMarkPatrolled ) {
+				$rcid = $diff->mRcidMarkPatrolled;
+			} else {
+				# Look for an unpatrolled change corresponding to this diff
+				$dbr = wfGetDB( DB_SLAVE );
+				$change = RecentChange::newFromConds(
+					array(
+						# Add redundant user,timestamp condition so we can use the existing index
+						'rc_user_text'  => $diff->mNewRev->getRawUserText(),
+						'rc_timestamp'  => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
+						'rc_this_oldid' => $diff->mNewid,
+						'rc_last_oldid' => $diff->mOldid,
+						'rc_patrolled'  => 0
+					),
+					__METHOD__
+				);
+				if( $change instanceof RecentChange ) {
+					$rcid = $change->mAttribs['rc_id'];
+				} else {
+					$rcid = 0; // None found
+				}
+			}
+			// Build the link
+			if( $rcid ) {
+				$skin = $wgUser->getSkin();
+
+				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
+				$patrol = '[' . $skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'revreview-patrol' ),
+					"patrolonly=1&target=" . $NewRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" ) . ']';
+			} else {
+				$patrol = '';
+			}
+			$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+		}
+		return true;
+	}
 
 	/**
 	* Redirect users out to review the changes to the stable version.
@@ -1082,6 +1146,14 @@ class FlaggedArticle {
 		if( !Revisionreview::userCanSetFlags( $flags ) ) {
 			return true;
 		}
+		# Do not autoreview quality revisions - require more thought
+		if( FlaggedRevs::isQuality( $flags ) ) {
+			# Assume basic flagging level
+			$flags = array();
+			foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
+		}
 		FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags );
 
 		$this->skipReviewDiff = true; // Don't jump to diff...
@@ -1136,70 +1208,6 @@ class FlaggedArticle {
        		$revid = $editform->mArticle->getLatest();
        	}
 		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revid ) );
-		return true;
-	}
-
-	/**
-	* Add a link to patrol non-reviewable pages.
-	* Also add a diff to stable for other pages if possible.
-	*/
-	public function addPatrolAndDiffLink( $diff, $OldRev, $NewRev ) {
-		global $wgUser, $wgOut;
-		// Is there a stable version?
-		if( FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) ) {
-			if( !$OldRev )
-				return true;
-
-			$frev = $this->getStableRev();
-			if( $frev && $frev->getRevId()==$OldRev->getID() && $NewRev->isCurrent() ) {
-				$this->isDiffFromStable = true;
-			}
-			# Give a link to the diff-to-stable if needed
-			if( $frev && !$this->isDiffFromStable ) {
-				$skin = $wgUser->getSkin();
-
-				$patrol = '(' . $skin->makeKnownLinkObj( $NewRev->getTitle(),
-					wfMsgHtml( 'review-diff2stable' ),
-					"oldid={$frev->getRevId()}&diff=cur" ) . ')';
-				$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
-			}
-		// Prepare a change patrol link, if applicable
-		} else if( $wgUser->isAllowed( 'review' ) ) {
-			// If we've been given an explicit change identifier, use it; saves time
-			if( $diff->mRcidMarkPatrolled ) {
-				$rcid = $diff->mRcidMarkPatrolled;
-			} else {
-				# Look for an unpatrolled change corresponding to this diff
-				$dbr = wfGetDB( DB_SLAVE );
-				$change = RecentChange::newFromConds(
-					array(
-						# Add redundant user,timestamp condition so we can use the existing index
-						'rc_user_text'  => $diff->mNewRev->getRawUserText(),
-						'rc_timestamp'  => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
-						'rc_this_oldid' => $diff->mNewid,
-						'rc_last_oldid' => $diff->mOldid,
-						'rc_patrolled'  => 0
-					),
-					__METHOD__
-				);
-				if( $change instanceof RecentChange ) {
-					$rcid = $change->mAttribs['rc_id'];
-				} else {
-					$rcid = 0; // None found
-				}
-			}
-			// Build the link
-			if( $rcid ) {
-				$skin = $wgUser->getSkin();
-
-				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-				$patrol = '[' . $skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'revreview-patrol' ),
-					"patrolonly=1&target=" . $NewRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" ) . ']';
-			} else {
-				$patrol = '';
-			}
-			$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
-		}
 		return true;
 	}
 

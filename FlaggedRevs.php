@@ -94,6 +94,8 @@ $wgUseCurrentImages = true;
 $wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 4;
+# A revision with all tages rated at least to this level is considered "pristine"/"featured"
+$wgFlaggedRevPristine = 4;
 # Who can set what flags to what level? (use -1 for not at all)
 # Users cannot lower tags from a level they can't set
 # Users with 'validate' can do anything regardless
@@ -791,13 +793,13 @@ class FlaggedRevs {
 	* @return bool, is this revision at optimal condition?
 	*/
 	public static function isPristine( $flags ) {
-		global $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgFlaggedRevTags, $wgFlaggedRevPristine;
 
-		if( !$flags )
+		if( empty($flags) )
 			return false;
 
 		foreach( $wgFlaggedRevTags as $f => $v ) {
-			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevValues )
+			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevPristine )
 				return false;
 		}
 		
