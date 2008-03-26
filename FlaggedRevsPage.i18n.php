@@ -94,7 +94,7 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'review-logentry-dis'  => 'depreciated a version of [[$1]]',
 	'review-logentry-id'   => 'revision ID $1',
 
-	'stable-logpage'     => 'Stable version log',
+	'stable-logpage'     => 'Stability log',
 	'stable-logpagetext' => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.',
 	'stable-logentry'    => 'configured stable versioning for [[$1]]',
 	'stable-logentry2'   => 'reset stable versioning for [[$1]]',
