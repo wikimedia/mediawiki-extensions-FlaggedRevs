@@ -288,7 +288,7 @@ $messages['ar'] = array(
 	'hist-stable'                  => 'نسخة منظورة',
 	'hist-quality'                 => 'نسخة جودة',
 	'flaggedrevs'                  => 'نسخ معلمة',
-	'review-logpage'               => 'سجل مراجعة المقالة',
+	'review-logpage'               => 'سجل المراجعة',
 	'review-logpagetext'           => "هذا سجل بالتغييرات لحالة' [[{{MediaWiki:Makevalidate-page}}|الموافقة]] لصفحات المحتوى.",
 	'review-logentry-app'          => 'راجع $1',
 	'review-logentry-dis'          => 'أزال نسخة من $1',
@@ -5200,12 +5200,15 @@ $messages['su'] = array(
 	'revreview-auto'            => '(otomatis)',
 	'review-logentry-id'        => 'ID révisi $1',
 	'stable-logpage'            => 'Log vérsi stabil',
+	'revreview-accuracy-0'      => 'Teu disatujuan',
 	'revreview-accuracy-2'      => 'Akurat',
 	'revreview-accuracy-4'      => 'Petingan',
 	'revreview-depth'           => 'Jero',
+	'revreview-depth-0'         => 'Teu disatujuan',
 	'revreview-depth-1'         => 'Dasar',
 	'revreview-depth-3'         => 'Luhur',
 	'revreview-depth-4'         => 'Petingan',
+	'revreview-style-0'         => 'Teu disatujuan',
 	'revreview-style-1'         => 'Meueusan',
 	'revreview-style-2'         => 'Alus',
 	'revreview-style-4'         => 'Petingan',
@@ -5547,6 +5550,15 @@ $messages['te'] = array(
 	'reviewedpages-best'           => 'అత్యున్నతంగా రేటు చేయబడిన చిట్టచివరి కూర్పు',
 );
 
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'stableversions-page' => 'Naran pájina nian:',
+	'unreviewed-category' => 'Kategoria:',
+	'stabilization-page'  => 'Naran pájina nian:',
+);
+
 /** Tajik (Тоҷикӣ)
  * @author Ibrahim
  * @author Siebrand
@@ -5732,6 +5744,20 @@ $messages['tr'] = array(
 	'stabilization-sel-short-1' => 'Hiç',
 	'stabilization-def-short-1' => 'Sabit',
 	'reviewedpages-lev-1'       => 'Kalite',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'editor'                => 'редактор',
+	'group-editor'          => 'Редактори',
+	'group-editor-member'   => 'редактор',
+	'grouppage-editor'      => '{{ns:project}}:Редактори',
+	'reviewer'              => 'рецензент',
+	'group-reviewer'        => 'Рецензенти',
+	'group-reviewer-member' => 'рецензент',
+	'grouppage-reviewer'    => '{{ns:project}}:Рецензенти',
 );
 
 /** Vietnamese (Tiếng Việt)
