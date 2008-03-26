@@ -1510,3 +1510,68 @@ $messages['vo'] = array(
 	'rights-editor-revoke'          => 'emoükon redakanastadi gebana: [[$1]]',
 );
 
+/* Traditional Chinese (Alex S.H. Lin) */
+$messages['zh-hant'] = array(
+	'makereviewer'                  => '授予或移除評論者權限',
+	'makereviewer-header'           => '<strong>操作員或行政員可利用此表單讓使用者可以對文章進行評論。</strong>
+輸入使用者名稱並按下按鈕即可設定使用者的權限
+授予評論者權限將自動授予編輯者權限，而移除編輯者權限也將自動移除評論者權限。',
+	'makereviewer-username'         => '使用者名稱',
+	'makereviewer-search'           => '搜索',
+	'makereviewer-iseditor'         => '[[User:$1|$1]]已經擁有{{int:editor}}權限。',
+	'makereviewer-noteditor'        => '[[User:$1|$1]]並未授予{{int:editor}}權限。',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]]已經擁有{{int:reviewer}}權限。',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]]並未授予{{int:reviewer}}權限',
+	'makereviewer-legend'           => '更改使用者狀態',
+	'makereviewer-change-e'         => '{{int:editor}}狀態：',
+	'makereviewer-change-r'         => '{{int:reviewer}}狀態：',
+	'makereviewer-grant1'           => '授予',
+	'makereviewer-revoke1'          => '移除',
+	'makereviewer-grant2'           => '授予',
+	'makereviewer-revoke2'          => '移除',
+	'makereviewer-comment'          => '理由：',
+	'makereviewer-granted-e'        => '已授予[[User:$1|$1]]{{int:editor}}權限',
+	'makereviewer-revoked-e'        => '已移除[[User:$1|$1]]的{{int:editor}}權限',
+	'makereviewer-granted-r'        => '已授予[[User:$1|$1]]{{int:reviewer}}權限',
+	'makereviewer-revoked-r'        => '已移除[[User:$1|$1]]的{{int:reviewer}}權限',
+	'makereviewer-logpage'          => '{{int:editor}}狀態日誌',
+	'makereviewer-logentrygrant-e'  => '授予[[$1]]{{int:editor}}權限',
+	'makereviewer-logentryrevoke-e' => '移除[[$1]]的{{int:editor}}權限',
+	'makereviewer-logentrygrant-r'  => '授予[[$1]]{{int:reviewer}}權限',
+	'makereviewer-logentryrevoke-r' => '移除[[$1]]的{{int:reviewer}}權限',
+	'makereviewer-autosum'          => '自動授予',
+	'rights-editor-revoke'          => '移除[[$1]]的{{int:editor}}權限',
+);
+
+/* Simplified Chinese (Alex S.H. Lin) */
+$messages['zh-hans'] = array(
+	'makereviewer'                  => '授予或移除{{int:reviewer}}权限',
+	'makereviewer-header'           => '<strong>操作员或行政员可利用此表单让用户可以对文章进行评论。</strong>
+输入用户名称并按下按钮即可设定用户的权限
+授予评论者权限将自动授予编辑者权限，而移除编辑者权限也将自动移除评论者权限。',
+	'makereviewer-username'         => '用户名称',
+	'makereviewer-search'           => '搜索',
+	'makereviewer-iseditor'         => '[[User:$1|$1]]已经拥有{{int:editor}}权限。',
+	'makereviewer-noteditor'        => '[[User:$1|$1]]未被授与{{int:editor}}权限。',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]]已经拥有{{int:reviewer}}权限。',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]]未被授与{{int:reviewer}}权限',
+	'makereviewer-legend'           => '更改用户状态',
+	'makereviewer-change-e'         => '{{int:editor}}状态：',
+	'makereviewer-change-r'         => '{{int:reviewer}}状态：',
+	'makereviewer-grant1'           => '授予',
+	'makereviewer-revoke1'          => '移除',
+	'makereviewer-grant2'           => '授予',
+	'makereviewer-revoke2'          => '移除',
+	'makereviewer-comment'          => '理由：',
+	'makereviewer-granted-e'        => '已授予[[User:$1|$1]]{{int:editor}}权限',
+	'makereviewer-revoked-e'        => '已移除[[User:$1|$1]]的{{int:editor}}权限',
+	'makereviewer-granted-r'        => '已授予[[User:$1|$1]]{{int:reviewer}}权限',
+	'makereviewer-revoked-r'        => '已移除[[User:$1|$1]]的{{int:reviewer}}权限',
+	'makereviewer-logpage'          => '{{int:editor}}状态日志',
+	'makereviewer-logentrygrant-e'  => '授予[[$1]]{{int:editor}}权限',
+	'makereviewer-logentryrevoke-e' => '移除[[$1]]的{{int:editor}}权限',
+	'makereviewer-logentrygrant-r'  => '授予[[$1]]{{int:reviewer}}权限',
+	'makereviewer-logentryrevoke-r' => '移除[[$1]]{{int:reviewer}}权限',
+	'makereviewer-autosum'          => '自动授予',
+	'rights-editor-revoke'          => '移除[[$1]]的{{int:editor}}权限',
+);
