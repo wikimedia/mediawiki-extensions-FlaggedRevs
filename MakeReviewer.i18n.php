@@ -912,6 +912,14 @@ $messages['lt'] = array(
 	'makereviewer-comment'   => 'Komentaras:',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Shijualex
+ */
+$messages['ml'] = array(
+	'makereviewer-search'  => 'പോകൂ',
+	'makereviewer-comment' => 'അഭിപ്രായം:',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  * @author Mahitgar
@@ -1485,17 +1493,36 @@ $messages['uk'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Vinhtantran
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'makereviewer-username' => 'Tên thành viên:',
-	'makereviewer-search'   => 'Hiển thị',
-	'makereviewer-grant1'   => 'Phong cờ',
-	'makereviewer-revoke1'  => 'Rút cờ',
-	'makereviewer-grant2'   => 'Phong cờ',
-	'makereviewer-revoke2'  => 'Rút cờ',
-	'makereviewer-comment'  => 'Lý do:',
-	'makereviewer-autosum'  => 'tự phong cờ',
+	'makereviewer'                  => 'Phong/tước cờ người viết',
+	'makereviewer-header'           => '<strong>Mẫu này được quản lý và hành chính viên sử dụng để phong thành viên thành người duyệt bài.</strong>',
+	'makereviewer-username'         => 'Tên thành viên:',
+	'makereviewer-search'           => 'Hiển thị',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] đang là người viết bài.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] không phải người viết bài.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] đang là người duyệt bài.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] không phải người duyệt bài.',
+	'makereviewer-legend'           => 'Thay đổi quyền thành viên',
+	'makereviewer-change-e'         => 'Người viết bài:',
+	'makereviewer-change-r'         => 'Người duyệt bài:',
+	'makereviewer-grant1'           => 'Phong cờ',
+	'makereviewer-revoke1'          => 'Tước cờ',
+	'makereviewer-grant2'           => 'Phong cờ',
+	'makereviewer-revoke2'          => 'Tước cờ',
+	'makereviewer-comment'          => 'Lý do:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] giờ là người viết bài.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] không còn là người viết bài.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] giờ là người duyệt bài.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] không còn là người duyệt bài.',
+	'makereviewer-logpage'          => 'Nhật trình địa vị người viết',
+	'makereviewer-logentrygrant-e'  => 'phong [[$1]] làm người viết bài',
+	'makereviewer-logentrygrant-r'  => 'phong [[$1]] làm người duyệt bài',
+	'makereviewer-logentryrevoke-r' => 'đưa [[$1]] ra khỏi nhóm duyệt bài',
+	'makereviewer-autosum'          => 'tự phong cờ',
+	'rights-editor-revoke'          => 'đưa [[$1]] ra khỏi nhóm viết bài',
 );
 
 /** Volapük (Volapük)
