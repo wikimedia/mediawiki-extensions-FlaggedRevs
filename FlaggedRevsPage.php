@@ -960,7 +960,7 @@ class ReviewedPagesPager extends ReverseChronologicalPager {
 			$conds[] = "1 = 0";
 		}
 		$conds['page_namespace'] = $this->namespace;
-		$conds[] = "page_ext_quality >= '{$this->type}'";
+		$conds['page_ext_quality'] = $this->type;
 		return array(
 			'tables' => array('page'),
 			'fields' => 'page_namespace,page_title,page_id',
