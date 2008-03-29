@@ -916,8 +916,30 @@ $messages['lt'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'makereviewer-search'  => 'പോകൂ',
-	'makereviewer-comment' => 'അഭിപ്രായം:',
+	'makereviewer-username'         => 'ഉപയോക്താവിന്റെ പേര്‌:',
+	'makereviewer-search'           => 'പോകൂ',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു എഡിറ്റര്‍ അവകാശം ഉണ്ട്.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു എഡിറ്റര്‍ അവകാശം ഇല്ല.',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു പുനഃപരിശോധന അവകാശം ഉണ്ട്.',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു പുനഃപരിശോധന അവകാശം ഇല്ല.',
+	'makereviewer-legend'           => 'ഉപയോക്താവിന്റെ അവകാശങ്ങള്‍ മാറ്റുക',
+	'makereviewer-change-e'         => 'എഡിറ്ററിന്റെ തല്‍സ്ഥിതി:',
+	'makereviewer-change-r'         => 'സംശോധകന്റെ തല്‍സ്ഥിതി',
+	'makereviewer-grant1'           => 'അനുവദിക്കുക',
+	'makereviewer-revoke1'          => 'പിന്‍‌വലിക്കുക',
+	'makereviewer-grant2'           => 'അനുവദിക്കുക',
+	'makereviewer-revoke2'          => 'പിന്‍‌വലിക്കുക',
+	'makereviewer-comment'          => 'അഭിപ്രായം:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു ഇപ്പോള്‍ എഡിറ്റര്‍ അവകാശം ഉണ്ട്.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു ഇപ്പോള്‍ മുതല്‍ എഡിറ്റര്‍ അവകാശം ഇല്ല.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു ഇപ്പോള്‍ മുതല്‍ സംശോധക അവകാശം ഉണ്ട്.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] എന്ന ഉപയോക്താവിനു ഇപ്പോള്‍ മുതല്‍ സംശോധക അവകാശം ഇല്ല.',
+	'makereviewer-logpage'          => 'എഡിറ്റര്‍ അവകാശത്തിന്റെ പ്രവര്‍ത്തനരേഖ',
+	'makereviewer-logentrygrant-e'  => '[[$1]] എന്ന ഉപയോക്താവിനു എഡിറ്റര്‍ അവകാശം അനുവദിച്ചിരിക്കുന്നു',
+	'makereviewer-logentrygrant-r'  => '[[$1]] എന്ന ഉപയോക്താവിനു സംശോധക അവകാശം അനുവദിച്ചിരിക്കുന്നു',
+	'makereviewer-logentryrevoke-r' => '[[$1]] എന്ന ഉപയോക്താവിനുള്ള സംശോധക അവകാശം എടുത്തു കളഞ്ഞിരിക്കുന്നു.',
+	'makereviewer-autosum'          => 'യാന്ത്രികമായി സ്ഥാനക്കയറ്റം നല്‍കിയിരിക്കുന്നു',
+	'rights-editor-revoke'          => '[[$1]] എന്ന ഉപയോക്താവിന്റെ എഡിറ്റര്‍ അവകാശം പിന്‍‌വലിച്ചിരിക്കുന്നു',
 );
 
 /** Marathi (मराठी)

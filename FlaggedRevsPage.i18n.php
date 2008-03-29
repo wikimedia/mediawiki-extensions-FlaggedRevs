@@ -758,13 +758,14 @@ $messages['br'] = array(
 );
 
 /** Catalan (Català)
- * @author SMP
  * @author Toniher
+ * @author SMP
  * @author Siebrand
  */
 $messages['ca'] = array(
 	'flaggedrevs-desc'            => "Dóna als editors/revisors l'habilitat de validar revisions de pàgines i declarar-les estables.",
 	'editor'                      => 'Editor',
+	'group-editor'                => 'Editors',
 	'group-editor-member'         => 'Editor',
 	'reviewer'                    => 'Supervisor',
 	'group-reviewer'              => 'Supervisors',
@@ -793,8 +794,20 @@ $messages['ca'] = array(
 	'revreview-auto'              => '(automàtic)',
 	'hist-stable'                 => 'versió revisada',
 	'hist-quality'                => 'versió de qualitat',
+	'flaggedrevs'                 => 'Revisions senyalades',
+	'review-logpage'              => 'Registre de revisió',
+	'stable-logpage'              => "Registre d'estabilitat",
+	'revisionreview'              => 'Revisa les revisions',
+	'revreview-flag'              => 'Revisa aquesta revisió',
+	'revreview-log'               => 'Comentari:',
+	'revreview-submit'            => 'Tramet la revisió',
 	'stableversions'              => 'Vegeu les versions estables',
 	'stableversions-page'         => 'Nom de la pàgina:',
+	'stableversions-review'       => 'Revisat el <em>$1</em> per $2',
+	'review-diff2stable'          => 'Visualitza els canvis entre les revisions estable i actual',
+	'unreviewedpages'             => 'Pàgines per revisar',
+	'viewunreviewed'              => 'Llista les pàgines de contingut per revisar',
+	'unreviewed-outdated'         => 'Mostra les pàgines que tinguin revisions per revisar fetes en comptes de la versió estable.',
 	'unreviewed-category'         => 'Categoria:',
 	'unreviewed-diff'             => 'Canvis',
 	'stabilization-submit'        => 'Confirma',
@@ -2277,11 +2290,11 @@ $messages['hu'] = array(
 	'editor'                       => 'Szerkesztő',
 	'group-editor'                 => 'Szerkesztők',
 	'group-editor-member'          => 'Szerkesztő',
-	'grouppage-editor'             => '{{ns:project}}:Szerkesztő',
-	'reviewer'                     => 'Ellenőr',
-	'group-reviewer'               => 'Ellenőr',
-	'group-reviewer-member'        => 'Ellenőr',
-	'grouppage-reviewer'           => '{{ns:project}}:Ellenőr',
+	'grouppage-editor'             => '{{ns:project}}:Szerkesztők',
+	'reviewer'                     => 'ellenőr',
+	'group-reviewer'               => 'ellenőrök',
+	'group-reviewer-member'        => 'ellenőr',
+	'grouppage-reviewer'           => '{{ns:project}}:Ellenőrök',
 	'revreview-current'            => 'Vázlat',
 	'tooltip-ca-current'           => 'Az oldal jelenlegi vázlatának megtekintése',
 	'revreview-edit'               => 'Vázlat szerkesztése',
@@ -2312,15 +2325,15 @@ $messages['hu'] = array(
 ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 változást] kell ellenőrizni.',
 	'revreview-newest-quality'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi minőségi változat]
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes megjelenítése]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]
-ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 változást] kell ellenőrizni.',
+ekkor: <i>$2</i> [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 változást] kell ellenőrizni.',
 	'revreview-basic'              => 'Ez a legutóbbi [[{{MediaWiki:Validationpage}}|áttekintett]] változat,
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva] ekkor: <i>$2</i>. A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vázlat]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} módosítható]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 változás]
 vár áttekintésre.',
 	'revreview-quality'            => 'Ez a legutóbbi [[{{MediaWiki:Validationpage}}|minőségi]] változat,
-[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadás] ideje: <i>$2</i>. A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vázlatot]
-lehet [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} módosítani]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 változás]
-vár áttekintésre.',
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva] ekkor: <i>$2</i>.
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vázlaton] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3
+változtatást] kell ellenőrízni.',
 	'revreview-note'               => '[[User:$1]] az alábbi megjegyzéseket tette ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzésekor]]:',
 	'revreview-update'             => "[[{{MediaWiki:Validationpage}}|Ellenőrizz]] minden változást (lenn láthatóak), amelyek az [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadott] változat óta készültek.
 
@@ -2350,32 +2363,32 @@ naplója.',
 
 Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-selected'           => "'''$1''' kiválasztott változata:",
-	'revreview-text'               => 'Az oldalon alapértelmezettként az elfogadott változatok jelennek meg az újabbak helyett.',
+	'revreview-text'               => 'Az alapértelmezett beállítások szerint az elfogadott változatok jelennek meg az újabbak helyett.',
 	'revreview-toolow'             => 'Ahhoz, hogy egy változat ellenőrzött legyen, minhol az „ellenőrizetlen”-től különböző 
 értéket kell megadnod. Egy változat ellenőrzésének törléséhez állíts mindent erre az értékre.',
-	'revreview-flag'               => 'Változat ellenőrzése',
+	'revreview-flag'               => 'Jelenlegi változat ellenőrzése',
 	'revreview-legend'             => 'Változat tartalmának értékelése',
 	'revreview-notes'              => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-accuracy'           => 'Pontosság',
-	'revreview-accuracy-0'         => 'Ellenőrizetlen',
-	'revreview-accuracy-1'         => 'Megtekintett',
-	'revreview-accuracy-2'         => 'Pontos',
-	'revreview-accuracy-3'         => 'Forrásokkal megfelelően ellátva',
-	'revreview-accuracy-4'         => 'Kiemelt',
-	'revreview-depth'              => 'Mélység',
-	'revreview-depth-0'            => 'Ellenőrizetlen',
-	'revreview-depth-1'            => 'Alapszintű',
-	'revreview-depth-2'            => 'Átlagos',
-	'revreview-depth-3'            => 'Részletes',
-	'revreview-depth-4'            => 'Kiemelt',
+	'revreview-accuracy-0'         => 'ellenőrizetlen',
+	'revreview-accuracy-1'         => 'megtekintve',
+	'revreview-accuracy-2'         => 'pontos',
+	'revreview-accuracy-3'         => 'forrásokkal megfelelően ellátva',
+	'revreview-accuracy-4'         => 'kiemelt',
+	'revreview-depth'              => 'Részletesség',
+	'revreview-depth-0'            => 'ellenőrizetlen',
+	'revreview-depth-1'            => 'alacsony',
+	'revreview-depth-2'            => 'közepes',
+	'revreview-depth-3'            => 'nagy',
+	'revreview-depth-4'            => 'kiemelt',
 	'revreview-style'              => 'Olvashatóság',
-	'revreview-style-0'            => 'Ellenőrizetlen',
-	'revreview-style-1'            => 'Elfogadható',
-	'revreview-style-2'            => 'Jó',
-	'revreview-style-3'            => 'Tömör',
-	'revreview-style-4'            => 'Kiemelt',
+	'revreview-style-0'            => 'ellenőrizetlen',
+	'revreview-style-1'            => 'elfogadható',
+	'revreview-style-2'            => 'jó',
+	'revreview-style-3'            => 'tömör',
+	'revreview-style-4'            => 'kiemelt',
 	'revreview-log'                => 'Megjegyzés:',
-	'revreview-submit'             => 'Áttekintés elküldése',
+	'revreview-submit'             => 'Értékelés elküldése',
 	'revreview-changed'            => "'''A kért művelet nem hajtható végre [[:$1|$1]] ezen változatán.'''
 
 Egy sablon vagy kép lehetett kérve, miközben nem lett megadva adott változat. Ez akkor történhet meg, ha 
@@ -3589,14 +3602,32 @@ $messages['lt'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'grouppage-editor'      => '{{ns:project}}:എഡിറ്റര്‍',
-	'revreview-auto'        => '(യാന്ത്രികം)',
-	'revreview-log'         => 'അഭിപ്രായം:',
-	'stableversions-page'   => 'താളിന്റെ പേര്‌:',
-	'unreviewed-category'   => 'വിഭാഗം:',
-	'unreviewed-diff'       => 'മാറ്റങ്ങള്‍',
-	'stabilization-comment' => 'അഭിപ്രായം:',
-	'stabilization-expiry'  => 'കാലാവധി:',
+	'editor'                   => 'എഡിറ്റര്‍',
+	'group-editor'             => 'എഡിറ്റര്‍മാര്‍',
+	'group-editor-member'      => 'എഡിറ്റര്‍',
+	'grouppage-editor'         => '{{ns:project}}:എഡിറ്റര്‍',
+	'reviewer'                 => 'സംശോധകന്‍',
+	'group-reviewer'           => 'സംശോധകര്‍',
+	'group-reviewer-member'    => 'സംശോധകന്‍',
+	'grouppage-reviewer'       => '{{ns:project}}:സംശോധകന്‍',
+	'revreview-auto'           => '(യാന്ത്രികം)',
+	'revisionreview'           => 'പതിപ്പുകള്‍ സംശോധനം ചെയ്യുക',
+	'revreview-flag'           => 'ഈ പതിപ്പ് സംശോധനം ചെയ്യുക',
+	'revreview-log'            => 'അഭിപ്രായം:',
+	'stableversions-page'      => 'താളിന്റെ പേര്‌:',
+	'unreviewedpages'          => 'സംശോധനം ചെയ്യാത്ത താളുകള്‍',
+	'unreviewed-category'      => 'വിഭാഗം:',
+	'unreviewed-diff'          => 'മാറ്റങ്ങള്‍',
+	'stabilization-page'       => 'താളിന്റെ പേര്‌:',
+	'stabilization-def2'       => 'നിലവിലുള്ള പതിപ്പ്',
+	'stabilization-comment'    => 'അഭിപ്രായം:',
+	'stabilization-expiry'     => 'കാലാവധി:',
+	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',
+	'stabilize_expiry_old'     => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
+	'stabilize-expiring'       => '$1 (UTC) നു കാലാവധി തീരുന്നു',
+	'reviewedpages'            => 'സംശോധനം നടന്ന താളുകള്‍',
+	'reviewedpages-none'       => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
+	'reviewedpages-all'        => 'സംശോധനം ചെയ്ത പതിപ്പുകള്‍',
 );
 
 /** Marathi (मराठी)
@@ -5421,6 +5452,14 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'reviewedpages-best'           => 'främsta version',
 );
 
+/** ślůnski (ślůnski)
+ * @author Herr Kriss
+ */
+$messages['szl'] = array(
+	'stabilization-expiry'    => 'Wygaso:',
+	'stabilization-def-short' => 'Důmyślna',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  * @author Chaduvari
@@ -6283,6 +6322,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Shinjiman
+ * @author Alexsh
  */
 $messages['zh-hant'] = array(
 	'flaggedrevs-desc'            => '給予編輯者與評論家能力去核實修訂以及穩定化頁面',
@@ -6295,13 +6335,18 @@ $messages['zh-hant'] = array(
 	'group-reviewer-member'       => '評論家',
 	'grouppage-reviewer'          => '{{ns:project}}:評論家',
 	'revreview-current'           => '草稿',
+	'tooltip-ca-current'          => '檢視本頁目前的草稿',
 	'revreview-edit'              => '編輯草稿',
 	'revreview-source'            => '草稿原始碼',
 	'revreview-stable'            => '穩定',
+	'tooltip-ca-stable'           => '檢視本頁穩定的版本',
 	'revreview-oldrating'         => '曾經評定為:',
 	'revreview-noflagged'         => "這一頁沒有複審過的修訂，它可能'''未'''[[{{MediaWiki:Validationpage}}|檢查]]質量。",
+	'stabilization-tab'           => '調查',
+	'tooltip-ca-default'          => '品質保證設定',
 	'validationpage'              => '{{ns:help}}:文章確認',
 	'revreview-quick-none'        => "'''現時的'''。沒有已複審的修訂。",
+	'revreview-quick-invalid'     => "'''修訂版本號碼錯誤'''",
 	'revreview-quick-see-quality' => "'''現時的'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看睇最後的質素修訂]]",
 	'revreview-quick-see-basic'   => "'''現時的'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 看最後檢查過的修訂]]",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|視察過的]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 看現時修訂]]",
@@ -6320,9 +6365,6 @@ $messages['zh-hant'] = array(
 	於<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]
 	正等候複審。',
-	'revreview-static'            => "這個是一個在'''[[:$3|這頁]]'''[[{{MediaWiki:Validationpage}}|複審過的]]修訂，
-	於<i>$2</i>[{{fullurl:Special:Log/review|page=$1}} 批准]。[{{fullurl:$3|stable=0}} 現時修訂]
-	可以[{{fullurl:$3|action=edit}} 更改]。",
 	'revreview-note'              => '[[User:$1]]在這次修訂中加入了以下的[[{{MediaWiki:Validationpage}}|複審]]註解:',
 	'revreview-update'            => '請複審自從於這頁的穩定版以來的任何更改 (在下面顯示) 。模版和圖像亦可能同時更改。',
 	'revreview-auto'              => '(自動)',
