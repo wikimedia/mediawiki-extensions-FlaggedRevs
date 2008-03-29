@@ -6073,10 +6073,11 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 	'reviewedpages-all'           => 'fomams pekrütöl',
 );
 
-/** Yue (粵語)
+/** Cantonese (廣東話)
  * @author Shinjiman
  */
 $messages['yue'] = array(
+	'flaggedrevs-desc'            => '畀編輯者同埋評論家個能力去核實修訂同埋穩定化頁',
 	'editor'                      => '編輯',
 	'group-editor'                => '編輯',
 	'group-editor-member'         => '編輯',
@@ -6180,6 +6181,7 @@ $messages['yue'] = array(
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
+	'flaggedrevs-desc'            => '给予编辑者与评论家能力去核实修订以及稳定化页面',
 	'editor'                      => '编辑',
 	'group-editor'                => '编辑',
 	'group-editor-member'         => '编辑',
@@ -6283,6 +6285,7 @@ $messages['zh-hans'] = array(
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
+	'flaggedrevs-desc'            => '給予編輯者與評論家能力去核實修訂以及穩定化頁面',
 	'editor'                      => '編輯',
 	'group-editor'                => '編輯',
 	'group-editor-member'         => '編輯',

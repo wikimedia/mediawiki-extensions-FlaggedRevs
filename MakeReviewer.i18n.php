@@ -1556,7 +1556,42 @@ $messages['vo'] = array(
 	'rights-editor-revoke'          => 'emoükon redakanastadi gebana: [[$1]]',
 );
 
-/* Simplified Chinese (Alex S.H. Lin) */
+$messages['yue'] = array(
+	'makereviewer'                  => '升級／降級編輯者',
+	'makereviewer-header'           => '<strong>呢個表係畀操作員同埋事務員用來將用戶升級做文章核實者。</strong>
+
+響個盒度輸入用戶嘅名再撳個擊去設定用戶嘅嘅限。
+畀用戶評論家狀態會自動畀佢哋做編輯者嘅狀態。
+收佢哋編輯者嘅狀態會自動收番評論家嘅狀態。',
+	'makereviewer-username'         => '用戶嘅名:',
+	'makereviewer-search'           => '去',
+	'makereviewer-iseditor'         => '[[User:$1|$1]]有編輯者狀態。',
+	'makereviewer-noteditor'        => '[[User:$1|$1]]無編輯者狀態。',
+	'makereviewer-isvalidator'      => '[[User:$1|$1]]有評論家狀態。',
+	'makereviewer-notvalidator'     => '[[User:$1|$1]]無評論家狀態。',
+	'makereviewer-legend'           => '改用戶樣限',
+	'makereviewer-change-e'         => '編輯者狀態:',
+	'makereviewer-change-r'         => '評論家狀態:',
+	'makereviewer-grant1'           => '畀',
+	'makereviewer-revoke1'          => '收',
+	'makereviewer-grant2'           => '畀',
+	'makereviewer-revoke2'          => '收',
+	'makereviewer-comment'          => '註解:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]]而家有編輯者狀態。',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]]再無編輯者狀態。',
+	'makereviewer-granted-r'        => '[[User:$1|$1]]而家有評論家狀態。',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]]再無評論家狀態。',
+	'makereviewer-logpage'          => '編輯者狀態日誌',
+	'makereviewer-logentrygrant-e'  => '畀咗[[$1]]嘅編輯者狀態',
+	'makereviewer-logentrygrant-r'  => '畀咗[[$1]]嘅評論家狀態',
+	'makereviewer-logentryrevoke-r' => '拎走咗[[$1]]嘅評論家狀態',
+	'makereviewer-autosum'          => '自動升級',
+	'rights-editor-revoke'          => '拎走咗[[$1]]嘅編輯者狀態',
+);
+
+/** Simplified Chinese
+ * @author Alex S.H. Lin
+ */
 $messages['zh-hans'] = array(
 	'makereviewer'                  => '授予或移除{{int:reviewer}}权限',
 	'makereviewer-header'           => '<strong>操作员或行政员可利用此表单让用户可以对文章进行评论。</strong>
@@ -1589,7 +1624,9 @@ $messages['zh-hans'] = array(
 	'rights-editor-revoke'          => '移除[[$1]]的{{int:editor}}权限',
 );
 
-/* Traditional Chinese (Alex S.H. Lin) */
+/** Traditional Chinese
+ * @author Alex S.H. Lin
+ */
 $messages['zh-hant'] = array(
 	'makereviewer'                  => '授予或移除評論者權限',
 	'makereviewer-header'           => '<strong>操作員或行政員可利用此表單讓使用者可以對文章進行評論。</strong>
