@@ -3636,6 +3636,7 @@ $messages['ml'] = array(
 	'group-reviewer'           => 'സംശോധകര്‍',
 	'group-reviewer-member'    => 'സംശോധകന്‍',
 	'grouppage-reviewer'       => '{{ns:project}}:സംശോധകന്‍',
+	'revreview-edited'         => "'''സ്ഥാപിതരായ ഉപയോക്താക്കള്‍ സം‌ശോധനം നിര്‍‌വഹിച്ചതിനു ശേഷം തിരുത്തലുകള്‍ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പിലേക്ക്]] ചേര്‍ക്കപ്പെടും. താഴെ ''കരട് പതിപ്പ്‍'' പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു.'''",
 	'revreview-auto'           => '(യാന്ത്രികം)',
 	'revisionreview'           => 'പതിപ്പുകള്‍ സംശോധനം ചെയ്യുക',
 	'revreview-flag'           => 'ഈ പതിപ്പ് സംശോധനം ചെയ്യുക',
