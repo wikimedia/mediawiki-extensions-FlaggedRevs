@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.022',
+	'version' => '1.023',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -161,7 +161,7 @@ $wgFlaggedRevsAutopromote = array(
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 6;
+$wgFlaggedRevStyleVersion = 7;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -195,14 +195,13 @@ include_once( $dir . 'SpecialMakeReviewer.php' );
 $wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
 
 function efLoadFlaggedRevs() {
-	global $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle;
+	global $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle, $wgUseRCPatrol;
 	# Initialize
 	FlaggedRevs::load();
 	$wgFlaggedArticle = new FlaggedArticle();
 
 	wfLoadExtensionMessages( 'FlaggedRevsPage' );
 
-	global $wgUseRCPatrol;
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
@@ -240,8 +239,8 @@ function efLoadFlaggedRevs() {
 	# Empty flagged page settings row on delete
 	$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
 	# Check on undelete/merge/revisiondelete for changes to stable version
-	$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::articleLinksUpdate2';
-	$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::articleLinksUpdate2';
+	$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::titleLinksUpdate';
+	$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::titleLinksUpdate';
 	$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
 	# Clean up after undeletion
 	$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
@@ -255,9 +254,9 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
 	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array($wgFlaggedArticle, 'injectReviewDiffURLParams');
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
-	$wgHooks['DiffViewHeader'][] = array($wgFlaggedArticle, 'addPatrolAndDiffLink' );
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams' );
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolAndDiffLink' );
 	# Autoreview stuff
 	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
 	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
@@ -611,7 +610,7 @@ class FlaggedRevs {
 			$config = self::getPageVisibilitySettings( $title, $forUpdate );
 			$dbw = wfGetDB( DB_MASTER );
 			# Look for the latest quality revision
-			if( $config['select'] !== FLAGGED_VIS_LATEST ) {
+			if( $config['select'] != FLAGGED_VIS_LATEST ) {
 				$result = $dbw->select( array('flaggedrevs', 'revision'),
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
@@ -914,7 +913,7 @@ class FlaggedRevs {
 	public static function stripPatrolRights( $user, &$rights ) {
 		# Use only our extension mechanisms
 		foreach( $rights as $n => $right ) {
-			if( $right == 'patrol' || $rights == 'autopatrol' ) {
+			if( $right == 'patrol' || $right == 'autopatrol' ) {
 				unset($rights[$n]);
 			}
 		}
@@ -1156,8 +1155,8 @@ class FlaggedRevs {
 				__METHOD__ );
 		}
 		# Update pages
-		self::articleLinksUpdate2( $sourceTitle );
-		self::articleLinksUpdate2( $destTitle );
+		self::titleLinksUpdate( $sourceTitle );
+		self::titleLinksUpdate( $destTitle );
 
 		return true;
 	}
@@ -1198,7 +1197,7 @@ class FlaggedRevs {
 	/**
 	* Clears cache for a page when revisiondelete/undelete is used
 	*/
-	public static function articleLinksUpdate2( $title, $a=null, $b=null ) {
+	public static function titleLinksUpdate( $title, $a=null, $b=null ) {
 		return self::articleLinksUpdate( new Article( $title ), $a, $b );
 	}
 

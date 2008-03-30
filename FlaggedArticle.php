@@ -701,10 +701,8 @@ class FlaggedArticle {
     		$skin = $wgUser->getSkin();
 
     		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
-    		$s .= ' <small><strong>[' .
-				$skin->makeLinkObj( $wgTitle, wfMsgHtml( $msg ),
-					'stableid=' . $row->rev_id ) .
-				']</strong></small>';
+    		$s .= ' <small><strong>[' . $skin->makeLinkObj( $wgTitle, wfMsgHtml( $msg ),
+				'stableid=' . $row->rev_id ) . ']</strong></small>';
 		}
 
 		return true;
@@ -715,25 +713,30 @@ class FlaggedArticle {
 	 * @param OutputPage $out
 	 * @param bool $top, should this form always go on top?
 	 */
-    public function addQuickReview( $out, $top=false ) {
+    public function addQuickReview( $out, $top = false ) {
 		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
 		# User must have review rights
-		if( !$wgUser->isAllowed( 'review' ) )
+		if( !$wgUser->isAllowed( 'review' ) ) {
 			return;
-		# Looks ugly when printed
-		if( $out->isPrintable() )
-			return;
+		}
+		# revision being displayed
 		$id = $out->mRevisionId;
+		# Must be a valid non-printable output
+		if( !$id || $out->isPrintable() ) {
+			return;
+		}
 		$skin = $wgUser->getSkin();
+		# See if the version being displayed is flagged...
+		$oldflags = $this->getFlagsForRevision( $id );
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		if( $this->isDiffFromStable ) {
-			$flags = $this->getFlagsForRevision( $wgRequest->getVal('oldid') );
-			# Check if user is allowed to renew the stable version.
-			# It may perhaps have been reviewed too highly for this user, if so,
-			# then get the flags for the new revision itself.
-			if( !Revisionreview::userCanSetFlags( $flags ) ) {
-				$flags = $this->getFlagsForRevision( $id );
+			$srev = $this->getStableRev();
+			$flags = $srev->getTags();
+			# Check if user is allowed to renew the stable version. 
+			# If not, then get the flags for the new revision itself.
+			if( !Revisionreview::userCanSetFlags( $flags, $oldflags ) ) {
+				$flags = $oldflags;
 			}
 		} else {
 			$flags = $this->getFlagsForRevision( $id );
@@ -1006,21 +1009,22 @@ class FlaggedArticle {
 		global $wgUser, $wgOut;
 		// Is there a stable version?
 		if( FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) ) {
-			if( !$OldRev )
+			if( !$OldRev ) {
 				return true;
-
+			}
 			$frev = $this->getStableRev();
-			if( $frev && $frev->getRevId()==$OldRev->getID() && $NewRev->isCurrent() ) {
+			if( $frev && $frev->getRevId() == $OldRev->getID() && $NewRev->isCurrent() ) {
 				$this->isDiffFromStable = true;
 			}
 			# Give a link to the diff-to-stable if needed
 			if( $frev && !$this->isDiffFromStable ) {
-				$skin = $wgUser->getSkin();
-
-				$patrol = '(' . $skin->makeKnownLinkObj( $NewRev->getTitle(),
-					wfMsgHtml( 'review-diff2stable' ),
-					"oldid={$frev->getRevId()}&diff=cur" ) . ')';
-				$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+				$article = new Article( $NewRev->getTitle() );
+				# Is the stable revision using the same revision as the current?
+				if( $article->getLatest() != $frev->getRevId() ) {
+					$patrol = '(' . $wgUser->getSkin()->makeKnownLinkObj( $NewRev->getTitle(),
+						wfMsgHtml( 'review-diff2stable' ), "oldid={$frev->getRevId()}&diff=cur" ) . ')';
+					$wgOut->addHTML( '<div class="fr-diff-to-stable" align=center>' . $patrol . '</div>' );
+				}
 			}
 		// Prepare a change patrol link, if applicable
 		} else if( $wgUser->isAllowed( 'review' ) ) {
@@ -1049,10 +1053,8 @@ class FlaggedArticle {
 			}
 			// Build the link
 			if( $rcid ) {
-				$skin = $wgUser->getSkin();
-
 				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
-				$patrol = '[' . $skin->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'revreview-patrol' ),
+				$patrol = '[' . $wgUser->getSkin()->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'revreview-patrol' ),
 					"patrolonly=1&target=" . $NewRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" ) . ']';
 			} else {
 				$patrol = '';
@@ -1071,10 +1073,18 @@ class FlaggedArticle {
 		# Don't show this for the talk page
 		if( !$this->isReviewable() || $article->getTitle()->isTalkPage() )
 			return true;
+		# Get the stable version and flags
     	$frev = $this->getStableRev();
-		# Was this already autoreviewed, are we allowed?
-		if( $wgReviewChangesAfterEdit && !$this->skipReviewDiff && $frev && $wgUser->isAllowed('review') ) {
-			$extraq .= "oldid={$frev->getRevId()}&diff=cur";
+		$flags = $frev ? $frev->getTags() : array();
+		// If we are supposed to review after edit, and it was not autoreviewed,
+		// and the user can actually make new stable version, take us to the diff...
+		if( $wgReviewChangesAfterEdit && !$this->skipReviewDiff && $frev && Revisionreview::userCanSetFlags($flags) ) {
+			$flags = $frev->getTags();
+			# If the user can update the stable version, jump to it...
+			if( Revisionreview::userCanSetFlags( $flags ) ) {
+				$extraq .= "oldid={$frev->getRevId()}&diff=cur";
+			}
+		// ...otherwise, go to the current revision after completing an edit.
 		} else {
 			if( $frev ){
 				$extraq .= "stable=0";
@@ -1139,20 +1149,10 @@ class FlaggedArticle {
 		# Is this an edit directly to the stable version?
 		if( is_null($frev) )
 			return true;
-		# Grab the flags for this revision
-		$flags = $frev->getTags();
-		# Check if user is allowed to renew the stable version.
-		# If it has been reviewed too highly for this user, abort.
-		if( !Revisionreview::userCanSetFlags( $flags ) ) {
-			return true;
-		}
-		# Do not autoreview quality revisions - require more thought
-		if( FlaggedRevs::isQuality( $flags ) ) {
-			# Assume basic flagging level
-			$flags = array();
-			foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
-				$flags[$tag] = 1;
-			}
+		# Assume basic flagging level
+		$flags = array();
+		foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
+			$flags[$tag] = 1;
 		}
 		FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags );
 
