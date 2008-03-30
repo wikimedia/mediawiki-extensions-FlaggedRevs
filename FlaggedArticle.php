@@ -825,7 +825,7 @@ class FlaggedArticle {
 		if( $top )
 			$out->mBodytext =  $form . $out->mBodytext;
 		else
-			$wgOut->addHTML( '<hr style="clear:both"/>' . $form );
+			$wgOut->addHTML( '<br style="clear:both"/>' . $form );
     }
 
 	/**

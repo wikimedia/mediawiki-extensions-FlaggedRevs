@@ -151,12 +151,21 @@ class Revisionreview extends UnlistedSpecialPage
 	 * Returns true if a user can set $flags.
 	 * This checks if the user has the right to review
 	 * to the given levels for each tag.
-	 * @param array $flags
+	 * @param array $flags, suggested flags
+	 * @param array $oldflags, pre-existing flags
 	 * @returns bool
 	 */
-	public static function userCanSetFlags( $flags ) {
+	public static function userCanSetFlags( $flags, $oldflags = array() ) {
+		global $wgUser;
+		
+		if( !$wgUser->isAllowed('review') ) {
+			return false;
+		}
+	
 		foreach( $flags as $qal => $level ) {
 			if( !self::userCan($qal,$level) ) {
+				return false;
+			} else if( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
 				return false;
 			}
 		}
@@ -1132,7 +1141,7 @@ class Stabilization extends UnlistedSpecialPage
 	}
 
 	function submit() {
-		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
 
 		$changed = $reset = false;
 		# Take this opportunity to purge out expired configurations
@@ -1164,7 +1173,7 @@ class Stabilization extends UnlistedSpecialPage
 			array( 'fpc_page_id' => $this->page->getArticleID() ),
 			__METHOD__ );
 		# If setting to site default values, erase the row if there is one
-		if( $row && $this->select==0 && $this->override==$wgFlaggedRevsOverride ) {
+		if( $row && $this->select != $wgFlaggedRevsPrecedence && $this->override == $wgFlaggedRevsOverride ) {
 			$reset = true;
 			$dbw->delete( 'flaggedpage_config',
 				array( 'fpc_page_id' => $this->page->getArticleID() ),
