@@ -443,7 +443,8 @@ class FlaggedRevs {
 			$currentOutput = $parserCache->get( $article, $wgUser );
 			if( $currentOutput==false ) {
 				$text = $article->getContent();
-				$currentOutput = $wgParser->parse($text, $article->getTitle(), ParserOptions::newFromUser($wgUser));
+				$title = $article->getTitle();
+				$currentOutput = $wgParser->parse( $text, $title, ParserOptions::newFromUser($wgUser) );
 				# Might as well save the cache while we're at it
 				$parserCache->save( $currentOutput, $article, $wgUser );
 			}
