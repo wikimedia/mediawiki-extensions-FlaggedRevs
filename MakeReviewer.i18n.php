@@ -315,17 +315,27 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'makereviewer-username'  => 'Nomo de la uzanto:',
-	'makereviewer-search'    => 'Ek!',
-	'makereviewer-iseditor'  => '[[User:$1|$1]] havas statuson de redaktanto.',
-	'makereviewer-noteditor' => '[[User:$1|$1]] ne havas statuson de redaktanto.',
-	'makereviewer-change-e'  => 'Statuso de redaktanto:',
-	'makereviewer-comment'   => 'Komento:',
-	'makereviewer-granted-e' => '[[User:$1|$1]] nun havas statuson redaktanto.',
-	'makereviewer-revoked-e' => '[[User:$1|$1]] ne plu havas statuson redaktanto.',
-	'makereviewer-granted-r' => '[[User:$1|$1]] nun havas statuson reekzamenanto.',
-	'makereviewer-revoked-r' => '[[User:$1|$1]] ne plu havas statuson reekzamenanto.',
-	'makereviewer-logpage'   => 'Loglibro pri statuso de redaktantoj',
+	'makereviewer-username'         => 'Nomo de la uzanto:',
+	'makereviewer-search'           => 'Ek!',
+	'makereviewer-iseditor'         => '[[User:$1|$1]] havas statuson de redaktanto.',
+	'makereviewer-noteditor'        => '[[User:$1|$1]] ne havas statuson de redaktanto.',
+	'makereviewer-change-e'         => 'Statuso de redaktanto:',
+	'makereviewer-change-r'         => 'Kontrolanto-statuso',
+	'makereviewer-grant1'           => 'Donu',
+	'makereviewer-revoke1'          => 'Forigu',
+	'makereviewer-grant2'           => 'Donu',
+	'makereviewer-revoke2'          => 'Forigu',
+	'makereviewer-comment'          => 'Komento:',
+	'makereviewer-granted-e'        => '[[User:$1|$1]] nun havas statuson redaktanto.',
+	'makereviewer-revoked-e'        => '[[User:$1|$1]] ne plu havas statuson redaktanto.',
+	'makereviewer-granted-r'        => '[[User:$1|$1]] nun havas statuson reekzamenanto.',
+	'makereviewer-revoked-r'        => '[[User:$1|$1]] ne plu havas statuson reekzamenanto.',
+	'makereviewer-logpage'          => 'Loglibro pri statuso de redaktantoj',
+	'makereviewer-logentrygrant-e'  => 'donis redaktanto-statuson al [[$1]]',
+	'makereviewer-logentrygrant-r'  => 'donis kontrolanto-statuson al [[$1]]',
+	'makereviewer-logentryrevoke-r' => 'forigis kontrolanto-statuson al [[$1]]',
+	'makereviewer-autosum'          => 'aŭtomate rangaltigita',
+	'rights-editor-revoke'          => 'forigis redakto-statuson de [[$1]]',
 );
 
 $messages['ext'] = array(

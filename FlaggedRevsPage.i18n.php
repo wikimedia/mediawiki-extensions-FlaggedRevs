@@ -751,10 +751,34 @@ $messages['bn'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
-	'revreview-style-2'   => 'Mat',
-	'stableversions-page' => 'Anv ar bajenn :',
-	'unreviewed-category' => 'Rummad :',
-	'stabilization-page'  => 'Anv ar bajenn :',
+	'editor'                => 'Skridaozer',
+	'group-editor'          => 'Skridaozerien',
+	'group-editor-member'   => 'Skridaozer',
+	'grouppage-editor'      => '{{ns:project}} : Skridaozer',
+	'reviewer'              => 'Reizher',
+	'group-reviewer'        => 'Reizherien',
+	'group-reviewer-member' => 'Reizher',
+	'grouppage-reviewer'    => '{{ns:project}} : Reizher',
+	'revreview-current'     => 'Brouilhed',
+	'tooltip-ca-current'    => "Gwelet brouilhed ar bajenn-mañ evel m'emañ evit poent",
+	'revreview-edit'        => 'Brouilhed kemmoù',
+	'revreview-source'      => 'Mammenn ar brouilhed',
+	'revreview-stable'      => 'Stabil',
+	'tooltip-ca-stable'     => 'Gwelet stumm stabil ar bajenn',
+	'revreview-oldrating'   => 'E boentadur :',
+	'validationpage'        => '{{ns:help}} : Gwiriekaat ar pennad',
+	'revreview-auto'        => '(emgefre)',
+	'review-logentry-app'   => 'Reizhet [[$1]]',
+	'revisionreview'        => 'Adwelet ar reizhadennoù',
+	'revreview-accuracy'    => 'Pizhder',
+	'revreview-depth'       => 'Donder',
+	'revreview-depth-1'     => 'Diazez',
+	'revreview-style-1'     => 'Degemeradus',
+	'revreview-style-2'     => 'Mat',
+	'revreview-log'         => 'Notenn :',
+	'stableversions-page'   => 'Anv ar bajenn :',
+	'unreviewed-category'   => 'Rummad :',
+	'stabilization-page'    => 'Anv ar bajenn :',
 );
 
 /** Catalan (Català)
@@ -1277,6 +1301,7 @@ se ĝi ne ekzistas, la nuna versio',
 	'stabilize_expiry_invalid'    => 'Nevalida findato.',
 	'stabilize-expiring'          => 'findato $1 (UTC)',
 	'reviewedpages-none'          => 'Neniuj paĝoj estas en ĉi listo',
+	'reviewedpages-lev-1'         => 'Kvalito',
 	'reviewedpages-lev-2'         => 'Elstara',
 	'reviewedpages-best'          => 'ĉefa revizio',
 );
@@ -2287,9 +2312,9 @@ Předłoha abo wobraz bu bjez podaća wersije požadana/požadany. To móže so 
  */
 $messages['hu'] = array(
 	'flaggedrevs-desc'             => 'Lehetővé teszi a szerkesztők/ellenőrök számára, hogy ellenőrizzék és elfogadják lapok adott változatait',
-	'editor'                       => 'Szerkesztő',
-	'group-editor'                 => 'Szerkesztők',
-	'group-editor-member'          => 'Szerkesztő',
+	'editor'                       => 'szerkesztő',
+	'group-editor'                 => 'szerkesztők',
+	'group-editor-member'          => 'szerkesztő',
 	'grouppage-editor'             => '{{ns:project}}:Szerkesztők',
 	'reviewer'                     => 'ellenőr',
 	'group-reviewer'               => 'ellenőrök',
@@ -2346,11 +2371,11 @@ változtatást] kell ellenőrízni.',
 	'hist-stable'                  => 'áttekintett változat',
 	'hist-quality'                 => 'minőségi változat',
 	'flaggedrevs'                  => 'Ellenőrzött változatok',
-	'review-logpage'               => 'Cikkáttekintési napló',
+	'review-logpage'               => 'Cikkértékelési napló',
 	'review-logpagetext'           => 'Ez a lap a lapok verzióinak [[{{MediaWiki:Validationpage}}|elfogadottsági]] állapotában történt változások
 naplója.',
-	'review-logentry-app'          => 'áttekintette [[$1]]-t',
-	'review-logentry-dis'          => 'törölte [[$1]] egyik verziójának az értékelését',
+	'review-logentry-app'          => 'értékelte a(z) [[$1]] szócikket',
+	'review-logentry-dis'          => 'törölte a(z) [[$1]] lap egyik változatának értékelését',
 	'review-logentry-id'           => 'változat azonosítója: $1',
 	'stable-logpage'               => 'Elfogadott változatok naplója',
 	'stable-logpagetext'           => 'Ez a lap a lapok [[{{MediaWiki:Validationpage}}|elfogadott változataiban]] történt változások
@@ -2362,12 +2387,12 @@ naplója.',
 	'revreview-main'               => 'Ki kell választanod egy oldal adott változatát az ellenőrzéshez.
 
 Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
-	'revreview-selected'           => "'''$1''' kiválasztott változata:",
+	'revreview-selected'           => "A(z) '''$1''' jelenleg kiválasztott változata:",
 	'revreview-text'               => 'Az alapértelmezett beállítások szerint az elfogadott változatok jelennek meg az újabbak helyett.',
-	'revreview-toolow'             => 'Ahhoz, hogy egy változat ellenőrzött legyen, minhol az „ellenőrizetlen”-től különböző 
-értéket kell megadnod. Egy változat ellenőrzésének törléséhez állíts mindent erre az értékre.',
+	'revreview-toolow'             => "Ahhoz, hogy egy változatot ellenőrzöttnek jelölhess, mindenhol meg kell adnod valamilyen értékelést.
+Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrízetlen''re.",
 	'revreview-flag'               => 'Jelenlegi változat ellenőrzése',
-	'revreview-legend'             => 'Változat tartalmának értékelése',
+	'revreview-legend'             => 'A változat tartalmának értékelése',
 	'revreview-notes'              => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-accuracy'           => 'Pontosság',
 	'revreview-accuracy-0'         => 'ellenőrizetlen',
@@ -4310,7 +4335,7 @@ $messages['pl'] = array(
 	'revreview-quick-see-basic'    => "'''Szkic''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zobacz wersję stabilną]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$2|zmiana|zmiany|zmian}}])",
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobacz szkic]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' (brak niesprawdzonych wersji)",
-	'review-logpage'               => 'Rejestr przeglądu artykułów',
+	'review-logpage'               => 'Rejestr recenzji artykułów',
 	'stable-logpage'               => 'Rejestr wersji stabilnych',
 	'revreview-patrol'             => 'Oznacz tą zmianę jako sprawdzoną',
 	'revreview-notes'              => 'Obserwacje lub uwagi do wyświetlenia:',
@@ -4334,7 +4359,7 @@ $messages['pl'] = array(
 	'revreview-style-4'            => 'Na medal',
 	'revreview-log'                => 'Komentarz do rejestru:',
 	'revreview-submit'             => 'Zapisz ocenę',
-	'stableversions'               => 'Stabilne wersje',
+	'stableversions'               => 'Pokaż wersje stabilne',
 	'stableversions-leg1'          => 'Pokaż ocenione wersje strony',
 	'stableversions-page'          => 'Nazwa strony:',
 	'stableversions-none'          => '"[[:$1]]" nie ma ocenionych wersji.',
@@ -6321,7 +6346,6 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
- * @author Shinjiman
  * @author Alexsh
  */
 $messages['zh-hant'] = array(
