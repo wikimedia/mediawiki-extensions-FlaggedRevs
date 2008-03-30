@@ -413,24 +413,11 @@ class FlaggedArticle {
 			# Construct some tagging
 			$quality = FlaggedRevs::isQuality( $flags );
 			# If this will be autoreviewed, notify the user...
-			$notice = false;
 			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
-				// We are editing the stable version
-				if( $revid == $frev->getRevId() ) {
-					# Check if user is allowed to renew the stable version.
-					# If it has been reviewed too highly for this user, abort.
-					$notice = Revisionreview::userCanSetFlags( $flags );
-				} else {
-					// We are editing some other reviewed revision
-					$ofrev = FlaggedRevs::getFlaggedRev( $editform->mArticle->getTitle(), $revid );
-					if( !is_null($ofrev) ) {
-						$flags = $ofrev->getTags();
-						# Check if user is allowed to renew the stable version.
-						# If it has been reviewed too highly for this user, abort.
-						$notice = Revisionreview::userCanSetFlags( $flags );
-					}
-				}
-				if( $notice ) {
+				# If we are editing some reviewed revision, any changes this user
+				# makes will be autoreviewed...
+				$ofrev = FlaggedRevs::getFlaggedRev( $editform->mArticle->getTitle(), $revid );
+				if( !is_null($ofrev) ) {
 					$msg = ( $revid==$frev->getRevId() ) ? 'revreview-auto-w' : 'revreview-auto-w-old';
 					$warning = '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' .
 						wfMsgExt($msg,array('parseinline')) . '</div>';
