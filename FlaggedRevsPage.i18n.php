@@ -70,6 +70,7 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes] may have been made.',
 	
 	'revreview-toggle' => '(+/-)',
+	'revreview-toggle-title' => 'show/hide details',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 
 	'revreview-basic-source' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sighted version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
