@@ -492,23 +492,6 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
-		# Mark as patrolled
-		$dbw->update( 'recentchanges',
-			array( 'rc_patrolled' => 1 ),
-			array( 'rc_this_oldid' => $rev->getId(),
-				'rc_user_text' => $rev->getRawUserText(),
-				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-			__METHOD__,
-			array( 'USE INDEX' => 'rc_user_text' ) );
-		# New page patrol may be enabled. If so, the rc_id may be the first
-		# edit and not this one. If it is different, mark it too.
-		if( $this->rcid && $this->rcid != $rev->getId() ) {
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_id' => $this->rcid,
-					'rc_type' => RC_NEW ),
-				__METHOD__ );
-		}
 		# Should olders edits be marked as patrolled now?
 		global $wgFlaggedRevsCascade;
 		if( $wgFlaggedRevsCascade ) {
@@ -516,9 +499,27 @@ class RevisionReview extends UnlistedSpecialPage
 				array( 'rc_patrolled' => 1 ),
 				array( 'rc_namespace' => $title->getNamespace(),
 					'rc_title' => $title->getDBKey(),
-					'rc_this_oldid < ' . $dbw->timestamp( $rev->getId() ) ),
+					'rc_this_oldid <= ' . $dbw->timestamp( $rev->getId() ) ),
 				__METHOD__,
 				array( 'USE INDEX' => 'rc_namespace_title' ) );
+		} else {
+			# Mark this edit as patrolled...
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_this_oldid' => $rev->getId(),
+					'rc_user_text' => $rev->getRawUserText(),
+					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_user_text' ) );
+			# New page patrol may be enabled. If so, the rc_id may be the first
+			# edit and not this one. If it is different, mark it too.
+			if( $this->rcid && $this->rcid != $rev->getId() ) {
+				$dbw->update( 'recentchanges',
+					array( 'rc_patrolled' => 1 ),
+					array( 'rc_id' => $this->rcid,
+						'rc_type' => RC_NEW ),
+					__METHOD__ );
+			}
 		}
 		$dbw->commit();
 
