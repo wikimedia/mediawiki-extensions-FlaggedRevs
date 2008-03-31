@@ -34,7 +34,7 @@ $messages['en'] = array(
 	'tooltip-ca-default'  => 'Quality assurance settings',
 	
 	'revreview-edited' => "'''Edits will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an established user reviews them.
-The ''draft'' is shown below.'''",
+The ''draft'' is shown below.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|change|changes}}] await review",
 
 	'validationpage' => '{{ns:help}}:Article validation',
 

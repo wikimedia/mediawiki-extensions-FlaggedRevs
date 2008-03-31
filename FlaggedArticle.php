@@ -216,8 +216,8 @@ class FlaggedArticle {
 				# Give notice to newewer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-					$pending = "<span class='fr-icon-current'></span>" . wfMsgExt('revreview-edited',array('parseinline')) .
-						' ' . wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
+					$pending = "<span class='fr-icon-current'></span>" . 
+						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revs_since);
 					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
 					# Notice should always use subtitle
 					$this->reviewNotice = $pending;
