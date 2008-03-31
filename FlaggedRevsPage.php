@@ -88,23 +88,20 @@ class Revisionreview extends UnlistedSpecialPage
 		$this->unapprovedTags = 0;
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
-			# Must be greater than zero
-			if( $this->dims[$tag] < 0 || $this->dims[$tag] > $wgFlaggedRevValues ) {
-				$wgOut->showErrorPage('notargettitle', 'notargettext' );
-				return;
-			}
-			if( $this->dims[$tag]==0 )
+			if( $this->dims[$tag] === 0 ) {
 				$this->unapprovedTags++;
-			# Check permissions
-			if( !$this->userCan( $tag, $this->oflags[$tag] ) ) {
-				# Users can't take away a status they can't set
-				$wgOut->permissionRequired( 'badaccess-group0' );
-				return;
-			# Users cannot review to beyond their rights level
-			} else if( !$this->userCan( $tag, $this->dims[$tag] ) ) {
+			} else if( is_null($this->dims[$tag]) ) {
+				# http://www.w3.org/TR/html401/interact/forms.html#adef-disabled
+				# ...disabled selects do not submit anything! This happens when
+				# permissions are too low.
 				$wgOut->permissionRequired( 'badaccess-group0' );
 				return;
 			}
+		}
+		# Check permissions and validate
+		if( !$this->userCanSetFlags( $this->dims[$tag], $this->oflags[$tag] ) ) {
+			$wgOut->permissionRequired( 'badaccess-group0' );
+			return;
 		}
 		# We must at least rate each category as 1, the minimum
 		# Exception: we can rate ALL as unapproved to depreciate a revision
@@ -156,16 +153,20 @@ class Revisionreview extends UnlistedSpecialPage
 	 * @returns bool
 	 */
 	public static function userCanSetFlags( $flags, $oldflags = array() ) {
-		global $wgUser;
+		global $wgUser, $wgFlaggedRevTags, $wgFlaggedRevValues;
 		
 		if( !$wgUser->isAllowed('review') ) {
 			return false;
 		}
-	
-		foreach( $flags as $qal => $level ) {
+		# Check if all of the required site flags have a valid value
+		# that the user is allowed to set.
+		foreach( $wgFlaggedRevTags as $qal => $minQL ) {
+			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
 			if( !self::userCan($qal,$level) ) {
 				return false;
 			} else if( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
+				return false;
+			} else if( $level < 0 || $level > $wgFlaggedRevValues ) {
 				return false;
 			}
 		}

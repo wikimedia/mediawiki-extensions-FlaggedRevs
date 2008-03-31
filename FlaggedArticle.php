@@ -727,7 +727,7 @@ class FlaggedArticle {
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version. 
 			# If not, then get the flags for the new revision itself.
-			if( !Revisionreview::userCanSetFlags( $flags, $oldflags ) ) {
+			if( !Revisionreview::userCanSetFlags( $oldflags ) ) {
 				$flags = $oldflags;
 			}
 		} else {
@@ -752,7 +752,7 @@ class FlaggedArticle {
 			$options = array();
 			$disabled = false;
 			foreach( $levels as $idx => $label ) {
-				$selected = ( $flags[$quality]==$idx || $flags[$quality]==0 && $idx==1 );
+				$selected = ( $flags[$quality]===$idx || $flags[$quality]===0 && $idx===1 );
 				# Do not show options user's can't set unless that is the status quo
 				if( !Revisionreview::userCan($quality, $flags[$quality]) ) {
 					$disabled = true;
