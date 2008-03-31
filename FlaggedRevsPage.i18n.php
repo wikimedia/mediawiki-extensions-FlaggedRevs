@@ -1077,6 +1077,7 @@ $messages['de'] = array(
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 
+	'revreview-toggle-title'      => 'zeige/verstecke Details',
 	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 
 	'revreview-basic-source'      => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gesichtete Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>, basierte auf dieser Version.',
@@ -1088,7 +1089,7 @@ $messages['de'] = array(
 	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde",
 	'revreview-auto'              => '(automatisch)',
 	'revreview-auto-w'            => "Du bearbeitest eine markierte Version; Bearbeitungen werden '''automatisch markiert.'''",
-	'revreview-auto-w-old'        => "Du bearbeitest eine alte Version; Bearbeitungen werden '''automatisch markiert.'''",
+	'revreview-auto-w-old'        => "Du bearbeitest eine markierte Version; Bearbeitungen werden '''automatisch markiert.'''",
 	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde markiert.',
 	'hist-stable'                 => 'gesichtete Version',
 	'hist-quality'                => 'geprüfte Version',
