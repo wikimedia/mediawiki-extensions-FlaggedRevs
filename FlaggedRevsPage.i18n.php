@@ -201,6 +201,9 @@ No configuration is possible.',
 	'reviewedpages-lev-2'       => 'Featured',
 	'reviewedpages-all'         => 'reviewed versions',
 	'reviewedpages-best'        => 'prime revision',
+	
+	'rights-editor-autosum'     => 'autopromoted',
+	'rights-editor-revoke'      => 'removed editor status from [[$1]]',
 );
 
 /** Aragonese (Aragonés)

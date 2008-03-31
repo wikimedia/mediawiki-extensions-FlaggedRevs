@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.023',
+	'version' => '1.024',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -106,6 +106,10 @@ $wgFlagRestrictions = array(
 	'style'	   => array( 'review' => 3 ),
 );
 
+# Mark all previous edits as "patrolled" when an edit is reviewed.
+# This just sets markers on recent changes.
+$wgFlaggedRevsCascade = true;
+
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).
 # There must be four codes, and only the first four are checked.
@@ -150,12 +154,12 @@ $wgFlaggedRevsAutopromote = array(
 
 # Special:Userrights settings
 ## Basic rights for Sysops
-//$wgAddGroups['sysop'] = array( 'editor' );
-//$wgRemoveGroups['sysop'] = 'array( editor' );
+$wgAddGroups['sysop'] = array( 'editor' );
+$wgRemoveGroups['sysop'] = array( 'editor' );
 ## Extra ones for Bureaucrats
 ## Add UI page rights just in case we have non-sysop bcrats
-//$wgAddGroups['bureaucrat'] = array( 'reviewer' );
-//$wgRemoveGroups['bureaucrat'] = array( 'reviewer' );
+$wgAddGroups['bureaucrat'] = array( 'reviewer' );
+$wgRemoveGroups['bureaucrat'] = array( 'reviewer' );
 
 # End of configuration variables.
 #########
@@ -167,7 +171,6 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['FlaggedRevsPage'] = $dir . 'FlaggedRevsPage.i18n.php';
-$wgExtensionMessagesFiles['MakeReviewer'] = $dir . 'MakeReviewer.i18n.php';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
@@ -188,8 +191,6 @@ $wgAutoloadClasses['Reviewedpages'] = $dir . 'FlaggedRevsPage.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
-# Load promotion UI
-include_once( $dir . 'SpecialMakeReviewer.php' );
 
 # Remove stand-alone patrolling
 $wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
@@ -1675,7 +1676,7 @@ class FlaggedRevs {
 		array_push( $newGroups, 'editor' );
 		# Lets NOT spam RC, set $RC to false
 		$log = new LogPage( 'rights', false );
-		$log->addEntry('rights', $user->getUserPage(), wfMsg('makereviewer-autosum'),
+		$log->addEntry('rights', $user->getUserPage(), wfMsg('rights-editor-autosum'),
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 

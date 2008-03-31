@@ -44,9 +44,10 @@ class Revisionreview extends UnlistedSpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
+		
 		# Patrol the edit if requested
 		if( $this->patrolonly && $this->rcid ) {
-			$this->markPatrolled();
+			$this->markPatrolled( $wgRequest->getVal('token') );
 			return;
 		}
 
@@ -173,15 +174,26 @@ class Revisionreview extends UnlistedSpecialPage
 		return true;
 	}
 
-	function markPatrolled() {
-		global $wgOut;
+	function markPatrolled( $token ) {
+		global $wgOut, $wgUser;
 
+		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
+		# Prevent hijacking
+		if( !$wgUser->matchEditToken( $token, $this->rcid ) ) {
+			$wgOut->addWikiText( wfMsg('sessionfailure') );
+			return;
+		}
+		# Make sure page is not reviewable
+		if( FlaggedRevs::isPageReviewable( $this->page ) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
+		# Mark as patrolled
 		$changed = RecentChange::markPatrolled( $this->rcid );
 		if( $changed ) {
 			PatrolLog::record( $this->rcid );
 		}
 		# Inform the user
-		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
 		$wgOut->addWikiText( wfMsgNoTrans( 'revreview-patrolled', $this->page->getPrefixedText() ) );
 		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 	}
@@ -486,8 +498,8 @@ class Revisionreview extends UnlistedSpecialPage
 			array( 'rc_this_oldid' => $rev->getId(),
 				'rc_user_text' => $rev->getRawUserText(),
 				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-			__METHOD__
-		);
+			__METHOD__,
+			array( 'USE INDEX' => 'rc_user_text' ) );
 		# New page patrol may be enabled. If so, the rc_id may be the first
 		# edit and not this one. If it is different, mark it too.
 		if( $this->rcid && $this->rcid != $rev->getId() ) {
@@ -495,8 +507,18 @@ class Revisionreview extends UnlistedSpecialPage
 				array( 'rc_patrolled' => 1 ),
 				array( 'rc_id' => $this->rcid,
 					'rc_type' => RC_NEW ),
-				__METHOD__
-		);
+				__METHOD__ );
+		}
+		# Should olders edits be marked as patrolled now?
+		global $wgFlaggedRevsCascade;
+		if( $wgFlaggedRevsCascade ) {
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_namespace' => $title->getNamespace(),
+					'rc_title' => $title->getDBKey(),
+					'rc_this_oldid < ' . $dbw->timestamp( $rev->getId() ) ),
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_namespace_title' ) );
 		}
 		$dbw->commit();
 
