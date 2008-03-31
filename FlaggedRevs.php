@@ -177,17 +177,17 @@ $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 # Load FlaggedRevision object class
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 # Load review UI
-$wgSpecialPages['Revisionreview'] = 'Revisionreview';
-$wgAutoloadClasses['Revisionreview'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPages['RevisionReview'] = 'RevisionReview';
+$wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
 # Load stableversions UI
-$wgSpecialPages['Stableversions'] = 'Stableversions';
-$wgAutoloadClasses['Stableversions'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPages['StableVersions'] = 'StableVersions';
+$wgAutoloadClasses['StableVersions'] = $dir . 'FlaggedRevsPage.php';
 # Load unreviewed pages list
-$wgSpecialPages['Unreviewedpages'] = 'Unreviewedpages';
-$wgAutoloadClasses['Unreviewedpages'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
+$wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
 # Load reviewed pages list
-$wgSpecialPages['Reviewedpages'] = 'Reviewedpages';
-$wgAutoloadClasses['Reviewedpages'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+$wgAutoloadClasses['ReviewedPages'] = $dir . 'FlaggedRevsPage.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
@@ -1059,7 +1059,7 @@ class FlaggedRevs {
 		$dbw->commit();
 
 		# Update the article review log
-		Revisionreview::updateLog( $article->getTitle(), $flags, wfMsg('revreview-auto'),
+		RevisionReview::updateLog( $article->getTitle(), $flags, wfMsg('revreview-auto'),
 			$rev->getID(), true, false );
 
 		# If we know that this is now the new stable version 

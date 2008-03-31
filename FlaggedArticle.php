@@ -483,7 +483,7 @@ class FlaggedArticle {
 			# chance to mark this new article as patrolled.
 			$rcid = $wgRequest->getIntOrNull( 'rcid' );
 			if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'review' ) ) {
-				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
+				$reviewtitle = SpecialPage::getTitleFor( 'RevisionReview' );
 				$wgOut->addHTML( "<div class='patrollink'>" .
 					wfMsgHtml( 'markaspatrolledlink',
 					$wgUser->getSkin()->makeKnownLinkObj( $reviewtitle, wfMsgHtml('markaspatrolledtext'),
@@ -727,14 +727,14 @@ class FlaggedArticle {
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version. 
 			# If not, then get the flags for the new revision itself.
-			if( !Revisionreview::userCanSetFlags( $oldflags ) ) {
+			if( !RevisionReview::userCanSetFlags( $oldflags ) ) {
 				$flags = $oldflags;
 			}
 		} else {
 			$flags = $this->getFlagsForRevision( $id );
 		}
 
-		$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
+		$reviewtitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewtitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag' ) . "</legend>\n";
@@ -754,10 +754,10 @@ class FlaggedArticle {
 			foreach( $levels as $idx => $label ) {
 				$selected = ( $flags[$quality]===$idx || !$flags[$quality] && $idx===1 );
 				# Do not show options user's can't set unless that is the status quo
-				if( !Revisionreview::userCan($quality, $flags[$quality]) ) {
+				if( !RevisionReview::userCan($quality, $flags[$quality]) ) {
 					$disabled = true;
 					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected );
-				} else if( Revisionreview::userCan($quality, $idx) ) {
+				} else if( RevisionReview::userCan($quality, $idx) ) {
 					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected );
 				}
 			}
@@ -1046,7 +1046,7 @@ class FlaggedArticle {
 			}
 			// Build the link
 			if( $rcid ) {
-				$reviewtitle = SpecialPage::getTitleFor( 'Revisionreview' );
+				$reviewtitle = SpecialPage::getTitleFor( 'RevisionReview' );
 				$patrol = '[' . $wgUser->getSkin()->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'revreview-patrol' ),
 					"patrolonly=1&target=" . $NewRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" .
 					"&token=" . urlencode( $wgUser->editToken( $rcid ) ) ) . ']';
@@ -1072,10 +1072,10 @@ class FlaggedArticle {
 		$flags = $frev ? $frev->getTags() : array();
 		// If we are supposed to review after edit, and it was not autoreviewed,
 		// and the user can actually make new stable version, take us to the diff...
-		if( $wgReviewChangesAfterEdit && !$this->skipReviewDiff && $frev && Revisionreview::userCanSetFlags($flags) ) {
+		if( $wgReviewChangesAfterEdit && !$this->skipReviewDiff && $frev && RevisionReview::userCanSetFlags($flags) ) {
 			$flags = $frev->getTags();
 			# If the user can update the stable version, jump to it...
-			if( Revisionreview::userCanSetFlags( $flags ) ) {
+			if( RevisionReview::userCanSetFlags( $flags ) ) {
 				$extraq .= "oldid={$frev->getRevId()}&diff=cur";
 			}
 		// ...otherwise, go to the current revision after completing an edit.
@@ -1175,7 +1175,7 @@ class FlaggedArticle {
 		$flags = FlaggedRevs::getRevisionTags( $rev->getID() );
 		# Check if user is allowed to renew the stable version.
 		# If it has been reviewed too highly for this user, abort.
-		if( !Revisionreview::userCanSetFlags( $flags ) ) {
+		if( !RevisionReview::userCanSetFlags( $flags ) ) {
 			return true;
 		}
 		# Select the version that is now current. Create a new article object

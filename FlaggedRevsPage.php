@@ -6,11 +6,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class Revisionreview extends UnlistedSpecialPage
+class RevisionReview extends UnlistedSpecialPage
 {
 
     function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage( 'Revisionreview', 'review' );
+        UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
     }
 
     function execute( $par ) {
@@ -240,7 +240,7 @@ class Revisionreview extends UnlistedSpecialPage
 			Xml::hidden( 'oldid', $this->oldid ) );
 
 		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
-		$form = "<form name='revisionreview' action='$action' method='post'>";
+		$form = "<form name='RevisionReview' action='$action' method='post'>";
 		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
 		# Dynamically contruct our review types
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
@@ -638,11 +638,11 @@ class Revisionreview extends UnlistedSpecialPage
 	}
 }
 
-class Stableversions extends UnlistedSpecialPage
+class StableVersions extends UnlistedSpecialPage
 {
 
     function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage('Stableversions');
+        UnlistedSpecialPage::UnlistedSpecialPage( 'StableVersions' );
     }
 
     function execute( $par ) {
@@ -751,11 +751,11 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 /**
  * Special page to list unreviewed pages
  */
-class Unreviewedpages extends SpecialPage
+class UnreviewedPages extends SpecialPage
 {
 
     function __construct() {
-        SpecialPage::SpecialPage('Unreviewedpages','unreviewedpages');
+        SpecialPage::SpecialPage( 'UnreviewedPages', 'unreviewedpages' );
     }
 
     function execute( $par ) {
@@ -884,11 +884,11 @@ class UnreviewedPagesPage extends PageQueryPage {
 	}
 }
 
-class Reviewedpages extends SpecialPage
+class ReviewedPages extends SpecialPage
 {
 
     function __construct() {
-        SpecialPage::SpecialPage('Reviewedpages');
+        SpecialPage::SpecialPage( 'ReviewedPages' );
     }
 
     function execute( $par ) {
@@ -1010,7 +1010,7 @@ class Stabilization extends UnlistedSpecialPage
 {
 
     function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage('Stabilization','stablesettings');
+        UnlistedSpecialPage::UnlistedSpecialPage( 'Stabilization', 'stablesettings' );
     }
 
     function execute( $par ) {
