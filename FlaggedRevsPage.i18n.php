@@ -5647,7 +5647,7 @@ $messages['tet'] = array(
  * @author Ibrahim
  * @author Siebrand
  */
-$messages['tg'] = array(
+$messages['tg-cyrl'] = array(
 	'flaggedrevs-desc'             => 'Ба вироишгархо/мурукунандагон имкони таъйид кардани нусхаҳо ва пойдор сохтани саҳифаҳоро медиҳад',
 	'editor'                       => 'Вироишгар',
 	'group-editor'                 => 'Вироишгарон',
