@@ -487,7 +487,8 @@ class FlaggedArticle {
 				$wgOut->addHTML( "<div class='patrollink'>" .
 					wfMsgHtml( 'markaspatrolledlink',
 					$wgUser->getSkin()->makeKnownLinkObj( $reviewtitle, wfMsgHtml('markaspatrolledtext'),
-						"patrolonly=1&target={$article->getTitle()->getPrefixedUrl()}&rcid={$rcid}" )
+						"patrolonly=1&target={$article->getTitle()->getPrefixedUrl()}&rcid={$rcid}" .
+						"&token=" . urlencode( $wgUser->editToken( $article->getTitle()->getPrefixedText(), $rcid ) ) )
 			 		) .
 					'</div>'
 			 	);
@@ -1049,7 +1050,7 @@ class FlaggedArticle {
 				$reviewtitle = SpecialPage::getTitleFor( 'RevisionReview' );
 				$patrol = '[' . $wgUser->getSkin()->makeKnownLinkObj( $reviewtitle, wfMsgHtml( 'revreview-patrol' ),
 					"patrolonly=1&target=" . $NewRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" .
-					"&token=" . urlencode( $wgUser->editToken( $rcid ) ) ) . ']';
+					"&token=" . urlencode( $wgUser->editToken( $NewRev->getTitle()->getPrefixedText(), $rcid ) ) ) . ']';
 			} else {
 				$patrol = '';
 			}

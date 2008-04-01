@@ -179,7 +179,7 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
 		# Prevent hijacking
-		if( !$wgUser->matchEditToken( $token, $this->rcid ) ) {
+		if( !$wgUser->matchEditToken( $token, $this->page->getPrefixedText(), $this->rcid ) ) {
 			$wgOut->addWikiText( wfMsg('sessionfailure') );
 			return;
 		}
