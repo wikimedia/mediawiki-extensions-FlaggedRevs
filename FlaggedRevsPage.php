@@ -499,7 +499,7 @@ class RevisionReview extends UnlistedSpecialPage
 				array( 'rc_patrolled' => 1 ),
 				array( 'rc_namespace' => $title->getNamespace(),
 					'rc_title' => $title->getDBKey(),
-					'rc_this_oldid <= ' . $dbw->timestamp( $rev->getId() ) ),
+					'rc_this_oldid <= ' . $rev->getId() ),
 				__METHOD__,
 				array( 'USE INDEX' => 'rc_namespace_title' ) );
 		} else {
