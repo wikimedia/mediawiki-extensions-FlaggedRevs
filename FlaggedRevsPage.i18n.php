@@ -3417,6 +3417,7 @@ $messages['la'] = array(
 $messages['lb'] = array(
 	'revreview-current'         => 'Virbereedung',
 	'revreview-edit'            => 'Virbereedung änneren',
+	'revreview-toggle-title'    => 'Detailer weisen/verstoppen',
 	'revreview-auto'            => '(automatesch)',
 	'review-logpage'            => 'Lëscht vum Nokucken',
 	'review-logentry-app'       => 'nogekuckt [[$1]]',
@@ -5828,6 +5829,7 @@ $messages['tet'] = array(
 	'unreviewed-category' => 'Kategoria:',
 	'stabilization-page'  => 'Naran pájina nian:',
 );
+
 
 /** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
  * @author Ibrahim
