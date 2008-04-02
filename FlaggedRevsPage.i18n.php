@@ -1056,24 +1056,25 @@ $messages['de'] = array(
 	'stabilization-tab'           => 'Konfig.',
 	'tooltip-ca-default'          => 'Einstellungen der Artikel-Qualität',
 
-	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|markierte Version]] übernommen, sobald ein Benutzer mit Markierungs-Recht diese sich angeschaut hat. Die ''aktuelle Version'' wird unten angezeigt!'''",
+	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|markierte Version]] übernommen, sobald ein Benutzer mit Markierungs-Recht diese sich angeschaut hat.
+	Die ''aktuelle Version'' wird unten angezeigt.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Markierung an.",
 
 	'validationpage'              => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 
-	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
+	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Unmarkiert]]", # Es wurde noch keine Version gesichtet.
 	'revreview-quick-invalid'     => "'''Ungültige Versions-ID'''",
 	'revreview-invalid'           => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Artikelversion der angegebenen Versions-ID.",
 	'revreview-quick-see-quality' => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-see-basic'   => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
-	'revreview-quick-basic-old'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}}} letzte unmarkierte Seite]]",
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zeige aktuelle Version])",
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zeige aktuelle Version])",
+	'revreview-quick-basic-old'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite])",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}}} letzte unmarkierte Seite])",
 
-	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' (keine unmarkierten Änderungen)",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' (keine unmarkierten Änderungen)",
+	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''", #  (keine unmarkierten Änderungen)
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]'''", # (keine unmarkierten Änderungen)
 
 	'revreview-newest-basic'      => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
@@ -1210,6 +1211,9 @@ $messages['de'] = array(
 	'reviewedpages-lev-2'         => 'Exzellent',
 	'reviewedpages-all'           => 'markierte Versionen',
 	'reviewedpages-best'          => 'letzte am höchsten bewertete Version',
+
+	'rights-editor-autosum'     => 'automatisch erteilt',
+	'rights-editor-revoke'      => 'entfernte Prüfer-Status von „[[$1]]“',
 );
 
 /** Greek (Ελληνικά)
