@@ -760,9 +760,14 @@ class UnreviewedPages extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest;
+        global $wgRequest, $wgUser, $wgOut;
 
 		$this->setHeaders();
+		
+		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
+			$wgOut->permissionRequired( 'unreviewedpages' );
+			return;
+		}
 
 		$this->showList( $wgRequest );
 	}
