@@ -1117,7 +1117,8 @@ $messages['de'] = array(
 	'hist-quality'                => 'geprüfte Version',
 	'flaggedrevs'                 => 'Markierte Versionen',
 	'review-logpage'              => 'Versionsmarkierungs-Logbuch',
-	'review-logpagetext'          => 'In diesem Logbuch werden die Markierungen von Artikelversionen als [[{{MediaWiki:Validationpage}}|„gesichtet“ oder „geprüft“]] protokolliert.',
+	'review-logpagetext'          => 'In diesem Logbuch werden die Markierungen von Artikelversionen als [[{{MediaWiki:Validationpage}}|„gesichtet“ oder „geprüft“]] protokolliert.
+	Siehe die [[Special:ReviewedPages|Liste markierter Versionen]].',
 	'review-logentry-app'         => 'markierte „[[$1]]“',
 	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
 	'review-logentry-id'          => 'Versions-ID $1',
