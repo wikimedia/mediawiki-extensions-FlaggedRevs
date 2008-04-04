@@ -90,7 +90,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 
 	'flaggedrevs'          => 'Flagged Revisions',
 	'review-logpage'       => 'Review log',
-	'review-logpagetext'   => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.',
+	'review-logpagetext'   => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.
+	See the [[Special:ReviewedPages|reviewed page list]] for a list of approved pages.',
 	'review-logentry-app'  => 'reviewed [[$1]]',
 	'review-logentry-dis'  => 'depreciated a version of [[$1]]',
 	'review-logentry-id'   => 'revision ID $1',
