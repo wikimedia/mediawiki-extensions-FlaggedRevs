@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.024',
+	'version' => '1.025',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -144,12 +144,15 @@ $wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
 # edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
-	'days'	     => 60,
-	'edits'	     => 150,
-	'spacing'	 => 5, # in days
-	'benchmarks' => 10, # keep this small
-	'email'	     => true,
-	'userpage'   => true
+	'days'	         => 60,
+	'edits'	         => 150,
+	'spacing'	     => 5, # in days
+	'benchmarks'     => 10, # keep this small
+	'excludeDeleted' => true, # exclude deleted edits from total?
+	'email'	         => true, # user must be emailconfirmed?
+	'userpage'       => true, # user must have a userpage?
+	'userpagebytes'  => 100, # if userpage is needed, what is the min size?
+	'recentContent'  => 5 # $wgContentNamespaces edits in recent changes
 );
 
 # Special:Userrights settings
@@ -1589,7 +1592,7 @@ class FlaggedRevs {
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$w, &$s ) {
 		global $wgUser, $wgFlaggedRevsAutopromote, $wgMemc;
 
-		if( !$wgFlaggedRevsAutopromote )
+		if( empty($wgFlaggedRevsAutopromote) )
 			return true;
 		# Grab current groups
 		$groups = $user->getGroups();
@@ -1602,26 +1605,37 @@ class FlaggedRevs {
 		if( $value == 'true' ) {
 			return true;
 		}
-
+		# Check basic, already available, promotion heuristics first...
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
-		$userage = floor(($now-$usercreation) / 86400);
-		$userpage = $user->getUserPage();
-		# Check if we need to promote...
+		$userage = floor(($now - $usercreation) / 86400);
 		if( $userage < $wgFlaggedRevsAutopromote['days'] )
 			return true;
 		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] )
 			return true;
 		if( $wgFlaggedRevsAutopromote['email'] && !$wgUser->isAllowed('emailconfirmed') )
 			return true;
-		if( $wgFlaggedRevsAutopromote['userpage'] && !$userpage->exists() )
-			return true;
+		# Don't grant to currently blocked users...
 		if( $user->isBlocked() )
 			return true;
-		# Do not re-add status if it was previously removed...
+		# See if the page actually has sufficient content...
+		if( $wgFlaggedRevsAutopromote['userpage'] ) {
+			if( !$user->getUserPage()->exists() )
+				return true;
+			
+			$dbr = wfGetDB( DB_SLAVE );
+			$size = $dbr->selectField( 'page', 'page_len'
+				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
+					'page_title' => $user->getUserPage()->getDBKey() ),
+				__METHOD__ );
+			if( $size < $wgFlaggedRevsAutopromote['userpagebytes'] ) {
+				return true;
+			}
+		}
+		# Do not re-add status if it was previously removed!
+		# A special entry is made in the log whenever an editor looses their rights.
 		$dbw = wfGetDB( DB_MASTER );
-		$removed = $dbw->selectField( 'logging',
-			'log_timestamp',
+		$removed = $dbw->selectField( 'logging', '1',
 			array( 'log_namespace' => NS_USER,
 				'log_title' => $wgUser->getUserPage()->getDBkey(),
 				'log_type'  => 'rights',
@@ -1636,19 +1650,16 @@ class FlaggedRevs {
 		}
 		# Check for edit spacing. This lets us know that the account has
 		# been used over N different days, rather than all in one lump.
-		# This can be expensive... so check it last.
 		if( $wgFlaggedRevsAutopromote['spacing'] > 0 && $wgFlaggedRevsAutopromote['benchmarks'] > 1 ) {
 			# Convert days to seconds...
 			$spacing = $wgFlaggedRevsAutopromote['spacing'] * 24 * 3600;
-
 			# Check the oldest edit
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 				array( 'rev_user' => $user->getID() ),
 				__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp ASC',
 					'USE INDEX' => 'user_timestamp' ) );
-
 			# Recursively check for an edit $spacing seconds later, until we are done.
 			# The first edit counts, so we have one less scans to do...
 			$benchmarks = 0;
@@ -1670,6 +1681,33 @@ class FlaggedRevs {
 				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks-$needed-1) );
 				return true;
 			}
+		}
+		# Check if the user has any recent content edits
+		if( $wgFlaggedRevsAutopromote['recentContent'] > 0 ) {
+			global $wgContentNamespaces;
+		
+			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
+			$dbr->select( 'recentchanges', '1', 
+				array( 'rc_user_text' => $user->getName(),
+					'rc_namespace' => $wgContentNamespaces ), 
+				__METHOD__, 
+				array( 'USE INDEX' => 'rc_ns_usertext', 
+					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
+			if( $dbr->numRows() >= $wgFlaggedRevsAutopromote['recentContent'] )
+				return true;
+		}
+		# Check to see if the user has so many deleted edits that
+		# they don't actually enough live edits. This is because
+		# $user->getEditCount() is the count of edits made, not live.
+		if( $wgFlaggedRevsAutopromote['excludeDeleted'] ) {
+			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
+			$minDiff = $user->getEditCount() - $wgFlaggedRevsAutopromote['days'] + 1;
+			$dbr->select( 'archive', '1', 
+				array( 'ar_user_text' => $user->getName() ), 
+				__METHOD__, 
+				array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
+			if( $dbr->numRows() >= $minDiff )
+				return true;
 		}
 		# Add editor rights
 		$newGroups = $groups ;
