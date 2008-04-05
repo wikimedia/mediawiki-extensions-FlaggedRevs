@@ -127,6 +127,7 @@ $wgGroupPermissions['editor']['autoconfirmed']  	= true;
 $wgGroupPermissions['editor']['patrolmarks']	    = true;
 $wgGroupPermissions['editor']['autopatrolother']	= true;
 $wgGroupPermissions['editor']['unreviewedpages']	= true;
+$wgGroupPermissions['editor']['rollback']	        = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
