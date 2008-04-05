@@ -1702,11 +1702,20 @@ class FlaggedRevs {
 		if( $wgFlaggedRevsAutopromote['excludeDeleted'] ) {
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 			$minDiff = $user->getEditCount() - $wgFlaggedRevsAutopromote['days'] + 1;
-			$dbr->select( 'archive', '1', 
-				array( 'ar_user_text' => $user->getName() ), 
-				__METHOD__, 
-				array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
-			if( $dbr->numRows() >= $minDiff )
+			# Use an estimate if the number starts to get large
+			if( $minDiff <= 100 ) {
+				$dbr->select( 'archive', '1', 
+					array( 'ar_user_text' => $user->getName() ), 
+					__METHOD__, 
+					array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
+				$deletedEdits = $dbr->numRows();
+			} else {
+				$deletedEdits = $dbr->estimateRowCount( 'archive', '1',
+					array( 'ar_user_text' => $user->getName() ),
+					__METHOD__,
+					array( 'USE INDEX' => 'usertext_timestamp' ) );
+			}
+			if( $deletedEdits >= $minDiff )
 				return true;
 		}
 		# Add editor rights
