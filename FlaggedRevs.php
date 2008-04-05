@@ -1624,7 +1624,7 @@ class FlaggedRevs {
 				return true;
 			
 			$dbr = wfGetDB( DB_SLAVE );
-			$size = $dbr->selectField( 'page', 'page_len'
+			$size = $dbr->selectField( 'page', 'page_len',
 				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
 					'page_title' => $user->getUserPage()->getDBKey() ),
 				__METHOD__ );
