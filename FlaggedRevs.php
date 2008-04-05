@@ -152,7 +152,7 @@ $wgFlaggedRevsAutopromote = array(
 	'excludeDeleted' => true, # exclude deleted edits from total?
 	'email'	         => true, # user must be emailconfirmed?
 	'userpage'       => true, # user must have a userpage?
-	'userpagebytes'  => 100, # if userpage is needed, what is the min size?
+	'userpageBytes'  => 100, # if userpage is needed, what is the min size?
 	'recentContent'  => 5 # $wgContentNamespaces edits in recent changes
 );
 
@@ -1629,7 +1629,7 @@ class FlaggedRevs {
 				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
 					'page_title' => $user->getUserPage()->getDBKey() ),
 				__METHOD__ );
-			if( $size < $wgFlaggedRevsAutopromote['userpagebytes'] ) {
+			if( $size < $wgFlaggedRevsAutopromote['userpageBytes'] ) {
 				return true;
 			}
 		}
@@ -1724,7 +1724,7 @@ class FlaggedRevs {
 		array_push( $newGroups, 'editor' );
 		# Lets NOT spam RC, set $RC to false
 		$log = new LogPage( 'rights', false );
-		$log->addEntry('rights', $user->getUserPage(), wfMsg('rights-editor-autosum'),
+		$log->addEntry( 'rights', $user->getUserPage(), wfMsg('rights-editor-autosum'),
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 
