@@ -97,7 +97,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	'review-logentry-id'   => 'revision ID $1',
 
 	'stable-logpage'     => 'Stability log',
-	'stable-logpagetext' => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.',
+	'stable-logpagetext' => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.
+	A list of stabilized pages can be found at the [[Special:StablePages|stable page list]].',
 	'stable-logentry'    => 'configured stable versioning for [[$1]]',
 	'stable-logentry2'   => 'reset stable versioning for [[$1]]',
 
