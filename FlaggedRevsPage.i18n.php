@@ -219,7 +219,7 @@ No configuration is possible.',
 	'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 	
 	'flaggedrevs-prefs'        => 'Stability',
-	'flaggedrevs-prefs-stable' => 'Show the stable version of content pages by default (if there is one)',
+	'flaggedrevs-prefs-stable' => 'Always show the stable version of content pages by default (if there is one)',
 );
 
 /** Aragonese (Aragonés)
