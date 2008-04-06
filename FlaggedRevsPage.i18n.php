@@ -159,7 +159,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-visibility'  => "'''This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].'''",
 
 	'stabilization'            => 'Page stabilization',
-	'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
+	'stabilization-text'       => "'''Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.'''",
 	'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page'       => 'Page name:',
