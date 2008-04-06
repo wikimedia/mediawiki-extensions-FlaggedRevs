@@ -935,7 +935,7 @@ class FlaggedArticle {
 
    		$skin = $wgUser->getSkin();
    		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
-   		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $row->fr_user ) );
+   		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<i>' . $skin->formatComment( $frev->getComment() ) . '</i></div></p><br />';
 
     	return $notes;
