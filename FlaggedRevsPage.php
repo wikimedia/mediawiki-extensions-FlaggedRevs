@@ -1132,10 +1132,13 @@ class Stabilization extends UnlistedSpecialPage
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'stable-select2' )."</td>";
 		$form .= "</tr></table></fieldset>";
 
-		$form .= '<table>';
 		if( $this->isAllowed ) {
+			$form .= "<fieldset><legend>".wfMsgHtml('stabilization-leg')."</legend>";
+			$form .= '<table>';
 			$form .= '<tr><td>'.Xml::label( wfMsg('stabilization-comment'), 'wpReason' ).'</td>';
 			$form .= '<td>'.Xml::input( 'wpReason', 60, $this->comment, array('id' => 'wpReason') )."</td></tr>";
+		} else {
+			$form .= '<table>';
 		}
 		$form .= '<tr>';
 		$form .= '<td><label for="expires">' . wfMsgExt( 'stabilization-expiry', array( 'parseinline' ) ) . '</label></td>';
@@ -1156,6 +1159,7 @@ class Stabilization extends UnlistedSpecialPage
 			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 
 			$form .= '<p>'.Xml::submitButton( wfMsg( 'stabilization-submit' ) ).'</p>';
+			$form .= "</fieldset>";
 		}
 
 		$form .= '</form>';

@@ -156,15 +156,14 @@ Refreshing the page and rereviewing can solve this problem.',
 	'unreviewed-diff'       => 'Changes',
 	'unreviewed-list'       => 'This page lists articles that have not been reviewed or have new, unreviewed, revisions.',
 
-	'revreview-visibility'  => 'This page has a [[{{MediaWiki:Validationpage}}|stable version]],
-which can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].',
+	'revreview-visibility'  => "'''This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].'''",
 
 	'stabilization'            => 'Page stabilization',
 	'stabilization-text'       => 'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.',
 	'stabilization-perm'       => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page'       => 'Page name:',
-	'stabilization-leg'        => 'Configure the stable version for a page',
+	'stabilization-leg'        => 'Confirm stable version settings',
 	'stabilization-select'     => 'How the stable version is selected',
 	'stabilization-select1'    => 'The latest quality revision;
 if not present, then the latest sighted one',
