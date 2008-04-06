@@ -140,7 +140,7 @@ To depreciate a revision, set all fields to "unapproved".',
 You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page.",
 	'revreview-successful2' => "'''Selected revision of [[:$1|$1]] successfully unflagged.'''
 	
-You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page.",
+You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page (if there still is one).",
 	'revreview-changed'    => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
 A template or image may have been requested when no specific version was specified.
