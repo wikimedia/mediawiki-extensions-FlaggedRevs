@@ -215,6 +215,7 @@
 .flaggedrevs_reviewform {
 	background-color: #f9f9f9;
 	font-size: 90%;
+	clear: both;
 }
 
 .fr-rating-option-0 {
