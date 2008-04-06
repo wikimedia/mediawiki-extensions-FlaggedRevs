@@ -583,11 +583,13 @@ class FlaggedArticle {
 		# than the site default.
 		if( !$sktmp->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
 			$stabTitle = SpecialPage::getTitleFor( 'Stabilization' );
-			$content_actions['default'] = array(
-				'class' => false,
-				'text' => wfmsg('stabilization-tab'),
-				'href' => $stabTitle->getLocalUrl('page='.$title->getPrefixedUrl())
-			);
+			if( !isset($content_actions['protect']) && !isset($content_actions['unprotect']) ) {
+				$content_actions['default'] = array(
+					'class' => false,
+					'text' => wfmsg('stabilization-tab'),
+					'href' => $stabTitle->getLocalUrl('page='.$title->getPrefixedUrl())
+				);
+			}
 		}
 		// Add auxillary tabs...
      	if( !$wgFlaggedRevTabs )
