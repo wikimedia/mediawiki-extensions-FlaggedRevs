@@ -215,8 +215,11 @@ No configuration is possible.',
 	'stablepages-none'    => 'There are no pages in this list',
 	'stablepages-config'  => 'Configuration',
 	
-	'rights-editor-autosum'     => 'autopromoted',
-	'rights-editor-revoke'      => 'removed editor status from [[$1]]',
+	'rights-editor-autosum' => 'autopromoted',
+	'rights-editor-revoke'  => 'removed editor status from [[$1]]',
+	
+	'flaggedrevs-prefs'        => 'Stability',
+	'flaggedrevs-prefs-stable' => 'Show the stable version of content pages by default (if there is one)',
 );
 
 /** Aragonese (Aragonés)

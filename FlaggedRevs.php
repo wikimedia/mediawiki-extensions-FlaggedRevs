@@ -278,6 +278,11 @@ function efLoadFlaggedRevs() {
 	$wgHooks['LogLine'][] = 'FlaggedRevs::reviewLogLine';
 	# Disable auto-promotion
 	$wgHooks['UserRights'][] = 'FlaggedRevs::recordDemote';
+	# Local user account preference
+	$wgHooks['RenderPreferencesForm'][] = 'FlaggedRevs::injectPreferences';
+	$wgHooks['InitPreferencesForm'][] = 'FlaggedRevs::injectFormPreferences';
+	$wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
+	$wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
 	#########
 }
 
@@ -1745,6 +1750,51 @@ class FlaggedRevs {
 			# were removed. This avoid auto-promotion.
 			$log->addEntry( 'erevoke', $targetPage, '', array() );
 		}
+		return true;
+	}
+	
+	/**
+	* Add user preference to form HTML
+	*/
+	public static function injectPreferences( $form, $out ) {
+		$out->addHTML( 
+			Xml::openElement( 'fieldset' ) .
+			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
+			Xml::openElement( 'table' ) . Xml::openElement( 'tr' ) .
+				'<td>'.wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
+					array('id' => 'wpFlaggedRevsStable') ) . '</td>' .
+				'<td>' . wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
+			Xml::closeElement( 'tr' ) . Xml::closeElement( 'table' ) .
+			Xml::closeElement( 'fieldset' )
+		);
+		
+		return true;
+	}
+	
+	/**
+	* Add user preference to form object based on submission
+	*/
+	public static function injectFormPreferences( $form, $request ) {
+		$form->mFlaggedRevsStable = $request->getInt( 'wpFlaggedRevsStable' );
+		
+		return true;
+	}
+	
+	/**
+	* Set preferences on form based on user settings
+	*/
+	public static function resetPreferences( $form, $user ) {
+		$form->mFlaggedRevsStable = $user->getOption( 'flaggedrevsstable' );
+		
+		return true;
+	}
+	
+	/**
+	* Set user preferences into user object before it is applied to DB
+	*/
+	public static function savePreferences( $form, $user, &$msg ) {
+		$user->setOption( 'flaggedrevsstable', $form->validateInt( $form->mFlaggedRevsStable, 0, 1 ) );
+		
 		return true;
 	}
 

@@ -23,6 +23,9 @@ class FlaggedArticle {
 		# for a certain stable version will be handled elsewhere.
     	if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getVal('stableid') )
 			return false;
+		# Check user preferences
+		if( $wgUser->getOption('flaggedrevsstable') )
+			return !( $wgRequest->getIntOrNull('stable') === 0 );
 		# Get page configuration
 		$config = $this->getVisibilitySettings();
     	# Does the stable version override the current one?
@@ -31,8 +34,9 @@ class FlaggedArticle {
     		# Viewer sees current by default (editors, insiders, ect...) ?
     		foreach( $wgFlaggedRevsExceptions as $group ) {
     			if( $group == 'user' ) {
-    				if( !$wgUser->isAnon() )
+    				if( $wgUser->getID() ) {
     					return ( $wgRequest->getIntOrNull('stable') === 1 );
+					}
     			} else if( in_array( $group, $wgUser->getGroups() ) ) {
     				return ( $wgRequest->getIntOrNull('stable') === 1 );
     			}
