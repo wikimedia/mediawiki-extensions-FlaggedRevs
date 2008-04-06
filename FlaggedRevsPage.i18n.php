@@ -164,7 +164,7 @@ Refreshing the page and rereviewing can solve this problem.',
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page'       => 'Page name:',
 	'stabilization-leg'        => 'Confirm stable version settings',
-	'stabilization-select'     => 'How the stable version is selected',
+	'stabilization-select'     => 'Stable version selection',
 	'stabilization-select1'    => 'The latest quality revision;
 if not present, then the latest sighted one',
 	'stabilization-select2'    => 'The latest reviewed revision',
