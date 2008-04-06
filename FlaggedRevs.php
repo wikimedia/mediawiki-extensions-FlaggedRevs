@@ -192,6 +192,9 @@ $wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . 'FlaggedRevsPage.php';
+# Load stable pages list
+$wgSpecialPages['StablePages'] = 'StablePages';
+$wgAutoloadClasses['StablePages'] = $dir . 'FlaggedRevsPage.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';

@@ -203,6 +203,11 @@ No configuration is possible.',
 	'reviewedpages-all'         => 'reviewed versions',
 	'reviewedpages-best'        => 'prime revision',
 	
+	'stablepages'         => 'Stable pages',
+	'stablepages-text'    => 'Below is a list of pages manually configured to show the stable version as the default page content for viewers.',
+	'stablepages-none'    => 'There are no pages in this list',
+	'stablepages-config'  => 'Configuration',
+	
 	'rights-editor-autosum'     => 'autopromoted',
 	'rights-editor-revoke'      => 'removed editor status from [[$1]]',
 );

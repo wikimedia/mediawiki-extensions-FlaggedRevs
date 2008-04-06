@@ -736,10 +736,9 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 		$conds[] = "fr_user = user_id";
 		$conds[] = 'rev_deleted & '.Revision::DELETED_TEXT.' = 0';
 		return array(
-			'tables' => array('flaggedrevs','revision','user'),
-			'fields' => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,
-				fr_user,user_name',
-			'conds' => $conds,
+			'tables'  => array('flaggedrevs','revision','user'),
+			'fields'  => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,fr_user,user_name',
+			'conds'   => $conds,
 			'options' => array('USE INDEX' => 'PRIMARY')
 		);
 	}
@@ -973,7 +972,7 @@ class ReviewedPages extends SpecialPage
 /**
  * Query to list out stable versions for a page
  */
-class ReviewedPagesPager extends ReverseChronologicalPager {
+class ReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 
 	function __construct( $form, $conds = array(), $type=0, $namespace=0 ) {
@@ -1001,7 +1000,7 @@ class ReviewedPagesPager extends ReverseChronologicalPager {
 		$conds['page_ext_quality'] = $this->type;
 		return array(
 			'tables' => array('page'),
-			'fields' => 'page_namespace,page_title,page_id',
+			'fields' => 'page_namespace,page_title',
 			'conds'  => $conds,
 			'options' => array('USE INDEX' => 'ext_namespace_quality')
 		);
@@ -1009,6 +1008,86 @@ class ReviewedPagesPager extends ReverseChronologicalPager {
 
 	function getIndexField() {
 		return 'page_title';
+	}
+}
+
+class StablePages extends SpecialPage
+{
+
+    function __construct() {
+        SpecialPage::SpecialPage( 'StablePages' );
+    }
+
+    function execute( $par ) {
+        global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
+
+		$this->setHeaders();
+		$this->skin = $wgUser->getSkin();
+		
+		$this->showPageList();
+	}
+
+	function showPageList() {
+		global $wgOut, $wgUser, $wgLang;
+
+		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parse') ) );
+		$pager = new StablePagesPager( $this, array() );
+		if( $pager->getNumRows() ) {
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+		} else {
+			$wgOut->addHTML( wfMsgExt('stablepages-none', array('parse') ) );
+		}
+	}
+
+	function formatRow( $row ) {
+		global $wgLang, $wgUser;
+
+		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+
+		$stitle = SpecialPage::getTitleFor( 'Stabilization' );
+		$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml('stablepages-config'),
+			'page=' . $title->getPrefixedUrl() );
+		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('reviewedpages-best'),
+			'stableid=best' );
+
+		return '<li>'.$link.' ('.$config.') ['.$best.'] </li>';
+	}
+}
+
+/**
+ * Query to list out stable versions for a page
+ */
+class StablePagesPager extends AlphabeticPager {
+	public $mForm, $mConds;
+
+	function __construct( $form, $conds = array() ) {
+		$this->mForm = $form;
+		$this->mConds = $conds;
+
+		parent::__construct();
+	}
+
+	function formatRow( $row ) {
+		return $this->mForm->formatRow( $row );
+	}
+
+	function getQueryInfo() {
+		$conds = $this->mConds;
+		$conds[] = 'page_id = fpc_page_id';
+		$conds['fpc_override'] = 1;
+		return array(
+			'tables' => array('flaggedpage_config','page'),
+			'fields' => 'page_namespace,page_title,fpc_page_id',
+			'conds'  => $conds,
+			'options' => array()
+		);
+	}
+
+	function getIndexField() {
+		return 'fpc_page_id';
 	}
 }
 
