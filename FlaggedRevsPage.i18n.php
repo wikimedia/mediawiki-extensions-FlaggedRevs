@@ -108,8 +108,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 
 See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-selected'   => "Selected revision of '''$1:'''",
-	'revreview-text'       => "''Stable versions are the default page content for viewers rather than the newest revision.''",
-	'revreview-text2'      => "''Stable versions are checked revisions of pages and can be set as the default content for viewers.''",
+	'revreview-text'       => "''[[{{MediaWiki:Validationpage}}|Stable versions]] are the default page content for viewers rather than the newest revision.''",
+	'revreview-text2'      => "''[[{{MediaWiki:Validationpage}}|Stable versions]] are checked revisions of pages and can be set as the default content for viewers.''",
 	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
 To depreciate a revision, set all fields to "unapproved".',
 	'revreview-flag'       => 'Review this revision',
@@ -135,6 +135,12 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Comment:',
 	'revreview-submit'     => 'Submit review',
+	'revreview-successful' => "'''Selected revision of [[:$1|$1]] successfully flagged and marked in recent changes.'''
+	
+You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page.",
+	'revreview-successful2' => "'''Selected revision of [[:$1|$1]] successfully unflagged.'''
+	
+You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page.",
 	'revreview-changed'    => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
 A template or image may have been requested when no specific version was specified.

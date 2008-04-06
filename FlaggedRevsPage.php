@@ -183,7 +183,10 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->addWikiText( wfMsg('sessionfailure') );
 			return;
 		}
-		# Make sure page is not reviewable
+		# Make sure page is not reviewable. This can be spoofed in theory,
+		# but the token is salted with the id and title and this should
+		# be a trusted user...so it is not really worth doing extra query
+		# work over.
 		if( FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
@@ -336,11 +339,24 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 
-		$success = $approved ?
-			$this->approveRevision( $rev, $this->notes ) : $this->unapproveRevision( $frev );
+		$success = $approved ? $this->approveRevision( $rev ) : $this->unapproveRevision( $frev );
 		# Return to our page
 		if( $success ) {
-        	$wgOut->redirect( $this->page->getFullUrl( 'redirect=no&stable=1' ) );
+			global $wgFlaggedRevsOverride;
+		
+			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
+			
+			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
+			$wgOut->addHtml( "<span class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
+				$this->page->getPrefixedText(), $this->page->getPrefixedUrl() ) . "</span>" );
+			
+			if( $wgFlaggedRevsOverride ) {
+				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>' );
+			} else {
+				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>' );
+			}
+			
+			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
 		}
@@ -349,9 +365,8 @@ class RevisionReview extends UnlistedSpecialPage
 	/**
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param Revision $rev
-	 * @param string $notes
 	 */
-	function approveRevision( $rev, $notes='' ) {
+	function approveRevision( $rev ) {
 		global $wgUser, $wgParser;
 		# Get the page this corresponds to
 		$title = $rev->getTitle();
@@ -483,7 +498,7 @@ class RevisionReview extends UnlistedSpecialPage
  			'fr_page_id'   => $title->getArticleID(),
 			'fr_user'      => $wgUser->getId(),
 			'fr_timestamp' => $dbw->timestamp( wfTimestampNow() ),
-			'fr_comment'   => $notes,
+			'fr_comment'   => $this->notes,
 			'fr_quality'   => $quality,
 			'fr_tags'      => FlaggedRevs::flattenRevisionTags( $flags ),
 			'fr_text'      => $fulltext, # Store expanded text for speed
