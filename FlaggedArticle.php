@@ -740,11 +740,15 @@ class FlaggedArticle {
 		$reviewtitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewtitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
-		$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-flag' ) . "</legend>\n";
+		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform') );
+		$form .= "<legend>" . wfMsgHtml( 'revreview-flag' ) . "</legend>\n";
 
 		if( $wgFlaggedRevsOverride ) {
 			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
+		} else {
+			$form .= '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>';
 		}
+		
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() );
 		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() );
 		$form .= Xml::hidden( 'oldid', $id );
@@ -756,12 +760,13 @@ class FlaggedArticle {
 			$disabled = false;
 			foreach( $levels as $idx => $label ) {
 				$selected = ( $flags[$quality]===$idx || !$flags[$quality] && $idx===1 );
+				$optionClass = array( 'class' => "fr-rating-option-$idx" );
 				# Do not show options user's can't set unless that is the status quo
 				if( !RevisionReview::userCan($quality, $flags[$quality]) ) {
 					$disabled = true;
-					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected );
+					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected, $optionClass );
 				} else if( RevisionReview::userCan($quality, $idx) ) {
-					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected );
+					$options[] = Xml::option( wfMsg( "revreview-$label" ), $idx, $selected, $optionClass );
 				}
 			}
 			$form .= "\n" . wfMsgHtml("revreview-$quality") . ": ";
@@ -773,9 +778,9 @@ class FlaggedArticle {
 			$form .= Xml::closeElement('select')."\n";
 		}
         if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
-			$form .= "<br /><p>" . wfMsgHtml( 'revreview-notes' ) . "</p>" .
-			"<p><textarea tabindex='1' name='wpNotes' id='wpNotes' rows='2' cols='80' style='width:100%'></textarea>" .
-			"</p>\n";
+			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
+			$form .= "<p><textarea name='wpNotes' id='wpNotes' class='fr-reason-box' 
+				rows='2' cols='80' style='width:95%; margin: 0em 1em 0em .5em;'></textarea></p>\n";
 		}
 
 		$imageParams = $templateParams = '';
@@ -812,15 +817,18 @@ class FlaggedArticle {
 		
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
-		$form .= "<p>".Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 50 )."\n";
+		$form .= "<p>".Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 
+			50, '', array('class' => 'fr-comment-box') )."\n";
 
-		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsg( 'revreview-submit' ) )."</p></fieldset>";
+		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsg( 'revreview-submit' ) )."</p>";
+		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 
-		if( $top )
-			$out->mBodytext =  $form . $out->mBodytext;
-		else
-			$wgOut->addHTML( '<br style="clear:both"/>' . $form );
+		if( $top ) {
+			$out->mBodytext = $form . $out->mBodytext;
+		} else {
+			$wgOut->addHTML( $form );
+		}
     }
 
 	/**
@@ -922,7 +930,7 @@ class FlaggedArticle {
     public function ReviewNotes( $frev ) {
     	global $wgUser, $wgFlaggedRevComments;
 
-    	if( !$wgFlaggedRevComments || !$row || $row->fr_comment == '' )
+    	if( !$wgFlaggedRevComments || !$frev || !$frev->getComment() )
 			return '';
 
    		$skin = $wgUser->getSkin();

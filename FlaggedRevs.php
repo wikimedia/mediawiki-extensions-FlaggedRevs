@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.025',
+	'version' => '1.026',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -169,7 +169,7 @@ $wgRemoveGroups['bureaucrat'] = array( 'reviewer' );
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 7;
+$wgFlaggedRevStyleVersion = 8;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

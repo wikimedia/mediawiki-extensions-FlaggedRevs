@@ -108,7 +108,8 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 
 See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-selected'   => "Selected revision of '''$1:'''",
-	'revreview-text'       => "Stable versions are set as the default content on page view rather than the newest revision.",
+	'revreview-text'       => "''Stable versions are the default page content for viewers rather than the newest revision.''",
+	'revreview-text2'      => "''Stable versions are checked revisions of pages and can be set as the default content for viewers.''",
 	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
 To depreciate a revision, set all fields to "unapproved".',
 	'revreview-flag'       => 'Review this revision',

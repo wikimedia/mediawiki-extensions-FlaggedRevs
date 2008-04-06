@@ -1,5 +1,6 @@
 /* Every time you change this CSS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
-/* Standard UI */
+
+/* Standard User Interface */
 .flaggedrevs_basic,
 .flaggedrevs_quality,
 .flaggedrevs_pristine,
@@ -15,10 +16,6 @@
 	text-align: center;
 	float: center;
 	clear: both;
-}
-
-.flaggedrevs_toggle {
-	color: blue;
 }
 
 .flaggedrevs_basic {
@@ -95,7 +92,7 @@
     background-image: url(../FlaggedRevs/img/bar_100.png);
 }
 
-/* Short UI */
+/* Short User Interface */
 .flaggedrevs_short {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
@@ -196,7 +193,6 @@
 	background-color: #fffff0;
 }
 
-/* Hack to avoid extra borders */
 .flaggedrevs_box0a {
 	background-color: #f9f9f9;
 }
@@ -208,4 +204,39 @@
 }
 .flaggedrevs_box3a {
 	background-color: #fffff0;
+}
+
+/* Both User Interfaces */
+.flaggedrevs_toggle {
+	color: blue;
+}
+
+/* Review form */
+.flaggedrevs_reviewform {
+	background-color: #f9f9f9;
+	font-size: 90%;
+}
+
+.fr-rating-option-0 {
+	background-color: #f5dddd;
+}
+.fr-rating-option-1 {
+	background-color: #f0f8ff;
+}
+.fr-rating-option-2 {
+	background-color: #f0fff0;
+}
+.fr-rating-option-3 {
+	background-color: #f0fff0;
+}
+.fr-rating-option-4 {
+	background-color: #fffff0;
+}
+
+.fr-reason-box {
+	background-color: #fffff0;
+}
+
+.fr-comment-box {
+	background-color: #ffffff;
 }
