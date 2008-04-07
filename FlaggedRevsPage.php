@@ -275,10 +275,9 @@ class RevisionReview extends UnlistedSpecialPage
 			"</fieldset>";
 		}
 
+		$form .= '<fieldset><legend>' . wfMsgHtml('revisionreview') . '</legend>';
 		$form .= '<p>'.Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
-
 		$form .= '<p>'.Xml::submitButton( wfMsg( 'revreview-submit' ) ).'</p>';
-
 		foreach( $hidden as $item ) {
 			$form .= $item;
 		}
@@ -289,6 +288,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Special token to discourage fiddling...
 		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
+		$form .= '</fieldset>';
 
 		$form .= '</form>';
 		$wgOut->addHtml( $form );
