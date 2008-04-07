@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.027',
+	'version' => '1.0271',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -169,7 +169,7 @@ $wgRemoveGroups['bureaucrat'] = array( 'reviewer' );
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 8;
+$wgFlaggedRevStyleVersion = 9;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -223,6 +223,7 @@ function efLoadFlaggedRevs() {
 	######### Hook attachments #########
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';
 	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyle';
+	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyle';
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)

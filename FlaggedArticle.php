@@ -698,10 +698,22 @@ class FlaggedArticle {
 
     	if( $quality !== false ) {
     		$skin = $wgUser->getSkin();
-
+			$quality = intval($quality);
+			switch( $quality ) {
+				case 2:
+					$css = 'flaggedrevs-color-3';
+					break;
+				case 1:
+					$css = 'flaggedrevs-color-2';
+					break;
+				default:
+					$css = 'flaggedrevs-color-1';
+					break;
+			}
     		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
-    		$s .= ' <small><strong>[' . $skin->makeLinkObj( $wgTitle, wfMsgHtml( $msg ),
-				'stableid=' . $row->rev_id ) . ']</strong></small>';
+    		$s = "<span class='$css'>{$s}</span> <small><strong>[" . 
+				$skin->makeLinkObj( $wgTitle, wfMsgHtml( $msg ),'stableid=' . $row->rev_id ) . 
+				"]</strong></small>";
 		}
 
 		return true;
@@ -895,12 +907,16 @@ class FlaggedArticle {
 		$pristine = FlaggedRevs::isPristine( $flags );
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Some checks for which tag CSS to use
-		if( $pristine )
-			$tagClass = 'flaggedrevs_box3';
-		else if( $quality )
-			$tagClass = 'flaggedrevs_box2';
-		else
-			$tagClass = 'flaggedrevs_box1';
+		if( $pristine ) {
+			$tagClass = 'flaggedrevs-box3';
+			$color = 'flaggedrevs-color-3';
+		} else if( $quality ) {
+			$tagClass = 'flaggedrevs-box2';
+			$color = 'flaggedrevs-color-2';
+		} else {
+			$tagClass = 'flaggedrevs-box1';
+			$color = 'flaggedrevs-color-1';
+		}
         # Construct some tagging
 		if( $synced ) {
 			$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
@@ -920,7 +936,7 @@ class FlaggedArticle {
 		$box .= '<div id="mw-revisionratings" style="clear: both;">' . $html;
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
-			$box .= $this->addTagRatings( $flags, true, "{$tagClass}a" );
+			$box .= $this->addTagRatings( $flags, true, $color );
 		}
 		$box .= '</div>';
 

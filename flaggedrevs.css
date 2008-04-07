@@ -107,30 +107,6 @@
 	line-height: 16px;
 }
 
-.fr-icon-current,
-.fr-icon-stable,
-.fr-icon-quality {
-	padding: 0px;
-	margin: 0px;
-	width: 20px;
-	height: 18px;
-	position: relative;
-	float: left;
-	vertical-align: middle;
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-} 
-
-.fr-icon-current {
-	background-image: url(../FlaggedRevs/img/1.png);
-}
-.fr-icon-stable {
-	background-image: url(../FlaggedRevs/img/2.png);
-}    
-.fr-icon-quality {
-	background-image: url(../FlaggedRevs/img/3.png);
-}
-
 .fr-text {
 	height: 1em;
 	line-height: 1em;
@@ -170,45 +146,66 @@
 	background-image: url(../FlaggedRevs/img/fr-marker-100.png);
 }
 
-.flaggedrevs_box0,
-.flaggedrevs_box1,
-.flaggedrevs_box2,
-.flaggedrevs_box3 {
+.flaggedrevs-box0,
+.flaggedrevs-box1,
+.flaggedrevs-box2,
+.flaggedrevs-box3 {
 	border: 1px solid #aaa;
 	text-align: center;
 	font-size: 85%;
 	clear: both;
 }
 
-.flaggedrevs_box0 {
+.flaggedrevs-box0 {
 	background-color: #f9f9f9;
 }
-.flaggedrevs_box1 {
+.flaggedrevs-box1 {
 	background-color: #f0f8ff;
 }
-.flaggedrevs_box2 {
+.flaggedrevs-box2 {
 	background-color: #f0fff0;
 }
-.flaggedrevs_box3 {
+.flaggedrevs-box3 {
 	background-color: #fffff0;
 }
 
-.flaggedrevs_box0a {
+.flaggedrevs-color-0 {
 	background-color: #f9f9f9;
 }
-.flaggedrevs_box1a {
+.flaggedrevs-color-1 {
 	background-color: #f0f8ff;
 }
-.flaggedrevs_box2a {
+.flaggedrevs-color-2 {
 	background-color: #f0fff0;
 }
-.flaggedrevs_box3a {
+.flaggedrevs-color-3 {
 	background-color: #fffff0;
 }
 
 /* Both User Interfaces */
 .flaggedrevs_toggle {
 	color: blue;
+}
+
+.fr-icon-current,
+.fr-icon-stable,
+.fr-icon-quality {
+	padding: 0px;
+	margin: 0px;
+	width: 18px;
+	height: 18px;
+	float: left;
+	background-repeat: no-repeat;
+	background-position: center center;
+} 
+.fr-icon-current {
+	background-image: url(../FlaggedRevs/img/1.png);
+}
+.fr-icon-stable {
+	background-image: url(../FlaggedRevs/img/2.png);
+}    
+.fr-icon-quality {
+	background-image: url(../FlaggedRevs/img/3.png);
 }
 
 /* Review form */
