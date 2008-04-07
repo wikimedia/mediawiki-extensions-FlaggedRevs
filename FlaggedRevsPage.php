@@ -354,7 +354,9 @@ class RevisionReview extends UnlistedSpecialPage
 			} else {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>' );
 			}
-			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
+			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'RecentChanges' ) );
+			if( $wgUser->isAllowed( 'unreviewedpages' ) )
+				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );
 			# Watch page if set to do so
 			if( $wgUser->getOption('flaggedrevswatch') && !$this->page->userIsWatching() ) {
 				$wgUser->addWatch( $this->page );
