@@ -345,18 +345,20 @@ class RevisionReview extends UnlistedSpecialPage
 			global $wgFlaggedRevsOverride;
 		
 			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
-			
+			# Show success message
 			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
 			$wgOut->addHtml( "<span class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
 				$this->page->getPrefixedText(), $this->page->getPrefixedUrl() ) . "</span>" );
-			
 			if( $wgFlaggedRevsOverride ) {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>' );
 			} else {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>' );
 			}
-			
 			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
+			# Watch page if set to do so
+			if( $wgUser->getOption('flaggedrevswatch') && !$this->page->userIsWatching() ) {
+				$wgUser->addWatch( $this->page );
+			}
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
 		}

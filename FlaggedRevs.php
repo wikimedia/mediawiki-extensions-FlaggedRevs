@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.026',
+	'version' => '1.027',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -340,11 +340,12 @@ class FlaggedRevs {
 
 	/**
 	 * Should this be using a simple icon-based UI?
+	 * Check the user's preferences first, using the site settings as the default.
 	 */
 	public static function useSimpleUI() {
-		global $wgSimpleFlaggedRevsUI;
+		global $wgUser, $wgSimpleFlaggedRevsUI;
 
-		return $wgSimpleFlaggedRevsUI;
+		return $wgUser->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
 	}
 
 	/**
@@ -1757,17 +1758,46 @@ class FlaggedRevs {
 	* Add user preference to form HTML
 	*/
 	public static function injectPreferences( $form, $out ) {
+		global $wgUser;
+	
 		$out->addHTML( 
 			Xml::openElement( 'fieldset' ) .
 			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
-			Xml::openElement( 'table' ) . Xml::openElement( 'tr' ) .
-				'<td>'.wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
-					array('id' => 'wpFlaggedRevsStable') ) . '</td>' .
-				'<td>' . wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
-			Xml::closeElement( 'tr' ) . Xml::closeElement( 'table' ) .
+			Xml::openElement( 'table' ) . 
+			Xml::openElement( 'tr' ) .
+				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
+					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
+					wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
+			Xml::closeElement( 'tr' ) .
+			Xml::openElement( 'tr' ) .
+				'<td>' .
+					Xml::radio( 'wpFlaggedRevsSUI', 0, $form->mFlaggedRevsSUI==0, array('id' => 'standardUI') ) .
+				'</td><td> ' .
+					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-0'), 'standardUI' ) .
+				'</td>' .
+			Xml::closeElement( 'tr' ) . 
+			Xml::openElement( 'tr' ) .
+				'<td>' .
+					Xml::radio( 'wpFlaggedRevsSUI', 1, $form->mFlaggedRevsSUI==1, array('id' => 'simpleUI') ) .
+				'</td><td> ' .
+					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-1'), 'simpleUI' ) .
+				'</td>'
+		);
+		if( $wgUser->isAllowed( 'review' ) ) {
+			$out->addHTML( 
+				Xml::closeElement( 'tr' ) . 
+				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
+				Xml::openElement( 'tr' ) .
+					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) . 
+					'</td><td> ' . wfLabel( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>'
+			);
+		}
+		$out->addHTML( 
+			Xml::closeElement( 'tr' ) . 
+			Xml::closeElement( 'table' ) .
 			Xml::closeElement( 'fieldset' )
 		);
-		
+
 		return true;
 	}
 	
@@ -1775,8 +1805,10 @@ class FlaggedRevs {
 	* Add user preference to form object based on submission
 	*/
 	public static function injectFormPreferences( $form, $request ) {
+		global $wgUser;
 		$form->mFlaggedRevsStable = $request->getInt( 'wpFlaggedRevsStable' );
-		
+		$form->mFlaggedRevsSUI = $request->getInt( 'wpFlaggedRevsSUI' );
+		$form->mFlaggedRevsWatch = $wgUser->isAllowed( 'review' ) ? $request->getInt( 'wpFlaggedRevsWatch' ) : 0;
 		return true;
 	}
 	
@@ -1784,8 +1816,10 @@ class FlaggedRevs {
 	* Set preferences on form based on user settings
 	*/
 	public static function resetPreferences( $form, $user ) {
+		global $wgSimpleFlaggedRevsUI;
 		$form->mFlaggedRevsStable = $user->getOption( 'flaggedrevsstable' );
-		
+		$form->mFlaggedRevsSUI = $user->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
+		$form->mFlaggedRevsWatch = $user->getOption( 'flaggedrevswatch' );
 		return true;
 	}
 	
@@ -1794,7 +1828,8 @@ class FlaggedRevs {
 	*/
 	public static function savePreferences( $form, $user, &$msg ) {
 		$user->setOption( 'flaggedrevsstable', $form->validateInt( $form->mFlaggedRevsStable, 0, 1 ) );
-		
+		$user->setOption( 'flaggedrevssimpleui', $form->validateInt( $form->mFlaggedRevsSUI, 0, 1 ) );
+		$user->setOption( 'flaggedrevswatch', $form->validateInt( $form->mFlaggedRevsWatch, 0, 1 ) );
 		return true;
 	}
 

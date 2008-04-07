@@ -220,6 +220,9 @@ No configuration is possible.',
 	
 	'flaggedrevs-prefs'        => 'Stability',
 	'flaggedrevs-prefs-stable' => 'Always show the stable version of content pages by default (if there is one)',
+	'flaggedrevs-prefs-watch'  => 'Add pages I review to my watchlist',
+	'flaggedrevs-pref-UI-0'    => 'Use detailed stable version user interface',
+	'flaggedrevs-pref-UI-1'    => 'Use simple stable version user interface',
 );
 
 /** Aragonese (Aragonés)
