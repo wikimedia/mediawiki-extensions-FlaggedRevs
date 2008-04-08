@@ -1875,22 +1875,21 @@ class FlaggedRevs {
 	
 	/**
 	* Create revision link for log line entry
-	* @param string $log_type
-	* @param string $log_action
+	* @param string $type
+	* @param string $action
 	* @param object $title
 	* @param array $paramArray
-	* @param string $comment
-	* @param string $revert user tool links
-	* @param string $time timestamp of the log entry
+	* @param string $c
+	* @param string $r user tool links
+	* @param string $t timestamp of the log entry
 	* @return bool true
 	*/
-	public static function reviewLogLine( $log_type = '', $log_action = '', $title = null, 
-		$paramArray = array(), &$comment = '', &$revert = '', $time = '' ) {
+	public static function reviewLogLine( $type = '', $action = '', $title = null, $paramArray = array(), &$c = '', &$r = '', $t = '' ) {
 		# Show link to page with oldid=x
-		if( $log_type == 'review' && ($log_action == 'approve' || $log_action == 'unapprove') ) {
+		if( $type == 'review' && ($action == 'approve' || $action == 'unapprove') ) {
 			global $wgUser;
-			if( isset($paramArray[0]) ) {
-				$revert = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
+			if( is_object($title) && isset($paramArray[0]) ) {
+				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
 					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}") . ')';
 			}
 		}
