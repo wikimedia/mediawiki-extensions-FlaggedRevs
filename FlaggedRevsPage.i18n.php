@@ -1204,7 +1204,8 @@ $messages['de'] = array(
 	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
 	'review-logentry-id'          => 'Versions-ID $1',
 	'stable-logpage'              => 'Seitenkonfigurations-Logbuch',
-	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Markierten Versionen]]',
+	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Markierten Versionen]].
+	Siehe auch die [[Special:StablePages|Liste markierte Versionen]].',
 	'stable-logentry'             => 'konfigurierte die Seiten-Einstellung von „[[$1]]“',
 	'stable-logentry2'            => 'setzte die Seiten-Einstellung für „[[$1]]“ zurück',
 	'revreview-patrol'            => 'Markiere diese Änderung',
@@ -1213,7 +1214,8 @@ $messages['de'] = array(
 
 	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste unmarkierter Versionen.',
 	'revreview-selected'          => "Gewählte Version von '''$1:'''",
-	'revreview-text'              => 'Einer markierten Version wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.',
+	'revreview-text'              => "''Einer [[{{MediaWiki:Validationpage}}|markierten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.''",
+	'revreview-text2'             => "''[[{{MediaWiki:Validationpage}}|Markierte Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
 	'revreview-toolow'            => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
 	damit eine Version als markierte gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-flag'              => 'Markiere Version',
@@ -1237,8 +1239,14 @@ $messages['de'] = array(
 	'revreview-style-2'    => 'gut', # not used in de.wiki
 	'revreview-style-3'    => 'präzise', # not used in de.wiki
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
-	'revreview-log'               => 'Kommentar:',
-	'revreview-submit'            => 'Markierung speichern',
+	'revreview-log'        => 'Kommentar:',
+	'revreview-submit'     => 'Markierung speichern',
+	'revreview-successful' => "'''Die ausgewählte Version von [[:$1|$1]] wurde in den letzten Änderungen erfolgreich markiert.'''
+
+	Möchtest du die [{{fullurl:$2|stable=1}} markierte Version] dieser Seite sehen?",
+	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''
+
+	Möchtest du die [{{fullurl:$2|stable=1}} markierte Version] dieser Seite sehen (falls noch eine vorhanden ist)?",
 	'revreview-changed'           => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
 
 	Eine Vorlage oder ein Bild wurden ohne spezifische Versionsnummer angefordert. Dies kann passieren,
@@ -1257,10 +1265,10 @@ $messages['de'] = array(
 	'unreviewed-category'         => 'Kategorie:',
 	'unreviewed-diff'             => 'Änderungen',
 	'unreviewed-list'             => 'Diese Seite zeigt Artikel, die noch keinen markierte Versionen haben.',
-	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]], welche
-	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] werden kann.',
+	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
+	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
 	'stabilization'               => 'Seiten-Markierung',
-	'stabilization-text'          => 'Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.',
+	'stabilization-text'          => "'''Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''",
 	'stabilization-perm'          => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
 	Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page'          => 'Seitenname:',
@@ -1295,8 +1303,18 @@ $messages['de'] = array(
 	'reviewedpages-all'           => 'markierte Versionen',
 	'reviewedpages-best'          => 'letzte am höchsten bewertete Version',
 
-	'rights-editor-autosum'     => 'automatisch erteilt',
-	'rights-editor-revoke'      => 'entfernte Prüfer-Status von „[[$1]]“',
+	'stablepages'         => 'Markierte Seiten',
+	'stablepages-text'    => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
+	'stablepages-none'    => 'Diese Liste ist leer.',
+	'stablepages-config'  => 'Konfiguration',
+
+	'rights-editor-autosum'    => 'automatisch erteilt',
+	'rights-editor-revoke'     => 'entfernte Prüfer-Status von „[[$1]]“',
+	'flaggedrevs-prefs'        => 'Markierte Versionen',
+	'flaggedrevs-prefs-stable' => 'Zeige als Standard immer die markierte Version einer Seite (falls vorhanden)',
+	'flaggedrevs-prefs-watch'  => 'Selbst markierte Seiten automatisch beobachten',
+	'flaggedrevs-pref-UI-0'    => 'Benutze für markierte Versionen die detaillierte Benutzerschnittstelle',
+	'flaggedrevs-pref-UI-1'    => 'Benutze für markierte Versionen die einfache Benutzerschnittstell',
 );
 
 /** Greek (Ελληνικά)
