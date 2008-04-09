@@ -475,13 +475,13 @@ class RevisionReview extends UnlistedSpecialPage
         $textFlags = FlaggedRevs::compressText( $fulltext );
 
 		# Write to external storage if required
-		global $wgDefaultExternalStore;
-		if( $wgDefaultExternalStore ) {
-			if( is_array( $wgDefaultExternalStore ) ) {
+		$storage = FlaggedRevs::getExternalStorage();
+		if( $storage ) {
+			if( is_array($storage) ) {
 				# Distribute storage across multiple clusters
-				$store = $wgDefaultExternalStore[mt_rand(0, count( $wgDefaultExternalStore ) - 1)];
+				$store = $storage[mt_rand(0, count( $storage ) - 1)];
 			} else {
-				$store = $wgDefaultExternalStore;
+				$store = $storage;
 			}
 			# Store and get the URL
 			$fulltext = ExternalStore::insert( $store, $fulltext );
