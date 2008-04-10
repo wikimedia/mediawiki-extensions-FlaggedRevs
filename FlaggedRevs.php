@@ -604,7 +604,7 @@ class FlaggedRevs {
 				'rev_page = fr_page_id',
 				'rev_id = fr_rev_id'),
 			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC',
+			array( 'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
 				'USE INDEX' => array('flaggedrevs' => 'page_qal_rev','revision' => 'PRIMARY') )
 		);
 		return $oldid;
