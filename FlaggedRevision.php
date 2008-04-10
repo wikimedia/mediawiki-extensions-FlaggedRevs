@@ -104,7 +104,18 @@ class FlaggedRevision {
 			return true;
 		
 		wfProfileIn( __METHOD__ );
-		# DB stuff loaded already?
+		// Check uncompressed cache first...
+		global $wgRevisionCacheExpiry, $wgMemc;
+		if( $wgRevisionCacheExpiry ) {
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
+			$text = $wgMemc->get( $key );
+			if( is_string($text) ) {
+				$this->mText = $text;
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
+		}
+		// DB stuff loaded already?
 		if( is_null($this->mFlags) || is_null($this->mRawDBText) ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$row = $dbw->selectRow( 'flaggedrevs',
@@ -121,17 +132,6 @@ class FlaggedRevision {
 			} else {
 				$this->mRawDBText = $row->fr_text;
 				$this->mFlags = $row->fr_flags;
-			}
-		}
-		// Check uncompressed cache first...
-		global $wgRevisionCacheExpiry, $wgMemc;
-		if( $wgRevisionCacheExpiry ) {
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
-			$text = $wgMemc->get( $key );
-			if( is_string($text) ) {
-				$this->mText = $text;
-				wfProfileOut( __METHOD__ );
-				return true;
 			}
 		}
 		// Check if fr_text is just some URL to external DB storage
