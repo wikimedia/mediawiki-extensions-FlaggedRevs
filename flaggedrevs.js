@@ -68,6 +68,8 @@ function updateRatingForm() {
 	// If only a few levels are zero, don't show submit link
 	var submit = document.getElementById('mw-submitbutton');
 	submit.disabled = ( (somezero && !allzero) || !allowed ) ? 'disabled' : '';
+	var comment = document.getElementById('wpReason');
+	comment.disabled = ( (somezero && !allzero) || !allowed ) ? 'disabled' : '';
 	
 	// Clear comment box data if not shown
 	var comment = document.getElementById('wpReason');
