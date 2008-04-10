@@ -11,6 +11,7 @@ class FlaggedRevision {
 	private $mFlags;
 	private $mUser;
 	private $mTitle;
+	private $mRawDBText;
 
 	/**
 	 * @param Title $title
@@ -98,10 +99,11 @@ class FlaggedRevision {
 	}
 	
 	private function loadText() {
-		wfProfileIn( __METHOD__ );
 		# Loaded already?
 		if( !is_null($this->mText) )
 			return true;
+		
+		wfProfileIn( __METHOD__ );
 		# DB stuff loaded already?
 		if( is_null($this->mFlags) || is_null($this->mRawDBText) ) {
 			$dbw = wfGetDB( DB_MASTER );
@@ -111,13 +113,13 @@ class FlaggedRevision {
 				__METHOD__ );
 			// WTF ???
 			if( !$row ) {
-				$this->mDBRawText = false;
+				$this->mRawDBText = false;
 				$this->mFlags = false;
 				$this->mText = false;
 				wfProfileOut( __METHOD__ );
 				return false;
 			} else {
-				$this->mDBRawText = $row->fr_text;
+				$this->mRawDBText = $row->fr_text;
 				$this->mFlags = $row->fr_flags;
 			}
 		}
@@ -134,7 +136,7 @@ class FlaggedRevision {
 		}
 		// Check if fr_text is just some URL to external DB storage
 		if( in_array( 'external', $this->mFlags ) ) {
-			$url = $row->fr_text;
+			$url = $this->mRawDBText;
 			@list(/* $proto */,$path) = explode('://',$url,2);
 			if( $path=="" ) {
 				$this->mText = null;
@@ -142,7 +144,7 @@ class FlaggedRevision {
 				$this->mText = ExternalStore::fetchFromURL( $url );
 			}
 		} else {
-			$this->mText = $row->fr_text;
+			$this->mText = $this->mRawDBText;
 		}
 		// Uncompress if needed
 		$this->mText = FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
