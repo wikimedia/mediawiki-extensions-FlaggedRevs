@@ -18,7 +18,6 @@ class FlaggedRevision {
 	 * @access private
 	 */
 	function __construct( $title, $row ) {
-		wfProfileIn( __METHOD__ );
 		$this->mTitle = $title;
 		$this->mRevId = intval( $row->fr_rev_id );
 		$this->mPageId = intval( $row->fr_page_id );
@@ -28,41 +27,10 @@ class FlaggedRevision {
 		$this->mTags = FlaggedRevs::expandRevisionTags( strval($row->fr_tags) );
 		# Optional fields
 		$this->mUser = isset($row->fr_user) ? $row->fr_user : 0;
-		$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : array();
-		# If text and flags given, set text field
-		if( isset($row->fr_text) && isset($row->fr_flags) ) {
-			if( in_array( 'external', $this->mFlags ) ) {
-				$url = $row->fr_text;
-				@list(/* $proto */,$path) = explode('://',$url,2);
-				if( $path=="" ) {
-					$this->mText = null;
-				} else {
-					$this->mText = ExternalStore::fetchFromURL( $url );
-				}
-			} else {
-				$this->mText = $row->fr_text;
-			}
-			// Check cache first...
-			global $wgRevisionCacheExpiry, $wgMemc;
-			if( $wgRevisionCacheExpiry ) {
-				$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
-				$text = $wgMemc->get( $key );
-				if( is_string($text) ) {
-					$this->mText = $text;
-					wfProfileOut( __METHOD__ );
-					return;
-				}
-			}
-			# Uncompress if needed
-			$this->mText = FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
-			# Caching may be beneficial for massive use of external storage
-			if( $wgRevisionCacheExpiry ) {
-				$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
-			}
-		} else {
-			$this->mText = null;
-		}
-		wfProfileOut( __METHOD__ );
+		$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
+		$this->mRawDBText = isset($row->fr_text) ? $row->fr_text : null;
+		# Deal with as it comes
+		$this->mText = null;
 	}
 
 	/**
@@ -118,6 +86,7 @@ class FlaggedRevision {
 	 * @returns String expanded text
 	 */
 	public function getText() {
+		$this->loadText(); // load if not loaded
 		return $this->mText;
 	}
 
@@ -126,5 +95,61 @@ class FlaggedRevision {
 	 */
 	public function getUser() {
 		return $this->mUser;
+	}
+	
+	private function loadText() {
+		wfProfileIn( __METHOD__ );
+		# Loaded already?
+		if( !is_null($this->mText) )
+			return true;
+		# DB stuff loaded already?
+		if( is_null($this->mFlags) || is_null($this->mRawDBText) ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$row = $dbw->selectRow( 'flaggedrevs',
+				array( 'fr_text', 'fr_flags' ),
+				array( 'fr_rev_id' => $this->mRevId ),
+				__METHOD__ );
+			// WTF ???
+			if( !$row ) {
+				$this->mDBRawText = false;
+				$this->mFlags = false;
+				$this->mText = false;
+				wfProfileOut( __METHOD__ );
+				return false;
+			} else {
+				$this->mDBRawText = $row->fr_text;
+				$this->mFlags = $row->fr_flags;
+			}
+		}
+		// Check uncompressed cache first...
+		global $wgRevisionCacheExpiry, $wgMemc;
+		if( $wgRevisionCacheExpiry ) {
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
+			$text = $wgMemc->get( $key );
+			if( is_string($text) ) {
+				$this->mText = $text;
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
+		}
+		// Check if fr_text is just some URL to external DB storage
+		if( in_array( 'external', $this->mFlags ) ) {
+			$url = $row->fr_text;
+			@list(/* $proto */,$path) = explode('://',$url,2);
+			if( $path=="" ) {
+				$this->mText = null;
+			} else {
+				$this->mText = ExternalStore::fetchFromURL( $url );
+			}
+		} else {
+			$this->mText = $row->fr_text;
+		}
+		// Uncompress if needed
+		$this->mText = FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
+		// Caching may be beneficial for massive use of external storage
+		if( $wgRevisionCacheExpiry ) {
+			$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
+		}	
+		wfProfileOut( __METHOD__ );
 	}
 }

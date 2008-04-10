@@ -144,7 +144,7 @@ class FlaggedArticle {
 		# Also, check for any explicitly requested old stable version...
 		$reqId = $wgRequest->getVal('stableid');
 		if( $reqId === "best" ) {
-			$reqId = FlaggedRevs::getPrimeFlaggedRevId( $article->getTitle() );
+			$reqId = FlaggedRevs::getPrimeFlaggedRevId( $article );
 		}
 		if( $stableId && $reqId ) {
 			if( $reqId != $stableId ) {
@@ -375,7 +375,7 @@ class FlaggedArticle {
 			if( $reqId = $wgRequest->getVal('stableid') ) {
 				$frev = FlaggedRevs::getFlaggedRev( $title, $reqId );
 			} else if( $wgFlaggedArticle->pageOverride() ) {
-				$frev = $wgFlaggedArticle->getStableRev();
+				$frev = $wgFlaggedArticle->getStableRev( true );
 			}
 			if( !is_null($frev) ) {
 				$dbr = wfGetDB( DB_SLAVE );
@@ -512,7 +512,7 @@ class FlaggedArticle {
     	$action = $wgRequest->getVal( 'action', 'view' );
     	if( $action=='protect' || $action=='unprotect' ) {
 			# Check for an overridabe revision
-			$frev = $this->getStableRev();
+			$frev = $this->getStableRev( true );
 			if( !$frev )
 				return true;
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
@@ -571,7 +571,7 @@ class FlaggedArticle {
 		$action = $wgRequest->getVal( 'action', 'view' );
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
-       	$frev = $this->getStableRev();
+       	$frev = $this->getStableRev( true );
        	# No quality revs? Find the last reviewed one
        	if( is_null($frev) ) {
 			return true;
@@ -742,7 +742,7 @@ class FlaggedArticle {
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		if( $this->isDiffFromStable ) {
-			$srev = $this->getStableRev();
+			$srev = $this->getStableRev( true );
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version. 
 			# If not, then get the flags for the new revision itself.
@@ -1256,23 +1256,17 @@ class FlaggedArticle {
 			return null; // We already looked and found nothing...
 		}
         # Cached results available?
-        if( $getText ) {
-  			if( !is_null($this->stableRev) && isset($this->stableRev->fr_text) ) {
-				return $this->stableRev;
-			}
-        } else {
- 			if( !is_null($this->stableRev) ) {
-				return $this->stableRev;
-			}
-        }
+        if( !is_null($this->stableRev) ) {
+			return $this->stableRev;
+		}
 		# Get the content page, skip talk
 		global $wgTitle;
 		$title = $wgTitle->getSubjectPage();
 		# Do we have one?
-		$row = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
-        if( $row ) {
-			$this->stableRev = $row;
-			return $row;
+		$srev = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
+        if( $srev ) {
+			$this->stableRev = $srev;
+			return $srev;
 	    } else {
             $this->stableRev = false;
             return null;

@@ -575,14 +575,14 @@ class FlaggedRevs {
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		# Skip deleted revisions
-		$result = $dbr->select( array('flaggedrevs','revision'),
+		$row = $dbr->selectRow( array('flaggedrevs','revision'),
 			$columns,
 			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__ );
 		# Sorted from highest to lowest, so just take the first one if any
-		if( $row = $dbr->fetchObject($result) ) {
+		if( $row ) {
 			return new FlaggedRevision( $title, $row );
 		}
 
@@ -591,20 +591,22 @@ class FlaggedRevs {
 
 	/**
 	 * Get the "prime" flagged revision of a page
-	 * @param Title $title
-	 * @returns integer
+	 * @param Article $article
+	 * @returns mixed (integer/false)
 	 * Will not return a revision if deleted
 	 */
-	public static function getPrimeFlaggedRevId( $title ) {
+	public static function getPrimeFlaggedRevId( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		# Get the highest quality revision (not necessarily this one).
-		$oldid = $dbr->selectField( array('flaggedrevs', 'revision'),
+		$oldid = $dbr->selectField( array('flaggedrevs','revision'),
 			'fr_rev_id',
-			array( 'fr_page_id' => $title->getArticleID(),
-				'fr_rev_id = rev_id',
-				'rev_deleted & '.Revision::DELETED_TEXT.' = 0'),
+			array( 'fr_page_id' => $article->getId(),
+				'rev_page = fr_page_id',
+				'rev_id = fr_rev_id'),
 			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC', 'LIMIT' => 1) );
+			array( 'ORDER BY' => 'fr_quality,fr_rev_id DESC',
+				'USE INDEX' => array('flaggedrevs' => 'page_qal_rev','revision' => 'PRIMARY') )
+		);
 		return $oldid;
 	}
 
@@ -625,14 +627,13 @@ class FlaggedRevs {
 		# If we want the text, then get the text flags too
 		if( !$forUpdate ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$result = $dbr->select( array('page', 'flaggedrevs'),
+			$row = $dbr->selectRow( array('page','flaggedrevs'),
 				$columns,
 				array( 'page_namespace' => $title->getNamespace(),
 					'page_title' => $title->getDBkey(),
 					'page_ext_stable = fr_rev_id' ),
-				__METHOD__,
-				array('LIMIT' => 1) );
-			if( !$row = $dbr->fetchObject($result) )
+				__METHOD__  );
+			if( !$row )
 				return null;
 		} else {
 			# Get visiblity settings...
@@ -640,26 +641,26 @@ class FlaggedRevs {
 			$dbw = wfGetDB( DB_MASTER );
 			# Look for the latest quality revision
 			if( $config['select'] != FLAGGED_VIS_LATEST ) {
-				$result = $dbw->select( array('flaggedrevs', 'revision'),
+				$row = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_quality >= 1',
 						'fr_rev_id = rev_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1) );
-				$row = $dbw->fetchObject($result);
+					array( 'ORDER BY' => 'fr_rev_id DESC') );
+				$row = $row ? $row : null;
 			}
 			# Do we have one? If not, try the latest reviewed revision...
 			if( !$row ) {
-				$result = $dbw->select( array('flaggedrevs', 'revision'),
+				$row = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_rev_id = rev_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) );
-				if( !$row = $dbw->fetchObject($result) )
+					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
+				if( !$row )
 					return null;
 			}
 		}
@@ -1134,7 +1135,7 @@ class FlaggedRevs {
 
 		$dbw = wfGetDB( DB_MASTER );
 		# Get the highest quality revision (not necessarily this one).
-		$maxQuality = $dbw->selectField( array('flaggedrevs', 'revision'),
+		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
 			'fr_quality',
 			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
 				'fr_rev_id = rev_id',
@@ -1572,10 +1573,14 @@ class FlaggedRevs {
 	* Don't let users vandalize pages by moving them.
 	*/
 	public static function userCanMove( $title, $user, $action, $result ) {
+		global $wgFlaggedArticle;
+	
 		if( $action != 'move' )
 			return true;
+		if( !self::isPageReviewable( $title ) )
+			return true;
 		# See if there is a stable version
-		$frev = self::getStablePageRev( $title );
+		$frev = $wgFlaggedArticle->getStableRev( true );
 		if( !$frev )
 			return true;
 		# Allow for only editors/reviewers to move this
