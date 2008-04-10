@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.0271',
+	'version' => '1.028',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -173,7 +173,7 @@ $wgFlaggedRevsExternalStore = false;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 9;
+$wgFlaggedRevStyleVersion = 10;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -225,9 +225,9 @@ function efLoadFlaggedRevs() {
 		define( 'FLAGGED_JS', $wgScriptPath . '/extensions/FlaggedRevs/flaggedrevs.js?' . $wgFlaggedRevStyleVersion );
 
 	######### Hook attachments #########
-	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyle';
-	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyle';
-	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyle';
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
+	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
+	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
@@ -331,7 +331,8 @@ class FlaggedRevs {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
-			if( strpos($tag,':') || strpos($tag,'\n') ) {
+			$safeTag = htmlspecialchars($tag);
+			if( strpos($tag,':') || strpos($tag,'\n') || $safeTag !== $tag ) {
 				throw new MWException( 'FlaggedRevs given invalid tag name!' );
 			} else if( intval($minQL) != $minQL ) {
 				throw new MWException( 'FlaggedRevs given invalid tag value!' );
@@ -951,8 +952,8 @@ class FlaggedRevs {
 	/**
 	* Add FlaggedRevs css/js. Attached to two different hooks, neglect inputs.
 	*/
-	public static function InjectStyle( $a=false, $b=false ) {
-		global $wgOut, $wgJsMimeType;
+	public static function InjectStyleAndJS( $a=false, $b=false ) {
+		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
 		# Don't double-load
 		if( self::$styleLoaded )
 			return true;
@@ -963,12 +964,32 @@ class FlaggedRevs {
 			'media'	=> 'screen, projection',
 			'href'	=> FLAGGED_CSS,
 		) );
+		# Handle onload parameters
+		$JSparams = self::getJSParams();
+		if( $JSparams ) {
+			$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">var wgFlaggedRevsJSparams = \"$JSparams\";</script>\n" );
+		}
 		# UI JS
 		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
 
 		self::$styleLoaded = true;
 
 		return true;
+	}
+	
+	/**
+	 * Get JS script params for onloading
+	 */
+	public function getJSParams() {
+		# Param to pass to JS function to know if tags are at quality level
+		global $wgFlaggedRevTags;
+		$JSparams = ' ';
+		foreach( $wgFlaggedRevTags as $tag => $QL ) {
+			$JSparams .= "wp$tag:$QL ";
+		}
+		$JSparams = htmlspecialchars($JSparams); // just to be safe, but this is validated ealier!
+		
+		return trim($JSparams);
 	}
 
 	/**

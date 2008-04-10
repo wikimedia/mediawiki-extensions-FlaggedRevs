@@ -14,7 +14,6 @@
 	line-height: 1.5em;
 	margin: .5em 1em 0em 0em;
 	text-align: center;
-	float: center;
 	clear: both;
 }
 
@@ -225,7 +224,7 @@
 	background-color: #f0fff0;
 }
 .fr-rating-option-3 {
-	background-color: #f0fff0;
+	background-color: #fef0db;
 }
 .fr-rating-option-4 {
 	background-color: #fffff0;

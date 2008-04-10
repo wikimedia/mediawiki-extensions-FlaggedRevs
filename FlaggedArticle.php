@@ -765,12 +765,13 @@ class FlaggedArticle {
 			$form .= '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>';
 		}
 		
-		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() );
-		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() );
-		$form .= Xml::hidden( 'oldid', $id );
-		$form .= Xml::hidden( 'action', 'submit');
-        $form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
+		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'oldid', $id ) . "\n";
+		$form .= Xml::hidden( 'action', 'submit') . "\n";
+        $form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
 
+		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
 		foreach( FlaggedRevs::$dimensions as $quality => $levels ) {
 			$options = array();
 			$disabled = false;
@@ -786,17 +787,21 @@ class FlaggedArticle {
 				}
 			}
 			$form .= "\n" . wfMsgHtml("revreview-$quality") . ": ";
-			$selectAttribs = array( 'name' => "wp$quality" );
+			$selectAttribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" );
 			if( $disabled )
 				$selectAttribs['disabled'] = 'disabled';
 			$form .= Xml::openElement( 'select', $selectAttribs );
 			$form .= implode( "\n", $options );
 			$form .= Xml::closeElement('select')."\n";
 		}
+		$form .= Xml::closeElement( 'span' );
+		
         if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
+			$form .= "<div id='mw-notebox'>\n";
 			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= "<p><textarea name='wpNotes' id='wpNotes' class='fr-reason-box' 
-				rows='2' cols='80' style='width:95%; margin: 0em 1em 0em .5em;'></textarea></p>\n";
+				rows='2' cols='80' style='width:95%; margin: 0em 1em 0em .5em;'/></p>\n";
+			$form .= "</div>\n";
 		}
 
 		$imageParams = $templateParams = '';
@@ -830,13 +835,17 @@ class FlaggedArticle {
 		
 		# Special token to discourage fiddling...
 		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
-		
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
-		$form .= "<p>".Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 
-			50, '', array('class' => 'fr-comment-box') )."\n";
+		$form .= "<span style='white-space: nowrap'>"; // get comment and submit on same line
+		# Hide comment if needed
+		$form .= "<span id='mw-commentbox'>" .
+			Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 50, '', array('class' => 'fr-comment-box') ) . 
+			"</span>";
 
-		$form .= '&nbsp;&nbsp;&nbsp;'.Xml::submitButton( wfMsg( 'revreview-submit' ) )."</p>";
+		$form .= "&nbsp;&nbsp;&nbsp;".Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton') );
+		$form .= "</span>";
+
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 
