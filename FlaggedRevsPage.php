@@ -588,7 +588,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * Removes flagged revision data for this page/id set
 	 */
 	function unapproveRevision( $frev ) {
-		global $wgUser, $wgParser;
+		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
 
 		$user = $wgUser->getId();
 
@@ -604,6 +604,12 @@ class RevisionReview extends UnlistedSpecialPage
 
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
+
+		# Kill any text cache
+		if( $wgRevisionCacheExpiry ) {
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $frev->getRevId() );
+			$wgMemc->delete( $key );
+		}
 
 		$article = new Article( $this->page );
 		# Update the links tables as a new stable version

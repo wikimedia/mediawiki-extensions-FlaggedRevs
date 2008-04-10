@@ -18,6 +18,7 @@ class FlaggedRevision {
 	 * @access private
 	 */
 	function __construct( $title, $row ) {
+		wfProfileIn( __METHOD__ );
 		$this->mTitle = $title;
 		$this->mRevId = intval( $row->fr_rev_id );
 		$this->mPageId = intval( $row->fr_page_id );
@@ -41,11 +42,27 @@ class FlaggedRevision {
 			} else {
 				$this->mText = $row->fr_text;
 			}
+			// Check cache first...
+			global $wgRevisionCacheExpiry, $wgMemc;
+			if( $wgRevisionCacheExpiry ) {
+				$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
+				$text = $wgMemc->get( $key );
+				if( is_string($text) ) {
+					$this->mText = $text;
+					wfProfileOut( __METHOD__ );
+					return;
+				}
+			}
 			# Uncompress if needed
 			$this->mText = FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
+			# Caching may be beneficial for massive use of external storage
+			if( $wgRevisionCacheExpiry ) {
+				$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
+			}
 		} else {
 			$this->mText = null;
 		}
+		wfProfileOut( __METHOD__ );
 	}
 
 	/**
