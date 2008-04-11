@@ -963,9 +963,9 @@ class FlaggedArticle {
 			return '';
 
    		$skin = $wgUser->getSkin();
-   		$notes = '<p><div class="flaggedrevs_notes plainlinks">';
-   		$notes .= wfMsgExt('revreview-note', array('parse'), User::whoIs( $frev->getUser() ) );
-   		$notes .= '<i>' . $skin->formatComment( $frev->getComment() ) . '</i></div></p><br />';
+   		$notes = '<div class="flaggedrevs_notes plainlinks">';
+   		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
+   		$notes .= '<br/><i>' . $skin->formatComment( $frev->getComment() ) . '</i></div>';
 
     	return $notes;
     }
