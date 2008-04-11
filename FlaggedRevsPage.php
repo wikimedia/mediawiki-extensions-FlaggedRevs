@@ -635,7 +635,7 @@ class RevisionReview extends UnlistedSpecialPage
 				array( 'USE INDEX' => 'rc_user_text' ) );
 			# New page patrol may be enabled. If so, the rc_id may be the first
 			# edit and not this one. If it is different, mark it too.
-			if( $rcid && $this->rcid != $rev->getId() ) {
+			if( $rcid && $rcid != $rev->getId() ) {
 				$dbw->update( 'recentchanges',
 					array( 'rc_patrolled' => 1 ),
 					array( 'rc_id' => $rcid,
