@@ -429,19 +429,25 @@ class FlaggedRevs {
 		# Do we need to set the template uses via DB?
 		if( $reparsed ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( 'flaggedtemplates', 
-				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
-				array( 'ft_rev_id' => $id ),
+			$res = $dbr->select( array('flaggedtemplates', 'revision'), 
+				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id', 'rev_page' ),
+				array( 'ft_rev_id' => $id, 'rev_id = ft_rev_id' ),
 				__METHOD__ );
 			# Add template metadata to output
 			$maxTempID = 0;
 			while( $row = $res->fetchObject() ) {
+				if( !isset($parserOut->mTemplates[$row->ft_namespace]) ) {
+					$parserOut->mTemplates[$row->ft_namespace] = array();
+				}
+				$parserOut->mTemplates[$row->ft_namespace][$row->ft_title] = $row->rev_page;
+
 				if( !isset($parserOut->mTemplateIds[$row->ft_namespace]) ) {
 					$parserOut->mTemplateIds[$row->ft_namespace] = array();
 				}
 				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
-				if( $row->ft_tmp_rev_id > $maxTempID )
+				if( $row->ft_tmp_rev_id > $maxTempID ) {
 					$maxTempID = $row->ft_tmp_rev_id;
+				}
 			}
 			$parserOut->fr_newestTemplateID = $maxTempID;
 		}
