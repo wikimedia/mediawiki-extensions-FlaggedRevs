@@ -381,6 +381,11 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Our flags
 		$flags = $this->dims;
+		
+		# Some validation vars to make sure nothing changed during
+		$lastTempID = 0;
+		$lastImgTime = '';
+		
 		# Our template version pointers
 		$tmpset = $templates = array();
 		$templateMap = explode('#',trim($this->templateParams) );
@@ -401,6 +406,9 @@ class RevisionReview extends UnlistedSpecialPage
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
 			if( is_null($title) )
 				continue; // Page be valid!
+
+			if( $rev_id > $lastTempID )
+				$lastTempID = $rev_id;
 
 			$tmpset[] = array(
 				'ft_rev_id' => $rev->getId(),
@@ -431,6 +439,9 @@ class RevisionReview extends UnlistedSpecialPage
 			if( is_null($img_title) )
 				continue; // Page be valid!
 
+			if( $timestamp > $lastImgTime )
+				$lastImgTime = $timestamp;
+
 			$imgset[] = array(
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBkey(),
@@ -456,20 +467,23 @@ class RevisionReview extends UnlistedSpecialPage
 		if( !empty($imgset) ) {
 			$dbw->insert( 'flaggedimages', $imgset, __METHOD__ );
 		}
-        # Get the page text and resolve all templates
-        list($fulltext,$complete) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
-        if( !$complete ) {
+        # Get the expanded text and resolve all templates.
+		# Store $templateIDs and add it to final parser output later...
+        list($fulltext,$templateIDs,$complete,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        if( !$complete || $maxID > $lastTempID ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
 		
 		$article = new Article( $this->page );
-		# Check if the rest matches up
-		$stableOutput = FlaggedRevs::parseStableText( $article, $rev->getText(), $rev->getId() );
-		if( !$stableOutput->fr_includesMatched ) {
+		# Parse the rest and check if it matches up
+		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
+		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
+		$stableOutput->mTemplateIds = $templateIDs; // inject this
+		$stableOutput->fr_newestTemplateID = $maxID; // inject this
 		
         # Compress $fulltext, passed by reference
         $textFlags = FlaggedRevs::compressText( $fulltext );

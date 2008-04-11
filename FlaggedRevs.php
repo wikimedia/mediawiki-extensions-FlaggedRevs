@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.028',
+	'version' => '1.029',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -387,7 +387,8 @@ class FlaggedRevs {
 		$options = new ParserOptions();
 		$options->setRemoveComments( true ); // Save some bandwidth ;)
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
-		$expandedText = array( $outputText, $wgParser->fr_includesMatched );
+		$expandedText = array( $outputText, $wgParser->mOutput->mTemplateIds, 
+			$wgParser->fr_includesMatched, $wgParser->mOutput->fr_newestTemplateID );
 		# Done!
 		$wgParser->fr_isStable = false;
 		$wgParser->fr_includesMatched = false;
@@ -396,13 +397,17 @@ class FlaggedRevs {
 	}
 
 	/**
+	 * Get the HTML output of a revision based on $text.
+	 * If the text is being reparsed from fr_text (expanded text), 
+	 * it should be specified...In such cases, the parser will not have 
+	 * template ID data. We need to know this so we can just get the data from the DB.
 	 * @param Article $article
 	 * @param string $text
 	 * @param int $id
+	 * @param bool $reparsed (is this being reparsed from fr_text?)
 	 * @return ParserOutput
-	 * Get the HTML output of a revision based on $text
 	 */
-	public static function parseStableText( $article, $text, $id ) {
+	public static function parseStableText( $article, $text, $id, $reparsed = true ) {
 		global $wgParser;
 		# Default options for anons if not logged in
 		$options = new ParserOptions();
@@ -415,9 +420,21 @@ class FlaggedRevs {
 		$title = $article->getTitle(); // avoid pass-by-reference error
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 		$parserOut->fr_includesMatched = $wgParser->fr_includesMatched;
-	   	# Done!
+	   	# Done with parser!
 	   	$wgParser->fr_isStable = false;
 		$wgParser->fr_includesMatched = false;
+		# Do we need to set the template uses via DB?
+		if( $reparsed ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'flaggedtemplates', 
+				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+				array( 'ft_rev_id' => $id ),
+				__METHOD__ );
+			# Add template metadata to output
+			while( $row = $res->fetchObject() ) {
+				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->fr_rev_id;
+			}
+		}
 
 	   	return $parserOut;
 	}
@@ -1054,7 +1071,7 @@ class FlaggedRevs {
 				__METHOD__ );
 		}
 		# Get the page text and resolve all templates
-		list($fulltext,$complete) = self::expandText( $rev->getText(), $article->getTitle(), $rev->getId() );
+		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $rev->getText(), $article->getTitle(), $rev->getId() );
 
 		# Compress $fulltext, passed by reference
 		$textFlags = self::compressText( $fulltext );
