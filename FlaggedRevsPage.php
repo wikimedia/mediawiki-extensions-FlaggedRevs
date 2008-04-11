@@ -664,7 +664,7 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 		if( $maxID > $pout->fr_newestTemplateID ) {
-			$pout->fr_newestTemplateI = $maxID;
+			$pout->fr_newestTemplateID = $maxID;
 		}
 	}
 
