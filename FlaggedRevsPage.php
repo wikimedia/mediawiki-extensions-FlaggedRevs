@@ -384,7 +384,7 @@ class RevisionReview extends UnlistedSpecialPage
 
 		# Some validation vars to make sure nothing changed during
 		$lastTempID = 0;
-		$lastImgTime = '';
+		$lastImgTime = "0";
 
 		# Our template version pointers
 		$tmpset = array();
@@ -632,7 +632,7 @@ class RevisionReview extends UnlistedSpecialPage
 					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 				__METHOD__,
-				array( 'USE INDEX' => 'rc_user_text' ) );
+				array( 'USE INDEX' => 'rc_user_text', 'LIMIT' => 1 ) );
 			# New page patrol may be enabled. If so, the rc_id may be the first
 			# edit and not this one. If it is different, mark it too.
 			if( $rcid && $rcid != $rev->getId() ) {

@@ -813,7 +813,7 @@ class FlaggedRevs {
 	*/
 	public static function getRevisionTags( $rev_id ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$tags = $dbr->selectField('flaggedrevs', 'fr_tags',
+		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
 			array('fr_rev_id' => $rev_id ),
 			__METHOD__ );
 		if( !$tags )
@@ -827,8 +827,7 @@ class FlaggedRevs {
 	 * @return bool, is $title the main page?
 	 */
 	public static function isMainPage( $title ) {
-		$mp = Title::newMainPage();
-		return ( $title->getNamespace()==$mp->getNamespace() && $title->getDBkey()==$mp->getDBkey() );
+		return $title->equals( Title::newMainPage() );
 	}
 
 	/**
@@ -1134,8 +1133,8 @@ class FlaggedRevs {
 			array( 'rc_this_oldid' => $rev->getId(),
 				'rc_user_text' => $rev->getRawUserText(),
 				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-			__METHOD__
-		);
+			__METHOD__,
+			array( 'LIMIT' => 1 ) );
 		$dbw->commit();
 
 		# Update the article review log
@@ -1249,7 +1248,7 @@ class FlaggedRevs {
 	public static function deleteVisiblitySettings( $article, $user, $reason ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedpage_config',
-			array('fpc_page_id' => $article->getID() ),
+			array( 'fpc_page_id' => $article->getID() ),
 			__METHOD__ );
 
 		return true;
@@ -1610,14 +1609,18 @@ class FlaggedRevs {
 	* Don't let users vandalize pages by moving them.
 	*/
 	public static function userCanMove( $title, $user, $action, $result ) {
-		global $wgFlaggedArticle;
+		global $wgTitle;
 	
-		if( $action != 'move' )
-			return true;
-		if( !self::isPageReviewable( $title ) )
+		if( $action != 'move' || !self::isPageReviewable( $title ) )
 			return true;
 		# See if there is a stable version
-		$frev = $wgFlaggedArticle->getStableRev( true );
+		if( $wgTitle && $wgTitle->equals( $title ) ) {
+			global $wgFlaggedArticle;
+			// Cache stable version while we are at it.
+			$frev = $wgFlaggedArticle->getStableRev( true );
+		} else {
+			$frev = self::getStablePageRev( $title );
+		}
 		if( !$frev )
 			return true;
 		# Allow for only editors/reviewers to move this
@@ -1633,7 +1636,7 @@ class FlaggedRevs {
 	* Allow users to view reviewed pages.
 	*/
 	public static function userCanView( $title, $user, $action, $result ) {
-		global $wgFlaggedRevsVisible, $wgFlaggedArticle;
+		global $wgFlaggedRevsVisible, $wgTitle;
 		# Assume $action may still not be set, in which case, treat it as 'view'...
 		if( $action != 'read' )
 			return true;
@@ -1644,8 +1647,16 @@ class FlaggedRevs {
 			return true;
 		# See if there is a stable version. Also, see if, given the page 
 		# config and URL params, the page can be overriden.
-		if( $wgFlaggedArticle->pageOverride() && $wgFlaggedArticle->getStableRev() ) {
-			$result = true;
+		if( $wgTitle && $wgTitle->equals( $title ) ) {
+			global $wgFlaggedArticle;
+			// Cache stable version while we are at it.
+			if( $wgFlaggedArticle->pageOverride() && $wgFlaggedArticle->getStableRev( true ) ) {
+				$result = true;
+			}
+		} else {
+			if( self::getStablePageRev( $title ) ) {
+				$result = true;
+			}
 		}
 		return true;
 	}
@@ -1666,7 +1677,8 @@ class FlaggedRevs {
 				array( 'rc_this_oldid' => $rev->getID(),
 					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-				__METHOD__ );
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_user_text', 'LIMIT' => 1 ) );
 		}
 		return true;
 	}
