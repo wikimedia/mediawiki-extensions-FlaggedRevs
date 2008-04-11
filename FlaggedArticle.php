@@ -1328,7 +1328,7 @@ class FlaggedArticle {
 		if( $parserOut ) {
 			# Clear older, incomplete, cached versions
 			# We need the IDs of templates and timestamps of images used
-			if( !isset($parserOut->mTemplateIds) || !isset($parserOut->fr_ImageSHA1Keys) )
+			if( !isset($parserOut->fr_newestTemplateID) || !isset($parserOut->fr_newestImageTime) )
 				$article->getTitle()->invalidateCache();
 		}
 		return true;
