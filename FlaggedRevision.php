@@ -8,10 +8,10 @@ class FlaggedRevision {
 	private $mQuality;
 	private $mTags;
 	private $mText;
+	private $mRawDBText;
 	private $mFlags;
 	private $mUser;
 	private $mTitle;
-	private $mRawDBText;
 
 	/**
 	 * @param Title $title
@@ -84,7 +84,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @returns String expanded text
+	 * @returns mixed (string/false) expanded text
 	 */
 	public function getText() {
 		$this->loadText(); // load if not loaded
@@ -98,6 +98,9 @@ class FlaggedRevision {
 		return $this->mUser;
 	}
 	
+	/**
+	 * Actually load the revision's expanded text
+	 */
 	private function loadText() {
 		# Loaded already?
 		if( !is_null($this->mText) )
@@ -151,7 +154,8 @@ class FlaggedRevision {
 		// Caching may be beneficial for massive use of external storage
 		if( $wgRevisionCacheExpiry ) {
 			$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
-		}	
+		}
+		return true;
 		wfProfileOut( __METHOD__ );
 	}
 }
