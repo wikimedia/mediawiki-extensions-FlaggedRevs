@@ -344,6 +344,9 @@ class FlaggedRevs {
 		}
 	}
 	
+	/**
+	 * Get external storage array. Default to main storage.
+	 */
 	public static function getExternalStorage() {
 		global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
 		
@@ -375,7 +378,7 @@ class FlaggedRevs {
 	 * @param string $text
 	 * @param Title $title
 	 * @param integer $id, revision id
-	 * @return array( string, bool )
+	 * @return array( string, array, array, bool, int )
 	 * All included pages/arguments are expanded out
 	 */
 	public static function expandText( $text='', $title, $id ) {
@@ -387,12 +390,12 @@ class FlaggedRevs {
 		$options = new ParserOptions();
 		$options->setRemoveComments( true ); // Save some bandwidth ;)
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
-		$expandedText = array( $outputText, $wgParser->mOutput->mTemplateIds, 
+		$expandedText = array( $outputText, $wgParser->mOutput->mTemplates, $wgParser->mOutput->mTemplateIds, 
 			$wgParser->fr_includesMatched, $wgParser->mOutput->fr_newestTemplateID );
-		# Done!
+		# Done with parser!
 		$wgParser->fr_isStable = false;
 		$wgParser->fr_includesMatched = false;
-
+		# Return data array
 		return $expandedText;
 	}
 
@@ -407,7 +410,7 @@ class FlaggedRevs {
 	 * @param bool $reparsed (is this being reparsed from fr_text?)
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( $article, $text, $id, $reparsed = true ) {
+	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
 		global $wgParser;
 		# Default options for anons if not logged in
 		$options = new ParserOptions();
@@ -431,11 +434,17 @@ class FlaggedRevs {
 				array( 'ft_rev_id' => $id ),
 				__METHOD__ );
 			# Add template metadata to output
+			$maxTempID = 0;
 			while( $row = $res->fetchObject() ) {
-				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->fr_rev_id;
+				if( !isset($parserOut->mTemplateIds[$row->ft_namespace]) ) {
+					$parserOut->mTemplateIds[$row->ft_namespace] = array();
+				}
+				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
+				if( $row->ft_tmp_rev_id > $maxTempID )
+					$maxTempID = $row->ft_tmp_rev_id;
 			}
+			$parserOut->fr_newestTemplateID = $maxTempID;
 		}
-
 	   	return $parserOut;
 	}
 	
@@ -454,7 +463,7 @@ class FlaggedRevs {
 		}
 		global $wgMemc;
 		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId() . '-' . $article->getTouched() );
+		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId(), $article->getTouched() );
 		$syncvalue = $wgMemc->get($key);
 		# Convert string value to boolean and return it
 		if( $syncvalue ) {
@@ -1343,11 +1352,13 @@ class FlaggedRevs {
 
 	/**
 	* Select the desired templates based on the selected stable revision IDs
+	* NOTE: $p comes in false from this hook ... weird
 	*/
-	public static function parserFetchStableTemplate( $parser=false, $title, &$skip, &$id ) {
+	public static function parserFetchStableTemplate( $p=false, $title, &$skip, &$id ) {
 		global $wgParser;
 		# Trigger for stable version parsing only
-		if( !isset($wgParser->fr_isStable) || !$wgParser->fr_isStable )
+		$parser =& $wgParser;
+		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
 			return true;
 		# Special namespace ... ?
 		if( $title->getNamespace() < 0 )
@@ -1369,7 +1380,7 @@ class FlaggedRevs {
 		# the template revision during review time.
 		if( !$id ) {
 			$id = $dbw->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
-				array( 'ft_rev_id' => $wgParser->mRevisionId,
+				array( 'ft_rev_id' => $parser->mRevisionId,
 					'ft_namespace' => $title->getNamespace(),
 					'ft_title' => $title->getDBkey() ),
 				__METHOD__ );
@@ -1378,7 +1389,7 @@ class FlaggedRevs {
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
 			if( $id === false ) {
-				$wgParser->fr_includesMatched = false; // May want to give an error
+				$parser->fr_includesMatched = false; // May want to give an error
 				if( !$wgUseCurrentTemplates ) {
 					$skip = true;
 				}
@@ -1386,6 +1397,10 @@ class FlaggedRevs {
 				$skip = true;
 			}
 		}
+		if( $id > $parser->mOutput->fr_newestTemplateID ) {
+			$parser->mOutput->fr_newestTemplateID = $id;
+		}
+		
 		return true;
 	}
 
@@ -1534,6 +1549,10 @@ class FlaggedRevs {
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/
 	public static function parserInjectTimestamps( $parser, &$text ) {
+		# Don't trigger this for stable version parsing...it will do it separately.
+		if( isset($parser->fr_isStable) && $parser->fr_isStable )
+			return true;
+		
 		$maxRevision = 0;
 		# Record the max template revision ID
 		if( !empty($parser->mOutput->mTemplateIds) ) {
@@ -1546,14 +1565,9 @@ class FlaggedRevs {
 			}
 		}
 		$parser->mOutput->fr_newestTemplateID = $maxRevision;
-		# Don't trigger image stuff for stable version parsing.
-		# It will do it separately.
-		if( isset($parser->fr_isStable) && $parser->fr_isStable )
-			return true;
 			
 		$maxTimestamp = "0";
 		# Fetch the current timestamps of the images.
-		# Don't do this for stable versions
 		if( !empty($parser->mOutput->mImages) ) {
 			$filenames = array_keys($parser->mOutput->mImages);
 			foreach( $filenames as $filename ) {

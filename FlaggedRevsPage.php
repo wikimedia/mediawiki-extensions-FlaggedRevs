@@ -174,7 +174,7 @@ class RevisionReview extends UnlistedSpecialPage
 		return true;
 	}
 
-	function markPatrolled( $token ) {
+	private function markPatrolled( $token ) {
 		global $wgOut, $wgUser;
 
 		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
@@ -204,7 +204,7 @@ class RevisionReview extends UnlistedSpecialPage
 	/**
 	 * Show revision review form
 	 */
-	function showRevision() {
+	private function showRevision() {
 		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevsOverride,
 			$wgFlaggedRevTags, $wgFlaggedRevValues;
 
@@ -298,7 +298,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param Revision $rev
 	 * @return string
 	 */
-	function historyLine( $rev ) {
+	private function historyLine( $rev ) {
 		global $wgContLang;
 		$date = $wgContLang->timeanddate( $rev->getTimestamp() );
 
@@ -311,7 +311,7 @@ class RevisionReview extends UnlistedSpecialPage
 			"<li> $difflink $revlink " . $this->skin->revUserLink( $rev ) . " " . $this->skin->revComment( $rev ) . "</li>";
 	}
 
-	function submit() {
+	private function submit() {
 		global $wgOut, $wgUser, $wgFlaggedRevTags;
 		# If all values are set to zero, this has been unapproved
 		$approved = empty($wgFlaggedRevTags);
@@ -343,7 +343,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Return to our page
 		if( $success ) {
 			global $wgFlaggedRevsOverride;
-		
+
 			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
 			# Show success message
 			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
@@ -370,7 +370,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param Revision $rev
 	 */
-	function approveRevision( $rev ) {
+	private function approveRevision( $rev ) {
 		global $wgUser, $wgParser;
 		# Get the page this corresponds to
 		$title = $rev->getTitle();
@@ -381,13 +381,13 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Our flags
 		$flags = $this->dims;
-		
+
 		# Some validation vars to make sure nothing changed during
 		$lastTempID = 0;
 		$lastImgTime = '';
-		
+
 		# Our template version pointers
-		$tmpset = $templates = array();
+		$tmpset = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
 			if( !$template )
@@ -399,13 +399,9 @@ class RevisionReview extends UnlistedSpecialPage
 
 			list($prefixed_text,$rev_id) = $m;
 
-			if( in_array($prefixed_text,$templates) )
-				continue; // No dups!
-			$templates[] = $prefixed_text;
-
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
 			if( is_null($title) )
-				continue; // Page be valid!
+				continue; // Page must be valid!
 
 			if( $rev_id > $lastTempID )
 				$lastTempID = $rev_id;
@@ -418,7 +414,7 @@ class RevisionReview extends UnlistedSpecialPage
 			);
 		}
 		# Our image version pointers
-		$imgset = $images = array();
+		$imgset = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		foreach( $imageMap as $image ) {
 			if( !$image )
@@ -430,14 +426,9 @@ class RevisionReview extends UnlistedSpecialPage
 
 			list($dbkey,$timestamp,$key) = $m;
 
-			if( in_array($dbkey,$images) )
-				continue; // No dups!
-
-			$images[] = $dbkey;
-
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
 			if( is_null($img_title) )
-				continue; // Page be valid!
+				continue; // Page must be valid!
 
 			if( $timestamp > $lastImgTime )
 				$lastImgTime = $timestamp;
@@ -462,15 +453,15 @@ class RevisionReview extends UnlistedSpecialPage
 			__METHOD__ );
 		# Update our versioning params
 		if( !empty($tmpset) ) {
-			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__ );
+			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
 		}
 		if( !empty($imgset) ) {
-			$dbw->insert( 'flaggedimages', $imgset, __METHOD__ );
+			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
 		}
         # Get the expanded text and resolve all templates.
 		# Store $templateIDs and add it to final parser output later...
-        list($fulltext,$templateIDs,$complete,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
-        if( !$complete || $maxID > $lastTempID ) {
+        list($fulltext,$tmps,$tmpIDs,$ok,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        if( !$ok || $maxID > $lastTempID ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
@@ -482,8 +473,8 @@ class RevisionReview extends UnlistedSpecialPage
         	$dbw->rollback(); // All versions must be specified, 0 for none
         	return false;
         }
-		$stableOutput->mTemplateIds = $templateIDs; // inject this
-		$stableOutput->fr_newestTemplateID = $maxID; // inject this
+		# Merge in template params from first phase of parsing...
+		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
 		
         # Compress $fulltext, passed by reference
         $textFlags = FlaggedRevs::compressText( $fulltext );
@@ -525,36 +516,9 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
-		# Should olders edits be marked as patrolled now?
-		global $wgFlaggedRevsCascade;
-		if( $wgFlaggedRevsCascade ) {
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_namespace' => $title->getNamespace(),
-					'rc_title' => $title->getDBKey(),
-					'rc_this_oldid <= ' . $rev->getId() ),
-				__METHOD__,
-				array( 'USE INDEX' => 'rc_namespace_title' ) );
-		} else {
-			# Mark this edit as patrolled...
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_this_oldid' => $rev->getId(),
-					'rc_user_text' => $rev->getRawUserText(),
-					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-				__METHOD__,
-				array( 'USE INDEX' => 'rc_user_text' ) );
-			# New page patrol may be enabled. If so, the rc_id may be the first
-			# edit and not this one. If it is different, mark it too.
-			if( $this->rcid && $this->rcid != $rev->getId() ) {
-				$dbw->update( 'recentchanges',
-					array( 'rc_patrolled' => 1 ),
-					array( 'rc_id' => $this->rcid,
-						'rc_type' => RC_NEW ),
-					__METHOD__ );
-			}
-		}
 		$dbw->commit();
+		# Update recent changes
+		$this->updateRecentChanges( $title, $dbw, $rev, $this->rcid );
 
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
@@ -601,7 +565,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param FlaggedRevision $frev
 	 * Removes flagged revision data for this page/id set
 	 */
-	function unapproveRevision( $frev ) {
+	private function unapproveRevision( $frev ) {
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
 
 		$user = $wgUser->getId();
@@ -648,6 +612,61 @@ class RevisionReview extends UnlistedSpecialPage
 
         return true;
     }
+	
+	private function updateRecentChanges( $title, $dbw, $rev, $rcid ) {
+		# Should olders edits be marked as patrolled now?
+		global $wgFlaggedRevsCascade;
+		if( $wgFlaggedRevsCascade ) {
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_namespace' => $title->getNamespace(),
+					'rc_title' => $title->getDBKey(),
+					'rc_this_oldid <= ' . $rev->getId() ),
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_namespace_title', 'LIMIT' => 50 ) );
+		} else {
+			# Mark this edit as patrolled...
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_this_oldid' => $rev->getId(),
+					'rc_user_text' => $rev->getRawUserText(),
+					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_user_text' ) );
+			# New page patrol may be enabled. If so, the rc_id may be the first
+			# edit and not this one. If it is different, mark it too.
+			if( $rcid && $this->rcid != $rev->getId() ) {
+				$dbw->update( 'recentchanges',
+					array( 'rc_patrolled' => 1 ),
+					array( 'rc_id' => $rcid,
+						'rc_type' => RC_NEW ),
+					__METHOD__ );
+			}
+		}
+	}
+	
+	private function mergeTemplateParams( $pout, $tmps, $tmpIds, $maxID ) {
+		foreach( $tmps as $ns => $dbkey_id ) {
+			foreach( $dbkey_id as $dbkey => $pageid ) {
+				if( !isset($pout->mTemplates[$ns]) )
+					$pout->mTemplates[$ns] = array();
+				# Add in this template; overrides
+				$pout->mTemplates[$ns][$dbkey] = $pageid;
+			}
+		}
+		# Merge in template params from first phase of parsing...
+		foreach( $tmpIds as $ns => $dbkey_id ) {
+			foreach( $dbkey_id as $dbkey => $revid ) {
+				if( !isset($pout->mTemplateIds[$ns]) )
+					$pout->mTemplateIds[$ns] = array();
+				# Add in this template; overrides
+				$pout->mTemplateIds[$ns][$dbkey] = $revid;
+			}
+		}
+		if( $maxID > $pout->fr_newestTemplateID ) {
+			$pout->fr_newestTemplateI = $maxID;
+		}
+	}
 
 	/**
 	 * Record a log entry on the action
