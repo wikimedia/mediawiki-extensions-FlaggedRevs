@@ -100,7 +100,7 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 		# Check permissions and validate
-		if( !$this->userCanSetFlags( $this->dims[$tag], $this->oflags[$tag] ) ) {
+		if( !$this->userCanSetFlags( $this->dims, $this->oflags ) ) {
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
