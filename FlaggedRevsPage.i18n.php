@@ -163,6 +163,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'unreviewed-category'   => 'Category:',
 	'unreviewed-diff'       => 'Changes',
 	'unreviewed-list'       => 'This page lists articles that have not been reviewed or have new, unreviewed, revisions.',
+	'unreviewed-none'       => 'There are currently no pages meeting these criteria',
 
 	'revreview-visibility'  => "'''This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].'''",
 

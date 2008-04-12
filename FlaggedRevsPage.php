@@ -725,7 +725,7 @@ class StableVersions extends UnlistedSpecialPage
 	}
 
 	function showStableList() {
-		global $wgOut, $wgUser, $wgLang;
+		global $wgOut, $wgUser;
 		# Must be a content page
 		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'),
@@ -818,14 +818,15 @@ class UnreviewedPages extends SpecialPage
 
     function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
-
+		
 		$this->setHeaders();
 		
 		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$wgOut->permissionRequired( 'unreviewedpages' );
 			return;
 		}
-
+		$this->skin = $wgUser->getSkin();
+		
 		$this->showList( $wgRequest );
 	}
 
@@ -847,91 +848,25 @@ class UnreviewedPages extends SpecialPage
 			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) .
 			' ' . Xml::label( wfMsg("unreviewed-outdated"), 'showoutdated' ) . "</p>\n" .
 			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-			"</fieldset></form>");
-
-		list( $limit, $offset ) = wfCheckLimits();
-
-		$sdr = new UnreviewedPagesPage( $namespace, $showoutdated, $category );
-		$sdr->doQuery( $offset, $limit );
-	}
-}
-
-/**
- * Query to list out unreviewed pages
- */
-class UnreviewedPagesPage extends PageQueryPage {
-
-	function __construct( $namespace, $showOutdated=false, $category=NULL ) {
-		$this->namespace = $namespace;
-		$this->category = $category;
-		$this->showOutdated = $showOutdated;
-	}
-
-	function getName() {
-		return 'UnreviewedPages';
-	}
-	# Note: updateSpecialPages doesn't support extensions, but this is fast anyway
-	function isExpensive( ) { return false; }
-	function isSyndicated() { return false; }
-
-	function getPageHeader( ) {
-		return '<p>'.wfMsg("unreviewed-list")."</p>\n";
-	}
-
-	function getSQLText( &$dbr, $namespace, $showOutdated, $category ) {
-		global $wgFlaggedRevsNamespaces;
-		$dbr = wfGetDB( DB_SLAVE );
-
-		list($page,$flaggedrevs,$categorylinks) = $dbr->tableNamesN('page','flaggedrevs','categorylinks');
-		# Must be a content page...
-		if( !is_null($namespace) )
-			$namespace = intval($namespace);
-
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0];
-		}
-		# No redirects
-		$where = "page_namespace={$namespace} AND page_is_redirect=0 ";
-		# We don't like filesorts, so the query methods here will be very different
-		if( !$showOutdated ) {
-			$where .= "AND page_ext_reviewed IS NULL";
+			"</fieldset></form>"
+		);
+		
+		$pager = new UnreviewedPagesPager( $this, $namespace, $showoutdated, $category );
+		if( $pager->getNumRows() ) {
+			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$where .= "AND page_ext_reviewed = 0";
+			$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
 		}
-		# Filter by category
-		$use_index = $dbr->useIndexClause( 'ext_namespace_reviewed' );
-		if( $category ) {
-			$category = $dbr->strencode( str_replace(' ','_',$category) );
-			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable 
-			FROM $page $use_index 
-			RIGHT JOIN $categorylinks ON(cl_from = page_id AND cl_to = '{$category}') 
-			WHERE ($where) ";
-		} else {
-			$sql = "SELECT page_namespace AS ns,page_title AS title,page_len,page_ext_stable
-			FROM $page $use_index WHERE ($where) ";
-		}
-
-		return $sql;
 	}
-
-	function getSQL() {
-		$dbr = wfGetDB( DB_SLAVE );
-		return $this->getSQLText( $dbr, $this->namespace, $this->showOutdated, $this->category );
-	}
-
-	function getOrder() {
-		return 'ORDER BY page_id DESC';
-	}
-
-	function linkParameters() {
-		return array( 'category' => $this->category, 'showoutdated' => $this->showOutdated );
-	}
-
-	function formatResult( $skin, $result ) {
+	
+	function formatRow( $result ) {
 		global $wgLang;
 
-		$title = Title::makeTitle( $result->ns, $result->title );
-		$link = $skin->makeKnownLinkObj( $title );
+		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
+		$link = $this->skin->makeKnownLinkObj( $title );
 		$stxt = $review = '';
 		if(!is_null($size = $result->page_len)) {
 			if($size == 0)
@@ -940,10 +875,83 @@ class UnreviewedPagesPage extends PageQueryPage {
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
 		if( $result->page_ext_stable )
-			$review = ' ('.$skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
-				"diff=cur&oldid={$result->page_ext_stable}" ).')';
+			$review = ' (' . $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
+				"diff=cur&oldid={$result->page_ext_stable}" ) . ')';
 
-		return( "{$link} {$stxt} {$review}" );
+		return( "<li>{$link} {$stxt} {$review}</li>" );
+	}
+}
+
+/**
+ * Query to list out stable versions for a page
+ */
+class UnreviewedPagesPager extends AlphabeticPager {
+	public $mForm, $mConds;
+	private $namespace, $category, $showOutdated;
+
+	function __construct( $form, $namespace, $showOutdated=false, $category=NULL, $conds = array() ) {
+		global $wgFlaggedRevsNamespaces;
+		
+		$this->mForm = $form;
+		$this->mConds = $conds;
+		# Must be a content page...
+		if( !is_null($namespace) )
+			$namespace = intval($namespace);
+		
+		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0];
+		}
+		
+		$this->namespace = $namespace;
+		$this->category = $category ? str_replace(' ','_',$category) : NULL;
+		$this->showOutdated = (bool)$showOutdated;
+		
+		parent::__construct();
+	}
+
+	function formatRow( $row ) {
+		return $this->mForm->formatRow( $row );
+	}
+
+	function getQueryInfo() {
+		$conds = $this->mConds;
+		# No redirects
+		$conds['page_namespace'] = $this->namespace;
+		$conds['page_is_redirect'] = 0;
+		# We don't like filesorts, so the query methods here will be very different
+		if( !$this->showOutdated ) {
+			$conds[] = 'page_ext_reviewed IS NULL';
+		} else {
+			$conds['page_ext_reviewed'] = 0;
+		}
+		$tables = array( 'page' );
+		$fields = array('page_namespace','page_title','page_len','page_ext_stable');
+		# Filter by category
+		if( $this->category ) {
+			$tables[] = 'categorylinks';
+			$conds['cl_to'] = $this->category;
+			$conds[] = 'cl_from = page_id';
+			$fields[] = 'cl_sortkey';
+			
+			$this->mIndexField = 'cl_sortkey';
+			$use_index = array('categorylinks' => 'cl_sortkey', 'page' => 'PRIMARY');
+		} else {
+			$fields[] = 'page_id';
+			
+			$this->mIndexField = 'page_id';
+			$use_index = array('page' => 'ext_namespace_reviewed');
+		}
+		
+		return array(
+			'tables'  => $tables,
+			'fields'  => $fields,
+			'conds'   => $conds,
+			'options' => array( 'USE INDEX' => $use_index )
+		);
+	}
+
+	function getIndexField() {
+		return $this->mIndexField;
 	}
 }
 
