@@ -108,7 +108,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Exception: we can rate ALL as unapproved to depreciate a revision
 		$valid = true;
 		if( $this->unapprovedTags > 0 ) {
-			if( $this->unapprovedTags < count($wgFlaggedRevTags) || !$this->oflags )
+			if( $this->unapprovedTags < count($wgFlaggedRevTags) )
 				$valid = false;
 		}
 		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) )
