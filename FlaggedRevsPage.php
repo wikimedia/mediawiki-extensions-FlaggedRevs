@@ -844,7 +844,7 @@ class UnreviewedPages extends SpecialPage
 			'<p>' . Xml::label( wfMsg("namespace"), 'namespace' ) . ' ' .
 			FlaggedRevs::getNamespaceMenu( $namespace ) .
 			'&nbsp;' . Xml::label( wfMsg("unreviewed-category"), 'category' ) .
-			' ' . Xml::input( 'category', 30, $category, array('id' => 'category') ) . '</p>' .
+			' ' . Xml::input( 'category', 40, $category, array('id' => 'category') ) . '</p>' .
 			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) .
 			' ' . Xml::label( wfMsg("unreviewed-outdated"), 'showoutdated' ) . "</p>\n" .
 			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
