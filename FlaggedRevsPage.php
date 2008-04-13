@@ -371,7 +371,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param Revision $rev
 	 */
 	private function approveRevision( $rev ) {
-		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;;
+		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
 		# Get the page this corresponds to
 		$title = $rev->getTitle();
 
