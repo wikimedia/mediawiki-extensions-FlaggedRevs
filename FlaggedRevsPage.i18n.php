@@ -1144,12 +1144,12 @@ $messages['de'] = array(
 
 	'validationpage'              => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 
-	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Unmarkiert]]", # Es wurde noch keine Version gesichtet.
+	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
 	'revreview-quick-invalid'     => "'''Ungültige Versions-ID'''",
-	'revreview-invalid'           => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Artikelversion der angegebenen Versions-ID.",
-	'revreview-quick-see-quality' => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
+	'revreview-invalid'           => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|gesichtete]] Artikelversion der angegebenen Versions-ID.",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Ungesichtete Version]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
-	'revreview-quick-see-basic'   => "'''Unmarkierte Version''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]]
+	'revreview-quick-see-basic'   => "'''[[{{MediaWiki:Validationpage}}|Ungesichtete Version]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zeige aktuelle Version])",
 	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zeige aktuelle Version])",
@@ -1159,17 +1159,17 @@ $messages['de'] = array(
 	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''", #  (keine unmarkierten Änderungen)
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]'''", # (keine unmarkierten Änderungen)
 
-	'revreview-newest-basic'      => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]
+	'revreview-newest-basic'      => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Markierung an.',
-	'revreview-newest-quality'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte markierte Version]
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Sichtung an.',
+	'revreview-newest-quality'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Markierung an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Sichtung an.',
 
-	'revreview-basic'             => 'Dies ist die letzte [[Help:Gesichtete Versionen|gesichtete]] Version.
-	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] hat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 nicht markierte {{plural:$3|Änderung|Änderungen}}].',
-	'revreview-quality'           => 'Das ist die letzte [[Help:Versionsbewertung|geprüfte]] Version.
-	Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} derzeitige Version] hat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 nicht markierte {{plural:$3|Änderung|Änderungen}}].',
+	'revreview-basic'             => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version.
+	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Sichtung an.',
+	'revreview-quality'           => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version.
+	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Prüfung an.',
 	'revreview-basic-same'        => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
 	'revreview-quality-same'      => 'Das ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
@@ -1187,26 +1187,26 @@ $messages['de'] = array(
 	'revreview-basic-source'      => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gesichtete Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>, basierte auf dieser Version.',
 	'revreview-quality-source'    => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} geprüfte Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>, basierte auf dieser Version.',
 
-	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
+	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.
 
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
-	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten)'' seitdem die letzte markierte Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde",
+	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
 	'revreview-auto'              => '(automatisch)',
-	'revreview-auto-w'            => "Du bearbeitest eine markierte Version; Bearbeitungen werden '''automatisch markiert.'''",
-	'revreview-auto-w-old'        => "Du bearbeitest eine markierte Version; Bearbeitungen werden '''automatisch markiert.'''",
-	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde markiert.',
+	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
+	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
+	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde gesichtet.',
 	'hist-stable'                 => 'gesichtete Version',
 	'hist-quality'                => 'geprüfte Version',
 	'flaggedrevs'                 => 'Markierte Versionen',
 	'review-logpage'              => 'Versionsmarkierungs-Logbuch',
-	'review-logpagetext'          => 'In diesem Logbuch werden die Markierungen von Artikelversionen als [[{{MediaWiki:Validationpage}}|„gesichtet“ oder „geprüft“]] protokolliert.
+	'review-logpagetext'          => 'In diesem Logbuch werden die [[{{MediaWiki:Validationpage}}|Sichtungen und Prüfungen]] von Artikelversionen protokolliert.
 	Siehe die [[Special:ReviewedPages|Liste markierter Versionen]].',
 	'review-logentry-app'         => 'markierte „[[$1]]“',
 	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
 	'review-logentry-id'          => 'Versions-ID $1',
 	'stable-logpage'              => 'Seitenkonfigurations-Logbuch',
 	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Markierten Versionen]].
-	Siehe auch die [[Special:StablePages|Liste markierte Versionen]].',
+	Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'stable-logentry'             => 'konfigurierte die Seiten-Einstellung von „[[$1]]“',
 	'stable-logentry2'            => 'setzte die Seiten-Einstellung für „[[$1]]“ zurück',
 	'revreview-patrol'            => 'Markiere diese Änderung',
@@ -1215,10 +1215,10 @@ $messages['de'] = array(
 
 	Siehe [[{{ns:special}}:Unreviewedpages]] für eine Liste unmarkierter Versionen.',
 	'revreview-selected'          => "Gewählte Version von '''$1:'''",
-	'revreview-text'              => "''Einer [[{{MediaWiki:Validationpage}}|markierten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.''",
-	'revreview-text2'             => "''[[{{MediaWiki:Validationpage}}|Markierte Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
+	'revreview-text'              => "''Einer [[{{MediaWiki:Validationpage}}|gesichteten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren Version gegeben.''",
+	'revreview-text2'             => "''[[{{MediaWiki:Validationpage}}|Gesichtete Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
 	'revreview-toolow'            => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
-	damit eine Version als markierte gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
+	damit eine Version als gesichtet gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-flag'              => 'Markiere Version',
 	'revreview-legend'            => 'Inhalt der Version bewerten',
 	'revreview-notes'             => 'Anzuzeigende Bemerkungen oder Notizen:',
@@ -1242,7 +1242,7 @@ $messages['de'] = array(
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
 	'revreview-log'        => 'Kommentar:',
 	'revreview-submit'     => 'Markierung speichern',
-	'revreview-successful' => "'''Die ausgewählte Version von [[:$1|$1]] wurde in den letzten Änderungen erfolgreich markiert.'''
+	'revreview-successful' => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert.'''
 
 	Möchtest du die [{{fullurl:$2|stable=1}} markierte Version] dieser Seite sehen?",
 	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''
@@ -1262,10 +1262,12 @@ $messages['de'] = array(
 	'review-diff2stable'          => 'Unterschiede zwischen der markierten und der aktuellen Version ansehen',
 	'unreviewedpages'             => 'Unmarkierte Artikel',
 	'viewunreviewed'              => 'Liste unmarkierter Artikel',
-	'unreviewed-outdated'         => 'Zeige nur Seiten, die unmarkierte Versionen nach einer markierten Version haben.',
+	'unreviewed-outdated'         => 'Zeige Seiten, bei denen die letzte gesichtete Vsersion nicht die aktuelle ist.',
 	'unreviewed-category'         => 'Kategorie:',
 	'unreviewed-diff'             => 'Änderungen',
-	'unreviewed-list'             => 'Diese Seite zeigt Artikel, die noch keinen markierte Versionen haben.',
+	'unreviewed-list'             => 'Diese Seite hilft, ungesichtete Versionen zu finden.',
+	'unreviewed-none'             => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
+
 	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
 	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
 	'stabilization'               => 'Seiten-Markierung',
@@ -1315,7 +1317,7 @@ $messages['de'] = array(
 	'flaggedrevs-prefs-stable' => 'Zeige als Standard immer die markierte Version einer Seite (falls vorhanden)',
 	'flaggedrevs-prefs-watch'  => 'Selbst markierte Seiten automatisch beobachten',
 	'flaggedrevs-pref-UI-0'    => 'Benutze für markierte Versionen die detaillierte Benutzerschnittstelle',
-	'flaggedrevs-pref-UI-1'    => 'Benutze für markierte Versionen die einfache Benutzerschnittstell',
+	'flaggedrevs-pref-UI-1'    => 'Benutze für markierte Versionen die einfache Benutzerschnittstelle',
 );
 
 /** Greek (Ελληνικά)
