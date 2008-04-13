@@ -371,7 +371,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param Revision $rev
 	 */
 	private function approveRevision( $rev ) {
-		global $wgUser, $wgParser;
+		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;;
 		# Get the page this corresponds to
 		$title = $rev->getTitle();
 
@@ -517,6 +517,13 @@ class RevisionReview extends UnlistedSpecialPage
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
 		$dbw->commit();
+		
+		# Kill any text cache
+		if( $wgRevisionCacheExpiry ) {
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
+			$wgMemc->delete( $key );
+		}
+		
 		# Update recent changes
 		$this->updateRecentChanges( $title, $dbw, $rev, $this->rcid );
 
