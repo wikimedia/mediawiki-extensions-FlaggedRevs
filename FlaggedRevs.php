@@ -153,7 +153,7 @@ $wgFlaggedRevsAutopromote = array(
 	'email'	         => true, # user must be emailconfirmed?
 	'userpage'       => true, # user must have a userpage?
 	'userpageBytes'  => 100, # if userpage is needed, what is the min size?
-	'recentContent'  => 5 # $wgContentNamespaces edits in recent changes
+	'recentContent'  => 10 # $wgContentNamespaces edits in recent changes
 );
 
 # Special:Userrights settings
