@@ -185,13 +185,13 @@ class FlaggedArticle {
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
-						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . 
+						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time ) . 
 							$this->prettyRatingBox( $frev, $revs_since, true, false, $old );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
-						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . 
+						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						# Hide clutter
 						if( !empty($flags) ) {
@@ -221,7 +221,7 @@ class FlaggedArticle {
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$tooltip = wfMsgHtml('revreview-draft-title');
-					$pending = "<span class='fr-icon-current' title='{$tooltip}'></span>" . 
+					$pending = "<span class='fr-icon-current' title=\"{$tooltip}\"></span>" . 
 						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revs_since);
 					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
 					# Notice should always use subtitle
@@ -246,7 +246,7 @@ class FlaggedArticle {
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 						}
 						$tooltip = wfMsgHtml($tooltip);
-						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . $msgHTML . 
+						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . $msgHTML . 
 							$this->prettyRatingBox( $frev, $revs_since, $synced, $synced, $old );
 					// Standard UI
 					} else {
@@ -260,7 +260,7 @@ class FlaggedArticle {
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						}
 						$tooltip = wfMsgHtml($tooltip);
-						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . $msgHTML;
+						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . $msgHTML;
 						# Hide clutter
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
@@ -300,7 +300,7 @@ class FlaggedArticle {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$msg = $synced ? "{$msg}-same" : $msg;
 						
-						$tag = "<span class='{$css}' title='{$tooltip}'></span>" .
+						$tag = "<span class='{$css}' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 					 	$tag .= $this->prettyRatingBox( $frev, $revs_since, true, $synced );
 					// Standard UI
@@ -308,7 +308,7 @@ class FlaggedArticle {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$msg = $synced ? "{$msg}-same" : $msg;
 						
-						$tag = "<span class='{$css} plainlinks' title='{$tooltip}'></span>" .
+						$tag = "<span class='{$css} plainlinks' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
