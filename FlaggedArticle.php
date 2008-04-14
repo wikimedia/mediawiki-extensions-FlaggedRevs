@@ -191,7 +191,7 @@ class FlaggedArticle {
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
-						$tag .= "<span class='{$css}'></span>" . 
+						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						# Hide clutter
 						if( !empty($flags) ) {
@@ -220,7 +220,8 @@ class FlaggedArticle {
 				# Give notice to newewer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-					$pending = "<span class='fr-icon-current'></span>" . 
+					$tooltip = wfMsgHtml('revreview-draft-title');
+					$pending = "<span class='fr-icon-current' title='{$tooltip}'></span>" . 
 						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revs_since);
 					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
 					# Notice should always use subtitle
@@ -292,12 +293,14 @@ class FlaggedArticle {
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
+					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+					$tooltip = wfMsgHtml($tooltip);
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$msg = $synced ? "{$msg}-same" : $msg;
 						
-						$tag = "<span class='{$css}'></span>" .
+						$tag = "<span class='{$css}' title='{$tooltip}'></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 					 	$tag .= $this->prettyRatingBox( $frev, $revs_since, true, $synced );
 					// Standard UI
@@ -305,7 +308,7 @@ class FlaggedArticle {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 						$msg = $synced ? "{$msg}-same" : $msg;
 						
-						$tag = "<span class='{$css} plainlinks'></span>" .
+						$tag = "<span class='{$css} plainlinks' title='{$tooltip}'></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
