@@ -1183,6 +1183,9 @@ $messages['de'] = array(
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 
 	'revreview-toggle-title'      => 'zeige/verstecke Details',
+	'revreview-draft-title'       => 'Aktueller Artikel',
+	'revreview-stable-title'      => 'Gesichteter Artikel',
+	'revreview-quality-title'     => 'Geprüfter Artikel',
 	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 
 	'revreview-basic-source'      => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gesichtete Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>, basierte auf dieser Version.',
@@ -1243,13 +1246,11 @@ $messages['de'] = array(
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
 	'revreview-log'        => 'Kommentar:',
 	'revreview-submit'     => 'Markierung speichern',
-	'revreview-successful' => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert.'''
-
-	Möchtest du die [{{fullurl:$2|stable=1}} markierte Version] dieser Seite sehen?",
-	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''
-
-	Möchtest du die [{{fullurl:$2|stable=1}} markierte Version] dieser Seite sehen (falls noch eine vorhanden ist)?",
-	'revreview-changed'           => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
+	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert.'''",
+	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version] oder die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen?',
+	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
+	'revreview-stable2'     => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?.',
+	'revreview-changed'     => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
 
 	Eine Vorlage oder ein Bild wurden ohne spezifische Versionsnummer angefordert. Dies kann passieren,
 	wenn eine dynamische Vorlage eine weitere Vorlage oder ein Bild einbindet, das von einer Variable abhängig ist, die
