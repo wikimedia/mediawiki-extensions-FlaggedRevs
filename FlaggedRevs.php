@@ -1713,13 +1713,13 @@ class FlaggedRevs {
 		}
 		# Update any special counters for non-null revisions
 		$changed = false;
-		$p['uniqueContentEdits'] = isset($p['uniqueContentEdits']) ? $p['uniqueContentEdits'] : '';
+		$p['uniqueContentPages'] = isset($p['uniqueContentPages']) ? $p['uniqueContentPages'] : '';
 		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
 		if( $rev && $article->getTitle()->isContentPage() ) {
-			$pages = explode(',',trim($p['uniqueContentEdits']) ); // page IDs
+			$pages = explode(',',trim($p['uniqueContentPages']) ); // page IDs
 			if( !in_array( $article->getId(), $pages ) ) {
 				$pages[] = $article->getId();
-				$p['uniqueContentEdits'] = implode(',',$pages);
+				$p['uniqueContentPages'] = implode(',',$pages);
 			}
 			$p['totalContentEdits'] += 1;
 			$changed = true;
@@ -1729,7 +1729,7 @@ class FlaggedRevs {
 			self::saveUserParams( $user, $p );
 		}
 		# Check if user edited enough unique pages
-		if( $wgFlaggedRevsAutopromote['uniqueContentEdits'] > count($pages) ) {
+		if( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count($pages) ) {
 			return true;
 		}
 		# Check if results are cached to avoid DB queries
