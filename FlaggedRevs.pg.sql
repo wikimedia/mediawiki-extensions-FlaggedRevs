@@ -41,6 +41,11 @@ CREATE TABLE flaggedimages (
   PRIMARY KEY (fi_rev_id,fi_name)
 );
 
+CREATE TABLE flaggedrevs_promote (
+  frp_user_id INTEGER NOT NULL PRIMARY KEY default 0,
+  frp_user_params TEXT NOT NULL default ''
+);
+
 ALTER TABLE page 
 	ADD page_ext_reviewed  INTEGER NULL,
 	ADD page_ext_stable    INTEGER NULL,

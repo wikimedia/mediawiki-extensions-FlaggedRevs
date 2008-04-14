@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.029',
+	'version' => '1.03',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -147,13 +147,13 @@ $wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 $wgFlaggedRevsAutopromote = array(
 	'days'	         => 60,
 	'edits'	         => 150,
-	'spacing'	     => 5, # in days
-	'benchmarks'     => 10, # keep this small
-	'excludeDeleted' => true, # exclude deleted edits from total?
+	'excludeDeleted' => true, # exclude deleted edits from 'edits' count above?
+	'spacing'	     => 3, # spacing of edit intervals
+	'benchmarks'     => 20, # how many edit intervals are needed?
+	'recentContent'  => 10 # $wgContentNamespaces edits in recent changes
 	'email'	         => true, # user must be emailconfirmed?
 	'userpage'       => true, # user must have a userpage?
 	'userpageBytes'  => 100, # if userpage is needed, what is the min size?
-	'recentContent'  => 10 # $wgContentNamespaces edits in recent changes
 );
 
 # Special:Userrights settings
@@ -309,15 +309,17 @@ $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
 
 function efFlaggedRevsSchemaUpdates() {
-	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes;
+	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
 
 	$base = dirname(__FILE__);
 	if( $wgDBtype == 'mysql' ) {
 		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
 	} else if( $wgDBtype == 'postgres' ) {
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
 	}
 
 	return true;
@@ -1716,6 +1718,15 @@ class FlaggedRevs {
 		# Don't grant to currently blocked users...
 		if( $user->isBlocked() )
 			return true;
+		# Do not re-add status if it was previously removed!
+		# A special entry is made in the log whenever an editor looses their rights.
+		$params = self::getUserParams( $wgUser );
+		if( isset($params['demoted']) && $params['demoted'] ) {
+			# Make a key to store the results
+			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
+			$wgMemc->set( $key, 'true', 3600*24*30 );
+			return true;
+		}
 		# See if the page actually has sufficient content...
 		if( $wgFlaggedRevsAutopromote['userpage'] ) {
 			if( !$user->getUserPage()->exists() )
@@ -1729,22 +1740,6 @@ class FlaggedRevs {
 			if( $size < $wgFlaggedRevsAutopromote['userpageBytes'] ) {
 				return true;
 			}
-		}
-		# Do not re-add status if it was previously removed!
-		# A special entry is made in the log whenever an editor looses their rights.
-		$dbw = wfGetDB( DB_MASTER );
-		$removed = $dbw->selectField( 'logging', '1',
-			array( 'log_namespace' => NS_USER,
-				'log_title' => $wgUser->getUserPage()->getDBkey(),
-				'log_type'  => 'rights',
-				'log_action'  => 'erevoke' ),
-			__METHOD__,
-			array('USE INDEX' => 'page_time') );
-		if( $removed ) {
-			# Make a key to store the results
-			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
-			$wgMemc->set( $key, 'true', 3600*24*30 );
-			return true;
 		}
 		# Check for edit spacing. This lets us know that the account has
 		# been used over N different days, rather than all in one lump.
@@ -1829,15 +1824,58 @@ class FlaggedRevs {
 	}
 	
    	/**
-	* Record demotion sso that auto-promote will be disabled
+	* Get params for a user
+	* @param User $user
+	*/
+	public static function getUserParams( $user ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$row = $dbw->selectRow( 'flaggedrevs_promote', 'frp_user_params',
+			array( 'frp_user_id' => $user->getId() ),
+			__METHOD__ );
+			
+		$params = array();
+		if( $row ) {
+			$flatPars = explode( '\n', trim($row->frp_user_params) );
+			foreach( $flatPars as $pair ) {
+				$m = explode( '=', trim($pair), 2 );
+				$key = $m[0];
+				$value = isset($m[1]) ? $m[1] : null;
+				$params[$key] = $value;
+			}
+		}
+		return $params;
+	}
+	
+   	/**
+	* Save params for a user
+	* @param User $user
+	* @param Array $params
+	*/
+	public static function saveUserParams( $user, $params ) {
+		$flatParams = '';
+		foreach( $params as $key => $value ) {
+			$flatParams .= "{$key}={$value}\n";
+		}
+		$flatParams = trim($flatParams);
+	
+		$dbw = wfGetDB( DB_MASTER );
+		$row = $dbw->replace( 'flaggedrevs_promote', 
+			array( 'frp_user_id' ),
+			array( 'frp_user_id' => $user->getId(), 
+				'frp_user_params' => $flatParams ),
+			__METHOD__ );
+
+		return ( $dbw->affectedRows() > 0 );
+	}
+	
+   	/**
+	* Record demotion so that auto-promote will be disabled
 	*/
 	public static function recordDemote( $u, $addgroup, $removegroup ) {
 		if( $removegroup && in_array('editor',$removegroup) ) {
-			$log = new LogPage( 'rights' );
-			$targetPage = $u->getUserPage();
-			# Add dummy entry to mark that a user's editor rights
-			# were removed. This avoid auto-promotion.
-			$log->addEntry( 'erevoke', $targetPage, '', array() );
+			$params = self::getUserParams( $u );
+			$params['demoted'] = 1;
+			self::saveUserParams( $u, $params );
 		}
 		return true;
 	}

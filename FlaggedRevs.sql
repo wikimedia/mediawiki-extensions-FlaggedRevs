@@ -73,6 +73,15 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
   PRIMARY KEY (fi_rev_id,fi_name)
 ) TYPE=InnoDB;
 
+-- This stores user demotions and stats
+CREATE TABLE /*$wgDBprefix*/flaggedrevs_promote (
+  -- Foreign key to user.user_id
+  frp_user_id int(10) NOT NULL,
+  frp_user_params mediumblob NOT NULL default '',
+  
+  PRIMARY KEY (frp_user_id)
+) TYPE=InnoDB;
+
 -- Add page_ext_stable column, similar to page_latest
 -- Add page_ext_reviewed column, a boolean for "up to date" stable versions
 ALTER TABLE /*$wgDBprefix*/page 
