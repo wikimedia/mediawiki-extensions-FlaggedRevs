@@ -345,15 +345,21 @@ class RevisionReview extends UnlistedSpecialPage
 			global $wgFlaggedRevsOverride;
 
 			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
+			
 			# Show success message
 			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
-			$wgOut->addHtml( "<span class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
-				$this->page->getPrefixedText(), $this->page->getPrefixedUrl() ) . "</span>" );
+			$wgOut->addHtml( "<div class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
+				$this->page->getPrefixedText() ) );
 			if( $wgFlaggedRevsOverride ) {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>' );
 			} else {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>' );
 			}
+			$msg = $approved ? 'revreview-stable1' : 'revreview-stable2';
+			$id = $approved ? $rev->getId() : $frev->getRevId();
+			$wgOut->addHtml( '<p>'.wfMsgExt( $msg, array('parseinline'), $this->page->getPrefixedUrl(), $id ).'</p>' );
+			$wgOut->addHtml( "</div>" );
+			
 			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'RecentChanges' ) );
 			if( $wgUser->isAllowed( 'unreviewedpages' ) )
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );

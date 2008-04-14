@@ -179,18 +179,18 @@ class FlaggedArticle {
 				# Construct some tagging for non-printable outputs. Note that the pending
 				# notice has all this info already, so don't do this if we added that already.
 				if( !$wgOut->isPrintable() ) {
-					$css = 'fr-icon-current'; // default
+					$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
+					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+					$tooltip = wfMsgHtml($tooltip);
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
-						$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-						$tag .= "<span class='{$css}'></span>" . 
+						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time ) . 
 							$this->prettyRatingBox( $frev, $revs_since, true, false, $old );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
-						$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 						$tag .= "<span class='{$css}'></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						# Hide clutter
@@ -232,29 +232,34 @@ class FlaggedArticle {
 				# notice has all this info already, so don't do this if we added that already.
 				if( !$wgOut->isPrintable() && !$pending ) {
 					$css = 'fr-icon-current'; // default
+					$tooltip = 'revreview-draft-title';
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						if( $synced ) {
 							$msg = $quality ? 'revreview-quick-quality-same' : 'revreview-quick-basic-same';
 							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
+							$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 						} else {
 							$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 						}
-						$tag .= "<span class='{$css}'></span>" . $msgHTML . 
+						$tooltip = wfMsgHtml($tooltip);
+						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . $msgHTML . 
 							$this->prettyRatingBox( $frev, $revs_since, $synced, $synced, $old );
 					// Standard UI
 					} else {
 						if( $synced ) {
 							$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
 							$css = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
+							$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						} else {
 							$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						}
-						$tag .= "<span class='{$css}'></span>" . $msgHTML;
+						$tooltip = wfMsgHtml($tooltip);
+						$tag .= "<span class='{$css}' title='{$tooltip}'></span>" . $msgHTML;
 						# Hide clutter
 						if( !empty($flags) ) {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .

@@ -71,6 +71,9 @@ The page can be \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modified]\'\'\'
 	
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'show/hide details',
+	'revreview-draft-title' => 'Draft article',
+	'revreview-stable-title' => 'Sighted article',
+	'revreview-quality-title' => 'Quality article',
 	'revreview-note' => '[[User:$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 
 	'revreview-basic-source' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sighted version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
@@ -136,12 +139,10 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-style-4'    => 'Featured',
 	'revreview-log'        => 'Comment:',
 	'revreview-submit'     => 'Submit review',
-	'revreview-successful' => "'''Selected revision of [[:$1|$1]] successfully flagged and marked in recent changes.'''
-	
-You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page.",
-	'revreview-successful2' => "'''Selected revision of [[:$1|$1]] successfully unflagged.'''
-	
-You may want to view the [{{fullurl:$2|stable=1}} stable version] of this page (if there still is one).",
+	'revreview-successful' => "'''Selected revision of [[:$1|$1]] successfully flagged and marked in recent changes.'''",
+	'revreview-stable1'    => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] or the [{{fullurl:$1|stable=1}} stable version] of this page.',
+	'revreview-successful2' => "'''Selected revision of [[:$1|$1]] successfully unflagged.'''",
+	'revreview-stable2'    => 'You may want to view the [{{fullurl:$1|stable=1}} stable version] of this page (if there still is one).',
 	'revreview-changed'    => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
 A template or image may have been requested when no specific version was specified.
