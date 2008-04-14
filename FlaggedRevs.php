@@ -151,10 +151,12 @@ $wgFlaggedRevsAutopromote = array(
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
 	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
-	'uniqueContentPages'  => 5, # $wgContentNamespaces unique page edits
+	'uniqueContentPages'  => 5, # $wgContentNamespaces unique pages edited
 	'email'	              => true, # user must be emailconfirmed?
 	'userpage'            => true, # user must have a userpage?
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
+	'uniqueIPAddress'     => true, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
+	'noSorbsMatches'      => false, # If $wgSorbsUrl is set, do not promote users that match
 );
 
 # Special:Userrights settings
@@ -1691,7 +1693,7 @@ class FlaggedRevs {
 	* $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
-		global $wgUser, $wgFlaggedRevsAutopromote, $wgMemc;
+		global $wgFlaggedRevsAutopromote, $wgMemc;
 
 		if( empty($wgFlaggedRevsAutopromote) )
 			return true;
@@ -1702,10 +1704,10 @@ class FlaggedRevs {
 			return true;
 		# Do not re-add status if it was previously removed!
 		# A special entry is made in the log whenever an editor looses their rights.
-		$p = self::getUserParams( $wgUser );
+		$p = self::getUserParams( $user );
 		if( isset($params['demoted']) && $params['demoted'] ) {
 			# Make a key to store the results
-			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
+			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 			$wgMemc->set( $key, 'true', 3600*24*30 );
 			return true;
 		}
@@ -1724,14 +1726,14 @@ class FlaggedRevs {
 		}
 		# Save any updates to user params
 		if( $changed ) {
-			self::saveUserParams( $wgUser, $p );
+			self::saveUserParams( $user, $p );
 		}
 		# Check if user edited enough unique pages
 		if( $wgFlaggedRevsAutopromote['uniqueContentEdits'] > count($pages) ) {
 			return true;
 		}
 		# Check if results are cached to avoid DB queries
-		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
+		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 		$value = $wgMemc->get( $key );
 		if( $value == 'true' ) {
 			return true;
@@ -1744,7 +1746,7 @@ class FlaggedRevs {
 			return true;
 		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] )
 			return true;
-		if( $wgFlaggedRevsAutopromote['email'] && !$wgUser->isAllowed('emailconfirmed') )
+		if( $wgFlaggedRevsAutopromote['email'] && !$user->isAllowed('emailconfirmed') )
 			return true;
 		# Don't grant to currently blocked users...
 		if( $user->isBlocked() )
@@ -1792,9 +1794,35 @@ class FlaggedRevs {
 			}
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks - $needed - 1) );
 				return true;
+			}
+		}
+		# Check if this user is sharing IPs with another users
+		if( $wgFlaggedRevsAutopromote['uniqueIPAddress'] ) {
+			$uid = $user->getId();
+
+			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
+			$shared = $dbr->selectField( 'recentchanges', '1',
+				array( 'rc_ip' => wfGetIP(),
+					"rc_user != '$uid'" ),
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_ip' ) );
+			if( $shared ) {
+				# Make a key to store the results
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
+				$wgMemc->set( $key, 'true', 3600*24*7 );
+			}
+		}
+		# Check for bot attacks/sleepers
+		global $wgSorbsUrl, $wgProxyWhitelist;
+		if( $wgSorbsUrl && $wgFlaggedRevsAutopromote['noSorbsMatches'] ) {
+			$ip = wfGetIP();
+			if( !in_array($ip,$wgProxyWhitelist) && $user->inDnsBlacklist( $ip, $wgSorbsUrl ) ) {
+				# Make a key to store the results
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
+				$wgMemc->set( $key, 'true', 3600*24*7 );
 			}
 		}
 		# Check if the user has any recent content edits
