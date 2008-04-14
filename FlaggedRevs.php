@@ -1813,6 +1813,7 @@ class FlaggedRevs {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*7 );
+				return true;
 			}
 		}
 		# Check for bot attacks/sleepers
@@ -1823,6 +1824,7 @@ class FlaggedRevs {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*7 );
+				return true;
 			}
 		}
 		# Check if the user has any recent content edits
