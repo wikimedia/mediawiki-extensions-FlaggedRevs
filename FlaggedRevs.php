@@ -145,15 +145,16 @@ $wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
 # edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
-	'days'	         => 60,
-	'edits'	         => 150,
-	'excludeDeleted' => true, # exclude deleted edits from 'edits' count above?
-	'spacing'	     => 3, # spacing of edit intervals
-	'benchmarks'     => 20, # how many edit intervals are needed?
-	'recentContent'  => 10, # $wgContentNamespaces edits in recent changes
-	'email'	         => true, # user must be emailconfirmed?
-	'userpage'       => true, # user must have a userpage?
-	'userpageBytes'  => 100, # if userpage is needed, what is the min size?
+	'days'	              => 60, # days since registration
+	'edits'	              => 150, # total edit count
+	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
+	'spacing'	          => 3, # spacing of edit intervals
+	'benchmarks'          => 15, # how many edit intervals are needed?
+	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
+	'uniqueContentPages'  => 5, # $wgContentNamespaces unique page edits
+	'email'	              => true, # user must be emailconfirmed?
+	'userpage'            => true, # user must have a userpage?
+	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
 );
 
 # Special:Userrights settings
@@ -1689,7 +1690,7 @@ class FlaggedRevs {
 	* Callback that autopromotes user according to the setting in
 	* $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
-	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$w, &$s ) {
+	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
 		global $wgUser, $wgFlaggedRevsAutopromote, $wgMemc;
 
 		if( empty($wgFlaggedRevsAutopromote) )
@@ -1699,6 +1700,36 @@ class FlaggedRevs {
 		# Do not give this to current holders or bots
 		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) )
 			return true;
+		# Do not re-add status if it was previously removed!
+		# A special entry is made in the log whenever an editor looses their rights.
+		$p = self::getUserParams( $wgUser );
+		if( isset($params['demoted']) && $params['demoted'] ) {
+			# Make a key to store the results
+			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
+			$wgMemc->set( $key, 'true', 3600*24*30 );
+			return true;
+		}
+		# Update any special counters for non-null revisions
+		$changed = false;
+		$p['uniqueContentEdits'] = isset($p['uniqueContentEdits']) ? $p['uniqueContentEdits'] : '';
+		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
+		if( $rev && $article->getTitle()->isContentPage() ) {
+			$pages = explode(',',trim($p['uniqueContentEdits']) ); // page IDs
+			if( !in_array( $article->getId(), $pages ) ) {
+				$pages[] = $article->getId();
+				$p['uniqueContentEdits'] = implode(',',$pages);
+			}
+			$p['totalContentEdits'] += 1;
+			$changed = true;
+		}
+		# Save any updates to user params
+		if( $changed ) {
+			self::saveUserParams( $wgUser, $p );
+		}
+		# Check if user edited enough unique pages
+		if( $wgFlaggedRevsAutopromote['uniqueContentEdits'] > count($pages) ) {
+			return true;
+		}
 		# Check if results are cached to avoid DB queries
 		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
 		$value = $wgMemc->get( $key );
@@ -1718,15 +1749,6 @@ class FlaggedRevs {
 		# Don't grant to currently blocked users...
 		if( $user->isBlocked() )
 			return true;
-		# Do not re-add status if it was previously removed!
-		# A special entry is made in the log whenever an editor looses their rights.
-		$params = self::getUserParams( $wgUser );
-		if( isset($params['demoted']) && $params['demoted'] ) {
-			# Make a key to store the results
-			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
-			$wgMemc->set( $key, 'true', 3600*24*30 );
-			return true;
-		}
 		# See if the page actually has sufficient content...
 		if( $wgFlaggedRevsAutopromote['userpage'] ) {
 			if( !$user->getUserPage()->exists() )
@@ -1771,12 +1793,12 @@ class FlaggedRevs {
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $wgUser->getID() );
-				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks-$needed-1) );
+				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks - $needed - 1) );
 				return true;
 			}
 		}
 		# Check if the user has any recent content edits
-		if( $wgFlaggedRevsAutopromote['recentContent'] > 0 ) {
+		if( $wgFlaggedRevsAutopromote['recentContentEdits'] > 0 ) {
 			global $wgContentNamespaces;
 		
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
