@@ -2098,7 +2098,7 @@ class FlaggedRevs {
 	*/
 	public static function reviewLogLine( $type = '', $action = '', $title = null, $paramArray = array(), &$c = '', &$r = '', $t = '' ) {
 		# Show link to page with oldid=x
-		if( $type == 'review' && ($action == 'approve' || $action == 'unapprove') ) {
+		if( $type == 'review' && in_array($action,array('approve','approve2','unapprove','unapprove2')) ) {
 			global $wgUser;
 			if( is_object($title) && isset($paramArray[0]) ) {
 				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
