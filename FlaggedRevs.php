@@ -279,6 +279,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
 	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
+	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeNullEditReviewed';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -1090,7 +1091,7 @@ class FlaggedRevs {
 				__METHOD__ );
 		}
 		# Get the page text and resolve all templates
-		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $rev->getText(), $article->getTitle(), $rev->getId() );
+		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $text, $article->getTitle(), $rev->getId() );
 
 		# Compress $fulltext, passed by reference
 		$textFlags = self::compressText( $fulltext );
@@ -1661,6 +1662,29 @@ class FlaggedRevs {
 		} else {
 			if( self::getStablePageRev( $title ) ) {
 				$result = true;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	* When a null edit is made, autoreview if necessary
+	*/
+	public static function maybeMakeNullEditReviewed( $rev ) {
+		$title = $rev->getTitle();
+		if( !self::isPageReviewable( $title ) ) {
+			return true;
+		}
+		# page_latest has not been updated yet...
+		$prevRev = Revision::newFromTitle( $title );
+		# Check for null edits
+		if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
+			$frev = FlaggedRevs::getFlaggedRev( $title, $prevRev->getId() );
+			if( !is_null($frev) ) {
+				$article = new Article( $title );
+				$flags = $frev->getTags();
+				$user = User::newFromId( $rev->getUser() );
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 			}
 		}
 		return true;

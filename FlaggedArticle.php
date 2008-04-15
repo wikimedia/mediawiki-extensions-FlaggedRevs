@@ -1252,7 +1252,7 @@ class FlaggedArticle {
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
 			return true;
 		# Was this revision flagged?
-		$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $rev->getID() );
+		$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $rev->getId() );
 		if( is_null($frev) )
 			return true;
 		# Grab the flags for this revision
