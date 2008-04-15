@@ -91,5 +91,5 @@ ALTER TABLE /*$wgDBprefix*/page
   -- Note that this may not be set to display by default though.
   ADD page_ext_quality tinyint(1) default NULL,
   
-  ADD INDEX ext_namespace_reviewed (page_namespace,page_is_redirect,page_ext_reviewed,page_id),
+  ADD INDEX ext_namespace_reviewed (page_namespace,page_ext_reviewed,page_id),
   ADD INDEX ext_namespace_quality (page_namespace,page_ext_quality,page_title);

@@ -51,7 +51,7 @@ ALTER TABLE page
 	ADD page_ext_stable    INTEGER NULL,
 	ADD page_ext_quality   SMALLINT DEFAULT NULL;
 
-CREATE INDEX ext_namespace_reviewed ON page (page_namespace,page_is_redirect,page_ext_reviewed,page_id);
+CREATE INDEX ext_namespace_reviewed ON page (page_namespace,page_ext_reviewed,page_id);
 CREATE INDEX ext_namespace_quality ON page (page_namespace,page_ext_quality,page_title);
 
 COMMIT;
