@@ -1038,28 +1038,42 @@ class FlaggedArticle {
 		}
 		$fnewrev = FlaggedRevs::getFlaggedRev( $NewRev->getTitle(), $NewRev->getId() );
 		$foldrev = $OldRev ? FlaggedRevs::getFlaggedRev( $diff->mTitle, $OldRev->getId() ) : null;
-		
-		$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td width="50%" align="center">' );
-		if( $foldrev ) {
-			$flags = $foldrev->getTags();
-			$quality = FlaggedRevs::isQuality($flags);
-			$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-		} else {
-			$msg = 'revreview-draft-title';
-		}
-		$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
+		# Diff between two revisions
+		if( $OldRev ) {
+			$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td width="50%" align="center">' );
+			if( $foldrev ) {
+				$flags = $foldrev->getTags();
+				$quality = FlaggedRevs::isQuality($flags);
+				$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			} else {
+				$msg = 'revreview-draft-title';
+			}
+			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
 			
-		$wgOut->addHTML( '</td><td width="50%" align="center">' );
-		if( $fnewrev ) {
-			$flags = $fnewrev->getTags();
-			$quality = FlaggedRevs::isQuality($flags);
-			$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-		} else {
-			$msg = 'revreview-draft-title';
-		}
-		$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
+			$wgOut->addHTML( '</td><td width="50%" align="center">' );
+			if( $fnewrev ) {
+				$flags = $fnewrev->getTags();
+				$quality = FlaggedRevs::isQuality($flags);
+				$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			} else {
+				$msg = 'revreview-draft-title';
+			}
+			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
 			
-		$wgOut->addHTML( '</td></tr></table>' );
+			$wgOut->addHTML( '</td></tr></table>' );
+		# New page "diffs" - just one rev
+		} else {
+			$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td align="center">' );
+			if( $fnewrev ) {
+				$flags = $fnewrev->getTags();
+				$quality = FlaggedRevs::isQuality($flags);
+				$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			} else {
+				$msg = 'revreview-draft-title';
+			}
+			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
+			$wgOut->addHTML( '</td></tr></table>' );
+		}
 		
 		return true;
 	}
