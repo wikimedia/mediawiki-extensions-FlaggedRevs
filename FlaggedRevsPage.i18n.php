@@ -1316,6 +1316,9 @@ $messages['de'] = array(
 	'stablepages-none'    => 'Diese Liste ist leer.',
 	'stablepages-config'  => 'Konfiguration',
 
+	'qualityoversight'      => 'Übersicht über geprüfte Versionen',
+	'qualityoversight-list' => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf geprüfter Versionen.',
+
 	'rights-editor-autosum'    => 'automatisch erteilt',
 	'rights-editor-revoke'     => 'entfernte Prüfer-Status von „[[$1]]“',
 	'flaggedrevs-prefs'        => 'Markierte Versionen',
