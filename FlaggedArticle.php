@@ -1100,7 +1100,7 @@ class FlaggedArticle {
 				if( $article->getLatest() != $frev->getRevId() ) {
 					$patrol = '(' . $wgUser->getSkin()->makeKnownLinkObj( $NewRev->getTitle(),
 						wfMsgHtml( 'review-diff2stable' ), "oldid={$frev->getRevId()}&diff=cur" ) . ')';
-					$wgOut->addHTML( '<div class="fr-diff-to-stable" align=center>' . $patrol . '</div>' );
+					$wgOut->addHTML( '<div class="fr-diff-to-stable" align="center">' . $patrol . '</div>' );
 				}
 			}
 		// Prepare a change patrol link, if applicable
