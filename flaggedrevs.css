@@ -207,6 +207,11 @@
 	background-image: url(../FlaggedRevs/img/3.png);
 }
 
+.fr-diff-ratings {
+	font-size: 90%;
+	line-height: .5em;
+}
+
 /* Review form */
 .flaggedrevs_reviewform {
 	background-color: #f9f9f9;

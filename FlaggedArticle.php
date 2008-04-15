@@ -985,60 +985,82 @@ class FlaggedArticle {
 	public function addDiffNoticeAndIncludes( $diff, $OldRev, $NewRev ) {
 		global $wgRequest, $wgUser, $wgOut;
 
-		if( $wgOut->isPrintable() )
+		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) )
 			return true;
 
-		if( !$wgUser->isAllowed('review') || !$NewRev->isCurrent() || !$OldRev )
-			return true;
+		if( $wgUser->isAllowed('review') && $NewRev->isCurrent() && $OldRev ) {
+			$frev = $this->getStableRev();
+			if( $frev && $frev->getRevId() == $OldRev->getID() ) {
+				$changeList = array();
+				$skin = $wgUser->getSkin();
+				# Make a list of each changed template...
+				$dbr = wfGetDB( DB_SLAVE );
+				$ret = $dbr->select( array('flaggedtemplates','page'),
+					array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+					array( 'ft_rev_id' => $frev->getRevId(),
+						'ft_namespace = page_namespace',
+						'ft_title = page_title',
+						'ft_tmp_rev_id != page_latest' ),
+					__METHOD__ );
 
-		$frev = $this->getStableRev();
-		if( is_null($frev) || $frev->getRevId() != $OldRev->getID() )
-			return true;
+				while( $row = $dbr->fetchObject( $ret ) ) {
+					$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
+					$changeList[] = $skin->makeKnownLinkObj( $title, $title->GetPrefixedText(),
+						"diff=cur&oldid=" . $row->ft_tmp_rev_id );
+				}
+				# And images...
+				$ret = $dbr->select( array('flaggedimages','image'),
+					array( 'fi_name' ),
+					array( 'fi_rev_id' => $frev->getRevId(),
+						'fi_name = img_name',
+						'fi_img_sha1 != img_sha1' ),
+					__METHOD__ );
 
-		$changeList = array();
-		$skin = $wgUser->getSkin();
-		# Make a list of each changed template...
-		$dbr = wfGetDB( DB_SLAVE );
-		$ret = $dbr->select( array('flaggedtemplates','page'),
-			array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
-			array( 'ft_rev_id' => $frev->getRevId(),
-				'ft_namespace = page_namespace',
-				'ft_title = page_title',
-				'ft_tmp_rev_id != page_latest' ),
-			__METHOD__ );
+				while( $row = $dbr->fetchObject( $ret ) ) {
+					$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
+					$changeList[] = $skin->makeKnownLinkObj( $title );
+				}
 
-		while( $row = $dbr->fetchObject( $ret ) ) {
-			$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
-			$changeList[] = $skin->makeKnownLinkObj( $title, $title->GetPrefixedText(),
-				"diff=cur&oldid=" . $row->ft_tmp_rev_id );
+				if( empty($changeList) ) {
+					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
+						wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
+				} else {
+					$changeList = implode(', ',$changeList);
+					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
+						wfMsgExt('revreview-update', array('parseinline')) . ' ' . $changeList . '</div>' );
+				}
+				# Set flag for review form to tell it to autoselect tag settings from the
+				# old revision unless the current one is tagged to.
+				if( !FlaggedRevs::getFlaggedRev( $diff->mTitle, $NewRev->getID() ) ) {
+					$this->isDiffFromStable = true;
+				}
+			}
 		}
-		# And images...
-		$ret = $dbr->select( array('flaggedimages','image'),
-			array( 'fi_name' ),
-			array( 'fi_rev_id' => $frev->getRevId(),
-				'fi_name = img_name',
-				'fi_img_sha1 != img_sha1' ),
-			__METHOD__ );
-
-		while( $row = $dbr->fetchObject( $ret ) ) {
-			$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
-			$changeList[] = $skin->makeKnownLinkObj( $title );
-		}
-
-		if( empty($changeList) ) {
-			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
-				wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
+		$fnewrev = FlaggedRevs::getFlaggedRev( $NewRev->getTitle(), $NewRev->getId() );
+		$foldrev = $OldRev ? FlaggedRevs::getFlaggedRev( $diff->mTitle, $OldRev->getId() ) : null;
+		
+		$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td width="50%" align="center">' );
+		if( $foldrev ) {
+			$flags = $foldrev->getTags();
+			$quality = FlaggedRevs::isQuality($flags);
+			$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 		} else {
-			$changeList = implode(', ',$changeList);
-			$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
-				wfMsgExt('revreview-update', array('parseinline')) . ' ' . $changeList . '</div>' );
+			$msg = 'revreview-draft-title';
 		}
-		# Set flag for review form to tell it to autoselect tag settings from the
-		# old revision unless the current one is tagged to.
-		if( !FlaggedRevs::getFlaggedRev( $diff->mTitle, $NewRev->getID() ) ) {
-			$this->isDiffFromStable = true;
+		$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
+			
+		$wgOut->addHTML( '</td><td width="50%" align="center">' );
+		if( $fnewrev ) {
+			$flags = $fnewrev->getTags();
+			$quality = FlaggedRevs::isQuality($flags);
+			$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+		} else {
+			$msg = 'revreview-draft-title';
 		}
-
+		$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
+			
+		$wgOut->addHTML( '</td></tr></table>' );
+		
 		return true;
 	}
 	
@@ -1222,9 +1244,12 @@ class FlaggedArticle {
 		# Grab the flags for this revision
 		$flags = FlaggedRevs::getRevisionTags( $rev->getID() );
 		# Check if user is allowed to renew the stable version.
-		# If it has been reviewed too highly for this user, abort.
 		if( !RevisionReview::userCanSetFlags( $flags ) ) {
-			return true;
+			# Assume basic flagging level
+			$flags = array();
+			foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
 		}
 		# Select the version that is now current. Create a new article object
 		# to avoid using one with outdated field data.
