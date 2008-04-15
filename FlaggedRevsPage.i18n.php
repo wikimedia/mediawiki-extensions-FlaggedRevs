@@ -217,6 +217,9 @@ No configuration is possible.',
 	'stablepages-none'    => 'There are no pages in this list',
 	'stablepages-config'  => 'Configuration',
 	
+	'qualityoversight'      => 'Quality oversight',
+	'qualityoversight-list' => 'This page lists recent approvals of quality revisions as well as depreciations of quality revisions.',
+	
 	'rights-editor-autosum' => 'autopromoted',
 	'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 	

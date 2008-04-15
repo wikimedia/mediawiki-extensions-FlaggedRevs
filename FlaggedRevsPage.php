@@ -534,7 +534,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->updateRecentChanges( $title, $dbw, $rev, $this->rcid );
 
 		# Update the article review log
-		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, true );
+		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, true );
 
 		# Update the links tables as the stable version may now be the default page.
 		# Try using the parser cache first since we didn't actually edit the current version.
@@ -594,7 +594,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
 
 		# Update the article review log
-		$this->updateLog( $this->page, $this->dims, $this->comment, $this->oldid, false );
+		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, false );
 
 		# Kill any text cache
 		if( $wgRevisionCacheExpiry ) {
@@ -684,17 +684,18 @@ class RevisionReview extends UnlistedSpecialPage
 	/**
 	 * Record a log entry on the action
 	 * @param Title $title
-	 * @param array $dimensions
+	 * @param array $dims
+	 * @param array $oldDims
 	 * @param string $comment
 	 * @param int $revid
 	 * @param bool $approve
 	 * @param bool $RC, add to recentchanges (kind of spammy)
 	 */
-	public static function updateLog( $title, $dimensions, $comment, $oldid, $approve, $RC=false ) {
+	public static function updateLog( $title, $dims, $oldDims, $comment, $oldid, $approve, $RC=false ) {
 		$log = new LogPage( 'review', $RC );
 		# ID, accuracy, depth, style
 		$ratings = array();
-		foreach( $dimensions as $quality => $level ) {
+		foreach( $dims as $quality => $level ) {
 			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . wfMsgForContent("revreview-$quality-$level");
 		}
 		# Append comment with ratings
@@ -703,9 +704,11 @@ class RevisionReview extends UnlistedSpecialPage
 			$comment .= $comment ? " $rating" : $rating;
 		}
 		if( $approve ) {
-			$log->addEntry( 'approve', $title, $comment, array($oldid) );
+			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 'approve2' : 'approve';
+			$log->addEntry( $action, $title, $comment, array($oldid) );
 		} else {
-			$log->addEntry( 'unapprove', $title, $comment, array($oldid) );
+			$action = FlaggedRevs::isQuality($oldDims) ? 'unapprove2' : 'unapprove';
+			$log->addEntry( $action, $title, $comment, array($oldid) );
 		}
 	}
 }
@@ -1432,5 +1435,38 @@ class Stabilization extends UnlistedSpecialPage
 		$wgOut->redirect( $this->page->getFullUrl() );
 
 		return true;
+	}
+}
+
+class QualityOversight extends SpecialPage
+{
+
+    function __construct() {
+        SpecialPage::SpecialPage( 'QualityOversight' );
+    }
+
+    function execute( $par ) {
+		global $wgOut, $wgUser, $wgRCMaxAge;
+		$this->setHeaders();
+		$wgOut->addHTML( wfMsgExt('qualityoversight-list', array('parse') ) );
+		# Create a LogPager item to get the results and a LogEventsList
+		# item to format them...
+		$cutoff = time() - $wgRCMaxAge;
+		$loglist = new LogEventsList( $wgUser->getSkin(), $wgOut, 0 );
+		$pager = new LogPager( $loglist, 'review', '', '', '', 
+			array('log_action' => array('approve2','unapprove2'), "log_timestamp > '$cutoff'" ) );
+		# Insert list
+		$logBody = $pager->getBody();
+		if( $logBody ) {
+			$wgOut->addHTML(
+				$pager->getNavigationBar() .
+				$loglist->beginLogEventsList() .
+				$logBody .
+				$loglist->endLogEventsList() .
+				$pager->getNavigationBar()
+			);
+		} else {
+			$wgOut->addWikiMsg( 'logempty' );
+		}
 	}
 }

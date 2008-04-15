@@ -205,6 +205,9 @@ $wgAutoloadClasses['StablePages'] = $dir . 'FlaggedRevsPage.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
+# Too oversee quality revisions
+$wgSpecialPages['QualityOversight'] = 'QualityOversight';
+$wgAutoloadClasses['QualityOversight'] = $dir . 'FlaggedRevsPage.php';
 
 # Remove stand-alone patrolling
 $wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
@@ -300,7 +303,9 @@ $wgLogTypes[] = 'review';
 $wgLogNames['review'] = 'review-logpage';
 $wgLogHeaders['review'] = 'review-logpagetext';
 $wgLogActions['review/approve']  = 'review-logentry-app';
+$wgLogActions['review/approve2']  = 'review-logentry-app';
 $wgLogActions['review/unapprove'] = 'review-logentry-dis';
+$wgLogActions['review/unapprove2'] = 'review-logentry-dis';
 
 $wgLogTypes[] = 'stable';
 $wgLogNames['stable'] = 'stable-logpage';
@@ -1144,8 +1149,7 @@ class FlaggedRevs {
 		$dbw->commit();
 
 		# Update the article review log
-		RevisionReview::updateLog( $article->getTitle(), $flags, wfMsg('revreview-auto'),
-			$rev->getID(), true, false );
+		RevisionReview::updateLog( $article->getTitle(), $flags, array(), wfMsg('revreview-auto'), $rev->getID(), true );
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
