@@ -152,6 +152,7 @@ $wgFlaggedRevsAutopromote = array(
 	'benchmarks'          => 15, # how many edit intervals are needed?
 	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
 	'uniqueContentPages'  => 5, # $wgContentNamespaces unique pages edited
+	'editComments'        => 5, # how many edit comments used?
 	'email'	              => true, # user must be emailconfirmed?
 	'userpage'            => true, # user must have a userpage?
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
@@ -1748,6 +1749,7 @@ class FlaggedRevs {
 		$changed = false;
 		$p['uniqueContentPages'] = isset($p['uniqueContentPages']) ? $p['uniqueContentPages'] : '';
 		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
+		$p['editComments'] = isset($p['editComments']) ? $p['editComments'] : 0;
 		if( $rev && $article->getTitle()->isContentPage() ) {
 			$pages = explode(',',trim($p['uniqueContentPages']) ); // page IDs
 			if( !in_array( $article->getId(), $pages ) ) {
@@ -1757,12 +1759,20 @@ class FlaggedRevs {
 			$p['totalContentEdits'] += 1;
 			$changed = true;
 		}
+		if( $summary ) {
+			$p['editComments'] += 1;
+			$changed = true;
+		}
 		# Save any updates to user params
 		if( $changed ) {
 			self::saveUserParams( $user, $p );
 		}
 		# Check if user edited enough unique pages
 		if( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count($pages) ) {
+			return true;
+		}
+		# Check edit comment use
+		if( $wgFlaggedRevsAutopromote['editComments'] > $p['editComments'] ) {
 			return true;
 		}
 		# Check if results are cached to avoid DB queries
