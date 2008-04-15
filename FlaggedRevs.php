@@ -1687,6 +1687,14 @@ class FlaggedRevs {
 			if( !is_null($frev) ) {
 				$article = new Article( $title );
 				$flags = $frev->getTags();
+				# Check if user is allowed to renew the stable version.
+				if( !RevisionReview::userCanSetFlags( $flags ) ) {
+					# Assume basic flagging level
+					$flags = array();
+					foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
+						$flags[$tag] = 1;
+					}
+				}
 				$user = User::newFromId( $rev->getUser() );
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 			}
