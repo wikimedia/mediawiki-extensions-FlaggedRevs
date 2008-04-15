@@ -1706,9 +1706,6 @@ class FlaggedRevs {
 		# A special entry is made in the log whenever an editor looses their rights.
 		$p = self::getUserParams( $user );
 		if( isset($params['demoted']) && $params['demoted'] ) {
-			# Make a key to store the results
-			$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
-			$wgMemc->set( $key, 'true', 3600*24*30 );
 			return true;
 		}
 		# Update any special counters for non-null revisions
@@ -1838,8 +1835,9 @@ class FlaggedRevs {
 				__METHOD__, 
 				array( 'USE INDEX' => 'rc_ns_usertext', 
 					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
-			if( $dbr->numRows() >= $wgFlaggedRevsAutopromote['recentContent'] )
+			if( $dbr->numRows() >= $wgFlaggedRevsAutopromote['recentContent'] ) {
 				return true;
+			}
 		}
 		# Check to see if the user has so many deleted edits that
 		# they don't actually enough live edits. This is because
@@ -1860,8 +1858,9 @@ class FlaggedRevs {
 					__METHOD__,
 					array( 'USE INDEX' => 'usertext_timestamp' ) );
 			}
-			if( $deletedEdits >= $minDiff )
+			if( $deletedEdits >= $minDiff ) {
 				return true;
+			}
 		}
 		# Add editor rights
 		$newGroups = $groups ;
