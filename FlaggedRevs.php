@@ -1691,7 +1691,9 @@ class FlaggedRevs {
 	*/
 	public static function maybeMakeNullEditReviewed( $rev ) {
 		$title = $rev->getTitle();
-		# Null titles might be coming in here???
+		# GetTitle() for revisions uses slaves and wants page_id,rev_id to
+		# match...this is bad if we *just* added it.
+		$title = $title ? $title : Title::newFromID( $rev->getPage() );
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
