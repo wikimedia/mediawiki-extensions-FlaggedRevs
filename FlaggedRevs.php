@@ -1691,7 +1691,8 @@ class FlaggedRevs {
 	*/
 	public static function maybeMakeNullEditReviewed( $rev ) {
 		$title = $rev->getTitle();
-		if( !self::isPageReviewable( $title ) ) {
+		# Null titles might be coming in here???
+		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
 		# page_latest has not been updated yet...

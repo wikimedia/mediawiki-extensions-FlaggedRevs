@@ -693,6 +693,10 @@ class FlaggedArticle {
 		# Non-content pages cannot be validated
 		if( !$this->isReviewable() )
 			return true;
+		# Stable version is cached after first call.
+		# For pages that have none, don't spam the DB.
+		if( !$this->getStableRev() )
+			return true;
 
 		if( !$this->dbr ) {
     		$this->dbr = wfGetDB( DB_SLAVE );
