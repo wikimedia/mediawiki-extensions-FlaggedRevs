@@ -376,6 +376,8 @@ class RevisionReview extends UnlistedSpecialPage
 	 */
 	private function approveRevision( $rev ) {
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
+
+		wfProfileIn( __METHOD__ );
 		# Get the page this corresponds to
 		$title = $rev->getTitle();
 
@@ -467,6 +469,7 @@ class RevisionReview extends UnlistedSpecialPage
         list($fulltext,$tmps,$tmpIDs,$ok,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$ok || $maxID > $lastTempID ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
+			wfProfileOut( __METHOD__ );
         	return false;
         }
 		
@@ -475,6 +478,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
 		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
         	$dbw->rollback(); // All versions must be specified, 0 for none
+			wfProfileOut( __METHOD__ );
         	return false;
         }
 		# Merge in template params from first phase of parsing...
@@ -497,6 +501,7 @@ class RevisionReview extends UnlistedSpecialPage
 			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
 				$dbw->rollback();
+				wfProfileOut( __METHOD__ );
 				throw new MWException( "Unable to store text to external storage $store" );
 			}
 			if( $textFlags ) {
@@ -569,6 +574,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Purge squid for this page only
 		$article->getTitle()->purgeSquid();
 
+		wfProfileOut( __METHOD__ );
         return true;
     }
 
@@ -625,6 +631,7 @@ class RevisionReview extends UnlistedSpecialPage
     }
 	
 	private function updateRecentChanges( $title, $dbw, $rev, $rcid ) {
+		wfProfileIn( __METHOD__ );
 		# Should olders edits be marked as patrolled now?
 		global $wgFlaggedRevsCascade;
 		if( $wgFlaggedRevsCascade ) {
@@ -654,6 +661,7 @@ class RevisionReview extends UnlistedSpecialPage
 					__METHOD__ );
 			}
 		}
+		wfProfileOut( __METHOD__ );
 	}
 	
 	private function mergeTemplateParams( $pout, $tmps, $tmpIds, $maxID ) {
