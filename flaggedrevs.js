@@ -39,7 +39,9 @@ function updateRatingForm() {
 		// Update color
 		select[i].className = 'fr-rating-option-' + select[i].selectedIndex;
 		// Get quality level for this tag
-		QL = wgFlaggedRevsJSparams.match( new RegExp(select[i].name + ':(\\d+)') )[1];
+		QL = wgFlaggedRevsJSparams.match( new RegExp(select[i].name + ':(\\d+)') );
+		if( !QL ) continue;
+		QL = QL[1];
 		if( select[i].selectedIndex < QL ) {
 			quality = false; // not a quality review
 		}
