@@ -1747,6 +1747,7 @@ class FlaggedRevs {
 		}
 		# Update any special counters for non-null revisions
 		$changed = false;
+		$pages = array();
 		$p['uniqueContentPages'] = isset($p['uniqueContentPages']) ? $p['uniqueContentPages'] : '';
 		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
 		$p['editComments'] = isset($p['editComments']) ? $p['editComments'] : 0;
