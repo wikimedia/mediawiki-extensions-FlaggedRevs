@@ -698,12 +698,7 @@ class FlaggedArticle {
     		$this->dbr = wfGetDB( DB_SLAVE );
     	}
 
-    	$quality = $this->dbr->selectField( 'flaggedrevs', 'fr_quality',
-    		array( 'fr_page_id' => $wgTitle->getArticleID(),
-				'fr_rev_id' => $row->rev_id ),
-			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' ) );
-
+    	$quality = FlaggedRevs::getRevQuality( $wgTitle, $row->rev_id, $this->dbr );
     	if( $quality !== false ) {
     		$skin = $wgUser->getSkin();
 			$quality = intval($quality);
@@ -1081,25 +1076,21 @@ class FlaggedArticle {
 				}
 			}
 		}
-		$fnewrev = FlaggedRevs::getFlaggedRev( $NewRev->getTitle(), $NewRev->getId() );
-		$foldrev = $OldRev ? FlaggedRevs::getFlaggedRev( $diff->mTitle, $OldRev->getId() ) : null;
+		$newRevQ = FlaggedRevs::getRevQuality( $NewRev->getTitle(), $NewRev->getId() );
+		$oldRevQ = $OldRev ? FlaggedRevs::getRevQuality( $NewRev->getTitle(), $OldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $OldRev ) {
 			$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td width="50%" align="center">' );
-			if( $foldrev ) {
-				$flags = $foldrev->getTags();
-				$quality = FlaggedRevs::isQuality($flags);
-				$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			if( $oldRevQ !== false ) {
+				$msg = $oldRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
 				$msg = 'revreview-draft-title';
 			}
 			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
 			
 			$wgOut->addHTML( '</td><td width="50%" align="center">' );
-			if( $fnewrev ) {
-				$flags = $fnewrev->getTags();
-				$quality = FlaggedRevs::isQuality($flags);
-				$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			if( $newRevQ !== false ) {
+				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
 				$msg = 'revreview-draft-title';
 			}
@@ -1109,10 +1100,8 @@ class FlaggedArticle {
 		# New page "diffs" - just one rev
 		} else {
 			$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td align="center">' );
-			if( $fnewrev ) {
-				$flags = $fnewrev->getTags();
-				$quality = FlaggedRevs::isQuality($flags);
-				$msg = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			if( $newRevQ !== false ) {
+				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
 				$msg = 'revreview-draft-title';
 			}

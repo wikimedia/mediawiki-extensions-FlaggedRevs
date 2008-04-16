@@ -630,6 +630,22 @@ class FlaggedRevs {
 
 		return null;
 	}
+	
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param Database $db, optional
+	 * @returns mixed (int or false)
+	 */
+	public static function getRevQuality( $title, $rev_id, $db = NULL ) {
+		$db = $db ? $db : wfGetDB( DB_SLAVE );
+		$quality = $db->selectField( 'flaggedrevs', 'fr_quality',
+			array( 'fr_page_id' => $title->getArticleID(),
+				'fr_rev_id' => $rev_id ),
+			__METHOD__,
+			array( 'FORCE INDEX' => 'PRIMARY' ) );
+		return $quality;
+	}
 
 	/**
 	 * Get the "prime" flagged revision of a page
