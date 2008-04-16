@@ -212,6 +212,10 @@
 	line-height: 1em;
 }
 
+.fr-diff-to-stable {
+	line-height: 1em;
+}
+
 /* Review form */
 .flaggedrevs_reviewform {
 	background-color: #f9f9f9;

@@ -479,7 +479,7 @@ class FlaggedArticle {
 			return true;
 		}
 		# Add review form
-		$this->addQuickReview( $out, $this->isDiffFromStable );
+		$this->addQuickReview( $out, $wgRequest->getVal('diff') );
 
 		return true;
     }
