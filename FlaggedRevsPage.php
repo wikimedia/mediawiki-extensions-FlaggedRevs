@@ -92,11 +92,9 @@ class RevisionReview extends UnlistedSpecialPage
 			if( $this->dims[$tag] === 0 ) {
 				$this->unapprovedTags++;
 			} else if( is_null($this->dims[$tag]) ) {
-				# http://www.w3.org/TR/html401/interact/forms.html#adef-disabled
-				# ...disabled selects do not submit anything! This happens when
-				# permissions are too low.
-				$wgOut->permissionRequired( 'badaccess-group0' );
-				return;
+				# This happens if we uncheck a checkbox
+				$this->unapprovedTags++;
+				$this->dims[$tag] = 0;
 			}
 		}
 		# Check permissions and validate
@@ -138,7 +136,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Check if this user has any right that lets him/her set
 		# up to this particular value
 		foreach( $wgFlagRestrictions[$tag] as $right => $level ) {
-			if( $value <= $level && $wgUser->isAllowed($right) ) {
+			if( $value <= $level && $level > 0 && $wgUser->isAllowed($right) ) {
 				return true;
 			}
 		}

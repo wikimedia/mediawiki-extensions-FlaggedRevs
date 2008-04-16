@@ -219,6 +219,11 @@
 	clear: both;
 }
 
+.flaggedrevs_reviewform * {
+	vertical-align: middle;
+	line-height: 1em;
+}
+
 .fr-rating-option-0 {
 	background-color: #f5ecec;
 }

@@ -96,7 +96,7 @@ $wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
 $wgFlaggedRevValues = 4;
 # A revision with all tages rated at least to this level is considered "pristine"/"featured"
 $wgFlaggedRevPristine = 4;
-# Who can set what flags to what level? (use -1 for not at all)
+# Who can set what flags to what level? (use -1 or 0 for not at all)
 # Users cannot lower tags from a level they can't set
 # Users with 'validate' can do anything regardless
 # This is mainly for custom, less experienced, groups
@@ -177,7 +177,7 @@ $wgFlaggedRevsExternalStore = false;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 11;
+$wgFlaggedRevStyleVersion = 12;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -2119,4 +2119,5 @@ class FlaggedRevs {
 		return true;
 	}
 }
+
 
