@@ -155,7 +155,7 @@ class FlaggedRevision {
 		if( $wgRevisionCacheExpiry ) {
 			$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
 		}
-		return true;
 		wfProfileOut( __METHOD__ );
+		return true;
 	}
 }
