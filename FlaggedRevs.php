@@ -582,16 +582,14 @@ class FlaggedRevs {
 	
 	/**
 	* Get a validation key from versioning metadata
-	* @param string $templateParams
-	* @param string $imageParams
+	* @param string $tmpP
+	* @param string $imgP
 	* @param integer $uid user ID
 	* @return string
 	*/
-	public static function getValidationKey( $templateParams, $imageParams, $uid ) {
+	public static function getValidationKey( $tmpP, $imgP, $uid ) {
 		global $wgReviewCodes;
-	
-		return MD5( $wgReviewCodes[3] . MD5( MD5($imageParams.$wgReviewCodes[0]) . 
-			 sha1($wgReviewCodes[1].$uid) . MD5($templateParams.$wgReviewCodes[2]) ) );
+		return ( MD5($imgP.$wgReviewCodes[0]).sha1($wgReviewCodes[1].$uid.$wgReviewCodes[3]).MD5($tmpP.$wgReviewCodes[2]) );
 	}
 	
 	/**
