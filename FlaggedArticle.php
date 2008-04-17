@@ -806,7 +806,6 @@ class FlaggedArticle {
 				}
 			}
 			$quantity = count( $label );
-			$form .= "\n" . Xml::openElement( 'span' );
 			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b>&nbsp;";
 			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
@@ -838,19 +837,17 @@ class FlaggedArticle {
 						"wp$quality".$selected, true, $attribs ) . "\n";
 				} else {
 					$attribs = array( 'class' => "fr-rating-option-1", 'onchange' => "updateRatingForm()" );
-					# TODO: FlaggedRevsPage.php needs to be patched as well in order to uncheck a checkbox
 					$form .= Xml::checkLabel( wfMsg( "revreview-$label[1]" ), "wp$quality", "wp$quality"."1", 
 						($selected == 1), $attribs ) . "\n";
 				}
 				$form .= ($remaining > 0) ? "&nbsp;&nbsp;" : "";
 			}
-			$form .= Xml::closeElement( 'span' );
 		}
 		$form .= Xml::closeElement( 'span' );
 		
 		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<div id='mw-notebox'>\n";
-			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
+			$form .= "<p></strong>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= "<p><textarea name='wpNotes' id='wpNotes' class='fr-reason-box' 
 				rows='2' cols='80' style='width:95%; margin: 0em 1em 0em .5em;'/></p>\n";
 			$form .= "</div>\n";
@@ -889,14 +886,14 @@ class FlaggedArticle {
 		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
-		$form .= "<span style='white-space: nowrap'>"; // get comment and submit on same line
+		$form .= "<div style='white-space: nowrap'>"; // get comment and submit on same line
 		# Hide comment if needed
 		$form .= "<span id='mw-commentbox'>" .
 			Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 50, '', array('class' => 'fr-comment-box') ) . 
 			"</span>";
 
 		$form .= "&nbsp;&nbsp;&nbsp;".Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton') );
-		$form .= "</span>";
+		$form .= "</div>";
 
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
