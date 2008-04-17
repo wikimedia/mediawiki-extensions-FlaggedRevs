@@ -788,7 +788,7 @@ class FlaggedArticle {
 		# Loop through all different flag types
 		foreach( FlaggedRevs::$dimensions as $quality => $levels ) {
 			$label = array();
-			$selected = ( isset($flags[$quality]) ) ? $flags[$quality] : 0;
+			$selected = ( isset($flags[$quality]) ) ? $flags[$quality] : 1;
 			if( $disabled ) {
 				$label[$selected] = $levels[$selected];
 			# else collect all quality levels of a flag current user can set
