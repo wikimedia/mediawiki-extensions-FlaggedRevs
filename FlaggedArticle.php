@@ -847,7 +847,7 @@ class FlaggedArticle {
 		
 		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<div id='mw-notebox'>\n";
-			$form .= "<p></strong>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
+			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= "<p><textarea name='wpNotes' id='wpNotes' class='fr-reason-box' 
 				rows='2' cols='80' style='width:95%; margin: 0em 1em 0em .5em;'/></p>\n";
 			$form .= "</div>\n";
