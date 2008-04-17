@@ -49,7 +49,7 @@
 }
 
 .fr-text-value {
-    width: 100px;
+	width: 100px;
 }
 
 .fr-checkbox {
@@ -62,7 +62,7 @@
 	right: 0px;
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-    background-image: url(../FlaggedRevs/img/boxC.png);
+	background-image: url(../FlaggedRevs/img/boxC.png);
 }
 
 .fr-marker-20,
@@ -70,25 +70,25 @@
 .fr-marker-60,
 .fr-marker-80,
 .fr-marker-100 {
-    background-position: bottom left;
-    background-repeat: no-repeat;    
-    padding-bottom: 3px;
+	background-position: bottom left;
+	background-repeat: no-repeat;    
+	padding-bottom: 3px;
 }
 
 .fr-marker-20 {
-    background-image: url(../FlaggedRevs/img/bar_20.png);
+	background-image: url(../FlaggedRevs/img/bar_20.png);
 }
 .fr-marker-40 {
-    background-image: url(../FlaggedRevs/img/bar_40.png);
+	background-image: url(../FlaggedRevs/img/bar_40.png);
 }
 .fr-marker-60 {
-    background-image: url(../FlaggedRevs/img/bar_60.png);
+	background-image: url(../FlaggedRevs/img/bar_60.png);
 }
 .fr-marker-80 {
-    background-image: url(../FlaggedRevs/img/bar_80.png);
+	background-image: url(../FlaggedRevs/img/bar_80.png);
 }
 .fr-marker-100 {
-    background-image: url(../FlaggedRevs/img/bar_100.png);
+	background-image: url(../FlaggedRevs/img/bar_100.png);
 }
 
 /* Short User Interface */
@@ -196,13 +196,13 @@
 	float: left;
 	background-repeat: no-repeat;
 	background-position: center center;
-} 
+}
 .fr-icon-current {
 	background-image: url(../FlaggedRevs/img/1.png);
 }
 .fr-icon-stable {
 	background-image: url(../FlaggedRevs/img/2.png);
-}    
+}
 .fr-icon-quality {
 	background-image: url(../FlaggedRevs/img/3.png);
 }
@@ -228,6 +228,14 @@
 	line-height: 1em;
 }
 
+.fr-rating-controls-disabled {
+	color: GrayText;
+}
+
+.fr-rating-options {
+	margin-right: 1.5em;
+}
+
 .fr-rating-option-0 {
 	background-color: #f5ecec;
 }
@@ -242,4 +250,9 @@
 }
 .fr-rating-option-4 {
 	background-color: #fffff0;
+}
+
+.fr-notes-box {
+	width: 95%;
+	margin: 0em 1em 0em .5em;
 }

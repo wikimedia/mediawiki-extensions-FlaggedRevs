@@ -177,7 +177,7 @@ $wgFlaggedRevsExternalStore = false;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 12;
+$wgFlaggedRevStyleVersion = 13;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -1025,7 +1025,7 @@ class FlaggedRevs {
 		# Handle onload parameters
 		$JSparams = self::getJSParams();
 		if( $JSparams ) {
-			$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">var wgFlaggedRevsJSparams = \"$JSparams\";</script>\n" );
+			$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">var wgFlaggedRevsJSparams = {". $JSparams . "};</script>\n" );
 		}
 		# UI JS
 		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
@@ -1041,12 +1041,11 @@ class FlaggedRevs {
 	public function getJSParams() {
 		# Param to pass to JS function to know if tags are at quality level
 		global $wgFlaggedRevTags;
-		$JSparams = ' ';
+		$JSparams = '';
 		foreach( $wgFlaggedRevTags as $tag => $QL ) {
-			$JSparams .= "wp$tag:$QL ";
+			$valuepair = ($JSparams) ? ", \"wp$tag\": $QL" : "\"wp$tag\": $QL";
+			$JSparams .= $valuepair;
 		}
-		$JSparams = htmlspecialchars($JSparams); // just to be safe, but this is validated ealier!
-		
 		return trim($JSparams);
 	}
 

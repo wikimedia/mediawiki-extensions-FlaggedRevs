@@ -21,41 +21,55 @@ function toggleRevRatings() {
 	}
 }
 
-/* 
-* Update colors when select changes (Opera already does this) .
-* Also remove comment box clutter.
+/*
+* a) Disable submit in case of invalid input.
+* b) Update colors when select changes (Opera already does this).
+* c) Also remove comment box clutter in case of invalid input.
 */
 function updateRatingForm() {
-	var selects = document.getElementById('mw-ratingselects');
-	if( !selects ) return;
-	
+	var ratingform = document.getElementById('mw-ratingselects');
+	if( !ratingform ) return;
+	var disabled = document.getElementById('fr-rating-controls-disabled');
+	if ( disabled ) return;
+
 	var quality = true;
 	var allzero = true;
 	var somezero = false;
-	var allowed = true;
-	
-	var select = selects.getElementsByTagName( 'select' );
-	for( i = 0; i < select.length; i++ ) {
-		// Update color
-		select[i].className = 'fr-rating-option-' + select[i].selectedIndex;
+
+	for ( flag in wgFlaggedRevsJSparams ) {
+		var levels = document.getElementsByName(flag);
+		var selectedlevel = 0; // default
+
+		if ( levels[0].nodeName == 'SELECT' ) {
+			selectedlevel = levels[0].selectedIndex;
+			// Update color
+			levels[0].className = 'fr-rating-option-' + selectedlevel;
+		} else if ( levels[0].type == 'radio' ) {
+			for ( i = 0; i < levels.length; i++ ) {
+				if ( levels[i].checked ) {
+					selectedlevel = i;
+					break;
+				}
+			}
+		} else if ( levels[0].type == 'checkbox' ) {
+			selectedlevel = (levels[0].checked) ? 1: 0;
+		} else {
+			return; // error: should not happen
+		}
+
 		// Get quality level for this tag
-		QL = wgFlaggedRevsJSparams.match( new RegExp(select[i].name + ':(\\d+)') );
-		if( !QL ) continue;
-		QL = QL[1];
-		if( select[i].selectedIndex < QL ) {
+		QL = wgFlaggedRevsJSparams[flag];
+
+		if( selectedlevel < QL ) {
 			quality = false; // not a quality review
 		}
-		if( select[i].selectedIndex > 0 ) {
+		if( selectedlevel > 0 ) {
 			allzero = false;
 		} else {
 			somezero = true;
 		}
-		// Check if disabled. If so, disable form.
-		if( select[i].getAttribute('disabled') == 'disabled' ) {
-			allowed = false;
-		}
 	}
-	
+
 	showComment = (quality || allzero) ? true : false;
 	// Show comment box only for quality revs or depreciated ones
 	var commentbox = document.getElementById('mw-commentbox');
@@ -69,9 +83,9 @@ function updateRatingForm() {
 	}
 	// If only a few levels are zero, don't show submit link
 	var submit = document.getElementById('mw-submitbutton');
-	submit.disabled = ( (somezero && !allzero) || !allowed ) ? 'disabled' : '';
+	submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	var comment = document.getElementById('wpReason');
-	comment.disabled = ( (somezero && !allzero) || !allowed ) ? 'disabled' : '';
+	comment.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	
 	// Clear comment box data if not shown
 	var comment = document.getElementById('wpReason');

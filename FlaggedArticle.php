@@ -771,34 +771,29 @@ class FlaggedArticle {
 		} else {
 			$form .= '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>';
 		}
-		
-		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
-		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() ) . "\n";
-		$form .= Xml::hidden( 'oldid', $id ) . "\n";
-		$form .= Xml::hidden( 'action', 'submit') . "\n";
-		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
+
+		# current user has too few rights to change at least one flag, thus entire form disabled
+		$disabled = !RevisionReview::userCanSetFlags( $flags );
+		if( $disabled ) {
+			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-controls-disabled',
+				'id' => 'fr-rating-controls-disabled') );
+			$toggle = array( 'disabled' => "disabled" );
+		} else {
+			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
+			$toggle = array();
+		}
+		$size = count(FlaggedRevs::$dimensions,1) - count(FlaggedRevs::$dimensions);
 
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
 		# Loop through all different flag types
-		$tagCount = count(FlaggedRevs::$dimensions);
-		$size = count(FlaggedRevs::$dimensions, 1) - $tagCount;
-		$remaining = $tagCount;
-		foreach ( FlaggedRevs::$dimensions as $quality => $levels ) {
-			$remaining--;
+		foreach( FlaggedRevs::$dimensions as $quality => $levels ) {
 			$label = array();
-			if( isset($flags[$quality]) ) {
-				$selected = $flags[$quality];
-			} else {
-				$selected = 1; // default
-			}
-			# current user has too few rights to change current flag quality, thus field disabled
-			if ( !RevisionReview::userCan($quality, $selected) ) {
-				$disabled = true;
-				$label[0] = $levels[$selected];
+			$selected = ( isset($flags[$quality]) ) ? $flags[$quality] : 0;
+			if( $disabled ) {
+				$label[$selected] = $levels[$selected];
 			# else collect all quality levels of a flag current user can set
 			} else {
-				$disabled = false;
-				foreach ($levels as $i => $name ) {
+				foreach( $levels as $i => $name ) {
 					if ( !RevisionReview::userCan($quality, $i) ) {
 						break;
 					}
@@ -806,71 +801,65 @@ class FlaggedArticle {
 				}
 			}
 			$quantity = count( $label );
-			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b>&nbsp;";
-			# If the sum of qualities of all flags is above 6, use drop down boxes
+			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
+			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b> ";
+			# if the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
-				$selectAttribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" );
-				if( $disabled ) {
-					$selectAttribs['disabled'] = 'disabled';
+				$attribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
+				$form .= Xml::openElement( 'select', $attribs );
+				foreach( $label as $i => $name ) {
+					$optionClass = array( 'class' => "fr-rating-option-$i" );
+					$form .= Xml::option( wfMsg( "revreview-$name" ), $i, ($i == $selected), $optionClass )
+						."\n";
 				}
-				$form .= Xml::openElement( 'select', $selectAttribs );
-				for( $i = 0; $i < $quantity; $i++ ) {
-					$attribs = array( 'class' => "fr-rating-option-$i" );
-					$form .= Xml::option( wfMsg( "revreview-$label[$i]" ), $i, ($i == $selected), $attribs );
-				}
-				$form .= Xml::closeElement('select') . "\n";
-			# If there are more than two qualities (none, 1 and more) current user gets radio buttons
+				$form .= Xml::closeElement('select')."\n";
+			# if there are more than two qualities (none, 1 and more) current user gets radio buttons
 			} else if( $quantity > 2 ) {
-				for( $i = 0; $i < $quantity; $i++ ) {
+				foreach( $label as $i => $name ) {
 					$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
-					$form .= '&nbsp;'.Xml::radioLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", $i, 
-						"wp$quality".$i, ($i == $selected), $attribs );
+					$form .= Xml::radioLabel( wfMsg( "revreview-$name" ), "wp$quality", $i, "wp$quality".$i,
+						($i == $selected), $attribs ) . "\n";
 				}
-				$form .= ($remaining > 0) ? "&nbsp;&nbsp;" : "";
-			# Otherwise, make checkboxes (two qualities available for current user
+			# else make checkboxes (two qualities available for current user
 			# and disabled fields in case we are below the magic 6)
 			} else {
-				if( $disabled ) {
-					$attribs = array( 'class' => "fr-rating-option-$selected", 'disabled' => "disabled" );
-					$form .= Xml::checkLabel( wfMsg( "revreview-$label[0]" ), "wp$quality", 
-						"wp$quality".$selected, true, $attribs ) . "\n";
-				} else {
-					$attribs = array( 'class' => "fr-rating-option-1", 'onchange' => "updateRatingForm()" );
-					$form .= Xml::checkLabel( wfMsg( "revreview-$label[1]" ), "wp$quality", "wp$quality"."1", 
-						($selected == 1), $attribs ) . "\n";
-				}
-				$form .= ($remaining > 0) ? "&nbsp;&nbsp;" : "";
+				$i = ( $disabled ) ? $selected : 1;
+				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" )
+					+ $toggle;
+				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality".$i,
+					($selected == $i), $attribs ) . "\n";
 			}
+			$form .= Xml::closeElement( 'span' );
 		}
 		$form .= Xml::closeElement( 'span' );
 		
 		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<div id='mw-notebox'>\n";
 			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
-			$form .= "<p><textarea name='wpNotes' id='wpNotes' class='fr-reason-box' 
-				rows='2' cols='80' style='width:95%; margin: 0em 1em 0em .5em;'/></p>\n";
+			$form .= "<p>" . Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
+				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) . "</p>\n";
 			$form .= "</div>\n";
 		}
 
 		$imageParams = $templateParams = '';
-        if( !isset($out->mTemplateIds) || !isset($out->fr_ImageSHA1Keys) ) {
-        	return; // something went terribly wrong...
-        }
-        # Hack, add NS:title -> rev ID mapping
-        foreach( $out->mTemplateIds as $namespace => $title ) {
-        	foreach( $title as $dbkey => $id ) {
-        		$title = Title::makeTitle( $namespace, $dbkey );
-        		$templateParams .= $title->getPrefixedText() . "|" . $id . "#";
-        	}
-        }
-        $form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
-        # Hack, image -> timestamp mapping
-        foreach( $out->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
-        	foreach( $timeAndSHA1 as $time => $sha1 ) {
-        		$imageParams .= $dbkey . "|" . $time . "|" . $sha1 . "#";
-        	}
-        }
+		if( !isset($out->mTemplateIds) || !isset($out->fr_ImageSHA1Keys) ) {
+			return; // something went terribly wrong...
+		}
+		# Hack, add NS:title -> rev ID mapping
+		foreach( $out->mTemplateIds as $namespace => $title ) {
+			foreach( $title as $dbkey => $id ) {
+				$title = Title::makeTitle( $namespace, $dbkey );
+				$templateParams .= $title->getPrefixedText() . "|" . $id . "#";
+			}
+		}
+		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
+		# Hack, image -> timestamp mapping
+		foreach( $out->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
+			foreach( $timeAndSHA1 as $time => $sha1 ) {
+				$imageParams .= $dbkey . "|" . $time . "|" . $sha1 . "#";
+			}
+		}
 		# For image pages, note the current image version
 		if( $wgTitle->getNamespace() == NS_IMAGE ) {
 			$file = wfFindFile( $wgTitle );
@@ -885,15 +874,22 @@ class FlaggedArticle {
 		# Special token to discourage fiddling...
 		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
+		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'oldid', $id ) . "\n";
+		$form .= Xml::hidden( 'action', 'submit') . "\n";
+		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
 
-		$form .= "<span style='white-space: nowrap'>"; // get comment and submit on same line
+		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed
-		$form .= "<span id='mw-commentbox'><br/>" .
-			Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 50, '', array('class' => 'fr-comment-box') ) . 
-			"</span>";
-
-		$form .= "&nbsp;&nbsp;&nbsp;".Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton') );
-		$form .= "</span>";
+		if( !$disabled ) {
+			$form .= "<span id='mw-commentbox'><br/>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
+				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "</span>";
+		}
+		$form .= "&nbsp;&nbsp;&nbsp;";
+		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton')+$toggle);
+		$form .= Xml::closeElement( 'span' );
+		$form .= Xml::closeElement( 'span' );
 
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
