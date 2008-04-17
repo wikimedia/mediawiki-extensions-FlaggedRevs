@@ -737,13 +737,17 @@ class FlaggedArticle {
 		if( !$wgUser->isAllowed( 'review' ) ) {
 			return;
 		}
-		# revision being displayed
+		# Revision being displayed
 		$id = $out->mRevisionId;
 		# Must be a valid non-printable output
 		if( !$id || $out->isPrintable() ) {
 			return;
 		}
+		if( !isset($out->mTemplateIds) || !isset($out->fr_ImageSHA1Keys) ) {
+			return; // something went terribly wrong...
+		}
 		$skin = $wgUser->getSkin();
+		
 		# See if the version being displayed is flagged...
 		$oldflags = $this->getFlagsForRevision( $id );
 		# If we are reviewing updates to a page, start off with the stable revision's
@@ -843,17 +847,13 @@ class FlaggedArticle {
 		}
 
 		$imageParams = $templateParams = '';
-		if( !isset($out->mTemplateIds) || !isset($out->fr_ImageSHA1Keys) ) {
-			return; // something went terribly wrong...
-		}
 		# Hack, add NS:title -> rev ID mapping
 		foreach( $out->mTemplateIds as $namespace => $title ) {
-			foreach( $title as $dbkey => $id ) {
+			foreach( $title as $dbkey => $revid ) {
 				$title = Title::makeTitle( $namespace, $dbkey );
-				$templateParams .= $title->getPrefixedText() . "|" . $id . "#";
+				$templateParams .= $title->getPrefixedText() . "|" . $revid . "#";
 			}
 		}
-		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
 		# Hack, image -> timestamp mapping
 		foreach( $out->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
 			foreach( $timeAndSHA1 as $time => $sha1 ) {
@@ -867,18 +867,21 @@ class FlaggedArticle {
 				$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
 			}
 		}
-		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
-		# Pass this in if given; useful for new page patrol
-		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
 		
-		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
-		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
+		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'oldid', $id ) . "\n";
 		$form .= Xml::hidden( 'action', 'submit') . "\n";
 		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
+		# Add review parameters
+		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
+		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+		# Pass this in if given; useful for new page patrol
+		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
+		# Special token to discourage fiddling...
+		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
+		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed

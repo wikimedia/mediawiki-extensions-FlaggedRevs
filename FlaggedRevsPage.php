@@ -34,7 +34,7 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$this->setHeaders();
 		# Our target page
-		$this->target = $wgRequest->getText( 'target' );
+		$this->target = $wgRequest->getVal( 'target' );
 		$this->page = Title::newFromUrl( $this->target );
 		# Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
