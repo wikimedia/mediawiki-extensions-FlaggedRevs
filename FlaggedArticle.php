@@ -886,14 +886,14 @@ class FlaggedArticle {
 		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
-		$form .= "<div style='white-space: nowrap'>"; // get comment and submit on same line
+		$form .= "<span style='white-space: nowrap'>"; // get comment and submit on same line
 		# Hide comment if needed
-		$form .= "<span id='mw-commentbox'>" .
+		$form .= "<span id='mw-commentbox'><br/>" .
 			Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 50, '', array('class' => 'fr-comment-box') ) . 
 			"</span>";
 
 		$form .= "&nbsp;&nbsp;&nbsp;".Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton') );
-		$form .= "</div>";
+		$form .= "</span>";
 
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
