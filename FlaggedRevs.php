@@ -1057,6 +1057,8 @@ class FlaggedRevs {
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
 		global $wgParser, $wgFlaggedRevsAutoReview;
 
+		wfProfileIn( __METHOD__ );
+
 		$quality = 0;
 		if( self::isQuality($flags) ) {
 			$quality = self::isPristine($flags) ? 2 : 1;
@@ -1128,6 +1130,7 @@ class FlaggedRevs {
 			$fulltext = ExternalStore::insert( $store, $fulltext );
 			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
+				wfProfileOut( __METHOD__ );
 				throw new MWException( "Unable to store text to external storage $store" );
 			}
 			if( $textFlags ) {
@@ -1176,6 +1179,8 @@ class FlaggedRevs {
 			# Purge squid for this page only
 			$article->getTitle()->purgeSquid();
 		}
+		
+		wfProfileOut( __METHOD__ );
 
 		return true;
 	}
@@ -1187,6 +1192,8 @@ class FlaggedRevs {
 	*/
 	public static function updateArticleOn( $article, $rev_id ) {
 		global $wgMemc;
+
+		wfProfileIn( __METHOD__ );
 
 		$dbw = wfGetDB( DB_MASTER );
 		# Get the highest quality revision (not necessarily this one).
@@ -1214,6 +1221,9 @@ class FlaggedRevs {
 			__METHOD__ );
 
 		$wgMemc->set( $key, $count, 3600*24*7 );
+		
+		wfProfileOut( __METHOD__ );
+		return true;
 	}
 
 	/**
@@ -1237,6 +1247,8 @@ class FlaggedRevs {
 	* Update flaggedrevs table on article history merge
 	*/
 	public static function updateFromMerge( $sourceTitle, $destTitle ) {
+		wfProfileIn( __METHOD__ );
+	
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
@@ -1263,6 +1275,7 @@ class FlaggedRevs {
 		self::titleLinksUpdate( $sourceTitle );
 		self::titleLinksUpdate( $destTitle );
 
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -1581,7 +1594,9 @@ class FlaggedRevs {
 		# Don't trigger this for stable version parsing...it will do it separately.
 		if( isset($parser->fr_isStable) && $parser->fr_isStable )
 			return true;
-		
+
+		wfProfileIn( __METHOD__ );
+
 		$maxRevision = 0;
 		# Record the max template revision ID
 		if( !empty($parser->mOutput->mTemplateIds) ) {
@@ -1615,6 +1630,7 @@ class FlaggedRevs {
 		# Record the max timestamp
 		$parser->mOutput->fr_newestImageTime = $maxTimestamp;
 
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -1750,15 +1766,20 @@ class FlaggedRevs {
 
 		if( empty($wgFlaggedRevsAutopromote) )
 			return true;
+
+		wfProfileIn( __METHOD__ );
 		# Grab current groups
 		$groups = $user->getGroups();
 		# Do not give this to current holders or bots
-		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) )
+		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) ) {
+			wfProfileOut( __METHOD__ );
 			return true;
+		}
 		# Do not re-add status if it was previously removed!
 		# A special entry is made in the log whenever an editor looses their rights.
 		$p = self::getUserParams( $user );
 		if( isset($params['demoted']) && $params['demoted'] ) {
+			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Update any special counters for non-null revisions
@@ -1786,42 +1807,55 @@ class FlaggedRevs {
 		}
 		# Check if user edited enough unique pages
 		if( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count($pages) ) {
+			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check edit comment use
 		if( $wgFlaggedRevsAutopromote['editComments'] > $p['editComments'] ) {
+			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check if results are cached to avoid DB queries
 		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 		$value = $wgMemc->get( $key );
 		if( $value == 'true' ) {
+			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check basic, already available, promotion heuristics first...
 		$now = time();
 		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
 		$userage = floor(($now - $usercreation) / 86400);
-		if( $userage < $wgFlaggedRevsAutopromote['days'] )
+		if( $userage < $wgFlaggedRevsAutopromote['days'] ) {
+			wfProfileOut( __METHOD__ );
 			return true;
-		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] )
+		}
+		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] ) {
+			wfProfileOut( __METHOD__ );
 			return true;
-		if( $wgFlaggedRevsAutopromote['email'] && !$user->isAllowed('emailconfirmed') )
+		}
+		if( $wgFlaggedRevsAutopromote['email'] && !$user->isAllowed('emailconfirmed') ) {
+			wfProfileOut( __METHOD__ );
 			return true;
+		}
 		# Don't grant to currently blocked users...
-		if( $user->isBlocked() )
+		if( $user->isBlocked() ) {
+			wfProfileOut( __METHOD__ );
 			return true;
+		}
 		# See if the page actually has sufficient content...
 		if( $wgFlaggedRevsAutopromote['userpage'] ) {
-			if( !$user->getUserPage()->exists() )
+			if( !$user->getUserPage()->exists() ) {
+				wfProfileOut( __METHOD__ );
 				return true;
-			
+			}
 			$dbr = wfGetDB( DB_SLAVE );
 			$size = $dbr->selectField( 'page', 'page_len',
 				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
 					'page_title' => $user->getUserPage()->getDBKey() ),
 				__METHOD__ );
 			if( $size < $wgFlaggedRevsAutopromote['userpageBytes'] ) {
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1856,6 +1890,7 @@ class FlaggedRevs {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks - $needed - 1) );
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1873,6 +1908,7 @@ class FlaggedRevs {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*7 );
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1884,6 +1920,7 @@ class FlaggedRevs {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*7 );
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1899,6 +1936,7 @@ class FlaggedRevs {
 				array( 'USE INDEX' => 'rc_ns_usertext', 
 					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
 			if( $dbr->numRows() >= $wgFlaggedRevsAutopromote['recentContent'] ) {
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1922,6 +1960,7 @@ class FlaggedRevs {
 					array( 'USE INDEX' => 'usertext_timestamp' ) );
 			}
 			if( $deletedEdits >= $minDiff ) {
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1934,6 +1973,7 @@ class FlaggedRevs {
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 	
