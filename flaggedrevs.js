@@ -30,28 +30,28 @@ function updateRatingForm() {
 	var ratingform = document.getElementById('mw-ratingselects');
 	if( !ratingform ) return;
 	var disabled = document.getElementById('fr-rating-controls-disabled');
-	if ( disabled ) return;
+	if( disabled ) return;
 
 	var quality = true;
 	var allzero = true;
 	var somezero = false;
 
-	for ( flag in wgFlaggedRevsJSparams ) {
+	for( flag in wgFlaggedRevsJSparams ) {
 		var levels = document.getElementsByName(flag);
 		var selectedlevel = 0; // default
 
-		if ( levels[0].nodeName == 'SELECT' ) {
+		if( levels[0].nodeName == 'SELECT' ) {
 			selectedlevel = levels[0].selectedIndex;
 			// Update color
 			levels[0].className = 'fr-rating-option-' + selectedlevel;
-		} else if ( levels[0].type == 'radio' ) {
-			for ( i = 0; i < levels.length; i++ ) {
-				if ( levels[i].checked ) {
+		} else if( levels[0].type == 'radio' ) {
+			for( i = 0; i < levels.length; i++ ) {
+				if( levels[i].checked ) {
 					selectedlevel = i;
 					break;
 				}
 			}
-		} else if ( levels[0].type == 'checkbox' ) {
+		} else if( levels[0].type == 'checkbox' ) {
 			selectedlevel = (levels[0].checked) ? 1: 0;
 		} else {
 			return; // error: should not happen
