@@ -61,9 +61,6 @@ $wgFlaggedRevsAutoReview = true;
 # Auto-review new pages with the minimal level?
 $wgFlaggedRevsAutoReviewNew = false;
 
-# Compress pre-processed flagged revision text?
-$wgFlaggedRevsCompression = false;
-
 # When parsing a reviewed revision, if a template to be transcluded
 # has a stable version, use that version. If not present, use the one
 # specified when the reviewed revision was reviewed. Note that the
@@ -546,10 +543,9 @@ class FlaggedRevs {
 	* Compress pre-processed text, passed by reference
 	*/
 	public static function compressText( &$text ) {
-		global $wgFlaggedRevsCompression;
-		# Compress text if $wgFlaggedRevsCompression is set.
+		global $wgCompressRevisions;
 		$flags = array( 'utf-8' );
-		if( $wgFlaggedRevsCompression ) {
+		if( $wgCompressRevisions ) {
 			if( function_exists( 'gzdeflate' ) ) {
 				$text = gzdeflate( $text );
 				$flags[] = 'gzip';
@@ -574,7 +570,7 @@ class FlaggedRevs {
 		if( is_null($text) )
 			return null;
 		if( $text !== false && in_array( 'gzip', $flags ) ) {
-			# Deal with optional compression if $wgFlaggedRevsCompression is set.
+			# Deal with optional compression if $wgCompressRevisions is set.
 			$text = gzinflate( $text );
 		}
 		return $text;
