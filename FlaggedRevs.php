@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.03',
+	'version' => '1.031',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -895,8 +895,9 @@ class FlaggedRevs {
 	*/
 	public static function isPageReviewable( $title ) {
 		global $wgFlaggedRevsNamespaces;
-
-		return ( in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
+		# Treat NS_MEDIA as NS_IMAGE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
 	}
 
 	/**
@@ -1407,8 +1408,8 @@ class FlaggedRevs {
 		# Check for stable version of template if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
-		global $wgUseStableTemplates, $wgFlaggedRevsNamespaces;
-		if( $wgUseStableTemplates && in_array($title->getNamespace(),$wgFlaggedRevsNamespaces) ) {
+		global $wgUseStableTemplates;
+		if( $wgUseStableTemplates && self::isPageReviewable( $title ) ) {
 			$id = $dbw->selectField( 'page', 'page_ext_stable',
 				array( 'page_namespace' => $title->getNamespace(),
 					'page_title' => $title->getDBkey() ),
@@ -1456,11 +1457,11 @@ class FlaggedRevs {
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
-		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
-		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
+		global $wgUseStableImages;
+		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
 			$row = $dbw->selectRow( array('page', 'flaggedimages'),
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'page_namespace' => $nt->getNamespace(),
+				array( 'page_namespace' => NS_IMAGE,
 					'page_title' => $nt->getDBkey(),
 					'page_ext_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
@@ -1519,11 +1520,11 @@ class FlaggedRevs {
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
-		global $wgUseStableImages, $wgFlaggedRevsNamespaces;
-		if( $wgUseStableImages && in_array($nt->getNamespace(),$wgFlaggedRevsNamespaces) ) {
+		global $wgUseStableImages;
+		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
 			$row = $dbw->selectRow( array('page', 'flaggedimages'),
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'page_namespace' => $nt->getNamespace(),
+				array( 'page_namespace' => NS_IMAGE,
 					'page_title' => $nt->getDBkey(),
 					'page_ext_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
