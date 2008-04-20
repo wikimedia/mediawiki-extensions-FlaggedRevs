@@ -795,7 +795,7 @@ class FlaggedRevs {
 	public static function expandRevisionTags( $tags ) {
 		# Set all flags to zero
 		$flags = array();
-		foreach( self::$dimensions as $tag => $minQL ) {
+		foreach( self::$dimensions as $tag => $levels ) {
 			$flags[$tag] = 0;
 		}
 		$tags = explode('\n',$tags);
@@ -803,9 +803,11 @@ class FlaggedRevs {
 			$set = explode(':',$tuple,2);
 			if( count($set) == 2 ) {
 				list($tag,$value) = $set;
+				$value = intval($value);
 				# Add only currently recognized ones
 				if( isset($flags[$tag]) ) {
-					$flags[$tag] = intval($value);
+					# If a level was removed, default to the highest
+					$flags[$tag] = $value < count($levels) ? $value : count($levels)-1;
 				}
 			}
 		}
