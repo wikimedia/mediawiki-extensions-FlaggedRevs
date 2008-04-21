@@ -426,6 +426,8 @@ class FlaggedRevs {
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
 		$wgParser->fr_includesMatched = true;
+		# Fix bad HTML
+		$options->setTidy( true );
 		# Don't show section-edit links, they can be old and misleading
 		$options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
