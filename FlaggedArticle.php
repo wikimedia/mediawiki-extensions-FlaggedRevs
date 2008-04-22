@@ -371,11 +371,6 @@ class FlaggedArticle {
 	* Set the image revision to display
 	*/
 	public static function setImageVersion( $title, $article ) {
-		if( NS_MEDIA == $title->getNamespace() ) {
-			# FIXME: where should this go?
-			$title = Title::makeTitle( NS_IMAGE, $title->getDBkey() );
-		}
-
 		if( $title->getNamespace() == NS_IMAGE && FlaggedRevs::isPageReviewable( $title ) ) {
 			global $wgFlaggedArticle, $wgRequest;
 			# A reviewed version may have explicitly been requested...
