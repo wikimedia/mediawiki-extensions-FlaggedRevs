@@ -70,7 +70,7 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		global $wgReviewCodes;
 		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID() );
+		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $this->oldid );
 		# Must match up
 		if( $this->validatedParams !== $checkCode ) {
 			$this->templateParams = '';
@@ -284,7 +284,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID() );
+		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
 		$form .= '</fieldset>';
 

@@ -583,11 +583,13 @@ class FlaggedRevs {
 	* @param string $tmpP
 	* @param string $imgP
 	* @param integer $uid user ID
+	* @param integer $rid rev ID
 	* @return string
 	*/
-	public static function getValidationKey( $tmpP, $imgP, $uid ) {
+	public static function getValidationKey( $tmpP, $imgP, $uid, $rid ) {
 		global $wgReviewCodes;
-		return ( MD5($imgP.$wgReviewCodes[0]).sha1($wgReviewCodes[1].$uid.$wgReviewCodes[3]).MD5($tmpP.$wgReviewCodes[2]) );
+		$p = MD5($uid.$imgP.$wgReviewCodes[0]).sha1($wgReviewCodes[1].$rid.$wgReviewCodes[3]).MD5($uid.$tmpP.$wgReviewCodes[2]);
+		return $p;
 	}
 	
 	/**

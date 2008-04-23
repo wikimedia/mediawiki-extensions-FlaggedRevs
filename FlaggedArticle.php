@@ -875,7 +875,7 @@ class FlaggedArticle {
 		# Pass this in if given; useful for new page patrol
 		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID() );
+		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID(), $id );
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
