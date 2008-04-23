@@ -1199,6 +1199,7 @@ $messages['de'] = array(
 
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
 	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] jede Änderung ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
+	'revreview-update-includes'   => "'''Einige Vorlagen/Bilder wurden aktualisiert:'''",
 	'revreview-auto'              => '(automatisch)',
 	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
