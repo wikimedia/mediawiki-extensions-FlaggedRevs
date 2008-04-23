@@ -1022,8 +1022,8 @@ class FlaggedArticle {
 
 		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $NewRev->getTitle() ) )
 			return true;
-
-		if( $wgUser->isAllowed('review') && $NewRev->isCurrent() && $OldRev ) {
+		# Check if this might be the diff to stable. If so, enhance it.
+		if( $NewRev->isCurrent() && $OldRev ) {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $OldRev->getID() ) {
 				$changeList = array();
@@ -1055,14 +1055,18 @@ class FlaggedArticle {
 					$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
 					$changeList[] = $skin->makeKnownLinkObj( $title );
 				}
-
-				if( empty($changeList) ) {
+				# If the user is allowed to review, prompt them!
+				if( empty($changeList) && $wgUser->isAllowed('review') ) {
 					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
 						wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
-				} else {
+				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
 						wfMsgExt('revreview-update', array('parseinline')) . ' ' . $changeList . '</div>' );
+				} else if( !empty($changeList) ) {
+					$changeList = implode(', ',$changeList);
+					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
+						wfMsgExt('revreview-update-includes', array('parseinline')) . ' ' . $changeList . '</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
