@@ -148,7 +148,8 @@ $wgFlaggedRevsAutopromote = array(
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
 	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
-	'uniqueContentPages'  => 5, # $wgContentNamespaces unique pages edited
+	'totalContentEdits'   => 30, # $wgContentNamespaces edits
+	'uniqueContentPages'  => 10, # $wgContentNamespaces unique pages edited
 	'editComments'        => 5, # how many edit comments used?
 	'email'	              => true, # user must be emailconfirmed?
 	'userpage'            => true, # user must have a userpage?
@@ -1807,6 +1808,11 @@ class FlaggedRevs {
 		# Save any updates to user params
 		if( $changed ) {
 			self::saveUserParams( $user, $p );
+		}
+		# Check if user edited enough content pages
+		if( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
+			wfProfileOut( __METHOD__ );
+			return true;
 		}
 		# Check if user edited enough unique pages
 		if( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count($pages) ) {
