@@ -1328,15 +1328,18 @@ class FlaggedRevs {
 	*/
 	public static function extraLinksUpdate( $linksUpdate ) {
 		wfProfileIn( __METHOD__ );
-
-		if( !self::isPageReviewable( $linksUpdate->mTitle ) )
+		if( !self::isPageReviewable( $linksUpdate->mTitle ) ) {
+			wfProfileOut( __METHOD__ );
 			return true;
+		}
 		# Check if this page has a stable version by fetching it. Do not
 		# get the fr_text field if we are to use the latest stable template revisions.
 		global $wgUseStableTemplates;
 		$sv = self::getStablePageRev( $linksUpdate->mTitle, !$wgUseStableTemplates, true );
-		if( !$sv )
+		if( !$sv ) {
+			wfProfileOut( __METHOD__ );
 			return true;
+		}
 		# Get the either the full flagged revision text or the revision text
 		$article = new Article( $linksUpdate->mTitle );
 		# Try stable version cache. This should be updated before this is called.
@@ -1374,7 +1377,6 @@ class FlaggedRevs {
 		foreach( $parserOut->getCategories() as $category => $sort ) {
 			$linksUpdate->mCategories[$category] = $sort;
 		}
-		# Interlanguage links
 		$ill = $parserOut->getLanguageLinks();
 		foreach( $ill as $link ) {
 			list( $key, $title ) = explode( ':', $link, 2 );
@@ -1392,7 +1394,6 @@ class FlaggedRevs {
 		$parser->mOutput->fr_ImageSHA1Keys = array();
 		$parser->mOutput->fr_newestImageTime = "0";
 		$parser->mOutput->fr_newestTemplateID = 0;
-		
 		return true;
 	}
 
@@ -2150,9 +2151,7 @@ class FlaggedRevs {
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
 
 			if($index === $selected) {
-				$s .= "\t" . Xml::element("option",
-						array("value" => $index, "selected" => "selected"),
-						$name) . "\n";
+				$s .= "\t" . Xml::element("option", array("value" => $index, "selected" => "selected"), $name) . "\n";
 			} else {
 				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
 			}
