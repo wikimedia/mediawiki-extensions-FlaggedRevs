@@ -1794,8 +1794,9 @@ class FlaggedRevs {
 		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
 		$p['editComments'] = isset($p['editComments']) ? $p['editComments'] : 0;
 		if( $rev && $article->getTitle()->isContentPage() ) {
-			$pages = explode(',',trim($p['uniqueContentPages']) ); // page IDs
-			if( !in_array( $article->getId(), $pages ) ) {
+			$pages = explode( ',', trim($p['uniqueContentPages']) ); // page IDs
+			# Don't let this get bloated for no reason
+			if( count($pages) < $wgFlaggedRevsAutopromote['uniqueContentPages'] && !in_array($article->getId(),$pages) ) {
 				$pages[] = $article->getId();
 				$p['uniqueContentPages'] = implode(',',$pages);
 			}
