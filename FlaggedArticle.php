@@ -771,14 +771,14 @@ class FlaggedArticle {
 			$form .= '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>';
 		}
 
-		# current user has too few rights to change at least one flag, thus entire form disabled
+		# Current user has too few rights to change at least one flag, thus entire form disabled
 		$disabled = !RevisionReview::userCanSetFlags( $flags );
 		if( $disabled ) {
-			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-controls-disabled',
+			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls-disabled',
 				'id' => 'fr-rating-controls-disabled') );
 			$toggle = array( 'disabled' => "disabled" );
 		} else {
-			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
+			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
 			$toggle = array();
 		}
 		$size = count(FlaggedRevs::$dimensions,1) - count(FlaggedRevs::$dimensions);
@@ -837,7 +837,7 @@ class FlaggedArticle {
 			$form .= "<div id='mw-notebox'>\n";
 			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= "<p>" . Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
-				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) . "</p>\n";
+				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) . Xml::closeElement('textarea') . "</p>\n";
 			$form .= "</div>\n";
 		}
 
@@ -881,14 +881,14 @@ class FlaggedArticle {
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed
 		if( !$disabled ) {
-			$form .= "<span id='mw-commentbox'><br/>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
+			$form .= "<span id='mw-commentbox' style='clear:both;'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "</span>";
 		}
 		$form .= "&nbsp;&nbsp;&nbsp;";
 		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton')+$toggle);
 		$form .= Xml::closeElement( 'span' );
-		$form .= Xml::closeElement( 'span' );
-
+		
+		$form .= Xml::closeElement( 'div' );
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 
