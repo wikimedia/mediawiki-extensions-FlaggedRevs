@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.031',
+	'version' => '1.032',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -1845,7 +1845,7 @@ class FlaggedRevs {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
-		if( $wgFlaggedRevsAutopromote['email'] && !$user->isAllowed('emailconfirmed') ) {
+		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
