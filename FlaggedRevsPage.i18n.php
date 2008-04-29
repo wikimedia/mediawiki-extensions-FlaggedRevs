@@ -24,6 +24,8 @@ $messages['en'] = array(
 
 	'right-review'          => 'Mark revisions as sighted',
 	'right-validate'        => 'Mark revisions as validated',
+	'right-unreviewedpages' => 'View list of unreviewed pages',
+	'right-stablesettings'  => 'Configure how the stable version is selected and displayed',
 
 	'revreview-current'   => 'Draft',
 	'tooltip-ca-current'  => 'View the current draft of this page',
