@@ -16,11 +16,13 @@ $messages['en'] = array(
 	'group-editor'        => 'Editors',
 	'group-editor-member' => 'Editor',
 	'grouppage-editor'    => '{{ns:project}}:Editor',
+	'right-review'        => 'Mark revisions as sighted',
 
 	'reviewer'              => 'Reviewer',
 	'group-reviewer'        => 'Reviewers',
 	'group-reviewer-member' => 'Reviewer',
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
+	'right-validate'        => 'Mark revisions as validated',
 
 	'revreview-current'   => 'Draft',
 	'tooltip-ca-current'  => 'View the current draft of this page',
@@ -1129,10 +1131,14 @@ $messages['de'] = array(
 	'group-editor'                => 'Sichter',
 	'group-editor-member'         => 'Sichter',
 	'grouppage-editor'            => '{{ns:project}}:Sichter',
+	'right-review'                => 'Markiere Versionen als gesichtet',
+
 	'reviewer'                    => 'Prüfer',
 	'group-reviewer'              => 'Prüfer',
 	'group-reviewer-member'       => 'Prüfer',
 	'grouppage-reviewer'          => '{{ns:project}}:Prüfer',
+	'right-validate'              => 'Markiere Versionen als geprüft',
+
 	'revreview-current'           => 'Unmarkiert (bearbeitbar)',
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unmarkierten Seite',
 	'revreview-edit'              => 'Bearbeite unmarkierte Seite',
