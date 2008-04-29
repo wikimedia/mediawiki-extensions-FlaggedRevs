@@ -1042,7 +1042,7 @@ class FlaggedRevs {
 	/**
 	 * Get JS script params for onloading
 	 */
-	public function getJSParams() {
+	public static function getJSParams() {
 		# Param to pass to JS function to know if tags are at quality level
 		global $wgFlaggedRevTags;
 		$JSparams = '';
