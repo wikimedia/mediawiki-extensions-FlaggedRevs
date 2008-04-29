@@ -128,7 +128,7 @@ class FlaggedRevision {
 			// WTF ???
 			if( !$row ) {
 				$this->mRawDBText = false;
-				$this->mFlags = false;
+				$this->mFlags = array();
 				$this->mText = false;
 				wfProfileOut( __METHOD__ );
 				return false;
