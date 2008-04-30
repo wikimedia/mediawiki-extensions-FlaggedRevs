@@ -44,9 +44,11 @@ $wgFlaggedRevsPrecedence = true;
 # Below are groups that see the current revision by default.
 $wgFlaggedRevsExceptions = array( 'user' );
 
-# Flagged revisions are always visible to users in the groups below.
+# Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
 $wgFlaggedRevsVisible = array();
+# Always allow viewing of talk pages for the users above.
+$wgFlaggedRevsTalkVisible = false;
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevComments = false;
@@ -1681,7 +1683,7 @@ class FlaggedRevs {
 	* Allow users to view reviewed pages.
 	*/
 	public static function userCanView( $title, $user, $action, $result ) {
-		global $wgFlaggedRevsVisible, $wgTitle;
+		global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
 		# Assume $action may still not be set, in which case, treat it as 'view'...
 		if( $action != 'read' )
 			return true;
@@ -1690,6 +1692,11 @@ class FlaggedRevs {
 		$groups[] = '*';
 		if( empty($wgFlaggedRevsVisible) || !array_intersect($groups,$wgFlaggedRevsVisible) )
 			return true;
+		# Is this a talk page?
+		if( $wgFlaggedRevsTalkVisible && $title->isTalkPage() ) {
+			$result = true;
+			return true;
+		}
 		# See if there is a stable version. Also, see if, given the page 
 		# config and URL params, the page can be overriden.
 		if( $wgTitle && $wgTitle->equals( $title ) ) {
