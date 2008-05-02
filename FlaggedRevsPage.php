@@ -927,6 +927,13 @@ class UnreviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
+		# Reviewable pages only
+		global $wgFlaggedRevsNamespaces;
+		if( empty($wgFlaggedRevsNamespaces) ) {
+			$conds[] = "1 = 0"; 	 
+		} else {
+			$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
+		}
 		# No redirects
 		$conds[] = 'page_id = fp_page_id';
 		$conds['page_is_redirect'] = 0;
