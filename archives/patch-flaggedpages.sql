@@ -1,11 +1,11 @@
 -- Add page metadata for flaggedrevs
 CREATE TABLE /*$wgDBprefix*/flaggedpages (
   -- Foreign key to page.page_id
-  fp_page_id int(10) NOT NULL,
+  fp_page_id integer NOT NULL,
   -- Is the page reviewed up to date?
   fp_reviewed bool NULL,
   -- Foreign key to flaggedrevs.fr_rev_id
-  fp_stable int(10) NULL,
+  fp_stable integer NULL,
   -- The highest quality of the page's reviewed revisions.
   -- Note that this may not be set to display by default though.
   fp_quality tinyint(1) default NULL,

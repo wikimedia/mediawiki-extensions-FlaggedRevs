@@ -6,11 +6,11 @@
 -- Add page metadata for flaggedrevs
 CREATE TABLE /*$wgDBprefix*/flaggedpages (
   -- Foreign key to page.page_id
-  fp_page_id int(10) NOT NULL,
+  fp_page_id integer NOT NULL,
   -- Is the page reviewed up to date?
   fp_reviewed bool NULL,
   -- Foreign key to flaggedrevs.fr_rev_id
-  fp_stable int(10) NULL,
+  fp_stable integer NULL,
   -- The highest quality of the page's reviewed revisions.
   -- Note that this may not be set to display by default though.
   fp_quality tinyint(1) default NULL,
@@ -24,9 +24,9 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
 -- the corresponding tags are stored in the tag table
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- Foreign key to page.page_id
-  fr_page_id int(10) NOT NULL,
+  fr_page_id integer NOT NULL,
   -- Foreign key to revision.rev_id
-  fr_rev_id int(10) NOT NULL,
+  fr_rev_id integer NOT NULL,
   -- Foreign key to user.user_id
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
@@ -51,11 +51,11 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
 
 -- This stores settings on how to select the default revision
 CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
-  fpc_page_id int(10) NOT NULL,
+  fpc_page_id integer NOT NULL,
   -- Integers to represent what to show by default:
   -- 0: quality -> stable -> current
   -- 1: latest reviewed
-  fpc_select int(10) NOT NULL,
+  fpc_select integer NOT NULL,
   -- Override the page?
   fpc_override bool NOT NULL,
   -- Field for time-limited settings
@@ -67,19 +67,19 @@ CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
 
 -- This stores all of our transclusion revision pointers
 CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
-  ft_rev_id int(10) NOT NULL,
+  ft_rev_id integer NOT NULL,
   -- Namespace and title of included page
   ft_namespace int NOT NULL default '0',
   ft_title varchar(255) binary NOT NULL default '',
   -- Revisions ID used when reviewed
-  ft_tmp_rev_id int(10) NULL,
+  ft_tmp_rev_id integer NULL,
   
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 ) TYPE=InnoDB;
 
 -- This stores all of our image revision pointers
 CREATE TABLE /*$wgDBprefix*/flaggedimages (
-  fi_rev_id int(10) NOT NULL,
+  fi_rev_id integer NOT NULL,
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
   -- Timestamp of image used when reviewed
@@ -93,7 +93,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
 -- This stores user demotions and stats
 CREATE TABLE /*$wgDBprefix*/flaggedrevs_promote (
   -- Foreign key to user.user_id
-  frp_user_id int(10) NOT NULL,
+  frp_user_id integer NOT NULL,
   frp_user_params mediumblob NOT NULL default '',
   
   PRIMARY KEY (frp_user_id)
