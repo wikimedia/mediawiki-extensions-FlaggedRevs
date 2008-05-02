@@ -881,10 +881,9 @@ class FlaggedArticle {
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed
 		if( !$disabled ) {
-			$form .= "<span id='mw-commentbox' style='clear:both;'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
-				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "</span>";
+			$form .= "<span id='mw-commentbox'><br/>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
+				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-		$form .= "&nbsp;&nbsp;&nbsp;";
 		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton')+$toggle);
 		$form .= Xml::closeElement( 'span' );
 		
