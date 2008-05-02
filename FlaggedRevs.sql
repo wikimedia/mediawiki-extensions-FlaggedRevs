@@ -3,6 +3,23 @@
 -- Table structure for table `Flagged Revisions`
 -- Replace /*$wgDBprefix*/ with the proper prefix
 
+-- Add page metadata for flaggedrevs
+CREATE TABLE /*$wgDBprefix*/flaggedpages (
+  -- Foreign key to page.page_id
+  fp_page_id int(10) NOT NULL,
+  -- Is the page reviewed up to date?
+  fp_reviewed bool NULL,
+  -- Foreign key to flaggedrevs.fr_rev_id
+  fp_stable int(10) NULL,
+  -- The highest quality of the page's reviewed revisions.
+  -- Note that this may not be set to display by default though.
+  fp_quality tinyint(1) default NULL,
+  
+  PRIMARY KEY (fp_page_id),
+  INDEX fp_reviewed_page (fp_reviewed,fp_page_id),
+  INDEX fp_quality_page (fp_quality,fp_page_id)
+) TYPE=InnoDB;
+
 -- This stores all of our reviews, 
 -- the corresponding tags are stored in the tag table
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
@@ -81,15 +98,3 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs_promote (
   
   PRIMARY KEY (frp_user_id)
 ) TYPE=InnoDB;
-
--- Add page_ext_stable column, similar to page_latest
--- Add page_ext_reviewed column, a boolean for "up to date" stable versions
-ALTER TABLE /*$wgDBprefix*/page 
-  ADD page_ext_reviewed bool NULL,
-  ADD page_ext_stable int(10) NULL,
-  -- The highest quality of the page's reviewed revisions.
-  -- Note that this may not be set to display by default though.
-  ADD page_ext_quality tinyint(1) default NULL,
-  
-  ADD INDEX ext_namespace_reviewed (page_namespace,page_ext_reviewed,page_id),
-  ADD INDEX ext_namespace_quality (page_namespace,page_ext_quality,page_title);

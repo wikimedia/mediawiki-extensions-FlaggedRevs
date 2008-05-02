@@ -863,9 +863,7 @@ class UnreviewedPages extends SpecialPage
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('viewunreviewed') . '</legend>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
-			'<p>' . Xml::label( wfMsg("namespace"), 'namespace' ) . ' ' .
-			FlaggedRevs::getNamespaceMenu( $namespace ) .
-			'&nbsp;' . Xml::label( wfMsg("unreviewed-category"), 'category' ) .
+			Xml::label( wfMsg("unreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 40, $category, array('id' => 'category') ) . '</p>' .
 			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) .
 			' ' . Xml::label( wfMsg("unreviewed-outdated"), 'showoutdated' ) . "</p>\n" .
@@ -873,7 +871,7 @@ class UnreviewedPages extends SpecialPage
 			"</fieldset></form>"
 		);
 		
-		$pager = new UnreviewedPagesPager( $this, $namespace, $showoutdated, $category );
+		$pager = new UnreviewedPagesPager( $this, $showoutdated, $category );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -896,9 +894,9 @@ class UnreviewedPages extends SpecialPage
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		if( $result->page_ext_stable )
+		if( $result->fp_stable )
 			$review = ' (' . $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
-				"diff=cur&oldid={$result->page_ext_stable}" ) . ')';
+				"diff=cur&oldid={$result->fp_stable}" ) . ')';
 
 		return( "<li>{$link} {$stxt} {$review}</li>" );
 	}
@@ -911,20 +909,12 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $namespace, $category, $showOutdated;
 
-	function __construct( $form, $namespace, $showOutdated=false, $category=NULL, $conds = array() ) {
+	function __construct( $form, $showOutdated=false, $category=NULL, $conds = array() ) {
 		global $wgFlaggedRevsNamespaces;
 		
 		$this->mForm = $form;
 		$this->mConds = $conds;
-		# Must be a content page...
-		if( !is_null($namespace) )
-			$namespace = intval($namespace);
 		
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0];
-		}
-		
-		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		$this->showOutdated = (bool)$showOutdated;
 		
@@ -938,16 +928,16 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		# No redirects
-		$conds['page_namespace'] = $this->namespace;
+		$conds[] = 'page_id = fp_page_id';
 		$conds['page_is_redirect'] = 0;
 		# We don't like filesorts, so the query methods here will be very different
 		if( !$this->showOutdated ) {
-			$conds[] = 'page_ext_reviewed IS NULL';
+			$conds[] = 'fp_reviewed IS NULL';
 		} else {
-			$conds['page_ext_reviewed'] = 0;
+			$conds['fp_reviewed'] = 0;
 		}
-		$tables = array( 'page' );
-		$fields = array('page_namespace','page_title','page_len','page_ext_stable');
+		$tables = array( 'page', 'flaggedpages' );
+		$fields = array('page_namespace','page_title','page_len','fp_stable');
 		# Filter by category
 		if( $this->category ) {
 			$tables[] = 'categorylinks';
@@ -956,12 +946,17 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$fields[] = 'cl_sortkey';
 			
 			$this->mIndexField = 'cl_sortkey';
-			$use_index = array('categorylinks' => 'cl_sortkey', 'page' => 'PRIMARY');
+			$use_index = array('categorylinks' => 'cl_sortkey');
 		} else {
-			$fields[] = 'page_id';
-			
-			$this->mIndexField = 'page_id';
-			$use_index = array('page' => 'ext_namespace_reviewed');
+			if( $this->showOutdated ) {
+				$use_index = array('flaggedpages' => 'fp_reviewed_page');
+				$fields[] = 'fp_page_id';
+				$this->mIndexField = 'fp_page_id';
+			} else {
+				$use_index = array('page' => 'PRIMARY');
+				$fields[] = 'page_id';
+				$this->mIndexField = 'page_id';
+			}
 		}
 		
 		return array(
@@ -995,8 +990,6 @@ class ReviewedPages extends SpecialPage
 		$this->type = $wgRequest->getInt( 'level' );
 		$this->type = $this->type <= $maxType ? $this->type : 0;
 		
-		$this->namespace = $wgRequest->getInt( 'namespace' );
-		
 		$this->showForm();
 		$this->showPageList();
 	}
@@ -1007,9 +1000,6 @@ class ReviewedPages extends SpecialPage
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsg('reviewedpages-leg')."</legend>\n";
-
-		$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . ' ' .
-			FlaggedRevs::getNamespaceMenu( $this->namespace ) . ' ';
 
 		$form .= Xml::openElement( 'select', array('name' => 'level') );
 		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $this->type==0 );
@@ -1030,7 +1020,7 @@ class ReviewedPages extends SpecialPage
 	function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 
-		$pager = new ReviewedPagesPager( $this, array(), $this->type, $this->namespace );
+		$pager = new ReviewedPagesPager( $this, array(), $this->type );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -1080,22 +1070,18 @@ class ReviewedPagesPager extends AlphabeticPager {
 		global $wgFlaggedRevsNamespaces;
 
 		$conds = $this->mConds;
-		# Must be in a reviewable namespace
-		if( !in_array($this->namespace, $wgFlaggedRevsNamespaces) ) {
-			$conds[] = "1 = 0";
-		}
-		$conds['page_namespace'] = $this->namespace;
-		$conds['page_ext_quality'] = $this->type;
+		$conds[] = 'page_id = fp_page_id';
+		$conds['fp_quality'] = $this->type;
 		return array(
-			'tables' => array('page'),
-			'fields' => 'page_namespace,page_title',
+			'tables' => array('flaggedpages','page'),
+			'fields' => 'page_namespace,page_title,fp_page_id',
 			'conds'  => $conds,
-			'options' => array('USE INDEX' => 'ext_namespace_quality')
+			'options' => array( 'USE INDEX' => array('flaggedpages' => 'fp_quality') )
 		);
 	}
 
 	function getIndexField() {
-		return 'page_title';
+		return 'fp_page_id';
 	}
 }
 

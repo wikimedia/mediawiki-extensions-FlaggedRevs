@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.032',
+	'version' => '1.04',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -326,6 +326,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
+		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
 	} else if( $wgDBtype == 'postgres' ) {
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
@@ -675,7 +676,7 @@ class FlaggedRevs {
 	 * Get latest quality rev, if not, the latest reviewed one.
 	 * @param Title $title, page title
 	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master DB and avoid using page_ext_stable?
+	 * @param bool $forUpdate, use master DB and avoid using fp_stable?
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
 	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
@@ -688,11 +689,10 @@ class FlaggedRevs {
 		# If we want the text, then get the text flags too
 		if( !$forUpdate ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$row = $dbr->selectRow( array('page','flaggedrevs'),
+			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
 				$columns,
-				array( 'page_namespace' => $title->getNamespace(),
-					'page_title' => $title->getDBkey(),
-					'page_ext_stable = fr_rev_id' ),
+				array( 'fp_page_id' => $title->getArticleId(),
+					'fp_stable = fr_rev_id' ),
 				__METHOD__  );
 			if( !$row )
 				return null;
@@ -1194,7 +1194,7 @@ class FlaggedRevs {
  	/**
 	* @param Article $article
 	* @param Integer $rev_id, the stable version rev_id
-	* Updates the page_ext_stable and page_ext_reviewed fields
+	* Updates the fp_stable and fp_reviewed fields
 	*/
 	public static function updateArticleOn( $article, $rev_id ) {
 		global $wgMemc;
@@ -1212,12 +1212,11 @@ class FlaggedRevs {
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
 		$maxQuality = $maxQuality===false ? null : $maxQuality;
 		# Alter table metadata
-		$dbw->update( 'page',
-			array( 'page_ext_stable' => $rev_id,
-				'page_ext_reviewed' => ($article->getLatest() == $rev_id) ? 1 : 0,
-				'page_ext_quality' => $maxQuality ),
-			array( 'page_namespace' => $article->getTitle()->getNamespace(),
-				'page_title' => $article->getTitle()->getDBkey() ),
+		$dbw->update( 'flaggedpages',
+			array( 'fp_stable' => $rev_id,
+				'fp_reviewed' => ($article->getLatest() == $rev_id) ? 1 : 0,
+				'fp_quality' => $maxQuality ),
+			array( 'fp_page_id' => $article->getId() ),
 			__METHOD__ );
 		# Update the cache
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
@@ -1420,9 +1419,8 @@ class FlaggedRevs {
 		# well as enforce site settings if they are later changed.
 		global $wgUseStableTemplates;
 		if( $wgUseStableTemplates && self::isPageReviewable( $title ) ) {
-			$id = $dbw->selectField( 'page', 'page_ext_stable',
-				array( 'page_namespace' => $title->getNamespace(),
-					'page_title' => $title->getDBkey() ),
+			$id = $dbw->selectField( 'flaggedpages', 'fp_stable',
+				array( 'fp_page_id' => $title->getArticleId() ),
 				__METHOD__ );
 		}
 		# If there is no stable version (or that feature is not enabled), use
@@ -1469,11 +1467,10 @@ class FlaggedRevs {
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$row = $dbw->selectRow( array('page', 'flaggedimages'),
+			$row = $dbw->selectRow( array('flaggedpages', 'flaggedimages'),
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'page_namespace' => NS_IMAGE,
-					'page_title' => $nt->getDBkey(),
-					'page_ext_stable = fi_rev_id',
+				array( 'fp_page_id' => $nt->getArticleId(),
+					'fp_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
@@ -1532,11 +1529,10 @@ class FlaggedRevs {
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$row = $dbw->selectRow( array('page', 'flaggedimages'),
+			$row = $dbw->selectRow( array('flaggedpages', 'flaggedimages'),
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'page_namespace' => NS_IMAGE,
-					'page_title' => $nt->getDBkey(),
-					'page_ext_stable = fi_rev_id',
+				array( 'fp_page_id' => $nt->getArticleId(),
+					'fp_stable = fi_rev_id',
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
