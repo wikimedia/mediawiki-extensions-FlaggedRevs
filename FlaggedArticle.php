@@ -89,7 +89,7 @@ class FlaggedArticle {
 		if( !$this->reviewNotice ) {
 			return false;
 		}
-		$wgOut->setSubtitle( $this->reviewNotice );
+		$wgOut->appendSubtitle( $this->reviewNotice );
 		
 		return true;
 	}

@@ -174,7 +174,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'unreviewed-none'       => 'There are currently no pages meeting these criteria',
 
 	'oldreviewedpages'        => 'Outdated reviewed pages',
-	'oldreviewedpages-legend' => 'List stable pages with unreviewed revisions',
+	'oldreviewedpages-legend' => 'List reviewed pages with unreviewed revisions',
 
 	'revreview-visibility'  => "'''This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].'''",
 
