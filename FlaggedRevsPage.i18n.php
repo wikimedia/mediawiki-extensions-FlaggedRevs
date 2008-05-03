@@ -166,12 +166,15 @@ Refreshing the page and rereviewing can solve this problem.',
 	'review-diff2stable'    => 'View changes between stable and current revisions',
 
 	'unreviewedpages'       => 'Unreviewed pages',
-	'viewunreviewed'        => 'List unreviewed content pages',
-	'unreviewed-outdated'   => 'Show pages that have unreviewed revisions made to the stable version instead.',
+	'unreviewed-legend'     => 'List unreviewed content pages',
 	'unreviewed-category'   => 'Category:',
 	'unreviewed-diff'       => 'Changes',
+	'unreviewed-unwatched'  => '(unwatched)',
 	'unreviewed-list'       => 'This page lists articles that have not been reviewed or have new, unreviewed, revisions.',
 	'unreviewed-none'       => 'There are currently no pages meeting these criteria',
+
+	'oldreviewedpages'        => 'Outdated reviewed pages',
+	'oldreviewedpages-legend' => 'List stable pages with unreviewed revisions',
 
 	'revreview-visibility'  => "'''This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].'''",
 

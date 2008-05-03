@@ -856,22 +856,202 @@ class UnreviewedPages extends SpecialPage
 		global $wgOut, $wgUser, $wgScript, $wgTitle;
 
 		$namespace = $wgRequest->getIntOrNull( 'namespace' );
-		$showoutdated = $wgRequest->getVal( 'showoutdated' );
 		$category = trim( $wgRequest->getVal( 'category' ) );
 
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg('viewunreviewed') . '</legend>' .
+			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
-			Xml::label( wfMsg("unreviewed-category"), 'category' ) .
-			' ' . Xml::input( 'category', 40, $category, array('id' => 'category') ) . '</p>' .
-			'<p>' . Xml::check( 'showoutdated', $showoutdated, array('id' => 'showoutdated') ) .
-			' ' . Xml::label( wfMsg("unreviewed-outdated"), 'showoutdated' ) . "</p>\n" .
-			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
+			'<p>' . Xml::label( wfMsg("namespace"), 'namespace' ) .
+			FlaggedRevs::getNamespaceMenu( $namespace ) .
+			'&nbsp;' . Xml::label( wfMsg("unreviewed-category"), 'category' ) .
+			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
+			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"
 		);
 		
-		$pager = new UnreviewedPagesPager( $this, $showoutdated, $category );
+		$pager = new UnreviewedPagesPager( $this, $namespace, $category );
+		if( $pager->getNumRows() ) {
+			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+		} else {
+			$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
+		}
+	}
+	
+	function formatRow( $result ) {
+		global $wgLang;
+
+		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
+		$link = $this->skin->makeKnownLinkObj( $title );
+		$stxt = $review = '';
+		if( !is_null($size = $result->page_len) ) {
+			if($size == 0)
+				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
+			else
+				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
+		}
+		$unwatched = is_null($result->wl_user) ? wfMsgHtml("unreviewed-unwatched") : "";
+
+		return( "<li>{$link} {$stxt} {$review}{$unwatched}</li>" );
+	}
+}
+
+/**
+ * Query to list out unreviewed pages
+ */
+class UnreviewedPagesPager extends AlphabeticPager {
+	public $mForm, $mConds;
+	private $namespace, $category;
+
+	function __construct( $form, $namespace, $category=NULL, $conds = array() ) {
+		$this->mForm = $form;
+		$this->mConds = $conds;
+		# Must be a content page...
+		global $wgFlaggedRevsNamespaces;
+		if( !is_null($namespace) ) {
+			$namespace = intval($namespace);
+		}
+		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		}
+		$this->namespace = $namespace;
+		$this->category = $category ? str_replace(' ','_',$category) : NULL;
+		
+		parent::__construct();
+	}
+
+	function formatRow( $row ) {
+		return $this->mForm->formatRow( $row );
+	}
+
+	function getQueryInfo() {
+		$conds = $this->mConds;
+		$tables = array( 'page', 'flaggedpages' );
+		$fields = array('page_namespace','page_title','page_len','fp_stable');
+		$conds[] = 'fp_reviewed IS NULL';
+		# Reviewable pages only
+		$conds['page_namespace'] = $this->namespace;
+		# No redirects
+		$conds['page_is_redirect'] = 0;
+		# Filter by category
+		if( $this->category ) {
+			$tables[] = 'categorylinks';
+			$fields[] = 'cl_sortkey';
+			$conds['cl_to'] = $this->category;
+			$conds[] = 'cl_from = page_id';
+			$this->mIndexField = 'cl_sortkey';
+		} else {
+			$fields[] = 'page_id';
+			$this->mIndexField = 'page_title';
+		}
+		return array(
+			'tables'  => $tables,
+			'fields'  => $fields,
+			'conds'   => $conds,
+			'options' => array()
+		);
+	}
+	
+	/**
+	 * Do a query with specified parameters, rather than using the object
+	 * context
+	 *
+	 * @param string $offset Index offset, inclusive
+	 * @param integer $limit Exact query limit
+	 * @param boolean $descending Query direction, false for ascending, true for descending
+	 * @return ResultWrapper
+	 */
+	function reallyDoQuery( $offset, $limit, $descending ) {
+		$fname = __METHOD__ . ' (' . get_class( $this ) . ')';
+		$info = $this->getQueryInfo();
+		$tables = $info['tables'];
+		$fields = $info['fields'];
+		$conds = isset( $info['conds'] ) ? $info['conds'] : array();
+		$options = isset( $info['options'] ) ? $info['options'] : array();
+		if ( $descending ) {
+			$options['ORDER BY'] = $this->mIndexField;
+			$operator = '>';
+		} else {
+			$options['ORDER BY'] = $this->mIndexField . ' DESC';
+			$operator = '<';
+		}
+		if ( $offset != '' ) {
+			$conds[] = $this->mIndexField . $operator . $this->mDb->addQuotes( $offset );
+		}
+		$options['LIMIT'] = intval( $limit );
+		# Get table names
+		list($flaggedpages,$page,$categorylinks,$watchlist) = 
+			$this->mDb->tableNamesN('flaggedpages','page','categorylinks','watchlist');
+		# Are we filtering via category?
+		if( in_array('categorylinks',$tables) ) {
+			$index = $this->mDb->useIndexClause('cl_sortkey'); // *sigh*...
+			$fromClause = "$categorylinks $index, $page";
+		} else {
+			$index = $this->mDb->useIndexClause('name_title'); // *sigh*...
+			$fromClause = "$page $index";
+		}
+		$fields[] = 'wl_user';
+		$sql = "SELECT ".implode(',',$fields).
+			" FROM $fromClause".
+			" LEFT JOIN $flaggedpages ON (fp_page_id=page_id)".
+			" LEFT JOIN $watchlist ON (wl_namespace=page_namespace AND wl_title=page_title)".
+			" WHERE ".$this->mDb->makeList($conds,LIST_AND).
+			" ORDER BY ".$options['ORDER BY']." LIMIT ".$options['LIMIT'];
+		# Do query!
+		$res = $this->mDb->query( $sql );
+		return new ResultWrapper( $this->mDb, $res );
+	}
+
+	function getIndexField() {
+		return $this->mIndexField;
+	}
+}
+
+/**
+ * Special page to list unreviewed pages
+ */
+class OldReviewedPages extends SpecialPage
+{
+
+    function __construct() {
+        SpecialPage::SpecialPage( 'OldReviewedPages', 'unreviewedpages' );
+    }
+
+    function execute( $par ) {
+        global $wgRequest, $wgUser, $wgOut;
+		
+		$this->setHeaders();
+		
+		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
+			$wgOut->permissionRequired( 'unreviewedpages' );
+			return;
+		}
+		$this->skin = $wgUser->getSkin();
+		
+		$this->showList( $wgRequest );
+	}
+
+	function showList( $wgRequest ) {
+		global $wgOut, $wgUser, $wgScript, $wgTitle;
+
+		$namespace = $wgRequest->getIntOrNull( 'namespace' );
+		$category = trim( $wgRequest->getVal( 'category' ) );
+
+		$action = htmlspecialchars( $wgScript );
+		
+		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
+			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
+			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
+			Xml::label( wfMsg("unreviewed-category"), 'category' ) .
+			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
+			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
+			"</fieldset></form>"
+		);
+		
+		$pager = new OldReviewedPagesPager( $this, $category );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -903,20 +1083,17 @@ class UnreviewedPages extends SpecialPage
 }
 
 /**
- * Query to list out stable versions for a page
+ * Query to list out unreviewed pages
  */
-class UnreviewedPagesPager extends AlphabeticPager {
+class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
-	private $namespace, $category, $showOutdated;
+	private $category;
 
-	function __construct( $form, $showOutdated=false, $category=NULL, $conds = array() ) {
-		global $wgFlaggedRevsNamespaces;
-		
+	function __construct( $form, $category=NULL, $conds = array() ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
-		$this->showOutdated = (bool)$showOutdated;
 		
 		parent::__construct();
 	}
@@ -927,50 +1104,31 @@ class UnreviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		# Reviewable pages only
-		global $wgFlaggedRevsNamespaces;
-		if( empty($wgFlaggedRevsNamespaces) ) {
-			$conds[] = "1 = 0"; 	 
-		} else {
-			$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
-		}
-		# No redirects
-		$conds[] = 'page_id = fp_page_id';
-		$conds['page_is_redirect'] = 0;
-		# We don't like filesorts, so the query methods here will be very different
-		if( !$this->showOutdated ) {
-			$conds[] = 'fp_reviewed IS NULL';
-		} else {
-			$conds['fp_reviewed'] = 0;
-		}
-		$tables = array( 'page', 'flaggedpages' );
+		$tables = array( 'flaggedpages', 'page' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable');
+		$conds['fp_reviewed'] = 0;
+		$conds[] = 'fp_page_id = page_id';
+		# Reviewable pages only (moves can make oddities, so check here)
+		global $wgFlaggedRevsNamespaces;
+		$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
 		# Filter by category
 		if( $this->category ) {
 			$tables[] = 'categorylinks';
+			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
-			$fields[] = 'cl_sortkey';
-			
 			$this->mIndexField = 'cl_sortkey';
-			$use_index = array('categorylinks' => 'cl_sortkey');
+			$useIndex['categorylinks'] = 'cl_sortkey'; // *sigh* ...
 		} else {
-			if( $this->showOutdated ) {
-				$use_index = array('flaggedpages' => 'fp_reviewed_page');
-				$fields[] = 'fp_page_id';
-				$this->mIndexField = 'fp_page_id';
-			} else {
-				$use_index = array('page' => 'PRIMARY');
-				$fields[] = 'page_id';
-				$this->mIndexField = 'page_id';
-			}
+			$fields[] = 'fp_page_id';
+			$this->mIndexField = 'fp_page_id';
+			$useIndex['page'] = 'PRIMARY';
 		}
-		
 		return array(
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => $use_index )
+			'options' => array( 'USE INDEX' => $useIndex )
 		);
 	}
 
@@ -1074,9 +1232,10 @@ class ReviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		global $wgFlaggedRevsNamespaces;
-
 		$conds = $this->mConds;
+		# Reviewable pages only (moves can make oddities, so check here)
+		global $wgFlaggedRevsNamespaces;
+		$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
 		$conds[] = 'page_id = fp_page_id';
 		$conds['fp_quality'] = $this->type;
 		return array(
