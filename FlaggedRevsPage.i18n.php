@@ -1150,6 +1150,7 @@ $messages['de'] = array(
 	'right-validate'        => 'Markiere Versionen als geprüft',
 	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
 	'right-stablesettings'  => 'Konfiguration der Anzeige markierter Versionen',
+	'right-autopatrolother' => 'Automatisches markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
 
 	'revreview-current'           => 'Unmarkiert (bearbeitbar)',
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unmarkierten Seite',
@@ -1174,8 +1175,8 @@ $messages['de'] = array(
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
 	'revreview-quick-see-basic'   => "'''[[{{MediaWiki:Validationpage}}|Ungesichtete Version]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]]
 	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} vergleiche])",
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zeige aktuelle Version])",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zeige aktuelle Version])",
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zur aktuellen Version])",
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zur aktuellen Version])",
 	'revreview-quick-basic-old'   => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite])",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}}} letzte unmarkierte Seite])",
 
@@ -1205,7 +1206,7 @@ $messages['de'] = array(
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 
 	'revreview-toggle-title'      => 'zeige/verstecke Details',
-	'revreview-draft-title'       => 'Aktueller Artikel',
+	'revreview-draft-title'       => 'Ungesichteter Artikel',
 	'revreview-stable-title'      => 'Gesichteter Artikel',
 	'revreview-quality-title'     => 'Geprüfter Artikel',
 	'revreview-note'              => '[[{{ns:user}}:$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
@@ -1286,12 +1287,17 @@ $messages['de'] = array(
 	'stableversions-review'       => 'markiert <i>$1</i> durch $2',
 	'review-diff2stable'          => 'Unterschiede zwischen der markierten und der aktuellen Version ansehen',
 	'unreviewedpages'             => 'Unmarkierte Artikel',
-	'viewunreviewed'              => 'Liste unmarkierter Artikel',
-	'unreviewed-outdated'         => 'Zeige Seiten, bei denen die letzte gesichtete Vsersion nicht die aktuelle ist.',
+	'unreviewed-legend'           => 'Liste unmarkierter Artikel',
 	'unreviewed-category'         => 'Kategorie:',
 	'unreviewed-diff'             => 'Änderungen',
+	'unreviewed-unwatched'        => '(unbeobachtet)',
 	'unreviewed-list'             => 'Diese Seite hilft, ungesichtete Versionen zu finden.',
 	'unreviewed-none'             => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
+
+	'oldreviewedpages'            => 'Alte, gesichtete Seiten',
+	'oldreviewedpages-legend'     => 'Liste gesichteter Seiten mit ungesichteten Versionen',
+	'oldreviewedpages-list'       => 'Diese Seite listet gesichtete Seiten, die noch ungesichtete Bearbeitungen haben.',
+	'oldreviewedpages-none'       => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen',
 
 	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
 	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
