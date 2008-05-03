@@ -1083,7 +1083,7 @@ class ReviewedPagesPager extends AlphabeticPager {
 			'tables' => array('flaggedpages','page'),
 			'fields' => 'page_namespace,page_title,fp_page_id',
 			'conds'  => $conds,
-			'options' => array( 'USE INDEX' => array('flaggedpages' => 'fp_quality') )
+			'options' => array( 'USE INDEX' => array('flaggedpages' => 'fp_quality_page') )
 		);
 	}
 
