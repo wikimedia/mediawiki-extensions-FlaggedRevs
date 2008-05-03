@@ -3,7 +3,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   -- Foreign key to page.page_id
   fp_page_id integer NOT NULL,
   -- Is the page reviewed up to date?
-  fp_reviewed bool NULL,
+  fp_reviewed bool NOT NULL default '0',
   -- Foreign key to flaggedrevs.fr_rev_id
   fp_stable integer NULL,
   -- The highest quality of the page's reviewed revisions.
