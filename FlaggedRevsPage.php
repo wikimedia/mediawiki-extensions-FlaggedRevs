@@ -1053,12 +1053,12 @@ class OldReviewedPages extends SpecialPage
 		
 		$pager = new OldReviewedPagesPager( $this, $category );
 		if( $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
+			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
+			$wgOut->addHTML( wfMsgExt('oldreviewedpages-none', array('parse') ) );
 		}
 	}
 	
