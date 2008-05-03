@@ -19,7 +19,4 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
 INSERT INTO /*$wgDBprefix*/flaggedpages (fp_page_id,fp_reviewed,fp_stable,fp_quality)
 SELECT page_id,page_ext_reviewed,page_ext_stable,page_ext_quality FROM /*$wgDBprefix*/page;
 
--- Kill old indexes. Leave the data just in case...
-ALTER TABLE /*$wgDBprefix*/page
-	DROP INDEX ext_namespace_reviewed,
-	DROP INDEX ext_namespace_quality;
+-- Leave the old fields and indexes for now
