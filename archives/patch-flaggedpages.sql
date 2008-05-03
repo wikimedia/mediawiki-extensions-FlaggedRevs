@@ -17,6 +17,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
 
 -- Migrate old page_ext hacks over
 INSERT INTO /*$wgDBprefix*/flaggedpages (fp_page_id,fp_reviewed,fp_stable,fp_quality)
-SELECT page_id,page_ext_reviewed,page_ext_stable,page_ext_quality FROM /*$wgDBprefix*/page;
+SELECT page_id,page_ext_reviewed,page_ext_stable,page_ext_quality FROM /*$wgDBprefix*/page
+WHERE page_ext_stable IS NOT NULL;
 
 -- Leave the old fields and indexes for now
