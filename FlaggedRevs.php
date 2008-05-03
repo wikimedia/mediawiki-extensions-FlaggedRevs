@@ -195,8 +195,8 @@ $wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
 $wgSpecialPages['StableVersions'] = 'StableVersions';
 $wgAutoloadClasses['StableVersions'] = $dir . 'FlaggedRevsPage.php';
 # Load unreviewed pages list
-#$wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
-#$wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
+$wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . 'FlaggedRevsPage.php';
@@ -1212,11 +1212,12 @@ class FlaggedRevs {
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
 		$maxQuality = $maxQuality===false ? null : $maxQuality;
 		# Alter table metadata
-		$dbw->update( 'flaggedpages',
+		$dbw->replace( 'flaggedpages',
+			array( 'pf_page_id' ),
 			array( 'fp_stable' => $rev_id,
 				'fp_reviewed' => ($article->getLatest() == $rev_id) ? 1 : 0,
-				'fp_quality' => $maxQuality ),
-			array( 'fp_page_id' => $article->getId() ),
+				'fp_quality' => $maxQuality,
+				'fp_page_id' => $article->getId() ),
 			__METHOD__ );
 		# Update the cache
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
