@@ -1311,7 +1311,8 @@ class FlaggedRevs {
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$poutput = $wgParser->parse($text, $article->getTitle(), ParserOptions::newFromUser($wgUser));
+			$options = ParserOptions::newFromUser($wgUser);
+			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
 			# Might as well save the cache while we're at it
 			$parserCache->save( $poutput, $article, $wgUser );
 		}
