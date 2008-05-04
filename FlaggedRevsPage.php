@@ -1068,17 +1068,19 @@ class OldReviewedPages extends SpecialPage
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$stxt = $review = '';
-		if(!is_null($size = $result->page_len)) {
+		if( !is_null($size = $result->page_len) ) {
 			if($size == 0)
 				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		if( $result->fp_stable )
-			$review = ' (' . $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
-				"diff=cur&oldid={$result->fp_stable}" ) . ')';
+		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
+				"diff=cur&oldid={$result->fp_stable}" );
+		$hist = $this->skin->makeKnownLinkObj( $title, wfMsg('hist'),
+				"action=history" );
+		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 
-		return( "<li>{$link} {$stxt} {$review}</li>" );
+		return( "<li>{$link} {$stxt} ({$review}) ({$hist}) <strong>[{$quality}]</strong></li>" );
 	}
 }
 
@@ -1105,7 +1107,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page' );
-		$fields = array('page_namespace','page_title','page_len','fp_stable');
+		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality');
 		$conds['fp_reviewed'] = 0;
 		$conds[] = 'fp_page_id = page_id';
 		# Reviewable pages only (moves can make oddities, so check here)
