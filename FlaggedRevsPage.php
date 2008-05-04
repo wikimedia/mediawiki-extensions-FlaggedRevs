@@ -359,8 +359,10 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->addHtml( "</div>" );
 			
 			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'RecentChanges' ) );
-			if( $wgUser->isAllowed( 'unreviewedpages' ) )
+			if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );
+				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'OldReviewedPages' ) );
+			}
 			# Watch page if set to do so
 			if( $wgUser->getOption('flaggedrevswatch') && !$this->page->userIsWatching() ) {
 				$wgUser->addWatch( $this->page );
