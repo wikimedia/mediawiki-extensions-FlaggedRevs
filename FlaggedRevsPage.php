@@ -1310,10 +1310,15 @@ class StablePages extends SpecialPage
 		$stitle = SpecialPage::getTitleFor( 'Stabilization' );
 		$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml('stablepages-config'),
 			'page=' . $title->getPrefixedUrl() );
-		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('reviewedpages-best'),
-			'stableid=best' );
+		$stable = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('stablepages-stable'),
+			'stable=1' );
+		if( $row->fpc_expiry != 'infinity' && strlen($row->fpc_expiry) ) {
+			$expiry_description = " (".wfMsgForContent( 'protect-expiring', $wgLang->timeanddate($row->fpc_expiry) ).")";
+		} else {
+			$expiry_description = "";
+		}
 
-		return '<li>'.$link.' ('.$config.') ['.$best.'] </li>';
+		return "<li>{$link} ({$config}) [{$stable}]{$expiry_description}</li>";
 	}
 }
 
@@ -1340,7 +1345,7 @@ class StablePagesPager extends AlphabeticPager {
 		$conds['fpc_override'] = 1;
 		return array(
 			'tables' => array('flaggedpage_config','page'),
-			'fields' => 'page_namespace,page_title,fpc_page_id',
+			'fields' => 'page_namespace,page_title,fpc_expiry,fpc_page_id',
 			'conds'  => $conds,
 			'options' => array()
 		);

@@ -228,6 +228,7 @@ No configuration is possible.',
 	'reviewedpages-best'        => 'prime revision',
 	
 	'stablepages'         => 'Stable pages',
+	'stablepages-stable'  => 'stable version',
 	'stablepages-text'    => 'Below is a list of pages manually configured to show the stable version as the default page content for viewers.',
 	'stablepages-none'    => 'There are no pages in this list',
 	'stablepages-config'  => 'Configuration',
