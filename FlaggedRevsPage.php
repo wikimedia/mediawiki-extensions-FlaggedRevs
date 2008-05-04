@@ -895,9 +895,17 @@ class UnreviewedPages extends SpecialPage
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		$unwatched = is_null($result->wl_user) ? wfMsgHtml("unreviewed-unwatched") : "";
+		$unwatched = !self::isWatched( $title ) ? " ".wfMsgHtml("unreviewed-unwatched") : "";
 
 		return( "<li>{$link} {$stxt} {$review}{$unwatched}</li>" );
+	}
+	
+	public static function isWatched( $title ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$watched = $dbr->selectRow( 'watchlist', '1',
+			array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
+			__METHOD__ );
+		return $watched;
 	}
 }
 
@@ -985,8 +993,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		$options['LIMIT'] = intval( $limit );
 		# Get table names
-		list($flaggedpages,$page,$categorylinks,$watchlist) = 
-			$this->mDb->tableNamesN('flaggedpages','page','categorylinks','watchlist');
+		list($flaggedpages,$page,$categorylinks) = $this->mDb->tableNamesN('flaggedpages','page','categorylinks');
 		# Are we filtering via category?
 		if( in_array('categorylinks',$tables) ) {
 			$index = $this->mDb->useIndexClause('cl_sortkey'); // *sigh*...
@@ -995,11 +1002,9 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$index = $this->mDb->useIndexClause('name_title'); // *sigh*...
 			$fromClause = "$page $index";
 		}
-		$fields[] = 'wl_user';
 		$sql = "SELECT ".implode(',',$fields).
 			" FROM $fromClause".
 			" LEFT JOIN $flaggedpages ON (fp_page_id=page_id)".
-			" LEFT JOIN $watchlist ON (wl_namespace=page_namespace AND wl_title=page_title)".
 			" WHERE ".$this->mDb->makeList($conds,LIST_AND).
 			" ORDER BY ".$options['ORDER BY']." LIMIT ".$options['LIMIT'];
 		# Do query!
@@ -1081,8 +1086,10 @@ class OldReviewedPages extends SpecialPage
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsg('hist'),
 				"action=history" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
+		
+		$unwatched = !UnreviewedPages::isWatched( $title ) ? " ".wfMsgHtml("unreviewed-unwatched") : "";
 
-		return( "<li>{$link} {$stxt} ({$review}) ({$hist}) <strong>[{$quality}]</strong></li>" );
+		return( "<li>{$link} {$stxt} ({$review}) ({$hist}) <strong>[{$quality}]</strong>{$unwatched}</li>" );
 	}
 }
 
