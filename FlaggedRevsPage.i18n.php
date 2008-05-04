@@ -170,6 +170,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'unreviewed-category'   => 'Category:',
 	'unreviewed-diff'       => 'review changes',
 	'unreviewed-unwatched'  => '(unwatched)',
+	'unreviewed-watched'    => '($2 {{PLURAL:$1|user|users}} watching)',
 	'unreviewed-list'       => 'This page lists articles that have not been reviewed.',
 	'unreviewed-none'       => 'There are currently no pages meeting these criteria',
 

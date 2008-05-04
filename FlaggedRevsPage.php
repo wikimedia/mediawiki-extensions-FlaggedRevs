@@ -895,17 +895,24 @@ class UnreviewedPages extends SpecialPage
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		$unwatched = !self::isWatched( $title ) ? " ".wfMsgHtml("unreviewed-unwatched") : "";
+		$uw = self::usersWatching( $title );
+		$uwPar = $uw >= 5 ? '5+' : $uw;
+		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
 
-		return( "<li>{$link} {$stxt} {$review}{$unwatched}</li>" );
+		return( "<li>{$link} {$stxt} {$review} {$watching}</li>" );
 	}
 	
-	public static function isWatched( $title ) {
+	/**
+	* Get number of users watching a page. Max is 5.
+	* @param Title $title
+	*/
+	public static function usersWatching( $title ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$watched = $dbr->selectRow( 'watchlist', '1',
+		$res = $dbr->select( 'watchlist', '1',
 			array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
-			__METHOD__ );
-		return $watched;
+			__METHOD__,
+			array( 'LIMIT' => 5 ) );
+		return $res->numRows();
 	}
 }
 
@@ -1087,9 +1094,11 @@ class OldReviewedPages extends SpecialPage
 				"action=history" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		
-		$unwatched = !UnreviewedPages::isWatched( $title ) ? " ".wfMsgHtml("unreviewed-unwatched") : "";
+		$uw = UnreviewedPages::usersWatching( $title );
+		$uwPar = $uw >= 5 ? '5+' : $uw;
+		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
 
-		return( "<li>{$link} {$stxt} ({$review}) ({$hist}) <strong>[{$quality}]</strong>{$unwatched}</li>" );
+		return( "<li>{$link} {$stxt} ({$review}) ({$hist}) <strong>[{$quality}]</strong> {$watching}</li>" );
 	}
 }
 
