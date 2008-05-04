@@ -178,8 +178,8 @@ Refreshing the page and rereviewing can solve this problem.',
 	'oldreviewedpages-legend'  => 'List reviewed pages with unreviewed revisions',
 	'oldreviewedpages-list'    => 'This page lists reviewed pages that have pending edits.',
 	'oldreviewedpages-none'    => 'There are currently no pages meeting these criteria',
-	'oldreviewedpages-stable'  => 'sighted page',
-	'oldreviewedpages-quality' => 'quality page',
+	'oldreviewedpages-stable'  => 'sighted',
+	'oldreviewedpages-quality' => 'quality',
 
 	'revreview-visibility'  => "'''This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].'''",
 
