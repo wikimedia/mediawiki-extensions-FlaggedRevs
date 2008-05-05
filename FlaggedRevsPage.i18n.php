@@ -1293,8 +1293,9 @@ $messages['de'] = array(
 	'unreviewedpages'             => 'Unmarkierte Artikel',
 	'unreviewed-legend'           => 'Liste unmarkierter Artikel',
 	'unreviewed-category'         => 'Kategorie:',
-	'unreviewed-diff'             => 'Änderungen',
+	'unreviewed-diff'             => 'Änderungen sichten',
 	'unreviewed-unwatched'        => '(unbeobachtet)',
+	'unreviewed-watched'          => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 	'unreviewed-list'             => 'Diese Seite hilft, ungesichtete Versionen zu finden.',
 	'unreviewed-none'             => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 
@@ -1302,6 +1303,8 @@ $messages['de'] = array(
 	'oldreviewedpages-legend'     => 'Liste gesichteter Seiten mit ungesichteten Versionen',
 	'oldreviewedpages-list'       => 'Diese Seite listet gesichtete Seiten, die noch ungesichtete Bearbeitungen haben.',
 	'oldreviewedpages-none'       => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen',
+	'oldreviewedpages-stable'     => 'gesichtet',
+	'oldreviewedpages-quality'    => 'gesprüft',
 
 	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
 	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
@@ -1342,6 +1345,7 @@ $messages['de'] = array(
 	'reviewedpages-best'          => 'letzte am höchsten bewertete Version',
 
 	'stablepages'         => 'Markierte Seiten',
+	'stablepages-stable'  => 'markierte Version',
 	'stablepages-text'    => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
 	'stablepages-none'    => 'Diese Liste ist leer.',
 	'stablepages-config'  => 'Konfiguration',
