@@ -70,6 +70,14 @@ class FlaggedArticle {
     	}
 		return true;
 	}
+	
+	 /**
+	 * Did this user request a revision  of this page?
+	 */
+	public static function requestedRevision() {
+		global $wgRequest;
+		return( $wgRequest->getIntOrNull('stable') === 0 || $wgRequest->getVal('oldid') );
+	}
 
 	 /**
 	 * Is this article reviewable?
@@ -390,7 +398,6 @@ class FlaggedArticle {
 				$article = new ImagePage( $title, $time );
 			}
 		}
-
 		return true;
 	}
 
@@ -573,10 +580,14 @@ class FlaggedArticle {
        	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() && !FlaggedRevs::flaggedRevIsSynced( $frev, $article ) ) {
        		if( isset( $content_actions['edit'] ) ) {
        			$content_actions['edit']['text'] = wfMsg('revreview-edit');
-				$content_actions['edit']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
+				# If the user is requesting the draft or some revision, they don't need a diff.
+				if( !$this->requestedRevision() )
+					$content_actions['edit']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
        		} if( isset( $content_actions['viewsource'] ) ) {
        			$content_actions['viewsource']['text'] = wfMsg('revreview-source');
-				$content_actions['viewsource']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
+				# If the user is requesting the draft or some revision, they don't need a diff.
+				if( !$this->requestedRevision() )
+					$content_actions['viewsource']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
 			}
        	}
 		# We can change the behavoir of stable version for this page to be different
