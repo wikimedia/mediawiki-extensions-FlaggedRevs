@@ -439,7 +439,7 @@ class FlaggedArticle {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 				$tag = "<span class='fr-checkbox'></span>" . 
 					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_editnotice plainlinks">' . $tag . '</div>';
 			# Standard UI
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -453,9 +453,30 @@ class FlaggedArticle {
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' . $tag . '</div>';
+				$tag = '<div id="mw-revisiontag" class="flaggedrevs_editnotice plainlinks">' . $tag . '</div>';
 			}
 			$wgOut->addHTML( $tag . $warning );
+			# Show diff to stable, to make things less confusing
+			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			$rightNote = 'revreview-draft-title';
+			if( $wgRequest->getIntOrNull('showdiff') ) {
+				$diffEngine = new DifferenceEngine();
+				$diffEngine->showDiffStyle();
+				$wgOut->addHtml(
+					"<div>" .
+					"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
+					"<col class='diff-marker' />" .
+					"<col class='diff-content' />" .
+					"<col class='diff-marker' />" .
+					"<col class='diff-content' />" .
+					"<tr>" .
+						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>[" . wfMsgHtml($leftNote) . "]</b></td>" .
+						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>[" . wfMsgHtml($rightNote) . "]</b></td>" .
+					"</tr>" .
+					$diffEngine->generateDiffBody( $frev->getText(), $editform->textbox1 ) .
+					"</table>" .
+					"</div>\n" );
+			}
 		}
 		return true;
     }
@@ -581,10 +602,13 @@ class FlaggedArticle {
 		}
        	# Be clear about what is being edited...
        	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() && !FlaggedRevs::flaggedRevIsSynced( $frev, $article ) ) {
-       		if( isset( $content_actions['edit'] ) )
+       		if( isset( $content_actions['edit'] ) ) {
        			$content_actions['edit']['text'] = wfMsg('revreview-edit');
-       		if( isset( $content_actions['viewsource'] ) )
+				$content_actions['edit']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
+       		} if( isset( $content_actions['viewsource'] ) ) {
        			$content_actions['viewsource']['text'] = wfMsg('revreview-source');
+				$content_actions['viewsource']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
+			}
        	}
 		# We can change the behavoir of stable version for this page to be different
 		# than the site default.
@@ -1056,15 +1080,15 @@ class FlaggedArticle {
 				}
 				# If the user is allowed to review, prompt them!
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
-					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks">' .
+					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_diffnotice plainlinks">' .
 						wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
+					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_diffnotice plainlinks"><p>' .
 						wfMsgExt('revreview-update', array('parseinline')) . ' ' . $changeList . '</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_notice plainlinks"><p>' .
+					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_diffnotice plainlinks"><p>' .
 						wfMsgExt('revreview-update-includes', array('parseinline')) . ' ' . $changeList . '</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the

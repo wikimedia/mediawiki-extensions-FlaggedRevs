@@ -5,6 +5,8 @@
 .flaggedrevs_quality,
 .flaggedrevs_pristine,
 .flaggedrevs_notice,
+.flaggedrevs_editnotice,
+.flaggedrevs_diffnotice,
 .flaggedrevs_warning,
 .flaggedrevs_preview {
 	border: 1px solid #aaa;
@@ -28,13 +30,23 @@
 .flaggedrevs_notice {
 	background-color: #f9f9f9;
 }
-.flaggedrevs_warning {
-	background-color: #fffff0;
-	margin: 0em 1em 0em 0em;
-}
 .flaggedrevs_preview {
 	background-color: #f9f9f9;
 	color: darkred;
+}
+
+.flaggedrevs_warning {
+	font-size: 85%;
+	background-color: #fffff0;
+	margin: 0em 1em 0em 0em;
+}
+.flaggedrevs_editnotice {
+	font-size: 85%;
+	background-color: #f9f9f9;
+}
+.flaggedrevs_diffnotice {
+	font-size: 85%;
+	background-color: #f9f9f9;
 }
 
 .flaggedrevs_notes {
