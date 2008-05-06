@@ -1180,6 +1180,7 @@ class FlaggedRevs {
 				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 			__METHOD__,
 			array( 'LIMIT' => 1 ) );
+		# Done!
 		$dbw->commit();
 
 		# Update the article review log
@@ -1192,7 +1193,7 @@ class FlaggedRevs {
 			# Update stable cache
 			FlaggedRevs::updatePageCache( $article, $poutput );
 			# Update page fields
-			self::updateArticleOn( $article, $rev->getID() );
+			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 			# Purge squid for this page only
 			$article->getTitle()->purgeSquid();
 		}
@@ -1205,12 +1206,14 @@ class FlaggedRevs {
  	/**
 	* @param Article $article
 	* @param Integer $rev_id, the stable version rev_id
+	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the fp_stable and fp_reviewed fields
 	*/
-	public static function updateArticleOn( $article, $rev_id ) {
+	public static function updateArticleOn( $article, $rev_id, $latest=NULL ) {
 		global $wgMemc;
-
 		wfProfileIn( __METHOD__ );
+
+		$lastID = $latest ? $latest : $article->getLatest();
 
 		$dbw = wfGetDB( DB_MASTER );
 		# Get the highest quality revision (not necessarily this one).
@@ -1224,9 +1227,9 @@ class FlaggedRevs {
 		$maxQuality = $maxQuality===false ? null : $maxQuality;
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
-			array( 'pf_page_id' ),
+			array( 'fp_page_id' ),
 			array( 'fp_stable' => $rev_id,
-				'fp_reviewed' => ($article->getLatest() == $rev_id) ? 1 : 0,
+				'fp_reviewed' => ($lastID == $rev_id) ? 1 : 0,
 				'fp_quality' => $maxQuality,
 				'fp_page_id' => $article->getId() ),
 			__METHOD__ );
