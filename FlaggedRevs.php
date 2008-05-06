@@ -600,9 +600,9 @@ class FlaggedRevs {
 		if( empty($wgReviewCodes) ) {
 			global $wgSecretKey, $wgProxyKey;
 			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
-			$p = MD5($key.$uid.$imgP.$tmpP.$rid);
+			$p = md5($key.$uid.$imgP.$tmpP.$rid);
 		} else {
-			$p = MD5($wgReviewCodes[0].$uid.$imgP.$rid.$tmpP.$wgReviewCodes[1]);
+			$p = md5($wgReviewCodes[0].$uid.$imgP.$rid.$tmpP.$wgReviewCodes[1]);
 		}
 		return $p;
 	}
