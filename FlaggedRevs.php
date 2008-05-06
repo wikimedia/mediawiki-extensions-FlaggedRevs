@@ -1082,15 +1082,21 @@ class FlaggedRevs {
 		}
 		$tmpset = $imgset = array();
 		# Try the parser cache, should be set on the edit before this is called.
-		# If not set or up to date, then parse it...
-		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $user );
+		# If not set or up to date, then parse it. Use master to avoid lag issues.
+		$poutput = false;
+		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		if( $latestID == $rev->getId() ) {
+			$parserCache = ParserCache::singleton();
+			$poutput = $parserCache->get( $article, $user );
+		}
 		if( $poutput==false ) {
 			$options = ParserOptions::newFromUser($user);
 			$options->setTidy(true);
-			$poutput = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $rev->getID() );
+			$poutput = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $rev->getId() );
 			# Might as well save the cache while we're at it
-			$parserCache->save( $poutput, $article, $user );
+			if( $latestID == $rev->getId() ) {
+				$parserCache->save( $poutput, $article, $user );
+			}
 		}
 		# NS:title -> rev ID mapping
 		foreach( $poutput->mTemplateIds as $namespace => $title ) {
@@ -1213,7 +1219,7 @@ class FlaggedRevs {
 		global $wgMemc;
 		wfProfileIn( __METHOD__ );
 
-		$lastID = $latest ? $latest : $article->getLatest();
+		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 
 		$dbw = wfGetDB( DB_MASTER );
 		# Get the highest quality revision (not necessarily this one).
