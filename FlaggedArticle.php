@@ -934,7 +934,7 @@ class FlaggedArticle {
 
         $tag = '';
         if( $prettyBox )
-        	$tag .= "<table align='center' class='$css' cellpadding='0'>";
+        	$tag .= "<table id='mw-revisionratings-box' align='center' class='$css' cellpadding='0'>";
 		foreach( FlaggedRevs::$dimensions as $quality => $value ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMsgHtml("revreview-$quality-$level");
