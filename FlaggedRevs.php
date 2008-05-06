@@ -134,6 +134,8 @@ $wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review']   = true;
 
+$wgGroupPermissions['bot']['autoreview']      = true;
+
 # Stable version selection and default page revision selection can be set per page.
 $wgGroupPermissions['sysop']['stablesettings'] = true;
 
