@@ -622,18 +622,19 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param int $rev_id
 	 * @param bool $getText, fetch fr_text and fr_flags too?
+	 * @param bool $forUpdate, use master?
 	 * @returns mixed FlaggedRevision (null on failure)
 	 * Will not return a revision if deleted
 	 */
-	public static function getFlaggedRev( $title, $rev_id, $getText=false ) {
+	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false ) {
 		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
 		if( $getText ) {
 			$columns[] = 'fr_text';
 			$columns[] = 'fr_flags';
 		}
-		$dbr = wfGetDB( DB_SLAVE );
+		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		# Skip deleted revisions
-		$row = $dbr->selectRow( array('flaggedrevs','revision'),
+		$row = $db->selectRow( array('flaggedrevs','revision'),
 			$columns,
 			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id',

@@ -448,7 +448,14 @@ class RevisionReview extends UnlistedSpecialPage
 				'fi_img_sha1' => $key
 			);
 		}
-
+		
+		$article = new Article( $this->page );
+		# Is this rev already flagged?
+		$oldFlaggedOutput = false;
+		if( $oldfrev = FlaggedRevs::getFlaggedRev( $title, $rev->getId(), true, true ) ) {
+			$oldFlaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getText(), $oldfrev->getRevId() );
+		}
+		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		# Clear out any previous garbage.
@@ -475,7 +482,6 @@ class RevisionReview extends UnlistedSpecialPage
         	return false;
         }
 		
-		$article = new Article( $this->page );
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
 		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
@@ -485,6 +491,23 @@ class RevisionReview extends UnlistedSpecialPage
         }
 		# Merge in template params from first phase of parsing...
 		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
+		
+		# Is this a duplicate review?
+		if( $oldfrev && $oldFlaggedOutput ) {
+			$synced = true;
+			if( $stableOutput->fr_newestImageTime != $oldFlaggedOutput->fr_newestImageTime )
+				$synced = false;
+			if( $stableOutput->fr_newestTemplateID != $oldFlaggedOutput->fr_newestTemplateID )
+				$synced = false;
+			if( $oldfrev->getTags() != $flags )
+				$synced = false;
+			# Don't review if the same
+			if( $synced ) {
+				$dbw->rollback();
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
+		} 
 		
         # Compress $fulltext, passed by reference
         $textFlags = FlaggedRevs::compressText( $fulltext );
