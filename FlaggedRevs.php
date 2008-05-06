@@ -112,7 +112,7 @@ $wgFlaggedRevsCascade = true;
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).
 # There must be four codes, and only the first four are checked.
-$wgReviewCodes = array( 'first one', 'second code', 'yet another', 'the last' );
+$wgReviewCodes = array();
 
 # Lets some users access the review UI and set some flags
 $wgAvailableRights[] = 'review';
@@ -177,7 +177,7 @@ $wgFlaggedRevsExternalStore = false;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 13;
+$wgFlaggedRevStyleVersion = 14;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -596,7 +596,14 @@ class FlaggedRevs {
 	*/
 	public static function getValidationKey( $tmpP, $imgP, $uid, $rid ) {
 		global $wgReviewCodes;
-		$p = MD5($uid.$imgP.$wgReviewCodes[0]).sha1($wgReviewCodes[1].$rid.$wgReviewCodes[3]).MD5($uid.$tmpP.$wgReviewCodes[2]);
+		# Fall back to $wgSecretKey/$wgProxyKey
+		if( empty($wgReviewCodes) ) {
+			global $wgSecretKey, $wgProxyKey;
+			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
+			$p = MD5($key.$uid.$imgP.$tmpP.$rid);
+		} else {
+			$p = MD5($wgReviewCodes[0].$uid.$imgP.$rid.$tmpP.$wgReviewCodes[1]);
+		}
 		return $p;
 	}
 	
