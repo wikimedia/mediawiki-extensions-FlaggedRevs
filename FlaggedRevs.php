@@ -163,12 +163,12 @@ $wgFlaggedRevsAutopromote = array(
 
 # Special:Userrights settings
 ## Basic rights for Sysops
-$wgAddGroups['sysop'] = array( 'editor' );
-$wgRemoveGroups['sysop'] = array( 'editor' );
+$wgAddGroups['sysop'][] = 'editor';
+$wgRemoveGroups['sysop'][] = 'editor';
 ## Extra ones for Bureaucrats
 ## Add UI page rights just in case we have non-sysop bcrats
-$wgAddGroups['bureaucrat'] = array( 'reviewer' );
-$wgRemoveGroups['bureaucrat'] = array( 'reviewer' );
+$wgAddGroups['bureaucrat'][] = 'reviewer';
+$wgRemoveGroups['bureaucrat'][] = 'reviewer';
 
 # If you want to use a storage group specifically for this
 # software, set this array
