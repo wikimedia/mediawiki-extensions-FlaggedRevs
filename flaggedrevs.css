@@ -183,6 +183,7 @@
 /* Both User Interfaces */
 .flaggedrevs_toggle {
 	color: blue;
+	white-space: no-wrap;
 }
 
 .fr-icon-current,
