@@ -1696,6 +1696,7 @@ class FlaggedRevs {
 		# Assume $action may still not be set, in which case, treat it as 'view'...
 		if( $action != 'read' )
 			return true;
+			$p = self::getUserParams( $user );
 		# Admin may set this to false, rather than array()...
 		$groups = $user->getGroups();
 		$groups[] = '*';
@@ -1814,7 +1815,7 @@ class FlaggedRevs {
 			# Don't let this get bloated for no reason
 			if( count($pages) < $wgFlaggedRevsAutopromote['uniqueContentPages'] && !in_array($article->getId(),$pages) ) {
 				$pages[] = $article->getId();
-				$p['uniqueContentPages'] = implode(',',$pages);
+				$p['uniqueContentPages'] = preg_replace('/^,/','',implode(',',$pages)); // clear any garbage
 			}
 			$p['totalContentEdits'] += 1;
 			$changed = true;
@@ -2013,10 +2014,10 @@ class FlaggedRevs {
 		$row = $dbw->selectRow( 'flaggedrevs_promote', 'frp_user_params',
 			array( 'frp_user_id' => $user->getId() ),
 			__METHOD__ );
-			
+		# Parse params
 		$params = array();
 		if( $row ) {
-			$flatPars = explode( '\n', trim($row->frp_user_params) );
+			$flatPars = explode( "\n", trim($row->frp_user_params) );
 			foreach( $flatPars as $pair ) {
 				$m = explode( '=', trim($pair), 2 );
 				$key = $m[0];
@@ -2037,13 +2038,11 @@ class FlaggedRevs {
 		foreach( $params as $key => $value ) {
 			$flatParams .= "{$key}={$value}\n";
 		}
-		$flatParams = trim($flatParams);
-	
 		$dbw = wfGetDB( DB_MASTER );
 		$row = $dbw->replace( 'flaggedrevs_promote', 
 			array( 'frp_user_id' ),
 			array( 'frp_user_id' => $user->getId(), 
-				'frp_user_params' => $flatParams ),
+				'frp_user_params' => trim($flatParams) ),
 			__METHOD__ );
 
 		return ( $dbw->affectedRows() > 0 );
