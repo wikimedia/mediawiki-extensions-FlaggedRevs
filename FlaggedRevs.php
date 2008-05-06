@@ -197,7 +197,7 @@ $wgAutoloadClasses['StableVersions'] = $dir . 'FlaggedRevsPage.php';
 # Load unreviewed pages list
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 $wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
-# Load in need of re-review pages list
+# Load "in need of re-review" pages list
 $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 $wgAutoloadClasses['OldReviewedPages'] = $dir . 'FlaggedRevsPage.php';
 # Load reviewed pages list
@@ -209,7 +209,7 @@ $wgAutoloadClasses['StablePages'] = $dir . 'FlaggedRevsPage.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
-# Too oversee quality revisions
+# To oversee quality revisions
 $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 $wgAutoloadClasses['QualityOversight'] = $dir . 'FlaggedRevsPage.php';
 
@@ -334,6 +334,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
+		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
 	}
 
 	return true;

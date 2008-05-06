@@ -1,5 +1,4 @@
--- (c) Aaron Schulz, Joerg Baach, 2007
-
+-- (c) Aaron Schulz, 2007
 -- Table structure for table `Flagged Revisions`
 -- Replace /*$wgDBprefix*/ with the proper prefix
 
