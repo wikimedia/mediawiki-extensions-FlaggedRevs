@@ -131,7 +131,7 @@ class FlaggedArticle {
 					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
 						wfMsgHtml('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">'.$tag.'</div>';
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks'>$tag</div>";
 				$wgOut->addHTML( $tag );
 			}
 			return true;
@@ -223,7 +223,7 @@ class FlaggedArticle {
 					$tooltip = wfMsgHtml('revreview-draft-title');
 					$pending = "<span class='fr-icon-current' title=\"{$tooltip}\"></span>" . 
 						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revs_since);
-					$pending = '<div id="mw-reviewnotice" class="flaggedrevs_preview plainlinks">'.$pending.'</div>';
+					$pending = "<div id='mw-reviewnotice' class='flaggedrevs_preview plainlinks'>$pending</div>";
 					# Notice should always use subtitle
 					$this->reviewNotice = $pending;
 				}
@@ -340,7 +340,7 @@ class FlaggedArticle {
 				$tagClass = 'flaggedrevs_basic';
 			# Wrap tag contents in a div
 			if( $tag !='' )
-				$tag = '<div id="mw-revisiontag" class="'.$tagClass.' plainlinks">'.$tag.'</div>';
+				$tag = "<div id='mw-revisiontag' class='$tagClass plainlinks'>$tag</div>";
 			# Set UI html
 			$this->reviewNotice .= $tag;
 			# Add revision notes
@@ -352,13 +352,13 @@ class FlaggedArticle {
 				$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
 				$tag .= "<span class='fr-icon-current plainlinks'></span>" .
 					wfMsgExt($msg,array('parseinline'));
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_short plainlinks">'.$tag.'</div>';
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_short plainlinks'>$tag</div>";
 				$this->reviewNotice .= $tag;
 			// Standard UI
 			} else {
 				$msg = $old ? 'revreview-invalid' : 'revreview-noflagged';
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_notice plainlinks">' .
-					wfMsgExt($msg, array('parseinline')) . '</div>';
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks'>" .
+					wfMsgExt($msg, array('parseinline')) . "</div>";
 				$this->reviewNotice .= $tag;
 			}
 		}
@@ -430,8 +430,8 @@ class FlaggedArticle {
 				$ofrev = FlaggedRevs::getFlaggedRev( $editform->mArticle->getTitle(), $revid );
 				if( !is_null($ofrev) ) {
 					$msg = ( $revid==$frev->getRevId() ) ? 'revreview-auto-w' : 'revreview-auto-w-old';
-					$warning = '<div id="mw-autoreviewtag" class="flaggedrevs_warning plainlinks">' .
-						wfMsgExt($msg,array('parseinline')) . '</div>';
+					$warning = "<div id='mw-autoreviewtag' class='flaggedrevs_warning plainlinks'>" .
+						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			}
 			# Streamlined UI
@@ -439,7 +439,7 @@ class FlaggedArticle {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 				$tag = "<span class='fr-checkbox'></span>" . 
 					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_editnotice plainlinks">' . $tag . '</div>';
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 			# Standard UI
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -453,7 +453,7 @@ class FlaggedArticle {
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
-				$tag = '<div id="mw-revisiontag" class="flaggedrevs_editnotice plainlinks">' . $tag . '</div>';
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 			}
 			$wgOut->addHTML( $tag . $warning );
 			# Show diff to stable, to make things less confusing
@@ -541,9 +541,9 @@ class FlaggedArticle {
 				return true;
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
-			$out->mBodytext = '<span class="plainlinks">' .
+			$out->mBodytext = "<span class='plainlinks'>" .
 				wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
-				'</span>' . $out->mBodytext;
+				"</span>" . $out->mBodytext;
 		}
 		return true;
     }
@@ -1029,7 +1029,7 @@ class FlaggedArticle {
 			return '';
 
    		$skin = $wgUser->getSkin();
-   		$notes = '<div class="flaggedrevs_notes plainlinks">';
+   		$notes = "<div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $skin->formatComment( $frev->getComment() ) . '</i></div>';
 
@@ -1080,15 +1080,15 @@ class FlaggedArticle {
 				}
 				# If the user is allowed to review, prompt them!
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
-					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_diffnotice plainlinks">' .
+					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
 						wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_diffnotice plainlinks"><p>' .
+					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
 						wfMsgExt('revreview-update', array('parseinline')) . ' ' . $changeList . '</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( '<div id="mw-difftostable" class="flaggedrevs_diffnotice plainlinks"><p>' .
+					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
 						wfMsgExt('revreview-update-includes', array('parseinline')) . ' ' . $changeList . '</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
@@ -1102,7 +1102,7 @@ class FlaggedArticle {
 		$oldRevQ = $OldRev ? FlaggedRevs::getRevQuality( $NewRev->getTitle(), $OldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $OldRev ) {
-			$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td width="50%" align="center">' );
+			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td width='50%' align='center'>" );
 			if( $oldRevQ !== false ) {
 				$msg = $oldRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
@@ -1121,7 +1121,7 @@ class FlaggedArticle {
 			$wgOut->addHTML( '</td></tr></table>' );
 		# New page "diffs" - just one rev
 		} else {
-			$wgOut->addHTML( '<table class="fr-diff-ratings" width="100%"><tr><td align="center">' );
+			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td align='center'>" );
 			if( $newRevQ !== false ) {
 				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
@@ -1156,7 +1156,7 @@ class FlaggedArticle {
 				if( $article->getLatest() != $frev->getRevId() ) {
 					$patrol = '(' . $wgUser->getSkin()->makeKnownLinkObj( $NewRev->getTitle(),
 						wfMsgHtml( 'review-diff2stable' ), "oldid={$frev->getRevId()}&diff=cur" ) . ')';
-					$wgOut->addHTML( '<div class="fr-diff-to-stable" align="center">' . $patrol . '</div>' );
+					$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>$patrol</div>" );
 				}
 			}
 		// Prepare a change patrol link, if applicable
