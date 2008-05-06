@@ -1696,7 +1696,6 @@ class FlaggedRevs {
 		# Assume $action may still not be set, in which case, treat it as 'view'...
 		if( $action != 'read' )
 			return true;
-			$p = self::getUserParams( $user );
 		# Admin may set this to false, rather than array()...
 		$groups = $user->getGroups();
 		$groups[] = '*';
