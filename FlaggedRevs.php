@@ -243,6 +243,8 @@ function efLoadFlaggedRevs() {
 	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
+	# Change last-modified footer
+	$wgHooks['SkinTemplateOutputPageBeforeExec'][] = array( $wgFlaggedArticle, 'setLastModified' );
 	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );

@@ -12,6 +12,7 @@ class FlaggedRevision {
 	private $mFlags;
 	private $mUser;
 	private $mTitle;
+	private $mRevision;
 
 	/**
 	 * @param Title $title
@@ -56,10 +57,42 @@ class FlaggedRevision {
 	}
 
 	/**
+	 * Get timestamp of review
 	 * @returns String revision timestamp in MW format
 	 */
 	public function getTimestamp() {
 		return wfTimestamp(TS_MW, $this->mTimestamp);
+	}
+	
+	/**
+	 * Get the corresponding revision
+	 * @returns Revision
+	 */
+	public function getRevision() {
+		if( !is_null($this->mRevision) )
+			return $this->mRevision;
+		# Get corresponding revision
+		$rev = Revision::newFromId( $this->mRevId );
+		# Save to cache
+		$this->mRevision = $rev ? $rev : false;
+		return $this->mRevision;
+	}
+	
+	/**
+	 * Get timestamp of the corresponding revision
+	 * @returns String revision timestamp in MW format
+	 */
+	public function getRevTimestamp() {
+		if( !is_null($this->mRevision) ) {
+			$rev = $this->mRevision;
+		# Get corresponding revision
+		} else {
+			$rev = Revision::newFromId( $this->mRevId );
+			# Save to cache
+			$this->mRevision = $rev ? $rev : false;
+		}
+		$timestamp = $rev ? $rev->getTimestamp() : "0";
+		return $timestamp;
 	}
 
 	/**

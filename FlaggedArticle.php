@@ -549,37 +549,6 @@ class FlaggedArticle {
     }
 
 	 /**
-	 * Set permalink to stable version if we are viewing a stable version.
-	 * Also sets the citation link if that extension is on.
-	 */
-    public function setPermaLink( $sktmp, &$nav_urls, &$revid, &$revid ) {
-		global $wgTitle;
-		# Non-content pages cannot be validated
-		if( !$this->pageOverride() )
-			return true;
-		# Check for an overridabe revision
-		$frev = $this->getStableRev( true );
-		if( !$frev )
-			return true;
-		# Replace "permalink" with an actual permanent link
-		$nav_urls['permalink'] = array(
-			'text' => wfMsg( 'permalink' ),
-			'href' => $wgTitle->getFullURL( "stableid={$frev->getRevId()}" )
-		);
-		# Are we using the popular cite extension?
-		global $wgHooks;
-		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
-			if( FlaggedRevs::isPageReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
-				$nav_urls['cite'] = array(
-					'text' => wfMsg( 'cite_article_link' ),
-					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$frev->getRevId()}" )
-				);
-			}
-		}
-		return true;
-    }
-
-	 /**
 	 * Add stable version tabs. Rename some of the others if necessary.
 	 */
     public function setActionTabs( $sktmp, &$content_actions ) {
@@ -1419,6 +1388,66 @@ class FlaggedArticle {
 		$this->flags[$rev_id] = $flags;
 
 		return $flags;
+	}
+	
+	 /**
+	 * Set permalink to stable version if we are viewing a stable version.
+	 * Also sets the citation link if that extension is on.
+	 */
+    public function setPermaLink( $sktmp, &$nav_urls, &$revid, &$id ) {
+		global $wgTitle;
+		# Non-content pages cannot be validated
+		if( !$this->pageOverride() )
+			return true;
+		# Check for an overridabe revision
+		$frev = $this->getStableRev( true );
+		if( !$frev )
+			return true;
+		# Replace "permalink" with an actual permanent link
+		$nav_urls['permalink'] = array(
+			'text' => wfMsg( 'permalink' ),
+			'href' => $wgTitle->getFullURL( "stableid={$frev->getRevId()}" )
+		);
+		# Are we using the popular cite extension?
+		global $wgHooks;
+		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
+			if( FlaggedRevs::isPageReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
+				$nav_urls['cite'] = array(
+					'text' => wfMsg( 'cite_article_link' ),
+					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$frev->getRevId()}" )
+				);
+			}
+		}
+		return true;
+    }
+	
+	 /**
+	 * If viewing a stable version, adjust the last modified header
+	 */
+	public function setLastModified( $sktmp, &$tpl ) {
+		global $wgLang;
+		# Non-content pages cannot be validated
+		if( !$this->pageOverride() )
+			return true;
+		# Check for an overridabe revision
+		$frev = $this->getStableRev( true );
+		if( !$frev )
+			return true;
+		# Get the timestamp of this revision
+		$timestamp = $frev->getRevTimestamp();
+		if ( $timestamp ) {
+			$d = $wgLang->date( $timestamp, true );
+			$t = $wgLang->time( $timestamp, true );
+			$s = ' ' . wfMsg( 'lastmodifiedat', $d, $t );
+		} else {
+			$s = '';
+		}
+		if ( wfGetLB()->getLaggedSlaveMode() ) {
+			$s .= ' <strong>' . wfMsg( 'laggedslavemode' ) . '</strong>';
+		}
+		$tpl->set( 'lastmod', $s );
+		
+		return true;
 	}
 
 	/**
