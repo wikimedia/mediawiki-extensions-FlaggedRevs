@@ -459,7 +459,7 @@ class FlaggedArticle {
 			# Show diff to stable, to make things less confusing
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
-			if( $wgRequest->getIntOrNull('showdiff') ) {
+			if( $wgRequest->getIntOrNull('showdiff') && strcmp( $frev->getText(), $editform->textbox1 ) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
 				$wgOut->addHtml(
@@ -1338,12 +1338,20 @@ class FlaggedArticle {
 	* Needed for autoreview so it can select the flags from said revision.
 	*/
 	public function addRevisionIDField( $editform, $out ) {
+		global $wgRequest;
 		# Find out revision id
 		if( $editform->mArticle->mRevision ) {
        		$revid = $editform->mArticle->mRevision->mId;
 		} else {
        		$revid = $editform->mArticle->getLatest();
        	}
+		# If undoing a few consecutive top edits, we know the base ID
+		if( $undo = $wgRequest->getIntOrNull('undo') ) {
+			$undoafter = $wgRequest->getIntOrNull('undoafter');
+			if( $undoafter && $undo == $editform->mArticle->getLatest() ) {
+				$revid = $undoafter;
+			}
+		}
 		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revid ) );
 		return true;
 	}

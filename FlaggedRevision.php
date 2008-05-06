@@ -134,7 +134,7 @@ class FlaggedRevision {
 				return false;
 			} else {
 				$this->mRawDBText = $row->fr_text;
-				$this->mFlags = $row->fr_flags;
+				$this->mFlags = explode(',',$row->fr_flags);
 			}
 		}
 		// Check if fr_text is just some URL to external DB storage
