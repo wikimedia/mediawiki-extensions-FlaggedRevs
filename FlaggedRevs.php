@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.04',
+	'version' => '1.041',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -121,6 +121,7 @@ $wgAvailableRights[] = 'validate';
 
 # Define our basic reviewer class
 $wgGroupPermissions['editor']['review']          = true;
+$wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['unwatchedpages']  = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['patrolmarks']     = true;

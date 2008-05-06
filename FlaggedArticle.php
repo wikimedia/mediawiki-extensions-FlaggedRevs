@@ -1237,7 +1237,7 @@ class FlaggedArticle {
 	public function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevsAutoReviewNew;
 
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed('review') )
+		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed('autoreview') )
 			return true;
 		# Must be in reviewable namespace
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
@@ -1267,7 +1267,7 @@ class FlaggedArticle {
 	public function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
 		global $wgFlaggedRevsAutoReview, $wgRequest;
 
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
+		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
 		# Must be in reviewable namespace
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
@@ -1302,7 +1302,7 @@ class FlaggedArticle {
 	public function maybeMakeRollbackReviewed( $article, $user, $rev ) {
 		global $wgFlaggedRevsAutoReview;
 
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('review') )
+		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
 		# Must be in reviewable namespace
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
