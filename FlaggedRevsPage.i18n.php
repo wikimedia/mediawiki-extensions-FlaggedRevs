@@ -1154,7 +1154,7 @@ $messages['de'] = array(
 	'right-validate'        => 'Markiere Versionen als geprüft',
 	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
 	'right-stablesettings'  => 'Konfiguration der Anzeige markierter Versionen',
-	'right-autopatrolother' => 'Automatisches markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
+	'right-autopatrolother' => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
 
 	'revreview-current'           => 'Unmarkiert (bearbeitbar)',
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unmarkierten Seite',
@@ -1167,12 +1167,12 @@ $messages['de'] = array(
 	'stabilization-tab'           => 'Konfig.',
 	'tooltip-ca-default'          => 'Einstellungen der Artikel-Qualität',
 
-	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|markierte Version]] übernommen, sobald ein Benutzer mit Markierungs-Recht diese sich angeschaut hat.
-	Die ''aktuelle Version'' wird unten angezeigt.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Markierung an.",
+	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungs-Recht diese sich angeschaut hat.
+	Die ''ungesichtete Version'' wird unten angezeigt.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.",
 
 	'validationpage'              => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 
-	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Es wurde noch keine Version gesichtet.]]",
+	'revreview-quick-none'        => "'''[[{{MediaWiki:Validationpage}}|Keine Version gesichtet.]]",
 	'revreview-quick-invalid'     => "'''Ungültige Versions-ID'''",
 	'revreview-invalid'           => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|gesichtete]] Artikelversion der angegebenen Versions-ID.",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Ungesichtete Version]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]]
@@ -1563,7 +1563,7 @@ $messages['fa'] = array(
 	نیازمند بررسی {{plural:$3|است|هستند}}.',
 	'revreview-basic-same'         => 'این آخرین نسخهٔ [{{MediaWiki:Validationpage}}|بررسی شده]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است]. این صفحه قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تغییر] است.',
 	'revreview-quality-same'       => 'این آخرین نسخهٔ [{{MediaWiki:Validationpage}}|با کیفیت]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است]. این صفحه قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تغییر] است.',
-	'revreview-toggle'             => '(-/+)',
+	'revreview-toggle'             => '(+/−)',
 	'revreview-note'               => '[[User:$1]] این توضیحات را ضمن [[{{MediaWiki:Validationpage}}|بررسی]] این نسخه ثبت کرد:',
 	'revreview-update'             => 'لطفاً تمام تغییراتی که از آخرین نسخه پایدار صورت گرفته را بررسی کنید. برخی الگوها/تصویرها تغییر یافته‌اند:',
 	'revreview-update-none'        => 'لطفاً تمام تغییراتی که پس از آخرین نسخه پایدار اعمال شده‌اند را بررسی کنید.',
