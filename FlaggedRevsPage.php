@@ -855,18 +855,21 @@ class UnreviewedPages extends SpecialPage
 	}
 
 	function showList( $wgRequest ) {
-		global $wgOut, $wgUser, $wgScript, $wgTitle;
-
-		$namespace = $wgRequest->getIntOrNull( 'namespace' );
+		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
+		# If no NS given, then just use the first of $wgFlaggedRevsNamespaces
+		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
+		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
 		$category = trim( $wgRequest->getVal( 'category' ) );
 
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
-			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
-			'<p>' . Xml::label( wfMsg("namespace"), 'namespace' ) .
-			FlaggedRevs::getNamespaceMenu( $namespace ) .
-			'&nbsp;' . Xml::label( wfMsg("unreviewed-category"), 'category' ) .
+			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) . '<p>' );
+		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
+				FlaggedRevs::getNamespaceMenu( $namespace ) ) . '&nbsp;';
+		}
+		$wgOut->addHTML( Xml::label( wfMsg("unreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
 			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"
