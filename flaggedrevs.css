@@ -107,13 +107,13 @@
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
 	padding: 5px;
-	font-size: 85%;
+	font-size: 95%;
 	font-weight: normal;
 	margin: 0em 0em .5em 1em;
 	position: relative;
 	float: right;
 	text-align: left;
-	max-width: 400px;
+	max-width: 450px;
 	line-height: 16px;
 }
 
