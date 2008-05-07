@@ -451,9 +451,9 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		$article = new Article( $this->page );
 		# Is this rev already flagged?
-		$oldFlaggedOutput = false;
+		$flaggedOutput = false;
 		if( $oldfrev = FlaggedRevs::getFlaggedRev( $title, $rev->getId(), true, true ) ) {
-			$oldFlaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getText(), $oldfrev->getRevId() );
+			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getExpandedText(), $oldfrev->getRevId() );
 		}
 		
 		$dbw = wfGetDB( DB_MASTER );
@@ -493,11 +493,11 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
 		
 		# Is this a duplicate review?
-		if( $oldfrev && $oldFlaggedOutput ) {
+		if( $oldfrev && $flaggedOutput ) {
 			$synced = true;
-			if( $stableOutput->fr_newestImageTime != $oldFlaggedOutput->fr_newestImageTime )
+			if( $stableOutput->fr_newestImageTime != $flaggedOutput->fr_newestImageTime )
 				$synced = false;
-			if( $stableOutput->fr_newestTemplateID != $oldFlaggedOutput->fr_newestTemplateID )
+			if( $stableOutput->fr_newestTemplateID != $flaggedOutput->fr_newestTemplateID )
 				$synced = false;
 			if( $oldfrev->getTags() != $flags )
 				$synced = false;

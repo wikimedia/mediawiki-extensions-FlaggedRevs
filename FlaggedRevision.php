@@ -119,7 +119,7 @@ class FlaggedRevision {
 	/**
 	 * @returns mixed (string/false) expanded text
 	 */
-	public function getText() {
+	public function getExpandedText() {
 		$this->loadText(); // load if not loaded
 		return $this->mText;
 	}

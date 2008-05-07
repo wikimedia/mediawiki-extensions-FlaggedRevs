@@ -173,7 +173,7 @@ class FlaggedArticle {
 					$rev = Revision::newFromId( $frev->getRevId() );
 					$text = $rev->getText();
 				} else {
-					$text = $frev->getText();
+					$text = $frev->getExpandedText();
 				}
        			$parserOut = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
 				# Construct some tagging for non-printable outputs. Note that the pending
@@ -283,7 +283,7 @@ class FlaggedArticle {
 						$rev = Revision::newFromId( $frev->getRevId() );
 						$text = $rev->getText();
 					} else {
-						$text = $frev->getText();
+						$text = $frev->getExpandedText();
 					}
        				$parserOut = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
        				# Update the stable version cache
@@ -473,7 +473,7 @@ class FlaggedArticle {
 						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>[" . wfMsgHtml($leftNote) . "]</b></td>" .
 						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>[" . wfMsgHtml($rightNote) . "]</b></td>" .
 					"</tr>" .
-					$diffEngine->generateDiffBody( $frev->getText(), $editform->textbox1 ) .
+					$diffEngine->generateDiffBody( $rev->getText(), $editform->textbox1 ) .
 					"</table>" .
 					"</div>\n" );
 			}

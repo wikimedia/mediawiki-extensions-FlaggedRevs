@@ -513,7 +513,7 @@ class FlaggedRevs {
 					$rev = Revision::newFromId( $frev->getRevId() );
 					$text = $rev->getText();
 				} else {
-					$text = $frev->getText();
+					$text = $frev->getExpandedText();
 				}
        			$flaggedOutput = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
        			# Update the stable version cache
@@ -1378,7 +1378,7 @@ class FlaggedRevs {
 				$rev = Revision::newFromId( $sv->getRevId() );
 				$text = $rev->getText();
 			} else {
-				$text = $sv->getText();
+				$text = $sv->getExpandedText();
 			}
 			# Parse the text
 			$parserOut = self::parseStableText( $article, $text, $sv->getRevId() );
