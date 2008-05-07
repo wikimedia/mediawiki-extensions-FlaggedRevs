@@ -15,7 +15,7 @@ function toggleRevRatings() {
 	var ratings = document.getElementById('mw-revisionratings');
 	if( !ratings ) return;
 	if( ratings.style.display == 'none' ) {
-		ratings.style.display = 'block';
+		ratings.style.display = 'inline';
 	} else {
 		ratings.style.display = 'none';
 	}
