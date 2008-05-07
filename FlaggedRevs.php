@@ -1395,31 +1395,46 @@ class FlaggedRevs {
 		# and stable version. Therefore, we only care about
 		# links that are in the stable version and not the regular one.
 		foreach( $parserOut->getLinks() as $ns => $titles ) {
-			foreach( $titles as $title => $id )
-				$linksUpdate->mLinks[$ns][$title] = $id;
+			foreach( $titles as $title => $id ) {
+				if( !isset($linksUpdate->mLinks[$ns]) ) {
+					$linksUpdate->mLinks[$ns] = array();
+					$linksUpdate->mLinks[$ns][$title] = $id;
+				} else if( !isset($linksUpdate->mLinks[$ns][$title]) ) {
+					$linksUpdate->mLinks[$ns][$title] = $id;
+				}
+			}
 		}
 		foreach( $parserOut->getImages() as $image => $n ) {
-			$linksUpdate->mImages[$image] = $n;
+			if( !isset($linksUpdate->mImages[$image]) )
+				$linksUpdate->mImages[$image] = $n;
 		}
 		foreach( $parserOut->getTemplates() as $ns => $titles ) {
-			foreach( $titles as $title => $id )
-				$linksUpdate->mTemplates[$ns][$title] = $id;
+			foreach( $titles as $title => $id ) {
+				if( !isset($linksUpdate->mTemplates[$ns]) ) {
+					$linksUpdate->mTemplates[$ns] = array();
+					$linksUpdate->mTemplates[$ns][$title] = $id;
+				} else if( !isset($linksUpdate->mTemplates[$ns][$title]) ) {
+					$linksUpdate->mTemplates[$ns][$title] = $id;
+				}
+			}
 		}
-		foreach( $parserOut->getExternalLinks() as $image => $n ) {
-			$linksUpdate->mExternals[$image] = $n;
+		foreach( $parserOut->getExternalLinks() as $url => $n ) {
+			if( !isset($linksUpdate->mExternals[$url]) )
+				$linksUpdate->mExternals[$url] = $n;
 		}
 		foreach( $parserOut->getCategories() as $category => $sort ) {
-			$linksUpdate->mCategories[$category] = $sort;
+			if( !isset($linksUpdate->mCategories[$category]) )
+				$linksUpdate->mCategories[$category] = $sort;
 		}
 		foreach( $parserOut->getLanguageLinks() as $n => $link ) {
 			list( $key, $title ) = explode( ':', $link, 2 );
-			$linksUpdate->mInterlangs[$key] = $title;
+			if( !isset($linksUpdate->mInterlangs[$key]) )
+				$linksUpdate->mInterlangs[$key] = $title;
 		}
 		foreach( $parserOut->getProperties() as $prop => $val ) {
 			if( !isset($linksUpdate->mProperties[$prop]) )
 				$linksUpdate->mProperties[$prop] = $val;
 		}
-
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
