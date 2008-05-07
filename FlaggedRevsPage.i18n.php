@@ -1156,7 +1156,7 @@ $messages['de'] = array(
 	'right-stablesettings'  => 'Konfiguration der Anzeige markierter Versionen',
 	'right-autopatrolother' => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
 
-	'revreview-current'           => 'Unmarkiert (bearbeitbar)',
+	'revreview-current'           => 'Unmarkiert',
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unmarkierten Seite',
 	'revreview-edit'              => 'Bearbeite unmarkierte Seite',
 	'revreview-source'            => 'Quelltext (unmarkierte Seite)',
