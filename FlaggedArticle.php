@@ -577,7 +577,8 @@ class FlaggedArticle {
 			return true;
 		}
        	# Be clear about what is being edited...
-       	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() && !FlaggedRevs::flaggedRevIsSynced( $frev, $article ) ) {
+		$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article );
+       	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() && !$synced ) {
        		if( isset( $content_actions['edit'] ) ) {
        			$content_actions['edit']['text'] = wfMsg('revreview-edit');
 				# If the user is requesting the draft or some revision, they don't need a diff.
@@ -603,7 +604,7 @@ class FlaggedArticle {
 			}
 		}
 		// Add auxillary tabs...
-     	if( !$wgFlaggedRevTabs )
+     	if( !$wgFlaggedRevTabs || $synced )
        		return true;
        	// We are looking at the stable version
        	if( $this->pageOverride() ) {
