@@ -910,7 +910,7 @@ class UnreviewedPages extends SpecialPage
 	}
 	
 	function formatRow( $result ) {
-		global $wgLang;
+		global $wgLang, $wgUser;
 
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
@@ -921,11 +921,16 @@ class UnreviewedPages extends SpecialPage
 			else
 				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		$uw = self::usersWatching( $title );
-		$uwPar = $uw >= 5 ? '5+' : $uw;
-		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
+		if( $wgUser->isAllowed('unwatchedpages') ) {
+			$uw = self::usersWatching( $title );
+			$uwPar = $uw >= 5 ? '5+' : $uw;
+			$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
+			$watching = " $watching";
+		} else {
+			$watching = "";
+		}
 
-		return( "<li>{$link} {$stxt} {$review} {$watching}</li>" );
+		return( "<li>{$link} {$stxt} {$review}{$watching}</li>" );
 	}
 	
 	/**
