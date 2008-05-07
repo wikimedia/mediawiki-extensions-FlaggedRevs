@@ -122,19 +122,17 @@ $wgAvailableRights[] = 'validate';
 # Define our basic reviewer class
 $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
-$wgGroupPermissions['editor']['unwatchedpages']  = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['patrolmarks']     = true;
 $wgGroupPermissions['editor']['autopatrolother'] = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
-$wgGroupPermissions['editor']['rollback']        = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
-$wgGroupPermissions['reviewer']['review']   = true;
+$wgGroupPermissions['reviewer']['review'] = true;
 
-$wgGroupPermissions['bot']['autoreview']      = true;
+$wgGroupPermissions['bot']['autoreview'] = true;
 
 # Stable version selection and default page revision selection can be set per page.
 $wgGroupPermissions['sysop']['stablesettings'] = true;
