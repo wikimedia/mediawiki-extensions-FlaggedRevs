@@ -1430,24 +1430,24 @@ class FlaggedArticle {
 	 * If viewing a stable version, adjust the last modified header
 	 */
 	public function setLastModified( $sktmp, &$tpl ) {
-		global $wgLang;
+		global $wgArticle, $wgLang;
 		# Non-content pages cannot be validated
 		if( !$this->pageOverride() )
 			return true;
 		# Check for an overridabe revision
 		$frev = $this->getStableRev( true );
-		if( !$frev )
+		if( !$frev || $frev->getRevId() == $wgArticle->getLatest() )
 			return true;
 		# Get the timestamp of this revision
 		$timestamp = $frev->getRevTimestamp();
-		if ( $timestamp ) {
+		if( $timestamp ) {
 			$d = $wgLang->date( $timestamp, true );
 			$t = $wgLang->time( $timestamp, true );
 			$s = ' ' . wfMsg( 'lastmodifiedat', $d, $t );
 		} else {
 			$s = '';
 		}
-		if ( wfGetLB()->getLaggedSlaveMode() ) {
+		if( wfGetLB()->getLaggedSlaveMode() ) {
 			$s .= ' <strong>' . wfMsg( 'laggedslavemode' ) . '</strong>';
 		}
 		$tpl->set( 'lastmod', $s );
