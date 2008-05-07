@@ -109,7 +109,7 @@
 	padding: 5px;
 	font-size: 95%;
 	font-weight: normal;
-	margin: 0em 0em .5em 1em;
+	margin: 0em 0em 1em 1em;
 	position: relative;
 	float: right;
 	text-align: left;
@@ -195,7 +195,8 @@
 /* Both User Interfaces */
 .flaggedrevs_toggle {
 	color: blue;
-	white-space: no-wrap;
+	white-space: nowrap;
+	cursor:pointer;
 }
 
 .fr-icon-current,

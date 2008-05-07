@@ -125,7 +125,7 @@ class FlaggedArticle {
 				$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 				# Hide clutter
 				if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
-					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 						wfMsg( 'revreview-toggle' ) . "</span>";
 					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
@@ -195,7 +195,7 @@ class FlaggedArticle {
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						# Hide clutter
 						if( !empty($flags) ) {
-							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg( 'revreview-toggle' ) . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
@@ -263,7 +263,7 @@ class FlaggedArticle {
 						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . $msgHTML;
 						# Hide clutter
 						if( !empty($flags) ) {
-							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg( 'revreview-toggle' ) . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
@@ -311,7 +311,7 @@ class FlaggedArticle {
 						$tag = "<span class='{$css} plainlinks' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
-							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg('revreview-toggle') . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" . 
@@ -446,7 +446,7 @@ class FlaggedArticle {
 					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 				# Hide clutter
 				if( !empty($flags) ) {
-					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'" .
+					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 						wfMsg( 'revreview-toggle' ) . "</span>";
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
@@ -982,18 +982,20 @@ class FlaggedArticle {
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 		}
 		# Make fancy box...
-		$box = "<div>";
-		$box .= "<span style='float: left;'>$shtml&nbsp;</span>";
-		$box .= "<span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer; float: right;'
+		$box = "<table border='0' cellspacing='0' style='background: none;'>\n";
+		$box .= "<tr><td>$shtml&nbsp;</td><td align='right'>";
+		$box .= "<span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'
 			onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "'>" . 
-			wfMsgHtml( 'revreview-toggle' ) . "</span></div>";
-		$box .= '<div id="mw-revisionratings" style="clear: both;">';
+			wfMsgHtml( 'revreview-toggle' ) . "</span></td></tr>";
+		$box .= "<tr><td>";
+		$box .= "<span id='mw-revisionratings'>";
 		$box .= $html;
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
 			$box .= $this->addTagRatings( $flags, true, $color );
 		}
-		$box .= '</div>';
+		$box .= "</span></tr></td>";
+		$box .= "</table>";
 
         return $box;
 	}

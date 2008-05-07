@@ -178,7 +178,7 @@ $wgFlaggedRevsExternalStore = false;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 17;
+$wgFlaggedRevStyleVersion = 18;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
