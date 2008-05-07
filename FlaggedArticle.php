@@ -571,14 +571,16 @@ class FlaggedArticle {
 		}
        	# Be clear about what is being edited...
 		$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article );
-       	if( !$sktmp->mTitle->isTalkPage() && $this->showStableByDefault() && !$synced ) {
+       	if( !$sktmp->mTitle->isTalkPage() && !$synced ) {
        		if( isset( $content_actions['edit'] ) ) {
-       			$content_actions['edit']['text'] = wfMsg('revreview-edit');
+				if( $this->showStableByDefault() )
+					$content_actions['edit']['text'] = wfMsg('revreview-edit');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
 					$content_actions['edit']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
        		} if( isset( $content_actions['viewsource'] ) ) {
-       			$content_actions['viewsource']['text'] = wfMsg('revreview-source');
+				if( $this->showStableByDefault() )
+					$content_actions['viewsource']['text'] = wfMsg('revreview-source');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
 					$content_actions['viewsource']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
