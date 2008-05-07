@@ -446,7 +446,7 @@ class FlaggedArticle {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 				$tag = "<span class='fr-checkbox'></span>" . 
 					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
-				$tag = "<div id='mw-revisiontag' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
+				$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 			# Standard UI
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -460,7 +460,7 @@ class FlaggedArticle {
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
 						wfMsg('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
-				$tag = "<div id='mw-revisiontag' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
+				$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 			}
 			$wgOut->addHTML( $tag . $warning );
 			# Show diff to stable, to make things less confusing
