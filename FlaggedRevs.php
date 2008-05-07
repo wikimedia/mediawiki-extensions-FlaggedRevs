@@ -1866,7 +1866,7 @@ class FlaggedRevs {
 		}
 		# Check basic, already available, promotion heuristics first...
 		$now = time();
-		$usercreation = wfTimestamp(TS_UNIX,$user->mRegistration);
+		$usercreation = wfTimestamp( TS_UNIX, $user->getRegistration() );
 		$userage = floor(($now - $usercreation) / 86400);
 		if( $userage < $wgFlaggedRevsAutopromote['days'] ) {
 			wfProfileOut( __METHOD__ );
@@ -1931,7 +1931,7 @@ class FlaggedRevs {
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
-				$wgMemc->set( $key, 'true', 3600*24*$spacing($benchmarks - $needed - 1) );
+				$wgMemc->set( $key, 'true', 3600*24*$spacing*($benchmarks - $needed - 1) );
 				wfProfileOut( __METHOD__ );
 				return true;
 			}
