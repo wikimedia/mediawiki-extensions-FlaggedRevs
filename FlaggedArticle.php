@@ -131,7 +131,7 @@ class FlaggedArticle {
 					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
 						wfMsgHtml('revreview-oldrating') . $this->addTagRatings( $flags ) . '</span>';
 				}
-				$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks'>$tag</div>";
+				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks'>$tag</div>";
 				$wgOut->addHTML( $tag );
 			}
 			return true;
