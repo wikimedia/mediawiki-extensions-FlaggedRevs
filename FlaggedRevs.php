@@ -1975,9 +1975,9 @@ class FlaggedRevs {
 				array( 'rc_user_text' => $user->getName(),
 					'rc_namespace' => $wgContentNamespaces ), 
 				__METHOD__, 
-				array( 'USE INDEX' => 'rc_ns_usertext', 
+				array( 'USE INDEX' => 'rc_ns_usertext',
 					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
-			if( $dbr->numRows() >= $wgFlaggedRevsAutopromote['recentContent'] ) {
+			if( $dbr->numRows() < $wgFlaggedRevsAutopromote['recentContent'] ) {
 				wfProfileOut( __METHOD__ );
 				return true;
 			}
