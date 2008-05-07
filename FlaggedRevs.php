@@ -1406,10 +1406,13 @@ class FlaggedRevs {
 		foreach( $parserOut->getCategories() as $category => $sort ) {
 			$linksUpdate->mCategories[$category] = $sort;
 		}
-		$ill = $parserOut->getLanguageLinks();
-		foreach( $ill as $link ) {
+		foreach( $parserOut->getLanguageLinks() as $n => $link ) {
 			list( $key, $title ) = explode( ':', $link, 2 );
 			$linksUpdate->mInterlangs[$key] = $title;
+		}
+		foreach( $parserOut->getProperties() as $prop => $val ) {
+			if( !isset($linksUpdate->mProperties[$prop]) )
+				$linksUpdate->mProperties[$prop] = $val;
 		}
 
 		wfProfileOut( __METHOD__ );
