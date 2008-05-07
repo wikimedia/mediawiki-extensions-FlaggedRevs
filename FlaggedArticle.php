@@ -466,7 +466,8 @@ class FlaggedArticle {
 			# Show diff to stable, to make things less confusing
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
-			if( $wgRequest->getIntOrNull('showdiff') && strcmp( $frev->getText(), $editform->textbox1 ) !== 0 ) {
+			$rev = $frev->getRevision();
+			if( $rev && $wgRequest->getIntOrNull('showdiff') && strcmp( $rev->getText(), $editform->textbox1 ) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
 				$wgOut->addHtml(
