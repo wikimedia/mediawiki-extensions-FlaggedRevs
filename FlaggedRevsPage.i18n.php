@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'grouppage-reviewer'    => '{{ns:project}}:Reviewer',
 
 	'right-review'          => 'Mark revisions as sighted',
+	'right-autoreview'      => 'Automatically mark revisions as sighted',
 	'right-validate'        => 'Mark revisions as validated',
 	'right-unreviewedpages' => 'View list of unreviewed pages',
 	'right-stablesettings'  => 'Configure how the stable version is selected and displayed',
@@ -1151,6 +1152,7 @@ $messages['de'] = array(
 	'grouppage-reviewer'          => '{{ns:project}}:Prüfer',
 
 	'right-review'          => 'Markiere Versionen als gesichtet',
+	'right-autoreview'      => 'Automatisches Markieren von Versionen als gesichtet',
 	'right-validate'        => 'Markiere Versionen als geprüft',
 	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
 	'right-stablesettings'  => 'Konfiguration der Anzeige markierter Versionen',
@@ -1199,11 +1201,11 @@ $messages['de'] = array(
 	'revreview-quality'           => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version.
 	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Prüfung an.',
 	'revreview-basic-same'        => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
-	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
 	'revreview-quality-same'      => 'Das ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
 	'revreview-basic-old'         => 'Das ist eine [[{{MediaWiki:Validationpage}}|gesichtete]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 	'revreview-quality-old'       => 'Das ist eine [[{{MediaWiki:Validationpage}}|geprüfte]]  Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
