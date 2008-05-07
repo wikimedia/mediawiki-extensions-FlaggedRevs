@@ -1047,9 +1047,14 @@ class FlaggedRevs {
 		) );
 		# Handle onload parameters
 		$JSparams = self::getJSParams();
-		if( $JSparams ) {
-			$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">var wgFlaggedRevsJSparams = {". $JSparams . "};</script>\n" );
-		}
+		$frev = $wgFlaggedArticle->getStableRev( true );
+		$stableId = $frev ? $frev->getRevId() : 0;
+		
+		$script = "<script type=\"{$wgJsMimeType}\">\n";
+		$script .= "var wgFlaggedRevsJSparams = {". $JSparams . "};\n";
+		$script .= "var wgStableRevisionId = ". $stableId . ";";
+		$script .= "</script>\n";
+		$wgOut->addScript( $script );
 		# UI JS
 		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
 
