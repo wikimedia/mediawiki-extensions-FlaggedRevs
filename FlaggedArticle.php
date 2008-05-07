@@ -185,9 +185,9 @@ class FlaggedArticle {
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
-						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . 
-							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time ) . 
-							$this->prettyRatingBox( $frev, $revs_since, true, false, $old );
+						$html = "<span class='{$css}' title=\"{$tooltip}\"></span>" . 
+							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
+						$tag .= $this->prettyRatingBox( $frev, $html, $revs_since, true, false, $old );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
@@ -246,8 +246,8 @@ class FlaggedArticle {
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 						}
 						$tooltip = wfMsgHtml($tooltip);
-						$tag .= "<span class='{$css}' title=\"{$tooltip}\"></span>" . $msgHTML . 
-							$this->prettyRatingBox( $frev, $revs_since, $synced, $synced, $old );
+						$msgHTML = "<span class='{$css}' title=\"{$tooltip}\"></span>$msgHTML";
+						$tag .= $this->prettyRatingBox( $frev, $msgHTML, $revs_since, $synced, $synced, $old );
 					// Standard UI
 					} else {
 						if( $synced ) {
@@ -299,10 +299,10 @@ class FlaggedArticle {
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$msg = $synced ? "{$msg}-same" : $msg;
-						
-						$tag = "<span class='{$css}' title=\"{$tooltip}\"></span>" .
+						$html = "<span class='{$css}' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
-					 	$tag .= $this->prettyRatingBox( $frev, $revs_since, true, $synced );
+						
+						$tag = $this->prettyRatingBox( $frev, $html, $revs_since, true, $synced );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
@@ -943,6 +943,7 @@ class FlaggedArticle {
 
 	/**
 	 * @param Row $trev, flagged revision row
+	 * @param string $html, the short message HTML
 	 * @param int $revs_since, revisions since review
 	 * @param bool $stable, are we referring to the stable revision?
 	 * @param bool $synced, does stable=current and this is one of them?
@@ -950,7 +951,7 @@ class FlaggedArticle {
 	 * @return string
 	 * Generates a review box using a table using addTagRatings()
 	 */
-	public function prettyRatingBox( $frev, $revs_since, $stable=true, $synced=false, $old=false ) {
+	public function prettyRatingBox( $frev, $shtml, $revs_since, $stable=true, $synced=false, $old=false ) {
 		global $wgLang;
 		# Get quality level
 		$flags = $frev->getTags();
@@ -980,11 +981,14 @@ class FlaggedArticle {
 			$msg .= $quality ? 'quality' : 'basic';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 		}
-		# Make facny box...
-		$box = " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer;'
-			onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-			wfMsgHtml( 'revreview-toggle' ) . "</span>";
-		$box .= '<div id="mw-revisionratings" style="clear: both;">' . $html;
+		# Make fancy box...
+		$box = "<div>";
+		$box .= "<span style='float: left;'>$shtml&nbsp;</span>";
+		$box .= "<span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none; cursor:pointer; float: right;'
+			onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "'>" . 
+			wfMsgHtml( 'revreview-toggle' ) . "</span></div>";
+		$box .= '<div id="mw-revisionratings" style="clear: both;">';
+		$box .= $html;
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
 			$box .= $this->addTagRatings( $flags, true, $color );
