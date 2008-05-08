@@ -805,32 +805,32 @@ class FlaggedArticle {
 		$oldRevQ = $OldRev ? FlaggedRevs::getRevQuality( $NewRev->getTitle(), $OldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $OldRev ) {
-			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td width='50%' align='center'>" );
 			if( $oldRevQ !== false ) {
 				$msg = $oldRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
 				$msg = 'revreview-draft-title';
 			}
-			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
-			
-			$wgOut->addHTML( '</td><td width="50%" align="center">' );
+			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td class='fr-$msg' width='50%' align='center'>" );
+			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
+
 			if( $newRevQ !== false ) {
 				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
 				$msg = 'revreview-draft-title';
 			}
-			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
-			
+			$wgOut->addHTML( "</td><td class='fr-$msg' width='50%' align='center'>" );
+			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
+
 			$wgOut->addHTML( '</td></tr></table>' );
 		# New page "diffs" - just one rev
 		} else {
-			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td align='center'>" );
 			if( $newRevQ !== false ) {
 				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
 			} else {
 				$msg = 'revreview-draft-title';
 			}
-			$wgOut->addHTML( "<b>[" . wfMsgHtml($msg) . "]</b>" );
+			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td class='fr-$msg' align='center'>" );
+			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
 			$wgOut->addHTML( '</td></tr></table>' );
 		}
 		
