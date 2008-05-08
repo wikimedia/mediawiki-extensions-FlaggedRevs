@@ -1253,13 +1253,21 @@ class ReviewedPages extends SpecialPage
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 
+		$stxt = '';
+		if( !is_null($size = $row->page_len) ) {
+			if($size == 0)
+				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
+			else
+				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
+		}
+
 		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );
 		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-all'),
 			'page=' . $title->getPrefixedUrl() );
 		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('reviewedpages-best'),
 			'stableid=best' );
 
-		return '<li>'.$link.' ('.$list.') ['.$best.'] </li>';
+		return "<li>$link $stxt ($list) [$best]</li>";
 	}
 }
 
@@ -1291,7 +1299,7 @@ class ReviewedPagesPager extends AlphabeticPager {
 		$conds['fp_quality'] = $this->type;
 		return array(
 			'tables' => array('flaggedpages','page'),
-			'fields' => 'page_namespace,page_title,fp_page_id',
+			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
 			'conds'  => $conds,
 			'options' => array( 'USE INDEX' => array('flaggedpages' => 'fp_quality_page') )
 		);
