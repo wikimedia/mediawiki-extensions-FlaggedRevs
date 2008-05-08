@@ -1771,7 +1771,10 @@ class FlaggedRevs {
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
-		$prevRev = Revision::newFromTitle( $title );
+		$prevRevID = $title->getPreviousRevisionId( $rev->getId() );
+		if( !$prevRevID )
+			return true;
+		$prevRev = Revision::newFromID( $prevRevID );
 		# Check for null edits
 		if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
 			$frev = FlaggedRevs::getFlaggedRev( $title, $prevRev->getId() );

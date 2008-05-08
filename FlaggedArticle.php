@@ -485,7 +485,7 @@ class FlaggedArticle {
 	 * Add review form to pages when necessary
 	 */
     public function addReviewForm( $out ) {
-    	global $wgRequest, $wgArticle, $wgTitle;
+    	global $wgRequest, $wgArticle;
 
 		if( !$wgArticle || !$wgArticle->exists() || !$this->isReviewable() )
 			return true;
@@ -495,7 +495,7 @@ class FlaggedArticle {
 			return true;
 		}
 		# Add review form
-		$this->addQuickReview( $out, $wgTitle, $wgRequest->getVal('diff') );
+		$this->addQuickReview( $out, $wgRequest->getVal('diff') );
 
 		return true;
     }
@@ -1090,8 +1090,8 @@ class FlaggedArticle {
 	 * @param Title $title
 	 * @param bool $top, should this form always go on top?
 	 */
-    public function addQuickReview( $out, $title, $top = false ) {
-		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
+	public function addQuickReview( $out, $top = false ) {
+		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) {
 			return;
@@ -1220,16 +1220,16 @@ class FlaggedArticle {
 			}
 		}
 		# For image pages, note the current image version
-		if( $title->getNamespace() == NS_IMAGE ) {
-			$file = wfFindFile( $title );
+		if( $wgTitle->getNamespace() == NS_IMAGE ) {
+			$file = wfFindFile( $wgTitle );
 			if( $file ) {
-				$imageParams .= $title->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+				$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
 			}
 		}
 		
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
-		$form .= Xml::hidden( 'target', $title->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'oldid', $id ) . "\n";
 		$form .= Xml::hidden( 'action', 'submit') . "\n";
 		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
