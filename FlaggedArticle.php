@@ -614,26 +614,31 @@ class FlaggedArticle {
 			$DraftTabcss = 'selected';
 			$StableTabcss = '';
 		}
-		$new_actions = array(); $counter = 0;
+		$new_actions = array(); $first = true;
 		# Straighten out order, set the tab AFTER the main tab is set
 		foreach( $content_actions as $tab_action => $data ) {
-			if( $counter==1 ) {
-				if( $this->showStableByDefault() ) {
+			# Main page tab...
+			if( $first ) {
+				$first = false;
+				if( $synced ) {
+					$new_actions[$tab_action] = $data; // keep it
+				} else {
+					# Add new tabs after first one
 					$new_actions['current'] = array(
 						'class' => $DraftTabcss,
 						'text' => wfMsg('revreview-current'),
 						'href' => $title->getLocalUrl( 'stable=0' )
-					);
-				} else {
+						);
 					$new_actions['stable'] = array(
 						'class' => $StableTabcss,
 						'text' => wfMsg('revreview-stable'),
 						'href' => $title->getLocalUrl( 'stable=1' )
 					);
 				}
+			# The others...
+			} else {
+				$new_actions[$tab_action] = $data;
 			}
-       		$new_actions[$tab_action] = $data;
-       		$counter++;
        	}
        	# Reset static array
        	$content_actions = $new_actions;
