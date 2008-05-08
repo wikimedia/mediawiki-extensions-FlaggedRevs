@@ -601,82 +601,42 @@ class FlaggedArticle {
 		// Add auxillary tabs...
      	if( !$wgFlaggedRevTabs || $synced )
        		return true;
-       	// We are looking at the stable version
-       	if( $this->pageOverride() ) {
-			$new_actions = array(); $counter = 0;
-			# Straighten out order, set the tab AFTER the main tab is set
-			foreach( $content_actions as $tab_action => $data ) {
-				if( $counter==1 ) {
-					if( $this->showStableByDefault() ) {
-						$new_actions['current'] = array(
-							'class' => '',
-							'text' => wfMsg('revreview-current'),
-							'href' => $title->getLocalUrl( 'stable=0' )
-						);
-					} else {
-						$new_actions['stable'] = array(
-							'class' => 'selected',
-							'text' => wfMsg('revreview-stable'),
-							'href' => $title->getLocalUrl( 'stable=1' )
-						);
-					}
+		// We are looking at the stable version
+		if( $this->pageOverride() ) {
+			$DraftTabcss = '';
+			$StableTabcss = 'selected';
+		// We are looking at the talk page or diffs/hist/oldids
+		} else if( !in_array($action,array('view','purge','edit')) || $sktmp->mTitle->isTalkPage() ) {
+			$DraftTabcss = '';
+			$StableTabcss = '';
+		// We are looking at the current revision or in edit mode
+		} else {
+			$DraftTabcss = 'selected';
+			$StableTabcss = '';
+		}
+		$new_actions = array(); $counter = 0;
+		# Straighten out order, set the tab AFTER the main tab is set
+		foreach( $content_actions as $tab_action => $data ) {
+			if( $counter==1 ) {
+				if( $this->showStableByDefault() ) {
+					$new_actions['current'] = array(
+						'class' => $DraftTabcss,
+						'text' => wfMsg('revreview-current'),
+						'href' => $title->getLocalUrl( 'stable=0' )
+					);
+				} else {
+					$new_actions['stable'] = array(
+						'class' => $StableTabcss,
+						'text' => wfMsg('revreview-stable'),
+						'href' => $title->getLocalUrl( 'stable=1' )
+					);
 				}
-       			$new_actions[$tab_action] = $data;
-       			$counter++;
-       		}
-       		# Reset static array
-       		$content_actions = $new_actions;
-    	} else if( ($action !='view' && $action !='purge') || $sktmp->mTitle->isTalkPage() ) {
-    	// We are looking at the talk page or diffs/hist/oldids, or in edit mode
-			$new_actions = array(); $counter = 0;
-			# Straighten out order, set the tab AFTER the main tab is set
-			foreach( $content_actions as $tab_action => $data ) {
-				if( $counter==1 ) {
-					if( $this->showStableByDefault() ) {
-						$new_actions['current'] = array(
-							'class' => '',
-							'text' => wfMsg('revreview-current'),
-							'href' => $title->getLocalUrl( 'stable=0' )
-						);
-					} else {
-						$new_actions['stable'] = array(
-							'class' => '',
-							'text' => wfMsg('revreview-stable'),
-							'href' => $title->getLocalUrl( 'stable=1' )
-						);
-					}
-				}
-       			$new_actions[$tab_action] = $data;
-       			$counter++;
-       		}
-       		# Reset static array
-       		$content_actions = $new_actions;
-    	} else if( $wgFlaggedRevTabs ) {
-		// We are looking at the current revision
-			$new_actions = array(); $counter = 0;
-			# Straighten out order, set the tab AFTER the main tab is set
-			foreach( $content_actions as $tab_action => $data ) {
-				if( $counter==1 ) {
-					if( $this->showStableByDefault() ) {
-						$new_actions['current'] = array(
-							'class' => 'selected',
-							'text' => wfMsg('revreview-current'),
-							'href' => $title->getLocalUrl( 'stable=0' )
-						);
-					} else {
-						$new_actions['stable'] = array(
-							'class' => '',
-							'text' => wfMsg('revreview-stable'),
-							'href' => $title->getLocalUrl( 'stable=1' )
-						);
-				 	}
-				}
-       			$new_actions[$tab_action] = $data;
-       			$counter++;
-       		}
-       		# Reset static array
-       		$content_actions = $new_actions;
-    	}
+			}
+       		$new_actions[$tab_action] = $data;
+       		$counter++;
+       	}
+       	# Reset static array
+       	$content_actions = $new_actions;
     	return true;
     }
 
