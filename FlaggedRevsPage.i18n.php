@@ -1210,6 +1210,7 @@ $messages['de'] = array(
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 
+	'revreview-toggle'            => '(+/−)',
 	'revreview-toggle-title'      => 'zeige/verstecke Details',
 	'revreview-draft-title'       => 'Ungesichteter Artikel',
 	'revreview-stable-title'      => 'Gesichteter Artikel',
