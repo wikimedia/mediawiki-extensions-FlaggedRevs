@@ -150,6 +150,14 @@ class FlaggedArticle {
 			if( $reqId != $stableId ) {
 				$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $reqId, true );
 				$old = true; // old reviewed version requested by ID
+				if( !$frev ) {
+					$wgOut->addWikiText( wfMsg('revreview-invalid') );
+					$wgOut->returnToMain( false, $article->getTitle() );
+					# Tell MW that parser output is done
+					$outputDone = true;
+					$pcache = false;
+					return true;
+				}
 			} else {
 				$stable = true; // stable version requested by ID
 			}
@@ -602,7 +610,7 @@ class FlaggedArticle {
      	if( !$wgFlaggedRevTabs || $synced )
        		return true;
 		// We are looking at the stable version
-		if( $this->pageOverride() ) {
+		if( $this->pageOverride() || $wgRequest->getVal('stableid') ) {
 			$DraftTabcss = '';
 			$StableTabcss = 'selected';
 		// We are looking at the talk page or diffs/hist/oldids
@@ -624,16 +632,16 @@ class FlaggedArticle {
 					$new_actions[$tab_action] = $data; // keep it
 				} else {
 					# Add new tabs after first one
-					$new_actions['current'] = array(
-						'class' => $DraftTabcss,
-						'text' => wfMsg('revreview-current'),
-						'href' => $title->getLocalUrl( 'stable=0' )
-						);
 					$new_actions['stable'] = array(
 						'class' => $StableTabcss,
 						'text' => wfMsg('revreview-stable'),
 						'href' => $title->getLocalUrl( 'stable=1' )
 					);
+					$new_actions['current'] = array(
+						'class' => $DraftTabcss,
+						'text' => wfMsg('revreview-current'),
+						'href' => $title->getLocalUrl( 'stable=0' )
+						);
 				}
 			# The others...
 			} else {
