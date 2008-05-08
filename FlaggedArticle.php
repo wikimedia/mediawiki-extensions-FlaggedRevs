@@ -129,7 +129,7 @@ class FlaggedArticle {
 						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 						wfMsg( 'revreview-toggle' ) . "</span>";
 					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
-						wfMsgHtml('revreview-oldrating') . FlaggedRevsUI::addTagRatings( $flags ) . '</span>';
+						wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks'>$tag</div>";
 				$wgOut->addHTML( $tag );
@@ -187,7 +187,7 @@ class FlaggedArticle {
 						$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
 						$html = "<span class='{$css}' title=\"{$tooltip}\"></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
-						$tag .= FlaggedRevsUI::prettyRatingBox( $frev, $html, $revs_since, true, false, $old );
+						$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $html, $revs_since, true, false, $old );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
@@ -199,7 +199,7 @@ class FlaggedArticle {
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg( 'revreview-toggle' ) . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
-								wfMsgHtml('revreview-oldrating') . FlaggedRevsUI::addTagRatings( $flags ) . '</span>';
+								wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
 					}
 				}
@@ -247,7 +247,7 @@ class FlaggedArticle {
 						}
 						$tooltip = wfMsgHtml($tooltip);
 						$msgHTML = "<span class='{$css}' title=\"{$tooltip}\"></span>$msgHTML";
-						$tag .= FlaggedRevsUI::prettyRatingBox( $frev, $msgHTML, $revs_since, $synced, $synced, $old );
+						$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revs_since, $synced, $synced, $old );
 					// Standard UI
 					} else {
 						if( $synced ) {
@@ -267,7 +267,7 @@ class FlaggedArticle {
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg( 'revreview-toggle' ) . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
-								wfMsgHtml('revreview-oldrating') . FlaggedRevsUI::addTagRatings( $flags ) . '</span>';
+								wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
 					}
 				}
@@ -302,7 +302,7 @@ class FlaggedArticle {
 						$html = "<span class='{$css}' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revs_since );
 						
-						$tag = FlaggedRevsUI::prettyRatingBox( $frev, $html, $revs_since, true, $synced );
+						$tag = FlaggedRevsXML::prettyRatingBox( $frev, $html, $revs_since, true, $synced );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
@@ -315,7 +315,7 @@ class FlaggedArticle {
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg('revreview-toggle') . "</span>";
 							$tag .= "<span id='mw-revisionratings' style='display:block;'>" . 
-								FlaggedRevsUI::addTagRatings( $flags ) . '</span>';
+								FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
 					}
 				}
@@ -450,7 +450,7 @@ class FlaggedArticle {
 						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 						wfMsg( 'revreview-toggle' ) . "</span>";
 					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
-						wfMsg('revreview-oldrating') . FlaggedRevsUI::addTagRatings( $flags ) . '</span>';
+						wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 				$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 			}

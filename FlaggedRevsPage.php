@@ -890,7 +890,7 @@ class UnreviewedPages extends SpecialPage
 			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) . '<p>' );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
-				FlaggedRevsUI::getNamespaceMenu( $namespace ) ) . '&nbsp;';
+				FlaggedRevsXML::getNamespaceMenu( $namespace ) ) . '&nbsp;';
 		}
 		$wgOut->addHTML( Xml::label( wfMsg("unreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .

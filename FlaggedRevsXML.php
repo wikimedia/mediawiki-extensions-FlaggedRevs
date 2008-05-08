@@ -1,6 +1,6 @@
 <?php
 
-class FlaggedRevsUI {
+class FlaggedRevsXML {
    	/**
 	* Get a selector of reviewable namespaces
 	* @param int $selected, namespace selected
@@ -89,7 +89,7 @@ class FlaggedRevsUI {
 	 * @param bool $synced, does stable=current and this is one of them?
 	 * @param bool $old, is this an old stable version?
 	 * @return string
-	 * Generates a review box using a table using FlaggedRevsUI::addTagRatings()
+	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
 	public static function prettyRatingBox( $frev, $shtml, $revs_since, $stable=true, $synced=false, $old=false ) {
 		global $wgLang;
@@ -131,7 +131,7 @@ class FlaggedRevsUI {
 		$box .= $html;
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
-			$box .= FlaggedRevsUI::addTagRatings( $flags, true, $color );
+			$box .= self::addTagRatings( $flags, true, $color );
 		}
 		$box .= "</td></tr></table>";
 

@@ -186,7 +186,7 @@ $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['FlaggedRevsPage'] = $dir . 'FlaggedRevsPage.i18n.php';
 
 # Load general UI
-$wgAutoloadClasses['FlaggedRevsUI'] = $dir . 'FlaggedRevsUI.php';
+$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
 # Load context article stuff
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 # Load FlaggedRevision object class
