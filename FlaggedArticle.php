@@ -788,11 +788,11 @@ class FlaggedArticle {
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update', array('parseinline')) . ' ' . $changeList . '</div>' );
+						wfMsgExt('revreview-update', array('parseinline')) . '&nbsp;' . $changeList . '</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-includes', array('parseinline')) . ' ' . $changeList . '</div>' );
+						wfMsgExt('revreview-update-includes', array('parseinline')) . '&nbsp;' . $changeList . '</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
