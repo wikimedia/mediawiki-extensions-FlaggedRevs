@@ -186,6 +186,8 @@ $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['FlaggedRevsPage'] = $dir . 'FlaggedRevsPage.i18n.php';
 
 # Load general UI
+$wgAutoloadClasses['FlaggedRevsUI'] = $dir . 'FlaggedRevsUI.php';
+# Load context article stuff
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 # Load FlaggedRevision object class
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
@@ -2172,43 +2174,6 @@ class FlaggedRevs {
 		$user->setOption( 'flaggedrevssimpleui', $form->validateInt( $form->mFlaggedRevsSUI, 0, 1 ) );
 		$user->setOption( 'flaggedrevswatch', $form->validateInt( $form->mFlaggedRevsWatch, 0, 1 ) );
 		return true;
-	}
-
-   	/**
-	* Get a selector of reviewable namespaces
-	* @param int $selected, namespace selected
-	*/
-	public static function getNamespaceMenu( $selected=null ) {
-		global $wgContLang, $wgFlaggedRevsNamespaces;
-
-		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
-		if( $selected !== '' ) {
-			if( is_null( $selected ) ) {
-				# No namespace selected; let exact match work without hitting Main
-				$selected = '';
-			} else {
-				# Let input be numeric strings without breaking the empty match.
-				$selected = intval($selected);
-			}
-		}
-		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
-		$arr = $wgContLang->getFormattedNamespaces();
-
-		foreach( $arr as $index => $name ) {
-			# Content only
-			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) )
-				continue;
-
-			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
-
-			if($index === $selected) {
-				$s .= "\t" . Xml::element("option", array("value" => $index, "selected" => "selected"), $name) . "\n";
-			} else {
-				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
-			}
-		}
-		$s .= "</select>\n";
-		return $s;
 	}
 	
 	/**
