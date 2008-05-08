@@ -1772,7 +1772,7 @@ class FlaggedRevs {
 			return true;
 		}
 		# page_latest has not been updated yet...
-		$prevRev = Revision::newFromTitle( $title );
+		$prevRev = $rev->getPrevious();
 		# Check for null edits
 		if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
 			$frev = FlaggedRevs::getFlaggedRev( $title, $prevRev->getId() );
