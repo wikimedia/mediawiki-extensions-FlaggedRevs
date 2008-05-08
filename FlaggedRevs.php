@@ -1771,7 +1771,6 @@ class FlaggedRevs {
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
-		# page_latest has not been updated yet...
 		$prevRev = $rev->getPrevious();
 		# Check for null edits
 		if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
