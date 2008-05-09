@@ -434,14 +434,11 @@ class FlaggedRevs {
 	 */
 	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
 		global $wgParser;
-		# Default options for anons if not logged in
-		$options = new ParserOptions();
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
 		$wgParser->fr_includesMatched = true;
-		# Fix bad HTML
-		$options->setTidy( true );
 		# Don't show section-edit links, they can be old and misleading
+		$options = self::makeParserOptions();
 		$options->setEditSection( $id==$article->getLatest() );
 		# Parse the new body, wikitext -> html
 		$title = $article->getTitle(); // avoid pass-by-reference error
@@ -476,6 +473,18 @@ class FlaggedRevs {
 			$parserOut->fr_newestTemplateID = $maxTempID;
 		}
 	   	return $parserOut;
+	}
+	
+	/**
+	* Get standard parser options
+	*/
+	public static function makeParserOptions( $user = NULL ) {
+		$options = $user ? ParserOptions::newFromUser( $user ) : new ParserOptions();
+		# Show inclusion/loop reports
+		$options->enableLimitReport();
+		# Fix bad HTML
+		$options->setTidy( true );
+		return $options;
 	}
 	
 	/**
@@ -528,7 +537,8 @@ class FlaggedRevs {
 			if( $currentOutput==false ) {
 				$text = $article->getContent();
 				$title = $article->getTitle();
-				$currentOutput = $wgParser->parse( $text, $title, ParserOptions::newFromUser($wgUser) );
+				$options = self::makeParserOptions( $wgUser );
+				$currentOutput = $wgParser->parse( $text, $title, $options );
 				# Might as well save the cache while we're at it
 				$parserCache->save( $currentOutput, $article, $wgUser );
 			}
@@ -1101,8 +1111,7 @@ class FlaggedRevs {
 			$poutput = $parserCache->get( $article, $user );
 		}
 		if( $poutput==false ) {
-			$options = ParserOptions::newFromUser($user);
-			$options->setTidy(true);
+			$options = self::makeParserOptions( $user );
 			$poutput = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $rev->getId() );
 			# Might as well save the cache while we're at it
 			if( $latestID == $rev->getId() ) {
@@ -1339,7 +1348,7 @@ class FlaggedRevs {
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$options = ParserOptions::newFromUser($wgUser);
+			$options = self::makeParserOptions( $wgUser );
 			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
 			# Might as well save the cache while we're at it
 			$parserCache->save( $poutput, $article, $wgUser );
