@@ -422,7 +422,7 @@ class FlaggedArticle {
 		$tag = $warning = '';
 		# Check the newest stable version
 		$frev = $this->getStableRev();
-		if( !is_null($frev) ) {
+		if( !is_null($frev) && $frev->getRevId() != $revid ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
 
 			$time = $wgLang->date( $frev->getTimestamp(), true );
