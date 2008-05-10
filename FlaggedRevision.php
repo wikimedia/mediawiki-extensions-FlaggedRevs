@@ -123,6 +123,21 @@ class FlaggedRevision {
 		$this->loadText(); // load if not loaded
 		return $this->mText;
 	}
+	
+	/**
+	 * @returns mixed (string/false) expanded text or revision text.
+	 * Depends on whether $wgUseStableTemplates is on or not.
+	 */
+	public function getTextForParse() {
+		global $wgUseStableTemplates;
+		if( $wgUseStableTemplates ) {
+			$rev = Revision::newFromId( $this->getRevId() );
+			$text = $rev->getText();
+		} else {
+			$text = $this->getExpandedText();
+		}
+		return $text;
+	}
 
 	/**
 	 * @returns Integer the user ID of the reviewer

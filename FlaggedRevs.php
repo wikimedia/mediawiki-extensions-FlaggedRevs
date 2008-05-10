@@ -518,12 +518,7 @@ class FlaggedRevs {
 			$flaggedOutput = FlaggedRevs::getPageCache( $article );
 			if( $flaggedOutput==false ) {
 				global $wgUseStableTemplates;
-				if( $wgUseStableTemplates ) {
-					$rev = Revision::newFromId( $frev->getRevId() );
-					$text = $rev->getText();
-				} else {
-					$text = $frev->getExpandedText();
-				}
+				$text = $frev->getTextForParse();
        			$flaggedOutput = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
        			# Update the stable version cache
        			FlaggedRevs::updatePageCache( $article, $flaggedOutput );
@@ -1388,12 +1383,7 @@ class FlaggedRevs {
 		# Try stable version cache. This should be updated before this is called.
 		$parserOut = self::getPageCache( $article );
 		if( $parserOut==false ) {
-			if( $wgUseStableTemplates ) {
-				$rev = Revision::newFromId( $sv->getRevId() );
-				$text = $rev->getText();
-			} else {
-				$text = $sv->getExpandedText();
-			}
+			$text = $sv->getTextForParse();
 			# Parse the text
 			$parserOut = self::parseStableText( $article, $text, $sv->getRevId() );
 		}
