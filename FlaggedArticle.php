@@ -408,7 +408,7 @@ class FlaggedArticle extends Article {
 		$tag = $warning = '';
 		# Check the newest stable version
 		$frev = $this->getStableRev();
-		if( !is_null($frev) && $frev->getRevId() != $revid ) {
+		if( !is_null($frev) ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
 
 			$time = $wgLang->date( $frev->getTimestamp(), true );
@@ -427,26 +427,28 @@ class FlaggedArticle extends Article {
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			}
-			# Streamlined UI
-			if( FlaggedRevs::useSimpleUI() ) {
-				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-				$tag = "<span class='fr-checkbox'></span>" . 
-					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
-				$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
-			# Standard UI
-			} else {
-				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-				$tag = "<span class='fr-checkbox'></span>" . 
-					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
-				# Hide clutter
-				if( !empty($flags) ) {
-					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-						wfMsg( 'revreview-toggle' ) . "</span>";
-					$tag .= '<span id="mw-revisionratings" style="display:block;">' .
-						wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+			if( $frev->getRevId() != $revid ) {
+				# Streamlined UI
+				if( FlaggedRevs::useSimpleUI() ) {
+					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$tag = "<span class='fr-checkbox'></span>" . 
+						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
+					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
+				# Standard UI
+				} else {
+					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$tag = "<span class='fr-checkbox'></span>" . 
+						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
+					# Hide clutter
+					if( !empty($flags) ) {
+						$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
+							" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
+							wfMsg( 'revreview-toggle' ) . "</span>";
+						$tag .= '<span id="mw-revisionratings" style="display:block;">' .
+							wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+					}
+					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 				}
-				$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 			}
 			$wgOut->addHTML( $tag . $warning );
 			# Show diff to stable, to make things less confusing
