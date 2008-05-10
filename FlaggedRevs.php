@@ -240,10 +240,6 @@ function efLoadFlaggedRevs() {
 	######### Hook attachments #########
 	# Set $wgFlaggedArticle
 	$wgHooks['ArticleFromTitle'][] = 'wfInitFlaggedArticle';
-	# Add CSS/JS
-	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
-	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
-	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
 	# Autopromote Editors
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
 	# Adds table link references to include ones from the stable version
@@ -316,6 +312,10 @@ function wfInitFlaggedArticle( $title, $article ) {
 	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
 	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
+	# Add CSS/JS
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
+	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
+	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
 	return true;
 }
 
@@ -1034,7 +1034,7 @@ class FlaggedRevs {
 	public static function InjectStyleAndJS() {
 		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
 		# Don't double-load
-		if( self::$styleLoaded )
+		if( self::$styleLoaded || !$wgFlaggedArticle )
 			return true;
 		# UI CSS
 		$wgOut->addLink( array(
@@ -1695,13 +1695,12 @@ class FlaggedRevs {
 	* Don't let users vandalize pages by moving them.
 	*/
 	public static function userCanMove( $title, $user, $action, $result ) {
-		global $wgTitle;
+		global $wgTitle, $wgFlaggedArticle;
 	
 		if( $action != 'move' || !self::isPageReviewable( $title ) )
 			return true;
 		# See if there is a stable version
-		if( $wgTitle && $wgTitle->equals( $title ) ) {
-			global $wgFlaggedArticle;
+		if( $wgFlaggedArticle && $wgTitle && $wgTitle->equals( $title ) ) {
 			// Cache stable version while we are at it.
 			$frev = $wgFlaggedArticle->getStableRev( true );
 		} else {
@@ -1722,7 +1721,7 @@ class FlaggedRevs {
 	* Allow users to view reviewed pages.
 	*/
 	public static function userCanView( $title, $user, $action, $result ) {
-		global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
+		global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle, $wgFlaggedArticle;
 		# Assume $action may still not be set, in which case, treat it as 'view'...
 		if( $action != 'read' )
 			return true;
@@ -1738,7 +1737,7 @@ class FlaggedRevs {
 		}
 		# See if there is a stable version. Also, see if, given the page 
 		# config and URL params, the page can be overriden.
-		if( $wgTitle && $wgTitle->equals( $title ) ) {
+		if( $wgFlaggedArticle && $wgTitle && $wgTitle->equals( $title ) ) {
 			global $wgFlaggedArticle;
 			// Cache stable version while we are at it.
 			if( $wgFlaggedArticle->pageOverride() && $wgFlaggedArticle->getStableRev( true ) ) {
