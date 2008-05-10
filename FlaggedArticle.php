@@ -1306,7 +1306,7 @@ class FlaggedArticle extends Article {
 		# Check for an overridabe revision
 		if( !$this->pageOverride() )
 			return true;
-		$frev = $this->getStableRevs( true );
+		$frev = $this->getStableRev( true );
 		if( !$frev || $frev->getRevId() == $wgArticle->getLatest() )
 			return true;
 		# Get the timestamp of this revision
