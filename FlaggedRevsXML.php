@@ -28,7 +28,7 @@ class FlaggedRevsXML {
 
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
 
-			if($index === $selected) {
+			if( $index === $selected ) {
 				$s .= "\t" . Xml::element("option", array("value" => $index, "selected" => "selected"), $name) . "\n";
 			} else {
 				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
@@ -136,5 +136,46 @@ class FlaggedRevsXML {
 		$box .= "</td></tr></table>";
 
         return $box;
+	}
+	
+	/**
+	* Add user preference to form HTML
+	*/
+	public static function stabilityPreferences( $form ) {
+		global $wgUser;
+
+		$html = Xml::openElement( 'fieldset' ) .
+			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
+			Xml::openElement( 'table' ) . 
+			Xml::openElement( 'tr' ) .
+				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
+					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
+					wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
+			Xml::closeElement( 'tr' ) .
+			Xml::openElement( 'tr' ) .
+				'<td>' .
+					Xml::radio( 'wpFlaggedRevsSUI', 0, $form->mFlaggedRevsSUI==0, array('id' => 'standardUI') ) .
+				'</td><td> ' .
+					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-0'), 'standardUI' ) .
+				'</td>' .
+			Xml::closeElement( 'tr' ) . 
+			Xml::openElement( 'tr' ) .
+				'<td>' .
+					Xml::radio( 'wpFlaggedRevsSUI', 1, $form->mFlaggedRevsSUI==1, array('id' => 'simpleUI') ) .
+				'</td><td> ' .
+					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-1'), 'simpleUI' ) .
+				'</td>';
+		if( $wgUser->isAllowed( 'review' ) ) {
+			$html .= Xml::closeElement( 'tr' ) . 
+				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
+				Xml::openElement( 'tr' ) .
+					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) . 
+					'</td><td> ' . wfLabel( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>';
+		}
+		$html .= Xml::closeElement( 'tr' ) . 
+			Xml::closeElement( 'table' ) . 
+			Xml::closeElement( 'fieldset' );
+
+		return $html;
 	}
 }

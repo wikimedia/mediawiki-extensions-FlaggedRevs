@@ -1,6 +1,6 @@
 <?php
 
-class FlaggedArticle {
+class FlaggedArticle extends Article {
 	public $isDiffFromStable = false;
 	public $skipReviewDiff = false;
 	public $skipAutoReview = false;
@@ -75,9 +75,7 @@ class FlaggedArticle {
 	 * Is this article reviewable?
 	 */
 	public function isReviewable() {
-		global $wgTitle;
-
-		return FlaggedRevs::isPageReviewable( $wgTitle );
+		return FlaggedRevs::isPageReviewable( $this->getTitle() );
 	}
 	
 	 /**
@@ -393,7 +391,7 @@ class FlaggedArticle {
 	 * Adds latest stable version tag to page when editing
 	 */
     public function addToEditView( $editform ) {
-		global $wgRequest, $wgTitle, $wgOut;
+		global $wgRequest, $wgOut;
 		# Talk pages cannot be validated
 		if( !$editform->mArticle || !$this->isReviewable() )
 			return false;
@@ -524,7 +522,7 @@ class FlaggedArticle {
 	 * Add link to stable version setting to protection form
 	 */
     public function addVisibilityLink( $out ) {
-    	global $wgUser, $wgRequest, $wgTitle;
+    	global $wgUser, $wgRequest;
 
     	if( !$this->isReviewable() )
     		return true;
@@ -1035,8 +1033,7 @@ class FlaggedArticle {
 			return $this->stableRev;
 		}
 		# Get the content page, skip talk
-		global $wgTitle;
-		$title = $wgTitle->getSubjectPage();
+		$title = $this->getTitle()->getSubjectPage();
 		# Do we have one?
 		$srev = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
         if( $srev ) {
@@ -1054,13 +1051,12 @@ class FlaggedArticle {
 	 * @returns Array (select,override)
 	*/
     public function getVisibilitySettings( $forUpdate=false ) {
-    	global $wgTitle;
         # Cached results available?
 		if( !is_null($this->pageconfig) ) {
 			return $this->pageconfig;
 		}
 		# Get the content page, skip talk
-		$title = $wgTitle->getSubjectPage();
+		$title = $this->getTitle()->getSubjectPage();
 
 		$config = FlaggedRevs::getPageVisibilitySettings( $title, $forUpdate );
 		$this->pageconfig = $config;
@@ -1092,7 +1088,7 @@ class FlaggedArticle {
 	 * @param bool $top, should this form always go on top?
 	 */
 	public function addQuickReview( $out, $top = false ) {
-		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) {
 			return;
@@ -1221,16 +1217,16 @@ class FlaggedArticle {
 			}
 		}
 		# For image pages, note the current image version
-		if( $wgTitle->getNamespace() == NS_IMAGE ) {
-			$file = wfFindFile( $wgTitle );
+		if( $this->getTitle()->getNamespace() == NS_IMAGE ) {
+			$file = wfFindFile( $this->getTitle() );
 			if( $file ) {
-				$imageParams .= $wgTitle->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+				$imageParams .= $this->getTitle()->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
 			}
 		}
 		
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
-		$form .= Xml::hidden( 'target', $wgTitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'target', $this->getTitle()->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'oldid', $id ) . "\n";
 		$form .= Xml::hidden( 'action', 'submit') . "\n";
 		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
@@ -1298,12 +1294,19 @@ class FlaggedArticle {
 	 * If viewing a stable version, adjust the last modified header
 	 */
 	public function setLastModified( $sktmp, &$tpl ) {
-		global $wgArticle, $wgLang;
+		global $wgArticle, $wgLang, $wgRequest;
 		# Non-content pages cannot be validated
+		if( !$this->isReviewable() )
+			return true;
+		# Old stable versions
+		if( $wgRequest->getIntOrNull('stableid') ) {
+			$tpl->set('lastmod', false);
+			return true;
+		}
+		# Check for an overridabe revision
 		if( !$this->pageOverride() )
 			return true;
-		# Check for an overridabe revision
-		$frev = $this->getStableRev( true );
+		$frev = $this->getStableRevs( true );
 		if( !$frev || $frev->getRevId() == $wgArticle->getLatest() )
 			return true;
 		# Get the timestamp of this revision

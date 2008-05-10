@@ -223,7 +223,7 @@ function efLoadFlaggedRevs() {
 	global $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle, $wgUseRCPatrol;
 	# Initialize
 	FlaggedRevs::load();
-	$wgFlaggedArticle = new FlaggedArticle();
+	$wgFlaggedArticle = null;
 
 	wfLoadExtensionMessages( 'FlaggedRevsPage' );
 
@@ -238,28 +238,12 @@ function efLoadFlaggedRevs() {
 		define( 'FLAGGED_JS', $wgScriptPath . '/extensions/FlaggedRevs/flaggedrevs.js?' . $wgFlaggedRevStyleVersion );
 
 	######### Hook attachments #########
+	# Set $wgFlaggedArticle
+	$wgHooks['ArticleFromTitle'][] = 'wfInitFlaggedArticle';
+	# Add CSS/JS
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
 	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
 	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
-	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
-	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
-	# Change last-modified footer
-	$wgHooks['SkinTemplateOutputPageBeforeExec'][] = array( $wgFlaggedArticle, 'setLastModified' );
-	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
-	# Set image version
-	$wgHooks['ArticleFromTitle'][] = array( $wgFlaggedArticle, 'setImageVersion' );
-	# Add page notice
-	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
-	# Add tags do edit view
-	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
-	# Add review form
-	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
-	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
-	# Mark of items in page history
-	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
 	# Autopromote Editors
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
 	# Adds table link references to include ones from the stable version
@@ -281,15 +265,6 @@ function efLoadFlaggedRevs() {
 	# Additional parser versioning
 	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
-	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams' );
-	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolAndDiffLink' );
-	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
-	# Autoreview stuff
-	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
-	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
-	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
 	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeNullEditReviewed';
 	# Disallow moves of stable pages
@@ -305,6 +280,43 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
 	$wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
 	#########
+}
+
+function wfInitFlaggedArticle( $title, $article ) {
+	global $wgFlaggedArticle, $wgHooks;
+	if( !FlaggedRevs::isPageReviewable( $title ) )
+		return true;
+	# Initialize and set article hooks
+	$wgFlaggedArticle = new FlaggedArticle( $title );
+	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
+	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
+	# Change last-modified footer
+	$wgHooks['SkinTemplateOutputPageBeforeExec'][] = array( $wgFlaggedArticle, 'setLastModified' );
+	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
+	# Set image version
+	$wgHooks['ArticleFromTitle'][] = array( $wgFlaggedArticle, 'setImageVersion' );
+	# Add page notice
+	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
+	# Add tags do edit view
+	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
+	# Add review form
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
+	# Mark of items in page history
+	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
+	# Page review on edit
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams' );
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolAndDiffLink' );
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
+	# Autoreview stuff
+	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
+	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
+	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
+	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
+	return true;
 }
 
 # Add review log and such
@@ -325,25 +337,6 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
-
-function efFlaggedRevsSchemaUpdates() {
-	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
-
-	$base = dirname(__FILE__);
-	if( $wgDBtype == 'mysql' ) {
-		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
-		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
-		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
-	} else if( $wgDBtype == 'postgres' ) {
-		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
-		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
-		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
-	}
-
-	return true;
-}
 
 class FlaggedRevs {
 	public static $dimensions = array();
@@ -517,7 +510,6 @@ class FlaggedRevs {
 			# Get parsed stable version
 			$flaggedOutput = FlaggedRevs::getPageCache( $article );
 			if( $flaggedOutput==false ) {
-				global $wgUseStableTemplates;
 				$text = $frev->getTextForParse();
        			$flaggedOutput = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
        			# Update the stable version cache
@@ -553,7 +545,7 @@ class FlaggedRevs {
 		global $wgParserCacheExpireTime;
 		$syncData = $synced ? "true" : "false";
 		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
-		
+
 		return $synced;
 	}
 
@@ -653,7 +645,6 @@ class FlaggedRevs {
 		if( $row ) {
 			return new FlaggedRevision( $title, $row );
 		}
-
 		return null;
 	}
 	
@@ -665,11 +656,13 @@ class FlaggedRevs {
 	 */
 	public static function getRevQuality( $title, $rev_id, $db = NULL ) {
 		$db = $db ? $db : wfGetDB( DB_SLAVE );
-		$quality = $db->selectField( 'flaggedrevs', 'fr_quality',
+		$quality = $db->selectField( 'flaggedrevs', 
+			'fr_quality',
 			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id ),
 			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' ) );
+			array( 'FORCE INDEX' => 'PRIMARY' )
+		);
 		return $quality;
 	}
 
@@ -1038,7 +1031,7 @@ class FlaggedRevs {
 	/**
 	* Add FlaggedRevs css/js. Attached to two different hooks, neglect inputs.
 	*/
-	public static function InjectStyleAndJS( $a=false, $b=false ) {
+	public static function InjectStyleAndJS() {
 		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
 		# Don't double-load
 		if( self::$styleLoaded )
@@ -2102,46 +2095,8 @@ class FlaggedRevs {
 	* Add user preference to form HTML
 	*/
 	public static function injectPreferences( $form, $out ) {
-		global $wgUser;
-	
-		$out->addHTML( 
-			Xml::openElement( 'fieldset' ) .
-			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
-			Xml::openElement( 'table' ) . 
-			Xml::openElement( 'tr' ) .
-				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
-					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
-					wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
-			Xml::closeElement( 'tr' ) .
-			Xml::openElement( 'tr' ) .
-				'<td>' .
-					Xml::radio( 'wpFlaggedRevsSUI', 0, $form->mFlaggedRevsSUI==0, array('id' => 'standardUI') ) .
-				'</td><td> ' .
-					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-0'), 'standardUI' ) .
-				'</td>' .
-			Xml::closeElement( 'tr' ) . 
-			Xml::openElement( 'tr' ) .
-				'<td>' .
-					Xml::radio( 'wpFlaggedRevsSUI', 1, $form->mFlaggedRevsSUI==1, array('id' => 'simpleUI') ) .
-				'</td><td> ' .
-					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-1'), 'simpleUI' ) .
-				'</td>'
-		);
-		if( $wgUser->isAllowed( 'review' ) ) {
-			$out->addHTML( 
-				Xml::closeElement( 'tr' ) . 
-				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
-				Xml::openElement( 'tr' ) .
-					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) . 
-					'</td><td> ' . wfLabel( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>'
-			);
-		}
-		$out->addHTML( 
-			Xml::closeElement( 'tr' ) . 
-			Xml::closeElement( 'table' ) .
-			Xml::closeElement( 'fieldset' )
-		);
-
+		$prefsHtml = FlaggedRevsXML::stabilityPreferences( $form );
+		$out->addHTML( $prefsHtml );
 		return true;
 	}
 	
@@ -2201,4 +2156,21 @@ class FlaggedRevs {
 	}
 }
 
+function efFlaggedRevsSchemaUpdates() {
+	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
 
+	$base = dirname(__FILE__);
+	if( $wgDBtype == 'mysql' ) {
+		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
+		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
+		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
+	} else if( $wgDBtype == 'postgres' ) {
+		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
+		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
+		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
+	}
+
+	return true;
+}
