@@ -427,14 +427,14 @@ class FlaggedRevs {
 	 */
 	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
 		global $wgParser;
+		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
 		$wgParser->fr_includesMatched = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
-		$options->setEditSection( $id==$article->getLatest() );
+		$options->setEditSection( $id == $title->getLatestRevID(GAID_FOR_UPDATE) );
 		# Parse the new body, wikitext -> html
-		$title = $article->getTitle(); // avoid pass-by-reference error
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 		$parserOut->fr_includesMatched = $wgParser->fr_includesMatched;
 	   	# Done with parser!
@@ -490,7 +490,7 @@ class FlaggedRevs {
 	*/	
 	public static function flaggedRevIsSynced( $frev, $article, $flaggedOutput=null, $currentOutput=null ) {
 		# Must be the same revision
-		if( $frev->getRevId() != $article->getLatest() ) {
+		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
 		}
 		global $wgMemc;
@@ -753,7 +753,7 @@ class FlaggedRevs {
 		# Check if the count is zero by using $article->getLatest().
 		# I don't trust using memcache and PHP for values like '0'
 		# as it may confuse "expired" with "0". -aaron
-		if( $article->getLatest()==$from_rev ) {
+		if( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) == $from_rev ) {
 			return 0;
 		}
 		global $wgMemc;
