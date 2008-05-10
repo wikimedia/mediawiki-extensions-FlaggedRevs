@@ -101,6 +101,13 @@ class FlaggedRevision {
 	public function getComment() {
 		return $this->mComment;
 	}
+	
+	/**
+	 * @returns Integer the user ID of the reviewer
+	 */
+	public function getUser() {
+		return $this->mUser;
+	}
 
 	/**
 	 * @returns Integer revision timestamp in MW format
@@ -137,13 +144,6 @@ class FlaggedRevision {
 			$text = $this->getExpandedText();
 		}
 		return $text;
-	}
-
-	/**
-	 * @returns Integer the user ID of the reviewer
-	 */
-	public function getUser() {
-		return $this->mUser;
 	}
 	
 	/**
