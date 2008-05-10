@@ -176,13 +176,7 @@ class FlaggedArticle {
 			// behavior below, since it is the same as ("&stable=1").
 			if( $old ) {
 				$revs_since = FlaggedRevs::getRevCountSince( $article, $frev->getRevId() );
-				global $wgUseStableTemplates;
-				if( $wgUseStableTemplates ) {
-					$rev = Revision::newFromId( $frev->getRevId() );
-					$text = $rev->getText();
-				} else {
-					$text = $frev->getExpandedText();
-				}
+				$text = $frev->getTextForParse();
        			$parserOut = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
 				# Construct some tagging for non-printable outputs. Note that the pending
 				# notice has all this info already, so don't do this if we added that already.
@@ -286,13 +280,7 @@ class FlaggedArticle {
 				# Get parsed stable version
 				$parserOut = FlaggedRevs::getPageCache( $article );
 				if( $parserOut==false ) {
-					global $wgUseStableTemplates;
-					if( $wgUseStableTemplates ) {
-						$rev = Revision::newFromId( $frev->getRevId() );
-						$text = $rev->getText();
-					} else {
-						$text = $frev->getExpandedText();
-					}
+					$text = $frev->getTextForParse();
        				$parserOut = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
        				# Update the stable version cache
        				FlaggedRevs::updatePageCache( $article, $parserOut );
