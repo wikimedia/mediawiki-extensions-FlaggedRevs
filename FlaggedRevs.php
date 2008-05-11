@@ -855,14 +855,15 @@ class FlaggedRevs {
 
 	/**
 	 * Get flags for a revision
+	 * @param Title $title
 	 * @param int $rev_id
 	 * @return Array
 	*/
-	public static function getRevisionTags( $article, $rev_id ) {
+	public static function getRevisionTags( $title, $rev_id ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
 			array( 'fr_rev_id' => $rev_id,
-				'fr_page_id' => $article->getId() ),
+				'fr_page_id' => $title->getArticleId() ),
 			__METHOD__ );
 		if( !$tags )
 			return false;
