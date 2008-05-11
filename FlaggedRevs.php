@@ -858,10 +858,11 @@ class FlaggedRevs {
 	 * @param int $rev_id
 	 * @return Array
 	*/
-	public static function getRevisionTags( $rev_id ) {
+	public static function getRevisionTags( $article, $rev_id ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
-			array('fr_rev_id' => $rev_id ),
+			array( 'fr_rev_id' => $rev_id,
+				'fr_page_id' => $article->getId() ),
 			__METHOD__ );
 		if( !$tags )
 			return false;
@@ -1765,7 +1766,7 @@ class FlaggedRevs {
 			return true;
 		# GetTitle() for revisions uses slaves and wants page_id,rev_id to
 		# match...this is bad if we *just* added it.
-		$title = $rev->getTitle() ? $rev->getTitle() : Title::newFromID( $rev->getPage(), FOR_UPDATE );
+		$title = $rev->getTitle() ? $rev->getTitle() : Title::newFromID( $rev->getPage(), GAID_FOR_UPDATE );
 		# Must be in reviewable namespace
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;

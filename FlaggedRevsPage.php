@@ -83,7 +83,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ?
 			$wgRequest->getText('wpNotes') : '';
 		# Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getRevisionTags( $this->oldid );
+		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid );
 		# Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->unapprovedTags = 0;

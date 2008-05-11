@@ -969,7 +969,7 @@ class FlaggedArticle extends Article {
     	if( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
     		return $this->flags[$rev_id];
     	# Get the flags
-    	$flags = FlaggedRevs::getRevisionTags( $rev_id );
+    	$flags = FlaggedRevs::getRevisionTags( $this->getTitle(), $rev_id );
 		# Try to cache results
 		$this->flags[$rev_id] = $flags;
 
