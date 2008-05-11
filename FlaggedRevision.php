@@ -101,6 +101,13 @@ class FlaggedRevision {
 	public function getComment() {
 		return $this->mComment;
 	}
+	
+	/**
+	 * @returns Integer the user ID of the reviewer
+	 */
+	public function getUser() {
+		return $this->mUser;
+	}
 
 	/**
 	 * @returns Integer revision timestamp in MW format
@@ -123,12 +130,20 @@ class FlaggedRevision {
 		$this->loadText(); // load if not loaded
 		return $this->mText;
 	}
-
+	
 	/**
-	 * @returns Integer the user ID of the reviewer
+	 * @returns mixed (string/false) expanded text or revision text.
+	 * Depends on whether $wgUseStableTemplates is on or not.
 	 */
-	public function getUser() {
-		return $this->mUser;
+	public function getTextForParse() {
+		global $wgUseStableTemplates;
+		if( $wgUseStableTemplates ) {
+			$rev = Revision::newFromId( $this->getRevId() );
+			$text = $rev->getText();
+		} else {
+			$text = $this->getExpandedText();
+		}
+		return $text;
 	}
 	
 	/**

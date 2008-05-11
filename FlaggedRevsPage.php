@@ -594,7 +594,9 @@ class RevisionReview extends UnlistedSpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
 		# Might as well save the cache, since it should be the same
-		$parserCache->save( $poutput, $article, $wgUser );
+		global $wgEnableParserCache;
+		if( $wgEnableParserCache )
+			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$article->getTitle()->purgeSquid();
 
@@ -646,7 +648,9 @@ class RevisionReview extends UnlistedSpecialPage
 		# Clear the cache...
 		$this->page->invalidateCache();
 		# Might as well save the cache
-		$parserCache->save( $poutput, $article, $wgUser );
+		global $wgEnableParserCache;
+		if( $wgEnableParserCache )
+			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 
@@ -897,15 +901,17 @@ class UnreviewedPages extends SpecialPage
 			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"
 		);
-		
-		$pager = new UnreviewedPagesPager( $this, $namespace, $category );
-		if( $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
-			$wgOut->addHTML( $pager->getNavigationBar() );
-		} else {
-			$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
+		# This will start to get slower...
+		if( $category || self::generalQueryOK() ) {
+			$pager = new UnreviewedPagesPager( $this, $namespace, $category );
+			if( $pager->getNumRows() ) {
+				$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
+				$wgOut->addHTML( $pager->getNavigationBar() );
+				$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+				$wgOut->addHTML( $pager->getNavigationBar() );
+			} else {
+				$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
+			}
 		}
 	}
 	
@@ -945,6 +951,22 @@ class UnreviewedPages extends SpecialPage
 			array( 'LIMIT' => 5 ) );
 		return $res->numRows();
 	}
+	
+	/**
+	* There may be many pages, most of which are reviewed
+	*/
+	public static function generalQueryOK() {
+		global $wgFlaggedRevsNamespaces;
+		if( !wfQueriesMustScale() )
+			return true;
+		# Get est. of fraction of pages that are reviewed
+		$dbr = wfGetDB( DB_SLAVE );
+		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', array(), __METHOD__ );
+		$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+		$ratio = $pages/($pages - $reviewedpages);
+		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
+		return ($ratio <= 100);
+	}
 }
 
 /**
@@ -977,7 +999,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		$tables = array( 'page', 'flaggedpages' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable');
 		$conds[] = 'fp_reviewed IS NULL';
 		# Reviewable pages only
@@ -986,68 +1007,25 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$conds['page_is_redirect'] = 0;
 		# Filter by category
 		if( $this->category ) {
-			$tables[] = 'categorylinks';
+			$tables = array( 'categorylinks', 'page', 'flaggedpages' );
 			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
 			$this->mIndexField = 'cl_sortkey';
+			$useIndex = array( 'categorylinks' => 'cl_sortkey' );
 		} else {
+			$tables = array( 'page', 'flaggedpages' );
 			$fields[] = 'page_id';
 			$this->mIndexField = 'page_title';
+			$useIndex = array( 'page' => 'name_title' );
 		}
 		return array(
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array()
+			'options' => array( 'USE INDEX' => $useIndex ),
+			'join_conds' => array( 'flaggedpages' => array('LEFT JOIN','fp_page_id=page_id') )
 		);
-	}
-	
-	/**
-	 * Do a query with specified parameters, rather than using the object
-	 * context
-	 *
-	 * @param string $offset Index offset, inclusive
-	 * @param integer $limit Exact query limit
-	 * @param boolean $descending Query direction, false for ascending, true for descending
-	 * @return ResultWrapper
-	 */
-	function reallyDoQuery( $offset, $limit, $descending ) {
-		$fname = __METHOD__ . ' (' . get_class( $this ) . ')';
-		$info = $this->getQueryInfo();
-		$tables = $info['tables'];
-		$fields = $info['fields'];
-		$conds = isset( $info['conds'] ) ? $info['conds'] : array();
-		$options = isset( $info['options'] ) ? $info['options'] : array();
-		if ( $descending ) {
-			$options['ORDER BY'] = $this->mIndexField;
-			$operator = '>';
-		} else {
-			$options['ORDER BY'] = $this->mIndexField . ' DESC';
-			$operator = '<';
-		}
-		if ( $offset != '' ) {
-			$conds[] = $this->mIndexField . $operator . $this->mDb->addQuotes( $offset );
-		}
-		$options['LIMIT'] = intval( $limit );
-		# Get table names
-		list($flaggedpages,$page,$categorylinks) = $this->mDb->tableNamesN('flaggedpages','page','categorylinks');
-		# Are we filtering via category?
-		if( in_array('categorylinks',$tables) ) {
-			$index = $this->mDb->useIndexClause('cl_sortkey'); // *sigh*...
-			$fromClause = "$categorylinks $index, $page";
-		} else {
-			$index = $this->mDb->useIndexClause('name_title'); // *sigh*...
-			$fromClause = "$page $index";
-		}
-		$sql = "SELECT ".implode(',',$fields).
-			" FROM $fromClause".
-			" LEFT JOIN $flaggedpages ON (fp_page_id=page_id)".
-			" WHERE ".$this->mDb->makeList($conds,LIST_AND).
-			" ORDER BY ".$options['ORDER BY']." LIMIT ".$options['LIMIT'];
-		# Do query!
-		$res = $this->mDb->query( $sql );
-		return new ResultWrapper( $this->mDb, $res );
 	}
 
 	function getIndexField() {

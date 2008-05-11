@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.041',
+	'version' => '1.042',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -223,7 +223,7 @@ function efLoadFlaggedRevs() {
 	global $wgOut, $wgHooks, $wgLang, $wgFlaggedArticle, $wgUseRCPatrol;
 	# Initialize
 	FlaggedRevs::load();
-	$wgFlaggedArticle = new FlaggedArticle();
+	$wgFlaggedArticle = null;
 
 	wfLoadExtensionMessages( 'FlaggedRevsPage' );
 
@@ -238,28 +238,8 @@ function efLoadFlaggedRevs() {
 		define( 'FLAGGED_JS', $wgScriptPath . '/extensions/FlaggedRevs/flaggedrevs.js?' . $wgFlaggedRevStyleVersion );
 
 	######### Hook attachments #########
-	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
-	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
-	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
-	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
-	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
-	# Change last-modified footer
-	$wgHooks['SkinTemplateOutputPageBeforeExec'][] = array( $wgFlaggedArticle, 'setLastModified' );
-	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
-	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
-	# Set image version
-	$wgHooks['ArticleFromTitle'][] = array( $wgFlaggedArticle, 'setImageVersion' );
-	# Add page notice
-	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
-	# Add tags do edit view
-	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
-	# Add review form
-	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
-	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
-	# Mark of items in page history
-	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
+	# Set $wgFlaggedArticle
+	$wgHooks['ArticleFromTitle'][] = 'wfInitFlaggedArticle';
 	# Autopromote Editors
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
 	# Adds table link references to include ones from the stable version
@@ -281,17 +261,10 @@ function efLoadFlaggedRevs() {
 	# Additional parser versioning
 	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
-	# Page review on edit
-	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams' );
-	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolAndDiffLink' );
-	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
-	# Autoreview stuff
-	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
-	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
-	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
+	# Auto-reviewing
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
-	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeNullEditReviewed';
+	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
+	$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevs::maybeMakeRollbackReviewed';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -305,6 +278,44 @@ function efLoadFlaggedRevs() {
 	$wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
 	$wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
 	#########
+}
+
+function wfInitFlaggedArticle( $title, $article ) {
+	global $wgFlaggedArticle, $wgHooks;
+	if( !FlaggedRevs::isPageReviewable( $title ) )
+		return true;
+	# Initialize and set article hooks
+	$wgFlaggedArticle = new FlaggedArticle( $title );
+	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
+	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
+	# Change last-modified footer
+	$wgHooks['SkinTemplateOutputPageBeforeExec'][] = array( $wgFlaggedArticle, 'setLastModified' );
+	# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
+	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
+	# Set image version
+	$wgHooks['ArticleFromTitle'][] = array( $wgFlaggedArticle, 'setImageVersion' );
+	# Add page notice
+	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
+	# Add tags do edit view
+	$wgHooks['EditPage::showEditForm:initial'][] = array( $wgFlaggedArticle, 'addToEditView' );
+	# Add review form
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addReviewForm' );
+	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
+	# Mark of items in page history
+	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
+	# Page review on edit
+	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams' );
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolAndDiffLink' );
+	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
+	# Autoreview stuff
+	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
+	# Add CSS/JS
+	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
+	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
+	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
+	return true;
 }
 
 # Add review log and such
@@ -325,25 +336,6 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
-
-function efFlaggedRevsSchemaUpdates() {
-	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
-
-	$base = dirname(__FILE__);
-	if( $wgDBtype == 'mysql' ) {
-		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
-		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
-		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
-	} else if( $wgDBtype == 'postgres' ) {
-		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
-		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
-		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
-	}
-
-	return true;
-}
 
 class FlaggedRevs {
 	public static $dimensions = array();
@@ -434,14 +426,14 @@ class FlaggedRevs {
 	 */
 	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
 		global $wgParser;
+		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
 		$wgParser->fr_includesMatched = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
-		$options->setEditSection( $id==$article->getLatest() );
+		$options->setEditSection( $id == $title->getLatestRevID(GAID_FOR_UPDATE) );
 		# Parse the new body, wikitext -> html
-		$title = $article->getTitle(); // avoid pass-by-reference error
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 		$parserOut->fr_includesMatched = $wgParser->fr_includesMatched;
 	   	# Done with parser!
@@ -490,14 +482,14 @@ class FlaggedRevs {
 	/**
 	* @param FlaggedRevision $frev
 	* @param Article $article
-	* @param ParserOutput $flaggedOutput, will fetch if not given
+	* @param ParserOutput $stableOutput, will fetch if not given
 	* @param ParserOutput $currentOutput, will fetch if not given
 	* @return bool
 	* See if a flagged revision is synced with the current
 	*/	
-	public static function flaggedRevIsSynced( $frev, $article, $flaggedOutput=null, $currentOutput=null ) {
+	public static function flaggedRevIsSynced( $frev, $article, $stableOutput=null, $currentOutput=null ) {
 		# Must be the same revision
-		if( $frev->getRevId() != $article->getLatest() ) {
+		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
 		}
 		global $wgMemc;
@@ -513,20 +505,14 @@ class FlaggedRevs {
 			}
 		}
 		# If parseroutputs not given, fetch them...
-		if( is_null($flaggedOutput) || !isset($flaggedOutput->fr_newestTemplateID) ) {
+		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {
 			# Get parsed stable version
-			$flaggedOutput = FlaggedRevs::getPageCache( $article );
-			if( $flaggedOutput==false ) {
-				global $wgUseStableTemplates;
-				if( $wgUseStableTemplates ) {
-					$rev = Revision::newFromId( $frev->getRevId() );
-					$text = $rev->getText();
-				} else {
-					$text = $frev->getExpandedText();
-				}
-       			$flaggedOutput = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
+			$stableOutput = self::getPageCache( $article );
+			if( $stableOutput==false ) {
+				$text = $frev->getTextForParse();
+       			$stableOutput = self::parseStableText( $article, $text, $frev->getRevId() );
        			# Update the stable version cache
-       			FlaggedRevs::updatePageCache( $article, $flaggedOutput );
+       			self::updatePageCache( $article, $stableOutput );
        		}
 		}
 		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
@@ -540,15 +526,17 @@ class FlaggedRevs {
 				$options = self::makeParserOptions( $wgUser );
 				$currentOutput = $wgParser->parse( $text, $title, $options );
 				# Might as well save the cache while we're at it
-				$parserCache->save( $currentOutput, $article, $wgUser );
+				global $wgEnableParserCache;
+				if( $wgEnableParserCache )
+					$parserCache->save( $currentOutput, $article, $wgUser );
 			}
 		}
 		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
 		# have the same text, the only thing that can make them different is updating a template or image.
 		# If this is the case, the current revision will have a newer template or image version used somewhere. 
-		if( $currentOutput->fr_newestImageTime > $flaggedOutput->fr_newestImageTime ) {
+		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 			$synced = false;
-		} else if( $currentOutput->fr_newestTemplateID > $flaggedOutput->fr_newestTemplateID ) {
+		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
 			$synced = false;
 		} else {
 			$synced = true;
@@ -558,7 +546,7 @@ class FlaggedRevs {
 		global $wgParserCacheExpireTime;
 		$syncData = $synced ? "true" : "false";
 		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
-		
+
 		return $synced;
 	}
 
@@ -658,7 +646,6 @@ class FlaggedRevs {
 		if( $row ) {
 			return new FlaggedRevision( $title, $row );
 		}
-
 		return null;
 	}
 	
@@ -670,11 +657,13 @@ class FlaggedRevs {
 	 */
 	public static function getRevQuality( $title, $rev_id, $db = NULL ) {
 		$db = $db ? $db : wfGetDB( DB_SLAVE );
-		$quality = $db->selectField( 'flaggedrevs', 'fr_quality',
+		$quality = $db->selectField( 'flaggedrevs', 
+			'fr_quality',
 			array( 'fr_page_id' => $title->getArticleID(),
 				'fr_rev_id' => $rev_id ),
 			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' ) );
+			array( 'FORCE INDEX' => 'PRIMARY' )
+		);
 		return $quality;
 	}
 
@@ -765,7 +754,7 @@ class FlaggedRevs {
 		# Check if the count is zero by using $article->getLatest().
 		# I don't trust using memcache and PHP for values like '0'
 		# as it may confuse "expired" with "0". -aaron
-		if( $article->getLatest()==$from_rev ) {
+		if( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) == $from_rev ) {
 			return 0;
 		}
 		global $wgMemc;
@@ -873,7 +862,7 @@ class FlaggedRevs {
 	public static function getRevisionTags( $title, $rev_id ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
-			array('fr_rev_id' => $rev_id,
+			array( 'fr_rev_id' => $rev_id,
 				'fr_page_id' => $title->getArticleId() ),
 			__METHOD__ );
 		if( !$tags )
@@ -1045,10 +1034,10 @@ class FlaggedRevs {
 	/**
 	* Add FlaggedRevs css/js. Attached to two different hooks, neglect inputs.
 	*/
-	public static function InjectStyleAndJS( $a=false, $b=false ) {
+	public static function InjectStyleAndJS() {
 		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
 		# Don't double-load
-		if( self::$styleLoaded )
+		if( self::$styleLoaded || !$wgFlaggedArticle )
 			return true;
 		# UI CSS
 		$wgOut->addLink( array(
@@ -1104,19 +1093,18 @@ class FlaggedRevs {
 			$quality = self::isPristine($flags) ? 2 : 1;
 		}
 		$tmpset = $imgset = array();
+		$poutput = false;
 		# Try the parser cache, should be set on the edit before this is called.
 		# If not set or up to date, then parse it. Use master to avoid lag issues.
-		$poutput = false;
 		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-		if( $latestID == $rev->getId() ) {
-			$parserCache = ParserCache::singleton();
-			$poutput = $parserCache->get( $article, $user );
-		}
-		if( $poutput==false ) {
+		if( $poutput == false ) {
 			$options = self::makeParserOptions( $user );
-			$poutput = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $rev->getId() );
+			$title = $article->getTitle(); // avoid pass-by-ref error
+			$poutput = $wgParser->parse( $text, $title, $options, true, true, $latestID );
 			# Might as well save the cache while we're at it
-			if( $latestID == $rev->getId() ) {
+			global $wgEnableParserCache;
+			if( $wgEnableParserCache && $latestID == $rev->getId() ) {
+				$parserCache = ParserCache::singleton();
 				$parserCache->save( $poutput, $article, $user );
 			}
 		}
@@ -1163,7 +1151,7 @@ class FlaggedRevs {
 		$textFlags = self::compressText( $fulltext );
 
 		# Write to external storage if required
-		$storage = FlaggedRevs::getExternalStorage();
+		$storage = self::getExternalStorage();
 		if( $storage ) {
 			if( is_array($storage) ) {
 				# Distribute storage across multiple clusters
@@ -1219,7 +1207,7 @@ class FlaggedRevs {
 		$sv = self::getStablePageRev( $article->getTitle(), false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
-			FlaggedRevs::updatePageCache( $article, $poutput );
+			self::updatePageCache( $article, $poutput );
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 			# Purge squid for this page only
@@ -1353,7 +1341,9 @@ class FlaggedRevs {
 			$options = self::makeParserOptions( $wgUser );
 			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
 			# Might as well save the cache while we're at it
-			$parserCache->save( $poutput, $article, $wgUser );
+			global $wgEnableParserCache;
+			if( $wgEnableParserCache )
+				$parserCache->save( $poutput, $article, $wgUser );
 		}
 		$u = new LinksUpdate( $article->getTitle(), $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
@@ -1390,12 +1380,7 @@ class FlaggedRevs {
 		# Try stable version cache. This should be updated before this is called.
 		$parserOut = self::getPageCache( $article );
 		if( $parserOut==false ) {
-			if( $wgUseStableTemplates ) {
-				$rev = Revision::newFromId( $sv->getRevId() );
-				$text = $rev->getText();
-			} else {
-				$text = $sv->getExpandedText();
-			}
+			$text = $sv->getTextForParse();
 			# Parse the text
 			$parserOut = self::parseStableText( $article, $text, $sv->getRevId() );
 		}
@@ -1714,13 +1699,12 @@ class FlaggedRevs {
 	* Don't let users vandalize pages by moving them.
 	*/
 	public static function userCanMove( $title, $user, $action, $result ) {
-		global $wgTitle;
+		global $wgTitle, $wgFlaggedArticle;
 	
 		if( $action != 'move' || !self::isPageReviewable( $title ) )
 			return true;
 		# See if there is a stable version
-		if( $wgTitle && $wgTitle->equals( $title ) ) {
-			global $wgFlaggedArticle;
+		if( $wgFlaggedArticle && $wgTitle && $wgTitle->equals( $title ) ) {
 			// Cache stable version while we are at it.
 			$frev = $wgFlaggedArticle->getStableRev( true );
 		} else {
@@ -1741,7 +1725,7 @@ class FlaggedRevs {
 	* Allow users to view reviewed pages.
 	*/
 	public static function userCanView( $title, $user, $action, $result ) {
-		global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
+		global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle, $wgFlaggedArticle;
 		# Assume $action may still not be set, in which case, treat it as 'view'...
 		if( $action != 'read' )
 			return true;
@@ -1757,7 +1741,7 @@ class FlaggedRevs {
 		}
 		# See if there is a stable version. Also, see if, given the page 
 		# config and URL params, the page can be overriden.
-		if( $wgTitle && $wgTitle->equals( $title ) ) {
+		if( $wgFlaggedArticle && $wgTitle && $wgTitle->equals( $title ) ) {
 			global $wgFlaggedArticle;
 			// Cache stable version while we are at it.
 			if( $wgFlaggedArticle->pageOverride() && $wgFlaggedArticle->getStableRev( true ) ) {
@@ -1772,37 +1756,84 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* When a null edit is made, autoreview if necessary
+	* When an edit is made by a reviewer, if the current revision is the stable
+	* version, try to automatically review it.
 	*/
-	public static function maybeMakeNullEditReviewed( $rev ) {
-		$title = $rev->getTitle();
+	public static function maybeMakeEditReviewed( $rev ) {
+		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgFlaggedArticle, $wgRequest;
+		# Get the user
+		$user = User::newFromId( $rev->getUser() );
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
+			return true;
 		# GetTitle() for revisions uses slaves and wants page_id,rev_id to
 		# match...this is bad if we *just* added it.
-		$title = $title ? $title : Title::newFromID( $rev->getPage() );
+		$title = $rev->getTitle() ? $rev->getTitle() : Title::newFromID( $rev->getPage(), GAID_FOR_UPDATE );
+		# Must be in reviewable namespace
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
-		$prevRevID = $title->getPreviousRevisionId( $rev->getId() );
-		if( !$prevRevID )
-			return true;
-		$prevRev = Revision::newFromID( $prevRevID );
-		# Check for null edits
-		if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
-			$frev = FlaggedRevs::getFlaggedRev( $title, $prevRev->getId() );
-			if( !is_null($frev) ) {
-				$article = new Article( $title );
-				$flags = $frev->getTags();
-				# Check if user is allowed to renew the stable version.
-				if( !RevisionReview::userCanSetFlags( $flags ) ) {
-					# Assume basic flagging level
-					$flags = array();
-					foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
-						$flags[$tag] = 1;
-					}
+		$article = new Article( $title );
+		# Revision will be null for null edits
+		if( $rev ) {
+			$frev = null;
+			$reviewableNewPage = false;
+			# Get the revision the incoming one was based off
+			$baseRevID = $wgRequest->getVal('baseRevId');
+			if( $baseRevID ) {
+				$frev = self::getFlaggedRev( $article->getTitle(), $baseRevID );
+			} else {
+				$prevRevID = $article->getTitle()->getPreviousRevisionId( $rev->getId() );
+				$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
+				# Check for null edits
+				if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
+					$frev = self::getFlaggedRev( $title, $prevRev->getId() );
+				# Check for new pages
+				} else if( !$prevRev ) {
+					$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
 				}
-				$user = User::newFromId( $rev->getUser() );
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 			}
+			# Is this an edit directly to the stable version?
+			if( $reviewableNewPage || !is_null($frev) ) {
+				# Assume basic flagging level
+				$flags = array();
+				foreach( self::$dimensions as $tag => $minQL ) {
+					$flags[$tag] = 1;
+				}
+				self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+			}
+		}
+		if( $wgFlaggedArticle ) {
+			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
+		}
+		return true;
+	}
+
+	/**
+	* When a rollback is made by a reviwer, try to automatically review it.
+	*/
+	public static function maybeMakeRollbackReviewed( $article, $user, $rev ) {
+		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle;
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
+			return true;
+		# Must be in reviewable namespace
+		if( !self::isPageReviewable( $article->getTitle() ) )
+			return true;
+		# Was this revision flagged?
+		$frev = self::getFlaggedRev( $article->getTitle(), $rev->getId() );
+		if( !is_null($frev) ) {
+			# Assume basic flagging level
+			$flags = array();
+			foreach( self::$dimensions as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
+			$newRev = Revision::newFromId( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) );
+			if( $newRev ) {
+				self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
+				self::articleLinksUpdate( $article ); // lame...
+			}
+		}
+		if( $wgFlaggedArticle ) {
+			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
 		}
 		return true;
 	}
@@ -2114,46 +2145,8 @@ class FlaggedRevs {
 	* Add user preference to form HTML
 	*/
 	public static function injectPreferences( $form, $out ) {
-		global $wgUser;
-	
-		$out->addHTML( 
-			Xml::openElement( 'fieldset' ) .
-			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
-			Xml::openElement( 'table' ) . 
-			Xml::openElement( 'tr' ) .
-				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
-					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
-					wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
-			Xml::closeElement( 'tr' ) .
-			Xml::openElement( 'tr' ) .
-				'<td>' .
-					Xml::radio( 'wpFlaggedRevsSUI', 0, $form->mFlaggedRevsSUI==0, array('id' => 'standardUI') ) .
-				'</td><td> ' .
-					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-0'), 'standardUI' ) .
-				'</td>' .
-			Xml::closeElement( 'tr' ) . 
-			Xml::openElement( 'tr' ) .
-				'<td>' .
-					Xml::radio( 'wpFlaggedRevsSUI', 1, $form->mFlaggedRevsSUI==1, array('id' => 'simpleUI') ) .
-				'</td><td> ' .
-					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-1'), 'simpleUI' ) .
-				'</td>'
-		);
-		if( $wgUser->isAllowed( 'review' ) ) {
-			$out->addHTML( 
-				Xml::closeElement( 'tr' ) . 
-				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
-				Xml::openElement( 'tr' ) .
-					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) . 
-					'</td><td> ' . wfLabel( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>'
-			);
-		}
-		$out->addHTML( 
-			Xml::closeElement( 'tr' ) . 
-			Xml::closeElement( 'table' ) .
-			Xml::closeElement( 'fieldset' )
-		);
-
+		$prefsHtml = FlaggedRevsXML::stabilityPreferences( $form );
+		$out->addHTML( $prefsHtml );
 		return true;
 	}
 	
@@ -2213,4 +2206,21 @@ class FlaggedRevs {
 	}
 }
 
+function efFlaggedRevsSchemaUpdates() {
+	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
 
+	$base = dirname(__FILE__);
+	if( $wgDBtype == 'mysql' ) {
+		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
+		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
+		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
+	} else if( $wgDBtype == 'postgres' ) {
+		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
+		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
+		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
+	}
+
+	return true;
+}
