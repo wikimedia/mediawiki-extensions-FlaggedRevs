@@ -1826,12 +1826,11 @@ class FlaggedRevs {
 			foreach( self::$dimensions as $tag => $minQL ) {
 				$flags[$tag] = 1;
 			}
-			# Select the version that is now current. Create a new article object
-			# to avoid using one with outdated field data.
-			$article = new Article( $article->getTitle() );
-			$newRev = Revision::newFromId( $article->getLatest() );
-			self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
-			self::articleLinksUpdate( $article ); // lame...
+			$newRev = Revision::newFromId( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) );
+			if( $newRev ) {
+				self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
+				self::articleLinksUpdate( $article ); // lame...
+			}
 		}
 		if( $wgFlaggedArticle ) {
 			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
