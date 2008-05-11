@@ -3,7 +3,6 @@
 class FlaggedArticle extends Article {
 	public $isDiffFromStable = false;
 	public $skipReviewDiff = false;
-	public $skipAutoReview = false;
 	public $stableRev = null;
 	public $pageconfig = null;
 	public $flags = null;
@@ -83,12 +82,7 @@ class FlaggedArticle extends Article {
 	 */
 	private function displayTag() {
 		global $wgOut;
-	
-		if( !$this->reviewNotice ) {
-			return false;
-		}
 		$wgOut->appendSubtitle( $this->reviewNotice );
-		
 		return true;
 	}
 	
@@ -300,6 +294,7 @@ class FlaggedArticle extends Article {
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
+						$msg .= ($revs_since == 0) ? '-i' : '';
 						$msg = $synced ? "{$msg}-same" : $msg;
 						
 						$tag = "<span class='{$css} plainlinks' title=\"{$tooltip}\"></span>" .
@@ -894,108 +889,6 @@ class FlaggedArticle extends Article {
 
 		return true;
 	}
-
-	/**
-	* When a new page is made by a reviwer, try to automatically review it.
-	*/
-	public function maybeMakeNewPageReviewed( $article, $user, $text, $c, $flags, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReviewNew;
-
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReviewNew || !$user->isAllowed('autoreview') )
-			return true;
-		# Must be in reviewable namespace
-		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
-			return true;
-		# Revision will be null for null edits
-		if( !$rev ) {
-			$this->skipReviewDiff = true; // Don't jump to diff...
-			return true;
-		}
-		# Assume basic flagging level
-		$flags = array();
-    	foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
-    		$flags[$tag] = 1;
-    	}
-		FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags );
-
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		$this->skipAutoReview = true; // Be sure not to do stuff twice
-
-		return true;
-	}
-
-	/**
-	* When an edit is made by a reviewer, if the current revision is the stable
-	* version, try to automatically review it.
-	*/
-	public function maybeMakeEditReviewed( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		global $wgFlaggedRevsAutoReview, $wgRequest;
-
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
-			return true;
-		# Must be in reviewable namespace
-		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
-			return true;
-		# Revision will be null for null edits
-		if( !$rev ) {
-			$this->skipReviewDiff = true; // Don't jump to diff...
-			return true;
-		}
-		# Get the revision the incoming one was based off
-		$baseRevID = $wgRequest->getVal('baseRevId');
-		$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $baseRevID );
-		# Is this an edit directly to the stable version?
-		if( is_null($frev) )
-			return true;
-		# Assume basic flagging level
-		$flags = array();
-		foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
-			$flags[$tag] = 1;
-		}
-		FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags );
-
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		$this->skipAutoReview = true; // Be sure not to do stuff twice
-
-		return true;
-	}
-
-	/**
-	* When a rollback is made by a reviwer, try to automatically review it.
-	*/
-	public function maybeMakeRollbackReviewed( $article, $user, $rev ) {
-		global $wgFlaggedRevsAutoReview;
-
-		if( $this->skipAutoReview || !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
-			return true;
-		# Must be in reviewable namespace
-		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) )
-			return true;
-		# Was this revision flagged?
-		$frev = FlaggedRevs::getFlaggedRev( $article->getTitle(), $rev->getId() );
-		if( is_null($frev) )
-			return true;
-		# Grab the flags for this revision
-		$flags = FlaggedRevs::getRevisionTags( $rev->getID() );
-		# Check if user is allowed to renew the stable version.
-		if( !RevisionReview::userCanSetFlags( $flags ) ) {
-			# Assume basic flagging level
-			$flags = array();
-			foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
-				$flags[$tag] = 1;
-			}
-		}
-		# Select the version that is now current. Create a new article object
-		# to avoid using one with outdated field data.
-		$article = new Article( $article->getTitle() );
-		$newRev = Revision::newFromId( $article->getLatest() );
-		FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
-
-		$this->skipReviewDiff = true; // Don't jump to diff...
-		$this->skipAutoReview = true; // Be sure not to do stuff twice
-
-		return true;
-	}
 	
 	/**
 	* Add a hidden revision ID field to edit form.
@@ -1352,5 +1245,3 @@ class FlaggedArticle extends Article {
 		return true;
 	}
 }
-
-

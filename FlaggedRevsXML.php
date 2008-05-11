@@ -117,8 +117,12 @@ class FlaggedRevsXML {
 			$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time );
 		} else {
-			$msg = $stable ? 'revreview-' : 'revreview-newest-';
-			$msg .= $quality ? 'quality' : 'basic';
+			if( $stable ) {
+				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
+				$msg .= ($revs_since == 0) ? '-i' : '';
+			} else {
+				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+			}
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 		}
 		# Make fancy box...

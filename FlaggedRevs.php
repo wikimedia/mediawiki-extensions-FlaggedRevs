@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.041',
+	'version' => '1.042',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -261,8 +261,10 @@ function efLoadFlaggedRevs() {
 	# Additional parser versioning
 	$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
+	# Auto-reviewing
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
-	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeNullEditReviewed';
+	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
+	$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevs::maybeMakeRollbackReviewed';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -309,9 +311,6 @@ function wfInitFlaggedArticle( $title, $article ) {
 	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addDiffNoticeAndIncludes' );
 	# Autoreview stuff
 	$wgHooks['EditPage::showEditForm:fields'][] = array( $wgFlaggedArticle, 'addRevisionIDField' );
-	$wgHooks['ArticleInsertComplete'][] = array( $wgFlaggedArticle, 'maybeMakeNewPageReviewed' );
-	$wgHooks['ArticleSaveComplete'][] = array( $wgFlaggedArticle, 'maybeMakeEditReviewed' );
-	$wgHooks['ArticleRollbackComplete'][] = array( $wgFlaggedArticle, 'maybeMakeRollbackReviewed' );
 	# Add CSS/JS
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
 	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
@@ -483,12 +482,12 @@ class FlaggedRevs {
 	/**
 	* @param FlaggedRevision $frev
 	* @param Article $article
-	* @param ParserOutput $flaggedOutput, will fetch if not given
+	* @param ParserOutput $stableOutput, will fetch if not given
 	* @param ParserOutput $currentOutput, will fetch if not given
 	* @return bool
 	* See if a flagged revision is synced with the current
 	*/	
-	public static function flaggedRevIsSynced( $frev, $article, $flaggedOutput=null, $currentOutput=null ) {
+	public static function flaggedRevIsSynced( $frev, $article, $stableOutput=null, $currentOutput=null ) {
 		# Must be the same revision
 		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
@@ -506,14 +505,14 @@ class FlaggedRevs {
 			}
 		}
 		# If parseroutputs not given, fetch them...
-		if( is_null($flaggedOutput) || !isset($flaggedOutput->fr_newestTemplateID) ) {
+		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {
 			# Get parsed stable version
-			$flaggedOutput = FlaggedRevs::getPageCache( $article );
-			if( $flaggedOutput==false ) {
+			$stableOutput = self::getPageCache( $article );
+			if( $stableOutput==false ) {
 				$text = $frev->getTextForParse();
-       			$flaggedOutput = FlaggedRevs::parseStableText( $article, $text, $frev->getRevId() );
+       			$stableOutput = self::parseStableText( $article, $text, $frev->getRevId() );
        			# Update the stable version cache
-       			FlaggedRevs::updatePageCache( $article, $flaggedOutput );
+       			self::updatePageCache( $article, $stableOutput );
        		}
 		}
 		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
@@ -527,15 +526,17 @@ class FlaggedRevs {
 				$options = self::makeParserOptions( $wgUser );
 				$currentOutput = $wgParser->parse( $text, $title, $options );
 				# Might as well save the cache while we're at it
-				$parserCache->save( $currentOutput, $article, $wgUser );
+				global $wgEnableParserCache;
+				if( $wgEnableParserCache )
+					$parserCache->save( $currentOutput, $article, $wgUser );
 			}
 		}
 		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
 		# have the same text, the only thing that can make them different is updating a template or image.
 		# If this is the case, the current revision will have a newer template or image version used somewhere. 
-		if( $currentOutput->fr_newestImageTime > $flaggedOutput->fr_newestImageTime ) {
+		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 			$synced = false;
-		} else if( $currentOutput->fr_newestTemplateID > $flaggedOutput->fr_newestTemplateID ) {
+		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
 			$synced = false;
 		} else {
 			$synced = true;
@@ -1090,19 +1091,18 @@ class FlaggedRevs {
 			$quality = self::isPristine($flags) ? 2 : 1;
 		}
 		$tmpset = $imgset = array();
+		$poutput = false;
 		# Try the parser cache, should be set on the edit before this is called.
 		# If not set or up to date, then parse it. Use master to avoid lag issues.
-		$poutput = false;
 		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-		if( $latestID == $rev->getId() ) {
-			$parserCache = ParserCache::singleton();
-			$poutput = $parserCache->get( $article, $user );
-		}
-		if( $poutput==false ) {
+		if( $poutput == false ) {
 			$options = self::makeParserOptions( $user );
-			$poutput = $wgParser->parse( $text, $article->getTitle(), $options, true, true, $rev->getId() );
+			$title = $article->getTitle(); // avoid pass-by-ref error
+			$poutput = $wgParser->parse( $text, $title, $options, true, true, $latestID );
 			# Might as well save the cache while we're at it
-			if( $latestID == $rev->getId() ) {
+			global $wgEnableParserCache;
+			if( $wgEnableParserCache && $latestID == $rev->getId() ) {
+				$parserCache = ParserCache::singleton();
 				$parserCache->save( $poutput, $article, $user );
 			}
 		}
@@ -1149,7 +1149,7 @@ class FlaggedRevs {
 		$textFlags = self::compressText( $fulltext );
 
 		# Write to external storage if required
-		$storage = FlaggedRevs::getExternalStorage();
+		$storage = self::getExternalStorage();
 		if( $storage ) {
 			if( is_array($storage) ) {
 				# Distribute storage across multiple clusters
@@ -1205,7 +1205,7 @@ class FlaggedRevs {
 		$sv = self::getStablePageRev( $article->getTitle(), false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
-			FlaggedRevs::updatePageCache( $article, $poutput );
+			self::updatePageCache( $article, $poutput );
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 			# Purge squid for this page only
@@ -1339,7 +1339,9 @@ class FlaggedRevs {
 			$options = self::makeParserOptions( $wgUser );
 			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
 			# Might as well save the cache while we're at it
-			$parserCache->save( $poutput, $article, $wgUser );
+			global $wgEnableParserCache;
+			if( $wgEnableParserCache )
+				$parserCache->save( $poutput, $article, $wgUser );
 		}
 		$u = new LinksUpdate( $article->getTitle(), $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
@@ -1752,37 +1754,85 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* When a null edit is made, autoreview if necessary
+	* When an edit is made by a reviewer, if the current revision is the stable
+	* version, try to automatically review it.
 	*/
-	public static function maybeMakeNullEditReviewed( $rev ) {
-		$title = $rev->getTitle();
+	public static function maybeMakeEditReviewed( $rev ) {
+		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgFlaggedArticle, $wgRequest;
+		# Get the user
+		$user = User::newFromId( $rev->getUser() );
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
+			return true;
 		# GetTitle() for revisions uses slaves and wants page_id,rev_id to
 		# match...this is bad if we *just* added it.
-		$title = $title ? $title : Title::newFromID( $rev->getPage() );
+		$title = $rev->getTitle() ? $rev->getTitle() : Title::newFromID( $rev->getPage(), FOR_UPDATE );
+		# Must be in reviewable namespace
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
-		$prevRevID = $title->getPreviousRevisionId( $rev->getId() );
-		if( !$prevRevID )
-			return true;
-		$prevRev = Revision::newFromID( $prevRevID );
-		# Check for null edits
-		if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
-			$frev = FlaggedRevs::getFlaggedRev( $title, $prevRev->getId() );
-			if( !is_null($frev) ) {
-				$article = new Article( $title );
-				$flags = $frev->getTags();
-				# Check if user is allowed to renew the stable version.
-				if( !RevisionReview::userCanSetFlags( $flags ) ) {
-					# Assume basic flagging level
-					$flags = array();
-					foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
-						$flags[$tag] = 1;
-					}
+		$article = new Article( $title );
+		# Revision will be null for null edits
+		if( $rev ) {
+			$frev = null;
+			$reviewableNewPage = false;
+			# Get the revision the incoming one was based off
+			$baseRevID = $wgRequest->getVal('baseRevId');
+			if( $baseRevID ) {
+				$frev = self::getFlaggedRev( $article->getTitle(), $baseRevID );
+			} else {
+				$prevRevID = $article->getTitle()->getPreviousRevisionId( $rev->getId() );
+				$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
+				# Check for null edits
+				if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
+					$frev = self::getFlaggedRev( $title, $prevRev->getId() );
+				# Check for new pages
+				} else if( !$prevRev ) {
+					$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
 				}
-				$user = User::newFromId( $rev->getUser() );
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 			}
+			# Is this an edit directly to the stable version?
+			if( $reviewableNewPage || !is_null($frev) ) {
+				# Assume basic flagging level
+				$flags = array();
+				foreach( self::$dimensions as $tag => $minQL ) {
+					$flags[$tag] = 1;
+				}
+				self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+			}
+		}
+		if( $wgFlaggedArticle ) {
+			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
+		}
+		return true;
+	}
+
+	/**
+	* When a rollback is made by a reviwer, try to automatically review it.
+	*/
+	public static function maybeMakeRollbackReviewed( $article, $user, $rev ) {
+		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle;
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
+			return true;
+		# Must be in reviewable namespace
+		if( !self::isPageReviewable( $article->getTitle() ) )
+			return true;
+		# Was this revision flagged?
+		$frev = self::getFlaggedRev( $article->getTitle(), $rev->getId() );
+		if( !is_null($frev) ) {
+			# Assume basic flagging level
+			$flags = array();
+			foreach( self::$dimensions as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
+			# Select the version that is now current. Create a new article object
+			# to avoid using one with outdated field data.
+			$article = new Article( $article->getTitle() );
+			$newRev = Revision::newFromId( $article->getLatest() );
+			self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
+			self::articleLinksUpdate( $article ); // lame...
+		}
+		if( $wgFlaggedArticle ) {
+			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
 		}
 		return true;
 	}

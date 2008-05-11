@@ -594,7 +594,9 @@ class RevisionReview extends UnlistedSpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
 		# Might as well save the cache, since it should be the same
-		$parserCache->save( $poutput, $article, $wgUser );
+		global $wgEnableParserCache;
+		if( $wgEnableParserCache )
+			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$article->getTitle()->purgeSquid();
 
@@ -646,7 +648,9 @@ class RevisionReview extends UnlistedSpecialPage
 		# Clear the cache...
 		$this->page->invalidateCache();
 		# Might as well save the cache
-		$parserCache->save( $poutput, $article, $wgUser );
+		global $wgEnableParserCache;
+		if( $wgEnableParserCache )
+			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge squid for this page only
 		$this->page->purgeSquid();
 
