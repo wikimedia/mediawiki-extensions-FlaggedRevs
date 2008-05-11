@@ -5,7 +5,7 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 * Download the extension from SVN
 * (MySQL) Run the 'FlaggedRevs.sql' query, substituting in your wiki's table prefix. 
 * (PostgreSQL) Use 'FlaggedRevs.pg.sql' instead.
-* Upgrade to MediaWiki 1.13+
+* Upgrade to MediaWiki 1.12+
 * Run 'maintenance/update.php'
 * Run 'maintenance/archives/populateSha1.php'.
 * Add the following line to 'LocalSettings.php':
