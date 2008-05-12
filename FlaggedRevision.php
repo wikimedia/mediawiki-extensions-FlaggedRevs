@@ -171,7 +171,8 @@ class FlaggedRevision {
 			$dbw = wfGetDB( DB_MASTER );
 			$row = $dbw->selectRow( 'flaggedrevs',
 				array( 'fr_text', 'fr_flags' ),
-				array( 'fr_rev_id' => $this->mRevId ),
+				array( 'fr_rev_id' => $this->mRevId,
+					'fr_page_id' => $this->mPageId ),
 				__METHOD__ );
 			// WTF ???
 			if( !$row ) {
