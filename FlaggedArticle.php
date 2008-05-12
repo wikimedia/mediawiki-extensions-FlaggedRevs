@@ -359,24 +359,24 @@ class FlaggedArticle extends Article {
 	/**
 	* Set the image revision to display
 	*/
-	public static function setImageVersion( $title, $article ) {
-		if( $title->getNamespace() == NS_IMAGE && FlaggedRevs::isPageReviewable( $title ) ) {
-			global $wgFlaggedArticle, $wgRequest;
+	public function setImageVersion() {
+		if( $this->getTitle()->getNamespace() == NS_IMAGE && $this->isReviewable() ) {
+			global $wgRequest;
 			# A reviewed version may have explicitly been requested...
 			$frev = null;
 			if( $reqId = $wgRequest->getVal('stableid') ) {
-				$frev = FlaggedRevs::getFlaggedRev( $title, $reqId );
-			} else if( $wgFlaggedArticle->pageOverride() ) {
-				$frev = $wgFlaggedArticle->getStableRev( true );
+				$frev = FlaggedRevs::getFlaggedRev( $this->getTitle(), $reqId );
+			} else if( $this->pageOverride() ) {
+				$frev = $this->getStableRev( true );
 			}
 			if( !is_null($frev) ) {
 				$dbr = wfGetDB( DB_SLAVE );
 				$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
 					array( 'fi_rev_id' => $frev->getRevId(),
-						'fi_name' => $title->getDBkey() ),
+						'fi_name' => $this->getTitle()->getDBkey() ),
 					__METHOD__ );
 				# NOTE: if not found, this will use the current
-				$article = new ImagePage( $title, $time );
+				$article = new ImagePage( $this->getTitle(), $time );
 			}
 		}
 		return true;

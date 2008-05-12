@@ -286,6 +286,8 @@ function wfInitFlaggedArticle( $title, $article ) {
 		return true;
 	# Initialize and set article hooks
 	$wgFlaggedArticle = new FlaggedArticle( $title );
+	# Set image version
+	$wgFlaggedArticle->setImageVersion();
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Change last-modified footer
@@ -294,8 +296,6 @@ function wfInitFlaggedArticle( $title, $article ) {
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'maybeUpdateMainCache' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'setPageContent' );
 	$wgHooks['ArticleViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolLink' );
-	# Set image version
-	$wgHooks['ArticleFromTitle'][] = array( $wgFlaggedArticle, 'setImageVersion' );
 	# Add page notice
 	$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = array( $wgFlaggedArticle, 'setPermaLink' );
 	# Add tags do edit view
