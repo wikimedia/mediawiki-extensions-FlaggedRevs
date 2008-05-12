@@ -239,7 +239,7 @@ function efLoadFlaggedRevs() {
 
 	######### Hook attachments #########
 	# Set $wgFlaggedArticle
-	$wgHooks['ArticleFromTitle'][] = 'wfInitFlaggedArticle';
+	$wgHooks['MediaWikiPerformAction'][] = 'wfInitFlaggedArticle';
 	# Autopromote Editors
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
 	# Adds table link references to include ones from the stable version
@@ -280,9 +280,9 @@ function efLoadFlaggedRevs() {
 	#########
 }
 
-function wfInitFlaggedArticle( $title, $article ) {
+function wfInitFlaggedArticle( $output, $article, $title, $user, $request ) {
 	global $wgFlaggedArticle, $wgHooks;
-	if( $title->isRedirect() || !FlaggedRevs::isPageReviewable($title) )
+	if( !FlaggedRevs::isPageReviewable($title) )
 		return true;
 	# Initialize and set article hooks
 	$wgFlaggedArticle = new FlaggedArticle( $title );
