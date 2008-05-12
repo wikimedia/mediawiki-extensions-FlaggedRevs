@@ -642,20 +642,15 @@ class FlaggedArticle extends Article {
 	 * Add link to stable version of reviewed revisions
 	 */
     public function addToHistLine( $row, &$s ) {
-    	global $wgUser, $wgTitle;
-		# Non-content pages cannot be validated
-		if( !$this->isReviewable() )
+    	global $wgUser;
+		# Non-content pages cannot be validated. Stable version must exist.
+		if( !$this->isReviewable() || !$this->getStableRev() )
 			return true;
-		# Stable version is cached after first call.
-		# For pages that have none, don't spam the DB.
-		if( !$this->getStableRev() )
-			return true;
-
+		# Use same DB object
 		if( !$this->dbr ) {
     		$this->dbr = wfGetDB( DB_SLAVE );
     	}
-
-    	$quality = FlaggedRevs::getRevQuality( $wgTitle, $row->rev_id, $this->dbr );
+    	$quality = FlaggedRevs::getRevQuality( $this->getTitle(), $row->rev_id, $this->dbr );
     	if( $quality !== false ) {
     		$skin = $wgUser->getSkin();
 			$quality = intval($quality);
@@ -672,10 +667,9 @@ class FlaggedArticle extends Article {
 			}
     		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
     		$s = "<span class='$css'>{$s}</span> <small><strong>[" . 
-				$skin->makeLinkObj( $wgTitle, wfMsgHtml( $msg ),'stableid=' . $row->rev_id ) . 
+				$skin->makeLinkObj( $this->getTitle(), wfMsgHtml( $msg ),'stableid=' . $row->rev_id ) . 
 				"]</strong></small>";
 		}
-
 		return true;
     }
 
@@ -1161,7 +1155,6 @@ class FlaggedArticle extends Article {
 	 * Also sets the citation link if that extension is on.
 	 */
     public function setPermaLink( $sktmp, &$nav_urls, &$revid, &$id ) {
-		global $wgTitle;
 		# Non-content pages cannot be validated
 		if( !$this->pageOverride() )
 			return true;
@@ -1172,12 +1165,12 @@ class FlaggedArticle extends Article {
 		# Replace "permalink" with an actual permanent link
 		$nav_urls['permalink'] = array(
 			'text' => wfMsg( 'permalink' ),
-			'href' => $wgTitle->getFullURL( "stableid={$frev->getRevId()}" )
+			'href' => $this->getTitle()->getFullURL( "stableid={$frev->getRevId()}" )
 		);
 		# Are we using the popular cite extension?
 		global $wgHooks;
 		if( in_array('wfSpecialCiteNav',$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink']) ) {
-			if( FlaggedRevs::isPageReviewable( $sktmp->mTitle ) && $revid !== 0 ) {
+			if( $this->isReviewable() && $revid !== 0 ) {
 				$nav_urls['cite'] = array(
 					'text' => wfMsg( 'cite_article_link' ),
 					'href' => $sktmp->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$sktmp->thispage}" ) . "&id={$frev->getRevId()}" )
