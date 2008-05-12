@@ -848,7 +848,7 @@ class StableRevisionsPager extends ReverseChronologicalPager {
 			'tables'  => array('flaggedrevs','revision','user'),
 			'fields'  => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,fr_user,user_name',
 			'conds'   => $conds,
-			'options' => array('USE INDEX' => 'PRIMARY')
+			'options' => array( 'USE INDEX' => array('flaggedrevs' => 'PRIMARY') )
 		);
 	}
 
