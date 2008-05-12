@@ -294,9 +294,11 @@ class FlaggedArticle extends Article {
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality' : 'revreview-basic';
-						$msg .= ($revs_since == 0) ? '-i' : '';
-						$msg = $synced ? "{$msg}-same" : $msg;
-						
+						if( $synced ) {
+							$msg .= '-same';
+						} else if( $revs_since == 0 ) {
+							$msg .= '-i';
+						}
 						$tag = "<span class='{$css} plainlinks' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						if( !empty($flags) ) {
