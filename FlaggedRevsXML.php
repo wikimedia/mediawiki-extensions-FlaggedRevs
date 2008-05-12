@@ -49,8 +49,9 @@ class FlaggedRevsXML {
         global $wgFlaggedRevTags;
 
         $tag = '';
-        if( $prettyBox )
+        if( $prettyBox ) {
         	$tag .= "<table id='mw-revisionratings-box' align='center' class='$css' cellpadding='0'>";
+		}
 		foreach( FlaggedRevs::$dimensions as $quality => $value ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMsgHtml("revreview-$quality-$level");
@@ -75,9 +76,9 @@ class FlaggedRevsXML {
 					"</span>\n";
 			}
 		}
-		if( $prettyBox )
+		if( $prettyBox ) {
 			$tag .= '</table>';
-
+		}
 		return $tag;
     }
 	

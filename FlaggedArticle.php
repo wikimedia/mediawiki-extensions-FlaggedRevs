@@ -120,7 +120,7 @@ class FlaggedArticle extends Article {
 					$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 						wfMsg( 'revreview-toggle' ) . "</span>";
-					$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
+					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
 						wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks'>$tag</div>";
@@ -192,7 +192,7 @@ class FlaggedArticle extends Article {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg( 'revreview-toggle' ) . "</span>";
-							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
+							$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
 								wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
 					}
@@ -260,7 +260,7 @@ class FlaggedArticle extends Article {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg( 'revreview-toggle' ) . "</span>";
-							$tag .= "<span id='mw-revisionratings' style='display:block;'>" .
+							$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
 								wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
 					}
@@ -305,7 +305,7 @@ class FlaggedArticle extends Article {
 							$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 								wfMsg('revreview-toggle') . "</span>";
-							$tag .= "<span id='mw-revisionratings' style='display:block;'>" . 
+							$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" . 
 								FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
 					}
@@ -441,7 +441,7 @@ class FlaggedArticle extends Article {
 						$tag .= " <span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 							" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
 							wfMsg( 'revreview-toggle' ) . "</span>";
-						$tag .= '<span id="mw-revisionratings" style="display:block;">' .
+						$tag .= '<span id="mw-revisionratings" style="display:block;"><br/>' .
 							wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 					}
 					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
