@@ -1,5 +1,5 @@
 <?php
-#(c) Aaron Schulz, Joerg Baach, 2007 GPL
+#(c) Aaron Schulz, Joerg Baach, 2007-2008 GPL
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
@@ -349,11 +349,15 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
 class FlaggedRevs {
 	public static $dimensions = array();
 	public static $styleLoaded = false;
+	public static $loaded = false;
 	public static $articleLoaded = false;
 
 	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;
-
+		if( self::$loaded ) {
+			wfDebug( 'Warning - FlaggedRevs already loaded!' );
+			return true;
+		}
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$safeTag = htmlspecialchars($tag);
 			if( strpos($tag,':') || strpos($tag,'\n') || $safeTag !== $tag ) {
@@ -366,6 +370,7 @@ class FlaggedRevs {
 				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
 			}
 		}
+		self::$loaded = true;
 	}
 	
 	/**
@@ -775,9 +780,7 @@ class FlaggedRevs {
 		global $wgMemc;
 		# Try the cache
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
-		$count = intval( $wgMemc->get($key) );
-
-		if( !$count ) {
+		if( !$count = intval($wgMemc->get($key)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$count = $dbr->selectField( 'revision', 'COUNT(*)',
 				array('rev_page' => $article->getId(), "rev_id > " . intval($from_rev) ),
@@ -785,7 +788,6 @@ class FlaggedRevs {
 			# Save to cache
 			$wgMemc->set( $key, $count, 3600*24*7 );
 		}
-
 		return $count;
 	}
 
@@ -818,7 +820,7 @@ class FlaggedRevs {
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
 			# Keep this consistent across settings. 0 -> precedence, 0 -> none
-			$select = $wgFlaggedRevsPrecedence ? 0 : 1;
+			$select = $wgFlaggedRevsPrecedence ? FLAGGED_VIS_NORMAL : FLAGGED_VIS_LATEST;
 			return array('select' => $select, 'override' => $override, 'expiry' => 'infinity');
 		}
 
@@ -1109,19 +1111,17 @@ class FlaggedRevs {
 		}
 		$tmpset = $imgset = array();
 		$poutput = false;
-		# Try the parser cache, should be set on the edit before this is called.
-		# If not set or up to date, then parse it. Use master to avoid lag issues.
+		# Use master to avoid lag issues.
 		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-		if( $poutput == false ) {
-			$options = self::makeParserOptions( $user );
-			$title = $article->getTitle(); // avoid pass-by-ref error
-			$poutput = $wgParser->parse( $text, $title, $options, true, true, $latestID );
-			# Might as well save the cache while we're at it
-			global $wgEnableParserCache;
-			if( $wgEnableParserCache && $latestID == $rev->getId() ) {
-				$parserCache = ParserCache::singleton();
-				$parserCache->save( $poutput, $article, $user );
-			}
+		# Parse the revision HTML output
+		$options = self::makeParserOptions( $user );
+		$title = $article->getTitle(); // avoid pass-by-ref error
+		$poutput = $wgParser->parse( $text, $title, $options, true, true, $latestID );
+		# Might as well save the cache while we're at it
+		global $wgEnableParserCache;
+		if( $wgEnableParserCache && $latestID == $rev->getId() ) {
+			$parserCache = ParserCache::singleton();
+			$parserCache->save( $poutput, $article, $user );
 		}
 		# NS:title -> rev ID mapping
 		foreach( $poutput->mTemplateIds as $namespace => $title ) {
