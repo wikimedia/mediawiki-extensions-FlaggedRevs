@@ -282,12 +282,18 @@ function efLoadFlaggedRevs() {
 
 function wfInitFlaggedArticle( $title, $article ) {
 	global $wgFlaggedArticle, $wgHooks;
-	if( !FlaggedRevs::isPageReviewable( $title ) )
+	if( $title->isRedirect() || !FlaggedRevs::isPageReviewable($title) )
 		return true;
 	# Initialize and set article hooks
 	$wgFlaggedArticle = new FlaggedArticle( $title );
 	# Set image version
 	$wgFlaggedArticle->setImageVersion();
+	# Always prevent hooks from doubling up
+	if( FlaggedRevs::$articleLoaded ) {
+		wfDebug( 'Warning - $wgFlaggedArticle already loaded!' );
+		return true;
+	}
+	FlaggedRevs::$articleLoaded = true;
 	# Main hooks, overrides pages content, adds tags, sets tabs and permalink
 	$wgHooks['SkinTemplateTabs'][] = array( $wgFlaggedArticle, 'setActionTabs' );
 	# Change last-modified footer
@@ -340,6 +346,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
 class FlaggedRevs {
 	public static $dimensions = array();
 	public static $styleLoaded = false;
+	public static $articleLoaded = false;
 
 	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues;

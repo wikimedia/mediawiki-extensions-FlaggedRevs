@@ -93,7 +93,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function setPageContent( $article, &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser, $wgLang;
-		## Only trigger for reviewable pages
+		# Only trigger for reviewable pages
 		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			return true;
 		}
