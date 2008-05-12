@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.042',
+	'version' => '1.043',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -173,6 +173,9 @@ $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 # If you want to use a storage group specifically for this
 # software, set this array
 $wgFlaggedRevsExternalStore = false;
+
+# Show reviews in recentchanges? Disabled by default, often spammy...
+$wgFlaggedRevsLogInRC = false;
 
 # End of configuration variables.
 #########

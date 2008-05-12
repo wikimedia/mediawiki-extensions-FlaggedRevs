@@ -724,10 +724,10 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param string $comment
 	 * @param int $revid
 	 * @param bool $approve
-	 * @param bool $RC, add to recentchanges (kind of spammy)
 	 */
-	public static function updateLog( $title, $dims, $oldDims, $comment, $oldid, $approve, $RC=false ) {
-		$log = new LogPage( 'review', $RC );
+	public static function updateLog( $title, $dims, $oldDims, $comment, $oldid, $approve ) {
+		global $wgFlaggedRevsLogInRC;
+		$log = new LogPage( 'review', $wgFlaggedRevsLogInRC );
 		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dims as $quality => $level ) {
