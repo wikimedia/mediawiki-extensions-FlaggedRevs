@@ -639,7 +639,9 @@ class FlaggedRevs {
 		$row = $db->selectRow( array('flaggedrevs','revision'),
 			$columns,
 			array( 'fr_page_id' => $title->getArticleID(),
-				'fr_rev_id' => $rev_id, 'fr_rev_id = rev_id',
+				'fr_rev_id' => $rev_id,
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__ );
 		# Sorted from highest to lowest, so just take the first one if any
@@ -723,7 +725,8 @@ class FlaggedRevs {
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
 						'fr_quality >= 1',
-						'fr_rev_id = rev_id',
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
 					array( 'ORDER BY' => 'fr_rev_id DESC') );
@@ -734,7 +737,8 @@ class FlaggedRevs {
 				$row = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
-						'fr_rev_id = rev_id',
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
 					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
@@ -765,7 +769,7 @@ class FlaggedRevs {
 
 		if( !$count ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$count = $dbr->selectField('revision', 'COUNT(*)',
+			$count = $dbr->selectField( 'revision', 'COUNT(*)',
 				array('rev_page' => $article->getId(), "rev_id > " . intval($from_rev) ),
 				__METHOD__ );
 			# Save to cache
@@ -1237,7 +1241,8 @@ class FlaggedRevs {
 		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
 			'fr_quality',
 			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
-				'fr_rev_id = rev_id',
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__,
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
