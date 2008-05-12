@@ -708,6 +708,7 @@ class FlaggedRevs {
 			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
 				$columns,
 				array( 'fp_page_id' => $title->getArticleId(),
+					'fr_page_id' => $title->getArticleId(),
 					'fp_stable = fr_rev_id' ),
 				__METHOD__  );
 			if( !$row )
