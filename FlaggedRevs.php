@@ -965,6 +965,8 @@ class FlaggedRevs {
 	* @return string, css color for this quality
 	*/
 	public static function getQualityColor( $quality ) {
+		if( $quality === false )
+			return 'flaggedrevs-color-0';
 		switch( $quality ) {
 			case 2:
 				$css = 'flaggedrevs-color-3';
@@ -972,7 +974,7 @@ class FlaggedRevs {
 			case 1:
 				$css = 'flaggedrevs-color-2';
 				break;
-			default:
+			case 0:
 				$css = 'flaggedrevs-color-1';
 				break;
 		}
