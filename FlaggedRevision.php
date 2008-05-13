@@ -132,8 +132,7 @@ class FlaggedRevision {
 	public function getTextForParse() {
 		global $wgUseStableTemplates;
 		if( $wgUseStableTemplates ) {
-			$rev = Revision::newFromId( $this->getRevId() );
-			$text = $rev->getText();
+			$text = $this->getRevText();
 		} else {
 			$text = $this->getExpandedText();
 		}
