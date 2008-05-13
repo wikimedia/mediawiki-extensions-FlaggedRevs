@@ -1240,8 +1240,11 @@ $messages['de'] = array(
 	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde kontrolliert.',
+	'hist-draft'                  => 'Entwurfsversion',
 	'hist-stable'                 => 'gesichtete Version',
 	'hist-quality'                => 'geprüfte Version',
+	'hist-stable-user'            => '[{{fullurl:$1|stableid=$2}} gesichtet] von [[User:$3|$3]]',
+	'hist-quality-user'           => '[{{fullurl:$1|stableid=$2}} geprüft] von [[User:$3|$3]]',
 	'flaggedrevs'                 => 'Markierte Versionen',
 	'review-logpage'              => 'Versionsmarkierungs-Logbuch',
 	'review-logpagetext'          => 'In diesem Logbuch werden die [[{{MediaWiki:Validationpage}}|Sichtungen und Prüfungen]] von Artikelversionen protokolliert.
@@ -1306,7 +1309,7 @@ $messages['de'] = array(
 	'unreviewedpages'             => 'Unmarkierte Artikel',
 	'unreviewed-legend'           => 'Liste unmarkierter Artikel',
 	'unreviewed-category'         => 'Kategorie:',
-	'unreviewed-diff'             => 'Änderungen sichten',
+	'unreviewed-diff'             => 'sichten',
 	'unreviewed-unwatched'        => '(unbeobachtet)',
 	'unreviewed-watched'          => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 	'unreviewed-unwatched'        => '(unbeobachtet)',
@@ -1319,6 +1322,9 @@ $messages['de'] = array(
 	'oldreviewedpages-none'       => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen',
 	'oldreviewedpages-stable'     => 'gesichtet',
 	'oldreviewedpages-quality'    => 'gesprüft',
+	'oldreviewedpages-hours'      => '($1 {{PLURAL:$1|Stunde|Stunden}})',
+	'oldreviewedpages-days'       => '($1 {{PLURAL:$1|Tag|Tage}})',
+	'oldreviewedpages-recent'     => '(weniger als 1 Stunde)',
 
 	'revreview-visibility'        => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
 	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
