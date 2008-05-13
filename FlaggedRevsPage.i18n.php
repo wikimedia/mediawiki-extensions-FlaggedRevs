@@ -1161,7 +1161,7 @@ $messages['de'] = array(
 	'revreview-current'           => 'Entwurf',
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unmarkierten Seite',
 	'revreview-edit'              => 'Entwurf bearbeiten',
-	'revreview-source'            => 'Quelltext (unmarkierte Seite)',
+	'revreview-source'            => 'Quelltext',
 	'revreview-stable'            => 'Artikel',
 	'tooltip-ca-stable'           => 'Ansehen der markierten Version dieser Seite',
 	'revreview-oldrating'         => 'Bisherige Einstufung:',
@@ -1169,8 +1169,8 @@ $messages['de'] = array(
 	'stabilization-tab'           => 'Konfig.',
 	'tooltip-ca-default'          => 'Einstellungen der Artikel-Qualität',
 
-	'revreview-edited'            => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungs-Recht diese sich angeschaut hat.
-	Die ''ungesichtete Version'' wird unten angezeigt.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.",
+	'revreview-edited'            => "Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungsrecht diese sich angeschaut hat
+	Die ungesichtete Version wird unten angezeigt. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.",
 
 	'validationpage'              => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 
@@ -1198,16 +1198,20 @@ $messages['de'] = array(
 
 	'revreview-basic'             => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version.
 	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Sichtung an.',
-	'revreview-quality'           => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version.
+	'revreview-quality'           => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version.
 	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Prüfung an.',
-	'revreview-basic-same'        => 'Das ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
+	'revreview-basic-i'           => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
+	Der [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] enthält [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Dateien], die auf eine Sichtung warten.',
+	'revreview-quality-i'         => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
+	Der [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] enthält [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Dateien], die auf eine Sichtung warten.',
+	'revreview-basic-same'        => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version,
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
-	'revreview-quality-same'      => 'Das ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
+	'revreview-quality-same'      => 'Dies ist die letzte  [[{{MediaWiki:Validationpage}}|geprüfte]] Version,
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>. Die Seite kann \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]\'\'\' werden.',
-	'revreview-basic-old'         => 'Das ist eine [[{{MediaWiki:Validationpage}}|gesichtete]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
+	'revreview-basic-old'         => 'Dies ist eine [[{{MediaWiki:Validationpage}}|gesichtete]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
-	'revreview-quality-old'       => 'Das ist eine [[{{MediaWiki:Validationpage}}|geprüfte]]  Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
+	'revreview-quality-old'       => 'Dies ist eine [[{{MediaWiki:Validationpage}}|geprüfte]]  Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]), 
 	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] <i>$2</i>.
 	Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen] können vorgenommen worden sein.',
 
@@ -1229,7 +1233,7 @@ $messages['de'] = array(
 	'revreview-auto'              => '(automatisch)',
 	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
-	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde gesichtet.',
+	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde kontrolliert.',
 	'hist-stable'                 => 'gesichtete Version',
 	'hist-quality'                => 'geprüfte Version',
 	'flaggedrevs'                 => 'Markierte Versionen',
@@ -1244,7 +1248,7 @@ $messages['de'] = array(
 	Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'stable-logentry'             => 'konfigurierte die Seiten-Einstellung von „[[$1]]“',
 	'stable-logentry2'            => 'setzte die Seiten-Einstellung für „[[$1]]“ zurück',
-	'revreview-patrol'            => 'Markiere diese Änderung',
+	'revreview-patrol'            => 'Kontrolliere diese Änderung',
 	'revisionreview'              => 'Versionsprüfung',
 	'revreview-main'              => 'Du musst eine Artikelversion zur Markierung auswählen.
 
@@ -1299,6 +1303,7 @@ $messages['de'] = array(
 	'unreviewed-diff'             => 'Änderungen sichten',
 	'unreviewed-unwatched'        => '(unbeobachtet)',
 	'unreviewed-watched'          => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
+	'unreviewed-unwatched'        => '(unbeobachtet)',
 	'unreviewed-list'             => 'Diese Seite hilft, ungesichtete Versionen zu finden.',
 	'unreviewed-none'             => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 
