@@ -1096,11 +1096,12 @@ class OldReviewedPages extends SpecialPage
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
 				"diff=cur&oldid={$result->fp_stable}" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
-		# Get how old the reviewed revision is from the current
-		if( $stableTS = Revision::getTimestampFromID( $result->fp_stable ) ) {
-			$latestTS = wfTimestamp( TS_UNIX, $result->rev_timestamp );
-			$stableTS = wfTimestamp( TS_UNIX, $stableTS );
-			$hours = ($latestTS - $stableTS)/3600;
+		# Get how long the first unreviewed edit has been waiting...
+		$firstPending = $title->getNextRevisionID($result->fp_stable);
+		if( $firstPendingTime = Revision::getTimestampFromID($firstPending) ) {
+			$currentTime = wfTimestamp( TS_UNIX ); // now
+			$firstPendingTime = wfTimestamp( TS_UNIX, $firstPendingTime );
+			$hours = ($currentTime - $firstPendingTime)/3600;
 			// After three days, just use days
 			if( $hours > (3*24) ) {
 				$days = round($hours/24,0);
@@ -1146,13 +1147,10 @@ class OldReviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		$tables = array( 'flaggedpages', 'page', 'revision' );
-		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
-			'rev_timestamp');
+		$tables = array( 'flaggedpages', 'page' );
+		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality');
 		$conds['fp_reviewed'] = 0;
 		$conds[] = 'page_id = fp_page_id';
-		$conds[] = 'rev_page = page_id';
-		$conds[] = 'rev_id = page_latest';
 		# Reviewable pages only (moves can make oddities, so check here)
 		global $wgFlaggedRevsNamespaces;
 		$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
