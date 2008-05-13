@@ -650,25 +650,10 @@ class FlaggedArticle extends Article {
 		if( !$this->dbr ) {
     		$this->dbr = wfGetDB( DB_SLAVE );
     	}
-    	$quality = FlaggedRevs::getRevQuality( $this->getTitle(), $row->rev_id, $this->dbr );
-    	if( $quality !== false ) {
-    		$skin = $wgUser->getSkin();
-			$quality = intval($quality);
-			switch( $quality ) {
-				case 2:
-					$css = 'flaggedrevs-color-3';
-					break;
-				case 1:
-					$css = 'flaggedrevs-color-2';
-					break;
-				default:
-					$css = 'flaggedrevs-color-1';
-					break;
-			}
-    		$msg = ($quality >= 1) ? 'hist-quality' : 'hist-stable';
-    		$s = "<span class='$css'>{$s}</span> <small><strong>[" . 
-				$skin->makeLinkObj( $this->getTitle(), wfMsgHtml( $msg ),'stableid=' . $row->rev_id ) . 
-				"]</strong></small>";
+		$skin = $wgUser->getSkin();
+    	list($link,$css) = FlaggedRevs::makeStableVersionLink( $this->getTitle(), $row->rev_id, $skin, $this->dbr );
+    	if( $link ) {
+    		$s = "<span class='$css'>$s</span> <small><strong>[$link]</strong></small>";
 		}
 		return true;
     }
@@ -757,29 +742,31 @@ class FlaggedArticle extends Article {
 		$oldRevQ = $OldRev ? FlaggedRevs::getRevQuality( $NewRev->getTitle(), $OldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $OldRev ) {
+			$css = FlaggedRevs::getQualityColor( $oldRevQ );
 			if( $oldRevQ !== false ) {
-				$msg = $oldRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
+				$msg = $oldRevQ ? 'hist-quality' : 'hist-stable';
 			} else {
-				$msg = 'revreview-draft-title';
+				$msg = 'hist-draft';
 			}
 			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td class='fr-$msg' width='50%' align='center'>" );
-			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
+			$wgOut->addHTML( "<span class='$css'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
 
+			$css = FlaggedRevs::getQualityColor( $newRevQ );
 			if( $newRevQ !== false ) {
-				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
+				$msg = $newRevQ ? 'hist-quality' : 'hist-stable';
 			} else {
-				$msg = 'revreview-draft-title';
+				$msg = 'hist-draft';
 			}
 			$wgOut->addHTML( "</td><td class='fr-$msg' width='50%' align='center'>" );
-			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
+			$wgOut->addHTML( "<span class='$css'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
 
 			$wgOut->addHTML( '</td></tr></table>' );
 		# New page "diffs" - just one rev
 		} else {
 			if( $newRevQ !== false ) {
-				$msg = $newRevQ ? 'revreview-quality-title' : 'revreview-stable-title';
+				$msg = $newRevQ ? 'hist-quality' : 'hist-stable';
 			} else {
-				$msg = 'revreview-draft-title';
+				$msg = 'hist-draft';
 			}
 			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td class='fr-$msg' align='center'>" );
 			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );

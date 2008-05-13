@@ -8,7 +8,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class RevisionReview extends UnlistedSpecialPage
 {
-
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
     }
@@ -750,7 +749,6 @@ class RevisionReview extends UnlistedSpecialPage
 
 class StableVersions extends UnlistedSpecialPage
 {
-
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'StableVersions' );
     }
@@ -862,7 +860,6 @@ class StableRevisionsPager extends ReverseChronologicalPager {
  */
 class UnreviewedPages extends SpecialPage
 {
-
     function __construct() {
         SpecialPage::SpecialPage( 'UnreviewedPages', 'unreviewedpages' );
     }
@@ -1038,7 +1035,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
  */
 class OldReviewedPages extends SpecialPage
 {
-
     function __construct() {
         SpecialPage::SpecialPage( 'OldReviewedPages', 'unreviewedpages' );
     }
@@ -1099,15 +1095,32 @@ class OldReviewedPages extends SpecialPage
 		}
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
 				"diff=cur&oldid={$result->fp_stable}" );
-		$hist = $this->skin->makeKnownLinkObj( $title, wfMsg('hist'),
-				"action=history" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
-		
+		# Get how old the reviewed revision is from the current
+		if( $stableTS = Revision::getTimestampFromID( $result->fp_stable ) ) {
+			$latestTS = wfTimestamp( TS_UNIX, $result->rev_timestamp );
+			$stableTS = wfTimestamp( TS_UNIX, $stableTS );
+			$hours = ($latestTS - $stableTS)/3600;
+			// After three days, just use days
+			if( $hours > (3*24) ) {
+				$days = round($hours/24,0);
+				$age = wfMsgExt('oldreviewedpages-days',array('parsemag'),$days);
+			// If one or more hours, use hours
+			} else if( $hours >= 1 ) {
+				$hours = round($hours,0);
+				$age = wfMsgExt('oldreviewedpages-hours',array('parsemag'),$hours);
+			} else {
+				$age = wfMsg('oldreviewedpages-recent'); // hot of the press :)
+			}
+		} else {
+			$age = ""; // wtf?
+		}
+		# Is anybody watching?
 		$uw = UnreviewedPages::usersWatching( $title );
 		$uwPar = $uw >= 5 ? '5+' : $uw;
 		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
 
-		return( "<li>{$link} {$stxt} ({$review}) ({$hist}) <strong>[{$quality}]</strong> {$watching}</li>" );
+		return( "<li>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
 	}
 }
 
@@ -1133,10 +1146,13 @@ class OldReviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		$tables = array( 'flaggedpages', 'page' );
-		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality');
+		$tables = array( 'flaggedpages', 'page', 'revision' );
+		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
+			'rev_timestamp');
 		$conds['fp_reviewed'] = 0;
-		$conds[] = 'fp_page_id = page_id';
+		$conds[] = 'page_id = fp_page_id';
+		$conds[] = 'rev_page = page_id';
+		$conds[] = 'rev_id = page_latest';
 		# Reviewable pages only (moves can make oddities, so check here)
 		global $wgFlaggedRevsNamespaces;
 		$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
@@ -1168,7 +1184,6 @@ class OldReviewedPagesPager extends AlphabeticPager {
 
 class ReviewedPages extends SpecialPage
 {
-
     function __construct() {
         SpecialPage::SpecialPage( 'ReviewedPages' );
     }
@@ -1290,7 +1305,6 @@ class ReviewedPagesPager extends AlphabeticPager {
 
 class StablePages extends SpecialPage
 {
-
     function __construct() {
         SpecialPage::SpecialPage( 'StablePages' );
     }
@@ -1375,7 +1389,6 @@ class StablePagesPager extends AlphabeticPager {
 
 class Stabilization extends UnlistedSpecialPage
 {
-
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'Stabilization', 'stablesettings' );
     }
@@ -1640,7 +1653,6 @@ class Stabilization extends UnlistedSpecialPage
 
 class QualityOversight extends SpecialPage
 {
-
     function __construct() {
         SpecialPage::SpecialPage( 'QualityOversight' );
     }

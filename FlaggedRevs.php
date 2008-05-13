@@ -683,6 +683,34 @@ class FlaggedRevs {
 		);
 		return $quality;
 	}
+	
+	/**
+	 * Make stable version link and return the css
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param Database $db, optional
+	 * @returns array (string,string)
+	 */
+	public static function makeStableVersionLink( $title, $rev_id, $skin, $db = NULL ) {
+		$db = $db ? $db : wfGetDB( DB_SLAVE );
+		$row = $db->selectRow( 'flaggedrevs', 
+			array( 'fr_quality', 'fr_user' ),
+			array( 'fr_page_id' => $title->getArticleID(),
+				'fr_rev_id' => $rev_id ),
+			__METHOD__,
+			array( 'FORCE INDEX' => 'PRIMARY' )
+		);
+		if( $row ) {
+			$css = self::getQualityColor( $row->fr_quality );
+			$user = User::whois( $row->fr_user );
+			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
+			$st = $title->getPrefixedDBkey();
+			$link = "<span class='plainlinks'>".wfMsgExt($msg,array('parseinline'),$st,$rev_id,$user)."</span>";
+		} else {
+			return array("","");
+		}
+		return array($link,$css);
+	}
 
 	/**
 	 * Get the "prime" flagged revision of a page
@@ -930,6 +958,25 @@ class FlaggedRevs {
 		}
 		
 		return true;
+	}
+	
+	/**
+	* @param int $quality
+	* @return string, css color for this quality
+	*/
+	public static function getQualityColor( $quality ) {
+		switch( $quality ) {
+			case 2:
+				$css = 'flaggedrevs-color-3';
+				break;
+			case 1:
+				$css = 'flaggedrevs-color-2';
+				break;
+			default:
+				$css = 'flaggedrevs-color-1';
+				break;
+		}
+		return $css;
 	}
 
 	/**
