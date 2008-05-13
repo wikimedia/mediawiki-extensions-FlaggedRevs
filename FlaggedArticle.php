@@ -451,8 +451,8 @@ class FlaggedArticle extends Article {
 			# Show diff to stable, to make things less confusing
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
-			$rev = $frev->getRevision();
-			if( $rev && $wgRequest->getIntOrNull('showdiff') && strcmp( $rev->getText(), $editform->textbox1 ) !== 0 ) {
+			$text = $frev->getRevText();
+			if( $text !==false && $wgRequest->getIntOrNull('showdiff') && strcmp($text,$editform->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
 				$wgOut->addHtml(
@@ -466,7 +466,7 @@ class FlaggedArticle extends Article {
 						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>[" . wfMsgHtml($leftNote) . "]</b></td>" .
 						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>[" . wfMsgHtml($rightNote) . "]</b></td>" .
 					"</tr>" .
-					$diffEngine->generateDiffBody( $rev->getText(), $editform->textbox1 ) .
+					$diffEngine->generateDiffBody( $text, $editform->textbox1 ) .
 					"</table>" .
 					"</div>\n" );
 			}

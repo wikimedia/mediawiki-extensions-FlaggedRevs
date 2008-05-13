@@ -83,14 +83,8 @@ class FlaggedRevision {
 	 * @returns String revision timestamp in MW format
 	 */
 	public function getRevTimestamp() {
-		if( !is_null($this->mRevision) ) {
-			$rev = $this->mRevision;
 		# Get corresponding revision
-		} else {
-			$rev = Revision::newFromId( $this->mRevId );
-			# Save to cache
-			$this->mRevision = $rev ? $rev : false;
-		}
+		$rev = $this->getRevision();
 		$timestamp = $rev ? $rev->getTimestamp() : "0";
 		return $timestamp;
 	}
@@ -143,6 +137,17 @@ class FlaggedRevision {
 		} else {
 			$text = $this->getExpandedText();
 		}
+		return $text;
+	}
+	
+	/**
+	 * Get text of the corresponding revision
+	 * @returns mixed (string/false) revision timestamp in MW format
+	 */
+	public function getRevText() {
+		# Get corresponding revision
+		$rev = $this->getRevision();
+		$text = $rev ? $rev->getText() : false;
 		return $text;
 	}
 	
