@@ -118,6 +118,10 @@ $wgReviewCodes = array();
 $wgAvailableRights[] = 'review';
 # Let some users set higher settings
 $wgAvailableRights[] = 'validate';
+$wgAvailableRights[] = 'autoreview';
+$wgAvailableRights[] = 'patrolmarks';
+$wgAvailableRights[] = 'autopatrolother';
+$wgAvailableRights[] = 'unreviewedpages';
 
 # Define our basic reviewer class
 $wgGroupPermissions['editor']['review']          = true;
