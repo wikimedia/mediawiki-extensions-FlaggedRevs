@@ -28,6 +28,7 @@ $messages['en'] = array(
 	'right-unreviewedpages' => 'View list of unreviewed pages',
 	'right-stablesettings'  => 'Configure how the stable version is selected and displayed',
 	'right-autopatrolother' => 'Automatically mark revisions in non-main namespaces patrolled',
+	'right-movestable'      => 'Move stable pages',
 
 	'revreview-current'   => 'Draft',
 	'tooltip-ca-current'  => 'View the current draft of this page',
@@ -1188,6 +1189,7 @@ $messages['de'] = array(
 	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
 	'right-stablesettings'  => 'Konfiguration der Anzeige markierter Versionen',
 	'right-autopatrolother' => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
+	'right-movestable'      => 'Verschieben von gesichteten und geprüften Seiten',
 
 	'revreview-current'           => 'Entwurf',
 	'tooltip-ca-current'          => 'Ansehen der aktuellen, unmarkierten Seite',
@@ -1275,7 +1277,7 @@ $messages['de'] = array(
 	'review-logpagetext'          => 'In diesem Logbuch werden die [[{{MediaWiki:Validationpage}}|Sichtungen und Prüfungen]] von Artikelversionen protokolliert.
 	Siehe die [[Special:ReviewedPages|Liste markierter Versionen]].',
 	'review-logentry-app'         => 'markierte „[[$1]]“',
-	'review-logentry-dis'         => 'verwarf eine Version von „[[$1]]“',
+	'review-logentry-dis'         => 'entfernte eine Markierung von „[[$1]]“',
 	'review-logentry-id'          => 'Versions-ID $1',
 	'stable-logpage'              => 'Seitenkonfigurations-Logbuch',
 	'stable-logpagetext'          => 'Dies ist das Änderungs-Logbuch der Konfigurationseinstellungen der [[{{MediaWiki:Validationpage}}|Markierten Versionen]].
