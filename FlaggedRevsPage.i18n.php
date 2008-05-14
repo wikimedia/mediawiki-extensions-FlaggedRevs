@@ -1398,6 +1398,9 @@ $messages['de'] = array(
 	'qualityoversight'      => 'Übersicht über geprüfte Versionen',
 	'qualityoversight-list' => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf geprüfter Versionen.',
 
+	'depreciationoversight'      => 'Zurückgezogene Markierungen',
+	'depreciationoversight-list' => 'Diese Seite zeigt eine Liste zurückgezogener Sichtungen und Prüfungen.',
+
 	'rights-editor-autosum'    => 'automatisch erteilt',
 	'rights-editor-revoke'     => 'entfernte Prüfer-Status von „[[$1]]“',
 	'flaggedrevs-prefs'        => 'Markierte Versionen',
