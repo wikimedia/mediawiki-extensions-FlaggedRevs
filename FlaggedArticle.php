@@ -883,7 +883,7 @@ class FlaggedArticle extends Article {
 		if( $editform->mArticle->mRevision ) {
        		$revid = $editform->mArticle->mRevision->mId;
 		} else {
-       		$revid = $editform->mArticle->getLatest();
+       		$revid = $editform->mArticle->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
        	}
 		# If undoing a few consecutive top edits, we know the base ID
 		if( $undo = $wgRequest->getIntOrNull('undo') ) {

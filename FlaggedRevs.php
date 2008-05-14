@@ -142,6 +142,8 @@ $wgGroupPermissions['bot']['autoreview'] = true;
 
 # Stable version selection and default page revision selection can be set per page.
 $wgGroupPermissions['sysop']['stablesettings'] = true;
+# Sysops can always move stable pages
+$wgGroupPermissions['sysop']['movestable'] = true;
 
 # Try to avoid flood by having autoconfirmed user edits to non-reviewable
 # namespaces autopatrolled.
@@ -190,7 +192,7 @@ $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 18;
+$wgFlaggedRevStyleVersion = 19;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -1191,7 +1193,7 @@ class FlaggedRevs {
 	* LinksUpdate was already called via edit operations, so the page
 	* fields will be up to date. This updates the stable version.
 	*/
-	public static function autoReviewEdit( $article, $user, $text, $rev, $flags ) {
+	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $patrol = true ) {
 		global $wgParser, $wgFlaggedRevsAutoReview;
 
 		wfProfileIn( __METHOD__ );
@@ -1204,6 +1206,7 @@ class FlaggedRevs {
 		$poutput = false;
 		# Use master to avoid lag issues.
 		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		$latestID = $latestID ? $latestID : $rev->getId(); // new pages, page row not added yet
 		# Parse the revision HTML output
 		$options = self::makeParserOptions( $user );
 		$title = $article->getTitle(); // avoid pass-by-ref error
@@ -1295,18 +1298,20 @@ class FlaggedRevs {
 			array( array('fr_page_id','fr_rev_id') ), $revisionset,
 			__METHOD__ );
 		# Mark as patrolled
-		$dbw->update( 'recentchanges',
-			array( 'rc_patrolled' => 1 ),
-			array( 'rc_this_oldid' => $rev->getId(),
-				'rc_user_text' => $rev->getRawUserText(),
-				'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-			__METHOD__,
-			array( 'LIMIT' => 1 ) );
+		if( $patrol ) {
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_this_oldid' => $rev->getId(),
+					'rc_user_text' => $rev->getRawUserText(),
+					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
+				__METHOD__,
+				array( 'LIMIT' => 1 ) );
+		}
 		# Done!
 		$dbw->commit();
 
 		# Update the article review log
-		RevisionReview::updateLog( $article->getTitle(), $flags, array(), wfMsg('revreview-auto'), $rev->getID(), true );
+		RevisionReview::updateLog( $article->getTitle(), $flags, array(), wfMsgForContent('revreview-auto'), $rev->getID(), true );
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
@@ -1821,7 +1826,7 @@ class FlaggedRevs {
 			return true;
 		# Allow for only editors/reviewers to move this
 		$right = $frev->getQuality() ? 'validate' : 'review';
-		if( !$user->isAllowed( $right ) ) {
+		if( !$user->isAllowed($right) && !$user->isAllowed('movestable') ) {
 			$result = false;
 			return false;
 		}
@@ -1867,7 +1872,10 @@ class FlaggedRevs {
 	* version, try to automatically review it.
 	*/
 	public static function maybeMakeEditReviewed( $rev ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgFlaggedArticle, $wgRequest;
+		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
+		# For edits from form submits only
+		if( !$wgRequest->getVal('wpSave') || !$wgRequest->wasPosted() )
+			return true;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
@@ -1896,6 +1904,7 @@ class FlaggedRevs {
 					$frev = self::getFlaggedRev( $title, $prevRev->getId() );
 				# Check for new pages
 				} else if( !$prevRev ) {
+					global $wgFlaggedRevsAutoReviewNew;
 					$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
 				}
 			}
@@ -1906,7 +1915,8 @@ class FlaggedRevs {
 				foreach( self::$dimensions as $tag => $minQL ) {
 					$flags[$tag] = 1;
 				}
-				self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+				# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
+				self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
 			}
 		}
 		if( $wgFlaggedArticle ) {
@@ -1958,7 +1968,7 @@ class FlaggedRevs {
 		$patrol = false;
 		// Is the page reviewable?
 		if( self::isPageReviewable($title) ) {
-			$patrol = self::revIsFlagged($title, $rev->getId(), GAID_FOR_UPDATE );
+			$patrol = self::revIsFlagged( $title, $rev->getId(), GAID_FOR_UPDATE );
 		// Can this be patrolled?
 		} else if( self::isPagePatrollable($title) ) {
 			$patrol = $user->isAllowed('autopatrolother');
@@ -1969,7 +1979,7 @@ class FlaggedRevs {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->update( 'recentchanges',
 				array( 'rc_patrolled' => 1 ),
-				array( 'rc_this_oldid' => $rev->getID(),
+				array( 'rc_this_oldid' => $rev->getId(),
 					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 				__METHOD__,
