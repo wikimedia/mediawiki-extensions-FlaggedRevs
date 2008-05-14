@@ -926,8 +926,7 @@ class UnreviewedPages extends SpecialPage
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
 			$uw = self::usersWatching( $title );
-			$uwPar = $uw >= 5 ? '5+' : $uw;
-			$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
+			$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
 			$watching = " $watching";
 		} else {
 			$watching = "";
@@ -942,11 +941,10 @@ class UnreviewedPages extends SpecialPage
 	*/
 	public static function usersWatching( $title ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'watchlist', '1',
+		$n = $dbr->estimateRowCount( 'watchlist', '1',
 			array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
-			__METHOD__,
-			array( 'LIMIT' => 5 ) );
-		return $res->numRows();
+			__METHOD__ );
+		return ($n-1);
 	}
 	
 	/**
@@ -1121,8 +1119,7 @@ class OldReviewedPages extends SpecialPage
 		}
 		# Is anybody watching?
 		$uw = UnreviewedPages::usersWatching( $title );
-		$uwPar = $uw >= 5 ? '5+' : $uw;
-		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uwPar) : wfMsgHtml("unreviewed-unwatched");
+		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
 
 		return( "<li>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
 	}
