@@ -962,7 +962,7 @@ class UnreviewedPages extends SpecialPage
 		$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
 		$ratio = $pages/($pages - $reviewedpages);
 		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
-		return ($ratio <= 100);
+		return ($ratio <= 200);
 	}
 }
 
@@ -1054,7 +1054,7 @@ class OldReviewedPages extends SpecialPage
 	}
 
 	function showList( $wgRequest ) {
-		global $wgOut, $wgUser, $wgScript, $wgTitle;
+		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
 
 		$namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$category = trim( $wgRequest->getVal( 'category' ) );
@@ -1062,15 +1062,18 @@ class OldReviewedPages extends SpecialPage
 		$action = htmlspecialchars( $wgScript );
 		
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
-			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
+			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>');
+		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
+				FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
+		}
+		$wgOut->addHTML( Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
 			Xml::label( wfMsg("unreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
-			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
-			"</fieldset></form>"
-		);
+			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
+			"</fieldset></form>" );
 		
-		$pager = new OldReviewedPagesPager( $this, $category );
+		$pager = new OldReviewedPagesPager( $this, $namespace, $category );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -1130,12 +1133,20 @@ class OldReviewedPages extends SpecialPage
  */
 class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
-	private $category;
+	private $category, $namespace;
 
-	function __construct( $form, $category=NULL, $conds = array() ) {
+	function __construct( $form, $namespace, $category=NULL, $conds = array() ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
-		
+		# Must be a content page...
+		global $wgFlaggedRevsNamespaces;
+		if( !is_null($namespace) ) {
+			$namespace = intval($namespace);
+		}
+		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		}
+		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		
 		parent::__construct();
@@ -1148,24 +1159,17 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page' );
-		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality');
+		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality','fp_page_id');
 		$conds['fp_reviewed'] = 0;
 		$conds[] = 'page_id = fp_page_id';
-		# Reviewable pages only (moves can make oddities, so check here)
-		global $wgFlaggedRevsNamespaces;
-		$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
+		$conds['page_namespace'] = $this->namespace;
+		$useIndex = array('flaggedpages' => 'fp_reviewed_page','page' => 'PRIMARY');
 		# Filter by category
 		if( $this->category ) {
 			$tables[] = 'categorylinks';
-			$fields[] = 'cl_sortkey';
-			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
-			$this->mIndexField = 'cl_sortkey';
-			$useIndex['categorylinks'] = 'cl_sortkey'; // *sigh* ...
-		} else {
-			$fields[] = 'fp_page_id';
-			$this->mIndexField = 'fp_page_id';
-			$useIndex['page'] = 'PRIMARY';
+			$conds['cl_to'] = $this->category;
+			$useIndex['categorylinks'] = 'cl_from';
 		}
 		return array(
 			'tables'  => $tables,
@@ -1176,7 +1180,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getIndexField() {
-		return $this->mIndexField;
+		return 'fp_page_id';
 	}
 }
 
