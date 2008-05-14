@@ -243,6 +243,9 @@ No configuration is possible.',
 	'qualityoversight'      => 'Quality oversight',
 	'qualityoversight-list' => 'This page lists recent approvals of quality revisions as well as depreciations of quality revisions.',
 	
+	'depreciationoversight'      => 'Depreciation oversight',
+	'depreciationoversight-list' => 'This page lists recent depreciations of revisions.',
+	
 	'rights-editor-autosum' => 'autopromoted',
 	'rights-editor-revoke'  => 'removed editor status from [[$1]]',
 	

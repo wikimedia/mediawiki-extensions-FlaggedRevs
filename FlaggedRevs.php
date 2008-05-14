@@ -32,6 +32,8 @@ $wgFlaggedRevTabs = false;
 
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN );
+# Patrollable namespaces
+$wgFlaggedRevsPatrolNamespaces = array( NS_CATEGORY, NS_IMAGE, NS_TEMPLATE );
 
 # Do flagged revs override the default view?
 $wgFlaggedRevsOverride = true;
@@ -181,6 +183,9 @@ $wgFlaggedRevsExternalStore = false;
 # Show reviews in recentchanges? Disabled by default, often spammy...
 $wgFlaggedRevsLogInRC = false;
 
+# How far the logs for overseeing quality revisions and depreciations go
+$wgFlaggedRevsOversightAge = 7 * 24 * 3600;
+
 # End of configuration variables.
 #########
 
@@ -222,6 +227,9 @@ $wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
 # To oversee quality revisions
 $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 $wgAutoloadClasses['QualityOversight'] = $dir . 'FlaggedRevsPage.php';
+# To oversee depreciations
+$wgSpecialPages['DepreciationOversight'] = 'DepreciationOversight';
+$wgAutoloadClasses['DepreciationOversight'] = $dir . 'FlaggedRevsPage.php';
 
 # Remove stand-alone patrolling
 $wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
@@ -289,9 +297,10 @@ function efLoadFlaggedRevs() {
 
 function wfInitFlaggedArticle( $output, $article, $title, $user, $request ) {
 	global $wgFlaggedArticle, $wgHooks;
-	if( !FlaggedRevs::isPageReviewable($title) )
+	# Load when needed
+	if( !FlaggedRevs::isPageReviewable($title) && !FlaggedRevs::isPagePatrollable($title) )
 		return true;
-	# Initialize and set article hooks
+	# Initialize object and set article hooks
 	$wgFlaggedArticle = new FlaggedArticle( $title );
 	# Set image version
 	$wgFlaggedArticle->setImageVersion();
@@ -673,19 +682,32 @@ class FlaggedRevs {
 	/**
 	 * @param Title $title
 	 * @param int $rev_id
-	 * @param Database $db, optional
+	 * @param $flags, GAID_FOR_UPDATE
 	 * @returns mixed (int or false)
+	 * Get quality of a revision
 	 */
-	public static function getRevQuality( $title, $rev_id, $db = NULL ) {
-		$db = $db ? $db : wfGetDB( DB_SLAVE );
+	public static function getRevQuality( $title, $rev_id, $flags=0 ) {
+		$db = ($flags & GAID_FOR_UPDATE) ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$quality = $db->selectField( 'flaggedrevs', 
 			'fr_quality',
-			array( 'fr_page_id' => $title->getArticleID(),
+			array( 'fr_page_id' => $title->getArticleID( $flags ),
 				'fr_rev_id' => $rev_id ),
 			__METHOD__,
 			array( 'FORCE INDEX' => 'PRIMARY' )
 		);
 		return $quality;
+	}
+	
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param $flags, GAID_FOR_UPDATE
+	 * @returns bool
+	 * Useful for quickly pinging to see if a revision is flagged
+	 */
+	public static function revIsFlagged( $title, $rev_id, $flags=0 ) {
+		$quality = self::getRevQuality( $title, $rev_id, $flags=0 );
+		return ($quality !== false);
 	}
 	
 	/**
@@ -992,9 +1014,25 @@ class FlaggedRevs {
 	*/
 	public static function isPageReviewable( $title ) {
 		global $wgFlaggedRevsNamespaces;
-		# Treat NS_MEDIA as NS_IMAGE
+		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
 		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
+	}
+	
+	/**
+	* Is this page in patrolable namespace?
+	* @param Title, $title
+	* @return bool
+	*/
+	public static function isPagePatrollable( $title ) {
+		global $wgFlaggedRevsPatrolNamespaces;
+		# No collisions!
+		if( self::isPageReviewable($title) ) {
+			return false;
+		}
+		# FIXME: Treat NS_MEDIA as NS_IMAGE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) && !$title->isTalkPage() );
 	}
 
 	/**
@@ -1913,10 +1951,21 @@ class FlaggedRevs {
 	* are autopatrolled.
 	*/
 	public static function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		if( !$rev )
-			return true;
-
-		if( !self::isPageReviewable( $article->getTitle() ) && $user->isAllowed('autopatrolother') ) {
+		if( !$rev ) {
+			return true; // NULL edit
+		}
+		$title = $article->getTitle();
+		$patrol = false;
+		// Is the page reviewable?
+		if( self::isPageReviewable($title) ) {
+			$patrol = self::revIsFlagged($title, $rev->getId(), GAID_FOR_UPDATE );
+		// Can this be patrolled?
+		} else if( self::isPagePatrollable($title) ) {
+			$patrol = $user->isAllowed('autopatrolother');
+		} else {
+			$patrol = true; // mark by default
+		}
+		if( $patrol ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->update( 'recentchanges',
 				array( 'rc_patrolled' => 1 ),

@@ -499,7 +499,7 @@ class FlaggedArticle extends Article {
 	public function addPatrolLink( $article, &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser, $wgLang;
 		# For unreviewable pages, allow for basic patrolling
-		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+		if( FlaggedRevs::isPagePatrollable( $article->getTitle() ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
 			# chance to mark this new article as patrolled.
 			$rcid = $wgRequest->getIntOrNull( 'rcid' );
@@ -802,7 +802,7 @@ class FlaggedArticle extends Article {
 				}
 			}
 		// Prepare a change patrol link, if applicable
-		} else if( $wgUser->isAllowed( 'review' ) ) {
+		} else if( FlaggedRevs::isPagePatrollable( $NewRev->getTitle() ) && $wgUser->isAllowed( 'review' ) ) {
 			// If we've been given an explicit change identifier, use it; saves time
 			if( $diff->mRcidMarkPatrolled ) {
 				$rcid = $diff->mRcidMarkPatrolled;
