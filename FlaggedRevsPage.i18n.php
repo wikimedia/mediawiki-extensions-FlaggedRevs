@@ -1258,10 +1258,10 @@ $messages['de'] = array(
 	'revreview-basic-source'      => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gesichtete Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>, basiert auf dieser Version.',
 	'revreview-quality-source'    => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} geprüfte Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>, basiert auf dieser Version.',
 
-	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.<br />
+	'revreview-update'            => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.<br />
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
 
-	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|prüfe]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
+	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
 	'revreview-update-includes'   => "'''Einige Vorlagen/Bilder wurden aktualisiert:'''",
 	'revreview-auto'              => '(automatisch)',
 	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
