@@ -1868,14 +1868,35 @@ class FlaggedRevs {
 	}
 	
 	/**
+	* Was this request an edit to said title?
+	* @param Title $title
+	* @param Revision $rev
+	*/
+	public static function revSubmitted( $title, $rev ) {
+		global $wgRequest, $wgUser;
+		if( !$wgRequest->wasPosted() || !$wgRequest->getVal('wpSave') || $wgRequest->getVal('title') !== $title->getPrefixedDBkey() ) {
+			return false;
+		}
+		# Must be by this user
+		if( $wgUser->getId() ) {
+			if( $rev->getUser() != $wgUser->getId() ) {
+				return false;
+			}
+		# Must be by this IP
+		} else {
+			if( $rev->getRawUserText() != $wgUser->getName() ) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
 	public static function maybeMakeEditReviewed( $rev ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
-		# For edits from form submits only
-		if( !$wgRequest->getVal('wpSave') || !$wgRequest->wasPosted() )
-			return true;
+		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest, $wgUser;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
@@ -1887,40 +1908,38 @@ class FlaggedRevs {
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
+		# For edits from normal form submits only!
+		if( !self::revSubmitted( $title, $rev ) ) {
+			return true;
+		}
 		$article = new Article( $title );
-		# Revision will be null for null edits
-		if( $rev ) {
-			$frev = null;
-			$reviewableNewPage = false;
-			# Get the revision the incoming one was based off
-			$baseRevID = $wgRequest->getVal('baseRevId');
-			if( $baseRevID ) {
-				$frev = self::getFlaggedRev( $article->getTitle(), $baseRevID );
-			} else {
-				$prevRevID = $article->getTitle()->getPreviousRevisionId( $rev->getId() );
-				$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
-				# Check for null edits
-				if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
-					$frev = self::getFlaggedRev( $title, $prevRev->getId() );
-				# Check for new pages
-				} else if( !$prevRev ) {
-					global $wgFlaggedRevsAutoReviewNew;
-					$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
-				}
-			}
-			# Is this an edit directly to the stable version?
-			if( $reviewableNewPage || !is_null($frev) ) {
-				# Assume basic flagging level
-				$flags = array();
-				foreach( self::$dimensions as $tag => $minQL ) {
-					$flags[$tag] = 1;
-				}
-				# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
-				self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+		$frev = null;
+		$reviewableNewPage = false;
+		# Get the revision the incoming one was based off
+		$baseRevID = $wgRequest->getVal('baseRevId');
+		if( $baseRevID ) {
+			$frev = self::getFlaggedRev( $article->getTitle(), $baseRevID );
+		} else {
+			$prevRevID = $article->getTitle()->getPreviousRevisionId( $rev->getId() );
+			$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
+			# Check for null edits
+			if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
+				$frev = self::getFlaggedRev( $title, $prevRev->getId() );
+			# Check for new pages
+			} else if( !$prevRev ) {
+				global $wgFlaggedRevsAutoReviewNew;
+				$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
 			}
 		}
-		if( $wgFlaggedArticle ) {
-			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
+		# Is this an edit directly to the stable version?
+		if( $reviewableNewPage || !is_null($frev) ) {
+			# Assume basic flagging level
+			$flags = array();
+			foreach( self::$dimensions as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
+			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
+			self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
 		}
 		return true;
 	}
@@ -1948,9 +1967,6 @@ class FlaggedRevs {
 				self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
 				self::articleLinksUpdate( $article ); // lame...
 			}
-		}
-		if( $wgFlaggedArticle ) {
-			$wgFlaggedArticle->skipReviewDiff = true; // Don't jump to diff...
 		}
 		return true;
 	}

@@ -61,7 +61,7 @@ class FlaggedRevision {
 	 * @returns String revision timestamp in MW format
 	 */
 	public function getTimestamp() {
-		return wfTimestamp(TS_MW, $this->mTimestamp);
+		return wfTimestamp( TS_MW, $this->mTimestamp );
 	}
 	
 	/**
@@ -115,6 +115,13 @@ class FlaggedRevision {
 	 */
 	public function getTags() {
 		return $this->mTags;
+	}
+	
+	/**
+	 * @returns bool
+	 */
+	public function userCanSetFlags() {
+		return RevisionReview::userCanSetFlags( $this->mTags );
 	}
 
 	/**

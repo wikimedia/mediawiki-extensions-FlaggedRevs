@@ -2,7 +2,6 @@
 
 class FlaggedArticle extends Article {
 	public $isDiffFromStable = false;
-	public $skipReviewDiff = false;
 	public $stableRev = null;
 	public $pageconfig = null;
 	public $flags = null;
@@ -849,17 +848,15 @@ class FlaggedArticle extends Article {
 		# Don't show this for the talk page
 		if( !$this->isReviewable() || $article->getTitle()->isTalkPage() )
 			return true;
-		# Get the stable version and flags
-    	$frev = $this->getStableRev();
-		$flags = $frev ? $frev->getTags() : array();
+		# Get the stable version, from master
+    	$frev = $this->getStableRev( false, true );
+		if( !$frev )
+			return true;
+		$latest = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		// If we are supposed to review after edit, and it was not autoreviewed,
 		// and the user can actually make new stable version, take us to the diff...
-		if( $wgReviewChangesAfterEdit && !$this->skipReviewDiff && $frev && RevisionReview::userCanSetFlags($flags) ) {
-			$flags = $frev->getTags();
-			# If the user can update the stable version, jump to it...
-			if( RevisionReview::userCanSetFlags( $flags ) ) {
-				$extraq .= "oldid={$frev->getRevId()}&diff=cur";
-			}
+		if( $wgReviewChangesAfterEdit && $frev && $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
+			$extraq .= "oldid={$frev->getRevId()}&diff=cur";
 		// ...otherwise, go to the current revision after completing an edit.
 		} else {
 			if( $frev ){
@@ -869,7 +866,6 @@ class FlaggedArticle extends Article {
 				}
 			}
 		}
-
 		return true;
 	}
 	
