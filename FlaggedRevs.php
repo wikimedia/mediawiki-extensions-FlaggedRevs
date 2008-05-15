@@ -1896,7 +1896,7 @@ class FlaggedRevs {
 	* version, try to automatically review it.
 	*/
 	public static function maybeMakeEditReviewed( $rev ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest, $wgUser;
+		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
