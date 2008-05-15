@@ -708,7 +708,7 @@ class FlaggedRevs {
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
 	public static function revIsFlagged( $title, $rev_id, $flags=0 ) {
-		$quality = self::getRevQuality( $title, $rev_id, $flags=0 );
+		$quality = self::getRevQuality( $title, $rev_id, $flags );
 		return ($quality !== false);
 	}
 	
@@ -1874,7 +1874,7 @@ class FlaggedRevs {
 	*/
 	public static function revSubmitted( $title, $rev ) {
 		global $wgRequest, $wgUser;
-		if( !$wgRequest->wasPosted() || !$wgRequest->getVal('wpSave') || $wgRequest->getVal('title') !== $title->getPrefixedDBkey() ) {
+		if( !$wgRequest->wasPosted() || $wgRequest->getVal('title') !== $title->getPrefixedDBkey() ) {
 			return false;
 		}
 		# Must be by this user
