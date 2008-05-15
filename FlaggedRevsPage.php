@@ -356,8 +356,8 @@ class RevisionReview extends UnlistedSpecialPage
 			$id = $approved ? $rev->getId() : $frev->getRevId();
 			$wgOut->addHtml( '<p>'.wfMsgExt( $msg, array('parseinline'), $this->page->getPrefixedUrl(), $id ).'</p>' );
 			$wgOut->addHtml( "</div>" );
-			
-			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'RecentChanges' ) );
+
+			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 			if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'OldReviewedPages' ) );
