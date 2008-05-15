@@ -4664,7 +4664,6 @@ $messages['nn'] = array(
 	'stabilize-expiring'        => 'utgår $1 (UTC)',
 );
 
-
 /** Northern Sotho (Sesotho sa Leboa)
  * @author Mohau
  */
