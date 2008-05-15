@@ -1912,21 +1912,20 @@ class FlaggedRevs {
 		if( !self::revSubmitted( $title, $rev ) ) {
 			return true;
 		}
-		$article = new Article( $title );
 		$frev = null;
 		$reviewableNewPage = false;
 		# Get the revision the incoming one was based off
-		$baseRevID = $wgRequest->getVal('baseRevId');
+		$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		if( $baseRevID ) {
-			$frev = self::getFlaggedRev( $article->getTitle(), $baseRevID );
+			$frev = self::getFlaggedRev( $title, $baseRevID );
 		} else {
-			$prevRevID = $article->getTitle()->getPreviousRevisionId( $rev->getId() );
+			$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 			$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
 			# Check for null edits
 			if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
 				$frev = self::getFlaggedRev( $title, $prevRev->getId() );
 			# Check for new pages
-			} else if( !$prevRev ) {
+			} else if( !$prevRevID ) {
 				global $wgFlaggedRevsAutoReviewNew;
 				$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
 			}
@@ -1939,6 +1938,7 @@ class FlaggedRevs {
 				$flags[$tag] = 1;
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
+			$article = new Article( $title );
 			self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
 		}
 		return true;
