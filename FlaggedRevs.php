@@ -166,6 +166,7 @@ $wgFlaggedRevsAutopromote = array(
 	'userpage'            => true, # user must have a userpage?
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
 	'uniqueIPAddress'     => true, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
+	'neverBlocked'        => true, # Can user that were blocked be promoted?
 	'noSorbsMatches'      => false, # If $wgSorbsUrl is set, do not promote users that match
 );
 
@@ -2023,7 +2024,6 @@ class FlaggedRevs {
 			return true;
 		}
 		# Do not re-add status if it was previously removed!
-		# A special entry is made in the log whenever an editor looses their rights.
 		$p = self::getUserParams( $user );
 		if( isset($params['demoted']) && $params['demoted'] ) {
 			wfProfileOut( __METHOD__ );
@@ -2096,13 +2096,30 @@ class FlaggedRevs {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
+		# Check if user was ever blocked before
+		if( $wgFlaggedRevsAutopromote['neverBlocked'] ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$blocked = $dbr->selectField( 'logging', '1',
+				array( 'log_namespace' => NS_USER, 
+					'log_title' => $user->getUserPage()->getDBKey(),
+					'log_type' => 'block',
+					'log_action' => 'block' ),
+				__METHOD__,
+				array( 'USE INDEX' => 'user_time' ) );
+			if( $blocked ) {
+				# Make a key to store the results
+				$wgMemc->set( $key, 'true', 3600*24*7 );
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
+		}
 		# See if the page actually has sufficient content...
 		if( $wgFlaggedRevsAutopromote['userpage'] ) {
 			if( !$user->getUserPage()->exists() ) {
 				wfProfileOut( __METHOD__ );
 				return true;
 			}
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 			$size = $dbr->selectField( 'page', 'page_len',
 				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
 					'page_title' => $user->getUserPage()->getDBKey() ),
@@ -2141,7 +2158,6 @@ class FlaggedRevs {
 			}
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*$spacing*($benchmarks - $needed - 1) );
 				wfProfileOut( __METHOD__ );
 				return true;
@@ -2159,7 +2175,6 @@ class FlaggedRevs {
 				array( 'USE INDEX' => 'rc_ip' ) );
 			if( $shared ) {
 				# Make a key to store the results
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*7 );
 				wfProfileOut( __METHOD__ );
 				return true;
@@ -2171,7 +2186,6 @@ class FlaggedRevs {
 			$ip = wfGetIP();
 			if( !in_array($ip,$wgProxyWhitelist) && $user->inDnsBlacklist( $ip, $wgSorbsUrl ) ) {
 				# Make a key to store the results
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 				$wgMemc->set( $key, 'true', 3600*24*7 );
 				wfProfileOut( __METHOD__ );
 				return true;
