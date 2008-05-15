@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.043',
+	'version' => '1.044',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -166,7 +166,7 @@ $wgFlaggedRevsAutopromote = array(
 	'userpage'            => true, # user must have a userpage?
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
 	'uniqueIPAddress'     => true, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
-	'neverBlocked'        => true, # Can user that were blocked be promoted?
+	'neverBlocked'        => true, # Can users that were blocked be promoted?
 	'noSorbsMatches'      => false, # If $wgSorbsUrl is set, do not promote users that match
 );
 
