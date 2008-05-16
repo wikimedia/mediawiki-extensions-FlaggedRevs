@@ -129,9 +129,9 @@ class FlaggedRevsXML {
 		# Make fancy box...
 		$box = "<table border='0' cellspacing='0' style='background: none;'>\n";
 		$box .= "<tr><td>$shtml</td><td>&nbsp;</td><td align='right'>\n";
-		$box .= "<span id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'
+		$box .= "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'
 			onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "'>" . 
-			wfMsgHtml( 'revreview-toggle' ) . "</span></td></tr>\n";
+			wfMsgHtml( 'revreview-toggle' ) . "</a></td></tr>\n";
 		$box .= "<tr><td id='mw-revisionratings'>\n";
 		$box .= $html;
 		# Add ratings if there are any...
