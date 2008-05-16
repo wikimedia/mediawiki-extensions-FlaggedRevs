@@ -656,20 +656,23 @@ class FlaggedRevs {
 	 * @param int $rev_id
 	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @param bool $forUpdate, use master?
+	 * @param int $page_id, optional page ID to use, will defer to $title if not given
 	 * @returns mixed FlaggedRevision (null on failure)
 	 * Will not return a revision if deleted
 	 */
-	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false ) {
+	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
 		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
 		if( $getText ) {
 			$columns[] = 'fr_text';
 			$columns[] = 'fr_flags';
 		}
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
+		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
 		# Skip deleted revisions
 		$row = $db->selectRow( array('flaggedrevs','revision'),
 			$columns,
-			array( 'fr_page_id' => $title->getArticleID(),
+			array( 'fr_page_id' => $page_id,
 				'fr_rev_id' => $rev_id,
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
@@ -1875,7 +1878,13 @@ class FlaggedRevs {
 	*/
 	public static function revSubmitted( $title, $rev ) {
 		global $wgRequest, $wgUser;
-		if( !$wgRequest->wasPosted() || $wgRequest->getVal('title') !== $title->getPrefixedDBkey() ) {
+		# Request was submitted
+		if( !$wgRequest->wasPosted() ) {
+			return false;
+		}
+		# Sent to page title or Special:MovePage
+		$move = SpecialPage::getTitleFor( 'MovePage' );
+		if( !in_array( $wgRequest->getVal('title'), array($title->getPrefixedDBkey(),$move->getPrefixedDBkey()) ) ) {
 			return false;
 		}
 		# Must be by this user
@@ -1918,7 +1927,7 @@ class FlaggedRevs {
 		# Get the revision the incoming one was based off
 		$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		if( $baseRevID ) {
-			$frev = self::getFlaggedRev( $title, $baseRevID );
+			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
 		} else {
 			$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 			$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
