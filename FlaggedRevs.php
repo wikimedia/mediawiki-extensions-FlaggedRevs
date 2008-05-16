@@ -189,11 +189,14 @@ $wgFlaggedRevsLogInRC = false;
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 
+# Hour many hours pending review is considering long?
+$wgFlaggedRevsLongPending = 3;
+
 # End of configuration variables.
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 19;
+$wgFlaggedRevStyleVersion = 20;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -295,6 +298,8 @@ function efLoadFlaggedRevs() {
 	$wgHooks['InitPreferencesForm'][] = 'FlaggedRevs::injectFormPreferences';
 	$wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
 	$wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
+	# Special page CSS
+	$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 	#########
 }
 
@@ -1146,7 +1151,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Add FlaggedRevs css/js. Attached to two different hooks, neglect inputs.
+	* Add FlaggedRevs css/js.
 	*/
 	public static function InjectStyleAndJS() {
 		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
@@ -1175,6 +1180,29 @@ class FlaggedRevs {
 
 		self::$styleLoaded = true;
 
+		return true;
+	}
+	
+	/**
+	* Add FlaggedRevs css for relevant special pages.
+	*/
+	public static function InjectStyleForSpecial() {
+		global $wgTitle, $wgOut;
+		$spPages = array();
+		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
+		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
+		foreach( $spPages as $n => $title ) {
+			if( $wgTitle->equals( $title ) ) {
+				# UI CSS
+				$wgOut->addLink( array(
+					'rel'	=> 'stylesheet',
+					'type'	=> 'text/css',
+					'media'	=> 'screen, projection',
+					'href'	=> FLAGGED_CSS,
+				) );
+				break;
+			}
+		}
 		return true;
 	}
 	

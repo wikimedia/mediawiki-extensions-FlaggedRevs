@@ -229,6 +229,14 @@
 	line-height: 1em;
 }
 
+.fr-pending-long {
+	background-color: #f5ecec;
+}
+
+.fr-unreviewed-unwatched {
+	background-color: #f5dddd;
+}
+
 /* Review form */
 .flaggedrevs_reviewform {
 	background-color: #f9f9f9;

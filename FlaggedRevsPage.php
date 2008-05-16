@@ -866,15 +866,12 @@ class UnreviewedPages extends SpecialPage
 
     function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
-		
 		$this->setHeaders();
-		
 		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$wgOut->permissionRequired( 'unreviewedpages' );
 			return;
 		}
 		$this->skin = $wgUser->getSkin();
-		
 		$this->showList( $wgRequest );
 	}
 
@@ -917,22 +914,24 @@ class UnreviewedPages extends SpecialPage
 
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
-		$stxt = $review = '';
+		$css = $stxt = $review = '';
 		if( !is_null($size = $result->page_len) ) {
-			if($size == 0)
-				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
-			else
-				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
+			global $wgLang;
+			$stxt = ($size == 0) ? 
+				wfMsgHtml('historyempty') : wfMsgHtml('historysize', $wgLang->formatNum( $size ) );
+			$stxt = " <small>$stxt</small>";
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
 			$uw = self::usersWatching( $title );
 			$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
 			$watching = " $watching";
+			// Oh-noes!
+			$css = $uw ? "" : " class='fr-unreviewed-unwatched'";
 		} else {
 			$watching = "";
 		}
 
-		return( "<li>{$link} {$stxt} {$review}{$watching}</li>" );
+		return( "<li{$css}>{$link} {$stxt} {$review}{$watching}</li>" );
 	}
 	
 	/**
@@ -1053,15 +1052,12 @@ class OldReviewedPages extends SpecialPage
 
     function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
-		
 		$this->setHeaders();
-		
 		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$wgOut->permissionRequired( 'unreviewedpages' );
 			return;
 		}
 		$this->skin = $wgUser->getSkin();
-		
 		$this->showList( $wgRequest );
 	}
 
@@ -1097,16 +1093,15 @@ class OldReviewedPages extends SpecialPage
 	}
 	
 	function formatRow( $result ) {
-		global $wgLang;
+		global $wgLang, $wgFlaggedRevsLongPending;
 
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
-		$stxt = $review = '';
+		$css = $stxt = $review = '';
 		if( !is_null($size = $result->page_len) ) {
-			if($size == 0)
-				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
-			else
-				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
+			$stxt = ($size == 0) ? 
+				wfMsgHtml('historyempty') : wfMsgHtml('historysize', $wgLang->formatNum( $size ) );
+			$stxt = " <small>$stxt</small>";
 		}
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
 				"diff=cur&oldid={$result->fp_stable}" );
@@ -1128,6 +1123,8 @@ class OldReviewedPages extends SpecialPage
 			} else {
 				$age = wfMsg('oldreviewedpages-recent'); // hot of the press :)
 			}
+			// Oh-noes!
+			$css = ($hours > $wgFlaggedRevsLongPending) ? " class='fr-pending-long'" : "";
 		} else {
 			$age = ""; // wtf?
 		}
@@ -1135,7 +1132,7 @@ class OldReviewedPages extends SpecialPage
 		$uw = UnreviewedPages::usersWatching( $title );
 		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
 
-		return( "<li>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
 	}
 }
 
