@@ -1904,10 +1904,10 @@ class FlaggedRevs {
 	* @param Title $title
 	* @param Revision $rev
 	*/
-	public static function revSubmitted( $title, $rev ) {
+	public static function revSubmitted( $title, $rev, $edit ) {
 		global $wgRequest, $wgUser;
 		# Request was submitted
-		if( !$wgRequest->wasPosted() ) {
+		if( !$edit || !$wgRequest->wasPosted() ) {
 			return false;
 		}
 		# Must be by this user
@@ -1942,7 +1942,7 @@ class FlaggedRevs {
 			return true;
 		}
 		# For edits from normal form submits only!
-		if( !self::revSubmitted( $title, $rev ) ) {
+		if( !self::revSubmitted( $title, $rev, $edit ) ) {
 			return true;
 		}
 		$frev = null;
