@@ -1954,6 +1954,8 @@ class FlaggedRevs {
 		$reviewableNewPage = false;
 		# Get the revision the incoming one was based off
 		$baseRevID = $wgRequest->getIntOrNull('baseRevId');
+		# If baseRevId not given, assume the previous
+		$baseRevID = $baseRevID ? $baseRevID : $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 		if( $baseRevID ) {
 			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
 		} else {
