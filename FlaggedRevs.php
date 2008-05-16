@@ -1910,11 +1910,6 @@ class FlaggedRevs {
 		if( !$wgRequest->wasPosted() ) {
 			return false;
 		}
-		# Sent to page title or Special:MovePage
-		$move = SpecialPage::getTitleFor( 'MovePage' );
-		if( !in_array( $wgRequest->getVal('title'), array($title->getPrefixedDBkey(),$move->getPrefixedDBkey()) ) ) {
-			return false;
-		}
 		# Must be by this user
 		if( $wgUser->getId() ) {
 			if( $rev->getUser() != $wgUser->getId() ) {
@@ -1933,7 +1928,7 @@ class FlaggedRevs {
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $rev ) {
+	public static function maybeMakeEditReviewed( $rev, $edit ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
