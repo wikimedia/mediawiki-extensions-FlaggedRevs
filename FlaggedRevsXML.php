@@ -120,10 +120,10 @@ class FlaggedRevsXML {
 		} else {
 			if( $stable ) {
 				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
-				$msg .= ($revs_since == 0) ? '-i' : '';
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			}
+			$msg .= ($revs_since == 0) ? '-i' : '';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 		}
 		# Make fancy box...

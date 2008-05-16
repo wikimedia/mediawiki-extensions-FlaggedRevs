@@ -212,7 +212,6 @@ class FlaggedArticle extends Article {
 				$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article );
 				# Give notice to newewer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
-					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$tooltip = wfMsgHtml('revreview-draft-title');
 					$pending = "<span class='fr-icon-current' title=\"{$tooltip}\"></span>" . 
 						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revs_since);
@@ -250,6 +249,7 @@ class FlaggedArticle extends Article {
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						} else {
 							$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+							$msg .= ($revs_since == 0) ? '-i' : '';
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 						}
 						$tooltip = wfMsgHtml($tooltip);
@@ -427,12 +427,14 @@ class FlaggedArticle extends Article {
 				# Streamlined UI
 				if( FlaggedRevs::useSimpleUI() ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$msg .= ($revs_since == 0) ? '-i' : '';
 					$tag = "<span class='fr-checkbox'></span>" . 
 						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 				# Standard UI
 				} else {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$msg .= ($revs_since == 0) ? '-i' : '';
 					$tag = "<span class='fr-checkbox'></span>" . 
 						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
 					# Hide clutter

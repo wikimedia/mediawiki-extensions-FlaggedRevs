@@ -63,6 +63,10 @@ The ''draft'' is shown below.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
 	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
+	'revreview-newest-basic-i' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Template/image changes] need review.',
+	'revreview-newest-quality-i' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Template/image changes] need review.',
 	'revreview-basic' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] awaiting review.',
 	'revreview-quality' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
