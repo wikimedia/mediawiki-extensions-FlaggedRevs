@@ -726,18 +726,20 @@ class FlaggedArticle extends Article {
 				# Make a list of each changed template...
 				$dbr = wfGetDB( DB_SLAVE );
 				global $wgUseStableTemplates;
+				// Get templates where the current and stable are not the same revision
 				if( $wgUseStableTemplates ) {
 					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+						array( 'ft_namespace', 'ft_title', 'fp_stable AS rev_id' ),
 						array( 'ft_rev_id' => $frev->getRevId(),
 							'page_namespace = ft_namespace',
 							'page_title = ft_title',
 							'fp_page_id = page_id',
 							'fp_stable != page_latest' ),
 						__METHOD__ );
+				// Get templates that are newer than the ones of the stable version of this page
 				} else {
 					$ret = $dbr->select( array('flaggedtemplates','page'),
-						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id' ),
 						array( 'ft_rev_id' => $frev->getRevId(),
 							'page_namespace = ft_namespace',
 							'page_title = ft_title',
@@ -747,11 +749,12 @@ class FlaggedArticle extends Article {
 				while( $row = $dbr->fetchObject( $ret ) ) {
 					$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
 					$changeList[] = $skin->makeKnownLinkObj( $title, $title->GetPrefixedText(),
-						"diff=cur&oldid=" . $row->ft_tmp_rev_id );
+						"diff=cur&oldid=" . $row->rev_id );
 				}
 				
 				# And images...
 				global $wgUseStableImages;
+				// Get images where the current and stable are not the same revision
 				if( $wgUseStableImages ) {
 					$ret = $dbr->select( array('flaggedimages','page','flaggedpages','flaggedrevs','image'),
 						array( 'fi_name' ),
@@ -764,6 +767,7 @@ class FlaggedArticle extends Article {
 							'img_name = fi_name',
 							'fr_img_sha1 != img_sha1' ),
 						__METHOD__ );
+				// Get images that are newer than the ones of the stable version of this page
 				} else {
 					$ret = $dbr->select( array('flaggedimages','image'),
 						array( 'fi_name' ),

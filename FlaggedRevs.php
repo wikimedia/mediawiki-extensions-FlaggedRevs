@@ -284,8 +284,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
 	# Auto-reviewing
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
-	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
-	$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevs::maybeMakeRollbackReviewed';
+	$wgHooks['newRevisionFromEditComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -477,20 +476,12 @@ class FlaggedRevs {
 	   	$wgParser->fr_isStable = false;
 		$wgParser->fr_includesMatched = false;
 		# Do we need to set the template uses via DB?
-		if( $reparsed ) {
+		if( $reparsed && !$wgUseStableTemplates ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			if( $wgUseStableTemplates ) {
-				$res = $dbr->select( array('flaggedtemplates','page','flaggedpages'), 
-					array( 'ft_namespace', 'ft_title', 'fp_stable AS rev_id', 'page_id' ),
-					array( 'ft_rev_id' => $id, 'page_namespace = ft_namespace', 'page_title = ft_title', 
-						'fp_page_id = page_id' ),
-					__METHOD__ );
-			} else {
-				$res = $dbr->select( array('flaggedtemplates','revision'), 
-					array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id', 'rev_page AS page_id' ),
-					array( 'ft_rev_id' => $id, 'rev_id = ft_rev_id' ),
-					__METHOD__ );
-			}
+			$res = $dbr->select( array('flaggedtemplates','revision'), 
+				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id', 'rev_page AS page_id' ),
+				array( 'ft_rev_id' => $id, 'rev_id = ft_rev_id' ),
+				__METHOD__ );
 			# Add template metadata to output
 			$maxTempID = 0;
 			while( $row = $res->fetchObject() ) {
@@ -1934,64 +1925,31 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* Was this request an edit to said title?
-	* @param Title $title
-	* @param Revision $rev
-	*/
-	public static function revSubmitted( $title, $rev ) {
-		global $wgRequest, $wgUser;
-		# Request was submitted
-		if( !$wgRequest->wasPosted() ) {
-			return false;
-		}
-		# Sent to page title or Special:MovePage
-		$move = SpecialPage::getTitleFor( 'MovePage' );
-		if( !in_array( $wgRequest->getVal('title'), array($title->getPrefixedDBkey(),$move->getPrefixedDBkey()) ) ) {
-			return false;
-		}
-		# Must be by this user
-		if( $wgUser->getId() ) {
-			if( $rev->getUser() != $wgUser->getId() ) {
-				return false;
-			}
-		# Must be by this IP
-		} else {
-			if( $rev->getRawUserText() != $wgUser->getName() ) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	/**
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $rev ) {
+	public static function maybeMakeEditReviewed( $title, $rev, $baseRevId = false ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
-		# GetTitle() for revisions uses slaves and wants page_id,rev_id to
-		# match...this is bad if we *just* added it.
-		$title = $rev->getTitle() ? $rev->getTitle() : Title::newFromID( $rev->getPage(), GAID_FOR_UPDATE );
 		# Must be in reviewable namespace
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
-		# For edits from normal form submits only!
-		if( !self::revSubmitted( $title, $rev ) ) {
-			return true;
-		}
 		$frev = null;
 		$reviewableNewPage = false;
-		# Get the revision the incoming one was based off
-		$baseRevID = $wgRequest->getIntOrNull('baseRevId');
-		# If baseRevId not given, assume the previous
-		$baseRevID = $baseRevID ? $baseRevID : $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
+		# Get the revision ID the incoming one was based off
+		$baseRevID = $baseRevId ? $baseRevId : $wgRequest->getIntOrNull('baseRevId');
+		# Get what was just the current revision ID
+		$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
+		# If baseRevId not given, assume the previous revision ID
+		$baseRevID = $baseRevID ? $baseRevID : $prevRevID;
 		if( $baseRevID ) {
 			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
+			# If the base revision was not reviewed, check if the previous one was
+			$frev = $frev ? $frev : self::getFlaggedRev( $title, $prevRevID, false, true, $rev->getPage() );
 		} else {
 			$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 			$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
@@ -2014,33 +1972,6 @@ class FlaggedRevs {
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
 			$article = new Article( $title );
 			self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
-		}
-		return true;
-	}
-
-	/**
-	* When a rollback is made by a reviwer, try to automatically review it.
-	*/
-	public static function maybeMakeRollbackReviewed( $article, $user, $rev ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle;
-		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
-			return true;
-		# Must be in reviewable namespace
-		if( !self::isPageReviewable( $article->getTitle() ) )
-			return true;
-		# Was this revision flagged?
-		$frev = self::getFlaggedRev( $article->getTitle(), $rev->getId() );
-		if( !is_null($frev) ) {
-			# Assume basic flagging level
-			$flags = array();
-			foreach( self::$dimensions as $tag => $minQL ) {
-				$flags[$tag] = 1;
-			}
-			$newRev = Revision::newFromId( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) );
-			if( $newRev ) {
-				self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
-				self::articleLinksUpdate( $article ); // lame...
-			}
 		}
 		return true;
 	}
