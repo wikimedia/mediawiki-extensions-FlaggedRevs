@@ -13,6 +13,9 @@ class FlaggedRevision {
 	private $mUser;
 	private $mTitle;
 	private $mRevision;
+	private $mFileName;
+	private $mFileSha1;
+	private $mFileTimestamp;
 
 	/**
 	 * @param Title $title
@@ -27,12 +30,20 @@ class FlaggedRevision {
 		$this->mComment = $row->fr_comment;
 		$this->mQuality = intval( $row->fr_quality );
 		$this->mTags = FlaggedRevs::expandRevisionTags( strval($row->fr_tags) );
+		$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
+		$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
+		$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
 		# Optional fields
 		$this->mUser = isset($row->fr_user) ? $row->fr_user : 0;
 		$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
 		$this->mRawDBText = isset($row->fr_text) ? $row->fr_text : null;
 		# Deal with as it comes
 		$this->mText = null;
+	}
+	
+	public static function selectFields() {
+		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags',
+			'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
 	}
 
 	/**
@@ -115,6 +126,30 @@ class FlaggedRevision {
 	 */
 	public function getTags() {
 		return $this->mTags;
+	}
+	
+	/**
+	 * @returns string, filename accosciated with this revision.
+	 * This returns NULL for non-image page revisions.
+	 */
+	public function getFileName() {
+		return $this->mFileName;
+	}
+	
+	/**
+	 * @returns string, sha1 key accosciated with this revision.
+	 * This returns NULL for non-image page revisions.
+	 */
+	public function getFileSha1() {
+		return $this->mFileSha1;
+	}
+	
+	/**
+	 * @returns string, timestamp accosciated with this revision.
+	 * This returns NULL for non-image page revisions.
+	 */
+	public function getFileTimestamp() {
+		return $this->mFileTimestamp;
 	}
 	
 	/**

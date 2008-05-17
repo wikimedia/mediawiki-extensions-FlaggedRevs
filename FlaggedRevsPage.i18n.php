@@ -96,6 +96,8 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 '''Some templates/images were updated:'''",
 	'revreview-update-none' => "Please [[{{MediaWiki:Validationpage}}|review]] any changes ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].",
 	'revreview-update-includes' => "'''Some templates/images were updated:'''",
+	'revreview-update-use' => "'''NOTE:''' If any of these templates/images have a stable version, then it is already used in the stable version of this page.",
+	
 	'revreview-auto' => '(automatic)',
 	'revreview-auto-w' => "You are editing the stable revision; changes will '''automatically be reviewed'''.",
 	'revreview-auto-w-old' => "You are editing a reviewed revision; changes will '''automatically be reviewed'''.",

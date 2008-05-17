@@ -19,8 +19,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   INDEX fp_quality_page (fp_quality,fp_page_id)
 ) TYPE=InnoDB;
 
--- This stores all of our reviews, 
--- the corresponding tags are stored in the tag table
+-- This stores all of our rev reviews
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- Foreign key to page.page_id
   fr_page_id integer NOT NULL,
@@ -43,8 +42,16 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- utf8: in UTF-8
   -- external: the fr_text column is a url to an external storage object
   fr_flags tinyblob NOT NULL,
+  -- Parameters for revisions of Image pages:
+  -- Name of included image (NULL if n/a)
+  fr_img_name varchar(255) binary NULL default NULL,
+  -- Timestamp of file (when uploaded) (NULL if n/a)
+  fr_img_timestamp char(14) NULL default NULL,
+  -- Statistically unique SHA-1 key (NULL if n/a)
+  fr_img_sha1 varbinary(32) NULL default NULL,
   
   PRIMARY KEY (fr_page_id,fr_rev_id),
+  INDEX key_timestamp (fr_img_sha1,fr_img_timestamp),
   INDEX page_qal_rev (fr_page_id,fr_quality,fr_rev_id)
 ) TYPE=InnoDB;
 
@@ -82,7 +89,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
   -- Timestamp of image used when reviewed
-  fi_img_timestamp char(14) NULL,
+  fi_img_timestamp char(14) NOT NULL,
   -- Statistically unique SHA-1 key
   fi_img_sha1 varbinary(32) NOT NULL default '',
   

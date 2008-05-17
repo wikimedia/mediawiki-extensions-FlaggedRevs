@@ -2,10 +2,11 @@
 
 class FlaggedArticle extends Article {
 	public $isDiffFromStable = false;
-	public $stableRev = null;
-	public $pageconfig = null;
-	public $flags = null;
+	protected $stableRev = null;
+	protected $pageconfig = null;
+	protected $flags = null;
 	protected $reviewNotice = '';
+	protected $file = NULL;
 	/**
 	 * Does the config and current URL params allow
 	 * for overriding by stable revisions?
@@ -360,6 +361,10 @@ class FlaggedArticle extends Article {
 	* Set the image revision to display
 	*/
 	public function setImageVersion() {
+		global $wgArticle;
+		if( !$wgArticle instanceof ImagePage ) {
+			return false;
+		}
 		if( $this->getTitle()->getNamespace() == NS_IMAGE && $this->isReviewable() ) {
 			global $wgRequest;
 			# A reviewed version may have explicitly been requested...
@@ -370,14 +375,20 @@ class FlaggedArticle extends Article {
 				$frev = $this->getStableRev( true );
 			}
 			if( !is_null($frev) ) {
-				$dbr = wfGetDB( DB_SLAVE );
-				$time = $dbr->selectField( 'flaggedimages', 'fi_img_timestamp',
-					array( 'fi_rev_id' => $frev->getRevId(),
-						'fi_name' => $this->getTitle()->getDBkey() ),
-					__METHOD__ );
+				$timestamp = $frev->getFileTimestamp();
+				// B/C, may be stored in associated image version metadata table
+				if( !$timestamp ) {
+					$dbr = wfGetDB( DB_SLAVE );
+					$timestamp = $dbr->selectField( 'flaggedimages', 
+						'fi_img_timestamp',
+						array( 'fi_rev_id' => $frev->getRevId(),
+							'fi_name' => $this->getTitle()->getDBkey() ),
+						__METHOD__ );
+				}
 				# NOTE: if not found, this will use the current
-				$article = new ImagePage( $this->getTitle(), $time );
+				$wgArticle = new ImagePage( $this->getTitle(), $timestamp );
 			}
+			$this->file = $wgArticle->getFile();
 		}
 		return true;
 	}
@@ -488,7 +499,7 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		# Add review form
-		$this->addQuickReview( $out, $wgRequest->getVal('diff') );
+		$this->addQuickReview( $out, (bool)$wgRequest->getVal('diff') );
 
 		return true;
     }
@@ -667,12 +678,14 @@ class FlaggedArticle extends Article {
 		# Use same DB object
 		$this->dbr = isset($this->dbr) ? $this->dbr : wfGetDB( DB_SLAVE );
 		$skin = $wgUser->getSkin();
-		# Get corresponding title
-		$rev = Revision::loadFromTimestamp( $this->dbr, $this->getTitle(), $file->getTimestamp() );
-		if( !$rev ) {
+		# See if this is reivewed
+		$quality = $this->dbr->selectField( 'flaggedrevs', 'fr_quality',
+			array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
+			__METHOD__ );
+		if( $quality === false ) {
 			return true;
 		}
-    	list($link,$css) = FlaggedRevs::makeStableVersionLink( $this->getTitle(), $rev->getId(), $skin, $this->dbr );
+		$css = FlaggedRevs::getQualityColor( $quality );
 		return true;
     }
 
@@ -709,45 +722,79 @@ class FlaggedArticle extends Article {
 			if( $frev && $frev->getRevId() == $OldRev->getID() ) {
 				$changeList = array();
 				$skin = $wgUser->getSkin();
+				
 				# Make a list of each changed template...
 				$dbr = wfGetDB( DB_SLAVE );
-				$ret = $dbr->select( array('flaggedtemplates','page'),
-					array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
-					array( 'ft_rev_id' => $frev->getRevId(),
-						'ft_namespace = page_namespace',
-						'ft_title = page_title',
-						'ft_tmp_rev_id != page_latest' ),
-					__METHOD__ );
-
+				global $wgUseStableTemplates;
+				if( $wgUseStableTemplates ) {
+					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
+						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+						array( 'ft_rev_id' => $frev->getRevId(),
+							'page_namespace = ft_namespace',
+							'page_title = ft_title',
+							'fp_page_id = page_id',
+							'fp_stable != page_latest' ),
+						__METHOD__ );
+				} else {
+					$ret = $dbr->select( array('flaggedtemplates','page'),
+						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+						array( 'ft_rev_id' => $frev->getRevId(),
+							'page_namespace = ft_namespace',
+							'page_title = ft_title',
+							'ft_tmp_rev_id != page_latest' ),
+						__METHOD__ );
+				}
 				while( $row = $dbr->fetchObject( $ret ) ) {
 					$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
 					$changeList[] = $skin->makeKnownLinkObj( $title, $title->GetPrefixedText(),
 						"diff=cur&oldid=" . $row->ft_tmp_rev_id );
 				}
+				
 				# And images...
-				$ret = $dbr->select( array('flaggedimages','image'),
-					array( 'fi_name' ),
-					array( 'fi_rev_id' => $frev->getRevId(),
-						'fi_name = img_name',
-						'fi_img_sha1 != img_sha1' ),
-					__METHOD__ );
-
+				global $wgUseStableImages;
+				if( $wgUseStableImages ) {
+					$ret = $dbr->select( array('flaggedimages','page','flaggedpages','flaggedrevs','image'),
+						array( 'fi_name' ),
+						array( 'fi_rev_id' => $frev->getRevId(),
+							'page_namespace' => NS_IMAGE,
+							'page_title = fi_name',
+							'fp_page_id = page_id',
+							'fr_page_id = page_id',
+							'fr_rev_id = fp_stable',
+							'img_name = fi_name',
+							'fr_img_sha1 != img_sha1' ),
+						__METHOD__ );
+				} else {
+					$ret = $dbr->select( array('flaggedimages','image'),
+						array( 'fi_name' ),
+						array( 'fi_rev_id' => $frev->getRevId(),
+							'fi_name = img_name',
+							'fi_img_sha1 != img_sha1' ),
+						__METHOD__ );
+				}
 				while( $row = $dbr->fetchObject( $ret ) ) {
 					$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
 					$changeList[] = $skin->makeKnownLinkObj( $title );
 				}
+				
+				# Some important information...
+				if( ($wgUseStableTemplates || $wgUseStableImages) && !empty($changeList) ) {
+					$notice = '<br/>'.wfMsgExt('revreview-update-use', array('parseinline'));
+				} else {
+					$notice = "";
+				}
 				# If the user is allowed to review, prompt them!
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-none', array('parseinline')).'</div>' );
+						wfMsgExt('revreview-update-none', array('parseinline')).$notice.'</div>' );
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update', array('parseinline')) . '&nbsp;' . $changeList . '</div>' );
+						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-includes', array('parseinline')) . '&nbsp;' . $changeList . '</div>' );
+						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
@@ -760,13 +807,15 @@ class FlaggedArticle extends Article {
 		$oldRevQ = $OldRev ? FlaggedRevs::getRevQuality( $NewRev->getTitle(), $OldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $OldRev ) {
+			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr>" );
+			
 			$css = FlaggedRevs::getQualityColor( $oldRevQ );
 			if( $oldRevQ !== false ) {
 				$msg = $oldRevQ ? 'hist-quality' : 'hist-stable';
 			} else {
 				$msg = 'hist-draft';
 			}
-			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td class='fr-$msg' width='50%' align='center'>" );
+			$wgOut->addHTML( "<td width='50%' align='center'>" );
 			$wgOut->addHTML( "<span class='$css'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
 
 			$css = FlaggedRevs::getQualityColor( $newRevQ );
@@ -775,7 +824,7 @@ class FlaggedArticle extends Article {
 			} else {
 				$msg = 'hist-draft';
 			}
-			$wgOut->addHTML( "</td><td class='fr-$msg' width='50%' align='center'>" );
+			$wgOut->addHTML( "</td><td width='50%' align='center'>" );
 			$wgOut->addHTML( "<span class='$css'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
 
 			$wgOut->addHTML( '</td></tr></table>' );
@@ -1110,11 +1159,8 @@ class FlaggedArticle extends Article {
 			}
 		}
 		# For image pages, note the current image version
-		if( $this->getTitle()->getNamespace() == NS_IMAGE ) {
-			$file = wfFindFile( $this->getTitle() );
-			if( $file ) {
-				$imageParams .= $this->getTitle()->getDBkey() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
-			}
+		if( $this->getTitle()->getNamespace() == NS_IMAGE && $this->file ) {
+			$imageParams .= $this->getTitle()->getDBkey() . "|" . $this->file->getTimestamp() . "|" . $this->file->getSha1() . "#";
 		}
 		
 		# Hidden params

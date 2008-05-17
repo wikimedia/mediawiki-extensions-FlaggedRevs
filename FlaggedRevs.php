@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.045',
+	'version' => '1.05',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -461,7 +461,7 @@ class FlaggedRevs {
 	 * @return ParserOutput
 	 */
 	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
-		global $wgParser;
+		global $wgParser, $wgUseStableTemplates;
 		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
@@ -478,24 +478,32 @@ class FlaggedRevs {
 		# Do we need to set the template uses via DB?
 		if( $reparsed ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( array('flaggedtemplates', 'revision'), 
-				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id', 'rev_page' ),
-				array( 'ft_rev_id' => $id, 'rev_id = ft_rev_id' ),
-				__METHOD__ );
+			if( $wgUseStableTemplates ) {
+				$res = $dbr->select( array('flaggedtemplates','page','flaggedpages'), 
+					array( 'ft_namespace', 'ft_title', 'fp_stable AS rev_id', 'page_id' ),
+					array( 'ft_rev_id' => $id, 'page_namespace = ft_namespace', 'page_title = ft_title', 
+						'fp_page_id = page_id' ),
+					__METHOD__ );
+			} else {
+				$res = $dbr->select( array('flaggedtemplates','revision'), 
+					array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id', 'rev_page AS page_id' ),
+					array( 'ft_rev_id' => $id, 'rev_id = ft_rev_id' ),
+					__METHOD__ );
+			}
 			# Add template metadata to output
 			$maxTempID = 0;
 			while( $row = $res->fetchObject() ) {
 				if( !isset($parserOut->mTemplates[$row->ft_namespace]) ) {
 					$parserOut->mTemplates[$row->ft_namespace] = array();
 				}
-				$parserOut->mTemplates[$row->ft_namespace][$row->ft_title] = $row->rev_page;
+				$parserOut->mTemplates[$row->ft_namespace][$row->ft_title] = $row->page_id;
 
 				if( !isset($parserOut->mTemplateIds[$row->ft_namespace]) ) {
 					$parserOut->mTemplateIds[$row->ft_namespace] = array();
 				}
-				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
-				if( $row->ft_tmp_rev_id > $maxTempID ) {
-					$maxTempID = $row->ft_tmp_rev_id;
+				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->rev_id;
+				if( $row->rev_id > $maxTempID ) {
+					$maxTempID = $row->rev_id;
 				}
 			}
 			$parserOut->fr_newestTemplateID = $maxTempID;
@@ -666,7 +674,7 @@ class FlaggedRevs {
 	 * Will not return a revision if deleted
 	 */
 	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
-		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
+		$columns = FlaggedRevision::selectFields();
 		if( $getText ) {
 			$columns[] = 'fr_text';
 			$columns[] = 'fr_flags';
@@ -778,7 +786,7 @@ class FlaggedRevs {
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
 	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-		$columns = array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags');
+		$columns = FlaggedRevision::selectFields();
 		if( $getText ) {
 			$columns[] = 'fr_text';
 			$columns[] = 'fr_flags';
@@ -1250,8 +1258,8 @@ class FlaggedRevs {
 			$parserCache->save( $poutput, $article, $user );
 		}
 		# NS:title -> rev ID mapping
-		foreach( $poutput->mTemplateIds as $namespace => $title ) {
-			foreach( $title as $dbkey => $id ) {
+		foreach( $poutput->mTemplateIds as $namespace => $titleAndID ) {
+			foreach( $titleAndID as $dbkey => $id ) {
 				$tmpset[] = array(
 					'ft_rev_id' => $rev->getId(),
 					'ft_namespace' => $namespace,
@@ -1313,17 +1321,28 @@ class FlaggedRevs {
 			$textFlags .= 'external';
 		}
 
+		# If this is an image page, store corresponding file info
+		$fileData = array();
+		if( $title->getNamespace() == NS_IMAGE && $file = wfFindFile($title) ) {
+			$fileData['name'] = $title->getDBkey();
+			$fileData['timestamp'] = $file->getTimestamp();
+			$fileData['sha1'] = $file->getSha1();
+		}
+
 		# Our review entry
 		$revisionset = array(
-			'fr_page_id'   => $rev->getPage(),
-			'fr_rev_id'	   => $rev->getId(),
-			'fr_user'	   => $user->getId(),
-			'fr_timestamp' => $dbw->timestamp( wfTimestampNow() ),
-			'fr_comment'   => "",
-			'fr_quality'   => $quality,
-			'fr_tags'	   => self::flattenRevisionTags( $flags ),
-			'fr_text'	   => $fulltext, # Store expanded text for speed
-			'fr_flags'	   => $textFlags
+			'fr_page_id'       => $rev->getPage(),
+			'fr_rev_id'	       => $rev->getId(),
+			'fr_user'	       => $user->getId(),
+			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
+			'fr_comment'       => "",
+			'fr_quality'       => $quality,
+			'fr_tags'	       => self::flattenRevisionTags( $flags ),
+			'fr_text'	       => $fulltext, # Store expanded text for speed
+			'fr_flags'	       => $textFlags,
+			'fr_img_name'      => $fileData ? $fileData['name'] : null,
+			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
+			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
@@ -1658,14 +1677,21 @@ class FlaggedRevs {
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$row = $dbw->selectRow( array('flaggedpages', 'flaggedimages'),
-				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fp_page_id' => $nt->getArticleId(),
-					'fp_stable = fi_rev_id',
-					'fi_name' => $nt->getDBkey() ),
-				__METHOD__ );
-			$time = $row ? $row->fi_img_timestamp : $time;
-			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+			$srev = self::getStablePageRev( $nt, false, true );
+			if( $srev ) {
+				$time = $srev->getFileTimestamp();
+				$sha1 = $srev->getFileSha1();
+				// B/C, may be stored in associated image version metadata table
+				if( !$time || !$sha1 ) {
+					$row = $dbw->selectRow( 'flaggedimages',
+						array( 'fi_img_timestamp', 'fi_img_sha1' ),
+						array( 'fi_rev_id' => $srev->getRevId(),
+							'fi_name' => $nt->getDBkey() ),
+						__METHOD__ );
+					$time = $row ? $row->fi_img_timestamp : $time;
+					$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+				}
+			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
@@ -1720,14 +1746,21 @@ class FlaggedRevs {
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$row = $dbw->selectRow( array('flaggedpages', 'flaggedimages'),
-				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fp_page_id' => $nt->getArticleId(),
-					'fp_stable = fi_rev_id',
-					'fi_name' => $nt->getDBkey() ),
-				__METHOD__ );
-			$time = $row ? $row->fi_img_timestamp : $time;
-			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+			$srev = self::getStablePageRev( $nt, false, true );
+			if( $srev ) {
+				$time = $srev->getFileTimestamp();
+				$sha1 = $srev->getFileSha1();
+				// B/C, may be stored in associated image version metadata table
+				if( !$time || !$sha1 ) {
+					$row = $dbw->selectRow( 'flaggedimages',
+						array( 'fi_img_timestamp', 'fi_img_sha1' ),
+						array( 'fi_rev_id' => $srev->getRevId(),
+							'fi_name' => $nt->getDBkey() ),
+						__METHOD__ );
+					$time = $row ? $row->fi_img_timestamp : $time;
+					$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+				}
+			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
@@ -2355,6 +2388,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
 		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
+		$wgExtNewFields[] = array( 'flaggedrevs', 'fr_img_name', "$base/archives/patch-fr_img_name.sql" );
 	} else if( $wgDBtype == 'postgres' ) {
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );

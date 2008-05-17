@@ -423,6 +423,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# Our image version pointers
 		$imgset = array();
 		$imageMap = explode('#',trim($this->imageParams) );
+		# If this is an image page, store corresponding file info
+		$fileData = array();
 		foreach( $imageMap as $image ) {
 			if( !$image )
 				continue;
@@ -436,6 +438,14 @@ class RevisionReview extends UnlistedSpecialPage
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
 			if( is_null($img_title) )
 				continue; // Page must be valid!
+
+			# Is this parameter for THIS image itself?
+			if( $title->equals($img_title) ) {
+				$fileData['name'] = $img_title->getDBkey();
+				$fileData['timestamp'] = $timestamp;
+				$fileData['sha1'] = $key;
+				continue;
+			}
 
 			if( $timestamp > $lastImgTime )
 				$lastImgTime = $timestamp;
@@ -536,15 +546,18 @@ class RevisionReview extends UnlistedSpecialPage
 
 		# Our review entry
  		$revset = array(
- 			'fr_rev_id'    => $rev->getId(),
- 			'fr_page_id'   => $title->getArticleID(),
-			'fr_user'      => $wgUser->getId(),
-			'fr_timestamp' => $dbw->timestamp( wfTimestampNow() ),
-			'fr_comment'   => $this->notes,
-			'fr_quality'   => $quality,
-			'fr_tags'      => FlaggedRevs::flattenRevisionTags( $flags ),
-			'fr_text'      => $fulltext, # Store expanded text for speed
-			'fr_flags'     => $textFlags
+ 			'fr_rev_id'        => $rev->getId(),
+ 			'fr_page_id'       => $title->getArticleID(),
+			'fr_user'          => $wgUser->getId(),
+			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
+			'fr_comment'       => $this->notes,
+			'fr_quality'       => $quality,
+			'fr_tags'          => FlaggedRevs::flattenRevisionTags( $flags ),
+			'fr_text'          => $fulltext, # Store expanded text for speed
+			'fr_flags'         => $textFlags,
+			'fr_img_name'      => $fileData ? $fileData['name'] : null,
+			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
+			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
 		
 		# Update flagged revisions table
