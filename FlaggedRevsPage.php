@@ -510,6 +510,8 @@ class RevisionReview extends UnlistedSpecialPage
 				$synced = false;
 			if( $oldfrev->getTags() != $flags )
 				$synced = false;
+			if( $oldfrev->getFileSha1() != @$fileData['sha1'] )
+				$synced = false;
 			# Don't review if the same
 			if( $synced ) {
 				$dbw->rollback();
