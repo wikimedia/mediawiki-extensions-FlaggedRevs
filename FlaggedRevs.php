@@ -285,6 +285,7 @@ function efLoadFlaggedRevs() {
 	# Auto-reviewing
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
 	$wgHooks['RevisionInsertComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
+	$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevs::maybeMakeRollbackReviewed';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -1933,10 +1934,40 @@ class FlaggedRevs {
 	}
 	
 	/**
+	* Was this request an edit to said title?
+	* @param Title $title
+	* @param Revision $rev
+	*/
+	public static function revSubmitted( $title, $rev ) {
+		global $wgRequest, $wgUser;
+		# Request was submitted
+		if( !$wgRequest->wasPosted() ) {
+			return false;
+		}
+		# Sent to page title or Special:MovePage
+		$move = SpecialPage::getTitleFor( 'MovePage' );
+		if( !in_array( $wgRequest->getVal('title'), array($title->getPrefixedDBkey(),$move->getPrefixedDBkey()) ) ) {
+			return false;
+		}
+		# Must be by this user
+		if( $wgUser->getId() ) {
+			if( $rev->getUser() != $wgUser->getId() ) {
+				return false;
+			}
+		# Must be by this IP
+		} else {
+			if( $rev->getRawUserText() != $wgUser->getName() ) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $rev, $edit, $baseRevID ) {
+	public static function maybeMakeEditReviewed( $rev ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
@@ -1950,13 +1981,13 @@ class FlaggedRevs {
 			return true;
 		}
 		# For edits from normal form submits only!
-		if( !$edit ) {
+		if( !self::revSubmitted( $title, $rev ) ) {
 			return true;
 		}
 		$frev = null;
 		$reviewableNewPage = false;
-		# Get the revision the incoming one was based off if
-		$baseRevID = $baseRevID ? $baseRevID : $wgRequest->getIntOrNull('baseRevId');
+		# Get the revision the incoming one was based off
+		$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		# If baseRevId not given, assume the previous
 		$baseRevID = $baseRevID ? $baseRevID : $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 		if( $baseRevID ) {
@@ -1983,6 +2014,33 @@ class FlaggedRevs {
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
 			$article = new Article( $title );
 			self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+		}
+		return true;
+	}
+
+	/**
+	* When a rollback is made by a reviwer, try to automatically review it.
+	*/
+	public static function maybeMakeRollbackReviewed( $article, $user, $rev ) {
+		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle;
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
+			return true;
+		# Must be in reviewable namespace
+		if( !self::isPageReviewable( $article->getTitle() ) )
+			return true;
+		# Was this revision flagged?
+		$frev = self::getFlaggedRev( $article->getTitle(), $rev->getId() );
+		if( !is_null($frev) ) {
+			# Assume basic flagging level
+			$flags = array();
+			foreach( self::$dimensions as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
+			$newRev = Revision::newFromId( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) );
+			if( $newRev ) {
+				self::autoReviewEdit( $article, $user, $rev->getText(), $newRev, $flags );
+				self::articleLinksUpdate( $article ); // lame...
+			}
 		}
 		return true;
 	}
