@@ -6,7 +6,6 @@ class FlaggedArticle extends Article {
 	public $pageconfig = null;
 	public $flags = null;
 	protected $reviewNotice = '';
-	protected $dbr = null;
 	/**
 	 * Does the config and current URL params allow
 	 * for overriding by stable revisions?
@@ -648,14 +647,32 @@ class FlaggedArticle extends Article {
 		if( !$this->isReviewable() || !$this->getStableRev() )
 			return true;
 		# Use same DB object
-		if( !$this->dbr ) {
-    		$this->dbr = wfGetDB( DB_SLAVE );
-    	}
+		$this->dbr = isset($this->dbr) ? $this->dbr : wfGetDB( DB_SLAVE );
 		$skin = $wgUser->getSkin();
     	list($link,$css) = FlaggedRevs::makeStableVersionLink( $this->getTitle(), $row->rev_id, $skin, $this->dbr );
     	if( $link ) {
     		$s = "<span class='$css'>$s</span> <small><strong>[$link]</strong></small>";
 		}
+		return true;
+    }
+
+	 /**
+	 * Add link to stable version of reviewed revisions
+	 */
+    public function addToFileHistLine( $file, &$s, &$css ) {
+    	global $wgUser;
+		# Non-content pages cannot be validated. Stable version must exist.
+		if( !$this->isReviewable() || !$this->getStableRev() )
+			return true;
+		# Use same DB object
+		$this->dbr = isset($this->dbr) ? $this->dbr : wfGetDB( DB_SLAVE );
+		$skin = $wgUser->getSkin();
+		# Get corresponding title
+		$rev = Revision::loadFromTimestamp( $this->dbr, $this->getTitle(), $file->getTimestamp() );
+		if( !$rev ) {
+			return true;
+		}
+    	list($link,$css) = FlaggedRevs::makeStableVersionLink( $this->getTitle(), $rev->getId(), $skin, $this->dbr );
 		return true;
     }
 

@@ -14,7 +14,7 @@ if( !defined('FLAGGED_VIS_LATEST') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.044',
+	'version' => '1.045',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -334,6 +334,7 @@ function wfInitFlaggedArticle( $output, $article, $title, $user, $request ) {
 	$wgHooks['BeforePageDisplay'][] = array( $wgFlaggedArticle, 'addVisibilityLink' );
 	# Mark of items in page history
 	$wgHooks['PageHistoryLineEnding'][] = array( $wgFlaggedArticle, 'addToHistLine' );
+	$wgHooks['ImagePageFileHistoryLine'][] = array( $wgFlaggedArticle, 'addToFileHistLine' );
 	# Page review on edit
 	$wgHooks['ArticleUpdateBeforeRedirect'][] = array( $wgFlaggedArticle, 'injectReviewDiffURLParams' );
 	$wgHooks['DiffViewHeader'][] = array( $wgFlaggedArticle, 'addPatrolAndDiffLink' );
