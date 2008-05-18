@@ -6,15 +6,20 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
+# Quality -> Sighted (default)
 if( !defined('FLAGGED_VIS_NORMAL') )
 	define('FLAGGED_VIS_NORMAL',0);
+# No precedence
 if( !defined('FLAGGED_VIS_LATEST') )
 	define('FLAGGED_VIS_LATEST',1);
+# Pristine -> Quality -> Sighted
+if( !defined('FLAGGED_VIS_PRISTINE') )
+	define('FLAGGED_VIS_PRISTINE',2);
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.05',
+	'version' => '1.06',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -53,7 +58,7 @@ $wgFlaggedRevsVisible = array();
 $wgFlaggedRevsTalkVisible = false;
 
 # Can users make comments that will show up below flagged revisions?
-$wgFlaggedRevComments = false;
+$wgFlaggedRevsComments = false;
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
 # Auto-review edits directly to the stable version by reviewers?
@@ -196,7 +201,7 @@ $wgFlaggedRevsLongPending = 3;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 20;
+$wgFlaggedRevStyleVersion = 21;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -345,6 +350,7 @@ function wfInitFlaggedArticle( $output, $article, $title, $user, $request ) {
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::InjectStyleAndJS';
 	$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::InjectStyleAndJS';
 	$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::InjectStyleAndJS';
+	# Done!
 	return true;
 }
 
@@ -369,15 +375,22 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
 
 class FlaggedRevs {
 	public static $dimensions = array();
-	public static $styleLoaded = false;
-	public static $loaded = false;
 	public static $articleLoaded = false;
+	public static $styleLoaded = false;
+	protected static $loaded = false;
+	protected static $qualityVersions = false;
+	protected static $pristineVersions = false;
+	protected static $extStorage = false;
+	protected static $allowComments = false;
 
 	public static function load() {
-		global $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsComments;
 		if( self::$loaded ) {
-			wfDebug( 'Warning - FlaggedRevs already loaded!' );
 			return true;
+		}
+		# Assume true, then set to false if needed
+		if( !empty($wgFlaggedRevTags) ) {
+			self::$qualityVersions = true;
 		}
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$safeTag = htmlspecialchars($tag);
@@ -390,19 +403,45 @@ class FlaggedRevs {
 			for( $i=0; $i <= $wgFlaggedRevValues; $i++ ) {
 				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
 			}
+			if( $minQL > $wgFlaggedRevValues ) {
+				self::$qualityVersions = false;
+			} else if( $wgFlaggedRevValues > $minQL ) {
+				self::$pristineVersions = true;
+			}
 		}
+		global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
+		self::$extStorage = $wgFlaggedRevsExternalStore ? 
+			$wgFlaggedRevsExternalStore : $wgDefaultExternalStore;
+
+		self::$allowComments = (bool)$wgFlaggedRevsComments;
+
 		self::$loaded = true;
+	}
+	
+	################# Basic accessors #################
+	
+	/**
+	 * Are quality versions enabled?
+	 */
+	public static function qualityVersions() {
+		self::load();
+		return self::$qualityVersions;
+	}
+	
+	/**
+	 * Are pristine versions enabled?
+	 */
+	public static function pristineVersions() {
+		self::load();
+		return self::$pristineVersions;
 	}
 	
 	/**
 	 * Get external storage array. Default to main storage.
 	 */
 	public static function getExternalStorage() {
-		global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
-		
-		$s = $wgFlaggedRevsExternalStore ? $wgFlaggedRevsExternalStore : $wgDefaultExternalStore;
-		
-		return $s;
+		self::load();
+		return self::$extStorage;
 	}
 
 	/**
@@ -419,10 +458,11 @@ class FlaggedRevs {
 	 * Should comments be allowed on pages and forms?
 	 */
 	public static function allowComments() {
-		global $wgFlaggedRevComments;
-
-		return $wgFlaggedRevComments;
+		self::load();
+		return self::$allowComments;
 	}
+	
+	################# Parsing functions #################
 
 	/**
 	 * @param string $text
@@ -516,537 +556,6 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* @param FlaggedRevision $frev
-	* @param Article $article
-	* @param ParserOutput $stableOutput, will fetch if not given
-	* @param ParserOutput $currentOutput, will fetch if not given
-	* @return bool
-	* See if a flagged revision is synced with the current
-	*/	
-	public static function flaggedRevIsSynced( $frev, $article, $stableOutput=null, $currentOutput=null ) {
-		# Must be the same revision
-		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
-			return false;
-		}
-		global $wgMemc;
-		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId(), $article->getTouched() );
-		$syncvalue = $wgMemc->get($key);
-		# Convert string value to boolean and return it
-		if( $syncvalue ) {
-			if( $syncvalue == "true" ) {
-				return true;
-			} else if( $syncvalue == "false" ) {
-				return false;
-			}
-		}
-		# If parseroutputs not given, fetch them...
-		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {
-			# Get parsed stable version
-			$stableOutput = self::getPageCache( $article );
-			if( $stableOutput==false ) {
-				$text = $frev->getTextForParse();
-       			$stableOutput = self::parseStableText( $article, $text, $frev->getRevId() );
-       			# Update the stable version cache
-       			self::updatePageCache( $article, $stableOutput );
-       		}
-		}
-		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
-			global $wgUser, $wgParser;
-			# Get parsed current version
-			$parserCache = ParserCache::singleton();
-			$currentOutput = $parserCache->get( $article, $wgUser );
-			if( $currentOutput==false ) {
-				$text = $article->getContent();
-				$title = $article->getTitle();
-				$options = self::makeParserOptions( $wgUser );
-				$currentOutput = $wgParser->parse( $text, $title, $options );
-				# Might as well save the cache while we're at it
-				global $wgEnableParserCache;
-				if( $wgEnableParserCache )
-					$parserCache->save( $currentOutput, $article, $wgUser );
-			}
-		}
-		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
-		# have the same text, the only thing that can make them different is updating a template or image.
-		# If this is the case, the current revision will have a newer template or image version used somewhere. 
-		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
-			$synced = false;
-		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
-			$synced = false;
-		} else {
-			$synced = true;
-		}
-		# Save to cache. This will be updated whenever the page is re-parsed as well. This means
-		# that MW can check a light-weight key first. Uses format <page ID>-<UNIX timestamp>.
-		global $wgParserCacheExpireTime;
-		$syncData = $synced ? "true" : "false";
-		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
-
-		return $synced;
-	}
-
-	/**
-	* @param string $text
-	* @return string, flags
-	* Compress pre-processed text, passed by reference
-	*/
-	public static function compressText( &$text ) {
-		global $wgCompressRevisions;
-		$flags = array( 'utf-8' );
-		if( $wgCompressRevisions ) {
-			if( function_exists( 'gzdeflate' ) ) {
-				$text = gzdeflate( $text );
-				$flags[] = 'gzip';
-			} else {
-				wfDebug( "FlaggedRevs::compressText() -- no zlib support, not compressing\n" );
-			}
-		}
-		return implode( ',', $flags );
-	}
-
-	/**
-	* @param string $text
-	* @param mixed $flags, either in string or array form
-	* @return string
-	* Uncompress pre-processed text, using flags
-	*/
-	public static function uncompressText( $text, $flags ) {
-		if( !is_array($flags) ) {
-			$flags = explode( ',', $flags );
-		}
-		# Lets not mix up types here
-		if( is_null($text) )
-			return null;
-		if( $text !== false && in_array( 'gzip', $flags ) ) {
-			# Deal with optional compression if $wgCompressRevisions is set.
-			$text = gzinflate( $text );
-		}
-		return $text;
-	}
-	
-	/**
-	* Get a validation key from versioning metadata
-	* @param string $tmpP
-	* @param string $imgP
-	* @param integer $uid user ID
-	* @param integer $rid rev ID
-	* @return string
-	*/
-	public static function getValidationKey( $tmpP, $imgP, $uid, $rid ) {
-		global $wgReviewCodes;
-		# Fall back to $wgSecretKey/$wgProxyKey
-		if( empty($wgReviewCodes) ) {
-			global $wgSecretKey, $wgProxyKey;
-			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
-			$p = md5($key.$uid.$imgP.$tmpP.$rid);
-		} else {
-			$p = md5($wgReviewCodes[0].$uid.$imgP.$rid.$tmpP.$wgReviewCodes[1]);
-		}
-		return $p;
-	}
-	
-	/**
-	 * Purge expired restrictions from the flaggedpage_config table
-	 */
-	public static function purgeExpiredConfigurations() {
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpage_config',
-			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
-			__METHOD__ );
-	}
-
-	/**
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master?
-	 * @param int $page_id, optional page ID to use, will defer to $title if not given
-	 * @returns mixed FlaggedRevision (null on failure)
-	 * Will not return a revision if deleted
-	 */
-	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
-		$columns = FlaggedRevision::selectFields();
-		if( $getText ) {
-			$columns[] = 'fr_text';
-			$columns[] = 'fr_flags';
-		}
-		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
-		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
-		# Skip deleted revisions
-		$row = $db->selectRow( array('flaggedrevs','revision'),
-			$columns,
-			array( 'fr_page_id' => $page_id,
-				'fr_rev_id' => $rev_id,
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id',
-				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
-			__METHOD__ );
-		# Sorted from highest to lowest, so just take the first one if any
-		if( $row ) {
-			return new FlaggedRevision( $title, $row );
-		}
-		return null;
-	}
-	
-	/**
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param $flags, GAID_FOR_UPDATE
-	 * @returns mixed (int or false)
-	 * Get quality of a revision
-	 */
-	public static function getRevQuality( $title, $rev_id, $flags=0 ) {
-		$db = ($flags & GAID_FOR_UPDATE) ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$quality = $db->selectField( 'flaggedrevs', 
-			'fr_quality',
-			array( 'fr_page_id' => $title->getArticleID( $flags ),
-				'fr_rev_id' => $rev_id ),
-			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' )
-		);
-		return $quality;
-	}
-	
-	/**
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param $flags, GAID_FOR_UPDATE
-	 * @returns bool
-	 * Useful for quickly pinging to see if a revision is flagged
-	 */
-	public static function revIsFlagged( $title, $rev_id, $flags=0 ) {
-		$quality = self::getRevQuality( $title, $rev_id, $flags );
-		return ($quality !== false);
-	}
-	
-	/**
-	 * Make stable version link and return the css
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param Database $db, optional
-	 * @returns array (string,string)
-	 */
-	public static function makeStableVersionLink( $title, $rev_id, $skin, $db = NULL ) {
-		$db = $db ? $db : wfGetDB( DB_SLAVE );
-		$row = $db->selectRow( 'flaggedrevs', 
-			array( 'fr_quality', 'fr_user' ),
-			array( 'fr_page_id' => $title->getArticleID(),
-				'fr_rev_id' => $rev_id ),
-			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' )
-		);
-		if( $row ) {
-			$css = self::getQualityColor( $row->fr_quality );
-			$user = User::whois( $row->fr_user );
-			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
-			$st = $title->getPrefixedDBkey();
-			$link = "<span class='plainlinks'>".wfMsgExt($msg,array('parseinline'),$st,$rev_id,$user)."</span>";
-		} else {
-			return array("","");
-		}
-		return array($link,$css);
-	}
-
-	/**
-	 * Get the "prime" flagged revision of a page
-	 * @param Article $article
-	 * @returns mixed (integer/false)
-	 * Will not return a revision if deleted
-	 */
-	public static function getPrimeFlaggedRevId( $article ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		# Get the highest quality revision (not necessarily this one).
-		$oldid = $dbr->selectField( array('flaggedrevs','revision'),
-			'fr_rev_id',
-			array( 'fr_page_id' => $article->getId(),
-				'rev_page = fr_page_id',
-				'rev_id = fr_rev_id'),
-			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
-				'USE INDEX' => array('flaggedrevs' => 'page_qal_rev','revision' => 'PRIMARY') )
-		);
-		return $oldid;
-	}
-
-	/**
-	 * Get latest quality rev, if not, the latest reviewed one.
-	 * @param Title $title, page title
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master DB and avoid using fp_stable?
-	 * @returns mixed FlaggedRevision (null on failure)
-	 */
-	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-		$columns = FlaggedRevision::selectFields();
-		if( $getText ) {
-			$columns[] = 'fr_text';
-			$columns[] = 'fr_flags';
-		}
-		$row = null;
-		# If we want the text, then get the text flags too
-		if( !$forUpdate ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
-				$columns,
-				array( 'fp_page_id' => $title->getArticleId(),
-					'fr_page_id' => $title->getArticleId(),
-					'fp_stable = fr_rev_id' ),
-				__METHOD__  );
-			if( !$row )
-				return null;
-		} else {
-			# Get visiblity settings...
-			$config = self::getPageVisibilitySettings( $title, $forUpdate );
-			$dbw = wfGetDB( DB_MASTER );
-			# Look for the latest quality revision
-			if( $config['select'] != FLAGGED_VIS_LATEST ) {
-				$row = $dbw->selectRow( array('flaggedrevs','revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'fr_quality >= 1',
-						'rev_id = fr_rev_id',
-						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC') );
-				$row = $row ? $row : null;
-			}
-			# Do we have one? If not, try the latest reviewed revision...
-			if( !$row ) {
-				$row = $dbw->selectRow( array('flaggedrevs','revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'rev_id = fr_rev_id',
-						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
-				if( !$row )
-					return null;
-			}
-		}
-		return new FlaggedRevision( $title, $row );
-	}
-
-	/**
-	 * @param Article $article
-	 * @param int $from_rev
-	 * @return int
-	 * Get number of revs since a certain revision
-	 */
-	public static function getRevCountSince( $article, $from_rev ) {
-		# Check if the count is zero by using $article->getLatest().
-		# I don't trust using memcache and PHP for values like '0'
-		# as it may confuse "expired" with "0". -aaron
-		if( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) == $from_rev ) {
-			return 0;
-		}
-		global $wgMemc;
-		# Try the cache
-		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
-		if( !$count = intval($wgMemc->get($key)) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$count = $dbr->selectField( 'revision', 'COUNT(*)',
-				array('rev_page' => $article->getId(), "rev_id > " . intval($from_rev) ),
-				__METHOD__ );
-			# Save to cache
-			$wgMemc->set( $key, $count, 3600*24*7 );
-		}
-		return $count;
-	}
-
-	/**
-	 * Get visiblity restrictions on page
-	 * @param Title $title, page title
-	 * @param bool $forUpdate, use master DB?
-	 * @returns Array (select,override)
-	*/
-	public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
-		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$row = $db->selectRow( 'flaggedpage_config',
-			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
-			array( 'fpc_page_id' => $title->getArticleID() ),
-			__METHOD__ );
-
-		if( $row ) {
-			$now = wfTimestampNow();
-			# This code should be refactored, now that it's being used more generally.
-			$expiry = Block::decodeExpiry( $row->fpc_expiry );
-			# Only apply the settigns if they haven't expired
-			if( !$expiry || $expiry < $now ) {
-				$row = null;
-				self::purgeExpiredConfigurations();
-			}
-		}
-
-		if( !$row ) {
-			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
-			# Keep this consistent across settings. 1 -> override, 0 -> don't
-			$override = $wgFlaggedRevsOverride ? 1 : 0;
-			# Keep this consistent across settings. 0 -> precedence, 0 -> none
-			$select = $wgFlaggedRevsPrecedence ? FLAGGED_VIS_NORMAL : FLAGGED_VIS_LATEST;
-			return array('select' => $select, 'override' => $override, 'expiry' => 'infinity');
-		}
-
-		return array('select' => $row->fpc_select, 'override' => $row->fpc_override, 'expiry' => $row->fpc_expiry);
-	}
-
-	/**
-	 * Get flags for a revision
-	 * @param string $tags
-	 * @return Array
-	*/
-	public static function expandRevisionTags( $tags ) {
-		# Set all flags to zero
-		$flags = array();
-		foreach( self::$dimensions as $tag => $levels ) {
-			$flags[$tag] = 0;
-		}
-		$tags = explode('\n',$tags);
-		foreach( $tags as $tuple ) {
-			$set = explode(':',$tuple,2);
-			if( count($set) == 2 ) {
-				list($tag,$value) = $set;
-				$value = intval($value);
-				# Add only currently recognized ones
-				if( isset($flags[$tag]) ) {
-					# If a level was removed, default to the highest
-					$flags[$tag] = $value < count($levels) ? $value : count($levels)-1;
-				}
-			}
-		}
-		return $flags;
-	}
-
-	/**
-	 * Get flags for a revision
-	 * @param Array $tags
-	 * @return string
-	*/
-	public static function flattenRevisionTags( $tags ) {
-		$flags = '';
-		foreach( $tags as $tag => $value ) {
-			# Add only currently recognized ones
-			if( isset(self::$dimensions[$tag]) ) {
-				$flags .= $tag . ':' . intval($value) . '\n';
-			}
-		}
-		return $flags;
-	}
-
-	/**
-	 * Get flags for a revision
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @return Array
-	*/
-	public static function getRevisionTags( $title, $rev_id ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
-			array( 'fr_rev_id' => $rev_id,
-				'fr_page_id' => $title->getArticleId() ),
-			__METHOD__ );
-		if( !$tags )
-			return false;
-
-		return self::expandRevisionTags( strval($tags) );
-	}
-
-	/**
-	 * @param Title $title
-	 * @return bool, is $title the main page?
-	 */
-	public static function isMainPage( $title ) {
-		return $title->equals( Title::newMainPage() );
-	}
-
-	/**
-	* @param Array $flags
-	* @return bool, is this revision at quality condition?
-	*/
-	public static function isQuality( $flags ) {
-		global $wgFlaggedRevTags;
-
-		if( empty($flags) )
-			return false;
-
-		foreach( $wgFlaggedRevTags as $f => $v ) {
-			if( !isset($flags[$f]) || $v > $flags[$f] )
-				return false;
-		}
-		
-		return true;
-	}
-
-	/**
-	* @param Array $flags
-	* @return bool, is this revision at optimal condition?
-	*/
-	public static function isPristine( $flags ) {
-		global $wgFlaggedRevTags, $wgFlaggedRevPristine;
-
-		if( empty($flags) )
-			return false;
-
-		foreach( $wgFlaggedRevTags as $f => $v ) {
-			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevPristine )
-				return false;
-		}
-		
-		return true;
-	}
-	
-	/**
-	* @param int $quality
-	* @return string, css color for this quality
-	*/
-	public static function getQualityColor( $quality ) {
-		if( $quality === false )
-			return 'flaggedrevs-color-0';
-		switch( $quality ) {
-			case 2:
-				$css = 'flaggedrevs-color-3';
-				break;
-			case 1:
-				$css = 'flaggedrevs-color-2';
-				break;
-			case 0:
-				$css = 'flaggedrevs-color-1';
-				break;
-		}
-		return $css;
-	}
-
-	/**
-	* Is this page in reviewable namespace?
-	* @param Title, $title
-	* @return bool
-	*/
-	public static function isPageReviewable( $title ) {
-		global $wgFlaggedRevsNamespaces;
-		# FIXME: Treat NS_MEDIA as NS_IMAGE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
-		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
-	}
-	
-	/**
-	* Is this page in patrolable namespace?
-	* @param Title, $title
-	* @return bool
-	*/
-	public static function isPagePatrollable( $title ) {
-		global $wgFlaggedRevsPatrolNamespaces;
-		# No collisions!
-		if( self::isPageReviewable($title) ) {
-			return false;
-		}
-		# FIXME: Treat NS_MEDIA as NS_IMAGE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
-		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) && !$title->isTalkPage() );
-	}
-
-	/**
 	* @param Article $article
 	* @return ParserOutput
 	* Get the page cache for the top stable revision of an article
@@ -1137,73 +646,513 @@ class FlaggedRevs {
 		return true;
 	}
 	
+	################# Synchronization and link update functions #################
+	
 	/**
-	* Remove 'patrol' and 'autopatrol' rights. Reviewing revisions will patrol them as well.
-	*/
-	public static function stripPatrolRights( $user, &$rights ) {
-		# Use only our extension mechanisms
-		foreach( $rights as $n => $right ) {
-			if( $right == 'patrol' || $right == 'autopatrol' ) {
-				unset($rights[$n]);
+	* @param FlaggedRevision $frev
+	* @param Article $article
+	* @param ParserOutput $stableOutput, will fetch if not given
+	* @param ParserOutput $currentOutput, will fetch if not given
+	* @return bool
+	* See if a flagged revision is synced with the current
+	*/	
+	public static function flaggedRevIsSynced( $frev, $article, $stableOutput=null, $currentOutput=null ) {
+		# Must be the same revision
+		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
+			return false;
+		}
+		global $wgMemc;
+		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
+		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId(), $article->getTouched() );
+		$syncvalue = $wgMemc->get($key);
+		# Convert string value to boolean and return it
+		if( $syncvalue ) {
+			if( $syncvalue == "true" ) {
+				return true;
+			} else if( $syncvalue == "false" ) {
+				return false;
 			}
 		}
-		return true;
+		# If parseroutputs not given, fetch them...
+		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {
+			# Get parsed stable version
+			$stableOutput = self::getPageCache( $article );
+			if( $stableOutput==false ) {
+				$text = $frev->getTextForParse();
+       			$stableOutput = self::parseStableText( $article, $text, $frev->getRevId() );
+       			# Update the stable version cache
+       			self::updatePageCache( $article, $stableOutput );
+       		}
+		}
+		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
+			global $wgUser, $wgParser;
+			# Get parsed current version
+			$parserCache = ParserCache::singleton();
+			$currentOutput = $parserCache->get( $article, $wgUser );
+			if( $currentOutput==false ) {
+				$text = $article->getContent();
+				$title = $article->getTitle();
+				$options = self::makeParserOptions( $wgUser );
+				$currentOutput = $wgParser->parse( $text, $title, $options );
+				# Might as well save the cache while we're at it
+				global $wgEnableParserCache;
+				if( $wgEnableParserCache )
+					$parserCache->save( $currentOutput, $article, $wgUser );
+			}
+		}
+		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
+		# have the same text, the only thing that can make them different is updating a template or image.
+		# If this is the case, the current revision will have a newer template or image version used somewhere. 
+		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
+			$synced = false;
+		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
+			$synced = false;
+		} else {
+			$synced = true;
+		}
+		# Save to cache. This will be updated whenever the page is re-parsed as well. This means
+		# that MW can check a light-weight key first. Uses format <page ID>-<UNIX timestamp>.
+		global $wgParserCacheExpireTime;
+		$syncData = $synced ? "true" : "false";
+		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
+
+		return $synced;
 	}
-
+	
 	/**
-	* Add FlaggedRevs css/js.
+	 * @param Article $article
+	 * @param int $from_rev
+	 * @return int
+	 * Get number of revs since a certain revision
+	 */
+	public static function getRevCountSince( $article, $from_rev ) {
+		# Check if the count is zero by using $article->getLatest().
+		# I don't trust using memcache and PHP for values like '0'
+		# as it may confuse "expired" with "0". -aaron
+		if( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) == $from_rev ) {
+			return 0;
+		}
+		global $wgMemc;
+		# Try the cache
+		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
+		if( !$count = intval($wgMemc->get($key)) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$count = $dbr->selectField( 'revision', 'COUNT(*)',
+				array('rev_page' => $article->getId(), "rev_id > " . intval($from_rev) ),
+				__METHOD__ );
+			# Save to cache
+			$wgMemc->set( $key, $count, 3600*24*7 );
+		}
+		return $count;
+	}
+	
+ 	/**
+	* @param Article $article
+	* @param Integer $rev_id, the stable version rev_id
+	* @param mixed $latest, the latest rev ID (optional)
+	* Updates the fp_stable and fp_reviewed fields
 	*/
-	public static function InjectStyleAndJS() {
-		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
-		# Don't double-load
-		if( self::$styleLoaded || !$wgFlaggedArticle )
-			return true;
-		# UI CSS
-		$wgOut->addLink( array(
-			'rel'	=> 'stylesheet',
-			'type'	=> 'text/css',
-			'media'	=> 'screen, projection',
-			'href'	=> FLAGGED_CSS,
-		) );
-		# Handle onload parameters
-		$JSparams = self::getJSParams();
-		$frev = $wgFlaggedArticle->getStableRev( true );
-		$stableId = $frev ? $frev->getRevId() : 0;
+	public static function updateArticleOn( $article, $rev_id, $latest=NULL ) {
+		global $wgMemc;
+		wfProfileIn( __METHOD__ );
+
+		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+
+		$dbw = wfGetDB( DB_MASTER );
+		# Get the highest quality revision (not necessarily this one).
+		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
+			'fr_quality',
+			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id',
+				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+			__METHOD__,
+			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
+		$maxQuality = $maxQuality===false ? null : $maxQuality;
+		# Alter table metadata
+		$dbw->replace( 'flaggedpages',
+			array( 'fp_page_id' ),
+			array( 'fp_stable' => $rev_id,
+				'fp_reviewed' => ($lastID == $rev_id) ? 1 : 0,
+				'fp_quality' => $maxQuality,
+				'fp_page_id' => $article->getId() ),
+			__METHOD__ );
+		# Update the cache
+		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
+
+		$count = $dbw->selectField( 'revision', 'COUNT(*)',
+			array('rev_page' => $article->getId(), "rev_id > " . intval($rev_id) ),
+			__METHOD__ );
+
+		$wgMemc->set( $key, $count, 3600*24*7 );
 		
-		$script = "<script type=\"{$wgJsMimeType}\">\n";
-		$script .= "var wgFlaggedRevsJSparams = {". $JSparams . "};\n";
-		$script .= "var wgStableRevisionId = ". $stableId . ";";
-		$script .= "</script>\n";
-		$wgOut->addScript( $script );
-		# UI JS
-		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
-
-		self::$styleLoaded = true;
-
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 	
 	/**
-	* Add FlaggedRevs css for relevant special pages.
+	* Clears cache for a page when merges are done.
+	* We may have lost the stable revision to another page.
 	*/
-	public static function InjectStyleForSpecial() {
-		global $wgTitle, $wgOut;
-		$spPages = array();
-		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
-		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
-		foreach( $spPages as $n => $title ) {
-			if( $wgTitle->equals( $title ) ) {
-				# UI CSS
-				$wgOut->addLink( array(
-					'rel'	=> 'stylesheet',
-					'type'	=> 'text/css',
-					'media'	=> 'screen, projection',
-					'href'	=> FLAGGED_CSS,
-				) );
-				break;
+	public static function articleLinksUpdate( $article ) {
+		global $wgUser, $wgParser;
+		# Update the links tables as the stable version may now be the default page...
+		$parserCache = ParserCache::singleton();
+		$poutput = $parserCache->get( $article, $wgUser );
+		if( $poutput==false ) {
+			$text = $article->getContent();
+			$options = self::makeParserOptions( $wgUser );
+			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
+			# Might as well save the cache while we're at it
+			global $wgEnableParserCache;
+			if( $wgEnableParserCache )
+				$parserCache->save( $poutput, $article, $wgUser );
+		}
+		$u = new LinksUpdate( $article->getTitle(), $poutput );
+		$u->doUpdate(); // this will trigger our hook to add stable links too...
+
+		return true;
+	}
+
+	/**
+	* Clears cache for a page when revisiondelete/undelete is used
+	*/
+	public static function titleLinksUpdate( $title ) {
+		return self::articleLinksUpdate( new Article($title) );
+	}
+	
+	################# Revision functions #################
+
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param bool $getText, fetch fr_text and fr_flags too?
+	 * @param bool $forUpdate, use master?
+	 * @param int $page_id, optional page ID to use, will defer to $title if not given
+	 * @returns mixed FlaggedRevision (null on failure)
+	 * Will not return a revision if deleted
+	 */
+	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
+		$columns = FlaggedRevision::selectFields();
+		if( $getText ) {
+			$columns[] = 'fr_text';
+			$columns[] = 'fr_flags';
+		}
+		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
+		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
+		# Skip deleted revisions
+		$row = $db->selectRow( array('flaggedrevs','revision'),
+			$columns,
+			array( 'fr_page_id' => $page_id,
+				'fr_rev_id' => $rev_id,
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id',
+				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+			__METHOD__ );
+		# Sorted from highest to lowest, so just take the first one if any
+		if( $row ) {
+			return new FlaggedRevision( $title, $row );
+		}
+		return null;
+	}
+	
+	/**
+	 * Get latest quality rev, if not, the latest reviewed one.
+	 * @param Title $title, page title
+	 * @param bool $getText, fetch fr_text and fr_flags too?
+	 * @param bool $forUpdate, use master DB and avoid using fp_stable?
+	 * @returns mixed FlaggedRevision (null on failure)
+	 */
+	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
+		$columns = FlaggedRevision::selectFields();
+		if( $getText ) {
+			$columns[] = 'fr_text';
+			$columns[] = 'fr_flags';
+		}
+		$row = null;
+		# If we want the text, then get the text flags too
+		if( !$forUpdate ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
+				$columns,
+				array( 'fp_page_id' => $title->getArticleId(),
+					'fr_page_id' => $title->getArticleId(),
+					'fp_stable = fr_rev_id' ),
+				__METHOD__  );
+			if( !$row )
+				return null;
+		} else {
+			# Get visiblity settings...
+			$config = self::getPageVisibilitySettings( $title, $forUpdate );
+			$dbw = wfGetDB( DB_MASTER );
+			# Look for the latest pristine revision...
+			if( $config['select'] != FLAGGED_VIS_LATEST ) {
+				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'fr_quality = 2',
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC') );
+				# Looks like a plausible revision
+				$row = $prow ? $prow : null;
+			}
+			# Look for the latest quality revision...
+			if( $config['select'] != FLAGGED_VIS_LATEST ) {
+				// If we found a pristine rev above, this one must be newer, unless
+				// we specifically want pristine revs to have precedence...
+				$newerClause = ($row && $config['select'] != FLAGGED_VIS_PRISTINE) ?
+					"fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
+				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'fr_quality = 1',
+						$newerClause,
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC') );
+				$row = $qrow ? $qrow : $row;
+			}
+			# Do we have one? If not, try the latest reviewed revision...
+			if( !$row ) {
+				$row = $dbw->selectRow( array('flaggedrevs','revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
+				if( !$row )
+					return null;
 			}
 		}
+		return new FlaggedRevision( $title, $row );
+	}
+	
+	/**
+	 * Get flags for a revision
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @return Array
+	*/
+	public static function getRevisionTags( $title, $rev_id ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
+			array( 'fr_rev_id' => $rev_id,
+				'fr_page_id' => $title->getArticleId() ),
+			__METHOD__ );
+		if( !$tags )
+			return false;
+
+		return FlaggedRevision::expandRevisionTags( strval($tags) );
+	}
+	
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param $flags, GAID_FOR_UPDATE
+	 * @returns mixed (int or false)
+	 * Get quality of a revision
+	 */
+	public static function getRevQuality( $title, $rev_id, $flags=0 ) {
+		$db = ($flags & GAID_FOR_UPDATE) ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$quality = $db->selectField( 'flaggedrevs', 
+			'fr_quality',
+			array( 'fr_page_id' => $title->getArticleID( $flags ),
+				'fr_rev_id' => $rev_id ),
+			__METHOD__,
+			array( 'FORCE INDEX' => 'PRIMARY' )
+		);
+		return $quality;
+	}
+	
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param $flags, GAID_FOR_UPDATE
+	 * @returns bool
+	 * Useful for quickly pinging to see if a revision is flagged
+	 */
+	public static function revIsFlagged( $title, $rev_id, $flags=0 ) {
+		$quality = self::getRevQuality( $title, $rev_id, $flags );
+		return ($quality !== false);
+	}
+	
+	/**
+	 * Get the "prime" flagged revision of a page
+	 * @param Article $article
+	 * @returns mixed (integer/false)
+	 * Will not return a revision if deleted
+	 */
+	public static function getPrimeFlaggedRevId( $article ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		# Get the highest quality revision (not necessarily this one).
+		$oldid = $dbr->selectField( array('flaggedrevs','revision'),
+			'fr_rev_id',
+			array( 'fr_page_id' => $article->getId(),
+				'rev_page = fr_page_id',
+				'rev_id = fr_rev_id'),
+			__METHOD__,
+			array( 'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
+				'USE INDEX' => array('flaggedrevs' => 'page_qal_rev','revision' => 'PRIMARY') )
+		);
+		return $oldid;
+	}
+	
+	################# Page configuration functions #################
+
+	/**
+	 * Get visiblity restrictions on page
+	 * @param Title $title, page title
+	 * @param bool $forUpdate, use master DB?
+	 * @returns Array (select,override)
+	*/
+	public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
+		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$row = $db->selectRow( 'flaggedpage_config',
+			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
+			array( 'fpc_page_id' => $title->getArticleID() ),
+			__METHOD__ );
+
+		if( $row ) {
+			$now = wfTimestampNow();
+			# This code should be refactored, now that it's being used more generally.
+			$expiry = Block::decodeExpiry( $row->fpc_expiry );
+			# Only apply the settigns if they haven't expired
+			if( !$expiry || $expiry < $now ) {
+				$row = null;
+				self::purgeExpiredConfigurations();
+			}
+		}
+
+		if( !$row ) {
+			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
+			# Keep this consistent across settings. 1 -> override, 0 -> don't
+			$override = $wgFlaggedRevsOverride ? 1 : 0;
+			# Keep this consistent across settings. 0 -> precedence, 0 -> none
+			$select = $wgFlaggedRevsPrecedence ? FLAGGED_VIS_NORMAL : FLAGGED_VIS_LATEST;
+			return array('select' => $select, 'override' => $override, 'expiry' => 'infinity');
+		}
+
+		return array('select' => $row->fpc_select, 'override' => $row->fpc_override, 'expiry' => $row->fpc_expiry);
+	}
+	
+	/**
+	 * Purge expired restrictions from the flaggedpage_config table
+	 */
+	public static function purgeExpiredConfigurations() {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpage_config',
+			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
+			__METHOD__ );
+	}
+	
+	################# Other utility functions #################
+
+	/**
+	 * @param Title $title
+	 * @return bool, is $title the main page?
+	 */
+	public static function isMainPage( $title ) {
+		return $title->equals( Title::newMainPage() );
+	}
+
+	/**
+	* @param Array $flags
+	* @return bool, is this revision at quality condition?
+	*/
+	public static function isQuality( $flags ) {
+		global $wgFlaggedRevTags;
+
+		if( empty($flags) )
+			return false;
+
+		foreach( $wgFlaggedRevTags as $f => $v ) {
+			if( !isset($flags[$f]) || $v > $flags[$f] )
+				return false;
+		}
+		
 		return true;
+	}
+
+	/**
+	* @param Array $flags
+	* @return bool, is this revision at optimal condition?
+	*/
+	public static function isPristine( $flags ) {
+		global $wgFlaggedRevTags, $wgFlaggedRevPristine;
+
+		if( empty($flags) )
+			return false;
+
+		foreach( $wgFlaggedRevTags as $f => $v ) {
+			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevPristine )
+				return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	* Is this page in reviewable namespace?
+	* @param Title, $title
+	* @return bool
+	*/
+	public static function isPageReviewable( $title ) {
+		global $wgFlaggedRevsNamespaces;
+		# FIXME: Treat NS_MEDIA as NS_IMAGE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
+	}
+	
+	/**
+	* Is this page in patrolable namespace?
+	* @param Title, $title
+	* @return bool
+	*/
+	public static function isPagePatrollable( $title ) {
+		global $wgFlaggedRevsPatrolNamespaces;
+		# No collisions!
+		if( self::isPageReviewable($title) ) {
+			return false;
+		}
+		# FIXME: Treat NS_MEDIA as NS_IMAGE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) && !$title->isTalkPage() );
+	}
+	
+	/**
+	 * Make stable version link and return the css
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param Database $db, optional
+	 * @returns array (string,string)
+	 */
+	public static function makeStableVersionLink( $title, $rev_id, $skin, $db = NULL ) {
+		$db = $db ? $db : wfGetDB( DB_SLAVE );
+		$row = $db->selectRow( 'flaggedrevs', 
+			array( 'fr_quality', 'fr_user' ),
+			array( 'fr_page_id' => $title->getArticleID(),
+				'fr_rev_id' => $rev_id ),
+			__METHOD__,
+			array( 'FORCE INDEX' => 'PRIMARY' )
+		);
+		if( $row ) {
+			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+			$user = User::whois( $row->fr_user );
+			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
+			$st = $title->getPrefixedDBkey();
+			$link = "<span class='plainlinks'>".wfMsgExt($msg,array('parseinline'),$st,$rev_id,$user)."</span>";
+		} else {
+			return array("","");
+		}
+		return array($link,$css);
 	}
 	
 	/**
@@ -1219,6 +1168,51 @@ class FlaggedRevs {
 		}
 		return trim($JSparams);
 	}
+	
+   	/**
+	* Get params for a user
+	* @param User $user
+	*/
+	public static function getUserParams( $user ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$row = $dbw->selectRow( 'flaggedrevs_promote', 'frp_user_params',
+			array( 'frp_user_id' => $user->getId() ),
+			__METHOD__ );
+		# Parse params
+		$params = array();
+		if( $row ) {
+			$flatPars = explode( "\n", trim($row->frp_user_params) );
+			foreach( $flatPars as $pair ) {
+				$m = explode( '=', trim($pair), 2 );
+				$key = $m[0];
+				$value = isset($m[1]) ? $m[1] : null;
+				$params[$key] = $value;
+			}
+		}
+		return $params;
+	}
+	
+   	/**
+	* Save params for a user
+	* @param User $user
+	* @param Array $params
+	*/
+	public static function saveUserParams( $user, $params ) {
+		$flatParams = '';
+		foreach( $params as $key => $value ) {
+			$flatParams .= "{$key}={$value}\n";
+		}
+		$dbw = wfGetDB( DB_MASTER );
+		$row = $dbw->replace( 'flaggedrevs_promote', 
+			array( 'frp_user_id' ),
+			array( 'frp_user_id' => $user->getId(), 
+				'frp_user_params' => trim($flatParams) ),
+			__METHOD__ );
+
+		return ( $dbw->affectedRows() > 0 );
+	}
+	
+	################# Auto-review function #################
 
 	/**
 	* Automatically review an edit and add a log entry in the review log.
@@ -1289,7 +1283,7 @@ class FlaggedRevs {
 		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $text, $article->getTitle(), $rev->getId() );
 
 		# Compress $fulltext, passed by reference
-		$textFlags = self::compressText( $fulltext );
+		$textFlags = FlaggedRevision::compressText( $fulltext );
 
 		# Write to external storage if required
 		$storage = self::getExternalStorage();
@@ -1329,7 +1323,7 @@ class FlaggedRevs {
 			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
 			'fr_comment'       => "",
 			'fr_quality'       => $quality,
-			'fr_tags'	       => self::flattenRevisionTags( $flags ),
+			'fr_tags'	       => FlaggedRevision::flattenRevisionTags( $flags ),
 			'fr_text'	       => $fulltext, # Store expanded text for speed
 			'fr_flags'	       => $textFlags,
 			'fr_img_name'      => $fileData ? $fileData['name'] : null,
@@ -1354,7 +1348,7 @@ class FlaggedRevs {
 		$dbw->commit();
 
 		# Update the article review log
-		RevisionReview::updateLog( $article->getTitle(), $flags, array(), wfMsgForContent('revreview-auto'), $rev->getID(), true );
+		RevisionReview::updateLog( $title, $flags, array(), wfMsgForContent('revreview-auto'), $rev->getID(), true, true );
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
@@ -1372,48 +1366,75 @@ class FlaggedRevs {
 
 		return true;
 	}
-
- 	/**
-	* @param Article $article
-	* @param Integer $rev_id, the stable version rev_id
-	* @param mixed $latest, the latest rev ID (optional)
-	* Updates the fp_stable and fp_reviewed fields
+	
+	################# Hooked functions #################
+	
+	/**
+	* Remove 'patrol' and 'autopatrol' rights. Reviewing revisions will patrol them as well.
 	*/
-	public static function updateArticleOn( $article, $rev_id, $latest=NULL ) {
-		global $wgMemc;
-		wfProfileIn( __METHOD__ );
+	public static function stripPatrolRights( $user, &$rights ) {
+		# Use only our extension mechanisms
+		foreach( $rights as $n => $right ) {
+			if( $right == 'patrol' || $right == 'autopatrol' ) {
+				unset($rights[$n]);
+			}
+		}
+		return true;
+	}
 
-		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-
-		$dbw = wfGetDB( DB_MASTER );
-		# Get the highest quality revision (not necessarily this one).
-		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
-			'fr_quality',
-			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id',
-				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
-			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
-		$maxQuality = $maxQuality===false ? null : $maxQuality;
-		# Alter table metadata
-		$dbw->replace( 'flaggedpages',
-			array( 'fp_page_id' ),
-			array( 'fp_stable' => $rev_id,
-				'fp_reviewed' => ($lastID == $rev_id) ? 1 : 0,
-				'fp_quality' => $maxQuality,
-				'fp_page_id' => $article->getId() ),
-			__METHOD__ );
-		# Update the cache
-		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
-
-		$count = $dbw->selectField( 'revision', 'COUNT(*)',
-			array('rev_page' => $article->getId(), "rev_id > " . intval($rev_id) ),
-			__METHOD__ );
-
-		$wgMemc->set( $key, $count, 3600*24*7 );
+	/**
+	* Add FlaggedRevs css/js.
+	*/
+	public static function InjectStyleAndJS() {
+		global $wgOut, $wgJsMimeType, $wgFlaggedArticle;
+		# Don't double-load
+		if( self::$styleLoaded || !$wgFlaggedArticle )
+			return true;
+		# UI CSS
+		$wgOut->addLink( array(
+			'rel'	=> 'stylesheet',
+			'type'	=> 'text/css',
+			'media'	=> 'screen, projection',
+			'href'	=> FLAGGED_CSS,
+		) );
+		# Handle onload parameters
+		$JSparams = self::getJSParams();
+		$frev = $wgFlaggedArticle->getStableRev( true );
+		$stableId = $frev ? $frev->getRevId() : 0;
 		
-		wfProfileOut( __METHOD__ );
+		$script = "<script type=\"{$wgJsMimeType}\">\n";
+		$script .= "var wgFlaggedRevsJSparams = {". $JSparams . "};\n";
+		$script .= "var wgStableRevisionId = ". $stableId . ";";
+		$script .= "</script>\n";
+		$wgOut->addScript( $script );
+		# UI JS
+		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"" . FLAGGED_JS . "\"></script>\n" );
+
+		self::$styleLoaded = true;
+
+		return true;
+	}
+	
+	/**
+	* Add FlaggedRevs css for relevant special pages.
+	*/
+	public static function InjectStyleForSpecial() {
+		global $wgTitle, $wgOut;
+		$spPages = array();
+		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
+		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
+		foreach( $spPages as $n => $title ) {
+			if( $wgTitle->equals( $title ) ) {
+				# UI CSS
+				$wgOut->addLink( array(
+					'rel'	=> 'stylesheet',
+					'type'	=> 'text/css',
+					'media'	=> 'screen, projection',
+					'href'	=> FLAGGED_CSS,
+				) );
+				break;
+			}
+		}
 		return true;
 	}
 
@@ -1480,37 +1501,6 @@ class FlaggedRevs {
 			__METHOD__ );
 
 		return true;
-	}
-
-	/**
-	* Clears cache for a page when merges are done.
-	* We may have lost the stable revision to another page.
-	*/
-	public static function articleLinksUpdate( $article, $a=null, $b=null ) {
-		global $wgUser, $wgParser;
-		# Update the links tables as the stable version may now be the default page...
-		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput==false ) {
-			$text = $article->getContent();
-			$options = self::makeParserOptions( $wgUser );
-			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
-			# Might as well save the cache while we're at it
-			global $wgEnableParserCache;
-			if( $wgEnableParserCache )
-				$parserCache->save( $poutput, $article, $wgUser );
-		}
-		$u = new LinksUpdate( $article->getTitle(), $poutput );
-		$u->doUpdate(); // this will trigger our hook to add stable links too...
-
-		return true;
-	}
-
-	/**
-	* Clears cache for a page when revisiondelete/undelete is used
-	*/
-	public static function titleLinksUpdate( $title, $a=null, $b=null ) {
-		return self::articleLinksUpdate( new Article( $title ), $a, $b );
 	}
 
 	/**
@@ -2249,49 +2239,6 @@ class FlaggedRevs {
 	}
 	
    	/**
-	* Get params for a user
-	* @param User $user
-	*/
-	public static function getUserParams( $user ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$row = $dbw->selectRow( 'flaggedrevs_promote', 'frp_user_params',
-			array( 'frp_user_id' => $user->getId() ),
-			__METHOD__ );
-		# Parse params
-		$params = array();
-		if( $row ) {
-			$flatPars = explode( "\n", trim($row->frp_user_params) );
-			foreach( $flatPars as $pair ) {
-				$m = explode( '=', trim($pair), 2 );
-				$key = $m[0];
-				$value = isset($m[1]) ? $m[1] : null;
-				$params[$key] = $value;
-			}
-		}
-		return $params;
-	}
-	
-   	/**
-	* Save params for a user
-	* @param User $user
-	* @param Array $params
-	*/
-	public static function saveUserParams( $user, $params ) {
-		$flatParams = '';
-		foreach( $params as $key => $value ) {
-			$flatParams .= "{$key}={$value}\n";
-		}
-		$dbw = wfGetDB( DB_MASTER );
-		$row = $dbw->replace( 'flaggedrevs_promote', 
-			array( 'frp_user_id' ),
-			array( 'frp_user_id' => $user->getId(), 
-				'frp_user_params' => trim($flatParams) ),
-			__METHOD__ );
-
-		return ( $dbw->affectedRows() > 0 );
-	}
-	
-   	/**
 	* Record demotion so that auto-promote will be disabled
 	*/
 	public static function recordDemote( $u, $addgroup, $removegroup ) {
@@ -2370,7 +2317,6 @@ class FlaggedRevs {
 
 function efFlaggedRevsSchemaUpdates() {
 	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
-
 	$base = dirname(__FILE__);
 	if( $wgDBtype == 'mysql' ) {
 		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
@@ -2385,6 +2331,5 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
 		$wgExtNewIndexes[] = array('flaggedrevs', 'key_timestamp', "$base/postgres/patch-fr_img_name.sql" );
 	}
-
 	return true;
 }

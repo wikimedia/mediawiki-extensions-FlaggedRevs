@@ -685,7 +685,7 @@ class FlaggedArticle extends Article {
 		if( $quality === false ) {
 			return true;
 		}
-		$css = FlaggedRevs::getQualityColor( $quality );
+		$css = FlaggedRevsXML::getQualityColor( $quality );
 		return true;
     }
 
@@ -694,16 +694,13 @@ class FlaggedArticle extends Article {
 	 * @return string, revision review notes
 	 */
     public function ReviewNotes( $frev ) {
-    	global $wgUser, $wgFlaggedRevComments;
-
-    	if( !$wgFlaggedRevComments || !$frev || !$frev->getComment() )
+    	global $wgUser;
+    	if( !FlaggedRevs::allowComments() || !$frev || !$frev->getComment() ) {
 			return '';
-
-   		$skin = $wgUser->getSkin();
+		}
    		$notes = "<div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
-   		$notes .= '<br/><i>' . $skin->formatComment( $frev->getComment() ) . '</i></div>';
-
+   		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
     	return $notes;
     }
 
@@ -813,7 +810,7 @@ class FlaggedArticle extends Article {
 		if( $OldRev ) {
 			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr>" );
 			
-			$css = FlaggedRevs::getQualityColor( $oldRevQ );
+			$css = FlaggedRevsXML::getQualityColor( $oldRevQ );
 			if( $oldRevQ !== false ) {
 				$msg = $oldRevQ ? 'hist-quality' : 'hist-stable';
 			} else {
@@ -822,7 +819,7 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( "<td width='50%' align='center'>" );
 			$wgOut->addHTML( "<span class='$css'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
 
-			$css = FlaggedRevs::getQualityColor( $newRevQ );
+			$css = FlaggedRevsXML::getQualityColor( $newRevQ );
 			if( $newRevQ !== false ) {
 				$msg = $newRevQ ? 'hist-quality' : 'hist-stable';
 			} else {
@@ -1015,7 +1012,6 @@ class FlaggedArticle extends Article {
 	 * @eturns Array, output of the flags for a given revision
 	 */
     public function getFlagsForRevision( $rev_id ) {
-    	global $wgFlaggedRevTags;
     	# Cached results?
     	if( isset($this->flags[$rev_id]) && $this->flags[$rev_id] )
     		return $this->flags[$rev_id];
@@ -1034,7 +1030,7 @@ class FlaggedArticle extends Article {
 	 * @param bool $top, should this form always go on top?
 	 */
 	public function addQuickReview( $out, $top = false ) {
-		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevComments, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOverride;
 		# User must have review rights
 		if( !$wgUser->isAllowed( 'review' ) ) {
 			return;
@@ -1050,6 +1046,8 @@ class FlaggedArticle extends Article {
 		}
 		$skin = $wgUser->getSkin();
 		
+		# Variable for sites with no flags, otherwise discarded
+		$approve = $wgRequest->getBool('wpApprove');
 		# See if the version being displayed is flagged...
 		$oldflags = $this->getFlagsForRevision( $id );
 		# If we are reviewing updates to a page, start off with the stable revision's
@@ -1073,9 +1071,9 @@ class FlaggedArticle extends Article {
 		$form .= "<legend>" . wfMsgHtml( 'revreview-flag' ) . "</legend>\n";
 
 		if( $wgFlaggedRevsOverride ) {
-			$form .= '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>';
+			$form .= wfMsgExt( 'revreview-text', array('parse') );
 		} else {
-			$form .= '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>';
+			$form .= wfMsgExt( 'revreview-text2', array('parse') );
 		}
 
 		# Current user has too few rights to change at least one flag, thus entire form disabled
@@ -1109,7 +1107,7 @@ class FlaggedArticle extends Article {
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
 			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b> ";
-			# if the sum of qualities of all flags is above 6, use drop down boxes
+			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
 				$attribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
@@ -1120,31 +1118,36 @@ class FlaggedArticle extends Article {
 						."\n";
 				}
 				$form .= Xml::closeElement('select')."\n";
-			# if there are more than two qualities (none, 1 and more) current user gets radio buttons
+			# If there are more than two qualities (none, 1 and more) current user gets radio buttons
 			} else if( $quantity > 2 ) {
 				foreach( $label as $i => $name ) {
 					$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
 					$form .= Xml::radioLabel( wfMsg( "revreview-$name" ), "wp$quality", $i, "wp$quality".$i,
 						($i == $selected), $attribs ) . "\n";
 				}
-			# else make checkboxes (two qualities available for current user
+			# Otherwise make checkboxes (two qualities available for current user
 			# and disabled fields in case we are below the magic 6)
 			} else {
 				$i = ( $disabled ) ? $selected : 1;
-				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" )
-					+ $toggle;
+				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality".$i,
 					($selected == $i), $attribs ) . "\n";
 			}
 			$form .= Xml::closeElement( 'span' );
 		}
+		# If there were none, make one checkbox to approve/unapprove
+		if( empty(FlaggedRevs::$dimensions) ) {
+			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
+			$form .= Xml::checkLabel( wfMsg( "revreview-approved" ), "wpApprove", "wpApprove", 1 ) . "\n";
+			$form .= Xml::closeElement( 'span' );
+		}
 		$form .= Xml::closeElement( 'span' );
 		
-		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
+		if( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<div id='mw-notebox'>\n";
-			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
-			$form .= "<p>" . Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
-				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) . Xml::closeElement('textarea') . "</p>\n";
+			$form .= "<p>".wfMsgHtml( 'revreview-notes' ) . "</p>\n";
+			$form .= Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
+				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) . Xml::closeElement('textarea') . "\n";
 			$form .= "</div>\n";
 		}
 
@@ -1166,6 +1169,18 @@ class FlaggedArticle extends Article {
 		if( $this->getTitle()->getNamespace() == NS_IMAGE && $this->file ) {
 			$imageParams .= $this->getTitle()->getDBkey() . "|" . $this->file->getTimestamp() . "|" . $this->file->getSha1() . "#";
 		}
+
+		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
+		# Hide comment if needed
+		if( !$disabled ) {
+			$form .= "<span id='mw-commentbox' style='clear:both'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
+				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
+		}
+		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), 
+			array('id' => 'mw-submitbutton','class' => 'fr-comment-box')+$toggle);
+		$form .= Xml::closeElement( 'span' );
+		
+		$form .= Xml::closeElement( 'div' );
 		
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewtitle->getPrefixedText() ) . "\n";
@@ -1179,19 +1194,9 @@ class FlaggedArticle extends Article {
 		# Pass this in if given; useful for new page patrol
 		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $templateParams, $imageParams, $wgUser->getID(), $id );
+		$checkCode = RevisionReview::getValidationKey( $templateParams, $imageParams, $wgUser->getID(), $id );
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
-
-		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
-		# Hide comment if needed
-		if( !$disabled ) {
-			$form .= "<span id='mw-commentbox'><br/>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
-				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
-		}
-		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), array('id' => 'mw-submitbutton')+$toggle);
-		$form .= Xml::closeElement( 'span' );
 		
-		$form .= Xml::closeElement( 'div' );
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 

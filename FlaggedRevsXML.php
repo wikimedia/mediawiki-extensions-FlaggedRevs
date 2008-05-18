@@ -38,6 +38,42 @@ class FlaggedRevsXML {
 		return $s;
 	}
 	
+   	/**
+	* Get a selector of review levels
+	* @param int $selected, selected level
+	*/
+	public static function getLevelMenu( $selected=null ) {
+		$form = Xml::openElement( 'select', array('name' => 'level') );
+		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $selected==0 );
+		if( FlaggedRevs::qualityVersions() )
+			$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $selected==1 );
+		if( FlaggedRevs::pristineVersions() )
+			$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $selected==2 );
+		$form .= Xml::closeElement('select')."\n";
+		return $form;
+	}
+	
+	/**
+	* @param int $quality
+	* @return string, css color for this quality
+	*/
+	public static function getQualityColor( $quality ) {
+		if( $quality === false )
+			return 'flaggedrevs-color-0';
+		switch( $quality ) {
+			case 2:
+				$css = 'flaggedrevs-color-3';
+				break;
+			case 1:
+				$css = 'flaggedrevs-color-2';
+				break;
+			case 0:
+				$css = 'flaggedrevs-color-1';
+				break;
+		}
+		return $css;
+	}
+	
 	/**
 	 * @param array $flags
 	 * @param bool $prettybox

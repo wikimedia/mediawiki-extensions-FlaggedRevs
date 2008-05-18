@@ -29,7 +29,8 @@ class FlaggedRevision {
 		$this->mTimestamp = $row->fr_timestamp;
 		$this->mComment = $row->fr_comment;
 		$this->mQuality = intval( $row->fr_quality );
-		$this->mTags = FlaggedRevs::expandRevisionTags( strval($row->fr_tags) );
+		$this->mTags = self::expandRevisionTags( strval($row->fr_tags) );
+		# Image page revision relevant params
 		$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
 		$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
 		$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
@@ -41,6 +42,9 @@ class FlaggedRevision {
 		$this->mText = null;
 	}
 	
+	/**
+	 * @returns Array basic select fields (not including text/text flags)
+	 */
 	public static function selectFields() {
 		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags',
 			'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
@@ -245,12 +249,94 @@ class FlaggedRevision {
 			$this->mText = $this->mRawDBText;
 		}
 		// Uncompress if needed
-		$this->mText = FlaggedRevs::uncompressText( $this->mText, $this->mFlags );
+		$this->mText = self::uncompressText( $this->mText, $this->mFlags );
 		// Caching may be beneficial for massive use of external storage
 		if( $wgRevisionCacheExpiry ) {
 			$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
 		}
 		wfProfileOut( __METHOD__ );
 		return true;
+	}
+	
+		/**
+	* @param string $text
+	* @return string, flags
+	* Compress pre-processed text, passed by reference
+	*/
+	public static function compressText( &$text ) {
+		global $wgCompressRevisions;
+		$flags = array( 'utf-8' );
+		if( $wgCompressRevisions ) {
+			if( function_exists( 'gzdeflate' ) ) {
+				$text = gzdeflate( $text );
+				$flags[] = 'gzip';
+			} else {
+				wfDebug( "FlaggedRevs::compressText() -- no zlib support, not compressing\n" );
+			}
+		}
+		return implode( ',', $flags );
+	}
+
+	/**
+	* @param string $text
+	* @param mixed $flags, either in string or array form
+	* @return string
+	* Uncompress pre-processed text, using flags
+	*/
+	public static function uncompressText( $text, $flags ) {
+		if( !is_array($flags) ) {
+			$flags = explode( ',', $flags );
+		}
+		# Lets not mix up types here
+		if( is_null($text) )
+			return null;
+		if( $text !== false && in_array( 'gzip', $flags ) ) {
+			# Deal with optional compression if $wgCompressRevisions is set.
+			$text = gzinflate( $text );
+		}
+		return $text;
+	}
+	
+	/**
+	 * Get flags for a revision
+	 * @param string $tags
+	 * @return Array
+	*/
+	public static function expandRevisionTags( $tags ) {
+		# Set all flags to zero
+		$flags = array();
+		foreach( FlaggedRevs::$dimensions as $tag => $levels ) {
+			$flags[$tag] = 0;
+		}
+		$tags = explode('\n',$tags);
+		foreach( $tags as $tuple ) {
+			$set = explode(':',$tuple,2);
+			if( count($set) == 2 ) {
+				list($tag,$value) = $set;
+				$value = intval($value);
+				# Add only currently recognized ones
+				if( isset($flags[$tag]) ) {
+					# If a level was removed, default to the highest
+					$flags[$tag] = $value < count($levels) ? $value : count($levels)-1;
+				}
+			}
+		}
+		return $flags;
+	}
+
+	/**
+	 * Get flags for a revision
+	 * @param Array $tags
+	 * @return string
+	*/
+	public static function flattenRevisionTags( $tags ) {
+		$flags = '';
+		foreach( $tags as $tag => $value ) {
+			# Add only currently recognized ones
+			if( isset(FlaggedRevs::$dimensions[$tag]) ) {
+				$flags .= $tag . ':' . intval($value) . '\n';
+			}
+		}
+		return $flags;
 	}
 }

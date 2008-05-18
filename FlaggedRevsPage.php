@@ -38,6 +38,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
 		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
+		# Param for sites with no tags, otherwise discarded
+		$this->approve = $wgRequest->getBool( 'wpApprove' );
 
 		if( is_null($this->page) ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
@@ -69,7 +71,7 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		global $wgReviewCodes;
 		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $this->oldid );
+		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $this->oldid );
 		# Must match up
 		if( $this->validatedParams !== $checkCode ) {
 			$this->templateParams = '';
@@ -116,6 +118,27 @@ class RevisionReview extends UnlistedSpecialPage
 		} else {
 			$this->showRevision();
 		}
+	}
+	
+	/**
+	* Get a validation key from versioning metadata
+	* @param string $tmpP
+	* @param string $imgP
+	* @param integer $uid user ID
+	* @param integer $rid rev ID
+	* @return string
+	*/
+	public static function getValidationKey( $tmpP, $imgP, $uid, $rid ) {
+		global $wgReviewCodes;
+		# Fall back to $wgSecretKey/$wgProxyKey
+		if( empty($wgReviewCodes) ) {
+			global $wgSecretKey, $wgProxyKey;
+			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
+			$p = md5($key.$uid.$imgP.$tmpP.$rid);
+		} else {
+			$p = md5($wgReviewCodes[0].$uid.$imgP.$rid.$tmpP.$wgReviewCodes[1]);
+		}
+		return $p;
 	}
 
 	/**
@@ -283,7 +306,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = FlaggedRevs::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $rev->getId() );
+		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
 		$form .= '</fieldset>';
 
@@ -311,7 +334,7 @@ class RevisionReview extends UnlistedSpecialPage
 	private function submit() {
 		global $wgOut, $wgUser, $wgFlaggedRevTags;
 		# If all values are set to zero, this has been unapproved
-		$approved = empty($wgFlaggedRevTags);
+		$approved = empty($wgFlaggedRevTags) && $this->approve;
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) {
 				$approved = true;
@@ -521,7 +544,7 @@ class RevisionReview extends UnlistedSpecialPage
 		} 
 		
         # Compress $fulltext, passed by reference
-        $textFlags = FlaggedRevs::compressText( $fulltext );
+        $textFlags = FlaggedRevision::compressText( $fulltext );
 
 		# Write to external storage if required
 		$storage = FlaggedRevs::getExternalStorage();
@@ -554,7 +577,7 @@ class RevisionReview extends UnlistedSpecialPage
 			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
 			'fr_comment'       => $this->notes,
 			'fr_quality'       => $quality,
-			'fr_tags'          => FlaggedRevs::flattenRevisionTags( $flags ),
+			'fr_tags'          => FlaggedRevision::flattenRevisionTags( $flags ),
 			'fr_text'          => $fulltext, # Store expanded text for speed
 			'fr_flags'         => $textFlags,
 			'fr_img_name'      => $fileData ? $fileData['name'] : null,
@@ -738,10 +761,12 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param string $comment
 	 * @param int $revid
 	 * @param bool $approve
+	 * @param bool $auto
 	 */
-	public static function updateLog( $title, $dims, $oldDims, $comment, $oldid, $approve ) {
+	public static function updateLog( $title, $dims, $oldDims, $comment, $oldid, $approve, $auto=false ) {
 		global $wgFlaggedRevsLogInRC;
-		$log = new LogPage( 'review', $wgFlaggedRevsLogInRC );
+		$putInRC = $auto ? false : $wgFlaggedRevsLogInRC; // don't put these in RC
+		$log = new LogPage( 'review', $putInRC );
 		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dims as $quality => $level ) {
@@ -1235,14 +1260,7 @@ class ReviewedPages extends SpecialPage
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsg('reviewedpages-leg')."</legend>\n";
 
-		$form .= Xml::openElement( 'select', array('name' => 'level') );
-		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $this->type==0 );
-		$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $this->type==1 );
-		# Check if there is a featured level
-		if( $wgFlaggedRevPristine <= $wgFlaggedRevValues ) {
-			$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $this->type==2 );
-		}
-		$form .= Xml::closeElement('select')."\n";
+		$form .= FlaggedRevsXML::getLevelMenu( $this->type );
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
@@ -1474,8 +1492,7 @@ class Stabilization extends UnlistedSpecialPage
 			if( strlen( $this->expiry ) == 0 ) {
 				$this->expiry = 'infinite';
 			}
-			# Only 0 or 1
-			if( $this->select && ($this->select !==0 && $this->select !==1) ) {
+			if( $this->select && !in_array( $this->select, array(FLAGGED_VIS_NORMAL,FLAGGED_VIS_LATEST) ) ) {
 				$isValid = false;
 			}
 		}
@@ -1524,10 +1541,18 @@ class Stabilization extends UnlistedSpecialPage
 
 		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
 		$form .= "<table><tr>";
-		$form .= "<td>".Xml::radio( 'mwStableconfig-select', 0, (0==$this->select), array('id' => 'stable-select1')+$off )."</td>";
+		/*
+		$form .= "<td>".Xml::radio( 'mwStableconfig-select', FLAGGED_VIS_PRISTINE, 
+			(FLAGGED_VIS_PRISTINE==$this->select), array('id' => 'stable-select3')+$off )."</td>";
+		$form .= "<td>".Xml::label( wfMsg('stabilization-select3'), 'stable-select3' )."</td>";
+		$form .= "</tr><tr>";
+		*/
+		$form .= "<td>".Xml::radio( 'mwStableconfig-select', FLAGGED_VIS_NORMAL, 
+			(FLAGGED_VIS_NORMAL==$this->select), array('id' => 'stable-select1')+$off )."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'stable-select1' )."</td>";
 		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'mwStableconfig-select', 1, (1==$this->select), array('id' => 'stable-select2')+$off )."</td>";
+		$form .= "<td>".Xml::radio( 'mwStableconfig-select', FLAGGED_VIS_LATEST, 
+			(FLAGGED_VIS_LATEST==$this->select), array('id' => 'stable-select2')+$off )."</td>";
 		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'stable-select2' )."</td>";
 		$form .= "</tr></table></fieldset>";
 
@@ -1604,15 +1629,14 @@ class Stabilization extends UnlistedSpecialPage
 			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $this->page->getArticleID() ),
 			__METHOD__ );
-		# If setting to site default values, erase the row if there is one
+		# If setting to site default values, erase the row if there is one...
 		if( $row && $this->select != $wgFlaggedRevsPrecedence && $this->override == $wgFlaggedRevsOverride ) {
 			$reset = true;
 			$dbw->delete( 'flaggedpage_config',
 				array( 'fpc_page_id' => $this->page->getArticleID() ),
 				__METHOD__ );
 			$changed = ($dbw->affectedRows() != 0); // did this do anything?
-		# Otherwise, add a row unless we are just setting it as the site default
-		# or it is the same the current one
+		# Otherwise, add a row unless we are just setting it as the site default, or it is the same the current one...
 		} else if( $this->select !=0 || $this->override !=$wgFlaggedRevsOverride ) {
 			if( $row->fpc_select != $this->select || $row->fpc_override != $this->override || $row->fpc_expiry !== $expiry ) {
 				$changed = true;
@@ -1661,8 +1685,7 @@ class Stabilization extends UnlistedSpecialPage
 		}
 
 		# Update the links tables as the stable version may now be the default page...
-    	$article = new Article( $this->page );
-		FlaggedRevs::articleLinksUpdate( $article );
+		FlaggedRevs::titleLinksUpdate( $this->page );
 
 		if( $this->watchThis ) {
 			$wgUser->addWatch( $this->page );
