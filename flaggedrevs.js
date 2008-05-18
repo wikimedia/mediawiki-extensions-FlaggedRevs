@@ -42,8 +42,11 @@ function updateRatingForm() {
 
 		if( levels[0].nodeName == 'SELECT' ) {
 			selectedlevel = levels[0].selectedIndex;
-			// Update color
-			levels[0].className = 'fr-rating-option-' + selectedlevel;
+			// Update color. Opera does this already, and doing so
+			// seems to kill custom pretty opera skin form styling.
+			if( navigator.appName != 'Opera') {
+				levels[0].className = 'fr-rating-option-' + selectedlevel;
+			}
 		} else if( levels[0].type == 'radio' ) {
 			for( i = 0; i < levels.length; i++ ) {
 				if( levels[i].checked ) {
