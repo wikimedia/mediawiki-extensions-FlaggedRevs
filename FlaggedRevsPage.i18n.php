@@ -1292,9 +1292,13 @@ $messages['de'] = array(
 	'revreview-newest-basic'      => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Sichtung an.',
-	'revreview-newest-quality'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version]
+	'revreview-newest-quality'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Sichtung an.',
+	'revreview-newest-basic-i'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] noch zur Sichtung an.',
+	'revreview-newest-quality-i'  => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] noch zur Sichtung an.',
 
 	'revreview-basic'             => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version.
 	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Sichtung an.',
@@ -1330,6 +1334,7 @@ $messages['de'] = array(
 
 	'revreview-update-none'       => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
 	'revreview-update-includes'   => "'''Einige Vorlagen/Bilder wurden aktualisiert:'''",
+	'revreview-update-use'        => "'''Bitte beachten:''' Falls eine dieser Vorlagen/Bilder eine gesichtete Version hat, wird diese in der gesichteten Version dieser Seite angezeigt.",
 	'revreview-auto'              => '(automatisch)',
 	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
@@ -1383,6 +1388,7 @@ $messages['de'] = array(
 	'revreview-style-3'    => 'präzise', # not used in de.wiki
 	'revreview-style-4'    => 'exzellent', # not used in de.wiki
 	'revreview-log'        => 'Kommentar:',
+	'revreview-approved'   => 'Freigegeben',
 	'revreview-submit'     => 'Markierung speichern',
 	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert.'''",
 	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version] oder die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen?',
@@ -1431,6 +1437,7 @@ $messages['de'] = array(
 	'stabilization-select'        => 'Auswahl der markierten Version',
 	'stabilization-select1'       => 'Die letzte geprüfte Version; wenn keine vorhanden ist, dann die letzte gesichtete Version',
 	'stabilization-select2'       => 'Die letzte markierte Version',
+	'stabilization-select3'       => 'Die letzte ursprüngliche Version; wenn keine vorhanden ist, dann die letzte gesichtete oder geprüfte Version',
 	'stabilization-def'           => 'Angezeigte Version in der normalen Seitenansicht',
 	'stabilization-def1'          => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version',
 	'stabilization-def2'          => 'Die aktuellste Version',
@@ -1442,6 +1449,7 @@ $messages['de'] = array(
 	'stabilization-sel-short'     => 'Priorität',
 	'stabilization-sel-short-0'   => 'Qualität',
 	'stabilization-sel-short-1'   => 'keine',
+	'stabilization-sel-short-2'   => 'ursprünglich',
 	'stabilization-def-short'     => 'Standard',
 	'stabilization-def-short-0'   => 'Aktuell',
 	'stabilization-def-short-1'   => 'Markiert',
