@@ -28,7 +28,7 @@ CREATE TABLE flaggedrevs (
   fr_img_sha1      TEXT        NULL DEFAULT NULL,
   PRIMARY KEY (fr_page_id,fr_rev_id)
 );
-CREATE INDEX fr_namespace_title ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
+CREATE INDEX page_qal_rev ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 CREATE INDEX key_timestamp ON flaggedrevs (fr_img_sha1,fr_img_timestamp);
 
 CREATE TABLE flaggedpage_config (
