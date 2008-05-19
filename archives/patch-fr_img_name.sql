@@ -6,4 +6,4 @@ ALTER TABLE /*$wgDBprefix*/flaggedrevs
   ADD fr_img_timestamp char(14) NULL default NULL,
   -- Statistically unique SHA-1 key
   ADD fr_img_sha1 varbinary(32) NULL default NULL,
-  ADD INDEX key_timestamp (fr_img_sha1,fr_img_timestamp);
+  ADD INDEX fr_img_sha1 (fr_img_sha1);

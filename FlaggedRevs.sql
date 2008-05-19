@@ -51,7 +51,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   fr_img_sha1 varbinary(32) NULL default NULL,
   
   PRIMARY KEY (fr_page_id,fr_rev_id),
-  INDEX key_timestamp (fr_img_sha1,fr_img_timestamp),
+  INDEX fr_img_sha1 (fr_img_sha1),
   INDEX page_qal_rev (fr_page_id,fr_quality,fr_rev_id)
 ) TYPE=InnoDB;
 

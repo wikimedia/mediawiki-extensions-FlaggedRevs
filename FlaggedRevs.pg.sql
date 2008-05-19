@@ -29,7 +29,7 @@ CREATE TABLE flaggedrevs (
   PRIMARY KEY (fr_page_id,fr_rev_id)
 );
 CREATE INDEX page_qal_rev ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
-CREATE INDEX key_timestamp ON flaggedrevs (fr_img_sha1,fr_img_timestamp);
+CREATE INDEX fr_img_sha1 ON flaggedrevs (fr_img_sha1);
 
 CREATE TABLE flaggedpage_config (
   fpc_page_id   INTEGER     NOT NULL PRIMARY KEY DEFAULT 0,
