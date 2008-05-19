@@ -1646,7 +1646,7 @@ class FlaggedRevs {
 	/**
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
-	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time ) {
+	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
 		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
 			return true;
@@ -1685,6 +1685,7 @@ class FlaggedRevs {
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+			$query = $row ? "filetimestamp={$row->fi_img_timestamp}" : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
@@ -1716,7 +1717,7 @@ class FlaggedRevs {
 	/**
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
-	public static function galleryFindStableFileTime( $ig, $nt, &$time ) {
+	public static function galleryFindStableFileTime( $ig, $nt, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
 		if( !isset($ig->fr_isStable) || !$ig->fr_isStable )
 			return true;
@@ -1754,6 +1755,7 @@ class FlaggedRevs {
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+			$query = $row ? "filetimestamp={$row->fi_img_timestamp}" : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
