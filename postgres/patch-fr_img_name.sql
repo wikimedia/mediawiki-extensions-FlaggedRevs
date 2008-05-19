@@ -9,5 +9,8 @@ ALTER TABLE flaggedrevs
   ADD fr_img_sha1 TEXT NULL default NULL;
   
 CREATE INDEX key_timestamp ON flaggedrevs (fr_img_sha1,fr_img_timestamp);
-  
+
+DROP INDEX fr_namespace_title;
+CREATE INDEX page_qal_rev ON flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
+
 COMMIT;
