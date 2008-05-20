@@ -3,7 +3,7 @@
 define( 'BATCH_SIZE', 50 );
 
 function autoreview_current( $db ) {
-	global $wgUser, $wgFlaggedRevsNamespaces;
+	global $wgFlaggedRevsNamespaces;
 	echo "Auto-reviewing all current page versions...\n";
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
@@ -32,13 +32,14 @@ function autoreview_current( $db ) {
 			# Should exist, but to be safe...
 			if( !$frev && $rev && FlaggedRevs::isPageReviewable($title) ) {
 				$text = $rev->getText();
+				$user = User::newFromName( $rev->getUserText(), false );
 				# Assume basic flagging level
 				$flags = array();
 				foreach( FlaggedRevs::$dimensions as $tag => $minQL ) {
 					$flags[$tag] = 1;
 				}
 				$article = new Article( $title );
-				FlaggedRevs::autoReviewEdit( $article, $wgUser, $text, $rev, $flags, true );
+				FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags, true );
 				$changed++;
 			}
 			$count++;
