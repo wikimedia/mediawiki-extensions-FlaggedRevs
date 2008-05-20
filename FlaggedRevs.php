@@ -410,9 +410,11 @@ class FlaggedRevs {
 			}
 			if( $minQL > $wgFlaggedRevValues ) {
 				self::$qualityVersions = false;
-			} else if( $wgFlaggedRevValues > $minQL ) {
-				self::$pristineVersions = true;
 			}
+		}
+		global $wgFlaggedRevPristine;
+		if( $wgFlaggedRevValues >= $wgFlaggedRevPristine ) {
+			self::$pristineVersions = true;
 		}
 		global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
 		self::$extStorage = $wgFlaggedRevsExternalStore ? 
@@ -898,7 +900,7 @@ class FlaggedRevs {
 			$config = self::getPageVisibilitySettings( $title, $forUpdate );
 			$dbw = wfGetDB( DB_MASTER );
 			# Look for the latest pristine revision...
-			if( $config['select'] != FLAGGED_VIS_LATEST ) {
+			if( self::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $title->getArticleID(),
@@ -912,7 +914,7 @@ class FlaggedRevs {
 				$row = $prow ? $prow : null;
 			}
 			# Look for the latest quality revision...
-			if( $config['select'] != FLAGGED_VIS_LATEST ) {
+			if( self::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				// If we found a pristine rev above, this one must be newer, unless
 				// we specifically want pristine revs to have precedence...
 				$newerClause = ($row && $config['select'] != FLAGGED_VIS_PRISTINE) ?
