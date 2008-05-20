@@ -2205,13 +2205,13 @@ class FlaggedRevs {
 			global $wgContentNamespaces;
 		
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
-			$dbr->select( 'recentchanges', '1', 
+			$res = $dbr->select( 'recentchanges', '1', 
 				array( 'rc_user_text' => $user->getName(),
 					'rc_namespace' => $wgContentNamespaces ), 
 				__METHOD__, 
 				array( 'USE INDEX' => 'rc_ns_usertext',
 					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
-			if( $dbr->numRows() < $wgFlaggedRevsAutopromote['recentContent'] ) {
+			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['recentContent'] ) {
 				wfProfileOut( __METHOD__ );
 				return true;
 			}
@@ -2224,11 +2224,11 @@ class FlaggedRevs {
 			$minDiff = $user->getEditCount() - $wgFlaggedRevsAutopromote['days'] + 1;
 			# Use an estimate if the number starts to get large
 			if( $minDiff <= 100 ) {
-				$dbr->select( 'archive', '1', 
+				$res = $dbr->select( 'archive', '1', 
 					array( 'ar_user_text' => $user->getName() ), 
 					__METHOD__, 
 					array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
-				$deletedEdits = $dbr->numRows();
+				$deletedEdits = $dbr->numRows($res);
 			} else {
 				$deletedEdits = $dbr->estimateRowCount( 'archive', '1',
 					array( 'ar_user_text' => $user->getName() ),
