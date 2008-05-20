@@ -661,6 +661,12 @@ class FlaggedRevs {
 		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
 		}
+		# Must have same file
+		if( $article instanceof ImagePage && $article->getFile() ) {
+			if( $frev->getFileTimestamp() != $article->getFile()->getTimestamp() ) {
+				return false;
+			}
+		}
 		global $wgMemc;
 		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId(), $article->getTouched() );
