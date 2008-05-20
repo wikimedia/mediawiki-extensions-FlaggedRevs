@@ -134,7 +134,7 @@ See the [[Special:Unreviewedpages]] for a list of unreviewed pages.',
 	'revreview-text2'      => "''[[{{MediaWiki:Validationpage}}|Stable versions]] are checked revisions of pages and can be set as the default content for viewers.''",
 	'revreview-toolow'     => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
 To depreciate a revision, set all fields to "unapproved".',
-	'revreview-flag'       => 'Review this revision',
+	'revreview-flag'       => 'Review this revision', // Optional variable $1: RevisionId
 	'revreview-legend'     => 'Rate revision content',
 	'revreview-notes'      => 'Observations or notes to display:',
 	'revreview-accuracy'   => 'Accuracy',
