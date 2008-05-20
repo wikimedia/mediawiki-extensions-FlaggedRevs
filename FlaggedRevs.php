@@ -220,6 +220,10 @@ $wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
 # Load stableversions UI
 $wgSpecialPages['StableVersions'] = 'StableVersions';
 $wgAutoloadClasses['StableVersions'] = $dir . 'FlaggedRevsPage.php';
+# Stable version config
+$wgSpecialPages['Stabilization'] = 'Stabilization';
+$wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
+
 # Load unreviewed pages list
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 $wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
@@ -229,18 +233,19 @@ $wgAutoloadClasses['OldReviewedPages'] = $dir . 'FlaggedRevsPage.php';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Load stable pages list
 $wgSpecialPages['StablePages'] = 'StablePages';
 $wgAutoloadClasses['StablePages'] = $dir . 'FlaggedRevsPage.php';
-# Stable version config
-$wgSpecialPages['Stabilization'] = 'Stabilization';
-$wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPageGroups['StablePages'] = 'quality';
 # To oversee quality revisions
 $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 $wgAutoloadClasses['QualityOversight'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPageGroups['QualityOversight'] = 'quality';
 # To oversee depreciations
 $wgSpecialPages['DepreciationOversight'] = 'DepreciationOversight';
 $wgAutoloadClasses['DepreciationOversight'] = $dir . 'FlaggedRevsPage.php';
+$wgSpecialPageGroups['DepreciationOversight'] = 'quality';
 
 # Remove stand-alone patrolling
 $wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';

@@ -263,6 +263,8 @@ No configuration is possible.',
 	'flaggedrevs-prefs-watch'  => 'Add pages I review to my watchlist',
 	'flaggedrevs-pref-UI-0'    => 'Use detailed stable version user interface',
 	'flaggedrevs-pref-UI-1'    => 'Use simple stable version user interface',
+	
+	'specialpages-group-quality' => 'Quality assurance',
 );
 
 /** Afrikaans (Afrikaans)
