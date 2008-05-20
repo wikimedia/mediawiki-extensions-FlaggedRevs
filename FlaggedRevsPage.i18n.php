@@ -1307,9 +1307,9 @@ $messages['de'] = array(
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Version|Versionen}}] {{plural:$3|steht|stehen}} noch zur Sichtung an.',
 	'revreview-newest-basic-i'    => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] noch zur Sichtung an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] stehen noch zur Sichtung an.',
 	'revreview-newest-quality-i'  => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] noch zur Sichtung an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] stehen noch zur Sichtung an.',
 
 	'revreview-basic'             => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version.
 	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Sichtung an.',
@@ -1496,6 +1496,8 @@ $messages['de'] = array(
 	'flaggedrevs-prefs-watch'  => 'Selbst markierte Seiten automatisch beobachten',
 	'flaggedrevs-pref-UI-0'    => 'Benutze für markierte Versionen die detaillierte Benutzerschnittstelle',
 	'flaggedrevs-pref-UI-1'    => 'Benutze für markierte Versionen die einfache Benutzerschnittstelle',
+
+	'specialpages-group-quality' => 'Qualitätssicherung',
 );
 
 /** Greek (Ελληνικά)
