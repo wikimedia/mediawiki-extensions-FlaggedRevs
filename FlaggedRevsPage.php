@@ -304,6 +304,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Hack, versioning params
 		$form .= Xml::hidden( 'templateParams', $this->templateParams ) . "\n";
 		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
+		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
 		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $rev->getId() );
