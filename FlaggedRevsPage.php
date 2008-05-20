@@ -1246,7 +1246,7 @@ class ReviewedPages extends SpecialPage
 		$this->skin = $wgUser->getSkin();
 
 		# Check if there is a featured level
-		$maxType = $wgFlaggedRevPristine <= $wgFlaggedRevValues ? 2 : 1;
+		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
 		$this->type = $wgRequest->getInt( 'level' );
 		$this->type = $this->type <= $maxType ? $this->type : 0;
 		
