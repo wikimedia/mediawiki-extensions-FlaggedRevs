@@ -217,7 +217,7 @@ class RevisionReview extends UnlistedSpecialPage
 			PatrolLog::record( $this->rcid );
 		}
 		# Inform the user
-		$wgOut->addWikiText( wfMsgNoTrans( 'revreview-patrolled', $this->page->getPrefixedText() ) );
+		$wgOut->addWikiText( wfMsgExt( 'revreview-patrolled', array('parseinline'), $this->page->getPrefixedText() ) );
 		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 	}
 
@@ -370,7 +370,7 @@ class RevisionReview extends UnlistedSpecialPage
 			# Show success message
 			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
 			$wgOut->addHtml( "<div class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
-				$this->page->getPrefixedText() ) );
+				$this->page->getPrefixedText(), $this->page->getPrefixedUrl() ) );
 			if( $wgFlaggedRevsOverride ) {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>' );
 			} else {
@@ -381,7 +381,6 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->addHtml( '<p>'.wfMsgExt( $msg, array('parseinline'), $this->page->getPrefixedUrl(), $id ).'</p>' );
 			$wgOut->addHtml( "</div>" );
 
-			$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 			if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'OldReviewedPages' ) );

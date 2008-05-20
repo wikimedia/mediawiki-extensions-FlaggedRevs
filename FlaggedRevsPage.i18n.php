@@ -159,8 +159,8 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-approved'   => 'Approved',
 	'revreview-submit'     => 'Submit review',
 	
-	'revreview-successful' => "'''Selected revision of [[:$1|$1]] successfully flagged and marked in recent changes.'''",
-	'revreview-stable1'    => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] or the [{{fullurl:$1|stable=1}} stable version] of this page.',
+	'revreview-successful' => "'''Selected revision of [[:$1|$1]] successfully flagged. ([{{fullurl:Special:Stableversions|page=$2}} view all flagged versions])'''",
+	'revreview-stable1'    => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] to see if it is now the [{{fullurl:$1|stable=1}} stable version] of this page.',
 	'revreview-successful2' => "'''Selected revision of [[:$1|$1]] successfully unflagged.'''",
 	'revreview-stable2'    => 'You may want to view the [{{fullurl:$1|stable=1}} stable version] of this page (if there still is one).',
 	'revreview-changed'    => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
