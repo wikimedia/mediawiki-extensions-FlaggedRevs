@@ -2034,7 +2034,7 @@ class FlaggedRevs {
 		}
 		# Do not re-add status if it was previously removed!
 		$p = self::getUserParams( $user );
-		if( isset($params['demoted']) && $params['demoted'] ) {
+		if( isset($p['demoted']) && $p['demoted'] ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
