@@ -1246,6 +1246,7 @@ class ReviewedPages extends SpecialPage
 
 		# Check if there is a featured level
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
+		$this->namespace = $wgRequest->getInt( 'namespace' );
 		$this->type = $wgRequest->getInt( 'level' );
 		$this->type = $this->type <= $maxType ? $this->type : 0;
 		
@@ -1254,12 +1255,16 @@ class ReviewedPages extends SpecialPage
 	}
 
 	function showForm() {
-		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevValues, $wgFlaggedRevPristine;
+		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
 
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsg('reviewedpages-leg')."</legend>\n";
-
+		
+		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+			$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . 
+				FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
+		}
 		$form .= FlaggedRevsXML::getLevelMenu( $this->type );
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
@@ -1272,7 +1277,7 @@ class ReviewedPages extends SpecialPage
 	function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 
-		$pager = new ReviewedPagesPager( $this, array(), $this->type );
+		$pager = new ReviewedPagesPager( $this, array(), $this->type, $this->namespace );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -1311,12 +1316,20 @@ class ReviewedPages extends SpecialPage
  * Query to list out stable versions for a page
  */
 class ReviewedPagesPager extends AlphabeticPager {
-	public $mForm, $mConds;
+	public $mForm, $mConds, $namespace, $type;
 
 	function __construct( $form, $conds = array(), $type=0, $namespace=0 ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->type = $type;
+		# Must be a content page...
+		global $wgFlaggedRevsNamespaces;
+		if( !is_null($namespace) ) {
+			$namespace = intval($namespace);
+		}
+		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		}
 		$this->namespace = $namespace;
 
 		parent::__construct();
@@ -1328,11 +1341,9 @@ class ReviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		# Reviewable pages only (moves can make oddities, so check here)
-		global $wgFlaggedRevsNamespaces;
-		$conds['page_namespace'] = $wgFlaggedRevsNamespaces;
 		$conds[] = 'page_id = fp_page_id';
 		$conds['fp_quality'] = $this->type;
+		$conds['page_namespace'] = $this->namespace;
 		return array(
 			'tables' => array('flaggedpages','page'),
 			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
@@ -1353,19 +1364,38 @@ class StablePages extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
-
+        global $wgRequest, $wgUser;
+		
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		
+		$this->namespace = $wgRequest->getInt( 'namespace' );
+		
+		$this->showForm();
 		$this->showPageList();
+	}
+	
+	function showForm() {
+		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
+
+		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+			$form = Xml::openElement( 'form',
+				array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
+			$form .= "<fieldset><legend>".wfMsg('stablepages')."</legend>\n";
+			$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . 
+				FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
+			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
+			$form .= "</fieldset></form>\n";
+			$wgOut->addHTML( $form );
+		}
 	}
 
 	function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 
 		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parse') ) );
-		$pager = new StablePagesPager( $this, array() );
+		$pager = new StablePagesPager( $this, array(), $this->namespace );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
@@ -1400,12 +1430,20 @@ class StablePages extends SpecialPage
  * Query to list out stable versions for a page
  */
 class StablePagesPager extends AlphabeticPager {
-	public $mForm, $mConds;
+	public $mForm, $mConds, $namespace;
 
-	function __construct( $form, $conds = array() ) {
+	function __construct( $form, $conds = array(), $namespace=0 ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
-
+		# Must be a content page...
+		global $wgFlaggedRevsNamespaces;
+		if( !is_null($namespace) ) {
+			$namespace = intval($namespace);
+		}
+		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		}
+		$this->namespace = $namespace;
 		parent::__construct();
 	}
 
@@ -1417,6 +1455,7 @@ class StablePagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
 		$conds['fpc_override'] = 1;
+		$conds['page_namespace'] = $this->namespace;
 		return array(
 			'tables' => array('flaggedpage_config','page'),
 			'fields' => 'page_namespace,page_title,fpc_expiry,fpc_page_id',
