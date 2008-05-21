@@ -2021,7 +2021,7 @@ class FlaggedRevs {
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
 		global $wgFlaggedRevsAutopromote, $wgMemc;
 
-		if( empty($wgFlaggedRevsAutopromote) )
+		if( empty($wgFlaggedRevsAutopromote) || !$rev )
 			return true;
 
 		wfProfileIn( __METHOD__ );
