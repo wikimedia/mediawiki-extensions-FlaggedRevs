@@ -2,8 +2,10 @@
 
 define( 'BATCH_SIZE', 25 );
 
-function update_autopromote( $db ) {
+function update_autopromote() {
+	global $wgContentNamespaces, $wgFlaggedRevsAutopromote;
 	echo "Populating and updating autopromote table\n";
+	$db = wfGetDB( DB_SLAVE );
 	$start = $db->selectField( 'user', 'MIN(user_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'user', 'MAX(user_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
