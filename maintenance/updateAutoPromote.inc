@@ -1,11 +1,13 @@
 <?php
 
-define( 'BATCH_SIZE', 25 );
-
 function update_autopromote() {
 	global $wgContentNamespaces, $wgFlaggedRevsAutopromote;
 	echo "Populating and updating autopromote table\n";
+	
+	$BATCH_SIZE = 25;
+	
 	$db = wfGetDB( DB_SLAVE );
+	
 	$start = $db->selectField( 'user', 'MIN(user_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'user', 'MAX(user_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
@@ -13,9 +15,9 @@ function update_autopromote() {
 		return;
 	}
 	# Do remaining chunk
-	$end += BATCH_SIZE - 1;
+	$end += $BATCH_SIZE - 1;
 	$blockStart = $start;
-	$blockEnd = $start + BATCH_SIZE - 1;
+	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$changed = 0;
 	while( $blockEnd <= $end ) {
@@ -64,8 +66,8 @@ function update_autopromote() {
 			$count++;
 		}
 		$db->freeResult( $res );
-		$blockStart += BATCH_SIZE - 1;
-		$blockEnd += BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE - 1;
+		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
 	echo "autopromote table update complete ... {$count} rows [{$changed} changed or added]\n";
