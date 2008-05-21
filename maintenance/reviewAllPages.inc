@@ -1,7 +1,5 @@
 <?php
 
-define( 'BATCH_SIZE', 50 );
-
 function autoreview_current( $user, $db ) {
 	global $wgFlaggedRevsNamespaces;
 	echo "Auto-reviewing all current page versions...\n";
@@ -9,6 +7,7 @@ function autoreview_current( $user, $db ) {
 		echo( "Invalid user specified!" );
 		exit(0);
 	}
+	$BATCH_SIZE = 50;
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
@@ -16,9 +15,9 @@ function autoreview_current( $user, $db ) {
 		return;
 	}
 	# Do remaining chunk
-	$end += BATCH_SIZE - 1;
+	$end += $BATCH_SIZE - 1;
 	$blockStart = $start;
-	$blockEnd = $start + BATCH_SIZE - 1;
+	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$changed = 0;
 	while( $blockEnd <= $end ) {
@@ -48,8 +47,8 @@ function autoreview_current( $user, $db ) {
 			$count++;
 		}
 		$db->freeResult( $res );
-		$blockStart += BATCH_SIZE - 1;
-		$blockEnd += BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE - 1;
+		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
 	echo "Auto-reviewing of all pages complete ... {$count} rows [{$changed} changed]\n";
