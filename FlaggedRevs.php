@@ -515,7 +515,7 @@ class FlaggedRevs {
 		$wgParser->fr_includesMatched = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
-		$options->setEditSection( $id == $title->getLatestRevID(GAID_FOR_UPDATE) );
+		#$options->setEditSection( $id == $title->getLatestRevID(GAID_FOR_UPDATE) );
 		# Parse the new body, wikitext -> html
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 		$parserOut->fr_includesMatched = $wgParser->fr_includesMatched;
