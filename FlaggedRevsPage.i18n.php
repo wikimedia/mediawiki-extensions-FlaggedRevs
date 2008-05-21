@@ -1861,6 +1861,7 @@ $messages['fi'] = array(
  * @author Siebrand
  * @author IAlex
  * @author Urhixidur
+ * @author Cedric31
  * @author ChrisPtDe
  */
 $messages['fr'] = array(
@@ -2604,6 +2605,7 @@ $messages['hi'] = array(
 	'flaggedrevs-prefs-watch'      => 'मैंने जाँचे हुए पन्ने मेरी ध्यानसूची में डालें',
 	'flaggedrevs-pref-UI-0'        => 'इंटरफेस में बढाया हुआ स्थिर अवतरणका इस्तेमाल करें',
 	'flaggedrevs-pref-UI-1'        => 'इंटरफेस में सीधे स्थिर अवतरणका इस्तेमाल करें',
+	'specialpages-group-quality'   => 'गुणवत्ता नियंत्रण',
 );
 
 /** Croatian (Hrvatski)
@@ -4632,6 +4634,7 @@ $messages['mr'] = array(
 	'flaggedrevs-prefs-watch'      => 'मी तपासलेली पाने माझ्या पहार्‍याच्या सूचीत टाका',
 	'flaggedrevs-pref-UI-0'        => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा',
 	'flaggedrevs-pref-UI-1'        => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा',
+	'specialpages-group-quality'   => 'गुणवत्ता वचन',
 );
 
 /** Erzya (эрзянь кель)
@@ -4798,8 +4801,8 @@ Stel alle velden in op "niet goedgekeurd" om de waardering van een versie te ver
 	'revreview-log'                => 'Opmerking:',
 	'revreview-approved'           => 'Goedgekeurd',
 	'revreview-submit'             => 'Beoordeling opslaan',
-	'revreview-successful'         => "'''De aangegeven versie van [[:$1|$1]] wordt als gecontroleerd aangegeven in de recente wijzigingen.'''",
-	'revreview-stable1'            => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] of de [{{fullurl:$1|stable=1}} stabiele versie] bekijken.',
+	'revreview-successful'         => "'''De aangegeven versie van [[:$1|$1]] is gecontroleerd. ([{{fullurl:Special:Stableversions|page=$2}} alle gecontroleerde versies bekijken])'''",
+	'revreview-stable1'            => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} stabiele versie] is.',
 	'revreview-successful2'        => "'''De geselecteerde versie van [[:$1|$1]] is als niet stabiel aangemerkt.'''",
 	'revreview-stable2'            => 'Wellicht wilt u de [{{fullurl:$1|stable=1}} stabiele versie] van deze pagina bekijken (als die er nog is).',
 	'revreview-changed'            => "'''De gevraagde actie kon niet uitgevoerd worden voor deze versie van [[:$1|$1]].'''
@@ -4890,6 +4893,7 @@ Instellen is niet mogelijk.',
 	'flaggedrevs-prefs-watch'      => "Pagina's waar ik eindredactie voor doe aan mijn volglijst toevoegen",
 	'flaggedrevs-pref-UI-0'        => 'Gedetailleerde gebruikersinterface voor stabiele versies gebruiken',
 	'flaggedrevs-pref-UI-1'        => 'Eenvoudige gebruikersinterface voor stabiele versies gebruiken',
+	'specialpages-group-quality'   => 'Kwaliteitscontrole',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -5222,6 +5226,7 @@ Un modèl o un imatge pòt èsser estat demandat alara que cap de version precis
 	'flaggedrevs-prefs-watch'      => "Ajusta las paginas qu'ai revistas a ma lista de seguit.",
 	'flaggedrevs-pref-UI-0'        => "Utilizar l’interfàcia d'utilizaire de la version establa detalhada",
 	'flaggedrevs-pref-UI-1'        => "Utilizar una simpla interfàcia d'utilizaire establa",
+	'specialpages-group-quality'   => 'Assegurança de qualitat',
 );
 
 /** Polish (Polski)
@@ -5778,10 +5783,18 @@ $messages['ru'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|требует|требуют|требуют}} проверки.',
 	'revreview-newest-quality'     => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя выверенная версия] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]) была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} отмечена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|правка|правки|правок}}] {{plural:$3|требует|требуют|требуют}} проверки.',
+	'revreview-newest-basic-i'     => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя досмотренная версия] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
+Требуется проверка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} изменений в шаблонах или изображениях].',
+	'revreview-newest-quality-i'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя выверенная версия] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
+Требуется проверка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} изменений в шаблонах или изображениях].',
 	'revreview-basic'              => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|правка|правки|правок}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновика] {{plural:$3|ожидает|ожидают|ожидают}} проверки.',
 	'revreview-quality'            => 'Это последняя [[{{MediaWiki:Validationpage}}|выверенная]] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|правка|правки|правок}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновика] {{plural:$3|ожидает|ожидают|ожидают}} проверки.',
+	'revreview-basic-i'            => 'Это последняя [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} досмотренная] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
+В [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновике] есть требующие проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}изменения в шаблонах или изображениях].',
+	'revreview-quality-i'          => 'Это последняя [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} выверенная] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
+В [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновике] есть требующие проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}изменения в шаблонах или изображениях].',
 	'revreview-basic-same'         => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-quality-same'       => 'Это последняя [[{{MediaWiki:Validationpage}}|выверенная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-basic-old'          => 'Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
@@ -5789,18 +5802,26 @@ $messages['ru'] = array(
 	'revreview-quality-old'        => 'Это [[{{MediaWiki:Validationpage}}|выверенная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
 Могли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} правки].',
 	'revreview-toggle-title'       => 'показать/скрыть подробности',
+	'revreview-draft-title'        => 'Черновик статьи',
+	'revreview-stable-title'       => 'Досмотренная статья',
+	'revreview-quality-title'      => 'Выверенная статья',
 	'revreview-note'               => '[[Участник:$1]] сделал следующее замечание, [[{{MediaWiki:Validationpage}}|проверяя]] эту версию:',
 	'revreview-basic-source'       => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>, была основана на этой версии.',
 	'revreview-quality-source'     => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Выверенная версия] этой страницы, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>, была основана на этой версии.',
 	'revreview-update'             => "Пожалуйста, [[{{MediaWiki:Validationpage}}|проверьте]] правки ''(показаны ниже)'', сделанные после [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} установки] стабильной версии.<br />
 '''Некоторые шаблоны или изображения были обновлены:'''",
 	'revreview-update-none'        => "Пожалуйста, [[{{MediaWiki:Validationpage}}|проверьте]] правки ''(показаны ниже)'', сделанные после [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} установки] стабильной версии.",
+	'revreview-update-includes'    => "'''Некоторые шаблоны или изображения были обновлены:'''",
+	'revreview-update-use'         => "'''ЗАМЕЧАНИЕ.''' Если какой-либо из этих шаблонов или изображений имеет стабильную версию, то она уже используется в стабильной версии этой страницы.",
 	'revreview-auto'               => '(автоматически)',
 	'revreview-auto-w'             => "Вы правите стабильную версию, изменения будут '''автоматически отмечены как проверенные'''.",
 	'revreview-auto-w-old'         => "Вы правите проверенную версию, изменения будут '''автоматически отмечены как проверенные'''.",
 	'revreview-patrolled'          => 'Выбранная версия [[:$1|$1]] была отмечена как патрулированная.',
+	'hist-draft'                   => 'черновая версия',
 	'hist-stable'                  => 'досмотренная версия',
 	'hist-quality'                 => 'выверенная версия',
+	'hist-stable-user'             => '[{{fullurl:$1|stableid=$2}} досмотрена] участником [[User:$3|$3]]',
+	'hist-quality-user'            => '[{{fullurl:$1|stableid=$2}} выверена] участником [[User:$3|$3]]',
 	'flaggedrevs'                  => 'Отмеченные версии',
 	'review-logpage'               => 'Журнал проверок',
 	'review-logpagetext'           => 'Это журнал изменений [[{{MediaWiki:Validationpage}}|утверждённых]] статусов версий страниц.
@@ -5820,84 +5841,119 @@ $messages['ru'] = array(
 См. список непроверенных страниц на [[Special:Unreviewedpages]].',
 	'revreview-selected'           => "Выбранная версия '''$1:'''",
 	'revreview-text'               => "''По умолчанию установлен показ [[{{MediaWiki:Validationpage}}|стабильных версий]] страниц, а не наиболее новых.''",
-	'revreview-toolow'             => 'Вы должны указать для всех значений уровень выше, чем «неподтверждённая», чтобы версия страницы считалась отрецензированной. Чтобы сбросить флаг рецензирования, установите все значения в «неподтверждённая».',
-	'revreview-flag'               => 'Рецензировать эту версию',
+	'revreview-text2'              => "''[[{{MediaWiki:Validationpage}}|Стабильные версии]] — это проверенные версии страниц, могут быть установлены для показа по умолчанию.''",
+	'revreview-toolow'             => 'Вы должны указать для всех значений уровень выше, чем «не указана», чтобы версия страницы считалась проверенной. Чтобы сбросить флаг проверки, установите все значения в «не указана».',
+	'revreview-flag'               => 'Проверить эту версию',
 	'revreview-legend'             => 'Оценки содержания версии',
 	'revreview-notes'              => 'Наблюдения и замечания для отображения:',
 	'revreview-accuracy'           => 'Точность',
-	'revreview-accuracy-0'         => 'неподтверждённая',
+	'revreview-accuracy-0'         => 'не указана',
 	'revreview-accuracy-1'         => 'досмотрена',
 	'revreview-accuracy-2'         => 'точная',
 	'revreview-accuracy-3'         => 'с источниками',
 	'revreview-accuracy-4'         => 'избранная',
 	'revreview-depth'              => 'Полнота',
-	'revreview-depth-0'            => 'неподтверждённая',
+	'revreview-depth-0'            => 'не указана',
 	'revreview-depth-1'            => 'базовая',
 	'revreview-depth-2'            => 'средняя',
 	'revreview-depth-3'            => 'высокая',
 	'revreview-depth-4'            => 'избранная',
 	'revreview-style'              => 'Читаемость',
-	'revreview-style-0'            => 'неподтверждённая',
+	'revreview-style-0'            => 'не указана',
 	'revreview-style-1'            => 'приемлемая',
 	'revreview-style-2'            => 'хорошая',
 	'revreview-style-3'            => 'немногословно',
 	'revreview-style-4'            => 'избранная',
 	'revreview-log'                => 'Примечание:',
-	'revreview-submit'             => 'Отправить рецензию',
+	'revreview-approved'           => 'Проверена',
+	'revreview-submit'             => 'Отправить проверку',
+	'revreview-successful'         => "'''Выбранная версия [[:$1|$1]] успешно отмечена. Пометка будет видна в свежих правках.'''",
+	'revreview-stable1'            => 'Возможно, вы хотите просмотреть [{{fullurl:$1|stableid=$2}} эту отмеченную версию] или [{{fullurl:$1|stable=1}} стабильную версию] этой страницы.',
+	'revreview-successful2'        => "'''С выбранной версии [[:$1|$1]] успешно снята пометка.'''",
+	'revreview-stable2'            => 'Возможно, вы хотите просмотреть эту [{{fullurl:$1|stable=1}} стабильную версию] этой страницы (если таковая существует).',
 	'revreview-changed'            => "'''Запрошенное действие не может быть выполнено с этой версией страницы [[:$1|$1]].'''
 
-Возможно, шаблон или изображение были запрошены без указания конкретной версии. Это могло случиться, если динамический шаблон включает другой шаблон или изображение, зависящие от переменной, которая изменилась с момента начала рецензирования.
-Обновите страницу и начните рецензирование заново, это может снять проблему.",
+Возможно, шаблон или изображение были запрошены без указания конкретной версии.
+Это могло случиться, если динамический шаблон включает другой шаблон или изображение, зависящие от переменной, которая изменилась с момента начала проверки.
+Обновите страницу и начните проверку заново, это может снять проблему.",
 	'stableversions'               => 'Просмотреть чистовые версии',
-	'stableversions-leg1'          => 'Список отрецензированных версий страницы',
+	'stableversions-leg1'          => 'Список проверенных версий страницы',
 	'stableversions-page'          => 'Название страницы:',
-	'stableversions-none'          => '«[[:$1]]» не имеет выверенных версий.',
-	'stableversions-list'          => 'Следующие версии страницы «[[:$1]]» были отрецензированны:',
-	'stableversions-review'        => 'Отрецензированна <i>$1</i> участником $2',
-	'review-diff2stable'           => 'Просмотреть различия между чистовой и текущей версиями',
-	'unreviewedpages'              => 'Неотрецензированные страницы',
+	'stableversions-none'          => '«[[:$1]]» не имеет проверенных версий.',
+	'stableversions-list'          => 'Следующие версии страницы «[[:$1]]» были проверены:',
+	'stableversions-review'        => 'Проверена <i>$1</i> участником $2',
+	'review-diff2stable'           => 'Показать различия между стабильной и текущей версиями',
+	'unreviewedpages'              => 'Непроверенные страницы',
+	'unreviewed-legend'            => 'Список непроверенных страниц',
 	'unreviewed-category'          => 'Категори:',
-	'unreviewed-diff'              => 'изменения',
-	'unreviewed-list'              => 'На этой странице перечислены статьи, которые не были отрецензированны, или имеют новые, неотрецензированные версии.',
-	'revreview-visibility'         => 'Эта страница имеет [[{{MediaWiki:Validationpage}}|чистовую версию]], которая может быть 
-[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].',
+	'unreviewed-diff'              => 'проверить',
+	'unreviewed-unwatched'         => '(не следят)',
+	'unreviewed-watched'           => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
+	'unreviewed-list'              => 'На этой странице перечислены непроверенные статьи.',
+	'unreviewed-none'              => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
+	'oldreviewedpages'             => 'Устаревшие проверенные страницы',
+	'oldreviewedpages-legend'      => 'Список проверенных страниц с непроверенными версиями',
+	'oldreviewedpages-list'        => 'На этой странице перечислены проверенные страницы, которые в дальнейшем правились',
+	'oldreviewedpages-none'        => 'В настоящее время нет страниц, удовлетворяющих этим условиям',
+	'oldreviewedpages-stable'      => 'досмотрена',
+	'oldreviewedpages-quality'     => 'выверена',
+	'oldreviewedpages-hours'       => '($1 {{PLURAL:$1|час|часа|часов}})',
+	'oldreviewedpages-days'        => '($1 {{PLURAL:$1|день|дня|дней}})',
+	'oldreviewedpages-recent'      => '(менее 1 часа)',
+	'revreview-visibility'         => "'''Эта страница имеет [[{{MediaWiki:Validationpage}}|стабильную версию]], которая может быть [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].'''",
 	'stabilization'                => 'Стабилизация страницы',
-	'stabilization-text'           => "'''Настройками ниже можно управлять выбором и отображением стабильной версии страницы [[:$1|$1]].'''",
+	'stabilization-text'           => "'''С помощью приведённых ниже настроек можно управлять выбором и отображением стабильной версии страницы [[:$1|$1]].'''",
 	'stabilization-perm'           => 'Вашей учётной записи не хватает прав, чтобы изменять настройки показа стабильной версии.
 Здесь приведены текущие настройки для [[:$1|$1]]:',
-	'stabilization-page'           => 'Имя страницы:',
-	'stabilization-leg'            => 'Настроить чистовую версию страницы',
-	'stabilization-select'         => 'Как выбирается чистовая версия',
+	'stabilization-page'           => 'Название страницы:',
+	'stabilization-leg'            => 'Подтверждение настроек стабильной версии',
+	'stabilization-select'         => 'Выбор стабильной версии',
 	'stabilization-select1'        => 'Самая свежая выверенная версия; если её нет, то самая свежая из досмотренных.',
-	'stabilization-select2'        => 'Самая свежая из досмотренных и выверенных версий',
+	'stabilization-select2'        => 'Последняя проверенная версия',
+	'stabilization-select3'        => 'Последняя нетронутая версия; если нет, то последняя выверенная или досмотренная',
 	'stabilization-def'            => 'Версия, показываемая по умолчанию',
-	'stabilization-def1'           => 'Чистовая версия; если нет, то текущая',
+	'stabilization-def1'           => 'Стабильная версия; если нет, то текущая',
 	'stabilization-def2'           => 'Текущая версия',
 	'stabilization-submit'         => 'Подтвердить',
 	'stabilization-notexists'      => 'Отсутствует страница с названием «[[:$1|$1]]». Настройка невозможна.',
-	'stabilization-notcontent'     => 'Страница «[[:$1|$1]]» не может быть отрецензирована. Настройка невозможна.',
+	'stabilization-notcontent'     => 'Страница «[[:$1|$1]]» не может быть проверена. Настройка невозможна.',
 	'stabilization-comment'        => 'Примечание:',
 	'stabilization-expiry'         => 'Истекает:',
 	'stabilization-sel-short'      => 'Порядок следования',
 	'stabilization-sel-short-0'    => 'Выверенная',
 	'stabilization-sel-short-1'    => 'Нет',
+	'stabilization-sel-short-2'    => 'Нетронутая',
 	'stabilization-def-short'      => 'По умолчанию',
 	'stabilization-def-short-0'    => 'Текущая',
-	'stabilization-def-short-1'    => 'Чистовая',
+	'stabilization-def-short-1'    => 'Стабильная',
 	'stabilize_expiry_invalid'     => 'Ошибочная дата истечения.',
 	'stabilize_expiry_old'         => 'Указанное время окончания действия уже прошло.',
 	'stabilize-expiring'           => 'истекает $1 (UTC)',
-	'reviewedpages'                => 'Отрецензированые страницы',
+	'reviewedpages'                => 'Проверенные страницы',
 	'reviewedpages-leg'            => 'Список страниц, получивших определённую оценку',
-	'reviewedpages-list'           => 'Следующие страницы были отрецензированы и оценены на указанный уровень',
-	'reviewedpages-none'           => 'В списке отсутствуют страницы',
-	'reviewedpages-lev-0'          => 'Досмотрена',
+	'reviewedpages-list'           => 'Следующие страницы были проверены и оценены на указанный уровень',
+	'reviewedpages-none'           => 'В данном списке отсутствуют страницы',
+	'reviewedpages-lev-0'          => 'Досмотренная',
 	'reviewedpages-lev-1'          => 'Выверенная',
 	'reviewedpages-lev-2'          => 'Избранная',
-	'reviewedpages-all'            => 'отрецензированные версии',
+	'reviewedpages-all'            => 'проверенные версии',
 	'reviewedpages-best'           => 'наилучшая версия',
+	'stablepages'                  => 'Стабильные страницы',
+	'stablepages-stable'           => 'стабильная версия',
+	'stablepages-text'             => 'Ниже показан список страниц, вручную настроенных на показ стабильной версии по умолчанию для читателей.',
+	'stablepages-none'             => 'В данном списке отсутствуют страницы',
+	'stablepages-config'           => 'Настройка',
+	'qualityoversight'             => 'Ревизор качества',
+	'qualityoversight-list'        => 'Эта страница содержит список недавних утверждений и снятий уровней качества версий.',
+	'depreciationoversight'        => 'Ревизор снятий',
+	'depreciationoversight-list'   => 'Эта страница содержит список недавних снятий версий.',
 	'rights-editor-autosum'        => 'автоназначение',
-	'rights-editor-revoke'         => 'снят статус редактора с [[$1]]',
+	'rights-editor-revoke'         => 'снял статус досматривающего с [[$1]]',
+	'flaggedrevs-prefs'            => 'Стабилизация',
+	'flaggedrevs-prefs-stable'     => 'Всегда показывать стабильную версию по умолчанию (если таковая существует)',
+	'flaggedrevs-prefs-watch'      => 'Добавлять проверенные мною страницы в список наблюдения',
+	'flaggedrevs-pref-UI-0'        => 'Использовать подробный интерфейс стабильных версий',
+	'flaggedrevs-pref-UI-1'        => 'Использовать простой интерфейс стабильных версий',
 );
 
 /** Yakut (Саха тыла)
@@ -6279,6 +6335,7 @@ Obnovením stránky a opätovnou kontrolou vyriešite tento problém.",
 	'flaggedrevs-prefs-watch'      => 'Pridať stránky, ktoré skontrolujem, do môjho zoznamu sledovaných',
 	'flaggedrevs-pref-UI-0'        => 'Používať podrobné používateľské rozhranie stabilných verzií',
 	'flaggedrevs-pref-UI-1'        => 'Používať jednoduché používateľské rozhranie stabilných verzií',
+	'specialpages-group-quality'   => 'Zaistenie kvality',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -6766,6 +6823,7 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'flaggedrevs-prefs-watch'      => 'Lägg till sidor jag granskar i min övervakningslista',
 	'flaggedrevs-pref-UI-0'        => 'Använd ett detaljerat gränssnitt för stabila versioner',
 	'flaggedrevs-pref-UI-1'        => 'Använd ett enkelt gränssnitt för stabila versioner',
+	'specialpages-group-quality'   => 'Kvalitetsförsäkring',
 );
 
 /** Silesian (ślůnski)
@@ -6796,6 +6854,7 @@ $messages['te'] = array(
 	'right-review'                 => 'కూర్పులను గమనించినట్లుగా గుర్తించు',
 	'right-autoreview'             => 'కూర్పులను గమనించినట్లుగా ఆటోమాటిగ్గా గుర్తించు',
 	'right-validate'               => 'కూర్పులను ధృవీకరించినట్లుగా గుర్తించు',
+	'right-unreviewedpages'        => 'సమీక్షించని పేజీల జాబితా',
 	'right-movestable'             => 'స్థిరమైన పేజీలను తరలించు',
 	'revreview-current'            => 'డ్రాఫ్టు',
 	'tooltip-ca-current'           => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
@@ -6823,6 +6882,7 @@ $messages['te'] = array(
 	'revreview-basic-same'         => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు, <i>$2</i> న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
 	'revreview-quality-same'       => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు, <i>$2</i> న [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
 	'revreview-toggle-title'       => 'వివరాలను చూపించు/దాచు',
+	'revreview-stable-title'       => 'కంటపడిన వ్యాసం',
 	'revreview-quality-title'      => 'నాణ్యమైన వ్యాసం',
 	'revreview-note'               => 'ఈ కూర్పుని [[{{MediaWiki:Validationpage}}|సమీక్షిస్తూ]], [[User:$1]] ఈ వ్యాఖ్యలు చేసారు:',
 	'revreview-update'             => "సుస్థిర కూర్పుని [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
@@ -6931,9 +6991,11 @@ $messages['te'] = array(
 	'reviewedpages-all'            => 'సమీక్షిత కూర్పులు',
 	'reviewedpages-best'           => 'అత్యున్నతంగా రేటు చేయబడిన చిట్టచివరి కూర్పు',
 	'stablepages'                  => 'స్థిరమైన పేజీలు',
+	'stablepages-none'             => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'rights-editor-autosum'        => 'ఆటోమాటిగ్గా పదోన్నతి చెయ్యబడ్డారు',
 	'rights-editor-revoke'         => '[[$1]] నుండి ఎడిటర్ హోదా తొలగించారు',
 	'flaggedrevs-prefs'            => 'స్థిరత్వం',
+	'flaggedrevs-prefs-watch'      => 'నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు',
 );
 
 /** Tetum (Tetun)
