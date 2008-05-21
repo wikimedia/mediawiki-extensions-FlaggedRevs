@@ -4,11 +4,9 @@
 require dirname(__FILE__) . '/../../../maintenance/commandLine.inc';
 require dirname(__FILE__) . '/updateLinks.inc';
 
-error_reporting( E_ALL & (~E_NOTICE) );
+error_reporting( E_ALL );
 
-$db = wfGetDB( DB_MASTER );
+update_flaggedrevs();
 
-update_flaggedrevs( $db );
-
-update_flaggedpages( $db );
+update_flaggedpages();
 

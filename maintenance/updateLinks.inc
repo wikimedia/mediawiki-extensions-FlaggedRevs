@@ -2,8 +2,9 @@
 
 define( 'BATCH_SIZE',500 );
 
-function update_flaggedrevs( $db ) {
+function update_flaggedrevs() {
 	echo "Populating and correcting flaggedrevs columns\n";
+	$db = wfGetDB( DB_MASTER );
 	$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'flaggedrevs', 'MAX(fr_rev_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
@@ -20,7 +21,8 @@ function update_flaggedrevs( $db ) {
 		echo "...doing fr_rev_id from $blockStart to $blockEnd\n";
 		$cond = "fr_rev_id BETWEEN $blockStart AND $blockEnd AND page_id = fr_rev_id";
 		$res = $db->select( array('flaggedrevs', 'page'),
-			array('fr_rev_id','fr_tags','fr_quality','fr_img_name','page_namespace','page_title'), 
+			array('fr_rev_id','fr_tags','fr_quality','page_namespace','page_title',
+				'fr_img_name','fr_img_timestamp','fr_img_sha1'), 
 			$cond, __FUNCTION__ );
 		# Go through and clean up missing items, as well as correct fr_quality...
 		foreach( $res as $row ) {
@@ -29,7 +31,7 @@ function update_flaggedrevs( $db ) {
 			if( FlaggedRevs::isPristine( $tags ) ) {
 				$quality = 2;
 			} else {
-				$quality = FlaggedRevs::isQuality( $tags ) ? : 1 : 0;
+				$quality = FlaggedRevs::isQuality( $tags ) ? 1 : 0;
 			}
 			$time = $sha1 = $file = null;
 			# Check for file version to see if stored the old way...
@@ -66,8 +68,9 @@ function update_flaggedrevs( $db ) {
 	echo "fr_quality and fr_img_* columns update complete ... {$count} rows [{$changed} changed]\n";
 }
 
-function update_flaggedpages( $db ) {
+function update_flaggedpages() {
 	echo "Populating and correcting flaggedpages columns\n";
+	$db = wfGetDB( DB_MASTER );
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
