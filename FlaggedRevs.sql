@@ -17,7 +17,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   PRIMARY KEY (fp_page_id),
   INDEX fp_reviewed_page (fp_reviewed,fp_page_id),
   INDEX fp_quality_page (fp_quality,fp_page_id)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
 
 -- This stores all of our rev reviews
 CREATE TABLE /*$wgDBprefix*/flaggedrevs (
@@ -28,15 +28,15 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   -- Foreign key to user.user_id
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
-  fr_comment mediumblob NOT NULL default '',
+  fr_comment mediumblob NOT NULL,
   -- Store the precedence level
   fr_quality tinyint(1) NOT NULL default 0,
   -- Store tag metadata as newline separated, 
   -- colon separated tag:value pairs
-  fr_tags mediumblob NOT NULL default '',
+  fr_tags mediumblob NOT NULL,
   -- Store the text with all transclusions resolved
   -- This will trade space for speed
-  fr_text mediumblob NOT NULL default '',
+  fr_text mediumblob NOT NULL,
   -- Comma-separated list of flags:
   -- gzip: text is compressed with PHP's gzdeflate() function.
   -- utf8: in UTF-8
@@ -53,7 +53,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
   PRIMARY KEY (fr_page_id,fr_rev_id),
   INDEX fr_img_sha1 (fr_img_sha1),
   INDEX page_qal_rev (fr_page_id,fr_quality,fr_rev_id)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
 
 -- This stores settings on how to select the default revision
 CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
@@ -69,7 +69,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
   
   PRIMARY KEY (fpc_page_id),
   INDEX (fpc_expiry)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
 
 -- This stores all of our transclusion revision pointers
 CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
@@ -81,7 +81,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
   ft_tmp_rev_id integer NULL,
   
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
 
 -- This stores all of our image revision pointers
 CREATE TABLE /*$wgDBprefix*/flaggedimages (
@@ -94,13 +94,13 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
   fi_img_sha1 varbinary(32) NOT NULL default '',
   
   PRIMARY KEY (fi_rev_id,fi_name)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
 
 -- This stores user demotions and stats
 CREATE TABLE /*$wgDBprefix*/flaggedrevs_promote (
   -- Foreign key to user.user_id
   frp_user_id integer NOT NULL,
-  frp_user_params mediumblob NOT NULL default '',
+  frp_user_params mediumblob NOT NULL,
   
   PRIMARY KEY (frp_user_id)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
