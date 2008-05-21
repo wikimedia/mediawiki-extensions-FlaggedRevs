@@ -5733,7 +5733,7 @@ Não é possível configurá-la.',
 );
 
 /** Russian (Русский)
- * @author .:Ajvol:.
+ * @author Александр Сигачёв
  * @author Siebrand
  * @author Drbug
  */
