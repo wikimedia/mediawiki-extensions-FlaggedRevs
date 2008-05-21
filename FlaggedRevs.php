@@ -19,7 +19,7 @@ if( !defined('FLAGGED_VIS_PRISTINE') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.06',
+	'version' => '1.061',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -1964,7 +1964,7 @@ class FlaggedRevs {
 			# Check for new pages
 			} else if( !$prevRevID ) {
 				global $wgFlaggedRevsAutoReviewNew;
-				$reviewableNewPage = $wgFlaggedRevsAutoReviewNew;
+				$reviewableNewPage = ($wgFlaggedRevsAutoReviewNew && $user->isAllowed('review'));
 			}
 		}
 		# Is this an edit directly to the stable version?
