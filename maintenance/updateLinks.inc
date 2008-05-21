@@ -21,7 +21,7 @@ function update_flaggedrevs() {
 	$changed = 0;
 	while( $blockEnd <= $end ) {
 		echo "...doing fr_rev_id from $blockStart to $blockEnd\n";
-		$cond = "fr_rev_id BETWEEN $blockStart AND $blockEnd AND page_id = fr_rev_id";
+		$cond = "fr_rev_id BETWEEN $blockStart AND $blockEnd AND page_id = fr_page_id";
 		$res = $db->select( array('flaggedrevs', 'page'),
 			array('fr_rev_id','fr_tags','fr_quality','page_namespace','page_title',
 				'fr_img_name','fr_img_timestamp','fr_img_sha1'), 
@@ -43,9 +43,9 @@ function update_flaggedrevs() {
 					array( 'fi_rev_id' => $row->fr_rev_id,
 						'fi_name' => $row->page_title ),
 					__METHOD__ );
-				$time = $row ? $row->fr_img_timestamp : null;
-				$sha1 = $row ? $row->fr_img_sha1 : null;
-				$file = $row ? $row->page_title : null;
+				$time = $irow ? $irow->fi_img_timestamp : null;
+				$sha1 = $irow ? $irow->fi_img_sha1 : null;
+				$file = $irow ? $row->page_title : null;
 			}
 			if( $file && ($file != $row->fr_img_name || $time != $row->fr_img_timestamp || $sha1 != $row->fr_img_sha1) ) {
 				$changed++;
