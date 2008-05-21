@@ -1933,7 +1933,7 @@ class FlaggedRevs {
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $title, $rev, $baseRevId = false ) {
+	public static function maybeMakeEditReviewed( $title, $rev, $baseRevID = false ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
@@ -1946,7 +1946,7 @@ class FlaggedRevs {
 		$frev = null;
 		$reviewableNewPage = false;
 		# Get the revision ID the incoming one was based off
-		$baseRevID = $baseRevId ? $baseRevId : $wgRequest->getIntOrNull('baseRevId');
+		$baseRevID = $baseRevID ? $baseRevID : $wgRequest->getIntOrNull('baseRevId');
 		# Get what was just the current revision ID
 		$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 		# If baseRevId not given, assume the previous revision ID
