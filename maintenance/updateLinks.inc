@@ -1,10 +1,12 @@
 <?php
 
-define( 'BATCH_SIZE',500 );
-
 function update_flaggedrevs() {
 	echo "Populating and correcting flaggedrevs columns\n";
+	
+	$BATCH_SIZE = 500;
+	
 	$db = wfGetDB( DB_MASTER );
+	
 	$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'flaggedrevs', 'MAX(fr_rev_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
@@ -12,9 +14,9 @@ function update_flaggedrevs() {
 		return;
 	}
 	# Do remaining chunk
-	$end += BATCH_SIZE - 1;
+	$end += $BATCH_SIZE - 1;
 	$blockStart = $start;
-	$blockEnd = $start + BATCH_SIZE - 1;
+	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$changed = 0;
 	while( $blockEnd <= $end ) {
@@ -41,8 +43,8 @@ function update_flaggedrevs() {
 					array( 'fi_rev_id' => $row->fr_rev_id,
 						'fi_name' => $row->page_title ),
 					__METHOD__ );
-				$time = $row ? $row->fi_img_timestamp : null;
-				$sha1 = $row ? $row->fi_img_sha1 : null;
+				$time = $row ? $row->fr_img_timestamp : null;
+				$sha1 = $row ? $row->fr_img_sha1 : null;
 				$file = $row ? $row->page_title : null;
 			}
 			if( $file && ($file != $row->fr_img_name || $time != $row->fr_img_timestamp || $sha1 != $row->fr_img_sha1) ) {
@@ -61,8 +63,8 @@ function update_flaggedrevs() {
 			$count++;
 		}
 		$db->freeResult( $res );
-		$blockStart += BATCH_SIZE - 1;
-		$blockEnd += BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE - 1;
+		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
 	echo "fr_quality and fr_img_* columns update complete ... {$count} rows [{$changed} changed]\n";
@@ -70,7 +72,11 @@ function update_flaggedrevs() {
 
 function update_flaggedpages() {
 	echo "Populating and correcting flaggedpages columns\n";
+	
+	$BATCH_SIZE = 500;
+	
 	$db = wfGetDB( DB_MASTER );
+	
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
@@ -78,9 +84,9 @@ function update_flaggedpages() {
 		return;
 	}
 	# Do remaining chunk
-	$end += BATCH_SIZE - 1;
+	$end += $BATCH_SIZE - 1;
 	$blockStart = $start;
-	$blockEnd = $start + BATCH_SIZE - 1;
+	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$deleted = 0;
 	while( $blockEnd <= $end ) {
@@ -99,15 +105,15 @@ function update_flaggedpages() {
 			# Somethings broke? Delete the row...
 			} else {
 				$db->delete( 'flaggedpages', 
-					array( 'fp_page_id' => $row->fp_page_id ),
+					array( 'fp_page_id' => $row->page_id ),
 					__FUNCTION__ );
 				if( $db->affectedRows() > 0 )
 					$deleted++;
 			}
 			$count++;
 		}
-		$blockStart += BATCH_SIZE - 1;
-		$blockEnd += BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE - 1;
+		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
 	echo "flaggedpage columns update complete ... {$count} rows [{$deleted} deleted]\n";
