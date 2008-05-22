@@ -294,7 +294,7 @@ function efLoadFlaggedRevs() {
 	$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
 	# Auto-reviewing
 	$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
-	$wgHooks['newRevisionFromEditComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
+	$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
 	# Disallow moves of stable pages
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 	$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -1243,19 +1243,19 @@ class FlaggedRevs {
 		}
 		$tmpset = $imgset = array();
 		$poutput = false;
+
 		# Use master to avoid lag issues.
 		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		$latestID = $latestID ? $latestID : $rev->getId(); // new pages, page row not added yet
+
+		$title = $article->getTitle();
+		# Rev ID is not put into parser on edit, so do the same here.
+		# Also, a second parse would be triggered otherwise.
+		$parseId = ($rev->getId() == $latestID) ? null : $rev->getId();
 		# Parse the revision HTML output
-		$options = self::makeParserOptions( $user );
-		$title = $article->getTitle(); // avoid pass-by-ref error
-		$poutput = $wgParser->parse( $text, $title, $options, true, true, $latestID );
-		# Might as well save the cache while we're at it
-		global $wgEnableParserCache;
-		if( $wgEnableParserCache && $latestID == $rev->getId() ) {
-			$parserCache = ParserCache::singleton();
-			$parserCache->save( $poutput, $article, $user );
-		}
+		$editInfo = $article->prepareTextForEdit( $text, $parseId );
+		$poutput = $editInfo->output;
+
 		# NS:title -> rev ID mapping
 		foreach( $poutput->mTemplateIds as $namespace => $titleAndID ) {
 			foreach( $titleAndID as $dbkey => $id ) {
@@ -1933,13 +1933,14 @@ class FlaggedRevs {
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $title, $rev, $baseRevID = false ) {
+	public static function maybeMakeEditReviewed( $article, $rev, $baseRevID = false ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedArticle, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
 		# Must be in reviewable namespace
+		$title = $article->getTitle();
 		if( !$title || !self::isPageReviewable( $title ) ) {
 			return true;
 		}
@@ -1975,7 +1976,6 @@ class FlaggedRevs {
 				$flags[$tag] = 1;
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
-			$article = new Article( $title );
 			self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
 		}
 		return true;
