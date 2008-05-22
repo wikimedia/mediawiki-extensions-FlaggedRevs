@@ -126,6 +126,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'stable-logentry2'   => 'reset stable versioning for [[$1]]',
 
 	'revreview-patrol'  => 'Mark this change as patrolled',
+	'revreview-patrol-title' => 'Mark as patrolled',
 
 	'revisionreview'       => 'Review revisions',
 	'revreview-main'       => 'You must select a particular revision from a content page in order to review.

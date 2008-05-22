@@ -197,7 +197,7 @@ class RevisionReview extends UnlistedSpecialPage
 	private function markPatrolled( $token ) {
 		global $wgOut, $wgUser;
 
-		$wgOut->setPageTitle( wfMsg( 'markedaspatrolled' ) );
+		$wgOut->setPageTitle( wfMsg( 'revreview-patrol-title' ) );
 		# Prevent hijacking
 		if( !$wgUser->matchEditToken( $token, $this->page->getPrefixedText(), $this->rcid ) ) {
 			$wgOut->addWikiText( wfMsg('sessionfailure') );
