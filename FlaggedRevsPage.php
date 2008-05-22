@@ -217,7 +217,7 @@ class RevisionReview extends UnlistedSpecialPage
 			PatrolLog::record( $this->rcid );
 		}
 		# Inform the user
-		$wgOut->addWikiText( wfMsgExt( 'revreview-patrolled', array('parseinline'), $this->page->getPrefixedText() ) );
+		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
 		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 	}
 
