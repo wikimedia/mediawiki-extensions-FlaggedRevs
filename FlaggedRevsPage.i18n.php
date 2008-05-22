@@ -431,8 +431,8 @@ $messages['ar'] = array(
 	'revreview-log'                => 'تعليق السجل:',
 	'revreview-approved'           => 'مصدق',
 	'revreview-submit'             => 'تنفيذ المراجعة',
-	'revreview-successful'         => "'''النسخة المختارة من [[:$1|$1]] تم التعليم عليها بنجاح وتم التعليم عليها في أحدث التغييرات.'''",
-	'revreview-stable1'            => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] أو [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
+	'revreview-successful'         => "'''النسخة المختارة من [[:$1|$1]] تم التعليم عليها بنجاح. ([{{fullurl:Special:Stableversions|page=$2}} عرض كل النسخ المعلمة])'''",
+	'revreview-stable1'            => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
 	'revreview-successful2'        => "'''النسخة المختارة من [[:$1|$1]] تم إزالة علمها بنجاح.'''",
 	'revreview-stable2'            => 'ربما ترغب في رؤية [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة (لو كانت مازالت هناك واحدة).',
 	'revreview-changed'            => "'''الأمر المطلوب لم يمكن إجراؤه على هذه النسخة من [[:$1|$1]].'''
@@ -514,6 +514,7 @@ $messages['ar'] = array(
 	'flaggedrevs-prefs-watch'      => 'أضف الصفحات التي أراجعها إلى قائمة مراقبتي',
 	'flaggedrevs-pref-UI-0'        => 'استخدم واجهة مستخدم لنسخة مستقرة مفصلة',
 	'flaggedrevs-pref-UI-1'        => 'استخدم واجهة مستخدم لنسخة مستقرة بسيطة',
+	'specialpages-group-quality'   => 'توكيد الجودة',
 );
 
 /** Asturian (Asturianu)
@@ -1988,8 +1989,8 @@ Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celle
 	'revreview-log'                => 'Commentaire au journal :',
 	'revreview-approved'           => 'Approuvé',
 	'revreview-submit'             => 'Sauvegarder revue',
-	'revreview-successful'         => "'''Les versions sélectionnées de [[:$1|$1]], indiquées d'un drapeau et marquées dans les changements récents.'''",
-	'revreview-stable1'            => 'Vous pouvez vouloir visionner cette [{{fullurl:$1|stableid=$2}} version jalonnée] or la [{{fullurl:$1|stable=1}} version stable] de cette page.',
+	'revreview-successful'         => "La version sélectionnée de [[:$1|$1]], a été marquée avec succès d'un drapeau. ([{{fullurl:Special:Stableversions|page=$2}} Voir toutes les versions ainsi marquées]",
+	'revreview-stable1'            => "Vous pouvez vouloir visionner cette [{{fullurl:$1|stableid=$2}} version marquée] ou voir si c'est maintenant la [{{fullurl:$1|stable=1}} version stable] de cette page.",
 	'revreview-successful2'        => "'''La version sélectionnée de [[:$1|$1]] a pu se voir retirer son drapeau avec succès.'''",
 	'revreview-stable2'            => 'Vous pouvez vouloir visionner [{{fullurl:$1|stable=1}} la version stable] de cette page (s’il en existe une).',
 	'revreview-changed'            => "'''L’action demandée n’a pu être accomplie pour cette version de [[:$1|$1]].'''
@@ -2072,6 +2073,7 @@ Un modèle ou une image peuvent avoir été demandés alors qu’aucune version 
 	'flaggedrevs-prefs-watch'      => "Ajoute les pages que j'ai revues à ma liste de suivi.",
 	'flaggedrevs-pref-UI-0'        => 'Utiliser l’interface utilisateur de la version stable détaillée',
 	'flaggedrevs-pref-UI-1'        => 'Utiliser une simple interface utilisateur stable',
+	'specialpages-group-quality'   => 'Assurance qualité',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -5867,8 +5869,8 @@ $messages['ru'] = array(
 	'revreview-log'                => 'Примечание:',
 	'revreview-approved'           => 'Проверена',
 	'revreview-submit'             => 'Отправить проверку',
-	'revreview-successful'         => "'''Выбранная версия [[:$1|$1]] успешно отмечена. Пометка будет видна в свежих правках.'''",
-	'revreview-stable1'            => 'Возможно, вы хотите просмотреть [{{fullurl:$1|stableid=$2}} эту отмеченную версию] или [{{fullurl:$1|stable=1}} стабильную версию] этой страницы.',
+	'revreview-successful'         => "'''Выбранная версия [[:$1|$1]] успешно отмечена ([{{fullurl:Special:Stableversions|page=$2}} просмотр всех отмеченных версий])'''",
+	'revreview-stable1'            => 'Возможно, вы хотите просмотреть [{{fullurl:$1|stableid=$2}} эту отмеченную версию] или [{{fullurl:$1|stable=1}} стабильную версию] этой страницы, если такая существует.',
 	'revreview-successful2'        => "'''С выбранной версии [[:$1|$1]] успешно снята пометка.'''",
 	'revreview-stable2'            => 'Возможно, вы хотите просмотреть эту [{{fullurl:$1|stable=1}} стабильную версию] этой страницы (если таковая существует).',
 	'revreview-changed'            => "'''Запрошенное действие не может быть выполнено с этой версией страницы [[:$1|$1]].'''
@@ -5954,6 +5956,7 @@ $messages['ru'] = array(
 	'flaggedrevs-prefs-watch'      => 'Добавлять проверенные мною страницы в список наблюдения',
 	'flaggedrevs-pref-UI-0'        => 'Использовать подробный интерфейс стабильных версий',
 	'flaggedrevs-pref-UI-1'        => 'Использовать простой интерфейс стабильных версий',
+	'specialpages-group-quality'   => 'Поддержка качества',
 );
 
 /** Yakut (Саха тыла)
@@ -6738,8 +6741,8 @@ Se [[Special:Unreviewedpages]] för en lista över ogranskade sidor.',
 	'revreview-log'                => 'Kommentar:',
 	'revreview-approved'           => 'Godkänd',
 	'revreview-submit'             => 'Spara granskning',
-	'revreview-successful'         => "'''Vald sidversion av [[:$1|$1]] har flaggats och märkts i senaste ändringar.'''",
-	'revreview-stable1'            => 'Du kanske vill visa [{{fullurl:$1|stableid=$2}} den här flaggade versionen] eller den [{{fullurl:$1|stable=1}} stabila versionen] av den här sidan.',
+	'revreview-successful'         => "'''Vald sidversion av [[:$1|$1]] har flaggats och märkts i senaste ändringar. ([{{fullurl:Special:Stableversions|page=$2}} visa alla flaggade sidversioner])'''",
+	'revreview-stable1'            => 'Du kanske vill visa [{{fullurl:$1|stableid=$2}} den här flaggade versionen] för att se ifall den nu är den [{{fullurl:$1|stable=1}} stabila versionen] av den här sidan.',
 	'revreview-successful2'        => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
 	'revreview-stable2'            => 'Du vill kanske visa den [{{fullurl:$1|stable=1}} stabila versionen] av denna sida (om det finns någon).',
 	'revreview-changed'            => "'''Den begärda åtgärden kunde inte utföras på denna version av [[:$1|$1]].'''
@@ -7421,6 +7424,7 @@ No se pode canbiar le inpostassion.',
 	'flaggedrevs-prefs-watch'      => "Tien d'ocio le pagine che riesamino",
 	'flaggedrevs-pref-UI-0'        => "Dòpara l'interfacia utente de la version stabile detaglià",
 	'flaggedrevs-pref-UI-1'        => "Dòpara l'interfacia utente de la version stabile sénpliçe",
+	'specialpages-group-quality'   => 'Controlo de qualità',
 );
 
 /** Vietnamese (Tiếng Việt)
