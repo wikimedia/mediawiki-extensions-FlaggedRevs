@@ -889,16 +889,20 @@ class FlaggedRevs {
 
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
-		# Update our versioning pointers
-		if( !empty( $tmpset ) ) {
-			$dbw->replace( 'flaggedtemplates',
-				array( array('ft_rev_id','ft_namespace','ft_title') ), $tmpset,
-				__METHOD__ );
+		# Clear out any previous garbage.
+		# We want to be able to use this for tracking...
+		$dbw->delete( 'flaggedtemplates',
+			array('ft_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		$dbw->delete( 'flaggedimages',
+			array('fi_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		# Update our versioning params
+		if( !empty($tmpset) ) {
+			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
 		}
-		if( !empty( $imgset ) ) {
-			$dbw->replace( 'flaggedimages',
-				array( array('fi_rev_id','fi_name') ), $imgset,
-				__METHOD__ );
+		if( !empty($imgset) ) {
+			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
 		}
 		# Get the page text and resolve all templates
 		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $text, $article->getTitle(), $rev->getId() );
