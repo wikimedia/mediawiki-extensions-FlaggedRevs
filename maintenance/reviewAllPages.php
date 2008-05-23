@@ -8,7 +8,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require "$IP/maintenance/commandLine.inc";
 require dirname(__FILE__) . '/reviewAllPages.inc';
 
-if( isset($options['help']) || !isset($args[0]) ) {
+if( isset($options['help']) || !isset($args[0]) || !$args[0] ) {
 	echo <<<TEXT
 Usage:
     php refreshLinks.php --help
