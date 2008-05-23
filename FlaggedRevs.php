@@ -221,34 +221,34 @@ $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 # Load review UI
 $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 $wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
+
 # Load stableversions UI
 $wgSpecialPages['StableVersions'] = 'StableVersions';
-$wgAutoloadClasses['StableVersions'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['StableVersions'] = $dir . '/specialpages/StableVersions_body.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
-$wgAutoloadClasses['Stabilization'] = $dir . 'FlaggedRevsPage.php';
-
+$wgAutoloadClasses['Stabilization'] = $dir . '/specialpages/Stabilization_body.php';
 # Load unreviewed pages list
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
-$wgAutoloadClasses['UnreviewedPages'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['UnreviewedPages'] = $dir . '/specialpages/UnreviewedPages_body.php';
 # Load "in need of re-review" pages list
 $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
-$wgAutoloadClasses['OldReviewedPages'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['OldReviewedPages'] = $dir . '/specialpages/OldReviewedPages_body.php';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
-$wgAutoloadClasses['ReviewedPages'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['ReviewedPages'] = $dir . '/specialpages/ReviewedPages_body.php';
 $wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Load stable pages list
 $wgSpecialPages['StablePages'] = 'StablePages';
-$wgAutoloadClasses['StablePages'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['StablePages'] = $dir . '/specialpages/StablePages_body.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
 # To oversee quality revisions
 $wgSpecialPages['QualityOversight'] = 'QualityOversight';
-$wgAutoloadClasses['QualityOversight'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['QualityOversight'] = $dir . '/specialpages/QualityOversight_body.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
 # To oversee depreciations
 $wgSpecialPages['DepreciationOversight'] = 'DepreciationOversight';
-$wgAutoloadClasses['DepreciationOversight'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['DepreciationOversight'] = $dir . '/specialpages/DepreciationOversight_body.php';
 $wgSpecialPageGroups['DepreciationOversight'] = 'quality';
 
 ######### Hook attachments #########
