@@ -19,7 +19,7 @@ if( !defined('FLAGGED_VIS_PRISTINE') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.061',
+	'version' => '1.07',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -195,6 +195,11 @@ $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 # How many hours pending review is considering long?
 $wgFlaggedRevsLongPending = 3;
 
+# Flagged revisions are always visible to users with rights below.
+# Use '*' for non-user accounts.
+$wgFlaggedRevsVisible = array();
+$wgFlaggedRevsTalkVisible = true;
+
 # End of configuration variables.
 #########
 
@@ -289,6 +294,9 @@ $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 # Image version display
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
 
+# Visibility - experimental
+$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
+
 # Main hooks, overrides pages content, adds tags, sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
 # Change last-modified footer
@@ -303,6 +311,7 @@ $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::addToEditView';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::addReviewForm';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::addVisibilityLink';
 # Mark of items in page history
+$wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevs::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevs::addToHistLine';
 $wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevs::addToFileHistLine';
 # Page review on edit

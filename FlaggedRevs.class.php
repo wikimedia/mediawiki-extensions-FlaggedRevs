@@ -764,25 +764,16 @@ class FlaggedRevs {
 	/**
 	 * Make stable version link and return the css
 	 * @param Title $title
-	 * @param int $rev_id
-	 * @param Database $db, optional
+	 * @param Row $row, from history page
 	 * @returns array (string,string)
 	 */
-	public static function makeStableVersionLink( $title, $rev_id, $skin, $db = NULL ) {
-		$db = $db ? $db : wfGetDB( DB_SLAVE );
-		$row = $db->selectRow( 'flaggedrevs', 
-			array( 'fr_quality', 'fr_user' ),
-			array( 'fr_page_id' => $title->getArticleID(),
-				'fr_rev_id' => $rev_id ),
-			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' )
-		);
-		if( $row ) {
+	public static function markHistoryRow( $title, $row, $skin ) {
+		if( isset($row->fr_quality) ) {
 			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 			$user = User::whois( $row->fr_user );
 			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
 			$st = $title->getPrefixedDBkey();
-			$link = "<span class='plainlinks'>".wfMsgExt($msg,array('parseinline'),$st,$rev_id,$user)."</span>";
+			$link = "<span class='plainlinks'>".wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user)."</span>";
 		} else {
 			return array("","");
 		}
@@ -1509,6 +1500,40 @@ EOT;
 		return true;
 	}
 	
+    /**
+    * Allow users to view reviewed pages.
+    */
+    public static function userCanView( $title, $user, $action, $result ) {
+        global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
+        # Assume $action may still not be set, in which case, treat it as 'view'...
+        if( !$wgFlaggedRevsVisible || $action != 'read' )
+            return true;
+        # Admin may set this to false, rather than array()...
+        $groups = $user->getGroups();
+        $groups[] = '*';
+        if( empty($wgFlaggedRevsVisible) || !array_intersect($groups,$wgFlaggedRevsVisible) )
+            return true;
+        # Is this a talk page?
+        if( $wgFlaggedRevsTalkVisible && $title->isTalkPage() ) {
+            $result = true;
+            return true;
+        }
+        # See if there is a stable version. Also, see if, given the page 
+        # config and URL params, the page can be overriden.
+		$flaggedArticle = FlaggedArticle::getInstance( $title );
+        if( $wgTitle && $wgTitle->equals( $title ) && $flaggedArticle->getStableRev( true ) ) {
+            // Cache stable version while we are at it.
+            if( $flaggedArticle->pageOverride() ) {
+                $result = true;
+            }
+        } else {
+            if( self::getStablePageRev( $title ) ) {
+                $result = true;
+            }
+        }
+        return true;
+    }
+	
 	/**
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
@@ -1939,16 +1964,16 @@ EOT;
 
 	static function onArticleViewHeader( $article, &$outputDone, &$pcache ) {
 		$flaggedArticle = FlaggedArticle::getInstance( $article );
-		$flaggedArticle->maybeUpdateMainCache( &$outputDone, &$pcache );
-		$flaggedArticle->setPageContent( &$outputDone, &$pcache );
-		$flaggedArticle->addPatrolLink( &$outputDone, &$pcache );
+		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
+		$flaggedArticle->setPageContent( $outputDone, $pcache );
+		$flaggedArticle->addPatrolLink( $outputDone, $pcache );
 		return true;
 	}
 	
 	static function setPermaLink( $skin, &$navUrls, &$revId, &$id ) {
 		global $wgArticle;
 		if ( $wgArticle ) {
-			FlaggedArticle::getInstance( $wgArticle )->setPermaLink( $skin, &$navUrls, &$revId, &$id );
+			FlaggedArticle::getInstance( $wgArticle )->setPermaLink( $skin, $navUrls, $revId, $id );
 		}
 		return true;
 	}
@@ -1959,7 +1984,7 @@ EOT;
 	
 	static function addReviewForm( $out ) {
 		global $wgArticle;
-		if ( $out->isArticleRelated() ) {
+		if ( $wgArticle && $out->isArticleRelated() ) {
 			FlaggedArticle::getInstance( $wgArticle )->addReviewForm( $out );
 		}
 		return true;
@@ -1967,23 +1992,34 @@ EOT;
 	
 	static function addVisibilityLink( $out ) {
 		global $wgArticle;
-		if ( $out->isArticleRelated() ) {
+		if ( $wgArticle && $out->isArticleRelated() ) {
 			FlaggedArticle::getInstance( $wgArticle )->addVisibilityLink( $out );
 		}
 		return true;
 	}
 	
-	static function addToHistLine( $history, $row, &$s ) {
-		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, &$s );
+	static function addToHistQuery( $pager, &$queryInfo ) {
+		$flaggedArticle = FlaggedArticle::getInstance( $pager->mPageHistory->getTitle() );
+		$pageID = $pager->mPageHistory->getTitle()->getArticleId();
+		if( $flaggedArticle->isReviewable() ) {
+			$queryInfo['tables'][] = 'flaggedrevs';
+			$queryInfo['fields'][] = 'fr_quality';
+			$queryInfo['fields'][] = 'fr_user';
+			$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = {$pageID} AND fr_rev_id = rev_id" );
+		}
+		return true;
 	}
 	
-	static function addToFileHistLine( $historyList, $file, &$row, &$rowClass ) {
-		return FlaggedArticle::getInstance( $historyList->getImagePage() )
-			-> addToFileHistLine( $historyList, $file, &$row, &$rowClass );
+	static function addToHistLine( $history, $row, &$s ) {
+		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
+	}
+	
+	static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
+		return FlaggedArticle::getInstance( $hist->getImagePage() )->addToFileHistLine( $hist, $file, $s, $rowClass );
 	}
 	
 	static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( &$sectionAnchor, &$extraQuery );
+		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
 	}
 
 	static function onDiffViewHeader( $diff, $oldRev, $newRev ) {

@@ -725,8 +725,7 @@ class FlaggedArticle extends Article {
 		if( !$this->isReviewable() || !$this->getStableRev() )
 			return true;
 		$skin = $wgUser->getSkin();
-		list($link,$class) = FlaggedRevs::makeStableVersionLink( 
-			$this->parent->getTitle(), $row->rev_id, $skin, wfGetDB( DB_SLAVE ) );
+		list($link,$class) = FlaggedRevs::markHistoryRow( $this->parent->getTitle(), $row, $skin );
 		if( $link ) {
 			$s = "<span class='$class'>$s</span> <small><strong>[$link]</strong></small>";
 		}
@@ -736,7 +735,7 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add link to stable version of reviewed revisions
 	 */
-	public function addToFileHistLine( $historyList, $file, &$row, &$class ) {
+	public function addToFileHistLine( $historyList, $file, &$s, &$class ) {
 		global $wgUser;
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( !$this->isReviewable() || !$this->getStableRev() )
