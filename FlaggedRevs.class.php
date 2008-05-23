@@ -1052,12 +1052,15 @@ EOT;
 		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
 		foreach( $spPages as $n => $title ) {
 			if( $wgTitle->equals( $title ) ) {
+				global $wgScriptPath, $wgFlaggedRevStyleVersion, $wgFlaggedRevsStylePath;
+				$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+				$cssFile = "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion";
 				# UI CSS
 				$wgOut->addLink( array(
 					'rel'	=> 'stylesheet',
 					'type'	=> 'text/css',
 					'media'	=> 'screen, projection',
-					'href'	=> FLAGGED_CSS,
+					'href'	=> $cssFile,
 				) );
 				break;
 			}
