@@ -1315,7 +1315,7 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
+			#$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
@@ -1385,7 +1385,7 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
+			#$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
