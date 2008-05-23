@@ -121,14 +121,14 @@ class FlaggedRevsXML {
 	/**
 	 * @param Row $trev, flagged revision row
 	 * @param string $html, the short message HTML
-	 * @param int $revs_since, revisions since review
+	 * @param int $revsSince, revisions since review
 	 * @param bool $stable, are we referring to the stable revision?
 	 * @param bool $synced, does stable=current and this is one of them?
 	 * @param bool $old, is this an old stable version?
 	 * @return string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
-	public static function prettyRatingBox( $frev, $shtml, $revs_since, $stable=true, $synced=false, $old=false ) {
+	public static function prettyRatingBox( $frev, $shtml, $revsSince, $stable=true, $synced=false, $old=false ) {
 		global $wgLang;
 		# Get quality level
 		$flags = $frev->getTags();
@@ -149,7 +149,7 @@ class FlaggedRevsXML {
         # Construct some tagging
 		if( $synced ) {
 			$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
-			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
+			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		} else if( $old ) {
 			$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time );
@@ -159,8 +159,8 @@ class FlaggedRevsXML {
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			}
-			$msg .= ($revs_since == 0) ? '-i' : '';
-			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revs_since );
+			$msg .= ($revsSince == 0) ? '-i' : '';
+			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
 		$box = "<table border='0' cellspacing='0' style='background: none;'>\n";

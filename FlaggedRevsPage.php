@@ -69,7 +69,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
 		$this->validatedParams = $wgRequest->getVal( 'validatedParams' );
 		
-		global $wgReviewCodes;
 		# Special token to discourage fiddling...
 		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $this->oldid );
 		# Must match up

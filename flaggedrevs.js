@@ -36,8 +36,9 @@ function updateRatingForm() {
 	var allzero = true;
 	var somezero = false;
 
-	for( flag in wgFlaggedRevsJSparams ) {
-		var levels = document.getElementsByName(flag);
+	for( tag in wgFlaggedRevsParams.tags ) {
+		var controlName = "wp" + tag;
+		var levels = document.getElementsByName(controlName);
 		var selectedlevel = 0; // default
 
 		if( levels[0].nodeName == 'SELECT' ) {
@@ -61,9 +62,9 @@ function updateRatingForm() {
 		}
 
 		// Get quality level for this tag
-		QL = wgFlaggedRevsJSparams[flag];
+		qualityLevel = wgFlaggedRevsParams.tags[tag];
 
-		if( selectedlevel < QL ) {
+		if( selectedlevel < qualityLevel ) {
 			quality = false; // not a quality review
 		}
 		if( selectedlevel > 0 ) {
