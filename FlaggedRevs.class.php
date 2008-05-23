@@ -2000,12 +2000,11 @@ EOT;
 	
 	static function addToHistQuery( $pager, &$queryInfo ) {
 		$flaggedArticle = FlaggedArticle::getInstance( $pager->mPageHistory->getTitle() );
-		$pageID = $pager->mPageHistory->getTitle()->getArticleId();
 		if( $flaggedArticle->isReviewable() ) {
 			$queryInfo['tables'][] = 'flaggedrevs';
 			$queryInfo['fields'][] = 'fr_quality';
 			$queryInfo['fields'][] = 'fr_user';
-			$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = {$pageID} AND fr_rev_id = rev_id" );
+			$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = rev_page AND fr_rev_id = rev_id" );
 		}
 		return true;
 	}
