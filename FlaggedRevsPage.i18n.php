@@ -1354,6 +1354,7 @@ $messages['de'] = array(
 	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
 	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde kontrolliert.',
+	'revreview-patrol-title'      => 'Als kontrolliert markieren',
 	'hist-draft'                  => 'Entwurfsversion',
 	'hist-stable'                 => 'gesichtete Version',
 	'hist-quality'                => 'geprüfte Version',
