@@ -308,7 +308,8 @@ class FlaggedRevision {
 		foreach( FlaggedRevs::$dimensions as $tag => $levels ) {
 			$flags[$tag] = 0;
 		}
-		$tags = explode('\n',$tags);
+		$tags = str_replace('\n',"\n",$tags); // B/C, old broken rows
+		$tags = explode("\n",$tags);
 		foreach( $tags as $tuple ) {
 			$set = explode(':',$tuple,2);
 			if( count($set) == 2 ) {
@@ -334,7 +335,7 @@ class FlaggedRevision {
 		foreach( $tags as $tag => $value ) {
 			# Add only currently recognized ones
 			if( isset(FlaggedRevs::$dimensions[$tag]) ) {
-				$flags .= $tag . ':' . intval($value) . '\n';
+				$flags .= $tag . ':' . intval($value) . "\n";
 			}
 		}
 		return $flags;
