@@ -7,7 +7,7 @@ function autoreview_current( $user, $db ) {
 		echo( "Invalid user specified!" );
 		exit(0);
 	}
-	echo "Reviewer username: ".$user->getName();
+	echo "Reviewer username: ".$user->getName()."\n";
 	$BATCH_SIZE = 50;
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
