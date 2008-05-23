@@ -28,7 +28,7 @@ function autoreview_current( $user, $db ) {
 			__FUNCTION__ );
 		# Go through and autoreview the current version of every page...
 		foreach( $res as $row ) {
-			$title = Title::makeTitle( $row->page_namspace, $row->page_title );
+			$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 			$rev = Revision::newFromId( $row->page_latest );
 			# Is it already reviewed?
 			$frev = FlaggedRevs::getFlaggedRev( $title, $row->page_latest, false, true, $row->page_id );
