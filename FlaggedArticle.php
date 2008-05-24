@@ -536,8 +536,8 @@ class FlaggedArticle extends Article {
 			# Show diff to stable, to make things less confusing
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
-			$text = $frev->getRevText();
-			if( $frev->getRevId() != $revId && $text !==false && strcmp($text,$editPage->textbox1) !== 0 ) {
+			$text = ($frev->getRevId() != $revId) ? $frev->getRevText() : false;
+			if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
 				$wgOut->addHtml(
