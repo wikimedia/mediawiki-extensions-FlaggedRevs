@@ -294,6 +294,7 @@ $messages['an'] = array(
  * @author Meno25
  * @author Siebrand
  * @author Alnokta
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'flaggedrevs-desc'             => 'يعطي المحررين/المراجعين القدرة على التأكد من صحة النسخ وتثبيت الصفحات',
@@ -432,7 +433,7 @@ $messages['ar'] = array(
 	'revreview-style-3'            => 'متوسطة',
 	'revreview-style-4'            => 'مميزة',
 	'revreview-log'                => 'تعليق السجل:',
-	'revreview-approved'           => 'مصدق',
+	'revreview-approved'           => 'مُصدق',
 	'revreview-submit'             => 'تنفيذ المراجعة',
 	'revreview-successful'         => "'''النسخة المختارة من [[:$1|$1]] تم التعليم عليها بنجاح. ([{{fullurl:Special:Stableversions|page=$2}} عرض كل النسخ المعلمة])'''",
 	'revreview-stable1'            => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
@@ -1077,8 +1078,8 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Li-sung
- * @author Siebrand
  * @author Danny B.
+ * @author Siebrand
  * @author Matěj Grabovský
  * @author Mormegil
  */
@@ -1092,11 +1093,12 @@ $messages['cs'] = array(
 	'group-reviewer'               => 'Posuzovatelé',
 	'group-reviewer-member'        => 'Posuzovatel',
 	'grouppage-reviewer'           => '{{ns:project}}:Posuzovatel',
+	'right-movestable'             => 'Přesunout stabilní stránky',
 	'revreview-current'            => 'Návrh',
 	'tooltip-ca-current'           => 'Zobrazit nejnovější návrh této stránky',
 	'revreview-edit'               => 'Editovat návrh',
 	'revreview-source'             => 'zdroj návrhu',
-	'revreview-stable'             => 'Stabilní',
+	'revreview-stable'             => 'Stabilní stránka',
 	'tooltip-ca-stable'            => 'Zobrazit stabilní verzi této stránky',
 	'revreview-oldrating'          => 'Bylo ohodnoceno:',
 	'revreview-noflagged'          => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[{{MediaWiki:Validationpage}}|zkontrolována]] kvalita.',
@@ -1181,6 +1183,7 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'revreview-style-3'            => 'Výstižná',
 	'revreview-style-4'            => 'Význačná',
 	'revreview-log'                => 'Komentář:',
+	'revreview-approved'           => 'Schválené',
 	'revreview-submit'             => 'Odeslat posouzení',
 	'revreview-changed'            => "'''Požadovanou akci nelze provést na této verzi stránky [[:$1|$1]].'''
 
@@ -1197,13 +1200,15 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'unreviewed-diff'              => 'Změny',
 	'unreviewed-unwatched'         => '(nesledované)',
 	'unreviewed-list'              => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
+	'oldreviewedpages-quality'     => 'kvalita',
+	'oldreviewedpages-recent'      => '(méně než 1 hodina)',
 	'revreview-visibility'         => 'Tato stránka má [[{{MediaWiki:Validationpage}}|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].',
 	'stabilization'                => 'Stabilizace stránky',
 	'stabilization-text'           => "'''Změňte nastavení, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.'''",
 	'stabilization-perm'           => 'Tento účet nemá povoleno měnit nastavení stabilní verze. Níže je současné nastavení stránky [[:$1|$1]]:',
 	'stabilization-page'           => 'Jméno stránky:',
-	'stabilization-leg'            => 'Nastavení stabilní verze stránky',
-	'stabilization-select'         => 'Jako stabilní verze je vybrána',
+	'stabilization-leg'            => 'Potvrdit nastavení stabilní verze',
+	'stabilization-select'         => 'Výběr stabilní verze',
 	'stabilization-select1'        => 'Poslední kvalitní verze; pokud není k dispozici pak poslední prohlédnutá',
 	'stabilization-select2'        => 'Poslední posouzená verze',
 	'stabilization-def'            => 'Verze zobrazená jako výchozí',
@@ -1232,8 +1237,12 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'reviewedpages-lev-2'          => 'význačné',
 	'reviewedpages-all'            => 'posouzené verze',
 	'reviewedpages-best'           => 'nejlepší verze',
+	'stablepages'                  => 'Stabilní stránky',
+	'stablepages-stable'           => 'stabilní verze',
 	'stablepages-config'           => 'Konfigurace',
 	'rights-editor-revoke'         => 'odebírá status editora uživateli [[$1]]',
+	'flaggedrevs-prefs'            => 'Stabilita',
+	'specialpages-group-quality'   => 'Zajištění kvality',
 );
 
 /** Danish (Dansk)
@@ -1586,7 +1595,9 @@ $messages['eo'] = array(
 	'revreview-quick-see-quality' => "'''Malneto''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardu artikolon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} komparu])",
 	'revreview-toggle-title'      => 'montri/kaŝi detalojn',
+	'revreview-draft-title'       => 'Malneta artikolo',
 	'revreview-auto'              => '(aŭtomata)',
+	'hist-draft'                  => 'malneta revizio',
 	'hist-quality'                => 'kvalita revizio',
 	'review-logpage'              => 'Kontrolu loglibron',
 	'review-logentry-app'         => 'kontrolis [[$1]]',
@@ -1600,18 +1611,18 @@ $messages['eo'] = array(
 	'revreview-style-2'           => 'Bona',
 	'revreview-style-4'           => 'Elstara',
 	'revreview-log'               => 'Komento:',
-	'stableversions'              => 'Rigardu stabilajn versiojn',
+	'stableversions'              => 'Rigardi stabilajn versiojn',
 	'stableversions-page'         => 'Nomo de paĝo:',
 	'unreviewedpages'             => 'Nekontrolitaj paĝoj',
 	'unreviewed-category'         => 'Kategorio:',
-	'unreviewed-diff'             => 'Ŝanĝoj',
+	'unreviewed-diff'             => 'kontrolo',
 	'stabilization'               => 'Paĝa stabiligado',
 	'stabilization-page'          => 'Paĝnomo:',
 	'stabilization-select2'       => 'La lasta kontrolita revizio',
 	'stabilization-def1'          => 'La stabila revizio;
 se ĝi ne ekzistas, la nuna versio',
 	'stabilization-def2'          => 'La nuna revizio:',
-	'stabilization-submit'        => 'Konfirmu',
+	'stabilization-submit'        => 'Konfirmi',
 	'stabilization-comment'       => 'Komento:',
 	'stabilization-expiry'        => 'Fintempo:',
 	'stabilization-sel-short-0'   => 'Kvalito',
@@ -1963,6 +1974,7 @@ Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celle
 	'stable-logentry'              => 'Les versions stables de [[$1]] sont paramétrées.',
 	'stable-logentry2'             => 'Remettre à zéro le journal des versions stables de [[$1]]',
 	'revreview-patrol'             => 'Marquer cette modification comme patrouillée',
+	'revreview-patrol-title'       => 'Marquer comme patrouillé',
 	'revisionreview'               => 'Revoir versions',
 	'revreview-main'               => 'Vous devez choisir une version précise pour réviser. Voir [[Special:Unreviewedpages|Version non révisées]] pour une liste de pages.',
 	'revreview-selected'           => "Version choisie de '''$1 :'''",
@@ -2487,6 +2499,7 @@ $messages['hi'] = array(
 	'stable-logentry'              => '[[$1]] का स्थिर अवतरणीकरण बदलें',
 	'stable-logentry2'             => '[[$1]] का स्थिर अवतरणीकरण पूर्ववत करें',
 	'revreview-patrol'             => 'यह बदलाव देख लेने का मार्क करें',
+	'revreview-patrol-title'       => 'जाँचने का मार्क करें',
 	'revisionreview'               => 'अवतरण परखें',
 	'revreview-main'               => 'परिक्षण के लिये एक अवतरण चुनना अनिवार्य हैं।
 
@@ -2520,8 +2533,9 @@ $messages['hi'] = array(
 	'revreview-log'                => 'टिप्पणी:',
 	'revreview-approved'           => 'प्रमाणित',
 	'revreview-submit'             => 'रिव्ह्यू भेजें',
-	'revreview-successful'         => "'''[[:$1|$1]] का चुना हुआ अवतरण जाँचा गया हैं और हाल में हुए बदलावोंमें उसपर मार्क किया गया हैं।'''",
-	'revreview-stable1'            => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] या [{{fullurl:$1|stable=1}} स्थिर अवतरण] देखना चाहतें हैं।',
+	'revreview-successful'         => "[[:$1|$1]] के चुने हुए अवतरणको मार्क किया गया हैं।
+([{{fullurl:Special:Stableversions|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
+	'revreview-stable1'            => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।',
 	'revreview-successful2'        => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
 	'revreview-stable2'            => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।',
 	'revreview-changed'            => "'''[[:$1|$1]] के इस अवतरणपर आपने दी हुई क्रिया नहीं कर सकतें।'''
@@ -4040,20 +4054,28 @@ $messages['lb'] = array(
 	'right-review'              => 'Versiounen als iwwerkuckt markéieren',
 	'right-autoreview'          => 'Versiounen automatesch als iwwerkuckt markéieren',
 	'right-validate'            => 'Versiounen als validéiert markéieren',
+	'right-unreviewedpages'     => 'Lëscht vun den net iwwerkuckte Säite weisen',
+	'right-movestable'          => 'Stabil Säite réckelen',
 	'revreview-current'         => 'Virbereedung',
 	'revreview-edit'            => 'Virbereedung änneren',
 	'revreview-stable'          => 'Stabil Säit',
 	'tooltip-ca-stable'         => 'Déi stabil Versioun vun dëser Säit gesinn',
+	'validationpage'            => '{{ns:help}}:Validatioun vun der Säit',
+	'revreview-quick-none'      => "'''[[{{MediaWiki:Validationpage}}|Aktuell Versioun]]''' (net iwwerkuckt)",
 	'revreview-quick-invalid'   => "'''Ongëlteg Versiounsnummer'''",
 	'revreview-toggle-title'    => 'Detailer weisen/verstoppen',
+	'revreview-draft-title'     => 'Brouillon vun engem Artikel',
 	'revreview-stable-title'    => 'Iwwerkuckten Artikel',
 	'revreview-quality-title'   => 'Qualitéitsartikel',
 	'revreview-update-includes' => "'''Verschidde Schablounen/Biller goufen aktualiséiert:'''",
 	'revreview-auto'            => '(automatesch)',
+	'hist-draft'                => 'Brouillonsversioun',
 	'hist-stable'               => 'iwwerkuckte Versioun',
+	'hist-quality'              => 'Qualitéitsversioun',
 	'review-logpage'            => 'Lëscht vum Nokucken',
 	'review-logentry-app'       => 'nogekuckt [[$1]]',
 	'review-logentry-id'        => 'Versiounsnummer $1',
+	'stable-logpage'            => 'Lëscht vun de stabile Versiounen',
 	'revisionreview'            => 'Versiounen nokucken',
 	'revreview-selected'        => "Ausgewielte Versioune vun '''$1''':",
 	'revreview-accuracy-1'      => 'Iwwerkuckt',
@@ -4070,19 +4092,27 @@ $messages['lb'] = array(
 	'unreviewed-category'       => 'Kategorie:',
 	'unreviewed-diff'           => 'iwwerkucken',
 	'unreviewed-unwatched'      => '(net iwwerwaacht)',
+	'oldreviewedpages-stable'   => 'iwwerkuckt',
 	'oldreviewedpages-quality'  => 'Qualitéit',
 	'oldreviewedpages-hours'    => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
 	'oldreviewedpages-days'     => '($1 {{PLURAL:$1|Dag|Deeg}})',
 	'oldreviewedpages-recent'   => '(manner wéi 1 Stonn)',
 	'stabilization-page'        => 'Säitennumm:',
+	'stabilization-select'      => 'Auswiel vun der stabiler Versioun',
 	'stabilization-def2'        => 'Déi aktuell Versioun',
 	'stabilization-submit'      => 'Confirméieren',
 	'stabilization-comment'     => 'Bemierkung:',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
+	'stabilization-def-short-1' => 'Stabil',
 	'reviewedpages-none'        => 'Dës Lëscht ass eidel',
+	'reviewedpages-lev-0'       => 'iwwerkuckt',
 	'reviewedpages-lev-1'       => 'Qualitéit',
 	'reviewedpages-lev-2'       => 'Exzellent',
+	'stablepages'               => 'Stabil Säiten',
+	'stablepages-stable'        => 'stabil Versioun',
+	'stablepages-none'          => 'Dës Lëscht ass eidel',
+	'stablepages-config'        => 'Konfiguratioun',
 	'flaggedrevs-prefs'         => 'Stabilitéit',
 );
 
@@ -4541,6 +4571,7 @@ $messages['mr'] = array(
 	'stable-logentry'              => '[[$1]] चे स्थिर आवृत्तीकरण बदला',
 	'stable-logentry2'             => '[[$1]] चे स्थिर आवृत्तीकरण पूर्वपदास न्या',
 	'revreview-patrol'             => 'हा बदल पाहिला असल्याची खूण करा',
+	'revreview-patrol-title'       => 'गस्त घातल्याची खूण करा',
 	'revisionreview'               => 'आवृत्त्या तपासा',
 	'revreview-main'               => 'तपासण्यासाठी एखादी आवृत्ती निवडणे गरजेचे आहे.
 
@@ -4574,8 +4605,9 @@ $messages['mr'] = array(
 	'revreview-log'                => 'प्रतिक्रीया:',
 	'revreview-approved'           => 'प्रमाणित',
 	'revreview-submit'             => 'आपला रिव्ह्यू पाठवा',
-	'revreview-successful'         => "'''[[:$1|$1]] ची निवडलेली आवृत्ती यशस्वीरित्या तपासलेली आहे व अलीकडील बदलांमध्ये त्यावर खूण केलेली आहे.'''",
-	'revreview-stable1'            => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] किंवा [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू इच्छिता.',
+	'revreview-successful'         => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर यशस्वीरित्या तपासल्याची खूण केलेली आहे.
+([{{fullurl:Special:Stableversions|page=$2}} सर्व खूणा केलेल्या आवृत्त्या पहा])'''",
+	'revreview-stable1'            => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] आता [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] झाली आहे किंवा नाही हे पाहू इच्छिता.',
 	'revreview-successful2'        => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीची खूण काढली.'''",
 	'revreview-stable2'            => 'तुम्ही या पानाची [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू शकता (जर उपलब्ध असेल तर).',
 	'revreview-changed'            => "'''[[:$1|$1]] च्या या आवृत्तीवर तुम्ही इच्छित असलेली क्रिया करता येत नाही.'''
@@ -5144,6 +5176,7 @@ Vejatz la lista [[Special:ReviewedPages|de las paginas relegidas]] per una lista
 	'stable-logentry'              => 'Las versions establas de [[$1]] son parametradas.',
 	'stable-logentry2'             => 'Tornar metre a zèro lo jornal de las versions establas de [[$1]]',
 	'revreview-patrol'             => 'Marcar aquesta modificacion coma patrolhada',
+	'revreview-patrol-title'       => 'Marcar coma patrolhada',
 	'revisionreview'               => 'Tornar veire las versions',
 	'revreview-main'               => 'Vos cal causir una version precisa per revisar. Vejatz [[Special:Unreviewedpages|las versions pas revisadas]] per una tièra de paginas.',
 	'revreview-selected'           => "Version causida de '''$1 :'''",
@@ -5174,8 +5207,9 @@ Vejatz la lista [[Special:ReviewedPages|de las paginas relegidas]] per una lista
 	'revreview-log'                => 'Comentari al jornal :',
 	'revreview-approved'           => 'Aprobat',
 	'revreview-submit'             => 'Salvagardar revista',
-	'revreview-successful'         => "'''Las versions seleccionadas de [[:$1|$1]], marcadas d'una bandièra e notadas dins los darrièrs cambiaments.'''",
-	'revreview-stable1'            => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version jalonada] en defòra de la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
+	'revreview-successful'         => "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra.
+([{{fullurl:Special:Stableversions|page=$2}} Veire totas las versions atal marcadas])'''",
+	'revreview-stable1'            => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
 	'revreview-successful2'        => "'''La version seleccionada de [[:$1|$1]] a pogut se veire levar sa bandièra amb succès.'''",
 	'revreview-stable2'            => "Podètz voler visionar [{{fullurl:$1|stable=1}} la version establa] d'aquesta pagina (se n'existís una).",
 	'revreview-changed'            => "'''L'accion demandada a pas pogut èsser acomplida per aquesta version de [[:$1|$1]].'''
@@ -5642,6 +5676,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'stable-logentry'              => 'a versão estável de [[$1]] foi configurada',
 	'stable-logentry2'             => 'zerar a forma de definir versões estáveis de [[$1]]',
 	'revreview-patrol'             => 'Marcar esta alteração como patrulhada',
+	'revreview-patrol-title'       => 'Marcar como patrulhada',
 	'revisionreview'               => 'Analisar edições',
 	'revreview-main'               => 'Você precisa seleccionar uma edição específica de uma página de conteúdo para poder analisá-la.
 
@@ -5693,6 +5728,7 @@ Recarregar a página e enviar uma nova análise talvez seja suficiente para cont
 	'stableversions-review'        => 'Analisada às <i>$1</i> por $2',
 	'review-diff2stable'           => 'Ver alterações entre a edição estável e a actual',
 	'unreviewedpages'              => 'Páginas não revistas',
+	'unreviewed-legend'            => 'Listar páginas de conteúdo não-avaliadas',
 	'unreviewed-category'          => 'Categoria:',
 	'unreviewed-diff'              => 'rever',
 	'unreviewed-unwatched'         => '(não-vigiada)',
@@ -6249,6 +6285,7 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'stable-logentry'              => 'nastavil stabilné verzie [[$1]]',
 	'stable-logentry2'             => 'zrušil stabilné verzie [[$1]]',
 	'revreview-patrol'             => 'Označiť túto zmenu ako stráženú',
+	'revreview-patrol-title'       => 'Označiť ako strážené',
 	'revisionreview'               => 'Prezrieť kontroly',
 	'revreview-main'               => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. 
 
@@ -6739,6 +6776,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:stablepages|listan �
 	'stable-logentry'              => 'ändrade inställningar för stabila versioner av [[$1]]',
 	'stable-logentry2'             => 'återställde inställningar för stabila versioner av [[$1]]',
 	'revreview-patrol'             => 'Märk den här ändringen som patrullerad',
+	'revreview-patrol-title'       => 'Markera som patrullerad',
 	'revisionreview'               => 'Granska sidversioner',
 	'revreview-main'               => 'Du måste välja en viss version av en innehållssida för att kunna granska den.
 
@@ -7222,6 +7260,7 @@ $messages['tr'] = array(
 	'stableversions-page'       => 'Sayfa adı:',
 	'unreviewed-category'       => 'Kategori:',
 	'unreviewed-diff'           => 'Değişiklikler',
+	'oldreviewedpages-quality'  => 'kalite',
 	'stabilization-page'        => 'Sayfa adı:',
 	'stabilization-submit'      => 'Tespit et',
 	'stabilization-comment'     => 'Açıklama',
@@ -7245,6 +7284,7 @@ $messages['uk'] = array(
 	'group-reviewer'        => 'Рецензенти',
 	'group-reviewer-member' => 'рецензент',
 	'grouppage-reviewer'    => '{{ns:project}}:Рецензенти',
+	'stableversions-page'   => 'Назва сторінкм:',
 );
 
 /** Vèneto (Vèneto)
@@ -7597,8 +7637,9 @@ Mời xem danh sách các trang chưa được duyệt tại [[Special:Unreviewe
 	'revreview-log'                => 'Nhận xét:',
 	'revreview-approved'           => 'Đã phê chuẩn',
 	'revreview-submit'             => 'Đăng bản duyệt',
-	'revreview-successful'         => "'''Phiên bản được chọn của [[:$1|$1]] đã được gắn cờ và đánh dấu trong thay đổi gần đây.'''",
-	'revreview-stable1'            => 'Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} bản có cờ này] hoặc [{{fullurl:$1|stable=1}} bản ổn định] của trang này.',
+	'revreview-successful'         => "'''Phiên bản được chọn của [[:$1|$1]] đã được gắn cờ.
+([{{fullurl:Special:Stableversions|page=$2}} xem tất cả các phiên bản có cờ])'''",
+	'revreview-stable1'            => 'Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} bản có cờ này] để xem nó có phải là [{{fullurl:$1|stable=1}} bản ổn định] của trang này hay chưa.',
 	'revreview-successful2'        => "'''Phiên bản được chọn của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-stable2'            => 'Bạn có thể muốn xem [{{fullurl:$1|stable=1}} bản ổn định] của trang này (nếu vẫn còn bản như vậy).',
 	'revreview-changed'            => "'''Không thể thực hiện tác vụ yêu cầu đối với phiên bản này của [[:$1|$1]].'''
