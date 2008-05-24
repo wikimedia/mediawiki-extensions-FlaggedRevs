@@ -8,6 +8,7 @@ class FlaggedRevs {
 	protected static $pristineVersions = false;
 	protected static $extStorage = false;
 	protected static $allowComments = false;
+	protected static $includeVersionCache = array();
 
 	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsComments;
@@ -272,6 +273,67 @@ class FlaggedRevs {
 		$parserMemc->set( $key, $parserOut, $expire );
 
 		return true;
+	}
+	
+	/**
+	 * @param int $revId
+	 * @param array $tmpParams (like ParserOutput template IDs)
+	 * @param array $imgParams (like ParserOutput image time->sha1 pairs)
+	 * Set the template/image versioning cache for parser
+	 */
+	public static function setIncludeVersionCache( $revId, $tmpParams, $imgParams ) {
+		$includeVersionCache[$revId] = array();
+		$includeVersionCache[$revId]['templates'] = $tmpParams;
+		$includeVersionCache[$revId]['files'] = $imgParams;
+	}
+	
+	/**
+	 * Destroy the template/image versioning cache instance for parser
+	 */
+	public static function clearIncludeVersionCache( $revId ) {
+		if( isset($includeVersionCache[$revId]) ) {
+			$includeVersionCache[$revId] = array();
+		}
+	}
+	
+	/**
+	 * Get template versioning cache for parser
+	 * @param int $revID
+	 * @param int $namespace
+	 * @param string $dbKey
+	 * @returns mixed (integer/false/null)
+	 */
+	protected static function getTemplateIdFromCache( $revId, $namespace, $dbKey ) {
+		if( !empty($includeVersionCache) && isset($includeVersionCache[$revId]) ) {
+			if( isset($includeVersionCache[$revId]['templates'][$namespace]) ) {
+				if( isset($includeVersionCache[$revId]['templates'][$namespace][$dbKey]) ) {
+					return $includeVersionCache[$revId]['templates'][$namespace][$dbKey];
+				}
+			}
+			return false; // Assume template did not exist
+		}
+		return null; // cache not found
+	}
+	
+	/**
+	 * Get image versioning cache for parser
+	 * @param int $revID
+	 * @param string $dbKey
+	 * @returns mixed (array/false/null)
+	 */
+	protected static function getFileVersionFromCache( $revId, $dbKey ) {
+		if( !empty($includeVersionCache) && isset($includeVersionCache[$revId]) ) {
+			# All NS_IMAGE, no need to check namespace
+			if( isset($includeVersionCache[$revId]['files'][$dbKey]) ) {
+				$time_SHA1 = array_keys($includeVersionCache[$revId]['files'][$dbKey]);
+				foreach( $time_SHA1 as $time => $sha1 ) {
+					// Should only be one, but this is an easy check
+				}
+				return array($time,$sha1);
+			}
+			return false; // Assume file did not exist
+		}
+		return null; // cache not found
 	}
 	
 	################# Synchronization and link update functions #################
@@ -886,26 +948,13 @@ class FlaggedRevs {
 				);
 			}
 		}
-
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
-		# Clear out any previous garbage.
-		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates',
-			array('ft_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		$dbw->delete( 'flaggedimages',
-			array('fi_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		# Update our versioning params
-		if( !empty($tmpset) ) {
-			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
-		}
-		if( !empty($imgset) ) {
-			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
-		}
+		
+		# Set our versioning params cache
+		self::setIncludeVersionCache( $rev->getId(), $poutput->mTemplateIds, $poutput->fr_ImageSHA1Keys );
 		# Get the page text and resolve all templates
 		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $text, $article->getTitle(), $rev->getId() );
+		# Clear our versioning params cache
+		self::clearIncludeVersionCache( $rev->getId() );
 
 		# Compress $fulltext, passed by reference
 		$textFlags = FlaggedRevision::compressText( $fulltext );
@@ -940,6 +989,7 @@ class FlaggedRevs {
 			$fileData['sha1'] = $file->getSha1();
 		}
 
+		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
 		$revisionset = array(
 			'fr_page_id'       => $rev->getPage(),
@@ -955,10 +1005,28 @@ class FlaggedRevs {
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
+		
+		# Start!
+		$dbw->begin();
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
 			array( array('fr_page_id','fr_rev_id') ), $revisionset,
 			__METHOD__ );
+		# Clear out any previous garbage.
+		# We want to be able to use this for tracking...
+		$dbw->delete( 'flaggedtemplates',
+			array('ft_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		$dbw->delete( 'flaggedimages',
+			array('fi_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		# Update our versioning params
+		if( !empty($tmpset) ) {
+			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
+		}
+		if( !empty($imgset) ) {
+			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
+		}
 		# Mark as patrolled
 		if( $patrol ) {
 			$dbw->update( 'recentchanges',
@@ -1245,9 +1313,13 @@ EOT;
 				array( 'fp_page_id' => $title->getArticleId() ),
 				__METHOD__ );
 		}
+		# Check cache before doing another DB hit...
+		$id = self::getTemplateIdFromCache( $parser->mRevisionId, $title->getNamespace(), $title->getDBKey() );
+		if( !is_null($id) ) {
+			$id = 0; // if not NULL and false, then the template did not exist!
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
-		if( !$id ) {
+		} else if( !$id ) {
 			$id = $dbw->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->mRevisionId,
 					'ft_namespace' => $title->getNamespace(),
@@ -1263,7 +1335,7 @@ EOT;
 					$skip = true;
 				}
 			} else {
-				$skip = true;
+				$skip = true; // If ID is zero, don't load it
 			}
 		}
 		if( $id > $parser->mOutput->fr_newestTemplateID ) {
@@ -1305,9 +1377,17 @@ EOT;
 				}
 			}
 		}
+		# Check cache before doing another DB hit...
+		$params = self::getFileVersionFromCache( $parser->mRevisionId, $nt->getDBKey() );
+		if( !is_null($params) ) {
+			if( $params != false ) {
+				list($time,$sha1) = $params; // $params may be false if file didn't exist
+			} else {
+				$time = "0";
+			}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		if( !$time ) {
+		} else if( !$time ) {
 			$row = $dbw->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->mRevisionId,
@@ -1315,7 +1395,7 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			#$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
+			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
@@ -1375,9 +1455,17 @@ EOT;
 				}
 			}
 		}
+		# Check cache before doing another DB hit...
+		$params = self::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
+		if( !is_null($params) ) {
+			if( $params != false ) {
+				list($time,$sha1) = $params; // $params may be false if file didn't exist
+			} else {
+				$time = "0";
+			}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		if( !$time ) {
+		} else if( !$time ) {
 			$row = $dbw->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,
@@ -1385,7 +1473,7 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			#$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
+			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {

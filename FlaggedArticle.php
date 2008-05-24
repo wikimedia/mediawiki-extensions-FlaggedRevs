@@ -14,14 +14,23 @@ class FlaggedArticle extends Article {
 	 * Get an instance of FlaggedArticle for a given Article or Title object
 	 */
 	static function getInstance( $object ) {
-		if ( !isset( $object->flaggedRevsArticle ) ) {
-			if ( $object instanceof Title ) {
+		if( !isset( $object->flaggedRevsArticle ) ) {
+			if( $object instanceof Title ) {
 				$article = new Article( $object );
 				$article->flaggedRevsArticle = new FlaggedArticle( $article );
 				$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
-			} elseif ( $object instanceof Article ) {
-				if ( isset( $object->getTitle()->flaggedRevsArticle ) ) {
-					$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
+			} else if( $object instanceof Article ) {
+				if( isset( $object->getTitle()->flaggedRevsArticle ) ) {
+					$flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
+					# Article and ImagePage objects may get called on the same title.
+					# ImagePage is always the more complete version in this case.
+					$objClass = get_class($object);
+					if( $objClass == 'Article' || $objClass == get_class($flaggedRevsArticle->parent) ) {
+						$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
+					} else {
+						$object->flaggedRevsArticle = new FlaggedArticle( $object );
+						$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
+					}
 				} else {
 					$object->flaggedRevsArticle = new FlaggedArticle( $object );
 					$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
