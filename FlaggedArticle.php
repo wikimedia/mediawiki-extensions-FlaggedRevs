@@ -537,7 +537,7 @@ class FlaggedArticle extends Article {
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
 			$text = $frev->getRevText();
-			if( $text !==false && $wgRequest->getIntOrNull('showdiff') && strcmp($text,$editPage->textbox1) !== 0 ) {
+			if( $frev->getRevId() != $revId && $text !==false && strcmp($text,$editPage->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
 				$wgOut->addHtml(
@@ -656,13 +656,13 @@ class FlaggedArticle extends Article {
 					$contentActions['edit']['text'] = wfMsg('revreview-edit');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
-					$contentActions['edit']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
+					$contentActions['edit']['href'] = $title->getLocalUrl( 'action=edit' );
 	   		} if( isset( $contentActions['viewsource'] ) ) {
 				if( $this->showStableByDefault() )
 					$contentActions['viewsource']['text'] = wfMsg('revreview-source');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
-					$contentActions['viewsource']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
+					$contentActions['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
 			}
 	   	}
 		# We can change the behavoir of stable version for this page to be different
