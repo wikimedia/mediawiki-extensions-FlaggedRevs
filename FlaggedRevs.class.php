@@ -1513,7 +1513,8 @@ EOT;
     public static function userCanView( $title, $user, $action, $result ) {
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
-        if( !$wgFlaggedRevsVisible || $action != 'read' )
+		# Return out if $result set to false by some other hooked call.
+        if( !$wgFlaggedRevsVisible || $action != 'read' || $result===false )
             return true;
         # Admin may set this to false, rather than array()...
         $groups = $user->getGroups();
