@@ -790,21 +790,20 @@ class FlaggedArticle extends Article {
 		if( $newRev->isCurrent() && $oldRev ) {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
-				global $wgMemc, $wgParserCacheExpireTime;
+				global $wgMemc, $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
 				
 				$changeList = array();
 				$skin = $wgUser->getSkin();
 				$article = new Article( $newRev->getTitle() );
 				
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'templates', $article->getId(), $article->getTouched() );
+				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, 
+					$article->getId(), $article->getTouched() );
 				$value = $wgMemc->get($key);
 				$tmpChanges = $value ? unserialize($value) : array();
 				
 				# Make a list of each changed template...
 				if( empty($tmpChanges) ) {
-					global $wgUseStableTemplates;
-					
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get templates where the current and stable are not the same revision
 					if( $wgUseStableTemplates ) {
@@ -843,13 +842,15 @@ class FlaggedArticle extends Article {
 				$changeList += $tmpChanges;
 				
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'images', $article->getId(), $article->getTouched() );
+				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'images', (bool)$wgUseStableImages,
+					$article->getId(), $article->getTouched() );
 				$value = $wgMemc->get($key);
 				$imgChanges = $value ? unserialize($value) : array();
 				
 				// Get list of each changed image...
 				if( empty($imgChanges) ) {
 					global $wgUseStableImages;
+					$dbr = wfGetDB( DB_SLAVE );
 					// Get images where the current and stable are not the same revision
 					if( $wgUseStableImages ) {
 						$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
