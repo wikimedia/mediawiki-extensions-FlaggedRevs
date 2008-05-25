@@ -790,66 +790,98 @@ class FlaggedArticle extends Article {
 		if( $newRev->isCurrent() && $oldRev ) {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
+				global $wgMemc, $wgParserCacheExpireTime;
+				
 				$changeList = array();
 				$skin = $wgUser->getSkin();
+				$article = new Article( $newRev->getTitle() );
+				
+				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
+				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'templates', $article->getId(), $article->getTouched() );
+				$value = $wgMemc->get($key);
+				$tmpChanges = $value ? unserialize($value) : array();
 				
 				# Make a list of each changed template...
-				$dbr = wfGetDB( DB_SLAVE );
-				global $wgUseStableTemplates;
-				// Get templates where the current and stable are not the same revision
-				if( $wgUseStableTemplates ) {
-					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-						array( 'ft_namespace', 'ft_title', 'fp_stable AS rev_id' ),
-						array( 'ft_rev_id' => $frev->getRevId(),
-							'page_namespace = ft_namespace',
-							'page_title = ft_title',
-							'fp_page_id = page_id',
-							'fp_stable != page_latest' ),
-						__METHOD__ );
-				// Get templates that are newer than the ones of the stable version of this page
-				} else {
-					$ret = $dbr->select( array('flaggedtemplates','page'),
-						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id' ),
-						array( 'ft_rev_id' => $frev->getRevId(),
-							'page_namespace = ft_namespace',
-							'page_title = ft_title',
-							'ft_tmp_rev_id != page_latest' ),
-						__METHOD__ );
+				if( empty($tmpChanges) ) {
+					global $wgUseStableTemplates;
+					
+					$dbr = wfGetDB( DB_SLAVE );
+					// Get templates where the current and stable are not the same revision
+					if( $wgUseStableTemplates ) {
+						$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
+							array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id' ),
+							array( 'ft_rev_id' => $frev->getRevId(),
+								'page_namespace = ft_namespace',
+								'page_title = ft_title',
+								// If the page has a stable version, is it current?
+								// If not, is the specified one at review time current?
+								'fp_stable IS NOT NULL AND (fp_stable != page_latest) OR 
+									fp_stable IS NULL AND (ft_tmp_rev_id != page_latest)' ),
+							__METHOD__,
+							array(), /* OPTIONS */
+							array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
+						);
+					// Get templates that are newer than the ones of the stable version of this page
+					} else {
+						$ret = $dbr->select( array('flaggedtemplates','page'),
+							array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+							array( 'ft_rev_id' => $frev->getRevId(),
+								'page_namespace = ft_namespace',
+								'page_title = ft_title',
+								'ft_tmp_rev_id != page_latest' ),
+							__METHOD__ );
+					}
+					while( $row = $dbr->fetchObject( $ret ) ) {
+						$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
+						$revID = isset($row->fp_stable) ? $row->fp_stable : $row->ft_tmp_rev_id;
+						$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(), 
+							"diff=cur&oldid={$revID}" );
+					}
+					$wgMemc->set( $key, serialize($tmpChanges), $wgParserCacheExpireTime );
 				}
-				while( $row = $dbr->fetchObject( $ret ) ) {
-					$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
-					$changeList[] = $skin->makeKnownLinkObj( $title, $title->GetPrefixedText(),
-						"diff=cur&oldid=" . $row->rev_id );
-				}
+				# Add set to list
+				$changeList += $tmpChanges;
 				
-				# And images...
-				global $wgUseStableImages;
-				// Get images where the current and stable are not the same revision
-				if( $wgUseStableImages ) {
-					$ret = $dbr->select( array('flaggedimages','page','flaggedpages','flaggedrevs','image'),
-						array( 'fi_name' ),
-						array( 'fi_rev_id' => $frev->getRevId(),
-							'page_namespace' => NS_IMAGE,
-							'page_title = fi_name',
-							'fp_page_id = page_id',
-							'fr_page_id = page_id',
-							'fr_rev_id = fp_stable',
-							'img_name = fi_name',
-							'fr_img_sha1 != img_sha1' ),
-						__METHOD__ );
-				// Get images that are newer than the ones of the stable version of this page
-				} else {
-					$ret = $dbr->select( array('flaggedimages','image'),
-						array( 'fi_name' ),
-						array( 'fi_rev_id' => $frev->getRevId(),
-							'fi_name = img_name',
-							'fi_img_sha1 != img_sha1' ),
-						__METHOD__ );
+				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
+				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'images', $article->getId(), $article->getTouched() );
+				$value = $wgMemc->get($key);
+				$imgChanges = $value ? unserialize($value) : array();
+				
+				// Get list of each changed image...
+				if( empty($imgChanges) ) {
+					global $wgUseStableImages;
+					// Get images where the current and stable are not the same revision
+					if( $wgUseStableImages ) {
+						$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
+							array( 'fi_name' ),
+							array( 'fi_rev_id' => $frev->getRevId(),
+								// If the file has a stable version, is it current?
+								// If not, is the specified one at review time current?
+								'fr_img_sha1 IS NOT NULL AND (fr_img_sha1 != img_sha1) OR 
+									fr_img_sha1 IS NULL AND (fi_img_sha1 != img_sha1)' ),
+							__METHOD__,
+							array(), /* OPTIONS */
+							array( 'page' => array('INNER JOIN','page_namespace = '. NS_IMAGE .' AND page_title = fi_name'),
+								'image' => array('INNER JOIN','img_name = fi_name'),
+								'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
+								'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
+						);
+					// Get images that are newer than the ones of the stable version of this page
+					} else {
+						$ret = $dbr->select( array('flaggedimages','image'),
+							array( 'fi_name' ),
+							array( 'fi_rev_id' => $frev->getRevId(),
+								'fi_name = img_name',
+								'fi_img_sha1 != img_sha1' ),
+							__METHOD__ );
+					}
+					while( $row = $dbr->fetchObject( $ret ) ) {
+						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
+						$imgChanges[] = $skin->makeKnownLinkObj( $title );
+					}
+					$wgMemc->set( $key, serialize($imgChanges), $wgParserCacheExpireTime );
 				}
-				while( $row = $dbr->fetchObject( $ret ) ) {
-					$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
-					$changeList[] = $skin->makeKnownLinkObj( $title );
-				}
+				$changeList += $imgChanges;
 				
 				# Some important information...
 				if( ($wgUseStableTemplates || $wgUseStableImages) && !empty($changeList) ) {
