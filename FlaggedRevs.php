@@ -261,7 +261,6 @@ $wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevs::extraLinksUpdate';
 # Empty flagged page settings row on delete
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
 # Check on undelete/merge/revisiondelete for changes to stable version
-$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::titleLinksUpdate';
 $wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::titleLinksUpdate';
 $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
 # Clean up after undeletion
