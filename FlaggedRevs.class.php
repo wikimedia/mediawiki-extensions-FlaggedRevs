@@ -804,7 +804,7 @@ class FlaggedRevs {
 		global $wgFlaggedRevsNamespaces;
 		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
-		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
+		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() && $ns != NS_MEDIAWIKI );
 	}
 	
 	/**
