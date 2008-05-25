@@ -2131,5 +2131,20 @@ EOT;
 	static function addRevisionIDField( $editPage, $out ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
 	}
+	
+	static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
+		# The localized title of the special page is among the messages of the extension:
+		wfLoadExtensionMessages( 'FlaggedRevsPage' );
+		$specialPages = array( 'QualityOversight', 'DepreciationOversight', 'UnreviewedPages', 
+			'OldReviewedpages', 'StablePages', 'StableVersions' );
+		foreach( $specialPages as $specialPage ) {
+			$text = wfMsgHtml( strtolower("$specialPage-alias") );
+			$title = Title::newFromText($text);
+			if( $title ) {
+				$extendedSpecialPageAliases[$specialPage][] = $title->getDBKey();
+			}
+		}
+		return true;
+	}
 }
 

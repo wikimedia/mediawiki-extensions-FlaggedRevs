@@ -268,6 +268,13 @@ No configuration is possible.',
 	'flaggedrevs-pref-UI-1'    => 'Use simple stable version user interface',
 	
 	'specialpages-group-quality' => 'Quality assurance',
+	
+	'qualityoversight-alias'      => 'QualityOversight',
+	'depreciationoversight-alias' => 'DepreciationOversight',
+	'unreviewedpages-alias'       => 'UnreviewedPages',
+	'oldreviewedpages-alias'      => 'OldReviewedPages',
+	'stablepages-alias'           => 'StablePages',
+	'stableversions-alias'        => 'StableVersions',
 );
 
 /** Afrikaans (Afrikaans)

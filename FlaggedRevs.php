@@ -326,6 +326,9 @@ $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::injectStyleAndJS';
 
+# Set aliases
+$wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
+
 #########
 
 function efLoadFlaggedRevs() {
@@ -338,7 +341,6 @@ function efLoadFlaggedRevs() {
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
-
 }
 
 # Add review log and such
