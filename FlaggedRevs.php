@@ -293,6 +293,8 @@ $wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 # Image version display
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
+# Show unreviewed pages links
+$wgHooks['CategoryPageView'][] = 'FlaggedRevs::unreviewedPagesLinks';
 
 # Visibility - experimental
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';

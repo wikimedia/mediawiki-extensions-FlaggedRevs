@@ -2078,6 +2078,10 @@ EOT;
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
 	}
 	
+	static function unreviewedPagesLinks( $category ) {
+		return FlaggedArticle::getInstance( $category )->addToCategoryView();
+	}
+	
 	static function addReviewForm( $out ) {
 		global $wgArticle;
 		if ( $wgArticle && $out->isArticleRelated() ) {

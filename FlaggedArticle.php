@@ -558,6 +558,30 @@ class FlaggedArticle extends Article {
 		}
 		return true;
 	}
+	
+	/**
+	 * Add unreviewed pages links
+	 */
+	public function addToCategoryView() {
+		global $wgOut, $wgUser;
+		
+		if( !$wgUser->isAllowed( 'review' ) )
+			return true;
+		
+		$category = $this->parent->getTitle()->getDBKey();
+		
+		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
+		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed, wfMsgHtml('unreviewedpages'),
+			"category={$category}" );
+		
+		$oldreviewed = SpecialPage::getTitleFor( 'OldReviewedPages' );
+		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed, wfMsgHtml('oldreviewedpages'),
+			"category={$category}" );
+			
+		$wgOut->appendSubtitle( "<p>$unreviewedLink / $oldreviewedLink</p>" );
+		
+		return true;
+	}
 
 	 /**
 	 * Add review form to pages when necessary
