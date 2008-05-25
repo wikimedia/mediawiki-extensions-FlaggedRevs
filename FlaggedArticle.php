@@ -21,16 +21,7 @@ class FlaggedArticle extends Article {
 				$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
 			} else if( $object instanceof Article ) {
 				if( isset( $object->getTitle()->flaggedRevsArticle ) ) {
-					$flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
-					# Article and ImagePage objects may get called on the same title.
-					# ImagePage is always the more complete version in this case.
-					$objClass = get_class($object);
-					if( $objClass == 'Article' || $objClass == get_class($flaggedRevsArticle->parent) ) {
-						$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
-					} else {
-						$object->flaggedRevsArticle = new FlaggedArticle( $object );
-						$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
-					}
+					$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
 				} else {
 					$object->flaggedRevsArticle = new FlaggedArticle( $object );
 					$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
@@ -411,13 +402,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function imagePageFindFile( &$normalFile, &$displayFile ) {
 		global $wgRequest;
-		if( !$this->parent instanceof ImagePage ) {
-			wfDebug( __METHOD__.": not an ImagePage!\n" );
-			return;
-		}
-
-		# Determine timestamp
-		# A reviewed version may have explicitly been requested...
+		# Determine timestamp. A reviewed version may have explicitly been requested...
 		$frev = null;
 		$time = false;
 		if( $reqId = $wgRequest->getVal('stableid') ) {
