@@ -568,7 +568,7 @@ class FlaggedArticle extends Article {
 		if( !$wgUser->isAllowed( 'review' ) )
 			return true;
 		
-		$category = $this->parent->getTitle()->getDBKey();
+		$category = $this->parent->getTitle()->getText();
 		
 		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
 		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed, wfMsgHtml('unreviewedpages'),
