@@ -1085,15 +1085,15 @@ class FlaggedRevs {
 	* Add FlaggedRevs css/js.
 	*/
 	public static function injectStyleAndJS() {
-		global $wgOut;
+		global $wgOut, $wgArticle;
 		# Don't double-load
 		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
 			return true;
 		}
-		if( !$wgOut->isArticleRelated() ) {
+		if( !$wgArticle || !$wgOut->isArticleRelated() ) {
 			return true;
 		}
-		global $wgArticle, $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
+		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 
 		$flaggedArticle = FlaggedArticle::getInstance( $wgArticle );
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
