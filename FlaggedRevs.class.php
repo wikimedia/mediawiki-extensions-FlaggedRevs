@@ -567,6 +567,10 @@ class FlaggedRevs {
 			$columns[] = 'fr_flags';
 		}
 		$row = null;
+		# Short-circuit query
+		if( !$title->getArticleId() ) {
+			return $row;
+		}
 		# If we want the text, then get the text flags too
 		if( !$forUpdate ) {
 			$dbr = wfGetDB( DB_SLAVE );
@@ -643,9 +647,7 @@ class FlaggedRevs {
 			array( 'fr_rev_id' => $rev_id,
 				'fr_page_id' => $title->getArticleId() ),
 			__METHOD__ );
-		if( !$tags )
-			return false;
-
+		$tags = $tags ? $tags : "";
 		return FlaggedRevision::expandRevisionTags( strval($tags) );
 	}
 	
@@ -1079,16 +1081,15 @@ class FlaggedRevs {
 	* Add FlaggedRevs css/js.
 	*/
 	public static function injectStyleAndJS() {
-		global $wgOut, $wgJsMimeType;
+		global $wgOut;
 		# Don't double-load
-		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
+		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
 			return true;
 		}
-		if ( !$wgOut->isArticleRelated() ) {
+		if( !$wgOut->isArticleRelated() ) {
 			return true;
 		}
-
-		global $wgArticle, $wgScriptPath, $wgFlaggedRevStyleVersion, $wgJsMimeType, $wgFlaggedRevsStylePath;
+		global $wgArticle, $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 
 		$flaggedArticle = FlaggedArticle::getInstance( $wgArticle );
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
@@ -1097,6 +1098,7 @@ class FlaggedRevs {
 		$stableId = $frev ? $frev->getRevId() : 0;
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
+
 		$head = <<<EOT
 <link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
 <script type="$wgJsMimeType">
@@ -1617,9 +1619,9 @@ EOT;
         # See if there is a stable version. Also, see if, given the page 
         # config and URL params, the page can be overriden.
 		$flaggedArticle = FlaggedArticle::getInstance( $title );
-        if( $wgTitle && $wgTitle->equals( $title ) && $flaggedArticle->getStableRev( true ) ) {
+        if( $wgTitle && $wgTitle->equals( $title ) ) {
             // Cache stable version while we are at it.
-            if( $flaggedArticle->pageOverride() ) {
+            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev( true ) ) {
                 $result = true;
             }
         } else {
@@ -2046,7 +2048,7 @@ EOT;
 
 	static function setActionTabs( $skin, &$contentActions ) {
 		global $wgArticle;
-		if ( $wgArticle ) {
+		if( $wgArticle ) {
 			FlaggedArticle::getInstance( $wgArticle )->setActionTabs( $skin, $contentActions );
 		}
 		return true;
@@ -2054,7 +2056,7 @@ EOT;
 
 	static function setLastModified( $skin, &$tpl ) {
 		global $wgArticle;
-		if ( $wgArticle ) {
+		if( $wgArticle ) {
 			FlaggedArticle::getInstance( $wgArticle )->setLastModified( $skin, $tpl );
 		}
 		return true;

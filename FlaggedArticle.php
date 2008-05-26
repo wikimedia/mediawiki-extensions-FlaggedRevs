@@ -9,26 +9,45 @@ class FlaggedArticle extends Article {
 	protected $file = NULL;
 	protected $parent;
 
-
 	/**
 	 * Get an instance of FlaggedArticle for a given Article or Title object
 	 */
-	static function getInstance( $object ) {
-		if( !isset( $object->flaggedRevsArticle ) ) {
-			if( $object instanceof Title ) {
-				$article = new Article( $object );
-				$article->flaggedRevsArticle = new FlaggedArticle( $article );
-				$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
-			} else if( $object instanceof Article ) {
-				if( isset( $object->getTitle()->flaggedRevsArticle ) ) {
-					$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
-				} else {
-					$object->flaggedRevsArticle = new FlaggedArticle( $object );
-					$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
-				}
+	static function getInstance( &$object ) {
+		# If instance already cached, return it!
+		if( isset($object->flaggedRevsArticle) ) {
+			return $object->flaggedRevsArticle;
+		}
+		global $wgTitle;
+		# Try and keep things to one object to avoid cache misses...
+		# If $wgTitle has no instance, give it one!
+		if( !isset($wgTitle->flaggedRevsArticle) ) {
+			$article = new Article( $wgTitle );
+			$wgTitle->flaggedRevsArticle = new FlaggedArticle( $article );
+		}
+		# Use $wgTitle's instance if we are dealing with the same article
+		if( $object instanceof Title && $object->equals( $wgTitle ) ) {
+			$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
+			return $object->flaggedRevsArticle;
+		} else if( $object instanceof Article && $object->getTitle()->equals( $wgTitle ) ) {
+			$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
+			return $object->flaggedRevsArticle;
+		}
+		# For titles, attach instance to the title and give the instance an article parent
+		if( $object instanceof Title ) {
+			$article = new Article( $object );
+			$article->flaggedRevsArticle = new FlaggedArticle( $article );
+			$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
+		} else if( $object instanceof Article ) {
+			# If flaggedarticle is attached to title, use that
+			if( isset( $object->getTitle()->flaggedRevsArticle ) ) {
+				$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
+			# Otherwise, attach it to the article and title
 			} else {
-				throw new MWException( __METHOD__.': invalid argument' );
+				$object->flaggedRevsArticle = new FlaggedArticle( $object );
+				$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
 			}
+		} else {
+			throw new MWException( __METHOD__.': invalid argument' );
 		}
 		return $object->flaggedRevsArticle;
 	}
@@ -1098,6 +1117,7 @@ class FlaggedArticle extends Article {
 		$srev = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
 		if( $srev ) {
 			$this->stableRev = $srev;
+			$this->flags[$srev->getRevId()] = $srev->getTags();
 			return $srev;
 		} else {
 			$this->stableRev = false;
@@ -1130,8 +1150,9 @@ class FlaggedArticle extends Article {
 	 */
 	public function getFlagsForRevision( $revId ) {
 		# Cached results?
-		if( isset($this->flags[$revId]) && $this->flags[$revId] )
+		if( isset($this->flags[$revId]) ) {
 			return $this->flags[$revId];
+		}
 		# Get the flags
 		$flags = FlaggedRevs::getRevisionTags( $this->parent->getTitle(), $revId );
 		# Try to cache results
