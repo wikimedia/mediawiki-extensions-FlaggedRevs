@@ -1429,8 +1429,8 @@ $messages['de'] = array(
 	'revreview-log'        => 'Kommentar:',
 	'revreview-approved'   => 'Freigegeben',
 	'revreview-submit'     => 'Markierung speichern',
-	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert.'''",
-	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version] oder die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen?',
+	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert. ([{{fullurl:Special:Stableversions|page=$2}} siehe alle gesichteten Versionen])'''",
+	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version], falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
 	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-stable2'     => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?.',
 	'revreview-changed'     => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
@@ -1526,6 +1526,13 @@ $messages['de'] = array(
 	'flaggedrevs-pref-UI-1'    => 'Benutze für markierte Versionen die einfache Benutzerschnittstelle',
 
 	'specialpages-group-quality' => 'Qualitätssicherung',
+
+	'qualityoversight-alias'      => 'Geprüfte_Seiten',
+	'depreciationoversight-alias' => 'Zurückgezogene_Markierungen',
+	'unreviewedpages-alias'       => 'Ungesichtete_Seiten',
+	'oldreviewedpages-alias'      => 'Seiten_mit_ungesichteten_Versionen',
+	'stablepages-alias'           => 'Markierte_Seiten',
+	'stableversions-alias'        => 'Markierte_Versionen',
 );
 
 /** Greek (Ελληνικά)
