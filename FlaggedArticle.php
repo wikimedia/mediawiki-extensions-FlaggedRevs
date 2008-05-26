@@ -12,7 +12,7 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get an instance of FlaggedArticle for a given Article or Title object
 	 */
-	static function getInstance( &$object ) {
+	static function getInstance( $object ) {
 		# If instance already cached, return it!
 		if( isset($object->flaggedRevsArticle) ) {
 			return $object->flaggedRevsArticle;
