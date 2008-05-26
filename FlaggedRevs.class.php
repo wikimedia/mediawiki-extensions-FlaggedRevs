@@ -537,6 +537,10 @@ class FlaggedRevs {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
 		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
+		# Short-circuit query
+		if( !$page_id ) {
+			return null;
+		}
 		# Skip deleted revisions
 		$row = $db->selectRow( array('flaggedrevs','revision'),
 			$columns,
