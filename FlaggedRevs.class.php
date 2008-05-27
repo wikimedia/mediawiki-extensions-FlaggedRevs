@@ -2160,7 +2160,7 @@ EOT;
 			$dbr = wfGetDB( DB_SLAVE );
 			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
 			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
-				$notice .= "<div class='plainlinks fr-backlognotice'>" . 
+				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
 			}
 		
