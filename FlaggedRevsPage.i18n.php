@@ -728,6 +728,7 @@ $messages['bg'] = array(
 	'revreview-quick-none'      => "'''Текуща''' (няма рецензирани версии)",
 	'revreview-quick-invalid'   => "'''Невалиден номер на версия'''",
 	'revreview-toggle-title'    => 'показване/скриване на детайли',
+	'revreview-update-includes' => "'''Някои шаблони/файлове бяха обновени:'''",
 	'revreview-auto'            => '(автоматично)',
 	'revreview-patrolled'       => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
 	'hist-quality'              => 'качествена версия',
@@ -765,6 +766,9 @@ $messages['bg'] = array(
 	'unreviewedpages'           => 'Нерецензирани страници',
 	'unreviewed-category'       => 'Категория:',
 	'unreviewed-diff'           => 'Промени',
+	'oldreviewedpages-hours'    => '($1 {{PLURAL:$1|час|часа}})',
+	'oldreviewedpages-days'     => '($1 {{PLURAL:$1|ден|дни}})',
+	'oldreviewedpages-recent'   => '(по-малко от 1 час)',
 	'stabilization'             => 'Устойчивост на страницата',
 	'stabilization-page'        => 'Име на страницата:',
 	'stabilization-leg'         => 'Настройка на устойчивата версия на страницата',
@@ -1024,6 +1028,7 @@ Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pa
  * @author SMP
  * @author Paucabot
  * @author Siebrand
+ * @author Jordi Roqué
  */
 $messages['ca'] = array(
 	'flaggedrevs-desc'            => "Dóna als editors/revisors l'habilitat de validar revisions de pàgines i declarar-les estables.",
@@ -1052,6 +1057,7 @@ $messages['ca'] = array(
 	'revreview-basic'             => "Aquesta és l'última versió [[{{MediaWiki:Validationpage}}|revisada]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versió actual] és la que pot ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|canvi|canvis}}] {{plural:$3|espera|esperen}} revisió.",
 	'revreview-quality'           => "Aquesta és l'última versió [[{{MediaWiki:Validationpage}}|de qualitat]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versió actual] és la que pot ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|canvi|canvis}}] {{plural:$3|espera|esperen}} revisió.",
 	'revreview-toggle-title'      => 'Mostra/amaga detalls',
+	'revreview-quality-title'     => 'Article de qualitat',
 	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis (''indicats aquí'') fets des que la versió estable va ser [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].
 
 '''Algunes plantilles i imatges poden haver canviat:'''",
@@ -1060,6 +1066,7 @@ $messages['ca'] = array(
 	'hist-quality'                => 'versió de qualitat',
 	'flaggedrevs'                 => 'Revisions senyalades',
 	'review-logpage'              => 'Registre de revisió',
+	'review-logentry-app'         => '[[$1]] revisat',
 	'stable-logpage'              => "Registre d'estabilitat",
 	'revreview-patrol'            => 'Marca aquest canvi com a patrullat',
 	'revisionreview'              => 'Revisa les revisions',
@@ -1898,7 +1905,6 @@ $messages['fi'] = array(
  * @author Siebrand
  * @author IAlex
  * @author Urhixidur
- * @author Cedric31
  * @author ChrisPtDe
  */
 $messages['fr'] = array(
@@ -2111,6 +2117,12 @@ Un modèle ou une image peuvent avoir été demandés alors qu’aucune version 
 	'flaggedrevs-pref-UI-0'        => 'Utiliser l’interface utilisateur de la version stable détaillée',
 	'flaggedrevs-pref-UI-1'        => 'Utiliser une simple interface utilisateur stable',
 	'specialpages-group-quality'   => 'Assurance qualité',
+	'qualityoversight-alias'       => 'QualitéSuperviseur',
+	'depreciationoversight-alias'  => 'DépréciéSuperviseur',
+	'unreviewedpages-alias'        => 'PagesNonRelues',
+	'oldreviewedpages-alias'       => 'PagesAnciennementRelues',
+	'stablepages-alias'            => 'PagesStables',
+	'stableversions-alias'         => 'VersionsStables',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2647,6 +2659,12 @@ $messages['hi'] = array(
 	'flaggedrevs-pref-UI-0'        => 'इंटरफेस में बढाया हुआ स्थिर अवतरणका इस्तेमाल करें',
 	'flaggedrevs-pref-UI-1'        => 'इंटरफेस में सीधे स्थिर अवतरणका इस्तेमाल करें',
 	'specialpages-group-quality'   => 'गुणवत्ता नियंत्रण',
+	'qualityoversight-alias'       => 'गुणवत्ताओव्हरसाईट',
+	'depreciationoversight-alias'  => 'डिप्रिसियेशनओव्हरसाईट',
+	'unreviewedpages-alias'        => 'नदेखेंहुएपन्ने',
+	'oldreviewedpages-alias'       => 'पुरानेदेखेंहुएपन्ने',
+	'stablepages-alias'            => 'स्थिरपन्ने',
+	'stableversions-alias'         => 'स्थिरअवतरण',
 );
 
 /** Croatian (Hrvatski)
@@ -4740,6 +4758,12 @@ $messages['mr'] = array(
 	'flaggedrevs-pref-UI-0'        => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा',
 	'flaggedrevs-pref-UI-1'        => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा',
 	'specialpages-group-quality'   => 'गुणवत्ता वचन',
+	'qualityoversight-alias'       => 'गुणवत्ताओव्हरसाईट',
+	'depreciationoversight-alias'  => 'डिप्रिसियेशनओव्हरसाईट',
+	'unreviewedpages-alias'        => 'नतपासलेलीपाने',
+	'oldreviewedpages-alias'       => 'जुनीतपासलेलीपाने',
+	'stablepages-alias'            => 'स्थिरपाने',
+	'stableversions-alias'         => 'स्थिरआवृत्त्या',
 );
 
 /** Erzya (эрзянь кель)
@@ -5811,6 +5835,7 @@ Seguem-se as configurações para [[:$1|$1]]:',
 	'stabilization-select1'        => 'A última edição analisada como confiável; 
 se inexistente, a mais recentemente analisada',
 	'stabilization-select2'        => 'A mais recentemente analisada',
+	'stabilization-select3'        => 'A última revisão intocada; se não estiver presente, então a última de qualidade ou visionada',
 	'stabilization-def'            => 'Edição exibida na visualização padrão de página',
 	'stabilization-def1'           => 'A edição estável; 
 se inexistente, exibir a edição actual',
@@ -5825,6 +5850,7 @@ Não é possível configurá-la.',
 	'stabilization-sel-short'      => 'Precedência',
 	'stabilization-sel-short-0'    => 'Qualidade',
 	'stabilization-sel-short-1'    => 'Nenhum',
+	'stabilization-sel-short-2'    => 'Intocada',
 	'stabilization-def-short'      => 'Padrão',
 	'stabilization-def-short-0'    => 'Atual',
 	'stabilization-def-short-1'    => 'Estável',
@@ -5968,6 +5994,7 @@ $messages['ru'] = array(
 	'stable-logentry'              => 'установил стабильное версионирование для [[$1]]',
 	'stable-logentry2'             => 'сбросил чистовое версионирование для [[$1]]',
 	'revreview-patrol'             => 'Отметить это изменение как проверенное',
+	'revreview-patrol-title'       => 'Отметить как патрулированную',
 	'revisionreview'               => 'Проверка версий',
 	'revreview-main'               => 'Вы должны выбрать одну из версий страницы для проверки.
 
@@ -6088,6 +6115,12 @@ $messages['ru'] = array(
 	'flaggedrevs-pref-UI-0'        => 'Использовать подробный интерфейс стабильных версий',
 	'flaggedrevs-pref-UI-1'        => 'Использовать простой интерфейс стабильных версий',
 	'specialpages-group-quality'   => 'Поддержка качества',
+	'qualityoversight-alias'       => 'РевизорКачества',
+	'depreciationoversight-alias'  => 'РевизорСнятий',
+	'unreviewedpages-alias'        => 'НепроверенныеСтраницы',
+	'oldreviewedpages-alias'       => 'ДавноПроверенныеСтраницы',
+	'stablepages-alias'            => 'стабильныестраницы',
+	'stableversions-alias'         => 'СтабильныеВерсии',
 );
 
 /** Yakut (Саха тыла)
@@ -6966,6 +6999,11 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'flaggedrevs-pref-UI-0'        => 'Använd ett detaljerat gränssnitt för stabila versioner',
 	'flaggedrevs-pref-UI-1'        => 'Använd ett enkelt gränssnitt för stabila versioner',
 	'specialpages-group-quality'   => 'Kvalitetsförsäkring',
+	'qualityoversight-alias'       => 'Kvalitetsöversikt',
+	'depreciationoversight-alias'  => 'Avskrivningsöversikt',
+	'unreviewedpages-alias'        => 'OgranskadeSidor',
+	'oldreviewedpages-alias'       => 'GamlaGranskadeSidor',
+	'stablepages-alias'            => 'StabilaSidor',
 	'stableversions-alias'         => 'StabilaVersioner',
 );
 
@@ -7687,6 +7725,7 @@ Danh sách các trang ổn định có thể tìm thấy tại [[Special:StableP
 	'stable-logentry'              => 'đã thiết lập phiên bản ổn định cho [[$1]]',
 	'stable-logentry2'             => 'mặc định lại phiên bản ổn định của [[$1]]',
 	'revreview-patrol'             => 'Đánh dấu tuần tra sửa đổi này',
+	'revreview-patrol-title'       => 'Đánh dấu đã tuần tra',
 	'revisionreview'               => 'Các bản đã duyệt',
 	'revreview-main'               => 'Bạn phải chọn một phiên bản cụ thể từ một trang nội dung để duyệt.
 
@@ -7812,6 +7851,13 @@ Không thể cấu hình.',
 	'flaggedrevs-prefs-watch'      => 'Thêm trang tôi duyệt vào danh sách theo dõi',
 	'flaggedrevs-pref-UI-0'        => 'Sử dụng giao diện người dùng phiên bản ổn định chi tiết',
 	'flaggedrevs-pref-UI-1'        => 'Sử dụng giao diện người dùng phiên bản ổn định đơn giản',
+	'specialpages-group-quality'   => 'Đảm bảo chất lượng',
+	'qualityoversight-alias'       => 'Giám sát chất lượng',
+	'depreciationoversight-alias'  => 'Giám sát sự sụt giảm',
+	'unreviewedpages-alias'        => 'Trang chưa duyệt',
+	'oldreviewedpages-alias'       => 'Trang chưa duyệt cũ',
+	'stablepages-alias'            => 'Trang ổn định',
+	'stableversions-alias'         => 'Bản ổn định',
 );
 
 /** Volapük (Volapük)
