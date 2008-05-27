@@ -1659,7 +1659,7 @@ EOT;
 	* version, try to automatically review it.
 	*/
 	public static function maybeMakeEditReviewed( $article, $rev, $baseRevID = false ) {
-		global $wgFlaggedRevsAutoReview, $wgRequest;
+		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
@@ -1672,32 +1672,26 @@ EOT;
 		$frev = null;
 		$reviewableNewPage = false;
 		# Get the revision ID the incoming one was based off
-		if ( !$baseRevID ) {
+		if( !$baseRevID ) {
 			$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		}
 		# Get what was just the current revision ID
 		$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 		# If baseRevId not given, assume the previous revision ID
-		if ( !$baseRevID ) {
+		if( !$baseRevID ) {
 			$baseRevID = $prevRevID;
 		}
+		// Edits to existing pages
 		if( $baseRevID ) {
 			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
-			# If the base revision was not reviewed, check if the previous one was
-			if ( !$frev ) {
+			# If the base revision was not reviewed, check if the previous one was.
+			# This should catch null edits as well as normal ones.
+			if( !$frev ) {
 				$frev = self::getFlaggedRev( $title, $prevRevID, false, true, $rev->getPage() );
 			}
+		// New pages
 		} else {
-			$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
-			$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
-			# Check for null edits
-			if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
-				$frev = self::getFlaggedRev( $title, $prevRev->getId() );
-			# Check for new pages
-			} else if( !$prevRevID ) {
-				global $wgFlaggedRevsAutoReviewNew;
-				$reviewableNewPage = ($wgFlaggedRevsAutoReviewNew && $user->isAllowed('review'));
-			}
+			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		}
 		# Is this an edit directly to the stable version?
 		if( $reviewableNewPage || !is_null($frev) ) {
