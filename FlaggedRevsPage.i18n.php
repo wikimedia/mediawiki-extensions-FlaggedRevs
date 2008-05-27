@@ -48,40 +48,40 @@ The ''draft'' is shown below.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}
 
 	'validationpage' => '{{ns:help}}:Article validation',
 
-	'revreview-quick-none' => '\'\'\'[[{{MediaWiki:Validationpage}}|Current revision]]\'\'\' (unreviewed)',
-	'revreview-quick-invalid' => "'''Invalid revision ID'''",
+	'revreview-quick-none'         => '\'\'\'[[{{MediaWiki:Validationpage}}|Current revision]]\'\'\' (unreviewed)',
+	'revreview-quick-invalid'      => "'''Invalid revision ID'''",
 	'revreview-invalid' => "'''Invalid target:''' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.",
-	'revreview-quick-see-quality' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
+	'revreview-quick-see-quality'  => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
-	'revreview-quick-see-basic' => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
+	'revreview-quick-see-basic'    => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} compare])',
-	'revreview-quick-basic' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-quality' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-basic-old' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-quality-old' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-basic-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\'',
+	'revreview-quick-basic'        => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-quality'      => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-basic-old'    => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-quality-old'  => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\'',
 	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\'',
-	'revreview-newest-basic' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-newest-basic'       => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
-	'revreview-newest-quality' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-newest-quality'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] {{plural:$3|needs|need}} review.',
-	'revreview-newest-basic-i' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-newest-basic-i'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Template/image changes] need review.',
-	'revreview-newest-quality-i' => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-newest-quality-i'   => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Template/image changes] need review.',
-	'revreview-basic' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-basic'              => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] awaiting review.',
-	'revreview-quality' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-quality'            => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|change|changes}}] awaiting review.',
-	'revreview-basic-i' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-basic-i'            => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} template/image changes] awaiting review.',
-	'revreview-quality-i' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-quality-i'          => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} template/image changes] awaiting review.',
-	'revreview-basic-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
-	'revreview-quality-same' => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
-	'revreview-basic-old' => 'This is a [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-basic-same'         => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
+	'revreview-quality-same'       => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
+	'revreview-basic-old'          => 'This is a [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes] may have been made.',
-	'revreview-quality-old' => 'This is a [[{{MediaWiki:Validationpage}}|quality]]  revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
+	'revreview-quality-old'        => 'This is a [[{{MediaWiki:Validationpage}}|quality]]  revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changes] may have been made.',
 	
 	'revreview-toggle' => '(+/-)',
@@ -209,9 +209,11 @@ Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page'       => 'Page name:',
 	'stabilization-leg'        => 'Confirm stable version settings',
 	'stabilization-select'     => 'Stable version selection',
-	'stabilization-select1'    => 'The latest quality revision; if not present, then the latest sighted one',
+	'stabilization-select1'    => 'The latest quality revision;
+if not present, then the latest sighted one',
 	'stabilization-select2'    => 'The latest reviewed revision',
-	'stabilization-select3'    => 'The latest pristine revision; if not present, then the latest quality or sighted one',
+	'stabilization-select3'    => 'The latest pristine revision;
+if not present, then the latest quality or sighted one',
 	'stabilization-def'        => 'Revision displayed on default page view',
 	'stabilization-def1'       => 'The stable revision; if not present, then the current one',
 	'stabilization-def2'       => 'The current revision',
@@ -269,7 +271,8 @@ No configuration is possible.',
 	
 	'specialpages-group-quality' => 'Quality assurance',
 	
-	'flaggedrevs-backlog' => "There is currently a backlog at [[Special:OldReviewedPages|Outdated reviewed pages]]. '''Your attention is needed!'''",
+	'flaggedrevs-backlog' => "There is currently a backlog at [[Special:OldReviewedPages|Outdated reviewed pages]].
+'''Your attention is needed!'''",
 	
 	'qualityoversight-alias'      => 'QualityOversight',
 	'depreciationoversight-alias' => 'DepreciationOversight',
