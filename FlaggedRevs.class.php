@@ -2158,7 +2158,7 @@ EOT;
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
 	}
 	
-	static function backlogNotice( &$notice ) {
+	static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'RecentChanges' );

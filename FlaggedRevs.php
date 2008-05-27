@@ -297,7 +297,7 @@ $wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
 # Show unreviewed pages links
 $wgHooks['CategoryPageView'][] = 'FlaggedRevs::unreviewedPagesLinks';
 # Backlog notice
-$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::backlogNotice';
+$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::addBacklogNotice';
 
 # Visibility - experimental
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
