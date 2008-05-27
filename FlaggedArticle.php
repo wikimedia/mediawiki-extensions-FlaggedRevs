@@ -9,45 +9,26 @@ class FlaggedArticle extends Article {
 	protected $file = NULL;
 	protected $parent;
 
+
 	/**
 	 * Get an instance of FlaggedArticle for a given Article or Title object
 	 */
 	static function getInstance( $object ) {
-		# If instance already cached, return it!
-		if( isset($object->flaggedRevsArticle) ) {
-			return $object->flaggedRevsArticle;
-		}
-		global $wgTitle;
-		# Try and keep things to one object to avoid cache misses...
-		# If $wgTitle has no instance, give it one!
-		if( !isset($wgTitle->flaggedRevsArticle) ) {
-			$article = new Article( $wgTitle );
-			$wgTitle->flaggedRevsArticle = new FlaggedArticle( $article );
-		}
-		# Use $wgTitle's instance if we are dealing with the same article
-		if( $object instanceof Title && $object->equals( $wgTitle ) ) {
-			$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
-			return $object->flaggedRevsArticle;
-		} else if( $object instanceof Article && $object->getTitle()->equals( $wgTitle ) ) {
-			$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
-			return $object->flaggedRevsArticle;
-		}
-		# For titles, attach instance to the title and give the instance an article parent
-		if( $object instanceof Title ) {
-			$article = new Article( $object );
-			$article->flaggedRevsArticle = new FlaggedArticle( $article );
-			$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
-		} else if( $object instanceof Article ) {
-			# If flaggedarticle is attached to title, use that
-			if( isset( $object->getTitle()->flaggedRevsArticle ) ) {
-				$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
-			# Otherwise, attach it to the article and title
+		if ( !isset( $object->flaggedRevsArticle ) ) {
+			if ( $object instanceof Title ) {
+				$article = new Article( $object );
+				$article->flaggedRevsArticle = new FlaggedArticle( $article );
+				$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
+			} elseif ( $object instanceof Article ) {
+				if ( isset( $object->getTitle()->flaggedRevsArticle ) ) {
+					$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
+				} else {
+					$object->flaggedRevsArticle = new FlaggedArticle( $object );
+					$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
+				}
 			} else {
-				$object->flaggedRevsArticle = new FlaggedArticle( $object );
-				$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
+				throw new MWException( __METHOD__.': invalid argument' );
 			}
-		} else {
-			throw new MWException( __METHOD__.': invalid argument' );
 		}
 		return $object->flaggedRevsArticle;
 	}
@@ -421,7 +402,13 @@ class FlaggedArticle extends Article {
 	 */
 	public function imagePageFindFile( &$normalFile, &$displayFile ) {
 		global $wgRequest;
-		# Determine timestamp. A reviewed version may have explicitly been requested...
+		if( !$this->parent instanceof ImagePage ) {
+			wfDebug( __METHOD__.": not an ImagePage!\n" );
+			return;
+		}
+
+		# Determine timestamp
+		# A reviewed version may have explicitly been requested...
 		$frev = null;
 		$time = false;
 		if( $reqId = $wgRequest->getVal('stableid') ) {
@@ -540,8 +527,8 @@ class FlaggedArticle extends Article {
 			# Show diff to stable, to make things less confusing
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
-			$text = ($frev->getRevId() != $revId) ? $frev->getRevText() : false;
-			if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
+			$text = $frev->getRevText();
+			if( $text !==false && $wgRequest->getIntOrNull('showdiff') && strcmp($text,$editPage->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
 				$wgOut->addHtml(
@@ -560,30 +547,6 @@ class FlaggedArticle extends Article {
 					"</div>\n" );
 			}
 		}
-		return true;
-	}
-	
-	/**
-	 * Add unreviewed pages links
-	 */
-	public function addToCategoryView() {
-		global $wgOut, $wgUser;
-		
-		if( !$wgUser->isAllowed( 'review' ) )
-			return true;
-		
-		$category = $this->parent->getTitle()->getText();
-		
-		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
-		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed, wfMsgHtml('unreviewedpages'),
-			"category={$category}" );
-		
-		$oldreviewed = SpecialPage::getTitleFor( 'OldReviewedPages' );
-		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed, wfMsgHtml('oldreviewedpages'),
-			"category={$category}" );
-			
-		$wgOut->appendSubtitle( "<p>$unreviewedLink / $oldreviewedLink</p>" );
-		
 		return true;
 	}
 
@@ -684,13 +647,13 @@ class FlaggedArticle extends Article {
 					$contentActions['edit']['text'] = wfMsg('revreview-edit');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
-					$contentActions['edit']['href'] = $title->getLocalUrl( 'action=edit' );
+					$contentActions['edit']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
 	   		} if( isset( $contentActions['viewsource'] ) ) {
 				if( $this->showStableByDefault() )
 					$contentActions['viewsource']['text'] = wfMsg('revreview-source');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
-					$contentActions['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
+					$contentActions['viewsource']['href'] = $title->getLocalUrl( 'action=edit&showdiff=1' );
 			}
 	   	}
 		# We can change the behavoir of stable version for this page to be different
@@ -818,99 +781,66 @@ class FlaggedArticle extends Article {
 		if( $newRev->isCurrent() && $oldRev ) {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
-				global $wgMemc, $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
-				
 				$changeList = array();
 				$skin = $wgUser->getSkin();
-				$article = new Article( $newRev->getTitle() );
-				
-				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, 
-					$article->getId(), $article->getTouched() );
-				$value = $wgMemc->get($key);
-				$tmpChanges = $value ? unserialize($value) : array();
 				
 				# Make a list of each changed template...
-				if( empty($tmpChanges) ) {
-					$dbr = wfGetDB( DB_SLAVE );
-					// Get templates where the current and stable are not the same revision
-					if( $wgUseStableTemplates ) {
-						$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-							array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id' ),
-							array( 'ft_rev_id' => $frev->getRevId(),
-								'page_namespace = ft_namespace',
-								'page_title = ft_title',
-								// If the page has a stable version, is it current?
-								// If not, is the specified one at review time current?
-								'fp_stable IS NOT NULL AND (fp_stable != page_latest) OR 
-									fp_stable IS NULL AND (ft_tmp_rev_id != page_latest)' ),
-							__METHOD__,
-							array(), /* OPTIONS */
-							array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
-						);
-					// Get templates that are newer than the ones of the stable version of this page
-					} else {
-						$ret = $dbr->select( array('flaggedtemplates','page'),
-							array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
-							array( 'ft_rev_id' => $frev->getRevId(),
-								'page_namespace = ft_namespace',
-								'page_title = ft_title',
-								'ft_tmp_rev_id != page_latest' ),
-							__METHOD__ );
-					}
-					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
-						$revID = isset($row->fp_stable) ? $row->fp_stable : $row->ft_tmp_rev_id;
-						$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(), 
-							"diff=cur&oldid={$revID}" );
-					}
-					$wgMemc->set( $key, serialize($tmpChanges), $wgParserCacheExpireTime );
+				$dbr = wfGetDB( DB_SLAVE );
+				global $wgUseStableTemplates;
+				// Get templates where the current and stable are not the same revision
+				if( $wgUseStableTemplates ) {
+					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
+						array( 'ft_namespace', 'ft_title', 'fp_stable AS rev_id' ),
+						array( 'ft_rev_id' => $frev->getRevId(),
+							'page_namespace = ft_namespace',
+							'page_title = ft_title',
+							'fp_page_id = page_id',
+							'fp_stable != page_latest' ),
+						__METHOD__ );
+				// Get templates that are newer than the ones of the stable version of this page
+				} else {
+					$ret = $dbr->select( array('flaggedtemplates','page'),
+						array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id' ),
+						array( 'ft_rev_id' => $frev->getRevId(),
+							'page_namespace = ft_namespace',
+							'page_title = ft_title',
+							'ft_tmp_rev_id != page_latest' ),
+						__METHOD__ );
 				}
-				# Add set to list
-				$changeList += $tmpChanges;
-				
-				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'images', (bool)$wgUseStableImages,
-					$article->getId(), $article->getTouched() );
-				$value = $wgMemc->get($key);
-				$imgChanges = $value ? unserialize($value) : array();
-				
-				// Get list of each changed image...
-				if( empty($imgChanges) ) {
-					global $wgUseStableImages;
-					$dbr = wfGetDB( DB_SLAVE );
-					// Get images where the current and stable are not the same revision
-					if( $wgUseStableImages ) {
-						$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
-							array( 'fi_name' ),
-							array( 'fi_rev_id' => $frev->getRevId(),
-								// If the file has a stable version, is it current?
-								// If not, is the specified one at review time current?
-								'fr_img_sha1 IS NOT NULL AND (fr_img_sha1 != img_sha1) OR 
-									fr_img_sha1 IS NULL AND (fi_img_sha1 != img_sha1)' ),
-							__METHOD__,
-							array(), /* OPTIONS */
-							array( 'page' => array('INNER JOIN','page_namespace = '. NS_IMAGE .' AND page_title = fi_name'),
-								'image' => array('INNER JOIN','img_name = fi_name'),
-								'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
-								'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
-						);
-					// Get images that are newer than the ones of the stable version of this page
-					} else {
-						$ret = $dbr->select( array('flaggedimages','image'),
-							array( 'fi_name' ),
-							array( 'fi_rev_id' => $frev->getRevId(),
-								'fi_name = img_name',
-								'fi_img_sha1 != img_sha1' ),
-							__METHOD__ );
-					}
-					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
-						$imgChanges[] = $skin->makeKnownLinkObj( $title );
-					}
-					$wgMemc->set( $key, serialize($imgChanges), $wgParserCacheExpireTime );
+				while( $row = $dbr->fetchObject( $ret ) ) {
+					$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
+					$changeList[] = $skin->makeKnownLinkObj( $title, $title->GetPrefixedText(),
+						"diff=cur&oldid=" . $row->rev_id );
 				}
-				$changeList += $imgChanges;
+				
+				# And images...
+				global $wgUseStableImages;
+				// Get images where the current and stable are not the same revision
+				if( $wgUseStableImages ) {
+					$ret = $dbr->select( array('flaggedimages','page','flaggedpages','flaggedrevs','image'),
+						array( 'fi_name' ),
+						array( 'fi_rev_id' => $frev->getRevId(),
+							'page_namespace' => NS_IMAGE,
+							'page_title = fi_name',
+							'fp_page_id = page_id',
+							'fr_page_id = page_id',
+							'fr_rev_id = fp_stable',
+							'img_name = fi_name',
+							'fr_img_sha1 != img_sha1' ),
+						__METHOD__ );
+				// Get images that are newer than the ones of the stable version of this page
+				} else {
+					$ret = $dbr->select( array('flaggedimages','image'),
+						array( 'fi_name' ),
+						array( 'fi_rev_id' => $frev->getRevId(),
+							'fi_name = img_name',
+							'fi_img_sha1 != img_sha1' ),
+						__METHOD__ );
+				}
+				while( $row = $dbr->fetchObject( $ret ) ) {
+					$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
+					$changeList[] = $skin->makeKnownLinkObj( $title );
+				}
 				
 				# Some important information...
 				if( ($wgUseStableTemplates || $wgUseStableImages) && !empty($changeList) ) {
@@ -1117,7 +1047,6 @@ class FlaggedArticle extends Article {
 		$srev = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
 		if( $srev ) {
 			$this->stableRev = $srev;
-			$this->flags[$srev->getRevId()] = $srev->getTags();
 			return $srev;
 		} else {
 			$this->stableRev = false;
@@ -1150,9 +1079,8 @@ class FlaggedArticle extends Article {
 	 */
 	public function getFlagsForRevision( $revId ) {
 		# Cached results?
-		if( isset($this->flags[$revId]) ) {
+		if( isset($this->flags[$revId]) && $this->flags[$revId] )
 			return $this->flags[$revId];
-		}
 		# Get the flags
 		$flags = FlaggedRevs::getRevisionTags( $this->parent->getTitle(), $revId );
 		# Try to cache results
@@ -1230,7 +1158,7 @@ class FlaggedArticle extends Article {
 		# Loop through all different flag types
 		foreach( FlaggedRevs::$dimensions as $quality => $levels ) {
 			$label = array();
-			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 1;
+			$selected = ( isset($flags[$quality]) ) ? $flags[$quality] : 1;
 			if( $disabled ) {
 				$label[$selected] = $levels[$selected];
 			# else collect all quality levels of a flag current user can set

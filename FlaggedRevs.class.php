@@ -8,7 +8,6 @@ class FlaggedRevs {
 	protected static $pristineVersions = false;
 	protected static $extStorage = false;
 	protected static $allowComments = false;
-	protected static $includeVersionCache = array();
 
 	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsComments;
@@ -275,67 +274,6 @@ class FlaggedRevs {
 		return true;
 	}
 	
-	/**
-	 * @param int $revId
-	 * @param array $tmpParams (like ParserOutput template IDs)
-	 * @param array $imgParams (like ParserOutput image time->sha1 pairs)
-	 * Set the template/image versioning cache for parser
-	 */
-	public static function setIncludeVersionCache( $revId, $tmpParams, $imgParams ) {
-		$includeVersionCache[$revId] = array();
-		$includeVersionCache[$revId]['templates'] = $tmpParams;
-		$includeVersionCache[$revId]['files'] = $imgParams;
-	}
-	
-	/**
-	 * Destroy the template/image versioning cache instance for parser
-	 */
-	public static function clearIncludeVersionCache( $revId ) {
-		if( isset($includeVersionCache[$revId]) ) {
-			$includeVersionCache[$revId] = array();
-		}
-	}
-	
-	/**
-	 * Get template versioning cache for parser
-	 * @param int $revID
-	 * @param int $namespace
-	 * @param string $dbKey
-	 * @returns mixed (integer/false/null)
-	 */
-	protected static function getTemplateIdFromCache( $revId, $namespace, $dbKey ) {
-		if( !empty($includeVersionCache) && isset($includeVersionCache[$revId]) ) {
-			if( isset($includeVersionCache[$revId]['templates'][$namespace]) ) {
-				if( isset($includeVersionCache[$revId]['templates'][$namespace][$dbKey]) ) {
-					return $includeVersionCache[$revId]['templates'][$namespace][$dbKey];
-				}
-			}
-			return false; // Assume template did not exist
-		}
-		return null; // cache not found
-	}
-	
-	/**
-	 * Get image versioning cache for parser
-	 * @param int $revID
-	 * @param string $dbKey
-	 * @returns mixed (array/false/null)
-	 */
-	protected static function getFileVersionFromCache( $revId, $dbKey ) {
-		if( !empty($includeVersionCache) && isset($includeVersionCache[$revId]) ) {
-			# All NS_IMAGE, no need to check namespace
-			if( isset($includeVersionCache[$revId]['files'][$dbKey]) ) {
-				$time_SHA1 = array_keys($includeVersionCache[$revId]['files'][$dbKey]);
-				foreach( $time_SHA1 as $time => $sha1 ) {
-					// Should only be one, but this is an easy check
-				}
-				return array($time,$sha1);
-			}
-			return false; // Assume file did not exist
-		}
-		return null; // cache not found
-	}
-	
 	################# Synchronization and link update functions #################
 	
 	/**
@@ -537,10 +475,6 @@ class FlaggedRevs {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
 		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
-		# Short-circuit query
-		if( !$page_id ) {
-			return null;
-		}
 		# Skip deleted revisions
 		$row = $db->selectRow( array('flaggedrevs','revision'),
 			$columns,
@@ -571,10 +505,6 @@ class FlaggedRevs {
 			$columns[] = 'fr_flags';
 		}
 		$row = null;
-		# Short-circuit query
-		if( !$title->getArticleId() ) {
-			return $row;
-		}
 		# If we want the text, then get the text flags too
 		if( !$forUpdate ) {
 			$dbr = wfGetDB( DB_SLAVE );
@@ -651,7 +581,9 @@ class FlaggedRevs {
 			array( 'fr_rev_id' => $rev_id,
 				'fr_page_id' => $title->getArticleId() ),
 			__METHOD__ );
-		$tags = $tags ? $tags : "";
+		if( !$tags )
+			return false;
+
 		return FlaggedRevision::expandRevisionTags( strval($tags) );
 	}
 	
@@ -810,7 +742,7 @@ class FlaggedRevs {
 		global $wgFlaggedRevsNamespaces;
 		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
-		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() && $ns != NS_MEDIAWIKI );
+		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
 	}
 	
 	/**
@@ -901,28 +833,6 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
-	/**
-	* Add FlaggedRevs css for relevant special pages.
-	*/
-	public static function InjectStyle() {
-		global $wgOut;
-		# Don't double-load
-		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
-			return true;
-		}
-		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-
-		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
-		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
-
-		$head = <<<EOT
-<link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
-
-EOT;
-		$wgOut->addHeadItem( 'FlaggedRevs', $head );
-		return true;
-	}
-	
 	################# Auto-review function #################
 
 	/**
@@ -976,13 +886,26 @@ EOT;
 				);
 			}
 		}
-		
-		# Set our versioning params cache
-		self::setIncludeVersionCache( $rev->getId(), $poutput->mTemplateIds, $poutput->fr_ImageSHA1Keys );
+
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
+		# Clear out any previous garbage.
+		# We want to be able to use this for tracking...
+		$dbw->delete( 'flaggedtemplates',
+			array('ft_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		$dbw->delete( 'flaggedimages',
+			array('fi_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		# Update our versioning params
+		if( !empty($tmpset) ) {
+			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
+		}
+		if( !empty($imgset) ) {
+			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
+		}
 		# Get the page text and resolve all templates
 		list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $text, $article->getTitle(), $rev->getId() );
-		# Clear our versioning params cache
-		self::clearIncludeVersionCache( $rev->getId() );
 
 		# Compress $fulltext, passed by reference
 		$textFlags = FlaggedRevision::compressText( $fulltext );
@@ -1017,7 +940,6 @@ EOT;
 			$fileData['sha1'] = $file->getSha1();
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
 		$revisionset = array(
 			'fr_page_id'       => $rev->getPage(),
@@ -1033,28 +955,10 @@ EOT;
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
-		
-		# Start!
-		$dbw->begin();
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
 			array( array('fr_page_id','fr_rev_id') ), $revisionset,
 			__METHOD__ );
-		# Clear out any previous garbage.
-		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates',
-			array('ft_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		$dbw->delete( 'flaggedimages',
-			array('fi_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		# Update our versioning params
-		if( !empty($tmpset) ) {
-			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
-		}
-		if( !empty($imgset) ) {
-			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
-		}
 		# Mark as patrolled
 		if( $patrol ) {
 			$dbw->update( 'recentchanges',
@@ -1107,15 +1011,16 @@ EOT;
 	* Add FlaggedRevs css/js.
 	*/
 	public static function injectStyleAndJS() {
-		global $wgOut, $wgArticle;
+		global $wgOut, $wgJsMimeType;
 		# Don't double-load
-		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
+		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
 			return true;
 		}
-		if( !$wgArticle || !$wgOut->isArticleRelated() ) {
+		if ( !$wgOut->isArticleRelated() ) {
 			return true;
 		}
-		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
+
+		global $wgArticle, $wgScriptPath, $wgFlaggedRevStyleVersion, $wgJsMimeType, $wgFlaggedRevsStylePath;
 
 		$flaggedArticle = FlaggedArticle::getInstance( $wgArticle );
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
@@ -1124,7 +1029,6 @@ EOT;
 		$stableId = $frev ? $frev->getRevId() : 0;
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
-
 		$head = <<<EOT
 <link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
 <script type="$wgJsMimeType">
@@ -1142,18 +1046,22 @@ EOT;
 	* Add FlaggedRevs css for relevant special pages.
 	*/
 	public static function InjectStyleForSpecial() {
-		global $wgTitle, $wgOut, $wgUser;
-		if( !$wgUser->isAllowed('review') ) {
-			return true; // nothing to do here
-		}
+		global $wgTitle, $wgOut;
 		$spPages = array();
 		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
 		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
-		$spPages[] = SpecialPage::getTitleFor( 'Watchlist' );
-		$spPages[] = SpecialPage::getTitleFor( 'RecentChanges' );
 		foreach( $spPages as $n => $title ) {
 			if( $wgTitle->equals( $title ) ) {
-				self::InjectStyle();
+				global $wgScriptPath, $wgFlaggedRevStyleVersion, $wgFlaggedRevsStylePath;
+				$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+				$cssFile = "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion";
+				# UI CSS
+				$wgOut->addLink( array(
+					'rel'	=> 'stylesheet',
+					'type'	=> 'text/css',
+					'media'	=> 'screen, projection',
+					'href'	=> $cssFile,
+				) );
 				break;
 			}
 		}
@@ -1337,13 +1245,9 @@ EOT;
 				array( 'fp_page_id' => $title->getArticleId() ),
 				__METHOD__ );
 		}
-		# Check cache before doing another DB hit...
-		$id = self::getTemplateIdFromCache( $parser->mRevisionId, $title->getNamespace(), $title->getDBKey() );
-		if( !is_null($id) ) {
-			$id = 0; // if not NULL and false, then the template did not exist!
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
-		} else if( !$id ) {
+		if( !$id ) {
 			$id = $dbw->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->mRevisionId,
 					'ft_namespace' => $title->getNamespace(),
@@ -1359,7 +1263,7 @@ EOT;
 					$skip = true;
 				}
 			} else {
-				$skip = true; // If ID is zero, don't load it
+				$skip = true;
 			}
 		}
 		if( $id > $parser->mOutput->fr_newestTemplateID ) {
@@ -1401,17 +1305,9 @@ EOT;
 				}
 			}
 		}
-		# Check cache before doing another DB hit...
-		$params = self::getFileVersionFromCache( $parser->mRevisionId, $nt->getDBKey() );
-		if( !is_null($params) ) {
-			if( $params != false ) {
-				list($time,$sha1) = $params; // $params may be false if file didn't exist
-			} else {
-				$time = "0";
-			}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		} else if( !$time ) {
+		if( !$time ) {
 			$row = $dbw->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->mRevisionId,
@@ -1419,7 +1315,7 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
+			#$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
@@ -1479,17 +1375,9 @@ EOT;
 				}
 			}
 		}
-		# Check cache before doing another DB hit...
-		$params = self::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
-		if( !is_null($params) ) {
-			if( $params != false ) {
-				list($time,$sha1) = $params; // $params may be false if file didn't exist
-			} else {
-				$time = "0";
-			}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		} else if( !$time ) {
+		if( !$time ) {
 			$row = $dbw->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,
@@ -1497,7 +1385,7 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
+			#$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
@@ -1625,8 +1513,7 @@ EOT;
     public static function userCanView( $title, $user, $action, $result ) {
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
-		# Return out if $result set to false by some other hooked call.
-        if( !$wgFlaggedRevsVisible || $action != 'read' || $result===false )
+        if( !$wgFlaggedRevsVisible || $action != 'read' )
             return true;
         # Admin may set this to false, rather than array()...
         $groups = $user->getGroups();
@@ -1641,9 +1528,9 @@ EOT;
         # See if there is a stable version. Also, see if, given the page 
         # config and URL params, the page can be overriden.
 		$flaggedArticle = FlaggedArticle::getInstance( $title );
-        if( $wgTitle && $wgTitle->equals( $title ) ) {
+        if( $wgTitle && $wgTitle->equals( $title ) && $flaggedArticle->getStableRev( true ) ) {
             // Cache stable version while we are at it.
-            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev( true ) ) {
+            if( $flaggedArticle->pageOverride() ) {
                 $result = true;
             }
         } else {
@@ -1659,7 +1546,7 @@ EOT;
 	* version, try to automatically review it.
 	*/
 	public static function maybeMakeEditReviewed( $article, $rev, $baseRevID = false ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
+		global $wgFlaggedRevsAutoReview, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
@@ -1672,26 +1559,32 @@ EOT;
 		$frev = null;
 		$reviewableNewPage = false;
 		# Get the revision ID the incoming one was based off
-		if( !$baseRevID ) {
+		if ( !$baseRevID ) {
 			$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		}
 		# Get what was just the current revision ID
 		$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
 		# If baseRevId not given, assume the previous revision ID
-		if( !$baseRevID ) {
+		if ( !$baseRevID ) {
 			$baseRevID = $prevRevID;
 		}
-		// Edits to existing pages
 		if( $baseRevID ) {
 			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
-			# If the base revision was not reviewed, check if the previous one was.
-			# This should catch null edits as well as normal ones.
-			if( !$frev ) {
+			# If the base revision was not reviewed, check if the previous one was
+			if ( !$frev ) {
 				$frev = self::getFlaggedRev( $title, $prevRevID, false, true, $rev->getPage() );
 			}
-		// New pages
 		} else {
-			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
+			$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
+			$prevRev = $prevRevID ? Revision::newFromID( $prevRevID ) : null;
+			# Check for null edits
+			if( $prevRev && $prevRev->getTextId() == $rev->getTextId() ) {
+				$frev = self::getFlaggedRev( $title, $prevRev->getId() );
+			# Check for new pages
+			} else if( !$prevRevID ) {
+				global $wgFlaggedRevsAutoReviewNew;
+				$reviewableNewPage = ($wgFlaggedRevsAutoReviewNew && $user->isAllowed('review'));
+			}
 		}
 		# Is this an edit directly to the stable version?
 		if( $reviewableNewPage || !is_null($frev) ) {
@@ -2049,8 +1942,6 @@ EOT;
 			if( is_object($title) && isset($paramArray[0]) ) {
 				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
 					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}") . ')';
-				$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-					wfMsgHtml('diff'), "oldid={$paramArray[0]}&diff=prev") . ')';
 			}
 		}
 		return true;
@@ -2064,7 +1955,7 @@ EOT;
 
 	static function setActionTabs( $skin, &$contentActions ) {
 		global $wgArticle;
-		if( $wgArticle ) {
+		if ( $wgArticle ) {
 			FlaggedArticle::getInstance( $wgArticle )->setActionTabs( $skin, $contentActions );
 		}
 		return true;
@@ -2072,7 +1963,7 @@ EOT;
 
 	static function setLastModified( $skin, &$tpl ) {
 		global $wgArticle;
-		if( $wgArticle ) {
+		if ( $wgArticle ) {
 			FlaggedArticle::getInstance( $wgArticle )->setLastModified( $skin, $tpl );
 		}
 		return true;
@@ -2096,10 +1987,6 @@ EOT;
 	
 	static function addToEditView( $editPage ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
-	}
-	
-	static function unreviewedPagesLinks( $category ) {
-		return FlaggedArticle::getInstance( $category )->addToCategoryView();
 	}
 	
 	static function addReviewForm( $out ) {
@@ -2150,37 +2037,6 @@ EOT;
 
 	static function addRevisionIDField( $editPage, $out ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
-	}
-	
-	static function addBacklogNotice( &$notice ) {
-		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
-		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
-		$recentchanges = SpecialPage::getTitleFor( 'RecentChanges' );
-		if ( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
-			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
-				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
-					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
-			}
-		
-		}
-		return true;
-	}
-	
-	static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
-		# The localized title of the special page is among the messages of the extension:
-		wfLoadExtensionMessages( 'FlaggedRevsPage' );
-		$specialPages = array( 'QualityOversight', 'DepreciationOversight', 'UnreviewedPages', 
-			'OldReviewedpages', 'StablePages', 'StableVersions' );
-		foreach( $specialPages as $specialPage ) {
-			$text = wfMsgHtml( strtolower("$specialPage-alias") );
-			$title = Title::newFromText($text);
-			if( $title ) {
-				$extendedSpecialPageAliases[$specialPage][] = $title->getDBKey();
-			}
-		}
-		return true;
 	}
 }
 
