@@ -901,6 +901,28 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
+	/**
+	* Add FlaggedRevs css for relevant special pages.
+	*/
+	public static function InjectStyle() {
+		global $wgOut;
+		# Don't double-load
+		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
+			return true;
+		}
+		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
+
+		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
+
+		$head = <<<EOT
+<link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
+
+EOT;
+		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		return true;
+	}
+	
 	################# Auto-review function #################
 
 	/**
@@ -1120,22 +1142,18 @@ EOT;
 	* Add FlaggedRevs css for relevant special pages.
 	*/
 	public static function InjectStyleForSpecial() {
-		global $wgTitle, $wgOut;
+		global $wgTitle, $wgOut, $wgUser;
+		if( !$wgUser->isAllowed('review') ) {
+			return true; // nothing to do here
+		}
 		$spPages = array();
 		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
 		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
+		$spPages[] = SpecialPage::getTitleFor( 'Watchlist' );
+		$spPages[] = SpecialPage::getTitleFor( 'RecentChanges' );
 		foreach( $spPages as $n => $title ) {
 			if( $wgTitle->equals( $title ) ) {
-				global $wgScriptPath, $wgFlaggedRevStyleVersion, $wgFlaggedRevsStylePath;
-				$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
-				$cssFile = "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion";
-				# UI CSS
-				$wgOut->addLink( array(
-					'rel'	=> 'stylesheet',
-					'type'	=> 'text/css',
-					'media'	=> 'screen, projection',
-					'href'	=> $cssFile,
-				) );
+				self::InjectStyle();
 				break;
 			}
 		}
@@ -2138,6 +2156,22 @@ EOT;
 
 	static function addRevisionIDField( $editPage, $out ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
+	}
+	
+	static function backlogNotice( &$notice ) {
+		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
+		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
+		$recentchanges = SpecialPage::getTitleFor( 'RecentChanges' );
+		if ( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
+			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
+				$notice .= "<div class='plainlinks fr-backlognotice'>" . 
+					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
+			}
+		
+		}
+		return true;
 	}
 	
 	static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {

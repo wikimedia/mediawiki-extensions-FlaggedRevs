@@ -269,6 +269,8 @@ No configuration is possible.',
 	
 	'specialpages-group-quality' => 'Quality assurance',
 	
+	'flaggedrevs-backlog' => "There is currently a backlog at [[Special:OldReviewedPages]]. '''Your attention is needed!'''",
+	
 	'qualityoversight-alias'      => 'QualityOversight',
 	'depreciationoversight-alias' => 'DepreciationOversight',
 	'unreviewedpages-alias'       => 'UnreviewedPages',

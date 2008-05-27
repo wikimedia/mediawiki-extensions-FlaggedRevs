@@ -194,6 +194,8 @@ $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 
 # How many hours pending review is considering long?
 $wgFlaggedRevsLongPending = 3;
+# How many pages count as a backlog?
+$wgFlaggedRevsBacklog = 1000;
 
 # Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
@@ -204,7 +206,7 @@ $wgFlaggedRevsTalkVisible = true;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 22;
+$wgFlaggedRevStyleVersion = 23;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -294,6 +296,8 @@ $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
 # Show unreviewed pages links
 $wgHooks['CategoryPageView'][] = 'FlaggedRevs::unreviewedPagesLinks';
+# Backlog notice
+$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::backlogNotice';
 
 # Visibility - experimental
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
