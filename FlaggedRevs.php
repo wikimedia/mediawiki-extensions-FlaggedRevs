@@ -194,6 +194,8 @@ $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 
 # How many hours pending review is considering long?
 $wgFlaggedRevsLongPending = 3;
+# How many pages count as a backlog?
+$wgFlaggedRevsBacklog = 1000;
 
 # Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
@@ -204,7 +206,7 @@ $wgFlaggedRevsTalkVisible = true;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 22;
+$wgFlaggedRevStyleVersion = 23;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -261,7 +263,6 @@ $wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevs::extraLinksUpdate';
 # Empty flagged page settings row on delete
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
 # Check on undelete/merge/revisiondelete for changes to stable version
-$wgHooks['ArticleUndelete'][] = 'FlaggedRevs::titleLinksUpdate';
 $wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::titleLinksUpdate';
 $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
 # Clean up after undeletion
@@ -293,6 +294,10 @@ $wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 # Image version display
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
+# Show unreviewed pages links
+$wgHooks['CategoryPageView'][] = 'FlaggedRevs::unreviewedPagesLinks';
+# Backlog notice
+$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::addBacklogNotice';
 
 # Visibility - experimental
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
@@ -324,6 +329,9 @@ $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::injectStyleAndJS';
 
+# Set aliases
+$wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
+
 #########
 
 function efLoadFlaggedRevs() {
@@ -336,7 +344,6 @@ function efLoadFlaggedRevs() {
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
-
 }
 
 # Add review log and such

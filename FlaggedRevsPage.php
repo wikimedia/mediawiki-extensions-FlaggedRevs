@@ -416,7 +416,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$lastImgTime = "0";
 
 		# Our template version pointers
-		$tmpset = array();
+		$tmpset = $tmpParams = array();
 		$templateMap = explode('#',trim($this->templateParams) );
 		foreach( $templateMap as $template ) {
 			if( !$template )
@@ -441,9 +441,13 @@ class RevisionReview extends UnlistedSpecialPage
 				'ft_title' => $tmp_title->getDBkey(),
 				'ft_tmp_rev_id' => $rev_id
 			);
+			if( !isset($tmpParams[$tmp_title->getNamespace()]) ) {
+				$tmpParams[$tmp_title->getNamespace()] = array();
+			}
+			$tmpParams[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
 		}
 		# Our image version pointers
-		$imgset = array();
+		$imgset = $imgParams = array();
 		$imageMap = explode('#',trim($this->imageParams) );
 		# If this is an image page, store corresponding file info
 		$fileData = array();
@@ -478,6 +482,10 @@ class RevisionReview extends UnlistedSpecialPage
 				'fi_img_timestamp' => $timestamp,
 				'fi_img_sha1' => $key
 			);
+			if( !isset($imgParams[$img_title->getDBkey()]) ) {
+				$imgParams[$img_title->getDBkey()] = array();
+			}
+			$imgParams[$img_title->getDBkey()][$timestamp] = $key;
 		}
 		
 		$article = new Article( $this->page );
@@ -486,37 +494,21 @@ class RevisionReview extends UnlistedSpecialPage
 		if( $oldfrev = FlaggedRevs::getFlaggedRev( $title, $rev->getId(), true, true ) ) {
 			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getExpandedText(), $oldfrev->getRevId() );
 		}
-		
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
-		# Clear out any previous garbage.
-		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates',
-			array('ft_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		$dbw->delete( 'flaggedimages',
-			array('fi_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		# Update our versioning params
-		if( !empty($tmpset) ) {
-			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
-		}
-		if( !empty($imgset) ) {
-			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
-		}
+		# Set our versioning params cache
+		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
         # Get the expanded text and resolve all templates.
 		# Store $templateIDs and add it to final parser output later...
         list($fulltext,$tmps,$tmpIDs,$ok,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
         if( !$ok || $maxID > $lastTempID ) {
-        	$dbw->rollback(); // All versions must be specified, 0 for none
 			wfProfileOut( __METHOD__ );
         	return false;
         }
+		# Clear our versioning params cache
+		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
 		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
-        	$dbw->rollback(); // All versions must be specified, 0 for none
 			wfProfileOut( __METHOD__ );
         	return false;
         }
@@ -536,7 +528,6 @@ class RevisionReview extends UnlistedSpecialPage
 				$synced = false;
 			# Don't review if the same
 			if( $synced ) {
-				$dbw->rollback();
 				wfProfileOut( __METHOD__ );
 				return true;
 			}
@@ -558,7 +549,6 @@ class RevisionReview extends UnlistedSpecialPage
 			$fulltext = ExternalStore::insert( $store, $fulltext );
 			if( !$fulltext ) {
 				# This should only happen in the case of a configuration error, where the external store is not valid
-				$dbw->rollback();
 				wfProfileOut( __METHOD__ );
 				throw new MWException( "Unable to store text to external storage $store" );
 			}
@@ -568,6 +558,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$textFlags .= 'external';
 		}
 
+		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
  		$revset = array(
  			'fr_rev_id'        => $rev->getId(),
@@ -584,8 +575,25 @@ class RevisionReview extends UnlistedSpecialPage
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
 		
+		# Start!
+		$dbw->begin();
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
+		# Clear out any previous garbage.
+		# We want to be able to use this for tracking...
+		$dbw->delete( 'flaggedtemplates',
+			array('ft_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		$dbw->delete( 'flaggedimages',
+			array('fi_rev_id' => $rev->getId() ),
+			__METHOD__ );
+		# Update our versioning params
+		if( !empty($tmpset) ) {
+			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
+		}
+		if( !empty($imgset) ) {
+			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
+		}
 		$dbw->commit();
 		
 		# Kill any text cache

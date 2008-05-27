@@ -268,6 +268,15 @@ No configuration is possible.',
 	'flaggedrevs-pref-UI-1'    => 'Use simple stable version user interface',
 	
 	'specialpages-group-quality' => 'Quality assurance',
+	
+	'flaggedrevs-backlog' => "There is currently a backlog at [[Special:OldReviewedPages|Outdated reviewed pages]]. '''Your attention is needed!'''",
+	
+	'qualityoversight-alias'      => 'QualityOversight',
+	'depreciationoversight-alias' => 'DepreciationOversight',
+	'unreviewedpages-alias'       => 'UnreviewedPages',
+	'oldreviewedpages-alias'      => 'OldReviewedPages',
+	'stablepages-alias'           => 'StablePages',
+	'stableversions-alias'        => 'StableVersions',
 );
 
 /** Afrikaans (Afrikaans)
@@ -294,6 +303,7 @@ $messages['an'] = array(
  * @author Meno25
  * @author Siebrand
  * @author Alnokta
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'flaggedrevs-desc'             => 'يعطي المحررين/المراجعين القدرة على التأكد من صحة النسخ وتثبيت الصفحات',
@@ -401,6 +411,7 @@ $messages['ar'] = array(
 	'stable-logentry'              => 'ضبط النسخة المستقرة ل[[$1]]',
 	'stable-logentry2'             => 'أعاد ضبط النسخة المستقرة ل[[$1]]',
 	'revreview-patrol'             => 'علم على هذا التغيير كمراجع',
+	'revreview-patrol-title'       => 'علم كمراجعة',
 	'revisionreview'               => 'مراجعة النسخ',
 	'revreview-main'               => 'يجب أن تختار نسخة معينة من صفحة محتوى لمراجعتها. 
 
@@ -432,7 +443,7 @@ $messages['ar'] = array(
 	'revreview-style-3'            => 'متوسطة',
 	'revreview-style-4'            => 'مميزة',
 	'revreview-log'                => 'تعليق السجل:',
-	'revreview-approved'           => 'مصدق',
+	'revreview-approved'           => 'مُصدق',
 	'revreview-submit'             => 'تنفيذ المراجعة',
 	'revreview-successful'         => "'''النسخة المختارة من [[:$1|$1]] تم التعليم عليها بنجاح. ([{{fullurl:Special:Stableversions|page=$2}} عرض كل النسخ المعلمة])'''",
 	'revreview-stable1'            => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
@@ -488,6 +499,7 @@ $messages['ar'] = array(
 	'stabilization-sel-short'      => 'تنفيذ',
 	'stabilization-sel-short-0'    => 'جودة',
 	'stabilization-sel-short-1'    => 'لا شيء',
+	'stabilization-sel-short-2'    => 'بريستين',
 	'stabilization-def-short'      => 'افتراضي',
 	'stabilization-def-short-0'    => 'حالي',
 	'stabilization-def-short-1'    => 'مستقر',
@@ -518,6 +530,11 @@ $messages['ar'] = array(
 	'flaggedrevs-pref-UI-0'        => 'استخدم واجهة مستخدم لنسخة مستقرة مفصلة',
 	'flaggedrevs-pref-UI-1'        => 'استخدم واجهة مستخدم لنسخة مستقرة بسيطة',
 	'specialpages-group-quality'   => 'توكيد الجودة',
+	'qualityoversight-alias'       => 'نظر الجودة',
+	'unreviewedpages-alias'        => 'صفحات غير مراجعة',
+	'oldreviewedpages-alias'       => 'صفحات مراجعة قديمة',
+	'stablepages-alias'            => 'صفحات مستقرة',
+	'stableversions-alias'         => 'نسخ مستقرة',
 );
 
 /** Asturian (Asturianu)
@@ -713,6 +730,7 @@ $messages['bg'] = array(
 	'revreview-quick-none'      => "'''Текуща''' (няма рецензирани версии)",
 	'revreview-quick-invalid'   => "'''Невалиден номер на версия'''",
 	'revreview-toggle-title'    => 'показване/скриване на детайли',
+	'revreview-update-includes' => "'''Някои шаблони/файлове бяха обновени:'''",
 	'revreview-auto'            => '(автоматично)',
 	'revreview-patrolled'       => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
 	'hist-quality'              => 'качествена версия',
@@ -750,6 +768,9 @@ $messages['bg'] = array(
 	'unreviewedpages'           => 'Нерецензирани страници',
 	'unreviewed-category'       => 'Категория:',
 	'unreviewed-diff'           => 'Промени',
+	'oldreviewedpages-hours'    => '($1 {{PLURAL:$1|час|часа}})',
+	'oldreviewedpages-days'     => '($1 {{PLURAL:$1|ден|дни}})',
+	'oldreviewedpages-recent'   => '(по-малко от 1 час)',
 	'stabilization'             => 'Устойчивост на страницата',
 	'stabilization-page'        => 'Име на страницата:',
 	'stabilization-leg'         => 'Настройка на устойчивата версия на страницата',
@@ -1009,6 +1030,7 @@ Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pa
  * @author SMP
  * @author Paucabot
  * @author Siebrand
+ * @author Jordi Roqué
  */
 $messages['ca'] = array(
 	'flaggedrevs-desc'            => "Dóna als editors/revisors l'habilitat de validar revisions de pàgines i declarar-les estables.",
@@ -1037,6 +1059,7 @@ $messages['ca'] = array(
 	'revreview-basic'             => "Aquesta és l'última versió [[{{MediaWiki:Validationpage}}|revisada]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versió actual] és la que pot ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|canvi|canvis}}] {{plural:$3|espera|esperen}} revisió.",
 	'revreview-quality'           => "Aquesta és l'última versió [[{{MediaWiki:Validationpage}}|de qualitat]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versió actual] és la que pot ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|canvi|canvis}}] {{plural:$3|espera|esperen}} revisió.",
 	'revreview-toggle-title'      => 'Mostra/amaga detalls',
+	'revreview-quality-title'     => 'Article de qualitat',
 	'revreview-update'            => "[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis (''indicats aquí'') fets des que la versió estable va ser [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].
 
 '''Algunes plantilles i imatges poden haver canviat:'''",
@@ -1045,6 +1068,7 @@ $messages['ca'] = array(
 	'hist-quality'                => 'versió de qualitat',
 	'flaggedrevs'                 => 'Revisions senyalades',
 	'review-logpage'              => 'Registre de revisió',
+	'review-logentry-app'         => '[[$1]] revisat',
 	'stable-logpage'              => "Registre d'estabilitat",
 	'revreview-patrol'            => 'Marca aquest canvi com a patrullat',
 	'revisionreview'              => 'Revisa les revisions',
@@ -1077,8 +1101,8 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Li-sung
- * @author Siebrand
  * @author Danny B.
+ * @author Siebrand
  * @author Matěj Grabovský
  * @author Mormegil
  */
@@ -1092,11 +1116,12 @@ $messages['cs'] = array(
 	'group-reviewer'               => 'Posuzovatelé',
 	'group-reviewer-member'        => 'Posuzovatel',
 	'grouppage-reviewer'           => '{{ns:project}}:Posuzovatel',
+	'right-movestable'             => 'Přesunout stabilní stránky',
 	'revreview-current'            => 'Návrh',
 	'tooltip-ca-current'           => 'Zobrazit nejnovější návrh této stránky',
 	'revreview-edit'               => 'Editovat návrh',
 	'revreview-source'             => 'zdroj návrhu',
-	'revreview-stable'             => 'Stabilní',
+	'revreview-stable'             => 'Stabilní stránka',
 	'tooltip-ca-stable'            => 'Zobrazit stabilní verzi této stránky',
 	'revreview-oldrating'          => 'Bylo ohodnoceno:',
 	'revreview-noflagged'          => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[{{MediaWiki:Validationpage}}|zkontrolována]] kvalita.',
@@ -1181,6 +1206,7 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'revreview-style-3'            => 'Výstižná',
 	'revreview-style-4'            => 'Význačná',
 	'revreview-log'                => 'Komentář:',
+	'revreview-approved'           => 'Schválené',
 	'revreview-submit'             => 'Odeslat posouzení',
 	'revreview-changed'            => "'''Požadovanou akci nelze provést na této verzi stránky [[:$1|$1]].'''
 
@@ -1197,13 +1223,15 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'unreviewed-diff'              => 'Změny',
 	'unreviewed-unwatched'         => '(nesledované)',
 	'unreviewed-list'              => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
+	'oldreviewedpages-quality'     => 'kvalita',
+	'oldreviewedpages-recent'      => '(méně než 1 hodina)',
 	'revreview-visibility'         => 'Tato stránka má [[{{MediaWiki:Validationpage}}|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].',
 	'stabilization'                => 'Stabilizace stránky',
 	'stabilization-text'           => "'''Změňte nastavení, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.'''",
 	'stabilization-perm'           => 'Tento účet nemá povoleno měnit nastavení stabilní verze. Níže je současné nastavení stránky [[:$1|$1]]:',
 	'stabilization-page'           => 'Jméno stránky:',
-	'stabilization-leg'            => 'Nastavení stabilní verze stránky',
-	'stabilization-select'         => 'Jako stabilní verze je vybrána',
+	'stabilization-leg'            => 'Potvrdit nastavení stabilní verze',
+	'stabilization-select'         => 'Výběr stabilní verze',
 	'stabilization-select1'        => 'Poslední kvalitní verze; pokud není k dispozici pak poslední prohlédnutá',
 	'stabilization-select2'        => 'Poslední posouzená verze',
 	'stabilization-def'            => 'Verze zobrazená jako výchozí',
@@ -1232,8 +1260,12 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'reviewedpages-lev-2'          => 'význačné',
 	'reviewedpages-all'            => 'posouzené verze',
 	'reviewedpages-best'           => 'nejlepší verze',
+	'stablepages'                  => 'Stabilní stránky',
+	'stablepages-stable'           => 'stabilní verze',
 	'stablepages-config'           => 'Konfigurace',
 	'rights-editor-revoke'         => 'odebírá status editora uživateli [[$1]]',
+	'flaggedrevs-prefs'            => 'Stabilita',
+	'specialpages-group-quality'   => 'Zajištění kvality',
 );
 
 /** Danish (Dansk)
@@ -1406,8 +1438,8 @@ $messages['de'] = array(
 	'revreview-log'        => 'Kommentar:',
 	'revreview-approved'   => 'Freigegeben',
 	'revreview-submit'     => 'Markierung speichern',
-	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert.'''",
-	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version] oder die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen?',
+	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert. ([{{fullurl:Special:Stableversions|page=$2}} siehe alle gesichteten Versionen])'''",
+	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version], falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
 	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-stable2'     => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?.',
 	'revreview-changed'     => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
@@ -1503,6 +1535,15 @@ $messages['de'] = array(
 	'flaggedrevs-pref-UI-1'    => 'Benutze für markierte Versionen die einfache Benutzerschnittstelle',
 
 	'specialpages-group-quality' => 'Qualitätssicherung',
+
+	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist aktuell sehr lang. Bitte helfe mit, sie abzuarbeiten. Danke.',
+
+	'qualityoversight-alias'      => 'Geprüfte_Seiten',
+	'depreciationoversight-alias' => 'Zurückgezogene_Markierungen',
+	'unreviewedpages-alias'       => 'Ungesichtete_Seiten',
+	'oldreviewedpages-alias'      => 'Seiten_mit_ungesichteten_Versionen',
+	'stablepages-alias'           => 'Markierte_Seiten',
+	'stableversions-alias'        => 'Markierte_Versionen',
 );
 
 /** Greek (Ελληνικά)
@@ -1586,7 +1627,9 @@ $messages['eo'] = array(
 	'revreview-quick-see-quality' => "'''Malneto''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardu artikolon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} komparu])",
 	'revreview-toggle-title'      => 'montri/kaŝi detalojn',
+	'revreview-draft-title'       => 'Malneta artikolo',
 	'revreview-auto'              => '(aŭtomata)',
+	'hist-draft'                  => 'malneta revizio',
 	'hist-quality'                => 'kvalita revizio',
 	'review-logpage'              => 'Kontrolu loglibron',
 	'review-logentry-app'         => 'kontrolis [[$1]]',
@@ -1600,18 +1643,18 @@ $messages['eo'] = array(
 	'revreview-style-2'           => 'Bona',
 	'revreview-style-4'           => 'Elstara',
 	'revreview-log'               => 'Komento:',
-	'stableversions'              => 'Rigardu stabilajn versiojn',
+	'stableversions'              => 'Rigardi stabilajn versiojn',
 	'stableversions-page'         => 'Nomo de paĝo:',
 	'unreviewedpages'             => 'Nekontrolitaj paĝoj',
 	'unreviewed-category'         => 'Kategorio:',
-	'unreviewed-diff'             => 'Ŝanĝoj',
+	'unreviewed-diff'             => 'kontrolo',
 	'stabilization'               => 'Paĝa stabiligado',
 	'stabilization-page'          => 'Paĝnomo:',
 	'stabilization-select2'       => 'La lasta kontrolita revizio',
 	'stabilization-def1'          => 'La stabila revizio;
 se ĝi ne ekzistas, la nuna versio',
 	'stabilization-def2'          => 'La nuna revizio:',
-	'stabilization-submit'        => 'Konfirmu',
+	'stabilization-submit'        => 'Konfirmi',
 	'stabilization-comment'       => 'Komento:',
 	'stabilization-expiry'        => 'Fintempo:',
 	'stabilization-sel-short-0'   => 'Kvalito',
@@ -1866,7 +1909,6 @@ $messages['fi'] = array(
  * @author Siebrand
  * @author IAlex
  * @author Urhixidur
- * @author Cedric31
  * @author ChrisPtDe
  */
 $messages['fr'] = array(
@@ -1963,6 +2005,7 @@ Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celle
 	'stable-logentry'              => 'Les versions stables de [[$1]] sont paramétrées.',
 	'stable-logentry2'             => 'Remettre à zéro le journal des versions stables de [[$1]]',
 	'revreview-patrol'             => 'Marquer cette modification comme patrouillée',
+	'revreview-patrol-title'       => 'Marquer comme patrouillé',
 	'revisionreview'               => 'Revoir versions',
 	'revreview-main'               => 'Vous devez choisir une version précise pour réviser. Voir [[Special:Unreviewedpages|Version non révisées]] pour une liste de pages.',
 	'revreview-selected'           => "Version choisie de '''$1 :'''",
@@ -2078,6 +2121,12 @@ Un modèle ou une image peuvent avoir été demandés alors qu’aucune version 
 	'flaggedrevs-pref-UI-0'        => 'Utiliser l’interface utilisateur de la version stable détaillée',
 	'flaggedrevs-pref-UI-1'        => 'Utiliser une simple interface utilisateur stable',
 	'specialpages-group-quality'   => 'Assurance qualité',
+	'qualityoversight-alias'       => 'QualitéSuperviseur',
+	'depreciationoversight-alias'  => 'DépréciéSuperviseur',
+	'unreviewedpages-alias'        => 'PagesNonRelues',
+	'oldreviewedpages-alias'       => 'PagesAnciennementRelues',
+	'stablepages-alias'            => 'PagesStables',
+	'stableversions-alias'         => 'VersionsStables',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2487,6 +2536,7 @@ $messages['hi'] = array(
 	'stable-logentry'              => '[[$1]] का स्थिर अवतरणीकरण बदलें',
 	'stable-logentry2'             => '[[$1]] का स्थिर अवतरणीकरण पूर्ववत करें',
 	'revreview-patrol'             => 'यह बदलाव देख लेने का मार्क करें',
+	'revreview-patrol-title'       => 'जाँचने का मार्क करें',
 	'revisionreview'               => 'अवतरण परखें',
 	'revreview-main'               => 'परिक्षण के लिये एक अवतरण चुनना अनिवार्य हैं।
 
@@ -2520,8 +2570,9 @@ $messages['hi'] = array(
 	'revreview-log'                => 'टिप्पणी:',
 	'revreview-approved'           => 'प्रमाणित',
 	'revreview-submit'             => 'रिव्ह्यू भेजें',
-	'revreview-successful'         => "'''[[:$1|$1]] का चुना हुआ अवतरण जाँचा गया हैं और हाल में हुए बदलावोंमें उसपर मार्क किया गया हैं।'''",
-	'revreview-stable1'            => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] या [{{fullurl:$1|stable=1}} स्थिर अवतरण] देखना चाहतें हैं।',
+	'revreview-successful'         => "[[:$1|$1]] के चुने हुए अवतरणको मार्क किया गया हैं।
+([{{fullurl:Special:Stableversions|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
+	'revreview-stable1'            => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।',
 	'revreview-successful2'        => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
 	'revreview-stable2'            => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।',
 	'revreview-changed'            => "'''[[:$1|$1]] के इस अवतरणपर आपने दी हुई क्रिया नहीं कर सकतें।'''
@@ -2612,6 +2663,12 @@ $messages['hi'] = array(
 	'flaggedrevs-pref-UI-0'        => 'इंटरफेस में बढाया हुआ स्थिर अवतरणका इस्तेमाल करें',
 	'flaggedrevs-pref-UI-1'        => 'इंटरफेस में सीधे स्थिर अवतरणका इस्तेमाल करें',
 	'specialpages-group-quality'   => 'गुणवत्ता नियंत्रण',
+	'qualityoversight-alias'       => 'गुणवत्ताओव्हरसाईट',
+	'depreciationoversight-alias'  => 'डिप्रिसियेशनओव्हरसाईट',
+	'unreviewedpages-alias'        => 'नदेखेंहुएपन्ने',
+	'oldreviewedpages-alias'       => 'पुरानेदेखेंहुएपन्ने',
+	'stablepages-alias'            => 'स्थिरपन्ने',
+	'stableversions-alias'         => 'स्थिरअवतरण',
 );
 
 /** Croatian (Hrvatski)
@@ -4037,53 +4094,90 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'right-review'              => 'Versiounen als iwwerkuckt markéieren',
-	'right-autoreview'          => 'Versiounen automatesch als iwwerkuckt markéieren',
-	'right-validate'            => 'Versiounen als validéiert markéieren',
-	'revreview-current'         => 'Virbereedung',
-	'revreview-edit'            => 'Virbereedung änneren',
-	'revreview-stable'          => 'Stabil Säit',
-	'tooltip-ca-stable'         => 'Déi stabil Versioun vun dëser Säit gesinn',
-	'revreview-quick-invalid'   => "'''Ongëlteg Versiounsnummer'''",
-	'revreview-toggle-title'    => 'Detailer weisen/verstoppen',
-	'revreview-stable-title'    => 'Iwwerkuckten Artikel',
-	'revreview-quality-title'   => 'Qualitéitsartikel',
-	'revreview-update-includes' => "'''Verschidde Schablounen/Biller goufen aktualiséiert:'''",
-	'revreview-auto'            => '(automatesch)',
-	'hist-stable'               => 'iwwerkuckte Versioun',
-	'review-logpage'            => 'Lëscht vum Nokucken',
-	'review-logentry-app'       => 'nogekuckt [[$1]]',
-	'review-logentry-id'        => 'Versiounsnummer $1',
-	'revisionreview'            => 'Versiounen nokucken',
-	'revreview-selected'        => "Ausgewielte Versioune vun '''$1''':",
-	'revreview-accuracy-1'      => 'Iwwerkuckt',
-	'revreview-depth'           => 'Déift',
-	'revreview-depth-1'         => 'Einfach',
-	'revreview-depth-2'         => 'Moderat',
-	'revreview-depth-3'         => 'Héich',
-	'revreview-style-1'         => 'Akzeptabel',
-	'revreview-style-2'         => 'Gudd',
-	'revreview-style-4'         => 'exzellent',
-	'revreview-log'             => 'Bemierkung:',
-	'stableversions'            => 'Weis déi stabil Versiounen',
-	'stableversions-page'       => 'Säitenumm:',
-	'unreviewed-category'       => 'Kategorie:',
-	'unreviewed-diff'           => 'iwwerkucken',
-	'unreviewed-unwatched'      => '(net iwwerwaacht)',
-	'oldreviewedpages-quality'  => 'Qualitéit',
-	'oldreviewedpages-hours'    => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
-	'oldreviewedpages-days'     => '($1 {{PLURAL:$1|Dag|Deeg}})',
-	'oldreviewedpages-recent'   => '(manner wéi 1 Stonn)',
-	'stabilization-page'        => 'Säitennumm:',
-	'stabilization-def2'        => 'Déi aktuell Versioun',
-	'stabilization-submit'      => 'Confirméieren',
-	'stabilization-comment'     => 'Bemierkung:',
-	'stabilization-sel-short-0' => 'Qualitéit',
-	'stabilization-sel-short-1' => 'Keng',
-	'reviewedpages-none'        => 'Dës Lëscht ass eidel',
-	'reviewedpages-lev-1'       => 'Qualitéit',
-	'reviewedpages-lev-2'       => 'Exzellent',
-	'flaggedrevs-prefs'         => 'Stabilitéit',
+	'editor'                       => 'Editeur',
+	'group-editor'                 => 'Editeuren',
+	'group-editor-member'          => 'Editeur',
+	'grouppage-editor'             => '{{ns:project}}:Editeur',
+	'reviewer'                     => 'Reviseur',
+	'group-reviewer'               => 'Reviseuren',
+	'group-reviewer-member'        => 'Reviseur',
+	'grouppage-reviewer'           => '{{ns:project}}:Reviseur',
+	'right-review'                 => 'Versiounen als iwwerkuckt markéieren',
+	'right-autoreview'             => 'Versiounen automatesch als iwwerkuckt markéieren',
+	'right-validate'               => 'Versiounen als validéiert markéieren',
+	'right-unreviewedpages'        => 'Lëscht vun den net iwwerkuckte Säite weisen',
+	'right-movestable'             => 'Stabil Säite réckelen',
+	'revreview-current'            => 'Virbereedung',
+	'tooltip-ca-current'           => 'Den aktuelle Brouillon vun dëser Säit weisen',
+	'revreview-edit'               => 'Virbereedung änneren',
+	'revreview-stable'             => 'Stabil Säit',
+	'tooltip-ca-stable'            => 'Déi stabil Versioun vun dëser Säit gesinn',
+	'validationpage'               => '{{ns:help}}:Validatioun vun der Säit',
+	'revreview-quick-none'         => "'''[[{{MediaWiki:Validationpage}}|Aktuell Versioun]]''' (net iwwerkuckt)",
+	'revreview-quick-invalid'      => "'''Ongëlteg Versiounsnummer'''",
+	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Iwwerkuckten Artikel]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Qualitéitsartikel]]'''",
+	'revreview-toggle-title'       => 'Detailer weisen/verstoppen',
+	'revreview-draft-title'        => 'Brouillon vun engem Artikel',
+	'revreview-stable-title'       => 'Iwwerkuckten Artikel',
+	'revreview-quality-title'      => 'Qualitéitsartikel',
+	'revreview-update-includes'    => "'''Verschidde Schablounen/Biller goufen aktualiséiert:'''",
+	'revreview-auto'               => '(automatesch)',
+	'hist-draft'                   => 'Brouillonsversioun',
+	'hist-stable'                  => 'iwwerkuckte Versioun',
+	'hist-quality'                 => 'Qualitéitsversioun',
+	'review-logpage'               => 'Lëscht vum Nokucken',
+	'review-logentry-app'          => 'nogekuckt [[$1]]',
+	'review-logentry-id'           => 'Versiounsnummer $1',
+	'stable-logpage'               => 'Lëscht vun de stabile Versiounen',
+	'revisionreview'               => 'Versiounen nokucken',
+	'revreview-selected'           => "Ausgewielte Versioune vun '''$1''':",
+	'revreview-flag'               => 'Dës Versioun nokucken',
+	'revreview-notes'              => 'Bemierkungen oder Notizen fir unzeweisen:',
+	'revreview-accuracy-1'         => 'Iwwerkuckt',
+	'revreview-depth'              => 'Déift',
+	'revreview-depth-1'            => 'Einfach',
+	'revreview-depth-2'            => 'Moderat',
+	'revreview-depth-3'            => 'Héich',
+	'revreview-style-1'            => 'Akzeptabel',
+	'revreview-style-2'            => 'Gudd',
+	'revreview-style-4'            => 'exzellent',
+	'revreview-log'                => 'Bemierkung:',
+	'stableversions'               => 'Weis déi stabil Versiounen',
+	'stableversions-page'          => 'Säitenumm:',
+	'unreviewedpages'              => 'Säit déi net nogekuckt ass',
+	'unreviewed-category'          => 'Kategorie:',
+	'unreviewed-diff'              => 'iwwerkucken',
+	'unreviewed-unwatched'         => '(net iwwerwaacht)',
+	'unreviewed-list'              => 'Op dëser Säit sti Säiten déi net nogekuckt goufen.',
+	'oldreviewedpages-none'        => 'Et gëtt elo keng Säiten déi dene Critèren entspriechen',
+	'oldreviewedpages-stable'      => 'iwwerkuckt',
+	'oldreviewedpages-quality'     => 'Qualitéit',
+	'oldreviewedpages-hours'       => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
+	'oldreviewedpages-days'        => '($1 {{PLURAL:$1|Dag|Deeg}})',
+	'oldreviewedpages-recent'      => '(manner wéi 1 Stonn)',
+	'stabilization-page'           => 'Säitennumm:',
+	'stabilization-select'         => 'Auswiel vun der stabiler Versioun',
+	'stabilization-def2'           => 'Déi aktuell Versioun',
+	'stabilization-submit'         => 'Confirméieren',
+	'stabilization-comment'        => 'Bemierkung:',
+	'stabilization-sel-short-0'    => 'Qualitéit',
+	'stabilization-sel-short-1'    => 'Keng',
+	'stabilization-def-short-0'    => 'Aktuell',
+	'stabilization-def-short-1'    => 'Stabil',
+	'reviewedpages'                => 'Lëscht vun den iwwerkuckte Säiten',
+	'reviewedpages-none'           => 'Dës Lëscht ass eidel',
+	'reviewedpages-lev-0'          => 'iwwerkuckt',
+	'reviewedpages-lev-1'          => 'Qualitéit',
+	'reviewedpages-lev-2'          => 'Exzellent',
+	'stablepages'                  => 'Stabil Säiten',
+	'stablepages-stable'           => 'stabil Versioun',
+	'stablepages-none'             => 'Dës Lëscht ass eidel',
+	'stablepages-config'           => 'Konfiguratioun',
+	'flaggedrevs-prefs'            => 'Stabilitéit',
+	'specialpages-group-quality'   => 'Qualitéitssécherung',
+	'stablepages-alias'            => 'Stabil Säiten',
+	'stableversions-alias'         => 'Stabil Versiounen',
 );
 
 /** Limburgish (Limburgs)
@@ -4541,6 +4635,7 @@ $messages['mr'] = array(
 	'stable-logentry'              => '[[$1]] चे स्थिर आवृत्तीकरण बदला',
 	'stable-logentry2'             => '[[$1]] चे स्थिर आवृत्तीकरण पूर्वपदास न्या',
 	'revreview-patrol'             => 'हा बदल पाहिला असल्याची खूण करा',
+	'revreview-patrol-title'       => 'गस्त घातल्याची खूण करा',
 	'revisionreview'               => 'आवृत्त्या तपासा',
 	'revreview-main'               => 'तपासण्यासाठी एखादी आवृत्ती निवडणे गरजेचे आहे.
 
@@ -4574,8 +4669,9 @@ $messages['mr'] = array(
 	'revreview-log'                => 'प्रतिक्रीया:',
 	'revreview-approved'           => 'प्रमाणित',
 	'revreview-submit'             => 'आपला रिव्ह्यू पाठवा',
-	'revreview-successful'         => "'''[[:$1|$1]] ची निवडलेली आवृत्ती यशस्वीरित्या तपासलेली आहे व अलीकडील बदलांमध्ये त्यावर खूण केलेली आहे.'''",
-	'revreview-stable1'            => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] किंवा [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू इच्छिता.',
+	'revreview-successful'         => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर यशस्वीरित्या तपासल्याची खूण केलेली आहे.
+([{{fullurl:Special:Stableversions|page=$2}} सर्व खूणा केलेल्या आवृत्त्या पहा])'''",
+	'revreview-stable1'            => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] आता [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] झाली आहे किंवा नाही हे पाहू इच्छिता.',
 	'revreview-successful2'        => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीची खूण काढली.'''",
 	'revreview-stable2'            => 'तुम्ही या पानाची [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू शकता (जर उपलब्ध असेल तर).',
 	'revreview-changed'            => "'''[[:$1|$1]] च्या या आवृत्तीवर तुम्ही इच्छित असलेली क्रिया करता येत नाही.'''
@@ -4666,6 +4762,12 @@ $messages['mr'] = array(
 	'flaggedrevs-pref-UI-0'        => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा',
 	'flaggedrevs-pref-UI-1'        => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा',
 	'specialpages-group-quality'   => 'गुणवत्ता वचन',
+	'qualityoversight-alias'       => 'गुणवत्ताओव्हरसाईट',
+	'depreciationoversight-alias'  => 'डिप्रिसियेशनओव्हरसाईट',
+	'unreviewedpages-alias'        => 'नतपासलेलीपाने',
+	'oldreviewedpages-alias'       => 'जुनीतपासलेलीपाने',
+	'stablepages-alias'            => 'स्थिरपाने',
+	'stableversions-alias'         => 'स्थिरआवृत्त्या',
 );
 
 /** Erzya (эрзянь кель)
@@ -4681,7 +4783,10 @@ $messages['myv'] = array(
  * @author Slomox
  */
 $messages['nds'] = array(
+	'revreview-toggle-title'    => 'wies/versteek Details',
 	'revreview-auto'            => '(automaatsch)',
+	'revreview-patrol'          => 'Dit Ännern as nakeken marken',
+	'revreview-patrol-title'    => 'As nakeken marken',
 	'revreview-accuracy-2'      => 'akraat',
 	'revreview-depth'           => 'Deep',
 	'revreview-depth-3'         => 'hooch',
@@ -4690,6 +4795,10 @@ $messages['nds'] = array(
 	'stableversions-page'       => 'Siedennaam:',
 	'unreviewed-category'       => 'Kategorie:',
 	'unreviewed-diff'           => 'as nakeken marken',
+	'unreviewed-unwatched'      => '(op keen Oppasslist)',
+	'oldreviewedpages-hours'    => '($1 {{PLURAL:$1|Stünn|Stünnen}})',
+	'oldreviewedpages-days'     => '($1 {{PLURAL:$1|Dag|Daag}})',
+	'oldreviewedpages-recent'   => '(weniger as een Stünn)',
 	'stabilization-page'        => 'Siedennaam:',
 	'stabilization-comment'     => 'Kommentar:',
 	'stabilization-expiry'      => 'Löppt ut:',
@@ -4926,6 +5035,12 @@ Instellen is niet mogelijk.',
 	'flaggedrevs-pref-UI-0'        => 'Gedetailleerde gebruikersinterface voor stabiele versies gebruiken',
 	'flaggedrevs-pref-UI-1'        => 'Eenvoudige gebruikersinterface voor stabiele versies gebruiken',
 	'specialpages-group-quality'   => 'Kwaliteitscontrole',
+	'qualityoversight-alias'       => 'KwaliteitsControle',
+	'depreciationoversight-alias'  => 'ControleBeoordelingsverlagingen',
+	'unreviewedpages-alias'        => 'PaginasZonderEindredactie',
+	'oldreviewedpages-alias'       => 'PaginasVerouderdeEindredactie',
+	'stablepages-alias'            => 'StabielePaginas',
+	'stableversions-alias'         => 'StabieleVersies',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -5144,6 +5259,7 @@ Vejatz la lista [[Special:ReviewedPages|de las paginas relegidas]] per una lista
 	'stable-logentry'              => 'Las versions establas de [[$1]] son parametradas.',
 	'stable-logentry2'             => 'Tornar metre a zèro lo jornal de las versions establas de [[$1]]',
 	'revreview-patrol'             => 'Marcar aquesta modificacion coma patrolhada',
+	'revreview-patrol-title'       => 'Marcar coma patrolhada',
 	'revisionreview'               => 'Tornar veire las versions',
 	'revreview-main'               => 'Vos cal causir una version precisa per revisar. Vejatz [[Special:Unreviewedpages|las versions pas revisadas]] per una tièra de paginas.',
 	'revreview-selected'           => "Version causida de '''$1 :'''",
@@ -5174,8 +5290,9 @@ Vejatz la lista [[Special:ReviewedPages|de las paginas relegidas]] per una lista
 	'revreview-log'                => 'Comentari al jornal :',
 	'revreview-approved'           => 'Aprobat',
 	'revreview-submit'             => 'Salvagardar revista',
-	'revreview-successful'         => "'''Las versions seleccionadas de [[:$1|$1]], marcadas d'una bandièra e notadas dins los darrièrs cambiaments.'''",
-	'revreview-stable1'            => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version jalonada] en defòra de la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
+	'revreview-successful'         => "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra.
+([{{fullurl:Special:Stableversions|page=$2}} Veire totas las versions atal marcadas])'''",
+	'revreview-stable1'            => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
 	'revreview-successful2'        => "'''La version seleccionada de [[:$1|$1]] a pogut se veire levar sa bandièra amb succès.'''",
 	'revreview-stable2'            => "Podètz voler visionar [{{fullurl:$1|stable=1}} la version establa] d'aquesta pagina (se n'existís una).",
 	'revreview-changed'            => "'''L'accion demandada a pas pogut èsser acomplida per aquesta version de [[:$1|$1]].'''
@@ -5383,6 +5500,7 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'reviewedpages-best'           => 'wersja najlepsza',
 	'stablepages'                  => 'Strony dopracowane',
 	'stablepages-stable'           => 'wersja dopracowana',
+	'stablepages-none'             => 'Brak stron na tej liście',
 	'stablepages-config'           => 'Konfiguracja',
 );
 
@@ -5642,6 +5760,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'stable-logentry'              => 'a versão estável de [[$1]] foi configurada',
 	'stable-logentry2'             => 'zerar a forma de definir versões estáveis de [[$1]]',
 	'revreview-patrol'             => 'Marcar esta alteração como patrulhada',
+	'revreview-patrol-title'       => 'Marcar como patrulhada',
 	'revisionreview'               => 'Analisar edições',
 	'revreview-main'               => 'Você precisa seleccionar uma edição específica de uma página de conteúdo para poder analisá-la.
 
@@ -5692,7 +5811,8 @@ Recarregar a página e enviar uma nova análise talvez seja suficiente para cont
 	'stableversions-list'          => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
 	'stableversions-review'        => 'Analisada às <i>$1</i> por $2',
 	'review-diff2stable'           => 'Ver alterações entre a edição estável e a actual',
-	'unreviewedpages'              => 'Páginas não revistas',
+	'unreviewedpages'              => 'Páginas a analisar',
+	'unreviewed-legend'            => 'Lista páginas de conteúdo a serem analisadas',
 	'unreviewed-category'          => 'Categoria:',
 	'unreviewed-diff'              => 'rever',
 	'unreviewed-unwatched'         => '(não-vigiada)',
@@ -5719,6 +5839,7 @@ Seguem-se as configurações para [[:$1|$1]]:',
 	'stabilization-select1'        => 'A última edição analisada como confiável; 
 se inexistente, a mais recentemente analisada',
 	'stabilization-select2'        => 'A mais recentemente analisada',
+	'stabilization-select3'        => 'A última revisão intocada; se não estiver presente, então a última de qualidade ou visionada',
 	'stabilization-def'            => 'Edição exibida na visualização padrão de página',
 	'stabilization-def1'           => 'A edição estável; 
 se inexistente, exibir a edição actual',
@@ -5733,13 +5854,14 @@ Não é possível configurá-la.',
 	'stabilization-sel-short'      => 'Precedência',
 	'stabilization-sel-short-0'    => 'Qualidade',
 	'stabilization-sel-short-1'    => 'Nenhum',
+	'stabilization-sel-short-2'    => 'Intocada',
 	'stabilization-def-short'      => 'Padrão',
 	'stabilization-def-short-0'    => 'Atual',
 	'stabilization-def-short-1'    => 'Estável',
 	'stabilize_expiry_invalid'     => 'Data de expiração inválida.',
 	'stabilize_expiry_old'         => 'Este tempo de expiração já se encerrou.',
 	'stabilize-expiring'           => 'expira às $1 (UTC)',
-	'reviewedpages'                => 'Páginas revistas',
+	'reviewedpages'                => 'Páginas analisadas',
 	'reviewedpages-leg'            => 'Listar páginas que tenham sido analisadas em um nível específico',
 	'reviewedpages-list'           => 'As páginas a seguir foram analisadas no nível especificado',
 	'reviewedpages-none'           => 'Não há páginas nesta lista',
@@ -5753,8 +5875,10 @@ Não é possível configurá-la.',
 	'stablepages-text'             => 'Segue-se uma lista das páginas que foram manualmente configuradas para exibirem a edição estável como conteúdo padrão a quem as acessar.',
 	'stablepages-none'             => 'Não há páginas nesta lista',
 	'stablepages-config'           => 'Configuração',
-	'qualityoversight'             => 'Vigilância da qualidade',
+	'qualityoversight'             => 'Observatório da qualidade',
 	'qualityoversight-list'        => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
+	'depreciationoversight'        => 'Observatório do desdém',
+	'depreciationoversight-list'   => 'Esta página lista as mais recentes edições depreciadas',
 	'rights-editor-autosum'        => 'auto-promovido',
 	'rights-editor-revoke'         => 'removidos privilégios de {{int:group-editor-member}} para [[$1]]',
 	'flaggedrevs-prefs'            => 'Estabilidade',
@@ -5762,6 +5886,13 @@ Não é possível configurá-la.',
 	'flaggedrevs-prefs-watch'      => 'Adicionar páginas analisadas por mim à minha lista de artigos vigiados',
 	'flaggedrevs-pref-UI-0'        => 'Utilizar a interface de edições estáveis detalhada',
 	'flaggedrevs-pref-UI-1'        => 'Utilizar a interface de edições estáveis simples',
+	'specialpages-group-quality'   => 'Garantia de qualidade',
+	'qualityoversight-alias'       => 'Observatório_da_qualidade',
+	'depreciationoversight-alias'  => 'Observatório_do_desdém',
+	'unreviewedpages-alias'        => 'Páginas_a_analisar',
+	'oldreviewedpages-alias'       => 'Versões_antigas_de_páginas_analisadas',
+	'stablepages-alias'            => 'Páginas_estáveis',
+	'stableversions-alias'         => 'Edições_estáveis',
 );
 
 /** Russian (Русский)
@@ -5867,6 +5998,7 @@ $messages['ru'] = array(
 	'stable-logentry'              => 'установил стабильное версионирование для [[$1]]',
 	'stable-logentry2'             => 'сбросил чистовое версионирование для [[$1]]',
 	'revreview-patrol'             => 'Отметить это изменение как проверенное',
+	'revreview-patrol-title'       => 'Отметить как патрулированную',
 	'revisionreview'               => 'Проверка версий',
 	'revreview-main'               => 'Вы должны выбрать одну из версий страницы для проверки.
 
@@ -5987,6 +6119,12 @@ $messages['ru'] = array(
 	'flaggedrevs-pref-UI-0'        => 'Использовать подробный интерфейс стабильных версий',
 	'flaggedrevs-pref-UI-1'        => 'Использовать простой интерфейс стабильных версий',
 	'specialpages-group-quality'   => 'Поддержка качества',
+	'qualityoversight-alias'       => 'РевизорКачества',
+	'depreciationoversight-alias'  => 'РевизорСнятий',
+	'unreviewedpages-alias'        => 'НепроверенныеСтраницы',
+	'oldreviewedpages-alias'       => 'ДавноПроверенныеСтраницы',
+	'stablepages-alias'            => 'стабильныестраницы',
+	'stableversions-alias'         => 'СтабильныеВерсии',
 );
 
 /** Yakut (Саха тыла)
@@ -6249,6 +6387,7 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'stable-logentry'              => 'nastavil stabilné verzie [[$1]]',
 	'stable-logentry2'             => 'zrušil stabilné verzie [[$1]]',
 	'revreview-patrol'             => 'Označiť túto zmenu ako stráženú',
+	'revreview-patrol-title'       => 'Označiť ako strážené',
 	'revisionreview'               => 'Prezrieť kontroly',
 	'revreview-main'               => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. 
 
@@ -6369,6 +6508,12 @@ Obnovením stránky a opätovnou kontrolou vyriešite tento problém.",
 	'flaggedrevs-pref-UI-0'        => 'Používať podrobné používateľské rozhranie stabilných verzií',
 	'flaggedrevs-pref-UI-1'        => 'Používať jednoduché používateľské rozhranie stabilných verzií',
 	'specialpages-group-quality'   => 'Zaistenie kvality',
+	'qualityoversight-alias'       => 'DohľadNadKvalitou',
+	'depreciationoversight-alias'  => 'DohľadNadZnehodnotením',
+	'unreviewedpages-alias'        => 'NeskontrolovanéStránky',
+	'oldreviewedpages-alias'       => 'StaréSkontrolovanéStránky',
+	'stablepages-alias'            => 'StabilnéStránky',
+	'stableversions-alias'         => 'StabilnéVerzie',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -6739,6 +6884,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:stablepages|listan �
 	'stable-logentry'              => 'ändrade inställningar för stabila versioner av [[$1]]',
 	'stable-logentry2'             => 'återställde inställningar för stabila versioner av [[$1]]',
 	'revreview-patrol'             => 'Märk den här ändringen som patrullerad',
+	'revreview-patrol-title'       => 'Markera som patrullerad',
 	'revisionreview'               => 'Granska sidversioner',
 	'revreview-main'               => 'Du måste välja en viss version av en innehållssida för att kunna granska den.
 
@@ -6857,6 +7003,12 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'flaggedrevs-pref-UI-0'        => 'Använd ett detaljerat gränssnitt för stabila versioner',
 	'flaggedrevs-pref-UI-1'        => 'Använd ett enkelt gränssnitt för stabila versioner',
 	'specialpages-group-quality'   => 'Kvalitetsförsäkring',
+	'qualityoversight-alias'       => 'Kvalitetsöversikt',
+	'depreciationoversight-alias'  => 'Avskrivningsöversikt',
+	'unreviewedpages-alias'        => 'OgranskadeSidor',
+	'oldreviewedpages-alias'       => 'GamlaGranskadeSidor',
+	'stablepages-alias'            => 'StabilaSidor',
+	'stableversions-alias'         => 'StabilaVersioner',
 );
 
 /** Silesian (ślůnski)
@@ -7222,6 +7374,7 @@ $messages['tr'] = array(
 	'stableversions-page'       => 'Sayfa adı:',
 	'unreviewed-category'       => 'Kategori:',
 	'unreviewed-diff'           => 'Değişiklikler',
+	'oldreviewedpages-quality'  => 'kalite',
 	'stabilization-page'        => 'Sayfa adı:',
 	'stabilization-submit'      => 'Tespit et',
 	'stabilization-comment'     => 'Açıklama',
@@ -7245,6 +7398,7 @@ $messages['uk'] = array(
 	'group-reviewer'        => 'Рецензенти',
 	'group-reviewer-member' => 'рецензент',
 	'grouppage-reviewer'    => '{{ns:project}}:Рецензенти',
+	'stableversions-page'   => 'Назва сторінкм:',
 );
 
 /** Vèneto (Vèneto)
@@ -7349,7 +7503,11 @@ Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista d
 	'stable-logentry'              => 'inpostà versionamento stabile par [[$1]]',
 	'stable-logentry2'             => 'resetar el versionamento stabile par [[$1]]',
 	'revreview-patrol'             => 'Segna sta modifica come ricontrolà',
+	'revreview-patrol-title'       => 'Segna come patuglià',
 	'revisionreview'               => 'Riesamina versioni',
+	'revreview-main'               => 'Ti gà da selessionar na version in particolare de la pagina par esaminarla.
+
+Ti pol anca vardar la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 	'revreview-selected'           => "Revision selessionà de '''$1:'''",
 	'revreview-text'               => "''[[{{MediaWiki:Validationpage}}|Le versioni stabili]] le xe el contenuto predefinìo par i visitatori, al posto de la version pi reçente.''",
 	'revreview-text2'              => "''Le [[{{MediaWiki:Validationpage}}|version stabili]] le xe revisioni de pagine che xe stà controlà e che pode vegner mostrà come contenuto predefinìo par i visitatori.''",
@@ -7377,6 +7535,8 @@ Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista d
 	'revreview-log'                => 'Comento:',
 	'revreview-approved'           => 'Aprovà',
 	'revreview-submit'             => 'Inoltra riesaminassion',
+	'revreview-successful'         => "'''La revision selezionà de [[:$1|$1]] la xe stà marcàda. ([{{fullurl:Special:Stableversions|page=$2}} varda tute le version marcàde])'''",
+	'revreview-stable1'            => 'Ti pol vardar sta [{{fullurl:$1|stableid=$2}} version marcàda] par védar se desso la xe la [{{fullurl:$1|stable=1}} version stabile] de sta pagina.',
 	'revreview-stable2'            => "Te pol vardar la [{{fullurl:$1|stable=1}} version stabile] de sta pagina (se ghe n'è una).",
 	'stableversions'               => 'Varda le version stabili',
 	'stableversions-leg1'          => 'Elenca le version riesaminà de na pagina',
@@ -7458,6 +7618,11 @@ No se pode canbiar le inpostassion.',
 	'flaggedrevs-pref-UI-0'        => "Dòpara l'interfacia utente de la version stabile detaglià",
 	'flaggedrevs-pref-UI-1'        => "Dòpara l'interfacia utente de la version stabile sénpliçe",
 	'specialpages-group-quality'   => 'Controlo de qualità',
+	'qualityoversight-alias'       => 'ControloQualità',
+	'unreviewedpages-alias'        => 'PagineNonRiesaminà',
+	'oldreviewedpages-alias'       => 'PagineRiesaminàVèce',
+	'stablepages-alias'            => 'PagineStabili',
+	'stableversions-alias'         => 'VersionStabili',
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -7564,6 +7729,7 @@ Danh sách các trang ổn định có thể tìm thấy tại [[Special:StableP
 	'stable-logentry'              => 'đã thiết lập phiên bản ổn định cho [[$1]]',
 	'stable-logentry2'             => 'mặc định lại phiên bản ổn định của [[$1]]',
 	'revreview-patrol'             => 'Đánh dấu tuần tra sửa đổi này',
+	'revreview-patrol-title'       => 'Đánh dấu đã tuần tra',
 	'revisionreview'               => 'Các bản đã duyệt',
 	'revreview-main'               => 'Bạn phải chọn một phiên bản cụ thể từ một trang nội dung để duyệt.
 
@@ -7597,8 +7763,9 @@ Mời xem danh sách các trang chưa được duyệt tại [[Special:Unreviewe
 	'revreview-log'                => 'Nhận xét:',
 	'revreview-approved'           => 'Đã phê chuẩn',
 	'revreview-submit'             => 'Đăng bản duyệt',
-	'revreview-successful'         => "'''Phiên bản được chọn của [[:$1|$1]] đã được gắn cờ và đánh dấu trong thay đổi gần đây.'''",
-	'revreview-stable1'            => 'Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} bản có cờ này] hoặc [{{fullurl:$1|stable=1}} bản ổn định] của trang này.',
+	'revreview-successful'         => "'''Phiên bản được chọn của [[:$1|$1]] đã được gắn cờ.
+([{{fullurl:Special:Stableversions|page=$2}} xem tất cả các phiên bản có cờ])'''",
+	'revreview-stable1'            => 'Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} bản có cờ này] để xem nó có phải là [{{fullurl:$1|stable=1}} bản ổn định] của trang này hay chưa.',
 	'revreview-successful2'        => "'''Phiên bản được chọn của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-stable2'            => 'Bạn có thể muốn xem [{{fullurl:$1|stable=1}} bản ổn định] của trang này (nếu vẫn còn bản như vậy).',
 	'revreview-changed'            => "'''Không thể thực hiện tác vụ yêu cầu đối với phiên bản này của [[:$1|$1]].'''
@@ -7688,6 +7855,13 @@ Không thể cấu hình.',
 	'flaggedrevs-prefs-watch'      => 'Thêm trang tôi duyệt vào danh sách theo dõi',
 	'flaggedrevs-pref-UI-0'        => 'Sử dụng giao diện người dùng phiên bản ổn định chi tiết',
 	'flaggedrevs-pref-UI-1'        => 'Sử dụng giao diện người dùng phiên bản ổn định đơn giản',
+	'specialpages-group-quality'   => 'Đảm bảo chất lượng',
+	'qualityoversight-alias'       => 'Giám sát chất lượng',
+	'depreciationoversight-alias'  => 'Giám sát sự sụt giảm',
+	'unreviewedpages-alias'        => 'Trang chưa duyệt',
+	'oldreviewedpages-alias'       => 'Trang chưa duyệt cũ',
+	'stablepages-alias'            => 'Trang ổn định',
+	'stableversions-alias'         => 'Bản ổn định',
 );
 
 /** Volapük (Volapük)
