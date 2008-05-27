@@ -1536,6 +1536,8 @@ $messages['de'] = array(
 
 	'specialpages-group-quality' => 'Qualitätssicherung',
 
+	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist aktuell sehr lang. Bitte helfe mit, sie abzuarbeiten. Danke.',
+
 	'qualityoversight-alias'      => 'Geprüfte_Seiten',
 	'depreciationoversight-alias' => 'Zurückgezogene_Markierungen',
 	'unreviewedpages-alias'       => 'Ungesichtete_Seiten',
