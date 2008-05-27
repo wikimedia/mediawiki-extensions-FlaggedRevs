@@ -1340,7 +1340,7 @@ EOT;
 		# Check cache before doing another DB hit...
 		$id = self::getTemplateIdFromCache( $parser->mRevisionId, $title->getNamespace(), $title->getDBKey() );
 		if( !is_null($id) ) {
-			$id = 0; // if not NULL and false, then the template did not exist!
+			$id = $id ? $id : 0; // if not NULL and false, then the template did not exist!
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
 		} else if( !$id ) {
