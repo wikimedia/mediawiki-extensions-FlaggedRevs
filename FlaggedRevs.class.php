@@ -1150,7 +1150,7 @@ EOT;
 		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
 		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
 		$spPages[] = SpecialPage::getTitleFor( 'Watchlist' );
-		$spPages[] = SpecialPage::getTitleFor( 'RecentChanges' );
+		$spPages[] = SpecialPage::getTitleFor( 'Recentchanges' );
 		foreach( $spPages as $n => $title ) {
 			if( $wgTitle->equals( $title ) ) {
 				self::InjectStyle();
