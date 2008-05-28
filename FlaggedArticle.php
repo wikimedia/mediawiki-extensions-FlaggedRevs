@@ -541,6 +541,14 @@ class FlaggedArticle extends Article {
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
 			$text = ($frev->getRevId() != $revId) ? $frev->getRevText() : false;
+			# Are we adding a section?
+			if( $editPage->section === "new" )
+				return true; // nothing to show here
+			# Are we editing an existing section?
+			$section = ($editPage->section === "") ? false : intval($editPage->section);
+			if( $section !== false ) {
+				$text = $this->parent->getSection( $text, $editPage->section );
+			}
 			if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
