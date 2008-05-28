@@ -306,7 +306,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $rev->getId() );
+		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getId(), $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
 		$form .= '</fieldset>';
 
@@ -327,12 +327,11 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$revlink = $this->skin->makeLinkObj( $this->page, $date, 'oldid=' . $rev->getId() );
 
-		return
-			"<li> $difflink $revlink " . $this->skin->revUserLink( $rev ) . " " . $this->skin->revComment( $rev ) . "</li>";
+		return "<li> $difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
 	}
 
 	private function submit() {
-		global $wgOut, $wgUser, $wgFlaggedRevTags;
+		global $wgOut, $wgUser, $wgFlaggedRevTags, $wgFlaggedRevsOverride;
 		# If all values are set to zero, this has been unapproved
 		$approved = empty($wgFlaggedRevTags) && $this->approve;
 		foreach( $this->dims as $quality => $value ) {
@@ -360,16 +359,14 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 
 		$status = $approved ? $this->approveRevision( $rev ) : $this->unapproveRevision( $frev );
-		# Return to our page
+		// Success for either flagging or unflagging
 		if( $status === true ) {
-			global $wgFlaggedRevsOverride;
-
 			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
-			
 			# Show success message
 			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
 			$wgOut->addHtml( "<div class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
 				$this->page->getPrefixedText(), $this->page->getPrefixedUrl() ) );
+			# General help text
 			if( $wgFlaggedRevsOverride ) {
 				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>' );
 			} else {
@@ -379,7 +376,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$id = $approved ? $rev->getId() : $frev->getRevId();
 			$wgOut->addHtml( '<p>'.wfMsgExt( $msg, array('parseinline'), $this->page->getPrefixedUrl(), $id ).'</p>' );
 			$wgOut->addHtml( "</div>" );
-
+			# Handy links to special pages
 			if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );
 				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'OldReviewedPages' ) );
@@ -388,7 +385,8 @@ class RevisionReview extends UnlistedSpecialPage
 			if( $wgUser->getOption('flaggedrevswatch') && !$this->page->userIsWatching() ) {
 				$wgUser->addWatch( $this->page );
 			}
-		} else {
+		// Failure for flagging
+		} else if( $approved ) {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
 			$wgOut->addHtml( "<ul>" );
 			foreach( $status as $n => $text ) {
@@ -661,18 +659,17 @@ class RevisionReview extends UnlistedSpecialPage
 	 */
 	private function unapproveRevision( $frev ) {
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
-
-		$user = $wgUser->getId();
-
 		wfProfileIn( __METHOD__ );
 		
         $dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs', 
 			array( 'fr_page_id' => $frev->getPage(), 'fr_rev_id' => $frev->getRevId() ) );
 		# Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
+		$dbw->commit();
 
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, false );
@@ -706,7 +703,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->page->purgeSquid();
 
 		wfProfileOut( __METHOD__ );
-
         return true;
     }
 	
