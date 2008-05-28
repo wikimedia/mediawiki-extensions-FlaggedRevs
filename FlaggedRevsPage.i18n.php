@@ -1545,6 +1545,7 @@ $messages['de'] = array(
 	'oldreviewedpages-alias'      => 'Seiten_mit_ungesichteten_Versionen',
 	'stablepages-alias'           => 'Markierte_Seiten',
 	'stableversions-alias'        => 'Markierte_Versionen',
+	'reviewedpages-alias'         => 'Gesichtete_Seiten',
 );
 
 /** Greek (Ελληνικά)
