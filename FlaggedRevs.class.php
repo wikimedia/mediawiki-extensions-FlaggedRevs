@@ -2048,9 +2048,9 @@ EOT;
 			global $wgUser;
 			if( is_object($title) && isset($paramArray[0]) ) {
 				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}") . ')';
-				$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
 					wfMsgHtml('diff'), "oldid={$paramArray[0]}&diff=prev") . ')';
+				$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
+					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}") . ')';
 			}
 		}
 		return true;
