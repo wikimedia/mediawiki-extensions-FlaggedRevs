@@ -494,6 +494,7 @@ class RevisionReview extends UnlistedSpecialPage
 		if( $oldfrev = FlaggedRevs::getFlaggedRev( $title, $rev->getId(), true, true ) ) {
 			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getExpandedText(), $oldfrev->getRevId() );
 		}
+		
 		# Set our versioning params cache
 		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
         # Get the expanded text and resolve all templates.
@@ -503,16 +504,14 @@ class RevisionReview extends UnlistedSpecialPage
 			wfProfileOut( __METHOD__ );
         	return false;
         }
-		
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
-		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
+		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime != $lastImgTime ) {
 			wfProfileOut( __METHOD__ );
         	return false;
         }
 		# Merge in template params from first phase of parsing...
 		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
-		
 		# Clear our versioning params cache
 		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		

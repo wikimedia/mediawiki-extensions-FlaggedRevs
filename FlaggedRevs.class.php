@@ -325,7 +325,7 @@ class FlaggedRevs {
 		if( isset(self::$includeVersionCache[$revId]) ) {
 			# All NS_IMAGE, no need to check namespace
 			if( isset(self::$includeVersionCache[$revId]['files'][$dbKey]) ) {
-				$time_SHA1 = array_keys(self::$includeVersionCache[$revId]['files'][$dbKey]);
+				$time_SHA1 = self::$includeVersionCache[$revId]['files'][$dbKey];
 				foreach( $time_SHA1 as $time => $sha1 ) {
 					// Should only be one, but this is an easy check
 				}
