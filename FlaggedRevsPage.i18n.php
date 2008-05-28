@@ -277,6 +277,7 @@ No configuration is possible.',
 	'oldreviewedpages-alias'      => 'OldReviewedPages',
 	'stablepages-alias'           => 'StablePages',
 	'stableversions-alias'        => 'StableVersions',
+	'reviewedpages-alias'         => 'ReviewedPages',
 );
 
 /** Afrikaans (Afrikaans)
