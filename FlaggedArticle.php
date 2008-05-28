@@ -547,7 +547,7 @@ class FlaggedArticle extends Article {
 			# Are we editing an existing section?
 			$section = ($editPage->section === "") ? false : intval($editPage->section);
 			if( $section !== false ) {
-				$text = $this->parent->getSection( $text, $editPage->section );
+				$text = $this->parent->getSection( $text, $section );
 			}
 			if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
