@@ -506,7 +506,7 @@ class RevisionReview extends UnlistedSpecialPage
         }
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
-		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime != $lastImgTime ) {
+		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
 			wfProfileOut( __METHOD__ );
         	return false;
         }
