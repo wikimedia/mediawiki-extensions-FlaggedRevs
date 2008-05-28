@@ -292,7 +292,7 @@ class FlaggedRevs {
 	 */
 	public static function clearIncludeVersionCache( $revId ) {
 		if( isset(self::$includeVersionCache[$revId]) ) {
-			self::$includeVersionCache[$revId] = array();
+			unset(self::$includeVersionCache[$revId]);
 		}
 	}
 	

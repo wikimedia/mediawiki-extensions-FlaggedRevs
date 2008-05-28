@@ -503,8 +503,6 @@ class RevisionReview extends UnlistedSpecialPage
 			wfProfileOut( __METHOD__ );
         	return false;
         }
-		# Clear our versioning params cache
-		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
@@ -514,6 +512,9 @@ class RevisionReview extends UnlistedSpecialPage
         }
 		# Merge in template params from first phase of parsing...
 		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
+		
+		# Clear our versioning params cache
+		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		
 		# Is this a duplicate review?
 		if( $oldfrev && $flaggedOutput ) {
