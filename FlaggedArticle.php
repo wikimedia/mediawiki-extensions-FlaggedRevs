@@ -480,11 +480,7 @@ class FlaggedArticle extends Article {
 		if( !$this->isReviewable() )
 			return false;
 		# Find out revision id
-		if( $this->parent->mRevision ) {
-	   		$revId = $this->parent->mRevision->mId;
-		} else {
-	   		$revId = $this->parent->getLatest();
-	   	}
+	   	$revId = $editPage->oldid ? $editPage->oldid : $this->parent->getLatest();
 		# Grab the ratings for this revision if any
 		if( !$revId )
 			return true;
@@ -539,8 +535,9 @@ class FlaggedArticle extends Article {
 			# Output notice and warning for editors
 			$wgOut->addHTML( $tag . $warning );
 			
-			# Show diff to stable, to make things less confusing
-			if( $frev->getRevId() == $revId || $editPage->section === "new" ) {
+			# Show diff to stable, to make things less confusing.
+			# Don't show for old revisions.
+			if( $frev->getRevId() == $revId || $editPage->section === "new" || $editPage->oldid ) {
 				return true; // nothing to show here
 			}
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
