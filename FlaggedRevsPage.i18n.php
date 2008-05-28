@@ -1384,8 +1384,8 @@ $messages['de'] = array(
 	'revreview-update-includes'   => "'''Einige Vorlagen/Bilder wurden aktualisiert:'''",
 	'revreview-update-use'        => "'''Bitte beachten:''' Falls eine dieser Vorlagen/Bilder eine gesichtete Version hat, wird diese in der gesichteten Version dieser Seite angezeigt.",
 	'revreview-auto'              => '(automatisch)',
-	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
-	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch gesichtet.'''",
+	'revreview-auto-w'            => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
+	'revreview-auto-w-old'        => "Du bearbeitest eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-patrolled'         => 'Die ausgewählte Version von [[:$1|$1]] wurde kontrolliert.',
 	'revreview-patrol-title'      => 'Als kontrolliert markieren',
 	'hist-draft'                  => 'Entwurfsversion',
@@ -1439,7 +1439,7 @@ $messages['de'] = array(
 	'revreview-log'        => 'Kommentar:',
 	'revreview-approved'   => 'Freigegeben',
 	'revreview-submit'     => 'Markierung speichern',
-	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert. ([{{fullurl:Special:Stableversions|page=$2}} siehe alle gesichteten Versionen])'''",
+	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert ([{{fullurl:Special:Stableversions|page=$2}} siehe alle gesichteten Versionen])'''.",
 	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version], falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
 	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-stable2'     => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?.',
@@ -1537,7 +1537,7 @@ $messages['de'] = array(
 
 	'specialpages-group-quality' => 'Qualitätssicherung',
 
-	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist aktuell sehr lang. Bitte helfe mit, sie abzuarbeiten. Danke.',
+	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist sehr lang. Bitte hilf mit, sie abzuarbeiten. Danke.',
 
 	'qualityoversight-alias'      => 'Geprüfte_Seiten',
 	'depreciationoversight-alias' => 'Zurückgezogene_Markierungen',
