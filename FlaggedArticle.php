@@ -536,15 +536,17 @@ class FlaggedArticle extends Article {
 					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 				}
 			}
+			# Output notice and warning for editors
 			$wgOut->addHTML( $tag . $warning );
+			
 			# Show diff to stable, to make things less confusing
+			if( $frev->getRevId() == $revId || $editPage->section === "new" ) {
+				return true; // nothing to show here
+			}
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
-			$text = ($frev->getRevId() != $revId) ? $frev->getRevText() : false;
-			# Are we adding a section?
-			if( $editPage->section === "new" )
-				return true; // nothing to show here
-			# Are we editing an existing section?
+			$text = $frev->getRevText();
+			# Are we editing a section?
 			$section = ($editPage->section === "") ? false : intval($editPage->section);
 			if( $section !== false ) {
 				$text = $this->parent->getSection( $text, $section );
