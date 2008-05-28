@@ -502,7 +502,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		
 		# Set our versioning params cache
-		//FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
+		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
         # Get the expanded text and resolve all templates.
 		# Store $templateIDs and add it to final parser output later...
         list($fulltext,$tmps,$tmpIDs,$err,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
