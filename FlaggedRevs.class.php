@@ -1665,7 +1665,7 @@ EOT;
 			return true;
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
-		if( !$title || !self::isPageReviewable( $title ) ) {
+		if( !self::isPageReviewable( $title ) ) {
 			return true;
 		}
 		$frev = null;
@@ -1680,17 +1680,17 @@ EOT;
 		if( !$baseRevID ) {
 			$baseRevID = $prevRevID;
 		}
+		// New pages
+		if( !$prevRevID ) {
+			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		// Edits to existing pages
-		if( $baseRevID ) {
+		} else if( $baseRevID ) {
 			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
 			if( !$frev ) {
 				$frev = self::getFlaggedRev( $title, $prevRevID, false, true, $rev->getPage() );
 			}
-		// New pages
-		} else {
-			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		}
 		# Is this an edit directly to the stable version?
 		if( $reviewableNewPage || !is_null($frev) ) {
