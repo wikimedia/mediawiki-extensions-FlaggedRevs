@@ -536,8 +536,8 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( $tag . $warning );
 			
 			# Show diff to stable, to make things less confusing.
-			# Don't show for old revisions.
-			if( $frev->getRevId() == $revId || $editPage->section === "new" || $editPage->oldid ) {
+			# Don't show for old revisions or on preview.
+			if( $frev->getRevId() == $revId || $editPage->section === "new" || $editPage->oldid || $editPage->preview ) {
 				return true; // nothing to show here
 			}
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
