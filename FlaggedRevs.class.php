@@ -2173,11 +2173,12 @@ EOT;
 		$specialPages = array( 'QualityOversight', 'DepreciationOversight', 'UnreviewedPages', 
 			'OldReviewedpages', 'StablePages', 'StableVersions', 'ReviewedPages' );
 		foreach( $specialPages as $specialPage ) {
-			$text = wfMsgHtml( strtolower("$specialPage-alias") );
+			$text = wfMsgExt( strtolower( "$specialPage-alias" ), array( 'escape', 'language' => $code ) );
 			$title = Title::newFromText($text);
 			if( $title ) {
 				$extendedSpecialPageAliases[$specialPage][] = $title->getDBKey();
 			}
+			$extendedSpecialPageAliases[$specialPage][] = $specialPage;
 		}
 		return true;
 	}
