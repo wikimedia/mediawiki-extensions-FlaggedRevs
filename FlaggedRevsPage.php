@@ -359,9 +359,9 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 
-		$success = $approved ? $this->approveRevision( $rev ) : $this->unapproveRevision( $frev );
+		$status = $approved ? $this->approveRevision( $rev ) : $this->unapproveRevision( $frev );
 		# Return to our page
-		if( $success ) {
+		if( $status === true ) {
 			global $wgFlaggedRevsOverride;
 
 			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
@@ -390,12 +390,18 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		} else {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
+			$wgOut->addHtml( "<ul>" );
+			foreach( $status as $n => $text ) {
+				$wgOut->addHtml( "<li>$text</li>\n" );
+			}
+			$wgOut->addHtml( "</ul>" );
 		}
 	}
 
 	/**
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param Revision $rev
+	 * @returns true on success, array of errors on failure
 	 */
 	private function approveRevision( $rev ) {
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
@@ -492,23 +498,24 @@ class RevisionReview extends UnlistedSpecialPage
 		# Is this rev already flagged?
 		$flaggedOutput = false;
 		if( $oldfrev = FlaggedRevs::getFlaggedRev( $title, $rev->getId(), true, true ) ) {
-			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getExpandedText(), $oldfrev->getRevId() );
+			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getTextForParse(), $oldfrev->getRevId() );
 		}
 		
 		# Set our versioning params cache
-		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
+		//FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
         # Get the expanded text and resolve all templates.
 		# Store $templateIDs and add it to final parser output later...
-        list($fulltext,$tmps,$tmpIDs,$ok,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
-        if( !$ok || $maxID > $lastTempID ) {
+        list($fulltext,$tmps,$tmpIDs,$err,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
+        if( !empty($err) || $maxID > $lastTempID ) {
 			wfProfileOut( __METHOD__ );
-        	return false;
+        	return $err;
         }
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
-		if( !$stableOutput->fr_includesMatched || $stableOutput->fr_newestImageTime > $lastImgTime ) {
+		$err =& $stableOutput->fr_includesMatched;
+		if( !empty($err) || $stableOutput->fr_newestImageTime > $lastImgTime ) {
 			wfProfileOut( __METHOD__ );
-        	return false;
+        	return $err;
         }
 		# Merge in template params from first phase of parsing...
 		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
@@ -661,8 +668,8 @@ class RevisionReview extends UnlistedSpecialPage
 		
         $dbw = wfGetDB( DB_MASTER );
 		# Delete from flaggedrevs table
-		$dbw->delete( 'flaggedrevs',
-			array( 'fr_page_id' => $this->page->getArticleID(), 'fr_rev_id' => $frev->getRevId() ) );
+		$dbw->delete( 'flaggedrevs', 
+			array( 'fr_page_id' => $frev->getPage(), 'fr_rev_id' => $frev->getRevId() ) );
 		# Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
