@@ -94,19 +94,15 @@ class OldReviewedPages extends SpecialPage
 	
 	protected static function getLineClass( $hours, $uw ) {
 		global $wgFlaggedRevsLongPending;
-		if( !$uw ) {
-			return 'fr-unreviewed-unwatched';
-		}
-		if( !is_array($wgFlaggedRevsLongPending) ) {
-			return ($hours > $wgFlaggedRevsLongPending) ? 'fr-pending-long' : "";
-		}
-		# If an array, show variable colors
+		# Show variable colors
 		if( $hours > $wgFlaggedRevsLongPending[2] )
 			return 'fr-pending-long3';
 		if( $hours > $wgFlaggedRevsLongPending[1] )
 			return 'fr-pending-long2';
 		if( $hours > $wgFlaggedRevsLongPending[0] )
 			return 'fr-pending-long';
+		if( !$uw )
+			return 'fr-unreviewed-unwatched';
 		# Default: none
 		return "";
 	}
