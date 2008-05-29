@@ -1835,7 +1835,7 @@ EOT;
 					'log_type' => 'block',
 					'log_action' => 'block' ),
 				__METHOD__,
-				array( 'USE INDEX' => 'user_time' ) );
+				array( 'USE INDEX' => 'page_time' ) );
 			if( $blocked ) {
 				# Make a key to store the results
 				$wgMemc->set( $key, 'true', 3600*24*7 );
