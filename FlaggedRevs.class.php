@@ -933,8 +933,6 @@ EOT;
 	* fields will be up to date. This updates the stable version.
 	*/
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $patrol = true ) {
-		global $wgParser, $wgFlaggedRevsAutoReview;
-
 		wfProfileIn( __METHOD__ );
 
 		$quality = 0;
@@ -1086,7 +1084,6 @@ EOT;
 		}
 		
 		wfProfileOut( __METHOD__ );
-
 		return true;
 	}
 	
