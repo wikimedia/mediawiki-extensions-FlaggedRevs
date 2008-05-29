@@ -536,15 +536,17 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( $tag . $warning );
 			
 			# Show diff to stable, to make things less confusing.
-			# Don't show for old revisions or on preview.
-			if( $frev->getRevId() == $revId || $editPage->section === "new" || $editPage->oldid || $editPage->preview ) {
+			if( $frev->getRevId() == $revId )
+				return true; // nothing to show here
+			# Don't show for old revisions, diff, preview, or undo.
+			if( $editPage->oldid || $editPage->section === "new" || in_array($editPage->formtype,array('diff','preview')) ) {
 				return true; // nothing to show here
 			}
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
 			$text = $frev->getRevText();
 			# Are we editing a section?
-			$section = ($editPage->section === "") ? false : intval($editPage->section);
+			$section = ($editPage->section == "") ? false : intval($editPage->section);
 			if( $section !== false ) {
 				$text = $this->parent->getSection( $text, $section );
 			}
