@@ -241,6 +241,12 @@
 .fr-pending-long {
 	background-color: #f5ecec;
 }
+.fr-pending-long2 {
+	background-color: #f5dddd;
+}
+.fr-pending-long3 {
+	background-color: #e2caca;
+}
 
 .fr-unreviewed-unwatched {
 	background-color: #f5dddd;

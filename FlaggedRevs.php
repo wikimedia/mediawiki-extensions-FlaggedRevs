@@ -193,7 +193,7 @@ $wgFlaggedRevsLogInRC = false;
 $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 
 # How many hours pending review is considering long?
-$wgFlaggedRevsLongPending = 3;
+$wgFlaggedRevsLongPending = array( 3, 12, 24 );
 # How many pages count as a backlog?
 $wgFlaggedRevsBacklog = 1000;
 
@@ -206,7 +206,7 @@ $wgFlaggedRevsTalkVisible = true;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 23;
+$wgFlaggedRevStyleVersion = 24;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

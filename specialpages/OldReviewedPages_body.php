@@ -49,8 +49,8 @@ class OldReviewedPages extends SpecialPage
 	}
 	
 	function formatRow( $result ) {
-		global $wgLang, $wgFlaggedRevsLongPending;
-
+		global $wgLang;
+		
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$css = $stxt = $review = '';
@@ -62,6 +62,8 @@ class OldReviewedPages extends SpecialPage
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
 				"diff=cur&oldid={$result->fp_stable}" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
+		# Is anybody watching?
+		$uw = UnreviewedPages::usersWatching( $title );
 		# Get how long the first unreviewed edit has been waiting...
 		$firstPending = $title->getNextRevisionID($result->fp_stable);
 		if( $firstPendingTime = Revision::getTimestampFromID($firstPending) ) {
@@ -80,15 +82,33 @@ class OldReviewedPages extends SpecialPage
 				$age = wfMsg('oldreviewedpages-recent'); // hot of the press :)
 			}
 			// Oh-noes!
-			$css = ($hours > $wgFlaggedRevsLongPending) ? " class='fr-pending-long'" : "";
+			$css = self::getLineClass( $hours, $uw );
+			$css = $css ? " class='$css'" : "";
 		} else {
 			$age = ""; // wtf?
 		}
-		# Is anybody watching?
-		$uw = UnreviewedPages::usersWatching( $title );
 		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
 
 		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
+	}
+	
+	protected static function getLineClass( $hours, $uw ) {
+		global $wgFlaggedRevsLongPending;
+		if( !$uw ) {
+			return 'fr-unreviewed-unwatched';
+		}
+		if( !is_array($wgFlaggedRevsLongPending) ) {
+			return ($hours > $wgFlaggedRevsLongPending) ? 'fr-pending-long' : "";
+		}
+		# If an array, show variable colors
+		if( $hours > $wgFlaggedRevsLongPending[2] )
+			return 'fr-pending-long3';
+		if( $hours > $wgFlaggedRevsLongPending[1] )
+			return 'fr-pending-long2';
+		if( $hours > $wgFlaggedRevsLongPending[0] )
+			return 'fr-pending-long';
+		# Default: none
+		return "";
 	}
 }
 
