@@ -206,7 +206,7 @@ $wgFlaggedRevsTalkVisible = true;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 24;
+$wgFlaggedRevStyleVersion = 25;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
