@@ -14,3 +14,6 @@ update_flaggedrevs();
 
 update_flaggedpages();
 
+update_flaggedtemplates();
+
+update_flaggedimages();
