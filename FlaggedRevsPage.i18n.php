@@ -1373,9 +1373,9 @@ $messages['de'] = array(
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Bildern] stehen noch zur Sichtung an.',
 
 	'revreview-basic'             => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version.
-	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Sichtung an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Änderung steht|Änderungen stehen}}] noch zur Sichtung an.',
 	'revreview-quality'           => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version.
-	$3 {{plural:$3|Änderung|Änderungen}} stehen  noch zur Prüfung an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|Änderung steht|Änderungen stehen}}] noch zur Prüfung an.',
 	'revreview-basic-i'           => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
 	Der [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] enthält [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Änderungen an Vorlagen/Dateien], die auf eine Sichtung warten.',
 	'revreview-quality-i'         => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
@@ -1464,7 +1464,7 @@ $messages['de'] = array(
 	'revreview-approved'   => 'Freigegeben',
 	'revreview-submit'     => 'Markierung speichern',
 	'revreview-successful'  => "'''Die ausgewählte Version von [[:$1|$1]] wurde erfolgreich markiert ([{{fullurl:Special:Stableversions|page=$2}} siehe alle gesichteten Versionen])'''.",
-	'revreview-stable1'     => 'Möchtest du die  [{{fullurl:$1|stableid=$2}} soeben markierte Version], falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
+	'revreview-stable1'     => 'Möchtest du die [{{fullurl:$1|stableid=$2}} soeben markierte Version] dieser Seite sehen, falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
 	'revreview-successful2' => "'''Die Markierung der ausgewählten Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-stable2'     => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?.',
 	'revreview-changed'     => "'''Die Aktion konnte nicht auf die Version von [[:$1|$1]] angewendet werden.'''
