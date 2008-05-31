@@ -142,13 +142,6 @@ A template or image may have been requested when no specific version was specifi
 This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewing this page.
 Refreshing the page and rereviewing can solve this problem.',
 	'review-diff2stable' => 'View changes between stable and current revisions',
-	'unreviewed-legend' => 'List unreviewed content pages',
-	'unreviewed-category' => 'Category:',
-	'unreviewed-diff' => 'review',
-	'unreviewed-unwatched' => '(unwatched)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
-	'unreviewed-list' => 'This page lists articles that have not been reviewed.',
-	'unreviewed-none' => 'There are currently no pages meeting these criteria',
 	'revreview-visibility' => '\'\'\'This page has a [[{{MediaWiki:Validationpage}}|stable version]]; settings for it can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
 	'rights-editor-autosum' => 'autopromoted',
 	'rights-editor-revoke' => 'removed editor status from [[$1]]',
@@ -161,7 +154,6 @@ Refreshing the page and rereviewing can solve this problem.',
 	'flaggedrevs-backlog' => 'There is currently a backlog at [[Special:OldReviewedPages|Outdated reviewed pages]]. \'\'\'Your attention is needed!\'\'\'',
 );
 $messages['af'] = array(
-	'unreviewed-category' => 'Kategorie:',
 );
 $messages['an'] = array(
 	'flaggedrevs-desc' => 'Premite á os editors/rebisors de balidar rebisions y fer estables as pachinas',
@@ -316,13 +308,6 @@ $messages['ar'] = array(
 قالب ديناميكي يضمن صورة أخرى أو قالب معتمدا على متغير تغير منذ أن بدأت
 مراجعة هذه الصفحة. تحديث الصفحة وإعادة المراجعة يمكن أن يحل هذه المشكلة.',
 	'review-diff2stable' => 'عرض التغييرات بين النسختين المستقرة والحالية',
-	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
-	'unreviewed-category' => 'التصنيف:',
-	'unreviewed-diff' => 'مراجعة',
-	'unreviewed-unwatched' => '(غير مراقبة)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
-	'unreviewed-list' => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
-	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 	'revreview-visibility' => '\'\'\'هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]]؛ الإعدادات لها يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].\'\'\'',
 	'rights-editor-autosum' => 'ترقية تلقائية',
 	'rights-editor-revoke' => 'أزال حالة محرر من [[$1]]',
@@ -434,9 +419,6 @@ Vete a [[Special:Unreviewedpages]] pa ver una llista de les páxines non revisae
 
 Seique se solicitara una plantía o una imaxe cuando nun s\'especificara nenguna versión específica. Esto pue asoceder si una plantía dinámica reemplaza otra plantía o imaxe según una variable que tenga camudao dende qu\'empecipiaras a revisar esta páxina. Refrescar la páxina y volver a revisar pue solucionar esti problema.',
 	'review-diff2stable' => 'Ver los cambeos ente les revisiones estable y actual',
-	'unreviewed-category' => 'Categoría:',
-	'unreviewed-diff' => 'Cambeos',
-	'unreviewed-list' => 'Esta páxina llista artículos que nun fueron revisaos o que tienen revisiones nueves o non revisaes.',
 	'revreview-visibility' => 'Esta páxina tien una [[{{MediaWiki:Validationpage}}|versión estable]], que pue ser
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurada].',
 	'rights-editor-autosum' => 'autopromocionáu',
@@ -445,8 +427,6 @@ Seique se solicitara una plantía o una imaxe cuando nun s\'especificara nenguna
 $messages['bcl'] = array(
 	'hist-quality' => 'kalidad',
 	'revreview-depth' => 'Rarom',
-	'unreviewed-category' => 'Kategorya:',
-	'unreviewed-diff' => 'Mga pagbabâgo',
 );
 $messages['bg'] = array(
 	'flaggedrevs-desc' => 'Дава възможността на редактори/рецензенти да одобряват версии и да определят страници като устойчиви',
@@ -498,9 +478,6 @@ $messages['bg'] = array(
 	'revreview-log' => 'Коментар:',
 	'revreview-submit' => 'Пращане на рецензията',
 	'review-diff2stable' => 'Преглед на разликите между устойчивата и текущата версия',
-	'unreviewed-category' => 'Категория:',
-	'unreviewed-diff' => 'Промени',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
 	'rights-editor-revoke' => 'отне правата на редактор на [[$1]]',
 );
 $messages['bn'] = array(
@@ -573,8 +550,6 @@ $messages['bn'] = array(
 
 কোন নির্দিষ্ট সংস্করণ নির্দেশ না করেই একটি টেম্পলেট বা ছবি হয়ত অনুরোধ করা হয়েছে। যদি কোন চলমান টেম্পলেট কোন একটি ভ্যারিয়েবলের উপর নির্ভর করে আরেকটি টেম্পলেট বা ছবিকে অন্তর্ভুক্ত করে, এবং সেই ভ্যারিয়েবলটি যদি আপনি পর্যালোচনা শুরু করার পর পরিবর্তিত হয়ে থাকে, তবে এমনটি ঘটতে পারে।
 পাতাটি রিফ্রেশ করে পুনরায় পর্যালোচনা করলে সমস্যাটির সমাধান হতে পারে।',
-	'unreviewed-category' => 'বিষয়শ্রেণী:',
-	'unreviewed-diff' => 'পরিবর্তনসমূহ',
 	'rights-editor-revoke' => '[[$1]] এর সম্পাদক পদমর্যাদা প্রত্যাহার করুন',
 );
 $messages['br'] = array(
@@ -673,8 +648,6 @@ Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pa
 	'revreview-log' => 'Notenn :',
 	'revreview-submit' => 'Enrollañ an adweladenn',
 	'review-diff2stable' => 'Gwelet ar c\'hemmoù etre ar stummoù stabil hag ar stummoù a-vremañ.',
-	'unreviewed-category' => 'Rummad :',
-	'unreviewed-diff' => 'Kemmoù',
 	'rights-editor-autosum' => 'emanvet',
 );
 $messages['ca'] = array(
@@ -741,8 +714,6 @@ S\'hi poden haver fet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} canvis].'
 	'revreview-log' => 'Comentari:',
 	'revreview-submit' => 'Tramet la revisió',
 	'review-diff2stable' => 'Visualitza els canvis entre les revisions estable i actual',
-	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'revisió',
 	'rights-editor-revoke' => 'tret el nivell d\'editor a [[$1]]',
 );
 $messages['cs'] = array(
@@ -850,10 +821,6 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 
 Šablona nebo obrázek byly vyžádány na neurčitou verzi. To se může stát pokud dynamická šablona vkládá jinou šablonu nebo obrázek v závislosti na proměnné, která se změnila zatímco jste posuzovali stránku. Obnovte stránku a znovu ji posuďte.',
 	'review-diff2stable' => 'Zobrazit změny mezi stabilní a současnou verzí',
-	'unreviewed-category' => 'Kategorie:',
-	'unreviewed-diff' => 'Změny',
-	'unreviewed-unwatched' => '(nesledované)',
-	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
 	'revreview-visibility' => 'Tato stránka má [[{{MediaWiki:Validationpage}}|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].',
 	'rights-editor-revoke' => 'odebírá status editora uživateli [[$1]]',
 	'flaggedrevs-prefs' => 'Stabilita',
@@ -861,7 +828,6 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 );
 $messages['da'] = array(
 	'revreview-auto' => '(automatisk)',
-	'unreviewed-category' => 'Kategori:',
 );
 $messages['de'] = array(
 	'flaggedrevs-desc' => 'Markierte Versionen',
@@ -1011,13 +977,6 @@ $messages['de'] = array(
 	wenn eine dynamische Vorlage eine weitere Vorlage oder ein Bild einbindet, das von einer Variable abhängig ist, die
 	sich seit Beginn der Markierung verändert hat. Ein Neuladen der Seite und Neustart der Markierung kann das Problem beheben.',
 	'review-diff2stable' => 'Unterschiede zwischen der markierten und der aktuellen Version ansehen',
-	'unreviewed-legend' => 'Liste unmarkierter Artikel',
-	'unreviewed-category' => 'Kategorie:',
-	'unreviewed-diff' => 'sichten',
-	'unreviewed-unwatched' => '(unbeobachtet)',
-	'unreviewed-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
-	'unreviewed-list' => 'Diese Seite hilft, ungesichtete Versionen zu finden.',
-	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 	'revreview-visibility' => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
 	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
 	'rights-editor-autosum' => 'automatisch erteilt',
@@ -1059,8 +1018,6 @@ $messages['el'] = array(
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-legend' => 'Βαθμολόγησε το περιεχόμενο της τροποποίησης',
 	'revreview-log' => 'Σχόλιο:',
-	'unreviewed-category' => 'Κατηγορία:',
-	'unreviewed-diff' => 'Αλλαγές',
 );
 $messages['eo'] = array(
 	'editor' => 'Redaktanto',
@@ -1153,13 +1110,6 @@ $messages['eo'] = array(
 	'revreview-successful' => '\'\'\'Selektita revizio de [[:$1|$1]] sukcese markita. ([{{fullurl:Special:Stableversions|page=$2}} rigardi ĉiujn markitajn versiojn])\'\'\'',
 	'revreview-successful2' => '\'\'\'Selektita revizio de [[:$1|$1]] sukcese malmarkita.\'\'\'',
 	'review-diff2stable' => 'Rigardi ŝanĝojn inter stabila kaj nuna revizioj',
-	'unreviewed-legend' => 'Listigi nekontrolitajn enhavajn paĝojn',
-	'unreviewed-category' => 'Kategorio:',
-	'unreviewed-diff' => 'kontrolo',
-	'unreviewed-unwatched' => '(malatentita)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
-	'unreviewed-list' => 'Ĉi tiu paĝo montras artikolojn kiuj ne estas kontrolitaj.',
-	'unreviewed-none' => 'Nune neniuj paĝoj kongruas tiun kriterion',
 	'rights-editor-autosum' => 'aŭtomate rangaltigita',
 	'rights-editor-revoke' => 'forigis redakto-statuson de [[$1]]',
 	'flaggedrevs-prefs' => 'Stabileco',
@@ -1176,8 +1126,6 @@ $messages['ext'] = array(
 	'grouppage-editor' => '{{ns:project}}:Eitol',
 	'revreview-auto' => '(autumáticu)',
 	'revreview-style-2' => 'Güenu',
-	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'Chambus',
 );
 $messages['fa'] = array(
 	'flaggedrevs-desc' => 'به ویرایشگرها/مرورکنندگان امکان تایید کردن نسخه‌ها و پایدار ساختن صفحه‌ها را می‌دهد',
@@ -1323,13 +1271,6 @@ $messages['fa'] = array(
 یک تصویر یا الگو درخواست شده بدون ان که نسخه خاصی تعیین شده باشد. این اتفاق می‌تواند زمانی رخ دهد که یک الگوی پویا یک الگو یا تصویر دیگر را شامل شود که به متغیری بستگی دارد که از زمانی که شما صفحه را تغییر داده‌اید تغییر کرده‌است.
 بارگذاری دوباره صحفه و بررسی دوباره می‌تواند مشکل را برطرف کند.',
 	'review-diff2stable' => 'تفاوت با نسخه پایدار',
-	'unreviewed-legend' => 'فهرست صفحه‌های بازبینی نشده',
-	'unreviewed-category' => 'رده:',
-	'unreviewed-diff' => 'تغییرات',
-	'unreviewed-unwatched' => '(پیگیری نشده)',
-	'unreviewed-watched' => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
-	'unreviewed-list' => 'این صفحه فهرستی از مقاله‌هایی را نشان می‌دهد که بررسی نشده‌اند یا دارای نسخه‌های جدید بررسی نشده‌ای هستند.',
-	'unreviewed-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'revreview-visibility' => 'این صفحه دارای یک [[{{MediaWiki:Validationpage}}|نسخه پایدار است]] که قابل 
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} تنظیم] است.',
 	'rights-editor-autosum' => 'ترفیع خودکار',
@@ -1368,8 +1309,6 @@ $messages['fi'] = array(
 	'revreview-accuracy-4' => 'Suositeltu',
 	'revreview-depth-2' => 'Keskitasoa',
 	'revreview-style' => 'Luettavuus',
-	'unreviewed-category' => 'Luokka',
-	'unreviewed-list' => 'Tämä on lista artikkeleista, joita ei ole arvioitu tai joista on olemassa uusia arvioimattomia versioita.',
 );
 $messages['fr'] = array(
 	'flaggedrevs-desc' => 'Donne la possibilité aux éditeurs ou au relecteurs de valider les modifications et de stabiliser les pages.',
@@ -1502,13 +1441,6 @@ Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celle
 	
 Un modèle ou une image peuvent avoir été demandés alors qu’aucune version précise n’était choisie. Ceci peut survenir si un modèle dynamique opère une transclusion d’une autre image ou d’un modèle dépendant d’une variable qui a changé depuis que vous avez commencé à prévisualiser cette page. Le rechargement de la page et sa revisualisation peuvent corriger ce problème.',
 	'review-diff2stable' => 'Voir les modifications entre les versions stables et actuelles.',
-	'unreviewed-legend' => 'Liste des contenus des pages non visés',
-	'unreviewed-category' => 'Catégorie :',
-	'unreviewed-diff' => 'révision',
-	'unreviewed-unwatched' => '(non observé)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d\'observer)',
-	'unreviewed-list' => 'Cette page liste les articles qui n\'ont pas été révisés ou qui ont des révisions non vues.',
-	'unreviewed-none' => 'Il n’existe actuellellement aucune page respectant ces critères',
 	'revreview-visibility' => 'Cette page contient une [[{{MediaWiki:Validationpage}}|version stable]], ses paramètres peuvent être [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurés].',
 	'rights-editor-autosum' => 'autopromu',
 	'rights-editor-revoke' => 'a révoqué les droits d\'éditeur de [[$1]]',
@@ -1610,9 +1542,6 @@ Vêde les [[Special:Unreviewedpages|vèrsions pas rèvisâs]] por una lista de p
 Un modèlo ou una émâge pôt avêr étâ demandâ pendent que niona vèrsion prècisa ére chouèsia/cièrdua. Cen pôt arrevar s’un modèlo dinamico opère una transcllusion d’una ôtra émâge ou d’un ôtro modèlo dèpendent d’una variâbla qu’at changiê dês que vos éd comenciê a prèvisualisar ceta pâge.
 Lo rechargement de la pâge et sa revisualisacion pôt corregiér cél problèmo.',
 	'review-diff2stable' => 'Vêde les modificacions entre les vèrsions stâbles et corentes.',
-	'unreviewed-category' => 'Catègorie :',
-	'unreviewed-diff' => 'Modificacions',
-	'unreviewed-list' => 'Ceta pâge liste los articllos qu’ont pas étâ rèvisâs ou qu’ont des vèrsions pas vues.',
 	'revreview-visibility' => 'Ceta pâge contint una [[{{MediaWiki:Validationpage}}|vèrsion stâbla]], que pôt étre [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurâ].',
 	'rights-editor-autosum' => 'Ôtonomâ',
 	'rights-editor-revoke' => 'at rèvocâ los drêts d’èditor de [[$1]]',
@@ -1717,11 +1646,6 @@ Unha listaxe do páxinas estabilizadas pode ser atopada na [[Special:StablePages
 	'revreview-approved' => 'Aprobado',
 	'revreview-submit' => 'Enviar revisión',
 	'review-diff2stable' => 'Ver os cambios entre as revisións estábel e a actual',
-	'unreviewed-category' => 'Categoría:',
-	'unreviewed-diff' => 'revisión',
-	'unreviewed-unwatched' => '(sen vixiar)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
-	'unreviewed-list' => 'Esta páxina lista artigos que non foron revisados ou que teñen novas revisións sen examinar.',
 	'revreview-visibility' => '\'\'\'Esta páxina ten unha [[{{MediaWiki:Validationpage}}|versión estábel]]; os parámetros para esta poden ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].\'\'\'',
 	'rights-editor-autosum' => 'autopromocionado',
 	'rights-editor-revoke' => 'eliminado o status de editor de [[$1]]',
@@ -1869,13 +1793,6 @@ $messages['hi'] = array(
 अगर साँचेमें बाह्यचित्र है या आप द्वारा बदलाव शुरू होने पर साँचे में हुए बदलाव ऐसा दर्शा सकतें हैं।
 कृपया रिफ्रेश कर फिरसे जाँचे।',
 	'review-diff2stable' => 'स्थिर और सद्य अवतरण में फर्क देखें',
-	'unreviewed-legend' => 'न देखें हुए लेखोंकी सूची बनायें',
-	'unreviewed-category' => 'श्रेणी:',
-	'unreviewed-diff' => 'जाँचे',
-	'unreviewed-unwatched' => '(न देखे हुए)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
-	'unreviewed-list' => 'यह पन्ना ऐसे लेख दर्शाता हैं जिन्हें जाँचा नहीं गया हैं।',
-	'unreviewed-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
 	'revreview-visibility' => '\'\'\'इस पन्नेको एक [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] हैं, जो [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} बदला] जा सकता हैं।\'\'\'',
 	'rights-editor-autosum' => 'अपने आप तरक्की',
 	'rights-editor-revoke' => '[[$1]] के संपादन अधिकार निकाले गये',
@@ -1989,9 +1906,6 @@ Tražen je predložak ili slika bez navođenja verzije. To se može dogoditi uko
 predložak uključuje sliku ili drugi predložak koji ovisi o varijabli koja se promijenila
 nakon što ste počeli ocjenjivati članak. Osvježavanje (Ctrl + R) može riješiti ovaj problem.',
 	'review-diff2stable' => 'Promjene između važeće i trenutne inačice',
-	'unreviewed-category' => 'Kategorija:',
-	'unreviewed-diff' => 'Promjene',
-	'unreviewed-list' => 'Slijedi popis neocijenjenih članaka (odnosno onih koji su mijenjani od zadnje ocjene).',
 	'revreview-visibility' => 'Ovaj članak ima [[{{MediaWiki:Validationpage}}|važeću inačicu]], koja može biti
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurirana].',
 	'rights-editor-autosum' => 'samopromoviran',
@@ -2100,9 +2014,6 @@ Hlej [[{{ns:special}}:Unreviewedpages]] za lisćinu njepřehladanych wersijow.',
 
 Předłoha abo wobraz bu bjez podaća wersije požadana/požadany. To móže so stać, jeli dynamiska předłoha dalšu předłohu abo dalši wobraz zapřijmje, kotrejž stej wot wariable wotwisnej, kotraž je so wot spočatka pruwowanja strony změniła. Znowazačitanje strony a nowe pruwowanje móže tón problem rozrisać.',
 	'review-diff2stable' => 'Rozdźěle mjez stabilnej a aktualnej wersiju wobhladać',
-	'unreviewed-category' => 'Kategorija:',
-	'unreviewed-diff' => 'přepruwować',
-	'unreviewed-list' => 'Tuta strona naliči nastawki kotrež hišće pruwowane njejsu abo maja njepruwowane wersije.',
 	'revreview-visibility' => '\'\'\'Tuta strona ma [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja za nju dadźa so [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurować].\'\'\'',
 	'rights-editor-revoke' => 'status wobdźěłowarja bu [[$1]] zebrany.',
 );
@@ -2214,9 +2125,6 @@ Ha törölni szeretnéd az értékelést, akkor állíts mindent \'\'ellenőrize
 Egy sablon vagy kép lehetett kérve, miközben nem lett megadva adott változat. Ez akkor történhet meg, ha 
 egy dinamikus sablon más képet vagy sablont illeszt be egy változótól függően, ami megváltozott a lap ellenőrzésének kezdete óta. Az oldal frissítése és az ellenőrzés újbóli elvégzése megoldhatja a problémát.',
 	'review-diff2stable' => 'Az elfogadott és a jelenlegi változat közötti eltérések megtekintése',
-	'unreviewed-category' => 'Kategória:',
-	'unreviewed-diff' => 'Eltérések',
-	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
 	'revreview-visibility' => 'Ez az oldal rendelkezik [[{{MediaWiki:Validationpage}}|elfogadott változattal]], amelyet
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} be lehet állítani].',
 	'rights-editor-autosum' => 'automatikusan megadva',
@@ -2356,13 +2264,6 @@ Satu templat atau berkas mungkin telah diminta tanpa menyebutkan suatu versi spe
 Hal ini dapat terjadi jika suatu templat dinamis mengikutkan suatu berkas atau templat lain yang bergantung pada suatu variabel yang telah berubah sejak Anda mulai meninjau halaman ini.
 Pemuatan dan peninjauan ulang halaman dapat memecahkan masalah ini.',
 	'review-diff2stable' => 'Lihat perubahan antara revisi stabil dan terkini',
-	'unreviewed-legend' => 'Daftar halaman-halaman konten yang belum ditinjau',
-	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'Perubahan',
-	'unreviewed-unwatched' => '(tidak diamati)',
-	'unreviewed-watched' => '(dipantau $2 {{PLURAL:$1|pengguna|pengguna}})',
-	'unreviewed-list' => 'Halaman ini menampilkan daftar artikel yang belum ditinjau.',
-	'unreviewed-none' => 'Tidak ada halaman yang sesuai dengan kriteria ini',
 	'revreview-visibility' => 'Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]], yang dapat [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} dikonfigurasi].',
 	'rights-editor-autosum' => 'promosi otomatis',
 	'rights-editor-revoke' => 'status Penyunting dicabut dari [[$1]]',
@@ -2379,8 +2280,6 @@ $messages['is'] = array(
 	'revreview-edit' => 'Breyta uppkasti',
 	'revreview-auto' => '(sjálfkrafa)',
 	'revreview-accuracy' => 'Nákvæmni',
-	'unreviewed-category' => 'Flokkur:',
-	'unreviewed-diff' => 'Breytingar',
 );
 $messages['it'] = array(
 	'reviewer' => 'Revisore',
@@ -2485,9 +2384,6 @@ $messages['ja'] = array(
 
 処理中に、この版で使用されているテンプレートまたは画像に対する処理要求が行われた可能性があります。これは、動的なテンプレートによる異なる画像へのリンク、または変数に依存するテンプレートが利用されていることにより、査読開始時点からページの内容が変更された場合に起こり得ます。ページをリロードしてから再度査読を行うと、この問題を解決できます。',
 	'review-diff2stable' => '採択版から最新版までの変更履歴を見る',
-	'unreviewed-category' => '{{ns:category}}:',
-	'unreviewed-diff' => '変更点',
-	'unreviewed-list' => '一度も査読を受けていないか、新しい未査読の版があるページの一覧です。',
 	'revreview-visibility' => 'このページには[[{{MediaWiki:Validationpage}}|査読済の版]]があり、[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ページの採択]から設定可能です。',
 	'rights-editor-autosum' => '自動権限付与',
 	'rights-editor-revoke' => '[[$1]] の編集者権限取り消し',
@@ -2532,13 +2428,10 @@ $messages['jut'] = array(
 	'revreview-style-3' => 'Niveaufor',
 	'revreview-style-4' => 'Niveaufem',
 	'revreview-log' => 'Bemærkenge:',
-	'unreviewed-category' => 'Klynge:',
-	'unreviewed-diff' => 'Ændrenger',
 	'rights-editor-autosum' => 'åtåpråmåværn',
 	'rights-editor-revoke' => 'slettet redigærerståt der [[$1]]',
 );
 $messages['jv'] = array(
-	'unreviewed-category' => 'Kategori',
 	'flaggedrevs-prefs' => 'Stabilitas',
 );
 $messages['kk-arab'] = array(
@@ -2642,11 +2535,6 @@ $messages['kk-arab'] = array(
 وزگەرەتىن اينالمالىعا تاۋەلدى وزگەرمەلى ۇلگى ارقىلى باسقا سۋرەتتى نە ۇلگىنى ەندىرگەن بولسا بولادى.
 بەتتى جاڭارتۋ جانە قايتا سىن بەرۋ بۇل ماسەلەنى شەشۋ مۇمكىن.',
 	'review-diff2stable' => 'تىياناقتى مەن اعىمدىق نۇسقالار اراداعى وزگەرىستەر',
-	'viewunreviewed' => 'سىن بەرىلمەگەن ماعلۇمات بەتتەردى تىزىمدەۋ',
-	'unreviewed-outdated' => 'بۇنىڭ ورنىنا تىياناقتى نۇسقاعا جاسالعان سىن بەرىلمەگەن نۇسقالارى بار بەتتەردى كورسەت.',
-	'unreviewed-category' => 'سانات:',
-	'unreviewed-diff' => 'وزگەرىستەر',
-	'unreviewed-list' => 'بۇل بەتتە سىن بەرىلمەگەن ماقالالار نە جاڭادان جاسالعان, سىن بەرىلمەگەن, نۇسقالارى بار ماقالار تىزىمدەلىنەدى.',
 	'revreview-visibility' => 'وسى بەتتىڭ [[{{MediaWiki:Validationpage}}|تىياناقتى نۇسقاسى]] بار, بۇل
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} باپتالاۋى] مۇمكىن.',
 );
@@ -2751,11 +2639,6 @@ $messages['kk-cyrl'] = array(
 өзгеретін айналмалыға тәуелді өзгермелі үлгі арқылы басқа суретті не үлгіні ендірген болса болады.
 Бетті жаңарту және қайта сын беру бұл мәселені шешу мүмкін.',
 	'review-diff2stable' => 'Тиянақты мен ағымдық нұсқалар арадағы өзгерістер',
-	'viewunreviewed' => 'Сын берілмеген мағлұмат беттерді тізімдеу',
-	'unreviewed-outdated' => 'Бұның орнына тиянақты нұсқаға жасалған сын берілмеген нұсқалары бар беттерді көрсет.',
-	'unreviewed-category' => 'Санат:',
-	'unreviewed-diff' => 'Өзгерістер',
-	'unreviewed-list' => 'Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.',
 	'revreview-visibility' => 'Осы беттің [[{{MediaWiki:Validationpage}}|тиянақты нұсқасы]] бар, бұл
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} бапталауы] мүмкін.',
 );
@@ -2860,11 +2743,6 @@ degennen joğarı deñgeý berwiñiz kerek. Nusqanı kemitw üşin, barlıq öri
 özgeretin aýnalmalığa täweldi özgermeli ülgi arqılı basqa swretti ne ülgini endirgen bolsa boladı.
 Betti jañartw jäne qaýta sın berw bul mäseleni şeşw mümkin.',
 	'review-diff2stable' => 'Tïyanaqtı men ağımdıq nusqalar aradağı özgerister',
-	'viewunreviewed' => 'Sın berilmegen mağlumat betterdi tizimdew',
-	'unreviewed-outdated' => 'Bunıñ ornına tïyanaqtı nusqağa jasalğan sın berilmegen nusqaları bar betterdi körset.',
-	'unreviewed-category' => 'Sanat:',
-	'unreviewed-diff' => 'Özgerister',
-	'unreviewed-list' => 'Bul bette sın berilmegen maqalalar ne jañadan jasalğan, sın berilmegen, nusqaları bar maqalar tizimdelinedi.',
 	'revreview-visibility' => 'Osı bettiñ [[{{MediaWiki:Validationpage}}|tïyanaqtı nusqası]] bar, bul
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} baptalawı] mümkin.',
 );
@@ -2887,8 +2765,6 @@ $messages['km'] = array(
 	'revreview-style-1' => 'អាចទទួលយកបាន',
 	'revreview-style-2' => 'ល្អ',
 	'revreview-log' => 'យោបល់៖',
-	'unreviewed-category' => 'ចំណាត់ថ្នាក់ក្រុម ៖',
-	'unreviewed-diff' => 'មើលឡើងវិញ',
 );
 $messages['la'] = array(
 	'editor' => 'Recensor',
@@ -2901,8 +2777,6 @@ $messages['la'] = array(
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'revreview-style-2' => 'Bonus',
 	'revreview-log' => 'Sententia:',
-	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'Cambiationes',
 	'rights-editor-revoke' => 'removit statum recensorem usoris [[$1]]',
 );
 $messages['lb'] = array(
@@ -2960,10 +2834,6 @@ $messages['lb'] = array(
 	'revreview-style-3' => 'Genee',
 	'revreview-style-4' => 'Exzellent',
 	'revreview-log' => 'Bemierkung:',
-	'unreviewed-category' => 'Kategorie:',
-	'unreviewed-diff' => 'iwwerkucken',
-	'unreviewed-unwatched' => '(net iwwerwaacht)',
-	'unreviewed-list' => 'Op dëser Säit sti Säiten déi net nogekuckt goufen.',
 	'flaggedrevs-prefs' => 'Stabilitéit',
 	'specialpages-group-quality' => 'Qualitéitssécherung',
 );
@@ -3063,9 +2933,6 @@ beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, 
 
 Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is aangegeven. Dit kan voorkomen als een dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds u bent begonnen met de beoordeling van deze pagina. Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.',
 	'review-diff2stable' => 'Verschille tusse stabiele en huidige versies bekijke',
-	'unreviewed-category' => 'Categorie:',
-	'unreviewed-diff' => 'Wieziginge',
-	'unreviewed-list' => 'Dees pazjena tuunt pazjena\'s die nag ónbekeke zeen.',
 	'revreview-visibility' => 'Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]], die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aangepas] kan waere.',
 	'rights-editor-autosum' => 'automatisch gepromoveerd',
 	'rights-editor-revoke' => 'verwijderde redacteurstatus van [[$1]]',
@@ -3075,8 +2942,6 @@ $messages['lt'] = array(
 	'revreview-style-0' => 'Nepatvirtintas',
 	'revreview-style-2' => 'Geras',
 	'revreview-log' => 'Komentaras:',
-	'unreviewed-category' => 'Kategorija:',
-	'unreviewed-diff' => 'Pakeitimai',
 );
 $messages['ml'] = array(
 	'flaggedrevs-desc' => 'എഡിറ്റര്‍മാര്‍ക്കും സം‌ശോധകര്‍ക്കും പതിപ്പുകള്‍ ഗുണപരിശോധന നടത്താനും താളുകള്‍ സ്ഥിരപ്പെടുത്താനുമുള്ള അവകാശം കൊടുക്കുന്നു.',
@@ -3184,13 +3049,6 @@ $messages['ml'] = array(
 	'revreview-approved' => 'അംഗീകരിച്ചിരിക്കുന്നു',
 	'revreview-submit' => 'സംശോധനം ചെയ്തത് സമര്‍പ്പിക്കുക',
 	'review-diff2stable' => 'സ്ഥിരതയുള്ള പതിപ്പും നിലവിലുള്ള പതിപ്പും തമ്മിലുള്ള മാറ്റങ്ങള്‍ കാണുക',
-	'unreviewed-legend' => 'ഉള്ളടക്കം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക പ്രദര്‍ശിപ്പിക്കുക',
-	'unreviewed-category' => 'വിഭാഗം:',
-	'unreviewed-diff' => 'സംശോധനം',
-	'unreviewed-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
-	'unreviewed-list' => 'ഈ താള്‍ സംശോധനം ചെയ്തിട്ടില്ലാത്ത ലേഖനങ്ങളുടെ പട്ടിക പ്രദര്‍ശിപ്പിക്കുന്നു.',
-	'unreviewed-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
 	'rights-editor-autosum' => 'യാന്ത്രികമായി സ്ഥാനക്കയറ്റം നല്‍കിയിരിക്കുന്നു',
 	'rights-editor-revoke' => '[[$1]] എന്ന ഉപയോക്താവിന്റെ എഡിറ്റര്‍ അവകാശം പിന്‍‌വലിച്ചിരിക്കുന്നു',
 	'flaggedrevs-prefs' => 'സ്ഥിരത',
@@ -3341,13 +3199,6 @@ $messages['mr'] = array(
 जर एखाद्या साच्यात बाह्यचित्रे असतील अथवा तुम्ही संपादन चालू केल्यानंतर साच्यातील काही भाग बदलल्यानंतर असे होऊ शकते.
 कृपया रिफ्रेश करून पुन्हा तपासा.',
 	'review-diff2stable' => 'स्थिर व सध्याच्या आवृत्तीमधील फरक पहा',
-	'unreviewed-legend' => 'न तपासलेल्या लेखांची यादी तयार करा',
-	'unreviewed-category' => 'वर्ग:',
-	'unreviewed-diff' => 'तपासा',
-	'unreviewed-unwatched' => '(न पाहिलेली)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
-	'unreviewed-list' => 'हे पान अशा पानांची यादी दर्शविते जी पाने तपासलेली नाहीत.',
-	'unreviewed-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
 	'revreview-visibility' => '\'\'\'या पानाला एक [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] आहे, जी [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} बदलली] जाऊ शकते.\'\'\'',
 	'rights-editor-autosum' => 'आपोआप पदोन्नती',
 	'rights-editor-revoke' => '[[$1]] चे संपादक अधिकार काढून घेतले',
@@ -3360,7 +3211,6 @@ $messages['mr'] = array(
 	'flaggedrevs-backlog' => 'सध्या [[Special:OldReviewedPages|जुन्या तपासलेल्या पानांमध्ये]] काही कार्ये करायची बाकी राहिलेली आहेत. \'\'\'तुम्ही तिथे लक्ष देणे गरजेचे आहे!\'\'\'',
 );
 $messages['myv'] = array(
-	'unreviewed-category' => 'Категория:',
 );
 $messages['nds'] = array(
 	'revreview-toggle-title' => 'wies/versteek Details',
@@ -3372,9 +3222,6 @@ $messages['nds'] = array(
 	'revreview-depth-3' => 'hooch',
 	'revreview-style-2' => 'Good',
 	'revreview-log' => 'Kommentar:',
-	'unreviewed-category' => 'Kategorie:',
-	'unreviewed-diff' => 'as nakeken marken',
-	'unreviewed-unwatched' => '(op keen Oppasslist)',
 );
 $messages['nl'] = array(
 	'flaggedrevs-desc' => 'Geeft redacteuren/controleurs de mogelijkheid versies te waarderen en stabiele versies aan te merken',
@@ -3516,13 +3363,6 @@ Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is 
 Dit kan voorkomen als een dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds u bent begonnen met de beoordeling van deze pagina.
 Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.',
 	'review-diff2stable' => 'Verschillen tussen stabiele versie en werkversie bekijken',
-	'unreviewed-legend' => 'Lijst met pagina\'s zonder eindredactie',
-	'unreviewed-category' => 'Categorie:',
-	'unreviewed-diff' => 'eindredactie',
-	'unreviewed-unwatched' => '(niet op een volglijst)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
-	'unreviewed-list' => 'Deze pagina geeft een overzicht van pagina\'s die nog geen eindredactie hebben gehad.',
-	'unreviewed-none' => 'Er zijn geen pagina\'s die aan deze criteria voldoen',
 	'revreview-visibility' => 'Deze pagina heeft een [[{{MediaWiki:Validationpage}}|stabiele versie]]. U kunt hiervoor [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} instellingen maken].',
 	'rights-editor-autosum' => 'automatisch',
 	'rights-editor-revoke' => 'verwijderde redacteurstatus van [[$1]]',
@@ -3537,7 +3377,6 @@ Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.'
 );
 $messages['nn'] = array(
 	'revreview-log' => 'Kommentar:',
-	'unreviewed-category' => 'Kategori:',
 );
 $messages['no'] = array(
 	'flaggedrevs-desc' => 'Gir skribenter og anmeldere muligheten til å godkjenne sideversjoner og stabilisere sider',
@@ -3599,7 +3438,6 @@ $messages['no'] = array(
 	'hist-quality' => 'kvalitetsversjon',
 	'review-logentry-id' => 'versjons-ID $1',
 	'revreview-accuracy' => 'Nøyaktighet',
-	'unreviewed-category' => 'Kategori:',
 	'rights-editor-autosum' => 'automatisk forfremmet',
 	'rights-editor-revoke' => 'fjernet skribentstatus fra [[$1]]',
 	'flaggedrevs-prefs' => 'Stabile sider',
@@ -3611,8 +3449,6 @@ $messages['nso'] = array(
 	'group-editor' => 'Barulaganyi',
 	'group-editor-member' => 'Morulaganyi',
 	'grouppage-editor' => '{{ns:project}}:Morulaganyi',
-	'unreviewed-category' => 'Sehlopha:',
-	'unreviewed-diff' => 'Diphetogo',
 );
 $messages['oc'] = array(
 	'flaggedrevs-desc' => 'Balha la possibilitat als editors o als relectors de validar las modificacions e d\'estabilizar las paginas.',
@@ -3746,13 +3582,6 @@ Vejatz la lista [[Special:ReviewedPages|de las paginas relegidas]] per una lista
 
 Un modèl o un imatge pòt èsser estat demandat alara que cap de version precisa èra causida. Aquò pòt susvenir se un modèl dinamic opèra una transclusion d\'un autre imatge o d\'un modèl dependent d\'una variabla qu\'a cambiat dempuèi qu\'avètz començat a previsualizar aquesta pagina. Lo recargament de la pagina e sa revisualizacion pòdon corregir aqueste problèma.',
 	'review-diff2stable' => 'Vejatz las modificacions entre las versions establas e actualas.',
-	'unreviewed-legend' => 'Lista dels contenguts de las paginas pas visats',
-	'unreviewed-category' => 'Categoria :',
-	'unreviewed-diff' => 'revision',
-	'unreviewed-unwatched' => '(pas observat)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
-	'unreviewed-list' => 'Aquesta pagina fa la lista dels articles que son pas estats revisats o qu\'an de revisions pas vistas.',
-	'unreviewed-none' => 'Actualament, existís pas cap de pagina respectant aquestes critèris',
 	'revreview-visibility' => 'Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version establa]],  sos paramètres pòdon èsser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurats].',
 	'rights-editor-autosum' => 'autopromolgut',
 	'rights-editor-revoke' => 'a revocat los dreches d\'editor de [[$1]]',
@@ -3833,10 +3662,6 @@ $messages['pl'] = array(
 	'revreview-log' => 'Komentarz',
 	'revreview-submit' => 'Zapisz ocenę',
 	'review-diff2stable' => 'Pokaż różnicę pomiędzy wersją dopracowaną a ostatnią',
-	'unreviewed-legend' => 'Pokaż strony o zawartości, która nie została oceniona',
-	'unreviewed-category' => 'Kategoria:',
-	'unreviewed-diff' => 'ocena',
-	'unreviewed-list' => 'Ta strona zawiera listę artykułów, które nie zostały ocenione lub mają nowe, nie ocenione wersje.',
 	'revreview-visibility' => '\'\'\'Ta strona ma [[{{MediaWiki:Validationpage}}|dopracowaną wersję]], dla której można
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować ustawienia].\'\'\'',
 	'flaggedrevs-prefs' => 'Dopracowanie',
@@ -3936,9 +3761,6 @@ $messages['pms'] = array(
 	stamp dinàmich a transclud na figura ò n\'àotr ëstamp conforma a na variàbil dont contnù a peul esse cambià da  
 	quand a l\'ha anandiasse a vardé sta pàgina-sì. Carié torna la pàgina e anandiesse da zero a peul arsolve la gran-a.',
 	'review-diff2stable' => 'Diferensa da \'nt l\'ùltima version stàbila',
-	'unreviewed-category' => 'Categorìa:',
-	'unreviewed-diff' => 'Modìfiche',
-	'unreviewed-list' => 'Costa-sì a l\'é na lista d\'artìcoj ch\'a son anco\' pa stait revisionà.',
 	'revreview-visibility' => 'Sta pàgina-sì a l\'ha na [[{{MediaWiki:Validationpage}}|version stàbila]], ch\'as peul [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} regolesse].',
 	'rights-editor-revoke' => 'gava-je la qualìfica ëd redator a [[$1]]',
 );
@@ -3951,8 +3773,6 @@ $messages['ps'] = array(
 	'revreview-source' => 'د ګارليک سرچينه',
 	'revreview-auto' => '(خپلسري)',
 	'revreview-style-1' => 'د منلو وړ',
-	'unreviewed-category' => 'وېشنيزه:',
-	'unreviewed-diff' => 'بدلونونه',
 );
 $messages['pt'] = array(
 	'flaggedrevs-desc' => 'Dá aos {{int:group-editor}} e aos {{int:group-reviewer}} a possibilidade de verificarem edições e estabilizarem páginas',
@@ -4092,13 +3912,6 @@ Uma predefinição ou imagem pode ter sido requisitada sem uma edição específ
 Isso pode ocorrer quando uma predefinição dinâmica faz transclusão de outra imagem ou predefinição através de uma variável que pode ter sido alterada enquanto era feita a análise desta página.
 Recarregar a página e enviar uma nova análise talvez seja suficiente para contornar este contratempo.',
 	'review-diff2stable' => 'Ver alterações entre a edição estável e a actual',
-	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
-	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'rever',
-	'unreviewed-unwatched' => '(não-vigiada)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
-	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
-	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
 	'revreview-visibility' => '\'\'\'Esta página possui uma [[{{MediaWiki:Validationpage}}|edição estável]]; os parâmetros disso podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].\'\'\'',
 	'rights-editor-autosum' => 'auto-promovido',
 	'rights-editor-revoke' => 'removidos privilégios de {{int:group-editor-member}} para [[$1]]',
@@ -4248,13 +4061,6 @@ $messages['ru'] = array(
 Это могло случиться, если динамический шаблон включает другой шаблон или изображение, зависящие от переменной, которая изменилась с момента начала проверки.
 Обновите страницу и начните проверку заново, это может снять проблему.',
 	'review-diff2stable' => 'Показать различия между стабильной и текущей версиями',
-	'unreviewed-legend' => 'Список непроверенных страниц',
-	'unreviewed-category' => 'Категори:',
-	'unreviewed-diff' => 'проверить',
-	'unreviewed-unwatched' => '(не следят)',
-	'unreviewed-watched' => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
-	'unreviewed-list' => 'На этой странице перечислены непроверенные статьи.',
-	'unreviewed-none' => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
 	'revreview-visibility' => '\'\'\'Эта страница имеет [[{{MediaWiki:Validationpage}}|стабильную версию]], которая может быть [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].\'\'\'',
 	'rights-editor-autosum' => 'автоназначение',
 	'rights-editor-revoke' => 'снял статус досматривающего с [[$1]]',
@@ -4361,9 +4167,6 @@ $messages['sah'] = array(
 
 Баҕар халыып эбэтэр ойуу чопчу торумун ыйбатаҕыҥ буолуо. Это могло случиться, если динамический шаблон включает другой шаблон или изображение, зависящие от переменной, которая изменилась с момента начала рецензирования. Сирэйи саҥаттан арыйан баран ырытыыны саҥаттан саҕалаа, оччоҕо моһол сүтүөн сөп.',
 	'review-diff2stable' => 'Чистовой уонна саҥа торумнар уратыларын көрүү',
-	'unreviewed-category' => 'Категория:',
-	'unreviewed-diff' => 'Уларыйыылар',
-	'unreviewed-list' => 'Манна көрүллүбэтэх, эбэтэр ырытыллыбатах уларытыылардаах сирэйдэр испииһэктэрэ көрдөрүлүннэ.',
 	'revreview-visibility' => 'Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть  
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].',
 	'rights-editor-autosum' => 'аптамаатынан анааһын',
@@ -4516,13 +4319,6 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 Šablóna alebo obrázok mohol byť vyžiadaný bez uvedenia konkrétnej verzie. To sa môže stať, keď dynamická šablóna transkluduje iný obrázok alebo šablónu v závislosti od premennej, ktorá sa zmenila, odkedy ste začali s kontrolou tejto stránky.
 Obnovením stránky a opätovnou kontrolou vyriešite tento problém.',
 	'review-diff2stable' => 'Zobraziť rozdiely medzi stabilnou a aktuálnou revíziou',
-	'unreviewed-legend' => 'Zoznam neskontrolovaných stránok s obsahom',
-	'unreviewed-category' => 'Kategória:',
-	'unreviewed-diff' => 'kontrola',
-	'unreviewed-unwatched' => '(nesledovaná)',
-	'unreviewed-watched' => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
-	'unreviewed-list' => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
-	'unreviewed-none' => 'Momentálne žiadne stránky nespĺňajú tieto kritériá',
 	'revreview-visibility' => 'Táto stránka má [[{{MediaWiki:Validationpage}}|stabilnú verziu]], ktorú je možné [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastaviť].',
 	'rights-editor-autosum' => 'automaticky povýšený',
 	'rights-editor-revoke' => '[[User:$1|$1]] odteraz nemá status redaktor.',
@@ -4559,8 +4355,6 @@ $messages['sr-ec'] = array(
 	'revreview-style-4' => 'Изабрани',
 	'revreview-log' => 'Коментар:',
 	'revreview-submit' => 'Приложи преглед',
-	'unreviewed-category' => 'Категорија:',
-	'unreviewed-diff' => 'Измене',
 );
 $messages['stq'] = array(
 	'flaggedrevs-desc' => 'Stoabile Versione',
@@ -4668,9 +4462,6 @@ deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal
 
 Ne Foarloage of ne Bielde wuuden sunner spezifiske Versionsnummer anfoarderd. Dit kon passierje, wan ne dynamiske Foarloage ne wiedere Foarloage of ne Bielde änthaalt, ju der von ne Variable ouhongich is, ju sik siet Ounfang fon ju Pröiwenge annerd häd. Fonnäien Leeden fon ju Siede un Startjen fon ju Wröigenge kon dät Problem ouhälpe.',
 	'review-diff2stable' => 'Unnerscheede twiske ju stoabile Version un ju aktuelle Version bekiekje',
-	'unreviewed-category' => 'Kategorie:',
-	'unreviewed-diff' => 'Annerengen',
-	'unreviewed-list' => 'Disse Siede wiest Artikkele, do der noch sieläärge nit wröiged wuuden of nit wröigede Versione hääbe.',
 	'revreview-visibility' => 'Disse Siede häd ne [[{{MediaWiki:Validationpage}}|stoabile Version]], ju der
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurierd] wäide kon.',
 	'rights-editor-autosum' => 'automatiske Gjuchte-uutgoawe',
@@ -4701,8 +4492,6 @@ $messages['su'] = array(
 	'revreview-style-4' => 'Petingan',
 	'revreview-log' => 'Kamandang:',
 	'review-diff2stable' => 'Témbongkeun béda antara révisi stabil jeung kiwari',
-	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'Robahan',
 	'rights-editor-revoke' => 'nyabut status éditor ti [[$1]]',
 );
 $messages['sv'] = array(
@@ -4842,13 +4631,6 @@ Se [[Special:Unreviewedpages]] för en lista över ogranskade sidor.',
 
 En mall eller bild har efterfrågats utan att någon specifik version angavs. Detta kan hända om en mall inkluderar en annan bild eller mall beroende på en variabel som ändrats sedan du startade att granska denna sida. Att ladda om sidan och granska igen kan lösa detta problem.',
 	'review-diff2stable' => 'Visa ändringar mellan den stabila och den senaste versionen',
-	'unreviewed-legend' => 'Lista ogranskade innehållssidor',
-	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'granska',
-	'unreviewed-unwatched' => '(oövervakad)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|användare|användare}} övervakar)',
-	'unreviewed-list' => 'Den här sidan visar artiklar som inte har granskats.',
-	'unreviewed-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'revreview-visibility' => '\'\'\'Denna sida har en [[{{MediaWiki:Validationpage}}|stabil version]]; inställningarna för den kan [{{fullurl:Special:Stsbilization|page={{FULLPAGENAMEE}}}} konfigureras].\'\'\'',
 	'rights-editor-autosum' => 'autobefodring',
 	'rights-editor-revoke' => 'tog bort redaktörsstatus från [[$1]]',
@@ -4958,11 +4740,6 @@ $messages['te'] = array(
 	'revreview-approved' => 'అమోదించబడినది',
 	'revreview-submit' => 'సమీక్షని దాఖలు చెయ్యండి',
 	'review-diff2stable' => 'సుస్థిర మరియు ప్రస్తుత కూర్పుల మధ్య మార్పులను చూడండి',
-	'unreviewed-category' => 'వర్గం:',
-	'unreviewed-diff' => 'సమీక్షించండి',
-	'unreviewed-unwatched' => '(వీక్షణలో లేనివి)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
-	'unreviewed-list' => 'ఈ పేజీలో సమీక్షించని వ్యాసాలు లేదా కొత్త, సమీక్షించని కూర్పులున్న వ్యాసాలు ఉంటాయి.',
 	'revreview-visibility' => 'ఈ పేజీకి ఓ [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాన్ని [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].',
 	'rights-editor-autosum' => 'ఆటోమాటిగ్గా పదోన్నతి చెయ్యబడ్డారు',
 	'rights-editor-revoke' => '[[$1]] నుండి ఎడిటర్ హోదా తొలగించారు',
@@ -4970,7 +4747,6 @@ $messages['te'] = array(
 	'flaggedrevs-prefs-watch' => 'నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు',
 );
 $messages['tet'] = array(
-	'unreviewed-category' => 'Kategoria:',
 );
 $messages['tg-cyrl'] = array(
 	'flaggedrevs-desc' => 'Ба вироишгархо/мурукунандагон имкони таъйид кардани нусхаҳо ва пойдор сохтани саҳифаҳоро медиҳад',
@@ -5065,9 +4841,6 @@ $messages['tg-cyrl'] = array(
 Як шаблон ё акс шояд дархост шуда бошад, вақте ки ягон нусхаи хосе мушаххас нашудааст. Ин иттифоқ метавонад замоне рух диҳад, ки як шаблони пӯё, шаблон ё аксеро шомил шавад, ки ба мутағири бастагӣ дорад ва аз замоне, ки шумо саҳифаро тағйир додаед, тағйир кардааст.
 Боргузории дубора ва баррасии дубора мушкилро метавонад бартараф кунад.',
 	'review-diff2stable' => 'Нигаристани тағйирот байни нусхаҳои пойдор ва кунунӣ',
-	'unreviewed-category' => 'Гурӯҳ:',
-	'unreviewed-diff' => 'Тағйирот',
-	'unreviewed-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
 	'revreview-visibility' => '\'\'\'Ин саҳифа дорои як  [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] аст, танзимот барои он метавонад   [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} пайкарбандӣ] шавад.\'\'\'',
 	'rights-editor-autosum' => 'Ба таври худкор пешбарӣ шудан',
 	'rights-editor-revoke' => 'Ихтиёроти виростор аз [[$1]] гирифта шуд',
@@ -5096,8 +4869,6 @@ $messages['tr'] = array(
 	'revreview-style' => 'Okunaklılık',
 	'revreview-style-2' => 'İyi',
 	'revreview-log' => 'Açıklama:',
-	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'Değişiklikler',
 );
 $messages['uk'] = array(
 	'editor' => 'редактор',
@@ -5242,13 +5013,6 @@ Ti pol anca vardar la [[Special:Unreviewedpages|lista de pagine da riesaminar]].
 	'revreview-stable1' => 'Ti pol vardar sta [{{fullurl:$1|stableid=$2}} version marcàda] par védar se desso la xe la [{{fullurl:$1|stable=1}} version stabile] de sta pagina.',
 	'revreview-stable2' => 'Te pol vardar la [{{fullurl:$1|stable=1}} version stabile] de sta pagina (se ghe n\'è una).',
 	'review-diff2stable' => 'Varda i canbiamenti tra la version stabile e quela atuale',
-	'unreviewed-legend' => 'Elenca le pagine non riesaminà',
-	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'esamina',
-	'unreviewed-unwatched' => '(non osservà)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utente el|utenti i}} tien d\'ocio sta pagina)',
-	'unreviewed-list' => 'Sta pagina la elenca le voçi che no le xe stà gnancora riesaminà.',
-	'unreviewed-none' => 'No ghe xe atualmente pagine che sodisfa sti criteri',
 	'revreview-visibility' => '\'\'\'Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version stabile]]; le so inpostassion le pol èssar [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configuràe].\'\'\'',
 	'rights-editor-autosum' => 'autopromosso',
 	'rights-editor-revoke' => 'gà revocà i diriti de modificador de [[$1]]',
@@ -5401,13 +5165,6 @@ Một tiêu bản hoặc hình ảnh có thể được yêu cầu mà chưa ch�
 Điều này có thể xảy ra nếu một tiêu bản động nhúng một hình hoặc tiêu bản khác phụ thuộc vào một biến, biến đó đã thay đổi từ khi bạn bắt đầu duyệt trang này.
 Làm tươi trang và duyệt lại có thể giải quyết vấn đề này.',
 	'review-diff2stable' => 'So sánh phiên bản ổn định với bản hiện hành',
-	'unreviewed-legend' => 'Liệt kê các trang có nội dung chưa được duyệt',
-	'unreviewed-category' => 'Thể loại:',
-	'unreviewed-diff' => 'duyệt',
-	'unreviewed-unwatched' => '(chưa theo dõi)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
-	'unreviewed-list' => 'Trang này liệt kê những bài viết chưa được duyệt hoặc có những bản mới, chưa được duyệt.',
-	'unreviewed-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
 	'revreview-visibility' => '\'\'\'Trang này có một [[{{MediaWiki:Validationpage}}|bản ổn định]]; có thể [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập cho nó.\'\'\'',
 	'rights-editor-autosum' => 'tự phong cờ',
 	'rights-editor-revoke' => 'đưa [[$1]] ra khỏi nhóm viết bài',
@@ -5505,9 +5262,6 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 	'revreview-log' => 'Küpet:',
 	'revreview-submit' => 'Sedön krüti',
 	'review-diff2stable' => 'Votükams vü fomam fümöfik e fomam anuik',
-	'unreviewed-category' => 'Klad:',
-	'unreviewed-diff' => 'Votükams',
-	'unreviewed-list' => 'Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls',
 	'revreview-visibility' => 'Pad at labon [[{{MediaWiki:Validationpage}}|fomami fümöfik]], kela parametem kanon [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} pafümetön].',
 	'rights-editor-revoke' => 'emoükon redakanastadi gebana: [[$1]]',
 );
@@ -5595,11 +5349,6 @@ $messages['yue'] = array(
 	當一個動態模包含住圖像或跟變數嘅模響你開始複審之後改過。
 	重新整理過呢版之後再重新複審就可以解決呢個問題。',
 	'review-diff2stable' => '同上次穩定修訂嘅差異',
-	'viewunreviewed' => '列示未複審嘅內容版',
-	'unreviewed-outdated' => '只係顯示對穩定版修訂過嘅未複審修訂。',
-	'unreviewed-category' => '分類:',
-	'unreviewed-diff' => '更改',
-	'unreviewed-list' => '呢一版列示出重未複審或視察過嘅文章修訂。',
 );
 $messages['zh-hans'] = array(
 	'flaggedrevs-desc' => '给予编辑者与评论家能力去核实修订以及稳定化页面',
@@ -5685,11 +5434,6 @@ $messages['zh-hans'] = array(
 	当一个动态模版包含着图像或跟变数的模版在您开始复审后改过。
 	重新整理这页后再重新复审便可以解决这个问题。',
 	'review-diff2stable' => '跟上次稳定修订的差异',
-	'viewunreviewed' => '列示未复审的内容页',
-	'unreviewed-outdated' => '只显示对稳定版修订过的未复审修订。',
-	'unreviewed-category' => '分类:',
-	'unreviewed-diff' => '更改',
-	'unreviewed-list' => '这一页列示出还未复审或视察的文章修订。',
 );
 $messages['zh-hant'] = array(
 	'flaggedrevs-desc' => '給予編輯者與評論家能力去核實修訂以及穩定化頁面',
@@ -5779,9 +5523,4 @@ $messages['zh-hant'] = array(
 	當一個動態模版包含著圖像或跟變數的模版在您開始複審後改過。
 	重新整理這頁後再重新複審便可以解決這個問題。',
 	'review-diff2stable' => '跟上次穩定修訂的差異',
-	'viewunreviewed' => '列示未複審的內容頁',
-	'unreviewed-outdated' => '只顯示對穩定版修訂過的未複審修訂。',
-	'unreviewed-category' => '分類:',
-	'unreviewed-diff' => '更改',
-	'unreviewed-list' => '這一頁列示出還未複審或視察的文章修訂。',
 );
