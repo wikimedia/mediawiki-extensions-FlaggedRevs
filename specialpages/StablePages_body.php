@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'StablePages' );
 class StablePages extends SpecialPage
 {
     function __construct() {

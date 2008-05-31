@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'UnreviewedPages' );
 class UnreviewedPages extends SpecialPage
 {
     function __construct() {

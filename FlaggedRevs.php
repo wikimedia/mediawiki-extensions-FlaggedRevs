@@ -211,8 +211,10 @@ $wgFlaggedRevStyleVersion = 25;
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 $dir = dirname(__FILE__) . '/';
-$wgExtensionMessagesFiles['FlaggedRevsPage'] = $dir . 'FlaggedRevsPage.i18n.php';
+$langDir = dirname(__FILE__) . '/language/';
+
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
+$wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
@@ -227,32 +229,40 @@ $wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
 # Load stableversions UI
 $wgSpecialPages['StableVersions'] = 'StableVersions';
 $wgAutoloadClasses['StableVersions'] = $dir . '/specialpages/StableVersions_body.php';
+$wgExtensionMessagesFiles['StableVersions'] = $langDir . 'StableVersions.i18n.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . '/specialpages/Stabilization_body.php';
+$wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
 # Load unreviewed pages list
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 $wgAutoloadClasses['UnreviewedPages'] = $dir . '/specialpages/UnreviewedPages_body.php';
+$wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
 $wgSpecialPageGroups['UnreviewedPages'] = 'pages';
 # Load "in need of re-review" pages list
 $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 $wgAutoloadClasses['OldReviewedPages'] = $dir . '/specialpages/OldReviewedPages_body.php';
+$wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
 $wgSpecialPageGroups['OldReviewedPages'] = 'pages';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . '/specialpages/ReviewedPages_body.php';
+$wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
 $wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Load stable pages list
 $wgSpecialPages['StablePages'] = 'StablePages';
 $wgAutoloadClasses['StablePages'] = $dir . '/specialpages/StablePages_body.php';
+$wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
 # To oversee quality revisions
 $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 $wgAutoloadClasses['QualityOversight'] = $dir . '/specialpages/QualityOversight_body.php';
+$wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
 # To oversee depreciations
 $wgSpecialPages['DepreciationOversight'] = 'DepreciationOversight';
 $wgAutoloadClasses['DepreciationOversight'] = $dir . '/specialpages/DepreciationOversight_body.php';
+$wgExtensionMessagesFiles['DepreciationOversight'] = $langDir . 'DepreciationOversight.i18n.php';
 $wgSpecialPageGroups['DepreciationOversight'] = 'quality';
 
 ######### Hook attachments #########
@@ -341,7 +351,7 @@ function efLoadFlaggedRevs() {
 	# Initialize
 	FlaggedRevs::load();
 
-	wfLoadExtensionMessages( 'FlaggedRevsPage' );
+	wfLoadExtensionMessages( 'FlaggedRevs' );
 
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled

@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'DepreciationOversight' );
 class DepreciationOversight extends SpecialPage
 {
     function __construct() {

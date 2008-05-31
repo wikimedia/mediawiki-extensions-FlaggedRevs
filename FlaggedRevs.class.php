@@ -2160,10 +2160,10 @@ EOT;
 	
 	static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
 		# The localized title of the special page is among the messages of the extension:
-		wfLoadExtensionMessages( 'FlaggedRevsPage' );
 		$specialPages = array( 'QualityOversight', 'DepreciationOversight', 'UnreviewedPages', 
-			'OldReviewedpages', 'StablePages', 'StableVersions', 'ReviewedPages' );
+			'OldReviewedPages', 'StablePages', 'StableVersions', 'ReviewedPages' );
 		foreach( $specialPages as $specialPage ) {
+			wfLoadExtensionMessages( $specialPage );
 			$text = wfMsgExt( strtolower( "$specialPage-alias" ), array( 'escape', 'language' => $code ) );
 			$title = Title::newFromText($text);
 			if( $title ) {

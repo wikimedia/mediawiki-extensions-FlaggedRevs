@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'ReviewedPages' );
 class ReviewedPages extends SpecialPage
 {
     function __construct() {

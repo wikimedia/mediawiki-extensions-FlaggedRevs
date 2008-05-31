@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'QualityOversight' );
 class QualityOversight extends SpecialPage
 {
     function __construct() {

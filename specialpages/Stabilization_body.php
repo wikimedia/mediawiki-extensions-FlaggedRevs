@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'Stabilization' );
 class Stabilization extends UnlistedSpecialPage
 {
     function __construct() {

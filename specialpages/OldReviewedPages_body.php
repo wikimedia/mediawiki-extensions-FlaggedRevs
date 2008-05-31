@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'OldReviewedPages' );
 class OldReviewedPages extends SpecialPage
 {
     function __construct() {
@@ -87,7 +88,8 @@ class OldReviewedPages extends SpecialPage
 		} else {
 			$age = ""; // wtf?
 		}
-		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
+		$watching = $uw ? 
+			wfMsgExt("oldreviewedpages-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("oldreviewedpages-unwatched");
 
 		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
 	}

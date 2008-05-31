@@ -707,6 +707,7 @@ class FlaggedArticle extends Article {
 		if( !$skin->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			if( !isset($contentActions['protect']) && !isset($contentActions['unprotect']) ) {
+				wfLoadExtensionMessages( 'Stabilization' );
 				$contentActions['default'] = array(
 					'class' => false,
 					'text' => wfMsg('stabilization-tab'),

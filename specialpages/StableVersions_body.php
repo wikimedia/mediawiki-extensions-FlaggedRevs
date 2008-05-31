@@ -1,5 +1,6 @@
 <?php
 
+wfLoadExtensionMessages( 'StableVersions' );
 class StableVersions extends UnlistedSpecialPage
 {
     function __construct() {
