@@ -79,7 +79,7 @@ class OldReviewedPages extends SpecialPage
 				$hours = round($hours,0);
 				$age = wfMsgExt('oldreviewedpages-hours',array('parsemag'),$hours);
 			} else {
-				$age = wfMsg('oldreviewedpages-recent'); // hot of the press :)
+				$age = wfMsg('oldreviewedpages-recent'); // hot off the press :)
 			}
 			// Oh-noes!
 			$css = self::getLineClass( $hours, $uw );
