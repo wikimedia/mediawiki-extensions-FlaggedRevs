@@ -43,7 +43,7 @@ class UnreviewedPages extends SpecialPage
 			if( $pager->getNumRows() ) {
 				$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
 				$wgOut->addHTML( $pager->getNavigationBar() );
-				$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+				$wgOut->addHTML( $pager->getBody() );
 				$wgOut->addHTML( $pager->getNavigationBar() );
 			} else {
 				$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
@@ -180,5 +180,21 @@ class UnreviewedPagesPager extends AlphabeticPager {
 
 	function getIndexField() {
 		return $this->mIndexField;
+	}
+	
+	function getStartBody() {
+		wfProfileIn( __METHOD__ );
+		# Do a link batch query
+		$lb = new LinkBatch();
+		while( $row = $this->mResult->fetchObject() ) {
+			$lb->add( $row->page_namespace, $row->page_title );
+		}
+		$lb->execute();
+		wfProfileOut( __METHOD__ );
+		return '<ul>';
+	}
+	
+	function getEndBody() {
+		return '</ul>';
 	}
 }

@@ -41,7 +41,7 @@ class OldReviewedPages extends SpecialPage
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-none', array('parse') ) );
@@ -65,8 +65,8 @@ class OldReviewedPages extends SpecialPage
 		# Is anybody watching?
 		$uw = UnreviewedPages::usersWatching( $title );
 		# Get how long the first unreviewed edit has been waiting...
-		$firstPending = $title->getNextRevisionID($result->fp_stable);
-		if( $firstPendingTime = Revision::getTimestampFromID($firstPending) ) {
+		$firstPendingTime = $this->getNextRevisionTimestamp($result->fp_stable,$result->fp_page_id);
+		if( $firstPendingTime ) {
 			$currentTime = wfTimestamp( TS_UNIX ); // now
 			$firstPendingTime = wfTimestamp( TS_UNIX, $firstPendingTime );
 			$hours = ($currentTime - $firstPendingTime)/3600;
@@ -90,6 +90,24 @@ class OldReviewedPages extends SpecialPage
 		$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
 
 		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
+	}
+	
+	/**
+	 * Get the timestamp of the next revision
+	 *
+	 * @param integer $revision  Revision ID. Get the revision that was after this one.
+	 * @param integer $page, page ID
+	 */
+	protected function getNextRevisionTimestamp( $revision, $page ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		return $dbr->selectField( 'revision', 'rev_timestamp',
+			array(
+				'rev_page' => $page,
+				'rev_id > ' . intval( $revision )
+			),
+			__METHOD__,
+			array( 'ORDER BY' => 'rev_id' )
+		);
 	}
 	
 	protected static function getLineClass( $hours, $uw ) {
@@ -161,5 +179,21 @@ class OldReviewedPagesPager extends AlphabeticPager {
 
 	function getIndexField() {
 		return 'fp_page_id';
+	}
+	
+	function getStartBody() {
+		wfProfileIn( __METHOD__ );
+		# Do a link batch query
+		$lb = new LinkBatch();
+		while( $row = $this->mResult->fetchObject() ) {
+			$lb->add( $row->page_namespace, $row->page_title );
+		}
+		$lb->execute();
+		wfProfileOut( __METHOD__ );
+		return '<ul>';
+	}
+	
+	function getEndBody() {
+		return '</ul>';
 	}
 }
