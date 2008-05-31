@@ -303,7 +303,7 @@ class FlaggedRevs {
 	 * @param int $revID
 	 * @param int $namespace
 	 * @param string $dbKey
-	 * @returns mixed (integer/false/null)
+	 * @returns mixed (integer/null)
 	 */
 	protected static function getTemplateIdFromCache( $revId, $namespace, $dbKey ) {
 		if( isset(self::$includeVersionCache[$revId]) ) {
@@ -312,7 +312,7 @@ class FlaggedRevs {
 					return self::$includeVersionCache[$revId]['templates'][$namespace][$dbKey];
 				}
 			}
-			return false; // Assume template did not exist
+			return 0; // Assume template did not exist
 		}
 		return null; // cache not found
 	}
@@ -321,7 +321,7 @@ class FlaggedRevs {
 	 * Get image versioning cache for parser
 	 * @param int $revID
 	 * @param string $dbKey
-	 * @returns mixed (array/false/null)
+	 * @returns mixed (array/null)
 	 */
 	protected static function getFileVersionFromCache( $revId, $dbKey ) {
 		if( isset(self::$includeVersionCache[$revId]) ) {
@@ -333,7 +333,7 @@ class FlaggedRevs {
 					return array($time,$sha1);
 				}
 			}
-			return false; // Assume file did not exist
+			return array("0",""); // Assume file did not exist
 		}
 		return null; // cache not found
 	}
@@ -341,21 +341,21 @@ class FlaggedRevs {
 	################# Synchronization and link update functions #################
 	
 	/**
-	* @param FlaggedRevision $frev
+	* @param FlaggedRevision $srev, the stable revision
 	* @param Article $article
 	* @param ParserOutput $stableOutput, will fetch if not given
 	* @param ParserOutput $currentOutput, will fetch if not given
 	* @return bool
 	* See if a flagged revision is synced with the current
 	*/	
-	public static function flaggedRevIsSynced( $frev, $article, $stableOutput=null, $currentOutput=null ) {
+	public static function flaggedRevIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
 		# Must be the same revision
-		if( $frev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
+		if( $srev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
 		}
 		# Must have same file
 		if( $article instanceof ImagePage && $article->getFile() ) {
-			if( $frev->getFileTimestamp() != $article->getFile()->getTimestamp() ) {
+			if( $srev->getFileTimestamp() != $article->getFile()->getTimestamp() ) {
 				return false;
 			}
 		}
@@ -376,8 +376,8 @@ class FlaggedRevs {
 			# Get parsed stable version
 			$stableOutput = self::getPageCache( $article );
 			if( $stableOutput==false ) {
-				$text = $frev->getTextForParse();
-	   			$stableOutput = self::parseStableText( $article, $text, $frev->getRevId() );
+				$text = $srev->getTextForParse();
+	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
 	   			# Update the stable version cache
 	   			self::updatePageCache( $article, $stableOutput );
 	   		}
@@ -404,6 +404,8 @@ class FlaggedRevs {
 		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 			$synced = false;
 		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
+			print_r($currentOutput->mTemplateIds);
+			print_r($stableOutput->mTemplateIds);
 			$synced = false;
 		} else {
 			$synced = true;
@@ -419,24 +421,26 @@ class FlaggedRevs {
 	
 	/**
 	 * @param Article $article
-	 * @param int $from_rev
+	 * @param int $revId
+	 * @param bool $forUpdate, use master?
 	 * @return int
 	 * Get number of revs since a certain revision
 	 */
-	public static function getRevCountSince( $article, $from_rev ) {
+	public static function getRevCountSince( $article, $revId, $forUpdate=false ) {
 		# Check if the count is zero by using $article->getLatest().
 		# I don't trust using memcache and PHP for values like '0'
-		# as it may confuse "expired" with "0". -aaron
-		if( $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) == $from_rev ) {
+		# as it may confuse "expired" with "0".
+		$latest = $forUpdate ? $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) : $article->getID();
+		if( $latest == $revId ) {
 			return 0;
 		}
 		global $wgMemc;
 		# Try the cache
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
 		if( !$count = intval($wgMemc->get($key)) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$count = $dbr->selectField( 'revision', 'COUNT(*)',
-				array('rev_page' => $article->getId(), "rev_id > " . intval($from_rev) ),
+			$db = $forUpdate ? wfGetDB( DB_MASTER) : wfGetDB( DB_SLAVE );
+			$count = $db->selectField( 'revision', 'COUNT(*)',
+				array('rev_page' => $article->getId(), "rev_id > " . intval($revId) ),
 				__METHOD__ );
 			# Save to cache
 			$wgMemc->set( $key, $count, 3600*24*7 );
@@ -446,11 +450,11 @@ class FlaggedRevs {
 	
  	/**
 	* @param Article $article
-	* @param Integer $rev_id, the stable version rev_id
+	* @param Integer $revId, the stable version rev_id
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the fp_stable and fp_reviewed fields
 	*/
-	public static function updateArticleOn( $article, $rev_id, $latest=NULL ) {
+	public static function updateArticleOn( $article, $revId, $latest=NULL ) {
 		global $wgMemc;
 		wfProfileIn( __METHOD__ );
 
@@ -466,24 +470,17 @@ class FlaggedRevs {
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__,
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
-		$maxQuality = $maxQuality===false ? null : $maxQuality;
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
 			array( 'fp_page_id' ),
-			array( 'fp_stable' => $rev_id,
-				'fp_reviewed' => ($lastID == $rev_id) ? 1 : 0,
-				'fp_quality' => $maxQuality,
+			array( 'fp_stable' => $revId,
+				'fp_reviewed' => ($lastID == $revId) ? 1 : 0,
+				'fp_quality' => ($maxQuality === false) ? null : $maxQuality,
 				'fp_page_id' => $article->getId() ),
 			__METHOD__ );
-		# Update the cache
-		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
+		# Updates the count cache
+		$count = self::getRevCountSince( $article, $revId, true );
 
-		$count = $dbw->selectField( 'revision', 'COUNT(*)',
-			array('rev_page' => $article->getId(), "rev_id > " . intval($rev_id) ),
-			__METHOD__ );
-
-		$wgMemc->set( $key, $count, 3600*24*7 );
-		
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
@@ -1336,12 +1333,13 @@ EOT;
 				__METHOD__ );
 		}
 		# Check cache before doing another DB hit...
-		$id = self::getTemplateIdFromCache( $parser->mRevisionId, $title->getNamespace(), $title->getDBKey() );
-		if( !is_null($id) ) {
-			$id = $id ? $id : 0; // if not NULL and false, then the template did not exist!
+		if( !$id ) {
+			$id = self::getTemplateIdFromCache( $parser->mRevisionId, $title->getNamespace(), $title->getDBKey() );
+			$id = is_null($id) ? false : $id;
+		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
-		} else if( !$id ) {
+		if( $id === false ) {
 			$id = $dbr->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->mRevisionId,
 					'ft_namespace' => $title->getNamespace(),
@@ -1398,16 +1396,15 @@ EOT;
 			}
 		}
 		# Check cache before doing another DB hit...
-		$params = self::getFileVersionFromCache( $parser->mRevisionId, $nt->getDBKey() );
-		if( !is_null($params) ) {
-			if( !empty($params) ) {
-				list($time,$sha1) = $params; // $params may be false if file didn't exist
-			} else {
-				$time = "0";
+		if( !$time ) {
+			$params = self::getFileVersionFromCache( $parser->mRevisionId, $nt->getDBKey() );
+			if( is_array($params) ) {
+				list($time,$sha1) = $params;
 			}
+		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		} else if( !$time ) {
+		if( $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->mRevisionId,
@@ -1476,16 +1473,15 @@ EOT;
 			}
 		}
 		# Check cache before doing another DB hit...
-		$params = self::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
-		if( !is_null($params) ) {
-			if( !empty($params) ) {
-				list($time,$sha1) = $params; // $params may be false if file didn't exist
-			} else {
-				$time = "0";
+		if( !$time ) {
+			$params = self::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
+			if( is_array($params) ) {
+				list($time,$sha1) = $params;
 			}
+		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		} else if( !$time ) {
+		if( $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,

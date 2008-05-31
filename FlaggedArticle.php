@@ -837,10 +837,10 @@ class FlaggedArticle extends Article {
 				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, 
 					$article->getId(), $article->getTouched() );
 				$value = $wgMemc->get($key);
-				$tmpChanges = $value ? unserialize($value) : array();
+				$tmpChanges = $value ? unserialize($value) : false;
 				
 				# Make a list of each changed template...
-				if( empty($tmpChanges) ) {
+				if( $tmpChanges === false ) {
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get templates where the current and stable are not the same revision
 					if( $wgUseStableTemplates ) {
@@ -876,16 +876,17 @@ class FlaggedArticle extends Article {
 					$wgMemc->set( $key, serialize($tmpChanges), $wgParserCacheExpireTime );
 				}
 				# Add set to list
-				$changeList += $tmpChanges;
+				if( $tmpChanges )
+					$changeList += $tmpChanges;
 				
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'images', (bool)$wgUseStableImages,
 					$article->getId(), $article->getTouched() );
 				$value = $wgMemc->get($key);
-				$imgChanges = $value ? unserialize($value) : array();
+				$imgChanges = $value ? unserialize($value) : false;
 				
 				// Get list of each changed image...
-				if( empty($imgChanges) ) {
+				if( $imgChanges === false ) {
 					global $wgUseStableImages;
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get images where the current and stable are not the same revision
@@ -919,7 +920,8 @@ class FlaggedArticle extends Article {
 					}
 					$wgMemc->set( $key, serialize($imgChanges), $wgParserCacheExpireTime );
 				}
-				$changeList += $imgChanges;
+				if( $imgChanges )
+					$changeList += $imgChanges;
 				
 				# Some important information...
 				if( ($wgUseStableTemplates || $wgUseStableImages) && !empty($changeList) ) {

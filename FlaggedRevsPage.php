@@ -646,8 +646,8 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgEnableParserCache;
 		if( $wgEnableParserCache )
 			$parserCache->save( $poutput, $article, $wgUser );
-		# Purge squid for this page only
-		$article->getTitle()->purgeSquid();
+		# Purge cache/squids for this page and any page that uses it
+		Article::onArticleEdit( $article->getTitle() );
 
 		wfProfileOut( __METHOD__ );
         return true;
@@ -699,8 +699,8 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgEnableParserCache;
 		if( $wgEnableParserCache )
 			$parserCache->save( $poutput, $article, $wgUser );
-		# Purge squid for this page only
-		$this->page->purgeSquid();
+		# Purge cache/squids for this page and any page that uses it
+		Article::onArticleEdit( $article->getTitle() );
 
 		wfProfileOut( __METHOD__ );
         return true;
