@@ -41,7 +41,7 @@ class StablePages extends SpecialPage
 		$pager = new StablePagesPager( $this, array(), $this->namespace );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
 			$wgOut->addHTML( wfMsgExt('stablepages-none', array('parse') ) );
@@ -109,5 +109,21 @@ class StablePagesPager extends AlphabeticPager {
 
 	function getIndexField() {
 		return 'fpc_page_id';
+	}
+	
+	function getStartBody() {
+		wfProfileIn( __METHOD__ );
+		# Do a link batch query
+		$lb = new LinkBatch();
+		while( $row = $this->mResult->fetchObject() ) {
+			$lb->add( $row->page_namespace, $row->page_title );
+		}
+		$lb->execute();
+		wfProfileOut( __METHOD__ );
+		return '<ul>';
+	}
+	
+	function getEndBody() {
+		return '</ul>';
 	}
 }
