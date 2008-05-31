@@ -332,8 +332,8 @@ class FlaggedRevs {
 					// Should only be one, but this is an easy check
 					return array($time,$sha1);
 				}
+				return array("0",""); // Assume file did not exist
 			}
-			return array("0",""); // Assume file did not exist
 		}
 		return null; // cache not found
 	}
