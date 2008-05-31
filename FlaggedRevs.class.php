@@ -404,8 +404,6 @@ class FlaggedRevs {
 		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 			$synced = false;
 		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
-			print_r($currentOutput->mTemplateIds);
-			print_r($stableOutput->mTemplateIds);
 			$synced = false;
 		} else {
 			$synced = true;
