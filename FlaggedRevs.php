@@ -238,12 +238,12 @@ $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php'
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 $wgAutoloadClasses['UnreviewedPages'] = $dir . '/specialpages/UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
-$wgSpecialPageGroups['UnreviewedPages'] = 'pages';
+$wgSpecialPageGroups['UnreviewedPages'] = 'maintenance';
 # Load "in need of re-review" pages list
 $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 $wgAutoloadClasses['OldReviewedPages'] = $dir . '/specialpages/OldReviewedPages_body.php';
 $wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
-$wgSpecialPageGroups['OldReviewedPages'] = 'pages';
+$wgSpecialPageGroups['OldReviewedPages'] = 'maintenance';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . '/specialpages/ReviewedPages_body.php';
