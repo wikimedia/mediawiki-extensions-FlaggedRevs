@@ -49,6 +49,13 @@ class FlaggedRevision {
 		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags',
 			'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
 	}
+	
+	/**
+	 * @returns Array text select fields (text/text flags)
+	 */
+	public static function selectTextFields() {
+		return array('fr_text','fr_flags');
+	}
 
 	/**
 	 * @returns Integer revision ID
