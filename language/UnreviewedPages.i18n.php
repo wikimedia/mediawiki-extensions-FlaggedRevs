@@ -92,7 +92,7 @@ $messages['de'] = array(
 	'unreviewed-diff' => 'sichten',
 	'unreviewed-unwatched' => '(unbeobachtet)',
 	'unreviewed-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
-	'unreviewed-list' => 'Diese Seite hilft, ungesichtete Versionen zu finden.',
+	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht gesichtet wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 );
 

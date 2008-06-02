@@ -911,8 +911,8 @@ $messages['de'] = array(
 	'revreview-depth-4' => 'exzellent',
 	'revreview-draft-title' => 'Ungesichteter Artikel',
 	'revreview-edit' => 'Entwurf bearbeiten',
-	'revreview-edited' => 'Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungsrecht diese sich angeschaut hat
-	Die ungesichtete Version wird unten angezeigt. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.',
+	'revreview-edited' => 'Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungsrecht diese freigegeben hat.
+	Es folgt die Anzeige der aktuellen, ungesichteten Version. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.',
 	'revreview-flag' => 'Markiere Version',
 	'revreview-invalid' => '\'\'\'Ungültiges Ziel:\'\'\' keine [[{{MediaWiki:Validationpage}}|gesichtete]] Artikelversion der angegebenen Versions-ID.',
 	'revreview-legend' => 'Inhalt der Version bewerten',
