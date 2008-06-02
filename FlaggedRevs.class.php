@@ -488,7 +488,7 @@ class FlaggedRevs {
 		# Check if the count is zero by using $article->getLatest().
 		# I don't trust using memcache and PHP for values like '0'
 		# as it may confuse "expired" with "0".
-		$latest = $forUpdate ? $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) : $article->getID();
+		$latest = $forUpdate ? $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) : $article->getLatest();
 		if( $latest == $revId ) {
 			return 0;
 		}

@@ -584,6 +584,9 @@ class FlaggedArticle extends Article {
 		
 		if( !$wgUser->isAllowed( 'review' ) )
 			return true;
+		# Load special page names
+		wfLoadExtensionMessages( 'OldReviewedPages' );
+		wfLoadExtensionMessages( 'UnreviewedPages' );
 		
 		$category = $this->parent->getTitle()->getText();
 		
@@ -659,6 +662,8 @@ class FlaggedArticle extends Article {
 			$frev = $this->getStableRev( true );
 			if( !$frev )
 				return true;
+			# Load special page name	
+			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
 			$out->mBodytext = "<span class='plainlinks'>" .
@@ -709,6 +714,7 @@ class FlaggedArticle extends Article {
 		# We can change the behavoir of stable version for this page to be different
 		# than the site default.
 		if( !$skin->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
+			wfLoadExtensionMessages( 'Stabilization' );
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			if( !isset($contentActions['protect']) && !isset($contentActions['unprotect']) ) {
 				wfLoadExtensionMessages( 'Stabilization' );
