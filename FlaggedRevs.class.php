@@ -2,7 +2,6 @@
 
 class FlaggedRevs {
 	public static $dimensions = array();
-	public static $articleLoaded = false;
 	protected static $loaded = false;
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
@@ -51,6 +50,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Are quality versions enabled?
+	 * @returns bool
 	 */
 	public static function qualityVersions() {
 		self::load();
@@ -59,6 +59,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Are pristine versions enabled?
+	 * @returns bool
 	 */
 	public static function pristineVersions() {
 		self::load();
@@ -67,6 +68,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Get external storage array. Default to main storage.
+	 * @returns mixed (array/false)
 	 */
 	public static function getExternalStorage() {
 		self::load();
@@ -76,6 +78,7 @@ class FlaggedRevs {
 	/**
 	 * Should this be using a simple icon-based UI?
 	 * Check the user's preferences first, using the site settings as the default.
+	 * @returns bool
 	 */
 	public static function useSimpleUI() {
 		global $wgUser, $wgSimpleFlaggedRevsUI;
@@ -85,10 +88,63 @@ class FlaggedRevs {
 
 	/**
 	 * Should comments be allowed on pages and forms?
+	 * @returns bool
 	 */
 	public static function allowComments() {
 		self::load();
 		return self::$allowComments;
+	}
+	
+	/**
+	 * Get the array of tag dimensions
+	 * @returns array
+	 */
+	public static function getDimensions() {
+		self::load();
+		return self::$dimensions;
+	}
+	
+	/**
+	 * Get the message name for a tag
+	 * @param string $tag
+	 * @returns string
+	 */
+	public static function getTagMsg( $tag ) {
+		self::load();
+		return "revreview-$tag";
+	}
+	
+	/**
+	 * Get the levels for a tag. Gives map of level to message name.
+	 * @param string $tag
+	 * @returns associative array (integer -> string)
+	 */
+	public static function getTagLevels( $tag ) {
+		self::load();
+		return isset(self::$dimensions[$tag]) ? self::$dimensions[$tag] : array();
+	}
+	
+	/**
+	 * Get the the message name for a value of a tag
+	 * @param string $tag
+	 * @param int $value
+	 * @returns string
+	 */
+	public static function getTagValueMsg( $tag, $value ) {
+		self::load();
+		if( !isset(self::$dimensions[$tag]) )
+			return "";
+		# Return empty string if not there
+		return isset(self::$dimensions[$tag][$value]) ? self::$dimensions[$tag][$value] : "";
+	}
+	
+	/**
+	 * Are there no actual dimensions?
+	 * @returns bool
+	 */
+	public static function dimensionsEmpty() {
+		self::load();
+		return empty(self::$dimensions);
 	}
 	
 	################# Parsing functions #################
@@ -284,6 +340,7 @@ class FlaggedRevs {
 	 * Set the template/image versioning cache for parser
 	 */
 	public static function setIncludeVersionCache( $revId, $tmpParams, $imgParams ) {
+		self::load();
 		self::$includeVersionCache[$revId] = array();
 		self::$includeVersionCache[$revId]['templates'] = $tmpParams;
 		self::$includeVersionCache[$revId]['files'] = $imgParams;
@@ -293,6 +350,7 @@ class FlaggedRevs {
 	 * Destroy the template/image versioning cache instance for parser
 	 */
 	public static function clearIncludeVersionCache( $revId ) {
+		self::load();
 		if( isset(self::$includeVersionCache[$revId]) ) {
 			unset(self::$includeVersionCache[$revId]);
 		}
@@ -306,6 +364,7 @@ class FlaggedRevs {
 	 * @returns mixed (integer/null)
 	 */
 	protected static function getTemplateIdFromCache( $revId, $namespace, $dbKey ) {
+		self::load();
 		if( isset(self::$includeVersionCache[$revId]) ) {
 			if( isset(self::$includeVersionCache[$revId]['templates'][$namespace]) ) {
 				if( isset(self::$includeVersionCache[$revId]['templates'][$namespace][$dbKey]) ) {
@@ -324,6 +383,7 @@ class FlaggedRevs {
 	 * @returns mixed (array/null)
 	 */
 	protected static function getFileVersionFromCache( $revId, $dbKey ) {
+		self::load();
 		if( isset(self::$includeVersionCache[$revId]) ) {
 			# All NS_IMAGE, no need to check namespace
 			if( isset(self::$includeVersionCache[$revId]['files'][$dbKey]) ) {
@@ -515,126 +575,6 @@ class FlaggedRevs {
 	}
 	
 	################# Revision functions #################
-
-	/**
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master?
-	 * @param int $page_id, optional page ID to use, will defer to $title if not given
-	 * @returns mixed FlaggedRevision (null on failure)
-	 * Will not return a revision if deleted
-	 */
-	public static function getFlaggedRev( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
-		$columns = FlaggedRevision::selectFields();
-		if( $getText ) {
-			$columns[] = 'fr_text';
-			$columns[] = 'fr_flags';
-		}
-		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
-		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
-		# Short-circuit query
-		if( !$page_id ) {
-			return null;
-		}
-		# Skip deleted revisions
-		$row = $db->selectRow( array('flaggedrevs','revision'),
-			$columns,
-			array( 'fr_page_id' => $page_id,
-				'fr_rev_id' => $rev_id,
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id',
-				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
-			__METHOD__ );
-		# Sorted from highest to lowest, so just take the first one if any
-		if( $row ) {
-			return new FlaggedRevision( $title, $row );
-		}
-		return null;
-	}
-	
-	/**
-	 * Get latest quality rev, if not, the latest reviewed one.
-	 * @param Title $title, page title
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master DB and avoid using fp_stable?
-	 * @returns mixed FlaggedRevision (null on failure)
-	 */
-	public static function getStablePageRev( $title, $getText=false, $forUpdate=false ) {
-		$columns = FlaggedRevision::selectFields();
-		if( $getText ) {
-			$columns[] = 'fr_text';
-			$columns[] = 'fr_flags';
-		}
-		$row = null;
-		# Short-circuit query
-		if( !$title->getArticleId() ) {
-			return $row;
-		}
-		# If we want the text, then get the text flags too
-		if( !$forUpdate ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
-				$columns,
-				array( 'fp_page_id' => $title->getArticleId(),
-					'fr_page_id' => $title->getArticleId(),
-					'fp_stable = fr_rev_id' ),
-				__METHOD__  );
-			if( !$row )
-				return null;
-		} else {
-			# Get visiblity settings...
-			$config = self::getPageVisibilitySettings( $title, $forUpdate );
-			$dbw = wfGetDB( DB_MASTER );
-			# Look for the latest pristine revision...
-			if( self::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
-				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'fr_quality = 2',
-						'rev_id = fr_rev_id',
-						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC') );
-				# Looks like a plausible revision
-				$row = $prow ? $prow : null;
-			}
-			# Look for the latest quality revision...
-			if( self::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
-				// If we found a pristine rev above, this one must be newer, unless
-				// we specifically want pristine revs to have precedence...
-				$newerClause = ($row && $config['select'] != FLAGGED_VIS_PRISTINE) ?
-					"fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
-				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'fr_quality = 1',
-						$newerClause,
-						'rev_id = fr_rev_id',
-						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC') );
-				$row = $qrow ? $qrow : $row;
-			}
-			# Do we have one? If not, try the latest reviewed revision...
-			if( !$row ) {
-				$row = $dbw->selectRow( array('flaggedrevs','revision'),
-					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
-						'rev_id = fr_rev_id',
-						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
-					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
-				if( !$row )
-					return null;
-			}
-		}
-		return new FlaggedRevision( $title, $row );
-	}
 	
 	/**
 	 * Get flags for a revision
@@ -1068,7 +1008,7 @@ EOT;
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
-		$sv = self::getStablePageRev( $article->getTitle(), false, true );
+		$sv = FlaggedRevision::newFromStable( $article->getTitle(), false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
 			self::updatePageCache( $article, $poutput );
@@ -1231,7 +1171,7 @@ EOT;
 		# Check if this page has a stable version by fetching it. Do not
 		# get the fr_text field if we are to use the latest stable template revisions.
 		global $wgUseStableTemplates;
-		$sv = self::getStablePageRev( $linksUpdate->mTitle, !$wgUseStableTemplates, true );
+		$sv = FlaggedRevision::newFromStable( $linksUpdate->mTitle, !$wgUseStableTemplates, true );
 		if( !$sv ) {
 			wfProfileOut( __METHOD__ );
 			return true;
@@ -1377,7 +1317,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$srev = self::getStablePageRev( $nt, false, true );
+			$srev = FlaggedRevision::newFromStable( $nt, false, true );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -1454,7 +1394,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$srev = self::getStablePageRev( $nt, false, true );
+			$srev = FlaggedRevision::newFromStable( $nt, false, true );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -1637,7 +1577,7 @@ EOT;
                 $result = true;
             }
         } else {
-            if( self::getStablePageRev( $title ) ) {
+            if( FlaggedRevision::newFromStable( $title ) ) {
                 $result = true;
             }
         }
@@ -1676,18 +1616,18 @@ EOT;
 			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		// Edits to existing pages
 		} else if( $baseRevID ) {
-			$frev = self::getFlaggedRev( $title, $baseRevID, false, true, $rev->getPage() );
+			$frev = FlaggedRevision::newFromTitle( $title, $baseRevID, false, true, $rev->getPage() );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
 			if( !$frev ) {
-				$frev = self::getFlaggedRev( $title, $prevRevID, false, true, $rev->getPage() );
+				$frev = FlaggedRevision::newFromTitle( $title, $prevRevID, false, true, $rev->getPage() );
 			}
 		}
 		# Is this an edit directly to the stable version?
 		if( $reviewableNewPage || !is_null($frev) ) {
 			# Assume basic flagging level
 			$flags = array();
-			foreach( self::$dimensions as $tag => $minQL ) {
+			foreach( self::getDimensions() as $tag => $minQL ) {
 				$flags[$tag] = 1;
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
@@ -2153,7 +2093,6 @@ EOT;
 				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
 			}
-		
 		}
 		return true;
 	}
@@ -2174,4 +2113,3 @@ EOT;
 		return true;
 	}
 }
-

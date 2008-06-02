@@ -350,7 +350,7 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		# We can only unapprove approved revisions...
 		} else {
-			$frev = FlaggedRevs::getFlaggedRev( $this->page, $this->oldid );
+			$frev = FlaggedRevision::newFromTitle( $this->page, $this->oldid );
 			# If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
 				$wgOut->redirect( $this->page->getFullUrl() );
@@ -495,7 +495,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$article = new Article( $this->page );
 		# Is this rev already flagged?
 		$flaggedOutput = false;
-		if( $oldfrev = FlaggedRevs::getFlaggedRev( $title, $rev->getId(), true, true ) ) {
+		if( $oldfrev = FlaggedRevision::newFromTitle( $title, $rev->getId(), true, true ) ) {
 			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getTextForParse(), $oldfrev->getRevId() );
 		}
 		
@@ -624,7 +624,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the stable cache...
-		$sv = FlaggedRevs::getStablePageRev( $this->page, false, true );
+		$sv = FlaggedRevision::newFromStable( $this->page, false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Clear the cache...
 			$this->page->invalidateCache();

@@ -348,13 +348,9 @@ $wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialP
 #########
 
 function efLoadFlaggedRevs() {
-	global $wgOut, $wgHooks, $wgLang, $wgUseRCPatrol;
-	# Initialize
-	FlaggedRevs::load();
-
+	global $wgUseRCPatrol;
 	wfLoadExtensionMessages( 'FlaggedRevs' );
 	wfLoadExtensionMessages( 'FlaggedRevsAliases' );
-
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;

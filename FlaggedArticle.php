@@ -163,7 +163,7 @@ class FlaggedArticle extends Article {
 		} else if( $wgRequest->getVal('oldid') ) {
 			# We may have nav links like "direction=prev&oldid=x"
 			$revID = $this->parent->getOldIDFromRequest();
-			$frev = FlaggedRevs::getFlaggedRev( $this->parent->getTitle(), $revID );
+			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revID );
 			# Give a notice if this rev ID corresponds to a reviewed version...
 			if( !is_null($frev) ) {
 				$time = $wgLang->date( $frev->getTimestamp(), true );
@@ -196,7 +196,7 @@ class FlaggedArticle extends Article {
 		}
 		if( $stableId && $reqId ) {
 			if( $reqId != $stableId ) {
-				$frev = FlaggedRevs::getFlaggedRev( $this->parent->getTitle(), $reqId, true );
+				$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId, true );
 				$old = true; // old reviewed version requested by ID
 				if( !$frev ) {
 					$wgOut->addWikiText( wfMsg('revreview-invalid') );
@@ -429,7 +429,7 @@ class FlaggedArticle extends Article {
 		$frev = null;
 		$time = false;
 		if( $reqId = $wgRequest->getVal('stableid') ) {
-			$frev = FlaggedRevs::getFlaggedRev( $this->parent->getTitle(), $reqId );
+			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId );
 		} else if( $this->pageOverride() ) {
 			$frev = $this->getStableRev( true );
 		}
@@ -504,7 +504,7 @@ class FlaggedArticle extends Article {
 			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
 				# If we are editing some reviewed revision, any changes this user
 				# makes will be autoreviewed...
-				$ofrev = FlaggedRevs::getFlaggedRev( $this->parent->getTitle(), $revId );
+				$ofrev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revId );
 				if( !is_null($ofrev) ) {
 					$msg = ( $revId==$frev->getRevId() ) ? 'revreview-auto-w' : 'revreview-auto-w-old';
 					$warning = "<div id='mw-autoreviewtag' class='flaggedrevs_warning plainlinks'>" .
@@ -624,7 +624,7 @@ class FlaggedArticle extends Article {
 	 * Adds a patrol link to non-reviewable pages
 	 */
 	public function addPatrolLink( &$outputDone, &$pcache ) {
-		global $wgRequest, $wgOut, $wgUser, $wgLang;
+		global $wgRequest, $wgOut, $wgUser;
 		# For unreviewable pages, allow for basic patrolling
 		if( FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
 			# If we have been passed an &rcid= parameter, we want to give the user a
@@ -949,7 +949,7 @@ class FlaggedArticle extends Article {
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
-				if( !FlaggedRevs::getFlaggedRev( $diff->mTitle, $newRev->getID() ) ) {
+				if( !FlaggedRevision::newFromTitle( $diff->mTitle, $newRev->getID() ) ) {
 					$this->isDiffFromStable = true;
 				}
 			}
@@ -1130,7 +1130,7 @@ class FlaggedArticle extends Article {
 		# Get the content page, skip talk
 		$title = $this->parent->getTitle()->getSubjectPage();
 		# Do we have one?
-		$srev = FlaggedRevs::getStablePageRev( $title, $getText, $forUpdate );
+		$srev = FlaggedRevision::newFromStable( $title, $getText, $forUpdate );
 		if( $srev ) {
 			$this->stableRev = $srev;
 			$this->flags[$srev->getRevId()] = $srev->getTags();
@@ -1240,11 +1240,11 @@ class FlaggedArticle extends Article {
 			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
 			$toggle = array();
 		}
-		$size = count(FlaggedRevs::$dimensions,1) - count(FlaggedRevs::$dimensions);
+		$size = count(FlaggedRevs::getDimensions(),1) - count(FlaggedRevs::getDimensions());
 
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
 		# Loop through all different flag types
-		foreach( FlaggedRevs::$dimensions as $quality => $levels ) {
+		foreach( FlaggedRevs::getDimensions() as $quality => $levels ) {
 			$label = array();
 			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 1;
 			if( $disabled ) {
@@ -1290,7 +1290,7 @@ class FlaggedArticle extends Article {
 			$form .= Xml::closeElement( 'span' );
 		}
 		# If there were none, make one checkbox to approve/unapprove
-		if( empty(FlaggedRevs::$dimensions) ) {
+		if( FlaggedRevs::dimensionsEmpty() ) {
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
 			$form .= Xml::checkLabel( wfMsg( "revreview-approved" ), "wpApprove", "wpApprove", 1 ) . "\n";
 			$form .= Xml::closeElement( 'span' );

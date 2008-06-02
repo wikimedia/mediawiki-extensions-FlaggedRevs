@@ -43,6 +43,124 @@ class FlaggedRevision {
 	}
 	
 	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param bool $getText, fetch fr_text and fr_flags too?
+	 * @param bool $forUpdate, use master?
+	 * @param int $page_id, optional page ID to use, will defer to $title if not given
+	 * @returns mixed FlaggedRevision (null on failure)
+	 * Will not return a revision if deleted
+	 */
+	public static function newFromTitle( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
+		$columns = self::selectFields();
+		if( $getText ) {
+			$columns += self::selectTextFields();
+		}
+		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
+		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
+		# Short-circuit query
+		if( !$page_id ) {
+			return null;
+		}
+		# Skip deleted revisions
+		$row = $db->selectRow( array('flaggedrevs','revision'),
+			$columns,
+			array( 'fr_page_id' => $page_id,
+				'fr_rev_id' => $rev_id,
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id',
+				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+			__METHOD__ );
+		# Sorted from highest to lowest, so just take the first one if any
+		if( $row ) {
+			return new FlaggedRevision( $title, $row );
+		}
+		return null;
+	}
+	
+	/**
+	 * Get latest quality rev, if not, the latest reviewed one.
+	 * @param Title $title, page title
+	 * @param bool $getText, fetch fr_text and fr_flags too?
+	 * @param bool $forUpdate, use master DB and avoid using fp_stable?
+	 * @returns mixed FlaggedRevision (null on failure)
+	 */
+	public static function newFromStable( $title, $getText=false, $forUpdate=false ) {
+		$columns = self::selectFields();
+		if( $getText ) {
+			$columns += self::selectTextFields();
+		}
+		$row = null;
+		# Short-circuit query
+		if( !$title->getArticleId() ) {
+			return $row;
+		}
+		# If we want the text, then get the text flags too
+		if( !$forUpdate ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
+				$columns,
+				array( 'fp_page_id' => $title->getArticleId(),
+					'fr_page_id' => $title->getArticleId(),
+					'fp_stable = fr_rev_id' ),
+				__METHOD__  );
+			if( !$row )
+				return null;
+		} else {
+			# Get visiblity settings...
+			$config = FlaggedRevs::getPageVisibilitySettings( $title, $forUpdate );
+			$dbw = wfGetDB( DB_MASTER );
+			# Look for the latest pristine revision...
+			if( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
+				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'fr_quality = 2',
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC') );
+				# Looks like a plausible revision
+				$row = $prow ? $prow : null;
+			}
+			# Look for the latest quality revision...
+			if( FlaggedRevs::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
+				// If we found a pristine rev above, this one must be newer, unless
+				// we specifically want pristine revs to have precedence...
+				$newerClause = ($row && $config['select'] != FLAGGED_VIS_PRISTINE) ?
+					"fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
+				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'fr_quality = 1',
+						$newerClause,
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC') );
+				$row = $qrow ? $qrow : $row;
+			}
+			# Do we have one? If not, try the latest reviewed revision...
+			if( !$row ) {
+				$row = $dbw->selectRow( array('flaggedrevs','revision'),
+					$columns,
+					array( 'fr_page_id' => $title->getArticleID(),
+						'rev_id = fr_rev_id',
+						'rev_page = fr_page_id',
+						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+					__METHOD__,
+					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
+				if( !$row )
+					return null;
+			}
+		}
+		return new FlaggedRevision( $title, $row );
+	}
+	
+	/**
 	 * @returns Array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
@@ -312,7 +430,7 @@ class FlaggedRevision {
 	public static function expandRevisionTags( $tags ) {
 		# Set all flags to zero
 		$flags = array();
-		foreach( FlaggedRevs::$dimensions as $tag => $levels ) {
+		foreach( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			$flags[$tag] = 0;
 		}
 		$tags = str_replace('\n',"\n",$tags); // B/C, old broken rows
@@ -341,7 +459,7 @@ class FlaggedRevision {
 		$flags = '';
 		foreach( $tags as $tag => $value ) {
 			# Add only currently recognized ones
-			if( isset(FlaggedRevs::$dimensions[$tag]) ) {
+			if( FlaggedRevs::getTagLevels($tag) ) {
 				$flags .= $tag . ':' . intval($value) . "\n";
 			}
 		}
