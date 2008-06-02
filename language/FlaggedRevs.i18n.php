@@ -1,7 +1,9 @@
 <?php
 /**
- * Internationalisation file for FlaggedRevs extension, section FlaggedRevs
+ * Internationalisation file for extension FlaggedRevs (group FlaggedRevs).
  *
+ * NOTE: SOME LINKS HAVE '[' and ']' around them. These are NOT typos.
+ * PLEASE DON'T RANDOMLY REMOVE THEM FOR THE THIRD TIME, kthx. -aaron
  * @addtogroup Extensions
  */
 
