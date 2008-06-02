@@ -6,7 +6,6 @@ $messages['en'] = array(
 	'stablepages-text' => 'Below is a list of pages manually configured to show the stable version as the default page content for viewers.',
 	'stablepages-none' => 'There are no pages in this list',
 	'stablepages-config' => 'Configuration',
-	'stablepages-alias' => 'StablePages',
 );
 $messages['af'] = array(
 );
@@ -18,7 +17,6 @@ $messages['ar'] = array(
 	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضي للمشاهدين.',
 	'stablepages-none' => 'لا توجد صفحات في هذه القائمة',
 	'stablepages-config' => 'إعدادات',
-	'stablepages-alias' => 'صفحات مستقرة',
 );
 $messages['ast'] = array(
 );
@@ -47,7 +45,6 @@ $messages['de'] = array(
 	'stablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
 	'stablepages-none' => 'Diese Liste ist leer.',
 	'stablepages-config' => 'Konfiguration',
-	'stablepages-alias' => 'Markierte_Seiten',
 );
 $messages['el'] = array(
 );
@@ -56,7 +53,6 @@ $messages['eo'] = array(
 	'stablepages-stable' => 'stabila versio',
 	'stablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'stablepages-config' => 'Konfiguro',
-	'stablepages-alias' => 'StabilajPaĝoj',
 );
 $messages['et'] = array(
 );
@@ -68,7 +64,6 @@ $messages['fa'] = array(
 	'stablepages-text' => 'در زیر فهرستی از صفحه‌هایی که به طور دستی تنظیم شده‌اند تا نسخهٔ پایدارشان به عنوان نسخهٔ پیش‌فرض به بینندگان نمایش داده شود را می‌بینید.',
 	'stablepages-none' => 'هیچ صفحه‌ای در این فهرست وجود ندارد',
 	'stablepages-config' => 'تنظیمات',
-	'stablepages-alias' => 'صفحه‌های‌پایدار',
 );
 $messages['fi'] = array(
 );
@@ -78,7 +73,6 @@ $messages['fr'] = array(
 	'stablepages-text' => 'Voici, ci-dessous, une liste des pages normalement configurées pour voir le contenu de la version stable pour les réviseurs.',
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
-	'stablepages-alias' => 'PagesStables',
 );
 $messages['frp'] = array(
 );
@@ -86,7 +80,6 @@ $messages['gl'] = array(
 	'stablepages' => 'Páxinas estábeis',
 	'stablepages-stable' => 'versión estábel',
 	'stablepages-config' => 'Configuración',
-	'stablepages-alias' => 'Páxinas estábeis',
 );
 $messages['hi'] = array(
 	'stablepages' => 'स्थिर पन्ने',
@@ -94,7 +87,6 @@ $messages['hi'] = array(
 	'stablepages-text' => 'नीचे स्थिर अवतरण अविचल दिखाने वाले पन्नोंकी सूची हैं जो हाथसे तैयार की गई हैं।',
 	'stablepages-none' => 'इस सूची में पन्ने नहीं हैं',
 	'stablepages-config' => 'कॉन्फिगरेशन',
-	'stablepages-alias' => 'स्थिरपन्ने',
 );
 $messages['hr'] = array(
 );
@@ -108,7 +100,6 @@ $messages['id'] = array(
 	'stablepages-text' => 'Di bawah ini adalah daftar halaman-halaman yang diset secara manual untuk menampilkan versi stabil sebagai tampilan baku isi bagi para pembaca.',
 	'stablepages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'stablepages-config' => 'Konfigurasi',
-	'stablepages-alias' => 'HalamanStabil',
 );
 $messages['is'] = array(
 );
@@ -136,7 +127,6 @@ $messages['lb'] = array(
 	'stablepages-stable' => 'stabil Versioun',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
-	'stablepages-alias' => 'Stabil Säiten',
 );
 $messages['li'] = array(
 );
@@ -155,7 +145,6 @@ $messages['mr'] = array(
 	'stablepages-text' => 'खाली स्थिर आवृत्त्या अविचल पणे दाखविणार्‍या पानांची यादी आहे जी कुणीतरी तयार केलेली आहे.',
 	'stablepages-none' => 'या यादीत पाने नाहीत',
 	'stablepages-config' => 'कॉन्फिगरेशन',
-	'stablepages-alias' => 'स्थिरपाने',
 );
 $messages['myv'] = array(
 );
@@ -167,7 +156,6 @@ $messages['nl'] = array(
 	'stablepages-text' => 'Hier worden pagina\'s weergegeven waarvoor handmatig is ingesteld dat de stabiele versies standaard wordt weergegeven aan lezers.',
 	'stablepages-none' => 'Er zijn geen pagina\'s die aan de criteria voldoen',
 	'stablepages-config' => 'Instellingen',
-	'stablepages-alias' => 'StabielePaginas',
 );
 $messages['nn'] = array(
 );
@@ -185,14 +173,12 @@ $messages['oc'] = array(
 	'stablepages-text' => 'Vaquí, çaijós, una lista de las pagians normalament configuradas per veire lo contengut de la version establa pels revisaires.',
 	'stablepages-none' => 'Existís pas cap de pagina dins aquesta lista',
 	'stablepages-config' => 'Configuracion',
-	'stablepages-alias' => 'PaginasEstablas',
 );
 $messages['pl'] = array(
 	'stablepages' => 'Strony dopracowane',
 	'stablepages-stable' => 'wersja dopracowana',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
-	'stablepages-alias' => 'Strony dopracowane',
 );
 $messages['pms'] = array(
 );
@@ -204,7 +190,6 @@ $messages['pt'] = array(
 	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para exibirem a edição estável como conteúdo padrão a quem as acessar.',
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
-	'stablepages-alias' => 'Páginas_estáveis',
 );
 $messages['ru'] = array(
 	'stablepages' => 'Стабильные страницы',
@@ -212,7 +197,6 @@ $messages['ru'] = array(
 	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ стабильной версии по умолчанию для читателей.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'Настройка',
-	'stablepages-alias' => 'стабильныестраницы',
 );
 $messages['sah'] = array(
 );
@@ -222,7 +206,6 @@ $messages['sk'] = array(
 	'stablepages-text' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa ako ich štandardný obsah zobrazovala čitateľom stabilná verzia.',
 	'stablepages-none' => 'Tento zoznam neobsahuje žiadne stránky.',
 	'stablepages-config' => 'Nastavenie',
-	'stablepages-alias' => 'StabilnéStránky',
 );
 $messages['sr-ec'] = array(
 );
@@ -236,7 +219,6 @@ $messages['sv'] = array(
 	'stablepages-text' => 'Nedan visas en lista över sidor som manuellt ställts in att visa den stabila versionen som standardinnehåll för läsare.',
 	'stablepages-none' => 'Det finns inga sidor i denna lista',
 	'stablepages-config' => 'Konfigurering',
-	'stablepages-alias' => 'StabilaSidor',
 );
 $messages['szl'] = array(
 );
@@ -259,7 +241,6 @@ $messages['vec'] = array(
 	'stablepages-text' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version stabile come contenuto de default par i visitatori.',
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
-	'stablepages-alias' => 'PagineStabili',
 );
 $messages['vi'] = array(
 	'stablepages' => 'Trang ổn định',
@@ -267,7 +248,6 @@ $messages['vi'] = array(
 	'stablepages-text' => 'Dưới đây là danh sách các trang được cấu hình bằng tay để hiển thị bản ổn định làm nội dung trang mặc định đối với người xem.',
 	'stablepages-none' => 'Không có trang nào trong danh sách',
 	'stablepages-config' => 'Cấu hình',
-	'stablepages-alias' => 'Trang ổn định',
 );
 $messages['vo'] = array(
 );

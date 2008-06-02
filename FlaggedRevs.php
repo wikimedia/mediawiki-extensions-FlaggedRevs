@@ -215,6 +215,7 @@ $langDir = dirname(__FILE__) . '/language/';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
+$wgExtensionMessagesFiles['FlaggedRevsAliases'] = $langDir . 'FlaggedRevsAliases.i18n.php';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
@@ -352,6 +353,7 @@ function efLoadFlaggedRevs() {
 	FlaggedRevs::load();
 
 	wfLoadExtensionMessages( 'FlaggedRevs' );
+	wfLoadExtensionMessages( 'FlaggedRevsAliases' );
 
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled

@@ -7,7 +7,6 @@ $messages['en'] = array(
 	'stableversions-none' => '"[[:$1]]" has no reviewed revisions.',
 	'stableversions-list' => 'The following is a list of revisions of [[:$1]] that have been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
-	'stableversions-alias' => 'StableVersions',
 );
 $messages['af'] = array(
 );
@@ -21,7 +20,6 @@ $messages['ar'] = array(
 	'stableversions-none' => '[[:$1]] لا يوجد بها نسخ مراجعة.',
 	'stableversions-list' => 'هذه قائمة بنسخ صفحة [[:$1]] التي تم مراجعتها:',
 	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
-	'stableversions-alias' => 'نسخ مستقرة',
 );
 $messages['ast'] = array(
 	'stableversions' => 'Versiones estables',
@@ -72,7 +70,6 @@ $messages['de'] = array(
 	'stableversions-none' => '„[[:$1]]“ hat keine markierten Versionen.',
 	'stableversions-list' => 'Dies ist die Liste der markierten Versionen von [[:$1]]:',
 	'stableversions-review' => 'markiert <i>$1</i> durch $2',
-	'stableversions-alias' => 'Markierte_Versionen',
 );
 $messages['el'] = array(
 	'stableversions-page' => 'Όνομα σελίδας:',
@@ -97,7 +94,6 @@ $messages['fa'] = array(
 	'stableversions-none' => '"[[:$1]]" هیچ نسخه بررسی‌ شده‌ای ندارد.',
 	'stableversions-list' => 'در زیر فهرستی از نسخه‌ةای بررسی شده «[[:$1]]» را می‌بینید:',
 	'stableversions-review' => 'بررسی شده در <i>$1</i> توسط $2',
-	'stableversions-alias' => 'نسخه‌های‌پایدار',
 );
 $messages['fi'] = array(
 	'stableversions' => 'Näytä vakaat versiot',
@@ -109,7 +105,6 @@ $messages['fr'] = array(
 	'stableversions-none' => '« [[:$1]] » n\'a pas de versions révisées.',
 	'stableversions-list' => 'La liste qui suit contient des versions de « [[:$1]] » qui ont été révisées :',
 	'stableversions-review' => 'Révisée le \'\'$1\'\' par $2',
-	'stableversions-alias' => 'VersionsStables',
 );
 $messages['frp'] = array(
 	'stableversions' => 'Vèrsions stâbles',
@@ -126,7 +121,6 @@ $messages['gl'] = array(
 	'stableversions-none' => '"[[:$1]]" non ten revisións examinadas.',
 	'stableversions-list' => 'A seguinte é unha listaxe das revisións de "[[:$1]]" que foron revisadas:',
 	'stableversions-review' => 'Revisado en <i>$1</i> por $2',
-	'stableversions-alias' => 'Versións estábeis',
 );
 $messages['hi'] = array(
 	'stableversions' => 'स्थिर अवतरण देखें',
@@ -135,7 +129,6 @@ $messages['hi'] = array(
 	'stableversions-none' => '"[[:$1]]" को एकभी परिक्षण किया हुआ अवतरण नहीं हैं।',
 	'stableversions-list' => 'नीचे [[:$1]] के परिक्षण हुए अवतरणोंकी सूची हैं:',
 	'stableversions-review' => '$2 द्वारा <i>$1</i> को परिक्षण हुआ',
-	'stableversions-alias' => 'स्थिरअवतरण',
 );
 $messages['hr'] = array(
 	'stableversions' => 'Vidi stabilne inačice',
@@ -168,7 +161,6 @@ $messages['id'] = array(
 	'stableversions-none' => '"[[:$1]]" tidak memiliki revisi tertinjau.',
 	'stableversions-list' => 'Berikut adalah daftar revisi yang telah ditinjau dari [[:$1]]:',
 	'stableversions-review' => 'Ditinjau pada <i>$1</i> oleh $2',
-	'stableversions-alias' => 'VersiStabil',
 );
 $messages['is'] = array(
 	'stableversions' => 'Stöðugar útgáfur',
@@ -223,7 +215,6 @@ $messages['la'] = array(
 $messages['lb'] = array(
 	'stableversions' => 'Weis déi stabil Versiounen',
 	'stableversions-page' => 'Säitenumm:',
-	'stableversions-alias' => 'Stabil Versiounen',
 );
 $messages['li'] = array(
 	'stableversions' => 'Stabiel versies bekieke',
@@ -251,7 +242,6 @@ $messages['mr'] = array(
 	'stableversions-none' => '"[[:$1]]" ला कुठल्याही तपासलेल्या आवृत्त्या नाहीत.',
 	'stableversions-list' => 'खाली [[:$1]] च्या तपासलेल्या आवृत्त्यांची यादी आहे:',
 	'stableversions-review' => '$2 द्वारा <i>$1</i> रोजी तपासली गेली',
-	'stableversions-alias' => 'स्थिरआवृत्त्या',
 );
 $messages['myv'] = array(
 	'stableversions-page' => 'Лопань лем:',
@@ -266,7 +256,6 @@ $messages['nl'] = array(
 	'stableversions-none' => '"[[:$1]]" heeft geen versies met eindredactie.',
 	'stableversions-list' => 'Hieronder staat een lijst met versies van [[:$1]] waarvoor eindredactie is uitgevoerd:',
 	'stableversions-review' => 'Eindredactie uitgevoerd op <i>$1</i> door $2',
-	'stableversions-alias' => 'StabieleVersies',
 );
 $messages['nn'] = array(
 	'stableversions-page' => 'Sidenamn',
@@ -284,7 +273,6 @@ $messages['oc'] = array(
 	'stableversions-none' => 'La lista que seguís conten de versions de « [[:$1]] » que son estadas revisadas :',
 	'stableversions-list' => 'Revisada lo \'\'$1\'\' per $2',
 	'stableversions-review' => 'Revisada lo \'\'$1\'\' per $2',
-	'stableversions-alias' => 'VersionsEstablas',
 );
 $messages['pl'] = array(
 	'stableversions' => 'Pokaż wersje dopracowane',
@@ -293,7 +281,6 @@ $messages['pl'] = array(
 	'stableversions-none' => '"[[:$1]]" nie ma wersji ocenionych.',
 	'stableversions-list' => 'Lista wersji strony "[[:$1]]", które zostały ocenione:',
 	'stableversions-review' => '<i>$1</i>, oceniona przez $2',
-	'stableversions-alias' => 'Wersje dopracowane',
 );
 $messages['pms'] = array(
 	'stableversions' => 'Version stàbij',
@@ -313,7 +300,6 @@ $messages['pt'] = array(
 	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
 	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
 	'stableversions-review' => 'Analisada às <i>$1</i> por $2',
-	'stableversions-alias' => 'Edições_estáveis',
 );
 $messages['ru'] = array(
 	'stableversions' => 'Просмотреть чистовые версии',
@@ -322,7 +308,6 @@ $messages['ru'] = array(
 	'stableversions-none' => '«[[:$1]]» не имеет проверенных версий.',
 	'stableversions-list' => 'Следующие версии страницы «[[:$1]]» были проверены:',
 	'stableversions-review' => 'Проверена <i>$1</i> участником $2',
-	'stableversions-alias' => 'СтабильныеВерсии',
 );
 $messages['sah'] = array(
 	'stableversions' => 'Чистовой торумнара',
@@ -339,7 +324,6 @@ $messages['sk'] = array(
 	'stableversions-none' => '[[:$1]] nemá skontrolované verzie.',
 	'stableversions-list' => 'Nasleduje zoznam verzií stránky [[:$1]], ktoré boli skontrolované:',
 	'stableversions-review' => 'Skontroloval <i>$1</i> $2',
-	'stableversions-alias' => 'StabilnéVerzie',
 );
 $messages['sr-ec'] = array(
 	'stableversions' => 'Стабилне верзије',
@@ -364,7 +348,6 @@ $messages['sv'] = array(
 	'stableversions-none' => '"[[:$1]]" har inga granskade versioner.',
 	'stableversions-list' => 'Följande lista innehåller granskade versioner av "[[:$1]]":',
 	'stableversions-review' => 'Granskad den <i>$1</i> av $2',
-	'stableversions-alias' => 'StabilaVersioner',
 );
 $messages['szl'] = array(
 );
@@ -400,7 +383,6 @@ $messages['vec'] = array(
 	'stableversions-none' => '"[[:$1]]" no la gà version riesaminà.',
 	'stableversions-list' => 'Sta qua la xe na lista de le version de [[:$1]] che le xe stà riesaminà:',
 	'stableversions-review' => 'Riesaminà el <i>$1</i> da $2',
-	'stableversions-alias' => 'VersionStabili',
 );
 $messages['vi'] = array(
 	'stableversions' => 'Xem các phiên bản ổn định',
@@ -409,7 +391,6 @@ $messages['vi'] = array(
 	'stableversions-none' => '"[[:$1]]" không có bản nào được duyệt.',
 	'stableversions-list' => 'Dưới đây là danh sách các phiên bản của [[:$1]] đã được duyệt:',
 	'stableversions-review' => 'Đã được $2 duyệt vào <i>$1</i>',
-	'stableversions-alias' => 'Bản ổn định',
 );
 $messages['vo'] = array(
 	'stableversions' => 'Fomams fümöfik',

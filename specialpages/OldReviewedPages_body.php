@@ -33,7 +33,7 @@ class OldReviewedPages extends SpecialPage
 				FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
 		$wgOut->addHTML( Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
-			Xml::label( wfMsg("unreviewed-category"), 'category' ) .
+			Xml::label( wfMsg("oldreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
 			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 			"</fieldset></form>" );
@@ -60,7 +60,7 @@ class OldReviewedPages extends SpecialPage
 				wfMsgHtml('historyempty') : wfMsgHtml('historysize', $wgLang->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
 		}
-		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('unreviewed-diff'),
+		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
 				"diff=cur&oldid={$result->fp_stable}" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		# Is anybody watching?
