@@ -8,17 +8,6 @@
 $messages = array();
 
 $messages['en'] = array(
-	'right-unreviewedpages' => 'View list of unreviewed pages',
-	'unreviewedpages' => 'Unreviewed pages',
-	'oldreviewedpages' => 'Outdated reviewed pages',
-	'oldreviewedpages-legend' => 'List reviewed pages with unreviewed revisions',
-	'oldreviewedpages-list' => 'This page lists reviewed pages that have pending edits.',
-	'oldreviewedpages-none' => 'There are currently no pages meeting these criteria',
-	'oldreviewedpages-stable' => 'sighted',
-	'oldreviewedpages-quality' => 'quality',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hour|hours}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|day|days}})',
-	'oldreviewedpages-recent' => '(less than 1 hour)',
 	'reviewedpages' => 'Reviewed pages',
 	'reviewedpages-leg' => 'List pages reviewed to a certain level',
 	'reviewedpages-list' => 'The following pages have been reviewed to the specified level',
@@ -31,17 +20,6 @@ $messages['en'] = array(
 );
 
 $messages['ar'] = array(
-	'right-unreviewedpages' => 'رؤية قائمة الصفحات غير المراجعة',
-	'unreviewedpages' => 'صفحات غير مراجعة',
-	'oldreviewedpages' => 'صفحات مراجعة قديمة',
-	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات نسخ غير مراجعة',
-	'oldreviewedpages-list' => 'هذه الصفحة تعرض الصفحات المراجعة التي لديها تعديلات قيد الانتظار.',
-	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
-	'oldreviewedpages-stable' => 'منظورة',
-	'oldreviewedpages-quality' => 'جودة',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
-	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
 	'reviewedpages' => 'صفحات مراجعة',
 	'reviewedpages-leg' => 'عرض الصفحات المراجعة حتى مستوى معين',
 	'reviewedpages-list' => 'الصفحات التالية تمت مراجعتها حتى المستوى المحدد',
@@ -54,7 +32,6 @@ $messages['ar'] = array(
 );
 
 $messages['ast'] = array(
-	'unreviewedpages' => 'Páxines non revisaes',
 	'reviewedpages' => 'Páxines revisaes',
 	'reviewedpages-leg' => 'Llista de les páxines revisaes a un ciertu nivel',
 	'reviewedpages-list' => 'Les páxines siguientes foron revisaes al nivel especificáu',
@@ -67,10 +44,6 @@ $messages['ast'] = array(
 );
 
 $messages['bg'] = array(
-	'unreviewedpages' => 'Нерецензирани страници',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дни}})',
-	'oldreviewedpages-recent' => '(по-малко от 1 час)',
 	'reviewedpages' => 'Рецензирани страници',
 	'reviewedpages-leg' => 'Преглед на страниците, получили определена оценка',
 	'reviewedpages-list' => 'Следните страници са получили оценка до определената',
@@ -89,7 +62,6 @@ $messages['bn'] = array(
 );
 
 $messages['br'] = array(
-	'unreviewedpages' => 'Pajennoù n\'int ket bet adwelet',
 	'reviewedpages' => 'Pajennoù adwelet',
 	'reviewedpages-lev-1' => 'Perzhded',
 	'reviewedpages-lev-2' => 'Lakaet war wel',
@@ -97,15 +69,7 @@ $messages['br'] = array(
 	'reviewedpages-best' => 'adweladenn bennañ',
 );
 
-$messages['ca'] = array(
-	'right-unreviewedpages' => 'Vegeu la llista de pàgines no revisades',
-	'unreviewedpages' => 'Pàgines per revisar',
-);
-
 $messages['cs'] = array(
-	'unreviewedpages' => 'Neposouzené stránky',
-	'oldreviewedpages-quality' => 'kvalita',
-	'oldreviewedpages-recent' => '(méně než 1 hodina)',
 	'reviewedpages' => 'Posouzené stránky',
 	'reviewedpages-leg' => 'Seznam stránek posouzených s určitým celkovým hodnocením',
 	'reviewedpages-list' => 'Následující stránky byly posouzeny na určenou úroveň',
@@ -118,17 +82,6 @@ $messages['cs'] = array(
 );
 
 $messages['de'] = array(
-	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
-	'unreviewedpages' => 'Unmarkierte Artikel',
-	'oldreviewedpages' => 'Alte, gesichtete Seiten',
-	'oldreviewedpages-legend' => 'Liste gesichteter Seiten mit ungesichteten Versionen',
-	'oldreviewedpages-list' => 'Diese Seite listet gesichtete Seiten, die noch ungesichtete Bearbeitungen haben.',
-	'oldreviewedpages-none' => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen',
-	'oldreviewedpages-stable' => 'gesichtet',
-	'oldreviewedpages-quality' => 'gesprüft',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
-	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
 	'reviewedpages' => 'Liste der gesichteten Seiten',
 	'reviewedpages-leg' => 'Liste der markierten Seiten',
 	'reviewedpages-list' => 'Die folgenden Seiten wurden markierten und haben den angegebenen Status erhalten',
@@ -149,16 +102,6 @@ $messages['el'] = array(
 );
 
 $messages['eo'] = array(
-	'right-unreviewedpages' => 'Rigardi liston de nekontrolitaj  paĝoj',
-	'unreviewedpages' => 'Nekontrolitaj paĝoj',
-	'oldreviewedpages' => 'Malfreŝe kontrolitaj paĝoj',
-	'oldreviewedpages-legend' => 'Listigi kontrolitajn paĝoj kun nekontrolitaj revizioj',
-	'oldreviewedpages-none' => 'Nune neniuj paĝoj kontruas tiun kriterion.',
-	'oldreviewedpages-stable' => 'vidita',
-	'oldreviewedpages-quality' => 'bonkvalita',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|horo|horoj}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|tago|tagoj}})',
-	'oldreviewedpages-recent' => '(malpli ol 1 horo)',
 	'reviewedpages' => 'Kontrolitaj paĝoj',
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'reviewedpages-lev-0' => 'Vidita',
@@ -169,17 +112,6 @@ $messages['eo'] = array(
 );
 
 $messages['fa'] = array(
-	'right-unreviewedpages' => 'مشاهدهٔ فهرست صفحه‌های بازبینی نشده',
-	'unreviewedpages' => 'صفحه‌های بررسی نشده',
-	'oldreviewedpages' => 'صفحه‌های بازبینی شدهٔ تاریخ گذشته',
-	'oldreviewedpages-legend' => 'فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده',
-	'oldreviewedpages-list' => 'این صفحه فهرستی از صفحه‌هایی که بازبینی شده‌اند و ویرایش‌های بازبینی نشده‌ای دارند را نمایش می‌دهد.',
-	'oldreviewedpages-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
-	'oldreviewedpages-stable' => 'بررسی شده',
-	'oldreviewedpages-quality' => 'با کیفیت',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|روز|روز}})',
-	'oldreviewedpages-recent' => '(کمتر از ۱ ساعت)',
 	'reviewedpages' => 'صفحه‌های بررسی شده',
 	'reviewedpages-leg' => 'نمایش صفحه‌هایی که تا حد خاصی بررسی شده‌اند',
 	'reviewedpages-list' => 'صفحه‌های زیر تا حد تعیین شده مورد بررسی قرار گرفته‌اند',
@@ -192,7 +124,6 @@ $messages['fa'] = array(
 );
 
 $messages['fi'] = array(
-	'unreviewedpages' => 'Arvioimattomat sivut',
 	'reviewedpages' => 'Arvioidut sivut',
 	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
 	'reviewedpages-lev-0' => 'Kertaalleen silmäilty',
@@ -200,17 +131,6 @@ $messages['fi'] = array(
 );
 
 $messages['fr'] = array(
-	'right-unreviewedpages' => 'Voir la liste des pages non revues',
-	'unreviewedpages' => 'Pages non revues',
-	'oldreviewedpages' => 'Pages revues hors date',
-	'oldreviewedpages-legend' => 'Listes de pages revues avec des versions non visées.',
-	'oldreviewedpages-list' => 'Cette page liste les pages revues qui ont des éditions en cours.',
-	'oldreviewedpages-none' => 'Il n’existe actuellement aucune page respectant ces critères',
-	'oldreviewedpages-stable' => 'visé',
-	'oldreviewedpages-quality' => 'qualité',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|heure|heures}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|jour|jours}})',
-	'oldreviewedpages-recent' => '(moins qu\'une heure)',
 	'reviewedpages' => 'Pages passées en revue',
 	'reviewedpages-leg' => 'Liste des pages passées en revue à un certain niveau',
 	'reviewedpages-list' => 'Les pages suivantes ont été passées en revue au niveau spécifié',
@@ -223,7 +143,6 @@ $messages['fr'] = array(
 );
 
 $messages['frp'] = array(
-	'unreviewedpages' => 'Pâges pas revues',
 	'reviewedpages' => 'Pâges passâs en revua',
 	'reviewedpages-leg' => 'Lista de les pâges passâs en revua a un cèrtin nivô',
 	'reviewedpages-list' => 'Les pâges siuventes ont étâ passâs en revua u nivô spècefiâ',
@@ -236,12 +155,6 @@ $messages['frp'] = array(
 );
 
 $messages['gl'] = array(
-	'right-unreviewedpages' => 'Ver a listaxe das páxinas non revisadas.',
-	'unreviewedpages' => 'Páxinas sen revisar',
-	'oldreviewedpages-quality' => 'calidade',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|días}})',
-	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'reviewedpages' => 'Páxinas revisadas',
 	'reviewedpages-leg' => 'Listaxe das páxinas revisadas a un certo nivel',
 	'reviewedpages-list' => 'As seguintes páxinas foron revisadas a un nivel específico',
@@ -252,17 +165,6 @@ $messages['gl'] = array(
 );
 
 $messages['hi'] = array(
-	'right-unreviewedpages' => 'न देखें हुए पन्नोंकी सूची देखें',
-	'unreviewedpages' => 'परिक्षण ना हुए पन्ने',
-	'oldreviewedpages' => 'पुराने जाँचे हुए पन्ने',
-	'oldreviewedpages-legend' => 'जिन जाँचे हुए पन्नोंको न जाँचे हुए अवतरण हैं उनकी सूची दर्शायें',
-	'oldreviewedpages-list' => 'यह पन्ना ऐसे जाँचे हुए पन्नोंकी सूची दर्शाता हैं जिनमें न जाँचे हुए बदलाव हैं।',
-	'oldreviewedpages-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
-	'oldreviewedpages-stable' => 'चुना हुआ',
-	'oldreviewedpages-quality' => 'गुणवत्तापूर्ण',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
-	'oldreviewedpages-recent' => '(१ घंटेसे कम समय)',
 	'reviewedpages' => 'परिक्षण हुए पन्ने',
 	'reviewedpages-leg' => 'विशिष्ट गुण मिले पन्ने',
 	'reviewedpages-list' => 'निम्नलिखित पन्ने विशिष्ट गुण प्राप्त हैं',
@@ -275,7 +177,6 @@ $messages['hi'] = array(
 );
 
 $messages['hr'] = array(
-	'unreviewedpages' => 'Neocijenjene stranice',
 	'reviewedpages' => 'Ocijenjene stranice',
 	'reviewedpages-leg' => 'Prikaži popis stranica ocijenjenih ocjenom',
 	'reviewedpages-list' => 'Slijedeće stranice su ocijenjene ocjenom',
@@ -288,7 +189,6 @@ $messages['hr'] = array(
 );
 
 $messages['hsb'] = array(
-	'unreviewedpages' => 'Njepruwowane nastawki',
 	'reviewedpages' => 'Pruwowane strony',
 	'reviewedpages-leg' => 'Lisćinowe strony na wěstu runinu přepruwowane',
 	'reviewedpages-list' => 'Slědowace strony buchu za podatu runinu přepruwowane',
@@ -301,7 +201,6 @@ $messages['hsb'] = array(
 );
 
 $messages['hu'] = array(
-	'unreviewedpages' => 'Ellenőrizetlen lapok',
 	'reviewedpages' => 'Ellenőrzött lapok',
 	'reviewedpages-leg' => 'Valamilyen szinten ellenőrzött lapok',
 	'reviewedpages-list' => 'Az alábbi lapok egy adott szinten ellenőrizve vannak',
@@ -314,17 +213,6 @@ $messages['hu'] = array(
 );
 
 $messages['id'] = array(
-	'right-unreviewedpages' => 'Tampilkan daftar halaman yang belum ditinjau',
-	'unreviewedpages' => 'Halaman yang belum ditinjau',
-	'oldreviewedpages' => 'Halaman tertinjau telah usang',
-	'oldreviewedpages-legend' => 'Daftar halaman tertinjau yang memiliki revisi yang belum ditinjau',
-	'oldreviewedpages-list' => 'Di bawah ini adalah daftar halaman tertinjau yang memiliki suntingan yang ditangguhkan.',
-	'oldreviewedpages-none' => 'Tidak ada halaman yang sesuai dengan kriteria ini',
-	'oldreviewedpages-stable' => 'terperiksa',
-	'oldreviewedpages-quality' => 'layak',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|jam|jam}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|hari|hari}})',
-	'oldreviewedpages-recent' => '(kurang dari 1 jam)',
 	'reviewedpages' => 'Halaman tertinjau',
 	'reviewedpages-leg' => 'Daftar halaman yang telah ditinjau sampai tingkat tertentu',
 	'reviewedpages-list' => 'Halaman-halaman berikut telah ditinjau hingga tingkat tertentu',
@@ -341,7 +229,6 @@ $messages['is'] = array(
 );
 
 $messages['ja'] = array(
-	'unreviewedpages' => '査読待ちのページ',
 	'reviewedpages' => '査読済のページ',
 	'reviewedpages-leg' => 'ページの査読結果レベル',
 	'reviewedpages-list' => '以下は、指定された査読結果レベルのページです',
@@ -366,7 +253,6 @@ $messages['jut'] = array(
 );
 
 $messages['kk-arab'] = array(
-	'unreviewedpages' => 'سىن بەرىلمەگەن بەتتەر',
 	'reviewedpages' => 'سىن بەرىلگەن بەتتەر',
 	'reviewedpages-leg' => 'انىق دەڭگەيدە سىن بەرىلگەن بەتتەردى تىزىمدەۋ',
 	'reviewedpages-list' => 'كەلەسى بەتتەرگە كەلتىرىلگەن دەڭگەيدە سىن بەرىلگەن',
@@ -379,7 +265,6 @@ $messages['kk-arab'] = array(
 );
 
 $messages['kk-cyrl'] = array(
-	'unreviewedpages' => 'Сын берілмеген беттер',
 	'reviewedpages' => 'Сын берілген беттер',
 	'reviewedpages-leg' => 'Анық деңгейде сын берілген беттерді тізімдеу',
 	'reviewedpages-list' => 'Келесі беттерге келтірілген деңгейде сын берілген',
@@ -392,7 +277,6 @@ $messages['kk-cyrl'] = array(
 );
 
 $messages['kk-latn'] = array(
-	'unreviewedpages' => 'Sın berilmegen better',
 	'reviewedpages' => 'Sın berilgen better',
 	'reviewedpages-leg' => 'Anıq deñgeýde sın berilgen betterdi tizimdew',
 	'reviewedpages-list' => 'Kelesi betterge keltirilgen deñgeýde sın berilgen',
@@ -405,20 +289,11 @@ $messages['kk-latn'] = array(
 );
 
 $messages['km'] = array(
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ម៉ោង|ម៉ោង}})',
 	'reviewedpages-none' => 'មិនមានទំព័រណាមួយក្នុងបញ្ជីនេះទេ',
 	'reviewedpages-lev-1' => 'គុណភាព',
 );
 
 $messages['lb'] = array(
-	'right-unreviewedpages' => 'Lëscht vun den net iwwerkuckte Säite weisen',
-	'unreviewedpages' => 'Säit déi net nogekuckt ass',
-	'oldreviewedpages-none' => 'Et gëtt elo keng Säiten déi dene Critèren entspriechen',
-	'oldreviewedpages-stable' => 'iwwerkuckt',
-	'oldreviewedpages-quality' => 'Qualitéit',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
-	'oldreviewedpages-recent' => '(manner wéi 1 Stonn)',
 	'reviewedpages' => 'Lëscht vun den iwwerkuckte Säiten',
 	'reviewedpages-none' => 'Dës Lëscht ass eidel',
 	'reviewedpages-lev-0' => 'iwwerkuckt',
@@ -427,7 +302,6 @@ $messages['lb'] = array(
 );
 
 $messages['li'] = array(
-	'unreviewedpages' => 'Ónbekeke pazjena\'s',
 	'reviewedpages' => 'Beoordeilde pagina\'s',
 	'reviewedpages-leg' => 'Een lijst met pagina\'s die tot op \'t aangegeve beoordeild zien',
 	'reviewedpages-list' => 'De volgende pagina\'s zijn tot op het geselecteerde niveau beoordeild',
@@ -440,15 +314,6 @@ $messages['li'] = array(
 );
 
 $messages['ml'] = array(
-	'right-unreviewedpages' => 'സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക കാണുക',
-	'unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകള്‍',
-	'oldreviewedpages' => 'സംശോധനം ചെയ്തതില്‍ കാലഹരണപ്പെട്ട താളുകള്‍',
-	'oldreviewedpages-legend' => 'സംശോധനം ചെയ്ത താളുകളൂടെ പട്ടികയോടൊപ്പം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത പതിപ്പുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
-	'oldreviewedpages-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
-	'oldreviewedpages-quality' => 'ഗുണനിലവാരം',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|മണിക്കൂര്‍|മണിക്കൂറുകള്‍}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ദിവസം|ദിവസങ്ങള്‍}})',
-	'oldreviewedpages-recent' => '(1 മണിക്കൂറില്‍ താഴെ)',
 	'reviewedpages' => 'സംശോധനം നടന്ന താളുകള്‍',
 	'reviewedpages-leg' => 'ഒരു പ്രത്യേക തലം വരെ സംശോധനം ചെയ്ത താളുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
 	'reviewedpages-list' => 'താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന താളുകള്‍ ഒരു പ്രത്യേക തലത്തിലുള്ള സം‌ശോധനം പൂര്‍ത്തിയാക്കിയിരിക്കുന്നു',
@@ -461,17 +326,6 @@ $messages['ml'] = array(
 );
 
 $messages['mr'] = array(
-	'right-unreviewedpages' => 'न तपासलेल्या पानांची यादी पहा',
-	'unreviewedpages' => 'न तपासलेली पाने',
-	'oldreviewedpages' => 'जूनी तपासलेली पाने',
-	'oldreviewedpages-legend' => 'ज्या तपासलेल्या पानांना न तपासलेल्या आवृत्त्या आहेत अशा पानांची यादी तयार करा',
-	'oldreviewedpages-list' => 'हे पान अशा तपासलेल्या पानांची यादी देते ज्यामध्ये न तपासलेले बदल आहेत.',
-	'oldreviewedpages-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
-	'oldreviewedpages-stable' => 'निवडलेली',
-	'oldreviewedpages-quality' => 'गुणवत्तापूर्ण',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|तास|तास}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|दिवस|दिवस}})',
-	'oldreviewedpages-recent' => '(१ तासापेक्षा कमी वेळ)',
 	'reviewedpages' => 'तपासलेली पाने',
 	'reviewedpages-leg' => 'विशिष्ट गुणांकनाला तपासलेली पाने',
 	'reviewedpages-list' => 'खालील पाने दिलेल्या विशिष्ट गुणांकनात तपासलेली आहेत',
@@ -483,24 +337,7 @@ $messages['mr'] = array(
 	'reviewedpages-best' => 'मूळ आवृत्ती',
 );
 
-$messages['nds'] = array(
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stünn|Stünnen}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Daag}})',
-	'oldreviewedpages-recent' => '(weniger as een Stünn)',
-);
-
 $messages['nl'] = array(
-	'right-unreviewedpages' => 'Een lijst van pagina\'s zonder eindredactie bekijken',
-	'unreviewedpages' => 'Pagina\'s zonder eindredactie',
-	'oldreviewedpages' => 'Pagina\'s met eindredactie die bijgewerkt zijn',
-	'oldreviewedpages-legend' => 'Lijst met pagina\'s met eindredactie en versies zonder eindredactie',
-	'oldreviewedpages-list' => 'Hier worden pagina\'s met eindredactie weergegeven waarvoor nog te controleren versies zijn.',
-	'oldreviewedpages-none' => 'Er zijn geen pagina\'s die aan de criteria voldoen',
-	'oldreviewedpages-stable' => 'gecontroleerd',
-	'oldreviewedpages-quality' => 'kwaliteitsversie',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|uur|uur}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagen}})',
-	'oldreviewedpages-recent' => '(minder dan een uur)',
 	'reviewedpages' => 'Pagina\'s met eindredactie',
 	'reviewedpages-leg' => 'Een lijst met pagina\'s met eindredactie tot het aangegeven niveau',
 	'reviewedpages-list' => 'De volgende pagina\'s hebben eindredactie tot het aangegeven niveau',
@@ -513,7 +350,6 @@ $messages['nl'] = array(
 );
 
 $messages['no'] = array(
-	'right-unreviewedpages' => 'Vise liste over uanmeldte sider',
 	'reviewedpages-none' => 'Det er ingen sider i denne listen',
 	'reviewedpages-best' => 'primærversjon',
 );
@@ -523,17 +359,6 @@ $messages['nso'] = array(
 );
 
 $messages['oc'] = array(
-	'right-unreviewedpages' => 'Veire la lista de las paginas pas revistas',
-	'unreviewedpages' => 'Listar las paginas pas revisadas',
-	'oldreviewedpages' => 'Paginas revistas fòra data',
-	'oldreviewedpages-legend' => 'Listas de paginas revistas amb de versions pas visadas.',
-	'oldreviewedpages-list' => 'Aquesta pagina lista las paginas revistas qu\'an d\'edicions en cors.',
-	'oldreviewedpages-none' => 'Existís actualament pas cap de pagina respectant aquestes critèris',
-	'oldreviewedpages-stable' => 'visat',
-	'oldreviewedpages-quality' => 'qualitat',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|oras}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|jorn|jorns}})',
-	'oldreviewedpages-recent' => '(mens qu\'una ora)',
 	'reviewedpages' => 'Pagina passadas en revista',
 	'reviewedpages-leg' => 'Lista de las paginas passadas en revista a un cèrt nivèl',
 	'reviewedpages-list' => 'Las paginas seguentas son estadas passadas en revista al nivèl especificat',
@@ -546,8 +371,6 @@ $messages['oc'] = array(
 );
 
 $messages['pl'] = array(
-	'unreviewedpages' => 'Strony bez oceny',
-	'oldreviewedpages-quality' => 'jakość',
 	'reviewedpages' => 'Strony ocenione',
 	'reviewedpages-none' => 'Brak stron na tej liście',
 	'reviewedpages-lev-0' => 'Przeczytane',
@@ -557,26 +380,11 @@ $messages['pl'] = array(
 	'reviewedpages-best' => 'wersja najlepsza',
 );
 
-$messages['pms'] = array(
-	'unreviewedpages' => 'Pàgine dësrevisionà',
-);
-
 $messages['ps'] = array(
 	'reviewedpages-none' => 'په همدې لړليک کې هېڅ کوم مخ نشته',
 );
 
 $messages['pt'] = array(
-	'right-unreviewedpages' => 'Ver uma lista de páginas não verificadas',
-	'unreviewedpages' => 'Páginas a analisar',
-	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
-	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
-	'oldreviewedpages-list' => 'Esta página lista as páginas analisadas que possuem edições pendentes.',
-	'oldreviewedpages-none' => 'Actualmente não existem páginas que satisfaçam estes critérios',
-	'oldreviewedpages-stable' => 'analisada',
-	'oldreviewedpages-quality' => 'confiável',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
-	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'reviewedpages' => 'Páginas analisadas',
 	'reviewedpages-leg' => 'Listar páginas que tenham sido analisadas em um nível específico',
 	'reviewedpages-list' => 'As páginas a seguir foram analisadas no nível especificado',
@@ -589,17 +397,6 @@ $messages['pt'] = array(
 );
 
 $messages['ru'] = array(
-	'right-unreviewedpages' => 'просмотр списка непроверенных страниц',
-	'unreviewedpages' => 'Непроверенные страницы',
-	'oldreviewedpages' => 'Устаревшие проверенные страницы',
-	'oldreviewedpages-legend' => 'Список проверенных страниц с непроверенными версиями',
-	'oldreviewedpages-list' => 'На этой странице перечислены проверенные страницы, которые в дальнейшем правились',
-	'oldreviewedpages-none' => 'В настоящее время нет страниц, удовлетворяющих этим условиям',
-	'oldreviewedpages-stable' => 'досмотрена',
-	'oldreviewedpages-quality' => 'выверена',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
-	'oldreviewedpages-recent' => '(менее 1 часа)',
 	'reviewedpages' => 'Проверенные страницы',
 	'reviewedpages-leg' => 'Список страниц, получивших определённую оценку',
 	'reviewedpages-list' => 'Следующие страницы были проверены и оценены на указанный уровень',
@@ -612,7 +409,6 @@ $messages['ru'] = array(
 );
 
 $messages['sah'] = array(
-	'unreviewedpages' => 'Ырытыллыбатах сирэйдэр',
 	'reviewedpages' => 'Ырытыллыбыт сирэйдэр',
 	'reviewedpages-leg' => 'Ханнык эмит сыананы ылбыт сирэйдэр испииһэктэрэ',
 	'reviewedpages-list' => 'Бу сирэйдэр сөптөөх сыананы ылбыттар',
@@ -625,17 +421,6 @@ $messages['sah'] = array(
 );
 
 $messages['sk'] = array(
-	'right-unreviewedpages' => 'Zobraziť zoznam neskontrolovaných stránok',
-	'unreviewedpages' => 'Neskontrolované stránky',
-	'oldreviewedpages' => 'Zastaralé skontrolované stránky',
-	'oldreviewedpages-legend' => 'Zoznam skontrolovaných stránok s neskontrolovanými revíziami',
-	'oldreviewedpages-list' => 'Táto stránka obsahuje zoznam skontrolovaných stránok, ktorých následné úpravy zatiaľ neboli skontrolované.',
-	'oldreviewedpages-none' => 'Momentálne žiadne stránky nezodpovedajú týmto kritériám',
-	'oldreviewedpages-stable' => 'videná',
-	'oldreviewedpages-quality' => 'kvalitná',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|deň|dni|dní}})',
-	'oldreviewedpages-recent' => '(menej ako 1 hodina)',
 	'reviewedpages' => 'Skontrolované stránky',
 	'reviewedpages-leg' => 'Zoznam stránok skontrolovaných do určenej úrovne',
 	'reviewedpages-list' => 'Nasledujúce stránky boli skontrolované do určenej úrovne',
@@ -654,7 +439,6 @@ $messages['sr-ec'] = array(
 );
 
 $messages['stq'] = array(
-	'unreviewedpages' => 'Nit wröigede Artikkele',
 	'reviewedpages' => 'Wröigede Sieden',
 	'reviewedpages-leg' => 'Lieste fon do wröigede Sieden',
 	'reviewedpages-list' => 'Do foulgjende Sieden wuuden wröiged un hääbe dän anroate Stoatus kriegen',
@@ -672,17 +456,6 @@ $messages['su'] = array(
 );
 
 $messages['sv'] = array(
-	'right-unreviewedpages' => 'Visa lista över ogranskade sidor',
-	'unreviewedpages' => 'Ogranskade sidor',
-	'oldreviewedpages' => 'Föråldrade granskade sidor',
-	'oldreviewedpages-legend' => 'Visa granskade sidor med ogranskade sidversioner',
-	'oldreviewedpages-list' => 'Den här sidan visar granskade sidor som har väntande redigeringar.',
-	'oldreviewedpages-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
-	'oldreviewedpages-stable' => 'synad',
-	'oldreviewedpages-quality' => 'kvalitet',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagar}})',
-	'oldreviewedpages-recent' => '(mindre än 1 timme)',
 	'reviewedpages' => 'Granskade sidor',
 	'reviewedpages-leg' => 'Lista granskade sidor med en viss nivå',
 	'reviewedpages-list' => 'Följande sidor har granskats, och har den angivna nivån',
@@ -695,13 +468,6 @@ $messages['sv'] = array(
 );
 
 $messages['te'] = array(
-	'right-unreviewedpages' => 'సమీక్షించని పేజీల జాబితా',
-	'unreviewedpages' => 'సమీక్షించని పేజీలు',
-	'oldreviewedpages' => 'కాలంచెల్లిన పనఃసమీక్షించిన పేజీలు',
-	'oldreviewedpages-quality' => 'నాణ్యత',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
-	'oldreviewedpages-recent' => '(1 గంట లోపల)',
 	'reviewedpages' => 'సమీక్షించిన పేజీలు',
 	'reviewedpages-leg' => 'ఏదో ఒక స్థాయి వరకు సమీక్షిత పేజీలను చూపించు',
 	'reviewedpages-list' => 'ఈ క్రింద పేర్కొన్న పేజీలు మీరడిగిన స్థాయివరకు సమీక్షించినవి',
@@ -714,7 +480,6 @@ $messages['te'] = array(
 );
 
 $messages['tg-cyrl'] = array(
-	'unreviewedpages' => 'Саҳифаҳои баррасӣ нашуда',
 	'reviewedpages' => 'Саҳифаҳои баррасӣ нашуда',
 	'reviewedpages-leg' => 'Намоиши саҳифаҳое ки то ҳад баррасӣ шудаанд',
 	'reviewedpages-list' => 'Саҳифаҳои зерин то ҳад таъйин шуда, мавриди баррасӣ қарор гирифтаанд',
@@ -727,22 +492,10 @@ $messages['tg-cyrl'] = array(
 );
 
 $messages['tr'] = array(
-	'oldreviewedpages-quality' => 'kalite',
 	'reviewedpages-lev-1' => 'Kalite',
 );
 
 $messages['vec'] = array(
-	'right-unreviewedpages' => 'Varda na lista de pagine non ricontrolà',
-	'unreviewedpages' => 'Pagine non riesaminà',
-	'oldreviewedpages' => 'Pagine riesaminà tenpo adrìo',
-	'oldreviewedpages-legend' => 'Elenca le pagine riesaminà con versioni non riesaminà',
-	'oldreviewedpages-list' => 'Sta pagine la elenca le pagine riesaminà che gà modifiche in atesa.',
-	'oldreviewedpages-none' => 'No ghe xe atualmente nissuna pagina che sodisfa sti criteri',
-	'oldreviewedpages-stable' => 'rivardà',
-	'oldreviewedpages-quality' => 'de qualità',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|giòrno|giòrni}})',
-	'oldreviewedpages-recent' => '(manco de 1 ora)',
 	'reviewedpages' => 'Pagine riesaminà',
 	'reviewedpages-leg' => 'Elenca le pagine riesaminà fin a un çerto livèl',
 	'reviewedpages-list' => 'Le pagine seguenti le xe stà riesaminà fin al livèl indicà',
@@ -755,17 +508,6 @@ $messages['vec'] = array(
 );
 
 $messages['vi'] = array(
-	'right-unreviewedpages' => 'Xem danh sách các trang chưa duyệt',
-	'unreviewedpages' => 'Các trang chưa được duyệt',
-	'oldreviewedpages' => 'Các trang đã duyệt lỗi thời',
-	'oldreviewedpages-legend' => 'Liệt kê các trang đã duyệt có các phiên bản chưa duyệt',
-	'oldreviewedpages-list' => 'Trang này liệt kê những trang đã duyệt nhưng có các sửa đổi chờ duyệt.',
-	'oldreviewedpages-none' => 'Hiện không có trang này thỏa mãn tiêu chí này',
-	'oldreviewedpages-stable' => 'đã xem qua',
-	'oldreviewedpages-quality' => 'chất lượng',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|giờ|giờ}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ngày|ngày}})',
-	'oldreviewedpages-recent' => '(dưới 1 giờ)',
 	'reviewedpages' => 'Các trang đã duyệt',
 	'reviewedpages-leg' => 'Liệt kê các trang được duyệt với một cấp độ nào đó',
 	'reviewedpages-list' => 'Các trang sau đã được duyệt thành một cấp độ nào đó',
@@ -778,21 +520,9 @@ $messages['vi'] = array(
 );
 
 $messages['vo'] = array(
-	'unreviewedpages' => 'Pads no pekrütöls',
 	'reviewedpages' => 'Pads pekrütöl',
 	'reviewedpages-none' => 'Lised at labon padis nonik',
 	'reviewedpages-lev-1' => 'Kaliet',
 	'reviewedpages-all' => 'fomams pekrütöl',
 );
 
-$messages['yue'] = array(
-	'unreviewedpages' => '未複審嘅版',
-);
-
-$messages['zh-hans'] = array(
-	'unreviewedpages' => '未复审页面',
-);
-
-$messages['zh-hant'] = array(
-	'unreviewedpages' => '未複審頁面',
-);
