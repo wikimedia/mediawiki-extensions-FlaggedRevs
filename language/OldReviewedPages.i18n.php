@@ -316,6 +316,8 @@ $messages['ru'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|час|часа|часов}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|день|дня|дней}})',
 	'oldreviewedpages-recent'    => '(менее 1 часа)',
+	'oldreviewed-category'       => 'Категория:',
+	'oldreviewed-diff'           => 'проверить',
 	'oldreviewedpages-unwatched' => '(не следят)',
 	'oldreviewedpages-watched'   => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
 );
@@ -395,6 +397,8 @@ $messages['vec'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ora|ore}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|giòrno|giòrni}})',
 	'oldreviewedpages-recent'    => '(manco de 1 ora)',
+	'oldreviewed-category'       => 'Categoria:',
+	'oldreviewed-diff'           => 'riesamina',
 	'oldreviewedpages-unwatched' => '(non osservà)',
 	'oldreviewedpages-watched'   => "($2 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
 );
