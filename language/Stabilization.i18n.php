@@ -338,6 +338,13 @@ Neniu konfiguro eblas.',
 	'stabilize-expiring'        => 'findato $1 (UTC)',
 );
 
+/** Spanish (Español)
+ * @author Drini
+ */
+$messages['es'] = array(
+	'stabilization-tab' => 'vetar',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */

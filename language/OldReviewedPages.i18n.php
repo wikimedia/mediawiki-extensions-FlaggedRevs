@@ -49,6 +49,13 @@ $messages['bg'] = array(
 	'oldreviewedpages-recent' => '(по-малко от 1 час)',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'oldreviewedpages-recent' => "(menys d'una hora)",
+);
+
 /** Czech (Česky)
  * @author Danny B.
  */

@@ -154,6 +154,13 @@ $messages['eo'] = array(
 	'unreviewed-none'       => 'Nune neniuj paĝoj kongruas tiun kriterion',
 );
 
+/** Spanish (Español)
+ * @author Drini
+ */
+$messages['es'] = array(
+	'right-unreviewedpages' => 'Mostrar la lista de páginas sin revisar',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */
@@ -659,6 +666,13 @@ $messages['tg-cyrl'] = array(
 $messages['tr'] = array(
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff'     => 'Değişiklikler',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'right-unreviewedpages' => 'Перегляд списку непереглянутих сторінок',
 );
 
 /** Vèneto (Vèneto)

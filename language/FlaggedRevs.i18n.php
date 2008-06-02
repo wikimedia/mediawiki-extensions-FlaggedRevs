@@ -1252,6 +1252,72 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'validationpage'               => '{{ns:help}}:Validigo de artikolo',
 );
 
+/** Spanish (Español)
+ * @author Drini
+ */
+$messages['es'] = array(
+	'editor'                       => 'Editor',
+	'flaggedrevs-desc'             => 'Da a los editores la habilidad de validar revisiones y estabilizar páginas',
+	'group-editor'                 => 'Editores',
+	'group-editor-member'          => 'Editor',
+	'group-reviewer'               => 'Revisores',
+	'group-reviewer-member'        => 'Revisor',
+	'grouppage-editor'             => '{{ns:project}}:Editor',
+	'grouppage-reviewer'           => '{{ns:project}}:Revisor',
+	'reviewer'                     => 'Revisor',
+	'revreview-auto'               => '(automático)',
+	'revreview-auto-w'             => "Estás editando la versión estable. Los cambios serán '''automáticamente revisados'''.",
+	'revreview-auto-w-old'         => "Estás editando una versión revisada, los cambios serán '''automáticamente revisados'''.",
+	'revreview-basic'              => 'Esta es la última [[{{MediaWiki:Validationpage}}|revisión]] vista, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|cambio|cambios}}] esperando revisión.',
+	'revreview-basic-i'            => 'Esta es la última revisión [[{{MediaWiki:Validationpage}}|vista]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cambios de plantilla/imagen] esperando revisión.',
+	'revreview-current'            => 'Borrador',
+	'revreview-edit'               => 'Editar borrador',
+	'revreview-edited'             => "'''Las ediciones serán incorporadas en la [[{{MediaWiki:Validationpage}}|versión estable]] una vez que los usuarios establecidos las revisen. El ''borrador'' se muestra debajo.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|cambio en espera|cambios en espera}}] de revisión.",
+	'revreview-invalid'            => "'''Destino inválido:''' no hay  [[{{MediaWiki:Validationpage}}|versión revisada]] que corresponda a tal ID.",
+	'revreview-newest-basic'       => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versión vista] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|cambio|cambios}}] {{plural:$3|necesita|necesitan}} revisión.',
+	'revreview-newest-basic-i'     => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión vista] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cambios a plantilla/imagen] necesitan revisión.',
+	'revreview-newest-quality'     => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidad] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|cambio|cambios}}] {{plural:$3|necesita|necesitan}} revisión.',
+	'revreview-newest-quality-i'   => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidad] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cambios a plantilla/imagen] necesitan revisión.',
+	'revreview-noflagged'          => "No hay versiones revisadas para esta página, por lo que puede '''no''' haber sido [[{{MediaWiki:Validationpage}}|verificada]] para calidad",
+	'revreview-oldrating'          => 'Fue calificada:',
+	'revreview-patrolled'          => 'Las revisiones seleccionadas de [[:$1|$1]] han sido marcadas como patrulladas',
+	'revreview-quality'            => 'Esta es la última revisión de [[{{MediaWiki:Validationpage}}|calidad]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|cambio|cambios}}] esperando revisión.',
+	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver borrador]]",
+	'revreview-quick-basic-old'    => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
+	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]'''",
+	'revreview-quick-invalid'      => "'''ID de revisión inválido'''",
+	'revreview-quick-none'         => "'''[[{{MediaWiki:Validationpage}}|Versión actual]]''' (sin revisar)",
+	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
+	'revreview-quick-quality-old'  => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]'''",
+	'revreview-quick-see-basic'    => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver artículo]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} comparar])",
+	'revreview-quick-see-quality'  => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver artículo]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} comparar])",
+	'revreview-source'             => 'fuente del borrador',
+	'revreview-stable'             => 'Página estable',
+	'revreview-update-includes'    => "'''Algunas plantillas o imágenes fueron actualizadas:'''",
+	'revreview-update-none'        => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] los cambios ''(mostrados abajo)'' hecho desde que la versión estable fue  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
+	'revreview-update-use'         => "'''NOTA:''' si alguna de estas plantillas o imágenes tiene una versión estable, entonces ya se usa en la versión estable de esta página.",
+	'right-autopatrolother'        => 'Automáticamente marcar revisiones patrulladas fuera del espacio de nombres principal',
+	'right-autoreview'             => 'Automáticamente marcar revisiones como vistas',
+	'right-movestable'             => 'Mover páginas estables',
+	'right-review'                 => 'Marcar revisiones como vistas',
+	'right-stablesettings'         => 'Configurar cómo las versiones estables se seleccionan y muestran',
+	'right-validate'               => 'Marcar revisiones como validadas',
+	'tooltip-ca-current'           => 'Ver el borrador actual de esta página',
+	'tooltip-ca-default'           => 'Opciones de control de calidad',
+	'tooltip-ca-stable'            => 'Ver la versión estable de esta página',
+	'validationpage'               => '{{ns:help}}:Validación de artículo',
+);
+
 /** Estonian (Eesti)
  * @author SPQRobin
  */

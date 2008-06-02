@@ -18,6 +18,14 @@ $messages['de'] = array(
 	'depreciationoversight-list' => 'Diese Seite zeigt eine Liste zurückgezogener Sichtungen und Prüfungen.',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'depreciationoversight'      => 'Kontrolo de malvalidigoj',
+	'depreciationoversight-list' => 'Ĉi tiu paĝo montras lastatempajn malvalidigojn de revizioj.',
+);
+
 /** Persian (فارسی) */
 $messages['fa'] = array(
 	'depreciationoversight'      => 'ناظر استهلاک',
@@ -102,6 +110,14 @@ $messages['sk'] = array(
 $messages['sv'] = array(
 	'depreciationoversight'      => 'Avskrivningsöversikt',
 	'depreciationoversight-list' => 'Den här sidan visar de senaste avskrivningarna av sidversioner.',
+);
+
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'depreciationoversight'      => 'Controlo dei declassamenti',
+	'depreciationoversight-list' => 'Sta pagina la elenca i ultimi declassamenti de le version.',
 );
 
 /** Vietnamese (Tiếng Việt)

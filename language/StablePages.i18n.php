@@ -34,6 +34,13 @@ $messages['bg'] = array(
 	'stablepages-config' => 'Конфигурация',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'stablepages-config' => 'Configuració',
+);
+
 /** Czech (Česky)
  * @author Danny B.
  */
