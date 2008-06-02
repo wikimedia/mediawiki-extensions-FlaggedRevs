@@ -1,5 +1,12 @@
 <?php
+/**
+ * Internationalisation file for FlaggedRevs extension, section FlaggedRevs
+ *
+ * @addtogroup Extensions
+ */
+
 $messages = array();
+
 $messages['en'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Flagged Revisions',
@@ -153,11 +160,13 @@ To depreciate a revision, set all fields to "unapproved".',
 	'tooltip-ca-stable' => 'View the stable version of this page',
 	'validationpage' => '{{ns:help}}:Article validation',
 );
+
 $messages['an'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs-desc' => 'Premite á os editors/rebisors de balidar rebisions y fer estables as pachinas',
 	'group-editor' => 'Editors',
 );
+
 $messages['ar'] = array(
 	'editor' => 'محرر',
 	'flaggedrevs' => 'نسخ معلمة',
@@ -317,6 +326,7 @@ $messages['ar'] = array(
 	'tooltip-ca-stable' => 'عرض النسخة المستقرة لهذه الصفحة',
 	'validationpage' => '{{ns:help}}:تحقيق المقالات',
 );
+
 $messages['ast'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisiones marcaes',
@@ -422,10 +432,12 @@ de les páxines de conteníu.',
 	'tooltip-ca-stable' => 'Amuesa la versión estable d\'esta páxina',
 	'validationpage' => '{{ns:help}}:Validación d\'artículos',
 );
+
 $messages['bcl'] = array(
 	'hist-quality' => 'kalidad',
 	'revreview-depth' => 'Rarom',
 );
+
 $messages['bg'] = array(
 	'editor' => 'Редактор',
 	'flaggedrevs-desc' => 'Дава възможността на редактори/рецензенти да одобряват версии и да определят страници като устойчиви',
@@ -478,6 +490,7 @@ $messages['bg'] = array(
 	'tooltip-ca-current' => 'Преглед на текущата чернова на страницата',
 	'tooltip-ca-stable' => 'Преглед на устойчивата версия на страницата',
 );
+
 $messages['bn'] = array(
 	'editor' => 'সম্পাদক',
 	'flaggedrevs' => 'চিহ্নিত সংশোধনসমূহ',
@@ -550,6 +563,7 @@ $messages['bn'] = array(
 	'tooltip-ca-stable' => 'এই পাতাটির স্থিতিশীল সংস্করণটি দেখুন',
 	'validationpage' => '{ns:help}}:নিবন্ধ বৈধকরণ',
 );
+
 $messages['br'] = array(
 	'editor' => 'Skridaozer',
 	'flaggedrevs' => 'Adweladennoù merket',
@@ -648,6 +662,7 @@ Gallout a ra ar bajenn bezañ \'\'\'[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} k
 	'tooltip-ca-stable' => 'Gwelet stumm stabil ar bajenn',
 	'validationpage' => '{{ns:help}} : Gwiriekaat ar pennad',
 );
+
 $messages['ca'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisions senyalades',
@@ -714,6 +729,7 @@ S\'hi poden haver fet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} canvis].'
 	'tooltip-ca-current' => 'Vegeu l\'actual proposta per aquesta pàgina',
 	'tooltip-ca-stable' => 'Vegeu la versió estable de la pàgina',
 );
+
 $messages['cs'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Označování verzí',
@@ -824,9 +840,11 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} zm
 	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky',
 	'validationpage' => '{{ns:help}}:Stabilní verze',
 );
+
 $messages['da'] = array(
 	'revreview-auto' => '(automatisk)',
 );
+
 $messages['de'] = array(
 	'editor' => 'Sichter',
 	'flaggedrevs' => 'Markierte Versionen',
@@ -987,6 +1005,7 @@ $messages['de'] = array(
 	'tooltip-ca-stable' => 'Ansehen der markierten Version dieser Seite',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
+
 $messages['el'] = array(
 	'editor' => 'Συντάκτης',
 	'flaggedrevs-desc' => 'Δίνει τη δυνατότητα στους συντάκτες και τους επανεξεταστές να αξιολογίσουν εκδόσεις και να σταθεροποιήσουν σελίδες',
@@ -1017,6 +1036,7 @@ $messages['el'] = array(
 	'stable-logpage' => 'Αρχείο καταγραφής σταθερών εκδόσεων',
 	'tooltip-ca-current' => 'Δείτε το υπάρχον προσχέδιο για αυτή τη σελίδα',
 );
+
 $messages['eo'] = array(
 	'editor' => 'Redaktanto',
 	'flaggedrevs' => 'Markitaj Revizioj',
@@ -1114,9 +1134,11 @@ $messages['eo'] = array(
 	'tooltip-ca-stable' => 'Rigardu la stabilan version de ĉi paĝo',
 	'validationpage' => '{{ns:help}}:Validigo de artikolo',
 );
+
 $messages['et'] = array(
 	'revreview-style-1' => 'Vastuvõetav',
 );
+
 $messages['ext'] = array(
 	'editor' => 'Eitol',
 	'group-editor' => 'Eitoris',
@@ -1125,6 +1147,7 @@ $messages['ext'] = array(
 	'revreview-auto' => '(autumáticu)',
 	'revreview-style-2' => 'Güenu',
 );
+
 $messages['fa'] = array(
 	'editor' => 'ویرایشگر',
 	'flaggedrevs' => 'نسخه‌های علامت‌دار',
@@ -1281,6 +1304,7 @@ $messages['fa'] = array(
 	'tooltip-ca-stable' => 'مشاهده نسخه پایدار این صفحه',
 	'validationpage' => '{{ns:help}}:تایید اعتبار مقاله‌ها',
 );
+
 $messages['fi'] = array(
 	'group-editor' => 'muokkaajat',
 	'group-editor-member' => 'muokkaaja',
@@ -1308,6 +1332,7 @@ $messages['fi'] = array(
 	'tooltip-ca-current' => 'Näytä tämän sivun nykyinen luonnosversio',
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
 );
+
 $messages['fr'] = array(
 	'editor' => 'Contributeur',
 	'flaggedrevs' => 'Révisions marquées',
@@ -1450,6 +1475,7 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peu
 	'tooltip-ca-stable' => 'Voir la version stable de cette page',
 	'validationpage' => '{{ns:help}}:Validation de l\'article',
 );
+
 $messages['frp'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Vèrsions marcâs',
@@ -1544,6 +1570,7 @@ Vêde les [[Special:Unreviewedpages|vèrsions pas rèvisâs]] por una lista de p
 	'tooltip-ca-stable' => 'Vêre la vèrsion stâbla de ceta pâge',
 	'validationpage' => '{{ns:help}}:Validacion de l’articllo',
 );
+
 $messages['gl'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisións marcadas',
@@ -1649,6 +1676,7 @@ Unha listaxe do páxinas estabilizadas pode ser atopada na [[Special:StablePages
 	'tooltip-ca-stable' => 'Ver a versión estábel desta páxina',
 	'validationpage' => '{{ns:help}}:Confirmación do artigo',
 );
+
 $messages['hi'] = array(
 	'editor' => 'सम्पादक',
 	'flaggedrevs' => 'फ्लॅग किये हुए अवतरण',
@@ -1802,6 +1830,7 @@ $messages['hi'] = array(
 	'tooltip-ca-stable' => 'इस पन्ने का स्थिर अवतरण देखें',
 	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
 );
+
 $messages['hr'] = array(
 	'editor' => 'Suradnik',
 	'flaggedrevs' => 'Označene promjene',
@@ -1909,6 +1938,7 @@ da bi promjena bila pregledana/ocijenjena. U suprotnom, ostavite sve na "Ne zado
 	'tooltip-ca-stable' => 'Vidi važeću inačicu stranice',
 	'validationpage' => '{{ns:help}}:Ocjenjivanje članaka',
 );
+
 $messages['hsb'] = array(
 	'editor' => 'wobdźěłowar',
 	'flaggedrevs' => 'Woznamjenjene wersije',
@@ -2015,6 +2045,7 @@ Lisćinu stabilizowanych stronow namakaš w [[Special:StablePages|lisćinje stab
 	'tooltip-ca-stable' => 'Stabilnu wersiju tuteje strony wobhladać',
 	'validationpage' => '{{ns:help}}:Stabilne wersije',
 );
+
 $messages['hu'] = array(
 	'editor' => 'szerkesztő',
 	'flaggedrevs' => 'Ellenőrzött változatok',
@@ -2128,6 +2159,7 @@ naplója.',
 	'tooltip-ca-stable' => 'Az oldal elfogadott változatának megtekintése',
 	'validationpage' => '{{ns:help}}:Szócikk ellenőrzése',
 );
+
 $messages['id'] = array(
 	'editor' => 'Penyunting',
 	'flaggedrevs' => 'Revisi bertanda',
@@ -2273,12 +2305,14 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'tooltip-ca-stable' => 'Lihat versi stabil halaman ini',
 	'validationpage' => '{{ns:help}}:Validasi artikel',
 );
+
 $messages['is'] = array(
 	'revreview-accuracy' => 'Nákvæmni',
 	'revreview-auto' => '(sjálfkrafa)',
 	'revreview-current' => 'Uppkast',
 	'revreview-edit' => 'Breyta uppkasti',
 );
+
 $messages['it'] = array(
 	'group-reviewer' => 'Revisori',
 	'group-reviewer-member' => 'Revisore',
@@ -2293,6 +2327,7 @@ $messages['it'] = array(
 	'tooltip-ca-current' => 'Vedi la bozza attuale di questa pagina',
 	'tooltip-ca-stable' => 'Vedi la versione stabile di questa voce',
 );
+
 $messages['ja'] = array(
 	'editor' => '編集者',
 	'flaggedrevs' => '判定による版表示',
@@ -2386,6 +2421,7 @@ $messages['ja'] = array(
 	'tooltip-ca-stable' => 'この査読済ページを見る',
 	'validationpage' => '{{ns:help}}:記事の検証',
 );
+
 $messages['jut'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Flagged Reviisje',
@@ -2429,9 +2465,11 @@ $messages['jut'] = array(
 	'tooltip-ca-stable' => 'Se\'n stabiil versje detter pæge',
 	'validationpage' => '{{ns:help}}:Artikel vålidåsje',
 );
+
 $messages['jv'] = array(
 	'flaggedrevs-prefs' => 'Stabilitas',
 );
+
 $messages['kk-arab'] = array(
 	'editor' => 'تۇزەتۋشى',
 	'flaggedrevs' => 'بەلگىلەنگەن نۇسقالار',
@@ -2536,6 +2574,7 @@ $messages['kk-arab'] = array(
 	'tooltip-ca-stable' => 'بۇل بەتتىڭ تىياناقتى نۇسقاسىن قاراۋ',
 	'validationpage' => '{{ns:help}}:ماقالا اقتالۋى',
 );
+
 $messages['kk-cyrl'] = array(
 	'editor' => 'Түзетуші',
 	'flaggedrevs' => 'Белгіленген нұсқалар',
@@ -2640,6 +2679,7 @@ $messages['kk-cyrl'] = array(
 	'tooltip-ca-stable' => 'Бұл беттің тиянақты нұсқасын қарау',
 	'validationpage' => '{{ns:help}}:Мақала ақталуы',
 );
+
 $messages['kk-latn'] = array(
 	'editor' => 'Tüzetwşi',
 	'flaggedrevs' => 'Belgilengen nusqalar',
@@ -2744,6 +2784,7 @@ Keýbir jañartılğan ülgiler/swretter:',
 	'tooltip-ca-stable' => 'Bul bettiñ tïyanaqtı nusqasın qaraw',
 	'validationpage' => '{{ns:help}}:Maqala aqtalwı',
 );
+
 $messages['km'] = array(
 	'editor' => 'អ្នកកែសំរួល',
 	'group-editor' => 'អ្នកកែសំរួល',
@@ -2764,6 +2805,7 @@ $messages['km'] = array(
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ពត៌មានលំអិត',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
 );
+
 $messages['la'] = array(
 	'editor' => 'Recensor',
 	'group-editor' => 'Recensores',
@@ -2777,6 +2819,7 @@ $messages['la'] = array(
 	'revreview-style-2' => 'Bonus',
 	'rights-editor-revoke' => 'removit statum recensorem usoris [[$1]]',
 );
+
 $messages['lb'] = array(
 	'editor' => 'Editeur',
 	'flaggedrevs-prefs' => 'Stabilitéit',
@@ -2835,6 +2878,7 @@ $messages['lb'] = array(
 	'tooltip-ca-stable' => 'Déi stabil Versioun vun dëser Säit gesinn',
 	'validationpage' => '{{ns:help}}:Validatioun vun der Säit',
 );
+
 $messages['li'] = array(
 	'editor' => 'Bewèrker',
 	'flaggedrevs' => 'Aangevinkdje versies',
@@ -2935,12 +2979,14 @@ beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, 
 	'tooltip-ca-stable' => 'Toean de stabiele versie van dees pazjena',
 	'validationpage' => '{{ns:help}}:Pazjenakontraol',
 );
+
 $messages['lt'] = array(
 	'revreview-auto' => '(automatinis)',
 	'revreview-log' => 'Komentaras:',
 	'revreview-style-0' => 'Nepatvirtintas',
 	'revreview-style-2' => 'Geras',
 );
+
 $messages['ml'] = array(
 	'editor' => 'എഡിറ്റര്‍',
 	'flaggedrevs-desc' => 'എഡിറ്റര്‍മാര്‍ക്കും സം‌ശോധകര്‍ക്കും പതിപ്പുകള്‍ ഗുണപരിശോധന നടത്താനും താളുകള്‍ സ്ഥിരപ്പെടുത്താനുമുള്ള അവകാശം കൊടുക്കുന്നു.',
@@ -3053,6 +3099,7 @@ $messages['ml'] = array(
 	'tooltip-ca-stable' => 'ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് കാണുക',
 	'validationpage' => '{{ns:help}}:ലേഖനസാധുത',
 );
+
 $messages['mr'] = array(
 	'editor' => 'संपादक',
 	'flaggedrevs' => 'चिन्हांकित आवृत्ती',
@@ -3208,6 +3255,7 @@ $messages['mr'] = array(
 	'tooltip-ca-stable' => 'या पानाची पक्की प्रत पहा',
 	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
 );
+
 $messages['nds'] = array(
 	'revreview-accuracy-2' => 'akraat',
 	'revreview-auto' => '(automaatsch)',
@@ -3219,6 +3267,7 @@ $messages['nds'] = array(
 	'revreview-style-2' => 'Good',
 	'revreview-toggle-title' => 'wies/versteek Details',
 );
+
 $messages['nl'] = array(
 	'editor' => 'Redacteur',
 	'flaggedrevs' => 'Aangevinkte versies',
@@ -3371,9 +3420,11 @@ Zie ook de [[Special:StablePages|lijst met stabiele pagina\'s]].',
 	'tooltip-ca-stable' => 'Stabiele versie van deze pagina bekijken',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
+
 $messages['nn'] = array(
 	'revreview-log' => 'Kommentar:',
 );
+
 $messages['no'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs-desc' => 'Gir skribenter og anmeldere muligheten til å godkjenne sideversjoner og stabilisere sider',
@@ -3440,12 +3491,14 @@ $messages['no'] = array(
 	'tooltip-ca-stable' => 'Vis den stabile versjonen av denne siden',
 	'validationpage' => 'Help:Artikkelvalidering',
 );
+
 $messages['nso'] = array(
 	'editor' => 'Morulaganyi',
 	'group-editor' => 'Barulaganyi',
 	'group-editor-member' => 'Morulaganyi',
 	'grouppage-editor' => '{{ns:project}}:Morulaganyi',
 );
+
 $messages['oc'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Revisions marcadas',
@@ -3589,6 +3642,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modificacions novèlas] pòd
 	'tooltip-ca-stable' => 'Veire la version establa d\'aquesta pagina',
 	'validationpage' => '{{ns:help}}:Validacion de l\'article',
 );
+
 $messages['pl'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Wersje oznaczone',
@@ -3662,6 +3716,7 @@ $messages['pl'] = array(
 	'tooltip-ca-stable' => 'Zobacz dopracowaną wersję tej strony',
 	'validationpage' => '{{ns:help}}:Recenzja artykułu',
 );
+
 $messages['pms'] = array(
 	'editor' => 'Redator',
 	'flaggedrevs' => 'Revision marcà',
@@ -3760,6 +3815,7 @@ $messages['pms'] = array(
 	'tooltip-ca-default' => 'Regolassion dij Contròj ëd Qualità',
 	'tooltip-ca-stable' => 'Vardé la version stàbila dla pàgina',
 );
+
 $messages['ps'] = array(
 	'group-reviewer' => 'مخکتونکي',
 	'group-reviewer-member' => 'مخکتونکی',
@@ -3770,6 +3826,7 @@ $messages['ps'] = array(
 	'revreview-style-1' => 'د منلو وړ',
 	'tooltip-ca-current' => 'د همدې مخ اوسنی ګارليک ښکاره کول',
 );
+
 $messages['pt'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Edições Analisadas',
@@ -3918,6 +3975,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'tooltip-ca-stable' => 'Ver a edição estável desta página',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
+
 $messages['ru'] = array(
 	'editor' => 'Досматривающий',
 	'flaggedrevs' => 'Отмеченные версии',
@@ -4068,6 +4126,7 @@ $messages['ru'] = array(
 	'tooltip-ca-stable' => 'Показать стабильную версию этой страницы',
 	'validationpage' => '{{ns:help}}:Проверка статьи',
 );
+
 $messages['sah'] = array(
 	'editor' => 'Көннөрөөччү',
 	'flaggedrevs' => 'Бэлиэтэммит торумнар',
@@ -4168,6 +4227,7 @@ $messages['sah'] = array(
 	'tooltip-ca-stable' => 'Бу сирэй чистовигын көрүү',
 	'validationpage' => '{{ns:help}}:Ыстатыйа бэрэбиэркэтэ',
 );
+
 $messages['sk'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Označené verzie',
@@ -4326,6 +4386,7 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'tooltip-ca-stable' => 'Zobraziť stabilnú verziu tejto stránky',
 	'validationpage' => '{{ns:help}}:Overovanie článkov',
 );
+
 $messages['sr-ec'] = array(
 	'editor' => 'Уређивач',
 	'group-editor' => 'Уређивачи',
@@ -4352,6 +4413,7 @@ $messages['sr-ec'] = array(
 	'revreview-submit' => 'Приложи преглед',
 	'tooltip-ca-stable' => 'Погледајте стабилну верзију ове странице',
 );
+
 $messages['stq'] = array(
 	'editor' => 'Sieuwer',
 	'flaggedrevs' => 'Markierde Versione',
@@ -4463,6 +4525,7 @@ deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal
 	'tooltip-ca-stable' => 'Ankiekjen fon ju stoabile Version fon disse Siede',
 	'validationpage' => '{{ns:help}}:Stoabile Versione',
 );
+
 $messages['su'] = array(
 	'editor' => 'Éditor',
 	'group-editor' => 'Éditor',
@@ -4490,6 +4553,7 @@ $messages['su'] = array(
 	'tooltip-ca-stable' => 'Témbongkeun vérsi stabil ieu kaca',
 	'validationpage' => '{{ns:help}}:Validasi artikel',
 );
+
 $messages['sv'] = array(
 	'editor' => 'Redaktör',
 	'flaggedrevs' => 'Flaggade sidversioner',
@@ -4637,6 +4701,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:stablepages|listan �
 	'tooltip-ca-stable' => 'Visa den stabila versionen av denna sida',
 	'validationpage' => '{{ns:help}}:Artikelvalidering',
 );
+
 $messages['te'] = array(
 	'editor' => 'ఎడిటర్',
 	'flaggedrevs' => 'జండాపాతిన కూర్పులు',
@@ -4740,6 +4805,7 @@ $messages['te'] = array(
 	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'validationpage' => '{{ns:help}}:వ్యాస మూల్యాంకన',
 );
+
 $messages['tg-cyrl'] = array(
 	'editor' => 'Вироишгар',
 	'flaggedrevs' => 'Нусхаҳои аломатдор',
@@ -4837,6 +4903,7 @@ $messages['tg-cyrl'] = array(
 	'tooltip-ca-stable' => 'Мушоҳидаи нусхаи пойдори ин саҳифа',
 	'validationpage' => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
 );
+
 $messages['tr'] = array(
 	'editor' => 'Editör',
 	'group-editor' => 'Editörler',
@@ -4862,6 +4929,7 @@ $messages['tr'] = array(
 	'revreview-style-2' => 'İyi',
 	'tooltip-ca-default' => 'Kalite güvencesi ayarlar',
 );
+
 $messages['uk'] = array(
 	'editor' => 'редактор',
 	'group-editor' => 'Редактори',
@@ -4872,6 +4940,7 @@ $messages['uk'] = array(
 	'grouppage-reviewer' => '{{ns:project}}:Рецензенти',
 	'reviewer' => 'рецензент',
 );
+
 $messages['vec'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Revision marcade',
@@ -5015,6 +5084,7 @@ Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista d
 	'tooltip-ca-stable' => 'Varda la version stabile de sta pagina',
 	'validationpage' => '{{ns:help}}:Validassion dei articoli',
 );
+
 $messages['vi'] = array(
 	'editor' => 'Người viết bài',
 	'flaggedrevs' => 'Các bản được đánh dấu',
@@ -5168,6 +5238,7 @@ Danh sách các trang ổn định có thể tìm thấy tại [[Special:StableP
 	'tooltip-ca-stable' => 'Xem bản ổn định của trang này',
 	'validationpage' => '{{ns:help}}:Phê chuẩn bài viết',
 );
+
 $messages['vo'] = array(
 	'editor' => 'Redakan',
 	'flaggedrevs-desc' => 'Dälon redakanes/krütanes ad zepön fomamis/votükamis ed ad fümöfükön padis',
@@ -5257,6 +5328,7 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'tooltip-ca-stable' => 'Logön fomami fümöfik pada at',
 	'validationpage' => '{{ns:help}}:Yegedikontrolam',
 );
+
 $messages['yue'] = array(
 	'editor' => '編輯',
 	'flaggedrevs' => '加咗旗嘅修訂',
@@ -5342,6 +5414,7 @@ $messages['yue'] = array(
 	'revreview-update' => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
 	'validationpage' => '{{ns:help}}:文章確認',
 );
+
 $messages['zh-hans'] = array(
 	'editor' => '编辑',
 	'flaggedrevs' => '标注修订',
@@ -5427,6 +5500,7 @@ $messages['zh-hans'] = array(
 	'revreview-update' => '请复审自从于这页的稳定版以来的任何更改 (在下面显示) 。模版和图像亦可能同时更改。',
 	'validationpage' => '{{ns:help}}:文章确认',
 );
+
 $messages['zh-hant'] = array(
 	'editor' => '編輯',
 	'flaggedrevs' => '標註修訂',

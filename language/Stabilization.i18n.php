@@ -1,5 +1,12 @@
 <?php
+/**
+ * Internationalisation file for FlaggedRevs extension, section Stabilization
+ *
+ * @addtogroup Extensions
+ */
+
 $messages = array();
+
 $messages['en'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Page stabilization',
@@ -33,12 +40,12 @@ No configuration is possible.',
 	'stabilize_expiry_old' => 'This expiration time has already passed.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
 );
+
 $messages['af'] = array(
 	'stabilization-submit' => 'Bevestig',
 	'stabilization-sel-short-1' => 'Geen',
 );
-$messages['an'] = array(
-);
+
 $messages['ar'] = array(
 	'stabilization-tab' => '(تج)',
 	'stabilization' => 'تثبيت الصفحة',
@@ -69,6 +76,7 @@ $messages['ar'] = array(
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
 );
+
 $messages['ast'] = array(
 	'stabilization-tab' => '(aq)',
 	'stabilization' => 'Estabilización de páxines',
@@ -98,8 +106,7 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize_expiry_old' => 'Esta caducidá yá tien pasao.',
 	'stabilize-expiring' => 'caduca\'l $1 (UTC)',
 );
-$messages['bcl'] = array(
-);
+
 $messages['bg'] = array(
 	'stabilization' => 'Устойчивост на страницата',
 	'stabilization-page' => 'Име на страницата:',
@@ -122,6 +129,7 @@ $messages['bg'] = array(
 	'stabilize_expiry_old' => 'Дата на изтичане вече е отминала.',
 	'stabilize-expiring' => 'изтича на $1 (UTC)',
 );
+
 $messages['bn'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'পাতা স্থিতিকরণ',
@@ -139,6 +147,7 @@ $messages['bn'] = array(
 	'stabilize_expiry_old' => 'মেয়াদ উত্তীর্ণের সময় পার হয়ে গেছে।',
 	'stabilize-expiring' => 'মেয়াদ উত্তীর্ণ হবে $1 (UTC)',
 );
+
 $messages['br'] = array(
 	'stabilization-page' => 'Anv ar bajenn :',
 	'stabilization-submit' => 'Kadarnaat',
@@ -150,6 +159,7 @@ $messages['br'] = array(
 	'stabilization-def-short' => 'Dre ziouer',
 	'stabilization-def-short-1' => 'Stabil',
 );
+
 $messages['ca'] = array(
 	'stabilization-page' => 'Nom de la pàgina:',
 	'stabilization-def2' => 'La revisió actual',
@@ -164,6 +174,7 @@ $messages['ca'] = array(
 	'stabilization-def-short-1' => 'Estable',
 	'stabilize_expiry_invalid' => 'La data de venciment no és vàlida.',
 );
+
 $messages['cs'] = array(
 	'stabilization-tab' => 'stabilizace',
 	'stabilization' => 'Stabilizace stránky',
@@ -192,6 +203,7 @@ $messages['cs'] = array(
 	'stabilize_expiry_old' => 'Čas vypršení již minul.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
 );
+
 $messages['da'] = array(
 	'stabilization-submit' => 'Bekræft',
 	'stabilization-expiry' => 'Udløb:',
@@ -200,6 +212,7 @@ $messages['da'] = array(
 	'stabilization-def-short-0' => 'Nuværende',
 	'stabilize-expiring' => 'til $1 (UTC)',
 );
+
 $messages['de'] = array(
 	'stabilization-tab' => 'Konfig.',
 	'stabilization' => 'Seiten-Markierung',
@@ -231,6 +244,7 @@ $messages['de'] = array(
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
 	'stabilize-expiring' => 'erlischt $1 (UTC)',
 );
+
 $messages['el'] = array(
 	'stabilization-tab' => 'εξωνυχιστικός έλεγχος',
 	'stabilization-page' => 'Όνομα σελίδας:',
@@ -245,6 +259,7 @@ $messages['el'] = array(
 	'stabilize_expiry_old' => 'Η ημερομηνία λήξης έχει ήδη περάσει.',
 	'stabilize-expiring' => 'λήγει $1 (UTC)',
 );
+
 $messages['eo'] = array(
 	'stabilization' => 'Paĝa stabiligado',
 	'stabilization-page' => 'Paĝnomo:',
@@ -270,8 +285,7 @@ Neniu konfiguro estas farebla.',
 	'stabilize_expiry_invalid' => 'Nevalida findato.',
 	'stabilize-expiring' => 'findato $1 (UTC)',
 );
-$messages['et'] = array(
-);
+
 $messages['ext'] = array(
 	'stabilization-page' => 'Nombri la páhina:',
 	'stabilization-submit' => 'Confirmal',
@@ -279,6 +293,7 @@ $messages['ext'] = array(
 	'stabilization-def-short' => 'Defeutu',
 	'stabilization-def-short-0' => 'Atual',
 );
+
 $messages['fa'] = array(
 	'stabilization-tab' => '(کک)',
 	'stabilization' => 'پایدارسازی صفحه‌ها',
@@ -310,6 +325,7 @@ $messages['fa'] = array(
 	'stabilize_expiry_old' => 'این تاریخ انقضا همینک سپری شده‌است.',
 	'stabilize-expiring' => 'در $1 (UTC) منقضی می‌شود.',
 );
+
 $messages['fi'] = array(
 	'stabilization-page' => 'Sivun nimi',
 	'stabilization-select2' => 'Uusin arvioitu versio',
@@ -317,6 +333,7 @@ $messages['fi'] = array(
 	'stabilization-submit' => 'Vahvista',
 	'stabilization-sel-short-0' => 'Laatu',
 );
+
 $messages['fr'] = array(
 	'stabilization-tab' => '(aq)',
 	'stabilization' => 'Stabilisation de la page',
@@ -347,6 +364,7 @@ $messages['fr'] = array(
 	'stabilize_expiry_old' => 'Cette durée d\'expiration est déjà écoulée.',
 	'stabilize-expiring' => 'Expire le $1 (UTC)',
 );
+
 $messages['frp'] = array(
 	'stabilization-tab' => '(aq)',
 	'stabilization' => 'Stabilisacion de la pâge',
@@ -375,6 +393,7 @@ $messages['frp'] = array(
 	'stabilize_expiry_old' => 'Cél temps d’èxpiracion est ja passâ.',
 	'stabilize-expiring' => 'èxpire lo $1 (UTC)',
 );
+
 $messages['gl'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilización da páxina',
@@ -404,6 +423,7 @@ $messages['gl'] = array(
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
 	'stabilize-expiring' => 'caduca $1 (UTC)',
 );
+
 $messages['hi'] = array(
 	'stabilization-tab' => 'व्हेट',
 	'stabilization' => 'लेख स्थ्रिर करें',
@@ -439,6 +459,7 @@ $messages['hi'] = array(
 	'stabilize_expiry_old' => 'यह समाप्ति तिथी गुजर चुकी हैं।',
 	'stabilize-expiring' => '$1 (UTC) को समाप्ति',
 );
+
 $messages['hr'] = array(
 	'stabilization-tab' => '(vi)',
 	'stabilization' => 'Stabilizacija stranice',
@@ -468,6 +489,7 @@ Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilize_expiry_old' => 'Ovo vrijeme isticanja je već prošlo',
 	'stabilize-expiring' => 'ističe $1 (UTC)',
 );
+
 $messages['hsb'] = array(
 	'stabilization-tab' => '(Kwalitne zawěsćenje)',
 	'stabilization' => 'Stabilizacija strony',
@@ -497,6 +519,7 @@ $messages['hsb'] = array(
 	'stabilize_expiry_old' => 'Tutón čas spadnjenja je hižo zańdźeny.',
 	'stabilize-expiring' => 'spadnje $1 hodź. (UTC)',
 );
+
 $messages['hu'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Oldal elfogadása',
@@ -526,6 +549,7 @@ $messages['hu'] = array(
 	'stabilize_expiry_old' => 'A lejárati idő már elmúlt.',
 	'stabilize-expiring' => 'lejár $1-kor (UTC)',
 );
+
 $messages['id'] = array(
 	'stabilization-tab' => 'cek',
 	'stabilization' => 'Pengaturan versi stabil halaman',
@@ -558,14 +582,14 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
 );
+
 $messages['is'] = array(
 	'stabilization-page' => 'Titill síðu:',
 	'stabilization-submit' => 'Staðfesta',
 	'stabilization-comment' => 'Athugasemd:',
 	'stabilization-sel-short-0' => 'Gæði',
 );
-$messages['it'] = array(
-);
+
 $messages['ja'] = array(
 	'stabilization-tab' => '採択',
 	'stabilization' => 'ページの採択',
@@ -594,6 +618,7 @@ $messages['ja'] = array(
 	'stabilize_expiry_old' => '有効期限に指定された日時を過ぎています。',
 	'stabilize-expiring' => '有効期限: $1 (UTC)',
 );
+
 $messages['jut'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization-page' => 'Pægenavn:',
@@ -621,6 +646,7 @@ Ekke konfiguråsje er mågleg.',
 $messages['jv'] = array(
 	'stabilization-sel-short-0' => 'Kwalitas',
 );
+
 $messages['kk-arab'] = array(
 	'stabilization-tab' => '(سق)',
 	'stabilization' => 'بەتتى تىياناقتاۋ',
@@ -646,6 +672,7 @@ $messages['kk-arab'] = array(
 	'stabilization-def-short-0' => 'اعىمدىق',
 	'stabilization-def-short-1' => 'تىياناقتى',
 );
+
 $messages['kk-cyrl'] = array(
 	'stabilization-tab' => '(сқ)',
 	'stabilization' => 'Бетті тиянақтау',
@@ -671,6 +698,7 @@ $messages['kk-cyrl'] = array(
 	'stabilization-def-short-0' => 'Ағымдық',
 	'stabilization-def-short-1' => 'Тиянақты',
 );
+
 $messages['kk-latn'] = array(
 	'stabilization-tab' => '(sq)',
 	'stabilization' => 'Betti tïyanaqtaw',
@@ -696,6 +724,7 @@ $messages['kk-latn'] = array(
 	'stabilization-def-short-0' => 'Ağımdıq',
 	'stabilization-def-short-1' => 'Tïyanaqtı',
 );
+
 $messages['km'] = array(
 	'stabilization-page' => 'ឈ្មោះទំព័រ៖',
 	'stabilization-def2' => 'ការពិនិត្យឡើងវិញពេលបច្ចុប្បន្ន',
@@ -709,9 +738,11 @@ $messages['km'] = array(
 	'stabilize_expiry_invalid' => 'កាលបរិច្ឆេទផុតកំនត់មិនត្រឹមត្រូវ។',
 	'stabilize-expiring' => 'ផុតកំនត់ម៉ោង $1 (UTC)',
 );
+
 $messages['la'] = array(
 	'stabilization-page' => 'Nomen paginae:',
 );
+
 $messages['lb'] = array(
 	'stabilization-page' => 'Säitennumm:',
 	'stabilization-select' => 'Auswiel vun der stabiler Versioun',
@@ -723,6 +754,7 @@ $messages['lb'] = array(
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
 );
+
 $messages['li'] = array(
 	'stabilization-tab' => '(kb)',
 	'stabilization' => 'Paginastabilisatie',
@@ -752,6 +784,7 @@ Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilize_expiry_old' => 'Deze verloopdatum is al verstreke.',
 	'stabilize-expiring' => 'verloopt $1 (UTC)',
 );
+
 $messages['lt'] = array(
 	'stabilization-page' => 'Puslapio pavadinimas:',
 	'stabilization-submit' => 'Patvirtinti',
@@ -760,6 +793,7 @@ $messages['lt'] = array(
 	'stabilization-def-short' => 'Standartinis',
 	'stabilization-def-short-0' => 'Esamas',
 );
+
 $messages['ml'] = array(
 	'stabilization-tab' => 'സ്ഥിരത',
 	'stabilization' => 'താളിന്റെ സ്ഥിരീകരണം',
@@ -787,6 +821,7 @@ $messages['ml'] = array(
 	'stabilize_expiry_old' => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
 	'stabilize-expiring' => '$1 (UTC) നു കാലാവധി തീരുന്നു',
 );
+
 $messages['mr'] = array(
 	'stabilization-tab' => 'व्हेट',
 	'stabilization' => 'पान स्थिर करा',
@@ -822,9 +857,11 @@ $messages['mr'] = array(
 	'stabilize_expiry_old' => 'ही रद्दीकरण वेळ उलटून गेलेली आहे.',
 	'stabilize-expiring' => '$1 (UTC) ला रद्द होते',
 );
+
 $messages['myv'] = array(
 	'stabilization-page' => 'Лопань лем:',
 );
+
 $messages['nds'] = array(
 	'stabilization-page' => 'Siedennaam:',
 	'stabilization-comment' => 'Kommentar:',
@@ -832,6 +869,7 @@ $messages['nds'] = array(
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'Keen',
 );
+
 $messages['nl'] = array(
 	'stabilization-tab' => '(er)',
 	'stabilization' => 'Paginastabilisatie',
@@ -868,6 +906,7 @@ Instellen is niet mogelijk.',
 	'stabilize_expiry_old' => 'Deze verloopdatum is al verstreken.',
 	'stabilize-expiring' => 'verloopt $1 (UTC)',
 );
+
 $messages['nn'] = array(
 	'stabilization-page' => 'Sidenamn:',
 	'stabilization-submit' => 'Stadfest',
@@ -877,6 +916,7 @@ $messages['nn'] = array(
 	'stabilization-def-short-0' => 'Noverande',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
 );
+
 $messages['no'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization-page' => 'Sidenavn:',
@@ -891,10 +931,12 @@ $messages['no'] = array(
 	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
 );
+
 $messages['nso'] = array(
 	'stabilization-page' => 'Leina la letlakala:',
 	'stabilize-expiring' => 'fetatšatši $1 (UTC)',
 );
+
 $messages['oc'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilizacion de la pagina',
@@ -925,6 +967,7 @@ $messages['oc'] = array(
 	'stabilize_expiry_old' => 'Lo temps d\'expiracion ja es passat.',
 	'stabilize-expiring' => 'expira $1 (UTC)',
 );
+
 $messages['pl'] = array(
 	'stabilization-tab' => 'ocena',
 	'stabilization' => 'Stabilizacja strony',
@@ -952,6 +995,7 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilize_expiry_invalid' => 'Nieprawidłowa data zakończenia.',
 	'stabilize-expiring' => 'wygasa $1 (UTC)',
 );
+
 $messages['pms'] = array(
 	'stabilization-tab' => '(c.q.)',
 	'stabilization' => 'Stabilisassion dla pàgina',
@@ -975,12 +1019,14 @@ $messages['pms'] = array(
 	'stabilization-def-short-0' => 'version corenta',
 	'stabilization-def-short-1' => 'version stàbila',
 );
+
 $messages['ps'] = array(
 	'stabilization-page' => 'د مخ نوم:',
 	'stabilization-sel-short-1' => 'هېڅ',
 	'stabilization-def-short-0' => 'اوسنی',
 	'stabilize-expiring' => 'په $1 (UTC) پای ته رسېږي',
 );
+
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Configurações da Garantia de Qualidade',
@@ -1016,6 +1062,7 @@ Não é possível configurá-la.',
 	'stabilize_expiry_old' => 'Este tempo de expiração já se encerrou.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
 );
+
 $messages['ru'] = array(
 	'stabilization-tab' => '(кк)',
 	'stabilization' => 'Стабилизация страницы',
@@ -1047,6 +1094,7 @@ $messages['ru'] = array(
 	'stabilize_expiry_old' => 'Указанное время окончания действия уже прошло.',
 	'stabilize-expiring' => 'истекает $1 (UTC)',
 );
+
 $messages['sah'] = array(
 	'stabilization-tab' => '(хх)',
 	'stabilization' => 'Сирэй стабилизацията',
@@ -1076,6 +1124,7 @@ $messages['sah'] = array(
 	'stabilize_expiry_old' => 'Болдьох этиллибит кэмэ номнуо ааспыт.',
 	'stabilize-expiring' => 'Болдьоҕо бүтэр: $1 (UTC)',
 );
+
 $messages['sk'] = array(
 	'stabilization-tab' => '(kk)',
 	'stabilization' => 'Stabilizácia stránky',
@@ -1106,6 +1155,7 @@ $messages['sk'] = array(
 	'stabilize_expiry_old' => 'Čas vypršania už prešiel.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
 );
+
 $messages['sr-ec'] = array(
 	'stabilization-page' => 'Име странице:',
 	'stabilization-submit' => 'Прихвати',
@@ -1116,6 +1166,7 @@ $messages['sr-ec'] = array(
 	'stabilization-def-short-0' => 'Тренутно',
 	'stabilization-def-short-1' => 'Стабилно',
 );
+
 $messages['stq'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Sieden-Stabilität',
@@ -1144,6 +1195,7 @@ $messages['stq'] = array(
 	'stabilize_expiry_old' => 'Dät Ouloopdoatum is al foarbie.',
 	'stabilize-expiring' => 'lapt ou $1 (UTC)',
 );
+
 $messages['su'] = array(
 	'stabilization' => 'Stabilisasi halaman',
 	'stabilization-text' => '\'\'\'Robah setélan di handap pikeun nangtukeun cara milih jeung némbongkeun vérsi stabil [[:$1|$1]].\'\'\'',
@@ -1166,6 +1218,7 @@ KOnfigurasi teu bisa dilarapkeun.',
 	'stabilize_expiry_old' => 'Titimangsa kadaluwarsa geus kaliwat.',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
 );
+
 $messages['sv'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidstabilisering',
@@ -1197,10 +1250,12 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilize_expiry_old' => 'Varaktigheten har redan löpt ut.',
 	'stabilize-expiring' => 'upphör den $1 (UTC)',
 );
+
 $messages['szl'] = array(
 	'stabilization-expiry' => 'Wygaso:',
 	'stabilization-def-short' => 'Důmyślna',
 );
+
 $messages['te'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'పేజీ స్ధిరీకరణ',
@@ -1229,9 +1284,11 @@ $messages['te'] = array(
 	'stabilize_expiry_old' => 'ఈ కాలం ఎప్పుడో చెల్లిపోయింది.',
 	'stabilize-expiring' => '$1 (UTC) నాడు కాలం చెల్లుతుంది',
 );
+
 $messages['tet'] = array(
 	'stabilization-page' => 'Naran pájina nian:',
 );
+
 $messages['tg-cyrl'] = array(
 	'stabilization-tab' => 'санҷиш',
 	'stabilization' => 'Пойдорсозии саҳифаҳо',
@@ -1260,6 +1317,7 @@ $messages['tg-cyrl'] = array(
 	'stabilize_expiry_old' => 'Таърихи интиҳо аллакай сипарӣ шудааст.',
 	'stabilize-expiring' => 'Дар $1 (UTC) ба интиҳо мерасад',
 );
+
 $messages['tr'] = array(
 	'stabilization-page' => 'Sayfa adı:',
 	'stabilization-submit' => 'Tespit et',
@@ -1270,8 +1328,7 @@ $messages['tr'] = array(
 	'stabilization-sel-short-1' => 'Hiç',
 	'stabilization-def-short-1' => 'Sabit',
 );
-$messages['uk'] = array(
-);
+
 $messages['vec'] = array(
 	'stabilization-tab' => 'c. q.',
 	'stabilization' => 'Stabilizassion de pagina',
@@ -1307,6 +1364,7 @@ No se pode canbiar le inpostassion.',
 	'stabilize_expiry_old' => 'Sta scadensa la xe zà passà.',
 	'stabilize-expiring' => 'scadensa $1 (UTC)',
 );
+
 $messages['vi'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Ổn định trang',
@@ -1342,6 +1400,7 @@ Không thể cấu hình.',
 	'stabilize_expiry_old' => 'Thời hạn đã qua.',
 	'stabilize-expiring' => 'hết hạn vào $1 (UTC)',
 );
+
 $messages['vo'] = array(
 	'stabilization-tab' => '(ka)',
 	'stabilization' => 'Fümöfükam pada',
@@ -1363,10 +1422,7 @@ $messages['vo'] = array(
 	'stabilization-def-short-0' => 'Anuik',
 	'stabilization-def-short-1' => 'Fümöfik',
 );
-$messages['yue'] = array(
-);
-$messages['zh-hans'] = array(
-);
+
 $messages['zh-hant'] = array(
 	'stabilization-tab' => '調查',
 );

@@ -1,5 +1,12 @@
 <?php
+/**
+ * Internationalisation file for FlaggedRevs extension, section StablePages
+ *
+ * @addtogroup Extensions
+ */
+
 $messages = array();
+
 $messages['en'] = array(
 	'stablepages' => 'Stable pages',
 	'stablepages-stable' => 'stable version',
@@ -7,10 +14,7 @@ $messages['en'] = array(
 	'stablepages-none' => 'There are no pages in this list',
 	'stablepages-config' => 'Configuration',
 );
-$messages['af'] = array(
-);
-$messages['an'] = array(
-);
+
 $messages['ar'] = array(
 	'stablepages' => 'صفحات مستقرة',
 	'stablepages-stable' => 'نسخة مستقرة',
@@ -18,27 +22,18 @@ $messages['ar'] = array(
 	'stablepages-none' => 'لا توجد صفحات في هذه القائمة',
 	'stablepages-config' => 'إعدادات',
 );
-$messages['ast'] = array(
-);
-$messages['bcl'] = array(
-);
+
 $messages['bg'] = array(
 	'stablepages-none' => 'Списъкът не съдържа страници',
 	'stablepages-config' => 'Конфигурация',
 );
-$messages['bn'] = array(
-);
-$messages['br'] = array(
-);
-$messages['ca'] = array(
-);
+
 $messages['cs'] = array(
 	'stablepages' => 'Stabilní stránky',
 	'stablepages-stable' => 'stabilní verze',
 	'stablepages-config' => 'Konfigurace',
 );
-$messages['da'] = array(
-);
+
 $messages['de'] = array(
 	'stablepages' => 'Markierte Seiten',
 	'stablepages-stable' => 'markierte Version',
@@ -46,18 +41,14 @@ $messages['de'] = array(
 	'stablepages-none' => 'Diese Liste ist leer.',
 	'stablepages-config' => 'Konfiguration',
 );
-$messages['el'] = array(
-);
+
 $messages['eo'] = array(
 	'stablepages' => 'Stabilaj paĝoj',
 	'stablepages-stable' => 'stabila versio',
 	'stablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'stablepages-config' => 'Konfiguro',
 );
-$messages['et'] = array(
-);
-$messages['ext'] = array(
-);
+
 $messages['fa'] = array(
 	'stablepages' => 'صفحه‌های پایدار',
 	'stablepages-stable' => 'نسخهٔ پایدار',
@@ -65,8 +56,7 @@ $messages['fa'] = array(
 	'stablepages-none' => 'هیچ صفحه‌ای در این فهرست وجود ندارد',
 	'stablepages-config' => 'تنظیمات',
 );
-$messages['fi'] = array(
-);
+
 $messages['fr'] = array(
 	'stablepages' => 'Pages stables',
 	'stablepages-stable' => 'version stable',
@@ -74,13 +64,13 @@ $messages['fr'] = array(
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
 );
-$messages['frp'] = array(
-);
+
 $messages['gl'] = array(
 	'stablepages' => 'Páxinas estábeis',
 	'stablepages-stable' => 'versión estábel',
 	'stablepages-config' => 'Configuración',
 );
+
 $messages['hi'] = array(
 	'stablepages' => 'स्थिर पन्ने',
 	'stablepages-stable' => 'स्थिर अवतरण',
@@ -88,12 +78,7 @@ $messages['hi'] = array(
 	'stablepages-none' => 'इस सूची में पन्ने नहीं हैं',
 	'stablepages-config' => 'कॉन्फिगरेशन',
 );
-$messages['hr'] = array(
-);
-$messages['hsb'] = array(
-);
-$messages['hu'] = array(
-);
+
 $messages['id'] = array(
 	'stablepages' => 'Halaman stabil',
 	'stablepages-stable' => 'versi stabil',
@@ -101,37 +86,18 @@ $messages['id'] = array(
 	'stablepages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'stablepages-config' => 'Konfigurasi',
 );
-$messages['is'] = array(
-);
-$messages['it'] = array(
-);
-$messages['ja'] = array(
-);
-$messages['jut'] = array(
-);
-$messages['jv'] = array(
-);
-$messages['kk-arab'] = array(
-);
-$messages['kk-cyrl'] = array(
-);
-$messages['kk-latn'] = array(
-);
+
 $messages['km'] = array(
 	'stablepages-none' => 'មិនមានទំព័រណាមួយក្នុងបញ្ជីនេះទេ',
 );
-$messages['la'] = array(
-);
+
 $messages['lb'] = array(
 	'stablepages' => 'Stabil Säiten',
 	'stablepages-stable' => 'stabil Versioun',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
 );
-$messages['li'] = array(
-);
-$messages['lt'] = array(
-);
+
 $messages['ml'] = array(
 	'stablepages' => 'സ്ഥിരതയുള്ള താളുകള്‍',
 	'stablepages-stable' => 'സ്ഥിരതയുള്ള പതിപ്പ്',
@@ -139,6 +105,7 @@ $messages['ml'] = array(
 	'stablepages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'stablepages-config' => 'ക്രമീകരണം',
 );
+
 $messages['mr'] = array(
 	'stablepages' => 'स्थिर पाने',
 	'stablepages-stable' => 'स्थिर आवृत्ती',
@@ -146,10 +113,7 @@ $messages['mr'] = array(
 	'stablepages-none' => 'या यादीत पाने नाहीत',
 	'stablepages-config' => 'कॉन्फिगरेशन',
 );
-$messages['myv'] = array(
-);
-$messages['nds'] = array(
-);
+
 $messages['nl'] = array(
 	'stablepages' => 'Stabiele pagina\'s',
 	'stablepages-stable' => 'stabiele versie',
@@ -157,16 +121,14 @@ $messages['nl'] = array(
 	'stablepages-none' => 'Er zijn geen pagina\'s die aan de criteria voldoen',
 	'stablepages-config' => 'Instellingen',
 );
-$messages['nn'] = array(
-);
+
 $messages['no'] = array(
 	'stablepages' => 'Stabile sider',
 	'stablepages-stable' => 'stabil versjon',
 	'stablepages-none' => 'Det er ingen sider i denne listen',
 	'stablepages-config' => 'Konfigurering',
 );
-$messages['nso'] = array(
-);
+
 $messages['oc'] = array(
 	'stablepages' => 'Paginas establas',
 	'stablepages-stable' => 'version establa',
@@ -174,16 +136,14 @@ $messages['oc'] = array(
 	'stablepages-none' => 'Existís pas cap de pagina dins aquesta lista',
 	'stablepages-config' => 'Configuracion',
 );
+
 $messages['pl'] = array(
 	'stablepages' => 'Strony dopracowane',
 	'stablepages-stable' => 'wersja dopracowana',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );
-$messages['pms'] = array(
-);
-$messages['ps'] = array(
-);
+
 $messages['pt'] = array(
 	'stablepages' => 'Páginas estáveis',
 	'stablepages-stable' => 'edição estável',
@@ -191,6 +151,7 @@ $messages['pt'] = array(
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
 );
+
 $messages['ru'] = array(
 	'stablepages' => 'Стабильные страницы',
 	'stablepages-stable' => 'стабильная версия',
@@ -198,8 +159,7 @@ $messages['ru'] = array(
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'Настройка',
 );
-$messages['sah'] = array(
-);
+
 $messages['sk'] = array(
 	'stablepages' => 'Stabilné stránky',
 	'stablepages-stable' => 'stabilná verzia',
@@ -207,12 +167,7 @@ $messages['sk'] = array(
 	'stablepages-none' => 'Tento zoznam neobsahuje žiadne stránky.',
 	'stablepages-config' => 'Nastavenie',
 );
-$messages['sr-ec'] = array(
-);
-$messages['stq'] = array(
-);
-$messages['su'] = array(
-);
+
 $messages['sv'] = array(
 	'stablepages' => 'Stabila sidor',
 	'stablepages-stable' => 'stabil version',
@@ -220,21 +175,13 @@ $messages['sv'] = array(
 	'stablepages-none' => 'Det finns inga sidor i denna lista',
 	'stablepages-config' => 'Konfigurering',
 );
-$messages['szl'] = array(
-);
+
 $messages['te'] = array(
 	'stablepages' => 'స్థిరమైన పేజీలు',
 	'stablepages-none' => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'stablepages-config' => 'స్వరూపణం',
 );
-$messages['tet'] = array(
-);
-$messages['tg-cyrl'] = array(
-);
-$messages['tr'] = array(
-);
-$messages['uk'] = array(
-);
+
 $messages['vec'] = array(
 	'stablepages' => 'Pagine stabili',
 	'stablepages-stable' => 'version stabile',
@@ -242,18 +189,11 @@ $messages['vec'] = array(
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
 );
+
 $messages['vi'] = array(
 	'stablepages' => 'Trang ổn định',
 	'stablepages-stable' => 'bản ổn định',
 	'stablepages-text' => 'Dưới đây là danh sách các trang được cấu hình bằng tay để hiển thị bản ổn định làm nội dung trang mặc định đối với người xem.',
 	'stablepages-none' => 'Không có trang nào trong danh sách',
 	'stablepages-config' => 'Cấu hình',
-);
-$messages['vo'] = array(
-);
-$messages['yue'] = array(
-);
-$messages['zh-hans'] = array(
-);
-$messages['zh-hant'] = array(
 );

@@ -1,5 +1,12 @@
 <?php
+/**
+ * Internationalisation file for FlaggedRevs extension, section FlaggedRevsAliases
+ *
+ * @addtogroup Extensions
+ */
+
 $messages = array();
+
 $messages['en'] = array(
 	'qualityoversight-alias' => 'QualityOversight',
 	'depreciationoversight-alias' => 'DepreciationOversight',
@@ -9,6 +16,7 @@ $messages['en'] = array(
 	'stablepages-alias' => 'StablePages',
 	'stableversions-alias' => 'StableVersions',
 );
+
 $messages['ar'] = array(
 	'qualityoversight-alias' => 'نظر الجودة',
 	'unreviewedpages-alias' => 'صفحات غير مراجعة',
@@ -17,6 +25,7 @@ $messages['ar'] = array(
 	'stablepages-alias' => 'صفحات مستقرة',
 	'stableversions-alias' => 'نسخ مستقرة',
 );
+
 $messages['de'] = array(
 	'qualityoversight-alias' => 'Geprüfte_Seiten',
 	'depreciationoversight-alias' => 'Zurückgezogene_Markierungen',
@@ -26,9 +35,11 @@ $messages['de'] = array(
 	'stablepages-alias' => 'Markierte_Seiten',
 	'stableversions-alias' => 'Markierte_Versionen',
 );
+
 $messages['eo'] = array(
 	'stablepages-alias' => 'StabilajPaĝoj',
 );
+
 $messages['fa'] = array(
 	'qualityoversight-alias' => 'ناظرکیفیت',
 	'depreciationoversight-alias' => 'ناظراستهلاک',
@@ -38,6 +49,7 @@ $messages['fa'] = array(
 	'stablepages-alias' => 'صفحه‌های‌پایدار',
 	'stableversions-alias' => 'نسخه‌های‌پایدار',
 );
+
 $messages['fr'] = array(
 	'qualityoversight-alias' => 'QualitéSuperviseur',
 	'depreciationoversight-alias' => 'DépréciéSuperviseur',
@@ -47,6 +59,7 @@ $messages['fr'] = array(
 	'stablepages-alias' => 'PagesStables',
 	'stableversions-alias' => 'VersionsStables',
 );
+
 $messages['hi'] = array(
 	'qualityoversight-alias' => 'गुणवत्ताओव्हरसाईट',
 	'depreciationoversight-alias' => 'डिप्रिसियेशनओव्हरसाईट',
@@ -56,6 +69,7 @@ $messages['hi'] = array(
 	'stablepages-alias' => 'स्थिरपन्ने',
 	'stableversions-alias' => 'स्थिरअवतरण',
 );
+
 $messages['id'] = array(
 	'qualityoversight-alias' => 'PemeriksaanKualitas',
 	'depreciationoversight-alias' => 'PemeriksaanPenurunanPeringkat',
@@ -65,6 +79,7 @@ $messages['id'] = array(
 	'stablepages-alias' => 'HalamanStabil',
 	'stableversions-alias' => 'VersiStabil',
 );
+
 $messages['mr'] = array(
 	'qualityoversight-alias' => 'गुणवत्ताओव्हरसाईट',
 	'depreciationoversight-alias' => 'डिप्रिसियेशनओव्हरसाईट',
@@ -74,6 +89,7 @@ $messages['mr'] = array(
 	'stablepages-alias' => 'स्थिरपाने',
 	'stableversions-alias' => 'स्थिरआवृत्त्या',
 );
+
 $messages['nl'] = array(
 	'qualityoversight-alias' => 'KwaliteitsControle',
 	'depreciationoversight-alias' => 'ControleBeoordelingsverlagingen',
@@ -83,6 +99,7 @@ $messages['nl'] = array(
 	'stablepages-alias' => 'StabielePaginas',
 	'stableversions-alias' => 'StabieleVersies',
 );
+
 $messages['oc'] = array(
 	'qualityoversight-alias' => 'QualitatSupervisor',
 	'depreciationoversight-alias' => 'DepreciatSupervisor',
@@ -92,6 +109,7 @@ $messages['oc'] = array(
 	'stablepages-alias' => 'PaginasEstablas',
 	'stableversions-alias' => 'VersionsEstablas',
 );
+
 $messages['pt'] = array(
 	'qualityoversight-alias' => 'Observatório_da_qualidade',
 	'depreciationoversight-alias' => 'Observatório_do_desdém',
@@ -100,6 +118,7 @@ $messages['pt'] = array(
 	'stablepages-alias' => 'Páginas_estáveis',
 	'stableversions-alias' => 'Edições_estáveis',
 );
+
 $messages['ru'] = array(
 	'qualityoversight-alias' => 'РевизорКачества',
 	'depreciationoversight-alias' => 'РевизорСнятий',
@@ -109,6 +128,7 @@ $messages['ru'] = array(
 	'stablepages-alias' => 'стабильныестраницы',
 	'stableversions-alias' => 'СтабильныеВерсии',
 );
+
 $messages['sk'] = array(
 	'qualityoversight-alias' => 'DohľadNadKvalitou',
 	'depreciationoversight-alias' => 'DohľadNadZnehodnotením',
@@ -118,6 +138,7 @@ $messages['sk'] = array(
 	'stablepages-alias' => 'StabilnéStránky',
 	'stableversions-alias' => 'StabilnéVerzie',
 );
+
 $messages['sv'] = array(
 	'qualityoversight-alias' => 'Kvalitetsöversikt',
 	'depreciationoversight-alias' => 'Avskrivningsöversikt',
@@ -127,6 +148,7 @@ $messages['sv'] = array(
 	'stablepages-alias' => 'StabilaSidor',
 	'stableversions-alias' => 'StabilaVersioner',
 );
+
 $messages['vec'] = array(
 	'qualityoversight-alias' => 'ControloQualità',
 	'unreviewedpages-alias' => 'PagineNonRiesaminà',
@@ -134,6 +156,7 @@ $messages['vec'] = array(
 	'stablepages-alias' => 'PagineStabili',
 	'stableversions-alias' => 'VersionStabili',
 );
+
 $messages['vi'] = array(
 	'qualityoversight-alias' => 'Giám sát chất lượng',
 	'depreciationoversight-alias' => 'Giám sát sự sụt giảm',
@@ -143,32 +166,7 @@ $messages['vi'] = array(
 	'stablepages-alias' => 'Trang ổn định',
 	'stableversions-alias' => 'Bản ổn định',
 );
-$messages['af'] = array(
-);
-$messages['ast'] = array(
-);
-$messages['bcl'] = array(
-);
-$messages['bg'] = array(
-);
-$messages['bn'] = array(
-);
-$messages['br'] = array(
-);
-$messages['ca'] = array(
-);
-$messages['cs'] = array(
-);
-$messages['da'] = array(
-);
-$messages['el'] = array(
-);
-$messages['ext'] = array(
-);
-$messages['fi'] = array(
-);
-$messages['frp'] = array(
-);
+
 $messages['gl'] = array(
 	'unreviewedpages-alias' => 'Páxinas non revisadas',
 	'oldreviewedpages-alias' => 'Páxinas revisadas hai tempo',
@@ -176,85 +174,13 @@ $messages['gl'] = array(
 	'stablepages-alias' => 'Páxinas estábeis',
 	'stableversions-alias' => 'Versións estábeis',
 );
-$messages['hr'] = array(
-);
-$messages['hsb'] = array(
-);
-$messages['hu'] = array(
-);
-$messages['is'] = array(
-);
-$messages['ja'] = array(
-);
-$messages['jut'] = array(
-);
-$messages['jv'] = array(
-);
-$messages['kk-arab'] = array(
-);
-$messages['kk-cyrl'] = array(
-);
-$messages['kk-latn'] = array(
-);
-$messages['km'] = array(
-);
-$messages['la'] = array(
-);
+
 $messages['lb'] = array(
 	'stablepages-alias' => 'Stabil Säiten',
 	'stableversions-alias' => 'Stabil Versiounen',
 );
-$messages['li'] = array(
-);
-$messages['lt'] = array(
-);
-$messages['ml'] = array(
-);
-$messages['myv'] = array(
-);
-$messages['nds'] = array(
-);
-$messages['nn'] = array(
-);
-$messages['no'] = array(
-);
-$messages['nso'] = array(
-);
+
 $messages['pl'] = array(
 	'stablepages-alias' => 'Strony dopracowane',
 	'stableversions-alias' => 'Wersje dopracowane',
-);
-$messages['pms'] = array(
-);
-$messages['ps'] = array(
-);
-$messages['sah'] = array(
-);
-$messages['sr-ec'] = array(
-);
-$messages['stq'] = array(
-);
-$messages['su'] = array(
-);
-$messages['te'] = array(
-);
-$messages['tet'] = array(
-);
-$messages['tg-cyrl'] = array(
-);
-$messages['tr'] = array(
-);
-$messages['vo'] = array(
-);
-$messages['yue'] = array(
-);
-$messages['zh-hans'] = array(
-);
-$messages['zh-hant'] = array(
-);
-$messages['an'] = array(
-);
-$messages['uk'] = array(
-);
-$messages['szl'] = array(
 );

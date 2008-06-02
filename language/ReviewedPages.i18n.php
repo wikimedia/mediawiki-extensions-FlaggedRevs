@@ -1,5 +1,12 @@
 <?php
+/**
+ * Internationalisation file for FlaggedRevs extension, section ReviewedPages
+ *
+ * @addtogroup Extensions
+ */
+
 $messages = array();
+
 $messages['en'] = array(
 	'right-unreviewedpages' => 'View list of unreviewed pages',
 	'unreviewedpages' => 'Unreviewed pages',
@@ -22,10 +29,7 @@ $messages['en'] = array(
 	'reviewedpages-all' => 'reviewed versions',
 	'reviewedpages-best' => 'prime revision',
 );
-$messages['af'] = array(
-);
-$messages['an'] = array(
-);
+
 $messages['ar'] = array(
 	'right-unreviewedpages' => 'رؤية قائمة الصفحات غير المراجعة',
 	'unreviewedpages' => 'صفحات غير مراجعة',
@@ -48,6 +52,7 @@ $messages['ar'] = array(
 	'reviewedpages-all' => 'نسخ مراجعة',
 	'reviewedpages-best' => 'نسخة فائقة',
 );
+
 $messages['ast'] = array(
 	'unreviewedpages' => 'Páxines non revisaes',
 	'reviewedpages' => 'Páxines revisaes',
@@ -60,8 +65,7 @@ $messages['ast'] = array(
 	'reviewedpages-all' => 'versiones revisaes',
 	'reviewedpages-best' => 'cabera revisión meyor calificada',
 );
-$messages['bcl'] = array(
-);
+
 $messages['bg'] = array(
 	'unreviewedpages' => 'Нерецензирани страници',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
@@ -77,11 +81,13 @@ $messages['bg'] = array(
 	'reviewedpages-all' => 'рецензирани версии',
 	'reviewedpages-best' => 'последната най-високо оценена версия',
 );
+
 $messages['bn'] = array(
 	'reviewedpages' => 'সংশোধিত পাতাসমূহ',
 	'reviewedpages-none' => 'তালিকায় কোন পাতা নাই',
 	'reviewedpages-all' => 'সংশোধিত সংস্করণসমূহ',
 );
+
 $messages['br'] = array(
 	'unreviewedpages' => 'Pajennoù n\'int ket bet adwelet',
 	'reviewedpages' => 'Pajennoù adwelet',
@@ -90,10 +96,12 @@ $messages['br'] = array(
 	'reviewedpages-all' => 'stummoù adwelet',
 	'reviewedpages-best' => 'adweladenn bennañ',
 );
+
 $messages['ca'] = array(
 	'right-unreviewedpages' => 'Vegeu la llista de pàgines no revisades',
 	'unreviewedpages' => 'Pàgines per revisar',
 );
+
 $messages['cs'] = array(
 	'unreviewedpages' => 'Neposouzené stránky',
 	'oldreviewedpages-quality' => 'kvalita',
@@ -108,8 +116,7 @@ $messages['cs'] = array(
 	'reviewedpages-all' => 'posouzené verze',
 	'reviewedpages-best' => 'nejlepší verze',
 );
-$messages['da'] = array(
-);
+
 $messages['de'] = array(
 	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
 	'unreviewedpages' => 'Unmarkierte Artikel',
@@ -132,6 +139,7 @@ $messages['de'] = array(
 	'reviewedpages-all' => 'markierte Versionen',
 	'reviewedpages-best' => 'letzte am höchsten bewertete Version',
 );
+
 $messages['el'] = array(
 	'reviewedpages' => 'Επιθεωρημένες σελίδες',
 	'reviewedpages-leg' => 'Λίστα σελίδων που έχουν αναθεωρηθεί σε ένα συγκεκριμένο επίπεδο',
@@ -139,6 +147,7 @@ $messages['el'] = array(
 	'reviewedpages-lev-1' => 'Ποιότητα',
 	'reviewedpages-all' => 'αναθεωρημένες εκδόσεις',
 );
+
 $messages['eo'] = array(
 	'right-unreviewedpages' => 'Rigardi liston de nekontrolitaj  paĝoj',
 	'unreviewedpages' => 'Nekontrolitaj paĝoj',
@@ -158,10 +167,7 @@ $messages['eo'] = array(
 	'reviewedpages-all' => 'kontrolitaj versioj',
 	'reviewedpages-best' => 'ĉefa revizio',
 );
-$messages['et'] = array(
-);
-$messages['ext'] = array(
-);
+
 $messages['fa'] = array(
 	'right-unreviewedpages' => 'مشاهدهٔ فهرست صفحه‌های بازبینی نشده',
 	'unreviewedpages' => 'صفحه‌های بررسی نشده',
@@ -184,6 +190,7 @@ $messages['fa'] = array(
 	'reviewedpages-all' => 'نسخه‌های بررسی شده',
 	'reviewedpages-best' => 'آخرین نسخه با بالاترین نمره',
 );
+
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'reviewedpages' => 'Arvioidut sivut',
@@ -191,6 +198,7 @@ $messages['fi'] = array(
 	'reviewedpages-lev-0' => 'Kertaalleen silmäilty',
 	'reviewedpages-lev-2' => 'Suositeltu',
 );
+
 $messages['fr'] = array(
 	'right-unreviewedpages' => 'Voir la liste des pages non revues',
 	'unreviewedpages' => 'Pages non revues',
@@ -213,6 +221,7 @@ $messages['fr'] = array(
 	'reviewedpages-all' => 'versions passées en revue',
 	'reviewedpages-best' => 'Révision principale',
 );
+
 $messages['frp'] = array(
 	'unreviewedpages' => 'Pâges pas revues',
 	'reviewedpages' => 'Pâges passâs en revua',
@@ -225,6 +234,7 @@ $messages['frp'] = array(
 	'reviewedpages-all' => 'vèrsions passâs en revua',
 	'reviewedpages-best' => 'Dèrriére vèrsion la ples notâ',
 );
+
 $messages['gl'] = array(
 	'right-unreviewedpages' => 'Ver a listaxe das páxinas non revisadas.',
 	'unreviewedpages' => 'Páxinas sen revisar',
@@ -240,6 +250,7 @@ $messages['gl'] = array(
 	'reviewedpages-lev-2' => 'Destacado',
 	'reviewedpages-all' => 'Versións revisadas',
 );
+
 $messages['hi'] = array(
 	'right-unreviewedpages' => 'न देखें हुए पन्नोंकी सूची देखें',
 	'unreviewedpages' => 'परिक्षण ना हुए पन्ने',
@@ -262,6 +273,7 @@ $messages['hi'] = array(
 	'reviewedpages-all' => 'परिक्षण हुए अवतरण',
 	'reviewedpages-best' => 'मूल अवतरण',
 );
+
 $messages['hr'] = array(
 	'unreviewedpages' => 'Neocijenjene stranice',
 	'reviewedpages' => 'Ocijenjene stranice',
@@ -274,6 +286,7 @@ $messages['hr'] = array(
 	'reviewedpages-all' => 'ocjenjene verzije',
 	'reviewedpages-best' => 'posljednja najviše ocijenjena inačica',
 );
+
 $messages['hsb'] = array(
 	'unreviewedpages' => 'Njepruwowane nastawki',
 	'reviewedpages' => 'Pruwowane strony',
@@ -286,6 +299,7 @@ $messages['hsb'] = array(
 	'reviewedpages-all' => 'přepruwowane wersije',
 	'reviewedpages-best' => 'Najlěpša wersija',
 );
+
 $messages['hu'] = array(
 	'unreviewedpages' => 'Ellenőrizetlen lapok',
 	'reviewedpages' => 'Ellenőrzött lapok',
@@ -298,6 +312,7 @@ $messages['hu'] = array(
 	'reviewedpages-all' => 'Ellenőrzött változatok',
 	'reviewedpages-best' => 'legutóbbi legjobb változat',
 );
+
 $messages['id'] = array(
 	'right-unreviewedpages' => 'Tampilkan daftar halaman yang belum ditinjau',
 	'unreviewedpages' => 'Halaman yang belum ditinjau',
@@ -320,11 +335,11 @@ $messages['id'] = array(
 	'reviewedpages-all' => 'versi tertinjau',
 	'reviewedpages-best' => 'revisi berperingkat tertinggi terakhir',
 );
+
 $messages['is'] = array(
 	'reviewedpages-lev-1' => 'Gæði',
 );
-$messages['it'] = array(
-);
+
 $messages['ja'] = array(
 	'unreviewedpages' => '査読待ちのページ',
 	'reviewedpages' => '査読済のページ',
@@ -337,6 +352,7 @@ $messages['ja'] = array(
 	'reviewedpages-all' => '全査読済版',
 	'reviewedpages-best' => '最新の最高評価版',
 );
+
 $messages['jut'] = array(
 	'reviewedpages' => 'Sæn pæger',
 	'reviewedpages-leg' => 'Liste pæger sæn til æ ståndvast nivå',
@@ -348,8 +364,7 @@ $messages['jut'] = array(
 	'reviewedpages-all' => 'sæn versje',
 	'reviewedpages-best' => 'erste versje',
 );
-$messages['jv'] = array(
-);
+
 $messages['kk-arab'] = array(
 	'unreviewedpages' => 'سىن بەرىلمەگەن بەتتەر',
 	'reviewedpages' => 'سىن بەرىلگەن بەتتەر',
@@ -362,6 +377,7 @@ $messages['kk-arab'] = array(
 	'reviewedpages-all' => 'سىن بەرىلگەن نۇسقالارى',
 	'reviewedpages-best' => 'ەڭ سوڭعى ەڭ جوعارى دەڭگەي بەرىلگەن نۇسقاسى',
 );
+
 $messages['kk-cyrl'] = array(
 	'unreviewedpages' => 'Сын берілмеген беттер',
 	'reviewedpages' => 'Сын берілген беттер',
@@ -374,6 +390,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedpages-all' => 'сын берілген нұсқалары',
 	'reviewedpages-best' => 'ең соңғы ең жоғары деңгей берілген нұсқасы',
 );
+
 $messages['kk-latn'] = array(
 	'unreviewedpages' => 'Sın berilmegen better',
 	'reviewedpages' => 'Sın berilgen better',
@@ -386,13 +403,13 @@ $messages['kk-latn'] = array(
 	'reviewedpages-all' => 'sın berilgen nusqaları',
 	'reviewedpages-best' => 'eñ soñğı eñ joğarı deñgeý berilgen nusqası',
 );
+
 $messages['km'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ម៉ោង|ម៉ោង}})',
 	'reviewedpages-none' => 'មិនមានទំព័រណាមួយក្នុងបញ្ជីនេះទេ',
 	'reviewedpages-lev-1' => 'គុណភាព',
 );
-$messages['la'] = array(
-);
+
 $messages['lb'] = array(
 	'right-unreviewedpages' => 'Lëscht vun den net iwwerkuckte Säite weisen',
 	'unreviewedpages' => 'Säit déi net nogekuckt ass',
@@ -408,6 +425,7 @@ $messages['lb'] = array(
 	'reviewedpages-lev-1' => 'Qualitéit',
 	'reviewedpages-lev-2' => 'Exzellent',
 );
+
 $messages['li'] = array(
 	'unreviewedpages' => 'Ónbekeke pazjena\'s',
 	'reviewedpages' => 'Beoordeilde pagina\'s',
@@ -420,8 +438,7 @@ $messages['li'] = array(
 	'reviewedpages-all' => 'beoordeilde versies',
 	'reviewedpages-best' => 'beste versie',
 );
-$messages['lt'] = array(
-);
+
 $messages['ml'] = array(
 	'right-unreviewedpages' => 'സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക കാണുക',
 	'unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകള്‍',
@@ -442,6 +459,7 @@ $messages['ml'] = array(
 	'reviewedpages-all' => 'സംശോധനം ചെയ്ത പതിപ്പുകള്‍',
 	'reviewedpages-best' => 'മുഖ്യ പതിപ്പ്',
 );
+
 $messages['mr'] = array(
 	'right-unreviewedpages' => 'न तपासलेल्या पानांची यादी पहा',
 	'unreviewedpages' => 'न तपासलेली पाने',
@@ -464,13 +482,13 @@ $messages['mr'] = array(
 	'reviewedpages-all' => 'तपासलेल्या आवृत्त्या',
 	'reviewedpages-best' => 'मूळ आवृत्ती',
 );
-$messages['myv'] = array(
-);
+
 $messages['nds'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stünn|Stünnen}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Daag}})',
 	'oldreviewedpages-recent' => '(weniger as een Stünn)',
 );
+
 $messages['nl'] = array(
 	'right-unreviewedpages' => 'Een lijst van pagina\'s zonder eindredactie bekijken',
 	'unreviewedpages' => 'Pagina\'s zonder eindredactie',
@@ -493,16 +511,17 @@ $messages['nl'] = array(
 	'reviewedpages-all' => 'versies met eindredactie',
 	'reviewedpages-best' => 'beste versie',
 );
-$messages['nn'] = array(
-);
+
 $messages['no'] = array(
 	'right-unreviewedpages' => 'Vise liste over uanmeldte sider',
 	'reviewedpages-none' => 'Det er ingen sider i denne listen',
 	'reviewedpages-best' => 'primærversjon',
 );
+
 $messages['nso'] = array(
 	'reviewedpages-none' => 'Gago matlakala go lenano le',
 );
+
 $messages['oc'] = array(
 	'right-unreviewedpages' => 'Veire la lista de las paginas pas revistas',
 	'unreviewedpages' => 'Listar las paginas pas revisadas',
@@ -525,6 +544,7 @@ $messages['oc'] = array(
 	'reviewedpages-all' => 'versions passadas en revista',
 	'reviewedpages-best' => 'Revision principala',
 );
+
 $messages['pl'] = array(
 	'unreviewedpages' => 'Strony bez oceny',
 	'oldreviewedpages-quality' => 'jakość',
@@ -536,12 +556,15 @@ $messages['pl'] = array(
 	'reviewedpages-all' => 'ocenione wersje',
 	'reviewedpages-best' => 'wersja najlepsza',
 );
+
 $messages['pms'] = array(
 	'unreviewedpages' => 'Pàgine dësrevisionà',
 );
+
 $messages['ps'] = array(
 	'reviewedpages-none' => 'په همدې لړليک کې هېڅ کوم مخ نشته',
 );
+
 $messages['pt'] = array(
 	'right-unreviewedpages' => 'Ver uma lista de páginas não verificadas',
 	'unreviewedpages' => 'Páginas a analisar',
@@ -564,6 +587,7 @@ $messages['pt'] = array(
 	'reviewedpages-all' => 'edições analisadas',
 	'reviewedpages-best' => 'edição principal',
 );
+
 $messages['ru'] = array(
 	'right-unreviewedpages' => 'просмотр списка непроверенных страниц',
 	'unreviewedpages' => 'Непроверенные страницы',
@@ -586,6 +610,7 @@ $messages['ru'] = array(
 	'reviewedpages-all' => 'проверенные версии',
 	'reviewedpages-best' => 'наилучшая версия',
 );
+
 $messages['sah'] = array(
 	'unreviewedpages' => 'Ырытыллыбатах сирэйдэр',
 	'reviewedpages' => 'Ырытыллыбыт сирэйдэр',
@@ -598,6 +623,7 @@ $messages['sah'] = array(
 	'reviewedpages-all' => 'ырытыллыбыт торумнар',
 	'reviewedpages-best' => 'бастыҥ торум',
 );
+
 $messages['sk'] = array(
 	'right-unreviewedpages' => 'Zobraziť zoznam neskontrolovaných stránok',
 	'unreviewedpages' => 'Neskontrolované stránky',
@@ -620,11 +646,13 @@ $messages['sk'] = array(
 	'reviewedpages-all' => 'skontrolované verzie',
 	'reviewedpages-best' => 'primárna revízia',
 );
+
 $messages['sr-ec'] = array(
 	'reviewedpages' => 'Прегледане странице',
 	'reviewedpages-lev-1' => 'Квалитет',
 	'reviewedpages-lev-2' => 'Изабрани',
 );
+
 $messages['stq'] = array(
 	'unreviewedpages' => 'Nit wröigede Artikkele',
 	'reviewedpages' => 'Wröigede Sieden',
@@ -637,10 +665,12 @@ $messages['stq'] = array(
 	'reviewedpages-all' => 'wröigede Versione',
 	'reviewedpages-best' => 'lääste ap hoochste wäidierde Version',
 );
+
 $messages['su'] = array(
 	'reviewedpages-none' => 'Euweuh kaca dina ieu daptar',
 	'reviewedpages-lev-2' => 'Petingan',
 );
+
 $messages['sv'] = array(
 	'right-unreviewedpages' => 'Visa lista över ogranskade sidor',
 	'unreviewedpages' => 'Ogranskade sidor',
@@ -663,8 +693,7 @@ $messages['sv'] = array(
 	'reviewedpages-all' => 'granskade versioner',
 	'reviewedpages-best' => 'främsta version',
 );
-$messages['szl'] = array(
-);
+
 $messages['te'] = array(
 	'right-unreviewedpages' => 'సమీక్షించని పేజీల జాబితా',
 	'unreviewedpages' => 'సమీక్షించని పేజీలు',
@@ -683,8 +712,7 @@ $messages['te'] = array(
 	'reviewedpages-all' => 'సమీక్షిత కూర్పులు',
 	'reviewedpages-best' => 'అత్యున్నతంగా రేటు చేయబడిన చిట్టచివరి కూర్పు',
 );
-$messages['tet'] = array(
-);
+
 $messages['tg-cyrl'] = array(
 	'unreviewedpages' => 'Саҳифаҳои баррасӣ нашуда',
 	'reviewedpages' => 'Саҳифаҳои баррасӣ нашуда',
@@ -697,12 +725,12 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-all' => 'нусхаҳои баррасӣ шуда',
 	'reviewedpages-best' => 'нусхаи беҳтарин',
 );
+
 $messages['tr'] = array(
 	'oldreviewedpages-quality' => 'kalite',
 	'reviewedpages-lev-1' => 'Kalite',
 );
-$messages['uk'] = array(
-);
+
 $messages['vec'] = array(
 	'right-unreviewedpages' => 'Varda na lista de pagine non ricontrolà',
 	'unreviewedpages' => 'Pagine non riesaminà',
@@ -725,6 +753,7 @@ $messages['vec'] = array(
 	'reviewedpages-all' => 'versioni riesaminà',
 	'reviewedpages-best' => 'version prinçipal',
 );
+
 $messages['vi'] = array(
 	'right-unreviewedpages' => 'Xem danh sách các trang chưa duyệt',
 	'unreviewedpages' => 'Các trang chưa được duyệt',
@@ -747,6 +776,7 @@ $messages['vi'] = array(
 	'reviewedpages-all' => 'Phiên bản đã duyệt',
 	'reviewedpages-best' => 'phiên bản hạng nhất',
 );
+
 $messages['vo'] = array(
 	'unreviewedpages' => 'Pads no pekrütöls',
 	'reviewedpages' => 'Pads pekrütöl',
@@ -754,12 +784,15 @@ $messages['vo'] = array(
 	'reviewedpages-lev-1' => 'Kaliet',
 	'reviewedpages-all' => 'fomams pekrütöl',
 );
+
 $messages['yue'] = array(
 	'unreviewedpages' => '未複審嘅版',
 );
+
 $messages['zh-hans'] = array(
 	'unreviewedpages' => '未复审页面',
 );
+
 $messages['zh-hant'] = array(
 	'unreviewedpages' => '未複審頁面',
 );
