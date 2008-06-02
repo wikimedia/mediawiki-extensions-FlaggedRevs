@@ -28,8 +28,8 @@ $messages['ar'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
 	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
-	'unreviewed-unwatched' => '(غير مراقبة)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+	'oldreviewedpages-unwatched' => '(غير مراقبة)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 	'oldreviewedpages-alias' => 'صفحات مراجعة قديمة',
 );
 $messages['ast'] = array(
@@ -50,7 +50,7 @@ $messages['ca'] = array(
 $messages['cs'] = array(
 	'oldreviewedpages-quality' => 'kvalita',
 	'oldreviewedpages-recent' => '(méně než 1 hodina)',
-	'unreviewed-unwatched' => '(nesledované)',
+	'oldreviewedpages-unwatched' => '(nesledované)',
 );
 $messages['da'] = array(
 );
@@ -64,8 +64,8 @@ $messages['de'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
 	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
-	'unreviewed-unwatched' => '(unbeobachtet)',
-	'unreviewed-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
+	'oldreviewedpages-unwatched' => '(unbeobachtet)',
+	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 	'oldreviewedpages-alias' => 'Seiten_mit_ungesichteten_Versionen',
 );
 $messages['el'] = array(
@@ -79,8 +79,8 @@ $messages['eo'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|horo|horoj}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|tago|tagoj}})',
 	'oldreviewedpages-recent' => '(malpli ol 1 horo)',
-	'unreviewed-unwatched' => '(malatentita)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
+	'oldreviewedpages-unwatched' => '(malatentita)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
 );
 $messages['et'] = array(
 );
@@ -96,8 +96,8 @@ $messages['fa'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|روز|روز}})',
 	'oldreviewedpages-recent' => '(کمتر از ۱ ساعت)',
-	'unreviewed-unwatched' => '(پیگیری نشده)',
-	'unreviewed-watched' => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
+	'oldreviewedpages-unwatched' => '(پیگیری نشده)',
+	'oldreviewedpages-watched' => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
 	'oldreviewedpages-alias' => 'صفحه‌های‌بازبینی‌شده‌قدیمی',
 );
 $messages['fi'] = array(
@@ -112,8 +112,8 @@ $messages['fr'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|heure|heures}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|jour|jours}})',
 	'oldreviewedpages-recent' => '(moins qu\'une heure)',
-	'unreviewed-unwatched' => '(non observé)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d\'observer)',
+	'oldreviewedpages-unwatched' => '(non observé)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d\'observer)',
 	'oldreviewedpages-alias' => 'PagesAnciennementRelues',
 );
 $messages['frp'] = array(
@@ -123,8 +123,8 @@ $messages['gl'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|días}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
-	'unreviewed-unwatched' => '(sen vixiar)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
+	'oldreviewedpages-unwatched' => '(sen vixiar)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 	'oldreviewedpages-alias' => 'Páxinas revisadas hai tempo',
 );
 $messages['hi'] = array(
@@ -137,8 +137,8 @@ $messages['hi'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
 	'oldreviewedpages-recent' => '(१ घंटेसे कम समय)',
-	'unreviewed-unwatched' => '(न देखे हुए)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
+	'oldreviewedpages-unwatched' => '(न देखे हुए)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
 	'oldreviewedpages-alias' => 'पुरानेदेखेंहुएपन्ने',
 );
 $messages['hr'] = array(
@@ -157,8 +157,8 @@ $messages['id'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|jam|jam}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|hari|hari}})',
 	'oldreviewedpages-recent' => '(kurang dari 1 jam)',
-	'unreviewed-unwatched' => '(tidak diamati)',
-	'unreviewed-watched' => '(dipantau $2 {{PLURAL:$1|pengguna|pengguna}})',
+	'oldreviewedpages-unwatched' => '(tidak diamati)',
+	'oldreviewedpages-watched' => '(dipantau $2 {{PLURAL:$1|pengguna|pengguna}})',
 	'oldreviewedpages-alias' => 'HalamanTertinjauUsang',
 );
 $messages['is'] = array(
@@ -189,7 +189,7 @@ $messages['lb'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
 	'oldreviewedpages-recent' => '(manner wéi 1 Stonn)',
-	'unreviewed-unwatched' => '(net iwwerwaacht)',
+	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',
 );
 $messages['li'] = array(
 );
@@ -203,8 +203,8 @@ $messages['ml'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|മണിക്കൂര്‍|മണിക്കൂറുകള്‍}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ദിവസം|ദിവസങ്ങള്‍}})',
 	'oldreviewedpages-recent' => '(1 മണിക്കൂറില്‍ താഴെ)',
-	'unreviewed-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
+	'oldreviewedpages-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
 );
 $messages['mr'] = array(
 	'oldreviewedpages' => 'जूनी तपासलेली पाने',
@@ -216,8 +216,8 @@ $messages['mr'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|तास|तास}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|दिवस|दिवस}})',
 	'oldreviewedpages-recent' => '(१ तासापेक्षा कमी वेळ)',
-	'unreviewed-unwatched' => '(न पाहिलेली)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
+	'oldreviewedpages-unwatched' => '(न पाहिलेली)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
 	'oldreviewedpages-alias' => 'जुनीतपासलेलीपाने',
 );
 $messages['myv'] = array(
@@ -226,7 +226,7 @@ $messages['nds'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stünn|Stünnen}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Daag}})',
 	'oldreviewedpages-recent' => '(weniger as een Stünn)',
-	'unreviewed-unwatched' => '(op keen Oppasslist)',
+	'oldreviewedpages-unwatched' => '(op keen Oppasslist)',
 );
 $messages['nl'] = array(
 	'oldreviewedpages' => 'Pagina\'s met eindredactie die bijgewerkt zijn',
@@ -238,8 +238,8 @@ $messages['nl'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|uur|uur}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagen}})',
 	'oldreviewedpages-recent' => '(minder dan een uur)',
-	'unreviewed-unwatched' => '(niet op een volglijst)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
+	'oldreviewedpages-unwatched' => '(niet op een volglijst)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
 	'oldreviewedpages-alias' => 'PaginasVerouderdeEindredactie',
 );
 $messages['nn'] = array(
@@ -258,8 +258,8 @@ $messages['oc'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|oras}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|jorn|jorns}})',
 	'oldreviewedpages-recent' => '(mens qu\'una ora)',
-	'unreviewed-unwatched' => '(pas observat)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
+	'oldreviewedpages-unwatched' => '(pas observat)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
 	'oldreviewedpages-alias' => 'PaginasAncianamentRelegidas',
 );
 $messages['pl'] = array(
@@ -279,8 +279,8 @@ $messages['pt'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
-	'unreviewed-unwatched' => '(não-vigiada)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
+	'oldreviewedpages-unwatched' => '(não-vigiada)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
 	'oldreviewedpages-alias' => 'Versões_antigas_de_páginas_analisadas',
 );
 $messages['ru'] = array(
@@ -293,8 +293,8 @@ $messages['ru'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
 	'oldreviewedpages-recent' => '(менее 1 часа)',
-	'unreviewed-unwatched' => '(не следят)',
-	'unreviewed-watched' => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
+	'oldreviewedpages-unwatched' => '(не следят)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
 	'oldreviewedpages-alias' => 'ДавноПроверенныеСтраницы',
 );
 $messages['sah'] = array(
@@ -309,8 +309,8 @@ $messages['sk'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|deň|dni|dní}})',
 	'oldreviewedpages-recent' => '(menej ako 1 hodina)',
-	'unreviewed-unwatched' => '(nesledovaná)',
-	'unreviewed-watched' => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
+	'oldreviewedpages-unwatched' => '(nesledovaná)',
+	'oldreviewedpages-watched' => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
 	'oldreviewedpages-alias' => 'StaréSkontrolovanéStránky',
 );
 $messages['sr-ec'] = array(
@@ -329,8 +329,8 @@ $messages['sv'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagar}})',
 	'oldreviewedpages-recent' => '(mindre än 1 timme)',
-	'unreviewed-unwatched' => '(oövervakad)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|användare|användare}} övervakar)',
+	'oldreviewedpages-unwatched' => '(oövervakad)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|användare|användare}} övervakar)',
 	'oldreviewedpages-alias' => 'GamlaGranskadeSidor',
 );
 $messages['szl'] = array(
@@ -341,8 +341,8 @@ $messages['te'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
 	'oldreviewedpages-recent' => '(1 గంట లోపల)',
-	'unreviewed-unwatched' => '(వీక్షణలో లేనివి)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
+	'oldreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
 );
 $messages['tet'] = array(
 );
@@ -363,8 +363,8 @@ $messages['vec'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|giòrno|giòrni}})',
 	'oldreviewedpages-recent' => '(manco de 1 ora)',
-	'unreviewed-unwatched' => '(non osservà)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|utente el|utenti i}} tien d\'ocio sta pagina)',
+	'oldreviewedpages-unwatched' => '(non osservà)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utente el|utenti i}} tien d\'ocio sta pagina)',
 	'oldreviewedpages-alias' => 'PagineRiesaminàVèce',
 );
 $messages['vi'] = array(
@@ -377,8 +377,8 @@ $messages['vi'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|giờ|giờ}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ngày|ngày}})',
 	'oldreviewedpages-recent' => '(dưới 1 giờ)',
-	'unreviewed-unwatched' => '(chưa theo dõi)',
-	'unreviewed-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
+	'oldreviewedpages-unwatched' => '(chưa theo dõi)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
 	'oldreviewedpages-alias' => 'Trang chưa duyệt cũ',
 );
 $messages['vo'] = array(
