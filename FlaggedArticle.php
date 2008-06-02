@@ -11,26 +11,30 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get an instance of FlaggedArticle for a given Article or Title object
+	 * @param mixed $object (Article/Title)
+	 * @param bool $tryGlobals, check $wgTitle?
 	 */
-	static function getInstance( $object ) {
+	static function getInstance( $object, $tryGlobals = false ) {
 		# If instance already cached, return it!
 		if( isset($object->flaggedRevsArticle) ) {
 			return $object->flaggedRevsArticle;
 		}
-		global $wgTitle;
-		# Try and keep things to one object to avoid cache misses...
-		# If $wgTitle has no instance, give it one!
-		if( !isset($wgTitle->flaggedRevsArticle) ) {
-			$article = new Article( $wgTitle );
-			$wgTitle->flaggedRevsArticle = new FlaggedArticle( $article );
-		}
-		# Use $wgTitle's instance if we are dealing with the same article
-		if( $object instanceof Title && $object->equals( $wgTitle ) ) {
-			$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
-			return $object->flaggedRevsArticle;
-		} else if( $object instanceof Article && $object->getTitle()->equals( $wgTitle ) ) {
-			$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
-			return $object->flaggedRevsArticle;
+		if( $tryGlobals ) {
+			global $wgTitle;
+			# Try and keep things to one object to avoid cache misses...
+			# If $wgTitle has no instance, give it one!
+			if( !isset($wgTitle->flaggedRevsArticle) ) {
+				$article = new Article( $wgTitle );
+				$wgTitle->flaggedRevsArticle = new FlaggedArticle( $article );
+			}
+			# Use $wgTitle's instance if we are dealing with the same article
+			if( $object instanceof Title && $object->equals( $wgTitle ) ) {
+				$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
+				return $object->flaggedRevsArticle;
+			} else if( $object instanceof Article && $object->getTitle()->equals( $wgTitle ) ) {
+				$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
+				return $object->flaggedRevsArticle;
+			}
 		}
 		# For titles, attach instance to the title and give the instance an article parent
 		if( $object instanceof Title ) {
@@ -323,7 +327,7 @@ class FlaggedArticle extends Article {
 	   			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 				# Get parsed stable version
 				$parserOut = FlaggedRevs::getPageCache( $this->parent );
-				if( $parserOut==false ) {
+				if( $parserOut == false ) {
 					$text = $frev->getTextForParse();
 	   				$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
 	   				# Update the stable version cache
@@ -1115,7 +1119,7 @@ class FlaggedArticle extends Article {
 	 * @param Bool $forUpdate, use DB master and avoid page table?
 	 * @return Row
 	 */
-	public function getStableRev( $getText=false, $forUpdate=false ) {
+	public function getStableRev( $getText = false, $forUpdate = false ) {
 		if( $this->stableRev === false ) {
 			return null; // We already looked and found nothing...
 		}
@@ -1142,7 +1146,7 @@ class FlaggedArticle extends Article {
 	 * @param Bool $forUpdate, use DB master?
 	 * @returns Array (select,override)
 	*/
-	public function getVisibilitySettings( $forUpdate=false ) {
+	public function getVisibilitySettings( $forUpdate = false ) {
 		# Cached results available?
 		if( !is_null($this->pageConfig) ) {
 			return $this->pageConfig;

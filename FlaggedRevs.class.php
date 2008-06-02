@@ -1111,7 +1111,7 @@ EOT;
 		}
 		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 
-		$flaggedArticle = FlaggedArticle::getInstance( $wgArticle );
+		$flaggedArticle = FlaggedArticle::getInstance( $wgArticle, true );
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 		$JSparams = self::getJSParams();
 		$frev = $flaggedArticle->getStableRev( true );
@@ -1595,7 +1595,7 @@ EOT;
 		if( $action != 'move' || !self::isPageReviewable( $title ) )
 			return true;
 
-		$flaggedArticle = FlaggedArticle::getInstance( $title );
+		$flaggedArticle = FlaggedArticle::getInstance( $title, true );
 		$frev = $flaggedArticle->getStableRev();
 		if( !$frev )
 			return true;
@@ -1630,7 +1630,7 @@ EOT;
         }
         # See if there is a stable version. Also, see if, given the page 
         # config and URL params, the page can be overriden.
-		$flaggedArticle = FlaggedArticle::getInstance( $title );
+		$flaggedArticle = FlaggedArticle::getInstance( $title, true );
         if( $wgTitle && $wgTitle->equals( $title ) ) {
             // Cache stable version while we are at it.
             if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev( true ) ) {
@@ -2047,7 +2047,7 @@ EOT;
 	}
 
 	public static function imagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
-		$flaggedArticle = FlaggedArticle::getInstance( $imagePage );
+		$flaggedArticle = FlaggedArticle::getInstance( $imagePage, true );
 		$flaggedArticle->imagePageFindFile( $normalFile, $displayFile );
 		return true;
 	}
@@ -2055,7 +2055,7 @@ EOT;
 	static function setActionTabs( $skin, &$contentActions ) {
 		global $wgArticle;
 		if( $wgArticle ) {
-			FlaggedArticle::getInstance( $wgArticle )->setActionTabs( $skin, $contentActions );
+			FlaggedArticle::getInstance( $wgArticle, true )->setActionTabs( $skin, $contentActions );
 		}
 		return true;
 	}
@@ -2063,13 +2063,13 @@ EOT;
 	static function setLastModified( $skin, &$tpl ) {
 		global $wgArticle;
 		if( $wgArticle ) {
-			FlaggedArticle::getInstance( $wgArticle )->setLastModified( $skin, $tpl );
+			FlaggedArticle::getInstance( $wgArticle, true )->setLastModified( $skin, $tpl );
 		}
 		return true;
 	}
 
 	static function onArticleViewHeader( $article, &$outputDone, &$pcache ) {
-		$flaggedArticle = FlaggedArticle::getInstance( $article );
+		$flaggedArticle = FlaggedArticle::getInstance( $article, true );
 		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
 		$flaggedArticle->setPageContent( $outputDone, $pcache );
 		$flaggedArticle->addPatrolLink( $outputDone, $pcache );
@@ -2079,23 +2079,23 @@ EOT;
 	static function setPermaLink( $skin, &$navUrls, &$revId, &$id ) {
 		global $wgArticle;
 		if ( $wgArticle ) {
-			FlaggedArticle::getInstance( $wgArticle )->setPermaLink( $skin, $navUrls, $revId, $id );
+			FlaggedArticle::getInstance( $wgArticle, true )->setPermaLink( $skin, $navUrls, $revId, $id );
 		}
 		return true;
 	}
 	
 	static function addToEditView( $editPage ) {
-		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
+		return FlaggedArticle::getInstance( $editPage->mArticle, true )->addToEditView( $editPage );
 	}
 	
 	static function unreviewedPagesLinks( $category ) {
-		return FlaggedArticle::getInstance( $category )->addToCategoryView();
+		return FlaggedArticle::getInstance( $category, true )->addToCategoryView();
 	}
 	
 	static function addReviewForm( $out ) {
 		global $wgArticle;
 		if ( $wgArticle && $out->isArticleRelated() ) {
-			FlaggedArticle::getInstance( $wgArticle )->addReviewForm( $out );
+			FlaggedArticle::getInstance( $wgArticle, true )->addReviewForm( $out );
 		}
 		return true;
 	}
@@ -2103,13 +2103,13 @@ EOT;
 	static function addVisibilityLink( $out ) {
 		global $wgArticle;
 		if ( $wgArticle && $out->isArticleRelated() ) {
-			FlaggedArticle::getInstance( $wgArticle )->addVisibilityLink( $out );
+			FlaggedArticle::getInstance( $wgArticle, true )->addVisibilityLink( $out );
 		}
 		return true;
 	}
 	
 	static function addToHistQuery( $pager, &$queryInfo ) {
-		$flaggedArticle = FlaggedArticle::getInstance( $pager->mPageHistory->getTitle() );
+		$flaggedArticle = FlaggedArticle::getInstance( $pager->mPageHistory->getTitle(), true );
 		if( $flaggedArticle->isReviewable() ) {
 			$queryInfo['tables'][] = 'flaggedrevs';
 			$queryInfo['fields'][] = 'fr_quality';
@@ -2120,26 +2120,26 @@ EOT;
 	}
 	
 	static function addToHistLine( $history, $row, &$s ) {
-		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
+		return FlaggedArticle::getInstance( $history->getArticle(), true )->addToHistLine( $history, $row, $s );
 	}
 	
 	static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
-		return FlaggedArticle::getInstance( $hist->getImagePage() )->addToFileHistLine( $hist, $file, $s, $rowClass );
+		return FlaggedArticle::getInstance( $hist->getImagePage(), true )->addToFileHistLine( $hist, $file, $s, $rowClass );
 	}
 	
 	static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
+		return FlaggedArticle::getInstance( $article, true )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
 	}
 
 	static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
-		$flaggedArticle = FlaggedArticle::getInstance( $diff->getTitle() );
+		$flaggedArticle = FlaggedArticle::getInstance( $diff->getTitle(), true );
 		$flaggedArticle->addPatrolAndDiffLink( $diff, $oldRev, $newRev );
 		$flaggedArticle->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
 		return true;
 	}
 
 	static function addRevisionIDField( $editPage, $out ) {
-		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
+		return FlaggedArticle::getInstance( $editPage->mArticle, true )->addRevisionIDField( $editPage, $out );
 	}
 	
 	static function addBacklogNotice( &$notice ) {
