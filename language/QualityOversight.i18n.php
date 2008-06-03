@@ -60,7 +60,7 @@ $messages['hi'] = array(
  * @author Rex
  */
 $messages['id'] = array(
-	'qualityoversight'      => 'Pemeriksaan kualitas',
+	'qualityoversight'      => 'Pemeriksaan kelayakan',
 	'qualityoversight-list' => 'Halaman ini berisikan daftar persetujuan terbaru atas revisi yang layak, serta daftar penurunan tingkat kelayakan.',
 );
 

@@ -52,7 +52,7 @@ $messages['hi'] = array(
  * @author Rex
  */
 $messages['id'] = array(
-	'depreciationoversight'      => 'Pemeriksaan penurunan tingkat',
+	'depreciationoversight'      => 'Pemeriksaan penurunan peringkat',
 	'depreciationoversight-list' => 'Daftar penurunan peringkat revisi terbaru',
 );
 

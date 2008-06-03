@@ -129,6 +129,8 @@ $messages['fr'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|heure|heures}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|jour|jours}})',
 	'oldreviewedpages-recent'    => "(moins qu'une heure)",
+	'oldreviewed-category'       => 'Catégorie :',
+	'oldreviewed-diff'           => 'relecture',
 	'oldreviewedpages-unwatched' => '(non observé)',
 	'oldreviewedpages-watched'   => "($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d'observer)",
 );
@@ -159,6 +161,8 @@ $messages['hi'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|घंटा|घंटे}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|दिन|दिन}})',
 	'oldreviewedpages-recent'    => '(१ घंटेसे कम समय)',
+	'oldreviewed-category'       => 'श्रेणी:',
+	'oldreviewed-diff'           => 'जाँच',
 	'oldreviewedpages-unwatched' => '(न देखे हुए)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
 );
@@ -176,7 +180,9 @@ $messages['id'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|jam|jam}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|hari|hari}})',
 	'oldreviewedpages-recent'    => '(kurang dari 1 jam)',
-	'oldreviewedpages-unwatched' => '(tidak diamati)',
+	'oldreviewed-category'       => 'Kategori:',
+	'oldreviewed-diff'           => 'meninjau',
+	'oldreviewedpages-unwatched' => '(tidak dipantau)',
 	'oldreviewedpages-watched'   => '(dipantau $2 {{PLURAL:$1|pengguna|pengguna}})',
 );
 
@@ -228,6 +234,8 @@ $messages['mr'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|तास|तास}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|दिवस|दिवस}})',
 	'oldreviewedpages-recent'    => '(१ तासापेक्षा कमी वेळ)',
+	'oldreviewed-category'       => 'वर्ग:',
+	'oldreviewed-diff'           => 'तपासा',
 	'oldreviewedpages-unwatched' => '(न पाहिलेली)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
 );
@@ -274,6 +282,8 @@ $messages['oc'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ora|oras}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|jorn|jorns}})',
 	'oldreviewedpages-recent'    => "(mens qu'una ora)",
+	'oldreviewed-category'       => 'Categoria :',
+	'oldreviewed-diff'           => 'relectura',
 	'oldreviewedpages-unwatched' => '(pas observat)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
 );
