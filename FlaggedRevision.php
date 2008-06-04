@@ -44,30 +44,30 @@ class FlaggedRevision {
 	
 	/**
 	 * @param Title $title
-	 * @param int $rev_id
+	 * @param int $revId
 	 * @param bool $getText, fetch fr_text and fr_flags too?
 	 * @param bool $forUpdate, use master?
-	 * @param int $page_id, optional page ID to use, will defer to $title if not given
+	 * @param int $pageId, optional page ID to use, will defer to $title if not given
 	 * @returns mixed FlaggedRevision (null on failure)
 	 * Will not return a revision if deleted
 	 */
-	public static function newFromTitle( $title, $rev_id, $getText=false, $forUpdate=false, $page_id=false ) {
+	public static function newFromTitle( $title, $revId, $getText=false, $forUpdate=false, $pageId=false ) {
 		$columns = self::selectFields();
 		if( $getText ) {
 			$columns += self::selectTextFields();
 		}
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
-		$page_id = $page_id ? $page_id : $title->getArticleID( $flags );
+		$pageId = $pageId ? $pageId : $title->getArticleID( $flags );
 		# Short-circuit query
-		if( !$page_id ) {
+		if( !$pageId ) {
 			return null;
 		}
 		# Skip deleted revisions
 		$row = $db->selectRow( array('flaggedrevs','revision'),
 			$columns,
-			array( 'fr_page_id' => $page_id,
-				'fr_rev_id' => $rev_id,
+			array( 'fr_page_id' => $pageId,
+				'fr_rev_id' => $revId,
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
