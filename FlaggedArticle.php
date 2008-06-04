@@ -878,6 +878,7 @@ class FlaggedArticle extends Article {
 								'ft_tmp_rev_id != page_latest' ),
 							__METHOD__ );
 					}
+					$tmpChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
 						$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
 						$revID = isset($row->fp_stable) ? $row->fp_stable : $row->ft_tmp_rev_id;
@@ -925,6 +926,7 @@ class FlaggedArticle extends Article {
 								'fi_img_sha1 != img_sha1' ),
 							__METHOD__ );
 					}
+					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
 						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
 						$imgChanges[] = $skin->makeKnownLinkObj( $title );
