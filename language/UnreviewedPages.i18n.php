@@ -379,7 +379,9 @@ $messages['lb'] = array(
 	'unreviewed-category'   => 'Kategorie:',
 	'unreviewed-diff'       => 'iwwerkucken',
 	'unreviewed-unwatched'  => '(net iwwerwaacht)',
+	'unreviewed-watched'    => '($2 {{PLURAL:$1|Benotzer iwwerwaacht|Benotzer iwwerwaachen}})',
 	'unreviewed-list'       => 'Op dëser Säit sti Säiten déi net nogekuckt goufen.',
+	'unreviewed-none'       => 'Et gëtt keng Säiten, déi dene Critèren entspriechen déi Dir uginn hutt',
 );
 
 /** Limburgish (Limburgs)
@@ -506,11 +508,13 @@ $messages['oc'] = array(
  * @author Derbeth
  */
 $messages['pl'] = array(
-	'unreviewedpages'     => 'Strony bez oceny',
-	'unreviewed-legend'   => 'Pokaż strony o zawartości, która nie została oceniona',
-	'unreviewed-category' => 'Kategoria:',
-	'unreviewed-diff'     => 'ocena',
-	'unreviewed-list'     => 'Ta strona zawiera listę artykułów, które nie zostały ocenione lub mają nowe, nie ocenione wersje.',
+	'unreviewedpages'      => 'Strony bez oceny',
+	'unreviewed-legend'    => 'Pokaż strony o zawartości, która nie została oceniona',
+	'unreviewed-category'  => 'Kategoria:',
+	'unreviewed-diff'      => 'ocena',
+	'unreviewed-unwatched' => '(nieobserwowane)',
+	'unreviewed-watched'   => '(obserwowane przez $1 {{PLURAL:$1|użytkownika|użytkowników}})',
+	'unreviewed-list'      => 'Ta strona zawiera listę artykułów, które nie zostały ocenione lub mają nowe, nie ocenione wersje.',
 );
 
 /** Piemontèis (Piemontèis)

@@ -135,6 +135,7 @@ $messages['km'] = array(
 $messages['lb'] = array(
 	'stablepages'        => 'Stabil Säiten',
 	'stablepages-stable' => 'stabil Versioun',
+	'stablepages-text'   => 'Hei ass eng Lëscht vu Säiten déi individuell konfiguréiert goufen, datt déi stabil Versioun als Standard Säiteninhalt ugewise gëtt.',
 	'stablepages-none'   => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
 );

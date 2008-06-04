@@ -289,10 +289,15 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Sp5uhe
  * @author McMonster
  */
 $messages['pl'] = array(
-	'oldreviewedpages-quality' => 'jakość',
+	'oldreviewedpages-quality'   => 'jakość',
+	'oldreviewedpages-recent'    => '(mniej niż 1 godzina)',
+	'oldreviewed-category'       => 'Kategoria:',
+	'oldreviewedpages-unwatched' => '(nieobserwowane)',
+	'oldreviewedpages-watched'   => '(obserwowane przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
 );
 
 /** Portuguese (Português)
@@ -426,6 +431,8 @@ $messages['vi'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|giờ|giờ}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|ngày|ngày}})',
 	'oldreviewedpages-recent'    => '(dưới 1 giờ)',
+	'oldreviewed-category'       => 'Thể loại:',
+	'oldreviewed-diff'           => 'duyệt',
 	'oldreviewedpages-unwatched' => '(chưa theo dõi)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
 );
