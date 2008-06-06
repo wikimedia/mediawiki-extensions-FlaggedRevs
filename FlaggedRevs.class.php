@@ -513,16 +513,17 @@ class FlaggedRevs {
 	* Updates the fp_stable and fp_reviewed fields
 	*/
 	public static function updateArticleOn( $article, $revId, $latest=NULL ) {
-		global $wgMemc;
-		wfProfileIn( __METHOD__ );
+		if( !$article->getId() )
+			return true; // no bogus entries
 
+		wfProfileIn( __METHOD__ );
 		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 
 		$dbw = wfGetDB( DB_MASTER );
 		# Get the highest quality revision (not necessarily this one).
 		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
 			'fr_quality',
-			array( 'fr_page_id' => $article->getTitle()->getArticleID(),
+			array( 'fr_page_id' => $article->getId(),
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
@@ -1250,11 +1251,9 @@ EOT;
 	* Select the desired templates based on the selected stable revision IDs
 	* NOTE: $p comes in false from this hook ... weird
 	*/
-	public static function parserFetchStableTemplate( $p=false, $title, &$skip, &$id ) {
-		global $wgParser;
+	public static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
 		# Trigger for stable version parsing only
-		$parser =& $wgParser;
-		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
+		if( !$parser || !isset($parser->fr_isStable) || !$parser->fr_isStable )
 			return true;
 		# Special namespace ... ?
 		if( $title->getNamespace() < 0 ) {
@@ -1265,21 +1264,21 @@ EOT;
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		global $wgUseStableTemplates;
-		if( $wgUseStableTemplates && self::isPageReviewable( $title ) ) {
+		if( $wgUseStableTemplates && self::isPageReviewable($title) && $title->getArticleId() ) {
 			$id = $dbr->selectField( 'flaggedpages', 'fp_stable',
 				array( 'fp_page_id' => $title->getArticleId() ),
 				__METHOD__ );
 		}
 		# Check cache before doing another DB hit...
 		if( !$id ) {
-			$id = self::getTemplateIdFromCache( $parser->mRevisionId, $title->getNamespace(), $title->getDBKey() );
+			$id = self::getTemplateIdFromCache( $parser->getRevisionId(), $title->getNamespace(), $title->getDBKey() );
 			$id = is_null($id) ? false : $id;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
 		if( $id === false ) {
 			$id = $dbr->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
-				array( 'ft_rev_id' => $parser->mRevisionId,
+				array( 'ft_rev_id' => $parser->getRevisionId(),
 					'ft_namespace' => $title->getNamespace(),
 					'ft_title' => $title->getDBkey() ),
 				__METHOD__ );
@@ -1288,7 +1287,7 @@ EOT;
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
 			if( $id === false ) {
-				$parser->fr_includeErrors[] = $title->getDBKey(); // May want to give an error
+				$parser->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentTemplates ) {
 					$skip = true;
 				}
@@ -1335,7 +1334,7 @@ EOT;
 		}
 		# Check cache before doing another DB hit...
 		if( !$time ) {
-			$params = self::getFileVersionFromCache( $parser->mRevisionId, $nt->getDBKey() );
+			$params = self::getFileVersionFromCache( $parser->getRevisionId(), $nt->getDBKey() );
 			if( is_array($params) ) {
 				list($time,$sha1) = $params;
 			}
@@ -1345,7 +1344,7 @@ EOT;
 		if( $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fi_rev_id' => $parser->mRevisionId,
+				array( 'fi_rev_id' => $parser->getRevisionId(),
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
