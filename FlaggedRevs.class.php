@@ -485,6 +485,7 @@ class FlaggedRevs {
 	 * Get number of revs since a certain revision
 	 */
 	public static function getRevCountSince( $article, $revId, $forUpdate=false ) {
+		global $wgMemc;
 		# Check if the count is zero by using $article->getLatest().
 		# I don't trust using memcache and PHP for values like '0'
 		# as it may confuse "expired" with "0".
@@ -492,10 +493,13 @@ class FlaggedRevs {
 		if( $latest == $revId ) {
 			return 0;
 		}
-		global $wgMemc;
 		# Try the cache
+		$count = null;
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
-		if( !$count = intval($wgMemc->get($key)) ) {
+		if( !$forUpdate ) {
+			$count = intval($wgMemc->get($key));
+		}
+		if( !$count ) {
 			$db = $forUpdate ? wfGetDB( DB_MASTER) : wfGetDB( DB_SLAVE );
 			$count = $db->selectField( 'revision', 'COUNT(*)',
 				array('rev_page' => $article->getId(), "rev_id > " . intval($revId) ),
