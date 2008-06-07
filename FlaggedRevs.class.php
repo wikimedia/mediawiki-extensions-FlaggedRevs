@@ -1657,13 +1657,18 @@ EOT;
 		}
 		if( $patrol ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
+			$rcid = $dbw->selectField( 'recentchanges', 
+				'rc_id',
 				array( 'rc_this_oldid' => $rev->getId(),
 					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 				__METHOD__,
-				array( 'USE INDEX' => 'rc_user_text', 'LIMIT' => 1 ) );
+				array( 'USE INDEX' => 'rc_user_text', 'LIMIT' => 1 )
+			);
+			if( $rcid ) {
+				RecentChange::markPatrolled( $rcid );
+				PatrolLog::record( $rcid, true );
+			}
 		}
 		return true;
 	}
