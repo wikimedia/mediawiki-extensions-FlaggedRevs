@@ -24,7 +24,8 @@ class FlaggedArticle extends Article {
 			# Try and keep things to one object to avoid cache misses...
 			# If $wgTitle has no instance, give it one!
 			if( !isset($wgTitle->flaggedRevsArticle) ) {
-				$article = new Article( $wgTitle );
+				// Needs to be ImagePage or CategoryPage as needed
+				$article = MediaWiki::articleFromTitle( $wgTitle );
 				$wgTitle->flaggedRevsArticle = new FlaggedArticle( $article );
 			}
 			# Use $wgTitle's instance if we are dealing with the same article
@@ -792,7 +793,7 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add link to stable version of reviewed revisions
 	 */
-	public function addToFileHistLine( $historyList, $file, &$s, &$class ) {
+	public function addToFileHistLine( $historyList, $file, &$s, &$css ) {
 		global $wgUser;
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( !$this->isReviewable() || !$this->getStableRev() )
@@ -805,7 +806,7 @@ class FlaggedArticle extends Article {
 		if( $quality === false ) {
 			return true;
 		}
-		$class = FlaggedRevsXML::getQualityColor( $quality );
+		$css = FlaggedRevsXML::getQualityColor( $quality );
 
 		return true;
 	}
