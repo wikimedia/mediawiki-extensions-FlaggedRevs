@@ -1663,7 +1663,7 @@ EOT;
 					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
 				__METHOD__,
-				array( 'USE INDEX' => 'rc_user_text', 'LIMIT' => 1 )
+				array( 'USE INDEX' => 'rc_user_text' )
 			);
 			if( $rcid ) {
 				RecentChange::markPatrolled( $rcid );
