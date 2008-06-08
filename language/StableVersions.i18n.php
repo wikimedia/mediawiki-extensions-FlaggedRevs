@@ -146,7 +146,7 @@ $messages['ext'] = array(
  * @author Huji
  */
 $messages['fa'] = array(
-	'stableversions'        => 'نسخه‌های پایدار',
+	'stableversions'        => 'نمایش نسخه‌های پایدار',
 	'stableversions-leg1'   => 'فهرست کردن نسخه‌های بررسی شده یک صفحه',
 	'stableversions-page'   => 'نام صفحه:',
 	'stableversions-none'   => '"[[:$1]]" هیچ نسخه بررسی‌ شده‌ای ندارد.',

@@ -367,8 +367,8 @@ $messages['fa'] = array(
 	'stabilization-perm'        => 'حساب شما اجازه تغییر تنظیمات نسخه پایدار را ندارد.
 تنظیمات فعلی برای [[:$1|$1]] چنین هستند:',
 	'stabilization-page'        => 'نام صفحه:',
-	'stabilization-leg'         => 'تنظیم نسخه پایدار برای یک صفحه',
-	'stabilization-select'      => 'چگونگی انتخاب نسخه پایدار',
+	'stabilization-leg'         => 'تایید تنظیمات نسخهٔ پایدار',
+	'stabilization-select'      => 'انتخاب نسخهٔ پایدار',
 	'stabilization-select1'     => 'آخرین نسخه با کیفیت، یا در صورت عدم وجود آن، آخرین نسخه بررسی شده',
 	'stabilization-select2'     => 'آخرین نسخه بررسی شده',
 	'stabilization-select3'     => 'آخرین نسخهٔ دست نخورده؛ در صورت عدم وجود، آخرین نسخهٔ با کیفیت یا بررسی شده',

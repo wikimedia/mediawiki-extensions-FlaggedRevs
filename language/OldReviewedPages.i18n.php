@@ -99,7 +99,10 @@ $messages['eo'] = array(
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
 );
 
-/** Persian (فارسی) */
+/** Persian (فارسی)
+ * @author Huji
+ * @author Mardetanha
+ */
 $messages['fa'] = array(
 	'oldreviewedpages'           => 'صفحه‌های بازبینی شدهٔ تاریخ گذشته',
 	'oldreviewedpages-legend'    => 'فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده',
@@ -110,6 +113,8 @@ $messages['fa'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ساعت|ساعت}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|روز|روز}})',
 	'oldreviewedpages-recent'    => '(کمتر از ۱ ساعت)',
+	'oldreviewed-category'       => 'رده:',
+	'oldreviewed-diff'           => 'بازبینی',
 	'oldreviewedpages-unwatched' => '(پیگیری نشده)',
 	'oldreviewedpages-watched'   => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
 );
