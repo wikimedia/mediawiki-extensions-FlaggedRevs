@@ -160,17 +160,14 @@ class FlaggedRevs {
 		global $wgParser;
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
-		$wgParser->fr_includeErrors = array();
 		# Parse with default options
 		$options = new ParserOptions();
 		$options->setRemoveComments( true ); // Save some bandwidth ;)
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
-		$output =& $wgParser->mOutput;
-		$data = array( $outputText, $output->mTemplates, $output->mTemplateIds, 
-			$wgParser->fr_includeErrors, $output->fr_newestTemplateID );
-		# Done with parser!
+		$out =& $wgParser->mOutput;
+		$data = array( $outputText, $out->mTemplates, $out->mTemplateIds, $out->fr_includeErrors, $out->fr_newestTemplateID );
+		# Done!
 		$wgParser->fr_isStable = false;
-		$wgParser->fr_includeErrors = array();
 		# Return data array
 		return $data;
 	}
@@ -191,17 +188,13 @@ class FlaggedRevs {
 		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
-		$wgParser->fr_includeErrors = array();
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
 		#$options->setEditSection( $id == $title->getLatestRevID(GAID_FOR_UPDATE) );
 		# Parse the new body, wikitext -> html
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
-		# Carry over to output!
-		$parserOut->fr_includeErrors = $wgParser->fr_includeErrors;
 	   	# Done with parser!
 	   	$wgParser->fr_isStable = false;
-		$wgParser->fr_includeErrors = array();
 		# Do we need to set the template uses via DB?
 		if( $reparsed && !$wgUseStableTemplates ) {
 			$dbr = wfGetDB( DB_SLAVE );
@@ -355,6 +348,17 @@ class FlaggedRevs {
 			unset(self::$includeVersionCache[$revId]);
 		}
 	}
+
+	/**
+	 * Should the params be in the process cache?
+	 */
+	protected static function useProcessCache( $revId ) {
+		self::load();
+		if( isset(self::$includeVersionCache[$revId]) ) {
+			return true;
+		}
+		return false;
+	}
 	
 	/**
 	 * Get template versioning cache for parser
@@ -371,7 +375,7 @@ class FlaggedRevs {
 					return self::$includeVersionCache[$revId]['templates'][$namespace][$dbKey];
 				}
 			}
-			return 0; // Assume template did not exist
+			return false; // missing?
 		}
 		return null; // cache not found
 	}
@@ -392,7 +396,7 @@ class FlaggedRevs {
 					// Should only be one, but this is an easy check
 					return array($time,$sha1);
 				}
-				return array("0",""); // Assume file did not exist
+				return array(false,""); // missing?
 			}
 		}
 		return null; // cache not found
@@ -1242,6 +1246,7 @@ EOT;
 		$parser->mOutput->fr_ImageSHA1Keys = array();
 		$parser->mOutput->fr_newestImageTime = "0";
 		$parser->mOutput->fr_newestTemplateID = 0;
+		$parser->mOutput->fr_includeErrors = array();
 		return true;
 	}
 
@@ -1274,7 +1279,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
-		if( $id === false ) {
+		if( !self::useProcessCache( $parser->getRevisionId() ) && $id === false ) {
 			$id = $dbr->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->getRevisionId(),
 					'ft_namespace' => $title->getNamespace(),
@@ -1285,7 +1290,7 @@ EOT;
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
 			if( $id === false ) {
-				$parser->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
+				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentTemplates ) {
 					$skip = true;
 				}
@@ -1339,7 +1344,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		if( $time === false ) {
+		if( !self::useProcessCache( $parser->getRevisionId() ) && $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->getRevisionId(),
@@ -1354,7 +1359,7 @@ EOT;
 			global $wgUseCurrentImages;
 			# If the DB found nothing...
 			if( $time === false ) {
-				$parser->fr_includeErrors[] = $nt->getDBKey(); // May want to give an error
+				$parser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentImages ) {
 					$time = "0";
 				} else {
@@ -1416,7 +1421,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time.
-		if( $time === false ) {
+		if( !self::useProcessCache( $ig->mRevisionId ) && $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,
@@ -1431,7 +1436,7 @@ EOT;
 			global $wgUseCurrentImages;
 			# If the DB found nothing...
 			if( $time === false ) {
-				$ig->fr_parentParser->fr_includeErrors[] = $nt->getDBKey(); // May want to give an error
+				$ig->fr_parentParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentImages ) {
 					$time = "0";
 				} else {

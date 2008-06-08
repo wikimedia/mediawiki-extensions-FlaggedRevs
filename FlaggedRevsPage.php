@@ -387,12 +387,14 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		// Failure for flagging
 		} else if( $approved ) {
-			$wgOut->showErrorPage( 'internalerror', 'revreview-changed', array($this->page->getPrefixedText()) );
+			$wgOut->setPageTitle( wfMsgHtml('internalerror') );
+			$wgOut->addWikiText( wfMsg( 'revreview-changed', $this->page->getPrefixedText() ) );
 			$wgOut->addHtml( "<ul>" );
 			foreach( $status as $n => $text ) {
-				$wgOut->addHtml( "<li>$text</li>\n" );
+				$wgOut->addHtml( "<li><i>$text</i></li>\n" );
 			}
 			$wgOut->addHtml( "</ul>" );
+			$wgOut->returnToMain( false, $this->page );
 		}
 	}
 
@@ -510,7 +512,7 @@ class RevisionReview extends UnlistedSpecialPage
         }
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
-		$err =& $stableOutput->fr_includesMatched;
+		$err =& $stableOutput->fr_includeErrors;
 		if( !empty($err) || $stableOutput->fr_newestImageTime > $lastImgTime ) {
 			wfProfileOut( __METHOD__ );
         	return $err;
