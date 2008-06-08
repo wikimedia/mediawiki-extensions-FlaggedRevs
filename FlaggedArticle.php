@@ -1229,7 +1229,7 @@ class FlaggedArticle extends Article {
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
-		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) );
+		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'reviewform' ) );
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform') );
 		$form .= "<legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
 
