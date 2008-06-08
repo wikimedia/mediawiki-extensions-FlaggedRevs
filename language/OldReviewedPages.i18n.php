@@ -67,7 +67,9 @@ $messages['cs'] = array(
 	'oldreviewedpages-unwatched' => '(nesledované)',
 );
 
-/** Church Slavic (Словѣньскъ) */
+/** Church Slavic (Словѣньскъ)
+ * @author ОйЛ
+ */
 $messages['cu'] = array(
 	'oldreviewed-category' => 'катигорі́ꙗ :',
 );
@@ -376,7 +378,9 @@ $messages['sk'] = array(
 	'oldreviewedpages-watched'   => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
 );
 
-/** Slovak (Slovenčina) */
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
 $messages['sk'] = array(
 	'oldreviewedpages'           => 'Zastaralé skontrolované stránky',
 	'oldreviewedpages-legend'    => 'Zoznam skontrolovaných stránok s neskontrolovanými revíziami',
