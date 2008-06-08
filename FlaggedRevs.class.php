@@ -2061,6 +2061,13 @@ EOT;
 		return true;
 	}
 	
+	static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
+		$tables[] = 'flaggedrevs';
+		$fields[] = 'fr_quality';
+		$join_conds['flaggedrevs'] = array( 'LEFT JOIN', 'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
+		return true;
+	}
+	
 	static function addToHistLine( $history, $row, &$s ) {
 		return FlaggedArticle::getInstance( $history->getArticle(), true )->addToHistLine( $history, $row, $s );
 	}

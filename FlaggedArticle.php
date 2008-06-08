@@ -39,7 +39,7 @@ class FlaggedArticle extends Article {
 		}
 		# For titles, attach instance to the title and give the instance an article parent
 		if( $object instanceof Title ) {
-			$article = new Article( $object );
+			$article = MediaWiki::articleFromTitle( $object );
 			$article->flaggedRevsArticle = new FlaggedArticle( $article );
 			$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
 		} else if( $object instanceof Article ) {
@@ -794,20 +794,21 @@ class FlaggedArticle extends Article {
 	 * Add link to stable version of reviewed revisions
 	 */
 	public function addToFileHistLine( $historyList, $file, &$s, &$css ) {
-		global $wgUser;
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( !$this->isReviewable() || !$this->getStableRev() )
 			return true;
-		# See if this is reviewed
-		# fixme: O(N) DB queries
-		$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
-			array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
-			__METHOD__ );
-		if( $quality === false ) {
-			return true;
+		# Quality level for old versions selected all at once.
+		if( !$file->isOld() ) {
+			$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
+				array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
+				__METHOD__ );
+		} else {
+			$quality = is_null($file->quality) ? false : $file->quality;
 		}
-		$css = FlaggedRevsXML::getQualityColor( $quality );
-
+		# If reviewed, class the line
+		if( $quality !== false ) {
+			$css = FlaggedRevsXML::getQualityColor( $quality );
+		}
 		return true;
 	}
 

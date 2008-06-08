@@ -331,6 +331,7 @@ $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::addVisibilityLink';
 # Mark of items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevs::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevs::addToHistLine';
+$wgHooks['LocalFile::getHistory'][] = 'FlaggedRevs::addToFileHistQuery';
 $wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevs::addToFileHistLine';
 # Page review on edit
 $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevs::injectReviewDiffURLParams';
