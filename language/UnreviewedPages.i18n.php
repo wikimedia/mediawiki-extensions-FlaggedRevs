@@ -448,6 +448,7 @@ $messages['nds'] = array(
 	'unreviewed-category'  => 'Kategorie:',
 	'unreviewed-diff'      => 'as nakeken marken',
 	'unreviewed-unwatched' => '(op keen Oppasslist)',
+	'unreviewed-watched'   => '($2 {{PLURAL:$1|Bruker|Brukers}} passt op disse Sied op)',
 );
 
 /** Dutch (Nederlands)
@@ -515,6 +516,7 @@ $messages['pl'] = array(
 	'unreviewed-unwatched' => '(nieobserwowane)',
 	'unreviewed-watched'   => '(obserwowane przez $1 {{PLURAL:$1|użytkownika|użytkowników}})',
 	'unreviewed-list'      => 'Ta strona zawiera listę artykułów, które nie zostały ocenione lub mają nowe, nie ocenione wersje.',
+	'unreviewed-none'      => 'Brak obecnie stron spełniających zadane warunki',
 );
 
 /** Piemontèis (Piemontèis)
@@ -532,7 +534,7 @@ $messages['pms'] = array(
  */
 $messages['ps'] = array(
 	'unreviewed-category' => 'وېشنيزه:',
-	'unreviewed-diff'     => 'بدلونونه',
+	'unreviewed-diff'     => 'مخکتنه',
 );
 
 /** Portuguese (Português)

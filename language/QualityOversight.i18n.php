@@ -84,7 +84,7 @@ $messages['nl'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'qualityoversight'      => 'Qualitat supervisaire',
+	'qualityoversight'      => 'Qualitat supervisor',
 	'qualityoversight-list' => 'Aquesta pagina lista las aprobacions recentas de las versions de qualitat tant plan coma lors depreciacions.',
 );
 

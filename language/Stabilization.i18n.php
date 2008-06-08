@@ -1026,6 +1026,7 @@ $messages['nds'] = array(
 	'stabilization-expiry'      => 'Löppt ut:',
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'Keen',
+	'stabilize-expiring'        => 'löppt $1 ut (UTC)',
 );
 
 /** Dutch (Nederlands)
@@ -1160,10 +1161,10 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-select'      => 'Wybór wersji dopracowanej',
 	'stabilization-select2'     => 'Ostatnia oceniona wersja',
 	'stabilization-def'         => 'Wersja prezentowana w domyślnym widoku strony',
-	'stabilization-def1'        => 'Wersja dopracowana lub jeśli jej nie ma – wersja aktualna',
+	'stabilization-def1'        => 'Wersja dopracowana lub jeśli jej brak – wersja aktualna',
 	'stabilization-def2'        => 'Aktualna wersja',
 	'stabilization-submit'      => 'Potwierdź',
-	'stabilization-notexists'   => 'Nie ma strony zatytułowanej "[[:$1|$1]]". Nie jest możliwa jej konfiguracja.',
+	'stabilization-notexists'   => 'Brak strony zatytułowanej "[[:$1|$1]]". Nie jest możliwa jej konfiguracja.',
 	'stabilization-notcontent'  => 'Strona "[[:$1|$1]]" nie może być oceniona. Nie jest możliwa jej konfiguracja.',
 	'stabilization-comment'     => 'Komentarz:',
 	'stabilization-expiry'      => 'Czas wygaśnięcia',

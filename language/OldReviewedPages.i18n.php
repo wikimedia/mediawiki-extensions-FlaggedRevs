@@ -36,6 +36,8 @@ $messages['ar'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ساعة|ساعة}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|يوم|يوم}})',
 	'oldreviewedpages-recent'    => '(أقل من 1 ساعة)',
+	'oldreviewed-category'       => 'تصنيف:',
+	'oldreviewed-diff'           => 'راجع',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );
@@ -63,6 +65,11 @@ $messages['cs'] = array(
 	'oldreviewedpages-quality'   => 'kvalita',
 	'oldreviewedpages-recent'    => '(méně než 1 hodina)',
 	'oldreviewedpages-unwatched' => '(nesledované)',
+);
+
+/** Church Slavic (Словѣньскъ) */
+$messages['cu'] = array(
+	'oldreviewed-category' => 'катигорі́ꙗ :',
 );
 
 /** German (Deutsch) */
@@ -95,6 +102,8 @@ $messages['eo'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|horo|horoj}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|tago|tagoj}})',
 	'oldreviewedpages-recent'    => '(malpli ol 1 horo)',
+	'oldreviewed-category'       => 'Kategorio:',
+	'oldreviewed-diff'           => 'kontroli',
 	'oldreviewedpages-unwatched' => '(malatentita)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
 );
@@ -149,6 +158,7 @@ $messages['gl'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|día|días}})',
 	'oldreviewedpages-recent'    => '(menos de 1 hora)',
+	'oldreviewed-category'       => 'Categoría:',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 );
@@ -208,6 +218,7 @@ $messages['lb'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|Dag|Deeg}})',
 	'oldreviewedpages-recent'    => '(manner wéi 1 Stonn)',
+	'oldreviewed-category'       => 'Kategorie:',
 	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',
 );
 
@@ -252,6 +263,7 @@ $messages['nds'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|Stünn|Stünnen}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|Dag|Daag}})',
 	'oldreviewedpages-recent'    => '(weniger as een Stünn)',
+	'oldreviewed-category'       => 'Kategorie:',
 	'oldreviewedpages-unwatched' => '(op keen Oppasslist)',
 );
 
@@ -299,6 +311,8 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'oldreviewedpages-quality'   => 'jakość',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|godzina|godziny|godzin}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|dzień|dni}})',
 	'oldreviewedpages-recent'    => '(mniej niż 1 godzina)',
 	'oldreviewed-category'       => 'Kategoria:',
 	'oldreviewedpages-unwatched' => '(nieobserwowane)',
@@ -362,6 +376,23 @@ $messages['sk'] = array(
 	'oldreviewedpages-watched'   => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
 );
 
+/** Slovak (Slovenčina) */
+$messages['sk'] = array(
+	'oldreviewedpages'           => 'Zastaralé skontrolované stránky',
+	'oldreviewedpages-legend'    => 'Zoznam skontrolovaných stránok s neskontrolovanými revíziami',
+	'oldreviewedpages-list'      => 'Táto stránka obsahuje zoznam skontrolovaných stránok, ktorých následné úpravy zatiaľ neboli skontrolované.',
+	'oldreviewedpages-none'      => 'Momentálne žiadne stránky nezodpovedajú týmto kritériám',
+	'oldreviewedpages-stable'    => 'videná',
+	'oldreviewedpages-quality'   => 'kvalitná',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|deň|dni|dní}})',
+	'oldreviewedpages-recent'    => '(menej ako 1 hodina)',
+	'oldreviewed-category'       => 'Kategória:',
+	'oldreviewed-diff'           => 'skontrolovať',
+	'oldreviewedpages-unwatched' => '(nesledovaná)',
+	'oldreviewedpages-watched'   => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
+);
+
 /** Swedish (Svenska)
  * @author M.M.S.
  */
@@ -391,6 +422,7 @@ $messages['te'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|గంట|గంటలు}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
 	'oldreviewedpages-recent'    => '(1 గంట లోపల)',
+	'oldreviewed-category'       => 'వర్గం:',
 	'oldreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
 );

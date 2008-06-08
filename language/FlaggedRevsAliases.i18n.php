@@ -119,6 +119,7 @@ $messages['id'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'reviewedpages-alias'  => 'Säiten déi iwwerkuckt gi sinn',
 	'stablepages-alias'    => 'Stabil Säiten',
 	'stableversions-alias' => 'Stabil Versiounen',
 );
