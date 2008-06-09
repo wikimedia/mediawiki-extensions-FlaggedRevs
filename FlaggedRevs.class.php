@@ -2067,9 +2067,11 @@ EOT;
 	}
 	
 	static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
-		$tables[] = 'flaggedrevs';
-		$fields[] = 'fr_quality';
-		$join_conds['flaggedrevs'] = array( 'LEFT JOIN', 'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
+		if( $file->isLocal() ) {
+			$tables[] = 'flaggedrevs';
+			$fields[] = 'fr_quality';
+			$join_conds['flaggedrevs'] = array( 'LEFT JOIN', 'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
+		}
 		return true;
 	}
 	

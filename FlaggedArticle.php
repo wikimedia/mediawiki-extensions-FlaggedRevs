@@ -795,7 +795,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addToFileHistLine( $historyList, $file, &$s, &$css ) {
 		# Non-content pages cannot be validated. Stable version must exist.
-		if( !$this->isReviewable() || !$this->getStableRev() )
+		if( !$this->isReviewable() || !$this->getStableRev() || !$file->isLocal() )
 			return true;
 		# Quality level for old versions selected all at once.
 		if( !$file->isOld() ) {
