@@ -161,8 +161,7 @@ class FlaggedRevs {
 		# Make our hooks to trigger
 		$wgParser->fr_isStable = true;
 		# Parse with default options
-		$options = new ParserOptions();
-		$options->setRemoveComments( true ); // Save some bandwidth ;)
+		$options = self::makeParserOptions();
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
 		$out =& $wgParser->mOutput;
 		$data = array( $outputText, $out->mTemplates, $out->mTemplateIds, $out->fr_includeErrors, $out->fr_newestTemplateID );
@@ -226,8 +225,9 @@ class FlaggedRevs {
 	/**
 	* Get standard parser options
 	*/
-	public static function makeParserOptions( $user = NULL ) {
-		$options = $user ? ParserOptions::newFromUser( $user ) : new ParserOptions();
+	public static function makeParserOptions() {
+		global $wgUser;
+		$options = ParserOptions::newFromUser($wgUser);
 		# Show inclusion/loop reports
 		$options->enableLimitReport();
 		# Fix bad HTML
@@ -454,7 +454,7 @@ class FlaggedRevs {
 			if( $currentOutput==false ) {
 				$text = $article->getContent();
 				$title = $article->getTitle();
-				$options = self::makeParserOptions( $wgUser );
+				$options = self::makeParserOptions();
 				$currentOutput = $wgParser->parse( $text, $title, $options );
 				# Might as well save the cache while we're at it
 				global $wgEnableParserCache;
@@ -557,7 +557,7 @@ class FlaggedRevs {
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$options = self::makeParserOptions( $wgUser );
+			$options = self::makeParserOptions();
 			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
 			# Might as well save the cache while we're at it
 			global $wgEnableParserCache;

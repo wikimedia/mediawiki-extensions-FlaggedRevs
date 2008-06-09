@@ -621,7 +621,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$options = FlaggedRevs::makeParserOptions( $wgUser );
+			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
 		# If we know that this is now the new stable version 
@@ -689,7 +689,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$poutput = $parserCache->get( $article, $wgUser );
 		if( $poutput==false ) {
 			$text = $article->getContent();
-			$options = FlaggedRevs::makeParserOptions( $wgUser );
+			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
