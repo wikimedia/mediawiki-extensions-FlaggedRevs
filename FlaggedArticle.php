@@ -795,10 +795,11 @@ class FlaggedArticle extends Article {
 	 */
 	public function addToFileHistLine( $historyList, $file, &$s, &$css ) {
 		# Non-content pages cannot be validated. Stable version must exist.
-		if( !$this->isReviewable() || !$this->getStableRev() || !$file->isLocal() )
+		if( !$this->isReviewable() || !$this->getStableRev() )
 			return true;
 		# Quality level for old versions selected all at once.
-		if( !$file->isOld() ) {
+		# Commons queries cannot be done all at once...
+		if( !$file->isOld() || !$file->isLocal() ) {
 			$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
 				array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
 				__METHOD__ );
