@@ -1,9 +1,14 @@
 <?php
 #(c) Aaron Schulz, Joerg Baach, 2007-2008 GPL
 
-if ( !defined( 'MEDIAWIKI' ) ) {
+if( !defined('MEDIAWIKI') ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
+}
+
+# This messes with dump HTML...
+if( defined('MW_HTML_FOR_DUMP') ) {
+	return;
 }
 
 # Quality -> Sighted (default)
@@ -269,6 +274,7 @@ $wgSpecialPageGroups['DepreciationOversight'] = 'quality';
 ######### Hook attachments #########
 # Remove stand-alone patrolling
 $wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
+
 # Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
 # Adds table link references to include ones from the stable version
@@ -314,12 +320,12 @@ $wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::addBacklogNotice';
 
 # Visibility - experimental
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
-
 # Main hooks, overrides pages content, adds tags, sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
 # Change last-modified footer
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'FlaggedRevs::setLastModified';
-# Update older, incomplete, page caches (ones that lack template Ids/image timestamps)
+
+# Override current revision, add patrol links, set cache...
 $wgHooks['ArticleViewHeader'][] = 'FlaggedRevs::onArticleViewHeader';
 # Add page notice
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'FlaggedRevs::setPermaLink';
@@ -345,7 +351,6 @@ $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::injectStyleAndJS';
 
 # Set aliases
 $wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
-
 #########
 
 function efLoadFlaggedRevs() {
