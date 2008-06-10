@@ -1485,8 +1485,8 @@ EOT;
 		$maxRevision = 0;
 		# Record the max template revision ID
 		if( !empty($parser->mOutput->mTemplateIds) ) {
-			foreach( $parser->mOutput->mTemplateIds as $namespace => $DBkey_rev ) {
-				foreach( $DBkey_rev as $DBkey => $revID ) {
+			foreach( $parser->mOutput->mTemplateIds as $namespace => $DBKeyRev ) {
+				foreach( $DBKeyRev as $DBkey => $revID ) {
 					if( $revID > $maxRevision ) {
 						$maxRevision = $revID;
 					} 
@@ -1494,12 +1494,12 @@ EOT;
 			}
 		}
 		$parser->mOutput->fr_newestTemplateID = $maxRevision;
-			
+
 		$maxTimestamp = "0";
 		# Fetch the current timestamps of the images.
 		if( !empty($parser->mOutput->mImages) ) {
-			$filenames = array_keys($parser->mOutput->mImages);
-			foreach( $filenames as $filename ) {
+			foreach( $parser->mOutput->mImages as $filename => $x ) {
+				# FIXME: it would be nice not to double fetch these!
 				$file = wfFindFile( Title::makeTitle( NS_IMAGE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
 				if( $file ) {
@@ -1526,12 +1526,11 @@ EOT;
 		# Leave as defaults if missing. Relevant things will be updated only when needed.
 		# We don't want to go around resetting caches all over the place if avoidable...
 		$out->fr_ImageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ? $parserOut->fr_ImageSHA1Keys : array();
-
 		return true;
 	}
 
 	/**
-	* Don't let users vandalize pages by moving them.
+	* Don't let users vandalize pages by moving them
 	*/
 	public static function userCanMove( $title, $user, $action, $result ) {
 		if( $action != 'move' || !self::isPageReviewable( $title ) )
@@ -1539,20 +1538,19 @@ EOT;
 
 		$flaggedArticle = FlaggedArticle::getInstance( $title, true );
 		$frev = $flaggedArticle->getStableRev();
-		if( !$frev )
-			return true;
-
-		# Allow for only editors/reviewers to move this
-		$right = $frev->getQuality() ? 'validate' : 'review';
-		if( !$user->isAllowed($right) && !$user->isAllowed('movestable') ) {
-			$result = false;
-			return false;
+		if( $frev ) {
+			# Allow for only editors/reviewers to move this
+			$right = $frev->getQuality() ? 'validate' : 'review';
+			if( !$user->isAllowed($right) && !$user->isAllowed('movestable') ) {
+				$result = false;
+				return false;
+			}
 		}
 		return true;
 	}
 	
     /**
-    * Allow users to view reviewed pages.
+    * Allow users to view reviewed pages
     */
     public static function userCanView( $title, $user, $action, $result ) {
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
@@ -1647,21 +1645,20 @@ EOT;
 		if( !$rev ) {
 			return true; // NULL edit
 		}
-		$title = $article->getTitle();
-		$patrol = false;
+		$patrol = $record = false;
 		// Is the page reviewable?
-		if( self::isPageReviewable($title) ) {
-			$patrol = self::revIsFlagged( $title, $rev->getId(), GAID_FOR_UPDATE );
+		if( self::isPageReviewable( $article->getTitle() ) ) {
+			$patrol = self::revIsFlagged( $article->getTitle(), $rev->getId(), GAID_FOR_UPDATE );
 		// Can this be patrolled?
-		} else if( self::isPagePatrollable($title) ) {
+		} else if( self::isPagePatrollable( $article->getTitle() ) ) {
 			$patrol = $user->isAllowed('autopatrolother');
+			$record = true;
 		} else {
 			$patrol = true; // mark by default
 		}
 		if( $patrol ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$rcid = $dbw->selectField( 'recentchanges', 
-				'rc_id',
+			$rcid = $dbw->selectField( 'recentchanges', 'rc_id',
 				array( 'rc_this_oldid' => $rev->getId(),
 					'rc_user_text' => $rev->getRawUserText(),
 					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
@@ -1670,7 +1667,9 @@ EOT;
 			);
 			if( $rcid ) {
 				RecentChange::markPatrolled( $rcid );
-				PatrolLog::record( $rcid, true );
+				if( $record ) {
+					PatrolLog::record( $rcid, true );
+				}
 			}
 		}
 		return true;

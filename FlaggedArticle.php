@@ -1204,10 +1204,10 @@ class FlaggedArticle extends Article {
 		$id = $out->mRevisionId;
 		# Must be a valid non-printable output
 		if( !$id || $out->isPrintable() ) {
-			return;
+			return false;
 		}
 		if( !isset($out->mTemplateIds) || !isset($out->fr_ImageSHA1Keys) ) {
-			return; // something went terribly wrong...
+			return false; // something went terribly wrong...
 		}
 		$skin = $wgUser->getSkin();
 		
@@ -1371,6 +1371,7 @@ class FlaggedArticle extends Article {
 		} else {
 			$wgOut->addHTML( $form );
 		}
+		return true;
 	}
 	
 	 /**
