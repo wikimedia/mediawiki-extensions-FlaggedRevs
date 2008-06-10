@@ -932,7 +932,7 @@ class FlaggedArticle extends Article {
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
 						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
-						$imgChanges[] = $skin->makeKnownLinkObj( $title );
+						$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 					}
 					$wgMemc->set( $key, serialize($imgChanges), $wgParserCacheExpireTime );
 				}
