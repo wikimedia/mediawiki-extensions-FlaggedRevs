@@ -119,11 +119,13 @@ $messages['da'] = array(
 	'unreviewed-category' => 'Kategori:',
 );
 
-/** German (Deutsch) */
-$messages['de'] = array(
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
+ $messages['de'] = array(
 	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
-	'unreviewedpages'       => 'Unmarkierte Artikel',
-	'unreviewed-legend'     => 'Liste unmarkierter Artikel',
+	'unreviewedpages'       => 'Unmarkierte Seiten',
+	'unreviewed-legend'     => 'Liste unmarkierter Seiten',
 	'unreviewed-category'   => 'Kategorie:',
 	'unreviewed-diff'       => 'sichten',
 	'unreviewed-unwatched'  => '(unbeobachtet)',

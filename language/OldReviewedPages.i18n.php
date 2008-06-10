@@ -75,12 +75,14 @@ $messages['cu'] = array(
 	'oldreviewed-category' => 'катигорі́ꙗ :',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
 $messages['de'] = array(
 	'oldreviewedpages'           => 'Alte, gesichtete Seiten',
 	'oldreviewedpages-legend'    => 'Liste gesichteter Seiten mit ungesichteten Versionen',
 	'oldreviewedpages-list'      => 'Diese Spezialseite zeigt gesichtete Seiten, die noch ungesichtete Bearbeitungen haben.',
-	'oldreviewedpages-none'      => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen',
+	'oldreviewedpages-none'      => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.',
 	'oldreviewedpages-stable'    => 'gesichtet',
 	'oldreviewedpages-quality'   => 'gesprüft',
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|Stunde|Stunden}})',
