@@ -1436,7 +1436,7 @@ EOT;
 			global $wgUseCurrentImages;
 			# If the DB found nothing...
 			if( $time === false ) {
-				$ig->fr_parentParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
+				$ig->mParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentImages ) {
 					$time = "0";
 				} else {
@@ -1448,11 +1448,11 @@ EOT;
 			}
 		}
 		# Add image metadata to parser output
-		$ig->fr_parentParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
-		$ig->fr_parentParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
+		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
+		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
 		
-		if( $time > $ig->fr_parentParser->mOutput->fr_newestImageTime ) {
-			$ig->fr_parentParser->mOutput->fr_newestImageTime = $time;
+		if( $time > $ig->mParser->mOutput->fr_newestImageTime ) {
+			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
 
 		return true;
@@ -1467,7 +1467,6 @@ EOT;
 			return true;
 
 		$ig->fr_isStable = true;
-		$ig->fr_parentParser =& $parser; // hack
 
 		return true;
 	}
