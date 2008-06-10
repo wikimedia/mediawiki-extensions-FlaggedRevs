@@ -29,7 +29,7 @@ class StablePages extends SpecialPage
 			$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . 
 				FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
-			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
+			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 			$form .= "</fieldset></form>\n";
 			$wgOut->addHTML( $form );
 		}

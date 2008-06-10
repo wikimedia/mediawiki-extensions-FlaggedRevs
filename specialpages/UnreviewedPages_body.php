@@ -28,7 +28,7 @@ class UnreviewedPages extends SpecialPage
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
-			Xml::hidden( 'title', $wgTitle->getPrefixedText() ) . '<p>' );
+			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) . '<p>' );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
 				FlaggedRevsXML::getNamespaceMenu( $namespace ) ) . '&nbsp;';

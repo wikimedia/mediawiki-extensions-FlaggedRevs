@@ -27,13 +27,14 @@ class OldReviewedPages extends SpecialPage
 		$action = htmlspecialchars( $wgScript );
 		
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>');
+			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
+			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) );
+
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
 				FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
-		$wgOut->addHTML( Xml::hidden( 'title', $wgTitle->getPrefixedText() ) .
-			Xml::label( wfMsg("oldreviewed-category"), 'category' ) .
+		$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
 			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 			"</fieldset></form>" );

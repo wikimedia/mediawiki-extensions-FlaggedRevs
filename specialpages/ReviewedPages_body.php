@@ -37,7 +37,7 @@ class ReviewedPages extends SpecialPage
 		$form .= FlaggedRevsXML::getLevelMenu( $this->type );
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
-		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
+		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 		$form .= "</fieldset></form>\n";
 
 		$wgOut->addHTML( $form );

@@ -149,7 +149,7 @@ class Stabilization extends UnlistedSpecialPage
 			$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
 			$form .= "&nbsp;<label for='wpWatchthis'".$this->skin->tooltipAndAccesskey('watch').">{$watchLabel}</label></p>";
 
-			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedText() );
+			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 			$form .= Xml::hidden( 'page', $this->page->getPrefixedText() );
 			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 
