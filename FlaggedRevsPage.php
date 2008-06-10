@@ -404,7 +404,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @returns true on success, array of errors on failure
 	 */
 	private function approveRevision( $rev ) {
-		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
+		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgEnableParserCache, $wgMemc;
 
 		wfProfileIn( __METHOD__ );
 		# Get the page this corresponds to
@@ -631,7 +631,8 @@ class RevisionReview extends UnlistedSpecialPage
 			# Clear the cache...
 			$this->page->invalidateCache();
 			# Update stable cache with the revision we reviewed
-			FlaggedRevs::updatePageCache( $article, $stableOutput );
+			if( $wgEnableParserCache )
+				FlaggedRevs::updatePageCache( $article, $stableOutput );
 		} else {
 			# Get the old stable cache
 			$stableOutput = FlaggedRevs::getPageCache( $article );
@@ -645,7 +646,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
 		# Might as well save the cache, since it should be the same
-		global $wgEnableParserCache;
 		if( $wgEnableParserCache )
 			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge cache/squids for this page and any page that uses it

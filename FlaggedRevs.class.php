@@ -425,7 +425,7 @@ class FlaggedRevs {
 				return false;
 			}
 		}
-		global $wgMemc;
+		global $wgMemc, $wgEnableParserCache;
 		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId(), $article->getTouched() );
 		$syncvalue = $wgMemc->get($key);
@@ -445,7 +445,8 @@ class FlaggedRevs {
 				$text = $srev->getTextForParse();
 	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
 	   			# Update the stable version cache
-	   			self::updatePageCache( $article, $stableOutput );
+				if( $wgEnableParserCache )
+					self::updatePageCache( $article, $stableOutput );
 	   		}
 		}
 		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
@@ -459,7 +460,6 @@ class FlaggedRevs {
 				$options = self::makeParserOptions();
 				$currentOutput = $wgParser->parse( $text, $title, $options );
 				# Might as well save the cache while we're at it
-				global $wgEnableParserCache;
 				if( $wgEnableParserCache )
 					$parserCache->save( $currentOutput, $article, $wgUser );
 			}
@@ -1016,7 +1016,9 @@ EOT;
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
-			self::updatePageCache( $article, $poutput );
+			global $wgEnableParserCache;
+			if( $wgEnableParserCache )
+				self::updatePageCache( $article, $poutput );
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 			# Purge squid for this page only
