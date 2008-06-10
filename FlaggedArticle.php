@@ -1321,7 +1321,7 @@ class FlaggedArticle extends Article {
 		foreach( $out->mTemplateIds as $namespace => $title ) {
 			foreach( $title as $dbkey => $revId ) {
 				$title = Title::makeTitle( $namespace, $dbkey );
-				$templateParams .= $title->getPrefixedText() . "|" . $revId . "#";
+				$templateParams .= $title->getPrefixedDBKey() . "|" . $revId . "#";
 			}
 		}
 		# Hack, image -> timestamp mapping

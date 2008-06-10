@@ -1256,7 +1256,7 @@ EOT;
 	*/
 	public static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
 		# Trigger for stable version parsing only
-		if( !$parser || !isset($parser->fr_isStable) || !$parser->fr_isStable )
+		if( !$parser || empty($parser->fr_isStable) )
 			return true;
 		# Special namespace ... ?
 		if( $title->getNamespace() < 0 ) {
@@ -1309,7 +1309,7 @@ EOT;
 	*/
 	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( !isset($parser->fr_isStable) || !$parser->fr_isStable ) {
+		if( empty($parser->fr_isStable) ) {
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
@@ -1386,7 +1386,7 @@ EOT;
 	*/
 	public static function galleryFindStableFileTime( $ig, $nt, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( !isset($ig->fr_isStable) || !$ig->fr_isStable ) {
+		if( empty($ig->fr_isStable) ) {
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
@@ -1477,7 +1477,7 @@ EOT;
 	*/
 	public static function parserInjectTimestamps( $parser, &$text ) {
 		# Don't trigger this for stable version parsing...it will do it separately.
-		if( isset($parser->fr_isStable) && $parser->fr_isStable )
+		if( !empty($parser->fr_isStable) )
 			return true;
 
 		wfProfileIn( __METHOD__ );
@@ -1489,7 +1489,7 @@ EOT;
 				foreach( $DBKeyRev as $DBkey => $revID ) {
 					if( $revID > $maxRevision ) {
 						$maxRevision = $revID;
-					} 
+					}
 				}
 			}
 		}
@@ -1523,9 +1523,13 @@ EOT;
 	* Insert image timestamps/SHA-1s into page output
 	*/
 	public static function outputInjectTimestamps( $out, $parserOut ) {
+		# Set first time
+		$out->fr_ImageSHA1Keys = isset($out->fr_ImageSHA1Keys) ? $out->fr_ImageSHA1Keys : array();
 		# Leave as defaults if missing. Relevant things will be updated only when needed.
 		# We don't want to go around resetting caches all over the place if avoidable...
-		$out->fr_ImageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ? $parserOut->fr_ImageSHA1Keys : array();
+		$imageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ? $parserOut->fr_ImageSHA1Keys : array();
+		# Add on any new items
+		$out->fr_ImageSHA1Keys = wfArrayMerge( $out->fr_ImageSHA1Keys, $imageSHA1Keys );
 		return true;
 	}
 
@@ -1533,9 +1537,9 @@ EOT;
 	* Don't let users vandalize pages by moving them
 	*/
 	public static function userCanMove( $title, $user, $action, $result ) {
-		if( $action != 'move' || !self::isPageReviewable( $title ) )
+		if( $action != 'move' || !self::isPageReviewable( $title ) ) {
 			return true;
-
+		}
 		$flaggedArticle = FlaggedArticle::getInstance( $title, true );
 		$frev = $flaggedArticle->getStableRev();
 		if( $frev ) {
