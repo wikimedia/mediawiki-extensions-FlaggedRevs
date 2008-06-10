@@ -303,9 +303,9 @@ class FlaggedRevs {
 	* Updates the stable cache of a page with the given $parserOut
 	*/
 	public static function updatePageCache( $article, $parserOut=null ) {
-		global $wgUser, $parserMemc, $wgParserCacheExpireTime;
-		# Make sure it is valid
-		if( is_null($parserOut) )
+		global $wgUser, $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
+		# Make sure it is valid and $wgEnableParserCache is enabled
+		if( !$wgEnableParserCache || is_null($parserOut) )
 			return false;
 
 		$parserCache = ParserCache::singleton();
@@ -445,8 +445,7 @@ class FlaggedRevs {
 				$text = $srev->getTextForParse();
 	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
 	   			# Update the stable version cache
-				if( $wgEnableParserCache )
-					self::updatePageCache( $article, $stableOutput );
+				self::updatePageCache( $article, $stableOutput );
 	   		}
 		}
 		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
@@ -1016,9 +1015,7 @@ EOT;
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), false, true );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
-			global $wgEnableParserCache;
-			if( $wgEnableParserCache )
-				self::updatePageCache( $article, $poutput );
+			self::updatePageCache( $article, $poutput );
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 			# Purge squid for this page only

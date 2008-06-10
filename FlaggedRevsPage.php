@@ -631,8 +631,7 @@ class RevisionReview extends UnlistedSpecialPage
 			# Clear the cache...
 			$this->page->invalidateCache();
 			# Update stable cache with the revision we reviewed
-			if( $wgEnableParserCache )
-				FlaggedRevs::updatePageCache( $article, $stableOutput );
+			FlaggedRevs::updatePageCache( $article, $stableOutput );
 		} else {
 			# Get the old stable cache
 			$stableOutput = FlaggedRevs::getPageCache( $article );
