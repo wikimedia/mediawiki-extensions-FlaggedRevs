@@ -188,7 +188,8 @@ class FlaggedArticle extends Article {
 		$simpleTag = $old = $stable = false;
 		$tag = $notes = $pending = '';
 		# Check the newest stable version.
-		$frev = $this->getStableRev( true );
+		$srev = $this->getStableRev( true );
+		$frev = $srev;
 		$stableId = $frev ? $frev->getRevId() : 0;
 		# Also, check for any explicitly requested old stable version...
 		$reqId = $wgRequest->getVal('stableid');
@@ -267,7 +268,10 @@ class FlaggedArticle extends Article {
 			// behavior below, since it is the same as ("&stable=1").
 			} else if( !$stable && !$this->pageOverride() ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
-				$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $this->parent );
+				$synced = false;
+				if( $srev->getRevId() == $frev->getRevId() ) {
+					$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent );
+				}
 				# Give notice to newewer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$tooltip = wfMsgHtml('revreview-draft-title');
@@ -334,7 +338,7 @@ class FlaggedArticle extends Article {
 	   				# Update the stable version cache
 	   				FlaggedRevs::updatePageCache( $this->parent, $parserOut );
 	   			}
-				$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $this->parent, $parserOut, null );
+				$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent, $parserOut, null );
 				# Construct some tagging
 				if( !$wgOut->isPrintable() ) {
 					$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
@@ -690,13 +694,13 @@ class FlaggedArticle extends Article {
 		$action = $wgRequest->getVal( 'action', 'view' );
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
-	   	$frev = $this->getStableRev( true );
+	   	$srev = $this->getStableRev( true );
 	   	# No quality revs? Find the last reviewed one
-	   	if( is_null($frev) ) {
+	   	if( is_null($srev) ) {
 			return true;
 		}
 	   	# Be clear about what is being edited...
-		$synced = FlaggedRevs::flaggedRevIsSynced( $frev, $article );
+		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 	   	if( !$skin->mTitle->isTalkPage() && !$synced ) {
 	   		if( isset( $contentActions['edit'] ) ) {
 				if( $this->showStableByDefault() )

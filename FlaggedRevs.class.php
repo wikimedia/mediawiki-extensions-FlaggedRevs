@@ -158,7 +158,8 @@ class FlaggedRevs {
 	 */
 	public static function expandText( $text='', $title, $id ) {
 		global $wgParser;
-		# Make our hooks to trigger
+		# Make our hooks trigger (force unstub so setting doesn't get lost)
+		$wgParser->firstCallInit();
 		$wgParser->fr_isStable = true;
 		# Parse with default options
 		$options = self::makeParserOptions();
@@ -185,7 +186,8 @@ class FlaggedRevs {
 	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
 		global $wgParser, $wgUseStableTemplates;
 		$title = $article->getTitle(); // avoid pass-by-reference error
-		# Make our hooks to trigger
+		# Make our hooks trigger (force unstub so setting doesn't get lost)
+		$wgParser->firstCallInit();
 		$wgParser->fr_isStable = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
@@ -412,7 +414,7 @@ class FlaggedRevs {
 	* @return bool
 	* See if a flagged revision is synced with the current
 	*/	
-	public static function flaggedRevIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
+	public static function stableVersionIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
 		# Must be the same revision
 		if( $srev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
@@ -1352,8 +1354,8 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
+		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$time) ) : "";
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
 			global $wgUseCurrentImages;
@@ -1373,11 +1375,9 @@ EOT;
 		# Add image metadata to parser output
 		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
-		
 		if( $time > $parser->mOutput->fr_newestImageTime ) {
 			$parser->mOutput->fr_newestImageTime = $time;
 		}
-		
 		return true;
 	}
 
@@ -1386,7 +1386,7 @@ EOT;
 	*/
 	public static function galleryFindStableFileTime( $ig, $nt, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( empty($ig->fr_isStable) ) {
+		if( empty($ig->mParser->fr_isStable) ) {
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
@@ -1429,8 +1429,8 @@ EOT;
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-			$query = $row ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$row->fi_img_timestamp) ) : "";
 		}
+		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$time) ) : "";
 		# If none specified, see if we are allowed to use the current revision
 		if( !$time ) {
 			global $wgUseCurrentImages;
@@ -1450,27 +1450,11 @@ EOT;
 		# Add image metadata to parser output
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
-		
 		if( $time > $ig->mParser->mOutput->fr_newestImageTime ) {
 			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
-
 		return true;
 	}
-
-	/**
-	* Flag of an image galley as stable
-	*/
-	public static function parserMakeGalleryStable( $parser, $ig ) {
-		# Trigger for stable version parsing only
-		if( !isset($parser->fr_isStable) || !$parser->fr_isStable )
-			return true;
-
-		$ig->fr_isStable = true;
-
-		return true;
-	}
-
 	/**
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/

@@ -288,7 +288,6 @@ $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
 $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
 # Parser hooks, selects the desired images/templates
 $wgHooks['ParserClearState'][] = 'FlaggedRevs::parserAddFields';
-$wgHooks['BeforeParserrenderImageGallery'][] = 'FlaggedRevs::parserMakeGalleryStable';
 $wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
 $wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImageLink';
