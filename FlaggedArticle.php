@@ -10,51 +10,51 @@ class FlaggedArticle extends Article {
 	protected $parent;
 
 	/**
-	 * Get an instance of FlaggedArticle for a given Article or Title object
-	 * @param mixed $object (Article/Title)
-	 * @param bool $tryGlobals, check $wgTitle?
+	 * Get the FlaggedArticle instance associated with $wgArticle/$wgTitle,
+	 * or false if there isn't such a title
 	 */
-	static function getInstance( $object, $tryGlobals = false ) {
-		# If instance already cached, return it!
-		if( isset($object->flaggedRevsArticle) ) {
-			return $object->flaggedRevsArticle;
-		}
-		if( $tryGlobals ) {
-			global $wgTitle;
-			# Try and keep things to one object to avoid cache misses...
-			# If $wgTitle has no instance, give it one!
-			if( !isset($wgTitle->flaggedRevsArticle) ) {
-				// Needs to be ImagePage or CategoryPage as needed
-				$article = MediaWiki::articleFromTitle( $wgTitle );
-				$wgTitle->flaggedRevsArticle = new FlaggedArticle( $article );
-			}
-			# Use $wgTitle's instance if we are dealing with the same article
-			if( $object instanceof Title && $object->equals( $wgTitle ) ) {
-				$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
-				return $object->flaggedRevsArticle;
-			} else if( $object instanceof Article && $object->getTitle()->equals( $wgTitle ) ) {
-				$object->flaggedRevsArticle =& $wgTitle->flaggedRevsArticle;
-				return $object->flaggedRevsArticle;
-			}
-		}
-		# For titles, attach instance to the title and give the instance an article parent
-		if( $object instanceof Title ) {
-			$article = MediaWiki::articleFromTitle( $object );
-			$article->flaggedRevsArticle = new FlaggedArticle( $article );
-			$object->flaggedRevsArticle =& $article->flaggedRevsArticle;
-		} else if( $object instanceof Article ) {
-			# If flaggedarticle is attached to title, use that
-			if( isset( $object->getTitle()->flaggedRevsArticle ) ) {
-				$object->flaggedRevsArticle =& $object->getTitle()->flaggedRevsArticle;
-			# Otherwise, attach it to the article and title
-			} else {
-				$object->flaggedRevsArticle = new FlaggedArticle( $object );
-				$object->getTitle()->flaggedRevsArticle =& $object->flaggedRevsArticle;
-			}
+	static function getGlobalInstance() {
+		global $wgArticle, $wgTitle;
+		if ( !empty( $wgArticle ) ) {
+			return self::getInstance( $wgArticle );
+		} elseif ( !empty( $wgTitle ) ) {
+			return self::getTitleInstance( $wgTitle );
 		} else {
-			throw new MWException( __METHOD__.': invalid argument' );
+			return false;
 		}
-		return $object->flaggedRevsArticle;
+	}
+
+	/**
+	 * Get a FlaggedArticle for a given title.
+	 * getInstance() is preferred if you have an Article avaiable.
+	 */
+	static function getTitleInstance( $title ) {
+		if ( !isset( $title->flaggedRevsArticle ) ) {
+			$article = MediaWiki::articleFromTitle( $title );
+			$article->flaggedRevsArticle = new FlaggedArticle( $article );
+			$title->flaggedRevsArticle =& $article->flaggedRevsArticle;
+		}
+		return $title->flaggedRevsArticle;
+	}
+
+	/**
+	 * Get an instance of FlaggedArticle for a given Article or Title object
+	 * @param Article $article
+	 */
+	static function getInstance( $article ) {
+		# If instance already cached, return it!
+		if( isset($article->flaggedRevsArticle) ) {
+			return $article->flaggedRevsArticle;
+		}
+		if( isset( $article->getTitle()->flaggedRevsArticle ) ) {
+			// Already have a FlaggedArticle cached in the Title object
+			$article->flaggedRevsArticle =& $article->getTitle()->flaggedRevsArticle;
+		} else {
+			// Create new FlaggedArticle
+			$article->flaggedRevsArticle = new FlaggedArticle( $article );
+			$article->getTitle()->flaggedRevsArticle =& $article->flaggedRevsArticle;
+		}
+		return $article->flaggedRevsArticle;
 	}
 
 	/**
