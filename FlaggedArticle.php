@@ -336,7 +336,9 @@ class FlaggedArticle extends Article {
 					$text = $frev->getTextForParse();
 	   				$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
 	   				# Update the stable version cache
-	   				FlaggedRevs::updatePageCache( $this->parent, $parserOut );
+					global $wgEnableParserCache;
+					if( $wgEnableParserCache )
+						FlaggedRevs::updatePageCache( $this->parent, $parserOut );
 	   			}
 				$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent, $parserOut, null );
 				# Construct some tagging
