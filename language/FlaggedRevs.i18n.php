@@ -848,6 +848,7 @@ V [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrhu]  {{plural:$3|je|jsou|je}} [{{
 Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} změny].',
 	'revreview-quality-same'       => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|kvalitní]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. Stránku je možné [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit].',
 	'revreview-quality-source'     => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kvalitní verze] této stránky, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>, vychází z této verze.',
+	'revreview-quality-title'      => 'Kvalitní článek',
 	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|Prohlédnuto]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Vizte nejnovější verzi]]",
 	'revreview-quick-basic-old'    => "'''[[{{MediaWiki:Validationpage}}|Prohlédnutý článek]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobrazit návrh]]",
 	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Prohlédnutá]]''' (žádné nezkontrolované změny)",
@@ -1544,13 +1545,13 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'editor'                       => 'Contributeur',
 	'flaggedrevs'                  => 'Révisions marquées',
-	'flaggedrevs-backlog'          => "Il y a présentement des tâches en retard dans la [[Special:OldReviewedPages|Liste des pages révisées]]. '''Vous devriez y faire un tour!'''",
+	'flaggedrevs-backlog'          => "Il y a actuellement des tâches en retard dans la [[Special:OldReviewedPages|liste des anciennes pages révisées]]. '''Votre attention y est demandée !'''",
 	'flaggedrevs-desc'             => 'Donne la possibilité aux éditeurs ou au relecteurs de valider les modifications et de stabiliser les pages.',
 	'flaggedrevs-pref-UI-0'        => 'Utiliser l’interface utilisateur de la version stable détaillée',
 	'flaggedrevs-pref-UI-1'        => 'Utiliser une simple interface utilisateur stable',
 	'flaggedrevs-prefs'            => 'Stabilité',
 	'flaggedrevs-prefs-stable'     => 'Toujours afficher la version stable du contenu des pages par défaut (s’il en existe une)',
-	'flaggedrevs-prefs-watch'      => "Ajoute les pages que j'ai revues à ma liste de suivi.",
+	'flaggedrevs-prefs-watch'      => 'Ajoute les pages que j’ai revues à ma liste de suivi.',
 	'group-editor'                 => 'Contributeurs',
 	'group-editor-member'          => 'Contributeur',
 	'group-reviewer'               => 'Réviseurs',
@@ -1583,7 +1584,7 @@ Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celle
 	'revreview-auto-w-old'         => "Vous êtes en train de modifier une version relue ; les modifications  '''seront automatiquement relues'''.",
 	'revreview-basic'              => "C'est la dernière [[{{MediaWiki:Validationpage}}|version vue]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.",
 	'revreview-basic-i'            => 'Voici la dernière version [[{{MediaWiki:Validationpage}}|visée]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>.
-Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] dispose de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changements de modèle ou d’image] en attente de visa.',
+Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] comprend des [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changements de modèle ou d’image] en attente d’approbation.',
 	'revreview-basic-old'          => 'Voici une version [[{{MediaWiki:Validationpage}}|visée]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} liste entière]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.
 De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peuvent avoir été effectuées.',
 	'revreview-basic-same'         => 'Ceci est la dernière version [[{{MediaWiki:Validationpage}}|surveillée]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>. La page peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée].',
@@ -1600,8 +1601,7 @@ Un modèle ou une image peuvent avoir été demandés alors qu’aucune version 
 	'revreview-depth-4'            => 'Remarquable',
 	'revreview-draft-title'        => 'Brouillon de page',
 	'revreview-edit'               => 'Ébauche de modification',
-	'revreview-edited'             => "'''Les modifications seront incorporées dans [[{{MediaWiki:Validationpage}}|la version stable]] une fois qu’un utilisateur autorisé les aura relues.'''
-
+	'revreview-edited'             => "'''Les modifications seront incorporées dans [[{{MediaWiki:Validationpage}}|la version stable]] une fois qu’un relecteur autorisé les aura approuvées.'''<br />
 Le ''brouillon'' est visible ci-dessous. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{plural:$2|modification attend|modifications attendent}}] une relecture.",
 	'revreview-flag'               => 'Évaluer cette version',
 	'revreview-invalid'            => "'''Cible incorrecte :''' aucune version [[{{MediaWiki:Validationpage}}|relue]] ne correspond au numéro indiqué.",
@@ -1609,8 +1609,8 @@ Le ''brouillon'' est visible ci-dessous. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&d
 	'revreview-log'                => 'Commentaire au journal :',
 	'revreview-main'               => 'Vous devez choisir une version précise pour réviser. Voir [[Special:Unreviewedpages|Version non révisées]] pour une liste de pages.',
 	'revreview-newest-basic'       => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} dernière version vue] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toutes les voir]) était [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|changement|changements}}] {{plural:$3|demande|demandent}} une révision.",
-	'revreview-newest-basic-i'     => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} dernière version visée] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} liste générale]) a été [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Les changements sur modèles ou les images] nécessitent une relecture.',
+	'revreview-newest-basic-i'     => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} dernière version relue] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} liste générale]) a été [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Des changements de modèles ou d’images] nécessitent une relecture.',
 	'revreview-newest-quality'     => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} dernière version de qualité] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} toutes les voir]) était [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{plural:$3|changement|changements}}] {{plural:$3|demande|demandent}} une révision.",
 	'revreview-newest-quality-i'   => 'Les [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} dernières versions de qualité] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} liste générale]) ont été [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvées] sur <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Des modifications de modèles ou d’images] nécessitent une relecture.',
@@ -1622,8 +1622,8 @@ Le ''brouillon'' est visible ci-dessous. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&d
 	'revreview-patrol-title'       => 'Marquer comme patrouillé',
 	'revreview-patrolled'          => 'La version sélectionnée de [[:$1|$1]] a été marquée comme patrouillée.',
 	'revreview-quality'            => "C'est la dernière [[{{MediaWiki:Validationpage}}|version de qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.",
-	'revreview-quality-i'          => 'Voici la dernière version de [[{{MediaWiki:Validationpage}}|qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] sur <i>$2</i>.
-Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] dispose de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changements de modèle ou d’image] en attente de visa.',
+	'revreview-quality-i'          => 'Voici la dernière version de [[{{MediaWiki:Validationpage}}|qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>.
+Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] comprend des [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} changements de modèle ou d’image] en attente d’approbation.',
 	'revreview-quality-old'        => 'Voici une version de [[{{MediaWiki:Validationpage}}|qualité]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} tous lister]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.
 De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peuvent avoir été effectuées.',
 	'revreview-quality-same'       => 'Ceci est la dernière version de [[{{MediaWiki:Validationpage}}|qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvé] sur <i>$2</i>. La page peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée].',
@@ -1643,7 +1643,7 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peu
 	'revreview-source'             => "Source de l'ébauche",
 	'revreview-stable'             => 'Page stable',
 	'revreview-stable-title'       => 'Article visé',
-	'revreview-stable1'            => "Vous pouvez vouloir visionner cette [{{fullurl:$1|stableid=$2}} version marquée] ou voir si c'est maintenant la [{{fullurl:$1|stable=1}} version stable] de cette page.",
+	'revreview-stable1'            => 'Vous pouvez vouloir visionner cette [{{fullurl:$1|stableid=$2}} version marquée] pour voir si c’est maintenant la [{{fullurl:$1|stable=1}} version stable] de cette page.',
 	'revreview-stable2'            => 'Vous pouvez vouloir visionner [{{fullurl:$1|stable=1}} la version stable] de cette page (s’il en existe une).',
 	'revreview-style'              => 'Lisibilité',
 	'revreview-style-0'            => 'Non approuvée',
@@ -1652,20 +1652,19 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peu
 	'revreview-style-3'            => 'Concise',
 	'revreview-style-4'            => 'Remarquable',
 	'revreview-submit'             => 'Sauvegarder revue',
-	'revreview-successful'         => "La version sélectionnée de [[:$1|$1]], a été marquée avec succès d'un drapeau. ([{{fullurl:Special:Stableversions|page=$2}} Voir toutes les versions ainsi marquées]",
+	'revreview-successful'         => 'La version sélectionnée de [[:$1|$1]] a été marquée avec succès d’un drapeau. ([{{fullurl:Special:Stableversions|page=$2}} Voir toutes les versions ainsi marquées])',
 	'revreview-successful2'        => "'''La version sélectionnée de [[:$1|$1]] a pu se voir retirer son drapeau avec succès.'''",
-	'revreview-text'               => "''[[{{MediaWiki:Validationpage}}|Les versions stables]] sont choisies par défaut pour les réviseurs plutôt que les plus récentes.''",
-	'revreview-text2'              => "''[[{{MediaWiki:Validationpage}}|Les versions stables]] sont les versions cochées des page et peuvent être paramétrées comme le contenu par défault par les réviseurs.''",
+	'revreview-text'               => "''[[{{MediaWiki:Validationpage}}|Les versions stables]] sont choisies comme contenu par défaut pour les lecteurs plutôt que les versions les plus récentes.''",
+	'revreview-text2'              => "''[[{{MediaWiki:Validationpage}}|Les versions stables]] sont les versions de pages vérifiées et peuvent être définies comme le contenu par défault pour les lecteurs.''",
 	'revreview-toggle-title'       => 'montrer/cacher les détails',
 	'revreview-toolow'             => 'Pour les attributs ci-dessous, vous devez donner un pointage plus élevé que « non approuvé » pour que la version soit considérée revue. Pour déprécier une version, mettre tous les champs à « non approuvé ».',
-	'revreview-update'             => "Veuillez [[{{MediaWiki:Validationpage}}|vérifier]] les modifications effectuées ''(voir ci-dessous)'' depuis que la dernière version stable ait été [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée]. 
-
+	'revreview-update'             => "Veuillez [[{{MediaWiki:Validationpage}}|vérifier]] toutes les modifications ''(voir ci-dessous)'' effectuées depuis la [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dernière approbation] de version stable.<br />
 '''Quelques images ou modèles ont été mis à jour :'''",
 	'revreview-update-includes'    => "'''Quelques modèles ou images ont été mis à jour :'''",
 	'revreview-update-none'        => "Veuillez [[{{MediaWiki:Validationpage}}|vérifier]] les modifications effectuées ''(voir ci-dessous)'' depuis que la dernière version stable ait été [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée].",
-	'revreview-update-use'         => "'''NOTE : ''' Si plusieurs de ces modèles ou images disposent d’une version stable, alors elle sera encore utilisée dans sa version stable.",
+	'revreview-update-use'         => "'''Note :''' si un de ces modèles ou images disposent d’une version stable, alors cette version est encore utilisée dans la version stable de cette page.",
 	'revreview-visibility'         => 'Cette page contient une [[{{MediaWiki:Validationpage}}|version stable]], ses paramètres peuvent être [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurés].',
-	'right-autopatrolother'        => 'Marquer comme patrouillées les versions dans les espaces de nom sauf dans le principal.',
+	'right-autopatrolother'        => 'Marquer comme patrouillées les versions dans tous les espaces de nom sauf le principal.',
 	'right-autoreview'             => 'Marquer automatiquement les versions comme visées',
 	'right-movestable'             => 'Déplacer des pages stables',
 	'right-review'                 => 'Marquer les versions comme visées',
@@ -1677,7 +1676,8 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modifications] peu
 	'stable-logentry'              => 'Les versions stables de [[$1]] sont paramétrées.',
 	'stable-logentry2'             => 'Remettre à zéro le journal des versions stables de [[$1]]',
 	'stable-logpage'               => 'Journal des versions stables',
-	'stable-logpagetext'           => 'Voici le journal des modifications pour la [[{{MediaWiki:Validationpage}}|version stable]] de la configuration des présentes pages.',
+	'stable-logpagetext'           => 'Voici le journal des modifications de la [[{{MediaWiki:Validationpage}}|version stable]] de la configuration de pages de contenu.
+Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'tooltip-ca-current'           => "Voir l'ébauche courante de cette page",
 	'tooltip-ca-default'           => "Paramètres pour l'assurance-qualité",
 	'tooltip-ca-stable'            => 'Voir la version stable de cette page',
@@ -1793,6 +1793,8 @@ $messages['gl'] = array(
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Revisións marcadas',
 	'flaggedrevs-desc'             => 'Dar aos editores/revisores a capacidade para confirmar as revisións e estabilizar as páxinas',
+	'flaggedrevs-pref-UI-0'        => 'Usar a interface de usuario detallada da versión estábel',
+	'flaggedrevs-pref-UI-1'        => 'Usar a interface de usuario simple da versión estábel',
 	'flaggedrevs-prefs'            => 'Estabilidade',
 	'group-editor'                 => 'Editores',
 	'group-editor-member'          => 'Editor',
@@ -2561,9 +2563,9 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} perubahan-per
 	'right-autopatrolother'        => 'Menandai secara otomatis suntingan di ruang nama non-utama sebagai terpatroli',
 	'right-autoreview'             => 'Menandai revisi sebagai terperiksa secara otomatis',
 	'right-movestable'             => 'Pindahkan halaman-halaman stabil',
-	'right-review'                 => 'Menandai revisi sebagai terperiksa',
+	'right-review'                 => 'Menandai sebagai revisi terperiksa',
 	'right-stablesettings'         => 'Mengatur bagaimana versi stabil dipilih dan ditampilkan',
-	'right-validate'               => 'Menandai revisi telah divalidasi',
+	'right-validate'               => 'Menandai sebagai revisi layak',
 	'rights-editor-autosum'        => 'promosi otomatis',
 	'rights-editor-revoke'         => 'status Editor dicabut dari [[$1]]',
 	'specialpages-group-quality'   => 'Pemeriksaan kualitas',
@@ -3136,6 +3138,7 @@ $messages['lb'] = array(
 	'grouppage-reviewer'           => '{{ns:project}}:Reviseur',
 	'hist-draft'                   => 'Brouillonsversioun',
 	'hist-quality'                 => 'Qualitéitsversioun',
+	'hist-quality-user'            => '[{{fullurl:$1|stableid=$2}} validéiert] vum [[User:$3|$3]]',
 	'hist-stable'                  => 'iwwerkuckte Versioun',
 	'review-logentry-app'          => 'nogekuckt [[$1]]',
 	'review-logentry-id'           => 'Versiounsnummer $1',
@@ -4919,6 +4922,7 @@ deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal
 
 /** Sundanese (Basa Sunda)
  * @author Kandar
+ * @author Irwangatot
  */
 $messages['su'] = array(
 	'editor'               => 'Éditor',
@@ -4937,7 +4941,7 @@ $messages['su'] = array(
 	'revreview-depth-3'    => 'Luhur',
 	'revreview-depth-4'    => 'Petingan',
 	'revreview-log'        => 'Kamandang:',
-	'revreview-stable'     => 'Stabil',
+	'revreview-stable'     => 'Kaca Stabil',
 	'revreview-style-0'    => 'Teu disatujuan',
 	'revreview-style-1'    => 'Meueusan',
 	'revreview-style-2'    => 'Alus',

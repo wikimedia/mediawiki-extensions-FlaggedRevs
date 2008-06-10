@@ -97,6 +97,7 @@ $messages['ca'] = array(
 	'unreviewedpages'       => 'Pàgines per revisar',
 	'unreviewed-category'   => 'Categoria:',
 	'unreviewed-diff'       => 'revisió',
+	'unreviewed-none'       => 'En aquest moment no hi ha pàgines que compleixin aquests criteris',
 );
 
 /** Czech (Česky)
@@ -201,11 +202,11 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'right-unreviewedpages' => 'Voir la liste des pages non revues',
 	'unreviewedpages'       => 'Pages non revues',
-	'unreviewed-legend'     => 'Liste des contenus des pages non visés',
+	'unreviewed-legend'     => 'Liste des pages de contenu non visés',
 	'unreviewed-category'   => 'Catégorie :',
 	'unreviewed-diff'       => 'révision',
-	'unreviewed-unwatched'  => '(non observé)',
-	'unreviewed-watched'    => "($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d'observer)",
+	'unreviewed-unwatched'  => '(non suivi)',
+	'unreviewed-watched'    => '($2 {{PLURAL:$1|utilisateur suit|utilisateurs suivent}} cette page)',
 	'unreviewed-list'       => "Cette page liste les articles qui n'ont pas été révisés ou qui ont des révisions non vues.",
 	'unreviewed-none'       => 'Il n’existe actuellellement aucune page respectant ces critères',
 );
@@ -616,7 +617,7 @@ $messages['stq'] = array(
  */
 $messages['su'] = array(
 	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff'     => 'Robahan',
+	'unreviewed-diff'     => 'Parobahan',
 );
 
 /** Swedish (Svenska)

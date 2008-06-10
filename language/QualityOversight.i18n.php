@@ -44,8 +44,8 @@ $messages['fa'] = array(
  * @author Grondin
  */
 $messages['fr'] = array(
-	'qualityoversight'      => 'Qualité superviseur',
-	'qualityoversight-list' => 'Cette page liste les approbations récentes des versions de qualité aussi bien que leurs dépréciations.',
+	'qualityoversight'      => 'Supervision de qualité',
+	'qualityoversight-list' => 'Cette page liste les approbations récentes (de même que les dépréciations) de versions de qualité.',
 );
 
 /** Hindi (हिन्दी)

@@ -56,6 +56,7 @@ $messages['bg'] = array(
  */
 $messages['ca'] = array(
 	'oldreviewedpages-recent' => "(menys d'una hora)",
+	'oldreviewed-category'    => 'Categoria:',
 );
 
 /** Czech (Česky)
@@ -138,13 +139,13 @@ $messages['fa'] = array(
 $messages['fr'] = array(
 	'oldreviewedpages'           => 'Pages revues hors date',
 	'oldreviewedpages-legend'    => 'Listes de pages revues avec des versions non visées.',
-	'oldreviewedpages-list'      => 'Cette page liste les pages revues qui ont des éditions en cours.',
+	'oldreviewedpages-list'      => 'Cette page liste des pages déjà revues mais ayant de nouvelles modifications.',
 	'oldreviewedpages-none'      => 'Il n’existe actuellement aucune page respectant ces critères',
 	'oldreviewedpages-stable'    => 'visé',
 	'oldreviewedpages-quality'   => 'qualité',
-	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|heure|heures}})',
-	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|jour|jours}})',
-	'oldreviewedpages-recent'    => "(moins qu'une heure)",
+	'oldreviewedpages-hours'     => '($1 heure{{PLURAL:$1||s}})',
+	'oldreviewedpages-days'      => '($1 jour{{PLURAL:$1||s}})',
+	'oldreviewedpages-recent'    => '(moins d’une heure)',
 	'oldreviewed-category'       => 'Catégorie :',
 	'oldreviewed-diff'           => 'relecture',
 	'oldreviewedpages-unwatched' => '(non observé)',
@@ -161,6 +162,7 @@ $messages['gl'] = array(
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|día|días}})',
 	'oldreviewedpages-recent'    => '(menos de 1 hora)',
 	'oldreviewed-category'       => 'Categoría:',
+	'oldreviewed-diff'           => 'revisar',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 );
@@ -335,6 +337,7 @@ $messages['pt'] = array(
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|dia|dias}})',
 	'oldreviewedpages-recent'    => '(menos de 1 hora)',
+	'oldreviewed-category'       => 'Categoria:',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
 );

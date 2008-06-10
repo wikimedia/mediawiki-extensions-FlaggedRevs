@@ -69,10 +69,10 @@ $messages['fa'] = array(
  * @author Sherbrooke
  */
 $messages['fr'] = array(
-	'qualityoversight-alias'      => 'QualitéSuperviseur',
-	'depreciationoversight-alias' => 'DépréciéSuperviseur',
+	'qualityoversight-alias'      => 'SuperviseurQualité',
+	'depreciationoversight-alias' => 'SuperviseurDépréciation',
 	'unreviewedpages-alias'       => 'PagesNonRelues',
-	'oldreviewedpages-alias'      => 'PagesAnciennementRelues',
+	'oldreviewedpages-alias'      => 'AnciennesPagesRelues',
 	'reviewedpages-alias'         => 'Pages révisées',
 	'stablepages-alias'           => 'PagesStables',
 	'stableversions-alias'        => 'VersionsStables',

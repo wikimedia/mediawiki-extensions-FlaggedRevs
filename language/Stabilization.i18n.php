@@ -185,11 +185,14 @@ $messages['br'] = array(
 /** Catalan (Català)
  * @author Toniher
  * @author Paucabot
+ * @author Jordi Roqué
  */
 $messages['ca'] = array(
 	'stabilization-page'        => 'Nom de la pàgina:',
 	'stabilization-def2'        => 'La revisió actual',
 	'stabilization-submit'      => 'Confirma',
+	'stabilization-notexists'   => 'No hi ha cap pàgina que s\'anomeni "[[:$1|$1]]".
+No és possible fer cap configuració.',
 	'stabilization-comment'     => 'Comentari:',
 	'stabilization-expiry'      => 'Venç:',
 	'stabilization-sel-short'   => 'Precedència',
@@ -279,6 +282,13 @@ $messages['de'] = array(
 	'stabilize_expiry_invalid'  => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old'      => 'Das Ablaufdatum wurde überschritten.',
 	'stabilize-expiring'        => 'erlischt $1 (UTC)',
+);
+
+/** Zazaki (Zazaki)
+ * @author Belekvor
+ */
+$messages['diq'] = array(
+	'stabilization-sel-short-1' => 'çino',
 );
 
 /** Greek (Ελληνικά)
@@ -421,7 +431,7 @@ $messages['fr'] = array(
 	'stabilization-select'      => 'Sélection de la version stable',
 	'stabilization-select1'     => 'La dernière version de qualité, sinon la dernière version vue',
 	'stabilization-select2'     => 'La dernière révision vue',
-	'stabilization-select3'     => 'La version la plus ancienne ; en cas d’absence, la dernière de quallité ou visée.',
+	'stabilization-select3'     => 'La dernière version intacte ; en cas d’absence, la dernière de qualité ou relue.',
 	'stabilization-def'         => "Version affichée lors de l'affichage par défaut de la page",
 	'stabilization-def1'        => 'La version stable, sinon la version courante',
 	'stabilization-def2'        => 'La version courante',
@@ -433,7 +443,7 @@ $messages['fr'] = array(
 	'stabilization-sel-short'   => 'Priorité',
 	'stabilization-sel-short-0' => 'Qualité',
 	'stabilization-sel-short-1' => 'Nulle',
-	'stabilization-sel-short-2' => 'Primitive',
+	'stabilization-sel-short-2' => 'Intacte',
 	'stabilization-def-short'   => 'Défaut',
 	'stabilization-def-short-0' => 'Courante',
 	'stabilization-def-short-1' => 'Stable',
@@ -1419,7 +1429,7 @@ $messages['su'] = array(
 	'stabilization-perm'        => 'Rekening anjeun teu boga kawenangan pikeun ngarobah konfigurasi vérsi stabil.
 Setélan kiwari pikeun [[:$1|$1]] nyaéta:',
 	'stabilization-page'        => 'Ngaran kaca:',
-	'stabilization-select'      => 'Cara milih vérsi stabil',
+	'stabilization-select'      => 'Milihan vérsi stabil',
 	'stabilization-def1'        => 'Vérsi stabil;
 mun euweuh, paké vérsi kiwari',
 	'stabilization-def2'        => 'Révisi kiwari',

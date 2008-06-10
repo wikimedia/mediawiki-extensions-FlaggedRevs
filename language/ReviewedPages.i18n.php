@@ -85,6 +85,13 @@ $messages['br'] = array(
 	'reviewedpages-best'  => 'adweladenn bennañ',
 );
 
+/** Catalan (Català)
+ * @author Jordi Roqué
+ */
+$messages['ca'] = array(
+	'reviewedpages-none' => 'No hi ha pàgines a la llista',
+);
+
 /** Czech (Česky)
  * @author Li-sung
  */

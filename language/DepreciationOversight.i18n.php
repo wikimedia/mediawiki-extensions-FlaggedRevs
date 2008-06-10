@@ -36,8 +36,8 @@ $messages['fa'] = array(
  * @author Grondin
  */
 $messages['fr'] = array(
-	'depreciationoversight'      => 'Dépréciation de la supervision',
-	'depreciationoversight-list' => 'Cette page liste les dépreciations récentes des révisions.',
+	'depreciationoversight'      => 'Supervision de dépréciation',
+	'depreciationoversight-list' => 'Cette page liste les dépréciations récentes de révisions.',
 );
 
 /** Hindi (हिन्दी)

@@ -36,8 +36,10 @@ $messages['bg'] = array(
 
 /** Catalan (Català)
  * @author Paucabot
+ * @author Jordi Roqué
  */
 $messages['ca'] = array(
+	'stablepages-none'   => 'No hi ha pàgines a la llista',
 	'stablepages-config' => 'Configuració',
 );
 
@@ -81,11 +83,12 @@ $messages['fa'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'stablepages'        => 'Pages stables',
 	'stablepages-stable' => 'version stable',
-	'stablepages-text'   => 'Voici, ci-dessous, une liste des pages normalement configurées pour voir le contenu de la version stable pour les réviseurs.',
+	'stablepages-text'   => 'Ci-dessous figure une liste de pages manuellement configurées pour ne montrer que la version stable comme contenu par défaut pour les lecteurs.',
 	'stablepages-none'   => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
 );
