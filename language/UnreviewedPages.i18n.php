@@ -123,9 +123,9 @@ $messages['da'] = array(
  * @author Raimond Spekking
  */
  $messages['de'] = array(
-	'right-unreviewedpages' => 'Ansehen der Liste unmarkierter Seiten',
-	'unreviewedpages'       => 'Unmarkierte Seiten',
-	'unreviewed-legend'     => 'Liste unmarkierter Seiten',
+	'right-unreviewedpages' => 'Ansehen der Liste ungesichteter Seiten',
+	'unreviewedpages'       => 'Ungesichtete Seiten',
+	'unreviewed-legend'     => 'Liste ungesichteter Seiten',
 	'unreviewed-category'   => 'Kategorie:',
 	'unreviewed-diff'       => 'sichten',
 	'unreviewed-unwatched'  => '(unbeobachtet)',
