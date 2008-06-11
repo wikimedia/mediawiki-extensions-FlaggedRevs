@@ -624,6 +624,7 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
+ * @author Boivie
  * @author Lejonel
  */
 $messages['sv'] = array(
@@ -632,8 +633,8 @@ $messages['sv'] = array(
 	'unreviewed-legend'     => 'Lista ogranskade innehållssidor',
 	'unreviewed-category'   => 'Kategori:',
 	'unreviewed-diff'       => 'granska',
-	'unreviewed-unwatched'  => '(oövervakad)',
-	'unreviewed-watched'    => '($2 {{PLURAL:$1|användare|användare}} övervakar)',
+	'unreviewed-unwatched'  => '(obevakad)',
+	'unreviewed-watched'    => '($2 {{PLURAL:$1|användare|användare}} bevakar)',
 	'unreviewed-list'       => 'Den här sidan visar artiklar som inte har granskats.',
 	'unreviewed-none'       => 'Det finns just nu inga sidor som matchar dessa kriterier',
 );

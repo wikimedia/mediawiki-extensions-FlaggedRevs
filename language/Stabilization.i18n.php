@@ -64,6 +64,7 @@ $messages['ar'] = array(
 	'stabilization-select'      => 'اختيار النسخة المستقرة',
 	'stabilization-select1'     => 'آخر نسخة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
 	'stabilization-select2'     => 'آخر نسخة مراجعة',
+	'stabilization-select3'     => 'آخر مراجعة أصلية؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
 	'stabilization-def'         => 'النسخة المعروضة عند رؤية الصفحة افتراضيا',
 	'stabilization-def1'        => 'النسخة المستقرة؛ لو غير موجودة، إذا النسخة الحالية',
 	'stabilization-def2'        => 'النسخة الحالية',

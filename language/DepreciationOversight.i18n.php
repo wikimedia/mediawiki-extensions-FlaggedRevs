@@ -12,6 +12,14 @@ $messages['en'] = array(
 	'depreciationoversight-list' => 'This page lists recent depreciations of revisions.',
 );
 
+/** Arabic (العربية)
+ * @author Meno25
+ */
+$messages['ar'] = array(
+	'depreciationoversight'      => 'نظر تقليل الجودة',
+	'depreciationoversight-list' => 'هذه الصفحة تعرض عمليات تقليل الجودة الحديثة للنسخ.',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'depreciationoversight'      => 'Zurückgezogene Markierungen',

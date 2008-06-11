@@ -21,12 +21,13 @@ $messages['en'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'qualityoversight-alias' => 'نظر الجودة',
-	'unreviewedpages-alias'  => 'صفحات غير مراجعة',
-	'oldreviewedpages-alias' => 'صفحات مراجعة قديمة',
-	'reviewedpages-alias'    => 'صفحات مراجعة',
-	'stablepages-alias'      => 'صفحات مستقرة',
-	'stableversions-alias'   => 'نسخ مستقرة',
+	'qualityoversight-alias'      => 'نظر الجودة',
+	'depreciationoversight-alias' => 'نظر تقليل الجودة',
+	'unreviewedpages-alias'       => 'صفحات غير مراجعة',
+	'oldreviewedpages-alias'      => 'صفحات مراجعة قديمة',
+	'reviewedpages-alias'         => 'صفحات مراجعة',
+	'stablepages-alias'           => 'صفحات مستقرة',
+	'stableversions-alias'        => 'نسخ مستقرة',
 );
 
 /** German (Deutsch) */

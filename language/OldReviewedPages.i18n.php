@@ -404,6 +404,7 @@ $messages['sk'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
+ * @author Boivie
  */
 $messages['sv'] = array(
 	'oldreviewedpages'           => 'Föråldrade granskade sidor',
@@ -417,8 +418,8 @@ $messages['sv'] = array(
 	'oldreviewedpages-recent'    => '(mindre än 1 timme)',
 	'oldreviewed-category'       => 'Kategori:',
 	'oldreviewed-diff'           => 'granska',
-	'oldreviewedpages-unwatched' => '(oövervakad)',
-	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|användare|användare}} övervakar)',
+	'oldreviewedpages-unwatched' => '(obevakad)',
+	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|användare|användare}} bevakar)',
 );
 
 /** Telugu (తెలుగు)
