@@ -891,7 +891,9 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'stabilization'             => 'Stabilisatioun vun der Säit',
 	'stabilization-page'        => 'Säitennumm:',
+	'stabilization-leg'         => "Confirméiert d'stabil-Versiouns-Astellungen",
 	'stabilization-select'      => 'Auswiel vun der stabiler Versioun',
 	'stabilization-def2'        => 'Déi aktuell Versioun',
 	'stabilization-submit'      => 'Confirméieren',
@@ -1577,7 +1579,7 @@ $messages['tr'] = array(
 	'stabilization-expiry'      => 'Süresi bitiyor:',
 	'stabilization-sel-short'   => 'Öncelik',
 	'stabilization-sel-short-0' => 'Kalite',
-	'stabilization-sel-short-1' => 'Hiç',
+	'stabilization-sel-short-1' => 'Hiçbiri',
 	'stabilization-def-short-1' => 'Sabit',
 );
 

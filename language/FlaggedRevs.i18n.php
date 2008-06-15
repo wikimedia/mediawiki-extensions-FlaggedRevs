@@ -2094,16 +2094,17 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  * @author Dnik
+ * @author Dalibor Bosits
  * @author Siebrand
  */
 $messages['hr'] = array(
-	'editor'                      => 'Suradnik',
+	'editor'                      => 'Urednik',
 	'flaggedrevs'                 => 'Označene promjene',
-	'group-editor'                => 'Suradnici',
-	'group-editor-member'         => 'Suradnik',
+	'group-editor'                => 'Urednici',
+	'group-editor-member'         => 'Urednik',
 	'group-reviewer'              => 'Ocjenjivači',
 	'group-reviewer-member'       => 'Ocjenjivač',
-	'grouppage-editor'            => '{{ns:project}}:Suradnik',
+	'grouppage-editor'            => '{{ns:project}}:Urednik',
 	'grouppage-reviewer'          => '{{ns:project}}:Ocjenjivač',
 	'hist-quality'                => 'kvalitetna',
 	'hist-stable'                 => 'pregledana',
@@ -3144,6 +3145,7 @@ $messages['lb'] = array(
 	'hist-quality'                 => 'Qualitéitsversioun',
 	'hist-quality-user'            => '[{{fullurl:$1|stableid=$2}} validéiert] vum [[User:$3|$3]]',
 	'hist-stable'                  => 'iwwerkuckte Versioun',
+	'review-diff2stable'           => 'Ännerungen tëschent der stabiler an der aktueller Versioun',
 	'review-logentry-app'          => 'nogekuckt [[$1]]',
 	'review-logentry-id'           => 'Versiounsnummer $1',
 	'review-logpage'               => 'Lëscht vum Nokucken',

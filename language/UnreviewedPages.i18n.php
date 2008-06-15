@@ -223,6 +223,13 @@ $messages['frp'] = array(
 	'unreviewed-list'     => 'Ceta pâge liste los articllos qu’ont pas étâ rèvisâs ou qu’ont des vèrsions pas vues.',
 );
 
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'unreviewed-category' => 'Kategory:',
+);
+
 /** Galician (Galego)
  * @author Toliño
  * @author Alma
@@ -235,6 +242,13 @@ $messages['gl'] = array(
 	'unreviewed-unwatched'  => '(sen vixiar)',
 	'unreviewed-watched'    => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 	'unreviewed-list'       => 'Esta páxina lista artigos que non foron revisados ou que teñen novas revisións sen examinar.',
+);
+
+/** Hawaiian (Hawai`i)
+ * @author Singularity
+ */
+$messages['haw'] = array(
+	'unreviewed-category' => 'Mahele:',
 );
 
 /** Hindi (हिन्दी)

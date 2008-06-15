@@ -208,10 +208,15 @@ $messages['id'] = array(
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author Lovekhmer
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ម៉ោង|ម៉ោង}})',
+	'oldreviewedpages-quality' => 'គុណភាព',
+	'oldreviewedpages-hours'   => '($1 {{PLURAL:$1|ម៉ោង|ម៉ោង}})',
+	'oldreviewedpages-days'    => '($1{{PLURAL:$1|ថ្ងៃ|ថ្ងៃ}})',
+	'oldreviewedpages-recent'  => '(តិចជាង១ម៉ោង)',
+	'oldreviewed-category'     => 'ចំនាត់ថ្នាក់ក្រុម៖',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
