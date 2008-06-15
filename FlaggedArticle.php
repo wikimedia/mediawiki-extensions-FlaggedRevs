@@ -180,7 +180,7 @@ class FlaggedArticle extends Article {
 					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
 						wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
-				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks'>$tag</div>";
+				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks noprint'>$tag</div>";
 				$wgOut->addHTML( $tag );
 			}
 			return true;
@@ -392,7 +392,7 @@ class FlaggedArticle extends Article {
 				$tagClass = 'flaggedrevs_basic';
 			# Wrap tag contents in a div
 			if( $tag !='' )
-				$tag = "<div id='mw-revisiontag' class='$tagClass plainlinks'>$tag</div>";
+				$tag = "<div id='mw-revisiontag' class='$tagClass plainlinks noprint'>$tag</div>";
 			# Set UI html
 			$this->reviewNotice .= $tag;
 			# Add revision notes
@@ -404,12 +404,12 @@ class FlaggedArticle extends Article {
 				$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
 				$tag .= "<span class='fr-icon-current plainlinks'></span>" .
 					wfMsgExt($msg,array('parseinline'));
-				$tag = "<div id='mw-revisiontag' class='flaggedrevs_short plainlinks'>$tag</div>";
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_short plainlinks noprint'>$tag</div>";
 				$this->reviewNotice .= $tag;
 			// Standard UI
 			} else {
 				$msg = $old ? 'revreview-invalid' : 'revreview-noflagged';
-				$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks'>" .
+				$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
 					wfMsgExt($msg, array('parseinline')) . "</div>";
 				$this->reviewNotice .= $tag;
 			}
@@ -1236,7 +1236,7 @@ class FlaggedArticle extends Article {
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' ) );
-		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform') );
+		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
 
 		if( $wgFlaggedRevsOverride ) {
