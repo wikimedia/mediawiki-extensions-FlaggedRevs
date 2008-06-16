@@ -886,6 +886,11 @@ EOT;
 		$latestID = $latestID ? $latestID : $rev->getId(); // new pages, page row not added yet
 
 		$title = $article->getTitle();
+		
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $title, false, true );
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
+		
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
 		$parseId = ($rev->getId() == $latestID) ? null : $rev->getId();
@@ -1008,7 +1013,7 @@ EOT;
 		$dbw->commit();
 
 		# Update the article review log
-		RevisionReview::updateLog( $title, $flags, array(), wfMsgForContent('revreview-auto'), $rev->getID(), true, true );
+		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, true );
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
@@ -1968,15 +1973,18 @@ EOT;
 	* @return bool true
 	*/
 	public static function reviewLogLine( $type = '', $action = '', $title = null, $paramArray = array(), &$c = '', &$r = '', $t = '' ) {
+		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
 		# Show link to page with oldid=x
-		if( $type == 'review' && in_array($action,array('approve','approve2','unapprove','unapprove2')) ) {
+		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($paramArray[0]) ) {
 			global $wgUser;
-			if( is_object($title) && isset($paramArray[0]) ) {
-				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-					wfMsgHtml('diff'), "oldid={$paramArray[0]}&diff=prev") . ')';
-				$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-					wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}") . ')';
+			if( !empty($paramArray[1]) ) {
+				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
+					"oldid={$paramArray[1]}&diff={$paramArray[0]}") . ')';
+			} else {
+				$r = '(' . wfMsgHtml('review-logentry-diff') . ')';
 			}
+			$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
+				wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}&diff=prev") . ')';
 		}
 		return true;
 	}

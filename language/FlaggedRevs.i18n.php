@@ -34,6 +34,7 @@ $messages['en'] = array(
 	'review-logentry-app' => 'reviewed [[$1]]',
 	'review-logentry-dis' => 'depreciated a version of [[$1]]',
 	'review-logentry-id' => 'revision ID $1',
+	'review-logentry-diff' => 'diff to stable',
 	'review-logpage' => 'Review log',
 	'review-logpagetext' => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.
 	See the [[Special:ReviewedPages|reviewed pages list]] for a list of approved pages.',

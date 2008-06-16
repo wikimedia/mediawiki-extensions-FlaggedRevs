@@ -495,6 +495,10 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		
 		$article = new Article( $this->page );
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $this->page, false, true );
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
+		
 		# Is this rev already flagged?
 		$flaggedOutput = false;
 		if( $oldfrev = FlaggedRevision::newFromTitle( $title, $rev->getId(), true, true ) ) {
@@ -613,7 +617,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->updateRecentChanges( $title, $dbw, $rev, $this->rcid );
 
 		# Update the article review log
-		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, true );
+		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
 
 		# Update the links tables as the stable version may now be the default page.
 		# Try using the parser cache first since we didn't actually edit the current version.
@@ -662,6 +666,10 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
 		wfProfileIn( __METHOD__ );
 		
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $this->page, false, true );
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
+		
         $dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		# Delete from flaggedrevs table
@@ -673,7 +681,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$dbw->commit();
 
 		# Update the article review log
-		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, false );
+		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, false );
 
 		# Kill any text cache
 		if( $wgRevisionCacheExpiry ) {
@@ -770,14 +778,14 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param array $dims
 	 * @param array $oldDims
 	 * @param string $comment
-	 * @param int $revid
-	 * @param bool $approve
+	 * @param int $revId, revision ID
+	 * @param int $sId, prior stable revision ID
+	 * @param bool $approve, approved? (otherwise unapproved)
 	 * @param bool $auto
 	 */
-	public static function updateLog( $title, $dims, $oldDims, $comment, $oldid, $approve, $auto=false ) {
+	public static function updateLog( $title, $dims, $oldDims, $comment, $revId, $stableId, $approve, $auto=false ) {
 		global $wgFlaggedRevsLogInRC;
-		$putInRC = $auto ? false : $wgFlaggedRevsLogInRC; // don't put these in RC
-		$log = new LogPage( 'review', $putInRC );
+		$log = new LogPage( 'review', ($auto ? false : $wgFlaggedRevsLogInRC) );
 		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dims as $quality => $level ) {
@@ -785,15 +793,17 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Append comment with ratings
 		if( $approve ) {
+			$comment = $auto ? wfMsgForContent('revreview-auto') : $comment; // override this
 			$rating = !empty($ratings) ? '[' . implode(', ',$ratings). ']' : '';
 			$comment .= $comment ? " $rating" : $rating;
 		}
+		# Sort into the proper action (useful for filtering)
 		if( $approve ) {
 			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 'approve2' : 'approve';
-			$log->addEntry( $action, $title, $comment, array($oldid) );
+			$action .= $auto ? "-a" : "";
 		} else {
 			$action = FlaggedRevs::isQuality($oldDims) ? 'unapprove2' : 'unapprove';
-			$log->addEntry( $action, $title, $comment, array($oldid) );
 		}
+		$log->addEntry( $action, $title, $comment, array($revId,$stableId) );
 	}
 }

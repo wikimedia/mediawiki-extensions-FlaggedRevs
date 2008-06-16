@@ -361,21 +361,26 @@ function efLoadFlaggedRevs() {
 	$wgUseRCPatrol = true;
 }
 
-# Add review log and such
+# Add review log
 $wgLogTypes[] = 'review';
 $wgLogNames['review'] = 'review-logpage';
 $wgLogHeaders['review'] = 'review-logpagetext';
-$wgLogActions['review/approve']  = 'review-logentry-app';
-$wgLogActions['review/approve2']  = 'review-logentry-app';
-$wgLogActions['review/unapprove'] = 'review-logentry-dis';
-$wgLogActions['review/unapprove2'] = 'review-logentry-dis';
+# Various actions are used for log filtering ...
+$wgLogActions['review/approve']  = 'review-logentry-app'; // sighted
+$wgLogActions['review/approve2']  = 'review-logentry-app'; // quality
+$wgLogActions['review/approve-a']  = 'review-logentry-app'; // sighted (auto)
+$wgLogActions['review/approve2-a']  = 'review-logentry-app'; // quality (auto)
+$wgLogActions['review/unapprove'] = 'review-logentry-dis'; // was sighted
+$wgLogActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
 
+# Add stable version log
 $wgLogTypes[] = 'stable';
 $wgLogNames['stable'] = 'stable-logpage';
 $wgLogHeaders['stable'] = 'stable-logpagetext';
 $wgLogActions['stable/config'] = 'stable-logentry';
 $wgLogActions['stable/reset'] = 'stable-logentry2';
 
+# B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
