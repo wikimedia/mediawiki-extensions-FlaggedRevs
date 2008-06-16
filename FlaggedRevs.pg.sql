@@ -10,8 +10,8 @@ CREATE TABLE flaggedpages (
   fp_quality  INTEGER NULL default NULL,
   PRIMARY KEY (fp_page_id)
 );
-CREATE INDEX fp_reviewed_page ON flaggedpages (fp_reviewed,fp_page_id),
-CREATE INDEX fp_quality_page ON flaggedpages (fp_quality,fp_page_id)
+CREATE INDEX fp_reviewed_page ON flaggedpages (fp_reviewed,fp_page_id);
+CREATE INDEX fp_quality_page ON flaggedpages (fp_quality,fp_page_id);
 
 CREATE TABLE flaggedrevs (
   fr_page_id       INTEGER    NOT NULL DEFAULT 0,
@@ -36,7 +36,7 @@ CREATE TABLE flaggedpage_config (
   fpc_select    INTEGER     NOT NULL DEFAULT 0,
   fpc_override  INTEGER     NOT NULL,
   fpc_expiry    TIMESTAMPTZ  NULL
-)
+);
 CREATE INDEX fpc_expiry ON flaggedpage_config (fpc_expiry);
 
 CREATE TABLE flaggedtemplates (
@@ -50,7 +50,7 @@ CREATE TABLE flaggedtemplates (
 CREATE TABLE flaggedimages (
   fi_rev_id         INTEGER    NOT NULL DEFAULT 0,
   fi_name           TEXT        NOT NULL DEFAULT '',
-  fi_img_timestamp  TIMESTAMPTZ NOT NULL DEFAULT '',
+  fi_img_timestamp  TIMESTAMPTZ NOT NULL,
   fi_img_sha1       CHAR(64)   NOT NULL DEFAULT '',
   PRIMARY KEY (fi_rev_id,fi_name)
 );
