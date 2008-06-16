@@ -1118,7 +1118,7 @@ class FlaggedArticle extends Article {
 	   	}
 		# If undoing a few consecutive top edits, we know the base ID
 		if( $undo = $wgRequest->getIntOrNull('undo') ) {
-			$undoAfter = $wgRequest->getIntOrNull('undoAfter');
+			$undoAfter = $wgRequest->getIntOrNull('undoafter');
 			$latest = isset($latest) ? $latest : $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 			if( $undoAfter && $undo == $this->parent->getLatest() ) {
 				$revId = $undoAfter;
