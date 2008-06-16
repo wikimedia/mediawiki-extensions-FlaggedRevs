@@ -899,6 +899,7 @@ $messages['da'] = array(
 );
 
 /** German (Deutsch)
+ * @author Raimond Spekking
  */
 $messages['de'] = array(
 	'editor'                       => 'Sichter',
@@ -925,6 +926,7 @@ $messages['de'] = array(
 	'review-logentry-app'          => 'markierte „[[$1]]“',
 	'review-logentry-dis'          => 'entfernte eine Markierung von „[[$1]]“',
 	'review-logentry-id'           => 'Versions-ID $1',
+	'review-logentry-diff'         => 'Unterschied zur gesichteten Version',
 	'review-logpage'               => 'Versionsmarkierungs-Logbuch',
 	'review-logpagetext'           => 'In diesem Logbuch werden die [[{{MediaWiki:Validationpage}}|Sichtungen und Prüfungen]] von Artikelversionen protokolliert.
 	Siehe die [[Special:ReviewedPages|Liste markierter Versionen]].',
