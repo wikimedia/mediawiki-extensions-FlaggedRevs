@@ -1977,9 +1977,10 @@ EOT;
 		# Show link to page with oldid=x
 		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($paramArray[0]) ) {
 			global $wgUser;
-			if( !empty($paramArray[1]) ) {
+			# Don't show diff if param missing or rev IDs are the same
+			if( !empty($paramArray[1]) && $paramArray[0] != $paramArray[1] ) {
 				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
-					"oldid={$paramArray[1]}&diff={$paramArray[0]}") . ')';
+					"oldid={$paramArray[1]}&diff={$paramArray[0]}") . ') ';
 			} else {
 				$r = '(' . wfMsgHtml('review-logentry-diff') . ')';
 			}

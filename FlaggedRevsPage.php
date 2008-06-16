@@ -666,10 +666,6 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
 		wfProfileIn( __METHOD__ );
 		
-		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, false, true );
-		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		
         $dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		# Delete from flaggedrevs table
@@ -679,6 +675,10 @@ class RevisionReview extends UnlistedSpecialPage
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
 		$dbw->commit();
+
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $this->page, false, true );
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, false );
