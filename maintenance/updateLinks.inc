@@ -98,7 +98,7 @@ function update_flaggedpages() {
 		foreach( $res as $row ) {
 			$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 			# Replaces new fields into flaggedpages
-			$frev = FlaggedRevs::getStablePageRev( $title, false, true );
+			$frev = FlaggedRevision::newFromStable( $title, false, true );
 			# Update fp_stable, fp_quality, and fp_reviewed
 			if( $frev ) {
 				$article = new Article( $title );
@@ -147,7 +147,7 @@ function update_flaggedtemplates() {
 		foreach( $res as $row ) {
 			$revision = Revision::newFromId( $row->ft_rev_id );
 			# Replaces new fields into flaggedpages
-			$frev = $revision ? FlaggedRevs::getFlaggedRev( $revision->getTitle(), $row->ft_rev_id ) : null;
+			$frev = $revision ? FlaggedRevision::newFromTitle( $revision->getTitle(), $row->ft_rev_id ) : null;
 			# Somethings broke? Delete the row...
 			if( !$frev ) {
 				$db->delete( 'flaggedtemplates', 
@@ -192,7 +192,7 @@ function update_flaggedimages() {
 		foreach( $res as $row ) {
 			$revision = Revision::newFromId( $row->fi_rev_id );
 			# Replaces new fields into flaggedpages
-			$frev = $revision ? FlaggedRevs::getFlaggedRev( $revision->getTitle(), $row->fi_rev_id ) : null;
+			$frev = $revision ? FlaggedRevision::newFromTitle( $revision->getTitle(), $row->fi_rev_id ) : null;
 			# Somethings broke? Delete the row...
 			if( !$frev ) {
 				$db->delete( 'flaggedimages', 

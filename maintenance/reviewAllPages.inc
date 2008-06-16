@@ -32,7 +32,7 @@ function autoreview_current( $user, $db ) {
 			$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 			$rev = Revision::newFromId( $row->page_latest );
 			# Is it already reviewed?
-			$frev = FlaggedRevs::getFlaggedRev( $title, $row->page_latest, false, true, $row->page_id );
+			$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, false, true, $row->page_id );
 			# Should exist, but to be safe...
 			if( !$frev && $rev && FlaggedRevs::isPageReviewable($title) ) {
 				$text = $rev->getText();
