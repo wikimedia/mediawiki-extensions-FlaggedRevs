@@ -44,6 +44,8 @@ function autoreview_current( $user, $db ) {
 				$article = new Article( $title );
 				FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags, true );
 				$changed++;
+				# Purge squid for this page only
+				$article->getTitle()->purgeSquid();
 			}
 			$count++;
 		}

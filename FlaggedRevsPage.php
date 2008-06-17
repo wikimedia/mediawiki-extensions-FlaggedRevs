@@ -407,8 +407,8 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgEnableParserCache, $wgMemc;
 
 		wfProfileIn( __METHOD__ );
-		# Get the page this corresponds to
-		$title = $rev->getTitle();
+		
+		$article = new Article( $this->page );
 
 		$quality = 0;
 		if( FlaggedRevs::isQuality($this->dims) ) {
@@ -435,7 +435,7 @@ class RevisionReview extends UnlistedSpecialPage
 			list($prefixed_text,$rev_id) = $m;
 
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
-			if( is_null($title) )
+			if( is_null($tmp_title) )
 				continue; // Page must be valid!
 
 			if( $rev_id > $lastTempID )
@@ -472,7 +472,7 @@ class RevisionReview extends UnlistedSpecialPage
 				continue; // Page must be valid!
 
 			# Is this parameter for THIS image itself?
-			if( $title->equals($img_title) ) {
+			if( $this->page->equals($img_title) ) {
 				$fileData['name'] = $img_title->getDBkey();
 				$fileData['timestamp'] = $timestamp;
 				$fileData['sha1'] = $key;
@@ -494,14 +494,13 @@ class RevisionReview extends UnlistedSpecialPage
 			$imgParams[$img_title->getDBkey()][$timestamp] = $key;
 		}
 		
-		$article = new Article( $this->page );
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, false, true );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		
 		# Is this rev already flagged?
 		$flaggedOutput = false;
-		if( $oldfrev = FlaggedRevision::newFromTitle( $title, $rev->getId(), true, true ) ) {
+		if( $oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), true, true ) ) {
 			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getTextForParse(), $oldfrev->getRevId() );
 		}
 		
@@ -573,7 +572,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Our review entry
  		$revset = array(
  			'fr_rev_id'        => $rev->getId(),
- 			'fr_page_id'       => $title->getArticleID(),
+ 			'fr_page_id'       => $this->page->getArticleID(),
 			'fr_user'          => $wgUser->getId(),
 			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
 			'fr_comment'       => $this->notes,
@@ -614,7 +613,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		
 		# Update recent changes
-		$this->updateRecentChanges( $title, $dbw, $rev, $this->rcid );
+		$this->updateRecentChanges( $this->page, $dbw, $rev, $this->rcid );
 
 		# Update the article review log
 		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
@@ -623,7 +622,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Try using the parser cache first since we didn't actually edit the current version.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput==false ) {
+		if( $poutput == false ) {
 			$text = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
@@ -694,7 +693,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# may now be the default page.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput==false ) {
+		if( $poutput == false ) {
 			$text = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );

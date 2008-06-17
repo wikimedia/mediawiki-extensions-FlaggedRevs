@@ -1023,8 +1023,6 @@ EOT;
 			self::updatePageCache( $article, $poutput );
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
-			# Purge squid for this page only
-			$article->getTitle()->purgeSquid();
 		}
 		
 		wfProfileOut( __METHOD__ );
