@@ -164,7 +164,7 @@ class FlaggedRevsXML {
 		}
 		# Make fancy box...
 		$box = "<table border='0' cellspacing='0' style='background: none;'>\n";
-		$box .= "<tr><td style='white-space:nowrap;'>$shtml</td><td>&nbsp;</td><td align='right'>\n";
+		$box .= "<tr><td style='white-space:nowrap;'>$shtml</td><td>&nbsp;</td><td align='right'>";
 		$box .= "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'
 			onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "'>" . 
 			wfMsgHtml( 'revreview-toggle' ) . "</a></td></tr>\n";
