@@ -1042,6 +1042,7 @@ $messages['de'] = array(
 	'revreview-update-includes'    => "'''Einige Vorlagen/Bilder wurden aktualisiert:'''",
 	'revreview-update-none'        => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
 	'revreview-update-use'         => "'''Bitte beachten:''' Falls eine dieser Vorlagen/Bilder eine gesichtete Version hat, wird diese in der gesichteten Version dieser Seite angezeigt.",
+	'revreview-diffonly'           => '\'\'Um diese Seite zu sichten, klicke bitte auf den Link „Aktuelle Version“ und verwende die Sichtungsbox dort.\'\'',
 	'revreview-visibility'         => 'Diese Seite hat eine [[{{MediaWiki:Validationpage}}|markierte Version]];
 	die Einstellungen können über die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} Spezialseite] konfiguriert werden.',
 	'right-autopatrolother'        => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
