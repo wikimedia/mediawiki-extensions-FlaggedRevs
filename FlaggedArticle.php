@@ -856,7 +856,7 @@ class FlaggedArticle extends Article {
 		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $newRev->getTitle() ) )
 			return true;
 		# Check if this might be the diff to stable. If so, enhance it.
-		if( !$diffOnly && $newRev->isCurrent() && $oldRev ) {
+		if( $newRev->isCurrent() && $oldRev ) {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
 				global $wgMemc, $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
@@ -959,22 +959,29 @@ class FlaggedArticle extends Article {
 				
 				# Some important information...
 				if( ($wgUseStableTemplates || $wgUseStableImages) && !empty($changeList) ) {
-					$notice = '<br/>'.wfMsgExt('revreview-update-use', array('parseinline'));
+					$notice = '<br/>' . wfMsgExt('revreview-update-use', array('parseinline'));
 				} else {
 					$notice = "";
 				}
+				# Explanatory text
+				if( $diffOnly && $wgUser->isAllowed('review') ) {
+					$exp = '<br/>'. wfMsgExt('revreview-diffonly', array('parseinline'));
+				} else {
+					$exp = "";
+				}
+
 				# If the user is allowed to review, prompt them!
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-none', array('parseinline')).$notice.'</div>' );
+						wfMsgExt('revreview-update-none', array('parseinline')).$notice.$exp.'</div>' );
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
+						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.$changeList.$notice.$exp.'</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
+						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.$changeList.$notice.$exp.'</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
