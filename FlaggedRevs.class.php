@@ -1391,7 +1391,7 @@ EOT;
 	*/
 	public static function galleryFindStableFileTime( $ig, $nt, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( empty($ig->mParser->fr_isStable) ) {
+		if( empty($ig->mParser->fr_isStable) || $nt->getNamespace() != NS_IMAGE ) {
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
