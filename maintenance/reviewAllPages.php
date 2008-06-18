@@ -11,8 +11,8 @@ require dirname(__FILE__) . '/reviewAllPages.inc';
 if( isset($options['help']) || !isset($args[0]) || !$args[0] ) {
 	echo <<<TEXT
 Usage:
-    php refreshLinks.php --help
-    php refreshLinks.php <username>
+    php reviewAllPages.php --help
+    php reviewAllPages.php <username>
 
     --help               : This help message
     --<userid>           : The ID of the existing user to use as the "reviewer" (you can find your ID at Special:Preferences)
