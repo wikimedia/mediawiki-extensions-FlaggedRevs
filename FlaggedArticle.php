@@ -143,25 +143,14 @@ class FlaggedArticle extends Article {
 		return true;
 	}
 	
+	
 	 /**
-	 * Replaces a page with the last stable version if possible
-	 * Adds stable version status/info tags and notes
-	 * Adds a quick review form on the bottom if needed
+	 * Add a stable link when viewing old versions of an article that
+	 * have been reviewed. (e.g. for &oldid=x urls)
 	 */
-	public function setPageContent( &$outputDone, &$pcache ) {
-		global $wgRequest, $wgOut, $wgUser, $wgLang;
-		# Only trigger for reviewable pages
-		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
-			return true;
-		}
-		# Only trigger on article view for content pages, not for protect/delete/hist...
-		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') || !$this->parent->exists() )
-			return true;
-		# Do not clutter up diffs any further...
-		if( $wgRequest->getVal('diff') ) {
-			return true;
-		} else if( $wgRequest->getVal('oldid') ) {
+	public function addStableLink() {
+		global $wgRequest, $wgOut, $wgLang;
+		if( $wgRequest->getVal('oldid') ) {
 			# We may have nav links like "direction=prev&oldid=x"
 			$revID = $this->parent->getOldIDFromRequest();
 			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revID );
@@ -183,6 +172,27 @@ class FlaggedArticle extends Article {
 				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks noprint'>$tag</div>";
 				$wgOut->addHTML( $tag );
 			}
+		}
+		return true;
+	}
+	
+	 /**
+	 * Replaces a page with the last stable version if possible
+	 * Adds stable version status/info tags and notes
+	 * Adds a quick review form on the bottom if needed
+	 */
+	public function setPageContent( &$outputDone, &$pcache ) {
+		global $wgRequest, $wgOut, $wgUser, $wgLang;
+		# Only trigger for reviewable pages
+		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
+			return true;
+		}
+		# Only trigger on article view for content pages, not for protect/delete/hist...
+		$action = $wgRequest->getVal( 'action', 'view' );
+		if( ($action !='view' && $action !='purge') || !$this->parent->exists() )
+			return true;
+		# Do not clutter up diffs any further and leave archived versions alone...
+		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
 			return true;
 		}
 		$simpleTag = $old = $stable = false;
@@ -259,13 +269,13 @@ class FlaggedArticle extends Article {
 	   			$wgOut->addParserOutput( $parserOut );
 				$wgOut->setRevisionId( $frev->getRevId() );
 				$notes = $this->getReviewNotes( $frev );
+				# Index the stable version only
+				$wgOut->setRobotpolicy( 'noindex,nofollow' );
 				# Tell MW that parser output is done
 				$outputDone = true;
 				$pcache = false;
-			// Looking at some specific old revision or if FlaggedRevs is not
-			// set to override given the relevant conditions. If the user is
-			// requesting the stable revision ("&stableid=x"), defer to override 
-			// behavior below, since it is the same as ("&stable=1").
+			// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
+			// set to override given the relevant conditions (like &action=protect).
 			} else if( !$stable && !$this->pageOverride() ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 				$synced = false;
@@ -326,6 +336,8 @@ class FlaggedArticle extends Article {
 						}
 					}
 				}
+				# Index the stable version only
+				$wgOut->setRobotpolicy( 'noindex,nofollow' );
 			// The relevant conditions are met to override the page with the stable version.
 			} else {
 	   			# We will be looking at the reviewed revision...
@@ -662,7 +674,7 @@ class FlaggedArticle extends Article {
 			return true;
 
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( $action=='protect' || $action=='unprotect' ) {
+		if( $action == 'protect' || $action == 'unprotect' ) {
 			# Check for an overridabe revision
 			$frev = $this->getStableRev( true );
 			if( !$frev )

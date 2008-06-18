@@ -2013,6 +2013,7 @@ EOT;
 	static function onArticleViewHeader( $article, &$outputDone, &$pcache ) {
 		$flaggedArticle = FlaggedArticle::getInstance( $article );
 		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
+		$flaggedArticle->addStableLink( $outputDone, $pcache );
 		$flaggedArticle->setPageContent( $outputDone, $pcache );
 		$flaggedArticle->addPatrolLink( $outputDone, $pcache );
 		return true;
