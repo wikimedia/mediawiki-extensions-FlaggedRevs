@@ -12,7 +12,7 @@ if( isset($options['help']) || !isset($args[0]) || !$args[0] ) {
 	echo <<<TEXT
 Usage:
     php reviewAllPages.php --help
-    php reviewAllPages.php <username>
+    php reviewAllPages.php <user ID>
 
     --help               : This help message
     --<userid>           : The ID of the existing user to use as the "reviewer" (you can find your ID at Special:Preferences)
