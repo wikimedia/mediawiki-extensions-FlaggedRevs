@@ -851,10 +851,12 @@ class FlaggedArticle extends Article {
 	public function addDiffNoticeAndIncludes( $diff, $oldRev, $newRev ) {
 		global $wgRequest, $wgUser, $wgOut;
 
+		$diffOnly = $wgRequest->getBool( 'diffonly', $wgUser->getOption( 'diffonly' ) );
+
 		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $newRev->getTitle() ) )
 			return true;
 		# Check if this might be the diff to stable. If so, enhance it.
-		if( $newRev->isCurrent() && $oldRev ) {
+		if( !$diffOnly && $newRev->isCurrent() && $oldRev ) {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
 				global $wgMemc, $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
@@ -1017,7 +1019,6 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
 			$wgOut->addHTML( '</td></tr></table>' );
 		}
-		
 		return true;
 	}
 	

@@ -842,28 +842,6 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
-	/**
-	* Add FlaggedRevs css for relevant special pages.
-	*/
-	public static function InjectStyle() {
-		global $wgOut;
-		# Don't double-load
-		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
-			return true;
-		}
-		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-
-		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
-		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
-
-		$head = <<<EOT
-<link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
-
-EOT;
-		$wgOut->addHeadItem( 'FlaggedRevs', $head );
-		return true;
-	}
-	
 	################# Auto-review function #################
 
 	/**
@@ -1076,6 +1054,28 @@ var wgFlaggedRevsParams = $JSparams;
 var wgStableRevisionId = $stableId;
 </script>
 <script type="$wgJsMimeType" src="$encJsFile"></script>
+
+EOT;
+		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		return true;
+	}
+	
+	/**
+	* Add FlaggedRevs css for relevant special pages.
+	*/
+	public static function InjectStyle() {
+		global $wgOut;
+		# Don't double-load
+		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
+			return true;
+		}
+		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
+
+		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
+
+		$head = <<<EOT
+<link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
 
 EOT;
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
@@ -2084,6 +2084,7 @@ EOT;
 	}
 
 	static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
+		self::injectStyleAndJS();
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $diff->getTitle() );
 		$flaggedArticle->addPatrolAndDiffLink( $diff, $oldRev, $newRev );
 		$flaggedArticle->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
