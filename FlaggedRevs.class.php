@@ -1183,6 +1183,10 @@ EOT;
 		global $wgUseStableTemplates;
 		$sv = FlaggedRevision::newFromStable( $linksUpdate->mTitle, !$wgUseStableTemplates, true );
 		if( !$sv ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->delete( 'flaggedpages', 
+				array( 'fp_page_id' => $linksUpdate->mTitle->getArticleId() ),
+				__METHOD__ );
 			wfProfileOut( __METHOD__ );
 			return true;
 		}

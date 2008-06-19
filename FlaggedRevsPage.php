@@ -504,19 +504,24 @@ class RevisionReview extends UnlistedSpecialPage
 			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getTextForParse(), $oldfrev->getRevId() );
 		}
 		
+		# Be looser on includes for templates, since they don't matter much
+		# and strict checking breaks randomized images/metatemplates...(bug 14580)
+		global $wgUseCurrentTemplates, $wgUseCurrentImages;
+		$noMatch = ($rev->getTitle()->getNamespace() == NS_TEMPLATE && $wgUseCurrentTemplates && $wgUseCurrentImages);
+		
 		# Set our versioning params cache
 		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
         # Get the expanded text and resolve all templates.
 		# Store $templateIDs and add it to final parser output later...
         list($fulltext,$tmps,$tmpIDs,$err,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
-        if( !empty($err) || $maxID > $lastTempID ) {
+        if( !$noMatch && (!empty($err) || $maxID > $lastTempID) ) {
 			wfProfileOut( __METHOD__ );
         	return $err;
         }
 		# Parse the rest and check if it matches up
 		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
 		$err =& $stableOutput->fr_includeErrors;
-		if( !empty($err) || $stableOutput->fr_newestImageTime > $lastImgTime ) {
+		if( !$noMatch && (!empty($err) || $stableOutput->fr_newestImageTime > $lastImgTime) ) {
 			wfProfileOut( __METHOD__ );
         	return $err;
         }
