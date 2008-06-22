@@ -163,20 +163,23 @@ class FlaggedRevsXML {
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
-		$box = "<table border='0' cellspacing='0' style='background: none;'>\n";
-		$box .= "<tr><td style='white-space:nowrap;'>$shtml</td><td>&nbsp;</td><td align='right'>";
-		$box .= "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'
-			onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "'>" . 
-			wfMsgHtml( 'revreview-toggle' ) . "</a></td></tr>\n";
-		$box .= "<tr><td id='mw-revisionratings'>\n";
-		$box .= $html;
+		$box = "<table border='0' cellspacing='0' style='background: none;'>";
+		$box .= "<tr style='white-space:nowrap;'><td>$shtml&nbsp;&nbsp;</td>";
+		$box .= "<td align='right'>" . self::ratingToggle() . "</td></tr>\n";
+		$box .= "<tr><td id='mw-revisionratings'>$html<br/>";
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
 			$box .= self::addTagRatings( $flags, true, $color );
 		}
-		$box .= "</td></tr></table>";
+		$box .= "</td><td></td><td></td></tr></table>";
 
         return $box;
+	}
+	
+	public static function ratingToggle() {
+		return "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
+			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
+			wfMsg( 'revreview-toggle' ) . "</a>";
 	}
 	
 	/**

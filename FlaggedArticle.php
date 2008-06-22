@@ -163,11 +163,8 @@ class FlaggedArticle extends Article {
 				$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 				# Hide clutter
 				if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
-					$tag .= " <a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-						" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-						wfMsg( 'revreview-toggle' ) . "</a>";
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
-						wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+					$tag .= " " . FlaggedRevsXML::ratingToggle() . "<span id='mw-revisionratings' style='display:block;'>" .
+						"<br/>" . wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks noprint'>$tag</div>";
 				$wgOut->addHTML( $tag );
@@ -257,9 +254,7 @@ class FlaggedArticle extends Article {
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						# Hide clutter
 						if( !empty($flags) ) {
-							$tag .= " <a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-								wfMsg( 'revreview-toggle' ) . "</a>";
+							$tag .= " " . FlaggedRevsXML::ratingToggle();
 							$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
 								wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
@@ -328,9 +323,7 @@ class FlaggedArticle extends Article {
 						$tag .= "<span class='{$class}' title=\"{$tooltip}\"></span>" . $msgHTML;
 						# Hide clutter
 						if( !empty($flags) ) {
-							$tag .= " <a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-								wfMsg( 'revreview-toggle' ) . "</a>";
+							$tag .= " " . FlaggedRevsXML::ratingToggle();
 							$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
 								wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
@@ -375,9 +368,7 @@ class FlaggedArticle extends Article {
 						$tag = "<span class='{$class} plainlinks' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 						if( !empty($flags) ) {
-							$tag .= " <a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-								" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-								wfMsg('revreview-toggle') . "</a>";
+							$tag .= " " . FlaggedRevsXML::ratingToggle();
 							$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" . 
 								FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 						}
@@ -544,9 +535,7 @@ class FlaggedArticle extends Article {
 						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 					# Hide clutter
 					if( !empty($flags) ) {
-						$tag .= " <a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-							" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
-							wfMsg( 'revreview-toggle' ) . "</a>";
+						$tag .= " " . FlaggedRevsXML::ratingToggle();
 						$tag .= '<span id="mw-revisionratings" style="display:block;"><br/>' .
 							wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 					}
