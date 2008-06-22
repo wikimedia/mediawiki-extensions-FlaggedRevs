@@ -1637,35 +1637,25 @@ EOT;
 	* This is not loggged for perfomance reasons and no one cares if talk pages and such
 	* are autopatrolled.
 	*/
-	public static function autoMarkPatrolled( $article, $user, $text, $c, $m, $a, $b, $flags, $rev ) {
-		if( !$rev ) {
-			return true; // NULL edit
+	public static function autoMarkPatrolled( $rc ) {
+		if( empty($rc->mAttribs['rc_this_oldid']) ) {
+			return true;
 		}
 		$patrol = $record = false;
 		// Is the page reviewable?
-		if( self::isPageReviewable( $article->getTitle() ) ) {
-			$patrol = self::revIsFlagged( $article->getTitle(), $rev->getId(), GAID_FOR_UPDATE );
+		if( self::isPageReviewable( $rc->getTitle() ) ) {
+			$patrol = self::revIsFlagged( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'], GAID_FOR_UPDATE );
 		// Can this be patrolled?
-		} else if( self::isPagePatrollable( $article->getTitle() ) ) {
+		} else if( self::isPagePatrollable( $rc->getTitle() ) ) {
 			$patrol = $user->isAllowed('autopatrolother');
 			$record = true;
 		} else {
 			$patrol = true; // mark by default
 		}
 		if( $patrol ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$rcid = $dbw->selectField( 'recentchanges', 'rc_id',
-				array( 'rc_this_oldid' => $rev->getId(),
-					'rc_user_text' => $rev->getRawUserText(),
-					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-				__METHOD__,
-				array( 'USE INDEX' => 'rc_user_text' )
-			);
-			if( $rcid ) {
-				RecentChange::markPatrolled( $rcid );
-				if( $record ) {
-					PatrolLog::record( $rcid, true );
-				}
+			RecentChange::markPatrolled( $rc->mAttribs['rc_id'] );
+			if( $record ) {
+				PatrolLog::record( $rc->mAttribs['rc_id'], true );
 			}
 		}
 		return true;

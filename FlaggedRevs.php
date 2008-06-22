@@ -295,7 +295,7 @@ $wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImage
 $wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
 # Auto-reviewing
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoMarkPatrolled';
+$wgHooks['RecentChange_save'][] = 'FlaggedRevs::autoMarkPatrolled';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
 # Disallow moves of stable pages
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
