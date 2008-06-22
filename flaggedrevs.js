@@ -1,10 +1,12 @@
+/* -- (c) Aaron Schulz, Daniel Arnold 2008 */
+
 /* Every time you change this JS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
 
 /* Hide rating clutter */
 function enable_showhide() {
 	var toggle = document.getElementById('mw-revisiontoggle');
 	if( !toggle ) return;
-	toggle.style.display = '';
+	toggle.style.display = 'inline';
 	var ratings = document.getElementById('mw-revisionratings');
 	if( !ratings ) return;
 	ratings.style.display = 'none';
