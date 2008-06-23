@@ -1638,6 +1638,7 @@ EOT;
 	* are autopatrolled.
 	*/
 	public static function autoMarkPatrolled( $rc ) {
+		global $wgUser;
 		if( empty($rc->mAttribs['rc_this_oldid']) ) {
 			return true;
 		}
@@ -1647,7 +1648,7 @@ EOT;
 			$patrol = self::revIsFlagged( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'], GAID_FOR_UPDATE );
 		// Can this be patrolled?
 		} else if( self::isPagePatrollable( $rc->getTitle() ) ) {
-			$patrol = $user->isAllowed('autopatrolother');
+			$patrol = $wgUser->isAllowed('autopatrolother');
 			$record = true;
 		} else {
 			$patrol = true; // mark by default
