@@ -171,7 +171,7 @@ class FlaggedRevsXML {
 		if( $stable && !empty($flags) ) {
 			$box .= self::addTagRatings( $flags, true, $color );
 		}
-		$box .= "</td><td></td><td></td></tr></table>";
+		$box .= "</td><td></td></tr></table>";
 
         return $box;
 	}
