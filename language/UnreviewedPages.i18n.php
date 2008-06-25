@@ -237,11 +237,13 @@ $messages['fy'] = array(
 $messages['gl'] = array(
 	'right-unreviewedpages' => 'Ver a listaxe das páxinas non revisadas.',
 	'unreviewedpages'       => 'Páxinas sen revisar',
+	'unreviewed-legend'     => 'Listar as páxinas con contido sen revisar',
 	'unreviewed-category'   => 'Categoría:',
 	'unreviewed-diff'       => 'revisión',
 	'unreviewed-unwatched'  => '(sen vixiar)',
 	'unreviewed-watched'    => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 	'unreviewed-list'       => 'Esta páxina lista artigos que non foron revisados ou que teñen novas revisións sen examinar.',
+	'unreviewed-none'       => 'Actualmente non hai páxinas que coincidan con ese criterio',
 );
 
 /** Hawaiian (Hawai`i)
@@ -685,11 +687,13 @@ $messages['tg-cyrl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Runningfridgesrule
  * @author Karduelis
  */
 $messages['tr'] = array(
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff'     => 'Değişiklikler',
+	'unreviewed-none'     => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 );
 
 /** Ukrainian (Українська)

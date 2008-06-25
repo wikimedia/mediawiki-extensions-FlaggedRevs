@@ -216,6 +216,7 @@ $messages['gl'] = array(
 	'reviewedpages-lev-1' => 'Calidade',
 	'reviewedpages-lev-2' => 'Destacado',
 	'reviewedpages-all'   => 'Versións revisadas',
+	'reviewedpages-best'  => 'revisión principal',
 );
 
 /** Hindi (हिन्दी)

@@ -12,6 +12,14 @@ $messages['en'] = array(
 	'depreciationoversight-list' => 'This page lists recent depreciations of revisions.',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'depreciationoversight'      => 'Superbisión de depreziazión',
+	'depreciationoversight-list' => "Esta pachina amuestra as depreziazions rezients d'as rebisions.",
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -46,6 +54,14 @@ $messages['fa'] = array(
 $messages['fr'] = array(
 	'depreciationoversight'      => 'Supervision de dépréciation',
 	'depreciationoversight-list' => 'Cette page liste les dépréciations récentes de révisions.',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'depreciationoversight'      => 'Supervisión de desprezo',
+	'depreciationoversight-list' => 'Esta páxina lista os desprezos recentes das revisións.',
 );
 
 /** Hindi (हिन्दी)

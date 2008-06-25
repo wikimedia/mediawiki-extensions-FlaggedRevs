@@ -46,9 +46,12 @@ $messages['ar'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
-	'oldreviewedpages-hours'  => '($1 {{PLURAL:$1|час|часа}})',
-	'oldreviewedpages-days'   => '($1 {{PLURAL:$1|ден|дни}})',
-	'oldreviewedpages-recent' => '(по-малко от 1 час)',
+	'oldreviewedpages-none'    => 'В момента не съществуватр страници, които да отговарят на тези критерии',
+	'oldreviewedpages-hours'   => '($1 {{PLURAL:$1|час|часа}})',
+	'oldreviewedpages-days'    => '($1 {{PLURAL:$1|ден|дни}})',
+	'oldreviewedpages-recent'  => '(по-малко от 1 час)',
+	'oldreviewed-category'     => 'Категория:',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
 );
 
 /** Catalan (Català)
@@ -158,6 +161,10 @@ $messages['fr'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
+	'oldreviewedpages'           => 'Páxinas revisadas fóra de data',
+	'oldreviewedpages-legend'    => 'Listar as páxinas revisadas con revisións sen revisar',
+	'oldreviewedpages-list'      => 'Esta páxina lista as páxinas revisadas que teñen edicións pendentes.',
+	'oldreviewedpages-none'      => 'Actualmente non hai páxinas que coincidan con ese criterio',
 	'oldreviewedpages-stable'    => 'revisado',
 	'oldreviewedpages-quality'   => 'calidade',
 	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|hora|horas}})',
@@ -186,6 +193,17 @@ $messages['hi'] = array(
 	'oldreviewed-diff'           => 'जाँच',
 	'oldreviewedpages-unwatched' => '(न देखे हुए)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
+);
+
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'oldreviewedpages-hours'     => '({{PLURAL:$1|Egy|$1}} órája)',
+	'oldreviewedpages-days'      => '({{PLURAL:$1|Egy|$1}} napja)',
+	'oldreviewedpages-recent'    => '(kevesebb, mint egy órája)',
+	'oldreviewed-category'       => 'Kategória:',
+	'oldreviewedpages-unwatched' => '(nem figyelt)',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -230,7 +248,9 @@ $messages['lb'] = array(
 	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|Dag|Deeg}})',
 	'oldreviewedpages-recent'    => '(manner wéi 1 Stonn)',
 	'oldreviewed-category'       => 'Kategorie:',
+	'oldreviewed-diff'           => 'iwwerkucken',
 	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',
+	'oldreviewedpages-watched'   => '(Vu(n) $2 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)',
 );
 
 /** Malayalam (മലയാളം)
@@ -448,7 +468,9 @@ $messages['te'] = array(
  */
 $messages['tr'] = array(
 	'oldreviewedpages-quality' => 'kalite',
+	'oldreviewedpages-hours'   => '($1 {{PLURAL:$1|saat|saat}})',
 	'oldreviewedpages-recent'  => '(1 saatten daha az)',
+	'oldreviewed-category'     => 'Kategori:',
 );
 
 /** Vèneto (Vèneto)

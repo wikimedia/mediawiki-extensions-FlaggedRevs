@@ -386,6 +386,18 @@ $messages['mr'] = array(
 	'stableversions-review' => '$2 द्वारा <i>$1</i> रोजी तपासली गेली',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'stableversions'        => 'Lihat versi-versi stabil',
+	'stableversions-leg1'   => 'Papar senarai versi yang telah diperiksa bagi sesebuah laman',
+	'stableversions-page'   => 'Nama laman:',
+	'stableversions-none'   => '"[[:$1]]" tidak mempunyai semakan yang telah diperiksa.',
+	'stableversions-list'   => 'Berikut ialah senarai semakan yang telah diperiksa bagi laman [[:$1]]',
+	'stableversions-review' => 'Diperiksa pada <i>$1</i> oleh $2',
+);
+
 /** Erzya (Эрзянь)
  * @author Amdf
  */

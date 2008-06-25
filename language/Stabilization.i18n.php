@@ -41,6 +41,13 @@ No configuration is possible.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
 );
 
+/** Eastern Mari (Олык Марий йылме)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'stabilization-def-short' => 'Ойлыде',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */
@@ -316,6 +323,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'stabilization-tab'         => 'kontroli',
 	'stabilization'             => 'Paĝa stabiligado',
 	'stabilization-text'        => "'''Ŝanĝu la subajn preferojn por modifi kiel la stabila versio de [[:$1|$1]] estas selektita kaj montrita.'''",
 	'stabilization-perm'        => 'Via konto ne rajtas ŝanĝi la konfiguron de stabila versio.
@@ -488,8 +496,8 @@ $messages['frp'] = array(
 
 /** Galician (Galego)
  * @author Alma
- * @author Xosé
  * @author Toliño
+ * @author Xosé
  * @author Siebrand
  */
 $messages['gl'] = array(
@@ -503,6 +511,7 @@ $messages['gl'] = array(
 	'stabilization-select'      => 'Selección da versión estábel',
 	'stabilization-select1'     => 'A última revisión de calidade; se non se atopa, entón a vista máis recente.',
 	'stabilization-select2'     => 'A última revisión vista',
+	'stabilization-select3'     => 'A última revisión intacta; se non a hai, a última de calidade ou revisada',
 	'stabilization-def'         => 'Revisión que aparece por defecto na vista da páxina',
 	'stabilization-def1'        => 'A revisión estábel, se non presente, entón a actual',
 	'stabilization-def2'        => 'A revisión actual',
@@ -514,6 +523,7 @@ $messages['gl'] = array(
 	'stabilization-sel-short'   => 'Precedencia',
 	'stabilization-sel-short-0' => 'Calidade',
 	'stabilization-sel-short-1' => 'Ningún',
+	'stabilization-sel-short-2' => 'Intacto',
 	'stabilization-def-short'   => 'Por defecto',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Estábel',
@@ -895,6 +905,7 @@ $messages['lb'] = array(
 	'stabilization-page'        => 'Säitennumm:',
 	'stabilization-leg'         => "Confirméiert d'stabil-Versiouns-Astellungen",
 	'stabilization-select'      => 'Auswiel vun der stabiler Versioun',
+	'stabilization-select2'     => 'Déi läscht iwwerkuckte Versioun',
 	'stabilization-def2'        => 'Déi aktuell Versioun',
 	'stabilization-submit'      => 'Confirméieren',
 	'stabilization-comment'     => 'Bemierkung:',
@@ -1021,6 +1032,22 @@ $messages['mr'] = array(
 	'stabilize_expiry_invalid'  => 'चुकीचा रद्दीकरण दिनांक.',
 	'stabilize_expiry_old'      => 'ही रद्दीकरण वेळ उलटून गेलेली आहे.',
 	'stabilize-expiring'        => '$1 (UTC) ला रद्द होते',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'stabilization'             => 'Penstabilan laman',
+	'stabilization-page'        => 'Nama laman:',
+	'stabilization-def2'        => 'Semakan semasa',
+	'stabilization-sel-short-0' => 'Mutu',
+	'stabilization-def-short'   => 'Lalai',
+	'stabilization-def-short-0' => 'Semasa',
+	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_expiry_invalid'  => 'Tarikh tamat tidak sah.',
+	'stabilize_expiry_old'      => 'Waktu tamat telah pun berlalu.',
+	'stabilize-expiring'        => 'tamat pada $1 (UTC)',
 );
 
 /** Erzya (Эрзянь)

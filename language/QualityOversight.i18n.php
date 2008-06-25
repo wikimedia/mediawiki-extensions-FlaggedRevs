@@ -20,6 +20,13 @@ $messages['ar'] = array(
 	'qualityoversight-list' => 'هذه الصفحة تعرض الموافقات الحديثة لنسخ الجودة وأيضا إزالة نسخ الجودة.',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'qualityoversight' => 'Качествен надзор',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'qualityoversight'      => 'Übersicht über geprüfte Versionen',
@@ -46,6 +53,14 @@ $messages['fa'] = array(
 $messages['fr'] = array(
 	'qualityoversight'      => 'Supervision de qualité',
 	'qualityoversight-list' => 'Cette page liste les approbations récentes (de même que les dépréciations) de versions de qualité.',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'qualityoversight'      => 'Revisión de calidade',
+	'qualityoversight-list' => 'Esta páxina lista as aprobacións recentes das revisións de calidade así como os desprezos das revisións de calidade.',
 );
 
 /** Hindi (हिन्दी)

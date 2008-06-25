@@ -99,6 +99,7 @@ $messages['fr'] = array(
 $messages['gl'] = array(
 	'stablepages'        => 'Páxinas estábeis',
 	'stablepages-stable' => 'versión estábel',
+	'stablepages-text'   => 'Embaixo está a lista das páxinas configuradas manualmente para amosar a versión estábel como o contido da páxina por omisión para os que a ven.',
 	'stablepages-none'   => 'Non hai páxinas nesta listaxe',
 	'stablepages-config' => 'Configuración',
 );
@@ -163,6 +164,17 @@ $messages['mr'] = array(
 	'stablepages-text'   => 'खाली स्थिर आवृत्त्या अविचल पणे दाखविणार्‍या पानांची यादी आहे जी कुणीतरी तयार केलेली आहे.',
 	'stablepages-none'   => 'या यादीत पाने नाहीत',
 	'stablepages-config' => 'कॉन्फिगरेशन',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'stablepages'        => 'Laman stabil',
+	'stablepages-stable' => 'versi stabil',
+	'stablepages-text'   => 'Berikut ialah senarai laman yang telah ditetapkan untuk memaparkan versi stabil sebagai kandungan lalai kepada para pengunjung.',
+	'stablepages-none'   => 'Tiada laman dalam senarai ini',
+	'stablepages-config' => 'Tatarajah',
 );
 
 /** Dutch (Nederlands)

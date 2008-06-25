@@ -83,11 +83,13 @@ $messages['fr'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'unreviewedpages-alias'  => 'Páxinas non revisadas',
-	'oldreviewedpages-alias' => 'Páxinas revisadas hai tempo',
-	'reviewedpages-alias'    => 'Páxinas revisadas',
-	'stablepages-alias'      => 'Páxinas estábeis',
-	'stableversions-alias'   => 'Versións estábeis',
+	'qualityoversight-alias'      => 'RevisiónDeCalidade',
+	'depreciationoversight-alias' => 'SupervisiónDeDesprezo',
+	'unreviewedpages-alias'       => 'Páxinas non revisadas',
+	'oldreviewedpages-alias'      => 'Páxinas revisadas hai tempo',
+	'reviewedpages-alias'         => 'Páxinas revisadas',
+	'stablepages-alias'           => 'Páxinas estábeis',
+	'stableversions-alias'        => 'Versións estábeis',
 );
 
 /** Hindi (हिन्दी)
