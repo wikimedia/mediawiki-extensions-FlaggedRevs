@@ -24,7 +24,7 @@ if( !defined('FLAGGED_VIS_PRISTINE') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.08',
+	'version' => '1.09',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -110,10 +110,6 @@ $wgFlagRestrictions = array(
 	'depth'	   => array( 'review' => 2 ),
 	'style'	   => array( 'review' => 3 ),
 );
-
-# Mark all previous edits as "patrolled" when an edit is reviewed.
-# This just sets markers on recent changes.
-$wgFlaggedRevsCascade = true;
 
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).

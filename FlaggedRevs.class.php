@@ -979,13 +979,7 @@ class FlaggedRevs {
 		}
 		# Mark as patrolled
 		if( $patrol ) {
-			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_this_oldid' => $rev->getId(),
-					'rc_user_text' => $rev->getRawUserText(),
-					'rc_timestamp' => $dbw->timestamp( $rev->getTimestamp() ) ),
-				__METHOD__,
-				array( 'LIMIT' => 1 ) );
+			RevisionReview::updateRecentChanges( $title, $rev->getId() );
 		}
 		# Done!
 		$dbw->commit();
@@ -1654,7 +1648,7 @@ EOT;
 			$patrol = true; // mark by default
 		}
 		if( $patrol ) {
-			RecentChange::markPatrolled( $rc->mAttribs['rc_id'] );
+			RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
 			if( $record ) {
 				PatrolLog::record( $rc->mAttribs['rc_id'], true );
 			}
