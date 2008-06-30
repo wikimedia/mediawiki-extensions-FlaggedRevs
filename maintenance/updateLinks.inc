@@ -121,7 +121,7 @@ function update_flaggedpages() {
 }
 
 function update_flaggedtemplates() {
-	echo "Removing unreferences flaggedtemplates columns\n";
+	echo "Removing unreferenced flaggedtemplates columns\n";
 	
 	$BATCH_SIZE = 500;
 	
@@ -166,7 +166,7 @@ function update_flaggedtemplates() {
 }
 
 function update_flaggedimages() {
-	echo "Removing unreferences flaggedimages columns\n";
+	echo "Removing unreferenced flaggedimages columns\n";
 	
 	$BATCH_SIZE = 500;
 	
