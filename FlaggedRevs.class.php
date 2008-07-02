@@ -1318,13 +1318,15 @@ EOT;
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
+		# Normalize NS_MEDIA to NS_IMAGE
+		$title = Title::makeTitle( NS_IMAGE, $nt->getDBKey() );
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
 		global $wgUseStableImages;
-		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$srev = FlaggedRevision::newFromStable( $nt, false, true );
+		if( $wgUseStableImages && self::isPageReviewable( $title ) ) {
+			$srev = FlaggedRevision::newFromStable( $title, false, true );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -1333,7 +1335,7 @@ EOT;
 					$row = $dbr->selectRow( 'flaggedimages',
 						array( 'fi_img_timestamp', 'fi_img_sha1' ),
 						array( 'fi_rev_id' => $srev->getRevId(),
-							'fi_name' => $nt->getDBkey() ),
+							'fi_name' => $title->getDBkey() ),
 						__METHOD__ );
 					$time = $row ? $row->fi_img_timestamp : $time;
 					$sha1 = $row ? $row->fi_img_sha1 : $sha1;
@@ -1342,7 +1344,7 @@ EOT;
 		}
 		# Check cache before doing another DB hit...
 		if( !$time ) {
-			$params = self::getFileVersionFromCache( $parser->getRevisionId(), $nt->getDBKey() );
+			$params = self::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBKey() );
 			if( is_array($params) ) {
 				list($time,$sha1) = $params;
 			}
@@ -1353,7 +1355,7 @@ EOT;
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->getRevisionId(),
-					'fi_name' => $nt->getDBkey() ),
+					'fi_name' => $title->getDBkey() ),
 				__METHOD__ );
 			$time = $row ? $row->fi_img_timestamp : $time;
 			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
@@ -1364,11 +1366,11 @@ EOT;
 			global $wgUseCurrentImages;
 			# If the DB found nothing...
 			if( $time === false ) {
-				$parser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
+				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentImages ) {
 					$time = "0";
 				} else {
-					$file = wfFindFile( $nt );
+					$file = wfFindFile( $title );
 					$time = $file ? $file->getTimestamp() : "0"; // Use current
 				}
 			} else {
@@ -1376,8 +1378,8 @@ EOT;
 			}
 		}
 		# Add image metadata to parser output
-		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
-		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
+		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
+		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
 		if( $time > $parser->mOutput->fr_newestImageTime ) {
 			$parser->mOutput->fr_newestImageTime = $time;
 		}

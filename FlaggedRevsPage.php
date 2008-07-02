@@ -471,6 +471,9 @@ class RevisionReview extends UnlistedSpecialPage
 			if( is_null($img_title) )
 				continue; // Page must be valid!
 
+			if( $timestamp > $lastImgTime )
+				$lastImgTime = $timestamp;
+
 			# Is this parameter for THIS image itself?
 			if( $this->page->equals($img_title) ) {
 				$fileData['name'] = $img_title->getDBkey();
@@ -478,9 +481,6 @@ class RevisionReview extends UnlistedSpecialPage
 				$fileData['sha1'] = $key;
 				continue;
 			}
-
-			if( $timestamp > $lastImgTime )
-				$lastImgTime = $timestamp;
 
 			$imgset[] = array(
 				'fi_rev_id' => $rev->getId(),

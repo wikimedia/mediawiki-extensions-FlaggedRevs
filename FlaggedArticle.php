@@ -1329,24 +1329,30 @@ class FlaggedArticle extends Article {
 			$form .= "</div>\n";
 		}
 
-		$imageParams = $templateParams = '';
-		# Hack, add NS:title -> rev ID mapping
+		$imageParams = $templateParams = $imgDBKey = '';
+		# NS -> title -> rev ID mapping
 		foreach( $out->mTemplateIds as $namespace => $title ) {
-			foreach( $title as $dbkey => $revId ) {
-				$title = Title::makeTitle( $namespace, $dbkey );
+			foreach( $title as $dbKey => $revId ) {
+				$title = Title::makeTitle( $namespace, $dbKey );
 				$templateParams .= $title->getPrefixedDBKey() . "|" . $revId . "#";
 			}
 		}
-		# Hack, image -> timestamp mapping
-		foreach( $out->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
-			foreach( $timeAndSHA1 as $time => $sha1 ) {
-				$imageParams .= $dbkey . "|" . $time . "|" . $sha1 . "#";
-			}
-		}
-		# For image pages, note the current image version
+		
+		# For image pages, note the displayed image version.
+		# This overrides any versions of this image used on the page...
 		if( $this->parent instanceof ImagePage ) {
 			$file = $this->parent->getDisplayedFile();
-			$imageParams .= $file->getName() . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+			$imgDBKey = $file->getTitle()->getDBKey();
+			$imageParams .= $imgDBKey . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
+		}
+		
+		# Image -> timestamp -> sha1 mapping
+		foreach( $out->fr_ImageSHA1Keys as $dbKey => $timeAndSHA1 ) {
+			if( $dbKey !== $imgDBKey ) {
+				foreach( $timeAndSHA1 as $time => $sha1 ) {
+					$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
+				}
+			}
 		}
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
