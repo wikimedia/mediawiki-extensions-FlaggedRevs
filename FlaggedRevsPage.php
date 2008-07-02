@@ -67,10 +67,11 @@ class RevisionReview extends UnlistedSpecialPage
 		# Special parameter mapping
 		$this->templateParams = $wgRequest->getVal( 'templateParams' );
 		$this->imageParams = $wgRequest->getVal( 'imageParams' );
+		$this->fileVersion = $wgRequest->getVal( 'fileVersion' );
 		$this->validatedParams = $wgRequest->getVal( 'validatedParams' );
 		
 		# Special token to discourage fiddling...
-		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getID(), $this->oldid );
+		$checkCode = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
 		# Must match up
 		if( $this->validatedParams !== $checkCode ) {
 			$this->templateParams = '';
@@ -123,19 +124,19 @@ class RevisionReview extends UnlistedSpecialPage
 	* Get a validation key from versioning metadata
 	* @param string $tmpP
 	* @param string $imgP
-	* @param integer $uid user ID
+	* @param string $imgV
 	* @param integer $rid rev ID
 	* @return string
 	*/
-	public static function getValidationKey( $tmpP, $imgP, $uid, $rid ) {
+	public static function validationKey( $tmpP, $imgP, $imgV, $rid ) {
 		global $wgReviewCodes;
 		# Fall back to $wgSecretKey/$wgProxyKey
 		if( empty($wgReviewCodes) ) {
 			global $wgSecretKey, $wgProxyKey;
 			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
-			$p = md5($key.$uid.$imgP.$tmpP.$rid);
+			$p = md5($key.$uid.$imgP.$tmpP.$rid.$imgV);
 		} else {
-			$p = md5($wgReviewCodes[0].$uid.$imgP.$rid.$tmpP.$wgReviewCodes[1]);
+			$p = md5($wgReviewCodes[0].$imgP.$rid.$tmpP.$imgV.$wgReviewCodes[1]);
 		}
 		return $p;
 	}
@@ -303,10 +304,11 @@ class RevisionReview extends UnlistedSpecialPage
 		# Hack, versioning params
 		$form .= Xml::hidden( 'templateParams', $this->templateParams ) . "\n";
 		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
+		$form .= Xml::hidden( 'fileVersion', $this->fileVersion ) . "\n";
 		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $wgUser->getId(), $rev->getId() );
+		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
 		$form .= '</fieldset>';
 
@@ -455,8 +457,6 @@ class RevisionReview extends UnlistedSpecialPage
 		# Our image version pointers
 		$imgset = $imgParams = array();
 		$imageMap = explode('#',trim($this->imageParams) );
-		# If this is an image page, store corresponding file info
-		$fileData = array();
 		foreach( $imageMap as $image ) {
 			if( !$image )
 				continue;
@@ -474,14 +474,6 @@ class RevisionReview extends UnlistedSpecialPage
 			if( $timestamp > $lastImgTime )
 				$lastImgTime = $timestamp;
 
-			# Is this parameter for THIS image itself?
-			if( $this->page->equals($img_title) ) {
-				$fileData['name'] = $img_title->getDBkey();
-				$fileData['timestamp'] = $timestamp;
-				$fileData['sha1'] = $key;
-				continue;
-			}
-
 			$imgset[] = array(
 				'fi_rev_id' => $rev->getId(),
 				'fi_name' => $img_title->getDBkey(),
@@ -492,6 +484,17 @@ class RevisionReview extends UnlistedSpecialPage
 				$imgParams[$img_title->getDBkey()] = array();
 			}
 			$imgParams[$img_title->getDBkey()][$timestamp] = $key;
+		}
+		
+		# If this is an image page, store corresponding file info
+		$fileData = array();
+		if( $this->page->getNamespace() == NS_IMAGE && $this->fileVersion ) {
+			$data = explode('#',$this->fileVersion,2);
+			if( count($data) == 2 ) {
+				$fileData['name'] = $this->page->getDBkey();
+				$fileData['timestamp'] = $data[0];
+				$fileData['sha1'] = $data[1];
+			}
 		}
 		
 		# Get current stable version ID (for logging)

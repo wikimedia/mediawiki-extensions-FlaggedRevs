@@ -1329,30 +1329,24 @@ class FlaggedArticle extends Article {
 			$form .= "</div>\n";
 		}
 
-		$imageParams = $templateParams = $imgDBKey = '';
+		$imageParams = $templateParams = $fileVersion = '';
 		# NS -> title -> rev ID mapping
 		foreach( $out->mTemplateIds as $namespace => $title ) {
 			foreach( $title as $dbKey => $revId ) {
 				$title = Title::makeTitle( $namespace, $dbKey );
 				$templateParams .= $title->getPrefixedDBKey() . "|" . $revId . "#";
 			}
-		}
-		
-		# For image pages, note the displayed image version.
-		# This overrides any versions of this image used on the page...
-		if( $this->parent instanceof ImagePage ) {
-			$file = $this->parent->getDisplayedFile();
-			$imgDBKey = $file->getTitle()->getDBKey();
-			$imageParams .= $imgDBKey . "|" . $file->getTimestamp() . "|" . $file->getSha1() . "#";
-		}
-		
+		}	
 		# Image -> timestamp -> sha1 mapping
 		foreach( $out->fr_ImageSHA1Keys as $dbKey => $timeAndSHA1 ) {
-			if( $dbKey !== $imgDBKey ) {
-				foreach( $timeAndSHA1 as $time => $sha1 ) {
-					$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
-				}
+			foreach( $timeAndSHA1 as $time => $sha1 ) {
+				$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
 			}
+		}
+		# For image pages, note the displayed image version
+		if( $this->parent instanceof ImagePage ) {
+			$file = $this->parent->getDisplayedFile();
+			$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
 		}
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
@@ -1376,10 +1370,11 @@ class FlaggedArticle extends Article {
 		# Add review parameters
 		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+		$form .= Xml::hidden( 'fileVersion', $fileVersion ) . "\n";
 		# Pass this in if given; useful for new page patrol
 		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = RevisionReview::getValidationKey( $templateParams, $imageParams, $wgUser->getID(), $id );
+		$checkCode = RevisionReview::validationKey( $templateParams, $imageParams, $fileVersion, $id );
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 		
 		$form .= Xml::closeElement( 'fieldset' );
