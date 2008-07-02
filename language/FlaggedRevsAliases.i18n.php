@@ -17,6 +17,17 @@ $messages['en'] = array(
 	'stableversions-alias' => 'StableVersions',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'unreviewedpages-alias'  => 'PachinasNoRebisatas',
+	'oldreviewedpages-alias' => 'PachinasSuperbisatasAntigas',
+	'reviewedpages-alias'    => 'PachinasSuberbisatas',
+	'stablepages-alias'      => 'PachinasEstables',
+	'stableversions-alias'   => 'BersionsEstables',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

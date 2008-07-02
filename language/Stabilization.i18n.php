@@ -56,6 +56,14 @@ $messages['af'] = array(
 	'stabilization-sel-short-1' => 'Geen',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'stabilization-comment'     => 'Comentario:',
+	'stabilization-def-short-1' => 'Estable',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author Siebrand
@@ -675,6 +683,16 @@ $messages['hu'] = array(
 	'stabilize-expiring'        => 'lejár $1-kor (UTC)',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'stabilization-comment'   => 'Commento:',
+	'stabilization-expiry'    => 'Expira:',
+	'stabilization-def-short' => 'Predefinition',
+	'stabilize-expiring'      => 'expira le $1 (UTC)',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
@@ -1125,13 +1143,28 @@ $messages['nn'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author H92
  */
 $messages['no'] = array(
 	'stabilization-tab'         => 'kvalitet',
+	'stabilization'             => 'Sidestabilisering',
+	'stabilization-text'        => "'''Endre innstillingene nedenfor for å bestemme hvordan den stabile versjonen av [[:$1|$1]] skal velges og vises.'''",
+	'stabilization-perm'        => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for stabile versjoner.
+Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-page'        => 'Sidenavn:',
+	'stabilization-leg'         => 'Bekreft innstillinger for stabile versjoner',
+	'stabilization-select'      => 'Valg av stabil versjon',
+	'stabilization-select1'     => 'Den siste kvalitetsrevisjonen hvis den finnes, ellers den siste synede versjonen',
+	'stabilization-select2'     => 'Den siste undersøkte versjonen.',
+	'stabilization-def'         => 'Sideversjonen som skal brukes som standardvisning',
+	'stabilization-def1'        => 'Den stabile versjonen hvis den finnes, ellers den nyeste versjonen',
+	'stabilization-def2'        => 'Den nyeste versjonen',
 	'stabilization-submit'      => 'Bekreft',
+	'stabilization-notexists'   => 'Det er ingen side med tittelen «[[:$1|$1]]». Ingen innstillinger kan gjøres.',
+	'stabilization-notcontent'  => 'Siden «[[:$1|$1]]» kan ikke bli undersøkt. Ingen innstillinger kan gjøres.',
 	'stabilization-comment'     => 'Kommentar:',
 	'stabilization-expiry'      => 'Utgår:',
+	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
 	'stabilization-def-short'   => 'Standard',
 	'stabilization-def-short-0' => 'Nåværende',

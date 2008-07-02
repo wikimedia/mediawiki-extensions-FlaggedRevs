@@ -165,14 +165,151 @@ To depreciate a revision, set all fields to "unapproved".',
 	'validationpage' => '{{ns:help}}:Article validation',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'editor'              => 'Redakteur',
+	'group-editor-member' => 'Redakteur',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'editor'           => 'Editor',
-	'flaggedrevs'      => 'Rebisions siñalatas',
-	'flaggedrevs-desc' => 'Premite á os editors/rebisors de balidar rebisions y fer estables as pachinas',
-	'group-editor'     => 'Editors',
+	'editor'                       => 'Editor',
+	'flaggedrevs'                  => 'Rebisions siñalatas',
+	'flaggedrevs-backlog'          => "Bi ha un rechistro de fainas rezagatas en a [[Special:OldReviewedPages|Lista de pachinas biellas rebisatas]]. '''Se i amenista a suya aduya!'''",
+	'flaggedrevs-desc'             => 'Premite á os editors/rebisors de balidar rebisions y fer estables as pachinas',
+	'flaggedrevs-pref-UI-0'        => "Usar una a bersión estable detallata d'o interfaz d'usuario",
+	'flaggedrevs-pref-UI-1'        => "Usar una bersión estable simple d'o interfaz d'usuario",
+	'flaggedrevs-prefs'            => 'Estabilidat',
+	'flaggedrevs-prefs-stable'     => "Amostrar siempre por defeuto a bersión estable d'as pachinas de contenius (si ye que bi'n ha beluna).",
+	'flaggedrevs-prefs-watch'      => "Adibir as pachinas rebisatas por yo t'a lista de seguimiento",
+	'group-editor'                 => 'Editors',
+	'group-editor-member'          => 'Editor',
+	'group-reviewer'               => 'Rebisadors',
+	'group-reviewer-member'        => 'Rebisador',
+	'grouppage-editor'             => '{{ns:project}}:Editor',
+	'grouppage-reviewer'           => '{{ns:project}}:Rebisador',
+	'hist-draft'                   => 'bersión borrador',
+	'hist-quality'                 => 'bersión de calidat',
+	'hist-quality-user'            => '[{{fullurl:$1|stableid=$2}} balidato] por [[User:$3|$3]]',
+	'hist-stable'                  => 'bersión superbisata',
+	'hist-stable-user'             => '[{{fullurl:$1|stableid=$2}} superbisata] por [[User:$3|$3]]',
+	'review-diff2stable'           => 'Amostrar cambeos entre a bersión estable y a bersión autual',
+	'review-logentry-app'          => "s'ha rebisato [[$1]]",
+	'review-logentry-dis'          => 'ha dispreziato una bersión de [[$1]]',
+	'review-logentry-id'           => 'ID de bersión $1',
+	'review-logentry-diff'         => 'diferenzia con estable',
+	'review-logpage'               => 'Rechistro de rebisions',
+	'review-logpagetext'           => "Isto ye un rechistro d'o [[{{MediaWiki:Validationpage}}|estau d'aprebazión]] de rebisions de pachinas de conteniu.
+Mire-se a [[Special:ReviewedPages|lista de pachinas rebisatas]] an que trobará una lista de pachinas aprebatas.",
+	'reviewer'                     => 'Rebisador',
+	'revisionreview'               => 'Rebisar bersions',
+	'revreview-accuracy'           => 'Prezisión',
+	'revreview-accuracy-0'         => 'No aprebato',
+	'revreview-accuracy-1'         => 'Bisto',
+	'revreview-accuracy-2'         => 'Preziso',
+	'revreview-accuracy-3'         => 'Bien decumentato',
+	'revreview-accuracy-4'         => 'Destacato',
+	'revreview-approved'           => 'Aprebato',
+	'revreview-auto'               => '(automatico)',
+	'revreview-auto-w'             => "Ye editando una bersión estable; os cambeos '''serán rebisatos automaticament'''.",
+	'revreview-auto-w-old'         => "Ye editando una bersión rebisata; os cambios '''serán rebisatos automaticament'''.",
+	'revreview-basic'              => 'Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|superbisata]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|cambeo|cambeos}}] asperando una rebisión.',
+	'revreview-basic-i'            => 'Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|superbisata]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cambios en plantillas/imachens] asperando una rebisión.',
+	'revreview-basic-old'          => 'Ista ye una bersión [[{{MediaWiki:Validationpage}}|superbisata]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrat todas]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+Puet estar que bi aiga [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} nuebos cambios].',
+	'revreview-basic-same'         => 'Esta ye a zaguera rebisión [[{{MediaWiki:Validationpage}}|superbisata]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.',
+	'revreview-basic-source'       => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bersión superbisata] d'ista pachina, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>, ye estata basata en esta bersión.",
+	'revreview-changed'            => "'''No s'ha puesto fer l'aizión que ha demandato en ista bersión de [[:$1|$1]].'''
+
+Puet estar que aiga demandato una plantilla u imachen sin que s'aiga espezificato a bersión.
+Isto puede pasar si una plantilla dinamica contiene atra imachen u plantilla que pende en una bariable que ha cambiato dende que prenzipió á rebisar ista pachina.
+O problema puet resolber-se refrescando a pachina y tornando-la á amostrar.",
+	'revreview-current'            => 'Borrador',
+	'revreview-depth'              => 'Fondura',
+	'revreview-depth-0'            => 'No aprebato',
+	'revreview-depth-1'            => 'Basico',
+	'revreview-depth-2'            => 'Moderato',
+	'revreview-depth-3'            => 'Alto',
+	'revreview-depth-4'            => 'Destacato',
+	'revreview-draft-title'        => "Borrador d'articlo",
+	'revreview-edit'               => 'Editar borrador',
+	'revreview-edited'             => "'''As edizions s'encorporarán t'a [[{{MediaWiki:Validationpage}}|bersión estable]] malas que un usuario establexito las rebise.
+
+O ''borrador'' s'amuestra en o cobaixo.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|cambeo aspera awaits|cambeos asperan}}] una rebisión.",
+	'revreview-flag'               => 'Rebisar ista bersión',
+	'revreview-invalid'            => "'''Destín no conforme:''' no bi ha garra [[{{MediaWiki:Validationpage}}|bersión rebisata]] que corresponda con ixe ID.",
+	'revreview-legend'             => "Balure o conteniu d'a rebisión",
+	'revreview-log'                => 'Comentario:',
+	'revreview-main'               => "Ha de trigar una bersión particular d'una pachina de conteniu ta poder rebisar-la.
+
+Mire-se [[Special:Unreviewedpages]] an que trobará una lista de pachinas sin rebisar.",
+	'revreview-newest-basic'       => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zaguera bersión superbisata] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|cambeo|cambeos}}] {{PLURAL:$3|amenista|amenistan}} una rebisión.',
+	'revreview-newest-basic-i'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zaguera bersión superbisata] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Bels cambeos en a plantillas u imáchens] amenistan una rebisión.',
+	'revreview-newest-quality'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zaguera bersión de calidat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|cambeo|cambeos}}] {{PLURAL:$3|amenista|amenistan}} una rebisión.',
+	'revreview-newest-quality-i'   => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zaguera bersión de calidat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Bels cambeos en plantillas u imáchens] amenistan una rebisión.',
+	'revreview-noflagged'          => "No bi ha garra bersión rebisata d'ista pachina, y por ixo a calidat d'ista pachina talment '''no''' ye estata [[{{MediaWiki:Validationpage}}|abaluata]].",
+	'revreview-note'               => '[[User:$1]] ha feito as siguients notas mientres [[{{MediaWiki:Validationpage}}|rebisaba]] ista bersión:',
+	'revreview-notes'              => "Obserbazions u notas t'amostrar:",
+	'revreview-oldrating'          => 'A calificazión ye:',
+	'revreview-patrol'             => 'Siñalar iste cambio como patrullato',
+	'revreview-patrol-title'       => 'Siñalar como patrullato',
+	'revreview-patrolled'          => "A bersión trigata de [[:$1|$1]] s'ha siñalata como patrullata.",
+	'revreview-quality'            => 'Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|de calidat]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|cambeo|cambeos}}] asperando una rebisión.',
+	'revreview-quality-i'          => 'Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|de calidat]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|cambeo|cambeos}}] asperando una rebisión.',
+	'revreview-quality-old'        => "Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|de calidat]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+S'han feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cambeos].",
+	'revreview-quality-same'       => "Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|de calidat]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amostrar todas]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+Puet estar que s'aigan feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} cambeos].",
+	'revreview-quality-source'     => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bersión de calidat] d'ista pachina, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>, s'ha basato en ista bersión.",
+	'revreview-quality-title'      => 'Articlo de calidat',
+	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|Articlo superbisato]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} amostrar borrador]]",
+	'revreview-quick-basic-old'    => "'''[[{{MediaWiki:Validationpage}}|Articlo superbisato]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} amostrar borrador]]",
+	'revreview-quick-basic-same'   => "'''[[{{MediaWiki:Validationpage}}|Articlo superbisato]]'''",
+	'revreview-quick-invalid'      => "'''ID de rebisión no conforme'''",
+	'revreview-quick-none'         => "'''[[{{MediaWiki:Validationpage}}|Bersión autual]]''' (no rebisata)",
+	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Articlo de calidat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} amostrar borrador]]",
+	'revreview-quick-quality-old'  => "'''[[{{MediaWiki:Validationpage}}|Articlo de calidat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} amostrar borrador]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Articlo de calidat]]'''",
+	'revreview-quick-see-basic'    => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} amostrar articlo]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} contimparar])",
+	'revreview-quick-see-quality'  => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} amostrar articlo]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} contimparar])",
+	'revreview-selected'           => "Bersión trigata de '''$1:'''",
+	'revreview-source'             => "codigo fuent d'o borrador",
+	'revreview-stable'             => 'Pachina estable',
+	'revreview-stable-title'       => 'Articlo superbisato',
+	'revreview-stable1'            => "Si quiere puede beyer [{{fullurl:$1|stableid=$2}} ista bersión siñalata] ta mirar si ye a [{{fullurl:$1|stable=1}} bersión estable] autual d'ista pachina.",
+	'revreview-stable2'            => "Si quiere puede beyer a [{{fullurl:$1|stable=1}} bersión estable] s'ista pachina (si ye que bi'n ha una).",
+	'revreview-style'              => 'Leyibilidat',
+	'revreview-style-0'            => 'No aprebato',
+	'revreview-style-1'            => 'Azeutable',
+	'revreview-style-2'            => 'Bueno',
+	'revreview-style-3'            => 'Conziso',
+	'revreview-style-4'            => 'Destacato',
+	'revreview-submit'             => 'Nimbiar rebisión',
+	'revreview-successful'         => "'''S'ha siñalato a bersión trigata de [[:$1|$1]]. ([{{fullurl:Special:Stableversions|page=$2}} amostrar todas as bersions siñalatas])'''",
+	'revreview-successful2'        => "'''S'ha sacato o siñal d'as bersions trigatas de [[:$1|$1]]'''",
+	'revreview-text'               => "''As pachinas de conteniu que s'amuestran por defeuto son as [[{{MediaWiki:Validationpage}}|bersions estables]] en cuenta de as zagueras bersions.''",
+	'revreview-text2'              => "As ''[[{{MediaWiki:Validationpage}}|bersions estables]] son bersions d'as pachinas que s'han comprebato y son o conteniu que s'amuestra por defeuto en os bisualizadors.''",
+	'revreview-toggle-title'       => 'amostrar/amagar detalles',
+	'revreview-update'             => "Por fabor [[{{MediaWiki:Validationpage}}|rebise]] os cambios ''(que s'amuestran en o cobaixo)'' feitos dende que s'aprebó a [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} bersión estable].<br />
+'''S'han esbiellato bellas plantillas/imáchens:'''",
+	'revreview-update-includes'    => "'''S'han esbiellato bellas plantillas u imáchens:'''",
+	'revreview-update-none'        => "Por fabor [[{{MediaWiki:Validationpage}}|rebise]] os cambeos ''(que s'amuestran en o cobaixo)'' feitos dende que s'aprebó a [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} bersión estable].",
+	'revreview-update-use'         => "'''PARE CUENTA:''' Si beluna d'istas plantillas u imáchens tiene un bersión estable, s'emplegarán istas en a bersión estable d'a pachina.",
+	'revreview-diffonly'           => "''Ta rebisar as pachinas, punche en o binclo \"bersión autual\" y faiga serbir o formulario de rebisión.''",
 );
 
 /** Arabic (العربية)
@@ -704,12 +841,13 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
  * @author Jordi Roqué
  * @author SMP
  * @author Toniher
- * @author Paucabot
  * @author Siebrand
+ * @author Juanpabl
  */
 $messages['ca'] = array(
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Revisions senyalades',
+	'flaggedrevs-backlog'          => "Bi ha un rechistro de fainas rezagatas en a [[Special:OldReviewedPages|lista de pachinas biellas rebisatas]]. '''Se i requiere o suyo ficazio'''",
 	'flaggedrevs-desc'             => "Dóna als editors/revisors l'habilitat de validar revisions de pàgines i declarar-les estables.",
 	'flaggedrevs-prefs'            => 'Estabilitat',
 	'flaggedrevs-prefs-stable'     => "Per defecte, mostra sempre la versió estable de les pàgines de contingut (si n'hi ha)",
@@ -1108,11 +1246,12 @@ $messages['el'] = array(
 /** Esperanto (Esperanto)
  * @author Yekrats
  * @author Siebrand
+ * @author ArnoLagrange
  */
 $messages['eo'] = array(
 	'editor'                       => 'Redaktanto',
 	'flaggedrevs'                  => 'Markitaj Revizioj',
-	'flaggedrevs-backlog'          => "Estas nune amaso de [[Special:OldReviewedPages|malfreŝe kontrolitaj paĝoj]]. '''Via atento estas bezona!'''",
+	'flaggedrevs-backlog'          => "Estas nune amaso de [[Special:OldReviewedPages|malfreŝe kontrolitaj paĝoj]]. '''Via atento estas bezonata!'''",
 	'flaggedrevs-desc'             => 'Rajtigas al redaktantoj kaj kontrolantoj la kapablon validigi reviziojn kaj stabiligi paĝojn',
 	'flaggedrevs-pref-UI-0'        => 'Uzu detalan stabilan version por uzulinterfaco',
 	'flaggedrevs-pref-UI-1'        => 'Uzu simplan uzulinterfacon de stabilaj versioj',
@@ -1135,7 +1274,7 @@ $messages['eo'] = array(
 	'review-logentry-dis'          => 'evitinda versio de [[$1]]',
 	'review-logentry-id'           => 'identigo de revizio $1',
 	'review-logentry-diff'         => 'diferenco de stabila versio',
-	'review-logpage'               => 'Kontroli loglibron',
+	'review-logpage'               => 'Kontroli protokolon',
 	'review-logpagetext'           => 'Jen protokolo de ŝanĝoj al [[{{MediaWiki:Validationpage}}|aprobstatuso]] de revizioj por enhavaj paĝoj.
 Rigardu la [[Special:ReviewedPages|liston de kontrolitaj paĝoj]] por listo de aprobitaj paĝoj.',
 	'reviewer'                     => 'Kontrolanto',
@@ -1173,7 +1312,7 @@ Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'revreview-depth-4'            => 'Elstara',
 	'revreview-draft-title'        => 'Malneta artikolo',
 	'revreview-edit'               => 'Redaktu malneton',
-	'revreview-edited'             => "'''Redaktoj estos enmetita en la [[{{MediaWiki:Validationpage}}|stabila versio]] post ensalutita uzanto kontrolas ilin.
+	'revreview-edited'             => "'''Redaktoj estos enmetitaj en la [[{{MediaWiki:Validationpage}}|stabilan version]] post kiam  ensalutinta uzulo kontrolis ilin.
 La ''malneto'' estas montrita sube.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.",
 	'revreview-flag'               => 'Kontroli ĉi tiun revizion',
 	'revreview-invalid'            => "'''Nevalida celo:''' neniu [[{{MediaWiki:Validationpage}}|kontrolita]] revizio kongruas la enigitan identigon.",
@@ -1182,8 +1321,8 @@ La ''malneto'' estas montrita sube.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&dif
 	'revreview-main'               => 'Vi devas selekti apartan revizion de enhava paĝo por kontroli.
 
 Vidu la paĝon [[Special:Unreviewedpages|NekontrolitaPaĝoj]] por listo de nekontrolitaj paĝoj.',
-	'revreview-newest-basic'       => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta vidita revizio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listigi ĉiujn]) estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] bezonas {{PLURAL:$3|kontrolon|kontrolojn}}.',
+	'revreview-newest-basic'       => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta vidita revizio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listigi ĉiujn]) estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.',
 	'revreview-newest-basic-i'     => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta vidita revizio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ŝablonaj/bildaj ŝanĝoj] atendas kontrolon.',
 	'revreview-newest-quality'     => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta bonkvalita revizio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
@@ -1222,8 +1361,8 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} ŝanĝoj] eble estis fari
 	'revreview-source'             => 'malneta fonto',
 	'revreview-stable'             => 'Stabila paĝo',
 	'revreview-stable-title'       => 'Vidita artikolo',
-	'revreview-stable1'            => 'Eble vi volus rigardi [{{fullurl:$1|stableid=$2}} ĉi tiu markita versio] vidi se ĝi nun estas la [{{fullurl:$1|stable=1}} stabila versio] de ĉi tiu paĝo.',
-	'revreview-stable2'            => 'Eble vi volas rigardi la [{{fullurl:$1|stable=1}} stabila versio] de ĉi tiu paĝo (se ĝi ankoraŭ ekzistas).',
+	'revreview-stable1'            => 'Eble vi volus rigardi [{{fullurl:$1|stableid=$2}} ĉi tiun markitan version] por vidi ĉu ĝi nun estas la [{{fullurl:$1|stable=1}} stabila versio] de ĉi tiu paĝo.',
+	'revreview-stable2'            => 'Eble vi volas rigardi la [{{fullurl:$1|stable=1}} stabilan version] de ĉi tiu paĝo (se ĝi ankoraŭ ekzistas).',
 	'revreview-style'              => 'Legebleco',
 	'revreview-style-0'            => 'Malaprobita',
 	'revreview-style-1'            => 'Akceptinda',
@@ -1268,10 +1407,12 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 
 /** Spanish (Español)
  * @author Drini
+ * @author Lin linao
  */
 $messages['es'] = array(
 	'editor'                       => 'Editor',
 	'flaggedrevs-desc'             => 'Da a los editores la habilidad de validar revisiones y estabilizar páginas',
+	'flaggedrevs-prefs-watch'      => 'Añadir a mi lista de seguimiento las páginas que revise.',
 	'group-editor'                 => 'Editores',
 	'group-editor-member'          => 'Editor',
 	'group-reviewer'               => 'Revisores',
@@ -2475,6 +2616,13 @@ naplója.',
 	'validationpage'               => '{{ns:help}}:Szócikk ellenőrzése',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'revreview-log' => 'Commento:',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
@@ -3638,6 +3786,72 @@ $messages['mr'] = array(
 	'validationpage'               => '{{ns:help}}:लेख प्रमाणिकरण',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'editor'                     => 'Penyunting',
+	'flaggedrevs-desc'           => 'Membolehkan para penyunting dan pemeriksa mengesahkan semakan dan menstabilkan laman',
+	'flaggedrevs-prefs'          => 'Kestabilan',
+	'flaggedrevs-prefs-stable'   => 'Paparkan versi stabil bagi laman kandungan (jika ada)',
+	'flaggedrevs-prefs-watch'    => 'Tambahkan laman yang diperiksa ke dalam senarai pantau',
+	'group-editor'               => '{{ns:project}}:Penyunting',
+	'group-editor-member'        => 'Penyunting',
+	'group-reviewer'             => 'Pemeriksa',
+	'group-reviewer-member'      => 'Pemeriksa',
+	'grouppage-editor'           => '{{ns:project}}:Penyunting',
+	'grouppage-reviewer'         => '{{ns:project}}:Pemeriksa',
+	'hist-draft'                 => 'semakan draf',
+	'hist-quality'               => 'semakan bermutu',
+	'hist-quality-user'          => '[{{fullurl:$1|stableid=$2}} disahkan] oleh [[User:$3|$3]]',
+	'hist-stable'                => 'semakan dijenguk',
+	'hist-stable-user'           => '[{{fullurl:$1|stableid=$2}} dijenguk] oleh [[User:$3|$3]]',
+	'review-diff2stable'         => 'Lihat perubahan antara semakan stabil dan semakan semasa',
+	'review-logentry-app'        => 'memeriksa [[$1]]',
+	'review-logentry-dis'        => 'menggugurkan salah satu versi bagi [[$1]]',
+	'review-logpage'             => 'Log pemeriksaan',
+	'reviewer'                   => 'Pemeriksa',
+	'revreview-accuracy'         => 'Ketepatan',
+	'revreview-accuracy-0'       => 'Belum disahkan',
+	'revreview-accuracy-1'       => 'Dijenguk',
+	'revreview-accuracy-2'       => 'Tepat',
+	'revreview-accuracy-3'       => 'Bersumber',
+	'revreview-accuracy-4'       => 'Terpilih',
+	'revreview-approved'         => 'Disahkan',
+	'revreview-auto'             => '(automatik)',
+	'revreview-auto-w'           => "Anda sedang menyunting versi stabil; sebarang perubahan dianggap '''telah diperiksa'''.",
+	'revreview-auto-w-old'       => "Anda sedang menyunting versi stabil; sebarang perubahan dianggap '''telah diperiksa'''",
+	'revreview-current'          => 'Draf',
+	'revreview-depth'            => 'Paras',
+	'revreview-depth-0'          => 'Belum disahkan',
+	'revreview-depth-1'          => 'Asas',
+	'revreview-depth-2'          => 'Pertengahan',
+	'revreview-depth-3'          => 'Tinggi',
+	'revreview-depth-4'          => 'Terpilih',
+	'revreview-draft-title'      => 'Rencana draf',
+	'revreview-edit'             => 'Sunting draf',
+	'revreview-flag'             => 'Periksa semakan ini',
+	'revreview-log'              => 'Ulasan:',
+	'revreview-quality-title'    => 'Rencana berkualiti',
+	'revreview-quick-basic'      => "'''[[{{MediaWiki:Validationpage}}|Rencana dijenguk]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lihat draf]]",
+	'revreview-quick-basic-old'  => "'''[[{{MediaWiki:Validationpage}}|Rencana dijenguk]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lihat draf]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Rencana dijenguk]]'''",
+	'revreview-quick-invalid'    => "'''ID semakan tidak sah'''",
+	'revreview-quick-none'       => "'''[[{{MediaWiki:Validationpage}}|Semakan semasa]]''' (belum diperiksa)",
+	'revreview-stable'           => 'Laman stabil',
+	'revreview-stable-title'     => 'Rencana dijenguk',
+	'revreview-style'            => 'Gaya bahasa',
+	'revreview-style-0'          => 'Belum disahkan',
+	'revreview-style-1'          => 'Memuaskan',
+	'revreview-style-2'          => 'Baik',
+	'revreview-style-3'          => 'Padat',
+	'revreview-style-4'          => 'Terpilih',
+	'revreview-submit'           => 'Serah',
+	'tooltip-ca-default'         => 'Tetapan jaminan mutu',
+	'tooltip-ca-stable'          => 'Lihat versi stabil bagi laman ini',
+	'validationpage'             => '{{ns:help}}:Pengesahan rencana',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -3828,6 +4042,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author H92
  * @author Stigmj
+ * @author EivindJ
  */
 $messages['no'] = array(
 	'editor'                       => 'Skribent',
@@ -3857,15 +4072,18 @@ $messages['no'] = array(
 	'revreview-edited'             => "'''Endringer vil legges til den [[{{MediaWiki:Validationpage}}|stabile versjonen]] når en etablert bruker sjekker den.
 ''Utkastet'' vises nedenfor.''' [{{fullurl:{{FULLPAGENAME}}|oldid=$1|diff=cur}} $2 {{PLURAL:$2|endring venter|endringer venter}}] på å bli sjekket.",
 	'revreview-invalid'            => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|anmeldte]] versjoner tilsvarer den angitte ID-en.",
+	'revreview-log'                => 'Kommentar:',
 	'revreview-newest-basic'       => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste godkjente versjonen] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|endring|endringer}}] må vurderes.',
 	'revreview-newest-basic-i'     => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste godkjente versjonen] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Mal– eller bildeendringer] må vurderes.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Mal- eller bildeendringer] må vurderes.',
 	'revreview-newest-quality'     => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikrede versjonen av siden]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|endring|endringer}}] må vurderes.',
-	'revreview-newest-quality-i'   => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikrede versjonen av siden]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Mal– eller bildeendringer] må vurderes.',
+	'revreview-newest-quality-i'   => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikrede versjonen av siden]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} Mal- eller bildeendringer] må vurderes.',
 	'revreview-noflagged'          => "Det er ingen anmeldte versjoner av denne siden, så den har kanskje '''ikke''' blitt [[{{MediaWiki:Validationpage}}|kvalitetssjekket]].",
 	'revreview-note'               => '[[User:$1|$1]] hadde følgende merknader under [[{{MediaWiki:Validationpage}}|anmeldelsen]] av denne sideversjonen:',
 	'revreview-oldrating'          => 'Den ble anmeldt som:',
+	'revreview-patrol'             => 'Merk denne endringen som patruljert',
+	'revreview-patrol-title'       => 'Merk som patruljert',
 	'revreview-patrolled'          => 'Den valgte versjonen av [[:$1|$1]] har blitt merket som patruljert.',
 	'revreview-quality-title'      => 'Kvalitetsartikkel',
 	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|Kontrollert artikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vis utkast]]",
@@ -5945,7 +6163,9 @@ $messages['yue'] = array(
 	'validationpage'              => '{{ns:help}}:文章確認',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Chenzw
+ */
 $messages['zh-hans'] = array(
 	'editor'                      => '编辑',
 	'flaggedrevs'                 => '标注修订',
@@ -5970,6 +6190,7 @@ $messages['zh-hans'] = array(
 	'revreview-accuracy-2'        => '准确',
 	'revreview-accuracy-3'        => '有良好来源',
 	'revreview-accuracy-4'        => '特色',
+	'revreview-approved'          => '已被批准',
 	'revreview-auto'              => '(自动)',
 	'revreview-auto-w'            => "'''注意:''' 您现在是在稳定修订中作出更改，您的编辑将会自动被复审。
 	您可以在保存前先预览一下。",

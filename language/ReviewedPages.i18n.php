@@ -19,6 +19,13 @@ $messages['en'] = array(
 	'reviewedpages-best' => 'prime revision',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'reviewedpages-lev-2' => 'Destacato',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -456,10 +463,12 @@ $messages['nl'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author EivindJ
  */
 $messages['no'] = array(
-	'reviewedpages-none' => 'Det er ingen sider i denne listen',
-	'reviewedpages-best' => 'primærversjon',
+	'reviewedpages-none'  => 'Det er ingen sider i denne listen',
+	'reviewedpages-lev-1' => 'Kvalitet',
+	'reviewedpages-best'  => 'primærversjon',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)

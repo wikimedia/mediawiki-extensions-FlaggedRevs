@@ -23,6 +23,14 @@ $messages['en'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'oldreviewedpages-stable'  => 'superbisata',
+	'oldreviewedpages-quality' => 'calidat',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -287,6 +295,16 @@ $messages['mr'] = array(
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'oldreviewedpages-hours'  => '($1 jam)',
+	'oldreviewedpages-days'   => '($1 hari)',
+	'oldreviewedpages-recent' => '(kurang dari sejam)',
+	'oldreviewed-category'    => 'Kategori:',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -315,6 +333,13 @@ $messages['nl'] = array(
 	'oldreviewed-diff'           => 'eindredactie',
 	'oldreviewedpages-unwatched' => '(niet op een volglijst)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author EivindJ
+ */
+$messages['no'] = array(
+	'oldreviewed-category' => 'Kategori:',
 );
 
 /** Occitan (Occitan)
@@ -348,6 +373,13 @@ $messages['pl'] = array(
 	'oldreviewed-category'       => 'Kategoria:',
 	'oldreviewedpages-unwatched' => '(nieobserwowane)',
 	'oldreviewedpages-watched'   => '(obserwowane przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'oldreviewed-category' => 'وېشنيزه:',
 );
 
 /** Portuguese (Português)
