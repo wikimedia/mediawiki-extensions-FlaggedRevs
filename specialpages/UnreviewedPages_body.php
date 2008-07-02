@@ -57,6 +57,7 @@ class UnreviewedPages extends SpecialPage
 
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
+		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
 		$css = $stxt = $review = '';
 		if( !is_null($size = $result->page_len) ) {
 			global $wgLang;
@@ -74,7 +75,7 @@ class UnreviewedPages extends SpecialPage
 			$watching = "";
 		}
 
-		return( "<li{$css}>{$link} {$stxt} {$review}{$watching}</li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching}</li>" );
 	}
 	
 	/**
