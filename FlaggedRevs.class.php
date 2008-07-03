@@ -2010,6 +2010,26 @@ EOT;
 		return true;
 	}
 	
+	static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
+		if( $request->getVal( 'stableid' ) ) {
+			$ignoreRedirect = true;
+		} else {
+			# Get an instance on the title ($wgTitle) and save to process cache 
+			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+			$srev = $flaggedArticle->getStableRev( true );
+			if( $srev ) {
+				$text = $srev->getRevText();
+				$redirect = Article::followRedirectText( $text );
+				if( $redirect ) {
+					$target = $redirect;
+				} else {
+					$ignoreRedirect = true;
+				}
+			}
+		}
+		return true;
+	}
+	
 	static function setPermaLink( $skin, &$navUrls, &$revId, &$id ) {
 		$fa = FlaggedArticle::getGlobalInstance();
 		if ( $fa ) {
