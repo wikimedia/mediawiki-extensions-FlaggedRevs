@@ -13,7 +13,7 @@ class FlaggedArticle extends Article {
 	 * Get the FlaggedArticle instance associated with $wgArticle/$wgTitle,
 	 * or false if there isn't such a title
 	 */
-	static function getGlobalInstance() {
+	public static function getGlobalInstance() {
 		global $wgArticle, $wgTitle;
 		if ( !empty( $wgArticle ) ) {
 			return self::getInstance( $wgArticle );
@@ -26,9 +26,9 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get a FlaggedArticle for a given title.
-	 * getInstance() is preferred if you have an Article avaiable.
+	 * getInstance() is preferred if you have an Article available.
 	 */
-	static function getTitleInstance( $title ) {
+	public static function getTitleInstance( $title ) {
 		if ( !isset( $title->flaggedRevsArticle ) ) {
 			$article = MediaWiki::articleFromTitle( $title );
 			$article->flaggedRevsArticle = new FlaggedArticle( $article );
@@ -41,7 +41,7 @@ class FlaggedArticle extends Article {
 	 * Get an instance of FlaggedArticle for a given Article or Title object
 	 * @param Article $article
 	 */
-	static function getInstance( $article ) {
+	public static function getInstance( $article ) {
 		# If instance already cached, return it!
 		if( isset($article->flaggedRevsArticle) ) {
 			return $article->flaggedRevsArticle;
