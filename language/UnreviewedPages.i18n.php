@@ -26,6 +26,21 @@ $messages['af'] = array(
 	'unreviewed-category' => 'Kategorie:',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'right-unreviewedpages' => 'Amostrar a lista de pachinas sin rebisar',
+	'unreviewedpages'       => 'Pachinas no rebisatas',
+	'unreviewed-legend'     => 'Lista de pachinas de conteniu no rebisatas',
+	'unreviewed-category'   => 'Categoría:',
+	'unreviewed-diff'       => 'rebisar',
+	'unreviewed-unwatched'  => '(no cosirata)',
+	'unreviewed-watched'    => '($2 {{PLURAL:$1|usuario|usuarios}} cosirando)',
+	'unreviewed-list'       => "Ista pachina amuestra os articlos que no s'han rebisato.",
+	'unreviewed-none'       => 'No bi ha autualment garra pachina que cumpla ixos criterios',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

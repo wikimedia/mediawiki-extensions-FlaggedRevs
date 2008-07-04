@@ -27,8 +27,19 @@ $messages['en'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'oldreviewedpages-stable'  => 'superbisata',
-	'oldreviewedpages-quality' => 'calidat',
+	'oldreviewedpages'           => 'Pachinas rebisatas zircunduzitas',
+	'oldreviewedpages-legend'    => 'Lista de pachinas rebisatas con edizions sin rebisar',
+	'oldreviewedpages-list'      => 'Ista pachina amuestra as pachinas rebisatas que tienen edizions pendients de rebisar.',
+	'oldreviewedpages-none'      => 'No bi ha agora garra pachina que cumpla ixas condizions',
+	'oldreviewedpages-stable'    => 'superbisata',
+	'oldreviewedpages-quality'   => 'calidat',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ora|oras}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|día|días}})',
+	'oldreviewedpages-recent'    => "(menos d'una ora)",
+	'oldreviewed-category'       => 'Categoría:',
+	'oldreviewed-diff'           => 'rebisión',
+	'oldreviewedpages-unwatched' => '(no cosirata)',
+	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|usuario|usuarios}} cosirando)',
 );
 
 /** Arabic (العربية)

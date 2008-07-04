@@ -23,7 +23,15 @@ $messages['en'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'reviewedpages'       => 'Pachinas rebisatas',
+	'reviewedpages-leg'   => 'Amostrar pachinas rebisatas dica un libel determinato',
+	'reviewedpages-list'  => "As siguients pachinas s'han rebisato dica o libel espezificato",
+	'reviewedpages-none'  => 'No bi ha garra pachina en ista lista',
+	'reviewedpages-lev-0' => 'Superbisato',
+	'reviewedpages-lev-1' => 'Calidat',
 	'reviewedpages-lev-2' => 'Destacato',
+	'reviewedpages-all'   => 'bersions rebisatas',
+	'reviewedpages-best'  => 'Rebisión prenzipal',
 );
 
 /** Arabic (العربية)

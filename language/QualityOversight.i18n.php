@@ -12,6 +12,14 @@ $messages['en'] = array(
 	'qualityoversight-list' => 'This page lists recent approvals of quality revisions as well as depreciations of quality revisions.',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'qualityoversight'      => 'Superbisión de calidat',
+	'qualityoversight-list' => "Ista pachina amuestra as zagueras rebisions de calidat y as depreziazions d'as rebisions de calidat aprebatas.",
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

@@ -60,8 +60,36 @@ $messages['af'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'stabilization-tab'         => '(compreb)',
+	'stabilization'             => "Estabilizazión d'a pachina",
+	'stabilization-text'        => "'''Si quiere achustar cómo se triga y amuestra a bersión estable de [[:$1|$1]] cambee a confegurazión más tabaixo.'''",
+	'stabilization-perm'        => "A suya cuenta no tiene premisos ta cambiar a confegurazión d'a bersión estable. Os achustes autuals ta [[:$1|$1]] s'amuestran aquí:",
+	'stabilization-page'        => "Nombre d'a pachina:",
+	'stabilization-leg'         => "Confirmar a confegurazión d'a bersión estable",
+	'stabilization-select'      => "Triga d'a bersión estable",
+	'stabilization-select1'     => "A zaguera bersión de calidat; si no bi'n ha, alabez a zaguera bersión superbisata",
+	'stabilization-select2'     => 'A zaguera bersión rebisata',
+	'stabilization-select3'     => "A zaguera bersión zanzera; si bi'n ha, alabez a zaguera bersión de calidat u rebisata.",
+	'stabilization-def'         => "A rebisión s'amuestra en a pachina de bisualizazión por defeuto",
+	'stabilization-def1'        => "A bersión estable; si no bi'n ha, alabez a bersión autual",
+	'stabilization-def2'        => 'A bersión autual',
+	'stabilization-submit'      => 'Confirmar',
+	'stabilization-notexists'   => 'No bi ha garra pachina tetulata "[[:$1|$1]]". 
+No ye posible confegurar-la.',
+	'stabilization-notcontent'  => 'A pachina "[[:$1|$1]]" no se puede rebisar.
+No ye posible confegurar-la.',
 	'stabilization-comment'     => 'Comentario:',
+	'stabilization-expiry'      => 'Zircunduze:',
+	'stabilization-sel-short'   => 'Prezendenzia',
+	'stabilization-sel-short-0' => 'Calidat',
+	'stabilization-sel-short-1' => 'Denguna',
+	'stabilization-sel-short-2' => 'Zanzera',
+	'stabilization-def-short'   => 'Por defeuto',
+	'stabilization-def-short-0' => 'Autual',
 	'stabilization-def-short-1' => 'Estable',
+	'stabilize_expiry_invalid'  => 'A calendata de zircunduzión no ye conforme.',
+	'stabilize_expiry_old'      => 'Ista calendata de zircunduzión ya ye pasata.',
+	'stabilize-expiring'        => 'zircunduze o $1 (UTC)',
 );
 
 /** Arabic (العربية)
@@ -437,6 +465,8 @@ $messages['fi'] = array(
  * @author Dereckson
  * @author ChrisPtDe
  * @author Siebrand
+ * @author Juanpabl
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'stabilization-tab'         => '(aq)',
@@ -1186,6 +1216,7 @@ $messages['nso'] = array(
  * @author Cedric31
  * @author ChrisPtDe
  * @author Siebrand
+ * @author Juanpabl
  */
 $messages['oc'] = array(
 	'stabilization-tab'         => '(qa)',

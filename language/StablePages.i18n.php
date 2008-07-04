@@ -15,6 +15,17 @@ $messages['en'] = array(
 	'stablepages-config' => 'Configuration',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'stablepages'        => 'Pachinas estables',
+	'stablepages-stable' => 'bersión estable',
+	'stablepages-text'   => "En o cobaixo s'amuestran as pachinas que s'han confeguratas manualment t'amostrar a bersión estable como o conteniu d'a pachina por defeuto ta os bisualizadors.",
+	'stablepages-none'   => 'No bi ha garra pachina en ista lista',
+	'stablepages-config' => 'Confegurazión',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

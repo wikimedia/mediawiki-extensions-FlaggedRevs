@@ -18,9 +18,15 @@ $messages['en'] = array(
 
 /** Aragonese (Aragonés)
  * @author Siebrand
+ * @author Juanpabl
  */
 $messages['an'] = array(
-	'stableversions-list' => "A siguient ye una lista de bersions de [[:$1]] que s'han rebisato:",
+	'stableversions'        => 'Amostrar bersions estables',
+	'stableversions-leg1'   => "Amostrar a lista de bersions rebisatas d'una pachina",
+	'stableversions-page'   => "Nombre d'a pachina:",
+	'stableversions-none'   => '"[[:$1]]" no tiene bersions rebisatas.',
+	'stableversions-list'   => "A siguient ye una lista de bersions de [[:$1]] que s'han rebisato:",
+	'stableversions-review' => 'Rebisata por $2 o <i>$1</i>',
 );
 
 /** Arabic (العربية)

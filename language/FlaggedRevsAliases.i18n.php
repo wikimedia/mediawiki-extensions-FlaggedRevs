@@ -21,11 +21,13 @@ $messages['en'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'unreviewedpages-alias'  => 'PachinasNoRebisatas',
-	'oldreviewedpages-alias' => 'PachinasSuperbisatasAntigas',
-	'reviewedpages-alias'    => 'PachinasSuberbisatas',
-	'stablepages-alias'      => 'PachinasEstables',
-	'stableversions-alias'   => 'BersionsEstables',
+	'qualityoversight-alias'      => 'SuperbisataDeCalidat',
+	'depreciationoversight-alias' => 'SuperbisataDepreziata',
+	'unreviewedpages-alias'       => 'PachinasNoRebisatas',
+	'oldreviewedpages-alias'      => 'PachinasSuperbisatasAntigas',
+	'reviewedpages-alias'         => 'PachinasSuberbisatas',
+	'stablepages-alias'           => 'PachinasEstables',
+	'stableversions-alias'        => 'BersionsEstables',
 );
 
 /** Arabic (العربية)

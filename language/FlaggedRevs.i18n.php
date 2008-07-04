@@ -304,12 +304,32 @@ Puet estar que s'aigan feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 	'revreview-text'               => "''As pachinas de conteniu que s'amuestran por defeuto son as [[{{MediaWiki:Validationpage}}|bersions estables]] en cuenta de as zagueras bersions.''",
 	'revreview-text2'              => "As ''[[{{MediaWiki:Validationpage}}|bersions estables]] son bersions d'as pachinas que s'han comprebato y son o conteniu que s'amuestra por defeuto en os bisualizadors.''",
 	'revreview-toggle-title'       => 'amostrar/amagar detalles',
+	'revreview-toolow'             => 'Ta que a bersión se considere rebisata ha d\'abaluar toz os atribtos que s\'amuestran en o cobaixo con una calificazión mayor de "no aprebato". Ta depreziar a bersión, meta "no aprebato" en toz os campos.',
 	'revreview-update'             => "Por fabor [[{{MediaWiki:Validationpage}}|rebise]] os cambios ''(que s'amuestran en o cobaixo)'' feitos dende que s'aprebó a [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} bersión estable].<br />
 '''S'han esbiellato bellas plantillas/imáchens:'''",
 	'revreview-update-includes'    => "'''S'han esbiellato bellas plantillas u imáchens:'''",
 	'revreview-update-none'        => "Por fabor [[{{MediaWiki:Validationpage}}|rebise]] os cambeos ''(que s'amuestran en o cobaixo)'' feitos dende que s'aprebó a [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} bersión estable].",
 	'revreview-update-use'         => "'''PARE CUENTA:''' Si beluna d'istas plantillas u imáchens tiene un bersión estable, s'emplegarán istas en a bersión estable d'a pachina.",
 	'revreview-diffonly'           => "''Ta rebisar as pachinas, punche en o binclo \"bersión autual\" y faiga serbir o formulario de rebisión.''",
+	'revreview-visibility'         => "'''Ista pachina tiene una [[{{MediaWiki:Validationpage}}|bersión estable]]; A suya confegurazión puede cambiar-se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aquí].'''",
+	'right-autopatrolother'        => "Siñalar automaticament como patrullatas as rebisions difuera d'o espazio de nombres prenzipal",
+	'right-autoreview'             => 'Siñalar as rebisions automaticament como superbisatas',
+	'right-movestable'             => 'Tresladar as pachinas estables',
+	'right-review'                 => 'Siñalar as rebisions como superbisatas',
+	'right-stablesettings'         => "Confegurar cómo se triga y s'amuestra a bersión estable",
+	'right-validate'               => 'Siñalar as rebisions como balidatas',
+	'rights-editor-autosum'        => 'autopromobito',
+	'rights-editor-revoke'         => "s'ha sacato o estatus d'edito á [[$1]]",
+	'specialpages-group-quality'   => 'Seguranza de calidat',
+	'stable-logentry'              => "s'ha confegurato o emplego de bersions estables ta [[$1]]",
+	'stable-logentry2'             => "s'ha restablito o emplego de bersions estables ta [[$1]]",
+	'stable-logpage'               => 'Rechistro de bersions estables',
+	'stable-logpagetext'           => "Iste ye un rechistro de cambeos d'a confegurazión de [[{{MediaWiki:Validationpage}}|bersions estables]] d'as pachinas de conteniu.
+Puede trobar una lista de pachinas con bersions estables en [[Special:StablePages|lista de pachinas estables]].",
+	'tooltip-ca-current'           => "Amostrar o borrador autual d'ista pachina",
+	'tooltip-ca-default'           => "Opzions d'aseguranza d'a calidat",
+	'tooltip-ca-stable'            => "Amostrar a bersión estable d'ista pachina",
+	'validationpage'               => "{{ns:help}}:Balidazión d'articlo",
 );
 
 /** Arabic (العربية)
