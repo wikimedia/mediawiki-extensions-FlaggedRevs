@@ -316,12 +316,14 @@ $wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::addBacklogNotice';
 # Visibility - experimental
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
 
-# Main hooks, overrides pages content, adds tags, sets tabs and permalink
+# Override current revision, add patrol links, set cache...
+$wgHooks['ArticleViewHeader'][] = 'FlaggedRevs::onArticleViewHeader';
+# Override redirect behavoir...
+$wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevs::overrideRedirect';
+# Sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
 # Change last-modified footer
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'FlaggedRevs::setLastModified';
-# Override current revision, add patrol links, set cache...
-$wgHooks['ArticleViewHeader'][] = 'FlaggedRevs::onArticleViewHeader';
 # Add page notice
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'FlaggedRevs::setPermaLink';
 # Add tags do edit view
