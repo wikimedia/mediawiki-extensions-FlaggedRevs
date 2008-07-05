@@ -2133,6 +2133,14 @@ $messages['haw'] = array(
 	'group-editor-member' => 'Luna',
 );
 
+/** Hebrew (עברית)
+ * @author StuB
+ */
+$messages['he'] = array(
+	'editor'        => 'עורך',
+	'revreview-log' => 'הערה:',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
