@@ -1985,7 +1985,7 @@ EOT;
 		return true;
 	}
 
-	static function setActionTabs( $skin, &$contentActions ) {
+	public static function setActionTabs( $skin, &$contentActions ) {
 		$fa = FlaggedArticle::getGlobalInstance();
 		if ( $fa ) {
 			$fa->setActionTabs( $skin, $contentActions );
@@ -1993,15 +1993,7 @@ EOT;
 		return true;
 	}
 
-	static function setLastModified( $skin, &$tpl ) {
-		$fa = FlaggedArticle::getGlobalInstance();
-		if ( $fa ) {
-			$fa->setLastModified( $skin, $tpl );
-		}
-		return true;
-	}
-
-	static function onArticleViewHeader( $article, &$outputDone, &$pcache ) {
+	public static function onArticleViewHeader( $article, &$outputDone, &$pcache ) {
 		$flaggedArticle = FlaggedArticle::getInstance( $article );
 		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
 		$flaggedArticle->addStableLink( $outputDone, $pcache );
@@ -2010,7 +2002,7 @@ EOT;
 		return true;
 	}
 	
-	static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
+	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
 		if( $request->getVal( 'stableid' ) ) {
 			$ignoreRedirect = true;
 		} else {
@@ -2029,39 +2021,24 @@ EOT;
 		return true;
 	}
 	
-	static function setPermaLink( $skin, &$navUrls, &$revId, &$id ) {
-		$fa = FlaggedArticle::getGlobalInstance();
-		if ( $fa ) {
-			$fa->setPermaLink( $skin, $navUrls, $revId, $id );
-		}
-		return true;
-	}
-	
-	static function addToEditView( $editPage ) {
+	public static function addToEditView( $editPage ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
 	}
 	
-	static function unreviewedPagesLinks( $category ) {
+	public static function unreviewedPagesLinks( $category ) {
 		return FlaggedArticle::getInstance( $category )->addToCategoryView();
 	}
 	
-	static function addReviewForm( $out ) {
+	public static function onBeforePageDisplay( $out ) {
 		$fa = FlaggedArticle::getGlobalInstance();
 		if ( $fa && $out->isArticleRelated() ) {
 			$fa->addReviewForm( $out );
-		}
-		return true;
-	}
-	
-	static function addVisibilityLink( $out ) {
-		$fa = FlaggedArticle::getGlobalInstance();
-		if ( $fa && $out->isArticleRelated() ) {
 			$fa->addVisibilityLink( $out );
 		}
 		return true;
 	}
 	
-	static function addToHistQuery( $pager, &$queryInfo ) {
+	public static function addToHistQuery( $pager, &$queryInfo ) {
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $pager->mPageHistory->getTitle() );
 		if( $flaggedArticle->isReviewable() ) {
 			$queryInfo['tables'][] = 'flaggedrevs';
@@ -2072,7 +2049,7 @@ EOT;
 		return true;
 	}
 	
-	static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
+	public static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
 		if( $file->isLocal() ) {
 			$tables[] = 'flaggedrevs';
 			$fields[] = 'fr_quality';
@@ -2081,19 +2058,19 @@ EOT;
 		return true;
 	}
 	
-	static function addToHistLine( $history, $row, &$s ) {
+	public static function addToHistLine( $history, $row, &$s ) {
 		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
 	}
 	
-	static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
+	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
 		return FlaggedArticle::getInstance( $hist->getImagePage() )->addToFileHistLine( $hist, $file, $s, $rowClass );
 	}
 	
-	static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
+	public static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
 		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
 	}
 
-	static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
+	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $diff->getTitle() );
 		$flaggedArticle->addPatrolAndDiffLink( $diff, $oldRev, $newRev );
@@ -2101,11 +2078,11 @@ EOT;
 		return true;
 	}
 
-	static function addRevisionIDField( $editPage, $out ) {
+	public static function addRevisionIDField( $editPage, $out ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
 	}
 	
-	static function addBacklogNotice( &$notice ) {
+	public static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
@@ -2120,7 +2097,7 @@ EOT;
 		return true;
 	}
 	
-	static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
+	public static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
 		wfLoadExtensionMessages( 'FlaggedRevsAliases' );
 		# The localized title of the special page is among the messages of the extension:
 		$specialPages = array( 'QualityOversight', 'DepreciationOversight', 'UnreviewedPages', 

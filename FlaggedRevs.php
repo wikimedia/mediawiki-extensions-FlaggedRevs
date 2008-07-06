@@ -24,7 +24,7 @@ if( !defined('FLAGGED_VIS_PRISTINE') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.09',
+	'version' => '1.091',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -201,6 +201,7 @@ $wgFlaggedRevsBacklog = 1000;
 # Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
 $wgFlaggedRevsVisible = array();
+# If $wgFlaggedRevsVisible is populated, it is applied to talk pages too
 $wgFlaggedRevsTalkVisible = true;
 
 # End of configuration variables.
@@ -280,7 +281,6 @@ $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
 # Check on undelete/merge/revisiondelete for changes to stable version
 $wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::titleLinksUpdate';
 $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
-# Clean up after undeletion
 $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
 # Parser hooks, selects the desired images/templates
 $wgHooks['ParserClearState'][] = 'FlaggedRevs::parserAddFields';
@@ -297,17 +297,13 @@ $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed'
 $wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
 # Log parameter
 $wgHooks['LogLine'][] = 'FlaggedRevs::reviewLogLine';
-# Disable auto-promotion
+# Disable auto-promotion for demoted users
 $wgHooks['UserRights'][] = 'FlaggedRevs::recordDemote';
 # Local user account preference
 $wgHooks['RenderPreferencesForm'][] = 'FlaggedRevs::injectPreferences';
 $wgHooks['InitPreferencesForm'][] = 'FlaggedRevs::injectFormPreferences';
 $wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
 $wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
-# Special page CSS
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
-# Image version display
-$wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
 # Show unreviewed pages links
 $wgHooks['CategoryPageView'][] = 'FlaggedRevs::unreviewedPagesLinks';
 # Backlog notice
@@ -318,19 +314,15 @@ $wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
 
 # Override current revision, add patrol links, set cache...
 $wgHooks['ArticleViewHeader'][] = 'FlaggedRevs::onArticleViewHeader';
+$wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
 # Override redirect behavoir...
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevs::overrideRedirect';
 # Sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
-# Change last-modified footer
-$wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'FlaggedRevs::setLastModified';
-# Add page notice
-$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'FlaggedRevs::setPermaLink';
 # Add tags do edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::addToEditView';
-# Add review form
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::addReviewForm';
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::addVisibilityLink';
+# Add review form and visiblity settings link
+$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::onBeforePageDisplay';
 # Mark of items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevs::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevs::addToHistLine';
@@ -341,10 +333,12 @@ $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevs::injectReviewDiffURLPar
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevs::onDiffViewHeader';
 # Autoreview stuff
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevs::addRevisionIDField';
-# Add CSS/JS
+
+# Add CSS/JS as needed
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::injectStyleAndJS';
+$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 
 # Set aliases
 $wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
@@ -381,6 +375,7 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
+# Schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
 
 function efFlaggedRevsSchemaUpdates() {
