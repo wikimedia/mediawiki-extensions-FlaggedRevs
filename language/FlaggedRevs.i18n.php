@@ -671,6 +671,7 @@ $messages['bg'] = array(
 	'revreview-submit'          => 'Пращане на рецензията',
 	'revreview-toggle-title'    => 'показване/скриване на детайли',
 	'revreview-update-includes' => "'''Някои шаблони/файлове бяха обновени:'''",
+	'right-movestable'          => 'Преместване на устойчиви страници',
 	'rights-editor-revoke'      => 'отне правата на редактор на [[$1]]',
 	'stable-logpage'            => 'Дневник на устойчивите версии',
 	'tooltip-ca-current'        => 'Преглед на текущата чернова на страницата',

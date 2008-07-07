@@ -215,6 +215,7 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author Sherbrooke
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'right-unreviewedpages' => 'Voir la liste des pages non revues',
@@ -661,6 +662,7 @@ $messages['stq'] = array(
 
 /** Sundanese (Basa Sunda)
  * @author Kandar
+ * @author Irwangatot
  */
 $messages['su'] = array(
 	'unreviewed-category' => 'Kategori:',

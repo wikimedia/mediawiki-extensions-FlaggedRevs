@@ -81,6 +81,7 @@ $messages['fa'] = array(
 /** French (Français)
  * @author Grondin
  * @author Sherbrooke
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'qualityoversight-alias'      => 'SuperviseurQualité',

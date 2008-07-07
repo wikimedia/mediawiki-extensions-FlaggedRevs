@@ -57,6 +57,7 @@ $messages['fa'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'qualityoversight'      => 'Supervision de qualité',

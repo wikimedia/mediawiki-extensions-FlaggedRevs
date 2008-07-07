@@ -16,6 +16,13 @@ $messages['en'] = array(
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
 );
 
+/** Eastern Mari (Олык Марий)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'stableversions-page' => 'Лаштыкын лӱмжӧ:',
+);
+
 /** Aragonese (Aragonés)
  * @author Siebrand
  * @author Juanpabl

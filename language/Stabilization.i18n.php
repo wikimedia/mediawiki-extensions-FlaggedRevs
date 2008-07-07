@@ -41,10 +41,11 @@ No configuration is possible.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
 );
 
-/** Eastern Mari (Олык Марий йылме)
+/** Eastern Mari (Олык Марий)
  * @author Сай
  */
 $messages['mhr'] = array(
+	'stabilization-page'      => 'Лаштыкын лӱмжӧ:',
 	'stabilization-def-short' => 'Ойлыде',
 );
 
@@ -1539,6 +1540,7 @@ $messages['stq'] = array(
 /** Sundanese (Basa Sunda)
  * @author Kandar
  * @author Siebrand
+ * @author Irwangatot
  */
 $messages['su'] = array(
 	'stabilization'             => 'Stabilisasi halaman',

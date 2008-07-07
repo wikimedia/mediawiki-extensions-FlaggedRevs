@@ -75,6 +75,7 @@ $messages['bg'] = array(
 
 /** Catalan (Català)
  * @author Paucabot
+ * @author Jordi Roqué
  */
 $messages['ca'] = array(
 	'oldreviewedpages-recent' => "(menys d'una hora)",
@@ -90,7 +91,7 @@ $messages['cs'] = array(
 	'oldreviewedpages-unwatched' => '(nesledované)',
 );
 
-/** Church Slavic (Словѣньскъ)
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -159,6 +160,7 @@ $messages['fa'] = array(
  * @author Grondin
  * @author IAlex
  * @author Yekrats
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'oldreviewedpages'           => 'Pages revues hors date',

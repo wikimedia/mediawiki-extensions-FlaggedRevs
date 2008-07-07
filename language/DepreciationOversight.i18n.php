@@ -50,6 +50,7 @@ $messages['fa'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'depreciationoversight'      => 'Supervision de dépréciation',
