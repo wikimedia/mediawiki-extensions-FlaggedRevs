@@ -453,6 +453,16 @@ $messages['mr'] = array(
 	'reviewedpages-best'  => 'मूळ आवृत्ती',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'reviewedpages-none'  => 'Tiada laman dalam senarai ini',
+	'reviewedpages-lev-0' => 'Dijenguk',
+	'reviewedpages-lev-1' => 'Bermutu',
+	'reviewedpages-lev-2' => 'Terpilih',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  * @author SPQRobin

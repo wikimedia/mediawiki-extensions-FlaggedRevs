@@ -468,6 +468,20 @@ $messages['mr'] = array(
 	'unreviewed-none'       => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'right-unreviewedpages' => 'Lihat senarai laman yang belum diperiksa',
+	'unreviewedpages'       => 'Laman belum diperiksa',
+	'unreviewed-legend'     => 'Senarai laman kandungan yang belum diperiksa',
+	'unreviewed-category'   => 'Kategori:',
+	'unreviewed-diff'       => 'periksa',
+	'unreviewed-unwatched'  => '(tidak dipantau)',
+	'unreviewed-list'       => 'Berikut ialah senarai rencana yang belum diperiksa.',
+	'unreviewed-none'       => 'Tiada laman yang memenuhi kriteria ini',
+);
+
 /** Erzya (Эрзянь)
  * @author Amdf
  */

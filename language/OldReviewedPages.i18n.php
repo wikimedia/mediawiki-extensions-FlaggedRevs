@@ -310,10 +310,18 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
-	'oldreviewedpages-hours'  => '($1 jam)',
-	'oldreviewedpages-days'   => '($1 hari)',
-	'oldreviewedpages-recent' => '(kurang dari sejam)',
-	'oldreviewed-category'    => 'Kategori:',
+	'oldreviewedpages'           => 'Laman diperiksa lapuk',
+	'oldreviewedpages-legend'    => 'Senarai laman diperiksa dengan semakan baru',
+	'oldreviewedpages-list'      => 'Berikut ialah senarai laman yang telah diperiksa tetapi mempunyai suntingan baru.',
+	'oldreviewedpages-none'      => 'Tiada laman yang memenuhi kriteria ini',
+	'oldreviewedpages-stable'    => 'dijenguk',
+	'oldreviewedpages-quality'   => 'bermutu',
+	'oldreviewedpages-hours'     => '($1 jam)',
+	'oldreviewedpages-days'      => '($1 hari)',
+	'oldreviewedpages-recent'    => '(kurang dari sejam)',
+	'oldreviewed-category'       => 'Kategori:',
+	'oldreviewed-diff'           => 'periksa',
+	'oldreviewedpages-unwatched' => '(tidak dipantau)',
 );
 
 /** Low German (Plattdüütsch)

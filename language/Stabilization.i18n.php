@@ -954,9 +954,11 @@ $messages['lb'] = array(
 	'stabilization-leg'         => "Confirméiert d'stabil-Versiouns-Astellungen",
 	'stabilization-select'      => 'Auswiel vun der stabiler Versioun',
 	'stabilization-select2'     => 'Déi läscht iwwerkuckte Versioun',
+	'stabilization-def1'        => 'déi stabil Versioun; oder wann et keng gëtt, déi aktuell Versioun',
 	'stabilization-def2'        => 'Déi aktuell Versioun',
 	'stabilization-submit'      => 'Confirméieren',
 	'stabilization-comment'     => 'Bemierkung:',
+	'stabilization-sel-short'   => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
 	'stabilization-def-short-0' => 'Aktuell',
@@ -1086,10 +1088,31 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
+	'stabilization-tab'         => 'periksa',
 	'stabilization'             => 'Penstabilan laman',
+	'stabilization-text'        => "'''Ubah tetapan di bawah untuk mengawal bagaimana versi stabil bagi [[:$1|$1]] dipilih dan dipaparkan.'''",
+	'stabilization-perm'        => 'Anda tidak mempunyai keizinan untuk mengubah tetapan versi stabil ini.
+Berikut ialah tetapan bagi [[:$1|$1]]:',
 	'stabilization-page'        => 'Nama laman:',
+	'stabilization-leg'         => 'Sahkan tetapan versi stabil',
+	'stabilization-select'      => 'Pemilihan versi stabil',
+	'stabilization-select1'     => 'Semakan bermutu terakhir; jika tiada, semakan dijenguk terakhir',
+	'stabilization-select2'     => 'Semakan diperiksa terakhir',
+	'stabilization-select3'     => 'Semakan asli terakhir; jika tiada, semakan bermutu atau semakan dijenguk terakhir',
+	'stabilization-def'         => 'Semakan yang dipaparkan ketika lalai',
+	'stabilization-def1'        => 'Semakan stabil; jika tiada, semakan semasa',
 	'stabilization-def2'        => 'Semakan semasa',
+	'stabilization-submit'      => 'Sahkan',
+	'stabilization-notexists'   => 'Tiada laman dengan nama "[[:$1|$1]]".
+Tetapan tidak boleh dibuat.',
+	'stabilization-notcontent'  => 'Laman "[[:$1|$1]]" tidak boleh diperiksa.
+Tetapan tidak boleh dibuat.',
+	'stabilization-comment'     => 'Ulasan:',
+	'stabilization-expiry'      => 'Tamat pada:',
+	'stabilization-sel-short'   => 'Keutamaan',
 	'stabilization-sel-short-0' => 'Mutu',
+	'stabilization-sel-short-1' => 'Tiada',
+	'stabilization-sel-short-2' => 'Asli',
 	'stabilization-def-short'   => 'Lalai',
 	'stabilization-def-short-0' => 'Semasa',
 	'stabilization-def-short-1' => 'Stabil',

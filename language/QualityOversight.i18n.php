@@ -95,6 +95,13 @@ $messages['mr'] = array(
 	'qualityoversight-list' => 'हे पान नवीनतम गुणवत्तापूर्ण आवृत्त्यांचे प्रमाणिकरणाची यादी देते तसेच गुणवत्तापूर्ण आवृत्त्यांचे डिप्रिसियेशन दर्शविते.',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'qualityoversight-list' => 'Berikut ialah senarai terkini pengesahan dan pengguguran semakan bermutu.',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
