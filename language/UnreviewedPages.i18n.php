@@ -246,6 +246,13 @@ $messages['fy'] = array(
 	'unreviewed-category' => 'Kategory:',
 );
 
+/** Irish (Gaeilge)
+ * @author Moilleadóir
+ */
+$messages['ga'] = array(
+	'unreviewed-category' => 'Catagóir:',
+);
+
 /** Galician (Galego)
  * @author Toliño
  * @author Alma
@@ -395,6 +402,13 @@ $messages['kk-latn'] = array(
 $messages['km'] = array(
 	'unreviewed-category' => 'ចំណាត់ថ្នាក់ក្រុម ៖',
 	'unreviewed-diff'     => 'មើលឡើងវិញ',
+);
+
+/** Kinaray-a (Kinaray-a)
+ * @author Jose77
+ */
+$messages['krj'] = array(
+	'unreviewed-category' => 'Kategorya:',
 );
 
 /** Latin (Latina)
@@ -551,6 +565,13 @@ $messages['oc'] = array(
 	'unreviewed-watched'    => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
 	'unreviewed-list'       => "Aquesta pagina fa la lista dels articles que son pas estats revisats o qu'an de revisions pas vistas.",
 	'unreviewed-none'       => 'Actualament, existís pas cap de pagina respectant aquestes critèris',
+);
+
+/** Ossetic (Иронау)
+ * @author Amikeco
+ */
+$messages['os'] = array(
+	'unreviewed-category' => 'Категори:',
 );
 
 /** Polish (Polski)
