@@ -342,6 +342,10 @@ $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 
 # Set aliases
 $wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
+
+# Duplicate flagged* tables in parserTests.php
+$wgHooks['ParserTestTables'][] = 'FlaggedRevs::onParserTestTables';
+
 #########
 
 function efLoadFlaggedRevs() {

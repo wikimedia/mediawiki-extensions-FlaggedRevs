@@ -2112,4 +2112,14 @@ EOT;
 		}
 		return true;
 	}
+
+	public static function onParserTestTables( &$tables ) {
+		$tables[] = 'flaggedpages';
+		$tables[] = 'flaggedrevs';
+		$tables[] = 'flaggedpage_config';
+		$tables[] = 'flaggedtemplates';
+		$tables[] = 'flaggedimages';
+		$tables[] = 'flaggedrevs_promote';
+		return true;
+	}
 }
