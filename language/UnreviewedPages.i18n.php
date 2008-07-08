@@ -276,6 +276,15 @@ $messages['haw'] = array(
 	'unreviewed-category' => 'Mahele:',
 );
 
+/** Hebrew (עברית)
+ * @author Rotemliss
+ * @author StuB
+ */
+$messages['he'] = array(
+	'unreviewed-category' => 'קטגוריה:',
+	'unreviewed-none'     => 'אין כרגע דפים העונים לקריטריונים אלו',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
@@ -493,6 +502,7 @@ $messages['ms'] = array(
 	'unreviewed-category'   => 'Kategori:',
 	'unreviewed-diff'       => 'periksa',
 	'unreviewed-unwatched'  => '(tidak dipantau)',
+	'unreviewed-watched'    => '(dipantau oleh $2 orang pengguna)',
 	'unreviewed-list'       => 'Berikut ialah senarai rencana yang belum diperiksa.',
 	'unreviewed-none'       => 'Tiada laman yang memenuhi kriteria ini',
 );

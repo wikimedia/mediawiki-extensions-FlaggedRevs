@@ -100,6 +100,7 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
+	'qualityoversight'      => 'Kawalan mutu',
 	'qualityoversight-list' => 'Berikut ialah senarai terkini pengesahan dan pengguguran semakan bermutu.',
 );
 

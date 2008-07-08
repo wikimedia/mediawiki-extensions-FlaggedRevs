@@ -154,6 +154,19 @@ $messages['mr'] = array(
 	'stableversions-alias'        => 'स्थिरआवृत्त्या',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'qualityoversight-alias'      => 'Kawalan_mutu',
+	'depreciationoversight-alias' => 'Kawalan_pengguguran',
+	'unreviewedpages-alias'       => 'Laman_tidak_diperiksa',
+	'oldreviewedpages-alias'      => 'Laman_diperiksa_lapuk',
+	'reviewedpages-alias'         => 'Laman_diperiksa',
+	'stablepages-alias'           => 'Laman_stabil',
+	'stableversions-alias'        => 'Versi_stabil',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

@@ -324,6 +324,7 @@ $messages['ms'] = array(
 	'oldreviewed-category'       => 'Kategori:',
 	'oldreviewed-diff'           => 'periksa',
 	'oldreviewedpages-unwatched' => '(tidak dipantau)',
+	'oldreviewedpages-watched'   => '(dipantau oleh $2 orang pengguna)',
 );
 
 /** Low German (Plattdüütsch)

@@ -41,6 +41,8 @@ $messages['ar'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
+	'stablepages'        => 'Устойчиви страници',
+	'stablepages-stable' => 'устойчива версия',
 	'stablepages-none'   => 'Списъкът не съдържа страници',
 	'stablepages-config' => 'Конфигурация',
 );

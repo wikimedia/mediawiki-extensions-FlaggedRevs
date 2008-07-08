@@ -89,6 +89,14 @@ $messages['mr'] = array(
 	'depreciationoversight-list' => 'हे पान नवीनतम आवृत्त्यांच्या डिप्रिसियेशन्स ची यादी दर्शविते.',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'depreciationoversight'      => 'Kawalan pengguguran',
+	'depreciationoversight-list' => 'Berikut ialah senarai terkini pengguguran semakan.',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

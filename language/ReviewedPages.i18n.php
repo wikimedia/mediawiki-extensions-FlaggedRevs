@@ -457,10 +457,15 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
+	'reviewedpages'       => 'Laman diperiksa',
+	'reviewedpages-leg'   => 'Senarai laman yang telah diperiksa pada suatu aras tertentu',
+	'reviewedpages-list'  => 'Berikut ialah senarai laman yang telah diperiksa pada aras yang dinyatakan',
 	'reviewedpages-none'  => 'Tiada laman dalam senarai ini',
 	'reviewedpages-lev-0' => 'Dijenguk',
 	'reviewedpages-lev-1' => 'Bermutu',
 	'reviewedpages-lev-2' => 'Terpilih',
+	'reviewedpages-all'   => 'semakan-semakan diperiksa',
+	'reviewedpages-best'  => 'semakan terbaik',
 );
 
 /** Dutch (Nederlands)
