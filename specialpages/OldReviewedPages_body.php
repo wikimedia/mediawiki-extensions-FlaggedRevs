@@ -58,7 +58,7 @@ class OldReviewedPages extends SpecialPage
 		$css = $stxt = $review = '';
 		if( !is_null($size = $result->page_len) ) {
 			$stxt = ($size == 0) ? 
-				wfMsgHtml('historyempty') : wfMsgHtml('historysize', $wgLang->formatNum( $size ) );
+				wfMsgHtml('historyempty') : wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
 		}
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),

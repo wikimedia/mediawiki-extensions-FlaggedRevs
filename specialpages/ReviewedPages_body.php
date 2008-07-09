@@ -68,7 +68,7 @@ class ReviewedPages extends SpecialPage
 			if($size == 0)
 				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
 			else
-				$stxt = ' <small>' . wfMsgHtml('historysize', $wgLang->formatNum( $size ) ) . '</small>';
+				$stxt = ' <small>' . wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) ) . '</small>';
 		}
 
 		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );

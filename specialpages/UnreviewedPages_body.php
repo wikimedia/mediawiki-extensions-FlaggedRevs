@@ -62,7 +62,7 @@ class UnreviewedPages extends SpecialPage
 		if( !is_null($size = $result->page_len) ) {
 			global $wgLang;
 			$stxt = ($size == 0) ? 
-				wfMsgHtml('historyempty') : wfMsgHtml('historysize', $wgLang->formatNum( $size ) );
+				wfMsgHtml('historyempty') : wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
