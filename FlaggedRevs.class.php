@@ -753,7 +753,6 @@ class FlaggedRevs {
 		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
 		# Check whitelist for exempt pages
-		var_dump( $title->getPrefixedDBKey() );
 		if( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
 			return false;
 		}
