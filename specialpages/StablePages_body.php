@@ -37,6 +37,9 @@ class StablePages extends SpecialPage
 
 	function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
+		
+		# Take this opportunity to purge out expired configurations
+		FlaggedRevs::purgeExpiredConfigurations();
 
 		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parse') ) );
 		$pager = new StablePagesPager( $this, array(), $this->namespace );
