@@ -147,6 +147,15 @@ class FlaggedRevs {
 		return empty(self::$dimensions);
 	}
 	
+	/**
+	 * Do anons see the stable version by default?
+	 * @returns bool
+	 */
+	public static function publicViewStableByDefault() {
+		global $wgFlaggedRevsOverride, $wgFlaggedRevsExceptions;
+		return ($wgFlaggedRevsOverride && !in_array('*',$wgFlaggedRevsExceptions) );
+	}
+	
 	################# Parsing functions #################
 
 	/**
@@ -699,14 +708,6 @@ class FlaggedRevs {
 	################# Other utility functions #################
 
 	/**
-	 * @param Title $title
-	 * @return bool, is $title the main page?
-	 */
-	public static function isMainPage( $title ) {
-		return $title->equals( Title::newMainPage() );
-	}
-
-	/**
 	* @param Array $flags
 	* @return bool, is this revision at quality condition?
 	*/
@@ -748,9 +749,14 @@ class FlaggedRevs {
 	* @return bool
 	*/
 	public static function isPageReviewable( $title ) {
-		global $wgFlaggedRevsNamespaces;
+		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsWhitelist;
 		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		# Check whitelist for exempt pages
+		var_dump( $title->getPrefixedDBKey() );
+		if( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
+			return false;
+		}
 		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() && $ns != NS_MEDIAWIKI );
 	}
 	
@@ -2111,6 +2117,19 @@ EOT;
 			$extendedSpecialPageAliases[$specialPage][] = $specialPage;
 		}
 		return true;
+	}
+	
+	public static function isFileCacheable( $article ) {
+		$fa = FlaggedArticle::getInstance( $article );
+		# If the stable is the default, and we are viewing it...cache it!
+		if( self::publicViewStableByDefault() ) {
+			return ( $fa->pageOverride() && $fa->getStableRev( true ) );
+		# If the draft is the default, and we are viewing it...cache it!
+		} else {
+			global $wgRequest;
+			# We don't want to cache the pending edit notice though
+			return !( $fa->pageOverride() && $fa->getStableRev( true ) ) && !$wgRequest->getVal('shownotice');
+		}
 	}
 
 	public static function onParserTestTables( &$tables ) {

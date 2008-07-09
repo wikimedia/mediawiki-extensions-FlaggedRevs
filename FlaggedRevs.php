@@ -45,6 +45,10 @@ $wgFlaggedRevsNamespaces = array( NS_MAIN );
 # Patrollable namespaces
 $wgFlaggedRevsPatrolNamespaces = array( NS_CATEGORY, NS_IMAGE, NS_TEMPLATE );
 
+# Pages exempt from reviewing
+$wgFlaggedRevsWhitelist = array();
+# $wgFlaggedRevsWhitelist = array( 'Main_Page' );
+
 # Do flagged revs override the default view?
 $wgFlaggedRevsOverride = true;
 # Do quality revisions show instead of sighted if present by default?
@@ -342,6 +346,9 @@ $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 
 # Set aliases
 $wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
+
+# File cache
+$wgHooks['IsFileCacheable'][] = 'FlaggedRevs::isFileCacheable';
 
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevs::onParserTestTables';

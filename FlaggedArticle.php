@@ -401,7 +401,7 @@ class FlaggedArticle extends Article {
 			# Add revision notes
 			$wgOut->mBodytext = $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page or printable output.
-		} else if( !$wgOut->isPrintable() && !FlaggedRevs::isMainPage( $this->parent->getTitle() ) ) {
+		} else if( !$wgOut->isPrintable() ) {
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
 				$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
