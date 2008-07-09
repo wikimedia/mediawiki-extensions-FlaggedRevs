@@ -147,15 +147,6 @@ class FlaggedRevs {
 		return empty(self::$dimensions);
 	}
 	
-	/**
-	 * Do anons see the stable version by default?
-	 * @returns bool
-	 */
-	public static function publicViewStableByDefault() {
-		global $wgFlaggedRevsOverride, $wgFlaggedRevsExceptions;
-		return ($wgFlaggedRevsOverride && !in_array('*',$wgFlaggedRevsExceptions) );
-	}
-	
 	################# Parsing functions #################
 
 	/**
@@ -2121,7 +2112,7 @@ EOT;
 	public static function isFileCacheable( $article ) {
 		$fa = FlaggedArticle::getInstance( $article );
 		# If the stable is the default, and we are viewing it...cache it!
-		if( self::publicViewStableByDefault() ) {
+		if( $fa->showStableByDefault() ) {
 			return ( $fa->pageOverride() && $fa->getStableRev( true ) );
 		# If the draft is the default, and we are viewing it...cache it!
 		} else {
