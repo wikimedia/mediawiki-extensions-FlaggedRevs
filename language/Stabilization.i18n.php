@@ -1306,7 +1306,7 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilize-expiring'        => 'wygasa $1 (UTC)',
 );
 
-/** Piemontèis (Piemontèis)
+/** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
  * @author Siebrand
  */

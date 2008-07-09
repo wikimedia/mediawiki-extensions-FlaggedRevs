@@ -74,7 +74,6 @@ $messages['bg'] = array(
 );
 
 /** Catalan (Català)
- * @author Paucabot
  * @author Jordi Roqué
  */
 $messages['ca'] = array(
@@ -440,26 +439,6 @@ $messages['ru'] = array(
 	'oldreviewed-diff'           => 'проверить',
 	'oldreviewedpages-unwatched' => '(не следят)',
 	'oldreviewedpages-watched'   => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
-);
-
-/** Yakut (Саха тыла) */
-$messages['sah'] = array();
-
-/** Slovak (Slovenčina)
- * @author Helix84
- */
-$messages['sk'] = array(
-	'oldreviewedpages'           => 'Zastaralé skontrolované stránky',
-	'oldreviewedpages-legend'    => 'Zoznam skontrolovaných stránok s neskontrolovanými revíziami',
-	'oldreviewedpages-list'      => 'Táto stránka obsahuje zoznam skontrolovaných stránok, ktorých následné úpravy zatiaľ neboli skontrolované.',
-	'oldreviewedpages-none'      => 'Momentálne žiadne stránky nezodpovedajú týmto kritériám',
-	'oldreviewedpages-stable'    => 'videná',
-	'oldreviewedpages-quality'   => 'kvalitná',
-	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
-	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|deň|dni|dní}})',
-	'oldreviewedpages-recent'    => '(menej ako 1 hodina)',
-	'oldreviewedpages-unwatched' => '(nesledovaná)',
-	'oldreviewedpages-watched'   => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
 );
 
 /** Slovak (Slovenčina)

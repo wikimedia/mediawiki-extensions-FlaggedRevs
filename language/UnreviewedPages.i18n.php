@@ -137,7 +137,7 @@ $messages['da'] = array(
 /** German (Deutsch)
  * @author Raimond Spekking
  */
- $messages['de'] = array(
+$messages['de'] = array(
 	'right-unreviewedpages' => 'Ansehen der Liste ungesichteter Seiten',
 	'unreviewedpages'       => 'Ungesichtete Seiten',
 	'unreviewed-legend'     => 'Liste ungesichteter Seiten',
@@ -599,7 +599,7 @@ $messages['pl'] = array(
 	'unreviewed-none'      => 'Brak obecnie stron spełniających zadane warunki',
 );
 
-/** Piemontèis (Piemontèis)
+/** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
  */
 $messages['pms'] = array(

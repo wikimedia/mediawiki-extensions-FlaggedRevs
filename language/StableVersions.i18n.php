@@ -484,7 +484,7 @@ $messages['pl'] = array(
 	'stableversions-review' => '<i>$1</i>, oceniona przez $2',
 );
 
-/** Piemontèis (Piemontèis)
+/** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
  * @author Siebrand
  */
