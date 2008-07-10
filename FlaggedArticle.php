@@ -1356,7 +1356,7 @@ class FlaggedArticle extends Article {
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
 		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), 
-			array('id' => 'mw-submitbutton','class' => 'fr-comment-box')+$toggle);
+			array('id' => 'mw-submitbutton','class' => 'fr-comment-box','accesskey' => 's')+$toggle );
 		$form .= Xml::closeElement( 'span' );
 		
 		$form .= Xml::closeElement( 'div' );
