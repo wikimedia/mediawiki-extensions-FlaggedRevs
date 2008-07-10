@@ -618,6 +618,13 @@ $messages['bcl'] = array(
 	'revreview-depth' => 'Rarom',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'revreview-log' => 'Камэнтар:',
+);
+
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
@@ -5822,6 +5829,32 @@ $messages['uk'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетки] {{PLURAL:$3|очікує|очікують|очікують}} перевірки.',
 	'revreview-basic-i'        => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} переглянута] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетці] є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} зміни в шаблонах або зображеннях], що потребують перевірки.',
+	'revreview-basic-old'      => 'Це [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+Могли бути зроблені нові [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} редагування].',
+	'revreview-basic-same'     => 'Це остання [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-basic-source'   => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Переглянута версія] цієї сторінки, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>, базується на цій версії.',
+	'revreview-changed'        => "'''Запитана дія не може бути виконана з цією версією сторінки [[:$1|$1]].'''
+
+Можливо, шаблон або зображення були запитані без зазначення конкретної версії.
+Це могло статися, якщо динамічний шаблон включає інший шаблон або зображення, яке залежить від змінної, яка змінилася з моменту початку перевірки.
+Оновіть сторінку і почніть перевірку знову, це може вирішити проблему.",
+	'revreview-current'        => 'Чернетка',
+	'revreview-depth'          => 'Повнота',
+	'revreview-depth-0'        => 'не зазначена',
+	'revreview-depth-1'        => 'базова',
+	'revreview-depth-2'        => 'середня',
+	'revreview-depth-3'        => 'висока',
+	'revreview-depth-4'        => 'вибрана',
+	'revreview-draft-title'    => 'Чернетка статті',
+	'revreview-edit'           => 'Редагувати чернетку',
+	'revreview-edited'         => "'''Редагування будуть включені до [[{{MediaWiki:Validationpage}}|стабільної версії]] після перевірки користувачами з відповідними правами. ''Чернетка'' показана нижче.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|редагування очікує|редагування очікують|редагувань очікують}}] перевірки.",
+	'revreview-flag'           => 'Перевірити цю версію',
+	'revreview-invalid'        => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
+	'revreview-legend'         => 'Оцінки вмісту версій',
+	'revreview-log'            => 'Коментар:',
+	'revreview-main'           => 'Ви повинні обрати одну з версій сторінки для перевірки.
+
+Див. список неперевірених сторінок на [[Special:Unreviewedpages]].',
 	'right-autopatrolother'    => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
 	'right-autoreview'         => 'Автоматичне позначення версій сторінок переглянутими',
 	'right-movestable'         => 'Перейменування стабільних версій',

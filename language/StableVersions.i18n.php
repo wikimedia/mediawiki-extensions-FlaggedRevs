@@ -68,6 +68,13 @@ $messages['bcl'] = array(
 	'stableversions-page' => 'Pangaran kan pahina',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'stableversions-page' => 'Назва старонкі:',
+);
+
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI

@@ -145,6 +145,14 @@ $messages['sv'] = array(
 	'depreciationoversight-list' => 'Den här sidan visar de senaste avskrivningarna av sidversioner.',
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'depreciationoversight'      => 'Ревізор знять',
+	'depreciationoversight-list' => 'Ця сторінка містить список нещодавніх знять версій.',
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */

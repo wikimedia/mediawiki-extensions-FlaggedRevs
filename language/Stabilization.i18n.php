@@ -163,6 +163,15 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize-expiring'        => "caduca'l $1 (UTC)",
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'stabilization-page'        => 'Назва старонкі:',
+	'stabilization-comment'     => 'Камэнтар:',
+	'stabilization-sel-short-0' => 'Якасьць',
+);
+
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI

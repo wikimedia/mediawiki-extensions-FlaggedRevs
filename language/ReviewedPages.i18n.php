@@ -234,6 +234,13 @@ $messages['gl'] = array(
 	'reviewedpages-best'  => 'revisión principal',
 );
 
+/** Hebrew (עברית)
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'reviewedpages' => 'דפים שנבדקו',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */

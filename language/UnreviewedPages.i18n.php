@@ -74,6 +74,13 @@ $messages['bcl'] = array(
 	'unreviewed-diff'     => 'Mga pagbabâgo',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'unreviewed-category' => 'Катэгорыя:',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Borislav
@@ -635,12 +642,13 @@ $messages['pt'] = array(
 
 /** Russian (Русский)
  * @author Александр Сигачёв
+ * @author EugeneZelenko
  */
 $messages['ru'] = array(
 	'right-unreviewedpages' => 'просмотр списка непроверенных страниц',
 	'unreviewedpages'       => 'Непроверенные страницы',
 	'unreviewed-legend'     => 'Список непроверенных страниц',
-	'unreviewed-category'   => 'Категори:',
+	'unreviewed-category'   => 'Категория:',
 	'unreviewed-diff'       => 'проверить',
 	'unreviewed-unwatched'  => '(не следят)',
 	'unreviewed-watched'    => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',

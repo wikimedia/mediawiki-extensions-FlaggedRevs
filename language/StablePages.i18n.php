@@ -117,6 +117,13 @@ $messages['gl'] = array(
 	'stablepages-config' => 'Configuración',
 );
 
+/** Hebrew (עברית)
+ * @author StuB
+ */
+$messages['he'] = array(
+	'stablepages-none' => 'אין דפים ברשימה זו',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
