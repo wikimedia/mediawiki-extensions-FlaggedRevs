@@ -4772,6 +4772,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 /** Russian (Русский)
  * @author Александр Сигачёв
  * @author Siebrand
+ * @author Ahonc
  */
 $messages['ru'] = array(
 	'editor'                       => 'Досматривающий',
@@ -4818,7 +4819,7 @@ $messages['ru'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|правка|правки|правок}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновика] {{PLURAL:$3|ожидает|ожидают|ожидают}} проверки.',
 	'revreview-basic-i'            => 'Это последняя [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} досмотренная] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 В [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновике] есть требующие проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}изменения в шаблонах или изображениях].',
-	'revreview-basic-old'          => 'Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
+	'revreview-basic-old'          => 'Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 Могли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} правки].',
 	'revreview-basic-same'         => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-basic-source'       => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>, была основана на этой версии.',
@@ -5785,88 +5786,103 @@ $messages['tr'] = array(
  * @author Ahonc
  */
 $messages['uk'] = array(
-	'editor'                   => 'редактор',
-	'flaggedrevs'              => 'Позначені версії',
-	'flaggedrevs-backlog'      => "Наявне відставання у перевірці сторінок, див. [[Special:OldReviewedPages|Застарілі перевірені сторінки]]. '''Будь ласка, зверніть увагу!'''",
-	'flaggedrevs-desc'         => 'Надає можливість редакторам і рецензентам переглядати версії сторінок і встановлювати стабільні версії',
-	'flaggedrevs-pref-UI-0'    => 'Використовувати докладний інтерфейс стабільних версій',
-	'flaggedrevs-pref-UI-1'    => 'Використовувати простий інтерфейс стабільних версій',
-	'flaggedrevs-prefs'        => 'Стабільні версії',
-	'flaggedrevs-prefs-stable' => 'Завжди показувати за замовчуванням стабільну версію (якщо така є)',
-	'flaggedrevs-prefs-watch'  => 'Додавати перевірені мною сторінки до списку спостереження',
-	'group-editor'             => 'Редактори',
-	'group-editor-member'      => 'редактор',
-	'group-reviewer'           => 'Рецензенти',
-	'group-reviewer-member'    => 'рецензент',
-	'grouppage-editor'         => '{{ns:project}}:Редактори',
-	'grouppage-reviewer'       => '{{ns:project}}:Рецензенти',
-	'hist-draft'               => 'чорнова версія',
-	'hist-quality'             => 'якісна версія',
-	'hist-quality-user'        => '[{{fullurl:$1|stableid=$2}} вивірена] користувачем [[User:$3|$3]]',
-	'hist-stable'              => 'переглянута версія',
-	'hist-stable-user'         => '[{{fullurl:$1|stableid=$2}} переглянута] користувачем [[User:$3|$3]]',
-	'review-diff2stable'       => 'Показати відмінності між стабільною і поточною версіями',
-	'review-logentry-app'      => 'перевірена [[$1]]',
-	'review-logentry-dis'      => 'застаріла версія [[$1]]',
-	'review-logentry-id'       => 'ідентифікатор версії $1',
-	'review-logentry-diff'     => 'різниця зі стабільною',
-	'review-logpage'           => 'Журнал перевірок',
-	'review-logpagetext'       => 'Це журнал змін [[{{MediaWiki:Validationpage}}|затверджених]] статусів версій сторінок.
+	'editor'                     => 'редактор',
+	'flaggedrevs'                => 'Позначені версії',
+	'flaggedrevs-backlog'        => "Наявне відставання у перевірці сторінок, див. [[Special:OldReviewedPages|Застарілі перевірені сторінки]]. '''Будь ласка, зверніть увагу!'''",
+	'flaggedrevs-desc'           => 'Надає можливість редакторам і рецензентам переглядати версії сторінок і встановлювати стабільні версії',
+	'flaggedrevs-pref-UI-0'      => 'Використовувати докладний інтерфейс стабільних версій',
+	'flaggedrevs-pref-UI-1'      => 'Використовувати простий інтерфейс стабільних версій',
+	'flaggedrevs-prefs'          => 'Стабільні версії',
+	'flaggedrevs-prefs-stable'   => 'Завжди показувати за замовчуванням стабільну версію (якщо така є)',
+	'flaggedrevs-prefs-watch'    => 'Додавати перевірені мною сторінки до списку спостереження',
+	'group-editor'               => 'Редактори',
+	'group-editor-member'        => 'редактор',
+	'group-reviewer'             => 'Рецензенти',
+	'group-reviewer-member'      => 'рецензент',
+	'grouppage-editor'           => '{{ns:project}}:Редактори',
+	'grouppage-reviewer'         => '{{ns:project}}:Рецензенти',
+	'hist-draft'                 => 'чорнова версія',
+	'hist-quality'               => 'якісна версія',
+	'hist-quality-user'          => '[{{fullurl:$1|stableid=$2}} вивірена] користувачем [[User:$3|$3]]',
+	'hist-stable'                => 'переглянута версія',
+	'hist-stable-user'           => '[{{fullurl:$1|stableid=$2}} переглянута] користувачем [[User:$3|$3]]',
+	'review-diff2stable'         => 'Показати відмінності між стабільною і поточною версіями',
+	'review-logentry-app'        => 'перевірена [[$1]]',
+	'review-logentry-dis'        => 'застаріла версія [[$1]]',
+	'review-logentry-id'         => 'ідентифікатор версії $1',
+	'review-logentry-diff'       => 'різниця зі стабільною',
+	'review-logpage'             => 'Журнал перевірок',
+	'review-logpagetext'         => 'Це журнал змін [[{{MediaWiki:Validationpage}}|затверджених]] статусів версій сторінок.
 Див. [[Special:ReviewedPages|список перевірених сторінок]].',
-	'reviewer'                 => 'рецензент',
-	'revisionreview'           => 'Перевірка версій',
-	'revreview-accuracy'       => 'Точність',
-	'revreview-accuracy-0'     => 'не зазначена',
-	'revreview-accuracy-1'     => 'переглянута',
-	'revreview-accuracy-2'     => 'точна',
-	'revreview-accuracy-3'     => 'з джерелами',
-	'revreview-accuracy-4'     => 'вибрана',
-	'revreview-approved'       => 'Перевірена',
-	'revreview-auto'           => '(автоматично)',
-	'revreview-auto-w'         => "Ви редагуєте стабільну версію, зміни будуть '''автоматично позначені як перевірені'''.",
-	'revreview-auto-w-old'     => "Ви редагуєте перевірену версію, зміни будуть '''автоматично позначені як перевірені'''.",
-	'revreview-basic'          => 'Це остання [[{{MediaWiki:Validationpage}}|переглянута]] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'reviewer'                   => 'рецензент',
+	'revisionreview'             => 'Перевірка версій',
+	'revreview-accuracy'         => 'Точність',
+	'revreview-accuracy-0'       => 'не зазначена',
+	'revreview-accuracy-1'       => 'переглянута',
+	'revreview-accuracy-2'       => 'точна',
+	'revreview-accuracy-3'       => 'з джерелами',
+	'revreview-accuracy-4'       => 'вибрана',
+	'revreview-approved'         => 'Перевірена',
+	'revreview-auto'             => '(автоматично)',
+	'revreview-auto-w'           => "Ви редагуєте стабільну версію, зміни будуть '''автоматично позначені як перевірені'''.",
+	'revreview-auto-w-old'       => "Ви редагуєте перевірену версію, зміни будуть '''автоматично позначені як перевірені'''.",
+	'revreview-basic'            => 'Це остання [[{{MediaWiki:Validationpage}}|переглянута]] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетки] {{PLURAL:$3|очікує|очікують|очікують}} перевірки.',
-	'revreview-basic-i'        => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} переглянута] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'revreview-basic-i'          => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} переглянута] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетці] є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} зміни в шаблонах або зображеннях], що потребують перевірки.',
-	'revreview-basic-old'      => 'Це [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'revreview-basic-old'        => 'Це [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 Могли бути зроблені нові [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} редагування].',
-	'revreview-basic-same'     => 'Це остання [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
-	'revreview-basic-source'   => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Переглянута версія] цієї сторінки, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>, базується на цій версії.',
-	'revreview-changed'        => "'''Запитана дія не може бути виконана з цією версією сторінки [[:$1|$1]].'''
+	'revreview-basic-same'       => 'Це остання [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-basic-source'     => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Переглянута версія] цієї сторінки, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>, базується на цій версії.',
+	'revreview-changed'          => "'''Запитана дія не може бути виконана з цією версією сторінки [[:$1|$1]].'''
 
 Можливо, шаблон або зображення були запитані без зазначення конкретної версії.
 Це могло статися, якщо динамічний шаблон включає інший шаблон або зображення, яке залежить від змінної, яка змінилася з моменту початку перевірки.
 Оновіть сторінку і почніть перевірку знову, це може вирішити проблему.",
-	'revreview-current'        => 'Чернетка',
-	'revreview-depth'          => 'Повнота',
-	'revreview-depth-0'        => 'не зазначена',
-	'revreview-depth-1'        => 'базова',
-	'revreview-depth-2'        => 'середня',
-	'revreview-depth-3'        => 'висока',
-	'revreview-depth-4'        => 'вибрана',
-	'revreview-draft-title'    => 'Чернетка статті',
-	'revreview-edit'           => 'Редагувати чернетку',
-	'revreview-edited'         => "'''Редагування будуть включені до [[{{MediaWiki:Validationpage}}|стабільної версії]] після перевірки користувачами з відповідними правами. ''Чернетка'' показана нижче.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|редагування очікує|редагування очікують|редагувань очікують}}] перевірки.",
-	'revreview-flag'           => 'Перевірити цю версію',
-	'revreview-invalid'        => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
-	'revreview-legend'         => 'Оцінки вмісту версій',
-	'revreview-log'            => 'Коментар:',
-	'revreview-main'           => 'Ви повинні обрати одну з версій сторінки для перевірки.
+	'revreview-current'          => 'Чернетка',
+	'revreview-depth'            => 'Повнота',
+	'revreview-depth-0'          => 'не зазначена',
+	'revreview-depth-1'          => 'базова',
+	'revreview-depth-2'          => 'середня',
+	'revreview-depth-3'          => 'висока',
+	'revreview-depth-4'          => 'вибрана',
+	'revreview-draft-title'      => 'Чернетка статті',
+	'revreview-edit'             => 'Редагувати чернетку',
+	'revreview-edited'           => "'''Редагування будуть включені до [[{{MediaWiki:Validationpage}}|стабільної версії]] після перевірки користувачами з відповідними правами. ''Чернетка'' показана нижче.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2 {{PLURAL:$2|редагування очікує|редагування очікують|редагувань очікують}}] перевірки.",
+	'revreview-flag'             => 'Перевірити цю версію',
+	'revreview-invalid'          => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
+	'revreview-legend'           => 'Оцінки вмісту версій',
+	'revreview-log'              => 'Коментар:',
+	'revreview-main'             => 'Ви повинні обрати одну з версій сторінки для перевірки.
 
 Див. список неперевірених сторінок на [[Special:Unreviewedpages]].',
-	'revreview-newest-basic'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'revreview-newest-basic'     => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'revreview-newest-basic-i'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 Потрібна перевірка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} змін у шаблонах або зображеннях].',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання якісна версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'revreview-newest-quality'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання якісна версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
-	'right-autopatrolother'    => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
-	'right-autoreview'         => 'Автоматичне позначення версій сторінок переглянутими',
-	'right-movestable'         => 'Перейменування стабільних версій',
-	'right-review'             => 'Позначення версій сторінок переглянутими',
-	'right-stablesettings'     => 'Налаштування вибору і відображення стабільної версії',
-	'right-validate'           => 'Позначення версій сторінок вивіреними',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання якісна версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+Потрібна перевірка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} змін у шаблонах та зображеннях].',
+	'revreview-noflagged'        => "Ця сторінка не має перевірених версій, імовірно, її якість '''не''' [[{{MediaWiki:Validationpage}}|оцінювалася]].",
+	'revreview-note'             => '[[Користувач:$1]] зробив наступний коментар, [[{{MediaWiki:Validationpage}}|перевіряючи]] цю версію:',
+	'revreview-notes'            => 'Спостереження і коментарі для показу:',
+	'revreview-oldrating'        => 'Була оцінена:',
+	'revreview-patrol'           => 'Позначити цю зміну як перевірену',
+	'revreview-patrol-title'     => 'Позначена як патрульована',
+	'revreview-patrolled'        => 'Обрана версія [[:$1|$1]] була позначена як патрульована.',
+	'revreview-quality'          => 'Це остання [[{{MediaWiki:Validationpage}}|якісна]] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетки] {{PLURAL:$3|очікує|очікують|очікують}} перевірки.',
+	'revreview-quality-i'        => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} якісна] версія; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетці] є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} зміни в шаблонах та зображеннях], що потребують перевірки.',
+	'revreview-quality-old'      => 'Це [[{{MediaWiki:Validationpage}}|якісна]] версія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+Могли бути зроблені нові [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} редагування].',
+	'right-autopatrolother'      => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
+	'right-autoreview'           => 'Автоматичне позначення версій сторінок переглянутими',
+	'right-movestable'           => 'Перейменування стабільних версій',
+	'right-review'               => 'Позначення версій сторінок переглянутими',
+	'right-stablesettings'       => 'Налаштування вибору і відображення стабільної версії',
+	'right-validate'             => 'Позначення версій сторінок вивіреними',
 );
 
 /** Vèneto (Vèneto)
