@@ -5855,6 +5855,12 @@ $messages['uk'] = array(
 	'revreview-main'           => 'Ви повинні обрати одну з версій сторінки для перевірки.
 
 Див. список неперевірених сторінок на [[Special:Unreviewedpages]].',
+	'revreview-newest-basic'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+Потрібна перевірка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} змін у шаблонах або зображеннях].',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання якісна версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
 	'right-autopatrolother'    => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
 	'right-autoreview'         => 'Автоматичне позначення версій сторінок переглянутими',
 	'right-movestable'         => 'Перейменування стабільних версій',
