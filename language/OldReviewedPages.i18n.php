@@ -61,6 +61,13 @@ $messages['ar'] = array(
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'oldreviewed-category' => 'Катэгорыя:',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */

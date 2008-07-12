@@ -727,6 +727,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'stabilization-page'      => 'Nomine del pagina:',
 	'stabilization-comment'   => 'Commento:',
 	'stabilization-expiry'    => 'Expira:',
 	'stabilization-def-short' => 'Predefinition',

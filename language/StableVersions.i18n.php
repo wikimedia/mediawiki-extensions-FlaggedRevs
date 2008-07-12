@@ -270,6 +270,13 @@ $messages['hu'] = array(
 	'stableversions-review' => 'Ellenőrizte $2, <i>$1</i>-kor',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'stableversions-page' => 'Nomine del pagina:',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
