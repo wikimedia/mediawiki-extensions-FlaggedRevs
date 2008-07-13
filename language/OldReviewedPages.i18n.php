@@ -23,6 +23,13 @@ $messages['en'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'oldreviewed-category' => 'Kategorie:',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

@@ -51,10 +51,16 @@ $messages['mhr'] = array(
 
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
+ * @author Naudefj
  */
 $messages['af'] = array(
+	'stabilization-page'        => 'Bladsynaam:',
 	'stabilization-submit'      => 'Bevestig',
+	'stabilization-comment'     => 'Opmerking:',
 	'stabilization-sel-short-1' => 'Geen',
+	'stabilize_expiry_invalid'  => 'Ongeldige vervaldatum.',
+	'stabilize_expiry_old'      => 'Die vervaldatum is reeds verby.',
+	'stabilize-expiring'        => 'verval $1 (UTC)',
 );
 
 /** Aragonese (Aragonés)
@@ -1692,6 +1698,13 @@ $messages['tg-cyrl'] = array(
 	'stabilize_expiry_invalid'  => 'Таърихи интиҳоии ғайримиҷоз.',
 	'stabilize_expiry_old'      => 'Таърихи интиҳо аллакай сипарӣ шудааст.',
 	'stabilize-expiring'        => 'Дар $1 (UTC) ба интиҳо мерасад',
+);
+
+/** Thai (ไทย)
+ * @author Passawuth
+ */
+$messages['th'] = array(
+	'stabilization-page' => 'ชื่อหน้า:',
 );
 
 /** Turkish (Türkçe)

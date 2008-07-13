@@ -169,8 +169,11 @@ To depreciate a revision, set all fields to "unapproved".',
  * @author Naudefj
  */
 $messages['af'] = array(
-	'editor'              => 'Redakteur',
-	'group-editor-member' => 'Redakteur',
+	'editor'                 => 'Redakteur',
+	'group-editor-member'    => 'Redakteur',
+	'revreview-log'          => 'Opmerking:',
+	'revreview-patrol'       => 'Merk die wysiging as gepatrolleer',
+	'revreview-patrol-title' => 'Merk as gepatrolleer',
 );
 
 /** Aragonese (Aragonés)
@@ -2334,7 +2337,7 @@ $messages['hr'] = array(
 	'review-logentry-app'         => 'ocijenio [[$1]]',
 	'review-logentry-dis'         => 'zastarjela inačica stranice [[$1]]',
 	'review-logentry-id'          => 'ocjena broj $1',
-	'review-logpage'              => 'Evidencija ocjena članka',
+	'review-logpage'              => 'Evidencija ocjenjivanja članaka',
 	'review-logpagetext'          => 'Ovo je evidencija promjena [[{{MediaWiki:Validationpage}}|ocjena]] članaka.',
 	'reviewer'                    => 'Ocjenjivač',
 	'revisionreview'              => 'Ocijeni inačice',
@@ -3373,7 +3376,9 @@ $messages['la'] = array(
  */
 $messages['lb'] = array(
 	'editor'                       => 'Editeur',
+	'flaggedrevs'                  => 'Markéiert Versiounen',
 	'flaggedrevs-prefs'            => 'Stabilitéit',
+	'flaggedrevs-prefs-stable'     => "Ëmmer déi stabil Versioun vum Inhalt vun de Säiten ''par défaut'' weisen (wann et eng gëtt)",
 	'group-editor'                 => 'Editeuren',
 	'group-editor-member'          => 'Editeur',
 	'group-reviewer'               => 'Reviseuren',
@@ -4413,12 +4418,14 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} modificacions novèlas] pòd
  * @author Sp5uhe
  * @author Derbeth
  * @author Holek
+ * @author Maikking
  */
 $messages['pl'] = array(
 	'editor'                       => 'Redaktor',
 	'flaggedrevs'                  => 'Wersje oznaczone',
 	'flaggedrevs-desc'             => 'Daje edytorom i krytykom możliwość oceny edycji i oznaczenia stabilnej wersji strony',
 	'flaggedrevs-prefs'            => 'Dopracowanie',
+	'flaggedrevs-prefs-watch'      => 'Po sprawdzeniu strony dodaj ją do listy obserwowanych',
 	'group-editor'                 => 'Redaktorzy',
 	'group-editor-member'          => 'Redaktor',
 	'group-reviewer'               => 'Krytycy',
@@ -5195,32 +5202,55 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
  * @author Siebrand
+ * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'editor'                => 'Уређивач',
-	'group-editor'          => 'Уређивачи',
-	'group-editor-member'   => 'Уређивач',
-	'group-reviewer'        => 'Прегледачи',
-	'group-reviewer-member' => 'Прегледач',
-	'grouppage-editor'      => '{{ns:project}}:Уређивач',
-	'grouppage-reviewer'    => '{{ns:project}}:Прегледач',
-	'hist-quality'          => 'квалитет',
-	'review-logentry-app'   => 'прегледан [[$1]]',
-	'review-logpage'        => 'Историја прегледа чланка',
-	'reviewer'              => 'Прегледач',
-	'revreview-accuracy-4'  => 'Изабрани',
-	'revreview-auto'        => '(аутоматски)',
-	'revreview-depth-1'     => 'Основни',
-	'revreview-depth-3'     => 'Висок',
-	'revreview-depth-4'     => 'Изабрани',
-	'revreview-log'         => 'Коментар:',
-	'revreview-stable'      => 'Стабилан',
-	'revreview-style-1'     => 'Прихватљив',
-	'revreview-style-2'     => 'Добар',
-	'revreview-style-3'     => 'Тачан',
-	'revreview-style-4'     => 'Изабрани',
-	'revreview-submit'      => 'Приложи преглед',
-	'tooltip-ca-stable'     => 'Погледајте стабилну верзију ове странице',
+	'editor'                   => 'Уређивач',
+	'flaggedrevs'              => 'Означене измене',
+	'flaggedrevs-backlog'      => "Тренутно постоји позадински лог на [[Special:OldReviewedPages|застарелим овереним странама]]. '''Потребна је твоја пажња!'''",
+	'flaggedrevs-desc'         => 'Даје уредницима и прегледачима могућност да овере верзију и стабилизују страну.',
+	'flaggedrevs-pref-UI-0'    => 'Коришњење детаљног интерфејса за стабилне верзије.',
+	'flaggedrevs-pref-UI-1'    => 'Коришћење једноставног интерфејса за стабилне верзије.',
+	'flaggedrevs-prefs'        => 'Стабилност',
+	'flaggedrevs-prefs-stable' => 'Подразумевај приказ стабилних верзија страна (ако постоје).',
+	'flaggedrevs-prefs-watch'  => 'Додај стране које сам прегледао у мој списак надгледања.',
+	'group-editor'             => 'Уређивачи',
+	'group-editor-member'      => 'Уређивач',
+	'group-reviewer'           => 'Прегледачи',
+	'group-reviewer-member'    => 'Прегледач',
+	'grouppage-editor'         => '{{ns:project}}:Уређивач',
+	'grouppage-reviewer'       => '{{ns:project}}:Прегледач',
+	'hist-draft'               => 'драфт верзија',
+	'hist-quality'             => 'квалитетна верзија',
+	'hist-stable'              => 'видна верзија',
+	'hist-stable-user'         => '[{{fullurl:$1|stableid=$2}} прегледано] од стране сарадника [[User:$3|$3]]',
+	'review-diff2stable'       => 'Погледај измене између стабилне и текуће верзије.',
+	'review-logentry-app'      => 'прегледан [[$1]]',
+	'review-logentry-dis'      => 'застарела верзија стране [[$1]]',
+	'review-logentry-id'       => 'редни број верзије: $1',
+	'review-logentry-diff'     => 'diff према стабилној',
+	'review-logpage'           => 'Лог прегледа чланка',
+	'reviewer'                 => 'Прегледач',
+	'revisionreview'           => 'Преглед верзија',
+	'revreview-accuracy'       => 'Тачност',
+	'revreview-accuracy-0'     => 'Неодобрене',
+	'revreview-accuracy-1'     => 'Прегледано',
+	'revreview-accuracy-2'     => 'Тачно',
+	'revreview-accuracy-3'     => 'Са добрим изворима',
+	'revreview-accuracy-4'     => 'Изабрани',
+	'revreview-approved'       => 'одобрено',
+	'revreview-auto'           => '(аутоматски)',
+	'revreview-depth-1'        => 'Основни',
+	'revreview-depth-3'        => 'Висок',
+	'revreview-depth-4'        => 'Изабрани',
+	'revreview-log'            => 'Коментар:',
+	'revreview-stable'         => 'Стабилан',
+	'revreview-style-1'        => 'Прихватљив',
+	'revreview-style-2'        => 'Добар',
+	'revreview-style-3'        => 'Тачан',
+	'revreview-style-4'        => 'Изабрани',
+	'revreview-submit'         => 'Приложи преглед',
+	'tooltip-ca-stable'        => 'Погледајте стабилну верзију ове странице',
 );
 
 /** Seeltersk (Seeltersk)

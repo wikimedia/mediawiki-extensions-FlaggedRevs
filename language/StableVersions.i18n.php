@@ -23,6 +23,13 @@ $messages['mhr'] = array(
 	'stableversions-page' => 'Лаштыкын лӱмжӧ:',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'stableversions-page' => 'Bladsynaam:',
+);
+
 /** Aragonese (Aragonés)
  * @author Siebrand
  * @author Juanpabl
@@ -636,6 +643,13 @@ $messages['tg-cyrl'] = array(
 	'stableversions-none'   => '"[[:$1]]" ҳеҷ нусхаи баррасишудае надорад.',
 	'stableversions-list'   => 'Дар зер феҳристи аз нусхаҳои баррасишуда аз [[:$1]]ро мебинед:',
 	'stableversions-review' => 'Дар <i>$1</i> аз тарафи $2 барраси шудааст',
+);
+
+/** Thai (ไทย)
+ * @author Passawuth
+ */
+$messages['th'] = array(
+	'stableversions-page' => 'ชื่อหน้า:',
 );
 
 /** Turkish (Türkçe)

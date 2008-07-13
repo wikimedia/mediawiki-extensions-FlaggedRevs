@@ -137,6 +137,14 @@ $messages['sk'] = array(
 	'depreciationoversight-list' => 'Táto stránka obsahuje zoznam posledných znehodnotení revízií.',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'depreciationoversight'      => 'Смањење вредности оверсајта.',
+	'depreciationoversight-list' => 'Списак скорих уклањања верзија.',
+);
+
 /** Swedish (Svenska)
  * @author M.M.S.
  */
