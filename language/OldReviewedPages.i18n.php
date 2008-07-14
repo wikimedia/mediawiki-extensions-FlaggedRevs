@@ -97,10 +97,15 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
+	'oldreviewedpages-stable'    => 'zhlédnuto',
 	'oldreviewedpages-quality'   => 'kvalita',
+	'oldreviewedpages-hours'     => '($1 {{plural:$1|hodina|hodiny|hodin}})',
+	'oldreviewedpages-days'      => '($1 {{plural:$1|den|dny|dní}})',
 	'oldreviewedpages-recent'    => '(méně než 1 hodina)',
+	'oldreviewed-category'       => 'Kategorie:',
 	'oldreviewedpages-unwatched' => '(nesledované)',
 );
 
@@ -614,3 +619,4 @@ $messages['zh-hant'] = array(
 	'oldreviewedpages-unwatched' => '(未看)',
 	'oldreviewedpages-watched'   => '($2{{PLURAL:$1|位用戶|位用戶}}正在看)',
 );
+

@@ -125,11 +125,12 @@ $messages['ca'] = array(
 /** Czech (Česky)
  * @author Li-sung
  * @author Danny B.
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'unreviewedpages'      => 'Neposouzené stránky',
 	'unreviewed-category'  => 'Kategorie:',
-	'unreviewed-diff'      => 'Změny',
+	'unreviewed-diff'      => 'kontrola',
 	'unreviewed-unwatched' => '(nesledované)',
 	'unreviewed-list'      => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
 );

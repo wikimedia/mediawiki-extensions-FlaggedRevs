@@ -28,6 +28,14 @@ $messages['ar'] = array(
 	'depreciationoversight-list' => 'هذه الصفحة تعرض عمليات تقليل الجودة الحديثة للنسخ.',
 );
 
+/** Czech (Česky)
+ * @author Matěj Grabovský
+ */
+$messages['cs'] = array(
+	'depreciationoversight'      => 'Dozor na znehodnocení',
+	'depreciationoversight-list' => 'Tato stránka obsahuje seznam posledních znehodnocení revizí.',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'depreciationoversight'      => 'Zurückgezogene Markierungen',
@@ -200,3 +208,4 @@ $messages['zh-hant'] = array(
 	'depreciationoversight'      => '折舊管理',
 	'depreciationoversight-list' => '這個頁面列示出最近折舊的修訂。',
 );
+
