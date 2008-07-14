@@ -168,3 +168,26 @@ $messages['vi'] = array(
 	'qualityoversight-list' => 'Trang này liệt kê những lần phê chuẩn các phiên bản chất lượng gần nhất cũng như sự giảm giá trị của những phiên bản chất lượng.',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'qualityoversight'      => '品質管理',
+	'qualityoversight-list' => '呢一版列示咗最近核准修訂同埋最近品質修訂嘅折舊。',
+);
+
+/** Chinese (Simplified)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'qualityoversight'      => '品质管理',
+	'qualityoversight-list' => '这个页面列示出最近核准修订以及最近品质修订之折旧。',
+);
+
+/** Chinese (Traditional)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'qualityoversight'      => '品質管理',
+	'qualityoversight-list' => '這個頁面列示出最近核准修訂以及最近品質修訂之折舊。',
+);

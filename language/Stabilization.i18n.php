@@ -1829,10 +1829,116 @@ $messages['vo'] = array(
 	'stabilization-def-short-1' => 'Fümöfik',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'stabilization-tab' => '查',
+	'stabilization' => '穩定頁',
+	'stabilization-text' => "'''改下面嘅設定去調節所揀嘅[[:$1|$1]]之穩定版如何顯示。'''",
+	'stabilization-perm' => '你嘅戶口無權限去改穩定版設定。
+呢度有現時[[:$1|$1]]嘅設定:',
+	'stabilization-page' => '版名:',
+	'stabilization-leg' => '確認穩定版嘅設定',
+	'stabilization-select' => '穩定版選擇',
+	'stabilization-select1' => '最近有質素嘅修訂；如果未有，就係最近視察過嘅',
+	'stabilization-select2' => '最近複審過嘅修訂',
+	'stabilization-select3' => '最近原始嘅修訂；如果未有，就係最近有質素或視察過嘅',
+	'stabilization-def' => '響預設版視嘅修訂顯示',
+	'stabilization-def1' => '穩定修訂；如果未有，就係現時嘅',
+	'stabilization-def2' => '現時嘅修訂',
+	'stabilization-submit' => '確認',
+	'stabilization-notexists' => '呢度係無一版係叫"[[:$1|$1]]"。
+無設定可以改到。',
+	'stabilization-notcontent' => '嗰版"[[:$1|$1]]"唔可以複審。
+無設定可以改到。',
+	'stabilization-comment' => '註解:',
+	'stabilization-expiry' => '到期:',
+	'stabilization-sel-short' => '優先',
+	'stabilization-sel-short-0' => '質素',
+	'stabilization-sel-short-1' => '無',
+	'stabilization-sel-short-2' => '原始',
+	'stabilization-def-short' => '預設',
+	'stabilization-def-short-0' => '現時',
+	'stabilization-def-short-1' => '穩定',
+	'stabilize_expiry_invalid' => '無效嘅到期日。',
+	'stabilize_expiry_old' => '到期日已經過咗。',
+	'stabilize-expiring' => '於 $1 (UTC) 到期',
+);
+
+/** Traditional Chinese (‪中文(简体)‬)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'stabilization-tab' => '调查',
+	'stabilization' => '稳定页面',
+	'stabilization-text' => "'''更改以下的设置去调节所选择的[[:$1|$1]]之稳定版本如何显示。'''",
+	'stabilization-perm' => '您的账户并没有权限去更改稳定版本设置。
+呢度有现时[[:$1|$1]]的设置:',
+	'stabilization-page' => '页面名称:',
+	'stabilization-leg' => '确认稳定版本的设置',
+	'stabilization-select' => '稳定版本选择',
+	'stabilization-select1' => '最近有质素的修订；如果未有，则是最近视察过的',
+	'stabilization-select2' => '最近复审过的修订',
+	'stabilization-select3' => '最近原始的修订；如果未有，则是最近有质素或视察过的',
+	'stabilization-def' => '在预设页视的修订显示',
+	'stabilization-def1' => '稳定修订；如果未有，则是现时的',
+	'stabilization-def2' => '现时的修订',
+	'stabilization-submit' => '确认',
+	'stabilization-notexists' => '这里是没有一页面名叫"[[:$1|$1]]"。
+没有设置可以更改。',
+	'stabilization-notcontent' => '该页面"[[:$1|$1]]"不可以复审。
+没有设置可以更改。',
+	'stabilization-comment' => '注解:',
+	'stabilization-expiry' => '到期:',
+	'stabilization-sel-short' => '优先',
+	'stabilization-sel-short-0' => '质素',
+	'stabilization-sel-short-1' => '无',
+	'stabilization-sel-short-2' => '原始',
+	'stabilization-def-short' => '预设',
+	'stabilization-def-short-0' => '现时',
+	'stabilization-def-short-1' => '稳定',
+	'stabilize_expiry_invalid' => '无效的到期日。',
+	'stabilize_expiry_old' => '到期日已过。',
+	'stabilize-expiring' => '于 $1 (UTC) 到期',
+);
+
+
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
+ * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'stabilization-tab' => '調查',
+	'stabilization' => '穩定頁面',
+	'stabilization-text' => "'''更改以下的設定去調節所選擇的[[:$1|$1]]之穩定版本如何顯示。'''",
+	'stabilization-perm' => '您的賬戶並沒有權限去更改穩定版本設定。
+呢度有現時[[:$1|$1]]的設定:',
+	'stabilization-page' => '頁面名稱:',
+	'stabilization-leg' => '確認穩定版本的設定',
+	'stabilization-select' => '穩定版本選擇',
+	'stabilization-select1' => '最近有質素的修訂；如果未有，則是最近視察過的',
+	'stabilization-select2' => '最近複審過的修訂',
+	'stabilization-select3' => '最近原始的修訂；如果未有，則是最近有質素或視察過的',
+	'stabilization-def' => '在預設頁視的修訂顯示',
+	'stabilization-def1' => '穩定修訂；如果未有，則是現時的',
+	'stabilization-def2' => '現時的修訂',
+	'stabilization-submit' => '確認',
+	'stabilization-notexists' => '這裏是沒有一頁面名叫"[[:$1|$1]]"。
+沒有設定可以更改。',
+	'stabilization-notcontent' => '該頁面"[[:$1|$1]]"不可以複審。
+沒有設定可以更改。',
+	'stabilization-comment' => '註解:',
+	'stabilization-expiry' => '到期:',
+	'stabilization-sel-short' => '優先',
+	'stabilization-sel-short-0' => '質素',
+	'stabilization-sel-short-1' => '無',
+	'stabilization-sel-short-2' => '原始',
+	'stabilization-def-short' => '預設',
+	'stabilization-def-short-0' => '現時',
+	'stabilization-def-short-1' => '穩定',
+	'stabilize_expiry_invalid' => '無效的到期日。',
+	'stabilize_expiry_old' => '到期日已過。',
+	'stabilize-expiring' => '於 $1 (UTC) 到期',
 );
 

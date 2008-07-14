@@ -315,3 +315,35 @@ $messages['vi'] = array(
 	'stablepages-config' => 'Cấu hình',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'stablepages'        => '穩定頁',
+	'stablepages-stable' => '穩定版',
+	'stablepages-text'   => '下面嗰版列示咗啲版係手動噉設定去顯示穩定版做畀觀看者做預設版內容。',
+	'stablepages-none'   => '無版響呢個表度',
+	'stablepages-config' => '設定',
+);
+
+/** Chinese (Simplified)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'stablepages'        => '稳定页面',
+	'stablepages-stable' => '稳定版本',
+	'stablepages-text'   => '以下的页面列示出一些页面是手动地设置去显示稳定版作为观看者做预设页面版内容。',
+	'stablepages-none'   => '没有页面在这个列表中',
+	'stablepages-config' => '设置',
+);
+
+/** Chinese (Traditional)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'stablepages'        => '穩定頁面',
+	'stablepages-stable' => '穩定版本',
+	'stablepages-text'   => '以下的頁面列示出一些頁面是手動地設定去顯示穩定版作為觀看者做預設頁面版內容。',
+	'stablepages-none'   => '沒有頁面在這個清單中',
+	'stablepages-config' => '設定',
+);

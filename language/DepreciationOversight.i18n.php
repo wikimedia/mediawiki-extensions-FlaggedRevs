@@ -177,3 +177,26 @@ $messages['vi'] = array(
 	'depreciationoversight-list' => 'Trang này liệt kê những lần giảm chất lượng phiên bản gần đây.',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'depreciationoversight'      => '折舊管理',
+	'depreciationoversight-list' => '呢一版列示咗最近折舊嘅修訂。',
+);
+
+/** Chinese (Simplified)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'depreciationoversight'      => '折旧管理',
+	'depreciationoversight-list' => '这个页面列示出最近折旧的修订。',
+);
+
+/** Chinese (Traditional)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'depreciationoversight'      => '折舊管理',
+	'depreciationoversight-list' => '這個頁面列示出最近折舊的修訂。',
+);

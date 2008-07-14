@@ -730,3 +730,47 @@ $messages['vo'] = array(
 	'reviewedpages-all'   => 'fomams pekrütöl',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'reviewedpages'       => '複審過嘅版',
+	'reviewedpages-leg'   => '列示複審過到指定級數嘅版',
+	'reviewedpages-list'  => '下面嘅版已經複審到一個指定嘅級數',
+	'reviewedpages-none'  => '無版響呢個表度',
+	'reviewedpages-lev-0' => '視察過',
+	'reviewedpages-lev-1' => '質素',
+	'reviewedpages-lev-2' => '正',
+	'reviewedpages-all'   => '複審版',
+	'reviewedpages-best'  => '最好修訂',
+);
+
+/** Chinese (Simplified)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'reviewedpages'       => '复审过的页面',
+	'reviewedpages-leg'   => '列示复审过到指定级数之页面',
+	'reviewedpages-list'  => '以下的页面已经复审到一个指定的级数',
+	'reviewedpages-none'  => '没有页面在这个列表中',
+	'reviewedpages-lev-0' => '视察过',
+	'reviewedpages-lev-1' => '质素',
+	'reviewedpages-lev-2' => '特色',
+	'reviewedpages-all'   => '复审版',
+	'reviewedpages-best'  => '最佳修订',
+);
+
+/** Chinese (Traditional)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'reviewedpages'       => '複審過的頁面',
+	'reviewedpages-leg'   => '列示複審過到指定級數之頁面',
+	'reviewedpages-list'  => '以下的頁面已經複審到一個指定的級數',
+	'reviewedpages-none'  => '沒有頁面在這個清單中',
+	'reviewedpages-lev-0' => '視察過',
+	'reviewedpages-lev-1' => '質素',
+	'reviewedpages-lev-2' => '特色',
+	'reviewedpages-all'   => '複審版',
+	'reviewedpages-best'  => '最佳修訂',
+);

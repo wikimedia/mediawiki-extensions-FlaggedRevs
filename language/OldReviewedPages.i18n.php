@@ -558,3 +558,59 @@ $messages['vi'] = array(
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'oldreviewedpages'           => '已過時複審過嘅版',
+	'oldreviewedpages-legend'    => '列示有未複審修訂之複審過嘅版',
+	'oldreviewedpages-list'      => '呢一版列示咗有等緊編輯嘅評論版。',
+	'oldreviewedpages-none'      => '呢度現時無版係合乎呢啲條件',
+	'oldreviewedpages-stable'    => '察看',
+	'oldreviewedpages-quality'   => '質素',
+	'oldreviewedpages-hours'     => '($1個鐘頭)',
+	'oldreviewedpages-days'      => '($1日)',
+	'oldreviewedpages-recent'    => '(少過1個鐘頭)',
+	'oldreviewed-category'       => '類:',
+	'oldreviewed-diff'           => '複審',
+	'oldreviewedpages-unwatched' => '(未睇)',
+	'oldreviewedpages-watched'   => '($2{{PLURAL:$1|位用戶|位用戶}}睇緊)',
+);
+
+/** Chinese (Simplified)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'oldreviewedpages'           => '已过时复审过的页面',
+	'oldreviewedpages-legend'    => '列示有未复审修订之复审过的页面',
+	'oldreviewedpages-list'      => '这个页面列示出有正等候编辑之评论页面。',
+	'oldreviewedpages-none'      => '这里现时没有页面系合乎这些条件',
+	'oldreviewedpages-stable'    => '察看',
+	'oldreviewedpages-quality'   => '质素',
+	'oldreviewedpages-hours'     => '($1小时)',
+	'oldreviewedpages-days'      => '($1日)',
+	'oldreviewedpages-recent'    => '(少于1小时)',
+	'oldreviewed-category'       => '分类:',
+	'oldreviewed-diff'           => '复审',
+	'oldreviewedpages-unwatched' => '(未看)',
+	'oldreviewedpages-watched'   => '($2{{PLURAL:$1|位用户|位用户}}正在看)',
+);
+
+/** Chinese (Traditional)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'oldreviewedpages'           => '已過時複審過的頁面',
+	'oldreviewedpages-legend'    => '列示有未複審修訂之複審過的頁面',
+	'oldreviewedpages-list'      => '這個頁面列示出有正等候編輯之評論頁面。',
+	'oldreviewedpages-none'      => '這裏現時沒有頁面係合乎這些條件',
+	'oldreviewedpages-stable'    => '察看',
+	'oldreviewedpages-quality'   => '質素',
+	'oldreviewedpages-hours'     => '($1小時)',
+	'oldreviewedpages-days'      => '($1日)',
+	'oldreviewedpages-recent'    => '(少於1小時)',
+	'oldreviewed-category'       => '分類:',
+	'oldreviewed-diff'           => '複審',
+	'oldreviewedpages-unwatched' => '(未看)',
+	'oldreviewedpages-watched'   => '($2{{PLURAL:$1|位用戶|位用戶}}正在看)',
+);

@@ -6329,19 +6329,32 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 $messages['yue'] = array(
 	'editor'                      => '編輯',
 	'flaggedrevs'                 => '加咗旗嘅修訂',
+	'flaggedrevs-backlog'         => '呢度現時有一個積壓響[[Special:OldReviewedPages|過時複審頁]]。 \'\'\'需要你嘅注意！\'\'\'',
 	'flaggedrevs-desc'            => '畀編輯者同埋評論家個能力去核實修訂同埋穩定化頁',
+	'flaggedrevs-pref-UI-0'       => '用詳細穩定版用戶界面',
+	'flaggedrevs-pref-UI-1'       => '用簡單穩定版用戶界面',
+	'flaggedrevs-prefs'           => '穩定度',
+	'flaggedrevs-prefs-stable'    => '總係預設顯示穩定版內容 (如果有一個嘅話)',
+	'flaggedrevs-prefs-watch'     => '加入我複審過嘅到我張監視清單度',
 	'group-editor'                => '編輯',
 	'group-editor-member'         => '編輯',
 	'group-reviewer'              => '評論家',
 	'group-reviewer-member'       => '評論家',
 	'grouppage-editor'            => '{{ns:project}}:編者',
 	'grouppage-reviewer'          => '{{ns:project}}:評論家',
-	'hist-quality'                => '[質素]',
-	'hist-stable'                 => '[睇過]',
+	'hist-draft'                  => '草稿修訂',
+	'hist-quality'                => '質素修訂',
+	'hist-quality-user'           => '由[[User:$3|$3]][{{fullurl:$1|stableid=$2}} 確認]過',
+	'hist-stable'                 => '視察修訂',
+	'hist-stable-user'            => '由[[User:$3|$3]][{{fullurl:$1|stableid=$2}} 視察]過',
 	'review-diff2stable'          => '同上次穩定修訂嘅差異',
+	'review-logentry-app'         => '視察咗[[$1]]',
+	'review-logentry-dis'         => '折舊咗[[$1]]嘅版本',
 	'review-logentry-id'          => '修訂 ID $1',
+	'review-logentry-diff'        => '同穩定版嘅差異',
 	'review-logpage'              => '文章複審記錄',
-	'review-logpagetext'          => '呢個係內容版[[{{MediaWiki:Validationpage}}|批准]]狀態嘅更改記錄。',
+	'review-logpagetext'          => '呢個係內容版[[{{MediaWiki:Validationpage}}|批准]]狀態嘅更改記錄。
+	睇[[Special:ReviewedPages|複審頁一覽]]去睇核准版嘅一覽。',
 	'reviewer'                    => '評論家',
 	'revisionreview'              => '複審修訂',
 	'revreview-accuracy'          => '準確度',
@@ -6350,13 +6363,22 @@ $messages['yue'] = array(
 	'revreview-accuracy-2'        => '準確',
 	'revreview-accuracy-3'        => '有好來源',
 	'revreview-accuracy-4'        => '正',
+	'revreview-approved'          => '批准',
 	'revreview-auto'              => '(自動)',
-	'revreview-auto-w'            => "'''注意:''' 你而家係響穩定修訂度做緊更改，你嘅編輯將會自動被複審。
-	你可以響保存之前先預覽一吓。",
+	'revreview-auto-w'            => "你而家係響穩定修訂度做緊更改，你嘅編輯將會'''自動被複審'''。",
+	'revreview-auto-w-old'        => "你而家係響視察修訂度做緊更改，你嘅編輯將會'''自動被複審'''。",
 	'revreview-basic'             => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂，
-	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
-	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 改]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]
-	等緊去複審。',
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]等緊去複審。',
+	'revreview-basic-i'           => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂，
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 模/圖更改]等緊去複審。',
+	'revreview-basic-old'         => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂（[{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]），
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。
+	新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 更改]可能會做咗。',
+	'revreview-basic-same'        => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂（[{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]），
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。',
+	'revreview-basic-source'      => '一個[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 視察版]嘅頁，響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]，基於呢次修訂。',
 	'revreview-changed'           => "'''個複審嘅動作唔可以響呢次修訂度進行。'''
 
 	當無一個指定嘅版本嗰陣，一個模或圖已經被請求。
@@ -6369,8 +6391,12 @@ $messages['yue'] = array(
 	'revreview-depth-2'           => '中等',
 	'revreview-depth-3'           => '高',
 	'revreview-depth-4'           => '正',
+	'revreview-draft-title'       => '草稿文章',
 	'revreview-edit'              => '編輯草稿',
+	'revreview-edited'            => "'''啲編輯響會整合到[[{{MediaWiki:Validationpage}}|穩定版]]當一位整好嘅用戶複審過佢哋。'''
+'''個''草稿''響下面度列示。''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $2次更改等緊去]複審。",
 	'revreview-flag'              => '複審呢次修訂',
+	'revreview-invalid'           => "'''無效嘅目標:''' 無[[{{MediaWiki:Validationpage}}|複審過]]嘅修訂跟仕已經畀咗嘅ID。",
 	'revreview-legend'            => '評定修訂內容',
 	'revreview-log'               => '記錄註解:',
 	'revreview-main'              => '你一定要響一版內容頁度揀一個個別嘅修訂去複審。
@@ -6378,26 +6404,50 @@ $messages['yue'] = array(
 	睇[[Special:Unreviewedpages]]去拎未複審嘅版。',
 	'revreview-newest-basic'      => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過嘅修訂]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
-	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]需要複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]需要複審。',
+	'revreview-newest-basic-i'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過嘅修訂]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 模/圖更改]需要複審',
 	'revreview-newest-quality'    => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素嘅修訂]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
-	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]需要複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]需要複審。',
+	'revreview-newest-quality-i'  => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素嘅修訂]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $模/圖更改]需要複審。',
 	'revreview-noflagged'         => "呢一版無複審過嘅修訂，佢可能'''未'''[[{{MediaWiki:Validationpage}}|檢查]]質量。",
 	'revreview-note'              => '[[User:$1]]響呢次修訂度加咗下面嘅[[{{MediaWiki:Validationpage}}|複審]]註解:',
 	'revreview-notes'             => '要顯示嘅意見或註解:',
 	'revreview-oldrating'         => '曾經評定為:',
+	'revreview-patrol'            => '標示呢次更改做已巡查過嘅',
+	'revreview-patrol-title'      => '標示做已巡查過嘅',
+	'revreview-patrolled'         => '所選[[:$1|$1]]嘅修訂做已巡查過嘅。',
 	'revreview-quality'           => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂，
-	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
-	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]
-	等緊去複審。',
-	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|視察過嘅]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]]",
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} $3次更改]等緊去複審。',
+	'revreview-quality-i'          => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂，
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 模/圖更改]等緊去複審。',
+	'revreview-quality-old'        => '呢個係[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部])，響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。
+	新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 更改]可能會做咗。',
+	'revreview-quality-same'       => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂（[{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 列示全部]），
+	響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]。',
+	'revreview-quality-source'     => '一個[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 有質素嘅]頁，響<i>$2</i>[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]，基於呢次修訂。',
+	'revreview-quick-basic'       => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇草稿]]",
+	'revreview-quick-basic-old'   => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇草稿]]",
+	'revreview-quick-basic-same'  => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]'''",
+	'revreview-quick-invalid'     => "'''無效嘅修訂ID'''",
 	'revreview-quick-none'        => "'''現時嘅'''。無已複審嘅修訂。",
-	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|有質素嘅]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇現時修訂]]",
-	'revreview-quick-see-basic'   => "'''現時嘅'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇最後檢查過嘅修訂]]",
-	'revreview-quick-see-quality' => "'''現時嘅'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇最後嘅質素修訂]]",
+	'revreview-quick-quality'     => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇草稿]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇草稿]]",
+	'revreview-quick-quality-same'=> "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''",
+	'revreview-quick-see-basic'   => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 比較])",
+	'revreview-quick-see-quality' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} 比較])",
 	'revreview-selected'          => "已經揀咗 '''$1''' 嘅修訂:",
 	'revreview-source'            => '草稿原始碼',
 	'revreview-stable'            => '穩定',
+	'revreview-stable-title'      => '視察過嘅文',
+	'revreview-stable1'           => '你可能想去睇[{{fullurl:$1|stableid=$2}} 呢個加咗旗嘅版本]去睇呢一版而家係唔係[{{fullurl:$1|stable=1}} 穩定版]。',
+	'revreview-stable2'           => '你可能想去睇呢一版嘅[{{fullurl:$1|stable=1}} 穩定版] (如果嗰度仍然有一個嘅話)。',
 	'revreview-style'             => '可讀性',
 	'revreview-style-0'           => '未批准',
 	'revreview-style-1'           => '可接受',
@@ -6405,10 +6455,36 @@ $messages['yue'] = array(
 	'revreview-style-3'           => '簡潔',
 	'revreview-style-4'           => '正',
 	'revreview-submit'            => '遞交複審',
-	'revreview-text'              => '穩定版會設定做一版睇嗰陣嘅預設內容，而唔係最新嘅修訂。',
+	'revreview-successful'        => "'''[[:$1|$1]]所選擇嘅修訂已經成功噉加旗。 ([{{fullurl:Special:Stableversions|page=$2}} 去睇全部加旗版])'''",
+	'revreview-successful2'       => "'''[[:$1|$1]]所選擇嘅修訂已經成功噉減旗。'''",
+	'revreview-text'              => "''[[{{MediaWiki:Validationpage}}|穩定版]]會設定做一版睇嗰陣嘅預設內容，而唔係最新嘅修訂。''",
+	'revreview-text2'             => "''[[{{MediaWiki:Validationpage}}|穩定版]]會檢查一版嘅修訂同埋可以設定做觀者嘅預設內容。''",
+	'revreview-toggle-title'      => '顯示/隱藏細節',
 	'revreview-toolow'            => '你一定要最少將下面每一項嘅屬性評定高過"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部格做"未批准"。',
 	'revreview-update'            => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
+	'revreview-update-includes'   => "'''有啲模/圖更新咗:'''",
+	'revreview-update-none'       => "請[[{{MediaWiki:Validationpage}}|複審]]任何嘅更改 ''(列示如下)'' 自從穩定修訂[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 批准]後修改過嘅。",
+	'revreview-update-use'        => "'''留意:''' 如果任何嘅模/圖有穩定版，噉呢一版就已經用咗響穩定版度。",
+	'revreview-diffonly'          => "''去複審一版，撳 \"現時修訂\" 連結去用複審表格。''",
+	'revreview-visibility'        => "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} 較]。'''",
+	'right-autopatrolother'       => '自動標示響非主空間名嘅修訂做已巡查嘅',
+	'right-autoreview'            => '自動標示修訂做已視察過嘅',
+	'right-movestable'            => '搬穩定頁',
+	'right-review'                => '標示修訂做已視察嘅',
+	'right-stablesettings'        => '設定如何將穩定版選擇同顯示',
+	'right-validate'              => '標示修訂做已確認嘅',
+	'rights-editor-autosum'       => '自動升級',
+	'rights-editor-revoke'        => '由[[$1]]拎走編者狀態',
+	'specialpages-group-quality'  => '品質保證',
+	'stable-logentry'             => '設定咗[[$1]]嘅穩定版本',
+	'stable-logentry2'            => '已重設[[$1]]嘅穩定版本',
+	'stable-logpage'              => '穩定記錄',
+	'stable-logpagetext'          => '呢個係[[{{MediaWiki:Validationpage}}|穩定版]]設定內容頁嘅更改記錄。
+	個穩定頁可以響[[Special:StablePages|穩定頁一覽]]度搵到。',
+	'tooltip-ca-current'          => '去睇呢一版嘅現時草稿',
+	'tooltip-ca-default'          => '品質保證設定',
+	'tooltip-ca-stable'           => '去睇呢一版嘅穩定版',
 	'validationpage'              => '{{ns:help}}:文章確認',
 );
 

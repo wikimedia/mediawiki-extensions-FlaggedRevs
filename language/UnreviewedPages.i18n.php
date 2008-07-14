@@ -817,25 +817,40 @@ $messages['vo'] = array(
 
 /** Yue (粵語) */
 $messages['yue'] = array(
-	'unreviewedpages'     => '未複審嘅版',
-	'unreviewed-category' => '分類:',
-	'unreviewed-diff'     => '更改',
-	'unreviewed-list'     => '呢一版列示出重未複審或視察過嘅文章修訂。',
+	'right-unreviewedpages' => '去睇未複審版嘅表',
+	'unreviewedpages'       => '未複審嘅版',
+	'unreviewed-legend'     => '列示未複審嘅內容頁',
+	'unreviewed-category'   => '分類:',
+	'unreviewed-diff'       => '更改',
+	'unreviewed-unwatched'  => '(未睇)',
+	'unreviewed-watched'    => '($2{{PLURAL:$1|位用戶|位用戶}}睇緊)',
+	'unreviewed-list'       => '呢一版列示出重未複審或視察過嘅文章修訂。',
+	'unreviewed-none'       => '呢度現時無版合乎呢啲條件',
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
-	'unreviewedpages'     => '未复审页面',
-	'unreviewed-category' => '分类:',
-	'unreviewed-diff'     => '更改',
-	'unreviewed-list'     => '这一页列示出还未复审或视察的文章修订。',
+	'right-unreviewedpages' => '去看未复审页面之列表',
+	'unreviewedpages'       => '未复审页面',
+	'unreviewed-legend'     => '列示未复审之内容页',
+	'unreviewed-category'   => '分类:',
+	'unreviewed-diff'       => '更改',
+	'unreviewed-unwatched'  => '(未看)',
+	'unreviewed-watched'    => '($2{{PLURAL:$1|位用户|位用户}}正在看)',
+	'unreviewed-list'       => '这一页列示出还未复审或视察的文章修订。',
+	'unreviewed-none'       => '这里现时没有页面合乎这些条件',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
-	'unreviewedpages'     => '未複審頁面',
-	'unreviewed-category' => '分類:',
-	'unreviewed-diff'     => '更改',
-	'unreviewed-list'     => '這一頁列示出還未複審或視察的文章修訂。',
+	'right-unreviewedpages' => '去看未複審頁面之清單',
+	'unreviewedpages'       => '未複審頁面',
+	'unreviewed-legend'     => '列示未複審之內容頁',
+	'unreviewed-category'   => '分類:',
+	'unreviewed-diff'       => '更改',
+	'unreviewed-unwatched'  => '(未看)',
+	'unreviewed-watched'    => '($2{{PLURAL:$1|位用戶|位用戶}}正在看)',
+	'unreviewed-list'       => '這一頁列示出還未複審或視察的文章修訂。',
+	'unreviewed-none'       => '這裏現時沒有頁面合乎這些條件',
 );
 
