@@ -338,8 +338,8 @@ Puet estar que s'aigan feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 	'stable-logpagetext'           => "Iste ye un rechistro de cambeos d'a confegurazión de [[{{MediaWiki:Validationpage}}|bersions estables]] d'as pachinas de conteniu.
 Puede trobar una lista de pachinas con bersions estables en [[Special:StablePages|lista de pachinas estables]].",
 	'tooltip-ca-current'           => "Amostrar o borrador autual d'ista pachina",
-	'tooltip-ca-default'           => "Opzions d'aseguranza d'a calidat",
 	'tooltip-ca-stable'            => "Amostrar a bersión estable d'ista pachina",
+	'tooltip-ca-default'           => "Opzions d'aseguranza d'a calidat",
 	'validationpage'               => "{{ns:help}}:Balidazión d'articlo",
 );
 
@@ -500,8 +500,8 @@ $messages['ar'] = array(
 لصفحات المحتوى.
 قائمة بالصفحات المستقرة يمكن العثور عليها في [[Special:StablePages|قائمة الصفحات المستقرة]].',
 	'tooltip-ca-current'           => 'عرض المسودة الحالية لهذه الصفحة',
-	'tooltip-ca-default'           => 'إعدادات تأكيد الجودة',
 	'tooltip-ca-stable'            => 'عرض النسخة المستقرة لهذه الصفحة',
+	'tooltip-ca-default'           => 'إعدادات تأكيد الجودة',
 	'validationpage'               => '{{ns:help}}:تحقيق المقالات',
 );
 
@@ -872,8 +872,8 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'rights-editor-autosum'        => 'emanvet',
 	'stable-logpage'               => 'Marilh ar stummoù stabil',
 	'tooltip-ca-current'           => "Gwelet brouilhed ar bajenn-mañ evel m'emañ evit poent",
-	'tooltip-ca-default'           => 'Arventennoù Kontrolliñ ar Berzhded',
 	'tooltip-ca-stable'            => 'Gwelet stumm stabil ar bajenn',
+	'tooltip-ca-default'           => 'Arventennoù Kontrolliñ ar Berzhded',
 	'validationpage'               => '{{ns:help}} : Gwiriekaat ar pennad',
 );
 
@@ -1082,8 +1082,8 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'stable-logpage'               => 'Kniha stabilních verzí',
 	'stable-logpagetext'           => 'Toto je záznam změn nastavení [[{{MediaWiki:Validationpage}}|stabilní verze]] stránek.',
 	'tooltip-ca-current'           => 'Zobrazit nejnovější návrh této stránky',
-	'tooltip-ca-default'           => 'Nastavení stabilní a zobrazované verze',
 	'tooltip-ca-stable'            => 'Zobrazit stabilní verzi této stránky',
+	'tooltip-ca-default'           => 'Nastavení stabilní a zobrazované verze',
 	'validationpage'               => '{{ns:help}}:Stabilní verze',
 );
 
@@ -1453,8 +1453,8 @@ Malvalidigi revizion, faru ĉiujn kampojn kiel "malaprobita".',
 
 Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo de stabilaj paĝoj]].',
 	'tooltip-ca-current'           => 'Vidigu la nunan malneton de ĉi tiu paĝo',
-	'tooltip-ca-default'           => 'Konfiguro de kvalitkontrolo',
 	'tooltip-ca-stable'            => 'Rigardi la stabilan version de ĉi paĝo',
+	'tooltip-ca-default'           => 'Konfiguro de kvalitkontrolo',
 	'validationpage'               => '{{ns:help}}:Validigo de artikolo',
 );
 
@@ -1521,8 +1521,8 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'right-stablesettings'         => 'Configurar cómo las versiones estables se seleccionan y muestran',
 	'right-validate'               => 'Marcar revisiones como validadas',
 	'tooltip-ca-current'           => 'Ver el borrador actual de esta página',
-	'tooltip-ca-default'           => 'Opciones de control de calidad',
 	'tooltip-ca-stable'            => 'Ver la versión estable de esta página',
+	'tooltip-ca-default'           => 'Opciones de control de calidad',
 	'validationpage'               => '{{ns:help}}:Validación de artículo',
 );
 
@@ -1889,8 +1889,8 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'stable-logpagetext'           => 'Voici le journal des modifications de la [[{{MediaWiki:Validationpage}}|version stable]] de la configuration de pages de contenu.
 Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'tooltip-ca-current'           => "Voir l'ébauche courante de cette page",
-	'tooltip-ca-default'           => "Paramètres pour l'assurance-qualité",
 	'tooltip-ca-stable'            => 'Voir la version stable de cette page',
+	'tooltip-ca-default'           => "Paramètres pour l'assurance-qualité",
 	'validationpage'               => "{{ns:help}}:Validation de l'article",
 );
 
@@ -2151,8 +2151,8 @@ Para despreciar unha revisión, encha todos os campos con "sen aprobar".',
 	'stable-logpagetext'           => 'Este é un rexistro dos cambios da configuración da [[{{MediaWiki:Validationpage}}|versión estábel]] do contido das páxinas.
 Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePages|listaxe de páxinas estábeis]].',
 	'tooltip-ca-current'           => 'Ver o proxecto actual desta páxina',
-	'tooltip-ca-default'           => 'Configuración de garantía da calidade',
 	'tooltip-ca-stable'            => 'Ver a versión estábel desta páxina',
+	'tooltip-ca-default'           => 'Configuración de garantía da calidade',
 	'validationpage'               => '{{ns:help}}:Confirmación do artigo',
 );
 
@@ -2332,8 +2332,8 @@ $messages['hi'] = array(
 	'stable-logpagetext'           => 'यह कंटेंट पन्नोंके [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] में हुए बदलावों की सूची हैं।
 स्थिर पन्नोंकी सूची [[Special:StablePages|स्थिर पन्नोंकी सूची]] यहां देख सकतें हैं।',
 	'tooltip-ca-current'           => 'इस पन्ने का कच्चा अवतरण देखें',
-	'tooltip-ca-default'           => 'गुणवत्ता आश्वासन सेटिंग',
 	'tooltip-ca-stable'            => 'इस पन्ने का स्थिर अवतरण देखें',
+	'tooltip-ca-default'           => 'गुणवत्ता आश्वासन सेटिंग',
 	'validationpage'               => '{{ns:help}}:लेख प्रमाणिकरण',
 );
 
@@ -2678,8 +2678,8 @@ Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrizetl
 	'stable-logpagetext'           => 'Ez a lap a lapok [[{{MediaWiki:Validationpage}}|elfogadott változataiban]] történt változások
 naplója.',
 	'tooltip-ca-current'           => 'Az oldal jelenlegi vázlatának megtekintése',
-	'tooltip-ca-default'           => 'Minőségbiztosítási beállítások',
 	'tooltip-ca-stable'            => 'Az oldal elfogadott változatának megtekintése',
+	'tooltip-ca-default'           => 'Minőségbiztosítási beállítások',
 	'validationpage'               => '{{ns:help}}:Szócikk ellenőrzése',
 );
 
@@ -2836,8 +2836,8 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'stable-logpagetext'           => 'Ini adalah log perubahan untuk konfigurasi [[{{MediaWiki:Validationpage}}|versi stabil]] halaman isi.
 Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daftar halaman stabil]].',
 	'tooltip-ca-current'           => 'Lihat draf terkini halaman ini',
-	'tooltip-ca-default'           => 'Pengaturan pemeriksaan kualitas',
 	'tooltip-ca-stable'            => 'Lihat versi stabil halaman ini',
+	'tooltip-ca-default'           => 'Pengaturan pemeriksaan kualitas',
 	'validationpage'               => '{{ns:help}}:Validasi artikel',
 );
 
@@ -3687,8 +3687,8 @@ $messages['ml'] = array(
 	'specialpages-group-quality'   => 'ഗുണമേന്മാ ഉറപ്പ്',
 	'stable-logpage'               => 'സ്ഥിരതയുടെ പ്രവര്‍ത്തനരേഖ',
 	'tooltip-ca-current'           => 'ഈ താളിന്റെ നിലവിലുള്ള കരട് കാണുക',
-	'tooltip-ca-default'           => 'ഗുണനിലവാര ഉറപ്പാക്കല്‍ ക്രമീകരണങ്ങള്‍',
 	'tooltip-ca-stable'            => 'ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് കാണുക',
+	'tooltip-ca-default'           => 'ഗുണനിലവാര ഉറപ്പാക്കല്‍ ക്രമീകരണങ്ങള്‍',
 	'validationpage'               => '{{ns:help}}:ലേഖനസാധുത',
 );
 
@@ -3850,8 +3850,8 @@ $messages['mr'] = array(
 	'stable-logpagetext'           => 'ही कंटेंट पानांच्या [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] मधील बदलांची सूची आहे.
 स्थिर पानांची यादी [[Special:StablePages|स्थिर पान यादी]] इथे पहायला मिळू शकेल.',
 	'tooltip-ca-current'           => 'या पानाची कच्ची प्रत पहा',
-	'tooltip-ca-default'           => 'गुणवत्ता देणारी स्थिती',
 	'tooltip-ca-stable'            => 'या पानाची पक्की प्रत पहा',
+	'tooltip-ca-default'           => 'गुणवत्ता देणारी स्थिती',
 	'validationpage'               => '{{ns:help}}:लेख प्रमाणिकरण',
 );
 
@@ -4007,8 +4007,12 @@ Untuk menggugurkan semakan ini, sila berikan penilaian "tidak disahkan" kepada s
 	'stable-logpagetext'           => 'Berikut ialah log perubahan pada tetapan [[{{MediaWiki:Validationpage}}|versi stabil]] bagi laman kandungan.
 Senarai laman yang telah distabilkan boleh dilihat di [[Special:StablePages|senarai laman stabil]].',
 	'tooltip-ca-current'           => 'Lihat draf laman ini',
-	'tooltip-ca-default'           => 'Tetapan jaminan mutu',
 	'tooltip-ca-stable'            => 'Lihat versi stabil bagi laman ini',
+	'tooltip-ca-default'           => 'Tetapan jaminan mutu',
+	'revreview-ak-review'          => 's',
+	'accesskey-ca-current'         => 'v',
+	'accesskey-ca-stable'          => 'c',
+	'revreview-tt-review'          => 'Periksa laman ini',
 	'validationpage'               => '{{ns:help}}:Pengesahan rencana',
 );
 
@@ -4186,8 +4190,8 @@ Stel alle velden in op "niet goedgekeurd" om de waardering van een versie te ver
 	'stable-logpagetext'           => "Dit is een logboek met wijzigingen aan de instellingen voor [[{{MediaWiki:Validationpage}}|stabiele versies]] voor de hoofdnaamruimte.
 Zie ook de [[Special:StablePages|lijst met stabiele pagina's]].",
 	'tooltip-ca-current'           => 'Werkversie van deze pagina bekijken',
-	'tooltip-ca-default'           => 'Instellingen kwaliteitsbewaking',
 	'tooltip-ca-stable'            => 'Stabiele versie van deze pagina bekijken',
+	'tooltip-ca-default'           => 'Instellingen kwaliteitsbewaking',
 	'validationpage'               => '{{ns:help}}:Paginaredactie',
 );
 
@@ -4270,8 +4274,8 @@ $messages['no'] = array(
 	'rights-editor-autosum'        => 'automatisk forfremmet',
 	'rights-editor-revoke'         => 'fjernet skribentstatus fra [[$1]]',
 	'tooltip-ca-current'           => 'Vis nåværende utkast av denne siden',
-	'tooltip-ca-default'           => 'Innstillinger for kvalitetssikring',
 	'tooltip-ca-stable'            => 'Vis den stabile versjonen av denne siden',
+	'tooltip-ca-default'           => 'Innstillinger for kvalitetssikring',
 	'validationpage'               => 'Help:Artikkelvalidering',
 );
 
@@ -4430,8 +4434,8 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'stable-logpage'               => 'Jornal de las versions establas',
 	'stable-logpagetext'           => 'Vaquí lo jornal de las modificacions per la [[{{MediaWiki:Validationpage}}|version establa]] de la configuracion de las presentas paginas.',
 	'tooltip-ca-current'           => "Veire l'esbòs corrent d'aquesta pagina",
-	'tooltip-ca-default'           => "Paramètres per l'assegurança-qualitat",
 	'tooltip-ca-stable'            => "Veire la version establa d'aquesta pagina",
+	'tooltip-ca-default'           => "Paramètres per l'assegurança-qualitat",
 	'validationpage'               => "{{ns:help}}:Validacion de l'article",
 );
 
@@ -4513,8 +4517,8 @@ $messages['pl'] = array(
 	'rights-editor-revoke'         => 'odebrał uprawnienia edytora [[$1]]',
 	'stable-logpage'               => 'Rejestr wersji dopracowanych',
 	'tooltip-ca-current'           => 'Zobacz aktualny szkic tej strony',
-	'tooltip-ca-default'           => 'Ustawienia mechanizmu zapewnienia jakości artykułów',
 	'tooltip-ca-stable'            => 'Zobacz dopracowaną wersję tej strony',
+	'tooltip-ca-default'           => 'Ustawienia mechanizmu zapewnienia jakości artykułów',
 	'validationpage'               => '{{ns:help}}:Recenzja artykułu',
 );
 
@@ -4787,8 +4791,8 @@ Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
 	'stable-logpagetext'           => 'Este é um registo de modificações nas configurações das [[{{MediaWiki:Validationpage}}|edições estáveis]] das páginas de conteúdo.
 Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Special:StablePages|lista de páginas estáveis]].',
 	'tooltip-ca-current'           => 'Ver o rascunho actual desta página',
-	'tooltip-ca-default'           => 'Configurações da Garantia de Qualidade',
 	'tooltip-ca-stable'            => 'Ver a edição estável desta página',
+	'tooltip-ca-default'           => 'Configurações da Garantia de Qualidade',
 	'validationpage'               => '{{ns:help}}:Validação de páginas',
 );
 
@@ -4945,8 +4949,8 @@ $messages['ru'] = array(
 	'stable-logpagetext'           => 'Это журнал изменений настроек [[{{MediaWiki:Validationpage}}|стабильных версий]] страниц.
 См. также  [[Special:StablePages|список стабильных страниц]].',
 	'tooltip-ca-current'           => 'Просмотреть текущий черновик этой страницы',
-	'tooltip-ca-default'           => 'Настройки контроля качества',
 	'tooltip-ca-stable'            => 'Показать стабильную версию этой страницы',
+	'tooltip-ca-default'           => 'Настройки контроля качества',
 	'validationpage'               => '{{ns:help}}:Проверка статьи',
 );
 
@@ -5215,8 +5219,8 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'stable-logpagetext'           => 'Toto je záznam zmien v konfigurácii [[{{MediaWiki:Validationpage}}|stabilnej verzie]] článkov.
 Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'tooltip-ca-current'           => 'Zobraziť aktuálny koncept tejto stránky',
-	'tooltip-ca-default'           => 'Nastavenia kontroly kvality',
 	'tooltip-ca-stable'            => 'Zobraziť stabilnú verziu tejto stránky',
+	'tooltip-ca-default'           => 'Nastavenia kontroly kvality',
 	'validationpage'               => '{{ns:help}}:Overovanie článkov',
 );
 
@@ -5574,8 +5578,9 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'stable-logpagetext'           => 'Det här är en logg över ändringar av inställningar för [[{{MediaWiki:validationpage}}|stabila versioner]] av innehållssidor.
 En lista över stabiliserade sidor kan hittas på [[Special:stablepages|listan över stabila sidor]].',
 	'tooltip-ca-current'           => 'Visa det senaste utkastet för denna sida',
-	'tooltip-ca-default'           => 'Inställningar för kvalitetssäkring',
 	'tooltip-ca-stable'            => 'Visa den stabila versionen av denna sida',
+	'tooltip-ca-default'           => 'Inställningar för kvalitetssäkring',
+	'revreview-tt-review'          => 'Granska denna sida',
 	'validationpage'               => '{{ns:help}}:Artikelvalidering',
 );
 
@@ -5788,8 +5793,8 @@ $messages['tg-cyrl'] = array(
 	'stable-logpage'               => 'Гузориши нусхаи пойдор',
 	'stable-logpagetext'           => 'Ин гузориши тағйирот аз танзимоти саҳифаҳои мӯҳтавои [[{{MediaWiki:Validationpage}}|нусхаҳои пойдор]] аст.',
 	'tooltip-ca-current'           => 'Мушоҳидаи пешнависи феълии ин саҳифа',
-	'tooltip-ca-default'           => 'Танзимоти итминони кайфият',
 	'tooltip-ca-stable'            => 'Мушоҳидаи нусхаи пойдори ин саҳифа',
+	'tooltip-ca-default'           => 'Танзимоти итминони кайфият',
 	'validationpage'               => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
 );
 
@@ -6086,8 +6091,8 @@ Par declassar na version, segna tuti i canpi come "Non aprovà".',
 	'stable-logpagetext'           => 'Sto qua el xe un registro dei cambiamenti a la configurassion de le [[{{MediaWiki:Validationpage}}|version stabili]] de le pagine.
 Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista de le pagine stabili]].',
 	'tooltip-ca-current'           => 'Varda la bozza corente de sta pagina',
-	'tooltip-ca-default'           => 'Inpostassion par el controlo de qualità',
 	'tooltip-ca-stable'            => 'Varda la version stabile de sta pagina',
+	'tooltip-ca-default'           => 'Inpostassion par el controlo de qualità',
 	'validationpage'               => '{{ns:help}}:Validassion dei articoli',
 );
 
@@ -6246,8 +6251,8 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} n
 	'stable-logpagetext'           => 'Đây là nhật trình ghi lại những thay đổi đối với cấu hình [[{{MediaWiki:Validationpage}}|bản ổn định]] của nội dung trang.
 Danh sách các trang ổn định có thể tìm thấy tại [[Special:StablePages|danh sách trang ổn định]].',
 	'tooltip-ca-current'           => 'Xem bản phác thảo hiện hành của trang này',
-	'tooltip-ca-default'           => 'Thiết lập về bảo đảm chất lượng',
 	'tooltip-ca-stable'            => 'Xem bản ổn định của trang này',
+	'tooltip-ca-default'           => 'Thiết lập về bảo đảm chất lượng',
 	'validationpage'               => '{{ns:help}}:Phê chuẩn bài viết',
 );
 
