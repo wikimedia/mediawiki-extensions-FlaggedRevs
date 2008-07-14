@@ -345,7 +345,7 @@ class FlaggedArticle extends Article {
 	   			}
 				$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent, $parserOut, null );
 				# Construct some tagging
-				if( !$wgOut->isPrintable() ) {
+				if( !$wgOut->isPrintable() && !FlaggedRevs::lowProfileUI() ) {
 					$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 					$tooltip = wfMsgHtml($tooltip);

@@ -6,11 +6,10 @@ class FlaggedRevs {
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
 	protected static $extStorage = false;
-	protected static $allowComments = false;
 	protected static $includeVersionCache = array();
 
 	public static function load() {
-		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsComments;
+		global $wgFlaggedRevTags, $wgFlaggedRevValues;
 		if( self::$loaded ) {
 			return true;
 		}
@@ -40,8 +39,6 @@ class FlaggedRevs {
 		global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
 		self::$extStorage = $wgFlaggedRevsExternalStore ? 
 			$wgFlaggedRevsExternalStore : $wgDefaultExternalStore;
-
-		self::$allowComments = (bool)$wgFlaggedRevsComments;
 
 		self::$loaded = true;
 	}
@@ -85,14 +82,24 @@ class FlaggedRevs {
 
 		return $wgUser->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
 	}
-
+	
+	/**
+	 * Should tags only be shown for unreviewed content for this user?
+	 * @returns bool
+	 */
+	public static function lowProfileUI() {
+		global $wgUser, $wgFlaggedRevsLowProfile;
+		self::load();
+		return (!$wgUser->getId() && $wgFlaggedRevsLowProfile);
+	}
 	/**
 	 * Should comments be allowed on pages and forms?
 	 * @returns bool
 	 */
 	public static function allowComments() {
+		global $wgFlaggedRevsComments;
 		self::load();
-		return self::$allowComments;
+		return $wgFlaggedRevsComments;
 	}
 	
 	/**
