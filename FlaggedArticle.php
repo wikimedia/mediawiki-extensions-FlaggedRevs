@@ -1355,8 +1355,11 @@ class FlaggedArticle extends Article {
 			$form .= "<span id='mw-commentbox' style='clear:both'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-		$form .= Xml::submitButton( wfMsgHtml('revreview-submit'), 
-			array('id' => 'mw-submitbutton','class' => 'fr-comment-box','accesskey' => 's')+$toggle );
+		$form .= Xml::submitButton( 
+			wfMsgHtml('revreview-submit'), array('id' => 'submitreview',
+			'class' => 'fr-comment-box','accesskey' => wfMsg('revreview-ak-review'), 
+			'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']' )+$toggle 
+		);
 		$form .= Xml::closeElement( 'span' );
 		
 		$form .= Xml::closeElement( 'div' );

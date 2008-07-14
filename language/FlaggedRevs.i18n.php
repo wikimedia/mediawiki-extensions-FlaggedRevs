@@ -159,10 +159,18 @@ To depreciate a revision, set all fields to "unapproved".',
 	'stable-logpage'               => 'Stability log',
 	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.
 	A list of stabilized pages can be found at the [[Special:StablePages|stable page list]].',
+	
 	'tooltip-ca-current'           => 'View the current draft of this page',
-	'tooltip-ca-default'           => 'Quality assurance settings',
 	'tooltip-ca-stable'            => 'View the stable version of this page',
+	'tooltip-ca-default'           => 'Quality assurance settings',
+	
+	'revreview-ak-review'          => 's', # do not translate or duplicate this message to other languages
+	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages
+	'accesskey-ca-stable'          => 'c', # do not translate or duplicate this message to other languages
+	
+	'revreview-tt-review'          => 'Review this page',
 	'validationpage'               => '{{ns:help}}:Article validation',
+	
 );
 
 /** Afrikaans (Afrikaans)

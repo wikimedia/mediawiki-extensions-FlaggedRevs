@@ -88,7 +88,7 @@ function updateRatingForm() {
 		notebox.style.display = quality ? 'inline' : 'none';
 	}
 	// If only a few levels are zero, don't show submit link
-	var submit = document.getElementById('mw-submitbutton');
+	var submit = document.getElementById('submitreview');
 	submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	var comment = document.getElementById('wpReason');
 	comment.disabled = ( somezero && !allzero ) ? 'disabled' : '';
