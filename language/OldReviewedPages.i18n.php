@@ -126,6 +126,7 @@ $messages['cs'] = array(
 	'oldreviewedpages-recent'    => '(méně než 1 hodina)',
 	'oldreviewed-category'       => 'Kategorie:',
 	'oldreviewedpages-unwatched' => '(nesledované)',
+	'oldreviewedpages-watched'   => '({{plural:$1|sleduje $2 uživatel|sledují $2 uživatelé|sleduje $2 uživatelů}})',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)

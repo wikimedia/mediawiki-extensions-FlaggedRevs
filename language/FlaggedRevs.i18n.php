@@ -503,6 +503,7 @@ $messages['ar'] = array(
 	'tooltip-ca-current'           => 'عرض المسودة الحالية لهذه الصفحة',
 	'tooltip-ca-stable'            => 'عرض النسخة المستقرة لهذه الصفحة',
 	'tooltip-ca-default'           => 'إعدادات تأكيد الجودة',
+	'revreview-tt-review'          => 'راجع هذه الصفحة',
 	'validationpage'               => '{{ns:help}}:تحقيق المقالات',
 );
 
@@ -2003,9 +2004,6 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'tooltip-ca-current'           => "Voir l'ébauche courante de cette page",
 	'tooltip-ca-stable'            => 'Voir la version stable de cette page',
 	'tooltip-ca-default'           => "Paramètres pour l'assurance-qualité",
-	'revreview-ak-review'          => 's',
-	'accesskey-ca-current'         => 'v',
-	'accesskey-ca-stable'          => 'c',
 	'revreview-tt-review'          => 'Réviser cette page',
 	'validationpage'               => "{{ns:help}}:Validation de l'article",
 );
@@ -2269,6 +2267,7 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'tooltip-ca-current'           => 'Ver o proxecto actual desta páxina',
 	'tooltip-ca-stable'            => 'Ver a versión estábel desta páxina',
 	'tooltip-ca-default'           => 'Configuración de garantía da calidade',
+	'revreview-tt-review'          => 'Revisar esta páxina',
 	'validationpage'               => '{{ns:help}}:Confirmación do artigo',
 );
 
@@ -2954,6 +2953,7 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'tooltip-ca-current'           => 'Lihat draf terkini halaman ini',
 	'tooltip-ca-stable'            => 'Lihat versi stabil halaman ini',
 	'tooltip-ca-default'           => 'Pengaturan pemeriksaan kualitas',
+	'revreview-tt-review'          => 'Tinjau halaman ini',
 	'validationpage'               => '{{ns:help}}:Validasi artikel',
 );
 
@@ -4125,9 +4125,6 @@ Senarai laman yang telah distabilkan boleh dilihat di [[Special:StablePages|sena
 	'tooltip-ca-current'           => 'Lihat draf laman ini',
 	'tooltip-ca-stable'            => 'Lihat versi stabil bagi laman ini',
 	'tooltip-ca-default'           => 'Tetapan jaminan mutu',
-	'revreview-ak-review'          => 's',
-	'accesskey-ca-current'         => 'v',
-	'accesskey-ca-stable'          => 'c',
 	'revreview-tt-review'          => 'Periksa laman ini',
 	'validationpage'               => '{{ns:help}}:Pengesahan rencana',
 );
@@ -4308,9 +4305,6 @@ Zie ook de [[Special:StablePages|lijst met stabiele pagina's]].",
 	'tooltip-ca-current'           => 'Werkversie van deze pagina bekijken',
 	'tooltip-ca-stable'            => 'Stabiele versie van deze pagina bekijken',
 	'tooltip-ca-default'           => 'Instellingen kwaliteitsbewaking',
-	'revreview-ak-review'          => 's',
-	'accesskey-ca-current'         => 'v',
-	'accesskey-ca-stable'          => 'c',
 	'revreview-tt-review'          => 'Eindredactie voor deze pagina',
 	'validationpage'               => '{{ns:help}}:Paginaredactie',
 );
@@ -4556,6 +4550,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'tooltip-ca-current'           => "Veire l'esbòs corrent d'aquesta pagina",
 	'tooltip-ca-stable'            => "Veire la version establa d'aquesta pagina",
 	'tooltip-ca-default'           => "Paramètres per l'assegurança-qualitat",
+	'revreview-tt-review'          => 'Revisar aquesta pagina',
 	'validationpage'               => "{{ns:help}}:Validacion de l'article",
 );
 
@@ -5071,6 +5066,7 @@ $messages['ru'] = array(
 	'tooltip-ca-current'           => 'Просмотреть текущий черновик этой страницы',
 	'tooltip-ca-stable'            => 'Показать стабильную версию этой страницы',
 	'tooltip-ca-default'           => 'Настройки контроля качества',
+	'revreview-tt-review'          => 'Проверить эту страницу',
 	'validationpage'               => '{{ns:help}}:Проверка статьи',
 );
 
@@ -5745,14 +5741,11 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'stable-logentry'              => 'ändrade inställningar för stabila versioner av [[$1]]',
 	'stable-logentry2'             => 'återställde inställningar för stabila versioner av [[$1]]',
 	'stable-logpage'               => 'Versionsstabiliseringslogg',
-	'stable-logpagetext'           => 'Det här är en logg över ändringar av inställningar för [[{{MediaWiki:validationpage}}|stabila versioner]] av innehållssidor.
-En lista över stabiliserade sidor kan hittas på [[Special:stablepages|listan över stabila sidor]].',
+	'stable-logpagetext'           => 'Det här är en logg över ändringar av inställningar för [[{{MediaWiki:Validationpage}}|stabila versioner]] av innehållssidor.
+En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan över stabila sidor]].',
 	'tooltip-ca-current'           => 'Visa det senaste utkastet för denna sida',
 	'tooltip-ca-stable'            => 'Visa den stabila versionen av denna sida',
 	'tooltip-ca-default'           => 'Inställningar för kvalitetssäkring',
-	'revreview-ak-review'          => 's',
-	'accesskey-ca-current'         => 'v',
-	'accesskey-ca-stable'          => 'c',
 	'revreview-tt-review'          => 'Granska denna sida',
 	'validationpage'               => '{{ns:help}}:Artikelvalidering',
 );
