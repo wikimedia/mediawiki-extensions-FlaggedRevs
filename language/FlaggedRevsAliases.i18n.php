@@ -43,6 +43,19 @@ $messages['ar'] = array(
 	'stableversions-alias'        => 'نسخ مستقرة',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'qualityoversight-alias'      => 'رویت-کیفیت',
+	'depreciationoversight-alias' => 'رویت-محروم',
+	'unreviewedpages-alias'       => 'صفحات-بی-بازبینی',
+	'oldreviewedpages-alias'      => 'صفحات-بازبینی-قدیمی',
+	'reviewedpages-alias'         => 'صفحات-بازبینی',
+	'stablepages-alias'           => 'صفحات-ثابت',
+	'stableversions-alias'        => 'نسخه یان ثابت',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'qualityoversight-alias'      => 'Geprüfte_Seiten',
@@ -238,6 +251,19 @@ $messages['sk'] = array(
 	'reviewedpages-alias'         => 'SkontrolovanéStránky',
 	'stablepages-alias'           => 'StabilnéStránky',
 	'stableversions-alias'        => 'StabilnéVerzie',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'qualityoversight-alias'      => 'НадгледањеКвалитета',
+	'depreciationoversight-alias' => 'ЗастаревањеНадгледања',
+	'unreviewedpages-alias'       => 'НепрегледанеСтране',
+	'oldreviewedpages-alias'      => 'СтареПрегледанеСтране',
+	'reviewedpages-alias'         => 'ПрегледанеСтране',
+	'stablepages-alias'           => 'СтабилнеСтране',
+	'stableversions-alias'        => 'СтабилнеВерзије',
 );
 
 /** Swedish (Svenska)

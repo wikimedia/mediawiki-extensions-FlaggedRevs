@@ -28,6 +28,14 @@ $messages['ar'] = array(
 	'qualityoversight-list' => 'هذه الصفحة تعرض الموافقات الحديثة لنسخ الجودة وأيضا إزالة نسخ الجودة.',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'qualityoversight'      => 'کیفیت بازرویت',
+	'qualityoversight-list' => 'ای صفحه نوکین تاییدات کیفیت بازبینی ان و نسخ کیفیت بازبینی ان لیست کنت.',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */
@@ -144,6 +152,14 @@ $messages['sk'] = array(
 	'qualityoversight-list' => 'Táto stránka obsahuje zoznam všetkých posledných schválení kvalitných verzií ako aj znehodnotenia kvalitných revízií.',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'qualityoversight'      => 'Надгледање квалитета',
+	'qualityoversight-list' => 'На овој страни се налази списак скоро одобрених квалитетних верија, као и застаревање квалитетних верзија.',
+);
+
 /** Swedish (Svenska)
  * @author M.M.S.
  */
@@ -191,3 +207,4 @@ $messages['zh-hant'] = array(
 	'qualityoversight'      => '品質管理',
 	'qualityoversight-list' => '這個頁面列示出最近核准修訂以及最近品質修訂之折舊。',
 );
+

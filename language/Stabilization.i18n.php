@@ -169,6 +169,43 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize-expiring'        => "caduca'l $1 (UTC)",
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'stabilization-tab'         => 'وت',
+	'stabilization'             => '‏ثبات کتن صفحه',
+	'stabilization-text'        => "''''عوض کن تنظیمات جهلی په شرکتن شی چه چطورکا نسخه ثابت  [[:$1|$1]]  انتخاب و پیش دارگ بیت''''",
+	'stabilization-perm'        => 'شمی حساب اجازت به عوض کتن تنظیمات نسخه ثابت نیست.
+ادان هنوکین تنظیمات په  [[:$1|$1]]:',
+	'stabilization-page'        => 'نام صفحه:',
+	'stabilization-leg'         => 'تنظیمات نسخه ثابت تایید کن',
+	'stabilization-select'      => 'انتخاب نسخه ثابت',
+	'stabilization-select1'     => 'آهری بازبینی کیفیت؛اگر نیست؛اچه اهرین رویت بیتگن',
+	'stabilization-select2'     => 'آهری دیستگین بازبینی',
+	'stabilization-select3'     => 'آهری بازبینی دست نوارتگین، اگه نیست، رندا آهری کیفیت یا رویتء',
+	'stabilization-def'         => 'بازبینی ته پیش فرضین دیستن جاهکیت',
+	'stabilization-def1'        => 'ثابتین بازبینی; اگر نیست، گوڈء هنوکین',
+	'stabilization-def2'        => 'هنوکین بازبینی',
+	'stabilization-submit'      => 'تایید',
+	'stabilization-notexists'   => 'صفحه ای په نام "[[:$1|$1]]" نیست.
+هچ تنظیمی ممکن نهنت.',
+	'stabilization-notcontent'  => 'صفحه "[[:$1|$1]]" نه تونیت باز بینی بیت.
+هچ تنظیمی ممکن نهنت.',
+	'stabilization-comment'     => 'نظر:',
+	'stabilization-expiry'      => 'هلیت:',
+	'stabilization-sel-short'   => 'تقدم',
+	'stabilization-sel-short-0' => 'کیفیت',
+	'stabilization-sel-short-1' => 'هچ یک',
+	'stabilization-sel-short-2' => 'اولین',
+	'stabilization-def-short'   => 'پیش فرض',
+	'stabilization-def-short-0' => 'هنوکین',
+	'stabilization-def-short-1' => 'ثابت',
+	'stabilize_expiry_invalid'  => 'نامعتبرین تاریخ هلگ',
+	'stabilize_expiry_old'      => 'ای زمان انقضا هنو هلتت.',
+	'stabilize-expiring'        => 'وهدی هلیت  $1 (UTC)',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  */
@@ -1508,16 +1545,37 @@ $messages['sk'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
+ * @author Millosh
  */
 $messages['sr-ec'] = array(
+	'stabilization-tab'         => 'ветеран',
+	'stabilization'             => 'Стабилизација стране',
+	'stabilization-text'        => "'''Измени подешавања испод у циљу намешатања како ће стабилне верзије стране [[:$1|$1]] бити означене и приказане.'''",
+	'stabilization-perm'        => 'Твој налог нема дозвола за измену подешавања за стабилне верзије. Тренутна подешавања за страну [[:$1|$1]] су:',
 	'stabilization-page'        => 'Име странице:',
+	'stabilization-leg'         => 'Потврди подешавања за стабилне верзије.',
+	'stabilization-select'      => 'Означавање стабилних верзија.',
+	'stabilization-select1'     => 'Последња квалитетна верзија; ако не постоји, онда ће бити приказана последња прегледана.',
+	'stabilization-select2'     => 'Последња прегледана верзија.',
+	'stabilization-select3'     => 'Последња непокрварена верзија; ако не постоји, последња квалитетна или прегледана ће бити приказана.',
+	'stabilization-def'         => 'Верзија приказана на подразумеваном приказу стране.',
+	'stabilization-def1'        => 'Стабилна верзија; ако не постоји, биће приказана тренутна.',
+	'stabilization-def2'        => 'Тренутна верзија.',
 	'stabilization-submit'      => 'Прихвати',
+	'stabilization-notexists'   => 'Не постоји страна под именом "[[:$1|$1]]". Подешавање није могуће.',
+	'stabilization-notcontent'  => 'Страна "[[:$1|$1]]" не може бити прегледана. Подешавање није могуће.',
 	'stabilization-comment'     => 'Коментар:',
+	'stabilization-expiry'      => 'Истиче:',
+	'stabilization-sel-short'   => 'Изузетак',
 	'stabilization-sel-short-0' => 'Квалитет',
 	'stabilization-sel-short-1' => 'Ништа',
+	'stabilization-sel-short-2' => 'Непоквареност',
 	'stabilization-def-short'   => 'Основно',
 	'stabilization-def-short-0' => 'Тренутно',
 	'stabilization-def-short-1' => 'Стабилно',
+	'stabilize_expiry_invalid'  => 'Лош датум истицања.',
+	'stabilize_expiry_old'      => 'Време истицања је већ прошло.',
+	'stabilize-expiring'        => 'истиче $1 (UTC)',
 );
 
 /** Seeltersk (Seeltersk)

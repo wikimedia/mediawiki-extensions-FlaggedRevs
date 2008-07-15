@@ -28,6 +28,14 @@ $messages['ar'] = array(
 	'depreciationoversight-list' => 'هذه الصفحة تعرض عمليات تقليل الجودة الحديثة للنسخ.',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'depreciationoversight'      => 'رویت محرومیت',
+	'depreciationoversight-list' => 'ای صفحه نوکین',
+);
+
 /** Czech (Česky)
  * @author Matěj Grabovský
  */

@@ -64,6 +64,21 @@ $messages['ast'] = array(
 	'reviewedpages-best'  => 'cabera revisión meyor calificada',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'reviewedpages'       => 'صفحات بازبینی بوتگین',
+	'reviewedpages-leg'   => 'لیست صفحات بازبینی بوتگین په یک سطح حاص',
+	'reviewedpages-list'  => 'جهلیگین صفحات به مشخصین سطح بازبینی بوتت.',
+	'reviewedpages-none'  => 'ته ای لیست هچ صفحه ای نیست',
+	'reviewedpages-lev-0' => 'رویت بیتت',
+	'reviewedpages-lev-1' => 'کیفیت',
+	'reviewedpages-lev-2' => 'نمایان',
+	'reviewedpages-all'   => 'نسخه یان بازبینی بوتگین',
+	'reviewedpages-best'  => 'بازبینی اصلی',
+);
+
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
@@ -605,11 +620,18 @@ $messages['sk'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
+ * @author Millosh
  */
 $messages['sr-ec'] = array(
 	'reviewedpages'       => 'Прегледане странице',
+	'reviewedpages-leg'   => 'Списак страна прегледаних до одређеног степена.',
+	'reviewedpages-list'  => 'Следеће стране су прегледане до одређеног степена.',
+	'reviewedpages-none'  => 'Нема страна у овом списку.',
+	'reviewedpages-lev-0' => 'Прегледано',
 	'reviewedpages-lev-1' => 'Квалитет',
 	'reviewedpages-lev-2' => 'Изабрани',
+	'reviewedpages-all'   => 'прегледане верзије',
+	'reviewedpages-best'  => 'најбоља верзија',
 );
 
 /** Seeltersk (Seeltersk)
@@ -774,3 +796,4 @@ $messages['zh-hant'] = array(
 	'reviewedpages-all'   => '複審版',
 	'reviewedpages-best'  => '最佳修訂',
 );
+

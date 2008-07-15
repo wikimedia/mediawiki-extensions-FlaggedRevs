@@ -68,6 +68,25 @@ $messages['ar'] = array(
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'oldreviewedpages'           => 'صفحات بازبینی تاریح گوستگین',
+	'oldreviewedpages-legend'    => 'لیست کن صفحاتء بازبینی بوتگین گون باز بینی نه بوتگین نسخ',
+	'oldreviewedpages-list'      => 'ای صفحه لسیت کنت بازبینی صفحاتی که که اصلاحات معلقی هسن',
+	'oldreviewedpages-none'      => 'هنو هچ صفحه ای گون ای معیاران نیست',
+	'oldreviewedpages-stable'    => 'رویت بیتگ',
+	'oldreviewedpages-quality'   => 'کیفیت',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ساعت|ساعت}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|روچ|روچان}})',
+	'oldreviewedpages-recent'    => '(کمتر چه یک ساعت)',
+	'oldreviewed-category'       => 'دسته:',
+	'oldreviewed-diff'           => 'بازبینی',
+	'oldreviewedpages-unwatched' => '(نه چارگ بیت)',
+	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|کاربر|کابران}} چارگنت)',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  */
@@ -477,6 +496,22 @@ $messages['sk'] = array(
 	'oldreviewed-diff'           => 'skontrolovať',
 	'oldreviewedpages-unwatched' => '(nesledovaná)',
 	'oldreviewedpages-watched'   => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'oldreviewedpages'           => 'Застареле прегледане стране',
+	'oldreviewedpages-legend'    => 'Списак прегледаних страна са непрегледаним верзијама.',
+	'oldreviewedpages-list'      => 'На овој страни се налази списак страна са изменама на чекању.',
+	'oldreviewedpages-none'      => 'Тренутно нема страна које задовољавају ове критерије,',
+	'oldreviewedpages-stable'    => 'прегледано',
+	'oldreviewedpages-quality'   => 'квалитет',
+	'oldreviewedpages-recent'    => '(мање од једног часа)',
+	'oldreviewed-category'       => 'Категорија:',
+	'oldreviewed-diff'           => 'преглед',
+	'oldreviewedpages-unwatched' => '(ненадгледано)',
 );
 
 /** Swedish (Svenska)

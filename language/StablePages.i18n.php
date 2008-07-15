@@ -37,6 +37,17 @@ $messages['ar'] = array(
 	'stablepages-config' => 'إعدادات',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'stablepages'        => 'صفحات ثابت',
+	'stablepages-stable' => 'نسخه ثابت',
+	'stablepages-text'   => 'جهلء یک لیستی چه صفحاتی هستن که دستی تنظیم بوتت تا نسخه ثابت په داب پیش فرضین محتوا په بازدید کنوک پیش داریت.',
+	'stablepages-none'   => 'هچ صفحه ای تی ای لیست نیست',
+	'stablepages-config' => 'تنظیمات',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */
@@ -272,6 +283,16 @@ $messages['sk'] = array(
 	'stablepages-config' => 'Nastavenie',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'stablepages'        => 'Стабилне стране',
+	'stablepages-stable' => 'Стабилна верзија',
+	'stablepages-text'   => 'Испод се налази списак страна ручно подешених за приказ стабилне верзије као подразумеване стране за читаче садржаја.',
+	'stablepages-none'   => 'Не постоје стране у списку.',
+);
+
 /** Swedish (Svenska)
  * @author M.M.S.
  */
@@ -347,3 +368,4 @@ $messages['zh-hant'] = array(
 	'stablepages-none'   => '沒有頁面在這個清單中',
 	'stablepages-config' => '設定',
 );
+

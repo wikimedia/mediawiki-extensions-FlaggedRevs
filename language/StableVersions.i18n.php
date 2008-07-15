@@ -68,6 +68,18 @@ $messages['ast'] = array(
 	'stableversions-review' => "Revisada'l <i>$1</i> por $2",
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'stableversions'        => 'به گند ثابتین نسخه یانء',
+	'stableversions-leg1'   => 'لیست کن اصلاحات بازبینی په ای صفحه',
+	'stableversions-page'   => 'نام صفحه:',
+	'stableversions-none'   => '"[[:$1]]" هچ نسخه بازبینیء نیست',
+	'stableversions-list'   => 'جهلیگین یک لیستی چه بازبینی آن [[:$1]] که دگه چارگ بوتگنت:',
+	'stableversions-review' => 'بازبینی بیته ته <i>$1</i> گون $2',
+);
+
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
  */

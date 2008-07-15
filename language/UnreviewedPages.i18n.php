@@ -66,6 +66,21 @@ $messages['ast'] = array(
 	'unreviewed-list'     => 'Esta páxina llista artículos que nun fueron revisaos o que tienen revisiones nueves o non revisaes.',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'right-unreviewedpages' => 'به گند لیست صفحات بی بازبینی',
+	'unreviewedpages'       => 'صفحات بی بازبینی',
+	'unreviewed-legend'     => 'لیست کن صفحات محتوا بی بازبینی',
+	'unreviewed-category'   => 'دسته:',
+	'unreviewed-diff'       => 'بازبینی',
+	'unreviewed-unwatched'  => '(نه چارگ)',
+	'unreviewed-watched'    => '($2 {{PLURAL:$1|user|کابران}} چارگ بیت)',
+	'unreviewed-list'       => 'ای صفحه مقالاتی که بازبینی نه بیتگن لیست کن.',
+	'unreviewed-none'       => 'هنو گو این معیارآن صفحه ای نیست',
+);
+
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
  */
