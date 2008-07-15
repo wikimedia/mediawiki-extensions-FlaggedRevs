@@ -110,8 +110,9 @@ class RevisionReview extends UnlistedSpecialPage
 			if( $this->unapprovedTags < count($wgFlaggedRevTags) )
 				$valid = false;
 		}
-		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) )
+		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
 			$valid = false;
+		}
 
 		if( $valid && $wgRequest->wasPosted() ) {
 			$this->submit();
@@ -308,7 +309,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = self::getValidationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $rev->getId() );
+		$checkCode = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
 		$form .= '</fieldset>';
 
