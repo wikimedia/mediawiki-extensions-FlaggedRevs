@@ -134,7 +134,7 @@ $messages['oc'] = array(
  */
 $messages['pt'] = array(
 	'depreciationoversight'      => 'Observatório do desdém',
-	'depreciationoversight-list' => 'Esta página lista as mais recentes edições depreciadas',
+	'depreciationoversight-list' => 'Esta página lista as mais recentes edições depreciadas.',
 );
 
 /** Russian (Русский)

@@ -4321,6 +4321,7 @@ $messages['nn'] = array(
  * @author H92
  * @author Stigmj
  * @author EivindJ
+ * @author Siebrand
  */
 $messages['no'] = array(
 	'editor'                       => 'Skribent',
@@ -4371,7 +4372,7 @@ $messages['no'] = array(
 	'revreview-quick-none'         => "'''[[{{MediaWiki:Validationpage}}|Siste versjon]]''' (ikke sjekket)",
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vis utkast]]",
 	'revreview-quick-quality-old'  => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vis utkast]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage|Kvalitetsartikkel]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]'''",
 	'revreview-quick-see-basic'    => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vis artikkel]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} sammenlign])",
 	'revreview-quick-see-quality'  => "'''Utkast''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vis artikkel]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} sammenlign])",
 	'revreview-source'             => 'utkastets kilde',
@@ -4831,7 +4832,7 @@ O ''rascunho'' é mostrado a seguir.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=\$1&d
 	'revreview-log'                => 'Comentário:',
 	'revreview-main'               => 'Você precisa seleccionar uma edição específica de uma página de conteúdo para poder analisá-la.
 
-Veja [[{{ns:special}}:Unreviewedpages]] para uma listagem de páginas ainda não revistas.',
+Veja [[Special:Unreviewedpages]] para uma listagem de páginas ainda não revistas.',
 	'revreview-newest-basic'       => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição analisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração|alterações}}] {{PLURAL:$3|necessita|necessitam}} revisão.',
 	'revreview-newest-basic-i'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição analisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} As alterações em imagens/predefinições] necessitam de revisão.',
 	'revreview-newest-quality'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição confiável] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração|alterações}}] {{PLURAL:$3|necessita|necessitam}} revisão.',
@@ -4908,6 +4909,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'tooltip-ca-current'           => 'Ver o rascunho actual desta página',
 	'tooltip-ca-stable'            => 'Ver a edição estável desta página',
 	'tooltip-ca-default'           => 'Configurações da Garantia de Qualidade',
+	'revreview-tt-review'          => 'Analise esta página',
 	'validationpage'               => '{{ns:help}}:Validação de páginas',
 );
 
@@ -5337,6 +5339,7 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'tooltip-ca-current'           => 'Zobraziť aktuálny koncept tejto stránky',
 	'tooltip-ca-stable'            => 'Zobraziť stabilnú verziu tejto stránky',
 	'tooltip-ca-default'           => 'Nastavenia kontroly kvality',
+	'revreview-tt-review'          => 'Skontrolovať túto stránku',
 	'validationpage'               => '{{ns:help}}:Overovanie článkov',
 );
 
@@ -5363,6 +5366,7 @@ $messages['sr-ec'] = array(
 	'grouppage-reviewer'           => '{{ns:project}}:Прегледач',
 	'hist-draft'                   => 'драфт верзија',
 	'hist-quality'                 => 'квалитетна верзија',
+	'hist-quality-user'            => '[{{fullurl:$1|stableid=$2}} оверено] од стране сарадника [[User:$3|$3]]',
 	'hist-stable'                  => 'видна верзија',
 	'hist-stable-user'             => '[{{fullurl:$1|stableid=$2}} прегледано] од стране сарадника [[User:$3|$3]]',
 	'review-diff2stable'           => 'Погледај измене између стабилне и текуће верзије.',
@@ -5381,6 +5385,8 @@ $messages['sr-ec'] = array(
 	'revreview-accuracy-4'         => 'Изабрани',
 	'revreview-approved'           => 'одобрено',
 	'revreview-auto'               => '(аутоматски)',
+	'revreview-auto-w'             => "Мењаш стабилну верзију; измене ће '''аутоматски бити означене као прегледане'''.",
+	'revreview-auto-w-old'         => "Мењаш прегледану верзију; измене ће '''аутоматски бити означене као прегледане'''.",
 	'revreview-current'            => 'Нацрт',
 	'revreview-depth'              => 'Дубина',
 	'revreview-depth-0'            => 'Неодобрено',
@@ -5391,9 +5397,11 @@ $messages['sr-ec'] = array(
 	'revreview-draft-title'        => 'Нацрт чланка',
 	'revreview-edit'               => 'Уређивање нацрта',
 	'revreview-flag'               => 'Преглед ове верзије',
+	'revreview-invalid'            => "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
 	'revreview-legend'             => 'Оцени верзију садржаја',
 	'revreview-log'                => 'Коментар:',
 	'revreview-main'               => 'Види [[Special:Unreviewedpages|списак непрегледаних страна]].',
+	'revreview-note'               => '[[User:$1]] направи следећу белешку током [[{{MediaWiki:Validationpage}}|прегледања]] ове верзије.',
 	'revreview-notes'              => 'Мишљења и белешке за приказ:',
 	'revreview-oldrating'          => 'Оцењено је:',
 	'revreview-patrol'             => 'Означи ову измену као патролирану.',
@@ -5412,6 +5420,7 @@ $messages['sr-ec'] = array(
 	'revreview-source'             => 'извор нацрта',
 	'revreview-stable'             => 'Стабилна страна',
 	'revreview-stable-title'       => 'Прегледани чланак',
+	'revreview-stable2'            => 'Можда желиш да видиш [{{fullurl:$1|stable=1}} стабилну верију] ове стране (ако још увек таква постоји).',
 	'revreview-style'              => 'Читљивост',
 	'revreview-style-0'            => 'Неодобрено',
 	'revreview-style-1'            => 'Прихватљив',
@@ -5419,6 +5428,7 @@ $messages['sr-ec'] = array(
 	'revreview-style-3'            => 'Тачан',
 	'revreview-style-4'            => 'Изабрани',
 	'revreview-submit'             => 'Приложи преглед',
+	'revreview-successful2'        => "'''Успешно је скинута ознака са означене верзије стране [[:$1|$1]].'''",
 	'revreview-toggle-title'       => 'прикажи/сакриј детаље',
 	'revreview-update-includes'    => "'''Неки шаблони и/или слике су обновљени:'''",
 	'revreview-diffonly'           => "''Та преглед стране кликни на линк \"тренутна верзија\" и користи форму за преглед.''",

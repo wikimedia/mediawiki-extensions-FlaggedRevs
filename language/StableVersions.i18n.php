@@ -587,10 +587,15 @@ $messages['sk'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
+ * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'stableversions'      => 'Стабилне верзије',
-	'stableversions-page' => 'Име странице:',
+	'stableversions'        => 'Погледај стабилне верзије',
+	'stableversions-leg1'   => 'Списак прегледаних верзија за страну.',
+	'stableversions-page'   => 'Име странице:',
+	'stableversions-none'   => '"[[:$1]]" нема прегледаних верзија.',
+	'stableversions-list'   => 'Испод се налази списак прегледаних верзија стране [[:$1]].',
+	'stableversions-review' => 'Прегледано на <i>$1</i> од стране сарадника $2.',
 );
 
 /** Seeltersk (Seeltersk)

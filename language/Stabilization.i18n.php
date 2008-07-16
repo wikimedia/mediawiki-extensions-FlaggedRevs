@@ -102,6 +102,7 @@ No ye posible confegurar-la.',
 /** Arabic (العربية)
  * @author Meno25
  * @author Siebrand
+ * @author Alnokta
  */
 $messages['ar'] = array(
 	'stabilization-tab'         => '(تج)',
@@ -132,7 +133,7 @@ $messages['ar'] = array(
 	'stabilization-def-short-1' => 'مستقر',
 	'stabilize_expiry_invalid'  => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old'      => 'تاريخ الانتهاء هذا مر بالفعل.',
-	'stabilize-expiring'        => 'تنتهي في $1 (UTC)',
+	'stabilize-expiring'        => 'تنتهي في $1 (ت‌ع‌م)',
 );
 
 /** Asturian (Asturianu)
@@ -1922,43 +1923,6 @@ $messages['yue'] = array(
 	'stabilize_expiry_invalid' => '無效嘅到期日。',
 	'stabilize_expiry_old' => '到期日已經過咗。',
 	'stabilize-expiring' => '於 $1 (UTC) 到期',
-);
-
-/** Traditional Chinese (‪中文(简体)‬)
- * @author Shinjiman
- */
-$messages['zh-hant'] = array(
-	'stabilization-tab' => '调查',
-	'stabilization' => '稳定页面',
-	'stabilization-text' => "'''更改以下的设置去调节所选择的[[:$1|$1]]之稳定版本如何显示。'''",
-	'stabilization-perm' => '您的账户并没有权限去更改稳定版本设置。
-呢度有现时[[:$1|$1]]的设置:',
-	'stabilization-page' => '页面名称:',
-	'stabilization-leg' => '确认稳定版本的设置',
-	'stabilization-select' => '稳定版本选择',
-	'stabilization-select1' => '最近有质素的修订；如果未有，则是最近视察过的',
-	'stabilization-select2' => '最近复审过的修订',
-	'stabilization-select3' => '最近原始的修订；如果未有，则是最近有质素或视察过的',
-	'stabilization-def' => '在预设页视的修订显示',
-	'stabilization-def1' => '稳定修订；如果未有，则是现时的',
-	'stabilization-def2' => '现时的修订',
-	'stabilization-submit' => '确认',
-	'stabilization-notexists' => '这里是没有一页面名叫"[[:$1|$1]]"。
-没有设置可以更改。',
-	'stabilization-notcontent' => '该页面"[[:$1|$1]]"不可以复审。
-没有设置可以更改。',
-	'stabilization-comment' => '注解:',
-	'stabilization-expiry' => '到期:',
-	'stabilization-sel-short' => '优先',
-	'stabilization-sel-short-0' => '质素',
-	'stabilization-sel-short-1' => '无',
-	'stabilization-sel-short-2' => '原始',
-	'stabilization-def-short' => '预设',
-	'stabilization-def-short-0' => '现时',
-	'stabilization-def-short-1' => '稳定',
-	'stabilize_expiry_invalid' => '无效的到期日。',
-	'stabilize_expiry_old' => '到期日已过。',
-	'stabilize-expiring' => '于 $1 (UTC) 到期',
 );
 
 

@@ -291,6 +291,7 @@ $messages['sr-ec'] = array(
 	'stablepages-stable' => 'Стабилна верзија',
 	'stablepages-text'   => 'Испод се налази списак страна ручно подешених за приказ стабилне верзије као подразумеване стране за читаче садржаја.',
 	'stablepages-none'   => 'Не постоје стране у списку.',
+	'stablepages-config' => 'Подешавање',
 );
 
 /** Swedish (Svenska)

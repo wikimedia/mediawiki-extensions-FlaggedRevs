@@ -699,10 +699,17 @@ $messages['sk'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
+ * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'unreviewed-category' => 'Категорија:',
-	'unreviewed-diff'     => 'Измене',
+	'right-unreviewedpages' => 'Види списак непрегледаних страна.',
+	'unreviewedpages'       => 'Непрегледане стране.',
+	'unreviewed-legend'     => 'Списак непрегледаних садржајних страна.',
+	'unreviewed-category'   => 'Категорија:',
+	'unreviewed-diff'       => 'преглед',
+	'unreviewed-unwatched'  => '(ненадзирано)',
+	'unreviewed-list'       => 'На овој страни се налази списак чланака који нису прегледани.',
+	'unreviewed-none'       => 'Не постоји ниједна страна која се поклапа са овим критеријима.',
 );
 
 /** Seeltersk (Seeltersk)
