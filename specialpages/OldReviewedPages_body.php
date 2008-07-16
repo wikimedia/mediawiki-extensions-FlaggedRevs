@@ -62,7 +62,7 @@ class OldReviewedPages extends SpecialPage
 			$stxt = " <small>$stxt</small>";
 		}
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
-				"diff=cur&oldid={$result->fp_stable}" );
+				"diff=cur&oldid={$result->fp_stable}&diffonly=0" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		# Is anybody watching?
 		$uw = UnreviewedPages::usersWatching( $title );
