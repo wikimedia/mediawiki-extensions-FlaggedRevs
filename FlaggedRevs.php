@@ -371,8 +371,10 @@ $wgLogTypes[] = 'review';
 $wgLogNames['review'] = 'review-logpage';
 $wgLogHeaders['review'] = 'review-logpagetext';
 # Various actions are used for log filtering ...
-$wgLogActions['review/approve']  = 'review-logentry-app'; // sighted
-$wgLogActions['review/approve2']  = 'review-logentry-app'; // quality
+$wgLogActions['review/approve']  = 'review-logentry-app'; // sighted (again)
+$wgLogActions['review/approve2']  = 'review-logentry-app'; // quality (again)
+$wgLogActions['review/approve-i']  = 'review-logentry-app'; // sighted (first time)
+$wgLogActions['review/approve2-i']  = 'review-logentry-app'; // quality (first time)
 $wgLogActions['review/approve-a']  = 'review-logentry-app'; // sighted (auto)
 $wgLogActions['review/approve2-a']  = 'review-logentry-app'; // quality (auto)
 $wgLogActions['review/unapprove'] = 'review-logentry-dis'; // was sighted

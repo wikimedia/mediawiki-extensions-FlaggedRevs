@@ -31,10 +31,9 @@ class ReviewedPages extends SpecialPage
 		$form .= "<fieldset><legend>".wfMsg('reviewedpages-leg')."</legend>\n";
 		
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . 
-				FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
+			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 		}
-		$form .= FlaggedRevsXML::getLevelMenu( $this->type );
+		$form .= self::getLevelMenu( $this->type );
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
@@ -78,6 +77,21 @@ class ReviewedPages extends SpecialPage
 			'stableid=best' );
 
 		return "<li>$link $stxt ($list) [$best]</li>";
+	}
+	
+	/**
+	* Get a selector of review levels
+	* @param int $selected, selected level
+	*/
+	public static function getLevelMenu( $selected=null ) {
+		$form = Xml::openElement( 'select', array('name' => 'level') );
+		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $selected==0 );
+		if( FlaggedRevs::qualityVersions() )
+			$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $selected==1 );
+		if( FlaggedRevs::pristineVersions() )
+			$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $selected==2 );
+		$form .= Xml::closeElement('select')."\n";
+		return $form;
 	}
 }
 

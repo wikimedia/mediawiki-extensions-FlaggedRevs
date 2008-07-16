@@ -778,7 +778,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param array $oldDims
 	 * @param string $comment
 	 * @param int $revId, revision ID
-	 * @param int $sId, prior stable revision ID
+	 * @param int $stableId, prior stable revision ID
 	 * @param bool $approve, approved? (otherwise unapproved)
 	 * @param bool $auto
 	 */
@@ -788,7 +788,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dims as $quality => $level ) {
-			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . wfMsgForContent("revreview-$quality-$level");
+			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . 
+				wfMsgForContent("revreview-$quality-$level");
 		}
 		# Append comment with ratings
 		if( $approve ) {
@@ -797,10 +798,15 @@ class RevisionReview extends UnlistedSpecialPage
 			$comment .= $comment ? " $rating" : $rating;
 		}
 		# Sort into the proper action (useful for filtering)
-		if( $approve ) {
-			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 'approve2' : 'approve';
-			$action .= $auto ? "-a" : "";
-		} else {
+		if( $approve ) { // approved
+			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 
+				'approve2' : 'approve';
+			if( !$stableId ) { // first time
+				$action .= "-i";
+			} else if( $auto ) { // automatic
+				$action .= "-a";
+			}
+		} else { // depreciated
 			$action = FlaggedRevs::isQuality($oldDims) ? 'unapprove2' : 'unapprove';
 		}
 		$log->addEntry( $action, $title, $comment, array($revId,$stableId) );

@@ -30,8 +30,7 @@ class UnreviewedPages extends SpecialPage
 			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) . '<p>' );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
-				FlaggedRevsXML::getNamespaceMenu( $namespace ) ) . '&nbsp;';
+			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
 		$wgOut->addHTML( Xml::label( wfMsg("unreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .

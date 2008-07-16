@@ -31,8 +31,7 @@ class OldReviewedPages extends SpecialPage
 			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) );
 
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$wgOut->addHTML( Xml::label( wfMsg("namespace"), 'namespace' ) . 
-				FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
+			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
 		$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) .
 			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .

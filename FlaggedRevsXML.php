@@ -7,8 +7,7 @@ class FlaggedRevsXML {
 	*/
 	public static function getNamespaceMenu( $selected=null ) {
 		global $wgContLang, $wgFlaggedRevsNamespaces;
-
-		$selector = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
+		$s = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
 		if( $selected !== '' ) {
 			if( is_null( $selected ) ) {
 				# No namespace selected; let exact match work without hitting Main
@@ -18,16 +17,14 @@ class FlaggedRevsXML {
 				$selected = intval($selected);
 			}
 		}
-		$s = "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
+		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = $wgContLang->getFormattedNamespaces();
-
 		foreach( $arr as $index => $name ) {
 			# Content only
-			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) )
+			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) ) {
 				continue;
-
+			}
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
-
 			if( $index === $selected ) {
 				$s .= "\t" . Xml::element("option", array("value" => $index, "selected" => "selected"), $name) . "\n";
 			} else {
@@ -43,14 +40,41 @@ class FlaggedRevsXML {
 	* @param int $selected, selected level
 	*/
 	public static function getLevelMenu( $selected=null ) {
-		$form = Xml::openElement( 'select', array('name' => 'level') );
-		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $selected==0 );
+		$s = Xml::openElement( 'select', array('name' => 'level') );
+		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
-			$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $selected==1 );
-		if( FlaggedRevs::pristineVersions() )
-			$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $selected==2 );
-		$form .= Xml::closeElement('select')."\n";
-		return $form;
+			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), 1, $selected===1 );
+		$s .= Xml::closeElement('select')."\n";
+		return $s;
+	}
+	
+   	/**
+	* Get a selector of "approved"/"unapproved"
+	* @param int $selected, selected level
+	*/
+	public static function getStatusFilterMenu( $selected=null ) {
+		$s  = "<label for='status'>" . wfMsgHtml('revreview-statusfilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'status') );
+		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
+		$s .= Xml::option( wfMsg( "revreview-filter-approved" ), 1, $selected===1 );
+		$s .= Xml::option( wfMsg( "revreview-filter-reapproved" ), 2, $selected===2 );
+		$s .= Xml::option( wfMsg( "revreview-filter-unapproved" ), 3, $selected===3 );
+		$s .= Xml::closeElement('select')."\n";
+		return $s;
+	}
+	
+   	/**
+	* Get a selector of "auto"/"manual"
+	* @param int $selected, selected level
+	*/
+	public static function getAutoFilterMenu( $selected=null ) {
+		$s  = "<label for='approved'>" . wfMsgHtml('revreview-typefilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'automatic') );
+		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
+		$s .= Xml::option( wfMsg( "revreview-filter-manual" ), 0, $selected===0 );
+		$s .= Xml::option( wfMsg( "revreview-filter-auto" ), 1, $selected===1 );
+		$s .= Xml::closeElement('select')."\n";
+		return $s;
 	}
 	
 	/**
