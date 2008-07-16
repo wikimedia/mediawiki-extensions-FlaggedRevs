@@ -791,19 +791,17 @@ class RevisionReview extends UnlistedSpecialPage
 			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . 
 				wfMsgForContent("revreview-$quality-$level");
 		}
-		# Append comment with ratings
+		$isAuto = ($auto && !FlaggedRevs::isQuality($dims)); // Paranoid check
 		if( $approve ) {
-			$comment = $auto ? wfMsgForContent('revreview-auto') : $comment; // override this
+			# Append comment with ratings
+			$comment = $isAuto ? wfMsgForContent('revreview-auto') : $comment; // override this
 			$rating = !empty($ratings) ? '[' . implode(', ',$ratings). ']' : '';
 			$comment .= $comment ? " $rating" : $rating;
-		}
-		# Sort into the proper action (useful for filtering)
-		if( $approve ) { // approved
-			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 
-				'approve2' : 'approve';
+			# Sort into the proper action (useful for filtering)
+			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 'approve2' : 'approve';
 			if( !$stableId ) { // first time
-				$action .= "-i";
-			} else if( $auto ) { // automatic
+				$action .= $isAuto ? "-ia" : "-i";
+			} else if( $isAuto ) { // automatic
 				$action .= "-a";
 			}
 		} else { // depreciated

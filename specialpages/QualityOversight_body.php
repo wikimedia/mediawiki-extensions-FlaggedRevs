@@ -71,28 +71,28 @@ class QualityOversight extends SpecialPage
 	* @returns array
 	*/
 	private function getActions() {
-		$actions = array('approve' => 1,'approve2' => 1,'approve-a' => 1,'approve2-a' => 1,
-			'approve-i' => 1,'approve2-i' => 1,'unapprove' => 1,'unapprove2' => 1);
+		$actions = array( 'approve' => 1,'approve2' => 1,'approve-a' => 1,'approve-i' => 1,
+			'approve-ia' => 1,'approve2-i' => 1,'unapprove' => 1,'unapprove2' => 1 );
 		if( $this->level === 0 ) { // sighted revisions
 			$actions['approve2'] = 0;
-			$actions['approve2-a'] = 0;
 			$actions['approve2-i'] = 0;
 			$actions['unapprove2'] = 0;
 		} else if( $this->level === 1 ) { // quality revisions
 			$actions['approve'] = 0;
 			$actions['approve-a'] = 0;
 			$actions['approve-i'] = 0;
+			$actions['approve-ia'] = 0;
 			$actions['unapprove'] = 0;
 		}
 		if( $this->status === 1 ) { // approved first time
 			$actions['approve'] = 0;
 			$actions['approve-a'] = 0;
 			$actions['approve2'] = 0;
-			$actions['approve2-a'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
 		} else if( $this->status === 2 ) { // re-approved
 			$actions['approve-i'] = 0;
+			$actions['approve-ia'] = 0;
 			$actions['approve2-i'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
@@ -100,13 +100,13 @@ class QualityOversight extends SpecialPage
 			$actions['approve'] = 0;
 			$actions['approve-a'] = 0;
 			$actions['approve-i'] = 0;
+			$actions['approve-ia'] = 0;
 			$actions['approve2'] = 0;
-			$actions['approve2-a'] = 0;
 			$actions['approve2-i'] = 0;
 		}
 		if( $this->automatic === 0 ) { // manual review
 			$actions['approve-a'] = 0;
-			$actions['approve2-a'] = 0;
+			$actions['approve-ia'] = 0;
 		} else if( $this->automatic === 1 ) { // auto-reviewed
 			$actions['approve'] = 0;
 			$actions['approve-i'] = 0;
