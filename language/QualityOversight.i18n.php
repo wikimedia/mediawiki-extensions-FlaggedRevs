@@ -25,8 +25,9 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'qualityoversight'      => 'نظر الجودة',
-	'qualityoversight-list' => 'هذه الصفحة تعرض الموافقات الحديثة لنسخ الجودة وأيضا إزالة نسخ الجودة.',
+	'qualityoversight'        => 'نظر الجودة',
+	'qualityoversight-list'   => 'هذه الصفحة تعرض عمليات الموافقة والإزالة الحديثة للمراجعات.',
+	'qualityoversight-legend' => 'ابحث في سجلات المراجعة الحديثة',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -69,16 +70,18 @@ $messages['fa'] = array(
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'qualityoversight'      => 'Supervision de qualité',
-	'qualityoversight-list' => 'Cette page liste les approbations récentes (de même que les dépréciations) de versions de qualité.',
+	'qualityoversight'        => 'Supervision de qualité',
+	'qualityoversight-list'   => 'Cette page liste les approbations récentes et les dépréciations des versions.',
+	'qualityoversight-legend' => 'Rechercher les journaux des révisions récentes',
 );
 
 /** Galician (Galego)
  * @author Toliño
  */
 $messages['gl'] = array(
-	'qualityoversight'      => 'Revisión de calidade',
-	'qualityoversight-list' => 'Esta páxina lista as aprobacións recentes das revisións de calidade así como os desprezos das revisións de calidade.',
+	'qualityoversight'        => 'Revisión de calidade',
+	'qualityoversight-list'   => 'Esta páxina lista as aprobacións máis recentes así como os desprezos das revisións.',
+	'qualityoversight-legend' => 'Procurar rexistros de revisión recentes',
 );
 
 /** Hindi (हिन्दी)
@@ -93,8 +96,9 @@ $messages['hi'] = array(
  * @author Rex
  */
 $messages['id'] = array(
-	'qualityoversight'      => 'Pemeriksaan kelayakan',
-	'qualityoversight-list' => 'Halaman ini berisikan daftar persetujuan terbaru atas revisi yang layak, serta daftar penurunan tingkat kelayakan.',
+	'qualityoversight'        => 'Pemeriksaan kelayakan',
+	'qualityoversight-list'   => 'Berikut adalah daftar persetujuan dan penurunan tingkat kualitas revisi-revisi.',
+	'qualityoversight-legend' => 'Cari log peninjauan terkini',
 );
 
 /** Marathi (मराठी)
@@ -107,18 +111,21 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Putera Luqman Tunku Andre
  */
 $messages['ms'] = array(
-	'qualityoversight'      => 'Kawalan mutu',
-	'qualityoversight-list' => 'Berikut ialah senarai terkini pengesahan dan pengguguran semakan bermutu.',
+	'qualityoversight'        => 'Kawalan mutu',
+	'qualityoversight-list'   => 'Berikut ialah senarai terkini pengesahan dan pengguguran semakan terbaik.',
+	'qualityoversight-legend' => 'Gelintar log pemeriksaan terkini',
 );
 
 /** Dutch (Nederlands)
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'qualityoversight'      => 'Kwaliteitscontrole',
-	'qualityoversight-list' => "Op deze pagina's worden recent gecontroleerde kwaliteitsversies weergegeven en pagina's waarvoor de kwaliteit lager is ingesteld.",
+	'qualityoversight'        => 'Kwaliteitscontrole',
+	'qualityoversight-list'   => "Op deze pagina's worden recent gecontroleerde kwaliteitsversies weergegeven en pagina's waarvoor de kwaliteit lager is ingesteld.",
+	'qualityoversight-legend' => 'Recente eindredactielogboeken bekijken',
 );
 
 /** Occitan (Occitan)
@@ -133,8 +140,9 @@ $messages['oc'] = array(
  * @author 555
  */
 $messages['pt'] = array(
-	'qualityoversight'      => 'Observatório da qualidade',
-	'qualityoversight-list' => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
+	'qualityoversight'        => 'Observatório da qualidade',
+	'qualityoversight-list'   => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
+	'qualityoversight-legend' => 'Pesquisar nos registos de análises recentes',
 );
 
 /** Russian (Русский)
@@ -163,10 +171,12 @@ $messages['sr-ec'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
+ * @author Boivie
  */
 $messages['sv'] = array(
-	'qualityoversight'      => 'Översikt över kvaliteten',
-	'qualityoversight-list' => 'Den här sidan visar de senaste godkänningarna av kvalitetsversioner men också avskrivningar av kvalitetsversioner.',
+	'qualityoversight'        => 'Översikt över kvaliteten',
+	'qualityoversight-list'   => 'Denna sida listar de senaste godkännandena och avskrivandena av versioner.',
+	'qualityoversight-legend' => 'Sök loggar för senaste granskningar',
 );
 
 /** Vèneto (Vèneto)

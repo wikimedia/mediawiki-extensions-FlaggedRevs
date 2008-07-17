@@ -993,6 +993,13 @@ $messages['km'] = array(
 	'stabilize-expiring'        => 'ផុតកំនត់ម៉ោង $1 (UTC)',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'stabilization-def-short-0' => 'Von jetz',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  */
