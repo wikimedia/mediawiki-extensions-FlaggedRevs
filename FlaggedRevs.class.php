@@ -1092,6 +1092,7 @@ EOT;
 		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
 		$spPages[] = SpecialPage::getTitleFor( 'Watchlist' );
 		$spPages[] = SpecialPage::getTitleFor( 'Recentchanges' );
+		$spPages[] = SpecialPage::getTitleFor( 'Contributions' );
 		foreach( $spPages as $n => $title ) {
 			if( $wgTitle->equals( $title ) ) {
 				self::InjectStyle();
@@ -2041,12 +2042,27 @@ EOT;
 		return true;
 	}
 	
+	public static function addToContribsQuery( $pager, &$queryInfo ) {
+		$queryInfo['tables'][] = 'flaggedrevs';
+		$queryInfo['fields'][] = 'fr_quality';
+		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = rev_page AND fr_rev_id = rev_id" );
+		return true;
+	}
+	
 	public static function addToHistLine( $history, $row, &$s ) {
 		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
 	}
 	
 	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
 		return FlaggedArticle::getInstance( $hist->getImagePage() )->addToFileHistLine( $hist, $file, $s, $rowClass );
+	}
+	
+	public static function addToContribsLine( $contribs, &$ret, $row ) {
+		if( isset($row->fr_quality) ) {
+			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+			$ret = "<span class='$css'>{$ret}</span>";
+		}
+		return true;
 	}
 	
 	public static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {

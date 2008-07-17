@@ -329,11 +329,14 @@ $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::addToEditView';
 # Add review form and visiblity settings link
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::onBeforePageDisplay';
-# Mark of items in page history
+# Mark items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevs::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevs::addToHistLine';
 $wgHooks['LocalFile::getHistory'][] = 'FlaggedRevs::addToFileHistQuery';
 $wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevs::addToFileHistLine';
+# Mark items in user contribs
+$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevs::addToContribsQuery';
+$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevs::addToContribsLine';
 # Page review on edit
 $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevs::injectReviewDiffURLParams';
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevs::onDiffViewHeader';
