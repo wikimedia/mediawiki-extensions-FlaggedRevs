@@ -23,11 +23,9 @@ class StablePages extends SpecialPage
 		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
 
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$form = Xml::openElement( 'form',
-				array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
+			$form = Xml::openElement( 'form', array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('stablepages')."</legend>\n";
-			$form .= Xml::label( wfMsg("namespace"), 'namespace' ) . 
-				FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
+			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
 			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 			$form .= "</fieldset></form>\n";
