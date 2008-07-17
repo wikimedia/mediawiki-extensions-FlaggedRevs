@@ -1084,9 +1084,6 @@ EOT;
 	*/
 	public static function InjectStyleForSpecial() {
 		global $wgTitle, $wgOut, $wgUser;
-		if( !$wgUser->isAllowed('review') ) {
-			return true; // nothing to do here
-		}
 		$spPages = array();
 		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
 		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );

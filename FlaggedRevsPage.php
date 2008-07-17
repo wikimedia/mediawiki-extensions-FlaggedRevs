@@ -135,7 +135,7 @@ class RevisionReview extends UnlistedSpecialPage
 		if( empty($wgReviewCodes) ) {
 			global $wgSecretKey, $wgProxyKey;
 			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
-			$p = md5($key.$uid.$imgP.$tmpP.$rid.$imgV);
+			$p = md5($key.$imgP.$tmpP.$rid.$imgV);
 		} else {
 			$p = md5($wgReviewCodes[0].$imgP.$rid.$tmpP.$imgV.$wgReviewCodes[1]);
 		}
