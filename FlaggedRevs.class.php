@@ -1333,16 +1333,6 @@ EOT;
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
-				// B/C, may be stored in associated image version metadata table
-				if( !$time || !$sha1 ) {
-					$row = $dbr->selectRow( 'flaggedimages',
-						array( 'fi_img_timestamp', 'fi_img_sha1' ),
-						array( 'fi_rev_id' => $srev->getRevId(),
-							'fi_name' => $title->getDBkey() ),
-						__METHOD__ );
-					$time = $row ? $row->fi_img_timestamp : $time;
-					$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-				}
 			}
 		}
 		# Check cache before doing another DB hit...
@@ -1408,16 +1398,6 @@ EOT;
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
-				// B/C, may be stored in associated image version metadata table
-				if( !$time || !$sha1 ) {
-					$row = $dbr->selectRow( 'flaggedimages',
-						array( 'fi_img_timestamp', 'fi_img_sha1' ),
-						array( 'fi_rev_id' => $srev->getRevId(),
-							'fi_name' => $nt->getDBkey() ),
-						__METHOD__ );
-					$time = $row ? $row->fi_img_timestamp : $time;
-					$sha1 = $row ? $row->fi_img_sha1 : $sha1;
-				}
 			}
 		}
 		# Check cache before doing another DB hit...
