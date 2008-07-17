@@ -9,7 +9,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'qualityoversight' => 'Quality oversight',
-	'qualityoversight-list' => 'This page lists recent approvals of quality revisions as well as depreciations of quality revisions.',
+	'qualityoversight-list' => 'This page lists the most recent approvals and depreciations of revisions.',
 	'qualityoversight-legend' => 'Search recent review logs',
 );
 
