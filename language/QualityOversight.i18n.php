@@ -34,8 +34,9 @@ $messages['ar'] = array(
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'qualityoversight'      => 'کیفیت بازرویت',
-	'qualityoversight-list' => 'ای صفحه نوکین تاییدات کیفیت بازبینی ان و نسخ کیفیت بازبینی ان لیست کنت.',
+	'qualityoversight'        => 'کیفیت بازرویت',
+	'qualityoversight-list'   => 'ای صفحه نوکین تاییدات کیفیت بازبینی ان و نسخ کیفیت بازبینی ان لیست کنت.',
+	'qualityoversight-legend' => 'گردگ په آماران نوکین بازبینی',
 );
 
 /** Bulgarian (Български)
@@ -157,8 +158,9 @@ $messages['ru'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'qualityoversight'      => 'kvalitný dozor',
-	'qualityoversight-list' => 'Táto stránka obsahuje zoznam všetkých posledných schválení kvalitných verzií ako aj znehodnotenia kvalitných revízií.',
+	'qualityoversight'        => 'kvalitný dozor',
+	'qualityoversight-list'   => 'Táto stránka obsahuje zoznam všetkých posledných schválení kvalitných verzií ako aj znehodnotenia kvalitných revízií.',
+	'qualityoversight-legend' => 'Hľadať v posledných záznamoch kontrol',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
