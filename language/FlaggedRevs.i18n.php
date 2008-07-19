@@ -1760,9 +1760,9 @@ $messages['fa'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش‌نویس] دارای [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییراتی در الگوها/تصویرها] است که هنوز بازبینی نشده‌اند.',
 	'revreview-basic-old'          => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی شده]] است([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} نمایش همه])، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است].
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات] جدیدی اتفاق افتاده باشند.',
-	'revreview-basic-same'         => 'این آخرین نسخهٔ [{{MediaWiki:Validationpage}}|بررسی شده]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است]. این صفحه قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تغییر] است.',
+	'revreview-basic-same'         => 'این آخرین نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی شده]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} فهرست کامل]).',
 	'revreview-basic-source'       => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی شده] از این صفحه، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
-	'revreview-changed'            => "'''عمل درخواست شده را نمی‌توان روی این نسخه از صفحه انجام داد.'''
+	'revreview-changed'            => "'''عمل درخواست شده را نمی‌توان روی این نسخه از [[:$1|$1]] انجام داد.'''
 
 یک تصویر یا الگو درخواست شده بدون ان که نسخه خاصی تعیین شده باشد. این اتفاق می‌تواند زمانی رخ دهد که یک الگوی پویا یک الگو یا تصویر دیگر را شامل شود که به متغیری بستگی دارد که از زمانی که شما صفحه را تغییر داده‌اید تغییر کرده‌است.
 بارگذاری دوباره صحفه و بررسی دوباره می‌تواند مشکل را برطرف کند.",
@@ -1810,7 +1810,7 @@ $messages['fa'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش‌نویس] دارای [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییراتی در الگوها/تصویرها] است که هنوز بازبینی نشده‌اند.',
 	'revreview-quality-old'        => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|باکیفیت]] است([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} نمایش همه])، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است].
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات] جدیدی اتفاق افتاده باشند.',
-	'revreview-quality-same'       => 'این آخرین نسخهٔ [{{MediaWiki:Validationpage}}|با کیفیت]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است]. این صفحه قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} تغییر] است.',
+	'revreview-quality-same'       => 'این آخرین نسخهٔ [[{{MediaWiki:Validationpage}}|با کیفیت]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} فهرست کامل]).',
 	'revreview-quality-source'     => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ باکیفیت] از این صفحه، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
 	'revreview-quality-title'      => 'مقالهٔ با کیفیت',
 	'revreview-quick-basic'        => "'''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهده نسخه فعلی]]",
@@ -1821,14 +1821,14 @@ $messages['fa'] = array(
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|با کیفیت]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهده نسخه فعلی]]",
 	'revreview-quick-quality-old'  => "'''[[{{MediaWiki:Validationpage}}|مقالهٔ با کیفیت]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهدهٔ پیش‌نویس]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|با کیفیت]]''' (فاقد تغییرهای بررسی نشده)",
-	'revreview-quick-see-basic'    => "'''فعلی'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهده نسخه پایدار]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|تغییر|تغییر}}])",
-	'revreview-quick-see-quality'  => "'''فعلی'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهده نسخه پایدار]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|تغییر|تغییر}}])",
+	'revreview-quick-see-basic'    => "'''پیش‌نویس'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهدهٔ نسخهٔ پایدار]]
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقایسه])",
+	'revreview-quick-see-quality'  => "'''پیش‌نویس'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} مشاهدهٔ نسخهٔ پایدار]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقایسه])",
 	'revreview-selected'           => "نسخه انتخابی '''$1:'''",
 	'revreview-source'             => 'منبع پیش‌نویس',
 	'revreview-stable'             => 'صفحهٔ پایدار',
 	'revreview-stable-title'       => 'مقالهٔ بررسی شده',
-	'revreview-stable1'            => 'شما می توانید {{fullurl:$1|stableid=$2}} این نسخهٔ علامت‌دار] را مشاهده کنید تا ببینید آیا [{{fullurl:$1|stable=1}} نسخهٔ پایدار] این صفحه است یا نه.',
+	'revreview-stable1'            => 'شما می توانید [{{fullurl:$1|stableid=$2}} این نسخهٔ علامت‌دار] را مشاهده کنید تا ببینید آیا [{{fullurl:$1|stable=1}} نسخهٔ پایدار] این صفحه است یا نه.',
 	'revreview-stable2'            => 'شما می‌توانید [{{fullurl:$1|stable=1}} نسخهٔ پایدار] این صفحه را (در صورت وجود) مشاهده کنید.',
 	'revreview-style'              => 'خوانایی',
 	'revreview-style-0'            => 'تائیدنشده',
@@ -1867,8 +1867,8 @@ $messages['fa'] = array(
 	'stable-logpagetext'           => 'این سیاهه‌ای از تنظیمات [[{{MediaWiki:Validationpage}}|نسخه پایدار]] صفحه‌ها است.
 فهرستی از صفحه‌های پایدار شده را در [[Special:StablePages|فهرست صفحه‌های پایدار]] پیدا کنید.',
 	'tooltip-ca-current'           => 'مشاهده پیش‌نویس فعلی این صفحه',
-	'tooltip-ca-default'           => 'تنظیمات کنترل کیفیت',
 	'tooltip-ca-stable'            => 'مشاهده نسخه پایدار این صفحه',
+	'tooltip-ca-default'           => 'تنظیمات کنترل کیفیت',
 	'validationpage'               => '{{ns:help}}:تایید اعتبار مقاله‌ها',
 );
 
