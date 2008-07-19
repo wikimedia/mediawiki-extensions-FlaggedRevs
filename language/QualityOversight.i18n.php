@@ -17,8 +17,9 @@ $messages['en'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'qualityoversight'      => 'Superbisión de calidat',
-	'qualityoversight-list' => "Ista pachina amuestra as zagueras rebisions de calidat y as depreziazions d'as rebisions de calidat aprebatas.",
+	'qualityoversight'        => 'Superbisión de calidat',
+	'qualityoversight-list'   => "Ista pachina amuestra as zagueras aprebazions y depreziazions d'as rebisions.",
+	'qualityoversight-legend' => "Mirar en os rechistros d'as zagueras rebisions",
 );
 
 /** Arabic (العربية)
@@ -150,8 +151,9 @@ $messages['pt'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'qualityoversight'      => 'Ревизор качества',
-	'qualityoversight-list' => 'Эта страница содержит список недавних утверждений и снятий уровней качества версий.',
+	'qualityoversight'        => 'Ревизор качества',
+	'qualityoversight-list'   => 'Эта страница содержит список недавних утверждений и снятий уровней качества версий.',
+	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
 
 /** Slovak (Slovenčina)
@@ -191,6 +193,7 @@ $messages['vec'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
+ * @author Minh Nguyen
  */
 $messages['vi'] = array(
 	'qualityoversight'      => 'Giám sát chất lượng',

@@ -824,6 +824,13 @@ $messages['is'] = array(
 	'stabilization-sel-short-0' => 'Gæði',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'stabilization-def-short-1' => 'Stabile',
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  * @author Siebrand

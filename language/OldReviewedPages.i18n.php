@@ -27,7 +27,8 @@ $messages['en'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
-	'oldreviewed-category' => 'Kategorie:',
+	'oldreviewedpages-recent' => '(minder as een uur)',
+	'oldreviewed-category'    => 'Kategorie:',
 );
 
 /** Aragonese (Aragonés)
