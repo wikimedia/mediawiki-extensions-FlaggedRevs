@@ -793,13 +793,15 @@ class FlaggedArticle extends Article {
 			}
 	   	}
 		# Add rating tab
-		wfLoadExtensionMessages( 'RatingHistory' );
-		$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
-		$newActions['ratinghist'] = array(
-			'class' => false,
-			'text' => wfMsg('ratinghistory-tab'),
-			'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
-		);
+		if( $wgUser->isAllowed( 'feedback' ) ) {
+			wfLoadExtensionMessages( 'RatingHistory' );
+			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
+			$newActions['ratinghist'] = array(
+				'class' => false,
+				'text' => wfMsg('ratinghistory-tab'),
+				'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
+			);
+		}
 	   	# Reset static array
 	   	$contentActions = $newActions;
 		return true;
