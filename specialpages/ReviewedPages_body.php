@@ -96,7 +96,7 @@ class ReviewedPages extends SpecialPage
 }
 
 /**
- * Query to list out stable versions for a page
+ * Query to list out reviewed pages
  */
 class ReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $type;
