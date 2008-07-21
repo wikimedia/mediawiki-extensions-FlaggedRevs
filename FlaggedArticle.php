@@ -711,6 +711,16 @@ class FlaggedArticle extends Article {
 			return true;
 		$article = new Article( $title );
 		$action = $wgRequest->getVal( 'action', 'view' );
+		# Add rating tab
+		if( $wgUser->isAllowed( 'feedback' ) ) {
+			wfLoadExtensionMessages( 'RatingHistory' );
+			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
+			$contentActions['ratinghist'] = array(
+				'class' => false,
+				'text' => wfMsg('ratinghistory-tab'),
+				'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
+			);
+		}
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
 	   	$srev = $this->getStableRev( true );
@@ -792,16 +802,6 @@ class FlaggedArticle extends Article {
 				$newActions[$tabAction] = $data;
 			}
 	   	}
-		# Add rating tab
-		if( $wgUser->isAllowed( 'feedback' ) ) {
-			wfLoadExtensionMessages( 'RatingHistory' );
-			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
-			$newActions['ratinghist'] = array(
-				'class' => false,
-				'text' => wfMsg('ratinghistory-tab'),
-				'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
-			);
-		}
 	   	# Reset static array
 	   	$contentActions = $newActions;
 		return true;
