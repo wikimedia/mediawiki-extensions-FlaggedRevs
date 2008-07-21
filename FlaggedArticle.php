@@ -613,19 +613,37 @@ class FlaggedArticle extends Article {
 	 * Add review form to pages when necessary
 	 */
 	public function addReviewForm( $out ) {
-		global $wgRequest;
-
+		global $wgRequest, $wgUser;
 		if( !$this->parent->exists() || !$this->isReviewable() ) {
 			return true;
 		}
-		# Check if page is protected
+		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan( 'edit' ) ) {
 			return true;
 		}
-		# Add review form
-		$this->addQuickReview( $out, (bool)$wgRequest->getVal('diff') );
+		# User must have review rights
+		if( $wgUser->isAllowed( 'review' ) ) {
+			$this->addQuickReview( $out, (bool)$wgRequest->getVal('diff') );
+		}
+		return true;
+	}
+	
 
+	 /**
+	 * Add feedback form to pages when necessary
+	 */
+	public function addFeedbackForm( $out ) {
+		global $wgRequest, $wgUser;
+		# Check action and if page is protected
+		$action = $wgRequest->getVal( 'action', 'view' );
+		if( ($action !='view' && $action !='purge') ) {
+			return true;
+		}
+		# User must not have review rights
+		if( $wgUser->isAllowed( 'feedback' ) && !$wgUser->isAllowed( 'review' ) ) {
+			$this->addQuickFeedback( $out );
+		}
 		return true;
 	}
 	
@@ -774,6 +792,14 @@ class FlaggedArticle extends Article {
 				$newActions[$tabAction] = $data;
 			}
 	   	}
+		# Add rating tab
+		wfLoadExtensionMessages( 'RatingHistory' );
+		$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
+		$newActions['ratinghist'] = array(
+			'class' => false,
+			'text' => wfMsg('ratinghistory-tab'),
+			'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
+		);
 	   	# Reset static array
 	   	$contentActions = $newActions;
 		return true;
@@ -1209,10 +1235,6 @@ class FlaggedArticle extends Article {
 	 */
 	public function addQuickReview( $out, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOverride;
-		# User must have review rights
-		if( !$wgUser->isAllowed( 'review' ) ) {
-			return;
-		}
 		# Revision being displayed
 		$id = $out->mRevisionId;
 		# Must be a valid non-printable output
@@ -1284,7 +1306,7 @@ class FlaggedArticle extends Article {
 			}
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
-			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b> ";
+			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b>&nbsp;";
 			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
@@ -1355,9 +1377,8 @@ class FlaggedArticle extends Article {
 			$form .= "<span id='mw-commentbox' style='clear:both'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-		$form .= Xml::submitButton( 
-			wfMsg('revreview-submit'), array('id' => 'submitreview',
-			'class' => 'fr-comment-box','accesskey' => wfMsg('revreview-ak-review'), 
+		$form .= Xml::submitButton( wfMsg('revreview-submit'), 
+			array('id' => 'submitreview','accesskey' => wfMsg('revreview-ak-review'), 
 			'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']' )+$toggle 
 		);
 		$form .= Xml::closeElement( 'span' );
@@ -1383,6 +1404,61 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 
+		if( $top ) {
+			$out->mBodytext = $form . $out->mBodytext;
+		} else {
+			$wgOut->addHTML( $form );
+		}
+		return true;
+	}
+	
+	 /**
+	 * Adds a brief feedback form to a page.
+	 * @param OutputPage $out
+	 * @param Title $title
+	 * @param bool $top, should this form always go on top?
+	 */
+	public function addQuickFeedback( $out, $top = false ) {
+		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsFeedbackTags;
+		# Are there any reader input tags?
+		if( empty($wgFlaggedRevsFeedbackTags) ) {
+			return false;
+		}
+		$id = $out->mRevisionId; // Revision being displayed
+		$reviewTitle = SpecialPage::getTitleFor( 'ReaderFeedback' );
+		$action = $reviewTitle->getLocalUrl( 'action=submit' );
+		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-feedbackform' ) );
+		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
+		$form .= "<legend>" . wfMsgHtml( 'readerfeedback' ) . "</legend>\n";
+		$form .= wfMsgExt( 'readerfeedback-text', array('parse') );
+		$form .= Xml::openElement( 'span', array('id' => 'mw-feedbackselects') );
+		# Loop through all different flag types
+		foreach( FlaggedRevs::getFeedbackTags() as $quality => $levels ) {
+			$label = array();
+			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 2;
+			$form .= "<b>" . wfMsgHtml("readerfeedback-$quality") . ":</b>&nbsp;";
+			$attribs = array( 'name' => "wp$quality", 'onchange' => "updateFeedbackForm()" );
+			$form .= Xml::openElement( 'select', $attribs );
+			foreach( $levels as $i => $name ) {
+				$optionClass = array( 'class' => "fr-rating-option-$i" );
+				$form .= Xml::option( wfMsg( "readerfeedback-level-$i" ), $i, ($i == $selected), $optionClass ) ."\n";
+			}
+			$form .= Xml::closeElement( 'select' )."\n";
+		}
+		$form .= Xml::closeElement( 'span' );
+		$form .= Xml::submitButton( wfMsg('readerfeedback-submit'), 
+			array('id' => 'submitfeedback','accesskey' => wfMsg('revreview-ak-review'), 
+			'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']' )
+		);
+		# Hidden params
+		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'target', $this->parent->getTitle()->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'oldid', $id ) . "\n";
+		$form .= Xml::hidden( 'action', 'submit') . "\n";
+		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
+		# Add review parameters
+		$form .= Xml::closeElement( 'fieldset' );
+		$form .= Xml::closeElement( 'form' ); 
 		if( $top ) {
 			$out->mBodytext = $form . $out->mBodytext;
 		} else {

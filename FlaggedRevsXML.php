@@ -78,6 +78,22 @@ class FlaggedRevsXML {
 	}
 	
 	/**
+	* Get tag dropdown select
+	* @param int $selected, selected level
+	*/
+	public static function getTagMenu( $selected = '' ) {
+		$s  = "<label for='ratingtag'>" . wfMsgHtml('revreview-tagfilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'ratingtag', 'id' => 'ratingtag') );
+		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
+			$s .= Xml::option( wfMsg( "readerfeedback-$tag" ), $tag, $selected===$tag );
+		}
+		# Aggregate for all tags
+		$s .= Xml::option( wfMsg( "readerfeedback-overall" ), 'overall', $selected==='overall' );
+		$s .= Xml::closeElement('select')."\n";
+		return $s;
+	}
+	
+	/**
 	* @param int $quality
 	* @return string, css color for this quality
 	*/

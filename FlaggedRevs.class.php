@@ -1,7 +1,9 @@
 <?php
 
 class FlaggedRevs {
-	public static $dimensions = array();
+	protected static $dimensions = array();
+	protected static $feedbackTags = array();
+	protected static $feedbackTagWeight = array();
 	protected static $loaded = false;
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
@@ -9,7 +11,7 @@ class FlaggedRevs {
 	protected static $includeVersionCache = array();
 
 	public static function load() {
-		global $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsFeedbackTags;
 		if( self::$loaded ) {
 			return true;
 		}
@@ -30,6 +32,17 @@ class FlaggedRevs {
 			}
 			if( $minQL > $wgFlaggedRevValues ) {
 				self::$qualityVersions = false;
+			}
+		}
+		foreach( $wgFlaggedRevsFeedbackTags as $tag => $weight ) {
+			# Tag names used as part of file names. "Overall" tag is a
+			# weighted aggregate, so it cannot be used either.
+			if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) || $tag === 'overall' ) {
+				throw new MWException( 'FlaggedRevs given invalid tag name!' );
+			}
+			self::$feedbackTagWeight[$tag] = $weight;
+			for( $i=0; $i <= 4; $i++ ) {
+				self::$feedbackTags[$tag][$i] = "feedback-{$tag}-{$i}";
 			}
 		}
 		global $wgFlaggedRevPristine;
@@ -109,6 +122,25 @@ class FlaggedRevs {
 	public static function getDimensions() {
 		self::load();
 		return self::$dimensions;
+	}
+	
+	/**
+	 * Get the array of tag feedback tags
+	 * @returns array
+	 */
+	public static function getFeedbackTags() {
+		self::load();
+		return self::$feedbackTags;
+	}
+	
+	/**
+	 * Get the the weight of a feedback tag
+	 * @param string $tag
+	 * @returns array
+	 */
+	public static function getFeedbackWeight( $tag ) {
+		self::load();
+		return self::$feedbackTagWeight[$tag];
 	}
 	
 	/**
@@ -516,6 +548,26 @@ class FlaggedRevs {
 		return $count;
 	}
 	
+	/**
+	 * @param Article $article
+	 * @param string $tag
+	 * @param bool $forUpdate, use master?
+	 * @return real
+	 * Get article rating for this tag for the last few days
+	 */
+	function getAverageRating( $article, $tag, $forUpdate=false ) {
+		global $wgFlaggedRevsFeedbackAge;
+		$cutoff_unixtime = time() - $wgFlaggedRevsFeedbackAge;
+		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$average = $db->selectField( 'reader_feedback_history', 
+			'SUM(rfh_total)/SUM(rfh_count)',
+			array( 'rfh_page_id' => $article->getId(), 'rfh_tag' => $tag,
+				"rfh_date >= {$cutoff_unixtime}" ),
+			__METHOD__ );
+		return $average;
+	}
+	
  	/**
 	* @param Article $article
 	* @param Integer $revId, the stable version rev_id
@@ -795,10 +847,20 @@ class FlaggedRevs {
 	/**
 	 * Get JS script params for onloading
 	 */
-	public static function getJSParams() {
+	public static function getJSTagParams() {
 		# Param to pass to JS function to know if tags are at quality level
 		global $wgFlaggedRevTags;
 		$params = array( 'tags' => (object)$wgFlaggedRevTags );
+		return Xml::encodeJsVar( (object)$params );
+	}
+	
+	/**
+	 * Get JS script params for onloading
+	 */
+	public static function getJSFeedbackParams() {
+		# Param to pass to JS function to know if tags are at quality level
+		global $wgFlaggedRevsFeedbackTags;
+		$params = array( 'tags' => (object)$wgFlaggedRevsFeedbackTags );
 		return Xml::encodeJsVar( (object)$params );
 	}
 	
@@ -1038,7 +1100,8 @@ class FlaggedRevs {
 			return true;
 		}
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
-		$JSparams = self::getJSParams();
+		$rTags = self::getJSTagParams();
+		$fTags = self::getJSFeedbackParams();
 		$frev = $flaggedArticle->getStableRev( true );
 		$stableId = $frev ? $frev->getRevId() : 0;
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
@@ -1047,7 +1110,8 @@ class FlaggedRevs {
 		$head = <<<EOT
 <link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
 <script type="$wgJsMimeType">
-var wgFlaggedRevsParams = $JSparams;
+var wgFlaggedRevsParams = $rTags;
+var wgFlaggedRevsParams2 = $fTags;
 var wgStableRevisionId = $stableId;
 </script>
 <script type="$wgJsMimeType" src="$encJsFile"></script>
@@ -2012,8 +2076,9 @@ EOT;
 	
 	public static function onBeforePageDisplay( $out ) {
 		$fa = FlaggedArticle::getGlobalInstance();
-		if ( $fa && $out->isArticleRelated() ) {
+		if( $fa && $out->isArticleRelated() ) {
 			$fa->addReviewForm( $out );
+			$fa->addFeedbackForm( $out );
 			$fa->addVisibilityLink( $out );
 		}
 		return true;
@@ -2096,7 +2161,7 @@ EOT;
 	public static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
 		wfLoadExtensionMessages( 'FlaggedRevsAliases' );
 		# The localized title of the special page is among the messages of the extension:
-		$specialPages = array( 'QualityOversight', 'DepreciationOversight', 'UnreviewedPages', 
+		$specialPages = array( 'QualityOversight', 'ProblemPages', 'UnreviewedPages', 
 			'OldReviewedPages', 'StablePages', 'StableVersions', 'ReviewedPages' );
 		foreach( $specialPages as $specialPage ) {
 			$text = wfMsgExt( strtolower( "$specialPage-alias" ), array( 'escape', 'language' => $code ) );

@@ -210,11 +210,23 @@ $wgFlaggedRevsVisible = array();
 # If $wgFlaggedRevsVisible is populated, it is applied to talk pages too
 $wgFlaggedRevsTalkVisible = true;
 
+# Users that can use the feedback form.
+$wgGroupPermissions['*']['feedback'] = false;
+
+# Reader feedback tags, positive and negative. [a-zA-Z] tag names only.
+# Each tag has five levels, which 3 being average. The tag names are
+# mapped to their weight. This is used to determine the "worst"/"best" pages.
+$wgFlaggedRevsFeedbackTags = array( 'reliability' => 2, 'completeness' => 2, 'npov' => 1.5, 'presentation' => 1 );
+# How many days back should the average rating for a page be based on?
+$wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
+
+$wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
+
 # End of configuration variables.
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 27;
+$wgFlaggedRevStyleVersion = 28;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -234,6 +246,9 @@ $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 # Load review UI
 $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 $wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
+# Load reader feedback UI
+$wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
+$wgAutoloadClasses['ReaderFeedback'] = $dir . '/specialpages/ReaderFeedback_body.php';
 
 # Load stableversions UI
 $wgSpecialPages['StableVersions'] = 'StableVersions';
@@ -243,16 +258,20 @@ $wgExtensionMessagesFiles['StableVersions'] = $langDir . 'StableVersions.i18n.ph
 $wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . '/specialpages/Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
+# Page rating history
+$wgSpecialPages['RatingHistory'] = 'RatingHistory';
+$wgAutoloadClasses['RatingHistory'] = $dir . '/specialpages/RatingHistory_body.php';
+$wgExtensionMessagesFiles['RatingHistory'] = $langDir . 'RatingHistory.i18n.php';
 # Load unreviewed pages list
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 $wgAutoloadClasses['UnreviewedPages'] = $dir . '/specialpages/UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
-$wgSpecialPageGroups['UnreviewedPages'] = 'maintenance';
+$wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 # Load "in need of re-review" pages list
 $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 $wgAutoloadClasses['OldReviewedPages'] = $dir . '/specialpages/OldReviewedPages_body.php';
 $wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
-$wgSpecialPageGroups['OldReviewedPages'] = 'maintenance';
+$wgSpecialPageGroups['OldReviewedPages'] = 'quality';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . '/specialpages/ReviewedPages_body.php';
@@ -268,11 +287,11 @@ $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 $wgAutoloadClasses['QualityOversight'] = $dir . '/specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
-# To oversee depreciations
-$wgSpecialPages['DepreciationOversight'] = 'DepreciationOversight';
-$wgAutoloadClasses['DepreciationOversight'] = $dir . '/specialpages/DepreciationOversight_body.php';
-$wgExtensionMessagesFiles['DepreciationOversight'] = $langDir . 'DepreciationOversight.i18n.php';
-$wgSpecialPageGroups['DepreciationOversight'] = 'quality';
+# To oversee quality revisions
+$wgSpecialPages['ProblemPages'] = 'ProblemPages';
+$wgAutoloadClasses['ProblemPages'] = $dir . '/specialpages/ProblemPages_body.php';
+$wgExtensionMessagesFiles['ProblemPages'] = $langDir . 'ProblemPages.i18n.php';
+$wgSpecialPageGroups['ProblemPages'] = 'quality';
 
 ######### Hook attachments #########
 # Remove stand-alone patrolling

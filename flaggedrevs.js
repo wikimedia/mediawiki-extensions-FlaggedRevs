@@ -105,5 +105,28 @@ function updateRatingForm() {
 	}
 }
 
+/*
+* Update colors when select changes (Opera already does this).
+*/
+function updateFeedbackForm() {
+	var ratingform = document.getElementById('mw-feedbackselects');
+	if( !ratingform ) return;
+	for( tag in wgFlaggedRevsParams2.tags ) {
+		var controlName = "wp" + tag;
+		var levels = document.getElementsByName(controlName);
+		var selectedlevel = 2; // default
+
+		if( levels[0].nodeName == 'SELECT' ) {
+			selectedlevel = levels[0].selectedIndex;
+			// Update color. Opera does this already, and doing so
+			// seems to kill custom pretty opera skin form styling.
+			if( navigator.appName != 'Opera') {
+				levels[0].className = 'fr-rating-option-' + selectedlevel;
+			}
+		}
+	}
+}
+
 addOnloadHook(enable_showhide);
 addOnloadHook(updateRatingForm);
+addOnloadHook(updateFeedbackForm);

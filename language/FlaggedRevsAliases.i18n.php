@@ -8,13 +8,13 @@
 $messages = array();
 
 $messages['en'] = array(
-	'qualityoversight-alias' => 'QualityOversight',
-	'depreciationoversight-alias' => 'DepreciationOversight',
-	'unreviewedpages-alias' => 'UnreviewedPages',
-	'oldreviewedpages-alias' => 'OldReviewedPages',
-	'reviewedpages-alias' => 'ReviewedPages',
-	'stablepages-alias' => 'StablePages',
-	'stableversions-alias' => 'StableVersions',
+	'qualityoversight-alias'     => 'QualityOversight',
+	'unreviewedpages-alias'      => 'UnreviewedPages',
+	'oldreviewedpages-alias'     => 'OldReviewedPages',
+	'reviewedpages-alias'        => 'ReviewedPages',
+	'stablepages-alias'          => 'StablePages',
+	'stableversions-alias'       => 'StableVersions',
+	'problempages-alias'         => 'ProblemPages',
 );
 
 /** Aragonese (Aragonés)
@@ -22,7 +22,6 @@ $messages['en'] = array(
  */
 $messages['an'] = array(
 	'qualityoversight-alias'      => 'SuperbisataDeCalidat',
-	'depreciationoversight-alias' => 'SuperbisataDepreziata',
 	'unreviewedpages-alias'       => 'PachinasNoRebisatas',
 	'oldreviewedpages-alias'      => 'PachinasSuperbisatasAntigas',
 	'reviewedpages-alias'         => 'PachinasSuberbisatas',
@@ -35,7 +34,6 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'qualityoversight-alias'      => 'نظر الجودة',
-	'depreciationoversight-alias' => 'نظر تقليل الجودة',
 	'unreviewedpages-alias'       => 'صفحات غير مراجعة',
 	'oldreviewedpages-alias'      => 'صفحات مراجعة قديمة',
 	'reviewedpages-alias'         => 'صفحات مراجعة',
@@ -48,7 +46,6 @@ $messages['ar'] = array(
  */
 $messages['bcc'] = array(
 	'qualityoversight-alias'      => 'رویت-کیفیت',
-	'depreciationoversight-alias' => 'رویت-محروم',
 	'unreviewedpages-alias'       => 'صفحات-بی-بازبینی',
 	'oldreviewedpages-alias'      => 'صفحات-بازبینی-قدیمی',
 	'reviewedpages-alias'         => 'صفحات-بازبینی',
@@ -59,7 +56,6 @@ $messages['bcc'] = array(
 /** German (Deutsch) */
 $messages['de'] = array(
 	'qualityoversight-alias'      => 'Geprüfte_Seiten',
-	'depreciationoversight-alias' => 'Zurückgezogene_Markierungen',
 	'unreviewedpages-alias'       => 'Ungesichtete_Seiten',
 	'oldreviewedpages-alias'      => 'Seiten_mit_ungesichteten_Versionen',
 	'reviewedpages-alias'         => 'Gesichtete_Seiten',
@@ -72,7 +68,6 @@ $messages['de'] = array(
  */
 $messages['eo'] = array(
 	'qualityoversight-alias'      => 'KvalitKontrolo',
-	'depreciationoversight-alias' => 'KontroloDeMalvalidigoj',
 	'unreviewedpages-alias'       => 'NekontrolitajPaĝoj',
 	'oldreviewedpages-alias'      => 'MalfreŝeKontrolitajPaĝoj',
 	'reviewedpages-alias'         => 'KontrolitajPaĝoj',
@@ -83,7 +78,6 @@ $messages['eo'] = array(
 /** Persian (فارسی) */
 $messages['fa'] = array(
 	'qualityoversight-alias'      => 'ناظرکیفیت',
-	'depreciationoversight-alias' => 'ناظراستهلاک',
 	'unreviewedpages-alias'       => 'صفحه‌های‌بازبینی‌نشده',
 	'oldreviewedpages-alias'      => 'صفحه‌های‌بازبینی‌شده‌قدیمی',
 	'reviewedpages-alias'         => 'صفحه‌های‌بازبینی‌شده',
@@ -98,7 +92,6 @@ $messages['fa'] = array(
  */
 $messages['fr'] = array(
 	'qualityoversight-alias'      => 'SuperviseurQualité',
-	'depreciationoversight-alias' => 'SuperviseurDépréciation',
 	'unreviewedpages-alias'       => 'PagesNonRelues',
 	'oldreviewedpages-alias'      => 'AnciennesPagesRelues',
 	'reviewedpages-alias'         => 'Pages révisées',
@@ -111,7 +104,6 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'qualityoversight-alias'      => 'RevisiónDeCalidade',
-	'depreciationoversight-alias' => 'SupervisiónDeDesprezo',
 	'unreviewedpages-alias'       => 'Páxinas non revisadas',
 	'oldreviewedpages-alias'      => 'Páxinas revisadas hai tempo',
 	'reviewedpages-alias'         => 'Páxinas revisadas',
@@ -124,7 +116,6 @@ $messages['gl'] = array(
  */
 $messages['hi'] = array(
 	'qualityoversight-alias'      => 'गुणवत्ताओव्हरसाईट',
-	'depreciationoversight-alias' => 'डिप्रिसियेशनओव्हरसाईट',
 	'unreviewedpages-alias'       => 'नदेखेंहुएपन्ने',
 	'oldreviewedpages-alias'      => 'पुरानेदेखेंहुएपन्ने',
 	'reviewedpages-alias'         => 'जाँचेहुएपन्ने',
@@ -137,7 +128,6 @@ $messages['hi'] = array(
  */
 $messages['id'] = array(
 	'qualityoversight-alias'      => 'PemeriksaanKualitas',
-	'depreciationoversight-alias' => 'PemeriksaanPenurunanPeringkat',
 	'unreviewedpages-alias'       => 'Halaman yang belum ditinjau',
 	'oldreviewedpages-alias'      => 'HalamanTertinjauUsang',
 	'reviewedpages-alias'         => 'HalamanTertinjau',
@@ -159,7 +149,6 @@ $messages['lb'] = array(
  */
 $messages['mr'] = array(
 	'qualityoversight-alias'      => 'गुणवत्ताओव्हरसाईट',
-	'depreciationoversight-alias' => 'डिप्रिसियेशनओव्हरसाईट',
 	'unreviewedpages-alias'       => 'नतपासलेलीपाने',
 	'oldreviewedpages-alias'      => 'जुनीतपासलेलीपाने',
 	'reviewedpages-alias'         => 'तपासलेलीपाने',
@@ -172,7 +161,6 @@ $messages['mr'] = array(
  */
 $messages['ms'] = array(
 	'qualityoversight-alias'      => 'Kawalan_mutu',
-	'depreciationoversight-alias' => 'Kawalan_pengguguran',
 	'unreviewedpages-alias'       => 'Laman_tidak_diperiksa',
 	'oldreviewedpages-alias'      => 'Laman_diperiksa_lapuk',
 	'reviewedpages-alias'         => 'Laman_diperiksa',
@@ -185,7 +173,6 @@ $messages['ms'] = array(
  */
 $messages['nl'] = array(
 	'qualityoversight-alias'      => 'KwaliteitsControle',
-	'depreciationoversight-alias' => 'ControleBeoordelingsverlagingen',
 	'unreviewedpages-alias'       => 'PaginasZonderEindredactie',
 	'oldreviewedpages-alias'      => 'PaginasVerouderdeEindredactie',
 	'reviewedpages-alias'         => 'PaginasMetEindredactie',
@@ -198,7 +185,6 @@ $messages['nl'] = array(
  */
 $messages['oc'] = array(
 	'qualityoversight-alias'      => 'QualitatSupervisor',
-	'depreciationoversight-alias' => 'DepreciatSupervisor',
 	'unreviewedpages-alias'       => 'PaginasPasRelegidas',
 	'oldreviewedpages-alias'      => 'PaginasAncianamentRelegidas',
 	'reviewedpages-alias'         => 'Paginas revisadas',
@@ -219,7 +205,6 @@ $messages['pl'] = array(
  */
 $messages['pt'] = array(
 	'qualityoversight-alias'      => 'Observatório_da_qualidade',
-	'depreciationoversight-alias' => 'Observatório_do_desdém',
 	'unreviewedpages-alias'       => 'Páginas_a_analisar',
 	'oldreviewedpages-alias'      => 'Versões_antigas_de_páginas_analisadas',
 	'reviewedpages-alias'         => 'Páginas_analisadas',
@@ -232,7 +217,6 @@ $messages['pt'] = array(
  */
 $messages['ru'] = array(
 	'qualityoversight-alias'      => 'РевизорКачества',
-	'depreciationoversight-alias' => 'РевизорСнятий',
 	'unreviewedpages-alias'       => 'НепроверенныеСтраницы',
 	'oldreviewedpages-alias'      => 'ДавноПроверенныеСтраницы',
 	'reviewedpages-alias'         => 'ПроверенныеСтраницы',
@@ -245,7 +229,6 @@ $messages['ru'] = array(
  */
 $messages['sk'] = array(
 	'qualityoversight-alias'      => 'DohľadNadKvalitou',
-	'depreciationoversight-alias' => 'DohľadNadZnehodnotením',
 	'unreviewedpages-alias'       => 'NeskontrolovanéStránky',
 	'oldreviewedpages-alias'      => 'StaréSkontrolovanéStránky',
 	'reviewedpages-alias'         => 'SkontrolovanéStránky',
@@ -258,7 +241,6 @@ $messages['sk'] = array(
  */
 $messages['sr-ec'] = array(
 	'qualityoversight-alias'      => 'НадгледањеКвалитета',
-	'depreciationoversight-alias' => 'ЗастаревањеНадгледања',
 	'unreviewedpages-alias'       => 'НепрегледанеСтране',
 	'oldreviewedpages-alias'      => 'СтареПрегледанеСтране',
 	'reviewedpages-alias'         => 'ПрегледанеСтране',
@@ -271,7 +253,6 @@ $messages['sr-ec'] = array(
  */
 $messages['sv'] = array(
 	'qualityoversight-alias'      => 'Kvalitetsöversikt',
-	'depreciationoversight-alias' => 'Avskrivningsöversikt',
 	'unreviewedpages-alias'       => 'OgranskadeSidor',
 	'oldreviewedpages-alias'      => 'GamlaGranskadeSidor',
 	'reviewedpages-alias'         => 'GranskadeSidor',
@@ -284,7 +265,6 @@ $messages['sv'] = array(
  */
 $messages['vec'] = array(
 	'qualityoversight-alias'      => 'ControloQualità',
-	'depreciationoversight-alias' => 'ControloDeclassamenti',
 	'unreviewedpages-alias'       => 'PagineNonRiesaminà',
 	'oldreviewedpages-alias'      => 'PagineRiesaminàVèce',
 	'reviewedpages-alias'         => 'PagineRiesaminà',
@@ -297,7 +277,6 @@ $messages['vec'] = array(
  */
 $messages['vi'] = array(
 	'qualityoversight-alias'      => 'Giám sát chất lượng',
-	'depreciationoversight-alias' => 'Giám sát sự sụt giảm',
 	'unreviewedpages-alias'       => 'Trang chưa duyệt',
 	'oldreviewedpages-alias'      => 'Trang chưa duyệt cũ',
 	'reviewedpages-alias'         => 'Trang đã duyệt',

@@ -160,6 +160,21 @@ To depreciate a revision, set all fields to "unapproved".',
 	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.
 	A list of stabilized pages can be found at the [[Special:StablePages|stable page list]].',
 	
+	'readerfeedback'               => 'Reader feedback',
+	'readerfeedback-text'          => '\'\'Please take a moment to rate this page below. Your feedback is valuable and helps us improve our website.\'\'',
+	'readerfeedback-reliability'   => 'Reliability',
+	'readerfeedback-completeness'  => 'Completeness',
+	'readerfeedback-npov'          => 'Neutrality',
+	'readerfeedback-presentation'  => 'Presentation',
+	'readerfeedback-overall'       => 'Overall',
+	'readerfeedback-level-0'       => 'Poor',
+	'readerfeedback-level-1'       => 'Low',
+	'readerfeedback-level-2'       => 'Fair',
+	'readerfeedback-level-3'       => 'High',
+	'readerfeedback-level-4'       => 'Excellent',
+	'readerfeedback-submit'        => 'Submit',
+	'readerfeedback-main'          => 'Only content pages can be reviewed.',
+	
 	'revreview-filter-all'         => 'All',
 	'revreview-filter-approved'    => 'Approved',
 	'revreview-filter-reapproved'  => 'Re-approved',
@@ -170,10 +185,12 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-filter-level-1'     => 'Quality versions',
 	'revreview-statusfilter'       => 'Status:',
 	'revreview-typefilter'         => 'Type:',
+	'revreview-tagfilter'          => 'Tag:',
 	
 	'tooltip-ca-current'           => 'View the current draft of this page',
 	'tooltip-ca-stable'            => 'View the stable version of this page',
 	'tooltip-ca-default'           => 'Quality assurance settings',
+	'tooltip-ca-ratinghist'        => 'Reader ratings of this page',
 	
 	'revreview-ak-review'          => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages
