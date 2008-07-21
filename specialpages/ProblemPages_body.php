@@ -1,4 +1,8 @@
 <?php
+if ( !defined( 'MEDIAWIKI' ) ) {
+	echo "FlaggedRevs extension\n";
+	exit( 1 );
+}
 
 wfLoadExtensionMessages( 'ProblemPages' );
 class ProblemPages extends SpecialPage

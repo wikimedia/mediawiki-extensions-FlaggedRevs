@@ -1,6 +1,4 @@
 <?php
-#(c) Aaron Schulz, 2008 GPL
-
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
