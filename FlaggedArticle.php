@@ -508,6 +508,7 @@ class FlaggedArticle extends Article {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 			# Construct some tagging
 			$quality = FlaggedRevs::isQuality( $flags );
+			/*
 			# If this will be autoreviewed, notify the user...
 			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
 				# If we are editing some reviewed revision, any changes this user
@@ -519,6 +520,7 @@ class FlaggedArticle extends Article {
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			}
+			*/
 			if( $frev->getRevId() != $revId ) {
 				# Streamlined UI
 				if( FlaggedRevs::useSimpleUI() ) {

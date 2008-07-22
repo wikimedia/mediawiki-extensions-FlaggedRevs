@@ -96,13 +96,14 @@ class RatingHistory extends UnlistedSpecialPage
 			// Output the image
 			$wgOut->addHTML( 
 				Xml::openElement( 'div', array('class' => 'reader_feedback_graph') ) .
-				Xml::openElement( 'img', array('src' => $url) ) . Xml::closeElement( 'img' ) .
+				Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . Xml::closeElement( 'img' ) .
 				Xml::closeElement( 'div' )
 			);
 			// Show legend
 			$wgOut->addHTML( Xml::openElement( 'div', array('class' => 'reader_feedback_legend') ) );
 			for( $i=0; $i <= 4; $i++) {
-				$wgOut->addHTML( "&nbsp;&nbsp;&nbsp;<b>[$i]</b> - " . wfMsgHtml( "readerfeedback-level-$i" ) . "</li>" );
+				$wgOut->addHTML( "&nbsp;&nbsp;&nbsp;" );
+				$wgOut->addHTML( "<b>[$i]</b> - " . wfMsgHtml( "readerfeedback-level-$i" ) );
 			}
 			$wgOut->addHTML( Xml::closeElement( 'div' ) );
 		}
@@ -118,7 +119,7 @@ class RatingHistory extends UnlistedSpecialPage
 		global $wgPHPlotDir;
 		require_once( "$wgPHPlotDir/phplot.php" ); // load classes
 		// Define the object
-		$plot = new PHPlot(800,600);
+		$plot = new PHPlot(900,600);
 		// Set file path
 		$dir = dirname($filePath);
 		// Make sure directory exists
@@ -143,8 +144,8 @@ class RatingHistory extends UnlistedSpecialPage
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
-			$dayAve = (int)$row->rfh_total/(int)$row->rfh_count;
-			$cumAve = $totalVal/$totalCount;
+			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
+			$cumAve = (real)$totalVal/(real)$totalCount;
 			$month = substr( $row->rfh_date, 4, 2 );
 			$day = substr( $row->rfh_date, 6, 2 );
 			$data[] = array("{$month}/{$day}",$dayAve,$cumAve);
