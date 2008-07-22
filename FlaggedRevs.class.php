@@ -1644,10 +1644,6 @@ EOT;
 		}
 		# Get what was just the current revision ID
 		$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
-		# If baseRevId not given, assume the previous revision ID
-		if( !$baseRevID ) {
-			$baseRevID = $prevRevID;
-		}
 		// New pages
 		if( !$prevRevID ) {
 			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
