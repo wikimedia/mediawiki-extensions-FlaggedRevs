@@ -451,6 +451,13 @@ $messages['myv'] = array(
 	'stableversions-page' => 'Лопань лем:',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'stableversions-page' => 'Zāzanilli ītōcā:',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */

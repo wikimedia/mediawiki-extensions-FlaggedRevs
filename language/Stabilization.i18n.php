@@ -1197,6 +1197,13 @@ $messages['myv'] = array(
 	'stabilization-page' => 'Лопань лем:',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'stabilization-page' => 'Zāzanilli ītōcā:',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -1451,6 +1458,17 @@ Não é possível configurá-la.',
 	'stabilize_expiry_invalid'  => 'Data de expiração inválida.',
 	'stabilize_expiry_old'      => 'Este tempo de expiração já se encerrou.',
 	'stabilize-expiring'        => 'expira às $1 (UTC)',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'stabilization-submit'      => 'Confirmă',
+	'stabilization-comment'     => 'Comentariu:',
+	'stabilization-expiry'      => 'Expiră:',
+	'stabilization-sel-short-0' => 'Calitate',
+	'stabilize-expiring'        => 'expiră $1 (UTC)',
 );
 
 /** Russian (Русский)

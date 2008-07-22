@@ -537,6 +537,13 @@ $messages['myv'] = array(
 	'unreviewed-category' => 'Категория:',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'unreviewed-category' => 'Neneuhcāyōtl:',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -654,6 +661,13 @@ $messages['pt'] = array(
 	'unreviewed-watched'    => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
 	'unreviewed-list'       => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
 	'unreviewed-none'       => 'No momento não há páginas que se enquadrem nestes critérios',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'unreviewed-category' => 'Categorie:',
 );
 
 /** Russian (Русский)

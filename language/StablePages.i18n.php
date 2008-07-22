@@ -261,6 +261,13 @@ $messages['pt'] = array(
 	'stablepages-config' => 'Configuração',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'stablepages' => 'Pagini stabile',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */

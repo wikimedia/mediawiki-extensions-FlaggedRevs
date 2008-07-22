@@ -206,6 +206,10 @@ To depreciate a revision, set all fields to "unapproved".',
 $messages['af'] = array(
 	'editor'                 => 'Redakteur',
 	'group-editor-member'    => 'Redakteur',
+	'revreview-accuracy'     => 'Akkuraatheid',
+	'revreview-accuracy-0'   => 'Nie goedgekeur',
+	'revreview-accuracy-2'   => 'Akkuraat',
+	'revreview-approved'     => 'Goedgekeur',
 	'revreview-auto'         => '(outomaties)',
 	'revreview-log'          => 'Opmerking:',
 	'revreview-patrol'       => 'Merk die wysiging as gepatrolleer',
@@ -557,6 +561,19 @@ $messages['ar'] = array(
 	'tooltip-ca-default'           => 'إعدادات تأكيد الجودة',
 	'revreview-tt-review'          => 'راجع هذه الصفحة',
 	'validationpage'               => '{{ns:help}}:تحقيق المقالات',
+);
+
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Ramsis1978
+ */
+$messages['arz'] = array(
+	'editor'                => 'محرر',
+	'flaggedrevs'           => 'نسخ متعلم عليها',
+	'flaggedrevs-backlog'   => "دلوقتي في سجل تأخير في [[Special:OldReviewedPages|الصفحات المتراجعة القديمة]]. '''لو سمحت خد بالك !'''",
+	'flaggedrevs-desc'      => 'بيدي المحريين/المراجعين امكانية التأكد من أن النسخ صحيحة و تثبيت الصفحات.',
+	'flaggedrevs-pref-UI-0' => 'استعمل واجهة يوزر لنسخة مستقرة متفصلة',
+	'flaggedrevs-pref-UI-1' => 'استعمل واجهة يوزر لنسخة مستقرة بسيطة',
+	'flaggedrevs-prefs'     => 'الاستقرار',
 );
 
 /** Asturian (Asturianu)
@@ -1632,9 +1649,20 @@ Malvalidigi revizion, faru ĉiujn kampojn kiel "malaprobita".',
 	'stable-logpagetext'           => 'Jen protokolo de ŝanĝoj al la konfiguro de [[{{MediaWiki:Validationpage}}|stabila versio]] de enhavaj paĝoj.
 
 Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo de stabilaj paĝoj]].',
+	'revreview-filter-all'         => 'Ĉio',
+	'revreview-filter-approved'    => 'Konsentita',
+	'revreview-filter-reapproved'  => 'Rekonsentita',
+	'revreview-filter-unapproved'  => 'Malkonsentita',
+	'revreview-filter-auto'        => 'Aŭtomata',
+	'revreview-filter-manual'      => 'Permana',
+	'revreview-filter-level-0'     => 'Viditaj versioj',
+	'revreview-filter-level-1'     => 'Bonkvalitaj versioj',
+	'revreview-statusfilter'       => 'Statuso:',
+	'revreview-typefilter'         => 'Speco:',
 	'tooltip-ca-current'           => 'Vidigu la nunan malneton de ĉi tiu paĝo',
 	'tooltip-ca-stable'            => 'Rigardi la stabilan version de ĉi paĝo',
 	'tooltip-ca-default'           => 'Konfiguro de kvalitkontrolo',
+	'revreview-tt-review'          => 'Kontroli ĉi tiun paĝon',
 	'validationpage'               => '{{ns:help}}:Validigo de artikolo',
 );
 
@@ -4985,8 +5013,8 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] possui [{{fullurl:{{FULLPAGE
 	'revreview-quick-quality'      => "'''[[{{MediaWiki:Validationpage}}|Página confiável]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver rascunho]]",
 	'revreview-quick-quality-old'  => "'''[[{{MediaWiki:Validationpage}}|Página confiável]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver rascunho]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Página confiável]]'''",
-	'revreview-quick-see-basic'    => "'''Rascunho''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver página]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
-	'revreview-quick-see-quality'  => "'''Rascunho''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver página]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
+	'revreview-quick-see-basic'    => "'''Rascunho''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver página]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
+	'revreview-quick-see-quality'  => "'''Rascunho''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver página]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
 	'revreview-selected'           => "Edição seleccionada de '''$1:'''",
 	'revreview-source'             => 'código do rascunho',
 	'revreview-stable'             => 'Página estável',
@@ -5045,6 +5073,19 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'tooltip-ca-default'           => 'Configurações da Garantia de Qualidade',
 	'revreview-tt-review'          => 'Analise esta página',
 	'validationpage'               => '{{ns:help}}:Validação de páginas',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'flaggedrevs-prefs'       => 'Stabilitate',
+	'revreview-accuracy'      => 'Acurateţe',
+	'revreview-log'           => 'Comentariu:',
+	'revreview-quality-title' => 'Articol de calitate',
+	'revreview-stable'        => 'Pagină stabilă',
+	'revreview-style-1'       => 'Acceptabil',
+	'revreview-typefilter'    => 'Tip:',
 );
 
 /** Russian (Русский)
@@ -6294,6 +6335,16 @@ $messages['uk'] = array(
 	'revreview-style-3'            => 'стисла',
 	'revreview-style-4'            => 'вибрана',
 	'revreview-submit'             => 'Позначити перевіреною',
+	'revreview-successful'         => "'''Обрана версія [[:$1|$1]] успішно позначена ([{{fullurl:Special:Stableversions|page=$2}} перегляд усіх зазначених версій])'''",
+	'revreview-successful2'        => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
+	'revreview-text'               => "''За замовчуванням установлений показ [[{{MediaWiki:Validationpage}}|стабільних версій]] сторінок, а не найбільш нових.''",
+	'revreview-text2'              => "''[[{{MediaWiki:Validationpage}}|Стабільні версії]] — це перевірені версії сторінок, можуть бути встановлені для показу за замовчуванням.''",
+	'revreview-toggle-title'       => 'показати/приховати подробиці',
+	'revreview-toolow'             => 'Вам слід зазначити для всіх значень рівень, вищий, ніж «не зазначена», щоб версія сторінки вважалася перевіреною.
+Щоб зняти позначку перевіреної версії, встановіть усі значення в «не зазначена».',
+	'revreview-update'             => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] редагування ''(показані нижче)'', зроблені після [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірки] стабільної версії.<br />
+'''Деякі шаблони або зображення могли бути оновлені:'''",
+	'revreview-update-includes'    => "'''Деякі шаблони або зображення були оновлені:'''",
 	'right-autopatrolother'        => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
 	'right-autoreview'             => 'Автоматичне позначення версій сторінок переглянутими',
 	'right-movestable'             => 'Перейменування стабільних версій',

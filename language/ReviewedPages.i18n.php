@@ -573,6 +573,13 @@ $messages['pt'] = array(
 	'reviewedpages-best'  => 'edição principal',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'reviewedpages-lev-1' => 'Calitate',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */

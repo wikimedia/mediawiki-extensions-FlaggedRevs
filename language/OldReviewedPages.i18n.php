@@ -366,6 +366,13 @@ $messages['ms'] = array(
 	'oldreviewedpages-watched'   => '(dipantau oleh $2 orang pengguna)',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'oldreviewed-category' => 'Neneuhcāyōtl:',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -461,6 +468,17 @@ $messages['pt'] = array(
 	'oldreviewed-diff'           => 'analisar',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',
 	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'oldreviewedpages-quality' => 'calitate',
+	'oldreviewedpages-hours'   => '($1 {{PLURAL:$1|oră|ore}})',
+	'oldreviewedpages-days'    => '($1 {{PLURAL:$1|zi|zile}})',
+	'oldreviewedpages-recent'  => '(mai puţin de 1 oră)',
+	'oldreviewed-category'     => 'Categorie:',
 );
 
 /** Russian (Русский)

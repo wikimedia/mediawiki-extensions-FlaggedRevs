@@ -57,8 +57,9 @@ $messages['de'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'qualityoversight'      => 'Atentado de bonkvalito',
-	'qualityoversight-list' => 'Ĉi tiu paĝo montras kaj lastatempajn aprobojn de bonkvalitaj revizioj kaj malvalidigojn de bonkvalitaj revizioj.',
+	'qualityoversight'        => 'Atentado de bonkvalito',
+	'qualityoversight-list'   => 'Ĉi tiu paĝo montras kaj lastatempajn aprobojn kaj malvalidigojn de revizioj.',
+	'qualityoversight-legend' => 'Serĉi lastajn protokolerojn',
 );
 
 /** Persian (فارسی) */
