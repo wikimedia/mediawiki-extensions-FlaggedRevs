@@ -616,12 +616,12 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewForm( $out ) {
 		global $wgRequest, $wgUser;
-		if( !$this->parent->exists() || !$this->isReviewable() ) {
+		if( !$this->parent->exists() || !$this->isReviewable() || !$out->mRevisionId ) {
 			return true;
 		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan( 'edit' ) ) {
+		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan('edit') ) {
 			return true;
 		}
 		# User must have review rights
@@ -639,7 +639,7 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgUser;
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') ) {
+		if( ($action !='view' && $action !='purge') || !$out->mRevisionId ) {
 			return true;
 		}
 		# User must not have review rights
