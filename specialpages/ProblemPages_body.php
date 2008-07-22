@@ -12,7 +12,7 @@ class ProblemPages extends SpecialPage
     }
 
     function execute( $par ) {
-        global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
+        global $wgRequest, $wgOut, $wgUser;
 		$this->setHeaders();
 		if( $wgUser->isAllowed( 'feedback' ) ) {
 			if( $wgUser->isBlocked() ) {
