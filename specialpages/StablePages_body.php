@@ -25,7 +25,7 @@ class StablePages extends SpecialPage
 	
 	function showForm() {
 		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
-
+		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parseinline') ) );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$form = Xml::openElement( 'form', array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('stablepages')."</legend>\n";
@@ -39,11 +39,8 @@ class StablePages extends SpecialPage
 
 	function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
-		
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
-
-		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parse') ) );
 		$pager = new StablePagesPager( $this, array(), $this->namespace );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
