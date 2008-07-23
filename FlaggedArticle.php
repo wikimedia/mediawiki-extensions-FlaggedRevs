@@ -329,8 +329,10 @@ class FlaggedArticle extends Article {
 						}
 					}
 				}
-				# Index the stable version only
-				$wgOut->setRobotpolicy( 'noindex,nofollow' );
+				# Index the stable version only if it is the default
+				if( $this->showStableByDefault() ) {
+					$wgOut->setRobotpolicy( 'noindex,nofollow' );
+				}
 			// The relevant conditions are met to override the page with the stable version.
 			} else {
 	   			# We will be looking at the reviewed revision...
