@@ -51,6 +51,7 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function showHeader() {
 		global $wgOut;
 		$wgOut->addWikiText( wfMsg('ratinghistory-text',$this->page->getPrefixedText()) );
+		$wgOut->addWikiText( wfMsg('ratinghistory-legend') );
 	}
 	
 	protected function showForm() {
@@ -61,14 +62,6 @@ class RatingHistory extends UnlistedSpecialPage
 		$form .= Xml::hidden( 'target', $this->page->getPrefixedDBKey() );
 		$form .= $this->getPeriodMenu( $this->period );
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
-		// Show legend
-		$form .= wfMsgExt('ratinghistory-ave',array('parse'));
-		$form .= Xml::openElement( 'div', array('class' => 'reader_feedback_legend') );
-		for( $i=0; $i <= 4; $i++) {
-			$form .= "<b>[$i]</b> - " . wfMsgHtml( "readerfeedback-level-$i" );
-			$form .= "&nbsp;&nbsp;&nbsp;";
-		}
-		$form .= Xml::closeElement( 'div' );
 		$form .= "</fieldset></form>\n";
 		$wgOut->addHTML( $form );
 	}
@@ -158,7 +151,7 @@ class RatingHistory extends UnlistedSpecialPage
 			# Fill in days with no votes to keep spacing even
 			if( $day > ($lastDay + 1) ) {
 				for( $i=($lastDay + 1); $i < $day; $i++ ) {
-					$data[] = array("{$month}/{$i}",'','');
+					$data[] = array("|",'','');
 				}
 			}
 			$data[] = array("{$month}/{$day}",$dayAve,$cumAve);
@@ -170,7 +163,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->SetXTickLabelPos('none');
 		$plot->SetXTickPos('none');
 		$plot->SetYTickIncrement( .5 );
-		$plot->SetPlotAreaWorld( 0, 0, null, 4.5 );
+		$plot->SetPlotAreaWorld( 0, 0, null, 4 );
+		// Show total number of votes
+		$plot->SetLegend( array("#{$totalCount}") );
 		// Draw it!
 		$plot->DrawGraph();
 		return true;
