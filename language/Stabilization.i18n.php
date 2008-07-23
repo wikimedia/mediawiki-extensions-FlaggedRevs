@@ -1201,7 +1201,8 @@ $messages['myv'] = array(
  * @author Fluence
  */
 $messages['nah'] = array(
-	'stabilization-page' => 'Zāzanilli ītōcā:',
+	'stabilization-page'        => 'Zāzanilli ītōcā:',
+	'stabilization-def-short-0' => 'Āxcān',
 );
 
 /** Low German (Plattdüütsch)

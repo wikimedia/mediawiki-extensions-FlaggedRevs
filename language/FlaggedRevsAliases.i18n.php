@@ -33,12 +33,13 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'qualityoversight-alias'      => 'نظر الجودة',
-	'unreviewedpages-alias'       => 'صفحات غير مراجعة',
-	'oldreviewedpages-alias'      => 'صفحات مراجعة قديمة',
-	'reviewedpages-alias'         => 'صفحات مراجعة',
-	'stablepages-alias'           => 'صفحات مستقرة',
-	'stableversions-alias'        => 'نسخ مستقرة',
+	'qualityoversight-alias' => 'نظر الجودة',
+	'unreviewedpages-alias'  => 'صفحات غير مراجعة',
+	'oldreviewedpages-alias' => 'صفحات مراجعة قديمة',
+	'reviewedpages-alias'    => 'صفحات مراجعة',
+	'stablepages-alias'      => 'صفحات مستقرة',
+	'stableversions-alias'   => 'نسخ مستقرة',
+	'problempages-alias'     => 'صفحات المشاكل',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -91,24 +92,26 @@ $messages['fa'] = array(
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'qualityoversight-alias'      => 'SuperviseurQualité',
-	'unreviewedpages-alias'       => 'PagesNonRelues',
-	'oldreviewedpages-alias'      => 'AnciennesPagesRelues',
-	'reviewedpages-alias'         => 'Pages révisées',
-	'stablepages-alias'           => 'PagesStables',
-	'stableversions-alias'        => 'VersionsStables',
+	'qualityoversight-alias' => 'SuperviseurQualité',
+	'unreviewedpages-alias'  => 'PagesNonRelues',
+	'oldreviewedpages-alias' => 'AnciennesPagesRelues',
+	'reviewedpages-alias'    => 'Pages révisées',
+	'stablepages-alias'      => 'PagesStables',
+	'stableversions-alias'   => 'VersionsStables',
+	'problempages-alias'     => 'PagesProblematiques',
 );
 
 /** Galician (Galego)
  * @author Toliño
  */
 $messages['gl'] = array(
-	'qualityoversight-alias'      => 'RevisiónDeCalidade',
-	'unreviewedpages-alias'       => 'Páxinas non revisadas',
-	'oldreviewedpages-alias'      => 'Páxinas revisadas hai tempo',
-	'reviewedpages-alias'         => 'Páxinas revisadas',
-	'stablepages-alias'           => 'Páxinas estábeis',
-	'stableversions-alias'        => 'Versións estábeis',
+	'qualityoversight-alias' => 'RevisiónDeCalidade',
+	'unreviewedpages-alias'  => 'Páxinas non revisadas',
+	'oldreviewedpages-alias' => 'Páxinas revisadas hai tempo',
+	'reviewedpages-alias'    => 'Páxinas revisadas',
+	'stablepages-alias'      => 'Páxinas estábeis',
+	'stableversions-alias'   => 'Versións estábeis',
+	'problempages-alias'     => 'PáxinasProblemáticas',
 );
 
 /** Hindi (हिन्दी)
@@ -172,12 +175,13 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'qualityoversight-alias'      => 'KwaliteitsControle',
-	'unreviewedpages-alias'       => 'PaginasZonderEindredactie',
-	'oldreviewedpages-alias'      => 'PaginasVerouderdeEindredactie',
-	'reviewedpages-alias'         => 'PaginasMetEindredactie',
-	'stablepages-alias'           => 'StabielePaginas',
-	'stableversions-alias'        => 'StabieleVersies',
+	'qualityoversight-alias' => 'KwaliteitsControle',
+	'unreviewedpages-alias'  => 'PaginasZonderEindredactie',
+	'oldreviewedpages-alias' => 'PaginasVerouderdeEindredactie',
+	'reviewedpages-alias'    => 'PaginasMetEindredactie',
+	'stablepages-alias'      => 'StabielePaginas',
+	'stableversions-alias'   => 'StabieleVersies',
+	'problempages-alias'     => 'ProbleemPaginas',
 );
 
 /** Occitan (Occitan)
@@ -204,12 +208,13 @@ $messages['pl'] = array(
  * @author 555
  */
 $messages['pt'] = array(
-	'qualityoversight-alias'      => 'Observatório_da_qualidade',
-	'unreviewedpages-alias'       => 'Páginas_a_analisar',
-	'oldreviewedpages-alias'      => 'Versões_antigas_de_páginas_analisadas',
-	'reviewedpages-alias'         => 'Páginas_analisadas',
-	'stablepages-alias'           => 'Páginas_estáveis',
-	'stableversions-alias'        => 'Edições_estáveis',
+	'qualityoversight-alias' => 'Observatório_da_qualidade',
+	'unreviewedpages-alias'  => 'Páginas_a_analisar',
+	'oldreviewedpages-alias' => 'Versões_antigas_de_páginas_analisadas',
+	'reviewedpages-alias'    => 'Páginas_analisadas',
+	'stablepages-alias'      => 'Páginas_estáveis',
+	'stableversions-alias'   => 'Edições_estáveis',
+	'problempages-alias'     => 'Páginas com problemas',
 );
 
 /** Russian (Русский)
@@ -228,12 +233,13 @@ $messages['ru'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'qualityoversight-alias'      => 'DohľadNadKvalitou',
-	'unreviewedpages-alias'       => 'NeskontrolovanéStránky',
-	'oldreviewedpages-alias'      => 'StaréSkontrolovanéStránky',
-	'reviewedpages-alias'         => 'SkontrolovanéStránky',
-	'stablepages-alias'           => 'StabilnéStránky',
-	'stableversions-alias'        => 'StabilnéVerzie',
+	'qualityoversight-alias' => 'DohľadNadKvalitou',
+	'unreviewedpages-alias'  => 'NeskontrolovanéStránky',
+	'oldreviewedpages-alias' => 'StaréSkontrolovanéStránky',
+	'reviewedpages-alias'    => 'SkontrolovanéStránky',
+	'stablepages-alias'      => 'StabilnéStránky',
+	'stableversions-alias'   => 'StabilnéVerzie',
+	'problempages-alias'     => 'ProblémovéStránky',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -250,14 +256,16 @@ $messages['sr-ec'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
+ * @author Boivie
  */
 $messages['sv'] = array(
-	'qualityoversight-alias'      => 'Kvalitetsöversikt',
-	'unreviewedpages-alias'       => 'OgranskadeSidor',
-	'oldreviewedpages-alias'      => 'GamlaGranskadeSidor',
-	'reviewedpages-alias'         => 'GranskadeSidor',
-	'stablepages-alias'           => 'StabilaSidor',
-	'stableversions-alias'        => 'StabilaVersioner',
+	'qualityoversight-alias' => 'Kvalitetsöversikt',
+	'unreviewedpages-alias'  => 'OgranskadeSidor',
+	'oldreviewedpages-alias' => 'GamlaGranskadeSidor',
+	'reviewedpages-alias'    => 'GranskadeSidor',
+	'stablepages-alias'      => 'StabilaSidor',
+	'stableversions-alias'   => 'StabilaVersioner',
+	'problempages-alias'     => 'ProblemSidor',
 );
 
 /** Vèneto (Vèneto)
