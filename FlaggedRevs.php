@@ -216,7 +216,7 @@ $wgGroupPermissions['*']['feedback'] = false;
 # Reader feedback tags, positive and negative. [a-zA-Z] tag names only.
 # Each tag has five levels, which 3 being average. The tag names are
 # mapped to their weight. This is used to determine the "worst"/"best" pages.
-$wgFlaggedRevsFeedbackTags = array( 'reliability' => 2, 'completeness' => 2, 'npov' => 1.5, 'presentation' => 1 );
+$wgFlaggedRevsFeedbackTags = array( 'reliability' => 3, 'completeness' => 2, 'npov' => 2, 'presentation' => 1 );
 # How many days back should the average rating for a page be based on?
 $wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
 

@@ -55,13 +55,20 @@ class RatingHistory extends UnlistedSpecialPage
 	
 	protected function showForm() {
 		global $wgOut, $wgTitle, $wgScript;
-		$form = Xml::openElement( 'form',
-			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
+		$form = Xml::openElement( 'form', array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsg('ratinghistory-leg')."</legend>\n";
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 		$form .= Xml::hidden( 'target', $this->page->getPrefixedDBKey() );
 		$form .= $this->getPeriodMenu( $this->period );
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+		// Show legend
+		$form .= wfMsgExt('ratinghistory-ave',array('parse'));
+		$form .= Xml::openElement( 'div', array('class' => 'reader_feedback_legend') );
+		for( $i=0; $i <= 4; $i++) {
+			$form .= "<b>[$i]</b> - " . wfMsgHtml( "readerfeedback-level-$i" );
+			$form .= "&nbsp;&nbsp;&nbsp;";
+		}
+		$form .= Xml::closeElement( 'div' );
 		$form .= "</fieldset></form>\n";
 		$wgOut->addHTML( $form );
 	}
@@ -99,13 +106,6 @@ class RatingHistory extends UnlistedSpecialPage
 				Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . Xml::closeElement( 'img' ) .
 				Xml::closeElement( 'div' )
 			);
-			// Show legend
-			$wgOut->addHTML( Xml::openElement( 'div', array('class' => 'reader_feedback_legend') ) );
-			for( $i=0; $i <= 4; $i++) {
-				$wgOut->addHTML( "&nbsp;&nbsp;&nbsp;" );
-				$wgOut->addHTML( "<b>[$i]</b> - " . wfMsgHtml( "readerfeedback-level-$i" ) );
-			}
-			$wgOut->addHTML( Xml::closeElement( 'div' ) );
 		}
 	}
 	
@@ -119,7 +119,7 @@ class RatingHistory extends UnlistedSpecialPage
 		global $wgPHPlotDir;
 		require_once( "$wgPHPlotDir/phplot.php" ); // load classes
 		// Define the object
-		$plot = new PHPlot(900,600);
+		$plot = new PHPlot(900,400);
 		// Set file path
 		$dir = dirname($filePath);
 		// Make sure directory exists
@@ -132,30 +132,45 @@ class RatingHistory extends UnlistedSpecialPage
 		#$plot->SetTitle("Rating history");
 		#$plot->SetXTitle('Date');
 		#$plot->SetYTitle('Daily and running average');
+		$dbr = wfGetDB( DB_SLAVE );
+		// Set cutoff time for period
+		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+		$cutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 		// Define the data using the DB rows
 		$data = array();
 		$totalVal = $totalCount = 0;
-		$dbr = wfGetDB( DB_SLAVE );
+		$lastDay = 31; // init to not trigger first time
 		$res = $dbr->select( 'reader_feedback_history',
 			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
-			array( 'rfh_page_id' => $this->page->getArticleId(), 'rfh_tag' => $tag ),
+			array( 'rfh_page_id' => $this->page->getArticleId(), 
+				'rfh_tag' => $tag,
+				"rfh_date >= {$cutoff}"),
 			__METHOD__,
-			array( 'ORDER BY' => 'rfh_date DESC' ) );
+			array( 'ORDER BY' => 'rfh_date ASC' ) );
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
 			$cumAve = (real)$totalVal/(real)$totalCount;
-			$month = substr( $row->rfh_date, 4, 2 );
-			$day = substr( $row->rfh_date, 6, 2 );
+			$month = intval( substr( $row->rfh_date, 4, 2 ) );
+			$day = intval( substr( $row->rfh_date, 6, 2 ) );
+			# Fill in days with no votes to keep spacing even
+			if( $day > ($lastDay + 1) ) {
+				for( $i=($lastDay + 1); $i < $day; $i++ ) {
+					$data[] = array("{$month}/{$i}",'','');
+				}
+			}
 			$data[] = array("{$month}/{$day}",$dayAve,$cumAve);
+			$lastDay = $day;
 		}
 		// Flip order
-		$data = array_reverse($data);
 		$plot->SetDataValues($data);
 		// Turn off X axis ticks and labels because they get in the way:
 		$plot->SetXTickLabelPos('none');
 		$plot->SetXTickPos('none');
+		$plot->SetYTickIncrement( .5 );
+		$plot->SetPlotAreaWorld( 0, 0, null, 4.5 );
 		// Draw it!
 		$plot->DrawGraph();
 		return true;
