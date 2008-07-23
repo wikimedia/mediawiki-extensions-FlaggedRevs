@@ -16,6 +16,7 @@ $messages['en'] = array(
 	'ratinghistory-month'   => 'last month',
 	'ratinghistory-year'    => 'last year',
 	'ratinghistory-3years'  => 'last 3 years',
+	'ratinghistory-none'    => 'There is no reader feedback data available at this time.',
 	'ratinghistory-legend'  => 'The daily average <font color="blue">\'\'(blue)\'\'</font> and selected interval 
 	average <font color="green">\'\'(green)\'\'</font> rating will be graphed below, by date. The number of reviews is shown in the
 	upper right-hand corner of the graphs; higher values tend to indicated better sample data. The rating values are to be interpreted as follows:

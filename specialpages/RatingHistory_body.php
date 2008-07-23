@@ -82,23 +82,31 @@ class RatingHistory extends UnlistedSpecialPage
 	
 	protected function showGraphs() {
 		global $wgOut;
+		$data = false;
 		// Do each graphs for said time period
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
-			// Show title
-			$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 			// Check if cached version is available.
 			// If not, then generate a new one.
 			$filePath = $this->getFilePath( $tag );
 			$url = $this->getUrlPath( $tag );
-			if( 1 || !file_exists($filePath) || $this->fileExpired($tag,$filePath) ) {
-				$this->makeTagGraph( $tag, $filePath );
+			if( !file_exists($filePath) || $this->fileExpired($tag,$filePath) ) {
+				$ok = $this->makeTagGraph( $tag, $filePath );
+			} else {
+				$ok = true;
 			}
 			// Output the image
-			$wgOut->addHTML( 
-				Xml::openElement( 'div', array('class' => 'reader_feedback_graph') ) .
-				Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . Xml::closeElement( 'img' ) .
-				Xml::closeElement( 'div' )
-			);
+			if( $ok ) {
+				$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
+				$wgOut->addHTML( 
+					Xml::openElement( 'div', array('class' => 'reader_feedback_graph') ) .
+					Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . Xml::closeElement( 'img' ) .
+					Xml::closeElement( 'div' )
+				);
+				$data = true;
+			}
+		}
+		if( !$data ) {
+			$wgOut->addHTML( wfMsg('ratinghistory-none') );
 		}
 	}
 	
@@ -156,6 +164,9 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 			$data[] = array("{$month}/{$day}",$dayAve,$cumAve);
 			$lastDay = $day;
+		}
+		if( empty($data) ) {
+			return false;
 		}
 		// Flip order
 		$plot->SetDataValues($data);
