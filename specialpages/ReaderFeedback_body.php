@@ -49,8 +49,9 @@ class ReaderFeedback extends UnlistedSpecialPage
 		if( $wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) && $wgRequest->wasPosted() ) {
 			$this->submit();
 		}
-		# Back to the page!
-		$wgOut->redirect( $this->page->getFullUrl() );
+		# Go to graphs!
+		$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
+		$wgOut->redirect( $ratingTitle->getLocalUrl('target='.$this->page->getPrefixedUrl() ) );
 	}
 
 	private function submit() {
