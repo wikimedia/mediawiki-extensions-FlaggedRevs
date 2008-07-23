@@ -265,7 +265,7 @@ class FlaggedArticle extends Article {
 				$wgOut->setRevisionId( $frev->getRevId() );
 				$notes = $this->getReviewNotes( $frev );
 				# Index the stable version only
-				$wgOut->setRobotpolicy( 'noindex,nofollow' );
+				$wgOut->setRobotPolicy( 'noindex,nofollow' );
 				# Tell MW that parser output is done
 				$outputDone = true;
 				$pcache = false;
@@ -331,7 +331,7 @@ class FlaggedArticle extends Article {
 				}
 				# Index the stable version only if it is the default
 				if( $this->showStableByDefault() ) {
-					$wgOut->setRobotpolicy( 'noindex,nofollow' );
+					$wgOut->setRobotPolicy( 'noindex,nofollow' );
 				}
 			// The relevant conditions are met to override the page with the stable version.
 			} else {
