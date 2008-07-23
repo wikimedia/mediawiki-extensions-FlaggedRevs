@@ -290,7 +290,7 @@ class FlaggedArticle extends Article {
 				$simpleTag = !$synced;
 				# Construct some tagging for non-printable outputs. Note that the pending
 				# notice has all this info already, so don't do this if we added that already.
-				if( !$wgOut->isPrintable() && !$pending ) {
+				if( !$wgOut->isPrintable() && !$pending && !(FlaggedRevs::lowProfileUI() && $synced) ) {
 					$class = 'fr-icon-current'; // default
 					$tooltip = 'revreview-draft-title';
 					// Simple icon-based UI
@@ -396,10 +396,10 @@ class FlaggedArticle extends Article {
 			else
 				$tagClass = 'flaggedrevs_basic';
 			# Wrap tag contents in a div
-			if( $tag !='' )
+			if( $tag !='' ) {
 				$tag = "<div id='mw-revisiontag' class='$tagClass plainlinks noprint'>$tag</div>";
-			# Set UI html
-			$this->reviewNotice .= $tag;
+				$this->reviewNotice .= $tag;
+			}
 			# Add revision notes
 			$wgOut->mBodytext = $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page or printable output.
