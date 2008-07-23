@@ -82,7 +82,7 @@ class Stabilization extends UnlistedSpecialPage
 	function showSettings( $err = null ) {
 		global $wgOut, $wgTitle, $wgUser;
 
-		$wgOut->setRobotPolicy( 'noindex,nofollow' );
+		$wgOut->setRobotpolicy( 'noindex,nofollow' );
 		# Must be a content page
 		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), $this->page->getPrefixedText() ) );
