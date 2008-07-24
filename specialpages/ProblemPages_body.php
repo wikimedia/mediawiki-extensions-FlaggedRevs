@@ -77,7 +77,10 @@ class ProblemPages extends SpecialPage
 			else
 				$stxt = ' <small>' . wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) ) . '</small>';
 		}
-		return "<li>$link $stxt ($hist) [<b>{$row->rfp_ave_val}</b>]</li>";
+		$ratinghist = SpecialPage::getTitleFor( 'RatingHistory' );
+		$graph = $this->skin->makeKnownLinkObj( $ratinghist, wfMsg('problempages-graphs'), 
+			'target='.$title->getPrefixedUrl() );
+		return "<li>$link $stxt ($hist) ($graph)</li>";
 	}
 }
 
@@ -112,6 +115,8 @@ class ProblemPagesPager extends AlphabeticPager {
 		$conds[] = 'rfp_page_id = page_id';
 		$conds['rfp_tag'] = $this->tag;
 		$conds['page_namespace'] = $this->namespace;
+		// Reasonable sample
+		$conds[] = 'rfp_count >= 20';
 		return array(
 			'tables' => array('reader_feedback_pages','page'),
 			'fields' => 'page_namespace,page_title,page_len,rfp_ave_val',

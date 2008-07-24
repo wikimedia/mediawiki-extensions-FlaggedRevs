@@ -114,22 +114,26 @@ class ReaderFeedback extends UnlistedSpecialPage
 					'rfh_date' => $date ),
 				__METHOD__ );
 			# Get effective tag values for this page..
-			$aveVal = FlaggedRevs::getAverageRating( $article, $tag, true );
+			list($aveVal,$n) = FlaggedRevs::getAverageRating( $article, $tag, true );
 			$insertRows[] = array( 
 				'rfp_page_id' => $rev->getPage(),
 				'rfp_tag'     => $tag,
 				'rfp_ave_val' => $aveVal,
+				'rfp_count'   => $n,
 				'rfp_touched' => $touched
 			);
 			$overall += FlaggedRevs::getFeedbackWeight( $tag ) * $aveVal;
 		}
 		# Get overall data for this page. Used to rank best/worst pages...
-		$insertRows[] = array( 
-			'rfp_page_id' => $rev->getPage(),
-			'rfp_tag'     => 'overall',
-			'rfp_ave_val' => ($overall / count($this->dims)),
-			'rfp_touched' => $touched
-		);
+		if( isset($n) ) {
+			$insertRows[] = array( 
+				'rfp_page_id' => $rev->getPage(),
+				'rfp_tag'     => 'overall',
+				'rfp_ave_val' => ($overall / count($this->dims)),
+				'rfp_count'   => $n,
+				'rfp_touched' => $touched
+			);
+		}
 		$dbw->replace( 'reader_feedback_pages', array( 'PRIMARY' ), $insertRows, __METHOD__ );
 		# Done!
 		$dbw->commit();

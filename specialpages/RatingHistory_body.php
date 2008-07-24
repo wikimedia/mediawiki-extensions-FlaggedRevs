@@ -37,9 +37,9 @@ class RatingHistory extends UnlistedSpecialPage
 			return;
 		}
 		$period = $wgRequest->getInt( 'period' );
-		$validPeriods = array(30,365,1095);
+		$validPeriods = array(31,365,1095);
 		if( !in_array($period,$validPeriods) ) {
-			$period = 30; // default
+			$period = 31; // default
 		}
 		$this->period = $period;
 		
@@ -73,7 +73,7 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function getPeriodMenu( $selected=null ) {
 		$s = "<label for='period'>" . wfMsgHtml('ratinghistory-period') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'period', 'id' => 'period') );
-		$s .= Xml::option( wfMsg( "ratinghistory-month" ), 30, $selected===30 );
+		$s .= Xml::option( wfMsg( "ratinghistory-month" ), 31, $selected===31 );
 		$s .= Xml::option( wfMsg( "ratinghistory-year" ), 365, $selected===365 );
 		$s .= Xml::option( wfMsg( "ratinghistory-3years" ), 1095, $selected===1095 );
 		$s .= Xml::closeElement('select')."\n";
@@ -98,7 +98,7 @@ class RatingHistory extends UnlistedSpecialPage
 			if( $ok ) {
 				$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 				$wgOut->addHTML( 
-					Xml::openElement( 'div', array('class' => 'reader_feedback_graph') ) .
+					Xml::openElement( 'div', array('class' => 'reader_feedback_graph','style' => "width:100%;overflow:scroll;") ) .
 					Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . Xml::closeElement( 'img' ) .
 					Xml::closeElement( 'div' )
 				);
@@ -120,7 +120,7 @@ class RatingHistory extends UnlistedSpecialPage
 		global $wgPHPlotDir;
 		require_once( "$wgPHPlotDir/phplot.php" ); // load classes
 		// Define the object
-		$plot = new PHPlot(900,400);
+		$plot = new PHPlot( 1000, 400 );
 		// Set file path
 		$dir = dirname($filePath);
 		// Make sure directory exists
@@ -129,19 +129,17 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		$plot->SetOutputFile( $filePath );
 		$plot->SetIsInline( true );
-		// Set titles (FIXME: other languages?)
-		#$plot->SetTitle("Rating history");
-		#$plot->SetXTitle('Date');
-		#$plot->SetYTitle('Daily and running average');
-		$dbr = wfGetDB( DB_SLAVE );
 		// Set cutoff time for period
+		$dbr = wfGetDB( DB_SLAVE );
 		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
-		$cutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
+		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Define the data using the DB rows
 		$data = array();
-		$totalVal = $totalCount = 0;
+		$totalVal = $totalCount = $n = 0;
 		$lastDay = 31; // init to not trigger first time
+		$lastMonth = 12; // init to not trigger first time
+		$lastYear = 9999; // init to not trigger first time
 		$res = $dbr->select( 'reader_feedback_history',
 			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
 			array( 'rfh_page_id' => $this->page->getArticleId(), 
@@ -149,30 +147,66 @@ class RatingHistory extends UnlistedSpecialPage
 				"rfh_date >= {$cutoff}"),
 			__METHOD__,
 			array( 'ORDER BY' => 'rfh_date ASC' ) );
+		// Label spacing
+		if( $row = $dbr->fetchObject( $res ) ) {
+			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
+			$res->seek( $dbr->numRows($res)-1 );
+			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
+			$days = intval( ($upper - $lower)/86400 );
+			$int = intval( ceil($days/10) ); // 10 labels at most
+			$res->seek( 0 );
+		}
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
 			$cumAve = (real)$totalVal/(real)$totalCount;
+			$year = intval( substr( $row->rfh_date, 0, 4 ) );
 			$month = intval( substr( $row->rfh_date, 4, 2 ) );
 			$day = intval( substr( $row->rfh_date, 6, 2 ) );
 			# Fill in days with no votes to keep spacing even
-			if( $day > ($lastDay + 1) ) {
-				for( $i=($lastDay + 1); $i < $day; $i++ ) {
-					$data[] = array("|",'','');
+			# Year gaps...
+			for( $i=($lastYear + 1); $i < $year; $i++ ) {
+				for( $x=1; $x <= 365; $x++ ) {
+					$data[] = array("",'','');
+					$n++;
 				}
 			}
-			$data[] = array("{$month}/{$day}",$dayAve,$cumAve);
+			# Month gaps...
+			for( $i=($lastMonth + 1); $i < $month; $i++ ) {
+				for( $x=1; $x <= 31; $x++ ) {
+					$data[] = array("",'','');
+					$n++;
+				}
+			}
+			# Day gaps...
+			for( $x=($lastDay + 1); $x < $day; $x++ ) {
+				$data[] = array("",'','');
+				$n++;
+			}
+			# Label point?
+			if( $n >= $int || !count($data) ) {
+				$p = ($this->period > 31) ? "{$month}/{$day}/".substr( $year, 2, 2 ) : "{$month}/{$day}";
+				$n = 0;
+			} else {
+				$p = "";
+				$n++;
+			}
+			$data[] = array( $p, $dayAve, $cumAve);
 			$lastDay = $day;
+			$lastMonth = $month;
+			$lastYear = $year;
 		}
-		if( empty($data) ) {
+		// Minimum sample size
+		if( count($data) < 2 || $totalCount < 10 ) {
 			return false;
 		}
-		// Flip order
 		$plot->SetDataValues($data);
+		$plot->SetBackgroundColor('#fffff0');
 		// Turn off X axis ticks and labels because they get in the way:
 		$plot->SetXTickLabelPos('none');
 		$plot->SetXTickPos('none');
+		// Set plot area
 		$plot->SetYTickIncrement( .5 );
 		$plot->SetPlotAreaWorld( 0, 0, null, 4 );
 		// Show total number of votes

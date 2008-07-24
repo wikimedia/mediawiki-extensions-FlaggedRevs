@@ -552,20 +552,21 @@ class FlaggedRevs {
 	 * @param Article $article
 	 * @param string $tag
 	 * @param bool $forUpdate, use master?
-	 * @return real
+	 * @return array(real,int)
 	 * Get article rating for this tag for the last few days
 	 */
-	function getAverageRating( $article, $tag, $forUpdate=false ) {
+	public static function getAverageRating( $article, $tag, $forUpdate=false ) {
 		global $wgFlaggedRevsFeedbackAge;
 		$cutoff_unixtime = time() - $wgFlaggedRevsFeedbackAge;
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$average = $db->selectField( 'reader_feedback_history', 
-			'SUM(rfh_total)/SUM(rfh_count)',
+		$row = $db->selectRow( 'reader_feedback_history', 
+			array('SUM(rfh_total)/SUM(rfh_count) AS ave, SUM(rfh_total) AS count'),
 			array( 'rfh_page_id' => $article->getId(), 'rfh_tag' => $tag,
 				"rfh_date >= {$cutoff_unixtime}" ),
 			__METHOD__ );
-		return $average;
+		$data = $row ? array($row->ave,$row->count) : array(0,0);
+		return $data;
 	}
 	
  	/**
