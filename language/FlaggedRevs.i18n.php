@@ -4339,6 +4339,13 @@ Senarai laman yang telah distabilkan boleh dilihat di [[Special:StablePages|sena
 	'validationpage'               => '{{ns:help}}:Pengesahan rencana',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'tooltip-ca-current' => 'Xiquitta āxcān zāzanilli ītzīmpēhualiz',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
