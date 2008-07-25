@@ -38,6 +38,7 @@ $messages['ar'] = array(
 	'ratinghistory-month'  => 'آخر شهر',
 	'ratinghistory-year'   => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
+	'ratinghistory-none'   => 'لا توجد بيانات من القراء متوفرة في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> ومتوسط الفترة المختارة  
 <font color=\"green\">''(أخضر)''</font> سيتم رسمهما بالأسفل، حسب التاريخ. عدد المراجعات معروض في
 الركن أعلى اليمين للرسومات؛ القيم الأعلى تميل إلى التعبير عن بيانات عينة أفضل. قيم التقييم يتم تفسيرها كالتالي:
@@ -58,6 +59,10 @@ $messages['fr'] = array(
 	'ratinghistory-month'  => 'dernier mois',
 	'ratinghistory-year'   => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
+	'ratinghistory-none'   => 'En ce moment, il n’y a aucun lecteur de données de notation de disponible.',
+	'ratinghistory-legend' => "Les quotation journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation seront dessinés ci-dessous, par date. Le nombre de relectures est affichée dans le coin situé en haut à droite du graphique ; les valeurs les plus élevées tendent à indiquer plutôt des données simples. les valeurs de notations doivent être interprétées comme suit :
+
+'''[0]''' - Mauvais ; '''[1]''' - Médiocre ; '''[2]''' - Moyen ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
 );
 
 /** Galician (Galego)
@@ -100,7 +105,7 @@ $messages['nl'] = array(
 	'ratinghistory-month'  => 'afgelopen maand',
 	'ratinghistory-year'   => 'afgelopen jaar',
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
-	'ratinghistory-none'   => 'Er is geen terugkoppeling van lezers aanwezig.',
+	'ratinghistory-none'   => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven tijd <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
 Het aantaal waarderingen is rechtsboven te zien.
 Hogere waardes betekenen in het algemeen een hogere betrouwbaarheid.
@@ -137,6 +142,21 @@ $messages['sk'] = array(
 	'ratinghistory-month'  => 'posledný mesiac',
 	'ratinghistory-year'   => 'posledný rok',
 	'ratinghistory-3years' => 'posledné 3 roky',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'ratinghistory'        => 'Историја оцена стране.',
+	'ratinghistory-text'   => "'''Ова страна приказује податке оцењивања чланка за страну \"[[:\$1|\$1]]\".'''",
+	'ratinghistory-leg'    => 'Историја оцењивања.',
+	'ratinghistory-tab'    => 'оцена',
+	'ratinghistory-period' => 'Раздобље:',
+	'ratinghistory-month'  => 'последњи месец',
+	'ratinghistory-year'   => 'последња година',
+	'ratinghistory-3years' => 'последње три године',
+	'ratinghistory-none'   => 'Не постоје доступне оцене читалаца у овом тренутку.',
 );
 
 /** Swedish (Svenska)

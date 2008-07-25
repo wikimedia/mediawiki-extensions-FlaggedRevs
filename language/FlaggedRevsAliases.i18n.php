@@ -246,12 +246,13 @@ $messages['sk'] = array(
  * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'qualityoversight-alias'      => 'НадгледањеКвалитета',
-	'unreviewedpages-alias'       => 'НепрегледанеСтране',
-	'oldreviewedpages-alias'      => 'СтареПрегледанеСтране',
-	'reviewedpages-alias'         => 'ПрегледанеСтране',
-	'stablepages-alias'           => 'СтабилнеСтране',
-	'stableversions-alias'        => 'СтабилнеВерзије',
+	'qualityoversight-alias' => 'НадгледањеКвалитета',
+	'unreviewedpages-alias'  => 'НепрегледанеСтране',
+	'oldreviewedpages-alias' => 'СтареПрегледанеСтране',
+	'reviewedpages-alias'    => 'ПрегледанеСтране',
+	'stablepages-alias'      => 'СтабилнеСтране',
+	'stableversions-alias'   => 'СтабилнеВерзије',
+	'problempages-alias'     => 'ПроблематичнеСтране',
 );
 
 /** Swedish (Svenska)

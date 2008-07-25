@@ -64,10 +64,11 @@ $messages['km'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'problempages'      => "Probleempagina's",
-	'problempages-leg'  => "Laaggewaardeerde pagina's zoeken",
-	'problempages-list' => "Hieronder staat een lijst met pagina's gesorteerd op de waardering door lezers.",
-	'problempages-none' => "Er staan geen pagina's in deze lijst",
+	'problempages'        => "Probleempagina's",
+	'problempages-leg'    => "Laaggewaardeerde pagina's zoeken",
+	'problempages-list'   => "Hieronder staat een lijst met pagina's gesorteerd op de waardering door lezers.",
+	'problempages-none'   => "Er staan geen pagina's in deze lijst",
+	'problempages-graphs' => 'waarderingsgegevens',
 );
 
 /** Portuguese (Português)
@@ -88,6 +89,16 @@ $messages['sk'] = array(
 	'problempages-leg'  => 'Nájsť nízko hodnotené stránky',
 	'problempages-list' => 'Toto je zoznam stránok zoradený podľa hodnotenia čitateľov.',
 	'problempages-none' => 'V tomto zozname sa nenachádzajú žiadne stránky',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'problempages'      => 'проблематичне стране',
+	'problempages-leg'  => 'Претрага ниско оцењених страна.',
+	'problempages-list' => 'Испод се налази списак сортиран по оценама читалаца.',
+	'problempages-none' => 'Нема страна у овом списку.',
 );
 
 /** Swedish (Svenska)

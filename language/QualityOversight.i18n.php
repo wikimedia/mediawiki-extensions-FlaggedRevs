@@ -171,8 +171,9 @@ $messages['sk'] = array(
  * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'qualityoversight'      => 'Надгледање квалитета',
-	'qualityoversight-list' => 'На овој страни се налази списак скоро одобрених квалитетних верија, као и застаревање квалитетних верзија.',
+	'qualityoversight'        => 'Надгледање квалитета',
+	'qualityoversight-list'   => 'На овој страни се налази списак скоро одобрених и потиснутих верзија.',
+	'qualityoversight-legend' => 'Претрага лога скорих прегледа.',
 );
 
 /** Swedish (Svenska)
