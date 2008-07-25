@@ -45,13 +45,36 @@ class ReaderFeedback extends UnlistedSpecialPage
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			$this->dims[$tag] = $wgRequest->getInt( "wp$tag" );
 		}
+		# Check validation key
+		$this->validatedParams = $wgRequest->getVal('validatedParams');
+		if( $this->validatedParams != self::validationKey( $this->oldid, $wgUser->getId() ) ) {
+			$wgOut->redirect( $this->page->getLocalUrl() );
+		}
 		# Submit valid requests
 		if( $wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) && $wgRequest->wasPosted() ) {
-			$this->submit();
+			$ok = $this->submit();
 		}
 		# Go to graphs!
-		$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
-		$wgOut->redirect( $ratingTitle->getLocalUrl('target='.$this->page->getPrefixedUrl() ) );
+		if( $ok ) {
+			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
+			$wgOut->redirect( $ratingTitle->getLocalUrl('target='.$this->page->getPrefixedUrl() ) );
+		# Already voted!
+		} else {
+			$wgOut->redirect( $this->page->getLocalUrl() );
+		}
+	}
+	
+	public static function validationKey( $rid, $uid ) {
+		global $wgReviewCodes;
+		# Fall back to $wgSecretKey/$wgProxyKey
+		if( empty($wgReviewCodes) ) {
+			global $wgSecretKey, $wgProxyKey;
+			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
+			$p = md5($key.$rid.$uid);
+		} else {
+			$p = md5($wgReviewCodes[0].$rid.$uid.$wgReviewCodes[1]);
+		}
+		return $p;
 	}
 
 	private function submit() {

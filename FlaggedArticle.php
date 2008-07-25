@@ -1431,6 +1431,9 @@ class FlaggedArticle extends Article {
 			return false;
 		}
 		$id = $out->mRevisionId; // Revision being displayed
+		if( $id != $this->parent->getLatest() ) {
+			return false;
+		}
 		$reviewTitle = SpecialPage::getTitleFor( 'ReaderFeedback' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-feedbackform' ) );
@@ -1460,6 +1463,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'target', $this->parent->getTitle()->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'oldid', $id ) . "\n";
+		$form .= Xml::hidden( 'validatedParams', ReaderFeedback::validationKey( $id, $wgUser->getId() ) );
 		$form .= Xml::hidden( 'action', 'submit') . "\n";
 		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
 		# Add review parameters
