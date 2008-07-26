@@ -90,8 +90,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$article = new Article( $this->page );
 		# Check if user already voted before...
 		if( $wgUser->getId() ) {
+			$ipSafe = $dbw->strencode( wfGetIP() );
 			$userVoted = $dbw->selectField( 'reader_feedback', '1', 
-				array( 'rfb_rev_id' => $this->oldid, 'rfb_user' => $wgUser->getId() ), 
+				array( 'rfb_rev_id' => $this->oldid, 
+					"(rfb_user = ".$wgUser->getId().") OR (rfb_user = 0 AND rfb_ip = '$ipSafe')" ), 
 				__METHOD__ );
 			if( $userVoted ) {
 				return false;
