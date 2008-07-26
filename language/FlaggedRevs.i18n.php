@@ -160,7 +160,7 @@ To depreciate a revision, set all fields to "unapproved".',
 	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|stable version]] configuration of content pages.
 	A list of stabilized pages can be found at the [[Special:StablePages|stable page list]].',
 	
-	'readerfeedback'               => 'Reader feedback',
+	'readerfeedback'               => 'What do you think of this page?',
 	'readerfeedback-text'          => '\'\'Please take a moment to rate this page below. Your feedback is valuable and helps us improve our website.\'\'',
 	'readerfeedback-reliability'   => 'Reliability',
 	'readerfeedback-completeness'  => 'Completeness',

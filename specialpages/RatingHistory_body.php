@@ -50,7 +50,7 @@ class RatingHistory extends UnlistedSpecialPage
 	
 	protected function showHeader() {
 		global $wgOut;
-		if( $this->userAlreadyVoted() ) {
+		if( FlaggedRevs::userAlreadyVoted( $this->page ) ) {
 			$wgOut->addWikiText( wfMsg('ratinghistory-thanks') . '<hr/>' );
 		}
 		$wgOut->addWikiText( wfMsg('ratinghistory-text',$this->page->getPrefixedText()) );
@@ -81,29 +81,6 @@ class RatingHistory extends UnlistedSpecialPage
 		$s .= Xml::option( wfMsg( "ratinghistory-3years" ), 1095, $selected===1095 );
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
-	}
-	
-	protected function userAlreadyVoted() {
-		global $wgUser;
-		$dbw = wfGetDB( DB_MASTER );
-		# Check if user already voted before...
-		if( $wgUser->getId() ) {
-			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
-				array( 'page_namespace' => $this->page->getNamespace(),
-					'page_title' => $this->page->getDBKey(),
-					'rfb_rev_id = page_latest', 
-					'rfb_user' => $wgUser->getId() ), 
-				__METHOD__ );
-		} else {
-			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
-				array( 'page_namespace' => $this->page->getNamespace(),
-					'page_title' => $this->page->getDBKey(),
-					'rfb_rev_id = page_latest', 
-					'rfb_user' => 0, 
-					'rfb_ip' => wfGetIP() ), 
-				__METHOD__ );
-		}
-		return (bool)$userVoted;
 	}
 	
 	protected function showGraphs() {

@@ -908,6 +908,29 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
+	public static function userAlreadyVoted( $title ) {
+		global $wgUser;
+		$dbw = wfGetDB( DB_MASTER );
+		# Check if user already voted before...
+		if( $wgUser->getId() ) {
+			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
+				array( 'page_namespace' => $title->getNamespace(),
+					'page_title' => $title->getDBKey(),
+					'rfb_rev_id = page_latest', 
+					'rfb_user' => $wgUser->getId() ), 
+				__METHOD__ );
+		} else {
+			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
+				array( 'page_namespace' => $title->getNamespace(),
+					'page_title' => $title->getDBKey(),
+					'rfb_rev_id = page_latest', 
+					'rfb_user' => 0, 
+					'rfb_ip' => wfGetIP() ), 
+				__METHOD__ );
+		}
+		return (bool)$userVoted;
+	}
+	
 	################# Auto-review function #################
 
 	/**
