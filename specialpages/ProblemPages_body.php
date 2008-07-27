@@ -115,8 +115,16 @@ class ProblemPagesPager extends AlphabeticPager {
 		$conds[] = 'rfp_page_id = page_id';
 		$conds['rfp_tag'] = $this->tag;
 		$conds['page_namespace'] = $this->namespace;
+		// Has to be bad enough
+		$x = 3;
+		if( $this->tag == 'overall' ) {
+			global $wgFlaggedRevsFeedbackTags;
+			$s = 3*array_sum($wgFlaggedRevsFeedbackTags);
+			$x = intval( floor($s/count($wgFlaggedRevsFeedbackTags)) );
+		}
+		$conds[] = "rfp_ave_val < $x";
 		// Reasonable sample
-		$conds[] = 'rfp_count >= 20';
+		$conds[] = 'rfp_count >= 15';
 		return array(
 			'tables' => array('reader_feedback_pages','page'),
 			'fields' => 'page_namespace,page_title,page_len,rfp_ave_val',
