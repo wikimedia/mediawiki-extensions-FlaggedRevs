@@ -639,9 +639,12 @@ class FlaggedArticle extends Article {
 	 */
 	public function addFeedbackForm( $out ) {
 		global $wgRequest, $wgUser;
+		if( !$this->parent->exists() || !$this->isReviewable() || !$out->mRevisionId ) {
+			return true;
+		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') || !$out->mRevisionId ) {
+		if( ($action !='view' && $action !='purge') ) {
 			return true;
 		}
 		# User must not have review rights.
