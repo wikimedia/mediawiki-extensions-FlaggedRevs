@@ -55,8 +55,8 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'oldreviewedpages'           => 'صفحات مراجعة قديمة',
-	'oldreviewedpages-legend'    => 'عرض الصفحات المراجعة ذات نسخ غير مراجعة',
-	'oldreviewedpages-list'      => 'هذه الصفحة تعرض الصفحات المراجعة التي لديها تعديلات قيد الانتظار.',
+	'oldreviewedpages-legend'    => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
+	'oldreviewedpages-list'      => 'هذه الصفحة تعرض الصفحات المراجعة التي بها تعديلات قيد الانتظار.',
 	'oldreviewedpages-none'      => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
 	'oldreviewedpages-stable'    => 'منظورة',
 	'oldreviewedpages-quality'   => 'جودة',

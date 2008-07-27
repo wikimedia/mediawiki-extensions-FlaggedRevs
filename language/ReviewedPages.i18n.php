@@ -46,7 +46,7 @@ $messages['ar'] = array(
 	'reviewedpages-lev-1' => 'جودة',
 	'reviewedpages-lev-2' => 'مختارة',
 	'reviewedpages-all'   => 'نسخ مراجعة',
-	'reviewedpages-best'  => 'نسخة فائقة',
+	'reviewedpages-best'  => 'مراجعة فائقة',
 );
 
 /** Asturian (Asturianu)

@@ -48,10 +48,10 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'stableversions'        => 'عرض النسخ المستقرة',
-	'stableversions-leg1'   => 'عرض النسخ المراجعة لصفحة',
+	'stableversions-leg1'   => 'عرض المراجعات المراجعة لصفحة',
 	'stableversions-page'   => 'اسم الصفحة',
-	'stableversions-none'   => '[[:$1]] لا يوجد بها نسخ مراجعة.',
-	'stableversions-list'   => 'هذه قائمة بنسخ صفحة [[:$1]] التي تم مراجعتها:',
+	'stableversions-none'   => '[[:$1]] لا يوجد بها مراجعات مراجعة.',
+	'stableversions-list'   => 'هذه قائمة بمراجعات صفحة [[:$1]] التي تمت مراجعتها:',
 	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
 );
 

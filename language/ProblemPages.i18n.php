@@ -19,10 +19,22 @@ $messages['en'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'problempages'      => 'صفحات المشاكل',
-	'problempages-leg'  => 'إيجاد الصفحات ذات التقييم المنخفض',
-	'problempages-list' => 'بالأسفل قائمة بالصفحات مرتبة بواسطة تقييم قرائها.',
-	'problempages-none' => 'لا توجد صفحات في هذه القائمة',
+	'problempages'        => 'صفحات المشاكل',
+	'problempages-leg'    => 'إيجاد الصفحات ذات التقييم المنخفض',
+	'problempages-list'   => 'بالأسفل قائمة بالصفحات مرتبة بواسطة تقييم قرائها.',
+	'problempages-none'   => 'لا توجد صفحات في هذه القائمة',
+	'problempages-graphs' => 'بيانات التقييم',
+);
+
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'problempages'        => 'صفحات مشکل',
+	'problempages-leg'    => 'کم درجه ایی صفحات درگیز',
+	'problempages-list'   => 'جهلء یک لیستی چه صفحات هستن که گون درجه بندی بر اساس نظرات وانوکان مرتب بوتگنت.',
+	'problempages-none'   => 'ته ای لیست هچ صفحه ای نیست',
+	'problempages-graphs' => 'دیتای درجه بندی',
 );
 
 /** Bulgarian (Български)
@@ -32,14 +44,26 @@ $messages['bg'] = array(
 	'problempages' => 'Проблемни страници',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'problempages'        => 'Problemaj paĝoj',
+	'problempages-leg'    => 'Trovi paĝojn taksitaj malbone',
+	'problempages-list'   => 'Jen listo de paĝoj ordigitaj de la taksado de legintoj.',
+	'problempages-none'   => 'Ne estas paĝoj en ĉi tiu listo',
+	'problempages-graphs' => 'datenoj de taksado',
+);
+
 /** French (Français)
  * @author Grondin
  */
 $messages['fr'] = array(
-	'problempages'      => 'Pages de problèmes',
-	'problempages-leg'  => 'Trouver les pages mal notées',
-	'problempages-list' => 'Voici, ci-dessous, une liste des pages triées en fonction de la notation de leurs lecteurs.',
-	'problempages-none' => 'Il n’y a aucune page dans cette liste',
+	'problempages'        => 'Pages de problèmes',
+	'problempages-leg'    => 'Trouver les pages mal notées',
+	'problempages-list'   => 'Voici, ci-dessous, une liste des pages triées en fonction de la notation de leurs lecteurs.',
+	'problempages-none'   => 'Il n’y a aucune page dans cette liste',
+	'problempages-graphs' => 'données de notation',
 );
 
 /** Galician (Galego)
@@ -58,6 +82,14 @@ $messages['gl'] = array(
 $messages['km'] = array(
 	'problempages'      => 'ទំព័រមានបញ្ហា',
 	'problempages-none' => 'មិនមានទំព័រនៅក្នុងបញ្ជីនេះទេ',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'problempages'      => 'Problematesch Säiten',
+	'problempages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
 );
 
 /** Dutch (Nederlands)
@@ -85,10 +117,11 @@ $messages['pt'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'problempages'      => 'Problémové stránky',
-	'problempages-leg'  => 'Nájsť nízko hodnotené stránky',
-	'problempages-list' => 'Toto je zoznam stránok zoradený podľa hodnotenia čitateľov.',
-	'problempages-none' => 'V tomto zozname sa nenachádzajú žiadne stránky',
+	'problempages'        => 'Problémové stránky',
+	'problempages-leg'    => 'Nájsť nízko hodnotené stránky',
+	'problempages-list'   => 'Toto je zoznam stránok zoradený podľa hodnotenia čitateľov.',
+	'problempages-none'   => 'V tomto zozname sa nenachádzajú žiadne stránky',
+	'problempages-graphs' => 'údaje o hodnotení',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)

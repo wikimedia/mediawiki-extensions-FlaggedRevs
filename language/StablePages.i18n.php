@@ -34,7 +34,7 @@ $messages['ar'] = array(
 	'stablepages-stable' => 'نسخة مستقرة',
 	'stablepages-text'   => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضي للمشاهدين.',
 	'stablepages-none'   => 'لا توجد صفحات في هذه القائمة',
-	'stablepages-config' => 'إعدادات',
+	'stablepages-config' => 'ضبط',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

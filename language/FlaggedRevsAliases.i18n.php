@@ -46,12 +46,13 @@ $messages['ar'] = array(
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'qualityoversight-alias'      => 'رویت-کیفیت',
-	'unreviewedpages-alias'       => 'صفحات-بی-بازبینی',
-	'oldreviewedpages-alias'      => 'صفحات-بازبینی-قدیمی',
-	'reviewedpages-alias'         => 'صفحات-بازبینی',
-	'stablepages-alias'           => 'صفحات-ثابت',
-	'stableversions-alias'        => 'نسخه یان ثابت',
+	'qualityoversight-alias' => 'رویت-کیفیت',
+	'unreviewedpages-alias'  => 'صفحات-بی-بازبینی',
+	'oldreviewedpages-alias' => 'صفحات-بازبینی-قدیمی',
+	'reviewedpages-alias'    => 'صفحات-بازبینی',
+	'stablepages-alias'      => 'صفحات-ثابت',
+	'stableversions-alias'   => 'نسخه یان ثابت',
+	'problempages-alias'     => 'صفحات‌مشکل',
 );
 
 /** German (Deutsch) */
@@ -68,12 +69,13 @@ $messages['de'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'qualityoversight-alias'      => 'KvalitKontrolo',
-	'unreviewedpages-alias'       => 'NekontrolitajPaĝoj',
-	'oldreviewedpages-alias'      => 'MalfreŝeKontrolitajPaĝoj',
-	'reviewedpages-alias'         => 'KontrolitajPaĝoj',
-	'stablepages-alias'           => 'StabilajPaĝoj',
-	'stableversions-alias'        => 'StabilajVersioj',
+	'qualityoversight-alias' => 'KvalitKontrolo',
+	'unreviewedpages-alias'  => 'NekontrolitajPaĝoj',
+	'oldreviewedpages-alias' => 'MalfreŝeKontrolitajPaĝoj',
+	'reviewedpages-alias'    => 'KontrolitajPaĝoj',
+	'stablepages-alias'      => 'StabilajPaĝoj',
+	'stableversions-alias'   => 'StabilajVersioj',
+	'problempages-alias'     => 'ProblemajPaĝoj',
 );
 
 /** Persian (فارسی) */
@@ -136,6 +138,13 @@ $messages['id'] = array(
 	'reviewedpages-alias'         => 'HalamanTertinjau',
 	'stablepages-alias'           => 'HalamanStabil',
 	'stableversions-alias'        => 'VersiStabil',
+);
+
+/** Khmer (ភាសាខ្មែរ)
+ * @author Lovekhmer
+ */
+$messages['km'] = array(
+	'problempages-alias' => 'ទំព័រមានបញ្ហា',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
