@@ -1473,7 +1473,8 @@ class FlaggedArticle extends Article {
 		$form .= Xml::hidden( 'validatedParams', ReaderFeedback::validationKey( $id, $wgUser->getId() ) );
 		$form .= Xml::hidden( 'action', 'submit') . "\n";
 		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
-		# Add review parameters
+		# Honeypot input
+		$form .= Xml::input( 'commentary', 12, '', array('style' => 'display:none;') ) . "\n";
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' ); 
 		if( $top ) {

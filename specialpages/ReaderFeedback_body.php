@@ -50,9 +50,11 @@ class ReaderFeedback extends UnlistedSpecialPage
 		if( $this->validatedParams != self::validationKey( $this->oldid, $wgUser->getId() ) ) {
 			$wgOut->redirect( $this->page->getLocalUrl() );
 		}
-		# Submit valid requests
-		if( $wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) && $wgRequest->wasPosted() ) {
+		# Submit valid requests. Check honeypot value for bots.
+		if( $confirm && !$wgRequest->getVal( 'commentary' ) ) {
 			$ok = $this->submit();
+		} else {
+			$ok = false;
 		}
 		# Go to graphs!
 		if( $ok ) {
