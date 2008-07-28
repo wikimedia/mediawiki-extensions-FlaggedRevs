@@ -97,6 +97,36 @@ class FlaggedRevs {
 	}
 	
 	/**
+	 * Should this user see stable versions by default?
+	 * @returns bool
+	 */
+	public static function showStableByDefault() {
+		global $wgFlaggedRevsOverride;
+		if( !$wgFlaggedRevsOverride ) {
+			return false;
+		}
+		return !self::ignoreDefaultVersion();
+	}
+	
+	/**
+	 * Should this user ignore the site and page default version settings?
+	 * @returns bool
+	 */
+	public static function ignoreDefaultVersion() {
+		global $wgFlaggedRevsExceptions, $wgUser;
+		# Viewer sees current by default (editors, insiders, ect...) ?
+		foreach( $wgFlaggedRevsExceptions as $group ) {
+			if( $group == 'user' ) {
+				if( !$wgUser->isAnon() )
+					return true;
+			} else if( in_array( $group, $wgUser->getGroups() ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * Should tags only be shown for unreviewed content for this user?
 	 * @returns bool
 	 */

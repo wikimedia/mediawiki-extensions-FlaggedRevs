@@ -192,6 +192,9 @@ To depreciate a revision, set all fields to "unapproved".',
 	'tooltip-ca-default'           => 'Quality assurance settings',
 	'tooltip-ca-ratinghist'        => 'Reader ratings of this page',
 	
+	'revreview-locked'             => 'Edits must be reviewed before being displayed on this page!',
+	'revreview-unlocked'           => 'Edits do not require review before being displayed on this page!',
+	
 	'revreview-ak-review'          => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages
 	'accesskey-ca-stable'          => 'c', # do not translate or duplicate this message to other languages

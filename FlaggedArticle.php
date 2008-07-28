@@ -110,21 +110,33 @@ class FlaggedArticle extends Article {
 	 * Is this user shown the stable version by default for this page?
 	 */
 	public function showStableByDefault() {
-		global $wgFlaggedRevsExceptions, $wgUser;
 		# Get page configuration
 		$config = $this->getVisibilitySettings();
-		if( !$config['override'] )
-			return false;
-		# Viewer sees current by default (editors, insiders, ect...) ?
-		foreach( $wgFlaggedRevsExceptions as $group ) {
-			if( $group == 'user' ) {
-				if( !$wgUser->isAnon() )
-					return false;
-			} else if( in_array( $group, $wgUser->getGroups() ) ) {
-				return false;
-			}
-		}
-		return true;
+		return (bool)$config['override'];
+	}
+	
+	/**
+	 * Is this page less open than the site defaults?
+	 * @returns bool
+	 */
+	public function isPageLocked() {
+		return ( !FlaggedRevs::showStableByDefault() && $this->showStableByDefault() );
+	}
+	
+	/**
+	 * Is this page more open than the site defaults?
+	 * @returns bool
+	 */
+	public function isPageUnlocked() {
+		return ( FlaggedRevs::showStableByDefault() && !$this->showStableByDefault() );
+	}
+	
+	/**
+	 * Should tags only be shown for unreviewed content for this user?
+	 * @returns bool
+	 */
+	public function lowProfileUI() {
+		return FlaggedRevs::lowProfileUI() && FlaggedRevs::showStableByDefault() == $this->showStableByDefault();
 	}
 
 	 /**
@@ -193,7 +205,7 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		$simpleTag = $old = $stable = false;
-		$tag = $notes = $pending = '';
+		$tag = $prot = $notes = $pending = '';
 		# Check the newest stable version.
 		$srev = $this->getStableRev( true );
 		$frev = $srev;
@@ -218,6 +230,12 @@ class FlaggedArticle extends Article {
 			} else {
 				$stable = true; // stable version requested by ID
 			}
+		}
+		// Is the page config altered?
+		if( $this->isPageLocked() ) {
+			$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
+		} else if( $this->isPageUnlocked() ) {
+			$prot = "<span class='fr-icon-unlocked' title=\"".wfMsg('revreview-unlocked')."\"></span>";
 		}
 		// Is there a stable version?
 		if( !is_null($frev) ) {
@@ -244,13 +262,13 @@ class FlaggedArticle extends Article {
 					// Simple icon-based UI
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
-						$html = "<span class='{$class}' title=\"{$tooltip}\"></span>" . 
+						$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince, true, false, $old );
 					// Standard UI
 					} else {
 						$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
-						$tag .= "<span class='{$class}' title=\"{$tooltip}\"></span>" . 
+						$tag .= "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" . 
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 						# Hide clutter
 						if( !empty($flags) ) {
@@ -277,10 +295,10 @@ class FlaggedArticle extends Article {
 				if( $srev->getRevId() == $frev->getRevId() ) {
 					$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent );
 				}
-				# Give notice to newewer users if an unreviewed edit was completed...
+				# Give notice to newer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
 					$tooltip = wfMsgHtml('revreview-draft-title');
-					$pending = "<span class='fr-icon-current' title=\"{$tooltip}\"></span>" . 
+					$pending = "{$prot}<span class='fr-icon-current' title=\"{$tooltip}\"></span>" . 
 						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revsSince);
 					$pending = "<div id='mw-reviewnotice' class='flaggedrevs_preview plainlinks'>$pending</div>";
 					# Notice should always use subtitle
@@ -290,7 +308,7 @@ class FlaggedArticle extends Article {
 				$simpleTag = !$synced;
 				# Construct some tagging for non-printable outputs. Note that the pending
 				# notice has all this info already, so don't do this if we added that already.
-				if( !$wgOut->isPrintable() && !$pending && !(FlaggedRevs::lowProfileUI() && $synced) ) {
+				if( !$wgOut->isPrintable() && !$pending && !($this->lowProfileUI() && $synced) ) {
 					$class = 'fr-icon-current'; // default
 					$tooltip = 'revreview-draft-title';
 					// Simple icon-based UI
@@ -305,7 +323,7 @@ class FlaggedArticle extends Article {
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revsSince );
 						}
 						$tooltip = wfMsgHtml($tooltip);
-						$msgHTML = "<span class='{$class}' title=\"{$tooltip}\"></span>$msgHTML";
+						$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>$msgHTML";
 						$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince, $synced, $synced, $old );
 					// Standard UI
 					} else {
@@ -320,7 +338,7 @@ class FlaggedArticle extends Article {
 							$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 						}
 						$tooltip = wfMsgHtml($tooltip);
-						$tag .= "<span class='{$class}' title=\"{$tooltip}\"></span>" . $msgHTML;
+						$tag .= "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" . $msgHTML;
 						# Hide clutter
 						if( !empty($flags) ) {
 							$tag .= " " . FlaggedRevsXML::ratingToggle();
@@ -347,7 +365,7 @@ class FlaggedArticle extends Article {
 	   			}
 				$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent, $parserOut, null );
 				# Construct some tagging
-				if( !$wgOut->isPrintable() && !(FlaggedRevs::lowProfileUI() && $synced) ) {
+				if( !$wgOut->isPrintable() && !($this->lowProfileUI() && $synced) ) {
 					$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 					$tooltip = wfMsgHtml($tooltip);
@@ -355,7 +373,7 @@ class FlaggedArticle extends Article {
 					if( FlaggedRevs::useSimpleUI() ) {
 						$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
 						$msg = $synced ? "{$msg}-same" : $msg;
-						$html = "<span class='{$class}' title=\"{$tooltip}\"></span>" .
+						$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revsSince );
 						
 						$tag = FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince, true, $synced );
@@ -367,7 +385,7 @@ class FlaggedArticle extends Article {
 						} else if( $revsSince == 0 ) {
 							$msg .= '-i';
 						}
-						$tag = "<span class='{$class} plainlinks' title=\"{$tooltip}\"></span>" .
+						$tag = "{$prot}<span class='{$class} plainlinks' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 						if( !empty($flags) ) {
 							$tag .= " " . FlaggedRevsXML::ratingToggle();
@@ -407,7 +425,7 @@ class FlaggedArticle extends Article {
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
 				$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
-				$tag .= "<span class='fr-icon-current plainlinks'></span>" .
+				$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
 					wfMsgExt($msg,array('parseinline'));
 				$tag = "<div id='mw-revisiontag' class='flaggedrevs_short plainlinks noprint'>$tag</div>";
 				$this->reviewNotice .= $tag;
@@ -415,6 +433,7 @@ class FlaggedArticle extends Article {
 			} else {
 				$msg = $old ? 'revreview-invalid' : 'revreview-noflagged';
 				$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
+					"{$prot}<span class='fr-icon-current plainlinks'></span>" .
 					wfMsgExt($msg, array('parseinline')) . "</div>";
 				$this->reviewNotice .= $tag;
 			}
@@ -1216,10 +1235,8 @@ class FlaggedArticle extends Article {
 		}
 		# Get the content page, skip talk
 		$title = $this->parent->getTitle()->getSubjectPage();
-
 		$config = FlaggedRevs::getPageVisibilitySettings( $title, $forUpdate );
 		$this->pageConfig = $config;
-
 		return $config;
 	}
 
