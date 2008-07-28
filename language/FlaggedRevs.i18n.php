@@ -547,7 +547,7 @@ $messages['ar'] = array(
 	'stable-logpagetext'           => 'هذا سجل بالتغييرات لضبط [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]
 لصفحات المحتوى.
 قائمة بالصفحات المستقرة يمكن العثور عليها في [[Special:StablePages|قائمة الصفحات المستقرة]].',
-	'readerfeedback'               => 'تعليقات القراء',
+	'readerfeedback'               => 'ماذا تظن بهذه الصفحة؟',
 	'readerfeedback-text'          => "''من فضلك دقيقة لتقييم هذه الصفحة بالأسفل. تعليقك قيم ويساعدنا في تحسين موقعنا.''",
 	'readerfeedback-reliability'   => 'الاعتمادية',
 	'readerfeedback-completeness'  => 'الاكتمال',
@@ -2154,7 +2154,7 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'stable-logpage'               => 'Journal des versions stables',
 	'stable-logpagetext'           => 'Voici le journal des modifications de la [[{{MediaWiki:Validationpage}}|version stable]] de la configuration de pages de contenu.
 Consulter aussi la [[Special:StablePages|liste de pages stables]].',
-	'readerfeedback'               => 'Impressions du lecteur',
+	'readerfeedback'               => 'Que pensez-vous de cette page ?',
 	'readerfeedback-text'          => "''Veuillez consacrer un instant pour noter cette page ci-dessous. Vos impressions sont précieuses et nous aident à améliorer notre site internet.''",
 	'readerfeedback-reliability'   => 'Fiabilité',
 	'readerfeedback-completeness'  => 'État complet',
@@ -5189,7 +5189,7 @@ Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
 	'stable-logpage'               => 'Registo de edições estáveis',
 	'stable-logpagetext'           => 'Este é um registo de modificações nas configurações das [[{{MediaWiki:Validationpage}}|edições estáveis]] das páginas de conteúdo.
 Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Special:StablePages|lista de páginas estáveis]].',
-	'readerfeedback'               => 'Opinião do leitor',
+	'readerfeedback'               => 'O que você acha desta página?',
 	'readerfeedback-text'          => "''Por gentileza, dedique um momento para avaliar esta página. Sua opinião é importante e nos ajuda a melhorar o website.''",
 	'readerfeedback-reliability'   => 'Confiabilidade',
 	'readerfeedback-completeness'  => 'Completitude',
@@ -5666,7 +5666,7 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'stable-logpage'               => 'Záznam stabilných verzií',
 	'stable-logpagetext'           => 'Toto je záznam zmien v konfigurácii [[{{MediaWiki:Validationpage}}|stabilnej verzie]] článkov.
 Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
-	'readerfeedback'               => 'Spätná väzba čitateľov',
+	'readerfeedback'               => 'Čo si myslíte o tejto stránke?',
 	'readerfeedback-text'          => "''Prosím, venujte chvíľu ohodnoteniu tejto stránky. Ceníme si vaše pripomienky, pomáhajú nám zlepšiť našu webstránku''",
 	'readerfeedback-reliability'   => 'Spoľahlivosť',
 	'readerfeedback-completeness'  => 'Úplnosť',

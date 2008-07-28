@@ -588,6 +588,13 @@ $messages['frp'] = array(
 	'stabilize-expiring'        => 'èxpire lo $1 (UTC)',
 );
 
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'stabilization-sel-short-1' => 'Gjin',
+);
+
 /** Galician (Galego)
  * @author Alma
  * @author Toliño
@@ -1205,6 +1212,7 @@ $messages['myv'] = array(
 $messages['nah'] = array(
 	'stabilization-page'        => 'Zāzanilli ītōcā:',
 	'stabilization-sel-short-1' => 'Ahtlein',
+	'stabilization-def-short'   => 'Ic default',
 	'stabilization-def-short-0' => 'Āxcān',
 );
 

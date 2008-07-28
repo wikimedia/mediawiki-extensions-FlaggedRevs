@@ -178,6 +178,7 @@ $messages['sk'] = array(
 	'ratinghistory-text'   => "'''Táto stránka zobrazuje údaje o hodnotení článku [[:$1|$1]].'''",
 	'ratinghistory-leg'    => 'Údaje o hodnotení v čase',
 	'ratinghistory-tab'    => 'hodnotenie',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Ďakujeme, že ste si našli chvíľu na ohodnotenie tejto stránky!</font>'''''",
 	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-period' => 'Časové obdobie:',
 	'ratinghistory-month'  => 'posledný mesiac',
