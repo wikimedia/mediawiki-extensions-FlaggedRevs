@@ -518,20 +518,25 @@ class FlaggedArticle extends Article {
 		if( !$revId )
 			return true;
 		# Set new body html text as that of now
-		$tag = $warning = '';
+		$tag = $warning = $prot = '';
+		// Is the page config altered?
+		if( $this->isPageLocked() ) {
+			$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
+		} else if( $this->isPageUnlocked() ) {
+			$prot = "<span class='fr-icon-unlocked' title=\"".wfMsg('revreview-unlocked')."\"></span>";
+		}
 		# Check the newest stable version
 		$frev = $this->getStableRev();
 		if( !is_null($frev) ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
-
+			
 			$time = $wgLang->date( $frev->getTimestamp(), true );
 			$flags = $frev->getTags();
 			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 			# Construct some tagging
 			$quality = FlaggedRevs::isQuality( $flags );
-			/*
 			# If this will be autoreviewed, notify the user...
-			if( $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
+			if( !FlaggedRevs::lowProfileUI() && $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
 				# If we are editing some reviewed revision, any changes this user
 				# makes will be autoreviewed...
 				$ofrev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revId );
@@ -541,20 +546,19 @@ class FlaggedArticle extends Article {
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			}
-			*/
 			if( $frev->getRevId() != $revId ) {
 				# Streamlined UI
 				if( FlaggedRevs::useSimpleUI() ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$msg .= ($revsSince == 0) ? '-i' : '';
-					$tag = "<span class='fr-checkbox'></span>" . 
+					$tag = "{$prot}<span class='fr-checkbox'></span>" . 
 						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
 				# Standard UI
 				} else {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$msg .= ($revsSince == 0) ? '-i' : '';
-					$tag = "<span class='fr-checkbox'></span>" . 
+					$tag = "{$prot}<span class='fr-checkbox'></span>" . 
 						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 					# Hide clutter
 					if( !empty($flags) ) {
