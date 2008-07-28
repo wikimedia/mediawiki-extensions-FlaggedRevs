@@ -13,7 +13,6 @@ $messages['en'] = array(
 	'ratinghistory-leg'     => 'Rating history data',
 	'ratinghistory-tab'     => 'rating',
 	'ratinghistory-thanks'  => '\'\'\'\'\'<font color="darkred">Thank you for taking a moment to review this page!</font>\'\'\'\'\'',
-	'ratinghistory-3years'  => 'last 3 years',
 	'ratinghistory-period'  => 'Time period:',
 	'ratinghistory-month'   => 'last month',
 	'ratinghistory-year'    => 'last year',
