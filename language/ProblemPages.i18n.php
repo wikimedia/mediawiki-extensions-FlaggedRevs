@@ -44,6 +44,17 @@ $messages['bg'] = array(
 	'problempages' => 'Проблемни страници',
 );
 
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
+$messages['de'] = array(
+	'problempages'        => 'Seiten mit Probleme',
+	'problempages-leg'    => 'Finde niedrig bewertete Seiten',
+	'problempages-list'   => 'Es folgt eine Liste von Seiten, sortiert nach der Leserbewertung.',
+	'problempages-none'   => 'Diese Liste enthält keine Seiten',
+	'problempages-graphs' => 'Bewertungsdaten',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

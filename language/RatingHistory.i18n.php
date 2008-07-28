@@ -63,6 +63,27 @@ $messages['bcc'] = array(
 	'ratinghistory-none'   => 'نظرات کاربری کافی په شرکتن گراف تا ای زمان نیستن',
 );
 
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
+$messages['de'] = array(
+	'ratinghistory'         => 'Verlauf der Seitenbewertung',
+	'ratinghistory-text'    => '\'\'\'Diese Seite zeigt die Seitenbewertung für [[:$1|$1]].\'\'\'',
+	'ratinghistory-leg'     => 'Verlauf der Seitenbewertung',
+	'ratinghistory-tab'     => 'Bewertung',
+	'ratinghistory-thanks'  => '\'\'\'\'\'<font color="darkred">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>\'\'\'\'\'',
+	'ratinghistory-3years'  => 'letzte 3 Jahre',
+	'ratinghistory-period'  => 'Zeitraum:',
+	'ratinghistory-month'   => 'letzter Monat',
+	'ratinghistory-year'    => 'letztes Jahr',
+	'ratinghistory-none'    => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
+	'ratinghistory-legend'  => 'Der Tagesdurchschnitt <font color="blue">\'\'(blue)\'\'</font> und der Durchschnitt über den ausgewählten Zeitraum 
+	<font color="green">\'\'(green)\'\'</font> werden nachfolgend nach Datum sortiert angezeigt. Die Anzahl der Seitenbewertungen wird in der rechten oberen Ecke der Grafik angezeigt;
+	höhere Werte bedeuten eine bessere Stichprobe. Die Bewertungszahlen bedeuten:
+	
+\'\'\'[0]\'\'\' - Mangelhaft; \'\'\'[1]\'\'\' - Ausreichend; \'\'\'[2]\'\'\' - Befriedigend; \'\'\'[3]\'\'\' - Gut; \'\'\'[4]\'\'\' - Sehr gut;',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

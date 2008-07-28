@@ -47,10 +47,13 @@ $messages['bg'] = array(
 	'qualityoversight' => 'Качествен надзор',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
 $messages['de'] = array(
-	'qualityoversight'      => 'Übersicht über geprüfte Versionen',
-	'qualityoversight-list' => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf geprüfter Versionen.',
+	'qualityoversight'        => 'Übersicht über geprüfte Versionen',
+	'qualityoversight-list'   => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf geprüfter Versionen.',
++       'qualityoversight-legend' => 'Suche in Versionsmarkierungen',
 );
 
 /** Esperanto (Esperanto)
