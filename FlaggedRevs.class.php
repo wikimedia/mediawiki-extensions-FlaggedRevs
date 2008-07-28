@@ -133,7 +133,7 @@ class FlaggedRevs {
 	public static function lowProfileUI() {
 		global $wgUser, $wgFlaggedRevsLowProfile;
 		self::load();
-		return (!$wgUser->getId() && $wgFlaggedRevsLowProfile);
+		return $wgFlaggedRevsLowProfile;
 	}
 	/**
 	 * Should comments be allowed on pages and forms?
