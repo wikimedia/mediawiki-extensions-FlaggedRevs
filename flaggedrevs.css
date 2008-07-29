@@ -225,6 +225,7 @@
 	background-image: url(../FlaggedRevs/img/lock-closed.png);
 }
 .fr-icon-unlocked {
+	width: 23px;
 	background-image: url(../FlaggedRevs/img/lock-open.png);
 }
 
