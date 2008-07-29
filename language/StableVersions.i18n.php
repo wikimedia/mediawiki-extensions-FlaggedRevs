@@ -195,9 +195,12 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Jaakonam
  */
 $messages['fi'] = array(
-	'stableversions' => 'Näytä vakaat versiot',
+	'stableversions'        => 'Näytä vakaat versiot',
+	'stableversions-page'   => 'Sivun nimi:',
+	'stableversions-review' => '$1 arvioi sivun <i>$1</i>',
 );
 
 /** French (Français)
@@ -223,6 +226,13 @@ $messages['frp'] = array(
 	'stableversions-none'   => '« [[:$1]] » at pas de vèrsions rèvisâs.',
 	'stableversions-list'   => 'La lista que siut contint des vèrsions de « [[:$1]] » qu’ont étâ rèvisâs :',
 	'stableversions-review' => 'Rèvisâ lo <i>$1</i> per $2',
+);
+
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'stableversions-page' => 'Sidenamme:',
 );
 
 /** Galician (Galego)

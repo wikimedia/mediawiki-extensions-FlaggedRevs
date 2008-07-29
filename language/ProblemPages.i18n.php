@@ -66,6 +66,15 @@ $messages['eo'] = array(
 	'problempages-graphs' => 'datenoj de taksado',
 );
 
+/** Finnish (Suomi)
+ * @author Jaakonam
+ */
+$messages['fi'] = array(
+	'problempages'      => 'Ongelmalliset sivut',
+	'problempages-list' => 'Alla näkyvä sivuluettelo on järjestetty käyttäjien antaman palautearvosanan mukaan.',
+	'problempages-none' => 'Tässä luettelossa ei ole sivuja',
+);
+
 /** French (Français)
  * @author Grondin
  */
@@ -114,6 +123,17 @@ $messages['nl'] = array(
 	'problempages-graphs' => 'waarderingsgegevens',
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'problempages'        => 'Paginas problematicas',
+	'problempages-leg'    => 'Trobar las paginas mal notadas',
+	'problempages-list'   => 'Vaquí, çaijós, una tièra de paginas triadas en foncion de la notacion de lors lectors.',
+	'problempages-none'   => 'I a pas cap de pagina dins aquesta tièra',
+	'problempages-graphs' => 'donadas de notacion',
+);
+
 /** Portuguese (Português)
  * @author 555
  */
@@ -149,9 +169,10 @@ $messages['sr-ec'] = array(
  * @author Boivie
  */
 $messages['sv'] = array(
-	'problempages'      => 'Problematiska sidor',
-	'problempages-leg'  => 'Hitta sidor med lågt betyg',
-	'problempages-list' => 'Nedan finns en lista över sidor sorterade efter deras läsar-feedback-betyg',
-	'problempages-none' => 'Det finns inga sidor i denna lista',
+	'problempages'        => 'Problematiska sidor',
+	'problempages-leg'    => 'Hitta sidor med lågt betyg',
+	'problempages-list'   => 'Nedan finns en lista över sidor sorterade efter deras läsar-feedback-betyg',
+	'problempages-none'   => 'Det finns inga sidor i denna lista',
+	'problempages-graphs' => 'betygsdata',
 );
 

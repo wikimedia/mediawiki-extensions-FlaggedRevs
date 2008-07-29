@@ -91,10 +91,11 @@ $messages['eo'] = array(
 	'ratinghistory-text'   => "'''Ĉi tiu paĝo montras datenojn de taksado por [[:$1|$1]].'''",
 	'ratinghistory-leg'    => 'Datenoj de taksada historio',
 	'ratinghistory-tab'    => 'taksado',
-	'ratinghistory-3years' => 'lastaj 3 jaroj',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dankon pro via peno por kontroli ĉi tiun paĝon!</font>'''''",
 	'ratinghistory-period' => 'Tempdaŭro:',
 	'ratinghistory-month'  => 'lasta monato',
 	'ratinghistory-year'   => 'lasta jaro',
+	'ratinghistory-3years' => 'lastaj 3 jaroj',
 	'ratinghistory-none'   => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La taga averaĝo <font color=\"blue\">''(blua)''</font> kaj taksado de selektita 
 intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato.
@@ -174,6 +175,15 @@ De waarderingen dienen als volgt gelezen te worden:
 '''[0]''' - Slecht; '''[1]''' - Laag; '''[2]''' - Redelijk; '''[3]''' - Hoog; '''[4]''' - Uitstekend;",
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'ratinghistory'      => 'Istoric de la notacion de la pagina',
+	'ratinghistory-text' => "'''Aquesta pagina aficha las donadas de notacion d’article per [[:$1|$1]].'''",
+	'ratinghistory-leg'  => 'Donadas de l’istoric de la notacion',
+);
+
 /** Portuguese (Português)
  * @author 555
  * @author Siebrand
@@ -235,10 +245,12 @@ $messages['sv'] = array(
 	'ratinghistory-text'   => "'''Denna sida visar artikelbetygsdata för [[:$1|$1]].'''",
 	'ratinghistory-leg'    => 'Betygshistorikdata',
 	'ratinghistory-tab'    => 'betyg',
-	'ratinghistory-3years' => 'senaste 3 åren',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Tack för att du tog dig tid att granska den här sidan!</font>'''''",
 	'ratinghistory-period' => 'Tidsperiod:',
 	'ratinghistory-month'  => 'senaste månaden',
 	'ratinghistory-year'   => 'senaste året',
+	'ratinghistory-3years' => 'senaste 3 åren',
+	'ratinghistory-none'   => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
 	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum. Antalet bedömningar visas i det övre högra hörnet av grafen; högre värden bör indikera ett bättre dataurval. Betygsvärdena tolkas enligt följande:
 
 '''[0]''' - Mycket dålig; '''[1]''' - Dålig; '''[2]''' - Okej; '''[3]''' - Bra; '''[4]''' - Mycket bra;",

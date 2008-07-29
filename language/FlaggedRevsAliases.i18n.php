@@ -55,14 +55,17 @@ $messages['bcc'] = array(
 	'problempages-alias'     => 'صفحات‌مشکل',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Raymond
+ */
 $messages['de'] = array(
-	'qualityoversight-alias'      => 'Geprüfte_Seiten',
-	'unreviewedpages-alias'       => 'Ungesichtete_Seiten',
-	'oldreviewedpages-alias'      => 'Seiten_mit_ungesichteten_Versionen',
-	'reviewedpages-alias'         => 'Gesichtete_Seiten',
-	'stablepages-alias'           => 'Markierte_Seiten',
-	'stableversions-alias'        => 'Markierte_Versionen',
+	'qualityoversight-alias' => 'Geprüfte_Seiten',
+	'unreviewedpages-alias'  => 'Ungesichtete_Seiten',
+	'oldreviewedpages-alias' => 'Seiten_mit_ungesichteten_Versionen',
+	'reviewedpages-alias'    => 'Gesichtete_Seiten',
+	'stablepages-alias'      => 'Markierte_Seiten',
+	'stableversions-alias'   => 'Markierte_Versionen',
+	'problempages-alias'     => 'Problematische Seiten',
 );
 
 /** Esperanto (Esperanto)
@@ -197,12 +200,13 @@ $messages['nl'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'qualityoversight-alias'      => 'QualitatSupervisor',
-	'unreviewedpages-alias'       => 'PaginasPasRelegidas',
-	'oldreviewedpages-alias'      => 'PaginasAncianamentRelegidas',
-	'reviewedpages-alias'         => 'Paginas revisadas',
-	'stablepages-alias'           => 'PaginasEstablas',
-	'stableversions-alias'        => 'VersionsEstablas',
+	'qualityoversight-alias' => 'QualitatSupervisor',
+	'unreviewedpages-alias'  => 'PaginasPasRelegidas',
+	'oldreviewedpages-alias' => 'PaginasAncianamentRelegidas',
+	'reviewedpages-alias'    => 'Paginas revisadas',
+	'stablepages-alias'      => 'PaginasEstablas',
+	'stableversions-alias'   => 'VersionsEstablas',
+	'problempages-alias'     => 'PaginasProblematicas',
 );
 
 /** Polish (Polski)

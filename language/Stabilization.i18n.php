@@ -592,6 +592,8 @@ $messages['frp'] = array(
  * @author Snakesteuben
  */
 $messages['fy'] = array(
+	'stabilization-page'        => 'Sidenamme:',
+	'stabilization-comment'     => 'Oanmerking:',
 	'stabilization-sel-short-1' => 'Gjin',
 );
 

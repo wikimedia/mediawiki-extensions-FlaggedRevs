@@ -49,11 +49,12 @@ $messages['bg'] = array(
 
 /** German (Deutsch)
  * @author Raimond Spekking
+ * @author Raymond
  */
 $messages['de'] = array(
 	'qualityoversight'        => 'Übersicht über geprüfte Versionen',
 	'qualityoversight-list'   => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf geprüfter Versionen.',
-+       'qualityoversight-legend' => 'Suche in Versionsmarkierungen',
+	'qualityoversight-legend' => 'Suche in Versionsmarkierungen',
 );
 
 /** Esperanto (Esperanto)
@@ -139,8 +140,9 @@ $messages['nl'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'qualityoversight'      => 'Qualitat supervisor',
-	'qualityoversight-list' => 'Aquesta pagina lista las aprobacions recentas de las versions de qualitat tant plan coma lors depreciacions.',
+	'qualityoversight'        => 'Qualitat supervisor',
+	'qualityoversight-list'   => 'Aquesta pagina lista las aprobacions recentas e las depreciacions de las versions.',
+	'qualityoversight-legend' => 'Recercar los jornals de las revisions recentas',
 );
 
 /** Portuguese (Português)
