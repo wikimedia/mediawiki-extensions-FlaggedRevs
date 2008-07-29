@@ -9,7 +9,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   -- Is the page reviewed up to date?
   fp_reviewed bool NOT NULL default '0',
   -- Foreign key to flaggedrevs.fr_rev_id
-  fp_stable integer NULL,
+  fp_stable integer NOT NULL,
   -- The highest quality of the page's reviewed revisions.
   -- Note that this may not be set to display by default though.
   fp_quality tinyint(1) default NULL,
