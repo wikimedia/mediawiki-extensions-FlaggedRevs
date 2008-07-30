@@ -195,6 +195,22 @@ $messages['fa'] = array(
 	'oldreviewedpages-watched'   => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
 );
 
+/** Finnish (Suomi)
+ * @author Jaakonam
+ */
+$messages['fi'] = array(
+	'oldreviewedpages'           => 'Vanhentuneita tarkastettuja sivuja',
+	'oldreviewedpages-legend'    => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita',
+	'oldreviewedpages-list'      => 'Luettelo tarkastetuista sivuista, joihin on vielä odotettavissa muokkauksia.',
+	'oldreviewedpages-none'      => 'Ehdot täyttäviä sivuja ei ole',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|tunti|tuntia}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|päivä|päivää}})',
+	'oldreviewedpages-recent'    => '(alle 1 tunti)',
+	'oldreviewed-category'       => 'Luokka:',
+	'oldreviewedpages-unwatched' => '(tarkkailematon)',
+	'oldreviewedpages-watched'   => '($2 {{PLURAL:$1|käyttäjä|käyttäjää}} tarkkailee)',
+);
+
 /** French (Français)
  * @author Grondin
  * @author IAlex

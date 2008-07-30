@@ -579,6 +579,8 @@ $messages['ar'] = array(
 	'tooltip-ca-stable'            => 'عرض النسخة المستقرة لهذه الصفحة',
 	'tooltip-ca-default'           => 'إعدادات توكيد الجودة',
 	'tooltip-ca-ratinghist'        => 'تقييمات القراء لهذه الصفحة',
+	'revreview-locked'             => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
+	'revreview-unlocked'           => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-tt-review'          => 'راجع هذه الصفحة',
 	'validationpage'               => '{{ns:help}}:تحقيق المقالات',
 );
@@ -1526,6 +1528,8 @@ Siehe [[Special:Unreviewedpages]] für eine Liste unmarkierter Versionen.',
 	'tooltip-ca-stable'            => 'Ansehen der markierten Version dieser Seite',
 	'tooltip-ca-default'           => 'Einstellungen der Artikel-Qualität',
 	'tooltip-ca-ratinghist'        => 'Leserbewertungen dieser Seite',
+	'revreview-locked'             => 'Bearbeitungen müssen markiert werden, bevor sie auf dieser Seite angezeigt werden.',
+	'revreview-unlocked'           => 'Bearbeitungen benötigen keine Markierung, bevor sie auf dieser Seite angezeigt werden.',
 	'revreview-tt-review'          => 'Markiere diese Seite',
 	'validationpage'               => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
@@ -1751,6 +1755,8 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'tooltip-ca-stable'            => 'Rigardi la stabilan version de ĉi paĝo',
 	'tooltip-ca-default'           => 'Konfiguro de kvalitkontrolo',
 	'tooltip-ca-ratinghist'        => 'Taksoj de legintoj de ĉi tiu paĝo',
+	'revreview-locked'             => 'Redaktoj devas esti kontrolitaj antaŭ montrante de ĉi tiu paĝo!',
+	'revreview-unlocked'           => 'Redaktoj ne devas esti kontrolitaj antaŭ montrante de ĉi tiu paĝo!',
 	'revreview-tt-review'          => 'Kontroli ĉi tiun paĝon',
 	'validationpage'               => '{{ns:help}}:Validigo de artikolo',
 );
@@ -2221,6 +2227,8 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'tooltip-ca-stable'            => 'Voir la version stable de cette page',
 	'tooltip-ca-default'           => "Paramètres pour l'assurance-qualité",
 	'tooltip-ca-ratinghist'        => 'Appreciations des lecteurs de cette page',
+	'revreview-locked'             => 'Les modifications doivent être revues avant d’être affichées sur cette page !',
+	'revreview-unlocked'           => 'Les modifications ne nécessitent pas de relecture avant d’être affichées sur cette page !',
 	'revreview-tt-review'          => 'Réviser cette page',
 	'validationpage'               => "{{ns:help}}:Validation de l'article",
 );
@@ -2328,7 +2336,17 @@ Vêde les [[Special:Unreviewedpages|vèrsions pas rèvisâs]] por una lista de p
  * @author Snakesteuben
  */
 $messages['fy'] = array(
-	'revreview-log' => 'Oanmerking:',
+	'editor'                => 'Redakteur',
+	'group-editor'          => 'Redakteuren',
+	'group-editor-member'   => 'Redakteur',
+	'group-reviewer'        => 'Einredakteuren',
+	'group-reviewer-member' => 'Einredakteur',
+	'grouppage-editor'      => '{{ns:project}}:Redakteur',
+	'grouppage-reviewer'    => '{{ns:project}}:Einredakteur',
+	'reviewer'              => 'Einredakteur',
+	'revreview-depth-0'     => 'Net kontrolearre',
+	'revreview-log'         => 'Oanmerking:',
+	'revreview-style-2'     => 'Goed',
 );
 
 /** Galician (Galego)
@@ -4631,6 +4649,8 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 	'tooltip-ca-stable'            => 'Stabiele versie van deze pagina bekijken',
 	'tooltip-ca-default'           => 'Instellingen kwaliteitsbewaking',
 	'tooltip-ca-ratinghist'        => 'Waardering van deze pagina door lezers',
+	'revreview-locked'             => 'Bewerkingen op deze pagina behoeven eindredactie voordat ze weergegeven worden!',
+	'revreview-unlocked'           => 'Bewerkingen op deze pagina behoeven geen eindredactie voordat ze weergegeven worden!',
 	'revreview-tt-review'          => 'Eindredactie voor deze pagina',
 	'validationpage'               => '{{ns:help}}:Paginaredactie',
 );
@@ -5770,6 +5790,8 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'tooltip-ca-stable'            => 'Zobraziť stabilnú verziu tejto stránky',
 	'tooltip-ca-default'           => 'Nastavenia kontroly kvality',
 	'tooltip-ca-ratinghist'        => 'Hodnotenie tejto stránky čitateľmi',
+	'revreview-locked'             => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
+	'revreview-unlocked'           => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
 	'revreview-tt-review'          => 'Skontrolovať túto stránku',
 	'validationpage'               => '{{ns:help}}:Overovanie článkov',
 );
@@ -6240,6 +6262,8 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'tooltip-ca-stable'            => 'Visa den stabila versionen av denna sida',
 	'tooltip-ca-default'           => 'Inställningar för kvalitetssäkring',
 	'tooltip-ca-ratinghist'        => 'Användarbetyg för den här sidan',
+	'revreview-locked'             => 'Redigeringar måste granskas innan de visas på den här sidan!',
+	'revreview-unlocked'           => 'Redigeringar behöver inte granskas innan de visas på den här sidan!',
 	'revreview-tt-review'          => 'Granska denna sida',
 	'validationpage'               => '{{ns:help}}:Artikelvalidering',
 );

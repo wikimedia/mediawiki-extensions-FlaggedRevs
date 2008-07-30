@@ -153,6 +153,16 @@ $messages['km'] = array(
 	'ratinghistory-3years' => '៣ឆ្នាំមុន',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'ratinghistory-period' => 'Zäitraum:',
+	'ratinghistory-month'  => 'leschte Mount',
+	'ratinghistory-year'   => 'lescht Joer',
+	'ratinghistory-3years' => 'lescht 3 Joer',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

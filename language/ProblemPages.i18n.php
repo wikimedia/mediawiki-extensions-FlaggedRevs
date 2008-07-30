@@ -46,9 +46,10 @@ $messages['bg'] = array(
 
 /** German (Deutsch)
  * @author Raimond Spekking
+ * @author UV
  */
 $messages['de'] = array(
-	'problempages'        => 'Seiten mit Probleme',
+	'problempages'        => 'Seiten mit Problemen',
 	'problempages-leg'    => 'Finde niedrig bewertete Seiten',
 	'problempages-list'   => 'Es folgt eine Liste von Seiten, sortiert nach der Leserbewertung.',
 	'problempages-none'   => 'Diese Liste enthält keine Seiten',
