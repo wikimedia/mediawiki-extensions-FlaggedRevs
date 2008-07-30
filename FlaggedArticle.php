@@ -207,7 +207,7 @@ class FlaggedArticle extends Article {
 		$simpleTag = $old = $stable = false;
 		$tag = $prot = $notes = $pending = '';
 		# Check the newest stable version.
-		$srev = $this->getStableRev( true );
+		$srev = $this->getStableRev( FR_TEXT );
 		$frev = $srev;
 		$stableId = $frev ? $frev->getRevId() : 0;
 		# Also, check for any explicitly requested old stable version...
@@ -217,7 +217,7 @@ class FlaggedArticle extends Article {
 		}
 		if( $stableId && $reqId ) {
 			if( $reqId != $stableId ) {
-				$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId, true );
+				$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId, FR_TEXT );
 				$old = true; // old reviewed version requested by ID
 				if( !$frev ) {
 					$wgOut->addWikiText( wfMsg('revreview-invalid') );
@@ -460,7 +460,7 @@ class FlaggedArticle extends Article {
 		if( $reqId = $wgRequest->getVal('stableid') ) {
 			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId );
 		} else if( $this->pageOverride() ) {
-			$frev = $this->getStableRev( true );
+			$frev = $this->getStableRev( FR_TEXT );
 		}
 		if( !is_null($frev) ) {
 			$time = $frev->getFileTimestamp();
@@ -717,7 +717,7 @@ class FlaggedArticle extends Article {
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( $action == 'protect' || $action == 'unprotect' ) {
 			# Check for an overridabe revision
-			$frev = $this->getStableRev( true );
+			$frev = $this->getStableRev( FR_TEXT );
 			if( !$frev )
 				return true;
 			# Load special page name	
@@ -757,7 +757,7 @@ class FlaggedArticle extends Article {
 		}
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
-	   	$srev = $this->getStableRev( true );
+	   	$srev = $this->getStableRev( FR_TEXT );
 	   	# No quality revs? Find the last reviewed one
 	   	if( is_null($srev) ) {
 			return true;
@@ -1154,7 +1154,7 @@ class FlaggedArticle extends Article {
 		if( !$this->isReviewable() || $this->parent->getTitle()->isTalkPage() )
 			return true;
 		# Get the stable version, from master
-		$frev = $this->getStableRev( false, true );
+		$frev = $this->getStableRev( FR_FOR_UPDATE );
 		if( !$frev )
 			return true;
 		$latest = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
@@ -1201,11 +1201,10 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
-	 * @param Bool $getText, get text and params columns?
-	 * @param Bool $forUpdate, use DB master and avoid page table?
+	 * @param int $flags
 	 * @return Row
 	 */
-	public function getStableRev( $getText = false, $forUpdate = false ) {
+	public function getStableRev( $flags=0 ) {
 		if( $this->stableRev === false ) {
 			return null; // We already looked and found nothing...
 		}
@@ -1216,7 +1215,7 @@ class FlaggedArticle extends Article {
 		# Get the content page, skip talk
 		$title = $this->parent->getTitle()->getSubjectPage();
 		# Do we have one?
-		$srev = FlaggedRevision::newFromStable( $title, $getText, $forUpdate );
+		$srev = FlaggedRevision::newFromStable( $title, $flags );
 		if( $srev ) {
 			$this->stableRev = $srev;
 			$this->flags[$srev->getRevId()] = $srev->getTags();
@@ -1287,7 +1286,7 @@ class FlaggedArticle extends Article {
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		if( $this->isDiffFromStable ) {
-			$srev = $this->getStableRev( true );
+			$srev = $this->getStableRev( FR_TEXT );
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version. 
 			# If not, then get the flags for the new revision itself.

@@ -45,20 +45,17 @@ class FlaggedRevision {
 	/**
 	 * @param Title $title
 	 * @param int $revId
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master?
-	 * @param int $pageId, optional page ID to use, will defer to $title if not given
+	 * @param int $flags
 	 * @returns mixed FlaggedRevision (null on failure)
 	 * Will not return a revision if deleted
 	 */
-	public static function newFromTitle( $title, $revId, $getText=false, $forUpdate=false, $pageId=false ) {
+	public static function newFromTitle( $title, $revId, $flags = 0 ) {
 		$columns = self::selectFields();
-		if( $getText ) {
+		if( $flags & FR_TEXT ) {
 			$columns += self::selectTextFields();
 		}
-		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$flags = $forUpdate ? GAID_FOR_UPDATE : 0;
-		$pageId = $pageId ? $pageId : $title->getArticleID( $flags );
+		$db = $flags & FR_FOR_UPDATE ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
 		# Short-circuit query
 		if( !$pageId ) {
 			return null;
@@ -82,13 +79,12 @@ class FlaggedRevision {
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one.
 	 * @param Title $title, page title
-	 * @param bool $getText, fetch fr_text and fr_flags too?
-	 * @param bool $forUpdate, use master DB and avoid using fp_stable?
+	 * @param int $flags
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
-	public static function newFromStable( $title, $getText=false, $forUpdate=false ) {
+	public static function newFromStable( $title, $flags=0 ) {
 		$columns = self::selectFields();
-		if( $getText ) {
+		if( $flags & FR_TEXT ) {
 			$columns += self::selectTextFields();
 		}
 		$row = null;
@@ -97,7 +93,7 @@ class FlaggedRevision {
 			return $row;
 		}
 		# If we want the text, then get the text flags too
-		if( !$forUpdate ) {
+		if( !($flags & FR_FOR_UPDATE) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
 				$columns,

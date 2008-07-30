@@ -37,6 +37,11 @@ if( !defined('FLAGGED_VIS_LATEST') )
 # Pristine -> Quality -> Sighted
 if( !defined('FLAGGED_VIS_PRISTINE') )
 	define('FLAGGED_VIS_PRISTINE',2);
+	
+if( !defined('FR_FOR_UPDATE') )
+	define('FR_FOR_UPDATE',1);
+if( !defined('FR_TEXT') )
+	define('FR_TEXT',2);
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',

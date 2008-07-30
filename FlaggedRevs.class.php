@@ -985,7 +985,7 @@ class FlaggedRevs {
 		$title = $article->getTitle();
 		
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $title, false, true );
+		$oldSv = FlaggedRevision::newFromStable( $title, FR_TEXT | FR_FOR_UPDATE );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		
 		# Rev ID is not put into parser on edit, so do the same here.
@@ -1108,7 +1108,7 @@ class FlaggedRevs {
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
-		$sv = FlaggedRevision::newFromStable( $article->getTitle(), false, true );
+		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_FOR_UPDATE );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
 			self::updatePageCache( $article, $poutput );
@@ -1156,7 +1156,7 @@ class FlaggedRevs {
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 		$rTags = self::getJSTagParams();
 		$fTags = self::getJSFeedbackParams();
-		$frev = $flaggedArticle->getStableRev( true );
+		$frev = $flaggedArticle->getStableRev( FR_TEXT );
 		$stableId = $frev ? $frev->getRevId() : 0;
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
@@ -1294,7 +1294,8 @@ EOT;
 		# Check if this page has a stable version by fetching it. Do not
 		# get the fr_text field if we are to use the latest stable template revisions.
 		global $wgUseStableTemplates;
-		$sv = FlaggedRevision::newFromStable( $linksUpdate->mTitle, !$wgUseStableTemplates, true );
+		$flags = $wgUseStableTemplates ? FR_FOR_UPDATE : FR_FOR_UPDATE | FR_TEXT;
+		$sv = FlaggedRevision::newFromStable( $linksUpdate->mTitle, $flags );
 		if( !$sv ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->delete( 'flaggedpages', 
@@ -1445,7 +1446,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $title ) ) {
-			$srev = FlaggedRevision::newFromStable( $title, false, true );
+			$srev = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -1510,7 +1511,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && self::isPageReviewable( $nt ) ) {
-			$srev = FlaggedRevision::newFromStable( $nt, false, true );
+			$srev = FlaggedRevision::newFromStable( $nt, FR_FOR_UPDATE );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -1664,7 +1665,7 @@ EOT;
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
         if( $wgTitle && $wgTitle->equals( $title ) ) {
             // Cache stable version while we are at it.
-            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev( true ) ) {
+            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev( FR_TEXT ) ) {
                 $result = true;
             }
         } else {
@@ -1703,11 +1704,12 @@ EOT;
 			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		// Edits to existing pages
 		} else if( $baseRevID ) {
-			$frev = FlaggedRevision::newFromTitle( $title, $baseRevID, false, true, $rev->getPage() );
+			$title->resetArticleID( $rev->getPage() ); // avoid db hit
+			$frev = FlaggedRevision::newFromTitle( $title, $baseRevID, FR_FOR_UPDATE );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
 			if( !$frev ) {
-				$frev = FlaggedRevision::newFromTitle( $title, $prevRevID, false, true, $rev->getPage() );
+				$frev = FlaggedRevision::newFromTitle( $title, $prevRevID, FR_FOR_UPDATE );
 			}
 		}
 		# Is this an edit directly to the stable version?
@@ -2103,7 +2105,7 @@ EOT;
 		} else {
 			# Get an instance on the title ($wgTitle) and save to process cache 
 			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-			if( $flaggedArticle->pageOverride() && $srev = $flaggedArticle->getStableRev( true ) ) {
+			if( $flaggedArticle->pageOverride() && $srev = $flaggedArticle->getStableRev( FR_TEXT ) ) {
 				$text = $srev->getRevText();
 				$redirect = $flaggedArticle->followRedirectText( $text );
 				if( $redirect ) {
@@ -2228,12 +2230,12 @@ EOT;
 		$fa = FlaggedArticle::getInstance( $article );
 		# If the stable is the default, and we are viewing it...cache it!
 		if( $fa->showStableByDefault() ) {
-			return ( $fa->pageOverride() && $fa->getStableRev( true ) );
+			return ( $fa->pageOverride() && $fa->getStableRev( FR_TEXT ) );
 		# If the draft is the default, and we are viewing it...cache it!
 		} else {
 			global $wgRequest;
 			# We don't want to cache the pending edit notice though
-			return !( $fa->pageOverride() && $fa->getStableRev( true ) ) && !$wgRequest->getVal('shownotice');
+			return !( $fa->pageOverride() && $fa->getStableRev( FR_TEXT ) ) && !$wgRequest->getVal('shownotice');
 		}
 	}
 
