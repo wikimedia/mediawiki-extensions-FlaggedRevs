@@ -180,7 +180,7 @@ class FlaggedRevs {
 	 */
 	public static function getTagMsg( $tag ) {
 		self::load();
-		return "revreview-$tag";
+		return wfMsgHtml("revreview-$tag");
 	}
 	
 	/**

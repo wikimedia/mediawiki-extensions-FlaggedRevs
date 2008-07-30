@@ -1340,7 +1340,7 @@ class FlaggedArticle extends Article {
 			}
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
-			$form .= "<b>" . wfMsgHtml("revreview-$quality") . ":</b>&nbsp;";
+			$form .= "<b>" . FlaggedRevs::getTagMsg($quality) . ":</b>&nbsp;";
 			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
@@ -1348,15 +1348,14 @@ class FlaggedArticle extends Article {
 				$form .= Xml::openElement( 'select', $attribs );
 				foreach( $label as $i => $name ) {
 					$optionClass = array( 'class' => "fr-rating-option-$i" );
-					$form .= Xml::option( wfMsg( "revreview-$name" ), $i, ($i == $selected), $optionClass )
-						."\n";
+					$form .= Xml::option( FlaggedRevs::getTagMsg($name), $i, ($i == $selected), $optionClass )."\n";
 				}
 				$form .= Xml::closeElement('select')."\n";
 			# If there are more than two qualities (none, 1 and more) current user gets radio buttons
 			} else if( $quantity > 2 ) {
 				foreach( $label as $i => $name ) {
 					$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
-					$form .= Xml::radioLabel( wfMsg( "revreview-$name" ), "wp$quality", $i, "wp$quality".$i,
+					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i, "wp$quality".$i,
 						($i == $selected), $attribs ) . "\n";
 				}
 			# Otherwise make checkboxes (two qualities available for current user
