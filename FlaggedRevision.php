@@ -105,7 +105,7 @@ class FlaggedRevision {
 				return null;
 		} else {
 			# Get visiblity settings...
-			$config = FlaggedRevs::getPageVisibilitySettings( $title, $forUpdate );
+			$config = FlaggedRevs::getPageVisibilitySettings( $title, $flags & FR_FOR_UPDATE );
 			$dbw = wfGetDB( DB_MASTER );
 			# Look for the latest pristine revision...
 			if( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
