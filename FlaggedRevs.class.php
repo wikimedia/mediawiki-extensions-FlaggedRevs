@@ -1697,9 +1697,14 @@ EOT;
 		if( !$baseRevID ) {
 			$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		}
-		$title->resetArticleID( $rev->getPage() ); // avoid db hit
+		$title->resetArticleID( $rev->getPage() ); // avoid db hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevID = $title->getPreviousRevisionId( $rev->getId() );
+		# XXX: If baseRevId not given, assume the previous revision ID.
+		# This is really only there for bots that don't submit everything.
+		if( !$baseRevID ) { 	 
+			$baseRevID = $prevRevID; 	 
+		}
 		// New pages
 		if( !$prevRevID ) {
 			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
