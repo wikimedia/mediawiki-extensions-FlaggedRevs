@@ -1697,14 +1697,14 @@ EOT;
 		if( !$baseRevID ) {
 			$baseRevID = $wgRequest->getIntOrNull('baseRevId');
 		}
+		$title->resetArticleID( $rev->getPage() ); // avoid db hit
 		# Get what was just the current revision ID
-		$prevRevID = $title->getPreviousRevisionId( $rev->getId(), GAID_FOR_UPDATE );
+		$prevRevID = $title->getPreviousRevisionId( $rev->getId() );
 		// New pages
 		if( !$prevRevID ) {
 			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		// Edits to existing pages
 		} else if( $baseRevID ) {
-			$title->resetArticleID( $rev->getPage() ); // avoid db hit
 			$frev = FlaggedRevision::newFromTitle( $title, $baseRevID, FR_FOR_UPDATE );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
