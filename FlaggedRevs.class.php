@@ -1699,7 +1699,7 @@ EOT;
 		}
 		$title->resetArticleID( $rev->getPage() ); // avoid db hit and lag issues
 		# Get what was just the current revision ID
-		$prevRevID = $title->getPreviousRevisionId( $rev->getId() );
+		$prevRevID = self::getPreviousRevisionId( $rev );
 		# XXX: If baseRevId not given, assume the previous revision ID.
 		# This is really only there for bots that don't submit everything.
 		if( !$baseRevID ) { 	 
@@ -1728,6 +1728,23 @@ EOT;
 			self::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
 		}
 		return true;
+	}
+	
+	/**
+	* As used, this function should be lag safe
+	* @param Revision $revision
+	* @return int
+	*/
+	protected static function getPreviousRevisionID( $revision ) {
+		$db = wfGetDB( DB_MASTER );
+		return $db->selectField( 'revision', 'rev_id',
+			array(
+				'rev_page' => $revision->getPage(),
+				'rev_id < ' . $revision->getId()
+			),
+			__METHOD__,
+			array( 'ORDER BY' => 'rev_id DESC' )
+		);
 	}
 
 	/**
