@@ -2057,6 +2057,7 @@ $messages['fi'] = array(
  * @author Urhixidur
  * @author Dereckson
  * @author Cedric31
+ * @author Zetud
  */
 $messages['fr'] = array(
 	'editor'                       => 'Contributeur',
@@ -2226,7 +2227,7 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'tooltip-ca-current'           => "Voir l'ébauche courante de cette page",
 	'tooltip-ca-stable'            => 'Voir la version stable de cette page',
 	'tooltip-ca-default'           => "Paramètres pour l'assurance-qualité",
-	'tooltip-ca-ratinghist'        => 'Appreciations des lecteurs de cette page',
+	'tooltip-ca-ratinghist'        => 'Appréciations des lecteurs de cette page',
 	'revreview-locked'             => 'Les modifications doivent être revues avant d’être affichées sur cette page !',
 	'revreview-unlocked'           => 'Les modifications ne nécessitent pas de relecture avant d’être affichées sur cette page !',
 	'revreview-tt-review'          => 'Réviser cette page',
@@ -3784,13 +3785,14 @@ $messages['ksh'] = array(
 
 /** Latin (Latina)
  * @author SPQRobin
+ * @author UV
  */
 $messages['la'] = array(
 	'editor'                => 'Recensor',
 	'group-editor'          => 'Recensores',
-	'group-editor-member'   => 'Recensor',
+	'group-editor-member'   => 'recensor',
 	'group-reviewer'        => 'Revisores',
-	'group-reviewer-member' => 'Revisor',
+	'group-reviewer-member' => 'revisor',
 	'grouppage-editor'      => '{{ns:project}}:Recensor',
 	'grouppage-reviewer'    => '{{ns:project}}:Revisor',
 	'reviewer'              => 'Revisor',
@@ -6099,9 +6101,9 @@ $messages['sv'] = array(
 	'flaggedrevs-prefs-stable'     => 'Visa alltid den stabila versionen av sidor (om en sådan finns)',
 	'flaggedrevs-prefs-watch'      => 'Lägg till sidor jag granskar i min bevakningslista',
 	'group-editor'                 => 'Redaktörer',
-	'group-editor-member'          => 'Redaktör',
+	'group-editor-member'          => 'redaktör',
 	'group-reviewer'               => 'Granskare',
-	'group-reviewer-member'        => 'Granskare',
+	'group-reviewer-member'        => 'granskare',
 	'grouppage-editor'             => '{{ns:project}}:Redaktörer',
 	'grouppage-reviewer'           => '{{ns:project}}:Granskare',
 	'hist-draft'                   => 'utkastet för sidversionen',

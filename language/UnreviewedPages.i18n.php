@@ -378,6 +378,13 @@ $messages['is'] = array(
 	'unreviewed-diff'     => 'Breytingar',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'unreviewed-category' => 'Categoria:',
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  */

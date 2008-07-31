@@ -301,6 +301,13 @@ $messages['id'] = array(
 	'oldreviewedpages-watched'   => '(dipantau $2 {{PLURAL:$1|pengguna|pengguna}})',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'oldreviewed-category' => 'Categoria:',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  * @author គីមស៊្រុន
