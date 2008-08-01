@@ -102,10 +102,7 @@ class FlaggedRevs {
 	 */
 	public static function showStableByDefault() {
 		global $wgFlaggedRevsOverride;
-		if( !$wgFlaggedRevsOverride ) {
-			return false;
-		}
-		return !self::ignoreDefaultVersion();
+		return (bool)$wgFlaggedRevsOverride;
 	}
 	
 	/**
