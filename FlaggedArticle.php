@@ -86,16 +86,8 @@ class FlaggedArticle extends Article {
 		$config = $this->getVisibilitySettings();
 		# Does the stable version override the current one?
 		if( $config['override'] ) {
-			global $wgFlaggedRevsExceptions;
-			# Viewer sees current by default (editors, insiders, ect...) ?
-			foreach( $wgFlaggedRevsExceptions as $group ) {
-				if( $group == 'user' ) {
-					if( $wgUser->getID() ) {
-						return ( $wgRequest->getIntOrNull('stable') === 1 );
-					}
-				} else if( in_array( $group, $wgUser->getGroups() ) ) {
-					return ( $wgRequest->getIntOrNull('stable') === 1 );
-				}
+			if( FlaggedRevs::ignoreDefaultVersion() ) {
+				return ( $wgRequest->getIntOrNull('stable') === 1 );
 			}
 			# Viewer sees stable by default
 			return !( $wgRequest->getIntOrNull('stable') === 0 );
