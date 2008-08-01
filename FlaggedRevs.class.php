@@ -1707,8 +1707,9 @@ EOT;
 			if( !$editTimestamp || $prevTimestamp == $editTimestamp ) {
 				$baseRevId = intval( trim( $wgRequest->getVal('baseRevId') ) );
 			}
-			# XXX: If baseRevId not given, assume the previous revision ID.
-			# This is really only there for bots that don't submit everything.
+			# If baseRevId not given, assume the previous revision ID.
+			# For auto-merges, this also occurs since the given ID is ignored.
+			# Also for bots that don't submit everything...
 			if( !$baseRevId ) {
 				$baseRevId = $prevRevId;
 			}
@@ -2276,6 +2277,9 @@ EOT;
 		$tables[] = 'flaggedtemplates';
 		$tables[] = 'flaggedimages';
 		$tables[] = 'flaggedrevs_promote';
+		$tables[] = 'reader_feedback';
+		$tables[] = 'reader_feedback_history';
+		$tables[] = 'reader_feedback_pages';
 		return true;
 	}
 }
