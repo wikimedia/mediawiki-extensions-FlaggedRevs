@@ -1186,6 +1186,7 @@ class FlaggedArticle extends Article {
 		} else {
 			$latest = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 	   		$revId = $latest;
+			wfDebug( 'FlaggedArticle::addRevisionIDField - ID not specified, assumed current' );
 	   	}
 		# If undoing a few consecutive top edits, we know the base ID
 		if( $undo = $wgRequest->getIntOrNull('undo') ) {

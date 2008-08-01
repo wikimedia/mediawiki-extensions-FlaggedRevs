@@ -1695,15 +1695,15 @@ EOT;
 		$reviewableNewPage = false;
 		# Get the revision ID the incoming one was based off
 		if( !$baseRevID ) {
-			$baseRevID = $wgRequest->getIntOrNull('baseRevId');
+			$baseRevID = intval( trim( $wgRequest->getVal('baseRevId') ) );
 		}
 		$title->resetArticleID( $rev->getPage() ); // avoid db hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevID = self::getPreviousRevisionId( $rev );
 		# XXX: If baseRevId not given, assume the previous revision ID.
 		# This is really only there for bots that don't submit everything.
-		if( !$baseRevID ) { 	 
-			$baseRevID = $prevRevID; 	 
+		if( !$baseRevID ) {
+			$baseRevID = $prevRevID;
 		}
 		// New pages
 		if( !$prevRevID ) {
