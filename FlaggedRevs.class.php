@@ -1680,7 +1680,7 @@ EOT;
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $article, $rev, $baseRevID = false ) {
+	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
 		# Get the user
 		$user = User::newFromId( $rev->getUser() );
@@ -1693,28 +1693,39 @@ EOT;
 		}
 		$frev = null;
 		$reviewableNewPage = false;
-		# Get the revision ID the incoming one was based off
-		if( !$baseRevID ) {
-			$baseRevID = intval( trim( $wgRequest->getVal('baseRevId') ) );
-		}
-		$title->resetArticleID( $rev->getPage() ); // avoid db hit and lag issues
+		# Avoid extra DB hit and lag issues
+		$title->resetArticleID( $rev->getPage() );
 		# Get what was just the current revision ID
-		$prevRevID = self::getPreviousRevisionId( $rev );
-		# XXX: If baseRevId not given, assume the previous revision ID.
-		# This is really only there for bots that don't submit everything.
-		if( !$baseRevID ) {
-			$baseRevID = $prevRevID;
+		$prevRevId = self::getPreviousRevisionId( $rev );
+		# Get the revision ID the incoming one was based off...
+		if( !$baseRevId && $prevRevId ) {
+			$prevTimestamp = Revision::getTimestampFromId( $prevRevId, $rev->getPage() ); // use PK
+			# Get edit timestamp. Existance already valided by EditPage.php. If 
+			# not present, then it shouldn't be, like null edits.
+			$editTimestamp = $wgRequest->getVal('wpEdittime');
+			# The user just made an edit. The one before that should have
+			# been the current version. If not reflected in wpEdittime, an
+			# edit may have been auto-merged in between, in that case, discard
+			# the baseRevId given from the client...
+			if( !$editTimestamp || $prevTimestamp == $editTimestamp ) {
+				$baseRevId = intval( trim( $wgRequest->getVal('baseRevId') ) );
+			}
+			# XXX: If baseRevId not given, assume the previous revision ID.
+			# This is really only there for bots that don't submit everything.
+			if( !$baseRevId ) {
+				$baseRevId = $prevRevId;
+			}
 		}
 		// New pages
-		if( !$prevRevID ) {
+		if( !$prevRevId ) {
 			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
 		// Edits to existing pages
-		} else if( $baseRevID ) {
-			$frev = FlaggedRevision::newFromTitle( $title, $baseRevID, FR_FOR_UPDATE );
+		} else if( $baseRevId ) {
+			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_FOR_UPDATE );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
 			if( !$frev ) {
-				$frev = FlaggedRevision::newFromTitle( $title, $prevRevID, FR_FOR_UPDATE );
+				$frev = FlaggedRevision::newFromTitle( $title, $prevRevId, FR_FOR_UPDATE );
 			}
 		}
 		# Is this an edit directly to the stable version?
