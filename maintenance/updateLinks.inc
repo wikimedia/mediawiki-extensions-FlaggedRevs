@@ -98,7 +98,7 @@ function update_flaggedpages() {
 		foreach( $res as $row ) {
 			$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 			# Replaces new fields into flaggedpages
-			$frev = FlaggedRevision::newFromStable( $title, false, true );
+			$frev = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
 			# Update fp_stable, fp_quality, and fp_reviewed
 			if( $frev ) {
 				$article = new Article( $title );
