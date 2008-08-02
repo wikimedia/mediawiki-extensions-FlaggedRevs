@@ -90,7 +90,11 @@ class ReaderFeedback extends UnlistedSpecialPage
 		// Each ajax url argument is of the form param|val.
 		// This means that there is no ugly order dependance.
 		foreach( $args as $x => $arg ) {
-			@list($par,$val) = explode('|',$arg,2);
+			$set = explode('|',$arg,2);
+			if( count($set) != 2 ) {
+				return '<err#>';
+			}
+			list($par,$val) = $set;
 			switch( $par )
 			{
 				case "target":
