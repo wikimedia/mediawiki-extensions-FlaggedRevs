@@ -21,7 +21,7 @@ class FlaggedRevs {
 		}
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
 			$safeTag = htmlspecialchars($tag);
-			if( strpos($tag,':') || strpos($tag,"\n") || strpos($tag,'\n') || $safeTag !== $tag ) {
+			if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) || $safeTag !== $tag ) {
 				throw new MWException( 'FlaggedRevs given invalid tag name!' );
 			} else if( intval($minQL) != $minQL ) {
 				throw new MWException( 'FlaggedRevs given invalid tag value!' );
