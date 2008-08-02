@@ -820,7 +820,7 @@ class FlaggedArticle extends Article {
 					$newActions['current'] = array(
 						'class' => $draftTabCss,
 						'text' => wfMsg('revreview-current'),
-						'href' => $title->getLocalUrl( 'stable=0' )
+						'href' => $title->getLocalUrl( 'stable=0&redirect=no' )
 						);
 				}
 			# The others...
