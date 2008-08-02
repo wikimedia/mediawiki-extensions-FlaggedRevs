@@ -215,7 +215,9 @@ wgAjaxFeedback.processResult = function(request) {
 
 wgAjaxFeedback.onLoad = function() {
 	var submit = document.getElementById("submitfeedback");
-	submit.onclick = wgAjaxFeedback.ajaxCall;
+	if( submit ) {
+		submit.onclick = wgAjaxFeedback.ajaxCall;
+	}
 };
 
 hookEvent("load", wgAjaxFeedback.onLoad);
