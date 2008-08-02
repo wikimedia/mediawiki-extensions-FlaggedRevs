@@ -14,9 +14,7 @@ class RevisionReview extends UnlistedSpecialPage
 
     function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
-
 		$confirm = $wgRequest->wasPosted() && $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
-
 		if( $wgUser->isAllowed( 'review' ) ) {
 			if( $wgUser->isBlocked( !$confirm ) ) {
 				$wgOut->blockedPage();
@@ -30,94 +28,24 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->readOnlyPage();
 			return;
 		}
-
 		$this->setHeaders();
 		# Our target page
-		$this->target = $wgRequest->getVal( 'target' );
-		$this->page = Title::newFromUrl( $this->target );
+		$this->page = Title::newFromUrl( $wgRequest->getVal( 'target' ) );
+		if( is_null($this->page) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' );
+			return;
+		}
 		# Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
 		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
 		# Param for sites with no tags, otherwise discarded
 		$this->approve = $wgRequest->getBool( 'wpApprove' );
-
-		if( is_null($this->page) ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
-			return;
-		}
-		
-		# Patrol the edit if requested
+		# Patrol the edit if requested...
 		if( $this->patrolonly && $this->rcid ) {
-			$this->markPatrolled( $wgRequest->getVal('token') );
-			return;
-		}
-
-		global $wgFlaggedRevTags, $wgFlaggedRevValues;
-		# Revision ID
-		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		if( !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
-			return;
-		}
-		# Check if page is protected
-		if( !$this->page->quickUserCan( 'edit' ) ) {
-			$wgOut->permissionRequired( 'badaccess-group0' );
-			return;
-		}
-		# Special parameter mapping
-		$this->templateParams = $wgRequest->getVal( 'templateParams' );
-		$this->imageParams = $wgRequest->getVal( 'imageParams' );
-		$this->fileVersion = $wgRequest->getVal( 'fileVersion' );
-		$this->validatedParams = $wgRequest->getVal( 'validatedParams' );
-		
-		# Special token to discourage fiddling...
-		$checkCode = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
-		# Must match up
-		if( $this->validatedParams !== $checkCode ) {
-			$this->templateParams = '';
-			$this->imageParams = '';
-		}
-		
-		# Log comment
-		$this->comment = $wgRequest->getText( 'wpReason' );
-		# Additional notes (displayed at bottom of page)
-		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ?
-			$wgRequest->getText('wpNotes') : '';
-		# Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid );
-		# Get our accuracy/quality dimensions
-		$this->dims = array();
-		$this->unapprovedTags = 0;
-		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
-			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
-			if( $this->dims[$tag] === 0 ) {
-				$this->unapprovedTags++;
-			} else if( is_null($this->dims[$tag]) ) {
-				# This happens if we uncheck a checkbox
-				$this->unapprovedTags++;
-				$this->dims[$tag] = 0;
-			}
-		}
-		# Check permissions and validate
-		if( !$this->userCanSetFlags( $this->dims, $this->oflags ) ) {
-			$wgOut->permissionRequired( 'badaccess-group0' );
-			return;
-		}
-		# We must at least rate each category as 1, the minimum
-		# Exception: we can rate ALL as unapproved to depreciate a revision
-		$valid = true;
-		if( $this->unapprovedTags > 0 ) {
-			if( $this->unapprovedTags < count($wgFlaggedRevTags) )
-				$valid = false;
-		}
-		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
-			$valid = false;
-		}
-
-		if( $valid && $wgRequest->wasPosted() ) {
-			$this->submit();
+			$this->markPatrolled();
+		# Otherwise, do a regular review...
 		} else {
-			$this->showRevision();
+			$this->markReviewed();
 		}
 	}
 	
@@ -194,10 +122,78 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		return true;
 	}
+	
+	private function markReviewed() {
+		global $wgRequest, $wgOut, $wgUser, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		# Revision ID
+		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
+		if( !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
+			return;
+		}
+		# Check if page is protected
+		if( !$this->page->quickUserCan( 'edit' ) ) {
+			$wgOut->permissionRequired( 'badaccess-group0' );
+			return;
+		}
+		# Special parameter mapping
+		$this->templateParams = $wgRequest->getVal( 'templateParams' );
+		$this->imageParams = $wgRequest->getVal( 'imageParams' );
+		$this->fileVersion = $wgRequest->getVal( 'fileVersion' );
+		$this->validatedParams = $wgRequest->getVal( 'validatedParams' );	
+		# Special token to discourage fiddling...
+		$k = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
+		if( $this->validatedParams !== $k ) {
+			$this->templateParams = '';
+			$this->imageParams = '';
+		}
+		# Log comment
+		$this->comment = $wgRequest->getText( 'wpReason' );
+		# Additional notes (displayed at bottom of page)
+		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ?
+			$wgRequest->getText('wpNotes') : '';
+		# Get the revision's current flags, if any
+		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid );
+		# Get our accuracy/quality dimensions
+		$this->dims = array();
+		$this->unapprovedTags = 0;
+		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
+			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
+			if( $this->dims[$tag] === 0 ) {
+				$this->unapprovedTags++;
+			} else if( is_null($this->dims[$tag]) ) {
+				# This happens if we uncheck a checkbox
+				$this->unapprovedTags++;
+				$this->dims[$tag] = 0;
+			}
+		}
+		# Check permissions and validate
+		if( !$this->userCanSetFlags( $this->dims, $this->oflags ) ) {
+			$wgOut->permissionRequired( 'badaccess-group0' );
+			return;
+		}
+		# We must at least rate each category as 1, the minimum
+		# Exception: we can rate ALL as unapproved to depreciate a revision
+		$valid = true;
+		if( $this->unapprovedTags > 0 ) {
+			if( $this->unapprovedTags < count($wgFlaggedRevTags) )
+				$valid = false;
+		}
+		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
+			$valid = false;
+		}
+		# Submit or display info on failure
+		if( $valid && $wgRequest->wasPosted() ) {
+			$this->submit();
+		} else {
+			$this->showRevision();
+		}
+	}
 
-	private function markPatrolled( $token ) {
-		global $wgOut, $wgUser;
-
+	private function markPatrolled() {
+		global $wgRequest, $wgOut, $wgUser;
+		
+		$token = $wgRequest->getVal('token');
 		$wgOut->setPageTitle( wfMsg( 'revreview-patrol-title' ) );
 		# Prevent hijacking
 		if( !$wgUser->matchEditToken( $token, $this->page->getPrefixedText(), $this->rcid ) ) {
@@ -206,8 +202,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Make sure page is not reviewable. This can be spoofed in theory,
 		# but the token is salted with the id and title and this should
-		# be a trusted user...so it is not really worth doing extra query
-		# work over.
+		# be a trusted user...so it is not worth doing extra query work.
 		if( FlaggedRevs::isPageReviewable( $this->page ) ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
