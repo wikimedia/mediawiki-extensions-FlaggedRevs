@@ -46,7 +46,7 @@ if( !defined('FR_TEXT') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Flagged Revisions',
 	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.092',
+	'version' => '1.093',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
@@ -248,7 +248,7 @@ $wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 29;
+$wgFlaggedRevStyleVersion = 30;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

@@ -183,6 +183,7 @@ wgAjaxFeedback.ajaxCall = function() {
 			var soption = selects[i].getElementsByTagName("option")[selects[i].selectedIndex];
 			args.push( selects[i].name + "|" + soption.value );
 		}
+		selects[i].disabled = "disabled";
 	}
 	// Send!
 	sajax_do_call( "ReaderFeedback::AjaxReview", args, wgAjaxFeedback.processResult );
