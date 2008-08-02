@@ -187,13 +187,26 @@ wgAjaxFeedback.ajaxCall = function() {
 	}
 	// Send!
 	sajax_do_call( "ReaderFeedback::AjaxReview", args, wgAjaxFeedback.processResult );
-	// if the request isn't done in 10 seconds, allow user to try again
+	// If the request isn't done in 10 seconds, allow user to try again
 	wgAjaxFeedback.timeoutID = window.setTimeout(
-		function() { wgAjaxFeedback.inprogress = false; },
+		function() { wgAjaxFeedback.inprogress = false; wgAjaxFeedback.unlockForm() },
 		10000
 	);
 	return false;
 };
+
+wgAjaxFeedback.unlockForm = function() {
+	var form = document.getElementById("mw-feedbackform");
+	var submit = document.getElementById("submitfeedback");
+	if( !form || !submit ) {
+		return false;
+	}
+	submit.disabled = "";
+	var selects = form.getElementsByTagName("select");
+	for( var i=0; i < selects.length; i++) {
+		selects[i].disabled = "";
+	}
+}
 
 wgAjaxFeedback.processResult = function(request) {
 	if( !wgAjaxFeedback.supported ) {
@@ -221,13 +234,3 @@ wgAjaxFeedback.onLoad = function() {
 };
 
 hookEvent("load", wgAjaxFeedback.onLoad);
-
-/**
- * @return boolean whether the browser supports XMLHttpRequest
- */
-function wfSupportsAjax() {
-	var request = sajax_init_object();
-	var supportsAjax = request ? true : false;
-	delete request;
-	return supportsAjax;
-}
