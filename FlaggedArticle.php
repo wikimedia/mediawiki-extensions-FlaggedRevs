@@ -1294,7 +1294,7 @@ class FlaggedArticle extends Article {
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' ) );
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
-		$form .= "<legend>" . wfMsgHtml( 'revreview-flag', $id ) . "</legend>\n";
+		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
 		if( $wgFlaggedRevsOverride ) {
 			$form .= wfMsgExt( 'revreview-text', array('parse') );
