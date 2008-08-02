@@ -434,6 +434,10 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
+# AJAX functions
+$wgAjaxExportList[] = 'ReaderFeedback::AjaxReview';
+
+
 # Schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
 

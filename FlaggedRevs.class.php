@@ -872,26 +872,6 @@ class FlaggedRevs {
 		return array($link,$css);
 	}
 	
-	/**
-	 * Get JS script params for onloading
-	 */
-	public static function getJSTagParams() {
-		# Param to pass to JS function to know if tags are at quality level
-		global $wgFlaggedRevTags;
-		$params = array( 'tags' => (object)$wgFlaggedRevTags );
-		return Xml::encodeJsVar( (object)$params );
-	}
-	
-	/**
-	 * Get JS script params for onloading
-	 */
-	public static function getJSFeedbackParams() {
-		# Param to pass to JS function to know if tags are at quality level
-		global $wgFlaggedRevsFeedbackTags;
-		$params = array( 'tags' => (object)$wgFlaggedRevsFeedbackTags );
-		return Xml::encodeJsVar( (object)$params );
-	}
-	
    	/**
 	* Get params for a user
 	* @param User $user
@@ -1158,12 +1138,18 @@ class FlaggedRevs {
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
 
+		$ajaxFeedback = Xml::encodeJsVar( 
+			(object) array( 'sendingMsg' => wfMsgHtml('readerfeedback-submitting'), 
+				'sentMsg' => wfMsgHtml('readerfeedback-finished') )
+		);
+
 		$head = <<<EOT
 <link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
 <script type="$wgJsMimeType">
 var wgFlaggedRevsParams = $rTags;
 var wgFlaggedRevsParams2 = $fTags;
 var wgStableRevisionId = $stableId;
+var wgAjaxFeedback = $ajaxFeedback
 </script>
 <script type="$wgJsMimeType" src="$encJsFile"></script>
 
@@ -1192,6 +1178,26 @@ EOT;
 EOT;
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
+	}
+	
+	/**
+	 * Get JS script params for onloading
+	 */
+	public static function getJSTagParams() {
+		# Param to pass to JS function to know if tags are at quality level
+		global $wgFlaggedRevTags;
+		$params = array( 'tags' => (object)$wgFlaggedRevTags );
+		return Xml::encodeJsVar( (object)$params );
+	}
+	
+	/**
+	 * Get JS script params for onloading
+	 */
+	public static function getJSFeedbackParams() {
+		# Param to pass to JS function to know if tags are at quality level
+		global $wgFlaggedRevsFeedbackTags;
+		$params = array( 'tags' => (object)$wgFlaggedRevsFeedbackTags );
+		return Xml::encodeJsVar( (object)$params );
 	}
 	
 	/**

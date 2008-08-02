@@ -28,8 +28,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		$this->setHeaders();
 		# Our target page
-		$this->target = $wgRequest->getVal( 'target' );
-		$this->page = Title::newFromUrl( $this->target );
+		$this->page = Title::newFromUrl( $wgRequest->getVal( 'target' ) );
 		if( is_null($this->page) ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
@@ -43,7 +42,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 		# Get our rating dimensions
 		$this->dims = array();
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
-			$this->dims[$tag] = $wgRequest->getInt( "wp$tag" );
+			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
+			if( is_null($this->dims[$tag]) ) {
+				$wgOut->redirect( $this->page->getLocalUrl() );
+			}
 		}
 		# Check validation key
 		$this->validatedParams = $wgRequest->getVal('validatedParams');
@@ -57,12 +59,83 @@ class ReaderFeedback extends UnlistedSpecialPage
 			$ok = false;
 		}
 		# Go to graphs!
-		if( $ok ) {
+		global $wgMiserMode;
+		if( $ok && !$wgMiserMode ) {
 			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
 			$wgOut->redirect( $ratingTitle->getLocalUrl('target='.$this->page->getPrefixedUrl() ) );
-		# Already voted!
+		# Already voted or graph is set to be skipped...
 		} else {
 			$wgOut->redirect( $this->page->getLocalUrl() );
+		}
+	}
+	
+	public static function AjaxReview( /*$args...*/ ) {
+		global $wgUser;
+		$args = func_get_args();
+		// Basic permission check
+		if( $wgUser->isAllowed( 'feedback' ) ) {
+			if( $wgUser->isBlocked() ) {
+				return '<err#>';
+			}
+		} else {
+			return '<err#>';
+		}
+		if( wfReadOnly() ) {
+			return '<err#>';
+		}
+		$tags = FlaggedRevs::getFeedbackTags();
+		// Make review interface object
+		$form = new ReaderFeedback();
+		$form->dims = array();
+		// Each ajax url argument is of the form param|val.
+		// This means that there is no ugly order dependance.
+		foreach( $args as $x => $arg ) {
+			@list($par,$val) = explode('|',$arg,2);
+			switch( $par )
+			{
+				case "target":
+					$form->page = Title::newFromUrl( $val );
+					if( is_null($form->page) || !FlaggedRevs::isPageReviewable( $form->page ) ) {
+						return '<err#>';
+					}
+					break;
+				case "oldid":
+					$form->oldid = intval( $val );
+					if( !$form->oldid ) {
+						return '<err#>';
+					}
+					break;
+				case "validatedParams":
+					$form->validatedParams = $val;
+					break;
+				case "wpEditToken":
+					if( !$wgUser->matchEditToken( $val ) ) {
+						return '<err#>';
+					}
+					break;
+				default:
+					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
+					if( array_key_exists( $p, $tags ) ) {
+						$form->dims[$p] = intval($val);
+					}
+					break;
+			}
+		}
+		// Missing params?
+		if( count($form->dims) != count($tags) ) {
+			return '<err#>';
+		}
+		// Doesn't match up?
+		if( $form->validatedParams != self::validationKey( $form->oldid, $wgUser->getId() ) ) {
+			return '<err#>';
+		}
+		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
+		if( $form->submit() ) {
+			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
+				$form->page->getPrefixedText(), $graphLink );
+		} else {
+			return '<err#>'.wfMsgExt( 'readerfeedback-voted', array('parseinline'), 
+				$form->page->getPrefixedText(), $graphLink );
 		}
 	}
 	

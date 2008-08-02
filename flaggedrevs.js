@@ -130,3 +130,101 @@ function updateFeedbackForm() {
 addOnloadHook(enable_showhide);
 addOnloadHook(updateRatingForm);
 addOnloadHook(updateFeedbackForm);
+
+// dependencies:
+// * ajax.js:
+  /*extern sajax_init_object, sajax_do_call */
+// * wikibits.js:
+  /*extern hookEvent, jsMsg */
+
+// These should have been initialized in the generated js
+if( typeof wgAjaxFeedback === "undefined" || !wgAjaxFeedback ) {
+	var wgAjaxFeedback = {
+		sendingMsg: "Submitting...",
+		sentMsg: "Thank you!"
+	};
+}
+
+wgAjaxFeedback.supported = true; // supported on current page and by browser
+wgAjaxFeedback.inprogress = false; // ajax request in progress
+wgAjaxFeedback.timeoutID = null; // see wgAjaxFeedback.ajaxCall
+
+wgAjaxFeedback.ajaxCall = function() {
+	if( !wgAjaxFeedback.supported ) {
+		return true;
+	} else if( wgAjaxFeedback.inprogress ) {
+		return false;
+	}
+	if( !wfSupportsAjax() ) {
+		// Lazy initialization so we don't toss up
+		// ActiveX warnings on initial page load
+		// for IE 6 users with security settings.
+		wgAjaxFeedback.supported = false;
+		return true;
+	}
+	var form = document.getElementById("mw-feedbackform");
+	var submit = document.getElementById("submitfeedback");
+	if( !form || !submit ) {
+		return false;
+	}
+	wgAjaxFeedback.inprogress = true;
+	submit.disabled = "disabled";
+	submit.value = wgAjaxFeedback.sendingMsg;
+	// Build up arguments
+	var args = [];
+	var inputs = form.getElementsByTagName("input");
+	for( var i=0; i < inputs.length; i++) {
+		args.push( inputs[i].name + "|" + inputs[i].value );
+	}
+	var selects = form.getElementsByTagName("select");
+	for( var i=0; i < selects.length; i++) {
+		// Get the selected tag level...
+		if( selects[i].selectedIndex >= 0 ) {
+			var soption = selects[i].getElementsByTagName("option")[selects[i].selectedIndex];
+			args.push( selects[i].name + "|" + soption.value );
+		}
+	}
+	// Send!
+	sajax_do_call( "ReaderFeedback::AjaxReview", args, wgAjaxFeedback.processResult );
+	// if the request isn't done in 10 seconds, allow user to try again
+	wgAjaxFeedback.timeoutID = window.setTimeout(
+		function() { wgAjaxFeedback.inprogress = false; },
+		10000
+	);
+	return false;
+};
+
+wgAjaxFeedback.processResult = function(request) {
+	if( !wgAjaxFeedback.supported ) {
+		return;
+	}
+	var response = request.responseText;
+	if( msg = response.substr(6) ) {
+		jsMsg( msg, 'feedback' );
+	}
+	wgAjaxFeedback.inprogress = false;
+	if(wgAjaxFeedback.timeoutID) {
+		window.clearTimeout(wgAjaxFeedback.timeoutID);
+	}
+	var submit = document.getElementById("submitfeedback");
+	if( submit ) {
+		submit.value = wgAjaxFeedback.sentMsg;
+	}
+};
+
+wgAjaxFeedback.onLoad = function() {
+	var submit = document.getElementById("submitfeedback");
+	submit.onclick = wgAjaxFeedback.ajaxCall;
+};
+
+hookEvent("load", wgAjaxFeedback.onLoad);
+
+/**
+ * @return boolean whether the browser supports XMLHttpRequest
+ */
+function wfSupportsAjax() {
+	var request = sajax_init_object();
+	var supportsAjax = request ? true : false;
+	delete request;
+	return supportsAjax;
+}
