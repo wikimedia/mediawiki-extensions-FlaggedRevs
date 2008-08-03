@@ -27,7 +27,6 @@ $messages['en'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
- * @author Siebrand
  */
 $messages['ar'] = array(
 	'ratinghistory'        => 'تاريخ تقييم الصفحة',
@@ -35,10 +34,10 @@ $messages['ar'] = array(
 	'ratinghistory-leg'    => 'بيانات تقييم التاريخ',
 	'ratinghistory-tab'    => 'تقييم',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">شكرا لك لاستغراقك دقيقة لمراجعة هذه الصفحة!</font>'''''",
-	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-period' => 'فترة زمنية:',
 	'ratinghistory-month'  => 'آخر شهر',
 	'ratinghistory-year'   => 'آخر سنة',
+	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-none'   => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> ومتوسط الفترة المختارة  
 <font color=\"green\">''(أخضر)''</font> سيتم رسمهما بالأسفل، حسب التاريخ. عدد المراجعات معروض في
@@ -107,7 +106,6 @@ La taksadaj valoroj estas interpretaj jene:
 
 /** French (Français)
  * @author Grondin
- * @author Siebrand
  */
 $messages['fr'] = array(
 	'ratinghistory'        => 'Historique de la notation de la page',
@@ -115,10 +113,10 @@ $messages['fr'] = array(
 	'ratinghistory-leg'    => 'Données de l’historique de la notation',
 	'ratinghistory-tab'    => 'notation',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Merci pour nous avoir consacré du temps pour relire cette page !</font>'''''",
-	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-period' => 'Période :',
 	'ratinghistory-month'  => 'dernier mois',
 	'ratinghistory-year'   => 'dernière année',
+	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-none'   => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
 	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation seront dessinés ci-dessous, par date. Le nombre de relectures est affichée dans le coin situé en haut à droite du graphique ; les valeurs les plus élevées tendent à indiquer plutôt des données simples. les valeurs de notations doivent être interprétées comme suit :
 
@@ -127,17 +125,16 @@ $messages['fr'] = array(
 
 /** Galician (Galego)
  * @author Toliño
- * @author Siebrand
  */
 $messages['gl'] = array(
 	'ratinghistory'        => 'Historial de valoracións da páxina',
 	'ratinghistory-text'   => "'''Esta páxina amosa os datos da valoración de [[:$1|$1]].'''",
 	'ratinghistory-leg'    => 'Historial de valoracións dos datos',
 	'ratinghistory-tab'    => 'valoración',
-	'ratinghistory-3years' => 'últimos 3 anos',
 	'ratinghistory-period' => 'Período de tempo:',
 	'ratinghistory-month'  => 'último mes',
 	'ratinghistory-year'   => 'último ano',
+	'ratinghistory-3years' => 'últimos 3 anos',
 	'ratinghistory-legend' => "A valoración do promedio diario <font color=\"blue\">''(azul)''</font> e o intervalo seleccionado <font color=\"green\">''(verde)''</font> serán postos, por data, na gráfica de embaixo. O número de revisións é amosado no
 recanto superior dereito das gráficas; os valores máis altos tratan de indicar os mellores datos de mostra. Os valores da valoración serán interpretados da seguinte maneira:
 
@@ -163,6 +160,25 @@ $messages['lb'] = array(
 	'ratinghistory-3years' => 'lescht 3 Joer',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'ratinghistory'        => 'Sejarah penilaian laman',
+	'ratinghistory-text'   => "'''Berikut ialah data penilaian bagi laman [[:$1|$1]].'''",
+	'ratinghistory-leg'    => 'Data sejarah penilaian',
+	'ratinghistory-tab'    => 'penilaian',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Terima kasih kerana sudi meluangkan masa untuk memeriksa laman ini!</font>'''''",
+	'ratinghistory-period' => 'Tempoh masa:',
+	'ratinghistory-month'  => 'bulan lepas',
+	'ratinghistory-year'   => 'tahun lepas',
+	'ratinghistory-3years' => '3 tahun lepas',
+	'ratinghistory-none'   => 'Data maklum balas pembaca belum cukup untuk penghasilan graf.',
+	'ratinghistory-legend' => "Berikut ialah graf purata harian <font color=\"blue\">''(biru)''</font> dan purata selang yang dipilih <font color=\"green\">''(hijau''</font> mengikut tarikh. Jumlah penyemakan ditunjukkan di bucu kanan atas. Nilai tinggi menandakan data sampel yang lebih baik. Berikut ialah pentafsiran tahap penilaian:
+
+'''[0]''' - Lemah, '''[1]''' - Rendah, '''[2]''' - Sederhana, '''[3]''' - Tinggi, '''[4]''' - Cemerlang",
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -172,13 +188,13 @@ $messages['nl'] = array(
 	'ratinghistory-leg'    => 'Historische waarderingsgegevens',
 	'ratinghistory-tab'    => 'waardering',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dank u wel voor de moeite die u hebt genomen om deze pagina te waarderen!</font>'''''",
-	'ratinghistory-3years' => 'afgelopen 3 jaar',
 	'ratinghistory-period' => 'Tijdsperiode:',
 	'ratinghistory-month'  => 'afgelopen maand',
 	'ratinghistory-year'   => 'afgelopen jaar',
+	'ratinghistory-3years' => 'afgelopen 3 jaar',
 	'ratinghistory-none'   => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
-	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven tijd <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
-Het aantaal waarderingen is rechtsboven te zien.
+	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven periode <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
+Het aantal waarderingen is rechtsboven te zien.
 Hogere waardes betekenen in het algemeen een hogere betrouwbaarheid.
 De waarderingen dienen als volgt gelezen te worden:
 
@@ -211,7 +227,6 @@ $messages['pt'] = array(
 
 /** Slovak (Slovenčina)
  * @author Helix84
- * @author Siebrand
  */
 $messages['sk'] = array(
 	'ratinghistory'        => 'História hodnotenia stránky',
@@ -219,10 +234,10 @@ $messages['sk'] = array(
 	'ratinghistory-leg'    => 'Údaje o hodnotení v čase',
 	'ratinghistory-tab'    => 'hodnotenie',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Ďakujeme, že ste si našli chvíľu na ohodnotenie tejto stránky!</font>'''''",
-	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-period' => 'Časové obdobie:',
 	'ratinghistory-month'  => 'posledný mesiac',
 	'ratinghistory-year'   => 'posledný rok',
+	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-none'   => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
 	'ratinghistory-legend' => "Dolu sú podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu  
 <font color=\"green\">''(zelenou)''</font>. Počet kontrol sa zobrazuje v pravom hornom rohu grafov; vyššie hodnoty zvyknú označovať lepšie vzorky údajov. Hodnoty hodnotenia sa interpretujú nasledovne:
@@ -248,7 +263,6 @@ $messages['sr-ec'] = array(
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.
- * @author Siebrand
  */
 $messages['sv'] = array(
 	'ratinghistory'        => 'Sidans betygshistorik',

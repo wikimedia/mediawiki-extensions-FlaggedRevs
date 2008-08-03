@@ -231,7 +231,6 @@ $messages['af'] = array(
 
 /** Aragonese (Aragonés)
  * @author Juanpabl
- * @author Siebrand
  */
 $messages['an'] = array(
 	'editor'                       => 'Editor',
@@ -401,7 +400,6 @@ Puede trobar una lista de pachinas con bersions estables en [[Special:StablePage
 
 /** Arabic (العربية)
  * @author Meno25
- * @author Siebrand
  * @author OsamaK
  */
 $messages['ar'] = array(
@@ -570,6 +568,10 @@ $messages['ar'] = array(
 	'readerfeedback-level-4'       => 'ممتاز',
 	'readerfeedback-submit'        => 'تنفيذ',
 	'readerfeedback-main'          => 'فقط صفحات المحتوى يمكن مراجعتها.',
+	'readerfeedback-success'       => "شكرا لك لمراجعة هذه الصفحة! نتائج تعليقات القراء ل'''$1''' يمكن إيجادها [$2 هنا].",
+	'readerfeedback-voted'         => "يبدو أنك قيمت هذه الصفحة بالفعل. نتائج تعليقات القراء ل'''$1''' يمكن إيجادها [$2 هنا].",
+	'readerfeedback-submitting'    => 'جاري التنفيذ...',
+	'readerfeedback-finished'      => 'شكرا لك!',
 	'revreview-filter-all'         => 'الكل',
 	'revreview-filter-approved'    => 'تمت الموافقة عليها',
 	'revreview-filter-reapproved'  => 'تكررت الموافقة عليها',
@@ -1345,7 +1347,6 @@ $messages['da'] = array(
 /** German (Deutsch)
  * @author Raimond Spekking
  * @author Raymond
- * @author Siebrand
  */
 $messages['de'] = array(
 	'editor'                       => 'Sichter',
@@ -1519,6 +1520,11 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'readerfeedback-level-4'       => 'Sehr gut',
 	'readerfeedback-submit'        => 'OK',
 	'readerfeedback-main'          => 'Es können nur Artikel bewertet werden.',
+	'readerfeedback-success'       => "'''Danke für deine Bewertung dieser Seite.''' Die bisherige Leserbewertung für '''$1''' findest du [$2 hier].",
+	'readerfeedback-voted'         => "'''Du hast scheinbar bereits eine Bewertung für diese Seite abgegeben.'''
+Die bisherige Leserbewertung für '''$1''' findest du [$2 hier].",
+	'readerfeedback-submitting'    => 'Übertragung …',
+	'readerfeedback-finished'      => 'Danke schön.',
 	'revreview-filter-all'         => 'Alle',
 	'revreview-filter-approved'    => 'Markiert',
 	'revreview-filter-reapproved'  => 'Inkrementell markiert',
@@ -1578,7 +1584,6 @@ $messages['el'] = array(
 
 /** Esperanto (Esperanto)
  * @author Yekrats
- * @author Siebrand
  * @author ArnoLagrange
  */
 $messages['eo'] = array(
@@ -2059,7 +2064,6 @@ $messages['fi'] = array(
  * @author Sherbrooke
  * @author Grondin
  * @author Verdy p
- * @author Siebrand
  * @author Urhixidur
  * @author Dereckson
  * @author Cedric31
@@ -2360,7 +2364,6 @@ $messages['fy'] = array(
  * @author Toliño
  * @author Alma
  * @author Xosé
- * @author Siebrand
  */
 $messages['gl'] = array(
 	'editor'                       => 'Editor',
@@ -3871,15 +3874,24 @@ $messages['lb'] = array(
 	'right-validate'               => 'Versiounen als validéiert markéieren',
 	'specialpages-group-quality'   => 'Qualitéitssécherung',
 	'stable-logpage'               => 'Lëscht vun de stabile Versiounen',
+	'readerfeedback'               => 'Wat haalt Dir vun dëser Säit?',
+	'readerfeedback-reliability'   => 'Zouverlässigkeet',
 	'readerfeedback-npov'          => 'Neutralitéit',
 	'readerfeedback-presentation'  => 'Presentatioun',
+	'readerfeedback-overall'       => 'Am Ganzen',
+	'readerfeedback-level-0'       => 'Schwaach',
+	'readerfeedback-level-1'       => 'Niddereg',
+	'readerfeedback-level-2'       => 'Fair',
+	'readerfeedback-level-3'       => 'Héich',
 	'readerfeedback-level-4'       => 'Exzellent',
+	'readerfeedback-finished'      => 'Merci!',
 	'revreview-filter-all'         => 'All',
 	'revreview-filter-auto'        => 'Automatesch',
 	'revreview-filter-manual'      => 'Manuel',
 	'revreview-typefilter'         => 'Typ:',
 	'tooltip-ca-current'           => 'Den aktuelle Brouillon vun dëser Säit weisen',
 	'tooltip-ca-stable'            => 'Déi stabil Versioun vun dëser Säit gesinn',
+	'revreview-tt-review'          => 'Dës Säit nokucken',
 	'validationpage'               => '{{ns:help}}:Validatioun vun der Säit',
 );
 
@@ -4119,7 +4131,6 @@ $messages['ml'] = array(
 /** Marathi (मराठी)
  * @author Kaustubh
  * @author Mahitgar
- * @author Siebrand
  */
 $messages['mr'] = array(
 	'editor'                       => 'संपादक',
@@ -4352,7 +4363,7 @@ Masalah ini mungkin boleh diselesaikan dengan menyegarkan semula laman ini dan m
 	'revreview-log'                => 'Ulasan:',
 	'revreview-main'               => 'Anda hendaklah memilih sebuah semakan tertentu daripada sesebuah laman kandungan untuk diperiksa.
 
-Sila lihat senarai laman yang belum diperiksa di [[Special:Unreviewedpages]].',
+Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-newest-basic'       => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Semakan dijenguk terakhir] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} senarai]) telah [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} disahkan] pada <i>$2</i>.
 Terdapat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 perubahan] yang belum diperiksa.',
 	'revreview-newest-basic-i'     => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Semakan dijenguk terakhir] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} senarai]) telah [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} disahkan] pada <i>$2</i>.\\n
@@ -4430,6 +4441,25 @@ Untuk menggugurkan semakan ini, sila berikan penilaian "tidak disahkan" kepada s
 	'stable-logpage'               => 'Log kestabilan',
 	'stable-logpagetext'           => 'Berikut ialah log perubahan pada tetapan [[{{MediaWiki:Validationpage}}|versi stabil]] bagi laman kandungan.
 Senarai laman yang telah distabilkan boleh dilihat di [[Special:StablePages|senarai laman stabil]].',
+	'readerfeedback'               => 'Apakah pandangan anda mengenai laman ini?',
+	'readerfeedback-text'          => "''Sila luangkan sedikit masa untuk memberi penilaian kepada laman ini. Maklum balas anda amatlah dihargai dan diperlukan untuk memperbaiki tapak web kami.''",
+	'readerfeedback-reliability'   => 'Kebolehpercayaan',
+	'readerfeedback-completeness'  => 'Kesempurnaan',
+	'readerfeedback-npov'          => 'Kekecualian',
+	'readerfeedback-presentation'  => 'Persembahan',
+	'readerfeedback-overall'       => 'Keseluruhan',
+	'readerfeedback-level-0'       => 'Lemah',
+	'readerfeedback-level-1'       => 'Rendah',
+	'readerfeedback-level-2'       => 'Sederhana',
+	'readerfeedback-level-3'       => 'Tinggi',
+	'readerfeedback-level-4'       => 'Cemerlang',
+	'readerfeedback-submit'        => 'Serah',
+	'readerfeedback-main'          => 'Hanya laman kandungan boleh diperiksa.',
+	'readerfeedback-success'       => "'''Terima kasih kerana memeriksa laman ini!''' Keputusan maklum balas pembaca bagi laman '''$1''' boleh dilihat di $2.",
+	'readerfeedback-voted'         => "'''Anda telah pun memberi penilaian untuk laman ini.'''
+Keputusan maklum balas pembaca bagi laman '''$1''' boleh dilihat di $2.",
+	'readerfeedback-submitting'    => 'Menyerah...',
+	'readerfeedback-finished'      => 'Terima kasih!',
 	'revreview-filter-all'         => 'Semua',
 	'revreview-filter-approved'    => 'Disahkan',
 	'revreview-filter-reapproved'  => 'Disahkan semula',
@@ -4440,9 +4470,13 @@ Senarai laman yang telah distabilkan boleh dilihat di [[Special:StablePages|sena
 	'revreview-filter-level-1'     => 'Versi bermutu',
 	'revreview-statusfilter'       => 'Status:',
 	'revreview-typefilter'         => 'Jenis:',
+	'revreview-tagfilter'          => 'Label:',
 	'tooltip-ca-current'           => 'Lihat draf laman ini',
 	'tooltip-ca-stable'            => 'Lihat versi stabil bagi laman ini',
 	'tooltip-ca-default'           => 'Tetapan jaminan mutu',
+	'tooltip-ca-ratinghist'        => 'Penilaian pembaca',
+	'revreview-locked'             => 'Suntingan perlulah diperiksa terlebih dahulu sebelum dipaparkan di laman ini!',
+	'revreview-unlocked'           => 'Suntingan tidak perlu diperiksa untuk dipaparkan di laman ini!',
 	'revreview-tt-review'          => 'Periksa laman ini',
 	'validationpage'               => '{{ns:help}}:Pengesahan rencana',
 );
@@ -4599,8 +4633,10 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wij
 	'revreview-style-3'            => 'Bondig',
 	'revreview-style-4'            => 'Uitgelicht',
 	'revreview-submit'             => 'Beoordeling opslaan',
-	'revreview-successful'         => "'''De aangegeven versie van [[:$1|$1]] is gecontroleerd. ([{{fullurl:Special:Stableversions|page=$2}} alle gecontroleerde versies bekijken])'''",
-	'revreview-successful2'        => "'''De geselecteerde versie van [[:$1|$1]] is als niet stabiel aangemerkt.'''",
+	'revreview-submitting'         => 'Bezig met opslaan...',
+	'revreview-finished'           => 'Eindredactie afgerond.',
+	'revreview-successful'         => "'''De versie van [[:$1|$1]] is gecontroleerd. ([{{fullurl:Special:Stableversions|page=$2}} stabiele versies bekijken])'''",
+	'revreview-successful2'        => "'''De versie van [[:$1|$1]] is als niet stabiel aangemerkt.'''",
 	'revreview-text'               => "''[[{{MediaWiki:Validationpage}}|Stabiele versies]] worden standaard weergegeven in plaats van de nieuwste versie.''",
 	'revreview-text2'              => "''[[{{MediaWiki:Validationpage}}|Stabiele versies]] zijn gecontroleerde versies van pagina's die standaard weergegeven kunnen worden aan lezers.''",
 	'revreview-toggle-title'       => 'details weergeven/verbergen',
@@ -4642,6 +4678,12 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 	'readerfeedback-level-4'       => 'Uitstekend',
 	'readerfeedback-submit'        => 'Opslaan',
 	'readerfeedback-main'          => "Alleen pagina's uit de hoofdnaamruimte kunnen gewaardeerd worden.",
+	'readerfeedback-success'       => "'''Dank u wel voor het waarderen van deze pagina.'''
+Resultaten van waarderingen van lezers voor '''$1''' zijn [$2 hier] te vinden.",
+	'readerfeedback-voted'         => "'''U hebt al een waardering voor deze pagina opgegeven.'''
+Resultaten van waarderingen van lezers voor '''$1''' zijn [$2 hier] te vinden.",
+	'readerfeedback-submitting'    => 'Bezig met opslaan...',
+	'readerfeedback-finished'      => 'Bedankt!',
 	'revreview-filter-all'         => 'Alles',
 	'revreview-filter-approved'    => 'Gekeurd',
 	'revreview-filter-reapproved'  => 'Opnieuw gekeurd',
@@ -4762,7 +4804,6 @@ $messages['nso'] = array(
 
 /** Occitan (Occitan)
  * @author Cedric31
- * @author Siebrand
  */
 $messages['oc'] = array(
 	'editor'                       => 'Contributor',
@@ -5143,7 +5184,6 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya
- * @author Siebrand
  */
 $messages['pt'] = array(
 	'editor'                       => 'Editor',
@@ -5340,7 +5380,6 @@ $messages['ro'] = array(
 
 /** Russian (Русский)
  * @author Александр Сигачёв
- * @author Siebrand
  * @author Ahonc
  */
 $messages['ru'] = array(
@@ -5614,7 +5653,6 @@ $messages['sah'] = array(
 
 /** Slovak (Slovenčina)
  * @author Helix84
- * @author Siebrand
  */
 $messages['sk'] = array(
 	'editor'                       => 'Redaktor',
@@ -5806,7 +5844,6 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
- * @author Siebrand
  * @author Millosh
  */
 $messages['sr-ec'] = array(
@@ -6094,7 +6131,6 @@ $messages['su'] = array(
  * @author M.M.S.
  * @author Lejonel
  * @author Boivie
- * @author Siebrand
  */
 $messages['sv'] = array(
 	'editor'                       => 'Redaktör',
@@ -6255,6 +6291,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'readerfeedback-level-4'       => 'Mycket bra',
 	'readerfeedback-submit'        => 'Skicka',
 	'readerfeedback-main'          => 'Endast innehållssidor kan granskas.',
+	'readerfeedback-finished'      => 'Tack!',
 	'revreview-filter-all'         => 'Alla',
 	'revreview-filter-approved'    => 'Godkända',
 	'revreview-filter-reapproved'  => 'Åter godkända',
@@ -6528,7 +6565,7 @@ $messages['tr'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
- * @author Siebrand
+ * @author AS
  */
 $messages['uk'] = array(
 	'editor'                       => 'редактор',
@@ -6610,7 +6647,7 @@ $messages['uk'] = array(
 	'revreview-newest-quality-i'   => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання якісна версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 Потрібна перевірка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змін у шаблонах та зображеннях].',
 	'revreview-noflagged'          => "Ця сторінка не має перевірених версій, імовірно, її якість '''не''' [[{{MediaWiki:Validationpage}}|оцінювалася]].",
-	'revreview-note'               => '[[User:$1|$1]] зробив наступний коментар, [[{{MediaWiki:Validationpage}}|перевіряючи]] цю версію:',
+	'revreview-note'               => '[[Користувач:$1|$1]] зробив наступний коментар, [[{{MediaWiki:Validationpage}}|перевіряючи]] цю версію:',
 	'revreview-notes'              => 'Спостереження і коментарі для показу:',
 	'revreview-oldrating'          => 'Була оцінена:',
 	'revreview-patrol'             => 'Позначити цю зміну як перевірену',
@@ -6828,7 +6865,6 @@ Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista d
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  * @author Minh Nguyen
- * @author Siebrand
  */
 $messages['vi'] = array(
 	'editor'                       => 'Người viết bài',

@@ -175,12 +175,13 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
-	'qualityoversight-alias'      => 'Kawalan_mutu',
-	'unreviewedpages-alias'       => 'Laman_tidak_diperiksa',
-	'oldreviewedpages-alias'      => 'Laman_diperiksa_lapuk',
-	'reviewedpages-alias'         => 'Laman_diperiksa',
-	'stablepages-alias'           => 'Laman_stabil',
-	'stableversions-alias'        => 'Versi_stabil',
+	'qualityoversight-alias' => 'Kawalan_mutu',
+	'unreviewedpages-alias'  => 'Laman_tidak_diperiksa',
+	'oldreviewedpages-alias' => 'Laman_diperiksa_lapuk',
+	'reviewedpages-alias'    => 'Laman_diperiksa',
+	'stablepages-alias'      => 'Laman_stabil',
+	'stableversions-alias'   => 'Versi_stabil',
+	'problempages-alias'     => 'Laman_bermasalah',
 );
 
 /** Dutch (Nederlands)

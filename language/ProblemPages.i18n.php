@@ -113,6 +113,17 @@ $messages['lb'] = array(
 	'problempages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'problempages'        => 'Laman bermasalah',
+	'problempages-leg'    => 'Cari laman yang mempunyai penilaian rendah.',
+	'problempages-list'   => 'Berikut ialah senarai laman mengikut tertib penilaian pembaca.',
+	'problempages-none'   => 'Tiada laman dalam senarai ini',
+	'problempages-graphs' => 'data penilaian',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
