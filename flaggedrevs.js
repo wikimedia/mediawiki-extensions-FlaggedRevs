@@ -222,6 +222,7 @@ wgAjaxFeedback.processResult = function(request) {
 	if( submit ) {
 		submit.value = wgAjaxFeedback.sentMsg;
 	}
+	window.scroll(0,0);
 };
 
 wgAjaxFeedback.onLoad = function() {
@@ -330,6 +331,7 @@ wgAjaxReview.processResult = function(request) {
 	if( submit ) {
 		submit.value = wgAjaxReview.sentMsg;
 	}
+	window.scroll(0,0);
 };
 
 wgAjaxReview.onLoad = function() {
