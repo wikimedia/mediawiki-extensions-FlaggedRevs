@@ -121,7 +121,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-source'             => 'draft source',
 	'revreview-stable'             => 'Stable page',
 	'revreview-stable-title'       => 'Sighted article',
-	'revreview-stable1'            => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] to see if it is now the [{{fullurl:$1|stable=1}} stable version] of this page.',
+	'revreview-stable1'            => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] and see if it is now the [{{fullurl:$1|stable=1}} stable version] of this page.',
 	'revreview-stable2'            => 'You may want to view the [{{fullurl:$1|stable=1}} stable version] of this page (if there still is one).',
 	'revreview-style'              => 'Readability',
 	'revreview-style-0'            => 'Unapproved',
