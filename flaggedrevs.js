@@ -292,7 +292,7 @@ wgAjaxReview.ajaxCall = function() {
 	// If the request isn't done in 10 seconds, allow user to try again
 	wgAjaxReview.timeoutID = window.setTimeout(
 		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm() },
-		20000
+		30000
 	);
 	return false;
 };
