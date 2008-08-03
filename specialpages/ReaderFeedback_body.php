@@ -6,6 +6,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class ReaderFeedback extends UnlistedSpecialPage
 {
+	// Initialize to handle incomplete AJAX input
+	var $page = null, $oldid = 0, $dims = array(), $validatedParams = '', $wpEditToken = '';
+	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'ReaderFeedback', 'feedback' );
     }
