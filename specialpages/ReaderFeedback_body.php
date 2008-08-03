@@ -93,6 +93,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		// Make review interface object
 		$form = new ReaderFeedback();
 		$form->dims = array();
+		$bot = false;
 		// Each ajax url argument is of the form param|val.
 		// This means that there is no ugly order dependance.
 		foreach( $args as $x => $arg ) {
@@ -123,6 +124,9 @@ class ReaderFeedback extends UnlistedSpecialPage
 						return '<err#>';
 					}
 					break;
+				case "commentary": // honeypot value
+					$bot = true;
+					break;
 				default:
 					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
 					if( array_key_exists( $p, $tags ) ) {
@@ -140,7 +144,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 			return '<err#>';
 		}
 		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
-		if( $form->submit() ) {
+		if( $bot || $form->submit() ) {
 			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
 				$form->page->getPrefixedText(), $graphLink );
 		} else {
