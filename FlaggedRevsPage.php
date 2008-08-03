@@ -47,10 +47,6 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
-			return;
-		}
 		# Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
 		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
@@ -75,6 +71,13 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->addWikiText( wfMsg('sessionfailure') );
 			return;
 		}
+		# Make sure page is not reviewable. This can be spoofed in theory,
+		# but the token is salted with the id and title and this should
+		# be a trusted user...so it is not worth doing extra query work. 	 
+		if( FlaggedRevs::isPageReviewable( $this->page ) ) {
+			$wgOut->showErrorPage('notargettitle', 'notargettext' ); 	 
+			return;
+		}
 		# Mark as patrolled
 		$changed = RecentChange::markPatrolled( $this->rcid );
 		if( $changed ) {
@@ -87,7 +90,11 @@ class RevisionReview extends UnlistedSpecialPage
 	
 	private function markReviewed() {
 		global $wgRequest, $wgOut, $wgUser;
-		
+		# Must be in reviewable namespace
+		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
+			return;
+		}
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		if( !$this->oldid ) {
 			$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
