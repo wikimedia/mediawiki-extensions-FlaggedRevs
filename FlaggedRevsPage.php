@@ -280,10 +280,12 @@ class RevisionReview extends UnlistedSpecialPage
 			return '<err#>';
 		}
 		list($approved,$status) = $form->submit();
-		if( $form->submit() ) {
+		if( $status === true ) {
 			return '<suc#>'.$form->showSuccess( $approved );
-		} else {
-			return '<err#>'.$form->showSyncFailure( $approved );
+		} else if( $approved && is_array($status) ) {
+			return '<err#>'.$form->showSyncFailure( $status );
+		} else { // hmmm?
+			return '<err#>';
 		}
 	}
 
