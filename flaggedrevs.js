@@ -290,7 +290,7 @@ wgAjaxReview.ajaxCall = function() {
 	}
 	// Send!
 	sajax_do_call( "RevisionReview::AjaxReview", args, wgAjaxReview.processResult );
-	// If the request isn't done in 10 seconds, allow user to try again
+	// If the request isn't done in 30 seconds, allow user to try again
 	wgAjaxReview.timeoutID = window.setTimeout(
 		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm() },
 		30000
