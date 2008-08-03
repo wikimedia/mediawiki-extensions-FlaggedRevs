@@ -1138,9 +1138,13 @@ class FlaggedRevs {
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
 
-		$ajaxMsgs = Xml::encodeJsVar( 
+		$ajaxFeedback = Xml::encodeJsVar( 
 			(object) array( 'sendingMsg' => wfMsgHtml('readerfeedback-submitting'), 
 				'sentMsg' => wfMsgHtml('readerfeedback-finished') )
+		);
+		$ajaxReview = Xml::encodeJsVar( 
+			(object) array( 'sendingMsg' => wfMsgHtml('revreview-submitting'), 
+				'sentMsg' => wfMsgHtml('revreview-finished') )
 		);
 
 		$head = <<<EOT
@@ -1149,8 +1153,8 @@ class FlaggedRevs {
 var wgFlaggedRevsParams = $rTags;
 var wgFlaggedRevsParams2 = $fTags;
 var wgStableRevisionId = $stableId;
-var wgAjaxFeedback = $ajaxMsgs
-var wgAjaxReview = $ajaxMsgs
+var wgAjaxFeedback = $ajaxFeedback
+var wgAjaxReview = $ajaxReview
 </script>
 <script type="$wgJsMimeType" src="$encJsFile"></script>
 

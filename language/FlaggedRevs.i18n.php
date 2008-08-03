@@ -130,6 +130,8 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-style-3'            => 'Concise',
 	'revreview-style-4'            => 'Featured',
 	'revreview-submit'             => 'Submit review',
+	'revreview-submitting'         => 'Submitting...',
+	'revreview-finished'           => 'Review complete!',
 	'revreview-successful'         => '\'\'\'Selected revision of [[:$1|$1]] successfully flagged. ([{{fullurl:Special:Stableversions|page=$2}} view all flagged versions])\'\'\'',
 	'revreview-successful2'        => '\'\'\'Selected revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-text'               => '\'\'[[{{MediaWiki:Validationpage}}|Stable versions]] are the default page content for viewers rather than the newest revision.\'\'',
