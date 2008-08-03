@@ -6,6 +6,7 @@ class FlaggedArticle extends Article {
 	protected $pageConfig = null;
 	protected $flags = null;
 	protected $reviewNotice = '';
+	protected $reviewNotes = '';
 	protected $file = NULL;
 	protected $parent;
 
@@ -197,7 +198,7 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		$simpleTag = $old = $stable = false;
-		$tag = $prot = $notes = $pending = '';
+		$tag = $prot = $pending = '';
 		# Check the newest stable version.
 		$srev = $this->getStableRev( FR_TEXT );
 		$frev = $srev;
@@ -271,9 +272,9 @@ class FlaggedArticle extends Article {
 					}
 				}
 				# Output HTML
+				$this->getReviewNotes( $frev );
 	   			$wgOut->addParserOutput( $parserOut );
 				$wgOut->setRevisionId( $frev->getRevId() );
-				$notes = $this->getReviewNotes( $frev );
 				# Index the stable version only
 				$wgOut->setRobotPolicy( 'noindex,nofollow' );
 				# Tell MW that parser output is done
@@ -284,8 +285,12 @@ class FlaggedArticle extends Article {
 			} else if( !$stable && !$this->pageOverride() ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 				$synced = false;
+				# We only care about syncing if not viewing an old stable version
 				if( $srev->getRevId() == $frev->getRevId() ) {
 					$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent );
+					if( $synced ) {
+						$this->getReviewNotes( $frev ); // Still the same
+					}
 				}
 				# Give notice to newer users if an unreviewed edit was completed...
 				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
@@ -387,9 +392,9 @@ class FlaggedArticle extends Article {
 					}
 				}
 				# Output HTML
+				$this->getReviewNotes( $frev );
 	   			$wgOut->addParserOutput( $parserOut );
 				$wgOut->setRevisionId( $frev->getRevId() );
-				$notes = $this->getReviewNotes( $frev );
 				# Tell MW that parser output is done
 				$outputDone = true;
 				$pcache = false;
@@ -410,8 +415,6 @@ class FlaggedArticle extends Article {
 				$tag = "<div id='mw-revisiontag' class='$tagClass plainlinks noprint'>$tag</div>";
 				$this->reviewNotice .= $tag;
 			}
-			# Add revision notes
-			$wgOut->mBodytext = $wgOut->mBodytext . $notes;
 		// Add "no reviewed version" tag, but not for main page or printable output.
 		} else if( !$wgOut->isPrintable() ) {
 			// Simple icon-based UI
@@ -884,7 +887,7 @@ class FlaggedArticle extends Article {
    		$notes = "<div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
-		return $notes;
+		$this->reviewNotes = $notes;
 	}
 
 	/**
@@ -1251,6 +1254,17 @@ class FlaggedArticle extends Article {
 		$this->flags[$revId] = $flags;
 
 		return $flags;
+	}
+	
+	 /**
+	 * Adds brief review notes to a page.
+	 * @param OutputPage $out
+	 */
+	public function addReviewNotes( $out ) {
+		if( $this->reviewNotes ) {
+			$out->addHTML( $this->reviewNotes );
+		}
+		return true;
 	}
 	
 	 /**

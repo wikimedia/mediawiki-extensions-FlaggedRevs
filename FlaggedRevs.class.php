@@ -2166,6 +2166,7 @@ EOT;
 	public static function onBeforePageDisplay( $out ) {
 		$fa = FlaggedArticle::getGlobalInstance();
 		if( $fa && $out->isArticleRelated() ) {
+			$fa->addReviewNotes( $out );
 			$fa->addReviewForm( $out );
 			$fa->addFeedbackForm( $out );
 			$fa->addVisibilityLink( $out );
