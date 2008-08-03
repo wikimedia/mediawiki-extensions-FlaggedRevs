@@ -8,6 +8,18 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class RevisionReview extends UnlistedSpecialPage
 {
+	// Initialize vars in case of broken AJAX input
+	var $patrolonly = false;
+	var $page = null;
+	var $rcid = 0;
+	var $approve = false;
+	var $oldid = 0;
+	var $templateParams = '';
+	var $imageParams = '';
+	var $fileVersion = '';
+	var $validatedParams = '';
+	var $notes = '';
+	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
     }
@@ -35,6 +47,10 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
+		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
+			return;
+		}
 		# Basic patrolling
 		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
 		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
@@ -49,86 +65,32 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 	}
 	
-	/**
-	* Get a validation key from versioning metadata
-	* @param string $tmpP
-	* @param string $imgP
-	* @param string $imgV
-	* @param integer $rid rev ID
-	* @return string
-	*/
-	public static function validationKey( $tmpP, $imgP, $imgV, $rid ) {
-		global $wgReviewCodes;
-		# Fall back to $wgSecretKey/$wgProxyKey
-		if( empty($wgReviewCodes) ) {
-			global $wgSecretKey, $wgProxyKey;
-			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
-			$p = md5($key.$imgP.$tmpP.$rid.$imgV);
-		} else {
-			$p = md5($wgReviewCodes[0].$imgP.$rid.$tmpP.$imgV.$wgReviewCodes[1]);
-		}
-		return $p;
-	}
-
-	/**
-	 * Returns true if a user can do something
-	 * @param string $tag
-	 * @param int $value
-	 * @returns bool
-	 */
-	public static function userCan( $tag, $value ) {
-		global $wgFlagRestrictions, $wgUser;
-
-		if( !isset($wgFlagRestrictions[$tag]) )
-			return true;
-		# Validators always have full access
-		if( $wgUser->isAllowed('validate') )
-			return true;
-		# Check if this user has any right that lets him/her set
-		# up to this particular value
-		foreach( $wgFlagRestrictions[$tag] as $right => $level ) {
-			if( $value <= $level && $level > 0 && $wgUser->isAllowed($right) ) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * Returns true if a user can set $flags.
-	 * This checks if the user has the right to review
-	 * to the given levels for each tag.
-	 * @param array $flags, suggested flags
-	 * @param array $oldflags, pre-existing flags
-	 * @returns bool
-	 */
-	public static function userCanSetFlags( $flags, $oldflags = array() ) {
-		global $wgUser, $wgFlaggedRevTags, $wgFlaggedRevValues;
+	private function markPatrolled() {
+		global $wgRequest, $wgOut, $wgUser;
 		
-		if( !$wgUser->isAllowed('review') ) {
-			return false;
+		$token = $wgRequest->getVal('token');
+		$wgOut->setPageTitle( wfMsg( 'revreview-patrol-title' ) );
+		# Prevent hijacking
+		if( !$wgUser->matchEditToken( $token, $this->page->getPrefixedText(), $this->rcid ) ) {
+			$wgOut->addWikiText( wfMsg('sessionfailure') );
+			return;
 		}
-		# Check if all of the required site flags have a valid value
-		# that the user is allowed to set.
-		foreach( $wgFlaggedRevTags as $qal => $minQL ) {
-			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
-			if( !self::userCan($qal,$level) ) {
-				return false;
-			} else if( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
-				return false;
-			} else if( $level < 0 || $level > $wgFlaggedRevValues ) {
-				return false;
-			}
+		# Mark as patrolled
+		$changed = RecentChange::markPatrolled( $this->rcid );
+		if( $changed ) {
+			PatrolLog::record( $this->rcid );
 		}
-		return true;
+		# Inform the user
+		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
+		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
 	}
 	
 	private function markReviewed() {
-		global $wgRequest, $wgOut, $wgUser, $wgFlaggedRevTags, $wgFlaggedRevValues;
-		# Revision ID
+		global $wgRequest, $wgOut, $wgUser;
+		
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		if( !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
+		if( !$this->oldid ) {
+			$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
 			return;
 		}
 		# Check if page is protected
@@ -144,20 +106,19 @@ class RevisionReview extends UnlistedSpecialPage
 		# Special token to discourage fiddling...
 		$k = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
 		if( $this->validatedParams !== $k ) {
-			$this->templateParams = '';
-			$this->imageParams = '';
+			$wgOut->permissionRequired( 'badaccess-group0' );
+			return;
 		}
 		# Log comment
 		$this->comment = $wgRequest->getText( 'wpReason' );
 		# Additional notes (displayed at bottom of page)
-		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ?
-			$wgRequest->getText('wpNotes') : '';
+		$this->retrieveNotes( $wgRequest->getText('wpNotes') );
 		# Get the revision's current flags, if any
 		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid );
 		# Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->unapprovedTags = 0;
-		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
+		foreach( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			if( $this->dims[$tag] === 0 ) {
 				$this->unapprovedTags++;
@@ -175,54 +136,155 @@ class RevisionReview extends UnlistedSpecialPage
 		# We must at least rate each category as 1, the minimum
 		# Exception: we can rate ALL as unapproved to depreciate a revision
 		$valid = true;
-		if( $this->unapprovedTags > 0 ) {
-			if( $this->unapprovedTags < count($wgFlaggedRevTags) )
-				$valid = false;
-		}
-		if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
+		if( $this->unapprovedTags && $this->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
+			$valid = false;
+		} else if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
 			$valid = false;
 		}
 		# Submit or display info on failure
 		if( $valid && $wgRequest->wasPosted() ) {
-			$this->submit();
+			list($approved,$status) = $this->submit();
+			// Success for either flagging or unflagging
+			if( $status === true ) {
+				$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
+				$wgOut->addHTML( $this->showSuccess( $approved ) );
+			// Sync failure for flagging
+			} else if( is_array($status) && $approved ) {
+				$wgOut->setPageTitle( wfMsgHtml('internalerror') );
+				$wgOut->addHTML( $this->showSyncFailure( $status ) );
+			// Failure for unflagging
+			} else if( $status === false && !$approved ) {
+				$wgOut->redirect( $this->page->getFullUrl() );
+			// Any other fail...
+			} else {
+				$wgOut->setPageTitle( wfMsgHtml('internalerror') );
+				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
+				$wgOut->returnToMain( false, $this->page );
+			}
+		# Show revision and form
 		} else {
 			$this->showRevision();
 		}
 	}
-
-	private function markPatrolled() {
-		global $wgRequest, $wgOut, $wgUser;
-		
-		$token = $wgRequest->getVal('token');
-		$wgOut->setPageTitle( wfMsg( 'revreview-patrol-title' ) );
-		# Prevent hijacking
-		if( !$wgUser->matchEditToken( $token, $this->page->getPrefixedText(), $this->rcid ) ) {
-			$wgOut->addWikiText( wfMsg('sessionfailure') );
-			return;
+	
+	private function retrieveNotes( $notes = '' ) {
+		global $wgUser;
+		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ? $notes : '';
+	}
+	
+	public static function AjaxReview( /*$args...*/ ) {
+		global $wgUser;
+		$args = func_get_args();
+		// Basic permission check
+		if( $wgUser->isAllowed( 'review' ) ) {
+			if( $wgUser->isBlocked() ) {
+				return '<err#>';
+			}
+		} else {
+			return '<err#>';
 		}
-		# Make sure page is not reviewable. This can be spoofed in theory,
-		# but the token is salted with the id and title and this should
-		# be a trusted user...so it is not worth doing extra query work.
-		if( FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' );
-			return;
+		if( wfReadOnly() ) {
+			return '<err#>';
 		}
-		# Mark as patrolled
-		$changed = RecentChange::markPatrolled( $this->rcid );
-		if( $changed ) {
-			PatrolLog::record( $this->rcid );
+		$tags = FlaggedRevs::getDimensions();
+		// Make review interface object
+		$form = new RevisionReview();
+		$form->dims = array();
+		$form->unapprovedTags = 0;
+		// Each ajax url argument is of the form param|val.
+		// This means that there is no ugly order dependance.
+		foreach( $args as $x => $arg ) {
+			$set = explode('|',$arg,2);
+			if( count($set) != 2 ) {
+				return '<err#>';
+			}
+			list($par,$val) = $set;
+			switch( $par )
+			{
+				case "target":
+					$form->page = Title::newFromUrl( $val );
+					if( is_null($form->page) || !FlaggedRevs::isPageReviewable( $form->page ) ) {
+						return '<err#>';
+					}
+					break;
+				case "oldid":
+					$form->oldid = intval( $val );
+					if( !$form->oldid ) {
+						return '<err#>';
+					}
+					break;
+				case "validatedParams":
+					$form->validatedParams = $val;
+					break;
+				case "templateParams":
+					$form->templateParams = $val;
+					break;
+				case "imageParams":
+					$form->imageParams = $val;
+					break;
+				case "fileVersion":
+					$form->fileVersion = $val;
+					break;
+				case "wpApprove":
+					$form->approve = $val;
+					break;
+				case "wpReason":
+					$form->comment = $val;
+					break;
+				case "wpNotes":
+					$form->retrieveNotes( $val );
+					break;
+				case "wpEditToken":
+					if( !$wgUser->matchEditToken( $val ) ) {
+						return '<err#>';
+					}
+					break;
+				default:
+					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
+					if( array_key_exists( $p, $tags ) ) {
+						$form->dims[$p] = intval($val);
+						if( $form->dims[$p] === 0 ) {
+							$form->unapprovedTags++;
+						}
+					}
+					break;
+			}
 		}
-		# Inform the user
-		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
-		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
+		// Missing params?
+		if( count($form->dims) != count($tags) ) {
+			return '<err#>';
+		}
+		// Incomplete review?
+		if( !$form->oldid ) {
+			return '<err#>';
+		}
+		if( $form->unapprovedTags && $form->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
+			return '<err#>';
+		} 
+		// Doesn't match up?
+		$k = self::validationKey( $form->templateParams, $form->imageParams, $form->fileVersion, $form->oldid );
+		if( $form->validatedParams !== $k ) {
+			return '<err#>';
+		}
+		# Get the revision's current flags, if any
+		$form->oflags = FlaggedRevs::getRevisionTags( $form->page, $form->oldid );
+		# Check permissions
+		if( !$form->page->quickUserCan('edit') || !$form->userCanSetFlags($form->dims,$form->oflags) ) {
+			return '<err#>';
+		}
+		list($approved,$status) = $form->submit();
+		if( $form->submit() ) {
+			return '<suc#>'.$form->showSuccess( $approved );
+		} else {
+			return '<err#>'.$form->showSyncFailure( $approved );
+		}
 	}
 
 	/**
 	 * Show revision review form
 	 */
 	private function showRevision() {
-		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevsOverride,
-			$wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
 
 		if( $this->unapprovedTags )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
@@ -242,8 +304,12 @@ class RevisionReview extends UnlistedSpecialPage
 		$wgOut->addHtml( $this->historyLine( $rev ) );
 		$wgOut->addHtml( "</ul>" );
 
-		if( $wgFlaggedRevsOverride )
+		if( FlaggedRevs::showStableByDefault() )
 			$wgOut->addWikiText( wfMsg('revreview-text') );
+			
+		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
+		$form = "<form name='RevisionReview' action='$action' method='post'>";
+		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
 
 		$formradios = array();
 		# Dynamically contruct our radio options
@@ -252,19 +318,14 @@ class RevisionReview extends UnlistedSpecialPage
 			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
 				$formradios[$tag][] = array( "revreview-$tag-$i", "wp$tag", $i );
 			}
+			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
 		}
 		$hidden = array(
 			Xml::hidden( 'wpEditToken', $wgUser->editToken() ),
 			Xml::hidden( 'target', $this->page->getPrefixedText() ),
-			Xml::hidden( 'oldid', $this->oldid ) );
+			Xml::hidden( 'oldid', $this->oldid ) 
+		);
 
-		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
-		$form = "<form name='RevisionReview' action='$action' method='post'>";
-		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
-		# Dynamically contruct our review types
-		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
-			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
-		}
 		$form .= '</tr><tr>';
 		foreach( $formradios as $set => $ratioset ) {
 			$form .= '<td>';
@@ -287,8 +348,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
 			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>" .
 			htmlspecialchars( $this->notes ) .
-			"</textarea>" .
-			"</fieldset>";
+			"</textarea></fieldset>";
 		}
 
 		$form .= '<fieldset><legend>' . wfMsgHtml('revisionreview') . '</legend>';
@@ -319,81 +379,80 @@ class RevisionReview extends UnlistedSpecialPage
 	private function historyLine( $rev ) {
 		global $wgContLang;
 		$date = $wgContLang->timeanddate( $rev->getTimestamp() );
-
 		$difflink = '(' . $this->skin->makeKnownLinkObj( $this->page, wfMsgHtml('diff'),
-		'&diff=' . $rev->getId() . '&oldid=prev' ) . ')';
-
+			'&diff=' . $rev->getId() . '&oldid=prev' ) . ')';
 		$revlink = $this->skin->makeLinkObj( $this->page, $date, 'oldid=' . $rev->getId() );
-
 		return "<li> $difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
 	}
 
 	private function submit() {
-		global $wgOut, $wgUser, $wgFlaggedRevTags, $wgFlaggedRevsOverride;
+		global $wgUser;
 		# If all values are set to zero, this has been unapproved
-		$approved = empty($wgFlaggedRevTags) && $this->approve;
+		$approved = !count( FlaggedRevs::getDimensions() ) && $this->approve;
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) {
 				$approved = true;
 				break;
 			}
 		}
+		# Double-check permissions
+		if( !$this->page->quickUserCan('edit') || !$this->userCanSetFlags($this->dims,$this->oflags) ) {
+			return array($approved,false);
+		}
 		# We can only approve actual revisions...
 		if( $approved ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
 			# Do not mess with archived/deleted revisions
 			if( is_null($rev) || $rev->mDeleted ) {
-				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
-				return;
+				return array($approved,false);
 			}
+			$status = $this->approveRevision( $rev );
 		# We can only unapprove approved revisions...
 		} else {
 			$frev = FlaggedRevision::newFromTitle( $this->page, $this->oldid );
 			# If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
-				$wgOut->redirect( $this->page->getFullUrl() );
-				return;
+				return array($approved,false);
 			}
+			$status = $this->unapproveRevision( $frev );
 		}
-
-		$status = $approved ? $this->approveRevision( $rev ) : $this->unapproveRevision( $frev );
-		// Success for either flagging or unflagging
+		# Watch page if set to do so
 		if( $status === true ) {
-			$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
-			# Show success message
-			$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
-			$wgOut->addHtml( "<div class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
-				$this->page->getPrefixedText(), $this->page->getPrefixedUrl() ) );
-			# General help text
-			if( $wgFlaggedRevsOverride ) {
-				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text', array('parseinline') ).'</p>' );
-			} else {
-				$wgOut->addHtml( '<p>'.wfMsgExt( 'revreview-text2', array('parseinline') ).'</p>' );
-			}
-			$msg = $approved ? 'revreview-stable1' : 'revreview-stable2';
-			$id = $approved ? $rev->getId() : $frev->getRevId();
-			$wgOut->addHtml( '<p>'.wfMsgExt( $msg, array('parseinline'), $this->page->getPrefixedUrl(), $id ).'</p>' );
-			$wgOut->addHtml( "</div>" );
-			# Handy links to special pages
-			if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
-				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'UnreviewedPages' ) );
-				$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'OldReviewedPages' ) );
-			}
-			# Watch page if set to do so
 			if( $wgUser->getOption('flaggedrevswatch') && !$this->page->userIsWatching() ) {
 				$wgUser->addWatch( $this->page );
 			}
-		// Failure for flagging
-		} else if( $approved ) {
-			$wgOut->setPageTitle( wfMsgHtml('internalerror') );
-			$wgOut->addWikiText( wfMsg( 'revreview-changed', $this->page->getPrefixedText() ) );
-			$wgOut->addHtml( "<ul>" );
-			foreach( $status as $n => $text ) {
-				$wgOut->addHtml( "<li><i>$text</i></li>\n" );
-			}
-			$wgOut->addHtml( "</ul>" );
-			$wgOut->returnToMain( false, $this->page );
 		}
+		return array($approved,$status);
+	}
+	
+	private function showSuccess( $approved ) {
+		global $wgUser;
+		# Show success message
+		$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
+		$form = "<div class='plainlinks'>" .wfMsgExt( $msg, array('parseinline'), 
+			$this->page->getPrefixedText(), $this->page->getPrefixedUrl() );
+		$msg = $approved ? 'revreview-stable1' : 'revreview-stable2';
+		$form .= wfMsgExt( $msg, array('parse'), $this->page->getPrefixedUrl(), $this->oldid );
+		$form .= "</div>";
+		# Handy links to special pages
+		$sk = $wgUser->getSkin();
+		if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
+			$form .= '<p>'.wfMsg( 'returnto', $sk->makeLinkObj( SpecialPage::getTitleFor( 'UnreviewedPages' ) ) ).'</p>';
+			$form .= '<p>'.wfMsg( 'returnto', $sk->makeLinkObj( SpecialPage::getTitleFor( 'OldReviewedPages' ) ) ).'</p>';
+		}
+		return $form;
+	}
+	
+	private function showSyncFailure( $status ) {
+		global $wgOut;
+		$form = wfMsgExt( 'revreview-changed', array('parse'), $this->page->getPrefixedText() );
+		$form .= "<ul>";
+		foreach( $status as $n => $text ) {
+			$form .= "<li><i>$text</i></li>\n";
+		}
+		$form .= "</ul>";
+		$form .= wfMsg( 'returnto', $sk->makeLinkObj( $this->page ) );
+		return $form;
 	}
 
 	/**
@@ -539,6 +598,8 @@ class RevisionReview extends UnlistedSpecialPage
 			if( $oldfrev->getTags() != $flags )
 				$synced = false;
 			if( $oldfrev->getFileSha1() != @$fileData['sha1'] )
+				$synced = false;
+			if( $oldfrev->getComment() != $this->notes )
 				$synced = false;
 			# Don't review if the same
 			if( $synced ) {
@@ -717,6 +778,80 @@ class RevisionReview extends UnlistedSpecialPage
 		wfProfileOut( __METHOD__ );
         return true;
     }
+	
+	/**
+	* Get a validation key from versioning metadata
+	* @param string $tmpP
+	* @param string $imgP
+	* @param string $imgV
+	* @param integer $rid rev ID
+	* @return string
+	*/
+	public static function validationKey( $tmpP, $imgP, $imgV, $rid ) {
+		global $wgReviewCodes;
+		# Fall back to $wgSecretKey/$wgProxyKey
+		if( empty($wgReviewCodes) ) {
+			global $wgSecretKey, $wgProxyKey;
+			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
+			$p = md5($key.$imgP.$tmpP.$rid.$imgV);
+		} else {
+			$p = md5($wgReviewCodes[0].$imgP.$rid.$tmpP.$imgV.$wgReviewCodes[1]);
+		}
+		return $p;
+	}
+
+	/**
+	 * Returns true if a user can do something
+	 * @param string $tag
+	 * @param int $value
+	 * @returns bool
+	 */
+	public static function userCan( $tag, $value ) {
+		global $wgFlagRestrictions, $wgUser;
+
+		if( !isset($wgFlagRestrictions[$tag]) )
+			return true;
+		# Validators always have full access
+		if( $wgUser->isAllowed('validate') )
+			return true;
+		# Check if this user has any right that lets him/her set
+		# up to this particular value
+		foreach( $wgFlagRestrictions[$tag] as $right => $level ) {
+			if( $value <= $level && $level > 0 && $wgUser->isAllowed($right) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true if a user can set $flags.
+	 * This checks if the user has the right to review
+	 * to the given levels for each tag.
+	 * @param array $flags, suggested flags
+	 * @param array $oldflags, pre-existing flags
+	 * @returns bool
+	 */
+	public static function userCanSetFlags( $flags, $oldflags = array() ) {
+		global $wgUser, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		
+		if( !$wgUser->isAllowed('review') ) {
+			return false;
+		}
+		# Check if all of the required site flags have a valid value
+		# that the user is allowed to set.
+		foreach( $wgFlaggedRevTags as $qal => $minQL ) {
+			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
+			if( !self::userCan($qal,$level) ) {
+				return false;
+			} else if( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
+				return false;
+			} else if( $level < 0 || $level > $wgFlaggedRevValues ) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	public static function updateRecentChanges( $title, $revId, $rcId = false ) {
 		wfProfileIn( __METHOD__ );

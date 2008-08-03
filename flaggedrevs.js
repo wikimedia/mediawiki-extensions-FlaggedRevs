@@ -75,7 +75,6 @@ function updateRatingForm() {
 			somezero = true;
 		}
 	}
-
 	showComment = (quality || allzero) ? true : false;
 	// Show comment box only for quality revs or depreciated ones
 	var commentbox = document.getElementById('mw-commentbox');
@@ -92,7 +91,6 @@ function updateRatingForm() {
 	submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	var comment = document.getElementById('wpReason');
 	comment.disabled = ( somezero && !allzero ) ? 'disabled' : '';
-	
 	// Clear comment box data if not shown
 	var comment = document.getElementById('wpReason');
 	if( comment ) {
@@ -217,7 +215,7 @@ wgAjaxFeedback.processResult = function(request) {
 		jsMsg( msg, 'feedback' );
 	}
 	wgAjaxFeedback.inprogress = false;
-	if(wgAjaxFeedback.timeoutID) {
+	if( wgAjaxFeedback.timeoutID ) {
 		window.clearTimeout(wgAjaxFeedback.timeoutID);
 	}
 	var submit = document.getElementById("submitfeedback");
@@ -234,3 +232,111 @@ wgAjaxFeedback.onLoad = function() {
 };
 
 hookEvent("load", wgAjaxFeedback.onLoad);
+
+// These should have been initialized in the generated js
+if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
+	var wgAjaxReview = {
+		sendingMsg: "Submitting...",
+		sentMsg: "Submitted"
+	};
+}
+
+wgAjaxReview.supported = true; // supported on current page and by browser
+wgAjaxReview.inprogress = false; // ajax request in progress
+wgAjaxReview.timeoutID = null; // see wgAjaxFeedback.ajaxCall
+
+wgAjaxReview.ajaxCall = function() {
+	if( !wgAjaxReview.supported ) {
+		return true;
+	} else if( wgAjaxReview.inprogress ) {
+		return false;
+	}
+	if( !wfSupportsAjax() ) {
+		// Lazy initialization so we don't toss up
+		// ActiveX warnings on initial page load
+		// for IE 6 users with security settings.
+		wgAjaxReview.supported = false;
+		return true;
+	}
+	var form = document.getElementById("mw-reviewform");
+	var submit = document.getElementById("submitreview");
+	var notes = document.getElementById("wpNotes");
+	var reason = document.getElementById("wpReason");
+	if( !form || !submit || !notes || !reason ) {
+		return false;
+	}
+	wgAjaxReview.inprogress = true;
+	submit.disabled = "disabled";
+	submit.value = wgAjaxReview.sendingMsg;
+	// Build up arguments
+	var args = [];
+	var inputs = form.getElementsByTagName("input");
+	for( var i=0; i < inputs.length; i++) {
+		args.push( inputs[i].name + "|" + inputs[i].value );
+	}
+	args.push( notes.name + "|" + notes.value );
+	notes.disabled = "disabled";
+	args.push( reason.name + "|" + reason.value );
+	reason.disabled = "disabled";
+	var selects = form.getElementsByTagName("select");
+	for( var i=0; i < selects.length; i++) {
+		// Get the selected tag level...
+		if( selects[i].selectedIndex >= 0 ) {
+			var soption = selects[i].getElementsByTagName("option")[selects[i].selectedIndex];
+			args.push( selects[i].name + "|" + soption.value );
+		}
+		selects[i].disabled = "disabled";
+	}
+	// Send!
+	sajax_do_call( "RevisionReview::AjaxReview", args, wgAjaxReview.processResult );
+	// If the request isn't done in 10 seconds, allow user to try again
+	wgAjaxReview.timeoutID = window.setTimeout(
+		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm() },
+		20000
+	);
+	return false;
+};
+
+wgAjaxReview.unlockForm = function() {
+	var form = document.getElementById("mw-reviewform");
+	var submit = document.getElementById("submitreview");
+	var notes = document.getElementById("wpNotes");
+	var reason = document.getElementById("wpReason");
+	if( !form || !submit || !notes || !reason ) {
+		return false;
+	}
+	submit.disabled = "";
+	notes.disabled = "";
+	reason.disabled = "";
+	var selects = form.getElementsByTagName("select");
+	for( var i=0; i < selects.length; i++) {
+		selects[i].disabled = "";
+	}
+}
+
+wgAjaxReview.processResult = function(request) {
+	if( !wgAjaxReview.supported ) {
+		return;
+	}
+	var response = request.responseText;
+	if( msg = response.substr(6) ) {
+		jsMsg( msg, 'review' );
+	}
+	wgAjaxReview.inprogress = false;
+	if( wgAjaxReview.timeoutID ) {
+		window.clearTimeout(wgAjaxReview.timeoutID);
+	}
+	var submit = document.getElementById("submitreview");
+	if( submit ) {
+		submit.value = wgAjaxReview.sentMsg;
+	}
+};
+
+wgAjaxReview.onLoad = function() {
+	var submit = document.getElementById("submitreview");
+	if( submit ) {
+		submit.onclick = wgAjaxReview.ajaxCall;
+	}
+};
+
+hookEvent("load", wgAjaxReview.onLoad);
