@@ -431,7 +431,10 @@ class RevisionReview extends UnlistedSpecialPage
 		# Watch page if set to do so
 		if( $status === true ) {
 			if( $wgUser->getOption('flaggedrevswatch') && !$this->page->userIsWatching() ) {
+				$dbw = wfGetDB( DB_MASTER );
+				$dbw->begin();
 				$wgUser->addWatch( $this->page );
+				$dbw->commit();
 			}
 		}
 		return array($approved,$status);
@@ -683,7 +686,6 @@ class RevisionReview extends UnlistedSpecialPage
 		if( !empty($imgset) ) {
 			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
 		}
-		$dbw->commit();
 		
 		# Kill any text cache
 		if( $wgRevisionCacheExpiry ) {
@@ -732,6 +734,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# Purge cache/squids for this page and any page that uses it
 		Article::onArticleEdit( $article->getTitle() );
 
+		$dbw->commit();
+
 		wfProfileOut( __METHOD__ );
         return true;
     }
@@ -752,7 +756,6 @@ class RevisionReview extends UnlistedSpecialPage
 		# Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
-		$dbw->commit();
 
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
@@ -788,6 +791,8 @@ class RevisionReview extends UnlistedSpecialPage
 			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge cache/squids for this page and any page that uses it
 		Article::onArticleEdit( $article->getTitle() );
+
+		$dbw->commit();
 
 		wfProfileOut( __METHOD__ );
         return true;
