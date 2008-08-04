@@ -39,8 +39,8 @@ $messages['ar'] = array(
 	'ratinghistory-year'   => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-none'   => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
-	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> ومتوسط الفترة المختارة  
-<font color=\"green\">''(أخضر)''</font> سيتم رسمهما بالأسفل، حسب التاريخ. عدد المراجعات معروض في
+	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
+المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ. عدد المراجعات معروض في
 الركن أعلى اليمين للرسومات؛ القيم الأعلى تميل إلى التعبير عن بيانات عينة أفضل. قيم التقييم يتم تفسيرها كالتالي:
 
 '''[0]''' - فقير؛ '''[1]''' - منخفض؛ '''[2]''' - معقول؛ '''[3]''' - مرتفع؛ '''[4]''' - ممتاز؛",
@@ -63,23 +63,22 @@ $messages['bcc'] = array(
 
 /** German (Deutsch)
  * @author Raimond Spekking
+ * @author Raymond
  */
 $messages['de'] = array(
-	'ratinghistory'         => 'Verlauf der Seitenbewertung',
-	'ratinghistory-text'    => '\'\'\'Diese Seite zeigt die Seitenbewertung für [[:$1|$1]].\'\'\'',
-	'ratinghistory-leg'     => 'Verlauf der Seitenbewertung',
-	'ratinghistory-tab'     => 'Bewertung',
-	'ratinghistory-thanks'  => '\'\'\'\'\'<font color="darkred">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>\'\'\'\'\'',
-	'ratinghistory-3years'  => 'letzte 3 Jahre',
-	'ratinghistory-period'  => 'Zeitraum:',
-	'ratinghistory-month'   => 'letzter Monat',
-	'ratinghistory-year'    => 'letztes Jahr',
-	'ratinghistory-none'    => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend'  => 'Der Tagesdurchschnitt <font color="blue">\'\'(blue)\'\'</font> und der Durchschnitt über den ausgewählten Zeitraum 
-	<font color="green">\'\'(green)\'\'</font> werden nachfolgend nach Datum sortiert angezeigt. Die Anzahl der Seitenbewertungen wird in der rechten oberen Ecke der Grafik angezeigt;
-	höhere Werte bedeuten eine bessere Stichprobe. Die Bewertungszahlen bedeuten:
+	'ratinghistory'        => 'Verlauf der Seitenbewertung',
+	'ratinghistory-text'   => "'''Diese Seite zeigt die Seitenbewertung für [[:$1|$1]].'''",
+	'ratinghistory-leg'    => 'Verlauf der Seitenbewertung',
+	'ratinghistory-tab'    => 'Bewertung',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>'''''",
+	'ratinghistory-period' => 'Zeitraum:',
+	'ratinghistory-month'  => 'letzter Monat',
+	'ratinghistory-year'   => 'letztes Jahr',
+	'ratinghistory-3years' => 'letzte drei Jahre',
+	'ratinghistory-none'   => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
+	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blue)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(green)''</font> werden nachfolgend nach Datum sortiert angezeigt. Die Anzahl der Seitenbewertungen wird in der rechten oberen Ecke der Grafik angezeigt; höhere Werte bedeuten eine bessere Stichprobe. Die Bewertungszahlen bedeuten:
 	
-\'\'\'[0]\'\'\' - Mangelhaft; \'\'\'[1]\'\'\' - Ausreichend; \'\'\'[2]\'\'\' - Befriedigend; \'\'\'[3]\'\'\' - Gut; \'\'\'[4]\'\'\' - Sehr gut;',
+'''[0]''' - Mangelhaft; '''[1]''' - Ausreichend; '''[2]''' - Befriedigend; '''[3]''' - Gut; '''[4]''' - Sehr gut;",
 );
 
 /** Esperanto (Esperanto)
@@ -96,9 +95,8 @@ $messages['eo'] = array(
 	'ratinghistory-year'   => 'lasta jaro',
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
 	'ratinghistory-none'   => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
-	'ratinghistory-legend' => "La taga averaĝo <font color=\"blue\">''(blua)''</font> kaj taksado de selektita 
-intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato.
-La nombro de kontroloj estas montrata en la supra-dekstra angulo de la grafeoj; pli altaj valoroj emas indiki pli bonajn datenojn de specimenoj.
+	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
+intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. La nombro de kontroloj estas montrata en la supra-dekstra angulo de la grafeoj; pli altaj valoroj emas indiki pli bonajn datenojn de specimenoj.
 La taksadaj valoroj estas interpretaj jene:
 
 '''[0]''' - Malbonega; '''[1]''' - Malbonkvalita; '''[2]''' - Mezkvalita; '''[3]''' - Bonkvalita; '''[4]''' - Bonega;",
@@ -118,7 +116,7 @@ $messages['fr'] = array(
 	'ratinghistory-year'   => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-none'   => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
-	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation seront dessinés ci-dessous, par date. Le nombre de relectures est affichée dans le coin situé en haut à droite du graphique ; les valeurs les plus élevées tendent à indiquer plutôt des données simples. les valeurs de notations doivent être interprétées comme suit :
+	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés ci-dessous, par date. Le nombre de relectures est affichée dans le coin situé en haut à droite du graphique ; les valeurs les plus élevées tendent à indiquer plutôt des données simples. les valeurs de notations doivent être interprétées comme suit :
 
 '''[0]''' - Mauvais ; '''[1]''' - Médiocre ; '''[2]''' - Moyen ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
 );
@@ -174,7 +172,7 @@ $messages['ms'] = array(
 	'ratinghistory-year'   => 'tahun lepas',
 	'ratinghistory-3years' => '3 tahun lepas',
 	'ratinghistory-none'   => 'Data maklum balas pembaca belum cukup untuk penghasilan graf.',
-	'ratinghistory-legend' => "Berikut ialah graf purata harian <font color=\"blue\">''(biru)''</font> dan purata selang yang dipilih <font color=\"green\">''(hijau''</font> mengikut tarikh. Jumlah penyemakan ditunjukkan di bucu kanan atas. Nilai tinggi menandakan data sampel yang lebih baik. Berikut ialah pentafsiran tahap penilaian:
+	'ratinghistory-legend' => "Berikut ialah graf penilaian purata harian <font color=\"blue\">''(biru)''</font> dan penilaian purata selang yang dipilih <font color=\"green\">''(hijau)''</font> mengikut tarikh. Jumlah pemeriksaan ditunjukkan di bucu kanan atas. Nilai tinggi menandakan data sampel yang lebih baik. Berikut ialah pentafsiran tahap penilaian:
 
 '''[0]''' - Lemah, '''[1]''' - Rendah, '''[2]''' - Sederhana, '''[3]''' - Tinggi, '''[4]''' - Cemerlang",
 );
@@ -201,13 +199,40 @@ De waarderingen dienen als volgt gelezen te worden:
 '''[0]''' - Slecht; '''[1]''' - Laag; '''[2]''' - Redelijk; '''[3]''' - Hoog; '''[4]''' - Uitstekend;",
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'ratinghistory'        => 'Sidens vurderingshistorikk',
+	'ratinghistory-text'   => "'''Denne sider viser vurderingsdata for [[:$1|$1]].'''",
+	'ratinghistory-leg'    => 'Vurderingshistorikkdata',
+	'ratinghistory-tab'    => 'vurdering',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Takk for at du tar deg tid til å anmelde denne siden!</font>'''''",
+	'ratinghistory-period' => 'Tidsperiode:',
+	'ratinghistory-month'  => 'siste måned',
+	'ratinghistory-year'   => 'siste år',
+	'ratinghistory-3years' => 'siste tre år',
+	'ratinghistory-none'   => 'Det er ikke nok leservurderinger til å vise grafer ennå.',
+	'ratinghistory-legend' => "'''[0]''' &ndash; Veldig dårlig; '''[1]''' &ndash; Dårlig; '''[2]''' &ndash; OK; '''[3]''' &ndash; Bra; '''[4]''' &ndash; Veldig bra;",
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'ratinghistory'      => 'Istoric de la notacion de la pagina',
-	'ratinghistory-text' => "'''Aquesta pagina aficha las donadas de notacion d’article per [[:$1|$1]].'''",
-	'ratinghistory-leg'  => 'Donadas de l’istoric de la notacion',
+	'ratinghistory'        => 'Istoric de la notacion de la pagina',
+	'ratinghistory-text'   => "'''Aquesta pagina aficha las donadas de notacion d’article per [[:$1|$1]].'''",
+	'ratinghistory-leg'    => 'Donadas de l’istoric de la notacion',
+	'ratinghistory-tab'    => 'notacion',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Mercés de nos aver consacrat de temps per tornar legir aquesta pagina !</font>'''''",
+	'ratinghistory-period' => 'Periòde :',
+	'ratinghistory-month'  => 'darrièr mes',
+	'ratinghistory-year'   => 'darrièra annada',
+	'ratinghistory-3years' => 'las 3 darrièras annadas',
+	'ratinghistory-none'   => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
+	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> de la notacion son dessennhats çaijós, per data. Lo nombre de relecturas es afichat dins lo canton situat en naut a drecha del grafic ; las valors mai elevadas tendon a indicar puslèu de donadas simplas. las valors de notacions devon èsser interpretadas coma seguís :
+
+'''[0]''' - Marrit ; '''[1]''' - Mediòcre ; '''[2]''' - Mejan ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
 );
 
 /** Portuguese (Português)

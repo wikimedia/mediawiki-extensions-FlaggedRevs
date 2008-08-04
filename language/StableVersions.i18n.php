@@ -503,7 +503,12 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'stableversions-page' => 'Sidenavn:',
+	'stableversions'        => 'Vis stabile versjoner',
+	'stableversions-leg1'   => 'List anmeldte versjoner av en side',
+	'stableversions-page'   => 'Sidenavn:',
+	'stableversions-none'   => '«[[:$1]]» har ingen anmeldte versjoner.',
+	'stableversions-list'   => 'Følgende er en liste over anmeldte versjoner av [[:$1]]:',
+	'stableversions-review' => 'Anmeldt <i>$1</i> av $2',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -521,7 +526,7 @@ $messages['oc'] = array(
 	'stableversions-leg1'   => "Darrièras revisions revistas d'una pagina",
 	'stableversions-page'   => 'Nom de la pagina :',
 	'stableversions-none'   => 'La lista que seguís conten de versions de « [[:$1]] » que son estadas revisadas :',
-	'stableversions-list'   => "Revisada lo ''$1'' per $2",
+	'stableversions-list'   => 'La tièra que seguís conten de versions de « [[:$1]] » que son estadas revisadas :',
 	'stableversions-review' => "Revisada lo ''$1'' per $2",
 );
 

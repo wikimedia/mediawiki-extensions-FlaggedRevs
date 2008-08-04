@@ -511,8 +511,14 @@ $messages['nl'] = array(
  * @author EivindJ
  */
 $messages['no'] = array(
+	'reviewedpages'       => 'Anmeldte sider',
+	'reviewedpages-leg'   => 'Vis sider anmeldt med et visst nivå',
+	'reviewedpages-list'  => 'Følgende sider har blitt anmeldt, og har det angitte nivået',
 	'reviewedpages-none'  => 'Det er ingen sider i denne listen',
+	'reviewedpages-lev-0' => 'Sjekket',
 	'reviewedpages-lev-1' => 'Kvalitet',
+	'reviewedpages-lev-2' => 'Utmerket',
+	'reviewedpages-all'   => 'anmeldte sideversjoner',
 	'reviewedpages-best'  => 'primærversjon',
 );
 

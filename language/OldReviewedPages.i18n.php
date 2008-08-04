@@ -428,9 +428,22 @@ $messages['nl'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author EivindJ
+ * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'oldreviewed-category' => 'Kategori:',
+	'oldreviewedpages'           => 'Utdaterte anmeldte sider',
+	'oldreviewedpages-legend'    => 'Vis anmeldte sider med uanmeldte sideversjoner',
+	'oldreviewedpages-list'      => 'Denne siden viser anmeldte sider som har ventende redigeringer.',
+	'oldreviewedpages-none'      => 'Det er for tiden ingen sider som passer med disse kriteriene',
+	'oldreviewedpages-stable'    => 'sjekket',
+	'oldreviewedpages-quality'   => 'kvalitet',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|time|timer}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|dag|dager}})',
+	'oldreviewedpages-recent'    => '(under én time)',
+	'oldreviewed-category'       => 'Kategori:',
+	'oldreviewed-diff'           => 'anmeld',
+	'oldreviewedpages-unwatched' => '(ikke overvåket)',
+	'oldreviewedpages-watched'   => '($2 overvåkende {{PLURAL:$1|bruker|brukere}})',
 );
 
 /** Occitan (Occitan)

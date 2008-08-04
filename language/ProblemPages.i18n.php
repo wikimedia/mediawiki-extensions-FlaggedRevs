@@ -135,6 +135,17 @@ $messages['nl'] = array(
 	'problempages-graphs' => 'waarderingsgegevens',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'problempages'        => 'Problemsider',
+	'problempages-leg'    => 'Finn sider med lav vurdering',
+	'problempages-list'   => 'Nedenfor er en lite over sider sortert etter lesernes vurdering av dem',
+	'problempages-none'   => 'Det er ingen sider i denne listen',
+	'problempages-graphs' => 'vurderingsdata',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */

@@ -225,6 +225,7 @@ $messages['nl'] = array(
 $messages['no'] = array(
 	'stablepages'        => 'Stabile sider',
 	'stablepages-stable' => 'stabil versjon',
+	'stablepages-text'   => 'Nedenfor er en liste over sider manuelt innstilt til å vise den stabile versjonen som standardinnhold for lesere.',
 	'stablepages-none'   => 'Det er ingen sider i denne listen',
 	'stablepages-config' => 'Konfigurering',
 );

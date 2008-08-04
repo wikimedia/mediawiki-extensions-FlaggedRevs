@@ -197,6 +197,19 @@ $messages['nl'] = array(
 	'problempages-alias'     => 'ProbleemPaginas',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'qualityoversight-alias' => 'Kvalitetsoversikt',
+	'unreviewedpages-alias'  => 'Uanmeldte sider',
+	'oldreviewedpages-alias' => 'Gamle anmeldte sider',
+	'reviewedpages-alias'    => 'Anmeldte sider',
+	'stablepages-alias'      => 'Stabile sider',
+	'stableversions-alias'   => 'Stabile versjoner',
+	'problempages-alias'     => 'Problemsider',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -272,15 +285,16 @@ $messages['sr-ec'] = array(
 /** Swedish (Svenska)
  * @author M.M.S.
  * @author Boivie
+ * @author Jon Harald Søby
  */
 $messages['sv'] = array(
 	'qualityoversight-alias' => 'Kvalitetsöversikt',
-	'unreviewedpages-alias'  => 'OgranskadeSidor',
-	'oldreviewedpages-alias' => 'GamlaGranskadeSidor',
-	'reviewedpages-alias'    => 'GranskadeSidor',
-	'stablepages-alias'      => 'StabilaSidor',
-	'stableversions-alias'   => 'StabilaVersioner',
-	'problempages-alias'     => 'ProblemSidor',
+	'unreviewedpages-alias'  => 'Ogranskade sidor',
+	'oldreviewedpages-alias' => 'Gamla granskade sidor',
+	'reviewedpages-alias'    => 'Granskade sidor',
+	'stablepages-alias'      => 'Stabila sidor',
+	'stableversions-alias'   => 'Stabila versioner',
+	'problempages-alias'     => 'Problemsidor',
 );
 
 /** Vèneto (Vèneto)

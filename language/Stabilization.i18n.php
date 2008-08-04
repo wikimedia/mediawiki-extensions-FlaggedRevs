@@ -1209,14 +1209,16 @@ $messages['myv'] = array(
 	'stabilization-page' => 'Лопань лем:',
 );
 
-/** Nahuatl (Nahuatl)
+/** Nahuatl (Nāhuatl)
  * @author Fluence
  */
 $messages['nah'] = array(
 	'stabilization-page'        => 'Zāzanilli ītōcā:',
+	'stabilization-expiry'      => 'Tlamiliztli:',
 	'stabilization-sel-short-1' => 'Ahtlein',
 	'stabilization-def-short'   => 'Ic default',
 	'stabilization-def-short-0' => 'Āxcān',
+	'stabilize-expiring'        => 'motlamīz $1 (UTC)',
 );
 
 /** Low German (Plattdüütsch)
@@ -1300,6 +1302,7 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-select'      => 'Valg av stabil versjon',
 	'stabilization-select1'     => 'Den siste kvalitetsrevisjonen hvis den finnes, ellers den siste synede versjonen',
 	'stabilization-select2'     => 'Den siste undersøkte versjonen.',
+	'stabilization-select3'     => 'Den siste urørte versjonen av denne siden; om det ikke finnes, det siste kvalitetsversjonen eller den siste sjekkede versjonen',
 	'stabilization-def'         => 'Sideversjonen som skal brukes som standardvisning',
 	'stabilization-def1'        => 'Den stabile versjonen hvis den finnes, ellers den nyeste versjonen',
 	'stabilization-def2'        => 'Den nyeste versjonen',
@@ -1308,8 +1311,10 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-notcontent'  => 'Siden «[[:$1|$1]]» kan ikke bli undersøkt. Ingen innstillinger kan gjøres.',
 	'stabilization-comment'     => 'Kommentar:',
 	'stabilization-expiry'      => 'Utgår:',
+	'stabilization-sel-short'   => 'Presedens',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
+	'stabilization-sel-short-2' => 'Urørt',
 	'stabilization-def-short'   => 'Standard',
 	'stabilization-def-short-0' => 'Nåværende',
 	'stabilization-def-short-1' => 'Stabil',

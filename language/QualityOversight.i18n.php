@@ -136,6 +136,15 @@ $messages['nl'] = array(
 	'qualityoversight-legend' => 'Recente eindredactielogboeken bekijken',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'qualityoversight'        => 'Oversikt over kvaliteten',
+	'qualityoversight-list'   => 'Denne siden viser de siste godkjenninger og degraderinger av sideversjoner.',
+	'qualityoversight-legend' => 'Søk logger etter de siste anmeldelsene',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */

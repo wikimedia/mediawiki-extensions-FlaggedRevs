@@ -588,7 +588,14 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'right-unreviewedpages' => 'Vise liste over uanmeldte sider',
+	'unreviewedpages'       => 'Uanmeldte sider',
+	'unreviewed-legend'     => 'List uanmeldte innholdssider',
 	'unreviewed-category'   => 'Kategori:',
+	'unreviewed-diff'       => 'anmeld',
+	'unreviewed-unwatched'  => '(uovervåket)',
+	'unreviewed-watched'    => '($2 overvåkende {{PLURAL:$1|bruker|brukere}})',
+	'unreviewed-list'       => 'Denne siden viser artikler som ikke har blitt anmeldt.',
+	'unreviewed-none'       => 'Det er ingen sider som passer med disse kriteriene',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
