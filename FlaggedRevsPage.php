@@ -220,6 +220,9 @@ class RevisionReview extends UnlistedSpecialPage
 						return '<err#>';
 					}
 					break;
+				case "rcid":
+					$form->rcid = intval( $val );
+					break;
 				case "validatedParams":
 					$form->validatedParams = $val;
 					break;
