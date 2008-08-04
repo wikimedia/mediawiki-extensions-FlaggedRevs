@@ -695,7 +695,7 @@ class RevisionReview extends UnlistedSpecialPage
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid );
 
 		# Update the article review log
-		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
+		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
 
 		# Update the links tables as the stable version may now be the default page.
 		# Try using the parser cache first since we didn't actually edit the current version.
@@ -759,7 +759,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		# Update the article review log
-		$this->updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, false );
+		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, false );
 
 		# Kill any text cache
 		if( $wgRevisionCacheExpiry ) {
