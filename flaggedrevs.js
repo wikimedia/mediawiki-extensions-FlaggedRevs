@@ -280,7 +280,6 @@ wgAjaxReview.ajaxCall = function() {
 		notes.disabled = "disabled";
 	}
 	if( reason ) {
-		args.push( reason.name + "|" + reason.value );
 		reason.disabled = "disabled";
 	}
 	var selects = form.getElementsByTagName("select");
