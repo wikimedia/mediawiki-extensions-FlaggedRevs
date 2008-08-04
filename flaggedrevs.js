@@ -207,7 +207,7 @@ wgAjaxFeedback.unlockForm = function() {
 	for( var i=0; i < selects.length; i++) {
 		selects[i].disabled = "";
 	}
-}
+};
 
 wgAjaxFeedback.processResult = function(request) {
 	if( !wgAjaxFeedback.supported ) {
@@ -263,21 +263,22 @@ wgAjaxReview.ajaxCall = function() {
 		return true;
 	}
 	var form = document.getElementById("mw-reviewform");
-	var submit = document.getElementById("submitreview");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
-	if( !form || !submit ) {
+	if( !form ) {
 		return false;
 	}
 	wgAjaxReview.inprogress = true;
-	submit.disabled = "disabled";
-	submit.value = wgAjaxReview.sendingMsg;
 	// Build up arguments
 	var args = [];
 	var inputs = form.getElementsByTagName("input");
 	for( var i=0; i < inputs.length; i++) {
 		// Different input types may occur depending on tags...
-		if( inputs[i].type == "checkbox" ) {
+		if( inputs[i].name == "title" || inputs[i].name == "action" ) {
+			// No need to send these...
+		} else if( inputs[i].type == "submit" ) {
+			inputs[i].value = wgAjaxReview.sendingMsg;
+		} else if( inputs[i].type == "checkbox" ) {
 			args.push( inputs[i].name + "|" + (inputs[i].checked ? 1 : 0) );
 		} else if( inputs[i].type != "radio" || inputs[i].checked ) {
 			args.push( inputs[i].name + "|" + inputs[i].value );
@@ -326,7 +327,7 @@ wgAjaxReview.unlockForm = function() {
 	for( var i=0; i < selects.length; i++) {
 		selects[i].disabled = "";
 	}
-}
+};
 
 wgAjaxReview.processResult = function(request) {
 	if( !wgAjaxReview.supported ) {
