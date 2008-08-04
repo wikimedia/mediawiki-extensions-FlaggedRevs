@@ -3,8 +3,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-
+wfLoadExtensionMessages( 'FlaggedRevs' );
 wfLoadExtensionMessages( 'QualityOversight' );
+
 class QualityOversight extends SpecialPage
 {
     function __construct() {

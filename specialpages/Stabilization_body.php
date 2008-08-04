@@ -3,8 +3,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-
 wfLoadExtensionMessages( 'Stabilization' );
+wfLoadExtensionMessages( 'FlaggedRevs' );
+
 class Stabilization extends UnlistedSpecialPage
 {
     function __construct() {

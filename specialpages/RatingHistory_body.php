@@ -3,8 +3,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-
 wfLoadExtensionMessages( 'RatingHistory' );
+wfLoadExtensionMessages( 'FlaggedRevs' );
+
 class RatingHistory extends UnlistedSpecialPage
 {
     function __construct() {

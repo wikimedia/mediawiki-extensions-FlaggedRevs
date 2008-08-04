@@ -3,8 +3,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-
 wfLoadExtensionMessages( 'ProblemPages' );
+wfLoadExtensionMessages( 'FlaggedRevs' );
+
 class ProblemPages extends SpecialPage
 {
     function __construct() {

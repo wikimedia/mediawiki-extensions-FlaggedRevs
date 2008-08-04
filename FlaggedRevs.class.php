@@ -565,7 +565,7 @@ class FlaggedRevs {
 			$count = is_integer($val) ? $val : null;
 		}
 		if( is_null($count) ) {
-			$db = $forUpdate ? wfGetDB( DB_MASTER) : wfGetDB( DB_SLAVE );
+			$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$count = $db->selectField( 'revision', 'COUNT(*)',
 				array('rev_page' => $article->getId(), "rev_id > " . intval($revId) ),
 				__METHOD__ );

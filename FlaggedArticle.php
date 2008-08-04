@@ -64,6 +64,7 @@ class FlaggedArticle extends Article {
 	 */
 	function __construct( $parent ) {
 		$this->parent = $parent;
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	/**

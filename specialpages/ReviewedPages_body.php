@@ -5,6 +5,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 wfLoadExtensionMessages( 'ReviewedPages' );
+wfLoadExtensionMessages( 'FlaggedRevs' );
+
 class ReviewedPages extends SpecialPage
 {
     function __construct() {
