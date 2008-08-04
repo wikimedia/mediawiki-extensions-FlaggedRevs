@@ -137,7 +137,7 @@ addOnloadHook(updateFeedbackForm);
 
 // These should have been initialized in the generated js
 if( typeof wgAjaxFeedback === "undefined" || !wgAjaxFeedback ) {
-	var wgAjaxFeedback = {
+	wgAjaxFeedback = {
 		sendingMsg: "Submitting...",
 		sentMsg: "Thank you!"
 	};
@@ -239,7 +239,7 @@ hookEvent("load", wgAjaxFeedback.onLoad);
 
 // These should have been initialized in the generated js
 if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
-	var wgAjaxReview = {
+	wgAjaxReview = {
 		sendingMsg: "Submitting...",
 		sentMsg: "Submitted"
 	};
@@ -299,7 +299,10 @@ wgAjaxReview.ajaxCall = function() {
 		selects[i].disabled = "disabled";
 	}
 	// Send!
+	var old = sajax_request_type;
+	sajax_request_type = "POST";
 	sajax_do_call( "RevisionReview::AjaxReview", args, wgAjaxReview.processResult );
+	sajax_request_type = old;
 	// If the request isn't done in 30 seconds, allow user to try again
 	wgAjaxReview.timeoutID = window.setTimeout(
 		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm() },
