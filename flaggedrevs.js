@@ -263,7 +263,7 @@ wgAjaxReview.ajaxCall = function() {
 	var submit = document.getElementById("submitreview");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
-	if( !form || !submit || !notes || !reason ) {
+	if( !form || !submit ) {
 		return false;
 	}
 	wgAjaxReview.inprogress = true;
@@ -275,10 +275,14 @@ wgAjaxReview.ajaxCall = function() {
 	for( var i=0; i < inputs.length; i++) {
 		args.push( inputs[i].name + "|" + inputs[i].value );
 	}
-	args.push( notes.name + "|" + notes.value );
-	notes.disabled = "disabled";
-	args.push( reason.name + "|" + reason.value );
-	reason.disabled = "disabled";
+	if( notes ) {
+		args.push( notes.name + "|" + notes.value );
+		notes.disabled = "disabled";
+	}
+	if( reason ) {
+		args.push( reason.name + "|" + reason.value );
+		reason.disabled = "disabled";
+	}
 	var selects = form.getElementsByTagName("select");
 	for( var i=0; i < selects.length; i++) {
 		// Get the selected tag level...
@@ -303,12 +307,16 @@ wgAjaxReview.unlockForm = function() {
 	var submit = document.getElementById("submitreview");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
-	if( !form || !submit || !notes || !reason ) {
+	if( !form || !submit ) {
 		return false;
 	}
 	submit.disabled = "";
-	notes.disabled = "";
-	reason.disabled = "";
+	if( notes ) {
+		notes.disabled = "";
+	}
+	if( reason ) {
+		reason.disabled = "";
+	}
 	var selects = form.getElementsByTagName("select");
 	for( var i=0; i < selects.length; i++) {
 		selects[i].disabled = "";

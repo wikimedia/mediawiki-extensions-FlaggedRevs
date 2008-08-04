@@ -248,7 +248,7 @@ $wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 30;
+$wgFlaggedRevStyleVersion = 31;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
