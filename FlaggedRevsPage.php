@@ -154,11 +154,11 @@ class RevisionReview extends UnlistedSpecialPage
 			// Success for either flagging or unflagging
 			if( $status === true ) {
 				$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
-				$wgOut->addHTML( $this->showSuccess( $approved ) );
+				$wgOut->addHTML( $this->showSuccess( $approved, true ) );
 			// Sync failure for flagging
 			} else if( is_array($status) && $approved ) {
 				$wgOut->setPageTitle( wfMsgHtml('internalerror') );
-				$wgOut->addHTML( $this->showSyncFailure( $status ) );
+				$wgOut->addHTML( $this->showSyncFailure( $status, true ) );
 			// Failure for unflagging
 			} else if( $status === false && !$approved ) {
 				$wgOut->redirect( $this->page->getFullUrl() );
@@ -434,7 +434,7 @@ class RevisionReview extends UnlistedSpecialPage
 		return array($approved,$status);
 	}
 	
-	private function showSuccess( $approved ) {
+	private function showSuccess( $approved, $showlinks=false ) {
 		global $wgUser;
 		# Show success message
 		$msg = $approved ? 'revreview-successful' : 'revreview-successful2';
@@ -445,14 +445,14 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= "</div>";
 		# Handy links to special pages
 		$sk = $wgUser->getSkin();
-		if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
+		if( $showlinks && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$form .= '<p>'.wfMsg( 'returnto', $sk->makeLinkObj( SpecialPage::getTitleFor( 'UnreviewedPages' ) ) ).'</p>';
 			$form .= '<p>'.wfMsg( 'returnto', $sk->makeLinkObj( SpecialPage::getTitleFor( 'OldReviewedPages' ) ) ).'</p>';
 		}
 		return $form;
 	}
 	
-	private function showSyncFailure( $status ) {
+	private function showSyncFailure( $status, $showlinks=false ) {
 		global $wgOut;
 		$form = wfMsgExt( 'revreview-changed', array('parse'), $this->page->getPrefixedText() );
 		$form .= "<ul>";
@@ -460,7 +460,9 @@ class RevisionReview extends UnlistedSpecialPage
 			$form .= "<li><i>$text</i></li>\n";
 		}
 		$form .= "</ul>";
-		$form .= wfMsg( 'returnto', $sk->makeLinkObj( $this->page ) );
+		if( $showlinks ) {
+			$form .= wfMsg( 'returnto', $sk->makeLinkObj( $this->page ) );
+		}
 		return $form;
 	}
 
