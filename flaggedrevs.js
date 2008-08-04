@@ -172,7 +172,10 @@ wgAjaxFeedback.ajaxCall = function() {
 	var args = [];
 	var inputs = form.getElementsByTagName("input");
 	for( var i=0; i < inputs.length; i++) {
-		args.push( inputs[i].name + "|" + inputs[i].value );
+		// Ignore some useless items...
+		if( inputs[i].name != "title" && inputs[i].type != "submit" ) {
+			args.push( inputs[i].name + "|" + inputs[i].value );
+		}
 	}
 	var selects = form.getElementsByTagName("select");
 	for( var i=0; i < selects.length; i++) {
