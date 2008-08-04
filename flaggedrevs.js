@@ -273,14 +273,17 @@ wgAjaxReview.ajaxCall = function() {
 	var args = [];
 	var inputs = form.getElementsByTagName("input");
 	for( var i=0; i < inputs.length; i++) {
-		args.push( inputs[i].name + "|" + inputs[i].value );
+		// Different input types may occur depending on tags...
+		if( inputs[i].type == "checkbox" ) {
+			args.push( inputs[i].name + "|" + (inputs[i].checked ? 1 : 0) );
+		} else if( inputs[i].type != "radio" || inputs[i].checked ) {
+			args.push( inputs[i].name + "|" + inputs[i].value );
+		}
+		inputs[i].disabled = "disabled";
 	}
 	if( notes ) {
 		args.push( notes.name + "|" + notes.value );
 		notes.disabled = "disabled";
-	}
-	if( reason ) {
-		reason.disabled = "disabled";
 	}
 	var selects = form.getElementsByTagName("select");
 	for( var i=0; i < selects.length; i++) {
