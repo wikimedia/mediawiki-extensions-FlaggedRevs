@@ -50,6 +50,7 @@ CREATE TABLE flaggedtemplates (
 CREATE TABLE flaggedimages (
   fi_rev_id         INTEGER    NOT NULL DEFAULT 0,
   fi_name           TEXT        NOT NULL DEFAULT '',
+  -- MW timestamp
   fi_img_timestamp  TIMESTAMPTZ NOT NULL,
   fi_img_sha1       CHAR(64)   NOT NULL DEFAULT '',
   PRIMARY KEY (fi_rev_id,fi_name)
