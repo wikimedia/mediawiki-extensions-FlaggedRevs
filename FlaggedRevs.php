@@ -186,18 +186,18 @@ $wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 # edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
 	'days'	              => 60, # days since registration
-	'edits'	              => 150, # total edit count
+	'edits'	              => 350, # total edit count
 	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
 	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
-	'totalContentEdits'   => 30, # $wgContentNamespaces edits
+	'totalContentEdits'   => 300, # $wgContentNamespaces edits
 	'uniqueContentPages'  => 10, # $wgContentNamespaces unique pages edited
-	'editComments'        => 15, # how many edit comments used?
+	'editComments'        => 50, # how many edit comments used?
 	'email'	              => true, # user must be emailconfirmed?
 	'userpage'            => true, # user must have a userpage?
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
-	'uniqueIPAddress'     => true, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
+	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
 	'noSorbsMatches'      => false, # If $wgSorbsUrl is set, do not promote users that match
 );
