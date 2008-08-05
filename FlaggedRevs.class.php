@@ -1138,13 +1138,16 @@ class FlaggedRevs {
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
 
-		$ajaxFeedback = Xml::encodeJsVar( 
-			(object) array( 'sendingMsg' => wfMsgHtml('readerfeedback-submitting'), 
-				'sentMsg' => wfMsgHtml('readerfeedback-finished') )
+		$ajaxFeedback = Xml::encodeJsVar( (object) array( 
+			'sendingMsg' => wfMsgHtml('readerfeedback-submitting'), 
+			'sentMsg' => wfMsgHtml('readerfeedback-finished') 
+			)
 		);
-		$ajaxReview = Xml::encodeJsVar( 
-			(object) array( 'sendingMsg' => wfMsgHtml('revreview-submitting'), 
-				'sentMsg' => wfMsgHtml('revreview-finished') )
+		$ajaxReview = Xml::encodeJsVar( (object) array( 
+			'sendingMsg' => wfMsgHtml('revreview-submitting'), 
+			'sentMsg' => wfMsgHtml('revreview-finished'),
+			'actioncomplete' => wfMsgHtml('actioncomplete')
+			)
 		);
 
 		$head = <<<EOT

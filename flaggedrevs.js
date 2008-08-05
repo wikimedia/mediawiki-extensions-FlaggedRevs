@@ -241,7 +241,8 @@ hookEvent("load", wgAjaxFeedback.onLoad);
 if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
 	wgAjaxReview = {
 		sendingMsg: "Submitting...",
-		sentMsg: "Submitted"
+		sentMsg: "Submitted",
+		actioncomplete: "Action complete"
 	};
 }
 
@@ -349,6 +350,7 @@ wgAjaxReview.processResult = function(request) {
 		submit.value = wgAjaxReview.sentMsg;
 	}
 	window.scroll(0,0);
+	document.title = wgAjaxReview.actioncomplete;
 };
 
 wgAjaxReview.onLoad = function() {
