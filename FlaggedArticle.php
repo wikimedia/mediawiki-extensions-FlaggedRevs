@@ -972,12 +972,8 @@ class FlaggedArticle extends Article {
 					// Get images where the current and stable are not the same revision
 					if( $wgUseStableImages ) {
 						$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
-							array( 'fi_name' ),
-							array( 'fi_rev_id' => $frev->getRevId(),
-								// If the file has a stable version, is it current?
-								// If not, is the specified one at review time current?
-								'fr_img_sha1 IS NOT NULL AND (fr_img_sha1 != img_sha1) OR 
-									fr_img_sha1 IS NULL AND (fi_img_sha1 != img_sha1)' ),
+							array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
+							array( 'fi_rev_id' => $frev->getRevId() ),
 							__METHOD__,
 							array(), /* OPTIONS */
 							array( 'page' => array('INNER JOIN','page_namespace = '. NS_IMAGE .' AND page_title = fi_name'),
@@ -987,17 +983,19 @@ class FlaggedArticle extends Article {
 						);
 					// Get images that are newer than the ones of the stable version of this page
 					} else {
-						$ret = $dbr->select( array('flaggedimages','image'),
-							array( 'fi_name' ),
-							array( 'fi_rev_id' => $frev->getRevId(),
-								'fi_name = img_name',
-								'fi_img_sha1 != img_sha1' ),
+						$ret = $dbr->select( 'flaggedimages',
+							array( 'fi_name', 'fi_img_timestamp' ),
+							array( 'fi_rev_id' => $frev->getRevId() ),
 							__METHOD__ );
 					}
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
+						// stable time -> time when reviewed
+						$timestamp = isset($row->fr_img_timestamp) ? $row->fr_img_timestamp : $row->fi_img_timestamp;
 						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
-						$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+						$file = wfFindFile( $title );
+						if( $file && $file->getTimestamp() > $timestamp )
+							$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 					}
 					$wgMemc->set( $key, serialize($imgChanges), $wgParserCacheExpireTime );
 				}
