@@ -1409,9 +1409,9 @@ EOT;
 				__METHOD__ );
 		}
 		# Check cache before doing another DB hit...
-		if( !$id ) {
-			$id = self::getTemplateIdFromCache( $parser->getRevisionId(), $title->getNamespace(), $title->getDBKey() );
-			$id = is_null($id) ? false : $id;
+		$idP = self::getTemplateIdFromCache( $parser->getRevisionId(), $title->getNamespace(), $title->getDBKey() );
+		if( !is_null($idP) && (!$id || $idP > $id) ) {
+			$id = $idP;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time.
@@ -1464,10 +1464,12 @@ EOT;
 			}
 		}
 		# Check cache before doing another DB hit...
-		if( !$time ) {
-			$params = self::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBKey() );
-			if( is_array($params) ) {
-				list($time,$sha1) = $params;
+		$params = self::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBKey() );
+		if( is_array($params) ) {
+			list($timeP,$sha1) = $params;
+			// Take the newest one...
+			if( !$time || $timeP > $time ) {
+				$time = $timeP;
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
@@ -1529,10 +1531,12 @@ EOT;
 			}
 		}
 		# Check cache before doing another DB hit...
-		if( !$time ) {
-			$params = self::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
-			if( is_array($params) ) {
-				list($time,$sha1) = $params;
+		$params = self::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
+		if( is_array($params) ) {
+			list($timeP,$sha1) = $params;
+			// Take the newest one...
+			if( !$time || $timeP > $time ) {
+				$time = $timeP;
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
