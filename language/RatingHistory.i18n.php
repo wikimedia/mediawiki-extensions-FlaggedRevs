@@ -139,6 +139,26 @@ recanto superior dereito das gráficas; os valores máis altos tratan de indicar
 '''[0]''' - Pobre; '''[1]''' - Baixo; '''[2]''' - Ben; '''[3]''' - Alto; '''[4]''' - Excelente;",
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Rex
+ */
+$messages['id'] = array(
+	'ratinghistory'        => 'Sejarah penilaian halaman',
+	'ratinghistory-text'   => "'''Halaman ini menampilkan data penilaian artikel untuk [[:$1|$1]].'''",
+	'ratinghistory-leg'    => 'Data sejarah penilaian',
+	'ratinghistory-tab'    => 'penilaian',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Terima kasih Anda telah meninjau halaman ini!</font>'''''",
+	'ratinghistory-period' => 'Periode waktu:',
+	'ratinghistory-month'  => 'bulan lalu',
+	'ratinghistory-year'   => 'tahun lalu',
+	'ratinghistory-3years' => '3 tahun terakhir',
+	'ratinghistory-none'   => 'Belum ada cukup umpan balik pembaca tersedia untuk membuat grafik pada saat ini.',
+	'ratinghistory-legend' => "Rata-rata harian penilaian <font color=\"blue\">''(biru)''</font> dan interval rata-rata penilaian yang dipilih <font color=\"green\">''(hijau)''</font> ditampilkan dalam grafik di bawah ini, menurut tanggal.
+Jumlah tinjauan ditampilkan di sudut kanan atas grafik; nilai yang lebih tinggi kemungkinan merupakan data sampel yang lebih baik. Penilaian dapat ditafsirkan sebagai berikut:
+
+'''[0]''' - Buruk; '''[1]''' - Rendah; '''[2]''' - Sedang; '''[3]''' - Tinggi; '''[4]''' - Baik sekali;",
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */

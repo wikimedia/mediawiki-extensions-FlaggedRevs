@@ -135,12 +135,13 @@ $messages['hi'] = array(
  * @author Rex
  */
 $messages['id'] = array(
-	'qualityoversight-alias'      => 'PemeriksaanKualitas',
-	'unreviewedpages-alias'       => 'Halaman yang belum ditinjau',
-	'oldreviewedpages-alias'      => 'HalamanTertinjauUsang',
-	'reviewedpages-alias'         => 'HalamanTertinjau',
-	'stablepages-alias'           => 'HalamanStabil',
-	'stableversions-alias'        => 'VersiStabil',
+	'qualityoversight-alias' => 'PemeriksaanKualitas',
+	'unreviewedpages-alias'  => 'Halaman yang belum ditinjau',
+	'oldreviewedpages-alias' => 'HalamanTertinjauUsang',
+	'reviewedpages-alias'    => 'HalamanTertinjau',
+	'stablepages-alias'      => 'HalamanStabil',
+	'stableversions-alias'   => 'VersiStabil',
+	'problempages-alias'     => 'HalamanBermasalah',
 );
 
 /** Khmer (ភាសាខ្មែរ)

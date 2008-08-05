@@ -123,7 +123,7 @@ $messages['mr'] = array(
  */
 $messages['ms'] = array(
 	'qualityoversight'        => 'Kawalan mutu',
-	'qualityoversight-list'   => 'Berikut ialah senarai pengesahan dan pengguguran semakan paling terkini.',
+	'qualityoversight-list'   => 'Berikut ialah senarai terkini pengesahan dan pengguguran semakan.',
 	'qualityoversight-legend' => 'Gelintar log pemeriksaan terkini',
 );
 

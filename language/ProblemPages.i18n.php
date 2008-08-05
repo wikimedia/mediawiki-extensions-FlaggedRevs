@@ -97,6 +97,17 @@ $messages['gl'] = array(
 	'problempages-none' => 'Non hai páxinas nesta lista',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Rex
+ */
+$messages['id'] = array(
+	'problempages'        => 'Halaman bermasalah',
+	'problempages-leg'    => 'Cari halaman dengan nilai rendah',
+	'problempages-list'   => 'Berikut adalah daftar halaman yang diurutkan menurut nilai yang diberikan pembacanya.',
+	'problempages-none'   => 'Tidak adalah halaman dalam daftar ini',
+	'problempages-graphs' => 'data penilaian',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */
