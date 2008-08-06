@@ -234,10 +234,10 @@ class Stabilization extends UnlistedSpecialPage
 			$log = new LogPage( 'stable' );
 			# ID, accuracy, depth, style
 			$set = array();
-			$set[] = wfMsg( "stabilization-sel-short" ) . ": " .
-				wfMsg("stabilization-sel-short-{$this->select}");
-			$set[] = wfMsg( "stabilization-def-short" ) . ": " .
-				wfMsg("stabilization-def-short-{$this->override}");
+			$set[] = wfMsgForContent( "stabilization-sel-short" ) . ": " .
+				wfMsgForContent("stabilization-sel-short-{$this->select}");
+			$set[] = wfMsgForContent( "stabilization-def-short" ) . ": " .
+				wfMsgForContent("stabilization-def-short-{$this->override}");
 			$settings = '[' . implode(', ',$set). ']';
 
 			$comment = '';
