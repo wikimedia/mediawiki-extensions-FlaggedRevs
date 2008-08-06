@@ -1,10 +1,10 @@
 <?php
 
 class FlaggedRevsXML {
-   	/**
-	* Get a selector of reviewable namespaces
-	* @param int $selected, namespace selected
-	*/
+	/**
+	 * Get a selector of reviewable namespaces
+	 * @param int $selected, namespace selected
+	 */
 	public static function getNamespaceMenu( $selected=null ) {
 		global $wgContLang, $wgFlaggedRevsNamespaces;
 		$s = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
@@ -34,11 +34,11 @@ class FlaggedRevsXML {
 		$s .= "</select>\n";
 		return $s;
 	}
-	
-   	/**
-	* Get a selector of review levels
-	* @param int $selected, selected level
-	*/
+
+	/**
+	 * Get a selector of review levels
+	 * @param int $selected, selected level
+	 */
 	public static function getLevelMenu( $selected=null ) {
 		$s = Xml::openElement( 'select', array('name' => 'level') );
 		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), 0, $selected===0 );
@@ -47,11 +47,11 @@ class FlaggedRevsXML {
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
-	
-   	/**
-	* Get a selector of "approved"/"unapproved"
-	* @param int $selected, selected level
-	*/
+
+	/**
+	 * Get a selector of "approved"/"unapproved"
+	 * @param int $selected, selected level
+	 */
 	public static function getStatusFilterMenu( $selected=null ) {
 		$s  = "<label for='status'>" . wfMsgHtml('revreview-statusfilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'status') );
@@ -62,11 +62,11 @@ class FlaggedRevsXML {
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
-	
-   	/**
-	* Get a selector of "auto"/"manual"
-	* @param int $selected, selected level
-	*/
+
+	/**
+	 * Get a selector of "auto"/"manual"
+	 * @param int $selected, selected level
+	 */
 	public static function getAutoFilterMenu( $selected=null ) {
 		$s  = "<label for='approved'>" . wfMsgHtml('revreview-typefilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'automatic') );
@@ -76,11 +76,11 @@ class FlaggedRevsXML {
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
-	
+
 	/**
-	* Get tag dropdown select
-	* @param int $selected, selected level
-	*/
+	 * Get tag dropdown select
+	 * @param int $selected, selected level
+	 */
 	public static function getTagMenu( $selected = '' ) {
 		$s  = "<label for='ratingtag'>" . wfMsgHtml('revreview-tagfilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'ratingtag', 'id' => 'ratingtag') );
@@ -92,11 +92,11 @@ class FlaggedRevsXML {
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
-	
+
 	/**
-	* @param int $quality
-	* @return string, css color for this quality
-	*/
+	 * @param int $quality
+	 * @return string, css color for this quality
+	 */
 	public static function getQualityColor( $quality ) {
 		if( $quality === false )
 			return 'flaggedrevs-color-0';
@@ -113,7 +113,7 @@ class FlaggedRevsXML {
 		}
 		return $css;
 	}
-	
+
 	/**
 	 * @param array $flags
 	 * @param bool $prettybox
@@ -157,7 +157,7 @@ class FlaggedRevsXML {
 		}
 		return $tag;
     }
-	
+
 	/**
 	 * @param Row $trev, flagged revision row
 	 * @param string $html, the short message HTML
@@ -199,6 +199,7 @@ class FlaggedRevsXML {
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			}
+			# uses messages 'revreview-quality-i', 'revreview-basic-i', 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ($revsSince == 0) ? '-i' : '';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		}
@@ -215,24 +216,24 @@ class FlaggedRevsXML {
 
         return $box;
 	}
-	
+
 	public static function ratingToggle() {
 		return "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" . 
+			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" .
 			wfMsg( 'revreview-toggle' ) . "</a>";
 	}
-	
+
 	/**
-	* Add user preference to form HTML
-	*/
+	 * Add user preference to form HTML
+	 */
 	public static function stabilityPreferences( $form ) {
 		global $wgUser;
 
 		$html = Xml::openElement( 'fieldset' ) .
 			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
-			Xml::openElement( 'table' ) . 
+			Xml::openElement( 'table' ) .
 			Xml::openElement( 'tr' ) .
-				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable, 
+				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable,
 					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
 					wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
 			Xml::closeElement( 'tr' ) .
@@ -242,7 +243,7 @@ class FlaggedRevsXML {
 				'</td><td> ' .
 					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-0'), 'standardUI' ) .
 				'</td>' .
-			Xml::closeElement( 'tr' ) . 
+			Xml::closeElement( 'tr' ) .
 			Xml::openElement( 'tr' ) .
 				'<td>' .
 					Xml::radio( 'wpFlaggedRevsSUI', 1, $form->mFlaggedRevsSUI==1, array('id' => 'simpleUI') ) .
@@ -250,14 +251,14 @@ class FlaggedRevsXML {
 					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-1'), 'simpleUI' ) .
 				'</td>';
 		if( $wgUser->isAllowed( 'review' ) ) {
-			$html .= Xml::closeElement( 'tr' ) . 
+			$html .= Xml::closeElement( 'tr' ) .
 				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
 				Xml::openElement( 'tr' ) .
-					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) . 
+					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) .
 					'</td><td> ' . wfLabel( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>';
 		}
-		$html .= Xml::closeElement( 'tr' ) . 
-			Xml::closeElement( 'table' ) . 
+		$html .= Xml::closeElement( 'tr' ) .
+			Xml::closeElement( 'table' ) .
 			Xml::closeElement( 'fieldset' );
 
 		return $html;
