@@ -245,18 +245,6 @@ $messages['pt'] = array(
 	'problempages-alias'     => 'Páginas com problemas',
 );
 
-/** Russian (Русский)
- * @author Александр Сигачёв
- */
-$messages['ru'] = array(
-	'qualityoversight-alias'      => 'РевизорКачества',
-	'unreviewedpages-alias'       => 'НепроверенныеСтраницы',
-	'oldreviewedpages-alias'      => 'ДавноПроверенныеСтраницы',
-	'reviewedpages-alias'         => 'ПроверенныеСтраницы',
-	'stablepages-alias'           => 'стабильныестраницы',
-	'stableversions-alias'        => 'СтабильныеВерсии',
-);
-
 /** Slovak (Slovenčina)
  * @author Helix84
  */

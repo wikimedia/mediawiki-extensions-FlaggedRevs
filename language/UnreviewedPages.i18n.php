@@ -382,7 +382,12 @@ $messages['is'] = array(
  * @author Darth Kule
  */
 $messages['it'] = array(
-	'unreviewed-category' => 'Categoria:',
+	'right-unreviewedpages' => "Visualizza l'elenco delle pagine non revisionate",
+	'unreviewedpages'       => 'Pagine non revisionate',
+	'unreviewed-legend'     => 'Elenco delle pagine non revisionate',
+	'unreviewed-category'   => 'Categoria:',
+	'unreviewed-list'       => 'Di seguito sono riportati gli articoli che non sono stati revisionati.',
+	'unreviewed-none'       => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 );
 
 /** Japanese (日本語)

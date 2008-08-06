@@ -840,7 +840,32 @@ $messages['is'] = array(
  * @author Darth Kule
  */
 $messages['it'] = array(
+	'stabilization'             => 'Stabilizzazione pagina',
+	'stabilization-perm'        => "L'utente non dispone dei permessi necessari a cambiare la configurazione della versione stabile.
+Qui ci sono le impostazioni attuali per [[:$1|$1]]:",
+	'stabilization-page'        => 'Nome della pagina:',
+	'stabilization-leg'         => 'Conferma le impostazioni della versione stabile',
+	'stabilization-select'      => 'Selezione versione stabile',
+	'stabilization-select1'     => "L'ultima versione di qualità; se non presente, allora l'ultima visionata",
+	'stabilization-select2'     => "L'ultima versione revisionata",
+	'stabilization-def1'        => 'La versione stabile; se non presente, quella attuale',
+	'stabilization-def2'        => 'La versione attuale',
+	'stabilization-submit'      => 'Conferma',
+	'stabilization-notexists'   => 'Non ci sono pagine col titolo "[[:$1|$1]]".
+Non è possibile effettuare la configurazione.',
+	'stabilization-notcontent'  => 'La pagina "[[:$1|$1]]" non può essere revisionata.
+Non è possibile effettuare la configurazione.',
+	'stabilization-comment'     => 'Commento:',
+	'stabilization-expiry'      => 'Scadenza:',
+	'stabilization-sel-short'   => 'Precedenza',
+	'stabilization-sel-short-0' => 'Qualità',
+	'stabilization-sel-short-1' => 'Nessuna',
+	'stabilization-def-short'   => 'Default',
+	'stabilization-def-short-0' => 'Attuale',
 	'stabilization-def-short-1' => 'Stabile',
+	'stabilize_expiry_invalid'  => 'Data di scadenza non valida.',
+	'stabilize_expiry_old'      => 'La data di scadenza è già passata.',
+	'stabilize-expiring'        => 'scadenza: $1 (UTC)',
 );
 
 /** Japanese (日本語)

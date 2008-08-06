@@ -108,6 +108,13 @@ $messages['id'] = array(
 	'problempages-graphs' => 'data penilaian',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'problempages-none' => 'Non ci sono pagine in questo elenco',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */

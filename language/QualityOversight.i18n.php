@@ -108,6 +108,13 @@ $messages['id'] = array(
 	'qualityoversight-legend' => 'Cari log peninjauan terkini',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'qualityoversight-legend' => 'Cerca i log delle revisioni recenti',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */

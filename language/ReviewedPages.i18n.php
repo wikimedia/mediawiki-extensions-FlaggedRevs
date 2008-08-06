@@ -340,6 +340,14 @@ $messages['is'] = array(
 	'reviewedpages-lev-1' => 'Gæði',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'reviewedpages-none' => 'Non ci sono pagine in questo elenco',
+	'reviewedpages-all'  => 'versioni revisionate',
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  */

@@ -3303,22 +3303,87 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Gianfranco
- * @author Siebrand
  * @author Darth Kule
+ * @author Melos
  */
 $messages['it'] = array(
-	'group-reviewer'        => 'Revisori',
-	'group-reviewer-member' => 'Revisore',
-	'grouppage-reviewer'    => '{{ns:project}}:Revisore',
-	'reviewer'              => 'Revisore',
-	'revreview-current'     => 'Bozza',
-	'revreview-edit'        => 'Modifica la bozza',
-	'revreview-noflagged'   => "Non ci sono revisioni convalidate di questa voce, perciò potrebbe '''non''' essere stata [[{{MediaWiki:Validationpage}}|controllata]] la sua qualità.",
-	'revreview-oldrating'   => 'È stata giudicata:',
-	'revreview-source'      => 'Codice sorgente della bozza',
-	'revreview-stable'      => 'Pagina stabile',
-	'tooltip-ca-current'    => 'Vedi la bozza attuale di questa pagina',
-	'tooltip-ca-stable'     => 'Vedi la versione stabile di questa voce',
+	'editor'                     => 'Editore',
+	'flaggedrevs'                => 'Verifica delle revisioni',
+	'flaggedrevs-backlog'        => "C'è del lavoro arretrato nelle [[Special:OldReviewedPages|pagine non revisionate di recente]]. '''È necessaria la tua attenzione!'''",
+	'flaggedrevs-prefs'          => 'Stabilità',
+	'group-editor'               => 'Editori',
+	'group-editor-member'        => 'editore',
+	'group-reviewer'             => 'Revisori',
+	'group-reviewer-member'      => 'Revisore',
+	'grouppage-editor'           => '{{ns:project}}:Editore',
+	'grouppage-reviewer'         => '{{ns:project}}:Revisore',
+	'hist-draft'                 => 'revisione bozza',
+	'hist-quality'               => 'revisione di qualità',
+	'hist-quality-user'          => '[{{fullurl:$1|stableid=$2}} convalidata] da [[User:$3|$3]]',
+	'hist-stable'                => 'versione visionata',
+	'hist-stable-user'           => '[{{fullurl:$1|stableid=$2}} visionata] da [[User:$3|$3]]',
+	'review-diff2stable'         => 'Visualizza i cambiamenti fra la versione stabile e la corrente',
+	'review-logentry-id'         => 'ID revisione $1',
+	'review-logpage'             => 'Log revisioni',
+	'reviewer'                   => 'Revisore',
+	'revisionreview'             => 'Revisiona versioni',
+	'revreview-accuracy'         => 'Accuratezza',
+	'revreview-accuracy-1'       => 'Visionata',
+	'revreview-accuracy-2'       => 'Preciso',
+	'revreview-accuracy-3'       => 'Ben documentato',
+	'revreview-accuracy-4'       => 'Ottima',
+	'revreview-auto-w'           => "Stai modificando una versione stabile; i cambiamenti '''saranno automaticamente revisionati'''.",
+	'revreview-auto-w-old'       => "Stai modificando una versione revisionata; i cambiamenti '''saranno automaticamente revisionati'''.",
+	'revreview-basic'            => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|visionata]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] che {{PLURAL:$3|attende|attendono}} una revisione.",
+	'revreview-basic-i'          => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|visionata]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifiche a template o immagini] che attendono una revisione.",
+	'revreview-basic-old'        => 'Questa è una versione [[{{MediaWiki:Validationpage}}|revisionata]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifiche].',
+	'revreview-basic-same'       => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|visionata]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.",
+	'revreview-current'          => 'Bozza',
+	'revreview-depth'            => 'Esaustività',
+	'revreview-depth-1'          => 'Minima',
+	'revreview-depth-2'          => 'Mediocre',
+	'revreview-depth-3'          => 'Alta',
+	'revreview-depth-4'          => 'Ottima',
+	'revreview-edit'             => 'Modifica la bozza',
+	'revreview-edited'           => "'''Gli edit saranno compresi nella [[{{MediaWiki:Validationpage}}|versione stabile]] dopo che un utente autorizzato li avrà revisionati.'''
+'''La ''bozza'' è mostrata di seguito.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modifica attende|modifiche attendono}}] una revisione.",
+	'revreview-flag'             => 'Revisiona questa versione',
+	'revreview-log'              => 'Commento:',
+	'revreview-newest-basic'     => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima versione visionata] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]) è stata [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] {{PLURAL:$3|ha bisogno|hanno bisogno}} di una revisione.",
+	'revreview-newest-basic-i'   => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima versione stabile] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]) è stata [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Modifiche a template o immagini] hanno bisogno di una revisione.",
+	'revreview-newest-quality'   => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima versione di qualità] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutet]) è stata [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] {{PLURAL:$3|ha bisogno|hanno bisogno}} di una revisione.",
+	'revreview-newest-quality-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima versione di qualità] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]) è stata [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Modifiche a template o immagini] hanno bisogno di una revisione.",
+	'revreview-noflagged'        => "Non ci sono revisioni convalidate di questa voce, perciò potrebbe '''non''' essere stata [[{{MediaWiki:Validationpage}}|controllata]] la sua qualità.",
+	'revreview-note'             => '[[User:$1|$1]] ha commentato così la versione durante la [[{{MediaWiki:Validationpage}}|revisione]]:',
+	'revreview-notes'            => 'Osservazioni o note da mostrare:',
+	'revreview-oldrating'        => 'È stata giudicata:',
+	'revreview-patrol'           => 'Segna questo cambiamento come verificato',
+	'revreview-patrol-title'     => 'Segna come verificata',
+	'revreview-patrolled'        => 'La versione di [[:$1|$1]] selezionata è stata segnata come verificata.',
+	'revreview-quality'          => "Questa è l'ultima versione di [[{{MediaWiki:Validationpage}}|qualità]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] che {{PLURAL:$3|attende|attendono}} una revisione.",
+	'revreview-quality-i'        => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|di qualità]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifiche a template o immagini] che attendono una revisione.",
+	'revreview-quality-old'      => 'Questa è una versione [[{{MediaWiki:Validationpage}}|di qualità]]
+([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
+Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifiche].',
+	'revreview-quality-same'     => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|di qualità]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.",
+	'revreview-source'           => 'Codice sorgente della bozza',
+	'revreview-stable'           => 'Pagina stabile',
+	'readerfeedback-submit'      => 'Invia',
+	'readerfeedback-submitting'  => 'Invio in corso...',
+	'readerfeedback-finished'    => 'Grazie!',
+	'revreview-typefilter'       => 'Tipo:',
+	'revreview-tagfilter'        => 'Tag:',
+	'tooltip-ca-current'         => 'Vedi la bozza attuale di questa pagina',
+	'tooltip-ca-stable'          => 'Vedi la versione stabile di questa voce',
 );
 
 /** Japanese (日本語)
@@ -5540,6 +5605,7 @@ $messages['ro'] = array(
 /** Russian (Русский)
  * @author Александр Сигачёв
  * @author Ahonc
+ * @author VasilievVV
  */
 $messages['ru'] = array(
 	'editor'                       => 'Досматривающий',

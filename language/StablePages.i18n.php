@@ -157,6 +157,16 @@ $messages['id'] = array(
 	'stablepages-config' => 'Konfigurasi',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'stablepages'        => 'Pagine stabili',
+	'stablepages-stable' => 'versione stabile',
+	'stablepages-none'   => 'Non ci sono pagine in questo elenco',
+	'stablepages-config' => 'Configurazione',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author គីមស៊្រុន
  */

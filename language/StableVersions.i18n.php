@@ -330,6 +330,18 @@ $messages['is'] = array(
 	'stableversions-page' => 'Titill síðu:',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'stableversions'        => 'Visualizza versioni stabili',
+	'stableversions-leg1'   => 'Elenco delle versioni revisionate per una pagina',
+	'stableversions-page'   => 'Nome della pagina:',
+	'stableversions-none'   => '"[[:$1]]" non ha versioni revisionate.',
+	'stableversions-list'   => 'Di seguito è riportato un elenco delle versioni di [[:$1]] che sono state revisionate:',
+	'stableversions-review' => 'Revisionato il <i>$1</i da $2',
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  */

@@ -159,6 +159,16 @@ Jumlah tinjauan ditampilkan di sudut kanan atas grafik; nilai yang lebih tinggi 
 '''[0]''' - Buruk; '''[1]''' - Rendah; '''[2]''' - Sedang; '''[3]''' - Tinggi; '''[4]''' - Baik sekali;",
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'ratinghistory-period' => 'Periodo di tempo:',
+	'ratinghistory-month'  => 'ultimo mese',
+	'ratinghistory-year'   => 'ultimo anno',
+	'ratinghistory-3years' => 'ultimi 3 anni',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */

@@ -303,9 +303,16 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Melos
  */
 $messages['it'] = array(
-	'oldreviewed-category' => 'Categoria:',
+	'oldreviewedpages'         => 'Pagine non revisionate di recente',
+	'oldreviewedpages-none'    => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
+	'oldreviewedpages-quality' => 'qualità',
+	'oldreviewedpages-hours'   => '($1 {{PLURAL:$1|ora|ore}})',
+	'oldreviewedpages-days'    => '($1 {{PLURAL:$1|giorno|giorni}})',
+	'oldreviewedpages-recent'  => "(meno di un'ora)",
+	'oldreviewed-category'     => 'Categoria:',
 );
 
 /** Khmer (ភាសាខ្មែរ)
