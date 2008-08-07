@@ -101,12 +101,21 @@ class FlaggedArticle extends Article {
 	}
 
 	 /**
-	 * Is this user shown the stable version by default for this page?
+	 * Is the stable version shown by default for this page?
 	 */
 	public function showStableByDefault() {
 		# Get page configuration
 		$config = $this->getVisibilitySettings();
 		return (bool)$config['override'];
+	}
+	
+	 /**
+	 * Is this user shown the stable version by default for this page?
+	 */
+	public function showStableByDefaultUser() {
+		# Get page configuration
+		$config = $this->getVisibilitySettings();
+		return ( $config['override'] && !FlaggedRevs::ignoreDefaultVersion() );
 	}
 
 	/**
@@ -572,6 +581,9 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( $tag . $warning );
 
 			# Show diff to stable, to make things less confusing.
+			if( !$this->showStableByDefaultUser() && !$wgUser->isAllowed('review') ) {
+				return true;
+			}
 			if( $frev->getRevId() == $revId )
 				return true; // nothing to show here
 			# Don't show for old revisions, diff, preview, or undo.
