@@ -1,0 +1,92 @@
+<?php
+if ( !defined( 'MEDIAWIKI' ) ) {
+	echo "FlaggedRevs extension\n";
+	exit( 1 );
+}
+wfLoadExtensionMessages( 'ValidationStatistics' );
+wfLoadExtensionMessages( 'FlaggedRevs' );
+
+class ValidationStatistics extends UnlistedSpecialPage
+{
+    function __construct() {
+        SpecialPage::SpecialPage( 'ValidationStatistics' );
+    }
+
+    function execute( $par ) {
+        global $wgRequest, $wgUser, $wgOut, $wgContLang, $wgFlaggedRevsNamespaces;
+		$this->setHeaders();
+		$this->skin = $wgUser->getSkin();
+		$this->db = wfGetDB( DB_SLAVE );
+		
+		$this->maybeUpdate();
+		
+		$ec = $this->getEditorCount();
+		$rc = $this->getReviewerCount();
+		
+		$wgOut->addWikiText( wfMsg('validationstatistics-users',$ec,$rc) );
+		
+		if( !$this->readyForQuery() ) {
+			return false;
+		}
+		
+		$wgOut->addHTML( wfMsg('validationstatistics-table') );
+		$wgOut->addHTML( "<table class='wikitable flaggedrevs_stats_table'>\n" );
+		$wgOut->addHTML( "<tr>\n" );
+		$msgs = array("ns","total","stable","latest","synced"); // our headings
+		foreach( $msgs as $msg ) {
+			$wgOut->addHTML( "<th>".wfMsg("validationstatistics-$msg")."</th>" );
+		}
+		$wgOut->addHTML( "</tr>\n" );
+		
+		foreach( $wgFlaggedRevsNamespaces as $namespace ) {
+			$row = $this->db->selectRow( 'flaggedrevs_stats', '*', array('namespace' => $namespace) );
+			$NsText = $wgContLang->getFormattedNsText( $row->namespace );
+			$NsText = $NsText ? $NsText : wfMsgHTML('blanknamespace');
+			
+			$percRev = sprintf( '%4.2f', 100*intval($row->reviewed)/intval($row->total) );
+			$percLatest = sprintf( '%4.2f', 100*intval($row->synced)/intval($row->total) );
+			$percSynced = sprintf( '%4.2f', 100*intval($row->synced)/intval($row->reviewed) );
+			
+			$wgOut->addHTML( "<tr align='center'>" );
+			$wgOut->addHTML( "<td>$NsText</td>" );
+			$wgOut->addHTML( "<td>{$row->total}</td>" );
+			$wgOut->addHTML( "<td>{$row->reviewed} <i>($percRev%)</i></td>" );
+			$wgOut->addHTML( "<td> {$row->synced} <i>($percLatest%)</i></td>" );
+			$wgOut->addHTML( "<td>$percSynced%</td>" );
+			$wgOut->addHTML( "</tr>" );
+		}
+		$wgOut->addHTML( "</table>" );
+	}
+	
+	protected function maybeUpdate() {
+		$dbCache = wfGetCache( CACHE_DB );
+		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
+		$keySQL = wfMemcKey( 'flaggedrevs', 'statsUpdating' );
+		// If a cache update is needed, do so asynchronously.
+		// Don't trigger query while another is running.
+		if( !$dbCache->get( $key ) && !$dbCache->get( $keySQL ) ) {
+			$path = dirname(__FILE__).'/../maintenance/updateStats.php';
+			exec( "php $path &" );
+		}
+	}
+	
+	protected function readyForQuery() {
+		if( !$this->db->tableExists( 'flaggedrevs_stats' ) ) {
+			return false;
+		} else {
+			return ( 0 != $this->db->selectField( 'flaggedrevs_stats', 'COUNT(*)' ) );
+		}
+	}
+	
+	protected function getEditorCount() {
+		return $this->db->selectField( 'user_groups', 'COUNT(*)',
+			array( 'ug_group' => 'editor' ),
+			__METHOD__ );
+	}
+
+	protected function getReviewerCount() {
+		return $this->db->selectField( 'user_groups', 'COUNT(*)',
+			array( 'ug_group' => 'revieer' ),
+			__METHOD__ );
+	}
+}

@@ -241,6 +241,8 @@ $wgGroupPermissions['*']['feedback'] = false;
 $wgFlaggedRevsFeedbackTags = array( 'reliability' => 3, 'completeness' => 2, 'npov' => 2, 'presentation' => 1 );
 # How many days back should the average rating for a page be based on?
 $wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
+# How long before stats page is updated?
+$wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
 $wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
 
@@ -314,6 +316,11 @@ $wgSpecialPages['ProblemPages'] = 'ProblemPages';
 $wgAutoloadClasses['ProblemPages'] = $dir . '/specialpages/ProblemPages_body.php';
 $wgExtensionMessagesFiles['ProblemPages'] = $langDir . 'ProblemPages.i18n.php';
 $wgSpecialPageGroups['ProblemPages'] = 'quality';
+# Statistics
+$wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
+$wgAutoloadClasses['ValidationStatistics'] = $dir . '/specialpages/ValidationStatistics_body.php';
+$wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
+$wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 
 ######### Hook attachments #########
 # Remove stand-alone patrolling
