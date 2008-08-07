@@ -29,7 +29,7 @@ class ValidationStatistics extends UnlistedSpecialPage
 			return false;
 		}
 		
-		$wgOut->addHTML( wfMsg('validationstatistics-table') );
+		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
 		$wgOut->addHTML( "<table class='wikitable flaggedrevs_stats_table'>\n" );
 		$wgOut->addHTML( "<tr>\n" );
 		$msgs = array("ns","total","stable","latest","synced"); // our headings

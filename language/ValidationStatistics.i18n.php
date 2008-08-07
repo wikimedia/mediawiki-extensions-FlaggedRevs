@@ -11,7 +11,9 @@ $messages['en'] = array(
 	'validationstatistics'        => 'Validation statistics',
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'$1\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights 
 	and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.',
-	'validationstatistics-table'  => 'Statistics for each namespace of this site are shown below. The data is cached for several hours and may not be up to date.',
+	'validationstatistics-table'  => "Statistics for each namespace are shown below, excluding redirects pages.
+	
+'''Note:''' the following data is cached for several hours and may not be up to date.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',
 	'validationstatistics-stable' => 'Reviewed',
