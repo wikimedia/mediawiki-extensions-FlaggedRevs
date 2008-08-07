@@ -66,7 +66,7 @@ class ValidationStatistics extends UnlistedSpecialPage
 		// Don't trigger query while another is running.
 		if( !$dbCache->get( $key ) && !$dbCache->get( $keySQL ) ) {
 			$path = dirname(__FILE__).'/../maintenance/updateStats.php';
-			exec( "php $path &" );
+			exec( "php $path >! /dev/null &" );
 		}
 	}
 	

@@ -1,5 +1,9 @@
 <?php
 
+if( php_sapi_name() != 'cli' ) {
+	die( 1 );
+}
+
 function update_flaggedrevs_stats() {
 	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsStatsAge;
 	// Set key to limit duplicate updates...
