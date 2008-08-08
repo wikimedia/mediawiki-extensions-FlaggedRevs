@@ -37,13 +37,28 @@ $aliases['an'] = array(
  * @author Meno25
  */
 $aliases['ar'] = array(
-	'QualityOversight' => array( 'نظر الجودة' ),
-	'UnReviewedPages'  => array( 'صفحات غير مراجعة' ),
-	'OldReviewedPages' => array( 'صفحات مراجعة قديمة' ),
-	'ReviewedPages'    => array( 'صفحات مراجعة' ),
-	'StablePages'      => array( 'صفحات مستقرة' ),
-	'StableVersions'   => array( 'نسخ مستقرة' ),
-	'ProblemPages'     => array( 'صفحات المشاكل' ),
+	'QualityOversight'       => array( 'نظر_الجودة' ),
+	'UnReviewedPages'        => array( 'صفحات_غير_مراجعة' ),
+	'OldReviewedPages'       => array( 'صفحات_مراجعة_قديمة' ),
+	'ReviewedPages'          => array( 'صفحات_مراجعة' ),
+	'StablePages'            => array( 'صفحات_مستقرة' ),
+	'StableVersions'         => array( 'نسخ_مستقرة' ),
+	'ProblemPages'           => array( 'صفحات_المشاكل' ),
+	'ValidationStatistics'   => array( 'إحصاءات_التحقق' ),
+);
+
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$aliases['arz'] = array(
+	'QualityOversight'       => array( 'نظر_الجودة' ),
+	'UnReviewedPages'        => array( 'صفحات_غير_مراجعة' ),
+	'OldReviewedPages'       => array( 'صفحات_مراجعة_قديمة' ),
+	'ReviewedPages'          => array( 'صفحات_مراجعة' ),
+	'StablePages'            => array( 'صفحات_مستقرة' ),
+	'StableVersions'         => array( 'نسخ_مستقرة' ),
+	'ProblemPages'           => array( 'صفحات_المشاكل' ),
+	'ValidationStatistics'   => array( 'إحصاءات_التحقق' ),
 );
 
 /** Southern Balochi (بلوچی مکرانی)
