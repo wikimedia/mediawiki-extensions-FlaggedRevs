@@ -139,6 +139,15 @@ recanto superior dereito das gráficas; os valores máis altos tratan de indicar
 '''[0]''' - Pobre; '''[1]''' - Baixo; '''[2]''' - Ben; '''[3]''' - Alto; '''[4]''' - Excelente;",
 );
 
+/** Hungarian (Magyar)
+ * @author Samat
+ */
+$messages['hu'] = array(
+	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld)''</font> ábrája látható, dátum szerint. Az értékelés értékei a jobb felső sarokban láthatóak: a nagyobb érték tartozik a jobb minőséghez. Az egyes értékek magyarázata:
+
+'''[0]''' - Rossz; '''[1]''' - Gyenge; '''[2]''' - Közepes; '''[3]''' - Jó; '''[4]''' - Kitűnő;",
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

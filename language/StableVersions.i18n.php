@@ -339,7 +339,7 @@ $messages['it'] = array(
 	'stableversions-page'   => 'Nome della pagina:',
 	'stableversions-none'   => '"[[:$1]]" non ha versioni revisionate.',
 	'stableversions-list'   => 'Di seguito è riportato un elenco delle versioni di [[:$1]] che sono state revisionate:',
-	'stableversions-review' => 'Revisionato il <i>$1</i da $2',
+	'stableversions-review' => 'Revisionata il <i>$1</i> da $2',
 );
 
 /** Japanese (日本語)

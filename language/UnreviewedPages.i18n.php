@@ -347,12 +347,16 @@ $messages['hsb'] = array(
 /** Hungarian (Magyar)
  * @author Dani
  * @author KossuthRad
+ * @author Samat
  */
 $messages['hu'] = array(
-	'unreviewedpages'     => 'Ellenőrizetlen lapok',
-	'unreviewed-category' => 'Kategória:',
-	'unreviewed-diff'     => 'Eltérések',
-	'unreviewed-list'     => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
+	'right-unreviewedpages' => 'Ellenőrizetlen lapok listájának megtekintése',
+	'unreviewedpages'       => 'Ellenőrizetlen lapok',
+	'unreviewed-legend'     => 'Nem ellenőrzött tartalmú lapok listája',
+	'unreviewed-category'   => 'Kategória:',
+	'unreviewed-diff'       => 'Eltérések',
+	'unreviewed-list'       => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
+	'unreviewed-none'       => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -380,12 +384,15 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Melos
  */
 $messages['it'] = array(
 	'right-unreviewedpages' => "Visualizza l'elenco delle pagine non revisionate",
 	'unreviewedpages'       => 'Pagine non revisionate',
 	'unreviewed-legend'     => 'Elenco delle pagine non revisionate',
 	'unreviewed-category'   => 'Categoria:',
+	'unreviewed-unwatched'  => '(non osservata)',
+	'unreviewed-watched'    => '(osservata da $2 {{PLURAL:$1|utente|utenti}})',
 	'unreviewed-list'       => 'Di seguito sono riportati gli articoli che non sono stati revisionati.',
 	'unreviewed-none'       => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 );

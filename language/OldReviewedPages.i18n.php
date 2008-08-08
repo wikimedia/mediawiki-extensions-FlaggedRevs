@@ -156,6 +156,16 @@ $messages['de'] = array(
 	'oldreviewedpages-watched'   => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 );
 
+/** Greek (Ελληνικά)
+ * @author Consta
+ */
+$messages['el'] = array(
+	'oldreviewedpages-hours'  => '($1 {{PLURAL:$1|ώρα|ώρες}})',
+	'oldreviewedpages-days'   => '($1 {{PLURAL:$1|ημέρα|ημέρες}})',
+	'oldreviewedpages-recent' => '(λιγότερο από 1 ώρα)',
+	'oldreviewed-category'    => 'Κατηγορία:',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -306,13 +316,16 @@ $messages['id'] = array(
  * @author Melos
  */
 $messages['it'] = array(
-	'oldreviewedpages'         => 'Pagine non revisionate di recente',
-	'oldreviewedpages-none'    => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
-	'oldreviewedpages-quality' => 'qualità',
-	'oldreviewedpages-hours'   => '($1 {{PLURAL:$1|ora|ore}})',
-	'oldreviewedpages-days'    => '($1 {{PLURAL:$1|giorno|giorni}})',
-	'oldreviewedpages-recent'  => "(meno di un'ora)",
-	'oldreviewed-category'     => 'Categoria:',
+	'oldreviewedpages'           => 'Pagine non revisionate di recente',
+	'oldreviewedpages-legend'    => 'Elenco delle pagine revisionate ma con versioni non revisionate',
+	'oldreviewedpages-none'      => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
+	'oldreviewedpages-quality'   => 'qualità',
+	'oldreviewedpages-hours'     => '($1 {{PLURAL:$1|ora|ore}})',
+	'oldreviewedpages-days'      => '($1 {{PLURAL:$1|giorno|giorni}})',
+	'oldreviewedpages-recent'    => "(meno di un'ora)",
+	'oldreviewed-category'       => 'Categoria:',
+	'oldreviewedpages-unwatched' => '(non osservata)',
+	'oldreviewedpages-watched'   => '(osservata da $2 {{PLURAL:$1|utente|utenti}})',
 );
 
 /** Khmer (ភាសាខ្មែរ)

@@ -85,6 +85,13 @@ $messages['de'] = array(
 	'stablepages-config' => 'Konfiguration',
 );
 
+/** Greek (Ελληνικά)
+ * @author Consta
+ */
+$messages['el'] = array(
+	'stablepages-none' => 'Δεν υπάρχουν σελίδες σε αυτή την λίστα',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -144,6 +151,14 @@ $messages['hi'] = array(
 	'stablepages-text'   => 'नीचे स्थिर अवतरण अविचल दिखाने वाले पन्नोंकी सूची हैं जो हाथसे तैयार की गई हैं।',
 	'stablepages-none'   => 'इस सूची में पन्ने नहीं हैं',
 	'stablepages-config' => 'कॉन्फिगरेशन',
+);
+
+/** Hungarian (Magyar)
+ * @author Samat
+ */
+$messages['hu'] = array(
+	'stablepages-text'   => 'Ez a lista azokat a lapokat tartalmazza, amiket külön úgy állítottak be, hogy olvasójának alapértelmezettként a stabil változatot mutassa.',
+	'stablepages-config' => 'Beállítások',
 );
 
 /** Indonesian (Bahasa Indonesia)

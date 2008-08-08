@@ -190,13 +190,14 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'qualityoversight-alias' => 'KwaliteitsControle',
-	'unreviewedpages-alias'  => 'PaginasZonderEindredactie',
-	'oldreviewedpages-alias' => 'PaginasVerouderdeEindredactie',
-	'reviewedpages-alias'    => 'PaginasMetEindredactie',
-	'stablepages-alias'      => 'StabielePaginas',
-	'stableversions-alias'   => 'StabieleVersies',
-	'problempages-alias'     => 'ProbleemPaginas',
+	'qualityoversight-alias'     => 'KwaliteitsControle',
+	'unreviewedpages-alias'      => 'PaginasZonderEindredactie',
+	'oldreviewedpages-alias'     => 'PaginasVerouderdeEindredactie',
+	'reviewedpages-alias'        => 'PaginasMetEindredactie',
+	'stablepages-alias'          => 'StabielePaginas',
+	'stableversions-alias'       => 'StabieleVersies',
+	'problempages-alias'         => 'ProbleemPaginas',
+	'validationstatistics-alias' => 'EindredactieStatistieken',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
