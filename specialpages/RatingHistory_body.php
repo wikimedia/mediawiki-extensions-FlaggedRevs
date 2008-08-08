@@ -37,6 +37,10 @@ class RatingHistory extends UnlistedSpecialPage
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+		if( !FlaggedRevs::isPageRateable( $this->page ) ) {
+			$wgOut->addHTML( wfMsgExt('readerfeedback-main',array('parse')) );
+			return;
+		}
 		$period = $wgRequest->getInt( 'period' );
 		$validPeriods = array(31,365,1095);
 		if( !in_array($period,$validPeriods) ) {
