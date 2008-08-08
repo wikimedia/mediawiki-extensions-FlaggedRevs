@@ -15,6 +15,7 @@ $messages['en'] = array(
 	'stablepages-alias'          => 'StablePages',
 	'stableversions-alias'       => 'StableVersions',
 	'problempages-alias'         => 'ProblemPages',
+	'validationstatistics-alias' => 'ValidationStatistics',
 );
 
 /** Aragonese (Aragonés)
