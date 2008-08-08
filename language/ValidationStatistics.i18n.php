@@ -54,6 +54,21 @@ $messages['de'] = array(
 	'validationstatistics-synced' => 'Synced/Gesichtet',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'validationstatistics'        => 'Statistiche di convalidazione',
+	'validationstatistics-users'  => "Al momento, su '''{{SITENAME}}''' {{PLURAL:$1|c'è '''$1''' utente|ci sono '''$1''' utenti}} con i diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''$2''' {{PLURAL:$2|utente|utenti}} con i diritti di [[{{MediaWiki:Validationpage}}|Revisore]].",
+	'validationstatistics-table'  => "Le statistiche per ciascun namaspace sono mostrate di seguito, a esclusione dei redirect.
+
+'''Nota:''' i dati che seguono sono estratti da una copia ''cache'' del database, non aggiornati in tempo reale.",
+	'validationstatistics-ns'     => 'Namespace',
+	'validationstatistics-total'  => 'Pagine',
+	'validationstatistics-stable' => 'Revisionate',
+	'validationstatistics-latest' => 'Ultime revisionate',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -68,5 +83,33 @@ $messages['nl'] = array(
 	'validationstatistics-stable' => 'Eindredactie afgerond',
 	'validationstatistics-latest' => 'Meest recente eindredacties',
 	'validationstatistics-synced' => 'Gesynchroniseerd/Eindredactie',
+);
+
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'validationstatistics'       => 'Štatistiky overenia',
+	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''$1''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''$2''' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
+	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor okrem presmerovacích stránok.
+
+'''Pozn.:''' nasledujúce údaje pochádzajú z vyrovnávacej pamäte a môžu byť niekoľko hodín staré.",
+	'validationstatistics-ns'    => 'Menný priestor',
+);
+
+/** Swedish (Svenska)
+ * @author M.M.S.
+ */
+$messages['sv'] = array(
+	'validationstatistics'        => 'Valideringsstatistik',
+	'validationstatistics-users'  => "'''{{SITENAME}}''' har just nu '''$1''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|redaktörsrättigheter]] och '''$2''' {{PLURAL:$2|användare|användare}} med [[{{MediaWiki:Validationpage}}|granskningsrättigheter]].",
+	'validationstatistics-table'  => "Statistik för varje namnrymd visas nedan, förutom omdirigeringssidor.
+
+'''Notera:''' följande data är cachad för flera timmar och kan vara föråldrad.",
+	'validationstatistics-ns'     => 'Namnrymd',
+	'validationstatistics-total'  => 'Sidor',
+	'validationstatistics-stable' => 'Granskad',
+	'validationstatistics-latest' => 'Senast granskad',
+	'validationstatistics-synced' => 'Synkad/Granskad',
 );
 

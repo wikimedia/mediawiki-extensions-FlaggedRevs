@@ -344,9 +344,12 @@ $messages['is'] = array(
  * @author Darth Kule
  */
 $messages['it'] = array(
-	'reviewedpages'      => 'Pagine revisionate',
-	'reviewedpages-none' => 'Non ci sono pagine in questo elenco',
-	'reviewedpages-all'  => 'versioni revisionate',
+	'reviewedpages'       => 'Pagine revisionate',
+	'reviewedpages-none'  => 'Non ci sono pagine in questo elenco',
+	'reviewedpages-lev-0' => 'Visionata',
+	'reviewedpages-lev-1' => 'Qualità',
+	'reviewedpages-lev-2' => 'Ottima',
+	'reviewedpages-all'   => 'versioni revisionate',
 );
 
 /** Japanese (日本語)

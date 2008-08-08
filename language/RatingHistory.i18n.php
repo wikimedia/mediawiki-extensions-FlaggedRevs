@@ -303,7 +303,7 @@ $messages['sk'] = array(
 	'ratinghistory-year'   => 'posledný rok',
 	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-none'   => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
-	'ratinghistory-legend' => "Dolu sú podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu  
+	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu  
 <font color=\"green\">''(zelenou)''</font>. Počet kontrol sa zobrazuje v pravom hornom rohu grafov; vyššie hodnoty zvyknú označovať lepšie vzorky údajov. Hodnoty hodnotenia sa interpretujú nasledovne:
 
 '''[0]''' - Slabé; '''[1]''' - Nízke; '''[2]''' - Dobré; '''[3]''' - Vysoké; '''[4]''' - Výborné;",
