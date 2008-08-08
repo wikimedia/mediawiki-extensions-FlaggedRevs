@@ -657,7 +657,7 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add review form to pages when necessary
 	 */
-	public function addReviewForm (&$data) {
+	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
 		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->mRevisionId ) {
 			return true;
@@ -669,7 +669,7 @@ class FlaggedArticle extends Article {
 		}
 		# User must have review rights
 		if( $wgUser->isAllowed( 'review' ) ) {
-			$this->addQuickReview( &$data, (bool)$wgRequest->getVal('diff') );
+			$this->addQuickReview( $data, (bool)$wgRequest->getVal('diff') );
 		}
 		return true;
 	}
@@ -693,7 +693,7 @@ class FlaggedArticle extends Article {
 			# If the user already voted, then don't show the form.
 			# Always show for IPs however, due to squid caching...
 			if( !$wgUser->getId() || !FlaggedRevs::userAlreadyVoted( $this->parent->getTitle() ) ) {
-				$this->addQuickFeedback( &$data );
+				$this->addQuickFeedback( $data );
 			}
 		}
 		return true;
@@ -908,7 +908,7 @@ class FlaggedArticle extends Article {
 			return '';
 		}
 
-   		$notes = "<div class='flaggedrevs_notes plainlinks'>";
+   		$notes = "<br/><div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
 		$this->reviewNotes = $notes;
@@ -1284,7 +1284,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewNotes( &$data ) {
 		if( $this->reviewNotes ) {
-      $data .= $this->reviewNotes;
+			$data .= $this->reviewNotes;
 		}
 		return true;
 	}

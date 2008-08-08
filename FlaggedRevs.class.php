@@ -2191,14 +2191,14 @@ EOT;
 		return FlaggedArticle::getInstance( $category )->addToCategoryView();
 	}
 	
-	public static function onSkinAfterContent (&$data) {
+	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
 		$fa = FlaggedArticle::getGlobalInstance();
 		if( $fa && $wgOut->isArticleRelated() ) {
-			$fa->addReviewNotes( &$data );
-			$fa->addReviewForm( &$data );
-			$fa->addFeedbackForm( &$data );
-			$fa->addVisibilityLink( &$data );
+			$fa->addReviewNotes( $data );
+			$fa->addReviewForm( $data );
+			$fa->addFeedbackForm( $data );
+			$fa->addVisibilityLink( $data );
 		}
 		return true;
 	}
