@@ -62,9 +62,9 @@ $wgExtensionCredits['specialpage'][] = array(
 $wgSimpleFlaggedRevsUI = false;
 # Add stable/draft revision tabs. May be redundant due to the tags.
 # If you have an open wiki, with the simple UI, you may want to enable these.
-$wgFlaggedRevTabs = false;
+$wgFlaggedRevTabs = true;
 # For non-user visitors, only show tags/icons for *unreviewed* pages
-$wgFlaggedRevsLowProfile = false;
+$wgFlaggedRevsLowProfile = true;
 
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN );
@@ -226,7 +226,7 @@ $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 # How many hours pending review is considering long?
 $wgFlaggedRevsLongPending = array( 3, 12, 24 );
 # How many pages count as a backlog?
-$wgFlaggedRevsBacklog = 1000;
+$wgFlaggedRevsBacklog = 2000;
 
 # Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
