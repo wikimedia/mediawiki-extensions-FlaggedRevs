@@ -44,10 +44,12 @@ if( !defined('FR_TEXT') )
 	define('FR_TEXT',2);
 
 $wgExtensionCredits['specialpage'][] = array(
-	'name' => 'Flagged Revisions',
-	'author' => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version' => '1.093',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
+	'name'           => 'Flagged Revisions',
+	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
+	'version'        => '1.094',
+	'svn-date'       => '$LastChangedDate$',
+	'svn-revision'   => '$LastChangedRevision$',
+	'url'            => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
 
@@ -261,7 +263,7 @@ $langDir = dirname(__FILE__) . '/language/';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
-$wgExtensionMessagesFiles['FlaggedRevsAliases'] = $langDir . 'FlaggedRevsAliases.i18n.php';
+$wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.alias.php';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
@@ -399,9 +401,6 @@ $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::injectStyleAndJS';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
 
-# Set aliases
-$wgHooks['LanguageGetSpecialPageAliases'][] = 'FlaggedRevs::addLocalizedSpecialPageNames';
-
 # File cache
 $wgHooks['IsFileCacheable'][] = 'FlaggedRevs::isFileCacheable';
 
@@ -413,7 +412,6 @@ $wgHooks['ParserTestTables'][] = 'FlaggedRevs::onParserTestTables';
 function efLoadFlaggedRevs() {
 	global $wgUseRCPatrol;
 	// wfLoadExtensionMessages( 'FlaggedRevs' );
-	wfLoadExtensionMessages( 'FlaggedRevsAliases' );
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
