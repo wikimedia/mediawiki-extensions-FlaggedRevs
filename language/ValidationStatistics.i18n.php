@@ -89,12 +89,16 @@ $messages['nl'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'validationstatistics'       => 'Štatistiky overenia',
-	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''$1''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''$2''' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
-	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor okrem presmerovacích stránok.
+	'validationstatistics'        => 'Štatistiky overenia',
+	'validationstatistics-users'  => "'''{{SITENAME}}''' má momentálne '''$1''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''$2''' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
+	'validationstatistics-table'  => "Dolu sú zobrazené štatistiky pre každý menný priestor okrem presmerovacích stránok.
 
 '''Pozn.:''' nasledujúce údaje pochádzajú z vyrovnávacej pamäte a môžu byť niekoľko hodín staré.",
-	'validationstatistics-ns'    => 'Menný priestor',
+	'validationstatistics-ns'     => 'Menný priestor',
+	'validationstatistics-total'  => 'Stránky',
+	'validationstatistics-stable' => 'Skontrolované',
+	'validationstatistics-latest' => 'Posledné skontrolované',
+	'validationstatistics-synced' => 'Synchronizované/skontrolované',
 );
 
 /** Swedish (Svenska)
