@@ -380,7 +380,7 @@ $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
 # Add tags do edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::addToEditView';
 # Add review form and visiblity settings link
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::onBeforePageDisplay';
+$wgHooks['SkinAfterContent'][] = 'FlaggedRevs::onSkinAfterContent';
 # Mark items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevs::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevs::addToHistLine';

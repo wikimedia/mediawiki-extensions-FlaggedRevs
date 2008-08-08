@@ -657,9 +657,9 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add review form to pages when necessary
 	 */
-	public function addReviewForm( $out ) {
-		global $wgRequest, $wgUser;
-		if( !$this->parent->exists() || !$this->isReviewable() || !$out->mRevisionId ) {
+	public function addReviewForm (&$data) {
+		global $wgRequest, $wgUser, $wgOut;
+		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->mRevisionId ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -669,7 +669,7 @@ class FlaggedArticle extends Article {
 		}
 		# User must have review rights
 		if( $wgUser->isAllowed( 'review' ) ) {
-			$this->addQuickReview( $out, (bool)$wgRequest->getVal('diff') );
+			$this->addQuickReview( &$data, (bool)$wgRequest->getVal('diff') );
 		}
 		return true;
 	}
@@ -678,9 +678,9 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add feedback form to pages when necessary
 	 */
-	public function addFeedbackForm( $out ) {
-		global $wgRequest, $wgUser;
-		if( !$this->parent->exists() || !$this->isRateable() || !$out->mRevisionId ) {
+	public function addFeedbackForm( &$data ) {
+		global $wgRequest, $wgUser, $wgOut;
+		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->mRevisionId ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -693,13 +693,13 @@ class FlaggedArticle extends Article {
 			# If the user already voted, then don't show the form.
 			# Always show for IPs however, due to squid caching...
 			if( !$wgUser->getId() || !FlaggedRevs::userAlreadyVoted( $this->parent->getTitle() ) ) {
-				$this->addQuickFeedback( $out );
+				$this->addQuickFeedback( &$data );
 			}
 		}
 		return true;
 	}
 
-	 /**
+	/*
 	 * Adds a patrol link to non-reviewable pages
 	 */
 	public function addPatrolLink( &$outputDone, &$pcache ) {
@@ -726,8 +726,8 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add link to stable version setting to protection form
 	 */
-	public function addVisibilityLink( $out ) {
-		global $wgUser, $wgRequest;
+	public function addVisibilityLink( &$data ) {
+		global $wgUser, $wgRequest, $wgOut;
 
 		if( !$this->isReviewable() )
 			return true;
@@ -742,9 +742,9 @@ class FlaggedArticle extends Article {
 			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
-			$out->mBodytext = "<span class='plainlinks'>" .
+			$wgOut->mBodytext = "<span class='plainlinks'>" .
 				wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
-				"</span>" . $out->mBodytext;
+				"</span>" . $wgOut->mBodytext;
 		}
 		return true;
 	}
@@ -907,6 +907,7 @@ class FlaggedArticle extends Article {
 		if( !FlaggedRevs::allowComments() || !$frev || !$frev->getComment() ) {
 			return '';
 		}
+
    		$notes = "<div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
@@ -1281,9 +1282,9 @@ class FlaggedArticle extends Article {
 	 * Adds brief review notes to a page.
 	 * @param OutputPage $out
 	 */
-	public function addReviewNotes( $out ) {
+	public function addReviewNotes( &$data ) {
 		if( $this->reviewNotes ) {
-			$out->addHTML( $this->reviewNotes );
+      $data .= $this->reviewNotes;
 		}
 		return true;
 	}
@@ -1294,15 +1295,15 @@ class FlaggedArticle extends Article {
 	 * @param Title $title
 	 * @param bool $top, should this form always go on top?
 	 */
-	public function addQuickReview( $out, $top = false ) {
+	public function addQuickReview( &$data, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOverride;
 		# Revision being displayed
-		$id = $out->mRevisionId;
+		$id = $wgOut->mRevisionId;
 		# Must be a valid non-printable output
-		if( !$id || $out->isPrintable() ) {
+		if( !$id || $wgOut->isPrintable() ) {
 			return false;
 		}
-		if( !isset($out->mTemplateIds) || !isset($out->fr_ImageSHA1Keys) ) {
+		if( !isset($wgOut->mTemplateIds) || !isset($wgOut->fr_ImageSHA1Keys) ) {
 			return false; // something went terribly wrong...
 		}
 		$skin = $wgUser->getSkin();
@@ -1413,14 +1414,14 @@ class FlaggedArticle extends Article {
 
 		$imageParams = $templateParams = $fileVersion = '';
 		# NS -> title -> rev ID mapping
-		foreach( $out->mTemplateIds as $namespace => $title ) {
+		foreach( $wgOut->mTemplateIds as $namespace => $title ) {
 			foreach( $title as $dbKey => $revId ) {
 				$title = Title::makeTitle( $namespace, $dbKey );
 				$templateParams .= $title->getPrefixedDBKey() . "|" . $revId . "#";
 			}
 		}
 		# Image -> timestamp -> sha1 mapping
-		foreach( $out->fr_ImageSHA1Keys as $dbKey => $timeAndSHA1 ) {
+		foreach( $wgOut->fr_ImageSHA1Keys as $dbKey => $timeAndSHA1 ) {
 			foreach( $timeAndSHA1 as $time => $sha1 ) {
 				$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
 			}
@@ -1465,9 +1466,9 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'form' );
 
 		if( $top ) {
-			$out->mBodytext = $form . $out->mBodytext;
+			$wgOut->mBodytext = $form . $wgOut->mBodytext;
 		} else {
-			$wgOut->addHTML( $form );
+			$data .= $form;
 		}
 		return true;
 	}
@@ -1478,13 +1479,13 @@ class FlaggedArticle extends Article {
 	 * @param Title $title
 	 * @param bool $top, should this form always go on top?
 	 */
-	public function addQuickFeedback( $out, $top = false ) {
+	public function addQuickFeedback( &$data, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsFeedbackTags;
 		# Are there any reader input tags?
 		if( empty($wgFlaggedRevsFeedbackTags) ) {
 			return false;
 		}
-		$id = $out->mRevisionId; // Revision being displayed
+		$id = $wgOut->mRevisionId; // Revision being displayed
 		if( $id != $this->parent->getLatest() ) {
 			return false;
 		}
@@ -1525,9 +1526,9 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 		if( $top ) {
-			$out->mBodytext = $form . $out->mBodytext;
+			$wgOut->mBodytext = $form . $wgOut->mBodytext;
 		} else {
-			$wgOut->addHTML( $form );
+			$data .= $form;
 		}
 		return true;
 	}

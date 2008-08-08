@@ -2191,13 +2191,14 @@ EOT;
 		return FlaggedArticle::getInstance( $category )->addToCategoryView();
 	}
 	
-	public static function onBeforePageDisplay( $out ) {
+	public static function onSkinAfterContent (&$data) {
+		global $wgOut;
 		$fa = FlaggedArticle::getGlobalInstance();
-		if( $fa && $out->isArticleRelated() ) {
-			$fa->addReviewNotes( $out );
-			$fa->addReviewForm( $out );
-			$fa->addFeedbackForm( $out );
-			$fa->addVisibilityLink( $out );
+		if( $fa && $wgOut->isArticleRelated() ) {
+			$fa->addReviewNotes( &$data );
+			$fa->addReviewForm( &$data );
+			$fa->addFeedbackForm( &$data );
+			$fa->addVisibilityLink( &$data );
 		}
 		return true;
 	}
