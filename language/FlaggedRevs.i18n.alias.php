@@ -193,13 +193,14 @@ $aliases['ms'] = array(
  * @author Siebrand
  */
 $aliases['nl'] = array(
-	'QualityOversight' => array( 'KwaliteitsControle' ),
-	'UnReviewedPages'  => array( 'PaginasZonderEindredactie' ),
-	'OldReviewedPages' => array( 'PaginasVerouderdeEindredactie' ),
-	'ReviewedPages'    => array( 'PaginasMetEindredactie' ),
-	'StablePages'      => array( 'StabielePaginas' ),
-	'StableVersions'   => array( 'StabieleVersies' ),
-	'ProblemPages'     => array( 'ProbleemPaginas' ),
+	'QualityOversight'     => array( 'KwaliteitsControle' ),
+	'UnReviewedPages'      => array( 'PaginasZonderEindredactie' ),
+	'OldReviewedPages'     => array( 'PaginasVerouderdeEindredactie' ),
+	'ReviewedPages'        => array( 'PaginasMetEindredactie' ),
+	'StablePages'          => array( 'StabielePaginas' ),
+	'StableVersions'       => array( 'StabieleVersies' ),
+	'ProblemPages'         => array( 'ProbleemPaginas' ),
+	'ValidationStatistics' => array( 'EindredactieStatistieken' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
