@@ -65,8 +65,9 @@ class ValidationStatistics extends UnlistedSpecialPage
 		// If a cache update is needed, do so asynchronously.
 		// Don't trigger query while another is running.
 		if( !$dbCache->get( $key ) && !$dbCache->get( $keySQL ) ) {
+			$ext = strpos( $_SERVER['SCRIPT_NAME'], 'index.php5' ) === false ? 'php' : 'php5';
 			$path = wfEscapeShellArg( dirname(__FILE__).'/../maintenance/updateStats.php' );
-			exec( "php $path > /dev/null &" );
+			exec( "$ext $path > /dev/null &" );
 		}
 	}
 	
