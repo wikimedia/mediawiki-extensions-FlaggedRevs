@@ -6,6 +6,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 wfLoadExtensionMessages( 'ProblemPages' );
 wfLoadExtensionMessages( 'FlaggedRevs' );
 
+if( !defined('READER_FEEDBACK_SIZE') )
+	define('READER_FEEDBACK_SIZE',15);
+
 class ProblemPages extends SpecialPage
 {
     function __construct() {
@@ -125,7 +128,7 @@ class ProblemPagesPager extends AlphabeticPager {
 		}
 		$conds[] = "rfp_ave_val < $x";
 		// Reasonable sample
-		$conds[] = 'rfp_count >= 15';
+		$conds[] = 'rfp_count >= '.READER_FEEDBACK_SIZE;
 		return array(
 			'tables' => array('reader_feedback_pages','page'),
 			'fields' => 'page_namespace,page_title,page_len,rfp_ave_val',
