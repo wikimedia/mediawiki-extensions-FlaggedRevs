@@ -51,7 +51,7 @@ class ValidationStatistics extends UnlistedSpecialPage
 			$wgOut->addHTML( "<td>$NsText</td>" );
 			$wgOut->addHTML( "<td>{$row->total}</td>" );
 			$wgOut->addHTML( "<td>{$row->reviewed} <i>($percRev%)</i></td>" );
-			$wgOut->addHTML( "<td> {$row->synced} <i>($percLatest%)</i></td>" );
+			$wgOut->addHTML( "<td>{$row->synced} <i>($percLatest%)</i></td>" );
 			$wgOut->addHTML( "<td>$percSynced%</td>" );
 			$wgOut->addHTML( "</tr>" );
 		}
@@ -86,7 +86,7 @@ class ValidationStatistics extends UnlistedSpecialPage
 
 	protected function getReviewerCount() {
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
-			array( 'ug_group' => 'revieer' ),
+			array( 'ug_group' => 'reviewer' ),
 			__METHOD__ );
 	}
 }
