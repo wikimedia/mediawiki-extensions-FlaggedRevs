@@ -54,7 +54,7 @@ class ProblemPages extends SpecialPage
 	}
 
 	protected function showPageList() {
-		global $wgOut, $wgUser, $wgLang;
+		global $wgOut;
 		$pager = new ProblemPagesPager( $this, array(), $this->namespace, $this->tag );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('problempages-list', array('parse') ) );
