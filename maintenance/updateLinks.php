@@ -10,10 +10,12 @@ require dirname(__FILE__) . '/updateLinks.inc';
 
 error_reporting( E_ALL );
 
-update_flaggedrevs();
+$start = isset($args[0]) ? $args[0] : NULL;
 
-update_flaggedpages();
+update_flaggedrevs($start);
 
-update_flaggedtemplates();
+update_flaggedpages($start);
 
-update_flaggedimages();
+update_flaggedtemplates($start);
+
+update_flaggedimages($start);
