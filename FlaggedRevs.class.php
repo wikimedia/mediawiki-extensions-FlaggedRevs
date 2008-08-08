@@ -838,6 +838,22 @@ class FlaggedRevs {
 	}
 	
 	/**
+	* Is this page in rateable namespace?
+	* @param Title, $title
+	* @return bool
+	*/
+	public static function isPageRateable( $title ) {
+		global $wgFeedbackNamespaces, $wgFlaggedRevsWhitelist;
+		# FIXME: Treat NS_MEDIA as NS_IMAGE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		# Check whitelist for exempt pages
+		if( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
+			return false;
+		}
+		return ( in_array($ns,$wgFeedbackNamespaces) && !$title->isTalkPage() && $ns != NS_MEDIAWIKI );
+	}
+	
+	/**
 	* Is this page in patrolable namespace?
 	* @param Title, $title
 	* @return bool

@@ -3,6 +3,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
+wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class ReaderFeedback extends UnlistedSpecialPage
 {
@@ -41,7 +42,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		# Revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
-		if( !$this->oldid || !FlaggedRevs::isPageReviewable( $this->page ) ) {
+		if( !$this->oldid || !FlaggedRevs::isPageRateable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('readerfeedback-main',array('parse')) );
 			return;
 		}
@@ -106,7 +107,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 			{
 				case "target":
 					$form->page = Title::newFromUrl( $val );
-					if( is_null($form->page) || !FlaggedRevs::isPageReviewable( $form->page ) ) {
+					if( is_null($form->page) || !FlaggedRevs::isPageRateable( $form->page ) ) {
 						return '<err#>';
 					}
 					break;

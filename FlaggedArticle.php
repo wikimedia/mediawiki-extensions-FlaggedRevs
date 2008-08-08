@@ -148,6 +148,13 @@ class FlaggedArticle extends Article {
 	public function isReviewable() {
 		return FlaggedRevs::isPageReviewable( $this->parent->getTitle() );
 	}
+	
+	 /**
+	 * Is this article rateable?
+	 */
+	public function isRateable() {
+		return FlaggedRevs::isPageRateable( $this->parent->getTitle() );
+	}
 
 	 /**
 	 * Output review notice
@@ -673,7 +680,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addFeedbackForm( $out ) {
 		global $wgRequest, $wgUser;
-		if( !$this->parent->exists() || !$this->isReviewable() || !$out->mRevisionId ) {
+		if( !$this->parent->exists() || !$this->isRateable() || !$out->mRevisionId ) {
 			return true;
 		}
 		# Check action and if page is protected
