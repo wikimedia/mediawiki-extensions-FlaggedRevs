@@ -2276,22 +2276,6 @@ EOT;
 		return true;
 	}
 	
-	public static function addLocalizedSpecialPageNames( &$extendedSpecialPageAliases, $code ) {
-		wfLoadExtensionMessages( 'FlaggedRevsAliases' );
-		# The localized title of the special page is among the messages of the extension:
-		$specialPages = array( 'QualityOversight', 'ProblemPages', 'UnreviewedPages', 
-			'OldReviewedPages', 'StablePages', 'StableVersions', 'ReviewedPages' );
-		foreach( $specialPages as $specialPage ) {
-			$text = wfMsgExt( strtolower( "$specialPage-alias" ), array( 'escape', 'language' => $code ) );
-			$title = Title::newFromText($text);
-			if( $title ) {
-				$extendedSpecialPageAliases[$specialPage][] = $title->getDBKey();
-			}
-			$extendedSpecialPageAliases[$specialPage][] = $specialPage;
-		}
-		return true;
-	}
-	
 	public static function isFileCacheable( $article ) {
 		$fa = FlaggedArticle::getInstance( $article );
 		# If the stable is the default, and we are viewing it...cache it!
