@@ -1,6 +1,7 @@
 <?php
 
 if( php_sapi_name() != 'cli' ) {
+	print( 'Invalid entry' );
 	die( 1 );
 }
 
@@ -70,6 +71,7 @@ function update_flaggedrevs_stats() {
 	$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 	$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
 	$dbCache->delete( $keySQL );
+	print( "Done updating!\n" );
 }
 
 function createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats ) {
