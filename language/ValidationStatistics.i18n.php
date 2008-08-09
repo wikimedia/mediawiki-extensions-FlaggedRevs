@@ -54,6 +54,49 @@ $messages['de'] = array(
 	'validationstatistics-synced' => 'Synced/Gesichtet',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'validationstatistics'        => 'Validigadaj statistikoj',
+	'validationstatistics-users'  => "'''{{SITENAME}}''' nun havas '''$1''' {{PLURAL:$1|uzanton|uzantojn}} kun
+[[{{MediaWiki:Validationpage}}|Redaktanto]]-rajtoj
+kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.",
+	'validationstatistics-table'  => "Statistikoj por ĉiu nomspaco estas jene montritaj, krom alidirektiloj.
+
+'''Notu:''' la jenaj datenoj estas en kaŝmemoro dum multaj horoj kaj eble ne estas ĝisdataj.",
+	'validationstatistics-ns'     => 'Nomspaco',
+	'validationstatistics-total'  => 'Paĝoj',
+	'validationstatistics-stable' => 'Kontrolitaj',
+	'validationstatistics-latest' => 'Laste kontrolita',
+	'validationstatistics-synced' => 'Ĝisdatigita/Kontrolita',
+);
+
+/** French (Français)
+ * @author Grondin
+ */
+$messages['fr'] = array(
+	'validationstatistics'        => 'Statistiques de validation',
+	'validationstatistics-users'  => "'''{{SITENAME}}''' dispose actuellement de '''$1''' {{PLURAL:$1|utilisateur|utilisateurs}} avec les droits d’[[{{MediaWiki:Validationpage}}|éditeur]] et de '''$2''' {{PLURAL:$2|utilisateur|utilisateurs}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].",
+	'validationstatistics-table'  => "Les statistiques pour chaques espace de nom sont affichée ci-dessous, à l’exclusion des pages de redirection.
+
+'''Note :''les données suivantes sont cachées pendant plusieurs heures et ne peuvent pas être mise à jour.",
+	'validationstatistics-ns'     => 'Nom de l’espace',
+	'validationstatistics-total'  => 'Pages',
+	'validationstatistics-stable' => 'Relu',
+	'validationstatistics-latest' => 'Relu en tout dernier lieu',
+);
+
+/** Hungarian (Magyar)
+ * @author Samat
+ */
+$messages['hu'] = array(
+	'validationstatistics-table' => "Statisztika valamennyi névtérre, az átirányítások kivételével
+
+'''Megjegyzés:''' ezek az adatok csak néhány óránként frissülnek.",
+	'validationstatistics-ns'    => 'Névtér',
+);
+
 /** Italian (Italiano)
  * @author Darth Kule
  */
@@ -67,6 +110,21 @@ $messages['it'] = array(
 	'validationstatistics-total'  => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
 	'validationstatistics-latest' => 'Ultime revisionate',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'validationstatistics'        => 'Statistik pengesahan',
+	'validationstatistics-users'  => "'''{{SITENAME}}''' kini mempunyai {{PLURAL:$1|seorang|'''$1''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Penyunting]] dan {{PLURAL:$2|seorang|'''$2''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Pemeriksa]].",
+	'validationstatistics-table'  => "Berikut ialah statistik bagi setiap ruang nama, tidak termasuk laman lencongan.
+
+'''Catatan:''' data berikut diambil daripada simpanan sementara ('''cache''') dan kemungkinan besar bukan yang terkini.",
+	'validationstatistics-ns'     => 'Ruang nama',
+	'validationstatistics-total'  => 'Laman',
+	'validationstatistics-stable' => 'Diperiksa',
+	'validationstatistics-latest' => 'Pemeriksaan terakhir',
 );
 
 /** Dutch (Nederlands)
@@ -83,6 +141,22 @@ $messages['nl'] = array(
 	'validationstatistics-stable' => 'Eindredactie afgerond',
 	'validationstatistics-latest' => 'Meest recente eindredacties',
 	'validationstatistics-synced' => 'Gesynchroniseerd/Eindredactie',
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'validationstatistics'        => 'Valideringsstatistikk',
+	'validationstatistics-users'  => "'''{{SITENAME}}''' har '''$1''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og '''$2''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].",
+	'validationstatistics-table'  => "Statistikk for hvert navnerom vises nedenfor, utenom omdirigeringssider.
+
+'''Merk:''' Følgende data mellomlagres i flere timer og kan være foreldet.",
+	'validationstatistics-ns'     => 'Navnerom',
+	'validationstatistics-total'  => 'Sider',
+	'validationstatistics-stable' => 'Anmeldt',
+	'validationstatistics-latest' => 'Sist anmeldt',
+	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
 );
 
 /** Slovak (Slovenčina)

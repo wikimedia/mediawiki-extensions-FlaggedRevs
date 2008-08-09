@@ -97,6 +97,17 @@ $messages['gl'] = array(
 	'problempages-none' => 'Non hai páxinas nesta lista',
 );
 
+/** Hungarian (Magyar)
+ * @author Samat
+ */
+$messages['hu'] = array(
+	'problempages'        => 'Problémás lapok',
+	'problempages-leg'    => 'Alacsony értékelésű lapok keresése',
+	'problempages-list'   => 'Olvasói értékelések szerint sorba tett lapok.',
+	'problempages-none'   => 'Egyetlen lap sem található a listában.',
+	'problempages-graphs' => 'értékelési adatok',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

@@ -143,6 +143,15 @@ recanto superior dereito das gráficas; os valores máis altos tratan de indicar
  * @author Samat
  */
 $messages['hu'] = array(
+	'ratinghistory-text'   => "'''A [[:$1|$1]] lap értékelési adatai:'''",
+	'ratinghistory-leg'    => 'Értékelési előzmények adatai',
+	'ratinghistory-tab'    => 'értékelés',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Köszönjük, hogy időt szánt az oldal értékelésére!</font>'''''",
+	'ratinghistory-period' => 'Időszak:',
+	'ratinghistory-month'  => '1 hónapra',
+	'ratinghistory-year'   => '1 évre',
+	'ratinghistory-3years' => '3 évre',
+	'ratinghistory-none'   => 'Jelenleg még nem áll rendelkezésre elég olvasói visszajelzés a grafikonok elkészítéséhez.',
 	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld)''</font> ábrája látható, dátum szerint. Az értékelés értékei a jobb felső sarokban láthatóak: a nagyobb érték tartozik a jobb minőséghez. Az egyes értékek magyarázata:
 
 '''[0]''' - Rossz; '''[1]''' - Gyenge; '''[2]''' - Közepes; '''[3]''' - Jó; '''[4]''' - Kitűnő;",

@@ -157,7 +157,10 @@ $messages['hi'] = array(
  * @author Samat
  */
 $messages['hu'] = array(
+	'stablepages'        => 'Jelölt lapok',
+	'stablepages-stable' => 'stabil változat',
 	'stablepages-text'   => 'Ez a lista azokat a lapokat tartalmazza, amiket külön úgy állítottak be, hogy olvasójának alapértelmezettként a stabil változatot mutassa.',
+	'stablepages-none'   => 'Nem található egyetlen lap sem a listában.',
 	'stablepages-config' => 'Beállítások',
 );
 
