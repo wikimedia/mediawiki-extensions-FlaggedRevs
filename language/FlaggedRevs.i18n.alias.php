@@ -37,28 +37,28 @@ $aliases['an'] = array(
  * @author Meno25
  */
 $aliases['ar'] = array(
-	'QualityOversight'       => array( 'نظر_الجودة' ),
-	'UnReviewedPages'        => array( 'صفحات_غير_مراجعة' ),
-	'OldReviewedPages'       => array( 'صفحات_مراجعة_قديمة' ),
-	'ReviewedPages'          => array( 'صفحات_مراجعة' ),
-	'StablePages'            => array( 'صفحات_مستقرة' ),
-	'StableVersions'         => array( 'نسخ_مستقرة' ),
-	'ProblemPages'           => array( 'صفحات_المشاكل' ),
-	'ValidationStatistics'   => array( 'إحصاءات_التحقق' ),
+	'QualityOversight' => array( 'نظر_الجودة' ),
+	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
+	'ReviewedPages' => array( 'صفحات_مراجعة' ),
+	'StablePages' => array( 'صفحات_مستقرة' ),
+	'StableVersions' => array( 'نسخ_مستقرة' ),
+	'ProblemPages' => array( 'صفحات_المشاكل' ),
+	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
  */
 $aliases['arz'] = array(
-	'QualityOversight'       => array( 'نظر_الجودة' ),
-	'UnReviewedPages'        => array( 'صفحات_غير_مراجعة' ),
-	'OldReviewedPages'       => array( 'صفحات_مراجعة_قديمة' ),
-	'ReviewedPages'          => array( 'صفحات_مراجعة' ),
-	'StablePages'            => array( 'صفحات_مستقرة' ),
-	'StableVersions'         => array( 'نسخ_مستقرة' ),
-	'ProblemPages'           => array( 'صفحات_المشاكل' ),
-	'ValidationStatistics'   => array( 'إحصاءات_التحقق' ),
+	'QualityOversight' => array( 'نظر_الجودة' ),
+	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
+	'ReviewedPages' => array( 'صفحات_مراجعة' ),
+	'StablePages' => array( 'صفحات_مستقرة' ),
+	'StableVersions' => array( 'نسخ_مستقرة' ),
+	'ProblemPages' => array( 'صفحات_المشاكل' ),
+	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -174,8 +174,8 @@ $aliases['km'] = array(
  * @author Robby
  */
 $aliases['lb'] = array(
-	'ReviewedPages'  => array( 'Säiten déi iwwerkuckt gi sinn' ),
-	'StablePages'    => array( 'Stabil Säiten' ),
+	'ReviewedPages' => array( 'Säiten déi iwwerkuckt gi sinn' ),
+	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
 );
 
@@ -208,14 +208,14 @@ $aliases['ms'] = array(
  * @author Siebrand
  */
 $aliases['nl'] = array(
-	'QualityOversight'     => array( 'KwaliteitsControle' ),
-	'UnReviewedPages'      => array( 'PaginasZonderEindredactie' ),
-	'OldReviewedPages'     => array( 'PaginasVerouderdeEindredactie' ),
-	'ReviewedPages'        => array( 'PaginasMetEindredactie' ),
-	'StablePages'          => array( 'StabielePaginas' ),
-	'StableVersions'       => array( 'StabieleVersies' ),
-	'ProblemPages'         => array( 'ProbleemPaginas' ),
-	'ValidationStatistics' => array( 'EindredactieStatistieken' ),
+	'QualityOversight' => array( 'KwaliteitsControle' ),
+	'UnReviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
+	'OldReviewedPages' => array( 'PaginasVerouderdeEindredactie', "Pagina'sVerouderdeEindredactie" ),
+	'ReviewedPages' => array( 'PaginasMetEindredactie', "Pagina'sMetEindredactie" ),
+	'StablePages' => array( 'StabielePaginas', "StabielePagina's" ),
+	'StableVersions' => array( 'StabieleVersies' ),
+	'ProblemPages' => array( 'ProbleemPaginas', "ProbleemPagina's" ),
+	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -223,12 +223,13 @@ $aliases['nl'] = array(
  */
 $aliases['no'] = array(
 	'QualityOversight' => array( 'Kvalitetsoversikt' ),
-	'UnReviewedPages'  => array( 'Uanmeldte sider' ),
+	'UnReviewedPages' => array( 'Uanmeldte sider' ),
 	'OldReviewedPages' => array( 'Gamle anmeldte sider' ),
-	'ReviewedPages'    => array( 'Anmeldte sider' ),
-	'StablePages'      => array( 'Stabile sider' ),
-	'StableVersions'   => array( 'Stabile versjoner' ),
-	'ProblemPages'     => array( 'Problemsider' ),
+	'ReviewedPages' => array( 'Anmeldte sider' ),
+	'StablePages' => array( 'Stabile sider' ),
+	'StableVersions' => array( 'Stabile versjoner' ),
+	'ProblemPages' => array( 'Problemsider' ),
+	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
 /** Occitan (Occitan)
@@ -236,12 +237,12 @@ $aliases['no'] = array(
  */
 $aliases['oc'] = array(
 	'QualityOversight' => array( 'QualitatSupervisor' ),
-	'UnReviewedPages'  => array( 'PaginasPasRelegidas' ),
+	'UnReviewedPages' => array( 'PaginasPasRelegidas' ),
 	'OldReviewedPages' => array( 'PaginasAncianamentRelegidas' ),
-	'ReviewedPages'    => array( 'Paginas revisadas' ),
-	'StablePages'      => array( 'PaginasEstablas' ),
-	'StableVersions'   => array( 'VersionsEstablas' ),
-	'ProblemPages'     => array( 'PaginasProblematicas' ),
+	'ReviewedPages' => array( 'Paginas revisadas' ),
+	'StablePages' => array( 'PaginasEstablas' ),
+	'StableVersions' => array( 'VersionsEstablas' ),
+	'ProblemPages' => array( 'PaginasProblematicas' ),
 );
 
 /** Polish (Polski)
@@ -270,12 +271,12 @@ $aliases['pt'] = array(
  */
 $aliases['sk'] = array(
 	'QualityOversight' => array( 'DohľadNadKvalitou' ),
-	'UnReviewedPages'  => array( 'NeskontrolovanéStránky' ),
+	'UnReviewedPages' => array( 'NeskontrolovanéStránky' ),
 	'OldReviewedPages' => array( 'StaréSkontrolovanéStránky' ),
-	'ReviewedPages'    => array( 'SkontrolovanéStránky' ),
-	'StablePages'      => array( 'StabilnéStránky' ),
-	'StableVersions'   => array( 'StabilnéVerzie' ),
-	'ProblemPages'     => array( 'ProblémovéStránky' ),
+	'ReviewedPages' => array( 'SkontrolovanéStránky' ),
+	'StablePages' => array( 'StabilnéStránky' ),
+	'StableVersions' => array( 'StabilnéVerzie' ),
+	'ProblemPages' => array( 'ProblémovéStránky' ),
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
