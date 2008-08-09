@@ -268,7 +268,7 @@
 	clear: both;
 }
 
-.flaggedrevs_reviewform * {
+.fr-rating-controls * {
 	vertical-align: middle;
 	line-height: 1em;
 }
