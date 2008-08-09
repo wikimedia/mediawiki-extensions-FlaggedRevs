@@ -97,7 +97,7 @@ $wgReviewChangesAfterEdit = true;
 # editing, so they may also want to review the page afterwards.
 $wgFlaggedRevsAutoReview = true;
 # Auto-review new pages with the minimal level?
-$wgFlaggedRevsAutoReviewNew = false;
+$wgFlaggedRevsAutoReviewNew = true;
 
 # When parsing a reviewed revision, if a template to be transcluded
 # has a stable version, use that version. If not present, use the one
@@ -188,7 +188,7 @@ $wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 # edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
 	'days'	              => 60, # days since registration
-	'edits'	              => 350, # total edit count
+	'edits'	              => 320, # total edit count
 	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
