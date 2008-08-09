@@ -3,7 +3,7 @@
 -- Replace /*$wgDBprefix*/ with the proper prefix
 
 -- Add page metadata for flaggedrevs
-CREATE TABLE /*$wgDBprefix*/flaggedpages (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpages (
   -- Foreign key to page.page_id
   fp_page_id integer NOT NULL,
   -- Is the page reviewed up to date?
@@ -20,7 +20,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
 ) /*$wgDBTableOptions*/;
 
 -- This stores all of our rev reviews
-CREATE TABLE /*$wgDBprefix*/flaggedrevs (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs (
   -- Foreign key to page.page_id
   fr_page_id integer NOT NULL,
   -- Foreign key to revision.rev_id
@@ -56,7 +56,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedrevs (
 ) /*$wgDBTableOptions*/;
 
 -- This stores settings on how to select the default revision
-CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
   -- Foreign key to page.page_id
   fpc_page_id integer NOT NULL,
   -- Integers to represent what to show by default:
@@ -73,7 +73,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpage_config (
 ) /*$wgDBTableOptions*/;
 
 -- This stores all of our transclusion revision pointers
-CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedtemplates (
   ft_rev_id integer NOT NULL,
   -- Namespace and title of included page
   ft_namespace int NOT NULL default '0',
@@ -85,7 +85,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedtemplates (
 ) /*$wgDBTableOptions*/;
 
 -- This stores all of our image revision pointers
-CREATE TABLE /*$wgDBprefix*/flaggedimages (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
   fi_rev_id integer NOT NULL,
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
@@ -98,7 +98,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedimages (
 ) /*$wgDBTableOptions*/;
 
 -- This stores user demotions and stats
-CREATE TABLE /*$wgDBprefix*/flaggedrevs_promote (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
   -- Foreign key to user.user_id
   frp_user_id integer NOT NULL,
   frp_user_params mediumblob NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE /*$wgDBprefix*/reader_feedback (
 ) /*$wgDBTableOptions*/;
 
 -- This stores reader feedback data for a page over time
-CREATE TABLE /*$wgDBprefix*/reader_feedback_history (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback_history (
   -- Foreign key to page.page_id
   rfh_page_id integer NOT NULL,
   rfh_tag char(20) NOT NULL default '',
@@ -130,7 +130,7 @@ CREATE TABLE /*$wgDBprefix*/reader_feedback_history (
 ) /*$wgDBTableOptions*/;
 
 -- This stores reader feedback data
-CREATE TABLE /*$wgDBprefix*/reader_feedback_pages (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback_pages (
   -- Foreign key to page.page_id
   rfp_page_id integer NOT NULL,
   rfp_tag char(20) NOT NULL default '',
