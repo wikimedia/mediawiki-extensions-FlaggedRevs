@@ -47,6 +47,21 @@ function update_flaggedrevs( $start = null ) {
 				$time = $irow ? $irow->fi_img_timestamp : null;
 				$sha1 = $irow ? $irow->fi_img_sha1 : null;
 				$file = $irow ? $row->page_title : null;
+				# Fill in from current if broken
+				if( !$irow ) {
+					$crow = $db->selectRow( 'image',
+						array( 'img_timestamp', 'img_sha1' ),
+						array( 'img_name' => $row->page_title ),
+						__METHOD__ );
+					$time = $crow ? $crow->img_timestamp : null;
+					$sha1 = $crow ? $crow->img_sha1 : null;
+					$file = $crow ? $row->page_title : null;
+				}
+			# Leave it alone if already set
+			} else if( $row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
+				$time = $row->fr_img_timestamp;
+				$sha1 = $row->fr_img_sha1;
+				$file = $row->fr_img_name;
 			}
 			if( $file && ($file != $row->fr_img_name || $time != $row->fr_img_timestamp || $sha1 != $row->fr_img_sha1) ) {
 				$changed++;
