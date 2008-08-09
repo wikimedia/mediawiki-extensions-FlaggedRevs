@@ -67,7 +67,9 @@ class ValidationStatistics extends UnlistedSpecialPage
 		if( !$dbCache->get( $key ) && !$dbCache->get( $keySQL ) ) {
 			$ext = strpos( $_SERVER['SCRIPT_NAME'], 'index.php5' ) === false ? 'php' : 'php5';
 			$path = wfEscapeShellArg( dirname(__FILE__).'/../maintenance/updateStats.php' );
-			exec( "$ext $path > /dev/null &" );
+			$file = tempnam( wfTempDir(), 'flaggedrevs_stats_update' );
+			exec( "$ext $path > $file &" );
+			unlink( $file );
 		}
 	}
 	
