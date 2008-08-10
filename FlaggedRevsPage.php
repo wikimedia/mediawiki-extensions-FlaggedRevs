@@ -244,7 +244,7 @@ class RevisionReview extends UnlistedSpecialPage
 					$form->approve = $val;
 					break;
 				case "wpReason":
-					$form->comment = $val;
+					$form->comment = FlaggedRevs::allowShortComments() ? $val : "";
 					break;
 				case "wpNotes":
 					$form->retrieveNotes( $val );
@@ -264,12 +264,6 @@ class RevisionReview extends UnlistedSpecialPage
 					}
 					break;
 			}
-
-			// Set the comment to an empty string if comments are disabled
-			if (!FlaggedRevs::allowShortComments()) {
-				$form->comment = '';
-			}
-
 		}
 		// Missing params?
 		if( count($form->dims) != count($tags) ) {
