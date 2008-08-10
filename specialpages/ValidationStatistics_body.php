@@ -64,12 +64,17 @@ class ValidationStatistics extends UnlistedSpecialPage
 		$keySQL = wfMemcKey( 'flaggedrevs', 'statsUpdating' );
 		// If a cache update is needed, do so asynchronously.
 		// Don't trigger query while another is running.
-		if( !$dbCache->get( $key ) && !$dbCache->get( $keySQL ) ) {
+		if( $dbCache->get( $key ) ) {
+			wfDebug( __METHOD__ . " skipping, got data\n" );
+		} elseif( $dbCache->get( $keySQL ) ) {
+			wfDebug( __METHOD__ . " skipping, in progress\n" );
+		} else {
 			$ext = strpos( $_SERVER['SCRIPT_NAME'], 'index.php5' ) === false ? 'php' : 'php5';
 			$path = wfEscapeShellArg( dirname(__FILE__).'/../maintenance/updateStats.php' );
-			$file = tempnam( wfTempDir(), 'flaggedrevs_stats_update' );
-			exec( "$ext $path > $file &" );
-			unlink( $file );
+			$devNull = wfIsWindows() ? "NUL" : "/dev/null";
+			$commandLine = "$ext $path > $devNull &";
+			wfDebug( __METHOD__ . " executing: $commandLine\n" );
+			exec( $commandLine );
 		}
 	}
 	
