@@ -141,7 +141,17 @@ class FlaggedRevs {
 		self::load();
 		return $wgFlaggedRevsComments;
 	}
-	
+
+	/**
+	 * Should short notes be allowed?
+	 * @returns bool
+	 */
+	public static function allowShortComments() {
+		global $wgFlaggedRevsCommentsShort;
+		self::load();
+		return $wgFlaggedRevsCommentsShort;
+	}
+
 	/**
 	 * Get the array of tag dimensions
 	 * @returns array

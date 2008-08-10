@@ -1348,13 +1348,25 @@ class FlaggedArticle extends Article {
 			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
 			$toggle = array();
 		}
-		$size = count(FlaggedRevs::getDimensions(),1) - count(FlaggedRevs::getDimensions());
+
+		# Number of different flag types
+		$types = count (FlaggedRevs::getDimensions());
+
+		# Sum of elements of all flag types
+		$size = count(FlaggedRevs::getDimensions(),1) - $types;
+		$isMinimalUI = false;
 
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
 		# Loop through all different flag types
 		foreach( FlaggedRevs::getDimensions() as $quality => $levels ) {
 			$label = array();
-			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 1;
+
+			if (isset($flags[$quality])) {
+				$selected = $flags[$quality];
+			} else {
+				$selected = 0;
+			}
+
 			if( $disabled ) {
 				$label[$selected] = $levels[$selected];
 			# else collect all quality levels of a flag current user can set
@@ -1386,14 +1398,32 @@ class FlaggedArticle extends Article {
 					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i, "wp$quality".$i,
 						($i == $selected), $attribs ) . "\n";
 				}
-			# Otherwise make checkboxes (two qualities available for current user
-			# and disabled fields in case we are below the magic 6)
-			} else {
+			# Make checkboxes in case there is:
+			# * more than one flag type
+			#   * and for current flag type only two qualities are available for current user
+			#   * or disabled fields in case we are below the magic 6
+			} else if ($types > 1 # there's just one flag type
+				|| (FlaggedRevs::allowComments() && $wgUser->isAllowed ('validate')) # notes are on
+				|| FlaggedRevs::allowShortComments()) { # short comments are on
+
 				$i = ( $disabled ) ? $selected : 1;
 				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality".$i,
 					($selected == $i), $attribs ) . "\n";
+			# Use the minimalistic UI.
+			} else {
+				$form .= Xml::openElement ('span',
+					array (
+						'id' => "wp$quality" . $selected,
+						'class' => "fr-rating-option-$selected"
+					)
+				);
+				$form .= wfMsg ("revreview-$label[$selected]");
+				$form .= Xml::closeElement ('span');
+
+				$isMinimalUI = true;
 			}
+				
 			$form .= Xml::closeElement( 'span' );
 		}
 		# If there were none, make one checkbox to approve/unapprove
@@ -1434,11 +1464,24 @@ class FlaggedArticle extends Article {
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed
-		if( !$disabled ) {
+		if (!$disabled && FlaggedRevs::allowShortComments()) {
 			$form .= "<span id='mw-commentbox' style='clear:both'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason',
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-		$form .= Xml::submitButton( wfMsg('revreview-submit'), array('id' => 'submitreview',
+
+		if ($isMinimalUI && $selected == 1) {
+			$qualities = FlaggedRevs::getDimensions();
+			$form .= Xml::hidden ("wp" . key ($qualities), '0');
+			$submitTitle = wfMsg ('revreview-submitbutton-unset-flag', wfMsg ("revreview-{$levels[0]}"));
+		} elseif ($isMinimalUI && $selected == 0) {
+                	$qualities = FlaggedRevs::getDimensions();
+			$form .= Xml::hidden ("wp" . key ($qualities), '1');
+			$submitTitle = wfMsg ('revreview-submitbutton-set-flag', wfMsg ("revreview-{$levels[1]}"));
+		} else {
+			$submitTitle = wfMsg ('revreview-submit');
+		}
+
+		$form .= Xml::submitButton( $submitTitle, array('id' => 'submitreview',
 			'accesskey' => wfMsg('revreview-ak-review'), 'style' => 'margin: .5em 0em 0em 0em;',
 			'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']') + $toggle
 		);

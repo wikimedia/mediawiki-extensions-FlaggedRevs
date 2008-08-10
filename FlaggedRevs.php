@@ -88,6 +88,10 @@ $wgFlaggedRevsExceptions = array( 'user' );
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevsComments = false;
+
+# Can users make short notes when sighting?
+$wgFlaggedRevsCommentsShort = false;
+
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
 # Auto-review edits directly to the stable version by reviewers?

@@ -118,7 +118,11 @@ class RevisionReview extends UnlistedSpecialPage
 			return;
 		}
 		# Log comment
-		$this->comment = $wgRequest->getText( 'wpReason' );
+		if (FlaggedRevs::allowShortComments()) {
+			$this->comment = $wgRequest->getText( 'wpReason' );
+		} else {
+			$this->comment = '';
+		}
 		# Additional notes (displayed at bottom of page)
 		$this->retrieveNotes( $wgRequest->getText('wpNotes') );
 		# Get the revision's current flags, if any
@@ -260,6 +264,12 @@ class RevisionReview extends UnlistedSpecialPage
 					}
 					break;
 			}
+
+			// Set the comment to an empty string if comments are disabled
+			if (!FlaggedRevs::allowShortComments()) {
+				$form->comment = '';
+			}
+
 		}
 		// Missing params?
 		if( count($form->dims) != count($tags) ) {
@@ -749,7 +759,7 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
 		wfProfileIn( __METHOD__ );
 		
-        $dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs', 
