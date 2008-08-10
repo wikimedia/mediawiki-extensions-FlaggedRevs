@@ -753,7 +753,7 @@ class FlaggedArticle extends Article {
 	 * Add stable version tabs. Rename some of the others if necessary.
 	 */
 	public function setActionTabs( $skin, &$contentActions ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
+		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
 		if( !isset($skin->mTitle) )
 			return true;
@@ -907,7 +907,6 @@ class FlaggedArticle extends Article {
 		if( !FlaggedRevs::allowComments() || !$frev || !$frev->getComment() ) {
 			return '';
 		}
-
    		$notes = "<br/><div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
@@ -1296,7 +1295,7 @@ class FlaggedArticle extends Article {
 	 * @param bool $top, should this form always go on top?
 	 */
 	public function addQuickReview( &$data, $top = false ) {
-		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgRequest;
 		# Revision being displayed
 		$id = $wgOut->mRevisionId;
 		# Must be a valid non-printable output
@@ -1332,7 +1331,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
-		if( $wgFlaggedRevsOverride ) {
+		if( FlaggedRevs::showStableByDefault() ) {
 			$form .= wfMsgExt( 'revreview-text', array('parse') );
 		} else {
 			$form .= wfMsgExt( 'revreview-text2', array('parse') );
@@ -1350,26 +1349,24 @@ class FlaggedArticle extends Article {
 		}
 
 		# Number of different flag types
-		$types = count (FlaggedRevs::getDimensions());
+		$types = count( FlaggedRevs::getDimensions() );
 
 		# Sum of elements of all flag types
-		$size = count(FlaggedRevs::getDimensions(),1) - $types;
+		$size = count( FlaggedRevs::getDimensions(),1 ) - $types;
 		$isMinimalUI = false;
 
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
 		# Loop through all different flag types
 		foreach( FlaggedRevs::getDimensions() as $quality => $levels ) {
 			$label = array();
-
-			if (isset($flags[$quality])) {
+			if( isset($flags[$quality]) ) {
 				$selected = $flags[$quality];
 			} else {
 				$selected = 0;
 			}
-
 			if( $disabled ) {
 				$label[$selected] = $levels[$selected];
-			# else collect all quality levels of a flag current user can set
+			# Collect all quality levels of a flag current user can set
 			} else {
 				foreach( $levels as $i => $name ) {
 					if ( !RevisionReview::userCan($quality, $i) ) {
@@ -1381,8 +1378,7 @@ class FlaggedArticle extends Article {
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
 			$form .= "<b>" . FlaggedRevs::getTagMsg($quality) . ":</b>&nbsp;";
-			# If the sum of qualities of all flags is above 6, use drop down boxes
-			# 6 is an arbitrary value choosen according to screen space and usability
+			# If the sum of qualities of all flags is above 6, use drop down boxes (for usability)
 			if( $size > 6 ) {
 				$attribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::openElement( 'select', $attribs );
@@ -1404,20 +1400,16 @@ class FlaggedArticle extends Article {
 			#   * or disabled fields in case we are below the magic 6
 			} else if ($types > 1 # there's just one flag type
 				|| (FlaggedRevs::allowComments() && $wgUser->isAllowed ('validate')) # notes are on
-				|| FlaggedRevs::allowShortComments()) { # short comments are on
+				|| FlaggedRevs::allowShortComments() ) { # short comments are on
 
-				$i = ( $disabled ) ? $selected : 1;
+				$i = $disabled ? $selected : 1;
 				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality".$i,
 					($selected == $i), $attribs ) . "\n";
 			# Use the minimalistic UI.
 			} else {
-				$form .= Xml::openElement ('span',
-					array (
-						'id' => "wp$quality" . $selected,
-						'class' => "fr-rating-option-$selected"
-					)
-				);
+				$form .= Xml::openElement ('span', array('id' => "wp$quality" . $selected,
+					'class' => "fr-rating-option-$selected") );
 				$form .= wfMsg ("revreview-$label[$selected]");
 				$form .= Xml::closeElement ('span');
 
