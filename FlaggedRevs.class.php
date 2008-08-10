@@ -1151,8 +1151,11 @@ class FlaggedRevs {
 		$fTags = self::getJSFeedbackParams();
 		$frev = $flaggedArticle->getStableRev( FR_TEXT );
 		$stableId = $frev ? $frev->getRevId() : 0;
+
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
+
+		$wgOut->addExtensionStyle( $encCssFile );
 
 		$ajaxFeedback = Xml::encodeJsVar( (object) array( 
 			'sendingMsg' => wfMsgHtml('readerfeedback-submitting'), 
@@ -1167,7 +1170,6 @@ class FlaggedRevs {
 		);
 
 		$head = <<<EOT
-<link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
 <script type="$wgJsMimeType">
 var wgFlaggedRevsParams = $rTags;
 var wgFlaggedRevsParams2 = $fTags;
@@ -1186,21 +1188,10 @@ EOT;
 	* Add FlaggedRevs css for relevant special pages.
 	*/
 	public static function InjectStyle() {
-		global $wgOut;
-		# Don't double-load
-		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
-			return true;
-		}
-		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-
+		global $wgOut, $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
-
-		$head = <<<EOT
-<link rel="stylesheet" type="text/css" media="screen, projection" href="$encCssFile"/>
-
-EOT;
-		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		$wgOut->addExtensionStyle( $encCssFile );
 		return true;
 	}
 	
