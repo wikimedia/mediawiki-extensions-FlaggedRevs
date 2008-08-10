@@ -32,7 +32,7 @@ class ValidationStatistics extends UnlistedSpecialPage
 		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
 		$wgOut->addHTML( "<table class='wikitable flaggedrevs_stats_table'>\n" );
 		$wgOut->addHTML( "<tr>\n" );
-		$msgs = array("ns","total","stable","latest","synced"); // our headings
+		$msgs = array("ns","total","stable","latest","synced","old"); // our headings
 		foreach( $msgs as $msg ) {
 			$wgOut->addHTML( "<th>".wfMsg("validationstatistics-$msg")."</th>" );
 		}
@@ -46,6 +46,8 @@ class ValidationStatistics extends UnlistedSpecialPage
 			$percRev = @sprintf( '%4.2f', 100*intval($row->reviewed)/intval($row->total) );
 			$percLatest = @sprintf( '%4.2f', 100*intval($row->synced)/intval($row->total) );
 			$percSynced = @sprintf( '%4.2f', 100*intval($row->synced)/intval($row->reviewed) );
+			$outdated = intval($row->reviewed) - intval($row->synced);
+			$outdated = max( 0, $outdated ); // lag between queries
 			
 			$wgOut->addHTML( "<tr align='center'>" );
 			$wgOut->addHTML( "<td>$NsText</td>" );
@@ -53,6 +55,7 @@ class ValidationStatistics extends UnlistedSpecialPage
 			$wgOut->addHTML( "<td>{$row->reviewed} <i>($percRev%)</i></td>" );
 			$wgOut->addHTML( "<td>{$row->synced} <i>($percLatest%)</i></td>" );
 			$wgOut->addHTML( "<td>$percSynced%</td>" );
+			$wgOut->addHTML( "<td>".$outdated."</td>" );
 			$wgOut->addHTML( "</tr>" );
 		}
 		$wgOut->addHTML( "</table>" );

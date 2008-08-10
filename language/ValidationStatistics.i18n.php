@@ -19,6 +19,7 @@ and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|
 	'validationstatistics-stable' => 'Reviewed',
 	'validationstatistics-latest' => 'Latest reviewed',
 	'validationstatistics-synced' => 'Synced/Reviewed',
+	'validationstatistics-old'    => 'Outdated',
 );
 
 /** Message documentation (Message documentation) */
