@@ -65,15 +65,15 @@ class ValidationStatistics extends UnlistedSpecialPage
 		// If a cache update is needed, do so asynchronously.
 		// Don't trigger query while another is running.
 		if( $dbCache->get( $key ) ) {
-			wfDebug( __METHOD__ . " skipping, got data\n" );
+			wfDebugLog( 'ValidationStatistic', __METHOD__ . " skipping, got data" );
 		} elseif( $dbCache->get( $keySQL ) ) {
-			wfDebug( __METHOD__ . " skipping, in progress\n" );
+			wfDebugLog( 'ValidationStatistic', __METHOD__ . " skipping, in progress" );
 		} else {
 			$ext = strpos( $_SERVER['SCRIPT_NAME'], 'index.php5' ) === false ? 'php' : 'php5';
 			$path = wfEscapeShellArg( dirname(__FILE__).'/../maintenance/updateStats.php' );
 			$devNull = wfIsWindows() ? "NUL" : "/dev/null";
 			$commandLine = "$ext $path > $devNull &";
-			wfDebug( __METHOD__ . " executing: $commandLine\n" );
+			wfDebugLog( 'ValidationStatistic', __METHOD__ . " executing: $commandLine" );
 			exec( $commandLine );
 		}
 	}
