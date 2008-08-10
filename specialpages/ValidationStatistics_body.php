@@ -71,8 +71,9 @@ class ValidationStatistics extends UnlistedSpecialPage
 		} else {
 			$ext = strpos( $_SERVER['SCRIPT_NAME'], 'index.php5' ) === false ? 'php' : 'php5';
 			$path = wfEscapeShellArg( dirname(__FILE__).'/../maintenance/updateStats.php' );
+			$wiki = wfEscapeShellArg( wfWikiId() );
 			$devNull = wfIsWindows() ? "NUL" : "/dev/null";
-			$commandLine = "$ext $path > $devNull &";
+			$commandLine = "$ext $path --wiki=$wiki > $devNull &";
 			wfDebugLog( 'ValidationStatistic', __METHOD__ . " executing: $commandLine" );
 			exec( $commandLine );
 		}
