@@ -43,9 +43,9 @@ class ValidationStatistics extends UnlistedSpecialPage
 			$NsText = $wgContLang->getFormattedNsText( $row->namespace );
 			$NsText = $NsText ? $NsText : wfMsgHTML('blanknamespace');
 			
-			$percRev = sprintf( '%4.2f', 100*intval($row->reviewed)/intval($row->total) );
-			$percLatest = sprintf( '%4.2f', 100*intval($row->synced)/intval($row->total) );
-			$percSynced = sprintf( '%4.2f', 100*intval($row->synced)/intval($row->reviewed) );
+			$percRev = @sprintf( '%4.2f', 100*intval($row->reviewed)/intval($row->total) );
+			$percLatest = @sprintf( '%4.2f', 100*intval($row->synced)/intval($row->total) );
+			$percSynced = @sprintf( '%4.2f', 100*intval($row->synced)/intval($row->reviewed) );
 			
 			$wgOut->addHTML( "<tr align='center'>" );
 			$wgOut->addHTML( "<td>$NsText</td>" );
