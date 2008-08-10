@@ -60,9 +60,9 @@ function update_flaggedrevs_stats() {
 		$dbw->replace( 'flaggedrevs_stats',
 			array( 'namespace' ),
 			array( 'namespace' => intval($namespace),
-				'total'    => $ns_total[$namespace],
-				'reviewed' => $ns_reviewed[$namespace],
-				'synced'   => $ns_synced[$namespace] ),
+				'total'    => intval($ns_total[$namespace]),
+				'reviewed' => intval($ns_reviewed[$namespace]),
+				'synced'   => intval($ns_synced[$namespace]) ),
 			__METHOD__
 		);
 	}
