@@ -19,7 +19,10 @@ $messages['en'] = array(
 	'reviewedpages-best' => 'prime revision',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ * @author SPQRobin
+ */
 $messages['qqq'] = array(
 	'reviewedpages' => '{{Flagged Revs}}',
 	'reviewedpages-leg' => '{{Flagged Revs}}',

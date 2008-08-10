@@ -15,7 +15,9 @@ $messages['en'] = array(
 	'stablepages-config' => 'Configuration',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ */
 $messages['qqq'] = array(
 	'stablepages' => '{{Flagged Revs}}',
 	'stablepages-stable' => '{{Flagged Revs}}',

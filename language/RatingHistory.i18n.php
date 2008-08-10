@@ -25,7 +25,9 @@ $messages['en'] = array(
 \'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;'
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Siebrand
+ */
 $messages['qqq'] = array(
 	'ratinghistory-text' => "'''Translate 'page' instead of 'article'!'''",
 );

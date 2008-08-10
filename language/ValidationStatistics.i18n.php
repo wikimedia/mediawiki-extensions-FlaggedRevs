@@ -22,7 +22,9 @@ and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|
 	'validationstatistics-old'    => 'Outdated',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ */
 $messages['qqq'] = array(
 	'validationstatistics-ns' => '{{Identical|Namespace}}',
 	'validationstatistics-total' => '{{Identical|Pages}}',
@@ -43,6 +45,7 @@ $messages['ar'] = array(
 	'validationstatistics-stable' => 'مراجع',
 	'validationstatistics-latest' => 'مراجع أخيرا',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
+	'validationstatistics-old' => 'قديمة',
 );
 
 /** Bulgarian (Български)
@@ -100,6 +103,7 @@ $messages['fr'] = array(
 	'validationstatistics-stable' => 'Relu',
 	'validationstatistics-latest' => 'Relu en tout dernier lieu',
 	'validationstatistics-synced' => 'Synchronisé/Relu',
+	'validationstatistics-old' => 'Désuet',
 );
 
 /** Hungarian (Magyar)
@@ -117,6 +121,7 @@ $messages['hu'] = array(
 	'validationstatistics-stable' => 'Ellenőrzött',
 	'validationstatistics-latest' => 'Legutóbb ellenőrzött',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
+	'validationstatistics-old' => 'Elavult',
 );
 
 /** Italian (Italiano)
@@ -172,6 +177,7 @@ $messages['nl'] = array(
 	'validationstatistics-stable' => 'Eindredactie afgerond',
 	'validationstatistics-latest' => 'Meest recente eindredacties',
 	'validationstatistics-synced' => 'Gesynchroniseerd/Eindredactie',
+	'validationstatistics-old' => 'Verouderd',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -188,6 +194,7 @@ $messages['no'] = array(
 	'validationstatistics-stable' => 'Anmeldt',
 	'validationstatistics-latest' => 'Sist anmeldt',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
+	'validationstatistics-old' => 'Foreldet',
 );
 
 /** Slovak (Slovenčina)

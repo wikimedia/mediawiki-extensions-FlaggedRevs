@@ -13,7 +13,9 @@ $messages['en'] = array(
 	'qualityoversight-legend' => 'Search recent review logs',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ */
 $messages['qqq'] = array(
 	'qualityoversight' => '{{Flagged Revs}}',
 	'qualityoversight-list' => '{{Flagged Revs}}',

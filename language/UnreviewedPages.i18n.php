@@ -19,7 +19,9 @@ $messages['en'] = array(
 	'unreviewed-none' => 'There are currently no pages meeting these criteria',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ */
 $messages['qqq'] = array(
 	'right-unreviewedpages' => '{{Flagged Revs}}',
 	'unreviewedpages' => '{{Flagged Revs}}',

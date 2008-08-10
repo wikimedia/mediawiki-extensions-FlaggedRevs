@@ -41,7 +41,10 @@ No configuration is possible.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ * @author SPQRobin
+ */
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
 

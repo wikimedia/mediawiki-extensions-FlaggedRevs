@@ -23,7 +23,10 @@ $messages['en'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ * @author SPQRobin
+ */
 $messages['qqq'] = array(
 	'oldreviewedpages' => '{{Flagged Revs}}
 Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
@@ -87,6 +90,25 @@ $messages['ar'] = array(
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+);
+
+/** Asturian (Asturianu)
+ * @author Esbardu
+ */
+$messages['ast'] = array(
+	'oldreviewedpages' => 'Páxines revisaes caducaes',
+	'oldreviewedpages-legend' => 'Llistar páxines revisaes con revisiones non revisaes',
+	'oldreviewedpages-list' => 'Esta páxina llista páxines revisaes que tienen ediciones pendientes.',
+	'oldreviewedpages-none' => 'Nun hai páxines anguaño que concuayen con estos criterios',
+	'oldreviewedpages-stable' => 'vista',
+	'oldreviewedpages-quality' => 'de calidá',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|hores}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|díes}})',
+	'oldreviewedpages-recent' => "(menos d'una hora)",
+	'oldreviewed-category' => 'Categoría:',
+	'oldreviewed-diff' => 'revisar',
+	'oldreviewedpages-unwatched' => '(non vixilada)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuariu|usuarios}} vixilando)',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
