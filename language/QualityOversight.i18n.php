@@ -105,6 +105,15 @@ $messages['hi'] = array(
 	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।',
 );
 
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'qualityoversight' => 'Minőségellenőrzés',
+	'qualityoversight-list' => 'Ez a lap a lapváltozatok legutóbbi értékeléseit listázza.',
+	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

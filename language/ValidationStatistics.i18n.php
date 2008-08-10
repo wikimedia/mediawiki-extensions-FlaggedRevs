@@ -45,6 +45,14 @@ $messages['ar'] = array(
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'validationstatistics-ns' => 'Именно пространство',
+	'validationstatistics-total' => 'Страници',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
@@ -57,6 +65,7 @@ $messages['de'] = array(
 	'validationstatistics-stable' => 'Gesichtet',
 	'validationstatistics-latest' => 'Zuletzt gesichtet',
 	'validationstatistics-synced' => 'Synced/Gesichtet',
+	'validationstatistics-old' => 'veraltet',
 );
 
 /** Esperanto (Esperanto)
@@ -94,13 +103,20 @@ $messages['fr'] = array(
 );
 
 /** Hungarian (Magyar)
+ * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
+	'validationstatistics' => 'Ellenőrzési statisztikák',
+	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''{{PLURAL:$1|egy|$1}}''' [[{{MediaWiki:Validationpage}}|járőrjoggal]], valamint '''{{PLURAL:$2|egy|$2}}''' [[{{MediaWiki:Validationpage}}|lektorjoggal]] rendelkező szerkesztője van.",
 	'validationstatistics-table' => "Statisztika valamennyi névtérre, az átirányítások kivételével
 
 '''Megjegyzés:''' ezek az adatok csak néhány óránként frissülnek.",
 	'validationstatistics-ns' => 'Névtér',
+	'validationstatistics-total' => 'Oldalak',
+	'validationstatistics-stable' => 'Ellenőrzött',
+	'validationstatistics-latest' => 'Legutóbb ellenőrzött',
+	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 );
 
 /** Italian (Italiano)
@@ -116,6 +132,15 @@ $messages['it'] = array(
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
 	'validationstatistics-latest' => 'Ultime revisionate',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'validationstatistics' => 'Statistike vun de Validaiounen',
+	'validationstatistics-ns' => 'Nummraum',
+	'validationstatistics-total' => 'Säiten',
 );
 
 /** Malay (Bahasa Melayu)
@@ -195,5 +220,6 @@ $messages['sv'] = array(
 	'validationstatistics-stable' => 'Granskad',
 	'validationstatistics-latest' => 'Senast granskad',
 	'validationstatistics-synced' => 'Synkad/Granskad',
+	'validationstatistics-old' => 'Föråldrad',
 );
 
