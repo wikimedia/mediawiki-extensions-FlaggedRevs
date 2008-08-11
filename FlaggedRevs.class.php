@@ -2040,6 +2040,8 @@ EOT;
 		# Add editor rights
 		$newGroups = $groups ;
 		array_push( $newGroups, 'editor' );
+
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Lets NOT spam RC, set $RC to false
 		$log = new LogPage( 'rights', false );
 		$log->addEntry( 'rights', $user->getUserPage(), wfMsg('rights-editor-autosum'),
