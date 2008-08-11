@@ -20,6 +20,7 @@ class RevisionReview extends UnlistedSpecialPage
 	var $fileVersion = '';
 	var $validatedParams = '';
 	var $notes = '';
+	var $comment = '';
 	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
