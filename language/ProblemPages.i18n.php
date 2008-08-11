@@ -98,13 +98,12 @@ $messages['gl'] = array(
 );
 
 /** Hungarian (Magyar)
- * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
 	'problempages' => 'Problémás lapok',
 	'problempages-leg' => 'Alacsony értékelésű lapok keresése',
-	'problempages-list' => 'Alább a lapok olvasói értékelések szerint sorba tett listája látható.',
+	'problempages-list' => 'Olvasói értékelések szerint sorba tett lapok.',
 	'problempages-none' => 'Egyetlen lap sem található a listában.',
 	'problempages-graphs' => 'értékelési adatok',
 );

@@ -46,7 +46,7 @@ if( !defined('FR_TEXT') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name'           => 'Flagged Revisions',
 	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version'        => '1.095',
+	'version'        => '1.094',
 	'svn-date'       => '$LastChangedDate$',
 	'svn-revision'   => '$LastChangedRevision$',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
@@ -88,10 +88,6 @@ $wgFlaggedRevsExceptions = array( 'user' );
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevsComments = false;
-
-# Can users make short notes when sighting?
-$wgFlaggedRevsCommentsShort = false;
-
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
 # Auto-review edits directly to the stable version by reviewers?
@@ -258,7 +254,7 @@ $wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 37;
+$wgFlaggedRevStyleVersion = 36;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

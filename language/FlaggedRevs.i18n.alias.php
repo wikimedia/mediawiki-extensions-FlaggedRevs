@@ -75,7 +75,7 @@ $aliases['bcc'] = array(
 );
 
 /** German (Deutsch)
- * @author Raimond Spekking
+ * @author Raymond
  */
 $aliases['de'] = array(
 	'QualityOversight' => array( 'Geprüfte Seiten' ),

@@ -659,7 +659,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->getRevisionId() ) {
+		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->mRevisionId ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -680,7 +680,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addFeedbackForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->getRevisionId() ) {
+		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->mRevisionId ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -742,8 +742,9 @@ class FlaggedArticle extends Article {
 			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
-			$wgOut->prependHTML( "<span class='plainlinks'>" . 
-				wfMsgExt( 'revreview-visibility', array('parseinline'), $title->getPrefixedText() ) . "</span>" );
+			$wgOut->mBodytext = "<span class='plainlinks'>" .
+				wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
+				"</span>" . $wgOut->mBodytext;
 		}
 		return true;
 	}
@@ -752,7 +753,7 @@ class FlaggedArticle extends Article {
 	 * Add stable version tabs. Rename some of the others if necessary.
 	 */
 	public function setActionTabs( $skin, &$contentActions ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
+		global $wgRequest, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
 		if( !isset($skin->mTitle) )
 			return true;
@@ -906,6 +907,7 @@ class FlaggedArticle extends Article {
 		if( !FlaggedRevs::allowComments() || !$frev || !$frev->getComment() ) {
 			return '';
 		}
+
    		$notes = "<br/><div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
@@ -1294,9 +1296,9 @@ class FlaggedArticle extends Article {
 	 * @param bool $top, should this form always go on top?
 	 */
 	public function addQuickReview( &$data, $top = false ) {
-		global $wgOut, $wgUser, $wgRequest;
+		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOverride;
 		# Revision being displayed
-		$id = $wgOut->getRevisionId();
+		$id = $wgOut->mRevisionId;
 		# Must be a valid non-printable output
 		if( !$id || $wgOut->isPrintable() ) {
 			return false;
@@ -1330,7 +1332,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
-		if( FlaggedRevs::showStableByDefault() ) {
+		if( $wgFlaggedRevsOverride ) {
 			$form .= wfMsgExt( 'revreview-text', array('parse') );
 		} else {
 			$form .= wfMsgExt( 'revreview-text2', array('parse') );
@@ -1346,26 +1348,16 @@ class FlaggedArticle extends Article {
 			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
 			$toggle = array();
 		}
-
-		# Number of different flag types
-		$types = count( FlaggedRevs::getDimensions() );
-
-		# Sum of elements of all flag types
-		$size = count( FlaggedRevs::getDimensions(),1 ) - $types;
-		$isMinimalUI = false;
+		$size = count(FlaggedRevs::getDimensions(),1) - count(FlaggedRevs::getDimensions());
 
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
 		# Loop through all different flag types
 		foreach( FlaggedRevs::getDimensions() as $quality => $levels ) {
 			$label = array();
-			if( isset($flags[$quality]) ) {
-				$selected = $flags[$quality];
-			} else {
-				$selected = 0;
-			}
+			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 1;
 			if( $disabled ) {
 				$label[$selected] = $levels[$selected];
-			# Collect all quality levels of a flag current user can set
+			# else collect all quality levels of a flag current user can set
 			} else {
 				foreach( $levels as $i => $name ) {
 					if ( !RevisionReview::userCan($quality, $i) ) {
@@ -1377,7 +1369,8 @@ class FlaggedArticle extends Article {
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
 			$form .= "<b>" . FlaggedRevs::getTagMsg($quality) . ":</b>&nbsp;";
-			# If the sum of qualities of all flags is above 6, use drop down boxes (for usability)
+			# If the sum of qualities of all flags is above 6, use drop down boxes
+			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
 				$attribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::openElement( 'select', $attribs );
@@ -1393,28 +1386,14 @@ class FlaggedArticle extends Article {
 					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i, "wp$quality".$i,
 						($i == $selected), $attribs ) . "\n";
 				}
-			# Make checkboxes in case there is:
-			# * more than one flag type
-			#   * and for current flag type only two qualities are available for current user
-			#   * or disabled fields in case we are below the magic 6
-			} else if ($types > 1 # there's just one flag type
-				|| (FlaggedRevs::allowComments() && $wgUser->isAllowed ('validate')) # notes are on
-				|| FlaggedRevs::allowShortComments() ) { # short comments are on
-
-				$i = $disabled ? $selected : 1;
+			# Otherwise make checkboxes (two qualities available for current user
+			# and disabled fields in case we are below the magic 6)
+			} else {
+				$i = ( $disabled ) ? $selected : 1;
 				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality".$i,
 					($selected == $i), $attribs ) . "\n";
-			# Use the minimalistic UI.
-			} else {
-				$form .= Xml::openElement ('span', array('id' => "wp$quality" . $selected,
-					'class' => "fr-rating-option-$selected") );
-				$form .= wfMsg ("revreview-$label[$selected]");
-				$form .= Xml::closeElement ('span');
-
-				$isMinimalUI = true;
 			}
-				
 			$form .= Xml::closeElement( 'span' );
 		}
 		# If there were none, make one checkbox to approve/unapprove
@@ -1455,24 +1434,11 @@ class FlaggedArticle extends Article {
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed
-		if (!$disabled && FlaggedRevs::allowShortComments()) {
+		if( !$disabled ) {
 			$form .= "<span id='mw-commentbox' style='clear:both'>" . Xml::inputLabel( wfMsg('revreview-log'), 'wpReason',
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-
-		if ($isMinimalUI && $selected == 1) {
-			$qualities = FlaggedRevs::getDimensions();
-			$form .= Xml::hidden ("wp" . key ($qualities), '0');
-			$submitTitle = wfMsg ('revreview-submitbutton-unset-flag', wfMsg ("revreview-{$levels[0]}"));
-		} elseif ($isMinimalUI && $selected == 0) {
-                	$qualities = FlaggedRevs::getDimensions();
-			$form .= Xml::hidden ("wp" . key ($qualities), '1');
-			$submitTitle = wfMsg ('revreview-submitbutton-set-flag', wfMsg ("revreview-{$levels[1]}"));
-		} else {
-			$submitTitle = wfMsg ('revreview-submit');
-		}
-
-		$form .= Xml::submitButton( $submitTitle, array('id' => 'submitreview',
+		$form .= Xml::submitButton( wfMsg('revreview-submit'), array('id' => 'submitreview',
 			'accesskey' => wfMsg('revreview-ak-review'), 'style' => 'margin: .5em 0em 0em 0em;',
 			'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']') + $toggle
 		);
@@ -1500,7 +1466,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'form' );
 
 		if( $top ) {
-			$wgOut->prependHTML( $form );
+			$wgOut->mBodytext = $form . $wgOut->mBodytext;
 		} else {
 			$data .= $form;
 		}
@@ -1511,14 +1477,15 @@ class FlaggedArticle extends Article {
 	 * Adds a brief feedback form to a page.
 	 * @param OutputPage $out
 	 * @param Title $title
+	 * @param bool $top, should this form always go on top?
 	 */
-	public function addQuickFeedback( &$data ) {
+	public function addQuickFeedback( &$data, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsFeedbackTags;
 		# Are there any reader input tags?
 		if( empty($wgFlaggedRevsFeedbackTags) ) {
 			return false;
 		}
-		$id = $wgOut->getRevisionId(); // Revision being displayed
+		$id = $wgOut->mRevisionId; // Revision being displayed
 		if( $id != $this->parent->getLatest() ) {
 			return false;
 		}
@@ -1558,7 +1525,11 @@ class FlaggedArticle extends Article {
 		$form .= Xml::input( 'commentary', 12, '', array('style' => 'display:none;') ) . "\n";
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
-		$data .= $form;
+		if( $top ) {
+			$wgOut->mBodytext = $form . $wgOut->mBodytext;
+		} else {
+			$data .= $form;
+		}
 		return true;
 	}
 

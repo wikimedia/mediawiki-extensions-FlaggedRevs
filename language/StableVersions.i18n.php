@@ -16,9 +16,7 @@ $messages['en'] = array(
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
 );
 
-/** Message documentation (Message documentation)
- * @author Jon Harald Søby
- */
+/** Message documentation (Message documentation) */
 $messages['qqq'] = array(
 	'stableversions' => '{{Flagged Revs}}',
 	'stableversions-leg1' => '{{Flagged Revs}}

@@ -19,9 +19,7 @@ $messages['en'] = array(
 	'unreviewed-none' => 'There are currently no pages meeting these criteria',
 );
 
-/** Message documentation (Message documentation)
- * @author Jon Harald Søby
- */
+/** Message documentation (Message documentation) */
 $messages['qqq'] = array(
 	'right-unreviewedpages' => '{{Flagged Revs}}',
 	'unreviewedpages' => '{{Flagged Revs}}',
@@ -371,8 +369,6 @@ $messages['hu'] = array(
 	'unreviewed-legend' => 'Nem ellenőrzött tartalmú lapok listája',
 	'unreviewed-category' => 'Kategória:',
 	'unreviewed-diff' => 'Eltérések',
-	'unreviewed-unwatched' => '(nem figyelt)',
-	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} szerkesztő figyeli)',
 	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 );

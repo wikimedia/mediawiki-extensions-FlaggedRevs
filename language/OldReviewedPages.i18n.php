@@ -23,10 +23,7 @@ $messages['en'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
 );
 
-/** Message documentation (Message documentation)
- * @author Jon Harald Søby
- * @author SPQRobin
- */
+/** Message documentation (Message documentation) */
 $messages['qqq'] = array(
 	'oldreviewedpages' => '{{Flagged Revs}}
 Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
@@ -92,25 +89,6 @@ $messages['ar'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );
 
-/** Asturian (Asturianu)
- * @author Esbardu
- */
-$messages['ast'] = array(
-	'oldreviewedpages' => 'Páxines revisaes caducaes',
-	'oldreviewedpages-legend' => 'Llistar páxines revisaes con revisiones non revisaes',
-	'oldreviewedpages-list' => 'Esta páxina llista páxines revisaes que tienen ediciones pendientes.',
-	'oldreviewedpages-none' => 'Nun hai páxines anguaño que concuayen con estos criterios',
-	'oldreviewedpages-stable' => 'vista',
-	'oldreviewedpages-quality' => 'de calidá',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|hores}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|díes}})',
-	'oldreviewedpages-recent' => "(menos d'una hora)",
-	'oldreviewed-category' => 'Categoría:',
-	'oldreviewed-diff' => 'revisar',
-	'oldreviewedpages-unwatched' => '(non vixilada)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuariu|usuarios}} vixilando)',
-);
-
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -142,7 +120,6 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'oldreviewedpages-none' => 'В момента не съществуватр страници, които да отговарят на тези критерии',
-	'oldreviewedpages-quality' => 'качество',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дни}})',
 	'oldreviewedpages-recent' => '(по-малко от 1 час)',
@@ -329,19 +306,11 @@ $messages['hi'] = array(
  * @author Dani
  */
 $messages['hu'] = array(
-	'oldreviewedpages' => 'Elavult ellenőrzött lapok',
-	'oldreviewedpages-legend' => 'Ellenőrizetlen változatokkal rendelkező lapok listája',
-	'oldreviewedpages-list' => 'Ezen a lapon azon ellenőrzött lapok listája látható, melyek ellenőrizetlen szerkesztésekkel rendelkeznek.',
-	'oldreviewedpages-none' => 'Jelenleg nincs a feltételeknek megfelelő lap.',
-	'oldreviewedpages-stable' => 'megtekintett',
-	'oldreviewedpages-quality' => 'ellenőrzött',
-	'oldreviewedpages-hours' => '({{PLURAL:$1|egy|$1}} órája)',
-	'oldreviewedpages-days' => '({{PLURAL:$1|egy|$1}} napja)',
+	'oldreviewedpages-hours' => '({{PLURAL:$1|Egy|$1}} órája)',
+	'oldreviewedpages-days' => '({{PLURAL:$1|Egy|$1}} napja)',
 	'oldreviewedpages-recent' => '(kevesebb, mint egy órája)',
 	'oldreviewed-category' => 'Kategória:',
-	'oldreviewed-diff' => 'ellenőrzés',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
 );
 
 /** Indonesian (Bahasa Indonesia)

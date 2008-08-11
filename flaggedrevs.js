@@ -90,9 +90,10 @@ function updateRatingForm() {
 	var submit = document.getElementById('submitreview');
 	submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	var comment = document.getElementById('wpReason');
+	comment.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	// Clear comment box data if not shown
+	var comment = document.getElementById('wpReason');
 	if( comment ) {
-		comment.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 		comment.value = showComment ? comment.value : '';
 	}
 	// Clear note box data if not shown

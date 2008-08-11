@@ -41,10 +41,7 @@ No configuration is possible.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
 );
 
-/** Message documentation (Message documentation)
- * @author Jon Harald Søby
- * @author SPQRobin
- */
+/** Message documentation (Message documentation) */
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
 
@@ -807,7 +804,6 @@ $messages['hu'] = array(
 	'stabilization-select' => 'Hogyan legyen az elfogadott változat kiválasztva',
 	'stabilization-select1' => 'A legutóbbi minőségi változat; ha nincs, akkor a legutóbbi áttekintett változat',
 	'stabilization-select2' => 'A legutóbbi áttekintett változat',
-	'stabilization-select3' => 'A legutolsó eredeti változat; ha nincs, akkor a legutolsó ellenőrzött vagy megtekintett',
 	'stabilization-def' => 'Az alapértelmezettként megjelenített változat',
 	'stabilization-def1' => 'Az elfogadott változat; ha nincs, akkor a jelenlegi',
 	'stabilization-def2' => 'A jelenlegi változat',
@@ -819,7 +815,6 @@ $messages['hu'] = array(
 	'stabilization-sel-short' => 'Precendencia',
 	'stabilization-sel-short-0' => 'Minőség',
 	'stabilization-sel-short-1' => 'Semmi',
-	'stabilization-sel-short-2' => 'Eredeti',
 	'stabilization-def-short' => 'Alapértelmezett',
 	'stabilization-def-short-0' => 'Jelenlegi',
 	'stabilization-def-short-1' => 'Elfogadott',
