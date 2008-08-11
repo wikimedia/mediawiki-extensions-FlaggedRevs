@@ -659,7 +659,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->mRevisionId ) {
+		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->getRevisionId() ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -680,7 +680,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addFeedbackForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->mRevisionId ) {
+		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->getRevisionId() ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -742,9 +742,9 @@ class FlaggedArticle extends Article {
 			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
-			$wgOut->mBodytext = "<span class='plainlinks'>" .
+			$wgOut->prependHTML( "<span class='plainlinks'>" .
 				wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
-				"</span>" . $wgOut->mBodytext;
+				"</span>" );
 		}
 		return true;
 	}
@@ -1296,9 +1296,9 @@ class FlaggedArticle extends Article {
 	 * @param bool $top, should this form always go on top?
 	 */
 	public function addQuickReview( &$data, $top = false ) {
-		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgRequest;
 		# Revision being displayed
-		$id = $wgOut->mRevisionId;
+		$id = $wgOut->getRevisionId();
 		# Must be a valid non-printable output
 		if( !$id || $wgOut->isPrintable() ) {
 			return false;
@@ -1332,7 +1332,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
-		if( $wgFlaggedRevsOverride ) {
+		if( FlaggedRevs::showStableByDefault() ) {
 			$form .= wfMsgExt( 'revreview-text', array('parse') );
 		} else {
 			$form .= wfMsgExt( 'revreview-text2', array('parse') );
@@ -1466,7 +1466,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'form' );
 
 		if( $top ) {
-			$wgOut->mBodytext = $form . $wgOut->mBodytext;
+			$wgOut->prependHTML( $form );
 		} else {
 			$data .= $form;
 		}
@@ -1485,7 +1485,7 @@ class FlaggedArticle extends Article {
 		if( empty($wgFlaggedRevsFeedbackTags) ) {
 			return false;
 		}
-		$id = $wgOut->mRevisionId; // Revision being displayed
+		$id = $wgOut->getRevisionId(); // Revision being displayed
 		if( $id != $this->parent->getLatest() ) {
 			return false;
 		}
@@ -1526,7 +1526,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
 		if( $top ) {
-			$wgOut->mBodytext = $form . $wgOut->mBodytext;
+			$wgOut->prependHTML( $form );
 		} else {
 			$data .= $form;
 		}
