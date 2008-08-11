@@ -659,7 +659,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->mRevisionId ) {
+		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->getRevisionId() ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -680,7 +680,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addFeedbackForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->mRevisionId ) {
+		if( !$this->parent->exists() || !$this->isRateable() || !$wgOut->getRevisionId() ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -742,9 +742,8 @@ class FlaggedArticle extends Article {
 			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
-			$wgOut->mBodytext = "<span class='plainlinks'>" .
-				wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
-				"</span>" . $wgOut->mBodytext;
+			$wgOut->prependHTML( "<span class='plainlinks'>" . 
+				wfMsgExt( 'revreview-visibility', array('parseinline'), $title->getPrefixedText() ) . "</span>" );
 		}
 		return true;
 	}
@@ -1297,7 +1296,7 @@ class FlaggedArticle extends Article {
 	public function addQuickReview( &$data, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest;
 		# Revision being displayed
-		$id = $wgOut->mRevisionId;
+		$id = $wgOut->getRevisionId();
 		# Must be a valid non-printable output
 		if( !$id || $wgOut->isPrintable() ) {
 			return false;
@@ -1501,7 +1500,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'form' );
 
 		if( $top ) {
-			$wgOut->mBodytext = $form . $wgOut->mBodytext;
+			$wgOut->prependHTML( $form );
 		} else {
 			$data .= $form;
 		}
@@ -1512,15 +1511,14 @@ class FlaggedArticle extends Article {
 	 * Adds a brief feedback form to a page.
 	 * @param OutputPage $out
 	 * @param Title $title
-	 * @param bool $top, should this form always go on top?
 	 */
-	public function addQuickFeedback( &$data, $top = false ) {
+	public function addQuickFeedback( &$data ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsFeedbackTags;
 		# Are there any reader input tags?
 		if( empty($wgFlaggedRevsFeedbackTags) ) {
 			return false;
 		}
-		$id = $wgOut->mRevisionId; // Revision being displayed
+		$id = $wgOut->getRevisionId(); // Revision being displayed
 		if( $id != $this->parent->getLatest() ) {
 			return false;
 		}
@@ -1560,11 +1558,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::input( 'commentary', 12, '', array('style' => 'display:none;') ) . "\n";
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
-		if( $top ) {
-			$wgOut->mBodytext = $form . $wgOut->mBodytext;
-		} else {
-			$data .= $form;
-		}
+		$data .= $form;
 		return true;
 	}
 
