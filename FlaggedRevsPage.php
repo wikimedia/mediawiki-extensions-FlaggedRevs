@@ -119,11 +119,7 @@ class RevisionReview extends UnlistedSpecialPage
 			return;
 		}
 		# Log comment
-		if (FlaggedRevs::allowShortComments()) {
-			$this->comment = $wgRequest->getText( 'wpReason' );
-		} else {
-			$this->comment = '';
-		}
+		$this->comment = FlaggedRevs::allowShortComments() ? $wgRequest->getText( 'wpReason' ) : '';
 		# Additional notes (displayed at bottom of page)
 		$this->retrieveNotes( $wgRequest->getText('wpNotes') );
 		# Get the revision's current flags, if any
@@ -302,7 +298,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * Show revision review form
 	 */
 	private function showRevision() {
-		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevTags, $wgFlaggedRevValues;
 
 		if( $this->unapprovedTags )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
@@ -328,7 +324,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
 		$form = "<form name='RevisionReview' action='$action' method='post'>";
 		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
-
 		$formradios = array();
 		# Dynamically contruct our radio options
 		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
@@ -338,12 +333,6 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
 		}
-		$hidden = array(
-			Xml::hidden( 'wpEditToken', $wgUser->editToken() ),
-			Xml::hidden( 'target', $this->page->getPrefixedText() ),
-			Xml::hidden( 'oldid', $this->oldid ) 
-		);
-
 		$form .= '</tr><tr>';
 		foreach( $formradios as $set => $ratioset ) {
 			$form .= '<td>';
@@ -361,8 +350,9 @@ class RevisionReview extends UnlistedSpecialPage
 			$form .= '</td><td width=\'20\'></td>';
 		}
 		$form .= '</tr></table></fieldset>';
+
 		# Add box to add live notes to a flagged revision
-		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
+		if( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
 			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>" .
 			htmlspecialchars( $this->notes ) .
@@ -372,15 +362,18 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= '<fieldset><legend>' . wfMsgHtml('revisionreview') . '</legend>';
 		$form .= '<p>'.Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
 		$form .= '<p>'.Xml::submitButton( wfMsg( 'revreview-submit' ) ).'</p>';
-		foreach( $hidden as $item ) {
-			$form .= $item;
-		}
-		# Hack, versioning params
+
+		# Hidden params
+		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
+		$form .= Xml::hidden( 'target', $this->page->getPrefixedText() );
+		$form .= Xml::hidden( 'oldid', $this->oldid );
+		# Versioning params
 		$form .= Xml::hidden( 'templateParams', $this->templateParams ) . "\n";
 		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
 		$form .= Xml::hidden( 'fileVersion', $this->fileVersion ) . "\n";
 		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
+
 		# Special token to discourage fiddling...
 		$checkCode = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
