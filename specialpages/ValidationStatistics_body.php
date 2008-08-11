@@ -8,59 +8,85 @@ wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class ValidationStatistics extends UnlistedSpecialPage
 {
-    function __construct() {
-        SpecialPage::SpecialPage( 'ValidationStatistics' );
-    }
+	function __construct() {
+		SpecialPage::SpecialPage( 'ValidationStatistics' );
+	}
 
-    function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut, $wgContLang, $wgFlaggedRevsNamespaces;
+	function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut, $wgLang, $wgContLang, $wgFlaggedRevsNamespaces;
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->db = wfGetDB( DB_SLAVE );
-		
+
 		$this->maybeUpdate();
-		
+
 		$ec = $this->getEditorCount();
 		$rc = $this->getReviewerCount();
-		
-		$wgOut->addWikiText( wfMsgExt('validationstatistics-users',array('parsemag'),$ec,$rc) );
-		
+
+		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), $wgLang->formatnum( $ec ), $wgLang->formatnum( $rc ) ) );
+
 		if( !$this->readyForQuery() ) {
 			return false;
 		}
-		
+
 		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
-		$wgOut->addHTML( "<table class='wikitable flaggedrevs_stats_table'>\n" );
-		$wgOut->addHTML( "<tr>\n" );
-		$msgs = array("ns","total","stable","latest","synced","old"); // our headings
+		$wgOut->addHTML( Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) ) .
+				"<tr>\n"
+		);
+		// Headings (for a positive grep result):
+		// validationstatistics-ns, validationstatistics-total, validationstatistics-stable,
+		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old
+		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
 		foreach( $msgs as $msg ) {
-			$wgOut->addHTML( "<th>".wfMsg("validationstatistics-$msg")."</th>" );
+			$wgOut->addHTML( Xml::element( 'th', null, wfMsg( "validationstatistics-$msg" ) ) );
 		}
 		$wgOut->addHTML( "</tr>\n" );
-		
+
 		foreach( $wgFlaggedRevsNamespaces as $namespace ) {
 			$row = $this->db->selectRow( 'flaggedrevs_stats', '*', array('namespace' => $namespace) );
 			$NsText = $wgContLang->getFormattedNsText( $row->namespace );
 			$NsText = $NsText ? $NsText : wfMsgHTML('blanknamespace');
-			
-			$percRev = @sprintf( '%4.2f', 100*intval($row->reviewed)/intval($row->total) );
-			$percLatest = @sprintf( '%4.2f', 100*intval($row->synced)/intval($row->total) );
-			$percSynced = @sprintf( '%4.2f', 100*intval($row->synced)/intval($row->reviewed) );
-			$outdated = intval($row->reviewed) - intval($row->synced);
-			$outdated = max( 0, $outdated ); // lag between queries
-			
-			$wgOut->addHTML( "<tr align='center'>" );
-			$wgOut->addHTML( "<td>$NsText</td>" );
-			$wgOut->addHTML( "<td>{$row->total}</td>" );
-			$wgOut->addHTML( "<td>{$row->reviewed} <i>($percRev%)</i></td>" );
-			$wgOut->addHTML( "<td>{$row->synced} <i>($percLatest%)</i></td>" );
-			$wgOut->addHTML( "<td>$percSynced%</td>" );
-			$wgOut->addHTML( "<td>".$outdated."</td>" );
-			$wgOut->addHTML( "</tr>" );
+
+			$percRev = intval( $row->total ) == 0
+				? '-' // devision by zero
+				: $wgLang->formatnum( wfMsg( 'validationstatistics-nbr',
+						sprintf( '%4.2f', 100 * intval( $row->reviewed ) / intval( $row->total ) ) ) );
+			$percLatest = intval( $row->total ) == 0
+				? '-' // devision by zero
+				: $wgLang->formatnum( wfMsg( 'validationstatistics-nbr',
+					sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->total ) ) ) );
+			$percSynced = intval( $row->reviewed ) == 0
+				? '-' // devision by zero
+				: $wgLang->formatnum( wfMsg( 'validationstatistics-nbr',
+					sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->reviewed ) ) ) );
+			$outdated = intval( $row->reviewed ) - intval( $row->synced );
+			$outdated = $wgLang->formatnum( max( 0, $outdated ) ); // lag between queries
+
+			$wgOut->addHTML( "<tr align='center'>
+						<td>
+							$NsText
+						</td>
+						<td>" .
+							$wgLang->formatnum( $row->total ) .
+						"</td>
+						<td>" .
+							$wgLang->formatnum( $row->reviewed ) . $wgContLang->getDirMark() . " <i>($percRev)</i>
+						</td>
+						<td>" .
+							$wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() . " <i>($percLatest)</i>
+						</td>
+						<td>
+							$percSynced
+						</td>
+						<td>
+							$outdated
+						</td>
+					</tr>"
+			);
 		}
-		$wgOut->addHTML( "</table>" );
+		$wgOut->addHTML( Xml::closeElement( 'table' ) );
 	}
-	
+
 	protected function maybeUpdate() {
 		$dbCache = wfGetCache( CACHE_DB );
 		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );

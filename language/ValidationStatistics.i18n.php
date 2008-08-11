@@ -20,6 +20,7 @@ and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|
 	'validationstatistics-latest' => 'Latest reviewed',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
+	'validationstatistics-nbr'    => '$1%', # only translate this message to other languages if you have to change it
 );
 
 /** Message documentation (Message documentation) */
