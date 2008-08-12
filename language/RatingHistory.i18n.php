@@ -22,7 +22,9 @@ $messages['en'] = array(
 	average rating <font color="green">\'\'(green)\'\'</font> are graphed below, by date. The number of reviews is shown in the
 	upper right-hand corner of the graphs; higher values tend to indicated better sample data. The rating values are to be interpreted as follows:
 	
-\'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;'
+\'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;',
+
+	'right-feedback' => 'Use the feedback form to rate a page',
 );
 
 /** Message documentation (Message documentation) */
