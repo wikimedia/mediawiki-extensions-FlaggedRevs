@@ -320,13 +320,14 @@ $messages['hsb'] = array(
 /** Hungarian (Magyar)
  * @author Dani
  * @author KossuthRad
+ * @author Samat
  */
 $messages['hu'] = array(
 	'reviewedpages' => 'Ellenőrzött lapok',
 	'reviewedpages-leg' => 'Valamilyen szinten ellenőrzött lapok',
 	'reviewedpages-list' => 'Az alábbi lapok egy adott szinten ellenőrizve vannak',
 	'reviewedpages-none' => 'A lista nem tartalmaz lapokat',
-	'reviewedpages-lev-0' => 'Áttekintett',
+	'reviewedpages-lev-0' => 'Megtekintett',
 	'reviewedpages-lev-1' => 'Minőségi',
 	'reviewedpages-lev-2' => 'Kiemelt',
 	'reviewedpages-all' => 'Ellenőrzött változatok',

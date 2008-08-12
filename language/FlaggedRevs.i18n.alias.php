@@ -79,12 +79,13 @@ $aliases['bcc'] = array(
  */
 $aliases['de'] = array(
 	'QualityOversight' => array( 'Geprüfte Seiten' ),
-	'UnReviewedPages'  => array( 'Ungesichtete Seiten' ),
+	'UnReviewedPages' => array( 'Ungesichtete Seiten' ),
 	'OldReviewedPages' => array( 'Seiten mit ungesichteten Versionen' ),
-	'ReviewedPages'    => array( 'GesichteteSeiten' ),
-	'StablePages'      => array( 'Markierte Seiten' ),
-	'StableVersions'   => array( 'Markierte Versionen' ),
-	'ProblemPages'     => array( 'Problematische Seiten' ),
+	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
+	'StablePages' => array( 'Markierte Seiten' ),
+	'StableVersions' => array( 'Markierte Versionen' ),
+	'ProblemPages' => array( 'Problematische Seiten' ),
+	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
 /** Esperanto (Esperanto)
@@ -148,6 +149,11 @@ $aliases['hi'] = array(
 	'ReviewedPages'         => array( 'जाँचेहुएपन्ने' ),
 	'StablePages'           => array( 'स्थिरपन्ने' ),
 	'StableVersions'        => array( 'स्थिरअवतरण' ),
+);
+
+/** Croatian (Hrvatski) */
+$aliases['hr'] = array(
+	'StablePages' => array( 'Stabilne_stranice' ),
 );
 
 /** Indonesian (Bahasa Indonesia)

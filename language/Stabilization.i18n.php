@@ -792,21 +792,23 @@ $messages['hsb'] = array(
 /** Hungarian (Magyar)
  * @author Dani
  * @author KossuthRad
+ * @author Samat
  */
 $messages['hu'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Oldal elfogadása',
-	'stabilization-text' => "'''Az alábbi beállítások megváltoztatásával állíthatod be [[:$1|$1]] elfogadott változatát, és annak megjelenítését.'''",
+	'stabilization-text' => "'''Az alábbi beállítások megváltoztatásával állíthatod be, hogy a(z) [[:$1|$1]] melyik változata jelenjen meg.'''",
 	'stabilization-perm' => 'Nincs jogosultságod megváltoztatni az elfogadott változat beállításait.
 [[:$1|$1]] jelenlegi beállításai itt találhatóak:',
 	'stabilization-page' => 'A lap neve:',
 	'stabilization-leg' => 'Lap elfogadott változatának beállítása',
 	'stabilization-select' => 'Hogyan legyen az elfogadott változat kiválasztva',
-	'stabilization-select1' => 'A legutóbbi minőségi változat; ha nincs, akkor a legutóbbi áttekintett változat',
-	'stabilization-select2' => 'A legutóbbi áttekintett változat',
+	'stabilization-select1' => 'A legutolsó ellenőrzött változat; ha nincs, akkor a legutolsó megtekintett változat',
+	'stabilization-select2' => 'A legutolsó áttekintett változat',
+	'stabilization-select3' => 'A legutolsó eredeti változat; ha nincs, akkor a legutolsó ellenőrzött vagy megtekintett',
 	'stabilization-def' => 'Az alapértelmezettként megjelenített változat',
-	'stabilization-def1' => 'Az elfogadott változat; ha nincs, akkor a jelenlegi',
-	'stabilization-def2' => 'A jelenlegi változat',
+	'stabilization-def1' => 'A jelölt változat; ha nincs, akkor a legutolsó',
+	'stabilization-def2' => 'A legutolsó változat',
 	'stabilization-submit' => 'Megerősítés',
 	'stabilization-notexists' => 'Nincs „[[:$1|$1]]” nevű lap, így nem lehet beállítani.',
 	'stabilization-notcontent' => '„[[:$1|$1]]” nem ellenőrizhető, így nem is lehet beállítani.',
@@ -815,6 +817,7 @@ $messages['hu'] = array(
 	'stabilization-sel-short' => 'Precendencia',
 	'stabilization-sel-short-0' => 'Minőség',
 	'stabilization-sel-short-1' => 'Semmi',
+	'stabilization-sel-short-2' => 'Eredeti',
 	'stabilization-def-short' => 'Alapértelmezett',
 	'stabilization-def-short-0' => 'Jelenlegi',
 	'stabilization-def-short-1' => 'Elfogadott',

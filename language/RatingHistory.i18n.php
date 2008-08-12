@@ -51,6 +51,7 @@ $messages['ar'] = array(
 الركن أعلى اليمين للرسومات؛ القيم الأعلى تميل إلى التعبير عن بيانات عينة أفضل. قيم التقييم يتم تفسيرها كالتالي:
 
 '''[0]''' - فقير؛ '''[1]''' - منخفض؛ '''[2]''' - معقول؛ '''[3]''' - مرتفع؛ '''[4]''' - ممتاز؛",
+	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -82,9 +83,10 @@ $messages['de'] = array(
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blue)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(green)''</font> werden nachfolgend nach Datum sortiert angezeigt. Die Anzahl der Seitenbewertungen wird in der rechten oberen Ecke der Grafik angezeigt; höhere Werte bedeuten eine bessere Stichprobe. Die Bewertungszahlen bedeuten:
+	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Die Anzahl der Seitenbewertungen wird in der rechten oberen Ecke der Grafik angezeigt; höhere Werte bedeuten eine bessere Stichprobe. Die Bewertungszahlen bedeuten:
 	
 '''[0]''' - Mangelhaft; '''[1]''' - Ausreichend; '''[2]''' - Befriedigend; '''[3]''' - Gut; '''[4]''' - Sehr gut;",
+	'right-feedback' => 'Bewerten einer Seite',
 );
 
 /** Esperanto (Esperanto)
@@ -125,6 +127,7 @@ $messages['fr'] = array(
 	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés ci-dessous, par date. Le nombre de relectures est affichée dans le coin situé en haut à droite du graphique ; les valeurs les plus élevées tendent à indiquer plutôt des données simples. les valeurs de notations doivent être interprétées comme suit :
 
 '''[0]''' - Mauvais ; '''[1]''' - Médiocre ; '''[2]''' - Moyen ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
+	'right-feedback' => 'Utiliser le formulaire de soumission pour noter une page',
 );
 
 /** Galician (Galego)
@@ -146,19 +149,21 @@ recanto superior dereito das gráficas; os valores máis altos tratan de indicar
 );
 
 /** Hungarian (Magyar)
+ * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
-	'ratinghistory-text' => "'''A [[:$1|$1]] lap értékelési adatai:'''",
+	'ratinghistory' => 'Értékelési történet',
+	'ratinghistory-text' => "'''A(z) [[:$1|$1]] lap értékelési adatai:'''",
 	'ratinghistory-leg' => 'Értékelési előzmények adatai',
 	'ratinghistory-tab' => 'értékelés',
-	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Köszönjük, hogy időt szánt az oldal értékelésére!</font>'''''",
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Köszönjük, hogy időt szántál az oldal értékelésére!</font>'''''",
 	'ratinghistory-period' => 'Időszak:',
-	'ratinghistory-month' => '1 hónapra',
-	'ratinghistory-year' => '1 évre',
-	'ratinghistory-3years' => '3 évre',
-	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég olvasói visszajelzés a grafikonok elkészítéséhez.',
-	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld)''</font> ábrája látható, dátum szerint. Az értékelés értékei a jobb felső sarokban láthatóak: a nagyobb érték tartozik a jobb minőséghez. Az egyes értékek magyarázata:
+	'ratinghistory-month' => '1 hónap',
+	'ratinghistory-year' => '1 év',
+	'ratinghistory-3years' => '3 év',
+	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
+	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld színneé)''</font> ábrája látható, dátum szerint. Az összes értékelés száma a jobb felső sarokban látható. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
 
 '''[0]''' - Rossz; '''[1]''' - Gyenge; '''[2]''' - Közepes; '''[3]''' - Jó; '''[4]''' - Kitűnő;",
 );
@@ -251,6 +256,7 @@ Hogere waardes betekenen in het algemeen een hogere betrouwbaarheid.
 De waarderingen dienen als volgt gelezen te worden:
 
 '''[0]''' - Slecht; '''[1]''' - Laag; '''[2]''' - Redelijk; '''[3]''' - Hoog; '''[4]''' - Uitstekend;",
+	'right-feedback' => 'Het waarderingsformulier gebruiken om een pagina te waarderen',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -268,6 +274,7 @@ $messages['no'] = array(
 	'ratinghistory-3years' => 'siste tre år',
 	'ratinghistory-none' => 'Det er ikke nok leservurderinger til å vise grafer ennå.',
 	'ratinghistory-legend' => "'''[0]''' &ndash; Veldig dårlig; '''[1]''' &ndash; Dårlig; '''[2]''' &ndash; OK; '''[3]''' &ndash; Bra; '''[4]''' &ndash; Veldig bra;",
+	'right-feedback' => 'Bruke tilbakemeldingsskjemaet for å vurdere en side',
 );
 
 /** Occitan (Occitan)

@@ -23,10 +23,14 @@ and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|
 	'validationstatistics-nbr'    => '$1%', # only translate this message to other languages if you have to change it
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ * @author Raymond
+ */
 $messages['qqq'] = array(
 	'validationstatistics-ns' => '{{Identical|Namespace}}',
 	'validationstatistics-total' => '{{Identical|Pages}}',
+	'validationstatistics-nbr' => 'Used for the percent numbers in the table of [http://en.wikinews.org/wiki/Special:ValidationStatistics Special:ValidationStatistics]',
 );
 
 /** Arabic (العربية)
@@ -44,20 +48,23 @@ $messages['ar'] = array(
 	'validationstatistics-stable' => 'مراجع',
 	'validationstatistics-latest' => 'مراجع أخيرا',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
+	'validationstatistics-old' => 'قديمة',
 );
 
 /** German (Deutsch) */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
-	'validationstatistics-users' => "'''{{SITENAME}}''' hat '''$1''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]] und '''$2''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].",
+	'validationstatistics-users' => "{{SITENAME}} hat '''$1''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]] und '''$2''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]].",
 	'validationstatistics-table' => "Statistiken für jeden Namensraum, ausgenommen sind Weiterleitungen.
 
 '''Bitte beachten:''' Die folgenden Daten werden jeweils für mehrere Stunden zwischengespeichert und sind daher nicht immer aktuell.",
 	'validationstatistics-ns' => 'Namensraum',
-	'validationstatistics-total' => 'Seiten',
-	'validationstatistics-stable' => 'Gesichtet',
-	'validationstatistics-latest' => 'Zuletzt gesichtet',
-	'validationstatistics-synced' => 'Synced/Gesichtet',
+	'validationstatistics-total' => 'Seiten gesamt',
+	'validationstatistics-stable' => 'Mindestens eine Version gesichtet',
+	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version gesichtet sind',
+	'validationstatistics-synced' => 'Prozentsatz Seiten, die in der aktuellen Version gesichtet sind',
+	'validationstatistics-old' => 'Seiten mit ungesichteten Versionen',
+	'validationstatistics-nbr' => '$1 %',
 );
 
 /** Esperanto (Esperanto)
@@ -92,16 +99,25 @@ $messages['fr'] = array(
 	'validationstatistics-stable' => 'Relu',
 	'validationstatistics-latest' => 'Relu en tout dernier lieu',
 	'validationstatistics-synced' => 'Synchronisé/Relu',
+	'validationstatistics-old' => 'Désuet',
 );
 
 /** Hungarian (Magyar)
+ * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
+	'validationstatistics' => 'Ellenőrzési statisztikák',
+	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''{{PLURAL:$1|egy|$1}}''' [[{{MediaWiki:Validationpage}}|járőrjoggal]], valamint '''{{PLURAL:$2|egy|$2}}''' [[{{MediaWiki:Validationpage}}|lektorjoggal]] rendelkező szerkesztője van.",
 	'validationstatistics-table' => "Statisztika valamennyi névtérre, az átirányítások kivételével
 
 '''Megjegyzés:''' ezek az adatok csak néhány óránként frissülnek.",
 	'validationstatistics-ns' => 'Névtér',
+	'validationstatistics-total' => 'Oldalak',
+	'validationstatistics-stable' => 'Ellenőrzött',
+	'validationstatistics-latest' => 'Legutóbb ellenőrzött',
+	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
+	'validationstatistics-old' => 'Elavult',
 );
 
 /** Italian (Italiano)
@@ -148,6 +164,7 @@ $messages['nl'] = array(
 	'validationstatistics-stable' => 'Eindredactie afgerond',
 	'validationstatistics-latest' => 'Meest recente eindredacties',
 	'validationstatistics-synced' => 'Gesynchroniseerd/Eindredactie',
+	'validationstatistics-old' => 'Verouderd',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -164,6 +181,7 @@ $messages['no'] = array(
 	'validationstatistics-stable' => 'Anmeldt',
 	'validationstatistics-latest' => 'Sist anmeldt',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
+	'validationstatistics-old' => 'Foreldet',
 );
 
 /** Slovak (Slovenčina)
@@ -196,5 +214,6 @@ $messages['sv'] = array(
 	'validationstatistics-stable' => 'Granskad',
 	'validationstatistics-latest' => 'Senast granskad',
 	'validationstatistics-synced' => 'Synkad/Granskad',
+	'validationstatistics-old' => 'Föråldrad',
 );
 
