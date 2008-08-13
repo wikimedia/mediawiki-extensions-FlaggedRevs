@@ -128,7 +128,7 @@ $wgUseCurrentImages = true;
 # over other reviewed revisions
 $wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
 # How high can we rate these revisions?
-$wgFlaggedRevValues = 4;
+$wgFlaggedRevValues = 3;
 # A revision with all tags rated at least to this level is considered "pristine"/"featured"
 $wgFlaggedRevPristine = 4;
 # Who can set what flags to what level? (use -1 or 0 for not at all)
