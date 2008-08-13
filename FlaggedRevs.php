@@ -59,7 +59,7 @@ $wgExtensionCredits['specialpage'][] = array(
 
 # This will only distinguish "sigted", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
-$wgSimpleFlaggedRevsUI = false;
+$wgSimpleFlaggedRevsUI = true;
 # Add stable/draft revision tabs. May be redundant due to the tags.
 # If you have an open wiki, with the simple UI, you may want to enable these.
 $wgFlaggedRevTabs = true;
@@ -67,8 +67,8 @@ $wgFlaggedRevTabs = true;
 $wgFlaggedRevsLowProfile = true;
 
 # Allowed namespaces of reviewable pages
-$wgFlaggedRevsNamespaces = array( NS_MAIN );
-# Patrollable namespaces
+$wgFlaggedRevsNamespaces = array( NS_MAIN, NS_IMAGE, NS_TEMPLATE );
+# Patrollable namespaces (overridden by reviewable namespaces)
 $wgFlaggedRevsPatrolNamespaces = array( NS_CATEGORY, NS_IMAGE, NS_TEMPLATE );
 
 # Pages exempt from reviewing
@@ -105,7 +105,7 @@ $wgFlaggedRevsAutoReviewNew = true;
 # fr_text column will not be used, which may reduce performance. It will
 # still be populated however, so that these settings can be retroactively
 # changed.
-$wgUseStableTemplates = false;
+$wgUseStableTemplates = true;
 # We may have templates that do not have stable version. Given situational
 # inclusion of templates (such as parser functions that select template
 # X or Y depending), there may also be no revision ID for each template
@@ -118,7 +118,7 @@ $wgUseStableTemplates = false;
 $wgUseCurrentTemplates = true;
 
 # Similar to above...
-$wgUseStableImages = false;
+$wgUseStableImages = true;
 $wgUseCurrentImages = true;
 
 # When setting up new dimensions or levels, you will need to add some
