@@ -1651,6 +1651,9 @@ EOT;
 			return true;
 		}
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+		if( !$flaggedArticle->showStableByDefault() ) {
+			return true;
+		}
 		$frev = $flaggedArticle->getStableRev();
 		if( $frev ) {
 			# Allow for only editors/reviewers to move this
