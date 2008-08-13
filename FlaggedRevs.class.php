@@ -1654,8 +1654,7 @@ EOT;
 		$frev = $flaggedArticle->getStableRev();
 		if( $frev ) {
 			# Allow for only editors/reviewers to move this
-			$right = $frev->getQuality() ? 'validate' : 'review';
-			if( !$user->isAllowed($right) && !$user->isAllowed('movestable') ) {
+			if( !$user->isAllowed('review') && !$user->isAllowed('movestable') ) {
 				$result = false;
 				return false;
 			}
