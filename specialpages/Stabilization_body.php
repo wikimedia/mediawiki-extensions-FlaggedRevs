@@ -104,65 +104,68 @@ class Stabilization extends UnlistedSpecialPage
 		}
 
 		$special = SpecialPage::getTitleFor( 'Stabilization' );
-		$form .= Xml::openElement( 'form', array( 'name' => 'stabilization', 'action' => $special->getLocalUrl( ), 'method' => 'post' ) );
+		$form .= Xml::openElement( 'form', array( 'name' => 'stabilization', 'action' => $special->getLocalUrl( ), 'method' => 'post' ) ).
+			Xml::fieldset( wfMsg( 'stabilization-def' ), false ) . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-def1' ), 'mwStableconfig-override', 1, 'default-stable', 1 == $this->override, $off ) . '<br />' . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-def2' ), 'mwStableconfig-override', 0, 'default-current', 0 == $this->override, $off ) . "\n" .
+			Xml::closeElement( 'fieldset' ) .
 
-		$form .= "<fieldset><legend>".wfMsg('stabilization-def')."</legend>";
-		$form .= "<table><tr>";
-		$form .= "<td>".Xml::radio( 'mwStableconfig-override', 1, (1==$this->override), array('id' => 'default-stable')+$off)."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-def1'), 'default-stable' )."</td>";
-		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'mwStableconfig-override', 0, (0==$this->override), array('id' => 'default-current')+$off)."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-def2'), 'default-current' )."</td>";
-		$form .= "</tr></table></fieldset>";
-
-		$form .= "<fieldset><legend>".wfMsg('stabilization-select')."</legend>";
-		$form .= "<table><tr>";
-		/*
-		$form .= "<td>".Xml::radio( 'mwStableconfig-select', FLAGGED_VIS_PRISTINE, 
-			(FLAGGED_VIS_PRISTINE==$this->select), array('id' => 'stable-select3')+$off )."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-select3'), 'stable-select3' )."</td>";
-		$form .= "</tr><tr>";
-		*/
-		$form .= "<td>".Xml::radio( 'mwStableconfig-select', FLAGGED_VIS_NORMAL, 
-			(FLAGGED_VIS_NORMAL==$this->select), array('id' => 'stable-select1')+$off )."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-select1'), 'stable-select1' )."</td>";
-		$form .= "</tr><tr>";
-		$form .= "<td>".Xml::radio( 'mwStableconfig-select', FLAGGED_VIS_LATEST, 
-			(FLAGGED_VIS_LATEST==$this->select), array('id' => 'stable-select2')+$off )."</td>";
-		$form .= "<td>".Xml::label( wfMsg('stabilization-select2'), 'stable-select2' )."</td>";
-		$form .= "</tr></table></fieldset>";
+			Xml::fieldset( wfMsg( 'stabilization-select' ), false ) .
+			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'mwStableconfig-select', FLAGGED_VIS_NORMAL, 'stable-select1', FLAGGED_VIS_NORMAL == $this->select, $off ) . '<br />' . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'mwStableconfig-select', FLAGGED_VIS_LATEST, 'stable-select2', FLAGGED_VIS_LATEST == $this->select, $off ) . '<br />' . "\n" .
+			// Xml::radioLabel( wfMsg( 'stabilization-select3' ), 'mwStableconfig-select', FLAGGED_VIS_PRISTINE, 'stable-select3', FLAGGED_VIS_PRISTINE == $this->select, $off ) .
+			Xml::closeElement( 'fieldset' );
 
 		if( $this->isAllowed ) {
-			$form .= "<fieldset><legend>".wfMsgHtml('stabilization-leg')."</legend>";
-			$form .= '<table>';
-			$form .= '<tr><td>'.Xml::label( wfMsg('stabilization-comment'), 'wpReason' ).'</td>';
-			$form .= '<td>'.Xml::input( 'wpReason', 60, $this->comment, array('id' => 'wpReason') )."</td></tr>";
+			$form .= Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
+				Xml::openElement( 'table', array( 'class' => 'mw-fr-stabilization-leg' ) ) .
+				'<tr>
+					<td class="mw-label">' .
+						Xml::label( wfMsg( 'stabilization-comment' ), 'wpReason' ) .
+					'</td>
+					<td class="mw-input">' .
+						Xml::input( 'wpReason', 60, $this->comment, array( 'id' => 'wpReason' ) ) .
+					'</td>
+				</tr>';
 		} else {
-			$form .= '<table>';
+			$form .= Xml::openElement( 'table', array( 'class' => 'mw-fr-stabilization' ) );
 		}
-		$form .= '<tr>';
-		$form .= '<td><label for="expires">' . wfMsgExt( 'stabilization-expiry', array( 'parseinline' ) ) . '</label></td>';
-		$form .= '<td>' . Xml::input( 'mwStableconfig-expiry', 60, $this->expiry, array('id' => 'expires')+$off ) . '</td>';
-		$form .= '</tr>';
-		$form .= '</table>';
+
+		$form .= '<tr>
+				<td class="mw-label">' .
+					Xml::tags( 'label', array( 'for' => 'expires' ), wfMsgExt( 'stabilization-expiry', array( 'parseinline' ) ) ) .
+				'</td>
+				<td class="mw-input">' .
+					Xml::input( 'mwStableconfig-expiry', 60, $this->expiry, array( 'id' => 'expires'  ) + $off ) .
+				'</td>
+			</tr>';		
 
 		if( $this->isAllowed ) {
 			$watchLabel = wfMsgExt('watchthis', array('parseinline'));
 			$watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
 
-			$form .= "<p>&nbsp;&nbsp;&nbsp;".Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs );
-			$form .= "&nbsp;<label for='wpWatchthis'".$this->skin->tooltipAndAccesskey('watch').">{$watchLabel}</label></p>";
-
-			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
-			$form .= Xml::hidden( 'page', $this->page->getPrefixedText() );
-			$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() );
-
-			$form .= '<p>'.Xml::submitButton( wfMsg( 'stabilization-submit' ) ).'</p>';
-			$form .= "</fieldset>";
+			$form .= '<tr>
+					<td></td>
+					<td class="mw-input">' .
+						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
+						"<label for='wpWatchthis'" . $this->skin->tooltipAndAccesskey( 'watch' ) . ">{$watchLabel}</label>" .
+					'</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="mw-submit">' .
+						Xml::submitButton( wfMsg( 'stabilization-submit' ) ) .
+					'</td>
+				</tr>' .
+				Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) .
+				Xml::hidden( 'page', $this->page->getPrefixedText() ) .
+				Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 		}
 
-		$form .= '</form>';
+		$form .= Xml::closeElement( 'table' ) .
+			Xml::closeElement( 'fieldset' ) .
+			Xml::closeElement( 'form' );
 
 		$wgOut->addHTML( $form );
 
