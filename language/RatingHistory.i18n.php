@@ -163,9 +163,10 @@ $messages['hu'] = array(
 	'ratinghistory-year' => '1 év',
 	'ratinghistory-3years' => '3 év',
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
-	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld színneé)''</font> ábrája látható, dátum szerint. Az összes értékelés száma a jobb felső sarokban látható. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
+	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> ábrája látható, dátum szerint. Az összes értékelés száma a jobb felső sarokban látható. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
 
 '''[0]''' - Rossz; '''[1]''' - Gyenge; '''[2]''' - Közepes; '''[3]''' - Jó; '''[4]''' - Kitűnő;",
+	'right-feedback' => 'oldalak értékelése a visszajelzés-űrlap segítségével',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -363,5 +364,15 @@ $messages['sv'] = array(
 	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum. Antalet bedömningar visas i det övre högra hörnet av grafen; högre värden bör indikera ett bättre dataurval. Betygsvärdena tolkas enligt följande:
 
 '''[0]''' - Mycket dålig; '''[1]''' - Dålig; '''[2]''' - Okej; '''[3]''' - Bra; '''[4]''' - Mycket bra;",
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'ratinghistory-period' => 'Thời gian:',
+	'ratinghistory-month' => 'tháng trước',
+	'ratinghistory-year' => 'năm ngoái',
+	'ratinghistory-3years' => 'ba năm trước',
 );
 

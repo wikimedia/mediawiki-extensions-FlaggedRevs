@@ -305,14 +305,15 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Samat
  */
 $messages['hu'] = array(
-	'stableversions' => 'Elfogadott változatok',
+	'stableversions' => 'Megjelölt változatok',
 	'stableversions-leg1' => 'Oldal ellenőrzött változatainak listája',
 	'stableversions-page' => 'A lap neve:',
 	'stableversions-none' => '„[[:$1]]” nem rendelkezik ellenőrzött változatokkal',
 	'stableversions-list' => '„[[:$1]]” következő változatai lettek ellenőrizve:',
-	'stableversions-review' => 'Ellenőrizte $2, <i>$1</i>-kor',
+	'stableversions-review' => 'ellenőrizte $2, <i>$1</i>-kor',
 );
 
 /** Interlingua (Interlingua)

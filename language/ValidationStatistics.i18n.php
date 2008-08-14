@@ -102,6 +102,14 @@ $messages['fr'] = array(
 	'validationstatistics-old' => 'Désuet',
 );
 
+/** Hebrew (עברית)
+ * @author Agbad
+ */
+$messages['he'] = array(
+	'validationstatistics-ns' => 'מרחב שם',
+	'validationstatistics-total' => 'דפים',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  * @author Samat
@@ -215,5 +223,17 @@ $messages['sv'] = array(
 	'validationstatistics-latest' => 'Senast granskad',
 	'validationstatistics-synced' => 'Synkad/Granskad',
 	'validationstatistics-old' => 'Föråldrad',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'validationstatistics' => 'Thống kê phê chuẩn',
+	'validationstatistics-ns' => 'Không gian tên',
+	'validationstatistics-total' => 'Số trang',
+	'validationstatistics-stable' => 'Được duyệt',
+	'validationstatistics-latest' => 'Được duyệt gần đây',
+	'validationstatistics-old' => 'Lỗi thời',
 );
 

@@ -228,3 +228,10 @@ $messages['sv'] = array(
 	'problempages-graphs' => 'betygsdata',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'problempages' => 'Các trang có vấn đề',
+);
+

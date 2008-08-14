@@ -228,6 +228,7 @@ $messages['vec'] = array(
 $messages['vi'] = array(
 	'qualityoversight' => 'Giám sát chất lượng',
 	'qualityoversight-list' => 'Trang này liệt kê những lần phê chuẩn các phiên bản chất lượng gần nhất cũng như sự giảm giá trị của những phiên bản chất lượng.',
+	'qualityoversight-legend' => 'Tìm kiếm trong các nhật trình duyệt gần đây',
 );
 
 /** Yue (粵語)

@@ -405,7 +405,7 @@ $messages['da'] = array(
 /** German (Deutsch) */
 $messages['de'] = array(
 	'stabilization-tab' => 'Konfig.',
-	'stabilization' => 'Seiten-Markierung',
+	'stabilization' => 'Seitenkonfiguration',
 	'stabilization-text' => "'''Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''",
 	'stabilization-perm' => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
 	Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
@@ -417,7 +417,7 @@ $messages['de'] = array(
 	'stabilization-select3' => 'Die letzte ursprüngliche Version; wenn keine vorhanden ist, dann die letzte gesichtete oder geprüfte Version',
 	'stabilization-def' => 'Angezeigte Version in der normalen Seitenansicht',
 	'stabilization-def1' => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version',
-	'stabilization-def2' => 'Die aktuellste Version',
+	'stabilization-def2' => 'Die aktuelle Version',
 	'stabilization-submit' => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
 	'stabilization-notcontent' => 'Die Seite „[[:$1|$1]]“ kann nicht markiert werden. Konfiguration ist nicht möglich.',
