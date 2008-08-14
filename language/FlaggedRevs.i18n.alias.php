@@ -19,6 +19,7 @@ $aliases['en'] = array(
 	'StableVersions'       => array( 'StableVersions' ),
 	'ProblemPages'         => array( 'ProblemPages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
+	'Stabilization'        => array( 'Stabilization' ),
 );
 
 /** Aragonese (Aragonés)
