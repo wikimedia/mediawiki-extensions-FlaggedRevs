@@ -93,12 +93,12 @@ $aliases['de'] = array(
  */
 $aliases['eo'] = array(
 	'QualityOversight' => array( 'KvalitKontrolo' ),
-	'UnReviewedPages'  => array( 'NekontrolitajPaĝoj' ),
+	'UnReviewedPages' => array( 'NekontrolitajPaĝoj' ),
 	'OldReviewedPages' => array( 'MalfreŝeKontrolitajPaĝoj' ),
-	'ReviewedPages'    => array( 'KontrolitajPaĝoj' ),
-	'StablePages'      => array( 'StabilajPaĝoj' ),
-	'StableVersions'   => array( 'StabilajVersioj' ),
-	'ProblemPages'     => array( 'ProblemajPaĝoj' ),
+	'ReviewedPages' => array( 'KontrolitajPaĝoj' ),
+	'StablePages' => array( 'StabilajPaĝoj' ),
+	'StableVersions' => array( 'StabilajVersioj' ),
+	'ProblemPages' => array( 'ProblemajPaĝoj' ),
 );
 
 /** Persian (فارسی) */
@@ -118,12 +118,12 @@ $aliases['fa'] = array(
  */
 $aliases['fr'] = array(
 	'QualityOversight' => array( 'SuperviseurQualité' ),
-	'UnReviewedPages'  => array( 'PagesNonRelues' ),
+	'UnReviewedPages' => array( 'PagesNonRelues' ),
 	'OldReviewedPages' => array( 'AnciennesPagesRelues' ),
-	'ReviewedPages'    => array( 'Pages révisées' ),
-	'StablePages'      => array( 'PagesStables' ),
-	'StableVersions'   => array( 'VersionsStables' ),
-	'ProblemPages'     => array( 'PagesProblematiques' ),
+	'ReviewedPages' => array( 'Pages révisées' ),
+	'StablePages' => array( 'PagesStables' ),
+	'StableVersions' => array( 'VersionsStables' ),
+	'ProblemPages' => array( 'PagesProblematiques' ),
 );
 
 /** Galician (Galego)
@@ -161,12 +161,12 @@ $aliases['hr'] = array(
  */
 $aliases['id'] = array(
 	'QualityOversight' => array( 'PemeriksaanKualitas' ),
-	'UnReviewedPages'  => array( 'Halaman yang belum ditinjau' ),
+	'UnReviewedPages' => array( 'Halaman yang belum ditinjau' ),
 	'OldReviewedPages' => array( 'HalamanTertinjauUsang' ),
-	'ReviewedPages'    => array( 'HalamanTertinjau' ),
-	'StablePages'      => array( 'HalamanStabil' ),
-	'StableVersions'   => array( 'VersiStabil' ),
-	'ProblemPages'     => array( 'HalamanBermasalah' ),
+	'ReviewedPages' => array( 'HalamanTertinjau' ),
+	'StablePages' => array( 'HalamanStabil' ),
+	'StableVersions' => array( 'VersiStabil' ),
+	'ProblemPages' => array( 'HalamanBermasalah' ),
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -202,12 +202,12 @@ $aliases['mr'] = array(
  */
 $aliases['ms'] = array(
 	'QualityOversight' => array( 'Kawalan_mutu' ),
-	'UnReviewedPages'  => array( 'Laman_tidak_diperiksa' ),
+	'UnReviewedPages' => array( 'Laman_tidak_diperiksa' ),
 	'OldReviewedPages' => array( 'Laman_diperiksa_lapuk' ),
-	'ReviewedPages'    => array( 'Laman_diperiksa' ),
-	'StablePages'      => array( 'Laman_stabil' ),
-	'StableVersions'   => array( 'Versi_stabil' ),
-	'ProblemPages'     => array( 'Laman_bermasalah' ),
+	'ReviewedPages' => array( 'Laman_diperiksa' ),
+	'StablePages' => array( 'Laman_stabil' ),
+	'StableVersions' => array( 'Versi_stabil' ),
+	'ProblemPages' => array( 'Laman_bermasalah' ),
 );
 
 /** Dutch (Nederlands)
