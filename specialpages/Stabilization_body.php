@@ -114,24 +114,11 @@ class Stabilization extends UnlistedSpecialPage
 			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'mwStableconfig-select', FLAGGED_VIS_NORMAL, 'stable-select1', FLAGGED_VIS_NORMAL == $this->select, $off ) . '<br />' . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'mwStableconfig-select', FLAGGED_VIS_LATEST, 'stable-select2', FLAGGED_VIS_LATEST == $this->select, $off ) . '<br />' . "\n" .
 			// Xml::radioLabel( wfMsg( 'stabilization-select3' ), 'mwStableconfig-select', FLAGGED_VIS_PRISTINE, 'stable-select3', FLAGGED_VIS_PRISTINE == $this->select, $off ) .
-			Xml::closeElement( 'fieldset' );
+			Xml::closeElement( 'fieldset' ) .
 
-		if( $this->isAllowed ) {
-			$form .= Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
-				Xml::openElement( 'table', array( 'class' => 'mw-fr-stabilization-leg' ) ) .
-				'<tr>
-					<td class="mw-label">' .
-						Xml::label( wfMsg( 'stabilization-comment' ), 'wpReason' ) .
-					'</td>
-					<td class="mw-input">' .
-						Xml::input( 'wpReason', 60, $this->comment, array( 'id' => 'wpReason' ) ) .
-					'</td>
-				</tr>';
-		} else {
-			$form .= Xml::openElement( 'table', array( 'class' => 'mw-fr-stabilization' ) );
-		}
-
-		$form .= '<tr>
+			Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
+			Xml::openElement( 'table', array( 'class' => 'mw-fr-stabilization-leg' ) ) .
+			'<tr>
 				<td class="mw-label">' .
 					Xml::tags( 'label', array( 'for' => 'expires' ), wfMsgExt( 'stabilization-expiry', array( 'parseinline' ) ) ) .
 				'</td>
@@ -146,6 +133,14 @@ class Stabilization extends UnlistedSpecialPage
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' ) || $wgTitle->userIsWatching() );
 
 			$form .= '<tr>
+					<td class="mw-label">' .
+						Xml::label( wfMsg( 'stabilization-comment' ), 'wpReason' ) .
+					'</td>
+					<td class="mw-input">' .
+						Xml::input( 'wpReason', 60, $this->comment, array( 'id' => 'wpReason' ) ) .
+					'</td>
+				</tr>
+				<tr>
 					<td></td>
 					<td class="mw-input">' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
@@ -161,6 +156,8 @@ class Stabilization extends UnlistedSpecialPage
 				Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) .
 				Xml::hidden( 'page', $this->page->getPrefixedText() ) .
 				Xml::hidden( 'wpEditToken', $wgUser->editToken() );
+		} else {
+			$form .= Xml::openElement( 'table', array( 'class' => 'mw-fr-stabilization' ) );
 		}
 
 		$form .= Xml::closeElement( 'table' ) .
