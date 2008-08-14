@@ -1292,8 +1292,12 @@ class FlaggedArticle extends Article {
 	public function addQuickReview( &$data, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest;
 		# Revision being displayed
-		$id = $wgOut->getRevisionId() ? 
-			$wgOut->getRevisionId() : $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		$id = $wgOut->getRevisionId();
+		if( !$id ) {
+			if( !$this->isDiffFromStable ) // only safe to assume current if diff-to-stable
+				return false;
+			$id = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		}
 		# Must be a valid non-printable output
 		if( !$id || $wgOut->isPrintable() ) {
 			return false;
