@@ -659,7 +659,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isReviewable() || !$wgOut->getRevisionId() ) {
+		if( !$this->parent->exists() || !$this->isReviewable() ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -1031,25 +1031,19 @@ class FlaggedArticle extends Article {
 				} else {
 					$notice = "";
 				}
-				# Explanatory text
-				if( $diffOnly && $wgUser->isAllowed('review') ) {
-					$exp = '<br/>'. wfMsgExt('revreview-diffonly', array('parseinline'));
-				} else {
-					$exp = "";
-				}
 
 				# If the user is allowed to review, prompt them!
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-none', array('parseinline')).$notice.$exp.'</div>' );
+						wfMsgExt('revreview-update-none', array('parseinline')).$notice.'</div>' );
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.$changeList.$notice.$exp.'</div>' );
+						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.$changeList.$notice.$exp.'</div>' );
+						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
@@ -1298,13 +1292,15 @@ class FlaggedArticle extends Article {
 	public function addQuickReview( &$data, $top = false ) {
 		global $wgOut, $wgUser, $wgRequest;
 		# Revision being displayed
-		$id = $wgOut->getRevisionId();
+		$id = $wgOut->getRevisionId() ? 
+			$wgOut->getRevisionId() : $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		# Must be a valid non-printable output
 		if( !$id || $wgOut->isPrintable() ) {
 			return false;
 		}
+		$useCurrent = false;
 		if( !isset($wgOut->mTemplateIds) || !isset($wgOut->fr_ImageSHA1Keys) ) {
-			return false; // something went terribly wrong...
+			$useCurrent = true;
 		}
 		$skin = $wgUser->getSkin();
 
@@ -1413,15 +1409,36 @@ class FlaggedArticle extends Article {
 		}
 
 		$imageParams = $templateParams = $fileVersion = '';
+		if( $useCurrent ) {
+			global $wgUser, $wgParser, $wgEnableParserCache;
+			# Get parsed current version
+			$parserCache = ParserCache::singleton();
+			$article = $this->parent;
+			$currentOutput = $parserCache->get( $article, $wgUser );
+			if( $currentOutput==false ) {
+				$text = $article->getContent();
+				$title = $article->getTitle();
+				$options = FlaggedRevs::makeParserOptions();
+				$currentOutput = $wgParser->parse( $text, $title, $options );
+				# Might as well save the cache while we're at it
+				if( $wgEnableParserCache )
+					$parserCache->save( $currentOutput, $article, $wgUser );
+			}
+			$templateIDs = $currentOutput->getTemplates();
+			$imageSHA1Keys = $currentOutput->fr_ImageSHA1Keys;
+		} else {
+			$templateIDs = $wgOut->mTemplateIds;
+			$imageSHA1Keys = $wgOut->fr_ImageSHA1Keys;
+		}
 		# NS -> title -> rev ID mapping
-		foreach( $wgOut->mTemplateIds as $namespace => $title ) {
+		foreach( $templateIDs as $namespace => $title ) {
 			foreach( $title as $dbKey => $revId ) {
 				$title = Title::makeTitle( $namespace, $dbKey );
 				$templateParams .= $title->getPrefixedDBKey() . "|" . $revId . "#";
 			}
 		}
 		# Image -> timestamp -> sha1 mapping
-		foreach( $wgOut->fr_ImageSHA1Keys as $dbKey => $timeAndSHA1 ) {
+		foreach( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
 			foreach( $timeAndSHA1 as $time => $sha1 ) {
 				$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
 			}
