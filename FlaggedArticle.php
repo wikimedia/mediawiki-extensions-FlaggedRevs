@@ -650,6 +650,8 @@ class FlaggedArticle extends Article {
 			"category={$category}" );
 
 		$wgOut->appendSubtitle( "<p>$unreviewedLink / $oldreviewedLink</p>" );
+		
+		$wgOut->addWikiText( wfMsg('revreview-linksmixed') );
 
 		return true;
 	}

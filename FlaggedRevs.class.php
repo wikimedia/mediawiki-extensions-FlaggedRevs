@@ -2182,7 +2182,7 @@ EOT;
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
 	}
 	
-	public static function unreviewedPagesLinks( $category ) {
+	public static function onCategoryPageView( $category ) {
 		return FlaggedArticle::getInstance( $category )->addToCategoryView();
 	}
 	

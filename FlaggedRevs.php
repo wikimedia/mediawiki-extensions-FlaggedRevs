@@ -46,7 +46,7 @@ if( !defined('FR_TEXT') )
 $wgExtensionCredits['specialpage'][] = array(
 	'name'           => 'Flagged Revisions',
 	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version'        => '1.094',
+	'version'        => '1.1a',
 	'svn-date'       => '$LastChangedDate$',
 	'svn-revision'   => '$LastChangedRevision$',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
@@ -363,7 +363,7 @@ $wgHooks['InitPreferencesForm'][] = 'FlaggedRevs::injectFormPreferences';
 $wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
 $wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
 # Show unreviewed pages links
-$wgHooks['CategoryPageView'][] = 'FlaggedRevs::unreviewedPagesLinks';
+$wgHooks['CategoryPageView'][] = 'FlaggedRevs::onCategoryPageView';
 # Backlog notice
 $wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::addBacklogNotice';
 
