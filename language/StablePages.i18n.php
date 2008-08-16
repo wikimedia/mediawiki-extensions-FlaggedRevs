@@ -88,8 +88,8 @@ $messages['cs'] = array(
 
 /** German (Deutsch) */
 $messages['de'] = array(
-	'stablepages' => 'Markierte Seiten',
-	'stablepages-stable' => 'markierte Version',
+	'stablepages' => 'Liste individuell konfigurierter Seiten',
+	'stablepages-stable' => 'gesichtete Version',
 	'stablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
 	'stablepages-none' => 'Diese Liste ist leer.',
 	'stablepages-config' => 'Konfiguration',

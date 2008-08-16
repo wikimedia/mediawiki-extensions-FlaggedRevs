@@ -19,9 +19,14 @@ $messages['en'] = array(
 	'unreviewed-none' => 'There are currently no pages meeting these criteria',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Darth Kule
+ * @author Jon Harald Søby
+ */
 $messages['qqq'] = array(
-	'right-unreviewedpages' => '{{Flagged Revs}}',
+	'right-unreviewedpages' => '{{Flagged Revs}}
+
+{{doc-right}}',
 	'unreviewedpages' => '{{Flagged Revs}}',
 	'unreviewed-legend' => '{{Flagged Revs}}',
 	'unreviewed-category' => '{{Flagged Revs}}
@@ -59,7 +64,7 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'right-unreviewedpages' => 'رؤية قائمة الصفحات غير المراجعة',
+	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
 	'unreviewedpages' => 'صفحات غير مراجعة',
 	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
 	'unreviewed-category' => 'التصنيف:',
@@ -175,7 +180,7 @@ $messages['da'] = array(
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'right-unreviewedpages' => 'Ansehen der Liste ungesichteter Seiten',
+	'right-unreviewedpages' => 'Ansehen der [[Special:UnreviewedPages|Liste ungesichteter Seiten]]',
 	'unreviewedpages' => 'Ungesichtete Seiten',
 	'unreviewed-legend' => 'Liste ungesichteter Seiten',
 	'unreviewed-category' => 'Kategorie:',
@@ -255,7 +260,7 @@ $messages['fi'] = array(
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'right-unreviewedpages' => 'Voir la liste des pages non revues',
+	'right-unreviewedpages' => 'Voir [[Special:UnreviewedPages|la liste des pages non révisées]]',
 	'unreviewedpages' => 'Pages non revues',
 	'unreviewed-legend' => 'Liste des pages de contenu non visés',
 	'unreviewed-category' => 'Catégorie :',
@@ -369,6 +374,8 @@ $messages['hu'] = array(
 	'unreviewed-legend' => 'Nem ellenőrzött tartalmú lapok listája',
 	'unreviewed-category' => 'Kategória:',
 	'unreviewed-diff' => 'Eltérések',
+	'unreviewed-unwatched' => '(nem figyelt)',
+	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} szerkesztő figyeli)',
 	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 );
@@ -401,7 +408,7 @@ $messages['is'] = array(
  * @author Melos
  */
 $messages['it'] = array(
-	'right-unreviewedpages' => "Visualizza l'elenco delle pagine non revisionate",
+	'right-unreviewedpages' => "Visualizza [[Special:UnreviewedPages|l'elenco delle pagine non revisionate]]",
 	'unreviewedpages' => 'Pagine non revisionate',
 	'unreviewed-legend' => 'Elenco delle pagine non revisionate',
 	'unreviewed-category' => 'Categoria:',
@@ -591,7 +598,7 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'right-unreviewedpages' => "Een lijst van pagina's zonder eindredactie bekijken",
+	'right-unreviewedpages' => "[[Special:UnreviewedPages|Lijst van pagina's zonder eindredactie]] bekijken",
 	'unreviewedpages' => "Pagina's zonder eindredactie",
 	'unreviewed-legend' => "Lijst met pagina's zonder eindredactie",
 	'unreviewed-category' => 'Categorie:',
@@ -613,7 +620,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'right-unreviewedpages' => 'Vise liste over uanmeldte sider',
+	'right-unreviewedpages' => 'Vise [[Special:Unreviewedpages|liste over uanmeldte sider]]',
 	'unreviewedpages' => 'Uanmeldte sider',
 	'unreviewed-legend' => 'List uanmeldte innholdssider',
 	'unreviewed-category' => 'Kategori:',
@@ -787,11 +794,12 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author Boivie
+ * @author Jon Harald Søby
  * @author Lejonel
  * @author M.M.S.
  */
 $messages['sv'] = array(
-	'right-unreviewedpages' => 'Visa lista över ogranskade sidor',
+	'right-unreviewedpages' => 'Visa [[Special:UnreviewedPages|lista över ogranskade sidor]]',
 	'unreviewedpages' => 'Ogranskade sidor',
 	'unreviewed-legend' => 'Lista ogranskade innehållssidor',
 	'unreviewed-category' => 'Kategori:',
@@ -847,7 +855,7 @@ $messages['tr'] = array(
  * @author Ahonc
  */
 $messages['uk'] = array(
-	'right-unreviewedpages' => 'Перегляд списку непереглянутих сторінок',
+	'right-unreviewedpages' => 'Перегляд списку [[Special:UnreviewedPages|непереглянутих сторінок]]',
 );
 
 /** Vèneto (Vèneto)

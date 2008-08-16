@@ -69,6 +69,17 @@ $messages['bcc'] = array(
 	'ratinghistory-none' => 'نظرات کاربری کافی په شرکتن گراف تا ای زمان نیستن',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'ratinghistory-tab' => 'рейтинг',
+	'ratinghistory-period' => 'Период от време:',
+	'ratinghistory-month' => 'последния месец',
+	'ratinghistory-year' => 'последната година',
+	'ratinghistory-3years' => 'последните 3 години',
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */

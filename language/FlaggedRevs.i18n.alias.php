@@ -46,6 +46,7 @@ $aliases['ar'] = array(
 	'StableVersions' => array( 'نسخ_مستقرة' ),
 	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
+	'Stabilization' => array( 'استقرار' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -60,6 +61,7 @@ $aliases['arz'] = array(
 	'StableVersions' => array( 'نسخ_مستقرة' ),
 	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
+	'Stabilization' => array( 'استقرار' ),
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -76,15 +78,15 @@ $aliases['bcc'] = array(
 );
 
 /** German (Deutsch)
- * @author Raymond
+ * @author Raimond Spekking
  */
 $aliases['de'] = array(
 	'QualityOversight' => array( 'Geprüfte Seiten' ),
 	'UnReviewedPages' => array( 'Ungesichtete Seiten' ),
 	'OldReviewedPages' => array( 'Seiten mit ungesichteten Versionen' ),
 	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
-	'StablePages' => array( 'Markierte Seiten' ),
-	'StableVersions' => array( 'Markierte Versionen' ),
+	'StablePages' => array( 'Konfigurierte Seiten' ),
+	'StableVersions' => array( 'Seitenkonfiguration' ),
 	'ProblemPages' => array( 'Problematische Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
@@ -223,6 +225,7 @@ $aliases['nl'] = array(
 	'StableVersions' => array( 'StabieleVersies' ),
 	'ProblemPages' => array( 'ProbleemPaginas', "ProbleemPagina's" ),
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
+	'Stabilization' => array( 'Stabilisatie' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

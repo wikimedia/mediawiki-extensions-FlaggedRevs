@@ -51,6 +51,14 @@ $messages['ar'] = array(
 	'validationstatistics-old' => 'قديمة',
 );
 
+/** Asturian (Asturianu)
+ * @author Esbardu
+ */
+$messages['ast'] = array(
+	'validationstatistics-ns' => 'Espaciu de nomes',
+	'validationstatistics-total' => 'Páxines',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',

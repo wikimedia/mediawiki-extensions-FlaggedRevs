@@ -72,7 +72,7 @@ $messages['ar'] = array(
  * @author Esbardu
  */
 $messages['ast'] = array(
-	'stableversions' => 'Versiones estables',
+	'stableversions' => 'Ver les versiones estables',
 	'stableversions-leg1' => "Llista de les revisiones revisaes d'una páxina",
 	'stableversions-page' => 'Nome de la páxina:',
 	'stableversions-none' => '"[[:$1]]" nun tien revisiones revisaes.',

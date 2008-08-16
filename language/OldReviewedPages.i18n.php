@@ -23,7 +23,11 @@ $messages['en'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Darth Kule
+ * @author Jon Harald Søby
+ * @author SPQRobin
+ */
 $messages['qqq'] = array(
 	'oldreviewedpages' => '{{Flagged Revs}}
 Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
@@ -40,7 +44,8 @@ Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:Old
 	'oldreviewed-diff' => '{{Flagged Revs}}',
 	'oldreviewedpages-unwatched' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when nobody is watching the page.',
-	'oldreviewedpages-watched' => '{{Flagged Revs}}',
+	'oldreviewedpages-watched' => '{{Flagged Revs-small}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone is watching the page.',
 );
 
 /** Afrikaans (Afrikaans)

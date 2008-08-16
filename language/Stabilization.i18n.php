@@ -201,8 +201,8 @@ $messages['ast'] = array(
 	'stabilization-perm' => 'La to cuenta nun tienen permisos pa camudar la configuración de la versión estable.
 Esta ye la configuración de [[:$1|$1]]:',
 	'stabilization-page' => 'Nome de la páxina:',
-	'stabilization-leg' => "Configurar la versión estable d'una páxina",
-	'stabilization-select' => 'Cómo se seleiciona la versión estable',
+	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
+	'stabilization-select' => 'Seleición de la versión estable',
 	'stabilization-select1' => 'La cabera revisión calidable; si nun la hai, entós la cabera vista',
 	'stabilization-select2' => 'La cabera revisión revisada',
 	'stabilization-def' => 'Revisión amosada na vista de páxina por defeutu',
