@@ -22,6 +22,7 @@ class RevisionReview extends UnlistedSpecialPage
 	var $notes = '';
 	var $comment = '';
 	var $dims = array();
+	var $unapprovedTags = 0;
 	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
@@ -199,8 +200,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$tags = FlaggedRevs::getDimensions();
 		// Make review interface object
 		$form = new RevisionReview();
-		$form->dims = array();
-		$form->unapprovedTags = 0;
 		// Each ajax url argument is of the form param|val.
 		// This means that there is no ugly order dependance.
 		foreach( $args as $x => $arg ) {
