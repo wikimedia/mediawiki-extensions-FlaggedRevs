@@ -262,6 +262,7 @@ $dir = dirname(__FILE__) . '/';
 $langDir = dirname(__FILE__) . '/language/';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
+$wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.alias.php';
 
@@ -273,139 +274,139 @@ $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 # Load review UI
 $wgSpecialPages['RevisionReview'] = 'RevisionReview';
-$wgAutoloadClasses['RevisionReview'] = $dir . 'FlaggedRevsPage.php';
+$wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
 # Load reader feedback UI
 $wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
-$wgAutoloadClasses['ReaderFeedback'] = $dir . '/specialpages/ReaderFeedback_body.php';
+$wgAutoloadClasses['ReaderFeedback'] = $dir . 'specialpages/ReaderFeedback_body.php';
 
 # Load stableversions UI
 $wgSpecialPages['StableVersions'] = 'StableVersions';
-$wgAutoloadClasses['StableVersions'] = $dir . '/specialpages/StableVersions_body.php';
+$wgAutoloadClasses['StableVersions'] = $dir . 'specialpages/StableVersions_body.php';
 $wgExtensionMessagesFiles['StableVersions'] = $langDir . 'StableVersions.i18n.php';
 # Stable version config
 $wgSpecialPages['Stabilization'] = 'Stabilization';
-$wgAutoloadClasses['Stabilization'] = $dir . '/specialpages/Stabilization_body.php';
+$wgAutoloadClasses['Stabilization'] = $dir . 'specialpages/Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
 # Page rating history
 $wgSpecialPages['RatingHistory'] = 'RatingHistory';
-$wgAutoloadClasses['RatingHistory'] = $dir . '/specialpages/RatingHistory_body.php';
+$wgAutoloadClasses['RatingHistory'] = $dir . 'specialpages/RatingHistory_body.php';
 $wgExtensionMessagesFiles['RatingHistory'] = $langDir . 'RatingHistory.i18n.php';
 # Load unreviewed pages list
 $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
-$wgAutoloadClasses['UnreviewedPages'] = $dir . '/specialpages/UnreviewedPages_body.php';
+$wgAutoloadClasses['UnreviewedPages'] = $dir . 'specialpages/UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
 $wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 # Load "in need of re-review" pages list
 $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
-$wgAutoloadClasses['OldReviewedPages'] = $dir . '/specialpages/OldReviewedPages_body.php';
+$wgAutoloadClasses['OldReviewedPages'] = $dir . 'specialpages/OldReviewedPages_body.php';
 $wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
 $wgSpecialPageGroups['OldReviewedPages'] = 'quality';
 # Load reviewed pages list
 $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
-$wgAutoloadClasses['ReviewedPages'] = $dir . '/specialpages/ReviewedPages_body.php';
+$wgAutoloadClasses['ReviewedPages'] = $dir . 'specialpages/ReviewedPages_body.php';
 $wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
 $wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Load stable pages list
 $wgSpecialPages['StablePages'] = 'StablePages';
-$wgAutoloadClasses['StablePages'] = $dir . '/specialpages/StablePages_body.php';
+$wgAutoloadClasses['StablePages'] = $dir . 'specialpages/StablePages_body.php';
 $wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
 # To oversee quality revisions
 $wgSpecialPages['QualityOversight'] = 'QualityOversight';
-$wgAutoloadClasses['QualityOversight'] = $dir . '/specialpages/QualityOversight_body.php';
+$wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
 # To oversee quality revisions
 $wgSpecialPages['ProblemPages'] = 'ProblemPages';
-$wgAutoloadClasses['ProblemPages'] = $dir . '/specialpages/ProblemPages_body.php';
+$wgAutoloadClasses['ProblemPages'] = $dir . 'specialpages/ProblemPages_body.php';
 $wgExtensionMessagesFiles['ProblemPages'] = $langDir . 'ProblemPages.i18n.php';
 $wgSpecialPageGroups['ProblemPages'] = 'quality';
 # Statistics
 $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-$wgAutoloadClasses['ValidationStatistics'] = $dir . '/specialpages/ValidationStatistics_body.php';
+$wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 
 ######### Hook attachments #########
 # Remove stand-alone patrolling
-$wgHooks['UserGetRights'][] = 'FlaggedRevs::stripPatrolRights';
+$wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::stripPatrolRights';
 
 # Autopromote Editors
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevs::autoPromoteUser';
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::autoPromoteUser';
 # Adds table link references to include ones from the stable version
-$wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevs::extraLinksUpdate';
+$wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevsHooks::extraLinksUpdate';
 # Empty flagged page settings row on delete
-$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevs::deleteVisiblitySettings';
+$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::deleteVisiblitySettings';
 # Check on undelete/merge/revisiondelete for changes to stable version
-$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevs::titleLinksUpdate';
-$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevs::updateFromMerge';
-$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevs::updateFromRestore';
+$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::titleLinksUpdate';
+$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::updateFromMerge';
+$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::updateFromRestore';
 # Parser hooks, selects the desired images/templates
-$wgHooks['ParserClearState'][] = 'FlaggedRevs::parserAddFields';
-$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevs::galleryFindStableFileTime';
-$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevs::parserFetchStableTemplate';
-$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevs::parserMakeStableImageLink';
+$wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
+$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFindStableFileTime';
+$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
+$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserMakeStableImageLink';
 # Additional parser versioning
-$wgHooks['ParserAfterTidy'][] = 'FlaggedRevs::parserInjectTimestamps';
-$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::outputInjectTimestamps';
+$wgHooks['ParserAfterTidy'][] = 'FlaggedRevsHooks::parserInjectTimestamps';
+$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps';
 # Auto-reviewing
-$wgHooks['RecentChange_save'][] = 'FlaggedRevs::autoMarkPatrolled';
-$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevs::maybeMakeEditReviewed';
+$wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
+$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
 # Disallow moves of stable pages
-$wgHooks['userCan'][] = 'FlaggedRevs::userCanMove';
+$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanMove';
 # Log parameter
-$wgHooks['LogLine'][] = 'FlaggedRevs::reviewLogLine';
+$wgHooks['LogLine'][] = 'FlaggedRevsHooks::reviewLogLine';
 # Disable auto-promotion for demoted users
-$wgHooks['UserRights'][] = 'FlaggedRevs::recordDemote';
+$wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # Local user account preference
-$wgHooks['RenderPreferencesForm'][] = 'FlaggedRevs::injectPreferences';
-$wgHooks['InitPreferencesForm'][] = 'FlaggedRevs::injectFormPreferences';
-$wgHooks['ResetPreferences'][] = 'FlaggedRevs::resetPreferences';
-$wgHooks['SavePreferences'][] = 'FlaggedRevs::savePreferences';
+$wgHooks['RenderPreferencesForm'][] = 'FlaggedRevsHooks::injectPreferences';
+$wgHooks['InitPreferencesForm'][] = 'FlaggedRevsHooks::injectFormPreferences';
+$wgHooks['ResetPreferences'][] = 'FlaggedRevsHooks::resetPreferences';
+$wgHooks['SavePreferences'][] = 'FlaggedRevsHooks::savePreferences';
 # Show unreviewed pages links
-$wgHooks['CategoryPageView'][] = 'FlaggedRevs::onCategoryPageView';
+$wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
 # Backlog notice
-$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevs::addBacklogNotice';
+$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevsHooks::addBacklogNotice';
 
 # Visibility - experimental
-$wgHooks['userCan'][] = 'FlaggedRevs::userCanView';
+$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanView';
 
 # Override current revision, add patrol links, set cache...
-$wgHooks['ArticleViewHeader'][] = 'FlaggedRevs::onArticleViewHeader';
-$wgHooks['ImagePageFindFile'][] = 'FlaggedRevs::imagePageFindFile';
+$wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
+$wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
 # Override redirect behavoir...
-$wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevs::overrideRedirect';
+$wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
 # Sets tabs and permalink
-$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevs::setActionTabs';
+$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
 # Add tags do edit view
-$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::addToEditView';
+$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
 # Add review form and visiblity settings link
-$wgHooks['SkinAfterContent'][] = 'FlaggedRevs::onSkinAfterContent';
+$wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
 # Mark items in page history
-$wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevs::addToHistQuery';
-$wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevs::addToHistLine';
-$wgHooks['LocalFile::getHistory'][] = 'FlaggedRevs::addToFileHistQuery';
-$wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevs::addToFileHistLine';
+$wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToHistQuery';
+$wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsHooks::addToHistLine';
+$wgHooks['LocalFile::getHistory'][] = 'FlaggedRevsHooks::addToFileHistQuery';
+$wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsHooks::addToFileHistLine';
 # Mark items in user contribs
-$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevs::addToContribsQuery';
-$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevs::addToContribsLine';
+$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
+$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 # Page review on edit
-$wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevs::injectReviewDiffURLParams';
-$wgHooks['DiffViewHeader'][] = 'FlaggedRevs::onDiffViewHeader';
+$wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectReviewDiffURLParams';
+$wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Autoreview stuff
-$wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevs::addRevisionIDField';
+$wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
 
 # Add CSS/JS as needed
-$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevs::injectStyleAndJS';
-$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevs::injectStyleAndJS';
-$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevs::injectStyleAndJS';
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevs::InjectStyleForSpecial';
+$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';
+$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::injectStyleAndJS';
+$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::injectStyleAndJS';
+$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::InjectStyleForSpecial';
 
 # File cache
-$wgHooks['IsFileCacheable'][] = 'FlaggedRevs::isFileCacheable';
+$wgHooks['IsFileCacheable'][] = 'FlaggedRevsHooks::isFileCacheable';
 
 # Duplicate flagged* tables in parserTests.php
-$wgHooks['ParserTestTables'][] = 'FlaggedRevs::onParserTestTables';
+$wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 
 #########
 

@@ -21,6 +21,7 @@ class RevisionReview extends UnlistedSpecialPage
 	var $validatedParams = '';
 	var $notes = '';
 	var $comment = '';
+	var $dims = array();
 	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
@@ -289,6 +290,8 @@ class RevisionReview extends UnlistedSpecialPage
 			return '<suc#>'.$form->showSuccess( $approved );
 		} else if( $approved && is_array($status) ) {
 			return '<err#>'.$form->showSyncFailure( $status );
+		} else if( $approved ) {
+			return '<err#>'.wfMsg('revnotfoundtext');
 		} else { // hmmm?
 			return '<err#>';
 		}
