@@ -1119,7 +1119,7 @@ EOT;
 		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
-		if ( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
+		if ( $wgUser->isAllowed('review') && $wgTitle && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
 			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
