@@ -333,11 +333,11 @@ $aliases['vec'] = array(
  * @author Vinhtantran
  */
 $aliases['vi'] = array(
-	'QualityOversight'      => array( 'Giám sát chất lượng' ),
-	'UnReviewedPages'       => array( 'Trang chưa duyệt' ),
-	'OldReviewedPages'      => array( 'Trang chưa duyệt cũ' ),
-	'ReviewedPages'         => array( 'Trang đã duyệt' ),
-	'StablePages'           => array( 'Trang ổn định' ),
-	'StableVersions'        => array( 'Bản ổn định' ),
+	'QualityOversight' => array( 'Giám sát chất lượng' ),
+	'UnReviewedPages' => array( 'Trang chưa duyệt' ),
+	'OldReviewedPages' => array( 'Trang chưa duyệt cũ' ),
+	'ReviewedPages' => array( 'Trang đã duyệt' ),
+	'StablePages' => array( 'Trang ổn định' ),
+	'StableVersions' => array( 'Bản ổn định' ),
 );
 

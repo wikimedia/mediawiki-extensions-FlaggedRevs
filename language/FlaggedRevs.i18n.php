@@ -213,8 +213,11 @@ To depreciate a revision, set all fields to "unapproved".',
 
 /** Message documentation (Message documentation)
  * @author Darth Kule
+ * @author Jon Harald Søby
  * @author Meno25
+ * @author Raymond
  * @author Rex
+ * @author SPQRobin
  */
 $messages['qqq'] = array(
 	'editor' => '{{Flagged Revs}}
@@ -425,6 +428,9 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-typefilter' => '{{Flagged Revs}}
 
 {{Identical/Type}}',
+	'revreview-linksmixed' => '{{Flagged Revs}}
+
+Shown on category pages.',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
@@ -1771,6 +1777,7 @@ Die bisherige Leserbewertung für '''$1''' findest du [$2 hier].",
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Typ:',
 	'revreview-tagfilter' => 'Tag:',
+	'revreview-linksmixed' => "''Grundlage der Liste sind sowohl Entwurfsversionen als auch, falls vorhanden, markierte Versionen einer Seite.''",
 	'tooltip-ca-current' => 'Ansehen der aktuellen, unmarkierten Seite',
 	'tooltip-ca-stable' => 'Ansehen der markierten Version dieser Seite',
 	'tooltip-ca-default' => 'Einstellungen der Artikel-Qualität',
@@ -2030,7 +2037,12 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
  */
 $messages['es'] = array(
 	'editor' => 'Editor',
+	'flaggedrevs-backlog' => "Actualmente hay un retraso en [[Special:OldReviewedPages|páginas revisadas obsoletas]]. '''¡Se necesita de tu atención!!''",
 	'flaggedrevs-desc' => 'Da a los editores la habilidad de validar revisiones y estabilizar páginas',
+	'flaggedrevs-pref-UI-0' => 'Usar la versión detallada de la interfaz de versiones estables',
+	'flaggedrevs-pref-UI-1' => 'Usar la versión simple de la interfaz de versiones estables',
+	'flaggedrevs-prefs' => 'Estabilidad',
+	'flaggedrevs-prefs-stable' => 'Por defecto, muestra siempre la versión estable (si existe) de las páginas',
 	'flaggedrevs-prefs-watch' => 'Añadir a mi lista de seguimiento las páginas que revise.',
 	'group-editor' => 'Editores',
 	'group-editor-member' => 'Editor',
@@ -2038,6 +2050,9 @@ $messages['es'] = array(
 	'group-reviewer-member' => 'Revisor',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
+	'hist-draft' => 'bosquejo de revisión',
+	'hist-quality' => 'revisión de calidad',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]',
 	'reviewer' => 'Revisor',
 	'revreview-auto' => '(automático)',
 	'revreview-auto-w' => "Estás editando la versión estable. Los cambios serán '''automáticamente revisados'''.",
@@ -2063,6 +2078,7 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'revreview-patrolled' => 'Las revisiones seleccionadas de [[:$1|$1]] han sido marcadas como patrulladas',
 	'revreview-quality' => 'Esta es la última revisión de [[{{MediaWiki:Validationpage}}|calidad]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
 El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] esperando revisión.',
+	'revreview-quality-title' => 'Artículo de calidad',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver borrador]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]'''",
@@ -2075,8 +2091,22 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
 	'revreview-quick-see-quality' => "'''Borrador''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ver artículo]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
+	'revreview-selected' => "Revisión seleccionada de '''$1:'''",
 	'revreview-source' => 'fuente del borrador',
 	'revreview-stable' => 'Página estable',
+	'revreview-style' => 'Legibilidad',
+	'revreview-style-0' => 'Reprobada',
+	'revreview-style-1' => 'Aceptable',
+	'revreview-style-2' => 'Bueno',
+	'revreview-style-3' => 'Conciso',
+	'revreview-style-4' => 'Destacado',
+	'revreview-submit' => 'Enviar revisión',
+	'revreview-submitting' => 'Enviando...',
+	'revreview-finished' => '¡Revisión completa!',
+	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:Special:Stableversions|page=$2}} ver versiones estables])'''",
+	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones estables]] son las predeterminadas para los lectores en vez de las más recientes.''",
+	'revreview-toggle-title' => 'mostrar/ocultar detalles',
 	'revreview-update-includes' => "'''Algunas plantillas o imágenes fueron actualizadas:'''",
 	'revreview-update-none' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] los cambios ''(mostrados abajo)'' hecho desde que la versión estable fue  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
 	'revreview-update-use' => "'''NOTA:''' si alguna de estas plantillas o imágenes tiene una versión estable, entonces ya se usa en la versión estable de esta página.",
@@ -2086,6 +2116,30 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'right-review' => 'Marcar revisiones como vistas',
 	'right-stablesettings' => 'Configurar cómo las versiones estables se seleccionan y muestran',
 	'right-validate' => 'Marcar revisiones como validadas',
+	'rights-editor-autosum' => 'Autopromovida',
+	'rights-editor-revoke' => 'Se retiró el estado de editor para [[$1]]',
+	'specialpages-group-quality' => 'Control de calidad',
+	'stable-logentry' => 'Versiones estables configuradas para [[$1]]',
+	'stable-logpage' => 'Registro de estabilidad',
+	'stable-logpagetext' => 'Este es un registro de cambios a la configuración de [[{{MediaWiki:Validationpage}}|versión estable]] para páginas de contenido. Una [[Special:StablePages|lista de páginas estables]] se encuentra disponible.',
+	'readerfeedback' => '¿Qué opinas de esta página?',
+	'readerfeedback-text' => "''Por favor, toma un momento para calificar la página. Tu aportación es valiosa y nos ayuda a mejorar el sitio''",
+	'readerfeedback-reliability' => 'Confiabilidad',
+	'readerfeedback-completeness' => 'Completitud',
+	'readerfeedback-npov' => 'Neutralidad',
+	'readerfeedback-presentation' => 'Presentación',
+	'readerfeedback-overall' => 'En conjunto',
+	'readerfeedback-level-0' => 'Pobre',
+	'readerfeedback-level-1' => 'Baja',
+	'readerfeedback-level-2' => 'Aceptable',
+	'readerfeedback-level-3' => 'Alto',
+	'readerfeedback-level-4' => 'Excelente',
+	'readerfeedback-submit' => 'Enviar',
+	'readerfeedback-submitting' => 'Enviando...',
+	'readerfeedback-finished' => '¡Gracias!',
+	'revreview-filter-all' => 'Todas',
+	'revreview-filter-approved' => 'Aprobada',
+	'revreview-filter-reapproved' => 'Re-aprobada',
 	'tooltip-ca-current' => 'Ver el borrador actual de esta página',
 	'tooltip-ca-stable' => 'Ver la versión estable de esta página',
 	'tooltip-ca-default' => 'Opciones de control de calidad',
@@ -3626,14 +3680,15 @@ $messages['it'] = array(
 	'group-reviewer-member' => 'Revisore',
 	'grouppage-editor' => '{{ns:project}}:Editore',
 	'grouppage-reviewer' => '{{ns:project}}:Revisore',
-	'hist-draft' => 'revisione bozza',
-	'hist-quality' => 'revisione di qualità',
+	'hist-draft' => 'versione bozza',
+	'hist-quality' => 'versione di qualità',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} convalidata] da [[User:$3|$3]]',
 	'hist-stable' => 'versione visionata',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} visionata] da [[User:$3|$3]]',
 	'review-diff2stable' => 'Visualizza i cambiamenti fra la versione stabile e la corrente',
 	'review-logentry-app' => 'ha revisionato [[$1]]',
 	'review-logentry-id' => 'ID revisione $1',
+	'review-logentry-diff' => 'diff con stabile',
 	'review-logpage' => 'Log revisioni',
 	'reviewer' => 'Revisore',
 	'revisionreview' => 'Revisiona versioni',
@@ -4244,6 +4299,14 @@ $messages['km'] = array(
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
 	'revreview-typefilter' => 'ប្រភេទ:',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
+);
+
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'readerfeedback-level-0' => '최하',
+	'readerfeedback-level-1' => '낮음',
 );
 
 /** Ripoarisch (Ripoarisch)

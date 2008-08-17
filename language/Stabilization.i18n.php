@@ -1083,6 +1083,13 @@ $messages['km'] = array(
 	'stabilize-expiring' => 'ផុតកំនត់ម៉ោង $1 (UTC)',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'stabilize-expiring' => '$1 (UTC)에 만료',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */
