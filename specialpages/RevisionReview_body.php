@@ -731,6 +731,7 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
+		$u->fr_stableParserOut = $stableOutput;
 		$u->doUpdate(); // Will trigger our hook to add stable links too...
 		# Might as well save the cache, since it should be the same
 		if( $wgEnableParserCache )

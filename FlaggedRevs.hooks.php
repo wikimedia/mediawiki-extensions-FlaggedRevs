@@ -183,12 +183,16 @@ EOT;
 		}
 		# Get the either the full flagged revision text or the revision text
 		$article = new Article( $linksUpdate->mTitle );
-		# Try stable version cache. This should be updated before this is called.
-		$parserOut = FlaggedRevs::getPageCache( $article );
-		if( $parserOut==false ) {
-			$text = $sv->getTextForParse();
-			# Parse the text
-			$parserOut = FlaggedRevs::parseStableText( $article, $text, $sv->getRevId() );
+		if( isset($linksUpdate->fr_stableParserOut) ) {
+			$parserOut = $linksUpdate->fr_stableParserOut;
+		} else {
+			# Try stable version cache. This should be updated before this is called.
+			$parserOut = FlaggedRevs::getPageCache( $article );
+			if( $parserOut==false ) {
+				$text = $sv->getTextForParse();
+				# Parse the text
+				$parserOut = FlaggedRevs::parseStableText( $article, $text, $sv->getRevId() );
+			}
 		}
 		# Update page fields
 		FlaggedRevs::updateArticleOn( $article, $sv->getRevId() );

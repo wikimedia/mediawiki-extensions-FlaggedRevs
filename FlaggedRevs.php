@@ -334,7 +334,7 @@ $wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::stripPatrolRights';
 # Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::autoPromoteUser';
 # Adds table link references to include ones from the stable version
-$wgHooks['LinksUpdateConstructed'][] = 'FlaggedRevsHooks::extraLinksUpdate';
+$wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
 # Empty flagged page settings row on delete
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::deleteVisiblitySettings';
 # Check on undelete/merge/revisiondelete for changes to stable version
