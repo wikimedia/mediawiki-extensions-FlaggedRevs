@@ -349,6 +349,7 @@ wgAjaxReview.processResult = function(request) {
 		submit.value = wgAjaxReview.sentMsg;
 	}
 	window.scroll(0,0);
+	wgAjaxReview.unlockForm();
 	document.title = wgAjaxReview.actioncomplete;
 };
 
