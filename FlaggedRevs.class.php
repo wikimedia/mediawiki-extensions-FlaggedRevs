@@ -477,7 +477,8 @@ class FlaggedRevs {
 	* @param ParserOutput $stableOutput, will fetch if not given
 	* @param ParserOutput $currentOutput, will fetch if not given
 	* @return bool
-	* See if a flagged revision is synced with the current
+	* See if a flagged revision is synced with the current.
+	* This function is pretty expensive...
 	*/	
 	public static function stableVersionIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
 		# Must be the same revision
@@ -491,14 +492,14 @@ class FlaggedRevs {
 			}
 		}
 		global $wgMemc, $wgEnableParserCache;
-		# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-		$key = wfMemcKey( 'flaggedrevs', 'syncStatus', $article->getId(), $article->getTouched() );
-		$syncvalue = $wgMemc->get($key);
+		# Try the cache...
+		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+		$data = $wgMemc->get($key);
 		# Convert string value to boolean and return it
-		if( $syncvalue ) {
-			if( $syncvalue == "true" ) {
+		if( $data && is_object($data) && $data->time >= $article->getTouched() ) {
+			if( $data->value === "true" ) {
 				return true;
-			} else if( $syncvalue == "false" ) {
+			} else if( $data->value === "false" ) {
 				return false;
 			}
 		}
@@ -539,12 +540,24 @@ class FlaggedRevs {
 			$synced = true;
 		}
 		# Save to cache. This will be updated whenever the page is re-parsed as well. This means
-		# that MW can check a light-weight key first. Uses format <page ID>-<UNIX timestamp>.
+		# that MW can check a light-weight key first.
 		global $wgParserCacheExpireTime;
-		$syncData = $synced ? "true" : "false";
-		$wgMemc->set( $key, $syncData, $wgParserCacheExpireTime );
+		$data = self::makeMemcObj( $synced ? "true" : "false" );
+		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 
 		return $synced;
+	}
+	
+	/**
+	 * @param string $val
+	 * @return obj array
+	 * Get a memcache storage object
+	 */
+	public static function makeMemcObj( $val ) {
+		$data = (object) array();
+		$data->value = $val;
+		$data->time = wfTimestampNow();
+		return $data;
 	}
 	
 	/**

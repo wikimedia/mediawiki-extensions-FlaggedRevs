@@ -482,7 +482,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @returns true on success, array of errors on failure
 	 */
 	private function approveRevision( $rev ) {
-		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgEnableParserCache, $wgMemc;
+		global $wgUser, $wgParser, $wgEnableParserCache, $wgMemc;
 
 		wfProfileIn( __METHOD__ );
 		
@@ -614,13 +614,13 @@ class RevisionReview extends UnlistedSpecialPage
 			$synced = true;
 			if( $stableOutput->fr_newestImageTime != $flaggedOutput->fr_newestImageTime )
 				$synced = false;
-			if( $stableOutput->fr_newestTemplateID != $flaggedOutput->fr_newestTemplateID )
+			else if( $stableOutput->fr_newestTemplateID != $flaggedOutput->fr_newestTemplateID )
 				$synced = false;
-			if( $oldfrev->getTags() != $flags )
+			else if( $oldfrev->getTags() != $flags )
 				$synced = false;
-			if( $oldfrev->getFileSha1() != @$fileData['sha1'] )
+			else if( $oldfrev->getFileSha1() != @$fileData['sha1'] )
 				$synced = false;
-			if( $oldfrev->getComment() != $this->notes )
+			else if( $oldfrev->getComment() != $this->notes )
 				$synced = false;
 			# Don't review if the same
 			if( $synced ) {
@@ -670,8 +670,7 @@ class RevisionReview extends UnlistedSpecialPage
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
-		
-		# Start!
+
 		$dbw->begin();
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
@@ -690,16 +689,18 @@ class RevisionReview extends UnlistedSpecialPage
 		if( !empty($imgset) ) {
 			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
 		}
-		
 		# Kill any text cache
+		global $wgRevisionCacheExpiry;
 		if( $wgRevisionCacheExpiry ) {
 			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
 			$wgMemc->delete( $key );
 		}
-		
+		$dbw->commit();
+
+		$dbw->begin();
+
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid );
-
 		# Update the article review log
 		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
 
@@ -707,19 +708,25 @@ class RevisionReview extends UnlistedSpecialPage
 		# Try using the parser cache first since we didn't actually edit the current version.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput == false ) {
+		if( !$poutput || !isset($poutput->fr_newestTemplateID) || !isset($poutput->fr_newestImageTime) ) {
 			$text = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the stable cache...
+		$includesSynced = true;
 		$sv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
-			# Clear the cache...
 			$this->page->invalidateCache();
 			# Update stable cache with the revision we reviewed
 			FlaggedRevs::updatePageCache( $article, $stableOutput );
+			# We can set the sync cache key already
+			if( $poutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
+				$includesSynced = false;
+			} else if( $poutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
+				$includesSynced = false;
+			}
 		} else {
 			# Get the old stable cache
 			$stableOutput = FlaggedRevs::getPageCache( $article );
@@ -729,6 +736,7 @@ class RevisionReview extends UnlistedSpecialPage
 				# Reset stable cache if it existed, since we know it is the same.
 				FlaggedRevs::updatePageCache( $article, $stableOutput );
 			}
+			$includesSynced = false;
 		}
 		$u = new LinksUpdate( $this->page, $poutput );
 		$u->fr_stableParserOut = $stableOutput;
@@ -736,6 +744,11 @@ class RevisionReview extends UnlistedSpecialPage
 		# Might as well save the cache, since it should be the same
 		if( $wgEnableParserCache )
 			$parserCache->save( $poutput, $article, $wgUser );
+		# We can set the sync cache key already.
+		global $wgParserCacheExpireTime;
+		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+		$data = FlaggedRevs::makeMemcObj( $includesSynced ? "true" : "false" );
+		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		# Purge cache/squids for this page and any page that uses it
 		Article::onArticleEdit( $article->getTitle() );
 
