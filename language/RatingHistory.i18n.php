@@ -340,6 +340,7 @@ $messages['sk'] = array(
 <font color=\"green\">''(zelenou)''</font>. Počet kontrol sa zobrazuje v pravom hornom rohu grafov; vyššie hodnoty zvyknú označovať lepšie vzorky údajov. Hodnoty hodnotenia sa interpretujú nasledovne:
 
 '''[0]''' - Slabé; '''[1]''' - Nízke; '''[2]''' - Dobré; '''[3]''' - Vysoké; '''[4]''' - Výborné;",
+	'right-feedback' => 'Stránku ohodnotíte pomocou formulára spätnej väzby',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)

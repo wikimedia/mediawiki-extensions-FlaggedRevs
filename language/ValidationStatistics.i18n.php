@@ -214,6 +214,7 @@ $messages['sk'] = array(
 	'validationstatistics-stable' => 'Skontrolované',
 	'validationstatistics-latest' => 'Posledné skontrolované',
 	'validationstatistics-synced' => 'Synchronizované/skontrolované',
+	'validationstatistics-old' => 'Zastaralé',
 );
 
 /** Swedish (Svenska)

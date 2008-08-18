@@ -369,6 +369,7 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -380,7 +381,7 @@ $messages['ja'] = array(
 	'reviewedpages-lev-1' => '内容充実',
 	'reviewedpages-lev-2' => '秀逸',
 	'reviewedpages-all' => '全査読済版',
-	'reviewedpages-best' => '最新の最高評価版',
+	'reviewedpages-best' => '優良版',
 );
 
 /** Jutish (Jysk)

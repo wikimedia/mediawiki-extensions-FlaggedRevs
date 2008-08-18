@@ -356,10 +356,11 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'stableversions' => '採択されたページ',
+	'stableversions' => '安定版を見る',
 	'stableversions-leg1' => '表示する査読済版の対象ページ',
 	'stableversions-page' => 'ページ名:',
 	'stableversions-none' => '"[[:$1]]" には査読済の版がありません。',

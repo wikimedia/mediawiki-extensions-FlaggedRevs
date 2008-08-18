@@ -916,6 +916,7 @@ Non è possibile effettuare la configurazione.',
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -924,8 +925,8 @@ $messages['ja'] = array(
 	'stabilization-text' => "'''[[:$1|$1]] の表示設定（採択ページをどのように決定するか）を変更します。'''",
 	'stabilization-perm' => 'あなたには権限がないため採択ページ設定を変更できません。現在の [[:$1|$1]] における設定は以下の通りです:',
 	'stabilization-page' => 'ページ名:',
-	'stabilization-leg' => '採択ページの設定',
-	'stabilization-select' => 'ページの採択方法',
+	'stabilization-leg' => '安定版の設定確認',
+	'stabilization-select' => '安定版の選択',
 	'stabilization-select1' => '最新の内容充実版、それがない場合は、最新の採用版',
 	'stabilization-select2' => '最新の査読済版',
 	'stabilization-def' => 'ページにデフォルトで表示する版',

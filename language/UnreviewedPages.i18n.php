@@ -419,12 +419,13 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
 	'unreviewedpages' => '査読待ちのページ',
 	'unreviewed-category' => '{{ns:category}}:',
-	'unreviewed-diff' => '変更点',
+	'unreviewed-diff' => '査読',
 	'unreviewed-list' => '一度も査読を受けていないか、新しい未査読の版があるページの一覧です。',
 );
 
@@ -747,7 +748,7 @@ $messages['sah'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'right-unreviewedpages' => 'Zobraziť zoznam neskontrolovaných stránok',
+	'right-unreviewedpages' => 'Zobraziť [[Special:UnreviewedPages|zoznam neskontrolovaných stránok]]',
 	'unreviewedpages' => 'Neskontrolované stránky',
 	'unreviewed-legend' => 'Zoznam neskontrolovaných stránok s obsahom',
 	'unreviewed-category' => 'Kategória:',

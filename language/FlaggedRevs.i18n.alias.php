@@ -159,6 +159,14 @@ $aliases['hr'] = array(
 	'StablePages' => array( 'Stabilne_stranice' ),
 );
 
+/** Hungarian (Magyar) */
+$aliases['hu'] = array(
+	'QualityOversight' => array( 'Minőségellenőrzés' ),
+	'UnReviewedPages' => array( 'Ellenőrizetlen lapok' ),
+	'ReviewedPages' => array( 'Ellenőrzött lapok' ),
+	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
@@ -240,6 +248,7 @@ $aliases['no'] = array(
 	'StableVersions' => array( 'Stabile versjoner' ),
 	'ProblemPages' => array( 'Problemsider' ),
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
+	'Stabilization' => array( 'Stabilisering' ),
 );
 
 /** Occitan (Occitan)
@@ -259,7 +268,7 @@ $aliases['oc'] = array(
  * @author Sp5uhe
  */
 $aliases['pl'] = array(
-	'StablePages'    => array( 'Strony dopracowane' ),
+	'StablePages' => array( 'Strony dopracowane' ),
 	'StableVersions' => array( 'Wersje dopracowane' ),
 );
 
