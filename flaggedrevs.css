@@ -104,9 +104,9 @@
 
 /* Short User Interface */
 .flaggedrevs_short {
-	border: 1px solid #aaa;
+	border: 0px;
 	background-color: #f9f9f9;
-	padding: 3px;
+	padding: 1px;
 	font-size: 95%;
 	font-weight: normal;
 	margin: 0em 0em 1em 1em;
