@@ -272,57 +272,46 @@ $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 # Load FlaggedRevision object class
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
+
 # Load review UI
-$wgSpecialPages['RevisionReview'] = 'RevisionReview';
 $wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
 # Load reader feedback UI
-$wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
 $wgAutoloadClasses['ReaderFeedback'] = $dir . 'specialpages/ReaderFeedback_body.php';
 
 # Load stableversions UI
-$wgSpecialPages['StableVersions'] = 'StableVersions';
 $wgAutoloadClasses['StableVersions'] = $dir . 'specialpages/StableVersions_body.php';
 $wgExtensionMessagesFiles['StableVersions'] = $langDir . 'StableVersions.i18n.php';
 # Stable version config
-$wgSpecialPages['Stabilization'] = 'Stabilization';
 $wgAutoloadClasses['Stabilization'] = $dir . 'specialpages/Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
 # Page rating history
-$wgSpecialPages['RatingHistory'] = 'RatingHistory';
 $wgAutoloadClasses['RatingHistory'] = $dir . 'specialpages/RatingHistory_body.php';
 $wgExtensionMessagesFiles['RatingHistory'] = $langDir . 'RatingHistory.i18n.php';
 # Load unreviewed pages list
-$wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 $wgAutoloadClasses['UnreviewedPages'] = $dir . 'specialpages/UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
 $wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 # Load "in need of re-review" pages list
-$wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 $wgAutoloadClasses['OldReviewedPages'] = $dir . 'specialpages/OldReviewedPages_body.php';
 $wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
 $wgSpecialPageGroups['OldReviewedPages'] = 'quality';
 # Load reviewed pages list
-$wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 $wgAutoloadClasses['ReviewedPages'] = $dir . 'specialpages/ReviewedPages_body.php';
 $wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
 $wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Load stable pages list
-$wgSpecialPages['StablePages'] = 'StablePages';
 $wgAutoloadClasses['StablePages'] = $dir . 'specialpages/StablePages_body.php';
 $wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
 # To oversee quality revisions
-$wgSpecialPages['QualityOversight'] = 'QualityOversight';
 $wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
 # To oversee quality revisions
-$wgSpecialPages['ProblemPages'] = 'ProblemPages';
 $wgAutoloadClasses['ProblemPages'] = $dir . 'specialpages/ProblemPages_body.php';
 $wgExtensionMessagesFiles['ProblemPages'] = $langDir . 'ProblemPages.i18n.php';
 $wgSpecialPageGroups['ProblemPages'] = 'quality';
 # Statistics
-$wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
 $wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
@@ -411,11 +400,26 @@ $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 #########
 
 function efLoadFlaggedRevs() {
-	global $wgUseRCPatrol;
-	// wfLoadExtensionMessages( 'FlaggedRevs' );
+	global $wgUseRCPatrol, $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFeedbackNamespaces;
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	$wgUseRCPatrol = true;
+	if( !empty($wgFlaggedRevsNamespaces) ) {
+		$wgSpecialPages['RevisionReview'] = 'RevisionReview';
+		$wgSpecialPages['StableVersions'] = 'StableVersions';
+		$wgSpecialPages['Stabilization'] = 'Stabilization';
+		$wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
+		$wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
+		$wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+		$wgSpecialPages['StablePages'] = 'StablePages';
+		$wgSpecialPages['QualityOversight'] = 'QualityOversight';
+		$wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
+	}
+	if( !empty($wgFeedbackNamespaces) ) {
+		$wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
+		$wgSpecialPages['RatingHistory'] = 'RatingHistory';
+		$wgSpecialPages['ProblemPages'] = 'ProblemPages';
+	}
 }
 
 # Add review log
