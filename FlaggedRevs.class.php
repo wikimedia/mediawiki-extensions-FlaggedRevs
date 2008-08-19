@@ -496,7 +496,7 @@ class FlaggedRevs {
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
 		$data = $wgMemc->get($key);
 		# Convert string value to boolean and return it
-		if( $data && is_object($data) && $data->time >= $article->getTouched() ) {
+		if( is_object($data) && $data->time >= $article->getTouched() ) {
 			if( $data->value === "true" ) {
 				return true;
 			} else if( $data->value === "false" ) {
