@@ -939,10 +939,10 @@ class FlaggedArticle extends Article {
 				$article = new Article( $newRev->getTitle() );
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'templates', (bool)$wgUseStableTemplates,
-					$article->getId(), $article->getTouched() );
-				$value = $wgMemc->get($key);
-				$tmpChanges = $value ? unserialize($value) : false;
+				$key = wfMemcKey( 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, $article->getId() );
+				$data = $wgMemc->get($key);
+				$tmpChanges = is_object($data) && $data->time >= $article->getTouched() ? 
+					$data->value : false;
 
 				# Make a list of each changed template...
 				if( $tmpChanges === false ) {
@@ -979,17 +979,17 @@ class FlaggedArticle extends Article {
 						$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(),
 							"diff=cur&oldid={$revID}" );
 					}
-					$wgMemc->set( $key, serialize($tmpChanges), $wgParserCacheExpireTime );
+					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($tmpChanges), $wgParserCacheExpireTime );
 				}
 				# Add set to list
 				if( $tmpChanges )
 					$changeList += $tmpChanges;
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'flaggedrevs', 'stableDiffs', 'images', (bool)$wgUseStableImages,
-					$article->getId(), $article->getTouched() );
+				$key = wfMemcKey( 'stableDiffs', 'images', (bool)$wgUseStableImages, $article->getId() );
 				$value = $wgMemc->get($key);
-				$imgChanges = $value ? unserialize($value) : false;
+				$imgChanges = is_object($data) && $data->time >= $article->getTouched() ? 
+					$data->value : false;
 
 				// Get list of each changed image...
 				if( $imgChanges === false ) {
@@ -1016,14 +1016,16 @@ class FlaggedArticle extends Article {
 					}
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
-						// stable time -> time when reviewed
-						$timestamp = isset($row->fr_img_timestamp) ? $row->fr_img_timestamp : $row->fi_img_timestamp;
+						// stable time -> time when reviewed (unless the other is newer)
+						$timestamp = isset($row->fr_img_timestamp) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
+							$row->fr_img_timestamp : $row->fi_img_timestamp;
+						// compare to current
 						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
 						$file = wfFindFile( $title );
 						if( $file && $file->getTimestamp() > $timestamp )
 							$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 					}
-					$wgMemc->set( $key, serialize($imgChanges), $wgParserCacheExpireTime );
+					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($imgChanges), $wgParserCacheExpireTime );
 				}
 				if( $imgChanges )
 					$changeList += $imgChanges;
