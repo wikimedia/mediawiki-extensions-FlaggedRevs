@@ -1002,8 +1002,8 @@ class FlaggedArticle extends Article {
 							array( 'fi_rev_id' => $frev->getRevId() ),
 							__METHOD__,
 							array(), /* OPTIONS */
-							array( 'page' => array('INNER JOIN','page_namespace = '. NS_IMAGE .' AND page_title = fi_name'),
-								'image' => array('INNER JOIN','img_name = fi_name'),
+							array( 'page' => array('LEFT JOIN','page_namespace = '. NS_IMAGE .' AND page_title = fi_name'),
+								'image' => array('LEFT JOIN','img_name = fi_name'),
 								'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
 								'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
 						);
