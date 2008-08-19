@@ -284,13 +284,14 @@ EOT;
 			$id = $idP;
 		}
 		# If there is no stable version (or that feature is not enabled), use
-		# the template revision during review time.
-		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) && $id === false ) {
-			$id = $dbr->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
+		# the template revision during review time. If both, use the newest one.
+		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
+			$idP = $dbr->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->getRevisionId(),
 					'ft_namespace' => $title->getNamespace(),
 					'ft_title' => $title->getDBkey() ),
 				__METHOD__ );
+			$id = ($id === false || $idP > $id) ? $idP : $id;
 		}
 		# If none specified, see if we are allowed to use the current revision
 		if( !$id ) {
@@ -343,15 +344,17 @@ EOT;
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
-		# the image revision during review time.
+		# the image revision during review time. If both, use the newest one.
 		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) && $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->getRevisionId(),
 					'fi_name' => $title->getDBkey() ),
 				__METHOD__ );
-			$time = $row ? $row->fi_img_timestamp : $time;
-			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+			if( $row && ($time === false || $row->fi_img_timestamp > $time) ) {
+				$time = $row->fi_img_timestamp;
+				$sha1 = $row->fi_img_sha1;
+			}
 		}
 		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$time) ) : "";
 		# If none specified, see if we are allowed to use the current revision
@@ -410,15 +413,17 @@ EOT;
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
-		# the image revision during review time.
+		# the image revision during review time. If both, use the newest one.
 		if( !FlaggedRevs::useProcessCache( $ig->mRevisionId ) && $time === false ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,
 					'fi_name' => $nt->getDBkey() ),
 				__METHOD__ );
-			$time = $row ? $row->fi_img_timestamp : $time;
-			$sha1 = $row ? $row->fi_img_sha1 : $sha1;
+			if( $row && ($time === false || $row->fi_img_timestamp > $time) ) {
+				$time = $row->fi_img_timestamp;
+				$sha1 = $row->fi_img_sha1;
+			}
 		}
 		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$time) ) : "";
 		# If none specified, see if we are allowed to use the current revision
