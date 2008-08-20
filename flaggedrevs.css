@@ -179,6 +179,7 @@
 	background-color: #fffff0;
 }
 
+/* Both User Interfaces */
 .flaggedrevs-color-0 {
 	background-color: #f9f9f9;
 }
@@ -192,7 +193,10 @@
 	background-color: #fffff0;
 }
 
-/* Both User Interfaces */
+.flaggedrevs-unreviewed {
+	background-color: #fffff0;
+}
+
 .flaggedrevs_toggle {
 	color: blue;
 	white-space: nowrap;

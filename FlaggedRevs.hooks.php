@@ -1086,9 +1086,9 @@ EOT;
 	}
 	
 	public static function addToContribsQuery( $pager, &$queryInfo ) {
-		$queryInfo['tables'][] = 'flaggedrevs';
-		$queryInfo['fields'][] = 'fr_quality';
-		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = rev_page AND fr_rev_id = rev_id" );
+		$queryInfo['tables'][] = 'flaggedpages';
+		$queryInfo['fields'][] = 'fp_stable';
+		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page AND fp_stable < rev_id" );
 		return true;
 	}
 	
@@ -1101,9 +1101,8 @@ EOT;
 	}
 	
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
-		if( isset($row->fr_quality) ) {
-			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
-			$ret = "<span class='$css'>{$ret}</span>";
+		if( isset($row->fp_stable) ) {
+			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
 		}
 		return true;
 	}
