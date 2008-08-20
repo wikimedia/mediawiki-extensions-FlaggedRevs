@@ -125,6 +125,11 @@ class RatingHistory extends UnlistedSpecialPage
 	* @returns string, url path to file
 	*/
 	public function makeTagGraph( $tag, $filePath ) {
+		if( !function_exists( 'ImageCreate' ) ) {
+			// GD is not installed
+			return false;
+		}
+		
 		global $wgPHPlotDir;
 		require_once( "$wgPHPlotDir/phplot.php" ); // load classes
 		// Define the object
