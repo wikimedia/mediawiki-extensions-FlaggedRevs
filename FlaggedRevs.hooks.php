@@ -319,14 +319,14 @@ EOT;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		# Normalize NS_MEDIA to NS_IMAGE
-		$title = Title::makeTitle( NS_IMAGE, $nt->getDBKey() );
+		$title = $nt->getNamespace() == NS_IMAGE ? $nt : Title::makeTitle( NS_IMAGE, $nt->getDBKey() );
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && FlaggedRevs::isPageReviewable( $title ) ) {
-			$srev = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
+			$srev = FlaggedRevision::newFromStable( $title );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -395,7 +395,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && FlaggedRevs::isPageReviewable( $nt ) ) {
-			$srev = FlaggedRevision::newFromStable( $nt, FR_FOR_UPDATE );
+			$srev = FlaggedRevision::newFromStable( $nt );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
