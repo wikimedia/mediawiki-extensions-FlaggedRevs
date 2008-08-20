@@ -568,7 +568,7 @@ class FlaggedRevs {
 	 * Get number of revs since a certain revision
 	 */
 	public static function getRevCountSince( $article, $revId, $forUpdate=false ) {
-		global $wgMemc;
+		global $wgMemc, $wgParserCacheExpireTime;
 		# Try the cache
 		$count = null;
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
@@ -582,7 +582,7 @@ class FlaggedRevs {
 				array('rev_page' => $article->getId(), "rev_id > " . intval($revId) ),
 				__METHOD__ );
 			# Save to cache
-			$wgMemc->set( $key, intval($count), 3600*24*7 );
+			$wgMemc->set( $key, intval($count), $wgParserCacheExpireTime );
 		}
 		return $count;
 	}
