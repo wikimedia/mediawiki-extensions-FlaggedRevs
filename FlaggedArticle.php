@@ -670,9 +670,13 @@ class FlaggedArticle extends Article {
 		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan('edit') ) {
 			return true;
 		}
+		# Avoid some mistakes by people thinking this is the diff to stable
+		if( $wgRequest->getVal( 'diff') && !$this->isDiffFromStable ) {
+			return true;
+		}
 		# User must have review rights
 		if( $wgUser->isAllowed( 'review' ) ) {
-			$this->addQuickReview( $data, (bool)$wgRequest->getVal('diff') );
+			$this->addQuickReview( $data, $this->isDiffFromStable );
 		}
 		return true;
 	}
