@@ -1001,7 +1001,7 @@ EOT;
 		return true;
 	}
 
-	public static function imagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
+	public static function imagePageFindFile( &$imagePage, &$normalFile, &$displayFile ) {
 		$fa = FlaggedArticle::getInstance( $imagePage );
 		$fa->imagePageFindFile( $normalFile, $displayFile );
 		return true;
@@ -1015,7 +1015,7 @@ EOT;
 		return true;
 	}
 
-	public static function onArticleViewHeader( $article, &$outputDone, &$pcache ) {
+	public static function onArticleViewHeader( &$article, &$outputDone, &$pcache ) {
 		$flaggedArticle = FlaggedArticle::getInstance( $article );
 		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
 		$flaggedArticle->addStableLink( $outputDone, $pcache );
@@ -1031,16 +1031,26 @@ EOT;
 		if( $request->getVal( 'stableid' ) ) {
 			$ignoreRedirect = true;
 		} else {
+			global $wgMemc, $wgParserCacheExpireTime;
+			# Try the cache...
+			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $title->getArticleId() );
+			$data = $wgMemc->get($key);
+			if( is_object($data) && count($data->value) == 2 && $data->time >= $title->getTouched() ) {
+				list($ignoreRedirect,$target) = $data->value;
 			# Get an instance on the title ($wgTitle) and save to process cache 
-			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-			if( $flaggedArticle->pageOverride() && $srev = $flaggedArticle->getStableRev( FR_TEXT ) ) {
-				$text = $srev->getRevText();
-				$redirect = $flaggedArticle->followRedirectText( $text );
-				if( $redirect ) {
-					$target = $redirect;
-				} else {
-					$ignoreRedirect = true;
+			} else {
+				$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+				if( $flaggedArticle->pageOverride() && $srev = $flaggedArticle->getStableRev( FR_TEXT ) ) {
+					$text = $srev->getRevText();
+					$redirect = $flaggedArticle->followRedirectText( $text );
+					if( $redirect ) {
+						$target = $redirect;
+					} else {
+						$ignoreRedirect = true;
+					}
 				}
+				$data = FlaggedRevs::makeMemcObj( array($ignoreRedirect,$target) );
+				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 			}
 		}
 		return true;
@@ -1050,7 +1060,7 @@ EOT;
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
 	}
 	
-	public static function onCategoryPageView( $category ) {
+	public static function onCategoryPageView( &$category ) {
 		return FlaggedArticle::getInstance( $category )->addToCategoryView();
 	}
 	
