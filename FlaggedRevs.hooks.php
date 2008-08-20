@@ -1139,7 +1139,10 @@ EOT;
 		return true;
 	}
 	
-	public static function isFileCacheable( $article ) {
+	public static function isFileCacheable( &$article ) {
+		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+			return true;
+		}
 		$fa = FlaggedArticle::getInstance( $article );
 		# If the stable is the default, and we are viewing it...cache it!
 		if( $fa->showStableByDefault() ) {
