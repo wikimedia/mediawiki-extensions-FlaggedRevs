@@ -1433,7 +1433,7 @@ class FlaggedArticle extends Article {
 				if( $wgEnableParserCache )
 					$parserCache->save( $currentOutput, $article, $wgUser );
 			}
-			$templateIDs = $currentOutput->getTemplates();
+			$templateIDs = $currentOutput->mTemplateIds;
 			$imageSHA1Keys = $currentOutput->fr_ImageSHA1Keys;
 		} else {
 			$templateIDs = $wgOut->mTemplateIds;
