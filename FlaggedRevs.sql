@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
 ) /*$wgDBTableOptions*/;
 
 -- This stores reader feedback data to curb double-voting
-CREATE TABLE /*$wgDBprefix*/reader_feedback (
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback (
   -- Foreign key to revision.rev_id
   rfb_rev_id integer NOT NULL,
   -- Foreign key to user.user_id
