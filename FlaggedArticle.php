@@ -217,7 +217,7 @@ class FlaggedArticle extends Article {
 		$simpleTag = $old = $stable = false;
 		$tag = $prot = $pending = '';
 		# Check the newest stable version.
-		$srev = $this->getStableRev( FR_TEXT );
+		$srev = $this->getStableRev();
 		$frev = $srev;
 		$stableId = $frev ? $frev->getRevId() : 0;
 		# Also, check for any explicitly requested old stable version...
@@ -310,7 +310,7 @@ class FlaggedArticle extends Article {
 					}
 				}
 				# Give notice to newer users if an unreviewed edit was completed...
-				if( $wgRequest->getVal('shownotice') && !$synced && !$wgUser->isAllowed('review') ) {
+				if( !$synced && $wgRequest->getVal('shownotice') && !$wgUser->isAllowed('review') ) {
 					$tooltip = wfMsgHtml('revreview-draft-title');
 					$pending = "{$prot}<span class='fr-icon-current' title=\"{$tooltip}\"></span>" .
 						wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revsSince);
