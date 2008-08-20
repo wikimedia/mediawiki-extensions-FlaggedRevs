@@ -475,7 +475,7 @@ class FlaggedArticle extends Article {
 		if( $reqId = $wgRequest->getVal('stableid') ) {
 			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId );
 		} else if( $this->pageOverride() ) {
-			$frev = $this->getStableRev( FR_TEXT );
+			$frev = $this->getStableRev();
 		}
 		if( !is_null($frev) ) {
 			$time = $frev->getFileTimestamp();
@@ -738,7 +738,7 @@ class FlaggedArticle extends Article {
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( $action == 'protect' || $action == 'unprotect' ) {
 			# Check for an overridabe revision
-			$frev = $this->getStableRev( FR_TEXT );
+			$frev = $this->getStableRev();
 			if( !$frev )
 				return true;
 			# Load special page name
@@ -1320,7 +1320,7 @@ class FlaggedArticle extends Article {
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		if( $this->isDiffFromStable ) {
-			$srev = $this->getStableRev( FR_TEXT );
+			$srev = $this->getStableRev();
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version.
 			# If not, then get the flags for the new revision itself.
