@@ -1025,6 +1025,9 @@ EOT;
 	}
 	
 	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
+		if( !FlaggedRevs::isPageReviewable( $title ) ) {
+			return true;
+		}
 		if( $request->getVal( 'stableid' ) ) {
 			$ignoreRedirect = true;
 		} else {
