@@ -778,7 +778,7 @@ class FlaggedArticle extends Article {
 		}
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
-	   	$srev = $this->getStableRev( FR_TEXT );
+	   	$srev = $this->getStableRev();
 	   	# No quality revs? Find the last reviewed one
 	   	if( is_null($srev) ) {
 			return true;
