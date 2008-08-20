@@ -76,14 +76,12 @@ EOT;
 	*/
 	public static function InjectStyleForSpecial() {
 		global $wgTitle, $wgOut, $wgUser;
-		$spPages = array();
-		$spPages[] = SpecialPage::getTitleFor( 'UnreviewedPages' );
-		$spPages[] = SpecialPage::getTitleFor( 'OldReviewedPages' );
-		$spPages[] = SpecialPage::getTitleFor( 'Watchlist' );
-		$spPages[] = SpecialPage::getTitleFor( 'Recentchanges' );
-		$spPages[] = SpecialPage::getTitleFor( 'Contributions' );
-		foreach( $spPages as $n => $title ) {
-			if( $wgTitle->equals( $title ) ) {
+		if( empty($wgTitle) || $wgTitle->getNamespace() !== -1 ) {
+			return true;
+		}
+		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist', 'Recentchanges', 'Contributions' );
+		foreach( $spPages as $n => $key ) {
+			if( $wgTitle->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 				$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 				$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
