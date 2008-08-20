@@ -511,7 +511,7 @@ EOT;
 	/**
 	* Don't let users vandalize pages by moving them
 	*/
-	public static function userCanMove( $title, $user, $action, $result ) {
+	public static function userCanMove( &$title, $user, $action, $result ) {
 		if( $action != 'move' || !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
 		}
@@ -1118,7 +1118,7 @@ EOT;
 		return true;
 	}
 	
-	public static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
+	public static function injectReviewDiffURLParams( &$article, &$sectionAnchor, &$extraQuery ) {
 		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
 	}
 
@@ -1156,12 +1156,12 @@ EOT;
 		$fa = FlaggedArticle::getInstance( $article );
 		# If the stable is the default, and we are viewing it...cache it!
 		if( $fa->showStableByDefault() ) {
-			return ( $fa->pageOverride() && $fa->getStableRev( FR_TEXT ) );
+			return ( $fa->pageOverride() && $fa->getStableRev() );
 		# If the draft is the default, and we are viewing it...cache it!
 		} else {
 			global $wgRequest;
 			# We don't want to cache the pending edit notice though
-			return !( $fa->pageOverride() && $fa->getStableRev( FR_TEXT ) ) && !$wgRequest->getVal('shownotice');
+			return !( $fa->pageOverride() && $fa->getStableRev() ) && !$wgRequest->getVal('shownotice');
 		}
 	}
 
