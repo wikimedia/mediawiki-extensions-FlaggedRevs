@@ -443,6 +443,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->dataY['dave'] = $dave;
 		$plot->dataY['rave'] = $rave;
 		$plot->styleTagsX = 'font-family: monospace; font-size: 8pt;';
+		$plot->styleLabelY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
 		# Create the graph
