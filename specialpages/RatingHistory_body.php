@@ -334,8 +334,8 @@ class RatingHistory extends UnlistedSpecialPage
 	*/
 	public function makeSvgGraph( $tag, $filePath ) {
 		global $wgSvgGraphDir;
-		require_once( "$wgSvgGraphDir/svggraph.php" ); // load classes
-		require_once( "$wgSvgGraphDir/svggraph2.php" ); // load classes
+		require_once( "$wgSvgGraphDir/svgGraph.php" ); // load classes
+		require_once( "$wgSvgGraphDir/svgGraph2.php" ); // load classes
 		// Define the object
 		$plot = new svgGraph2(); // some CONST double redefine notices
 		// Set file path
