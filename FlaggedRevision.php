@@ -51,8 +51,10 @@ class FlaggedRevision {
 	 */
 	public static function newFromTitle( $title, $revId, $flags = 0 ) {
 		$columns = self::selectFields();
+		$options = array();
 		if( $flags & FR_TEXT ) {
 			$columns += self::selectTextFields();
+			$options[] = 'FOR UPDATE';
 		}
 		$db = $flags & FR_FOR_UPDATE ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
@@ -68,7 +70,8 @@ class FlaggedRevision {
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
-			__METHOD__ );
+			__METHOD__,
+			$options );
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row ) {
 			return new FlaggedRevision( $title, $row );
@@ -84,8 +87,10 @@ class FlaggedRevision {
 	 */
 	public static function newFromStable( $title, $flags=0 ) {
 		$columns = self::selectFields();
+		$options = array();
 		if( $flags & FR_TEXT ) {
 			$columns += self::selectTextFields();
+			$options[] = 'FOR UPDATE';
 		}
 		$row = null;
 		# Short-circuit query
@@ -104,6 +109,7 @@ class FlaggedRevision {
 			if( !$row )
 				return null;
 		} else {
+			$options['ORDER BY'] = 'fr_rev_id DESC';
 			# Get visiblity settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, $flags & FR_FOR_UPDATE );
 			$dbw = wfGetDB( DB_MASTER );
@@ -117,7 +123,7 @@ class FlaggedRevision {
 						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC') );
+					$options );
 				# Looks like a plausible revision
 				$row = $prow ? $prow : null;
 			}
@@ -136,7 +142,7 @@ class FlaggedRevision {
 						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC') );
+					$options );
 				$row = $qrow ? $qrow : $row;
 			}
 			# Do we have one? If not, try the latest reviewed revision...
@@ -148,7 +154,7 @@ class FlaggedRevision {
 						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
 					__METHOD__,
-					array( 'ORDER BY' => 'fr_rev_id DESC' ) );
+					$options );
 				if( !$row )
 					return null;
 			}
