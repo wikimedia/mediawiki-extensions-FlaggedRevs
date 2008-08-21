@@ -490,7 +490,6 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	public static function getCachedFileExtension() {
-	return 'png';
 		global $wgSvgGraphDir, $wgPHPlotDir;
 		if( $wgSvgGraphDir ) {
 			$ext = 'svg';
