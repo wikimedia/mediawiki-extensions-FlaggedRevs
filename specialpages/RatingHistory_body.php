@@ -354,7 +354,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->plotOffsetY = 10;
 		$plot->numGridlinesY = 5;
 		$plot->innerPaddingX = 5;
-		$plot->innerPaddingY = 0;
+		$plot->innerPaddingY = 1;
 		$plot->outerPadding = 0;
 		$plot->offsetGridlinesX  = 0;
 		$plot->maxY = 4;
@@ -444,7 +444,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->dataY['dave'] = $dave;
 		$plot->dataY['rave'] = $rave;
 		$plot->styleTagsX = 'font-family: monospace; font-size: 8pt;';
-		$plot->styleLabelY = 'font-family: sans-serif; font-size: 10pt;';
+		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
 		# Create the graph
