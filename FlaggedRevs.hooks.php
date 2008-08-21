@@ -95,7 +95,7 @@ EOT;
 	/**
 	* Update flaggedrevs table on revision restore
 	*/
-	public static function updateFromRestore( $title, $revision, $oldPageID ) {
+	public static function updateFromRestore( $title, $revision, &$oldPageID ) {
 		$dbw = wfGetDB( DB_MASTER );
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set
@@ -148,7 +148,7 @@ EOT;
 	/**
 	* Clears visiblity settings on page delete
 	*/
-	public static function deleteVisiblitySettings( $article, $user, $reason ) {
+	public static function deleteVisiblitySettings( $article, $user, &$reason ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedpage_config',
 			array( 'fpc_page_id' => $article->getID() ),
@@ -256,7 +256,6 @@ EOT;
 
 	/**
 	* Select the desired templates based on the selected stable revision IDs
-	* NOTE: $p comes in false from this hook ... weird
 	*/
 	public static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
 		# Trigger for stable version parsing only
@@ -511,7 +510,7 @@ EOT;
 	/**
 	* Don't let users vandalize pages by moving them
 	*/
-	public static function userCanMove( &$title, $user, $action, $result ) {
+	public static function userCanMove( &$title, $user, &$action, &$result ) {
 		if( $action != 'move' || !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
 		}
@@ -533,7 +532,7 @@ EOT;
     /**
     * Allow users to view reviewed pages
     */
-    public static function userCanView( $title, $user, $action, $result ) {
+    public static function userCanView( $title, $user, &$action, &$result ) {
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
 		# Return out if $result set to false by some other hooked call.
