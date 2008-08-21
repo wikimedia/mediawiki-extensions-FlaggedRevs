@@ -151,6 +151,14 @@ $messages['it'] = array(
 	'validationstatistics-latest' => 'Ultime revisionate',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Lovekhmer
+ */
+$messages['km'] = array(
+	'validationstatistics-ns' => 'លំហឈ្មោះ',
+	'validationstatistics-total' => 'ទំព័រ',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aviator
  */
@@ -198,6 +206,23 @@ $messages['no'] = array(
 	'validationstatistics-latest' => 'Sist anmeldt',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
 	'validationstatistics-old' => 'Foreldet',
+);
+
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'validationstatistics' => 'Estatisticas de validacion',
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''$1''' {{PLURAL:$1|utilizaire|utilizaires}} amb los dreches d’[[{{MediaWiki:Validationpage}}|editor]] e de '''$2''' {{PLURAL:$2|utilizaire|utilizaires}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].",
+	'validationstatistics-table' => "Las estatisticas per cada espaci de nom son afichadas çaijós, a l’exclusion de las paginas de redireccion.
+
+'''Nòta :''las donadas seguentas son amagadas pendent maitas oras e pòdon pas èsser mesas a jorn.",
+	'validationstatistics-ns' => 'Nom de l’espaci',
+	'validationstatistics-total' => 'Paginas',
+	'validationstatistics-stable' => 'Relegit',
+	'validationstatistics-latest' => 'Relegit en tot darrièr luòc',
+	'validationstatistics-synced' => 'Sincronizat/Relegit',
+	'validationstatistics-old' => 'Desuet',
 );
 
 /** Slovak (Slovenčina)

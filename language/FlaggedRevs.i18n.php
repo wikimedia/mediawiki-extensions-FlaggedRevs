@@ -1462,9 +1462,9 @@ $messages['cs'] = array(
 	'flaggedrevs-prefs-stable' => 'Vždy standardně zobrazovat stabilní verzi stránek s obsahem (pokud existuje)',
 	'flaggedrevs-prefs-watch' => 'Přidat stránky, které zkontroluji, do mého seznamu sledovaných stránek',
 	'group-editor' => 'Editoři',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Posuzovatelé',
-	'group-reviewer-member' => 'Posuzovatel',
+	'group-reviewer-member' => 'posuzovatel',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Posuzovatel',
 	'hist-draft' => 'návrh verze',
@@ -1586,6 +1586,7 @@ $messages['da'] = array(
 );
 
 /** German (Deutsch)
+ * @author MichaelFrey
  * @author Raimond Spekking
  */
 $messages['de'] = array(
@@ -1666,7 +1667,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Version|Versionen}}] {{PLURAL:$3|steht|stehen}} noch zur Sichtung an.',
 	'revreview-newest-basic-i' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alle]) wurde [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen an Vorlagen/Bildern] stehen noch zur Sichtung an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen an Vorlagen/Dateien] stehen noch zur Sichtung an.',
 	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte geprüfte Version]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Version|Versionen}}] {{PLURAL:$3|steht|stehen}} noch zur Sichtung an.',
@@ -2022,6 +2023,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'revreview-statusfilter' => 'Statuso:',
 	'revreview-typefilter' => 'Speco:',
 	'revreview-tagfilter' => 'Etikedo:',
+	'revreview-linksmixed' => "''Paĝoj estas listigitaj ĉi tie en ambaŭ la malneta kaj stabila versio (se ekzistante) de paĝoj.''",
 	'tooltip-ca-current' => 'Vidigu la nunan malneton de ĉi tiu paĝo',
 	'tooltip-ca-stable' => 'Rigardi la stabilan version de ĉi paĝo',
 	'tooltip-ca-default' => 'Konfiguro de kvalitkontrolo',
@@ -2748,7 +2750,7 @@ O ''bosquexo'' amósase embaixo.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 	'revreview-log' => 'Comentario para o rexistro:',
 	'revreview-main' => 'Debe seleccionar unha revisión particular dunha páxina de contido de cara á revisión.
 
-Vexa [[Special:Unreviewedpages]] para ollar unha listaxe de páxinas sen revisar.',
+Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión revisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amosar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] {{PLURAL:$3|precisa|precisan}} dunha revisión.',
 	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión revisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amosar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
@@ -2759,7 +2761,7 @@ Vexa [[Special:Unreviewedpages]] para ollar unha listaxe de páxinas sen revisar
 	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidade] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amosar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Os cambios nos modelos/imaxes changes] precisan dunha revisión.',
 	'revreview-noflagged' => "Non hai revisións examinadas desta páxina,  polo que pode que '''non''' foran [[{{MediaWiki:Validationpage}}|revisadas]] na súa calidade.",
-	'revreview-note' => '[[User:$1|$1]] fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
+	'revreview-note' => '"[[User:$1|$1]]" fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
 	'revreview-notes' => 'Observacións ou notas para amosar:',
 	'revreview-oldrating' => 'Foi valorado:',
 	'revreview-patrol' => 'Marcar este cambio como patrullado',
@@ -2799,8 +2801,8 @@ Novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] foron
 	'revreview-style-3' => 'Conciso',
 	'revreview-style-4' => 'Destacado',
 	'revreview-submit' => 'Enviar revisión',
-	'revreview-successful' => "'''A revisión seleccionada de [[:$1|$1]] foi analizada con éxito. ([{{fullurl:Special:Stableversions|page=$2}} ver todas as versións analizadas])'''",
-	'revreview-successful2' => "'''Á revisión seleccionada de [[:$1|$1]] foille retirada a análise con éxito.'''",
+	'revreview-successful' => "'''A revisión seleccionada de \"[[:\$1|\$1]]\" foi analizada con éxito. ([{{fullurl:Special:Stableversions|page=\$2}} ver as versións estábeis])'''",
+	'revreview-successful2' => "'''Á revisión de \"[[:\$1|\$1]]\" foille retirada a análise con éxito.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|As versións estábeis]] son o contido por omisión ao ver unha páxina en vez da revisión máis recente.''",
 	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|versións estábeis]] son revisións comprobadas de páxinas e poden ser fixadas como contido por defecto para os lectores.''",
 	'revreview-toggle-title' => 'amosar/agochar detalles',
@@ -2828,7 +2830,7 @@ Para despreciar unha revisión, encha todos os campos con "sen aprobar".',
 	'stable-logpage' => 'Rexistro de versións estábeis',
 	'stable-logpagetext' => 'Este é un rexistro dos cambios da configuración da [[{{MediaWiki:Validationpage}}|versión estábel]] do contido das páxinas.
 Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePages|listaxe de páxinas estábeis]].',
-	'readerfeedback' => 'Reacción do lector',
+	'readerfeedback' => 'Que pensa desta páxina?',
 	'readerfeedback-text' => "''Por favor, tome un momento para valorar, embaixo, esta páxina. A súa reacción é valiosa e axúdanos a mellorar a nosa páxina web.''",
 	'readerfeedback-reliability' => 'Fiabilidade',
 	'readerfeedback-completeness' => 'Exhaustividade',
@@ -3792,6 +3794,7 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-filter-level-1' => 'Versioni di qualità',
 	'revreview-typefilter' => 'Tipo:',
 	'revreview-tagfilter' => 'Tag:',
+	'revreview-linksmixed' => "''Le pagine elencate qui sono basate sia sulle bozze sia sulle versioni stabili (se presenti) delle pagine.''",
 	'tooltip-ca-current' => 'Vedi la bozza attuale di questa pagina',
 	'tooltip-ca-stable' => 'Vedi la versione stabile di questa pagina',
 	'revreview-locked' => 'Le modifiche devono essere revisionate prima di essere mostrate in questa pagina!',
@@ -4295,6 +4298,7 @@ $messages['km'] = array(
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ពត៌មានលំអិត',
 	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានធ្វើអោយទាន់សម័យរួចហើយ:'''",
 	'readerfeedback-submit' => 'ដាក់ស្នើ',
+	'readerfeedback-finished' => 'សូមអរគុណ!',
 	'revreview-filter-all' => 'ទាំងអស់',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
 	'revreview-typefilter' => 'ប្រភេទ:',
@@ -5597,7 +5601,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'readerfeedback-level-3' => 'Naut',
 	'readerfeedback-level-4' => 'Excellent',
 	'readerfeedback-submit' => 'Sometre',
-	'readerfeedback-main' => 'Sol lo contengut pòt èsser relegit.',
+	'readerfeedback-main' => 'Sol lo contengut de las paginas pòt èsser notat.',
 	'readerfeedback-success' => "'''Mercés per aver revisat aquesta pagina ! ''' Los resultats de la reaccion del lector per '''$1''' pòdon èsser trobats [$2 aicí].",
 	'readerfeedback-voted' => "'''Apareis que ja avètz notat aquesta pagina'''. Los resultats de la reaccion del lector per '''$1''' pòt èsser trobada [$2 aicí].",
 	'readerfeedback-submitting' => 'Somission…',
@@ -5613,6 +5617,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-statusfilter' => 'Estatut :',
 	'revreview-typefilter' => 'Tipe :',
 	'revreview-tagfilter' => 'Balisa :',
+	'revreview-linksmixed' => "''Las paginas son listadas aicí jos lors versions borrolhon o establa (se n'i a).''",
 	'tooltip-ca-current' => "Veire l'esbòs corrent d'aquesta pagina",
 	'tooltip-ca-stable' => "Veire la version establa d'aquesta pagina",
 	'tooltip-ca-default' => "Paramètres per l'assegurança-qualitat",

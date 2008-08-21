@@ -89,6 +89,7 @@ $aliases['de'] = array(
 	'StableVersions' => array( 'Seitenkonfiguration' ),
 	'ProblemPages' => array( 'Problematische Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
+	'Stabilization' => array( 'Stabilisierung' ),
 );
 
 /** Esperanto (Esperanto)
@@ -134,12 +135,12 @@ $aliases['fr'] = array(
  */
 $aliases['gl'] = array(
 	'QualityOversight' => array( 'RevisiónDeCalidade' ),
-	'UnReviewedPages'  => array( 'Páxinas non revisadas' ),
+	'UnReviewedPages' => array( 'Páxinas non revisadas' ),
 	'OldReviewedPages' => array( 'Páxinas revisadas hai tempo' ),
-	'ReviewedPages'    => array( 'Páxinas revisadas' ),
-	'StablePages'      => array( 'Páxinas estábeis' ),
-	'StableVersions'   => array( 'Versións estábeis' ),
-	'ProblemPages'     => array( 'PáxinasProblemáticas' ),
+	'ReviewedPages' => array( 'Páxinas revisadas' ),
+	'StablePages' => array( 'Páxinas estábeis' ),
+	'StableVersions' => array( 'Versións estábeis' ),
+	'ProblemPages' => array( 'PáxinasProblemáticas' ),
 );
 
 /** Hindi (हिन्दी)
@@ -219,6 +220,19 @@ $aliases['ms'] = array(
 	'StablePages' => array( 'Laman_stabil' ),
 	'StableVersions' => array( 'Versi_stabil' ),
 	'ProblemPages' => array( 'Laman_bermasalah' ),
+);
+
+/** Nedersaksisch (Nedersaksisch) */
+$aliases['nds-nl'] = array(
+	'QualityOversight' => array( 'Kwaliteitscontrole' ),
+	'UnReviewedPages' => array( "Pagina's_zonder_eindredactie" ),
+	'OldReviewedPages' => array( "Pagina's_verouwerde_eindredactie" ),
+	'ReviewedPages' => array( 'Pagina_mit_eindredactie' ),
+	'StablePages' => array( "Stebiele_pagina's" ),
+	'StableVersions' => array( 'Stebiele_versies' ),
+	'ProblemPages' => array( "Prebleem_pagina's" ),
+	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
+	'Stabilization' => array( 'Stabilisasie' ),
 );
 
 /** Dutch (Nederlands)

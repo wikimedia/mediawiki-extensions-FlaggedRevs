@@ -203,7 +203,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'right-unreviewedpages' => 'Rigardi liston de nekontrolitaj  paĝoj',
+	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|liston de nekontrolitaj paĝoj]]',
 	'unreviewedpages' => 'Nekontrolitaj paĝoj',
 	'unreviewed-legend' => 'Listigi nekontrolitajn enhavajn paĝojn',
 	'unreviewed-category' => 'Kategorio:',
@@ -644,7 +644,7 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'right-unreviewedpages' => 'Veire la lista de las paginas pas revistas',
+	'right-unreviewedpages' => 'Veire [[Special:UnreviewedPages|la lista de las paginas pas revistas]]',
 	'unreviewedpages' => 'Listar las paginas pas revisadas',
 	'unreviewed-legend' => 'Lista dels contenguts de las paginas pas visats',
 	'unreviewed-category' => 'Categoria :',

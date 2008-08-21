@@ -306,6 +306,7 @@ $messages['oc'] = array(
 	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> de la notacion son dessennhats çaijós, per data. Lo nombre de relecturas es afichat dins lo canton situat en naut a drecha del grafic ; las valors mai elevadas tendon a indicar puslèu de donadas simplas. las valors de notacions devon èsser interpretadas coma seguís :
 
 '''[0]''' - Marrit ; '''[1]''' - Mediòcre ; '''[2]''' - Mejan ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
+	'right-feedback' => 'Utilizar lo formulari de somission per notar una pagina',
 );
 
 /** Portuguese (Português)
