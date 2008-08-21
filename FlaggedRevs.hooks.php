@@ -79,7 +79,8 @@ EOT;
 		if( empty($wgTitle) || $wgTitle->getNamespace() !== -1 ) {
 			return true;
 		}
-		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist', 'Recentchanges', 'Contributions' );
+		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist', 'Recentchanges', 
+			'Contributions', 'RatingHistory' );
 		foreach( $spPages as $n => $key ) {
 			if( $wgTitle->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
