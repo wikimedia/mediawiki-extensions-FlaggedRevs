@@ -248,13 +248,14 @@ $wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
 # How long before stats page is updated?
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
+$wgSvgGraphDir = dirname(__FILE__) . '/svggraph';
 $wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
 
 # End of configuration variables.
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 38;
+$wgFlaggedRevStyleVersion = 39;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

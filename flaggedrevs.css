@@ -309,3 +309,11 @@
 .fr-comment-box {
 	margin-top: .25em;
 }
+
+.fr-rating-dave {
+	background-color: lightblue;
+}
+
+.fr-rating-rave {
+	background-color: lightgreen;
+}
