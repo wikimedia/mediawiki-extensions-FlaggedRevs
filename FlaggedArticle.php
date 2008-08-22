@@ -1333,8 +1333,7 @@ class FlaggedArticle extends Article {
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' );
 		if( $hide ) {
-			$params['style'] = 'display: none;';
-			$params['id'] = 'mw-hiddenreviewform';
+			$params['class'] = 'fr-hiddenform';
 		}
 		$form = Xml::openElement( 'form', $params );
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );

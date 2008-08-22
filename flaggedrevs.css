@@ -317,3 +317,7 @@
 .fr-rating-rave {
 	background-color: lightgreen;
 }
+
+.fr-hiddenform {
+	display: none;
+}
