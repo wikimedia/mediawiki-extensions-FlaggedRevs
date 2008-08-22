@@ -19,8 +19,7 @@ $messages['en'] = array(
 	'ratinghistory-3years'  => 'last 3 years',
 	'ratinghistory-none'    => 'There is not enough reader feedback data available for graphs at this time.',
 	'ratinghistory-legend'  => 'The daily average rating <font color="blue">\'\'(blue)\'\'</font> and selected interval 
-	average rating <font color="green">\'\'(green)\'\'</font> are graphed below, by date. The number of reviews is shown in the
-	upper right-hand corner of the graphs; higher values tend to indicated better sample data. The rating values are to be interpreted as follows:
+	average rating <font color="green">\'\'(green)\'\'</font> are graphed below, by date. The rating values are to be interpreted as follows:
 	
 \'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;',
 
