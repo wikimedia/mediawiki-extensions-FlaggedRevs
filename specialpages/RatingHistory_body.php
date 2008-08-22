@@ -322,7 +322,7 @@ class RatingHistory extends UnlistedSpecialPage
 		require_once( "$wgSvgGraphDir/svgGraph.php" ); // load classes
 		require_once( "$wgSvgGraphDir/svgGraph2.php" ); // load classes
 		// Define the object
-		$plot = new svgGraph2(); // some CONST double redefine notices
+		$plot = new svgGraph2();
 		// Set file path
 		$dir = dirname($filePath);
 		// Make sure directory exists
