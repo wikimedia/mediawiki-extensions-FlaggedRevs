@@ -670,13 +670,9 @@ class FlaggedArticle extends Article {
 		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan('edit') ) {
 			return true;
 		}
-		# Avoid some mistakes by people thinking this is the diff to stable
-		if( $wgRequest->getVal( 'diff') && !$this->isDiffFromStable ) {
-			return true;
-		}
 		# User must have review rights
 		if( $wgUser->isAllowed( 'review' ) ) {
-			$this->addQuickReview( $data, $this->isDiffFromStable );
+			$this->addQuickReview( $data, (bool)$wgRequest->getVal( 'diff'), !$this->getStableRev() );
 		}
 		return true;
 	}
@@ -914,7 +910,6 @@ class FlaggedArticle extends Article {
 		if( !FlaggedRevs::allowComments() || !$frev || !$frev->getComment() ) {
 			return '';
 		}
-
    		$notes = "<br/><div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
@@ -1294,11 +1289,12 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Adds a brief review form to a page.
-	 * @param OutputPage $out
-	 * @param Title $title
+	 * @param string $data
+	 * @param bool $top
+	 * @param bool hide
 	 * @param bool $top, should this form always go on top?
 	 */
-	public function addQuickReview( &$data, $top = false ) {
+	public function addQuickReview( &$data, $top = false, $hide = false ) {
 		global $wgOut, $wgUser, $wgRequest;
 		# Revision being displayed
 		$id = $wgOut->getRevisionId();
@@ -1337,7 +1333,12 @@ class FlaggedArticle extends Article {
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
-		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' ) );
+		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' );
+		if( $hide ) {
+			$params['style'] = 'display: none;';
+			$params['id'] = 'mw-hiddenreviewform';
+		}
+		$form = Xml::openElement( 'form', $params );
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
@@ -1474,7 +1475,7 @@ class FlaggedArticle extends Article {
 		);
 		$form .= Xml::closeElement( 'span' );
 
-		$form .= Xml::closeElement( 'div' );
+		$form .= Xml::closeElement( 'div' ) . "\n";
 
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
