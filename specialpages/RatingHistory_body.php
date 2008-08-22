@@ -272,9 +272,7 @@ class RatingHistory extends UnlistedSpecialPage
 				$x = intval( $dayGap/86400 );
 				# Day gaps...
 				for( $x; $x > 1; --$x ) {
-					$dataX[] = "";
-					$dave[] = $lastDAve;
-					$rave[] = $lastRAve;
+					$data[] = array("",$lastDAve,$lastRAve);
 					$n++;
 				}
 			}
@@ -288,6 +286,8 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 			$data[] = array( $p, $dayAve, $cumAve);
 			$lastDate = $row->rfh_date;
+			$lastDAve = $dayAve;
+			$lastRAve = $cumAve;
 		}
 		$dbr->freeResult( $res );
 		// Minimum sample size
