@@ -452,7 +452,10 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->drawGraph();
 		$plot->line('dave');
 		$plot->line('rave');
-		$plot->generateSVG();
+		// Fucking IE...
+		$nsParams = self::renderForIE() ? 
+			"" : "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'";
+		$plot->generateSVG( $nsParams );
 		// Write to file for cache
 		$fp = @fopen( $filePath, 'w' );
 		@fwrite($fp, $plot->svg );
@@ -483,12 +486,13 @@ class RatingHistory extends UnlistedSpecialPage
 	
 	public function getRelPath( $tag ) {
 		$ext = self::getCachedFileExtension();
+		$suffix = self::renderForIE() ? '-ie' : '';
 		$pageId = $this->page->getArticleId();
 		# Paranoid check. Should not be necessary, but here to be safe...
 		if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) ) {
 			throw new MWException( 'Invalid tag name!' );
 		}
-		return "{$pageId}/{$tag}/l{$this->period}d.{$ext}";
+		return "{$pageId}/{$tag}/l{$this->period}d{$suffix}.{$ext}";
 	}
 	
 	public static function getCachedFileExtension() {
@@ -501,6 +505,14 @@ class RatingHistory extends UnlistedSpecialPage
 			$ext = 'html';
 		}
 		return $ext;
+	}
+	
+	private static function renderForIE() {
+		if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE ') !== false) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**

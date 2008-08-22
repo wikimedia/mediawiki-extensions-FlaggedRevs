@@ -716,12 +716,12 @@ class svgGraph {
   * Generate SVG for entire graph.
   * @returns void
   */
-  function generateSVG() {  //enableZoomAndPanControls='false'
+  function generateSVG( $params = '' ) {  //enableZoomAndPanControls='false'
     $this->svg  = "<?xml version='1.0' encoding='iso-8859-1'?>\n";
     $this->svg .= "<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20000303 Stylable//EN' ";
     $this->svg .= "'http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd'>\n";
-    $this->svg .= "<svg width='{$this->graphicWidth}' height='{$this->graphicHeight}' 
-		xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>\n";
+    $this->svg .= "<svg width='{$this->graphicWidth}' height='{$this->graphicHeight}' ";
+	$this->svg .= $params . ">\n";
 
     if (!empty($this->extraSVG)) {
       $this->svg .= "<!-- Extra SVG -->\n";
