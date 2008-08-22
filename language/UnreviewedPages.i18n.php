@@ -300,7 +300,7 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'right-unreviewedpages' => 'Ver a listaxe das páxinas non revisadas.',
+	'right-unreviewedpages' => 'Ver a [[Special:UnreviewedPages|lista das páxinas non revisadas]]',
 	'unreviewedpages' => 'Páxinas sen revisar',
 	'unreviewed-legend' => 'Listar as páxinas con contido sen revisar',
 	'unreviewed-category' => 'Categoría:',

@@ -110,6 +110,14 @@ $messages['fr'] = array(
 	'validationstatistics-old' => 'Désuet',
 );
 
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'validationstatistics-ns' => 'Espazo de nomes',
+	'validationstatistics-total' => 'Páxinas',
+);
+
 /** Hebrew (עברית)
  * @author Agbad
  */

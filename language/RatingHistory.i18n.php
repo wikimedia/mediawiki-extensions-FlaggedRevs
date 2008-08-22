@@ -85,7 +85,7 @@ $messages['bg'] = array(
  */
 $messages['de'] = array(
 	'ratinghistory' => 'Verlauf der Seitenbewertung',
-	'ratinghistory-text' => "'''Diese Seite zeigt die Seitenbewertung für [[:$1|$1]].'''",
+	'ratinghistory-text' => "'''Diese Seite zeigt die Bewertung für [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Verlauf der Seitenbewertung',
 	'ratinghistory-tab' => 'Bewertung',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>'''''",

@@ -89,7 +89,7 @@ $aliases['de'] = array(
 	'StableVersions' => array( 'Seitenkonfiguration' ),
 	'ProblemPages' => array( 'Problematische Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
-	'Stabilization' => array( 'Stabilisierung' ),
+	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
 );
 
 /** Esperanto (Esperanto)
