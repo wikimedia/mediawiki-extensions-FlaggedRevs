@@ -161,9 +161,6 @@ class RatingHistory extends UnlistedSpecialPage
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Define the data using the DB rows
 		$totalVal = $totalCount = $n = 0;
-		$lastDay = 31; // init to not trigger first time
-		$lastMonth = 12; // init to not trigger first time
-		$lastYear = 9999; // init to not trigger first time
 		$res = $dbr->select( 'reader_feedback_history',
 			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
 			array( 'rfh_page_id' => $this->page->getArticleId(), 
@@ -245,9 +242,6 @@ class RatingHistory extends UnlistedSpecialPage
 		// Define the data using the DB rows
 		$data = array();
 		$totalVal = $totalCount = $n = 0;
-		$lastDay = 31; // init to not trigger first time
-		$lastMonth = 12; // init to not trigger first time
-		$lastYear = 9999; // init to not trigger first time
 		$res = $dbr->select( 'reader_feedback_history',
 			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
 			array( 'rfh_page_id' => $this->page->getArticleId(), 
@@ -273,38 +267,29 @@ class RatingHistory extends UnlistedSpecialPage
 			$month = intval( substr( $row->rfh_date, 4, 2 ) );
 			$day = intval( substr( $row->rfh_date, 6, 2 ) );
 			# Fill in days with no votes to keep spacing even
-			# Year gaps...
-			for( $i=($lastYear + 1); $i < $year; $i++ ) {
-				for( $x=1; $x <= 365; $x++ ) {
-					$data[] = array("",'','');
+			if( isset($lastDate) ) {
+				$dayGap = wfTimestamp(TS_UNIX,$row->rfh_date) - wfTimestamp(TS_UNIX,$lastDate);
+				$x = intval( $dayGap/86400 );
+				# Day gaps...
+				for( $x; $x > 1; --$x ) {
+					$dataX[] = "";
+					$dave[] = $lastDAve;
+					$rave[] = $lastRAve;
 					$n++;
 				}
 			}
-			# Month gaps...
-			for( $i=($lastMonth + 1); $i < $month; $i++ ) {
-				for( $x=1; $x <= 31; $x++ ) {
-					$data[] = array("",'','');
-					$n++;
-				}
-			}
-			# Day gaps...
-			for( $x=($lastDay + 1); $x < $day; $x++ ) {
-				$data[] = array("",'','');
-				$n++;
-			}
+			$n++;
 			# Label point?
 			if( $n >= $int || !count($data) ) {
 				$p = ($this->period > 31) ? "{$month}-".substr( $year, 2, 2 ) : "{$month}/{$day}";
 				$n = 0;
 			} else {
 				$p = "";
-				$n++;
 			}
 			$data[] = array( $p, $dayAve, $cumAve);
-			$lastDay = $day;
-			$lastMonth = $month;
-			$lastYear = $year;
+			$lastDate = $row->rfh_date;
 		}
+		$dbr->freeResult( $res );
 		// Minimum sample size
 		if( count($data) < 2 || $totalCount < 10 ) {
 			return false;
@@ -366,9 +351,6 @@ class RatingHistory extends UnlistedSpecialPage
 		// Define the data using the DB rows
 		$dataX = $dave = $rave = array();
 		$totalVal = $totalCount = $n = 0;
-		$lastDay = 31; // init to not trigger first time
-		$lastMonth = 12; // init to not trigger first time
-		$lastYear = 9999; // init to not trigger first time
 		$res = $dbr->select( 'reader_feedback_history',
 			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
 			array( 'rfh_page_id' => $this->page->getArticleId(), 
@@ -394,48 +376,33 @@ class RatingHistory extends UnlistedSpecialPage
 			$month = intval( substr( $row->rfh_date, 4, 2 ) );
 			$day = intval( substr( $row->rfh_date, 6, 2 ) );
 			# Fill in days with no votes to keep spacing even
-			# Year gaps...
-			for( $i=($lastYear + 1); $i < $year; $i++ ) {
-				for( $x=1; $x <= 365; $x++ ) {
+			if( isset($lastDate) ) {
+				$dayGap = wfTimestamp(TS_UNIX,$row->rfh_date) - wfTimestamp(TS_UNIX,$lastDate);
+				$x = intval( $dayGap/86400 );
+				# Day gaps...
+				for( $x; $x > 1; --$x ) {
 					$dataX[] = "";
 					$dave[] = $lastDAve;
 					$rave[] = $lastRAve;
 					$n++;
 				}
 			}
-			# Month gaps...
-			for( $i=($lastMonth + 1); $i < $month; $i++ ) {
-				for( $x=1; $x <= 31; $x++ ) {
-					$dataX[] = "";
-					$dave[] = $lastDAve;
-					$rave[] = $lastRAve;
-					$n++;
-				}
-			}
-			# Day gaps...
-			for( $x=($lastDay + 1); $x < $day; $x++ ) {
-				$dataX[] = "";
-				$dave[] = $lastDAve;
-				$rave[] = $lastRAve;
-				$n++;
-			}
+			$n++;
 			# Label point?
 			if( $n >= $int || !count($dataX) ) {
 				$p = ($this->period > 31) ? "{$month}-".substr( $year, 2, 2 ) : "{$month}/{$day}";
 				$n = 0;
 			} else {
 				$p = "";
-				$n++;
 			}
 			$dataX[] = $p;
 			$dave[] = $dayAve;
 			$rave[] = $cumAve;
-			$lastDay = $day;
-			$lastMonth = $month;
-			$lastYear = $year;
+			$lastDate = $row->rfh_date;
 			$lastDAve = $dayAve;
 			$lastRAve = $cumAve;
 		}
+		$dbr->freeResult( $res );
 		// Minimum sample size
 		if( count($dataX) < 2 || $totalCount < 10 ) {
 			return false;
