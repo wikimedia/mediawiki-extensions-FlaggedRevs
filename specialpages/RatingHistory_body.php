@@ -106,7 +106,7 @@ class RatingHistory extends UnlistedSpecialPage
 						Xml::openElement( 'div', array('class' => 'reader_feedback_graph',
 							'style' => "width:100%; overflow:scroll;") ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
-							'width' => '1000px', 'height' => '450px') ) . 
+							'width' => '1000px', 'height' => '400px') ) . 
 						Xml::closeElement( 'object' ) .
 						Xml::closeElement( 'div' ) . "\n"
 					);
@@ -261,7 +261,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$res->seek( $dbr->numRows($res)-1 );
 			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
-			$int = intval( ceil($days/10) ); // 10 labels at most
+			$int = intval( ceil($days/12) ); // 12 labels at most
 			$res->seek( 0 );
 		}
 		while( $row = $dbr->fetchObject( $res ) ) {
@@ -294,7 +294,7 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 			# Label point?
 			if( $n >= $int || !count($data) ) {
-				$p = ($this->period > 31) ? "{$month}/{$day}/".substr( $year, 2, 2 ) : "{$month}/{$day}";
+				$p = ($this->period > 31) ? "{$month}-".substr( $year, 2, 2 ) : "{$month}/{$day}";
 				$n = 0;
 			} else {
 				$p = "";
@@ -346,15 +346,15 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		// Set some parameters
 		$plot->graphicWidth = 1000;
-		$plot->graphicHeight = 450;
+		$plot->graphicHeight = 400;
 		$plot->plotWidth = 950;
-		$plot->plotHeight = 400;
-		$plot->decimalPlacesY = 2;
-		$plot->plotOffsetX = 40;
+		$plot->plotHeight = 370;
+		$plot->decimalPlacesY = 1;
+		$plot->plotOffsetX = 30;
 		$plot->plotOffsetY = 10;
 		$plot->numGridlinesY = 5;
 		$plot->innerPaddingX = 5;
-		$plot->innerPaddingY = 1;
+		$plot->innerPaddingY = 2;
 		$plot->outerPadding = 0;
 		$plot->offsetGridlinesX  = 0;
 		$plot->maxY = 4;
@@ -382,7 +382,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$res->seek( $dbr->numRows($res)-1 );
 			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
-			$int = intval( ceil($days/10) ); // 10 labels at most
+			$int = intval( ceil($days/12) ); // 12 labels at most
 			$res->seek( 0 );
 		}
 		while( $row = $dbr->fetchObject( $res ) ) {
@@ -421,7 +421,7 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 			# Label point?
 			if( $n >= $int || !count($dataX) ) {
-				$p = ($this->period > 31) ? "{$month}/{$day}/".substr( $year, 2, 2 ) : "{$month}/{$day}";
+				$p = ($this->period > 31) ? "{$month}-".substr( $year, 2, 2 ) : "{$month}/{$day}";
 				$n = 0;
 			} else {
 				$p = "";
@@ -443,7 +443,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->dataX = $dataX;
 		$plot->dataY['dave'] = $dave;
 		$plot->dataY['rave'] = $rave;
-		$plot->styleTagsX = 'font-family: monospace; font-size: 8pt;';
+		$plot->styleTagsX = 'font-family: monospace; font-size: 7.5pt;';
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
