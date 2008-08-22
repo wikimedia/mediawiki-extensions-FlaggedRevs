@@ -1099,7 +1099,7 @@ EOT;
 	public static function addToContribsQuery( $pager, &$queryInfo ) {
 		$queryInfo['tables'][] = 'flaggedpages';
 		$queryInfo['fields'][] = 'fp_stable';
-		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page AND fp_stable < rev_id" );
+		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page" );
 		return true;
 	}
 	
@@ -1112,8 +1112,11 @@ EOT;
 	}
 	
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
-		if( isset($row->fp_stable) ) {
+		global $wgFlaggedRevsNamespaces;
+		if( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
 			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
+		} else if( !isset($row->fp_stable) && in_array($row->page_namespace,$wgFlaggedRevsNamespaces) ) {
+			$ret = '<span class="flaggedrevs-unreviewed2">'.$ret.'</span>';
 		}
 		return true;
 	}

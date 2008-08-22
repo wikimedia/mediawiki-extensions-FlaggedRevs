@@ -197,6 +197,10 @@
 	background-color: #fffff0;
 }
 
+.flaggedrevs-unreviewed2 {
+	background-color: #faebd7;
+}
+
 .flaggedrevs_toggle {
 	color: blue;
 	white-space: nowrap;
