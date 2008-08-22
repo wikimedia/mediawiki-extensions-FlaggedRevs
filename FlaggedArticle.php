@@ -662,7 +662,8 @@ class FlaggedArticle extends Article {
 	 */
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
-		if( !$this->parent->exists() || !$this->isReviewable() ) {
+		# User must have review rights
+		if( !$wgUser->isAllowed('review')  || !$this->parent->exists() || !$this->isReviewable() ) {
 			return true;
 		}
 		# Check action and if page is protected
@@ -670,10 +671,7 @@ class FlaggedArticle extends Article {
 		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan('edit') ) {
 			return true;
 		}
-		# User must have review rights
-		if( $wgUser->isAllowed( 'review' ) ) {
-			$this->addQuickReview( $data, (bool)$wgRequest->getVal( 'diff'), !$this->getStableRev() );
-		}
+		$this->addQuickReview( $data, $wgRequest->getVal('diff'), $wgRequest->getVal('diff') && !$this->getStableRev() );
 		return true;
 	}
 
@@ -1342,10 +1340,9 @@ class FlaggedArticle extends Article {
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
-		if( FlaggedRevs::showStableByDefault() ) {
-			$form .= wfMsgExt( 'revreview-text', array('parse') );
-		} else {
-			$form .= wfMsgExt( 'revreview-text2', array('parse') );
+		if( !FlaggedRevs::lowProfileUI() ) {
+			$msg = FlaggedRevs::showStableByDefault() ? 'revreview-text' : 'revreview-text2';
+			$form .= wfMsgExt( $msg, array('parse') );
 		}
 
 		# Current user has too few rights to change at least one flag, thus entire form disabled
