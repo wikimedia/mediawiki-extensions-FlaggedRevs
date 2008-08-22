@@ -126,7 +126,8 @@ class ReaderFeedback extends UnlistedSpecialPage
 					}
 					break;
 				case "commentary": // honeypot value
-					$bot = true;
+					if( $val )
+						$bot = true;
 					break;
 				default:
 					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
