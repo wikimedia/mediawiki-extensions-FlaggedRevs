@@ -1523,14 +1523,16 @@ class FlaggedArticle extends Article {
 		# Loop through all different flag types
 		foreach( FlaggedRevs::getFeedbackTags() as $quality => $levels ) {
 			$label = array();
-			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 2;
+			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : -1;
 			$form .= "<b>" . wfMsgHtml("readerfeedback-$quality") . ":</b>&nbsp;";
 			$attribs = array( 'name' => "wp$quality", 'onchange' => "updateFeedbackForm()" );
 			$form .= Xml::openElement( 'select', $attribs );
+			$levels = array_reverse($levels,true);
 			foreach( $levels as $i => $name ) {
 				$optionClass = array( 'class' => "fr-rating-option-$i" );
-				$form .= Xml::option( wfMsg( "readerfeedback-level-$i" ), $i, ($i == $selected), $optionClass ) ."\n";
+				$form .= Xml::option( wfMsg("readerfeedback-level-$i"), $i, ($i == $selected), $optionClass ) ."\n";
 			}
+			$form .= Xml::option( wfMsg("readerfeedback-level-none"), -1, (-1 == $selected) ) ."\n";
 			$form .= Xml::closeElement( 'select' )."\n";
 		}
 		$form .= Xml::closeElement( 'span' );
