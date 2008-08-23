@@ -162,21 +162,20 @@ EOT;
 	* Inject stable links on LinksUpdate
 	*/
 	public static function extraLinksUpdate( $linksUpdate ) {
-		wfProfileIn( __METHOD__ );
 		if( !FlaggedRevs::isPageReviewable( $linksUpdate->mTitle ) ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
+		wfProfileIn( __METHOD__ );
 		# Check if this page has a stable version by fetching it. Do not
 		# get the fr_text field if we are to use the latest stable template revisions.
 		global $wgUseStableTemplates;
 		$flags = $wgUseStableTemplates ? FR_FOR_UPDATE : FR_FOR_UPDATE | FR_TEXT;
 		$sv = FlaggedRevision::newFromStable( $linksUpdate->mTitle, $flags );
+		$pageId = $linksUpdate->mTitle->getArticleId();
 		if( !$sv ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$dbw->delete( 'flaggedpages', 
-				array( 'fp_page_id' => $linksUpdate->mTitle->getArticleId() ),
-				__METHOD__ );
+			$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
+			$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
@@ -195,52 +194,115 @@ EOT;
 		}
 		# Update page fields
 		FlaggedRevs::updateArticleOn( $article, $sv->getRevId() );
-		# Update the links tables to include these
-		# We want the UNION of links between the current
-		# and stable version. Therefore, we only care about
-		# links that are in the stable version and not the regular one.
+		# We only care about links that are only in the stable version
+		$links = array();
 		foreach( $parserOut->getLinks() as $ns => $titles ) {
 			foreach( $titles as $title => $id ) {
-				if( !isset($linksUpdate->mLinks[$ns]) ) {
-					$linksUpdate->mLinks[$ns] = array();
-					$linksUpdate->mLinks[$ns][$title] = $id;
-				} else if( !isset($linksUpdate->mLinks[$ns][$title]) ) {
-					$linksUpdate->mLinks[$ns][$title] = $id;
+				if( !isset($linksUpdate->mLinks[$ns]) || !isset($linksUpdate->mLinks[$ns][$title]) ) {
+					self::addLink( $links, $ns, $title );
 				}
 			}
 		}
 		foreach( $parserOut->getImages() as $image => $n ) {
-			if( !isset($linksUpdate->mImages[$image]) )
-				$linksUpdate->mImages[$image] = $n;
+			if( !isset($linksUpdate->mImages[$image]) ) {
+				self::addLink( $links, NS_IMAGE, $image );
+			}
 		}
 		foreach( $parserOut->getTemplates() as $ns => $titles ) {
 			foreach( $titles as $title => $id ) {
-				if( !isset($linksUpdate->mTemplates[$ns]) ) {
-					$linksUpdate->mTemplates[$ns] = array();
-					$linksUpdate->mTemplates[$ns][$title] = $id;
-				} else if( !isset($linksUpdate->mTemplates[$ns][$title]) ) {
-					$linksUpdate->mTemplates[$ns][$title] = $id;
+				if( !isset($linksUpdate->mTemplates[$ns]) || !isset($linksUpdate->mTemplates[$ns][$title]) ) {
+					self::addLink( $links, $ns, $title );
 				}
 			}
 		}
-		foreach( $parserOut->getExternalLinks() as $url => $n ) {
-			if( !isset($linksUpdate->mExternals[$url]) )
-				$linksUpdate->mExternals[$url] = $n;
-		}
 		foreach( $parserOut->getCategories() as $category => $sort ) {
-			if( !isset($linksUpdate->mCategories[$category]) )
-				$linksUpdate->mCategories[$category] = $sort;
+            if( !isset($linksUpdate->mCategories[$category]) ) {
+                self::addLink( $links, NS_CATEGORY, $category );
+			}
+        }
+		# Get any link tracking changes
+		$existing = self::getExistingLinks( $pageId );
+		$insertions = self::getLinkInsertions( $existing, $links, $pageId );
+		$deletions = self::getLinkDeletions( $existing, $links );
+		# Delete removed links
+		$dbw = wfGetDB( DB_MASTER );
+		if( $clause = self::makeWhereFrom2d( $deletions ) ) {
+			$where = array( 'ftr_from' => $pageId );
+			$where[] = $clause;
+			$dbw->delete( 'flaggedrevs_tracking', $where, __METHOD__ );
 		}
-		foreach( $parserOut->getLanguageLinks() as $n => $link ) {
-			list( $key, $title ) = explode( ':', $link, 2 );
-			if( !isset($linksUpdate->mInterlangs[$key]) )
-				$linksUpdate->mInterlangs[$key] = $title;
-		}
-		foreach( $parserOut->getProperties() as $prop => $val ) {
-			if( !isset($linksUpdate->mProperties[$prop]) )
-				$linksUpdate->mProperties[$prop] = $val;
+		# Add any new links
+		if ( count($insertions) ) {
+			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
 		wfProfileOut( __METHOD__ );
+		return true;
+	}
+	
+	protected static function addLink( &$links, $ns, $dbKey ) {
+		if( !isset($links[$ns]) ) {
+			$links[$ns] = array();
+		}
+		$links[$ns][$dbKey] = 1;
+	}
+	
+	protected static function getExistingLinks( $pageId ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'flaggedrevs_tracking', 
+			array( 'ftr_namespace', 'ftr_title' ),
+			array( 'ftr_from' => $pageId ), 
+			__METHOD__ );
+		$arr = array();
+		while( $row = $dbr->fetchObject( $res ) ) {
+			if( !isset( $arr[$row->ftr_namespace] ) ) {
+				$arr[$row->ftr_namespace] = array();
+			}
+			$arr[$row->ftr_namespace][$row->ftr_title] = 1;
+		}
+		$dbr->freeResult( $res );
+		return $arr;
+	}
+	
+	protected static function makeWhereFrom2d( &$arr ) {
+		$lb = new LinkBatch();
+		$lb->setArray( $arr );
+		return $lb->constructSet( 'ftr', wfGetDB( DB_SLAVE ) );
+	}
+	
+	protected static function getLinkInsertions( $existing, $new, $pageId ) {
+		$arr = array();
+		foreach( $new as $ns => $dbkeys ) {
+			$diffs = isset( $existing[$ns] ) ? array_diff_key( $dbkeys, $existing[$ns] ) : $dbkeys;
+			foreach( $diffs as $dbk => $id ) {
+				$arr[] = array(
+					'ftr_from'      => $pageId,
+					'ftr_namespace' => $ns,
+					'ftr_title'     => $dbk
+				);
+			}
+		}
+		return $arr;
+	}
+	
+	protected static function getLinkDeletions( $existing, $new ) {
+		$del = array();
+		foreach( $existing as $ns => $dbkeys ) {
+			if( isset( $new[$ns] ) ) {
+				$del[$ns] = array_diff_key( $existing[$ns], $new[$ns] );
+			} else {
+				$del[$ns] = $existing[$ns];
+			}
+		}
+		return $del;
+	}
+	
+	/*
+	* Update pages where only the stable version links to a page
+	* that was just changed in some way.
+	*/
+	public static function doCacheUpdate( $title ) {
+		$update = new FRCacheUpdate( $title, 'flaggedrevs_tracking' );
+		$update->doUpdate();
 		return true;
 	}
 	

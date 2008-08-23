@@ -194,7 +194,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$n++;
 		}
 		// Minimum sample size
-		if( $n < 2 || $totalCount < 10 ) {
+		if( $n < 2 || $totalCount < READER_FEEDBACK_SIZE ) {
 			return "";
 		}
 		$chart = Xml::openElement( 'div', array('style' => "width:100%; overflow:scroll;") );
@@ -291,7 +291,7 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		$dbr->freeResult( $res );
 		// Minimum sample size
-		if( count($data) < 2 || $totalCount < 10 ) {
+		if( count($data) < 2 || $totalCount < READER_FEEDBACK_SIZE ) {
 			return false;
 		}
 		$plot->SetDataValues($data);
@@ -404,7 +404,7 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		$dbr->freeResult( $res );
 		// Minimum sample size
-		if( count($dataX) < 2 || $totalCount < 10 ) {
+		if( count($dataX) < 2 || $totalCount < READER_FEEDBACK_SIZE ) {
 			return false;
 		}
 		$plot->dataX = $dataX;
@@ -475,7 +475,7 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	private static function renderForIE() {
-		if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE ') !== false) {
+		if( isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE ') !== false ) {
 			return true;
 		} else {
 			return false;

@@ -193,8 +193,6 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-typefilter'         => 'Type:',
 	'revreview-tagfilter'          => 'Tag:',
 	
-	'revreview-linksmixed'         => '\'\'Pages are listed here based on both the draft and stable version (if any) of pages.\'\'',
-	
 	'tooltip-ca-current'           => 'View the current draft of this page',
 	'tooltip-ca-stable'            => 'View the stable version of this page',
 	'tooltip-ca-default'           => 'Quality assurance settings',

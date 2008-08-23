@@ -97,6 +97,15 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
   PRIMARY KEY (fi_rev_id,fi_name)
 ) /*$wgDBTableOptions*/;
 
+-- Track includes/links only in stable versions
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_tracking (
+  ftr_from integer NOT NULL default '0',
+  ftr_namespace int NOT NULL default '0',
+  ftr_title varchar(255) binary NOT NULL default '',
+  PRIMARY KEY (ftr_from,ftr_namespace,ftr_title),
+  INDEX namespace_title_from (ftr_namespace,ftr_title,ftr_from)
+) /*$wgDBTableOptions*/;
+
 -- This stores user demotions and stats
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
   -- Foreign key to user.user_id

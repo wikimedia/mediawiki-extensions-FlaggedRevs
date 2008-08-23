@@ -42,6 +42,9 @@ if( !defined('FR_FOR_UPDATE') )
 	define('FR_FOR_UPDATE',1);
 if( !defined('FR_TEXT') )
 	define('FR_TEXT',2);
+	
+if( !defined('READER_FEEDBACK_SIZE') )
+	define('READER_FEEDBACK_SIZE',15);	
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name'           => 'Flagged Revisions',
@@ -264,6 +267,11 @@ $langDir = dirname(__FILE__) . '/language/';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FRCacheUpdate'] = $dir.'FRCacheUpdate.php';
+$wgAutoloadClasses['FRCacheUpdateJob'] = $dir.'FRCacheUpdate.php';
+
+$wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRCacheUpdateJob';
+
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.alias.php';
 
@@ -395,6 +403,9 @@ $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::InjectStyleForSpecial';
 # File cache
 $wgHooks['IsFileCacheable'][] = 'FlaggedRevsHooks::isFileCacheable';
 
+# Cache updates
+$wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
+
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 
@@ -466,6 +477,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
 		$wgExtNewFields[] = array( 'flaggedrevs', 'fr_img_name', "$base/archives/patch-fr_img_name.sql" );
 		$wgExtNewTables[] = array( 'reader_feedback', "$base/archives/patch-reader_feedback.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/archives/patch-flaggedrevs_tracking.sql" );
 	} else if( $wgDBtype == 'postgres' ) {
 		$wgExtNewTables[] = array( 'flaggedrevs', "$base/flaggedrevs.pg.sql" ); // Inital install tables
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
@@ -474,6 +486,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
 		$wgExtNewIndexes[] = array('flaggedrevs', 'key_timestamp', "$base/postgres/patch-fr_img_name.sql" );
 		$wgExtNewTables[] = array( 'reader_feedback', "$base/postgres/patch-reader_feedback.sql" );
+		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/postgres/patch-flaggedrevs_tracking.sql" );
 	}
 	return true;
 }

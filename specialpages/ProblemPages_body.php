@@ -6,9 +6,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 wfLoadExtensionMessages( 'ProblemPages' );
 wfLoadExtensionMessages( 'FlaggedRevs' );
 
-if( !defined('READER_FEEDBACK_SIZE') )
-	define('READER_FEEDBACK_SIZE',15);
-
 class ProblemPages extends SpecialPage
 {
     function __construct() {
