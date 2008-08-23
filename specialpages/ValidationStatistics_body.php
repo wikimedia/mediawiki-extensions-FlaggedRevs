@@ -23,7 +23,8 @@ class ValidationStatistics extends UnlistedSpecialPage
 		$ec = $this->getEditorCount();
 		$rc = $this->getReviewerCount();
 
-		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), $wgLang->formatnum( $ec ), $wgLang->formatnum( $rc ) ) );
+		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), 
+			$wgLang->formatnum( $ec ), $wgLang->formatnum( $rc ) ) );
 
 		if( !$this->readyForQuery() ) {
 			return false;
