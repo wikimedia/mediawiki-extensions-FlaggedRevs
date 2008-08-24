@@ -614,7 +614,7 @@ class FlaggedRevs {
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the fp_stable and fp_reviewed fields
 	*/
-	public static function updateArticleOn( $article, (int)$revId, (int)$latest=NULL ) {
+	public static function updateArticleOn( $article, $revId, $latest=NULL ) {
 		if( !$article->getId() )
 			return true; // no bogus entries
 
@@ -636,7 +636,7 @@ class FlaggedRevs {
 		$nextTimestamp = $dbw->selectField( 'revision',
 			'rev_timestamp',
 			array( 'rev_page' => $article->getId(),
-				"rev_id > {$revId}" ),
+				"rev_id > ".intval($revId) ),
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_id ASC', 'LIMIT' => 1 )
 		);
