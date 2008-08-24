@@ -45,6 +45,7 @@ $messages['ar'] = array(
 	'ratinghistory-month' => 'آخر شهر',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
+	'ratinghistory-graph' => 'بيانات المراجعة من $1 {{PLURAL:$1|قارئ|قارئ}}',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ. قيم التقييم يتم تفسيرها كالتالي:
@@ -92,6 +93,7 @@ $messages['de'] = array(
 	'ratinghistory-month' => 'letzter Monat',
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
+	'ratinghistory-graph' => 'Bewertungsdaten von $1 {{PLURAL:$1|Leser|Lesern}}',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
 	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
 Die Bewertungszahlen bedeuten:
@@ -134,6 +136,7 @@ $messages['fr'] = array(
 	'ratinghistory-month' => 'dernier mois',
 	'ratinghistory-year' => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
+	'ratinghistory-graph' => 'Revoir les donnée à partir de $1 {{PLURAL:$1|lecteur|lecteurs}}',
 	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
 	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés ci-dessous, par date. les valeurs des notations doivent être interprétées comme suit :
 
@@ -336,6 +339,7 @@ $messages['sk'] = array(
 	'ratinghistory-month' => 'posledný mesiac',
 	'ratinghistory-year' => 'posledný rok',
 	'ratinghistory-3years' => 'posledné 3 roky',
+	'ratinghistory-graph' => 'Skontrolovať údaje od $1 {{PLURAL:$1|čitateľa|čitateľov}}',
 	'ratinghistory-none' => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
 	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu  
 <font color=\"green\">''(zelenou)''</font>. Hodnoty hodnotenia sa interpretujú nasledovne:
