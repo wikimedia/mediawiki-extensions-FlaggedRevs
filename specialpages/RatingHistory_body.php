@@ -99,7 +99,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$url = $this->getUrlPath( $tag );
 			$ext = self::getCachedFileExtension();
 			if( $ext === 'svg' ) {
-				if( $this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
+				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( 
