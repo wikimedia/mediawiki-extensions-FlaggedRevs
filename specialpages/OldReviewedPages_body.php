@@ -71,10 +71,10 @@ class OldReviewedPages extends SpecialPage
 		# Is anybody watching?
 		$uw = UnreviewedPages::usersWatching( $title );
 		# Get how long the first unreviewed edit has been waiting...
-		$firstPendingTime = $this->getNextRevisionTimestamp($result->fp_stable,$result->fp_page_id);
-		if( $firstPendingTime ) {
+		if( $result->fp_pending_since ) {
+			static $currentTime;
 			$currentTime = wfTimestamp( TS_UNIX ); // now
-			$firstPendingTime = wfTimestamp( TS_UNIX, $firstPendingTime );
+			$firstPendingTime = wfTimestamp( TS_UNIX, $result->fp_pending_since );
 			$hours = ($currentTime - $firstPendingTime)/3600;
 			// After three days, just use days
 			if( $hours > (3*24) ) {
@@ -160,15 +160,21 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	function formatRow( $row ) {
 		return $this->mForm->formatRow( $row );
 	}
+	
+	function getDefaultDirections() {
+		return false;
+	}
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page' );
-		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality','fp_page_id');
+		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
+			'fp_page_id','fp_pending_since');
 		$conds['fp_reviewed'] = 0;
 		$conds[] = 'page_id = fp_page_id';
+		$conds[] = 'fp_pending_since IS NOT NULL';
 		$conds['page_namespace'] = $this->namespace;
-		$useIndex = array('flaggedpages' => 'fp_reviewed_page','page' => 'PRIMARY');
+		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
 		# Filter by category
 		if( $this->category ) {
 			$tables[] = 'categorylinks';
@@ -185,7 +191,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getIndexField() {
-		return 'fp_page_id';
+		return 'fp_pending_since';
 	}
 	
 	function getStartBody() {

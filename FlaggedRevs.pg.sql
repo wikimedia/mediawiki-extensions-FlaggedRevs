@@ -4,14 +4,16 @@
 BEGIN;
 
 CREATE TABLE flaggedpages (
-  fp_page_id  INTEGER NOT NULL DEFAULT 0,
-  fp_reviewed INTEGER NOT NULL DEFAULT 0,
-  fp_stable   INTEGER NOT NULL DEFAULT 0,
-  fp_quality  INTEGER NULL default NULL,
+  fp_page_id        INTEGER NOT NULL DEFAULT 0,
+  fp_reviewed       INTEGER NOT NULL DEFAULT 0,
+  fp_pending_since  TIMESTAMPTZ NULL,
+  fp_stable         INTEGER NOT NULL DEFAULT 0,
+  fp_quality        INTEGER NULL default NULL,
   PRIMARY KEY (fp_page_id)
 );
 CREATE INDEX fp_reviewed_page ON flaggedpages (fp_reviewed,fp_page_id);
 CREATE INDEX fp_quality_page ON flaggedpages (fp_quality,fp_page_id);
+CREATE INDEX fp_pending_since ON flaggedpages (fp_pending_since);
 
 CREATE TABLE flaggedrevs (
   fr_page_id       INTEGER    NOT NULL DEFAULT 0,

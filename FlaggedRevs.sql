@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpages (
   fp_page_id integer NOT NULL,
   -- Is the page reviewed up to date?
   fp_reviewed bool NOT NULL default '0',
+  -- When (or NULL) the next unreviewed edit was made
+  fp_pending_since char(14) NULL,
   -- Foreign key to flaggedrevs.fr_rev_id
   fp_stable integer NOT NULL,
   -- The highest quality of the page's reviewed revisions.
@@ -16,7 +18,8 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpages (
   
   PRIMARY KEY (fp_page_id),
   INDEX fp_reviewed_page (fp_reviewed,fp_page_id),
-  INDEX fp_quality_page (fp_quality,fp_page_id)
+  INDEX fp_quality_page (fp_quality,fp_page_id),
+  INDEX fp_pending_since (fp_pending_since)
 ) /*$wgDBTableOptions*/;
 
 -- This stores all of our rev reviews

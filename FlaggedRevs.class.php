@@ -614,7 +614,7 @@ class FlaggedRevs {
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the fp_stable and fp_reviewed fields
 	*/
-	public static function updateArticleOn( $article, $revId, $latest=NULL ) {
+	public static function updateArticleOn( $article, (int)$revId, (int)$latest=NULL ) {
 		if( !$article->getId() )
 			return true; // no bogus entries
 
@@ -630,15 +630,26 @@ class FlaggedRevs {
 				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) );
+			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) 
+		);
+		# Get the timestamp of the edit after the stable version (if any)
+		$nextTimestamp = $dbw->selectField( 'revision',
+			'rev_timestamp',
+			array( 'rev_page' => $article->getId(),
+				"rev_id > {$revId}" ),
+			__METHOD__,
+			array( 'ORDER BY' => 'rev_id ASC', 'LIMIT' => 1 )
+		);
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
 			array( 'fp_page_id' ),
-			array( 'fp_stable' => $revId,
-				'fp_reviewed' => ($lastID == $revId) ? 1 : 0,
-				'fp_quality' => ($maxQuality === false) ? null : $maxQuality,
-				'fp_page_id' => $article->getId() ),
-			__METHOD__ );
+			array( 'fp_stable'     => $revId,
+				'fp_reviewed'      => ($lastID == $revId) ? 1 : 0,
+				'fp_quality'       => ($maxQuality === false) ? null : $maxQuality,
+				'fp_page_id'       => $article->getId(),
+				'fp_pending_since' => $nextTimestamp ? $dbw->timestamp($nextTimestamp) : null ),
+			__METHOD__ 
+		);
 		# Updates the count cache
 		$count = self::getRevCountSince( $article, $revId, true );
 

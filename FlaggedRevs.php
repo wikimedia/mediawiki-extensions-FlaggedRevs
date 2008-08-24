@@ -478,6 +478,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewFields[] = array( 'flaggedrevs', 'fr_img_name', "$base/archives/patch-fr_img_name.sql" );
 		$wgExtNewTables[] = array( 'reader_feedback', "$base/archives/patch-reader_feedback.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/archives/patch-flaggedrevs_tracking.sql" );
+		$wgExtNewFields[] = array( 'flaggedpages', 'fp_pending_since', "$base/archives/patch-fp_pending_since.sql" );
 	} else if( $wgDBtype == 'postgres' ) {
 		$wgExtNewTables[] = array( 'flaggedrevs', "$base/flaggedrevs.pg.sql" ); // Inital install tables
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
@@ -487,6 +488,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewIndexes[] = array('flaggedrevs', 'key_timestamp', "$base/postgres/patch-fr_img_name.sql" );
 		$wgExtNewTables[] = array( 'reader_feedback', "$base/postgres/patch-reader_feedback.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/postgres/patch-flaggedrevs_tracking.sql" );
+		$wgExtNewIndexes[] = array('flaggedpages', 'fp_pending_since', "$base/postgres/patch-fp_pending_since.sql" );
 	}
 	return true;
 }
