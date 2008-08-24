@@ -91,6 +91,7 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 	'validationstatistics-stable' => 'Kontrolitaj',
 	'validationstatistics-latest' => 'Laste kontrolita',
 	'validationstatistics-synced' => 'Ĝisdatigita/Kontrolita',
+	'validationstatistics-old' => 'Malfreŝa',
 );
 
 /** French (Français)
@@ -157,6 +158,7 @@ $messages['it'] = array(
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
 	'validationstatistics-latest' => 'Ultime revisionate',
+	'validationstatistics-old' => 'Non aggiornate',
 );
 
 /** Khmer (ភាសាខ្មែរ)

@@ -31,7 +31,8 @@ $messages['en'] = array(
 $messages['qqq'] = array(
 	'oldreviewedpages' => '{{Flagged Revs}}
 Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
-	'oldreviewedpages-legend' => '{{Flagged Revs}}',
+	'oldreviewedpages-legend' => '{{Flagged Revs-small}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.',
 	'oldreviewedpages-list' => '{{Flagged Revs}}',
 	'oldreviewedpages-none' => '{{Flagged Revs}}',
 	'oldreviewedpages-stable' => '{{Flagged Revs}}',
@@ -251,10 +252,12 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Huji
  * @author Jaakonam
+ * @author Nike
  */
 $messages['fi'] = array(
-	'oldreviewedpages' => 'Vanhentuneita tarkastettuja sivuja',
+	'oldreviewedpages' => 'Vanhentuneet tarkastetut sivut',
 	'oldreviewedpages-legend' => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita',
 	'oldreviewedpages-list' => 'Luettelo tarkastetuista sivuista, joihin on vielä odotettavissa muokkauksia.',
 	'oldreviewedpages-none' => 'Ehdot täyttäviä sivuja ei ole',

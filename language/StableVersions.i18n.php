@@ -214,7 +214,7 @@ $messages['fi'] = array(
 	'stableversions' => 'Näytä vakaat versiot',
 	'stableversions-leg1' => 'Näytä sivun tarkastetut versiot',
 	'stableversions-page' => 'Sivun nimi',
-	'stableversions-none' => 'Sivusta "[[:$1]]" ei ole tarkastettuja versioita.',
+	'stableversions-none' => 'Sivusta ”[[:$1]]” ei ole tarkastettuja versioita.',
 	'stableversions-list' => 'Seuraavassa luettelossa on kaikki sivun [[:$1]] tarkastetut versiot:',
 	'stableversions-review' => '$1 arvioi sivun <i>$1</i>',
 );

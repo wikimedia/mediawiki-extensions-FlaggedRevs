@@ -47,8 +47,7 @@ $messages['ar'] = array(
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
-المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ. عدد المراجعات معروض في
-الركن أعلى اليمين للرسومات؛ القيم الأعلى تميل إلى التعبير عن بيانات عينة أفضل. قيم التقييم يتم تفسيرها كالتالي:
+المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ. قيم التقييم يتم تفسيرها كالتالي:
 
 '''[0]''' - فقير؛ '''[1]''' - منخفض؛ '''[2]''' - معقول؛ '''[3]''' - مرتفع؛ '''[4]''' - ممتاز؛",
 	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
@@ -94,7 +93,8 @@ $messages['de'] = array(
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Die Anzahl der Seitenbewertungen wird in der rechten oberen Ecke der Grafik angezeigt; höhere Werte bedeuten eine bessere Stichprobe. Die Bewertungszahlen bedeuten:
+	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
+Die Bewertungszahlen bedeuten:
 	
 '''[0]''' - Mangelhaft; '''[1]''' - Ausreichend; '''[2]''' - Befriedigend; '''[3]''' - Gut; '''[4]''' - Sehr gut;",
 	'right-feedback' => 'Bewerten einer Seite',
@@ -115,7 +115,7 @@ $messages['eo'] = array(
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
-intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. La nombro de kontroloj estas montrata en la supra-dekstra angulo de la grafeoj; pli altaj valoroj emas indiki pli bonajn datenojn de specimenoj.
+intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
 La taksadaj valoroj estas interpretaj jene:
 
 '''[0]''' - Malbonega; '''[1]''' - Malbonkvalita; '''[2]''' - Mezkvalita; '''[3]''' - Bonkvalita; '''[4]''' - Bonega;",
@@ -135,7 +135,7 @@ $messages['fr'] = array(
 	'ratinghistory-year' => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
-	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés ci-dessous, par date. Le nombre de relectures est affichée dans le coin situé en haut à droite du graphique ; les valeurs les plus élevées tendent à indiquer plutôt des données simples. les valeurs de notations doivent être interprétées comme suit :
+	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés ci-dessous, par date. les valeurs des notations doivent être interprétées comme suit :
 
 '''[0]''' - Mauvais ; '''[1]''' - Médiocre ; '''[2]''' - Moyen ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
 	'right-feedback' => 'Utiliser le formulaire de soumission pour noter une page',
@@ -195,7 +195,7 @@ $messages['id'] = array(
 	'ratinghistory-3years' => '3 tahun terakhir',
 	'ratinghistory-none' => 'Belum ada cukup umpan balik pembaca tersedia untuk membuat grafik pada saat ini.',
 	'ratinghistory-legend' => "Rata-rata harian penilaian <font color=\"blue\">''(biru)''</font> dan interval rata-rata penilaian yang dipilih <font color=\"green\">''(hijau)''</font> ditampilkan dalam grafik di bawah ini, menurut tanggal.
-Jumlah tinjauan ditampilkan di sudut kanan atas grafik; nilai yang lebih tinggi kemungkinan merupakan data sampel yang lebih baik. Penilaian dapat ditafsirkan sebagai berikut:
+Penilaian dapat ditafsirkan sebagai berikut:
 
 '''[0]''' - Buruk; '''[1]''' - Rendah; '''[2]''' - Sedang; '''[3]''' - Tinggi; '''[4]''' - Baik sekali;",
 );
@@ -204,6 +204,7 @@ Jumlah tinjauan ditampilkan di sudut kanan atas grafik; nilai yang lebih tinggi 
  * @author Darth Kule
  */
 $messages['it'] = array(
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Grazie per aver dedicato un momento al giudizio di questa pagina!</font>'''''",
 	'ratinghistory-period' => 'Periodo di tempo:',
 	'ratinghistory-month' => 'ultimo mese',
 	'ratinghistory-year' => 'ultimo anno',
@@ -261,10 +262,9 @@ $messages['nl'] = array(
 	'ratinghistory-month' => 'afgelopen maand',
 	'ratinghistory-year' => 'afgelopen jaar',
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
+	'ratinghistory-graph' => 'Paginawaardering van {{PLURAL:$1|lezer|lezers}}',
 	'ratinghistory-none' => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven periode <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
-Het aantal waarderingen is rechtsboven te zien.
-Hogere waardes betekenen in het algemeen een hogere betrouwbaarheid.
 De waarderingen dienen als volgt gelezen te worden:
 
 '''[0]''' - Slecht; '''[1]''' - Laag; '''[2]''' - Redelijk; '''[3]''' - Hoog; '''[4]''' - Uitstekend;",
@@ -338,7 +338,7 @@ $messages['sk'] = array(
 	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-none' => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
 	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu  
-<font color=\"green\">''(zelenou)''</font>. Počet kontrol sa zobrazuje v pravom hornom rohu grafov; vyššie hodnoty zvyknú označovať lepšie vzorky údajov. Hodnoty hodnotenia sa interpretujú nasledovne:
+<font color=\"green\">''(zelenou)''</font>. Hodnoty hodnotenia sa interpretujú nasledovne:
 
 '''[0]''' - Slabé; '''[1]''' - Nízke; '''[2]''' - Dobré; '''[3]''' - Vysoké; '''[4]''' - Výborné;",
 	'right-feedback' => 'Stránku ohodnotíte pomocou formulára spätnej väzby',

@@ -326,18 +326,19 @@ $aliases['sr-ec'] = array(
 );
 
 /** Swedish (Svenska)
- * @author M.M.S.
  * @author Boivie
  * @author Jon Harald Søby
+ * @author M.M.S.
  */
 $aliases['sv'] = array(
 	'QualityOversight' => array( 'Kvalitetsöversikt' ),
-	'UnReviewedPages'  => array( 'Ogranskade sidor' ),
+	'UnReviewedPages' => array( 'Ogranskade sidor' ),
 	'OldReviewedPages' => array( 'Gamla granskade sidor' ),
-	'ReviewedPages'    => array( 'Granskade sidor' ),
-	'StablePages'      => array( 'Stabila sidor' ),
-	'StableVersions'   => array( 'Stabila versioner' ),
-	'ProblemPages'     => array( 'Problemsidor' ),
+	'ReviewedPages' => array( 'Granskade sidor' ),
+	'StablePages' => array( 'Stabila sidor' ),
+	'StableVersions' => array( 'Stabila versioner' ),
+	'ProblemPages' => array( 'Problemsidor' ),
+	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
 
 /** Vèneto (Vèneto)
