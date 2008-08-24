@@ -1240,6 +1240,7 @@ EOT;
 		$tables[] = 'reader_feedback';
 		$tables[] = 'reader_feedback_history';
 		$tables[] = 'reader_feedback_pages';
+		$tables[] = 'flaggedrevs_tracking';
 		return true;
 	}
 }
