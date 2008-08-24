@@ -99,7 +99,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$url = $this->getUrlPath( $tag );
 			$ext = self::getCachedFileExtension();
 			if( $ext === 'svg' ) {
-				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
+				if( $this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( 
@@ -333,15 +333,15 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->graphicWidth = 1000;
 		$plot->graphicHeight = 400;
 		$plot->plotWidth = 950;
-		$plot->plotHeight = 370;
+		$plot->plotHeight = 350;
 		$plot->decimalPlacesY = 1;
 		$plot->plotOffsetX = 30;
-		$plot->plotOffsetY = 10;
+		$plot->plotOffsetY = 25;
 		$plot->numGridlinesY = 5;
 		$plot->innerPaddingX = 5;
 		$plot->innerPaddingY = 2;
 		$plot->outerPadding = 0;
-		$plot->offsetGridlinesX  = 0;
+		$plot->offsetGridlinesX = 0;
 		$plot->maxY = 4;
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
@@ -414,6 +414,8 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
+		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag'),$totalCount);
+		$plot->styleTitle = 'font-family: sans-serif; font-size: 10pt;';
 		# Create the graph
 		$plot->init();
 		$plot->drawGraph();
