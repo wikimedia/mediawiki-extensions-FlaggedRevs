@@ -44,12 +44,12 @@ if( !defined('FR_TEXT') )
 	define('FR_TEXT',2);
 	
 if( !defined('READER_FEEDBACK_SIZE') )
-	define('READER_FEEDBACK_SIZE',15);	
+	define('READER_FEEDBACK_SIZE',12);	
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name'           => 'Flagged Revisions',
 	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'version'        => '1.2',
+	'version'        => '1.21',
 	'svn-date'       => '$LastChangedDate$',
 	'svn-revision'   => '$LastChangedRevision$',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
@@ -270,6 +270,7 @@ $wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir.'FRCacheUpdate.php';
 $wgAutoloadClasses['FRCacheUpdateJob'] = $dir.'FRCacheUpdate.php';
 
+# Special case cache invalidations
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRCacheUpdateJob';
 
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
@@ -316,10 +317,14 @@ $wgSpecialPageGroups['StablePages'] = 'quality';
 $wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
-# To oversee quality revisions
+# To list ill-recieved pages
 $wgAutoloadClasses['ProblemPages'] = $dir . 'specialpages/ProblemPages_body.php';
 $wgExtensionMessagesFiles['ProblemPages'] = $langDir . 'ProblemPages.i18n.php';
 $wgSpecialPageGroups['ProblemPages'] = 'quality';
+# To list well-recieved pages
+$wgAutoloadClasses['LikedPages'] = $dir . 'specialpages/LikedPages_body.php';
+$wgExtensionMessagesFiles['LikedPages'] = $langDir . 'LikedPages.i18n.php';
+$wgSpecialPageGroups['LikedPages'] = 'quality';
 # Statistics
 $wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
@@ -431,6 +436,7 @@ function efLoadFlaggedRevs() {
 		$wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
 		$wgSpecialPages['RatingHistory'] = 'RatingHistory';
 		$wgSpecialPages['ProblemPages'] = 'ProblemPages';
+		$wgSpecialPages['LikedPages'] = 'LikedPages';
 	}
 }
 
