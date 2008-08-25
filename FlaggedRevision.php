@@ -363,6 +363,10 @@ class FlaggedRevision {
 				$this->mFlags = explode(',',$row->fr_flags);
 			}
 		}
+		// Should the text actually be made dynamically?
+		if( in_array( 'dynamic', $this->mFlags ) ) {
+			return $this->getRevText();
+		}
 		// Check if fr_text is just some URL to external DB storage
 		if( in_array( 'external', $this->mFlags ) ) {
 			$url = $this->mRawDBText;
@@ -385,7 +389,47 @@ class FlaggedRevision {
 		return true;
 	}
 	
-		/**
+	/**
+	* @param string $fulltext
+	* @return string, flags
+	* Compress pre-processed text, passed by reference
+	* Accounts for various config options.
+	*/
+	public static function doSaveCompression( &$fulltext ) {
+		# Flag items that do not have text stored
+		global $wgUseStableTemplates;
+		if( $wgUseStableTemplates ) {
+			$fulltext = '';
+			$textFlags = 'dynamic';
+		} else {
+			# Compress $fulltext, passed by reference
+			$textFlags = self::compressText( $fulltext );
+			# Write to external storage if required
+			$storage = FlaggedRevs::getExternalStorage();
+			if( $storage ) {
+				if( is_array($storage) ) {
+					# Distribute storage across multiple clusters
+					$store = $storage[mt_rand(0, count( $storage ) - 1)];
+				} else {
+					$store = $storage;
+				}
+				# Store and get the URL
+				$fulltext = ExternalStore::insert( $store, $fulltext );
+				if( !$fulltext ) {
+					# This should only happen in the case of a configuration error, where the external store is not valid
+					wfProfileOut( __METHOD__ );
+					throw new MWException( "Unable to store text to external storage $store" );
+				}
+				if( $textFlags ) {
+					$textFlags .= ',';
+				}
+				$textFlags .= 'external';
+			}
+		}
+		return $textFlags;
+	}
+	
+	/**
 	* @param string $text
 	* @return string, flags
 	* Compress pre-processed text, passed by reference

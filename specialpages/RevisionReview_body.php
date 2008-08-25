@@ -627,32 +627,10 @@ class RevisionReview extends UnlistedSpecialPage
 				wfProfileOut( __METHOD__ );
 				return true;
 			}
-		} 
-		
-        # Compress $fulltext, passed by reference
-        $textFlags = FlaggedRevision::compressText( $fulltext );
-
-		# Write to external storage if required
-		$storage = FlaggedRevs::getExternalStorage();
-		if( $storage ) {
-			if( is_array($storage) ) {
-				# Distribute storage across multiple clusters
-				$store = $storage[mt_rand(0, count( $storage ) - 1)];
-			} else {
-				$store = $storage;
-			}
-			# Store and get the URL
-			$fulltext = ExternalStore::insert( $store, $fulltext );
-			if( !$fulltext ) {
-				# This should only happen in the case of a configuration error, where the external store is not valid
-				wfProfileOut( __METHOD__ );
-				throw new MWException( "Unable to store text to external storage $store" );
-			}
-			if( $textFlags ) {
-				$textFlags .= ',';
-			}
-			$textFlags .= 'external';
 		}
+
+		# Store/compress text as needed, and get the flags
+		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
 
 		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
