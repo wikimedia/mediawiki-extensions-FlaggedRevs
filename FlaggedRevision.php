@@ -400,7 +400,7 @@ class FlaggedRevision {
 		global $wgUseStableTemplates;
 		if( $wgUseStableTemplates ) {
 			$fulltext = '';
-			$textFlags = 'dynamic';
+			$textFlags = 'utf-8,dynamic';
 		} else {
 			# Compress $fulltext, passed by reference
 			$textFlags = self::compressText( $fulltext );

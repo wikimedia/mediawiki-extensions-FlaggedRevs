@@ -1037,7 +1037,7 @@ class FlaggedRevs {
 		global $wgUseStableTemplates;
 		if( $wgUseStableTemplates ) {
 			$fulltext = '';
-			$textFlags = 'dynamic';
+			$textFlags = 'utf-8,dynamic';
 		} else {
 			# Set our versioning params cache
 			self::setIncludeVersionCache( $rev->getId(), $poutput->mTemplateIds, $poutput->fr_ImageSHA1Keys );
