@@ -1102,8 +1102,6 @@ class FlaggedRevs {
 		if( $patrol ) {
 			RevisionReview::updateRecentChanges( $title, $rev->getId() );
 		}
-		# Done!
-		$dbw->commit();
 
 		# Update the article review log
 		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, true );
@@ -1117,6 +1115,8 @@ class FlaggedRevs {
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 		}
+		# Done!
+		$dbw->commit();
 		
 		wfProfileOut( __METHOD__ );
 		return true;
