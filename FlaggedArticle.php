@@ -765,7 +765,7 @@ class FlaggedArticle extends Article {
 			return true;
 		$title = $skin->mTitle->getSubjectPage();
 		# Add rating tab
-		if( $wgUser->isAllowed( 'feedback' ) ) {
+		if( $wgUser->isAllowed( 'feedback' ) && $this->isRateable() ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			wfLoadExtensionMessages( 'RatingHistory' );
 			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
