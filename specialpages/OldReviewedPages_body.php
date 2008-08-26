@@ -170,7 +170,6 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$tables = array( 'flaggedpages', 'page' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
 			'fp_page_id','fp_pending_since');
-		$conds['fp_reviewed'] = 0;
 		$conds[] = 'page_id = fp_page_id';
 		$conds[] = 'fp_pending_since IS NOT NULL';
 		$conds['page_namespace'] = $this->namespace;
