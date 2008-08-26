@@ -1115,6 +1115,11 @@ class FlaggedRevs {
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 		}
+		# We can set the sync cache key already.
+		global $wgMemc, $wgParserCacheExpireTime;
+		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+		$data = FlaggedRevs::makeMemcObj( "true" );
+		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		# Done!
 		$dbw->commit();
 		
