@@ -52,6 +52,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			if( !self::isValid($this->dims[$tag]) ) {
 				$wgOut->redirect( $this->page->getLocalUrl() );
+				return;
 			}
 		}
 		# Check validation key
