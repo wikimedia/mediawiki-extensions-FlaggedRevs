@@ -238,10 +238,11 @@ $wgFlaggedRevsVisible = array();
 $wgFlaggedRevsTalkVisible = true;
 
 # Users that can use the feedback form.
-$wgGroupPermissions['*']['feedback'] = false;
+$wgGroupPermissions['*']['feedback'] = true;
 
 # Allow readers to rate pages in these namespaces
-$wgFeedbackNamespaces = array( NS_MAIN );
+$wgFeedbackNamespaces = array();
+#$wgFeedbackNamespaces = array( NS_MAIN );
 # Reader feedback tags, positive and negative. [a-zA-Z] tag names only.
 # Each tag has five levels, which 3 being average. The tag names are
 # mapped to their weight. This is used to determine the "worst"/"best" pages.
