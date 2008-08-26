@@ -63,26 +63,27 @@ class ValidationStatistics extends UnlistedSpecialPage
 			$outdated = intval( $row->reviewed ) - intval( $row->synced );
 			$outdated = $wgLang->formatnum( max( 0, $outdated ) ); // lag between queries
 
-			$wgOut->addHTML( "<tr align='center'>
-						<td>
-							$NsText
-						</td>
-						<td>" .
-							$wgLang->formatnum( $row->total ) .
-						"</td>
-						<td>" .
-							$wgLang->formatnum( $row->reviewed ) . $wgContLang->getDirMark() . " <i>($percRev)</i>
-						</td>
-						<td>" .
-							$wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() . " <i>($percLatest)</i>
-						</td>
-						<td>
-							$percSynced
-						</td>
-						<td>
-							$outdated
-						</td>
-					</tr>"
+			$wgOut->addHTML( 
+				"<tr align='center'>
+					<td>
+						$NsText
+					</td>
+					<td>" .
+						$wgLang->formatnum( $row->total ) .
+					"</td>
+					<td>" .
+						$wgLang->formatnum( $row->reviewed ) . $wgContLang->getDirMark() . " <i>($percRev)</i>
+					</td>
+					<td>" .
+						$wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() . " <i>($percLatest)</i>
+					</td>
+					<td>
+						$percSynced
+					</td>
+					<td>
+						$outdated
+					</td>
+				</tr>"
 			);
 		}
 		$wgOut->addHTML( Xml::closeElement( 'table' ) );
