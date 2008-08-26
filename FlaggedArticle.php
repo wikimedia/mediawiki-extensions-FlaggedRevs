@@ -64,7 +64,6 @@ class FlaggedArticle extends Article {
 	 */
 	function __construct( $parent ) {
 		$this->parent = $parent;
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	/**
@@ -173,6 +172,7 @@ class FlaggedArticle extends Article {
 	public function addStableLink() {
 		global $wgRequest, $wgOut, $wgLang;
 		if( $wgRequest->getVal('oldid') ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			# We may have nav links like "direction=prev&oldid=x"
 			$revID = $this->parent->getOldIDFromRequest();
 			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revID );
@@ -214,6 +214,8 @@ class FlaggedArticle extends Article {
 		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
 			return true;
 		}
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$simpleTag = $old = $stable = false;
 		$tag = $prot = $pending = '';
 		# Check the newest stable version.
@@ -532,6 +534,8 @@ class FlaggedArticle extends Article {
 		# Grab the ratings for this revision if any
 		if( !$revId )
 			return true;
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Set new body html text as that of now
 		$tag = $warning = $prot = '';
 		// Is the page config altered?
@@ -632,9 +636,10 @@ class FlaggedArticle extends Article {
 	 */
 	public function addToCategoryView() {
 		global $wgOut, $wgUser;
-
-		if( !$wgUser->isAllowed( 'review' ) )
+		if( !$wgUser->isAllowed( 'review' ) ) {
 			return true;
+		}
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Load special page names
 		wfLoadExtensionMessages( 'OldReviewedPages' );
 		wfLoadExtensionMessages( 'UnreviewedPages' );
@@ -703,21 +708,23 @@ class FlaggedArticle extends Article {
 	public function addPatrolLink( &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser;
 		# For unreviewable pages, allow for basic patrolling
-		if( FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
-			# If we have been passed an &rcid= parameter, we want to give the user a
-			# chance to mark this new article as patrolled.
-			$rcid = $wgRequest->getIntOrNull( 'rcid' );
-			if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'review' ) ) {
-				$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-				$wgOut->addHTML( "<div class='patrollink'>" .
-					wfMsgHtml( 'markaspatrolledlink',
-					$wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml('markaspatrolledtext'),
-						"patrolonly=1&target={$this->parent->getTitle()->getPrefixedUrl()}&rcid={$rcid}" .
-						"&token=" . urlencode( $wgUser->editToken( $this->parent->getTitle()->getPrefixedText(), $rcid ) ) )
-			 		) .
-					'</div>'
-			 	);
-			}
+		if( !FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
+			return true;
+		}
+		# If we have been passed an &rcid= parameter, we want to give the user a
+		# chance to mark this new article as patrolled.
+		$rcid = $wgRequest->getIntOrNull( 'rcid' );
+		if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'review' ) ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
+			$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
+			$wgOut->addHTML( "<div class='patrollink'>" .
+				wfMsgHtml( 'markaspatrolledlink',
+				$wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml('markaspatrolledtext'),
+					"patrolonly=1&target={$this->parent->getTitle()->getPrefixedUrl()}&rcid={$rcid}" .
+					"&token=" . urlencode( $wgUser->editToken( $this->parent->getTitle()->getPrefixedText(), $rcid ) ) )
+			 	) .
+				'</div>'
+			 );
 		}
 		return true;
 	}
@@ -726,16 +733,17 @@ class FlaggedArticle extends Article {
 	 */
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
-
-		if( !$this->isReviewable() )
+		if( !$this->isReviewable() ) {
 			return true;
-
+		}
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( $action == 'protect' || $action == 'unprotect' ) {
 			# Check for an overridabe revision
 			$frev = $this->getStableRev();
-			if( !$frev )
+			if( !$frev ) {
 				return true;
+			}
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			# Load special page name
 			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
@@ -751,18 +759,14 @@ class FlaggedArticle extends Article {
 	 * Add stable version tabs. Rename some of the others if necessary.
 	 */
 	public function setActionTabs( $skin, &$contentActions ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevsOverride, $wgFlaggedRevTabs;
+		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		# Get the subject page, not all skins have it :(
 		if( !isset($skin->mTitle) )
 			return true;
 		$title = $skin->mTitle->getSubjectPage();
-		# Non-content pages cannot be validated
-		if( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
-			return true;
-		$article = new Article( $title );
-		$action = $wgRequest->getVal( 'action', 'view' );
 		# Add rating tab
 		if( $wgUser->isAllowed( 'feedback' ) ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			wfLoadExtensionMessages( 'RatingHistory' );
 			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
 			$contentActions['ratinghist'] = array(
@@ -771,6 +775,9 @@ class FlaggedArticle extends Article {
 				'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
 			);
 		}
+		# Non-content pages cannot be validated
+		if( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
+			return true;
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
 	   	$srev = $this->getStableRev();
@@ -778,6 +785,9 @@ class FlaggedArticle extends Article {
 	   	if( is_null($srev) ) {
 			return true;
 		}
+		wfLoadExtensionMessages( 'FlaggedRevs' );
+		$article = new Article( $title );
+		$action = $wgRequest->getVal( 'action', 'view' );
 	   	# Be clear about what is being edited...
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 	   	if( !$skin->mTitle->isTalkPage() && !$synced ) {
@@ -905,6 +915,7 @@ class FlaggedArticle extends Article {
 		if( !FlaggedRevs::allowComments() || !$frev || !$frev->getComment() ) {
 			return '';
 		}
+		wfLoadExtensionMessages( 'FlaggedRevs' );
    		$notes = "<br/><div class='flaggedrevs_notes plainlinks'>";
    		$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
    		$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
@@ -919,9 +930,10 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgUser, $wgOut;
 
 		$diffOnly = $wgRequest->getBool( 'diffonly', $wgUser->getOption( 'diffonly' ) );
-
 		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $newRev->getTitle() ) )
 			return true;
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Check if this might be the diff to stable. If so, enhance it.
 		if( $newRev->isCurrent() && $oldRev ) {
 			$frev = $this->getStableRev();
@@ -1101,6 +1113,7 @@ class FlaggedArticle extends Article {
 			if( !$oldRev ) {
 				return true;
 			}
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() && $newRev->isCurrent() ) {
 				$this->isDiffFromStable = true;
@@ -1117,6 +1130,7 @@ class FlaggedArticle extends Article {
 			}
 		// Prepare a change patrol link, if applicable
 		} else if( FlaggedRevs::isPagePatrollable( $newRev->getTitle() ) && $wgUser->isAllowed( 'review' ) ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			// If we've been given an explicit change identifier, use it; saves time
 			if( $diff->mRcidMarkPatrolled ) {
 				$rcid = $diff->mRcidMarkPatrolled;
@@ -1298,6 +1312,8 @@ class FlaggedArticle extends Article {
 				return false;
 			$id = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		}
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Must be a valid non-printable output
 		if( !$id || $wgOut->isPrintable() ) {
 			return false;
@@ -1513,6 +1529,8 @@ class FlaggedArticle extends Article {
 		if( $id != $this->parent->getLatest() ) {
 			return false;
 		}
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$reviewTitle = SpecialPage::getTitleFor( 'ReaderFeedback' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-feedbackform' ) );

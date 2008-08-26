@@ -29,14 +29,18 @@ class FlaggedRevsHooks {
 		}
 		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 
-		$flaggedArticle = FlaggedArticle::getGlobalInstance();
-		if ( !$flaggedArticle ) {
+		$fa = FlaggedArticle::getGlobalInstance();
+		# Try to only add to relevant pages
+		if( !$fa || (!$fa->isReviewable() && !$fa->isRateable() ) ) {
 			return true;
 		}
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
+		
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 		$rTags = FlaggedRevs::getJSTagParams();
 		$fTags = FlaggedRevs::getJSFeedbackParams();
-		$frev = $flaggedArticle->getStableRev( FR_TEXT );
+		$frev = $fa->getStableRev();
 		$stableId = $frev ? $frev->getRevId() : 0;
 
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
@@ -1045,11 +1049,13 @@ EOT;
 	* @param string $t timestamp of the log entry
 	* @return bool true
 	*/
-	public static function reviewLogLine( $type = '', $action = '', $title = null, $paramArray = array(), &$c = '', &$r = '', $t = '' ) {
+	public static function reviewLogLine( $type = '', $action = '', $title = null, $paramArray = array(), &$c = '', &$r = '' ) {
 		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
 		# Show link to page with oldid=x
 		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($paramArray[0]) ) {
 			global $wgUser;
+			# Load required messages
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			# Don't show diff if param missing or rev IDs are the same
 			if( !empty($paramArray[1]) && $paramArray[0] != $paramArray[1] ) {
 				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
@@ -1207,6 +1213,7 @@ EOT;
 			$dbr = wfGetDB( DB_SLAVE );
 			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
 			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
+				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
 			}

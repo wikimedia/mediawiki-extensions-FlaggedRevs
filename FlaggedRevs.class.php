@@ -176,6 +176,7 @@ class FlaggedRevs {
 	 */
 	public static function getTagMsg( $tag ) {
 		self::load();
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		return wfMsgHtml("revreview-$tag");
 	}
 	
@@ -900,6 +901,7 @@ class FlaggedRevs {
 	 */
 	public static function markHistoryRow( $title, $row, $skin ) {
 		if( isset($row->fr_quality) ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 			$user = User::whois( $row->fr_user );
 			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
