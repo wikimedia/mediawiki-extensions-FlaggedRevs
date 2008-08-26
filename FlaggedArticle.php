@@ -691,8 +691,7 @@ class FlaggedArticle extends Article {
 		if( ($action !='view' && $action !='purge') ) {
 			return true;
 		}
-		# User must not have review rights.
-		if( $wgUser->isAllowed( 'feedback' ) && !$wgUser->isAllowed( 'review' ) ) {
+		if( $wgUser->isAllowed( 'feedback' ) ) {
 			# If the user already voted, then don't show the form.
 			# Always show for IPs however, due to squid caching...
 			if( !$wgUser->getId() || !FlaggedRevs::userAlreadyVoted( $this->parent->getTitle() ) ) {
@@ -1536,7 +1535,10 @@ class FlaggedArticle extends Article {
 		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-feedbackform' ) );
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'readerfeedback' ) . "</strong></legend>\n";
-		$form .= wfMsgExt( 'readerfeedback-text', array('parse') );
+		# Avoid clutter
+		if( !$wgUser->isAllowed('review') ) {
+			$form .= wfMsgExt( 'readerfeedback-text', array('parse') );
+		}
 		$form .= Xml::openElement( 'span', array('id' => 'mw-feedbackselects') );
 		# Loop through all different flag types
 		foreach( FlaggedRevs::getFeedbackTags() as $quality => $levels ) {
