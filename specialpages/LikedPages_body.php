@@ -117,7 +117,7 @@ class LikedPagesPager extends AlphabeticPager {
 		$conds['rfp_tag'] = $this->tag;
 		$conds['page_namespace'] = $this->namespace;
 		// Has to be good enough
-		$x = 3;
+		$x = 3.5;
 		if( $this->tag == 'overall' ) {
 			global $wgFlaggedRevsFeedbackTags;
 			$s = 3*array_sum($wgFlaggedRevsFeedbackTags);
