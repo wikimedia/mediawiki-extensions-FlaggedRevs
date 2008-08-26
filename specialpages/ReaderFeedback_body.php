@@ -12,6 +12,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 	var $oldid = 0;
 	var $dims = array();
 	var $validatedParams = '';
+	var $commentary = '';
 	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'ReaderFeedback', 'feedback' );
