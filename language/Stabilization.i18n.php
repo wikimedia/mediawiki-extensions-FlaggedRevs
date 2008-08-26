@@ -1088,6 +1088,7 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'stabilize_expiry_old' => '기한을 과거로 입력하였습니다.',
 	'stabilize-expiring' => '$1 (UTC)에 만료',
 );
 

@@ -19,7 +19,7 @@ $messages['en'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'problempages' => 'صفحات المشاكل',
+	'problempages' => 'صفحات تقييمها منخفض',
 	'problempages-leg' => 'إيجاد الصفحات ذات التقييم المنخفض',
 	'problempages-list' => 'بالأسفل قائمة بالصفحات مرتبة بواسطة تقييم قرائها.',
 	'problempages-none' => 'لا توجد صفحات في هذه القائمة',
@@ -49,7 +49,7 @@ $messages['bg'] = array(
  * @author UV
  */
 $messages['de'] = array(
-	'problempages' => 'Seiten mit Problemen',
+	'problempages' => 'Niedrig bewertete Seiten',
 	'problempages-leg' => 'Finde niedrig bewertete Seiten',
 	'problempages-list' => 'Es folgt eine Liste von Seiten, sortiert nach der Leserbewertung.',
 	'problempages-none' => 'Diese Liste enthält keine Seiten',
@@ -98,12 +98,13 @@ $messages['gl'] = array(
 );
 
 /** Hungarian (Magyar)
+ * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
 	'problempages' => 'Problémás lapok',
 	'problempages-leg' => 'Alacsony értékelésű lapok keresése',
-	'problempages-list' => 'Olvasói értékelések szerint sorba tett lapok.',
+	'problempages-list' => 'Alább a lapok olvasói értékelések szerint sorba tett listája látható.',
 	'problempages-none' => 'Egyetlen lap sem található a listában.',
 	'problempages-graphs' => 'értékelési adatok',
 );
@@ -157,10 +158,10 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'problempages' => "Probleempagina's",
-	'problempages-leg' => "Laaggewaardeerde pagina's zoeken",
-	'problempages-list' => "Hieronder staat een lijst met pagina's gesorteerd op de waardering door lezers.",
-	'problempages-none' => "Er staan geen pagina's in deze lijst",
+	'problempages' => "Laag gewaardeerde pagina's",
+	'problempages-leg' => "Laag gewaardeerde pagina's zoeken",
+	'problempages-list' => "Hier staan pagina's gesorteerd naar de waardering die lezers hebben gegeven.",
+	'problempages-none' => "Er zijn geen pagina's weer te geven",
 	'problempages-graphs' => 'waarderingsgegevens',
 );
 
@@ -200,7 +201,7 @@ $messages['pt'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'problempages' => 'Problémové stránky',
+	'problempages' => 'Nízko hodnotené stránky',
 	'problempages-leg' => 'Nájsť nízko hodnotené stránky',
 	'problempages-list' => 'Toto je zoznam stránok zoradený podľa hodnotenia čitateľov.',
 	'problempages-none' => 'V tomto zozname sa nenachádzajú žiadne stránky',
@@ -221,7 +222,7 @@ $messages['sr-ec'] = array(
  * @author Boivie
  */
 $messages['sv'] = array(
-	'problempages' => 'Problematiska sidor',
+	'problempages' => 'Sidor med låga betyg',
 	'problempages-leg' => 'Hitta sidor med lågt betyg',
 	'problempages-list' => 'Nedan finns en lista över sidor sorterade efter deras läsar-feedback-betyg',
 	'problempages-none' => 'Det finns inga sidor i denna lista',
@@ -233,5 +234,9 @@ $messages['sv'] = array(
  */
 $messages['vi'] = array(
 	'problempages' => 'Các trang có vấn đề',
+	'problempages-leg' => 'Tìm kiếm các trang được đánh giá thấp',
+	'problempages-list' => 'Đây là danh sách các trang theo thứ tự đánh giá của độc giả.',
+	'problempages-none' => 'Danh sách này không có trang nào.',
+	'problempages-graphs' => 'dữ liệu đánh giá',
 );
 

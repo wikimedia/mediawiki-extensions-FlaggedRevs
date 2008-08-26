@@ -274,10 +274,15 @@ $messages['sv'] = array(
  */
 $messages['vi'] = array(
 	'validationstatistics' => 'Thống kê phê chuẩn',
+	'validationstatistics-users' => "Hiện nay, '''$1''' thành viên tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và '''$2''' thành viên có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].",
+	'validationstatistics-table' => "Đây có thống kê về các không gian tên, trừ các trang đổi hướng.
+
+'''Chú ý:''' Dữ liệu sau được nhớ đệm vài tiếng đồng hồ và có thể lỗi thời.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',
 	'validationstatistics-stable' => 'Được duyệt',
 	'validationstatistics-latest' => 'Được duyệt gần đây',
+	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
 );
 

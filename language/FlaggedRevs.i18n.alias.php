@@ -88,9 +88,10 @@ $aliases['de'] = array(
 	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
 	'StablePages' => array( 'Konfigurierte Seiten' ),
 	'StableVersions' => array( 'Seitenkonfiguration' ),
-	'ProblemPages' => array( 'Problematische Seiten' ),
+	'ProblemPages' => array( 'Niedrig bewertete Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
+	'LikedPages' => array( 'Hoch bewertete Seiten' ),
 );
 
 /** Esperanto (Esperanto)
@@ -196,6 +197,7 @@ $aliases['lb'] = array(
 	'ReviewedPages' => array( 'Säiten déi iwwerkuckt gi sinn' ),
 	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
+	'ProblemPages' => array( 'Prblematesch Säiten' ),
 );
 
 /** Marathi (मराठी)
@@ -246,9 +248,10 @@ $aliases['nl'] = array(
 	'ReviewedPages' => array( 'PaginasMetEindredactie', "Pagina'sMetEindredactie" ),
 	'StablePages' => array( 'StabielePaginas', "StabielePagina's" ),
 	'StableVersions' => array( 'StabieleVersies' ),
-	'ProblemPages' => array( 'ProbleemPaginas', "ProbleemPagina's" ),
+	'ProblemPages' => array( 'LaagGewaardeerdePaginas', 'ProbleemPaginas', "ProbleemPagina's" ),
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 	'Stabilization' => array( 'Stabilisatie' ),
+	'LikedPages' => array( 'HoogGewaardeerdePaginas' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -346,12 +349,12 @@ $aliases['sv'] = array(
  * @author Candalua
  */
 $aliases['vec'] = array(
-	'QualityOversight'      => array( 'ControloQualità' ),
-	'UnReviewedPages'       => array( 'PagineNonRiesaminà' ),
-	'OldReviewedPages'      => array( 'PagineRiesaminàVèce' ),
-	'ReviewedPages'         => array( 'PagineRiesaminà' ),
-	'StablePages'           => array( 'PagineStabili' ),
-	'StableVersions'        => array( 'VersionStabili' ),
+	'QualityOversight' => array( 'ControloQualità' ),
+	'UnReviewedPages' => array( 'PagineNonRiesaminà' ),
+	'OldReviewedPages' => array( 'PagineRiesaminàVèce' ),
+	'ReviewedPages' => array( 'PagineRiesaminà' ),
+	'StablePages' => array( 'PagineStabili' ),
+	'StableVersions' => array( 'VersionStabili' ),
 );
 
 /** Vietnamese (Tiếng Việt)

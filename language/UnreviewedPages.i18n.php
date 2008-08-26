@@ -477,6 +477,13 @@ $messages['km'] = array(
 	'unreviewed-diff' => 'មើលឡើងវិញ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'unreviewed-category' => '분류:',
+);
+
 /** Kinaray-a (Kinaray-a)
  * @author Jose77
  */
@@ -879,7 +886,7 @@ $messages['vec'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'right-unreviewedpages' => 'Xem danh sách các trang chưa duyệt',
+	'right-unreviewedpages' => 'Xem [[Special:UnreviewedPages|danh sách các trang chưa duyệt]]',
 	'unreviewedpages' => 'Các trang chưa được duyệt',
 	'unreviewed-legend' => 'Liệt kê các trang có nội dung chưa được duyệt',
 	'unreviewed-category' => 'Thể loại:',

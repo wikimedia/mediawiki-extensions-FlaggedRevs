@@ -413,6 +413,14 @@ $messages['km'] = array(
 	'stableversions-page' => 'ឈ្មោះទំព័រ៖',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'stableversions-page' => '문서 이름:',
+	'stableversions-none' => '"[[:$1]]"의 검토된 판이 없습니다.',
+);
+
 /** Latin (Latina)
  * @author UV
  */

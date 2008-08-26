@@ -115,12 +115,14 @@ $messages['eo'] = array(
 	'ratinghistory-month' => 'lasta monato',
 	'ratinghistory-year' => 'lasta jaro',
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
+	'ratinghistory-graph' => 'Kontroli datenojn de $1 {{PLURAL:$1|leginto|legintoj}}',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
 intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
 La taksadaj valoroj estas interpretaj jene:
 
 '''[0]''' - Malbonega; '''[1]''' - Malbonkvalita; '''[2]''' - Mezkvalita; '''[3]''' - Bonkvalita; '''[4]''' - Bonega;",
+	'right-feedback' => 'Uzu la kontrolan sekcion por kontroli paĝon',
 );
 
 /** French (Français)
@@ -305,8 +307,9 @@ $messages['oc'] = array(
 	'ratinghistory-month' => 'darrièr mes',
 	'ratinghistory-year' => 'darrièra annada',
 	'ratinghistory-3years' => 'las 3 darrièras annadas',
+	'ratinghistory-graph' => 'Tornar veire las donadas a partir de $1 {{PLURAL:$1|lector|lectors}}',
 	'ratinghistory-none' => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
-	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> de la notacion son dessennhats çaijós, per data. Lo nombre de relecturas es afichat dins lo canton situat en naut a drecha del grafic ; las valors mai elevadas tendon a indicar puslèu de donadas simplas. las valors de notacions devon èsser interpretadas coma seguís :
+	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> de la notacion son dessenhats çaijós, per data. Las valors de notacions devon èsser interpretadas coma seguís :
 
 '''[0]''' - Marrit ; '''[1]''' - Mediòcre ; '''[2]''' - Mejan ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
 	'right-feedback' => 'Utilizar lo formulari de somission per notar una pagina',
@@ -377,19 +380,32 @@ $messages['sv'] = array(
 	'ratinghistory-month' => 'senaste månaden',
 	'ratinghistory-year' => 'senaste året',
 	'ratinghistory-3years' => 'senaste 3 åren',
+	'ratinghistory-graph' => 'Granska data från $1 {{PLURAL:$1|läsare|läsare}}',
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
-	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum. Antalet bedömningar visas i det övre högra hörnet av grafen; högre värden bör indikera ett bättre dataurval. Betygsvärdena tolkas enligt följande:
+	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum. Betygsvärdena tolkas enligt följande:
 
 '''[0]''' - Mycket dålig; '''[1]''' - Dålig; '''[2]''' - Okej; '''[3]''' - Bra; '''[4]''' - Mycket bra;",
+	'right-feedback' => 'Använd feedback-formuläret för att betygsätta en sida',
 );
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'ratinghistory' => 'Lịch sử đánh giá trang',
+	'ratinghistory-text' => "'''Trang này chứa dữ liệu đánh giá của trang [[:$1|$1]].'''",
+	'ratinghistory-leg' => 'Dữ liệu lịch sử đánh giá',
+	'ratinghistory-tab' => 'đánh giá',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Cám ơn đã để dành một chút thời gian để duyệt trang này!</font>'''''",
 	'ratinghistory-period' => 'Thời gian:',
 	'ratinghistory-month' => 'tháng trước',
 	'ratinghistory-year' => 'năm ngoái',
 	'ratinghistory-3years' => 'ba năm trước',
+	'ratinghistory-graph' => 'Dữ liệu đánh giá tính vào $1 độc giả',
+	'ratinghistory-none' => 'Hiện chưa có đủ dữ liệu đánh giá của độc giả để vẽ biểu thị.',
+	'ratinghistory-legend' => "Biểu thị ở dưới trình bày đánh giá trung bình hàng ngày <font color=\"blue\">''(lam)''</font> và đánh giá trung bình tại các giai đoạn lựa chọn <font color=\"green\">''(lục)''</font>, theo thời gian. Các đánh giá có các giá trị sau:
+
+'''[0]''' – Tệ; '''[1]''' – Dở; '''[2]''' – Vừa; '''[3]''' – Khá; '''[4]''' – Tốt",
+	'right-feedback' => 'Đánh giá trang',
 );
 
