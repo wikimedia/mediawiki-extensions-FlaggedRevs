@@ -601,7 +601,7 @@ class FlaggedRevs {
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'reader_feedback_history', 
-			array('SUM(rfh_total)/SUM(rfh_count) AS ave, COUNT(*) AS count'),
+			array('SUM(rfh_total)/SUM(rfh_count) AS ave, SUM(rfh_count) AS count'),
 			array( 'rfh_page_id' => $article->getId(), 'rfh_tag' => $tag,
 				"rfh_date >= {$cutoff_unixtime}" ),
 			__METHOD__ );
