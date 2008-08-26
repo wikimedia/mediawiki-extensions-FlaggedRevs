@@ -20,6 +20,7 @@ $aliases['en'] = array(
 	'ProblemPages'         => array( 'ProblemPages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
 	'Stabilization'        => array( 'Stabilization' ),
+	'LikedPages'           => array( 'LikedPages' ),
 );
 
 /** Aragonese (Aragonés)
