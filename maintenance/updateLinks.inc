@@ -79,7 +79,7 @@ function update_flaggedrevs( $start = null ) {
 			$count++;
 		}
 		$db->freeResult( $res );
-		$blockStart += $BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
@@ -128,7 +128,7 @@ function update_flaggedpages( $start = null ) {
 			}
 			$count++;
 		}
-		$blockStart += $BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
@@ -173,7 +173,7 @@ function update_flaggedtemplates( $start = null ) {
 			}
 			$count++;
 		}
-		$blockStart += $BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
@@ -218,7 +218,7 @@ function update_flaggedimages( $start = null ) {
 			}
 			$count++;
 		}
-		$blockStart += $BATCH_SIZE - 1;
+		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE - 1;
 		wfWaitForSlaves( 5 );
 	}
