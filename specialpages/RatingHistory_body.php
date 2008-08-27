@@ -177,7 +177,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$int = intval( ceil($days/10) ); // 10 labels at most
 			$res->seek( 0 );
 		}
-		$dates = $drating = $arating = "";
+		$dates = $drating = $arating = $dcount = "";
 		$n = 0;
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$totalVal += (int)$row->rfh_total;
@@ -191,17 +191,15 @@ class RatingHistory extends UnlistedSpecialPage
 			$dates .= "<th>$date</th>";
 			$drating .= "<td>$dayAve</td>";
 			$arating .= "<td>$cumAve</td>";
+			$dcount .= "<td>#{$row->rfh_total}</td>";
 			$n++;
 		}
-		// Minimum sample size
-		if( $n < 2 ) {
-			return "";
-		}
 		$chart = Xml::openElement( 'div', array('style' => "width:100%; overflow:scroll;") );
-		$chart .= "<table width='100%' class='wikitable' style='white-space:nowrap' border='1px'>\n";
+		$chart .= "<table class='wikitable' style='white-space: nowrap; border=1px; font-size: 8pt;'>\n";
 		$chart .= "<tr>$dates</tr>\n";
 		$chart .= "<tr align='center' class='fr-rating-dave'>$drating</tr>\n";
 		$chart .= "<tr align='center' class='fr-rating-rave'>$arating</tr>\n";
+		$chart .= "<tr align='center' class='fr-rating-dcount'>$dcount</tr>\n";
 		$chart .= "</table>\n";
 		$chart .= Xml::closeElement( 'div' );
 		// Write to file for cache
