@@ -113,7 +113,7 @@ $messages['hu'] = array(
  * @author Rex
  */
 $messages['id'] = array(
-	'problempages' => 'Halaman bermasalah',
+	'problempages' => 'Halaman dengan peringkat rendah',
 	'problempages-leg' => 'Cari halaman dengan nilai rendah',
 	'problempages-list' => 'Berikut adalah daftar halaman yang diurutkan menurut nilai yang diberikan pembacanya.',
 	'problempages-none' => 'Tidak adalah halaman dalam daftar ini',
@@ -139,7 +139,7 @@ $messages['km'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'problempages' => 'Problematesch Säiten',
+	'problempages' => 'Säite mat enger nidreger Bewertungn',
 	'problempages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
 );
 

@@ -48,6 +48,7 @@ $aliases['ar'] = array(
 	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 	'Stabilization' => array( 'استقرار' ),
+	'LikedPages' => array( 'صفحات_محبوبة' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -63,6 +64,7 @@ $aliases['arz'] = array(
 	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 	'Stabilization' => array( 'استقرار' ),
+	'LikedPages' => array( 'صفحات_محبوبة' ),
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -197,7 +199,8 @@ $aliases['lb'] = array(
 	'ReviewedPages' => array( 'Säiten déi iwwerkuckt gi sinn' ),
 	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
-	'ProblemPages' => array( 'Prblematesch Säiten' ),
+	'ProblemPages' => array( 'Problematesch Säiten' ),
+	'LikedPages' => array( 'Beléiwte Säiten' ),
 );
 
 /** Marathi (मराठी)
@@ -223,6 +226,12 @@ $aliases['ms'] = array(
 	'StablePages' => array( 'Laman_stabil' ),
 	'StableVersions' => array( 'Versi_stabil' ),
 	'ProblemPages' => array( 'Laman_bermasalah' ),
+);
+
+/** Erzya (Эрзянь) */
+$aliases['myv'] = array(
+	'ProblemPages' => array( 'ПроблемаМартоЛопат' ),
+	'LikedPages' => array( 'ВечкевиксЛопат' ),
 );
 
 /** Nedersaksisch (Nedersaksisch) */

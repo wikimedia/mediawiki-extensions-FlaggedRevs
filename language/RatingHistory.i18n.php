@@ -127,6 +127,7 @@ La taksadaj valoroj estas interpretaj jene:
 
 /** French (Français)
  * @author Grondin
+ * @author Zetud
  */
 $messages['fr'] = array(
 	'ratinghistory' => 'Historique de la notation de la page',
@@ -138,7 +139,7 @@ $messages['fr'] = array(
 	'ratinghistory-month' => 'dernier mois',
 	'ratinghistory-year' => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
-	'ratinghistory-graph' => 'Revoir les donnée à partir de $1 {{PLURAL:$1|lecteur|lecteurs}}',
+	'ratinghistory-graph' => 'Revoir les données à partir de $1 {{PLURAL:$1|lecteur|lecteurs}}',
 	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
 	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés ci-dessous, par date. les valeurs des notations doivent être interprétées comme suit :
 
@@ -209,11 +210,21 @@ Penilaian dapat ditafsirkan sebagai berikut:
  * @author Darth Kule
  */
 $messages['it'] = array(
+	'ratinghistory' => 'Cronologia dei giudizi delle pagine',
+	'ratinghistory-text' => "'''Questa pagina mostra i dati dei giudizi per [[:$1|$1]].'''",
+	'ratinghistory-leg' => 'Dati della cronologia dei giudizi',
+	'ratinghistory-tab' => 'giudizio',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Grazie per aver dedicato un momento al giudizio di questa pagina!</font>'''''",
 	'ratinghistory-period' => 'Periodo di tempo:',
 	'ratinghistory-month' => 'ultimo mese',
 	'ratinghistory-year' => 'ultimo anno',
 	'ratinghistory-3years' => 'ultimi 3 anni',
+	'ratinghistory-graph' => 'Dati di revisione da $1 {{PLURAL:$1|lettore|lettori}}',
+	'ratinghistory-none' => 'Non sono disponibile sufficienti dati di feedback dei lettori per poter rappresentare dei grafici al momento.',
+	'ratinghistory-legend' => "I giudizi medi giornalieri <font color=\"blue\">''(blu)''</font> e gli intervalli dei giudizi medi selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. I valore dei giudizi devono essere interpretati come segue:
+
+'''[0]''' - Insufficiente; '''[1]''' - Mediocre; '''[2]''' - Discreto; '''[3]''' - Buono; '''[4]''' - Ottimo;",
+	'right-feedback' => 'Usa il modulo di feedback per giudicare una pagina',
 );
 
 /** Khmer (ភាសាខ្មែរ)
