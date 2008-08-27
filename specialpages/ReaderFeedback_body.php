@@ -3,7 +3,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class ReaderFeedback extends UnlistedSpecialPage
 {
@@ -16,6 +15,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'ReaderFeedback', 'feedback' );
+		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     function execute( $par ) {

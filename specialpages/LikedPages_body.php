@@ -3,13 +3,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-wfLoadExtensionMessages( 'LikedPages' );
-wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class LikedPages extends SpecialPage
 {
     function __construct() {
         SpecialPage::SpecialPage( 'LikedPages' );
+		wfLoadExtensionMessages( 'LikedPages' );
+		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     function execute( $par ) {
@@ -40,7 +40,7 @@ class LikedPages extends SpecialPage
 		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>".wfMsg('likedpages-leg')."</legend>\n";
+		$form .= "<fieldset><legend>".wfMsgHtml('likedpages-leg')."</legend>\n";
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';

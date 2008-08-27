@@ -3,13 +3,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-wfLoadExtensionMessages( 'OldReviewedPages' );
-wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class OldReviewedPages extends SpecialPage
 {
     function __construct() {
         SpecialPage::SpecialPage( 'OldReviewedPages', 'unreviewedpages' );
+		wfLoadExtensionMessages( 'OldReviewedPages' );
+		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     function execute( $par ) {

@@ -3,13 +3,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-wfLoadExtensionMessages( 'ValidationStatistics' );
-wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class ValidationStatistics extends UnlistedSpecialPage
 {
 	function __construct() {
 		SpecialPage::SpecialPage( 'ValidationStatistics' );
+		wfLoadExtensionMessages( 'ValidationStatistics' );
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	function execute( $par ) {
@@ -65,24 +65,25 @@ class ValidationStatistics extends UnlistedSpecialPage
 
 			$wgOut->addHTML( 
 				"<tr align='center'>
-					<td>
-						$NsText
-					</td>
 					<td>" .
-						$wgLang->formatnum( $row->total ) .
+						htmlspecialchars( $NsText ) .
 					"</td>
 					<td>" .
-						$wgLang->formatnum( $row->reviewed ) . $wgContLang->getDirMark() . " <i>($percRev)</i>
+						htmlspecialchars( $wgLang->formatnum( $row->total ) ) .
+					"</td>
+					<td>" .
+						htmlspecialchars( $wgLang->formatnum( $row->reviewed ) . $wgContLang->getDirMark() ) . " <i>($percRev)</i>
 					</td>
 					<td>" .
-						$wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() . " <i>($percLatest)</i>
+						htmlspecialchars( $wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() ) . " <i>($percLatest)</i>
 					</td>
-					<td>
-						$percSynced
-					</td>
-					<td>
-						$outdated
-					</td>
+					<td>" .
+						htmlspecialchars( $percSynced ) .
+					"</td>
+					<td>" .
+					
+						htmlspecialchars( $outdated ) .
+					"</td>
 				</tr>"
 			);
 		}
@@ -90,6 +91,10 @@ class ValidationStatistics extends UnlistedSpecialPage
 	}
 
 	protected function maybeUpdate() {
+		global $wgFlaggedRevsStatsAge;
+		if( !$wgFlaggedRevsStatsAge ) {
+			return false;
+		}
 		$dbCache = wfGetCache( CACHE_DB );
 		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 		$keySQL = wfMemcKey( 'flaggedrevs', 'statsUpdating' );
@@ -100,14 +105,17 @@ class ValidationStatistics extends UnlistedSpecialPage
 		} elseif( $dbCache->get( $keySQL ) ) {
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " skipping, in progress" );
 		} else {
-			$ext = strpos( $_SERVER['SCRIPT_NAME'], 'index.php5' ) === false ? 'php' : 'php5';
+			global $wgPhpCli;
+			$ext = !empty($wgPhpCli) ? $wgPhpCli : 'php';
 			$path = wfEscapeShellArg( dirname(__FILE__).'/../maintenance/updateStats.php' );
 			$wiki = wfEscapeShellArg( wfWikiId() );
-			$devNull = wfIsWindows() ? "NUL" : "/dev/null";
+			$devNull = wfIsWindows() ? "NUL:" : "/dev/null";
 			$commandLine = "$ext $path --wiki=$wiki > $devNull &";
 			wfDebugLog( 'ValidationStatistics', __METHOD__ . " executing: $commandLine" );
-			exec( $commandLine );
+			wfShellExec( $commandLine );
+			return true;
 		}
+		return false;
 	}
 	
 	protected function readyForQuery() {

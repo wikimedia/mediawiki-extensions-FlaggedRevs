@@ -648,11 +648,11 @@ class FlaggedArticle extends Article {
 
 		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
 		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed, wfMsgHtml('unreviewedpages'),
-			"category={$category}" );
+			'category=' . urlencode($category) );
 
 		$oldreviewed = SpecialPage::getTitleFor( 'OldReviewedPages' );
 		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed, wfMsgHtml('oldreviewedpages'),
-			"category={$category}" );
+			'category=' . urlencode($category) );
 
 		$wgOut->appendSubtitle( "<p>$unreviewedLink / $oldreviewedLink</p>" );
 
@@ -716,14 +716,13 @@ class FlaggedArticle extends Article {
 		if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'review' ) ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-			$wgOut->addHTML( "<div class='patrollink'>" .
-				wfMsgHtml( 'markaspatrolledlink',
-				$wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml('markaspatrolledtext'),
-					"patrolonly=1&target={$this->parent->getTitle()->getPrefixedUrl()}&rcid={$rcid}" .
-					"&token=" . urlencode( $wgUser->editToken( $this->parent->getTitle()->getPrefixedText(), $rcid ) ) )
-			 	) .
-				'</div>'
-			 );
+			$token = $wgUser->editToken( $this->parent->getTitle()->getPrefixedText(), $rcid );
+			$link = $wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml('markaspatrolledtext'),
+				wfArrayToCGI( array( 'patrolonly' => 1, 'target' => $this->parent->getTitle()->getPrefixedDBKey(),
+					'rcid' => $rcid, 'token' => $token ) )
+			);
+			# Add the link...
+			$wgOut->addHTML( "<div class='patrollink'>" . wfMsgHtml('markaspatrolledlink',$link) . '</div>' );
 		}
 		return true;
 	}
@@ -1156,9 +1155,10 @@ class FlaggedArticle extends Article {
 			// Build the link
 			if( $rcid ) {
 				$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
+				$token = $wgUser->editToken( $newRev->getTitle()->getPrefixedText(), $rcid );
 				$patrol = '[' . $wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml( 'revreview-patrol' ),
-					"patrolonly=1&target=" . $newRev->getTitle()->getPrefixedUrl() . "&rcid={$rcid}" .
-					"&token=" . urlencode( $wgUser->editToken( $newRev->getTitle()->getPrefixedText(), $rcid ) ) ) . ']';
+					wfArrayToCGI( array( 'patrolonly' => 1, 'target' => $newRev->getTitle()->getPrefixedDBKey(),
+						'rcid' => $rcid, 'token' => $token ) ) ) . ']';
 			} else {
 				$patrol = '';
 			}

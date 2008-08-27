@@ -3,13 +3,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-wfLoadExtensionMessages( 'Stabilization' );
-wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class Stabilization extends UnlistedSpecialPage
 {
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'Stabilization', 'stablesettings' );
+		wfLoadExtensionMessages( 'Stabilization' );
+		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     function execute( $par ) {

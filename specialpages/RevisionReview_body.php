@@ -5,7 +5,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
-wfLoadExtensionMessages( 'FlaggedRevs' );
 
 class RevisionReview extends UnlistedSpecialPage
 {
@@ -26,6 +25,7 @@ class RevisionReview extends UnlistedSpecialPage
 	
     function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
+		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     function execute( $par ) {
