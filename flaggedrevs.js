@@ -118,7 +118,7 @@ function updateFeedbackForm() {
 			// Update color. Opera does this already, and doing so
 			// seems to kill custom pretty opera skin form styling.
 			if( navigator.appName != 'Opera') {
-				levels[0].className = 'fr-rating-option-' + selectedlevel;
+				levels[0].className = 'fr-rating-option-' + (4 - selectedlevel);
 			}
 		}
 	}
