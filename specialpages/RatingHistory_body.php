@@ -340,6 +340,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->innerPaddingY = 2;
 		$plot->outerPadding = 0;
 		$plot->offsetGridlinesX = 0;
+		$plot->minY = 0;
 		$plot->maxY = 4;
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
