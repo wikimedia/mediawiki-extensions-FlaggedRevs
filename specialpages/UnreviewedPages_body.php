@@ -132,7 +132,7 @@ class UnreviewedPages extends SpecialPage
 		$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
 		$ratio = $pages/($pages - $reviewedpages);
 		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
-		return ($ratio <= 10000);
+		return ($ratio <= 1000);
 	}
 }
 
