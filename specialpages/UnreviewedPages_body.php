@@ -121,7 +121,7 @@ class UnreviewedPages extends SpecialPage
 		$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
 		$ratio = $pages/($pages - $reviewedpages);
 		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
-		return ($ratio <= 200);
+		return ($ratio <= 10000);
 	}
 }
 
@@ -141,12 +141,15 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$namespace = intval($namespace);
 		}
 		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0];
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		
 		parent::__construct();
+		// Don't get to expensive
+		$this->mLimitsShown = array( 20, 50 );
+		$this->mLimit = min( $this->mLimit, 50 );
 	}
 
 	function formatRow( $row ) {
@@ -156,7 +159,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$fields = array('page_namespace','page_title','page_len','fp_stable');
-		$conds[] = 'fp_reviewed IS NULL';
+		$conds[] = 'fp_page_id IS NULL';
 		# Reviewable pages only
 		$conds['page_namespace'] = $this->namespace;
 		# No redirects
