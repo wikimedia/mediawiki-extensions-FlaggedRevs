@@ -42,17 +42,27 @@ class UnreviewedPages extends SpecialPage
 			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"
 		);
-		# This will start to get slower...
-		if( $category || self::generalQueryOK() ) {
-			$pager = new UnreviewedPagesPager( $this, $namespace, $category );
-			if( $pager->getNumRows() ) {
-				$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
-				$wgOut->addHTML( $pager->getNavigationBar() );
-				$wgOut->addHTML( $pager->getBody() );
-				$wgOut->addHTML( $pager->getNavigationBar() );
+		# This will start to get slower if live...
+		if( !$live = self::generalQueryOK() ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$ts = $dbr->selectField( 'querycache_info', 'qci_timestamp', 
+				array( 'qci_type' => 'fr_unreviewedpages'), __METHOD__ );
+			if( $ts ) {
+				global $wgLang;
+				$ts = wfTimestamp(TS_MW,$ts);
+				$wgOut->addHTML( wfMsg( 'perfcachedts', $wgLang->timeanddate($ts) ) );
 			} else {
-				$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
+				$wgOut->addHTML( wfMsg( 'perfcached' ) );
 			}
+		}
+		$pager = new UnreviewedPagesPager( $this, $live, $namespace, $category );
+		if( $pager->getNumRows() ) {
+			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( $pager->getBody() );
+			$wgOut->addHTML( $pager->getNavigationBar() );
+		} else {
+			$wgOut->addHTML( wfMsgExt('unreviewed-none', array('parse') ) );
 		}
 	}
 	
@@ -113,8 +123,9 @@ class UnreviewedPages extends SpecialPage
 	*/
 	public static function generalQueryOK() {
 		global $wgFlaggedRevsNamespaces;
-		if( !wfQueriesMustScale() )
+		if( !wfQueriesMustScale() ) {
 			return true;
+		}
 		# Get est. of fraction of pages that are reviewed
 		$dbr = wfGetDB( DB_SLAVE );
 		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', array(), __METHOD__ );
@@ -130,11 +141,11 @@ class UnreviewedPages extends SpecialPage
  */
 class UnreviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
-	private $namespace, $category;
+	private $live, $namespace, $category;
 
-	function __construct( $form, $namespace, $category=NULL, $conds = array() ) {
+	function __construct( $form, $live, $namespace, $category=NULL ) {
 		$this->mForm = $form;
-		$this->mConds = $conds;
+		$this->live = (bool)$live;
 		# Must be a content page...
 		global $wgFlaggedRevsNamespaces;
 		if( !is_null($namespace) ) {
@@ -157,8 +168,11 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
+		if( !$this->live ) {
+			return $this->getQueryCacheInfo();
+		}
 		$conds = $this->mConds;
-		$fields = array('page_namespace','page_title','page_len','fp_stable');
+		$fields = array('page_namespace','page_title','page_len');
 		$conds[] = 'fp_page_id IS NULL';
 		# Reviewable pages only
 		$conds['page_namespace'] = $this->namespace;
@@ -184,6 +198,31 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			'conds'   => $conds,
 			'options' => array( 'USE INDEX' => $useIndex ),
 			'join_conds' => array( 'flaggedpages' => array('LEFT JOIN','fp_page_id=page_id') )
+		);
+	}
+	
+	function getQueryCacheInfo() {
+		$conds = $this->mConds;
+		$fields = array('qc_namespace AS page_namespace','qc_title AS page_title','NULL AS page_len','qc_value');
+		$conds['qc_type'] = 'fr_unreviewedpages';
+		$conds[] = 'fp_page_id IS NULL';
+		# Reviewable pages only
+		$conds['qc_namespace'] = $this->namespace;
+		$this->mIndexField = 'qc_value';
+		# Filter by category
+		if( $this->category ) {
+			$tables = array( 'categorylinks', 'querycache', 'flaggedpages' );
+			$conds['cl_to'] = $this->category;
+			$conds[] = 'cl_from = qc_value'; // page_id
+		} else {
+			$tables = array( 'querycache', 'flaggedpages' );
+		}
+		return array(
+			'tables'  => $tables,
+			'fields'  => $fields,
+			'conds'   => $conds,
+			'options' => array( 'USE INDEX' => array('querycache' => 'qc_type') ),
+			'join_conds' => array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = qc_value') )
 		);
 	}
 
