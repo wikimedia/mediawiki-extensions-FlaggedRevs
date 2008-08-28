@@ -927,6 +927,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 */
 	public static function updateLog( $title, $dims, $oldDims, $comment, $revId, $stableId, $approve, $auto=false ) {
 		global $wgFlaggedRevsLogInRC;
+		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$log = new LogPage( 'review', ($auto ? false : $wgFlaggedRevsLogInRC) );
 		# ID, accuracy, depth, style
 		$ratings = array();
