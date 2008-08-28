@@ -35,6 +35,17 @@ $messages['de'] = array(
 	'likedpages-graphs' => 'Bewertungsdaten',
 );
 
+/** French (Français)
+ * @author Grondin
+ */
+$messages['fr'] = array(
+	'likedpages' => 'Pages hautement notées',
+	'likedpages-leg' => 'Chercher les pages bien notées',
+	'likedpages-list' => 'Voici, ci-dessous, une liste des pages triée en fonction de leur notation.',
+	'likedpages-none' => 'Il n’existe aucune page dans cette liste',
+	'likedpages-graphs' => 'Données de notation',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -44,6 +55,17 @@ $messages['nl'] = array(
 	'likedpages-list' => "Hier staan pagina's gesorteerd naar de waardering die lezers hebben gegeven.",
 	'likedpages-none' => "Er zijn geen pagina's weer te geven",
 	'likedpages-graphs' => 'waarderingsgegevens',
+);
+
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'likedpages' => 'Paginas notadas nautament',
+	'likedpages-leg' => 'Cercar las paginas plan notadas',
+	'likedpages-list' => 'Vaquí, çaijós, una tièra de paginas triadas en foncion de lor notacion.',
+	'likedpages-none' => 'Existís pas cap de pagina dins aquesta tièra',
+	'likedpages-graphs' => 'Donadas de notacion',
 );
 
 /** Slovak (Slovenčina)

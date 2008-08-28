@@ -80,7 +80,7 @@ $messages['fi'] = array(
  * @author Grondin
  */
 $messages['fr'] = array(
-	'problempages' => 'Pages de problèmes',
+	'problempages' => 'Pages mal notées',
 	'problempages-leg' => 'Trouver les pages mal notées',
 	'problempages-list' => 'Voici, ci-dessous, une liste des pages triées en fonction de la notation de leurs lecteurs.',
 	'problempages-none' => 'Il n’y a aucune page dans cette liste',
@@ -180,7 +180,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'problempages' => 'Paginas problematicas',
+	'problempages' => 'Paginas mal notadas',
 	'problempages-leg' => 'Trobar las paginas mal notadas',
 	'problempages-list' => 'Vaquí, çaijós, una tièra de paginas triadas en foncion de la notacion de lors lectors.',
 	'problempages-none' => 'I a pas cap de pagina dins aquesta tièra',

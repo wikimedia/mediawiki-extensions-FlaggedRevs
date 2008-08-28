@@ -27,12 +27,12 @@ $aliases['en'] = array(
  * @author Juanpabl
  */
 $aliases['an'] = array(
-	'QualityOversight'      => array( 'SuperbisataDeCalidat' ),
-	'UnReviewedPages'       => array( 'PachinasNoRebisatas' ),
-	'OldReviewedPages'      => array( 'PachinasSuperbisatasAntigas' ),
-	'ReviewedPages'         => array( 'PachinasSuberbisatas' ),
-	'StablePages'           => array( 'PachinasEstables' ),
-	'StableVersions'        => array( 'BersionsEstables' ),
+	'QualityOversight' => array( 'SuperbisataDeCalidat' ),
+	'UnReviewedPages' => array( 'PachinasNoRebisatas' ),
+	'OldReviewedPages' => array( 'PachinasSuperbisatasAntigas' ),
+	'ReviewedPages' => array( 'PachinasSuberbisatas' ),
+	'StablePages' => array( 'PachinasEstables' ),
+	'StableVersions' => array( 'BersionsEstables' ),
 );
 
 /** Arabic (العربية)
@@ -72,12 +72,12 @@ $aliases['arz'] = array(
  */
 $aliases['bcc'] = array(
 	'QualityOversight' => array( 'رویت-کیفیت' ),
-	'UnReviewedPages'  => array( 'صفحات-بی-بازبینی' ),
+	'UnReviewedPages' => array( 'صفحات-بی-بازبینی' ),
 	'OldReviewedPages' => array( 'صفحات-بازبینی-قدیمی' ),
-	'ReviewedPages'    => array( 'صفحات-بازبینی' ),
-	'StablePages'      => array( 'صفحات-ثابت' ),
-	'StableVersions'   => array( 'نسخه یان ثابت' ),
-	'ProblemPages'     => array( 'صفحات‌مشکل' ),
+	'ReviewedPages' => array( 'صفحات-بازبینی' ),
+	'StablePages' => array( 'صفحات-ثابت' ),
+	'StableVersions' => array( 'نسخه یان ثابت' ),
+	'ProblemPages' => array( 'صفحات‌مشکل' ),
 );
 
 /** German (Deutsch)
@@ -151,12 +151,12 @@ $aliases['gl'] = array(
  * @author Kaustubh
  */
 $aliases['hi'] = array(
-	'QualityOversight'      => array( 'गुणवत्ताओव्हरसाईट' ),
-	'UnReviewedPages'       => array( 'नदेखेंहुएपन्ने' ),
-	'OldReviewedPages'      => array( 'पुरानेदेखेंहुएपन्ने' ),
-	'ReviewedPages'         => array( 'जाँचेहुएपन्ने' ),
-	'StablePages'           => array( 'स्थिरपन्ने' ),
-	'StableVersions'        => array( 'स्थिरअवतरण' ),
+	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
+	'UnReviewedPages' => array( 'नदेखेंहुएपन्ने' ),
+	'OldReviewedPages' => array( 'पुरानेदेखेंहुएपन्ने' ),
+	'ReviewedPages' => array( 'जाँचेहुएपन्ने' ),
+	'StablePages' => array( 'स्थिरपन्ने' ),
+	'StableVersions' => array( 'स्थिरअवतरण' ),
 );
 
 /** Croatian (Hrvatski) */
@@ -207,12 +207,12 @@ $aliases['lb'] = array(
  * @author Kaustubh
  */
 $aliases['mr'] = array(
-	'QualityOversight'      => array( 'गुणवत्ताओव्हरसाईट' ),
-	'UnReviewedPages'       => array( 'नतपासलेलीपाने' ),
-	'OldReviewedPages'      => array( 'जुनीतपासलेलीपाने' ),
-	'ReviewedPages'         => array( 'तपासलेलीपाने' ),
-	'StablePages'           => array( 'स्थिरपाने' ),
-	'StableVersions'        => array( 'स्थिरआवृत्त्या' ),
+	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
+	'UnReviewedPages' => array( 'नतपासलेलीपाने' ),
+	'OldReviewedPages' => array( 'जुनीतपासलेलीपाने' ),
+	'ReviewedPages' => array( 'तपासलेलीपाने' ),
+	'StablePages' => array( 'स्थिरपाने' ),
+	'StableVersions' => array( 'स्थिरआवृत्त्या' ),
 );
 
 /** Malay (Bahasa Melayu)
@@ -304,12 +304,12 @@ $aliases['pl'] = array(
  */
 $aliases['pt'] = array(
 	'QualityOversight' => array( 'Observatório_da_qualidade' ),
-	'UnReviewedPages'  => array( 'Páginas_a_analisar' ),
+	'UnReviewedPages' => array( 'Páginas_a_analisar' ),
 	'OldReviewedPages' => array( 'Versões_antigas_de_páginas_analisadas' ),
-	'ReviewedPages'    => array( 'Páginas_analisadas' ),
-	'StablePages'      => array( 'Páginas_estáveis' ),
-	'StableVersions'   => array( 'Edições_estáveis' ),
-	'ProblemPages'     => array( 'Páginas com problemas' ),
+	'ReviewedPages' => array( 'Páginas_analisadas' ),
+	'StablePages' => array( 'Páginas_estáveis' ),
+	'StableVersions' => array( 'Edições_estáveis' ),
+	'ProblemPages' => array( 'Páginas com problemas' ),
 );
 
 /** Slovak (Slovenčina)
@@ -330,12 +330,12 @@ $aliases['sk'] = array(
  */
 $aliases['sr-ec'] = array(
 	'QualityOversight' => array( 'НадгледањеКвалитета' ),
-	'UnReviewedPages'  => array( 'НепрегледанеСтране' ),
+	'UnReviewedPages' => array( 'НепрегледанеСтране' ),
 	'OldReviewedPages' => array( 'СтареПрегледанеСтране' ),
-	'ReviewedPages'    => array( 'ПрегледанеСтране' ),
-	'StablePages'      => array( 'СтабилнеСтране' ),
-	'StableVersions'   => array( 'СтабилнеВерзије' ),
-	'ProblemPages'     => array( 'ПроблематичнеСтране' ),
+	'ReviewedPages' => array( 'ПрегледанеСтране' ),
+	'StablePages' => array( 'СтабилнеСтране' ),
+	'StableVersions' => array( 'СтабилнеВерзије' ),
+	'ProblemPages' => array( 'ПроблематичнеСтране' ),
 );
 
 /** Swedish (Svenska)
