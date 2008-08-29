@@ -1134,8 +1134,7 @@ EOT;
 	
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
-		$fa = FlaggedArticle::getGlobalInstance();
-		if( $fa && $wgOut->isArticleRelated() ) {
+		if( $wgOut->isArticleRelated() && $fa = FlaggedArticle::getGlobalInstance() ) {
 			$fa->addReviewNotes( $data );
 			$fa->addReviewForm( $data );
 			$fa->addFeedbackForm( $data );
@@ -1233,7 +1232,7 @@ EOT;
 		} else {
 			global $wgRequest;
 			# We don't want to cache the pending edit notice though
-			return !( $fa->pageOverride() && $fa->getStableRev() ) && !$wgRequest->getVal('shownotice');
+			return !$wgRequest->getVal('shownotice') && !( $fa->pageOverride() && $fa->getStableRev() );
 		}
 	}
 
