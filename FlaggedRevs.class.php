@@ -767,7 +767,7 @@ class FlaggedRevs {
 	 * @param bool $forUpdate, use master DB?
 	 * @returns Array (select,override)
 	*/
-	public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
+	public static function getPageVisibilitySettings( &$title, $forUpdate=false ) {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
@@ -778,14 +778,12 @@ class FlaggedRevs {
 			$now = wfTimestampNow();
 			# This code should be refactored, now that it's being used more generally.
 			$expiry = Block::decodeExpiry( $row->fpc_expiry );
-			# Only apply the settigns if they haven't expired
+			# Only apply the settings if they haven't expired
 			if( !$expiry || $expiry < $now ) {
 				$row = null;
 				self::purgeExpiredConfigurations();
 			}
-		}
-
-		if( !$row ) {
+		} else {
 			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;

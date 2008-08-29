@@ -21,19 +21,15 @@ class FlaggedRevsHooks {
 	public static function injectStyleAndJS() {
 		global $wgOut;
 		# Don't double-load
-		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
+		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) || !$wgOut->isArticleRelated() ) {
 			return true;
 		}
-		if( !$wgOut->isArticleRelated() ) {
-			return true;
-		}
-		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-
 		$fa = FlaggedArticle::getGlobalInstance();
 		# Try to only add to relevant pages
 		if( !$fa || (!$fa->isReviewable() && !$fa->isRateable() ) ) {
 			return true;
 		}
+		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 		# Load required messages
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		
@@ -1124,7 +1120,7 @@ EOT;
 		return true;
 	}
 	
-	public static function addToEditView( $editPage ) {
+	public static function addToEditView( &$editPage ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
 	}
 	
@@ -1170,7 +1166,7 @@ EOT;
 		return true;
 	}
 	
-	public static function addToHistLine( $history, $row, &$s ) {
+	public static function addToHistLine( &$history, $row, &$s ) {
 		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
 	}
 	

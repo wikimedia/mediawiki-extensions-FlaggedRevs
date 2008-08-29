@@ -526,29 +526,19 @@ class FlaggedArticle extends Article {
 	 */
 	public function addToEditView( $editPage ) {
 		global $wgRequest, $wgOut;
-		# Talk pages cannot be validated
+		# Must be reviewable
 		if( !$this->isReviewable() )
-			return false;
+			return true;
 		# Find out revision id
 	   	$revId = $editPage->oldid ? $editPage->oldid : $this->parent->getLatest();
-		# Grab the ratings for this revision if any
+		# Talk pages cannot be validated
 		if( !$revId )
 			return true;
-		# Load required messages
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Set new body html text as that of now
 		$tag = $warning = $prot = '';
-		// Is the page config altered?
-		if( $this->isPageLocked() ) {
-			$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
-		} else if( $this->isPageUnlocked() ) {
-			$prot = "<span class='fr-icon-unlocked' title=\"".wfMsg('revreview-unlocked')."\"></span>";
-		}
 		# Check the newest stable version
-		$frev = $this->getStableRev();
-		if( !is_null($frev) ) {
+		if( $frev = $this->getStableRev() ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
-
 			$time = $wgLang->date( $frev->getTimestamp(), true );
 			$flags = $frev->getTags();
 			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
@@ -560,12 +550,20 @@ class FlaggedArticle extends Article {
 				# makes will be autoreviewed...
 				$ofrev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revId );
 				if( !is_null($ofrev) ) {
+					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$msg = ( $revId==$frev->getRevId() ) ? 'revreview-auto-w' : 'revreview-auto-w-old';
 					$warning = "<div id='mw-autoreviewtag' class='flaggedrevs_warning plainlinks'>" .
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			}
 			if( $frev->getRevId() != $revId ) {
+				wfLoadExtensionMessages( 'FlaggedRevs' );
+				// Is the page config altered?
+				if( $this->isPageLocked() ) {
+					$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
+				} else if( $this->isPageUnlocked() ) {
+					$prot = "<span class='fr-icon-unlocked' title=\"".wfMsg('revreview-unlocked')."\"></span>";
+				}
 				# Streamlined UI
 				if( FlaggedRevs::useSimpleUI() ) {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
@@ -589,7 +587,9 @@ class FlaggedArticle extends Article {
 				}
 			}
 			# Output notice and warning for editors
-			$wgOut->addHTML( $tag . $warning );
+			if( $tag || $warning ) {
+				$wgOut->addHTML( $tag . $warning );
+			}
 
 			# Show diff to stable, to make things less confusing.
 			if( !$this->showStableByDefaultUser() && !$wgUser->isAllowed('review') ) {
@@ -601,6 +601,9 @@ class FlaggedArticle extends Article {
 			if( $editPage->oldid || $editPage->section === "new" || in_array($editPage->formtype,array('diff','preview')) ) {
 				return true; // nothing to show here
 			}
+			
+			# Conditions are met to show diff...
+			wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$rightNote = 'revreview-draft-title';
 			$text = $frev->getRevText();
