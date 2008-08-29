@@ -72,7 +72,8 @@ $wgFlaggedRevsLowProfile = true;
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN, NS_IMAGE, NS_TEMPLATE );
 # Patrollable namespaces (overridden by reviewable namespaces)
-$wgFlaggedRevsPatrolNamespaces = array( NS_CATEGORY, NS_IMAGE, NS_TEMPLATE );
+$wgFlaggedRevsPatrolNamespaces = array();
+#$wgFlaggedRevsPatrolNamespaces = array( NS_CATEGORY, NS_IMAGE, NS_TEMPLATE );
 
 # Pages exempt from reviewing
 $wgFlaggedRevsWhitelist = array();
