@@ -127,7 +127,7 @@ class FlaggedRevs {
 	 * @returns bool
 	 */
 	public static function lowProfileUI() {
-		global $wgUser, $wgFlaggedRevsLowProfile;
+		global $wgFlaggedRevsLowProfile;
 		self::load();
 		return $wgFlaggedRevsLowProfile;
 	}

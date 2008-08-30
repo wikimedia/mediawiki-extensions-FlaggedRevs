@@ -63,7 +63,7 @@ class FlaggedArticle extends Article {
 	 * Should not be called directly, use FlaggedArticle::getInstance()
 	 */
 	function __construct( $parent ) {
-		$this->parent = $parent;
+		$this->parent =& $parent;
 	}
 
 	/**
@@ -529,21 +529,13 @@ class FlaggedArticle extends Article {
 		# Must be reviewable
 		if( !$this->isReviewable() )
 			return true;
-		# Find out revision id
-	   	$revId = $editPage->oldid ? $editPage->oldid : $this->parent->getLatest();
-		# Talk pages cannot be validated
-		if( !$revId )
-			return true;
 		# Set new body html text as that of now
 		$tag = $warning = $prot = '';
 		# Check the newest stable version
 		if( $frev = $this->getStableRev() ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
-			$time = $wgLang->date( $frev->getTimestamp(), true );
-			$flags = $frev->getTags();
-			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
-			# Construct some tagging
-			$quality = FlaggedRevs::isQuality( $flags );
+			# Find out revision id
+			$revId = $editPage->oldid ? $editPage->oldid : $this->parent->getLatest();
 			# If this will be autoreviewed, notify the user...
 			if( !FlaggedRevs::lowProfileUI() && $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
 				# If we are editing some reviewed revision, any changes this user
@@ -558,6 +550,10 @@ class FlaggedArticle extends Article {
 			}
 			if( $frev->getRevId() != $revId ) {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
+				$time = $wgLang->date( $frev->getTimestamp(), true );
+				$flags = $frev->getTags();
+				$quality = FlaggedRevs::isQuality( $flags );
+				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 				// Is the page config altered?
 				if( $this->isPageLocked() ) {
 					$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
@@ -591,12 +587,12 @@ class FlaggedArticle extends Article {
 				$wgOut->addHTML( $tag . $warning );
 			}
 
-			# Show diff to stable, to make things less confusing.
-			if( !$this->showStableByDefaultUser() && !$wgUser->isAllowed('review') ) {
-				return true;
-			}
 			if( $frev->getRevId() == $revId )
 				return true; // nothing to show here
+			# Show diff to stable, to make things less confusing.
+			if( !$wgUser->isAllowed('review') && !$this->showStableByDefaultUser() ) {
+				return true;
+			}
 			# Don't show for old revisions, diff, preview, or undo.
 			if( $editPage->oldid || $editPage->section === "new" || in_array($editPage->formtype,array('diff','preview')) ) {
 				return true; // nothing to show here
