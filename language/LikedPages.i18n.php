@@ -35,6 +35,17 @@ $messages['de'] = array(
 	'likedpages-graphs' => 'Bewertungsdaten',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'likedpages' => 'Alte taksitaj paĝoj',
+	'likedpages-leg' => 'Trovi alte rangitajn paĝojn',
+	'likedpages-list' => 'Jen listo de paĝoj rangitaj de la kontrolado de ties legantoj.',
+	'likedpages-none' => 'Estas neniuj paĝoj en ĉi tiu listo',
+	'likedpages-graphs' => 'taksaj datenoj',
+);
+
 /** French (Français)
  * @author Grondin
  */

@@ -826,13 +826,14 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
 	'editor' => 'محرر',
 	'flaggedrevs' => 'نسخ متعلم عليها',
-	'flaggedrevs-backlog' => "دلوقتي في سجل تأخير في [[Special:OldReviewedPages|الصفحات المتراجعة القديمة]]. '''لو سمحت خد بالك !'''",
-	'flaggedrevs-desc' => 'بيدي المحريين/المراجعين امكانية التأكد من أن النسخ صحيحة و تثبيت الصفحات.',
+	'flaggedrevs-backlog' => "دلوقتى فى سجل تأخير فى [[Special:OldReviewedPages|الصفحات المتراجعة القديمة]]. '''لو سمحت خد بالك !'''",
+	'flaggedrevs-desc' => 'بيدى المحريين/المراجعين امكانية التأكد من أن النسخ صحيحة و تثبيت الصفحات.',
 	'flaggedrevs-pref-UI-0' => 'استعمل واجهة يوزر لنسخة مستقرة متفصلة',
 	'flaggedrevs-pref-UI-1' => 'استعمل واجهة يوزر لنسخة مستقرة بسيطة',
 	'flaggedrevs-prefs' => 'الاستقرار',
@@ -1456,7 +1457,7 @@ $messages['cs'] = array(
 	'flaggedrevs-backlog' => "Momentálně existují [[Special:OldReviewedPages|zastaralé zkontrolované stránky]]. '''Vyžaduje se vaše pozornost!'''",
 	'flaggedrevs-desc' => 'Umožňuje editorům a posuzovatelům hodnotit verze a stabilizovat stránky',
 	'flaggedrevs-pref-UI-0' => 'Používat podrobné uživatelské rozhraní stabilních verzí',
-	'flaggedrevs-pref-UI-1' => 'Používat jednoduché uživatelské ozhraní stabilních verzí',
+	'flaggedrevs-pref-UI-1' => 'Používat jednoduché uživatelské rozhraní stabilních verzí',
 	'flaggedrevs-prefs' => 'Stabilita',
 	'flaggedrevs-prefs-stable' => 'Vždy standardně zobrazovat stabilní verzi stránek s obsahem (pokud existuje)',
 	'flaggedrevs-prefs-watch' => 'Přidat stránky, které zkontroluji, do mého seznamu sledovaných stránek',
@@ -1470,7 +1471,7 @@ $messages['cs'] = array(
 	'hist-quality' => 'kvalitní verze',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} ověřeno uživatelem] [[User:$3|$3]]',
 	'hist-stable' => 'prohlédnutá verze',
-	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} zhlédnuto] uživatelem [[User:$3|$3]]',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} prohlédnuto] uživatelem [[User:$3|$3]]',
 	'review-diff2stable' => 'Zobrazit změny mezi stabilní a současnou verzí',
 	'review-logentry-app' => 'posuzuje stránku $1',
 	'review-logentry-dis' => 'odmítá verzi stránky $1',
@@ -1493,6 +1494,8 @@ Pro seznam schválených stránek se podívejte na [[Special:ReviewedPages|sezna
 	'revreview-auto-w-old' => "Editujete posouzenou verzi; změny budou '''automaticky označeny jako posouzené'''.",
 	'revreview-basic' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
 V [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrhu]  {{PLURAL:$3|je|jsou|je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.',
+	'revreview-basic-i' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny šablony/obrázku] čekající na posouzení.',
 	'revreview-basic-old' => 'Toto je [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
 Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny].',
 	'revreview-basic-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. Stránku je možné [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit].',
@@ -1518,15 +1521,22 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 
 Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední prohlédnutá verze] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|potřebuje|potřebují|potřebuje}} posoudit.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední prohlédnutá verze] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena]  <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Změny šablony/obrázku] čekají na posouzení.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední kvalitní verze] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|potřebuje|potřebují|potřebuje}} posoudit.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední kvalitní verze] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Změny šablony/obrázku] čekají na posouzení.',
 	'revreview-noflagged' => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[{{MediaWiki:Validationpage}}|zkontrolována]] kvalita.',
 	'revreview-note' => 'Uživatel [[User:$1|$1]] doplnil své [[{{MediaWiki:Validationpage}}|posouzení]] této verze následující poznámkou:',
 	'revreview-notes' => 'Poznámky k zobrazení:',
 	'revreview-oldrating' => 'Bylo ohodnoceno:',
 	'revreview-patrol' => 'Označit tuto změnu jako prověřenou',
+	'revreview-patrol-title' => 'Označit jako prověřené',
 	'revreview-patrolled' => 'Vybraná verze stránky [[:$1|$1]] byla označena jako prověřená.',
 	'revreview-quality' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|kvalitní]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
 V [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrhu]  {{PLURAL:$3|je|jsou|je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.',
+	'revreview-quality-i' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|kvalitní]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny šablony/obrázku] čekající na posouzení.',
 	'revreview-quality-old' => 'Toto je [[{{MediaWiki:Validationpage}}|kvalitní]] verze ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} seznam všech]). Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
 Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny].',
 	'revreview-quality-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|kvalitní]] verze. Byla [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. Stránku je možné [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit].',
@@ -1552,6 +1562,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-style-3' => 'Výstižná',
 	'revreview-style-4' => 'Význačná',
 	'revreview-submit' => 'Odeslat posouzení',
+	'revreview-submitting' => 'Odesílá se',
 	'revreview-text' => "''Zobrazení [[{{MediaWiki:Validationpage}}|stabilních verzí]] je upřednostněno před nejnovějšími verzemi.''",
 	'revreview-toggle-title' => 'skrýt/zobrazit detaily',
 	'revreview-toolow' => 'Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než "neschváleno". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení "neschváleno".',
@@ -1562,7 +1573,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-diffonly' => "''Stránku můžete zkontrolovat po kliknutí na odkaz „aktuální revize” pomocí formuláře pro kontrolu.''",
 	'revreview-visibility' => "'''Tato stránka má [[{{MediaWiki:Validationpage}}|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].'''",
 	'right-movestable' => 'Přesunout stabilní stránky',
-	'right-review' => 'Označit revize jako zhlédnuté',
+	'right-review' => 'Označit verze jako prohlédnuté',
 	'right-validate' => 'Označit revize jako ověřené',
 	'rights-editor-revoke' => 'odebírá status editora uživateli [[$1]]',
 	'specialpages-group-quality' => 'Zajištění kvality',
@@ -1571,6 +1582,24 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'stable-logpage' => 'Kniha stabilních verzí',
 	'stable-logpagetext' => 'Toto je záznam změn nastavení [[{{MediaWiki:Validationpage}}|stabilní verze]] stránek.
 Přehled stabilizovaných stránek vizte na [[Special:StablePages|seznamu stabilních stránek]].',
+	'readerfeedback' => 'Co si myslíte o této stránce?',
+	'readerfeedback-text' => "''Věnujte prosím chvilku na ohodnocení této stránky. Oceníme vaše připomínky a pomůžou nám vylepšit stránku.''",
+	'readerfeedback-reliability' => 'Hodnověrnost',
+	'readerfeedback-completeness' => 'Úplnost',
+	'readerfeedback-npov' => 'Nezaujatost',
+	'readerfeedback-presentation' => 'Podání',
+	'readerfeedback-overall' => 'Celkově',
+	'readerfeedback-level-none' => '(výběr)',
+	'readerfeedback-level-0' => 'slabé',
+	'readerfeedback-level-1' => 'nízké',
+	'readerfeedback-level-2' => 'dobré',
+	'readerfeedback-level-3' => 'vysoké',
+	'readerfeedback-level-4' => 'vynikající',
+	'readerfeedback-submit' => 'Odeslat',
+	'readerfeedback-main' => 'Hodnotit lze pouze stránky s obsahem.',
+	'readerfeedback-success' => "'''Děkujeme za posouzení této stránky!''' Hodnocení čtenářů stránky '''$1''' můžete najít [$2 tady].",
+	'readerfeedback-voted' => "'''Zřejmě jste již tuto stránku hodnotili.'''  Hodnocení čtenářů stránky '''$1''' můžete najít [$2 tady].",
+	'readerfeedback-submitting' => 'Odesílá se...',
 	'tooltip-ca-current' => 'Zobrazit nejnovější návrh této stránky',
 	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky',
 	'tooltip-ca-default' => 'Nastavení stabilní a zobrazované verze',
@@ -4318,6 +4347,7 @@ $messages['km'] = array(
 	'revreview-filter-all' => 'ទាំងអស់',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
 	'revreview-typefilter' => 'ប្រភេទ:',
+	'revreview-tagfilter' => 'ប្លាក៖',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
 );
 

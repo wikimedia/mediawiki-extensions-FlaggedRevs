@@ -163,10 +163,12 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Li-sung
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'oldreviewedpages-stable' => 'zhlédnuto',
+	'oldreviewedpages' => 'Zastaralé posouzené stránky',
+	'oldreviewedpages-stable' => 'prohlédnuto',
 	'oldreviewedpages-quality' => 'kvalita',
 	'oldreviewedpages-hours' => '($1 {{plural:$1|hodina|hodiny|hodin}})',
 	'oldreviewedpages-days' => '($1 {{plural:$1|den|dny|dní}})',

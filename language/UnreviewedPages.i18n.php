@@ -163,9 +163,11 @@ $messages['ca'] = array(
  */
 $messages['cs'] = array(
 	'unreviewedpages' => 'Neposouzené stránky',
+	'unreviewed-legend' => 'Seznam neposouzených obsahových stránek',
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'kontrola',
 	'unreviewed-unwatched' => '(nesledované)',
+	'unreviewed-watched' => '(sleduje $2 {{PLURAL:$1|uživatel|uživatelé|uživatelů}})',
 	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
 );
 
@@ -246,11 +248,13 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Jaakonam
  * @author Nike
  */
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-category' => 'Luokka',
+	'unreviewed-watched' => '($2 {{PLURAL:$1|käyttäjän|käyttäjän}} tarkkailema)',
 	'unreviewed-list' => 'Tämä on lista artikkeleista, joita ei ole arvioitu tai joista on olemassa uusia arvioimattomia versioita.',
 );
 

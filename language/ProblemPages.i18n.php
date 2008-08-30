@@ -60,7 +60,7 @@ $messages['de'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'problempages' => 'Problemaj paĝoj',
+	'problempages' => 'Paĝoj taksitaj kiel malbonaj',
 	'problempages-leg' => 'Trovi paĝojn taksitaj malbone',
 	'problempages-list' => 'Jen listo de paĝoj ordigitaj de la taksado de legintoj.',
 	'problempages-none' => 'Ne estas paĝoj en ĉi tiu listo',

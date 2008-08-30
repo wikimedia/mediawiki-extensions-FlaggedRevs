@@ -176,13 +176,16 @@ $aliases['hu'] = array(
  * @author Rex
  */
 $aliases['id'] = array(
-	'QualityOversight' => array( 'PemeriksaanKualitas' ),
-	'UnReviewedPages' => array( 'Halaman yang belum ditinjau' ),
-	'OldReviewedPages' => array( 'HalamanTertinjauUsang' ),
-	'ReviewedPages' => array( 'HalamanTertinjau' ),
-	'StablePages' => array( 'HalamanStabil' ),
-	'StableVersions' => array( 'VersiStabil' ),
-	'ProblemPages' => array( 'HalamanBermasalah' ),
+	'QualityOversight' => array( 'Pemeriksaan kualitas', 'PemeriksaanKualitas' ),
+	'UnReviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
+	'OldReviewedPages' => array( 'Tinjauan usang', 'HalamanTertinjauUsang' ),
+	'ReviewedPages' => array( 'Halaman tertinjau', 'HalamanTertinjau' ),
+	'StablePages' => array( 'Halaman stabil', 'HalamanStabil' ),
+	'StableVersions' => array( 'Versi stabil', 'VersiStabil' ),
+	'ProblemPages' => array( 'Halaman bermasalah', 'HalamanBermasalah' ),
+	'ValidationStatistics' => array( 'Statistik validasi', 'StatistikValidasi' ),
+	'Stabilization' => array( 'Stabilisasi' ),
+	'LikedPages' => array( 'Halaman digemari' ),
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -352,6 +355,7 @@ $aliases['sv'] = array(
 	'StableVersions' => array( 'Stabila versioner' ),
 	'ProblemPages' => array( 'Problemsidor' ),
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
+	'Stabilization' => array( 'Stabilisering' ),
 );
 
 /** Vèneto (Vèneto)
