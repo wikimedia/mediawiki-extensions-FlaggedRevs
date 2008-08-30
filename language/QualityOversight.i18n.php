@@ -13,7 +13,9 @@ $messages['en'] = array(
 	'qualityoversight-legend' => 'Search recent review logs',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ */
 $messages['qqq'] = array(
 	'qualityoversight' => '{{Flagged Revs}}',
 	'qualityoversight-list' => '{{Flagged Revs}}',
@@ -103,6 +105,15 @@ $messages['gl'] = array(
 $messages['hi'] = array(
 	'qualityoversight' => 'गुणवत्ता ओवरसाईट',
 	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।',
+);
+
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'qualityoversight' => 'Minőségellenőrzés',
+	'qualityoversight-list' => 'Ez a lap a lapváltozatok legutóbbi értékeléseit listázza.',
+	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
 );
 
 /** Indonesian (Bahasa Indonesia)

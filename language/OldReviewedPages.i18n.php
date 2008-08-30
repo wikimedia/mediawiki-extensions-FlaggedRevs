@@ -145,6 +145,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'oldreviewedpages-none' => 'В момента не съществуватр страници, които да отговарят на тези критерии',
+	'oldreviewedpages-quality' => 'качество',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дни}})',
 	'oldreviewedpages-recent' => '(по-малко от 1 час)',
@@ -335,11 +336,19 @@ $messages['hi'] = array(
  * @author Dani
  */
 $messages['hu'] = array(
+	'oldreviewedpages' => 'Elavult ellenőrzött lapok',
+	'oldreviewedpages-legend' => 'Ellenőrizetlen változatokkal rendelkező lapok listája',
+	'oldreviewedpages-list' => 'Ezen a lapon azon ellenőrzött lapok listája látható, melyek ellenőrizetlen szerkesztésekkel rendelkeznek.',
+	'oldreviewedpages-none' => 'Jelenleg nincs a feltételeknek megfelelő lap.',
+	'oldreviewedpages-stable' => 'megtekintett',
+	'oldreviewedpages-quality' => 'ellenőrzött',
 	'oldreviewedpages-hours' => '({{PLURAL:$1|Egy|$1}} órája)',
 	'oldreviewedpages-days' => '({{PLURAL:$1|Egy|$1}} napja)',
 	'oldreviewedpages-recent' => '(kevesebb, mint egy órája)',
 	'oldreviewed-category' => 'Kategória:',
+	'oldreviewed-diff' => 'ellenőrzés',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
 );
 
 /** Indonesian (Bahasa Indonesia)

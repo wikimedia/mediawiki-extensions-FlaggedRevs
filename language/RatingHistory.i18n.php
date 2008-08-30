@@ -27,7 +27,9 @@ $messages['en'] = array(
 	'right-feedback' => 'Use the feedback form to rate a page',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Siebrand
+ */
 $messages['qqq'] = array(
 	'ratinghistory-text' => "'''Translate 'page' instead of 'article'!'''",
 );

@@ -427,9 +427,6 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-typefilter' => '{{Flagged Revs}}
 
 {{Identical/Type}}',
-	'revreview-linksmixed' => '{{Flagged Revs}}
-
-Shown on category pages.',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
@@ -4472,6 +4469,7 @@ $messages['lb'] = array(
 	'revreview-filter-all' => 'All',
 	'revreview-filter-auto' => 'Automatesch',
 	'revreview-filter-manual' => 'Manuel',
+	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Typ:',
 	'revreview-tagfilter' => 'Tag:',
 	'tooltip-ca-current' => 'Den aktuelle Brouillon vun dëser Säit weisen',
@@ -5110,10 +5108,10 @@ $messages['nl'] = array(
 	'flaggedrevs-prefs' => 'Stabiliteit',
 	'flaggedrevs-prefs-stable' => "Altijd de stabiele versies van pagina's weergeven (als die bestaan)",
 	'flaggedrevs-prefs-watch' => "Pagina's waar ik eindredactie voor doe aan mijn volglijst toevoegen",
-	'group-editor' => 'Redacteuren',
-	'group-editor-member' => 'Redacteur',
-	'group-reviewer' => 'Eindredacteuren',
-	'group-reviewer-member' => 'Eindredacteur',
+	'group-editor' => 'redacteuren',
+	'group-editor-member' => 'redacteur',
+	'group-reviewer' => 'eindredacteuren',
+	'group-reviewer-member' => 'eindredacteur',
 	'grouppage-editor' => '{{ns:project}}:Redacteur',
 	'grouppage-reviewer' => '{{ns:project}}:Eindredacteur',
 	'hist-draft' => 'werkversie',
@@ -5477,7 +5475,6 @@ En liste over stabiliserte sider kan finnes på [[Special:StablePages|listen ove
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Type:',
 	'revreview-tagfilter' => 'Merke:',
-	'revreview-linksmixed' => "''Sider listes her basert både på utkastet og den stabile versjonen (om det finnes) av siden.''",
 	'tooltip-ca-current' => 'Vis nåværende utkast av denne siden',
 	'tooltip-ca-stable' => 'Vis den stabile versjonen av denne siden',
 	'tooltip-ca-default' => 'Innstillinger for kvalitetssikring',

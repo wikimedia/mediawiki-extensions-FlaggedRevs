@@ -59,6 +59,14 @@ $messages['ast'] = array(
 	'validationstatistics-total' => 'Páxines',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'validationstatistics-ns' => 'Именно пространство',
+	'validationstatistics-total' => 'Страници',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
@@ -167,6 +175,15 @@ $messages['it'] = array(
 $messages['km'] = array(
 	'validationstatistics-ns' => 'លំហឈ្មោះ',
 	'validationstatistics-total' => 'ទំព័រ',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'validationstatistics' => 'Statistike vun de Validaiounen',
+	'validationstatistics-ns' => 'Nummraum',
+	'validationstatistics-total' => 'Säiten',
 );
 
 /** Malay (Bahasa Melayu)

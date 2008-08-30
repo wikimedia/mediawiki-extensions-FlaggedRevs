@@ -111,12 +111,12 @@ $aliases['eo'] = array(
 
 /** Persian (فارسی) */
 $aliases['fa'] = array(
-	'QualityOversight'      => array( 'ناظرکیفیت' ),
-	'UnReviewedPages'       => array( 'صفحه‌های‌بازبینی‌نشده' ),
-	'OldReviewedPages'      => array( 'صفحه‌های‌بازبینی‌شده‌قدیمی' ),
-	'ReviewedPages'         => array( 'صفحه‌های‌بازبینی‌شده' ),
-	'StablePages'           => array( 'صفحه‌های‌پایدار' ),
-	'StableVersions'        => array( 'نسخه‌های‌پایدار' ),
+	'QualityOversight' => array( 'ناظرکیفیت' ),
+	'UnReviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
+	'OldReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده‌قدیمی' ),
+	'ReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده' ),
+	'StablePages' => array( 'صفحه‌های‌پایدار' ),
+	'StableVersions' => array( 'نسخه‌های‌پایدار' ),
 );
 
 /** French (Français)
