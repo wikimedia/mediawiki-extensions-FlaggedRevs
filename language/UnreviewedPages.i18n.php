@@ -507,7 +507,7 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'right-unreviewedpages' => 'Lëscht vun den net iwwerkuckte Säite weisen',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lëscht vun den net iwwerkuckte Säite]] weisen',
 	'unreviewedpages' => 'Säit déi net nogekuckt ass',
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'iwwerkucken',

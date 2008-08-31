@@ -104,13 +104,14 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 
 /** French (Français)
  * @author Grondin
+ * @author Zetud
  */
 $messages['fr'] = array(
 	'validationstatistics' => 'Statistiques de validation',
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''$1''' {{PLURAL:$1|utilisateur|utilisateurs}} avec les droits d’[[{{MediaWiki:Validationpage}}|éditeur]] et de '''$2''' {{PLURAL:$2|utilisateur|utilisateurs}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].",
-	'validationstatistics-table' => "Les statistiques pour chaques espace de nom sont affichée ci-dessous, à l’exclusion des pages de redirection.
+	'validationstatistics-table' => "Les statistiques pour chaque espace de nom sont affichées ci-dessous, à l’exclusion des pages de redirection.
 
-'''Note :''les données suivantes sont cachées pendant plusieurs heures et ne peuvent pas être mise à jour.",
+'''Note :''' les données suivantes sont cachées pendant plusieurs heures et ne peuvent pas être mises à jour.",
 	'validationstatistics-ns' => 'Nom de l’espace',
 	'validationstatistics-total' => 'Pages',
 	'validationstatistics-stable' => 'Relu',
