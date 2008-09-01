@@ -248,7 +248,7 @@ $wgFeedbackNamespaces = array();
 # Each tag has five levels, which 3 being average. The tag names are
 # mapped to their weight. This is used to determine the "worst"/"best" pages.
 $wgFlaggedRevsFeedbackTags = array( 'reliability' => 3, 'completeness' => 2, 'npov' => 2, 'presentation' => 1 );
-# How many days back should the average rating for a page be based on?
+# How many seconds back should the average rating for a page be based on?
 $wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
 # How long before stats page is updated?
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours

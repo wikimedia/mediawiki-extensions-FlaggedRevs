@@ -598,7 +598,6 @@ class FlaggedRevs {
 	public static function getAverageRating( $article, $tag, $forUpdate=false ) {
 		global $wgFlaggedRevsFeedbackAge;
 		$cutoff_unixtime = time() - $wgFlaggedRevsFeedbackAge;
-		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'reader_feedback_history', 
 			array('SUM(rfh_total)/SUM(rfh_count) AS ave, SUM(rfh_count) AS count'),
