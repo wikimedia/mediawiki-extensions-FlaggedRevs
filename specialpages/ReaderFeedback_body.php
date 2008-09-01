@@ -151,12 +151,13 @@ class ReaderFeedback extends UnlistedSpecialPage
 			return '<err#>';
 		}
 		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
+		$talk = $form->page->getTalkPage();
 		if( $bot || $form->submit() ) {
 			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
-				$form->page->getPrefixedText(), $graphLink );
+				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) );
 		} else {
 			return '<err#>'.wfMsgExt( 'readerfeedback-voted', array('parseinline'), 
-				$form->page->getPrefixedText(), $graphLink );
+				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) );
 		}
 	}
 	
