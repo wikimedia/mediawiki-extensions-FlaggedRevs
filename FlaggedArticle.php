@@ -761,17 +761,6 @@ class FlaggedArticle extends Article {
 		if( !isset($skin->mTitle) )
 			return true;
 		$title = $skin->mTitle->getSubjectPage();
-		# Add rating tab
-		if( $wgUser->isAllowed( 'feedback' ) && $this->isRateable() ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			wfLoadExtensionMessages( 'RatingHistory' );
-			$ratingTitle = SpecialPage::getTitleFor( 'RatingHistory' );
-			$contentActions['ratinghist'] = array(
-				'class' => false,
-				'text' => wfMsg('ratinghistory-tab'),
-				'href' => $ratingTitle->getLocalUrl('target='.$title->getPrefixedUrl())
-			);
-		}
 		# Non-content pages cannot be validated
 		if( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
 			return true;

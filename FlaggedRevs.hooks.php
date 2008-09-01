@@ -1088,6 +1088,32 @@ EOT;
 		return true;
 	}
 	
+	public static function addRatingLink( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
+		$fa = FlaggedArticle::getTitleInstance( $skintemplate->mTitle );
+		# Add rating tab
+		if( $fa->isRateable() ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
+			wfLoadExtensionMessages( 'RatingHistory' );
+			$nav_urls['ratinghist'] = array( 
+				'text' => wfMsg( 'ratinghistory-link' ),
+				'href' => $skintemplate->makeSpecialUrl( 'RatingHistory', 
+					"target=" . wfUrlencode( "{$skintemplate->thispage}" ) )
+			);
+		}
+		return true;
+	}
+	
+	public static function ratingToolboxLink( &$monobook ) {
+		if( isset( $monobook->data['nav_urls']['ratinghist'] ) ) {
+			?><li id="t-cite"><?php
+				?><a href="<?php echo htmlspecialchars( $monobook->data['nav_urls']['ratinghist']['href'] ) ?>"><?php
+					echo $monobook->msg( 'ratinghistory-link' );
+				?></a><?php
+			?></li><?php
+		}
+		return true;
+	}
+	
 	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
 		if( !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
