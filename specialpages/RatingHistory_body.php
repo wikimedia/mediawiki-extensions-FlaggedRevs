@@ -54,8 +54,8 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	protected function showHeader() {
-		global $wgOut;
-		if( FlaggedRevs::userAlreadyVoted( $this->page ) ) {
+		global $wgOut, $wgUser;
+		if( FlaggedRevs::userAlreadyVoted( $wgUser, $this->page ) ) {
 			$wgOut->addWikiText( wfMsg('ratinghistory-thanks') . '<hr/>' );
 		}
 		$wgOut->addWikiText( wfMsg('ratinghistory-text',$this->page->getPrefixedText()) );

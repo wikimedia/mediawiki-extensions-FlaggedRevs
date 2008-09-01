@@ -388,8 +388,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && FlaggedRevs::isPageReviewable( $title ) ) {
-			$srev = FlaggedRevision::newFromStable( $title );
-			if( $srev ) {
+			if( $srev = FlaggedRevision::newFromStable( $title ) ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
 			}
@@ -405,7 +404,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
-		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) && $time === false ) {
+		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->getRevisionId(),
@@ -457,8 +456,7 @@ EOT;
 		$sha1 = "";
 		global $wgUseStableImages;
 		if( $wgUseStableImages && FlaggedRevs::isPageReviewable( $nt ) ) {
-			$srev = FlaggedRevision::newFromStable( $nt );
-			if( $srev ) {
+			if( $srev = FlaggedRevision::newFromStable( $nt ) ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
 			}
@@ -474,7 +472,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
-		if( !FlaggedRevs::useProcessCache( $ig->mRevisionId ) && $time === false ) {
+		if( !FlaggedRevs::useProcessCache( $ig->mRevisionId ) ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId,
@@ -1092,7 +1090,6 @@ EOT;
 		$fa = FlaggedArticle::getTitleInstance( $skintemplate->mTitle );
 		# Add rating tab
 		if( $fa->isRateable() ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			wfLoadExtensionMessages( 'RatingHistory' );
 			$nav_urls['ratinghist'] = array( 
 				'text' => wfMsg( 'ratinghistory-link' ),

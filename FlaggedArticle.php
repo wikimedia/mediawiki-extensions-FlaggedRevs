@@ -693,7 +693,7 @@ class FlaggedArticle extends Article {
 		if( $wgUser->isAllowed( 'feedback' ) ) {
 			# If the user already voted, then don't show the form.
 			# Always show for IPs however, due to squid caching...
-			if( !$wgUser->getId() || !FlaggedRevs::userAlreadyVoted( $this->parent->getTitle() ) ) {
+			if( !$wgUser->getId() || !FlaggedRevs::userAlreadyVoted( $wgUser, $this->parent->getTitle() ) ) {
 				$this->addQuickFeedback( $data );
 			}
 		}

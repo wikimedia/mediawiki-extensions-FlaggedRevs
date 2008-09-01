@@ -953,18 +953,18 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
-	public static function userAlreadyVoted( $title ) {
-		global $wgUser;
+	public static function userAlreadyVoted( $user, $title ) {
 		$dbw = wfGetDB( DB_MASTER );
-		# Check if user already voted before...
-		if( $wgUser->getId() ) {
+		$userVoted = false;
+		if( $user->getId() ) {
 			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
 				array( 'page_namespace' => $title->getNamespace(),
 					'page_title' => $title->getDBKey(),
 					'rfb_rev_id = page_latest', 
-					'rfb_user' => $wgUser->getId() ), 
+					'rfb_user' => $user->getId() ), 
 				__METHOD__ );
-		} else {
+		}
+		if( !$userVoted ) {
 			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
 				array( 'page_namespace' => $title->getNamespace(),
 					'page_title' => $title->getDBKey(),
