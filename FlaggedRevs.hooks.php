@@ -1112,7 +1112,9 @@ EOT;
 	}
 	
 	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
-		if( !FlaggedRevs::isPageReviewable( $title ) ) {
+		# Get an instance on the title ($wgTitle)
+		$fa = FlaggedArticle::getTitleInstance( $title );
+		if( !$fa->isReviewable() ) {
 			return true;
 		}
 		if( $request->getVal( 'stableid' ) ) {
@@ -1124,10 +1126,11 @@ EOT;
 			$data = $wgMemc->get($key);
 			if( is_object($data) && count($data->value) == 2 && $data->time >= $title->getTouched() ) {
 				list($ignoreRedirect,$target) = $data->value;
-			# Get an instance on the title ($wgTitle) and save to process cache 
-			} else {
-				$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-				if( $flaggedArticle->pageOverride() && $srev = $flaggedArticle->getStableRev( FR_TEXT ) ) {
+				return true;
+			}
+			if( $srev = $flaggedArticle->getStableRev() ) {
+				# If synced, nothing special here...
+				if( $srev->getRevId() != $title->getLatestRevID() && $fa->pageOverride() ) {
 					$text = $srev->getRevText();
 					$redirect = $flaggedArticle->followRedirectText( $text );
 					if( $redirect ) {
@@ -1135,9 +1138,9 @@ EOT;
 					} else {
 						$ignoreRedirect = true;
 					}
+					$data = FlaggedRevs::makeMemcObj( array($ignoreRedirect,$target) );
+					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 				}
-				$data = FlaggedRevs::makeMemcObj( array($ignoreRedirect,$target) );
-				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 			}
 		}
 		return true;
@@ -1240,12 +1243,9 @@ EOT;
 	}
 	
 	public static function isFileCacheable( &$article ) {
-		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
-			return true;
-		}
 		$fa = FlaggedArticle::getInstance( $article );
 		# If the stable is the default, and we are viewing it...cache it!
-		if( $fa->showStableByDefault() ) {
+		if( $fa->isReviewable() && $fa->showStableByDefault() ) {
 			return ( $fa->pageOverride() && $fa->getStableRev() );
 		# If the draft is the default, and we are viewing it...cache it!
 		} else {
