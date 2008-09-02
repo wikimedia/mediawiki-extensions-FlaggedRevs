@@ -1128,11 +1128,11 @@ EOT;
 				list($ignoreRedirect,$target) = $data->value;
 				return true;
 			}
-			if( $srev = $flaggedArticle->getStableRev() ) {
+			if( $srev = $fa->getStableRev() ) {
 				# If synced, nothing special here...
 				if( $srev->getRevId() != $title->getLatestRevID() && $fa->pageOverride() ) {
 					$text = $srev->getRevText();
-					$redirect = $flaggedArticle->followRedirectText( $text );
+					$redirect = $fa->followRedirectText( $text );
 					if( $redirect ) {
 						$target = $redirect;
 					} else {
