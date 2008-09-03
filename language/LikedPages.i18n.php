@@ -46,6 +46,17 @@ $messages['eo'] = array(
 	'likedpages-graphs' => 'taksaj datenoj',
 );
 
+/** Persian (فارسی)
+ * @author Huji
+ */
+$messages['fa'] = array(
+	'likedpages' => 'صفحه‌های با بالاترین نمره',
+	'likedpages-leg' => 'پیدا کردن صفحه‌های با نمرهٔ بالا',
+	'likedpages-list' => 'در زیر فهرستی از صفحه‌ها که طبق نمره خوانندگان آن‌ها مرتب شده‌است قرار دارد.',
+	'likedpages-none' => 'صفحه‌ای در این فهرست وجود ندارد',
+	'likedpages-graphs' => 'داده‌های ارزیابی',
+);
+
 /** French (Français)
  * @author Grondin
  */
@@ -55,6 +66,13 @@ $messages['fr'] = array(
 	'likedpages-list' => 'Voici, ci-dessous, une liste des pages triée en fonction de leur notation.',
 	'likedpages-none' => 'Il n’existe aucune page dans cette liste',
 	'likedpages-graphs' => 'Données de notation',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'likedpages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
 );
 
 /** Dutch (Nederlands)
@@ -99,5 +117,16 @@ $messages['sv'] = array(
 	'likedpages-list' => 'Nedan finns en lista över sidor sorterade efter betyg från läsarna.',
 	'likedpages-none' => 'Det finns inga sidor i denna lista',
 	'likedpages-graphs' => 'betygsdata',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'likedpages' => 'Các trang được đánh giá cao',
+	'likedpages-leg' => 'Tìm các trang được đánh giá cao',
+	'likedpages-list' => 'Đây là danh sách các trang được xếp theo đánh giá của các độc giả.',
+	'likedpages-none' => 'Không có trang nào.',
+	'likedpages-graphs' => 'dữ liệu đánh giá',
 );
 

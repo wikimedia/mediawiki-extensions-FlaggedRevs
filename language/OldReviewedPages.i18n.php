@@ -351,6 +351,14 @@ $messages['hu'] = array(
 	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
 );
 
+/** Interlingua (Interlingua)
+ * @author Malafaya
+ */
+$messages['ia'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|die|dies}})',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

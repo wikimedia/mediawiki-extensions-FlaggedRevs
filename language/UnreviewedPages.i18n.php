@@ -384,6 +384,13 @@ $messages['hu'] = array(
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 );
 
+/** Interlingua (Interlingua)
+ * @author Malafaya
+ */
+$messages['ia'] = array(
+	'unreviewed-category' => 'Categoria:',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
@@ -711,7 +718,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'right-unreviewedpages' => 'Ver uma lista de páginas não verificadas',
+	'right-unreviewedpages' => 'Ver [[Special:UnreviewedPages|lista de páginas não verificadas]]',
 	'unreviewedpages' => 'Páginas a analisar',
 	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
 	'unreviewed-category' => 'Categoria:',

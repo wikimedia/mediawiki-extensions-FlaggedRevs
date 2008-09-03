@@ -102,6 +102,21 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 	'validationstatistics-old' => 'Malfreŝa',
 );
 
+/** Persian (فارسی)
+ * @author Huji
+ */
+$messages['fa'] = array(
+	'validationstatistics' => 'آمار معتبرسازی',
+	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''$1''' {{PLURAL:$1|کاربر|کاربر}} با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] و '''$2''' {{PLURAL:$2|کاربر|کاربر}} با اختیارات[[{{MediaWiki:Validationpage}}|مرورگر]] دارد.",
+	'validationstatistics-table' => "'''نکته:''' داده‌هایی که در ادامه می‌آید برای چندین ساعت در میان‌گیر ذخیره شده‌اند و ممکن است به روز نباشند.",
+	'validationstatistics-ns' => 'فضای نام',
+	'validationstatistics-total' => 'صفحه‌ها',
+	'validationstatistics-stable' => 'بازبینی شده',
+	'validationstatistics-latest' => 'آخرین بازبینی',
+	'validationstatistics-synced' => 'به روز شده/بازبینی شده',
+	'validationstatistics-old' => 'تاریخ گذشته',
+);
+
 /** French (Français)
  * @author Grondin
  * @author Zetud
@@ -124,6 +139,7 @@ $messages['fr'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
+	'validationstatistics' => 'Estatísticas de validación',
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
 );
@@ -253,6 +269,15 @@ $messages['oc'] = array(
 	'validationstatistics-old' => 'Desuet',
 );
 
+/** Portuguese (Português)
+ * @author Malafaya
+ */
+$messages['pt'] = array(
+	'validationstatistics-ns' => 'Espaço nominal',
+	'validationstatistics-total' => 'Páginas',
+	'validationstatistics-old' => 'Desactualizado',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
@@ -285,6 +310,13 @@ $messages['sv'] = array(
 	'validationstatistics-latest' => 'Senast granskad',
 	'validationstatistics-synced' => 'Synkad/Granskad',
 	'validationstatistics-old' => 'Föråldrad',
+);
+
+/** Thai (ไทย)
+ * @author Octahedron80
+ */
+$messages['th'] = array(
+	'validationstatistics-ns' => 'เนมสเปซ',
 );
 
 /** Vietnamese (Tiếng Việt)

@@ -212,6 +212,7 @@ To depreciate a revision, set all fields to "unapproved".',
 
 /** Message documentation (Message documentation)
  * @author Darth Kule
+ * @author Huji
  * @author Jon Harald Søby
  * @author Meno25
  * @author Raymond
@@ -369,6 +370,8 @@ The text on the submit button in the form used to review pages.
 
 
 {{Identical|Submit review}}',
+	'revreview-submitting' => '{{flaggedrevs}}
+{{identical|submitting}}',
 	'revreview-successful' => '{{Flagged Revs-small}}
 Shown when a reviewer/editor has marked a revision as stable/sighted/... See also {{msg|revreview-successful2|pl=yes}}.',
 	'revreview-successful2' => '{{Flagged Revs-small}}
@@ -414,6 +417,8 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'stable-logpage' => '{{Flagged Revs}}',
 	'stable-logpagetext' => '{{Flagged Revs}}',
 	'readerfeedback-submit' => '{{Identical/Submit}}',
+	'readerfeedback-submitting' => '{{flaggedrevs}}
+{{identical|submitting}}',
 	'revreview-filter-all' => '{{Flagged Revs}}
 {{Identical|All}}',
 	'revreview-filter-approved' => '{{Flagged Revs}}',
@@ -797,8 +802,8 @@ $messages['ar'] = array(
 	'readerfeedback-level-4' => 'ممتاز',
 	'readerfeedback-submit' => 'تنفيذ',
 	'readerfeedback-main' => 'فقط صفحات المحتوى يمكن تقييمها.',
-	'readerfeedback-success' => "'''شكرا لك لمراجعة هذه الصفحة!''' نتائج تعليقات القراء ل'''$1''' يمكن إيجادها [$2 هنا].",
-	'readerfeedback-voted' => "'''يبدو أنك قيمت هذه الصفحة بالفعل.''' نتائج تعليقات القراء ل'''$1''' يمكن إيجادها [$2 هنا].",
+	'readerfeedback-success' => "'''شكرا لك لمراجعة هذه الصفحة!''' من فضلك اترك أي تعليقات [$2 هنا].",
+	'readerfeedback-voted' => "'''يبدو أنك قيمت هذه الصفحة بالفعل.''' من فضلك اترك أي تعليقات [$3 هنا].",
 	'readerfeedback-submitting' => 'جاري التنفيذ...',
 	'readerfeedback-finished' => 'شكرا لك!',
 	'revreview-filter-all' => 'الكل',
@@ -1567,6 +1572,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 '''Některé šablony nebo obrázky byly změněny:'''",
 	'revreview-update-includes' => "'''Některé šablony/obrázky se změnili:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Posuďte]] všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.",
+	'revreview-update-use' => "'''Upozornění:''' Pokud něco z těchto šablon/obrázků má stabilní verzi, pak je ta už použita na stabilní verzi této stránky.",
 	'revreview-diffonly' => "''Stránku můžete zkontrolovat po kliknutí na odkaz „aktuální revize” pomocí formuláře pro kontrolu.''",
 	'revreview-visibility' => "'''Tato stránka má [[{{MediaWiki:Validationpage}}|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].'''",
 	'right-movestable' => 'Přesunout stabilní stránky',
@@ -1594,8 +1600,8 @@ Přehled stabilizovaných stránek vizte na [[Special:StablePages|seznamu stabil
 	'readerfeedback-level-4' => 'vynikající',
 	'readerfeedback-submit' => 'Odeslat',
 	'readerfeedback-main' => 'Hodnotit lze pouze stránky s obsahem.',
-	'readerfeedback-success' => "'''Děkujeme za posouzení této stránky!''' Hodnocení čtenářů stránky '''$1''' můžete najít [$2 tady].",
-	'readerfeedback-voted' => "'''Zřejmě jste již tuto stránku hodnotili.'''  Hodnocení čtenářů stránky '''$1''' můžete najít [$2 tady].",
+	'readerfeedback-success' => "'''Děkujeme za posouzení této stránky!''' Můžete [$3 zanechat komentář].",
+	'readerfeedback-voted' => "'''Zřejmě jste již tuto stránku hodnotili.''' Můžete [$3 zanechat komentář].",
 	'readerfeedback-submitting' => 'Odesílá se...',
 	'tooltip-ca-current' => 'Zobrazit nejnovější návrh této stránky',
 	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky',
@@ -1789,9 +1795,10 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'readerfeedback-level-4' => 'Sehr gut',
 	'readerfeedback-submit' => 'OK',
 	'readerfeedback-main' => 'Es können nur Artikel bewertet werden.',
-	'readerfeedback-success' => "'''Danke für deine Bewertung dieser Seite.''' Die bisherige Leserbewertung für '''$1''' findest du [$2 hier].",
+	'readerfeedback-success' => "'''Danke für deine Bewertung dieser Seite.'''
+Kommentare kannst du [$3 hier] hinterlassen.",
 	'readerfeedback-voted' => "'''Du hast scheinbar bereits eine Bewertung für diese Seite abgegeben.'''
-Die bisherige Leserbewertung für '''$1''' findest du [$2 hier].",
+Kommentare kannst du [$3 hier] hinterlassen.",
 	'readerfeedback-submitting' => 'Übertragung …',
 	'readerfeedback-finished' => 'Danke schön.',
 	'revreview-filter-all' => 'Alle',
@@ -2034,8 +2041,8 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'readerfeedback-level-4' => 'Bonega',
 	'readerfeedback-submit' => 'Ek',
 	'readerfeedback-main' => 'Nur enhavaj paĝoj estas takseblaj.',
-	'readerfeedback-success' => "'''Dankon pro kontroli ĉi tiun paĝon!''' Rezultoj de respondoj de legantoj por '''$1''' povas esti trovita [$2 ĉi tie].",
-	'readerfeedback-voted' => "'''Verŝajne vi jam taksis ĉi tiun paĝon.''' Rezultoj pri respondoj de legantoj por '''$1''' estas trovebla [$2 ĉi tie].",
+	'readerfeedback-success' => "'''Dankon pro kontrolante ĉi tiun paĝon!''' Bonvolu enmeti komentojn [$3 ĉi tie].",
+	'readerfeedback-voted' => "'''Verŝajne vi jam taksis ĉi tiun paĝon.''' Bonvolu lasi komentojn [$3 ĉi tie].",
 	'readerfeedback-submitting' => 'Sendante...',
 	'readerfeedback-finished' => 'Dankon!',
 	'revreview-filter-all' => 'Ĉio',
@@ -2265,7 +2272,7 @@ $messages['fa'] = array(
 	'revreview-log' => 'توضیح سیاهه:',
 	'revreview-main' => 'شما باید یک نسخه خاص از یک صفحه را برگزینید تا بررسی کنید.
 
-فهرستی از صفحه‌های بررسی نشده را در [[Special:Unreviewedpages]] می‌یابید.',
+[[Special:Unreviewedpages|فهرست صفحه‌های بررسی نشده]] را ببینید.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخرین نسخه بررسی‌شده]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} فهرست کامل]) در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است].
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغییر|تغییر}}] نیازمند بررسی {{PLURAL:$3|است|هستند}}.',
@@ -2320,6 +2327,8 @@ $messages['fa'] = array(
 	'revreview-style-3' => 'مختصر',
 	'revreview-style-4' => 'برگزیده',
 	'revreview-submit' => 'ثبت بررسی',
+	'revreview-submitting' => 'در حال ارسال...',
+	'revreview-finished' => 'بررسی کامل شد!',
 	'revreview-successful' => "'''نسخهٔ انتخابی از [[:$1|$1]] با موفقیت علامت زده شد.
 ([{{fullurl:Special:Stableversions|page=$2}} مشاهدهٔ تمام نسخه‌های علامت‌دار])'''",
 	'revreview-successful2' => "'''پرچم نسخه‌های انتخابی از [[:$1|$1]] با موفقیت برداشته شد.'''",
@@ -2349,9 +2358,43 @@ $messages['fa'] = array(
 	'stable-logpage' => 'سیاهه نسخه پایدار',
 	'stable-logpagetext' => 'این سیاهه‌ای از تنظیمات [[{{MediaWiki:Validationpage}}|نسخه پایدار]] صفحه‌ها است.
 فهرستی از صفحه‌های پایدار شده را در [[Special:StablePages|فهرست صفحه‌های پایدار]] پیدا کنید.',
+	'readerfeedback' => 'دربارهٔ این صفحه چه فکر می‌کنید؟',
+	'readerfeedback-text' => "''لطفاً چند لحظه صرف ارزیابی صفحهٔ زیر کنید. بازخورد شما ارزشمند است و به ما در بهبود وبگاهمان کمک می‌کند.''",
+	'readerfeedback-reliability' => 'اعتمادپذیری',
+	'readerfeedback-completeness' => 'کامل بودن',
+	'readerfeedback-npov' => 'بی‌طرفانه بودن',
+	'readerfeedback-presentation' => 'نمایش',
+	'readerfeedback-overall' => 'روی هم رفته',
+	'readerfeedback-level-none' => '(برگزینید)',
+	'readerfeedback-level-0' => 'پست',
+	'readerfeedback-level-1' => 'پایین',
+	'readerfeedback-level-2' => 'متوسط',
+	'readerfeedback-level-3' => 'بالا',
+	'readerfeedback-level-4' => 'ممتاز',
+	'readerfeedback-submit' => 'ارسال',
+	'readerfeedback-main' => 'فقط صفحه‌های محتوایی قابل ارزیابی هستند.',
+	'readerfeedback-success' => "'''از این که این صفحه را ارزیابی کردید ممنونیم!''' لطفاً نظرات خود را [$3 این‌جا] بنویسید.",
+	'readerfeedback-voted' => "'''به نظر می‌رسد که شما پیش از این این صفحه را ارزیابی کرده‌اید'''. لطفاً نظرات خود را [$3 این‌جا] بنویسید.",
+	'readerfeedback-submitting' => 'در حال ارسال...',
+	'readerfeedback-finished' => 'متشکریم!',
+	'revreview-filter-all' => 'همه',
+	'revreview-filter-approved' => 'تایید شده',
+	'revreview-filter-reapproved' => 'دوباره تایید شده',
+	'revreview-filter-unapproved' => 'تایید نشده',
+	'revreview-filter-auto' => 'خودکار',
+	'revreview-filter-manual' => 'دستی',
+	'revreview-filter-level-0' => 'نسخه‌های بررسی‌شده',
+	'revreview-filter-level-1' => 'نسخه‌های باکیفیت',
+	'revreview-statusfilter' => 'وضعیت:',
+	'revreview-typefilter' => 'نوع',
+	'revreview-tagfilter' => 'برچسب',
 	'tooltip-ca-current' => 'مشاهده پیش‌نویس فعلی این صفحه',
 	'tooltip-ca-stable' => 'مشاهده نسخه پایدار این صفحه',
 	'tooltip-ca-default' => 'تنظیمات کنترل کیفیت',
+	'tooltip-ca-ratinghist' => 'نمره خوانندگان به این صفحه',
+	'revreview-locked' => 'ویرایش‌ها باید قبل از این که در این صفحه نمایش یابند بازبینی شوند!',
+	'revreview-unlocked' => 'ویرایش‌ها لازم نیست قبل از این که در این صفحه نمایش یابند بازبینی شوند!',
+	'revreview-tt-review' => 'بازبینی این صفحه',
 	'validationpage' => '{{ns:help}}:تایید اعتبار مقاله‌ها',
 );
 
@@ -2370,6 +2413,7 @@ $messages['fi'] = array(
 	'group-reviewer-member' => 'arvioija',
 	'grouppage-editor' => '{{ns:project}}:Muokkaaja',
 	'grouppage-reviewer' => '{{ns:project}}:Arvioija',
+	'review-logentry-diff' => 'muutoslinkki vakaaseen versioon',
 	'reviewer' => 'Arvioija',
 	'revisionreview' => 'Arvioi versioita',
 	'revreview-accuracy' => 'Paikkansapitävyys',
@@ -2398,6 +2442,7 @@ $messages['fi'] = array(
  * @author Cedric31
  * @author Dereckson
  * @author Grondin
+ * @author McDutchie
  * @author Sherbrooke
  * @author Urhixidur
  * @author Verdy p
@@ -2420,7 +2465,7 @@ $messages['fr'] = array(
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
 	'hist-draft' => 'version brouillon',
-	'hist-quality' => 'qualité de la version',
+	'hist-quality' => 'version de qualité',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validée] par [[User:$3|$3]]',
 	'hist-stable' => 'Version visualisée',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} visée] par [[User:$3|$3]]',
@@ -2560,8 +2605,8 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'readerfeedback-level-4' => 'Excellent',
 	'readerfeedback-submit' => 'Soumettre',
 	'readerfeedback-main' => 'Seul le contenu des pages peut être noté.',
-	'readerfeedback-success' => "'''Merci pour avoir réviser cette page ! ''' Les résultats de la réaction du lecteur pour '''$1''' peuvent être trouvés [$2 ici].",
-	'readerfeedback-voted' => "'''Il apparaît que vous avez déjà noté cette page'''. Les résultats de la réaction du lecteur pour '''$1''' peuvent être trouvés [$2 ici].",
+	'readerfeedback-success' => "'''Merci pour avoir révisé cette page ! Veuillez laisser quelques commentaires [$3 ici].",
+	'readerfeedback-voted' => "'''Il apparaît que vous avez déjà noté cette page'''. Veuillez laisser quelques commentaires [$3 ici].",
 	'readerfeedback-submitting' => 'Soumission…',
 	'readerfeedback-finished' => 'Merci !',
 	'revreview-filter-all' => 'Tout',
@@ -3301,6 +3346,7 @@ Lisćinu stabilizowanych stronow namakaš w [[Special:StablePages|lisćinje stab
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Dorgan
  * @author KossuthRad
  * @author Samat
  */
@@ -3469,8 +3515,8 @@ naplója.',
 	'readerfeedback-level-4' => 'kitűnő',
 	'readerfeedback-submit' => 'Küldés',
 	'readerfeedback-main' => 'Csak a tartalommal rendelkező lapokat lehet értékelni.',
-	'readerfeedback-success' => "'''Köszönjük, hogy értékelted ezt a lapot!''' Az '''$1''' lapra vonatkozó olvasói visszajelzések [$2 itt találhatóak].",
-	'readerfeedback-voted' => "'''Úgy tűnik, hogy már értékelted ezt a lapot.''' A(z) '''$1''' lapra vonatkozó olvasói visszajelzések [$2 itt találhatóak].",
+	'readerfeedback-success' => "'''Köszönjük, hogy értékelted ezt a lapot!''' Megjegyzéseidet [$3 ide] várjuk.",
+	'readerfeedback-voted' => "'''Úgy tűnik, hogy már értékelted ezt a lapot.''' Megjegyzéseidet [$3 ide] várjuk.",
 	'readerfeedback-submitting' => 'Küldés...',
 	'readerfeedback-finished' => 'Köszönjük!',
 	'revreview-filter-all' => 'mind',
@@ -3497,6 +3543,51 @@ naplója.',
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'editor' => 'Contributor',
+	'flaggedrevs' => 'Revisiones verificate',
+	'flaggedrevs-backlog' => "Il ha actualmente cargas in retardo in le [[Special:OldReviewedPages|lista de paginas revidite obsolete]]. '''Isto require tu attention!'''",
+	'flaggedrevs-desc' => 'Da al contributores e revisores le capacitate de validar revisiones e stabilisar paginas',
+	'flaggedrevs-pref-UI-0' => 'Usar le version detaliate del interfacie de versiones stabile',
+	'flaggedrevs-pref-UI-1' => 'Usar le version simple del interfacie de versiones stabile',
+	'flaggedrevs-prefs' => 'Stablitate',
+	'flaggedrevs-prefs-stable' => 'Per predefinition, monstrar sempre le version stabile (si existe) del paginas de contento',
+	'flaggedrevs-prefs-watch' => 'Adder le paginas que io revide a mi observatorio',
+	'group-editor' => 'Contributores',
+	'group-editor-member' => 'contributor',
+	'group-reviewer' => 'Revisores',
+	'group-reviewer-member' => 'revisor',
+	'grouppage-editor' => '{{ns:project}}:Contributor',
+	'grouppage-reviewer' => '{{ns:project}}:Revisor',
+	'hist-draft' => 'version provisori',
+	'hist-quality' => 'version de qualitate',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validate] per [[User:$3|$3]]',
+	'hist-stable' => 'version appercipite',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} appercipite] per [[User:$3|$3]]',
+	'review-diff2stable' => 'Vider modificationes inter le versiones stabile e actual',
+	'review-logentry-app' => 'revideva [[$1]]',
+	'review-logentry-dis' => 'depreciava un version de [[$1]]',
+	'review-logentry-id' => 'ID de version: $1',
+	'review-logentry-diff' => 'diff con respecto al stabile',
+	'review-logpage' => 'Registro de revisiones',
+	'review-logpagetext' => 'Isto es un registro de modificationes al stato de [[{{MediaWiki:Validationpage}}|approbation]] de versiones pro paginas de contento.
+Vide le [[Special:ReviewedPages|lista de paginas revidite]] pro un lista de paginas approbate.',
+	'reviewer' => 'Revisor',
+	'revisionreview' => 'Revider versiones',
+	'revreview-accuracy' => 'Accuratessa',
+	'revreview-accuracy-0' => 'Non approbate',
+	'revreview-accuracy-1' => 'Appercipite',
+	'revreview-accuracy-2' => 'Accurate',
+	'revreview-accuracy-3' => 'Ben referentiate',
+	'revreview-accuracy-4' => 'Eminente',
+	'revreview-approved' => 'Approbate',
+	'revreview-auto' => '(automatic)',
+	'revreview-auto-w' => "Tu modifica le version stabile; omne modificationes essera '''automaticamente revidite'''.",
+	'revreview-auto-w-old' => "Tu modifica un version revidite; omne modificationes essera '''automaticamente revidite'''.",
+	'revreview-basic' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|appercipite]],
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
+Le The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version provisori] ha
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}]
+attendente revision.',
 	'revreview-log' => 'Commento:',
 );
 
@@ -3662,8 +3753,8 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'readerfeedback-level-4' => 'Baik sekali',
 	'readerfeedback-submit' => 'Kirim',
 	'readerfeedback-main' => 'Hanya halaman isi yang dapat diberi nilai.',
-	'readerfeedback-success' => "'''Terima kasih telah meninjau halaman ini!''' Hasil umpan balik pembaca atas '''$1''' dapat ditemukan [$2 di sini].",
-	'readerfeedback-voted' => "'''Tampaknya Anda sudah menilai halaman ini.''' Hasil umpan balik pembaca atas $1 dapat ditemukan [$2 di sini].",
+	'readerfeedback-success' => "'''Terima kasih telah meninjau halaman ini!''' Silakan tinggalkan komentar [$3 di sini].",
+	'readerfeedback-voted' => "'''Tampaknya Anda sudah memberikan peringkat untuk halaman ini'''. Silakan tinggalkan komentar [$3 di sini].",
 	'readerfeedback-submitting' => 'Mengirimkan...',
 	'readerfeedback-finished' => 'Terima kasih!',
 	'revreview-filter-all' => 'Semua',
@@ -3828,8 +3919,8 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'readerfeedback-level-3' => 'Buono',
 	'readerfeedback-level-4' => 'Ottimo',
 	'readerfeedback-submit' => 'Invia',
-	'readerfeedback-success' => "'''Grazie per aver visionato questa pagina!''' I risultati dei feedback dei lettori per '''$1''' possono essere trovati [$2 qui].",
-	'readerfeedback-voted' => "'''Sembra che tu abbia già giudicato questa pagina.''' I risultati dei feedback dei lettori per '''$1''' possono essere trovati [$2 qui].",
+	'readerfeedback-success' => "'''Grazie per aver visionato questa pagina!''' Lascia i commenti [$3 qui].",
+	'readerfeedback-voted' => "'''Sembra che tu abbia già giudicato questa pagina.''' Lascia i commenti [$3 qui].",
 	'readerfeedback-submitting' => 'Invio in corso...',
 	'readerfeedback-finished' => 'Grazie!',
 	'revreview-filter-all' => 'Tutte',
@@ -5067,6 +5158,18 @@ Keputusan maklum balas pembaca bagi laman '''$1''' boleh dilihat di $2.",
 	'validationpage' => '{{ns:help}}:Pengesahan rencana',
 );
 
+/** Erzya (Эрзянь)
+ * @author Botuzhaleny-sodamo
+ */
+$messages['myv'] = array(
+	'readerfeedback-level-0' => 'Лавшо',
+	'readerfeedback-level-1' => 'Алкыне',
+	'readerfeedback-level-2' => 'А берянь',
+	'readerfeedback-level-3' => 'Вадря-паро',
+	'readerfeedback-level-4' => 'Эйне вадря',
+	'revreview-filter-all' => 'Весе',
+);
+
 /** Nahuatl (Nāhuatl)
  * @author Fluence
  */
@@ -5228,10 +5331,10 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wij
 	'revreview-toggle-title' => 'details weergeven/verbergen',
 	'revreview-toolow' => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet goedgekeurd" om voor een versie aan te merken geven dat deze eindredactie heeft gehad.
 Stel alle velden in op "niet goedgekeurd" om de waardering van een versie te verwijderen.',
-	'revreview-update' => "Voer alstublieft [[{{MediaWiki:Validationpage}}|eindredactie]] uit op alle ''onderstaande'' wijzigingen die gemaakt zijn sinds de stabiele versie is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd].<br />
+	'revreview-update' => "Voer [[{{MediaWiki:Validationpage}}|eindredactie]] uit op alle ''onderstaande'' wijzigingen die gemaakt zijn sinds de stabiele versie is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd].<br />
 '''Enkele sjablonen of afbeeldingen zijn gewijzigd:'''",
 	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt:'''",
-	'revreview-update-none' => "Voer alstublieft [[{{MediaWiki:Validationpage}}|eindredactie]] uit op de ''onderstaande'' wijzigingen die gemaakt zijn sinds de stabiele versie is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd].",
+	'revreview-update-none' => "Voer [[{{MediaWiki:Validationpage}}|eindredactie]] uit op de ''onderstaande'' wijzigingen die gemaakt zijn sinds de stabiele versie is [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd].",
 	'revreview-update-use' => "'''Let op:''' als een van deze sjablonen of bestanden een stabiele versie heeft, dan wordt die al gebruikt in de stabiele versie van deze pagina.",
 	'revreview-diffonly' => "''Klik voor eindredactie op de verwijzing \"huidige versie\" en gebruik het eindredactieformulier.''",
 	'revreview-visibility' => 'Deze pagina heeft een [[{{MediaWiki:Validationpage}}|stabiele versie]]. U kunt hiervoor [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} instellingen maken].',
@@ -5250,7 +5353,7 @@ Stel alle velden in op "niet goedgekeurd" om de waardering van een versie te ver
 	'stable-logpagetext' => "Dit is een logboek met wijzigingen aan de instellingen voor [[{{MediaWiki:Validationpage}}|stabiele versies]] voor de hoofdnaamruimte.
 Zie ook de [[Special:StablePages|lijst met stabiele pagina's]].",
 	'readerfeedback' => 'Wat vindt u van deze pagina?',
-	'readerfeedback-text' => "''Neem alstublieft de moeite om deze pagina hieronder te waarderen.
+	'readerfeedback-text' => "''Neem de moeite om deze pagina hieronder te waarderen.
 Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 	'readerfeedback-reliability' => 'Betrouwbaarheid',
 	'readerfeedback-completeness' => 'Volledigheid',
@@ -5266,9 +5369,9 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 	'readerfeedback-submit' => 'Opslaan',
 	'readerfeedback-main' => "Alleen pagina's uit de hoofdnaamruimte kunnen gewaardeerd worden.",
 	'readerfeedback-success' => "'''Dank u wel voor het waarderen van deze pagina.'''
-Resultaten van waarderingen van lezers voor '''$1''' zijn [$2 hier] te vinden.",
+[$3 U kunt een opmerking achterlaten].",
 	'readerfeedback-voted' => "'''U hebt al een waardering voor deze pagina opgegeven.'''
-Resultaten van waarderingen van lezers voor '''$1''' zijn [$2 hier] te vinden.",
+[$3 U kunt een opmerking achterlaten].",
 	'readerfeedback-submitting' => 'Bezig met opslaan...',
 	'readerfeedback-finished' => 'Bedankt!',
 	'revreview-filter-all' => 'Alles',
@@ -6049,7 +6152,8 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'readerfeedback-level-3' => 'Alto',
 	'readerfeedback-level-4' => 'Excelente',
 	'readerfeedback-submit' => 'Enviar',
-	'readerfeedback-main' => 'Somente as páginas de conteúdo podem ser avaliadas.',
+	'readerfeedback-main' => 'Somente páginas de conteúdo podem ser avaliadas.',
+	'readerfeedback-finished' => 'Obrigado!',
 	'revreview-filter-all' => 'Todas',
 	'revreview-filter-approved' => 'Aprovadas',
 	'revreview-filter-reapproved' => 'Re-aprovada',
@@ -6553,8 +6657,8 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'readerfeedback-level-4' => 'Vynikajúca',
 	'readerfeedback-submit' => 'Odoslať',
 	'readerfeedback-main' => 'Je možné hodnotiť iba stránky s obsahom.',
-	'readerfeedback-success' => "'''Ďakujeme za kontrolu tejto stránky!''' Môžete si pozrieť [$2 výsledky odozvy čitateľov] stránky '''$1'''.",
-	'readerfeedback-voted' => "'''Zdá sa, že ste túto stránku už ohodnotili.''' Môžete si pozrieť [$2 výsledky odozvy čitateľov] stránky '''$1'''.",
+	'readerfeedback-success' => "'''Ďakujeme za kontrolu tejto stránky!''' Môžete [$3 pridať svoj komentár].",
+	'readerfeedback-voted' => "'''Zdá sa, že ste túto stránku už ohodnotili.''' Môžete [$3 pridať svoj komentár].",
 	'readerfeedback-submitting' => 'Odosiela sa...',
 	'readerfeedback-finished' => 'Ďakujeme!',
 	'revreview-filter-all' => 'Všetky',
@@ -7266,6 +7370,13 @@ $messages['tg-cyrl'] = array(
 	'validationpage' => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
 );
 
+/** Thai (ไทย)
+ * @author Octahedron80
+ */
+$messages['th'] = array(
+	'revreview-filter-all' => 'ทั้งหมด',
+);
+
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
  * @author Karduelis
@@ -7771,8 +7882,8 @@ Danh sách các trang ổn định có thể tìm thấy tại [[Special:StableP
 	'readerfeedback-level-4' => 'Tốt',
 	'readerfeedback-submit' => 'Đệ trình',
 	'readerfeedback-main' => 'Chỉ đánh giá được những trang nội dung.',
-	'readerfeedback-success' => "'''Cám ơn đã duyệt trang này!''' Hãy xem các [$2 ý kiến độc giả] về '''$1'''.",
-	'readerfeedback-voted' => "'''Hình như bạn đã đánh giá trang này.''' Hãy xem các [$2 ý kiến độc giả] về '''$1'''.",
+	'readerfeedback-success' => "'''Cám ơn đã duyệt trang này!''' [$3 Ghi chú].",
+	'readerfeedback-voted' => "'''Hình như bạn đã đánh giá trang này.''' [$3 Ghi chú].",
 	'readerfeedback-submitting' => 'Đang gửi…',
 	'readerfeedback-finished' => 'Cám ơn!',
 	'revreview-filter-all' => 'Tất cả',
@@ -7860,10 +7971,10 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pelogon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} logön rigeti]]",
 	'revreview-quick-none' => "'''Anuik''' (nen fomams pekrütöl)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kaliet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} logön rigeti]]",
-	'revreview-quick-see-basic' => "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi fümöfik]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|votükam|votükams}}])",
-	'revreview-quick-see-quality' => "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi fümöfik]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|votükam|votükams}}])",
+	'revreview-quick-see-basic' => "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} leigodön])",
+	'revreview-quick-see-quality' => "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} leigodön])",
 	'revreview-selected' => "Krütam pevälöl pada: '''$1:'''",
 	'revreview-source' => 'rigetafonät',
 	'revreview-stable' => 'Fümöfik',

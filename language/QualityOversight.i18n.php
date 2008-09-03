@@ -74,10 +74,13 @@ $messages['eo'] = array(
 	'qualityoversight-legend' => 'Serĉi lastajn protokolerojn',
 );
 
-/** Persian (فارسی) */
+/** Persian (فارسی)
+ * @author Huji
+ */
 $messages['fa'] = array(
 	'qualityoversight' => 'ناظر کیفیت',
 	'qualityoversight-list' => 'این صفحه آخرین موارد تایید نسخه‌های با کیفیت و نیز مستهلک شدن نسخه‌های با کیفیت را فهرست می‌کند.',
+	'qualityoversight-legend' => 'جستجوی سیاهه‌های بازبینی اخیر',
 );
 
 /** French (Français)

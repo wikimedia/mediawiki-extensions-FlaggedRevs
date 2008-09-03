@@ -43,6 +43,7 @@ $messages['ar'] = array(
 	'ratinghistory-text' => "'''هذه الصفحة تعرض بيانات تقييم المقالة ل[[:$1|$1]].'''",
 	'ratinghistory-leg' => 'بيانات تقييم التاريخ',
 	'ratinghistory-tab' => 'تقييم',
+	'ratinghistory-link' => 'تقييم المقالة',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">شكرا لك لاستغراقك دقيقة لمراجعة هذه الصفحة!</font>'''''",
 	'ratinghistory-period' => 'فترة زمنية:',
 	'ratinghistory-month' => 'آخر شهر',
@@ -91,6 +92,7 @@ $messages['de'] = array(
 	'ratinghistory-text' => "'''Diese Seite zeigt die Bewertung für [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Verlauf der Seitenbewertung',
 	'ratinghistory-tab' => 'Bewertung',
+	'ratinghistory-link' => 'Artikelbewertung',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>'''''",
 	'ratinghistory-period' => 'Zeitraum:',
 	'ratinghistory-month' => 'letzter Monat',
@@ -113,6 +115,7 @@ $messages['eo'] = array(
 	'ratinghistory-text' => "'''Ĉi tiu paĝo montras datenojn de taksado por [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Datenoj de taksada historio',
 	'ratinghistory-tab' => 'taksado',
+	'ratinghistory-link' => 'Taksado de artikolo',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dankon pro via peno por kontroli ĉi tiun paĝon!</font>'''''",
 	'ratinghistory-period' => 'Tempdaŭro:',
 	'ratinghistory-month' => 'lasta monato',
@@ -128,6 +131,28 @@ La taksadaj valoroj estas interpretaj jene:
 	'right-feedback' => 'Uzu la kontrolan sekcion por kontroli paĝon',
 );
 
+/** Persian (فارسی)
+ * @author Huji
+ */
+$messages['fa'] = array(
+	'ratinghistory' => 'تاریخچهٔ ارزیابی صفحه',
+	'ratinghistory-text' => "'''این صفحه داده‌های ارزیابی مقاله را برای [[:$1|$1]] نشان می‌دهد.'''",
+	'ratinghistory-leg' => 'داده‌های تاریخچهٔ ارزیابی',
+	'ratinghistory-tab' => 'نمره',
+	'ratinghistory-link' => 'نمره مقاله',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">از این که فرصتی را صرف بازبینی این صفحه کردید متشکریم!</font>'''''",
+	'ratinghistory-period' => 'بازه زمانی:',
+	'ratinghistory-month' => 'ماه پیش',
+	'ratinghistory-year' => 'سال پیش',
+	'ratinghistory-3years' => 'سه سال پیش',
+	'ratinghistory-graph' => 'داده‌های ارزیابی از $1 {{PLURAL:$1|خواننده|خواننده}}',
+	'ratinghistory-none' => 'در حال حاضر بازخورد کافی از خوانندگان برای نمایش نمودار وجود ندارد.',
+	'ratinghistory-legend' => "نمره متوسط روزانه <font color=\"blue\">''(آبی)''</font> و نمره متوسط برای بازهٔ زمانی انتخاب شده <font color=\"green\">''(سبز)''</font> در نمودار زیر، بر حسب تاریخ نشان داده شده‌اند. مقدار نمره‌ها به صورت زیر تعبیر می‌شود:
+
+'''[۰]''' - ضعیف؛ '''[۱]''' - پایین؛ '''[۲]''' - متوسط؛ '''[۳]''' - بالا؛ '''[۴]''' - ممتاز؛",
+	'right-feedback' => 'از فرم بازخورد برای نمره دادن به صفحه استفاده کنید',
+);
+
 /** French (Français)
  * @author Grondin
  * @author Zetud
@@ -137,6 +162,7 @@ $messages['fr'] = array(
 	'ratinghistory-text' => "'''Cette page affiche les données de notation d’article pour [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Données de l’historique de la notation',
 	'ratinghistory-tab' => 'notation',
+	'ratinghistory-link' => 'Notation de l’article',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Merci pour nous avoir consacré du temps pour relire cette page !</font>'''''",
 	'ratinghistory-period' => 'Période :',
 	'ratinghistory-month' => 'dernier mois',
@@ -158,6 +184,8 @@ $messages['gl'] = array(
 	'ratinghistory-text' => "'''Esta páxina amosa os datos da valoración de [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Historial de valoracións dos datos',
 	'ratinghistory-tab' => 'valoración',
+	'ratinghistory-link' => 'Valoración do artigo',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Grazas por tomar un momento para revisar esta páxina!</font>'''''",
 	'ratinghistory-period' => 'Período de tempo:',
 	'ratinghistory-month' => 'último mes',
 	'ratinghistory-year' => 'último ano',
@@ -276,6 +304,7 @@ $messages['nl'] = array(
 	'ratinghistory-text' => "'''Hier worden waarderingen voor de pagina [[:$1|$1]] weergegeven.'''",
 	'ratinghistory-leg' => 'Historische waarderingsgegevens',
 	'ratinghistory-tab' => 'waardering',
+	'ratinghistory-link' => 'Paginawaardering',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dank u wel voor de moeite die u hebt genomen om deze pagina te waarderen!</font>'''''",
 	'ratinghistory-period' => 'Tijdsperiode:',
 	'ratinghistory-month' => 'afgelopen maand',
@@ -351,6 +380,7 @@ $messages['sk'] = array(
 	'ratinghistory-text' => "'''Táto stránka zobrazuje údaje o hodnotení článku [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Údaje o hodnotení v čase',
 	'ratinghistory-tab' => 'hodnotenie',
+	'ratinghistory-link' => 'Hodnotenie článku',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Ďakujeme, že ste si našli chvíľu na ohodnotenie tejto stránky!</font>'''''",
 	'ratinghistory-period' => 'Časové obdobie:',
 	'ratinghistory-month' => 'posledný mesiac',
@@ -410,6 +440,7 @@ $messages['vi'] = array(
 	'ratinghistory-text' => "'''Trang này chứa dữ liệu đánh giá của trang [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Dữ liệu lịch sử đánh giá',
 	'ratinghistory-tab' => 'đánh giá',
+	'ratinghistory-link' => 'Đánh giá của bài',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Cám ơn đã để dành một chút thời gian để duyệt trang này!</font>'''''",
 	'ratinghistory-period' => 'Thời gian:',
 	'ratinghistory-month' => 'tháng trước',

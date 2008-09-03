@@ -67,6 +67,17 @@ $messages['eo'] = array(
 	'problempages-graphs' => 'datenoj de taksado',
 );
 
+/** Persian (فارسی)
+ * @author Huji
+ */
+$messages['fa'] = array(
+	'problempages' => 'صفحه‌های با نمرهٔ ضعیف',
+	'problempages-leg' => 'پیدا کردن صفحه‌های با نمرهٔ پایین',
+	'problempages-list' => 'در زیر فهرستی از صفحه‌ها که طبق نمره خوانندگان آن‌ها مرتب شده‌است قرار دارد.',
+	'problempages-none' => 'صفحه‌ای در این فهرست وجود ندارد',
+	'problempages-graphs' => 'داده‌های ارزیابی',
+);
+
 /** Finnish (Suomi)
  * @author Jaakonam
  */
@@ -91,7 +102,7 @@ $messages['fr'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'problempages' => 'Páxinas problemáticas',
+	'problempages' => 'Páxinas pouco valoradas',
 	'problempages-leg' => 'Atopar as páxinas menos valoradas',
 	'problempages-list' => 'Embaixo hai unha lista das páxinas ordenadas pola valoración da reacción dos seus lectores.',
 	'problempages-none' => 'Non hai páxinas nesta lista',
@@ -189,9 +200,10 @@ $messages['oc'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Malafaya
  */
 $messages['pt'] = array(
-	'problempages' => 'Páginas com problemas',
+	'problempages' => 'Páginas com fraca avaliação',
 	'problempages-leg' => 'Pesquisar páginas com baixa avaliação',
 	'problempages-list' => 'Segue-se uma lista de páginas ordenada de acordo com a avaliação dos leitores.',
 	'problempages-none' => 'Não há páginas nesta listagem',
@@ -233,7 +245,7 @@ $messages['sv'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'problempages' => 'Các trang có vấn đề',
+	'problempages' => 'Các trang bị đánh giá thấp',
 	'problempages-leg' => 'Tìm kiếm các trang được đánh giá thấp',
 	'problempages-list' => 'Đây là danh sách các trang theo thứ tự đánh giá của độc giả.',
 	'problempages-none' => 'Danh sách này không có trang nào.',
