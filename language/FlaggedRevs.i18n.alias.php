@@ -1,6 +1,6 @@
 <?php
 /**
- * Internationalisation file for FlaggedRevs extension, section FlaggedRevsAliases
+ * Aliases for special pages for extension FlaggedRevs
  *
  * @addtogroup Extensions
  */
@@ -11,16 +11,19 @@ $aliases = array();
  * @author Aaron Schulz
  */
 $aliases['en'] = array(
-	'QualityOversight'     => array( 'QualityOversight' ),
-	'UnReviewedPages'      => array( 'UnReviewedPages' ),
-	'OldReviewedPages'     => array( 'OldReviewedPages' ),
-	'ReviewedPages'        => array( 'ReviewedPages' ),
-	'StablePages'          => array( 'StablePages' ),
-	'StableVersions'       => array( 'StableVersions' ),
-	'ProblemPages'         => array( 'ProblemPages' ),
+	'LikedPages' => array( 'LikedPages' ),
+	'OldReviewedPages' => array( 'OldReviewedPages' ),
+	'ProblemPages' => array( 'ProblemPages' ),
+	'QualityOversight' => array( 'QualityOversight' ),
+	'RatingHistory' => array( 'RatingHistory' ),
+	'ReaderFeedback' => array( 'ReaderFeedback' ),
+	'ReviewedPages' => array( 'ReviewedPages' ),
+	'RevisionReview' => array( 'RevisionReview' ),
+	'Stabilization' => array( 'Stabilization' ),
+	'StablePages' => array( 'StablePages' ),
+	'StableVersions' => array( 'StableVersions' ),
+	'UnReviewedPages' => array( 'UnReviewedPages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
-	'Stabilization'        => array( 'Stabilization' ),
-	'LikedPages'           => array( 'LikedPages' ),
 );
 
 /** Aragonese (Aragonés)
