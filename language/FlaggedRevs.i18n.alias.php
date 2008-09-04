@@ -42,32 +42,38 @@ $aliases['an'] = array(
  * @author Meno25
  */
 $aliases['ar'] = array(
-	'QualityOversight' => array( 'نظر_الجودة' ),
-	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'LikedPages' => array( 'صفحات_محبوبة' ),
 	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
+	'ProblemPages' => array( 'صفحات_المشاكل' ),
+	'QualityOversight' => array( 'نظر_الجودة' ),
+	'RatingHistory' => array( 'تاريخ_التقييم' ),
+	'ReaderFeedback' => array( 'ملاحظات_القراء' ),
 	'ReviewedPages' => array( 'صفحات_مراجعة' ),
+	'RevisionReview' => array( 'مراجعة_نسخة' ),
+	'Stabilization' => array( 'استقرار' ),
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'StableVersions' => array( 'نسخ_مستقرة' ),
-	'ProblemPages' => array( 'صفحات_المشاكل' ),
+	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
-	'Stabilization' => array( 'استقرار' ),
-	'LikedPages' => array( 'صفحات_محبوبة' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
  */
 $aliases['arz'] = array(
-	'QualityOversight' => array( 'نظر_الجودة' ),
-	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'LikedPages' => array( 'صفحات_محبوبة' ),
 	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
+	'ProblemPages' => array( 'صفحات_المشاكل' ),
+	'QualityOversight' => array( 'نظر_الجودة' ),
+	'RatingHistory' => array( 'تاريخ_التقييم' ),
+	'ReaderFeedback' => array( 'ملاحظات_القراء' ),
 	'ReviewedPages' => array( 'صفحات_مراجعة' ),
+	'RevisionReview' => array( 'مراجعة_نسخة' ),
+	'Stabilization' => array( 'استقرار' ),
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'StableVersions' => array( 'نسخ_مستقرة' ),
-	'ProblemPages' => array( 'صفحات_المشاكل' ),
+	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
-	'Stabilization' => array( 'استقرار' ),
-	'LikedPages' => array( 'صفحات_محبوبة' ),
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -257,16 +263,19 @@ $aliases['nds-nl'] = array(
  * @author Siebrand
  */
 $aliases['nl'] = array(
-	'QualityOversight' => array( 'KwaliteitsControle' ),
-	'UnReviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
+	'LikedPages' => array( 'HoogGewaardeerdePaginas' ),
 	'OldReviewedPages' => array( 'PaginasVerouderdeEindredactie', "Pagina'sVerouderdeEindredactie" ),
+	'ProblemPages' => array( 'LaagGewaardeerdePaginas', 'ProbleemPaginas', "ProbleemPagina's" ),
+	'QualityOversight' => array( 'KwaliteitsControle' ),
+	'RatingHistory' => array( 'Waarderingsgeschiedenis' ),
+	'ReaderFeedback' => array( 'Lezersterugkoppeling' ),
 	'ReviewedPages' => array( 'PaginasMetEindredactie', "Pagina'sMetEindredactie" ),
+	'RevisionReview' => array( 'EindredactieVersies' ),
+	'Stabilization' => array( 'Stabilisatie' ),
 	'StablePages' => array( 'StabielePaginas', "StabielePagina's" ),
 	'StableVersions' => array( 'StabieleVersies' ),
-	'ProblemPages' => array( 'LaagGewaardeerdePaginas', 'ProbleemPaginas', "ProbleemPagina's" ),
+	'UnReviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
-	'Stabilization' => array( 'Stabilisatie' ),
-	'LikedPages' => array( 'HoogGewaardeerdePaginas' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

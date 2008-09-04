@@ -68,6 +68,17 @@ $messages['fr'] = array(
 	'likedpages-graphs' => 'Données de notation',
 );
 
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'likedpages' => 'Páxinas moi valoradas',
+	'likedpages-leg' => 'Atopar as páxinas moi valoradas',
+	'likedpages-list' => 'Embaixo hai unha lista coas páxinas ordenadas pola valoración dos seus lectores.',
+	'likedpages-none' => 'Non hai ningunha páxina nesta lista',
+	'likedpages-graphs' => 'datos das valoracións',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

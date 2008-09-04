@@ -106,6 +106,7 @@ $messages['gl'] = array(
 	'problempages-leg' => 'Atopar as páxinas menos valoradas',
 	'problempages-list' => 'Embaixo hai unha lista das páxinas ordenadas pola valoración da reacción dos seus lectores.',
 	'problempages-none' => 'Non hai páxinas nesta lista',
+	'problempages-graphs' => 'datos das valoracións',
 );
 
 /** Hungarian (Magyar)

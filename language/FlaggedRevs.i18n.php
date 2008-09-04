@@ -2605,7 +2605,7 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'readerfeedback-level-4' => 'Excellent',
 	'readerfeedback-submit' => 'Soumettre',
 	'readerfeedback-main' => 'Seul le contenu des pages peut être noté.',
-	'readerfeedback-success' => "'''Merci pour avoir révisé cette page ! Veuillez laisser quelques commentaires [$3 ici].",
+	'readerfeedback-success' => "'''Merci d'avoir révisé cette page !''' Veuillez laisser quelques commentaires [$3 ici].",
 	'readerfeedback-voted' => "'''Il apparaît que vous avez déjà noté cette page'''. Veuillez laisser quelques commentaires [$3 ici].",
 	'readerfeedback-submitting' => 'Soumission…',
 	'readerfeedback-finished' => 'Merci !',
@@ -2910,6 +2910,7 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'readerfeedback-npov' => 'Neutralidade',
 	'readerfeedback-presentation' => 'Presentación',
 	'readerfeedback-overall' => 'En xeral',
+	'readerfeedback-level-none' => '(seleccionar)',
 	'readerfeedback-level-0' => 'Pobre',
 	'readerfeedback-level-1' => 'Baixo',
 	'readerfeedback-level-2' => 'Ben',
@@ -2917,6 +2918,8 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'readerfeedback-level-4' => 'Excelente',
 	'readerfeedback-submit' => 'Enviar',
 	'readerfeedback-main' => 'Só as páxinas con contido poden ser puntuadas.',
+	'readerfeedback-success' => "'''Grazas por revisar esta páxina!''' Por favor, deixe calquera comentario [$3 aquí].",
+	'readerfeedback-voted' => "'''Parece que xa valorou esta páxina'''. Por favor, deixe calquera comentario [$3 aquí].",
 	'readerfeedback-submitting' => 'Enviando...',
 	'readerfeedback-finished' => 'Grazas!',
 	'revreview-filter-all' => 'Todas',
@@ -6062,9 +6065,9 @@ O ''rascunho'' é mostrado a seguir.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=\$1&d
 	'revreview-invalid' => "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições verificadas]] correspondentes ao ID fornecido.",
 	'revreview-legend' => 'Avaliar conteúdo da edição',
 	'revreview-log' => 'Comentário:',
-	'revreview-main' => 'Você precisa seleccionar uma edição específica de uma página de conteúdo para poder analisá-la.
+	'revreview-main' => 'Você precisa de seleccionar uma edição específica de uma página de conteúdo para poder analisá-la.
 
-Veja [[Special:Unreviewedpages]] para uma listagem de páginas ainda não revistas.',
+Veja a [[Special:Unreviewedpages|lista de páginas por analisar]].',
 	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição analisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração|alterações}}] {{PLURAL:$3|necessita|necessitam}} revisão.',
 	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição analisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} As alterações em imagens/predefinições] necessitam de revisão.',
 	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} mais recente edição confiável] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração|alterações}}] {{PLURAL:$3|necessita|necessitam}} revisão.',
@@ -6109,8 +6112,7 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] possui [{{fullurl:{{FULLPAGE
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Exemplar',
 	'revreview-submit' => 'Enviar análise',
-	'revreview-successful' => "'''A edição seleccionada de [[:$1|$1]] foi analisada com sucesso.
-([{{fullurl:Special:Stableversions|page=$2}} ver todas as edições analisadas])'''",
+	'revreview-successful' => "'''A edição de [[:$1|$1]] foi assinalada com sucesso. ([{{fullurl:Special:Stableversions|page=$2}} ver edições estáveis])'''",
 	'revreview-successful2' => "'''A edição seleccionada de [[:$1|$1]] teve sua análise removida com sucesso.'''",
 	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são exibidas por padrão no lugar de edições mais recentes.'''",
 	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são edições em páginas que foram verificadas e que podem ser configuradas como conteúdo padrão a ser exibido.''",
@@ -7374,6 +7376,7 @@ $messages['tg-cyrl'] = array(
  * @author Octahedron80
  */
 $messages['th'] = array(
+	'revreview-auto' => '(อัตโนมัติ)',
 	'revreview-filter-all' => 'ทั้งหมด',
 );
 
