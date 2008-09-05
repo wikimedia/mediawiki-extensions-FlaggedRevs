@@ -689,20 +689,28 @@ class RevisionReview extends UnlistedSpecialPage
 			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
 		}
+		# Prepare for a link tracking update
+		$u = new LinksUpdate( $this->page, $poutput );
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the stable cache...
-		$includesSynced = true;
 		$sv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
+			global $wgParserCacheExpireTime;
 			$this->page->invalidateCache();
 			# Update stable cache with the revision we reviewed
 			FlaggedRevs::updatePageCache( $article, $stableOutput );
 			# We can set the sync cache key already
+			$includesSynced = true;
 			if( $poutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 				$includesSynced = false;
 			} else if( $poutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
 				$includesSynced = false;
 			}
+			$u->fr_stableParserOut = $stableOutput; // no need to re-fetch this!
+			# We can set the sync cache key already.
+			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+			$data = FlaggedRevs::makeMemcObj( $includesSynced ? "true" : "false" );
+			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		} else {
 			# Get the old stable cache
 			$stableOutput = FlaggedRevs::getPageCache( $article );
@@ -712,19 +720,12 @@ class RevisionReview extends UnlistedSpecialPage
 				# Reset stable cache if it existed, since we know it is the same.
 				FlaggedRevs::updatePageCache( $article, $stableOutput );
 			}
-			$includesSynced = false;
 		}
-		$u = new LinksUpdate( $this->page, $poutput );
-		$u->fr_stableParserOut = $stableOutput;
-		$u->doUpdate(); // Will trigger our hook to add stable links too...
+		# Update link tracking. This will trigger our hook to add stable links too...
+		$u->doUpdate();
 		# Might as well save the cache, since it should be the same
 		if( $wgEnableParserCache )
 			$parserCache->save( $poutput, $article, $wgUser );
-		# We can set the sync cache key already.
-		global $wgParserCacheExpireTime;
-		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-		$data = FlaggedRevs::makeMemcObj( $includesSynced ? "true" : "false" );
-		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		# Purge cache/squids for this page and any page that uses it
 		Article::onArticleEdit( $article->getTitle() );
 
