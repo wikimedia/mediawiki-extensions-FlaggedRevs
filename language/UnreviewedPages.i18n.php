@@ -75,6 +75,21 @@ $messages['ar'] = array(
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
+	'unreviewedpages' => 'صفحات غير مراجعة',
+	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
+	'unreviewed-category' => 'التصنيف:',
+	'unreviewed-diff' => 'مراجعة',
+	'unreviewed-unwatched' => '(غير مراقبة)',
+	'unreviewed-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+	'unreviewed-list' => 'هذه الصفحة تعرض المقالات التى لم يتم مراجعتها.',
+	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */

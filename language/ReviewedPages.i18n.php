@@ -67,6 +67,21 @@ $messages['ar'] = array(
 	'reviewedpages-best' => 'مراجعة فائقة',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'reviewedpages' => 'صفحات مراجعة',
+	'reviewedpages-leg' => 'عرض الصفحات المراجعة حتى مستوى معين',
+	'reviewedpages-list' => 'الصفحات التالية تمت مراجعتها حتى المستوى المحدد',
+	'reviewedpages-none' => 'لا توجد صفحات فى هذه القائمة',
+	'reviewedpages-lev-0' => 'منظورة',
+	'reviewedpages-lev-1' => 'جودة',
+	'reviewedpages-lev-2' => 'مختارة',
+	'reviewedpages-all' => 'نسخ مراجعة',
+	'reviewedpages-best' => 'مراجعة فائقة',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */

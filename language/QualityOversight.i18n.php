@@ -40,6 +40,15 @@ $messages['ar'] = array(
 	'qualityoversight-legend' => 'ابحث في سجلات المراجعة الحديثة',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'qualityoversight' => 'نظر الجودة',
+	'qualityoversight-list' => 'هذه الصفحة تعرض عمليات الموافقة والإزالة الحديثة للمراجعات.',
+	'qualityoversight-legend' => 'ابحث فى سجلات المراجعة الحديثة',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

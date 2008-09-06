@@ -95,6 +95,25 @@ $messages['ar'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'oldreviewedpages' => 'صفحات مراجعة قديمة',
+	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
+	'oldreviewedpages-list' => 'هذه الصفحة تعرض الصفحات المراجعة التى بها تعديلات قيد الانتظار.',
+	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
+	'oldreviewedpages-stable' => 'منظورة',
+	'oldreviewedpages-quality' => 'جودة',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
+	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
+	'oldreviewed-category' => 'تصنيف:',
+	'oldreviewed-diff' => 'راجع',
+	'oldreviewedpages-unwatched' => '(غير مراقبة)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */

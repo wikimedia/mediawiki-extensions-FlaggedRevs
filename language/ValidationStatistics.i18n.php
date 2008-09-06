@@ -51,6 +51,24 @@ $messages['ar'] = array(
 	'validationstatistics-old' => 'قديمة',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'validationstatistics' => 'إحصاءات التحقق',
+	'validationstatistics-users' => "'''{{SITENAME}}''' لديه حاليا '''$1''' {{PLURAL:$1|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|محرر]]
+و '''$2''' {{PLURAL:$2|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|مراجع]].",
+	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضة بالأسفل، لا يتضمن ذلك صفحات التحويل.
+
+'''ملاحظة:''' البيانات التالية مخزنة لعدة ساعات وربما لا تكون محدثة.",
+	'validationstatistics-ns' => 'النطاق',
+	'validationstatistics-total' => 'الصفحات',
+	'validationstatistics-stable' => 'مراجع',
+	'validationstatistics-latest' => 'مراجع أخيرا',
+	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
+	'validationstatistics-old' => 'قديمة',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */

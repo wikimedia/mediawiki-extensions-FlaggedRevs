@@ -64,10 +64,22 @@ $messages['an'] = array(
 $messages['ar'] = array(
 	'stableversions' => 'عرض النسخ المستقرة',
 	'stableversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
-	'stableversions-page' => 'اسم الصفحة',
-	'stableversions-none' => '[[:$1]] لا يوجد بها مراجعات مراجعة.',
+	'stableversions-page' => 'اسم الصفحة:',
+	'stableversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
 	'stableversions-list' => 'هذه قائمة بمراجعات صفحة [[:$1]] التي تمت مراجعتها:',
 	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
+);
+
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'stableversions' => 'عرض النسخ المستقرة',
+	'stableversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
+	'stableversions-page' => 'اسم الصفحة:',
+	'stableversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
+	'stableversions-list' => 'هذه قائمة بمراجعات صفحة [[:$1]] التى تمت مراجعتها:',
+	'stableversions-review' => 'تمت مراجعتها فى <i>$1</i> بواسطة $2',
 );
 
 /** Asturian (Asturianu)

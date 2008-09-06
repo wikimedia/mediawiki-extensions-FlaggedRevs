@@ -194,6 +194,43 @@ $messages['ar'] = array(
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'stabilization-tab' => 'تج',
+	'stabilization' => 'تثبيت الصفحة',
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التى بها النسخة المستقرة من [[:$1|$1]] يتم اختيارها وعرضها.'''",
+	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المستقرة.
+هنا الإعدادات الحالية ل[[:$1|$1]]:',
+	'stabilization-page' => 'اسم الصفحة:',
+	'stabilization-leg' => 'تأكيد إعدادات النسخة المستقرة',
+	'stabilization-select' => 'اختيار النسخة المستقرة',
+	'stabilization-select1' => 'آخر مراجعة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
+	'stabilization-select2' => 'آخر مراجعة مراجعة',
+	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
+	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
+	'stabilization-def1' => 'المراجعة المستقرة؛ لو غير موجودة، إذا المراجعة الحالية',
+	'stabilization-def2' => 'المراجعة الحالية',
+	'stabilization-submit' => 'تأكيد',
+	'stabilization-notexists' => 'لا توجد صفحة بالاسم "[[:$1|$1]]".
+لا ضبط ممكن.',
+	'stabilization-notcontent' => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها.
+لا ضبط ممكن.',
+	'stabilization-comment' => 'تعليق:',
+	'stabilization-expiry' => 'تنتهى:',
+	'stabilization-sel-short' => 'تنفيذ',
+	'stabilization-sel-short-0' => 'جودة',
+	'stabilization-sel-short-1' => 'لا شيء',
+	'stabilization-sel-short-2' => 'فائقة',
+	'stabilization-def-short' => 'افتراضى',
+	'stabilization-def-short-0' => 'حالى',
+	'stabilization-def-short-1' => 'مستقر',
+	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
+	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
+	'stabilize-expiring' => 'تنتهى فى $1 (UTC)',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */

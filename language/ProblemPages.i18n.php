@@ -26,6 +26,17 @@ $messages['ar'] = array(
 	'problempages-graphs' => 'بيانات التقييم',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'problempages' => 'صفحات تقييمها منخفض',
+	'problempages-leg' => 'إيجاد الصفحات ذات التقييم المنخفض',
+	'problempages-list' => 'بالأسفل قائمة بالصفحات مرتبة بواسطة تقييم قرائها.',
+	'problempages-none' => 'لا توجد صفحات فى هذه القائمة',
+	'problempages-graphs' => 'بيانات التقييم',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

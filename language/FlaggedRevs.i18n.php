@@ -802,7 +802,7 @@ $messages['ar'] = array(
 	'readerfeedback-level-4' => 'ممتاز',
 	'readerfeedback-submit' => 'تنفيذ',
 	'readerfeedback-main' => 'فقط صفحات المحتوى يمكن تقييمها.',
-	'readerfeedback-success' => "'''شكرا لك لمراجعة هذه الصفحة!''' من فضلك اترك أي تعليقات [$2 هنا].",
+	'readerfeedback-success' => "'''شكرا لك لمراجعة هذه الصفحة!''' من فضلك اترك أي تعليقات [$3 هنا].",
 	'readerfeedback-voted' => "'''يبدو أنك قيمت هذه الصفحة بالفعل.''' من فضلك اترك أي تعليقات [$3 هنا].",
 	'readerfeedback-submitting' => 'جاري التنفيذ...',
 	'readerfeedback-finished' => 'شكرا لك!',
@@ -838,7 +838,191 @@ $messages['arz'] = array(
 	'flaggedrevs-desc' => 'بيدى المحريين/المراجعين امكانية التأكد من أن النسخ صحيحة و تثبيت الصفحات.',
 	'flaggedrevs-pref-UI-0' => 'استعمل واجهة يوزر لنسخة مستقرة متفصلة',
 	'flaggedrevs-pref-UI-1' => 'استعمل واجهة يوزر لنسخة مستقرة بسيطة',
-	'flaggedrevs-prefs' => 'الاستقرار',
+	'flaggedrevs-prefs' => 'استقرار',
+	'flaggedrevs-prefs-stable' => 'دائما اعرض النسخة المستقرة لصفحات المحتوى افتراضيا (لو كانت هناك واحدة)',
+	'flaggedrevs-prefs-watch' => 'أضف الصفحات التى أراجعها إلى قائمة مراقبتي',
+	'group-editor' => 'محررون',
+	'group-editor-member' => 'محرر',
+	'group-reviewer' => 'مراجعون',
+	'group-reviewer-member' => 'مراجع',
+	'grouppage-editor' => '{{ns:project}}:محرر',
+	'grouppage-reviewer' => '{{ns:project}}:مراجع',
+	'hist-draft' => 'مراجعة مسودة',
+	'hist-quality' => 'مراجعة جودة',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطة [[User:$3|$3]]',
+	'hist-stable' => 'مراجعة منظورة',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} تم نظرها] بواسطة [[User:$3|$3]]',
+	'review-diff2stable' => 'عرض التغييرات بين المراجعتين المستقرة والحالية',
+	'review-logentry-app' => 'راجع $1',
+	'review-logentry-dis' => 'أزال نسخة من $1',
+	'review-logentry-id' => 'رقم النسخة $1',
+	'review-logentry-diff' => 'الفرق للمستقرة',
+	'review-logpage' => 'سجل المراجعة',
+	'review-logpagetext' => 'هذا سجل بالتغييرات فى حالة [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.
+انظر [[Special:ReviewedPages|قائمة الصفحات المراجعة]] لقائمة بالصفحات المراجعة.',
+	'reviewer' => 'مراجع',
+	'revisionreview' => 'مراجعة المراجعات',
+	'revreview-accuracy' => 'الدقة',
+	'revreview-accuracy-0' => 'غير موافق',
+	'revreview-accuracy-1' => 'منظورة',
+	'revreview-accuracy-2' => 'دقيقة',
+	'revreview-accuracy-3' => 'مصادرها جيدة',
+	'revreview-accuracy-4' => 'مميزة',
+	'revreview-approved' => 'موافق عليها',
+	'revreview-auto' => '(تلقائيا)',
+	'revreview-auto-w' => "أنت تقوم بتغييرات للمراجعة المستقرة؛ التغييرات '''ستتم مراجعتها تلقائيا'''.",
+	'revreview-auto-w-old' => "أنت تحرر مراجعة مراجعة؛ التغييرات ستتم '''مراجعتها تلقائيا'''.",
+	'revreview-basic' => 'هذه هى آخر مراجعة [[{{MediaWiki:Validationpage}}|منظورة]]، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] بانتظار المراجعة.',
+	'revreview-basic-i' => 'هذه هى أحدث مراجعة [[{{MediaWiki:Validationpage}}|منظورة]]، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قوالب/صور] تنتظر المراجعة.',
+	'revreview-basic-old' => 'هذه مراجعة [[{{MediaWiki:Validationpage}}|منظورة]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات] جديدة ربما تكون قد حدثت.',
+	'revreview-basic-same' => 'هذه هى آخر مراجعة [[{{MediaWiki:Validationpage}}|منظورة]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل])، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة منظورة] من هذه الصفحة، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>، بناء على هذه المراجعة.',
+	'revreview-changed' => "'''الفعل المطلوب لم يمكن إجراؤه على هذه المراجعة من [[:$1|$1]].'''
+
+قالب أو صورة ربما يكون قد تم طلبه عندما لم يتم تحديد نسخة معينة.
+هذا يمكن أن يحدث لو قالب ديناميكى يضمن صورة أخرى أو قالب معتمدا على متغير تغير منذ أن بدأت
+مراجعة هذه الصفحة.
+تحديث الصفحة وإعادة المراجعة يمكن أن يحل هذه المشكلة.",
+	'revreview-current' => 'مسودة',
+	'revreview-depth' => 'العمق',
+	'revreview-depth-0' => 'غير موافق عليها',
+	'revreview-depth-1' => 'أساسى',
+	'revreview-depth-2' => 'متوسط',
+	'revreview-depth-3' => 'مرتفع',
+	'revreview-depth-4' => 'مميز',
+	'revreview-draft-title' => 'مسودة مقالة',
+	'revreview-edit' => 'عدل المسودة',
+	'revreview-edited' => "'''التعديلات سيتم دمجها فى [[{{MediaWiki:Validationpage}}|النسخة المستقرة]] متى راجعها مستخدم موثوق.
+''المسودة'' معروضة بالأسفل.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|تغير ينتظر|تغيير ينتظر}}] المراجعة.",
+	'revreview-flag' => 'راجع هذه المراجعة',
+	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعة [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
+	'revreview-legend' => 'قيم محتوى المراجعة',
+	'revreview-log' => 'تعليق السجل:',
+	'revreview-main' => 'يجب أن تختار مراجعة معينة من صفحة محتوى لمراجعتها.
+
+انظر [[Special:Unreviewedpages|قائمة الصفحات غير المراجعة]].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة منظورة] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] {{PLURAL:$3|يحتاج|يحتاج}} المراجعة.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة منظورة] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/صورة] تحتاج المراجعة.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] {{PLURAL:$3|يحتاج|يحتاج}} المراجعة.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/صورة] تحتاج المراجعة.',
+	'revreview-noflagged' => "لا توجد مراجعة مراجعة لهذه الصفحة، لذا ربما '''لا''' تكون قد تم 
+[[{{MediaWiki:Validationpage}}|التحقق من]] جودتها.",
+	'revreview-note' => '[[User:$1|$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه المراجعة:',
+	'revreview-notes' => 'الملاحظات للعرض:',
+	'revreview-oldrating' => 'تم تقييمها ك:',
+	'revreview-patrol' => 'علم على هذا التغيير كمراجع',
+	'revreview-patrol-title' => 'علم كمراجعة',
+	'revreview-patrolled' => 'المراجعة المختارة من [[:$1|$1]] تم التعليم عليها كمراجعة.',
+	'revreview-quality' => 'هذه هى آخر مراجعة [[{{MediaWiki:Validationpage}}|جودة]]، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] بانتظار المراجعة.',
+	'revreview-quality-i' => 'هذه هى أحدث مراجعة [[{{MediaWiki:Validationpage}}|جودة]]، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قوالب/صور] تنتظر المراجعة.',
+	'revreview-quality-old' => 'هذه مراجعة [[{{MediaWiki:Validationpage}}|جودة]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات] جديدة ربما تكون قد حدثت.',
+	'revreview-quality-same' => 'هذه هى آخر مراجعة [[{{MediaWiki:Validationpage}}|جودة]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل])، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة جودة] من هذه الصفحة، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] فى <i>$2</i>، بناء على هذه المراجعة.',
+	'revreview-quality-title' => 'مقالة جودة',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|مقالة منظورة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|مقالة منظورة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|مقالة منظورة]]'''",
+	'revreview-quick-invalid' => "'''رقم مراجعة غير صحيح'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|المراجعة الحالية]]''' (غير مراجعة)",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|مقالة جودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|مقالة جودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|مقالة جودة]]'''",
+	'revreview-quick-see-basic' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض المقالة]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقارنة])",
+	'revreview-quick-see-quality' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض المقالة]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقارنة])",
+	'revreview-selected' => "المراجعة المختارة ل'''$1:'''",
+	'revreview-source' => 'مصدر المسودة',
+	'revreview-stable' => 'صفحة مستقرة',
+	'revreview-stable-title' => 'مقالة منظورة',
+	'revreview-stable1' => 'ربما ترغب فى رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
+	'revreview-stable2' => 'ربما ترغب فى رؤية [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة (لو كانت مازالت هناك واحدة).',
+	'revreview-style' => 'القابلية للقراءة',
+	'revreview-style-0' => 'غير مقبول',
+	'revreview-style-1' => 'مقبول',
+	'revreview-style-2' => 'جيدة',
+	'revreview-style-3' => 'متوسطة',
+	'revreview-style-4' => 'مميزة',
+	'revreview-submit' => 'تنفيذ المراجعة',
+	'revreview-submitting' => 'جارى التنفيذ...',
+	'revreview-finished' => 'المراجعة انتهت!',
+	'revreview-successful' => "'''مراجعة [[:$1|$1]] تم التعليم عليها بنجاح. ([{{fullurl:Special:Stableversions|page=$2}} عرض النسخ المستقرة])'''",
+	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هى محتوى الصفحة الافتراضى للمشاهدين بدلا من أحدث مراجعة.''",
+	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هى مراجعات تم التحقق منها من الصفحات ويمكن ضبطها كالمحتوى الافتراضى للمشاهدين.''",
+	'revreview-toggle-title' => 'عرض/إخفاء التفاصيل',
+	'revreview-toolow' => 'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكى تعتبر المراجعة مراجعة.
+لسحب تقييم مراجعة، اضبط كل الحقول ك "غير مقبولة".',
+	'revreview-update' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات ''(معروضة بالأسفل)'' تمت منذ المراجعة المستقرة تمت  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها].<br />
+'''بعض القوالب/الصور تم تحديثها: '''",
+	'revreview-update-includes' => "'''بعض القوالب/الصور تم تحديثها:'''",
+	'revreview-update-none' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات ''(معروضة بالأسفل)'' تمت منذ المراجعة المستقرة تمت  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها].",
+	'revreview-update-use' => "'''ملاحظة:''' لو أن أى من هذه القوالب/الصور لديها نسخة مستقرة، إذا فهى مستخدمة بالفعل فى النسخة المستقرة لهذه الصفحة.",
+	'revreview-diffonly' => "''لمراجعة الصفحة، اضغط على وصلة مراجعة \"المراجعة الحالية\" واستخدم استمارة المراجعة.''",
+	'revreview-visibility' => "'''هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]]؛ الإعدادات لها يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
+	'right-autopatrolother' => 'التعليم تلقائيا على المراجعات فى النطاقات غير الرئيسية كمراجعة',
+	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمنظورة',
+	'right-movestable' => 'نقل الصفحات المستقرة',
+	'right-review' => 'التعليم على المراجعات كمنظورة',
+	'right-stablesettings' => 'ضبط كيف يتم اختيار وعرض النسخة المستقرة',
+	'right-validate' => 'التعليم على المراجعات كمتحقق منها',
+	'rights-editor-autosum' => 'ترقية تلقائية',
+	'rights-editor-revoke' => 'أزال حالة محرر من [[$1]]',
+	'specialpages-group-quality' => 'توكيد الجودة',
+	'stable-logentry' => 'ضبط النسخة المستقرة ل[[$1]]',
+	'stable-logentry2' => 'أعاد ضبط النسخة المستقرة ل[[$1]]',
+	'stable-logpage' => 'سجل الاستقرار',
+	'stable-logpagetext' => 'هذا سجل بالتغييرات لضبط [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]
+لصفحات المحتوى.
+قائمة بالصفحات المستقرة يمكن العثور عليها فى [[Special:StablePages|قائمة الصفحات المستقرة]].',
+	'readerfeedback' => 'ماذا تظن بهذه الصفحة؟',
+	'readerfeedback-text' => "''من فضلك دقيقة لتقييم هذه الصفحة بالأسفل. تعليقك قيم ويساعدنا فى تحسين موقعنا.''",
+	'readerfeedback-reliability' => 'الاعتمادية',
+	'readerfeedback-completeness' => 'الاكتمال',
+	'readerfeedback-npov' => 'الحيادية',
+	'readerfeedback-presentation' => 'التقديم',
+	'readerfeedback-overall' => 'إجمالى',
+	'readerfeedback-level-none' => '(اختر)',
+	'readerfeedback-level-0' => 'فقير',
+	'readerfeedback-level-1' => 'منخفض',
+	'readerfeedback-level-2' => 'معقول',
+	'readerfeedback-level-3' => 'عالى',
+	'readerfeedback-level-4' => 'ممتاز',
+	'readerfeedback-submit' => 'تنفيذ',
+	'readerfeedback-main' => 'فقط صفحات المحتوى يمكن تقييمها.',
+	'readerfeedback-success' => "'''شكرا لك لمراجعة هذه الصفحة!''' من فضلك اترك أى تعليقات [$3 هنا].",
+	'readerfeedback-voted' => "'''يبدو أنك قيمت هذه الصفحة بالفعل.''' من فضلك اترك أى تعليقات [$3 هنا].",
+	'readerfeedback-submitting' => 'جارى التنفيذ...',
+	'readerfeedback-finished' => 'شكرا لك!',
+	'revreview-filter-all' => 'الكل',
+	'revreview-filter-approved' => 'تمت الموافقة عليها',
+	'revreview-filter-reapproved' => 'تكررت الموافقة عليها',
+	'revreview-filter-unapproved' => 'غير موافق عليها',
+	'revreview-filter-auto' => 'تلقائى',
+	'revreview-filter-manual' => 'يدوى',
+	'revreview-filter-level-0' => 'نسخ منظورة',
+	'revreview-filter-level-1' => 'نسخ جودة',
+	'revreview-statusfilter' => 'الحالة:',
+	'revreview-typefilter' => 'النوع:',
+	'revreview-tagfilter' => 'وسم:',
+	'tooltip-ca-current' => 'عرض المسودة الحالية لهذه الصفحة',
+	'tooltip-ca-stable' => 'عرض النسخة المستقرة لهذه الصفحة',
+	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
+	'tooltip-ca-ratinghist' => 'تقييمات القراء لهذه الصفحة',
+	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
+	'revreview-unlocked' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها فى هذه الصفحة!',
+	'revreview-tt-review' => 'راجع هذه الصفحة',
+	'validationpage' => '{{ns:help}}:تحقيق المقالات',
 );
 
 /** Asturian (Asturianu)
@@ -3803,7 +3987,7 @@ $messages['it'] = array(
 	'flaggedrevs-prefs' => 'Stabilità',
 	'flaggedrevs-prefs-watch' => 'Aggiungi le pagine che revisiono agli osservati speciali',
 	'group-editor' => 'Editori',
-	'group-editor-member' => 'editore',
+	'group-editor-member' => 'Editore',
 	'group-reviewer' => 'Revisori',
 	'group-reviewer-member' => 'Revisore',
 	'grouppage-editor' => '{{ns:project}}:Editore',
@@ -5763,8 +5947,8 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'readerfeedback-level-4' => 'Excellent',
 	'readerfeedback-submit' => 'Sometre',
 	'readerfeedback-main' => 'Sol lo contengut de las paginas pòt èsser notat.',
-	'readerfeedback-success' => "'''Mercés per aver revisat aquesta pagina ! ''' Los resultats de la reaccion del lector per '''$1''' pòdon èsser trobats [$2 aicí].",
-	'readerfeedback-voted' => "'''Apareis que ja avètz notat aquesta pagina'''. Los resultats de la reaccion del lector per '''$1''' pòt èsser trobada [$2 aicí].",
+	'readerfeedback-success' => "'''Mercés per aver revisat aquesta pagina ! ''' Daissatz qualques comentaris [$3 aicí].",
+	'readerfeedback-voted' => "'''Apareis que ja avètz notat aquesta pagina'''. Daissatz qualques comentaris [$3 aicí].",
 	'readerfeedback-submitting' => 'Somission…',
 	'readerfeedback-finished' => 'Mercés !',
 	'revreview-filter-all' => 'Tot',
@@ -7135,8 +7319,8 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'readerfeedback-level-4' => 'Mycket bra',
 	'readerfeedback-submit' => 'Skicka',
 	'readerfeedback-main' => 'Endast innehållssidor kan granskas.',
-	'readerfeedback-success' => "'''Tack för att du granskade den här sidan!''' Resultat av läsarfeedback för '''$1''' kan hittas [$2 här].",
-	'readerfeedback-voted' => "'''Det verkar som att du redan betygsatt den här sidan.''' Resultat av läsarfeedback för '''$1''' kan hittas [$2 här].",
+	'readerfeedback-success' => "'''Tack för att du granskade den här sidan!''' Lämna eventuella kommentarer [$3 här].",
+	'readerfeedback-voted' => "'''Det verkar som att du redan betygsatt den här sidan'''. Lämna eventuella kommentarer [$3 här].",
 	'readerfeedback-submitting' => 'Skickar...',
 	'readerfeedback-finished' => 'Tack!',
 	'revreview-filter-all' => 'Alla',

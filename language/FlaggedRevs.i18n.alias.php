@@ -208,11 +208,11 @@ $aliases['km'] = array(
  * @author Robby
  */
 $aliases['lb'] = array(
+	'LikedPages' => array( 'Beléiwte Säiten' ),
+	'ProblemPages' => array( 'Problematesch Säiten' ),
 	'ReviewedPages' => array( 'Säiten déi iwwerkuckt gi sinn' ),
 	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
-	'ProblemPages' => array( 'Problematesch Säiten' ),
-	'LikedPages' => array( 'Beléiwte Säiten' ),
 );
 
 /** Marathi (मराठी)
@@ -359,15 +359,15 @@ $aliases['sr-ec'] = array(
  * @author M.M.S.
  */
 $aliases['sv'] = array(
-	'QualityOversight' => array( 'Kvalitetsöversikt' ),
-	'UnReviewedPages' => array( 'Ogranskade sidor' ),
 	'OldReviewedPages' => array( 'Gamla granskade sidor' ),
+	'ProblemPages' => array( 'Problemsidor' ),
+	'QualityOversight' => array( 'Kvalitetsöversikt' ),
 	'ReviewedPages' => array( 'Granskade sidor' ),
+	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabila sidor' ),
 	'StableVersions' => array( 'Stabila versioner' ),
-	'ProblemPages' => array( 'Problemsidor' ),
+	'UnReviewedPages' => array( 'Ogranskade sidor' ),
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
-	'Stabilization' => array( 'Stabilisering' ),
 );
 
 /** Vèneto (Vèneto)

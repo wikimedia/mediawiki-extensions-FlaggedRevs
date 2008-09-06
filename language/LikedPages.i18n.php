@@ -26,6 +26,17 @@ $messages['ar'] = array(
 	'likedpages-graphs' => 'بيانات التقييم',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'likedpages' => 'صفحات تقييمها مرتفع',
+	'likedpages-leg' => 'إيجاد الصفحات ذات التقييم المرتفع',
+	'likedpages-list' => 'بالأسفل قائمة بالصفحات مرتبة حسب تقييم القراء.',
+	'likedpages-none' => 'لا توجد صفحات فى هذه القائمة',
+	'likedpages-graphs' => 'بيانات التقييم',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'likedpages' => 'Hoch bewertete Seiten',

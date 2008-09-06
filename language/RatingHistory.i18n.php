@@ -58,6 +58,29 @@ $messages['ar'] = array(
 	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'ratinghistory' => 'تاريخ تقييم الصفحة',
+	'ratinghistory-text' => "'''هذه الصفحة تعرض بيانات تقييم المقالة ل[[:$1|$1]].'''",
+	'ratinghistory-leg' => 'بيانات تقييم التاريخ',
+	'ratinghistory-tab' => 'تقييم',
+	'ratinghistory-link' => 'تقييم المقالة',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">شكرا لك لاستغراقك دقيقة لمراجعة هذه الصفحة!</font>'''''",
+	'ratinghistory-period' => 'فترة زمنية:',
+	'ratinghistory-month' => 'آخر شهر',
+	'ratinghistory-year' => 'آخر سنة',
+	'ratinghistory-3years' => 'آخر 3 سنوات',
+	'ratinghistory-graph' => 'بيانات المراجعة من $1 {{PLURAL:$1|قارئ|قارئ}}',
+	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
+	'ratinghistory-legend' => "التقييم اليومى المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
+المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ. قيم التقييم يتم تفسيرها كالتالي:
+
+'''[0]''' - فقير؛ '''[1]''' - منخفض؛ '''[2]''' - معقول؛ '''[3]''' - مرتفع؛ '''[4]''' - ممتاز؛",
+	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -190,10 +213,12 @@ $messages['gl'] = array(
 	'ratinghistory-month' => 'último mes',
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos 3 anos',
-	'ratinghistory-legend' => "A valoración do promedio diario <font color=\"blue\">''(azul)''</font> e o intervalo seleccionado <font color=\"green\">''(verde)''</font> serán postos, por data, na gráfica de embaixo. O número de revisións é amosado no
-recanto superior dereito das gráficas; os valores máis altos tratan de indicar os mellores datos de mostra. Os valores da valoración serán interpretados da seguinte maneira:
+	'ratinghistory-graph' => 'Datos da revisión {{PLURAL:$1|dun lector|de $1 lectores}}',
+	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
+	'ratinghistory-legend' => "A valoración do promedio diario <font color=\"blue\">''(azul)''</font> e o intervalo seleccionado <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo. Os valores da valoración serán interpretados do seguinte xeito:
 
 '''[0]''' - Pobre; '''[1]''' - Baixo; '''[2]''' - Ben; '''[3]''' - Alto; '''[4]''' - Excelente;",
+	'right-feedback' => 'Usar o formulario de reacción para valorar unha páxina',
 );
 
 /** Hungarian (Magyar)
@@ -345,6 +370,7 @@ $messages['oc'] = array(
 	'ratinghistory-text' => "'''Aquesta pagina aficha las donadas de notacion d’article per [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Donadas de l’istoric de la notacion',
 	'ratinghistory-tab' => 'notacion',
+	'ratinghistory-link' => 'Notacion de l’article',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Mercés de nos aver consacrat de temps per tornar legir aquesta pagina !</font>'''''",
 	'ratinghistory-period' => 'Periòde :',
 	'ratinghistory-month' => 'darrièr mes',
@@ -419,6 +445,7 @@ $messages['sv'] = array(
 	'ratinghistory-text' => "'''Denna sida visar artikelbetygsdata för [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Betygshistorikdata',
 	'ratinghistory-tab' => 'betyg',
+	'ratinghistory-link' => 'Artikelrating',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Tack för att du tog dig tid att granska den här sidan!</font>'''''",
 	'ratinghistory-period' => 'Tidsperiod:',
 	'ratinghistory-month' => 'senaste månaden',

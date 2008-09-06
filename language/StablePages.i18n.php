@@ -49,6 +49,17 @@ $messages['ar'] = array(
 	'stablepages-config' => 'ضبط',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'stablepages' => 'صفحات مستقرة',
+	'stablepages-stable' => 'نسخة مستقرة',
+	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضى للمشاهدين.',
+	'stablepages-none' => 'لا توجد صفحات فى هذه القائمة',
+	'stablepages-config' => 'ضبط',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
