@@ -13,7 +13,7 @@ CREATE TABLE /*$wgDBprefix*/flaggedpages (
   PRIMARY KEY (fp_page_id),
   INDEX fp_reviewed_page (fp_reviewed,fp_page_id),
   INDEX fp_quality_page (fp_quality,fp_page_id)
-) TYPE=InnoDB;
+) /*$wgDBTableOptions*/;
 
 -- Migrate old page_ext hacks over
 INSERT INTO /*$wgDBprefix*/flaggedpages (fp_page_id,fp_reviewed,fp_stable,fp_quality)
