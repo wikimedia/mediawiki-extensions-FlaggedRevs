@@ -4,10 +4,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class ValidationStatistics extends UnlistedSpecialPage
+class ValidationStatistics extends IncludableSpecialPage
 {
 	function __construct() {
-		SpecialPage::SpecialPage( 'ValidationStatistics' );
+		IncludableSpecialPage::IncludableSpecialPage( 'ValidationStatistics' );
 		wfLoadExtensionMessages( 'ValidationStatistics' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
