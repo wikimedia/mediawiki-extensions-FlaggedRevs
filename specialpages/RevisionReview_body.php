@@ -706,6 +706,7 @@ class RevisionReview extends UnlistedSpecialPage
 			} else if( $poutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
 				$includesSynced = false;
 			}
+			$u->fr_stableRev = $sv; // no need to re-fetch this!
 			$u->fr_stableParserOut = $stableOutput; // no need to re-fetch this!
 			# We can set the sync cache key already.
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );

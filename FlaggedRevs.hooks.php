@@ -147,18 +147,6 @@ EOT;
 	}
 
 	/**
-	* Clears visiblity settings on page delete
-	*/
-	public static function deleteVisiblitySettings( $article, $user, &$reason ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpage_config',
-			array( 'fpc_page_id' => $article->getID() ),
-			__METHOD__ );
-
-		return true;
-	}
-
-	/**
 	* Inject stable links on LinksUpdate
 	*/
 	public static function extraLinksUpdate( $linksUpdate ) {
@@ -166,20 +154,26 @@ EOT;
 			return true;
 		}
 		wfProfileIn( __METHOD__ );
+		$dbw = wfGetDB( DB_MASTER );
 		# Check if this page has a stable version by fetching it. Do not
 		# get the fr_text field if we are to use the latest stable template revisions.
 		global $wgUseStableTemplates;
 		$flags = $wgUseStableTemplates ? FR_FOR_UPDATE : FR_FOR_UPDATE | FR_TEXT;
-		$sv = FlaggedRevision::newFromStable( $linksUpdate->mTitle, $flags );
-		$pageId = $linksUpdate->mTitle->getArticleId();
+		# Try the process cache...
+		$sv = isset($u->fr_stableRev) ? 
+			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, $flags );
+		# Empty flagged page settings row on delete
+		if( !($pageId = $linksUpdate->mTitle->getArticleId(GAID_FOR_UPDATE)) ) {
+			$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $pageId ), __METHOD__ );
+		}
+		# Empty flagged revs data for this page if there is no stable version
 		if( !$sv ) {
-			$dbw = wfGetDB( DB_MASTER );
 			$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
 			$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
-		# Get the either the full flagged revision text or the revision text
+		# Try the process cache...
 		$article = new Article( $linksUpdate->mTitle );
 		if( isset($linksUpdate->fr_stableParserOut) ) {
 			$parserOut = $linksUpdate->fr_stableParserOut;
@@ -225,7 +219,6 @@ EOT;
 		$insertions = self::getLinkInsertions( $existing, $links, $pageId );
 		$deletions = self::getLinkDeletions( $existing, $links );
 		# Delete removed links
-		$dbw = wfGetDB( DB_MASTER );
 		if( $clause = self::makeWhereFrom2d( $deletions ) ) {
 			$where = array( 'ftr_from' => $pageId );
 			$where[] = $clause;
