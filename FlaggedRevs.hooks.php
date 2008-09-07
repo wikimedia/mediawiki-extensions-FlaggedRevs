@@ -163,8 +163,11 @@ EOT;
 		$sv = isset($u->fr_stableRev) ? 
 			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, $flags );
 		# Empty flagged page settings row on delete
+		$oldId = $linksUpdate->mTitle->getArticleId(); // cleared *after* this is called
 		if( !($pageId = $linksUpdate->mTitle->getArticleId(GAID_FOR_UPDATE)) ) {
-			$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $pageId ), __METHOD__ );
+			$dbw->delete( 'flaggedpage_config', 
+				array( 'fpc_page_id' => $oldId ),
+				__METHOD__ );
 		}
 		# Empty flagged revs data for this page if there is no stable version
 		if( !$sv ) {
