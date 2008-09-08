@@ -664,7 +664,7 @@ EOT;
 		}
 		// New pages
 		if( !$prevRevId ) {
-			$reviewableNewPage = ( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('review') );
+			$reviewableNewPage = (bool)$wgFlaggedRevsAutoReviewNew;
 		// Edits to existing pages
 		} else if( $baseRevId ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_FOR_UPDATE );
