@@ -160,6 +160,7 @@ $messages['gl'] = array(
 	'validationstatistics' => 'Estatísticas de validación',
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
+	'validationstatistics-stable' => 'Revisado',
 );
 
 /** Hebrew (עברית)

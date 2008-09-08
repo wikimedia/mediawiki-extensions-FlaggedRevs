@@ -231,13 +231,13 @@ $aliases['mr'] = array(
  * @author Aviator
  */
 $aliases['ms'] = array(
-	'QualityOversight' => array( 'Kawalan_mutu' ),
-	'UnReviewedPages' => array( 'Laman_tidak_diperiksa' ),
 	'OldReviewedPages' => array( 'Laman_diperiksa_lapuk' ),
+	'ProblemPages' => array( 'Laman_bermasalah' ),
+	'QualityOversight' => array( 'Kawalan_mutu' ),
 	'ReviewedPages' => array( 'Laman_diperiksa' ),
 	'StablePages' => array( 'Laman_stabil' ),
 	'StableVersions' => array( 'Versi_stabil' ),
-	'ProblemPages' => array( 'Laman_bermasalah' ),
+	'UnReviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
 /** Erzya (Эрзянь) */
@@ -318,13 +318,13 @@ $aliases['pl'] = array(
  * @author 555
  */
 $aliases['pt'] = array(
-	'QualityOversight' => array( 'Observatório_da_qualidade' ),
-	'UnReviewedPages' => array( 'Páginas_a_analisar' ),
 	'OldReviewedPages' => array( 'Versões_antigas_de_páginas_analisadas' ),
+	'ProblemPages' => array( 'Páginas com problemas' ),
+	'QualityOversight' => array( 'Observatório_da_qualidade' ),
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
 	'StablePages' => array( 'Páginas_estáveis' ),
 	'StableVersions' => array( 'Edições_estáveis' ),
-	'ProblemPages' => array( 'Páginas com problemas' ),
+	'UnReviewedPages' => array( 'Páginas_a_analisar' ),
 );
 
 /** Slovak (Slovenčina)
@@ -386,11 +386,11 @@ $aliases['vec'] = array(
  * @author Vinhtantran
  */
 $aliases['vi'] = array(
-	'QualityOversight' => array( 'Giám sát chất lượng' ),
-	'UnReviewedPages' => array( 'Trang chưa duyệt' ),
 	'OldReviewedPages' => array( 'Trang chưa duyệt cũ' ),
+	'QualityOversight' => array( 'Giám sát chất lượng' ),
 	'ReviewedPages' => array( 'Trang đã duyệt' ),
 	'StablePages' => array( 'Trang ổn định' ),
 	'StableVersions' => array( 'Bản ổn định' ),
+	'UnReviewedPages' => array( 'Trang chưa duyệt' ),
 );
 
