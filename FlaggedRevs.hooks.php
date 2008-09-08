@@ -806,9 +806,9 @@ EOT;
 		}
 		# Check basic, already available, promotion heuristics first...
 		$now = time();
-		$usercreation = wfTimestamp( TS_UNIX, $user->getRegistration() );
-		$userage = floor(($now - $usercreation) / 86400);
-		if( $userage < $wgFlaggedRevsAutopromote['days'] ) {
+		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
+		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : NULL;
+		if( !is_null($userage) && $userage < $wgFlaggedRevsAutopromote['days'] ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
