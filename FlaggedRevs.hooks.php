@@ -155,13 +155,11 @@ EOT;
 		}
 		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
-		# Check if this page has a stable version by fetching it. Do not
-		# get the fr_text field if we are to use the latest stable template revisions.
-		global $wgUseStableTemplates;
-		$flags = $wgUseStableTemplates ? FR_FOR_UPDATE : FR_FOR_UPDATE | FR_TEXT;
+		$dbw->begin();
+		# Check if this page has a stable version by fetching it.
 		# Try the process cache...
 		$sv = isset($u->fr_stableRev) ? 
-			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, $flags );
+			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, FR_FOR_UPDATE );
 		# Empty flagged page settings row on delete
 		$oldId = $linksUpdate->mTitle->getArticleId(); // cleared *after* this is called
 		if( !($pageId = $linksUpdate->mTitle->getArticleId(GAID_FOR_UPDATE)) ) {
@@ -231,6 +229,7 @@ EOT;
 		if ( count($insertions) ) {
 			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
+		$dbw->commit();
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
