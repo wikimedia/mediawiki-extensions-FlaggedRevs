@@ -999,16 +999,16 @@ class FlaggedRevs {
 
 		$title = $article->getTitle();
 		
-		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
-		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
 		$parseId = ($rev->getId() == $latestID) ? null : $rev->getId();
 		# Parse the revision HTML output
 		$editInfo = $article->prepareTextForEdit( $text, $parseId );
 		$poutput = $editInfo->output;
+		
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $title );
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		# NS:title -> rev ID mapping
 		foreach( $poutput->mTemplateIds as $namespace => $titleAndID ) {
