@@ -1000,7 +1000,7 @@ class FlaggedRevs {
 		$title = $article->getTitle();
 		
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $title, FR_TEXT | FR_FOR_UPDATE );
+		$oldSv = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		
 		# Rev ID is not put into parser on edit, so do the same here.
@@ -1099,10 +1099,11 @@ class FlaggedRevs {
 		if( $patrol ) {
 			RevisionReview::updateRecentChanges( $title, $rev->getId() );
 		}
-
 		# Update the article review log
 		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, true );
+		$dbw->commit();
 
+		$dbw->begin();
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_FOR_UPDATE );

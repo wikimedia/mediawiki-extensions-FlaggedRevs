@@ -85,7 +85,7 @@ class FlaggedRevision {
 	 * @param int $flags
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
-	public static function newFromStable( $title, $flags=0 ) {
+	public static function newFromStable( $title, $flags = 0 ) {
 		$columns = self::selectFields();
 		$options = array();
 		if( $flags & FR_TEXT ) {
