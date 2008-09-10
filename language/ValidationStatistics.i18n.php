@@ -158,9 +158,16 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'validationstatistics' => 'Estatísticas de validación',
+	'validationstatistics-users' => "Actualmente, '''{{SITENAME}}''' ten '''$1''' {{PLURAL:$1|usuario|usuarios}} con dereitos de [[{{MediaWiki:Validationpage}}|editor]] e '''$2''' {{PLURAL:$2|usuario|usuarios}} con dereitos de [[{{MediaWiki:Validationpage}}|revisor]].",
+	'validationstatistics-table' => "As estatísticas para cada espazo de nomes son amosadas embaixo, excluíndo as páxinas de redirección.
+
+'''Nota:''' os seguintes datos están na memoria caché durante varias horas e poden non estar actualizados.",
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
 	'validationstatistics-stable' => 'Revisado',
+	'validationstatistics-latest' => 'Última revisión',
+	'validationstatistics-synced' => 'Sincronizado/Revisado',
+	'validationstatistics-old' => 'Anticuado',
 );
 
 /** Hebrew (עברית)

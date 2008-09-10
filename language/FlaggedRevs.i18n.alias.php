@@ -134,13 +134,13 @@ $aliases['fa'] = array(
  * @author Verdy p
  */
 $aliases['fr'] = array(
-	'QualityOversight' => array( 'SuperviseurQualité' ),
-	'UnReviewedPages' => array( 'PagesNonRelues' ),
 	'OldReviewedPages' => array( 'AnciennesPagesRelues' ),
+	'ProblemPages' => array( 'PagesProblematiques' ),
+	'QualityOversight' => array( 'SuperviseurQualité' ),
 	'ReviewedPages' => array( 'Pages révisées' ),
 	'StablePages' => array( 'PagesStables' ),
 	'StableVersions' => array( 'VersionsStables' ),
-	'ProblemPages' => array( 'PagesProblematiques' ),
+	'UnReviewedPages' => array( 'PagesNonRelues' ),
 );
 
 /** Galician (Galego)
@@ -176,8 +176,8 @@ $aliases['hr'] = array(
 /** Hungarian (Magyar) */
 $aliases['hu'] = array(
 	'QualityOversight' => array( 'Minőségellenőrzés' ),
-	'UnReviewedPages' => array( 'Ellenőrizetlen lapok' ),
 	'ReviewedPages' => array( 'Ellenőrzött lapok' ),
+	'UnReviewedPages' => array( 'Ellenőrizetlen lapok' ),
 	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
 );
 

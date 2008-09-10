@@ -2557,8 +2557,8 @@ $messages['fa'] = array(
 	'readerfeedback-level-4' => 'ممتاز',
 	'readerfeedback-submit' => 'ارسال',
 	'readerfeedback-main' => 'فقط صفحه‌های محتوایی قابل ارزیابی هستند.',
-	'readerfeedback-success' => "'''از این که این صفحه را ارزیابی کردید ممنونیم!''' لطفاً نظرات خود را [$3 این‌جا] بنویسید.",
-	'readerfeedback-voted' => "'''به نظر می‌رسد که شما پیش از این این صفحه را ارزیابی کرده‌اید'''. لطفاً نظرات خود را [$3 این‌جا] بنویسید.",
+	'readerfeedback-success' => "از این که این صفحه را ارزیابی کردید ممنونیم!''' ([$3 نظرها و سوال‌ها]).",
+	'readerfeedback-voted' => "به نظر می‌رسد که شما پیش از این این صفحه را ارزیابی کرده‌اید''' ([$3 نظرها و سوال‌ها]).",
 	'readerfeedback-submitting' => 'در حال ارسال...',
 	'readerfeedback-finished' => 'متشکریم!',
 	'revreview-filter-all' => 'همه',
@@ -3121,6 +3121,8 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'tooltip-ca-stable' => 'Ver a versión estábel desta páxina',
 	'tooltip-ca-default' => 'Configuración de garantía da calidade',
 	'tooltip-ca-ratinghist' => 'Valoracións dos lectores desta páxina',
+	'revreview-locked' => 'As edicións deben estar revisadas antes de ser amosadas nesta páxina!',
+	'revreview-unlocked' => 'As edicións non requiren estar revisadas antes de ser amosadas nesta páxina!',
 	'revreview-tt-review' => 'Revisar esta páxina',
 	'validationpage' => '{{ns:help}}:Confirmación do artigo',
 );
@@ -3441,7 +3443,7 @@ $messages['hsb'] = array(
 	'review-logentry-dis' => 'je wersiju wot $1 zaćisnył',
 	'review-logentry-id' => 'Wersijowy ID $1',
 	'review-logpage' => 'Protokol přepruwowanjow',
-	'review-logpagetext' => 'To je protokol změnow statusa [[{{MediaWiki:Makevalidate-page}}|schwalenja]] pruwowanjow za nastawki.
+	'review-logpagetext' => 'To je protokol změnow statusa  [[{{MediaWiki:Validationpage}}|schwalenja]] wersijow za nastawki.
 Hlej [[Special:ReviewedPages|lisćinu přepruwowanych stronow]] za lisćinu schwalenych stronow.',
 	'reviewer' => 'přehladowar',
 	'revisionreview' => 'Wersije přepruwować',
@@ -3473,9 +3475,9 @@ Předłoha abo wobraz bu bjez podaća wersije požadana/požadany. To móže so 
 	'revreview-flag' => 'Tutu wersiju přepruwować',
 	'revreview-legend' => 'Wobsah wersije pohódnoćić',
 	'revreview-log' => 'Protokolowy zapisk:',
-	'revreview-main' => 'Dyrbiš wěstu wersiju nastawka za přehladanje wubrać.
+	'revreview-main' => 'Dyrbiš wěstu wersiju nastawka za přepruwowanje wubrać.
 
-Hlej [[Special:Unreviewedpages]] za lisćinu njepřehladanych wersijow.',
+Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslednja wuhladana wersija]
 	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} hlej wšě]) bu dnja <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena].
 	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|wersija|wersijow|wersije|wersiji}}] {{PLURAL:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so pruwować.',
@@ -3488,10 +3490,9 @@ Hlej [[Special:Unreviewedpages]] za lisćinu njepřehladanych wersijow.',
 	'revreview-oldrating' => 'Zastopnjowanje:',
 	'revreview-patrol' => 'Tutu změnu jako dohladowanu markěrować',
 	'revreview-patrolled' => 'Wubrana wersija bu wot [[:$1|$1]] bu jako dohladowana marěkrowana.',
-	'revreview-quality' => 'To je poslednja [[{{MediaWiki:Validationpage}}|kwalitna wersija]],
-	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena]  <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Tuchwilna wersija]
-	móže so [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} wobdźěłać; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|wersija|wersijow|wersije|wersiji}}]
-	{{PLURAL:$3|dyrbi|dyrbi|dyrbja|dyrbjetej}} so hišće pruwować.',
+	'revreview-quality' => 'To je najnowša [[{{MediaWiki:Validationpage}}|kwalitna wersija]],
+	[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} dopušćena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Naćisk] ma
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změnu|změnje|změny|změnow}}], {{PLURAL:$3|kotraž|kotrejž|kotrež|kotrež}} na přepruwowanje {{PLURAL:$3|čaka|čakatej|čakaja|čakaja}}.',
 	'revreview-quality-same' => 'To je aktualna [[{{MediaWiki:Validationpage}}|kajkostna]] wersija,
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schwalena] <i>$2</i>. Strona da so [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} wobdźěłać].',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Wuhladowany]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualna wersiju]]",
@@ -3499,9 +3500,9 @@ Hlej [[Special:Unreviewedpages]] za lisćinu njepřehladanych wersijow.',
 	'revreview-quick-none' => "'''Aktualnje'''. Žane přehladowane wersije.",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pruwowany]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Hlej aktualnu wersiju]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kajkosć]]''' (žane njepruwowane změny)",
-	'revreview-quick-see-basic' => "'''Naćisk''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} hlej stabilnu stronu]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
-{{PLURAL:$2|změna|změnje|změny|změnow}}])",
-	'revreview-quick-see-quality' => "'''Naćisk''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} hlej stabilnu stronu]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|změna|změnje|změny|změnow}}])",
+	'revreview-quick-see-basic' => "'''Naćisk''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} hlej mastawk]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} přirunaj])",
+	'revreview-quick-see-quality' => "'''Naćisk''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} hlej nastawk]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} přirunaj])",
 	'revreview-selected' => "Wubrana wersija z '''$1:'''",
 	'revreview-source' => 'Žórło naćiska',
 	'revreview-stable' => 'Stabilna strona',
@@ -5948,8 +5949,8 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'readerfeedback-level-4' => 'Excellent',
 	'readerfeedback-submit' => 'Sometre',
 	'readerfeedback-main' => 'Sol lo contengut de las paginas pòt èsser notat.',
-	'readerfeedback-success' => "'''Mercés per aver revisat aquesta pagina ! ''' Daissatz qualques comentaris [$3 aicí].",
-	'readerfeedback-voted' => "'''Apareis que ja avètz notat aquesta pagina'''. Daissatz qualques comentaris [$3 aicí].",
+	'readerfeedback-success' => "'''Mercés per la revision d'aquesta pagina ! ''' ([$3 De questions o de comentaris ? ]).",
+	'readerfeedback-voted' => "'''Apareis que ja avètz notat aquesta pagina'''. ([$3 De questions o de comentaris ?]).",
 	'readerfeedback-submitting' => 'Somission…',
 	'readerfeedback-finished' => 'Mercés !',
 	'revreview-filter-all' => 'Tot',
@@ -8070,8 +8071,8 @@ Danh sách các trang ổn định có thể tìm thấy tại [[Special:StableP
 	'readerfeedback-level-4' => 'Tốt',
 	'readerfeedback-submit' => 'Đệ trình',
 	'readerfeedback-main' => 'Chỉ đánh giá được những trang nội dung.',
-	'readerfeedback-success' => "'''Cám ơn đã duyệt trang này!''' [$3 Ghi chú].",
-	'readerfeedback-voted' => "'''Hình như bạn đã đánh giá trang này.''' [$3 Ghi chú].",
+	'readerfeedback-success' => "'''Cám ơn bạn vì đã duyệt trang này!''' ([$3 Ghi chú hoặc câu hỏi?]).",
+	'readerfeedback-voted' => "'''Dường như bạn đã xếp hạng trang này rồi''' ([$3 Ghi chú hoặc câu hỏi?]).",
 	'readerfeedback-submitting' => 'Đang gửi…',
 	'readerfeedback-finished' => 'Cám ơn!',
 	'revreview-filter-all' => 'Tất cả',
