@@ -51,12 +51,19 @@ class FlaggedRevision {
 	 */
 	public static function newFromTitle( $title, $revId, $flags = 0 ) {
 		$columns = self::selectFields();
-		$options = array();
+		# If we want the text, then get the text flags too
 		if( $flags & FR_TEXT ) {
 			$columns += self::selectTextFields();
-			$options[] = 'FOR UPDATE';
 		}
-		$db = $flags & FR_FOR_UPDATE ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$options = array();
+		# User master/slave as appropriate
+		if( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
+			$db = wfGetDB( DB_MASTER );
+			if( $flags & FR_FOR_UPDATE )
+				$options[] = 'FOR UPDATE';
+		} else {
+			$db = wfGetDB( DB_SLAVE );
+		}
 		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
 		# Short-circuit query
 		if( !$pageId ) {
@@ -87,18 +94,18 @@ class FlaggedRevision {
 	 */
 	public static function newFromStable( $title, $flags = 0 ) {
 		$columns = self::selectFields();
-		$options = array();
+		# If we want the text, then get the text flags too
 		if( $flags & FR_TEXT ) {
 			$columns += self::selectTextFields();
-			$options[] = 'FOR UPDATE';
 		}
+		$options = array();
 		$row = null;
 		# Short-circuit query
 		if( !$title->getArticleId() ) {
 			return $row;
 		}
-		# If we want the text, then get the text flags too
-		if( !($flags & FR_FOR_UPDATE) ) {
+		# User master/slave as appropriate
+		if( !($flags & FR_FOR_UPDATE) && !($flags & FR_MASTER) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
 				$columns,
@@ -109,10 +116,12 @@ class FlaggedRevision {
 			if( !$row )
 				return null;
 		} else {
-			$options['ORDER BY'] = 'fr_rev_id DESC';
+			if( $flags & FR_FOR_UPDATE )
+				$options[] = 'FOR UPDATE';
 			# Get visiblity settings...
-			$config = FlaggedRevs::getPageVisibilitySettings( $title, $flags & FR_FOR_UPDATE );
+			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
 			$dbw = wfGetDB( DB_MASTER );
+			$options['ORDER BY'] = 'fr_rev_id DESC';
 			# Look for the latest pristine revision...
 			if( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				$prow = $dbw->selectRow( array('flaggedrevs','revision'),

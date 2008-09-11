@@ -40,8 +40,10 @@ if( !defined('FLAGGED_VIS_PRISTINE') )
 	
 if( !defined('FR_FOR_UPDATE') )
 	define('FR_FOR_UPDATE',1);
+if( !defined('FR_MASTER') )
+	define('FR_MASTER',2);
 if( !defined('FR_TEXT') )
-	define('FR_TEXT',2);
+	define('FR_TEXT',3);
 	
 if( !defined('READER_FEEDBACK_SIZE') )
 	define('READER_FEEDBACK_SIZE',30);	

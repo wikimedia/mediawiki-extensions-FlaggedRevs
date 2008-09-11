@@ -630,6 +630,8 @@ EOT;
 		$user = User::newFromId( $rev->getUser() );
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
+		# If $baseRevId passed in, this is a null edit
+		$isNullEdit = $baseRevId ? true : false;
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
 		if( !FlaggedRevs::isPageReviewable( $title ) ) {
@@ -666,19 +668,23 @@ EOT;
 			$reviewableNewPage = (bool)$wgFlaggedRevsAutoReviewNew;
 		// Edits to existing pages
 		} else if( $baseRevId ) {
-			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_FOR_UPDATE );
+			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
 			if( !$frev ) {
-				$frev = FlaggedRevision::newFromTitle( $title, $prevRevId, FR_FOR_UPDATE );
+				$frev = FlaggedRevision::newFromTitle( $title, $prevRevId, FR_MASTER );
 			}
 		}
 		# Is this an edit directly to the stable version?
 		if( $reviewableNewPage || !is_null($frev) ) {
-			# Assume basic flagging level
-			$flags = array();
-			foreach( FlaggedRevs::getDimensions() as $tag => $minQL ) {
-				$flags[$tag] = 1;
+			# Assume basic flagging level unless this is a null edit
+			if( $isNullEdit ) {
+				$flags = $frev->getTags();
+			} else {
+				$flags = array();
+				foreach( FlaggedRevs::getDimensions() as $tag => $minQL ) {
+					$flags[$tag] = 1;
+				}
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
 			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
