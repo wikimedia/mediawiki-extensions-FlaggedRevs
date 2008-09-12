@@ -108,6 +108,17 @@ $messages['nl'] = array(
 	'likedpages-graphs' => 'waarderingsgegevens',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'likedpages' => 'Sider med høy vurdering',
+	'likedpages-leg' => 'Find sider med høy vurdering',
+	'likedpages-list' => 'Nedenfor er en liste over sider sortert etter lesernes vurdering.',
+	'likedpages-none' => 'Det er ingen sider i denne listen',
+	'likedpages-graphs' => 'vurderingsdata',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */

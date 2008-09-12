@@ -192,7 +192,7 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'problempages' => 'Problemsider',
+	'problempages' => 'Sider med lav vurdering',
 	'problempages-leg' => 'Finn sider med lav vurdering',
 	'problempages-list' => 'Nedenfor er en lite over sider sortert etter lesernes vurdering av dem',
 	'problempages-none' => 'Det er ingen sider i denne listen',

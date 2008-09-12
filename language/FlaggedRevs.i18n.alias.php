@@ -93,16 +93,17 @@ $aliases['bcc'] = array(
  * @author Raimond Spekking
  */
 $aliases['de'] = array(
-	'QualityOversight' => array( 'Geprüfte Seiten' ),
-	'UnReviewedPages' => array( 'Ungesichtete Seiten' ),
-	'OldReviewedPages' => array( 'Seiten mit ungesichteten Versionen' ),
-	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
-	'StablePages' => array( 'Konfigurierte Seiten' ),
-	'StableVersions' => array( 'Seitenkonfiguration' ),
-	'ProblemPages' => array( 'Niedrig bewertete Seiten' ),
-	'ValidationStatistics' => array( 'Markierungsstatistik' ),
-	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
 	'LikedPages' => array( 'Hoch bewertete Seiten' ),
+	'OldReviewedPages' => array( 'Seiten mit ungesichteten Versionen' ),
+	'ProblemPages' => array( 'Niedrig bewertete Seiten' ),
+	'QualityOversight' => array( 'Markierungsübersicht' ),
+	'ReaderFeedback' => array( 'Bewertung' ),
+	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
+	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
+	'StablePages' => array( 'Konfigurierte Seiten' ),
+	'StableVersions' => array( 'Markierte Versionen' ),
+	'UnReviewedPages' => array( 'Ungesichtete Seiten' ),
+	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
 /** Esperanto (Esperanto)
@@ -185,16 +186,19 @@ $aliases['hu'] = array(
  * @author Rex
  */
 $aliases['id'] = array(
-	'QualityOversight' => array( 'Pemeriksaan kualitas', 'PemeriksaanKualitas' ),
-	'UnReviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
+	'LikedPages' => array( 'Halaman digemari' ),
 	'OldReviewedPages' => array( 'Tinjauan usang', 'HalamanTertinjauUsang' ),
+	'ProblemPages' => array( 'Halaman bermasalah', 'HalamanBermasalah' ),
+	'QualityOversight' => array( 'Pemeriksaan kualitas', 'PemeriksaanKualitas' ),
+	'RatingHistory' => array( 'Sejarah penilaian' ),
+	'ReaderFeedback' => array( 'Umpan balik pembaca' ),
 	'ReviewedPages' => array( 'Halaman tertinjau', 'HalamanTertinjau' ),
+	'RevisionReview' => array( 'Tinjauan revisi' ),
+	'Stabilization' => array( 'Stabilisasi' ),
 	'StablePages' => array( 'Halaman stabil', 'HalamanStabil' ),
 	'StableVersions' => array( 'Versi stabil', 'VersiStabil' ),
-	'ProblemPages' => array( 'Halaman bermasalah', 'HalamanBermasalah' ),
+	'UnReviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
 	'ValidationStatistics' => array( 'Statistik validasi', 'StatistikValidasi' ),
-	'Stabilization' => array( 'Stabilisasi' ),
-	'LikedPages' => array( 'Halaman digemari' ),
 );
 
 /** Khmer (ភាសាខ្មែរ)

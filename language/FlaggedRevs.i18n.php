@@ -2225,8 +2225,8 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'readerfeedback-level-4' => 'Bonega',
 	'readerfeedback-submit' => 'Ek',
 	'readerfeedback-main' => 'Nur enhavaj paĝoj estas takseblaj.',
-	'readerfeedback-success' => "'''Dankon pro kontrolante ĉi tiun paĝon!''' Bonvolu enmeti komentojn [$3 ĉi tie].",
-	'readerfeedback-voted' => "'''Verŝajne vi jam taksis ĉi tiun paĝon.''' Bonvolu lasi komentojn [$3 ĉi tie].",
+	'readerfeedback-success' => "'''Dankon pro kontrolante ĉi tiun paĝon!''' ([$3 Ĉu komentoj aŭ demandoj?]).",
+	'readerfeedback-voted' => "'''Verŝajne vi jam taksis ĉi tiun paĝon.''' ([$3 Ĉu komentoj aŭ demandoj?]).",
 	'readerfeedback-submitting' => 'Sendante...',
 	'readerfeedback-finished' => 'Dankon!',
 	'revreview-filter-all' => 'Ĉio',
@@ -2945,7 +2945,7 @@ $messages['gl'] = array(
 	'flaggedrevs-prefs-stable' => 'Amosar sempre a versión estábel do contido das páxinas por defecto (se o hai)',
 	'flaggedrevs-prefs-watch' => 'Engadir as páxinas que revise á miña páxina de vixilancia',
 	'group-editor' => 'Editores',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Revisores',
 	'group-reviewer-member' => 'Revisor',
 	'grouppage-editor' => '{{ns:project}}:Editor',
@@ -5746,6 +5746,7 @@ En liste over stabiliserte sider kan finnes på [[Special:StablePages|listen ove
 	'readerfeedback-npov' => 'Nøytralitet',
 	'readerfeedback-presentation' => 'Presentasjon',
 	'readerfeedback-overall' => 'Helhetsinntrykk',
+	'readerfeedback-level-none' => '(velg)',
 	'readerfeedback-level-0' => 'Veldig dårlig',
 	'readerfeedback-level-1' => 'Dårlig',
 	'readerfeedback-level-2' => 'OK',
@@ -5753,8 +5754,8 @@ En liste over stabiliserte sider kan finnes på [[Special:StablePages|listen ove
 	'readerfeedback-level-4' => 'Veldig bra',
 	'readerfeedback-submit' => 'Send',
 	'readerfeedback-main' => 'Kun innholdssider kan vurderes.',
-	'readerfeedback-success' => "'''Takk for at du anmeldte denne siden!''' Tilbakemeldingsresultater for '''$1''' kan finnes [$2 her].",
-	'readerfeedback-voted' => "'''Du har allerede vurdert denne siden.''' Tilbakemeldingsresultater for '''$1''' kan finnes [$2 her].",
+	'readerfeedback-success' => "'''Takk for at du anmeldte denne siden!''' ([$3 Kommentarer eller spørsmål?])",
+	'readerfeedback-voted' => "'''Du har allerede vurdert denne siden.''' ([$3 Kommentarer eller spørsmål?])",
 	'readerfeedback-submitting' => 'Sender …',
 	'readerfeedback-finished' => 'Takk!',
 	'revreview-filter-all' => 'Alle',
@@ -6017,13 +6018,13 @@ $messages['pl'] = array(
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Szkic artykułu',
 	'revreview-edit' => 'Edytuj szkic',
-	'revreview-flag' => 'Recenzuj tą wersję',
+	'revreview-flag' => 'Recenzuj tę wersję',
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|zrecenzowanych]] wersji odpowiadających podanemu ID.",
 	'revreview-log' => 'Komentarz',
 	'revreview-noflagged' => "Brak zweryfikowanej przez krytyka wersji tej strony, możliwe że jakość merytoryczna '''nie''' została [[{{MediaWiki:Validationpage}}|sprawdzona]].",
 	'revreview-notes' => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-oldrating' => 'Uzyskana ocena:',
-	'revreview-patrol' => 'Oznacz tą zmianę jako sprawdzoną',
+	'revreview-patrol' => 'Oznacz tę zmianę jako sprawdzoną',
 	'revreview-patrol-title' => 'Oznacz jako sprawdzone',
 	'revreview-patrolled' => 'Wybrana wersja [[:$1|$1]] została oznaczona jako spatrolowana.',
 	'revreview-quick-invalid' => "'''Nieprawidłowy ID wersji artykułu'''",
@@ -6372,6 +6373,16 @@ $messages['ro'] = array(
 	'revreview-stable' => 'Pagină stabilă',
 	'revreview-style-1' => 'Acceptabil',
 	'revreview-typefilter' => 'Tip:',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'revreview-style-0' => 'Fasce schife, bocciete',
+	'revreview-style-1' => 'Accettabbele',
+	'revreview-style-2' => 'Bbuene',
+	'revreview-style-3' => 'Congise',
 );
 
 /** Russian (Русский)
@@ -7675,7 +7686,7 @@ $messages['uk'] = array(
 	'revreview-log' => 'Коментар:',
 	'revreview-main' => 'Ви повинні обрати одну з версій сторінки для перевірки.
 
-Див. список неперевірених сторінок на [[Special:Unreviewedpages]].',
+Див. також [[Special:Unreviewedpages|список неперевірених сторінок]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
@@ -7724,7 +7735,9 @@ $messages['uk'] = array(
 	'revreview-style-3' => 'стисла',
 	'revreview-style-4' => 'вибрана',
 	'revreview-submit' => 'Позначити перевіреною',
-	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена ([{{fullurl:Special:Stableversions|page=$2}} перегляд усіх зазначених версій])'''",
+	'revreview-submitting' => 'Надсилання...',
+	'revreview-finished' => 'Перевірка виконана!',
+	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:Special:Stableversions|page=$2}} перегляд усіх зазначених версій])'''",
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
 	'revreview-text' => "''За замовчуванням установлений показ [[{{MediaWiki:Validationpage}}|стабільних версій]] сторінок, а не найбільш нових.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Стабільні версії]] — це перевірені версії сторінок, можуть бути встановлені для показу за замовчуванням.''",
@@ -7735,6 +7748,9 @@ $messages['uk'] = array(
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] редагування ''(показані нижче)'', зроблені після [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} перевірки] стабільної версії.<br />
 '''Деякі шаблони або зображення могли бути оновлені:'''",
 	'revreview-update-includes' => "'''Деякі шаблони або зображення були оновлені:'''",
+	'revreview-update-none' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] редагування ''(показані нижче)'', зроблені після [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} установки] стабільної версії.",
+	'revreview-update-use' => "'''ЗАУВАЖЕННЯ.''' Якщо якийсь із цих шаблонів або зображень має стабільну версію, то вона вже використовується у стабільній версії цієї сторінки.",
+	'revreview-diffonly' => "''Щоб перевірити сторінку, натисніть на посилання «поточна версія» і використовуйте форму перевірки.''",
 	'right-autopatrolother' => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
 	'right-autoreview' => 'Автоматичне позначення версій сторінок переглянутими',
 	'right-movestable' => 'Перейменування стабільних версій',

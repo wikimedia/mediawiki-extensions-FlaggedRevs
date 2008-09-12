@@ -705,7 +705,7 @@ $messages['pl'] = array(
 	'unreviewed-category' => 'Kategoria:',
 	'unreviewed-diff' => 'ocena',
 	'unreviewed-unwatched' => '(nieobserwowane)',
-	'unreviewed-watched' => '(obserwowane przez $1 {{PLURAL:$1|użytkownika|użytkowników}})',
+	'unreviewed-watched' => '(obserwowane przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
 	'unreviewed-list' => 'Ta strona zawiera listę artykułów, które nie zostały ocenione lub mają nowe, nie ocenione wersje.',
 	'unreviewed-none' => 'Brak obecnie stron spełniających zadane warunki',
 );

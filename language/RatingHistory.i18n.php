@@ -352,13 +352,17 @@ $messages['no'] = array(
 	'ratinghistory-text' => "'''Denne sider viser vurderingsdata for [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Vurderingshistorikkdata',
 	'ratinghistory-tab' => 'vurdering',
+	'ratinghistory-link' => 'Artikkelvurdering',
 	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Takk for at du tar deg tid til å anmelde denne siden!</font>'''''",
 	'ratinghistory-period' => 'Tidsperiode:',
 	'ratinghistory-month' => 'siste måned',
 	'ratinghistory-year' => 'siste år',
 	'ratinghistory-3years' => 'siste tre år',
+	'ratinghistory-graph' => 'Gå gjennom data fra $1 {{PLURAL:$1|leser|lesere}}',
 	'ratinghistory-none' => 'Det er ikke nok leservurderinger til å vise grafer ennå.',
-	'ratinghistory-legend' => "'''[0]''' &ndash; Veldig dårlig; '''[1]''' &ndash; Dårlig; '''[2]''' &ndash; OK; '''[3]''' &ndash; Bra; '''[4]''' &ndash; Veldig bra;",
+	'ratinghistory-legend' => "Det daglige gjennomsnittet (<font color=\"blue\">''blå''</font>) og gjennomsnittet for valgte intervall (<font color=\"green\">''grønn''</font>) vil vises i grafen nedenfor, etter dato. Vurderingsverdiene tolkes slik:
+
+'''[0]''' &ndash; Veldig dårlig; '''[1]''' &ndash; Dårlig; '''[2]''' &ndash; OK; '''[3]''' &ndash; Bra; '''[4]''' &ndash; Veldig bra;",
 	'right-feedback' => 'Bruke tilbakemeldingsskjemaet for å vurdere en side',
 );
 
