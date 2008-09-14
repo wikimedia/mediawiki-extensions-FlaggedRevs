@@ -295,6 +295,25 @@ $messages['oc'] = array(
 	'validationstatistics-old' => 'Desuet',
 );
 
+/** Polish (Polski)
+ * @author Jwitos
+ * @author Leinad
+ * @author Wpedzich
+ */
+$messages['pl'] = array(
+	'validationstatistics' => 'Statystyki oznaczania',
+	'validationstatistics-users' => "W serwisie '''{{SITENAME}}''' aktualnie zarejestrowanych jest '''$1''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''$2''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|recenzenta]].",
+	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, z wyłączeniem przekierowań.
+
+'''Uwaga:''' poniższe dane są kopią z pamięci podręcznej sprzed nawet kilku godzin, mogą więc być nieaktualne.",
+	'validationstatistics-ns' => 'Przestrzeń nazw',
+	'validationstatistics-total' => 'Stron',
+	'validationstatistics-stable' => 'Przejrzanych',
+	'validationstatistics-latest' => 'Z ostatnią edycją oznaczoną jako przejrzana',
+	'validationstatistics-synced' => 'Zsynchronizowana/przejrzana',
+	'validationstatistics-old' => 'Wymagające ponownego oznaczenia jako przejrzane',
+);
+
 /** Portuguese (Português)
  * @author Malafaya
  */

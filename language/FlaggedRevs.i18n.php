@@ -1361,7 +1361,10 @@ $messages['bg'] = array(
 	'right-movestable' => 'Преместване на устойчиви страници',
 	'rights-editor-revoke' => 'отне правата на редактор на [[$1]]',
 	'stable-logpage' => 'Дневник на устойчивите версии',
+	'readerfeedback' => 'Какво мислите за тази страница?',
 	'readerfeedback-submit' => 'Изпращане',
+	'readerfeedback-submitting' => 'Изпращане...',
+	'readerfeedback-finished' => 'Благодарим ви!',
 	'revreview-filter-all' => 'Всички',
 	'revreview-filter-auto' => 'Автоматично',
 	'revreview-filter-manual' => 'Ръчно',
@@ -5978,26 +5981,41 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 /** Polish (Polski)
  * @author Derbeth
  * @author Holek
+ * @author Jwitos
+ * @author Leinad
  * @author Maikking
+ * @author McMonster
  * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Wersje oznaczone',
-	'flaggedrevs-desc' => 'Daje edytorom i krytykom możliwość oceny edycji i oznaczenia stabilnej wersji strony',
+	'flaggedrevs-desc' => 'Daje redaktorom i recenzentom możliwość oceny edycji i oznaczenia stabilnej wersji strony',
+	'flaggedrevs-pref-UI-0' => 'Użyj szczegółowego interfejsu',
+	'flaggedrevs-pref-UI-1' => 'Użyj prostego interfejsu',
 	'flaggedrevs-prefs' => 'Dopracowanie',
+	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję dopracowaną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako sprawdzone',
 	'group-editor' => 'Redaktorzy',
 	'group-editor-member' => 'Redaktor',
-	'group-reviewer' => 'Krytycy',
-	'group-reviewer-member' => 'Krytyk',
+	'group-reviewer' => 'Recenzenci',
+	'group-reviewer-member' => 'Recenzent',
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
-	'grouppage-reviewer' => '{{ns:project}}:Krytyk',
+	'grouppage-reviewer' => '{{ns:project}}:Recenzent',
+	'hist-draft' => 'wersja nieprzejrzana',
+	'hist-quality' => 'wersja stabilna',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} zatwierdzone] przez użytkownika [[User:$3|$3]]',
+	'hist-stable' => 'wersja przejrzana',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} przejrzane] przez użytkownika [[User:$3|$3]]',
 	'review-diff2stable' => 'Pokaż różnicę pomiędzy wersją dopracowaną a ostatnią',
-	'review-logentry-app' => 'zrecenzowany [[$1]]',
-	'review-logentry-id' => 'ID wersji artykułu $1',
-	'review-logpage' => 'Rejestr recenzji artykułów',
-	'reviewer' => 'Krytyk',
+	'review-logentry-app' => 'przejrzał [[$1]]',
+	'review-logentry-dis' => 'wycofał oznaczenie jako wersja przejrzana [[$1]]',
+	'review-logentry-id' => 'wersja o ID $1',
+	'review-logentry-diff' => 'różnice do wersji dopracowanej',
+	'review-logpage' => 'Rejestr recenzji',
+	'review-logpagetext' => 'To jest rejestr zmian dla stanu [[{{MediaWiki:Validationpage}}|zatwierdzenia]] wersji stron.
+Zobacz [[Special:ReviewedPages|listę sprawdzonych stron]] dla listy stron zatwierdzonych.',
+	'reviewer' => 'Recenzent',
 	'revisionreview' => 'Wersja zrecenzowana',
 	'revreview-accuracy' => 'Dokładność',
 	'revreview-accuracy-0' => 'nieakceptowalna',
@@ -6009,6 +6027,19 @@ $messages['pl'] = array(
 	'revreview-auto' => '(automatycznie)',
 	'revreview-auto-w' => "Edytujesz wersję dopracowaną. Zmiany zostaną '''ocenione automatycznie'''.",
 	'revreview-auto-w-old' => "Edytujesz wersję ocenioną. Zmiany zostaną '''ocenione automatycznie'''.",
+	'revreview-basic' => 'To jest ostatnia [[{{MediaWiki:Validationpage}}|sprawdzona]] wersja, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Szkic] zawiera [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana|zmiany}}] {{PLURAL:$3|oczekującą|oczekujące}} na sprawdzenie.',
+	'revreview-basic-i' => 'To jest ostatnia [[{{MediaWiki:Validationpage}}|sprawdzona]] wersja, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Szkic] posiada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany grafik/szablonów] oczekujące na sprawdzenie.',
+	'revreview-basic-old' => 'To jest [[{{MediaWiki:Validationpage}}|sprawdzona]] wersja ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
+Nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany] mogły zostać dokonane.',
+	'revreview-basic-same' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|sprawdzona]] wersja ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Sprawdzona wersja] tej strony, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>, została oparta na tej wersji.',
+	'revreview-changed' => "'''Żądana czynność nie mogła zostać wykonana na tej wersji strony [[:$1|$1]].'''
+
+Zażądano szablonu lub grafiki, ale nie określono wersji.
+Może się to zdarzyć, gdy dynamiczny szablon osadza inny szablon lub grafikę zależnie od zmiennej, która zmieniła się odkąd zacząłeś sprawdzać tę stronę.
+Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'revreview-current' => 'Szkic',
 	'revreview-depth' => 'Wyczerpanie tematu',
 	'revreview-depth-0' => 'nieakceptowalne',
@@ -6018,17 +6049,37 @@ $messages['pl'] = array(
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Szkic artykułu',
 	'revreview-edit' => 'Edytuj szkic',
+	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji dopracowanej]], gdy tylko odpowiedni użytkownik je sprawdzi.'''
+'''''Szkic'' pokazano poniżej.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana oczekuje|zmiany oczekują}}] na sprawdzenie.",
 	'revreview-flag' => 'Recenzuj tę wersję',
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|zrecenzowanych]] wersji odpowiadających podanemu ID.",
+	'revreview-legend' => 'Oceń treść zmiany',
 	'revreview-log' => 'Komentarz',
-	'revreview-noflagged' => "Brak zweryfikowanej przez krytyka wersji tej strony, możliwe że jakość merytoryczna '''nie''' została [[{{MediaWiki:Validationpage}}|sprawdzona]].",
+	'revreview-main' => 'Musisz wybrać konkretną wersję strony w celu sprawdzenia
+
+Zobacz [[Special:Unreviewedpages|listę niesprawdzonych stron]].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Ostatnia sprawdzona wersja] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]) została [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana|zmian}}] oczekuje na sprawdzenie.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Ostatnia sprawdzona wersja] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]) została [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Zmiany szablonów/grafik] wymagają sprawdzenia.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Najnowsza wersja dopracowana] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]) została [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana|zmiany}}] {{PLURAL:$3|oczekuje|oczekują}} na sprawdzenie.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Najnowsza wersja dopracowana] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]) została [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Zmiany szablonów/grafik] wymagają sprawdzenia.',
+	'revreview-noflagged' => "Brak zweryfikowanej przez recenzenta wersji tej strony, możliwe że jakość merytoryczna '''nie''' została [[{{MediaWiki:Validationpage}}|sprawdzona]].",
+	'revreview-note' => '[[User:$1|$1]] dokonał(a) następujących komentarzy podczas [[{{MediaWiki:Validationpage}}|sprawdzania]] tej wersji:',
 	'revreview-notes' => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-oldrating' => 'Uzyskana ocena:',
 	'revreview-patrol' => 'Oznacz tę zmianę jako sprawdzoną',
 	'revreview-patrol-title' => 'Oznacz jako sprawdzone',
 	'revreview-patrolled' => 'Wybrana wersja [[:$1|$1]] została oznaczona jako spatrolowana.',
-	'revreview-quick-invalid' => "'''Nieprawidłowy ID wersji artykułu'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Bieżąca wersja]]''' (brak recenzji)",
+	'revreview-quality' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|dopracowana]] wersja, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Szkic] posiada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana|zmiany}}] oczekujące na sprawdzenie.',
+	'revreview-quality-i' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|dopracowana]] wersja, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] dnia <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Szkic] posiada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany szablonów/grafik] oczekujące na sprawdzenie.',
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Przejrzany]]'''",
+	'revreview-quick-invalid' => "'''Nieprawidłowy ID wersji'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Bieżąca wersja]]''' (nieprzejrzana)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobacz szkic]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' (brak niesprawdzonych wersji)",
 	'revreview-quick-see-basic' => "'''Szkic''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zobacz artykuł]]
@@ -6037,6 +6088,7 @@ $messages['pl'] = array(
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} porównaj])",
 	'revreview-source' => 'źródło szkicu',
 	'revreview-stable' => 'Strona dopracowana',
+	'revreview-stable-title' => 'Wersja przejrzana',
 	'revreview-style' => 'Czytelność',
 	'revreview-style-0' => 'nieakceptowalna',
 	'revreview-style-1' => 'akceptowalna',
@@ -6048,15 +6100,30 @@ $messages['pl'] = array(
 	'revreview-update-use' => "'''UWAGA:''' Jeśli którykolwiek z tych szablonów lub grafik posiadają wersję dopracowaną zostanie ona użyta w wersji dopracowanej tej strony.",
 	'revreview-visibility' => "'''Ta strona ma [[{{MediaWiki:Validationpage}}|dopracowaną wersję]], dla której można
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować ustawienia].'''",
+	'right-autopatrolother' => 'Automatyczne oznaczanie przeglądanych wersji stron spoza głównej przestrzeni nazw jako przejrzane',
+	'right-autoreview' => 'Automatyczne oznaczanie własnych wersji jako przejrzane',
 	'right-movestable' => 'Przenieś strony dopracowane',
+	'right-review' => 'Oznaczanie wersji jako przejrzane',
 	'right-stablesettings' => 'Określ sposób, w jaki wersja dopracowana ma być wybierana i wyświetlana',
-	'rights-editor-revoke' => 'odebrał uprawnienia edytora [[$1]]',
+	'rights-editor-revoke' => 'odebrał uprawnienia redaktora [[$1]]',
 	'stable-logpage' => 'Rejestr wersji dopracowanych',
+	'readerfeedback-level-none' => '(wybierz)',
+	'readerfeedback-submit' => 'Oznacz',
+	'readerfeedback-finished' => 'Dziękujemy!',
 	'revreview-filter-all' => 'Wszystkie',
+	'revreview-filter-approved' => 'Oznaczone',
+	'revreview-filter-reapproved' => 'Ponownie oznaczone',
+	'revreview-filter-unapproved' => 'Odznaczone',
+	'revreview-filter-auto' => 'Automatycznie',
+	'revreview-filter-manual' => 'Ręcznie',
+	'revreview-filter-level-0' => 'Przejrzane wersje',
+	'revreview-filter-level-1' => 'Dopracowane wersje',
+	'revreview-statusfilter' => 'Status:',
+	'revreview-typefilter' => 'Sposób oznaczenia:',
 	'tooltip-ca-current' => 'Zobacz aktualny szkic tej strony',
 	'tooltip-ca-stable' => 'Zobacz dopracowaną wersję tej strony',
 	'tooltip-ca-default' => 'Ustawienia mechanizmu zapewnienia jakości artykułów',
-	'validationpage' => '{{ns:help}}:Recenzja artykułu',
+	'validationpage' => '{{ns:help}}:Wersje oznaczone',
 );
 
 /** Piedmontese (Piemontèis)

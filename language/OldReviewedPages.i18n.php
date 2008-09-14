@@ -574,17 +574,24 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Leinad
  * @author McMonster
  * @author Sp5uhe
  */
 $messages['pl'] = array(
+	'oldreviewedpages' => 'Zdezaktualizowane przejrzane strony',
+	'oldreviewedpages-legend' => 'Lista przejrzanych stron z nieprzejrzanymi wersjami',
+	'oldreviewedpages-list' => 'Poniżej znajduje się lista przejrzanych stron, które oczekują na sprawdzenie nowych edycji.',
+	'oldreviewedpages-none' => 'Obecnie nie ma stron spełniających podane kryteria',
+	'oldreviewedpages-stable' => 'przejrzana',
 	'oldreviewedpages-quality' => 'jakość',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|godzina|godziny|godzin}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dzień|dni}})',
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
 	'oldreviewed-category' => 'Kategoria:',
-	'oldreviewedpages-unwatched' => '(nieobserwowane)',
-	'oldreviewedpages-watched' => '(obserwowane przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
+	'oldreviewed-diff' => 'różn.',
+	'oldreviewedpages-unwatched' => '(nieobserwowana)',
+	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
 );
 
 /** Pashto (پښتو)

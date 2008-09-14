@@ -37,6 +37,13 @@ $messages['arz'] = array(
 	'likedpages-graphs' => 'بيانات التقييم',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'likedpages-none' => 'Този списък не съдържа страници',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'likedpages' => 'Hoch bewertete Seiten',

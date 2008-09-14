@@ -388,6 +388,16 @@ $messages['oc'] = array(
 	'right-feedback' => 'Utilizar lo formulari de somission per notar una pagina',
 );
 
+/** Polish (Polski)
+ * @author Jwitos
+ */
+$messages['pl'] = array(
+	'ratinghistory-period' => 'Okres czasu:',
+	'ratinghistory-month' => 'ostatni miesiąc',
+	'ratinghistory-year' => 'ostatni rok',
+	'ratinghistory-3years' => 'ostatnie 3 lata',
+);
+
 /** Portuguese (Português)
  * @author 555
  */

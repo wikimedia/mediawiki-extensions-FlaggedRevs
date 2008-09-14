@@ -697,17 +697,19 @@ $messages['os'] = array(
 
 /** Polish (Polski)
  * @author Derbeth
+ * @author Leinad
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'unreviewedpages' => 'Strony bez oceny',
-	'unreviewed-legend' => 'Pokaż strony o zawartości, która nie została oceniona',
+	'right-unreviewedpages' => 'Zobacz [[Special:UnreviewedPages|listę nieprzejrzanych stron]]',
+	'unreviewedpages' => 'Nieprzejrzane strony',
+	'unreviewed-legend' => 'Lista nieprzejrzanych strony',
 	'unreviewed-category' => 'Kategoria:',
-	'unreviewed-diff' => 'ocena',
-	'unreviewed-unwatched' => '(nieobserwowane)',
-	'unreviewed-watched' => '(obserwowane przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
-	'unreviewed-list' => 'Ta strona zawiera listę artykułów, które nie zostały ocenione lub mają nowe, nie ocenione wersje.',
-	'unreviewed-none' => 'Brak obecnie stron spełniających zadane warunki',
+	'unreviewed-diff' => 'różn.',
+	'unreviewed-unwatched' => '(nieobserwowana)',
+	'unreviewed-watched' => '(obserwowana przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
+	'unreviewed-list' => 'Poniżej znajduje się lista nieprzejrzanych stron.',
+	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 );
 
 /** Piedmontese (Piemontèis)

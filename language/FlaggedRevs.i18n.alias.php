@@ -314,8 +314,12 @@ $aliases['oc'] = array(
  * @author Sp5uhe
  */
 $aliases['pl'] = array(
-	'StablePages' => array( 'Strony dopracowane' ),
+	'OldReviewedPages' => array( 'Zdezaktualizowane przejrzane strony' ),
+	'QualityOversight' => array( 'Rejestr oznaczania wersji' ),
+	'StablePages' => array( 'Dopracowane strony' ),
 	'StableVersions' => array( 'Wersje dopracowane' ),
+	'UnReviewedPages' => array( 'Nieprzejrzane strony' ),
+	'ValidationStatistics' => array( 'Statystyki oznaczania' ),
 );
 
 /** Portuguese (Português)

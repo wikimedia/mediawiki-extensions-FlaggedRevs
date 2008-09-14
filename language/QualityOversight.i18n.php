@@ -190,6 +190,15 @@ $messages['oc'] = array(
 	'qualityoversight-legend' => 'Recercar los jornals de las revisions recentas',
 );
 
+/** Polish (Polski)
+ * @author Leinad
+ */
+$messages['pl'] = array(
+	'qualityoversight' => 'Rejestr oznaczania wersji',
+	'qualityoversight-list' => 'Poniżej znajduje się lista ostatnio oznaczonych i wycofanych oznaczeń wersji.',
+	'qualityoversight-legend' => 'Szukaj w rejestrze oznaczania wersji',
+);
+
 /** Portuguese (Português)
  * @author 555
  */
