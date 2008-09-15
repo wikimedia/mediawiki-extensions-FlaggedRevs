@@ -369,8 +369,8 @@ class svgGraph {
   function svgGraph() {
 	if( !defined("DECIMAL_POINT") )
 		define("DECIMAL_POINT", ".");
-	if( !defined("THOUSANDS_SEPERATOR") )
-		define("THOUSANDS_SEPERATOR", ",");
+	if( !defined("THOUSANDS_SEPARATOR") )
+		define("THOUSANDS_SEPARATOR", ",");
   }
 
   /**
@@ -416,7 +416,7 @@ class svgGraph {
     //$factorTagsY = $this->dataMaxY / ($this->dataMaxY - $this->dataMinY);
     for ($i=0; $i<$this->numGridlinesY; $i++) {
       $text = $this->dataMinY + $deltaTagsY * ($i +  $this->offsetGridlinesY);
-      $this->tagsY[$i] = number_format($text, $this->decimalPlacesY, DECIMAL_POINT, THOUSANDS_SEPERATOR);
+      $this->tagsY[$i] = number_format($text, $this->decimalPlacesY, DECIMAL_POINT, THOUSANDS_SEPARATOR);
     }
     $this->tagsY = array_reverse($this->tagsY);
     if (empty($this->tagsY)) {
