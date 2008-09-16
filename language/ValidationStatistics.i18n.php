@@ -170,6 +170,13 @@ $messages['gl'] = array(
 	'validationstatistics-old' => 'Anticuado',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'validationstatistics-total' => 'δέλτοι',
+);
+
 /** Hebrew (עברית)
  * @author Agbad
  */

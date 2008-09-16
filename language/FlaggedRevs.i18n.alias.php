@@ -110,23 +110,23 @@ $aliases['de'] = array(
  * @author Yekrats
  */
 $aliases['eo'] = array(
-	'QualityOversight' => array( 'KvalitKontrolo' ),
-	'UnReviewedPages' => array( 'NekontrolitajPaĝoj' ),
 	'OldReviewedPages' => array( 'MalfreŝeKontrolitajPaĝoj' ),
+	'ProblemPages' => array( 'ProblemajPaĝoj' ),
+	'QualityOversight' => array( 'KvalitKontrolo' ),
 	'ReviewedPages' => array( 'KontrolitajPaĝoj' ),
 	'StablePages' => array( 'StabilajPaĝoj' ),
 	'StableVersions' => array( 'StabilajVersioj' ),
-	'ProblemPages' => array( 'ProblemajPaĝoj' ),
+	'UnReviewedPages' => array( 'NekontrolitajPaĝoj' ),
 );
 
 /** Persian (فارسی) */
 $aliases['fa'] = array(
-	'QualityOversight' => array( 'ناظرکیفیت' ),
-	'UnReviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
 	'OldReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده‌قدیمی' ),
+	'QualityOversight' => array( 'ناظرکیفیت' ),
 	'ReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده' ),
 	'StablePages' => array( 'صفحه‌های‌پایدار' ),
 	'StableVersions' => array( 'نسخه‌های‌پایدار' ),
+	'UnReviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
 );
 
 /** French (Français)
@@ -148,13 +148,13 @@ $aliases['fr'] = array(
  * @author Toliño
  */
 $aliases['gl'] = array(
-	'QualityOversight' => array( 'RevisiónDeCalidade' ),
-	'UnReviewedPages' => array( 'Páxinas non revisadas' ),
 	'OldReviewedPages' => array( 'Páxinas revisadas hai tempo' ),
+	'ProblemPages' => array( 'PáxinasProblemáticas' ),
+	'QualityOversight' => array( 'RevisiónDeCalidade' ),
 	'ReviewedPages' => array( 'Páxinas revisadas' ),
 	'StablePages' => array( 'Páxinas estábeis' ),
 	'StableVersions' => array( 'Versións estábeis' ),
-	'ProblemPages' => array( 'PáxinasProblemáticas' ),
+	'UnReviewedPages' => array( 'Páxinas non revisadas' ),
 );
 
 /** Hindi (हिन्दी)
@@ -339,13 +339,13 @@ $aliases['pt'] = array(
  * @author Helix84
  */
 $aliases['sk'] = array(
-	'QualityOversight' => array( 'DohľadNadKvalitou' ),
-	'UnReviewedPages' => array( 'NeskontrolovanéStránky' ),
 	'OldReviewedPages' => array( 'StaréSkontrolovanéStránky' ),
+	'ProblemPages' => array( 'ProblémovéStránky' ),
+	'QualityOversight' => array( 'DohľadNadKvalitou' ),
 	'ReviewedPages' => array( 'SkontrolovanéStránky' ),
 	'StablePages' => array( 'StabilnéStránky' ),
 	'StableVersions' => array( 'StabilnéVerzie' ),
-	'ProblemPages' => array( 'ProblémovéStránky' ),
+	'UnReviewedPages' => array( 'NeskontrolovanéStránky' ),
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
