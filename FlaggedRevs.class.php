@@ -781,8 +781,10 @@ class FlaggedRevs {
 			if( !$expiry || $expiry < $now ) {
 				$row = null;
 				self::purgeExpiredConfigurations();
+				$title->invalidateCache();
 			}
-		} else {
+		}
+		if( !$row ) {
 			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;

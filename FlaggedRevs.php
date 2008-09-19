@@ -82,6 +82,8 @@ $wgFlaggedRevsWhitelist = array();
 
 # Do flagged revs override the default view?
 $wgFlaggedRevsOverride = true;
+# Are pages only reviewable if the stable shows by default?
+$wgFlaggedRevsReviewForDefault = false;
 # Do quality revisions show instead of sighted if present by default?
 $wgFlaggedRevsPrecedence = true;
 # Revision tagging can slow development...
@@ -228,8 +230,6 @@ $wgFlaggedRevsLogInRC = false;
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 
-# How many hours pending review is considering long?
-$wgFlaggedRevsLongPending = array( 3, 12, 24 );
 # How many pages count as a backlog?
 $wgFlaggedRevsBacklog = 2000;
 

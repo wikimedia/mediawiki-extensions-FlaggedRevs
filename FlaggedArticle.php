@@ -145,7 +145,12 @@ class FlaggedArticle extends Article {
 	 * Is this article reviewable?
 	 */
 	public function isReviewable() {
-		return FlaggedRevs::isPageReviewable( $this->parent->getTitle() );
+		global $wgFlaggedRevsReviewForDefault;
+		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) )
+			return false;
+		if( $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() )
+			return false;
+		return true;
 	}
 	
 	 /**
@@ -730,24 +735,27 @@ class FlaggedArticle extends Article {
 	 */
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
-		if( !$this->isReviewable() ) {
+		# Check only if the title is reviewable
+		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
 			return true;
 		}
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( $action == 'protect' || $action == 'unprotect' ) {
-			# Check for an overridabe revision
-			$frev = $this->getStableRev();
-			if( !$frev ) {
-				return true;
-			}
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			# Load special page name
 			wfLoadExtensionMessages( 'Stabilization' );
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
-			$wgOut->prependHTML( "<span class='plainlinks'>" .
-				wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
-				"</span>" );
+			$frev = $this->getStableRev();
+			if( $frev && $frev->getRevId() == $this->parent->getLatest() ) {
+				$wgOut->prependHTML( "<span class='plainlinks'>" .
+					wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
+					"</span>" );
+			} else {
+				$wgOut->prependHTML( "<span class='plainlinks'>" .
+					wfMsgExt( 'revreview-visibility2',array('parseinline'), $title->getPrefixedText() ) .
+					"</span>" );
+			}
 		}
 		return true;
 	}
