@@ -1076,8 +1076,6 @@ class FlaggedRevs {
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		);
 		
-		# Start!
-		$dbw->begin();
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
 			array( array('fr_page_id','fr_rev_id') ), $revisionset,
@@ -1103,9 +1101,7 @@ class FlaggedRevs {
 		}
 		# Update the article review log
 		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, true );
-		$dbw->commit();
 
-		$dbw->begin();
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_FOR_UPDATE );
@@ -1120,8 +1116,6 @@ class FlaggedRevs {
 			$data = FlaggedRevs::makeMemcObj( "true" );
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		}
-		# Done!
-		$dbw->commit();
 		
 		wfProfileOut( __METHOD__ );
 		return true;

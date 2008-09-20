@@ -155,7 +155,6 @@ EOT;
 		}
 		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
 		# Check if this page has a stable version by fetching it.
 		# Try the process cache...
 		$sv = isset($u->fr_stableRev) ? 
@@ -229,7 +228,6 @@ EOT;
 		if ( count($insertions) ) {
 			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
-		$dbw->commit();
 		wfProfileOut( __METHOD__ );
 		return true;
 	}

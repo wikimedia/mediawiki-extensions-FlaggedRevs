@@ -84,9 +84,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Mark as patrolled
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
 		$changed = RecentChange::markPatrolled( $this->rcid );
-		$dbw->commit();
 		# Inform the user
 		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
 		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
@@ -677,9 +675,7 @@ class RevisionReview extends UnlistedSpecialPage
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid );
 		# Update the article review log
 		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
-		$dbw->commit();
 
-		$dbw->begin();
 		# Update the links tables as the stable version may now be the default page.
 		# Try using the parser cache first since we didn't actually edit the current version.
 		$parserCache = ParserCache::singleton();

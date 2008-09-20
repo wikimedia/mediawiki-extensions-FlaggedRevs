@@ -200,7 +200,6 @@ class Stabilization extends UnlistedSpecialPage
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
 		# Get current config
 		$row = $dbw->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
@@ -283,7 +282,6 @@ class Stabilization extends UnlistedSpecialPage
 		} else {
 			$wgUser->removeWatch( $this->page );
 		}
-		$dbw->commit();
 
 		$wgOut->redirect( $this->page->getFullUrl() );
 
