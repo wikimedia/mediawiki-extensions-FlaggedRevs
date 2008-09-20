@@ -26,7 +26,7 @@ class FlaggedRevsHooks {
 		}
 		$fa = FlaggedArticle::getGlobalInstance();
 		# Try to only add to relevant pages
-		if( !$fa || (!$fa->isReviewable() && !$fa->isRateable() ) ) {
+		if( !$fa || (!$fa->isReviewable(true) && !$fa->isRateable() ) ) {
 			return true;
 		}
 		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;

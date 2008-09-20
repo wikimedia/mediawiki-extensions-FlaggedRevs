@@ -143,12 +143,13 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is this article reviewable?
+	 * @param bool $titleOnly, only check if title is in reviewable namespace
 	 */
-	public function isReviewable() {
+	public function isReviewable( $titleOnly = false ) {
 		global $wgFlaggedRevsReviewForDefault;
 		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) )
 			return false;
-		if( $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() )
+		if( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() )
 			return false;
 		return true;
 	}
@@ -208,7 +209,7 @@ class FlaggedArticle extends Article {
 	public function setPageContent( &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser, $wgLang;
 		# Only trigger for reviewable pages
-		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
+		if( !$this->isReviewable(true) ) {
 			return true;
 		}
 		# Only trigger on article view for content pages, not for protect/delete/hist...
@@ -736,7 +737,7 @@ class FlaggedArticle extends Article {
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
 		# Check only if the title is reviewable
-		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
+		if( !$this->isReviewable(true) ) {
 			return true;
 		}
 		$action = $wgRequest->getVal( 'action', 'view' );
@@ -1585,7 +1586,7 @@ class FlaggedArticle extends Article {
 		# Only trigger on article view for content pages, not for protect/delete/hist
 		if( ($action !='view' && $action !='purge') || !$wgUser->isAllowed( 'review' ) )
 			return true;
-		if( !$this->parent->exists() || !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) )
+		if( !$this->parent->exists() || !$this->isReviewable() )
 			return true;
 
 		$parserCache = ParserCache::singleton();
