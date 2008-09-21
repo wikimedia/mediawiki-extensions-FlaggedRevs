@@ -390,12 +390,25 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Jwitos
+ * @author Leinad
  */
 $messages['pl'] = array(
+	'ratinghistory' => 'Historia oceniania strony',
+	'ratinghistory-text' => "'''Ta strona pokazuje ocenę dla [[:$1|$1]].'''",
+	'ratinghistory-leg' => 'Historia oceniania',
+	'ratinghistory-tab' => 'ocena',
+	'ratinghistory-link' => 'Ocena artykułu',
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dziękujemy za poświęconą chwilę na ocenę tej strony!</font>",
 	'ratinghistory-period' => 'Okres czasu:',
 	'ratinghistory-month' => 'ostatni miesiąc',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
+	'ratinghistory-graph' => 'Ocena danych od $1 {{PLURAL:$1|czytelnika|czytelników}}',
+	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników dla stworzenia wykresu.',
+	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty. Liczby oznaczają następujące oceny:
+
+'''[0]''' – Niedostatecznie; '''[1]''' – Słabo; '''[2]''' – Zadowalająco; '''[3]''' – Dobrze; '''[4]''' – Bardzo dobrze;",
+	'right-feedback' => 'Użyj formularza, aby ocenić stronę',
 );
 
 /** Portuguese (Português)

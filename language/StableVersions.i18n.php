@@ -580,15 +580,16 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Derbeth
+ * @author Leinad
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'stableversions' => 'Pokaż wersje dopracowane',
-	'stableversions-leg1' => 'Pokaż ocenione wersje strony',
+	'stableversions' => 'Pokaż wersje oznaczone',
+	'stableversions-leg1' => 'Pokaż oznaczone wersje strony',
 	'stableversions-page' => 'Nazwa strony:',
-	'stableversions-none' => '"[[:$1]]" nie ma wersji ocenionych.',
-	'stableversions-list' => 'Lista wersji strony "[[:$1]]", które zostały ocenione:',
-	'stableversions-review' => '<i>$1</i>, oceniona przez $2',
+	'stableversions-none' => '"[[:$1]]" nie posiada wersji oznaczonych.',
+	'stableversions-list' => 'Lista wersji strony "[[:$1]]", które zostały oznaczone:',
+	'stableversions-review' => '<i>$1</i>, oznaczona przez $2',
 );
 
 /** Piedmontese (Piemontèis)

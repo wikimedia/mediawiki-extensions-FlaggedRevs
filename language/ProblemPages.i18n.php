@@ -210,6 +210,17 @@ $messages['oc'] = array(
 	'problempages-graphs' => 'donadas de notacion',
 );
 
+/** Polish (Polski)
+ * @author Leinad
+ */
+$messages['pl'] = array(
+	'problempages' => 'Nisko oceniane strony',
+	'problempages-leg' => 'Szukaj nisko ocenianych stron',
+	'problempages-list' => 'Poniżej znajduje się lista stron posortowanych według ocen wystawionych przez czytelników.',
+	'problempages-none' => 'Na tej liście nie ma żadnych stron',
+	'problempages-graphs' => 'ocena danych',
+);
+
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya

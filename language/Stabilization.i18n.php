@@ -1487,34 +1487,39 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Derbeth
+ * @author Leinad
  * @author McMonster
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'stabilization-tab' => 'ocena',
-	'stabilization' => 'Stabilizacja strony',
-	'stabilization-text' => "'''Ustaw poniżej w jaki sposób ma być wybierana i wyświetlana dopracowana wersja strony [[:$1|$1]].'''",
-	'stabilization-perm' => 'Nie masz wystarczających uprawnień, by zmienić konfigurację dopracowanej wersji.
+	'stabilization-tab' => 'konfig.',
+	'stabilization' => 'Konfiguracja strony',
+	'stabilization-text' => "'''Ustaw poniżej w jaki sposób ma być wybierana i wyświetlana oznaczona wersja strony [[:$1|$1]].'''",
+	'stabilization-perm' => 'Nie masz wystarczających uprawnień, by zmienić konfigurację wersji oznaczonych.
 Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-page' => 'Nazwa strony:',
-	'stabilization-leg' => 'Zatwierdź konfigurację wersji dopracowanej',
-	'stabilization-select' => 'Wybór wersji dopracowanej',
-	'stabilization-select2' => 'Ostatnia oceniona wersja',
+	'stabilization-leg' => 'Zatwierdź konfigurację wersji oznaczonej',
+	'stabilization-select' => 'Wybór wersji oznaczonej',
+	'stabilization-select1' => 'Ostatnia wersja stabilna, a jeśli nie istnieje, to ostatnia wersja przejrzana',
+	'stabilization-select2' => 'Ostatnia wersja oznaczona',
+	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja stabilna lub przejrzana',
 	'stabilization-def' => 'Wersja prezentowana w domyślnym widoku strony',
-	'stabilization-def1' => 'Wersja dopracowana lub jeśli jej brak – wersja aktualna',
-	'stabilization-def2' => 'Aktualna wersja',
+	'stabilization-def1' => 'Wersja oznaczona, a jeśli nie istnieje, to wersja aktualna',
+	'stabilization-def2' => 'Bieżąca wersja',
 	'stabilization-submit' => 'Potwierdź',
 	'stabilization-notexists' => 'Brak strony zatytułowanej "[[:$1|$1]]". Nie jest możliwa jej konfiguracja.',
-	'stabilization-notcontent' => 'Strona "[[:$1|$1]]" nie może być oceniona. Nie jest możliwa jej konfiguracja.',
+	'stabilization-notcontent' => 'Strona "[[:$1|$1]]" nie może być oznaczona. Nie jest możliwa jej konfiguracja.',
 	'stabilization-comment' => 'Komentarz:',
-	'stabilization-expiry' => 'Czas wygaśnięcia',
+	'stabilization-expiry' => 'Czas wygaśnięcia:',
 	'stabilization-sel-short' => 'Kolejność',
-	'stabilization-sel-short-0' => 'Jakość',
+	'stabilization-sel-short-0' => 'Stabilna',
 	'stabilization-sel-short-1' => 'Brak',
+	'stabilization-sel-short-2' => 'Nienaruszona',
 	'stabilization-def-short' => 'Domyślna',
 	'stabilization-def-short-0' => 'Bieżąca',
-	'stabilization-def-short-1' => 'Dopracowana',
-	'stabilize_expiry_invalid' => 'Nieprawidłowa data zakończenia.',
+	'stabilization-def-short-1' => 'Oznaczona',
+	'stabilize_expiry_invalid' => 'Nieprawidłowa data wygaśnięcia.',
+	'stabilize_expiry_old' => 'Czas wygaśnięcia już upłynął.',
 	'stabilize-expiring' => 'wygasa $1 (UTC)',
 );
 

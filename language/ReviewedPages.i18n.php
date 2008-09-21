@@ -592,15 +592,18 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Leinad
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'reviewedpages' => 'Strony ocenione',
+	'reviewedpages' => 'Przejrzane strony',
+	'reviewedpages-leg' => 'Lista oznaczonych stron',
+	'reviewedpages-list' => 'Poniższe strony zostały oznaczone i mają określony status',
 	'reviewedpages-none' => 'Brak stron na tej liście',
-	'reviewedpages-lev-0' => 'Przeczytane',
-	'reviewedpages-lev-1' => 'Wstępnie sprawdzone',
+	'reviewedpages-lev-0' => 'Przejrzane',
+	'reviewedpages-lev-1' => 'Stabilne',
 	'reviewedpages-lev-2' => 'Zweryfikowane',
-	'reviewedpages-all' => 'ocenione wersje',
+	'reviewedpages-all' => 'wersje oznaczone',
 	'reviewedpages-best' => 'wersja najlepsza',
 );
 

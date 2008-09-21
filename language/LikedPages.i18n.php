@@ -137,6 +137,17 @@ $messages['oc'] = array(
 	'likedpages-graphs' => 'Donadas de notacion',
 );
 
+/** Polish (Polski)
+ * @author Leinad
+ */
+$messages['pl'] = array(
+	'likedpages' => 'Wysoko oceniane strony',
+	'likedpages-leg' => 'Szukaj wysoko ocenianych stron',
+	'likedpages-list' => 'Poniżej znajduje się lista stron posortowanych według ocen wystawionych przez czytelników.',
+	'likedpages-none' => 'Na tej liście nie ma żadnych stron',
+	'likedpages-graphs' => 'ocena danych',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

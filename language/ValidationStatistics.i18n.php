@@ -174,7 +174,7 @@ $messages['gl'] = array(
  * @author Crazymadlover
  */
 $messages['grc'] = array(
-	'validationstatistics-total' => 'δέλτοι',
+	'validationstatistics-total' => 'Δέλτοι',
 );
 
 /** Hebrew (עברית)

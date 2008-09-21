@@ -252,15 +252,19 @@ $aliases['myv'] = array(
 
 /** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
-	'QualityOversight' => array( 'Kwaliteitscontrole' ),
-	'UnReviewedPages' => array( "Pagina's_zonder_eindredactie" ),
+	'LikedPages' => array( "Goeie_pagina's" ),
 	'OldReviewedPages' => array( "Pagina's_verouwerde_eindredactie" ),
+	'ProblemPages' => array( "Prebleem_pagina's" ),
+	'QualityOversight' => array( 'Kwaliteitscontrole' ),
+	'RatingHistory' => array( 'Warderingsgeschiedenisse' ),
+	'ReaderFeedback' => array( 'Lezerreactie' ),
 	'ReviewedPages' => array( 'Pagina_mit_eindredactie' ),
+	'RevisionReview' => array( 'Eindredactie_versies' ),
+	'Stabilization' => array( 'Stabilisasie' ),
 	'StablePages' => array( "Stebiele_pagina's" ),
 	'StableVersions' => array( 'Stebiele_versies' ),
-	'ProblemPages' => array( "Prebleem_pagina's" ),
+	'UnReviewedPages' => array( "Pagina's_zonder_eindredactie" ),
 	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
-	'Stabilization' => array( 'Stabilisasie' ),
 );
 
 /** Dutch (Nederlands)
@@ -286,15 +290,18 @@ $aliases['nl'] = array(
  * @author Jon Harald Søby
  */
 $aliases['no'] = array(
-	'QualityOversight' => array( 'Kvalitetsoversikt' ),
-	'UnReviewedPages' => array( 'Uanmeldte sider' ),
+	'LikedPages' => array( 'Godt likte sider' ),
 	'OldReviewedPages' => array( 'Gamle anmeldte sider' ),
+	'ProblemPages' => array( 'Problemsider' ),
+	'QualityOversight' => array( 'Kvalitetsoversikt' ),
+	'RatingHistory' => array( 'Vurderingshistorikk' ),
+	'ReaderFeedback' => array( 'Tilbakemeldinger' ),
 	'ReviewedPages' => array( 'Anmeldte sider' ),
+	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabile sider' ),
 	'StableVersions' => array( 'Stabile versjoner' ),
-	'ProblemPages' => array( 'Problemsider' ),
+	'UnReviewedPages' => array( 'Uanmeldte sider' ),
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
-	'Stabilization' => array( 'Stabilisering' ),
 );
 
 /** Occitan (Occitan)

@@ -293,11 +293,13 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Leinad
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'stablepages' => 'Strony dopracowane',
-	'stablepages-stable' => 'wersja dopracowana',
+	'stablepages' => 'Lista indywidualnie skonfigurowany stron',
+	'stablepages-stable' => 'wersja stabilna',
+	'stablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że wersja oznaczona jest domyślną dla czytelników.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );
