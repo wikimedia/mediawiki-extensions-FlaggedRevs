@@ -572,12 +572,12 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
+		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		
 		# Is this rev already flagged?
 		$flaggedOutput = false;
-		if( $oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_TEXT | FR_FOR_UPDATE ) ) {
+		if( $oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_TEXT | FR_MASTER ) ) {
 			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getTextForParse(), $oldfrev->getRevId() );
 		}
 		
@@ -689,7 +689,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the stable cache...
-		$sv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
+		$sv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			global $wgParserCacheExpireTime;
 			$this->page->invalidateCache();
@@ -749,7 +749,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
 
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
+		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		# Update the article review log

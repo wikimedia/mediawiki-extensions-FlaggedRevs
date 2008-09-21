@@ -1104,7 +1104,7 @@ class FlaggedRevs {
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
-		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_FOR_UPDATE );
+		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_MASTER );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
 			self::updatePageCache( $article, $poutput );

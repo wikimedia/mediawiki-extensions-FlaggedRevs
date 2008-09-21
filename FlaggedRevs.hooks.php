@@ -158,7 +158,7 @@ EOT;
 		# Check if this page has a stable version by fetching it.
 		# Try the process cache...
 		$sv = isset($u->fr_stableRev) ? 
-			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, FR_FOR_UPDATE );
+			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, FR_MASTER );
 		# Empty flagged page settings row on delete
 		$oldId = $linksUpdate->mTitle->getArticleId(); // cleared *after* this is called
 		if( !($pageId = $linksUpdate->mTitle->getArticleId(GAID_FOR_UPDATE)) ) {

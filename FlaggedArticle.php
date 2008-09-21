@@ -1174,7 +1174,7 @@ class FlaggedArticle extends Article {
 		if( !$this->isReviewable() || $this->parent->getTitle()->isTalkPage() )
 			return true;
 		# Get the stable version, from master
-		$frev = $this->getStableRev( FR_FOR_UPDATE );
+		$frev = $this->getStableRev( FR_MASTER );
 		if( !$frev )
 			return true;
 		$latest = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
