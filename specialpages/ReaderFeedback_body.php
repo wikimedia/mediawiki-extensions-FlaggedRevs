@@ -152,7 +152,12 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
 		$talk = $form->page->getTalkPage();
-		if( $bot || $form->submit() ) {
+		
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
+		$ok = ( $bot || $form->submit() ); // don't submit for mindless drones
+		$dbw->commit();
+		if( $ok ) {
 			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
 				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) );
 		} else {
@@ -177,6 +182,39 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		return $p;
 	}
+	
+	public static function userAlreadyVoted( $title, $revId = 0 ) {
+		global $wgUser;
+		$userVoted = false;
+		# Use page_latest if $revId not given
+		$revId = $revId ? $revId : $title->getLatestRevID( GAID_FOR_UPDATE );
+		$rev = Revision::newFromTitle( $title, $revId );
+		# No voting on users own revs. This makes it harder to make tiny
+		# edits just to inflate/deflate rating...
+		if( $rev->getUserText() == $wgUser->getName() ) {
+			return true;
+		}
+		# Check if user already voted before...
+		$dbw = wfGetDB( DB_MASTER );
+		if( $wgUser->getId() ) {
+			$ipSafe = $dbw->strencode( wfGetIP() );
+			$userVoted = $dbw->selectField( 'reader_feedback', '1', 
+				array( 'rfb_rev_id' => $revId, 
+					"(rfb_user = ".$wgUser->getId().") OR (rfb_user = 0 AND rfb_ip = '$ipSafe')" ), 
+				__METHOD__ );
+			if( $userVoted ) {
+				return true;
+			}
+		} else {
+			$ipVoted = $dbw->selectField( 'reader_feedback', '1', 
+				array( 'rfb_rev_id' => $revId, 'rfb_user' => 0, 'rfb_ip' => wfGetIP() ), 
+				__METHOD__ );
+			if( $ipVoted ) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	private function submit() {
 		global $wgUser;
@@ -190,24 +228,9 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		$article = new Article( $this->page );
 		# Check if user already voted before...
-		if( $wgUser->getId() ) {
-			$ipSafe = $dbw->strencode( wfGetIP() );
-			$userVoted = $dbw->selectField( 'reader_feedback', '1', 
-				array( 'rfb_rev_id' => $this->oldid, 
-					"(rfb_user = ".$wgUser->getId().") OR (rfb_user = 0 AND rfb_ip = '$ipSafe')" ), 
-				__METHOD__ );
-			if( $userVoted ) {
-				return false;
-			}
-		} else {
-			$ipVoted = $dbw->selectField( 'reader_feedback', '1', 
-				array( 'rfb_rev_id' => $this->oldid, 'rfb_user' => 0, 'rfb_ip' => wfGetIP() ), 
-				__METHOD__ );
-			if( $ipVoted ) {
-				return false;
-			}
+		if( self::userAlreadyVoted( $this->page, $this->oldid ) ) {
+			return false;
 		}
-		$dbw->begin();
 		# Update review records to limit double voting!
 		$insertRow = array( 
 			'rfb_rev_id' => $this->oldid, 
@@ -261,8 +284,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 			);
 		}
 		$dbw->replace( 'reader_feedback_pages', array( 'PRIMARY' ), $insertRows, __METHOD__ );
-		# Done!
-		$dbw->commit();
+		# For logged in users, box should disappear
+		if( $wgUser->getId() ) {
+			$this->page->invalidateCache();
+		}
 		return true;
 	}
 }

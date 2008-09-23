@@ -955,29 +955,6 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
-	public static function userAlreadyVoted( $user, $title ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$userVoted = false;
-		if( $user->getId() ) {
-			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
-				array( 'page_namespace' => $title->getNamespace(),
-					'page_title' => $title->getDBKey(),
-					'rfb_rev_id = page_latest', 
-					'rfb_user' => $user->getId() ), 
-				__METHOD__ );
-		}
-		if( !$userVoted ) {
-			$userVoted = $dbw->selectField( array('reader_feedback','page'), '1', 
-				array( 'page_namespace' => $title->getNamespace(),
-					'page_title' => $title->getDBKey(),
-					'rfb_rev_id = page_latest', 
-					'rfb_user' => 0, 
-					'rfb_ip' => wfGetIP() ), 
-				__METHOD__ );
-		}
-		return (bool)$userVoted;
-	}
-	
 	################# Auto-review function #################
 
 	/**

@@ -697,9 +697,14 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		if( $wgUser->isAllowed( 'feedback' ) ) {
+			# Only allow votes on the latest revision!
+			$id = $wgOut->getRevisionId();
+			if( $id != $this->parent->getLatest() ) {
+				return true;
+			}
 			# If the user already voted, then don't show the form.
 			# Always show for IPs however, due to squid caching...
-			if( !$wgUser->getId() || !FlaggedRevs::userAlreadyVoted( $wgUser, $this->parent->getTitle() ) ) {
+			if( !$wgUser->getId() || !ReaderFeedback::userAlreadyVoted( $this->parent->getTitle(), $id ) ) {
 				$this->addQuickFeedback( $data );
 			}
 		}
@@ -1521,10 +1526,8 @@ class FlaggedArticle extends Article {
 		if( empty($wgFlaggedRevsFeedbackTags) ) {
 			return false;
 		}
-		$id = $wgOut->getRevisionId(); // Revision being displayed
-		if( $id != $this->parent->getLatest() ) {
-			return false;
-		}
+		# Revision being displayed
+		$id = $wgOut->getRevisionId();
 		# Load required messages
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$reviewTitle = SpecialPage::getTitleFor( 'ReaderFeedback' );
