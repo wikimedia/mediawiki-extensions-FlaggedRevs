@@ -218,6 +218,7 @@ Please check the URL you used to access this page.',
  * @author Huji
  * @author Jon Harald Søby
  * @author Meno25
+ * @author Purodha
  * @author Raymond
  * @author Rex
  * @author SPQRobin
@@ -229,7 +230,9 @@ $messages['qqq'] = array(
 General titel for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.
 * "flagged" in the sense of "has been seen, has been checked"',
 	'flaggedrevs-backlog' => '{{Flagged Revs}}',
-	'flaggedrevs-desc' => '{{Flagged Revs}}',
+	'flaggedrevs-desc' => '{{Flagged Revs}}
+
+Shown in [[Special:Version]] as a short description of this extension. Do not translate links.',
 	'flaggedrevs-pref-UI-0' => '{{Flagged Revs-small}}
 Option in [[Special:Preferences]]. See {{msg|flaggedrevs-pref-UI-1|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
 	'flaggedrevs-pref-UI-1' => '{{Flagged Revs-small}}
@@ -458,10 +461,17 @@ $messages['af'] = array(
 	'revreview-patrol' => 'Merk die wysiging as gepatrolleer',
 	'revreview-patrol-title' => 'Merk as gepatrolleer',
 	'revreview-toggle-title' => 'wys/versteek details',
+	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
 	'revreview-filter-all' => 'Alles',
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Tipe:',
-	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
+);
+
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+$messages['am'] = array(
+	'revreview-revnotfound' => 'ለዚህ ገጽ የጠየቁት የቆየው ዕትም ሊገኝ አልቻለም። እባክዎ ይህን ገጽ ለማግኘት የተጠቀመው URL ይመልከቱ።',
 );
 
 /** Aragonese (Aragonés)
@@ -602,7 +612,7 @@ S'han feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} c
 	'revreview-update-use' => "'''PARE CUENTA:''' Si beluna d'istas plantillas u imáchens tiene un bersión estable, s'emplegarán istas en a bersión estable d'a pachina.",
 	'revreview-diffonly' => "''Ta rebisar as pachinas, punche en o binclo \"bersión autual\" y faiga serbir o formulario de rebisión.''",
 	'revreview-visibility' => "'''Ista pachina tiene una [[{{MediaWiki:Validationpage}}|bersión estable]]; A suya confegurazión puede cambiar-se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aquí].'''",
-'revreview-revnotfound' => "No se pudo trobar a bersión antiga d'a pachina demandata.
+	'revreview-revnotfound' => "No se pudo trobar a bersión antiga d'a pachina demandata.
 Por fabor, rebise l'adreza que fazió serbir t'aczeder á ista pachina.",
 	'right-autopatrolother' => "Siñalar automaticament como patrullatas as rebisions difuera d'o espazio de nombres prenzipal",
 	'right-autoreview' => 'Siñalar as rebisions automaticament como superbisatas',
@@ -1159,6 +1169,22 @@ Pue atopase una llista de les páxines estabilizaes na [[Special:StablePages|lli
 	'validationpage' => "{{ns:help}}:Validación d'artículos",
 );
 
+/** Kotava (Kotava) */
+$messages['avk'] = array(
+	'revreview-revnotfound' => 'Abdif siatos ke batu bu me zo rodimtrasir. Ta vansara va batu bu va faveyene URL mane ageltal.',
+);
+
+/** Azerbaijani (Azərbaycan) */
+$messages['az'] = array(
+	'revreview-revnotfound' => 'Səhifənin istədiyiniz köhnə versiyası tapıla bilmir.
+Xahiş edirik, URL ünvanını yoxlayasınız.',
+);
+
+/** Samogitian (Žemaitėška) */
+$messages['bat-smg'] = array(
+	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -1308,8 +1334,15 @@ $messages['bcl'] = array(
 	'revreview-revnotfound' => 'Dai nahanap an lumang pagpakaraháy kan pahina na hinagad mo. Sosogon tabì an URL na ginamit mo sa pagabót sa pahinang ini.',
 );
 
+/** Belarusian (Беларуская) */
+$messages['be'] = array(
+	'revreview-revnotfound' => 'Не ўдалося знайсці ранейшую версію гэтага артыкула, па якую вы звярталіся.
+Праверце URL, праз які вы спрабавалі адкрыць старонку.',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
 	'revreview-log' => 'Камэнтар:',
@@ -1374,6 +1407,7 @@ $messages['bg'] = array(
 	'revreview-submit' => 'Пращане на рецензията',
 	'revreview-toggle-title' => 'показване/скриване на детайли',
 	'revreview-update-includes' => "'''Някои шаблони/файлове бяха обновени:'''",
+	'revreview-revnotfound' => 'Желаната стара версия на страницата не беше открита. Проверете адреса, който използвахте за достъп до страницата.',
 	'right-movestable' => 'Преместване на устойчиви страници',
 	'rights-editor-revoke' => 'отне правата на редактор на [[$1]]',
 	'stable-logpage' => 'Дневник на устойчивите версии',
@@ -1387,7 +1421,6 @@ $messages['bg'] = array(
 	'revreview-statusfilter' => 'Статут:',
 	'revreview-typefilter' => 'Тип:',
 	'revreview-tagfilter' => 'Етикет:',
-	'revreview-revnotfound' => 'Желаната стара версия на страницата не беше открита. Проверете адреса, който използвахте за достъп до страницата.',
 	'tooltip-ca-current' => 'Преглед на текущата чернова на страницата',
 	'tooltip-ca-stable' => 'Преглед на устойчивата версия на страницата',
 );
@@ -1575,6 +1608,12 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'validationpage' => '{{ns:help}} : Gwiriekaat ar pennad',
 );
 
+/** Bosnian (Bosanski) */
+$messages['bs'] = array(
+	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
+Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
+);
+
 /** Catalan (Català)
  * @author Aleator
  * @author Jordi Roqué
@@ -1654,6 +1693,27 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
 	'stable-logpage' => "Registre d'estabilitat",
 	'tooltip-ca-current' => "Vegeu l'actual proposta per aquesta pàgina",
 	'tooltip-ca-stable' => 'Vegeu la versió estable de la pàgina',
+);
+
+/** Chamorro (Chamoru)
+ * @author Gadao01
+ */
+$messages['ch'] = array(
+	'revreview-revnotfound' => "Ti siña masodda' i tinilaika i påhina ni finaisen-mu. Pot fabot chek i URL ni un usa para i finatto-mu gi påhina.",
+);
+
+/** Crimean Turkish (Latin) (Qırımtatarca (Latin))
+ * @author Alessandro
+ */
+$messages['crh-latn'] = array(
+	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
+);
+
+/** Crimean Turkish (Cyrillic) (Qırımtatarca (Cyrillic))
+ * @author Alessandro
+ */
+$messages['crh-cyrl'] = array(
+	'revreview-revnotfound' => 'Саифенинъ эски версиясы тапылмады. Лютфен, бу саифеге кирмек ичюн къуллангъан багълантынъызнынъ догърулыгъыны тешкеринъиз.',
 );
 
 /** Czech (Česky)
@@ -1817,6 +1877,13 @@ Přehled stabilizovaných stránek vizte na [[Special:StablePages|seznamu stabil
 	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky',
 	'tooltip-ca-default' => 'Nastavení stabilní a zobrazované verze',
 	'validationpage' => '{{ns:help}}:Stabilní verze',
+);
+
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'revreview-revnotfound' => "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda.",
 );
 
 /** Danish (Dansk)
@@ -2033,6 +2100,18 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'revreview-unlocked' => 'Bearbeitungen benötigen keine Markierung, bevor sie auf dieser Seite angezeigt werden.',
 	'revreview-tt-review' => 'Markiere diese Seite',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
+);
+
+/** German (formal address) (Deutsch (Sie-Form)) */
+$messages['de-formal'] = array(
+	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Nepl1
+ */
+$messages['dsb'] = array(
+	'revreview-revnotfound' => 'Njejo móžno było, wersiju togo boka namakaś, za kótaremž sy pytał. Pšosym kontrolěruj zapódanu URL.',
 );
 
 /** Greek (Ελληνικά)
@@ -2406,6 +2485,9 @@ $messages['et'] = array(
 Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
 );
 
+/** Basque (Euskara)
+ * @author Bengoa
+ */
 $messages['eu'] = array(
 	'revreview-revnotfound' => 'Ezin izan da eskatzen ari zaren orrialdearen berrikuspen zaharra aurkitu. Mesedez, egiaztatu orrialde honetara iristeko erabili duzun URLa.',
 );
@@ -2666,6 +2748,9 @@ $messages['fi'] = array(
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
 );
 
+/** Võro (Võro)
+ * @author Võrok
+ */
 $messages['fiu-vro'] = array(
 	'revreview-revnotfound' => 'Es lövväq su otsitut vanna kujjo.
 Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
@@ -2866,6 +2951,9 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'validationpage' => "{{ns:help}}:Validation de l'article",
 );
 
+/** Cajun French (Français cadien)
+ * @author RoyAlcatraz
+ */
 $messages['frc'] = array(
 	'revreview-revnotfound' => "Le vieux changement de la page que vous avez demandé pouvait pas être trouvé.  Regardez donc l'adresse URL que vous avez usée.",
 );
@@ -2989,11 +3077,15 @@ $messages['fy'] = array(
 Gean nei of de keppeling dy jo brûkt hawwe wol goed is.",
 );
 
+/** Irish (Gaeilge) */
 $messages['ga'] = array(
 	'revreview-revnotfound' => "Ní bhfuarthas seaneagrán an leathanaigh a d'iarr tú ar.
 Cinntigh an URL a d'úsáid tú chun an leathanach seo a rochtain.",
 );
 
+/** Gan (贛語)
+ * @author Symane
+ */
 $messages['gan'] = array(
 	'revreview-revnotfound' => '倷請求嗰更早版本嗰修改歷史冇尋到。請檢查倷嗰URL係否正確。',
 );
@@ -3199,6 +3291,9 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'validationpage' => '{{ns:help}}:Confirmación do artigo',
 );
 
+/** Hakka (Hak-kâ-fa)
+ * @author Hakka
+ */
 $messages['hak'] = array(
 	'revreview-revnotfound' => 'Chhiáng-khiù ke kien-chó pán-pún ke siû-thin ki-liu̍k mò-yû cháu-to. Chhiáng kiám-chhà chhiáng-khiù pún-chông yung ke URL he-féu chṳn-khok.',
 );
@@ -3387,6 +3482,9 @@ $messages['hi'] = array(
 	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
 );
 
+/** Fiji Hindi (Latin) (Fiji Hindi (Latin))
+ * @author Girmitya
+ */
 $messages['hif-latn'] = array(
 	'revreview-revnotfound' => 'Jon panna ke aap mangta rahaa, uske purana badlao nai mila.
 Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
@@ -3814,6 +3912,9 @@ naplója.',
 	'validationpage' => '{{ns:help}}:Szócikk ellenőrzése',
 );
 
+/** Armenian (Հայերեն)
+ * @author Teak
+ */
 $messages['hy'] = array(
 	'revreview-revnotfound' => 'Էջի որոնված հին տարբերակը չի գտնվել։ Խնդրում ենք ստուգել այն հղումը, որով անցել եք այս էջին։',
 );
@@ -4079,6 +4180,7 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'validationpage' => '{{ns:help}}:Validasi artikel',
 );
 
+/** Ido (Ido) */
 $messages['io'] = array(
 	'revreview-revnotfound' => "L' anciena versiono di la pagino, quan vu demandis, ne povis trovesar.
 Voluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
@@ -4398,11 +4500,14 @@ $messages['jv'] = array(
 	'revreview-revnotfound' => 'Revisi lawas kaca sing panjenengan suwun ora bisa ditemokaké. Mangga priksanen URL sing digunakaké kanggo ngaksès kaca iki.',
 );
 
+/** Kabyle (Taqbaylit)
+ * @author Agurzil
+ */
 $messages['kab'] = array(
 	'revreview-revnotfound' => 'Tasiwelt taqdimt n usebter-agi i testeqsiḍ ulac-it.
 Ssenqed URL i tesseqdac.',
-
 );
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'editor' => 'تۇزەتۋشى',
@@ -4749,21 +4854,25 @@ $messages['km'] = array(
 	'revreview-style-2' => 'ល្អ',
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ពត៌មានលំអិត',
 	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានធ្វើអោយទាន់សម័យរួចហើយ:'''",
+	'revreview-revnotfound' => 'កំនែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'readerfeedback-submit' => 'ដាក់ស្នើ',
 	'readerfeedback-finished' => 'សូមអរគុណ!',
 	'revreview-filter-all' => 'ទាំងអស់',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
 	'revreview-typefilter' => 'ប្រភេទ:',
 	'revreview-tagfilter' => 'ប្លាក៖',
-	'revreview-revnotfound' => 'កំនែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Shushruth
+ */
 $messages['kn'] = array(
 	'revreview-revnotfound' => 'ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.',
 );
 
 /** Korean (한국어)
+ * @author Klutzy
  * @author Kwj2772
  */
 $messages['ko'] = array(
@@ -4786,6 +4895,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'flaggedrevs-desc' => 'Määt et för de Metmaacher müjjelesch, de Versijone fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualität stabil ze hallde.',
 	'revreview-auto' => 'automattesch',
 	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
 op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
@@ -5018,19 +5128,28 @@ $messages['lt'] = array(
 	'revreview-revnotfound' => 'Norima puslapio versija nerasta. Patikrinkite URL, kuriuo patekote į šį puslapį.',
 );
 
+/** Latvian (Latviešu)
+ * @author Yyy
+ */
 $messages['lv'] = array(
 	'revreview-revnotfound' => 'Meklētā vecā lapas versija netika atrasta. Lūdzu pārbaudi lietoto URL.',
 );
 
+/** Moksha (Мокшень)
+ * @author Numulunj pilgae
+ */
 $messages['mdf'] = array(
 	'revreview-revnotfound' => 'Тя лопать сире верзиец аф муви. Ватт URL конань вельде тон сувать тя лопас.',
 );
 
+/** Malagasy (Malagasy) */
 $messages['mg'] = array(
-	'revreview-revnotfound' => "Tsy hita ny votoatin'ny pejy taloha nangatahinao.
+	'revreview-revnotfound' => "
+Tsy hita ny votoatin'ny pejy taloha nangatahinao.
 Hamarino azafady ny URL nampiasainao hahatongavana eto amin'ity pejy ity.",
 );
 
+/** Macedonian (Македонски) */
 $messages['mk'] = array(
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
@@ -5154,6 +5273,9 @@ $messages['ml'] = array(
 	'validationpage' => '{{ns:help}}:ലേഖനസാധുത',
 );
 
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
 $messages['mn'] = array(
 	'revreview-revnotfound' => 'Таны орохыг хүссэн хуудасны хуучин засвар олдсонгүй. Энэ хуудас руу явахад хэрэглэсэн URL-ээ шалгана уу.',
 );
@@ -5517,6 +5639,9 @@ Keputusan maklum balas pembaca bagi laman '''$1''' boleh dilihat di $2.",
 	'validationpage' => '{{ns:help}}:Pengesahan rencana',
 );
 
+/** Maltese (Malti)
+ * @author Giangian15
+ */
 $messages['mt'] = array(
 	'revreview-revnotfound' => "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna.",
 );
@@ -5561,6 +5686,7 @@ $messages['nds'] = array(
 	'revreview-revnotfound' => 'De Version vun disse Siet, no de du söökst, kunn nich funnen warrn. Prööv de URL vun disse Siet.',
 );
 
+/** Nedersaksisch (Nedersaksisch) */
 $messages['nds-nl'] = array(
 	'revreview-revnotfound' => 'De op-evreugen ouwe versie van disse pagina is onvientbaor. Kiek de URL dee-j gebruken nao um naor disse pagina te gaon.',
 );
@@ -5778,6 +5904,7 @@ $messages['nn'] = array(
  * @author EivindJ
  * @author H92
  * @author Jon Harald Søby
+ * @author Kph
  * @author Stigmj
  */
 $messages['no'] = array(
@@ -6161,8 +6288,11 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'validationpage' => "{{ns:help}}:Validacion de l'article",
 );
 
+/** Pampanga (Kapampangan)
+ * @author Val2397
+ */
 $messages['pam'] = array(
-	'revreview-revnotfound'     => 'Ing matuang meyaliling bulung a pakiduang mu eya mayakit. Paki lawe me ing URL a ginamit mu para apuntalan me ing bulung.',
+	'revreview-revnotfound' => 'Ing matuang meyaliling bulung a pakiduang mu eya mayakit. Paki lawe me ing URL a ginamit mu para apuntalan me ing bulung.',
 );
 
 /** Polish (Polski)
@@ -6676,21 +6806,27 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
+/** Brazilian Portuguese (Português do Brasil) */
 $messages['pt-br'] = array(
 	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
 Por favor verifique a URL que você usou para acessar esta página.',
 );
 
+/** Quechua (Runa Simi) */
 $messages['qu'] = array(
 	'revreview-revnotfound' => "Mañakusqayki llamk'apusqaqa manam tarisqachu.
 Ama hina kaspa, kay p'anqap URL nisqa tiyayninta k'uskiriy.",
 );
 
+/** Romani (Romani)
+ * @author לערי ריינהארט
+ */
 $messages['rmy'] = array(
 	'revreview-revnotfound' => 'I puraneder versiya la patrinyaki so tu manglyan na arakhel pes. Mangas tuke te palemdikhes o phandipen so labyardyan kana avilyan kathe.',
 );
 
 /** Romanian (Română)
+ * @author Emily
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
@@ -6700,8 +6836,8 @@ $messages['ro'] = array(
 	'revreview-quality-title' => 'Articol de calitate',
 	'revreview-stable' => 'Pagină stabilă',
 	'revreview-style-1' => 'Acceptabil',
-	'revreview-typefilter' => 'Tip:',
 	'revreview-revnotfound' => 'Versiunea mai veche a paginii pe care aţi cerut-o nu a fost găsită. Vă rugăm să verificaţi legătura pe care aţi folosit-o pentru a accesa această pagină.',
+	'revreview-typefilter' => 'Tip:',
 );
 
 /** Tarandíne (Tarandíne)
@@ -7015,27 +7151,41 @@ $messages['sah'] = array(
 	'validationpage' => '{{ns:help}}:Ыстатыйа бэрэбиэркэтэ',
 );
 
+/** Sardinian (Sardu) */
 $messages['sc'] = array(
 	'revreview-revnotfound' => 'La versione precedente di questo articolo che hai richiesto, non è stata trovata.
 Controlla per favore la URL che hai usato per accedere a questa pagina.',
 );
 
+/** Sicilian (Sicilianu)
+ * @author Tonyfroio
+ */
 $messages['scn'] = array(
 	'revreview-revnotfound' => "La virsioni pricidenti di st'artìculu c'hai addumannatu nun hà statu attruvata. Cuntrolla pi favuri la URL c'hai usatu p'accèdiri a sta pàggina.",
 );
 
+/** Scots (Scots) */
 $messages['sco'] = array(
 	'revreview-revnotfound' => 'The auld reveision o the page ye socht cuidna be funnd. Please check the URL ye uised til access this page.',
 );
 
+/** Sassaresu (Sassaresu)
+ * @author Felis
+ */
 $messages['sdc'] = array(
 	'revreview-revnotfound' => "La versioni dumandadda di la pàgina nò è isthadda acciappadda. Verifiggà l'indirizzu usaddu pa intrà a chistha pàgina.",
 );
 
+/** Northern Sami (Sámegiella)
+ * @author Skuolfi
+ */
 $messages['se'] = array(
 	'revreview-revnotfound' => 'Veršuvdna, man ohcet, ii dihtto. Dárkkis URL-čujuhusa, mainna ohcet dán siiddu.',
 );
 
+/** Cmique Itom (Cmique Itom)
+ * @author Ccaxjoj Iteja Z Iti Poop
+ */
 $messages['sei'] = array(
 	'revreview-revnotfound' => 'Janrevicion zode páhina zo me yahöx necoccebj yahöxom. Controlar URL zo me usadadde accesom jan páhina.',
 );
@@ -7240,10 +7390,12 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'validationpage' => '{{ns:help}}:Overovanie článkov',
 );
 
+/** Slovenian (Slovenščina) */
 $messages['sl'] = array(
 	'revreview-revnotfound' => 'Redakcije strani, ki ste jo poskušali pridobiti, ni mogoče najti. Prosimo, preverite spletni naslov, ki ste ga uporabili za dostop do strani.',
 );
 
+/** Albanian (Shqip) */
 $messages['sq'] = array(
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjehej.Ju lutem kontrolloni URL-in që përdorët për të ardhur tek kjo faqe.',
 );
@@ -7386,12 +7538,14 @@ $messages['sr-ec'] = array(
 	'validationpage' => '{{ns:help}}:Овера чланка',
 );
 
+/** latinica (latinica) */
 $messages['sr-el'] = array(
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranici.',
 );
 
 /** Seeltersk (Seeltersk)
+ * @author Maartenvdbent
  * @author Pyt
  */
 $messages['stq'] = array(
@@ -7712,8 +7866,8 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'readerfeedback-level-4' => 'Mycket bra',
 	'readerfeedback-submit' => 'Skicka',
 	'readerfeedback-main' => 'Endast innehållssidor kan granskas.',
-	'readerfeedback-success' => "'''Tack för att du granskade den här sidan!''' Lämna eventuella kommentarer [$3 här].",
-	'readerfeedback-voted' => "'''Det verkar som att du redan betygsatt den här sidan'''. Lämna eventuella kommentarer [$3 här].",
+	'readerfeedback-success' => "'''Tack för att du granskade den här sidan!''' ([$3 Kommentarer eller frågor?]).",
+	'readerfeedback-voted' => "'''Det verkar som att du redan betygsatt den här sidan'''. ([$3 Kommentarer eller frågor?]).",
 	'readerfeedback-submitting' => 'Skickar...',
 	'readerfeedback-finished' => 'Tack!',
 	'revreview-filter-all' => 'Alla',
@@ -7737,10 +7891,16 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'validationpage' => '{{ns:help}}:Artikelvalidering',
 );
 
+/** Silesian (Ślůnski)
+ * @author Timpul
+ */
 $messages['szl'] = array(
 	'revreview-revnotfound' => 'Ńy idźe znejść staršyj wersyji zajty. Sprawdź, proša, URL kery žeś užůu coby uzyskać dostymp do tyj zajty.',
 );
 
+/** Tamil (தமிழ்)
+ * @author Trengarasu
+ */
 $messages['ta'] = array(
 	'revreview-revnotfound' => 'இப் பக்கத்துக்குரிய, நீங்கள் கோரிய பழைய திருத்தம் காணப்படவில்லை. இந்தப் பக்கத்தை அணுகுவதற்கு நீங்கள் பயன்படுத்திய இணைய முகவரியை அருள் கூர்ந்து சரி பார்க்கவும்.',
 );
@@ -7964,8 +8124,8 @@ $messages['tg-cyrl'] = array(
  */
 $messages['th'] = array(
 	'revreview-auto' => '(อัตโนมัติ)',
-	'revreview-filter-all' => 'ทั้งหมด',
 	'revreview-revnotfound' => 'ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้',
+	'revreview-filter-all' => 'ทั้งหมด',
 );
 
 /** Turkish (Türkçe)
@@ -7973,6 +8133,7 @@ $messages['th'] = array(
  * @author Karduelis
  * @author Mach
  * @author Runningfridgesrule
+ * @author Srhat
  */
 $messages['tr'] = array(
 	'editor' => 'Editör',
@@ -8614,15 +8775,22 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'validationpage' => '{{ns:help}}:Yegedikontrolam',
 );
 
+/** Walloon (Walon) */
 $messages['wa'] = array(
 	'revreview-revnotfound' => "Li viye modêye del pådje ki vos avoz dmandé n' a nén stî trovêye.
 Verifyîz l' hårdêye ki vs avoz eployî po-z ariver sol pådje s' i vs plait.",
 );
 
+/** Wolof (Wolof)
+ * @author Ibou
+ */
 $messages['wo'] = array(
 	'revreview-revnotfound' => 'Sumbum xët wi ngay laaj gisuñ ko. Saytul URL bi nga jëfandikoo ngir jot xët wii.',
 );
 
+/** Yiddish (ייִדיש)
+ * @author Yidel
+ */
 $messages['yi'] = array(
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
@@ -8793,6 +8961,9 @@ $messages['yue'] = array(
 	'validationpage' => '{{ns:help}}:文章確認',
 );
 
+/** Zeeuws (Zeêuws)
+ * @author NJ
+ */
 $messages['zea'] = array(
 	'revreview-revnotfound' => 'De opevrogen ouwe versie van deêze pagina is onvindbaer.
 Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
@@ -9007,8 +9178,9 @@ $messages['zh-hant'] = array(
 	'validationpage' => '{{ns:help}}:文章確認',
 );
 
+/** Chinese (Taiwan) (‪中文(台灣)‬) */
 $messages['zh-tw'] = array(
-	'revreview-revnotfound'     => '您請求的更早版本的修訂記錄沒有找到。
+	'revreview-revnotfound' => '您請求的更早版本的修訂記錄沒有找到。
 請檢查您請求本頁面用的URL是否正確。',
 );
 
