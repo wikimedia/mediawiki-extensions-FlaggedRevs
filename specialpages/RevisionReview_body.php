@@ -689,7 +689,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$u = new LinksUpdate( $this->page, $poutput );
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the stable cache...
-		$sv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+		$sv = FlaggedRevision::newFromStable( $this->page, FR_FOR_UPDATE );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			global $wgParserCacheExpireTime;
 			$this->page->invalidateCache();
