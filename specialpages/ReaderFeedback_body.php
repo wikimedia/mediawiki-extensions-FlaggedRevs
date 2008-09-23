@@ -185,14 +185,25 @@ class ReaderFeedback extends UnlistedSpecialPage
 	
 	public static function userAlreadyVoted( $title, $revId = 0 ) {
 		global $wgUser;
+		static $stackDepth = 0; // no loops :)
 		$userVoted = false;
 		# Use page_latest if $revId not given
 		$revId = $revId ? $revId : $title->getLatestRevID( GAID_FOR_UPDATE );
 		$rev = Revision::newFromTitle( $title, $revId );
-		# No voting on users own revs. This makes it harder to make tiny
-		# edits just to inflate/deflate rating...
-		if( $rev->getUserText() == $wgUser->getName() ) {
-			return true;
+		if( !$rev )
+			return false; // shouldn't happen; just in case
+		# Check if this revision is by this user...
+		if( $rev->getUserText() === $wgUser->getName() ) {
+			# Check if the previous revisions is theirs and they
+			# voted on it. Disallow this, to make it harder to make
+			# edits just to inflate/deflate rating...
+			if( $stackDepth < 1 ) {
+				$stackDepth++;
+				$prevId = $title->getPreviousRevisionID( $revId );
+				if( $prevId && self::userAlreadyVoted( $title, $prevId ) ) {
+					return true;
+				}
+			}
 		}
 		# Check if user already voted before...
 		$dbw = wfGetDB( DB_MASTER );
