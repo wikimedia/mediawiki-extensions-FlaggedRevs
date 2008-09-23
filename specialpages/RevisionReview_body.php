@@ -99,7 +99,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		if( !$this->oldid ) {
-			$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
+			$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 			return;
 		}
 		# Check if page is protected
@@ -167,7 +167,7 @@ class RevisionReview extends UnlistedSpecialPage
 			// Any other fail...
 			} else {
 				$wgOut->setPageTitle( wfMsgHtml('internalerror') );
-				$wgOut->showErrorPage( 'internalerror', 'revnotfoundtext' );
+				$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 				$wgOut->returnToMain( false, $this->page );
 			}
 		# Show revision and form
@@ -288,7 +288,7 @@ class RevisionReview extends UnlistedSpecialPage
 		} else if( $approved && is_array($status) ) {
 			return '<err#>'.$form->showSyncFailure( $status );
 		} else if( $approved ) {
-			return '<err#>'.wfMsg('revnotfoundtext');
+			return '<err#>' . wfMsg( 'revreview-revnotfound' );
 		} else { // hmmm?
 			return '<err#>';
 		}

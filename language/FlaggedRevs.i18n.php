@@ -147,7 +147,9 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' If any of these templates/images have a stable version, then it is already used in the stable version of this page.',
 	'revreview-diffonly'           => '\'\'To review the page, click the "current revision" revision link and use the review form.\'\'',
 	'revreview-visibility'         => '\'\'\'This page has an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
-	'revreview-visibility2'         => '\'\'\'This page does not have an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
+	'revreview-visibility2'        => '\'\'\'This page does not have an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
+	'revreview-revnotfound'        => 'The old revision of the page you asked for could not be found.
+Please check the URL you used to access this page.',
 	'right-autopatrolother'        => 'Automatically mark revisions in non-main namespaces patrolled',
 	'right-autoreview'             => 'Automatically mark revisions as sighted',
 	'right-movestable'             => 'Move stable pages',
@@ -459,6 +461,7 @@ $messages['af'] = array(
 	'revreview-filter-all' => 'Alles',
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Tipe:',
+	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
 );
 
 /** Aragonese (Aragonés)
@@ -599,6 +602,8 @@ S'han feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} c
 	'revreview-update-use' => "'''PARE CUENTA:''' Si beluna d'istas plantillas u imáchens tiene un bersión estable, s'emplegarán istas en a bersión estable d'a pachina.",
 	'revreview-diffonly' => "''Ta rebisar as pachinas, punche en o binclo \"bersión autual\" y faiga serbir o formulario de rebisión.''",
 	'revreview-visibility' => "'''Ista pachina tiene una [[{{MediaWiki:Validationpage}}|bersión estable]]; A suya confegurazión puede cambiar-se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aquí].'''",
+'revreview-revnotfound' => "No se pudo trobar a bersión antiga d'a pachina demandata.
+Por fabor, rebise l'adreza que fazió serbir t'aczeder á ista pachina.",
 	'right-autopatrolother' => "Siñalar automaticament como patrullatas as rebisions difuera d'o espazio de nombres prenzipal",
 	'right-autoreview' => 'Siñalar as rebisions automaticament como superbisatas',
 	'right-movestable' => 'Tresladar as pachinas estables',
@@ -774,6 +779,8 @@ $messages['ar'] = array(
 	'revreview-diffonly' => "''لمراجعة الصفحة، اضغط على وصلة مراجعة \"المراجعة الحالية\" واستخدم استمارة المراجعة.''",
 	'revreview-visibility' => "'''هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
 	'revreview-visibility2' => "'''هذه الصفحة ليس لديها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
+	'revreview-revnotfound' => 'لم يتم العثور على المراجعة القديمة من الصفحة التي طلبتها.
+من فضلك تأكد من المسار الذي دخلت به إلى هذه الصفحة.',
 	'right-autopatrolother' => 'التعليم تلقائيا على المراجعات في النطاقات غير الرئيسية كمراجعة',
 	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمنظورة',
 	'right-movestable' => 'نقل الصفحات المستقرة',
@@ -973,6 +980,8 @@ $messages['arz'] = array(
 	'revreview-diffonly' => "''لمراجعة الصفحة، اضغط على وصلة مراجعة \"المراجعة الحالية\" واستخدم استمارة المراجعة.''",
 	'revreview-visibility' => "'''هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
 	'revreview-visibility2' => "'''هذه الصفحة ليس لديها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
+	'revreview-revnotfound' => 'ما لقيناش النسخة القديمة من الصفحة اللى طلبتها.
+لو سمحت تتأكد من اليوأرإل اللى دخلت بيه للصفحة دي.',
 	'right-autopatrolother' => 'التعليم تلقائيا على المراجعات فى النطاقات غير الرئيسية كمراجعة',
 	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمنظورة',
 	'right-movestable' => 'نقل الصفحات المستقرة',
@@ -1124,6 +1133,7 @@ pue ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificáu]; [{{fullurl:{{FUL
 	'revreview-update-includes' => "'''Actualizáronse dalgunes plantíes/imáxenes:'''",
 	'revreview-update-none' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos ''(amosaos embaxo)'' fechos dende que la versión estable foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
 	'revreview-visibility' => "'''Esta páxina tien una [[{{MediaWiki:Validationpage}}|versión estable]]; los sos parámetros puen ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configuraos].'''",
+	'revreview-revnotfound' => "La revisión antigua de la páxina que solicitasti nun se pudo atopar. Por favor comprueba l'URL qu'usasti p'acceder a esta páxina.",
 	'right-movestable' => 'Treslladar páxines estables',
 	'right-review' => 'Marcar revisiones como vistes',
 	'rights-editor-autosum' => 'autopromocionáu',
@@ -1243,6 +1253,7 @@ $messages['bcc'] = array(
 په نسخ کتن یک بازبینی کل فیلدانء په داب "unapproved" نشان کن.',
 	'revreview-update-includes' => "'''لهتی تمپلتان/تصاویر په روچ بیتگین:'''",
 	'revreview-update-use' => "'''توجه:''' اگر هر یکی چه ای تمپلتان/تصاویر یک ثابتین نسخه ای هست،اچه آیی الان ته نسخه ثابت ای صفحه کامرز بیت.",
+	'revreview-revnotfound' => 'کدیمی بازبینی چه ای صفحه که شما لوٹیت ودیگ نه بوت. لطفا URL که شما په رستن په ای صفحه استفاده کنیت کنترلی کنیت.',
 	'right-autopatrolother' => 'اتوماتیکی نشان بونت بازبینی آن ته نام فضایانء نظارتی',
 	'right-autoreview' => 'اتوماتیکی نشان کن بازبینیء په عنوان رویت بیتگین',
 	'right-movestable' => 'صفحات ثابت جاه په جاه کن',
@@ -1294,6 +1305,7 @@ $messages['bcc'] = array(
 $messages['bcl'] = array(
 	'hist-quality' => 'kalidad',
 	'revreview-depth' => 'Rarom',
+	'revreview-revnotfound' => 'Dai nahanap an lumang pagpakaraháy kan pahina na hinagad mo. Sosogon tabì an URL na ginamit mo sa pagabót sa pahinang ini.',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
@@ -1301,6 +1313,7 @@ $messages['bcl'] = array(
  */
 $messages['be-tarask'] = array(
 	'revreview-log' => 'Камэнтар:',
+	'revreview-revnotfound' => 'Ранейшая вэрсія гэтай старонкі ня знойдзеная. Праверце спасылку, празь якую Вы спрабавалі перайсьці на гэтую старонку.',
 );
 
 /** Bulgarian (Български)
@@ -1374,6 +1387,7 @@ $messages['bg'] = array(
 	'revreview-statusfilter' => 'Статут:',
 	'revreview-typefilter' => 'Тип:',
 	'revreview-tagfilter' => 'Етикет:',
+	'revreview-revnotfound' => 'Желаната стара версия на страницата не беше открита. Проверете адреса, който използвахте за достъп до страницата.',
 	'tooltip-ca-current' => 'Преглед на текущата чернова на страницата',
 	'tooltip-ca-stable' => 'Преглед на устойчивата версия на страницата',
 );
@@ -1449,6 +1463,7 @@ $messages['bn'] = array(
 	'revreview-submit' => 'পর্যালোচনা জমা দিন',
 	'revreview-text' => "''নতুন সংস্করণের বদলে [[{{MediaWiki:Validationpage}}|স্থিতিশীল সংস্করণগুলি]] দর্শকদের জন্য ডিফল্ট হিসেবে সেট করা আছে।''",
 	'revreview-toolow' => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।',
+	'revreview-revnotfound' => 'আপনির পাতাটির যে পুরনো সংস্করণটি অনুরোধ করেছেন, তা খুঁজে পাওয়া যায়নি। পাতাটিতে যাবার জন্য আপনি যে URL-টি ব্যবহার করেছিলেন, অনুগ্রহ করে সেটি পরীক্ষা করে দেখুন।',
 	'rights-editor-revoke' => '[[$1]] এর সম্পাদক পদমর্যাদা প্রত্যাহার করুন',
 	'stable-logpage' => 'সুদৃঢ় সংস্করণ লগ',
 	'tooltip-ca-current' => 'এই পাতাটির বর্তমান খসড়াটি দেখুন',
@@ -1551,6 +1566,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 
 '''Hizivaet e oa bet patromoù/skeudennoù zo :'''",
 	'revreview-update-none' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm stabil diwezhañ.",
+	'revreview-revnotfound' => "N'eo ket bet kavet stumm kent ar bajenn-mañ. Gwiriit an URL lakaet ganeoc'h evit mont d'ar bajenn-mañ.",
 	'rights-editor-autosum' => 'emanvet',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
 	'tooltip-ca-current' => "Gwelet brouilhed ar bajenn-mañ evel m'emañ evit poent",
@@ -1629,6 +1645,8 @@ S'hi poden haver fet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 '''Algunes plantilles o imatges han canviat:'''",
 	'revreview-update-includes' => "'''Algunes plantilles o imatges han estat actualitzades:'''",
 	'revreview-update-none' => "Si us plau, [[{{MediaWiki:Validationpage}}|repasseu]] els canvis ''(mostrats a continuació)'' fets des que la revisió estable va ser [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
+	'revreview-revnotfound' => "No s'ha pogut trobar la revisió antiga de la pàgina que demanàveu.
+Reviseu l'URL que heu emprat per a accedir-hi.",
 	'right-movestable' => 'Moure pàgines estables',
 	'right-review' => 'Marqueu les revisions com a vistes',
 	'right-stablesettings' => 'Configureu com es selecciona i mostra la versió estable',
@@ -1766,6 +1784,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-update-use' => "'''Upozornění:''' Pokud něco z těchto šablon/obrázků má stabilní verzi, pak je ta už použita na stabilní verzi této stránky.",
 	'revreview-diffonly' => "''Stránku můžete zkontrolovat po kliknutí na odkaz „aktuální revize” pomocí formuláře pro kontrolu.''",
 	'revreview-visibility' => "'''Tato stránka má [[{{MediaWiki:Validationpage}}|stabilní verzi]], kterou lze [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} nastavit].'''",
+	'revreview-revnotfound' => 'Nelze najít starou verzi, kterou žádáte. Zkuste prosím zkontrolovat URL hledané stránky.',
 	'right-movestable' => 'Přesunout stabilní stránky',
 	'right-review' => 'Označit verze jako prohlédnuté',
 	'right-validate' => 'Označit revize jako ověřené',
@@ -1805,6 +1824,8 @@ Přehled stabilizovaných stránek vizte na [[Special:StablePages|seznamu stabil
  */
 $messages['da'] = array(
 	'revreview-auto' => '(automatisk)',
+	'revreview-revnotfound' => 'Den gamle version af den side du spurgte efter kan
+ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
 );
 
 /** German (Deutsch)
@@ -1957,6 +1978,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-diffonly' => "''Um diese Seite zu sichten, klicke bitte auf den Link „Aktuelle Version“ und verwende die Sichtungsbox dort.''",
 	'revreview-visibility' => "'''Diese Seite hat eine aktualisierte [[{{MediaWiki:Validationpage}}|markierte Version]]; die Anzeigeeinstellungen können [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert]  werden.'''",
 	'revreview-visibility2' => "'''Diese Seite hat keine aktualisierte [[{{MediaWiki:Validationpage}}|markierte Version]]; die Anzeigeeinstellungen können [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert]  werden.'''",
+	'revreview-revnotfound' => 'Die Version dieser Seite, nach der du suchst, konnte nicht gefunden werden. Bitte überprüfe die URL dieser Seite.',
 	'right-autopatrolother' => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
 	'right-autoreview' => 'Automatisches Markieren von Versionen als gesichtet',
 	'right-movestable' => 'Verschieben von gesichteten und geprüften Seiten',
@@ -2049,6 +2071,7 @@ $messages['el'] = array(
 	'revreview-stable' => 'Σταθερή σελίδα',
 	'revreview-style' => 'Αναγνωσιμότητα',
 	'revreview-toggle-title' => 'εμφάνιση/απόκρυψη λεπτομερειών',
+	'revreview-revnotfound' => 'Η παλιά αναθεώρηση της σελίδας που ζητήσατε δεν ήταν δυνατόν να βρεθεί. Παρακαλούμε ελέγξτε τo URL που χρησιμοποιήσατε για να φτάσετε σε αυτήν τη σελίδα.',
 	'stable-logpage' => 'Αρχείο καταγραφής σταθερών εκδόσεων',
 	'readerfeedback-reliability' => 'Αξιοπιστία',
 	'readerfeedback-completeness' => 'Πληρότητα',
@@ -2202,6 +2225,8 @@ Malvalidigi revizion, faru ĉiujn kampojn kiel "malaprobita".',
 	'revreview-update-use' => "'''NOTU:''' Se iuj ajn de tiuj ŝablonoj/bildoj havas stabilan version, tiel ĝi jam estas uzita en la stabila versio de ĉi tiu paĝo.",
 	'revreview-diffonly' => "''Por kontroli la paĝon, klaku la ligilon \"nuna revizio\" kaj uzu la kontrolo-paĝon.''",
 	'revreview-visibility' => "'''Ĉi paĝo havas [[{{MediaWiki:Validationpage}}|stabilan version]]; preferoj por ĝi povas esti [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurita].'''",
+	'revreview-revnotfound' => 'Ne eblis trovi malnovan version de la artikolo kiun vi petis.
+Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'right-autopatrolother' => 'Aŭtomate marki reviziojn ekster la ĉefaj nomspacoj kiel patrolitajn',
 	'right-autoreview' => 'Aŭtomate marki reviziojn kiel viditajn',
 	'right-movestable' => 'Movi stabilajn paĝojn',
@@ -2336,6 +2361,8 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'revreview-update-includes' => "'''Algunas plantillas o imágenes fueron actualizadas:'''",
 	'revreview-update-none' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] los cambios ''(mostrados abajo)'' hecho desde que la versión estable fue  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
 	'revreview-update-use' => "'''NOTA:''' si alguna de estas plantillas o imágenes tiene una versión estable, entonces ya se usa en la versión estable de esta página.",
+	'revreview-revnotfound' => 'No se pudo encontrar la revisión antigua de la página que ha solicitado.
+Por favor, revise la dirección que usó para acceder a esta página.',
 	'right-autopatrolother' => 'Automáticamente marcar revisiones patrulladas fuera del espacio de nombres principal',
 	'right-autoreview' => 'Automáticamente marcar revisiones como vistas',
 	'right-movestable' => 'Mover páginas estables',
@@ -2375,6 +2402,12 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 /** Estonian (Eesti) */
 $messages['et'] = array(
 	'revreview-style-1' => 'Vastuvõetav',
+	'revreview-revnotfound' => 'Teie poolt päritud vana redaktsiooni ei leitud.
+Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
+);
+
+$messages['eu'] = array(
+	'revreview-revnotfound' => 'Ezin izan da eskatzen ari zaren orrialdearen berrikuspen zaharra aurkitu. Mesedez, egiaztatu orrialde honetara iristeko erabili duzun URLa.',
 );
 
 /** Extremaduran (Estremeñu)
@@ -2387,6 +2420,7 @@ $messages['ext'] = array(
 	'grouppage-editor' => '{{ns:project}}:Eitol',
 	'revreview-auto' => '(autumáticu)',
 	'revreview-style-2' => 'Güenu',
+	'revreview-revnotfound' => 'La revisión antigua qu´estás landeandu nu se puei alcuentral. Pol favol, compreba la URL que gastasti pa dil a esta páhina.',
 );
 
 /** Persian (فارسی)
@@ -2535,6 +2569,8 @@ $messages['fa'] = array(
 	'revreview-diffonly' => "''برای بازبینی این صفحه، روی پیوند «نسخهٔ اخیر» کلیک کنید و فرم بازبینی را استفاده کنید.''",
 	'revreview-visibility' => 'این صفحه دارای یک [[{{MediaWiki:Validationpage}}|نسخه پایدار است]] که قابل 
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} تنظیم] است.',
+	'revreview-revnotfound' => 'نسخهٔ قدیمی‌ای از صفحه که درخواسته بودید یافت نشد.
+لطفاً URLی را که برای دسترسی به این صفحه استفاده کرده‌اید، بررسی کنید.',
 	'right-autopatrolother' => 'زدن خودکار برچسب گشت خودکار به ویرایش‌های خارج از فضای نام اصلی',
 	'right-autoreview' => 'علامت زدن خودکار نسخه‌ها به عنوان بررسی شده',
 	'right-movestable' => 'صفحه‌های با بیشترین پایداری',
@@ -2624,9 +2660,15 @@ $messages['fi'] = array(
 	'revreview-patrol-title' => 'Merkitse tarkastetuksi',
 	'revreview-stable' => 'Vakaa sivu',
 	'revreview-style' => 'Luettavuus',
+	'revreview-revnotfound' => 'Pyytämääsi versiota ei löydy. Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-movestable' => 'Siirrä vakaat sivut',
 	'tooltip-ca-current' => 'Näytä tämän sivun nykyinen luonnosversio',
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
+);
+
+$messages['fiu-vro'] = array(
+	'revreview-revnotfound' => 'Es lövväq su otsitut vanna kujjo.
+Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
 );
 
 /** French (Français)
@@ -2769,6 +2811,7 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'revreview-visibility' => '
 Cette page contient une [[{{MediaWiki:Validationpage}}|version stable]] : ses paramètres de stabilité peuvent être [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurés].',
 	'revreview-visibility2' => "'''Cette page ne dispose pas de [[{{MediaWiki:Validationpage}}|version stable]] ; ses paramètres de stabilité peuvent être [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurés].'''",
+	'revreview-revnotfound' => 'La version précédente de cette page n’a pas pu être retrouvée. Veuillez vérifier l’URL que vous avez utilisée pour accéder à cette page.',
 	'right-autopatrolother' => 'Marquer comme patrouillées les versions dans tous les espaces de nom sauf le principal.',
 	'right-autoreview' => 'Marquer automatiquement les versions comme visées',
 	'right-movestable' => 'Déplacer des pages stables',
@@ -2821,6 +2864,10 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'revreview-unlocked' => 'Les modifications ne nécessitent pas de relecture avant d’être affichées sur cette page !',
 	'revreview-tt-review' => 'Réviser cette page',
 	'validationpage' => "{{ns:help}}:Validation de l'article",
+);
+
+$messages['frc'] = array(
+	'revreview-revnotfound' => "Le vieux changement de la page que vous avez demandé pouvait pas être trouvé.  Regardez donc l'adresse URL que vous avez usée.",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2909,6 +2956,8 @@ Vêde les [[Special:Unreviewedpages|vèrsions pas rèvisâs]] por una lista de p
 '''Doux-três émâges ou modèlos siuvents ont en èfèt étâ betâs a jorn :'''",
 	'revreview-update-none' => "Volyéd [[{{MediaWiki:Validationpage}}|controlar]] les modificacions fêtes ''(vêde ce-desot)'' dês que la dèrriére vèrsion stâbla èye étâ [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}}}} aprovâ].",
 	'revreview-visibility' => 'Ceta pâge contint una [[{{MediaWiki:Validationpage}}|vèrsion stâbla]], que pôt étre [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurâ].',
+	'revreview-revnotfound' => 'La vèrsion prècèdenta de cela pâge at pas possu étre retrovâ.
+Volyéd controlar l’URL que vos éd utilisâ por arrevar a ceta pâge.',
 	'rights-editor-autosum' => 'Ôtonomâ',
 	'rights-editor-revoke' => 'at rèvocâ los drêts d’èditor de [[$1]]',
 	'stable-logentry' => 'Les vèrsions stâbles de [[$1]] sont paramètrâs.',
@@ -2936,6 +2985,17 @@ $messages['fy'] = array(
 	'revreview-depth-0' => 'Net kontrolearre',
 	'revreview-log' => 'Oanmerking:',
 	'revreview-style-2' => 'Goed',
+	'revreview-revnotfound' => "De âlde ferzje fan dizze side dêr't jo om frege hawwe, is der net.
+Gean nei of de keppeling dy jo brûkt hawwe wol goed is.",
+);
+
+$messages['ga'] = array(
+	'revreview-revnotfound' => "Ní bhfuarthas seaneagrán an leathanaigh a d'iarr tú ar.
+Cinntigh an URL a d'úsáid tú chun an leathanach seo a rochtain.",
+);
+
+$messages['gan'] = array(
+	'revreview-revnotfound' => '倷請求嗰更早版本嗰修改歷史冇尋到。請檢查倷嗰URL係否正確。',
 );
 
 /** Galician (Galego)
@@ -3083,6 +3143,8 @@ Para despreciar unha revisión, encha todos os campos con "sen aprobar".',
 	'revreview-diffonly' => "''Para revisar a páxina, faga clic na ligazón da revisión \"revisión actual\" e use o formulario de revisión.''",
 	'revreview-visibility' => "'''Esta páxina ten unha [[{{MediaWiki:Validationpage}}|versión estábel]] actualizada; os parámetros de estabilidade desta páxina poden ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility2' => "'''Esta páxina non ten unha [[{{MediaWiki:Validationpage}}|versión estábel]] actualizada; os parámetros de estabilidade desta páxina poden ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
+	'revreview-revnotfound' => 'A revisión vella que pediu non se deu atopado.
+Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'right-autopatrolother' => 'Marcar automaticamente como patrulladas as revisións nos espazos de nomes que non son principais',
 	'right-autoreview' => 'Marcar automaticamente as revisións como revisadas',
 	'right-movestable' => 'Mover páxinas estábeis',
@@ -3137,6 +3199,10 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'validationpage' => '{{ns:help}}:Confirmación do artigo',
 );
 
+$messages['hak'] = array(
+	'revreview-revnotfound' => 'Chhiáng-khiù ke kien-chó pán-pún ke siû-thin ki-liu̍k mò-yû cháu-to. Chhiáng kiám-chhà chhiáng-khiù pún-chông yung ke URL he-féu chṳn-khok.',
+);
+
 /** Hawaiian (Hawai`i)
  * @author Singularity
  */
@@ -3160,6 +3226,7 @@ $messages['he'] = array(
 	'hist-draft' => 'גרסת טיוטה',
 	'revreview-log' => 'הערה:',
 	'revreview-submitting' => 'נשלח...',
+	'revreview-revnotfound' => 'הגרסה הישנה של דף זה לא נמצאה. אנא בדקו את כתובת הקישור שהוביל אתכם הנה.',
 );
 
 /** Hindi (हिन्दी)
@@ -3299,6 +3366,7 @@ $messages['hi'] = array(
 	'revreview-update-none' => "कृपया किये हुए बदलाव ''(नीचे दिये हुए)'' [[{{MediaWiki:Validationpage}}|जाँचे]] क्योंकी स्थिर अवतरण [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] कर दिया गया हैं।",
 	'revreview-update-use' => "'''सूचना:''' अगर इसमें से किसी साँचा/चित्रका स्थिर अवतरण हैं, तो वह इस पन्नेके स्थिर अवतरण में पहले से इस्तेमाल किया हुआ हैं।",
 	'revreview-visibility' => "'''इस पन्नेको एक [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] हैं, जो [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} बदला] जा सकता हैं।'''",
+	'revreview-revnotfound' => 'आपसे पूछा गया इस लेख का पुराना अवतरण नहीं मिल पाया। कॄपया आपने इस्तेमाल किये URL की जाँच करें।',
 	'right-autopatrolother' => 'मुख्य नामस्थान छोडकर अन्य नामस्थानोंके पन्नोंके अवतरणोंपर अपने आप ध्यान रखने का मार्क करें',
 	'right-autoreview' => 'अवतरण देखें ऐसे अपनेआप मार्क करें',
 	'right-movestable' => 'स्थिर पन्नोंका स्थानांतरण करें',
@@ -3317,6 +3385,11 @@ $messages['hi'] = array(
 	'tooltip-ca-stable' => 'इस पन्ने का स्थिर अवतरण देखें',
 	'tooltip-ca-default' => 'गुणवत्ता आश्वासन सेटिंग',
 	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
+);
+
+$messages['hif-latn'] = array(
+	'revreview-revnotfound' => 'Jon panna ke aap mangta rahaa, uske purana badlao nai mila.
+Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
 );
 
 /** Croatian (Hrvatski)
@@ -3419,6 +3492,8 @@ da bi promjena bila pregledana/ocijenjena. U suprotnom, ostavite sve na "Ne zado
 	'revreview-update-none' => "Molim, [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(prikazane dolje)'' učinjene od kad je stabilna inačica [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} odobrena].",
 	'revreview-visibility' => 'Ovaj članak ima [[{{MediaWiki:Validationpage}}|važeću inačicu]], koja može biti
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurirana].',
+	'revreview-revnotfound' => 'Ne mogu pronaći staru izmjenu stranice koju ste zatražili.
+Molimo provjerite URL koji vas je doveo ovamo.',
 	'rights-editor-autosum' => 'samopromoviran',
 	'rights-editor-revoke' => 'oduzet status urednika suradniku [[$1]]',
 	'stable-logentry' => 'postavljena važeća inačica stranice [[$1]]',
@@ -3530,6 +3605,7 @@ Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 '''Někotre předłohi/wobrazy buchu zaktualizowane:'''",
 	'revreview-update-none' => "Prošu [[{{MediaWiki:Validationpage}}|přepruwuj]] změny ''(hlej deleka)'', kotrež buchu činjene, wot toho zo stabilna wersija bu [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schwalena].",
 	'revreview-visibility' => "'''Tuta strona ma zaktualizowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja za stabilnosć strony dadźa so [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurować].'''",
+	'revreview-revnotfound' => 'Stara wersija strony, kotruž sy žadał, njeda so namakać. Prošu pruwuj URL, kiž sy wužiwał.',
 	'rights-editor-revoke' => 'status wobdźěłowarja bu [[$1]] zebrany.',
 	'stable-logentry' => 'konfigurowaše woznamjenjenje stabilneje wersije za [[$1]]',
 	'stable-logentry2' => 'woznamjenjenje stabilneje wersije za [[$1]] anulować',
@@ -3685,6 +3761,7 @@ Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrizetl
 	'revreview-diffonly' => "''A lapváltozat értékeléséhez kattints a jelenlegi lapváltozat linkre, és használd az értékelő mezőt.''",
 	'revreview-visibility' => 'Ez az oldal rendelkezik [[{{MediaWiki:Validationpage}}|elfogadott változattal]], amelyet
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} be lehet állítani].',
+	'revreview-revnotfound' => 'A lap általad kért régi változatát nem találom. Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'right-autopatrolother' => 'változatok automatikus megjelölése nem főnévtérben',
 	'right-autoreview' => 'változatok automatikusan megtekintettként jelölése',
 	'right-movestable' => 'stabil lapok átnevezése',
@@ -3737,6 +3814,10 @@ naplója.',
 	'validationpage' => '{{ns:help}}:Szócikk ellenőrzése',
 );
 
+$messages['hy'] = array(
+	'revreview-revnotfound' => 'Էջի որոնված հին տարբերակը չի գտնվել։ Խնդրում ենք ստուգել այն հղումը, որով անցել եք այս էջին։',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
@@ -3787,6 +3868,8 @@ Le The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version provisori] ha
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}]
 attendente revision.',
 	'revreview-log' => 'Commento:',
+	'revreview-revnotfound' => 'Impossibile trovar le version anterior del pagina que tu ha demandate.
+Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 	'readerfeedback' => 'Que pensa tu de iste pagina?',
 	'readerfeedback-text' => "''Dedica un momento a judicar iste pagina. Tu opinion es importante e nos adjuta a meliorar nostre sito web.''",
 	'readerfeedback-reliability' => 'Accuratessa',
@@ -3941,6 +4024,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-update-use' => "'''CATATAN''': Templat/berkas yang akan digunakan adalah templat/berkas versi stabil (jika ada).",
 	'revreview-diffonly' => "''Untuk memeriksa halaman, pilih pranala \"revisi sekarang\" dan gunakan formulir peninjauan.''",
 	'revreview-visibility' => 'Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]], yang dapat [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} dikonfigurasi].',
+	'revreview-revnotfound' => 'Revisi lama halaman yang Anda minta tidak dapat ditemukan. Silakan periksa URL yang digunakan untuk mengakses halaman ini.',
 	'right-autopatrolother' => 'Menandai secara otomatis suntingan di ruang nama non-utama sebagai terpatroli',
 	'right-autoreview' => 'Menandai revisi sebagai terperiksa secara otomatis',
 	'right-movestable' => 'Pindahkan halaman-halaman stabil',
@@ -3993,6 +4077,11 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'revreview-unlocked' => 'Revisi-revisi tidak memerlukan tinjauan untuk ditampilkan di halaman ini!',
 	'revreview-tt-review' => 'Tinjau halaman ini',
 	'validationpage' => '{{ns:help}}:Validasi artikel',
+);
+
+$messages['io'] = array(
+	'revreview-revnotfound' => "L' anciena versiono di la pagino, quan vu demandis, ne povis trovesar.
+Voluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
 );
 
 /** Icelandic (Íslenska)
@@ -4116,6 +4205,8 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-update-use' => "'''NOTA:''' Se qualcuno di questi template o immagini hanno una versione stabile, allora è già usata nella versione stabile di questa pagina.",
 	'revreview-diffonly' => "''Per revisionare la pagina, fai clic sul link \"versione corrente\" e usa il modulo di revisione.''",
 	'revreview-visibility' => "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] aggiornata; le impostazioni della stabilità della pagina possono essere [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurate].'''",
+	'revreview-revnotfound' => 'La versione richiesta della pagina non è stata trovata.
+Verificare la URL usata per accedere a questa pagina.',
 	'right-autopatrolother' => 'Segna automaticamente le versioni fuori dal namespace principale come verificate',
 	'right-autoreview' => 'Segna automaticamente versioni come visionate',
 	'right-movestable' => 'Sposta pagine stabili',
@@ -4238,6 +4329,7 @@ $messages['ja'] = array(
 	'revreview-update' => "[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 承認された]安定版に対する変更箇所''（下記参照）'' を[[{{MediaWiki:Validationpage}}|査読]]してください。<br />'''いくつかのテンプレートや画像が更新されました:'''",
 	'revreview-update-none' => "[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 承認された]査読済版への全ての変更箇所''（下記参照）''を[[{{MediaWiki:Validationpage}}|査読]]してください。",
 	'revreview-visibility' => "'''このページには[[{{MediaWiki:Validationpage}}|査読済の版]]があります。[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} 版の設定]は変更可能です。",
+	'revreview-revnotfound' => '要求されたこのページの旧版は見つかりませんでした。このページにアクセスしたURLをもう一度確認してください。',
 	'rights-editor-autosum' => '自動権限付与',
 	'rights-editor-revoke' => '[[$1]] の編集者権限取り消し',
 	'stable-logentry' => '[[$1]] を採択',
@@ -4303,8 +4395,14 @@ $messages['jut'] = array(
  */
 $messages['jv'] = array(
 	'flaggedrevs-prefs' => 'Stabilitas',
+	'revreview-revnotfound' => 'Revisi lawas kaca sing panjenengan suwun ora bisa ditemokaké. Mangga priksanen URL sing digunakaké kanggo ngaksès kaca iki.',
 );
 
+$messages['kab'] = array(
+	'revreview-revnotfound' => 'Tasiwelt taqdimt n usebter-agi i testeqsiḍ ulac-it.
+Ssenqed URL i tesseqdac.',
+
+);
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'editor' => 'تۇزەتۋشى',
@@ -4400,6 +4498,7 @@ $messages['kk-arab'] = array(
 	'revreview-update-none' => 'تىياناقتى نۇسقا بەكىتىلگەننەن بەرى جاسالعان وزگەرىستەرگە (تومەندە كورسەتىلگەن) سىن بەرىپ شىعىڭىز.',
 	'revreview-visibility' => 'وسى بەتتىڭ [[{{MediaWiki:Validationpage}}|تىياناقتى نۇسقاسى]] بار, بۇل
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} باپتالاۋى] مۇمكىن.',
+	'revreview-revnotfound' => 'بۇل بەتتىڭ سۇرالعان ەسكى تۇزەتۋى تابىلعان جوق. وسى بەت قاتىناۋىنا پايدالانعان URL تەكسەرىپ شىعىڭىز.',
 	'stable-logentry' => '[[$1]] ٴۇشىن تىياناقتى نۇسقا باپتالىمى رەتتەلدى',
 	'stable-logentry2' => '[[$1]] ٴۇشىن تىياناقتى نۇسقا باپتالىمى قايتا قويىلدى',
 	'stable-logpage' => 'تىياناقتى نۇسقا جۋرنالى',
@@ -4506,6 +4605,7 @@ $messages['kk-cyrl'] = array(
 	'revreview-update-none' => 'Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.',
 	'revreview-visibility' => 'Осы беттің [[{{MediaWiki:Validationpage}}|тиянақты нұсқасы]] бар, бұл
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} бапталауы] мүмкін.',
+	'revreview-revnotfound' => 'Бұл беттің сұралған ескі түзетуі табылған жоқ. Осы бет қатынауына пайдаланған URL тексеріп шығыңыз.',
 	'stable-logentry' => '[[$1]] үшін тиянақты нұсқа бапталымы реттелді',
 	'stable-logentry2' => '[[$1]] үшін тиянақты нұсқа бапталымы қайта қойылды',
 	'stable-logpage' => 'Тиянақты нұсқа журналы',
@@ -4612,6 +4712,7 @@ Keýbir jañartılğan ülgiler/swretter:',
 	'revreview-update-none' => 'Tïyanaqtı nusqa bekitilgennen beri jasalğan özgeristerge (tömende körsetilgen) sın berip şığıñız.',
 	'revreview-visibility' => 'Osı bettiñ [[{{MediaWiki:Validationpage}}|tïyanaqtı nusqası]] bar, bul
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} baptalawı] mümkin.',
+	'revreview-revnotfound' => 'Bul bettiñ suralğan eski tüzetwi tabılğan joq. Osı bet qatınawına paýdalanğan URL tekserip şığıñız.',
 	'stable-logentry' => '[[$1]] üşin tïyanaqtı nusqa baptalımı retteldi',
 	'stable-logentry2' => '[[$1]] üşin tïyanaqtı nusqa baptalımı qaýta qoýıldı',
 	'stable-logpage' => 'Tïyanaqtı nusqa jwrnalı',
@@ -4654,7 +4755,12 @@ $messages['km'] = array(
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
 	'revreview-typefilter' => 'ប្រភេទ:',
 	'revreview-tagfilter' => 'ប្លាក៖',
+	'revreview-revnotfound' => 'កំនែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
+);
+
+$messages['kn'] = array(
+	'revreview-revnotfound' => 'ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.',
 );
 
 /** Korean (한국어)
@@ -4665,6 +4771,7 @@ $messages['ko'] = array(
 	'revreview-auto' => '(자동)',
 	'revreview-style' => '가독성',
 	'revreview-finished' => '검토 완료!',
+	'revreview-revnotfound' => '문서의 해당 버전을 찾지 못했습니다. 접속 URL을 확인해 주세요.',
 	'readerfeedback-reliability' => '가독성',
 	'readerfeedback-completeness' => '완성도',
 	'readerfeedback-npov' => '중립성',
@@ -4680,6 +4787,9 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'revreview-auto' => 'automattesch',
+	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
+op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
+fottjeschmesse hät?',
 );
 
 /** Latin (Latina)
@@ -4697,6 +4807,8 @@ $messages['la'] = array(
 	'reviewer' => 'Revisor',
 	'revreview-log' => 'Sententia:',
 	'revreview-style-2' => 'Bonus',
+	'revreview-revnotfound' => 'Emendatio quem rogavisti non inventa est.
+Confirma URL paginae.',
 	'rights-editor-revoke' => 'removit statum recensorem usoris [[$1]]',
 );
 
@@ -4758,6 +4870,7 @@ $messages['lb'] = array(
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
 	'revreview-update-includes' => "'''Verschidde Schablounen/Biller goufen aktualiséiert:'''",
 	'revreview-update-use' => "'''Bemierkung:''' Wann eng/t vun dëse Schablounen/Biller eng stabil Versioun huet, dat gëtt déi schonn an der stabiler Versioun vun dëser Säit benotzt.",
+	'revreview-revnotfound' => "Déi Versioun vun der Säit déi Dir gefrot hutt konnt net fonnt ginn. Kuckt d'URL no, déi Dir benotzt hutt fir op dës Säit ze kommen.",
 	'right-autoreview' => 'Versiounen automatesch als iwwerkuckt markéieren',
 	'right-movestable' => 'Stabil Säite réckelen',
 	'right-review' => 'Versiounen als iwwerkuckt markéieren',
@@ -4881,6 +4994,7 @@ beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, 
 	'revreview-update' => 'Controleer alstublieft alle wijziginge die gemaakt zien seer de stabiele versie waar gecontroleerd. Enkele sjablone/aafbeeldinge werde gewijzigd:',
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Review]] ale angeringe ''(shown below)'' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].",
 	'revreview-visibility' => 'Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]], die [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aangepas] kan waere.',
+	'revreview-revnotfound' => 'De opgevraogde aw versie van dees pazjena is verzjwónde. Kontroleer estebleef de URL dieste gebroek höbs óm nao dees pazjena te gaon.',
 	'rights-editor-autosum' => 'automatisch gepromoveerd',
 	'rights-editor-revoke' => 'verwijderde redacteurstatus van [[$1]]',
 	'stable-logentry' => 'stabiele versies zijn ingesteld voor [[$1]]',
@@ -4901,6 +5015,25 @@ $messages['lt'] = array(
 	'revreview-log' => 'Komentaras:',
 	'revreview-style-0' => 'Nepatvirtintas',
 	'revreview-style-2' => 'Geras',
+	'revreview-revnotfound' => 'Norima puslapio versija nerasta. Patikrinkite URL, kuriuo patekote į šį puslapį.',
+);
+
+$messages['lv'] = array(
+	'revreview-revnotfound' => 'Meklētā vecā lapas versija netika atrasta. Lūdzu pārbaudi lietoto URL.',
+);
+
+$messages['mdf'] = array(
+	'revreview-revnotfound' => 'Тя лопать сире верзиец аф муви. Ватт URL конань вельде тон сувать тя лопас.',
+);
+
+$messages['mg'] = array(
+	'revreview-revnotfound' => "Tsy hita ny votoatin'ny pejy taloha nangatahinao.
+Hamarino azafady ny URL nampiasainao hahatongavana eto amin'ity pejy ity.",
+);
+
+$messages['mk'] = array(
+	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
+Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
 );
 
 /** Malayalam (മലയാളം)
@@ -5009,6 +5142,7 @@ $messages['ml'] = array(
 	'revreview-update-includes' => "'''ചില ഫലകങ്ങള്‍/ചിത്രങ്ങള്‍ പുതുക്കി:'''",
 	'revreview-update-none' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു ശേഷം]
 വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)'' [[{{MediaWiki:Validationpage}}|ദയവായി സംശോധനം ചെയ്യുക]].",
+	'revreview-revnotfound' => 'ഈ താളിന്റെ താങ്കള്‍ ആവശ്യപ്പെട്ട പഴയ പതിപ്പ് കാണ്മാനില്ല. ഈ താളിലെത്താന്‍ താങ്കളുപയോഗിച്ച URL ഒരിക്കല്‍ക്കൂടി പരിശോധിക്കുക.',
 	'right-movestable' => 'സ്ഥിരതയുള്ള താളുകള്‍ മാറ്റുക',
 	'rights-editor-autosum' => 'യാന്ത്രികമായി സ്ഥാനക്കയറ്റം നല്‍കിയിരിക്കുന്നു',
 	'rights-editor-revoke' => '[[$1]] എന്ന ഉപയോക്താവിന്റെ എഡിറ്റര്‍ അവകാശം പിന്‍‌വലിച്ചിരിക്കുന്നു',
@@ -5018,6 +5152,10 @@ $messages['ml'] = array(
 	'tooltip-ca-stable' => 'ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് കാണുക',
 	'tooltip-ca-default' => 'ഗുണനിലവാര ഉറപ്പാക്കല്‍ ക്രമീകരണങ്ങള്‍',
 	'validationpage' => '{{ns:help}}:ലേഖനസാധുത',
+);
+
+$messages['mn'] = array(
+	'revreview-revnotfound' => 'Таны орохыг хүссэн хуудасны хуучин засвар олдсонгүй. Энэ хуудас руу явахад хэрэглэсэн URL-ээ шалгана уу.',
 );
 
 /** Marathi (मराठी)
@@ -5163,6 +5301,8 @@ $messages['mr'] = array(
 	'revreview-update-use' => "'''सूचना:''' जर यापैकी एका साचा/चित्राची स्थिर आवृत्ती असेल, तर ती या पानाच्या स्थिर आवृत्ती मध्ये अगोदरच वापरलेली असेल.",
 	'revreview-diffonly' => "''हे पान तपासण्यासाठी, \"आत्ताची आवृत्ती\" वर टिचकी द्या व तपासणी अर्ज वापरा.''",
 	'revreview-visibility' => "'''या पानाला एक [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] आहे, जी [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} बदलली] जाऊ शकते.'''",
+	'revreview-revnotfound' => 'या पृष्ठाची तुम्ही मागविलेली जुनी आवृत्ती सापडली नाही.
+कृपया URL तपासून पहा.',
 	'right-autopatrolother' => 'मुख्य नामविश्व सोडून इतर नामविश्वांतील पानांच्या आवृत्त्यांवर आपोआप लक्ष ठेवले म्हणून खूणा करा',
 	'right-autoreview' => 'आवृत्त्या पाहिल्या म्हणून आपोआप खूणा करा',
 	'right-movestable' => 'स्थिर पानांचे स्थानांतरण करा',
@@ -5322,6 +5462,7 @@ Untuk menggugurkan semakan ini, sila berikan penilaian "tidak disahkan" kepada s
 	'revreview-update-use' => "'''CATATAN:''' Jika sebarang templat/imej ini mempunyai versi stabil, maka versi itu telah pun digunakan dalam versi stabil bagi laman ini.",
 	'revreview-diffonly' => "''Sila klik pautan \"semakan semasa\" dan gunakan borang pemeriksaan untuk memeriksa laman ini.''",
 	'revreview-visibility' => "'''Laman ini mempunyai sebuah [[{{MediaWiki:Validationpage}}|versi stabil]]; tetapan baginya boleh [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} diubah].'''",
+	'revreview-revnotfound' => 'Semakan lama untuk laman yang anda minta tidak dapat dijumpai. Sila semak URL yang anda gunakan untuk mencapai laman ini.',
 	'right-autopatrolother' => 'Menanda ronda semakan dalam ruang nama bukan utama secara automatik',
 	'right-autoreview' => 'Menanda jenguk semakan secara automatik',
 	'right-movestable' => 'Memindahkan laman stabil',
@@ -5376,6 +5517,10 @@ Keputusan maklum balas pembaca bagi laman '''$1''' boleh dilihat di $2.",
 	'validationpage' => '{{ns:help}}:Pengesahan rencana',
 );
 
+$messages['mt'] = array(
+	'revreview-revnotfound' => "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna.",
+);
+
 /** Erzya (Эрзянь)
  * @author Botuzhaleny-sodamo
  */
@@ -5413,6 +5558,11 @@ $messages['nds'] = array(
 	'revreview-style' => 'Leesborkeit',
 	'revreview-style-2' => 'Good',
 	'revreview-toggle-title' => 'wies/versteek Details',
+	'revreview-revnotfound' => 'De Version vun disse Siet, no de du söökst, kunn nich funnen warrn. Prööv de URL vun disse Siet.',
+);
+
+$messages['nds-nl'] = array(
+	'revreview-revnotfound' => 'De op-evreugen ouwe versie van disse pagina is onvientbaor. Kiek de URL dee-j gebruken nao um naor disse pagina te gaon.',
 );
 
 /** Dutch (Nederlands)
@@ -5557,6 +5707,8 @@ Stel alle velden in op "niet goedgekeurd" om de waardering van een versie te ver
 	'revreview-diffonly' => "''Klik voor eindredactie op de verwijzing \"huidige versie\" en gebruik het eindredactieformulier.''",
 	'revreview-visibility' => "'''Deze pagina heeft een [[{{MediaWiki:Validationpage}}|stabiele versie]]. U kunt hiervoor [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
 	'revreview-visibility2' => "'''Deze pagina heeft geen bijgewerkte [[{{MediaWiki:Validationpage}}|stabiele versie]]. U kunt hiervoor [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
+	'revreview-revnotfound' => 'De opgevraagde oude versie van deze pagina is onvindbaar.
+Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'right-autopatrolother' => 'Veries buiten de hoofdnaamruimte automatisch als gecontroleerd markeren',
 	'right-autoreview' => 'Versies automatisch als gecontroleerd markeren',
 	'right-movestable' => "Stabiele pagina's hernoemen",
@@ -5619,6 +5771,7 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
  */
 $messages['nn'] = array(
 	'revreview-log' => 'Kommentar:',
+	'revreview-revnotfound' => 'Den gamle versjonen av sida du spurde etter finst ikkje. Sjekk nettadressa du brukte for å komma deg åt denne sida.',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -5755,6 +5908,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-update-use' => "'''MERK:''' Om noen av disse malene har en stabil versjon, er den allerede i bruk i den stabile versjonen av denne siden.",
 	'revreview-diffonly' => "''For å anmelde siden, klikk på versjonslenken «nåværende versjon» og bruk anmeldelsesskjemaet.''",
 	'revreview-visibility' => "'''Denne siden har en oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillinger for stabile sider kan [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureres].'''",
+	'revreview-revnotfound' => 'Den gamle versjon av siden du etterspurte finnes ikke. Kontroller adressen du brukte for å få adgang til denne siden.',
 	'right-autopatrolother' => 'Automatisk merke sideversjoner i andre navnerom enn hovednavnerommet som patruljerte',
 	'right-autoreview' => 'Merke sideversjoner som kontrollerte automatisk',
 	'right-movestable' => 'Flytte stabile sider',
@@ -5953,6 +6107,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-diffonly' => "''Per revisar la pagina, clicatz sul ligam « version correnta » e utilizatz lo formulari de revision.''",
 	'revreview-visibility' => "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version establa]],  sos paramètres d'estabilitat pòdon èsser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurats].",
 	'revreview-visibility2' => "'''Aquesta pagina dispausa pas de [[{{MediaWiki:Validationpage}}|version establa]] ; sos paramètres d'estabilitat pòdon èsser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurats].'''",
+	'revreview-revnotfound' => "La version precedenta d'aquesta pagina a pas pogut èsser retrobada. Verificatz l'URL qu'avètz utilizada per accedir a aquesta pagina.",
 	'right-autopatrolother' => 'Marcar coma patrolhadas las versions dins los espacis de nom exceptat dins lo principal.',
 	'right-autoreview' => 'Marcar automaticament las versions coma visadas',
 	'right-movestable' => 'Desplaçar de paginas establas',
@@ -6004,6 +6159,10 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-unlocked' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !',
 	'revreview-tt-review' => 'Revisar aquesta pagina',
 	'validationpage' => "{{ns:help}}:Validacion de l'article",
+);
+
+$messages['pam'] = array(
+	'revreview-revnotfound'     => 'Ing matuang meyaliling bulung a pakiduang mu eya mayakit. Paki lawe me ing URL a ginamit mu para apuntalan me ing bulung.',
 );
 
 /** Polish (Polski)
@@ -6155,6 +6314,7 @@ By wycofać recenzję należy ustawić wszystkie pola na „nieakceptowalny“.'
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować] ustawienia.'''",
 	'revreview-visibility2' => "'''Ta strona nie ma aktualnej [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Strona może mieć
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurowane] ustawienia.'''",
+	'revreview-revnotfound' => 'Żądana, starsza wersja strony nie została odnaleziona. Sprawdź użyty adres URL.',
 	'right-autopatrolother' => 'Automatyczne oznaczanie przeglądanych wersji stron spoza głównej przestrzeni nazw jako przejrzane',
 	'right-autoreview' => 'Automatyczne oznaczanie własnych wersji jako przejrzane',
 	'right-movestable' => 'Przenoszenie stabilnych stron',
@@ -6301,6 +6461,8 @@ $messages['pms'] = array(
 	'revreview-update' => "Për piasì, ch'a contròla le modìfiche (smonùe ambelessì sota) faite da quand a l'é staita publicà la revision stàbila dla pàgina. A son stait modificà ëdcò jë stamp e le figure smonùe ambelessì dapress:",
 	'revreview-update-none' => "Për piasì, ch'a contròla le modìfiche (smonùe ambelessì sota) faite da quand a l'é staita publicà la revision stàbila dla pàgina.",
 	'revreview-visibility' => "Sta pàgina-sì a l'ha na [[{{MediaWiki:Validationpage}}|version stàbila]], ch'as peul [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} regolesse].",
+	'revreview-revnotfound' => "La version prima dl'artìcol che a l'ha ciamà a l'é pa staita trovà.
+Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta pàgina-sì.",
 	'rights-editor-revoke' => 'gava-je la qualìfica ëd redator a [[$1]]',
 	'stable-logentry' => 'regolà la version stàbila ëd [[$1]]',
 	'stable-logentry2' => 'azerà la version stàbila për [[$1]]',
@@ -6464,6 +6626,8 @@ Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
 	'revreview-update-use' => "'''NOTA:''' Se alguma destas predefinições/imagens possui uma versão estável, então esta já é usada na versão estável desta página.",
 	'revreview-diffonly' => "''Para analisar a página, clique no link \"edição actual\" e utilize o formulário de análises.''",
 	'revreview-visibility' => "'''Esta página possui uma [[{{MediaWiki:Validationpage}}|edição estável]]; os parâmetros disso podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
+	'revreview-revnotfound' => 'A edição antiga desta página que foi requisitada não pôde ser encontrada.
+Verifique o URL que utilizou para aceder esta página.',
 	'right-autopatrolother' => 'Marcar automaticamente as edições de espaços nominais "secundários" como patrulhadas',
 	'right-autoreview' => 'Marcar automaticamente as edições como analisadas',
 	'right-movestable' => 'Mover páginas estáveis',
@@ -6512,6 +6676,20 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
+$messages['pt-br'] = array(
+	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
+Por favor verifique a URL que você usou para acessar esta página.',
+);
+
+$messages['qu'] = array(
+	'revreview-revnotfound' => "Mañakusqayki llamk'apusqaqa manam tarisqachu.
+Ama hina kaspa, kay p'anqap URL nisqa tiyayninta k'uskiriy.",
+);
+
+$messages['rmy'] = array(
+	'revreview-revnotfound' => 'I puraneder versiya la patrinyaki so tu manglyan na arakhel pes. Mangas tuke te palemdikhes o phandipen so labyardyan kana avilyan kathe.',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  */
@@ -6523,6 +6701,7 @@ $messages['ro'] = array(
 	'revreview-stable' => 'Pagină stabilă',
 	'revreview-style-1' => 'Acceptabil',
 	'revreview-typefilter' => 'Tip:',
+	'revreview-revnotfound' => 'Versiunea mai veche a paginii pe care aţi cerut-o nu a fost găsită. Vă rugăm să verificaţi legătura pe care aţi folosit-o pentru a accesa această pagină.',
 );
 
 /** Tarandíne (Tarandíne)
@@ -6675,6 +6854,7 @@ $messages['ru'] = array(
 	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Если какой-либо из этих шаблонов или изображений имеет стабильную версию, то она уже используется в стабильной версии этой страницы.",
 	'revreview-diffonly' => "''Чтобы проверить статью, нажмите на ссылку «текущая версия» и используйте форму проверки.''",
 	'revreview-visibility' => "'''Эта страница имеет [[{{MediaWiki:Validationpage}}|стабильную версию]], которая может быть [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].'''",
+	'revreview-revnotfound' => 'Старая версия страницы не найдена. Пожалуйста, проверьте правильность ссылки, которую вы использовали для доступа к этой странице.',
 	'right-autopatrolother' => 'автоматическая отметка версий страниц в неосновном пространстве имён как патрулированных',
 	'right-autoreview' => 'автоматическая отметка версий страниц как досмотренных',
 	'right-movestable' => 'переименование чистовых версий',
@@ -6822,6 +7002,7 @@ $messages['sah'] = array(
 	'revreview-update-none' => 'Бука диэн [[{{MediaWiki:Validationpage}}|чистовой торум]] кэнниттэн оноһуллубут [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} уларытыылары] (аллара бааллар) көр.',
 	'revreview-visibility' => 'Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть  
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].',
+	'revreview-revnotfound' => 'Бу сирэй урукку барыла булуллубата. Ыйынньыгы сыыһата суох суруйбуккун көр.',
 	'rights-editor-autosum' => 'аптамаатынан анааһын',
 	'rights-editor-revoke' => 'эрэдээктэр статуһуттан бу кэмтэн босхоломмут: [[$1]]',
 	'stable-logentry' => 'установка чистового версионирования для [[$1]]',
@@ -6832,6 +7013,31 @@ $messages['sah'] = array(
 	'tooltip-ca-stable' => 'Бу сирэй чистовигын көрүү',
 	'tooltip-ca-default' => 'Хаачыстыба хонтуруолун туруоруулара',
 	'validationpage' => '{{ns:help}}:Ыстатыйа бэрэбиэркэтэ',
+);
+
+$messages['sc'] = array(
+	'revreview-revnotfound' => 'La versione precedente di questo articolo che hai richiesto, non è stata trovata.
+Controlla per favore la URL che hai usato per accedere a questa pagina.',
+);
+
+$messages['scn'] = array(
+	'revreview-revnotfound' => "La virsioni pricidenti di st'artìculu c'hai addumannatu nun hà statu attruvata. Cuntrolla pi favuri la URL c'hai usatu p'accèdiri a sta pàggina.",
+);
+
+$messages['sco'] = array(
+	'revreview-revnotfound' => 'The auld reveision o the page ye socht cuidna be funnd. Please check the URL ye uised til access this page.',
+);
+
+$messages['sdc'] = array(
+	'revreview-revnotfound' => "La versioni dumandadda di la pàgina nò è isthadda acciappadda. Verifiggà l'indirizzu usaddu pa intrà a chistha pàgina.",
+);
+
+$messages['se'] = array(
+	'revreview-revnotfound' => 'Veršuvdna, man ohcet, ii dihtto. Dárkkis URL-čujuhusa, mainna ohcet dán siiddu.',
+);
+
+$messages['sei'] = array(
+	'revreview-revnotfound' => 'Janrevicion zode páhina zo me yahöx necoccebj yahöxom. Controlar URL zo me usadadde accesom jan páhina.',
 );
 
 /** Slovak (Slovenčina)
@@ -6978,6 +7184,8 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-diffonly' => "''Stránku môžete skontrolovať po kliknutí na odkaz „aktuálna revízia” pomocou formulára na kontrolu.''",
 	'revreview-visibility' => "'''Táto stránka má [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} upraviť].'''",
 	'revreview-visibility2' => "'''Táto stránka nemá aktualizovanú [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} upraviť].'''",
+	'revreview-revnotfound' => 'Požadovaná staršia verzia stránky nebola nájdená.
+Prosím skontrolujte URL adresu, ktorú ste použili na prístup k tejto stránke.',
 	'right-autopatrolother' => 'Automaticky označiť revízie mimo hlavného menného priestoru ako strážené',
 	'right-autoreview' => 'Automaticky označiť revízie ako videné',
 	'right-movestable' => 'Presunúť stabilné stránky',
@@ -7030,6 +7238,14 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'revreview-unlocked' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
 	'revreview-tt-review' => 'Skontrolovať túto stránku',
 	'validationpage' => '{{ns:help}}:Overovanie článkov',
+);
+
+$messages['sl'] = array(
+	'revreview-revnotfound' => 'Redakcije strani, ki ste jo poskušali pridobiti, ni mogoče najti. Prosimo, preverite spletni naslov, ki ste ga uporabili za dostop do strani.',
+);
+
+$messages['sq'] = array(
+	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjehej.Ju lutem kontrolloni URL-in që përdorët për të ardhur tek kjo faqe.',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -7120,6 +7336,8 @@ $messages['sr-ec'] = array(
 	'revreview-toggle-title' => 'прикажи/сакриј детаље',
 	'revreview-update-includes' => "'''Неки шаблони и/или слике су обновљени:'''",
 	'revreview-diffonly' => "''Та преглед стране кликни на линк \"тренутна верзија\" и користи форму за преглед.''",
+	'revreview-revnotfound' => 'Старија ревизија ове странице коју сте затражили није нађена.
+Молимо вас да проверите УРЛ који сте употребили да бисте приступили овој страници.',
 	'right-autopatrolother' => 'Аутоматски означи верзије патролисаним ако нису у основном именском простору.',
 	'right-autoreview' => 'Аутоматски означи верзије прегледаним.',
 	'right-movestable' => 'Преименуј стабилне стране.',
@@ -7166,6 +7384,11 @@ $messages['sr-ec'] = array(
 	'accesskey-ca-stable' => 'ц',
 	'revreview-tt-review' => 'Преглед ове стране.',
 	'validationpage' => '{{ns:help}}:Овера чланка',
+);
+
+$messages['sr-el'] = array(
+	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
+Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranici.',
 );
 
 /** Seeltersk (Seeltersk)
@@ -7271,6 +7494,7 @@ deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Wröig]] älke Annerenge ''(sjuch hierunner)'' siet ju lääste stoabile Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} fräiroat] wuude.",
 	'revreview-visibility' => 'Disse Siede häd ne [[{{MediaWiki:Validationpage}}|stoabile Version]], ju der
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurierd] wäide kon.',
+	'revreview-revnotfound' => 'Ju soachte Version fon dissen Artikkel kuude nit fuunen wäide. Uurpröiwe jädden ju URL fon disse Siede.',
 	'rights-editor-autosum' => 'automatiske Gjuchte-uutgoawe',
 	'rights-editor-revoke' => 'äntlook dät Sieuwer-Gjucht fon [[$1]]',
 	'stable-logentry' => 'konfigurierde ju Sieden-Ienstaalenge fon [[$1]]',
@@ -7309,6 +7533,8 @@ $messages['su'] = array(
 	'revreview-style-1' => 'Meueusan',
 	'revreview-style-2' => 'Alus',
 	'revreview-style-4' => 'Petingan',
+	'revreview-revnotfound' => 'Révisi heubeul kaca nu dipénta ku anjeun teu bisa kapanggih.
+Please check the URL you used to access this page.',
 	'right-stablesettings' => 'Ngatur kumaha vérsi stabil dipilih sarta dipintonkeun',
 	'rights-editor-revoke' => 'nyabut status éditor ti [[$1]]',
 	'stable-logpage' => 'Log vérsi stabil',
@@ -7456,6 +7682,7 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'revreview-diffonly' => "''För att granska sidan, klicka på versionslänken \"nuvarande version\" och använd granskningsformuläret.''",
 	'revreview-visibility' => "'''Denna sida har en uppdaterad [[{{MediaWiki:Validationpage}}|stabil version]]; inställningarna för den kan [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureras].'''",
 	'revreview-visibility2' => "'''Denna sida har inte en uppdaterad [[{{MediaWiki:Validationpage}}|stabil version]]; inställningarna för den kan [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureras].'''",
+	'revreview-revnotfound' => 'Den gamla versionen av den sida du frågade efter kan inte hittas. Kontrollera den URL du använde för att nå den här sidan.',
 	'right-autopatrolother' => 'Automatiskt märka sidversioner i andra namnrymder än huvudnamnrymden patrullerade',
 	'right-autoreview' => 'Automatiskt märka sidversioner som synade',
 	'right-movestable' => 'Flytta stabila sidor',
@@ -7508,6 +7735,14 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'revreview-unlocked' => 'Redigeringar behöver inte granskas innan de visas på den här sidan!',
 	'revreview-tt-review' => 'Granska denna sida',
 	'validationpage' => '{{ns:help}}:Artikelvalidering',
+);
+
+$messages['szl'] = array(
+	'revreview-revnotfound' => 'Ńy idźe znejść staršyj wersyji zajty. Sprawdź, proša, URL kery žeś užůu coby uzyskać dostymp do tyj zajty.',
+);
+
+$messages['ta'] = array(
+	'revreview-revnotfound' => 'இப் பக்கத்துக்குரிய, நீங்கள் கோரிய பழைய திருத்தம் காணப்படவில்லை. இந்தப் பக்கத்தை அணுகுவதற்கு நீங்கள் பயன்படுத்திய இணைய முகவரியை அருள் கூர்ந்து சரி பார்க்கவும்.',
 );
 
 /** Telugu (తెలుగు)
@@ -7605,6 +7840,7 @@ $messages['te'] = array(
 	'revreview-update-includes' => "'''కొన్ని మూసలు/బొమ్మలను తాజాకరించారు:'''",
 	'revreview-update-none' => "సుస్థిర కూర్పుని [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత చేసిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].",
 	'revreview-visibility' => 'ఈ పేజీకి ఓ [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాన్ని [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].',
+	'revreview-revnotfound' => 'మీరడిగిన పేజీ పాత కూర్పు దొరకలేదు. ఆ పేజీ కోసం మీరు వాడిన URLను సరిచూసుకోండి.',
 	'right-autoreview' => 'కూర్పులను గమనించినట్లుగా ఆటోమాటిగ్గా గుర్తించు',
 	'right-movestable' => 'స్థిరమైన పేజీలను తరలించు',
 	'right-review' => 'కూర్పులను గమనించినట్లుగా గుర్తించు',
@@ -7710,6 +7946,7 @@ $messages['tg-cyrl'] = array(
 '''Бархе аз шаблонҳо/аксҳо барӯз шудаанд:'''",
 	'revreview-update-none' => 'Лутфан тамоми тағйироте (дар зер оварда шудааст), ки пас аз охирин нусхаи пойдор амалӣ шударо  [[{{MediaWiki:Validationpage}}|барраси кунед]], ки аз замоне, ки нусхаи пойдор  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} таъйидшуда] буд.',
 	'revreview-visibility' => "'''Ин саҳифа дорои як  [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] аст, танзимот барои он метавонад   [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} пайкарбандӣ] шавад.'''",
+	'revreview-revnotfound' => 'Нусхаи кӯҳнаи саҳифае, ки дархоста будед, ёфт нашуд. Лутфан нишонаи URL-ро, ки аз он ба ин саҳифа дастрасӣ карда будед, барассӣ кунед.',
 	'rights-editor-autosum' => 'Ба таври худкор пешбарӣ шудан',
 	'rights-editor-revoke' => 'Ихтиёроти виростор аз [[$1]] гирифта шуд',
 	'stable-logentry' => 'пойдоркунии нусха барои [[$1]]ро танзим кард',
@@ -7728,6 +7965,7 @@ $messages['tg-cyrl'] = array(
 $messages['th'] = array(
 	'revreview-auto' => '(อัตโนมัติ)',
 	'revreview-filter-all' => 'ทั้งหมด',
+	'revreview-revnotfound' => 'ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้',
 );
 
 /** Turkish (Türkçe)
@@ -7763,6 +8001,7 @@ $messages['tr'] = array(
 	'revreview-style' => 'Okunaklılık',
 	'revreview-style-1' => 'Geçerli',
 	'revreview-style-2' => 'İyi',
+	'revreview-revnotfound' => "İstemiş olduğunuz sayfanın eski versiyonu bulunamadı. Lütfen bu sayfaya erişmekte kullandığınız URL'yi kontrol edin.",
 	'readerfeedback-finished' => 'Teşekkürler!',
 	'revreview-filter-all' => 'Hepsi',
 	'tooltip-ca-default' => 'Kalite güvencesi ayarlar',
@@ -7908,6 +8147,8 @@ $messages['uk'] = array(
 	'revreview-update-use' => "'''ЗАУВАЖЕННЯ.''' Якщо якийсь із цих шаблонів або зображень має стабільну версію, то вона вже використовується у стабільній версії цієї сторінки.",
 	'revreview-diffonly' => "''Щоб перевірити сторінку, натисніть на посилання «поточна версія» і використовуйте форму перевірки.''",
 	'revreview-visibility' => "'''Ця сторінка має [[{{MediaWiki:Validationpage}}|стабільну версію]], яка може бути [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} налаштована].'''",
+	'revreview-revnotfound' => 'Неможливо знайти необхідну вам версію статті.
+Будь-ласка, перевірте правильність посилання, яке ви використовували для доступу до цієї статті.',
 	'right-autopatrolother' => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
 	'right-autoreview' => 'Автоматичне позначення версій сторінок переглянутими',
 	'right-movestable' => 'Перейменування стабільних версій',
@@ -8060,6 +8301,8 @@ Par declassar na version, segna tuti i canpi come "Non aprovà".',
 	'revreview-update-use' => "'''OCIO:''' Se qualchedun de sti template o imagini el gà na version stabile, alora el xe xà doparà in te la version stabile de sta pagina.",
 	'revreview-diffonly' => "''Par riesaminar la pagine, struca el colegamento \"revision corente\" e dòpara el modulo de riesame.''",
 	'revreview-visibility' => "'''Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version stabile]]; le so inpostassion le pol èssar [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configuràe].'''",
+	'revreview-revnotfound' => "La version richiesta de ła pàxena no la xè mìa stà catà.
+Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'right-autopatrolother' => 'Marca automaticamente le revision come controlà in namespace diversi da quel prinçipal',
 	'right-autoreview' => 'Marca automaticamente le revision come "viste"',
 	'right-movestable' => 'Sposta le pagine stabili',
@@ -8221,6 +8464,7 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} n
 	'revreview-update-use' => "'''GHI CHÚ:''' Nếu bất kỳ tiêu bản/hình ảnh nào có một phiên bản ổn định, nó đã được dùng trong phiên bản ổn định của trang này.",
 	'revreview-diffonly' => "''Để duyệt trang, hãy nhấn chuột vào liên kết “phiên bản hiện hành” và điền vào biểu mẫu duyệt trang.''",
 	'revreview-visibility' => "'''Trang này có một [[{{MediaWiki:Validationpage}}|bản ổn định]] đã được cập nhật; bạn có thể [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập độ ổn định cho trang.'''",
+	'revreview-revnotfound' => 'Không thấy phiên bản trước của trang này. Xin kiểm tra lại.',
 	'right-autopatrolother' => 'Tự động đánh dấu phiên bản trong không gian tên không phải bài viết đã tuần tra',
 	'right-autoreview' => 'Tự động đánh dấu phiên bản là đã xem qua',
 	'right-movestable' => 'Di chuyển trang ổn định',
@@ -8358,6 +8602,7 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 '''Samafomots e/u magods aniks pekoräkons:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükams valik ''(dono pajonölis)'', kels pedunons sis fomam fümöfik [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} päzepon].",
 	'revreview-visibility' => 'Pad at labon [[{{MediaWiki:Validationpage}}|fomami fümöfik]], kela parametem kanon [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} pafümetön].',
+	'revreview-revnotfound' => 'Padafomam büik fa ol peflagöl no petuvon. Kontrololös, begö! ladeti-URL, keli egebol ad logön padi at.',
 	'rights-editor-revoke' => 'emoükon redakanastadi gebana: [[$1]]',
 	'stable-logentry' => '„Fomam fümöfik“ pemögükon pro [[$1]]',
 	'stable-logentry2' => 'Vagükön lisedi: „fomams fümöfik“ pro [[$1]]',
@@ -8367,6 +8612,20 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'tooltip-ca-stable' => 'Logön fomami fümöfik pada at',
 	'tooltip-ca-default' => 'Paramets tefü kalietitäxet',
 	'validationpage' => '{{ns:help}}:Yegedikontrolam',
+);
+
+$messages['wa'] = array(
+	'revreview-revnotfound' => "Li viye modêye del pådje ki vos avoz dmandé n' a nén stî trovêye.
+Verifyîz l' hårdêye ki vs avoz eployî po-z ariver sol pådje s' i vs plait.",
+);
+
+$messages['wo'] = array(
+	'revreview-revnotfound' => 'Sumbum xët wi ngay laaj gisuñ ko. Saytul URL bi nga jëfandikoo ngir jot xët wii.',
+);
+
+$messages['yi'] = array(
+	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
+ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
 );
 
 /** Yue (粵語) */
@@ -8512,6 +8771,8 @@ $messages['yue'] = array(
 	'revreview-update-use' => "'''留意:''' 如果任何嘅模/圖有穩定版，噉呢一版就已經用咗響穩定版度。",
 	'revreview-diffonly' => "''去複審一版，撳 \"現時修訂\" 連結去用複審表格。''",
 	'revreview-visibility' => "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} 較]。'''",
+	'revreview-revnotfound' => '呢版無你要搵嗰個版本喎。
+唔該睇下條網址啱唔啱。',
 	'right-autopatrolother' => '自動標示響非主空間名嘅修訂做已巡查嘅',
 	'right-autoreview' => '自動標示修訂做已視察過嘅',
 	'right-movestable' => '搬穩定頁',
@@ -8530,6 +8791,11 @@ $messages['yue'] = array(
 	'tooltip-ca-stable' => '去睇呢一版嘅穩定版',
 	'tooltip-ca-default' => '品質保證設定',
 	'validationpage' => '{{ns:help}}:文章確認',
+);
+
+$messages['zea'] = array(
+	'revreview-revnotfound' => 'De opevrogen ouwe versie van deêze pagina is onvindbaer.
+Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
 );
 
 /** Classical Chinese (文言)
@@ -8551,6 +8817,7 @@ $messages['zh-classical'] = array(
 	'revreview-accuracy-4' => '卓著',
 	'revreview-current' => '底本',
 	'revreview-draft-title' => '底本',
+	'revreview-revnotfound' => '查無舊審，惠核網址。',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
@@ -8640,6 +8907,8 @@ $messages['zh-hans'] = array(
 	'revreview-toolow' => '您一定要最少将下面每一项的属性评定高于"未批准"，去将一个修订复审。
 	要舍弃一个修订，设置全部栏位作"未批准"。',
 	'revreview-update' => '请复审自从于这页的稳定版以来的任何更改 (在下面显示) 。模版和图像亦可能同时更改。',
+	'revreview-revnotfound' => '您请求的更早版本的修订记录没有找到。
+请检查您请求本页面用的 URL 是否正确。',
 	'validationpage' => '{{ns:help}}:文章确认',
 );
 
@@ -8730,9 +8999,16 @@ $messages['zh-hant'] = array(
 	'revreview-toolow' => '您一定要最少將下面每一項的屬性評定高於"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部欄位作"未批准"。',
 	'revreview-update' => '請複審自從於這頁的穩定版以來的任何更改 (在下面顯示) 。模版和圖像亦可能同時更改。',
+	'revreview-revnotfound' => '您請求的更早版本的修訂記錄沒有找到。
+請檢查您請求本頁面用的URL是否正確。',
 	'tooltip-ca-current' => '檢視本頁目前的草稿',
 	'tooltip-ca-stable' => '檢視本頁穩定的版本',
 	'tooltip-ca-default' => '品質保證設定',
 	'validationpage' => '{{ns:help}}:文章確認',
+);
+
+$messages['zh-tw'] = array(
+	'revreview-revnotfound'     => '您請求的更早版本的修訂記錄沒有找到。
+請檢查您請求本頁面用的URL是否正確。',
 );
 
