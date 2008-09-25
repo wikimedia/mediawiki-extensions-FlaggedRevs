@@ -185,7 +185,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 	
 	public static function userAlreadyVoted( $title, $revId = 0 ) {
 		global $wgUser;
-		static $stackDepth = 0; // no loops :)
+		static $stackDepth = 0;
 		$userVoted = false;
 		# Use page_latest if $revId not given
 		$revId = $revId ? $revId : $title->getLatestRevID( GAID_FOR_UPDATE );
@@ -197,7 +197,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 			# Check if the previous revisions is theirs and they
 			# voted on it. Disallow this, to make it harder to make
 			# edits just to inflate/deflate rating...
-			if( $stackDepth < 1 ) {
+			if( $stackDepth < 2 ) {
 				$stackDepth++;
 				$prevId = $title->getPreviousRevisionID( $revId );
 				if( $prevId && self::userAlreadyVoted( $title, $prevId ) ) {
