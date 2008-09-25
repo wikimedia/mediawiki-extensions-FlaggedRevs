@@ -1186,6 +1186,7 @@ class FlaggedArticle extends Article {
 		// If we are supposed to review after edit, and it was not autoreviewed,
 		// and the user can actually make new stable version, take us to the diff...
 		if( $wgReviewChangesAfterEdit && $frev && $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
+			$extraQuery .= $extraQuery ? '&' : '';
 			$extraQuery .= "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
 		// ...otherwise, go to the current revision after completing an edit.
 		} else {

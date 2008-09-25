@@ -283,7 +283,17 @@ class Stabilization extends UnlistedSpecialPage
 			$wgUser->removeWatch( $this->page );
 		}
 
-		$wgOut->redirect( $this->page->getFullUrl() );
+		$query = '';
+		# Take the user to the diff to make sure an outdated version isn't
+		# being set at the default. This is really an issue with configs
+		# that only let certain pages be reviewed.
+		if( $this->select == FLAGGED_VIS_NORMAL ) {
+			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+			if( $frev && $frev->getRevId() != $latest ) {
+				$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
+			}
+		}
+		$wgOut->redirect( $this->page->getFullUrl( $query ) );
 
 		return true;
 	}
