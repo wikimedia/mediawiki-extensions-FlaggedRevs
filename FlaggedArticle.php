@@ -947,7 +947,7 @@ class FlaggedArticle extends Article {
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, $article->getId() );
 				$data = $wgMemc->get($key);
-				$tmpChanges = is_object($data) && $data->time >= $article->getTouched() ? 
+				$tmpChanges = is_object($data) && $data->time > $article->getTouched() ? 
 					$data->value : false;
 
 				# Make a list of each changed template...
@@ -962,8 +962,8 @@ class FlaggedArticle extends Article {
 								'page_title = ft_title',
 								// If the page has a stable version, is it current?
 								// If not, is the specified one at review time current?
-								'fp_stable IS NOT NULL AND (fp_stable != page_latest) OR
-									fp_stable IS NULL AND (ft_tmp_rev_id != page_latest)' ),
+								'(fp_stable IS NOT NULL AND fp_stable != page_latest) OR
+									(fp_stable IS NULL AND ft_tmp_rev_id != page_latest)' ),
 							__METHOD__,
 							array(), /* OPTIONS */
 							array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
@@ -994,7 +994,7 @@ class FlaggedArticle extends Article {
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'images', (bool)$wgUseStableImages, $article->getId() );
 				$value = $wgMemc->get($key);
-				$imgChanges = is_object($data) && $data->time >= $article->getTouched() ? 
+				$imgChanges = is_object($data) && $data->time > $article->getTouched() ? 
 					$data->value : false;
 
 				// Get list of each changed image...
