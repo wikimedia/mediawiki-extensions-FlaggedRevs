@@ -1240,19 +1240,6 @@ EOT;
 		}
 		return true;
 	}
-	
-	public static function isFileCacheable( &$article ) {
-		$fa = FlaggedArticle::getInstance( $article );
-		# If the stable is the default, and we are viewing it...cache it!
-		if( $fa->isReviewable() && $fa->showStableByDefault() ) {
-			return ( $fa->pageOverride() && $fa->getStableRev() );
-		# If the draft is the default, and we are viewing it...cache it!
-		} else {
-			global $wgRequest;
-			# We don't want to cache the pending edit notice though
-			return !$wgRequest->getVal('shownotice') && !( $fa->pageOverride() && $fa->getStableRev() );
-		}
-	}
 
 	public static function onParserTestTables( &$tables ) {
 		$tables[] = 'flaggedpages';

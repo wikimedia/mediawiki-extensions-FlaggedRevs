@@ -261,7 +261,7 @@ $wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 40;
+$wgFlaggedRevStyleVersion = 41;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -407,9 +407,6 @@ $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::injectStyleAndJS';
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::injectStyleAndJS';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::InjectStyleForSpecial';
-
-# File cache
-$wgHooks['IsFileCacheable'][] = 'FlaggedRevsHooks::isFileCacheable';
 
 # Cache updates
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
