@@ -670,14 +670,9 @@ class FlaggedRevs {
 			$text = $article->getContent();
 			$options = self::makeParserOptions();
 			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
-			# Might as well save the cache while we're at it
-			global $wgEnableParserCache;
-			if( $wgEnableParserCache )
-				$parserCache->save( $poutput, $article, $wgUser );
 		}
 		$u = new LinksUpdate( $article->getTitle(), $poutput );
 		$u->doUpdate(); // this will trigger our hook to add stable links too...
-
 		return true;
 	}
 

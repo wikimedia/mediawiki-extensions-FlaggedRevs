@@ -720,9 +720,6 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Update link tracking. This will trigger our hook to add stable links too...
 		$u->doUpdate();
-		# Might as well save the cache, since it should be the same
-		if( $wgEnableParserCache )
-			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge cache/squids for this page and any page that uses it
 		$dbw->commit();
 		Article::onArticleEdit( $article->getTitle() );
@@ -776,10 +773,6 @@ class RevisionReview extends UnlistedSpecialPage
 
 		# Clear the cache...
 		$this->page->invalidateCache();
-		# Might as well save the cache
-		global $wgEnableParserCache;
-		if( $wgEnableParserCache )
-			$parserCache->save( $poutput, $article, $wgUser );
 		# Purge cache/squids for this page and any page that uses it
 		$dbw->commit();
 		Article::onArticleEdit( $article->getTitle() );
