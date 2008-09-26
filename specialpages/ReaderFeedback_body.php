@@ -84,13 +84,13 @@ class ReaderFeedback extends UnlistedSpecialPage
 		// Basic permission check
 		if( $wgUser->isAllowed( 'feedback' ) ) {
 			if( $wgUser->isBlocked() ) {
-				return '<err#>';
+				return '<err#><h2>' . wfMsgHtml('blockedtitle') . '</h2>' . wfMsg('badaccess-group0');
 			}
 		} else {
-			return '<err#>';
+			return '<err#><strong>' . wfMsg('badaccess-group0') . '</<strong>';
 		}
 		if( wfReadOnly() ) {
-			return '<err#>';
+			return '<err#><strong>' . wfMsg('formerror') . '</<strong>';
 		}
 		$tags = FlaggedRevs::getFeedbackTags();
 		// Make review interface object
@@ -102,7 +102,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		foreach( $args as $x => $arg ) {
 			$set = explode('|',$arg,2);
 			if( count($set) != 2 ) {
-				return '<err#>';
+				return '<err#>' . wfMsg('formerror');
 			}
 			list($par,$val) = $set;
 			switch( $par )
@@ -110,13 +110,13 @@ class ReaderFeedback extends UnlistedSpecialPage
 				case "target":
 					$form->page = Title::newFromUrl( $val );
 					if( is_null($form->page) || !FlaggedRevs::isPageRateable( $form->page ) ) {
-						return '<err#>';
+						return '<err#>' . wfMsg('formerror');
 					}
 					break;
 				case "oldid":
 					$form->oldid = intval( $val );
 					if( !$form->oldid ) {
-						return '<err#>';
+						return '<err#>' . wfMsg('formerror');
 					}
 					break;
 				case "validatedParams":
@@ -124,7 +124,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 					break;
 				case "wpEditToken":
 					if( !$wgUser->matchEditToken( $val ) ) {
-						return '<err#>';
+						return '<err#>' . wfMsg('formerror');
 					}
 					break;
 				case "commentary": // honeypot value
@@ -136,7 +136,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 					if( array_key_exists( $p, $tags ) ) {
 						$form->dims[$p] = intval($val);
 						if( !self::isValid( $form->dims[$p] ) ) {
-							return '<err#>'; // bad range
+							return '<err#>' . wfMsg('formerror'); // bad range
 						}
 					}
 					break;
@@ -144,11 +144,11 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		// Missing params?
 		if( count($form->dims) != count($tags) ) {
-			return '<err#>';
+			return '<err#>' . wfMsg('formerror');
 		}
 		// Doesn't match up?
 		if( $form->validatedParams != self::validationKey( $form->oldid, $wgUser->getId() ) ) {
-			return '<err#>';
+			return '<err#>' . wfMsg('formerror');
 		}
 		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
 		$talk = $form->page->getTalkPage();

@@ -194,7 +194,7 @@ wgAjaxFeedback.ajaxCall = function() {
 	sajax_do_call( "ReaderFeedback::AjaxReview", args, wgAjaxFeedback.processResult );
 	// If the request isn't done in 10 seconds, allow user to try again
 	wgAjaxFeedback.timeoutID = window.setTimeout(
-		function() { wgAjaxFeedback.inprogress = false; wgAjaxFeedback.unlockForm() },
+		function() { wgAjaxFeedback.inprogress = false; wgAjaxFeedback.unlockForm(); },
 		10000
 	);
 	return false;
@@ -220,6 +220,7 @@ wgAjaxFeedback.processResult = function(request) {
 	var response = request.responseText;
 	if( msg = response.substr(6) ) {
 		jsMsg( msg, 'feedback' );
+		window.scroll(0,0);
 	}
 	wgAjaxFeedback.inprogress = false;
 	if( wgAjaxFeedback.timeoutID ) {
@@ -229,7 +230,6 @@ wgAjaxFeedback.processResult = function(request) {
 	if( submit ) {
 		submit.value = wgAjaxFeedback.sentMsg;
 	}
-	window.scroll(0,0);
 };
 
 wgAjaxFeedback.onLoad = function() {
@@ -310,7 +310,7 @@ wgAjaxReview.ajaxCall = function() {
 	sajax_request_type = old;
 	// If the request isn't done in 30 seconds, allow user to try again
 	wgAjaxReview.timeoutID = window.setTimeout(
-		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm() },
+		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm(); },
 		30000
 	);
 	return false;
@@ -344,6 +344,7 @@ wgAjaxReview.processResult = function(request) {
 	var response = request.responseText;
 	if( msg = response.substr(6) ) {
 		jsMsg( msg, 'review' );
+		window.scroll(0,0);
 	}
 	wgAjaxReview.inprogress = false;
 	if( wgAjaxReview.timeoutID ) {
@@ -353,7 +354,6 @@ wgAjaxReview.processResult = function(request) {
 	if( submit ) {
 		submit.value = wgAjaxReview.sentMsg;
 	}
-	window.scroll(0,0);
 	wgAjaxReview.unlockForm();
 	document.title = wgAjaxReview.actioncomplete;
 };
