@@ -20,30 +20,42 @@ class OldReviewedPages extends SpecialPage
 			return;
 		}
 		$this->skin = $wgUser->getSkin();
+		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
+		$this->category = trim( $wgRequest->getVal( 'category' ) );
+		$feedType = $wgRequest->getVal( 'feed' );
+		if( $feedType ) {
+			return $this->feed( $feedType );
+		}
+		$this->setSyndicated();
 		$this->showList( $wgRequest );
+	}
+	
+	protected function setSyndicated() {
+		global $wgOut, $wgRequest;
+		$queryParams = array(
+			'namespace' => $wgRequest->getVal( 'namespace' ),
+			'category' => $wgRequest->getVal( 'category' )
+		);
+		$wgOut->setSyndicated( true );
+		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
 	}
 
 	function showList( $wgRequest ) {
 		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
-
-		$namespace = $wgRequest->getIntOrNull( 'namespace' );
-		$category = trim( $wgRequest->getVal( 'category' ) );
-
 		$action = htmlspecialchars( $wgScript );
-		
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) );
 
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
+			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' );
 		}
 		$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) .
-			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
+			' ' . Xml::input( 'category', 35, $this->category, array('id' => 'category') ) .
 			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 			"</fieldset></form>" );
 		
-		$pager = new OldReviewedPagesPager( $this, $namespace, $category );
+		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -51,6 +63,69 @@ class OldReviewedPages extends SpecialPage
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-none', array('parse') ) );
+		}
+	}
+	
+	/**
+	 * Output a subscription feed listing recent edits to this page.
+	 * @param string $type
+	 */
+	protected function feed( $type ) {
+		global $wgFeed, $wgFeedClasses, $wgRequest;
+		if( !$wgFeed ) {
+			global $wgOut;
+			$wgOut->addWikiMsg( 'feed-unavailable' );
+			return;
+		}
+		if( !isset( $wgFeedClasses[$type] ) ) {
+			global $wgOut;
+			$wgOut->addWikiMsg( 'feed-invalid' );
+			return;
+		}
+		$feed = new $wgFeedClasses[$type](
+			$this->feedTitle(),
+			wfMsg( 'tagline' ),
+			$this->getTitle()->getFullUrl() );
+
+		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category );
+		$limit = $wgRequest->getInt( 'limit', 50 );
+		global $wgFeedLimit;
+		if( $limit > $wgFeedLimit ) {
+			$limit = $wgFeedLimit;
+		}
+		$pager->mLimit = $limit;
+
+		$feed->outHeader();
+		if( $pager->getNumRows() > 0 ) {
+			while( $row = $pager->mResult->fetchObject() ) {
+				$feed->outItem( $this->feedItem( $row ) );
+			}
+		}
+		$feed->outFooter();
+	}
+	
+	protected function feedTitle() {
+		global $wgContLanguageCode, $wgSitename;
+		$page = SpecialPage::getPage( 'OldReviewedPages' );
+		$desc = $page->getDescription();
+		return "$wgSitename - $desc [$wgContLanguageCode]";
+	}
+
+	protected function feedItem( $row ) {
+		$title = Title::MakeTitle( $row->page_namespace, $row->page_title );
+		if( $title ) {
+			$date = $row->fp_pending_since;
+			$comments = $title->getTalkPage()->getFullURL();
+			$curRev = Revision::newFromTitle( $title );
+			return new FeedItem(
+				$title->getPrefixedText(),
+				FeedUtils::formatDiffRow( $title, $row->fp_stable, $curRev->getId(), $row->fp_pending_since, $curRev->getComment() ),
+				$title->getFullURL(),
+				$date,
+				$curRev->getUserText(),
+				$comments);
+		} else {
+			return NULL;
 		}
 	}
 	
@@ -120,8 +195,8 @@ class OldReviewedPages extends SpecialPage
 	protected static function getLineClass( $hours, $uw ) {
 		if( !$uw )
 			return 'fr-unreviewed-unwatched';
-		# Default: none
-		return "";
+		else
+			return "";
 	}
 }
 
