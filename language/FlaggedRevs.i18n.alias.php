@@ -30,12 +30,12 @@ $aliases['en'] = array(
  * @author Juanpabl
  */
 $aliases['an'] = array(
-	'QualityOversight' => array( 'SuperbisataDeCalidat' ),
-	'UnReviewedPages' => array( 'PachinasNoRebisatas' ),
 	'OldReviewedPages' => array( 'PachinasSuperbisatasAntigas' ),
+	'QualityOversight' => array( 'SuperbisataDeCalidat' ),
 	'ReviewedPages' => array( 'PachinasSuberbisatas' ),
 	'StablePages' => array( 'PachinasEstables' ),
 	'StableVersions' => array( 'BersionsEstables' ),
+	'UnReviewedPages' => array( 'PachinasNoRebisatas' ),
 );
 
 /** Arabic (العربية)
@@ -80,13 +80,13 @@ $aliases['arz'] = array(
  * @author Mostafadaneshvar
  */
 $aliases['bcc'] = array(
-	'QualityOversight' => array( 'رویت-کیفیت' ),
-	'UnReviewedPages' => array( 'صفحات-بی-بازبینی' ),
 	'OldReviewedPages' => array( 'صفحات-بازبینی-قدیمی' ),
+	'ProblemPages' => array( 'صفحات‌مشکل' ),
+	'QualityOversight' => array( 'رویت-کیفیت' ),
 	'ReviewedPages' => array( 'صفحات-بازبینی' ),
 	'StablePages' => array( 'صفحات-ثابت' ),
 	'StableVersions' => array( 'نسخه یان ثابت' ),
-	'ProblemPages' => array( 'صفحات‌مشکل' ),
+	'UnReviewedPages' => array( 'صفحات-بی-بازبینی' ),
 );
 
 /** German (Deutsch)
@@ -161,12 +161,12 @@ $aliases['gl'] = array(
  * @author Kaustubh
  */
 $aliases['hi'] = array(
-	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
-	'UnReviewedPages' => array( 'नदेखेंहुएपन्ने' ),
 	'OldReviewedPages' => array( 'पुरानेदेखेंहुएपन्ने' ),
+	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
 	'ReviewedPages' => array( 'जाँचेहुएपन्ने' ),
 	'StablePages' => array( 'स्थिरपन्ने' ),
 	'StableVersions' => array( 'स्थिरअवतरण' ),
+	'UnReviewedPages' => array( 'नदेखेंहुएपन्ने' ),
 );
 
 /** Croatian (Hrvatski) */
@@ -228,12 +228,12 @@ $aliases['lb'] = array(
  * @author Kaustubh
  */
 $aliases['mr'] = array(
-	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
-	'UnReviewedPages' => array( 'नतपासलेलीपाने' ),
 	'OldReviewedPages' => array( 'जुनीतपासलेलीपाने' ),
+	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
 	'ReviewedPages' => array( 'तपासलेलीपाने' ),
 	'StablePages' => array( 'स्थिरपाने' ),
 	'StableVersions' => array( 'स्थिरआवृत्त्या' ),
+	'UnReviewedPages' => array( 'नतपासलेलीपाने' ),
 );
 
 /** Malay (Bahasa Melayu)
@@ -251,8 +251,8 @@ $aliases['ms'] = array(
 
 /** Erzya (Эрзянь) */
 $aliases['myv'] = array(
-	'ProblemPages' => array( 'ПроблемаМартоЛопат' ),
 	'LikedPages' => array( 'ВечкевиксЛопат' ),
+	'ProblemPages' => array( 'ПроблемаМартоЛопат' ),
 );
 
 /** Nedersaksisch (Nedersaksisch) */
@@ -364,13 +364,13 @@ $aliases['sk'] = array(
  * @author Millosh
  */
 $aliases['sr-ec'] = array(
-	'QualityOversight' => array( 'НадгледањеКвалитета' ),
-	'UnReviewedPages' => array( 'НепрегледанеСтране' ),
 	'OldReviewedPages' => array( 'СтареПрегледанеСтране' ),
+	'ProblemPages' => array( 'ПроблематичнеСтране' ),
+	'QualityOversight' => array( 'НадгледањеКвалитета' ),
 	'ReviewedPages' => array( 'ПрегледанеСтране' ),
 	'StablePages' => array( 'СтабилнеСтране' ),
 	'StableVersions' => array( 'СтабилнеВерзије' ),
-	'ProblemPages' => array( 'ПроблематичнеСтране' ),
+	'UnReviewedPages' => array( 'НепрегледанеСтране' ),
 );
 
 /** Swedish (Svenska)
@@ -397,12 +397,12 @@ $aliases['sv'] = array(
  * @author Candalua
  */
 $aliases['vec'] = array(
-	'QualityOversight' => array( 'ControloQualità' ),
-	'UnReviewedPages' => array( 'PagineNonRiesaminà' ),
 	'OldReviewedPages' => array( 'PagineRiesaminàVèce' ),
+	'QualityOversight' => array( 'ControloQualità' ),
 	'ReviewedPages' => array( 'PagineRiesaminà' ),
 	'StablePages' => array( 'PagineStabili' ),
 	'StableVersions' => array( 'VersionStabili' ),
+	'UnReviewedPages' => array( 'PagineNonRiesaminà' ),
 );
 
 /** Vietnamese (Tiếng Việt)
