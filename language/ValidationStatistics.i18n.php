@@ -232,8 +232,11 @@ $messages['km'] = array(
  */
 $messages['lb'] = array(
 	'validationstatistics' => 'Statistike vun de Validaiounen',
+	'validationstatistics-users' => "''{{SITENAME}}''' huet elo '''$1''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]]
+an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].",
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
+	'validationstatistics-stable' => 'Validéiert',
 );
 
 /** Malay (Bahasa Melayu)
@@ -328,6 +331,14 @@ $messages['pt'] = array(
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-old' => 'Desactualizado',
+);
+
+/** Russian (Русский)
+ * @author AlexSm
+ */
+$messages['ru'] = array(
+	'validationstatistics-ns' => 'Пространство',
+	'validationstatistics-total' => 'Страниц',
 );
 
 /** Slovak (Slovenčina)

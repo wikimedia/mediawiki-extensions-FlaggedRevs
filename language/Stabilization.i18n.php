@@ -723,6 +723,13 @@ $messages['gl'] = array(
 	'stabilize-expiring' => 'caduca $1 (UTC)',
 );
 
+/** Hawaiian (Hawai`i)
+ * @author Kalani
+ */
+$messages['haw'] = array(
+	'stabilization-def-short' => 'Paʻamau',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */

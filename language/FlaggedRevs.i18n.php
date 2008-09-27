@@ -858,8 +858,8 @@ $messages['arz'] = array(
 	'flaggedrevs-pref-UI-0' => 'استعمل واجهة يوزر لنسخة مستقرة متفصلة',
 	'flaggedrevs-pref-UI-1' => 'استعمل واجهة يوزر لنسخة مستقرة بسيطة',
 	'flaggedrevs-prefs' => 'استقرار',
-	'flaggedrevs-prefs-stable' => 'دايما اعرض النسخة المستقرة لصفحات المحتوى افتراضيا (لو في هناك واحدة)',
-	'flaggedrevs-prefs-watch' => 'ضيف الصفحات اللي أراجعها للستة مراقبتي',
+	'flaggedrevs-prefs-stable' => 'دايما اعرض النسخة المستقرة لصفحات المحتوى افتراضيا (لو فى هناك واحدة)',
+	'flaggedrevs-prefs-watch' => 'ضيف الصفحات اللى أراجعها للستة مراقبتى',
 	'group-editor' => 'محررين',
 	'group-editor-member' => 'محرر',
 	'group-reviewer' => 'مراجعين',
@@ -2303,7 +2303,8 @@ Malvalidigi revizion, faru ĉiujn kampojn kiel "malaprobita".',
 	'revreview-update-none' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn ajn ŝanĝoj ''(sube montrita)'' farita ekde la stabila revizio estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita].",
 	'revreview-update-use' => "'''NOTU:''' Se iuj ajn de tiuj ŝablonoj/bildoj havas stabilan version, tiel ĝi jam estas uzita en la stabila versio de ĉi tiu paĝo.",
 	'revreview-diffonly' => "''Por kontroli la paĝon, klaku la ligilon \"nuna revizio\" kaj uzu la kontrolo-paĝon.''",
-	'revreview-visibility' => "'''Ĉi paĝo havas [[{{MediaWiki:Validationpage}}|stabilan version]]; preferoj por ĝi povas esti [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurita].'''",
+	'revreview-visibility' => "'''Ĉi tiu paĝo havas [[{{MediaWiki:Validationpage}}|stabilan version]]; preferoj pri stabileco estas [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureblaj].'''",
+	'revreview-visibility2' => "'''Ĉi tiu paĝo ne havas ĝisdatan [[{{MediaWiki:Validationpage}}|stabilan version]]; preferoj pri stabileco estas [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureblaj].'''",
 	'revreview-revnotfound' => 'Ne eblis trovi malnovan version de la artikolo kiun vi petis.
 Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'right-autopatrolother' => 'Aŭtomate marki reviziojn ekster la ĉefaj nomspacoj kiel patrolitajn',
@@ -2487,8 +2488,10 @@ Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
 
 /** Basque (Euskara)
  * @author Bengoa
+ * @author Unai Fdz. de Betoño
  */
 $messages['eu'] = array(
+	'revreview-draft-title' => 'Zirriborroa',
 	'revreview-revnotfound' => 'Ezin izan da eskatzen ari zaren orrialdearen berrikuspen zaharra aurkitu. Mesedez, egiaztatu orrialde honetara iristeko erabili duzun URLa.',
 );
 
@@ -3311,6 +3314,7 @@ $messages['haw'] = array(
 /** Hebrew (עברית)
  * @author Rotemliss
  * @author StuB
+ * @author דניאל ב.
  */
 $messages['he'] = array(
 	'editor' => 'עורך',
@@ -3319,9 +3323,24 @@ $messages['he'] = array(
 	'group-editor' => 'עורכים',
 	'group-editor-member' => 'עורך',
 	'hist-draft' => 'גרסת טיוטה',
+	'revreview-auto' => '(אוטומטי)',
 	'revreview-log' => 'הערה:',
 	'revreview-submitting' => 'נשלח...',
+	'revreview-toggle-title' => 'הצגת/הסתרת פרטים',
 	'revreview-revnotfound' => 'הגרסה הישנה של דף זה לא נמצאה. אנא בדקו את כתובת הקישור שהוביל אתכם הנה.',
+	'readerfeedback' => 'מה אתם חושבים על הדף הזה?',
+	'readerfeedback-text' => "'''אנא השקיעו רגע מזמנכם כדי לדרג דף זה. למשוב שתתנו יש ערך רב והוא יעזור לנו לשפר את האתר.'''",
+	'readerfeedback-reliability' => 'מהמינות',
+	'readerfeedback-completeness' => 'שלמות',
+	'readerfeedback-npov' => 'נייטרליות',
+	'readerfeedback-presentation' => 'אופן ההצגה',
+	'readerfeedback-overall' => 'בסך הכל',
+	'readerfeedback-level-none' => '(בחירה)',
+	'readerfeedback-level-0' => 'גרוע',
+	'readerfeedback-level-1' => 'נמוך',
+	'readerfeedback-level-2' => 'בינוני',
+	'readerfeedback-level-3' => 'גבוה',
+	'readerfeedback-level-4' => 'מצוין',
 );
 
 /** Hindi (हिन्दी)
@@ -4124,7 +4143,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-update-none' => "Harap [[{{MediaWiki:Validationpage}}|meninjau]] semua perubahan ''(ditampilkan berikut)'' yang dibuat sejak revisi stabil [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} disetujui].",
 	'revreview-update-use' => "'''CATATAN''': Templat/berkas yang akan digunakan adalah templat/berkas versi stabil (jika ada).",
 	'revreview-diffonly' => "''Untuk memeriksa halaman, pilih pranala \"revisi sekarang\" dan gunakan formulir peninjauan.''",
-	'revreview-visibility' => 'Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]], yang dapat [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} dikonfigurasi].',
+	'revreview-visibility' => "'''Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]] yang telah diperbaharui; preferensi untuk versi stabil dapat [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
 	'revreview-revnotfound' => 'Revisi lama halaman yang Anda minta tidak dapat ditemukan. Silakan periksa URL yang digunakan untuk mengakses halaman ini.',
 	'right-autopatrolother' => 'Menandai secara otomatis suntingan di ruang nama non-utama sebagai terpatroli',
 	'right-autoreview' => 'Menandai revisi sebagai terperiksa secara otomatis',
@@ -6112,7 +6131,7 @@ $messages['oc'] = array(
 	'flaggedrevs-pref-UI-1' => "Utilizar una simpla interfàcia d'utilizaire establa",
 	'flaggedrevs-prefs' => 'Estabilitat',
 	'flaggedrevs-prefs-stable' => "Afichar totjorn la version establa del contengut de las paginas per defaut (se n'existís una)",
-	'flaggedrevs-prefs-watch' => "Apondís las paginas qu'ai revistas a ma lista de seguit.",
+	'flaggedrevs-prefs-watch' => "Apond las paginas qu'ai revistas a ma lista de seguit.",
 	'group-editor' => 'Contributors',
 	'group-editor-member' => 'Contributor',
 	'group-reviewer' => 'Revisors',
@@ -6327,7 +6346,7 @@ $messages['pl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} przejrzana] przez użytkownika [[User:$3|$3]]',
 	'review-diff2stable' => 'Pokaż różnicę pomiędzy wersją oznaczoną a ostatnią',
 	'review-logentry-app' => 'przejrzał [[$1]]',
-	'review-logentry-dis' => 'wycofał oznaczenie jako wersja przejrzana [[$1]]',
+	'review-logentry-dis' => 'wycofał wersję oznaczoną w [[$1]]',
 	'review-logentry-id' => 'wersja o ID $1',
 	'review-logentry-diff' => 'różnice do wersji przejrzanej',
 	'review-logpage' => 'Rejestr oznaczania',

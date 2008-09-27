@@ -213,10 +213,15 @@ $aliases['km'] = array(
  */
 $aliases['lb'] = array(
 	'LikedPages' => array( 'Beléiwte Säiten' ),
+	'OldReviewedPages' => array( 'Sàite mat Versiounen déi net iwwerpréift sinn' ),
 	'ProblemPages' => array( 'Problematesch Säiten' ),
+	'ReaderFeedback' => array( 'Bewertung vun de Lieser' ),
 	'ReviewedPages' => array( 'Säiten déi iwwerkuckt gi sinn' ),
+	'Stabilization' => array( 'Stabilisatioun' ),
 	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
+	'UnReviewedPages' => array( 'Net iwwerpréifte Säiten' ),
+	'ValidationStatistics' => array( 'Statistik vun den iwwerpréifte Säiten' ),
 );
 
 /** Marathi (मराठी)
@@ -308,13 +313,13 @@ $aliases['no'] = array(
  * @author Cedric31
  */
 $aliases['oc'] = array(
-	'QualityOversight' => array( 'QualitatSupervisor' ),
-	'UnReviewedPages' => array( 'PaginasPasRelegidas' ),
 	'OldReviewedPages' => array( 'PaginasAncianamentRelegidas' ),
+	'ProblemPages' => array( 'PaginasProblematicas' ),
+	'QualityOversight' => array( 'QualitatSupervisor' ),
 	'ReviewedPages' => array( 'Paginas revisadas' ),
 	'StablePages' => array( 'PaginasEstablas' ),
 	'StableVersions' => array( 'VersionsEstablas' ),
-	'ProblemPages' => array( 'PaginasProblematicas' ),
+	'UnReviewedPages' => array( 'PaginasPasRelegidas' ),
 );
 
 /** Polish (Polski)
@@ -374,10 +379,13 @@ $aliases['sr-ec'] = array(
  * @author M.M.S.
  */
 $aliases['sv'] = array(
+	'LikedPages' => array( 'Länkade sidor' ),
 	'OldReviewedPages' => array( 'Gamla granskade sidor' ),
 	'ProblemPages' => array( 'Problemsidor' ),
 	'QualityOversight' => array( 'Kvalitetsöversikt' ),
+	'RatingHistory' => array( 'Betygshistorik' ),
 	'ReviewedPages' => array( 'Granskade sidor' ),
+	'RevisionReview' => array( 'Versionsgranskning' ),
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabila sidor' ),
 	'StableVersions' => array( 'Stabila versioner' ),
