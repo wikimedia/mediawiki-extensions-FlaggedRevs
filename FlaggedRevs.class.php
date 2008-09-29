@@ -473,6 +473,19 @@ class FlaggedRevs {
 	################# Synchronization and link update functions #################
 	
 	/**
+	* @param mixed $data Memc data returned
+	* @param Article $article
+	* @return mixed
+	* Return memc value if not expired
+	*/		
+	public static function getMemcValue( $data, $article ) {
+		if( is_object($data) && $data->time > $article->getTouched() ) {
+			return $data->value;
+		}
+		return false;
+	} 
+	
+	/**
 	* @param FlaggedRevision $srev, the stable revision
 	* @param Article $article
 	* @param ParserOutput $stableOutput, will fetch if not given
@@ -495,14 +508,11 @@ class FlaggedRevs {
 		global $wgMemc, $wgEnableParserCache;
 		# Try the cache...
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-		$data = $wgMemc->get($key);
-		# Convert string value to boolean and return it
-		if( is_object($data) && $data->time >= $article->getTouched() ) {
-			if( $data->value === "true" ) {
-				return true;
-			} else if( $data->value === "false" ) {
-				return false;
-			}
+		$value = self::getMemcValue( $wgMemc->get($key), $article );
+		if( $value === "true" ) {
+			return true;
+		} else if( $value === "false" ) {
+			return false;
 		}
 		# If parseroutputs not given, fetch them...
 		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {

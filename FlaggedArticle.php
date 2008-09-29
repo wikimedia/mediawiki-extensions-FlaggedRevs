@@ -927,7 +927,7 @@ class FlaggedArticle extends Article {
 	* a tag with some explaination for the diff.
 	*/
 	public function addDiffNoticeAndIncludes( $diff, $oldRev, $newRev ) {
-		global $wgRequest, $wgUser, $wgOut;
+		global $wgRequest, $wgUser, $wgOut, $wgMemc;
 
 		$diffOnly = $wgRequest->getBool( 'diffonly', $wgUser->getOption( 'diffonly' ) );
 		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $newRev->getTitle() ) )
@@ -936,19 +936,26 @@ class FlaggedArticle extends Article {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Check if this might be the diff to stable. If so, enhance it.
 		if( $newRev->isCurrent() && $oldRev ) {
+			$article = new Article( $newRev->getTitle() );
+			# Try the sync value cache...
+			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+			$value = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
+			$synced = false; // default as false to trigger query
+			if( $value === "true" ) {
+				$synced = true;
+			} else if( $value === "false" ) {
+				$synced = false;
+			}
 			$frev = $this->getStableRev();
-			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
-				global $wgMemc, $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
+			if( $frev && $frev->getRevId() == $oldRev->getID() && !$synced ) {
+				global $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
 
 				$changeList = array();
 				$skin = $wgUser->getSkin();
-				$article = new Article( $newRev->getTitle() );
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, $article->getId() );
-				$data = $wgMemc->get($key);
-				$tmpChanges = is_object($data) && $data->time > $article->getTouched() ? 
-					$data->value : false;
+				$tmpChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
 
 				# Make a list of each changed template...
 				if( $tmpChanges === false ) {
@@ -993,9 +1000,7 @@ class FlaggedArticle extends Article {
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'images', (bool)$wgUseStableImages, $article->getId() );
-				$value = $wgMemc->get($key);
-				$imgChanges = is_object($data) && $data->time > $article->getTouched() ? 
-					$data->value : false;
+				$imgChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
 
 				// Get list of each changed image...
 				if( $imgChanges === false ) {
