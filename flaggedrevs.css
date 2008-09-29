@@ -276,7 +276,8 @@
 	clear: both;
 }
 
-.fr-rating-controls * {
+.fr-rating-controls,
+.fr-rating-controls-disabled {
 	vertical-align: middle;
 	line-height: 1em;
 }

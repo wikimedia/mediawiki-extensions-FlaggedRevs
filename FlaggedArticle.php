@@ -1371,7 +1371,8 @@ class FlaggedArticle extends Article {
 				'id' => 'fr-rating-controls-disabled') );
 			$toggle = array( 'disabled' => "disabled" );
 		} else {
-			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls', 'id' => 'fr-rating-controls') );
+			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls', 
+				'id' => 'fr-rating-controls') );
 			$toggle = array();
 		}
 		$size = count(FlaggedRevs::getDimensions(),1) - count(FlaggedRevs::getDimensions());
@@ -1394,7 +1395,7 @@ class FlaggedArticle extends Article {
 			}
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
-			$form .= "<b>" . FlaggedRevs::getTagMsg($quality) . ":</b>&nbsp;";
+			$form .= "<b>" . FlaggedRevs::getTagMsg($quality) . ":</b>\n";
 			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
@@ -1486,7 +1487,7 @@ class FlaggedArticle extends Article {
 				'wpReason', 50, '', array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
 		$form .= Xml::submitButton( wfMsg('revreview-submit'), array('id' => 'submitreview',
-			'accesskey' => wfMsg('revreview-ak-review'), 'style' => 'margin: .5em 0em 0em 0em;',
+			'accesskey' => wfMsg('revreview-ak-review'), 
 			'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']') + $toggle
 		);
 		$form .= Xml::closeElement( 'span' );
