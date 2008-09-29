@@ -4,10 +4,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class OldReviewedPages extends SpecialPage
+class OldReviewedPages extends IncludableSpecialPage
 {
     function __construct() {
-        SpecialPage::SpecialPage( 'OldReviewedPages', 'unreviewedpages' );
+        IncludableSpecialPage::IncludableSpecialPage( 'OldReviewedPages', 'unreviewedpages' );
 		wfLoadExtensionMessages( 'OldReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
@@ -27,7 +27,7 @@ class OldReviewedPages extends SpecialPage
 			return $this->feed( $feedType );
 		}
 		$this->setSyndicated();
-		$this->showList( $wgRequest );
+		$this->showList( $par );
 	}
 	
 	protected function setSyndicated() {
@@ -40,30 +40,65 @@ class OldReviewedPages extends SpecialPage
 		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
 	}
 
-	function showList( $wgRequest ) {
+	function showList( $par ) {
 		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
-		$action = htmlspecialchars( $wgScript );
-		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
-			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) );
-
-		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' );
-		}
-		$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) .
-			' ' . Xml::input( 'category', 35, $this->category, array('id' => 'category') ) .
-			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-			"</fieldset></form>" );
-		
+		$limit = $this->parseParams( $par );
 		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category );
-		if( $pager->getNumRows() ) {
+		if( $limit )
+			$pager->mLimit = $limit;
+		// Viewing the page normally...
+		if( !$this->including() ) {
+			$action = htmlspecialchars( $wgScript );
+			$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
+				'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
+				Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) );
+			# Display dropdown as needed
+			if( count($wgFlaggedRevsNamespaces) > 1 ) {
+				$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' );
+			}
+			$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) . '&nbsp;' . 
+				Xml::input( 'category', 35, $this->category, array('id' => 'category') ) .
+				'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
+				"</fieldset></form>" );
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( $pager->getBody() );
-			$wgOut->addHTML( $pager->getNavigationBar() );
+			if( $pager->getNumRows() ) {
+				$wgOut->addHTML( $pager->getNavigationBar() );
+				$wgOut->addHTML( $pager->getBody() );
+				$wgOut->addHTML( $pager->getNavigationBar() );
+			} else {
+				$wgOut->addHTML( wfMsgExt('oldreviewedpages-none', array('parse') ) );
+			}
+		// If this page is transcluded...
 		} else {
-			$wgOut->addHTML( wfMsgExt('oldreviewedpages-none', array('parse') ) );
+			if( $pager->getNumRows() ) {
+				$wgOut->addHTML( $pager->getBody() );
+			} else {
+				$wgOut->addHTML( wfMsgExt('oldreviewedpages-none', array('parse') ) );
+			}
 		}
+	}
+	
+	protected function parseParams( $par ) {
+		global $wgLang;
+		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
+		$limit = false;
+		foreach( $bits as $bit ) {
+			if( is_numeric( $bit ) )
+				$limit = intval( $bit );
+			$m = array();
+			if( preg_match( '/^limit=(\d+)$/', $bit, $m ) )
+				$limit = intval($m[1]);
+			if( preg_match( '/^namespace=(.*)$/', $bit, $m ) ) {
+				$ns = $wgLang->getNsIndex( $m[1] );
+				if( $ns !== false ) {
+					$this->namespace = $ns;
+				}
+			}
+			if( preg_match( '/^category=(.+)$/', $bit, $m ) ) {
+				$this->category = $m[1];
+			}
+		}
+		return $limit;
 	}
 	
 	/**
