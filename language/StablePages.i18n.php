@@ -298,7 +298,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'stablepages' => 'Lista indywidualnie skonfigurowany stron',
-	'stablepages-stable' => 'wersja stabilna',
+	'stablepages-stable' => 'wersja przejrzana',
 	'stablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że wersja oznaczona jest domyślną dla czytelników.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',

@@ -3102,7 +3102,7 @@ $messages['gl'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisións marcadas',
 	'flaggedrevs-backlog' => "Actualmente hai unha acumulación nas [[Special:OldReviewedPages|páxinas revisadas fóra de data]]. '''Precísase a súa atención!'''",
-	'flaggedrevs-desc' => 'Dar aos editores/revisores a capacidade para confirmar as revisións e estabilizar as páxinas',
+	'flaggedrevs-desc' => 'Dá aos editores e revisores a capacidade para confirmar as revisións e estabilizar as páxinas',
 	'flaggedrevs-pref-UI-0' => 'Usar a interface de usuario detallada da versión estábel',
 	'flaggedrevs-pref-UI-1' => 'Usar a interface de usuario simple da versión estábel',
 	'flaggedrevs-prefs' => 'Estabilidade',
@@ -6315,6 +6315,7 @@ $messages['pam'] = array(
 );
 
 /** Polish (Polski)
+ * @author Beau
  * @author Derbeth
  * @author Holek
  * @author Jwitos
@@ -6334,9 +6335,9 @@ $messages['pl'] = array(
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję oznaczoną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako sprawdzone',
 	'group-editor' => 'Redaktorzy',
-	'group-editor-member' => 'Redaktor',
+	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Recenzenci',
-	'group-reviewer-member' => 'Recenzent',
+	'group-reviewer-member' => 'recenzent',
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
 	'grouppage-reviewer' => '{{ns:project}}:Recenzent',
 	'hist-draft' => 'wersja nieprzejrzana',
@@ -6423,7 +6424,7 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Przejrzana]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobacz szkic]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Przejrzana]]'''",
 	'revreview-quick-invalid' => "'''Nieprawidłowy ID wersji'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Bieżąca wersja]]''' (nieprzejrzana)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Brak wersji przejrzanej]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobacz szkic]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobacz szkic]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Stabilna]]'''",
@@ -6433,7 +6434,7 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} porównaj])",
 	'revreview-selected' => "Wybrana wersja '''$1:'''",
 	'revreview-source' => 'źródło szkicu',
-	'revreview-stable' => 'Strona stabilna',
+	'revreview-stable' => 'Artykuł',
 	'revreview-stable-title' => 'Artykuł przejrzany',
 	'revreview-stable1' => 'Możesz zobaczyć [{{fullurl:$1|stableid=$2}} oznaczoną wersję] i sprawdzić czy jest ona [{{fullurl:$1|stable=1}} wersją stabilną] tej strony.',
 	'revreview-stable2' => 'Możesz zobaczyć [{{fullurl:$1|stable=1}} wersję stabilną] tej strony (o ile istnieje).',
