@@ -185,6 +185,13 @@ $messages['he'] = array(
 	'validationstatistics-total' => 'דפים',
 );
 
+/** Croatian (Hrvatski)
+ * @author Dalibor Bosits
+ */
+$messages['hr'] = array(
+	'validationstatistics-ns' => 'Imenski prostor',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  * @author Samat
@@ -331,6 +338,13 @@ $messages['pt'] = array(
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-old' => 'Desactualizado',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'validationstatistics-ns' => 'Spaţiu de nume',
 );
 
 /** Russian (Русский)
