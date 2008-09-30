@@ -167,10 +167,7 @@ class Stabilization extends UnlistedSpecialPage
 		$wgOut->addHTML( $form );
 
 		$wgOut->addHtml( Xml::element( 'h2', NULL, htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
-		$logViewer = new LogViewer(
-			new LogReader( new FauxRequest(
-				array( 'page' => $this->page->getPrefixedText(), 'type' => 'stable' ) ) ) );
-		$logViewer->showList( $wgOut );
+		LogEventsList::showLogExtract( $wgOut, 'stable', $this->page->getPrefixedText() );
 	}
 
 	function submit() {
