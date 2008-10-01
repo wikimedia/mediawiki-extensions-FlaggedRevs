@@ -755,10 +755,11 @@ $messages['ro'] = array(
 
 /** Russian (Русский)
  * @author EugeneZelenko
+ * @author Kaganer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'right-unreviewedpages' => 'просмотр списка непроверенных страниц',
+	'right-unreviewedpages' => 'Просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]',
 	'unreviewedpages' => 'Непроверенные страницы',
 	'unreviewed-legend' => 'Список непроверенных страниц',
 	'unreviewed-category' => 'Категория:',

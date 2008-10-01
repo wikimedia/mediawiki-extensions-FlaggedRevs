@@ -6872,6 +6872,7 @@ $messages['roa-tara'] = array(
 
 /** Russian (Русский)
  * @author Ahonc
+ * @author Kaganer
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -7009,7 +7010,7 @@ $messages['ru'] = array(
 	'revreview-update-none' => "Пожалуйста, [[{{MediaWiki:Validationpage}}|проверьте]] правки ''(показаны ниже)'', сделанные после [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} установки] стабильной версии.",
 	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Если какой-либо из этих шаблонов или изображений имеет стабильную версию, то она уже используется в стабильной версии этой страницы.",
 	'revreview-diffonly' => "''Чтобы проверить статью, нажмите на ссылку «текущая версия» и используйте форму проверки.''",
-	'revreview-visibility' => "'''Эта страница имеет [[{{MediaWiki:Validationpage}}|стабильную версию]], которая может быть [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настроена].'''",
+	'revreview-visibility' => "'''У этой страницы имеется обновлённая [[{{MediaWiki:Validationpage}}|стабильная версия]]; можно изменить [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настройки показа стабильных версий].'''",
 	'revreview-revnotfound' => 'Старая версия страницы не найдена. Пожалуйста, проверьте правильность ссылки, которую вы использовали для доступа к этой странице.',
 	'right-autopatrolother' => 'автоматическая отметка версий страниц в неосновном пространстве имён как патрулированных',
 	'right-autoreview' => 'автоматическая отметка версий страниц как досмотренных',
@@ -7041,8 +7042,8 @@ $messages['ru'] = array(
 	'readerfeedback-level-4' => 'отличная',
 	'readerfeedback-submit' => 'Отправить',
 	'readerfeedback-main' => 'Оценены могут быть только основные страницы проекта.',
-	'readerfeedback-success' => "'''Спасибо, что дали оценку этой странице!''' Результаты оценок страницы '''$1''' можно посмотреть [$2 здесь].",
-	'readerfeedback-voted' => "'''Похоже, вы уже оценивали эту страницу.''' Результаты оценок страницы '''$1''' можно посмотреть [$2 здесь].",
+	'readerfeedback-success' => "'''Спасибо за оценку этой страницы!''' ([$3 Есть комментарии или вопросы?]).",
+	'readerfeedback-voted' => "'''Похоже, вы уже оценивали эту страницу.''' ([$3 Есть комментарии или вопросы?]).",
 	'readerfeedback-submitting' => 'Отправка…',
 	'readerfeedback-finished' => 'Спасибо!',
 	'revreview-filter-all' => 'Все',
