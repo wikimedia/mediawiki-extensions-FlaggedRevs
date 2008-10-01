@@ -72,7 +72,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-depth-4'            => 'Featured',
 	'revreview-draft-title'        => 'Draft article',
 	'revreview-edit'               => 'Edit draft',
-	'revreview-editnotice'         => '\'\'\'Note: Edits to this page will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an established user reviews them.\'\'\'',
+	'revreview-editnotice'         => '\'\'\'Note: Edits to this page will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an authorised user reviews them.\'\'\'',
 	'revreview-flag'               => 'Review this revision',
 	'revreview-edited'             => '\'\'\'Edits will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an established user reviews them.\'\'\'
 \'\'\'The \'\'draft\'\' is shown below.\'\'\' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|change awaits|changes await}}] review.',
