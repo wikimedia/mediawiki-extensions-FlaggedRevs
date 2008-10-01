@@ -553,6 +553,11 @@ class FlaggedArticle extends Article {
 					$warning = "<div id='mw-autoreviewtag' class='flaggedrevs_warning plainlinks'>" .
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
+			# Let new users know about review procedure a tag
+			} else if( !$wgUser->getId() && $this->showStableByDefault() ) {
+				wfLoadExtensionMessages( 'FlaggedRevs' );
+				$warning = "<div id='mw-editwarningtag' class='flaggedrevs_editnotice plainlinks'>" .
+						wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
 			}
 			if( $frev->getRevId() != $revId ) {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
