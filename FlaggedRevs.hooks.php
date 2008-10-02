@@ -365,6 +365,7 @@ EOT;
 		if( empty($parser->fr_isStable) ) {
 			return true;
 		}
+		$file = null;
 		$dbr = wfGetDB( DB_SLAVE );
 		# Normalize NS_MEDIA to NS_IMAGE
 		$title = $nt->getNamespace() == NS_IMAGE ? $nt : Title::makeTitle( NS_IMAGE, $nt->getDBKey() );
@@ -421,7 +422,9 @@ EOT;
 		# Add image metadata to parser output
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
-		if( $time > $parser->mOutput->fr_newestImageTime ) {
+		# Bug 15748, be lax about commons image sync status
+		$file = $file ? $file : wfFindFile( $title, $time ); # FIXME: would be nice not to double fetch!
+		if( $file && $file->isLocal() && $time > $parser->mOutput->fr_newestImageTime ) {
 			$parser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
@@ -435,6 +438,7 @@ EOT;
 		if( empty($ig->mParser->fr_isStable) || $nt->getNamespace() != NS_IMAGE ) {
 			return true;
 		}
+		$file = null;
 		$dbr = wfGetDB( DB_SLAVE );
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
@@ -489,7 +493,9 @@ EOT;
 		# Add image metadata to parser output
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
-		if( $time > $ig->mParser->mOutput->fr_newestImageTime ) {
+		# Bug 15748, be lax about commons image sync status
+		$file = $file ? $file : wfFindFile( $title, $time ); # FIXME: would be nice not to double fetch!
+		if( $file && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
 			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
@@ -524,7 +530,8 @@ EOT;
 				$file = wfFindFile( Title::makeTitle( NS_IMAGE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
 				if( $file ) {
-					if( $file->getTimestamp() > $maxTimestamp ) {
+					# Bug 15748, be lax about commons image sync status
+					if( $file->isLocal() && $file->getTimestamp() > $maxTimestamp ) {
 						$maxTimestamp = $file->getTimestamp();
 					}
 					$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();

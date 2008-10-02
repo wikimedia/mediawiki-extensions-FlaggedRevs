@@ -530,7 +530,9 @@ class FlaggedRevs {
 			# Get parsed current version
 			$parserCache = ParserCache::singleton();
 			$currentOutput = $parserCache->get( $article, $wgUser );
-			if( $currentOutput==false ) {
+			# If $text is set, then the stableOutput is new. In that case,
+			# the current must also be new to avoid sync goofs.
+			if( $currentOutput==false || isset($text) ) {
 				$text = $article->getContent();
 				$title = $article->getTitle();
 				$options = self::makeParserOptions();
