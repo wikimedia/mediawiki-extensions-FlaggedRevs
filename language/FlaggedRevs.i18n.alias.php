@@ -23,6 +23,7 @@ $aliases['en'] = array(
 	'StablePages' => array( 'StablePages' ),
 	'StableVersions' => array( 'StableVersions' ),
 	'UnReviewedPages' => array( 'UnReviewedPages' ),
+	'UnstablePages' => array( 'UnstablePages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
 );
 
