@@ -155,17 +155,10 @@ EOT;
 		}
 		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
-		# Check if this page has a stable version by fetching it.
-		# Try the process cache...
-		$sv = isset($u->fr_stableRev) ? 
+		$pageId = $linksUpdate->mTitle->getArticleId();
+		# Check if this page has a stable version...
+		$sv = isset($u->fr_stableRev) ? // Try the process cache...
 			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, FR_MASTER );
-		# Empty flagged page settings row on delete
-		$oldId = $linksUpdate->mTitle->getArticleId(); // cleared *after* this is called
-		if( !($pageId = $linksUpdate->mTitle->getArticleId(GAID_FOR_UPDATE)) ) {
-			$dbw->delete( 'flaggedpage_config', 
-				array( 'fpc_page_id' => $oldId ),
-				__METHOD__ );
-		}
 		# Empty flagged revs data for this page if there is no stable version
 		if( !$sv ) {
 			$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
