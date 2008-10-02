@@ -945,11 +945,10 @@ class FlaggedArticle extends Article {
 			# Try the sync value cache...
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
 			$value = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
-			$synced = false; // default as false to trigger query
 			if( $value === "true" ) {
 				$synced = true;
-			} else if( $value === "false" ) {
-				$synced = false;
+			} else {
+				$synced = false; // default as false to trigger query
 			}
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() && !$synced ) {
