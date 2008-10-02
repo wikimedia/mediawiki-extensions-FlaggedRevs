@@ -316,6 +316,10 @@ $wgSpecialPageGroups['ReviewedPages'] = 'quality';
 $wgAutoloadClasses['StablePages'] = $dir . 'specialpages/StablePages_body.php';
 $wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
+# Load unstable pages list
+$wgAutoloadClasses['UnstablePages'] = $dir . 'specialpages/UnstablePages_body.php';
+$wgExtensionMessagesFiles['UnstablePages'] = $langDir . 'UnstablePages.i18n.php';
+$wgSpecialPageGroups['UnstablePages'] = 'quality';
 # To oversee quality revisions
 $wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
@@ -429,6 +433,7 @@ function efLoadFlaggedRevs() {
 		$wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 		$wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 		$wgSpecialPages['StablePages'] = 'StablePages';
+		$wgSpecialPages['UnstablePages'] = 'UnstablePages';
 		$wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
 	}
