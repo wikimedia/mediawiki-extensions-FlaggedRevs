@@ -48,6 +48,17 @@ $messages['arz'] = array(
 	'unstablepages-config' => 'ضبط',
 );
 
+/** French (Français)
+ * @author Grondin
+ */
+$messages['fr'] = array(
+	'unstablepages' => 'Pages instables',
+	'unstablepages-stable' => 'version stable',
+	'unstablepages-text' => 'Ci-dessous se trouve une liste de pages configurées manuellement pour afficher la version brouillon comme contenu de page par défaut pour les relecteurs.',
+	'unstablepages-none' => 'Il n’y a aucune page dans cette liste.',
+	'unstablepages-config' => 'Configuration',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
