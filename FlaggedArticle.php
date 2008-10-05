@@ -945,13 +945,9 @@ class FlaggedArticle extends Article {
 			# Try the sync value cache...
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
 			$value = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
-			if( $value === "true" ) {
-				$synced = true;
-			} else {
-				$synced = false; // default as false to trigger query
-			}
+			$synced = ($value === "true") ? true : false; // default as false to trigger query
 			$frev = $this->getStableRev();
-			if( $frev && $frev->getRevId() == $oldRev->getID() && !$synced ) {
+			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
 				global $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
 
 				$changeList = array();
@@ -960,6 +956,9 @@ class FlaggedArticle extends Article {
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, $article->getId() );
 				$tmpChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
+				if( empty($tmpChanges) && !$synced ) {
+					$tmpChanges = false; // don't use cache
+				}
 
 				# Make a list of each changed template...
 				if( $tmpChanges === false ) {
@@ -967,14 +966,10 @@ class FlaggedArticle extends Article {
 					// Get templates where the current and stable are not the same revision
 					if( $wgUseStableTemplates ) {
 						$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-							array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id' ),
+							array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id', 'page_latest' ),
 							array( 'ft_rev_id' => $frev->getRevId(),
 								'page_namespace = ft_namespace',
-								'page_title = ft_title',
-								// If the page has a stable version, is it current?
-								// If not, is the specified one at review time current?
-								'(fp_stable IS NOT NULL AND fp_stable != page_latest) OR
-									(fp_stable IS NULL AND ft_tmp_rev_id != page_latest)' ),
+								'page_title = ft_title' ),
 							__METHOD__,
 							array(), /* OPTIONS */
 							array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
@@ -982,7 +977,7 @@ class FlaggedArticle extends Article {
 					// Get templates that are newer than the ones of the stable version of this page
 					} else {
 						$ret = $dbr->select( array('flaggedtemplates','page'),
-							array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+							array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id', 'page_latest' ),
 							array( 'ft_rev_id' => $frev->getRevId(),
 								'page_namespace = ft_namespace',
 								'page_title = ft_title',
@@ -992,9 +987,15 @@ class FlaggedArticle extends Article {
 					$tmpChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
 						$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
-						$revID = isset($row->fp_stable) ? $row->fp_stable : $row->ft_tmp_rev_id;
-						$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(),
-							"diff=cur&oldid={$revID}" );
+						$revIdDraft = $row->page_latest;
+						// stable time -> time when reviewed (unless the other is newer)
+						$revIdStable = isset($row->fp_stable) && $row->fp_stable >= $row->ft_tmp_rev_id ?
+							$row->fp_stable : $row->ft_tmp_rev_id;
+						// compare to current
+						if( $revIdDraft > $revIdStable ) {
+							$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(),
+								"diff=cur&oldid={$revID}" );
+						}
 					}
 					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($tmpChanges), $wgParserCacheExpireTime );
 				}
@@ -1005,6 +1006,9 @@ class FlaggedArticle extends Article {
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'images', (bool)$wgUseStableImages, $article->getId() );
 				$imgChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
+				if( empty($imgChanges) && !$synced ) {
+					$imgChanges = false; // don't use cache
+				}
 
 				// Get list of each changed image...
 				if( $imgChanges === false ) {
@@ -1031,11 +1035,11 @@ class FlaggedArticle extends Article {
 					}
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
+						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
 						// stable time -> time when reviewed (unless the other is newer)
 						$timestamp = isset($row->fr_img_timestamp) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
 							$row->fr_img_timestamp : $row->fi_img_timestamp;
 						// compare to current
-						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
 						$file = wfFindFile( $title );
 						if( $file && $file->getTimestamp() > $timestamp )
 							$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
