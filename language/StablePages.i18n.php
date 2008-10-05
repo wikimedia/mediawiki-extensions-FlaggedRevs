@@ -204,6 +204,7 @@ $messages['id'] = array(
 $messages['it'] = array(
 	'stablepages' => 'Pagine stabili',
 	'stablepages-stable' => 'versione stabile',
+	'stablepages-text' => 'Di seguito sono elencate le pagine configurate manualmente in modo tale da mostrare per default le versioni stabili ai visitatori.',
 	'stablepages-none' => 'Non ci sono pagine in questo elenco',
 	'stablepages-config' => 'Configurazione',
 );
@@ -297,9 +298,9 @@ $messages['oc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'stablepages' => 'Lista indywidualnie skonfigurowany stron',
+	'stablepages' => 'Strony z domyślnie pokazywaną wersją oznaczoną',
 	'stablepages-stable' => 'wersja przejrzana',
-	'stablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że wersja oznaczona jest domyślną dla czytelników.',
+	'stablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że wersja oznaczona jest pokazywana domyślnie dla czytelników.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );

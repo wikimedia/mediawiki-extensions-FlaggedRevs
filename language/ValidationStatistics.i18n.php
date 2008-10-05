@@ -389,6 +389,13 @@ $messages['sv'] = array(
 	'validationstatistics-old' => 'Föråldrad',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'validationstatistics-total' => 'పేజీలు',
+);
+
 /** Thai (ไทย)
  * @author Octahedron80
  */

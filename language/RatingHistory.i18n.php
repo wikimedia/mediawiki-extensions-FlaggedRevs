@@ -486,6 +486,15 @@ $messages['sv'] = array(
 	'right-feedback' => 'Använd feedback-formuläret för att betygsätta en sida',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'ratinghistory-month' => 'గత నెల',
+	'ratinghistory-year' => 'గత సంవత్సరం',
+	'ratinghistory-3years' => 'గత 3 సంవత్సరాలు',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  */
