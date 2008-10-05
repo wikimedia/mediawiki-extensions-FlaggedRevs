@@ -345,6 +345,8 @@ $wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::stripPatrolRights';
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::autoPromoteUser';
 # Adds table link references to include ones from the stable version
 $wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
+# Clear dead config rows
+$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
 # Check on undelete/merge for changes to stable version
 $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::updateFromMerge';
 $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::updateFromRestore';

@@ -145,6 +145,15 @@ EOT;
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
+	
+	public static function onArticleDelete( &$article, &$user, $reason, $id ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpage_config',
+			array( 'fpc_page_id' => $article->getID() ),
+			__METHOD__ );
+
+		return true;
+	}
 
 	/**
 	* Inject stable links on LinksUpdate
