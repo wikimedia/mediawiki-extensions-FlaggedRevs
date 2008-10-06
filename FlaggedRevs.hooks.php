@@ -1034,9 +1034,9 @@ EOT;
 	* Set user preferences into user object before it is applied to DB
 	*/
 	public static function savePreferences( $form, $user, &$msg ) {
-		$user->setOption( 'flaggedrevsstable', $form->validateInt( $form->mFlaggedRevsStable, 0, 1 ) );
-		$user->setOption( 'flaggedrevssimpleui', $form->validateInt( $form->mFlaggedRevsSUI, 0, 1 ) );
-		$user->setOption( 'flaggedrevswatch', $form->validateInt( $form->mFlaggedRevsWatch, 0, 1 ) );
+		$user->setOption( 'flaggedrevsstable', Validate::Int( $form->mFlaggedRevsStable, 0, 1 ) );
+		$user->setOption( 'flaggedrevssimpleui', Validate::Int( $form->mFlaggedRevsSUI, 0, 1 ) );
+		$user->setOption( 'flaggedrevswatch', Validate::Int( $form->mFlaggedRevsWatch, 0, 1 ) );
 		return true;
 	}
 	
