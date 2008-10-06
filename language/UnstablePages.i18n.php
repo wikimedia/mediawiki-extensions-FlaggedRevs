@@ -48,6 +48,17 @@ $messages['arz'] = array(
 	'unstablepages-config' => 'ضبط',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'unstablepages' => 'Malstabilaj paĝoj',
+	'unstablepages-stable' => 'stabila versio',
+	'unstablepages-text' => 'Jen listo de paĝoj permane konfiguritaj por montri la malnetan version kiel defaŭltan paĝ-enhavon por legantoj.',
+	'unstablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
+	'unstablepages-config' => 'Konfiguro',
+);
+
 /** French (Français)
  * @author Grondin
  */

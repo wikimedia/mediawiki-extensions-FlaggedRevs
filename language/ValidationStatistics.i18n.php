@@ -137,6 +137,7 @@ $messages['fa'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author Verdy p
  * @author Zetud
  */
 $messages['fr'] = array(
@@ -151,6 +152,7 @@ $messages['fr'] = array(
 	'validationstatistics-latest' => 'Relu en tout dernier lieu',
 	'validationstatistics-synced' => 'Synchronisé/Relu',
 	'validationstatistics-old' => 'Désuet',
+	'validationstatistics-nbr' => '$1&nbsp;%',
 );
 
 /** Galician (Galego)

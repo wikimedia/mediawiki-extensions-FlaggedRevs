@@ -6364,12 +6364,13 @@ $messages['pam'] = array(
  * @author Leinad
  * @author Maikking
  * @author McMonster
+ * @author Pimke
  * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Wersje oznaczone',
-	'flaggedrevs-backlog' => "Na [[Special:OldReviewedPages|liście zdezaktualizowanych przejrzanych stron]] powstały zaległości. '''Potrzebna jest Twoja pomoc!'''",
+	'flaggedrevs-backlog' => "[[Special:OldReviewedPages|Lista stron z nieoznaczonymi wersjami]] jest już bardzo długa. '''Potrzebna jest Twoja pomoc!'''",
 	'flaggedrevs-desc' => 'Daje redaktorom i recenzentom możliwość oceny edycji i oznaczenia stabilnej wersji strony',
 	'flaggedrevs-pref-UI-0' => 'Użyj szczegółowego interfejsu',
 	'flaggedrevs-pref-UI-1' => 'Użyj prostego interfejsu',
@@ -6377,14 +6378,14 @@ $messages['pl'] = array(
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję oznaczoną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako sprawdzone',
 	'group-editor' => 'Redaktorzy',
-	'group-editor-member' => 'redaktor',
+	'group-editor-member' => 'Redaktor',
 	'group-reviewer' => 'Recenzenci',
-	'group-reviewer-member' => 'recenzent',
+	'group-reviewer-member' => 'Recenzent',
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
 	'grouppage-reviewer' => '{{ns:project}}:Recenzent',
 	'hist-draft' => 'wersja nieprzejrzana',
 	'hist-quality' => 'wersja stabilna',
-	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} sprawdzona] przez użytkownika [[User:$3|$3]]',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} zweryfikowana] przez użytkownika [[User:$3|$3]]',
 	'hist-stable' => 'wersja przejrzana',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} przejrzana] przez użytkownika [[User:$3|$3]]',
 	'review-diff2stable' => 'Pokaż różnicę pomiędzy wersją oznaczoną a ostatnią',
@@ -6393,20 +6394,20 @@ $messages['pl'] = array(
 	'review-logentry-id' => 'wersja o ID $1',
 	'review-logentry-diff' => 'różnice do wersji przejrzanej',
 	'review-logpage' => 'Rejestr oznaczania',
-	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczniu]] wersji stron.
+	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.
 Zobacz [[Special:ReviewedPages|listę oznaczonych stron]].',
 	'reviewer' => 'Recenzent',
 	'revisionreview' => 'Wersja zrecenzowana',
 	'revreview-accuracy' => 'Status',
 	'revreview-accuracy-0' => 'nieakceptowalna',
 	'revreview-accuracy-1' => 'przejrzana',
-	'revreview-accuracy-2' => 'dokładnie',
+	'revreview-accuracy-2' => 'zweryfikowana',
 	'revreview-accuracy-3' => 'dobrze uźródłowione',
 	'revreview-accuracy-4' => 'na medal',
 	'revreview-approved' => 'Zaakceptowane',
 	'revreview-auto' => '(automatycznie)',
-	'revreview-auto-w' => "Edytujesz wersję przejrzaną. Zmiany zostaną '''ocenione automatycznie'''.",
-	'revreview-auto-w-old' => "Edytujesz wersję ocenioną. Zmiany zostaną '''ocenione automatycznie'''.",
+	'revreview-auto-w' => "Edytujesz wersję przejrzaną. Zmiany zostaną '''automatycznie oznaczone jako przejrzane'''.",
+	'revreview-auto-w-old' => "Edytujesz wersję przejrzaną. Zmiany zostaną '''automatycznie oznaczone jako przejrzane'''.",
 	'revreview-basic' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Szkic] zawiera [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}] {{PLURAL:$3|oczekującą|oczekujące|oczekujących}} na przejrzenie.',
 	'revreview-basic-i' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
@@ -6414,7 +6415,7 @@ Zobacz [[Special:ReviewedPages|listę oznaczonych stron]].',
 	'revreview-basic-old' => 'To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
 Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany].',
 	'revreview-basic-same' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Wersja przejrzana] tej strony, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>, została oparta na tej wersji.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Wersja przejrzana] tej strony, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>, jest oparta na tej wersji.',
 	'revreview-changed' => "'''Żądana czynność nie mogła zostać wykonana na tej wersji strony [[:$1|$1]].'''
 
 Zażądano szablonu lub grafiki, ale nie określono wersji.
@@ -6513,7 +6514,7 @@ By wycofać recenzję należy ustawić wszystkie pola na „nieakceptowalny“.'
 	'right-movestable' => 'Przenoszenie przejrzanych i stabilnych stron',
 	'right-review' => 'Oznaczanie wersji jako przejrzane',
 	'right-stablesettings' => 'Określać sposób, w jaki wersja stabilna ma być wybierana i wyświetlana',
-	'right-validate' => 'Oznaczać wersję jako stabilna',
+	'right-validate' => 'Oznaczać wersję jako stabilną',
 	'rights-editor-autosum' => 'nadano automatycznie',
 	'rights-editor-revoke' => 'odebrał uprawnienia redaktora [[$1]]',
 	'specialpages-group-quality' => 'Jakość stron',
@@ -6982,9 +6983,9 @@ $messages['ru'] = array(
 	'revreview-depth-4' => 'избранная',
 	'revreview-draft-title' => 'Черновик статьи',
 	'revreview-edit' => 'Править черновик',
+	'revreview-flag' => 'Проверить эту версию',
 	'revreview-edited' => "'''Правки будут включены в [[{{MediaWiki:Validationpage}}|стабильную версию]] после проверки участниками с соответствующими правами.
 ''Черновик'' показан ниже.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|правка ожидает|правки ожидают|правок ожидают}}] проверки.",
-	'revreview-flag' => 'Проверить эту версию',
 	'revreview-invalid' => "'''Ошибочная цель:''' не существует [[{{MediaWiki:Validationpage}}|проверенной]] версии страницы, соответствующей указанному идентификатору.",
 	'revreview-legend' => 'Оценки содержания версии',
 	'revreview-log' => 'Примечание:',
@@ -7085,8 +7086,8 @@ $messages['ru'] = array(
 	'readerfeedback-level-4' => 'отличная',
 	'readerfeedback-submit' => 'Отправить',
 	'readerfeedback-main' => 'Оценены могут быть только основные страницы проекта.',
-	'readerfeedback-success' => "'''Спасибо за оценку этой страницы!''' ([$3 Есть комментарии или вопросы?]).",
-	'readerfeedback-voted' => "'''Похоже, вы уже оценивали эту страницу.''' ([$3 Есть комментарии или вопросы?]).",
+	'readerfeedback-success' => "'''Спасибо за оценку этой страницы!''' ([$3 Есть замечания или вопросы?]).",
+	'readerfeedback-voted' => "'''Похоже, вы уже оценивали эту страницу.''' ([$3 Есть замечания или вопросы?]).",
 	'readerfeedback-submitting' => 'Отправка…',
 	'readerfeedback-finished' => 'Спасибо!',
 	'revreview-filter-all' => 'Все',
