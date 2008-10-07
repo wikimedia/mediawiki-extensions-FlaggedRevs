@@ -432,8 +432,8 @@ EOT;
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
 		# Bug 15748, be lax about commons image sync status
-		$file = $file ? $file : wfFindFile( $title, $time ); # FIXME: would be nice not to double fetch!
-		if( $file && $file->isLocal() && $time > $parser->mOutput->fr_newestImageTime ) {
+		$file = $file ? $file : wfLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
+		if( $file->exists() && $file->isLocal() && $time > $parser->mOutput->fr_newestImageTime ) {
 			$parser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
@@ -503,8 +503,8 @@ EOT;
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
 		# Bug 15748, be lax about commons image sync status
-		$file = $file ? $file : wfFindFile( $nt, $time ); # FIXME: would be nice not to double fetch!
-		if( $file && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
+		$file = $file ? $file : wfLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
+		if( $file->exists() && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
 			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
