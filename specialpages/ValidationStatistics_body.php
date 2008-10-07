@@ -50,15 +50,15 @@ class ValidationStatistics extends IncludableSpecialPage
 
 			$percRev = intval( $row->total ) == 0
 				? '-' // devision by zero
-				: $wgLang->formatnum( wfMsg( 'validationstatistics-nbr',
-						sprintf( '%4.2f', 100 * intval( $row->reviewed ) / intval( $row->total ) ) ) );
+				: $wgLang->formatnum( wfMsgExt( 'validationstatistics-nbr', array( 'escapenoentities' ),
+					sprintf( '%4.2f', 100 * intval( $row->reviewed ) / intval( $row->total ) ) ) );
 			$percLatest = intval( $row->total ) == 0
 				? '-' // devision by zero
-				: $wgLang->formatnum( wfMsg( 'validationstatistics-nbr',
+				: $wgLang->formatnum( wfMsgExt( 'validationstatistics-nbr', array( 'escapenoentities' ),
 					sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->total ) ) ) );
 			$percSynced = intval( $row->reviewed ) == 0
 				? '-' // devision by zero
-				: $wgLang->formatnum( wfMsg( 'validationstatistics-nbr',
+				: $wgLang->formatnum( wfMsgExt( 'validationstatistics-nbr', array( 'escapenoentities' ),
 					sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->reviewed ) ) ) );
 			$outdated = intval( $row->reviewed ) - intval( $row->synced );
 			$outdated = $wgLang->formatnum( max( 0, $outdated ) ); // lag between queries
@@ -78,7 +78,7 @@ class ValidationStatistics extends IncludableSpecialPage
 						htmlspecialchars( $wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() ) . " <i>($percLatest)</i>
 					</td>
 					<td>" .
-						htmlspecialchars( $percSynced ) .
+						$percSynced .
 					"</td>
 					<td>" .
 					
