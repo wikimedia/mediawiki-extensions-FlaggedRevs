@@ -22,7 +22,7 @@ $aliases['en'] = array(
 	'Stabilization' => array( 'Stabilization' ),
 	'StablePages' => array( 'StablePages' ),
 	'StableVersions' => array( 'StableVersions' ),
-	'UnReviewedPages' => array( 'UnReviewedPages' ),
+	'UnreviewedPages' => array( 'UnreviewedPages' ),
 	'UnstablePages' => array( 'UnstablePages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
 );
@@ -36,7 +36,7 @@ $aliases['an'] = array(
 	'ReviewedPages' => array( 'PachinasSuberbisatas' ),
 	'StablePages' => array( 'PachinasEstables' ),
 	'StableVersions' => array( 'BersionsEstables' ),
-	'UnReviewedPages' => array( 'PachinasNoRebisatas' ),
+	'UnreviewedPages' => array( 'PachinasNoRebisatas' ),
 );
 
 /** Arabic (العربية)
@@ -54,7 +54,7 @@ $aliases['ar'] = array(
 	'Stabilization' => array( 'استقرار' ),
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'StableVersions' => array( 'نسخ_مستقرة' ),
-	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'UnreviewedPages' => array( 'صفحات_غير_مراجعة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
@@ -73,7 +73,7 @@ $aliases['arz'] = array(
 	'Stabilization' => array( 'استقرار' ),
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'StableVersions' => array( 'نسخ_مستقرة' ),
-	'UnReviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'UnreviewedPages' => array( 'صفحات_غير_مراجعة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
@@ -87,7 +87,7 @@ $aliases['bcc'] = array(
 	'ReviewedPages' => array( 'صفحات-بازبینی' ),
 	'StablePages' => array( 'صفحات-ثابت' ),
 	'StableVersions' => array( 'نسخه یان ثابت' ),
-	'UnReviewedPages' => array( 'صفحات-بی-بازبینی' ),
+	'UnreviewedPages' => array( 'صفحات-بی-بازبینی' ),
 );
 
 /** German (Deutsch)
@@ -103,7 +103,7 @@ $aliases['de'] = array(
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
 	'StablePages' => array( 'Konfigurierte Seiten' ),
 	'StableVersions' => array( 'Markierte Versionen' ),
-	'UnReviewedPages' => array( 'Ungesichtete Seiten' ),
+	'UnreviewedPages' => array( 'Ungesichtete Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
@@ -117,7 +117,7 @@ $aliases['eo'] = array(
 	'ReviewedPages' => array( 'KontrolitajPaĝoj' ),
 	'StablePages' => array( 'StabilajPaĝoj' ),
 	'StableVersions' => array( 'StabilajVersioj' ),
-	'UnReviewedPages' => array( 'NekontrolitajPaĝoj' ),
+	'UnreviewedPages' => array( 'NekontrolitajPaĝoj' ),
 );
 
 /** Persian (فارسی) */
@@ -127,7 +127,7 @@ $aliases['fa'] = array(
 	'ReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده' ),
 	'StablePages' => array( 'صفحه‌های‌پایدار' ),
 	'StableVersions' => array( 'نسخه‌های‌پایدار' ),
-	'UnReviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
+	'UnreviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
 );
 
 /** French (Français)
@@ -142,7 +142,7 @@ $aliases['fr'] = array(
 	'ReviewedPages' => array( 'Pages révisées' ),
 	'StablePages' => array( 'PagesStables' ),
 	'StableVersions' => array( 'VersionsStables' ),
-	'UnReviewedPages' => array( 'PagesNonRelues' ),
+	'UnreviewedPages' => array( 'PagesNonRelues' ),
 );
 
 /** Galician (Galego)
@@ -155,7 +155,7 @@ $aliases['gl'] = array(
 	'ReviewedPages' => array( 'Páxinas revisadas' ),
 	'StablePages' => array( 'Páxinas estábeis' ),
 	'StableVersions' => array( 'Versións estábeis' ),
-	'UnReviewedPages' => array( 'Páxinas non revisadas' ),
+	'UnreviewedPages' => array( 'Páxinas non revisadas' ),
 );
 
 /** Hindi (हिन्दी)
@@ -167,7 +167,7 @@ $aliases['hi'] = array(
 	'ReviewedPages' => array( 'जाँचेहुएपन्ने' ),
 	'StablePages' => array( 'स्थिरपन्ने' ),
 	'StableVersions' => array( 'स्थिरअवतरण' ),
-	'UnReviewedPages' => array( 'नदेखेंहुएपन्ने' ),
+	'UnreviewedPages' => array( 'नदेखेंहुएपन्ने' ),
 );
 
 /** Croatian (Hrvatski) */
@@ -179,7 +179,7 @@ $aliases['hr'] = array(
 $aliases['hu'] = array(
 	'QualityOversight' => array( 'Minőségellenőrzés' ),
 	'ReviewedPages' => array( 'Ellenőrzött lapok' ),
-	'UnReviewedPages' => array( 'Ellenőrizetlen lapok' ),
+	'UnreviewedPages' => array( 'Ellenőrizetlen lapok' ),
 	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
 );
 
@@ -198,7 +198,7 @@ $aliases['id'] = array(
 	'Stabilization' => array( 'Stabilisasi' ),
 	'StablePages' => array( 'Halaman stabil', 'HalamanStabil' ),
 	'StableVersions' => array( 'Versi stabil', 'VersiStabil' ),
-	'UnReviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
+	'UnreviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
 	'ValidationStatistics' => array( 'Statistik validasi', 'StatistikValidasi' ),
 );
 
@@ -221,7 +221,7 @@ $aliases['lb'] = array(
 	'Stabilization' => array( 'Stabilisatioun' ),
 	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
-	'UnReviewedPages' => array( 'Net iwwerpréifte Säiten' ),
+	'UnreviewedPages' => array( 'Net iwwerpréifte Säiten' ),
 	'ValidationStatistics' => array( 'Statistik vun den iwwerpréifte Säiten' ),
 );
 
@@ -234,7 +234,7 @@ $aliases['mr'] = array(
 	'ReviewedPages' => array( 'तपासलेलीपाने' ),
 	'StablePages' => array( 'स्थिरपाने' ),
 	'StableVersions' => array( 'स्थिरआवृत्त्या' ),
-	'UnReviewedPages' => array( 'नतपासलेलीपाने' ),
+	'UnreviewedPages' => array( 'नतपासलेलीपाने' ),
 );
 
 /** Malay (Bahasa Melayu)
@@ -247,7 +247,7 @@ $aliases['ms'] = array(
 	'ReviewedPages' => array( 'Laman_diperiksa' ),
 	'StablePages' => array( 'Laman_stabil' ),
 	'StableVersions' => array( 'Versi_stabil' ),
-	'UnReviewedPages' => array( 'Laman_tidak_diperiksa' ),
+	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
 /** Erzya (Эрзянь) */
@@ -269,7 +269,7 @@ $aliases['nds-nl'] = array(
 	'Stabilization' => array( 'Stabilisasie' ),
 	'StablePages' => array( "Stebiele_pagina's" ),
 	'StableVersions' => array( 'Stebiele_versies' ),
-	'UnReviewedPages' => array( "Pagina's_zonder_eindredactie" ),
+	'UnreviewedPages' => array( "Pagina's_zonder_eindredactie" ),
 	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
 );
 
@@ -288,7 +288,7 @@ $aliases['nl'] = array(
 	'Stabilization' => array( 'Stabilisatie' ),
 	'StablePages' => array( 'StabielePaginas', "StabielePagina's" ),
 	'StableVersions' => array( 'StabieleVersies' ),
-	'UnReviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
+	'UnreviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
@@ -306,7 +306,7 @@ $aliases['no'] = array(
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabile sider' ),
 	'StableVersions' => array( 'Stabile versjoner' ),
-	'UnReviewedPages' => array( 'Uanmeldte sider' ),
+	'UnreviewedPages' => array( 'Uanmeldte sider' ),
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
@@ -320,7 +320,7 @@ $aliases['oc'] = array(
 	'ReviewedPages' => array( 'Paginas revisadas' ),
 	'StablePages' => array( 'PaginasEstablas' ),
 	'StableVersions' => array( 'VersionsEstablas' ),
-	'UnReviewedPages' => array( 'PaginasPasRelegidas' ),
+	'UnreviewedPages' => array( 'PaginasPasRelegidas' ),
 );
 
 /** Polish (Polski)
@@ -331,7 +331,7 @@ $aliases['pl'] = array(
 	'QualityOversight' => array( 'Rejestr oznaczania wersji' ),
 	'StablePages' => array( 'Dopracowane strony' ),
 	'StableVersions' => array( 'Wersje dopracowane' ),
-	'UnReviewedPages' => array( 'Nieprzejrzane strony' ),
+	'UnreviewedPages' => array( 'Nieprzejrzane strony' ),
 	'ValidationStatistics' => array( 'Statystyki oznaczania' ),
 );
 
@@ -345,7 +345,7 @@ $aliases['pt'] = array(
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
 	'StablePages' => array( 'Páginas_estáveis' ),
 	'StableVersions' => array( 'Edições_estáveis' ),
-	'UnReviewedPages' => array( 'Páginas_a_analisar' ),
+	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
 );
 
 /** Slovak (Slovenčina)
@@ -358,7 +358,7 @@ $aliases['sk'] = array(
 	'ReviewedPages' => array( 'SkontrolovanéStránky' ),
 	'StablePages' => array( 'StabilnéStránky' ),
 	'StableVersions' => array( 'StabilnéVerzie' ),
-	'UnReviewedPages' => array( 'NeskontrolovanéStránky' ),
+	'UnreviewedPages' => array( 'NeskontrolovanéStránky' ),
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -371,7 +371,7 @@ $aliases['sr-ec'] = array(
 	'ReviewedPages' => array( 'ПрегледанеСтране' ),
 	'StablePages' => array( 'СтабилнеСтране' ),
 	'StableVersions' => array( 'СтабилнеВерзије' ),
-	'UnReviewedPages' => array( 'НепрегледанеСтране' ),
+	'UnreviewedPages' => array( 'НепрегледанеСтране' ),
 );
 
 /** Swedish (Svenska)
@@ -390,7 +390,7 @@ $aliases['sv'] = array(
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabila sidor' ),
 	'StableVersions' => array( 'Stabila versioner' ),
-	'UnReviewedPages' => array( 'Ogranskade sidor' ),
+	'UnreviewedPages' => array( 'Ogranskade sidor' ),
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
 
@@ -403,7 +403,7 @@ $aliases['vec'] = array(
 	'ReviewedPages' => array( 'PagineRiesaminà' ),
 	'StablePages' => array( 'PagineStabili' ),
 	'StableVersions' => array( 'VersionStabili' ),
-	'UnReviewedPages' => array( 'PagineNonRiesaminà' ),
+	'UnreviewedPages' => array( 'PagineNonRiesaminà' ),
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -415,6 +415,6 @@ $aliases['vi'] = array(
 	'ReviewedPages' => array( 'Trang đã duyệt' ),
 	'StablePages' => array( 'Trang ổn định' ),
 	'StableVersions' => array( 'Bản ổn định' ),
-	'UnReviewedPages' => array( 'Trang chưa duyệt' ),
+	'UnreviewedPages' => array( 'Trang chưa duyệt' ),
 );
 
