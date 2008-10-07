@@ -98,7 +98,7 @@ $messages['de'] = array(
 	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-synced' => 'Prozentsatz Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-old' => 'Seiten mit ungesichteten Versionen',
-	'validationstatistics-nbr' => '$1 %',
+	'validationstatistics-nbr' => '$1&nbsp;%',
 );
 
 /** Esperanto (Esperanto)
@@ -351,10 +351,12 @@ $messages['ro'] = array(
 
 /** Russian (Русский)
  * @author AlexSm
+ * @author Putnik
  */
 $messages['ru'] = array(
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
+	'validationstatistics-old' => 'Устаревшие',
 );
 
 /** Slovak (Slovenčina)

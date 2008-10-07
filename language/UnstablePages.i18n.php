@@ -124,6 +124,17 @@ $messages['pl'] = array(
 	'unstablepages-config' => 'Konfiguracja',
 );
 
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'unstablepages' => 'Nestabilné stránky',
+	'unstablepages-stable' => 'stabilná verzia',
+	'unstablepages-text' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa zobrazovala ich verzia návrhu ako štandardná stránka s obsahom pre čitateľov.',
+	'unstablepages-none' => 'Tento zoznam neobsahuje žiadne stránky',
+	'unstablepages-config' => 'Nastavenie',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  */
