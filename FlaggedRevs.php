@@ -270,6 +270,7 @@ $langDir = dirname(__FILE__) . '/language/';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir.'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir.'FRCacheUpdate.php';
 $wgAutoloadClasses['FRCacheUpdateJob'] = $dir.'FRCacheUpdate.php';
 
@@ -336,6 +337,11 @@ $wgSpecialPageGroups['LikedPages'] = 'quality';
 $wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
+# API Modules
+$wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewedpages.php';
+$wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
+$wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
+$wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
 
 ######### Hook attachments #########
 # Remove stand-alone patrolling
@@ -419,6 +425,10 @@ $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
 
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
+
+# Add flagging data to ApiQueryRevisions
+$wgHooks['APIGetAllowedParams'][] = 'FlaggedRevsApiHooks::addApiRevisionParams';
+$wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
 
 #########
 

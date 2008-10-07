@@ -212,6 +212,24 @@ class FlaggedRevs {
 		self::load();
 		return empty(self::$dimensions);
 	}
+
+	/**
+	 * Get corresponding text for the api output of flagging levels
+	 *
+	 * @param int $level
+	 * @return string
+	 */
+	public static function getQualityLevelText( $level ) {
+		static $levelText = array(
+			0 => 'stable',
+			1 => 'quality',
+			2 => 'pristine'
+		);
+		if ( isset( $levelText[$level] ) )
+			return $levelText[$level];
+		else
+			return '';		
+	}
 	
 	################# Parsing functions #################
 
