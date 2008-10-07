@@ -432,7 +432,7 @@ EOT;
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
 		# Bug 15748, be lax about commons image sync status
-		$file = $file ? $file : wfLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
+		$file = $file ? $file : self::getLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
 		if( $file->exists() && $file->isLocal() && $time > $parser->mOutput->fr_newestImageTime ) {
 			$parser->mOutput->fr_newestImageTime = $time;
 		}
@@ -503,12 +503,13 @@ EOT;
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
 		# Bug 15748, be lax about commons image sync status
-		$file = $file ? $file : wfLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
+		$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
 		if( $file->exists() && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
 			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
 	}
+	
 	/**
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/
@@ -568,6 +569,10 @@ EOT;
 		# Add on any new items
 		$out->fr_ImageSHA1Keys = wfArrayMerge( $out->fr_ImageSHA1Keys, $imageSHA1Keys );
 		return true;
+	}
+
+	protected static function getLocalFile( $title, $time ) {
+		return RepoGroup::singleton()->getLocalRepo()->findFile( $title, $time );
 	}
 
 	/**
