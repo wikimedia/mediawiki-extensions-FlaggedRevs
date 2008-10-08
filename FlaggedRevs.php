@@ -150,7 +150,7 @@ $wgFlagRestrictions = array(
 
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).
-# There must be four codes, and only the first four are checked.
+# There must be two codes, and only the first four are checked.
 $wgReviewCodes = array();
 
 # URL location for flaggedrevs.css and flaggedrevs.js
