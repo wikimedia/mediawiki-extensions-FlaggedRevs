@@ -9,8 +9,9 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 * Run 'maintenance/update.php'
 * Run 'maintenance/archives/populateSha1.php'.
 * Make sure '../extensions/FlaggedRevs' is readable (for CSS/JS)
-* To enable reader feedback, make sure PHP has the GD libraries installed. In windows, this is done by un-commenting them out in php.ini. 
-In linux, php should be compiled with it enabled ('--with-gd'). See a nice guide here (http://www.onlamp.com/pub/a/php/2003/03/27/php_gd.html).
+* To enable PNG images for reader feedback (instead of SVG), make sure PHP has the GD libraries installed. In windows, 
+this is done by un-commenting them out in php.ini. In linux, php should be compiled with it enabled ('--with-gd'). 
+(See a nice guide here: http://www.onlamp.com/pub/a/php/2003/03/27/php_gd.html). $wgSvgGraphDir must be set to false.
 * Add the following line to 'LocalSettings.php': 
 	include_once('extensions/FlaggedRevs/FlaggedRevs.php');
 
