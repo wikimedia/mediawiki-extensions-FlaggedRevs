@@ -1215,9 +1215,11 @@ EOT;
 	
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
 		global $wgFlaggedRevsNamespaces;
-		if( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
+		if( !in_array($row->page_namespace,$wgFlaggedRevsNamespaces) ) {
+			// do nothing
+		} else if( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
 			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
-		} else if( !isset($row->fp_stable) && in_array($row->page_namespace,$wgFlaggedRevsNamespaces) ) {
+		} else if( !isset($row->fp_stable) ) {
 			$ret = '<span class="flaggedrevs-unreviewed2">'.$ret.'</span>';
 		}
 		return true;
