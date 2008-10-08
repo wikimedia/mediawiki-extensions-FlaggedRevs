@@ -113,6 +113,17 @@ $messages['nl'] = array(
 	'unstablepages-config' => 'Instellingen',
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'unstablepages' => 'Paginas instablas',
+	'unstablepages-stable' => 'version establa',
+	'unstablepages-text' => 'Çaijós se tròba una lista de paginas configuradas manualament per afichar la version borrolhon coma contengut de pagina per defaut per los relectors.',
+	'unstablepages-none' => 'I a pas cap de pagina dins aquesta lista.',
+	'unstablepages-config' => 'Configuracion',
+);
+
 /** Polish (Polski)
  * @author Leinad
  */

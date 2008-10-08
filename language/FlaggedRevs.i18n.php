@@ -6465,7 +6465,7 @@ Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'revreview-edit' => 'Edytuj szkic',
 	'revreview-editnotice' => "'''Uwaga: Edycje dokonane na tej stronie zostaną włączone do [[{{MediaWiki:Validationpage}}|wersji zweryfikowanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''",
 	'revreview-flag' => 'Oznacz tę wersję',
-	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji zweryfikowanej]], gdy tylko odpowiedni użytkownik je sprawdzi.'''
+	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]], gdy tylko odpowiedni użytkownik je przejrzy.'''
 '''''Szkic'' pokazano poniżej.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] na sprawdzenie.",
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
 	'revreview-legend' => 'Oceń treść zmiany',

@@ -1169,6 +1169,7 @@ $messages['lb'] = array(
 	'stabilization-sel-short' => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
+	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
 );
