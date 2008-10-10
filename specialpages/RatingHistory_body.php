@@ -413,7 +413,8 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
-		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag'),$totalCount);
+		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag'),
+			$totalCount, wfMsgHtml("readerfeedback-$tag"), $this->page->getPrefixedText() );
 		$plot->styleTitle = 'font-family: sans-serif; font-size: 10pt;';
 		# Create the graph
 		$plot->init();
