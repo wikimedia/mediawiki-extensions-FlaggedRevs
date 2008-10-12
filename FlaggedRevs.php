@@ -430,31 +430,45 @@ $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 $wgHooks['APIGetAllowedParams'][] = 'FlaggedRevsApiHooks::addApiRevisionParams';
 $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
 
+# Actually register special pages
+$wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
+
 #########
 
 function efLoadFlaggedRevs() {
-	global $wgUseRCPatrol, $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFeedbackNamespaces;
+	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
-	$wgUseRCPatrol = true;
 	if( !empty($wgFlaggedRevsNamespaces) ) {
-		$wgSpecialPages['RevisionReview'] = 'RevisionReview';
-		$wgSpecialPages['StableVersions'] = 'StableVersions';
-		$wgSpecialPages['Stabilization'] = 'Stabilization';
-		$wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
-		$wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
-		$wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
-		$wgSpecialPages['StablePages'] = 'StablePages';
-		$wgSpecialPages['UnstablePages'] = 'UnstablePages';
-		$wgSpecialPages['QualityOversight'] = 'QualityOversight';
-		$wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
+		$wgUseRCPatrol = true;
+	}
+}
+
+/* 
+ * Register FlaggedRevs special pages as needed. 
+ * Also sets $wgSpecialPages just to be consistent.
+ */
+function efLoadFlaggedRevsSpecialPages( &$list ) {
+	global $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFeedbackNamespaces;
+	if( !empty($wgFlaggedRevsNamespaces) ) {
+		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
+		$list['StableVersions'] = $wgSpecialPages['StableVersions'] = 'StableVersions';
+		$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
+		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
+		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
+		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+		$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
+		$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
+		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
+		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
 	}
 	if( !empty($wgFeedbackNamespaces) ) {
-		$wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
-		$wgSpecialPages['RatingHistory'] = 'RatingHistory';
-		$wgSpecialPages['ProblemPages'] = 'ProblemPages';
-		$wgSpecialPages['LikedPages'] = 'LikedPages';
+		$list['ReaderFeedback'] = $wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
+		$list['RevisionReview'] = $wgSpecialPages['RatingHistory'] = 'RatingHistory';
+		$list['ProblemPages'] = $wgSpecialPages['ProblemPages'] = 'ProblemPages';
+		$list['LikedPages'] = $wgSpecialPages['LikedPages'] = 'LikedPages';
 	}
+	return true;
 }
 
 # Add review log
