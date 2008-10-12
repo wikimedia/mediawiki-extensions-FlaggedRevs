@@ -47,9 +47,16 @@ class RatingHistory extends UnlistedSpecialPage
 			$period = 31; // default
 		}
 		$this->period = $period;
-		
 		$this->showHeader();
 		$this->showForm();
+		/*
+		 * Allow client caching.
+		 */
+		if( $wgOut->checkLastModified( $this->getTouched() ) ) {
+			return; // Client cache fresh and headers sent, nothing more to do
+		} else {
+			$wgOut->enableClientCache( false ); // don't show stale graphs
+		}
 		$this->showGraphs();
 	}
 	
@@ -502,5 +509,18 @@ class RatingHistory extends UnlistedSpecialPage
 		$tagTimestamp = wfTimestamp( TS_MW, $tagTimestamp );
 		$fileTimestamp = wfTimestamp( TS_MW, filemtime($path) );
 		return ($fileTimestamp < $tagTimestamp );
+	}
+	
+	/**
+	* Get highest touch timestamp of the tags. This uses a tiny filesort.
+	* @returns string
+	*/
+	public function getTouched() {
+		$dbr = wfGetDB( DB_SLAVE );
+		$tagTimestamp = $dbr->selectField( 'reader_feedback_pages', 
+			'MAX(rfp_touched)',
+			array( 'rfp_page_id' => $this->page->getArticleId() ),
+			__METHOD__ );
+		return wfTimestamp( TS_MW, $tagTimestamp );
 	}
 }
