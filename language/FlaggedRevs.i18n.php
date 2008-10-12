@@ -8223,8 +8223,10 @@ $messages['tg-cyrl'] = array(
 
 /** Thai (ไทย)
  * @author Octahedron80
+ * @author Passawuth
  */
 $messages['th'] = array(
+	'editor' => 'ผู้้แก้ไข',
 	'revreview-auto' => '(อัตโนมัติ)',
 	'revreview-revnotfound' => 'ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้',
 	'revreview-filter-all' => 'ทั้งหมด',
