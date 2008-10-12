@@ -48,6 +48,13 @@ $messages['arz'] = array(
 	'unstablepages-config' => 'ضبط',
 );
 
+/** German (Deutsch)
+ * @author Revolus
+ */
+$messages['de'] = array(
+	'unstablepages-config' => 'Konfiguration',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -133,6 +140,17 @@ $messages['pl'] = array(
 	'unstablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że bieżąca wersja jest pokazywana domyślnie dla czytelników.',
 	'unstablepages-none' => 'Brak stron na tej liście',
 	'unstablepages-config' => 'Konfiguracja',
+);
+
+/** Russian (Русский)
+ * @author Александр Сигачёв
+ */
+$messages['ru'] = array(
+	'unstablepages' => 'Нестабильные страницы',
+	'unstablepages-stable' => 'стабильная версия',
+	'unstablepages-text' => 'Ниже приведён список страниц, для которых вручную установлена настройка показывать черновую версию по умолчанию.',
+	'unstablepages-none' => 'В данном списке нет страниц',
+	'unstablepages-config' => 'Настройка',
 );
 
 /** Slovak (Slovenčina)

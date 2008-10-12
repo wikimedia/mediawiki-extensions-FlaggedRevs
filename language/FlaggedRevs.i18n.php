@@ -1989,7 +1989,7 @@ $messages['de'] = array(
 	'revreview-depth-4' => 'exzellent',
 	'revreview-draft-title' => 'Ungesichteter Artikel',
 	'revreview-edit' => 'Entwurf bearbeiten',
-	'revreview-editnotice' => "'''Hinweis: Bearbeitungen dieser Seite werden erst in die [[{{MediaWiki:Validationpage}}|stabile Version]] übernommen, sobald ein dazu berechtiger Benutzer die Änderung kontrolliert hat.'''",
+	'revreview-editnotice' => "'''Hinweis: Bearbeitungen dieser Seite werden erst in die [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein dazu berechtiger Benutzer die Änderung kontrolliert hat.'''",
 	'revreview-flag' => 'Markiere Version',
 	'revreview-edited' => 'Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungsrecht diese freigegeben hat.
 	Es folgt die Anzeige der aktuellen, ungesichteten Version. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.',
@@ -2856,7 +2856,7 @@ Un modèle ou une image peuvent avoir été demandés alors qu’aucune version 
 	'revreview-depth-4' => 'Remarquable',
 	'revreview-draft-title' => 'Brouillon de page',
 	'revreview-edit' => "Modifier l'ébauche",
-	'revreview-editnotice' => "'''Note : Les modifications sur cette page seront incorporée dans la [{{MediaWiki:Validationpage}}|version stable]] une fois qu’un utilisateur habilité les aura relues.'''",
+	'revreview-editnotice' => "'''Note : Les modifications sur cette page seront incorporées dans la [{{MediaWiki:Validationpage}}|version stable]] une fois qu’un utilisateur habilité les aura relues.'''",
 	'revreview-flag' => 'Évaluer cette version',
 	'revreview-edited' => "'''Les modifications seront incorporées dans [[{{MediaWiki:Validationpage}}|la version stable]] une fois qu’un relecteur autorisé les aura approuvées.'''<br />
 Le ''brouillon'' est visible ci-dessous. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modification attend|modifications attendent}}] une relecture.",
@@ -4050,6 +4050,8 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}] necessita revision.',
 	'revreview-newest-basic-i' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plus recente version visitate] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Modificationes in patronos o imagines] necessita revision.',
+	'revreview-newest-quality' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultime version de qualitate] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}] necessita revision.',
 	'revreview-revnotfound' => 'Impossibile trovar le version anterior del pagina que tu ha demandate.
 Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 	'readerfeedback' => 'Que pensa tu de iste pagina?',
@@ -6463,9 +6465,9 @@ Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Szkic artykułu',
 	'revreview-edit' => 'Edytuj szkic',
-	'revreview-editnotice' => "'''Uwaga: Edycje dokonane na tej stronie zostaną włączone do [[{{MediaWiki:Validationpage}}|wersji zweryfikowanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''",
+	'revreview-editnotice' => "'''Uwaga: Edycje dokonane na tej stronie zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''",
 	'revreview-flag' => 'Oznacz tę wersję',
-	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]], gdy tylko odpowiedni użytkownik je przejrzy.'''
+	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''
 '''''Szkic'' pokazano poniżej.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] na sprawdzenie.",
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
 	'revreview-legend' => 'Oceń treść zmiany',
