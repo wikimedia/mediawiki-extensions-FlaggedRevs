@@ -464,7 +464,7 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 	}
 	if( !empty($wgFeedbackNamespaces) ) {
 		$list['ReaderFeedback'] = $wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
-		$list['RevisionReview'] = $wgSpecialPages['RatingHistory'] = 'RatingHistory';
+		$list['RatingHistory'] = $wgSpecialPages['RatingHistory'] = 'RatingHistory';
 		$list['ProblemPages'] = $wgSpecialPages['ProblemPages'] = 'ProblemPages';
 		$list['LikedPages'] = $wgSpecialPages['LikedPages'] = 'LikedPages';
 	}
