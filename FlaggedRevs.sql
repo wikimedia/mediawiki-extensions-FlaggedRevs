@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback (
   -- Foreign key to user.user_id
   rfb_user integer NOT NULL,
   rfb_ip varchar(255) NOT NULL default '',
+  rfb_timestamp char(14) NOT NULL default '',
   -- No double voting!
   PRIMARY KEY (rfb_rev_id,rfb_user,rfb_ip)
 ) /*$wgDBTableOptions*/;

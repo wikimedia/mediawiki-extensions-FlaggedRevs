@@ -105,13 +105,14 @@ class RatingHistory extends UnlistedSpecialPage
 			$filePath = $this->getFilePath( $tag );
 			$url = $this->getUrlPath( $tag );
 			$ext = self::getCachedFileExtension();
+			// Output chart...
 			if( $ext === 'svg' ) {
 				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
+					$wgOut->addHTML( '<h3>' . wfMsgHtml('ratinghistory-chart') . '</h3>' );
 					$wgOut->addHTML( 
-						Xml::openElement( 'div', array('class' => 'reader_feedback_graph',
-							'style' => "width:100%; overflow:scroll;") ) .
+						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
 							'width' => '1000px', 'height' => '400px') ) . 
 						Xml::closeElement( 'object' ) .
@@ -122,9 +123,9 @@ class RatingHistory extends UnlistedSpecialPage
 				if( !$this->fileExpired($tag,$filePath) || $this->makePngGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
+					$wgOut->addHTML( '<h3>' . wfMsgHtml('ratinghistory-chart') . '</h3>' );
 					$wgOut->addHTML( 
-						Xml::openElement( 'div', array('class' => 'reader_feedback_graph',
-							'style' => "width:100%; overflow:scroll;") ) .
+						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
 						Xml::closeElement( 'img' ) .
 						Xml::closeElement( 'div' ) . "\n"
@@ -142,7 +143,20 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( $table . "\n" );
 				}
-			} 
+			}
+			// Add voter list
+			global $wgMiserMode;
+			if( $data && !$wgMiserMode ) {
+				$userTable = $this->getUserList($tag);
+				if( $userTable ) {
+					$wgOut->addHTML( '<h3>' . wfMsgHtml('ratinghistory-users') . '</h3>' );
+					$wgOut->addHTML( 
+						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_users') ) .
+						$userTable .
+						Xml::closeElement( 'div' ) . "\n"
+					);
+				}
+			}
 		}
 		if( !$data ) {
 			$wgOut->addHTML( wfMsg('ratinghistory-none') );
@@ -201,7 +215,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$dcount .= "<td>#{$row->rfh_total}</td>";
 			$n++;
 		}
-		$chart = Xml::openElement( 'div', array('style' => "width:100%; overflow:scroll;") );
+		$chart = Xml::openElement( 'div', array('style' => "width:100%; overflow:auto;") );
 		$chart .= "<table class='wikitable' style='white-space: nowrap; border=1px; font-size: 8pt;'>\n";
 		$chart .= "<tr>$dates</tr>\n";
 		$chart .= "<tr align='center' class='fr-rating-dave'>$drating</tr>\n";
@@ -489,6 +503,54 @@ class RatingHistory extends UnlistedSpecialPage
 		} else {
 			return false;
 		}
+	}
+	
+	public function getUserList( $tag ) {
+		// Set cutoff time for period
+		$dbr = wfGetDB( DB_SLAVE );
+		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
+		$firstRevTS = $dbr->selectField( 'revision',
+			'rev_timestamp',
+			array( "rev_timestamp <= $cutoff" ),
+			__METHOD__,
+			array( 'ORDER BY' => 'rev_timestamp DESC' )
+		);
+		if( !$firstRevTS ) {
+			return false;
+		}
+		$res = $dbr->select( array( 'revision', 'reader_feedback', 'user' ),
+			array( 'rfb_user', 'rfb_ip', 'user_name', 'COUNT(*) as n' ),
+			array( 'rev_page' => $this->page->getArticleId(),
+				"rev_timestamp >= $firstRevTS",
+				"rev_id = rfb_rev_id",
+				"rfb_timestamp >= $firstRevTS" ),
+			__METHOD__,
+			array( 'GROUP BY' => 'rfb_user, rfb_ip' ),
+			array( 'user' => array( 'LEFT JOIN', 'user_id = rfb_user') )
+		);
+		$total = $res->numRows();
+		$middle = ceil( count($total)/2 );
+		$count = 0;
+		
+		$html = "<table class='fr_reader_feedback_users' style='width: 100%;'><tr>";
+		$html .= "<td width='30%' valign='top'><ul>\n";
+		while( $row = $res->fetchObject() ) {
+			if( !$row->rfb_user ) {
+				$name = htmlspecialchars( $row->rfb_ip );
+			} else {
+				$name = $row->user_name;
+			}
+			$title = Title::makeTitleSafe( NS_USER, $name );
+			$html .= '<li>'.$this->skin->makeLinkObj( $title, $title->getText() )." [{$row->n}]</li>";
+			$count++;
+			if( $total > 3 && $count == $middle ) {
+				$html .= "</ul></td><td width='10%'></td><td width='30%' valign='top'><ul>";
+			}
+		}
+		$html .= "</ul></td><td width='30%' valign='top'></td></tr></table>\n";
+		return $html;
 	}
 	
 	/**

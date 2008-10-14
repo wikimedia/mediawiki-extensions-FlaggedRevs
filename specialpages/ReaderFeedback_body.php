@@ -244,9 +244,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		# Update review records to limit double voting!
 		$insertRow = array( 
-			'rfb_rev_id' => $this->oldid, 
-			'rfb_user'   => $wgUser->getId(), 
-			'rfb_ip'     => wfGetIP() 
+			'rfb_rev_id'    => $this->oldid,
+			'rfb_user'      => $wgUser->getId(),
+			'rfb_ip'        => wfGetIP(),
+			'rfb_timestamp' => $dbw->timestamp()
 		);
 		$dbw->insert( 'reader_feedback', $insertRow, __METHOD__, 'IGNORE' );
 		# Make sure initial page data is there to begin with...
