@@ -23,7 +23,7 @@ $messages['en'] = array(
 	'ratinghistory-graph'   => '$2 of article "$3" ($1 {{PLURAL:$1|review|reviews}})',
 	'ratinghistory-none'    => 'There is not enough reader feedback data available for graphs at this time.',
 	'ratinghistory-legend'  => 'The daily average rating <font color="blue">\'\'(blue)\'\'</font> and selected interval 
-	average rating <font color="green">\'\'(green)\'\'</font> are graphed below, by date. The rating values are to be interpreted as follows:
+	average rating <font color="green">\'\'(green)\'\'</font> are graphed below, by date.
 	
 \'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;',
 

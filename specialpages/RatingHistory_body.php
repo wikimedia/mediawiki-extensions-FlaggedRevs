@@ -144,18 +144,18 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( $table . "\n" );
 				}
 			}
-			// Add voter list
-			global $wgMiserMode;
-			if( $data && !$wgMiserMode ) {
-				$userTable = $this->getUserList($tag);
-				if( $userTable ) {
-					$wgOut->addHTML( '<h3>' . wfMsgHtml('ratinghistory-users') . '</h3>' );
-					$wgOut->addHTML( 
-						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_users') ) .
-						$userTable .
-						Xml::closeElement( 'div' ) . "\n"
-					);
-				}
+		}
+		// Add voter list
+		global $wgMiserMode;
+		if( $data && !$wgMiserMode ) {
+			$userTable = $this->getUserList($tag);
+			if( $userTable ) {
+				$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-users') . '</h2>' );
+				$wgOut->addHTML( 
+					Xml::openElement( 'div', array('class' => 'fr_reader_feedback_users') ) .
+					$userTable .
+					Xml::closeElement( 'div' ) . "\n"
+				);
 			}
 		}
 		if( !$data ) {
@@ -531,6 +531,9 @@ class RatingHistory extends UnlistedSpecialPage
 			array( 'user' => array( 'LEFT JOIN', 'user_id = rfb_user') )
 		);
 		$total = $res->numRows();
+		if( !$total ) {
+			return false;
+		}
 		$middle = ceil( count($total)/2 );
 		$count = 0;
 		
