@@ -5744,6 +5744,12 @@ $messages['mt'] = array(
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
+	'group-editor-member' => 'витницязо-петницязо',
+	'revreview-style' => 'Ловновиксчизэ',
+	'revreview-style-0' => 'А маштови',
+	'revreview-style-1' => 'Маштови',
+	'revreview-style-2' => 'Вадря',
+	'revreview-style-3' => 'Ладязь лади',
 	'readerfeedback-level-0' => 'Лавшо',
 	'readerfeedback-level-1' => 'Алкыне',
 	'readerfeedback-level-2' => 'А берянь',
@@ -6413,9 +6419,9 @@ $messages['pl'] = array(
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję oznaczoną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako sprawdzone',
 	'group-editor' => 'Redaktorzy',
-	'group-editor-member' => 'Redaktor',
+	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Weryfikatorzy',
-	'group-reviewer-member' => 'Weryfikator',
+	'group-reviewer-member' => 'weryfikator',
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
 	'grouppage-reviewer' => '{{ns:project}}:Weryfikator',
 	'hist-draft' => 'wersja nieprzejrzana',

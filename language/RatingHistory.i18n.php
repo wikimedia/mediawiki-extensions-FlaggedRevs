@@ -123,10 +123,11 @@ $messages['de'] = array(
 	'ratinghistory-month' => 'letzter Monat',
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
-	'ratinghistory-graph' => '$2 von Artikel „$3“ ($1 {{PLURAL:$1|Leser|Lesern}})',
+	'ratinghistory-chart' => 'Leserbewertungen über die Zeit:',
+	'ratinghistory-users' => 'Benutzer, die diese Seite bewertet haben:',
+	'ratinghistory-graph' => '$2 von Artikel „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
 	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
-Die Bewertungszahlen bedeuten:
 	
 '''[0]''' - Mangelhaft; '''[1]''' - Ausreichend; '''[2]''' - Befriedigend; '''[3]''' - Gut; '''[4]''' - Sehr gut;",
 	'right-feedback' => 'Bewerten einer Seite',
@@ -146,7 +147,7 @@ $messages['eo'] = array(
 	'ratinghistory-month' => 'lasta monato',
 	'ratinghistory-year' => 'lasta jaro',
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
-	'ratinghistory-graph' => 'Kontroli datenojn de $1 {{PLURAL:$1|leginto|legintoj}}',
+	'ratinghistory-graph' => '$2 de artikolo "$3" ($1 {{PLURAL:$1|leganto|legantoj}})',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
 intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
@@ -323,6 +324,14 @@ $messages['ms'] = array(
 '''[0]''' - Lemah, '''[1]''' - Rendah, '''[2]''' - Sederhana, '''[3]''' - Tinggi, '''[4]''' - Cemerlang",
 );
 
+/** Erzya (Эрзянь)
+ * @author Botuzhaleny-sodamo
+ */
+$messages['myv'] = array(
+	'ratinghistory-year' => 'мелять',
+	'ratinghistory-3years' => 'меельсе 3 иеть',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -337,10 +346,11 @@ $messages['nl'] = array(
 	'ratinghistory-month' => 'afgelopen maand',
 	'ratinghistory-year' => 'afgelopen jaar',
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
-	'ratinghistory-graph' => '$2 van pagina "$3" ($1 {{PLURAL:$1|lezer|lezers}})',
+	'ratinghistory-chart' => 'Waardering van lezers in de tijd:',
+	'ratinghistory-users' => 'Gebruikers die een waardering aan deze pagina hebben gegeven:',
+	'ratinghistory-graph' => '$2 van pagina "$3" ($1 {{PLURAL:$1|waardering|waarderingen}})',
 	'ratinghistory-none' => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven periode <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
-De waarderingen dienen als volgt gelezen te worden:
 
 '''[0]''' - Slecht; '''[1]''' - Laag; '''[2]''' - Redelijk; '''[3]''' - Hoog; '''[4]''' - Uitstekend;",
 	'right-feedback' => 'Het waarderingsformulier gebruiken om een pagina te waarderen',

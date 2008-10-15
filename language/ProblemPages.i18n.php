@@ -177,6 +177,13 @@ $messages['ms'] = array(
 	'problempages-graphs' => 'data penilaian',
 );
 
+/** Erzya (Эрзянь)
+ * @author Botuzhaleny-sodamo
+ */
+$messages['myv'] = array(
+	'problempages-graphs' => 'питнень путомадо дата',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

@@ -52,6 +52,7 @@ $messages['arz'] = array(
  * @author Revolus
  */
 $messages['de'] = array(
+	'unstablepages-none' => 'Die Liste ist leer.',
 	'unstablepages-config' => 'Konfiguration',
 );
 
@@ -97,6 +98,16 @@ $messages['it'] = array(
 	'unstablepages-text' => 'Di seguito sono elencate le pagine configurate manualmente in modo tale da mostrare per default le versioni di bozza ai visitatori.',
 	'unstablepages-none' => 'Nessuna pagina in questo elenco',
 	'unstablepages-config' => 'Configurazione',
+);
+
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'unstablepages-stable' => 'stabile Version',
+	'unstablepages-text' => 'Wat follesch es en Leß met Sigge, woh fun Hand för enjestallt wood, dat se standadmääßesch en de neuste Äntworfsversion aanjezeisch wääde.',
+	'unstablepages-none' => 'Mer han kein Sigge en hee dä Leß',
+	'unstablepages-config' => 'Enstellunge',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

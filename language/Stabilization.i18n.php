@@ -1330,9 +1330,11 @@ Tetapan tidak boleh dibuat.',
 
 /** Erzya (Эрзянь)
  * @author Amdf
+ * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
 	'stabilization-page' => 'Лопань лем:',
+	'stabilization-submit' => 'Кемекстамс',
 );
 
 /** Nahuatl (Nāhuatl)

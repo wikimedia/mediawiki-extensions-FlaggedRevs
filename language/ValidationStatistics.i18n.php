@@ -256,11 +256,18 @@ $messages['ms'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' kini mempunyai {{PLURAL:$1|seorang|'''$1''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Penyunting]] dan {{PLURAL:$2|seorang|'''$2''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Pemeriksa]].",
 	'validationstatistics-table' => "Berikut ialah statistik bagi setiap ruang nama, tidak termasuk laman lencongan.
 
-'''Catatan:''' data berikut diambil daripada simpanan sementara ('''cache''') dan kemungkinan besar bukan yang terkini.",
+'''Catatan:''' data berikut diambil daripada cache yang disimpan sejak beberapa jam yang lalu dan kemungkinan besar bukan yang terkini.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Laman',
 	'validationstatistics-stable' => 'Diperiksa',
 	'validationstatistics-latest' => 'Pemeriksaan terakhir',
+);
+
+/** Erzya (Эрзянь)
+ * @author Botuzhaleny-sodamo
+ */
+$messages['myv'] = array(
+	'validationstatistics-ns' => 'Лем потмо',
 );
 
 /** Dutch (Nederlands)
