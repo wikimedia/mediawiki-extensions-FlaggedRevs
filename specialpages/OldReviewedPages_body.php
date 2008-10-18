@@ -125,10 +125,7 @@ class OldReviewedPages extends IncludableSpecialPage
 		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category );
 		$limit = $wgRequest->getInt( 'limit', 50 );
 		global $wgFeedLimit;
-		if( $limit > $wgFeedLimit ) {
-			$limit = $wgFeedLimit;
-		}
-		$pager->mLimit = $limit;
+		$pager->mLimit = min( $wgFeedLimit, $limit );
 
 		$feed->outHeader();
 		if( $pager->getNumRows() > 0 ) {
