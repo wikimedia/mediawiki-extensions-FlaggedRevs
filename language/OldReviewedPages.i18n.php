@@ -736,7 +736,19 @@ $messages['tr'] = array(
  * @author Ahonc
  */
 $messages['uk'] = array(
+	'oldreviewedpages' => 'Застарілі перевірені сторінки',
+	'oldreviewedpages-legend' => 'Список перевірених сторінок з неперевіреними версіями',
+	'oldreviewedpages-list' => 'На цій сторінці перераховані перевірені сторінки, які в подальшому редагувались',
+	'oldreviewedpages-none' => 'Зараз нема сторінок, що задовольняють цим умовам',
+	'oldreviewedpages-stable' => 'переглянута',
+	'oldreviewedpages-quality' => 'перевірена',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|година|години|годин}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дні|днів}})',
+	'oldreviewedpages-recent' => '(менше 1 години)',
 	'oldreviewed-category' => 'Категорія:',
+	'oldreviewed-diff' => 'перевірити',
+	'oldreviewedpages-unwatched' => '(не спостерігають)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|спостерігає $2 користувач|спостерігають $2 користувачі|спостерігають $2 користувачів}})',
 );
 
 /** Vèneto (Vèneto)

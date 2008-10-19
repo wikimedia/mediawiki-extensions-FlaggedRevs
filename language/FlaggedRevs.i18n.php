@@ -1509,6 +1509,42 @@ $messages['bn'] = array(
 	'validationpage' => '{{ns:help}}:নিবন্ধ বৈধকরণ',
 );
 
+/** Bakhtiari (بختياري)
+ * @author Behdarvandyani
+ */
+$messages['bqi'] = array(
+	'editor' => 'اصلاحگر',
+	'flaggedrevs' => 'نسخه‌های علامت‌دار',
+	'flaggedrevs-backlog' => "بختیاری (bqi)در حال حاضر کارهای ناتمام در [[Special:OldReviewedPages|صفحه‌های بازبینی شده تاریخ گذشته]] هده. '''توجه ایسا مورد نیازه !'''",
+	'flaggedrevs-prefs' => 'مقاومت',
+	'flaggedrevs-prefs-stable' => 'بختیاری (bqi)(در صورت وجود) همیشه نسخه مقاوم یه صفحه را به عنوان نسخه پیش فرض نشو بده',
+	'flaggedrevs-prefs-watch' => 'صفحاتی که بازبینی ا‌کنم را به لیست پیگیری‌هام اضاف کن',
+	'group-editor' => 'اصلاحگران',
+	'group-editor-member' => 'اصلاحگر',
+	'group-reviewer' => 'مرورگرها',
+	'group-reviewer-member' => 'مرورگر',
+	'grouppage-editor' => '{{ns:project}}:اصلاحگر',
+	'grouppage-reviewer' => '{{ns:project}}:مرورگر',
+	'review-logpagetext' => 'ای نمایه ای زه تعییرات وضعیت [[{{MediaWiki:Validationpage}}|تائید]] 
+نسخه‌های صفحاته .
+بوین [[Special:ReviewedPages|reviewed pages list]] یه لیست زه صفحات تایید وابیده.',
+	'revreview-auto' => 'اتوماتیک',
+	'revreview-basic' => 'ای آخرین نسخه [[{{MediaWiki:Validationpage}}|بررسی‌ وابیده]] است که در <i>$2</i>
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تائید وابیده]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش ‌نویس]
+قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} اصلاح] است؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغییر|تغییر}}]
+نیازمند بررسی {{PLURAL:$3|است|هستند}}.',
+	'revreview-basic-i' => 'ای چدید‌ترین نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش ‌نویس] دارای [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییراتی در قالبها/تصویرها] است که هنی بازبینی نوابیدنه.',
+	'revreview-basic-old' => 'ای یه نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] است([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} نشودادن همه])، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده].
+ممکنه   [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات] جدیدی اتفاق افتاده وابیده',
+	'revreview-basic-same' => 'ای آخرین نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] ‌است، که در <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} لیست کامل]).',
+	'revreview-basic-source' => 'یه [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه بررسی وابیده] زه ای صفحه، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] در <i>$2</i>، بر مبنای ای نسخه ایجاد وابیده.',
+	'revreview-changed' => "'''عمل درخواست وابده را نیبوه رو ای نسخه زه [[:$1|$1]] انجام داد.'''
+
+یه تصویر یا قالب درخواست وابیده بدون آن که نسخه خاصی تعیین وابیده بوه. ای اتفاق تره زمانی رخ بده که یه قالب پویا یه قالب یا تصویر دیگر را شامل بوه که به متغیری بستگی دارد که زه زمانی که ایسا صفحه را تغییر داده‌این تغییر کرده‌بوه.
+نوآوری دوباره صفحه و بررسی دوباره تره مشکل را حل کنه.",
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  */
