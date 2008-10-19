@@ -97,6 +97,17 @@ $messages['gl'] = array(
 	'likedpages-graphs' => 'datos das valoracións',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Rex
+ */
+$messages['id'] = array(
+	'likedpages' => 'Halaman dengan peringkat tinggi',
+	'likedpages-leg' => 'Cari halaman dengan peringkat tinggi',
+	'likedpages-list' => 'Berikut adalah daftar halaman yang diurutkan menurut peringkat yang diberikan pembacanya.',
+	'likedpages-none' => 'Tidak ada halaman dalam daftar ini.',
+	'likedpages-graphs' => 'data pemeringkatan',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

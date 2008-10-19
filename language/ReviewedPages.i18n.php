@@ -601,8 +601,8 @@ $messages['pl'] = array(
 	'reviewedpages-list' => 'Poniższe strony zostały oznaczone i mają określony status',
 	'reviewedpages-none' => 'Brak stron na tej liście',
 	'reviewedpages-lev-0' => 'Przejrzane',
-	'reviewedpages-lev-1' => 'Stabilne',
-	'reviewedpages-lev-2' => 'Zweryfikowane',
+	'reviewedpages-lev-1' => 'Zweryfikowane',
+	'reviewedpages-lev-2' => 'Doskonałe',
 	'reviewedpages-all' => 'wersje oznaczone',
 	'reviewedpages-best' => 'wersja najlepsza',
 );

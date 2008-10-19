@@ -732,6 +732,13 @@ $messages['tr'] = array(
 	'oldreviewed-category' => 'Kategori:',
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'oldreviewed-category' => 'Категорія:',
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */

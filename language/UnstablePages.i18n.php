@@ -89,6 +89,17 @@ $messages['gl'] = array(
 	'unstablepages-config' => 'Configuración',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Rex
+ */
+$messages['id'] = array(
+	'unstablepages' => 'Halaman takstabil',
+	'unstablepages-stable' => 'versi stabil',
+	'unstablepages-text' => 'Berikut adalah daftar halaman yang dikonfigurasi secara manual untuk menampilkan versi draf sebagai standar halaman yang ditampilkan kepada pembaca.',
+	'unstablepages-none' => 'Tidak ada halaman di dalam daftar ini.',
+	'unstablepages-config' => 'Konfigurasi',
+);
+
 /** Italian (Italiano)
  * @author Darth Kule
  */
@@ -116,6 +127,7 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'unstablepages' => 'Net stabil Versioun',
 	'unstablepages-stable' => 'stabil Versioun',
+	'unstablepages-text' => "Hei ass eng Lëscht vu Säiten déi manuell agestallt goufen fir déi provisoresch (draft) Versioun als Säit par defaut fir déi Leit déi d'Sàite nokucken (reviewers)",
 	'unstablepages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
 	'unstablepages-config' => 'Configuratioun',
 );
@@ -173,6 +185,14 @@ $messages['sk'] = array(
 	'unstablepages-text' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa zobrazovala ich verzia návrhu ako štandardná stránka s obsahom pre čitateľov.',
 	'unstablepages-none' => 'Tento zoznam neobsahuje žiadne stránky',
 	'unstablepages-config' => 'Nastavenie',
+);
+
+/** Swedish (Svenska)
+ * @author Najami
+ */
+$messages['sv'] = array(
+	'unstablepages' => 'Ostabila sidor',
+	'unstablepages-stable' => 'stabil version',
 );
 
 /** Vietnamese (Tiếng Việt)

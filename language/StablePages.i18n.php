@@ -257,7 +257,7 @@ $messages['ms'] = array(
 	'stablepages-stable' => 'versi stabil',
 	'stablepages-text' => 'Berikut ialah senarai laman yang telah ditetapkan untuk memaparkan versi stabil sebagai kandungan lalai kepada para pengunjung.',
 	'stablepages-none' => 'Tiada laman dalam senarai ini',
-	'stablepages-config' => 'Tatarajah',
+	'stablepages-config' => 'Konfigurasi',
 );
 
 /** Dutch (Nederlands)

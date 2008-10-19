@@ -98,14 +98,6 @@ Used to indicate when something expires. $1 is a time stamp in the wiki's conten
 {{Identical|Expires $1 (UTC)}}",
 );
 
-/** Eastern Mari (Олык Марий)
- * @author Сай
- */
-$messages['mhr'] = array(
-	'stabilization-page' => 'Лаштыкын лӱмжӧ:',
-	'stabilization-def-short' => 'Ойлыде',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -1220,6 +1212,14 @@ $messages['lt'] = array(
 	'stabilization-def-short-0' => 'Esamas',
 );
 
+/** Eastern Mari (Олык Марий)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'stabilization-page' => 'Лаштыкын лӱмжӧ:',
+	'stabilization-def-short' => 'Ойлыде',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */
@@ -1510,9 +1510,9 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-page' => 'Nazwa strony:',
 	'stabilization-leg' => 'Zatwierdź konfigurację wersji oznaczonej',
 	'stabilization-select' => 'Wybór wersji oznaczonej',
-	'stabilization-select1' => 'Ostatnia wersja stabilna, a jeśli nie istnieje, to ostatnia wersja przejrzana',
+	'stabilization-select1' => 'Ostatnia wersja zweryfikowana, a jeśli nie istnieje, to ostatnia wersja przejrzana',
 	'stabilization-select2' => 'Ostatnia wersja oznaczona',
-	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja stabilna lub przejrzana',
+	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja zweryfikowana lub przejrzana',
 	'stabilization-def' => 'Wersja prezentowana w domyślnym widoku strony',
 	'stabilization-def1' => 'Wersja oznaczona, a jeśli nie istnieje, to wersja bieżąca',
 	'stabilization-def2' => 'Bieżąca wersja',
@@ -1522,7 +1522,7 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-comment' => 'Komentarz:',
 	'stabilization-expiry' => 'Czas wygaśnięcia:',
 	'stabilization-sel-short' => 'Kolejność',
-	'stabilization-sel-short-0' => 'Stabilna',
+	'stabilization-sel-short-0' => 'Zweryfikowana',
 	'stabilization-sel-short-1' => 'Brak',
 	'stabilization-sel-short-2' => 'Nienaruszona',
 	'stabilization-def-short' => 'Domyślna',

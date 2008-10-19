@@ -174,8 +174,11 @@ $messages['gl'] = array(
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'validationstatistics' => 'Στατιστικὰ ἐπικυρώσεων',
+	'validationstatistics-ns' => 'Ὀνοματεῖον',
 	'validationstatistics-total' => 'Δέλτοι',
 );
 
@@ -210,6 +213,24 @@ $messages['hu'] = array(
 	'validationstatistics-latest' => 'Legutóbb ellenőrzött',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 	'validationstatistics-old' => 'Elavult',
+);
+
+/** Indonesian (Bahasa Indonesia)
+ * @author Rex
+ */
+$messages['id'] = array(
+	'validationstatistics' => 'Statistik validasi',
+	'validationstatistics-users' => "'''{{SITENAME}}''' saat ini memiliki '''$1''' {{PLURAL:$1|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Editor]] dan
+'''$2''' {{PLURAL:$2|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Peninjau]].",
+	'validationstatistics-table' => "Statistik untuk setiap ruang nama ditampilkan di bawah ini, kecuali halaman pengalihan.
+
+'''Catatan''': Data di bawah ini diambil dari tembolok beberapa jam yang lalu dan mungkin belum mencakup data terbaru.",
+	'validationstatistics-ns' => 'Ruang nama',
+	'validationstatistics-total' => 'Halaman',
+	'validationstatistics-stable' => 'Telah ditinjau',
+	'validationstatistics-latest' => 'Terakhir ditinjau',
+	'validationstatistics-synced' => 'Sinkron/Tertinjau',
+	'validationstatistics-old' => 'Usang',
 );
 
 /** Italian (Italiano)
