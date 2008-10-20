@@ -55,6 +55,7 @@ $aliases['ar'] = array(
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'StableVersions' => array( 'نسخ_مستقرة' ),
 	'UnreviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'UnstablePages' => array( 'صفحات_غير_مستقرة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
@@ -74,6 +75,7 @@ $aliases['arz'] = array(
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'StableVersions' => array( 'نسخ_مستقرة' ),
 	'UnreviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'UnstablePages' => array( 'صفحات_غير_مستقرة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
@@ -98,12 +100,15 @@ $aliases['de'] = array(
 	'OldReviewedPages' => array( 'Seiten mit ungesichteten Versionen' ),
 	'ProblemPages' => array( 'Niedrig bewertete Seiten' ),
 	'QualityOversight' => array( 'Markierungsübersicht' ),
+	'RatingHistory' => array( 'Bewertungsgeschichte' ),
 	'ReaderFeedback' => array( 'Bewertung' ),
 	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
+	'RevisionReview' => array( 'Versionsprüfung' ),
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
 	'StablePages' => array( 'Konfigurierte Seiten' ),
 	'StableVersions' => array( 'Markierte Versionen' ),
 	'UnreviewedPages' => array( 'Ungesichtete Seiten' ),
+	'UnstablePages' => array( 'Unstabile Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
@@ -122,12 +127,19 @@ $aliases['eo'] = array(
 
 /** Persian (فارسی) */
 $aliases['fa'] = array(
-	'OldReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده‌قدیمی' ),
-	'QualityOversight' => array( 'ناظرکیفیت' ),
-	'ReviewedPages' => array( 'صفحه‌های‌بازبینی‌شده' ),
-	'StablePages' => array( 'صفحه‌های‌پایدار' ),
-	'StableVersions' => array( 'نسخه‌های‌پایدار' ),
+	'OldReviewedPages' => array( 'صفحه‌های_بازبینی_شده_قدیمی' ),
+	'ProblemPages' => array( 'صفحه‌های_مشکل‌دار' ),
+	'QualityOversight' => array( 'نظارت_کیفی' ),
+	'RatingHistory' => array( 'تاریخچه_درجه‌بندی' ),
+	'ReaderFeedback' => array( 'بازخورد_خواننده' ),
+	'ReviewedPages' => array( 'صفحه‌های_بازبینی_شده' ),
+	'RevisionReview' => array( 'بازبینی_نسخه' ),
+	'Stabilization' => array( 'پایدارسازی' ),
+	'StablePages' => array( 'صفحه‌های_پایدار' ),
+	'StableVersions' => array( 'نسخه‌های_پایدار' ),
 	'UnreviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
+	'UnstablePages' => array( 'صفحه‌های_ناپایدار' ),
+	'ValidationStatistics' => array( 'آمار_تاییدها' ),
 );
 
 /** French (Français)
@@ -225,6 +237,12 @@ $aliases['lb'] = array(
 	'ValidationStatistics' => array( 'Statistik vun den iwwerpréifte Säiten' ),
 );
 
+/** Macedonian (Македонски) */
+$aliases['mk'] = array(
+	'LikedPages' => array( 'БараниСтраници' ),
+	'ProblemPages' => array( 'ПроблематичниСтраници' ),
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */
@@ -289,6 +307,7 @@ $aliases['nl'] = array(
 	'StablePages' => array( 'StabielePaginas', "StabielePagina's" ),
 	'StableVersions' => array( 'StabieleVersies' ),
 	'UnreviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
+	'UnstablePages' => array( 'InstabielePaginas', "InstabielePagina's" ),
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
@@ -307,6 +326,7 @@ $aliases['no'] = array(
 	'StablePages' => array( 'Stabile sider' ),
 	'StableVersions' => array( 'Stabile versjoner' ),
 	'UnreviewedPages' => array( 'Uanmeldte sider' ),
+	'UnstablePages' => array( 'Ustabile sider' ),
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
@@ -314,9 +334,9 @@ $aliases['no'] = array(
  * @author Cedric31
  */
 $aliases['oc'] = array(
-	'OldReviewedPages' => array( 'PaginasAncianamentRelegidas' ),
+	'OldReviewedPages' => array( 'PaginasAncianasRelegidas' ),
 	'ProblemPages' => array( 'PaginasProblematicas' ),
-	'QualityOversight' => array( 'QualitatSupervisor' ),
+	'QualityOversight' => array( 'QualitatSupervisor', 'SupervisorQualitat' ),
 	'ReviewedPages' => array( 'Paginas revisadas' ),
 	'StablePages' => array( 'PaginasEstablas' ),
 	'StableVersions' => array( 'VersionsEstablas' ),
@@ -327,11 +347,16 @@ $aliases['oc'] = array(
  * @author Sp5uhe
  */
 $aliases['pl'] = array(
+	'LikedPages' => array( 'Wysoko oceniane strony' ),
 	'OldReviewedPages' => array( 'Zdezaktualizowane przejrzane strony' ),
+	'ProblemPages' => array( 'Nisko oceniane strony' ),
 	'QualityOversight' => array( 'Rejestr oznaczania wersji' ),
-	'StablePages' => array( 'Dopracowane strony' ),
+	'ReviewedPages' => array( 'Przejrzane strony' ),
+	'Stabilization' => array( 'Konfiguracja strony' ),
+	'StablePages' => array( 'Strony z domyślnie pokazywaną wersją oznaczoną' ),
 	'StableVersions' => array( 'Wersje dopracowane' ),
 	'UnreviewedPages' => array( 'Nieprzejrzane strony' ),
+	'UnstablePages' => array( 'Strony z domyślnie pokazywaną wersją bieżącą' ),
 	'ValidationStatistics' => array( 'Statystyki oznaczania' ),
 );
 
