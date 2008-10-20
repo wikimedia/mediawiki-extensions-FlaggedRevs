@@ -6604,7 +6604,7 @@ By wycofać weryfikację należy ustawić wszystkie pola na „nieakceptowalny�
 	'stable-logpagetext' => 'To jest rejestr zmian w konfiguracji stron posiadających [[{{MediaWiki:Validationpage}}|wersje przejrzane]].
 Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 	'readerfeedback' => 'Co myślisz o tej stronie?',
-	'readerfeedback-text' => "''Poświęć chwilę, aby ocenić tę poniższą stronę. Twoja opinia jest cenna i pomaga nam w ulepszeniu naszej strony.''",
+	'readerfeedback-text' => "''Poświęć chwilę, aby ocenić tę stronę. Twoja opinia będzie cenna i pomoże nam w ulepszeniu naszej witryny.''",
 	'readerfeedback-reliability' => 'Solidność',
 	'readerfeedback-completeness' => 'Wyczerpanie tematu',
 	'readerfeedback-npov' => 'Neutralność',

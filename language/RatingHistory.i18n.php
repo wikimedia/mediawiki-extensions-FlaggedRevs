@@ -405,6 +405,8 @@ $messages['oc'] = array(
 	'ratinghistory-month' => 'darrièr mes',
 	'ratinghistory-year' => 'darrièra annada',
 	'ratinghistory-3years' => 'las 3 darrièras annadas',
+	'ratinghistory-chart' => 'Lector notant fòra relambi :',
+	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas sus aquesta pagina :",
 	'ratinghistory-graph' => '$2 de la pagina « $3 » ($1 {{PLURAL:$1|revision|revisions}})',
 	'ratinghistory-none' => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
 	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> son dessenhats çaijós, per data. 
@@ -423,13 +425,13 @@ $messages['pl'] = array(
 	'ratinghistory-leg' => 'Historia oceniania',
 	'ratinghistory-tab' => 'ocena',
 	'ratinghistory-link' => 'Ocena artykułu',
-	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dziękujemy za poświęconą chwilę na ocenę tej strony!</font>",
+	'ratinghistory-thanks' => "'''''<font color=\"darkred\">Dziękujemy za poświęcony czas na ocenę tej strony!</font>",
 	'ratinghistory-period' => 'Okres czasu:',
 	'ratinghistory-month' => 'ostatni miesiąc',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
 	'ratinghistory-graph' => 'Ocena danych od $1 {{PLURAL:$1|czytelnika|czytelników}}',
-	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników dla stworzenia wykresu.',
+	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników by móc stworzyć wykresy.',
 	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty. Liczby oznaczają następujące oceny:
 
 '''[0]''' – Niedostatecznie; '''[1]''' – Słabo; '''[2]''' – Zadowalająco; '''[3]''' – Dobrze; '''[4]''' – Bardzo dobrze;",
