@@ -1115,7 +1115,7 @@ EOT;
 	
 	public static function ratingToolboxLink( &$monobook ) {
 		if( isset( $monobook->data['nav_urls']['ratinghist'] ) ) {
-			?><li id="t-cite"><?php
+			?><li id="t-rating"><?php
 				?><a href="<?php echo htmlspecialchars( $monobook->data['nav_urls']['ratinghist']['href'] ) ?>"><?php
 					echo $monobook->msg( 'ratinghistory-link' );
 				?></a><?php

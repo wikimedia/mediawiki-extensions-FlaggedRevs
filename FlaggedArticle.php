@@ -1403,11 +1403,11 @@ class FlaggedArticle extends Article {
 			}
 			$quantity = count( $label );
 			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
-			$form .= "<b>" . FlaggedRevs::getTagMsg($quality) . ":</b>\n";
+			$form .= "<b>" . Xml::label( FlaggedRevs::getTagMsg($quality), "wp$quality" ) . ":</b>\n";
 			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
-				$attribs = array( 'name' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
+				$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::openElement( 'select', $attribs );
 				foreach( $label as $i => $name ) {
 					$optionClass = array( 'class' => "fr-rating-option-$i" );
@@ -1559,9 +1559,9 @@ class FlaggedArticle extends Article {
 		foreach( FlaggedRevs::getFeedbackTags() as $quality => $levels ) {
 			$label = array();
 			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : -1;
-			$form .= "<b>" . wfMsgHtml("readerfeedback-$quality") . ":</b>&nbsp;";
-			$attribs = array( 'name' => "wp$quality", 'onchange' => "updateFeedbackForm()" );
-			$form .= Xml::openElement( 'select', $attribs );
+			$form .= "<b>" . Xml::label( wfMsgHtml("readerfeedback-$quality"), "wp$quality" ) . ":</b>";
+			$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality", 'onchange' => "updateFeedbackForm()" );
+			$form .= '&nbsp;' . Xml::openElement( 'select', $attribs );
 			$levels = array_reverse($levels,true);
 			foreach( $levels as $i => $name ) {
 				$optionClass = array( 'class' => "fr-rating-option-$i" );
