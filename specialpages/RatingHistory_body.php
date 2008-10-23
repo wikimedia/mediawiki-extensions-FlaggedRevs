@@ -99,6 +99,7 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function showGraphs() {
 		global $wgOut;
 		$data = false;
+		$wgOut->addHTML( '<center><h2>' . wfMsgHtml('ratinghistory-chart') . '</h2></center>' );
 		// Do each graphs for said time period
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			// Check if cached version is available.
@@ -111,7 +112,6 @@ class RatingHistory extends UnlistedSpecialPage
 				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
-					$wgOut->addHTML( '<h3><center>' . wfMsgHtml('ratinghistory-chart') . '</center></h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
@@ -124,7 +124,6 @@ class RatingHistory extends UnlistedSpecialPage
 				if( !$this->fileExpired($tag,$filePath) || $this->makePngGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
-					$wgOut->addHTML( '<h3><center>' . wfMsgHtml('ratinghistory-chart') . '</center></h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
