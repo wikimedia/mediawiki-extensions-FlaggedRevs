@@ -37,6 +37,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+		$this->doPurge = $wgUser->isAllowed( 'purge' ) && 'purge' === $wgRequest->getVal( 'action' );
 		if( !FlaggedRevs::isPageRateable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('readerfeedback-main',array('parse')) );
 			return;
@@ -52,7 +53,7 @@ class RatingHistory extends UnlistedSpecialPage
 		/*
 		 * Allow client caching.
 		 */
-		if( $wgOut->checkLastModified( $this->getTouched() ) ) {
+		if( !$this->doPurge && $wgOut->checkLastModified( $this->getTouched() ) ) {
 			return; // Client cache fresh and headers sent, nothing more to do
 		} else {
 			$wgOut->enableClientCache( false ); // don't show stale graphs
@@ -110,7 +111,7 @@ class RatingHistory extends UnlistedSpecialPage
 				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
-					$wgOut->addHTML( '<h3>' . wfMsgHtml('ratinghistory-chart') . '</h3>' );
+					$wgOut->addHTML( '<h3><center>' . wfMsgHtml('ratinghistory-chart') . '</center></h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
@@ -123,7 +124,7 @@ class RatingHistory extends UnlistedSpecialPage
 				if( !$this->fileExpired($tag,$filePath) || $this->makePngGraph( $tag, $filePath ) ) {
 					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
-					$wgOut->addHTML( '<h3>' . wfMsgHtml('ratinghistory-chart') . '</h3>' );
+					$wgOut->addHTML( '<h3><center>' . wfMsgHtml('ratinghistory-chart') . '</center></h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
@@ -563,7 +564,7 @@ class RatingHistory extends UnlistedSpecialPage
 	* @returns string
 	*/
 	public function fileExpired( $tag, $path ) {
-		if( !file_exists($path) ) {
+		if( $this->doPurge || !file_exists($path) ) {
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
