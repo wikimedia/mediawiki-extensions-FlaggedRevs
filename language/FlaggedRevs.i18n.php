@@ -4617,7 +4617,13 @@ $messages['jut'] = array(
  * @author Meursault2004
  */
 $messages['jv'] = array(
+	'editor' => 'Éditor',
 	'flaggedrevs-prefs' => 'Stabilitas',
+	'revreview-style-0' => 'Ora disarujuki',
+	'revreview-style-1' => 'Lumayan',
+	'revreview-style-2' => 'Apik',
+	'revreview-style-3' => 'Ringkes',
+	'revreview-style-4' => 'Pinilih',
 	'revreview-revnotfound' => 'Revisi lawas kaca sing panjenengan suwun ora bisa ditemokaké. Mangga priksanen URL sing digunakaké kanggo ngaksès kaca iki.',
 );
 
@@ -7908,9 +7914,10 @@ En mall eller bild har efterfrågats utan att någon specifik version angavs. De
 	'revreview-depth-4' => 'Utmärkt',
 	'revreview-draft-title' => 'Utkastet för artikeln',
 	'revreview-edit' => 'Redigera utkast',
+	'revreview-editnotice' => "'''Notera: Redigeringar till den här sidan kommer att införlivas i den [[{{MediaWiki:Validationpage}}|stabila versionen]] när en etablerad användare granskar dem.'''",
+	'revreview-flag' => 'Granska denna sidversion',
 	'revreview-edited' => "'''Ändringar kommer att infogas i den [[{{MediaWiki:Validationpage}}|stabila versionen]] när en etablerad användare granskar dom.
 ''Utkastet'' visas nedan.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|ändring väntar|ändringar väntar}}] på granskning.",
-	'revreview-flag' => 'Granska denna sidversion',
 	'revreview-invalid' => "'''Ogiltigt mål:''' inga [[{{MediaWiki:Validationpage}}|granskade]] versioner motsvarar den angivna IDn.",
 	'revreview-legend' => 'Bedöm versionens innehåll',
 	'revreview-log' => 'Kommentar:',
@@ -8385,6 +8392,7 @@ $messages['uk'] = array(
 	'revreview-depth-4' => 'вибрана',
 	'revreview-draft-title' => 'Чернетка статті',
 	'revreview-edit' => 'Редагувати чернетку',
+	'revreview-editnotice' => "'''Зауваження: редагування цієї сторінки будуть включені до [[{{MediaWiki:Validationpage}}|стабільної версії]], коли вповноважений користувач перевірить сторінку.'''",
 	'revreview-flag' => 'Перевірити цю версію',
 	'revreview-edited' => "'''Редагування будуть включені до [[{{MediaWiki:Validationpage}}|стабільної версії]] після перевірки користувачами з відповідними правами. ''Чернетка'' показана нижче.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|редагування очікує|редагування очікують|редагувань очікують}}] перевірки.",
 	'revreview-invalid' => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
@@ -8509,6 +8517,7 @@ $messages['uk'] = array(
 	'revreview-locked' => 'Редагування мають бути перевірені перед тим, як будуть показані на цій сторінці!',
 	'revreview-unlocked' => 'Редагування не вимагають попередньої перевірки для відображення на цій сторінці!',
 	'revreview-tt-review' => 'Перевірити цю сторінку',
+	'validationpage' => '{{ns:help}}:Перевірка статті',
 );
 
 /** Vèneto (Vèneto)

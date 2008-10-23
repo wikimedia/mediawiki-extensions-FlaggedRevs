@@ -430,9 +430,11 @@ $messages['pl'] = array(
 	'ratinghistory-month' => 'ostatni miesiąc',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
-	'ratinghistory-graph' => 'Ocena danych od $1 {{PLURAL:$1|czytelnika|czytelników}}',
+	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie:',
+	'ratinghistory-users' => 'Użytkownicy, którzy ocenili tę stronę:',
+	'ratinghistory-graph' => '$2 artykułu „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
 	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników by móc stworzyć wykresy.',
-	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty. Liczby oznaczają następujące oceny:
+	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty.
 
 '''[0]''' – Niedostatecznie; '''[1]''' – Słabo; '''[2]''' – Zadowalająco; '''[3]''' – Dobrze; '''[4]''' – Bardzo dobrze;",
 	'right-feedback' => 'Użyj formularza, aby ocenić stronę',
@@ -494,6 +496,7 @@ $messages['sr-ec'] = array(
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'ratinghistory' => 'Sidans betygshistorik',
@@ -506,9 +509,11 @@ $messages['sv'] = array(
 	'ratinghistory-month' => 'senaste månaden',
 	'ratinghistory-year' => 'senaste året',
 	'ratinghistory-3years' => 'senaste 3 åren',
-	'ratinghistory-graph' => '$2 av artikel "$3" ($1 {{PLURAL:$1|läsare|läsare}})',
+	'ratinghistory-chart' => 'Läsarbetyg med tiden:',
+	'ratinghistory-users' => 'Användare som har granskar den här sidan:',
+	'ratinghistory-graph' => '$2 av artikel "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
-	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum. Betygsvärdena tolkas enligt följande:
+	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum.
 
 '''[0]''' - Mycket dålig; '''[1]''' - Dålig; '''[2]''' - Okej; '''[3]''' - Bra; '''[4]''' - Mycket bra;",
 	'right-feedback' => 'Använd feedback-formuläret för att betygsätta en sida',

@@ -165,6 +165,17 @@ $messages['pl'] = array(
 	'unstablepages-config' => 'Konfiguracja',
 );
 
+/** Portuguese (Português)
+ * @author Malafaya
+ */
+$messages['pt'] = array(
+	'unstablepages' => 'Páginas instáveis',
+	'unstablepages-stable' => 'versão estável',
+	'unstablepages-text' => 'Abaixo encontra-se uma lista de página manualmente configuradas para mostrar aos leitores a versão rascunho como conteúdo por defeito da página.',
+	'unstablepages-none' => 'Não há páginas nesta lista',
+	'unstablepages-config' => 'Configuração',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */
@@ -193,6 +204,9 @@ $messages['sk'] = array(
 $messages['sv'] = array(
 	'unstablepages' => 'Ostabila sidor',
 	'unstablepages-stable' => 'stabil version',
+	'unstablepages-text' => 'Nedan visas en lista över sidor som manuellt har konfigurerats att visa utkastet som standardsideinnehåll för läsare.',
+	'unstablepages-none' => 'Det finns inga sidor i den här listan',
+	'unstablepages-config' => 'Konfigurering',
 );
 
 /** Vietnamese (Tiếng Việt)

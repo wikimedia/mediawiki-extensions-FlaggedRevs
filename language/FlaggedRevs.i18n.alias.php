@@ -351,6 +351,7 @@ $aliases['pl'] = array(
 	'OldReviewedPages' => array( 'Zdezaktualizowane przejrzane strony' ),
 	'ProblemPages' => array( 'Nisko oceniane strony' ),
 	'QualityOversight' => array( 'Rejestr oznaczania wersji' ),
+	'RatingHistory' => array( 'Historia oceniania strony' ),
 	'ReviewedPages' => array( 'Przejrzane strony' ),
 	'Stabilization' => array( 'Konfiguracja strony' ),
 	'StablePages' => array( 'Strony z domyślnie pokazywaną wersją oznaczoną' ),
