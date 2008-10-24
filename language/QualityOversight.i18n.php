@@ -245,6 +245,15 @@ $messages['sv'] = array(
 	'qualityoversight-legend' => 'Sök loggar för senaste granskningar',
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'qualityoversight' => 'Ревізор якості',
+	'qualityoversight-list' => 'Ця сторінка містить список нещодавніх затверджень і знять рівнів якості версій.',
+	'qualityoversight-legend' => 'Пошук у журналі перевірок',
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */

@@ -51,7 +51,7 @@ $messages['ar'] = array(
 	'ratinghistory-month' => 'آخر شهر',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
-	'ratinghistory-chart' => 'تقييم القراء عبر الزمن:',
+	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
 	'ratinghistory-users' => 'المستخدمون الذين قاموا بمراجعات في هذه الصفحة:',
 	'ratinghistory-graph' => '$2 من المقالة "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
@@ -76,7 +76,7 @@ $messages['arz'] = array(
 	'ratinghistory-month' => 'آخر شهر',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
-	'ratinghistory-chart' => 'تقييم القراء عبر الزمن:',
+	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
 	'ratinghistory-users' => 'المستخدمون الذين قاموا بمراجعات فى هذه الصفحة:',
 	'ratinghistory-graph' => '$2 للمقالة "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
@@ -268,7 +268,7 @@ $messages['id'] = array(
 	'ratinghistory-month' => 'bulan lalu',
 	'ratinghistory-year' => 'tahun lalu',
 	'ratinghistory-3years' => '3 tahun terakhir',
-	'ratinghistory-chart' => 'Peringkat pembaca dari waktu ke waktu:',
+	'ratinghistory-chart' => 'Peringkat pembaca dari waktu ke waktu',
 	'ratinghistory-users' => 'Pengguna yang meninjau halaman ini:',
 	'ratinghistory-graph' => '$2 dari artikel "$3" ($1 {{PLURAL:$1|tinjauan|tinjauan}})',
 	'ratinghistory-none' => 'Belum ada cukup umpan balik pembaca tersedia untuk membuat grafik pada saat ini.',
@@ -430,7 +430,7 @@ $messages['pl'] = array(
 	'ratinghistory-month' => 'ostatni miesiąc',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
-	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie:',
+	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie',
 	'ratinghistory-users' => 'Użytkownicy, którzy ocenili tę stronę:',
 	'ratinghistory-graph' => '$2 artykułu „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
 	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników by móc stworzyć wykresy.',
@@ -528,6 +528,13 @@ $messages['te'] = array(
 	'ratinghistory-3years' => 'గత 3 సంవత్సరాలు',
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'ratinghistory' => 'Історія оцінювання сторінки',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Vinhtantran
@@ -543,7 +550,7 @@ $messages['vi'] = array(
 	'ratinghistory-month' => 'tháng trước',
 	'ratinghistory-year' => 'năm ngoái',
 	'ratinghistory-3years' => 'ba năm trước',
-	'ratinghistory-chart' => 'Lịch sử các đánh giá của độc giả:',
+	'ratinghistory-chart' => 'Đánh giá của độc giả qua thời gian',
 	'ratinghistory-users' => 'Các thành viên đánh giá trang này:',
 	'ratinghistory-graph' => '$2 của bài viết “$3” (theo $1 độc giả)',
 	'ratinghistory-none' => 'Hiện chưa có đủ dữ liệu đánh giá của độc giả để vẽ biểu thị.',
