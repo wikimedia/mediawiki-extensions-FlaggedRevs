@@ -53,7 +53,7 @@ $messages['ar'] = array(
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
 	'ratinghistory-users' => 'المستخدمون الذين قاموا بمراجعات في هذه الصفحة:',
-	'ratinghistory-graph' => '$2 من المقالة "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
+	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ.
@@ -78,7 +78,7 @@ $messages['arz'] = array(
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
 	'ratinghistory-users' => 'المستخدمون الذين قاموا بمراجعات فى هذه الصفحة:',
-	'ratinghistory-graph' => '$2 للمقالة "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
+	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومى المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ.
@@ -129,7 +129,7 @@ $messages['de'] = array(
 	'ratinghistory-3years' => 'letzte drei Jahre',
 	'ratinghistory-chart' => 'Leserbewertungen über die Zeit:',
 	'ratinghistory-users' => 'Benutzer, die diese Seite bewertet haben:',
-	'ratinghistory-graph' => '$2 von Artikel „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
+	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
 	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
 	
@@ -153,7 +153,7 @@ $messages['eo'] = array(
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
 	'ratinghistory-chart' => 'Taksado de legantaro trans tempo:',
 	'ratinghistory-users' => 'Uzantoj kiuj kontrolis ĉi tiun paĝon:',
-	'ratinghistory-graph' => '$2 de artikolo "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
+	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
 intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
@@ -223,9 +223,9 @@ $messages['gl'] = array(
 	'ratinghistory-month' => 'último mes',
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos 3 anos',
-	'ratinghistory-chart' => 'Valoración do lector:',
+	'ratinghistory-chart' => 'Valoración da reacción do lector',
 	'ratinghistory-users' => 'Usuarios que revisaron esta páxina:',
-	'ratinghistory-graph' => '$2 do artigo "$3" ({{PLURAL:$1|un lector|$1 lectores}})',
+	'ratinghistory-graph' => '$2 de "$3" ({{PLURAL:$1|unha revisión|$1 revisións}})',
 	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
 	'ratinghistory-legend' => "A valoración do promedio diario <font color=\"blue\">''(azul)''</font> e o intervalo seleccionado <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo.
 
@@ -291,7 +291,7 @@ $messages['it'] = array(
 	'ratinghistory-month' => 'ultimo mese',
 	'ratinghistory-year' => 'ultimo anno',
 	'ratinghistory-3years' => 'ultimi 3 anni',
-	'ratinghistory-graph' => 'Dati di revisione da $1 {{PLURAL:$1|lettore|lettori}}',
+	'ratinghistory-graph' => '$2 di "$3" ($1 {{PLURAL:$1|revisione|revisioni}})',
 	'ratinghistory-none' => 'Non sono disponibile sufficienti dati di feedback dei lettori per poter rappresentare dei grafici al momento.',
 	'ratinghistory-legend' => "I giudizi medi giornalieri <font color=\"blue\">''(blu)''</font> e gli intervalli dei giudizi medi selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. 
 
@@ -361,7 +361,7 @@ $messages['nl'] = array(
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
 	'ratinghistory-chart' => 'Waardering van lezers in de tijd:',
 	'ratinghistory-users' => 'Gebruikers die een waardering aan deze pagina hebben gegeven:',
-	'ratinghistory-graph' => '$2 van pagina "$3" ($1 {{PLURAL:$1|waardering|waarderingen}})',
+	'ratinghistory-graph' => '$2 van "$3" ($1 {{PLURAL:$1|waardering|waarderingen}})',
 	'ratinghistory-none' => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven periode <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
 
@@ -432,7 +432,7 @@ $messages['pl'] = array(
 	'ratinghistory-3years' => 'ostatnie 3 lata',
 	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie',
 	'ratinghistory-users' => 'Użytkownicy, którzy ocenili tę stronę:',
-	'ratinghistory-graph' => '$2 artykułu „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
+	'ratinghistory-graph' => '$2 strony „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
 	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników by móc stworzyć wykresy.',
 	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty.
 
@@ -511,7 +511,7 @@ $messages['sv'] = array(
 	'ratinghistory-3years' => 'senaste 3 åren',
 	'ratinghistory-chart' => 'Läsarbetyg med tiden:',
 	'ratinghistory-users' => 'Användare som har granskar den här sidan:',
-	'ratinghistory-graph' => '$2 av artikel "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',
+	'ratinghistory-graph' => '$2 av "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
 	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum.
 
@@ -552,7 +552,7 @@ $messages['vi'] = array(
 	'ratinghistory-3years' => 'ba năm trước',
 	'ratinghistory-chart' => 'Đánh giá của độc giả qua thời gian',
 	'ratinghistory-users' => 'Các thành viên đánh giá trang này:',
-	'ratinghistory-graph' => '$2 của bài viết “$3” (theo $1 độc giả)',
+	'ratinghistory-graph' => '$2 của bài “$3” (theo $1 độc giả)',
 	'ratinghistory-none' => 'Hiện chưa có đủ dữ liệu đánh giá của độc giả để vẽ biểu thị.',
 	'ratinghistory-legend' => "Biểu thị ở dưới trình bày đánh giá trung bình hàng ngày <font color=\"blue\">''(lam)''</font> và đánh giá trung bình tại các giai đoạn lựa chọn <font color=\"green\">''(lục)''</font>, theo thời gian. Các đánh giá có các giá trị sau:
 
