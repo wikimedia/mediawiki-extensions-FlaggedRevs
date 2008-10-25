@@ -48,8 +48,14 @@ class RatingHistory extends UnlistedSpecialPage
 			$period = 31; // default
 		}
 		$this->period = $period;
-		$this->showHeader();
+		$this->dScale = 10;
+		# Thank voters
+		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
+			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parse') );
+		}
+		$this->showLead();
 		$this->showForm();
+		$this->showHeader();
 		/*
 		 * Allow client caching.
 		 */
@@ -61,13 +67,14 @@ class RatingHistory extends UnlistedSpecialPage
 		$this->showGraphs();
 	}
 	
-	protected function showHeader() {
-		global $wgOut, $wgUser;
-		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
-			$wgOut->addWikiText( wfMsg('ratinghistory-thanks') . '<hr/>' );
-		}
+	protected function showLead() {
+		global $wgOut;
 		$wgOut->addWikiText( wfMsg('ratinghistory-text',$this->page->getPrefixedText()) );
-		$wgOut->addWikiText( wfMsg('ratinghistory-legend') );
+	}
+	
+	protected function showHeader() {
+		global $wgOut;
+		$wgOut->addWikiText( wfMsg('ratinghistory-legend', $this->dScale) );
 	}
 	
 	protected function showForm() {
@@ -111,7 +118,7 @@ class RatingHistory extends UnlistedSpecialPage
 			if( $ext === 'svg' ) {
 				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
-					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3><hr/>' );
+					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
@@ -123,7 +130,7 @@ class RatingHistory extends UnlistedSpecialPage
 			} else if( $ext === 'png' ) {
 				if( !$this->fileExpired($tag,$filePath) || $this->makePngGraph( $tag, $filePath ) ) {
 					$data = true;
-					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3><hr/>' );
+					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
@@ -274,12 +281,13 @@ class RatingHistory extends UnlistedSpecialPage
 			$res->seek( $dbr->numRows($res)-1 );
 			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
-			$int = ($this->period > 31) ? 31 : intval( ceil($days/12) );
+			$int = ($days > 31) ? 31 : intval( ceil($days/12) );
 			$res->seek( 0 );
 		}
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
+			$dayCount = (real)$row->rfh_count;
 			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
 			$cumAve = (real)$totalVal/(real)$totalCount;
 			$year = intval( substr( $row->rfh_date, 0, 4 ) );
@@ -291,7 +299,7 @@ class RatingHistory extends UnlistedSpecialPage
 				$x = intval( $dayGap/86400 );
 				# Day gaps...
 				for( $x; $x > 1; --$x ) {
-					$data[] = array("",$lastDAve,$lastRAve);
+					$data[] = array("",$lastDAve,$lastRAve,0);
 					$n++;
 				}
 			}
@@ -303,7 +311,7 @@ class RatingHistory extends UnlistedSpecialPage
 			} else {
 				$p = "";
 			}
-			$data[] = array( $p, $dayAve, $cumAve);
+			$data[] = array( $p, $dayAve, $cumAve, $dayCount );
 			$lastDate = $row->rfh_date;
 			$lastDAve = $dayAve;
 			$lastRAve = $cumAve;
@@ -313,15 +321,21 @@ class RatingHistory extends UnlistedSpecialPage
 		if( count($data) < 2 ) {
 			return false;
 		}
+		// Fit to [0,4]
+		foreach( $data as $x => $dataRow ) {
+			$data[$x][3] = $dataRow[3]/$this->dScale;
+		}
 		$plot->SetDataValues($data);
-		$plot->SetPointShapes('dot');
-		$plot->setPointSizes( 1 );
-		$plot->SetBackgroundColor('#fffff0');
+		$plot->SetPointShapes( array('dot','dot','dot') );
+		$plot->setPointSizes( array(1,1,4) );
+		$plot->SetDataColors( array('blue','green','red') );
+		$plot->SetLineStyles( array('solid','solid','none') );
+		$plot->SetBackgroundColor('#F8F8F8');
 		// Turn off X axis ticks and labels because they get in the way:
 		$plot->SetXTickLabelPos('none');
 		$plot->SetXTickPos('none');
-		// Set plot area
 		$plot->SetYTickIncrement( .5 );
+		// Set plot area
 		$plot->SetPlotAreaWorld( 0, 0, null, 4 );
 		// Show total number of votes
 		$plot->SetLegend( array("#{$totalCount}") );
@@ -356,7 +370,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->decimalPlacesY = 1;
 		$plot->plotOffsetX = 30;
 		$plot->plotOffsetY = 25;
-		$plot->numGridlinesY = 5;
+		$plot->numGridlinesY = 9;
 		$plot->innerPaddingX = 5;
 		$plot->innerPaddingY = 2;
 		$plot->outerPadding = 0;
@@ -369,7 +383,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Define the data using the DB rows
-		$dataX = $dave = $rave = array();
+		$dataX = $dave = $rave = $dcount = array();
 		$totalVal = $totalCount = $n = 0;
 		$res = $dbr->select( 'reader_feedback_history',
 			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
@@ -390,6 +404,7 @@ class RatingHistory extends UnlistedSpecialPage
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
+			$dayCount = (real)$row->rfh_count;
 			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
 			$cumAve = (real)$totalVal/(real)$totalCount;
 			$year = intval( substr( $row->rfh_date, 0, 4 ) );
@@ -404,6 +419,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$dataX[] = "";
 					$dave[] = $lastDAve;
 					$rave[] = $lastRAve;
+					$dcount[] = 0;
 					$n++;
 				}
 			}
@@ -418,6 +434,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$dataX[] = $p;
 			$dave[] = $dayAve;
 			$rave[] = $cumAve;
+			$dcount[] = $dayCount;
 			$lastDate = $row->rfh_date;
 			$lastDAve = $dayAve;
 			$lastRAve = $cumAve;
@@ -427,21 +444,38 @@ class RatingHistory extends UnlistedSpecialPage
 		if( count($dataX) < 2 ) {
 			return false;
 		}
+		// Fit to [0,4]
+		foreach( $dcount as $x => $c ) {
+			$dcount[$x] = $c/$this->dScale;
+		}
 		$plot->dataX = $dataX;
 		$plot->dataY['dave'] = $dave;
 		$plot->dataY['rave'] = $rave;
+		$plot->dataY['dcount'] = $dcount;
 		$plot->styleTagsX = 'font-family: monospace; font-size: 7.5pt;';
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
+		$plot->format['dcount'] = array( 'style' => 'stroke:none; stroke-width:1;', 
+			'attributes' => "marker-end='url(#circle)'");
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag'),
 			$totalCount, wfMsgHtml("readerfeedback-$tag"), $this->page->getPrefixedText() );
 		$plot->styleTitle = 'font-family: sans-serif; font-size: 10pt;';
+		// extra code for markers
+		$plot->extraSVG = 
+			'<defs>
+			  <marker id="circle" style="stroke:red; stroke-width:0; fill:red; "
+				viewBox="0 0 10 10" refX="5" refY="5" orient="0"
+				markerUnits="strokeWidth" markerWidth="5" markerHeight="5">
+				<circle cx="5" cy="5" r="4"/>
+			  </marker>
+			</defs>';
 		# Create the graph
 		$plot->init();
 		$plot->drawGraph();
-		$plot->line('dave');
-		$plot->line('rave');
+		$plot->polyLine('dave');
+		$plot->polyLine('rave');
+		$plot->line('dcount');
 		// Fucking IE...
 		$nsParams = self::renderForIE() ? 
 			"" : "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'";

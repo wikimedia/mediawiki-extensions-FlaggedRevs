@@ -22,11 +22,12 @@ $messages['en'] = array(
 	'ratinghistory-users'   => 'Users who made reviews on this page:',
 	'ratinghistory-graph'   => '$2 of "$3" ($1 {{PLURAL:$1|review|reviews}})',
 	'ratinghistory-none'    => 'There is not enough reader feedback data available for graphs at this time.',
-	'ratinghistory-legend'  => 'The daily average rating <font color="blue">\'\'(blue)\'\'</font> and selected interval 
-	average rating <font color="green">\'\'(green)\'\'</font> are graphed below, by date.
+	'ratinghistory-legend'  => 'The \'\'\'daily average rating\'\'\' <font color="blue">\'\'(blue)\'\'</font> and 
+	\'\'\'interval average rating\'\'\' <font color="green">\'\'(green)\'\'</font> are graphed below, by date. 
 	
-\'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;',
+Scale: \'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;
 
+	The \'\'\'number of reviews per day\'\'\' <font color="red">\'\'(red)\'\'</font> are shown on the graphs below, on a \'\'1:$1\'\' scale.',
 	'right-feedback' => 'Use the feedback form to rate a page',
 );
 
