@@ -122,7 +122,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
-							'width' => '1000px', 'height' => '400px') ) . 
+							'width' => '1000px', 'height' => '410px') ) . 
 						Xml::closeElement( 'object' ) .
 						Xml::closeElement( 'div' ) . "\n"
 					);
@@ -364,16 +364,16 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		// Set some parameters
 		$plot->graphicWidth = 1000;
-		$plot->graphicHeight = 400;
-		$plot->plotWidth = 950;
-		$plot->plotHeight = 350;
+		$plot->graphicHeight = 410;
+		$plot->plotWidth = 930;
+		$plot->plotHeight = 340;
 		$plot->decimalPlacesY = 1;
-		$plot->plotOffsetX = 30;
-		$plot->plotOffsetY = 25;
+		$plot->plotOffsetX = 40;
+		$plot->plotOffsetY = 35;
 		$plot->numGridlinesY = 9;
-		$plot->innerPaddingX = 5;
-		$plot->innerPaddingY = 2;
-		$plot->outerPadding = 0;
+		$plot->innerPaddingX = 10;
+		$plot->innerPaddingY = 10;
+		$plot->outerPadding = 5;
 		$plot->offsetGridlinesX = 0;
 		$plot->minY = 0;
 		$plot->maxY = 4;
