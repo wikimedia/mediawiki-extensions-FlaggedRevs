@@ -1,5 +1,5 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
+if( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
 }
@@ -121,9 +121,8 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3>' );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
-						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
-							'width' => '1000px', 'height' => '410px', 'class' => 'fr_reader_feedback_plot') ) . 
-						Xml::closeElement( 'object' ) .
+						Xml::element( 'embed', array('src' => $url, 'class' => 'fr_reader_feedback_plot', 
+							'width' => '1000px', 'height' => '410px') ) .
 						Xml::closeElement( 'div' ) . "\n"
 					);
 				}
@@ -232,7 +231,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$chart .= Xml::closeElement( 'div' );
 		// Write to file for cache
 		$fp = @fopen( $filePath, 'w' );
-		@fwrite($fp, $chart );
+		@fwrite( $fp, $chart );
 		@fclose( $fp );
 		return $chart;
 	}
@@ -483,7 +482,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->generateSVG( $nsParams );
 		// Write to file for cache
 		$fp = @fopen( $filePath, 'w' );
-		@fwrite($fp, $plot->svg );
+		@fwrite( $fp, $plot->svg );
 		@fclose( $fp );
 		return true;
 	}
