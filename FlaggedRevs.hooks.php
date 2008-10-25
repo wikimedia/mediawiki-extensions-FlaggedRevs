@@ -504,7 +504,7 @@ EOT;
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
 		# Bug 15748, be lax about commons image sync status
 		$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
-		if( $file->exists() && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
+		if( $file && $file->exists() && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
 			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
