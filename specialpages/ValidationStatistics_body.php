@@ -38,7 +38,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old
 		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
 		foreach( $msgs as $msg ) {
-			$wgOut->addHTML( '<tr>' . wfMsgExt("validationstatistics-$msg",array('parseinline')) . '</tr>' );
+			$wgOut->addHTML( '<th>' . wfMsgExt("validationstatistics-$msg",array('parseinline')) . '</th>' );
 		}
 		$wgOut->addHTML( "</tr>\n" );
 
