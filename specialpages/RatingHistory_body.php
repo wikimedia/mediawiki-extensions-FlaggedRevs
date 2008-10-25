@@ -233,6 +233,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Write to file for cache
 		$fp = @fopen( $filePath, 'w' );
 		@fwrite($fp, $chart );
+		@fclose( $fp );
 		return $chart;
 	}
 	
@@ -483,6 +484,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Write to file for cache
 		$fp = @fopen( $filePath, 'w' );
 		@fwrite($fp, $plot->svg );
+		@fclose( $fp );
 		return true;
 	}
 	
