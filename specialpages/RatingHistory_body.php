@@ -467,7 +467,7 @@ class RatingHistory extends UnlistedSpecialPage
 			  <marker id="circle" style="stroke:red; stroke-width:0; fill:red; "
 				viewBox="0 0 10 10" refX="5" refY="5" orient="0"
 				markerUnits="strokeWidth" markerWidth="5" markerHeight="5">
-				<circle cx="5" cy="5" r="4"/>
+				<circle cx="5" cy="5" r="3"/>
 			  </marker>
 			</defs>';
 		# Create the graph
