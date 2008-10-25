@@ -31,15 +31,14 @@ class ValidationStatistics extends IncludableSpecialPage
 		}
 
 		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
-		$wgOut->addHTML( Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) ) .
-				"<tr>\n"
-		);
+		$wgOut->addHTML( Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) ) );
+		$wgOut->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
 		// validationstatistics-ns, validationstatistics-total, validationstatistics-stable,
 		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old
 		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
 		foreach( $msgs as $msg ) {
-			$wgOut->addHTML( Xml::element( 'th', null, wfMsg( "validationstatistics-$msg" ) ) );
+			$wgOut->addHTML( '<tr>' . wfMsgExt("validationstatistics-$msg",array('parseinline')) . '</tr>' );
 		}
 		$wgOut->addHTML( "</tr>\n" );
 
