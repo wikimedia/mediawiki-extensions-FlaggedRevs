@@ -118,18 +118,18 @@ class RatingHistory extends UnlistedSpecialPage
 			if( $ext === 'svg' ) {
 				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
 					$data = true;
-					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3>' );
+					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
-						Xml::element( 'embed', array('src' => $url, 'class' => 'fr_reader_feedback_plot', 
-							'width' => '1000px', 'height' => '410px') ) .
+						Xml::element( 'embed', array('src' => $url, 'type' => 'image/svg-xml',
+							'class' => 'fr_reader_feedback_plot', 'width' => '1000', 'height' => '410') ) .
 						Xml::closeElement( 'div' ) . "\n"
 					);
 				}
 			} else if( $ext === 'png' ) {
 				if( !$this->fileExpired($tag,$filePath) || $this->makePngGraph( $tag, $filePath ) ) {
 					$data = true;
-					$wgOut->addHTML( '<h3>' . wfMsgHtml("readerfeedback-$tag") . '</h3>' );
+					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
