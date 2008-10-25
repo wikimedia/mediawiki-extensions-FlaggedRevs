@@ -456,7 +456,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
-		$plot->format['dcount'] = array( 'style' => 'stroke:none; stroke-width:1;', 
+		$plot->format['dcount'] = array( 'style' => 'stroke:grey; stroke-width:1;', 
 			'attributes' => "marker-end='url(#circle)'");
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
 			$totalCount, wfMsgHtml("readerfeedback-$tag"), $this->page->getPrefixedText() );
@@ -465,7 +465,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->extraSVG = 
 			'<defs>
 			  <marker id="circle" style="stroke:red; stroke-width:0; fill:red; "
-				viewBox="0 0 10 10" refX="3" refY="7" orient="0"
+				viewBox="0 0 10 10" refX="5" refY="7" orient="0"
 				markerUnits="strokeWidth" markerWidth="5" markerHeight="5">
 				<circle cx="5" cy="5" r="3"/>
 			  </marker>
