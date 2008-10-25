@@ -122,7 +122,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'object', array('data' => $url, 'type' => 'image/svg+xml', 
-							'width' => '1000px', 'height' => '410px') ) . 
+							'width' => '1000px', 'height' => '410px', 'class' => 'fr_reader_feedback_plot') ) . 
 						Xml::closeElement( 'object' ) .
 						Xml::closeElement( 'div' ) . "\n"
 					);

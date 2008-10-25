@@ -328,9 +328,12 @@
 }
 
 .fr_reader_feedback_graph {
-	background-color: #F8F8F8;
 	width: 100%; 
 	overflow: auto;
+}
+
+.fr_reader_feedback_plot {
+	background-color: #F8F8F8;
 }
 
 .fr_reader_feedback_users {
