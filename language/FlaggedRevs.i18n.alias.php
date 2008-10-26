@@ -228,12 +228,15 @@ $aliases['lb'] = array(
 	'LikedPages' => array( 'Beléiwte Säiten' ),
 	'OldReviewedPages' => array( 'Sàite mat Versiounen déi net iwwerpréift sinn' ),
 	'ProblemPages' => array( 'Problematesch Säiten' ),
+	'RatingHistory' => array( 'Bewertung vun de Versiounen' ),
 	'ReaderFeedback' => array( 'Bewertung vun de Lieser' ),
-	'ReviewedPages' => array( 'Säiten déi iwwerkuckt gi sinn' ),
+	'ReviewedPages' => array( 'Säiten déi iwwerkuckt goufen' ),
+	'RevisionReview' => array( 'Versioun iwwerpréifen' ),
 	'Stabilization' => array( 'Stabilisatioun' ),
 	'StablePages' => array( 'Stabil Säiten' ),
 	'StableVersions' => array( 'Stabil Versiounen' ),
 	'UnreviewedPages' => array( 'Net iwwerpréifte Säiten' ),
+	'UnstablePages' => array( 'Net stabil Säiten' ),
 	'ValidationStatistics' => array( 'Statistik vun den iwwerpréifte Säiten' ),
 );
 

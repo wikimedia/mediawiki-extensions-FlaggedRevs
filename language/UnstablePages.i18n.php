@@ -49,9 +49,13 @@ $messages['arz'] = array(
 );
 
 /** German (Deutsch)
+ * @author Metalhead64
  * @author Revolus
  */
 $messages['de'] = array(
+	'unstablepages' => 'Unstabile Seiten',
+	'unstablepages-stable' => 'Stabile Version',
+	'unstablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit die Entwurfsversion als Standardinhalt für Leser angezeigt wird.',
 	'unstablepages-none' => 'Die Liste ist leer.',
 	'unstablepages-config' => 'Konfiguration',
 );
