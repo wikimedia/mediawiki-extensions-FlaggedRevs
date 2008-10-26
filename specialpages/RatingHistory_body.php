@@ -121,7 +121,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
-						Xml::element( 'embed', array('src' => $url, 'type' => 'image/svg-xml',
+						Xml::element( 'embed', array('src' => $url, 'type' => 'image/svg+xml',
 							'class' => 'fr_reader_feedback_plot', 'width' => '1000', 'height' => '410') ) .
 						Xml::closeElement( 'div' ) . "\n"
 					);
