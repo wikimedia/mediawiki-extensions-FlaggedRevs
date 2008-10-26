@@ -459,7 +459,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->format['dcount'] = array( 'style' => 'stroke:grey; stroke-width:1;', 
 			'attributes' => "marker-end='url(#circle)'");
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
-			$totalCount, wfMsgHtml("readerfeedback-$tag"), $this->page->getPrefixedText() );
+			$totalCount, wfMsgForContent("readerfeedback-$tag"), $this->page->getPrefixedText() );
 		$plot->styleTitle = 'font-family: sans-serif; font-size: 10pt;';
 		// extra code for markers
 		$plot->extraSVG = 
