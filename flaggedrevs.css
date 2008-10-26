@@ -246,6 +246,14 @@
 	line-height: 1em;
 }
 
+.fr-hist-stable-user {
+	font-weight: bold;
+}
+
+.fr-hist-quality-user {
+	font-weight: bold;
+}
+
 /* Site notices */
 .fr-backlognotice {
 	padding: 3px;

@@ -930,7 +930,8 @@ class FlaggedRevs {
 			$user = User::whois( $row->fr_user );
 			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
 			$st = $title->getPrefixedDBkey();
-			$link = "<span class='plainlinks'>".wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user)."</span>";
+			$link = "<span class='fr-$msg plainlinks'>[" .
+				wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user) . "]</span>";
 		} else {
 			return array("","");
 		}

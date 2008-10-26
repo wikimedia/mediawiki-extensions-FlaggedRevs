@@ -883,7 +883,7 @@ class FlaggedArticle extends Article {
 		$skin = $wgUser->getSkin();
 		list($link,$class) = FlaggedRevs::markHistoryRow( $this->parent->getTitle(), $row, $skin );
 		if( $link ) {
-			$s = "<span class='$class'>$s</span> <small><strong>[$link]</strong></small>";
+			$s = "<span class='$class'>$s</span> <small>$link</small>";
 		}
 		return true;
 	}
