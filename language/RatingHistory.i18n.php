@@ -59,7 +59,9 @@ $messages['ar'] = array(
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ.
 
-'''[0]''' - فقير؛ '''[1]''' - منخفض؛ '''[2]''' - معقول؛ '''[3]''' - مرتفع؛ '''[4]''' - ممتاز؛",
+'''[1]''' - فقير؛ '''[2]''' - منخفض؛ '''[3]''' - معقول؛ '''[4]''' - مرتفع؛ '''[5]''' - ممتاز؛
+
+'''عدد المراجعات لكل يوم''' <font color=\"red\">''(أحمر)''</font> معروض في الرسومات بالأسفل، بمقياس ''1:\$1''.",
 	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
 );
 
@@ -84,7 +86,9 @@ $messages['arz'] = array(
 	'ratinghistory-legend' => "التقييم اليومى المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ.
 
-'''[0]''' - فقير؛ '''[1]''' - منخفض؛ '''[2]''' - معقول؛ '''[3]''' - مرتفع؛ '''[4]''' - ممتاز؛",
+'''[1]''' - فقير؛ '''[2]''' - منخفض؛ '''[3]''' - معقول؛ '''[4]''' - مرتفع؛ '''[5]''' - ممتاز؛
+
+'''عدد المراجعات لكل يوم''' <font color=\"red\">''(أحمر)''</font> معروض فى الرسومات بالأسفل، بمقياس ''1:\$1''.",
 	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
 );
 
@@ -134,7 +138,7 @@ $messages['de'] = array(
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
 	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
 	
-'''[0]''' - Mangelhaft; '''[1]''' - Ausreichend; '''[2]''' - Befriedigend; '''[3]''' - Gut; '''[4]''' - Sehr gut;",
+'''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;",
 	'right-feedback' => 'Bewerten einer Seite',
 );
 
@@ -159,7 +163,7 @@ $messages['eo'] = array(
 	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
 intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
 
-'''[0]''' - Malbonega; '''[1]''' - Malbonkvalita; '''[2]''' - Mezkvalita; '''[3]''' - Bonkvalita; '''[4]''' - Bonega;",
+'''[1]''' - Malbonega; '''[2]''' - Malbonkvalita; '''[3]''' - Mezkvalita; '''[4]''' - Bonkvalita; '''[5]''' - Bonega;",
 	'right-feedback' => 'Uzu la kontrolan sekcion por kontroli paĝon',
 );
 
@@ -207,7 +211,7 @@ $messages['fr'] = array(
 	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
 	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés, ci-dessous, par date.
 
-'''[0]''' - Mauvais ; '''[1]''' - Médiocre ; '''[2]''' - Moyen ; '''[3]''' - Bon ; '''[4]''' - Excellent ;
+'''[1]''' - Mauvais ; '''[2]''' - Médiocre ; '''[3]''' - Moyen ; '''[4]''' - Bon ; '''[5]''' - Excellent ;
 
 Le '''nombre de vérification par jour''' <font color=\"red\">''(rouge)''</font> sont affichées sur le graphe ci-dessous, avec une echelle ''1:\$1''.",
 	'right-feedback' => 'Utiliser le formulaire de soumission pour noter une page',
@@ -233,7 +237,7 @@ $messages['gl'] = array(
 	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
 	'ratinghistory-legend' => "A valoración do promedio diario <font color=\"blue\">''(azul)''</font> e o intervalo seleccionado <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo.
 
-'''[0]''' - Pobre; '''[1]''' - Baixo; '''[2]''' - Ben; '''[3]''' - Alto; '''[4]''' - Excelente;",
+'''[1]''' - Pobre; '''[2]''' - Baixo; '''[3]''' - Ben; '''[4]''' - Alto; '''[5]''' - Excelente;",
 	'right-feedback' => 'Usar o formulario de reacción para valorar unha páxina',
 );
 
@@ -254,7 +258,7 @@ $messages['hu'] = array(
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
 	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> ábrája látható, dátum szerint. Az összes értékelés száma a jobb felső sarokban látható. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
 
-'''[0]''' - Rossz; '''[1]''' - Gyenge; '''[2]''' - Közepes; '''[3]''' - Jó; '''[4]''' - Kitűnő;",
+'''[1]''' - Rossz; '''[2]''' - Gyenge; '''[3]''' - Közepes; '''[4]''' - Jó; '''[5]''' - Kitűnő;",
 	'right-feedback' => 'oldalak értékelése a visszajelzés-űrlap segítségével',
 );
 
@@ -278,7 +282,7 @@ $messages['id'] = array(
 	'ratinghistory-none' => 'Belum ada cukup umpan balik pembaca tersedia untuk membuat grafik pada saat ini.',
 	'ratinghistory-legend' => "'''Rata-rata peringkat harian''' <font color=\"blue\">''(biru)''</font> dan '''rata-rata peringkat interval''' <font color=\"green\">''(hijau)''</font> ditampilkan dalam grafik di bawah ini, menurut tanggal.
 
-Skala: '''[0]''' - Buruk; '''[1]''' - Rendah; '''[2]''' - Cukup; '''[3]''' - Tinggi; '''[4]''' - Baik sekali;
+Skala: '''[1]''' - Buruk; '''[2]''' - Rendah; '''[3]''' - Cukup; '''[4]''' - Tinggi; '''[5]''' - Baik sekali;
 
 '''Jumlah tinjauan per hari''' <font color=\"red\">''(merah)''</font> ditampilkan pada grafik berikut dengan skala ''1:\$1''.",
 	'right-feedback' => 'Gunakan formulir umpan balik untuk memberikan peringkat halaman',
@@ -301,7 +305,9 @@ $messages['it'] = array(
 	'ratinghistory-none' => 'Non sono disponibile sufficienti dati di feedback dei lettori per poter rappresentare dei grafici al momento.',
 	'ratinghistory-legend' => "I giudizi medi giornalieri <font color=\"blue\">''(blu)''</font> e gli intervalli dei giudizi medi selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. 
 
-'''[0]''' - Insufficiente; '''[1]''' - Mediocre; '''[2]''' - Discreto; '''[3]''' - Buono; '''[4]''' - Ottimo;",
+'''[1]''' - Insufficiente; '''[2]''' - Mediocre; '''[3]''' - Discreto; '''[4]''' - Buono; '''[5]''' - Ottimo;
+
+Il '''numero di revisioni al giorno''' <font color=\"red\">''(rosso)''</font> è mostrato nel grafico di sotto, in scala ''1:\$1''.",
 	'right-feedback' => 'Usa il modulo di feedback per giudicare una pagina',
 );
 
@@ -340,7 +346,7 @@ $messages['ms'] = array(
 	'ratinghistory-none' => 'Data maklum balas pembaca belum cukup untuk penghasilan graf.',
 	'ratinghistory-legend' => "Berikut ialah graf penilaian purata harian <font color=\"blue\">''(biru)''</font> dan penilaian purata selang yang dipilih <font color=\"green\">''(hijau)''</font> mengikut tarikh. Jumlah pemeriksaan ditunjukkan di bucu kanan atas. Nilai tinggi menandakan data sampel yang lebih baik. Berikut ialah pentafsiran tahap penilaian:
 
-'''[0]''' - Lemah, '''[1]''' - Rendah, '''[2]''' - Sederhana, '''[3]''' - Tinggi, '''[4]''' - Cemerlang",
+'''[1]''' - Lemah, '''[2]''' - Rendah, '''[3]''' - Sederhana, '''[4]''' - Tinggi, '''[5]''' - Cemerlang",
 );
 
 /** Erzya (Эрзянь)
@@ -371,7 +377,7 @@ $messages['nl'] = array(
 	'ratinghistory-none' => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven periode <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
 
-'''[0]''' - Slecht; '''[1]''' - Laag; '''[2]''' - Redelijk; '''[3]''' - Hoog; '''[4]''' - Uitstekend;
+'''[1]''' - Slecht; '''[2]''' - Laag; '''[3]''' - Redelijk; '''[4]''' - Hoog; '''[5]''' - Uitstekend;
 
 Het '''aantal waarderingen per dag''' <font color=\"red\">''(rood)''</font> wordt hieronder weergegeven in de grafieken op een schaal van ''1:\$1''.",
 	'right-feedback' => 'Het waarderingsformulier gebruiken om een pagina te waarderen',
@@ -395,7 +401,7 @@ $messages['no'] = array(
 	'ratinghistory-none' => 'Det er ikke nok leservurderinger til å vise grafer ennå.',
 	'ratinghistory-legend' => "Det daglige gjennomsnittet (<font color=\"blue\">''blå''</font>) og gjennomsnittet for valgte intervall (<font color=\"green\">''grønn''</font>) vil vises i grafen nedenfor, etter dato. Vurderingsverdiene tolkes slik:
 
-'''[0]''' &ndash; Veldig dårlig; '''[1]''' &ndash; Dårlig; '''[2]''' &ndash; OK; '''[3]''' &ndash; Bra; '''[4]''' &ndash; Veldig bra;",
+'''[1]''' &ndash; Veldig dårlig; '''[2]''' &ndash; Dårlig; '''[3]''' &ndash; OK; '''[4]''' &ndash; Bra; '''[5]''' &ndash; Veldig bra;",
 	'right-feedback' => 'Bruke tilbakemeldingsskjemaet for å vurdere en side',
 );
 
@@ -413,13 +419,15 @@ $messages['oc'] = array(
 	'ratinghistory-month' => 'darrièr mes',
 	'ratinghistory-year' => 'darrièra annada',
 	'ratinghistory-3years' => 'las 3 darrièras annadas',
-	'ratinghistory-chart' => 'Lector notant fòra relambi :',
+	'ratinghistory-chart' => 'Relector notant fòra relambi :',
 	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas sus aquesta pagina :",
-	'ratinghistory-graph' => '$2 de la pagina « $3 » ($1 {{PLURAL:$1|revision|revisions}})',
+	'ratinghistory-graph' => '$2 sus « $3 » ($1 {{PLURAL:$1|relector|relectors}})',
 	'ratinghistory-none' => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
-	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> son dessenhats çaijós, per data. 
+	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> de la notacion son dessenhats çaijós, per data. 
 
-'''[0]''' - Marrit ; '''[1]''' - Mediòcre ; '''[2]''' - Mejan ; '''[3]''' - Bon ; '''[4]''' - Excellent ;",
+'''[1]''' - Marrit ; '''[2]''' - Mediòcre ; '''[3]''' - Mejan ; '''[4]''' - Bon ; '''[5]''' - Excellent ;
+
+Lo '''nombre de verificacion per jorn''' <font color=\"red\">''(roge)''</font> es afichat sul grafic çajós, amb una escala ''1:\$1''.",
 	'right-feedback' => 'Utilizar lo formulari de somission per notar una pagina',
 );
 
@@ -444,7 +452,7 @@ $messages['pl'] = array(
 	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników by móc stworzyć wykresy.',
 	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty.
 
-Skala: '''[0]''' – Niedostatecznie; '''[1]''' – Słabo; '''[2]''' – Zadowalająco; '''[3]''' – Dobrze; '''[4]''' – Bardzo dobrze;
+Skala: '''[1]''' – Niedostatecznie; '''[2]''' – Słabo; '''[3]''' – Zadowalająco; '''[4]''' – Dobrze; '''[5]''' – Bardzo dobrze;
 
 '''Liczba ocen na dzień''' <font color=\"red\">''(na czerwono)''</font> jest pokazana poniżej wykresu w skali ''1:\$1''.",
 	'right-feedback' => 'Użyj formularza, aby ocenić stronę',
@@ -484,7 +492,7 @@ $messages['sk'] = array(
 	'ratinghistory-none' => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
 	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu <font color=\"green\">''(zelenou)''</font>. Hodnoty hodnotenia sa interpretujú nasledovne:
 
-'''[0]''' - Slabé; '''[1]''' - Nízke; '''[2]''' - Dobré; '''[3]''' - Vysoké; '''[4]''' - Výborné;",
+'''[1]''' - Slabé; '''[2]''' - Nízke; '''[3]''' - Dobré; '''[4]''' - Vysoké; '''[5]''' - Výborné;",
 	'right-feedback' => 'Stránku ohodnotíte pomocou formulára spätnej väzby',
 );
 
@@ -525,7 +533,7 @@ $messages['sv'] = array(
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
 	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum.
 
-'''[0]''' - Mycket dålig; '''[1]''' - Dålig; '''[2]''' - Okej; '''[3]''' - Bra; '''[4]''' - Mycket bra;",
+'''[1]''' - Mycket dålig; '''[2]''' - Dålig; '''[3]''' - Okej; '''[4]''' - Bra; '''[5]''' - Mycket bra;",
 	'right-feedback' => 'Använd feedback-formuläret för att betygsätta en sida',
 );
 
@@ -566,7 +574,7 @@ $messages['vi'] = array(
 	'ratinghistory-none' => 'Hiện chưa có đủ dữ liệu đánh giá của độc giả để vẽ biểu thị.',
 	'ratinghistory-legend' => "Những biểu thị ở dưới trình bày đánh giá trung bình hàng ngày <font color=\"blue\">''(lam)''</font> và đánh giá trung bình tại các giai đoạn lựa chọn <font color=\"green\">''(lục)''</font>, theo thời gian. Các đánh giá có các giá trị sau:
 
-'''[0]''' – Tệ; '''[1]''' – Dở; '''[2]''' – Khá; '''[3]''' – Hay; '''[4]''' – Tuyệt
+'''[1]''' – Tệ; '''[2]''' – Dở; '''[3]''' – Khá; '''[4]''' – Hay; '''[5]''' – Tuyệt
 
 Những biểu thị cũng trình bày '''số lần đánh giá trong ngày''' <font color=\"red\">''(đỏ)''</font> với tỷ lệ ''1:\$1''.",
 	'right-feedback' => 'Đánh giá trang',
