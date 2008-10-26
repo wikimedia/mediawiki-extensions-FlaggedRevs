@@ -25,7 +25,7 @@ $messages['en'] = array(
 	'ratinghistory-legend'  => 'The \'\'\'daily average rating\'\'\' <font color="blue">\'\'(blue)\'\'</font> and 
 	\'\'\'interval average rating\'\'\' <font color="green">\'\'(green)\'\'</font> are graphed below, by date. 
 	
-Scale: \'\'\'[0]\'\'\' - Poor; \'\'\'[1]\'\'\' - Low; \'\'\'[2]\'\'\' - Fair; \'\'\'[3]\'\'\' - High; \'\'\'[4]\'\'\' - Excellent;
+Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'\'\'[4]\'\'\' - High; \'\'\'[5]\'\'\' - Excellent;
 
 	The \'\'\'number of reviews per day\'\'\' <font color="red">\'\'(red)\'\'</font> are shown on the graphs below, on a \'\'1:$1\'\' scale.',
 	'right-feedback' => 'Use the feedback form to rate a page',

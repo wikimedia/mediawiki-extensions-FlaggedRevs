@@ -48,7 +48,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$period = 31; // default
 		}
 		$this->period = $period;
-		$this->dScale = 10;
+		$this->dScale = 20;
 		# Thank voters
 		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
 			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parse') );
@@ -288,8 +288,9 @@ class RatingHistory extends UnlistedSpecialPage
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
-			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
-			$cumAve = (real)$totalVal/(real)$totalCount;
+			// Nudge values up by 1
+			$dayAve = 1 + (real)$row->rfh_total/(real)$row->rfh_count;
+			$cumAve = 1 + (real)$totalVal/(real)$totalCount;
 			$year = intval( substr( $row->rfh_date, 0, 4 ) );
 			$month = intval( substr( $row->rfh_date, 4, 2 ) );
 			$day = intval( substr( $row->rfh_date, 6, 2 ) );
@@ -336,7 +337,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->SetXTickPos('none');
 		$plot->SetYTickIncrement( .5 );
 		// Set plot area
-		$plot->SetPlotAreaWorld( 0, 0, null, 4 );
+		$plot->SetPlotAreaWorld( 0, 0, null, 5 );
 		// Show total number of votes
 		$plot->SetLegend( array("#{$totalCount}") );
 		// Draw it!
@@ -366,17 +367,17 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->graphicWidth = 1000;
 		$plot->graphicHeight = 410;
 		$plot->plotWidth = 930;
-		$plot->plotHeight = 340;
+		$plot->plotHeight = 350;
 		$plot->decimalPlacesY = 1;
 		$plot->plotOffsetX = 40;
-		$plot->plotOffsetY = 35;
-		$plot->numGridlinesY = 9;
+		$plot->plotOffsetY = 30;
+		$plot->numGridlinesY = 10 + 1;
 		$plot->innerPaddingX = 10;
 		$plot->innerPaddingY = 10;
 		$plot->outerPadding = 5;
 		$plot->offsetGridlinesX = 0;
 		$plot->minY = 0;
-		$plot->maxY = 4;
+		$plot->maxY = 5;
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
 		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
@@ -405,8 +406,9 @@ class RatingHistory extends UnlistedSpecialPage
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
-			$dayAve = (real)$row->rfh_total/(real)$row->rfh_count;
-			$cumAve = (real)$totalVal/(real)$totalCount;
+			// Nudge values up by 1
+			$dayAve = 1 + (real)$row->rfh_total/(real)$row->rfh_count;
+			$cumAve = 1 + (real)$totalVal/(real)$totalCount;
 			$year = intval( substr( $row->rfh_date, 0, 4 ) );
 			$month = intval( substr( $row->rfh_date, 4, 2 ) );
 			$day = intval( substr( $row->rfh_date, 6, 2 ) );
@@ -591,6 +593,24 @@ class RatingHistory extends UnlistedSpecialPage
 		return $html;
 	}
 	
+	public function purgePage() {
+		global $wgUploadDirectory;
+		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
+			$dir = "{$wgUploadDirectory}/graphs/".$this->page->getArticleId()."/{$tag}/";
+			if( is_dir( $dir ) ) {
+				$handle = opendir( $dir );
+				if( $handle ) {
+					while( false !== ( $file = readdir($handle) ) ) {
+						@unlink("$dir/$file");
+					}
+					closedir( $handle );
+				}
+			}
+			@rmdir( $dir );
+		}
+		return true;
+	}
+	
 	/**
 	* Check if a graph file is expired.
 	* @param string $tag
@@ -607,8 +627,17 @@ class RatingHistory extends UnlistedSpecialPage
 			array( 'rfp_page_id' => $this->page->getArticleId(), 'rfp_tag' => $tag ),
 			__METHOD__ );
 		$tagTimestamp = wfTimestamp( TS_MW, $tagTimestamp );
-		$fileTimestamp = wfTimestamp( TS_MW, filemtime($path) );
-		return ($fileTimestamp < $tagTimestamp );
+		$file_unixtime = filemtime($path);
+		# Check max cache time
+		$cutoff_unixtime = time() - (7 * 24 * 3600);
+		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+		if( $file_unixtime < $cutoff_unixtime ) {
+			$this->purgePage();
+			return true;
+		}
+		# If there are new votes, graph is stale
+		$fileTimestamp = wfTimestamp( TS_MW, $file_unixtime );
+		return ( $fileTimestamp < $tagTimestamp);
 	}
 	
 	/**
