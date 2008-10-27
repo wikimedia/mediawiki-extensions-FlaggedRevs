@@ -262,12 +262,12 @@ $aliases['mr'] = array(
  * @author Aviator
  */
 $aliases['ms'] = array(
-	'OldReviewedPages' => array( 'Laman_diperiksa_lapuk' ),
-	'ProblemPages' => array( 'Laman_bermasalah' ),
-	'QualityOversight' => array( 'Kawalan_mutu' ),
-	'ReviewedPages' => array( 'Laman_diperiksa' ),
-	'StablePages' => array( 'Laman_stabil' ),
-	'StableVersions' => array( 'Versi_stabil' ),
+	'OldReviewedPages' => array( 'Laman diperiksa lapuk' ),
+	'ProblemPages' => array( 'Laman bermasalah' ),
+	'QualityOversight' => array( 'Kawalan mutu' ),
+	'ReviewedPages' => array( 'Laman diperiksa' ),
+	'StablePages' => array( 'Laman stabil' ),
+	'StableVersions' => array( 'Versi stabil' ),
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
