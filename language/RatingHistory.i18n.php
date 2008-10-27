@@ -132,13 +132,15 @@ $messages['de'] = array(
 	'ratinghistory-month' => 'letzter Monat',
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
-	'ratinghistory-chart' => 'Leserbewertungen über die Zeit:',
+	'ratinghistory-chart' => 'Leserbewertungen über die Zeit',
 	'ratinghistory-users' => 'Benutzer, die diese Seite bewertet haben:',
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend' => "Der Bewertungs-Tagesdurchschnitt <font color=\"blue\">''(blau)''</font> und der Durchschnitt über den ausgewählten Zeitraum <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
+	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
 	
-'''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;",
+'''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;
+
+In der folgenden Grafik werden die '''Anzahl Bewertungen pro Tag''' <font color=\"red\">''(rot)''</font> auf einer 1:\$1-Skala gezeigt.",
 	'right-feedback' => 'Bewerten einer Seite',
 );
 
