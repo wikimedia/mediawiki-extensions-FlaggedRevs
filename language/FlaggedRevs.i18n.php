@@ -211,6 +211,8 @@ Please check the URL you used to access this page.',
 	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages
 	'accesskey-ca-stable'          => 'c', # do not translate or duplicate this message to other languages
 	
+	'logshowhide-review'           => '$1 review log',
+	
 	'revreview-tt-review'          => 'Review this page',
 	'validationpage'               => '{{ns:help}}:Article validation',
 );
