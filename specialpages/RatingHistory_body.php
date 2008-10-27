@@ -630,7 +630,6 @@ class RatingHistory extends UnlistedSpecialPage
 		$file_unixtime = filemtime($path);
 		# Check max cache time
 		$cutoff_unixtime = time() - (7 * 24 * 3600);
-		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		if( $file_unixtime < $cutoff_unixtime ) {
 			$this->purgePage();
 			return true;
