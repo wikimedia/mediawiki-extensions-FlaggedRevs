@@ -158,14 +158,16 @@ $messages['eo'] = array(
 	'ratinghistory-month' => 'lasta monato',
 	'ratinghistory-year' => 'lasta jaro',
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
-	'ratinghistory-chart' => 'Taksado de legantaro trans tempo:',
+	'ratinghistory-chart' => 'Taksado de legantaro trans tempo',
 	'ratinghistory-users' => 'Uzantoj kiuj kontrolis ĉi tiun paĝon:',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
-	'ratinghistory-legend' => "La tage averaĝa taksado <font color=\"blue\">''(blua)''</font> kaj selektita 
-intervalaveraĝo <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
+	'ratinghistory-legend' => "La '''tage averaĝa taksado''' <font color=\"blue\">''(blua)''</font> kaj 
+'''intervalaveraĝa taksado''' <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
 
-'''[1]''' - Malbonega; '''[2]''' - Malbonkvalita; '''[3]''' - Mezkvalita; '''[4]''' - Bonkvalita; '''[5]''' - Bonega;",
+'''[1]''' - Malbonega; '''[2]''' - Malbonkvalita; '''[3]''' - Mezkvalita; '''[4]''' - Bonkvalita; '''[5]''' - Bonega;
+
+La '''nombro de kontrolo po tago''' <font color=\"red\">''(ruĝa)''</font> estas montrata en la jena grafeo, en ''1:\$1'' skalo.",
 	'right-feedback' => 'Uzu la kontrolan sekcion por kontroli paĝon',
 );
 
@@ -228,7 +230,7 @@ $messages['gl'] = array(
 	'ratinghistory-leg' => 'Historial de valoracións dos datos',
 	'ratinghistory-tab' => 'valoración',
 	'ratinghistory-link' => 'Valoración do artigo',
-	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazas por tomar un momento para revisar esta páxina!</font>''",
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazas por revisar esta páxina!</font>''",
 	'ratinghistory-period' => 'Período de tempo:',
 	'ratinghistory-month' => 'último mes',
 	'ratinghistory-year' => 'último ano',
@@ -237,9 +239,12 @@ $messages['gl'] = array(
 	'ratinghistory-users' => 'Usuarios que revisaron esta páxina:',
 	'ratinghistory-graph' => '$2 de "$3" ({{PLURAL:$1|unha revisión|$1 revisións}})',
 	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
-	'ratinghistory-legend' => "A valoración do promedio diario <font color=\"blue\">''(azul)''</font> e o intervalo seleccionado <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo.
+	'ratinghistory-legend' => "A '''valoración do promedio diari'''o <font color=\"blue\">''(azul)''</font> e
+o '''intervalo seleccionado''' <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo.
 
-'''[1]''' - Pobre; '''[2]''' - Baixo; '''[3]''' - Ben; '''[4]''' - Alto; '''[5]''' - Excelente;",
+Escala: '''[1]''' - Pobre; '''[2]''' - Baixo; '''[3]''' - Ben; '''[4]''' - Alto; '''[5]''' - Excelente;
+
+O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> é mostrado embaixo, cunha escala de ''1:\$1''.",
 	'right-feedback' => 'Usar o formulario de reacción para valorar unha páxina',
 );
 

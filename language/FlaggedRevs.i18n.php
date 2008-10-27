@@ -226,6 +226,7 @@ Please check the URL you used to access this page.',
  * @author Raymond
  * @author Rex
  * @author SPQRobin
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'editor' => '{{Flagged Revs}}
@@ -306,10 +307,10 @@ Displayed on the top of a page when you are viewing an old sighted version.
 	'revreview-draft-title' => '{{Flagged Revs}}',
 	'revreview-edit' => '{{Flagged Revs-small}}
 Users who see the stable version and not the draft version as article, have this message in the "edit" tab.',
-	'revreview-edited' => '{{Flagged Revs-small}}
-If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.',
 	'revreview-flag' => '{{Flagged Revs-small}}
 * Title of the review box shown below a page (when you have the permission to review pages).',
+	'revreview-edited' => '{{Flagged Revs-small}}
+If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.',
 	'revreview-invalid' => '{{Flagged Revs}}',
 	'revreview-legend' => '{{Flagged Revs}}',
 	'revreview-log' => '{{Flagged Revs}}
@@ -445,6 +446,7 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
+	'logshowhide-review' => '* $1 is one of {{msg|show}} or {{msg|hide}}',
 	'revreview-tt-review' => '{{Flagged Revs}}',
 	'validationpage' => "{{Flagged Revs-small}}
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}</nowiki></tt> part.",
@@ -847,6 +849,7 @@ $messages['ar'] = array(
 	'tooltip-ca-ratinghist' => 'تقييمات القراء لهذه الصفحة',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-unlocked' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
+	'logshowhide-review' => '$1 سجل المراجعة',
 	'revreview-tt-review' => 'راجع هذه الصفحة',
 	'validationpage' => '{{ns:help}}:تحقيق المقالات',
 );
@@ -1049,6 +1052,7 @@ $messages['arz'] = array(
 	'tooltip-ca-ratinghist' => 'تقييمات القراء لهذه الصفحة',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
 	'revreview-unlocked' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها فى هذه الصفحة!',
+	'logshowhide-review' => '$1 سجل المراجعة',
 	'revreview-tt-review' => 'راجع هذه الصفحة',
 	'validationpage' => '{{ns:help}}:تحقيق المقالات',
 );
@@ -2162,6 +2166,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'tooltip-ca-ratinghist' => 'Leserbewertungen dieser Seite',
 	'revreview-locked' => 'Bearbeitungen müssen markiert werden, bevor sie auf dieser Seite angezeigt werden.',
 	'revreview-unlocked' => 'Bearbeitungen benötigen keine Markierung, bevor sie auf dieser Seite angezeigt werden.',
+	'logshowhide-review' => 'Versionsmarkierungs-Logbuch $1',
 	'revreview-tt-review' => 'Markiere diese Seite',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
@@ -2423,6 +2428,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'tooltip-ca-ratinghist' => 'Taksoj de legintoj de ĉi tiu paĝo',
 	'revreview-locked' => 'Redaktoj devas esti kontrolitaj antaŭ montrante de ĉi tiu paĝo!',
 	'revreview-unlocked' => 'Redaktoj ne devas esti kontrolitaj antaŭ montrante de ĉi tiu paĝo!',
+	'logshowhide-review' => '$1 protokolo pri kontrolado',
 	'revreview-tt-review' => 'Kontroli ĉi tiun paĝon',
 	'validationpage' => '{{ns:help}}:Validigo de artikolo',
 );
@@ -3357,6 +3363,7 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'tooltip-ca-ratinghist' => 'Valoracións dos lectores desta páxina',
 	'revreview-locked' => 'As edicións deben estar revisadas antes de ser amosadas nesta páxina!',
 	'revreview-unlocked' => 'As edicións non requiren estar revisadas antes de ser amosadas nesta páxina!',
+	'logshowhide-review' => '$1 o rexistro de revisións',
 	'revreview-tt-review' => 'Revisar esta páxina',
 	'validationpage' => '{{ns:help}}:Confirmación do artigo',
 );
@@ -4377,9 +4384,9 @@ Aggiornare la pagina e ricominciare la revisione potrebbero risolvere il problem
 	'revreview-depth-3' => 'Alta',
 	'revreview-depth-4' => 'Ottima',
 	'revreview-edit' => 'Modifica la bozza',
+	'revreview-flag' => 'Revisiona questa versione',
 	'revreview-edited' => "'''Gli edit saranno inclusi nella [[{{MediaWiki:Validationpage}}|versione stabile]] dopo che un utente autorizzato li avrà revisionati.'''
 '''La ''bozza'' è mostrata di seguito.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modifica attende|modifiche attendono}}] una revisione.",
-	'revreview-flag' => 'Revisiona questa versione',
 	'revreview-invalid' => "'''Errore:''' nessuna versione [[{{MediaWiki:Validationpage}}|revisionata]] corrisponde all'ID fornito.",
 	'revreview-log' => 'Commento:',
 	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima versione visionata] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenca tutte]) è stata [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
@@ -4466,6 +4473,7 @@ Verificare la URL usata per accedere a questa pagina.',
 	'tooltip-ca-stable' => 'Vedi la versione stabile di questa pagina',
 	'revreview-locked' => 'Le modifiche devono essere revisionate prima di essere mostrate in questa pagina!',
 	'revreview-unlocked' => 'Le modifiche non hanno bisogno di essere revisionate prima di essere mostrate in questa pagina!',
+	'logshowhide-review' => '$1 log delle revisioni',
 	'revreview-tt-review' => 'Revisiona questa pagina',
 	'validationpage' => '{{ns:help}}:Verifica delle revisioni',
 );
@@ -6035,6 +6043,7 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 	'tooltip-ca-ratinghist' => 'Waardering van deze pagina door lezers',
 	'revreview-locked' => 'Bewerkingen op deze pagina behoeven eindredactie voordat ze weergegeven worden!',
 	'revreview-unlocked' => 'Bewerkingen op deze pagina behoeven geen eindredactie voordat ze weergegeven worden!',
+	'logshowhide-review' => 'Waarderingslogboek $1',
 	'revreview-tt-review' => 'Eindredactie voor deze pagina',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
@@ -6647,6 +6656,7 @@ Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 	'tooltip-ca-ratinghist' => 'Oceny czytelników tej strony',
 	'revreview-locked' => 'Edycje muszą zostać oznaczone zanim zostaną wyświetlone na tej stronie!',
 	'revreview-unlocked' => 'Edycje nie wymagają oznaczenia zanim zostaną wyświetlone na tej stronie.',
+	'logshowhide-review' => '$1 rejestr oznaczania',
 	'revreview-tt-review' => 'Oznacz tę stronę',
 	'validationpage' => '{{ns:help}}:Wersje oznaczone',
 );
@@ -8876,6 +8886,7 @@ Danh sách các trang ổn định có thể tìm thấy tại [[Special:StableP
 	'tooltip-ca-ratinghist' => 'Các đánh giá của độc giả về trang này',
 	'revreview-locked' => 'Các sửa đổi phải được duyệt trước khi được hiển thị tại trang này!',
 	'revreview-unlocked' => 'Các sửa đổi không cần được duyệt trước khi được hiển thị tại trang này!',
+	'logshowhide-review' => '$1 nhật trình duyệt',
 	'revreview-tt-review' => 'Duyệt trang này',
 	'validationpage' => '{{ns:help}}:Phê chuẩn bài viết',
 );

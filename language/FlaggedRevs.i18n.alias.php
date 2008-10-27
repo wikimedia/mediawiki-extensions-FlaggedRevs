@@ -414,6 +414,7 @@ $aliases['sv'] = array(
 	'ProblemPages' => array( 'Problemsidor' ),
 	'QualityOversight' => array( 'Kvalitetsöversikt' ),
 	'RatingHistory' => array( 'Betygshistorik' ),
+	'ReaderFeedback' => array( 'Läsarfeedback' ),
 	'ReviewedPages' => array( 'Granskade sidor' ),
 	'RevisionReview' => array( 'Versionsgranskning' ),
 	'Stabilization' => array( 'Stabilisering' ),
