@@ -117,7 +117,7 @@ class ProblemPagesPager extends AlphabeticPager {
 		$conds['rfp_tag'] = $this->tag;
 		$conds['page_namespace'] = $this->namespace;
 		// Has to be bad enough
-		$x = 2.5;
+		$x = 2;
 		if( $this->tag == 'overall' ) {
 			global $wgFlaggedRevsFeedbackTags;
 			$s = $x*array_sum($wgFlaggedRevsFeedbackTags);
