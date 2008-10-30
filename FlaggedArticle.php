@@ -538,6 +538,7 @@ class FlaggedArticle extends Article {
 		# Set new body html text as that of now
 		$tag = $warning = $prot = '';
 		# Check the newest stable version
+		$quality = 0;
 		if( $frev = $this->getStableRev() ) {
 			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
 			# Find out revision id
@@ -563,7 +564,9 @@ class FlaggedArticle extends Article {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$time = $wgLang->date( $frev->getTimestamp(), true );
 				$flags = $frev->getTags();
-				$quality = FlaggedRevs::isQuality( $flags );
+				if( FlaggedRevs::isQuality($flags) ) {
+					$quality = FlaggedRevs::isPristine($flags) ? 2 : 1;
+				}
 				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 				// Is the page config altered?
 				if( $this->isPageLocked() ) {
@@ -612,7 +615,10 @@ class FlaggedArticle extends Article {
 			# Conditions are met to show diff...
 			wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
 			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-			$rightNote = 'revreview-draft-title';
+			$rClass = FlaggedRevsXML::getQualityColor( false );
+			$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
+			$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-title')."]</span>";
+			$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
 			$text = $frev->getRevText();
 			# Are we editing a section?
 			$section = ($editPage->section == "") ? false : intval($editPage->section);
@@ -630,8 +636,8 @@ class FlaggedArticle extends Article {
 					"<col class='diff-marker' />" .
 					"<col class='diff-content' />" .
 					"<tr>" .
-						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>[" . wfMsgHtml($leftNote) . "]</b></td>" .
-						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>[" . wfMsgHtml($rightNote) . "]</b></td>" .
+						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" . $leftNote . "</b></td>" .
+						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" . $rightNote . "</b></td>" .
 					"</tr>" .
 					$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
 					"</table>" .
