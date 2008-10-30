@@ -578,7 +578,7 @@ EOT;
 	/**
 	* Don't let users vandalize pages by moving them
 	*/
-	public static function userCanMove( &$title, $user, &$action, &$result ) {
+	public static function userCanMove( $title, $user, &$action, &$result ) {
 		if( $action != 'move' || !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
 		}
@@ -621,7 +621,7 @@ EOT;
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
         if( $wgTitle && $wgTitle->equals( $title ) ) {
             // Cache stable version while we are at it.
-            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev( FR_TEXT ) ) {
+            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev() ) {
                 $result = true;
             }
         } else {
