@@ -339,11 +339,12 @@ $aliases['no'] = array(
 $aliases['oc'] = array(
 	'OldReviewedPages' => array( 'PaginasAncianasRelegidas' ),
 	'ProblemPages' => array( 'PaginasProblematicas' ),
-	'QualityOversight' => array( 'QualitatSupervisor', 'SupervisorQualitat' ),
-	'ReviewedPages' => array( 'Paginas revisadas' ),
-	'StablePages' => array( 'PaginasEstablas' ),
-	'StableVersions' => array( 'VersionsEstablas' ),
-	'UnreviewedPages' => array( 'PaginasPasRelegidas' ),
+	'QualityOversight' => array( 'SupervisorQualitat' ),
+	'ReviewedPages' => array( 'Paginas revisadas', 'PaginasRevisadas' ),
+	'StablePages' => array( 'Paginas establas', 'PaginasEstablas' ),
+	'StableVersions' => array( 'Versions establas', 'VersionsEstablas' ),
+	'UnreviewedPages' => array( 'Paginas pas relegidas', 'PaginasPasRelegidas' ),
+	'UnstablePages' => array( 'Paginas instablas', 'PaginasInstablas' ),
 );
 
 /** Polish (Polski)

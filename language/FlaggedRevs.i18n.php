@@ -1422,6 +1422,7 @@ $messages['bg'] = array(
 	'rights-editor-revoke' => 'отне правата на редактор на [[$1]]',
 	'stable-logpage' => 'Дневник на устойчивите версии',
 	'readerfeedback' => 'Какво мислите за тази страница?',
+	'readerfeedback-level-none' => '(избиране)',
 	'readerfeedback-submit' => 'Изпращане',
 	'readerfeedback-submitting' => 'Изпращане...',
 	'readerfeedback-finished' => 'Благодарим ви!',
@@ -2834,6 +2835,7 @@ Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
  * @author Cedric31
  * @author Dereckson
  * @author Grondin
+ * @author IAlex
  * @author McDutchie
  * @author Sherbrooke
  * @author Urhixidur
@@ -3022,6 +3024,7 @@ Consulter aussi la [[Special:StablePages|liste de pages stables]].',
 	'tooltip-ca-ratinghist' => 'Appréciations des lecteurs de cette page',
 	'revreview-locked' => 'Les modifications doivent être revues avant d’être affichées sur cette page !',
 	'revreview-unlocked' => 'Les modifications ne nécessitent pas de relecture avant d’être affichées sur cette page !',
+	'logshowhide-review' => "$1 l'historique des relectures",
 	'revreview-tt-review' => 'Réviser cette page',
 	'validationpage' => "{{ns:help}}:Validation de l'article",
 );

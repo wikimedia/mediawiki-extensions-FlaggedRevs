@@ -77,6 +77,13 @@ $messages['ast'] = array(
 	'validationstatistics-total' => 'Páxines',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'validationstatistics-ns' => 'Прастора назваў',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */
@@ -379,11 +386,20 @@ $messages['ro'] = array(
 
 /** Russian (Русский)
  * @author AlexSm
+ * @author Ferrer
  * @author Putnik
  */
 $messages['ru'] = array(
+	'validationstatistics' => 'Статистика досмотра',
+	'validationstatistics-users' => "В Википедии на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют флаг [[Википедия:Патрулирование|патрулирующего]] и {{NUMBERINGROUP:autoeditor}} имеют флаг автопатрулируемого.",
+	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён. Перенаправления из подсчётов исключены. 
+
+'''Внимание!''' Страница кэшируется. Данные могут отставать на несколько часов.",
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
+	'validationstatistics-stable' => 'Проверенные',
+	'validationstatistics-latest' => 'Недавно проверенные',
+	'validationstatistics-synced' => 'Перепроверенные',
 	'validationstatistics-old' => 'Устаревшие',
 );
 
