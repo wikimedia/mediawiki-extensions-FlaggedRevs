@@ -4,10 +4,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class OldReviewedPages extends IncludableSpecialPage
+class OldReviewedPages extends SpecialPage
 {
     function __construct() {
-        IncludableSpecialPage::IncludableSpecialPage( 'OldReviewedPages', 'unreviewedpages' );
+        parent::__construct( 'OldReviewedPages', 'unreviewedpages' );
+		// $this->includable( true );
 		wfLoadExtensionMessages( 'OldReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
