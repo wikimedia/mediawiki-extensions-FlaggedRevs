@@ -16,13 +16,12 @@ class FlaggedArticle extends Article {
 	 */
 	public static function getGlobalInstance() {
 		global $wgArticle, $wgTitle;
-		if ( !empty( $wgArticle ) ) {
+		if( !empty( $wgArticle ) ) {
 			return self::getInstance( $wgArticle );
-		} elseif ( !empty( $wgTitle ) ) {
+		} else if( !empty( $wgTitle ) ) {
 			return self::getTitleInstance( $wgTitle );
-		} else {
-			return false;
 		}
+		return null;
 	}
 
 	/**
@@ -30,7 +29,7 @@ class FlaggedArticle extends Article {
 	 * getInstance() is preferred if you have an Article available.
 	 */
 	public static function getTitleInstance( $title ) {
-		if ( !isset( $title->flaggedRevsArticle ) ) {
+		if( !isset( $title->flaggedRevsArticle ) ) {
 			$article = MediaWiki::articleFromTitle( $title );
 			$article->flaggedRevsArticle = new FlaggedArticle( $article );
 			$title->flaggedRevsArticle =& $article->flaggedRevsArticle;
@@ -50,6 +49,7 @@ class FlaggedArticle extends Article {
 		if( isset( $article->getTitle()->flaggedRevsArticle ) ) {
 			// Already have a FlaggedArticle cached in the Title object
 			$article->flaggedRevsArticle =& $article->getTitle()->flaggedRevsArticle;
+			$article->flaggedRevsArticle->parent =& $article;
 		} else {
 			// Create new FlaggedArticle
 			$article->flaggedRevsArticle = new FlaggedArticle( $article );
@@ -776,10 +776,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function setActionTabs( $skin, &$contentActions ) {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
-		# Get the subject page, not all skins have it :(
-		if( !isset($skin->mTitle) )
-			return true;
-		$title = $skin->mTitle->getSubjectPage();
+		$title = $this->parent->getTitle()->getSubjectPage();
 		# Non-content pages cannot be validated
 		if( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
 			return true;
