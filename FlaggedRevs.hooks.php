@@ -657,7 +657,7 @@ EOT;
 		$prevRevId = self::getPreviousRevisionId( $rev );
 		# Get the revision ID the incoming one was based off...
 		if( !$baseRevId && $prevRevId ) {
-			$prevTimestamp = Revision::getTimestampFromId( $prevRevId, $rev->getPage() ); // use PK
+			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK			
 			# Get edit timestamp. Existance already valided by EditPage.php. If 
 			# not present, then it shouldn't be, like null edits.
 			$editTimestamp = $wgRequest->getVal('wpEdittime');
