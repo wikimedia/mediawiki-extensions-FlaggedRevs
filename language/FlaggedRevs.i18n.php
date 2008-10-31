@@ -2836,6 +2836,7 @@ Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
  * @author Dereckson
  * @author Grondin
  * @author IAlex
+ * @author Korrigan
  * @author McDutchie
  * @author Sherbrooke
  * @author Urhixidur
@@ -2902,7 +2903,7 @@ Un modèle ou une image peuvent avoir été demandés alors qu’aucune version 
 	'revreview-depth-4' => 'Remarquable',
 	'revreview-draft-title' => 'Brouillon de page',
 	'revreview-edit' => "Modifier l'ébauche",
-	'revreview-editnotice' => "'''Note : Les modifications sur cette page seront incorporées dans la [{{MediaWiki:Validationpage}}|version stable]] une fois qu’un utilisateur habilité les aura relues.'''",
+	'revreview-editnotice' => "'''Note : Les modifications sur cette page seront incorporées dans la [[{{MediaWiki:Validationpage}}|version stable]] une fois qu’un utilisateur habilité les aura relues.'''",
 	'revreview-flag' => 'Évaluer cette version',
 	'revreview-edited' => "'''Les modifications seront incorporées dans [[{{MediaWiki:Validationpage}}|la version stable]] une fois qu’un relecteur autorisé les aura approuvées.'''<br />
 Le ''brouillon'' est visible ci-dessous. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modification attend|modifications attendent}}] une relecture.",
@@ -7017,6 +7018,7 @@ $messages['roa-tara'] = array(
 
 /** Russian (Русский)
  * @author Ahonc
+ * @author Ferrer
  * @author Kaganer
  * @author VasilievVV
  * @author Александр Сигачёв
@@ -7206,6 +7208,7 @@ $messages['ru'] = array(
 	'tooltip-ca-ratinghist' => 'Читательская оценка этой страницы',
 	'revreview-locked' => 'Правки должны быть проверены, прежде чем будут показаны на этой странице!',
 	'revreview-unlocked' => 'Правки не требуют предварительной проверки для отображения на этой странице!',
+	'logshowhide-review' => '$1 журнал проверок',
 	'revreview-tt-review' => 'Проверить эту страницу',
 	'validationpage' => '{{ns:help}}:Проверка статьи',
 );
@@ -7552,6 +7555,7 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'tooltip-ca-ratinghist' => 'Hodnotenie tejto stránky čitateľmi',
 	'revreview-locked' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
 	'revreview-unlocked' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
+	'logshowhide-review' => '$1 záznam kontrol',
 	'revreview-tt-review' => 'Skontrolovať túto stránku',
 	'validationpage' => '{{ns:help}}:Overovanie článkov',
 );

@@ -388,10 +388,11 @@ $messages['ro'] = array(
  * @author AlexSm
  * @author Ferrer
  * @author Putnik
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'validationstatistics' => 'Статистика досмотра',
-	'validationstatistics-users' => "В Википедии на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют флаг [[Википедия:Патрулирование|патрулирующего]] и {{NUMBERINGROUP:autoeditor}} имеют флаг автопатрулируемого.",
+	'validationstatistics' => 'Статистика проверок',
+	'validationstatistics-users' => "В {{grammar:genitive|{{SITENAME}}}} на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён. Перенаправления из подсчётов исключены. 
 
 '''Внимание!''' Страница кэшируется. Данные могут отставать на несколько часов.",

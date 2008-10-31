@@ -479,6 +479,16 @@ $messages['pt'] = array(
 	'ratinghistory-3years' => 'últimos três anos',
 );
 
+/** Russian (Русский)
+ * @author Ferrer
+ */
+$messages['ru'] = array(
+	'ratinghistory-period' => 'Период времени:',
+	'ratinghistory-month' => 'последний месяц',
+	'ratinghistory-year' => 'последний год',
+	'ratinghistory-3years' => 'последние 3 года',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
@@ -497,9 +507,11 @@ $messages['sk'] = array(
 	'ratinghistory-users' => 'Používatelia, ktorí vykonali kontroly tejto stránky:',
 	'ratinghistory-graph' => '$2 článku „$3” ($1 {{PLURAL:$1|kontrola|kontroly|kontrol}})',
 	'ratinghistory-none' => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
-	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené denné priemerné hodnotenie <font color=\"blue\">''(modrou)''</font> a priemer vybraného intervalu <font color=\"green\">''(zelenou)''</font>. Hodnoty hodnotenia sa interpretujú nasledovne:
+	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené '''denné priemerné hodnotenie''' <font color=\"blue\">''(modrou)''</font> a '''priemer vybraného intervalu''' <font color=\"green\">''(zelenou)''</font>. Hodnoty hodnotenia sa interpretujú nasledovne:
 
-'''[1]''' - Slabé; '''[2]''' - Nízke; '''[3]''' - Dobré; '''[4]''' - Vysoké; '''[5]''' - Výborné;",
+Mierka: '''[1]''' - Slabé; '''[2]''' - Nízke; '''[3]''' - Dobré; '''[4]''' - Vysoké; '''[5]''' - Výborné;
+
+Na grafe dolu je zobrazený '''počet kontrol za deň''' <font color=\"red\">''(červenou)''</font> v mierke ''1:\$1''.",
 	'right-feedback' => 'Stránku ohodnotíte pomocou formulára spätnej väzby',
 );
 
