@@ -366,6 +366,13 @@ $messages['br'] = array(
 	'stabilization-def-short-1' => 'Stabil',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'stabilization-def-short' => 'Standardno',
+);
+
 /** Catalan (Català)
  * @author Jordi Roqué
  * @author Paucabot

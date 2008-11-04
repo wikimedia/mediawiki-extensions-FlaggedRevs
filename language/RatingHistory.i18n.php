@@ -546,13 +546,15 @@ $messages['sv'] = array(
 	'ratinghistory-month' => 'senaste månaden',
 	'ratinghistory-year' => 'senaste året',
 	'ratinghistory-3years' => 'senaste 3 åren',
-	'ratinghistory-chart' => 'Läsarbetyg med tiden:',
+	'ratinghistory-chart' => 'Läsar-feedback-betyg över tiden',
 	'ratinghistory-users' => 'Användare som har granskar den här sidan:',
 	'ratinghistory-graph' => '$2 av "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
-	'ratinghistory-legend' => "Betyg för dagens genomsnitt <font color=\"blue\">''(blå)''</font> och genomsnitt för valt intervall <font color=\"green\">''(grön)''</font> kommer att visas i grafform nedan, efter datum.
+	'ratinghistory-legend' => "'''Dagligt genomsnittsbetyg''' <font color=\"blue\">''(blå)''</font> och '''genomsnitt för valt intervall''' <font color=\"green\">''(grön)''</font> visas i grafform nedan, efter datum.
 
-'''[1]''' - Mycket dålig; '''[2]''' - Dålig; '''[3]''' - Okej; '''[4]''' - Bra; '''[5]''' - Mycket bra;",
+Skala: '''[1]''' - Mycket dålig; '''[2]''' - Dålig; '''[3]''' - Okej; '''[4]''' - Bra; '''[5]''' - Mycket bra;
+
+'''Antal granskningar''' <font color=\"red\">''(röd)''</font> visas på grafen nedan, med skalan ''1:\$1''.",
 	'right-feedback' => 'Använd feedback-formuläret för att betygsätta en sida',
 );
 

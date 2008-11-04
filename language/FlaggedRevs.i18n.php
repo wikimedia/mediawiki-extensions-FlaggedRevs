@@ -1655,10 +1655,13 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'validationpage' => '{{ns:help}} : Gwiriekaat ar pennad',
 );
 
-/** Bosnian (Bosanski) */
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
 $messages['bs'] = array(
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
+	'revreview-filter-all' => 'Sve',
 );
 
 /** Catalan (Català)
@@ -8058,6 +8061,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'tooltip-ca-ratinghist' => 'Användarbetyg för den här sidan',
 	'revreview-locked' => 'Redigeringar måste granskas innan de visas på den här sidan!',
 	'revreview-unlocked' => 'Redigeringar behöver inte granskas innan de visas på den här sidan!',
+	'logshowhide-review' => '$1 granskningslogg',
 	'revreview-tt-review' => 'Granska denna sida',
 	'validationpage' => '{{ns:help}}:Artikelvalidering',
 );
