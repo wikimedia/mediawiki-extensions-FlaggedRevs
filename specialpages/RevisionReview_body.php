@@ -314,9 +314,9 @@ class RevisionReview extends UnlistedSpecialPage
 			return;
 		}
 
-		$wgOut->addHtml( "<ul>" );
-		$wgOut->addHtml( $this->historyLine( $rev ) );
-		$wgOut->addHtml( "</ul>" );
+		$wgOut->addHTML( "<ul>" );
+		$wgOut->addHTML( $this->historyLine( $rev ) );
+		$wgOut->addHTML( "</ul>" );
 
 		if( FlaggedRevs::showStableByDefault() )
 			$wgOut->addWikiText( wfMsg('revreview-text') );
@@ -383,7 +383,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= '</fieldset>';
 
 		$form .= '</form>';
-		$wgOut->addHtml( $form );
+		$wgOut->addHTML( $form );
 	}
 
 	/**

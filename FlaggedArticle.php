@@ -628,7 +628,7 @@ class FlaggedArticle extends Article {
 			if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
 				$diffEngine = new DifferenceEngine();
 				$diffEngine->showDiffStyle();
-				$wgOut->addHtml(
+				$wgOut->addHTML(
 					"<div>" .
 					"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
 					"<col class='diff-marker' />" .
