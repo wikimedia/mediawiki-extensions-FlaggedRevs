@@ -1659,6 +1659,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
  * @author CERminator
  */
 $messages['bs'] = array(
+	'editor' => 'Uređivač',
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'revreview-filter-all' => 'Sve',
@@ -3393,6 +3394,7 @@ $messages['haw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Rotemliss
  * @author StuB
  * @author דניאל ב.
@@ -3404,8 +3406,24 @@ $messages['he'] = array(
 	'group-editor' => 'עורכים',
 	'group-editor-member' => 'עורך',
 	'hist-draft' => 'גרסת טיוטה',
+	'revreview-accuracy' => 'דיוק',
+	'revreview-accuracy-0' => 'לא אושר',
+	'revreview-accuracy-1' => 'נבדק',
+	'revreview-accuracy-2' => 'מדויק',
+	'revreview-accuracy-3' => 'עם מקורות תקינים',
+	'revreview-accuracy-4' => 'מצוין',
+	'revreview-approved' => 'אושר',
 	'revreview-auto' => '(אוטומטי)',
+	'revreview-current' => 'טיוטה',
+	'revreview-depth' => 'שלמות',
+	'revreview-depth-0' => 'לא אושר',
+	'revreview-depth-1' => 'בסיסי',
+	'revreview-depth-2' => 'בינוני',
+	'revreview-depth-3' => 'גבוה',
+	'revreview-depth-4' => 'מצוין',
 	'revreview-log' => 'הערה:',
+	'revreview-style-0' => 'לא אושר',
+	'revreview-style-2' => 'טוב',
 	'revreview-submitting' => 'נשלח...',
 	'revreview-toggle-title' => 'הצגת/הסתרת פרטים',
 	'revreview-revnotfound' => 'הגרסה הישנה של דף זה לא נמצאה. אנא בדקו את כתובת הקישור שהוביל אתכם הנה.',
@@ -3422,6 +3440,8 @@ $messages['he'] = array(
 	'readerfeedback-level-2' => 'בינוני',
 	'readerfeedback-level-3' => 'גבוה',
 	'readerfeedback-level-4' => 'מצוין',
+	'readerfeedback-finished' => 'תודה!',
+	'revreview-filter-all' => 'הכול',
 );
 
 /** Hindi (हिन्दी)
@@ -6449,6 +6469,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'tooltip-ca-ratinghist' => "Apreciacions dels lectors d'aquesta pagina",
 	'revreview-locked' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !',
 	'revreview-unlocked' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !',
+	'log-show-hide-review' => "$1 l'istoric de las relecturas",
 	'revreview-tt-review' => 'Revisar aquesta pagina',
 	'validationpage' => "{{ns:help}}:Validacion de l'article",
 );

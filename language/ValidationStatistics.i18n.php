@@ -276,6 +276,16 @@ an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|V
 	'validationstatistics-stable' => 'Validéiert',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'validationstatistics-ns' => 'Именски простор',
+	'validationstatistics-total' => 'Страници',
+	'validationstatistics-stable' => 'Прегледување',
+	'validationstatistics-latest' => 'Последно прегледување',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aviator
  */

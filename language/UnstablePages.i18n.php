@@ -93,6 +93,13 @@ $messages['gl'] = array(
 	'unstablepages-config' => 'Configuración',
 );
 
+/** Hebrew (עברית)
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'unstablepages-stable' => 'גרסה יציבה',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
