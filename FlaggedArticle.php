@@ -881,7 +881,8 @@ class FlaggedArticle extends Article {
 	public function addToHistLine( $history, $row, &$s ) {
 		global $wgUser;
 		# Non-content pages cannot be validated. Stable version must exist.
-		if( !$this->isReviewable() || !$this->getStableRev() )
+		# Don't bother showing notice for deleted revs.
+		if( !$this->isReviewable() || !$this->getStableRev() || $row->rev_deleted )
 			return true;
 		$skin = $wgUser->getSkin();
 		list($link,$class) = FlaggedRevs::markHistoryRow( $this->parent->getTitle(), $row, $skin );
