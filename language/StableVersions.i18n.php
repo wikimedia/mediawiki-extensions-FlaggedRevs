@@ -32,13 +32,6 @@ Message is displayed on Special:Stableversions for pages that has no reviewed re
 This message is used in the list of stable versions of a page (Special:Stableversions) to specify who has reviewed each version. Parameter $1 is the date and time of the review, and parameter $2 is the username of the reviewing user.',
 );
 
-/** Eastern Mari (Олык Марий)
- * @author Сай
- */
-$messages['mhr'] = array(
-	'stableversions-page' => 'Лаштыкын лӱмжӧ:',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */
@@ -470,6 +463,13 @@ $messages['lt'] = array(
 	'stableversions-page' => 'Puslapio pavadinimas:',
 );
 
+/** Eastern Mari (Олык Марий)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'stableversions-page' => 'Лаштыкын лӱмжӧ:',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */
@@ -621,6 +621,13 @@ $messages['pt'] = array(
 	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
 	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
 	'stableversions-review' => 'Analisada às <i>$1</i> por $2',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'stableversions-page' => "Nome d'a vôsce:",
 );
 
 /** Russian (Русский)

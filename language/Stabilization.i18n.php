@@ -1628,6 +1628,14 @@ $messages['ro'] = array(
 	'stabilize-expiring' => 'expiră $1 (UTC)',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization-expiry' => 'More:',
+);
+
 /** Russian (Русский)
  * @author Drbug
  * @author Александр Сигачёв

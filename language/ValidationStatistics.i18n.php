@@ -394,6 +394,20 @@ $messages['ro'] = array(
 	'validationstatistics-ns' => 'Spaţiu de nume',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'validationstatistics' => 'Statisteche de validazione',
+	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''$1''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''$2''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].",
+	'validationstatistics-table' => "Le statisteche pe ogne niemspeise sonde mostrete aqquà sotte, 'scludenne le pàggene de redirezionaminde.
+
+'''Vide Bbuene:''' 'u date seguende jè chesciete pe quacche ore e non ge se pò aggiornà a 'na certa date.",
+	'validationstatistics-ns' => 'Neimspeise',
+	'validationstatistics-total' => 'Pàggene',
+	'validationstatistics-stable' => 'Riviste',
+);
+
 /** Russian (Русский)
  * @author AlexSm
  * @author Ferrer

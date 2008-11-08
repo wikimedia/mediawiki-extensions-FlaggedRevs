@@ -479,6 +479,13 @@ $messages['pt'] = array(
 	'ratinghistory-3years' => 'últimos três anos',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'ratinghistory-period' => 'Periode de timbe:',
+);
+
 /** Russian (Русский)
  * @author Ferrer
  */

@@ -753,6 +753,13 @@ $messages['ro'] = array(
 	'unreviewed-category' => 'Categorie:',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'unreviewed-category' => 'Categorije:',
+);
+
 /** Russian (Русский)
  * @author EugeneZelenko
  * @author Kaganer

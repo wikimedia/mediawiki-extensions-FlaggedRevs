@@ -632,6 +632,14 @@ $messages['ro'] = array(
 	'oldreviewed-category' => 'Categorie:',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'oldreviewedpages-recent' => "(mene de n'ore)",
+	'oldreviewed-category' => 'Categorije:',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */

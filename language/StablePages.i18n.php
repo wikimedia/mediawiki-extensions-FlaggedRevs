@@ -323,6 +323,13 @@ $messages['ro'] = array(
 	'stablepages' => 'Pagini stabile',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'stablepages-config' => 'Configurazione',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */

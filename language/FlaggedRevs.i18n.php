@@ -7034,10 +7034,17 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'revreview-auto' => '(automatiche)',
+	'revreview-log' => 'Commende:',
 	'revreview-style-0' => 'Fasce schife, bocciete',
 	'revreview-style-1' => 'Accettabbele',
 	'revreview-style-2' => 'Bbuene',
 	'revreview-style-3' => 'Congise',
+	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
+	'revreview-filter-all' => 'Tutte',
+	'revreview-statusfilter' => 'Status:',
+	'revreview-typefilter' => 'Tipe:',
+	'revreview-tagfilter' => 'Tag:',
 );
 
 /** Russian (Русский)
