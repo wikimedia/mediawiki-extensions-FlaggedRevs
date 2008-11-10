@@ -387,8 +387,8 @@ $messages['pl'] = array(
 );
 
 /** Portuguese (Português)
- * @author Malafaya
  * @author 555
+ * @author Malafaya
  */
 $messages['pt'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
