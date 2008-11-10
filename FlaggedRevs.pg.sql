@@ -64,7 +64,7 @@ CREATE TABLE flaggedrevs_tracking (
   ftr_title      TEXT       NOT NULL DEFAULT '',
   PRIMARY KEY (ftr_from,ftr_namespace,ftr_title)
 );
-CREATE INDEX namespace_title_from ON flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from)
+CREATE INDEX namespace_title_from ON flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 CREATE TABLE flaggedrevs_promote (
   frp_user_id INTEGER NOT NULL PRIMARY KEY default 0,
@@ -96,6 +96,6 @@ CREATE TABLE reader_feedback_pages (
   rfp_touched  TIMESTAMPTZ  NULL,
   PRIMARY KEY (rfp_page_id,rfp_tag)
 );
-CREATE INDEX rfp_tag_val_page ON reader_feedback_pages (rfp_tag,rfp_ave_val,rfp_page_id)
+CREATE INDEX rfp_tag_val_page ON reader_feedback_pages (rfp_tag,rfp_ave_val,rfp_page_id);
 
 COMMIT;
