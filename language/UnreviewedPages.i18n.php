@@ -507,7 +507,10 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|검토되지 않은 문서의 목록]]을 보기',
+	'unreviewedpages' => '검토되지 않은 문서',
 	'unreviewed-category' => '분류:',
+	'unreviewed-unwatched' => '(주시되지 않음)',
 );
 
 /** Kinaray-a (Kinaray-a)
@@ -757,6 +760,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'unreviewedpages' => 'Pàggene senza revisione',
 	'unreviewed-category' => 'Categorije:',
 );
 

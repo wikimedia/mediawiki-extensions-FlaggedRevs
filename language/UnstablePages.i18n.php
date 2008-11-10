@@ -122,6 +122,13 @@ $messages['it'] = array(
 	'unstablepages-config' => 'Configurazione',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'unstablepages-stable' => '안정 버전',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */
@@ -185,6 +192,13 @@ $messages['pt'] = array(
 	'unstablepages-text' => 'Abaixo encontra-se uma lista de página manualmente configuradas para mostrar aos leitores a versão rascunho como conteúdo por defeito da página.',
 	'unstablepages-none' => 'Não há páginas nesta lista',
 	'unstablepages-config' => 'Configuração',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'unstablepages-config' => 'Configurazione',
 );
 
 /** Russian (Русский)

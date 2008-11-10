@@ -5041,11 +5041,45 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'editor' => '편집자',
+	'flaggedrevs-prefs-watch' => '내가 검토한 문서를 주시문서 목록에 추가',
+	'group-editor' => '편집자',
+	'group-editor-member' => '편집자',
+	'group-reviewer' => '평론가',
+	'group-reviewer-member' => '평론가',
+	'hist-stable' => '검토된 판',
+	'review-logentry-app' => '[[$1]] 문서를 검토함',
+	'review-logentry-id' => '$1판',
+	'review-logentry-diff' => '안정 버전과의 차이',
+	'reviewer' => '평론가',
 	'revreview-accuracy' => '정확성',
+	'revreview-accuracy-2' => '정확함',
+	'revreview-accuracy-3' => '출처가 잘 제시됨',
 	'revreview-auto' => '(자동)',
+	'revreview-auto-w' => "당신은 안정 버전을 편집하고 있습니다; 편집은 '''자동적으로 검토될 것입니다'''.",
+	'revreview-auto-w-old' => "당신은 검토된 판을 편집하고 있습니다; 편집은 '''자동적으로 검토될 것입니다'''.",
+	'revreview-current' => '초안',
+	'revreview-depth' => '깊이',
+	'revreview-depth-1' => '기초적임',
+	'revreview-depth-2' => '중간',
+	'revreview-depth-3' => '좋음',
+	'revreview-depth-4' => '알참',
+	'revreview-edit' => '초안 편집',
+	'revreview-flag' => '이 판을 검토하기',
+	'revreview-newest-basic' => '이 문서는 <i>$2</i>에 마지막으로 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 검토]되었습니다. ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 검토된 모든 편집의 목록])
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3개의 편집]이 검토를 기다리고 있습니다.',
+	'revreview-quick-invalid' => "'''판 번호가 잘못되었습니다.'''",
+	'revreview-quick-see-basic' => "'''초안''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 문서 보기]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 비교])",
+	'revreview-quick-see-quality' => "'''초안''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 문서 보기]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 비교])",
 	'revreview-style' => '가독성',
 	'revreview-finished' => '검토 완료!',
+	'revreview-update-includes' => "'''일부 틀이나 그림이 수정되었습니다:'''",
 	'revreview-revnotfound' => '문서의 해당 버전을 찾지 못했습니다. 접속 URL을 확인해 주세요.',
+	'right-autoreview' => '자신의 편집을 자동적으로 검토',
+	'right-movestable' => '안정 문서를 옮기기',
+	'right-review' => '다른 사람의 편집을 검토',
+	'rights-editor-revoke' => '[[$1]]의 편집자 권한을 해제함',
 	'readerfeedback-reliability' => '가독성',
 	'readerfeedback-completeness' => '완성도',
 	'readerfeedback-npov' => '중립성',
@@ -5054,6 +5088,12 @@ $messages['ko'] = array(
 	'readerfeedback-level-2' => '양호',
 	'readerfeedback-level-3' => '높음',
 	'readerfeedback-level-4' => '우수',
+	'readerfeedback-submit' => '제출',
+	'readerfeedback-success' => "'''이 문서를 평가해 주셔서 감사합니다!''' ([$3 질문이나 의견이 있으신가요?])",
+	'readerfeedback-finished' => '감사합니다!',
+	'revreview-filter-auto' => '자동',
+	'revreview-filter-manual' => '수동',
+	'revreview-tt-review' => '이 문서를 검토',
 );
 
 /** Ripoarisch (Ripoarisch)
@@ -6878,9 +6918,10 @@ Recarregar a página e enviar uma nova análise talvez seja suficiente para cont
 	'revreview-depth-4' => 'Exemplar',
 	'revreview-draft-title' => 'Rascunho de página',
 	'revreview-edit' => 'Editar rascunho',
+	'revreview-editnotice' => "'''Nota: as edições feitas nesta página serão incorporadas à [[{{MediaWiki:Validationpage}}|versão estável]] quando um utilizador autorizado a analisar.'''",
+	'revreview-flag' => 'Analise esta edição',
 	'revreview-edited' => "'''As alterações serão incorporadas na [[{{MediaWiki:Validationpage}}|edição estável]] quando forem analisadas por um utilizador \"estabelecido\".
 O ''rascunho'' é mostrado a seguir.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=\$1&diff=cur&diffonly=0}} \$2 {{PLURAL:\$2|alteração aguarda|alterações aguardam}}] revisão.",
-	'revreview-flag' => 'Analise esta edição',
 	'revreview-invalid' => "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições verificadas]] correspondentes ao ID fornecido.",
 	'revreview-legend' => 'Avaliar conteúdo da edição',
 	'revreview-log' => 'Comentário:',
@@ -6931,6 +6972,8 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] possui [{{fullurl:{{FULLPAGE
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Exemplar',
 	'revreview-submit' => 'Enviar análise',
+	'revreview-submitting' => 'Enviando...',
+	'revreview-finished' => 'Análise concluída!',
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi assinalada com sucesso. ([{{fullurl:Special:Stableversions|page=$2}} ver edições estáveis])'''",
 	'revreview-successful2' => "'''A edição seleccionada de [[:$1|$1]] teve sua análise removida com sucesso.'''",
 	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são exibidas por padrão no lugar de edições mais recentes.'''",
@@ -6939,13 +6982,14 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] possui [{{fullurl:{{FULLPAGE
 	'revreview-toolow' => 'Você precisará atribuir, em cada um dos atributos, valores mais altos do que "rejeitada" para que uma edição seja considerada aprovada.
 
 Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
-	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
-'''Algumas predefinições/imagens foram actualizadas: '''",
+	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
+'''Algumas predefinições/imagens foram actualizadas:'''",
 	'revreview-update-includes' => "'''Algumas predefinições/imagens foram actualizadas:'''",
-	'revreview-update-none' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
+	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
 	'revreview-update-use' => "'''NOTA:''' Se alguma destas predefinições/imagens possui uma versão estável, então esta já é usada na versão estável desta página.",
 	'revreview-diffonly' => "''Para analisar a página, clique no link \"edição actual\" e utilize o formulário de análises.''",
 	'revreview-visibility' => "'''Esta página possui uma [[{{MediaWiki:Validationpage}}|edição estável]]; os parâmetros disso podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
+	'revreview-visibility2' => "'''Esta página não possui uma [[{{MediaWiki:Validationpage}}|versão estável]] atualizada; os parâmetros disso podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-revnotfound' => 'A edição antiga desta página que foi requisitada não pôde ser encontrada.
 Verifique o URL que utilizou para aceder esta página.',
 	'right-autopatrolother' => 'Marcar automaticamente as edições de espaços nominais "secundários" como patrulhadas',
@@ -6957,8 +7001,8 @@ Verifique o URL que utilizou para aceder esta página.',
 	'rights-editor-autosum' => 'auto-promovido',
 	'rights-editor-revoke' => 'removidos privilégios de {{int:group-editor-member}} para [[$1]]',
 	'specialpages-group-quality' => 'Garantia de qualidade',
-	'stable-logentry' => 'a versão estável de [[$1]] foi configurada',
-	'stable-logentry2' => 'zerar a forma de definir versões estáveis de [[$1]]',
+	'stable-logentry' => 'configurou a versão estável de [[$1]]',
+	'stable-logentry2' => 'zerou a forma de definir versões estáveis de [[$1]]',
 	'stable-logpage' => 'Registo de edições estáveis',
 	'stable-logpagetext' => 'Este é um registo de modificações nas configurações das [[{{MediaWiki:Validationpage}}|edições estáveis]] das páginas de conteúdo.
 Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Special:StablePages|lista de páginas estáveis]].',
@@ -6969,6 +7013,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'readerfeedback-npov' => 'Neutralidade',
 	'readerfeedback-presentation' => 'Apresentação',
 	'readerfeedback-overall' => 'em Geral',
+	'readerfeedback-level-none' => '(seleccionar)',
 	'readerfeedback-level-0' => 'Miserável',
 	'readerfeedback-level-1' => 'Baixo',
 	'readerfeedback-level-2' => 'Razoável',
@@ -6976,6 +7021,9 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'readerfeedback-level-4' => 'Excelente',
 	'readerfeedback-submit' => 'Enviar',
 	'readerfeedback-main' => 'Somente páginas de conteúdo podem ser avaliadas.',
+	'readerfeedback-success' => "'''Obrigado por avaliar esta página!''' ([$3 comentários ou dúvidas?]).",
+	'readerfeedback-voted' => "'''Aparentemente você já avaliou esta página''' ([$3 comentários ou dúvidas?]).",
+	'readerfeedback-submitting' => 'Enviando...',
 	'readerfeedback-finished' => 'Obrigado!',
 	'revreview-filter-all' => 'Todas',
 	'revreview-filter-approved' => 'Aprovadas',
@@ -6992,6 +7040,9 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'tooltip-ca-stable' => 'Ver a edição estável desta página',
 	'tooltip-ca-default' => 'Configurações da Garantia de Qualidade',
 	'tooltip-ca-ratinghist' => 'Opinião dos leitores sobre esta página',
+	'revreview-locked' => 'As edições desta página precisam ser analisadas antes de serem exibidas!',
+	'revreview-unlocked' => 'As edições desta página não precisam ser analisadas antes de serem exibidas!',
+	'log-show-hide-review' => '$1 registo de análises',
 	'revreview-tt-review' => 'Analise esta página',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
@@ -7041,6 +7092,7 @@ $messages['roa-tara'] = array(
 	'revreview-style-2' => 'Bbuene',
 	'revreview-style-3' => 'Congise',
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
+	'readerfeedback-presentation' => 'Presendazione',
 	'revreview-filter-all' => 'Tutte',
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Tipe:',
@@ -7125,7 +7177,7 @@ $messages['ru'] = array(
 	'revreview-log' => 'Примечание:',
 	'revreview-main' => 'Вы должны выбрать одну из версий страницы для проверки.
 
-См. список непроверенных страниц на [[Special:Unreviewedpages]].',
+См. [[Special:Unreviewedpages|список непроверенных страниц]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя досмотренная версия] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]) была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|правка|правки|правок}}] {{PLURAL:$3|требует|требуют|требуют}} проверки.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последняя досмотренная версия] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]);  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.

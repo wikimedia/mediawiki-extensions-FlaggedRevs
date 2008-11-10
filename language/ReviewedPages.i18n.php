@@ -465,6 +465,13 @@ $messages['km'] = array(
 	'reviewedpages-lev-1' => 'គុណភាព',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'reviewedpages' => '검토된 문서',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

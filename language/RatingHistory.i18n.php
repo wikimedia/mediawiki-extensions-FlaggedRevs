@@ -327,6 +327,16 @@ $messages['km'] = array(
 	'ratinghistory-3years' => '៣ឆ្នាំមុន',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'ratinghistory-period' => '기간:',
+	'ratinghistory-month' => '지난 1개월',
+	'ratinghistory-year' => '지난 1년',
+	'ratinghistory-3years' => '지난 3년',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -484,6 +494,9 @@ $messages['pt'] = array(
  */
 $messages['roa-tara'] = array(
 	'ratinghistory-period' => 'Periode de timbe:',
+	'ratinghistory-month' => 'urteme mese',
+	'ratinghistory-year' => 'urteme anne',
+	'ratinghistory-3years' => 'urteme ttre anne',
 );
 
 /** Russian (Русский)

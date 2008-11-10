@@ -1134,6 +1134,10 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'stabilization-page' => '문서 이름:',
+	'stabilization-submit' => '확인',
+	'stabilization-expiry' => '기한:',
+	'stabilize_expiry_invalid' => '기한을 잘못 입력하였습니다.',
 	'stabilize_expiry_old' => '기한을 과거로 입력하였습니다.',
 	'stabilize-expiring' => '$1 (UTC)에 만료',
 );
@@ -1633,7 +1637,9 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'stabilization-tab' => 'vet',
+	'stabilization-submit' => 'Conferme',
 	'stabilization-expiry' => 'More:',
+	'stabilize_expiry_invalid' => 'Date de scadenze errete.',
 );
 
 /** Russian (Русский)

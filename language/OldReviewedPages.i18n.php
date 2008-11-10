@@ -428,6 +428,17 @@ $messages['km'] = array(
 	'oldreviewed-category' => 'ចំនាត់ថ្នាក់ក្រុម៖',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'oldreviewedpages-hours' => '($1시간 전)',
+	'oldreviewedpages-days' => '($1일 전)',
+	'oldreviewed-category' => '분류:',
+	'oldreviewedpages-unwatched' => '(주시되지 않음)',
+	'oldreviewedpages-watched' => '($2명의 사용자가 주시중입니다)',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

@@ -264,6 +264,14 @@ $messages['km'] = array(
 	'validationstatistics-total' => 'ទំព័រ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
+	'validationstatistics-ns' => '이름공간',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -380,11 +388,20 @@ $messages['pl'] = array(
 
 /** Portuguese (Português)
  * @author Malafaya
+ * @author 555
  */
 $messages['pt'] = array(
+	'validationstatistics' => 'Estatísticas de validações',
+	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''$1''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] e '''$2''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]].",
+	'validationstatistics-table' => "As estatísticas de cada espaço nominal são exibidas a seguir, exceptuando-se as páginas de redireccionamentos.
+
+'''Nota:''' os dados a seguir estão armazenados em cache e podem não estar atualizados.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
-	'validationstatistics-old' => 'Desactualizado',
+	'validationstatistics-stable' => 'Analisadas',
+	'validationstatistics-latest' => 'Mais recente analisada',
+	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
+	'validationstatistics-old' => 'Desactualizadas',
 );
 
 /** Romanian (Română)
@@ -406,6 +423,8 @@ $messages['roa-tara'] = array(
 	'validationstatistics-ns' => 'Neimspeise',
 	'validationstatistics-total' => 'Pàggene',
 	'validationstatistics-stable' => 'Riviste',
+	'validationstatistics-latest' => 'Urtema revisione',
+	'validationstatistics-old' => "Non g'è aggiornete",
 );
 
 /** Russian (Русский)

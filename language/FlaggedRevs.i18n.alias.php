@@ -162,12 +162,13 @@ $aliases['fr'] = array(
  */
 $aliases['gl'] = array(
 	'OldReviewedPages' => array( 'Páxinas revisadas hai tempo' ),
-	'ProblemPages' => array( 'PáxinasProblemáticas' ),
-	'QualityOversight' => array( 'RevisiónDeCalidade' ),
+	'ProblemPages' => array( 'Páxinas problemáticas' ),
+	'QualityOversight' => array( 'Revisión de calidade' ),
 	'ReviewedPages' => array( 'Páxinas revisadas' ),
 	'StablePages' => array( 'Páxinas estábeis' ),
 	'StableVersions' => array( 'Versións estábeis' ),
 	'UnreviewedPages' => array( 'Páxinas non revisadas' ),
+	'UnstablePages' => array( 'Páxinas non estables' ),
 );
 
 /** Hindi (हिन्दी)
@@ -369,13 +370,38 @@ $aliases['pl'] = array(
  * @author 555
  */
 $aliases['pt'] = array(
+	'LikedPages' => array( 'Páginas aprovadas' ),
 	'OldReviewedPages' => array( 'Versões_antigas_de_páginas_analisadas' ),
 	'ProblemPages' => array( 'Páginas com problemas' ),
 	'QualityOversight' => array( 'Observatório_da_qualidade' ),
+	'RatingHistory' => array( 'Histórico de avaliações' ),
+	'ReaderFeedback' => array( 'Opinião do leitor' ),
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
+	'RevisionReview' => array( 'Revisão de edições' ),
+	'Stabilization' => array( 'Estabilização' ),
 	'StablePages' => array( 'Páginas_estáveis' ),
 	'StableVersions' => array( 'Edições_estáveis' ),
 	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
+	'UnstablePages' => array( 'Páginas instáveis' ),
+	'ValidationStatistics' => array( 'Estatísticas de validação' ),
+);
+
+/** Brazilian Portuguese (Português do Brasil) */
+$aliases['pt-br'] = array(
+	'LikedPages' => array( 'Páginas aprovadas' ),
+	'OldReviewedPages' => array( 'Versões_antigas_de_páginas_analisadas' ),
+	'ProblemPages' => array( 'Páginas com problemas' ),
+	'QualityOversight' => array( 'Observatório_da_qualidade' ),
+	'RatingHistory' => array( 'Histórico de avaliações' ),
+	'ReaderFeedback' => array( 'Opinião do leitor' ),
+	'ReviewedPages' => array( 'Páginas_analisadas' ),
+	'RevisionReview' => array( 'Revisão de edições' ),
+	'Stabilization' => array( 'Estabilização' ),
+	'StablePages' => array( 'Páginas_estáveis' ),
+	'StableVersions' => array( 'Edições_estáveis' ),
+	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
+	'UnstablePages' => array( 'Páginas instáveis' ),
+	'ValidationStatistics' => array( 'Estatísticas de validação' ),
 );
 
 /** Slovak (Slovenčina)

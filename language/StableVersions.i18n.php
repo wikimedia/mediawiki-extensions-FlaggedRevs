@@ -426,6 +426,7 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'stableversions-page' => '문서 이름:',
 	'stableversions-none' => '"[[:$1]]"의 검토된 판이 없습니다.',
+	'stableversions-review' => '<i>$1</i>에 $2에게 검토됨',
 );
 
 /** Latin (Latina)
