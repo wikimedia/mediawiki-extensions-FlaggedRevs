@@ -256,6 +256,24 @@ $messages['it'] = array(
 	'validationstatistics-old' => 'Non aggiornate',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Pras
+ */
+$messages['jv'] = array(
+	'validationstatistics' => 'Statistik validasi',
+	'validationstatistics-users' => "'''{{SITENAME}}''' wektu iki nduwé '''$1''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''$2''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].",
+	'validationstatistics-table' => "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor, kajaba kaca pangalihan.
+
+'''Cathetan''': Data ing ngisor dijupuk saka ''cache'' sawetara jam kapungkur lan mbokmanawa ora cocog manèh.",
+	'validationstatistics-ns' => 'Bilik jeneng',
+	'validationstatistics-total' => 'Kaca',
+	'validationstatistics-stable' => 'Wis dipriksa',
+	'validationstatistics-latest' => 'Pungkasan dipriksa',
+	'validationstatistics-synced' => 'Wis disinkronaké/Wis dipriksa',
+	'validationstatistics-old' => 'Lawas',
+	'validationstatistics-nbr' => '$1%',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */

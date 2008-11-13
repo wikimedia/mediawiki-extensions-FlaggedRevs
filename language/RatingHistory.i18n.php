@@ -318,6 +318,16 @@ Il '''numero di revisioni al giorno''' <font color=\"red\">''(rosso)''</font> è
 	'right-feedback' => 'Usa il modulo di feedback per giudicare una pagina',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Pras
+ */
+$messages['jv'] = array(
+	'ratinghistory-period' => 'Jangka wektu:',
+	'ratinghistory-month' => 'sasi kapungkur',
+	'ratinghistory-year' => 'taun kapungkur',
+	'ratinghistory-3years' => '3 taun pungkasan',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */

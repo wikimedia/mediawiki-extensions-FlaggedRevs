@@ -122,6 +122,16 @@ $messages['it'] = array(
 	'unstablepages-config' => 'Configurazione',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Pras
+ */
+$messages['jv'] = array(
+	'unstablepages' => 'Kaca ora stabil',
+	'unstablepages-stable' => 'vèrsi stabil',
+	'unstablepages-none' => 'Ora ana kaca ing dhaptar iki',
+	'unstablepages-config' => 'Konfigurasi',
+);
+
 /** Korean (한국어)
  * @author Kwj2772
  */

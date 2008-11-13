@@ -762,6 +762,8 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'unreviewedpages' => 'Pàggene senza revisione',
 	'unreviewed-category' => 'Categorije:',
+	'unreviewed-diff' => 'reviste',
+	'unreviewed-none' => "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
 );
 
 /** Russian (Русский)
