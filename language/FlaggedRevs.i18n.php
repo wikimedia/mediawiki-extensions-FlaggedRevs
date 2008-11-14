@@ -219,6 +219,7 @@ Please check the URL you used to access this page.',
 
 /** Message documentation (Message documentation)
  * @author Darth Kule
+ * @author EugeneZelenko
  * @author Huji
  * @author Jon Harald Søby
  * @author Meno25
@@ -439,7 +440,8 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-filter-manual' => '{{Flagged Revs}}',
 	'revreview-filter-level-0' => '{{Flagged Revs}}',
 	'revreview-filter-level-1' => '{{Flagged Revs}}',
-	'revreview-statusfilter' => '{{Flagged Revs}}',
+	'revreview-statusfilter' => '{{Flagged Revs}}
+{{Identical|Status}}',
 	'revreview-typefilter' => '{{Flagged Revs}}
 
 {{Identical/Type}}',
@@ -1357,6 +1359,7 @@ $messages['be'] = array(
 $messages['be-tarask'] = array(
 	'revreview-log' => 'Камэнтар:',
 	'revreview-revnotfound' => 'Ранейшая вэрсія гэтай старонкі ня знойдзеная. Праверце спасылку, празь якую Вы спрабавалі перайсьці на гэтую старонку.',
+	'revreview-statusfilter' => 'Статус:',
 );
 
 /** Bulgarian (Български)
@@ -6392,7 +6395,7 @@ Un modèl o un imatge pòt èsser estat demandat alara que cap de version precis
 	'revreview-edited' => "'''Las modificacions novèlas seràn incorporadas dins [[{{MediaWiki:Validationpage}}|la version establa]] un còp qu’un utilizaire autorizat las aurà relegidas.
 
 Lo ''borrolhon'' es visible çaijós. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modificacion espèra|modificacions espèran}}] una relectura.",
-	'revreview-invalid' => "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspon pas al numèro indicat.",
+	'revreview-invalid' => "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
 	'revreview-legend' => 'Evaluar lo contengut de la version',
 	'revreview-log' => 'Comentari al jornal :',
 	'revreview-main' => 'Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una tièra de paginas.',
