@@ -160,8 +160,11 @@ $messages['gl'] = array(
 
 /** Hebrew (עברית)
  * @author StuB
+ * @author דניאל ב.
  */
 $messages['he'] = array(
+	'stablepages' => 'דפים יציבים',
+	'stablepages-stable' => 'גרסה יציבה',
 	'stablepages-none' => 'אין דפים ברשימה זו',
 );
 

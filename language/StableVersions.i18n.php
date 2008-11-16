@@ -272,6 +272,14 @@ $messages['gl'] = array(
 	'stableversions-review' => 'Revisado en <i>$1</i> por $2',
 );
 
+/** Hebrew (עברית)
+ * @author דניאל ב.
+ */
+$messages['he'] = array(
+	'stableversions' => 'צפייה בגרסאות יציבות',
+	'stableversions-page' => 'שם הדף:',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */

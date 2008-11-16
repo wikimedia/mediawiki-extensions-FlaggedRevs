@@ -248,6 +248,24 @@ O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> 
 	'right-feedback' => 'Usar o formulario de reacción para valorar unha páxina',
 );
 
+/** Hebrew (עברית)
+ * @author דניאל ב.
+ */
+$messages['he'] = array(
+	'ratinghistory' => 'היסטוריית דירוג הדף',
+	'ratinghistory-text' => "'''דף זה מציג מידע על דירוג הדף בשביל [[:$1|$1]].'''",
+	'ratinghistory-leg' => 'נתוני היסטוריית דירוג',
+	'ratinghistory-tab' => 'דירוג',
+	'ratinghistory-link' => 'דירוג הערך',
+	'ratinghistory-period' => 'תקופת זמן:',
+	'ratinghistory-month' => 'החודש האחרון',
+	'ratinghistory-year' => 'השנה האחרונה',
+	'ratinghistory-3years' => '3 השנים האחרונות',
+	'ratinghistory-chart' => 'משוב דירוג קוראים לאורך זמן',
+	'ratinghistory-none' => 'אין מספיק מידע זמין על משוב קוראים בשביל תרשימים כרגע',
+	'right-feedback' => 'השתמשו בטופס משוב כדי לדרג דף',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  * @author Samat

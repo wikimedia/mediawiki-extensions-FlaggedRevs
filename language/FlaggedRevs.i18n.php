@@ -5039,6 +5039,7 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Gapo
  * @author Klutzy
  * @author Kwj2772
  */
@@ -5076,7 +5077,12 @@ $messages['ko'] = array(
 	'revreview-quick-see-quality' => "'''초안''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 문서 보기]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 비교])",
 	'revreview-style' => '가독성',
+	'revreview-style-2' => '좋음',
+	'revreview-style-3' => '명확함',
+	'revreview-submit' => '검토 보내기',
+	'revreview-submitting' => '보내는 중...',
 	'revreview-finished' => '검토 완료!',
+	'revreview-toggle-title' => '자세한 내용 보기/숨기기',
 	'revreview-update-includes' => "'''일부 틀이나 그림이 수정되었습니다:'''",
 	'revreview-revnotfound' => '문서의 해당 버전을 찾지 못했습니다. 접속 URL을 확인해 주세요.',
 	'right-autoreview' => '자신의 편집을 자동적으로 검토',
@@ -5096,6 +5102,7 @@ $messages['ko'] = array(
 	'readerfeedback-finished' => '감사합니다!',
 	'revreview-filter-auto' => '자동',
 	'revreview-filter-manual' => '수동',
+	'tooltip-ca-ratinghist' => '이 문서에 대한 평가',
 	'revreview-tt-review' => '이 문서를 검토',
 );
 
