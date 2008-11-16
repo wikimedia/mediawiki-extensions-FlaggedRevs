@@ -162,17 +162,13 @@ class OldReviewedPages extends SpecialPage
 		}
 	}
 	
-	function formatRow( $result ) {
+	public function formatRow( $result ) {
 		global $wgLang;
 		
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$css = $stxt = $review = '';
-		if( !is_null($size = $result->page_len) ) {
-			$stxt = ($size == 0) ? 
-				wfMsgHtml('historyempty') : wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );
-			$stxt = " <small>$stxt</small>";
-		}
+		$stxt = ChangesList::showCharacterDifference( $result->rev_len, $result->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
 				"diff=cur&oldid={$result->fp_stable}&diffonly=0" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
@@ -267,10 +263,11 @@ class OldReviewedPagesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		$tables = array( 'flaggedpages', 'page' );
+		$tables = array( 'flaggedpages', 'page', 'revision' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
-			'fp_page_id','fp_pending_since');
+			'fp_page_id','fp_pending_since','rev_len');
 		$conds[] = 'page_id = fp_page_id';
+		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';
 		$conds[] = 'fp_pending_since IS NOT NULL';
 		$conds['page_namespace'] = $this->namespace;
 		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
