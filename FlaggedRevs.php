@@ -442,6 +442,12 @@ function efLoadFlaggedRevs() {
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	if( !empty($wgFlaggedRevsNamespaces) ) {
+		# If patrolling is already on, then we know that it 
+		# was intended to have all namespaces patrollable.
+		if( $wgUseRCPatrol ) {
+			global $wgCanonicalNamespaceNames;
+			$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
+		}
 		$wgUseRCPatrol = true;
 	}
 }
