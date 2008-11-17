@@ -92,6 +92,14 @@ $messages['bg'] = array(
 	'validationstatistics-total' => 'Страници',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'validationstatistics-ns' => 'Imenski prostor',
+	'validationstatistics-total' => 'Stranice',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',

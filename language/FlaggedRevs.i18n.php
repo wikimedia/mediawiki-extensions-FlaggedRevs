@@ -3840,6 +3840,7 @@ Lisćinu stabilizowanych stronow namakaš w [[Special:StablePages|lisćinje stab
 );
 
 /** Hungarian (Magyar)
+ * @author Bdamokos
  * @author Dani
  * @author Dorgan
  * @author KossuthRad
@@ -4004,6 +4005,7 @@ naplója.',
 	'readerfeedback-npov' => 'Semlegesség',
 	'readerfeedback-presentation' => 'Bemutatás',
 	'readerfeedback-overall' => 'Összességében',
+	'readerfeedback-level-none' => '(válassz)',
 	'readerfeedback-level-0' => 'rossz',
 	'readerfeedback-level-1' => 'gyenge',
 	'readerfeedback-level-2' => 'átlagos',
@@ -4025,6 +4027,7 @@ naplója.',
 	'revreview-filter-level-1' => 'minőségi változat',
 	'revreview-statusfilter' => 'Állapot:',
 	'revreview-typefilter' => 'Típus:',
+	'revreview-tagfilter' => 'Aspektus:',
 	'tooltip-ca-current' => 'Az oldal jelenlegi vázlatának megtekintése',
 	'tooltip-ca-stable' => 'Az oldal elfogadott változatának megtekintése',
 	'tooltip-ca-default' => 'Minőségbiztosítási beállítások',
@@ -7095,9 +7098,21 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'editor' => 'Editore',
 	'flaggedrevs' => 'Revisiune Approvete',
+	'group-editor' => 'Editore',
+	'group-editor-member' => 'editore',
+	'grouppage-editor' => '{{ns:project}}:Editore',
+	'grouppage-reviewer' => '{{ns:project}}:Revisitatore',
+	'hist-draft' => 'revisione terra-terra',
+	'hist-quality' => 'revisione de qualità',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validate] da [[User:$3|$3]]',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} viste] da [[User:$3|$3]]',
+	'review-logentry-app' => 'riviste [[$1]]',
 	'revreview-approved' => 'Approvete',
 	'revreview-auto' => '(automatiche)',
+	'revreview-current' => 'Bozze',
+	'revreview-depth' => 'Profunnetà',
 	'revreview-log' => 'Commende:',
 	'revreview-quality-title' => "Qualità d'a vôsce",
 	'revreview-style-0' => 'Fasce schife, bocciete',
@@ -7106,6 +7121,7 @@ $messages['roa-tara'] = array(
 	'revreview-style-3' => 'Congise',
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
 	'specialpages-group-quality' => 'Assicurazione de qualità',
+	'readerfeedback-reliability' => 'Affedabbeletà',
 	'readerfeedback-presentation' => 'Presendazione',
 	'readerfeedback-level-0' => 'Povere',
 	'readerfeedback-level-1' => 'Vasce',
@@ -7114,9 +7130,16 @@ $messages['roa-tara'] = array(
 	'readerfeedback-level-4' => "'A uerre proprie (Eccellende)",
 	'readerfeedback-finished' => "Grazie 'mbà",
 	'revreview-filter-all' => 'Tutte',
+	'revreview-filter-approved' => 'Approvete',
+	'revreview-filter-reapproved' => 'Riapprovete',
+	'revreview-filter-unapproved' => 'Non approvete',
+	'revreview-filter-auto' => 'Automateche',
+	'revreview-filter-manual' => 'Manuele',
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Tipe:',
 	'revreview-tagfilter' => 'Tag:',
+	'revreview-tt-review' => 'Revide sta pàgene',
+	'validationpage' => "{{ns:help}}:Validazione d'a vosce",
 );
 
 /** Russian (Русский)

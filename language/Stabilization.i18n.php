@@ -1639,12 +1639,15 @@ $messages['roa-tara'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Pàgene de stabbilizzazione',
 	'stabilization-page' => "Nome d'a pàgene:",
+	'stabilization-def2' => "'A revisiona corrende",
 	'stabilization-submit' => 'Conferme',
 	'stabilization-comment' => 'Commende:',
 	'stabilization-expiry' => 'More:',
+	'stabilization-sel-short' => 'Precedenze',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Ninde',
 	'stabilization-def-short' => 'Defolt',
+	'stabilization-def-short-0' => 'Corrende',
 	'stabilize_expiry_invalid' => 'Date de scadenze errete.',
 );
 

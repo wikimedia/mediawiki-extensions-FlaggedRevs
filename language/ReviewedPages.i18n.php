@@ -643,6 +643,13 @@ $messages['ro'] = array(
 	'reviewedpages-lev-1' => 'Calitate',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'reviewedpages-lev-1' => 'Qualità',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */
