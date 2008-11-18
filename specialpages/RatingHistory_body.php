@@ -7,7 +7,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
 class RatingHistory extends UnlistedSpecialPage
 {
     function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage( 'RatingHistory', 'feedback' );
+        parent::__construct( 'RatingHistory', 'feedback' );
 		wfLoadExtensionMessages( 'RatingHistory' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
@@ -113,10 +113,21 @@ class RatingHistory extends UnlistedSpecialPage
 			// If not, then generate a new one.
 			$filePath = $this->getFilePath( $tag );
 			$url = $this->getUrlPath( $tag );
-			$ext = self::getCachedFileExtension();
-			// Output chart...
-			if( $ext === 'svg' ) {
-				if( !$this->fileExpired($tag,$filePath) || $this->makeSvgGraph( $tag, $filePath ) ) {
+			// Get the source output. SVG files are converted to PNG.
+			$sExt = self::getSourceFileExtension();
+			// Check if the output file is cached
+			$exists = !$this->fileExpired($tag,$filePath);
+			// ...if not, then regenerate it
+			if( $sExt === 'svg' ) {
+				$exists = $exists ? $exists : $this->makeSvgGraph($tag,$filePath);
+			} else if( $sExt === 'png' ) {
+				$exists = $exists ? $exists : $this->makePngGraph($tag,$filePath);
+			}
+			// Output plot/chart depending on final output file...
+			switch( self::getCachedFileExtension() )
+			{
+			case 'svg':
+				if( $exists ) {
 					$data = true;
 					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
 					$wgOut->addHTML( 
@@ -126,8 +137,9 @@ class RatingHistory extends UnlistedSpecialPage
 						Xml::closeElement( 'div' ) . "\n"
 					);
 				}
-			} else if( $ext === 'png' ) {
-				if( !$this->fileExpired($tag,$filePath) || $this->makePngGraph( $tag, $filePath ) ) {
+				break;
+			case 'png':
+				if( $exists ) {
 					$data = true;
 					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
 					$wgOut->addHTML( 
@@ -137,8 +149,9 @@ class RatingHistory extends UnlistedSpecialPage
 						Xml::closeElement( 'div' ) . "\n"
 					);
 				}
-			} else {
-				if( !$this->fileExpired($tag,$filePath) ) {
+				break;
+			default:
+				if( $exists ) {
 					$data = true;
 					$fp = @fopen( $filePath, 'r' );
 					$table = fread( $fp, filesize($filePath) );
@@ -149,6 +162,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( $table . "\n" );
 				}
+				break;
 			}
 		}
 		// Add voter list
@@ -247,7 +261,6 @@ class RatingHistory extends UnlistedSpecialPage
 			// GD is not installed
 			return false;
 		}
-		
 		global $wgPHPlotDir;
 		require_once( "$wgPHPlotDir/phplot.php" ); // load classes
 		// Define the object
@@ -486,6 +499,28 @@ class RatingHistory extends UnlistedSpecialPage
 		$fp = @fopen( $filePath, 'w' );
 		@fwrite( $fp, $plot->svg );
 		@fclose( $fp );
+		// Rasterize due to IE suckage
+		global $wgSVGConverters, $wgSVGConverter, $wgSVGConverterPath;
+		if( !isset( $wgSVGConverters[$wgSVGConverter] ) ) {
+			return false; // this shouldn't happen
+		}
+		$dstPath = preg_replace( '/\.svg$/','.png', $filePath );
+		$err = false;
+		$cmd = str_replace(
+				array( '$path/', '$width', '$height', '$input', '$output' ),
+				array( $wgSVGConverterPath ? wfEscapeShellArg( "$wgSVGConverterPath/" ) : "",
+					1000,
+					410,
+					wfEscapeShellArg( $filePath ),
+					wfEscapeShellArg( $dstPath ) 
+				),
+				$wgSVGConverters[$wgSVGConverter] 
+			) . " 2>&1";
+		$err = wfShellExec( $cmd, $retval );
+		if( $retval != 0 ) {
+			throw new MWException( $err );
+			return false;
+		}
 		return true;
 	}
 	
@@ -523,6 +558,16 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	public static function getCachedFileExtension() {
+		global $wgSvgGraphDir, $wgPHPlotDir;
+		if( $wgSvgGraphDir || $wgPHPlotDir ) {
+			$ext = 'png';
+		} else {
+			$ext = 'html';
+		}
+		return $ext;
+	}
+	
+	public static function getSourceFileExtension() {
 		global $wgSvgGraphDir, $wgPHPlotDir;
 		if( $wgSvgGraphDir ) {
 			$ext = 'svg';
