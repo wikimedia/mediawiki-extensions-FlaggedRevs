@@ -689,7 +689,7 @@ class FlaggedArticle extends Article {
 		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan('edit') ) {
 			return true;
 		}
-		$this->addQuickReview( $data, $wgRequest->getVal('diff'), $wgRequest->getVal('diff') && !$this->getStableRev() );
+		$this->addQuickReview( $data, $wgRequest->getVal('diff'), false );
 		return true;
 	}
 
