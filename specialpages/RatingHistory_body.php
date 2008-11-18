@@ -502,7 +502,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Rasterize due to IE suckage
 		$svgHandler = new SvgHandler();
 		$dstPath = preg_replace( '/\.svg$/','.png', $filePath );
-		$status = $svgHandler->transformSvgToPng( $filePath, $dstPath, 1000, 410 );
+		$status = $svgHandler->rasterize( $filePath, $dstPath, 1000, 410 );
 		if( $status !== true ) {
 			return false;
 		}
