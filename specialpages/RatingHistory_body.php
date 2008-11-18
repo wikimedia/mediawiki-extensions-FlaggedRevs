@@ -500,25 +500,10 @@ class RatingHistory extends UnlistedSpecialPage
 		@fwrite( $fp, $plot->svg );
 		@fclose( $fp );
 		// Rasterize due to IE suckage
-		global $wgSVGConverters, $wgSVGConverter, $wgSVGConverterPath;
-		if( !isset( $wgSVGConverters[$wgSVGConverter] ) ) {
-			return false; // this shouldn't happen
-		}
+		$svgHandler = new SvgHandler();
 		$dstPath = preg_replace( '/\.svg$/','.png', $filePath );
-		$err = false;
-		$cmd = str_replace(
-				array( '$path/', '$width', '$height', '$input', '$output' ),
-				array( $wgSVGConverterPath ? wfEscapeShellArg( "$wgSVGConverterPath/" ) : "",
-					1000,
-					410,
-					wfEscapeShellArg( $filePath ),
-					wfEscapeShellArg( $dstPath ) 
-				),
-				$wgSVGConverters[$wgSVGConverter] 
-			) . " 2>&1";
-		$err = wfShellExec( $cmd, $retval );
-		if( $retval != 0 ) {
-			throw new MWException( $err );
+		$status = $svgHandler->transformSvgToPng( $filePath, $dstPath, 1000, 410 );
+		if( $status !== true ) {
 			return false;
 		}
 		return true;
