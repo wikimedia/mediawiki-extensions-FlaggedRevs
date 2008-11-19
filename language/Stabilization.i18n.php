@@ -513,13 +513,13 @@ Jen la nunaj preferoj por [[:$1|$1]]:',
 	'stabilization-page' => 'Paĝnomo:',
 	'stabilization-leg' => 'Konfirmi konfiguron de stabila versio',
 	'stabilization-select' => 'Selektado de stabila versio',
-	'stabilization-select1' => 'La lasta bonkvalita revizio; se ĝi ne ekzistas, tiel la lasta vidita revizio.',
-	'stabilization-select2' => 'La lasta kontrolita revizio',
-	'stabilization-select3' => 'La lasta netega revizio; se ne estanta, la lasta bonkvalita aŭ vidita revizio.',
-	'stabilization-def' => 'Revizio montrita en defaŭlta paĝa vido',
-	'stabilization-def1' => 'La stabila revizio;
+	'stabilization-select1' => 'La lasta bonkvalita versio; se ĝi ne ekzistas, tiel la lasta vidita versio.',
+	'stabilization-select2' => 'La lasta kontrolita versio',
+	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ vidita versio.',
+	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
+	'stabilization-def1' => 'La stabila versio;
 se ĝi ne ekzistas, la nuna versio',
-	'stabilization-def2' => 'La nuna revizio:',
+	'stabilization-def2' => 'La nuna versio:',
 	'stabilization-submit' => 'Konfirmi',
 	'stabilization-notexists' => 'Neniu paĝo estas nomata "[[:$1|$1]]".
 Neniu konfiguro estas farebla.',
@@ -729,6 +729,45 @@ $messages['haw'] = array(
 	'stabilization-def-short' => 'Paʻamau',
 );
 
+/** Hebrew (עברית)
+ * @author DoviJ
+ * @author Ori229
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'stabilization-tab' => 'נבדק',
+	'stabilization' => 'התייצבות הדף',
+	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:$1|$1]].'''",
+	'stabilization-perm' => 'אין לכם הרשאה לשנות את תצורת הגרסה היציבה.
+להלן ההגדרות הנוכחיות עבור [[:$1|$1]]:',
+	'stabilization-page' => 'שם הדף:',
+	'stabilization-leg' => 'אנא אשרו את הגדרות הגרסה היציבה',
+	'stabilization-select' => 'בחירת גרסה יציבה',
+	'stabilization-select1' => 'הגרסה האיכותית האחרונה; אם לא קיימת, הגרסה הנצפית האחרונה',
+	'stabilization-select2' => 'הגרסה הבדוקה האחרונה',
+	'stabilization-select3' => 'הגרסה המושלמת האחרונה; אם לא קיימת, הגרסה האיכותית או הנצפית האחרונה',
+	'stabilization-def' => 'הגרסה המופיעה כברירת מחדל',
+	'stabilization-def1' => 'הגרסה היציבה; אם לא קיימת, הגרסה הנוכחית',
+	'stabilization-def2' => 'הגרסה הנוכחית',
+	'stabilization-submit' => 'אישור',
+	'stabilization-notexists' => 'אין דף בשם "[[:$1|$1]]".
+לא ניתן לבצע תצורה.',
+	'stabilization-notcontent' => 'אין אפשרות לבדוק את הדף "[[:$1|$1]]".
+לא ניתן לבצע תצורה.',
+	'stabilization-comment' => 'הערה:',
+	'stabilization-expiry' => 'פקיעה:',
+	'stabilization-sel-short' => 'קדימות',
+	'stabilization-sel-short-0' => 'איכות',
+	'stabilization-sel-short-1' => 'לא קיים',
+	'stabilization-sel-short-2' => 'מושלם',
+	'stabilization-def-short' => 'ברירת מחדל',
+	'stabilization-def-short-0' => 'נוכחי',
+	'stabilization-def-short-1' => 'יציב',
+	'stabilize_expiry_invalid' => 'תאריך הפקיעה אינו תקין.',
+	'stabilize_expiry_old' => 'תאריך הפקיעה כבר עבר.',
+	'stabilize-expiring' => 'פקיעה: $1 (UTC)',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
@@ -842,15 +881,15 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'stabilization-tab' => '(qa)',
-	'stabilization' => 'Oldal elfogadása',
-	'stabilization-text' => "'''Az alábbi beállítások megváltoztatásával állíthatod be, hogy a(z) [[:$1|$1]] melyik változata jelenjen meg.'''",
+	'stabilization' => 'Változat elfogadása',
+	'stabilization-text' => "'''Az alábbi beállítások módosításával állíthatod be, hogy a(z) [[:$1|$1]] melyik változata jelenjen meg az olvasók számára.'''",
 	'stabilization-perm' => 'Nincs jogosultságod megváltoztatni az elfogadott változat beállításait.
 [[:$1|$1]] jelenlegi beállításai itt találhatóak:',
 	'stabilization-page' => 'A lap neve:',
-	'stabilization-leg' => 'Lap elfogadott változatának beállítása',
-	'stabilization-select' => 'Hogyan legyen az elfogadott változat kiválasztva',
+	'stabilization-leg' => 'Elfogadott változat beállításainak megerősítése',
+	'stabilization-select' => 'Az elfogadott változat kiválasztása',
 	'stabilization-select1' => 'A legutolsó ellenőrzött változat; ha nincs, akkor a legutolsó megtekintett változat',
-	'stabilization-select2' => 'A legutolsó áttekintett változat',
+	'stabilization-select2' => 'A legutolsó megtekintett változat',
 	'stabilization-select3' => 'A legutolsó eredeti változat; ha nincs, akkor a legutolsó ellenőrzött vagy megtekintett',
 	'stabilization-def' => 'Az alapértelmezettként megjelenített változat',
 	'stabilization-def1' => 'A jelölt változat; ha nincs, akkor a legutolsó',
@@ -861,12 +900,12 @@ $messages['hu'] = array(
 	'stabilization-comment' => 'Megjegyzés:',
 	'stabilization-expiry' => 'Lejárat:',
 	'stabilization-sel-short' => 'Precendencia',
-	'stabilization-sel-short-0' => 'Minőség',
-	'stabilization-sel-short-1' => 'Semmi',
-	'stabilization-sel-short-2' => 'Eredeti',
+	'stabilization-sel-short-0' => 'minőségi',
+	'stabilization-sel-short-1' => 'nincs',
+	'stabilization-sel-short-2' => 'eredeti',
 	'stabilization-def-short' => 'Alapértelmezett',
-	'stabilization-def-short-0' => 'Jelenlegi',
-	'stabilization-def-short-1' => 'Elfogadott',
+	'stabilization-def-short-0' => 'legutolsó',
+	'stabilization-def-short-1' => 'elfogadott',
 	'stabilize_expiry_invalid' => 'Hibás lejárati dátum.',
 	'stabilize_expiry_old' => 'A lejárati idő már elmúlt.',
 	'stabilize-expiring' => 'lejár $1-kor (UTC)',
@@ -1511,11 +1550,12 @@ $messages['oc'] = array(
  * @author Leinad
  * @author McMonster
  * @author Sp5uhe
+ * @author ToSter
  */
 $messages['pl'] = array(
 	'stabilization-tab' => 'konfig.',
 	'stabilization' => 'Konfiguracja strony',
-	'stabilization-text' => "'''Ustaw poniżej w jaki sposób ma być wybierana i wyświetlana oznaczona wersja strony [[:$1|$1]].'''",
+	'stabilization-text' => "'''Ustaw poniżej, w jaki sposób ma być wybierana i wyświetlana oznaczona wersja strony [[:$1|$1]].'''",
 	'stabilization-perm' => 'Nie masz wystarczających uprawnień, by zmienić konfigurację wersji oznaczonych.
 Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-page' => 'Nazwa strony:',
@@ -1649,6 +1689,7 @@ $messages['roa-tara'] = array(
 	'stabilization-def-short' => 'Defolt',
 	'stabilization-def-short-0' => 'Corrende',
 	'stabilize_expiry_invalid' => 'Date de scadenze errete.',
+	'stabilize_expiry_old' => 'Sta date de scadenze ha già passete.',
 );
 
 /** Russian (Русский)

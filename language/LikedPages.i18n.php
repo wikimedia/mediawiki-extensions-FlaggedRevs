@@ -97,6 +97,28 @@ $messages['gl'] = array(
 	'likedpages-graphs' => 'datos das valoracións',
 );
 
+/** Hebrew (עברית)
+ * @author DoviJ
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'likedpages' => 'דפים בעלי דירוג גבוה',
+	'likedpages-leg' => 'מציאת דפים בדירוג גבוה',
+	'likedpages-list' => 'להלן רשימת דפים, ממוינים לפי דירוג הקוראים שלהם.',
+	'likedpages-none' => 'אין דפים ברשימה זו',
+);
+
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'likedpages' => 'Jónak ítélt lapok',
+	'likedpages-leg' => 'Magas értékelésű lapok keresése',
+	'likedpages-list' => 'Alább a lapok olvasói értékelés szerint sorba tett listája látható.',
+	'likedpages-none' => 'Nem található egyetlen lap sem a listában.',
+	'likedpages-graphs' => 'értékelési adatok',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

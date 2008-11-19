@@ -239,8 +239,8 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'oldreviewedpages' => 'Malfreŝe kontrolitaj paĝoj',
-	'oldreviewedpages-legend' => 'Listigi kontrolitajn paĝoj kun nekontrolitaj revizioj',
-	'oldreviewedpages-list' => 'Ĉi paĝo montras kontrolita paĝoj atendantaj redaktojn.',
+	'oldreviewedpages-legend' => 'Listigi kontrolitajn paĝoj kun nekontrolitaj versioj',
+	'oldreviewedpages-list' => 'Ĉi tiu paĝo montras kontrolitajn paĝojn atendantajn redaktojn.',
 	'oldreviewedpages-none' => 'Nune neniuj paĝoj kontruas tiun kriterion.',
 	'oldreviewedpages-stable' => 'vidita',
 	'oldreviewedpages-quality' => 'bonkvalita',
@@ -330,6 +330,25 @@ $messages['gl'] = array(
 	'oldreviewed-diff' => 'revisar',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
+);
+
+/** Hebrew (עברית)
+ * @author DoviJ
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'oldreviewedpages' => 'דפים בדוקים ישנים',
+	'oldreviewedpages-legend' => 'רשימת דפים בדוקים עם גרסאות שלא נבדקו',
+	'oldreviewedpages-list' => 'דף זה מציג דפים שנבדקו, שיש להם עריכות הממתינות לבדיקה.',
+	'oldreviewedpages-none' => 'אין כרגע דפים שעונים על קריטריונים אלה',
+	'oldreviewedpages-stable' => 'נצפה',
+	'oldreviewedpages-quality' => 'איכות',
+	'oldreviewedpages-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
+	'oldreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
+	'oldreviewedpages-recent' => 'פחות משעה',
+	'oldreviewed-category' => 'קטגוריה:',
+	'oldreviewed-diff' => 'בדיקה',
+	'oldreviewedpages-unwatched' => '(לא במעקב)',
 );
 
 /** Hindi (हिन्दी)

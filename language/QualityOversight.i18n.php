@@ -79,7 +79,7 @@ $messages['de'] = array(
  */
 $messages['eo'] = array(
 	'qualityoversight' => 'Atentado de bonkvalito',
-	'qualityoversight-list' => 'Ĉi tiu paĝo montras kaj lastatempajn aprobojn kaj malvalidigojn de revizioj.',
+	'qualityoversight-list' => 'Ĉi tiu paĝo montras kaj lastatempajn aprobojn kaj malvalidigojn de versioj.',
 	'qualityoversight-legend' => 'Serĉi lastajn protokolerojn',
 );
 
@@ -111,6 +111,15 @@ $messages['gl'] = array(
 	'qualityoversight-legend' => 'Procurar rexistros de revisión recentes',
 );
 
+/** Hebrew (עברית)
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'qualityoversight' => 'בקרת איכות',
+	'qualityoversight-list' => 'בדף זה רשומים האישורים החדשים ביותר של גרסאות וכן הסימונים האחרונים של גרסאות כבעייתיות.',
+	'qualityoversight-legend' => 'חיפוש ביומני הבדיקה האחרונים',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
@@ -124,7 +133,7 @@ $messages['hi'] = array(
  */
 $messages['hu'] = array(
 	'qualityoversight' => 'Minőségellenőrzés',
-	'qualityoversight-list' => 'Ez a lap a lapváltozatok legutóbbi értékeléseit listázza.',
+	'qualityoversight-list' => 'Ez a lap a legutóbb végzett értékeléseket listázza.',
 	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
 );
 

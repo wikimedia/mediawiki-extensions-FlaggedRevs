@@ -94,10 +94,26 @@ $messages['gl'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Rotemliss
  */
 $messages['he'] = array(
+	'unstablepages' => 'דפים לא יציבים',
 	'unstablepages-stable' => 'גרסה יציבה',
+	'unstablepages-text' => 'להלן רשימת הדפים שהוגדרו ידנית להציג לקוראים את גרסת הטיוטה כברירת מחדל.',
+	'unstablepages-none' => 'אין דפים ברשימה זו.',
+	'unstablepages-config' => 'תצורה',
+);
+
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'unstablepages' => 'Instabil lapok',
+	'unstablepages-stable' => 'megtekintett változat',
+	'unstablepages-text' => 'Lent azon lapok listája található, amelyeknél kézzel lett beállítva, hogy a vázlat jelenjen meg alapértelmezettként az olvasók számára.',
+	'unstablepages-none' => 'Nincsenek lapok a listában',
+	'unstablepages-config' => 'beállítás',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -184,11 +200,12 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Leinad
+ * @author ToSter
  */
 $messages['pl'] = array(
 	'unstablepages' => 'Strony z domyślnie pokazywaną wersją bieżącą',
 	'unstablepages-stable' => 'wersja przejrzana',
-	'unstablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że bieżąca wersja jest pokazywana domyślnie dla czytelników.',
+	'unstablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, że bieżąca wersja jest pokazywana domyślnie dla czytelników.',
 	'unstablepages-none' => 'Brak stron na tej liście',
 	'unstablepages-config' => 'Konfiguracja',
 );
@@ -208,6 +225,7 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'unstablepages-stable' => 'versione stabile',
 	'unstablepages-config' => 'Configurazione',
 );
 

@@ -342,7 +342,14 @@ $messages['haw'] = array(
  * @author StuB
  */
 $messages['he'] = array(
+	'right-unreviewedpages' => 'צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נבדקו]]',
+	'unreviewedpages' => 'דפים שלא נבדקו',
+	'unreviewed-legend' => 'רשימת דפי התוכן שלא נבדקו',
 	'unreviewed-category' => 'קטגוריה:',
+	'unreviewed-diff' => 'בדיקה',
+	'unreviewed-unwatched' => 'לא במעקב',
+	'unreviewed-watched' => '({{PLURAL:$1|משתמש אחד עוקב|$2 משתמשים עוקבים}})',
+	'unreviewed-list' => 'דף זה מכיל רשימה של דפים שלא נבדקו.',
 	'unreviewed-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
 );
 
@@ -702,11 +709,12 @@ $messages['os'] = array(
  * @author Derbeth
  * @author Leinad
  * @author Sp5uhe
+ * @author ToSter
  */
 $messages['pl'] = array(
 	'right-unreviewedpages' => 'Zobacz [[Special:UnreviewedPages|listę nieprzejrzanych stron]]',
 	'unreviewedpages' => 'Nieprzejrzane strony',
-	'unreviewed-legend' => 'Lista nieprzejrzanych strony',
+	'unreviewed-legend' => 'Lista nieprzejrzanych stron',
 	'unreviewed-category' => 'Kategoria:',
 	'unreviewed-diff' => 'różn.',
 	'unreviewed-unwatched' => '(nieobserwowana)',

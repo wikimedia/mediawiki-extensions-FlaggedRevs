@@ -199,10 +199,21 @@ $messages['grc'] = array(
 
 /** Hebrew (עברית)
  * @author Agbad
+ * @author DoviJ
+ * @author Rotemliss
  */
 $messages['he'] = array(
+	'validationstatistics' => 'סטיסטיקת אישורים',
+	'validationstatistics-users' => "'''יש כרגע {{PLURAL:$1|משתמש '''אחד'''|'''$1''' משתמשים}} ב{{SITENAME}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]] ו{{PLURAL:$2|משתמש '''אחד'''|־'''$2''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].'''",
+	'validationstatistics-table' => "סטטיסטיקות לכל מרחב שם מוצגות להלן, תוך התעלמות מדפי הפניה.
+
+'''הערה:''' הנתונים הבאים נשמרים למשך כמה שעות וייתכן ואינם עדכניים.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
+	'validationstatistics-stable' => 'אושר',
+	'validationstatistics-latest' => 'בדיקות אחרונות',
+	'validationstatistics-synced' => 'סונכרנו/נבדקו',
+	'validationstatistics-old' => 'פג תוקף',
 );
 
 /** Croatian (Hrvatski)
@@ -219,9 +230,9 @@ $messages['hr'] = array(
 $messages['hu'] = array(
 	'validationstatistics' => 'Ellenőrzési statisztikák',
 	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''{{PLURAL:$1|egy|$1}}''' [[{{MediaWiki:Validationpage}}|járőrjoggal]], valamint '''{{PLURAL:$2|egy|$2}}''' [[{{MediaWiki:Validationpage}}|lektorjoggal]] rendelkező szerkesztője van.",
-	'validationstatistics-table' => "Statisztika valamennyi névtérre, az átirányítások kivételével
+	'validationstatistics-table' => "Lent a névterekre bontott statisztika látható, az átirányítások nincsenek beleszámolva.
 
-'''Megjegyzés:''' ezek az adatok csak néhány óránként frissülnek.",
+'''Megjegyzés:''' az adatok néhány órás időközönként gyorsítótárazva vannak, így nem feltétlenül pontosak.",
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Oldalak',
 	'validationstatistics-stable' => 'Ellenőrzött',

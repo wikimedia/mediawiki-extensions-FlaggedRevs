@@ -186,10 +186,10 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'stableversions' => 'Rigardi stabilajn versiojn',
-	'stableversions-leg1' => 'Listigi kontrolitajn reviziojn por paĝo',
+	'stableversions-leg1' => 'Listigi kontrolitajn versiojn por paĝo',
 	'stableversions-page' => 'Nomo de paĝo:',
 	'stableversions-none' => '"[[:$1]]" havas neniujn kontrolitajn revizojn.',
-	'stableversions-list' => 'Jen listo de revizioj de [[:$1]] kiuj estis kontrolitaj:',
+	'stableversions-list' => 'Jen listo de versioj de [[:$1]] kiuj estis kontrolitaj:',
 	'stableversions-review' => 'Kontrolita <i>$1</i> de $2',
 );
 
@@ -273,11 +273,16 @@ $messages['gl'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Rotemliss
  * @author דניאל ב.
  */
 $messages['he'] = array(
 	'stableversions' => 'צפייה בגרסאות יציבות',
+	'stableversions-leg1' => 'רשימת גרסאות הדף שנבדקו',
 	'stableversions-page' => 'שם הדף:',
+	'stableversions-none' => 'בדף "[[:$1]]" אין גרסאות שנבדקו.',
+	'stableversions-list' => 'להלן רשימת הגרסאות של "[[:$1]]" שנבדקו:',
+	'stableversions-review' => 'נבדקה בתאריך <i>$1</i> על ידי $2',
 );
 
 /** Hindi (हिन्दी)

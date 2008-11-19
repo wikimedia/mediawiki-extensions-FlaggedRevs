@@ -249,6 +249,7 @@ O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> 
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Rotemliss
  * @author דניאל ב.
  */
@@ -258,17 +259,21 @@ $messages['he'] = array(
 	'ratinghistory-leg' => 'נתוני היסטוריית דירוג',
 	'ratinghistory-tab' => 'דירוג',
 	'ratinghistory-link' => 'דירוג הדף',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">תודה על כך שהקדשתם מזמנכם לבדיקת דף זה!</font>''",
 	'ratinghistory-period' => 'תקופת זמן:',
 	'ratinghistory-month' => 'החודש האחרון',
 	'ratinghistory-year' => 'השנה האחרונה',
 	'ratinghistory-3years' => '3 השנים האחרונות',
 	'ratinghistory-chart' => 'משוב דירוג קוראים לאורך זמן',
+	'ratinghistory-users' => 'משתמשים שדירגו את הדף הזה:',
+	'ratinghistory-graph' => '$2 מתוך "$3" ({{PLURAL:$1|דירוג אחד|$1 דירוגים}})',
 	'ratinghistory-none' => 'אין כרגע מספיק מידע זמין של משוב קוראים ליצירת תרשימים',
 	'right-feedback' => 'השתמשו בטופס המשוב כדי לדרג דף',
 );
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Samat
  */
 $messages['hu'] = array(
@@ -276,11 +281,13 @@ $messages['hu'] = array(
 	'ratinghistory-text' => "'''A(z) [[:$1|$1]] lap értékelési adatai:'''",
 	'ratinghistory-leg' => 'Értékelési előzmények adatai',
 	'ratinghistory-tab' => 'értékelés',
+	'ratinghistory-link' => 'Lap értékelése',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Köszönjük, hogy időt szántál az oldal értékelésére!</font>''",
 	'ratinghistory-period' => 'Időszak:',
 	'ratinghistory-month' => '1 hónap',
 	'ratinghistory-year' => '1 év',
 	'ratinghistory-3years' => '3 év',
+	'ratinghistory-chart' => 'Olvasói visszajelzések időrendben',
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
 	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> ábrája látható, dátum szerint. Az összes értékelés száma a jobb felső sarokban látható. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
 
@@ -480,6 +487,7 @@ Lo '''nombre de verificacion per jorn''' <font color=\"red\">''(roge)''</font> e
 /** Polish (Polski)
  * @author Jwitos
  * @author Leinad
+ * @author ToSter
  */
 $messages['pl'] = array(
 	'ratinghistory' => 'Historia oceniania strony',
@@ -495,7 +503,7 @@ $messages['pl'] = array(
 	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie',
 	'ratinghistory-users' => 'Użytkownicy, którzy ocenili tę stronę:',
 	'ratinghistory-graph' => '$2 strony „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
-	'ratinghistory-none' => 'W tej chwil brak wystarczającej liczby ocen czytelników by móc stworzyć wykresy.',
+	'ratinghistory-none' => 'W tej chwil brak liczby ocen czytelników wystarczającej, by móc stworzyć wykresy.',
 	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty.
 
 Skala: '''[1]''' – Niedostatecznie; '''[2]''' – Słabo; '''[3]''' – Zadowalająco; '''[4]''' – Dobrze; '''[5]''' – Bardzo dobrze;
@@ -522,6 +530,7 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazie 'mbà ca è perse doje menute pe recondrollà sta pàgene!</font>''",
 	'ratinghistory-period' => 'Periode de timbe:',
 	'ratinghistory-month' => 'urteme mese',
 	'ratinghistory-year' => 'urteme anne',

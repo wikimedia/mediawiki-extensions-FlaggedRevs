@@ -159,13 +159,17 @@ $messages['gl'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Ori229
+ * @author Rotemliss
  * @author StuB
  * @author דניאל ב.
  */
 $messages['he'] = array(
 	'stablepages' => 'דפים יציבים',
 	'stablepages-stable' => 'גרסה יציבה',
+	'stablepages-text' => 'זוהי רשימת הדפים שהוגדרו ידנית להציג את הגרסה היציבה כגרסת ברירת המחדל שתוצג לקוראים.',
 	'stablepages-none' => 'אין דפים ברשימה זו',
+	'stablepages-config' => 'תצורה',
 );
 
 /** Hindi (हिन्दी)
@@ -299,11 +303,12 @@ $messages['oc'] = array(
 /** Polish (Polski)
  * @author Leinad
  * @author Sp5uhe
+ * @author ToSter
  */
 $messages['pl'] = array(
 	'stablepages' => 'Strony z domyślnie pokazywaną wersją oznaczoną',
 	'stablepages-stable' => 'wersja przejrzana',
-	'stablepages-text' => 'Poniżej znajduje się lista indywidualnie skonfigurowanych stron tak, że wersja oznaczona jest pokazywana domyślnie dla czytelników.',
+	'stablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, że wersja oznaczona jest pokazywana domyślnie dla czytelników.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );

@@ -190,20 +190,20 @@ $aliases['hr'] = array(
 
 /** Hungarian (Magyar) */
 $aliases['hu'] = array(
-	'LikedPages' => array( 'Szeretett oldalak' ),
+	'LikedPages' => array( 'Jónak ítélt lapok' ),
 	'OldReviewedPages' => array( 'Régen ellenőrzött lapok' ),
-	'ProblemPages' => array( 'Problematikus oldalak' ),
+	'ProblemPages' => array( 'Rossznak ítélt lapok' ),
 	'QualityOversight' => array( 'Minőségellenőrzés' ),
 	'RatingHistory' => array( 'Értékeléstörténet' ),
 	'ReaderFeedback' => array( 'Olvasói visszajelzés' ),
 	'ReviewedPages' => array( 'Ellenőrzött lapok' ),
 	'RevisionReview' => array( 'Változat ellenőrzése' ),
-	'Stabilization' => array( 'Stabilizálás' ),
-	'StablePages' => array( 'Stabil oldalak' ),
+	'Stabilization' => array( 'Változat elfogadása' ),
+	'StablePages' => array( 'Jelölt lapok' ),
 	'StableVersions' => array( 'Stabil változatok' ),
 	'UnreviewedPages' => array( 'Ellenőrizetlen lapok' ),
-	'UnstablePages' => array( 'Instabil oldalak' ),
-	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
+	'UnstablePages' => array( 'Instabil lapok' ),
+	'ValidationStatistics' => array( 'Ellenőrzési statisztikák' ),
 );
 
 /** Indonesian (Bahasa Indonesia)

@@ -207,7 +207,7 @@ $messages['eo'] = array(
 	'reviewedpages-lev-1' => 'Kvalito',
 	'reviewedpages-lev-2' => 'Elstara',
 	'reviewedpages-all' => 'kontrolitaj versioj',
-	'reviewedpages-best' => 'ĉefa revizio',
+	'reviewedpages-best' => 'ĉefa versio',
 );
 
 /** Persian (فارسی)
@@ -283,10 +283,19 @@ $messages['gl'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Rotemliss
  */
 $messages['he'] = array(
 	'reviewedpages' => 'דפים שנבדקו',
+	'reviewedpages-leg' => 'רשימת הדפים שאושרו עד רמה מסוימת',
+	'reviewedpages-list' => 'הדפים הבאים אושרו עד לרמה שצוינה',
+	'reviewedpages-none' => 'אין דפים ברשימה זו',
+	'reviewedpages-lev-0' => 'נצפה',
+	'reviewedpages-lev-1' => 'איכותי',
+	'reviewedpages-lev-2' => 'מומלץ',
+	'reviewedpages-all' => 'גרסאות שנבדקו',
+	'reviewedpages-best' => 'הגרסה האיכותית ביותר',
 );
 
 /** Hindi (हिन्दी)
@@ -342,14 +351,14 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'reviewedpages' => 'Ellenőrzött lapok',
-	'reviewedpages-leg' => 'Valamilyen szinten ellenőrzött lapok',
-	'reviewedpages-list' => 'Az alábbi lapok egy adott szinten ellenőrizve vannak',
-	'reviewedpages-none' => 'A lista nem tartalmaz lapokat',
-	'reviewedpages-lev-0' => 'Megtekintett',
-	'reviewedpages-lev-1' => 'Minőségi',
-	'reviewedpages-lev-2' => 'Kiemelt',
+	'reviewedpages-leg' => 'Ellenőrzött lapok listázása',
+	'reviewedpages-list' => 'Az alábbi lapok a megadott szinten vannak ellenőrízve.',
+	'reviewedpages-none' => 'Nem található egyetlen lap sem a listában.',
+	'reviewedpages-lev-0' => 'megtekintett',
+	'reviewedpages-lev-1' => 'minőségi',
+	'reviewedpages-lev-2' => 'kiemelt',
 	'reviewedpages-all' => 'Ellenőrzött változatok',
-	'reviewedpages-best' => 'legutóbbi legjobb változat',
+	'reviewedpages-best' => 'legjobb változat',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -647,6 +656,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'reviewedpages-lev-0' => 'Viste',
 	'reviewedpages-lev-1' => 'Qualità',
 );
 

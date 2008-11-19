@@ -120,15 +120,27 @@ $messages['gl'] = array(
 	'problempages-graphs' => 'datos das valoracións',
 );
 
+/** Hebrew (עברית)
+ * @author DoviJ
+ * @author Rotemliss
+ */
+$messages['he'] = array(
+	'problempages' => 'דפים בדירוג נמוך',
+	'problempages-leg' => 'מציאת דפים בדירוג נמוך',
+	'problempages-list' => 'להלן רשימת דפים, ממוינים לפי דירוג הקוראים.',
+	'problempages-none' => 'אין דפים ברשימה זו',
+	'problempages-graphs' => 'מידע הדירוג',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
-	'problempages' => 'Problémás lapok',
+	'problempages' => 'Rossznak ítélt lapok',
 	'problempages-leg' => 'Alacsony értékelésű lapok keresése',
-	'problempages-list' => 'Alább a lapok olvasói értékelések szerint sorba tett listája látható.',
-	'problempages-none' => 'Egyetlen lap sem található a listában.',
+	'problempages-list' => 'Alább a lapok olvasói értékelés szerint sorba tett listája látható.',
+	'problempages-none' => 'Nem található egyetlen lap sem a listában.',
 	'problempages-graphs' => 'értékelési adatok',
 );
 
