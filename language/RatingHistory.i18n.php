@@ -268,11 +268,17 @@ $messages['he'] = array(
 	'ratinghistory-users' => 'משתמשים שדירגו את הדף הזה:',
 	'ratinghistory-graph' => '$2 מתוך "$3" ({{PLURAL:$1|דירוג אחד|$1 דירוגים}})',
 	'ratinghistory-none' => 'אין כרגע מספיק מידע זמין של משוב קוראים ליצירת תרשימים',
+	'ratinghistory-legend' => "'''הדירוג הממוצע היומי''' <font color=\"blue\">'''(בכחול)'''</font> ו'''הדירוג הממוצע בתווך''' <font color=\"green\">'''(בירוק)'''</font> מוצגים בטבלאות למטה, לפי תאריך.
+
+דירוג: '''[1]''' - גרוע; '''[2]''' - נמוך; '''[3]''' - בינוני; '''[4]''' - גבוה; '''[5]''' - מצוין;
+
+'''מספר הביקורות ליום''' <font color=\"red\">'''(באדום)'''</font> מוצגים בטבלאות למטה, ביחס של ''1:\$1''.",
 	'right-feedback' => 'השתמשו בטופס המשוב כדי לדרג דף',
 );
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Dorgan
  * @author Glanthor Reviol
  * @author Samat
  */
@@ -367,6 +373,7 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'ratinghistory-thanks' => "'''<font color=\"darkred\">이 문서를 검토해 주셔서 감사합니다!</font>'''",
 	'ratinghistory-period' => '기간:',
 	'ratinghistory-month' => '지난 1개월',
 	'ratinghistory-year' => '지난 1년',

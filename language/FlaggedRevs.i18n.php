@@ -2246,39 +2246,39 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'editor' => 'Redaktanto',
+	'editor' => 'Revizianto',
 	'flaggedrevs' => 'Markitaj Versioj',
 	'flaggedrevs-backlog' => "Estas nune amaso de [[Special:OldReviewedPages|malfreŝe kontrolitaj paĝoj]]. '''Via atento estas bezonata!'''",
-	'flaggedrevs-desc' => 'Rajtigas al redaktantoj kaj kontrolantoj la kapablon validigi versiojn kaj stabiligi paĝojn',
+	'flaggedrevs-desc' => 'Rajtigas al reviziantoj kaj kontrolantoj la kapablon validigi versiojn kaj stabiligi paĝojn',
 	'flaggedrevs-pref-UI-0' => 'Uzi detalan stabilan version por uzulinterfaco',
 	'flaggedrevs-pref-UI-1' => 'Uzi simplan uzulinterfacon de stabilaj versioj',
 	'flaggedrevs-prefs' => 'Stabileco',
 	'flaggedrevs-prefs-stable' => 'Ĉiam defaŭlte montri la stabilan version (se ĝi ekzistas)',
 	'flaggedrevs-prefs-watch' => 'Aldoni miajn kontrolitajn paĝojn al mia atentaro',
-	'group-editor' => 'Redaktantoj',
-	'group-editor-member' => 'Redaktanto',
+	'group-editor' => 'Reviziantoj',
+	'group-editor-member' => 'Revizianto',
 	'group-reviewer' => 'Kontrolantoj',
 	'group-reviewer-member' => 'Kontrolanto',
-	'grouppage-editor' => '{{ns:project}}:Redaktanto',
+	'grouppage-editor' => '{{ns:project}}:Revizianto',
 	'grouppage-reviewer' => '{{ns:project}}:Kontrolanto',
 	'hist-draft' => 'malneta versio',
 	'hist-quality' => 'kvalita versio',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validigita] de [[User:$3|$3]]',
-	'hist-stable' => 'vidita versio',
-	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} vidita] de [[User:$3|$3]]',
+	'hist-stable' => 'reviziita versio',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} reviziita] de [[User:$3|$3]]',
 	'review-diff2stable' => 'Vidi ŝanĝojn inter stabila kaj nuna versioj',
 	'review-logentry-app' => 'kontrolis [[$1]]',
 	'review-logentry-dis' => 'evitinda versio de [[$1]]',
 	'review-logentry-id' => 'identigo de versio $1',
 	'review-logentry-diff' => 'diferenco de stabila versio',
-	'review-logpage' => 'Kontroli protokolon',
+	'review-logpage' => 'Protokolo de revizioj',
 	'review-logpagetext' => 'Jen protokolo de ŝanĝoj al [[{{MediaWiki:Validationpage}}|aprobstatuso]] de versioj por enhavaj paĝoj.
 Rigardu la [[Special:ReviewedPages|liston de kontrolitaj paĝoj]] por listo de aprobitaj paĝoj.',
 	'reviewer' => 'Kontrolanto',
 	'revisionreview' => 'Kontroli versiojn',
-	'revreview-accuracy' => 'Fideleco',
+	'revreview-accuracy' => 'Stato',
 	'revreview-accuracy-0' => 'Malkonsentita',
-	'revreview-accuracy-1' => 'Vidita',
+	'revreview-accuracy-1' => 'Reviziita',
 	'revreview-accuracy-2' => 'Fidela',
 	'revreview-accuracy-3' => 'Dokumentita',
 	'revreview-accuracy-4' => 'Elstara',
@@ -2286,14 +2286,14 @@ Rigardu la [[Special:ReviewedPages|liston de kontrolitaj paĝoj]] por listo de a
 	'revreview-auto' => '(aŭtomata)',
 	'revreview-auto-w' => "Vi redaktas stabilan version. Ŝanĝoj estos '''aŭtomate kontrolitaj'''.",
 	'revreview-auto-w-old' => "Vi redaktas kontrolitan version. Ŝanĝoj estos '''aŭtomate kontrolitaj'''.",
-	'revreview-basic' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|vidita]] versio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-basic' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] atendas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝon|ŝanĝojn}}].',
-	'revreview-basic-i' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|vidita]] versio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-basic-i' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] atendas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝablonajn/bildajn ŝanĝojn].',
-	'revreview-basic-old' => 'Jen [[{{MediaWiki:Validationpage}}|vidita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-basic-old' => 'Jen [[{{MediaWiki:Validationpage}}|reviziita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble estis faritaj.',
-	'revreview-basic-same' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|vidita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Vidita versio] de ĉi tiu paĝo, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu versio.',
+	'revreview-basic-same' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Reviziita versio] de ĉi tiu paĝo, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu versio.',
 	'revreview-changed' => "'''La petita ago ne povas esti farita por ĉi tiu versio de [[:$1|$1]].'''
 
 Ŝablono aŭ bildo verŝajne estis petita kiam nenia aparta versio estis petita.
@@ -2307,10 +2307,10 @@ Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'revreview-depth-2' => 'Modere',
 	'revreview-depth-3' => 'Grande',
 	'revreview-depth-4' => 'Elstara',
-	'revreview-draft-title' => 'Malneta artikolo',
+	'revreview-draft-title' => 'Malneta versio',
 	'revreview-edit' => 'Redakti malneton',
 	'revreview-editnotice' => "'''Notu: Redaktoj al ĉi tiu paĝo estos enmetitaj en la [[{{MediaWiki:Validationpage}}|stabilan version]] post aŭtoritata uzanto kontrolis ilin.'''",
-	'revreview-flag' => 'Kontroli ĉi tiun version',
+	'revreview-flag' => 'Marki ĉi tiun version',
 	'revreview-edited' => "'''Redaktoj estos enmetitaj en la [[{{MediaWiki:Validationpage}}|stabilan version]] post kiam  ensalutinta uzulo kontrolis ilin.
 La ''malneto'' estas montrita sube.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.",
 	'revreview-invalid' => "'''Nevalida celo:''' neniu [[{{MediaWiki:Validationpage}}|kontrolita]] versio kongruas la enigitan identigon.",
@@ -2319,9 +2319,9 @@ La ''malneto'' estas montrita sube.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&dif
 	'revreview-main' => 'Vi devas selekti apartan version de enhava paĝo por kontroli.
 
 Vidu la [[Special:Unreviewedpages|liston de nekontrolitaj paĝoj]] .',
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta vidita versio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listigi ĉiujn]) estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta reviziita versio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listigi ĉiujn]) estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.',
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta vidita versio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta reviziita versio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis  [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝablonaj/bildaj ŝanĝoj] atendas kontrolon.',
 	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta bonkvalita versio] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.',
@@ -2343,9 +2343,9 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-quality-same' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|bonkvalita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Bonkvalita versio] de ĉi tiu paĝo, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu versio.',
 	'revreview-quality-title' => 'Bonkvalita artikolo',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Vidita artikolo]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Vidita artikolo]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Vidita artikolo]]'''",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Reviziita versio]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Reviziita versio]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Reviziita versio]]'''",
 	'revreview-quick-invalid' => "'''Nevalida identigo de versio'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Nuna versio]]''' (nekontrolita)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Bonkvalita artikolo]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
@@ -2358,19 +2358,19 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-selected' => "Elektis version de '''$1:'''",
 	'revreview-source' => 'malneta fonto',
 	'revreview-stable' => 'Stabila paĝo',
-	'revreview-stable-title' => 'Vidita artikolo',
-	'revreview-stable1' => 'Eble vi volus rigardi [{{fullurl:$1|stableid=$2}} ĉi tiun markitan version] por vidi ĉu ĝi nun estas la [{{fullurl:$1|stable=1}} stabila versio] de ĉi tiu paĝo.',
-	'revreview-stable2' => 'Eble vi volas rigardi la [{{fullurl:$1|stable=1}} stabilan version] de ĉi tiu paĝo (se ĝi ankoraŭ ekzistas).',
+	'revreview-stable-title' => 'Reviziita artikolo',
+	'revreview-stable1' => 'Ĉu vi volas rigardi [{{fullurl:$1|stableid=$2}} la ĵus markitan version] por vidi, ĉu ĝi nun estas la [{{fullurl:$1|stable=1}} reviziita kaj montrata versio] de ĉi tiu paĝo?',
+	'revreview-stable2' => 'Ĉu vi volas rigardi la [{{fullurl:$1|stable=1}} stabilan version] de cxi tiu paĝo (se iu ekzistas)?',
 	'revreview-style' => 'Legebleco',
 	'revreview-style-0' => 'Malaprobita',
 	'revreview-style-1' => 'Akceptinda',
 	'revreview-style-2' => 'Bona',
 	'revreview-style-3' => 'Konciza',
 	'revreview-style-4' => 'Elstara',
-	'revreview-submit' => 'Aldoni kontrolon',
+	'revreview-submit' => 'Konservi la markon',
 	'revreview-submitting' => 'Sendante...',
-	'revreview-finished' => 'Kontrolo farita!',
-	'revreview-successful' => "'''Versio de [[:$1|$1]] sukcese markita. ([{{fullurl:Special:Stableversions|page=$2}} vidi ĉiujn markitajn versiojn])'''",
+	'revreview-finished' => 'Versio markita!',
+	'revreview-successful' => "'''Tiu cxi versio de [[:$1|$1]] estas markita kiel reviziita. ([{{fullurl:Special:Stableversions|page=$2}} vidi cxiujn markitajn versiojn])'''",
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilaj versioj]] estas la defaŭlta enhavo por vidantoj anstataŭ la lasta versio.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilaj versioj]] estas kontrolita versioj de paĝoj kaj povas defaŭlte montri tiun enhavon por legantoj.''",
@@ -2388,13 +2388,13 @@ Malvalidigi version, faru ĉiujn kampojn kiel "malaprobita".',
 	'revreview-revnotfound' => 'Ne eblis trovi malnovan version de la artikolo kiun vi petis.
 Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'right-autopatrolother' => 'Aŭtomate marki versiojn ekster la ĉefaj nomspacoj kiel patrolitajn',
-	'right-autoreview' => 'Aŭtomate marki versiojn kiel viditajn',
+	'right-autoreview' => 'Aŭtomate marki versiojn kiel reviziitajn',
 	'right-movestable' => 'Movi stabilajn paĝojn',
-	'right-review' => 'Marki versiojn kiel viditajn',
+	'right-review' => 'Marki versiojn kiel reviziitajn',
 	'right-stablesettings' => 'Konfiguri kiel la stabila versio estas selektita kaj montrita',
 	'right-validate' => 'Marki versiojn kiel validigitajn',
 	'rights-editor-autosum' => 'aŭtomate rangaltigita',
-	'rights-editor-revoke' => 'forigis redaktanto-rajton de [[$1]]',
+	'rights-editor-revoke' => 'forigis revizianto-rajton de [[$1]]',
 	'specialpages-group-quality' => 'Kvalitkontrolo',
 	'stable-logentry' => 'konfiguris stabil-redakciadon por [[$1]]',
 	'stable-logentry2' => 'restarigi stabilan versiigado por [[$1]]',
@@ -2427,7 +2427,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'revreview-filter-unapproved' => 'Malkonsentita',
 	'revreview-filter-auto' => 'Aŭtomata',
 	'revreview-filter-manual' => 'Permana',
-	'revreview-filter-level-0' => 'Viditaj versioj',
+	'revreview-filter-level-0' => 'Reviziitaj versioj',
 	'revreview-filter-level-1' => 'Bonkvalitaj versioj',
 	'revreview-statusfilter' => 'Statuso:',
 	'revreview-typefilter' => 'Speco:',
@@ -3381,6 +3381,14 @@ Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePage
 	'validationpage' => '{{ns:help}}:Confirmación do artigo',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'revreview-log' => 'Σχόλιον:',
+	'revreview-typefilter' => 'Τύπος:',
+);
+
 /** Hakka (Hak-kâ-fa)
  * @author Hakka
  */
@@ -3974,6 +3982,7 @@ Lisćinu stabilizowanych stronow namakaš w [[Special:StablePages|lisćinje stab
  * @author Dani
  * @author Dorgan
  * @author Glanthor Reviol
+ * @author Gondnok
  * @author KossuthRad
  * @author Samat
  */
@@ -4003,7 +4012,7 @@ $messages['hu'] = array(
 	'review-logentry-dis' => 'törölte a(z) [[$1]] lap egyik változatának értékelését',
 	'review-logentry-id' => 'változat azonosítója: $1',
 	'review-logentry-diff' => 'változás a jelölthöz képest',
-	'review-logpage' => 'Cikkértékelési napló',
+	'review-logpage' => 'Lapellenőrzési napló',
 	'review-logpagetext' => 'Ez a lap a lapok verzióinak [[{{MediaWiki:Validationpage}}|jelölési]] állapotában történt változások
 naplója.',
 	'reviewer' => 'lektor',

@@ -242,7 +242,7 @@ $messages['eo'] = array(
 	'oldreviewedpages-legend' => 'Listigi kontrolitajn paĝoj kun nekontrolitaj versioj',
 	'oldreviewedpages-list' => 'Ĉi tiu paĝo montras kontrolitajn paĝojn atendantajn redaktojn.',
 	'oldreviewedpages-none' => 'Nune neniuj paĝoj kontruas tiun kriterion.',
-	'oldreviewedpages-stable' => 'vidita',
+	'oldreviewedpages-stable' => 'reviziita',
 	'oldreviewedpages-quality' => 'bonkvalita',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|horo|horoj}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|tago|tagoj}})',
@@ -332,6 +332,13 @@ $messages['gl'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'oldreviewed-category' => 'Κατηγορία:',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss
@@ -349,6 +356,7 @@ $messages['he'] = array(
 	'oldreviewed-category' => 'קטגוריה:',
 	'oldreviewed-diff' => 'בדיקה',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|משתמש אחד עוקב|$2 משתמשים עוקבים}})',
 );
 
 /** Hindi (हिन्दी)

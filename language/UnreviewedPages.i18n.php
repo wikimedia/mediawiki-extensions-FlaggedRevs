@@ -330,6 +330,13 @@ $messages['gl'] = array(
 	'unreviewed-none' => 'Actualmente non hai páxinas que coincidan con ese criterio',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'unreviewed-category' => 'Κατηγορία:',
+);
+
 /** Hawaiian (Hawai`i)
  * @author Singularity
  */
@@ -391,11 +398,12 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Gondnok
  * @author KossuthRad
  * @author Samat
  */
 $messages['hu'] = array(
-	'right-unreviewedpages' => 'Ellenőrizetlen lapok listájának megtekintése',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Ellenőrizetlen lapok listájának]] megtekintése',
 	'unreviewedpages' => 'Ellenőrizetlen lapok',
 	'unreviewed-legend' => 'Nem ellenőrzött tartalmú lapok listája',
 	'unreviewed-category' => 'Kategória:',

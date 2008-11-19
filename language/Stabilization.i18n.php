@@ -513,9 +513,9 @@ Jen la nunaj preferoj por [[:$1|$1]]:',
 	'stabilization-page' => 'Paĝnomo:',
 	'stabilization-leg' => 'Konfirmi konfiguron de stabila versio',
 	'stabilization-select' => 'Selektado de stabila versio',
-	'stabilization-select1' => 'La lasta bonkvalita versio; se ĝi ne ekzistas, tiel la lasta vidita versio.',
+	'stabilization-select1' => 'La lasta bonkvalita versio; se ĝi ne ekzistas, tiel la lasta reviziita versio.',
 	'stabilization-select2' => 'La lasta kontrolita versio',
-	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ vidita versio.',
+	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ reviziita versio.',
 	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
 	'stabilization-def1' => 'La stabila versio;
 se ĝi ne ekzistas, la nuna versio',
@@ -720,6 +720,14 @@ $messages['gl'] = array(
 	'stabilize_expiry_invalid' => 'Data non válida de caducidade.',
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
 	'stabilize-expiring' => 'caduca $1 (UTC)',
+);
+
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'stabilization-comment' => 'Σχόλιον:',
+	'stabilization-sel-short-1' => 'Οὐδέν',
 );
 
 /** Hawaiian (Hawai`i)

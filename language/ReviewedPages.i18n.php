@@ -203,7 +203,7 @@ $messages['eo'] = array(
 	'reviewedpages-leg' => 'Montri paĝojn kontrolitajn al aparta nivelo',
 	'reviewedpages-list' => 'La jenaj paĝoj estis kontrolita al la aparta nivelo.',
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
-	'reviewedpages-lev-0' => 'Vidita',
+	'reviewedpages-lev-0' => 'Reviziita',
 	'reviewedpages-lev-1' => 'Kvalito',
 	'reviewedpages-lev-2' => 'Elstara',
 	'reviewedpages-all' => 'kontrolitaj versioj',
@@ -479,6 +479,7 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'reviewedpages' => '검토된 문서',
+	'reviewedpages-all' => '검토된 버전',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

@@ -106,6 +106,7 @@ $messages['he'] = array(
 	'likedpages-leg' => 'מציאת דפים בדירוג גבוה',
 	'likedpages-list' => 'להלן רשימת דפים, ממוינים לפי דירוג הקוראים שלהם.',
 	'likedpages-none' => 'אין דפים ברשימה זו',
+	'likedpages-graphs' => 'מידע הדירוג',
 );
 
 /** Hungarian (Magyar)

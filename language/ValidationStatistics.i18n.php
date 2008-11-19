@@ -122,7 +122,7 @@ $messages['de'] = array(
 $messages['eo'] = array(
 	'validationstatistics' => 'Validigadaj statistikoj',
 	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''$1''' {{PLURAL:$1|uzanton|uzantojn}} kun
-[[{{MediaWiki:Validationpage}}|Redaktanto]]-rajtoj
+[[{{MediaWiki:Validationpage}}|Revizianto]]-rajtoj
 kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.",
 	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, krom alidirektiloj.
 
@@ -210,7 +210,7 @@ $messages['he'] = array(
 '''הערה:''' הנתונים הבאים נשמרים למשך כמה שעות וייתכן ואינם עדכניים.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
-	'validationstatistics-stable' => 'אושר',
+	'validationstatistics-stable' => 'עבר ביקורת',
 	'validationstatistics-latest' => 'בדיקות אחרונות',
 	'validationstatistics-synced' => 'סונכרנו/נבדקו',
 	'validationstatistics-old' => 'פג תוקף',
