@@ -239,7 +239,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'oldreviewedpages' => 'Malfreŝe kontrolitaj paĝoj',
-	'oldreviewedpages-legend' => 'Listigi kontrolitajn paĝoj kun nekontrolitaj versioj',
+	'oldreviewedpages-legend' => 'Listigi reviziitajn paĝojn kun nereviziitaj versioj',
 	'oldreviewedpages-list' => 'Ĉi tiu paĝo montras kontrolitajn paĝojn atendantajn redaktojn.',
 	'oldreviewedpages-none' => 'Nune neniuj paĝoj kontruas tiun kriterion.',
 	'oldreviewedpages-stable' => 'reviziita',

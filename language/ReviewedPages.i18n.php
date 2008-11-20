@@ -206,7 +206,7 @@ $messages['eo'] = array(
 	'reviewedpages-lev-0' => 'Reviziita',
 	'reviewedpages-lev-1' => 'Kvalito',
 	'reviewedpages-lev-2' => 'Elstara',
-	'reviewedpages-all' => 'kontrolitaj versioj',
+	'reviewedpages-all' => 'reviziitaj versioj',
 	'reviewedpages-best' => 'ĉefa versio',
 );
 

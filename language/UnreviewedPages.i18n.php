@@ -220,9 +220,9 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|liston de nekontrolitaj paĝoj]]',
-	'unreviewedpages' => 'Nekontrolitaj paĝoj',
-	'unreviewed-legend' => 'Listigi nekontrolitajn enhavajn paĝojn',
+	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|liston de nereviziitaj paĝoj]]',
+	'unreviewedpages' => 'Nereviziitaj paĝoj',
+	'unreviewed-legend' => 'Listigi nereviziitajn enhavajn paĝojn',
 	'unreviewed-category' => 'Kategorio:',
 	'unreviewed-diff' => 'kontrolo',
 	'unreviewed-unwatched' => '(malatentita)',
