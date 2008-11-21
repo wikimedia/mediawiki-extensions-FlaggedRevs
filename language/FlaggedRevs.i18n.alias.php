@@ -164,11 +164,16 @@ $aliases['gl'] = array(
 	'OldReviewedPages' => array( 'Páxinas revisadas hai tempo' ),
 	'ProblemPages' => array( 'Páxinas problemáticas' ),
 	'QualityOversight' => array( 'Revisión de calidade' ),
+	'RatingHistory' => array( 'Valoración do historial' ),
+	'ReaderFeedback' => array( 'Impresión do lector' ),
 	'ReviewedPages' => array( 'Páxinas revisadas' ),
+	'RevisionReview' => array( 'Revisión da revisión' ),
+	'Stabilization' => array( 'Estabilización' ),
 	'StablePages' => array( 'Páxinas estábeis' ),
 	'StableVersions' => array( 'Versións estábeis' ),
 	'UnreviewedPages' => array( 'Páxinas non revisadas' ),
 	'UnstablePages' => array( 'Páxinas non estables' ),
+	'ValidationStatistics' => array( 'Estatísticas de validación' ),
 );
 
 /** Hindi (हिन्दी)
