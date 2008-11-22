@@ -9,7 +9,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'ratinghistory'         => 'Page rating history',
-	'ratinghistory-text'    => '\'\'\'This page displays article page data for [[:$1|$1]].\'\'\'',
+	'ratinghistory-text'    => '\'\'\'This page displays page rating data for [[:$1|$1]].\'\'\'',
 	'ratinghistory-leg'     => 'Rating history data',
 	'ratinghistory-tab'     => 'rating',
 	'ratinghistory-link'    => 'Page rating',
