@@ -70,7 +70,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-depth-2'            => 'Moderate',
 	'revreview-depth-3'            => 'High',
 	'revreview-depth-4'            => 'Featured',
-	'revreview-draft-title'        => 'Draft article',
+	'revreview-draft-title'        => 'Draft page',
 	'revreview-edit'               => 'Edit draft',
 	'revreview-editnotice'         => '\'\'\'Note: Edits to this page will be incorporated into the [[{{MediaWiki:Validationpage}}|stable version]] once an authorised user reviews them.\'\'\'',
 	'revreview-flag'               => 'Review this revision',
@@ -106,23 +106,23 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-quality-same'       => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
 	'revreview-quality-source'     => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} quality version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
-	'revreview-quality-title'      => 'Quality article',
-	'revreview-quick-basic'        => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-basic-old'    => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted article]]\'\'\'',
+	'revreview-quality-title'      => 'Quality page',
+	'revreview-quick-basic'        => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted page]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-basic-old'    => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted page]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-basic-same'   => '\'\'\'[[{{MediaWiki:Validationpage}}|Sighted page]]\'\'\'',
 	'revreview-quick-invalid'      => '\'\'\'Invalid revision ID\'\'\'',
 	'revreview-quick-none'         => '\'\'\'[[{{MediaWiki:Validationpage}}|Current revision]]\'\'\' (unreviewed)',
-	'revreview-quick-quality'      => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-quality-old'  => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
-	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality article]]\'\'\'',
-	'revreview-quick-see-basic'    => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
+	'revreview-quick-quality'      => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality page]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-quality-old'  => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality page]]\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} view draft]]',
+	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality page]]\'\'\'',
+	'revreview-quick-see-basic'    => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view page]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} compare])',
-	'revreview-quick-see-quality'  => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view article]]
+	'revreview-quick-see-quality'  => '\'\'\'Draft\'\'\' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} view page]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} compare])',
 	'revreview-selected'           => 'Selected revision of \'\'\'$1:\'\'\'',
 	'revreview-source'             => 'draft source',
 	'revreview-stable'             => 'Stable page',
-	'revreview-stable-title'       => 'Sighted article',
+	'revreview-stable-title'       => 'Sighted page',
 	'revreview-stable1'            => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] and see if it is now the [{{fullurl:$1|stable=1}} stable version] of this page.',
 	'revreview-stable2'            => 'You may want to view the [{{fullurl:$1|stable=1}} stable version] of this page (if there still is one).',
 	'revreview-style'              => 'Readability',
@@ -214,7 +214,7 @@ Please check the URL you used to access this page.',
 	'log-show-hide-review'           => '$1 review log',
 	
 	'revreview-tt-review'          => 'Review this page',
-	'validationpage'               => '{{ns:help}}:Article validation',
+	'validationpage'               => '{{ns:help}}:Page validation',
 );
 
 /** Message documentation (Message documentation)
@@ -308,7 +308,7 @@ Displayed on the top of a page when you are viewing an old sighted version.
 {{Identical|Featured}}',
 	'revreview-draft-title' => '{{Flagged Revs}}',
 	'revreview-edit' => '{{Flagged Revs-small}}
-Users who see the stable version and not the draft version as article, have this message in the "edit" tab.',
+Users who see the stable version and not the draft version as page, have this message in the "edit" tab.',
 	'revreview-flag' => '{{Flagged Revs-small}}
 * Title of the review box shown below a page (when you have the permission to review pages).',
 	'revreview-edited' => '{{Flagged Revs-small}}
@@ -326,7 +326,7 @@ Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&stable=0 de
 	'revreview-newest-quality' => '{{Flagged Revs}}',
 	'revreview-newest-quality-i' => '{{Flagged Revs}}',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
-Shown above an article, when there are no reviewed revisions of that article.',
+Shown above a page, when there are no reviewed revisions of that page.',
 	'revreview-note' => '{{Flagged Revs-small}}
 Additionnal notes and comments, see [[:Image:FlaggedRevs2.png]].',
 	'revreview-notes' => '{{Flagged Revs-small}}
@@ -352,7 +352,7 @@ Displayed on the top of a page when you are viewing an old quality version.
 	'revreview-quick-basic-same' => '{{Flagged Revs}}',
 	'revreview-quick-invalid' => '{{Flagged Revs}}',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
-Shown in the "flagged revs box" on the article page when there isn\'t any sighted or quality revision yet.',
+Shown in the "flagged revs box" on the content page when there isn\'t any sighted or quality revision yet.',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
 Used in the "flagged revs box" when viewing a quality version, while there are new changes (in a draft version) to be reviewed.
 

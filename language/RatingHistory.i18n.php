@@ -9,10 +9,10 @@ $messages = array();
 
 $messages['en'] = array(
 	'ratinghistory'         => 'Page rating history',
-	'ratinghistory-text'    => '\'\'\'This page displays article rating data for [[:$1|$1]].\'\'\'',
+	'ratinghistory-text'    => '\'\'\'This page displays article page data for [[:$1|$1]].\'\'\'',
 	'ratinghistory-leg'     => 'Rating history data',
 	'ratinghistory-tab'     => 'rating',
-	'ratinghistory-link'    => 'Article rating',
+	'ratinghistory-link'    => 'Page rating',
 	'ratinghistory-thanks'  => '\'\'<font color="darkred">Thank you for taking a moment to review this page!</font>\'\'',
 	'ratinghistory-period'  => 'Time period:',
 	'ratinghistory-month'   => 'last month',
