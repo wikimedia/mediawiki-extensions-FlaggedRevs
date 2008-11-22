@@ -889,22 +889,24 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'stabilization-tab' => '(qa)',
-	'stabilization' => 'Változat elfogadása',
+	'stabilization' => 'Lap rögzítése',
 	'stabilization-text' => "'''Az alábbi beállítások módosításával állíthatod be, hogy a(z) [[:$1|$1]] melyik változata jelenjen meg az olvasók számára.'''",
-	'stabilization-perm' => 'Nincs jogosultságod megváltoztatni az elfogadott változat beállításait.
-[[:$1|$1]] jelenlegi beállításai itt találhatóak:',
-	'stabilization-page' => 'A lap neve:',
+	'stabilization-perm' => 'Nincs jogosultságod megváltoztatni a rögzített változat beállításait.
+A(z) [[:$1|$1]] lapra vonatkozó jelenlegi beállítások:',
+	'stabilization-page' => 'A lap címe:',
 	'stabilization-leg' => 'Elfogadott változat beállításainak megerősítése',
 	'stabilization-select' => 'Az elfogadott változat kiválasztása',
-	'stabilization-select1' => 'A legutolsó ellenőrzött változat; ha nincs, akkor a legutolsó megtekintett változat',
+	'stabilization-select1' => 'A legutolsó kiemelt változat; ha nincs, akkor a legutolsó megtekintett változat',
 	'stabilization-select2' => 'A legutolsó megtekintett változat',
-	'stabilization-select3' => 'A legutolsó eredeti változat; ha nincs, akkor a legutolsó ellenőrzött vagy megtekintett',
+	'stabilization-select3' => 'A legutolsó legjobb változat; ha nincs, akkor a legutolsó kiemelt vagy megtekintett',
 	'stabilization-def' => 'Az alapértelmezettként megjelenített változat',
 	'stabilization-def1' => 'A jelölt változat; ha nincs, akkor a legutolsó',
 	'stabilization-def2' => 'A legutolsó változat',
 	'stabilization-submit' => 'Megerősítés',
-	'stabilization-notexists' => 'Nincs „[[:$1|$1]]” nevű lap, így nem lehet beállítani.',
-	'stabilization-notcontent' => '„[[:$1|$1]]” nem ellenőrizhető, így nem is lehet beállítani.',
+	'stabilization-notexists' => 'Nincs „[[:$1|$1]]” című lap.
+Nem lehet a beállításokat módosítani.',
+	'stabilization-notcontent' => 'A(z) „[[:$1|$1]]” című lapot nem ellenőrizni.
+Nem lehet a beállításokat módosítani.',
 	'stabilization-comment' => 'Megjegyzés:',
 	'stabilization-expiry' => 'Lejárat:',
 	'stabilization-sel-short' => 'Precendencia',
@@ -914,9 +916,9 @@ $messages['hu'] = array(
 	'stabilization-def-short' => 'Alapértelmezett',
 	'stabilization-def-short-0' => 'legutolsó',
 	'stabilization-def-short-1' => 'elfogadott',
-	'stabilize_expiry_invalid' => 'Hibás lejárati dátum.',
-	'stabilize_expiry_old' => 'A lejárati idő már elmúlt.',
-	'stabilize-expiring' => 'lejár $1-kor (UTC)',
+	'stabilize_expiry_invalid' => 'Hibás lejárati idő.',
+	'stabilize_expiry_old' => 'A megadott lejárati idő már elmúlt.',
+	'stabilize-expiring' => 'lejár $1-kor (UTC szerint)',
 );
 
 /** Interlingua (Interlingua)
@@ -1551,6 +1553,13 @@ $messages['oc'] = array(
 	'stabilize_expiry_invalid' => "Data d'expiracion invalida.",
 	'stabilize_expiry_old' => "Lo temps d'expiracion ja es passat.",
 	'stabilize-expiring' => 'expira $1 (UTC)',
+);
+
+/** Ossetic (Иронау)
+ * @author Amikeco
+ */
+$messages['os'] = array(
+	'stabilization-sel-short-1' => 'Нæй',
 );
 
 /** Polish (Polski)

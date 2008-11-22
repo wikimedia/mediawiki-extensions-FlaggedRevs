@@ -182,6 +182,13 @@ $messages['pl'] = array(
 	'likedpages-graphs' => 'ocena danych',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'likedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

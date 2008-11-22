@@ -674,11 +674,13 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'oldreviewedpages-stable' => 'viste',
 	'oldreviewedpages-quality' => 'qualità',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ore|ore}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|sciurne|sciurne}})',
 	'oldreviewedpages-recent' => "(mene de n'ore)",
 	'oldreviewed-category' => 'Categorije:',
+	'oldreviewed-diff' => 'riviste',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utende|utinde}} ca condrollene)',
 );
 

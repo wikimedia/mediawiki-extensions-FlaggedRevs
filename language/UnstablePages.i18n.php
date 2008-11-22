@@ -109,9 +109,9 @@ $messages['he'] = array(
  * @author Dani
  */
 $messages['hu'] = array(
-	'unstablepages' => 'Instabil lapok',
-	'unstablepages-stable' => 'megtekintett változat',
-	'unstablepages-text' => 'Lent azon lapok listája található, amelyeknél kézzel lett beállítva, hogy a vázlat jelenjen meg alapértelmezettként az olvasók számára.',
+	'unstablepages' => 'Rögzítetlen lapok',
+	'unstablepages-stable' => 'rögzített változat',
+	'unstablepages-text' => 'Lent azon lapok listája található, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a legutolsó változat jelenjen meg.',
 	'unstablepages-none' => 'Nincsenek lapok a listában',
 	'unstablepages-config' => 'beállítás',
 );
@@ -226,6 +226,7 @@ $messages['pt'] = array(
  */
 $messages['roa-tara'] = array(
 	'unstablepages-stable' => 'versione stabile',
+	'unstablepages-none' => "Non ge stonne pàgene jndr'à sta liste",
 	'unstablepages-config' => 'Configurazione',
 );
 

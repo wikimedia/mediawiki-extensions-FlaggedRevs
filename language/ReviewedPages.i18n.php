@@ -657,6 +657,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'reviewedpages-leg' => "Liste de le pàggene riviste de 'nu certe levèlle",
 	'reviewedpages-lev-0' => 'Viste',
 	'reviewedpages-lev-1' => 'Qualità',
 );

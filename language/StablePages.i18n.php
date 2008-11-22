@@ -184,14 +184,15 @@ $messages['hi'] = array(
 );
 
 /** Hungarian (Magyar)
+ * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
-	'stablepages' => 'Jelölt lapok',
-	'stablepages-stable' => 'stabil változat',
-	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amiket külön úgy állítottak be, hogy olvasójának alapértelmezettként a stabil változatot mutassa.',
+	'stablepages' => 'Rögzített lapok',
+	'stablepages-stable' => 'rögzített változat',
+	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amiket külön úgy állítottak be, hogy olvasójának alapértelmezettként a rögzített változat jelenjen meg.',
 	'stablepages-none' => 'Nem található egyetlen lap sem a listában.',
-	'stablepages-config' => 'Beállítások',
+	'stablepages-config' => 'beállítás',
 );
 
 /** Indonesian (Bahasa Indonesia)

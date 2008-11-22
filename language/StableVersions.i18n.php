@@ -328,12 +328,12 @@ $messages['hsb'] = array(
  * @author Samat
  */
 $messages['hu'] = array(
-	'stableversions' => 'Megjelölt változatok',
-	'stableversions-leg1' => 'Oldal ellenőrzött változatainak listája',
-	'stableversions-page' => 'A lap neve:',
-	'stableversions-none' => '„[[:$1]]” nem rendelkezik ellenőrzött változatokkal',
-	'stableversions-list' => '„[[:$1]]” következő változatai lettek ellenőrizve:',
-	'stableversions-review' => 'ellenőrizte $2, <i>$1</i>-kor',
+	'stableversions' => 'Megjelölt lapváltozatok',
+	'stableversions-leg1' => 'Oldal jelölt lapváltozatainak listája',
+	'stableversions-page' => 'A lap címe:',
+	'stableversions-none' => 'A(z) „[[:$1]]” nem rendelkezik jelölt lapváltozatokkal',
+	'stableversions-list' => 'A(z) „[[:$1]]” következő változatai lettek megjelölve:',
+	'stableversions-review' => 'megjelölte $2, <i>$1</i>-kor',
 );
 
 /** Interlingua (Interlingua)

@@ -203,11 +203,11 @@ $aliases['hu'] = array(
 	'ReaderFeedback' => array( 'Olvasói visszajelzés' ),
 	'ReviewedPages' => array( 'Ellenőrzött lapok' ),
 	'RevisionReview' => array( 'Változat ellenőrzése' ),
-	'Stabilization' => array( 'Változat elfogadása' ),
-	'StablePages' => array( 'Jelölt lapok' ),
-	'StableVersions' => array( 'Stabil változatok' ),
+	'Stabilization' => array( 'Lap rögzítése' ),
+	'StablePages' => array( 'Rögzített lapok' ),
+	'StableVersions' => array( 'Megjelölt lapváltozatok' ),
 	'UnreviewedPages' => array( 'Ellenőrizetlen lapok' ),
-	'UnstablePages' => array( 'Instabil lapok' ),
+	'UnstablePages' => array( 'Rögzítetlen lapok' ),
 	'ValidationStatistics' => array( 'Ellenőrzési statisztikák' ),
 );
 

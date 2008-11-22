@@ -200,6 +200,7 @@ $messages['grc'] = array(
 /** Hebrew (עברית)
  * @author Agbad
  * @author DoviJ
+ * @author Erel Segal
  * @author Rotemliss
  */
 $messages['he'] = array(
@@ -207,7 +208,7 @@ $messages['he'] = array(
 	'validationstatistics-users' => "'''יש כרגע {{PLURAL:$1|משתמש '''אחד'''|'''$1''' משתמשים}} ב{{SITENAME}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]] ו{{PLURAL:$2|משתמש '''אחד'''|־'''$2''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].'''",
 	'validationstatistics-table' => "סטטיסטיקות לכל מרחב שם מוצגות להלן, תוך התעלמות מדפי הפניה.
 
-'''הערה:''' הנתונים הבאים נשמרים למשך כמה שעות וייתכן ואינם עדכניים.",
+'''הערה:''' הנתונים הבאים נשמרים למשך כמה שעות, וייתכן שאינם עדכניים.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
 	'validationstatistics-stable' => 'עבר ביקורת',
