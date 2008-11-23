@@ -388,7 +388,6 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->innerPaddingX = 10;
 		$plot->innerPaddingY = 10;
 		$plot->outerPadding = 20;
-		$plot->offsetGridlinesX = 0;
 		$plot->minY = 0;
 		$plot->maxY = 5;
 		// Set cutoff time for period
@@ -467,8 +466,8 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->dataY['dave'] = $dave;
 		$plot->dataY['rave'] = $rave;
 		$plot->dataY['dcount'] = $dcount;
-		$plot->styleTagsX = 'font-family: monospace; font-size: 7.5pt;';
-		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
+		$plot->styleTagsX = 'font-family: monospace; font-size: 8pt;';
+		$plot->styleTagsY = 'font-family: sans-serif; font-size: 11pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;' );
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;' );
 		$plot->format['dcount'] = array( 'style' => 'stroke:red; stroke-width:1;' ); 
