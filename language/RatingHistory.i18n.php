@@ -16,10 +16,11 @@ $messages['en'] = array(
 	'ratinghistory-thanks'  => '\'\'<font color="darkred">Thank you for taking a moment to review this page!</font>\'\'',
 	'ratinghistory-period'  => 'Time period:',
 	'ratinghistory-month'   => 'last month',
+	'ratinghistory-3months' => 'last 3 months',
 	'ratinghistory-year'    => 'last year',
 	'ratinghistory-3years'  => 'last 3 years',
 	'ratinghistory-chart'   => 'Reader feedback rating over time',
-	'ratinghistory-users'   => 'Users who made reviews on this page:',
+	'ratinghistory-users'   => 'Users who gave ratings',
 	'ratinghistory-graph'   => '$2 of "$3" ($1 {{PLURAL:$1|review|reviews}})',
 	'ratinghistory-none'    => 'There is not enough reader feedback data available for graphs at this time.',
 	'ratinghistory-legend'  => 'The \'\'\'daily average rating\'\'\' <font color="blue">\'\'(blue)\'\'</font> and 

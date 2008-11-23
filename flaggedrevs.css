@@ -347,7 +347,7 @@
 .fr_reader_feedback_users {
 	background-color: #F0F0F0;
 	width: 100%; 
-	max-height:200px;
+	max-height:410px;
 	overflow: auto;
 	font-size: 90%;
 }

@@ -43,7 +43,7 @@ class RatingHistory extends UnlistedSpecialPage
 			return;
 		}
 		$period = $wgRequest->getInt( 'period' );
-		$validPeriods = array(31,365,1095);
+		$validPeriods = array(31,93,365,1095);
 		if( !in_array($period,$validPeriods) ) {
 			$period = 31; // default
 		}
@@ -97,6 +97,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$s = "<label for='period'>" . wfMsgHtml('ratinghistory-period') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'period', 'id' => 'period') );
 		$s .= Xml::option( wfMsg( "ratinghistory-month" ), 31, $selected===31 );
+		$s .= Xml::option( wfMsg( "ratinghistory-3months" ), 93, $selected===93 );
 		$s .= Xml::option( wfMsg( "ratinghistory-year" ), 365, $selected===365 );
 		$s .= Xml::option( wfMsg( "ratinghistory-3years" ), 1095, $selected===1095 );
 		$s .= Xml::closeElement('select')."\n";
@@ -166,10 +167,9 @@ class RatingHistory extends UnlistedSpecialPage
 				break;
 			}
 		}
-		// Add voter list
-		global $wgMiserMode;
-		if( $data && !$wgMiserMode ) {
-			$userTable = $this->getUserList($tag);
+		// Add recent voter list
+		if( $data ) {
+			$userTable = $this->getUserList();
 			if( $userTable ) {
 				$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-users') . '</h2>' );
 				$wgOut->addHTML( 
@@ -178,8 +178,7 @@ class RatingHistory extends UnlistedSpecialPage
 					Xml::closeElement( 'div' ) . "\n"
 				);
 			}
-		}
-		if( !$data ) {
+		} else {
 			$wgOut->addHTML( wfMsg('ratinghistory-none') );
 		}
 	}
@@ -492,10 +491,8 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->polyLine('dave');
 		$plot->polyLine('rave');
 		$plot->line('dcount');
-		// Fucking IE...
-		$nsParams = self::renderForIE() ? 
-			"" : "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'";
-		$plot->generateSVG( $nsParams );
+		// Render!
+		$plot->generateSVG( "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'" );
 		// Write to file for cache
 		$fp = @fopen( $filePath, 'w' );
 		@fwrite( $fp, $plot->svg );
@@ -534,13 +531,12 @@ class RatingHistory extends UnlistedSpecialPage
 	
 	public function getRelPath( $tag ) {
 		$ext = self::getCachedFileExtension();
-		$suffix = self::renderForIE() ? '-ie' : '';
 		$pageId = $this->page->getArticleId();
 		# Paranoid check. Should not be necessary, but here to be safe...
 		if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) ) {
 			throw new MWException( 'Invalid tag name!' );
 		}
-		return "{$pageId}/{$tag}/l{$this->period}d{$suffix}.{$ext}";
+		return "{$pageId}/{$tag}/l{$this->period}d.{$ext}";
 	}
 	
 	public static function getCachedFileExtension() {
@@ -565,62 +561,47 @@ class RatingHistory extends UnlistedSpecialPage
 		return $ext;
 	}
 	
-	private static function renderForIE() {
-		if( isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE ') !== false ) {
-			return true;
-		} else {
-			return false;
+	public function getUserList() {
+		if( $this->period > 93 ) {
+			return ''; // too big
 		}
-	}
-	
-	public function getUserList( $tag ) {
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
 		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
+		// Get the first revision possibly voted on in the range
 		$firstRevTS = $dbr->selectField( 'revision',
 			'rev_timestamp',
-			array( "rev_timestamp <= $cutoff" ),
+			array( 'rev_page' => $this->page->getArticleId(), "rev_timestamp <= $cutoff" ),
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp DESC' )
 		);
-		if( !$firstRevTS ) {
-			return false;
-		}
 		$res = $dbr->select( array( 'revision', 'reader_feedback', 'user' ),
 			array( 'rfb_user', 'rfb_ip', 'user_name', 'COUNT(*) as n' ),
 			array( 'rev_page' => $this->page->getArticleId(),
-				"rev_timestamp >= $firstRevTS",
 				"rev_id = rfb_rev_id",
-				"rfb_timestamp >= $firstRevTS" ),
+				"rfb_timestamp >= $cutoff",
+				// Trigger INDEX usage
+				"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
 			__METHOD__,
-			array( 'GROUP BY' => 'rfb_user, rfb_ip' ),
+			array( 'GROUP BY' => 'rfb_user, rfb_ip', 'USE INDEX' => array('revision' => 'page_time') ),
 			array( 'user' => array( 'LEFT JOIN', 'user_id = rfb_user') )
 		);
+		// Output multi-column list
 		$total = $res->numRows();
-		if( !$total ) {
-			return false;
-		}
-		$middle = ceil( count($total)/2 );
+		$columns = 4;
 		$count = 0;
-		
-		$html = "<table class='fr_reader_feedback_users' style='width: 100%;'><tr>";
-		$html .= "<td width='30%' valign='top'><ul>\n";
+		$html = "<table class='fr_reader_feedback_users'><tr>";
 		while( $row = $res->fetchObject() ) {
-			if( !$row->rfb_user ) {
-				$name = htmlspecialchars( $row->rfb_ip );
-			} else {
-				$name = $row->user_name;
-			}
-			$title = Title::makeTitleSafe( NS_USER, $name );
-			$html .= '<li>'.$this->skin->makeLinkObj( $title, $title->getText() )." [{$row->n}]</li>";
+			$title = Title::makeTitleSafe( NS_USER, $row->rfb_user ? $row->user_name : $row->rfb_ip );
+			$html .= '<td>'.$this->skin->makeLinkObj( $title, $title->getText() )." [{$row->n}]</td>";
 			$count++;
-			if( $total > 3 && $count == $middle ) {
-				$html .= "</ul></td><td width='10%'></td><td width='30%' valign='top'><ul>";
+			if( $total > $count && ($count % $columns) == 0 ) {
+				$html .= "</tr><tr>";
 			}
 		}
-		$html .= "</ul></td><td width='30%' valign='top'></td></tr></table>\n";
+		$html .= "</tr></table>\n";
 		return $html;
 	}
 	
