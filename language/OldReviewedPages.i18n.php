@@ -19,6 +19,7 @@ $messages['en'] = array(
 	'oldreviewedpages-recent' => '(less than 1 hour)',
 	'oldreviewed-category' => 'Category:',
 	'oldreviewed-diff' => 'review',
+	'oldreviewed-size' => 'Max byte size change:',
 	'oldreviewedpages-unwatched' => '(unwatched)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
 );

@@ -23,6 +23,7 @@ class OldReviewedPages extends SpecialPage
 		$this->skin = $wgUser->getSkin();
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
+		$this->size = $wgRequest->getIntOrNull( 'size' );
 		$feedType = $wgRequest->getVal( 'feed' );
 		if( $feedType ) {
 			return $this->feed( $feedType );
@@ -44,7 +45,7 @@ class OldReviewedPages extends SpecialPage
 	function showList( $par ) {
 		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
 		$limit = $this->parseParams( $par );
-		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category );
+		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category, $this->size );
 		if( $limit )
 			$pager->mLimit = $limit;
 		// Viewing the page normally...
@@ -58,7 +59,9 @@ class OldReviewedPages extends SpecialPage
 				$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' );
 			}
 			$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) . '&nbsp;' . 
-				Xml::input( 'category', 35, $this->category, array('id' => 'category') ) .
+				Xml::input( 'category', 35, $this->category, array('id' => 'category') ) . '<br/>' .
+				Xml::label( wfMsg('oldreviewed-size'), 'size' ) . '&nbsp;' .
+				Xml::input( 'size', 6, $this->size, array( 'id' => 'wpSize' ) ) .
 				'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 				"</fieldset></form>" );
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
@@ -236,7 +239,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $category, $namespace;
 
-	function __construct( $form, $namespace, $category=NULL, $conds = array() ) {
+	function __construct( $form, $namespace, $category=NULL, $size=NULL, $conds = array() ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be a content page...
@@ -249,6 +252,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
+		$this->size = $size ? $size : NULL;
 		
 		parent::__construct();
 	}
@@ -277,6 +281,10 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$conds[] = 'cl_from = page_id';
 			$conds['cl_to'] = $this->category;
 			$useIndex['categorylinks'] = 'cl_from';
+		}
+		# Filter by bytes changed
+		if( $this->size ) {
+			$conds[] = 'ABS(page_len - rev_len) < '.intval($this->size);
 		}
 		return array(
 			'tables'  => $tables,
