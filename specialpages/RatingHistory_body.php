@@ -383,9 +383,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->plotHeight = 350;
 		$plot->decimalPlacesY = 1;
 		$plot->plotOffsetX = 40;
-		$plot->plotOffsetY = 35;
+		$plot->plotOffsetY = 30;
 		$plot->numGridlinesY = 10 + 1;
-		$plot->innerPaddingX = 10;
+		$plot->innerPaddingX = 15;
 		$plot->innerPaddingY = 10;
 		$plot->outerPadding = 20;
 		$plot->minY = 0;
@@ -466,7 +466,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->dataY['dave'] = $dave;
 		$plot->dataY['rave'] = $rave;
 		$plot->dataY['dcount'] = $dcount;
-		$plot->styleTagsX = 'font-family: monospace; font-size: 8pt;';
+		$plot->styleTagsX = 'font-family: monospace; font-size: 9pt;';
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 11pt;';
 		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;' );
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;' );
@@ -474,7 +474,7 @@ class RatingHistory extends UnlistedSpecialPage
 			#'attributes' => "marker-end='url(#circle)'");
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
 			$totalCount, wfMsgForContent("readerfeedback-$tag"), $this->page->getPrefixedText() );
-		$plot->styleTitle = 'font-family: sans-serif; font-size: 12pt;';
+		$plot->styleTitle = 'font-family: sans-serif; font-weight: bold; font-size: 12pt;';
 		// extra code for markers
 		// FIXME: http://studio.imagemagick.org/pipermail/magick-bugs/2003-January/001038.html
 		/* $plot->extraSVG = 
