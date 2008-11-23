@@ -383,11 +383,11 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->plotHeight = 350;
 		$plot->decimalPlacesY = 1;
 		$plot->plotOffsetX = 40;
-		$plot->plotOffsetY = 30;
+		$plot->plotOffsetY = 35;
 		$plot->numGridlinesY = 10 + 1;
 		$plot->innerPaddingX = 10;
 		$plot->innerPaddingY = 10;
-		$plot->outerPadding = 5;
+		$plot->outerPadding = 20;
 		$plot->offsetGridlinesX = 0;
 		$plot->minY = 0;
 		$plot->maxY = 5;
@@ -412,7 +412,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$res->seek( $dbr->numRows($res)-1 );
 			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
-			$int = ($days > 31) ? 31 : intval( ceil($days/12) );
+			$int = ($days > 31) ? 31 : ceil($days/12);
 			$res->seek( 0 );
 		}
 		while( $row = $dbr->fetchObject( $res ) ) {
@@ -469,22 +469,24 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->dataY['dcount'] = $dcount;
 		$plot->styleTagsX = 'font-family: monospace; font-size: 7.5pt;';
 		$plot->styleTagsY = 'font-family: sans-serif; font-size: 10pt;';
-		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;');
-		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;');
-		$plot->format['dcount'] = array( 'style' => 'stroke:grey; stroke-width:1;', 
-			'attributes' => "marker-end='url(#circle)'");
+		$plot->format['dave'] = array( 'style' => 'stroke:blue; stroke-width:1;' );
+		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;' );
+		$plot->format['dcount'] = array( 'style' => 'stroke:red; stroke-width:1;' ); 
+			#'attributes' => "marker-end='url(#circle)'");
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
 			$totalCount, wfMsgForContent("readerfeedback-$tag"), $this->page->getPrefixedText() );
-		$plot->styleTitle = 'font-family: sans-serif; font-size: 10pt;';
+		$plot->styleTitle = 'font-family: sans-serif; font-size: 12pt;';
 		// extra code for markers
-		$plot->extraSVG = 
+		// FIXME: http://studio.imagemagick.org/pipermail/magick-bugs/2003-January/001038.html
+		/* $plot->extraSVG = 
 			'<defs>
-			  <marker id="circle" style="stroke:red; stroke-width:0; fill:red; "
+			  <marker id="circle" style="stroke:red; stroke-width:0; fill:red;"
 				viewBox="0 0 10 10" refX="5" refY="7" orient="0"
 				markerUnits="strokeWidth" markerWidth="5" markerHeight="5">
 				<circle cx="5" cy="5" r="3"/>
 			  </marker>
 			</defs>';
+		*/
 		# Create the graph
 		$plot->init();
 		$plot->drawGraph();

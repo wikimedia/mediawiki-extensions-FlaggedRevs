@@ -717,10 +717,9 @@ class svgGraph {
   * @returns void
   */
   function generateSVG( $params = '' ) {  //enableZoomAndPanControls='false'
-    $this->svg  = "<?xml version='1.0' encoding='utf-8'?>\n";
-    $this->svg .= "<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20000303 Stylable//EN' ";
-    $this->svg .= "'http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd'>\n";
-    $this->svg .= "<svg width='{$this->graphicWidth}' height='{$this->graphicHeight}' ";
+    $this->svg  = "<?xml version='1.1' encoding='utf-8'?>\n";
+    $this->svg .= '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
+    $this->svg .= "\n<svg width='{$this->graphicWidth}' height='{$this->graphicHeight}' ";
 	$this->svg .= $params . ">\n";
 
     if (!empty($this->extraSVG)) {
