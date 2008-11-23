@@ -155,6 +155,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$data = true;
 					$fp = @fopen( $filePath, 'r' );
 					$table = fread( $fp, filesize($filePath) );
+					@fclose( $fp );
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( $table . "\n" );
 				} else if( $table = $this->makeHTMLTable( $tag, $filePath ) ) {
