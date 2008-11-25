@@ -81,7 +81,7 @@ class UnreviewedPages extends SpecialPage
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
 			$uw = self::usersWatching( $title );
-			$watching = $uw ? wfMsgExt("unreviewed-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("unreviewed-unwatched");
+			$watching = $uw ? wfMsgExt( 'unreviewed-watched', array('parsemag'), $uw ) : wfMsgHtml( 'unreviewed-unwatched' );
 			$watching = " $watching";
 			// Oh-noes!
 			$css = $uw ? "" : " class='fr-unreviewed-unwatched'";
