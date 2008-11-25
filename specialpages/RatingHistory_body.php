@@ -475,6 +475,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
 			$totalCount, wfMsgForContent("readerfeedback-$tag"), $this->page->getPrefixedText() );
 		$plot->styleTitle = 'font-family: sans-serif; font-weight: bold; font-size: 12pt;';
+		$plot->backgroundStyle = 'fill:#F8F8F8;';
 		// extra code for markers
 		// FIXME: http://studio.imagemagick.org/pipermail/magick-bugs/2003-January/001038.html
 		/* $plot->extraSVG = 

@@ -107,6 +107,13 @@ class svgGraph {
     var $dataY                 =  array();
 
     /**
+    * Presentation attributes for plot.
+    * @type string
+    * @public
+    */
+	var $backgroundStyle      =  '';
+
+    /**
     * Title for Graph.
     * @type string
     * @public
@@ -721,6 +728,7 @@ class svgGraph {
     $this->svg .= '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
     $this->svg .= "\n<svg width='{$this->graphicWidth}' height='{$this->graphicHeight}' ";
 	$this->svg .= $params . ">\n";
+	$this->svg .= "<rect width='100%' height='100%' style='{$this->backgroundStyle}'/>";
 
     if (!empty($this->extraSVG)) {
       $this->svg .= "<!-- Extra SVG -->\n";
