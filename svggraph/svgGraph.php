@@ -600,7 +600,8 @@ class svgGraph {
       $y = $this->dataY[$whichDataSet][$i];
       $u = $this->deltaTicksX * ($i +  $this->offsetGridlinesX);
       $v = $this->factorY * ($y - $this->dataMinY);
-      $v = $this->plotHeight - $v;
+      // $v = $this->plotHeight - $v;
+      $v = ($this->plotHeight - $v) - 1;
       if ($i==0) $this->svgPlot .= "points='$u,$v";
       else  $this->svgPlot .= " $u,$v ";
       $oldU = $u;
@@ -635,7 +636,8 @@ class svgGraph {
       $y = $this->dataY[$whichDataSet][$i];
       $u = $this->deltaTicksX * ($i +  $this->offsetGridlinesX);
       $v = $this->factorY * ($y - $this->dataMinY);
-      $v = $this->plotHeight - $v;
+	  // $v = $this->plotHeight - $v;
+      $v = ($this->plotHeight - $v) - 1;
       if ($i==0) {
         $oldU = $u;
         $oldV = $v;

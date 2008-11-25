@@ -492,7 +492,8 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->drawGraph();
 		$plot->polyLine('dave');
 		$plot->polyLine('rave');
-		$plot->line('dcount');
+		#$plot->line('dcount');
+		$plot->polyLine('dcount');
 		// Render!
 		$plot->generateSVG( "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'" );
 		// Write to file for cache
