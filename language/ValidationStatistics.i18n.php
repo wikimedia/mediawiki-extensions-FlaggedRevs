@@ -195,6 +195,10 @@ $messages['grc'] = array(
 	'validationstatistics' => 'Στατιστικὰ ἐπικυρώσεων',
 	'validationstatistics-ns' => 'Ὀνοματεῖον',
 	'validationstatistics-total' => 'Δέλτοι',
+	'validationstatistics-stable' => 'Ἀναθεωρημένη',
+	'validationstatistics-latest' => 'Ὑστάτη ἀναθεωρημένη',
+	'validationstatistics-synced' => 'Συγχρονισμένη/Ἐπιθεωρημένη',
+	'validationstatistics-old' => 'Ἀπηρχαιωμένη',
 );
 
 /** Hebrew (עברית)
@@ -412,7 +416,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'validationstatistics' => 'Statystyki oznaczania',
-	'validationstatistics-users' => "W serwisie '''{{SITENAME}}''' aktualnie zarejestrowanych jest '''$1''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''$2''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|recenzenta]].",
+	'validationstatistics-users' => "W serwisie '''{{SITENAME}}''' aktualnie zarejestrowanych jest '''$1''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''$2''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, z wyłączeniem przekierowań.
 
 '''Uwaga:''' poniższe dane są kopią z pamięci podręcznej sprzed nawet kilku godzin, mogą więc być nieaktualne.",
@@ -462,10 +466,12 @@ $messages['roa-tara'] = array(
 	'validationstatistics-total' => 'Pàggene',
 	'validationstatistics-stable' => 'Riviste',
 	'validationstatistics-latest' => 'Urtema revisione',
+	'validationstatistics-synced' => 'Singronizzete/Riviste',
 	'validationstatistics-old' => "Non g'è aggiornete",
 );
 
 /** Russian (Русский)
+ * @author Ahonc
  * @author AlexSm
  * @author Ferrer
  * @author Putnik
@@ -473,7 +479,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок',
-	'validationstatistics-users' => "В {{grammar:genitive|{{SITENAME}}}} на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
+	'validationstatistics-users' => "В {{grammar:locative|{{SITENAME}}}} на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён. Перенаправления из подсчётов исключены. 
 
 '''Внимание!''' Страница кэшируется. Данные могут отставать на несколько часов.",
@@ -531,6 +537,23 @@ $messages['te'] = array(
  */
 $messages['th'] = array(
 	'validationstatistics-ns' => 'เนมสเปซ',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'validationstatistics' => 'Статистика перевірок',
+	'validationstatistics-users' => "У {{grammar:locative|{{SITENAME}}}} зараз '''$1''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]] і '''$2''' {{plural:$2|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«рецензент»]].",
+	'validationstatistics-table' => "Нижче наведена статистика по кожному простору назв. Перенаправлення не враховані.
+
+'''Увага!''' Сторінка кешуються. Дані можуть відставати на кілька годин.",
+	'validationstatistics-ns' => 'Простір назв',
+	'validationstatistics-total' => 'Сторінок',
+	'validationstatistics-stable' => 'Перевірені',
+	'validationstatistics-latest' => 'Нещодавно перевірені',
+	'validationstatistics-synced' => 'Повторно перевірені',
+	'validationstatistics-old' => 'Застарілі',
 );
 
 /** Vietnamese (Tiếng Việt)

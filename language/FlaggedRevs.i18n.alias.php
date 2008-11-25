@@ -207,7 +207,7 @@ $aliases['hu'] = array(
 	'StablePages' => array( 'Rögzített lapok' ),
 	'StableVersions' => array( 'Megjelölt lapváltozatok' ),
 	'UnreviewedPages' => array( 'Ellenőrizetlen lapok' ),
-	'UnstablePages' => array( 'Rögzítetlen lapok' ),
+	'UnstablePages' => array( 'Nem rögzített lapok', 'Rögzítetlen lapok' ),
 	'ValidationStatistics' => array( 'Ellenőrzési statisztikák' ),
 );
 

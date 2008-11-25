@@ -120,6 +120,13 @@ $messages['gl'] = array(
 	'problempages-graphs' => 'datos das valoracións',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'problempages-graphs' => 'δεδομένα βαθμώσεως',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss
@@ -249,6 +256,13 @@ $messages['pt'] = array(
 	'problempages-leg' => 'Pesquisar páginas com baixa avaliação',
 	'problempages-list' => 'Segue-se uma lista de páginas ordenada de acordo com a avaliação dos leitores.',
 	'problempages-none' => 'Não há páginas nesta listagem',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'problempages-none' => "Non ge stonne pàggene jndr'à sta liste",
 );
 
 /** Slovak (Slovenčina)

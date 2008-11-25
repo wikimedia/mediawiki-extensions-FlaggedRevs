@@ -158,6 +158,15 @@ $messages['gl'] = array(
 	'stablepages-config' => 'Configuración',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'stablepages' => 'Σταθεραὶ δέλτοι',
+	'stablepages-stable' => 'σταθερὰ ἔκδοσις',
+	'stablepages-config' => 'Διαμόρφωσις',
+);
+
 /** Hebrew (עברית)
  * @author Ori229
  * @author Rotemliss
@@ -336,6 +345,8 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'stablepages' => 'Pàggene sicure',
+	'stablepages-stable' => 'versiona sicure',
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
 );
@@ -392,6 +403,17 @@ $messages['te'] = array(
 	'stablepages' => 'స్థిరమైన పేజీలు',
 	'stablepages-none' => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'stablepages-config' => 'స్వరూపణం',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'stablepages' => 'Стабільні сторінки',
+	'stablepages-stable' => 'стабільна версія',
+	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ стабільної версії за замовчуванням для читачів.',
+	'stablepages-none' => 'У цьому списку нема сторінок',
+	'stablepages-config' => 'Налаштування',
 );
 
 /** Vèneto (Vèneto)

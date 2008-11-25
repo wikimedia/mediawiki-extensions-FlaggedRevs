@@ -111,6 +111,13 @@ $messages['gl'] = array(
 	'qualityoversight-legend' => 'Procurar rexistros de revisión recentes',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'qualityoversight' => 'παρόραμα ποιοτικῆς δέλτου',
+);
+
 /** Hebrew (עברית)
  * @author Rotemliss
  */

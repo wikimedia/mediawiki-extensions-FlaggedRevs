@@ -370,7 +370,11 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'stabilization-def2' => 'Trenutna revizija',
+	'stabilization-comment' => 'Komentar:',
 	'stabilization-def-short' => 'Standardno',
+	'stabilization-def-short-0' => 'Trenutna',
+	'stabilize-expiring' => 'ističe $1 (UTC)',
 );
 
 /** Catalan (Català)
@@ -724,10 +728,19 @@ $messages['gl'] = array(
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'stabilization-tab' => 'ἐλεγχ',
+	'stabilization' => 'Σταθεροποίησις δέλτου',
+	'stabilization-page' => 'Ὄνομα δέλτου:',
+	'stabilization-submit' => 'Κυροῦν',
 	'stabilization-comment' => 'Σχόλιον:',
+	'stabilization-expiry' => 'Λήγει:',
 	'stabilization-sel-short-1' => 'Οὐδέν',
+	'stabilization-def-short' => 'Προκαθωρισμένη',
+	'stabilization-def-short-0' => 'Τρέχουσα',
+	'stabilization-def-short-1' => 'Σταθερά',
 );
 
 /** Hawaiian (Hawai`i)
@@ -1705,8 +1718,10 @@ $messages['roa-tara'] = array(
 	'stabilization-sel-short-1' => 'Ninde',
 	'stabilization-def-short' => 'Defolt',
 	'stabilization-def-short-0' => 'Corrende',
+	'stabilization-def-short-1' => 'Sicure',
 	'stabilize_expiry_invalid' => 'Date de scadenze errete.',
 	'stabilize_expiry_old' => 'Sta date de scadenze ha già passete.',
+	'stabilize-expiring' => "scade 'u $1 (UTC)",
 );
 
 /** Russian (Русский)
@@ -2042,6 +2057,16 @@ $messages['tr'] = array(
 	'stabilization-sel-short-0' => 'Kalite',
 	'stabilization-sel-short-1' => 'Hiçbiri',
 	'stabilization-def-short-1' => 'Sabit',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'stabilization-tab' => '(кя)',
+	'stabilization' => 'Стабілізація сторінки',
+	'stabilization-text' => "'''За допомогою наведених нижче налаштувань можна керувати вибором і відображенням стабільної версії сторінки [[:$1|$1]].'''",
+	'stabilization-page' => 'Назва сторінки:',
 );
 
 /** Vèneto (Vèneto)

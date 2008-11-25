@@ -272,6 +272,14 @@ $messages['gl'] = array(
 	'stableversions-review' => 'Revisado en <i>$1</i> por $2',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'stableversions-page' => 'Ὄνομα δέλτου:',
+	'stableversions-review' => 'Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2',
+);
+
 /** Hebrew (עברית)
  * @author Rotemliss
  * @author דניאל ב.
@@ -642,7 +650,12 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'stableversions' => 'Vide le versione sicure',
+	'stableversions-leg1' => "Liste de le revisiune riviste pe 'na pàgene",
 	'stableversions-page' => "Nome d'a vôsce:",
+	'stableversions-none' => '"[[:$1]]" non ge tène revisiune de rivisitaminde.',
+	'stableversions-list' => "'A seguende jè 'a liste de le revisiune de [[:$1]] ca onne state reviste:",
+	'stableversions-review' => 'Riviste sus a <i>$1</i> da $2',
 );
 
 /** Russian (Русский)
@@ -776,7 +789,12 @@ $messages['tr'] = array(
  * @author Ahonc
  */
 $messages['uk'] = array(
-	'stableversions-page' => 'Назва сторінкм:',
+	'stableversions' => 'Переглянути стабільні версії',
+	'stableversions-leg1' => 'Список перевірених версій сторінки',
+	'stableversions-page' => 'Назва сторінки:',
+	'stableversions-none' => '«[[:$1]]» не має перевірених версій.',
+	'stableversions-list' => 'Такі версії сторінки «[[:$1]]» були перевірені:',
+	'stableversions-review' => 'Перевірена <i>$1</i> користувачем $2',
 );
 
 /** Vèneto (Vèneto)

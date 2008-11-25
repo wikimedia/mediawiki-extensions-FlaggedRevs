@@ -127,14 +127,15 @@ $messages['de'] = array(
 	'ratinghistory-text' => "'''Diese Seite zeigt die Bewertung für [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Verlauf der Seitenbewertung',
 	'ratinghistory-tab' => 'Bewertung',
-	'ratinghistory-link' => 'Artikelbewertung',
+	'ratinghistory-link' => 'Seitenbewertung',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>''",
 	'ratinghistory-period' => 'Zeitraum:',
 	'ratinghistory-month' => 'letzter Monat',
+	'ratinghistory-3months' => 'letzte 3 Monate',
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
 	'ratinghistory-chart' => 'Leserbewertungen über die Zeit',
-	'ratinghistory-users' => 'Benutzer, die diese Seite bewertet haben:',
+	'ratinghistory-users' => 'Benutzer, die bewertet haben:',
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
 	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
@@ -150,17 +151,18 @@ In der folgenden Grafik werden die '''Anzahl Bewertungen pro Tag''' <font color=
  */
 $messages['eo'] = array(
 	'ratinghistory' => 'Historio de paĝtaksado',
-	'ratinghistory-text' => "'''Ĉi tiu paĝo montras datenojn de taksado por [[:$1|$1]].'''",
+	'ratinghistory-text' => "'''Ĉi tiu paĝo montras datenojn de paĝa taksado por [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Datenoj de taksada historio',
 	'ratinghistory-tab' => 'taksado',
-	'ratinghistory-link' => 'Taksado de artikolo',
+	'ratinghistory-link' => 'Taksado de paĝo',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Dankon pro via peno por kontroli ĉi tiun paĝon!</font>''",
 	'ratinghistory-period' => 'Tempdaŭro:',
 	'ratinghistory-month' => 'lasta monato',
+	'ratinghistory-3months' => 'lastaj 3 monatoj',
 	'ratinghistory-year' => 'lasta jaro',
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
 	'ratinghistory-chart' => 'Taksado de legantaro trans tempo',
-	'ratinghistory-users' => 'Uzantoj kiuj kontrolis ĉi tiun paĝon:',
+	'ratinghistory-users' => 'Uzantoj taksinte ĉi tiun paĝon:',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La '''tage averaĝa taksado''' <font color=\"blue\">''(blua)''</font> kaj 
@@ -201,17 +203,18 @@ $messages['fa'] = array(
  */
 $messages['fr'] = array(
 	'ratinghistory' => 'Historique de la notation de la page',
-	'ratinghistory-text' => "'''Cette page affiche les données de notation d’article pour [[:$1|$1]].'''",
+	'ratinghistory-text' => "'''Cette page affiche les données de notation de page pour [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Données de l’historique de la notation',
 	'ratinghistory-tab' => 'notation',
-	'ratinghistory-link' => 'Notation de l’article',
+	'ratinghistory-link' => 'Notation de la page',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci pour nous avoir consacré du temps pour relire cette page !</font>''",
 	'ratinghistory-period' => 'Période :',
 	'ratinghistory-month' => 'dernier mois',
+	'ratinghistory-3months' => 'derniers 3 mois',
 	'ratinghistory-year' => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-chart' => 'Relecteur notant hors délai :',
-	'ratinghistory-users' => 'Utilisateurs qui ont fait des relectures sur cette page :',
+	'ratinghistory-users' => 'Utilisateurs qui ont fait des relectures',
 	'ratinghistory-graph' => '$2 sur « $3 » ($1 {{PLURAL:$1|relecteur|relecteurs}})',
 	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
 	'ratinghistory-legend' => "Les quotations journalières <font color=\"blue\">''(bleu)''</font> et les intervales de quotation choisis <font color=\"green\">''(vert)''</font> de la notation sont dessinés, ci-dessous, par date.
@@ -237,7 +240,7 @@ $messages['gl'] = array(
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos 3 anos',
 	'ratinghistory-chart' => 'Valoración da reacción do lector',
-	'ratinghistory-users' => 'Usuarios que revisaron esta páxina:',
+	'ratinghistory-users' => 'Usuarios que valoraron páxinas',
 	'ratinghistory-graph' => '$2 de "$3" ({{PLURAL:$1|unha revisión|$1 revisións}})',
 	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
 	'ratinghistory-legend' => "A '''valoración do promedio diari'''o <font color=\"blue\">''(azul)''</font> e
@@ -247,6 +250,16 @@ Escala: '''[1]''' - Pobre; '''[2]''' - Baixo; '''[3]''' - Ben; '''[4]''' - Alto;
 
 O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> é mostrado embaixo, cunha escala de ''1:\$1''.",
 	'right-feedback' => 'Usar o formulario de reacción para valorar unha páxina',
+);
+
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'ratinghistory' => 'Ἱστορικὸν βαθμώσεων δέλτου',
+	'ratinghistory-leg' => 'Βάθμωσις δεδομένων προτέρων ἐκδόσεων',
+	'ratinghistory-tab' => 'βάθμωσις',
+	'ratinghistory-link' => 'Βάθμωσις δέλτου',
 );
 
 /** Hebrew (עברית)
@@ -263,6 +276,7 @@ $messages['he'] = array(
 	'ratinghistory-thanks' => "''<font color=\"darkred\">תודה על כך שהקדשתם מזמנכם לבדיקת דף זה!</font>''",
 	'ratinghistory-period' => 'תקופת זמן:',
 	'ratinghistory-month' => 'החודש האחרון',
+	'ratinghistory-3months' => 'שלושת החודשים האחרונים',
 	'ratinghistory-year' => 'השנה האחרונה',
 	'ratinghistory-3years' => '3 השנים האחרונות',
 	'ratinghistory-chart' => 'משוב דירוג קוראים לאורך זמן',
@@ -295,10 +309,14 @@ $messages['hu'] = array(
 	'ratinghistory-year' => '1 év',
 	'ratinghistory-3years' => '3 év',
 	'ratinghistory-chart' => 'Olvasói visszajelzések időrendben',
+	'ratinghistory-users' => 'Szerkesztők, akik ellenőrizték a lapot:',
+	'ratinghistory-graph' => '$2 a „$3” oldalon ($1 {{PLURAL:$1|értékelés|értékelés}})',
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
-	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartamra átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> ábrája látható, dátum szerint. Az összes értékelés száma a jobb felső sarokban látható. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
+	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartam alatti átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> grafikonja látható, dátum szerint. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
 
-'''[1]''' - Rossz; '''[2]''' - Gyenge; '''[3]''' - Közepes; '''[4]''' - Jó; '''[5]''' - Kitűnő;",
+'''[1]''' – rossz; '''[2]''' – gyenge; '''[3]''' – közepes; '''[4]''' – jó; '''[5]''' – kitűnő;
+
+A naponkénti értékelések száma <font color=\"red\">''(piros színnel)''</font> látható a grafikonokon, ''1:\$1'' skálán.",
 	'right-feedback' => 'oldalak értékelése a visszajelzés-űrlap segítségével',
 );
 
@@ -423,17 +441,18 @@ $messages['myv'] = array(
  */
 $messages['nl'] = array(
 	'ratinghistory' => 'Geschiedenis paginawaardering',
-	'ratinghistory-text' => "'''Hier worden waarderingen voor de pagina [[:$1|$1]] weergegeven.'''",
+	'ratinghistory-text' => "Hier worden waarderingen voor de pagina [[:$1|$1]] weergegeven.'''",
 	'ratinghistory-leg' => 'Historische waarderingsgegevens',
 	'ratinghistory-tab' => 'waardering',
 	'ratinghistory-link' => 'Paginawaardering',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Dank u wel voor de moeite die u hebt genomen om deze pagina te waarderen!</font>''",
 	'ratinghistory-period' => 'Tijdsperiode:',
 	'ratinghistory-month' => 'afgelopen maand',
+	'ratinghistory-3months' => 'laatste 3 maanden',
 	'ratinghistory-year' => 'afgelopen jaar',
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
 	'ratinghistory-chart' => 'Waardering van lezers in de tijd:',
-	'ratinghistory-users' => 'Gebruikers die een waardering aan deze pagina hebben gegeven:',
+	'ratinghistory-users' => 'Gebruikers die een waardering hebben gegeven',
 	'ratinghistory-graph' => '$2 van "$3" ($1 {{PLURAL:$1|waardering|waarderingen}})',
 	'ratinghistory-none' => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De dagelijkse gemiddelde waardering <font color=\"blue\">''(blauw)''</font> en de gemiddelde waardering van de aangegeven periode <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
@@ -502,7 +521,7 @@ $messages['pl'] = array(
 	'ratinghistory-text' => "'''Ta strona pokazuje ocenę dla [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Historia oceniania',
 	'ratinghistory-tab' => 'ocena',
-	'ratinghistory-link' => 'Ocena artykułu',
+	'ratinghistory-link' => 'Ocena strony',
 	'ratinghistory-thanks' => '\'\'<font color="darkred">Dziękujemy za poświęcony czas na ocenę tej strony!</font>',
 	'ratinghistory-period' => 'Okres czasu:',
 	'ratinghistory-month' => 'ostatni miesiąc',
@@ -538,11 +557,15 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'ratinghistory-tab' => 'pundegge',
+	'ratinghistory-link' => "Pundegge d'a pàgene",
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazie 'mbà ca è perse doje menute pe recondrollà sta pàgene!</font>''",
 	'ratinghistory-period' => 'Periode de timbe:',
 	'ratinghistory-month' => 'urteme mese',
+	'ratinghistory-3months' => 'urteme 3 mise',
 	'ratinghistory-year' => 'urteme anne',
 	'ratinghistory-3years' => 'urteme ttre anne',
+	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
 );
 
 /** Russian (Русский)
@@ -560,17 +583,18 @@ $messages['ru'] = array(
  */
 $messages['sk'] = array(
 	'ratinghistory' => 'História hodnotenia stránky',
-	'ratinghistory-text' => "'''Táto stránka zobrazuje údaje o hodnotení článku [[:$1|$1]].'''",
+	'ratinghistory-text' => "'''Táto stránka zobrazuje údaje o hodnotení stránky [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Údaje o hodnotení v čase',
 	'ratinghistory-tab' => 'hodnotenie',
-	'ratinghistory-link' => 'Hodnotenie článku',
+	'ratinghistory-link' => 'Hodnotenie stránky',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Ďakujeme, že ste si našli chvíľu na ohodnotenie tejto stránky!</font>''",
 	'ratinghistory-period' => 'Časové obdobie:',
 	'ratinghistory-month' => 'posledný mesiac',
+	'ratinghistory-3months' => 'posledné 3 mesiace',
 	'ratinghistory-year' => 'posledný rok',
 	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-chart' => 'Hodnotenie čitateľov v čase',
-	'ratinghistory-users' => 'Používatelia, ktorí vykonali kontroly tejto stránky:',
+	'ratinghistory-users' => 'Používatelia, ktorí ohodnotili stránku',
 	'ratinghistory-graph' => '$2 článku „$3” ($1 {{PLURAL:$1|kontrola|kontroly|kontrol}})',
 	'ratinghistory-none' => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
 	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené '''denné priemerné hodnotenie''' <font color=\"blue\">''(modrou)''</font> a '''priemer vybraného intervalu''' <font color=\"green\">''(zelenou)''</font>. Hodnoty hodnotenia sa interpretujú nasledovne:
@@ -603,17 +627,18 @@ $messages['sr-ec'] = array(
  */
 $messages['sv'] = array(
 	'ratinghistory' => 'Sidans betygshistorik',
-	'ratinghistory-text' => "'''Denna sida visar artikelbetygsdata för [[:$1|$1]].'''",
+	'ratinghistory-text' => "'''Denna sida visar sidbetygsdata för [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Betygshistorikdata',
 	'ratinghistory-tab' => 'betyg',
-	'ratinghistory-link' => 'Artikelrating',
+	'ratinghistory-link' => 'Sidrating',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Tack för att du tog dig tid att granska den här sidan!</font>''",
 	'ratinghistory-period' => 'Tidsperiod:',
 	'ratinghistory-month' => 'senaste månaden',
+	'ratinghistory-3months' => 'senaste 3 månader',
 	'ratinghistory-year' => 'senaste året',
 	'ratinghistory-3years' => 'senaste 3 åren',
 	'ratinghistory-chart' => 'Läsar-feedback-betyg över tiden',
-	'ratinghistory-users' => 'Användare som har granskar den här sidan:',
+	'ratinghistory-users' => 'Användare som gav betyg',
 	'ratinghistory-graph' => '$2 av "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
 	'ratinghistory-legend' => "'''Dagligt genomsnittsbetyg''' <font color=\"blue\">''(blå)''</font> och '''genomsnitt för valt intervall''' <font color=\"green\">''(grön)''</font> visas i grafform nedan, efter datum.

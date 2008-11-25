@@ -282,6 +282,16 @@ $messages['gl'] = array(
 	'reviewedpages-best' => 'revisión principal',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'reviewedpages-lev-0' => 'θεωρημένη',
+	'reviewedpages-lev-1' => 'ποιοτικὴ ἔκδοσις',
+	'reviewedpages-lev-2' => 'Ἐξαίρετος',
+	'reviewedpages-best' => 'πρωτίστη ἀναθεώρησις',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss
@@ -660,6 +670,7 @@ $messages['roa-tara'] = array(
 	'reviewedpages-leg' => "Liste de le pàggene riviste de 'nu certe levèlle",
 	'reviewedpages-lev-0' => 'Viste',
 	'reviewedpages-lev-1' => 'Qualità',
+	'reviewedpages-lev-2' => 'Dettagliete',
 );
 
 /** Russian (Русский)

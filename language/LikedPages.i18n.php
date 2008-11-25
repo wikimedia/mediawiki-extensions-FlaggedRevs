@@ -44,6 +44,13 @@ $messages['bg'] = array(
 	'likedpages-none' => 'Този списък не съдържа страници',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'likedpages-none' => 'Nema stranica na ovom spisku',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'likedpages' => 'Hoch bewertete Seiten',
@@ -95,6 +102,13 @@ $messages['gl'] = array(
 	'likedpages-list' => 'Embaixo hai unha lista coas páxinas ordenadas pola valoración dos seus lectores.',
 	'likedpages-none' => 'Non hai ningunha páxina nesta lista',
 	'likedpages-graphs' => 'datos das valoracións',
+);
+
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'likedpages-graphs' => 'δεδομένα βαθμώσεως',
 );
 
 /** Hebrew (עברית)

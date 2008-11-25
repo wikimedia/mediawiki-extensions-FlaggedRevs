@@ -221,6 +221,7 @@ $messages['de'] = array(
 	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-diff' => 'sichten',
+	'oldreviewed-size' => 'Maximal Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
 	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 );
@@ -241,8 +242,8 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'oldreviewedpages' => 'Malfreŝe kontrolitaj paĝoj',
 	'oldreviewedpages-legend' => 'Listigi reviziitajn paĝojn kun nereviziitaj versioj',
-	'oldreviewedpages-list' => 'Ĉi tiu paĝo montras kontrolitajn paĝojn atendantajn redaktojn.',
-	'oldreviewedpages-none' => 'Nune neniuj paĝoj kontruas tiun kriterion.',
+	'oldreviewedpages-list' => 'Ĉi tiu paĝo montras reviziitajn paĝojn kiuj havas ne reviziitajn redaktojn.',
+	'oldreviewedpages-none' => 'Nune neniuj paĝoj laŭ tiu kriterio.',
 	'oldreviewedpages-stable' => 'reviziita',
 	'oldreviewedpages-quality' => 'bonkvalita',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|horo|horoj}})',
@@ -250,6 +251,7 @@ $messages['eo'] = array(
 	'oldreviewedpages-recent' => '(malpli ol 1 horo)',
 	'oldreviewed-category' => 'Kategorio:',
 	'oldreviewed-diff' => 'kontroli',
+	'oldreviewed-size' => 'Maksimuma ŝanĝo de bitokoj:',
 	'oldreviewedpages-unwatched' => '(malatentita)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
 );
@@ -310,6 +312,7 @@ $messages['fr'] = array(
 	'oldreviewedpages-recent' => '(moins d’une heure)',
 	'oldreviewed-category' => 'Catégorie :',
 	'oldreviewed-diff' => 'relecture',
+	'oldreviewed-size' => 'Changement maximal de la taille (en octets) :',
 	'oldreviewedpages-unwatched' => '(non observé)',
 	'oldreviewedpages-watched' => "($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d'observer)",
 );
@@ -335,9 +338,13 @@ $messages['gl'] = array(
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'oldreviewedpages-stable' => 'θεωρημένη',
+	'oldreviewedpages-quality' => 'ποιοτική δέλτος',
 	'oldreviewed-category' => 'Κατηγορία:',
+	'oldreviewed-diff' => 'θεωρεῖν',
 );
 
 /** Hebrew (עברית)
@@ -569,6 +576,7 @@ $messages['nl'] = array(
 	'oldreviewedpages-recent' => '(minder dan een uur)',
 	'oldreviewed-category' => 'Categorie:',
 	'oldreviewed-diff' => 'eindredactie',
+	'oldreviewed-size' => 'Maximale wijziging in aantal bytes:',
 	'oldreviewedpages-unwatched' => '(niet op een volglijst)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
 );
@@ -629,6 +637,7 @@ $messages['pl'] = array(
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
 	'oldreviewed-category' => 'Kategoria:',
 	'oldreviewed-diff' => 'różn.',
+	'oldreviewed-size' => 'Maksymalny rozmiar zmiana w bajtach:',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
 	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
 );
@@ -682,6 +691,8 @@ $messages['roa-tara'] = array(
 	'oldreviewedpages-recent' => "(mene de n'ore)",
 	'oldreviewed-category' => 'Categorije:',
 	'oldreviewed-diff' => 'riviste',
+	'oldreviewed-size' => "Cange 'a dimenzione massime de byte:",
+	'oldreviewedpages-unwatched' => '(no condrollà)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utende|utinde}} ca condrollene)',
 );
 
@@ -719,6 +730,7 @@ $messages['sk'] = array(
 	'oldreviewedpages-recent' => '(menej ako 1 hodina)',
 	'oldreviewed-category' => 'Kategória:',
 	'oldreviewed-diff' => 'skontrolovať',
+	'oldreviewed-size' => 'Max. veľkosť zmeny v bajtoch:',
 	'oldreviewedpages-unwatched' => '(nesledovaná)',
 	'oldreviewedpages-watched' => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
 );
@@ -755,6 +767,7 @@ $messages['sv'] = array(
 	'oldreviewedpages-recent' => '(mindre än 1 timme)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-diff' => 'granska',
+	'oldreviewed-size' => 'Maximal storleksändring i byte:',
 	'oldreviewedpages-unwatched' => '(obevakad)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|användare|användare}} bevakar)',
 );

@@ -93,6 +93,14 @@ $messages['gl'] = array(
 	'unstablepages-config' => 'Configuración',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'unstablepages' => 'Δέλτοι ἀσταθεῖς',
+	'unstablepages-stable' => 'σταθερὰ ἔκδοσις',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss
@@ -225,7 +233,9 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'unstablepages' => 'Pàggene ingerte',
 	'unstablepages-stable' => 'versione stabile',
+	'unstablepages-text' => "Sotte ste 'na liste de pàggene configurete manualmende pe fà vedè 'a versione a bozza cumme pàgene de default pe le condenute pe le revisitatore.",
 	'unstablepages-none' => "Non ge stonne pàgene jndr'à sta liste",
 	'unstablepages-config' => 'Configurazione',
 );
@@ -261,6 +271,17 @@ $messages['sv'] = array(
 	'unstablepages-text' => 'Nedan visas en lista över sidor som manuellt har konfigurerats att visa utkastet som standardsideinnehåll för läsare.',
 	'unstablepages-none' => 'Det finns inga sidor i den här listan',
 	'unstablepages-config' => 'Konfigurering',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'unstablepages' => 'Нестабільні сторінки',
+	'unstablepages-stable' => 'стабільна версія',
+	'unstablepages-text' => 'Нижче наведений список сторінок, для яких вручну встановлене налаштування показувати чорнову версію за замовчуванням.',
+	'unstablepages-none' => 'У цьому списку нема сторінок',
+	'unstablepages-config' => 'Налаштування',
 );
 
 /** Vietnamese (Tiếng Việt)

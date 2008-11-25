@@ -227,7 +227,7 @@ $messages['eo'] = array(
 	'unreviewed-diff' => 'kontrolo',
 	'unreviewed-unwatched' => '(malatentita)',
 	'unreviewed-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
-	'unreviewed-list' => 'Ĉi tiu paĝo montras artikolojn kiuj ne estas kontrolitaj.',
+	'unreviewed-list' => 'Ĉi tiu paĝo montras enhavajn paĝojn kiuj ne estas kontrolitaj.',
 	'unreviewed-none' => 'Nune neniuj paĝoj kongruas tiun kriterion',
 );
 
@@ -275,6 +275,7 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author IAlex
  * @author Sherbrooke
  * @author Verdy p
  */
@@ -286,7 +287,7 @@ $messages['fr'] = array(
 	'unreviewed-diff' => 'révision',
 	'unreviewed-unwatched' => '(non suivi)',
 	'unreviewed-watched' => '($2 {{PLURAL:$1|utilisateur suit|utilisateurs suivent}} cette page)',
-	'unreviewed-list' => "Cette page liste les articles qui n'ont pas été révisés ou qui ont des révisions non vues.",
+	'unreviewed-list' => "Cette page liste les pages de contenu qui n'ont pas été révisés ou qui ont des révisions non vues.",
 	'unreviewed-none' => 'Il n’existe actuellellement aucune page respectant ces critères',
 );
 
@@ -332,9 +333,11 @@ $messages['gl'] = array(
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['grc'] = array(
 	'unreviewed-category' => 'Κατηγορία:',
+	'unreviewed-diff' => 'ἀναθεωρεῖν',
 );
 
 /** Hawaiian (Hawai`i)
@@ -398,6 +401,7 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Gondnok
  * @author KossuthRad
  * @author Samat
@@ -410,7 +414,7 @@ $messages['hu'] = array(
 	'unreviewed-diff' => 'Eltérések',
 	'unreviewed-unwatched' => '(nem figyelt)',
 	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} szerkesztő figyeli)',
-	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve, vagy rendelkeznek új, ellenőrizetlen változatokkal.',
+	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 );
 
@@ -776,13 +780,19 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'right-unreviewedpages' => "Vide [[Special:UnreviewedPages|a liste de le pàggene ca non g'onne state rivisitete]]",
 	'unreviewedpages' => 'Pàggene senza revisione',
+	'unreviewed-legend' => 'Liste de le pàggene cu le condenute senza rivisitaziune',
 	'unreviewed-category' => 'Categorije:',
 	'unreviewed-diff' => 'reviste',
+	'unreviewed-unwatched' => '(no condrollà)',
+	'unreviewed-watched' => '($2 {{PLURAL:$1|utende|utinde}} ca condrollene)',
+	'unreviewed-list' => "Sta pàgene elenghe tutte le pàggene cu le condenute ca non ge tènene 'na rivisitazione.",
 	'unreviewed-none' => "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
 );
 
 /** Russian (Русский)
+ * @author Ahonc
  * @author EugeneZelenko
  * @author Kaganer
  * @author Александр Сигачёв
@@ -790,7 +800,7 @@ $messages['roa-tara'] = array(
 $messages['ru'] = array(
 	'right-unreviewedpages' => 'Просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]',
 	'unreviewedpages' => 'Непроверенные страницы',
-	'unreviewed-legend' => 'Список непроверенных страниц',
+	'unreviewed-legend' => 'Список непроверенных статей',
 	'unreviewed-category' => 'Категория:',
 	'unreviewed-diff' => 'проверить',
 	'unreviewed-unwatched' => '(не следят)',
@@ -806,7 +816,7 @@ $messages['sah'] = array(
 	'unreviewedpages' => 'Ырытыллыбатах сирэйдэр',
 	'unreviewed-category' => 'Категория:',
 	'unreviewed-diff' => 'Уларыйыылар',
-	'unreviewed-list' => 'Манна көрүллүбэтэх, эбэтэр ырытыллыбатах уларытыылардаах сирэйдэр испииһэктэрэ көрдөрүлүннэ.',
+	'unreviewed-list' => 'Бу көрүллүбэтэх (бэрэбиэркэлэммэтэх) сирэйдэр испииһэктэрэ.',
 );
 
 /** Slovak (Slovenčina)
@@ -820,7 +830,7 @@ $messages['sk'] = array(
 	'unreviewed-diff' => 'kontrola',
 	'unreviewed-unwatched' => '(nesledovaná)',
 	'unreviewed-watched' => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
-	'unreviewed-list' => 'Táto stránka obsahuje zoznam článkov, ktoré zatiaľ neboli skontrolované.',
+	'unreviewed-list' => 'Táto stránka obsahuje zoznam článkov, ktoré neboli skontrolované.',
 	'unreviewed-none' => 'Momentálne žiadne stránky nespĺňajú tieto kritériá',
 );
 
@@ -872,7 +882,7 @@ $messages['sv'] = array(
 	'unreviewed-diff' => 'granska',
 	'unreviewed-unwatched' => '(obevakad)',
 	'unreviewed-watched' => '($2 {{PLURAL:$1|användare|användare}} bevakar)',
-	'unreviewed-list' => 'Den här sidan visar artiklar som inte har granskats.',
+	'unreviewed-list' => 'Den här sidan listar innehållssidor som inte har granskats.',
 	'unreviewed-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 );
 
@@ -922,6 +932,14 @@ $messages['tr'] = array(
  */
 $messages['uk'] = array(
 	'right-unreviewedpages' => 'Перегляд списку [[Special:UnreviewedPages|непереглянутих сторінок]]',
+	'unreviewedpages' => 'Неперевірені сторінки',
+	'unreviewed-legend' => 'Список неперевірених статей',
+	'unreviewed-category' => 'Категорія:',
+	'unreviewed-diff' => 'перевірити',
+	'unreviewed-unwatched' => '(не спостерігають)',
+	'unreviewed-watched' => '({{PLURAL:$1|стежить $2 користувач|стежать $2 користувачі|стежать $2 користувачів}})',
+	'unreviewed-list' => 'На цій сторінці перераховані неперевірені статті.',
+	'unreviewed-none' => 'Зараз нема сторінок, що відповідають зазначеним критеріям',
 );
 
 /** Vèneto (Vèneto)
