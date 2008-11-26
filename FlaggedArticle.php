@@ -997,7 +997,7 @@ class FlaggedArticle extends Article {
 						// compare to current
 						if( $revIdDraft > $revIdStable ) {
 							$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(),
-								"diff=cur&oldid={$revID}" );
+								"diff=cur&oldid={$revIdStable}" );
 						}
 					}
 					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($tmpChanges), $wgParserCacheExpireTime );
