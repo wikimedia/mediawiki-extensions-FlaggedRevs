@@ -257,9 +257,6 @@ $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
 $wgFilterLogTypes['review'] = true;
 
-$wgSvgGraphDir = dirname(__FILE__) . '/svggraph';
-$wgPHPlotDir = dirname(__FILE__) . '/phplot-5.0.5';
-
 # End of configuration variables.
 #########
 
@@ -269,7 +266,10 @@ $wgFlaggedRevStyleVersion = 44;
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 $dir = dirname(__FILE__) . '/';
-$langDir = dirname(__FILE__) . '/language/';
+$langDir = $dir . 'language/';
+
+$wgSvgGraphDir = $dir . 'svggraph';
+$wgPHPlotDir = $dir . 'phplot-5.0.5';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
