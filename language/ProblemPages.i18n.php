@@ -262,7 +262,9 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'problempages' => 'Pàggene cu pundegge vasce',
 	'problempages-none' => "Non ge stonne pàggene jndr'à sta liste",
+	'problempages-graphs' => "dete d'u puntegge",
 );
 
 /** Slovak (Slovenčina)

@@ -98,6 +98,7 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ramsis II
  */
 $messages['arz'] = array(
 	'oldreviewedpages' => 'صفحات مراجعة قديمة',
@@ -111,6 +112,7 @@ $messages['arz'] = array(
 	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
 	'oldreviewed-category' => 'تصنيف:',
 	'oldreviewed-diff' => 'راجع',
+	'oldreviewed-size' => 'تغيير الحد الاقصى لحجم البايت:',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );

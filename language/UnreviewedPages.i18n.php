@@ -22,6 +22,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Darth Kule
  * @author Jon Harald Søby
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'right-unreviewedpages' => '{{Flagged Revs}}
@@ -33,7 +34,8 @@ $messages['qqq'] = array(
 {{Identical|Category}}',
 	'unreviewed-diff' => '{{Flagged Revs}}',
 	'unreviewed-unwatched' => '{{Flagged Revs}}',
-	'unreviewed-watched' => '{{Flagged Revs}}',
+	'unreviewed-watched' => '{{Flagged Revs}}
+* $1 is the number of users that have the page on their watchlist',
 	'unreviewed-list' => '{{Flagged Revs}}',
 	'unreviewed-none' => '{{Flagged Revs}}',
 );
@@ -537,6 +539,14 @@ $messages['ko'] = array(
  */
 $messages['krj'] = array(
 	'unreviewed-category' => 'Kategorya:',
+);
+
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'unreviewed-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han}} se en de Opassliß)',
+	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
 );
 
 /** Latin (Latina)

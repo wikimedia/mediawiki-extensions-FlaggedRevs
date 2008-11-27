@@ -466,6 +466,20 @@ $aliases['sv'] = array(
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
 
+/** Swahili (Kiswahili) */
+$aliases['sw'] = array(
+	'LikedPages' => array( 'KurasaZilizounganishwa' ),
+	'OldReviewedPages' => array( 'KurasaZilizoonyeshwaAwali' ),
+	'ProblemPages' => array( 'KurasaZenyematatizo' ),
+	'RatingHistory' => array( 'HesabuHistoria' ),
+	'ReviewedPages' => array( 'OnyeshaKurasa' ),
+	'Stabilization' => array( 'Uimalishaji' ),
+	'StablePages' => array( 'KurasaImara' ),
+	'UnreviewedPages' => array( 'KurasaZisizoonyeshwa' ),
+	'UnstablePages' => array( 'KurasaZisizomadhubuti' ),
+	'ValidationStatistics' => array( 'TakwimuIliyosahihi' ),
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */

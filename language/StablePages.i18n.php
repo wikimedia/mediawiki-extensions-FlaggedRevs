@@ -347,6 +347,7 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'stablepages' => 'Pàggene sicure',
 	'stablepages-stable' => 'versiona sicure',
+	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona secure cumme pàgene cu 'u condenute iniziele pe le visitatore.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
 );

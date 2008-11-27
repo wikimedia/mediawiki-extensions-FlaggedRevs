@@ -479,7 +479,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок',
-	'validationstatistics-users' => "В {{grammar:locative|{{SITENAME}}}} на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
+	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''$1''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён. Перенаправления из подсчётов исключены. 
 
 '''Внимание!''' Страница кэшируется. Данные могут отставать на несколько часов.",

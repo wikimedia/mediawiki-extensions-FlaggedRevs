@@ -68,20 +68,22 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ramsis II
  */
 $messages['arz'] = array(
 	'ratinghistory' => 'تاريخ تقييم الصفحة',
-	'ratinghistory-text' => "'''هذه الصفحة تعرض بيانات تقييم المقالة ل[[:$1|$1]].'''",
+	'ratinghistory-text' => "'''الصفحة دي بتعرض بيانات تقييم الصفحة بتاعة[[:$1|$1]].'''",
 	'ratinghistory-leg' => 'بيانات تقييم التاريخ',
 	'ratinghistory-tab' => 'تقييم',
-	'ratinghistory-link' => 'تقييم المقالة',
+	'ratinghistory-link' => 'تقييم الصفحة',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">شكرا لك لاستغراقك دقيقة لمراجعة هذه الصفحة!</font>''",
 	'ratinghistory-period' => 'فترة زمنية:',
 	'ratinghistory-month' => 'آخر شهر',
+	'ratinghistory-3months' => 'اخر 3 شهور',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
-	'ratinghistory-users' => 'المستخدمون الذين قاموا بمراجعات فى هذه الصفحة:',
+	'ratinghistory-users' => 'اليوزرز اللي عملو تقييمات:',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومى المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
@@ -525,10 +527,11 @@ $messages['pl'] = array(
 	'ratinghistory-thanks' => '\'\'<font color="darkred">Dziękujemy za poświęcony czas na ocenę tej strony!</font>',
 	'ratinghistory-period' => 'Okres czasu:',
 	'ratinghistory-month' => 'ostatni miesiąc',
+	'ratinghistory-3months' => 'ostatnie 3 miesiące',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
 	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie',
-	'ratinghistory-users' => 'Użytkownicy, którzy ocenili tę stronę:',
+	'ratinghistory-users' => 'Użytkownicy, którzy wystawili ocenę',
 	'ratinghistory-graph' => '$2 strony „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
 	'ratinghistory-none' => 'W tej chwil brak liczby ocen czytelników wystarczającej, by móc stworzyć wykresy.',
 	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty.
@@ -557,6 +560,8 @@ $messages['pt'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'ratinghistory' => "Storie de le pundegge d'a pàgene",
+	'ratinghistory-leg' => 'Storie de le dete de le pundegge',
 	'ratinghistory-tab' => 'pundegge',
 	'ratinghistory-link' => "Pundegge d'a pàgene",
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazie 'mbà ca è perse doje menute pe recondrollà sta pàgene!</font>''",
@@ -566,6 +571,7 @@ $messages['roa-tara'] = array(
 	'ratinghistory-year' => 'urteme anne',
 	'ratinghistory-3years' => 'urteme ttre anne',
 	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
+	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisione|revisiune}})',
 );
 
 /** Russian (Русский)

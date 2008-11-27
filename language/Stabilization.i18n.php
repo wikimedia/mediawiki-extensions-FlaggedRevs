@@ -1709,13 +1709,21 @@ $messages['roa-tara'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Pàgene de stabbilizzazione',
 	'stabilization-page' => "Nome d'a pàgene:",
+	'stabilization-leg' => 'Conferme le configuraziune pe le versiune secure',
+	'stabilization-select' => "Selezione d'a versiona secure",
+	'stabilization-select2' => "L'urtema revisione reviste",
 	'stabilization-def2' => "'A revisiona corrende",
 	'stabilization-submit' => 'Conferme',
+	'stabilization-notexists' => 'Non ge stè \'na pàgene ca se chieme "[[:$1|$1]]".
+Nisciuna configurazione jè possibbele.',
+	'stabilization-notcontent' => '\'A pàgene "[[$1|$1]]" non ge pò essere reviste.
+Non ge stonne le configurazione.',
 	'stabilization-comment' => 'Commende:',
 	'stabilization-expiry' => 'More:',
 	'stabilization-sel-short' => 'Precedenze',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Ninde',
+	'stabilization-sel-short-2' => 'Bbuene proprie',
 	'stabilization-def-short' => 'Defolt',
 	'stabilization-def-short-0' => 'Corrende',
 	'stabilization-def-short-1' => 'Sicure',
@@ -2067,6 +2075,21 @@ $messages['uk'] = array(
 	'stabilization' => 'Стабілізація сторінки',
 	'stabilization-text' => "'''За допомогою наведених нижче налаштувань можна керувати вибором і відображенням стабільної версії сторінки [[:$1|$1]].'''",
 	'stabilization-page' => 'Назва сторінки:',
+	'stabilization-leg' => 'Підтвердження налаштувань стабільної версії',
+	'stabilization-select' => 'Вибір стабільної версії',
+	'stabilization-select1' => 'Найсвіжіша якісна версія; якщо такої нема, то найсвіжіша переглянута',
+	'stabilization-select2' => 'Остання перевірена версія',
+	'stabilization-select3' => 'Остання недоторкана версія, якщо такої немає, то остання якісна або переглянута',
+	'stabilization-def' => 'Версія, що показується за замовчуванням',
+	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то поточна',
+	'stabilization-def2' => 'Поточна версія',
+	'stabilization-submit' => 'Підтвердити',
+	'stabilization-notexists' => 'Відсутня сторінка з назвою «[[:$1|$1]]».
+Налаштування неможливе.',
+	'stabilization-notcontent' => 'Сторінка «[[:$1|$1]]» не може бути перевірена.
+Налаштування неможливе.',
+	'stabilization-comment' => 'Коментар:',
+	'stabilization-expiry' => 'Закінчується:',
 );
 
 /** Vèneto (Vèneto)
