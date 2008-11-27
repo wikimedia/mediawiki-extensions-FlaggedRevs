@@ -636,10 +636,10 @@ EOT;
 	* When an edit is made by a reviewer, if the current revision is the stable
 	* version, try to automatically review it.
 	*/
-	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false ) {
+	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false, $user = null ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
 		# Get the user
-		$user = User::newFromId( $rev->getUser() );
+		$user = is_null($user) ? User::newFromId( $rev->getUser() ) : $user;
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
 		# If $baseRevId passed in, this is a null edit
