@@ -20,9 +20,8 @@ class FlaggedRevision {
 	/**
 	 * @param Title $title
 	 * @param Row $row (from database)
-	 * @access private
 	 */
-	function __construct( $title, $row ) {
+	public function __construct( $title, $row ) {
 		$this->mTitle = $title;
 		$this->mRevId = intval( $row->fr_rev_id );
 		$this->mPageId = intval( $row->fr_page_id );
