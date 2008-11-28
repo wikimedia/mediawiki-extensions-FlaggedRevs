@@ -1974,6 +1974,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
 );
 
 /** German (Deutsch)
+ * @author Melancholie
  * @author MichaelFrey
  * @author Raimond Spekking
  */
@@ -2098,7 +2099,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable' => 'Artikel',
 	'revreview-stable-title' => 'Gesichtete Seite',
 	'revreview-stable1' => 'Möchtest du die [{{fullurl:$1|stableid=$2}} soeben markierte Version] dieser Seite sehen, falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
-	'revreview-stable2' => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?.',
+	'revreview-stable2' => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?',
 	'revreview-style' => 'Lesbarkeit',
 	'revreview-style-0' => 'nicht freigegeben',
 	'revreview-style-1' => 'akzeptabel',
@@ -2116,10 +2117,10 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-toggle-title' => 'zeige/verstecke Details',
 	'revreview-toolow' => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen,
 	damit eine Version als gesichtet gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
-	'revreview-update' => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.<br />
+	'revreview-update' => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.<br />
 	'''Die folgenden Vorlagen und Bilder wurden verändert:'''",
 	'revreview-update-includes' => "'''Einige Vorlagen/Bilder wurden aktualisiert:'''",
-	'revreview-update-none' => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten),'' seitdem die letzte gesichtete Version [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde.",
+	'revreview-update-none' => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.",
 	'revreview-update-use' => "'''Bitte beachten:''' Falls eine dieser Vorlagen/Bilder eine gesichtete Version hat, wird diese in der gesichteten Version dieser Seite angezeigt.",
 	'revreview-diffonly' => "''Um diese Seite zu sichten, klicke bitte auf den Link „Aktuelle Version“ und verwende die Sichtungsbox dort.''",
 	'revreview-visibility' => "'''Diese Seite hat eine aktualisierte [[{{MediaWiki:Validationpage}}|markierte Version]]; die Anzeigeeinstellungen können [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert]  werden.'''",

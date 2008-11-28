@@ -573,3 +573,11 @@ $messages['vi'] = array(
 	'validationstatistics-old' => 'Lỗi thời',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'validationstatistics-ns' => 'נאמענטייל',
+	'validationstatistics-total' => 'בלעטער',
+);
+
