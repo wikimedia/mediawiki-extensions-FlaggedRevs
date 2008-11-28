@@ -383,7 +383,7 @@ $wgHooks['ResetPreferences'][] = 'FlaggedRevsHooks::resetPreferences';
 $wgHooks['SavePreferences'][] = 'FlaggedRevsHooks::savePreferences';
 # Rating link
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'FlaggedRevsHooks::addRatingLink';
-$wgHooks['MonoBookTemplateToolboxEnd'][] = 'FlaggedRevsHooks::ratingToolboxLink';
+$wgHooks['SkinTemplateToolboxEnd'][] = 'FlaggedRevsHooks::ratingToolboxLink';
 # Show unreviewed pages links
 $wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
 # Backlog notice

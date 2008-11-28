@@ -1113,11 +1113,11 @@ EOT;
 		return true;
 	}
 	
-	public static function ratingToolboxLink( &$monobook ) {
-		if( isset( $monobook->data['nav_urls']['ratinghist'] ) ) {
+	public static function ratingToolboxLink( &$skin ) {
+		if( isset( $skin->data['nav_urls']['ratinghist'] ) ) {
 			?><li id="t-rating"><?php
-				?><a href="<?php echo htmlspecialchars( $monobook->data['nav_urls']['ratinghist']['href'] ) ?>"><?php
-					echo $monobook->msg( 'ratinghistory-link' );
+				?><a href="<?php echo htmlspecialchars( $skin->data['nav_urls']['ratinghist']['href'] ) ?>"><?php
+					echo $skin->msg( 'ratinghistory-link' );
 				?></a><?php
 			?></li><?php
 		}
@@ -1243,9 +1243,12 @@ EOT;
 	
 	public static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
+		if( !$wgTitle ) {
+			return true; // nothing to do here
+		}
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
-		if ( $wgUser->isAllowed('review') && $wgTitle && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
+		if ( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
 			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
