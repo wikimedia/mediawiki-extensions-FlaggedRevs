@@ -76,7 +76,7 @@ EOT;
 	*/
 	public static function InjectStyleForSpecial() {
 		global $wgTitle, $wgOut, $wgUser;
-		if( empty($wgTitle) || $wgTitle->getNamespace() !== -1 ) {
+		if( empty($wgTitle) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true;
 		}
 		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist', 'Recentchanges', 
@@ -105,8 +105,8 @@ EOT;
 			array( 'fr_page_id' => $revision->getPage() ),
 			array( 'fr_page_id' => $oldPageID,
 				'fr_rev_id' => $revision->getID() ),
-			__METHOD__ );
-
+			__METHOD__
+		);
 		return true;
 	}
 
@@ -150,8 +150,8 @@ EOT;
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedpage_config',
 			array( 'fpc_page_id' => $article->getID() ),
-			__METHOD__ );
-
+			__METHOD__
+		);
 		return true;
 	}
 
@@ -182,7 +182,7 @@ EOT;
 		} else {
 			# Try stable version cache. This should be updated before this is called.
 			$parserOut = FlaggedRevs::getPageCache( $article );
-			if( $parserOut==false ) {
+			if( $parserOut === false ) {
 				$text = $sv->getTextForParse();
 				# Parse the text
 				$parserOut = FlaggedRevs::parseStableText( $article, $text, $sv->getRevId() );
@@ -619,7 +619,7 @@ EOT;
         # See if there is a stable version. Also, see if, given the page 
         # config and URL params, the page can be overriden.
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-        if( $wgTitle && $wgTitle->equals( $title ) ) {
+        if( !empty($wgTitle) && $wgTitle->equals( $title ) ) {
             // Cache stable version while we are at it.
             if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev() ) {
                 $result = true;
@@ -1056,7 +1056,7 @@ EOT;
 	* @param string $t timestamp of the log entry
 	* @return bool true
 	*/
-	public static function reviewLogLine( $type = '', $action = '', $title = null, $paramArray = array(), &$c = '', &$r = '' ) {
+	public static function reviewLogLine( $type='', $action='', $title=null, $paramArray=array(), &$c='', &$r='' ) {
 		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
 		# Show link to page with oldid=x
 		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($paramArray[0]) ) {
@@ -1243,7 +1243,7 @@ EOT;
 	
 	public static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
-		if( !$wgTitle ) {
+		if( !empty($wgTitle) ) {
 			return true; // nothing to do here
 		}
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
