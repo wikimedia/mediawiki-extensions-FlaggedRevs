@@ -1205,6 +1205,12 @@ EOT;
 		return true;
 	}
 	
+	public static function addToRCQuery( &$conds, &$tables, &$join_conds, $opts ) {
+		$tables[] = 'flaggedpages';
+		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		return true;
+	}
+	
 	public static function addToHistLine( &$history, $row, &$s ) {
 		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
 	}
@@ -1221,6 +1227,19 @@ EOT;
 			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
 		} else if( !isset($row->fp_stable) ) {
 			$ret = '<span class="flaggedrevs-unreviewed2">'.$ret.'</span>';
+		}
+		return true;
+	}
+	
+	public static function addToRCLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
+		global $wgUser;
+		if( $rc->getTitle()->getNamespace() < 0 || !isset($rc->mAttribs['fp_stable']) )
+			return true; // reviewed pages only
+		if( $unpatrolled && $wgUser->isAllowed('review') ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
+			$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg('revreview-reviewlink'),
+				'oldid='.intval($rc->mAttribs['fp_stable']).'&diff=cur' );
+			$articlelink .= " ($rlink)";
 		}
 		return true;
 	}

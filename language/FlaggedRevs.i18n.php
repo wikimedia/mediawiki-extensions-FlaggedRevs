@@ -199,6 +199,8 @@ Please check the URL you used to access this page.',
 	'revreview-typefilter'         => 'Type:',
 	'revreview-tagfilter'          => 'Tag:',
 	
+	'revreview-reviewlink'         => 'review',
+	
 	'tooltip-ca-current'           => 'View the current draft of this page',
 	'tooltip-ca-stable'            => 'View the stable version of this page',
 	'tooltip-ca-default'           => 'Quality assurance settings',

@@ -408,6 +408,9 @@ $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToHistQuery
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsHooks::addToHistLine';
 $wgHooks['LocalFile::getHistory'][] = 'FlaggedRevsHooks::addToFileHistQuery';
 $wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsHooks::addToFileHistLine';
+# Mark items in RC
+$wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsHooks::addToRCQuery';
+$wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsHooks::addToRCLine';
 # Mark items in user contribs
 $wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
 $wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
