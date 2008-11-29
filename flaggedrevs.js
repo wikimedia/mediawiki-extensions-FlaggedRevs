@@ -75,12 +75,6 @@ function updateRatingForm() {
 			somezero = true;
 		}
 	}
-	showComment = (quality || allzero) ? true : false;
-	// Show comment box only for quality revs or depreciated ones
-	var commentbox = document.getElementById('mw-commentbox');
-	if( commentbox ) {
-		commentbox.style.display = showComment ? 'inline' : 'none';
-	}
 	// Show note box only for quality revs
 	var notebox = document.getElementById('mw-notebox');
 	if( notebox ) {
@@ -89,12 +83,6 @@ function updateRatingForm() {
 	// If only a few levels are zero, don't show submit link
 	var submit = document.getElementById('submitreview');
 	submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
-	var comment = document.getElementById('wpReason');
-	// Clear comment box data if not shown
-	if( comment ) {
-		comment.disabled = ( somezero && !allzero ) ? 'disabled' : '';
-		comment.value = showComment ? comment.value : '';
-	}
 	// Clear note box data if not shown
 	var notes = document.getElementById('wpNotes');
 	if( notes ) {

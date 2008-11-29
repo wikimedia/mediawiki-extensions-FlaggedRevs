@@ -131,7 +131,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-style-2'            => 'Good',
 	'revreview-style-3'            => 'Concise',
 	'revreview-style-4'            => 'Featured',
-	'revreview-submit'             => 'Submit review',
+	'revreview-submit'             => 'Submit',
 	'revreview-submitting'         => 'Submitting...',
 	'revreview-finished'           => 'Review complete!',
 	'revreview-successful'         => '\'\'\'Revision of [[:$1|$1]] successfully flagged. ([{{fullurl:Special:Stableversions|page=$2}} view stable versions])\'\'\'',
