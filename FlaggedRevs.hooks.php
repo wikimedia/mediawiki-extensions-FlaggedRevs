@@ -1,7 +1,6 @@
 <?php
 
 class FlaggedRevsHooks {
-	
 	/**
 	* Remove 'patrol' and 'autopatrol' rights. Reviewing revisions will patrol them as well.
 	*/
@@ -227,7 +226,7 @@ EOT;
 			$dbw->delete( 'flaggedrevs_tracking', $where, __METHOD__ );
 		}
 		# Add any new links
-		if ( count($insertions) ) {
+		if( count($insertions) ) {
 			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
 		wfProfileOut( __METHOD__ );
@@ -254,7 +253,6 @@ EOT;
 			}
 			$arr[$row->ftr_namespace][$row->ftr_title] = 1;
 		}
-		$dbr->freeResult( $res );
 		return $arr;
 	}
 	
@@ -604,12 +602,12 @@ EOT;
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
 		# Return out if $result set to false by some other hooked call.
-        if( !$wgFlaggedRevsVisible || $action != 'read' || $result===false )
+        if( empty($wgFlaggedRevsVisible) || $action !== 'read' || $result===false )
             return true;
         # Admin may set this to false, rather than array()...
         $groups = $user->getGroups();
         $groups[] = '*';
-        if( empty($wgFlaggedRevsVisible) || !array_intersect($groups,$wgFlaggedRevsVisible) )
+        if( !array_intersect($groups,$wgFlaggedRevsVisible) )
             return true;
         # Is this a talk page?
         if( $wgFlaggedRevsTalkVisible && $title->isTalkPage() ) {
@@ -1084,7 +1082,7 @@ EOT;
 
 	public static function setActionTabs( $skin, &$contentActions ) {
 		$fa = FlaggedArticle::getGlobalInstance();
-		if ( $fa ) {
+		if( $fa ) {
 			$fa->setActionTabs( $skin, $contentActions );
 		}
 		return true;
@@ -1267,7 +1265,7 @@ EOT;
 		}
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
-		if ( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
+		if( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
 			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
@@ -1297,19 +1295,19 @@ EOT;
 abstract class FlaggedRevsApiHooks extends ApiQueryBase { 
 	
 	public static function addApiRevisionParams ( &$module, &$params ) {
-		if (!$module instanceof ApiQueryRevisions)
+		if(!$module instanceof ApiQueryRevisions)
 			return true;
 		$params['prop'][ApiBase::PARAM_TYPE][] = 'flagged';
 		return true;
 	}
 	
 	public static function addApiRevisionData( &$module ) {
-		if (!$module instanceof ApiQueryRevisions)
+		if(!$module instanceof ApiQueryRevisions)
 			return true;		
 		$params = $module->extractRequestParams( false );
-		if ( empty( $params['prop'] ) || !in_array( 'flagged', $params['prop'] ) )
+		if( empty( $params['prop'] ) || !in_array( 'flagged', $params['prop'] ) )
 			return true;
-		if ( !in_array( 'ids', $params['prop'] ) )
+		if( !in_array( 'ids', $params['prop'] ) )
 			$module->dieUsage( 'if rvprop=flagged is set, you must also set rvprop=ids', 'missingparam' );
 
 		// Get all requested pageids/revids in a mapping:
@@ -1317,14 +1315,17 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		// we will need this later to add data to the result array 
 		$result = $module->getResult();
 		$data = $result->getData();
-		if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) )
+		if( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) )
 			return true;
-		foreach ( $data['query']['pages'] as $pageid => $page )
-			if ( array_key_exists( 'revisions', (array)$page ) )
-				foreach ( $page['revisions'] as $index => $rev ) 
-					if ( array_key_exists( 'revid', (array)$rev ) )
+		foreach( $data['query']['pages'] as $pageid => $page ) {
+			if( array_key_exists( 'revisions', (array)$page ) ) {
+				foreach ( $page['revisions'] as $index => $rev ) {
+					if( array_key_exists( 'revid', (array)$rev ) )
 						$pageids[$pageid][$rev['revid']] = $index;
-		if ( empty( $pageids ) )
+				}
+			}
+		}
+		if( empty( $pageids ) )
 			return true;
 
 		//Construct SQL Query
@@ -1344,10 +1345,10 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 
 		//Construct WHERE-clause to avoid multiplying the number of scanned rows
 		//as flaggedrevs table has composite primary key (fr_page_id,fr_rev_id)
-		foreach ( $pageids as $pageid => $revids )
-			$where[] = $db->makeList( array(
-					'fr_page_id' => $pageid,
-					'fr_rev_id' => array_keys( $revids ) ), LIST_AND );
+		foreach( $pageids as $pageid => $revids ) {
+			$where[] = $db->makeList( array( 'fr_page_id' => $pageid, 
+				'fr_rev_id' => array_keys( $revids ) ), LIST_AND );
+		}
 		$module->addWhere( $db->makeList( $where, LIST_OR ) );
 		$module->addOption( 'USE INDEX', array( 'flaggedrevs' => 'PRIMARY' ) );
 
@@ -1363,7 +1364,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 				'level_text' => FlaggedRevs::getQualityLevelText( $row->fr_quality ),
 				'tags' => FlaggedRevision::expandRevisionTags( $row->fr_tags )
 			);	
-			if ( $row->fr_comment )
+			if( $row->fr_comment )
 				$data['comment'] = $row->fr_comment;
 			$result->addValue(
 				array( 'query', 'pages', $row->fr_page_id, 'revisions', $index ),
