@@ -147,11 +147,27 @@ class FlaggedArticle extends Article {
 	 */
 	public function isReviewable( $titleOnly = false ) {
 		global $wgFlaggedRevsReviewForDefault;
-		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) )
+		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
 			return false;
-		if( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() )
+		} else if( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
 			return false;
+		}
 		return true;
+	}
+	
+	/**
+	* Is this page in patrolable?
+	* @param bool $titleOnly, only check if title is in reviewable namespace
+	* @return bool
+	*/
+	public function isPatrollable( $titleOnly = false ) {
+		global $wgFlaggedRevsReviewForDefault;
+		if( FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
+			return true;
+		} else if( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
+			return true;
+		}
+		return false;
 	}
 	
 	 /**
@@ -209,7 +225,7 @@ class FlaggedArticle extends Article {
 	public function setPageContent( &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser, $wgLang;
 		# Only trigger for reviewable pages
-		if( !$this->isReviewable(true) ) {
+		if( !$this->isReviewable() ) {
 			return true;
 		}
 		# Only trigger on article view for content pages, not for protect/delete/hist...
@@ -728,13 +744,13 @@ class FlaggedArticle extends Article {
 	public function addPatrolLink( &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser;
 		# For unreviewable pages, allow for basic patrolling
-		if( !FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
+		if( !$this->isPatrollable() ) {
 			return true;
 		}
 		# If we have been passed an &rcid= parameter, we want to give the user a
 		# chance to mark this new article as patrolled.
 		$rcid = $wgRequest->getIntOrNull( 'rcid' );
-		if( !is_null( $rcid ) && $rcid != 0 && $wgUser->isAllowed( 'review' ) ) {
+		if( !empty($rcid) && $wgUser->isAllowed( 'review' ) ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 			$token = $wgUser->editToken( $this->parent->getTitle()->getPrefixedText(), $rcid );
@@ -753,7 +769,7 @@ class FlaggedArticle extends Article {
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
 		# Check only if the title is reviewable
-		if( !$this->isReviewable(true) ) {
+		if( !$this->isReviewable() ) {
 			return true;
 		}
 		$action = $wgRequest->getVal( 'action', 'view' );
@@ -784,7 +800,24 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		$title = $this->parent->getTitle()->getSubjectPage();
 		# Non-content pages cannot be validated
-		if( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
+		if( !$this->isReviewable(true) || !$title->exists() )
+			return true;
+		# We can change the behavoir of stable version for this page to be different
+		# than the site default.
+		if( !$skin->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
+			wfLoadExtensionMessages( 'Stabilization' );
+			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
+			if( !isset($contentActions['protect']) && !isset($contentActions['unprotect']) ) {
+				wfLoadExtensionMessages( 'Stabilization' );
+				$contentActions['default'] = array(
+					'class' => false,
+					'text' => wfMsg('stabilization-tab'),
+					'href' => $stableTitle->getLocalUrl('page='.$title->getPrefixedUrl())
+				);
+			}
+		}
+		# Check config
+		if( !$this->isReviewable() )
 			return true;
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
@@ -813,20 +846,6 @@ class FlaggedArticle extends Article {
 					$contentActions['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
 			}
 	   	}
-		# We can change the behavoir of stable version for this page to be different
-		# than the site default.
-		if( !$skin->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
-			wfLoadExtensionMessages( 'Stabilization' );
-			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
-			if( !isset($contentActions['protect']) && !isset($contentActions['unprotect']) ) {
-				wfLoadExtensionMessages( 'Stabilization' );
-				$contentActions['default'] = array(
-					'class' => false,
-					'text' => wfMsg('stabilization-tab'),
-					'href' => $stableTitle->getLocalUrl('page='.$title->getPrefixedUrl())
-				);
-			}
-		}
 		// Add auxillary tabs...
 	 	if( !$wgFlaggedRevTabs || $synced )
 	   		return true;
@@ -937,8 +956,7 @@ class FlaggedArticle extends Article {
 	*/
 	public function addDiffNoticeAndIncludes( $diff, $oldRev, $newRev ) {
 		global $wgRequest, $wgUser, $wgOut, $wgMemc;
-
-		if( $wgOut->isPrintable() || !FlaggedRevs::isPageReviewable( $newRev->getTitle() ) )
+		if( $wgOut->isPrintable() || !$this->isReviewable() )
 			return true;
 		# Load required messages
 		wfLoadExtensionMessages( 'FlaggedRevs' );
@@ -1125,10 +1143,7 @@ class FlaggedArticle extends Article {
 	public function addPatrolAndDiffLink( $diff, $oldRev, $newRev ) {
 		global $wgUser, $wgOut;
 		// Is there a stable version?
-		if( FlaggedRevs::isPageReviewable( $newRev->getTitle() ) ) {
-			if( !$oldRev ) {
-				return true;
-			}
+		if( $oldRev && $this->isReviewable() ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() && $newRev->isCurrent() ) {
@@ -1145,19 +1160,18 @@ class FlaggedArticle extends Article {
 				}
 			}
 		// Prepare a change patrol link, if applicable
-		} else if( FlaggedRevs::isPagePatrollable( $newRev->getTitle() ) && $wgUser->isAllowed( 'review' ) ) {
+		} else if( $this->isPatrollable() && $wgUser->isAllowed( 'review' ) ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			// If we've been given an explicit change identifier, use it; saves time
 			if( $diff->mRcidMarkPatrolled ) {
 				$rcid = $diff->mRcidMarkPatrolled;
 			} else {
 				# Look for an unpatrolled change corresponding to this diff
-				$dbr = wfGetDB( DB_SLAVE );
 				$change = RecentChange::newFromConds(
 					array(
 						# Add redundant user,timestamp condition so we can use the existing index
 						'rc_user_text'  => $diff->mNewRev->getRawUserText(),
-						'rc_timestamp'  => $dbr->timestamp( $diff->mNewRev->getTimestamp() ),
+						'rc_timestamp'  => wfGetDB( DB_SLAVE )->timestamp( $diff->mNewRev->getTimestamp() ),
 						'rc_this_oldid' => $diff->mNewid,
 						'rc_last_oldid' => $diff->mOldid,
 						'rc_patrolled'  => 0
