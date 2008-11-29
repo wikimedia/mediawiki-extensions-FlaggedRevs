@@ -584,8 +584,7 @@ EOT;
 		if( !$flaggedArticle->showStableByDefault() ) {
 			return true;
 		}
-		$frev = $flaggedArticle->getStableRev();
-		if( $frev ) {
+		if( $frev = $flaggedArticle->getStableRev() ) {
 			# Allow for only editors/reviewers to move this
 			if( !$user->isAllowed('review') && !$user->isAllowed('movestable') ) {
 				$result = false;
@@ -652,7 +651,7 @@ EOT;
 		# Avoid extra DB hit and lag issues
 		$title->resetArticleID( $rev->getPage() );
 		# Get what was just the current revision ID
-		$prevRevId = self::getPreviousRevisionId( $rev );
+		$prevRevId = $rev->getParentId();
 		# Get the revision ID the incoming one was based off...
 		if( !$baseRevId && $prevRevId ) {
 			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK			
@@ -701,28 +700,9 @@ EOT;
 		}
 		return true;
 	}
-	
-	/**
-	* As used, this function should be lag safe
-	* @param Revision $revision
-	* @return int
-	*/
-	protected static function getPreviousRevisionID( $revision ) {
-		$db = wfGetDB( DB_MASTER );
-		return $db->selectField( 'revision', 'rev_id',
-			array(
-				'rev_page' => $revision->getPage(),
-				'rev_id < ' . $revision->getId()
-			),
-			__METHOD__,
-			array( 'ORDER BY' => 'rev_id DESC' )
-		);
-	}
 
 	/**
 	* When an edit is made to a page that can't be reviewed, autopatrol if allowed.
-	* This is not loggged for perfomance reasons and no one cares if talk pages and such
-	* are autopatrolled.
 	*/
 	public static function autoMarkPatrolled( $rc ) {
 		global $wgUser;
