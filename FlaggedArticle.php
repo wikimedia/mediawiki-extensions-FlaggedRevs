@@ -769,7 +769,7 @@ class FlaggedArticle extends Article {
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
 		# Check only if the title is reviewable
-		if( !$this->isReviewable() ) {
+		if( !$this->isReviewable(true) ) {
 			return true;
 		}
 		$action = $wgRequest->getVal( 'action', 'view' );
