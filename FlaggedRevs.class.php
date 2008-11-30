@@ -989,6 +989,7 @@ class FlaggedRevs {
 	* fields will be up to date. This updates the stable version.
 	*/
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $patrol = true ) {
+		global $wgMemc, $wgRevisionCacheExpiry;
 		wfProfileIn( __METHOD__ );
 
 		$quality = 0;
@@ -1003,7 +1004,6 @@ class FlaggedRevs {
 		$latestID = $latestID ? $latestID : $rev->getId(); // new pages, page row not added yet
 
 		$title = $article->getTitle();
-		
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
 		$parseId = ($rev->getId() == $latestID) ? null : $rev->getId();
@@ -1037,11 +1037,10 @@ class FlaggedRevs {
 				);
 			}
 		}
-		
+
 		global $wgUseStableTemplates;
 		if( $wgUseStableTemplates ) {
-			$fulltext = '';
-			$textFlags = 'utf-8,dynamic';
+			$fulltext = ''; // nothing to store
 		} else {
 			# Set our versioning params cache
 			self::setIncludeVersionCache( $rev->getId(), $poutput->mTemplateIds, $poutput->fr_ImageSHA1Keys );
@@ -1050,8 +1049,6 @@ class FlaggedRevs {
 				$article->getTitle(), $rev->getId() );
 			# Clear our versioning params cache
 			self::clearIncludeVersionCache( $rev->getId() );
-			# Store/compress text as needed, and get the flags
-			$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
 		}
 
 		# If this is an image page, store corresponding file info
@@ -1062,42 +1059,20 @@ class FlaggedRevs {
 			$fileData['sha1'] = $file->getSha1();
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
-		$revisionset = array(
+		$flaggedRevision = new FlaggedRevision( array(
 			'fr_page_id'       => $rev->getPage(),
 			'fr_rev_id'	       => $rev->getId(),
 			'fr_user'	       => $user->getId(),
-			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
+			'fr_timestamp'     => wfTimestampNow(),
 			'fr_comment'       => "",
 			'fr_quality'       => $quality,
 			'fr_tags'	       => FlaggedRevision::flattenRevisionTags( $flags ),
-			'fr_text'	       => $fulltext, # Store expanded text for speed
-			'fr_flags'	       => $textFlags,
 			'fr_img_name'      => $fileData ? $fileData['name'] : null,
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
-		);
-		
-		# Update flagged revisions table
-		$dbw->replace( 'flaggedrevs',
-			array( array('fr_page_id','fr_rev_id') ), $revisionset,
-			__METHOD__ );
-		# Clear out any previous garbage.
-		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates',
-			array('ft_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		$dbw->delete( 'flaggedimages',
-			array('fi_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		# Update our versioning params
-		if( !empty($tmpset) ) {
-			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
-		}
-		if( !empty($imgset) ) {
-			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
-		}
+		) );
+		$flaggedRevision->insertOn( $fulltext, $tmpset, $imgset );
 		# Mark as patrolled
 		if( $patrol ) {
 			RevisionReview::updateRecentChanges( $title, $rev->getId() );
@@ -1114,10 +1089,16 @@ class FlaggedRevs {
 			# Update page fields
 			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
 			# We can set the sync cache key already.
-			global $wgMemc, $wgParserCacheExpireTime;
+			global $wgParserCacheExpireTime;
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
 			$data = FlaggedRevs::makeMemcObj( "true" );
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+		}
+		# Update expanded text cache. Don't store if it if empty (not done),
+		# as this always happens when $wgUseStableTemplates is on.
+		if( $fulltext && $wgRevisionCacheExpiry ) {
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
+			$wgMemc->set( $key, $fulltext, $wgRevisionCacheExpiry );
 		}
 		
 		wfProfileOut( __METHOD__ );

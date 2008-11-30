@@ -24,7 +24,7 @@ class RevisionReview extends UnlistedSpecialPage
 	var $unapprovedTags = 0;
 	
     function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage( 'RevisionReview', 'review' );
+		parent::__construct( 'RevisionReview', 'review' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
@@ -480,8 +480,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @returns true on success, array of errors on failure
 	 */
 	private function approveRevision( $rev ) {
-		global $wgUser, $wgParser, $wgEnableParserCache, $wgMemc;
-
+		global $wgUser, $wgMemc, $wgParser, $wgEnableParserCache, $wgRevisionCacheExpiry;
 		wfProfileIn( __METHOD__ );
 		
 		$article = new Article( $this->page );
@@ -492,11 +491,9 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Our flags
 		$flags = $this->dims;
-
 		# Some validation vars to make sure nothing changed during
 		$lastTempID = 0;
 		$lastImgTime = "0";
-
 		# Our template version pointers
 		$tmpset = $tmpParams = array();
 		$templateMap = explode('#',trim($this->templateParams) );
@@ -559,7 +556,6 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 			$imgParams[$img_title->getDBkey()][$timestamp] = $key;
 		}
-		
 		# If this is an image page, store corresponding file info
 		$fileData = array();
 		if( $this->page->getNamespace() == NS_IMAGE && $this->fileVersion ) {
@@ -627,50 +623,23 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 
-		# Store/compress text as needed, and get the flags
-		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
-
 		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
- 		$revset = array(
- 			'fr_rev_id'        => $rev->getId(),
- 			'fr_page_id'       => $this->page->getArticleID(),
+ 		$flaggedRevision = new FlaggedRevision( array(
+			'fr_rev_id'        => $rev->getId(),
+			'fr_page_id'       => $this->page->getArticleID(),
 			'fr_user'          => $wgUser->getId(),
-			'fr_timestamp'     => $dbw->timestamp( wfTimestampNow() ),
+			'fr_timestamp'     => wfTimestampNow(),
 			'fr_comment'       => $this->notes,
 			'fr_quality'       => $quality,
 			'fr_tags'          => FlaggedRevision::flattenRevisionTags( $flags ),
-			'fr_text'          => $fulltext, # Store expanded text for speed
-			'fr_flags'         => $textFlags,
 			'fr_img_name'      => $fileData ? $fileData['name'] : null,
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
-		);
+		) );
 
 		$dbw->begin();
-		# Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revset, __METHOD__ );
-		# Clear out any previous garbage.
-		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates',
-			array('ft_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		$dbw->delete( 'flaggedimages',
-			array('fi_rev_id' => $rev->getId() ),
-			__METHOD__ );
-		# Update our versioning params
-		if( !empty($tmpset) ) {
-			$dbw->insert( 'flaggedtemplates', $tmpset, __METHOD__, 'IGNORE' );
-		}
-		if( !empty($imgset) ) {
-			$dbw->insert( 'flaggedimages', $imgset, __METHOD__, 'IGNORE' );
-		}
-		# Kill any text cache
-		global $wgRevisionCacheExpiry;
-		if( $wgRevisionCacheExpiry ) {
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
-			$wgMemc->delete( $key );
-		}
+		$flaggedRevision->insertOn( $fulltext, $tmpset, $imgset );
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid );
 		# Update the article review log
@@ -720,8 +689,14 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Update link tracking. This will trigger our hook to add stable links too...
 		$u->doUpdate();
-		# Purge cache/squids for this page and any page that uses it
+
 		$dbw->commit();
+		# Update expanded text cache
+		if( $fulltext && $wgRevisionCacheExpiry ) {
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
+			$wgMemc->set( $key, $fulltext, $wgRevisionCacheExpiry );
+		}
+		# Purge cache/squids for this page and any page that uses it
 		Article::onArticleEdit( $article->getTitle() );
 
 		wfProfileOut( __METHOD__ );
