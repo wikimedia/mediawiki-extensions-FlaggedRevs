@@ -198,6 +198,7 @@ class FlaggedRevision {
 		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
 		$this->mRawDBText = $fulltext; // wikitext or ES url
 		$this->mFlags = explode(',',$textFlags);
+		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
 		$revRow = array(
 			'fr_page_id'       => $this->getPage(),
@@ -213,7 +214,6 @@ class FlaggedRevision {
 			'fr_img_timestamp' => $this->getFileTimestamp(),
 			'fr_img_sha1'      => $this->getFileSha1()
 		);
-		$dbw = wfGetDB( DB_MASTER );
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revRow, __METHOD__ );
 		# Clear out any previous garbage.
