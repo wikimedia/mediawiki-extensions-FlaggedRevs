@@ -187,17 +187,17 @@ class FlaggedRevision {
 	/*
 	* Insert a FlaggedRevision object into the database
 	*
-	* NOTE: any external storage text must *already* have
-	* been inserted into ES before calling this.
-	*
+	* @param string $fulltext expanded (pre-processed) text
 	* @param array $tmpRows template version rows
 	* @param array $fileRows file version rows
 	* @return bool success
 	*/
-	public function insertOn( $tmpRows, $fileRows ) {
-		if( !isset($this->mRawDBText) || !isset($this->mFlags) ) {
-			throw new MWException( 'FlaggedRevision::insertOn() missing text data.' );
-		}
+	public function insertOn( $fulltext, $tmpRows, $fileRows ) {
+		$this->mText = $fulltext;
+		# Store/compress text as needed, and get the flags
+		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
+		$this->mRawDBText = $fulltext; // wikitext or ES url
+		$this->mFlags = explode(',',$textFlags);
 		# Our review entry
 		$revRow = array(
 			'fr_page_id'       => $this->getPage(),
@@ -207,8 +207,8 @@ class FlaggedRevision {
 			'fr_comment'       => $this->getComment(),
 			'fr_quality'       => $this->getQuality(),
 			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
-			'fr_text'	       => $this->mRawDBText, # Store expanded text for speed
-			'fr_flags'	       => implode(',',$this->mFlags),
+			'fr_text'	       => $fulltext, # Store expanded text for speed
+			'fr_flags'	       => $textFlags,
 			'fr_img_name'      => $this->getFileName(),
 			'fr_img_timestamp' => $this->getFileTimestamp(),
 			'fr_img_sha1'      => $this->getFileSha1()
