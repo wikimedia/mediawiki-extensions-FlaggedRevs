@@ -194,12 +194,12 @@ class FlaggedArticle extends Article {
 	public function addStableLink() {
 		global $wgRequest, $wgOut, $wgLang;
 		if( $wgRequest->getVal('oldid') ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			# We may have nav links like "direction=prev&oldid=x"
 			$revID = $this->parent->getOldIDFromRequest();
 			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revID );
 			# Give a notice if this rev ID corresponds to a reviewed version...
 			if( !is_null($frev) ) {
+				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$time = $wgLang->date( $frev->getTimestamp(), true );
 				$flags = $frev->getTags();
 				$quality = FlaggedRevs::isQuality( $flags );
@@ -515,12 +515,12 @@ class FlaggedArticle extends Article {
 			# NOTE: if not found, this will use the current
 			$this->parent = new ImagePage( $this->parent->getTitle(), $time );
 		}
-		if ( !$time ) {
+		if( !$time ) {
 			# Try request parameter
 			$time = $wgRequest->getVal( 'filetimestamp', false );
 		}
 
-		if ( !$time ) {
+		if( !$time ) {
 			// Use the default behaviour
 			return;
 		}
@@ -528,7 +528,7 @@ class FlaggedArticle extends Article {
 		$title = $this->parent->getTitle();
 		$displayFile = wfFindFile( $title, $time );
 		# If none found, try current
-		if ( !$displayFile ) {
+		if( !$displayFile ) {
 			wfDebug( __METHOD__.": {$title->getPrefixedDBkey()}: $time not found, using current\n" );
 			$displayFile = wfFindFile( $title );
 			# If none found, use a valid local placeholder
@@ -1144,7 +1144,6 @@ class FlaggedArticle extends Article {
 		global $wgUser, $wgOut;
 		// Is there a stable version?
 		if( $oldRev && $this->isReviewable() ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() && $newRev->isCurrent() ) {
 				$this->isDiffFromStable = true;
@@ -1154,6 +1153,7 @@ class FlaggedArticle extends Article {
 				$article = new Article( $newRev->getTitle() );
 				# Is the stable revision using the same revision as the current?
 				if( $article->getLatest() != $frev->getRevId() ) {
+					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$patrol = '(' . $wgUser->getSkin()->makeKnownLinkObj( $newRev->getTitle(),
 						wfMsgHtml( 'review-diff2stable' ), "oldid={$frev->getRevId()}&diff=cur&diffonly=0" ) . ')';
 					$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>$patrol</div>" );
@@ -1412,7 +1412,7 @@ class FlaggedArticle extends Article {
 			# else collect all quality levels of a flag current user can set
 			} else {
 				foreach( $levels as $i => $name ) {
-					if ( !RevisionReview::userCan($quality, $i) ) {
+					if( !RevisionReview::userCan($quality, $i) ) {
 						break;
 					}
 					$label[$i] = $name;
