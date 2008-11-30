@@ -1,21 +1,17 @@
 <?php
 
 class FlaggedRevision {
-	private $mRevId;
-	private $mPageId;
+	private $mTitle;
+	private $mRevId, $mPageId;
 	private $mTimestamp;
 	private $mComment;
 	private $mQuality;
 	private $mTags;
 	private $mText;
-	private $mRawDBText;
-	private $mFlags;
+	private $mRawDBText, $mFlags;
 	private $mUser;
-	private $mTitle;
 	private $mRevision;
-	private $mFileName;
-	private $mFileSha1;
-	private $mFileTimestamp;
+	private $mFileName, $mFileSha1, $mFileTimestamp;
 
 	/**
 	 * @param Title $title
@@ -23,22 +19,40 @@ class FlaggedRevision {
 	 */
 	public function __construct( $title, $row ) {
 		$this->mTitle = $title;
-		$this->mRevId = intval( $row->fr_rev_id );
-		$this->mPageId = intval( $row->fr_page_id );
-		$this->mTimestamp = $row->fr_timestamp;
-		$this->mComment = $row->fr_comment;
-		$this->mQuality = intval( $row->fr_quality );
-		$this->mTags = self::expandRevisionTags( strval($row->fr_tags) );
-		# Image page revision relevant params
-		$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
-		$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
-		$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
-		# Optional fields
-		$this->mUser = isset($row->fr_user) ? $row->fr_user : 0;
-		$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
-		$this->mRawDBText = isset($row->fr_text) ? $row->fr_text : null;
-		# Deal with as it comes
-		$this->mText = null;
+		if( is_object($row) ) {
+			$this->mRevId = intval( $row->fr_rev_id );
+			$this->mPageId = intval( $row->fr_page_id );
+			$this->mTimestamp = $row->fr_timestamp;
+			$this->mComment = $row->fr_comment;
+			$this->mQuality = intval( $row->fr_quality );
+			$this->mTags = self::expandRevisionTags( strval($row->fr_tags) );
+			# Image page revision relevant params
+			$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
+			$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
+			$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
+			$this->mUser = intval( $row->fr_user );
+			# Optional fields
+			$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
+			$this->mRawDBText = isset($row->fr_text) ? $row->fr_text : null;
+		} else if( is_array($row) ) {
+			$this->mRevId = intval( $row['fr_rev_id'] );
+			$this->mPageId = intval( $row['fr_page_id'] );
+			$this->mTimestamp = $row['fr_timestamp'];
+			$this->mComment = $row['fr_comment'];
+			$this->mQuality = intval( $row['fr_quality'] );
+			$this->mTags = self::expandRevisionTags( strval($row['fr_tags']) );
+			# Image page revision relevant params
+			$this->mFileName = $row['fr_img_name'] ? $row['fr_img_name'] : null;
+			$this->mFileSha1 = $row['fr_img_sha1'] ? $row['fr_img_sha1'] : null;
+			$this->mFileTimestamp = $row['fr_img_timestamp'] ? $row['fr_img_timestamp'] : null;
+			$this->mUser = intval( $row['fr_user'] );
+			# Optional fields
+			$this->mFlags = isset($row['fr_flags']) ? explode(',',$row['fr_flags']) : null;
+			$this->mRawDBText = isset($row['fr_text']) ? $row['fr_text'] : null;
+		} else {
+			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
+		}
+		$this->mText = null; // Deal with as it comes
 	}
 	
 	/**
@@ -170,12 +184,58 @@ class FlaggedRevision {
 		return new FlaggedRevision( $title, $row );
 	}
 	
+	/*
+	* Insert a FlaggedRevision object into the database
+	*
+	* NOTE: any external storage text must *already* have
+	* been inserted into ES before calling this.
+	*
+	* @param array $tmpRows template version rows
+	* @param array $fileRows file version rows
+	* @return bool success
+	*/
+	public function insertOn( $tmpRows, $fileRows ) {
+		if( !isset($this->mRawDBText) || !isset($this->mFlags) ) {
+			throw new MWException( 'FlaggedRevision::insertOn() missing text data.' );
+		}
+		# Our review entry
+		$revRow = array(
+			'fr_page_id'       => $this->getPage(),
+			'fr_rev_id'	       => $this->getRevId(),
+			'fr_user'	       => $user->getUser(),
+			'fr_timestamp'     => $dbw->timestamp( $this->getTimestamp() ),
+			'fr_comment'       => $this->getComment(),
+			'fr_quality'       => $this->getQuality(),
+			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
+			'fr_text'	       => $this->mRawDBText, # Store expanded text for speed
+			'fr_flags'	       => implode(',',$this->mFlags),
+			'fr_img_name'      => $this->getFileName(),
+			'fr_img_timestamp' => $this->getFileTimestamp(),
+			'fr_img_sha1'      => $this->getFileSha1()
+		);
+		$dbw = wfGetDB( DB_MASTER );
+		# Update flagged revisions table
+		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revRow, __METHOD__ );
+		# Clear out any previous garbage.
+		# We want to be able to use this for tracking...
+		$dbw->delete( 'flaggedtemplates', array('ft_rev_id' => $this->getRevId() ), __METHOD__ );
+		$dbw->delete( 'flaggedimages', array('fi_rev_id' => $this->getRevId() ), __METHOD__ );
+		# Update our versioning params
+		if( !empty($tmpRows) ) {
+			$dbw->insert( 'flaggedtemplates', $tmpRows, __METHOD__, 'IGNORE' );
+		}
+		if( !empty($fileRows) ) {
+			$dbw->insert( 'flaggedimages', $fileRows, __METHOD__, 'IGNORE' );
+		}
+		return true;
+	}
+	
 	/**
 	 * @returns Array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
-		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality','fr_tags',
-			'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
+		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality',
+			'fr_tags','fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
 	}
 	
 	/**
@@ -296,6 +356,35 @@ class FlaggedRevision {
 	 */
 	public function userCanSetFlags() {
 		return RevisionReview::userCanSetFlags( $this->mTags );
+	}
+	
+	/**
+	 * @returns Array template versions (ns -> dbKey -> rev id)
+	 */	
+	public function getTemplateVersions() {
+		$templates = array();
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'flaggedtemplates', '*', array('ft_rev_id' => $this->getRevId()), __METHOD__ );
+		while( $row = $res->fetchObject() ) {
+			if( !isset($templates[$row->ft_namespace]) ) {
+				$templates[$row->ft_namespace] = array();
+			}
+			$templates[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
+		}
+		return $templates;
+	}
+	
+	/**
+	 * @returns Array template versions (dbKey -> sha1)
+	 */	
+	public function getFileVersions() {
+		$files = array();
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'flaggedimages', '*', array('fi_rev_id' => $this->getRevId()), __METHOD__ );
+		while( $row = $res->fetchObject() ) {
+			$files[$row->fi_name] = $row->fi_img_sha1;
+		}
+		return $files;
 	}
 
 	/**
