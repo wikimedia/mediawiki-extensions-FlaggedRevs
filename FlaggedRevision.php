@@ -1,24 +1,22 @@
 <?php
 
 class FlaggedRevision {
-	private $mTitle;
+	private $mTitle = null;
 	private $mRevId, $mPageId;
 	private $mTimestamp;
 	private $mComment;
 	private $mQuality;
 	private $mTags;
-	private $mText;
+	private $mText = null;
 	private $mRawDBText, $mFlags;
 	private $mUser;
 	private $mRevision;
 	private $mFileName, $mFileSha1, $mFileTimestamp;
 
 	/**
-	 * @param Title $title
 	 * @param Row $row (from database)
 	 */
-	public function __construct( $title, $row ) {
-		$this->mTitle = $title;
+	public function __construct( $row ) {
 		if( is_object($row) ) {
 			$this->mRevId = intval( $row->fr_rev_id );
 			$this->mPageId = intval( $row->fr_page_id );
@@ -32,6 +30,8 @@ class FlaggedRevision {
 			$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
 			$this->mUser = intval( $row->fr_user );
 			# Optional fields
+			$this->mTitle = isset($row->page_namespace) && isset($row->page_title) ?
+				Title::makeTitleSafe( $row->page_namespace, $row->page_title ) : null;
 			$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
 			$this->mRawDBText = isset($row->fr_text) ? $row->fr_text : null;
 		} else if( is_array($row) ) {
@@ -52,7 +52,6 @@ class FlaggedRevision {
 		} else {
 			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
 		}
-		$this->mText = null; // Deal with as it comes
 	}
 	
 	/**
@@ -94,7 +93,9 @@ class FlaggedRevision {
 			$options );
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row ) {
-			return new FlaggedRevision( $title, $row );
+			$frev = new FlaggedRevision( $row );
+			$frev->mTitle = $title;
+			return $frev;
 		}
 		return null;
 	}
@@ -115,7 +116,7 @@ class FlaggedRevision {
 		$row = null;
 		# Short-circuit query
 		if( !$title->getArticleId() ) {
-			return $row;
+			return null;
 		}
 		# User master/slave as appropriate
 		if( !($flags & FR_FOR_UPDATE) && !($flags & FR_MASTER) ) {
@@ -181,7 +182,9 @@ class FlaggedRevision {
 					return null;
 			}
 		}
-		return new FlaggedRevision( $title, $row );
+		$frev = new FlaggedRevision( $row );
+		$frev->mTitle = $title;
+		return $frev;
 	}
 	
 	/*
@@ -193,6 +196,7 @@ class FlaggedRevision {
 	* @return bool success
 	*/
 	public function insertOn( $fulltext, $tmpRows, $fileRows ) {
+		global $wgRevisionCacheExpiry;
 		$this->mText = $fulltext;
 		# Store/compress text as needed, and get the flags
 		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
@@ -203,7 +207,7 @@ class FlaggedRevision {
 		$revRow = array(
 			'fr_page_id'       => $this->getPage(),
 			'fr_rev_id'	       => $this->getRevId(),
-			'fr_user'	       => $user->getUser(),
+			'fr_user'	       => $this->getUser(),
 			'fr_timestamp'     => $dbw->timestamp( $this->getTimestamp() ),
 			'fr_comment'       => $this->getComment(),
 			'fr_quality'       => $this->getQuality(),
@@ -218,14 +222,20 @@ class FlaggedRevision {
 		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revRow, __METHOD__ );
 		# Clear out any previous garbage.
 		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates', array('ft_rev_id' => $this->getRevId() ), __METHOD__ );
-		$dbw->delete( 'flaggedimages', array('fi_rev_id' => $this->getRevId() ), __METHOD__ );
+		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
+		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
 		# Update our versioning params
 		if( !empty($tmpRows) ) {
 			$dbw->insert( 'flaggedtemplates', $tmpRows, __METHOD__, 'IGNORE' );
 		}
 		if( !empty($fileRows) ) {
 			$dbw->insert( 'flaggedimages', $fileRows, __METHOD__, 'IGNORE' );
+		}
+		# Kill any text cache
+		if( $wgRevisionCacheExpiry ) {
+			global $wgMemc;
+			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
+			$wgMemc->delete( $key );
 		}
 		return true;
 	}
@@ -256,6 +266,9 @@ class FlaggedRevision {
 	 * @returns Title title
 	 */
 	public function getTitle() {
+		if( is_null($this->mTitle) ) {
+			$this->mTitle = Title::newFromId( $this->mPageId );
+		}
 		return $this->mTitle;
 	}
 
