@@ -461,7 +461,7 @@ $messages['it'] = array(
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-unwatched' => '(non osservata)',
 	'unreviewed-watched' => '(osservata da $1 {{PLURAL:$1|utente|utenti}})',
-	'unreviewed-list' => 'Di seguito sono riportati gli articoli che non sono stati revisionati.',
+	'unreviewed-list' => 'Di seguito sono riportate le pagine che non sono state revisionate.',
 	'unreviewed-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 );
 
@@ -473,7 +473,7 @@ $messages['ja'] = array(
 	'unreviewedpages' => '査読待ちのページ',
 	'unreviewed-category' => '{{ns:category}}:',
 	'unreviewed-diff' => '査読',
-	'unreviewed-list' => '一度も査読を受けていないか、新しい未査読の版があるページの一覧です。',
+	'unreviewed-list' => '査読を受けていないページの一覧です。',
 );
 
 /** Jutish (Jysk)
@@ -587,6 +587,21 @@ $messages['li'] = array(
 $messages['lt'] = array(
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'Pakeitimai',
+);
+
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'right-unreviewedpages' => 'Погледни [[Special:UnreviewedPages|листа на непрегледани статии]]',
+	'unreviewedpages' => 'Непрегледани страници',
+	'unreviewed-legend' => 'Листа на непрегледани статии',
+	'unreviewed-category' => 'Категорија:',
+	'unreviewed-diff' => 'преглед',
+	'unreviewed-unwatched' => '(ненабљудувана)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|корисник ја набљудува|корисници ја набљудуваат}})',
+	'unreviewed-list' => 'Оваа страница прикажува статии кои не се прегледани.',
+	'unreviewed-none' => 'Во моментов не постојат страници кои ги задоволуваат овие критериуми',
 );
 
 /** Malayalam (മലയാളം)

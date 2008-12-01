@@ -493,6 +493,16 @@ $messages['mhr'] = array(
 	'stableversions-page' => 'Лаштыкын лӱмжӧ:',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'stableversions' => 'Преглед на стабилни верзии',
+	'stableversions-leg1' => 'Листа на прегледани ревизии за страница',
+	'stableversions-page' => 'Наслов на страница:',
+	'stableversions-none' => '"[[:$1]]" нема прегледани ревизии.',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */

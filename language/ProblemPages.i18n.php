@@ -263,6 +263,7 @@ $messages['pt'] = array(
  */
 $messages['roa-tara'] = array(
 	'problempages' => 'Pàggene cu pundegge vasce',
+	'problempages-leg' => 'Iacchie le pàggene cu pundeggie vasce vasce',
 	'problempages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'problempages-graphs' => "dete d'u puntegge",
 );

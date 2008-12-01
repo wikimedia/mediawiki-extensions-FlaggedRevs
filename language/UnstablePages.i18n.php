@@ -184,6 +184,15 @@ $messages['lb'] = array(
 	'unstablepages-config' => 'Configuratioun',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'unstablepages' => 'Нестабилна страница',
+	'unstablepages-stable' => 'стабилна верзија',
+	'unstablepages-config' => 'Конфигурација',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

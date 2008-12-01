@@ -200,6 +200,8 @@ $messages['pl'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'likedpages' => 'Pàggene cu le pundegge ierte',
+	'likedpages-list' => "Aqquà sotte ste 'na liste de pàggene arrenghete pe 'u pundegge lassete da le letture.",
 	'likedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
 );
 

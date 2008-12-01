@@ -294,6 +294,7 @@ $messages['he'] = array(
 );
 
 /** Hungarian (Magyar)
+ * @author Bdamokos
  * @author Dani
  * @author Dorgan
  * @author Glanthor Reviol
@@ -308,6 +309,7 @@ $messages['hu'] = array(
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Köszönjük, hogy időt szántál az oldal értékelésére!</font>''",
 	'ratinghistory-period' => 'Időszak:',
 	'ratinghistory-month' => '1 hónap',
+	'ratinghistory-3months' => 'utolsó 3 hónap',
 	'ratinghistory-year' => '1 év',
 	'ratinghistory-3years' => '3 év',
 	'ratinghistory-chart' => 'Olvasói visszajelzések időrendben',
@@ -359,8 +361,10 @@ $messages['it'] = array(
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazie per aver dedicato un momento al giudizio di questa pagina!</font>''",
 	'ratinghistory-period' => 'Periodo di tempo:',
 	'ratinghistory-month' => 'ultimo mese',
+	'ratinghistory-3months' => 'ultimi 3 mesi',
 	'ratinghistory-year' => 'ultimo anno',
 	'ratinghistory-3years' => 'ultimi 3 anni',
+	'ratinghistory-users' => 'Utenti che hanno dato un giudizio',
 	'ratinghistory-graph' => '$2 di "$3" ($1 {{PLURAL:$1|revisione|revisioni}})',
 	'ratinghistory-none' => 'Non sono disponibile sufficienti dati di feedback dei lettori per poter rappresentare dei grafici al momento.',
 	'ratinghistory-legend' => "I giudizi medi giornalieri <font color=\"blue\">''(blu)''</font> e gli intervalli dei giudizi medi selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. 

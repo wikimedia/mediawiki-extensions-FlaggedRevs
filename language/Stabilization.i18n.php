@@ -1708,10 +1708,14 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Pàgene de stabbilizzazione',
+	'stabilization-text' => "'''Cange le 'mbostaziune sotte pe aggiustà cumme a 'na versiona secure de [[:$1|$1]] ca jè selezionete e visualizzete.'''",
+	'stabilization-perm' => "'U cunde utende tue non ge tène le permesse pe cangià 'a configurazione d'a versione secure.
+Chiste sonde le configuraziune corrende pe [[:$1|$1]]:",
 	'stabilization-page' => "Nome d'a pàgene:",
 	'stabilization-leg' => 'Conferme le configuraziune pe le versiune secure',
 	'stabilization-select' => "Selezione d'a versiona secure",
 	'stabilization-select2' => "L'urtema revisione reviste",
+	'stabilization-def' => "Revisiune visualizzete sus 'a viste d'a pàgene de default",
 	'stabilization-def2' => "'A revisiona corrende",
 	'stabilization-submit' => 'Conferme',
 	'stabilization-notexists' => 'Non ge stè \'na pàgene ca se chieme "[[:$1|$1]]".
@@ -2074,6 +2078,8 @@ $messages['uk'] = array(
 	'stabilization-tab' => '(кя)',
 	'stabilization' => 'Стабілізація сторінки',
 	'stabilization-text' => "'''За допомогою наведених нижче налаштувань можна керувати вибором і відображенням стабільної версії сторінки [[:$1|$1]].'''",
+	'stabilization-perm' => 'Вашому обліковому запису не вистачає прав, щоб змінювати налаштування показу стабільної версії.
+Тут наведені поточні налаштування для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва сторінки:',
 	'stabilization-leg' => 'Підтвердження налаштувань стабільної версії',
 	'stabilization-select' => 'Вибір стабільної версії',
@@ -2090,6 +2096,16 @@ $messages['uk'] = array(
 Налаштування неможливе.',
 	'stabilization-comment' => 'Коментар:',
 	'stabilization-expiry' => 'Закінчується:',
+	'stabilization-sel-short' => 'Порядок слідування',
+	'stabilization-sel-short-0' => 'Якісна',
+	'stabilization-sel-short-1' => 'Нема',
+	'stabilization-sel-short-2' => 'Недоторкана',
+	'stabilization-def-short' => 'Стандартно',
+	'stabilization-def-short-0' => 'Поточна',
+	'stabilization-def-short-1' => 'Стабільна',
+	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
+	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
+	'stabilize-expiring' => 'закінчується о $1 (UTC)',
 );
 
 /** Vèneto (Vèneto)

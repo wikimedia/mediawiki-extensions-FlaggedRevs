@@ -669,6 +669,8 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'reviewedpages' => 'Pàggene reviste',
 	'reviewedpages-leg' => "Liste de le pàggene riviste de 'nu certe levèlle",
+	'reviewedpages-list' => "Le pàggene seguende onne state reviste sus a 'nu specifiche levèlle",
+	'reviewedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'reviewedpages-lev-0' => 'Viste',
 	'reviewedpages-lev-1' => 'Qualità',
 	'reviewedpages-lev-2' => 'Dettagliete',
@@ -812,6 +814,14 @@ $messages['tg-cyrl'] = array(
  */
 $messages['tr'] = array(
 	'reviewedpages-lev-1' => 'Kalite',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'reviewedpages' => 'Перевірені сторінки',
+	'reviewedpages-leg' => 'Список сторінок, що отримали певну оцінку',
 );
 
 /** Vèneto (Vèneto)

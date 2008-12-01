@@ -244,6 +244,16 @@ $messages['lb'] = array(
 	'stablepages-config' => 'Konfiguratioun',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'stablepages' => 'Стабилни страници',
+	'stablepages-stable' => 'стабилна верзија',
+	'stablepages-none' => 'Нема страници во оваа листа',
+	'stablepages-config' => 'Конфигурација',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */
