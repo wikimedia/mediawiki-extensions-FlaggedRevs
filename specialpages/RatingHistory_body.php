@@ -195,20 +195,9 @@ class RatingHistory extends UnlistedSpecialPage
 		if( !is_dir($dir) && !wfMkdirParents( $dir, 0777 ) ) {
 			return false;
 		}
-		// Set cutoff time for period
-		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
-		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
-		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Define the data using the DB rows
 		$totalVal = $totalCount = $n = 0;
-		$res = $dbr->select( 'reader_feedback_history',
-			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
-			array( 'rfh_page_id' => $this->page->getArticleId(), 
-				'rfh_tag' => $tag,
-				"rfh_date >= {$cutoff}"),
-			__METHOD__,
-			array( 'ORDER BY' => 'rfh_date ASC' ) );
+		$res = $this->doQuery( $tag );
 		// Label spacing
 		if( $row = $dbr->fetchObject( $res ) ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
@@ -273,31 +262,20 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		$plot->SetOutputFile( $filePath );
 		$plot->SetIsInline( true );
-		// Set cutoff time for period
-		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
-		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
-		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
-		// Define the data using the DB rows
 		$data = array();
 		$totalVal = $totalCount = $n = 0;
-		$res = $dbr->select( 'reader_feedback_history',
-			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
-			array( 'rfh_page_id' => $this->page->getArticleId(), 
-				'rfh_tag' => $tag,
-				"rfh_date >= {$cutoff}"),
-			__METHOD__,
-			array( 'ORDER BY' => 'rfh_date ASC' ) );
+		// Define the data using the DB rows
+		$res = $this->doQuery( $tag );
 		// Label spacing
-		if( $row = $dbr->fetchObject( $res ) ) {
+		if( $row = $res->fetchObject() ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
-			$res->seek( $dbr->numRows($res)-1 );
-			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
+			$res->seek( $res->numRows()-1 );
+			$upper = wfTimestamp( TS_UNIX, $res->fetchObject()->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
 			$int = ($days > 31) ? 31 : intval( ceil($days/12) );
 			$res->seek( 0 );
 		}
-		while( $row = $dbr->fetchObject( $res ) ) {
+		while( $row = $res->fetchObject() ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
@@ -330,7 +308,6 @@ class RatingHistory extends UnlistedSpecialPage
 			$lastDAve = $dayAve;
 			$lastRAve = $cumAve;
 		}
-		$dbr->freeResult( $res );
 		// Minimum sample size
 		if( count($data) < 2 ) {
 			return false;
@@ -390,31 +367,21 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->outerPadding = 20;
 		$plot->minY = 0;
 		$plot->maxY = 5;
-		// Set cutoff time for period
-		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
-		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
-		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Define the data using the DB rows
 		$dataX = $dave = $rave = $dcount = array();
 		$totalVal = $totalCount = $n = 0;
-		$res = $dbr->select( 'reader_feedback_history',
-			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
-			array( 'rfh_page_id' => $this->page->getArticleId(), 
-				'rfh_tag' => $tag,
-				"rfh_date >= {$cutoff}"),
-			__METHOD__,
-			array( 'ORDER BY' => 'rfh_date ASC' ) );
+		// Define the data using the DB rows
+		$res = $this->doQuery( $tag );
 		// Label spacing
-		if( $row = $dbr->fetchObject( $res ) ) {
+		if( $row = $res->fetchObject() ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
-			$res->seek( $dbr->numRows($res)-1 );
-			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
+			$res->seek( $res->numRows()-1 );
+			$upper = wfTimestamp( TS_UNIX, $res->fetchObject()->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
 			$int = ($days > 31) ? 31 : ceil($days/12);
 			$res->seek( 0 );
 		}
-		while( $row = $dbr->fetchObject( $res ) ) {
+		while( $row = $res->fetchObject() ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
@@ -453,7 +420,6 @@ class RatingHistory extends UnlistedSpecialPage
 			$lastDAve = $dayAve;
 			$lastRAve = $cumAve;
 		}
-		$dbr->freeResult( $res );
 		// Minimum sample size
 		if( count($dataX) < 2 ) {
 			return false;
@@ -508,6 +474,23 @@ class RatingHistory extends UnlistedSpecialPage
 			return false;
 		}
 		return true;
+	}
+	
+	protected function doQuery( $tag ) {
+		// Set cutoff time for period
+		$dbr = wfGetDB( DB_SLAVE );
+		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
+		$res = $dbr->select( 'reader_feedback_history',
+			array( 'rfh_total', 'rfh_count', 'rfh_date' ),
+			array( 'rfh_page_id' => $this->page->getArticleId(), 
+				'rfh_tag' => $tag,
+				"rfh_date >= {$cutoff}"),
+			__METHOD__,
+			array( 'ORDER BY' => 'rfh_date ASC' )
+		);
+		return $res;
 	}
 	
 	/**
