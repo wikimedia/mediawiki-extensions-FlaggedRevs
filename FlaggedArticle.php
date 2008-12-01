@@ -702,7 +702,7 @@ class FlaggedArticle extends Article {
 		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') || !$this->parent->getTitle()->quickUserCan('edit') ) {
+		if( ($action !='view' && $action !='purge') ) {
 			return true;
 		}
 		$this->addQuickReview( $data, $wgRequest->getVal('diff'), false );
@@ -1390,7 +1390,8 @@ class FlaggedArticle extends Article {
 		}
 
 		# Current user has too few rights to change at least one flag, thus entire form disabled
-		$disabled = !RevisionReview::userCanSetFlags( $flags );
+		$uneditable = !$this->parent->getTitle()->quickUserCan('edit');
+		$disabled = !RevisionReview::userCanSetFlags( $flags ) || $uneditable;
 		if( $disabled ) {
 			$form .= Xml::openElement( 'div', array('class' => 'fr-rating-controls-disabled',
 				'id' => 'fr-rating-controls-disabled') );
