@@ -115,7 +115,9 @@ class FlaggedRevision {
 		$options = array();
 		$row = null;
 		# Short-circuit query
-		if( !$title->getArticleId() ) {
+		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
+		# Short-circuit query
+		if( !$pageId ) {
 			return null;
 		}
 		# User master/slave as appropriate
@@ -123,8 +125,8 @@ class FlaggedRevision {
 			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
 				$columns,
-				array( 'fp_page_id' => $title->getArticleId(),
-					'fr_page_id' => $title->getArticleId(),
+				array( 'fp_page_id' => $pageId,
+					'fr_page_id = fp_page_id',
 					'fp_stable = fr_rev_id' ),
 				__METHOD__  );
 			if( !$row )
@@ -140,7 +142,7 @@ class FlaggedRevision {
 			if( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
+					array( 'fr_page_id' => $pageId,
 						'fr_quality = 2',
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
@@ -158,7 +160,7 @@ class FlaggedRevision {
 					"fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
 				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
+					array( 'fr_page_id' => $pageId,
 						'fr_quality = 1',
 						$newerClause,
 						'rev_id = fr_rev_id',
@@ -172,7 +174,7 @@ class FlaggedRevision {
 			if( !$row ) {
 				$row = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
-					array( 'fr_page_id' => $title->getArticleID(),
+					array( 'fr_page_id' => $pageId,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0),
