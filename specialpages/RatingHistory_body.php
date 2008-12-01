@@ -199,17 +199,17 @@ class RatingHistory extends UnlistedSpecialPage
 		$totalVal = $totalCount = $n = 0;
 		$res = $this->doQuery( $tag );
 		// Label spacing
-		if( $row = $dbr->fetchObject( $res ) ) {
+		if( $row = $res->fetchObject() ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
-			$res->seek( $dbr->numRows($res)-1 );
-			$upper = wfTimestamp( TS_UNIX, $dbr->fetchObject( $res )->rfh_date );
+			$res->seek( $res->numRows()-1 );
+			$upper = wfTimestamp( TS_UNIX, $res->fetchObject( $res )->rfh_date );
 			$days = intval( ($upper - $lower)/86400 );
 			$int = intval( ceil($days/10) ); // 10 labels at most
 			$res->seek( 0 );
 		}
 		$dates = $drating = $arating = $dcount = "";
 		$n = 0;
-		while( $row = $dbr->fetchObject( $res ) ) {
+		while( $row = $res->fetchObject() ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayAve = sprintf( '%4.2f', (real)$row->rfh_total/(real)$row->rfh_count );
