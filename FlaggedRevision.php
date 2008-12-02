@@ -199,7 +199,6 @@ class FlaggedRevision {
 	*/
 	public function insertOn( $fulltext, $tmpRows, $fileRows ) {
 		global $wgRevisionCacheExpiry;
-		$this->mText = $fulltext;
 		# Store/compress text as needed, and get the flags
 		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
 		$this->mRawDBText = $fulltext; // wikitext or ES url
