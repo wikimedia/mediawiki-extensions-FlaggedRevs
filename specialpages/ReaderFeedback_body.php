@@ -226,12 +226,21 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		return false;
 	}
+	
+	protected function flattenRatings( $dims ) {
+		$s = array();
+		foreach( $dims as $tag => $value ) {
+			$s[] = "{$tag}={$value}";
+		}
+		return implode("\n",$s);
+	}
 
 	private function submit() {
 		global $wgUser;
 		$dbw = wfGetDB( DB_MASTER );
 		# Get date timestamp...
 		$date = str_pad( substr( wfTimestampNow(), 0, 8 ), 14, '0' );
+		$ratings = $this->flattenRatings( $this->dims );
 		# Make sure revision is valid!
 		$rev = Revision::newFromId( $this->oldid );
 		if( !$rev || !$rev->getTitle()->equals( $this->page ) ) {
@@ -247,7 +256,8 @@ class ReaderFeedback extends UnlistedSpecialPage
 			'rfb_rev_id'    => $this->oldid,
 			'rfb_user'      => $wgUser->getId(),
 			'rfb_ip'        => wfGetIP(),
-			'rfb_timestamp' => $dbw->timestamp()
+			'rfb_timestamp' => $dbw->timestamp(),
+			'rfb_ratings'   => $ratings
 		);
 		$dbw->insert( 'reader_feedback', $insertRow, __METHOD__, 'IGNORE' );
 		# Make sure initial page data is there to begin with...
