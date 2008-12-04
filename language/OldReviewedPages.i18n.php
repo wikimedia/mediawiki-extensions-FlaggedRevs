@@ -365,6 +365,7 @@ $messages['he'] = array(
 	'oldreviewedpages-recent' => 'פחות משעה',
 	'oldreviewed-category' => 'קטגוריה:',
 	'oldreviewed-diff' => 'בדיקה',
+	'oldreviewed-size' => 'השינוי המירבי בגודל בבתים:',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|משתמש אחד עוקב|$2 משתמשים עוקבים}})',
 );
@@ -532,7 +533,7 @@ $messages['mr'] = array(
 $messages['ms'] = array(
 	'oldreviewedpages' => 'Laman diperiksa lapuk',
 	'oldreviewedpages-legend' => 'Senarai laman diperiksa dengan semakan baru',
-	'oldreviewedpages-list' => 'Berikut ialah senarai laman yang telah diperiksa tetapi mempunyai suntingan baru.',
+	'oldreviewedpages-list' => 'Yang berikut ialah senarai laman yang telah diperiksa tetapi mempunyai suntingan baru.',
 	'oldreviewedpages-none' => 'Tiada laman yang memenuhi kriteria ini',
 	'oldreviewedpages-stable' => 'dijenguk',
 	'oldreviewedpages-quality' => 'bermutu',
@@ -618,6 +619,7 @@ $messages['oc'] = array(
 	'oldreviewedpages-recent' => "(mens qu'una ora)",
 	'oldreviewed-category' => 'Categoria :',
 	'oldreviewed-diff' => 'relectura',
+	'oldreviewed-size' => 'Cambiament maximal de la talha (en octets) :',
 	'oldreviewedpages-unwatched' => '(pas observat)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
 );
@@ -686,6 +688,10 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'oldreviewedpages' => 'Pàggene riviste non aggiornete',
+	'oldreviewedpages-legend' => 'Liste de le pàggene riviste cu revisiune non reviste',
+	'oldreviewedpages-list' => 'Sta pàgene elenghe le pàggene reviste ca tènene cangiaminde pendende.',
+	'oldreviewedpages-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',
 	'oldreviewedpages-stable' => 'viste',
 	'oldreviewedpages-quality' => 'qualità',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ore|ore}})',
@@ -713,6 +719,7 @@ $messages['ru'] = array(
 	'oldreviewedpages-recent' => '(менее 1 часа)',
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-diff' => 'проверить',
+	'oldreviewed-size' => 'Наибольшее изменение в байтах:',
 	'oldreviewedpages-unwatched' => '(не следят)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
 );
@@ -815,6 +822,7 @@ $messages['uk'] = array(
 	'oldreviewedpages-recent' => '(менше 1 години)',
 	'oldreviewed-category' => 'Категорія:',
 	'oldreviewed-diff' => 'перевірити',
+	'oldreviewed-size' => 'Максимальна зміна розміру в байтах:',
 	'oldreviewedpages-unwatched' => '(не спостерігають)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|спостерігає $2 користувач|спостерігають $2 користувачі|спостерігають $2 користувачів}})',
 );

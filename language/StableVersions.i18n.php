@@ -535,7 +535,7 @@ $messages['ms'] = array(
 	'stableversions-leg1' => 'Papar senarai versi yang telah diperiksa bagi sesebuah laman',
 	'stableversions-page' => 'Nama laman:',
 	'stableversions-none' => '"[[:$1]]" tidak mempunyai semakan yang telah diperiksa.',
-	'stableversions-list' => 'Berikut ialah senarai semakan yang telah diperiksa bagi laman [[:$1]]',
+	'stableversions-list' => 'Yang berikut ialah senarai semakan yang telah diperiksa bagi laman [[:$1]]',
 	'stableversions-review' => 'Diperiksa pada <i>$1</i> oleh $2',
 );
 

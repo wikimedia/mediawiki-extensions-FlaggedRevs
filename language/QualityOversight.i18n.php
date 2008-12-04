@@ -175,7 +175,7 @@ $messages['mr'] = array(
  */
 $messages['ms'] = array(
 	'qualityoversight' => 'Kawalan mutu',
-	'qualityoversight-list' => 'Berikut ialah senarai terkini pengesahan dan pengguguran semakan.',
+	'qualityoversight-list' => 'Yang berikut ialah senarai terkini pengesahan dan pengguguran semakan.',
 	'qualityoversight-legend' => 'Gelintar log pemeriksaan terkini',
 );
 
@@ -222,6 +222,15 @@ $messages['pt'] = array(
 	'qualityoversight' => 'Observatório da qualidade',
 	'qualityoversight-list' => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
 	'qualityoversight-legend' => 'Pesquisar nos registos de análises recentes',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'qualityoversight' => 'Qualità supervisionete',
+	'qualityoversight-list' => "Sta pàgene fece vedè l'urteme approvazziune e scartaminde de le revisiune.",
+	'qualityoversight-legend' => "Cirche jndr'à l'archivie de le revisitaziune recende",
 );
 
 /** Russian (Русский)

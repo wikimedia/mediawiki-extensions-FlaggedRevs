@@ -555,7 +555,7 @@ $messages['mr'] = array(
 $messages['ms'] = array(
 	'reviewedpages' => 'Laman diperiksa',
 	'reviewedpages-leg' => 'Senarai laman yang telah diperiksa pada suatu aras tertentu',
-	'reviewedpages-list' => 'Berikut ialah senarai laman yang telah diperiksa pada aras yang dinyatakan',
+	'reviewedpages-list' => 'Yang berikut ialah senarai laman yang telah diperiksa pada aras yang dinyatakan',
 	'reviewedpages-none' => 'Tiada laman dalam senarai ini',
 	'reviewedpages-lev-0' => 'Dijenguk',
 	'reviewedpages-lev-1' => 'Bermutu',
@@ -822,6 +822,13 @@ $messages['tr'] = array(
 $messages['uk'] = array(
 	'reviewedpages' => 'Перевірені сторінки',
 	'reviewedpages-leg' => 'Список сторінок, що отримали певну оцінку',
+	'reviewedpages-list' => 'Такі сторінки були перевірені і оцінені на зазначений рівень',
+	'reviewedpages-none' => 'У цьому списку відсутні сторінки',
+	'reviewedpages-lev-0' => 'Переглянута',
+	'reviewedpages-lev-1' => 'Якісна',
+	'reviewedpages-lev-2' => 'Вибрана',
+	'reviewedpages-all' => 'перевірені версії',
+	'reviewedpages-best' => 'найкраща версія',
 );
 
 /** Vèneto (Vèneto)

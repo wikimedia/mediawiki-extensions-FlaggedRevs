@@ -282,7 +282,7 @@ $messages['he'] = array(
 	'ratinghistory-year' => 'השנה האחרונה',
 	'ratinghistory-3years' => '3 השנים האחרונות',
 	'ratinghistory-chart' => 'משוב דירוג קוראים לאורך זמן',
-	'ratinghistory-users' => 'משתמשים שדירגו את הדף הזה:',
+	'ratinghistory-users' => 'משתמשים שדירגו:',
 	'ratinghistory-graph' => '$2 מתוך "$3" ({{PLURAL:$1|דירוג אחד|$1 דירוגים}})',
 	'ratinghistory-none' => 'אין כרגע מספיק מידע זמין של משוב קוראים ליצירת תרשימים',
 	'ratinghistory-legend' => "'''הדירוג הממוצע היומי''' <font color=\"blue\">'''(בכחול)'''</font> ו'''הדירוג הממוצע בתווך''' <font color=\"green\">'''(בירוק)'''</font> מוצגים בטבלאות למטה, לפי תאריך.
@@ -496,17 +496,18 @@ $messages['no'] = array(
  */
 $messages['oc'] = array(
 	'ratinghistory' => 'Istoric de la notacion de la pagina',
-	'ratinghistory-text' => "'''Aquesta pagina aficha las donadas de notacion d’article per [[:$1|$1]].'''",
+	'ratinghistory-text' => "'''Aquesta pagina aficha las donadas de notacion de pagina per [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Donadas de l’istoric de la notacion',
 	'ratinghistory-tab' => 'notacion',
-	'ratinghistory-link' => 'Notacion de l’article',
+	'ratinghistory-link' => 'Notacion de la pagina',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Mercés de nos aver consacrat de temps per tornar legir aquesta pagina !</font>''",
 	'ratinghistory-period' => 'Periòde :',
 	'ratinghistory-month' => 'darrièr mes',
+	'ratinghistory-3months' => 'darrièrs 3 meses',
 	'ratinghistory-year' => 'darrièra annada',
 	'ratinghistory-3years' => 'las 3 darrièras annadas',
 	'ratinghistory-chart' => 'Relector notant fòra relambi :',
-	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas sus aquesta pagina :",
+	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas",
 	'ratinghistory-graph' => '$2 sus « $3 » ($1 {{PLURAL:$1|relector|relectors}})',
 	'ratinghistory-none' => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
 	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e los intervals de quotacion causits <font color=\"green\">''(vèrd)''</font> de la notacion son dessenhats çaijós, per data. 
@@ -565,6 +566,7 @@ $messages['pt'] = array(
  */
 $messages['roa-tara'] = array(
 	'ratinghistory' => "Storie de le pundegge d'a pàgene",
+	'ratinghistory-text' => "'''Questa pàgene fece vedè le dete de le pundegge d'a pàgene pe [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Storie de le dete de le pundegge',
 	'ratinghistory-tab' => 'pundegge',
 	'ratinghistory-link' => "Pundegge d'a pàgene",
@@ -574,18 +576,46 @@ $messages['roa-tara'] = array(
 	'ratinghistory-3months' => 'urteme 3 mise',
 	'ratinghistory-year' => 'urteme anne',
 	'ratinghistory-3years' => 'urteme ttre anne',
+	'ratinghistory-chart' => "'U feedback lassete da ste lettore jè fore timbe massime",
 	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisione|revisiune}})',
+	'ratinghistory-none' => "Non ge stonne abbastanza lettore ca onne lassete 'u feedback pe ccrejà 'nu grafeche jndr'à stu timbe.",
+	'ratinghistory-legend' => "'U '''pundegge medie sciurnaliere''' <font color=\"blue\">''(blue)''</font> e
+'u '''pundegge medie pe indervalle''' <font color=\"green\">''(green)''</font> sonde disegnete aqquà sotte, pe date.
+
+Schele: '''[1]''' - Povere; '''[2]''' - Vasce; '''[3]''' - Medie; '''[4]''' - Ierte; '''[5]''' - 'A uerre proprie;
+
+'Le '''numere de revisitaziune pe sciurne''' <font color=\"red\">''(red)''</font> sonde visualizzete sus a 'u grafeche aqquà sotte, sus a 'na ''1:\$1'' schele.",
+	'right-feedback' => "Ause 'u form p'u feedback pe dà 'nu pundegge a 'na pàgene",
 );
 
 /** Russian (Русский)
  * @author Ferrer
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
+	'ratinghistory' => 'История оценок страницы',
+	'ratinghistory-text' => "'''На этой странице приведён список оценок для [[:$1|$1]].'''",
+	'ratinghistory-leg' => 'Данные по истории оценок',
+	'ratinghistory-tab' => 'оценка',
+	'ratinghistory-link' => 'Оценка страницы',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Спасибо, что нашли время оценить эту страницу!</font>''",
 	'ratinghistory-period' => 'Период времени:',
 	'ratinghistory-month' => 'последний месяц',
+	'ratinghistory-3months' => 'последние 3 месяца',
 	'ratinghistory-year' => 'последний год',
 	'ratinghistory-3years' => 'последние 3 года',
+	'ratinghistory-chart' => 'Оценки читателей за всё время',
+	'ratinghistory-users' => 'Участники, которые дали оценку',
+	'ratinghistory-graph' => '$2 из «$3» ($1 {{PLURAL:$1|оценка|оценки|оценок}})',
+	'ratinghistory-none' => 'В настоящее время набралось недостаточное количество читательских оценок для построения графика.',
+	'ratinghistory-legend' => "Ниже показаны '''среднесуточная оценка''' <font color=\"blue\">''(синий)''</font> и
+'''средняя оценка за период''' <font color=\"green\">''(зелёный)''</font>.  
+
+Шкала: '''[1]''' — плохая; '''[2]''' — низкая; '''[3]''' — средняя; '''[4]''' — хорошая; '''[5]''' — отличная;
+
+'''Число оценок за день''' <font color=\"red\">''(красный)''</font> показано ниже в масштабе ''1:\$1''.",
+	'right-feedback' => 'использование формы отзывов для оценки страниц',
 );
 
 /** Slovak (Slovenčina)
@@ -673,6 +703,26 @@ $messages['te'] = array(
  */
 $messages['uk'] = array(
 	'ratinghistory' => 'Історія оцінювання сторінки',
+	'ratinghistory-text' => "'''Ця сторінка показує дані про рейтинг сторінки для [[:$1|$1]].'''",
+	'ratinghistory-leg' => 'Дані про рейтинг сторінки',
+	'ratinghistory-tab' => 'рейтинг',
+	'ratinghistory-link' => 'Рейтинг сторінки',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Дякуємо, що знайшли хвилинку щоб перевірити цю сторінку!</font>''",
+	'ratinghistory-period' => 'Період часу:',
+	'ratinghistory-month' => 'останній місяць',
+	'ratinghistory-3months' => 'останні 3 місяці',
+	'ratinghistory-year' => 'останній рік',
+	'ratinghistory-3years' => 'останні 3 роки',
+	'ratinghistory-users' => 'Оцінювачі',
+	'ratinghistory-graph' => '$2 з "$3" ($1 {{PLURAL:$1|перегляд|перегляди|переглядів}})',
+	'ratinghistory-none' => "Недостатньо даних зворотного зв'язку читачів для графіків на цей час.",
+	'ratinghistory-legend' => "'''Середній рейтинг за добу''' <font color=\"blue\">''(синій)''</font> і  
+'''середній рейтинг за період''' <font color=\"green\">''(зелений)''</font> показані нижче за датою.
+
+Шкала якості: '''[1]''' - Погана; '''[2]''' - Низька; '''[3]''' — Середня; '''[4]''' — Висока; '''[5]''' — Відмінна;
+
+'''Кількість перевірок за добу''' <font color=\"red\">''(червоний)''</font> показана нижче, у масштабі ''1:\$1''.",
+	'right-feedback' => "використання форми зворотного зв'язку для оцінювання сторінки",
 );
 
 /** Vietnamese (Tiếng Việt)

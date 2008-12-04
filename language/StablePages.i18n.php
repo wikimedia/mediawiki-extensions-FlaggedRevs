@@ -192,6 +192,17 @@ $messages['hi'] = array(
 	'stablepages-config' => 'कॉन्फिगरेशन',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'stablepages' => 'Stabilne strony',
+	'stablepages-stable' => 'stabilna wersija',
+	'stablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu stabilnu wersiju jako standardny wobsah strony za přehladowarjow pokazali',
+	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
+	'stablepages-config' => 'Konfiguracija',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  * @author Samat
@@ -282,7 +293,7 @@ $messages['mr'] = array(
 $messages['ms'] = array(
 	'stablepages' => 'Laman stabil',
 	'stablepages-stable' => 'versi stabil',
-	'stablepages-text' => 'Berikut ialah senarai laman yang telah ditetapkan untuk memaparkan versi stabil sebagai kandungan lalai kepada para pengunjung.',
+	'stablepages-text' => 'Yang berikut ialah senarai laman yang telah ditetapkan untuk memaparkan versi stabil sebagai kandungan lalai kepada para pengunjung.',
 	'stablepages-none' => 'Tiada laman dalam senarai ini',
 	'stablepages-config' => 'Konfigurasi',
 );

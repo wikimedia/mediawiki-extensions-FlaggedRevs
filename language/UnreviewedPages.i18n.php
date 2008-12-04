@@ -160,6 +160,13 @@ $messages['br'] = array(
 	'unreviewed-diff' => 'Kemmoù',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'unreviewed-category' => 'Kategorija:',
+);
+
 /** Catalan (Català)
  * @author Jordi Roqué
  * @author SMP
@@ -361,7 +368,7 @@ $messages['he'] = array(
 	'unreviewed-diff' => 'בדיקה',
 	'unreviewed-unwatched' => 'לא במעקב',
 	'unreviewed-watched' => '({{PLURAL:$1|משתמש אחד עוקב|$1 משתמשים עוקבים}})',
-	'unreviewed-list' => 'דף זה מכיל רשימה של דפים שלא נבדקו.',
+	'unreviewed-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו.',
 	'unreviewed-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
 );
 
@@ -395,10 +402,15 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lisćinu njepřehladanych stronow]] wobhladać',
 	'unreviewedpages' => 'Njepruwowane nastawki',
+	'unreviewed-legend' => 'Lisćina njepřehladanych wobsahowych stronow',
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'přepruwować',
-	'unreviewed-list' => 'Tuta strona naliči nastawki kotrež hišće pruwowane njejsu abo maja njepruwowane wersije.',
+	'unreviewed-unwatched' => '(njewobkedźbowany)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|wužiwar|wužiwarjej|wužiwarjo|wužiwarjow}} wobkedźbuja)',
+	'unreviewed-list' => 'Tuta strona nalistuje wobsahowe strony, kotrež hišće njejsu přepruwowane.',
+	'unreviewed-none' => 'Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja',
 );
 
 /** Hungarian (Magyar)
@@ -606,6 +618,7 @@ $messages['mk'] = array(
 
 /** Malayalam (മലയാളം)
  * @author Jacob.jose
+ * @author Sadik Khalid
  * @author Shijualex
  */
 $messages['ml'] = array(
@@ -613,10 +626,10 @@ $messages['ml'] = array(
 	'unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകള്‍',
 	'unreviewed-legend' => 'ഉള്ളടക്കം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക പ്രദര്‍ശിപ്പിക്കുക',
 	'unreviewed-category' => 'വിഭാഗം:',
-	'unreviewed-diff' => 'സംശോധനം',
-	'unreviewed-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
-	'unreviewed-list' => 'ഈ താള്‍ സംശോധനം ചെയ്തിട്ടില്ലാത്ത ലേഖനങ്ങളുടെ പട്ടിക പ്രദര്‍ശിപ്പിക്കുന്നു.',
+	'unreviewed-diff' => 'പരിശോധന',
+	'unreviewed-unwatched' => '(ശ്രദ്ധിക്കാത്തവ)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നുണ്ട്)',
+	'unreviewed-list' => 'പരിശോധിക്കാത്ത ലേഖനങ്ങളുടെ പട്ടിക ഈ താളില്‍ പ്രദര്‍ശിപ്പിക്കുന്നു.',
 	'unreviewed-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
 );
 
@@ -647,7 +660,7 @@ $messages['ms'] = array(
 	'unreviewed-diff' => 'periksa',
 	'unreviewed-unwatched' => '(tidak dipantau)',
 	'unreviewed-watched' => '(dipantau oleh $1 orang pengguna)',
-	'unreviewed-list' => 'Berikut ialah senarai rencana yang belum diperiksa.',
+	'unreviewed-list' => 'Yang berikut ialah senarai laman kandungan yang belum diperiksa.',
 	'unreviewed-none' => 'Tiada laman yang memenuhi kriteria ini',
 );
 
@@ -731,7 +744,7 @@ $messages['oc'] = array(
 	'unreviewed-diff' => 'revision',
 	'unreviewed-unwatched' => '(pas observat)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
-	'unreviewed-list' => "Aquesta pagina fa la lista dels articles que son pas estats revisats o qu'an de revisions pas vistas.",
+	'unreviewed-list' => "Aquesta pagina fa la lista de las paginas que son pas estadas revisadas o qu'an de revisions pas vistas.",
 	'unreviewed-none' => 'Actualament, existís pas cap de pagina respectant aquestes critèris',
 );
 

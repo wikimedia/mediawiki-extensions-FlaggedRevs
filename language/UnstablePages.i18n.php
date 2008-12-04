@@ -113,6 +113,17 @@ $messages['he'] = array(
 	'unstablepages-config' => 'תצורה',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'unstablepages' => 'Njestabilne strony',
+	'unstablepages-stable' => 'stabilna wersija',
+	'unstablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu naćiskowu wersiju jako standardny wobsah strony za přehladowarjow pokazali.',
+	'unstablepages-none' => 'W tutej lisćinje strony njejsu.',
+	'unstablepages-config' => 'Konfiguracija',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  */
@@ -161,6 +172,7 @@ $messages['jv'] = array(
  */
 $messages['ko'] = array(
 	'unstablepages-stable' => '안정 버전',
+	'unstablepages-config' => '설정',
 );
 
 /** Ripoarisch (Ripoarisch)
@@ -191,6 +203,16 @@ $messages['mk'] = array(
 	'unstablepages' => 'Нестабилна страница',
 	'unstablepages-stable' => 'стабилна верзија',
 	'unstablepages-config' => 'Конфигурација',
+);
+
+/** Malayalam (മലയാളം)
+ * @author Sadik Khalid
+ */
+$messages['ml'] = array(
+	'unstablepages' => 'സന്തുലിതമല്ലാത്ത താളുകള്‍',
+	'unstablepages-stable' => 'സന്തുലിതമായ പതിപ്പ്',
+	'unstablepages-none' => 'ഈ പട്ടികയില്‍ താളുകളൊന്നുമില്ല',
+	'unstablepages-config' => 'ക്രമീകരണങ്ങള്‍',
 );
 
 /** Dutch (Nederlands)

@@ -201,8 +201,21 @@ $messages['pl'] = array(
  */
 $messages['roa-tara'] = array(
 	'likedpages' => 'Pàggene cu le pundegge ierte',
+	'likedpages-leg' => 'Iacchie le pàggene cu le pundegge ierte',
 	'likedpages-list' => "Aqquà sotte ste 'na liste de pàggene arrenghete pe 'u pundegge lassete da le letture.",
 	'likedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
+	'likedpages-graphs' => 'dete de le pundegge',
+);
+
+/** Russian (Русский)
+ * @author Александр Сигачёв
+ */
+$messages['ru'] = array(
+	'likedpages' => 'Высоко оцененные страницы',
+	'likedpages-leg' => 'Поиск высоко оцененных страниц',
+	'likedpages-list' => 'Ниже представлен список страниц, упорядоченный по их оценке читателями.',
+	'likedpages-none' => 'В этом списке нет страниц.',
+	'likedpages-graphs' => 'данные об оценке',
 );
 
 /** Slovak (Slovenčina)
@@ -225,6 +238,17 @@ $messages['sv'] = array(
 	'likedpages-list' => 'Nedan finns en lista över sidor sorterade efter betyg från läsarna.',
 	'likedpages-none' => 'Det finns inga sidor i denna lista',
 	'likedpages-graphs' => 'betygsdata',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'likedpages' => 'Сторінки з високою оцінкою якості',
+	'likedpages-leg' => 'Знайти сторінки з високим рейтингом',
+	'likedpages-list' => "Нижче поданий список сторінок, відсортованих за оцінкою за допомогою зворотного зв'язку читачів.",
+	'likedpages-none' => 'У цьому списку нема сторінок',
+	'likedpages-graphs' => 'дані рейтингу',
 );
 
 /** Vietnamese (Tiếng Việt)

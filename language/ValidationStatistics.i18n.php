@@ -79,8 +79,12 @@ $messages['ast'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  */
 $messages['be-tarask'] = array(
+	'validationstatistics' => 'Статыстыка праверак',
+	'validationstatistics-users' => "У '''{{SITENAME}}''' зараз знаходзіцца '''$1''' {{PLURAL:$1|удзельнік|удзельніка|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|Рэдактара]]
+і '''$2''' {{PLURAL:$2|удзельнік|удзельніка|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|Правяраючага]].",
 	'validationstatistics-ns' => 'Прастора назваў',
 );
 
@@ -100,7 +104,9 @@ $messages['bs'] = array(
 	'validationstatistics-total' => 'Stranice',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Melancholie
+ */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
 	'validationstatistics-users' => "{{SITENAME}} hat '''$1''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]] und '''$2''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]].",
@@ -111,7 +117,7 @@ $messages['de'] = array(
 	'validationstatistics-total' => 'Seiten gesamt',
 	'validationstatistics-stable' => 'Mindestens eine Version gesichtet',
 	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version gesichtet sind',
-	'validationstatistics-synced' => 'Prozentsatz Seiten, die in der aktuellen Version gesichtet sind',
+	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-old' => 'Seiten mit ungesichteten Versionen',
 	'validationstatistics-nbr' => '$1&nbsp;%',
 );
@@ -280,6 +286,13 @@ $messages['it'] = array(
 	'validationstatistics-old' => 'Non aggiornate',
 );
 
+/** Japanese (日本語)
+ * @author Hosiryuhosi
+ */
+$messages['ja'] = array(
+	'validationstatistics-ns' => '名前空間',
+);
+
 /** Javanese (Basa Jawa)
  * @author Pras
  */
@@ -336,13 +349,27 @@ $messages['mk'] = array(
 	'validationstatistics-latest' => 'Последно прегледување',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Sadik Khalid
+ */
+$messages['ml'] = array(
+	'validationstatistics' => 'സ്ഥിരീകരണ കണക്കുകള്‍',
+	'validationstatistics-users' => "'''{{SITENAME}}''' പദ്ധതിയില്‍ '''$1''' {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} [[{{MediaWiki:Validationpage}}|സംശോധകര്‍]] അധികാരമുള്ളവരും '''$2''' {{PLURAL:$2|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} [[{{MediaWiki:Validationpage}}|പരിശോധകര്‍]] അധികാരമുള്ളവരും നിലവിലുണ്ട്.",
+	'validationstatistics-ns' => 'നാമമേഖല',
+	'validationstatistics-total' => 'താളുകള്‍',
+	'validationstatistics-stable' => 'പരിശോധിച്ചവ',
+	'validationstatistics-latest' => 'ഒടുവില്‍ പരിശോധിച്ചവ',
+	'validationstatistics-synced' => 'ഏകകാലികമാക്കിയവ/പരിശോധിച്ചവ',
+	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aviator
  */
 $messages['ms'] = array(
 	'validationstatistics' => 'Statistik pengesahan',
 	'validationstatistics-users' => "'''{{SITENAME}}''' kini mempunyai {{PLURAL:$1|seorang|'''$1''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Penyunting]] dan {{PLURAL:$2|seorang|'''$2''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Pemeriksa]].",
-	'validationstatistics-table' => "Berikut ialah statistik bagi setiap ruang nama, tidak termasuk laman lencongan.
+	'validationstatistics-table' => "Yang berikut ialah statistik bagi setiap ruang nama, tidak termasuk laman lencongan.
 
 '''Catatan:''' data berikut diambil daripada cache yang disimpan sejak beberapa jam yang lalu dan kemungkinan besar bukan yang terkini.",
 	'validationstatistics-ns' => 'Ruang nama',

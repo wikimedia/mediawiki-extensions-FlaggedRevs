@@ -191,7 +191,7 @@ $messages['lb'] = array(
 $messages['ms'] = array(
 	'problempages' => 'Laman bermasalah',
 	'problempages-leg' => 'Cari laman yang mempunyai penilaian rendah.',
-	'problempages-list' => 'Berikut ialah senarai laman mengikut tertib penilaian pembaca.',
+	'problempages-list' => 'Yang berikut ialah senarai laman mengikut tertib penilaian pembaca.',
 	'problempages-none' => 'Tiada laman dalam senarai ini',
 	'problempages-graphs' => 'data penilaian',
 );
@@ -264,8 +264,20 @@ $messages['pt'] = array(
 $messages['roa-tara'] = array(
 	'problempages' => 'Pàggene cu pundegge vasce',
 	'problempages-leg' => 'Iacchie le pàggene cu pundeggie vasce vasce',
+	'problempages-list' => "Sotte ste 'na liste de pàggene arrenghete pe 'u pundegge de le lore lettore.",
 	'problempages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'problempages-graphs' => "dete d'u puntegge",
+);
+
+/** Russian (Русский)
+ * @author Александр Сигачёв
+ */
+$messages['ru'] = array(
+	'problempages' => 'Плохо оцененные страницы',
+	'problempages-leg' => 'Поиск низко оцененных страниц',
+	'problempages-list' => 'Ниже представлен список страниц, упорядоченный по их оценке читателями.',
+	'problempages-none' => 'Нет страниц в списке.',
+	'problempages-graphs' => 'данные об оценке',
 );
 
 /** Slovak (Slovenčina)
@@ -298,6 +310,17 @@ $messages['sv'] = array(
 	'problempages-list' => 'Nedan finns en lista över sidor sorterade efter deras läsar-feedback-betyg',
 	'problempages-none' => 'Det finns inga sidor i denna lista',
 	'problempages-graphs' => 'betygsdata',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'problempages' => 'Погано оцінені сторінки',
+	'problempages-leg' => 'Знайти сторінки з низьким рейтингом',
+	'problempages-list' => "Нижче поданий список сторінок, відсортованих за оцінкою за допомогою зворотного зв'язку читачів.",
+	'problempages-none' => 'У цьому списку нема сторінок',
+	'problempages-graphs' => 'дані рейтингу',
 );
 
 /** Vietnamese (Tiếng Việt)
