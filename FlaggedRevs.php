@@ -395,11 +395,11 @@ $wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanView';
 # Override current revision, add patrol links, set cache...
 $wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
-# Override redirect behavoir...
+# Override redirect behavior...
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
 # Sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
-# Add tags do edit view
+# Add tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
 # Add review form and visiblity settings link
 $wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
