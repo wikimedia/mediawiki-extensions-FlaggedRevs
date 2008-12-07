@@ -535,7 +535,7 @@ EOT;
 		if( !empty($parser->mOutput->mImages) ) {
 			foreach( $parser->mOutput->mImages as $filename => $x ) {
 				# FIXME: it would be nice not to double fetch these!
-				$file = wfFindFile( Title::makeTitle( NS_IMAGE, $filename ) );
+				$file = wfFindFile( Title::makeTitleSafe( NS_IMAGE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
 				if( $file ) {
 					# Bug 15748, be lax about commons image sync status
