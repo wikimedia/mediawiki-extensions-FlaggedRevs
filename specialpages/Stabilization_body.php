@@ -266,7 +266,7 @@ class Stabilization extends UnlistedSpecialPage
 			# Insert a null revision
 			$nullRevision = Revision::newNullRevision( $dbw, $id, $comment, true );
 			$nullRevId = $nullRevision->insertOn( $dbw );
-			# Update page record
+			# Update page record and touch page
 			$article = new Article( $this->page );
 			$article->updateRevisionOn( $dbw, $nullRevision, $latest );
 			wfRunHooks( 'NewRevisionFromEditComplete', array($article, $nullRevision, $latest) );

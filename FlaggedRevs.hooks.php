@@ -1105,7 +1105,7 @@ EOT;
 	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
 		# Get an instance on the title ($wgTitle)
 		$fa = FlaggedArticle::getTitleInstance( $title );
-		if( !$fa->isReviewable() ) {
+		if( !$fa->isReviewable(true) ) {
 			return true;
 		}
 		if( $request->getVal( 'stableid' ) ) {
