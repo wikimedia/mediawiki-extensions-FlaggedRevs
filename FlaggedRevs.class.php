@@ -878,11 +878,11 @@ class FlaggedRevs {
 		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsWhitelist;
 		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
-		# Check whitelist for exempt pages
-		if( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
+		# Check for MW: pages and whitelist for exempt pages
+		if( $ns == NS_MEDIAWIKI || in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
 			return false;
 		}
-		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() && $ns != NS_MEDIAWIKI );
+		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
 	}
 	
 	/**
@@ -894,11 +894,11 @@ class FlaggedRevs {
 		global $wgFeedbackNamespaces, $wgFlaggedRevsWhitelist;
 		# FIXME: Treat NS_MEDIA as NS_IMAGE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
-		# Check whitelist for exempt pages
-		if( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
+		# Check for MW: pages and whitelist for exempt pages
+		if( $ns == NS_MEDIAWIKI || in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
 			return false;
 		}
-		return ( in_array($ns,$wgFeedbackNamespaces) && !$title->isTalkPage() && $ns != NS_MEDIAWIKI );
+		return ( in_array($ns,$wgFeedbackNamespaces) && !$title->isTalkPage() );
 	}
 	
 	/**
