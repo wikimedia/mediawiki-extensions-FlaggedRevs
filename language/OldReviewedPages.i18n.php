@@ -455,6 +455,14 @@ $messages['it'] = array(
 	'oldreviewedpages-watched' => '(osservata da $2 {{PLURAL:$1|utente|utenti}})',
 );
 
+/** Japanese (日本語)
+ * @author Hosiryuhosi
+ */
+$messages['ja'] = array(
+	'oldreviewed-category' => 'カテゴリ:',
+	'oldreviewed-diff' => '査読',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  * @author គីមស៊្រុន

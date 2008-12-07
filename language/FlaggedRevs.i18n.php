@@ -4703,6 +4703,7 @@ Verificare la URL usata per accedere a questa pagina.',
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fievarsty
  * @author Hosiryuhosi
  * @author JtFuruhata
  */
@@ -4722,8 +4723,8 @@ $messages['ja'] = array(
 	'review-logentry-app' => '[[$1]] を査読承認',
 	'review-logentry-dis' => '[[$1]] を査読の末、棄却',
 	'review-logentry-id' => '特定版ID $1',
-	'review-logpage' => '査読ログ',
-	'review-logpagetext' => 'ページの版に対する[[{{MediaWiki:Validationpage}}|評価]]状況の変更ログです。評価済みのページのリストは[[Special:ReviewedPages|査読済みページ一覧]]を参照してください。',
+	'review-logpage' => '査読記録',
+	'review-logpagetext' => 'ページの版に対する[[{{MediaWiki:Validationpage}}|評価]]状況の変更記録です。評価済みのページのリストは[[Special:ReviewedPages|査読済みページ一覧]]を参照してください。',
 	'reviewer' => '査読者',
 	'revisionreview' => '特定版の査読',
 	'revreview-accuracy' => '内容の正確さ',
@@ -4781,6 +4782,8 @@ $messages['ja'] = array(
 	'revreview-style-3' => '簡潔',
 	'revreview-style-4' => '秀逸',
 	'revreview-submit' => '査読完了',
+	'revreview-submitting' => '送信中...',
+	'revreview-finished' => '査読完了!',
 	'revreview-text' => "''利用者にデフォルトで提供されるのは最新版ではなく[[{{MediaWiki:Validationpage}}|安定版]]です。''",
 	'revreview-toolow' => 'ある版を査読済とするには、以下に示す全ての判定要素を "論外" より高い評価にする必要があります。査読を棄却する場合、全ての評価を "論外" としてください。',
 	'revreview-update' => "[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 承認された]安定版に対する変更箇所''（下記参照）'' を[[{{MediaWiki:Validationpage}}|査読]]してください。<br />'''いくつかのテンプレートや画像が更新されました:'''",
@@ -4791,12 +4794,21 @@ $messages['ja'] = array(
 	'rights-editor-revoke' => '[[$1]] の編集者権限取り消し',
 	'stable-logentry' => '[[$1]] を採択',
 	'stable-logentry2' => '[[$1]] の採択を取り消し',
-	'stable-logpage' => 'ページ採択ログ',
-	'stable-logpagetext' => '[[{{MediaWiki:Validationpage}}|安定版]]設定の変更ログです。安定版を持つページの一覧は[[Special:StablePages|安定ページ一覧]]から見ることができます。',
+	'stable-logpage' => 'ページ採択記録',
+	'stable-logpagetext' => '[[{{MediaWiki:Validationpage}}|安定版]]設定の変更記録です。安定版を持つページの一覧は[[Special:StablePages|安定ページ一覧]]から見ることができます。',
+	'readerfeedback-submit' => '送信',
+	'readerfeedback-submitting' => '送信中...',
 	'readerfeedback-finished' => 'ありがとうございます!',
+	'revreview-filter-all' => 'すべて',
+	'revreview-filter-manual' => 'マニュアル',
+	'revreview-typefilter' => 'タイプ:',
+	'revreview-tagfilter' => 'タグ:',
+	'revreview-reviewlink' => '査読',
 	'tooltip-ca-current' => '現在の草稿ページを見る',
 	'tooltip-ca-stable' => 'この査読済ページを見る',
 	'tooltip-ca-default' => '内容保証設定',
+	'log-show-hide-review' => '査読記録を$1',
+	'revreview-tt-review' => 'このページを査読する',
 	'validationpage' => '{{ns:help}}:記事の評価',
 );
 
