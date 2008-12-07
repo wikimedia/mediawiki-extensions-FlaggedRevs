@@ -83,9 +83,16 @@ $messages['ast'] = array(
  */
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
-	'validationstatistics-users' => "У '''{{SITENAME}}''' зараз знаходзіцца '''$1''' {{PLURAL:$1|удзельнік|удзельніка|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|Рэдактара]]
-і '''$2''' {{PLURAL:$2|удзельнік|удзельніка|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|Правяраючага]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' зараз  налічвае '''$1''' {{PLURAL:$1|удзельнік|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і '''$2'''  {{PLURAL:$2|удзельнік|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«правяраючага»]].",
+	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за выключэньнем старонак-перанакіраваньняў.
+
+'''Заўвага:''' наступныя зьвесткі кэшуецца на некалькі гадзінаў і могуць не адпавядаць цяперашнім.",
 	'validationstatistics-ns' => 'Прастора назваў',
+	'validationstatistics-total' => 'Старонак',
+	'validationstatistics-stable' => 'Правераных',
+	'validationstatistics-latest' => 'Нядаўна правераных',
+	'validationstatistics-synced' => 'Паўторна правераных',
+	'validationstatistics-old' => 'Састарэлых',
 );
 
 /** Bulgarian (Български)
@@ -291,6 +298,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'validationstatistics-ns' => '名前空間',
+	'validationstatistics-total' => 'ページ',
 );
 
 /** Javanese (Basa Jawa)

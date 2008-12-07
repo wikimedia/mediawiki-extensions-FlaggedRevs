@@ -172,6 +172,7 @@ $messages['jv'] = array(
  */
 $messages['ko'] = array(
 	'unstablepages-stable' => '안정 버전',
+	'unstablepages-none' => '이 목록에 문서가 없습니다.',
 	'unstablepages-config' => '설정',
 );
 

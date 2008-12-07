@@ -196,6 +196,13 @@ $messages['pl'] = array(
 	'likedpages-graphs' => 'ocena danych',
 );
 
+/** Portuguese (Português)
+ * @author Waldir
+ */
+$messages['pt'] = array(
+	'likedpages-none' => 'Não há páginas nesta lista',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */

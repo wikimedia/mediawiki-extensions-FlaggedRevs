@@ -336,7 +336,7 @@ $messages['gl'] = array(
 	'unreviewed-diff' => 'revisión',
 	'unreviewed-unwatched' => '(sen vixiar)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} vixiando)',
-	'unreviewed-list' => 'Esta páxina lista artigos que non foron revisados ou que teñen novas revisións sen examinar.',
+	'unreviewed-list' => 'Esta páxina lista as páxinas de contido que non foron revisadas.',
 	'unreviewed-none' => 'Actualmente non hai páxinas que coincidan con ese criterio',
 );
 
@@ -544,6 +544,7 @@ $messages['ko'] = array(
 	'unreviewedpages' => '검토되지 않은 문서',
 	'unreviewed-category' => '분류:',
 	'unreviewed-unwatched' => '(주시되지 않음)',
+	'unreviewed-watched' => '($1명의 사용자가 주시중)',
 );
 
 /** Kinaray-a (Kinaray-a)
@@ -832,11 +833,12 @@ $messages['roa-tara'] = array(
 /** Russian (Русский)
  * @author Ahonc
  * @author EugeneZelenko
+ * @author Ferrer
  * @author Kaganer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'right-unreviewedpages' => 'Просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]',
+	'right-unreviewedpages' => 'просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]',
 	'unreviewedpages' => 'Непроверенные страницы',
 	'unreviewed-legend' => 'Список непроверенных статей',
 	'unreviewed-category' => 'Категория:',

@@ -334,6 +334,7 @@ $messages['gl'] = array(
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoría:',
 	'oldreviewed-diff' => 'revisar',
+	'oldreviewed-size' => 'Tamaño máximo, en bytes, do cambio:',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
 );

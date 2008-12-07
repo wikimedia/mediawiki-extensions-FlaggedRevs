@@ -372,6 +372,7 @@ $messages['br'] = array(
 $messages['bs'] = array(
 	'stabilization-def2' => 'Trenutna revizija',
 	'stabilization-comment' => 'Komentar:',
+	'stabilization-sel-short-1' => 'nema',
 	'stabilization-def-short' => 'Standardno',
 	'stabilization-def-short-0' => 'Trenutna',
 	'stabilize-expiring' => 'ističe $1 (UTC)',
