@@ -805,10 +805,9 @@ class FlaggedArticle extends Article {
 		# We can change the behavoir of stable version for this page to be different
 		# than the site default.
 		if( !$skin->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
-			wfLoadExtensionMessages( 'Stabilization' );
-			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			if( !isset($contentActions['protect']) && !isset($contentActions['unprotect']) ) {
 				wfLoadExtensionMessages( 'Stabilization' );
+				$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 				$contentActions['default'] = array(
 					'class' => false,
 					'text' => wfMsg('stabilization-tab'),
