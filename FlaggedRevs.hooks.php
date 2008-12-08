@@ -1129,9 +1129,9 @@ EOT;
 					} else {
 						$ignoreRedirect = true;
 					}
-					$data = FlaggedRevs::makeMemcObj( array($ignoreRedirect,$target) );
-					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 				}
+				$data = FlaggedRevs::makeMemcObj( array($ignoreRedirect,$target) );
+				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 			}
 		}
 		return true;
