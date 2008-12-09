@@ -273,7 +273,6 @@ $wgPHPlotDir = $dir . 'phplot-5.0.5';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
-$wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir.'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir.'FRCacheUpdate.php';
 $wgAutoloadClasses['FRCacheUpdateJob'] = $dir.'FRCacheUpdate.php';
 
@@ -341,6 +340,7 @@ $wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStat
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 # API Modules
+$wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir.'api/FlaggedRevsApi.hooks.php';
 $wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewedpages.php';
 $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
