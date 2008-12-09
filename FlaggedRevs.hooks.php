@@ -1104,8 +1104,7 @@ EOT;
 	
 	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
 		# Get an instance on the title ($wgTitle)
-		$fa = FlaggedArticle::getTitleInstance( $title );
-		if( !$fa->isReviewable(true) ) {
+		if( !FlaggedRevs::isPageReviewable($title) ) {
 			return true;
 		}
 		if( $request->getVal( 'stableid' ) ) {
@@ -1119,6 +1118,7 @@ EOT;
 				list($ignoreRedirect,$target) = $data->value;
 				return true;
 			}
+			$fa = FlaggedArticle::getTitleInstance( $title );
 			if( $srev = $fa->getStableRev() ) {
 				# If synced, nothing special here...
 				if( $srev->getRevId() != $title->getLatestRevID() && $fa->pageOverride() ) {
