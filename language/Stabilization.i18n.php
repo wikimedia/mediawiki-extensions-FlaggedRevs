@@ -1179,6 +1179,7 @@ $messages['kk-latn'] = array(
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
+ * @author Thearith
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
@@ -1191,8 +1192,8 @@ $messages['km'] = array(
 	'stabilization-sel-short-1' => 'ទទេ',
 	'stabilization-def-short' => 'លំនាំដើម',
 	'stabilization-def-short-0' => 'បច្ចុប្បន្ន',
-	'stabilize_expiry_invalid' => 'កាលបរិច្ឆេទផុតកំនត់មិនត្រឹមត្រូវ។',
-	'stabilize-expiring' => 'ផុតកំនត់ម៉ោង $1 (UTC)',
+	'stabilize_expiry_invalid' => 'កាលបរិច្ឆេទផុតកំណត់មិនត្រឹមត្រូវ។',
+	'stabilize-expiring' => 'ផុតកំណត់ម៉ោង $1 (UTC)',
 );
 
 /** Korean (한국어)

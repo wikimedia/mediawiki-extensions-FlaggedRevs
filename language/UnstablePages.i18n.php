@@ -48,6 +48,13 @@ $messages['arz'] = array(
 	'unstablepages-config' => 'ضبط',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'unstablepages' => 'Нестабільныя старонкі',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  * @author Revolus

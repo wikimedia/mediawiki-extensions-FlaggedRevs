@@ -5206,15 +5206,16 @@ Keýbir jañartılğan ülgiler/swretter:',
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
+ * @author Thearith
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
-	'editor' => 'អ្នកកែសំរួល',
-	'group-editor' => 'អ្នកកែសំរួល',
-	'group-editor-member' => 'អ្នកកែសំរួល',
+	'editor' => 'អ្នកកែសម្រួល',
+	'group-editor' => 'អ្នកកែសម្រួល',
+	'group-editor-member' => 'អ្នកកែសម្រួល',
 	'group-reviewer' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
 	'group-reviewer-member' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
-	'grouppage-editor' => '{{ns:project}}:អ្នកកែសំរួល',
+	'grouppage-editor' => '{{ns:project}}:អ្នកកែសម្រួល',
 	'grouppage-reviewer' => '{{ns:project}}:អ្នកត្រួតពិនិត្យឡើងវិញ',
 	'reviewer' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
 	'revreview-auto' => '(ស្វ័យប្រវត្តិ)',
@@ -5222,13 +5223,13 @@ $messages['km'] = array(
 	'revreview-draft-title' => 'អត្ថបទព្រាង',
 	'revreview-edit' => 'កែប្រែសេចក្តីពង្រាង',
 	'revreview-log' => 'យោបល់៖',
-	'revreview-patrol-title' => 'សំគាល់ថាបានតាមដាន',
+	'revreview-patrol-title' => 'សម្គាល់ថាបានតាមដាន',
 	'revreview-source' => 'ប្រភពសេចក្តីព្រាង',
 	'revreview-style-1' => 'អាចទទួលយកបាន',
 	'revreview-style-2' => 'ល្អ',
-	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ពត៌មានលំអិត',
+	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ព័ត៌មានលំអិត',
 	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានធ្វើអោយទាន់សម័យរួចហើយ:'''",
-	'revreview-revnotfound' => 'កំនែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
+	'revreview-revnotfound' => 'កំណែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'readerfeedback-submit' => 'ដាក់ស្នើ',
 	'readerfeedback-finished' => 'សូមអរគុណ!',
 	'revreview-filter-all' => 'ទាំងអស់',

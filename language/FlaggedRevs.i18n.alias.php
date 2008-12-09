@@ -307,6 +307,7 @@ $aliases['nds-nl'] = array(
 	'StablePages' => array( "Stebiele_pagina's" ),
 	'StableVersions' => array( 'Stebiele_versies' ),
 	'UnreviewedPages' => array( "Pagina's_zonder_eindredactie" ),
+	'UnstablePages' => array( "Instebiele_pagina's" ),
 	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
 );
 
