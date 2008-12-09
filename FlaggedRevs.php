@@ -140,6 +140,7 @@ $wgFlaggedRevValues = 3;
 # A revision with all tags rated at least to this level is considered "pristine"/"featured"
 $wgFlaggedRevPristine = 4;
 # Who can set what flags to what level? (use -1 or 0 for not at all)
+# This maps rights to the highest reviewable level for each tag.
 # Users cannot lower tags from a level they can't set
 # Users with 'validate' can do anything regardless
 # This is mainly for custom, less experienced, groups
