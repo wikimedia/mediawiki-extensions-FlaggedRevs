@@ -183,6 +183,14 @@ $messages['fr'] = array(
 	'validationstatistics-nbr' => '$1&nbsp;%',
 );
 
+/** Irish (Gaeilge)
+ * @author Alison
+ */
+$messages['ga'] = array(
+	'validationstatistics-ns' => 'Ainmspás',
+	'validationstatistics-total' => 'Leathanaigh',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
@@ -212,6 +220,23 @@ $messages['grc'] = array(
 	'validationstatistics-latest' => 'Ὑστάτη ἀναθεωρημένη',
 	'validationstatistics-synced' => 'Συγχρονισμένη/Ἐπιθεωρημένη',
 	'validationstatistics-old' => 'Ἀπηρχαιωμένη',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'validationstatistics' => 'Markierigsstatischtik',
+	'validationstatistics-users' => "{{SITENAME}} het '''$1''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]] un '''$2''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prieferrächt]].",
+	'validationstatistics-table' => "Statischtike fir jede Namensruum, dervu usgnuu sin Wyterleitige.
+
+'''Wichtig:''' Die Date wäre als fir e paar Stund in Zwischespicher abglait und sin wäg däm vilicht nid alliwyl aktuäll.",
+	'validationstatistics-ns' => 'Namensruum',
+	'validationstatistics-total' => 'Syte insgsamt',
+	'validationstatistics-stable' => 'Zmindescht ei Version isch vum Fäldhieter aagluegt wore.',
+	'validationstatistics-latest' => 'Syte, wu di letscht Version vum Fäldhieter aagluegt woren isch.',
+	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu vum Fäldhieter aagluegt sin.',
+	'validationstatistics-old' => 'Syte mit Versione, wu nid vum Fäldhieter aagluegt sin.',
 );
 
 /** Hebrew (עברית)

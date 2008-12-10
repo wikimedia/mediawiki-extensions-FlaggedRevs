@@ -17,13 +17,15 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Darth Kule
+ * @author EugeneZelenko
  */
 $messages['qqq'] = array(
 	'unstablepages' => '{{Flagged Revs}}',
 	'unstablepages-stable' => '{{Flagged Revs}}',
 	'unstablepages-text' => '{{Flagged Revs}}',
 	'unstablepages-none' => '{{Flagged Revs}}',
-	'unstablepages-config' => '{{Flagged Revs}}',
+	'unstablepages-config' => '{{Flagged Revs}}
+{{Identical|Configuration}}',
 );
 
 /** Arabic (العربية)
@@ -106,6 +108,17 @@ $messages['gl'] = array(
 $messages['grc'] = array(
 	'unstablepages' => 'Δέλτοι ἀσταθεῖς',
 	'unstablepages-stable' => 'σταθερὰ ἔκδοσις',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'unstablepages' => 'Uustabili Syte',
+	'unstablepages-stable' => 'Stabili Version',
+	'unstablepages-text' => 'Do chunnt e Lischt mit Syte, wu vu Hand konfiguriert isch, ass dr Entwurf im Läser as Standardinhalt aazeigt wird.',
+	'unstablepages-none' => 'S het keini Syte in däre Lischt.',
+	'unstablepages-config' => 'Konfiguration',
 );
 
 /** Hebrew (עברית)

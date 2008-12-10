@@ -227,6 +227,14 @@ Le '''nombre de vérification par jour''' <font color=\"red\">''(rouge)''</font>
 	'right-feedback' => 'Utiliser le formulaire de soumission pour noter une page',
 );
 
+/** Irish (Gaeilge)
+ * @author Alison
+ */
+$messages['ga'] = array(
+	'ratinghistory-month' => 'an mí seo caite',
+	'ratinghistory-year' => 'an bhlian seo caite',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */

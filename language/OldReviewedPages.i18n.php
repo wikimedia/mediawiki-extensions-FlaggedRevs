@@ -319,6 +319,15 @@ $messages['fr'] = array(
 	'oldreviewedpages-watched' => "($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d'observer)",
 );
 
+/** Irish (Gaeilge)
+ * @author Alison
+ */
+$messages['ga'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|uair|uaire}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|lá|lae}})',
+	'oldreviewed-category' => 'Catagóir:',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
@@ -456,11 +465,16 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
+ * @author Fievarsty
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|時間|時間}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|日|日}})',
 	'oldreviewed-category' => 'カテゴリ:',
 	'oldreviewed-diff' => '査読',
+	'oldreviewed-size' => '変更のバイトサイズ上限:',
 );
 
 /** Khmer (ភាសាខ្មែរ)

@@ -3173,8 +3173,13 @@ $messages['fy'] = array(
 Gean nei of de keppeling dy jo brûkt hawwe wol goed is.",
 );
 
-/** Irish (Gaeilge) */
+/** Irish (Gaeilge)
+ * @author Alison
+ */
 $messages['ga'] = array(
+	'revreview-depth-1' => 'Bunúsach',
+	'revreview-depth-2' => 'Meánach',
+	'revreview-depth-3' => 'q',
 	'revreview-revnotfound' => "Ní bhfuarthas seaneagrán an leathanaigh a d'iarr tú ar.
 Cinntigh an URL a d'úsáid tú chun an leathanach seo a rochtain.",
 );
@@ -4711,6 +4716,7 @@ $messages['ja'] = array(
 	'editor' => '編集者',
 	'flaggedrevs' => '判定による版表示',
 	'flaggedrevs-desc' => '編集者および査読者に、特定版の査読や表示ページとしての採択ができる機能を提供する',
+	'flaggedrevs-prefs' => '安定度',
 	'group-editor' => '編集者',
 	'group-editor-member' => '編集者',
 	'group-reviewer' => '査読者',
@@ -4762,6 +4768,7 @@ $messages['ja'] = array(
 	'revreview-notes' => '査読意見または注意:',
 	'revreview-oldrating' => '査読結果:',
 	'revreview-patrol' => 'パトロール済みにマーク',
+	'revreview-patrol-title' => 'パトロール済みにマーク',
 	'revreview-patrolled' => '選択された [[:$1|$1]] の版は、パトロール済みにマークされます。',
 	'revreview-quality' => 'これは最新の[[{{MediaWiki:Validationpage}}|内容充実]]版で、<i>$2</i> に[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]には査読待ちの変更が[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3版]あります。',
 	'revreview-quality-same' => 'これは最新の[[{{MediaWiki:Validationpage}}|内容充実]]版で、<i>$2</i> に[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。更なる[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 内容充実]にご協力ください。',
@@ -4796,6 +4803,7 @@ $messages['ja'] = array(
 	'stable-logentry2' => '[[$1]] の採択を取り消し',
 	'stable-logpage' => 'ページ採択記録',
 	'stable-logpagetext' => '[[{{MediaWiki:Validationpage}}|安定版]]設定の変更記録です。安定版を持つページの一覧は[[Special:StablePages|安定ページ一覧]]から見ることができます。',
+	'readerfeedback-npov' => '中立度',
 	'readerfeedback-submit' => '送信',
 	'readerfeedback-submitting' => '送信中...',
 	'readerfeedback-finished' => 'ありがとうございます!',
@@ -7322,6 +7330,7 @@ $messages['roa-tara'] = array(
 	'flaggedrevs-pref-UI-0' => "Ause l'interfacce utende d'a versiona secure e dettagliete",
 	'flaggedrevs-pref-UI-1' => "Ause 'na interfacce utende d'a versiona semblice e secure",
 	'flaggedrevs-prefs' => 'Stabbilità',
+	'flaggedrevs-prefs-stable' => "Fà vedè sembre 'a versiona secure de ìna vosce pe default (ce ne esiste une)",
 	'flaggedrevs-prefs-watch' => 'Aggiunge le pàggene, Ie agghie riviste le pàggene condrollete mie',
 	'group-editor' => 'Editore',
 	'group-editor-member' => 'editore',
@@ -7359,9 +7368,12 @@ $messages['roa-tara'] = array(
 	'revreview-draft-title' => 'Pàgena bozza',
 	'revreview-edit' => "Cange 'a bozze",
 	'revreview-flag' => 'Revide sta revisione',
+	'revreview-legend' => "D'a 'nu pundegge a 'u condenute d'a revisione",
 	'revreview-log' => 'Commende:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',
+	'revreview-patrol' => 'Signe stu cangiamende cumme verifichete a funne',
+	'revreview-patrol-title' => 'Signe cumme verifichete a funne',
 	'revreview-quality-title' => "Qualità d'a vôsce",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
@@ -7391,6 +7403,7 @@ $messages['roa-tara'] = array(
 	'right-autoreview' => 'Signe le revisiune cumme viste automaticamende',
 	'right-movestable' => 'Spuèste le pàggene secure',
 	'right-review' => 'Signe le revisiune cumme viste',
+	'right-stablesettings' => 'Configure cumme versiona secure quedde ca jè selezionete e visualizzete',
 	'right-validate' => 'Signe le revisiune cumme a validete',
 	'rights-editor-autosum' => 'auto promosse',
 	'specialpages-group-quality' => 'Assicurazione de qualità',

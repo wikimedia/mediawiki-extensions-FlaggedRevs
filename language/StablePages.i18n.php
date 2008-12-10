@@ -16,6 +16,7 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author EugeneZelenko
  * @author Jon Harald Søby
  */
 $messages['qqq'] = array(
@@ -24,7 +25,8 @@ $messages['qqq'] = array(
 	'stablepages-text' => '{{Flagged Revs}}',
 	'stablepages-none' => '{{Flagged Revs}}
 {{Identical|There are no pages in this list}}',
-	'stablepages-config' => '{{Flagged Revs}}',
+	'stablepages-config' => '{{Flagged Revs}}
+{{Identical|Configuration}}',
 );
 
 /** Aragonese (Aragonés)

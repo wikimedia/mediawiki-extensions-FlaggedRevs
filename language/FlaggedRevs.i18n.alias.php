@@ -176,6 +176,24 @@ $aliases['gl'] = array(
 	'ValidationStatistics' => array( 'Estatísticas de validación' ),
 );
 
+/** Swiss German (Alemannisch) */
+$aliases['gsw'] = array(
+	'LikedPages' => array( 'Syte', 'wu am beschte bewärtet sin' ),
+	'OldReviewedPages' => array( 'Syte mit Versione', 'wu nit vum Fäldhieter aagluegt sin' ),
+	'ProblemPages' => array( 'Syte', 'wu am nidrigschte beweärtet in' ),
+	'QualityOversight' => array( 'Markierigsibersicht' ),
+	'RatingHistory' => array( 'Bewärtigsgschicht' ),
+	'ReaderFeedback' => array( 'Bewärtig' ),
+	'ReviewedPages' => array( 'Syte', 'wu vum Faldhieter gsäh sin' ),
+	'RevisionReview' => array( 'Versionspriefig' ),
+	'Stabilization' => array( 'Sytekonfiguration' ),
+	'StablePages' => array( 'Konfigurierti Syte' ),
+	'StableVersions' => array( 'Markierti Versione' ),
+	'UnreviewedPages' => array( 'Syte', 'wu nit vum Fäldhieter aagluegt sin' ),
+	'UnstablePages' => array( 'Syte', 'wu nit konfigieriert sin' ),
+	'ValidationStatistics' => array( 'Markierigsstatischtik' ),
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */

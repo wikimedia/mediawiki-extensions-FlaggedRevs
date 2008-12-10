@@ -349,6 +349,16 @@ $messages['grc'] = array(
 	'unreviewed-diff' => 'ἀναθεωρεῖν',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'right-unreviewedpages' => 'Lueg d [[Special:UnreviewedPages|Lischt vu Syte, wu nonig vum Fäldhieter aagluegt sin]]',
+	'unreviewedpages' => 'Syte, wu nonig vum Fäldhieter aagluegt sin',
+	'unreviewed-legend' => 'Lischt vu Syte, wu nonig vum Fäldhieter aagluegt sin',
+	'unreviewed-category' => 'Kategori:',
+);
+
 /** Hawaiian (Hawai`i)
  * @author Singularity
  */

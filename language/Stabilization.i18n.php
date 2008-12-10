@@ -690,6 +690,13 @@ $messages['fy'] = array(
 	'stabilization-def-short' => 'Standert',
 );
 
+/** Irish (Gaeilge)
+ * @author Alison
+ */
+$messages['ga'] = array(
+	'stabilization-sel-short-1' => 'Faic',
+);
+
 /** Galician (Galego)
  * @author Alma
  * @author Toliño
