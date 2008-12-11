@@ -53,7 +53,6 @@ class RatingHistory extends UnlistedSpecialPage
 		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
 			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parse') );
 		}
-		$this->showLead();
 		$this->showForm();
 		$this->showHeader();
 		/*
@@ -67,20 +66,17 @@ class RatingHistory extends UnlistedSpecialPage
 		$this->showGraphs();
 	}
 	
-	protected function showLead() {
-		global $wgOut;
-		$wgOut->addWikiText( wfMsg('ratinghistory-text',$this->page->getPrefixedText()) );
-	}
-	
 	protected function showHeader() {
 		global $wgOut;
-		$wgOut->addWikiText( wfMsg('ratinghistory-legend', $this->dScale) );
+		$wgOut->addWikiText( wfMsg('ratinghistory-legend',$this->dScale) );
 	}
 	
 	protected function showForm() {
 		global $wgOut, $wgTitle, $wgScript;
 		$form = Xml::openElement( 'form', array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>".wfMsg('ratinghistory-leg')."</legend>\n";
+		$form .= "<fieldset>";
+		$form .= "<legend>".wfMsgExt('ratinghistory-leg',array('parseinline'),
+			$this->page->getPrefixedText())."</legend>\n";
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 		$form .= Xml::hidden( 'target', $this->page->getPrefixedDBKey() );
 		$form .= $this->getPeriodMenu( $this->period );

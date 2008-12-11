@@ -9,8 +9,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'ratinghistory'         => 'Page rating history',
-	'ratinghistory-text'    => '\'\'\'This page displays page rating data for [[:$1|$1]].\'\'\'',
-	'ratinghistory-leg'     => 'Rating history data',
+	'ratinghistory-leg'     => 'Rating history data for [[:$1|$1]]',
 	'ratinghistory-tab'     => 'rating',
 	'ratinghistory-link'    => 'Page rating',
 	'ratinghistory-thanks'  => '\'\'<font color="darkred">Thank you for taking a moment to review this page!</font>\'\'',
@@ -24,7 +23,8 @@ $messages['en'] = array(
 	'ratinghistory-graph'   => '$2 of "$3" ($1 {{PLURAL:$1|review|reviews}})',
 	'ratinghistory-none'    => 'There is not enough reader feedback data available for graphs at this time.',
 	'ratinghistory-legend'  => 'The \'\'\'daily average rating\'\'\' <font color="blue">\'\'(blue)\'\'</font> and 
-	\'\'\'interval average rating\'\'\' <font color="green">\'\'(green)\'\'</font> are graphed below, by date. 
+	\'\'\'running average rating\'\'\' <font color="green">\'\'(green)\'\'</font> are graphed below, by date. The 
+	\'\'\'running average rating\'\'\' is simply the average of all the daily ratings \'\'within\'\' this time frame for each day.
 	
 Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'\'\'[4]\'\'\' - High; \'\'\'[5]\'\'\' - Excellent;
 
