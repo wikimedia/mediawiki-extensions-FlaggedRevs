@@ -450,7 +450,7 @@ function efLoadFlaggedRevs() {
 		# If patrolling is already on, then we know that it 
 		# was intended to have all namespaces patrollable.
 		if( $wgUseRCPatrol || $wgUseNPPatrol ) {
-			global $wgCanonicalNamespaceNames;
+			global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
 			$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
 		}
 		$wgUseRCPatrol = true;
