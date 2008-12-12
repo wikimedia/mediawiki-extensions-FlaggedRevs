@@ -49,12 +49,20 @@ class ReaderFeedback extends UnlistedSpecialPage
 		}
 		# Get our rating dimensions
 		$this->dims = array();
+		$unsureCount = 0;
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
-			if( !self::isValid($this->dims[$tag]) ) {
+			if( $this->dims[$tag] === NULL ) { // nothing sent at all :(
 				$wgOut->redirect( $this->page->getLocalUrl() );
 				return;
+			} else if( $this->dims[$tags] === -1 ) {
+				$unsureCount++;
 			}
+		}
+		# There must actually be *some* ratings
+		if( $unsureCount >= count($this->dims) ) {
+			$wgOut->redirect( $this->page->getLocalUrl() );
+			return;
 		}
 		# Check validation key
 		$this->validatedParams = $wgRequest->getVal('validatedParams');
@@ -96,6 +104,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		// Make review interface object
 		$form = new ReaderFeedback();
 		$form->dims = array();
+		$unsureCount = 0;
 		$bot = false;
 		// Each ajax url argument is of the form param|val.
 		// This means that there is no ugly order dependance.
@@ -135,15 +144,17 @@ class ReaderFeedback extends UnlistedSpecialPage
 					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
 					if( array_key_exists( $p, $tags ) ) {
 						$form->dims[$p] = intval($val);
-						if( !self::isValid( $form->dims[$p] ) ) {
+						if( $form->dims[$p] === NULL ) { // nothing sent at all :(
 							return '<err#>' . wfMsg('formerror'); // bad range
+						} else if( $form->dims[$p] === -1 ) {
+							$unsureCount++;
 						}
 					}
 					break;
 			}
 		}
 		// Missing params?
-		if( count($form->dims) != count($tags) ) {
+		if( count($form->dims) != count($tags) || $unsureCount >= count($form->dims) ) {
 			return '<err#>' . wfMsg('formerror');
 		}
 		// Doesn't match up?
@@ -240,6 +251,8 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$dbw = wfGetDB( DB_MASTER );
 		# Get date timestamp...
 		$date = str_pad( substr( wfTimestampNow(), 0, 8 ), 14, '0' );
+		if( count($this->dims) == 0 )
+			return false;
 		$ratings = $this->flattenRatings( $this->dims );
 		# Make sure revision is valid!
 		$rev = Revision::newFromId( $this->oldid );
@@ -259,10 +272,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 			'rfb_timestamp' => $dbw->timestamp(),
 			'rfb_ratings'   => $ratings
 		);
-		$dbw->insert( 'reader_feedback', $insertRow, __METHOD__, 'IGNORE' );
 		# Make sure initial page data is there to begin with...
 		$insertRows = array();
 		foreach( $this->dims as $tag => $val ) {
+			if( $val < 0 ); // don't store "unsure" votes
 			$insertRows[] = array(
 				'rfh_page_id' => $rev->getPage(),
 				'rfh_tag'     => $tag,
@@ -271,19 +284,23 @@ class ReaderFeedback extends UnlistedSpecialPage
 				'rfh_date'    => $date
 			);
 		}
+		$dbw->insert( 'reader_feedback', $insertRow, __METHOD__, 'IGNORE' );
 		$dbw->insert( 'reader_feedback_history', $insertRows, __METHOD__, 'IGNORE' );
 		# Update aggregate data for this page over time...
 		$touched = $dbw->timestamp( wfTimestampNow() );
 		$overall = 0;
 		$insertRows = array();
 		foreach( $this->dims as $tag => $val ) {
+			if( $val < 0 ) continue; // don't store "unsure" votes
+			# Update daily averages
 			$dbw->update( 'reader_feedback_history',
 				array( 'rfh_total = rfh_total + '.intval($val), 
 					'rfh_count = rfh_count + 1'),
 				array( 'rfh_page_id' => $rev->getPage(), 
 					'rfh_tag' => $tag,
 					'rfh_date' => $date ),
-				__METHOD__ );
+				__METHOD__
+			);
 			# Get effective tag values for this page..
 			list($aveVal,$n) = FlaggedRevs::getAverageRating( $article, $tag, true );
 			$insertRows[] = array( 
@@ -293,19 +310,12 @@ class ReaderFeedback extends UnlistedSpecialPage
 				'rfp_count'   => $n,
 				'rfp_touched' => $touched
 			);
-			$overall += FlaggedRevs::getFeedbackWeight( $tag ) * $aveVal;
 		}
-		# Get overall data for this page. Used to rank best/worst pages...
-		if( isset($n) ) {
-			$insertRows[] = array( 
-				'rfp_page_id' => $rev->getPage(),
-				'rfp_tag'     => 'overall',
-				'rfp_ave_val' => ($overall / count($this->dims)),
-				'rfp_count'   => $n,
-				'rfp_touched' => $touched
-			);
-		}
+		# Update recent averages
 		$dbw->replace( 'reader_feedback_pages', array( 'PRIMARY' ), $insertRows, __METHOD__ );
+		# Clear out any dead data
+		$dbw->delete( 'reader_feedback_pages', array('rfp_page_id' => $rev->getPage(), 
+			'rfp_tag' => 'overall'), __METHOD__ );
 		# For logged in users, box should disappear
 		if( $wgUser->getId() ) {
 			$this->page->invalidateCache();

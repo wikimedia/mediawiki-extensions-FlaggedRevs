@@ -94,7 +94,7 @@ function updateRatingForm() {
 * Update colors when select changes (Opera already does this).
 */
 function updateFeedbackForm() {
-	var somezero = false;
+	var allzero = true;
 	var ratingform = document.getElementById('mw-feedbackselects');
 	if( !ratingform ) return;
 	for( tag in wgFlaggedRevsParams2.tags ) {
@@ -108,13 +108,13 @@ function updateFeedbackForm() {
 			if( navigator.appName != 'Opera') {
 				levels[0].className = 'fr-rating-option-' + (4 - selectedlevel);
 			}
-			if( selectedlevel > 4 ) {
-				somezero = true;
+			if( selectedlevel <= 4 ) {
+				allzero = false;
 			}
 		}
 	}
 	var submit = document.getElementById('submitfeedback');
-	submit.disabled = somezero ? 'disabled' : '';
+	submit.disabled = allzero ? 'disabled' : '';
 }
 
 addOnloadHook(enable_showhide);

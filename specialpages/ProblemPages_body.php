@@ -55,8 +55,9 @@ class ProblemPages extends SpecialPage
 
 	protected function showPageList() {
 		global $wgOut;
+		$tags = FlaggedRevs::getFeedbackTags();
 		$pager = new ProblemPagesPager( $this, array(), $this->namespace, $this->tag );
-		if( $pager->getNumRows() ) {
+		if( isset($tags[$this->tag]) && $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('problempages-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
@@ -118,11 +119,6 @@ class ProblemPagesPager extends AlphabeticPager {
 		$conds['page_namespace'] = $this->namespace;
 		// Has to be bad enough
 		$x = 2;
-		if( $this->tag == 'overall' ) {
-			global $wgFlaggedRevsFeedbackTags;
-			$s = $x*array_sum($wgFlaggedRevsFeedbackTags);
-			$x = intval( floor($s/count($wgFlaggedRevsFeedbackTags)) );
-		}
 		$conds[] = "rfp_ave_val < $x";
 		// Reasonable sample
 		$conds[] = 'rfp_count >= '.READER_FEEDBACK_SIZE;

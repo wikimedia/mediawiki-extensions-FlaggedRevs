@@ -92,8 +92,6 @@ class FlaggedRevsXML {
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			$s .= Xml::option( wfMsg( "readerfeedback-$tag" ), $tag, $selected===$tag );
 		}
-		# Aggregate for all tags
-		$s .= Xml::option( wfMsg( "readerfeedback-overall" ), 'overall', $selected==='overall' );
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
