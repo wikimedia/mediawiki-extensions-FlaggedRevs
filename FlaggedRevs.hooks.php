@@ -1217,7 +1217,7 @@ EOT;
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg('revreview-reviewlink'),
 				'oldid='.intval($rc->mAttribs['fp_stable']).'&diff=cur' );
-			$articlelink .= " ($rlink)";
+			$articlelink .= "<span class='mw-fr-reviewlink'> ($rlink)</span>";
 		}
 		return true;
 	}
