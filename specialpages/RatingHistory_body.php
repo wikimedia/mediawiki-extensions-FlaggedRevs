@@ -567,7 +567,7 @@ class RatingHistory extends UnlistedSpecialPage
 				// Trigger INDEX usage
 				"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
 			__METHOD__,
-			array( 'GROUP BY' => 'rfb_user, rfb_ip', 'USE INDEX' => array('revision' => 'page_time') ),
+			array( 'GROUP BY' => 'rfb_user, rfb_ip', 'USE INDEX' => array('revision' => 'page_timestamp') ),
 			array( 'user' => array( 'LEFT JOIN', 'user_id = rfb_user') )
 		);
 		// Output multi-column list
