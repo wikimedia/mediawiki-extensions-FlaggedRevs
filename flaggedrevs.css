@@ -314,6 +314,10 @@
 	background-color: #fffff0;
 }
 
+.fr-diff-patrollink {
+	text-align: center;
+}
+
 .fr-notes-box {
 	width: 95%;
 	margin: 0em 1em 0em .5em;

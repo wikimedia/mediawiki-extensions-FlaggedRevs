@@ -1193,7 +1193,7 @@ class FlaggedArticle extends Article {
 			} else {
 				$patrol = '';
 			}
-			$wgOut->addHTML( '<div align=center>' . $patrol . '</div>' );
+			$wgOut->addHTML( '<div class="fr-diff-patrollink">' . $patrol . '</div>' );
 		}
 		return true;
 	}
