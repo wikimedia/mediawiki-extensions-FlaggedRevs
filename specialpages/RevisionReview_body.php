@@ -77,8 +77,9 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Make sure page is not reviewable. This can be spoofed in theory,
 		# but the token is salted with the id and title and this should
-		# be a trusted user...so it is not worth doing extra query work. 	 
-		if( FlaggedRevs::isPageReviewable( $this->page ) ) {
+		# be a trusted user...so it is not worth doing extra query work. 
+		$fa = FlaggedArticle::getTitleInstance( $this->page );
+		if( $fa->isReviewable() ) {
 			$wgOut->showErrorPage('notargettitle', 'notargettext' ); 	 
 			return;
 		}
