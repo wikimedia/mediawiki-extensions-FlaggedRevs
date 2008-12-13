@@ -360,7 +360,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->numGridlinesY = 10 + 1;
 		$plot->innerPaddingX = 15;
 		$plot->innerPaddingY = 10;
-		$plot->outerPadding = 20;
+		$plot->outerPadding = 5;
 		$plot->minY = 0;
 		$plot->maxY = 5;
 		// Define the data using the DB rows
