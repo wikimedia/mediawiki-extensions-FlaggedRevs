@@ -459,13 +459,13 @@ class RatingHistory extends UnlistedSpecialPage
 		// Render!
 		$plot->generateSVG( "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'" );
 		// Write to file for cache
-		$fp = @fopen( $filePath, 'w' );
+		$svgPath = $this->getFilePath( $tag, 'svg' );
+		$fp = @fopen( $svgPath, 'w' );
 		@fwrite( $fp, $plot->svg );
 		@fclose( $fp );
 		// Rasterize due to IE suckage
 		$svgHandler = new SvgHandler();
-		$dstPath = preg_replace( '/\.svg$/','.png', $filePath );
-		$status = $svgHandler->rasterize( $filePath, $dstPath, 1000, 410 );
+		$status = $svgHandler->rasterize( $svgPath, $filePath, 1000, 410 );
 		if( $status !== true ) {
 			return false;
 		}
@@ -492,11 +492,12 @@ class RatingHistory extends UnlistedSpecialPage
 	/**
 	* Get the path to where the corresponding graph file should be
 	* @param string $tag
+	* @param string $ext
 	* @returns string
 	*/
-	public function getFilePath( $tag ) {
+	public function getFilePath( $tag, $ext='' ) {
 		global $wgUploadDirectory;
-		$rel = self::getRelPath( $tag );
+		$rel = self::getRelPath( $tag, $ext );
 		return "{$wgUploadDirectory}/graphs/{$rel}";
 	}
 	
@@ -511,8 +512,8 @@ class RatingHistory extends UnlistedSpecialPage
 		return "{$wgUploadPath}/graphs/{$rel}";
 	}
 	
-	public function getRelPath( $tag ) {
-		$ext = self::getCachedFileExtension();
+	public function getRelPath( $tag, $ext = '' ) {
+		$ext = $ext ? $ext : self::getCachedFileExtension();
 		$pageId = $this->page->getArticleId();
 		# Paranoid check. Should not be necessary, but here to be safe...
 		if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) ) {
