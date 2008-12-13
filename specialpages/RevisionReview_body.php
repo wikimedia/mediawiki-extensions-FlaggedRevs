@@ -85,7 +85,9 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Mark as patrolled
 		$dbw = wfGetDB( DB_MASTER );
-		$changed = RecentChange::markPatrolled( $this->rcid );
+		if( ( $rc = RecentChange::newFromId($this->rcid) ) ) {
+			$rc->reallyMarkPatrolled();
+		}
 		# Inform the user
 		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
 		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
