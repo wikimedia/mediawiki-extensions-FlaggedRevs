@@ -269,10 +269,12 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page', 'revision' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
-			'fp_page_id','fp_pending_since','rev_len');
+			'fp_pending_since','rev_len');
 		$conds[] = 'page_id = fp_page_id';
+		# Overconstrain rev_page to force PK use
 		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';
 		$conds[] = 'fp_pending_since IS NOT NULL';
+		# Filter namespace
 		$conds['page_namespace'] = $this->namespace;
 		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
 		# Filter by category
