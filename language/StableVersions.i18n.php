@@ -164,6 +164,13 @@ $messages['cs'] = array(
 	'stableversions-review' => 'Posouzeno <i>$1</i> uživatelem $2',
 );
 
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'stableversions-page' => 'страни́цѧ и́мѧ',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'stableversions' => 'Markierte Versionen',

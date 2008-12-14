@@ -226,7 +226,7 @@ $aliases['hu'] = array(
 	'StableVersions' => array( 'Megjelölt lapváltozatok' ),
 	'UnreviewedPages' => array( 'Ellenőrizetlen lapok' ),
 	'UnstablePages' => array( 'Nem rögzített lapok', 'Rögzítetlen lapok' ),
-	'ValidationStatistics' => array( 'Ellenőrzési statisztikák' ),
+	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -395,10 +395,10 @@ $aliases['pl'] = array(
 	'ReviewedPages' => array( 'Przejrzane strony' ),
 	'RevisionReview' => array( 'Oznaczenie wersji' ),
 	'Stabilization' => array( 'Konfiguracja strony' ),
-	'StablePages' => array( 'Strony z domyślnie pokazywaną wersją oznaczoną' ),
+	'StablePages' => array( 'Strony stabilizowane' ),
 	'StableVersions' => array( 'Wersje dopracowane' ),
 	'UnreviewedPages' => array( 'Nieprzejrzane strony' ),
-	'UnstablePages' => array( 'Strony z domyślnie pokazywaną wersją bieżącą' ),
+	'UnstablePages' => array( 'Strony destabilizowane' ),
 	'ValidationStatistics' => array( 'Statystyki oznaczania' ),
 );
 

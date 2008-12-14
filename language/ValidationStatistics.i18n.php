@@ -111,6 +111,13 @@ $messages['bs'] = array(
 	'validationstatistics-total' => 'Stranice',
 );
 
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'validationstatistics-total' => 'страни́цѧ',
+);
+
 /** German (Deutsch)
  * @author Melancholie
  */

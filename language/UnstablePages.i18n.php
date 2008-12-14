@@ -51,10 +51,13 @@ $messages['arz'] = array(
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
 	'unstablepages' => 'Нестабільныя старонкі',
+	'unstablepages-stable' => 'стабільная вэрсія',
+	'unstablepages-text' => 'Ніжэй пададзены сьпіс старонак, у якіх ўручную усталяваны паказ па змоўчваньні накіду старонкі для чытачоў.',
 );
 
 /** German (Deutsch)
@@ -103,11 +106,13 @@ $messages['gl'] = array(
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
  * @author Omnipaedista
  */
 $messages['grc'] = array(
 	'unstablepages' => 'Δέλτοι ἀσταθεῖς',
 	'unstablepages-stable' => 'σταθερὰ ἔκδοσις',
+	'unstablepages-config' => 'Διαμόρφωσις',
 );
 
 /** Swiss German (Alemannisch)

@@ -195,6 +195,13 @@ $messages['cs'] = array(
 	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
 );
 
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'unreviewed-category' => 'катигорі́ꙗ :',
+);
+
 /** Danish (Dansk)
  * @author Jon Harald Søby
  */

@@ -72,8 +72,7 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'ratinghistory' => 'تاريخ تقييم الصفحة',
-	'ratinghistory-text' => "'''الصفحة دي بتعرض بيانات تقييم الصفحة بتاعة[[:$1|$1]].'''",
-	'ratinghistory-leg' => 'بيانات تقييم التاريخ',
+	'ratinghistory-leg' => 'تقييم بيانات التاريخ بتاع [[:$1|$1]]',
 	'ratinghistory-tab' => 'تقييم',
 	'ratinghistory-link' => 'تقييم الصفحة',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">شكرا لك لاستغراقك دقيقة لمراجعة هذه الصفحة!</font>''",
@@ -121,6 +120,29 @@ $messages['bg'] = array(
 	'ratinghistory-3years' => 'последните 3 години',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'ratinghistory' => 'Historija rejtinga stranice',
+	'ratinghistory-tab' => 'rejting',
+	'ratinghistory-link' => 'Rejting stranice',
+	'ratinghistory-period' => 'Vremenski period:',
+	'ratinghistory-month' => 'zadnji mjesec',
+	'ratinghistory-3months' => 'zadnja 3 mjeseca',
+	'ratinghistory-year' => 'zadnja godina',
+	'ratinghistory-3years' => 'zadnje 3 godine',
+	'ratinghistory-users' => 'Korisnici koji su dodijelili rejtinge',
+	'ratinghistory-legend' => "'''Dnevni prosječni rejting''' <font color=\"blue\">''(plavo)''</font> i  
+'''tekući prosječni rejting''' <font color=\"green\">''(zeleno)''</font> je prikazan na grafikonu ispod, po datumu. 
+
+'''Tekući prosječni rejting''' je jednostavni prosjek svih dnevnih rejtinga ''unutar'' ovog vremenskog perioda za svaki dan.
+
+Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Visok; '''[5]''' - odličan;
+
+'''Broj pregleda po danu''' <font color=\"red\">''(crveno)''</font> je prikazan na grafikonu ispod, u projekciji ''1:\$1''.",
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
@@ -153,8 +175,7 @@ In der folgenden Grafik werden die '''Anzahl Bewertungen pro Tag''' <font color=
  */
 $messages['eo'] = array(
 	'ratinghistory' => 'Historio de paĝtaksado',
-	'ratinghistory-text' => "'''Ĉi tiu paĝo montras datenojn de paĝa taksado por [[:$1|$1]].'''",
-	'ratinghistory-leg' => 'Datenoj de taksada historio',
+	'ratinghistory-leg' => 'Taksada historio por [[:$1|$1]]',
 	'ratinghistory-tab' => 'taksado',
 	'ratinghistory-link' => 'Taksado de paĝo',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Dankon pro via peno por kontroli ĉi tiun paĝon!</font>''",
@@ -168,7 +189,8 @@ $messages['eo'] = array(
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La '''tage averaĝa taksado''' <font color=\"blue\">''(blua)''</font> kaj 
-'''intervalaveraĝa taksado''' <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. 
+'''intervalaveraĝa taksado''' <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. La
+'''intervalaveraĝa taksado''' estas simiple la averaĝo de ĉiuj tagaj taksaĵoj ''inter'' ĉi tiu tempdaŭro por ĉiu tago.
 
 '''[1]''' - Malbonega; '''[2]''' - Malbonkvalita; '''[3]''' - Mezkvalita; '''[4]''' - Bonkvalita; '''[5]''' - Bonega;
 
@@ -240,8 +262,7 @@ $messages['ga'] = array(
  */
 $messages['gl'] = array(
 	'ratinghistory' => 'Historial de valoracións da páxina',
-	'ratinghistory-text' => "'''Esta páxina amosa os datos da valoración de [[:$1|$1]].'''",
-	'ratinghistory-leg' => 'Historial de valoracións dos datos',
+	'ratinghistory-leg' => 'Historial de valoracións dos datos de "[[:$1|$1]]"',
 	'ratinghistory-tab' => 'valoración',
 	'ratinghistory-link' => 'Valoración da páxina',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazas por revisar esta páxina!</font>''",
@@ -254,12 +275,13 @@ $messages['gl'] = array(
 	'ratinghistory-users' => 'Usuarios que valoraron páxinas',
 	'ratinghistory-graph' => '$2 de "$3" ({{PLURAL:$1|unha revisión|$1 revisións}})',
 	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
-	'ratinghistory-legend' => "A '''valoración do promedio diari'''o <font color=\"blue\">''(azul)''</font> e
-o '''intervalo seleccionado''' <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo.
+	'ratinghistory-legend' => "A '''valoración do promedio diario''' <font color=\"blue\">''(azul)''</font> e
+a '''valoración do promedio en curso''' <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo. A  
+'''valoración do promedio en curso''' é simplemente a valoración de todas as valoracións diarias ''dentro'' do período de tempo de cada día.
 
 Escala: '''[1]''' - Pobre; '''[2]''' - Baixo; '''[3]''' - Ben; '''[4]''' - Alto; '''[5]''' - Excelente;
 
-O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> é mostrado embaixo, cunha escala de ''1:\$1''.",
+O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> móstrase embaixo, cunha escala de ''1:\$1''.",
 	'right-feedback' => 'Usar o formulario de reacción para valorar unha páxina',
 );
 
@@ -535,8 +557,7 @@ Lo '''nombre de verificacion per jorn''' <font color=\"red\">''(roge)''</font> e
  */
 $messages['pl'] = array(
 	'ratinghistory' => 'Historia oceniania strony',
-	'ratinghistory-text' => "'''Ta strona pokazuje ocenę dla [[:$1|$1]].'''",
-	'ratinghistory-leg' => 'Historia oceniania',
+	'ratinghistory-leg' => 'Historia oceniania dla [[:$1|$1]]',
 	'ratinghistory-tab' => 'ocena',
 	'ratinghistory-link' => 'Ocena strony',
 	'ratinghistory-thanks' => '\'\'<font color="darkred">Dziękujemy za poświęcony czas na ocenę tej strony!</font>',

@@ -665,7 +665,7 @@ $messages['pl'] = array(
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
 	'oldreviewed-category' => 'Kategoria:',
 	'oldreviewed-diff' => 'różn.',
-	'oldreviewed-size' => 'Maksymalny rozmiar zmiana w bajtach:',
+	'oldreviewed-size' => 'Maksymalna liczba dodanych/usuniętych bajtów:',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
 	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
 );
