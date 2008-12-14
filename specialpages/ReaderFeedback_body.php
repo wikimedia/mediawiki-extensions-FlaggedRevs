@@ -259,6 +259,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 		if( !$rev || !$rev->getTitle()->equals( $this->page ) ) {
 			return false; // opps!
 		}
+		$ip = wfGetIP();
+		if( !$wgUser->getId() && !$ip ) {
+			return false; // we need to keep track somehow
+		}
 		$article = new Article( $this->page );
 		# Check if user already voted before...
 		if( self::userAlreadyVoted( $this->page, $this->oldid ) ) {
@@ -268,7 +272,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$insertRow = array( 
 			'rfb_rev_id'    => $this->oldid,
 			'rfb_user'      => $wgUser->getId(),
-			'rfb_ip'        => wfGetIP(),
+			'rfb_ip'        => $ip,
 			'rfb_timestamp' => $dbw->timestamp(),
 			'rfb_ratings'   => $ratings
 		);
