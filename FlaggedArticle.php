@@ -1441,9 +1441,9 @@ class FlaggedArticle extends Article {
 			# Otherwise make checkboxes (two qualities available for current user
 			# and disabled fields in case we are below the magic 6)
 			} else {
-				$i = ( $disabled ) ? $selected : 1;
+				$i = $disabled ? $selected : 1;
 				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" ) + $toggle;
-				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality".$i,
+				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality",
 					($selected == $i), $attribs ) . "\n";
 			}
 			$form .= Xml::closeElement( 'span' );
