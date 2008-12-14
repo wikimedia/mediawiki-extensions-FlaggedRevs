@@ -87,6 +87,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$dbw = wfGetDB( DB_MASTER );
 		if( ( $rc = RecentChange::newFromId($this->rcid) ) ) {
 			$rc->reallyMarkPatrolled();
+			// Log this patrol event
+			PatrolLog::record( $rc, false );
 		}
 		# Inform the user
 		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
@@ -892,7 +894,9 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param bool $approve, approved? (otherwise unapproved)
 	 * @param bool $auto
 	 */
-	public static function updateLog( $title, $dims, $oldDims, $comment, $revId, $stableId, $approve, $auto=false ) {
+	public static function updateLog( $title, $dims, $oldDims, $comment, 
+		$revId, $stableId, $approve, $auto=false )
+	{
 		global $wgFlaggedRevsLogInRC;
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$log = new LogPage( 'review', ($auto ? false : $wgFlaggedRevsLogInRC) );
