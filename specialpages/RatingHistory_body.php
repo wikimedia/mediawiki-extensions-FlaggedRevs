@@ -560,16 +560,18 @@ class RatingHistory extends UnlistedSpecialPage
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp DESC' )
 		);
+		// Fetch the list of users and how many votes they reviews
 		$res = $dbr->select( array( 'revision', 'reader_feedback', 'user' ),
-			array( 'rfb_user', 'rfb_ip', 'user_name', 'COUNT(*) as n' ),
+			# COALESCE() gets the user_name for users, and the IP for anons
+			array( 'rfb_user', 'COALESCE(user_name,rfb_ip) AS name', 'COUNT(rfb_rev_id) AS n' ),
 			array( 'rev_page' => $this->page->getArticleId(),
 				"rev_id = rfb_rev_id",
 				"rfb_timestamp >= $cutoff",
 				// Trigger INDEX usage
 				"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
 			__METHOD__,
-			array( 'GROUP BY' => 'rfb_user, rfb_ip', 'USE INDEX' => array('revision' => 'page_timestamp') ),
-			array( 'user' => array( 'LEFT JOIN', 'user_id = rfb_user') )
+			array( 'GROUP BY' => 'name', 'USE INDEX' => array('revision' => 'page_timestamp') ),
+			array( 'user' => array( 'LEFT JOIN', 'rfb_user > 0 AND user_id = rfb_user') )
 		);
 		// Output multi-column list
 		$total = $res->numRows();
@@ -577,7 +579,8 @@ class RatingHistory extends UnlistedSpecialPage
 		$count = 0;
 		$html = "<table class='fr_reader_feedback_users'><tr>";
 		while( $row = $res->fetchObject() ) {
-			$title = Title::makeTitleSafe( NS_USER, $row->rfb_user ? $row->user_name : $row->rfb_ip );
+			$title = Title::makeTitleSafe( NS_USER, $row->name );
+			if( is_null($title) ) continue; // bad IP?
 			$html .= '<td>'.$this->skin->makeLinkObj( $title, $title->getText() )." [{$row->n}]</td>";
 			$count++;
 			if( $total > $count && ($count % $columns) == 0 ) {
