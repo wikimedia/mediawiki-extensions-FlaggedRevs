@@ -1053,10 +1053,13 @@ class FlaggedRevs {
 
 		# If this is an image page, store corresponding file info
 		$fileData = array();
-		if( $title->getNamespace() == NS_FILE && ($file = wfFindFile($title)) ) {
-			$fileData['name'] = $title->getDBkey();
-			$fileData['timestamp'] = $file->getTimestamp();
-			$fileData['sha1'] = $file->getSha1();
+		if( $title->getNamespace() == NS_FILE ) {
+			$file = $article instanceof ImagePage ? $article->getFile() : wfFindFile($title);
+			if( is_object($file) && $file->exists() ) {
+				$fileData['name'] = $title->getDBkey();
+				$fileData['timestamp'] = $file->getTimestamp();
+				$fileData['sha1'] = $file->getSha1();
+			}
 		}
 
 		# Our review entry
