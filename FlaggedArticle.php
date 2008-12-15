@@ -1041,7 +1041,7 @@ class FlaggedArticle extends Article {
 							array( 'fi_rev_id' => $frev->getRevId() ),
 							__METHOD__,
 							array(), /* OPTIONS */
-							array( 'page' => array('LEFT JOIN','page_namespace = '. NS_IMAGE .' AND page_title = fi_name'),
+							array( 'page' => array('LEFT JOIN','page_namespace = '. NS_FILE .' AND page_title = fi_name'),
 								'image' => array('LEFT JOIN','img_name = fi_name'),
 								'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
 								'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
@@ -1055,7 +1055,7 @@ class FlaggedArticle extends Article {
 					}
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitle( NS_IMAGE, $row->fi_name );
+						$title = Title::makeTitle( NS_FILE, $row->fi_name );
 						// stable time -> time when reviewed (unless the other is newer)
 						$timestamp = isset($row->fr_img_timestamp) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
 							$row->fr_img_timestamp : $row->fi_img_timestamp;

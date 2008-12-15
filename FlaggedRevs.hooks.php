@@ -200,7 +200,7 @@ EOT;
 		}
 		foreach( $parserOut->getImages() as $image => $n ) {
 			if( !isset($linksUpdate->mImages[$image]) ) {
-				self::addLink( $links, NS_IMAGE, $image );
+				self::addLink( $links, NS_FILE, $image );
 			}
 		}
 		foreach( $parserOut->getTemplates() as $ns => $titles ) {
@@ -374,8 +374,8 @@ EOT;
 		}
 		$file = null;
 		$dbr = wfGetDB( DB_SLAVE );
-		# Normalize NS_MEDIA to NS_IMAGE
-		$title = $nt->getNamespace() == NS_IMAGE ? $nt : Title::makeTitle( NS_IMAGE, $nt->getDBKey() );
+		# Normalize NS_MEDIA to NS_FILE
+		$title = $nt->getNamespace() == NS_FILE ? $nt : Title::makeTitle( NS_FILE, $nt->getDBKey() );
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
@@ -442,7 +442,7 @@ EOT;
 	*/
 	public static function galleryFindStableFileTime( $ig, $nt, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( empty($ig->mParser->fr_isStable) || $nt->getNamespace() != NS_IMAGE ) {
+		if( empty($ig->mParser->fr_isStable) || $nt->getNamespace() != NS_FILE ) {
 			return true;
 		}
 		$file = null;
@@ -535,7 +535,7 @@ EOT;
 		if( !empty($parser->mOutput->mImages) ) {
 			foreach( $parser->mOutput->mImages as $filename => $x ) {
 				# FIXME: it would be nice not to double fetch these!
-				$file = wfFindFile( Title::makeTitleSafe( NS_IMAGE, $filename ) );
+				$file = wfFindFile( Title::makeTitleSafe( NS_FILE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
 				if( $file ) {
 					# Bug 15748, be lax about commons image sync status

@@ -475,7 +475,7 @@ class FlaggedRevs {
 	public static function getFileVersionFromCache( $revId, $dbKey ) {
 		self::load();
 		if( isset(self::$includeVersionCache[$revId]) ) {
-			# All NS_IMAGE, no need to check namespace
+			# All NS_FILE, no need to check namespace
 			if( isset(self::$includeVersionCache[$revId]['files'][$dbKey]) ) {
 				$time_SHA1 = self::$includeVersionCache[$revId]['files'][$dbKey];
 				foreach( $time_SHA1 as $time => $sha1 ) {
@@ -876,8 +876,8 @@ class FlaggedRevs {
 	*/
 	public static function isPageReviewable( $title ) {
 		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsWhitelist;
-		# FIXME: Treat NS_MEDIA as NS_IMAGE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		# FIXME: Treat NS_MEDIA as NS_FILE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_FILE : $title->getNamespace();
 		# Check for MW: pages and whitelist for exempt pages
 		if( $ns == NS_MEDIAWIKI || in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
 			return false;
@@ -892,8 +892,8 @@ class FlaggedRevs {
 	*/
 	public static function isPageRateable( $title ) {
 		global $wgFeedbackNamespaces, $wgFlaggedRevsWhitelist;
-		# FIXME: Treat NS_MEDIA as NS_IMAGE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		# FIXME: Treat NS_MEDIA as NS_FILE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_FILE : $title->getNamespace();
 		# Check for MW: pages and whitelist for exempt pages
 		if( $ns == NS_MEDIAWIKI || in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
 			return false;
@@ -912,8 +912,8 @@ class FlaggedRevs {
 		if( self::isPageReviewable($title) ) {
 			return false;
 		}
-		# FIXME: Treat NS_MEDIA as NS_IMAGE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_IMAGE : $title->getNamespace();
+		# FIXME: Treat NS_MEDIA as NS_FILE
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_FILE : $title->getNamespace();
 		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) && !$title->isTalkPage() );
 	}
 	
@@ -1053,7 +1053,7 @@ class FlaggedRevs {
 
 		# If this is an image page, store corresponding file info
 		$fileData = array();
-		if( $title->getNamespace() == NS_IMAGE && $file = wfFindFile($title) ) {
+		if( $title->getNamespace() == NS_FILE && ($file = wfFindFile($title)) ) {
 			$fileData['name'] = $title->getDBkey();
 			$fileData['timestamp'] = $file->getTimestamp();
 			$fileData['sha1'] = $file->getSha1();
