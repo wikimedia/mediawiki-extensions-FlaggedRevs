@@ -616,6 +616,64 @@ class RatingHistory extends UnlistedSpecialPage
 		return $html;
 	}
 	
+	public function getVoteAggregates() {
+		if( $this->period > 93 ) {
+			return ''; // too big
+		}
+		// Set cutoff time for period
+		$dbr = wfGetDB( DB_SLAVE );
+		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
+		// Get the first revision possibly voted on in the range
+		$firstRevTS = $dbr->selectField( 'revision',
+			'rev_timestamp',
+			array( 'rev_page' => $this->page->getArticleId(), "rev_timestamp <= $cutoff" ),
+			__METHOD__,
+			array( 'ORDER BY' => 'rev_timestamp DESC' )
+		);
+		// Find average, median, deviation...
+		$res = $dbr->select( array( 'revision', 'reader_feedback' ),
+			array( 'rfb_ratings' ),
+			array( 'rev_page' => $this->page->getArticleId(),
+				"rev_id = rfb_rev_id",
+				"rfb_timestamp >= $cutoff",
+				// Trigger INDEX usage
+				"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
+			__METHOD__,
+			array( 'USE INDEX' => array('revision' => 'page_timestamp') )
+		);
+		// Init $median array
+		$votes = array();
+		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
+			$votes[$tag] = array( 0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0 );
+		}
+		// Read votes and tally the numbers
+		while( $row = $dbr->fetchObject($res) ) {
+			$dims = FlaggedRevs::expandRatings( $row->rfb_ratings );
+			foreach( $dims as $tag => $val ) {
+				if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
+					$votes[$tag][$val]++;
+				}
+			}
+		}
+		// Output multi-column list
+		$html = "<table class='fr_reader_feedback_stats'><tr>";
+		$html .= '<tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>';
+		foreach( $votes as $tag => $dist ) {
+			$html .= '<tr>';
+			$html .= '<td>'.wfMsgHtml("readerfeedback-$tag") . '</td>';
+			$html .= '<td>'.$dist[0].'</td>';
+			$html .= '<td>'.$dist[1].'</td>';
+			$html .= '<td>'.$dist[2].'</td>';
+			$html .= '<td>'.$dist[3].'</td>';
+			$html .= '<td>'.$dist[4].'</td>';
+			$html .= "</tr>\n";
+		}
+		$html .= "</tr></table>\n";
+		return $html;
+	}
+	
 	public function purgePage() {
 		global $wgUploadDirectory;
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {

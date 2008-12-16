@@ -981,6 +981,23 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
+   	/**
+	* Expand feedback ratings into an array
+	* @param string $ratings
+	* @returns Array
+	*/
+	public static function expandRatings( $rating ) {
+		$dims = array();
+		$pairs = explode( "\n", $rating );
+		foreach( $pairs as $pair ) {
+			if( strpos($pair,'=') ) {
+				list($tag,$value) = explode( '=', trim($pair), 2 );
+				$dims[$tag] = intval($value);
+			}
+		}
+		return $dims;
+	}
+	
 	################# Auto-review function #################
 
 	/**
