@@ -51,7 +51,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$this->dScale = 20;
 		# Thank voters
 		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
-			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parse') );
+			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parseinline') );
 		}
 		$this->showForm();
 		$this->showHeader();
@@ -138,7 +138,14 @@ class RatingHistory extends UnlistedSpecialPage
 			case 'png':
 				if( $exists ) {
 					$data = true;
-					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
+					// Add link for users with non-shitty browsers to see SVG itself
+					$viewLink = "";
+					if( $sExt === 'svg' ) {
+						$svgUrl = $this->getUrlPath( $tag, 'svg' );
+						$viewLink = " <small>[<a href='".$svgUrl."'>".
+							wfMsgHtml("readerfeedback-svg")."</a>]</small>";
+					}
+					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "$viewLink</h3>\n" );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
@@ -193,7 +200,7 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		// Define the data using the DB rows
 		$totalVal = $totalCount = $n = 0;
-		$res = $this->doQuery( $tag );
+		list($res,$u,$maxC) = $this->doQuery( $tag );
 		// Label spacing
 		if( $row = $res->fetchObject() ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
@@ -204,7 +211,6 @@ class RatingHistory extends UnlistedSpecialPage
 			$res->seek( 0 );
 		}
 		$dates = $drating = $arating = $dcount = "";
-		$n = 0;
 		while( $row = $res->fetchObject() ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
@@ -261,7 +267,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$data = array();
 		$totalVal = $totalCount = $n = 0;
 		// Define the data using the DB rows
-		$res = $this->doQuery( $tag );
+		list($res,$u,$maxC) = $this->doQuery( $tag );
 		// Label spacing
 		if( $row = $res->fetchObject() ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
@@ -365,9 +371,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->maxY = 5;
 		// Define the data using the DB rows
 		$dataX = $dave = $rave = $dcount = array();
-		$totalVal = $totalCount = $n = 0;
+		$totalVal = $totalCount = $sd = $pts = $n = 0;
 		// Define the data using the DB rows
-		$res = $this->doQuery( $tag );
+		list($res,$u,$maxC) = $this->doQuery( $tag );
 		// Label spacing
 		if( $row = $res->fetchObject() ) {
 			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
@@ -378,11 +384,13 @@ class RatingHistory extends UnlistedSpecialPage
 			$res->seek( 0 );
 		}
 		while( $row = $res->fetchObject() ) {
+			$pts++;
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
-			// Nudge values up by 1
+			// Nudge values up by 1 to fit [1,5]
 			$dayAve = 1 + (real)$row->rfh_total/(real)$row->rfh_count;
+			$sd += pow($dayAve - $u,2);
 			$cumAve = 1 + (real)$totalVal/(real)$totalCount;
 			$year = intval( substr( $row->rfh_date, 0, 4 ) );
 			$month = intval( substr( $row->rfh_date, 4, 2 ) );
@@ -417,9 +425,13 @@ class RatingHistory extends UnlistedSpecialPage
 			$lastRAve = $cumAve;
 		}
 		// Minimum sample size
-		if( count($dataX) < 2 ) {
+		if( $pts < 2 ) {
 			return false;
 		}
+		$sd = sqrt($sd/$pts);
+		// Round values for display
+		$sd = round( $sd, 3 );
+		$u = round( $u, 3 );
 		// Fit to [0,4]
 		foreach( $dcount as $x => $c ) {
 			$dcount[$x] = $c/$this->dScale;
@@ -434,9 +446,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;' );
 		$plot->format['dcount'] = array( 'style' => 'stroke:red; stroke-width:1;' ); 
 			#'attributes' => "marker-end='url(#circle)'");
-		$pageText = $wgContLang->truncate( $this->page->getPrefixedText(), 70, '...' );
+		$pageText = $wgContLang->truncate( $this->page->getPrefixedText(), 60, '...' );
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
-			$totalCount, wfMsgForContent("readerfeedback-$tag"), $pageText );
+			$totalCount, wfMsgForContent("readerfeedback-$tag"), $pageText, $u, $sd );
 		$plot->styleTitle = 'font-family: sans-serif; font-weight: bold; font-size: 12pt;';
 		$plot->backgroundStyle = 'fill:#F0F0F0;';
 		// extra code for markers
@@ -487,7 +499,18 @@ class RatingHistory extends UnlistedSpecialPage
 			__METHOD__,
 			array( 'ORDER BY' => 'rfh_date ASC' )
 		);
-		return $res;
+		# Get max count and average rating
+		$total = $count = $ave = $maxC = 0;
+		if( $dbr->numRows($res) ) {
+			while( $row = $dbr->fetchObject($res) ) {
+				$total += (int)$row->rfh_total;
+				$count += (int)$row->rfh_count;
+				if( $row->rfh_count > $maxC ) $maxC = intval($row->rfh_count);
+			}
+			$ave = 1+$total/$count; // Offset to [1,5]
+			$res->seek( 0 );
+		}
+		return array($res,$ave,$maxC);
 	}
 	
 	/**
@@ -505,11 +528,12 @@ class RatingHistory extends UnlistedSpecialPage
 	/**
 	* Get the url to where the corresponding graph file should be
 	* @param string $tag
+	* @param string $ext
 	* @returns string
 	*/
-	public function getUrlPath( $tag ) {
+	public function getUrlPath( $tag, $ext='' ) {
 		global $wgUploadPath;
-		$rel = self::getRelPath( $tag );
+		$rel = self::getRelPath( $tag, $ext );
 		return "{$wgUploadPath}/graphs/{$rel}";
 	}
 	
