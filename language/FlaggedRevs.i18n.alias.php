@@ -92,6 +92,24 @@ $aliases['bcc'] = array(
 	'UnreviewedPages' => array( 'صفحات-بی-بازبینی' ),
 );
 
+/** Bosnian (Bosanski) */
+$aliases['bs'] = array(
+	'LikedPages' => array( 'OmiljeneStranice' ),
+	'OldReviewedPages' => array( 'StarePregledaneStranice' ),
+	'ProblemPages' => array( 'ProblematicneStranice' ),
+	'QualityOversight' => array( 'KvalitetNadzora' ),
+	'RatingHistory' => array( 'HistorijaRejtinga' ),
+	'ReaderFeedback' => array( 'PovratnaVezaCitaoca' ),
+	'ReviewedPages' => array( 'PregledaneStranice' ),
+	'RevisionReview' => array( 'PregledRevizija' ),
+	'Stabilization' => array( 'Stabilizacija' ),
+	'StablePages' => array( 'StabilneStranice' ),
+	'StableVersions' => array( 'StabilneVerzije' ),
+	'UnreviewedPages' => array( 'NepregledaneStranice' ),
+	'UnstablePages' => array( 'NestabilneStranice' ),
+	'ValidationStatistics' => array( 'StatistikeValidacije' ),
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
@@ -395,10 +413,10 @@ $aliases['pl'] = array(
 	'ReviewedPages' => array( 'Przejrzane strony' ),
 	'RevisionReview' => array( 'Oznaczenie wersji' ),
 	'Stabilization' => array( 'Konfiguracja strony' ),
-	'StablePages' => array( 'Strony stabilizowane' ),
+	'StablePages' => array( 'Strony stabilizowane', 'Strony z domyślnie pokazywaną wersją oznaczoną' ),
 	'StableVersions' => array( 'Wersje dopracowane' ),
 	'UnreviewedPages' => array( 'Nieprzejrzane strony' ),
-	'UnstablePages' => array( 'Strony destabilizowane' ),
+	'UnstablePages' => array( 'Strony destabilizowane', 'Strony z domyślnie pokazywaną wersją bieżącą' ),
 	'ValidationStatistics' => array( 'Statystyki oznaczania' ),
 );
 

@@ -44,11 +44,12 @@ No configuration is possible.',
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
  * @author SPQRobin
+ * @author Saper
  */
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
 
-Probably means something like "to appraise, verify, or check for accuracy, authenticity, validity, etc.".',
+Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last sighted or stable version.',
 	'stabilization' => '{{Flagged Revs-small}}
 Page title of Special:Stabilization.',
 	'stabilization-text' => '{{Flagged Revs-small}}
@@ -694,6 +695,7 @@ $messages['fy'] = array(
  * @author Alison
  */
 $messages['ga'] = array(
+	'stabilization-comment' => 'Nóta tráchta:',
 	'stabilization-sel-short-1' => 'Faic',
 );
 
@@ -749,6 +751,41 @@ $messages['grc'] = array(
 	'stabilization-def-short' => 'Προκαθωρισμένη',
 	'stabilization-def-short-0' => 'Τρέχουσα',
 	'stabilization-def-short-1' => 'Σταθερά',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'stabilization-tab' => 'Konfig.',
+	'stabilization' => 'Sytekonfiguration',
+	'stabilization-text' => "'''Tue d Yystellige ändere fir zum feschtzlege, wie di aagluegt Version vu „[[:$1|$1]]“ usgwehlt un aazeigt soll wäre.'''",
+	'stabilization-perm' => 'Du hesch nid d Berächtigung, zum die Yystellige vu dr aagluegte Version z ändere.
+Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
+	'stabilization-page' => 'Sytename:',
+	'stabilization-leg' => 'Yystellige vu dr aagluegte Version fir e Syte',
+	'stabilization-select' => 'Uswahl vu dr aagluegte Version',
+	'stabilization-select1' => 'Di letscht prieft Version; wänn s keini het, no di letscht gsichtet Version',
+	'stabilization-select2' => 'Di letscht Version, wu gsichtet isch',
+	'stabilization-select3' => 'Di letscht urspringlig Version; wänn s keini het, derno di letscht Version, wu gsichtet oder prieft isch',
+	'stabilization-def' => 'Version, wu in dr normale Syteaasicht aazeigt wird',
+	'stabilization-def1' => 'D Version, wu gsichtet isch; wänn s keini het, derno di aktuäll Version',
+	'stabilization-def2' => 'Di aktuäll Version',
+	'stabilization-submit' => 'Bstätige',
+	'stabilization-notexists' => 'Es git kei Syte „[[:$1|$1]]“. Kei Yystellige megli.',
+	'stabilization-notcontent' => 'D Syte „[[:$1|$1]]“ cha nit gsichtet wäre. E Konfiguration isch nid megli.',
+	'stabilization-comment' => 'Kommentar:',
+	'stabilization-expiry' => 'Giltig bis:',
+	'stabilization-sel-short' => 'Priorität',
+	'stabilization-sel-short-0' => 'Qualität',
+	'stabilization-sel-short-1' => 'keini',
+	'stabilization-sel-short-2' => 'urspringli',
+	'stabilization-def-short' => 'Standard',
+	'stabilization-def-short-0' => 'Aktuäll',
+	'stabilization-def-short-1' => 'Gsichtet',
+	'stabilize_expiry_invalid' => 'Nid giltigs Ablaufdatum.',
+	'stabilize_expiry_old' => 'S Ablaufdatum isch iberschritte wore.',
+	'stabilize-expiring' => 'erlischt $1 (UTC)',
 );
 
 /** Hawaiian (Hawai`i)
@@ -1590,12 +1627,13 @@ $messages['os'] = array(
  * @author Derbeth
  * @author Leinad
  * @author McMonster
+ * @author Saper
  * @author Sp5uhe
  * @author ToSter
  */
 $messages['pl'] = array(
-	'stabilization-tab' => 'konfig.',
-	'stabilization' => 'Konfiguracja strony',
+	'stabilization-tab' => 'Widoczne wersje strony',
+	'stabilization' => 'Widoczna wersja strony',
 	'stabilization-text' => "'''Ustaw poniżej, w jaki sposób ma być wybierana i wyświetlana oznaczona wersja strony [[:$1|$1]].'''",
 	'stabilization-perm' => 'Nie masz wystarczających uprawnień, by zmienić konfigurację wersji oznaczonych.
 Aktualne ustawienia dla strony [[:$1|$1]]:',
@@ -1605,7 +1643,7 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-select1' => 'Ostatnia wersja zweryfikowana, a jeśli nie istnieje, to ostatnia wersja przejrzana',
 	'stabilization-select2' => 'Ostatnia wersja oznaczona',
 	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja zweryfikowana lub przejrzana',
-	'stabilization-def' => 'Wersja prezentowana w domyślnym widoku strony',
+	'stabilization-def' => 'Wersja strony wyświetlana domyślnie',
 	'stabilization-def1' => 'Wersja oznaczona, a jeśli nie istnieje, to wersja bieżąca',
 	'stabilization-def2' => 'Bieżąca wersja',
 	'stabilization-submit' => 'Potwierdź',

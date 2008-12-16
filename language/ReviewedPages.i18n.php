@@ -292,6 +292,21 @@ $messages['grc'] = array(
 	'reviewedpages-best' => 'πρωτίστη ἀναθεώρησις',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'reviewedpages' => 'Lischt vu dr Syte, wu gsichtet sin',
+	'reviewedpages-leg' => 'Lischt vu dr Syte, wu sicher vum Fäldhieter aagluegt sin',
+	'reviewedpages-list' => 'Die Syte sin gsichtet un hän dr Status, wu aagee isch, iberchu',
+	'reviewedpages-none' => 'Die Lischt isch läär.',
+	'reviewedpages-lev-0' => 'Gsichtet',
+	'reviewedpages-lev-1' => 'Prieft',
+	'reviewedpages-lev-2' => 'Bsundersch glunge',
+	'reviewedpages-all' => 'gsichteti Versione',
+	'reviewedpages-best' => 'leschti Version, wu am hegschte gwärtet woren isch',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss

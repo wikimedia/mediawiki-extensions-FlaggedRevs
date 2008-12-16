@@ -184,6 +184,7 @@ $messages['ca'] = array(
  * @author Danny B.
  * @author Li-sung
  * @author Matěj Grabovský
+ * @author Mormegil
  */
 $messages['cs'] = array(
 	'unreviewedpages' => 'Neposouzené stránky',
@@ -191,7 +192,7 @@ $messages['cs'] = array(
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'kontrola',
 	'unreviewed-unwatched' => '(nesledované)',
-	'unreviewed-watched' => '(sleduje $1 {{PLURAL:$1|uživatel|uživatelé|uživatelů}})',
+	'unreviewed-watched' => '({{PLURAL:$1|sleduje|sledují|sleduje}} $1 {{PLURAL:$1|uživatel|uživatelé|uživatelů}})',
 	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
 );
 
@@ -249,9 +250,11 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Drini
+ * @author Sanbec
  */
 $messages['es'] = array(
 	'right-unreviewedpages' => 'Mostrar la lista de páginas sin revisar',
+	'unreviewed-category' => 'Categoría:',
 );
 
 /** Extremaduran (Estremeñu)
@@ -360,10 +363,15 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'right-unreviewedpages' => 'Lueg d [[Special:UnreviewedPages|Lischt vu Syte, wu nonig vum Fäldhieter aagluegt sin]]',
-	'unreviewedpages' => 'Syte, wu nonig vum Fäldhieter aagluegt sin',
-	'unreviewed-legend' => 'Lischt vu Syte, wu nonig vum Fäldhieter aagluegt sin',
+	'right-unreviewedpages' => 'Lueg d [[Special:UnreviewedPages|Lischt vu Syte, wu nonig gsichtet sin]]',
+	'unreviewedpages' => 'Syte, wu nonig gsichet sin',
+	'unreviewed-legend' => 'Lischt vu Syte, wu nonig gsichtet sin',
 	'unreviewed-category' => 'Kategori:',
+	'unreviewed-diff' => 'aaluege',
+	'unreviewed-unwatched' => 'nid beobachtet',
+	'unreviewed-watched' => '(vu $1 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)',
+	'unreviewed-list' => 'Die Spezialsyte zeigt Syte, wu nonig gsichtet sin.',
+	'unreviewed-none' => 'S git kei Syte mit däne Kriterie, wu yygee wore sin.',
 );
 
 /** Hawaiian (Hawai`i)

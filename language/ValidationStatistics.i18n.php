@@ -80,13 +80,14 @@ $messages['ast'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
-	'validationstatistics-users' => "'''{{SITENAME}}''' зараз  налічвае '''$1''' {{PLURAL:$1|удзельнік|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і '''$2'''  {{PLURAL:$2|удзельнік|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«правяраючага»]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''$1''' {{PLURAL:$1|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і '''$2'''  {{PLURAL:$2|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«правяраючага»]].",
 	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за выключэньнем старонак-перанакіраваньняў.
 
-'''Заўвага:''' наступныя зьвесткі кэшуецца на некалькі гадзінаў і могуць не адпавядаць цяперашнім.",
+'''Заўвага:''' наступныя зьвесткі кэшуюцца на некалькі гадзінаў і могуць не адпавядаць цяперашнім.",
 	'validationstatistics-ns' => 'Прастора назваў',
 	'validationstatistics-total' => 'Старонак',
 	'validationstatistics-stable' => 'Правераных',
@@ -240,10 +241,10 @@ $messages['gsw'] = array(
 '''Wichtig:''' Die Date wäre als fir e paar Stund in Zwischespicher abglait und sin wäg däm vilicht nid alliwyl aktuäll.",
 	'validationstatistics-ns' => 'Namensruum',
 	'validationstatistics-total' => 'Syte insgsamt',
-	'validationstatistics-stable' => 'Zmindescht ei Version isch vum Fäldhieter aagluegt wore.',
-	'validationstatistics-latest' => 'Syte, wu di letscht Version vum Fäldhieter aagluegt woren isch.',
-	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu vum Fäldhieter aagluegt sin.',
-	'validationstatistics-old' => 'Syte mit Versione, wu nid vum Fäldhieter aagluegt sin.',
+	'validationstatistics-stable' => 'Zmindescht ei Version isch gsichtet.',
+	'validationstatistics-latest' => 'Syte, wu di letscht Version vun ene gsichtet isch.',
+	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu gsichtet sin.',
+	'validationstatistics-old' => 'Syte mit Versione, wu nid gsichtet sin.',
 );
 
 /** Hebrew (עברית)

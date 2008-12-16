@@ -169,6 +169,17 @@ $messages['grc'] = array(
 	'stablepages-config' => 'Διαμόρφωσις',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'stablepages' => 'Lischt vu Syte, wu gsichtet sin',
+	'stablepages-stable' => 'gsichteti Version',
+	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byn ene di aagluegt Version as Standardinhalt aazeigt wird.',
+	'stablepages-none' => 'Die Lischt isch läär.',
+	'stablepages-config' => 'Konfiguration',
+);
+
 /** Hebrew (עברית)
  * @author Ori229
  * @author Rotemliss
@@ -263,6 +274,7 @@ $messages['lb'] = array(
 $messages['mk'] = array(
 	'stablepages' => 'Стабилни страници',
 	'stablepages-stable' => 'стабилна верзија',
+	'stablepages-text' => 'Следи листа на страници кои се мануелно конфигурирани да ја прикажуваат содржината на стабилната верзија по основно за корисниците кои ја прегледуваат.',
 	'stablepages-none' => 'Нема страници во оваа листа',
 	'stablepages-config' => 'Конфигурација',
 );

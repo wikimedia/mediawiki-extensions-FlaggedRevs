@@ -53,11 +53,12 @@ $messages['arz'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
 	'unstablepages' => 'Нестабільныя старонкі',
 	'unstablepages-stable' => 'стабільная вэрсія',
-	'unstablepages-text' => 'Ніжэй пададзены сьпіс старонак, у якіх ўручную усталяваны паказ па змоўчваньні накіду старонкі для чытачоў.',
+	'unstablepages-text' => 'Ніжэй пададзены сьпіс старонак, у якіх уручную ўсталяваны паказ па змоўчаньні накіду старонкі для чытачоў.',
 );
 
 /** German (Deutsch)

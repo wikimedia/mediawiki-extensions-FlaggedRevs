@@ -258,6 +258,13 @@ $messages['eo'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
 );
 
+/** Spanish (Español)
+ * @author Sanbec
+ */
+$messages['es'] = array(
+	'oldreviewed-category' => 'Categoría:',
+);
+
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
@@ -357,6 +364,20 @@ $messages['grc'] = array(
 	'oldreviewedpages-quality' => 'ποιοτική δέλτος',
 	'oldreviewed-category' => 'Κατηγορία:',
 	'oldreviewed-diff' => 'θεωρεῖν',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'oldreviewedpages' => 'Alti gsichteti Versione',
+	'oldreviewedpages-legend' => 'Lischt vu Syte, wu gsichtet sin mit Versione, wu nit gsichtet sin',
+	'oldreviewedpages-list' => 'Die Spezialsyte zeigt gsichteti Syte, wu nonig gsichteti Bearbeitige hän.',
+	'oldreviewedpages-none' => 'Im Momänt git s no kei Syte mit däne Kriterie.',
+	'oldreviewedpages-stable' => 'gsichtet',
+	'oldreviewedpages-quality' => 'prieft',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunde}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Täg}})',
 );
 
 /** Hebrew (עברית)

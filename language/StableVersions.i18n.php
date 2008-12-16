@@ -287,6 +287,18 @@ $messages['grc'] = array(
 	'stableversions-review' => 'Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'stableversions' => 'Gsichteti Versione',
+	'stableversions-leg1' => 'Lischt vu dr Versione fir e Artikel, wu gsichtet sin',
+	'stableversions-page' => 'Artikelname:',
+	'stableversions-none' => '„[[:$1]]“ het kei Versione, wu gsichtet sin.',
+	'stableversions-list' => 'Des isch d Lischt vu dr Versione vu [[:$1]], wu gsichtet sin:',
+	'stableversions-review' => 'aagluegt <i>$1</i> dur $2',
+);
+
 /** Hebrew (עברית)
  * @author Rotemliss
  * @author דניאל ב.
