@@ -446,9 +446,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->format['rave'] = array( 'style' => 'stroke:green; stroke-width:1;' );
 		$plot->format['dcount'] = array( 'style' => 'stroke:red; stroke-width:1;' ); 
 			#'attributes' => "marker-end='url(#circle)'");
-		$pageText = $wgContLang->truncate( $this->page->getPrefixedText(), 60, '...' );
+		$pageText = $wgContLang->truncate( $this->page->getPrefixedText(), 65, '...' );
 		$plot->title = wfMsgExt('ratinghistory-graph',array('parsemag','content'),
-			$totalCount, wfMsgForContent("readerfeedback-$tag"), $pageText, $u, $sd );
+			$totalCount, wfMsgForContent("readerfeedback-$tag"), $pageText );
 		$plot->styleTitle = 'font-family: sans-serif; font-weight: bold; font-size: 12pt;';
 		$plot->backgroundStyle = 'fill:#F0F0F0;';
 		// extra code for markers
