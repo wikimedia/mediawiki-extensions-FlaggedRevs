@@ -7,7 +7,7 @@ class FlaggedRevsHooks {
 	public static function stripPatrolRights( $user, &$rights ) {
 		# Use only our extension mechanisms
 		foreach( $rights as $n => $right ) {
-			if( $right == 'patrol' || $right == 'autopatrol' ) {
+			if( $right == 'autopatrol' ) {
 				unset($rights[$n]);
 			}
 		}
@@ -577,7 +577,7 @@ EOT;
 	* Don't let users vandalize pages by moving them
 	*/
 	public static function userCanMove( $title, $user, &$action, &$result ) {
-		if( $action != 'move' || !FlaggedRevs::isPageReviewable( $title ) ) {
+		if( $action != 'move' || $result===false || !FlaggedRevs::isPageReviewable($title) ) {
 			return true;
 		}
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
@@ -594,6 +594,28 @@ EOT;
 		return true;
 	}
 	
+	/**
+	* Don't let users pages pages not in $wgFlaggedRevsPatrolNamespaces
+	*/
+	public static function userCanPatrol( $title, $user, &$action, &$result ) {
+		if( $action != 'patrol' || $result===false ) {
+			return true;
+		}
+		# Pages in reviewable namespace can be patrolled IF reviewing
+		# is disabled for pages that don't show the stable by default.
+		# In such cases, we let people with 'review' rights patrol them.
+		if( FlaggedRevs::isPageReviewable($title) && !$user->isAllowed( 'review' ) ) {
+			$result = false;
+			return false;
+		}
+		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+		if( !$flaggedArticle->isPatrollable() ) {
+			$result = false;
+			return false;
+		}
+		return true;
+	}
+	
     /**
     * Allow users to view reviewed pages
     */
@@ -601,7 +623,7 @@ EOT;
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
 		# Return out if $result set to false by some other hooked call.
-        if( empty($wgFlaggedRevsVisible) || $action !== 'read' || $result===false )
+        if( $action !== 'read' || $result===false || empty($wgFlaggedRevsVisible) )
             return true;
         # Admin may set this to false, rather than array()...
         $groups = $user->getGroups();
@@ -1229,7 +1251,7 @@ EOT;
 	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $diff->getTitle() );
-		$flaggedArticle->addPatrolAndDiffLink( $diff, $oldRev, $newRev );
+		$flaggedArticle->addDiffLink( $diff, $oldRev, $newRev );
 		$flaggedArticle->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
 		return true;
 	}

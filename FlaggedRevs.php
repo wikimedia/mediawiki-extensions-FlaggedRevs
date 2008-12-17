@@ -172,14 +172,14 @@ $wgAvailableRights[] = 'unreviewedpages';
 $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
-$wgGroupPermissions['editor']['patrolmarks']     = true;
-$wgGroupPermissions['editor']['autopatrolother'] = true;
+$wgGroupPermissions['editor']['patrol']          = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review'] = true;
+$wgGroupPermissions['reviewer']['patrol'] = true;
 
 $wgGroupPermissions['bot']['autoreview'] = true;
 
@@ -373,6 +373,8 @@ $wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
 # Disallow moves of stable pages
 $wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanMove';
+# Determine what pages can be patrolled
+$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanPatrol';
 # Log parameter
 $wgHooks['LogLine'][] = 'FlaggedRevsHooks::reviewLogLine';
 # Disable auto-promotion for demoted users

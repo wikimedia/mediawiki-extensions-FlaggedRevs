@@ -1139,7 +1139,7 @@ class FlaggedArticle extends Article {
 	* Add a link to patrol non-reviewable pages.
 	* Also add a diff to stable for other pages if possible.
 	*/
-	public function addPatrolAndDiffLink( $diff, $oldRev, $newRev ) {
+	public function addDiffLink( $diff, $oldRev, $newRev ) {
 		global $wgUser, $wgOut;
 		// Is there a stable version?
 		if( $oldRev && $this->isReviewable() ) {
@@ -1158,42 +1158,6 @@ class FlaggedArticle extends Article {
 					$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>$patrol</div>" );
 				}
 			}
-		// Prepare a change patrol link, if applicable
-		} else if( $this->isPatrollable() && $wgUser->isAllowed( 'review' ) ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			// If we've been given an explicit change identifier, use it; saves time
-			if( $diff->mRcidMarkPatrolled ) {
-				$rcid = $diff->mRcidMarkPatrolled;
-			} else {
-				# Look for an unpatrolled change corresponding to this diff
-				$change = RecentChange::newFromConds(
-					array(
-						# Add redundant user,timestamp condition so we can use the existing index
-						'rc_user_text'  => $diff->mNewRev->getRawUserText(),
-						'rc_timestamp'  => wfGetDB( DB_SLAVE )->timestamp( $diff->mNewRev->getTimestamp() ),
-						'rc_this_oldid' => $diff->mNewid,
-						'rc_last_oldid' => $diff->mOldid,
-						'rc_patrolled'  => 0
-					),
-					__METHOD__
-				);
-				if( $change instanceof RecentChange ) {
-					$rcid = $change->mAttribs['rc_id'];
-				} else {
-					$rcid = 0; // None found
-				}
-			}
-			// Build the link
-			if( $rcid ) {
-				$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-				$token = $wgUser->editToken( $newRev->getTitle()->getPrefixedText(), $rcid );
-				$patrol = '[' . $wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml( 'revreview-patrol' ),
-					wfArrayToCGI( array( 'patrolonly' => 1, 'target' => $newRev->getTitle()->getPrefixedDBKey(),
-						'rcid' => $rcid, 'token' => $token ) ) ) . ']';
-			} else {
-				$patrol = '';
-			}
-			$wgOut->addHTML( '<div class="fr-diff-patrollink">' . $patrol . '</div>' );
 		}
 		return true;
 	}

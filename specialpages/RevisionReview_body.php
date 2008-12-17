@@ -51,48 +51,10 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		# Basic patrolling
-		$this->patrolonly = $wgRequest->getBool( 'patrolonly' );
-		$this->rcid = $wgRequest->getIntOrNull( 'rcid' );
 		# Param for sites with no tags, otherwise discarded
 		$this->approve = $wgRequest->getBool( 'wpApprove' );
 		# Patrol the edit if requested...
-		if( $this->patrolonly && $this->rcid ) {
-			$this->markPatrolled();
-		# Otherwise, do a regular review...
-		} else {
-			$this->markReviewed();
-		}
-	}
-	
-	private function markPatrolled() {
-		global $wgRequest, $wgOut, $wgUser;
-		
-		$token = $wgRequest->getVal('token');
-		$wgOut->setPageTitle( wfMsg( 'revreview-patrol-title' ) );
-		# Prevent hijacking
-		if( !$wgUser->matchEditToken( $token, $this->page->getPrefixedText(), $this->rcid ) ) {
-			$wgOut->addWikiText( wfMsg('sessionfailure') );
-			return;
-		}
-		# Make sure page is not reviewable. This can be spoofed in theory,
-		# but the token is salted with the id and title and this should
-		# be a trusted user...so it is not worth doing extra query work. 
-		$fa = FlaggedArticle::getTitleInstance( $this->page );
-		if( $fa->isReviewable() ) {
-			$wgOut->showErrorPage('notargettitle', 'notargettext' ); 	 
-			return;
-		}
-		# Mark as patrolled
-		$dbw = wfGetDB( DB_MASTER );
-		if( ( $rc = RecentChange::newFromId($this->rcid) ) ) {
-			$rc->reallyMarkPatrolled();
-			// Log this patrol event
-			PatrolLog::record( $rc, false );
-		}
-		# Inform the user
-		$wgOut->addWikiText( wfMsg( 'revreview-patrolled', $this->page->getPrefixedText() ) );
-		$wgOut->returnToMain( false, SpecialPage::getTitleFor( 'Recentchanges' ) );
+		$this->markReviewed();
 	}
 	
 	private function markReviewed() {
