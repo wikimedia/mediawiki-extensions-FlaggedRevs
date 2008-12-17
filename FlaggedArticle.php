@@ -796,7 +796,7 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add stable version tabs. Rename some of the others if necessary.
 	 */
-	public function setActionTabs( $skin, &$contentActions ) {
+	public function setActionTabs( $skin, &$actions ) {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		$title = $this->parent->getTitle()->getSubjectPage();
 		# Non-content pages cannot be validated
@@ -805,10 +805,10 @@ class FlaggedArticle extends Article {
 		# We can change the behavoir of stable version for this page to be different
 		# than the site default.
 		if( !$skin->mTitle->isTalkPage() && $wgUser->isAllowed('stablesettings') ) {
-			if( !isset($contentActions['protect']) && !isset($contentActions['unprotect']) ) {
+			if( count($actions) && !isset($actions['protect']) && !isset($actions['unprotect']) ) {
 				wfLoadExtensionMessages( 'Stabilization' );
 				$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
-				$contentActions['default'] = array(
+				$actions['default'] = array(
 					'class' => false,
 					'text' => wfMsg('stabilization-tab'),
 					'href' => $stableTitle->getLocalUrl('page='.$title->getPrefixedUrl())
@@ -831,18 +831,18 @@ class FlaggedArticle extends Article {
 	   	# Be clear about what is being edited...
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 	   	if( !$skin->mTitle->isTalkPage() && !$synced ) {
-	   		if( isset( $contentActions['edit'] ) ) {
+	   		if( isset( $actions['edit'] ) ) {
 				if( $this->showStableByDefault() )
-					$contentActions['edit']['text'] = wfMsg('revreview-edit');
+					$actions['edit']['text'] = wfMsg('revreview-edit');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
-					$contentActions['edit']['href'] = $title->getLocalUrl( 'action=edit' );
-	   		} if( isset( $contentActions['viewsource'] ) ) {
+					$actions['edit']['href'] = $title->getLocalUrl( 'action=edit' );
+	   		} if( isset( $actions['viewsource'] ) ) {
 				if( $this->showStableByDefault() )
-					$contentActions['viewsource']['text'] = wfMsg('revreview-source');
+					$actions['viewsource']['text'] = wfMsg('revreview-source');
 				# If the user is requesting the draft or some revision, they don't need a diff.
 				if( $this->pageOverride() )
-					$contentActions['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
+					$actions['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
 			}
 	   	}
 		// Add auxillary tabs...
@@ -864,7 +864,7 @@ class FlaggedArticle extends Article {
 		$newActions = array();
 		$first = true;
 		# Straighten out order, set the tab AFTER the main tab is set
-		foreach( $contentActions as $tabAction => $data ) {
+		foreach( $actions as $tabAction => $data ) {
 			# Main page tab...
 			if( $first ) {
 				$first = false;
@@ -889,7 +889,7 @@ class FlaggedArticle extends Article {
 			}
 	   	}
 	   	# Reset static array
-	   	$contentActions = $newActions;
+	   	$actions = $newActions;
 		return true;
 	}
 
