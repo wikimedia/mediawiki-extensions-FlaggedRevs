@@ -475,10 +475,10 @@ class RatingHistory extends UnlistedSpecialPage
 		$svgPath = $this->getFilePath( $tag, 'svg' );
 		$fp = @fopen( $svgPath, 'w' );
 		@fwrite( $fp, $plot->svg );
-		@fclose( $fp );
 		// Rasterize due to IE suckage
 		$svgHandler = new SvgHandler();
 		$status = $svgHandler->rasterize( $svgPath, $filePath, 1000, 410 );
+		@fclose( $fp );
 		if( $status !== true ) {
 			return false;
 		}
