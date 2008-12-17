@@ -24,6 +24,7 @@ class OldReviewedPages extends SpecialPage
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
 		$this->size = $wgRequest->getIntOrNull( 'size' );
+		$this->watched = $wgRequest->getCheck( 'watched' );
 		$feedType = $wgRequest->getVal( 'feed' );
 		if( $feedType ) {
 			return $this->feed( $feedType );
@@ -45,25 +46,31 @@ class OldReviewedPages extends SpecialPage
 	function showList( $par ) {
 		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
 		$limit = $this->parseParams( $par );
-		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category, $this->size );
-		if( $limit )
-			$pager->mLimit = $limit;
+		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category, 
+			$this->size, $this->watched );
+		$pager->mLimit = $limit ? $limit : $pager->mLimit;
 		// Viewing the page normally...
 		if( !$this->including() ) {
 			$action = htmlspecialchars( $wgScript );
-			$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
+			$wgOut->addHTML( 
+				"<form action=\"$action\" method=\"get\">\n" .
 				'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
-				Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) );
+				Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() )
+			);
 			# Display dropdown as needed
 			if( count($wgFlaggedRevsNamespaces) > 1 ) {
 				$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' );
 			}
-			$wgOut->addHTML( Xml::label( wfMsg("oldreviewed-category"), 'category' ) . '&nbsp;' . 
-				Xml::input( 'category', 35, $this->category, array('id' => 'category') ) . '<br/>' .
-				Xml::label( wfMsg('oldreviewed-size'), 'size' ) . '&nbsp;' .
-				Xml::input( 'size', 6, $this->size, array( 'id' => 'wpSize' ) ) .
+			$wgOut->addHTML(
+				Xml::label( wfMsg("oldreviewed-category"), 'wpCategory' ) . '&nbsp;' . 
+				Xml::input( 'category', 35, $this->category, array('id' => 'wpCategory') ) . '<br/>' .
+				Xml::label( wfMsg('oldreviewed-size'), 'wpSize' ) . '&nbsp;' .
+				Xml::input( 'size', 5, $this->size, array( 'id' => 'wpSize' ) ) . '&nbsp;' .
+				Xml::label( wfMsg('oldreviewed-watched'), 'wpWatched' ) . '&nbsp;' .
+				Xml::check( 'watched', $this->watched, array( 'id' => 'wpWatched' ) ) .
 				'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-				"</fieldset></form>" );
+				"</fieldset></form>"
+			);
 			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
 			if( $pager->getNumRows() ) {
 				$wgOut->addHTML( $pager->getNavigationBar() );
@@ -239,9 +246,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $category, $namespace;
 
-	function __construct( $form, $namespace, $category=NULL, $size=NULL, $conds = array() ) {
+	function __construct( $form, $namespace, $category='', $size=NULL, $watched=false ) {
 		$this->mForm = $form;
-		$this->mConds = $conds;
 		# Must be a content page...
 		global $wgFlaggedRevsNamespaces;
 		if( !is_null($namespace) ) {
@@ -253,7 +259,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		$this->size = $size ? $size : NULL;
-		
+		$this->watched = (bool)$watched;
 		parent::__construct();
 	}
 
@@ -266,6 +272,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
+		global $wgUser;
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page', 'revision' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
@@ -283,6 +290,13 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$conds[] = 'cl_from = page_id';
 			$conds['cl_to'] = $this->category;
 			$useIndex['categorylinks'] = 'cl_from';
+		}
+		# Filter by watchlist
+		if( $this->watched && $uid = $wgUser->getId() ) {
+			$tables[] = 'watchlist';
+			$conds[] = "wl_user = '$uid'";
+			$conds[] = 'page_namespace = wl_namespace';
+			$conds[] = 'page_title = wl_title';
 		}
 		# Filter by bytes changed
 		if( $this->size ) {

@@ -9,7 +9,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'oldreviewedpages' => 'Outdated reviewed pages',
-	'oldreviewedpages-legend' => 'List reviewed pages with unreviewed revisions',
+	'oldreviewedpages-legend' => 'List reviewed pages with revisions pending review',
 	'oldreviewedpages-list' => 'This page lists reviewed pages that have pending edits.',
 	'oldreviewedpages-none' => 'There are currently no pages meeting these criteria',
 	'oldreviewedpages-stable' => 'sighted',
@@ -18,6 +18,7 @@ $messages['en'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|day|days}})',
 	'oldreviewedpages-recent' => '(less than 1 hour)',
 	'oldreviewed-category' => 'Category:',
+	'oldreviewed-watched' => 'On my watchlist',
 	'oldreviewed-diff' => 'review',
 	'oldreviewed-size' => 'Max change (bytes):',
 	'oldreviewedpages-unwatched' => '(unwatched)',
