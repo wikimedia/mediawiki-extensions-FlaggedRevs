@@ -1095,7 +1095,6 @@ EOT;
 		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
 		$flaggedArticle->addStableLink( $outputDone, $pcache );
 		$flaggedArticle->setPageContent( $outputDone, $pcache );
-		$flaggedArticle->addPatrolLink( $outputDone, $pcache );
 		return true;
 	}
 	

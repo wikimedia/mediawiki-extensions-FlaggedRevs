@@ -738,31 +738,6 @@ class FlaggedArticle extends Article {
 		return true;
 	}
 
-	/*
-	 * Adds a patrol link to non-reviewable pages
-	 */
-	public function addPatrolLink( &$outputDone, &$pcache ) {
-		global $wgRequest, $wgOut, $wgUser;
-		# For unreviewable pages, allow for basic patrolling
-		if( !$this->isPatrollable() ) {
-			return true;
-		}
-		# If we have been passed an &rcid= parameter, we want to give the user a
-		# chance to mark this new article as patrolled.
-		$rcid = $wgRequest->getIntOrNull( 'rcid' );
-		if( !empty($rcid) && $wgUser->isAllowed( 'review' ) ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
-			$token = $wgUser->editToken( $this->parent->getTitle()->getPrefixedText(), $rcid );
-			$link = $wgUser->getSkin()->makeKnownLinkObj( $reviewTitle, wfMsgHtml('markaspatrolledtext'),
-				wfArrayToCGI( array( 'patrolonly' => 1, 'target' => $this->parent->getTitle()->getPrefixedDBKey(),
-					'rcid' => $rcid, 'token' => $token ) )
-			);
-			# Add the link...
-			$wgOut->addHTML( "<div class='patrollink'>" . wfMsgHtml('markaspatrolledlink',$link) . '</div>' );
-		}
-		return true;
-	}
 	 /**
 	 * Add link to stable version setting to protection form
 	 */
