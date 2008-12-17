@@ -250,12 +250,14 @@ $messages['pl'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'problempages' => 'Páginas com fraca avaliação',
 	'problempages-leg' => 'Pesquisar páginas com baixa avaliação',
 	'problempages-list' => 'Segue-se uma lista de páginas ordenada de acordo com a avaliação dos leitores.',
 	'problempages-none' => 'Não há páginas nesta listagem',
+	'problempages-graphs' => 'dados de avaliações',
 );
 
 /** Tarandíne (Tarandíne)

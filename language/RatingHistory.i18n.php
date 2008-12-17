@@ -584,6 +584,7 @@ Lo '''nombre de verificacion per jorn''' <font color=\"red\">''(roge)''</font> e
 );
 
 /** Polish (Polski)
+ * @author Holek
  * @author Jwitos
  * @author Leinad
  * @author ToSter
@@ -602,8 +603,9 @@ $messages['pl'] = array(
 	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie',
 	'ratinghistory-users' => 'Użytkownicy, którzy wystawili ocenę',
 	'ratinghistory-graph' => '$2 strony „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
+	'readerfeedback-svg' => 'Zobacz jako SVG',
 	'ratinghistory-none' => 'W tej chwil brak liczby ocen czytelników wystarczającej, by móc stworzyć wykresy.',
-	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasu <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty.
+	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasowym <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty. Średnia w wybranym przedziale czasowym to średnia dziennych ocen w tym przedziale czasowym.
 
 Skala: '''[1]''' – Niedostatecznie; '''[2]''' – Słabo; '''[3]''' – Zadowalająco; '''[4]''' – Dobrze; '''[5]''' – Bardzo dobrze;
 
@@ -613,16 +615,24 @@ Skala: '''[1]''' – Niedostatecznie; '''[2]''' – Słabo; '''[3]''' – Zadowa
 
 /** Portuguese (Português)
  * @author 555
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'ratinghistory' => 'Histórico de avaliações da página',
-	'ratinghistory-text' => "'''Esta página mostra os dados de avaliação de página de [[:$1|$1]].'''",
-	'ratinghistory-leg' => 'Histórico de dados de avaliações',
+	'ratinghistory-leg' => 'Histórico de dados de avaliações para [[:$1|$1]]',
 	'ratinghistory-tab' => 'avaliação',
+	'ratinghistory-link' => 'Avaliação da página',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Obrigado por reservar um momento para avaliar esta página!</font>''",
 	'ratinghistory-period' => 'Período de tempo:',
 	'ratinghistory-month' => 'último mês',
+	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos três anos',
+	'ratinghistory-chart' => 'Avaliações dos leitores ao longo do tempo',
+	'ratinghistory-users' => 'Utilizadores que fizeram avaliações',
+	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|avaliação|avaliações}})',
+	'readerfeedback-svg' => 'Ver como SVG',
+	'ratinghistory-none' => 'Ainda não há dados suficientes de avaliações dos leitores para mostrar gráficos.',
 );
 
 /** Tarandíne (Tarandíne)
@@ -642,6 +652,7 @@ $messages['roa-tara'] = array(
 	'ratinghistory-chart' => "'U feedback lassete da ste lettore jè fore timbe massime",
 	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisione|revisiune}})',
+	'readerfeedback-svg' => 'Vide cumme a SVG',
 	'ratinghistory-none' => "Non ge stonne abbastanza lettore ca onne lassete 'u feedback pe ccrejà 'nu grafeche jndr'à stu timbe.",
 	'ratinghistory-legend' => "'U '''pundegge medie sciurnaliere''' <font color=\"blue\">''(blue)''</font> e
 'u '''pundegge medie corrende''' <font color=\"green\">''(green)''</font> sonde disegnete aqquà sotte, pe date.

@@ -59,6 +59,8 @@ $messages['be-tarask'] = array(
 	'unstablepages' => 'Нестабільныя старонкі',
 	'unstablepages-stable' => 'стабільная вэрсія',
 	'unstablepages-text' => 'Ніжэй пададзены сьпіс старонак, у якіх уручную ўсталяваны паказ па змоўчаньні накіду старонкі для чытачоў.',
+	'unstablepages-none' => 'У гэтым сьпісе няма старонак',
+	'unstablepages-config' => 'Канфігурацыя',
 );
 
 /** German (Deutsch)

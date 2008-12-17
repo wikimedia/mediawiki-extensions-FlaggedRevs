@@ -624,6 +624,7 @@ $messages['nl'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagen}})',
 	'oldreviewedpages-recent' => '(minder dan een uur)',
 	'oldreviewed-category' => 'Categorie:',
+	'oldreviewed-watched' => 'Op mijn volglijst',
 	'oldreviewed-diff' => 'eindredactie',
 	'oldreviewed-size' => 'Maximale wijziging in aantal bytes:',
 	'oldreviewedpages-unwatched' => '(niet op een volglijst)',

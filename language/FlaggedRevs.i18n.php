@@ -2453,6 +2453,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 /** Spanish (Español)
  * @author Drini
  * @author Lin linao
+ * @author Sanbec
  */
 $messages['es'] = array(
 	'editor' => 'Editor',
@@ -2471,7 +2472,7 @@ $messages['es'] = array(
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'hist-draft' => 'bosquejo de revisión',
 	'hist-quality' => 'revisión de calidad',
-	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]]',
 	'reviewer' => 'Revisor',
 	'revreview-auto' => '(automático)',
 	'revreview-auto-w' => "Estás editando la versión estable. Los cambios serán '''automáticamente revisados'''.",
@@ -7378,6 +7379,7 @@ $messages['roa-tara'] = array(
 	'revreview-flag' => 'Revide sta revisione',
 	'revreview-legend' => "D'a 'nu pundegge a 'u condenute d'a revisione",
 	'revreview-log' => 'Commende:',
+	'revreview-note' => '[[User:$1|$1]] ha fatte le note seguende [[{{MediaWiki:Validationpage}}|revesetanne]] sta revisione:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',
 	'revreview-patrol' => 'Signe stu cangiamende cumme verifichete a funne',
