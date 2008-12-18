@@ -734,7 +734,8 @@ EOT;
 		$patrol = $record = false;
 		// Is the page reviewable?
 		if( FlaggedRevs::isPageReviewable( $rc->getTitle() ) ) {
-			$patrol = FlaggedRevs::revIsFlagged( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'], GAID_FOR_UPDATE );
+			$patrol = FlaggedRevs::revIsFlagged( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'], 
+				GAID_FOR_UPDATE );
 		// Can this be patrolled?
 		} else if( FlaggedRevs::isPagePatrollable( $rc->getTitle() ) ) {
 			$patrol = $wgUser->isAllowed('autopatrolother');
