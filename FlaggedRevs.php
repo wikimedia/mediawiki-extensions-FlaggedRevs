@@ -173,6 +173,7 @@ $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['patrol']          = true;
+$wgGroupPermissions['editor']['autopatrolother'] = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
 
 # Defines extra rights for advanced reviewer class
