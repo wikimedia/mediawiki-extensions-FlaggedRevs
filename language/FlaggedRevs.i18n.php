@@ -2046,7 +2046,7 @@ Eine Vorlage oder ein Bild wurden ohne spezifische Versionsnummer angefordert. D
 	'revreview-depth-4' => 'exzellent',
 	'revreview-draft-title' => 'Ungesichtete Seite',
 	'revreview-edit' => 'Entwurf bearbeiten',
-	'revreview-editnotice' => "'''Hinweis: Bearbeitungen dieser Seite werden erst in die [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein dazu berechtiger Benutzer die Änderung kontrolliert hat.'''",
+	'revreview-editnotice' => "'''Bearbeitungen dieser Seite werden erst in die [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein dazu berechtiger Benutzer die Änderung kontrolliert hat.'''",
 	'revreview-flag' => 'Markiere Version',
 	'revreview-edited' => 'Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungsrecht diese freigegeben hat.
 	Es folgt die Anzeige der aktuellen, ungesichteten Version. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.',
@@ -7090,6 +7090,7 @@ $messages['ps'] = array(
 	'revreview-depth-3' => 'لوړ',
 	'revreview-source' => 'د ګارليک سرچينه',
 	'revreview-style-1' => 'د منلو وړ',
+	'revreview-statusfilter' => 'دريځ:',
 	'tooltip-ca-current' => 'د همدې مخ اوسنی ګارليک ښکاره کول',
 );
 

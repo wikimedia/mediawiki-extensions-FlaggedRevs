@@ -297,11 +297,12 @@ O '''número de revisións ao día''' <font color=\"red\">''(vermello)''</font> 
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
  * @author Omnipaedista
  */
 $messages['grc'] = array(
 	'ratinghistory' => 'Ἱστορικὸν βαθμώσεων δέλτου',
-	'ratinghistory-leg' => 'Βάθμωσις δεδομένων προτέρων ἐκδόσεων',
+	'ratinghistory-leg' => 'Βάθμωσις δεδομένων προτέρων ἐκδόσεων [[:$1|$1]]',
 	'ratinghistory-tab' => 'βάθμωσις',
 	'ratinghistory-link' => 'Βάθμωσις δέλτου',
 );
@@ -358,6 +359,26 @@ $messages['he'] = array(
 
 '''מספר הביקורות ליום''' <font color=\"red\">'''(באדום)'''</font> מוצגים בטבלאות למטה, ביחס של ''1:\$1''.",
 	'right-feedback' => 'השתמשו בטופס המשוב כדי לדרג דף',
+);
+
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'ratinghistory' => 'Stawizny hódnoćenja strony',
+	'ratinghistory-leg' => 'Daty stawiznow hódnoćenja za [[:$1|$1]]',
+	'ratinghistory-tab' => 'pohódnoćenje',
+	'ratinghistory-link' => 'Pohódnoćenje strony',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Dźakujumy so ći, zo sy sej za hódnoćenje tuteje strony čas wzał!</font>''",
+	'ratinghistory-period' => 'Doba:',
+	'ratinghistory-month' => 'zańdźeny měsac',
+	'ratinghistory-3months' => 'zańdźene 3 měsacy',
+	'ratinghistory-year' => 'loni',
+	'ratinghistory-3years' => 'zańdźene 3 lěta',
+	'ratinghistory-chart' => 'Pohódnoćenja wot čitarjow přez dobu',
+	'ratinghistory-users' => 'Wužiwarjo, kotřiz su pohódnoćili:',
+	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|kontrola|kontroli|kontrole|kontrolow}})',
+	'readerfeedback-svg' => 'Jako SVG wobhladać',
 );
 
 /** Hungarian (Magyar)

@@ -274,12 +274,31 @@ $messages['hr'] = array(
 	'validationstatistics-ns' => 'Imenski prostor',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'validationstatistics' => 'Statistika hódnoćenja',
+	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchwilu '''$1''' {{PLURAL:$1|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami wobdźěłowarja]]
+a '''$2''' {{PLURAL:$2|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami kontrolera]].",
+	'validationstatistics-table' => "Slěduje statistika za kóždy mjenowy rum, z wuwzaćom daleposrědkowanjow.
+
+'''Kedźbu:''' Slědowace daty budu na wjacore hodźiny w pufrowaku a móža njeaktualne być.",
+	'validationstatistics-ns' => 'Mjenowy rum',
+	'validationstatistics-total' => 'Strony',
+	'validationstatistics-stable' => 'Skontrolowane',
+	'validationstatistics-latest' => 'Poslednje skontrolowane',
+	'validationstatistics-synced' => 'Synchronizowane/Skontrolowane',
+	'validationstatistics-old' => 'Zestarjene',
+);
+
 /** Hungarian (Magyar)
+ * @author Bdamokos
  * @author Dani
  * @author Samat
  */
 $messages['hu'] = array(
-	'validationstatistics' => 'Ellenőrzési statisztikák',
+	'validationstatistics' => 'Ellenőrzési statisztika',
 	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''{{PLURAL:$1|egy|$1}}''' [[{{MediaWiki:Validationpage}}|járőrjoggal]], valamint '''{{PLURAL:$2|egy|$2}}''' [[{{MediaWiki:Validationpage}}|lektorjoggal]] rendelkező szerkesztője van.",
 	'validationstatistics-table' => "Lent a névterekre bontott statisztika látható, az átirányítások nincsenek beleszámolva.
 

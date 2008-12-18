@@ -123,6 +123,17 @@ $messages['he'] = array(
 	'likedpages-graphs' => 'מידע הדירוג',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'likedpages' => 'Wysoko pohódnoćene strony',
+	'likedpages-leg' => 'Wysoko pohódnoćene strony namakać',
+	'likedpages-list' => 'Slěduje lisćina strony sortěrowanych po pohódnoćenju wot čitarjow.',
+	'likedpages-none' => 'W tutej lisćinju strony njejsu.',
+	'likedpages-graphs' => 'Daty pohódnoćenja',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  */

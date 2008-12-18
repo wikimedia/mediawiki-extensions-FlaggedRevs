@@ -223,6 +223,7 @@ $messages['de'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
 	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
 	'oldreviewed-category' => 'Kategorie:',
+	'oldreviewed-watched' => 'Auf meiner Beobachtungsliste',
 	'oldreviewed-diff' => 'sichten',
 	'oldreviewed-size' => 'Maximal Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
@@ -321,6 +322,7 @@ $messages['fr'] = array(
 	'oldreviewedpages-days' => '($1 jour{{PLURAL:$1||s}})',
 	'oldreviewedpages-recent' => '(moins d’une heure)',
 	'oldreviewed-category' => 'Catégorie :',
+	'oldreviewed-watched' => 'Dans ma liste de suivi',
 	'oldreviewed-diff' => 'relecture',
 	'oldreviewed-size' => 'Changement maximal de la taille (en octets) :',
 	'oldreviewedpages-unwatched' => '(non observé)',
@@ -350,6 +352,7 @@ $messages['gl'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|días}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoría:',
+	'oldreviewed-watched' => 'Na miña lista de vixilancia',
 	'oldreviewed-diff' => 'revisar',
 	'oldreviewed-size' => 'Tamaño máximo, en bytes, do cambio:',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
@@ -419,6 +422,27 @@ $messages['hi'] = array(
 	'oldreviewed-diff' => 'जाँच',
 	'oldreviewedpages-unwatched' => '(न देखे हुए)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
+);
+
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'oldreviewedpages' => 'Zestarjene skontrolowane strony',
+	'oldreviewedpages-legend' => 'Lisćina skontrolowanych stronow z njeskontrolowanymi wersijemi',
+	'oldreviewedpages-list' => 'Tuta strona nalistuje skontrolowane strony, kotrež hišće njeskontrolowane změny maja.',
+	'oldreviewedpages-none' => 'Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja',
+	'oldreviewedpages-stable' => 'přehladany',
+	'oldreviewedpages-quality' => 'kwalita',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})',
+	'oldreviewedpages-recent' => '(mjenje hač 1 hodźina)',
+	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-watched' => 'W mojim wobkedźbowankach',
+	'oldreviewed-diff' => 'kontrolować',
+	'oldreviewed-size' => 'Maksimalna změna (w bajtach):',
+	'oldreviewedpages-unwatched' => '(njewobkedźbowany)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|wužiwar wobkedźbuje|wužiwarjej wobkedźbujetaj|wužiwarjo wobkedźbuja|wužiwarjow wobkedźbuje}})',
 );
 
 /** Hungarian (Magyar)
@@ -745,6 +769,7 @@ $messages['roa-tara'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|sciurne|sciurne}})',
 	'oldreviewedpages-recent' => "(mene de n'ore)",
 	'oldreviewed-category' => 'Categorije:',
+	'oldreviewed-watched' => "Sus 'a liste meje de le paggène condrollete",
 	'oldreviewed-diff' => 'riviste',
 	'oldreviewed-size' => "Cange 'a dimenzione massime de byte:",
 	'oldreviewedpages-unwatched' => '(no condrollà)',
@@ -785,6 +810,7 @@ $messages['sk'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|deň|dni|dní}})',
 	'oldreviewedpages-recent' => '(menej ako 1 hodina)',
 	'oldreviewed-category' => 'Kategória:',
+	'oldreviewed-watched' => 'V mojom zozname sledovaných',
 	'oldreviewed-diff' => 'skontrolovať',
 	'oldreviewed-size' => 'Max. veľkosť zmeny v bajtoch:',
 	'oldreviewedpages-unwatched' => '(nesledovaná)',
@@ -810,6 +836,7 @@ $messages['sr-ec'] = array(
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'oldreviewedpages' => 'Föråldrade granskade sidor',
@@ -822,6 +849,7 @@ $messages['sv'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagar}})',
 	'oldreviewedpages-recent' => '(mindre än 1 timme)',
 	'oldreviewed-category' => 'Kategori:',
+	'oldreviewed-watched' => 'På min bevakningslista',
 	'oldreviewed-diff' => 'granska',
 	'oldreviewed-size' => 'Maximal storleksändring i byte:',
 	'oldreviewedpages-unwatched' => '(obevakad)',

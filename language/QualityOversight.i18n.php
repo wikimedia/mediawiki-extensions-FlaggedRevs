@@ -135,6 +135,15 @@ $messages['hi'] = array(
 	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'qualityoversight' => 'Kwalitna kontrola',
+	'qualityoversight-list' => 'Tuta strona nalistuje aktulane schwalenja a njeschwalenja skontrolowanych wersijow.',
+	'qualityoversight-legend' => 'Aktualne kontrolowe zapiski přepytać',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  */

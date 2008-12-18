@@ -139,6 +139,17 @@ $messages['he'] = array(
 	'problempages-graphs' => 'מידע הדירוג',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'problempages' => 'Nisko pohódnoćene strony',
+	'problempages-leg' => 'Nisko pohódnoćene strony namakać',
+	'problempages-list' => 'Slěduje lisćina stronow sortěrowanych po póhodnoćenju wot čitarjow',
+	'problempages-none' => 'W tutej lisćinje strony njejsu.',
+	'problempages-graphs' => 'Daty pohódnoćenja',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  * @author Samat
