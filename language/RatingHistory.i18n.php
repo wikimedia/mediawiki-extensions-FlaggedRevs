@@ -84,6 +84,7 @@ $messages['arz'] = array(
 	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
 	'ratinghistory-users' => 'اليوزرز اللي عملو تقييمات:',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
+	'readerfeedback-svg' => 'اعرض SVG',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
 	'ratinghistory-legend' => "'''التقييم اليومي المتوسط''' <font color=\"blue\">''(ازرق)''</font> و  
 '''التقييم المتوسط الجاري''' <font color=\"green\">''(اخضر)''</font> مرسومين تحت, على حسب التاريخ.   
@@ -195,6 +196,7 @@ $messages['eo'] = array(
 	'ratinghistory-chart' => 'Taksado de legantaro trans tempo',
 	'ratinghistory-users' => 'Uzantoj taksinte ĉi tiun paĝon:',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
+	'readerfeedback-svg' => 'Vidi kiel SVG',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La '''tage averaĝa taksado''' <font color=\"blue\">''(blua)''</font> kaj 
 '''intervalaveraĝa taksado''' <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. La
@@ -379,6 +381,15 @@ $messages['hsb'] = array(
 	'ratinghistory-users' => 'Wužiwarjo, kotřiz su pohódnoćili:',
 	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|kontrola|kontroli|kontrole|kontrolow}})',
 	'readerfeedback-svg' => 'Jako SVG wobhladać',
+	'ratinghistory-none' => 'Za grafiki hišće dosć pohódnoćenjow wot čitarjow k dispoziciji njesteji',
+	'ratinghistory-legend' => "'''Dnjowe přerězne hódnoćenje''' <font color=\"blue\">''(módry)''</font> a '''běžne přerězne hódnoćenje''' <font color=\"green\">''(zeleny)''</font> stej deleka po datumje grafisce zwobraznjenej.
+
+'''Běžne přerězne hódnoćenje''' je prosće přerězk wšěch dnjowych pohódnoćenjow ''znutřka'' tutoho časoweho wotrězka za kóždy dźeń.
+
+Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojacy; '''[4]''' - Wysoki; '''[5]''' - Wuběrny;
+
+'''Ličba pohódnoćenja wob dźeń''' <font color=\"red\">''(čerwjeny)''</font> pokazuje so na slědowacej grafice, w měritku ''1:\$1''.",
+	'right-feedback' => 'Wužij wotmołwny formular, zo by stronu pohódnoćił',
 );
 
 /** Hungarian (Magyar)
@@ -497,8 +508,10 @@ $messages['ko'] = array(
 $messages['lb'] = array(
 	'ratinghistory-period' => 'Zäitraum:',
 	'ratinghistory-month' => 'leschte Mount',
+	'ratinghistory-3months' => 'lescht 3 Méint',
 	'ratinghistory-year' => 'lescht Joer',
 	'ratinghistory-3years' => 'lescht 3 Joer',
+	'readerfeedback-svg' => 'Als SVG kucken',
 );
 
 /** Malay (Bahasa Melayu)
