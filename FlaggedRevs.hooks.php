@@ -2,7 +2,7 @@
 
 class FlaggedRevsHooks {
 	/**
-	* Remove 'patrol' and 'autopatrol' rights. Reviewing revisions will patrol them as well.
+	* Remove 'autopatrol' rights. Reviewing revisions will patrol them as well.
 	*/
 	public static function stripPatrolRights( $user, &$rights ) {
 		# Use only our extension mechanisms
