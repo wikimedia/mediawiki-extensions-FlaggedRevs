@@ -1268,8 +1268,6 @@ EOT;
 		if( !$wgUser->isAllowed('review') ) {
 			return true;
 		}
-		$checkboxes['reviewed'] = '';
-		$reviewLabel = wfMsgExt('revreview-flag', array('parseinline'));
 		$fa = FlaggedArticle::getTitleInstance( $editPage->getArticle() );
 		if( $fa->isReviewable() ) {
 			$srev = $fa->getStableRev();
@@ -1277,6 +1275,9 @@ EOT;
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
 			if( !$srev || $srev->getRevId() != $editPage->getArticle()->getLatest() ) {
+				wfLoadExtensionMessages( 'FlaggedRevs' );
+				$checkboxes['reviewed'] = '';
+				$reviewLabel = wfMsgExt('revreview-flag', array('parseinline'));
 				$attribs = array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' );
 				$checkboxes['reviewed'] = Xml::check( 'wpReviewEdit', 
 					$wgRequest->getCheck('wpReviewEdit'), $attribs ) . 
