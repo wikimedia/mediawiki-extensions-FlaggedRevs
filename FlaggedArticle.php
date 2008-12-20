@@ -686,7 +686,7 @@ class FlaggedArticle extends Article {
 		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed, wfMsgHtml('oldreviewedpages'),
 			'category=' . urlencode($category) );
 
-		$wgOut->appendSubtitle( "<p>$unreviewedLink / $oldreviewedLink</p>" );
+		$wgOut->appendSubtitle("<span id='mw-category-oldreviewed'>$unreviewedLink / $oldreviewedLink</span>");
 
 		return true;
 	}
