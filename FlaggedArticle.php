@@ -1425,24 +1425,8 @@ class FlaggedArticle extends Article {
 			$templateIDs = $wgOut->mTemplateIds;
 			$imageSHA1Keys = $wgOut->fr_ImageSHA1Keys;
 		}
-		# NS -> title -> rev ID mapping
-		foreach( $templateIDs as $namespace => $title ) {
-			foreach( $title as $dbKey => $revId ) {
-				$title = Title::makeTitle( $namespace, $dbKey );
-				$templateParams .= $title->getPrefixedDBKey() . "|" . $revId . "#";
-			}
-		}
-		# Image -> timestamp -> sha1 mapping
-		foreach( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
-			foreach( $timeAndSHA1 as $time => $sha1 ) {
-				$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
-			}
-		}
-		# For image pages, note the displayed image version
-		if( $this->parent instanceof ImagePage ) {
-			$file = $this->parent->getDisplayedFile();
-			$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
-		}
+		list($templateParams,$imageParams,$fileVersion) = 
+			FlaggedRevs::getIncludeParams( $this->parent, $templateIDs, $imageSHA1Keys );
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
 		# Hide comment if needed

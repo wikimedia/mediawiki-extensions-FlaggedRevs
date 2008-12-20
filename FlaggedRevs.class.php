@@ -1151,4 +1151,34 @@ class FlaggedRevs {
 		$params = array( 'tags' => (object)$wgFlaggedRevsFeedbackTags );
 		return Xml::encodeJsVar( (object)$params );
 	}
+	
+	/**
+	 * Get template and image parameters from parser output
+	 * @param Article $article
+	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
+	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->fr_ImageSHA1Keys)
+	 * @returns array( templateParams, imageParams, fileVersion )
+	 */
+	public static function getIncludeParams( $article, $templateIDs, $imageSHA1Keys ) {
+		$templateParams = $imageParams = $fileVersion = '';
+		# NS -> title -> rev ID mapping
+		foreach( $templateIDs as $namespace => $t ) {
+			foreach( $t as $dbKey => $revId ) {
+				$temptitle = Title::makeTitle( $namespace, $dbKey );
+				$templateParams .= $temptitle->getPrefixedDBKey() . "|" . $revId . "#";
+			}
+		}
+		# Image -> timestamp -> sha1 mapping
+		foreach( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
+			foreach( $timeAndSHA1 as $time => $sha1 ) {
+				$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
+			}
+		}
+		# For image pages, note the displayed image version
+		if( $article instanceof ImagePage ) {
+			$file = $article->getDisplayedFile();
+			$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
+		}
+		return array( $templateParams, $imageParams, $fileVersion );
+	}
 }

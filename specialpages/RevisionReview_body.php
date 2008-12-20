@@ -366,7 +366,7 @@ class RevisionReview extends UnlistedSpecialPage
 		return "<li> $difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
 	}
 
-	private function submit() {
+	public function submit() {
 		global $wgUser;
 		# If all values are set to zero, this has been unapproved
 		$approved = !count( FlaggedRevs::getDimensions() ) && $this->approve;
