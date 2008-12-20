@@ -238,9 +238,9 @@ class FlaggedRevsXML {
 			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
 			Xml::openElement( 'table' ) .
 			Xml::openElement( 'tr' ) .
-				'<td>' . wfCheck( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable,
+				'<td>' . Xml::check( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable,
 					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
-					wfLabel( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
+					Xml::label( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
 			Xml::closeElement( 'tr' ) .
 			Xml::openElement( 'tr' ) .
 				'<td>' .
@@ -259,8 +259,8 @@ class FlaggedRevsXML {
 			$html .= Xml::closeElement( 'tr' ) .
 				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
 				Xml::openElement( 'tr' ) .
-					'<td>' . wfCheck( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) .
-					'</td><td> ' . wfLabel( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>';
+					'<td>' . Xml::check( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) .
+					'</td><td> ' . Xml::label( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>';
 		}
 		$html .= Xml::closeElement( 'tr' ) .
 			Xml::closeElement( 'table' ) .
