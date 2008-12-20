@@ -659,6 +659,12 @@ EOT;
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
 		# Get the user
 		$user = is_null($user) ? User::newFromId( $rev->getUser() ) : $user;
+		$checked = $wgRequest->getCheck('wpReviewEdit') && $user->isAllowed('review');
+		if( $checked ) {
+			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
+			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, null, false );
+			return true;
+		}
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
 			return true;
 		# If $baseRevId passed in, this is a null edit
@@ -712,10 +718,7 @@ EOT;
 			if( $isNullEdit ) {
 				$flags = $frev->getTags();
 			} else {
-				$flags = array();
-				foreach( FlaggedRevs::getDimensions() as $tag => $minQL ) {
-					$flags[$tag] = 1;
-				}
+				$flags = null;
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
 			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
@@ -1258,6 +1261,29 @@ EOT;
 
 	public static function addRevisionIDField( $editPage, $out ) {
 		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
+	}
+	
+	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
+		global $wgUser, $wgRequest;
+		if( !$wgUser->isAllowed('review') ) {
+			return true;
+		}
+		$checkboxes['reviewed'] = '';
+		$reviewLabel = wfMsgExt('revreview-flag', array('parseinline'));
+		$fa = FlaggedArticle::getTitleInstance( $editPage->getArticle() );
+		if( $fa->isReviewable() ) {
+			$srev = $fa->getStableRev();
+			# For pages with either no stable version, or an outdated one, let
+			# the user decide if he/she wants it reviewed on the spot. One might
+			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
+			if( !$srev || $srev->getRevId() != $editPage->getArticle()->getLatest() ) {
+				$attribs = array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' );
+				$checkboxes['reviewed'] = Xml::check( 'wpReviewEdit', 
+					$wgRequest->getCheck('wpReviewEdit'), $attribs ) . 
+					'&nbsp;' . Xml::label( $reviewLabel, 'wpReviewEdit' );
+			}
+		}
+		return true;
 	}
 	
 	public static function addBacklogNotice( &$notice ) {

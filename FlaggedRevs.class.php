@@ -1008,11 +1008,18 @@ class FlaggedRevs {
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $patrol = true ) {
 		global $wgMemc, $wgRevisionCacheExpiry;
 		wfProfileIn( __METHOD__ );
-
+		# Default tags to level 1 for each dimension
+		if( !is_array($flags) ) {
+			$flags = array();
+			foreach( self::getDimensions() as $tag => $minQL ) {
+				$flags[$tag] = 1;
+			}
+		}
 		$quality = 0;
 		if( self::isQuality($flags) ) {
 			$quality = self::isPristine($flags) ? 2 : 1;
 		}
+
 		$tmpset = $imgset = array();
 		$poutput = false;
 

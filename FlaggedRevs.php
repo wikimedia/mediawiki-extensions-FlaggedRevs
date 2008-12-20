@@ -423,6 +423,7 @@ $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectReviewDiffU
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Autoreview stuff
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
+$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
 
 # Add CSS/JS as needed
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';
