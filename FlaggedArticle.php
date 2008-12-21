@@ -981,7 +981,7 @@ class FlaggedArticle extends Article {
 					}
 					$tmpChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitle( $row->ft_namespace, $row->ft_title );
+						$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
 						$revIdDraft = $row->page_latest;
 						// stable time -> time when reviewed (unless the other is newer)
 						$revIdStable = isset($row->fp_stable) && $row->fp_stable >= $row->ft_tmp_rev_id ?
@@ -1030,7 +1030,7 @@ class FlaggedArticle extends Article {
 					}
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitle( NS_FILE, $row->fi_name );
+						$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
 						// stable time -> time when reviewed (unless the other is newer)
 						$timestamp = isset($row->fr_img_timestamp) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
 							$row->fr_img_timestamp : $row->fi_img_timestamp;
