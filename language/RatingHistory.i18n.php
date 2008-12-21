@@ -33,13 +33,6 @@ Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'
 	'right-feedback' => 'Use the feedback form to rate a page',
 );
 
-/** Message documentation (Message documentation)
- * @author Siebrand
- */
-$messages['qqq'] = array(
-	'ratinghistory-text' => "'''Translate 'page' instead of 'article'!'''",
-);
-
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -101,7 +94,6 @@ $messages['arz'] = array(
  */
 $messages['bcc'] = array(
 	'ratinghistory' => 'تاریح درجه بندی صفحه',
-	'ratinghistory-text' => "'''ای صفحه دیتای درجه په [[:$1|$1]] پیش داریت.'''",
 	'ratinghistory-leg' => 'درجه بندی دیتای تاریح',
 	'ratinghistory-tab' => 'درجه',
 	'ratinghistory-period' => 'مدت زمان:',
@@ -530,7 +522,6 @@ $messages['mk'] = array(
  */
 $messages['ms'] = array(
 	'ratinghistory' => 'Sejarah penilaian laman',
-	'ratinghistory-text' => "'''Berikut ialah data penilaian bagi laman [[:$1|$1]].'''",
 	'ratinghistory-leg' => 'Data sejarah penilaian',
 	'ratinghistory-tab' => 'penilaian',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Terima kasih kerana sudi meluangkan masa untuk memeriksa laman ini!</font>''",
@@ -619,6 +610,7 @@ $messages['oc'] = array(
 	'ratinghistory-chart' => 'Relector notant fòra relambi :',
 	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas",
 	'ratinghistory-graph' => '$2 sus « $3 » ($1 {{PLURAL:$1|relector|relectors}})',
+	'readerfeedback-svg' => 'Veire en SVG',
 	'ratinghistory-none' => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
 	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e la '''mejana de quotacion en cors''' <font color=\"green\">''(verd)''</font> de la notacion son dessenhats çaijós, per data. La '''mejana de quotacion en cors''' es simplament la mejana de las qotacions de cada ''dins'' lo periòde de temps causit.
 
@@ -781,7 +773,6 @@ Na grafe dolu je zobrazený '''počet kontrol za deň''' <font color=\"red\">''(
  */
 $messages['sr-ec'] = array(
 	'ratinghistory' => 'Историја оцена стране.',
-	'ratinghistory-text' => "'''Ова страна приказује податке оцењивања чланка за страну \"[[:\$1|\$1]]\".'''",
 	'ratinghistory-leg' => 'Историја оцењивања.',
 	'ratinghistory-tab' => 'оцена',
 	'ratinghistory-period' => 'Раздобље:',

@@ -691,6 +691,7 @@ $messages['oc'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|jorn|jorns}})',
 	'oldreviewedpages-recent' => "(mens qu'una ora)",
 	'oldreviewed-category' => 'Categoria :',
+	'oldreviewed-watched' => 'Dins ma lista de seguit',
 	'oldreviewed-diff' => 'relectura',
 	'oldreviewed-size' => 'Cambiament maximal de la talha (en octets) :',
 	'oldreviewedpages-unwatched' => '(pas observat)',

@@ -150,10 +150,10 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 '''Notu:''' la jenaj datenoj estas en kaŝmemoro dum multaj horoj kaj eble ne estas ĝisdataj.",
 	'validationstatistics-ns' => 'Nomspaco',
 	'validationstatistics-total' => 'Paĝoj',
-	'validationstatistics-stable' => 'Reviziitaj',
+	'validationstatistics-stable' => 'Paĝoj kun almenaŭ unu revizio',
 	'validationstatistics-latest' => 'Laste reviziita',
-	'validationstatistics-synced' => 'Ĝisdatigita/Reviziita',
-	'validationstatistics-old' => 'Malfreŝa',
+	'validationstatistics-synced' => 'Ĝisdatigitaj/Reviziitaj',
+	'validationstatistics-old' => 'Malfreŝaj',
 );
 
 /** Persian (فارسی)

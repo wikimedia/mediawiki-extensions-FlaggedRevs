@@ -127,6 +127,17 @@ $messages['grc'] = array(
 	'problempages-graphs' => 'δεδομένα βαθμώσεως',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'problempages' => 'Syte, wu nidrig bewärtet sin',
+	'problempages-leg' => 'Find Syte, wu nidrgi bewärtet sin',
+	'problempages-list' => 'Do het s Lischt vu Syte, wu no dr Bewärtig dur Läser sortiert sin.',
+	'problempages-none' => 'In däre Lischt het s keini Syte',
+	'problempages-graphs' => 'Bewärtigsdate',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss

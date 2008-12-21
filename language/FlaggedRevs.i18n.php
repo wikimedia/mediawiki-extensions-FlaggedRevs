@@ -1028,7 +1028,7 @@ $messages['arz'] = array(
 	'readerfeedback-npov' => 'الحيادية',
 	'readerfeedback-presentation' => 'التقديم',
 	'readerfeedback-overall' => 'إجمالى',
-	'readerfeedback-level-none' => '(اختر)',
+	'readerfeedback-level-none' => '(مش متأكد)',
 	'readerfeedback-level-0' => 'فقير',
 	'readerfeedback-level-1' => 'منخفض',
 	'readerfeedback-level-2' => 'معقول',
@@ -1670,6 +1670,7 @@ $messages['bs'] = array(
 	'revreview-log' => 'Komentar:',
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
+	'readerfeedback-level-none' => '(neodlučen)',
 	'readerfeedback-submit' => 'Pošalji',
 	'revreview-filter-all' => 'Sve',
 	'revreview-typefilter' => 'Tip:',
@@ -4183,7 +4184,7 @@ Az elfogadott lapok listáját az [[Special:ReviewedPages|ellenőrzött lapok li
 	'revreview-basic-i' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i> A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} sablon- vagy képváltoztatások] várnak ellenőrzésre.',
 	'revreview-basic-old' => 'Ez egy [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} teljes lista]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve] <i>$2</i>-kor.
 Lehetnek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változtatások].',
-	'revreview-basic-same' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} teljes lista]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>.',
+	'revreview-basic-same' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} teljes lista]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>',
 	'revreview-basic-source' => 'A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} megtekintett változata] ([{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadás] dátuma <i>$2</i>) ezen a verzión alapul.',
 	'revreview-changed' => "'''A kért művelet nem hajtható végre a(z) [[:$1|$1]] ezen változatán.'''
 
@@ -4210,12 +4211,12 @@ egy dinamikus sablon más képet vagy sablont illeszt be egy paramétertől füg
 Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi megtekintett változat]
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]
-ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változást] kell ellenőrizni.',
-	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi megtekintett változat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i>.
+ekkor: <i>$2</i> [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változást] kell ellenőrizni.',
+	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi megtekintett változat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablonok vagy képek változtatásait] kell ellenőrizni.',
 	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi kiemelt változat]
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i> [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változást] kell ellenőrizni.',
-	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi kiemelt változat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i>.
+	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi kiemelt változat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablon- vagy képváltoztatások] várnak ellenőrzésre.',
 	'revreview-noflagged' => 'Az oldal még nem rendelkezik jelölt változatokkal, így a színvonalát valószínűleg még senki nem [[{{MediaWiki:Validationpage}}|ellenőrizte]].',
 	'revreview-note' => '[[User:$1]] az alábbi megjegyzéseket fűzte ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzése]] mellé:',
@@ -6411,7 +6412,7 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 	'readerfeedback-npov' => 'Neutraliteit',
 	'readerfeedback-presentation' => 'Presentatie',
 	'readerfeedback-overall' => 'Algemeen',
-	'readerfeedback-level-none' => '(selecteren)',
+	'readerfeedback-level-none' => '(weet niet)',
 	'readerfeedback-level-0' => 'Slecht',
 	'readerfeedback-level-1' => 'Laag',
 	'readerfeedback-level-2' => 'In orde',
@@ -6813,7 +6814,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'readerfeedback-npov' => 'Neutralitat',
 	'readerfeedback-presentation' => 'Presentacion',
 	'readerfeedback-overall' => 'General',
-	'readerfeedback-level-none' => '(seleccion)',
+	'readerfeedback-level-none' => '(pas segur)',
 	'readerfeedback-level-0' => 'Paure',
 	'readerfeedback-level-1' => 'Bas',
 	'readerfeedback-level-2' => 'Polit',
@@ -8574,7 +8575,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'readerfeedback-npov' => 'Neutralitet',
 	'readerfeedback-presentation' => 'Presentation',
 	'readerfeedback-overall' => 'Helhetsintryck',
-	'readerfeedback-level-none' => '(välj)',
+	'readerfeedback-level-none' => '(osäker)',
 	'readerfeedback-level-0' => 'Mycket dålig',
 	'readerfeedback-level-1' => 'Dålig',
 	'readerfeedback-level-2' => 'Okej',

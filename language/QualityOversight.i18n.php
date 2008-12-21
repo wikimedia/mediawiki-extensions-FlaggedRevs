@@ -118,6 +118,15 @@ $messages['grc'] = array(
 	'qualityoversight' => 'παρόραμα ποιοτικῆς δέλτου',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'qualityoversight' => 'Ibersicht iber di priefte Versione',
+	'qualityoversight-list' => 'Die Syte zeigt di aktuälle Freigabe un dr Widerruef vu priefte Versione.',
+	'qualityoversight-legend' => 'Suech in Versionsmarkierige',
+);
+
 /** Hebrew (עברית)
  * @author Rotemliss
  */
