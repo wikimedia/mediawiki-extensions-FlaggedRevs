@@ -608,7 +608,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$dbw->begin();
 		$flaggedRevision->insertOn( $fulltext, $tmpset, $imgset );
 		# Update recent changes
-		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid );
+		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
 		# Update the article review log
 		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
 
@@ -686,6 +686,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# Wipe versioning params
 		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
 		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
+		# Update recent changes
+		self::updateRecentChanges( $this->page, $frev->getRevId(), false, false );
 
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
@@ -797,12 +799,12 @@ class RevisionReview extends UnlistedSpecialPage
 		return true;
 	}
 	
-	public static function updateRecentChanges( $title, $revId, $rcId = false ) {
+	public static function updateRecentChanges( $title, $revId, $rcId=false, $patrol=true ) {
 		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
 		# Olders edits be marked as patrolled now...
 		$dbw->update( 'recentchanges',
-			array( 'rc_patrolled' => 1 ),
+			array( 'rc_patrolled' => $patrol ? 1 : 0 ),
 			array( 'rc_namespace' => $title->getNamespace(),
 				'rc_title' => $title->getDBKey(),
 				'rc_this_oldid <= ' . intval($revId) ),
