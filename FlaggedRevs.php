@@ -347,6 +347,8 @@ $wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewed
 $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
+$wgAutoloadClasses['ApiReview'] = $dir.'api/ApiReview.php';
+$wgAPIModules['review'] = 'ApiReview';
 
 ######### Hook attachments #########
 # Remove stand-alone patrolling
