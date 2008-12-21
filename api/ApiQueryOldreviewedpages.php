@@ -55,6 +55,10 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
+		if( $params['filterredir'] == 'redirects' )
+			$this->addWhereFld( 'page_is_redirect', 1 );
+		if( $params['filterredir'] == 'nonredirects' )
+			$this->addWhereFld( 'page_is_redirect', 0 );
 		$this->addWhereRange(
 			'fp_pending_since',
 			$params['dir'],
@@ -152,8 +156,16 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					!$wgFlaggedRevsNamespaces ?
 					NS_MAIN :
 					$wgFlaggedRevsNamespaces[0],
-				ApiBase :: PARAM_TYPE => 'namespace',
-				ApiBase :: PARAM_ISMULTI => true,
+				ApiBase::PARAM_TYPE => 'namespace',
+				ApiBase::PARAM_ISMULTI => true,
+			),
+			'filterredir' => array (
+				ApiBase::PARAM_DFLT => 'all',
+				ApiBase::PARAM_TYPE => array (
+					'redirects',
+					'nonredirects',
+					'all'
+				)
 			),
 			'limit' => array (
 				ApiBase::PARAM_DFLT => 10,
@@ -170,6 +182,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'start' => 'Start listing at this timestamp.',
 			'end' => 'Stop listing at this timestamp.',
 			'namespace' => 'The namespaces to enumerate.',
+			'filterredir' => 'How to filter for redirects',
 			'limit' => 'How many total pages to return.',
 			'dir' => array(
 				'In which direction to list.',
