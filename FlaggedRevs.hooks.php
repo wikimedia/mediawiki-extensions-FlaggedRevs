@@ -1227,6 +1227,13 @@ EOT;
 		return true;
 	}
 	
+	public static function addToWatchlistQuery( &$conds, &$tables, &$join_conds, &$fields ) {
+		$tables[] = 'flaggedpages';
+		$fields[] = 'fp_stable';
+		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		return true;
+	}
+	
 	public static function addToHistLine( &$history, $row, &$s ) {
 		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
 	}
@@ -1247,7 +1254,7 @@ EOT;
 		return true;
 	}
 	
-	public static function addToRCLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
+	public static function addTochangeListLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
 		global $wgUser;
 		if( $rc->getTitle()->getNamespace() < 0 || !isset($rc->mAttribs['fp_stable']) )
 			return true; // reviewed pages only
