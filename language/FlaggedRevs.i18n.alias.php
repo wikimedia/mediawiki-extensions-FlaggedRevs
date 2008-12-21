@@ -232,7 +232,7 @@ $aliases['hr'] = array(
 /** Hungarian (Magyar) */
 $aliases['hu'] = array(
 	'LikedPages' => array( 'Jónak ítélt lapok' ),
-	'OldReviewedPages' => array( 'Régen ellenőrzött lapok' ),
+	'OldReviewedPages' => array( 'Elavult ellenőrzött lapok', 'Régen ellenőrzött lapok' ),
 	'ProblemPages' => array( 'Rossznak ítélt lapok' ),
 	'QualityOversight' => array( 'Minőségellenőrzés' ),
 	'RatingHistory' => array( 'Értékeléstörténet' ),
@@ -270,6 +270,7 @@ $aliases['id'] = array(
  * @author Lovekhmer
  */
 $aliases['km'] = array(
+	'LikedPages' => array( 'ទំពរ​មាន​តំណភ្ជាប់' ),
 	'ProblemPages' => array( 'ទំព័រមានបញ្ហា' ),
 );
 

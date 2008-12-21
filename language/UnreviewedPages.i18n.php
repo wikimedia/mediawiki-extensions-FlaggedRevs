@@ -127,8 +127,10 @@ $messages['bcl'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  */
 $messages['be-tarask'] = array(
+	'right-unreviewedpages' => 'Прагляд [[Special:UnreviewedPages|сьпісу неправераных старонак]]',
 	'unreviewed-category' => 'Катэгорыя:',
 );
 
@@ -1034,7 +1036,7 @@ $messages['vi'] = array(
 	'unreviewed-diff' => 'duyệt',
 	'unreviewed-unwatched' => '(chưa theo dõi)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
-	'unreviewed-list' => 'Trang này liệt kê những bài viết chưa được duyệt hoặc có những bản mới, chưa được duyệt.',
+	'unreviewed-list' => 'Trang này liệt kê những trang nội dung chưa được duyệt.',
 	'unreviewed-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
 );
 

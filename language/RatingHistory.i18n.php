@@ -153,6 +153,7 @@ Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Viso
 );
 
 /** German (Deutsch)
+ * @author ChrisiPK
  * @author Raimond Spekking
  */
 $messages['de'] = array(
@@ -171,9 +172,9 @@ $messages['de'] = array(
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'readerfeedback-svg' => 'Als SVG ansehen',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt.
+	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Der '''Durchschnitt über den ausgewählten Zeitraum''' is einfach der Durchschnitt aller Tagesbewertungen ''innerhalb'' dieser Zeitspanne jedes Tages.
 	
-'''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;
+Legende: '''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;
 
 In der folgenden Grafik werden die '''Anzahl Bewertungen pro Tag''' <font color=\"red\">''(rot)''</font> auf einer 1:\$1-Skala gezeigt.",
 	'right-feedback' => 'Bewerten einer Seite',
@@ -514,6 +515,16 @@ $messages['lb'] = array(
 	'readerfeedback-svg' => 'Als SVG kucken',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'ratinghistory-month' => 'последен месец',
+	'ratinghistory-3months' => 'последни 3 месеци',
+	'ratinghistory-year' => 'последна година',
+	'ratinghistory-3years' => 'последни 3 години',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aviator
  */
@@ -645,6 +656,18 @@ Skala: '''[1]''' – Niedostatecznie; '''[2]''' – Słabo; '''[3]''' – Zadowa
 
 '''Liczba ocen na dzień''' <font color=\"red\">''(na czerwono)''</font> jest pokazana poniżej wykresu w skali ''1:\$1''.",
 	'right-feedback' => 'Użyj formularza, aby ocenić stronę',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'ratinghistory-period' => 'د وخت موده:',
+	'ratinghistory-month' => 'تېره مياشت',
+	'ratinghistory-3months' => 'تېرې ۳ مياشتې',
+	'ratinghistory-year' => 'تېر کال',
+	'ratinghistory-3years' => 'تېر ۳ کالونه',
+	'readerfeedback-svg' => 'د SVG په توګه کتل',
 );
 
 /** Portuguese (Português)
@@ -842,21 +865,23 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'ratinghistory' => 'Lịch sử đánh giá trang',
-	'ratinghistory-leg' => 'Dữ liệu lịch sử đánh giá',
+	'ratinghistory-leg' => 'Dữ liệu lịch sử đánh giá của [[:$1|$1]]',
 	'ratinghistory-tab' => 'đánh giá',
-	'ratinghistory-link' => 'Đánh giá của bài',
+	'ratinghistory-link' => 'Đánh giá của trang',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Cám ơn đã để dành một chút thời gian để duyệt trang này!</font>''",
 	'ratinghistory-period' => 'Thời gian:',
 	'ratinghistory-month' => 'tháng trước',
+	'ratinghistory-3months' => '3 tháng qua',
 	'ratinghistory-year' => 'năm ngoái',
 	'ratinghistory-3years' => 'ba năm trước',
 	'ratinghistory-chart' => 'Đánh giá của độc giả qua thời gian',
-	'ratinghistory-users' => 'Các thành viên đánh giá trang này:',
+	'ratinghistory-users' => 'Các thành viên đánh giá:',
 	'ratinghistory-graph' => '$2 của bài “$3” (theo $1 độc giả)',
+	'readerfeedback-svg' => 'Xem bản SVG',
 	'ratinghistory-none' => 'Hiện chưa có đủ dữ liệu đánh giá của độc giả để vẽ biểu thị.',
-	'ratinghistory-legend' => "Những biểu thị ở dưới trình bày đánh giá trung bình hàng ngày <font color=\"blue\">''(lam)''</font> và đánh giá trung bình tại các giai đoạn lựa chọn <font color=\"green\">''(lục)''</font>, theo thời gian. Các đánh giá có các giá trị sau:
+	'ratinghistory-legend' => "Những biểu thị ở dưới trình bày '''đánh giá trung bình hàng ngày''' <font color=\"blue\">''(lam)''</font> và '''đánh giá trung bình đương thời''' <font color=\"green\">''(lục)''</font>, theo thời gian. '''Đánh giá trung bình đương thời''' chỉ là trung bình các đánh giá hàng ngày ''tại giai đoạn này'' vào mỗi ngày.
 
-'''[1]''' – Tệ; '''[2]''' – Dở; '''[3]''' – Khá; '''[4]''' – Hay; '''[5]''' – Tuyệt
+Giải thích các giá trị: '''[1]''' – Tệ; '''[2]''' – Dở; '''[3]''' – Khá; '''[4]''' – Hay; '''[5]''' – Tuyệt
 
 Những biểu thị cũng trình bày '''số lần đánh giá trong ngày''' <font color=\"red\">''(đỏ)''</font> với tỷ lệ ''1:\$1''.",
 	'right-feedback' => 'Đánh giá trang',

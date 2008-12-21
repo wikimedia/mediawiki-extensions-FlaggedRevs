@@ -515,6 +515,14 @@ $messages['pl'] = array(
 	'validationstatistics-old' => 'Wymagające ponownego oznaczenia jako przejrzane',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'validationstatistics-ns' => 'نوم-تشيال',
+	'validationstatistics-total' => 'مخونه',
+);
+
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya

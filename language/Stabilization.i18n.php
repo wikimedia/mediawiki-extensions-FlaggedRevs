@@ -1341,6 +1341,20 @@ $messages['mhr'] = array(
 	'stabilization-def-short' => 'Ойлыде',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'stabilization-page' => 'Име на страница:',
+	'stabilization-submit' => 'Потврди',
+	'stabilization-comment' => 'Забелешка:',
+	'stabilization-expiry' => 'Истекува:',
+	'stabilization-def-short' => 'Основно',
+	'stabilization-def-short-0' => 'Моментално',
+	'stabilization-def-short-1' => 'Стабилно',
+	'stabilize_expiry_invalid' => 'Погрешен датум на важност.',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */
@@ -1696,6 +1710,7 @@ $messages['pms'] = array(
 $messages['ps'] = array(
 	'stabilization-page' => 'د مخ نوم:',
 	'stabilization-sel-short-1' => 'هېڅ',
+	'stabilization-def-short' => 'تلواليز',
 	'stabilization-def-short-0' => 'اوسنی',
 	'stabilize-expiring' => 'په $1 (UTC) پای ته رسېږي',
 );

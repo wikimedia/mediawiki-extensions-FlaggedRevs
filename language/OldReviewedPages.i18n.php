@@ -704,7 +704,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'oldreviewedpages' => 'Zdezaktualizowane przejrzane strony',
-	'oldreviewedpages-legend' => 'Lista przejrzanych stron z nieprzejrzanymi wersjami',
+	'oldreviewedpages-legend' => 'Lista przejrzanych stron z wersjami oczekującymi na przejrzenie',
 	'oldreviewedpages-list' => 'Poniżej znajduje się lista przejrzanych stron, które oczekują na sprawdzenie nowych edycji.',
 	'oldreviewedpages-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'oldreviewedpages-stable' => 'przejrzana',
@@ -713,6 +713,7 @@ $messages['pl'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dzień|dni}})',
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
 	'oldreviewed-category' => 'Kategoria:',
+	'oldreviewed-watched' => 'Z mojej listy obserwowanych',
 	'oldreviewed-diff' => 'różn.',
 	'oldreviewed-size' => 'Maksymalna liczba dodanych/usuniętych bajtów:',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
@@ -924,6 +925,7 @@ $messages['vec'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author Vinhtantran
  */
 $messages['vi'] = array(
@@ -937,7 +939,9 @@ $messages['vi'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ngày|ngày}})',
 	'oldreviewedpages-recent' => '(dưới 1 giờ)',
 	'oldreviewed-category' => 'Thể loại:',
+	'oldreviewed-watched' => 'Trong danh sách theo dõi của tôi',
 	'oldreviewed-diff' => 'duyệt',
+	'oldreviewed-size' => 'Thay đổi lớn nhất (byte):',
 	'oldreviewedpages-unwatched' => '(chưa theo dõi)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
 );
