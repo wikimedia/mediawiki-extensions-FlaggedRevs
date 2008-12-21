@@ -29,6 +29,15 @@ class UnreviewedPages extends SpecialPage
 		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
 		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
 		$category = trim( $wgRequest->getVal( 'category' ) );
+		$hideRedirs = $wgRequest->getBool( 'hideredirs', true );
+		
+		// show/hide links
+		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
+		$onoff = 1 - $hideRedirs;
+		$link = $this->skin->link( $this->getTitle(), $showhide[$onoff], array(),
+			 array( 'hideredirs' => $onoff, 'category' => $category )
+		);
+		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
@@ -37,9 +46,11 @@ class UnreviewedPages extends SpecialPage
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
-		$wgOut->addHTML( Xml::label( wfMsg("unreviewed-category"), 'category' ) .
-			' ' . Xml::input( 'category', 35, $category, array('id' => 'category') ) .
-			'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
+		$wgOut->addHTML( 
+			Xml::label( wfMsg("unreviewed-category"), 'category' ) . '&nbsp;' .
+			Xml::input( 'category', 30, $category, array('id' => 'category') ) . '<br/>' .
+			$showhideredirs . '&nbsp;&nbsp;' . 
+			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"
 		);
 		# This will start to get slower if live...
@@ -55,7 +66,7 @@ class UnreviewedPages extends SpecialPage
 				$wgOut->addHTML( wfMsg( 'perfcached' ) );
 			}
 		}
-		$pager = new UnreviewedPagesPager( $this, $live, $namespace, $category );
+		$pager = new UnreviewedPagesPager( $this, $live, $namespace, !$hideRedirs, $category );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -129,7 +140,9 @@ class UnreviewedPages extends SpecialPage
 		# Get est. of fraction of pages that are reviewed
 		$dbr = wfGetDB( DB_SLAVE );
 		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', array(), __METHOD__ );
-		$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+		$pages = $dbr->estimateRowCount( 'page', '*', 
+			array('page_namespace' => $wgFlaggedRevsNamespaces), 
+			__METHOD__ );
 		$ratio = $pages/($pages - $reviewedpages);
 		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
 		return ($ratio <= 1000);
@@ -141,9 +154,9 @@ class UnreviewedPages extends SpecialPage
  */
 class UnreviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
-	private $live, $namespace, $category;
+	private $live, $namespace, $category, $showredirs;
 
-	function __construct( $form, $live, $namespace, $category=NULL ) {
+	function __construct( $form, $live, $namespace, $redirs=false, $category=NULL ) {
 		$this->mForm = $form;
 		$this->live = (bool)$live;
 		# Must be a content page...
@@ -156,7 +169,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
-		
+		$this->showredirs = (bool)$redirs;
 		parent::__construct();
 		// Don't get to expensive
 		$this->mLimitsShown = array( 20, 50 );
@@ -177,7 +190,9 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		# Reviewable pages only
 		$conds['page_namespace'] = $this->namespace;
 		# No redirects
-		$conds['page_is_redirect'] = 0;
+		if( !$this->showredirs ) {
+			$conds['page_is_redirect'] = 0;
+		}
 		# Filter by category
 		if( $this->category ) {
 			$tables = array( 'categorylinks', 'page', 'flaggedpages' );
