@@ -447,16 +447,16 @@ $wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
 #########
 
 function efLoadFlaggedRevs() {
-	global $wgUseRCPatrol, $wgUseNPPatrol, $wgFlaggedRevsNamespaces;
+	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
+	# If patrolling is already on, then we know that it 
+	# was intended to have all namespaces patrollable.
+	if( $wgUseRCPatrol ) {
+		global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
+		$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
+	}
 	# Use RC Patrolling to check for vandalism
 	# When revisions are flagged, they count as patrolled
 	if( !empty($wgFlaggedRevsNamespaces) ) {
-		# If patrolling is already on, then we know that it 
-		# was intended to have all namespaces patrollable.
-		if( $wgUseRCPatrol || $wgUseNPPatrol ) {
-			global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
-			$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
-		}
 		$wgUseRCPatrol = true;
 	}
 }
