@@ -1140,7 +1140,7 @@ EOT;
 		return true;
 	}
 	
-	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target ) {
+	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target, &$article ) {
 		# Get an instance on the title ($wgTitle)
 		if( !FlaggedRevs::isPageReviewable($title) ) {
 			return true;
@@ -1152,7 +1152,7 @@ EOT;
 			# Try the cache...
 			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $title->getArticleId() );
 			$data = $wgMemc->get($key);
-			if( is_object($data) && $data->time > $title->getTouched() ) {
+			if( is_object($data) && $data->time > $article->getTouched() ) {
 				list($ignoreRedirect,$target) = $data->value;
 				return true;
 			}
