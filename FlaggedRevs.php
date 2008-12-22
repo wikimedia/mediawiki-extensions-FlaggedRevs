@@ -395,9 +395,6 @@ $wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
 # Backlog notice
 $wgHooks['SiteNoticeAfter'][] = 'FlaggedRevsHooks::addBacklogNotice';
 
-# Visibility - experimental
-$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanView';
-
 # Override current revision, add patrol links, set cache...
 $wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
@@ -450,7 +447,7 @@ $wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
 #########
 
 function efLoadFlaggedRevs() {
-	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
+	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces, $wgFlaggedRevsVisible;
 	# If patrolling is already on, then we know that it 
 	# was intended to have all namespaces patrollable.
 	if( $wgUseRCPatrol ) {
@@ -461,6 +458,11 @@ function efLoadFlaggedRevs() {
 	# When revisions are flagged, they count as patrolled
 	if( !empty($wgFlaggedRevsNamespaces) ) {
 		$wgUseRCPatrol = true;
+	}
+	# Visibility - experimental
+	if( !empty($wgFlaggedRevsVisible) ) {
+		global $wgHooks;
+		$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanView';
 	}
 }
 
