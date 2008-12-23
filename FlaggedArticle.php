@@ -775,7 +775,7 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		$title = $this->parent->getTitle()->getSubjectPage();
 		# Non-content pages cannot be validated
-		if( !$this->isReviewable(true) || !$title->exists() )
+		if( !FlaggedRevs::isPageReviewable($title) || !$title->exists() )
 			return true;
 		# We can change the behavoir of stable version for this page to be different
 		# than the site default.
@@ -791,7 +791,8 @@ class FlaggedArticle extends Article {
 			}
 		}
 		# Check config
-		if( !$this->isReviewable() )
+		$fa = FlaggedArticle::getTitleInstance( $title );
+		if( !$fa->isReviewable() )
 			return true;
 		# If we are viewing a page normally, and it was overridden,
 		# change the edit tab to a "current revision" tab
