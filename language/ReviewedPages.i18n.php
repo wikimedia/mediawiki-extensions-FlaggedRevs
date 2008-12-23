@@ -183,6 +183,21 @@ $messages['de'] = array(
 	'reviewedpages-best' => 'letzte am höchsten bewertete Version',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'reviewedpages' => 'Pśeglědane boki',
+	'reviewedpages-leg' => 'Lisćina bokow, kótarež su se pśeglědali za wěstym niwowom',
+	'reviewedpages-list' => 'Slědujuce boki su se za pódanym niwowom pśeglědali',
+	'reviewedpages-none' => 'Toś ta lisćina njewopśimujo boki.',
+	'reviewedpages-lev-0' => 'Pśeglědany',
+	'reviewedpages-lev-1' => 'Kwalita',
+	'reviewedpages-lev-2' => 'Wuběrny',
+	'reviewedpages-all' => 'pśeglědane wersije',
+	'reviewedpages-best' => 'nejlěpša wersija',
+);
+
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author ZaDiak
@@ -359,7 +374,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'reviewedpages' => 'Pruwowane strony',
-	'reviewedpages-leg' => 'Lisćinowe strony na wěstu runinu přepruwowane',
+	'reviewedpages-leg' => 'Lisćina stronow přepruwowanych za wěstym niwowom',
 	'reviewedpages-list' => 'Slědowace strony buchu za podatu runinu přepruwowane',
 	'reviewedpages-none' => 'W tutej lisćinje strony njejsu',
 	'reviewedpages-lev-0' => 'Přehladany',

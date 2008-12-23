@@ -60,6 +60,17 @@ $messages['de'] = array(
 	'likedpages-graphs' => 'Bewertungsdaten',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'likedpages' => 'Wusoko pógódnośone boki',
+	'likedpages-leg' => 'Wusoko pógódnośone boki pytaś',
+	'likedpages-list' => 'Slědujo lisćina bokow, sortěrowanych po jich pógódnośenju wót cytarjow.',
+	'likedpages-none' => 'Toś ta lisćina njewopśimujo boki.',
+	'likedpages-graphs' => 'Daty pógódnośenja',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

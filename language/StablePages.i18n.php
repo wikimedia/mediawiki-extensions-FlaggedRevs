@@ -110,6 +110,17 @@ $messages['de'] = array(
 	'stablepages-config' => 'Konfiguration',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'stablepages' => 'Stabilne boki',
+	'stablepages-stable' => 'stabilna wersija',
+	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su so manuelnje konfigurěrowali, aby pokazali stabilnu wersiju ako standardne wopśimjeśe za wobglědowarjow.',
+	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
+	'stablepages-config' => 'Konfiguracija',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */

@@ -137,6 +137,24 @@ $messages['de'] = array(
 	'validationstatistics-nbr' => '$1&nbsp;%',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'validationstatistics' => 'Pógódnośeńska statistika',
+	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchylu '''$1''' {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami wobźěłowarja]]
+a '''$2''' {{PLURAL:$2|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami pśeglědowarja]].",
+	'validationstatistics-table' => "Slědujo statistika za kuždy mjenjowy rum, mimo dalejpósrědnjenjow.
+
+'''Glědaj:''' slědujuce daty pufruju se na někotare goźiny a mógu togodla njeaktualne byś.",
+	'validationstatistics-ns' => 'Mjenjowy rum',
+	'validationstatistics-total' => 'Boki',
+	'validationstatistics-stable' => 'Pśeglědane',
+	'validationstatistics-latest' => 'Tuchylu pśeglědane',
+	'validationstatistics-synced' => 'Synchronizěrowane/Pśeglědane',
+	'validationstatistics-old' => 'Zestarjone',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -278,7 +296,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'validationstatistics' => 'Statistika hódnoćenja',
+	'validationstatistics' => 'Pohódnoćenska statistika',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchwilu '''$1''' {{PLURAL:$1|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami wobdźěłowarja]]
 a '''$2''' {{PLURAL:$2|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami kontrolera]].",
 	'validationstatistics-table' => "Slěduje statistika za kóždy mjenowy rum, z wuwzaćom daleposrědkowanjow.
@@ -546,6 +564,7 @@ $messages['pt'] = array(
  */
 $messages['ro'] = array(
 	'validationstatistics-ns' => 'Spaţiu de nume',
+	'validationstatistics-total' => 'Pagini',
 );
 
 /** Tarandíne (Tarandíne)

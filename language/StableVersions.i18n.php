@@ -181,6 +181,18 @@ $messages['de'] = array(
 	'stableversions-review' => 'markiert <i>$1</i> durch $2',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'stableversions' => 'Stabilne wersije se woglědaś',
+	'stableversions-leg1' => 'Lisćina pśeglědanych wersijow za bok',
+	'stableversions-page' => 'Mě boka:',
+	'stableversions-none' => '"[[:$1]]" njama pśeglědane wersije.',
+	'stableversions-list' => 'To jo lisćina wersijow wót [[:$1]], kótarež su se pśeglědali:',
+	'stableversions-review' => 'Pśeglědany <i>$1</i> wót $2',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */
@@ -230,7 +242,7 @@ $messages['fi'] = array(
 	'stableversions-page' => 'Sivun nimi',
 	'stableversions-none' => 'Sivusta ”[[:$1]]” ei ole tarkastettuja versioita.',
 	'stableversions-list' => 'Seuraavassa luettelossa on kaikki sivun [[:$1]] tarkastetut versiot:',
-	'stableversions-review' => '$1 arvioi sivun <i>$1</i>',
+	'stableversions-review' => '$2 arvioi sivun <i>$1</i>',
 );
 
 /** French (Français)

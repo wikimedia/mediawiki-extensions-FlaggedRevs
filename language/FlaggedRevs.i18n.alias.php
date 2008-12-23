@@ -297,6 +297,13 @@ $aliases['lb'] = array(
 $aliases['mk'] = array(
 	'LikedPages' => array( 'БараниСтраници' ),
 	'ProblemPages' => array( 'ПроблематичниСтраници' ),
+	'ReviewedPages' => array( 'ПрегледаниСтраници' ),
+	'Stabilization' => array( 'Стабилизација' ),
+	'StablePages' => array( 'СтабилниСтраници' ),
+	'StableVersions' => array( 'СтабилниВерзии' ),
+	'UnreviewedPages' => array( 'НепрегледаниСтраници' ),
+	'UnstablePages' => array( 'НестабилниСтраници' ),
+	'ValidationStatistics' => array( 'ВалидацискиСтатистики' ),
 );
 
 /** Marathi (मराठी)

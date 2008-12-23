@@ -75,6 +75,17 @@ $messages['de'] = array(
 	'unstablepages-config' => 'Konfiguration',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'unstablepages' => 'Njestabilne boki',
+	'unstablepages-stable' => 'stabilna wersija',
+	'unstablepages-text' => 'Slědujo lisćina bokow, kótarež su se manuelnje konfigurěrowali, aby pokazali nacerjeńsku wersiju ako standardne wopśimjeśe za wobglědowarjow.',
+	'unstablepages-none' => 'Toś ta lisćina njewopśimujo boki',
+	'unstablepages-config' => 'Konfiguracija',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -195,6 +206,16 @@ $messages['jv'] = array(
 	'unstablepages-config' => 'Konfigurasi',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Thearith
+ */
+$messages['km'] = array(
+	'unstablepages' => 'ទំព័រ​មិន​ឋិតថេរ',
+	'unstablepages-stable' => 'កំណែ​ថេរ',
+	'unstablepages-none' => 'មិនមាន​ទំព័រ​នៅ​ក្នុង​បញ្ជី​នេះ​ទេ',
+	'unstablepages-config' => 'ការកំណត់រចនាសម្ព័ន្ធ',
+);
+
 /** Korean (한국어)
  * @author Kwj2772
  */
@@ -287,6 +308,14 @@ $messages['pt'] = array(
 	'unstablepages-text' => 'Abaixo encontra-se uma lista de página manualmente configuradas para mostrar aos leitores a versão rascunho como conteúdo por defeito da página.',
 	'unstablepages-none' => 'Não há páginas nesta lista',
 	'unstablepages-config' => 'Configuração',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'unstablepages' => 'Pagini instabile',
+	'unstablepages-stable' => 'versiune stabilă',
 );
 
 /** Tarandíne (Tarandíne)

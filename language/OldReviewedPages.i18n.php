@@ -211,6 +211,7 @@ $messages['cu'] = array(
 );
 
 /** German (Deutsch)
+ * @author Michawiki
  * @author Raimond Spekking
  */
 $messages['de'] = array(
@@ -219,7 +220,7 @@ $messages['de'] = array(
 	'oldreviewedpages-list' => 'Diese Spezialseite zeigt gesichtete Seiten, die noch ungesichtete Bearbeitungen haben.',
 	'oldreviewedpages-none' => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.',
 	'oldreviewedpages-stable' => 'gesichtet',
-	'oldreviewedpages-quality' => 'gesprüft',
+	'oldreviewedpages-quality' => 'geprüft',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
 	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
@@ -229,6 +230,27 @@ $messages['de'] = array(
 	'oldreviewed-size' => 'Maximal Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
 	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'oldreviewedpages' => 'Zestarjone pśeglědane boki',
+	'oldreviewedpages-legend' => 'Lisćina pśeglědanych bokow z njepśeglědanymi wersijami',
+	'oldreviewedpages-list' => 'Toś ten bok nalistujo pśeglědane boki, kótarež maju hyšći njepśeglědane změny.',
+	'oldreviewedpages-none' => 'Tuchylu njejsu boki, kótarež wótpówěduju toś tym kriterijam',
+	'oldreviewedpages-stable' => 'pśeglědany',
+	'oldreviewedpages-quality' => 'kwalita',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|góźina|góźinje|góźiny|góźinow}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})',
+	'oldreviewedpages-recent' => '(mjenjej ako 1 góźina)',
+	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-watched' => 'W mójej wobglědowańce',
+	'oldreviewed-diff' => 'pśeglědaś',
+	'oldreviewed-size' => 'Maksimalna změna w bytach:',
+	'oldreviewedpages-unwatched' => '(njewobglědowany)',
+	'oldreviewedpages-watched' => '(Wót $2 {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} wobglědowany)',
 );
 
 /** Greek (Ελληνικά)

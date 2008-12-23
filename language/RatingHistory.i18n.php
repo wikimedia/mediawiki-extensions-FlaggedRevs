@@ -147,6 +147,7 @@ Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Viso
 /** German (Deutsch)
  * @author ChrisiPK
  * @author Raimond Spekking
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'ratinghistory' => 'Verlauf der Seitenbewertung',
@@ -164,12 +165,40 @@ $messages['de'] = array(
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'readerfeedback-svg' => 'Als SVG ansehen',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Der '''Durchschnitt über den ausgewählten Zeitraum''' is einfach der Durchschnitt aller Tagesbewertungen ''innerhalb'' dieser Zeitspanne jedes Tages.
-	
+	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Der '''Durchschnitt über den ausgewählten Zeitraum''' ist einfach der Durchschnitt aller Tagesbewertungen ''innerhalb'' dieser Zeitspanne jedes Tages.
+
 Legende: '''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;
 
 In der folgenden Grafik werden die '''Anzahl Bewertungen pro Tag''' <font color=\"red\">''(rot)''</font> auf einer 1:\$1-Skala gezeigt.",
 	'right-feedback' => 'Bewerten einer Seite',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'ratinghistory' => 'Stawizny pógódnośenja boka',
+	'ratinghistory-leg' => 'Stawizny pógódnośenja za [[:$1|$1]]',
+	'ratinghistory-tab' => 'pógódnośenje',
+	'ratinghistory-link' => 'Pógódnośenje boka',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Wjeliki źěk, až sy se brał cas, aby pśeglědał toś ten bok!</font>''",
+	'ratinghistory-period' => 'Cas:',
+	'ratinghistory-month' => 'slědny mjasec',
+	'ratinghistory-3months' => 'slědne 3 mjasece',
+	'ratinghistory-year' => 'slědne lěto',
+	'ratinghistory-3years' => 'slědne 3 lěta',
+	'ratinghistory-chart' => 'Pógódnośenja wót cytarjow pśez cas',
+	'ratinghistory-users' => 'Wužywarje, kótarež su pógódnośili:',
+	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|pógódnośenje|pógódnośeni|pógódnośenja|pógódnośenjow}})',
+	'readerfeedback-svg' => 'Ako SVG zwobrazniś',
+	'ratinghistory-none' => 'Tuchylu njejo dosć pógódnośenjow wót cytarjow, aby napórało grafiku.',
+	'ratinghistory-legend' => "'''Dnjowne pśerězne gódnośenje''' <font color=\"blue\">''(módry)''</font> a  
+'''pśerězne gódnośenje za wubrany cas''' <font color=\"green\">''(zeleny)''</font> zwobraznjujotej se dołojce pó datumje. '''Pśerězne gódnośenje za wubrany cas''' jo jadnorje pśerězk wšych dnjownych pógódnośenjow ''w'' toś tom casowem wótrězku kuždego dnja.
+
+Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojecy; '''[4]''' - Wusoki; '''[5]''' - Wuběrny;
+
+'''Licba pógódnośenjow na źeń''' <font color=\"red\">''(cerwjeny)''</font> pokazujo se dołojce na grafice, w měritku ''1:\$1''.",
+	'right-feedback' => 'Wuž pógódnośeński formular, aby pógódnośił bok',
 );
 
 /** Esperanto (Esperanto)

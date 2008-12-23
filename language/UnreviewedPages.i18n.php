@@ -128,10 +128,14 @@ $messages['bcl'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
 	'right-unreviewedpages' => 'Прагляд [[Special:UnreviewedPages|сьпісу неправераных старонак]]',
+	'unreviewedpages' => 'Неправераныя старонкі',
+	'unreviewed-legend' => 'Сьпіс неправераных старонак',
 	'unreviewed-category' => 'Катэгорыя:',
+	'unreviewed-diff' => 'прагляд',
 );
 
 /** Bulgarian (Български)
@@ -225,6 +229,21 @@ $messages['de'] = array(
 	'unreviewed-watched' => '(von $1 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht gesichtet wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lisćinu njepśeglědanych bokow]] se woglědaś',
+	'unreviewedpages' => 'Njepśeglědane boki',
+	'unreviewed-legend' => 'Lisćina njepśeglědanych wopśimjeśowych bokow',
+	'unreviewed-category' => 'Kategorija:',
+	'unreviewed-diff' => 'pśeglědaś',
+	'unreviewed-unwatched' => '(njewobglědowany)',
+	'unreviewed-watched' => '(wót $1 {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} wobglědowany)',
+	'unreviewed-list' => 'Toś ten bok nalistujo wopśimjeśowe boki, kótarež njejsu se pśeglědali.',
+	'unreviewed-none' => 'Njejsu tuchylu žedne boki, kótarež wótpówěduju toś tym kriterijam',
 );
 
 /** Greek (Ελληνικά)
@@ -556,11 +575,15 @@ $messages['kk-latn'] = array(
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
+ * @author Thearith
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
+	'unreviewedpages' => 'ទំព័រ​ដែល​មិន​ត្រូវ​បាន​មើលឡើងវិញ',
 	'unreviewed-category' => 'ចំណាត់ថ្នាក់ក្រុម ៖',
 	'unreviewed-diff' => 'មើលឡើងវិញ',
+	'unreviewed-unwatched' => '(មិន​ត្រូវ​បាន​តាមដាន)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|user|អ្នកប្រើប្រាស់}} ដែល​កំពុង​តាមដាន)',
 );
 
 /** Korean (한국어)

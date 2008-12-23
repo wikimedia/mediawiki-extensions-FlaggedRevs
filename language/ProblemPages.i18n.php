@@ -67,6 +67,17 @@ $messages['de'] = array(
 	'problempages-graphs' => 'Bewertungsdaten',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'problempages' => 'Špatnje pógódnośone boki',
+	'problempages-leg' => 'Nisko pógódnośone boki pytaś',
+	'problempages-list' => 'Slědujo lisćina bokow, sortěrowanych pó jich pógódnośenju wót cytarjow.',
+	'problempages-none' => 'Toś ta lisćina njewopśimujo boki',
+	'problempages-graphs' => 'Daty pógódnośenja',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

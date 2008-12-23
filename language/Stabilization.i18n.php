@@ -447,13 +447,15 @@ $messages['da'] = array(
 	'stabilize-expiring' => 'til $1 (UTC)',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Umherirrender
+ */
 $messages['de'] = array(
 	'stabilization-tab' => 'Konfig.',
 	'stabilization' => 'Seitenkonfiguration',
 	'stabilization-text' => "'''Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''",
 	'stabilization-perm' => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
-	Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
+Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page' => 'Seitenname:',
 	'stabilization-leg' => 'Einstellungen der markierten Version für eine Seite',
 	'stabilization-select' => 'Auswahl der markierten Version',
@@ -485,6 +487,42 @@ $messages['de'] = array(
  */
 $messages['diq'] = array(
 	'stabilization-sel-short-1' => 'çino',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'stabilization-tab' => 'pśekontrolowaś',
+	'stabilization' => 'Stabilizacija boka',
+	'stabilization-text' => "'''Změń slědujuce nastajenja, aby póstajił, kak stabilna wersija wót [[:$1|$1]] se wuběra a zwobraznjujo.'''",
+	'stabilization-perm' => 'Twójo konto njama pšawo, aby změniło konfiguraciju stabilneje wersije. How su aktualne nastajenja za [[:$1|$1]]:',
+	'stabilization-page' => 'Mě boka:',
+	'stabilization-leg' => 'Nastajenja stabilneje wersije wobkšuśiś',
+	'stabilization-select' => 'Wubraśe stabilneje wersije',
+	'stabilization-select1' => 'Aktualna kwalitna wersija; jolic žedna njejo, ga slědna pśeglědana wersija',
+	'stabilization-select2' => 'Slědna pśeglědana wersija',
+	'stabilization-select3' => 'Slědna spócetna wersija; jolic žedna njejo, ga slědna kwalitna abo pśeglědana wersija',
+	'stabilization-def' => 'Zwobraznjona wersija w standardnem bocnem naglěźe',
+	'stabilization-def1' => 'Stabilna wersija; jolic žedna njejo, ga aktualna wersija',
+	'stabilization-def2' => 'Aktualna wersija',
+	'stabilization-submit' => 'Wobkšuśiś',
+	'stabilization-notexists' => 'Njejo bok z mjenim "[[:$1|$1]]".
+Žedna konfiguracija móžno.',
+	'stabilization-notcontent' => 'Bok "[[:$1|$1]]" njedajo se pśeglědaś.
+Žedna konfiguracija móžno.',
+	'stabilization-comment' => 'Komentar:',
+	'stabilization-expiry' => 'Pśepadnjo:',
+	'stabilization-sel-short' => 'Priorita',
+	'stabilization-sel-short-0' => 'Kwalita',
+	'stabilization-sel-short-1' => 'Žedna',
+	'stabilization-sel-short-2' => 'Spócetny',
+	'stabilization-def-short' => 'Standard',
+	'stabilization-def-short-0' => 'Aktualny',
+	'stabilization-def-short-1' => 'Stabilny',
+	'stabilize_expiry_invalid' => 'Njpłaśiwy datum pśepadnjenja.',
+	'stabilize_expiry_old' => 'Toś ten cas pśepadnjenja jo se južo minuł.',
+	'stabilize-expiring' => 'pśepadnjo $1 (UTC)',
 );
 
 /** Greek (Ελληνικά)
@@ -1236,6 +1274,7 @@ $messages['km'] = array(
 	'stabilization-sel-short-1' => 'ទទេ',
 	'stabilization-def-short' => 'លំនាំដើម',
 	'stabilization-def-short-0' => 'បច្ចុប្បន្ន',
+	'stabilization-def-short-1' => 'ឋិតថេរ',
 	'stabilize_expiry_invalid' => 'កាលបរិច្ឆេទផុតកំណត់មិនត្រឹមត្រូវ។',
 	'stabilize-expiring' => 'ផុតកំណត់ម៉ោង $1 (UTC)',
 );

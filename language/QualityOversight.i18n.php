@@ -67,11 +67,21 @@ $messages['bg'] = array(
 
 /** German (Deutsch)
  * @author Raimond Spekking
+ * @author Umherirrender
  */
 $messages['de'] = array(
-	'qualityoversight' => 'Übersicht über geprüfte Versionen',
-	'qualityoversight-list' => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf geprüfter Versionen.',
+	'qualityoversight' => 'Übersicht über markierte Versionen',
+	'qualityoversight-list' => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf markierter Versionen.',
 	'qualityoversight-legend' => 'Suche in Versionsmarkierungen',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'qualityoversight' => 'Kontrola kwality',
+	'qualityoversight-list' => 'Toś ten bok nalistujo aktualne pśizwólenja a póroki za wersije',
+	'qualityoversight-legend' => 'W aktualnych protokolach kontrolow pytaś',
 );
 
 /** Esperanto (Esperanto)
