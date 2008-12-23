@@ -97,6 +97,13 @@ $messages['eo'] = array(
 	'unstablepages-config' => 'Konfiguro',
 );
 
+/** Finnish (Suomi)
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'unstablepages-none' => 'Tällä listalla ei ole sivuja',
+);
+
 /** French (Français)
  * @author Grondin
  */

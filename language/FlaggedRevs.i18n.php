@@ -7414,10 +7414,16 @@ $messages['ro'] = array(
 	'flaggedrevs-prefs' => 'Stabilitate',
 	'revreview-accuracy' => 'Acurateţe',
 	'revreview-log' => 'Comentariu:',
-	'revreview-quality-title' => 'Articol de calitate',
+	'revreview-quality-title' => 'Pagină de calitate',
 	'revreview-stable' => 'Pagină stabilă',
 	'revreview-style-1' => 'Acceptabil',
+	'revreview-toggle-title' => 'arată/ascunde detalii',
 	'revreview-revnotfound' => 'Versiunea mai veche a paginii pe care aţi cerut-o nu a fost găsită. Vă rugăm să verificaţi legătura pe care aţi folosit-o pentru a accesa această pagină.',
+	'readerfeedback-npov' => 'Neutralitate',
+	'readerfeedback-presentation' => 'Prezentare',
+	'readerfeedback-level-none' => '(nesigur)',
+	'readerfeedback-level-4' => 'Excelent',
+	'readerfeedback-finished' => 'Mulţumim!',
 	'revreview-typefilter' => 'Tip:',
 );
 

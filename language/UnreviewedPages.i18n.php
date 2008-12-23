@@ -135,7 +135,7 @@ $messages['be-tarask'] = array(
 	'unreviewedpages' => 'Неправераныя старонкі',
 	'unreviewed-legend' => 'Сьпіс неправераных старонак',
 	'unreviewed-category' => 'Катэгорыя:',
-	'unreviewed-diff' => 'прагляд',
+	'unreviewed-diff' => 'праверыць',
 );
 
 /** Bulgarian (Български)
@@ -310,7 +310,7 @@ $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-category' => 'Luokka',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|käyttäjän|käyttäjän}} tarkkailema)',
-	'unreviewed-list' => 'Tämä on lista artikkeleista, joita ei ole arvioitu tai joista on olemassa uusia arvioimattomia versioita.',
+	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
 );
 
 /** French (Français)

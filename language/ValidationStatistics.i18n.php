@@ -189,6 +189,14 @@ $messages['fa'] = array(
 	'validationstatistics-old' => 'تاریخ گذشته',
 );
 
+/** Finnish (Suomi)
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'validationstatistics-ns' => 'Nimiavaruus',
+	'validationstatistics-total' => 'Sivut',
+);
+
 /** French (Français)
  * @author Grondin
  * @author Verdy p

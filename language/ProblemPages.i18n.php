@@ -101,10 +101,11 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Crt
  * @author Jaakonam
  */
 $messages['fi'] = array(
-	'problempages' => 'Ongelmalliset sivut',
+	'problempages' => 'Huonosti arvioidut sivut',
 	'problempages-list' => 'Alla näkyvä sivuluettelo on järjestetty käyttäjien antaman palautearvosanan mukaan.',
 	'problempages-none' => 'Tässä luettelossa ei ole sivuja',
 );

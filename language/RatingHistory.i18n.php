@@ -713,6 +713,17 @@ $messages['pt'] = array(
 	'ratinghistory-none' => 'Ainda não há dados suficientes de avaliações dos leitores para mostrar gráficos.',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'ratinghistory-month' => 'ultima lună',
+	'ratinghistory-3months' => 'ultimele 3 luni',
+	'ratinghistory-year' => 'ultimul an',
+	'ratinghistory-3years' => 'ultimii 3 ani',
+	'readerfeedback-svg' => 'Vizualizează drept SVG',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */
