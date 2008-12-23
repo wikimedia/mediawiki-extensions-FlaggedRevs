@@ -473,12 +473,12 @@ class RatingHistory extends UnlistedSpecialPage
 		$plot->generateSVG( "xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'" );
 		// Write to file for cache
 		$svgPath = $this->getFilePath( $tag, 'svg' );
-		$fp = @fopen( $svgPath, 'w' );
-		@fwrite( $fp, $plot->svg );
-		// Rasterize due to IE suckage
 		$svgHandler = new SvgHandler();
+		if( !@file_put_contents( $svgPath, $plot->svg ) ) {
+			return false;
+		}
+		// Rasterize due to IE suckage
 		$status = $svgHandler->rasterize( $svgPath, $filePath, 1000, 410 );
-		@fclose( $fp );
 		if( $status !== true ) {
 			return false;
 		}
