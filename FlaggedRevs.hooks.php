@@ -576,7 +576,7 @@ EOT;
 	/**
 	* Don't let users vandalize pages by moving them
 	*/
-	public static function userCanMove( $title, $user, &$action, &$result ) {
+	public static function userCanMove( $title, $user, $action, &$result ) {
 		if( $action != 'move' || $result===false || !FlaggedRevs::isPageReviewable($title) ) {
 			return true;
 		}
@@ -597,7 +597,7 @@ EOT;
 	/**
 	* Don't let users pages pages not in $wgFlaggedRevsPatrolNamespaces
 	*/
-	public static function userCanPatrol( $title, $user, &$action, &$result ) {
+	public static function userCanPatrol( $title, $user, $action, &$result ) {
 		if( $action != 'patrol' || $result===false ) {
 			return true;
 		}
@@ -629,7 +629,7 @@ EOT;
     /**
     * Allow users to view reviewed pages
     */
-    public static function userCanView( $title, $user, &$action, &$result ) {
+    public static function userCanView( $title, $user, $action, &$result ) {
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
 		# Return out if $result set to false by some other hooked call.
