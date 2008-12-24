@@ -329,6 +329,8 @@ $messages['grc'] = array(
 	'ratinghistory-leg' => 'Βάθμωσις δεδομένων προτέρων ἐκδόσεων [[:$1|$1]]',
 	'ratinghistory-tab' => 'βάθμωσις',
 	'ratinghistory-link' => 'Βάθμωσις δέλτου',
+	'ratinghistory-period' => 'Περίοδος χρόνου:',
+	'readerfeedback-svg' => 'Ὁρᾶν ὡς SVG',
 );
 
 /** Swiss German (Alemannisch)
@@ -419,11 +421,12 @@ Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojacy; '''[4]''' 
  * @author Dani
  * @author Dorgan
  * @author Glanthor Reviol
+ * @author Gondnok
  * @author Samat
  */
 $messages['hu'] = array(
 	'ratinghistory' => 'Értékelési történet',
-	'ratinghistory-leg' => 'Értékelési előzmények adatai',
+	'ratinghistory-leg' => 'Értékelési előzmények adatai a(z) [[:$1|$1]] lapnál',
 	'ratinghistory-tab' => 'értékelés',
 	'ratinghistory-link' => 'Lap értékelése',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Köszönjük, hogy időt szántál az oldal értékelésére!</font>''",
@@ -433,7 +436,7 @@ $messages['hu'] = array(
 	'ratinghistory-year' => '1 év',
 	'ratinghistory-3years' => '3 év',
 	'ratinghistory-chart' => 'Olvasói visszajelzések időrendben',
-	'ratinghistory-users' => 'Szerkesztők, akik ellenőrizték a lapot:',
+	'ratinghistory-users' => 'Szerkesztők, akik értékelték a lapot',
 	'ratinghistory-graph' => '$2 a „$3” oldalon ($1 {{PLURAL:$1|értékelés|értékelés}})',
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
 	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartam alatti átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> grafikonja látható, dátum szerint. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:

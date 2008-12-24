@@ -661,6 +661,25 @@ $messages['th'] = array(
 	'validationstatistics-ns' => 'เนมสเปซ',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'validationstatistics' => 'Mga estadistika ng pagpapatunay (balidasyon)',
+	'validationstatistics-users' => "Ang '''{{SITENAME}}''' ay  pangkasalukuyang may '''$1''' {{PLURAL:$1|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Patnugot]] 
+at '''$2''' {{PLURAL:$2|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Tagapagsuri]].",
+	'validationstatistics-table' => "Ipinapakita sa ibaba ang mga estadistika (palaulatan) para sa bawat espasyo ng pangalan, hindi kasama ang mga pahina ng mga panuto/panturo.
+
+'''Paunawa:''' ang sumusunod na mga dato ay itinago (naka-''cache'') ng ilang mga oras at maaaring hindi nasasapanahon.",
+	'validationstatistics-ns' => 'Espasyo ng pangalan',
+	'validationstatistics-total' => 'Mga pahina',
+	'validationstatistics-stable' => 'Nasuri na',
+	'validationstatistics-latest' => 'Pinakahuling nasuri',
+	'validationstatistics-synced' => 'Pinagsabay-sabay/Nasuri nang muli',
+	'validationstatistics-old' => 'Wala na sa panahon (luma)',
+	'validationstatistics-nbr' => '$1%',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */

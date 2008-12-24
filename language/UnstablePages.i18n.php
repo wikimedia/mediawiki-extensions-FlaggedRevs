@@ -369,6 +369,17 @@ $messages['sv'] = array(
 	'unstablepages-config' => 'Konfigurering',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'unstablepages' => 'Mga pahinang hindi matatag (pabagubago)',
+	'unstablepages-stable' => 'matatag na bersyon',
+	'unstablepages-text' => 'Nasa ibaba ang isang talaan ng mga pahinang kinamay ang pagkakaayos (nagdaan sa manwal na paraan ng konpigurasyon) upang makita ang bersyon ng balangkas (burador) bilang likas na itinakdang pahina ng nilalaman para sa mga tumatanaw.',
+	'unstablepages-none' => 'Walang mga pahina sa talaang ito',
+	'unstablepages-config' => 'Pagkakaayos (Konpigurasyon)',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */

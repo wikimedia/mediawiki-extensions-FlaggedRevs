@@ -376,8 +376,10 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'unreviewedpages' => 'Ἀνεπιθεώρηται δέλτοι',
 	'unreviewed-category' => 'Κατηγορία:',
 	'unreviewed-diff' => 'ἀναθεωρεῖν',
+	'unreviewed-unwatched' => '(ἀνεφορωμένη)',
 );
 
 /** Swiss German (Alemannisch)
@@ -1005,6 +1007,19 @@ $messages['tg-cyrl'] = array(
 	'unreviewed-category' => 'Гурӯҳ:',
 	'unreviewed-diff' => 'Тағйирот',
 	'unreviewed-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'right-unreviewedpages' => 'Tingnan ang [[Special:UnreviewedPages|talaan ng hindi pa nasusuring mga pahina]]',
+	'unreviewedpages' => 'Hindi pa nasusuring mga pahina',
+	'unreviewed-legend' => 'Itala ang hindi pa nasusuring mga pahina ng nilalaman',
+	'unreviewed-category' => 'Kaurian:',
+	'unreviewed-diff' => 'suriing muli',
+	'unreviewed-unwatched' => '(hindi binabantayan)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagbabantay)',
 );
 
 /** Turkish (Türkçe)

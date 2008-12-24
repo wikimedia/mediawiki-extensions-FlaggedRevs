@@ -392,6 +392,7 @@ $messages['grc'] = array(
 	'oldreviewedpages-quality' => 'ποιοτική δέλτος',
 	'oldreviewed-category' => 'Κατηγορία:',
 	'oldreviewed-diff' => 'θεωρεῖν',
+	'oldreviewedpages-unwatched' => '(ἀνεφορωμένη)',
 );
 
 /** Swiss German (Alemannisch)
