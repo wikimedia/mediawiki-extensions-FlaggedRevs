@@ -411,7 +411,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$n++;
 			# Label point?
 			if( $n >= $int || !count($dataX) ) {
-				$p = ($this->period > 31) ? "{$month}-".substr( $year, 2, 2 ) : "{$month}/{$day}";
+				$p = ($days > 31) ? "{$month}-".substr( $year, 2, 2 ) : "{$month}/{$day}";
 				$n = 0;
 			} else {
 				$p = "";
