@@ -79,27 +79,26 @@ class UnreviewedPages extends SpecialPage
 	
 	function formatRow( $result ) {
 		global $wgLang, $wgUser;
-
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
-		$link = $this->skin->makeKnownLinkObj( $title );
+		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no' );
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
 		$css = $stxt = $review = '';
 		if( !is_null($size = $result->page_len) ) {
-			global $wgLang;
-			$stxt = ($size == 0) ? 
-				wfMsgHtml('historyempty') : wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );
+			$stxt = ($size == 0)
+				? wfMsgHtml('historyempty')
+				: wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
 			$uw = self::usersWatching( $title );
-			$watching = $uw ? wfMsgExt( 'unreviewed-watched', array('parsemag'), $uw ) : wfMsgHtml( 'unreviewed-unwatched' );
+			$watching = $uw ?
+				wfMsgExt( 'unreviewed-watched', array('parsemag'), $uw ) : wfMsgHtml( 'unreviewed-unwatched' );
 			$watching = " $watching";
 			// Oh-noes!
 			$css = $uw ? "" : " class='fr-unreviewed-unwatched'";
 		} else {
 			$watching = "";
 		}
-
 		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching}</li>" );
 	}
 	
@@ -218,25 +217,31 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	
 	function getQueryCacheInfo() {
 		$conds = $this->mConds;
-		$fields = array('qc_namespace AS page_namespace','qc_title AS page_title','NULL AS page_len','qc_value');
+		$fields = array('page_namespace','page_title','page_len','qc_value');
 		$conds['qc_type'] = 'fr_unreviewedpages';
+		$conds[] = 'qc_value = page_id';
+		# Re-join on flaggedpages to double-check
 		$conds[] = 'fp_page_id IS NULL';
 		# Reviewable pages only
 		$conds['qc_namespace'] = $this->namespace;
-		$this->mIndexField = 'qc_value';
+		# No redirects
+		if( !$this->showredirs ) {
+			$conds['page_is_redirect'] = 0;
+		}
+		$this->mIndexField = 'qc_value'; // page_id
 		# Filter by category
 		if( $this->category ) {
-			$tables = array( 'categorylinks', 'querycache', 'flaggedpages' );
+			$tables = array( 'page', 'categorylinks', 'querycache', 'flaggedpages' );
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = qc_value'; // page_id
 		} else {
-			$tables = array( 'querycache', 'flaggedpages' );
+			$tables = array( 'page', 'querycache', 'flaggedpages' );
 		}
 		return array(
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => array('querycache' => 'qc_type') ),
+			'options' => array( 'USE INDEX' => array('querycache' => 'qc_type','page' => 'PRIMARY') ),
 			'join_conds' => array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = qc_value') )
 		);
 	}
