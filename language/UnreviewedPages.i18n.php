@@ -1020,6 +1020,8 @@ $messages['tl'] = array(
 	'unreviewed-diff' => 'suriing muli',
 	'unreviewed-unwatched' => '(hindi binabantayan)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagbabantay)',
+	'unreviewed-list' => 'Nakatala sa pahinang ito ang mga pahina ng nilalaman na hindi pa nasusuring muli.',
+	'unreviewed-none' => 'Sa ngayon, wala pang mga pahinang nakakaabot sa ganitong mga kaurian (kategorya).',
 );
 
 /** Turkish (Türkçe)

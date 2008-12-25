@@ -8758,11 +8758,13 @@ $messages['te'] = array(
 	'stable-logpage' => 'సుస్థిర కూర్పుల లాగ్',
 	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల లాగ్',
 	'readerfeedback-finished' => 'ధన్యవాదాలు!',
+	'revreview-filter-all' => 'అన్నీ',
 	'revreview-statusfilter' => 'స్థితి:',
 	'revreview-typefilter' => 'రకం:',
 	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
 	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'tooltip-ca-default' => 'నాణ్యతా భరోసా అమరికలు',
+	'revreview-tt-review' => 'ఈ పేజీని సమీక్షించండి',
 	'validationpage' => '{{ns:help}}:వ్యాస మూల్యాంకన',
 );
 

@@ -859,7 +859,9 @@ Skala: '''[1]''' - Mycket dålig; '''[2]''' - Dålig; '''[3]''' - Okej; '''[4]''
  * @author Veeven
  */
 $messages['te'] = array(
+	'ratinghistory' => 'పేజీ రేటింగు చరిత్ర',
 	'ratinghistory-month' => 'గత నెల',
+	'ratinghistory-3months' => 'గత 3 నెలలు',
 	'ratinghistory-year' => 'గత సంవత్సరం',
 	'ratinghistory-3years' => 'గత 3 సంవత్సరాలు',
 );
