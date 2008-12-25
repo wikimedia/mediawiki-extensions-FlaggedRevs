@@ -774,6 +774,7 @@ class FlaggedArticle extends Article {
 	public function setActionTabs( $skin, &$actions ) {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		$title = $this->parent->getTitle()->getSubjectPage();
+		$action = $wgRequest->getVal( 'action', 'view' );
 		# Non-content pages cannot be validated
 		if( !FlaggedRevs::isPageReviewable($title) || !$title->exists() )
 			return true;
@@ -795,15 +796,15 @@ class FlaggedArticle extends Article {
 		if( !$fa->isReviewable() )
 			return true;
 		# If we are viewing a page normally, and it was overridden,
-		# change the edit tab to a "current revision" tab
-	   	$srev = $this->getStableRev();
+		# change the edit tab to a "current revision" tab.
+		# For rollbacks, use master per bug 16734.
+	   	$srev = $this->getStableRev( $action == 'rollback' ? FR_MASTER : 0 );
 	   	# No quality revs? Find the last reviewed one
 	   	if( is_null($srev) ) {
 			return true;
 		}
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$article = new Article( $title );
-		$action = $wgRequest->getVal( 'action', 'view' );
 	   	# Be clear about what is being edited...
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 	   	if( !$skin->mTitle->isTalkPage() && !$synced ) {
