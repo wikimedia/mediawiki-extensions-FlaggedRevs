@@ -385,6 +385,8 @@ $messages['pt'] = array(
  */
 $messages['ro'] = array(
 	'stablepages' => 'Pagini stabile',
+	'stablepages-stable' => 'versiune stabilă',
+	'stablepages-none' => 'Nu există pagini în această listă',
 );
 
 /** Tarandíne (Tarandíne)

@@ -8757,6 +8757,7 @@ $messages['te'] = array(
 	'stable-logentry2' => '[[$1]]కి సుస్థిర కూర్పుని పునర్నిర్ణయించండి',
 	'stable-logpage' => 'సుస్థిర కూర్పుల లాగ్',
 	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల లాగ్',
+	'readerfeedback-success' => "'''ఈ పేజీని సమీక్షించినందుకు కృతజ్ఞతలు!''' ([$3 సందేహాలు లేదా సూచనలున్నాయా?]).",
 	'readerfeedback-finished' => 'ధన్యవాదాలు!',
 	'revreview-filter-all' => 'అన్నీ',
 	'revreview-statusfilter' => 'స్థితి:',

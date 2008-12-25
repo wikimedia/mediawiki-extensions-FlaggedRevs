@@ -1053,14 +1053,14 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'right-unreviewedpages' => 'Varda na lista de pagine non ricontrolà',
+	'right-unreviewedpages' => 'Varda na [[Special:UnreviewedPages|lista de pagine non ricontrolà]]',
 	'unreviewedpages' => 'Pagine non riesaminà',
 	'unreviewed-legend' => 'Elenca le pagine non riesaminà',
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'esamina',
 	'unreviewed-unwatched' => '(non osservà)',
 	'unreviewed-watched' => "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
-	'unreviewed-list' => 'Sta pagina la elenca le voçi che no le xe stà gnancora riesaminà.',
+	'unreviewed-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà.',
 	'unreviewed-none' => 'No ghe xe atualmente pagine che sodisfa sti criteri',
 );
 

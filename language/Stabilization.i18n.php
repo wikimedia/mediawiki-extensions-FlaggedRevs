@@ -638,6 +638,7 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  * @author Nike
  */
 $messages['fi'] = array(
@@ -646,6 +647,8 @@ $messages['fi'] = array(
 	'stabilization-def2' => 'Nykyinen versio',
 	'stabilization-submit' => 'Vahvista',
 	'stabilization-sel-short-0' => 'Laatu',
+	'stabilization-def-short' => 'Oletus',
+	'stabilization-def-short-0' => 'Nykyinen',
 );
 
 /** French (Français)
@@ -1801,6 +1804,7 @@ Não é possível configurá-la.',
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
+	'stabilization-page' => 'Numele paginii:',
 	'stabilization-submit' => 'Confirmă',
 	'stabilization-comment' => 'Comentariu:',
 	'stabilization-expiry' => 'Expiră:',

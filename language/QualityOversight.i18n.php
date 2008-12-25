@@ -312,7 +312,8 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'qualityoversight' => 'Controlo de qualità',
-	'qualityoversight-list' => 'Sta pagina la elenca le ultime aprovassion e i ultimi declassamenti de le version de qualità.',
+	'qualityoversight-list' => 'Sta pagina la elenca le ultime aprovassion e i ultimi declassamenti de le version.',
+	'qualityoversight-legend' => 'Serca i registri de le revision reçenti',
 );
 
 /** Vietnamese (Tiếng Việt)

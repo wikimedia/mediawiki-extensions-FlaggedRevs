@@ -227,6 +227,13 @@ $messages['pt'] = array(
 	'likedpages-graphs' => 'dados de avaliações',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'likedpages-none' => 'Nu există pagini în această listă',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */

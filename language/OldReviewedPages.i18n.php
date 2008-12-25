@@ -776,11 +776,13 @@ $messages['pt'] = array(
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
+	'oldreviewedpages-none' => 'Momentan nu există pagini care satisfac aceste criterii',
 	'oldreviewedpages-quality' => 'calitate',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|zi|zile}})',
 	'oldreviewedpages-recent' => '(mai puţin de 1 oră)',
 	'oldreviewed-category' => 'Categorie:',
+	'oldreviewed-watched' => 'În lista mea de urmărire',
 );
 
 /** Tarandíne (Tarandíne)
@@ -818,6 +820,7 @@ $messages['ru'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
 	'oldreviewedpages-recent' => '(менее 1 часа)',
 	'oldreviewed-category' => 'Категория:',
+	'oldreviewed-watched' => 'Из моего списка наблюдения',
 	'oldreviewed-diff' => 'проверить',
 	'oldreviewed-size' => 'Наибольшее изменение в байтах:',
 	'oldreviewedpages-unwatched' => '(не следят)',
@@ -944,7 +947,9 @@ $messages['vec'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|giòrno|giòrni}})',
 	'oldreviewedpages-recent' => '(manco de 1 ora)',
 	'oldreviewed-category' => 'Categoria:',
+	'oldreviewed-watched' => 'Su i me osservati speciali',
 	'oldreviewed-diff' => 'riesamina',
+	'oldreviewed-size' => 'Canbiamento massimo (in byte):',
 	'oldreviewedpages-unwatched' => '(non osservà)',
 	'oldreviewedpages-watched' => "($2 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
 );

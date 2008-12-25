@@ -651,7 +651,9 @@ $messages['sv'] = array(
  * @author Veeven
  */
 $messages['te'] = array(
+	'validationstatistics' => 'సరిచూత గణాంకాలు',
 	'validationstatistics-total' => 'పేజీలు',
+	'validationstatistics-old' => 'పాతవి',
 );
 
 /** Thai (ไทย)

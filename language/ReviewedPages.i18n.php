@@ -690,6 +690,7 @@ $messages['pt'] = array(
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
+	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
 );
 

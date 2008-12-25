@@ -247,6 +247,7 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author IAlex
  * @author Sherbrooke
  */
 $messages['fr'] = array(
@@ -255,7 +256,7 @@ $messages['fr'] = array(
 	'stableversions-page' => 'Nom de la page :',
 	'stableversions-none' => "« [[:$1]] » n'a pas de versions révisées.",
 	'stableversions-list' => 'La liste qui suit contient des versions de « [[:$1]] » qui ont été révisées :',
-	'stableversions-review' => "Révisée le ''$1'' par $2",
+	'stableversions-review' => 'Révisée le <i>$1</i> par $2',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -685,6 +686,14 @@ $messages['pt'] = array(
 	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
 	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
 	'stableversions-review' => 'Analisada às <i>$1</i> por $2',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'stableversions' => 'Vizualizaţi versiunile stabile',
+	'stableversions-page' => 'Numele paginii:',
 );
 
 /** Tarandíne (Tarandíne)

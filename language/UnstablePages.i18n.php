@@ -323,6 +323,7 @@ $messages['pt'] = array(
 $messages['ro'] = array(
 	'unstablepages' => 'Pagini instabile',
 	'unstablepages-stable' => 'versiune stabilă',
+	'unstablepages-none' => 'Nu există pagini în această listă',
 );
 
 /** Tarandíne (Tarandíne)
@@ -367,6 +368,14 @@ $messages['sv'] = array(
 	'unstablepages-text' => 'Nedan visas en lista över sidor som manuellt har konfigurerats att visa utkastet som standardsideinnehåll för läsare.',
 	'unstablepages-none' => 'Det finns inga sidor i den här listan',
 	'unstablepages-config' => 'Konfigurering',
+);
+
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'unstablepages-none' => 'ఈ జాబితాలో పేజీలేమీ లేవు',
+	'unstablepages-config' => 'స్వరూపణం',
 );
 
 /** Tagalog (Tagalog)
