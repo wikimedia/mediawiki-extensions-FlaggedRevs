@@ -675,7 +675,10 @@ EOT;
 			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, null, false );
 			return true;
 		}
-		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') )
+		# Auto-reviewing must be enabled
+		if( !$wgFlaggedRevsAutoReview ) return true;
+		# User must have the required permissions
+		if( !$user->isAllowed('autoreview') && !$user->isAllowed('bot') )
 			return true;
 		# If $baseRevId passed in, this is a null edit
 		$isNullEdit = $baseRevId ? true : false;
@@ -751,7 +754,7 @@ EOT;
 				GAID_FOR_UPDATE );
 		// Can this be patrolled?
 		} else if( FlaggedRevs::isPagePatrollable( $rc->getTitle() ) ) {
-			$patrol = $wgUser->isAllowed('autopatrolother');
+			$patrol = $wgUser->isAllowed('autopatrolother') || $wgUser->isAllowed('bot');
 			$record = true;
 		} else {
 			global $wgUseNPPatrol;
@@ -782,7 +785,7 @@ EOT;
 		# Grab current groups
 		$groups = $user->getGroups();
 		# Do not give this to current holders or bots
-		if( in_array( 'bot', $groups ) || in_array( 'editor', $groups ) ) {
+		if( $user->isAllowed('bot') || in_array('bot',$groups) || in_array('editor',$groups) ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
