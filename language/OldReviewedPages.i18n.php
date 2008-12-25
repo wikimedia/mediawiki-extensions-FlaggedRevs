@@ -424,6 +424,7 @@ $messages['he'] = array(
 	'oldreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
 	'oldreviewedpages-recent' => 'פחות משעה',
 	'oldreviewed-category' => 'קטגוריה:',
+	'oldreviewed-watched' => 'ברשימת המעקב שלי',
 	'oldreviewed-diff' => 'בדיקה',
 	'oldreviewed-size' => 'השינוי המירבי בגודל בבתים:',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',

@@ -366,7 +366,7 @@ In däre Grafik wäre a '''Aazahl vu Bewärtige am Tag''' <font color=\"red\">''
  */
 $messages['he'] = array(
 	'ratinghistory' => 'היסטוריית דירוג הדף',
-	'ratinghistory-leg' => 'נתוני היסטוריית דירוג',
+	'ratinghistory-leg' => 'נתוני היסטוריית הדירוג עבור [[:$1|$1]]',
 	'ratinghistory-tab' => 'דירוג',
 	'ratinghistory-link' => 'דירוג הדף',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">תודה על כך שהקדשתם מזמנכם לבדיקת דף זה!</font>''",
@@ -378,6 +378,7 @@ $messages['he'] = array(
 	'ratinghistory-chart' => 'משוב דירוג קוראים לאורך זמן',
 	'ratinghistory-users' => 'משתמשים שדירגו:',
 	'ratinghistory-graph' => '$2 מתוך "$3" ({{PLURAL:$1|דירוג אחד|$1 דירוגים}})',
+	'readerfeedback-svg' => 'הצגה כ־SVG',
 	'ratinghistory-none' => 'אין כרגע מספיק מידע זמין של משוב קוראים ליצירת תרשימים',
 	'ratinghistory-legend' => "'''הדירוג הממוצע היומי''' <font color=\"blue\">'''(בכחול)'''</font> ו'''הדירוג הממוצע בתווך''' <font color=\"green\">'''(בירוק)'''</font> מוצגים בטבלאות למטה, לפי תאריך.
 
