@@ -487,6 +487,7 @@ $messages['af'] = array(
  */
 $messages['am'] = array(
 	'revreview-revnotfound' => 'ለዚህ ገጽ የጠየቁት የቆየው ዕትም ሊገኝ አልቻለም። እባክዎ ይህን ገጽ ለማግኘት የተጠቀመው URL ይመልከቱ።',
+	'revreview-filter-all' => 'ሁሉ',
 );
 
 /** Aragonese (Aragonés)
@@ -2161,7 +2162,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'readerfeedback-voted' => "'''Du hast scheinbar bereits eine Bewertung für diese Seite abgegeben.'''
 [$3 Kommentare oder Fragen?]",
 	'readerfeedback-submitting' => 'Übertragung …',
-	'readerfeedback-finished' => 'Danke schön.',
+	'readerfeedback-finished' => 'Dankeschön!',
 	'revreview-filter-all' => 'Alle',
 	'revreview-filter-approved' => 'Markiert',
 	'revreview-filter-reapproved' => 'Inkrementell markiert',
@@ -3439,6 +3440,32 @@ $messages['grc'] = array(
 	'revreview-typefilter' => 'Τύπος:',
 	'revreview-tagfilter' => 'Προσάρτημα:',
 	'revreview-reviewlink' => 'ἐπιθεωρεῖν',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Melancholie
+ */
+$messages['gsw'] = array(
+	'hist-draft' => 'Entwurfsvèrsion',
+	'hist-stable' => 'Patrulierti Vèrsion',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} aaglueget]: [[Benutzer:$3|$3]]',
+	'revreview-accuracy-1' => 'gsichtet',
+	'revreview-basic' => 'Des isch d letscht [[{{MediaWiki:Validationpage}}|patrulierti]] Vèrsion, [{{fullurl:Spezial:Log|type=review&page={{FULLPAGENAMEE}}}} freigäbe] <i>$2</i>.
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderig isch|Änderige sind}}] no zum Nocheluege.',
+	'revreview-draft-title' => 'Entwurfsvèrsion',
+	'revreview-flag' => 'Vèrsion as gsichtet markiere',
+	'revreview-newest-basic' => 'D’[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letscht patrulierti Vèrsion]
+	([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → all]) isch am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigäbe] worre.
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Vèrsion|Vèrsione}}] {{PLURAL:$3|isch|sind}} no zum Nocheluege.',
+	'revreview-stable-title' => 'Patrulierti Vèrsion',
+	'revreview-stable2' => 'Wit du d’[{{fullurl:$1|stable=1}} patruliert Vèrsion] vo dere Syte seah (wenn’s noo uine git)?',
+	'revreview-submit' => 'Vèrsion markiere',
+	'revreview-submitting' => '… bitte warte …',
+	'revreview-finished' => 'Markierig isch gsetzt worre ✔',
+	'revreview-update-none' => "Bitte due d Änderige ga [[{{MediaWiki:Validationpage}}|nocheluege]] wo sit de letschti [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} patrulierti Vèrsion] gmacht worre sind ''(lüeg unde)''.",
+	'readerfeedback-submitting' => '… bitte warte …',
+	'readerfeedback-finished' => 'Merci!',
+	'validationpage' => '{{ns:project}}:Stabilversionen',
 );
 
 /** Hakka (Hak-kâ-fa)

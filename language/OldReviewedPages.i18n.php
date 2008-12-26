@@ -485,7 +485,9 @@ $messages['hu'] = array(
 	'oldreviewedpages-days' => '({{PLURAL:$1|Egy|$1}} napja)',
 	'oldreviewedpages-recent' => '(kevesebb, mint egy órája)',
 	'oldreviewed-category' => 'Kategória:',
+	'oldreviewed-watched' => 'A figyelőlistámon',
 	'oldreviewed-diff' => 'ellenőrzés',
+	'oldreviewed-size' => 'Változás legfeljebb (bájtban):',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
 );
@@ -1016,6 +1018,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Shinjiman
+ * @author Wrightbus
  */
 $messages['zh-hant'] = array(
 	'oldreviewedpages' => '已過時複審過的頁面',
@@ -1029,6 +1032,7 @@ $messages['zh-hant'] = array(
 	'oldreviewedpages-recent' => '(少於1小時)',
 	'oldreviewed-category' => '分類:',
 	'oldreviewed-diff' => '複審',
+	'oldreviewed-size' => '最大變動 (位元組):',
 	'oldreviewedpages-unwatched' => '(未看)',
 	'oldreviewedpages-watched' => '($2{{PLURAL:$1|位用戶|位用戶}}正在看)',
 );

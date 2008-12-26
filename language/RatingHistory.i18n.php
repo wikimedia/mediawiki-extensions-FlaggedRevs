@@ -439,12 +439,13 @@ $messages['hu'] = array(
 	'ratinghistory-chart' => 'Olvasói visszajelzések időrendben',
 	'ratinghistory-users' => 'Szerkesztők, akik értékelték a lapot',
 	'ratinghistory-graph' => '$2 a „$3” oldalon ($1 {{PLURAL:$1|értékelés|értékelés}})',
+	'readerfeedback-svg' => 'Megtekintés SVG formátumban',
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
-	'ratinghistory-legend' => "Alább a napi átlagos értékelés <font color=\"blue\">''(kék színnel)''</font> és a megadott időtartam alatti átlagos értékelés <font color=\"green\">''(zöld színnel)''</font> grafikonja látható, dátum szerint. A grafikon nagyobb értékei jobb minőséghez tartoznak, magyarázatuk a következő:
+	'ratinghistory-legend' => "Alább a '''napi átlagos értékelés''' <font color=\"blue\">''(kék színnel)''</font> és a '''megadott időtartam alatti átlagos értékelés''' <font color=\"green\">''(zöld színnel)''</font> grafikonja látható, dátum szerint. A '''megadott időtartam alatti átlagos értékelés''' egyszerűen az összes napi értékelés átlaga a megadott időtartam '''alatt'''.
 
-'''[1]''' – rossz; '''[2]''' – gyenge; '''[3]''' – közepes; '''[4]''' – jó; '''[5]''' – kitűnő;
+Értékek: '''[1]''' – rossz; '''[2]''' – gyenge; '''[3]''' – közepes; '''[4]''' – jó; '''[5]''' – kitűnő;
 
-A naponkénti értékelések száma <font color=\"red\">''(piros színnel)''</font> látható a grafikonokon, ''1:\$1'' skálán.",
+A '''naponkénti értékelések száma''' <font color=\"red\">''(piros színnel)''</font> látható a grafikonokon, ''1:\$1'' arányon.",
 	'right-feedback' => 'oldalak értékelése a visszajelzés-űrlap segítségével',
 );
 
@@ -923,5 +924,14 @@ Giải thích các giá trị: '''[1]''' – Tệ; '''[2]''' – Dở; '''[3]'''
 
 Những biểu thị cũng trình bày '''số lần đánh giá trong ngày''' <font color=\"red\">''(đỏ)''</font> với tỷ lệ ''1:\$1''.",
 	'right-feedback' => 'Đánh giá trang',
+);
+
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Wrightbus
+ */
+$messages['zh-hant'] = array(
+	'ratinghistory-tab' => '評分',
+	'ratinghistory-link' => '頁面評分',
+	'readerfeedback-svg' => '以SVG檢視',
 );
 

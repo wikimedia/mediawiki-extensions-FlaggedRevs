@@ -1104,7 +1104,9 @@ $messages['yue'] = array(
 	'unreviewed-none' => '呢度現時無版合乎呢啲條件',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
+ */
 $messages['zh-hans'] = array(
 	'right-unreviewedpages' => '去看未复审页面之列表',
 	'unreviewedpages' => '未复审页面',
@@ -1113,7 +1115,7 @@ $messages['zh-hans'] = array(
 	'unreviewed-diff' => '更改',
 	'unreviewed-unwatched' => '(未看)',
 	'unreviewed-watched' => '($1{{PLURAL:$1|位用户|位用户}}正在看)',
-	'unreviewed-list' => '这一页列示出还未复审或视察的文章修订。',
+	'unreviewed-list' => '这一页列示出还未复审或视察的页面修订。',
 	'unreviewed-none' => '这里现时没有页面合乎这些条件',
 );
 

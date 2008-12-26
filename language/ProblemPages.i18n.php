@@ -377,3 +377,14 @@ $messages['vi'] = array(
 	'problempages-graphs' => 'dữ liệu đánh giá',
 );
 
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Wrightbus
+ */
+$messages['zh-hant'] = array(
+	'problempages' => '評分差劣的頁面',
+	'problempages-leg' => '查找低評分頁面',
+	'problempages-list' => '以下是按讀者評分排序的頁面清單。',
+	'problempages-none' => '本清單沒有任何頁面',
+	'problempages-graphs' => '評分資料',
+);
+
