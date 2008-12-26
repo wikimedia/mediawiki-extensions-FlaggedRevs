@@ -64,6 +64,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
@@ -73,7 +74,7 @@ $messages['ar'] = array(
 	'unreviewed-diff' => 'مراجعة',
 	'unreviewed-unwatched' => '(غير مراقبة)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
-	'unreviewed-list' => 'هذه الصفحة تعرض المقالات التي لم يتم مراجعتها.',
+	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتويات التي لم يتم مراجعتها.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 );
 

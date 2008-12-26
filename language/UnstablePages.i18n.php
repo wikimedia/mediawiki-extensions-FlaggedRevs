@@ -63,6 +63,17 @@ $messages['be-tarask'] = array(
 	'unstablepages-config' => 'Канфігурацыя',
 );
 
+/** Czech (Česky)
+ * @author Matěj Grabovský
+ */
+$messages['cs'] = array(
+	'unstablepages' => 'Nestabilní stránky',
+	'unstablepages-stable' => 'stabilní verze',
+	'unstablepages-text' => 'Toto je seznam stránke, které byly ručně nastaveny, aby se zobrazovala jejich verze návrhu jako standardní stránka s obsahem pro čtenáře.',
+	'unstablepages-none' => 'Tento seznam neobsahuje žádné stránky',
+	'unstablepages-config' => 'Nastavení',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  * @author Revolus

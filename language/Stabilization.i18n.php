@@ -113,6 +113,13 @@ $messages['af'] = array(
 	'stabilize-expiring' => 'verval $1 (UTC)',
 );
 
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+$messages['am'] = array(
+	'stabilization-comment' => 'ማጠቃለያ፦',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -1116,6 +1123,7 @@ Non è possibile effettuare la configurazione.',
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Hosiryuhosi
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -1139,6 +1147,7 @@ $messages['ja'] = array(
 	'stabilization-sel-short' => '優先度',
 	'stabilization-sel-short-0' => '内容充実',
 	'stabilization-sel-short-1' => '不問',
+	'stabilization-sel-short-2' => '初期',
 	'stabilization-def-short' => 'デフォルト表示',
 	'stabilization-def-short-0' => '最新版',
 	'stabilization-def-short-1' => '採択ページ',

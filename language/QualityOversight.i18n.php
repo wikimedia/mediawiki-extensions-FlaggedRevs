@@ -188,6 +188,14 @@ $messages['it'] = array(
 	'qualityoversight-legend' => 'Cerca i log delle revisioni recenti',
 );
 
+/** Japanese (日本語)
+ * @author Hosiryuhosi
+ */
+$messages['ja'] = array(
+	'qualityoversight' => 'クオリティーオーバーサイト',
+	'qualityoversight-legend' => '最近のレビュー記録を検索',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */

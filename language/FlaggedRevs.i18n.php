@@ -486,6 +486,7 @@ $messages['af'] = array(
  * @author Codex Sinaiticus
  */
 $messages['am'] = array(
+	'revreview-log' => 'ማጠቃለያ፦',
 	'revreview-revnotfound' => 'ለዚህ ገጽ የጠየቁት የቆየው ዕትም ሊገኝ አልቻለም። እባክዎ ይህን ገጽ ለማግኘት የተጠቀመው URL ይመልከቱ።',
 	'revreview-filter-all' => 'ሁሉ',
 );
@@ -664,6 +665,7 @@ Puede trobar una lista de pachinas con bersions estables en [[Special:StablePage
 /** Arabic (العربية)
  * @author Meno25
  * @author OsamaK
+ * @author Ouda
  */
 $messages['ar'] = array(
 	'editor' => 'محرر',
@@ -727,7 +729,7 @@ $messages['ar'] = array(
 	'revreview-depth-2' => 'متوسط',
 	'revreview-depth-3' => 'مرتفع',
 	'revreview-depth-4' => 'مميز',
-	'revreview-draft-title' => 'مسودة مقالة',
+	'revreview-draft-title' => 'صفحة المسودة',
 	'revreview-edit' => 'عدل المسودة',
 	'revreview-editnotice' => "'''ملاحظة: التعديلات لهذه الصفحة سيتم دمجها في [[{{MediaWiki:Validationpage}}|النسخة المستقرة]] متى راجعها مستخدم مخول.'''",
 	'revreview-flag' => 'راجع هذه المراجعة',
@@ -763,23 +765,23 @@ $messages['ar'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات] جديدة ربما تكون قد حدثت.',
 	'revreview-quality-same' => 'هذه هي آخر مراجعة [[{{MediaWiki:Validationpage}}|جودة]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} عرض الكل])، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة جودة] من هذه الصفحة، [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>، بناء على هذه المراجعة.',
-	'revreview-quality-title' => 'مقالة جودة',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|مقالة منظورة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
-	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|مقالة منظورة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|مقالة منظورة]]'''",
+	'revreview-quality-title' => 'صفحة الجودة',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|صفحة منظورة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|صفحة منظورة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|صفحة منظورة]]'''",
 	'revreview-quick-invalid' => "'''رقم مراجعة غير صحيح'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|المراجعة الحالية]]''' (غير مراجعة)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|مقالة جودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|مقالة جودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|مقالة جودة]]'''",
-	'revreview-quick-see-basic' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض المقالة]]
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|صفحة الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|صفحة الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|صفحة الجودة]]'''",
+	'revreview-quick-see-basic' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقارنة])",
-	'revreview-quick-see-quality' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض المقالة]]
+	'revreview-quick-see-quality' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقارنة])",
 	'revreview-selected' => "المراجعة المختارة ل'''$1:'''",
 	'revreview-source' => 'مصدر المسودة',
 	'revreview-stable' => 'صفحة مستقرة',
-	'revreview-stable-title' => 'مقالة منظورة',
+	'revreview-stable-title' => 'صفحة منظورة',
 	'revreview-stable1' => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
 	'revreview-stable2' => 'ربما ترغب في رؤية [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة (لو كانت مازالت هناك واحدة).',
 	'revreview-style' => 'القابلية للقراءة',
@@ -788,7 +790,7 @@ $messages['ar'] = array(
 	'revreview-style-2' => 'جيدة',
 	'revreview-style-3' => 'متوسطة',
 	'revreview-style-4' => 'مميزة',
-	'revreview-submit' => 'تنفيذ المراجعة',
+	'revreview-submit' => 'إرسال',
 	'revreview-submitting' => 'جاري التنفيذ...',
 	'revreview-finished' => 'المراجعة انتهت!',
 	'revreview-successful' => "'''مراجعة [[:$1|$1]] تم التعليم عليها بنجاح. ([{{fullurl:Special:Stableversions|page=$2}} عرض النسخ المستقرة])'''",
@@ -830,7 +832,7 @@ $messages['ar'] = array(
 	'readerfeedback-npov' => 'الحيادية',
 	'readerfeedback-presentation' => 'التقديم',
 	'readerfeedback-overall' => 'إجمالي',
-	'readerfeedback-level-none' => '(اختر)',
+	'readerfeedback-level-none' => '(غير متأكد)',
 	'readerfeedback-level-0' => 'فقير',
 	'readerfeedback-level-1' => 'منخفض',
 	'readerfeedback-level-2' => 'معقول',
@@ -853,6 +855,7 @@ $messages['ar'] = array(
 	'revreview-statusfilter' => 'الحالة:',
 	'revreview-typefilter' => 'النوع:',
 	'revreview-tagfilter' => 'وسم:',
+	'revreview-reviewlink' => 'مراجعة',
 	'tooltip-ca-current' => 'عرض المسودة الحالية لهذه الصفحة',
 	'tooltip-ca-stable' => 'عرض النسخة المستقرة لهذه الصفحة',
 	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
@@ -861,7 +864,7 @@ $messages['ar'] = array(
 	'revreview-unlocked' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
 	'log-show-hide-review' => '$1 سجل المراجعة',
 	'revreview-tt-review' => 'راجع هذه الصفحة',
-	'validationpage' => '{{ns:help}}:تحقيق المقالات',
+	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -2835,6 +2838,7 @@ $messages['fi'] = array(
 	'revreview-style' => 'Luettavuus',
 	'revreview-revnotfound' => 'Pyytämääsi versiota ei löydy. Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-movestable' => 'Siirrä vakaat sivut',
+	'revreview-filter-all' => 'Kaikki',
 	'tooltip-ca-current' => 'Näytä tämän sivun nykyinen luonnosversio',
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
 );

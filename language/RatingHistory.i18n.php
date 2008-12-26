@@ -35,20 +35,24 @@ Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
+ * @author Ouda
  */
 $messages['ar'] = array(
 	'ratinghistory' => 'تاريخ تقييم الصفحة',
-	'ratinghistory-leg' => 'بيانات تقييم التاريخ',
+	'ratinghistory-leg' => 'بيانات تاريخ التقييم ل[[:$1|$1]]',
 	'ratinghistory-tab' => 'تقييم',
-	'ratinghistory-link' => 'تقييم المقالة',
+	'ratinghistory-link' => 'تقييم الصفحة',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">شكرا لك لاستغراقك دقيقة لمراجعة هذه الصفحة!</font>''",
 	'ratinghistory-period' => 'فترة زمنية:',
 	'ratinghistory-month' => 'آخر شهر',
+	'ratinghistory-3months' => 'أخر 3 شهور',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
-	'ratinghistory-users' => 'المستخدمون الذين قاموا بمراجعات في هذه الصفحة:',
+	'ratinghistory-users' => 'المستخدمون الذين أعطوا تقييمات',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
+	'readerfeedback-svg' => 'عرض كإس في جي',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ.

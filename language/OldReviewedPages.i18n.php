@@ -80,6 +80,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author Ouda
  */
 $messages['ar'] = array(
 	'oldreviewedpages' => 'صفحات مراجعة قديمة',
@@ -92,6 +93,7 @@ $messages['ar'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
 	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
 	'oldreviewed-category' => 'تصنيف:',
+	'oldreviewed-watched' => 'على قائمة مراقبتي',
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
