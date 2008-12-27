@@ -527,7 +527,8 @@ class FlaggedRevision {
 				# Store and get the URL
 				$fulltext = ExternalStore::insert( $store, $fulltext );
 				if( !$fulltext ) {
-					# This should only happen in the case of a configuration error, where the external store is not valid
+					# This should only happen in the case of a configuration error, 
+					# where the external store is not valid
 					wfProfileOut( __METHOD__ );
 					throw new MWException( "Unable to store text to external storage $store" );
 				}
