@@ -59,6 +59,13 @@ $messages['af'] = array(
 	'oldreviewed-category' => 'Kategorie:',
 );
 
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+$messages['am'] = array(
+	'oldreviewed-category' => 'መደብ:',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -308,6 +315,7 @@ $messages['fa'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|روز|روز}})',
 	'oldreviewedpages-recent' => '(کمتر از ۱ ساعت)',
 	'oldreviewed-category' => 'رده:',
+	'oldreviewed-watched' => 'برروی پیگیری‌های من',
 	'oldreviewed-diff' => 'بازبینی',
 	'oldreviewedpages-unwatched' => '(پیگیری نشده)',
 	'oldreviewedpages-watched' => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
@@ -316,11 +324,12 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Huji
  * @author Jaakonam
+ * @author Mobe
  * @author Nike
  */
 $messages['fi'] = array(
 	'oldreviewedpages' => 'Vanhentuneet tarkastetut sivut',
-	'oldreviewedpages-legend' => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita',
+	'oldreviewedpages-legend' => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita.',
 	'oldreviewedpages-list' => 'Luettelo tarkastetuista sivuista, joihin on vielä odotettavissa muokkauksia.',
 	'oldreviewedpages-none' => 'Ehdot täyttäviä sivuja ei ole',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',
@@ -650,7 +659,11 @@ $messages['ms'] = array(
  * @author Fluence
  */
 $messages['nah'] = array(
+	'oldreviewedpages-quality' => 'cuallōtl',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|tōnalli|tōnaltin}})',
 	'oldreviewed-category' => 'Neneuhcāyōtl:',
+	'oldreviewed-watched' => 'Notlachiyalizpan',
+	'oldreviewedpages-watched' => '($2 tlatequitiltilīlli {{PLURAL:$1|quichiya|quichiyah}})',
 );
 
 /** Low German (Plattdüütsch)

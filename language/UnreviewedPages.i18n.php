@@ -47,6 +47,13 @@ $messages['af'] = array(
 	'unreviewed-category' => 'Kategorie:',
 );
 
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+$messages['am'] = array(
+	'unreviewed-category' => 'መደብ:',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -289,6 +296,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Mardetanha
  */
 $messages['fa'] = array(
 	'right-unreviewedpages' => 'مشاهدهٔ فهرست صفحه‌های بازبینی نشده',

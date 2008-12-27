@@ -2454,6 +2454,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 
 /** Spanish (Español)
  * @author Drini
+ * @author Imre
  * @author Lin linao
  * @author Sanbec
  */
@@ -2484,9 +2485,16 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'revreview-basic-i' => 'Esta es la última revisión [[{{MediaWiki:Validationpage}}|vista]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
 El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios de plantilla/imagen] esperando revisión.',
 	'revreview-current' => 'Borrador',
+	'revreview-depth' => 'Profundidad',
+	'revreview-depth-0' => 'No probado',
+	'revreview-depth-1' => 'Fundamental',
+	'revreview-depth-2' => 'Moderado',
+	'revreview-depth-3' => 'Elevado',
+	'revreview-depth-4' => 'Excelente',
 	'revreview-edit' => 'Editar borrador',
 	'revreview-edited' => "'''Las ediciones serán incorporadas en la [[{{MediaWiki:Validationpage}}|versión estable]] una vez que los usuarios establecidos las revisen. El ''borrador'' se muestra debajo.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambio en espera|cambios en espera}}] de revisión.",
 	'revreview-invalid' => "'''Destino inválido:''' no hay  [[{{MediaWiki:Validationpage}}|versión revisada]] que corresponda a tal ID.",
+	'revreview-log' => 'Comentario:',
 	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versión vista] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] {{PLURAL:$3|necesita|necesitan}} revisión.',
 	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión vista] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
@@ -2564,6 +2572,9 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'revreview-filter-all' => 'Todas',
 	'revreview-filter-approved' => 'Aprobada',
 	'revreview-filter-reapproved' => 'Re-aprobada',
+	'revreview-filter-unapproved' => 'No probado',
+	'revreview-filter-auto' => 'Automático',
+	'revreview-statusfilter' => 'Estatus:',
 	'tooltip-ca-current' => 'Ver el borrador actual de esta página',
 	'tooltip-ca-stable' => 'Ver la versión estable de esta página',
 	'tooltip-ca-default' => 'Opciones de control de calidad',
@@ -2601,6 +2612,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Mardetanha
  */
 $messages['fa'] = array(
 	'editor' => 'ویرایشگر',
@@ -2791,6 +2803,7 @@ $messages['fa'] = array(
 	'revreview-statusfilter' => 'وضعیت:',
 	'revreview-typefilter' => 'نوع',
 	'revreview-tagfilter' => 'برچسب',
+	'revreview-reviewlink' => 'بازبینی',
 	'tooltip-ca-current' => 'مشاهده پیش‌نویس فعلی این صفحه',
 	'tooltip-ca-stable' => 'مشاهده نسخه پایدار این صفحه',
 	'tooltip-ca-default' => 'تنظیمات کنترل کیفیت',
@@ -2806,6 +2819,7 @@ $messages['fa'] = array(
  * @author Crt
  * @author Jaakonam
  * @author Nike
+ * @author Str4nd
  */
 $messages['fi'] = array(
 	'flaggedrevs' => 'Tarkastetut versiot',
@@ -2829,18 +2843,37 @@ $messages['fi'] = array(
 	'revreview-auto' => '(automaattinen)',
 	'revreview-current' => 'Luonnos',
 	'revreview-depth-2' => 'Keskitasoa',
+	'revreview-draft-title' => 'Luonnossivu',
 	'revreview-edit' => 'Muokkaa luonnosta',
 	'revreview-flag' => 'Arvioi tämä versio',
+	'revreview-log' => 'Kommentti',
 	'revreview-oldrating' => 'Arvio oli:',
 	'revreview-patrol' => 'Merkitse tämä muutos tarkastetuksi',
 	'revreview-patrol-title' => 'Merkitse tarkastetuksi',
+	'revreview-quality-title' => 'Laadukas sivu',
 	'revreview-stable' => 'Vakaa sivu',
+	'revreview-stable-title' => 'Kertaalleen silmäilty sivu',
 	'revreview-style' => 'Luettavuus',
+	'revreview-style-1' => 'Hyväksyttävä',
+	'revreview-style-2' => 'Hyvä',
+	'revreview-style-4' => 'Suositeltu',
+	'revreview-finished' => 'Arviointi suoritettu!',
+	'revreview-toggle-title' => 'näytä tai piilota yksityiskohdat',
 	'revreview-revnotfound' => 'Pyytämääsi versiota ei löydy. Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-movestable' => 'Siirrä vakaat sivut',
+	'readerfeedback' => 'Mitä mieltä olet tästä sivusta?',
+	'readerfeedback-reliability' => 'Luettavuus',
+	'readerfeedback-completeness' => 'Täydellisyys',
+	'readerfeedback-npov' => 'Neutraalius',
+	'readerfeedback-presentation' => 'Esittäminen',
+	'readerfeedback-overall' => 'Kokonaisvaikutelma',
+	'readerfeedback-finished' => 'Kiitos!',
 	'revreview-filter-all' => 'Kaikki',
+	'revreview-reviewlink' => 'tarkasta',
 	'tooltip-ca-current' => 'Näytä tämän sivun nykyinen luonnosversio',
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
+	'tooltip-ca-ratinghist' => 'Lukijoiden arviot tästä sivusta',
+	'revreview-tt-review' => 'Arvioi tämä sivu',
 );
 
 /** Võro (Võro)
@@ -6266,6 +6299,9 @@ $messages['myv'] = array(
  * @author Fluence
  */
 $messages['nah'] = array(
+	'revreview-style-2' => 'Cualli',
+	'readerfeedback-submitting' => 'Moihuacah...',
+	'readerfeedback-finished' => '¡Tlazohcāmati!',
 	'tooltip-ca-current' => 'Xiquitta āxcān zāzanilli ītzīmpēhualiz',
 );
 
@@ -10098,6 +10134,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
+ * @author Wrightbus
  */
 $messages['zh-hant'] = array(
 	'editor' => '編輯',
@@ -10185,6 +10222,7 @@ $messages['zh-hant'] = array(
 	'revreview-update' => '請複審自從於這頁的穩定版以來的任何更改 (在下面顯示) 。模版和圖像亦可能同時更改。',
 	'revreview-revnotfound' => '您請求的更早版本的修訂記錄沒有找到。
 請檢查您請求本頁面用的URL是否正確。',
+	'readerfeedback-submit' => '提交',
 	'tooltip-ca-current' => '檢視本頁目前的草稿',
 	'tooltip-ca-stable' => '檢視本頁穩定的版本',
 	'tooltip-ca-default' => '品質保證設定',

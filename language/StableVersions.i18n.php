@@ -212,6 +212,13 @@ $messages['eo'] = array(
 	'stableversions-review' => 'Kontrolita <i>$1</i> de $2',
 );
 
+/** Spanish (Español)
+ * @author Imre
+ */
+$messages['es'] = array(
+	'stableversions-page' => 'Nombre de la página:',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */

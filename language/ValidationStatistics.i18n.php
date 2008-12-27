@@ -174,6 +174,14 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 	'validationstatistics-old' => 'Malfreŝaj',
 );
 
+/** Spanish (Español)
+ * @author Imre
+ */
+$messages['es'] = array(
+	'validationstatistics-ns' => 'Espacio de nombres',
+	'validationstatistics-total' => 'Páginas',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
@@ -191,10 +199,13 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Str4nd
  */
 $messages['fi'] = array(
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
+	'validationstatistics-stable' => 'Arvioitu',
+	'validationstatistics-old' => 'Vanhentunut',
 );
 
 /** French (Français)

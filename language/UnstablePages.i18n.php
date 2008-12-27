@@ -108,10 +108,23 @@ $messages['eo'] = array(
 	'unstablepages-config' => 'Konfiguro',
 );
 
+/** Persian (فارسی)
+ * @author Mardetanha
+ */
+$messages['fa'] = array(
+	'unstablepages' => 'نسخه ناپایدار',
+	'unstablepages-stable' => 'نسخه پایدار',
+	'unstablepages-none' => 'هیچ صفحه‌ای در در این فهرست وجود ندارد',
+	'unstablepages-config' => 'پیکربندی',
+);
+
 /** Finnish (Suomi)
  * @author Crt
+ * @author Str4nd
  */
 $messages['fi'] = array(
+	'unstablepages' => 'Epävakaat sivut',
+	'unstablepages-stable' => 'vakaa versio',
 	'unstablepages-none' => 'Tällä listalla ei ole sivuja',
 );
 

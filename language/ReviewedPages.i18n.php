@@ -225,6 +225,13 @@ $messages['eo'] = array(
 	'reviewedpages-best' => 'ĉefa versio',
 );
 
+/** Spanish (Español)
+ * @author Imre
+ */
+$messages['es'] = array(
+	'reviewedpages-lev-1' => 'Calidad',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
@@ -592,6 +599,13 @@ $messages['ms'] = array(
 	'reviewedpages-lev-2' => 'Terpilih',
 	'reviewedpages-all' => 'semakan-semakan diperiksa',
 	'reviewedpages-best' => 'semakan terbaik',
+);
+
+/** Nahuatl (Nāhuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'reviewedpages-lev-1' => 'Cuallōtl',
 );
 
 /** Dutch (Nederlands)

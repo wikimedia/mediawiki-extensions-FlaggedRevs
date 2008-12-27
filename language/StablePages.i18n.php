@@ -148,6 +148,13 @@ $messages['fa'] = array(
 	'stablepages-config' => 'تنظیمات',
 );
 
+/** Finnish (Suomi)
+ * @author Str4nd
+ */
+$messages['fi'] = array(
+	'stablepages-stable' => 'vakaa versio',
+);
+
 /** French (Français)
  * @author Grondin
  * @author Verdy p

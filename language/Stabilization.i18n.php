@@ -118,6 +118,7 @@ $messages['af'] = array(
  */
 $messages['am'] = array(
 	'stabilization-comment' => 'ማጠቃለያ፦',
+	'stabilization-def-short-0' => 'ያሁኑኑ',
 );
 
 /** Aragonese (Aragonés)
@@ -592,9 +593,14 @@ Neniu konfiguro eblas.',
 
 /** Spanish (Español)
  * @author Drini
+ * @author Imre
  */
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
+	'stabilization-page' => 'Nombre de la página:',
+	'stabilization-submit' => 'Confirmar',
+	'stabilization-comment' => 'Comentario:',
+	'stabilization-sel-short-0' => 'Calidad',
 );
 
 /** Extremaduran (Estremeñu)
@@ -647,15 +653,18 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Str4nd
  */
 $messages['fi'] = array(
 	'stabilization-page' => 'Sivun nimi',
 	'stabilization-select2' => 'Uusin arvioitu versio',
 	'stabilization-def2' => 'Nykyinen versio',
 	'stabilization-submit' => 'Vahvista',
+	'stabilization-comment' => 'Kommentti',
 	'stabilization-sel-short-0' => 'Laatu',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Nykyinen',
+	'stabilization-def-short-1' => 'Vakaa',
 );
 
 /** French (Français)
@@ -1531,7 +1540,9 @@ $messages['myv'] = array(
  */
 $messages['nah'] = array(
 	'stabilization-page' => 'Zāzanilli ītōcā:',
+	'stabilization-def2' => 'Āxcān in tlachiyaliztli',
 	'stabilization-expiry' => 'Tlamiliztli:',
+	'stabilization-sel-short-0' => 'Cuallōtl',
 	'stabilization-sel-short-1' => 'Ahtlein',
 	'stabilization-def-short' => 'Ic default',
 	'stabilization-def-short-0' => 'Āxcān',
@@ -1814,10 +1825,13 @@ Não é possível configurá-la.',
  */
 $messages['ro'] = array(
 	'stabilization-page' => 'Numele paginii:',
+	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
+	'stabilization-def2' => 'Revizia curentă',
 	'stabilization-submit' => 'Confirmă',
 	'stabilization-comment' => 'Comentariu:',
 	'stabilization-expiry' => 'Expiră:',
 	'stabilization-sel-short-0' => 'Calitate',
+	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
 	'stabilize-expiring' => 'expiră $1 (UTC)',
 );
 

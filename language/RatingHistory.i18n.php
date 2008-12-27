@@ -236,23 +236,33 @@ La '''nombro de kontrolo po tago''' <font color=\"red\">''(ruĝa)''</font> estas
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Mardetanha
  */
 $messages['fa'] = array(
 	'ratinghistory' => 'تاریخچهٔ ارزیابی صفحه',
-	'ratinghistory-leg' => 'داده‌های تاریخچهٔ ارزیابی',
+	'ratinghistory-leg' => '[[:$1|$1]] داده‌های تاریخچهٔ ارزیابی',
 	'ratinghistory-tab' => 'نمره',
-	'ratinghistory-link' => 'نمره مقاله',
+	'ratinghistory-link' => 'درجه مقاله',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">از این که فرصتی را صرف بازبینی این صفحه کردید متشکریم!</font>''",
 	'ratinghistory-period' => 'بازه زمانی:',
 	'ratinghistory-month' => 'ماه پیش',
+	'ratinghistory-3months' => '3 ماه اخیر',
 	'ratinghistory-year' => 'سال پیش',
 	'ratinghistory-3years' => 'سه سال پیش',
+	'ratinghistory-users' => 'کاربرانی که درجه‌بندی کرده‌اند',
 	'ratinghistory-graph' => 'داده‌های ارزیابی از $1 {{PLURAL:$1|خواننده|خواننده}}',
 	'ratinghistory-none' => 'در حال حاضر بازخورد کافی از خوانندگان برای نمایش نمودار وجود ندارد.',
 	'ratinghistory-legend' => "نمره متوسط روزانه <font color=\"blue\">''(آبی)''</font> و نمره متوسط برای بازهٔ زمانی انتخاب شده <font color=\"green\">''(سبز)''</font> در نمودار زیر، بر حسب تاریخ نشان داده شده‌اند. مقدار نمره‌ها به صورت زیر تعبیر می‌شود:
 
 '''[۰]''' - ضعیف؛ '''[۱]''' - پایین؛ '''[۲]''' - متوسط؛ '''[۳]''' - بالا؛ '''[۴]''' - ممتاز؛",
 	'right-feedback' => 'از فرم بازخورد برای نمره دادن به صفحه استفاده کنید',
+);
+
+/** Finnish (Suomi)
+ * @author Str4nd
+ */
+$messages['fi'] = array(
+	'readerfeedback-svg' => 'Näytä SVG-muodossa',
 );
 
 /** French (Français)
@@ -579,6 +589,19 @@ $messages['ms'] = array(
 $messages['myv'] = array(
 	'ratinghistory-year' => 'мелять',
 	'ratinghistory-3years' => 'меельсе 3 иеть',
+);
+
+/** Nahuatl (Nāhuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'ratinghistory-period' => 'Cāhuitl:',
+	'ratinghistory-month' => 'achto mētztli',
+	'ratinghistory-3months' => 'achto 3 mētztli',
+	'ratinghistory-year' => 'achto xihuitl',
+	'ratinghistory-3years' => 'achto 3 xihuitl',
+	'ratinghistory-graph' => '$2 īhuīcpa "$3" ($1 {{PLURAL:$1|tlachiyaliztli|tlachiyaliztli}})',
+	'readerfeedback-svg' => 'Tiquittāz quemeh SVG',
 );
 
 /** Dutch (Nederlands)
