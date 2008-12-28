@@ -461,6 +461,17 @@ $messages['te'] = array(
 	'stablepages-config' => 'స్వరూపణం',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'stablepages' => 'Matatatag na mga pahina',
+	'stablepages-stable' => 'matatag na bersyon',
+	'stablepages-text' => 'Nasa ibaba ang isang talaan ng mga pahinang kinamay ang pagsasaayos upang maipakita ang matatag na bersyon bilang nakatakdang pahina ng nilalaman para sa mga tumatanaw.',
+	'stablepages-none' => 'Walang mga pahina sa loob ng talaang ito',
+	'stablepages-config' => 'Pagkakaayos (konpigurasyon)',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */

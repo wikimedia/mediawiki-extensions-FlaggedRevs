@@ -109,11 +109,12 @@ $messages['eo'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Huji
  * @author Mardetanha
  */
 $messages['fa'] = array(
 	'unstablepages' => 'نسخه ناپایدار',
-	'unstablepages-stable' => 'نسخه پایدار',
+	'unstablepages-stable' => 'نسخهٔ پایدار',
 	'unstablepages-none' => 'هیچ صفحه‌ای در در این فهرست وجود ندارد',
 	'unstablepages-config' => 'پیکربندی',
 );

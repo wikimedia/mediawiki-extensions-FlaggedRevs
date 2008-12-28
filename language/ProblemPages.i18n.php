@@ -355,6 +355,17 @@ $messages['sv'] = array(
 	'problempages-graphs' => 'betygsdata',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'problempages' => 'Mga pahinang sinukat bilang walang kuwenta (walang saysay)',
+	'problempages-leg' => 'Maghanap ng mga pahinang may sukat na mababa ang halaga',
+	'problempages-list' => 'Nasa ibaba ang isang talaan ng mga pahinang inayos ayon sa kanilang kaantasang ibinigay ng mambabasa.',
+	'problempages-none' => 'Walang mga pahina sa loob ng talaang ito',
+	'problempages-graphs' => 'datong pangpagaantas',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */

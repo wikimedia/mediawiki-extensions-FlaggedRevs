@@ -196,6 +196,13 @@ $messages['ja'] = array(
 	'qualityoversight-legend' => '最近のレビュー記録を検索',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'qualityoversight' => 'Qualitéits Iwwersiicht',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */
@@ -304,6 +311,15 @@ $messages['sv'] = array(
 	'qualityoversight' => 'Översikt över kvaliteten',
 	'qualityoversight-list' => 'Denna sida listar de senaste godkännandena och avskrivandena av versioner.',
 	'qualityoversight-legend' => 'Sök loggar för senaste granskningar',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'qualityoversight' => 'Pagiingat na pangkaantasan ng uri (kalidad)',
+	'qualityoversight-list' => 'Nagtatala ang pahinang ito ng pinakakamakailan lamang na mga pagpayag at pagbaba ng halaga/katururan ng mga pagbabago.',
+	'qualityoversight-legend' => 'Maghanap sa mga talaan ng mga kamakailang pagsusuri',
 );
 
 /** Ukrainian (Українська)

@@ -835,6 +835,18 @@ $messages['th'] = array(
 	'stableversions-page' => 'ชื่อหน้า:',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'stableversions' => 'Tingnan ang matatatag na mga bersyon',
+	'stableversions-leg1' => 'Talaan ng nasuring mga pagbabago para sa isang pahina',
+	'stableversions-page' => 'Pangalan ng pahina:',
+	'stableversions-none' => 'Wala pang nasusuring mga pagbabago sa/ang "[[:$1]]".',
+	'stableversions-list' => 'Ang sumusuunod ay isang talaan ng pagbabago sa/ng [[:$1]] na nasuri na:',
+	'stableversions-review' => 'Nasuri na noong <i>$1</i> ni $2',
+);
+
 /** Turkish (Türkçe)
  * @author Karduelis
  */

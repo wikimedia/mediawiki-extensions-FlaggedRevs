@@ -854,6 +854,21 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-best' => 'нусхаи беҳтарин',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'reviewedpages' => 'Nasuring mga pahina',
+	'reviewedpages-leg' => 'Nagtatala ng nasuring mga pahina magpahanggang sa isang tiyak/partikular na antas',
+	'reviewedpages-list' => 'Nasuri na ang sumusunod na mga pahina magpahanggang sa tinukoy na antas',
+	'reviewedpages-none' => 'Walang mga pahina sa loob ng talaang ito',
+	'reviewedpages-lev-0' => 'Namataan na',
+	'reviewedpages-lev-1' => 'Kaantasan ng uri (kalidad)',
+	'reviewedpages-lev-2' => 'Naitampok (itinangi)',
+	'reviewedpages-all' => 'mga bersyong nasuri na',
+	'reviewedpages-best' => 'nangungunang pagbabago',
+);
+
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
  */

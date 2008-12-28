@@ -200,8 +200,10 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Crt
  * @author Str4nd
+ * @author Vililikku
  */
 $messages['fi'] = array(
+	'validationstatistics' => 'Validointitilastot',
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',

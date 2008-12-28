@@ -171,7 +171,11 @@ $messages['id'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'likedpages' => 'Héich bewerte Säiten',
+	'likedpages-leg' => 'Héich-bewerte Säite fannen',
+	'likedpages-list' => 'Hei ass eng Lëscht vu Säiten déi no der Bewertung vun de Lieser klasséiert sinn.',
 	'likedpages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
+	'likedpages-graphs' => 'Bewertungsdonnéeën',
 );
 
 /** Dutch (Nederlands)
@@ -276,6 +280,17 @@ $messages['sv'] = array(
 	'likedpages-list' => 'Nedan finns en lista över sidor sorterade efter betyg från läsarna.',
 	'likedpages-none' => 'Det finns inga sidor i denna lista',
 	'likedpages-graphs' => 'betygsdata',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'likedpages' => 'Mga pahinang nabigyan ng mataas na antas',
+	'likedpages-leg' => 'Maghanap ng mga pahinang may mataas na kaantasan',
+	'likedpages-list' => "Nasa ibaba ang isang talaan ng mga pahinang inayos ayon sa kanilang natanggap na balik-pahayag (''feedback'') ng mambabasa.",
+	'likedpages-none' => 'Walang mga pahina sa loob ng talaang ito',
+	'likedpages-graphs' => 'dato ng pagbibigay ng kaantasan',
 );
 
 /** Ukrainian (Українська)

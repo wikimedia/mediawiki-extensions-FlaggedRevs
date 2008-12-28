@@ -242,11 +242,11 @@ $messages['fa'] = array(
 	'ratinghistory' => 'تاریخچهٔ ارزیابی صفحه',
 	'ratinghistory-leg' => '[[:$1|$1]] داده‌های تاریخچهٔ ارزیابی',
 	'ratinghistory-tab' => 'نمره',
-	'ratinghistory-link' => 'درجه مقاله',
+	'ratinghistory-link' => 'درجهٔ مقاله',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">از این که فرصتی را صرف بازبینی این صفحه کردید متشکریم!</font>''",
 	'ratinghistory-period' => 'بازه زمانی:',
 	'ratinghistory-month' => 'ماه پیش',
-	'ratinghistory-3months' => '3 ماه اخیر',
+	'ratinghistory-3months' => '۳ ماه اخیر',
 	'ratinghistory-year' => 'سال پیش',
 	'ratinghistory-3years' => 'سه سال پیش',
 	'ratinghistory-users' => 'کاربرانی که درجه‌بندی کرده‌اند',
@@ -541,6 +541,7 @@ $messages['ko'] = array(
 	'ratinghistory-3months' => '지난 3개월',
 	'ratinghistory-year' => '지난 1년',
 	'ratinghistory-3years' => '지난 3년',
+	'readerfeedback-svg' => 'SVG로 보기',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -896,6 +897,35 @@ $messages['te'] = array(
 	'ratinghistory-3years' => 'గత 3 సంవత్సరాలు',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'ratinghistory' => 'Kasaysayan ng pagaantas/pagraranggo ng pahina',
+	'ratinghistory-leg' => 'Dato ng pagbibigay ng antas (ranggo) para sa [[:$1|$1]]',
+	'ratinghistory-tab' => 'halagang pangkaantasan (ranggo)',
+	'ratinghistory-link' => 'Halagang pangkaantasan (ranggo) ng pahina',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Salamat sa pagbibigay mo ng panahon upang suriing muli ang pahinang ito!</font>''",
+	'ratinghistory-period' => 'Saklaw na panahon:',
+	'ratinghistory-month' => 'nakaraang buwan',
+	'ratinghistory-3months' => 'huling 3 mga buwan',
+	'ratinghistory-year' => 'nakaraang taon',
+	'ratinghistory-3years' => 'huling 3 mga taon',
+	'ratinghistory-chart' => "Balik-pahayag (''feedback'') na pangkaantasan mula sa mambabasa sa loob ng paglipas ng panahon",
+	'ratinghistory-users' => 'Mga tagagamit na nagbigay ng pagaantas',
+	'ratinghistory-graph' => '$2 ng "$3" ($1 {{PLURAL:$1|pagsusuri|mga pagsusuri}})',
+	'readerfeedback-svg' => 'Tingnan bilang SVG',
+	'ratinghistory-none' => 'Sa ngayon, walang makukuhang sapat na datong pambalik-pahayag para sa mga talangguhit (grap) mula sa mambabasa.',
+	'ratinghistory-legend' => "Ang '''pangaraw-araw na pangkaraniwang kaantasan''' <font color=\"blue\">''(bughaw)''</font> at  
+'''tumatakbong pangkaraniwang kaantasan''' <font color=\"green\">''(lunti)''</font> ay nakatalangguhit sa ibaba, ayon sa petsa. Ang  
+'''tumatakbong pangkaraniwang kaantasan''' ay payak na pinagsamasamang pangkaraniwang halaga ng lahat ng mga pangaraw-araw na kaantasang ''nasa loob'' ng saklaw ng kapanahunang ito para sa bawat araw.
+
+Sukat: '''[1]''' - Walang kuwenta; '''[2]''' - Mababa; '''[3]''' - Patas; '''[4]''' - Mataas; '''[5]''' - Mahusay;
+
+Ang '''bilang ng mga pagsusuri sa bawat araw''' <font color=\"red\">''(pula)''</font> ay ipinapakita sa mga talangguhit sa ibaba, sa isang sukat na ''1:\$1''.",
+	'right-feedback' => "Gamitin ang pormularyong pangpagbibigay ng balik-pahayag (''feedback'') upang mabigyan ng kaantasan/halaga ang isang pahina",
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */
@@ -951,6 +981,19 @@ Giải thích các giá trị: '''[1]''' – Tệ; '''[2]''' – Dở; '''[3]'''
 
 Những biểu thị cũng trình bày '''số lần đánh giá trong ngày''' <font color=\"red\">''(đỏ)''</font> với tỷ lệ ''1:\$1''.",
 	'right-feedback' => 'Đánh giá trang',
+);
+
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
+ */
+$messages['zh-hans'] = array(
+	'ratinghistory-period' => '时间段：',
+	'ratinghistory-month' => '上月',
+	'ratinghistory-3months' => '过去3个月',
+	'ratinghistory-year' => '去年',
+	'ratinghistory-3years' => '过去3年',
+	'ratinghistory-users' => '给出评价的用户',
+	'readerfeedback-svg' => '作为SVG浏览',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

@@ -594,6 +594,7 @@ Neniu konfiguro eblas.',
 /** Spanish (Español)
  * @author Drini
  * @author Imre
+ * @author Sanbec
  */
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
@@ -601,6 +602,7 @@ $messages['es'] = array(
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-comment' => 'Comentario:',
 	'stabilization-sel-short-0' => 'Calidad',
+	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
 );
 
 /** Extremaduran (Estremeñu)
@@ -2190,6 +2192,43 @@ $messages['tg-cyrl'] = array(
  */
 $messages['th'] = array(
 	'stabilization-page' => 'ชื่อหน้า:',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'stabilization-tab' => 'suriing mabuti (masinsinan)',
+	'stabilization' => 'Pagpapatatag ng pahina',
+	'stabilization-text' => "'''Baguhin ang mga pagtatakda sa ibaba upang mabago ang kung paano napili at napalitaw (naipakita) ang matatag na bersyon ng [[:$1|$1]].'''",
+	'stabilization-perm' => 'Walang kapahintulutan ang kuwenta/akawnt mo upang baguhin ang pagkakaayos ng matatag na bersyon.
+Narito ang pangkasalukuyang mga katakdaan para sa [[:$1|$1]]:',
+	'stabilization-page' => 'Pangalan ng pahina:',
+	'stabilization-leg' => 'Tiyakin ang mga pagtatakda para sa matatag na bersyon',
+	'stabilization-select' => 'Pagpipilian para sa matatag na bersyon',
+	'stabilization-select1' => 'Ang pinakahuling pagbabagong may mataas na uri; kung wala, ang pinakahuling namataang isa na lamang',
+	'stabilization-select2' => 'Ang pinakahuling pagbabagong nasuri na',
+	'stabilization-select3' => 'Ang pinakahuling dalisay (malinis) na pagbabago; kung wala, ang huling may pinakamataas na uri o namataang isa na lamang',
+	'stabilization-def' => 'Ang pagbabagong ipinakita sa natatanaw na likas na nakatakdang pahina',
+	'stabilization-def1' => 'Ang matatag na pagbabago, kung, ang pangkasalukuyang isa na lamang',
+	'stabilization-def2' => 'Ang pangkasalukuyang pagbabago',
+	'stabilization-submit' => 'Tiyakin',
+	'stabilization-notexists' => 'Walang pahinang tinatawag na "[[:$1|$1]]".
+Walang maaaring maging pagkakaayos (konpigurasyon).',
+	'stabilization-notcontent' => 'Hindi masusuri ang "[[:$1|$1]]".
+Walang maaaring maging pagkakaayos (konpigurasyon).',
+	'stabilization-comment' => 'Puna (kumento):',
+	'stabilization-expiry' => 'Magtatapos sa:',
+	'stabilization-sel-short' => 'Pagkakauna-una (pagkakasunud-sunod)',
+	'stabilization-sel-short-0' => 'Kaantasan ng uri (kalidad)',
+	'stabilization-sel-short-1' => 'Wala',
+	'stabilization-sel-short-2' => 'Dalisay (malinis)',
+	'stabilization-def-short' => 'Likas na nakatakda',
+	'stabilization-def-short-0' => 'Pangkasalukuyan',
+	'stabilization-def-short-1' => 'Matatag',
+	'stabilize_expiry_invalid' => 'Hindi tanggap na petsa ng pagtatapos.',
+	'stabilize_expiry_old' => 'Lagpas na ang oras/panahon ng pagtatapos na ito.',
+	'stabilize-expiring' => 'magtatapos sa $1 (UTC)',
 );
 
 /** Turkish (Türkçe)

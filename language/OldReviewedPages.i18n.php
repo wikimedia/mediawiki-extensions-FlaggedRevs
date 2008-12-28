@@ -315,7 +315,7 @@ $messages['fa'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|روز|روز}})',
 	'oldreviewedpages-recent' => '(کمتر از ۱ ساعت)',
 	'oldreviewed-category' => 'رده:',
-	'oldreviewed-watched' => 'برروی پیگیری‌های من',
+	'oldreviewed-watched' => 'بر روی فهرست پیگیری‌های من',
 	'oldreviewed-diff' => 'بازبینی',
 	'oldreviewedpages-unwatched' => '(پیگیری نشده)',
 	'oldreviewedpages-watched' => '(پیگیری شده توسط $2 {{PLURAL:$1|کاربر|کاربر}})',
@@ -917,6 +917,27 @@ $messages['te'] = array(
 	'oldreviewed-category' => 'వర్గం:',
 	'oldreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'oldreviewedpages' => 'Wala na sa panahong nasuring mga pahina',
+	'oldreviewedpages-legend' => 'Nagtatala ng mga pahinang nasuri na ngunit may mga pagbabagong naghihintay na lamang na masuri pang muli',
+	'oldreviewedpages-list' => 'Itinatala ng pahinang ito ang mga nasuring nang mga pahina na mayroong naghihintay na mga pagbabago.',
+	'oldreviewedpages-none' => 'Sa kasalukuyan, walang mga pahinang umaabot sa ganitong mga kaurian',
+	'oldreviewedpages-stable' => 'namataan na',
+	'oldreviewedpages-quality' => 'antas ng uri (kalidad)',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|oras|mga oras}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|araw|mga araw}})',
+	'oldreviewedpages-recent' => '(mas mababa kaysa 1 oras)',
+	'oldreviewed-category' => 'Kaurian:',
+	'oldreviewed-watched' => 'Nasa loob ng aking talaan ng mga binabantayan',
+	'oldreviewed-diff' => 'suriing muli',
+	'oldreviewed-size' => "Pinakamataas na bilang ng pagbabago (mga ''byte''):",
+	'oldreviewedpages-unwatched' => '(hindi minamatyagan/binabantayan)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|tagagamit|mga tagagamit}} nagmamatyag/nagbabantay)',
 );
 
 /** Turkish (Türkçe)
