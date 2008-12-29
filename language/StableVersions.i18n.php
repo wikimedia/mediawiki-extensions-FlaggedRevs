@@ -490,6 +490,13 @@ $messages['ko'] = array(
 	'stableversions-review' => '<i>$1</i>에 $2에게 검토됨',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'stableversions-page' => 'Sigge-Tittel:',
+);
+
 /** Latin (Latina)
  * @author UV
  */

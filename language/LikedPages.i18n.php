@@ -167,6 +167,13 @@ $messages['id'] = array(
 	'likedpages-graphs' => 'data pemeringkatan',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'likedpages-none' => 'En dä Leß sin kein Sigge.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

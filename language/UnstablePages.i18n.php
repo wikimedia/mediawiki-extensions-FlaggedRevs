@@ -261,6 +261,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'unstablepages' => 'Nit stabile Sigge',
 	'unstablepages-stable' => 'stabile Version',
 	'unstablepages-text' => 'Wat follesch es en Leß met Sigge, woh fun Hand för enjestallt wood, dat se standadmääßesch en de neuste Äntworfsversion aanjezeisch wääde.',
 	'unstablepages-none' => 'Mer han kein Sigge en hee dä Leß',

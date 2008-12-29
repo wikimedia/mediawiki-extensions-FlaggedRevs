@@ -9044,10 +9044,20 @@ Tingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring m
 	'revreview-patrolled' => 'Ang napiling pagbabago ng [[:$1|$1]] ay natatakan bilang napatrolya na.',
 	'revreview-quality' => 'Ito ang pinakahuling [[{{MediaWiki:Validationpage}}|may mataas na uri (kalidad)]] na pagbabago, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.
 Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} balangkas] ay may [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|pagbabagong|mga pagbabagong}}] naghihintay ng muling pagsusuri',
+	'revreview-quality-i' => 'It ang pinakahuling [[{{MediaWiki:Validationpage}}|may mataas na uring]] pagbabago, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.
+Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} balangkas] ay mayroong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mga pagbabago sa suleras/larawan] na naghihintay ng pagsusuri.',
+	'revreview-quality-old' => 'Isa itong may [[{{MediaWiki:Validationpage}}|mataas na uri]] ng pagbabago ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} itala ang lahat]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.
+Maaaring may bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mga pagbabagong] nagawa na.',
+	'revreview-quality-same' => 'Ito ang pinakahuling [[{{MediaWiki:Validationpage}}|may mataas na uri]] ng pagbabago ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} itala ang lahat]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.',
+	'revreview-quality-source' => 'Isang [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bersyong may mataas na uri] ng pahinang ito, na [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>, ay ibinatay mula sa pagbabagong ito.',
 	'revreview-quality-title' => 'Pahinang may mataas na uri',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Namataang pahina]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tingnan ang balangkas]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Namataang pahina]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tingnan ang pahina]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Namataang pahina]]'''",
 	'revreview-quick-invalid' => "'''Hindi tanggap na ID na pagbabago'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Pangkasalukuyang pagbabago]]''' (hindi pa nasusuri)",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pahinang may mataas na uri (kalidad)]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tingnan ang balangkas]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pahinang may mataas na uri]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tingnan ang balangkas]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pahinang may mataas na uri]]'''",
 	'revreview-quick-see-basic' => "'''Balangkas''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tingnan ang pahina]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} paghambingin])",
@@ -9070,9 +9080,23 @@ Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} balangkas] ay may [{{fullurl:{{FULLP
 	'revreview-finished' => 'Ganap na ang pagsusuri!',
 	'revreview-successful' => "'''Matagumpay na ang pagbabandila (pagtatatak) sa pagbabago ng [[:$1|$1]]. ([{{fullurl:Special:Stableversions|page=$2}} tingnan ang matatatag na mga bersyon])'''",
 	'revreview-successful2' => "'''Matagumpay ang pagtatanggal ng bandila (pagaalis ng tatak) sa pagbabago ng [[:$1|$1]].'''",
+	'revreview-text' => "''Ang [[{{MediaWiki:Validationpage}}|matatatag na mga bersyon]] ay ang likas na nakatakdang mga pahina ng nilalaman para sa mga tumatanaw sa halip na ang pinakabagong pagbabago.''",
+	'revreview-text2' => "''Ang [[{{MediaWiki:Validationpage}}|matatatag na mga bersyon]] ay nasuring mga pagbabago ng mga pahina at maaaring itakda bilang likas na nakatakdang nilalaman para sa mga tumatanaw.''",
+	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'ipakita/itago ang mga detalye',
+	'revreview-toolow' => 'Dapat mong bigyan ng antas ang bawat isang katangiang nasa ibaba na mas mataas kaysa "hindi pinayagan" upang maisaalang-alang na masuring muli ang pagbabago.
+Upang mapababa ang halaga (antas) isang pagbabago, itakda ang lahat ng mga kahanayan bilang "hindi pinayagan".',
+	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Pakisuri]] ang anumang mga pagbabagong ''(ipinapakita sa ibaba)'' ginawa magmula noong [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] ang matatag na pagbabago.<br />
+'''Naisapanahon na ang ilang mga suleras/larawan:'''",
 	'revreview-update-includes' => "'''Naisapanahon na ang ilang mga suleras/larawan:'''",
+	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Pakisuri]] ang anumang mga pagbabagong ''(ipinapakita sa ibaba)'' ginawa magmula noong [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} pinayagan] ang pagbabagong pangtabla.",
+	'revreview-update-use' => "'''PAUNAWA:''' Kapag mayroong isang matatag na bersyon na ang anuman sa mga suleras/mga larawang ito, ginagamit na ito samakatuwid sa isang matatag na bersyon ng pahinang ito.",
 	'revreview-diffonly' => "''Para suriing muli ang pahina, pindutin ang kawing sa pagbabagong \"pangkasalukuyang pagbabago\" at gamitin ang pormularyong pampagsusuri.''",
+	'revreview-visibility' => "'''Ang pahinang ito ay may isang naisapanahon nang [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} maisasaayos] ang mga pagtatakdang pangkatatagan ng pahina.'''",
+	'revreview-visibility2' => "'''Ang pahinang ito ay walang naisapanahong [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; 
+ang mga katakdaang pangkatatagan ng pahina ay maaaring [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} isaayos].'''",
+	'revreview-revnotfound' => 'Hindi matagpuan ang hinihingi mong lumang pagbabago ng pahina.
+Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 	'right-autopatrolother' => 'Kusang tatakan ang mga pagbabagong nasa hindi pangunahing mga espasyo ng pangalan bilang napatrolya na',
 	'right-autoreview' => 'Kusang tatakan ang mga pagbabago bilang namataan na',
 	'right-movestable' => 'Ilipat ang matatatag na mga pahina',
@@ -9085,6 +9109,8 @@ Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} balangkas] ay may [{{fullurl:{{FULLP
 	'stable-logentry' => 'may pagsasaayos na pagbibigay ng matatag na anyo ng bersyon para sa [[$1]]',
 	'stable-logentry2' => 'muling itakda ang pagbibigay ng matatag na anyo ng bersyon para sa [[$1]]',
 	'stable-logpage' => 'Talaan ng katatagan',
+	'stable-logpagetext' => 'Isa itong talaan ng mga pagbabago sa pagkakaayos ng [[{{MediaWiki:Validationpage}}|matatag na bersyon]] ng mga pahina ng nilalaman.
+Matatagpuan ang isang talaan ng napatatag na mga pahina mula sa [[Special:StablePages|talaan ng matatag na pahina]].',
 	'readerfeedback' => 'Ano ba ang tingin mo sa pahinang ito?',
 	'readerfeedback-text' => "''Magbigay lamang po sana ng panahon upang makapagbigay sa ibaba ng kaantasan para sa pahinang ito.  Mahalaga ang iyong pagbibigay ng puna at nakatutulong sa amin upang lalo pang mapainam ang websayt namin.''",
 	'readerfeedback-reliability' => 'Antas na pagiging katiwatiwala',
@@ -9433,7 +9459,7 @@ Par risolvar el problema próa a rinfrescar la pagina e tacar da novo a riesamin
 	'revreview-depth-2' => 'Moderata',
 	'revreview-depth-3' => 'Alta',
 	'revreview-depth-4' => 'De qualità',
-	'revreview-draft-title' => "Bozza de l'articolo",
+	'revreview-draft-title' => 'Pàxena de bozza',
 	'revreview-edit' => 'Modifica bozza',
 	'revreview-flag' => 'Riesamina sta version',
 	'revreview-edited' => "'''Le modifiche le vegnarà incorporà in te la [[{{MediaWiki:Validationpage}}|version stabile]] 'pena che un utente autorizà el ie esamina.
@@ -9443,7 +9469,7 @@ La ''bozza'' la xe mostrà qua soto.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-log' => 'Comento:',
 	'revreview-main' => 'Ti gà da selessionar na version in particolare de la pagina par esaminarla.
 
-Ti pol anca vardar la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
+Varda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima version rivardà] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenco conpleto]) la xe stà [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] {{PLURAL:$3|la|le}} gà da vegner esaminà.",
 	'revreview-newest-basic-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima version rivardà] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenco conpleto]) la xe stà [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>.
@@ -9467,10 +9493,10 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] la presenta dele [{{fullurl:{{
 Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} canbiamenti] novi.',
 	'revreview-quality-same' => "Sta qua la xe l'ultima revision [[{{MediaWiki:Validationpage}}|de qualità]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} elenco conpleto]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>.",
 	'revreview-quality-source' => 'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version de qualità] de sta pagina, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>, la xe basà su sta revision.',
-	'revreview-quality-title' => 'Articolo de qualità',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Voçe rivardà]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda bozza]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Voçe rivardà]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda bozza]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Voçe rivardà]]'''",
+	'revreview-quality-title' => 'Pàxena de qualità',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pàxena rivardà]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda bozza]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pàxena rivardà]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda bozza]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pàxena rivardà]]'''",
 	'revreview-quick-invalid' => "'''Nùmaro de revision mìa valido'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Version atuale]]''' (non riesaminà)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda bozza]]",
@@ -9483,7 +9509,7 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} can
 	'revreview-selected' => "Revision selessionà de '''$1:'''",
 	'revreview-source' => 'Còdese sorgente de la bozza',
 	'revreview-stable' => 'Pagina stabile',
-	'revreview-stable-title' => 'Bozza de la voçe',
+	'revreview-stable-title' => 'Pàxena rivardà',
 	'revreview-stable1' => 'Ti pol vardar sta [{{fullurl:$1|stableid=$2}} version marcàda] par védar se desso la xe la [{{fullurl:$1|stable=1}} version stabile] de sta pagina.',
 	'revreview-stable2' => "Te pol vardar la [{{fullurl:$1|stable=1}} version stabile] de sta pagina (se ghe n'è una).",
 	'revreview-style' => 'Legibilità',
@@ -9492,8 +9518,8 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} can
 	'revreview-style-2' => 'Bona',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'De qualità',
-	'revreview-submit' => 'Inoltra riesaminassion',
-	'revreview-successful' => "'''La revision selezionà de [[:$1|$1]] la xe stà marcàda. ([{{fullurl:Special:Stableversions|page=$2}} varda tute le version marcàde])'''",
+	'revreview-submit' => 'Manda',
+	'revreview-successful' => "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:Special:Stableversions|page=$2}} varda tute le version stabili])'''",
 	'revreview-successful2' => "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Le versioni stabili]] le xe el contenuto predefinìo par i visitatori, al posto de la version pi reçente.''",
 	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|version stabili]] le xe revisioni de pagine che xe stà controlà e che pode vegner mostrà come contenuto predefinìo par i visitatori.''",
@@ -9506,7 +9532,7 @@ Par declassar na version, segna tuti i canpi come "Non aprovà".',
 	'revreview-update-none' => "Par piaser [[{{MediaWiki:Validationpage}}|esamina]] tuti i canbiamenti ''(mostra qua soto)'' fati da quando la version stabile la xe stà [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovà].",
 	'revreview-update-use' => "'''OCIO:''' Se qualchedun de sti template o imagini el gà na version stabile, alora el xe xà doparà in te la version stabile de sta pagina.",
 	'revreview-diffonly' => "''Par riesaminar la pagine, struca el colegamento \"revision corente\" e dòpara el modulo de riesame.''",
-	'revreview-visibility' => "'''Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version stabile]]; le so inpostassion le pol èssar [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configuràe].'''",
+	'revreview-visibility' => "'''Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version stabile]] ajornà; le inpostassion de stabilità de pàxena le pol èssar [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configuràe].'''",
 	'revreview-revnotfound' => "La version richiesta de ła pàxena no la xè mìa stà catà.
 Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'right-autopatrolother' => 'Marca automaticamente le revision come controlà in namespace diversi da quel prinçipal',
@@ -9526,7 +9552,7 @@ Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista d
 	'tooltip-ca-current' => 'Varda la bozza corente de sta pagina',
 	'tooltip-ca-stable' => 'Varda la version stabile de sta pagina',
 	'tooltip-ca-default' => 'Inpostassion par el controlo de qualità',
-	'validationpage' => '{{ns:help}}:Validassion dei articoli',
+	'validationpage' => '{{ns:help}}:Validassion dele pàxene',
 );
 
 /** Vietnamese (Tiếng Việt)

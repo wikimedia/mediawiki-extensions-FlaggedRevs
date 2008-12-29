@@ -275,6 +275,13 @@ $messages['km'] = array(
 	'stablepages-none' => 'មិនមានទំព័រណាមួយក្នុងបញ្ជីនេះទេ',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

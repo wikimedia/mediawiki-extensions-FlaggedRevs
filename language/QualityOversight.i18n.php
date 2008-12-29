@@ -196,6 +196,15 @@ $messages['ja'] = array(
 	'qualityoversight-legend' => '最近のレビュー記録を検索',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'qualityoversight' => 'Övverseech övver de Versione met Enschätzunge för dänne ier Qualität',
+	'qualityoversight-list' => 'Hee die Sigg zeich en Leß met de neuste Zostimmunge un Afflehnunge vun bestemmpte Versione fun Sigge.',
+	'qualityoversight-legend' => 'En den neuste Qualitäts-Enschätzunge söke',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

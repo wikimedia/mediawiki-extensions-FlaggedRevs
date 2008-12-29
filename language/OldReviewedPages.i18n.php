@@ -597,6 +597,7 @@ $messages['lb'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
 	'oldreviewedpages-recent' => '(manner wéi 1 Stonn)',
 	'oldreviewed-category' => 'Kategorie:',
+	'oldreviewed-watched' => 'Op menger Iwwerwaachungslëscht',
 	'oldreviewed-diff' => 'iwwerkucken',
 	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',
 	'oldreviewedpages-watched' => '(Vu(n) $2 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)',
