@@ -573,6 +573,11 @@ $messages['km'] = array(
 	'oldreviewedpages-days' => '($1{{PLURAL:$1|ថ្ងៃ|ថ្ងៃ}})',
 	'oldreviewedpages-recent' => '(តិចជាង១ម៉ោង)',
 	'oldreviewed-category' => 'ចំណាត់ថ្នាក់ក្រុម៖',
+	'oldreviewed-watched' => 'នៅលើ​បញ្ជី​តាមដាន​របស់​ខ្ញុំ',
+	'oldreviewed-diff' => 'ពិនិត្យឡើងវិញ',
+	'oldreviewed-size' => 'បំលាស់ប្ដូរ​អតិបរមារ (បៃ):',
+	'oldreviewedpages-unwatched' => '(មិន​ត្រូវ​បាន​ដានដាន)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} កំពុង​តាមដាន)',
 );
 
 /** Korean (한국어)
@@ -584,6 +589,21 @@ $messages['ko'] = array(
 	'oldreviewed-category' => '분류:',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
 	'oldreviewedpages-watched' => '($2명의 사용자가 주시중입니다)',
+);
+
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'oldreviewedpages-none' => 'För der Momang paße jrad kei Sigge op die Ußwahl',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stund|Stunde}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Daach|Dähsch}})',
+	'oldreviewedpages-recent' => '(winnijer wie en Stund)',
+	'oldreviewed-category' => 'Saachjrupp:',
+	'oldreviewed-watched' => 'En minge Oppassleß',
+	'oldreviewed-size' => 'Jüüßte Änderung vum Ömfang en <i lang="en">Bytes</i>:',
+	'oldreviewedpages-unwatched' => '(op keine Oppassleß)',
+	'oldreviewedpages-watched' => '(bei $2 {{PLURAL:$1|Metmaacher|Metmaachere|keinem}} op de Oppassleß)',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -918,6 +938,13 @@ $messages['te'] = array(
 	'oldreviewed-category' => 'వర్గం:',
 	'oldreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
+);
+
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'oldreviewed-category' => 'Kategoria:',
 );
 
 /** Tagalog (Tagalog)

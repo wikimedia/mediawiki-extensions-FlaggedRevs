@@ -529,6 +529,13 @@ $messages['ko'] = array(
 	'reviewedpages-all' => '검토된 버전',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

@@ -211,6 +211,13 @@ $messages['km'] = array(
 	'problempages-none' => 'មិនមានទំព័រនៅក្នុងបញ្ជីនេះទេ',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'problempages-none' => 'En dä Leß sin kei Sigge dren.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

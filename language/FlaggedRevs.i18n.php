@@ -3298,7 +3298,7 @@ Actualizar a páxina e volvela revisar pode resolver o problema.",
 	'revreview-draft-title' => 'Páxina borrador',
 	'revreview-edit' => 'Editar proxecto',
 	'revreview-editnotice' => "'''Nota: as edicións que se fagan nesta páxina serán incorporadas á [[{{MediaWiki:Validationpage}}|versión estábel]] unha vez que un usuario autorizado as revise.'''",
-	'revreview-flag' => 'Examinada esta revisión',
+	'revreview-flag' => 'Revisar esta revisión',
 	'revreview-edited' => "'''As edicións serán incorporadas á [[{{MediaWiki:Validationpage}}|versión estábel]] unha vez que un usuario estabilizador as revise.
 O ''bosquexo'' amósase embaixo.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambio agarda|cambios agardan}}] unha revisión.",
 	'revreview-invalid' => "'''Obxectivo inválido:''' ningunha revisión [[{{MediaWiki:Validationpage}}|revisada]] se corresponde co ID dado.",
@@ -5413,23 +5413,44 @@ $messages['km'] = array(
 	'reviewer' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
 	'revreview-auto' => '(ស្វ័យប្រវត្តិ)',
 	'revreview-current' => 'សេចក្តីព្រាង',
-	'revreview-draft-title' => 'អត្ថបទព្រាង',
+	'revreview-depth' => 'ជ្រៅ',
+	'revreview-depth-1' => 'មូលដ្ឋាន',
+	'revreview-depth-2' => 'កណ្ដាល',
+	'revreview-depth-3' => 'ខ្ពស់',
+	'revreview-depth-4' => 'ពិសេស',
+	'revreview-draft-title' => 'ទំព័រ​ព្រាង',
 	'revreview-edit' => 'កែប្រែសេចក្តីពង្រាង',
 	'revreview-log' => 'យោបល់៖',
 	'revreview-patrol-title' => 'សម្គាល់ថាបានតាមដាន',
 	'revreview-source' => 'ប្រភពសេចក្តីព្រាង',
 	'revreview-style-1' => 'អាចទទួលយកបាន',
 	'revreview-style-2' => 'ល្អ',
+	'revreview-submit' => 'ដាក់ស្នើ',
+	'revreview-submitting' => 'កំពុង​ដាក់ស្នើ...',
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ព័ត៌មានលំអិត',
 	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានធ្វើឱ្យទាន់សម័យរួចហើយ:'''",
 	'revreview-revnotfound' => 'កំណែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
+	'readerfeedback-completeness' => 'ភាពសម្រេច',
+	'readerfeedback-npov' => 'អព្យាក្រឹតភាព',
+	'readerfeedback-presentation' => 'ការ​បង្ហាញ',
+	'readerfeedback-level-0' => 'ខ្សោយ',
+	'readerfeedback-level-1' => 'ទាប',
+	'readerfeedback-level-2' => 'មធ្យម',
+	'readerfeedback-level-3' => 'ខ្ពស់',
+	'readerfeedback-level-4' => 'ល្អប្រសើរ',
 	'readerfeedback-submit' => 'ដាក់ស្នើ',
+	'readerfeedback-submitting' => 'កំពុង​ដាក់ស្នើ...',
 	'readerfeedback-finished' => 'សូមអរគុណ!',
 	'revreview-filter-all' => 'ទាំងអស់',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
+	'revreview-statusfilter' => 'ស្ថានភាព:',
 	'revreview-typefilter' => 'ប្រភេទ:',
 	'revreview-tagfilter' => 'ប្លាក៖',
+	'revreview-reviewlink' => 'ពិនិត្យឡើងវិញ',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
+	'log-show-hide-review' => '$1 កំណត់ហេតុ​នៃ​ការ​ពិនិត្យឡើងវិញ',
+	'revreview-tt-review' => 'ពិនិត្យ​ទំព័រ​នេះ​ឡើងវិញ',
+	'validationpage' => '{{ns:help}}: សុពលកម្ម​ទំព័រ',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -5518,9 +5539,11 @@ $messages['ksh'] = array(
 	'flaggedrevs-desc' => 'Määt et för de Metmaacher müjjelesch, de Versijone fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualität stabil ze hallde.',
 	'revreview-auto' => 'automattesch',
 	'revreview-log' => 'Koot zosamme jefaß:',
+	'revreview-quick-invalid' => "'''Onjöltijje Versions-Nommer'''",
 	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
 op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
 fottjeschmesse hät?',
+	'revreview-filter-all' => 'All',
 );
 
 /** Latin (Latina)
@@ -7442,7 +7465,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'readerfeedback-npov' => 'Neutralidade',
 	'readerfeedback-presentation' => 'Apresentação',
 	'readerfeedback-overall' => 'em Geral',
-	'readerfeedback-level-none' => '(seleccionar)',
+	'readerfeedback-level-none' => '(incerto)',
 	'readerfeedback-level-0' => 'Miserável',
 	'readerfeedback-level-1' => 'Baixo',
 	'readerfeedback-level-2' => 'Razoável',
@@ -8836,6 +8859,13 @@ $messages['te'] = array(
 	'validationpage' => '{{ns:help}}:వ్యాస మూల్యాంకన',
 );
 
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'revreview-filter-all' => 'Hotu',
+);
+
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
  * @author Ibrahim
  */
@@ -8975,8 +9005,8 @@ $messages['tl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} namataan na] ni [[User:$3|$3]]',
 	'review-diff2stable' => 'Tingnan ang mga pagbabago sa pagitan ng matatag at pangkasalukuyang mga pagbabago',
 	'review-logentry-app' => 'nasuri na ang [[$1]]',
-	'review-logentry-dis' => 'bumaba ang halaga/katuturan ng isang bersyon ng',
-	'review-logentry-id' => 'ID ng pagbabago',
+	'review-logentry-dis' => 'pinababa ang halaga/katuturan ng isang bersyon ng [[$1]]',
+	'review-logentry-id' => 'ID ng pagbabago $1',
 	'review-logentry-diff' => 'pagkakaiba sa may katatagan',
 	'review-logpage' => 'Talaan ng pagsusuri',
 	'review-logpagetext' => 'Isa itong talaan ng mga pagbabago sa kalagayan ng [[{{MediaWiki:Validationpage}}|pagpayag]] sa mga pahina ng nilalaman ng mga pagbabago.

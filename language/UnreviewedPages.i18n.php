@@ -621,6 +621,7 @@ $messages['krj'] = array(
 $messages['ksh'] = array(
 	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit nohjeloorte Sigge]] aanloore',
 	'unreviewed-category' => 'Saachjrupp:',
+	'unreviewed-unwatched' => '(en keine Oppassleß)',
 	'unreviewed-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han}} se en de Opassliß)',
 	'unreviewed-list' => 'Di Leß hee zeich Atikelle, die noch nit nohjeloort woode sen.',
 	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',

@@ -524,11 +524,15 @@ $messages['jv'] = array(
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
+ * @author Thearith
  */
 $messages['km'] = array(
+	'ratinghistory-period' => 'កំលុងពេល:',
 	'ratinghistory-month' => 'ខែមុន',
+	'ratinghistory-3months' => '៣ ខែ​ចុងក្រោយ',
 	'ratinghistory-year' => 'ឆ្នាំមុន',
 	'ratinghistory-3years' => '៣ឆ្នាំមុន',
+	'readerfeedback-svg' => 'មើល​ជា SVG',
 );
 
 /** Korean (한국어)
@@ -542,6 +546,17 @@ $messages['ko'] = array(
 	'ratinghistory-year' => '지난 1년',
 	'ratinghistory-3years' => '지난 3년',
 	'readerfeedback-svg' => 'SVG로 보기',
+);
+
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'ratinghistory-month' => 'letzt Mohnd',
+	'ratinghistory-3months' => 'letzte drei Mohnd',
+	'ratinghistory-year' => 'letz Johr',
+	'ratinghistory-3years' => 'letz drei Johre',
+	'readerfeedback-svg' => 'Als en <code>SVG</code>-Dattei aanloore',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

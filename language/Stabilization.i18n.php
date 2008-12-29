@@ -1321,6 +1321,13 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'stabilization-page' => 'Name fun dä Sigg:',
+	'stabilization-def2' => 'De aktuelle Version',
+	'stabilization-submit' => 'Bestätije',
+	'stabilization-notexists' => 'Mer han kein Sigg met dämm Tittel „[[:$1|$1]]“.
+Et jit nix enzestelle.',
+	'stabilization-notcontent' => 'De Sigg met dämm Tittel „[[:$1|$1]]“ cannot be reviewed.
+Et jit nix enzestelle.',
 	'stabilization-def-short-0' => 'Von jetz',
 );
 

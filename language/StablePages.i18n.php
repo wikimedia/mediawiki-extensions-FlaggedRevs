@@ -269,10 +269,12 @@ $messages['it'] = array(
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author Thearith
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
 	'stablepages-none' => 'មិនមានទំព័រណាមួយក្នុងបញ្ជីនេះទេ',
+	'stablepages-config' => 'ការកំណត់រចនាសម្ព័ន្ធ',
 );
 
 /** Ripoarisch (Ripoarisch)

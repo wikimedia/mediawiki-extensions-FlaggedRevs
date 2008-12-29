@@ -412,10 +412,12 @@ $messages['jv'] = array(
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
+ * @author Thearith
  */
 $messages['km'] = array(
 	'validationstatistics-ns' => 'លំហឈ្មោះ',
 	'validationstatistics-total' => 'ទំព័រ',
+	'validationstatistics-old' => 'ហួសសម័យ',
 );
 
 /** Korean (한국어)
@@ -424,6 +426,19 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
 	'validationstatistics-ns' => '이름공간',
+);
+
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'validationstatistics-users' => " De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met Rääsch, ene [[{{MediaWiki:Validationpage}}|Editor]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm [[{{MediaWiki:Validationpage}}|Reviewer]]-Rääsch.",
+	'validationstatistics-table' => "Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)
+
+'''Opjepaß:''' De Date hee noh sen för e paa Stond zweschespeichert, se künnte alsu nit janz de neuste sin.",
+	'validationstatistics-ns' => 'Appachtemang',
+	'validationstatistics-total' => 'Sigge jesamp',
+	'validationstatistics-nbr' => '$1%',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
