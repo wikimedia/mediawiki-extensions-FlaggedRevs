@@ -243,7 +243,7 @@ class FlaggedRevision {
 	 * @returns Array text select fields (text/text flags)
 	 */
 	public static function selectTextFields() {
-		return array('fr_text','fr_flags');
+		return array('fr_flags');
 	}
 
 	/**

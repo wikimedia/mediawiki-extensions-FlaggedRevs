@@ -262,9 +262,6 @@ class FlaggedRevs {
 
 	/**
 	 * Get the HTML output of a revision based on $text.
-	 * If the text is being reparsed from fr_text (expanded text), 
-	 * it should be specified...In such cases, the parser will not have 
-	 * template ID data. We need to know this so we can just get the data from the DB.
 	 * @param Article $article
 	 * @param string $text
 	 * @param int $id
