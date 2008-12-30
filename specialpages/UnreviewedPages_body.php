@@ -35,7 +35,7 @@ class UnreviewedPages extends SpecialPage
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
 		$onoff = 1 - $hideRedirs;
 		$link = $this->skin->link( $this->getTitle(), $showhide[$onoff], array(),
-			 array( 'hideredirs' => $onoff, 'category' => $category )
+			 array( 'hideredirs' => $onoff, 'category' => $category, 'namespace' => $namespace )
 		);
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
