@@ -1047,10 +1047,36 @@ Nem lehet a beállításokat módosítani.',
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'stabilization-tab' => 'rev',
+	'stabilization' => 'Stabilisation de paginas',
+	'stabilization-text' => "'''Cambia le configurationes infra pro adjustar como le version stabile de [[:$1|$1]] es seligite e monstrate.'''",
+	'stabilization-perm' => 'Tu conto non ha le permission de cambiar le configuration de versiones stabile.
+Ecce le configurationes actual pro [[:$1|$1]]:',
 	'stabilization-page' => 'Nomine del pagina:',
+	'stabilization-leg' => 'Confirmar configurationes de version stabile',
+	'stabilization-select' => 'Selection de version stabile',
+	'stabilization-select1' => 'Le ultime version de qualitate; si non presente, le ultime version revidite',
+	'stabilization-select2' => 'Le ultime version revidite',
+	'stabilization-select3' => 'Le ultime version pristine; si non presente, le ultime version de qualitate o revidite',
+	'stabilization-def' => 'Version monstrate in visualisation predefinite de pagina',
+	'stabilization-def1' => 'Le version stabile; si non presente, le version actual',
+	'stabilization-def2' => 'Le version actual',
+	'stabilization-submit' => 'Confirmar',
+	'stabilization-notexists' => 'Non existe un pagina con titulo "[[:$1|$1]]".
+Nulle configuration es possibile.',
+	'stabilization-notcontent' => 'Le pagina "[[:$1|$1]]" non pote esser revidite.
+Nulle configuration es possibile.',
 	'stabilization-comment' => 'Commento:',
 	'stabilization-expiry' => 'Expira:',
+	'stabilization-sel-short' => 'Precedentia',
+	'stabilization-sel-short-0' => 'Qualitate',
+	'stabilization-sel-short-1' => 'Nulle',
+	'stabilization-sel-short-2' => 'Pristine',
 	'stabilization-def-short' => 'Predefinition',
+	'stabilization-def-short-0' => 'Actual',
+	'stabilization-def-short-1' => 'Stabile',
+	'stabilize_expiry_invalid' => 'Data de expiration invalide.',
+	'stabilize_expiry_old' => 'Iste tempore de expiration ha ja passate.',
 	'stabilize-expiring' => 'expira le $1 (UTC)',
 );
 

@@ -246,6 +246,17 @@ $messages['hu'] = array(
 	'stablepages-config' => 'beállítás',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'stablepages' => 'Paginas stabile',
+	'stablepages-stable' => 'version stabile',
+	'stablepages-text' => 'Infra es un lista de paginas manualmente configurate de modo que le version stabile se monstra como le contento predefinite del pagina pro visitatores.',
+	'stablepages-none' => 'Il non ha paginas in iste lista',
+	'stablepages-config' => 'Configuration',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

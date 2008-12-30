@@ -491,9 +491,18 @@ $messages['hu'] = array(
 
 /** Interlingua (Interlingua)
  * @author Malafaya
+ * @author McDutchie
  */
 $messages['ia'] = array(
+	'right-unreviewedpages' => 'Vider le [[Special:UnreviewedPages|lista de paginas non revidite]]',
+	'unreviewedpages' => 'Paginas non revidite',
+	'unreviewed-legend' => 'Lista de paginas de contento non revidite',
 	'unreviewed-category' => 'Categoria:',
+	'unreviewed-diff' => 'revider',
+	'unreviewed-unwatched' => '(non observate)',
+	'unreviewed-watched' => '(observate per $1 {{PLURAL:$1|usator|usatores}})',
+	'unreviewed-list' => 'Iste pagina lista le paginas de contento que non ha essite revidite.',
+	'unreviewed-none' => 'Al momento il non ha paginas que corresponde a iste criterios',
 );
 
 /** Indonesian (Bahasa Indonesia)

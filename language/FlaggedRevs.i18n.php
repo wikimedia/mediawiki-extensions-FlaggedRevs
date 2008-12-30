@@ -4430,9 +4430,9 @@ $messages['hy'] = array(
  */
 $messages['ia'] = array(
 	'editor' => 'Contributor',
-	'flaggedrevs' => 'Revisiones verificate',
+	'flaggedrevs' => 'Versiones revidite',
 	'flaggedrevs-backlog' => "Il ha actualmente cargas in retardo in le [[Special:OldReviewedPages|lista de paginas revidite obsolete]]. '''Isto require tu attention!'''",
-	'flaggedrevs-desc' => 'Da al contributores e revisores le capacitate de validar revisiones e stabilisar paginas',
+	'flaggedrevs-desc' => 'Da al contributores e revisores le capacitate de validar versiones e stabilisar paginas',
 	'flaggedrevs-pref-UI-0' => 'Usar le version detaliate del interfacie de versiones stabile',
 	'flaggedrevs-pref-UI-1' => 'Usar le version simple del interfacie de versiones stabile',
 	'flaggedrevs-prefs' => 'Stablitate',
@@ -4447,8 +4447,8 @@ $messages['ia'] = array(
 	'hist-draft' => 'version provisori',
 	'hist-quality' => 'version de qualitate',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validate] per [[User:$3|$3]]',
-	'hist-stable' => 'version appercipite',
-	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} appercipite] per [[User:$3|$3]]',
+	'hist-stable' => 'version revidite',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} revidite] per [[User:$3|$3]]',
 	'review-diff2stable' => 'Vider modificationes inter le versiones stabile e actual',
 	'review-logentry-app' => 'revideva [[$1]]',
 	'review-logentry-dis' => 'depreciava un version de [[$1]]',
@@ -4461,7 +4461,7 @@ Vide le [[Special:ReviewedPages|lista de paginas revidite]] pro un lista de pagi
 	'revisionreview' => 'Revider versiones',
 	'revreview-accuracy' => 'Accuratessa',
 	'revreview-accuracy-0' => 'Non approbate',
-	'revreview-accuracy-1' => 'Appercipite',
+	'revreview-accuracy-1' => 'Revidite',
 	'revreview-accuracy-2' => 'Accurate',
 	'revreview-accuracy-3' => 'Ben referentiate',
 	'revreview-accuracy-4' => 'Eminente',
@@ -4469,17 +4469,17 @@ Vide le [[Special:ReviewedPages|lista de paginas revidite]] pro un lista de pagi
 	'revreview-auto' => '(automatic)',
 	'revreview-auto-w' => "Tu modifica le version stabile; omne modificationes essera '''automaticamente revidite'''.",
 	'revreview-auto-w-old' => "Tu modifica un version revidite; omne modificationes essera '''automaticamente revidite'''.",
-	'revreview-basic' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|appercipite]],
+	'revreview-basic' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|revidite]],
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
-Le The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version provisori] ha
+Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version provisori] ha
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}]
 attendente revision.',
-	'revreview-basic-i' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|visitate]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
+	'revreview-basic-i' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|revidite]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version provisori] ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes in patronos o imagines] attendente revision.',
-	'revreview-basic-old' => 'Isto es un version [[{{MediaWiki:Validationpage}}|visitate]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
+	'revreview-basic-old' => 'Isto es un version [[{{MediaWiki:Validationpage}}|revidite]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 Es possibile que nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes] ha essite facite.',
-	'revreview-basic-same' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|visitate]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.',
-	'revreview-basic-source' => 'Un [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version visitate] de iste pagina, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>, ha essite basate in iste version.',
+	'revreview-basic-same' => 'Isto es le ultime version [[{{MediaWiki:Validationpage}}|revidite]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.',
+	'revreview-basic-source' => 'Un [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version revidite] de iste pagina, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>, ha essite basate in iste version.',
 	'revreview-changed' => "'''Le action requestate non poteva esser executate super iste version de [[:$1|$1]].'''
 
 Es possibile que un patrono o imagine ha essite requestate sin specification de un version specific.
@@ -4504,9 +4504,9 @@ Es possibile que le problema essera solvite si tu refresca le pagina e reface le
 	'revreview-main' => 'Tu debe seliger un version particular de un pagina de contento pro poter revider lo.
 
 Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
-	'revreview-newest-basic' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plus recente version visitate] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
+	'revreview-newest-basic' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plus recente version revidite] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}] necessita revision.',
-	'revreview-newest-basic-i' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plus recente version visitate] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
+	'revreview-newest-basic-i' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plus recente version revidite] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Modificationes in patronos o imagines] necessita revision.',
 	'revreview-newest-quality' => 'Le [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultime version de qualitate] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} listar totes]) ha essite [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}] necessita revision.',
@@ -5646,6 +5646,7 @@ $messages['lb'] = array(
 	'revreview-filter-all' => 'All',
 	'revreview-filter-auto' => 'Automatesch',
 	'revreview-filter-manual' => 'Manuel',
+	'revreview-filter-level-1' => 'Qualitéitsversiounen',
 	'revreview-statusfilter' => 'Status:',
 	'revreview-typefilter' => 'Typ:',
 	'revreview-tagfilter' => 'Tag:',

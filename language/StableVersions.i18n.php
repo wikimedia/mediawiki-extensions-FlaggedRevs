@@ -387,7 +387,12 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'stableversions' => 'Vider versiones stabile',
+	'stableversions-leg1' => 'Listar le versiones revidite de un pagina',
 	'stableversions-page' => 'Nomine del pagina:',
+	'stableversions-none' => '"[[:$1]]" non ha versiones revidite.',
+	'stableversions-list' => 'Lo sequente es un lista de versiones de [[:$1]] que ha essite revidite:',
+	'stableversions-review' => 'Revidite le <i>$1</i> per $2',
 );
 
 /** Indonesian (Bahasa Indonesia)

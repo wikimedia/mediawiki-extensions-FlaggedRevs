@@ -33,6 +33,13 @@ $messages['qqq'] = array(
 	'validationstatistics-nbr' => 'Used for the percent numbers in the table of [http://en.wikinews.org/wiki/Special:ValidationStatistics Special:ValidationStatistics]',
 );
 
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+$messages['am'] = array(
+	'validationstatistics-ns' => 'ክፍለ-ዊኪ',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -212,6 +219,7 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author McDutchie
  * @author Verdy p
  * @author Zetud
  */
@@ -221,7 +229,7 @@ $messages['fr'] = array(
 	'validationstatistics-table' => "Les statistiques pour chaque espace de nom sont affichées ci-dessous, à l’exclusion des pages de redirection.
 
 '''Note :''' les données suivantes sont cachées pendant plusieurs heures et ne peuvent pas être mises à jour.",
-	'validationstatistics-ns' => 'Nom de l’espace',
+	'validationstatistics-ns' => 'Espace de noms',
 	'validationstatistics-total' => 'Pages',
 	'validationstatistics-stable' => 'Relu',
 	'validationstatistics-latest' => 'Relu en tout dernier lieu',
@@ -348,6 +356,24 @@ $messages['hu'] = array(
 	'validationstatistics-latest' => 'Legutóbb ellenőrzött',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 	'validationstatistics-old' => 'Elavult',
+);
+
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'validationstatistics' => 'Statisticas de validation',
+	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''$1''' {{PLURAL:$1|usator|usatores}} con derectos de [[{{MediaWiki:Validationpage}}|Contributor]] e '''$2''' {{PLURAL:$2|usator|usatores}} con derectos de [[{{MediaWiki:Validationpage}}|Revisor]].",
+	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, excludente le paginas de redirection.
+
+'''Nota:''' le sequente datos es extrahite de un copia ''cache'' del base de datos, non actualisate in tempore real.",
+	'validationstatistics-ns' => 'Spatio de nomines',
+	'validationstatistics-total' => 'Paginas',
+	'validationstatistics-stable' => 'Revidite',
+	'validationstatistics-latest' => 'Ultime revidite',
+	'validationstatistics-synced' => 'Synchronisate/Revidite',
+	'validationstatistics-old' => 'Obsolete',
+	'validationstatistics-nbr' => '$1%',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -682,6 +708,13 @@ $messages['te'] = array(
 	'validationstatistics' => 'సరిచూత గణాంకాలు',
 	'validationstatistics-total' => 'పేజీలు',
 	'validationstatistics-old' => 'పాతవి',
+);
+
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'validationstatistics-ns' => 'Espasu pájina nian',
 );
 
 /** Thai (ไทย)
