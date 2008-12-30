@@ -182,7 +182,7 @@ EOT;
 			# Try stable version cache. This should be updated before this is called.
 			$parserOut = FlaggedRevs::getPageCache( $article );
 			if( $parserOut === false ) {
-				$text = $sv->getTextForParse();
+				$text = $sv->getRevText();
 				# Parse the text
 				$parserOut = FlaggedRevs::parseStableText( $article, $text, $sv->getRevId() );
 			}
@@ -325,8 +325,7 @@ EOT;
 		# Check for stable version of template if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
-		global $wgUseStableTemplates;
-		if( $wgUseStableTemplates && FlaggedRevs::isPageReviewable($title) && $title->getArticleId() ) {
+		if( FlaggedRevs::isPageReviewable($title) && $title->getArticleId() ) {
 			$id = $dbr->selectField( 'flaggedpages', 'fp_stable',
 				array( 'fp_page_id' => $title->getArticleId() ),
 				__METHOD__ );

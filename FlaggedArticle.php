@@ -285,7 +285,7 @@ class FlaggedArticle extends Article {
 			// behavior below, since it is the same as ("&stable=1").
 			if( $old ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
-				$text = $frev->getTextForParse();
+				$text = $frev->getRevText();
 	   			$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
 				# Construct some tagging for non-printable outputs. Note that the pending
 				# notice has all this info already, so don't do this if we added that already.
@@ -396,7 +396,7 @@ class FlaggedArticle extends Article {
 				# Get parsed stable version
 				$parserOut = FlaggedRevs::getPageCache( $this->parent );
 				if( $parserOut == false ) {
-					$text = $frev->getTextForParse();
+					$text = $frev->getRevText();
 	   				$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
 	   				# Update the stable version cache
 					FlaggedRevs::updatePageCache( $this->parent, $parserOut );
@@ -945,13 +945,13 @@ class FlaggedArticle extends Article {
 			$synced = ($value === "true") ? true : false; // default as false to trigger query
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
-				global $wgParserCacheExpireTime, $wgUseStableTemplates, $wgUseStableImages;
+				global $wgParserCacheExpireTime, $wgUseStableImages;
 
 				$changeList = array();
 				$skin = $wgUser->getSkin();
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'stableDiffs', 'templates', (bool)$wgUseStableTemplates, $article->getId() );
+				$key = wfMemcKey( 'stableDiffs', 'templates', $article->getId() );
 				$tmpChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
 				if( empty($tmpChanges) && !$synced ) {
 					$tmpChanges = false; // don't use cache
@@ -961,26 +961,15 @@ class FlaggedArticle extends Article {
 				if( $tmpChanges === false ) {
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get templates where the current and stable are not the same revision
-					if( $wgUseStableTemplates ) {
-						$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-							array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id', 'page_latest' ),
-							array( 'ft_rev_id' => $frev->getRevId(),
-								'page_namespace = ft_namespace',
-								'page_title = ft_title' ),
-							__METHOD__,
-							array(), /* OPTIONS */
-							array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
-						);
-					// Get templates that are newer than the ones of the stable version of this page
-					} else {
-						$ret = $dbr->select( array('flaggedtemplates','page'),
-							array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id', 'page_latest' ),
-							array( 'ft_rev_id' => $frev->getRevId(),
-								'page_namespace = ft_namespace',
-								'page_title = ft_title',
-								'ft_tmp_rev_id != page_latest' ),
-							__METHOD__ );
-					}
+					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
+						array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id', 'page_latest' ),
+						array( 'ft_rev_id' => $frev->getRevId(),
+							'page_namespace = ft_namespace',
+							'page_title = ft_title' ),
+						__METHOD__,
+						array(), /* OPTIONS */
+						array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
+					);
 					$tmpChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
 						$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
@@ -1047,7 +1036,7 @@ class FlaggedArticle extends Article {
 					$changeList += $imgChanges;
 
 				# Some important information...
-				if( ($wgUseStableTemplates || $wgUseStableImages) && !empty($changeList) ) {
+				if( !empty($changeList) ) {
 					$notice = '<br/>' . wfMsgExt('revreview-update-use', array('parseinline'));
 				} else {
 					$notice = "";

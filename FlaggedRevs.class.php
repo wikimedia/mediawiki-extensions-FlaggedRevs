@@ -272,7 +272,7 @@ class FlaggedRevs {
 	 * @return ParserOutput
 	 */
 	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
-		global $wgParser, $wgUseStableTemplates;
+		global $wgParser;
 		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks trigger (force unstub so setting doesn't get lost)
 		$wgParser->firstCallInit();
@@ -284,31 +284,6 @@ class FlaggedRevs {
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 	   	# Done with parser!
 	   	$wgParser->fr_isStable = false;
-		# Do we need to set the template uses via DB?
-		if( $reparsed && !$wgUseStableTemplates ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( array('flaggedtemplates','revision'), 
-				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id AS rev_id', 'rev_page AS page_id' ),
-				array( 'ft_rev_id' => $id, 'rev_id = ft_rev_id' ),
-				__METHOD__ );
-			# Add template metadata to output
-			$maxTempID = 0;
-			while( $row = $res->fetchObject() ) {
-				if( !isset($parserOut->mTemplates[$row->ft_namespace]) ) {
-					$parserOut->mTemplates[$row->ft_namespace] = array();
-				}
-				$parserOut->mTemplates[$row->ft_namespace][$row->ft_title] = $row->page_id;
-
-				if( !isset($parserOut->mTemplateIds[$row->ft_namespace]) ) {
-					$parserOut->mTemplateIds[$row->ft_namespace] = array();
-				}
-				$parserOut->mTemplateIds[$row->ft_namespace][$row->ft_title] = $row->rev_id;
-				if( $row->rev_id > $maxTempID ) {
-					$maxTempID = $row->rev_id;
-				}
-			}
-			$parserOut->fr_newestTemplateID = $maxTempID;
-		}
 	   	return $parserOut;
 	}
 	
@@ -541,7 +516,7 @@ class FlaggedRevs {
 			# Get parsed stable version
 			$stableOutput = self::getPageCache( $article );
 			if( $stableOutput==false ) {
-				$text = $srev->getTextForParse();
+				$text = $srev->getRevText();
 	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
 	   			# Update the stable version cache
 				self::updatePageCache( $article, $stableOutput );
@@ -1010,7 +985,7 @@ class FlaggedRevs {
 	* fields will be up to date. This updates the stable version.
 	*/
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $patrol = true ) {
-		global $wgMemc, $wgRevisionCacheExpiry;
+		global $wgMemc;
 		wfProfileIn( __METHOD__ );
 		# Default tags to level 1 for each dimension
 		if( !is_array($flags) ) {
@@ -1066,18 +1041,7 @@ class FlaggedRevs {
 			}
 		}
 
-		global $wgUseStableTemplates;
-		if( $wgUseStableTemplates ) {
-			$fulltext = ''; // nothing to store
-		} else {
-			# Set our versioning params cache
-			self::setIncludeVersionCache( $rev->getId(), $poutput->mTemplateIds, $poutput->fr_ImageSHA1Keys );
-			# Get the page text and resolve all templates
-			list($fulltext,$templateIDs,$complete,$maxID) = self::expandText( $text, 
-				$article->getTitle(), $rev->getId() );
-			# Clear our versioning params cache
-			self::clearIncludeVersionCache( $rev->getId() );
-		}
+		$fulltext = ''; // nothing to store; always dynamic now
 
 		# If this is an image page, store corresponding file info
 		$fileData = array();
@@ -1125,13 +1089,6 @@ class FlaggedRevs {
 			$data = FlaggedRevs::makeMemcObj( "true" );
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		}
-		# Update expanded text cache. Don't store if it if empty (not done),
-		# as this always happens when $wgUseStableTemplates is on.
-		if( $fulltext && $wgRevisionCacheExpiry ) {
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
-			$wgMemc->set( $key, $fulltext, $wgRevisionCacheExpiry );
-		}
-		
 		wfProfileOut( __METHOD__ );
 		return true;
 	}

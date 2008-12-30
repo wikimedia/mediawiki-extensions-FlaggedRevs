@@ -198,7 +198,6 @@ class FlaggedRevision {
 	* @return bool success
 	*/
 	public function insertOn( $fulltext, $tmpRows, $fileRows ) {
-		global $wgRevisionCacheExpiry;
 		# Store/compress text as needed, and get the flags
 		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
 		$this->mRawDBText = $fulltext; // wikitext or ES url
@@ -231,12 +230,6 @@ class FlaggedRevision {
 		}
 		if( !empty($fileRows) ) {
 			$dbw->insert( 'flaggedimages', $fileRows, __METHOD__, 'IGNORE' );
-		}
-		# Kill any text cache
-		if( $wgRevisionCacheExpiry ) {
-			global $wgMemc;
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
-			$wgMemc->delete( $key );
 		}
 		return true;
 	}
@@ -400,28 +393,6 @@ class FlaggedRevision {
 		}
 		return $files;
 	}
-
-	/**
-	 * @returns mixed (string/false) expanded text
-	 */
-	public function getExpandedText() {
-		$this->loadText(); // load if not loaded
-		return $this->mText;
-	}
-	
-	/**
-	 * @returns mixed (string/false) expanded text or revision text.
-	 * Depends on whether $wgUseStableTemplates is on or not.
-	 */
-	public function getTextForParse() {
-		global $wgUseStableTemplates;
-		if( $wgUseStableTemplates ) {
-			$text = $this->getRevText();
-		} else {
-			$text = $this->getExpandedText();
-		}
-		return $text;
-	}
 	
 	/**
 	 * Get text of the corresponding revision
@@ -435,109 +406,16 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * Actually load the revision's expanded text
-	 */
-	private function loadText() {
-		# Loaded already?
-		if( !is_null($this->mText) )
-			return true;
-		
-		wfProfileIn( __METHOD__ );
-		// Check uncompressed cache first...
-		global $wgRevisionCacheExpiry, $wgMemc;
-		if( $wgRevisionCacheExpiry ) {
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $this->getRevId() );
-			$text = $wgMemc->get( $key );
-			if( is_string($text) ) {
-				$this->mText = $text;
-				wfProfileOut( __METHOD__ );
-				return true;
-			}
-		}
-		// DB stuff loaded already?
-		if( is_null($this->mFlags) || is_null($this->mRawDBText) ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$row = $dbw->selectRow( 'flaggedrevs',
-				array( 'fr_text', 'fr_flags' ),
-				array( 'fr_rev_id' => $this->mRevId,
-					'fr_page_id' => $this->mPageId ),
-				__METHOD__ );
-			// WTF ???
-			if( !$row ) {
-				$this->mRawDBText = false;
-				$this->mFlags = array();
-				$this->mText = false;
-				wfProfileOut( __METHOD__ );
-				return false;
-			} else {
-				$this->mRawDBText = $row->fr_text;
-				$this->mFlags = explode(',',$row->fr_flags);
-			}
-		}
-		// Should the text actually be made dynamically?
-		if( in_array( 'dynamic', $this->mFlags ) ) {
-			return $this->getRevText();
-		}
-		// Check if fr_text is just some URL to external DB storage
-		if( in_array( 'external', $this->mFlags ) ) {
-			$url = $this->mRawDBText;
-			@list(/* $proto */,$path) = explode('://',$url,2);
-			if( $path=="" ) {
-				$this->mText = null;
-			} else {
-				$this->mText = ExternalStore::fetchFromURL( $url );
-			}
-		} else {
-			$this->mText = $this->mRawDBText;
-		}
-		// Uncompress if needed
-		$this->mText = self::uncompressText( $this->mText, $this->mFlags );
-		// Caching may be beneficial for massive use of external storage
-		if( $wgRevisionCacheExpiry ) {
-			$wgMemc->set( $key, $this->mText, $wgRevisionCacheExpiry );
-		}
-		wfProfileOut( __METHOD__ );
-		return true;
-	}
-	
-	/**
 	* @param string $fulltext
 	* @return string, flags
 	* Compress pre-processed text, passed by reference
 	* Accounts for various config options.
 	*/
 	public static function doSaveCompression( &$fulltext ) {
-		# Flag items that do not have text stored
-		global $wgUseStableTemplates;
-		if( $wgUseStableTemplates ) {
-			$fulltext = '';
-			$textFlags = 'utf-8,dynamic';
-		} else {
-			# Compress $fulltext, passed by reference
-			$textFlags = self::compressText( $fulltext );
-			# Write to external storage if required
-			$storage = FlaggedRevs::getExternalStorage();
-			if( $storage ) {
-				if( is_array($storage) ) {
-					# Distribute storage across multiple clusters
-					$store = $storage[mt_rand(0, count( $storage ) - 1)];
-				} else {
-					$store = $storage;
-				}
-				# Store and get the URL
-				$fulltext = ExternalStore::insert( $store, $fulltext );
-				if( !$fulltext ) {
-					# This should only happen in the case of a configuration error, 
-					# where the external store is not valid
-					wfProfileOut( __METHOD__ );
-					throw new MWException( "Unable to store text to external storage $store" );
-				}
-				if( $textFlags ) {
-					$textFlags .= ',';
-				}
-				$textFlags .= 'external';
-			}
-		}
+		# Flag items that do not have text stored...
+		# which is everything as of now. ES use removed.
+		$fulltext = '';
+		$textFlags = 'utf-8,dynamic';
 		return $textFlags;
 	}
 	

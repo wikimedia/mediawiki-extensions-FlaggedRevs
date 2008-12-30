@@ -107,26 +107,25 @@ $wgFlaggedRevsAutoReview = true;
 # Auto-review new pages with the minimal level?
 $wgFlaggedRevsAutoReviewNew = true;
 
-# When parsing a reviewed revision, if a template to be transcluded
-# has a stable version, use that version. If not present, use the one
-# specified when the reviewed revision was reviewed. Note that the
-# fr_text column will not be used, which may reduce performance. It will
-# still be populated however, so that these settings can be retroactively
-# changed.
-$wgUseStableTemplates = true;
 # We may have templates that do not have stable version. Given situational
 # inclusion of templates (such as parser functions that select template
 # X or Y depending), there may also be no revision ID for each template
 # pointed to by the metadata of how the article was when it was reviewed.
 # An example would be an article that selects a template based on time.
 # The template to be selected will change, and the metadata only points
-# to the reviewed revision ID of the old template. This can be a problem if
-# $wgUseStableTemplates is enabled. In such cases, we can select the
-# current (unreviewed) revision.
+# to the reviewed revision ID of the old template. In such cases, we can s
+# select the current (unreviewed) revision.
 $wgUseCurrentTemplates = true;
 
-# Similar to above...
+# When parsing a reviewed revision, if a file to be included has 
+# a stable version, then use that version. If there is none, then 
+# use the one specified when the reviewed revision was reviewed.
 $wgUseStableImages = true;
+# We may have file pages that do not have stable version. Given situational
+# inclusion of templates/files (such as a random featured image template), 
+# there may also be no sha-1/time for each file pointed to by the metadata 
+# of how the article was when it was reviewed. In such cases, we can select 
+# the current (unreviewed) revision.
 $wgUseCurrentImages = true;
 
 # When setting up new dimensions or levels, you will need to add some

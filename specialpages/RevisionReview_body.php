@@ -447,7 +447,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @returns true on success, array of errors on failure
 	 */
 	private function approveRevision( $rev ) {
-		global $wgUser, $wgMemc, $wgParser, $wgEnableParserCache, $wgRevisionCacheExpiry;
+		global $wgUser, $wgMemc, $wgParser, $wgEnableParserCache;
 		wfProfileIn( __METHOD__ );
 		
 		$article = new Article( $this->page );
@@ -541,7 +541,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Is this rev already flagged?
 		$flaggedOutput = false;
 		if( $oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_TEXT | FR_MASTER ) ) {
-			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getTextForParse(), $oldfrev->getRevId() );
+			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getRevText(), $oldfrev->getRevId() );
 		}
 		
 		# Be looser on includes for templates, since they don't matter much
@@ -658,11 +658,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$u->doUpdate();
 
 		$dbw->commit();
-		# Update expanded text cache
-		if( $fulltext && $wgRevisionCacheExpiry ) {
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $rev->getId() );
-			$wgMemc->set( $key, $fulltext, $wgRevisionCacheExpiry );
-		}
 		# Purge cache/squids for this page and any page that uses it
 		Article::onArticleEdit( $article->getTitle() );
 
@@ -675,7 +670,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * Removes flagged revision data for this page/id set
 	 */
 	private function unapproveRevision( $frev ) {
-		global $wgUser, $wgParser, $wgRevisionCacheExpiry, $wgMemc;
+		global $wgUser, $wgParser, $wgMemc;
 		wfProfileIn( __METHOD__ );
 		
         $dbw = wfGetDB( DB_MASTER );
@@ -695,12 +690,6 @@ class RevisionReview extends UnlistedSpecialPage
 
 		# Update the article review log
 		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, false );
-
-		# Kill any text cache
-		if( $wgRevisionCacheExpiry ) {
-			$key = wfMemcKey( 'flaggedrevisiontext', 'revid', $frev->getRevId() );
-			$wgMemc->delete( $key );
-		}
 
 		$article = new Article( $this->page );
 		# Update the links tables as a new stable version
