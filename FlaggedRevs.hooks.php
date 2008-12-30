@@ -1212,7 +1212,9 @@ EOT;
 	public static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
 		if( $file->isLocal() ) {
 			$tables[] = 'flaggedrevs';
-			$fields[] = 'fr_quality';
+			$fields[] = 'MAX(fr_quality) AS fr_quality';
+			# Avoid duplicate rows due to multiple revs with the same sha-1 key
+			$opts['GROUP BY'] = 'oi_name,oi_timestamp';
 			$join_conds['flaggedrevs'] = array( 'LEFT JOIN', 'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
 		}
 		return true;
