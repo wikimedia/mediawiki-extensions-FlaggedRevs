@@ -7,7 +7,6 @@ class FlaggedRevs {
 	protected static $loaded = false;
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
-	protected static $extStorage = false;
 	protected static $includeVersionCache = array();
 
 	public static function load() {
@@ -50,13 +49,6 @@ class FlaggedRevs {
 			self::$pristineVersions = true;
 		}
 
-		# FIXME: Special:RevisionReview creates orphan blobs when existing reviews 
-		# are updated. Disabling this feature for now. -- TS
-		#global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
-		#self::$extStorage = $wgFlaggedRevsExternalStore ? 
-		#	$wgFlaggedRevsExternalStore : $wgDefaultExternalStore;
-		self::$extStorage = false;
-
 		self::$loaded = true;
 	}
 	
@@ -78,15 +70,6 @@ class FlaggedRevs {
 	public static function pristineVersions() {
 		self::load();
 		return self::$pristineVersions;
-	}
-	
-	/**
-	 * Get external storage array. Default to main storage.
-	 * @returns mixed (array/false)
-	 */
-	public static function getExternalStorage() {
-		self::load();
-		return self::$extStorage;
 	}
 
 	/**
