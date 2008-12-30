@@ -222,6 +222,8 @@ $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 
 # If you want to use a storage group specifically for this
 # software, set this array
+# FIXME: this feature creates orphan blobs in the external storage table when 
+# Special:RevisionReview updates a revision. It should not be used.
 $wgFlaggedRevsExternalStore = false;
 
 # Show reviews in recentchanges? Disabled by default, often spammy...

@@ -49,9 +49,13 @@ class FlaggedRevs {
 		if( $wgFlaggedRevValues >= $wgFlaggedRevPristine ) {
 			self::$pristineVersions = true;
 		}
-		global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
-		self::$extStorage = $wgFlaggedRevsExternalStore ? 
-			$wgFlaggedRevsExternalStore : $wgDefaultExternalStore;
+
+		# FIXME: Special:RevisionReview creates orphan blobs when existing reviews 
+		# are updated. Disabling this feature for now. -- TS
+		#global $wgFlaggedRevsExternalStore, $wgDefaultExternalStore;
+		#self::$extStorage = $wgFlaggedRevsExternalStore ? 
+		#	$wgFlaggedRevsExternalStore : $wgDefaultExternalStore;
+		self::$extStorage = false;
 
 		self::$loaded = true;
 	}
