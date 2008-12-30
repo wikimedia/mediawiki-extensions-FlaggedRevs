@@ -8,7 +8,7 @@ class FlaggedRevision {
 	private $mQuality;
 	private $mTags;
 	private $mText = null;
-	private $mRawDBText, $mFlags;
+	private $mFlags;
 	private $mUser;
 	private $mRevision;
 	private $mFileName, $mFileSha1, $mFileTimestamp;
@@ -33,7 +33,6 @@ class FlaggedRevision {
 			$this->mTitle = isset($row->page_namespace) && isset($row->page_title) ?
 				Title::makeTitleSafe( $row->page_namespace, $row->page_title ) : null;
 			$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
-			$this->mRawDBText = isset($row->fr_text) ? $row->fr_text : null;
 		} else if( is_array($row) ) {
 			$this->mRevId = intval( $row['fr_rev_id'] );
 			$this->mPageId = intval( $row['fr_page_id'] );
@@ -48,7 +47,6 @@ class FlaggedRevision {
 			$this->mUser = intval( $row['fr_user'] );
 			# Optional fields
 			$this->mFlags = isset($row['fr_flags']) ? explode(',',$row['fr_flags']) : null;
-			$this->mRawDBText = isset($row['fr_text']) ? $row['fr_text'] : null;
 		} else {
 			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
 		}
@@ -200,7 +198,6 @@ class FlaggedRevision {
 	public function insertOn( $fulltext, $tmpRows, $fileRows ) {
 		# Store/compress text as needed, and get the flags
 		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
-		$this->mRawDBText = $fulltext; // wikitext or ES url
 		$this->mFlags = explode(',',$textFlags);
 		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry

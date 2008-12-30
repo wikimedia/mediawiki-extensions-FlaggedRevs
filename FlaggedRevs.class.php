@@ -268,10 +268,9 @@ class FlaggedRevs {
 	 * @param Article $article
 	 * @param string $text
 	 * @param int $id
-	 * @param bool $reparsed (is this being reparsed from fr_text?)
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( $article, $text='', $id, $reparsed = true ) {
+	public static function parseStableText( $article, $text='', $id ) {
 		global $wgParser;
 		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks trigger (force unstub so setting doesn't get lost)

@@ -559,7 +559,7 @@ class RevisionReview extends UnlistedSpecialPage
         	return $err;
         }
 		# Parse the rest and check if it matches up
-		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId(), false );
+		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId() );
 		$err =& $stableOutput->fr_includeErrors;
 		if( !$noMatch && (!empty($err) || $stableOutput->fr_newestImageTime > $lastImgTime) ) {
 			wfProfileOut( __METHOD__ );
