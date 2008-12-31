@@ -1000,8 +1000,11 @@ Những biểu thị cũng trình bày '''số lần đánh giá trong ngày''' 
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Gzdavidwong
  */
 $messages['zh-hans'] = array(
+	'ratinghistory-tab' => '评分',
+	'ratinghistory-link' => '页面评分',
 	'ratinghistory-period' => '时间段：',
 	'ratinghistory-month' => '上月',
 	'ratinghistory-3months' => '过去3个月',

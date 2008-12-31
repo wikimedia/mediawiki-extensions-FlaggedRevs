@@ -1062,6 +1062,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Gzdavidwong
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
@@ -1076,11 +1077,13 @@ $messages['zh-hans'] = array(
 	'oldreviewedpages-recent' => '(少于1小时)',
 	'oldreviewed-category' => '分类:',
 	'oldreviewed-diff' => '复审',
+	'oldreviewed-size' => '最大变更（字节）：',
 	'oldreviewedpages-unwatched' => '(未看)',
 	'oldreviewedpages-watched' => '($2{{PLURAL:$1|位用户|位用户}}正在看)',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Gzdavidwong
  * @author Shinjiman
  * @author Wrightbus
  */
@@ -1096,7 +1099,7 @@ $messages['zh-hant'] = array(
 	'oldreviewedpages-recent' => '(少於1小時)',
 	'oldreviewed-category' => '分類:',
 	'oldreviewed-diff' => '複審',
-	'oldreviewed-size' => '最大變動 (位元組):',
+	'oldreviewed-size' => '最大變動（位元組）：',
 	'oldreviewedpages-unwatched' => '(未看)',
 	'oldreviewedpages-watched' => '($2{{PLURAL:$1|位用戶|位用戶}}正在看)',
 );

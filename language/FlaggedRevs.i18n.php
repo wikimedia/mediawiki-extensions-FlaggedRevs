@@ -6560,10 +6560,23 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
+	'flaggedrevs' => 'Vurderte versjonar',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} vurdert] av [[User:$3|$3]]',
+	'revreview-accuracy' => 'Vurdering',
+	'revreview-accuracy-0' => 'Ikkje godkjend',
+	'revreview-accuracy-1' => 'Vurdert',
+	'revreview-accuracy-2' => 'Nøyaktig',
 	'revreview-log' => 'Kommentar:',
+	'revreview-newest-basic' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste godkjende versjonen] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|éi endring må verta vurdert|$3 endringar må verta vurderte}}].',
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Siste versjon]]''' (ikkje vurdert)",
+	'revreview-submit' => 'Utfør',
+	'revreview-submitting' => 'Leverer …',
+	'revreview-finished' => 'Vurdering fullførd.',
 	'revreview-revnotfound' => 'Den gamle versjonen av sida du spurde etter finst ikkje. Sjekk nettadressa du brukte for å komma deg åt denne sida.',
 );
 
@@ -10099,6 +10112,7 @@ $messages['zh-classical'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Chenzw
+ * @author Gzdavidwong
  */
 $messages['zh-hans'] = array(
 	'editor' => '编辑',
@@ -10186,6 +10200,7 @@ $messages['zh-hans'] = array(
 	'revreview-update' => '请复审自从于这页的稳定版以来的任何更改 (在下面显示) 。模版和图像亦可能同时更改。',
 	'revreview-revnotfound' => '您请求的更早版本的修订记录没有找到。
 请检查您请求本页面用的 URL 是否正确。',
+	'readerfeedback-submit' => '提交',
 	'validationpage' => '{{ns:help}}:文章确认',
 );
 

@@ -395,6 +395,17 @@ $messages['vi'] = array(
 	'problempages-graphs' => 'dữ liệu đánh giá',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Gzdavidwong
+ */
+$messages['zh-hans'] = array(
+	'problempages' => '评分差劣的页面',
+	'problempages-leg' => '查找低评分页面',
+	'problempages-list' => '以下是按读者评分排序的页面列表。',
+	'problempages-none' => '本列表没有任何页面。',
+	'problempages-graphs' => '评分资料',
+);
+
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Wrightbus
  */
