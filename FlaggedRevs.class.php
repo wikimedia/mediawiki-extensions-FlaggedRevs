@@ -212,10 +212,11 @@ class FlaggedRevs {
 			1 => 'quality',
 			2 => 'pristine'
 		);
-		if ( isset( $levelText[$level] ) )
+		if( isset( $levelText[$level] ) ) {
 			return $levelText[$level];
-		else
-			return '';		
+		} else {
+			return '';
+		}
 	}
 	
 	################# Parsing functions #################
@@ -236,7 +237,8 @@ class FlaggedRevs {
 		$options = self::makeParserOptions();
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
 		$out =& $wgParser->mOutput;
-		$data = array( $outputText, $out->mTemplates, $out->mTemplateIds, $out->fr_includeErrors, $out->fr_newestTemplateID );
+		$data = array( $outputText, $out->mTemplates, $out->mTemplateIds, 
+			$out->fr_includeErrors, $out->fr_newestTemplateID );
 		# Done!
 		$wgParser->fr_isStable = false;
 		# Return data array
@@ -258,7 +260,6 @@ class FlaggedRevs {
 		$wgParser->fr_isStable = true;
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
-		#$options->setEditSection( $id == $title->getLatestRevID(GAID_FOR_UPDATE) );
 		# Parse the new body, wikitext -> html
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 	   	# Done with parser!
@@ -286,7 +287,6 @@ class FlaggedRevs {
 	*/
 	public static function getPageCache( $article ) {
 		global $wgUser, $parserMemc, $wgCacheEpoch;
-
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
 		if( !$article->getId() )
@@ -326,7 +326,6 @@ class FlaggedRevs {
 		}
 
 		wfProfileOut( __METHOD__ );
-
 		return $value;
 	}
 
@@ -471,6 +470,7 @@ class FlaggedRevs {
 	* This function is pretty expensive...
 	*/	
 	public static function stableVersionIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
+		global $wgMemc, $wgEnableParserCache;
 		# Must be the same revision
 		if( $srev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
 			return false;
@@ -481,7 +481,6 @@ class FlaggedRevs {
 				return false;
 			}
 		}
-		global $wgMemc, $wgEnableParserCache;
 		# Try the cache...
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
 		$value = self::getMemcValue( $wgMemc->get($key), $article );
@@ -606,11 +605,9 @@ class FlaggedRevs {
 		if( !$article->getId() )
 			return true; // no bogus entries
 
-		wfProfileIn( __METHOD__ );
 		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-
+		# Get the highest quality revision (not necessarily this one)
 		$dbw = wfGetDB( DB_MASTER );
-		# Get the highest quality revision (not necessarily this one).
 		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
 			'fr_quality',
 			array( 'fr_page_id' => $article->getId(),
@@ -641,7 +638,6 @@ class FlaggedRevs {
 		# Updates the count cache
 		$count = self::getRevCountSince( $article, $revId, true );
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 	
@@ -754,8 +750,8 @@ class FlaggedRevs {
 		$row = $db->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $title->getArticleID() ),
-			__METHOD__ );
-
+			__METHOD__
+		);
 		if( $row ) {
 			$now = wfTimestampNow();
 			# This code should be refactored, now that it's being used more generally.
@@ -775,8 +771,8 @@ class FlaggedRevs {
 			$select = $wgFlaggedRevsPrecedence ? FLAGGED_VIS_NORMAL : FLAGGED_VIS_LATEST;
 			return array('select' => $select, 'override' => $override, 'expiry' => 'infinity');
 		}
-
-		return array('select' => $row->fpc_select, 'override' => $row->fpc_override, 'expiry' => $row->fpc_expiry);
+		return array('select' => $row->fpc_select, 'override' => $row->fpc_override,
+			'expiry' => $row->fpc_expiry );
 	}
 	
 	/**
@@ -786,7 +782,8 @@ class FlaggedRevs {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedpage_config',
 			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
-			__METHOD__ );
+			__METHOD__
+		);
 	}
 	
 	################# Other utility functions #################
@@ -797,15 +794,11 @@ class FlaggedRevs {
 	*/
 	public static function isQuality( $flags ) {
 		global $wgFlaggedRevTags;
-
-		if( empty($flags) )
-			return false;
-
+		if( empty($flags) ) return false;
 		foreach( $wgFlaggedRevTags as $f => $v ) {
 			if( !isset($flags[$f]) || $v > $flags[$f] )
 				return false;
 		}
-		
 		return true;
 	}
 
@@ -815,15 +808,11 @@ class FlaggedRevs {
 	*/
 	public static function isPristine( $flags ) {
 		global $wgFlaggedRevTags, $wgFlaggedRevPristine;
-
-		if( empty($flags) )
-			return false;
-
+		if( empty($flags) ) return false;
 		foreach( $wgFlaggedRevTags as $f => $v ) {
 			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevPristine )
 				return false;
 		}
-		
 		return true;
 	}
 	

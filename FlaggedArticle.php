@@ -138,7 +138,8 @@ class FlaggedArticle extends Article {
 	 * @returns bool
 	 */
 	public function lowProfileUI() {
-		return FlaggedRevs::lowProfileUI() && FlaggedRevs::showStableByDefault() == $this->showStableByDefault();
+		return FlaggedRevs::lowProfileUI() &&
+			FlaggedRevs::showStableByDefault() == $this->showStableByDefault();
 	}
 
 	 /**
@@ -193,26 +194,27 @@ class FlaggedArticle extends Article {
 	 */
 	public function addStableLink() {
 		global $wgRequest, $wgOut, $wgLang;
-		if( $wgRequest->getVal('oldid') ) {
-			# We may have nav links like "direction=prev&oldid=x"
-			$revID = $this->parent->getOldIDFromRequest();
-			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revID );
-			# Give a notice if this rev ID corresponds to a reviewed version...
-			if( !is_null($frev) ) {
-				wfLoadExtensionMessages( 'FlaggedRevs' );
-				$time = $wgLang->date( $frev->getTimestamp(), true );
-				$flags = $frev->getTags();
-				$quality = FlaggedRevs::isQuality( $flags );
-				$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
-				$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
-				# Hide clutter
-				if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
-					$tag .= " " . FlaggedRevsXML::ratingToggle() . "<span id='mw-revisionratings' style='display:block;'>" .
-						"<br/>" . wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
-				}
-				$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks noprint'>$tag</div>";
-				$wgOut->addHTML( $tag );
+		if( !$wgRequest->getVal('oldid') )
+			return true; # Only for viewing old versions
+		# We may have nav links like "direction=prev&oldid=x"
+		$revID = $this->parent->getOldIDFromRequest();
+		$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $revID );
+		# Give a notice if this rev ID corresponds to a reviewed version...
+		if( !is_null($frev) ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
+			$time = $wgLang->date( $frev->getTimestamp(), true );
+			$flags = $frev->getTags();
+			$quality = FlaggedRevs::isQuality( $flags );
+			$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
+			$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
+			# Hide clutter
+			if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
+				$tag .= " " . FlaggedRevsXML::ratingToggle() . 
+					"<span id='mw-revisionratings' style='display:block;'><br/>" .
+					wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 			}
+			$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks noprint'>$tag</div>";
+			$wgOut->addHTML( $tag );
 		}
 		return true;
 	}
@@ -414,7 +416,6 @@ class FlaggedArticle extends Article {
 						$msg = $synced ? "{$msg}-same" : $msg;
 						$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
 							wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revsSince );
-
 						$tag = FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince, true, $synced );
 					// Standard UI
 					} else {
@@ -521,8 +522,7 @@ class FlaggedArticle extends Article {
 		}
 
 		if( !$time ) {
-			// Use the default behaviour
-			return;
+			return; // Use the default behaviour
 		}
 
 		$title = $this->parent->getTitle();
