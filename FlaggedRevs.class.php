@@ -1009,8 +1009,6 @@ class FlaggedRevs {
 			}
 		}
 
-		$fulltext = ''; // nothing to store; always dynamic now
-
 		# If this is an image page, store corresponding file info
 		$fileData = array();
 		if( $title->getNamespace() == NS_FILE ) {
