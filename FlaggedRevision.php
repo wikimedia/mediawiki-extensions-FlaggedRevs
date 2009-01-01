@@ -190,14 +190,12 @@ class FlaggedRevision {
 	/*
 	* Insert a FlaggedRevision object into the database
 	*
-	* @param string $fulltext expanded (pre-processed) text
 	* @param array $tmpRows template version rows
 	* @param array $fileRows file version rows
 	* @return bool success
 	*/
-	public function insertOn( $fulltext, $tmpRows, $fileRows ) {
-		# Store/compress text as needed, and get the flags
-		$textFlags = FlaggedRevision::doSaveCompression( $fulltext );
+	public function insertOn( $tmpRows, $fileRows ) {
+		$textFlags = 'dynamic';
 		$this->mFlags = explode(',',$textFlags);
 		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
@@ -209,7 +207,7 @@ class FlaggedRevision {
 			'fr_comment'       => $this->getComment(),
 			'fr_quality'       => $this->getQuality(),
 			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
-			'fr_text'	       => $fulltext, # Store expanded text for speed
+			'fr_text'	       => '', # not used anymore
 			'fr_flags'	       => $textFlags,
 			'fr_img_name'      => $this->getFileName(),
 			'fr_img_timestamp' => $this->getFileTimestamp(),
@@ -400,20 +398,6 @@ class FlaggedRevision {
 		$rev = $this->getRevision();
 		$text = $rev ? $rev->getText() : false;
 		return $text;
-	}
-	
-	/**
-	* @param string $fulltext
-	* @return string, flags
-	* Compress pre-processed text, passed by reference
-	* Accounts for various config options.
-	*/
-	public static function doSaveCompression( &$fulltext ) {
-		# Flag items that do not have text stored...
-		# which is everything as of now. ES use removed.
-		$fulltext = '';
-		$textFlags = 'utf-8,dynamic';
-		return $textFlags;
 	}
 	
 	/**

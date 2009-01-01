@@ -606,7 +606,7 @@ class RevisionReview extends UnlistedSpecialPage
 		) );
 
 		$dbw->begin();
-		$flaggedRevision->insertOn( $fulltext, $tmpset, $imgset );
+		$flaggedRevision->insertOn( $tmpset, $imgset );
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
 		# Update the article review log
@@ -807,7 +807,7 @@ class RevisionReview extends UnlistedSpecialPage
 		if( $rcId && $rcId != $revId ) {
 			$dbw->update( 'recentchanges',
 				array( 'rc_patrolled' => 1 ),
-				array( 'rc_id' => $rcid,
+				array( 'rc_id' => $rcId,
 					'rc_type' => RC_NEW ),
 				__METHOD__
 			);

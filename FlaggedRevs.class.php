@@ -1035,7 +1035,7 @@ class FlaggedRevs {
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		) );
-		$flaggedRevision->insertOn( $fulltext, $tmpset, $imgset );
+		$flaggedRevision->insertOn( $tmpset, $imgset );
 		# Mark as patrolled
 		if( $patrol ) {
 			RevisionReview::updateRecentChanges( $title, $rev->getId() );
