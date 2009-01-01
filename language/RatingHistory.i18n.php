@@ -463,6 +463,25 @@ A '''naponkénti értékelések száma''' <font color=\"red\">''(piros színnel)
 	'right-feedback' => 'oldalak értékelése a visszajelzés-űrlap segítségével',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'ratinghistory-tab' => 'evalutation',
+	'ratinghistory-link' => 'Evalutation del pagina',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Gratias pro haber dedicate un momento a evalutar iste pagina!</font>''",
+	'ratinghistory-period' => 'Periodo de tempore:',
+	'ratinghistory-month' => 'ultime mense',
+	'ratinghistory-3months' => 'ultime 3 menses',
+	'ratinghistory-year' => 'ultime anno',
+	'ratinghistory-3years' => 'ultime 3 annos',
+	'ratinghistory-chart' => 'Evalutationes del lectores in le curso del tempore',
+	'ratinghistory-users' => 'Usatores qui ha facite evalutationes',
+	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|evalutation|evalutationes}})',
+	'readerfeedback-svg' => 'Vider como SVG',
+	'ratinghistory-none' => 'Non es disponibile sufficiente datos de evalutationes de lectores pro poter facer graphicos al momento.',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

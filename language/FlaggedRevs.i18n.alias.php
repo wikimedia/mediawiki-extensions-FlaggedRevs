@@ -196,9 +196,9 @@ $aliases['gl'] = array(
 
 /** Swiss German (Alemannisch) */
 $aliases['gsw'] = array(
-	'LikedPages' => array( 'Syte', 'wu am beschte bewärtet sin' ),
-	'OldReviewedPages' => array( 'Syte mit Versione', 'wu nit gsichtet sin' ),
-	'ProblemPages' => array( 'Syte', 'wu am nidrigschte beweärtet in' ),
+	'LikedPages' => array( 'Syte wu am beschte bewärtet sin' ),
+	'OldReviewedPages' => array( 'Syte mit Versione wu nit gsichtet sin' ),
+	'ProblemPages' => array( 'Syte wu am nidrigschte bewärtet sin' ),
 	'QualityOversight' => array( 'Markierigsibersicht' ),
 	'RatingHistory' => array( 'Bewärtigsgschicht' ),
 	'ReaderFeedback' => array( 'Bewärtig' ),
@@ -207,8 +207,8 @@ $aliases['gsw'] = array(
 	'Stabilization' => array( 'Sytekonfiguration' ),
 	'StablePages' => array( 'Konfigurierti Syte' ),
 	'StableVersions' => array( 'Markierti Versione' ),
-	'UnreviewedPages' => array( 'Syte', 'wu nit gsichtet sin' ),
-	'UnstablePages' => array( 'Syte', 'wu nit konfigieriert sin' ),
+	'UnreviewedPages' => array( 'Syte wu nit gsichtet sin' ),
+	'UnstablePages' => array( 'Syte wu nit konfiguriert sin' ),
 	'ValidationStatistics' => array( 'Markierigsstatischtik' ),
 );
 

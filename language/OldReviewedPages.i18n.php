@@ -102,6 +102,7 @@ $messages['ar'] = array(
 	'oldreviewed-category' => 'تصنيف:',
 	'oldreviewed-watched' => 'على قائمة مراقبتي',
 	'oldreviewed-diff' => 'راجع',
+	'oldreviewed-size' => 'أقصى تغيير (بايت):',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
 );

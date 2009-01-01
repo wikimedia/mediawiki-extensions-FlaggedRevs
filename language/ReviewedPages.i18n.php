@@ -408,6 +408,21 @@ $messages['hu'] = array(
 	'reviewedpages-best' => 'legjobb változat',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'reviewedpages' => 'Paginas revidite',
+	'reviewedpages-leg' => 'Listar paginas revidite a un certe nivello',
+	'reviewedpages-list' => 'Le sequente paginas ha essite revidite al nivello specificate',
+	'reviewedpages-none' => 'Il non ha paginas in iste lista',
+	'reviewedpages-lev-0' => 'Revidite',
+	'reviewedpages-lev-1' => 'Qualitate',
+	'reviewedpages-lev-2' => 'Eminente',
+	'reviewedpages-all' => 'versiones revidite',
+	'reviewedpages-best' => 'version principal',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
@@ -629,6 +644,13 @@ $messages['nl'] = array(
 	'reviewedpages-lev-2' => 'Uitgelicht',
 	'reviewedpages-all' => 'versies met eindredactie',
 	'reviewedpages-best' => 'beste versie',
+);
+
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'reviewedpages-lev-0' => 'Vurdert',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

@@ -743,6 +743,20 @@ at '''$2''' {{PLURAL:$2|tagagamit|mga tagagamit}} na may karapatan bilang [[{{Me
 	'validationstatistics-nbr' => '$1%',
 );
 
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'validationstatistics' => 'Doğrulama istatistikleri',
+	'validationstatistics-ns' => 'Ad alanı',
+	'validationstatistics-total' => 'Sayfalar',
+	'validationstatistics-stable' => 'Gözden geçirilmiş',
+	'validationstatistics-latest' => 'En son gözden geçirilmiş',
+	'validationstatistics-synced' => 'Eşitlenmiş/Gözden geçirilmiş',
+	'validationstatistics-old' => 'Eski',
+	'validationstatistics-nbr' => '%$1',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */
