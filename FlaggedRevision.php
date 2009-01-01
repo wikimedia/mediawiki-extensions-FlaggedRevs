@@ -401,45 +401,6 @@ class FlaggedRevision {
 	}
 	
 	/**
-	* @param string $text
-	* @return string, flags
-	* Compress pre-processed text, passed by reference
-	*/
-	public static function compressText( &$text ) {
-		global $wgCompressRevisions;
-		$flags = array( 'utf-8' );
-		if( $wgCompressRevisions ) {
-			if( function_exists( 'gzdeflate' ) ) {
-				$text = gzdeflate( $text );
-				$flags[] = 'gzip';
-			} else {
-				wfDebug( "FlaggedRevs::compressText() -- no zlib support, not compressing\n" );
-			}
-		}
-		return implode( ',', $flags );
-	}
-
-	/**
-	* @param string $text
-	* @param mixed $flags, either in string or array form
-	* @return string
-	* Uncompress pre-processed text, using flags
-	*/
-	public static function uncompressText( $text, $flags ) {
-		if( !is_array($flags) ) {
-			$flags = explode( ',', $flags );
-		}
-		# Lets not mix up types here
-		if( is_null($text) )
-			return null;
-		if( $text !== false && in_array( 'gzip', $flags ) ) {
-			# Deal with optional compression if $wgCompressRevisions is set.
-			$text = gzinflate( $text );
-		}
-		return $text;
-	}
-	
-	/**
 	 * Get flags for a revision
 	 * @param string $tags
 	 * @return Array
