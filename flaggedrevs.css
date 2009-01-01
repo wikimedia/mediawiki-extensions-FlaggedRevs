@@ -109,8 +109,7 @@
 	padding: 1px;
 	font-size: 95%;
 	font-weight: normal;
-	margin: 0em 0em 1em 1em;
-	position: relative;
+	margin: 0em 0em 0em 1em;
 	float: right;
 	text-align: left;
 	max-width: 450px;
@@ -214,8 +213,8 @@
 .fr-icon-unlocked {
 	padding: 0px;
 	margin: 0px;
-	width: 18px;
-	height: 18px;
+	width: 16px;
+	height: 16px;
 	float: left;
 	background-repeat: no-repeat;
 	background-position: center center;
