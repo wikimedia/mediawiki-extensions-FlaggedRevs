@@ -759,9 +759,13 @@ EOT;
 			$record = true;
 		} else {
 			global $wgUseNPPatrol;
-			# Mark patrolled by default unless this is a new page
-			# and new page patrol is enabled.
-			$patrol = !( $wgUseNPPatrol && !empty($rc->mAttribs['rc_new']) );
+			# Mark patrolled by default unless this is a new page and new page patrol 
+			# is enabled (except when the user has 'autopatrol', then patrol it).
+			if( $wgUser->isAllowed('autopatrol') ) {
+				$patrol = true;
+			} else {
+				$patrol = !( $wgUseNPPatrol && !empty($rc->mAttribs['rc_new']) );
+			}
 		}
 		if( $patrol ) {
 			RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
