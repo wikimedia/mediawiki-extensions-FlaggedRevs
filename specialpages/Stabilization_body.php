@@ -244,7 +244,9 @@ class Stabilization extends UnlistedSpecialPage
 				$encodedExpiry = Block::encodeExpiry($expiry, $dbw );
 				if( $encodedExpiry != 'infinity' ) {
 					$expiry_description = ' (' . wfMsgForContent( 'stabilize-expiring',
-						$wgContLang->timeanddate($expiry, false, false) ) . ')';
+						$wgContLang->timeanddate($expiry, false, false) ,
+						$wgContLang->date($expiry, false, false) ,
+						$wgContLang->time($expiry, false, false) ) . ')';
 					$reason .= "$expiry_description";
 				}
 			}

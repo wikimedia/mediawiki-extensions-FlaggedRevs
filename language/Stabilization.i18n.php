@@ -43,6 +43,7 @@ No configuration is possible.',
 
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
+ * @author Purodha
  * @author SPQRobin
  * @author Saper
  */
@@ -94,7 +95,10 @@ Used on Special:Stabilization as an option for "Revision displayed on default pa
 	'stabilize_expiry_invalid' => '{{Flagged Revs}}',
 	'stabilize_expiry_old' => '{{Flagged Revs}}',
 	'stabilize-expiring' => "{{Flagged Revs}}
-Used to indicate when something expires. $1 is a time stamp in the wiki's content language.
+Used to indicate when something expires.
+$1 is a time stamp in the wiki's content language.
+$2 is the correxponding date in the wiki's content language.
+$3 is the correxponding time in the wiki's content language.
 
 {{Identical|Expires $1 (UTC)}}",
 );
