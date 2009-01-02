@@ -1163,7 +1163,7 @@ EOT;
 			$fa = FlaggedArticle::getTitleInstance( $title );
 			if( $srev = $fa->getStableRev() ) {
 				# If synced, nothing special here...
-				if( $srev->getRevId() != $title->getLatestRevID() && $fa->pageOverride() ) {
+				if( $srev->getRevId() != $article->getLatest() && $fa->pageOverride() ) {
 					$text = $srev->getRevText();
 					$redirect = $fa->followRedirectText( $text );
 					if( $redirect ) {
