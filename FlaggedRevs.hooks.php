@@ -790,12 +790,12 @@ EOT;
 		# Grab current groups
 		$groups = $user->getGroups();
 		# Do not give this to current holders or bots
-		if( $user->isAllowed('bot') || in_array('bot',$groups) || in_array('editor',$groups) ) {
+		if( $user->isAllowed('bot') || in_array('editor',$groups) ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Do not re-add status if it was previously removed!
-		$p = FlaggedRevs::getUserParams( $user );
+		$p = FlaggedRevs::getUserParams( $user->getId() );
 		if( isset($p['demoted']) && $p['demoted'] ) {
 			wfProfileOut( __METHOD__ );
 			return true;
@@ -806,6 +806,7 @@ EOT;
 		$p['uniqueContentPages'] = isset($p['uniqueContentPages']) ? $p['uniqueContentPages'] : '';
 		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
 		$p['editComments'] = isset($p['editComments']) ? $p['editComments'] : 0;
+		$p['reviewedEdits'] = isset($p['reviewedEdits']) ? $p['reviewedEdits'] : 0;
 		if( $article->getTitle()->isContentPage() ) {
 			$pages = explode( ',', trim($p['uniqueContentPages']) ); // page IDs
 			# Don't let this get bloated for no reason
@@ -822,7 +823,7 @@ EOT;
 		}
 		# Save any updates to user params
 		if( $changed ) {
-			FlaggedRevs::saveUserParams( $user, $p );
+			FlaggedRevs::saveUserParams( $user->getId(), $p );
 		}
 		# Check if user edited enough content pages
 		if( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
@@ -1022,9 +1023,9 @@ EOT;
 	*/
 	public static function recordDemote( $u, $addgroup, $removegroup ) {
 		if( $removegroup && in_array('editor',$removegroup) ) {
-			$params = FlaggedRevs::getUserParams( $u );
+			$params = FlaggedRevs::getUserParams( $u->getId() );
 			$params['demoted'] = 1;
-			FlaggedRevs::saveUserParams( $u, $params );
+			FlaggedRevs::saveUserParams( $u->getId(), $params );
 		}
 		return true;
 	}

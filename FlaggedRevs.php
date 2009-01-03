@@ -200,6 +200,7 @@ $wgFlaggedRevsAutopromote = array(
 	'benchmarks'          => 15, # how many edit intervals are needed?
 	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
 	'totalContentEdits'   => 300, # $wgContentNamespaces edits
+	'reviewedEdits'       => 200, # Sighted edits (not used yet)
 	'uniqueContentPages'  => 10, # $wgContentNamespaces unique pages edited
 	'editComments'        => 50, # how many edit comments used?
 	'email'	              => false, # user must be emailconfirmed?

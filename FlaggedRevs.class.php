@@ -887,12 +887,12 @@ class FlaggedRevs {
 	
    	/**
 	* Get params for a user
-	* @param User $user
+	* @param int $uid
 	*/
-	public static function getUserParams( $user ) {
+	public static function getUserParams( $uid ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$row = $dbw->selectRow( 'flaggedrevs_promote', 'frp_user_params',
-			array( 'frp_user_id' => $user->getId() ),
+			array( 'frp_user_id' => $uid ),
 			__METHOD__ );
 		# Parse params
 		$params = array();
@@ -910,10 +910,10 @@ class FlaggedRevs {
 	
    	/**
 	* Save params for a user
-	* @param User $user
+	* @param int $uid
 	* @param Array $params
 	*/
-	public static function saveUserParams( $user, $params ) {
+	public static function saveUserParams( $uid, $params ) {
 		$flatParams = '';
 		foreach( $params as $key => $value ) {
 			$flatParams .= "{$key}={$value}\n";
@@ -921,10 +921,9 @@ class FlaggedRevs {
 		$dbw = wfGetDB( DB_MASTER );
 		$row = $dbw->replace( 'flaggedrevs_promote', 
 			array( 'frp_user_id' ),
-			array( 'frp_user_id' => $user->getId(), 
-				'frp_user_params' => trim($flatParams) ),
-			__METHOD__ );
-
+			array( 'frp_user_id' => $uid, 'frp_user_params' => trim($flatParams) ),
+			__METHOD__
+		);
 		return ( $dbw->affectedRows() > 0 );
 	}
 	
