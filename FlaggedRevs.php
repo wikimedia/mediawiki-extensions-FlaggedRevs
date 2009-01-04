@@ -208,6 +208,7 @@ $wgFlaggedRevsAutopromote = array(
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
 	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
+	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back? (not used yet)
 	'noSorbsMatches'      => false, # If $wgSorbsUrl is set, do not promote users that match
 );
 
@@ -417,6 +418,8 @@ $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Autoreview stuff
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
 $wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
+# User stats
+$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 
 # Add CSS/JS as needed
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';

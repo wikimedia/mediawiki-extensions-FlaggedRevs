@@ -775,6 +775,18 @@ EOT;
 		}
 		return true;
 	}
+	
+	public static function incrementRollbacks( $this, $user, $target, $current ) {
+		if( $current->getRawUser() ) {
+			global $wgFlaggedRevsAutopromote;
+			$p = FlaggedRevs::getUserParams( $current->getRawUser() );
+			$p['revertedEdits'] = isset($p['revertedEdits']) ? $p['revertedEdits'] : 0;
+			$p['revertedEdits']++;
+			if( $wgFlaggedRevsAutopromote['maxRevertedEdits'] >= $p['revertedEdits'] )
+				FlaggedRevs::saveUserParams( $current->getRawUser(), $p );
+		}
+		return true;
+	}
 
 	/**
 	* Callback that autopromotes user according to the setting in
