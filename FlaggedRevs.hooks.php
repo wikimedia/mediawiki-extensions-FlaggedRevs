@@ -819,6 +819,7 @@ EOT;
 		$p['totalContentEdits'] = isset($p['totalContentEdits']) ? $p['totalContentEdits'] : 0;
 		$p['editComments'] = isset($p['editComments']) ? $p['editComments'] : 0;
 		$p['reviewedEdits'] = isset($p['reviewedEdits']) ? $p['reviewedEdits'] : 0;
+		$p['revertedEdits'] = isset($p['revertedEdits']) ? $p['revertedEdits'] : 0;
 		if( $article->getTitle()->isContentPage() ) {
 			$pages = explode( ',', trim($p['uniqueContentPages']) ); // page IDs
 			# Don't let this get bloated for no reason
@@ -849,6 +850,11 @@ EOT;
 		}
 		# Check edit comment use
 		if( $wgFlaggedRevsAutopromote['editComments'] > $p['editComments'] ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+		# Check reverted edits
+		if( $wgFlaggedRevsAutopromote['maxRevertedEdits'] < $p['revertedEdits'] ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
