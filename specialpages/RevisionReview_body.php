@@ -663,7 +663,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$p = FlaggedRevs::getUserParams( $rev->getRawUser() );
 			$p['reviewedEdits'] = isset($p['reviewedEdits']) ? $p['reviewedEdits'] : 0;
 			$p['reviewedEdits']++;
-			if( $wgFlaggedRevsAutopromote['reviewedEdits'] > $p['reviewedEdits'] )
+			if( $wgFlaggedRevsAutopromote['reviewedEdits'] >= $p['reviewedEdits'] )
 				FlaggedRevs::saveUserParams( $rev->getRawUser(), $p );
 		}
 
