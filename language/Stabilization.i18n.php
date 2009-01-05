@@ -1359,6 +1359,7 @@ Et jit nix enzestelle.',
 	'stabilization-notcontent' => 'De Sigg met dämm Tittel „[[:$1|$1]]“ cannot be reviewed.
 Et jit nix enzestelle.',
 	'stabilization-def-short-0' => 'Von jetz',
+	'stabilize-expiring' => 'Leuf uß, am $2 öm $3 Uhr (UTC)',
 );
 
 /** Latin (Latina)
@@ -2150,6 +2151,13 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 $messages['szl'] = array(
 	'stabilization-expiry' => 'Wygaso:',
 	'stabilization-def-short' => 'Důmyślna',
+);
+
+/** Tamil (தமிழ்)
+ * @author Ulmo
+ */
+$messages['ta'] = array(
+	'stabilization-page' => 'பக்கப் பெயர்:',
 );
 
 /** Telugu (తెలుగు)

@@ -361,6 +361,17 @@ $messages['nl'] = array(
 	'stablepages-config' => 'Instellingen',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'stablepages' => 'Stabile sider',
+	'stablepages-stable' => 'stabil versjon',
+	'stablepages-text' => 'Under er ei lista over sider manuelt innstilte til å syna den stabile versjonen som standardinnhald for lesarar.',
+	'stablepages-none' => 'Det finst ingen sider i denne lista',
+	'stablepages-config' => 'Konfigurering',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */

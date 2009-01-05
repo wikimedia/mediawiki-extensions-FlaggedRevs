@@ -352,7 +352,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'ratinghistory' => 'Verlauf vu dr Sytebewärtig',
-	'ratinghistory-leg' => 'Verlauf vu dr Sytebewärtig',
+	'ratinghistory-leg' => 'Verlauf vu dr Sytebewärtig fir [[:$1|$1]]',
 	'ratinghistory-tab' => 'Bewärtig',
 	'ratinghistory-link' => 'Sytebewärtig',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Dankschen, ass Du Dir e Momänt Zyt gnuh hesch go die Syte z bewärte!</font>''",
@@ -467,6 +467,8 @@ A '''naponkénti értékelések száma''' <font color=\"red\">''(piros színnel)
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'ratinghistory' => 'Historia de evalutationes de paginas',
+	'ratinghistory-leg' => 'Datos historic de evalutationes pro [[:$1|$1]]',
 	'ratinghistory-tab' => 'evalutation',
 	'ratinghistory-link' => 'Evalutation del pagina',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Gratias pro haber dedicate un momento a evalutar iste pagina!</font>''",
@@ -480,6 +482,13 @@ $messages['ia'] = array(
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|evalutation|evalutationes}})',
 	'readerfeedback-svg' => 'Vider como SVG',
 	'ratinghistory-none' => 'Non es disponibile sufficiente datos de evalutationes de lectores pro poter facer graphicos al momento.',
+	'ratinghistory-legend' => "Le '''evalutation medie de cata die''' <font color=\"blue\">''(blau)''</font> e  
+'''evalutation medie currente''' <font color=\"green\">''(verde)''</font> es representate infra, per data. Le  
+'''evalutation medie currente''' es simplemente le media de tote le evalutationes de cata die ''intra'' iste periodo de tempore pro cata die.
+
+Scala: '''[1]''' - Mal; '''[2]''' - Basse; '''[3]''' - Medie; '''[4]''' - Alte; '''[5]''' - Excellente;
+
+Le '''numero de evalutationes per die''' <font color=\"red\">''(rubie)''</font> es monstrate in le graphicos infra, in scala ''1:\$1''.",
 );
 
 /** Indonesian (Bahasa Indonesia)

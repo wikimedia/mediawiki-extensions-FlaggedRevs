@@ -426,6 +426,14 @@ $messages['tl'] = array(
 	'unstablepages-config' => 'Pagkakaayos (Konpigurasyon)',
 );
 
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'unstablepages' => 'Kararsız sayfalar',
+	'unstablepages-stable' => 'kararlı versiyon',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */

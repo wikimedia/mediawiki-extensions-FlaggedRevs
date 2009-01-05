@@ -701,6 +701,14 @@ $messages['sv'] = array(
 	'validationstatistics-old' => 'Föråldrad',
 );
 
+/** Tamil (தமிழ்)
+ * @author Ulmo
+ */
+$messages['ta'] = array(
+	'validationstatistics-ns' => 'பெயர்வெளி',
+	'validationstatistics-total' => 'பக்கங்கள்',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  */
@@ -748,6 +756,10 @@ at '''$2''' {{PLURAL:$2|tagagamit|mga tagagamit}} na may karapatan bilang [[{{Me
  */
 $messages['tr'] = array(
 	'validationstatistics' => 'Doğrulama istatistikleri',
+	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editor]] yetkisine sahip '''$1''' {{PLURAL:$1|kullanıcı|kullanıcı}} ve [[{{MediaWiki:Validationpage}}|Reviewer]] yetkisine sahip '''$2''' {{PLURAL:$2|kullanıcı|kullanıcı}} bulunmaktadır.",
+	'validationstatistics-table' => "Her bir ad alanı için istatistikler aşağıda gösterilmiştir, yönlendirme sayfaları hariç.
+
+'''Not:''' aşağıdaki veri birkaç saat için önbellektedir ve güncel olmayabilir.",
 	'validationstatistics-ns' => 'Ad alanı',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',

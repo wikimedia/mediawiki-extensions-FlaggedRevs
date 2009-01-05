@@ -794,6 +794,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
@@ -806,6 +807,7 @@ $messages['pt'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
+	'oldreviewed-watched' => 'Na minha lista de vigiados',
 	'oldreviewed-diff' => 'analisar',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',

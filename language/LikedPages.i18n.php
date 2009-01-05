@@ -300,6 +300,17 @@ $messages['tl'] = array(
 	'likedpages-graphs' => 'dato ng pagbibigay ng kaantasan',
 );
 
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'likedpages' => 'Yüksek derecelendirilmiş sayfalar',
+	'likedpages-leg' => 'Yüksek-derecelendirilmiş sayfaları bul',
+	'likedpages-list' => 'Aşaıdaki, okuyucularının geri bildirim oranına göre sıralanmış sayfaların listesidir.',
+	'likedpages-none' => 'Bu listede hiç sayfa yok',
+	'likedpages-graphs' => 'veri değerlendirmesi',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */

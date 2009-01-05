@@ -1047,12 +1047,13 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Joseph
  * @author Karduelis
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
 	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'Değişiklikler',
+	'unreviewed-diff' => 'gözden geçir',
 	'unreviewed-none' => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 );
 

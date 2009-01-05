@@ -809,6 +809,13 @@ $messages['sv'] = array(
 	'stableversions-review' => 'Granskad den <i>$1</i> av $2',
 );
 
+/** Tamil (தமிழ்)
+ * @author Ulmo
+ */
+$messages['ta'] = array(
+	'stableversions-page' => 'பக்கப் பெயர்:',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  */
