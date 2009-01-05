@@ -1338,7 +1338,7 @@ EOT;
 	
 	public static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
-		if( !empty($wgTitle) ) {
+		if( empty($wgTitle) ) {
 			return true; // nothing to do here
 		}
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
