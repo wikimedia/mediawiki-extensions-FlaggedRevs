@@ -198,9 +198,9 @@ $wgFlaggedRevsAutopromote = array(
 	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
-	'recentContentEdits'  => 10, # $wgContentNamespaces edits in recent changes
+	'recentContentEdits'  => 5, # $wgContentNamespaces edits in recent changes
 	'totalContentEdits'   => 300, # $wgContentNamespaces edits
-	'reviewedEdits'       => 200, # Sighted edits (not used yet)
+	'totalReviewedEdits'  => 0, # Sighted edits
 	'uniqueContentPages'  => 10, # $wgContentNamespaces unique pages edited
 	'editComments'        => 50, # how many edit comments used?
 	'email'	              => false, # user must be emailconfirmed?
@@ -209,7 +209,6 @@ $wgFlaggedRevsAutopromote = array(
 	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
 	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back? (not used yet)
-	'noSorbsMatches'      => false, # If $wgSorbsUrl is set, do not promote users that match
 );
 
 # Special:Userrights settings

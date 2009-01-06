@@ -57,7 +57,7 @@ function update_autopromote() {
 					'fr_page_id = rev_page',
 					'fr_rev_id = rev_id' ),
 				__METHOD__,
-				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['reviewedEdits'],500) )
+				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['totalReviewedEdits'],500) )
 			);
 			$p['reviewedEdits'] = $db->numRows( $sres );
 		

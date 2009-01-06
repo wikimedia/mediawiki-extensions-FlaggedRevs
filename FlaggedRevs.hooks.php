@@ -794,7 +794,6 @@ EOT;
 	*/
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
 		global $wgFlaggedRevsAutopromote, $wgMemc;
-
 		if( empty($wgFlaggedRevsAutopromote) || !$rev )
 			return true;
 
@@ -840,6 +839,11 @@ EOT;
 		}
 		# Check if user edited enough content pages
 		if( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+		# Check if the user has enough sighted edits
+		if( $wgFlaggedRevsAutopromote['totalReviewedEdits'] > $p['reviewedEdits'] ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
@@ -964,17 +968,6 @@ EOT;
 				__METHOD__,
 				array( 'USE INDEX' => 'rc_ip' ) );
 			if( $shared ) {
-				# Make a key to store the results
-				$wgMemc->set( $key, 'true', 3600*24*7 );
-				wfProfileOut( __METHOD__ );
-				return true;
-			}
-		}
-		# Check for bot attacks/sleepers
-		global $wgSorbsUrl, $wgProxyWhitelist;
-		if( $wgSorbsUrl && $wgFlaggedRevsAutopromote['noSorbsMatches'] ) {
-			$ip = wfGetIP();
-			if( !in_array($ip,$wgProxyWhitelist) && $user->inDnsBlacklist( $ip, $wgSorbsUrl ) ) {
 				# Make a key to store the results
 				$wgMemc->set( $key, 'true', 3600*24*7 );
 				wfProfileOut( __METHOD__ );
