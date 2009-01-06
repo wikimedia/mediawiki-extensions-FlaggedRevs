@@ -30,7 +30,7 @@ function update_autopromote() {
 				array( 'rev_user' => $user->getID(),
 					'rev_comment != ""' ),
 				__METHOD__,
-				array( 'LIMIT' => $wgFlaggedRevsAutopromote['editComments'] )
+				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['editComments'],500) )
 			);
 			$p['editComments'] = $db->numRows( $sres );
 			# Get content page edits
@@ -39,7 +39,7 @@ function update_autopromote() {
 					'page_id = rev_page',
 					'page_namespace' => $wgContentNamespaces ),
 				__METHOD__,
-				array( 'LIMIT' => $wgFlaggedRevsAutopromote['totalContentEdits'] )
+				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['totalContentEdits'],500) )
 			);
 			$p['totalContentEdits'] = $db->numRows( $sres );
 			# Get unique content pages edited
@@ -48,7 +48,7 @@ function update_autopromote() {
 					'page_id = rev_page', 
 					'page_namespace' => $wgContentNamespaces ),
 				__METHOD__,
-				array( 'LIMIT' => $wgFlaggedRevsAutopromote['uniqueContentPages'] )
+				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['uniqueContentPages'],50) )
 			);
 			$p['uniqueContentPages'] = $db->numRows( $sres );
 			# Get reviewed edits
@@ -57,7 +57,7 @@ function update_autopromote() {
 					'fr_page_id = rev_page',
 					'fr_rev_id = rev_id' ),
 				__METHOD__,
-				array( 'LIMIT' => $wgFlaggedRevsAutopromote['reviewedEdits'] )
+				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['reviewedEdits'],500) )
 			);
 			$p['reviewedEdits'] = $db->numRows( $sres );
 		
