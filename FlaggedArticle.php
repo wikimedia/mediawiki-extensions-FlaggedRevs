@@ -1149,7 +1149,7 @@ class FlaggedArticle extends Article {
 			$extraQuery .= "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
 		// ...otherwise, go to the current revision after completing an edit.
 		} else {
-			if( $frev ){
+			if( $frev && $latest != $frev->getRevId() ) {
 				$extraQuery .= "stable=0";
 				if( !$wgUser->isAllowed('review') && $this->showStableByDefault() ) {
 					$extraQuery .= "&shownotice=1";
