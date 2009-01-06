@@ -108,6 +108,26 @@ $messages['eo'] = array(
 	'unstablepages-config' => 'Konfiguro',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'unstablepages' => 'Páginas inestables',
+	'unstablepages-stable' => 'versión estable',
+	'unstablepages-text' => 'Debajo hay una lista de páginas manualmente configuradas para mostrar la versión boceto como la página de contenido por defecto para visitantes.',
+	'unstablepages-none' => 'No hay páginas en esta lista',
+	'unstablepages-config' => 'Configuración',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'unstablepages' => 'Orrialde ezegonkorrak',
+	'unstablepages-stable' => 'bertsio egonkorra',
+	'unstablepages-config' => 'Konfigurazioa',
+);
+
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
@@ -320,6 +340,16 @@ $messages['nl'] = array(
 	'unstablepages-config' => 'Instellingen',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'unstablepages' => 'Ustabile sider',
+	'unstablepages-stable' => 'stabil versjon',
+	'unstablepages-none' => 'Det finst ingen sider i denne lista',
+	'unstablepages-config' => 'Konfigurasjon',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -432,6 +462,9 @@ $messages['tl'] = array(
 $messages['tr'] = array(
 	'unstablepages' => 'Kararsız sayfalar',
 	'unstablepages-stable' => 'kararlı versiyon',
+	'unstablepages-text' => 'Aşağıdaki liste, ziyaretçilere geçerli sayfa içeriği olarak taslak sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
+	'unstablepages-none' => 'Bu listede hiç sayfa yok',
+	'unstablepages-config' => 'Yapılandırma',
 );
 
 /** Ukrainian (Українська)

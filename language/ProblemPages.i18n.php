@@ -255,6 +255,13 @@ $messages['nl'] = array(
 	'problempages-graphs' => 'waarderingsgegevens',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'problempages-none' => 'Det finst ingen sider i denne lista',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
@@ -371,6 +378,17 @@ $messages['tl'] = array(
 	'problempages-list' => 'Nasa ibaba ang isang talaan ng mga pahinang inayos ayon sa kanilang kaantasang ibinigay ng mambabasa.',
 	'problempages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'problempages-graphs' => 'datong pangpagaantas',
+);
+
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'problempages' => 'Yetersiz oylanmış sayfalar',
+	'problempages-leg' => 'Düşük-oylanmış sayfaları bul',
+	'problempages-list' => 'Aşağıdaki, kullanıcı dönütleri oranlarına göre sıralanmış sayfalar listesidir.',
+	'problempages-none' => 'Bu listede hiç sayfa yok',
+	'problempages-graphs' => 'veri derecelendiriliyor',
 );
 
 /** Ukrainian (Українська)

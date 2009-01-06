@@ -233,6 +233,8 @@ $messages['pl'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
+	'likedpages' => 'Páginas com avaliação alta',
+	'likedpages-leg' => 'Encontre páginas com avaliação alta',
 	'likedpages-list' => 'Abaixo está uma lista de páginas ordenadas pelas avaliações dos leitores',
 	'likedpages-none' => 'Não há páginas nesta lista',
 	'likedpages-graphs' => 'dados de avaliações',

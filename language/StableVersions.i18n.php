@@ -213,10 +213,20 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Imre
  */
 $messages['es'] = array(
+	'stableversions' => 'Ver versiones estables',
 	'stableversions-page' => 'Nombre de la página:',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'stableversions' => 'Bertsio egonkorrak ikusi',
+	'stableversions-page' => 'Orrialdearen izenburua:',
 );
 
 /** Extremaduran (Estremeñu)

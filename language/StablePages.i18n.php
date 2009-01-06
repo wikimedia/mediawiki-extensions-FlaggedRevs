@@ -139,6 +139,22 @@ $messages['eo'] = array(
 	'stablepages-config' => 'Konfiguro',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'stablepages-config' => 'Configuración',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'stablepages' => 'Orrialde egonkorrak',
+	'stablepages-stable' => 'bertsio egonkorra',
+	'stablepages-config' => 'Konfigurazioa',
+);
+
 /** Persian (فارسی) */
 $messages['fa'] = array(
 	'stablepages' => 'صفحه‌های پایدار',

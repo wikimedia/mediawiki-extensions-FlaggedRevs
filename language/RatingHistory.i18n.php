@@ -234,6 +234,17 @@ La '''nombro de kontrolo po tago''' <font color=\"red\">''(ruĝa)''</font> estas
 	'right-feedback' => 'Uzu la kontrolan sekcion por kontroli paĝon',
 );
 
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'ratinghistory-month' => 'azken hilabetea',
+	'ratinghistory-3months' => 'azken 3 hilabeteak',
+	'ratinghistory-year' => 'azken urtea',
+	'ratinghistory-3years' => 'azken 3 urteak',
+	'readerfeedback-svg' => 'SVG bezala bistaratu',
+);
+
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
@@ -364,12 +375,13 @@ $messages['gsw'] = array(
 	'ratinghistory-chart' => 'Bewärtige vu Läser im Zytruum',
 	'ratinghistory-users' => 'Benutzer, wu bewärtet hän:',
 	'ratinghistory-graph' => '$2 vu „$3“ ($1 {{PLURAL:$1|Bewärtig|Bewärtige}})',
+	'readerfeedback-svg' => 'As SVG aaluege',
 	'ratinghistory-none' => 'S git nonig gnue Sytebewärtige dur Läser zum e Grafik aazlege.',
 	'ratinghistory-legend' => "Dr '''Durchschnitt vu Bewärtige am Tag''' <font color=\"blue\">''(blau)''</font> un dr '''Durchschnitt iber dr usgwehlt Zytruum''' <font color=\"green\">''(grün)''</font> wäre do aazeigt no Datum sortiert.
 
 '''[1]''' - isch Mangelhaft; '''[2]''' - Längt uus; '''[3]''' - Goht; '''[4]''' - isch Guet; '''[5]''' - isch Seli guet;
 
-In däre Grafik wäre a '''Aazahl vu Bewärtige am Tag''' <font color=\"red\">''(rot)''</font> uf ere 1:\$1-Skala zeigt.",
+In däre Grafik wird d '''Aazahl vu Bewärtige am Tag''' <font color=\"red\">''(rot)''</font> uf ere ''1:\$1''-Skala zeigt.",
 	'right-feedback' => 'E Syte bewärte',
 );
 
@@ -677,6 +689,18 @@ Het '''aantal waarderingen per dag''' <font color=\"red\">''(rood)''</font> word
 	'right-feedback' => 'Het waarderingsformulier gebruiken om een pagina te waarderen',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'ratinghistory-period' => 'Tidsperiode:',
+	'ratinghistory-month' => 'siste månaden',
+	'ratinghistory-3months' => 'siste tre månader',
+	'ratinghistory-year' => 'siste året',
+	'ratinghistory-3years' => 'siste tre år',
+	'readerfeedback-svg' => 'Syn som SVG',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
@@ -769,6 +793,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Malafaya
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -787,6 +812,12 @@ $messages['pt'] = array(
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|avaliação|avaliações}})',
 	'readerfeedback-svg' => 'Ver como SVG',
 	'ratinghistory-none' => 'Ainda não há dados suficientes de avaliações dos leitores para mostrar gráficos.',
+	'ratinghistory-legend' => "A '''avaliação média diária''' <font color=\"blue\">''(azul)''</font> e a '''avaliação média acumulada''' <font color=\"green\">''(verde)''</font> estão apresentadas graficamente abaixo, por data. A '''avaliação média acumulada''' é apenas a média de todas as avaliações diárias ''dentro'' desta janela temporal para cada dia.
+
+Escala: '''[1]''' - Péssima; '''[2]''' - Baixa; '''[3]''' - Razoável; '''[4]''' - Alta; '''[5]''' - Excelente;
+
+O '''número de of análises por dia''' <font color=\"red\">''(vermelho)''</font> é mostrado nos gráficos abaixo, numa escala ''1:\$1''.",
+	'right-feedback' => 'Use o formulário de feedback para avaliar uma página',
 );
 
 /** Romanian (Română)
@@ -967,6 +998,35 @@ Sukat: '''[1]''' - Walang kuwenta; '''[2]''' - Mababa; '''[3]''' - Patas; '''[4]
 
 Ang '''bilang ng mga pagsusuri sa bawat araw''' <font color=\"red\">''(pula)''</font> ay ipinapakita sa mga talangguhit sa ibaba, sa isang sukat na ''1:\$1''.",
 	'right-feedback' => "Gamitin ang pormularyong pangpagbibigay ng balik-pahayag (''feedback'') upang mabigyan ng kaantasan/halaga ang isang pahina",
+);
+
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'ratinghistory' => 'Sayfa derecelendirme geçmişi',
+	'ratinghistory-leg' => '[[:$1|$1]] için derecelendirme geçmişi verisi',
+	'ratinghistory-tab' => 'derecelendirme',
+	'ratinghistory-link' => 'Sayfa derecelendirmesi',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Bu sayfayı gözden geçirmek için zamanınızı ayırdığınız için teşekkürler!</font>''",
+	'ratinghistory-period' => 'Zaman süreci:',
+	'ratinghistory-month' => 'son ay',
+	'ratinghistory-3months' => 'son 3 ay',
+	'ratinghistory-year' => 'son yıl',
+	'ratinghistory-3years' => 'son 3 yıl',
+	'ratinghistory-chart' => 'Zaman içindeki kullanıcı dönüt derecelendirmesi',
+	'ratinghistory-users' => 'Derecelendirme veren kullanıcılar',
+	'ratinghistory-graph' => '"$3" de $2 ($1 {{PLURAL:$1|gözden geçirme|gözden geçirme}})',
+	'readerfeedback-svg' => 'SVG olarak görüntüle',
+	'ratinghistory-none' => 'Grafikler için şuanda yeterince okuyucu dönüt verisi yok.',
+	'ratinghistory-legend' => "'''Günlük ortalama derecelendirme''' <font color=\"blue\">''(mavi)''</font> ve
+'''Çalışma ortalama derecelendirme''' <font color=\"green\">''(yeşil)''</font> aşağıda tarihe göre çizildi.
+'''Çalışma ortalama derecelendirme''', herbir gün için bu zaman dilimi ''içinde'' günlük derecelendirmelerinin ortalamasıdır.
+
+Ölçek: '''[1]''' - Zayıf; '''[2]''' - Düşük; '''[3]''' - Adil; '''[4]''' - Yüksek; '''[5]''' - Mükemmel;
+
+'''Günlük gözden geçirme sayısı''' <font color=\"red\">''(kırmızı)''</font> aşağıdaki grafiklerde gösterilmektedir, ''1:\$1'' ölçeği ile.",
+	'right-feedback' => 'Bir sayfayı derecelendirmek için dönüt formunu kullanın',
 );
 
 /** Ukrainian (Українська)

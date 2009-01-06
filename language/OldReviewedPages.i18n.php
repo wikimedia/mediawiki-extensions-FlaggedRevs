@@ -221,6 +221,7 @@ $messages['cu'] = array(
 );
 
 /** German (Deutsch)
+ * @author Melancholie
  * @author Michawiki
  * @author Raimond Spekking
  */
@@ -237,7 +238,7 @@ $messages['de'] = array(
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-watched' => 'Auf meiner Beobachtungsliste',
 	'oldreviewed-diff' => 'sichten',
-	'oldreviewed-size' => 'Maximal Änderungsgröße in Byte:',
+	'oldreviewed-size' => 'Maximale Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
 	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
 );
@@ -295,10 +296,19 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Sanbec
  */
 $messages['es'] = array(
 	'oldreviewed-category' => 'Categoría:',
+	'oldreviewed-diff' => 'Revisado',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'oldreviewedpages-quality' => 'kalitatea',
 );
 
 /** Persian (فارسی)
@@ -720,6 +730,19 @@ $messages['nl'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'oldreviewedpages-none' => 'For tida møter ingen sider desse krava',
+	'oldreviewedpages-stable' => 'vurdert',
+	'oldreviewedpages-quality' => 'kvalitet',
+	'oldreviewedpages-recent' => '(mindre enn éin time)',
+	'oldreviewed-category' => 'Kategori:',
+	'oldreviewed-watched' => 'På overvakingslista mi',
+	'oldreviewedpages-unwatched' => '(ikkje overvaka)',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author EivindJ
  * @author Jon Harald Søby
@@ -809,6 +832,7 @@ $messages['pt'] = array(
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewed-watched' => 'Na minha lista de vigiados',
 	'oldreviewed-diff' => 'analisar',
+	'oldreviewed-size' => 'Tamanho máximo da alteração (em bytes):',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
 );

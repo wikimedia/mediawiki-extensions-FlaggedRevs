@@ -232,6 +232,13 @@ $messages['es'] = array(
 	'reviewedpages-lev-1' => 'Calidad',
 );
 
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'reviewedpages-lev-1' => 'Kalitatea',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
@@ -651,6 +658,7 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'reviewedpages-lev-0' => 'Vurdert',
+	'reviewedpages-lev-1' => 'Kvalitet',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -900,9 +908,18 @@ $messages['tl'] = array(
 
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
+ * @author Joseph
  */
 $messages['tr'] = array(
+	'reviewedpages' => 'Gözden geçirilmiş sayfalar',
+	'reviewedpages-leg' => 'Belirli bir seviyede gözden geçirilmiş sayfaları listele',
+	'reviewedpages-list' => 'Sıradaki sayfalar belirlenen seviyede gözden geçirilmiştir',
+	'reviewedpages-none' => 'Listede hiç sayfa yok',
+	'reviewedpages-lev-0' => 'Gözlenmiş',
 	'reviewedpages-lev-1' => 'Kalite',
+	'reviewedpages-lev-2' => 'Özellikli',
+	'reviewedpages-all' => 'gözden geçirilmiş sürümler',
+	'reviewedpages-best' => 'birincil revizyon',
 );
 
 /** Ukrainian (Українська)

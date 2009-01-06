@@ -278,12 +278,22 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Drini
  * @author Sanbec
  */
 $messages['es'] = array(
-	'right-unreviewedpages' => 'Mostrar la lista de páginas sin revisar',
+	'right-unreviewedpages' => 'Mostrar [[Special:UnreviewedPages|la lista de páginas sin revisar]]',
+	'unreviewedpages' => 'Páginas no revisadas',
 	'unreviewed-category' => 'Categoría:',
+	'unreviewed-diff' => 'revisar',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'unreviewed-category' => 'Kategoria:',
 );
 
 /** Extremaduran (Estremeñu)
@@ -628,11 +638,14 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit nohjeloorte Sigge]] aanloore',
+	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit nohjekikte Sigge]] aanloore',
+	'unreviewedpages' => 'De noch nit hohjekikte Sigge',
+	'unreviewed-legend' => 'Leß met de noch nit nohjekikte Sigge em Houp-Appachtemang',
 	'unreviewed-category' => 'Saachjrupp:',
+	'unreviewed-diff' => 'nohkike',
 	'unreviewed-unwatched' => '(en keine Oppassleß)',
 	'unreviewed-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han}} se en de Opassliß)',
-	'unreviewed-list' => 'Di Leß hee zeich Atikelle, die noch nit nohjeloort woode sen.',
+	'unreviewed-list' => 'Di Leß hee zeich Atikelle, die noch nit nohjekik woode sen.',
 	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
 );
 
@@ -779,10 +792,13 @@ $messages['nl'] = array(
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
 	'unreviewed-category' => 'Kategori:',
+	'unreviewed-unwatched' => '(uovervaka)',
+	'unreviewed-watched' => '({{PLURAL:$1|éin brukar|$1 brukarar}} overvakar)',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -1052,8 +1068,14 @@ $messages['tl'] = array(
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Gözden geçirilmemiş sayfalar listesini]] görüntüle',
+	'unreviewedpages' => 'Gözden geçirilmemiş sayfalar',
+	'unreviewed-legend' => 'Gözden geçirilmemiş içerik sayfalarını listele',
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'gözden geçir',
+	'unreviewed-unwatched' => '(izlenmiyor)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
+	'unreviewed-list' => 'Bu sayfa, gözden geçirilmemiş içerik sayfalarını listeliyor.',
 	'unreviewed-none' => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 );
 

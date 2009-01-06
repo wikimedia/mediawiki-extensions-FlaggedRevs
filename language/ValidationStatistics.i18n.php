@@ -182,11 +182,24 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Imre
  */
 $messages['es'] = array(
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
+	'validationstatistics-stable' => 'Revisado',
+	'validationstatistics-latest' => 'El último revisado',
+	'validationstatistics-old' => 'desactualizado',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'validationstatistics' => 'Balioztatzeko estatistikak',
+	'validationstatistics-total' => 'Orrialdeak',
+	'validationstatistics-old' => 'Deseguneratua',
 );
 
 /** Persian (فارسی)
@@ -540,6 +553,15 @@ $messages['nl'] = array(
 	'validationstatistics-latest' => 'Meest recente eindredacties',
 	'validationstatistics-synced' => 'Gesynchroniseerd/Eindredactie',
 	'validationstatistics-old' => 'Verouderd',
+);
+
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'validationstatistics-ns' => 'Namnerom',
+	'validationstatistics-total' => 'Sider',
+	'validationstatistics-old' => 'Utdatert',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

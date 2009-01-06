@@ -598,15 +598,34 @@ Neniu konfiguro eblas.',
 /** Spanish (Español)
  * @author Drini
  * @author Imre
+ * @author Kobazulo
  * @author Sanbec
  */
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
 	'stabilization-page' => 'Nombre de la página:',
+	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-comment' => 'Comentario:',
 	'stabilization-sel-short-0' => 'Calidad',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
+);
+
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'stabilization' => 'Orrialdearen egonkortzea',
+	'stabilization-page' => 'Orrialdearen izenburua:',
+	'stabilization-leg' => 'Bertsio egonkorraren konfigurazioa berretsi',
+	'stabilization-select' => 'Bertsio egonkorraren aukeraketa',
+	'stabilization-submit' => 'Berretsi',
+	'stabilization-comment' => 'Iruzkina:',
+	'stabilization-expiry' => 'Epemuga:',
+	'stabilization-sel-short-0' => 'Kalitatea',
+	'stabilization-def-short' => 'Lehenetsia',
+	'stabilization-def-short-0' => 'Oraingoa',
+	'stabilization-def-short-1' => 'Egonkorra',
 );
 
 /** Extremaduran (Estremeñu)
@@ -1643,15 +1662,20 @@ Instellen is niet mogelijk.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
+	'stabilization' => 'Sidestabilisering',
 	'stabilization-page' => 'Sidenamn:',
 	'stabilization-submit' => 'Stadfest',
 	'stabilization-comment' => 'Kommentar:',
 	'stabilization-expiry' => 'Utgår:',
+	'stabilization-sel-short-0' => 'Kvalitet',
+	'stabilization-sel-short-1' => 'Ingen',
 	'stabilization-def-short' => '(standard)',
 	'stabilization-def-short-0' => 'Noverande',
+	'stabilization-def-short-1' => 'Stabil',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
 );
 
