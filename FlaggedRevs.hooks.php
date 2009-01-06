@@ -862,14 +862,12 @@ EOT;
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
-		# Check if results are cached to avoid DB queries
-		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
-		$value = $wgMemc->get( $key );
-		if( $value == 'true' ) {
+		# Check user email
+		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
-		# Check basic, already available, promotion heuristics first...
+		# Check account age
 		$now = time();
 		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
 		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : NULL;
@@ -877,11 +875,16 @@ EOT;
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
+		# Check user edit count. Should be stored.
 		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
-		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
+		# Check if results are cached to avoid DB queries.
+		# Checked basic, already available, promotion heuristics first...
+		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
+		$value = $wgMemc->get( $key );
+		if( $value == 'true' ) {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
