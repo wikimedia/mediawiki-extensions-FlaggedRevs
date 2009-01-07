@@ -2092,7 +2092,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite])",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''",
 	'revreview-quick-invalid' => "'''Ungültige Versions-ID'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Keine Version gesichtet.]]",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Keine Version gesichtet.]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zur aktuellen Version])",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite])",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]'''",
@@ -2359,9 +2359,9 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Bonkvalita paĝo]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Bonkvalita paĝo]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rigardi malneton]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Bonkvalita paĝo]]'''",
-	'revreview-quick-see-basic' => "'''Malneto''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardi paĝon]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Malneto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardi paĝon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kompari])",
-	'revreview-quick-see-quality' => "'''Malneto''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardi paĝon]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Malneto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} rigardi paĝon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kompari])",
 	'revreview-selected' => "Elektis version de '''$1:'''",
 	'revreview-source' => 'malneta fonto',
@@ -4442,7 +4442,7 @@ naplója.',
 	'revreview-statusfilter' => 'Állapot:',
 	'revreview-typefilter' => 'Típus:',
 	'revreview-tagfilter' => 'Aspektus:',
-	'revreview-reviewlink' => 'áttekint',
+	'revreview-reviewlink' => 'ellenőriz',
 	'tooltip-ca-current' => 'Az oldal jelenlegi vázlatának megtekintése',
 	'tooltip-ca-stable' => 'Az oldal elfogadott változatának megtekintése',
 	'tooltip-ca-default' => 'Minőségbiztosítási beállítások',
@@ -9179,9 +9179,9 @@ Maaaring may bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pahinang may mataas na uri (kalidad)]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tingnan ang balangkas]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pahinang may mataas na uri]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} tingnan ang balangkas]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pahinang may mataas na uri]]'''",
-	'revreview-quick-see-basic' => "'''Balangkas''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tingnan ang pahina]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Balangkas/Burador]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tingnan ang pahina]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} paghambingin])",
-	'revreview-quick-see-quality' => "'''Balangkas''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tingnan ang pahina]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Balangkas/Burador]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tingnan ang pahina]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} paghambingin])",
 	'revreview-selected' => "Napiling pagbabago ng '''$1:'''",
 	'revreview-source' => 'pinagmulan ng balangkas',
