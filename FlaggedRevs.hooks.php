@@ -1297,6 +1297,17 @@ EOT;
 	public static function injectReviewDiffURLParams( &$article, &$sectionAnchor, &$extraQuery ) {
 		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
 	}
+	
+	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
+		if( $new == 'review' && isset($titleObj) ) {
+			$frev = FlaggedRevision::newFromStable( $titleObj );
+			if( $frev ) {
+				$mOldid = $frev->getRevId(); // stable
+				$mNewid = 0; // cur
+			}
+		}
+		return true;
+	}
 
 	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();

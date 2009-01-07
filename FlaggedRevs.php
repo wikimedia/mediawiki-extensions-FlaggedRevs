@@ -419,6 +419,8 @@ $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDFi
 $wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
 # User stats
 $wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
+# Add diff url param alias
+$wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
 
 # Add CSS/JS as needed
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';
