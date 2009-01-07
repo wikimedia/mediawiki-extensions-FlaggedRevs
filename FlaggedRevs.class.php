@@ -861,7 +861,7 @@ class FlaggedRevs {
 		}
 		# FIXME: Treat NS_MEDIA as NS_FILE
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_FILE : $title->getNamespace();
-		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) && !$title->isTalkPage() );
+		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) );
 	}
 	
 	/**
