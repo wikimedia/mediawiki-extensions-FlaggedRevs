@@ -1299,7 +1299,7 @@ EOT;
 	}
 	
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
-		if( $new == 'review' && isset($titleObj) ) {
+		if( $new === 'review' && isset($titleObj) ) {
 			$frev = FlaggedRevision::newFromStable( $titleObj );
 			if( $frev ) {
 				$mOldid = $frev->getRevId(); // stable
