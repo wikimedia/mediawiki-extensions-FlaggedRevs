@@ -1311,9 +1311,12 @@ EOT;
 	}
 	
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
-		global $wgUser, $wgRequest;
+		global $wgUser, $wgRequest, $wgFlaggedRevsAutoReviewNew;
 		if( !$wgUser->isAllowed('review') ) {
 			return true;
+		}
+		if( $wgFlaggedRevsAutoReviewNew && !$editPage->getArticle()->getId() ) {
+			return true; // not needed
 		}
 		$fa = FlaggedArticle::getTitleInstance( $editPage->getArticle() );
 		if( $fa->isReviewable() ) {
