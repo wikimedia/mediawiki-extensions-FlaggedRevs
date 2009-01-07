@@ -602,8 +602,7 @@ class FlaggedRevs {
 	* Updates the fp_stable and fp_reviewed fields
 	*/
 	public static function updateArticleOn( $article, $revId, $latest=NULL ) {
-		if( !$article->getId() )
-			return true; // no bogus entries
+		if( !$article->getId() ) return true; // no bogus entries
 
 		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		# Get the highest quality revision (not necessarily this one)
@@ -613,18 +612,24 @@ class FlaggedRevs {
 			array( 'fr_page_id' => $article->getId(),
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
-				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+				'rev_deleted & '.Revision::DELETED_TEXT => 0
+			),
 			__METHOD__,
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 ) 
 		);
 		# Get the timestamp of the edit after the stable version (if any)
-		$nextTimestamp = $dbw->selectField( 'revision',
-			'rev_timestamp',
-			array( 'rev_page' => $article->getId(),
-				"rev_id > ".intval($revId) ),
-			__METHOD__,
-			array( 'ORDER BY' => 'rev_id ASC', 'LIMIT' => 1 )
-		);
+		if( $lastID != $revId ) {
+			$timestamp = Revision::getTimestampFromId( $article->getTitle(), $revId );
+			$nextTimestamp = $dbw->selectField( 'revision',
+				'rev_timestamp',
+				array( 'rev_page' => $article->getId(),
+					"rev_timestamp > ".$dbw->strencode( $dbw->timestamp($timestamp) ) ),
+				__METHOD__,
+				array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+			);
+		} else {
+			$nextTimestamp = null;
+		}
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
 			array( 'fp_page_id' ),
