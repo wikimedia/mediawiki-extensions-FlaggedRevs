@@ -230,9 +230,9 @@ class Stabilization extends UnlistedSpecialPage
 			$log = new LogPage( 'stable' );
 			# ID, accuracy, depth, style
 			$set = array();
-			$set[] = wfMsgForContent( "stabilization-sel-short" ) . ": " .
+			$set[] = wfMsgForContent( "stabilization-sel-short" ) . wfMsgForContent( 'colon-separator' ) .
 				wfMsgForContent("stabilization-sel-short-{$this->select}");
-			$set[] = wfMsgForContent( "stabilization-def-short" ) . ": " .
+			$set[] = wfMsgForContent( "stabilization-def-short" ) . wfMsgForContent( 'colon-separator' ) .
 				wfMsgForContent("stabilization-def-short-{$this->override}");
 			$settings = '[' . implode(', ',$set). ']';
 

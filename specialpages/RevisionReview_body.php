@@ -868,7 +868,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dims as $quality => $level ) {
-			$ratings[] = wfMsgForContent( "revreview-$quality" ) . ": " . 
+			$ratings[] = wfMsgForContent( "revreview-$quality" ) . wfMsgForContent( 'colon-separator' ) . 
 				wfMsgForContent("revreview-$quality-$level");
 		}
 		$isAuto = ($auto && !FlaggedRevs::isQuality($dims)); // Paranoid check
