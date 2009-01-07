@@ -763,6 +763,8 @@ EOT;
 			# is enabled (except when the user has 'autopatrol', then patrol it).
 			if( $wgUser->isAllowed('autopatrol') ) {
 				$patrol = true;
+				# Record patrolled new pages if $wgUseNPPatrol is on
+				$record = ( $wgUseNPPatrol && !empty($rc->mAttribs['rc_new']) );
 			} else {
 				$patrol = !( $wgUseNPPatrol && !empty($rc->mAttribs['rc_new']) );
 			}
