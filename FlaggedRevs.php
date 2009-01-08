@@ -208,7 +208,7 @@ $wgFlaggedRevsAutopromote = array(
 	'userpageBytes'       => 100, # if userpage is needed, what is the min size?
 	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
-	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back? (not used yet)
+	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
 );
 
 # Special:Userrights settings
