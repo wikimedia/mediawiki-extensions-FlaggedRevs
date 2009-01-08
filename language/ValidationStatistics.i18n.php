@@ -186,10 +186,13 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
  * @author Imre
  */
 $messages['es'] = array(
+	'validationstatistics' => 'Estadísticas de validación',
+	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''$1''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''$2''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Revisado',
 	'validationstatistics-latest' => 'El último revisado',
+	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'desactualizado',
 );
 

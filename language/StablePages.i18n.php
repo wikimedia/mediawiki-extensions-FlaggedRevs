@@ -143,6 +143,10 @@ $messages['eo'] = array(
  * @author Crazymadlover
  */
 $messages['es'] = array(
+	'stablepages' => 'Páginas estables',
+	'stablepages-stable' => 'versión estable',
+	'stablepages-text' => 'Debajo hay una lista de páginas manualmente configuradas para mostrar la versión estable como la página de contenido por defecto para visitantes',
+	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
 );
 
@@ -517,6 +521,17 @@ $messages['tl'] = array(
 	'stablepages-text' => 'Nasa ibaba ang isang talaan ng mga pahinang kinamay ang pagsasaayos upang maipakita ang matatag na bersyon bilang nakatakdang pahina ng nilalaman para sa mga tumatanaw.',
 	'stablepages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'stablepages-config' => 'Pagkakaayos (konpigurasyon)',
+);
+
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'stablepages' => 'Kararlı sayfalar',
+	'stablepages-stable' => 'kararlı sürüm',
+	'stablepages-text' => 'Aşağıdaki liste, ziyaretçilere geçerli sayfa içeriği olarak kararlı sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
+	'stablepages-none' => 'Bu listede hiç sayfa yok',
+	'stablepages-config' => 'Yapılandırma',
 );
 
 /** Ukrainian (Українська)

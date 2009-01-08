@@ -285,8 +285,13 @@ $messages['eo'] = array(
 $messages['es'] = array(
 	'right-unreviewedpages' => 'Mostrar [[Special:UnreviewedPages|la lista de páginas sin revisar]]',
 	'unreviewedpages' => 'Páginas no revisadas',
+	'unreviewed-legend' => 'Lista de páginas de contenido no revisadas',
 	'unreviewed-category' => 'Categoría:',
 	'unreviewed-diff' => 'revisar',
+	'unreviewed-unwatched' => '(no vigilado)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} vigilando)',
+	'unreviewed-list' => 'Esta lista de páginas contiene páginas que no han sido revisadas',
+	'unreviewed-none' => 'No hay actualmente páginas que cumplan estos criterios',
 );
 
 /** Basque (Euskara)

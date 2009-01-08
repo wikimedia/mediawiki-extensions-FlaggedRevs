@@ -234,6 +234,18 @@ La '''nombro de kontrolo po tago''' <font color=\"red\">''(ruĝa)''</font> estas
 	'right-feedback' => 'Uzu la kontrolan sekcion por kontroli paĝon',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'ratinghistory-period' => 'Periodo de tiempo:',
+	'ratinghistory-month' => 'último mes',
+	'ratinghistory-3months' => 'últimos 3 meses',
+	'ratinghistory-year' => 'último año',
+	'ratinghistory-3years' => 'últimos 3 años',
+	'readerfeedback-svg' => 'Ver como SVG',
+);
+
 /** Basque (Euskara)
  * @author Kobazulo
  */
@@ -355,6 +367,10 @@ $messages['grc'] = array(
 	'ratinghistory-tab' => 'βάθμωσις',
 	'ratinghistory-link' => 'Βάθμωσις δέλτου',
 	'ratinghistory-period' => 'Περίοδος χρόνου:',
+	'ratinghistory-month' => 'ὕστατος μήν',
+	'ratinghistory-3months' => 'ὕστατοι 3 μῆνες',
+	'ratinghistory-year' => 'ὕστατον ἔτος',
+	'ratinghistory-3years' => 'ὕστατα 3 ἔτη',
 	'readerfeedback-svg' => 'Ὁρᾶν ὡς SVG',
 );
 

@@ -300,8 +300,20 @@ $messages['eo'] = array(
  * @author Sanbec
  */
 $messages['es'] = array(
+	'oldreviewedpages' => 'Páginas revisadas desactualizadas',
+	'oldreviewedpages-legend' => 'Lista de páginas revisadas con revisiones pendientes de verificación',
+	'oldreviewedpages-list' => 'Esta lista enumera páginas revisadas que tienen ediciones pendientes',
+	'oldreviewedpages-none' => 'No hay actualmente páginas que cumplan estos criterios',
+	'oldreviewedpages-stable' => 'visto',
+	'oldreviewedpages-quality' => 'Calidad',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|días}})',
+	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoría:',
+	'oldreviewed-watched' => 'En mi lista de vigilancia',
 	'oldreviewed-diff' => 'Revisado',
+	'oldreviewedpages-unwatched' => '(no vigilado)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vigilando)',
 );
 
 /** Basque (Euskara)
@@ -429,6 +441,13 @@ $messages['gsw'] = array(
 	'oldreviewedpages-quality' => 'prieft',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunde}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Täg}})',
+	'oldreviewedpages-recent' => '(weniger wie 1 Stund)',
+	'oldreviewed-category' => 'Kategorii:',
+	'oldreviewed-watched' => 'Uf myynere Beobachtigslischt',
+	'oldreviewed-diff' => 'sichte',
+	'oldreviewed-size' => 'Maximali Änderigsgreßi in Byte:',
+	'oldreviewedpages-unwatched' => '(uubeobachtet)',
+	'oldreviewedpages-watched' => '(vu $2 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)',
 );
 
 /** Hebrew (עברית)
@@ -495,6 +514,7 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Gondnok
  */
 $messages['hu'] = array(
 	'oldreviewedpages' => 'Elavult ellenőrzött lapok',
@@ -508,7 +528,7 @@ $messages['hu'] = array(
 	'oldreviewedpages-recent' => '(kevesebb, mint egy órája)',
 	'oldreviewed-category' => 'Kategória:',
 	'oldreviewed-watched' => 'A figyelőlistámon',
-	'oldreviewed-diff' => 'ellenőrzés',
+	'oldreviewed-diff' => 'ellenőriz',
 	'oldreviewed-size' => 'Változás legfeljebb (bájtban):',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
@@ -997,13 +1017,25 @@ $messages['tl'] = array(
 
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
+ * @author Joseph
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
+	'oldreviewedpages' => 'Eski gözden geçirilmiş sayfalar',
+	'oldreviewedpages-legend' => 'Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele',
+	'oldreviewedpages-list' => 'Bu sayfa, bekleyen değişikliğe sahip gözden geçirilmiş sayfaları listeler.',
+	'oldreviewedpages-none' => 'Şimdilik bu kriterlere uyan sayfa yoktur',
+	'oldreviewedpages-stable' => 'gözlenmiş',
 	'oldreviewedpages-quality' => 'kalite',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|saat|saat}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'oldreviewedpages-recent' => '(1 saatten daha az)',
 	'oldreviewed-category' => 'Kategori:',
+	'oldreviewed-watched' => 'İzleme listemde',
+	'oldreviewed-diff' => 'gözden geçir',
+	'oldreviewed-size' => 'Max değişiklik (byte):',
+	'oldreviewedpages-unwatched' => '(izlenmiyor)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
 );
 
 /** Ukrainian (Українська)

@@ -82,6 +82,14 @@ $messages['eo'] = array(
 	'likedpages-graphs' => 'taksaj datenoj',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'likedpages-none' => 'No hay páginas en esta lista',
+	'likedpages-graphs' => 'Datos del rating',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
@@ -120,6 +128,17 @@ $messages['gl'] = array(
  */
 $messages['grc'] = array(
 	'likedpages-graphs' => 'δεδομένα βαθμώσεως',
+);
+
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'likedpages' => 'Hoch gwärteti Syte',
+	'likedpages-leg' => 'Suech noch hoch gwärtete Syte',
+	'likedpages-list' => 'Do chunnt e Lischt vu Syte, wu sortiert sin noch dr Läserwärtig.',
+	'likedpages-none' => 'In däre Lischt het s kei Yyträg.',
+	'likedpages-graphs' => 'Wärtigsdate',
 );
 
 /** Hebrew (עברית)

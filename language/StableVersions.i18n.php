@@ -218,7 +218,11 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'stableversions' => 'Ver versiones estables',
+	'stableversions-leg1' => 'lista de revisiones verificadas para una página',
 	'stableversions-page' => 'Nombre de la página:',
+	'stableversions-none' => '"[[:$1]]" no tiene revisiones verificadas.',
+	'stableversions-list' => 'La siguiente es una lista de revisiones de [[:$1]] que han sido verificadas:',
+	'stableversions-review' => 'Revisada en <i>$1</i> por $2',
 );
 
 /** Basque (Euskara)
@@ -314,6 +318,7 @@ $messages['gl'] = array(
  */
 $messages['grc'] = array(
 	'stableversions-page' => 'Ὄνομα δέλτου:',
+	'stableversions-none' => 'Τὸ "[[:$1]]" οὐκ ἔχει ἀναθεωρημένας ἐκδόσεις.',
 	'stableversions-review' => 'Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2',
 );
 
@@ -877,10 +882,16 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Joseph
  * @author Karduelis
  */
 $messages['tr'] = array(
+	'stableversions' => 'Kararlı sürümleri görüntüle',
+	'stableversions-leg1' => 'Bir sayfa için gözden geçirilmiş revizyonları listele',
 	'stableversions-page' => 'Sayfa adı:',
+	'stableversions-none' => '"[[:$1]]" hiç gözden geçirilmiş revizyona sahip değil.',
+	'stableversions-list' => 'Sıradaki, [[:$1]] için gözden geçirilmiş revizyonlar listesidir:',
+	'stableversions-review' => '$2 tarafından <i>$1</i> tarihinde gözden geçirildi',
 );
 
 /** Ukrainian (Українська)

@@ -596,6 +596,7 @@ Neniu konfiguro eblas.',
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Drini
  * @author Imre
  * @author Kobazulo
@@ -603,12 +604,20 @@ Neniu konfiguro eblas.',
  */
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
+	'stabilization' => 'Estabilización de página',
+	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:$1|$1]] es seleccionada y mostrada.'''",
+	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión estable. Aquí están las configuraciones actuales para [[:$1|$1]]:',
 	'stabilization-page' => 'Nombre de la página:',
 	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
+	'stabilization-select' => 'Selección de versión estable',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-comment' => 'Comentario:',
 	'stabilization-sel-short-0' => 'Calidad',
+	'stabilization-sel-short-1' => 'Ninguno',
+	'stabilization-def-short-0' => 'Actual',
+	'stabilization-def-short-1' => 'Estable',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
+	'stabilize_expiry_old' => 'Este tiempo de expiración ya ha pasado',
 );
 
 /** Basque (Euskara)
@@ -836,6 +845,7 @@ $messages['grc'] = array(
 	'stabilization-def-short' => 'Προκαθωρισμένη',
 	'stabilization-def-short-0' => 'Τρέχουσα',
 	'stabilization-def-short-1' => 'Σταθερά',
+	'stabilize-expiring' => 'λήγει $1 (UTC)',
 );
 
 /** Swiss German (Alemannisch)
@@ -2302,17 +2312,41 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
 
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
+ * @author Joseph
  * @author Karduelis
  */
 $messages['tr'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Sayfa kararlılaştırılması',
+	'stabilization-text' => "'''[[:$1|$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''",
+	'stabilization-perm' => 'Hesabınızın kararlı sürüm yapılandırmasını değiştirmeye izni yok.
+[[:$1|$1]] için şuanki ayarlar:',
 	'stabilization-page' => 'Sayfa adı:',
+	'stabilization-leg' => 'Kararlı sürüm ayarlarını onayla',
+	'stabilization-select' => 'Kararlı sürüm seçimi',
+	'stabilization-select1' => 'En son kaliteli revizyon; eğer yoksa, en son gözlenmiş olan',
+	'stabilization-select2' => 'En son gözden geçirilmiş revizyon',
+	'stabilization-select3' => 'En son bozulmamış revizyon; eğer yoksa, en son kaliteli ya da gözlenmiş olan',
+	'stabilization-def' => 'Varsayılan sayfa görünümünde gösterilen revizyon',
+	'stabilization-def1' => 'Kararlı revizyon; eğer yoksa, halihazırda bulunan',
+	'stabilization-def2' => 'Şuanki revizyon',
 	'stabilization-submit' => 'Tespit et',
+	'stabilization-notexists' => '"[[:$1|$1]]" adında bir sayfa yok.
+Yapılandırma mümkün değil.',
+	'stabilization-notcontent' => '"[[:$1|$1]]" sayfası gözden geçirilemiyor.
+Yapılandırma mümkün değil.',
 	'stabilization-comment' => 'Açıklama',
 	'stabilization-expiry' => 'Süresi bitiyor:',
 	'stabilization-sel-short' => 'Öncelik',
 	'stabilization-sel-short-0' => 'Kalite',
 	'stabilization-sel-short-1' => 'Hiçbiri',
-	'stabilization-def-short-1' => 'Sabit',
+	'stabilization-sel-short-2' => 'Bozulmamış',
+	'stabilization-def-short' => 'Varsayılan',
+	'stabilization-def-short-0' => 'Şuanki',
+	'stabilization-def-short-1' => 'Kararlı',
+	'stabilize_expiry_invalid' => 'Geçersiz sona erme tarihi.',
+	'stabilize_expiry_old' => 'Sona erme tarihi zaten geçmiş.',
+	'stabilize-expiring' => '$1 (UTC) tarihinde sona eriyor',
 );
 
 /** Ukrainian (Українська)
@@ -2441,8 +2475,8 @@ $messages['vo'] = array(
 	'stabilization-text' => "'''Votükolös parametis dono ad sludön, lio fomam fümöfik pada: [[:$1|$1]] pavälon e pajonon.'''",
 	'stabilization-perm' => 'Kal olik no dälon ad votükön parametemi fomama fümöfik. Is palisedon parametem anuik pro pad: [[:$1|$1]]:',
 	'stabilization-page' => 'Nem pada:',
-	'stabilization-leg' => 'Välön parametis fomama fümöfik pada',
-	'stabilization-select' => 'Lio fomam fümöfik pavälon',
+	'stabilization-leg' => 'Fümedön parametis fomama fümöfik',
+	'stabilization-select' => 'Väl fomama fümöfik',
 	'stabilization-select2' => 'Fomam pekrütöl lätik',
 	'stabilization-def' => 'Fomam jonabik pö padilogams kösömik',
 	'stabilization-def1' => 'Fomam fümöfik; if no dabinon, tän fomam anuik',
@@ -2451,10 +2485,13 @@ $messages['vo'] = array(
 	'stabilization-notexists' => 'Pad tiädü "[[:$1|$1]]" no dabinon. Fomükam no mögon.',
 	'stabilization-notcontent' => 'Pad: "[[:$1|$1]]" no kanon pakrütön. Parametem nonik mögon.',
 	'stabilization-comment' => 'Küpet:',
+	'stabilization-expiry' => 'Dul jü:',
 	'stabilization-sel-short-0' => 'Kaliet',
 	'stabilization-sel-short-1' => 'Nonik',
 	'stabilization-def-short-0' => 'Anuik',
 	'stabilization-def-short-1' => 'Fümöfik',
+	'stabilize_expiry_invalid' => 'Dul no lonöföl.',
+	'stabilize-expiring' => 'dulon jü $1 (UTC)',
 );
 
 /** Yue (粵語)

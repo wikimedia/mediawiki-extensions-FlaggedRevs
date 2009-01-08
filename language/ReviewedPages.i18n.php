@@ -226,10 +226,18 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Imre
  */
 $messages['es'] = array(
+	'reviewedpages' => 'Páginas revisadas',
+	'reviewedpages-leg' => 'Lista de páginas revisadas a un cierto nivel',
+	'reviewedpages-list' => 'Las siguientes páginas han sido revisadas al nivel especificado',
+	'reviewedpages-none' => 'No hay páginas en esta lista',
+	'reviewedpages-lev-0' => 'Visto',
 	'reviewedpages-lev-1' => 'Calidad',
+	'reviewedpages-lev-2' => 'Destacado',
+	'reviewedpages-all' => 'versiones revisadas',
 );
 
 /** Basque (Euskara)
@@ -318,6 +326,7 @@ $messages['grc'] = array(
 	'reviewedpages-lev-0' => 'θεωρημένη',
 	'reviewedpages-lev-1' => 'ποιοτικὴ ἔκδοσις',
 	'reviewedpages-lev-2' => 'Ἐξαίρετος',
+	'reviewedpages-all' => 'ἀναθεωρημέναι ἐκδόσεις',
 	'reviewedpages-best' => 'πρωτίστη ἀναθεώρησις',
 );
 
@@ -914,7 +923,7 @@ $messages['tr'] = array(
 	'reviewedpages' => 'Gözden geçirilmiş sayfalar',
 	'reviewedpages-leg' => 'Belirli bir seviyede gözden geçirilmiş sayfaları listele',
 	'reviewedpages-list' => 'Sıradaki sayfalar belirlenen seviyede gözden geçirilmiştir',
-	'reviewedpages-none' => 'Listede hiç sayfa yok',
+	'reviewedpages-none' => 'Bu listede hiç sayfa yok',
 	'reviewedpages-lev-0' => 'Gözlenmiş',
 	'reviewedpages-lev-1' => 'Kalite',
 	'reviewedpages-lev-2' => 'Özellikli',

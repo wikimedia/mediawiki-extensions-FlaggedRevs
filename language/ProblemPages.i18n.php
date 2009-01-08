@@ -89,6 +89,14 @@ $messages['eo'] = array(
 	'problempages-graphs' => 'datenoj de taksado',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'problempages-none' => 'No hay páginas en esta lista',
+	'problempages-graphs' => 'Datos de rating',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */

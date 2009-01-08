@@ -93,6 +93,14 @@ $messages['eo'] = array(
 	'qualityoversight-legend' => 'Serĉi lastajn protokolerojn',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'qualityoversight' => 'Vigilancia de calidad',
+	'qualityoversight-list' => 'Esta página enumera las más recientes aprobaciones y depreciaciones de revisiones.',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
@@ -329,6 +337,15 @@ $messages['tl'] = array(
 	'qualityoversight' => 'Pagiingat na pangkaantasan ng uri (kalidad)',
 	'qualityoversight-list' => 'Nagtatala ang pahinang ito ng pinakakamakailan lamang na mga pagpayag at pagbaba ng halaga/katururan ng mga pagbabago.',
 	'qualityoversight-legend' => 'Maghanap sa mga talaan ng mga kamakailang pagsusuri',
+);
+
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'qualityoversight' => 'Kalite gözetimi',
+	'qualityoversight-list' => 'Bu sayfa, en yeni onaylamaları ve revizyonların yıpranmalarını listeler.',
+	'qualityoversight-legend' => 'Yakın zamandaki gözden geçirme günlüklerini ara',
 );
 
 /** Ukrainian (Українська)
