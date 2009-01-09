@@ -741,7 +741,7 @@ EOT;
 	/**
 	* When an edit is made to a page that can't be reviewed, autopatrol if allowed.
 	*/
-	public static function autoMarkPatrolled( $rc ) {
+	public static function autoMarkPatrolled( &$rc ) {
 		global $wgUser;
 		if( empty($rc->mAttribs['rc_this_oldid']) ) {
 			return true;
@@ -752,6 +752,7 @@ EOT;
 			# won't autopatrol. May or may not be useful...
 			if( FlaggedRevs::revIsFlagged($rc->getTitle(),$rc->mAttribs['rc_this_oldid'],GAID_FOR_UPDATE) ) {
 				RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
+				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
 			}
 			return true;
 		}
@@ -778,6 +779,7 @@ EOT;
 			if( $record ) {
 				PatrolLog::record( $rc->mAttribs['rc_id'], true );
 			}
+			$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
 		}
 		return true;
 	}
