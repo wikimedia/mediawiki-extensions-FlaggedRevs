@@ -212,7 +212,7 @@
 .fr-icon-locked,
 .fr-icon-unlocked {
 	padding: 0px;
-	margin: 0px;
+	margin: 0em .2em 0em 0em;
 	width: 16px;
 	height: 16px;
 	float: left;
