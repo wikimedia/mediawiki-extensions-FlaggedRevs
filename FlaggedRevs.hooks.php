@@ -746,15 +746,18 @@ EOT;
 		if( empty($rc->mAttribs['rc_this_oldid']) ) {
 			return true;
 		}
-		$patrol = $record = false;
 		// Is the page reviewable?
 		if( FlaggedRevs::isPageReviewable( $rc->getTitle() ) ) {
 			# Note: pages in reviewable namespace with FR disabled
 			# won't autopatrol. May or may not be useful...
-			$patrol = FlaggedRevs::revIsFlagged( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'], 
-				GAID_FOR_UPDATE );
+			if( FlaggedRevs::revIsFlagged($rc->getTitle(),$rc->mAttribs['rc_this_oldid'],GAID_FOR_UPDATE) ) {
+				RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
+			}
+			return true;
+		}
 		// Can this be patrolled?
-		} else if( FlaggedRevs::isPagePatrollable( $rc->getTitle() ) ) {
+		$patrol = $record = false;
+		if( FlaggedRevs::isPagePatrollable( $rc->getTitle() ) ) {
 			$patrol = $wgUser->isAllowed('autopatrolother') || $wgUser->isAllowed('bot');
 			$record = true;
 		} else {
