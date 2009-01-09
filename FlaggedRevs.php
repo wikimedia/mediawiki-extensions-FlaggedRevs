@@ -256,7 +256,7 @@ $wgFilterLogTypes['review'] = true;
 #########
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 48;
+$wgFlaggedRevStyleVersion = 49;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
