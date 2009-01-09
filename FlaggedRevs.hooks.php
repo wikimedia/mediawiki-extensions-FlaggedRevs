@@ -801,9 +801,9 @@ EOT;
 	*/
 	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
 		global $wgFlaggedRevsAutopromote, $wgMemc;
-		if( empty($wgFlaggedRevsAutopromote) || !$rev )
+		if( empty($wgFlaggedRevsAutopromote) || !$rev || !$user->getId() )
 			return true;
-
+		# Check implicitly sighted edits
 		wfProfileIn( __METHOD__ );
 		# Grab current groups
 		$groups = $user->getGroups();
@@ -1020,6 +1020,20 @@ EOT;
 					array( 'USE INDEX' => 'usertext_timestamp' ) );
 			}
 			if( $deletedEdits >= $minDiff ) {
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
+		}
+		# Check implicitly sighted edits
+		if( $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
+			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
+			$res = $dbr->select( array('revision','flaggedpages'), '1',
+				array( 'rev_user' => $user->getID(), 'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
+				__METHOD__,
+				array( 'USE INDEX' => 'user_timestamp',
+					'LIMIT' => $wgFlaggedRevsAutopromote['totalCheckedEdits'] )
+			);
+			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
 				wfProfileOut( __METHOD__ );
 				return true;
 			}

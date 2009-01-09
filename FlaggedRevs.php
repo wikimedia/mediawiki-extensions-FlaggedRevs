@@ -201,6 +201,7 @@ $wgFlaggedRevsAutopromote = array(
 	'recentContentEdits'  => 5, # $wgContentNamespaces edits in recent changes
 	'totalContentEdits'   => 300, # $wgContentNamespaces edits
 	'totalReviewedEdits'  => 0, # Sighted edits
+	'totalCheckedEdits'   => 0, # Edits before the sighted version pages
 	'uniqueContentPages'  => 12, # $wgContentNamespaces unique pages edited
 	'editComments'        => 50, # how many edit comments used?
 	'email'	              => false, # user must be emailconfirmed?
