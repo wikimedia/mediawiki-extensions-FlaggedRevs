@@ -769,8 +769,9 @@ EOT;
 				$patrol = !( $wgUseNPPatrol && !empty($rc->mAttribs['rc_new']) );
 			}
 		}
+		// Set rc_patrolled flag and add log entry as needed
 		if( $patrol ) {
-			RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
+			$rc->reallyMarkPatrolled();
 			if( $record ) {
 				PatrolLog::record( $rc->mAttribs['rc_id'], true );
 			}
