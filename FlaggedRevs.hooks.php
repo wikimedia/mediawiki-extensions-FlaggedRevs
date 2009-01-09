@@ -776,10 +776,10 @@ EOT;
 		// Set rc_patrolled flag and add log entry as needed
 		if( $patrol ) {
 			$rc->reallyMarkPatrolled();
+			$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
 			if( $record ) {
 				PatrolLog::record( $rc->mAttribs['rc_id'], true );
 			}
-			$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
 		}
 		return true;
 	}
