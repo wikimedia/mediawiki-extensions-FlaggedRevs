@@ -864,7 +864,7 @@ class RevisionReview extends UnlistedSpecialPage
 	{
 		global $wgFlaggedRevsLogInRC;
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$log = new LogPage( 'review', ($auto ? false : $wgFlaggedRevsLogInRC) );
+		$log = new LogPage( 'review', ($auto ? false : $wgFlaggedRevsLogInRC), true );
 		# ID, accuracy, depth, style
 		$ratings = array();
 		foreach( $dims as $quality => $level ) {
