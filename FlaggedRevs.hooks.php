@@ -787,12 +787,10 @@ EOT;
 	public static function incrementRollbacks( $this, $user, $target, $current ) {
 		# Mark when a user reverts another user
 		if( $current->getRawUser() && $user->getId() != $current->getRawUser() ) {
-			global $wgFlaggedRevsAutopromote;
 			$p = FlaggedRevs::getUserParams( $current->getRawUser() );
 			$p['revertedEdits'] = isset($p['revertedEdits']) ? $p['revertedEdits'] : 0;
 			$p['revertedEdits']++;
-			if( $wgFlaggedRevsAutopromote['maxRevertedEdits'] >= $p['revertedEdits'] )
-				FlaggedRevs::saveUserParams( $current->getRawUser(), $p );
+			FlaggedRevs::saveUserParams( $current->getRawUser(), $p );
 		}
 		return true;
 	}
