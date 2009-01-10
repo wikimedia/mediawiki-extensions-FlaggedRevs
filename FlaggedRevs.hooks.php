@@ -1263,6 +1263,11 @@ EOT;
 	}
 	
 	public static function addToContribsQuery( $pager, &$queryInfo ) {
+		# Highlight flaggedrevs
+		$queryInfo['tables'][] = 'flaggedrevs';
+		$queryInfo['fields'][] = 'fr_quality';
+		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = rev_page AND fr_rev_id = rev_id" );
+		# Highlight unchecked content
 		$queryInfo['tables'][] = 'flaggedpages';
 		$queryInfo['fields'][] = 'fp_stable';
 		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page" );
@@ -1294,6 +1299,8 @@ EOT;
 		global $wgFlaggedRevsNamespaces;
 		if( !in_array($row->page_namespace,$wgFlaggedRevsNamespaces) ) {
 			// do nothing
+		} else if( isset($row->fr_quality) ) {
+			$ret = '<span class="'.FlaggedRevsXML::getQualityColor($row->fr_quality).'">'.$ret.'</span>';
 		} else if( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
 			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
 		} else if( !isset($row->fp_stable) ) {
