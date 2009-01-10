@@ -200,16 +200,9 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		// Define the data using the DB rows
 		$totalVal = $totalCount = $n = 0;
-		list($res,$u,$maxC) = $this->doQuery( $tag );
+		list($res,$u,$maxC,$days) = $this->doQuery( $tag );
 		// Label spacing
-		if( $row = $res->fetchObject() ) {
-			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
-			$res->seek( $res->numRows()-1 );
-			$upper = wfTimestamp( TS_UNIX, $res->fetchObject( $res )->rfh_date );
-			$days = intval( ($upper - $lower)/86400 );
-			$int = intval( ceil($days/10) ); // 10 labels at most
-			$res->seek( 0 );
-		}
+		$int = intval( ceil($days/10) ); // 10 labels at most
 		$dates = $drating = $arating = $dcount = "";
 		while( $row = $res->fetchObject() ) {
 			$totalVal += (int)$row->rfh_total;
@@ -267,16 +260,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$data = array();
 		$totalVal = $totalCount = $n = 0;
 		// Define the data using the DB rows
-		list($res,$u,$maxC) = $this->doQuery( $tag );
+		list($res,$u,$maxC,$days) = $this->doQuery( $tag );
 		// Label spacing
-		if( $row = $res->fetchObject() ) {
-			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
-			$res->seek( $res->numRows()-1 );
-			$upper = wfTimestamp( TS_UNIX, $res->fetchObject()->rfh_date );
-			$days = intval( ($upper - $lower)/86400 );
-			$int = ($days > 31) ? 31 : intval( ceil($days/12) );
-			$res->seek( 0 );
-		}
+		$int = intval( ceil($days/10) ); // 10 labels at most
 		while( $row = $res->fetchObject() ) {
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
@@ -373,16 +359,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$dataX = $dave = $rave = $dcount = array();
 		$totalVal = $totalCount = $sd = $pts = $n = 0;
 		// Define the data using the DB rows
-		list($res,$u,$maxC) = $this->doQuery( $tag );
+		list($res,$u,$maxC,$days) = $this->doQuery( $tag );
 		// Label spacing
-		if( $row = $res->fetchObject() ) {
-			$lower = wfTimestamp( TS_UNIX, $row->rfh_date );
-			$res->seek( $res->numRows()-1 );
-			$upper = wfTimestamp( TS_UNIX, $res->fetchObject()->rfh_date );
-			$days = intval( ($upper - $lower)/86400 );
-			$int = ($days > 31) ? 31 : ceil($days/12);
-			$res->seek( 0 );
-		}
+		$int = intval( ceil($days/10) ); // 10 labels at most
 		while( $row = $res->fetchObject() ) {
 			$pts++;
 			$totalVal += (int)$row->rfh_total;
@@ -500,17 +479,23 @@ class RatingHistory extends UnlistedSpecialPage
 			array( 'ORDER BY' => 'rfh_date ASC' )
 		);
 		# Get max count and average rating
-		$total = $count = $ave = $maxC = 0;
-		if( $dbr->numRows($res) ) {
+		$total = $count = $ave = $maxC = $days = 0;
+		if( $dbr->numRows($res) > 0 ) {
 			while( $row = $dbr->fetchObject($res) ) {
+				if( !isset($lower) ) {
+					$lower = wfTimestamp( TS_UNIX, $row->rfh_date ); // first day
+				}
 				$total += (int)$row->rfh_total;
 				$count += (int)$row->rfh_count;
 				if( $row->rfh_count > $maxC ) $maxC = intval($row->rfh_count);
+				$upper = $row->rfh_date;
 			}
-			$ave = 1+$total/$count; // Offset to [1,5]
-			$res->seek( 0 );
+			$upper = wfTimestamp( TS_UNIX, $upper );
+			$days = intval( ($upper - $lower)/86400 );
+			$ave = 1 + $total/$count; // Offset to [1,5]
+			$res->seek( 0 ); // reset query row
 		}
-		return array($res,$ave,$maxC);
+		return array($res,$ave,$maxC,$days);
 	}
 	
 	/**
