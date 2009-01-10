@@ -508,7 +508,8 @@ class FlaggedRevs {
 			# If $text is set, then the stableOutput is new. In that case,
 			# the current must also be new to avoid sync goofs.
 			if( $currentOutput==false || isset($text) ) {
-				$text = $article->getContent();
+				$rev = Revision::newFromTitle( $article->getTitle() );
+				$text = $rev ? $rev->getText() : false;
 				$title = $article->getTitle();
 				$options = self::makeParserOptions();
 				$currentOutput = $wgParser->parse( $text, $title, $options );
