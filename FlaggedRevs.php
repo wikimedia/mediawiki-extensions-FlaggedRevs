@@ -160,8 +160,7 @@ $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs';
 
 # Lets some users access the review UI and set some flags
 $wgAvailableRights[] = 'review';
-# Let some users set higher settings
-$wgAvailableRights[] = 'validate';
+$wgAvailableRights[] = 'validate'; # Let some users set higher settings
 $wgAvailableRights[] = 'autoreview';
 $wgAvailableRights[] = 'patrolmarks';
 $wgAvailableRights[] = 'autopatrolother';
@@ -180,6 +179,8 @@ $wgGroupPermissions['reviewer']['validate'] = true;
 # Let this stand alone just in case...
 $wgGroupPermissions['reviewer']['review'] = true;
 
+# Sysops have their edits autoreviewed
+$wgGroupPermissions['sysop']['autoreview'] = true;
 # Stable version selection and default page revision selection can be set per page.
 $wgGroupPermissions['sysop']['stablesettings'] = true;
 # Sysops can always move stable pages
@@ -189,7 +190,10 @@ $wgGroupPermissions['sysop']['movestable'] = true;
 # namespaces autopatrolled.
 $wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
 
-# Define when users get automatically promoted to editors. Set as false to disable.
+# Implicit autoreview group
+$wgGroupPermissions['autoreview']['autoreview'] = true;
+
+# Define when users get automatically promoted to Editors. Set as false to disable.
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
 # edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
@@ -462,6 +466,15 @@ function efLoadFlaggedRevs() {
 		global $wgHooks;
 		$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanView';
 	}
+	# Grant implicit autoreview rights to some users.
+	# This will include older users that choose not to be Editors.
+	global $wgAutopromote, $wgFlaggedRevsAutopromote;
+	$wgAutopromote['autoreview'] = array( '&',
+		array( APCOND_EDITCOUNT, max($wgFlaggedRevsAutopromote['edits'],3000) ),
+		array( APCOND_AGE, max($wgFlaggedRevsAutopromote['days'],120)*24*3600 ),
+		array( APCOND_AGE_FROM_EDIT, max($wgFlaggedRevsAutopromote['days'],120)*24*3600 ),
+		array( APCOND_EMAILCONFIRMED, true )
+	);
 }
 
 /* 
