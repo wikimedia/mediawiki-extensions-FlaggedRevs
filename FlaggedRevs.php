@@ -471,9 +471,9 @@ function efLoadFlaggedRevs() {
 	global $wgAutopromote, $wgFlaggedRevsAutopromote;
 	$wgAutopromote['autoreview'] = array( '&',
 		array( APCOND_EDITCOUNT, max($wgFlaggedRevsAutopromote['edits'],3000) ),
-		array( APCOND_AGE, max($wgFlaggedRevsAutopromote['days'],120)*24*3600 ),
-		array( APCOND_AGE_FROM_EDIT, max($wgFlaggedRevsAutopromote['days'],120)*24*3600 ),
-		array( APCOND_EMAILCONFIRMED, true )
+		array( APCOND_AGE, max($wgFlaggedRevsAutopromote['days'],365)*24*3600 ),
+		array( APCOND_AGE_FROM_EDIT, max($wgFlaggedRevsAutopromote['days'],365)*24*3600 ),
+		array( APCOND_EMAILCONFIRMED, $wgFlaggedRevsAutopromote['email'] )
 	);
 }
 
