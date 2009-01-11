@@ -567,6 +567,8 @@ $messages['mk'] = array(
 	'stableversions-leg1' => 'Листа на прегледани ревизии за страница',
 	'stableversions-page' => 'Наслов на страница:',
 	'stableversions-none' => '"[[:$1]]" нема прегледани ревизии.',
+	'stableversions-list' => 'Следи листа на ревизии од of [[:$1]] кои биле прегледани:',
+	'stableversions-review' => 'Прегледано на <i>$1</i> од страна на $2',
 );
 
 /** Malayalam (മലയാളം)

@@ -654,6 +654,21 @@ $messages['lb'] = array(
 	'oldreviewedpages-watched' => '(Vu(n) $2 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'oldreviewedpages-quality' => 'квалитет',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
+	'oldreviewedpages-recent' => '(помалку од 1 час)',
+	'oldreviewed-category' => 'Категорија:',
+	'oldreviewed-watched' => 'Во мојата листа на набљудувања',
+	'oldreviewed-diff' => 'преглед',
+	'oldreviewedpages-unwatched' => '(ненабљудувана)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|корисник|корисници}} набљудуваат)',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */

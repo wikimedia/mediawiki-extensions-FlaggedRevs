@@ -423,6 +423,7 @@ $messages['he'] = array(
 	'readerfeedback-svg' => 'הצגה כ־SVG',
 	'ratinghistory-none' => 'אין כרגע מספיק מידע זמין של משוב קוראים ליצירת תרשימים',
 	'ratinghistory-legend' => "'''הדירוג הממוצע היומי''' <font color=\"blue\">'''(בכחול)'''</font> ו'''הדירוג הממוצע בתווך''' <font color=\"green\">'''(בירוק)'''</font> מוצגים בטבלאות למטה, לפי תאריך.
+'''הדירוג הממוצע בתווך''' הוא פשוט הממוצע לכל הדירוגים ''בתוך'' התווך הזה לכל יום.
 
 דירוג: '''[1]''' - גרוע; '''[2]''' - נמוך; '''[3]''' - בינוני; '''[4]''' - גבוה; '''[5]''' - מצוין;
 
@@ -631,6 +632,7 @@ $messages['lb'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
+	'ratinghistory-period' => 'Временски период:',
 	'ratinghistory-month' => 'последен месец',
 	'ratinghistory-3months' => 'последни 3 месеци',
 	'ratinghistory-year' => 'последна година',

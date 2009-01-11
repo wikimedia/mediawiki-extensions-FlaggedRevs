@@ -316,6 +316,8 @@ $messages['lb'] = array(
 $messages['mk'] = array(
 	'unstablepages' => 'Нестабилна страница',
 	'unstablepages-stable' => 'стабилна верзија',
+	'unstablepages-text' => 'Следи листа на страници рачно конфигурирани кои прикажуваат работни верзии како основна содржина за прегледувачите.',
+	'unstablepages-none' => 'Нема страници во оваа листа',
 	'unstablepages-config' => 'Конфигурација',
 );
 

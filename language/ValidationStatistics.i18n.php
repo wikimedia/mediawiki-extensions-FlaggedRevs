@@ -499,10 +499,16 @@ an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|V
  * @author Brest
  */
 $messages['mk'] = array(
+	'validationstatistics' => 'Валидациски статистики',
+	'validationstatistics-users' => "'''{{SITENAME}}''' во моментов има '''$1''' {{PLURAL:$1|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|уредувачки]] права и '''$2''' {{PLURAL:$2|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|оценувачки]] права.",
+	'validationstatistics-table' => "Статистики за секој именски простор се прикажани подолу (без страници за пренасочување).
+'''Забелешка:''' следниве податоци се кеширани пред неколку часа и можеби не се баш најажурни.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Страници',
-	'validationstatistics-stable' => 'Прегледување',
+	'validationstatistics-stable' => 'Прегледани',
 	'validationstatistics-latest' => 'Последно прегледување',
+	'validationstatistics-synced' => 'Синхронизирани/Прегледани',
+	'validationstatistics-old' => 'Застарени',
 );
 
 /** Malayalam (മലയാളം)

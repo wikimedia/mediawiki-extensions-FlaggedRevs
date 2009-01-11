@@ -594,6 +594,21 @@ $messages['li'] = array(
 	'reviewedpages-best' => 'beste versie',
 );
 
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'reviewedpages' => 'Оценувани страници',
+	'reviewedpages-leg' => 'Листа на страници оценувани до одредено ниво',
+	'reviewedpages-list' => 'Следните страници биле оценувани до наведеното ниво',
+	'reviewedpages-none' => 'Нема страници во оваа листа',
+	'reviewedpages-lev-0' => 'Прегледани',
+	'reviewedpages-lev-1' => 'Квалитетни',
+	'reviewedpages-lev-2' => 'Одлични',
+	'reviewedpages-all' => 'оценувани верзии',
+	'reviewedpages-best' => 'главна ревизија',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */

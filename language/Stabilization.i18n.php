@@ -1477,10 +1477,16 @@ $messages['mhr'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
+	'stabilization-tab' => 'ветеран',
+	'stabilization' => 'Стабилизација на страница',
 	'stabilization-page' => 'Име на страница:',
+	'stabilization-def2' => 'Тековната ревизија',
 	'stabilization-submit' => 'Потврди',
 	'stabilization-comment' => 'Забелешка:',
 	'stabilization-expiry' => 'Истекува:',
+	'stabilization-sel-short' => 'Исклучок',
+	'stabilization-sel-short-0' => 'Квалитет',
+	'stabilization-sel-short-1' => 'Ништо',
 	'stabilization-def-short' => 'Основно',
 	'stabilization-def-short-0' => 'Моментално',
 	'stabilization-def-short-1' => 'Стабилно',
