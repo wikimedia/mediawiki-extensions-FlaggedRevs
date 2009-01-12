@@ -338,7 +338,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Set file path
 		$dir = dirname($filePath);
 		// Make sure directory exists
-		if( !is_dir($dir) && !wfMkdirParents( $dir, 0777 ) ) {
+		if( !file_exists($dir) && !wfMkdirParents( $dir, 0777 ) ) {
 			return false;
 		}
 		// Set some parameters
@@ -454,6 +454,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$svgPath = $this->getFilePath( $tag, 'svg' );
 		$svgHandler = new SvgHandler();
 		if( !@file_put_contents( $svgPath, $plot->svg ) ) {
+			throw new MWException( 'Could not write SVG file!' );
 			return false;
 		}
 		// Rasterize due to IE suckage
