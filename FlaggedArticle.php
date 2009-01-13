@@ -877,7 +877,7 @@ class FlaggedArticle extends Article {
 		global $wgUser;
 		# Non-content pages cannot be validated. Stable version must exist.
 		# Don't bother showing notice for deleted revs.
-		if( !$this->isReviewable() || !$this->getStableRev() || $row->rev_deleted )
+		if( !$this->isReviewable() || !$this->getStableRev() )
 			return true;
 		$skin = $wgUser->getSkin();
 		list($link,$class) = FlaggedRevs::markHistoryRow( $this->parent->getTitle(), $row, $skin );

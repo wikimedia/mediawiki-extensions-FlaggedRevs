@@ -30,6 +30,7 @@ $messages['en'] = array(
 	'hist-quality-user'            => '[{{fullurl:$1|stableid=$2}} validated] by [[User:$3|$3]]',
 	'hist-stable'                  => 'sighted revision',
 	'hist-stable-user'             => '[{{fullurl:$1|stableid=$2}} sighted] by [[User:$3|$3]]',
+	'hist-autoreviewed'            => '[{{fullurl:$1|stableid=$2}} automatically reviewed]',
 	'review-diff2stable'           => 'View changes between stable and current revisions',
 	'review-logentry-app'          => 'reviewed [[$1]]',
 	'review-logentry-dis'          => 'depreciated a version of [[$1]]',

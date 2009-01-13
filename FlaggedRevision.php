@@ -192,10 +192,12 @@ class FlaggedRevision {
 	*
 	* @param array $tmpRows template version rows
 	* @param array $fileRows file version rows
+	* @param bool $auto autopatrolled
 	* @return bool success
 	*/
-	public function insertOn( $tmpRows, $fileRows ) {
+	public function insertOn( $tmpRows, $fileRows, $auto = false ) {
 		$textFlags = 'dynamic';
+		if( $auto ) $textFlags .= ',auto';
 		$this->mFlags = explode(',',$textFlags);
 		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry

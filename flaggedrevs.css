@@ -245,11 +245,9 @@
 	line-height: 1em;
 }
 
-.fr-hist-stable-user {
-	font-weight: bold;
-}
-
-.fr-hist-quality-user {
+.fr-hist-stable-user,
+.fr-hist-quality-user,
+.fr-hist-autoreviewed {
 	font-weight: bold;
 }
 

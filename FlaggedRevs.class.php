@@ -877,11 +877,16 @@ class FlaggedRevs {
 	 * @returns array (string,string)
 	 */
 	public static function markHistoryRow( $title, $row, $skin ) {
-		if( isset($row->fr_quality) ) {
+		if( isset($row->fr_quality) && isset($row->fr_flags) ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
-			$user = User::whois( $row->fr_user );
-			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
+			$user = User::whois( $row->fr_user ); // FIXME: o(N)
+			$flags = explode(',',$row->fr_flags);
+			if( in_array('auto',$flags) ) {
+				$msg = 'hist-autoreviewed';
+			} else {
+				$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
+			}
 			$st = $title->getPrefixedDBkey();
 			$link = "<span class='fr-$msg plainlinks'>[" .
 				wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user) . "]</span>";
@@ -1038,7 +1043,7 @@ class FlaggedRevs {
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		) );
-		$flaggedRevision->insertOn( $tmpset, $imgset );
+		$flaggedRevision->insertOn( $tmpset, $imgset, true );
 		# Mark as patrolled
 		if( $patrol ) {
 			RevisionReview::updateRecentChanges( $title, $rev->getId() );

@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs (
   -- This will trade space for speed
   fr_text mediumblob NOT NULL,
   -- Comma-separated list of flags:
-  -- gzip: text is compressed with PHP's gzdeflate() function.
+  -- dynamic: no text, templates must be fetched
+  -- auto: revision patrolled automatically
   -- utf8: in UTF-8
-  -- external: the fr_text column is a url to an external storage object
   fr_flags tinyblob NOT NULL,
   -- Parameters for revisions of Image pages:
   -- Name of included image (NULL if n/a)
