@@ -3675,7 +3675,7 @@ $messages['he'] = array(
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} אושרה] על ידי [[User:$3|$3]]',
 	'hist-stable' => 'גרסה נצפית',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} נצפתה] על ידי [[User:$3|$3]]',
-	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} נבדקה אוטומטית]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} נצפתה אוטומטית]',
 	'review-diff2stable' => 'הצגת ההבדלים בין הגרסה היציבה והגרסה הנוכחית',
 	'review-logentry-app' => 'בדק את [[$1]]',
 	'review-logentry-dis' => 'סימן גרסה של [[$1]] כבעייתית',
