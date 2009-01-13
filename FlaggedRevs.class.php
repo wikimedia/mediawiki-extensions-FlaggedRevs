@@ -624,7 +624,7 @@ class FlaggedRevs {
 			$nextTimestamp = $dbw->selectField( 'revision',
 				'rev_timestamp',
 				array( 'rev_page' => $article->getId(),
-					"rev_timestamp > ".$dbw->strencode( $dbw->timestamp($timestamp) ) ),
+					"rev_timestamp > ".$dbw->addQuotes( $dbw->timestamp($timestamp) ) ),
 				__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
 			);
