@@ -411,13 +411,13 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'right-unreviewedpages' => 'Lueg d [[Special:UnreviewedPages|Lischt vu Syte, wu nonig gsichtet sin]]',
-	'unreviewedpages' => 'Syte, wu nonig gsichet sin',
-	'unreviewed-legend' => 'Lischt vu Syte, wu nonig gsichtet sin',
+	'unreviewedpages' => 'Syte, wu nonig vum Fäldhieter gsäh sin',
+	'unreviewed-legend' => 'Lischt vu Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'aaluege',
 	'unreviewed-unwatched' => 'nid beobachtet',
 	'unreviewed-watched' => '(vu $1 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)',
-	'unreviewed-list' => 'Die Spezialsyte zeigt Syte, wu nonig gsichtet sin.',
+	'unreviewed-list' => 'Die Spezialsyte zeigt Syte, wu nonig vum Fäldhieter gsäh sin.',
 	'unreviewed-none' => 'S git kei Syte mit däne Kriterie, wu yygee wore sin.',
 );
 
@@ -801,16 +801,22 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
+	'right-unreviewedpages' => 'Sjå [[Special:UnreviewedPages|lista over sider som ikkje er vurderte]]',
+	'unreviewedpages' => 'Sider som ikkje har vortne vurderte',
+	'unreviewed-legend' => 'List opp innhaldssider som ikkje er vurderte',
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-unwatched' => '(uovervaka)',
 	'unreviewed-watched' => '({{PLURAL:$1|éin brukar|$1 brukarar}} overvakar)',
+	'unreviewed-list' => 'Denne sida listar opp artiklar som manglar vurdering',
+	'unreviewed-none' => 'Det finst ingen sider som svarer til søkekriteira',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'right-unreviewedpages' => 'Vise [[Special:Unreviewedpages|liste over uanmeldte sider]]',
+	'right-unreviewedpages' => 'Vise [[Special:UnreviewedPages|liste over uanmeldte sider]]',
 	'unreviewedpages' => 'Uanmeldte sider',
 	'unreviewed-legend' => 'List uanmeldte innholdssider',
 	'unreviewed-category' => 'Kategori:',

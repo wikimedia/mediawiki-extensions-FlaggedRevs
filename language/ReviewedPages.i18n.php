@@ -238,6 +238,7 @@ $messages['es'] = array(
 	'reviewedpages-lev-1' => 'Calidad',
 	'reviewedpages-lev-2' => 'Destacado',
 	'reviewedpages-all' => 'versiones revisadas',
+	'reviewedpages-best' => 'revisión de primera',
 );
 
 /** Basque (Euskara)
@@ -323,6 +324,7 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'reviewedpages' => 'Ἐπιθεωρημέναι δέλτοι',
 	'reviewedpages-lev-0' => 'θεωρημένη',
 	'reviewedpages-lev-1' => 'ποιοτικὴ ἔκδοσις',
 	'reviewedpages-lev-2' => 'Ἐξαίρετος',
@@ -334,14 +336,14 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'reviewedpages' => 'Lischt vu dr Syte, wu gsichtet sin',
+	'reviewedpages' => 'Lischt vu dr Syte, wu vum Fäldhieter gsäh sin',
 	'reviewedpages-leg' => 'Lischt vu dr Syte, wu sicher vum Fäldhieter aagluegt sin',
 	'reviewedpages-list' => 'Die Syte sin gsichtet un hän dr Status, wu aagee isch, iberchu',
 	'reviewedpages-none' => 'Die Lischt isch läär.',
-	'reviewedpages-lev-0' => 'Gsichtet',
+	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
 	'reviewedpages-lev-1' => 'Prieft',
 	'reviewedpages-lev-2' => 'Bsundersch glunge',
-	'reviewedpages-all' => 'gsichteti Versione',
+	'reviewedpages-all' => 'Vum Fäldhieter aagluegti Versione',
 	'reviewedpages-best' => 'leschti Version, wu am hegschte gwärtet woren isch',
 );
 
@@ -681,8 +683,13 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'reviewedpages' => 'Vurderte sider',
+	'reviewedpages-leg' => 'Syn sider vurderte som eit visst nivå',
+	'reviewedpages-list' => 'Dei fylgjande sidene har vortne vurderte som det oppgjevne nivået',
+	'reviewedpages-none' => 'Det finst ingen sider i denne lista',
 	'reviewedpages-lev-0' => 'Vurdert',
 	'reviewedpages-lev-1' => 'Kvalitet',
+	'reviewedpages-all' => 'vurderte versjonar',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

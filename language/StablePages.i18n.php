@@ -211,8 +211,8 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'stablepages' => 'Lischt vu Syte, wu gsichtet sin',
-	'stablepages-stable' => 'gsichteti Version',
+	'stablepages' => 'Lischt vu Syte, wu vum Fäldhieter gsäh sin',
+	'stablepages-stable' => 'Vum Fäldhieter aagluegti Version',
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byn ene di aagluegt Version as Standardinhalt aazeigt wird.',
 	'stablepages-none' => 'Die Lischt isch läär.',
 	'stablepages-config' => 'Konfiguration',
@@ -308,6 +308,15 @@ $messages['km'] = array(
 	'stablepages-config' => 'ការកំណត់រចនាសម្ព័ន្ធ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'stablepages' => '안정 문서',
+	'stablepages-stable' => '안정 버전',
+	'stablepages-config' => '설정',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */
@@ -332,7 +341,7 @@ $messages['lb'] = array(
 $messages['mk'] = array(
 	'stablepages' => 'Стабилни страници',
 	'stablepages-stable' => 'стабилна верзија',
-	'stablepages-text' => 'Следи листа на страници кои се мануелно конфигурирани да ја прикажуваат содржината на стабилната верзија по основно за корисниците кои ја прегледуваат.',
+	'stablepages-text' => 'Листа на страници рачно конфигурирани да ја прикажуваат содржината на стабилната верзија по основно за корисниците кои ја прегледуваат.',
 	'stablepages-none' => 'Нема страници во оваа листа',
 	'stablepages-config' => 'Конфигурација',
 );

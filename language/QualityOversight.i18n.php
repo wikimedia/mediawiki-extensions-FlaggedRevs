@@ -99,6 +99,7 @@ $messages['eo'] = array(
 $messages['es'] = array(
 	'qualityoversight' => 'Vigilancia de calidad',
 	'qualityoversight-list' => 'Esta página enumera las más recientes aprobaciones y depreciaciones de revisiones.',
+	'qualityoversight-legend' => 'Buscar lista de revisiones recientes',
 );
 
 /** Persian (فارسی)
@@ -197,11 +198,12 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Fryed-peach
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
 	'qualityoversight' => 'クオリティーオーバーサイト',
-	'qualityoversight-legend' => '最近のレビュー記録を検索',
+	'qualityoversight-legend' => '最近の査読記録を検索',
 );
 
 /** Ripoarisch (Ripoarisch)
@@ -246,6 +248,15 @@ $messages['nl'] = array(
 	'qualityoversight' => 'Kwaliteitscontrole',
 	'qualityoversight-list' => "Op deze pagina's worden recent gecontroleerde kwaliteitsversies weergegeven en pagina's waarvoor de kwaliteit lager is ingesteld.",
 	'qualityoversight-legend' => 'Recente eindredactielogboeken bekijken',
+);
+
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'qualityoversight' => 'Kvalitetsoversikt',
+	'qualityoversight-list' => 'Denne sida syner dei siste godkjente og degraderte sideversjonar.',
+	'qualityoversight-legend' => 'Søk i loggen over dei siste vurderingane',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

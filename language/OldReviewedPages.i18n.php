@@ -312,6 +312,7 @@ $messages['es'] = array(
 	'oldreviewed-category' => 'Categoría:',
 	'oldreviewed-watched' => 'En mi lista de vigilancia',
 	'oldreviewed-diff' => 'Revisado',
+	'oldreviewed-size' => 'Cambio máximo (bytes):',
 	'oldreviewedpages-unwatched' => '(no vigilado)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vigilando)',
 );
@@ -433,20 +434,20 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'oldreviewedpages' => 'Alti gsichteti Versione',
-	'oldreviewedpages-legend' => 'Lischt vu Syte, wu gsichtet sin mit Versione, wu nit gsichtet sin',
-	'oldreviewedpages-list' => 'Die Spezialsyte zeigt gsichteti Syte, wu nonig gsichteti Bearbeitige hän.',
+	'oldreviewedpages' => 'Alti vum Fäldhieter aagluegti Versione',
+	'oldreviewedpages-legend' => 'Lischt vu Syte, wu vum Fäldhieter gsäh sin mit Versione, wu nit gsäh sin',
+	'oldreviewedpages-list' => 'Die Spezialsyte zeigt vum Fäldhieter aagluegti Syte, wu nonig aagluegti Bearbeitige hän.',
 	'oldreviewedpages-none' => 'Im Momänt git s no kei Syte mit däne Kriterie.',
-	'oldreviewedpages-stable' => 'gsichtet',
+	'oldreviewedpages-stable' => 'vum Fäldhieter gsäh',
 	'oldreviewedpages-quality' => 'prieft',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunde}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Täg}})',
 	'oldreviewedpages-recent' => '(weniger wie 1 Stund)',
 	'oldreviewed-category' => 'Kategorii:',
 	'oldreviewed-watched' => 'Uf myynere Beobachtigslischt',
-	'oldreviewed-diff' => 'sichte',
+	'oldreviewed-diff' => 'as Fäldhieter aaluege',
 	'oldreviewed-size' => 'Maximali Änderigsgreßi in Byte:',
-	'oldreviewedpages-unwatched' => '(uubeobachtet)',
+	'oldreviewedpages-unwatched' => '(nit beobachtet)',
 	'oldreviewedpages-watched' => '(vu $2 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)',
 );
 
@@ -617,6 +618,7 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'oldreviewedpages-hours' => '($1시간 전)',
 	'oldreviewedpages-days' => '($1일 전)',
+	'oldreviewedpages-recent' => '(1시간 미만)',
 	'oldreviewed-category' => '분류:',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
 	'oldreviewedpages-watched' => '($2명의 사용자가 주시중입니다)',
@@ -769,13 +771,21 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'oldreviewedpages' => 'Utdaterte vurderte sider',
+	'oldreviewedpages-legend' => 'Syn vurderte sider med versjonar som manglar vurdering',
+	'oldreviewedpages-list' => 'Denne sida syner vurderte sider som har uteståande endringar.',
 	'oldreviewedpages-none' => 'For tida møter ingen sider desse krava',
 	'oldreviewedpages-stable' => 'vurdert',
 	'oldreviewedpages-quality' => 'kvalitet',
+	'oldreviewedpages-hours' => '({{PLURAL:$1|éin time|$1 timar}})',
+	'oldreviewedpages-days' => '({{PLURAL:$1|éin dag|$1 dagar}})',
 	'oldreviewedpages-recent' => '(mindre enn éin time)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'På overvakingslista mi',
+	'oldreviewed-diff' => 'vurder',
+	'oldreviewed-size' => 'Maksimal endring (byte):',
 	'oldreviewedpages-unwatched' => '(ikkje overvaka)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|éin brukar|$2 brukarar}} overvakar)',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -1114,6 +1124,15 @@ $messages['vi'] = array(
 	'oldreviewed-size' => 'Thay đổi lớn nhất (byte):',
 	'oldreviewedpages-unwatched' => '(chưa theo dõi)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
+);
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'oldreviewedpages-hours' => '({{PLURAL:$1|düp|düps}} $1)',
+	'oldreviewedpages-days' => '({{PLURAL:$1|del|dels}} $1)',
+	'oldreviewed-category' => 'Klad:',
 );
 
 /** Yue (粵語)

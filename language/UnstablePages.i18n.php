@@ -63,6 +63,13 @@ $messages['be-tarask'] = array(
 	'unstablepages-config' => 'Канфігурацыя',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'unstablepages' => 'Nestabilne stranice',
+);
+
 /** Czech (Česky)
  * @author Matěj Grabovský
  */

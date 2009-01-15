@@ -215,6 +215,13 @@ $messages['nl'] = array(
 	'likedpages-graphs' => 'waarderingsgegevens',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'likedpages-none' => 'Det finst ingen sider i denne lista',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */

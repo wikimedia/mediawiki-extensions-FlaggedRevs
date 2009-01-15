@@ -317,8 +317,10 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'stableversions' => 'Ὁρᾶν τὰς σταθερὰς ἐκδόσεις',
+	'stableversions-leg1' => 'Ὕσταται ἐπιθεωρημέναι ἀναθεωρήσεις δέλτου τινός',
 	'stableversions-page' => 'Ὄνομα δέλτου:',
-	'stableversions-none' => 'Τὸ "[[:$1]]" οὐκ ἔχει ἀναθεωρημένας ἐκδόσεις.',
+	'stableversions-none' => 'Τὸ "[[:$1]]" οὐκ ἔχει ἐπιθεωρημένας ἀναθεωρήσεις.',
 	'stableversions-review' => 'Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2',
 );
 
@@ -326,11 +328,11 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'stableversions' => 'Gsichteti Versione',
-	'stableversions-leg1' => 'Lischt vu dr Versione fir e Artikel, wu gsichtet sin',
+	'stableversions' => 'Vum Fäldhieter aagluegti Versione',
+	'stableversions-leg1' => 'Lischt vu dr Versione fir e Artikel, wu vum Fäldhieter gsäh sin',
 	'stableversions-page' => 'Artikelname:',
-	'stableversions-none' => '„[[:$1]]“ het kei Versione, wu gsichtet sin.',
-	'stableversions-list' => 'Des isch d Lischt vu dr Versione vu [[:$1]], wu gsichtet sin:',
+	'stableversions-none' => '„[[:$1]]“ het kei Versione, wu vum Fäldhieter gsäh sin.',
+	'stableversions-list' => 'Des isch d Lischt vu dr Versione vu [[:$1]], wu vum Fäldhieter gsäh sin:',
 	'stableversions-review' => 'aagluegt <i>$1</i> dur $2',
 );
 
@@ -642,10 +644,16 @@ $messages['nl'] = array(
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
+	'stableversions' => 'Sjå stabile versjonar',
+	'stableversions-leg1' => 'List opp vurderte versjonar av ei sida',
 	'stableversions-page' => 'Sidenamn',
+	'stableversions-none' => '«[[:$1]]» har ingen vurderte versjonar.',
+	'stableversions-list' => 'Fylgjande er ei lista over vurderte versjonar av [[:$1]]:',
+	'stableversions-review' => 'Vurdert den <i>$1</i> av $2',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -938,7 +946,7 @@ $messages['vi'] = array(
  * @author Smeira
  */
 $messages['vo'] = array(
-	'stableversions' => 'Fomams fümöfik',
+	'stableversions' => 'Logön fomamis fümöfik',
 	'stableversions-leg1' => 'Lisedön padafomamis pekrütöl',
 	'stableversions-page' => 'Nem pada:',
 	'stableversions-none' => '"[[:$1]]" no labon fomamis pekrütöl.',

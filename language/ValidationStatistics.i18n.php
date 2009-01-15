@@ -188,6 +188,9 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 $messages['es'] = array(
 	'validationstatistics' => 'Estadísticas de validación',
 	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''$1''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''$2''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].",
+	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, excluyendo páginas de redireccionamiento.
+
+'''Nota:''' los siguientes datos son almacenados por varias horas y pueden no estar actualizados.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Revisado',
@@ -304,10 +307,10 @@ $messages['gsw'] = array(
 '''Wichtig:''' Die Date wäre als fir e paar Stund in Zwischespicher abglait und sin wäg däm vilicht nid alliwyl aktuäll.",
 	'validationstatistics-ns' => 'Namensruum',
 	'validationstatistics-total' => 'Syte insgsamt',
-	'validationstatistics-stable' => 'Zmindescht ei Version isch gsichtet.',
-	'validationstatistics-latest' => 'Syte, wu di letscht Version vun ene gsichtet isch.',
-	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu gsichtet sin.',
-	'validationstatistics-old' => 'Syte mit Versione, wu nid gsichtet sin.',
+	'validationstatistics-stable' => 'Zmindescht ei Version isch vum Fäldhieter gsäh.',
+	'validationstatistics-latest' => 'Syte, wu di letscht Version vum Fäldhieter gsäh isch.',
+	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu vum Fäldhieter gsäh sin.',
+	'validationstatistics-old' => 'Syte mit Versione, wu nit vum Fäldhieter gsäh sin.',
 );
 
 /** Hebrew (עברית)
@@ -427,11 +430,21 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Fryed-peach
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
+	'validationstatistics' => '判定統計',
+	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''$1'''人、[[{{MediaWiki:Validationpage}}|査読者]]権限をもつ利用者が '''$2'''人います。",
+	'validationstatistics-table' => "名前空間別の統計を以下に表示します。リダイレクトページは除いています。
+
+'''注:''' データは数時間ほどキャッシュされるため、以下は最新のものではない可能性があります。",
 	'validationstatistics-ns' => '名前空間',
-	'validationstatistics-total' => 'ページ',
+	'validationstatistics-total' => 'ページ数',
+	'validationstatistics-stable' => '査読済',
+	'validationstatistics-latest' => '最新版査読済',
+	'validationstatistics-synced' => '最新版査読済/全査読済',
+	'validationstatistics-old' => '最新版未査読',
 );
 
 /** Javanese (Basa Jawa)
@@ -568,8 +581,14 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'validationstatistics' => 'Valideringsstatistikk',
+	'validationstatistics-table' => "Statistikk for kvart namnerom er synt nedanfor, utanom omdirigeringssider.
+
+'''Merk:''' Fylgjande data vert mellomlagra i fleire timar og kan vera forelda.",
 	'validationstatistics-ns' => 'Namnerom',
 	'validationstatistics-total' => 'Sider',
+	'validationstatistics-stable' => 'Vurdert',
+	'validationstatistics-latest' => 'Sist vurdert',
 	'validationstatistics-old' => 'Utdatert',
 );
 
@@ -832,6 +851,14 @@ $messages['vi'] = array(
 	'validationstatistics-latest' => 'Được duyệt gần đây',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
+);
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'validationstatistics-ns' => 'Nemaspad',
+	'validationstatistics-total' => 'Pads',
 );
 
 /** Yiddish (ייִדיש)
