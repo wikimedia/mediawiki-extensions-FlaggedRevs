@@ -337,7 +337,13 @@ $messages['he'] = array(
  * @author Dalibor Bosits
  */
 $messages['hr'] = array(
+	'validationstatistics' => 'Statistika pregledavanja',
 	'validationstatistics-ns' => 'Imenski prostor',
+	'validationstatistics-total' => 'Stranice',
+	'validationstatistics-stable' => 'Ocijenjeno',
+	'validationstatistics-latest' => 'Nedavno ocijenjeno',
+	'validationstatistics-synced' => 'Usklađeno/Ocijenjeno',
+	'validationstatistics-old' => 'Zastarjelo',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

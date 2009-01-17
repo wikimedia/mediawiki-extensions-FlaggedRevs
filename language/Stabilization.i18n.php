@@ -969,6 +969,7 @@ $messages['hi'] = array(
 );
 
 /** Croatian (Hrvatski)
+ * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
  */
@@ -990,7 +991,7 @@ Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilization-notexists' => 'Ne postoji stranica "[[:$1|$1]]", te stoga nije moguće namještanje postavki za tu stranicu.',
 	'stabilization-notcontent' => 'Stranica "[[:$1|$1]]" ne može biti ocijenjena. Namještanje postavki nije moguće.',
 	'stabilization-comment' => 'Komentar:',
-	'stabilization-expiry' => 'Ističe:',
+	'stabilization-expiry' => 'Istječe:',
 	'stabilization-sel-short' => 'Prvenstvo',
 	'stabilization-sel-short-0' => 'Kvaliteta',
 	'stabilization-sel-short-1' => 'Nema',
@@ -1193,32 +1194,34 @@ Non è possibile effettuare la configurazione.',
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author Hosiryuhosi
  * @author JtFuruhata
  */
 $messages['ja'] = array(
 	'stabilization-tab' => '採択',
 	'stabilization' => 'ページの採択',
-	'stabilization-text' => "'''[[:$1|$1]] の表示設定（採択ページをどのように決定するか）を変更します。'''",
+	'stabilization-text' => "'''以下で [[:$1|$1]] の表示設定（採択ページをどのように決定するか）を変更します。'''",
 	'stabilization-perm' => 'あなたには権限がないため採択ページ設定を変更できません。現在の [[:$1|$1]] における設定は以下の通りです:',
 	'stabilization-page' => 'ページ名:',
 	'stabilization-leg' => '安定版の設定確認',
 	'stabilization-select' => '安定版の選択',
 	'stabilization-select1' => '最新の内容充実版、それがない場合は、最新の採用版',
 	'stabilization-select2' => '最新の査読済版',
-	'stabilization-def' => 'ページにデフォルトで表示する版',
+	'stabilization-select3' => '最新の原始版、それがない場合は、最新の内容充実版か採用版',
+	'stabilization-def' => 'ページに既定で表示する版',
 	'stabilization-def1' => '採択ページ、それがない場合は、最新版',
 	'stabilization-def2' => '最新版',
 	'stabilization-submit' => '設定',
-	'stabilization-notexists' => '"[[:$1|$1]]" に該当するページが存在しないため、設定できません。',
-	'stabilization-notcontent' => '"[[:$1|$1]]" ページは査読対象ではないため、設定できません。',
+	'stabilization-notexists' => '「[[:$1|$1]]」に該当するページが存在しないため、設定できません。',
+	'stabilization-notcontent' => 'ページ「[[:$1|$1]]」は査読対象ではないため、設定できません。',
 	'stabilization-comment' => '変更内容の要約:',
 	'stabilization-expiry' => '有効期限:',
 	'stabilization-sel-short' => '優先度',
 	'stabilization-sel-short-0' => '内容充実',
 	'stabilization-sel-short-1' => '不問',
 	'stabilization-sel-short-2' => '初期',
-	'stabilization-def-short' => 'デフォルト表示',
+	'stabilization-def-short' => '既定表示',
 	'stabilization-def-short-0' => '最新版',
 	'stabilization-def-short-1' => '採択ページ',
 	'stabilize_expiry_invalid' => '有効期限に不正な日時が設定されました。',

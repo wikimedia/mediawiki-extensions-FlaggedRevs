@@ -150,6 +150,7 @@ Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Viso
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Pill
  * @author Raimond Spekking
  * @author Umherirrender
  */
@@ -158,7 +159,7 @@ $messages['de'] = array(
 	'ratinghistory-leg' => 'Verlauf der Seitenbewertung für [[:$1|$1]]',
 	'ratinghistory-tab' => 'Bewertung',
 	'ratinghistory-link' => 'Seitenbewertung',
-	'ratinghistory-thanks' => "''<font color=\"darkred\">Danke, dass du dir einen Moment Zeit genommen hast für die Bewertung der Seite!</font>''",
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Danke, dass du dir für die Bewertung dieser Seite einen Moment Zeit genommen hast!</font>''",
 	'ratinghistory-period' => 'Zeitraum:',
 	'ratinghistory-month' => 'letzter Monat',
 	'ratinghistory-3months' => 'letzte 3 Monate',
@@ -169,11 +170,11 @@ $messages['de'] = array(
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'readerfeedback-svg' => 'Als SVG ansehen',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
-	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Der '''Durchschnitt über den ausgewählten Zeitraum''' ist einfach der Durchschnitt aller Tagesbewertungen ''innerhalb'' dieser Zeitspanne jedes Tages.
+	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Der '''Durchschnitt im ausgewählten Zeitraum''' ist der Durchschnitt aller Tagesbewertungen ''innerhalb'' dieser Zeitspanne.
 
 Legende: '''[1]''' - Mangelhaft; '''[2]''' - Ausreichend; '''[3]''' - Befriedigend; '''[4]''' - Gut; '''[5]''' - Sehr gut;
 
-In der folgenden Grafik werden die '''Anzahl Bewertungen pro Tag''' <font color=\"red\">''(rot)''</font> auf einer 1:\$1-Skala gezeigt.",
+In der folgenden Grafik wird die '''Anzahl Bewertungen pro Tag''' <font color=\"red\">''(rot)''</font> auf einer 1:\$1-Skala gezeigt.",
 	'right-feedback' => 'Bewerten einer Seite',
 );
 
@@ -567,6 +568,33 @@ $messages['it'] = array(
 
 Il '''numero di revisioni al giorno''' <font color=\"red\">''(rosso)''</font> è mostrato nel grafico di sotto, in scala ''1:\$1''.",
 	'right-feedback' => 'Usa il modulo di feedback per giudicare una pagina',
+);
+
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
+$messages['ja'] = array(
+	'ratinghistory' => 'ページ評価履歴',
+	'ratinghistory-leg' => '[[:$1|$1]] の評価履歴',
+	'ratinghistory-tab' => '評価',
+	'ratinghistory-link' => 'ページ評価',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">時間を割いて、このページを評価していただきありがとうございます！</font>''",
+	'ratinghistory-period' => '期間:',
+	'ratinghistory-month' => '過去1か月',
+	'ratinghistory-3months' => '過去3か月',
+	'ratinghistory-year' => '過去1年',
+	'ratinghistory-3years' => '過去3年',
+	'ratinghistory-chart' => '期間中の読者評価',
+	'ratinghistory-users' => '評価を行った利用者',
+	'ratinghistory-graph' => '「$3」の$2 ($1回の評価)',
+	'readerfeedback-svg' => 'SVGとして表示',
+	'ratinghistory-none' => '現時点ではグラフを表示するのに十分な読者評価データがありません。',
+	'ratinghistory-legend' => "日ごとの'''日間平均評価''' <font color=\"blue\">''(青)''</font> と'''移動平均評価''' <font color=\"green\">''(緑)''</font> を以下のグラフに表示します。'''移動平均評価'''とは単にこの期間中のすべての日間評価の平均のことです。
+
+目盛り: '''[1]''' - 惨、'''[2]''' - 低、'''[3]''' - 可、'''[4]''' - 高、'''[5]''' - 優
+
+'''日ごとの評価回数''' <font color=\"red\">''(赤)''</font> を以下のグラフに\$1分の1の縮尺で表示します。",
+	'right-feedback' => 'ページを評価するためのフォームを使用する',
 );
 
 /** Javanese (Basa Jawa)

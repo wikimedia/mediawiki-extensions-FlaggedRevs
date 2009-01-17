@@ -211,6 +211,17 @@ $messages['he'] = array(
 	'unstablepages-config' => 'תצורה',
 );
 
+/** Croatian (Hrvatski)
+ * @author Dalibor Bosits
+ */
+$messages['hr'] = array(
+	'unstablepages' => 'Nestabilne stranice',
+	'unstablepages-stable' => 'stabilna inačica',
+	'unstablepages-text' => 'Ovo je popis stranica kojima je ručno postavljen nacrt kao glavni sadržaj stranice za gledatelje.',
+	'unstablepages-none' => 'Nema stranica na ovom popisu',
+	'unstablepages-config' => 'Konfiguracija',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -264,6 +275,17 @@ $messages['it'] = array(
 	'unstablepages-text' => 'Di seguito sono elencate le pagine configurate manualmente in modo tale da mostrare per default le versioni di bozza ai visitatori.',
 	'unstablepages-none' => 'Nessuna pagina in questo elenco',
 	'unstablepages-config' => 'Configurazione',
+);
+
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
+$messages['ja'] = array(
+	'unstablepages' => '非安定ページ',
+	'unstablepages-stable' => '安定版',
+	'unstablepages-text' => '以下では草稿版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
+	'unstablepages-none' => '表示すべきページはありません',
+	'unstablepages-config' => '設定',
 );
 
 /** Javanese (Basa Jawa)

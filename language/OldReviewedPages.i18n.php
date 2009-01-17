@@ -584,14 +584,25 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Fievarsty
+ * @author Fryed-peach
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|時間|時間}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|日|日}})',
+	'oldreviewedpages' => '古くなった査読済みページ',
+	'oldreviewedpages-legend' => '査読待ちの版のある査読済みページを一覧',
+	'oldreviewedpages-list' => 'このページは以前の査読以降に査読待ちの編集がなされたページを一覧します。',
+	'oldreviewedpages-none' => '現在、この基準に合うページはありません',
+	'oldreviewedpages-stable' => '採択済',
+	'oldreviewedpages-quality' => '内容充実',
+	'oldreviewedpages-hours' => '($1時間)',
+	'oldreviewedpages-days' => '($1日)',
+	'oldreviewedpages-recent' => '(1時間未満)',
 	'oldreviewed-category' => 'カテゴリ:',
+	'oldreviewed-watched' => '自分のウォッチリストに含まれるもの',
 	'oldreviewed-diff' => '査読',
-	'oldreviewed-size' => '変更のバイトサイズ上限:',
+	'oldreviewed-size' => '変更量の上限 (バイト):',
+	'oldreviewedpages-unwatched' => '(未ウォッチ)',
+	'oldreviewedpages-watched' => '($2人の利用者がウォッチ)',
 );
 
 /** Khmer (ភាសាខ្មែរ)

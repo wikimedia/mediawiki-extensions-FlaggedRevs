@@ -211,6 +211,17 @@ $messages['it'] = array(
 	'problempages-none' => 'Non ci sono pagine in questo elenco',
 );
 
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
+$messages['ja'] = array(
+	'problempages' => '評価の低いページ',
+	'problempages-leg' => '評価の低いページを見つける',
+	'problempages-list' => '以下ではページを読者による評価の順に整列して一覧します。',
+	'problempages-none' => '表示すべきページはありません',
+	'problempages-graphs' => '評価データ',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  */

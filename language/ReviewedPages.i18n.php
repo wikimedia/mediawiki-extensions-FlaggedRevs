@@ -477,13 +477,14 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'reviewedpages' => '査読済のページ',
+	'reviewedpages' => '査読済みページ',
 	'reviewedpages-leg' => 'ページの査読結果レベル',
-	'reviewedpages-list' => '以下は、指定された査読結果レベルのページです',
-	'reviewedpages-none' => '一覧に表示するページがありません。',
+	'reviewedpages-list' => '以下は、査読結果が指定した水準にあるページです',
+	'reviewedpages-none' => '表示すべきページはありません',
 	'reviewedpages-lev-0' => '採用',
 	'reviewedpages-lev-1' => '内容充実',
 	'reviewedpages-lev-2' => '秀逸',

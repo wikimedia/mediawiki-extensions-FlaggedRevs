@@ -186,6 +186,17 @@ $messages['id'] = array(
 	'likedpages-graphs' => 'data pemeringkatan',
 );
 
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
+$messages['ja'] = array(
+	'likedpages' => '評価の高いページ',
+	'likedpages-leg' => '評価の高いページを見つける',
+	'likedpages-list' => '以下ではページを読者による評価の順に整列して一覧します。',
+	'likedpages-none' => '表示すべきページはありません',
+	'likedpages-graphs' => '評価データ',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

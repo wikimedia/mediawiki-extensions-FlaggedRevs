@@ -446,15 +446,16 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author JtFuruhata
  */
 $messages['ja'] = array(
 	'stableversions' => '安定版を見る',
-	'stableversions-leg1' => '表示する査読済版の対象ページ',
+	'stableversions-leg1' => '査読済版を一覧表示する対象ページ',
 	'stableversions-page' => 'ページ名:',
-	'stableversions-none' => '"[[:$1]]" には査読済の版がありません。',
-	'stableversions-list' => '以下は、"[[:$1]]" における査読済版の一覧です:',
-	'stableversions-review' => '査読日: <i>$1</i> 査読者: $2',
+	'stableversions-none' => '「[[:$1]]」には査読済みの版がありません。',
+	'stableversions-list' => '以下は、「[[:$1]]」における査読済版の一覧です:',
+	'stableversions-review' => '査読日: <i>$1</i>、査読者: $2',
 );
 
 /** Jutish (Jysk)

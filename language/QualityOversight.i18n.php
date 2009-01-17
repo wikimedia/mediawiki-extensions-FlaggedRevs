@@ -202,7 +202,8 @@ $messages['it'] = array(
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
-	'qualityoversight' => 'クオリティーオーバーサイト',
+	'qualityoversight' => '品質監督',
+	'qualityoversight-list' => 'このページでは最近の特定版承認および棄却を一覧しています。',
 	'qualityoversight-legend' => '最近の査読記録を検索',
 );
 

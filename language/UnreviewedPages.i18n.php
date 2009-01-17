@@ -460,13 +460,19 @@ $messages['hi'] = array(
 );
 
 /** Croatian (Hrvatski)
+ * @author Dalibor Bosits
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
+	'right-unreviewedpages' => 'Gledanje [[Special:UnreviewedPages|popisa neocijenjenih stranica]]',
 	'unreviewedpages' => 'Neocijenjene stranice',
+	'unreviewed-legend' => 'Popis neocijenjenih sadržaja stranica',
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'Promjene',
-	'unreviewed-list' => 'Slijedi popis neocijenjenih članaka (odnosno onih koji su mijenjani od zadnje ocjene).',
+	'unreviewed-unwatched' => '(nepraćeno)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|suradnik|suradnika}} prati)',
+	'unreviewed-list' => 'Ovo je popis sadržaja stranica koji nisu ocijenjeni.',
+	'unreviewed-none' => 'Trenutačno nema stranica koje se poklapaju s ovim kriterijima',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -560,13 +566,19 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'unreviewedpages' => '査読待ちのページ',
-	'unreviewed-category' => '{{ns:category}}:',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|未査読ページの一覧]]を表示する',
+	'unreviewedpages' => '未査読ページ',
+	'unreviewed-legend' => '未査読ページを一覧',
+	'unreviewed-category' => 'カテゴリ:',
 	'unreviewed-diff' => '査読',
-	'unreviewed-list' => '査読を受けていないページの一覧です。',
+	'unreviewed-unwatched' => '(未ウォッチ)',
+	'unreviewed-watched' => '($1人の利用者がウォッチ)',
+	'unreviewed-list' => 'これは査読を受けていないページの一覧です。',
+	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
 );
 
 /** Jutish (Jysk)

@@ -243,6 +243,13 @@ $messages['hi'] = array(
 	'stablepages-config' => 'कॉन्फिगरेशन',
 );
 
+/** Croatian (Hrvatski)
+ * @author Dalibor Bosits
+ */
+$messages['hr'] = array(
+	'stablepages-config' => 'Konfiguracija',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -297,6 +304,17 @@ $messages['it'] = array(
 	'stablepages-text' => 'Di seguito sono elencate le pagine configurate manualmente in modo tale da mostrare per default le versioni stabili ai visitatori.',
 	'stablepages-none' => 'Non ci sono pagine in questo elenco',
 	'stablepages-config' => 'Configurazione',
+);
+
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
+$messages['ja'] = array(
+	'stablepages' => '安定ページ',
+	'stablepages-stable' => '安定版',
+	'stablepages-text' => '以下では安定版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
+	'stablepages-none' => '表示すべきページはありません',
+	'stablepages-config' => '設定',
 );
 
 /** Khmer (ភាសាខ្មែរ)
