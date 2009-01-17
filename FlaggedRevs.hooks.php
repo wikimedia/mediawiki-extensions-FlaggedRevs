@@ -785,12 +785,30 @@ EOT;
 	}
 	
 	public static function incrementRollbacks( $this, $user, $target, $current ) {
-		# Mark when a user reverts another user
+		# Mark when a user reverts another user, but not self-reverts
 		if( $current->getRawUser() && $user->getId() != $current->getRawUser() ) {
 			$p = FlaggedRevs::getUserParams( $current->getRawUser() );
 			$p['revertedEdits'] = isset($p['revertedEdits']) ? $p['revertedEdits'] : 0;
 			$p['revertedEdits']++;
 			FlaggedRevs::saveUserParams( $current->getRawUser(), $p );
+		}
+		return true;
+	}
+	
+	public static function incrementReverts( $article, $rev, $baseRevId = false, $user = null ) {
+		global $wgRequest;
+		# Was this an edit by an auto-sighter that undid another edit?
+		$undid = $wgRequest->getInt( 'undidRev' );
+		if( $rev && $undid && $user->isAllowed('autoreview') ) {
+			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
+			# Don't count self-reverts
+			if( $badrev && $badrev->getRawUser() && $badrev->getRawUser() != $rev->getRawUser() ) {
+				$p = FlaggedRevs::getUserParams( $badrev->getRawUser() );
+				$p['revertedEdits'] = isset($p['revertedEdits']) ? $p['revertedEdits'] : 0;
+				$p['revertedEdits']++;
+				FlaggedRevs::saveUserParams( $badrev->getRawUser(), $p );
+			}
+			
 		}
 		return true;
 	}
