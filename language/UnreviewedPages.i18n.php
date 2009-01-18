@@ -575,12 +575,12 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|未査読ページの一覧]]を表示する',
 	'unreviewedpages' => '未査読ページ',
-	'unreviewed-legend' => '未査読ページを一覧',
+	'unreviewed-legend' => '未査読記事を一覧',
 	'unreviewed-category' => 'カテゴリ:',
 	'unreviewed-diff' => '査読',
 	'unreviewed-unwatched' => '(未ウォッチ)',
 	'unreviewed-watched' => '($1人の利用者がウォッチ)',
-	'unreviewed-list' => 'これは査読を受けていないページの一覧です。',
+	'unreviewed-list' => 'これは査読を受けていない記事の一覧です。',
 	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
 );
 

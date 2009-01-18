@@ -648,6 +648,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci datt Dir Iech en Ament Zäit huelt fir dës Säit nozekucken!</font>''",
 	'ratinghistory-period' => 'Zäitraum:',
 	'ratinghistory-month' => 'leschte Mount',
 	'ratinghistory-3months' => 'lescht 3 Méint',
@@ -660,11 +661,20 @@ $messages['lb'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
+	'ratinghistory' => 'Историја на оценување на страница',
+	'ratinghistory-leg' => 'Податоци за историјата на оценување за [[:$1|$1]]',
+	'ratinghistory-tab' => 'оценка',
+	'ratinghistory-link' => 'Оценка на страница',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Благодариме за вашето одвоено време за оценување на оваа страница!</font>''",
 	'ratinghistory-period' => 'Временски период:',
 	'ratinghistory-month' => 'последен месец',
 	'ratinghistory-3months' => 'последни 3 месеци',
 	'ratinghistory-year' => 'последна година',
 	'ratinghistory-3years' => 'последни 3 години',
+	'ratinghistory-users' => 'Корисници кои дале оценки',
+	'ratinghistory-graph' => '$2 од "$3" ($1 {{PLURAL:$1|оценка|оценки}})',
+	'readerfeedback-svg' => 'Поглед како SVG',
+	'ratinghistory-none' => 'Нема доволно податоци од оценувачите за исцртување на графиконот во овој момент.',
 );
 
 /** Malay (Bahasa Melayu)
