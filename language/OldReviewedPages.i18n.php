@@ -663,6 +663,7 @@ $messages['lb'] = array(
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-watched' => 'Op menger Iwwerwaachungslëscht',
 	'oldreviewed-diff' => 'iwwerkucken',
+	'oldreviewed-size' => 'Maximal Ännerung (Bytes):',
 	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',
 	'oldreviewedpages-watched' => '(Vu(n) $2 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)',
 );

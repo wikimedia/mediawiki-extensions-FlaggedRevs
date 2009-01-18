@@ -283,7 +283,7 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'unstablepages' => '非安定ページ',
 	'unstablepages-stable' => '安定版',
-	'unstablepages-text' => '以下では草稿版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
+	'unstablepages-text' => '以下では候補版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
 	'unstablepages-none' => '表示すべきページはありません',
 	'unstablepages-config' => '設定',
 );
@@ -377,6 +377,7 @@ $messages['nl'] = array(
 $messages['nn'] = array(
 	'unstablepages' => 'Ustabile sider',
 	'unstablepages-stable' => 'stabil versjon',
+	'unstablepages-text' => 'Under er ei lista over sider manuelt sette til å syna utkastet som standardinnhald for lesarar.',
 	'unstablepages-none' => 'Det finst ingen sider i denne lista',
 	'unstablepages-config' => 'Konfigurasjon',
 );

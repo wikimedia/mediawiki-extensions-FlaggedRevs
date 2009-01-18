@@ -179,6 +179,7 @@ $aliases['fr'] = array(
  * @author Toliño
  */
 $aliases['gl'] = array(
+	'LikedPages' => array( 'Páxinas ligadas' ),
 	'OldReviewedPages' => array( 'Páxinas revisadas hai tempo' ),
 	'ProblemPages' => array( 'Páxinas problemáticas' ),
 	'QualityOversight' => array( 'Revisión de calidade' ),
@@ -264,6 +265,24 @@ $aliases['id'] = array(
 	'StableVersions' => array( 'Versi stabil', 'VersiStabil' ),
 	'UnreviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
 	'ValidationStatistics' => array( 'Statistik validasi', 'StatistikValidasi' ),
+);
+
+/** Japanese (日本語) */
+$aliases['ja'] = array(
+	'LikedPages' => array( '評価の高いページ' ),
+	'OldReviewedPages' => array( '古くなった査読済みページ' ),
+	'ProblemPages' => array( '評価の低いページ', '問題のあるページ' ),
+	'QualityOversight' => array( '品質監督' ),
+	'RatingHistory' => array( '評価履歴', 'ページ評価履歴' ),
+	'ReaderFeedback' => array( '読者評価' ),
+	'ReviewedPages' => array( '査読済みページ' ),
+	'RevisionReview' => array( '版の査読' ),
+	'Stabilization' => array( '採択', 'ページの採択' ),
+	'StablePages' => array( '安定ページ' ),
+	'StableVersions' => array( '安定版', '採用版' ),
+	'UnreviewedPages' => array( '未査読ページ', '査読待ちページ' ),
+	'UnstablePages' => array( '非安定ページ' ),
+	'ValidationStatistics' => array( '判定統計' ),
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -464,6 +483,24 @@ $aliases['pt-br'] = array(
 	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
 	'UnstablePages' => array( 'Páginas instáveis' ),
 	'ValidationStatistics' => array( 'Estatísticas de validação' ),
+);
+
+/** Sanskrit (संस्कृत) */
+$aliases['sa'] = array(
+	'LikedPages' => array( 'इष्टपृष्ठ' ),
+	'OldReviewedPages' => array( 'पूर्वतनआवलोकीतपृष्ठ:' ),
+	'ProblemPages' => array( 'समस्यापृष्ठ' ),
+	'QualityOversight' => array( 'गुणपूर्णवृजावलोकन' ),
+	'RatingHistory' => array( 'मुल्यांकनइतिहास' ),
+	'ReaderFeedback' => array( 'वाचकप्रतिक्रिया' ),
+	'ReviewedPages' => array( 'समसमीक्षीतपृष्ठ:' ),
+	'RevisionReview' => array( 'आवृत्तीसमसमीक्षा' ),
+	'Stabilization' => array( 'स्वास्थ्य' ),
+	'StablePages' => array( 'स्वस्थपृष्ठ' ),
+	'StableVersions' => array( 'स्वस्थआवृत्ती' ),
+	'UnreviewedPages' => array( 'असमसमीक्षीतपृष्ठ:' ),
+	'UnstablePages' => array( 'अस्थीरपृष्ठ' ),
+	'ValidationStatistics' => array( 'उपयोगितासिद्धीसांख्यिकी' ),
 );
 
 /** Slovak (Slovenčina)

@@ -21,6 +21,7 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Darth Kule
+ * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Siebrand
  */
@@ -29,14 +30,16 @@ $messages['qqq'] = array(
 
 {{doc-right}}',
 	'unreviewedpages' => '{{Flagged Revs}}',
-	'unreviewed-legend' => '{{Flagged Revs}}',
+	'unreviewed-legend' => '{{Flagged Revs}}
+{{Identical|Content page}}',
 	'unreviewed-category' => '{{Flagged Revs}}
 {{Identical|Category}}',
 	'unreviewed-diff' => '{{Flagged Revs}}',
 	'unreviewed-unwatched' => '{{Flagged Revs}}',
 	'unreviewed-watched' => '{{Flagged Revs}}
 * $1 is the number of users that have the page on their watchlist',
-	'unreviewed-list' => '{{Flagged Revs}}',
+	'unreviewed-list' => '{{Flagged Revs}}
+{{Identical|Content page}}',
 	'unreviewed-none' => '{{Flagged Revs}}',
 );
 
@@ -817,6 +820,7 @@ $messages['nn'] = array(
 	'unreviewedpages' => 'Sider som ikkje har vortne vurderte',
 	'unreviewed-legend' => 'List opp innhaldssider som ikkje er vurderte',
 	'unreviewed-category' => 'Kategori:',
+	'unreviewed-diff' => 'vurder',
 	'unreviewed-unwatched' => '(uovervaka)',
 	'unreviewed-watched' => '({{PLURAL:$1|éin brukar|$1 brukarar}} overvakar)',
 	'unreviewed-list' => 'Denne sida listar opp artiklar som manglar vurdering',
