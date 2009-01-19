@@ -697,6 +697,7 @@ $messages['ar'] = array(
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطة [[User:$3|$3]]',
 	'hist-stable' => 'مراجعة منظورة',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} تم نظرها] بواسطة [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} منظورة تلقائيا]',
 	'review-diff2stable' => 'عرض التغييرات بين المراجعتين المستقرة والحالية',
 	'review-logentry-app' => 'راجع $1',
 	'review-logentry-dis' => 'أزال نسخة من $1',
@@ -783,9 +784,9 @@ $messages['ar'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|صفحة الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|صفحة الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} عرض المسودة]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|صفحة الجودة]]'''",
-	'revreview-quick-see-basic' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|مسودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقارنة])",
-	'revreview-quick-see-quality' => "'''مسودة''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|مسودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} عرض الصفحة]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مقارنة])",
 	'revreview-selected' => "المراجعة المختارة ل'''$1:'''",
 	'revreview-source' => 'مصدر المسودة',
@@ -5511,7 +5512,7 @@ $messages['ja'] = array(
 	'readerfeedback-reliability' => '信頼度',
 	'readerfeedback-completeness' => '完成度',
 	'readerfeedback-npov' => '中立度',
-	'readerfeedback-presentation' => '見栄え',
+	'readerfeedback-presentation' => '分かりやすさ',
 	'readerfeedback-overall' => '総合',
 	'readerfeedback-level-none' => '(不確定)',
 	'readerfeedback-level-0' => '惨',
