@@ -252,7 +252,8 @@ class RatingHistory extends UnlistedSpecialPage
 		// Set file path
 		$dir = dirname($filePath);
 		// Make sure directory exists
-		if( !is_dir($dir) && !wfMkdirParents( $dir, 0777 ) ) {
+		if( !file_exists($dir) && !wfMkdirParents( $dir, 0777 ) ) {
+			throw new MWException( 'Could not create file directory!' );
 			return false;
 		}
 		$plot->SetOutputFile( $filePath );
@@ -339,6 +340,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$dir = dirname($filePath);
 		// Make sure directory exists
 		if( !file_exists($dir) && !wfMkdirParents( $dir, 0777 ) ) {
+			throw new MWException( 'Could not create file directory!' );
 			return false;
 		}
 		// Set some parameters
