@@ -547,6 +547,7 @@ $aliases['sv'] = array(
 	'StablePages' => array( 'Stabila sidor' ),
 	'StableVersions' => array( 'Stabila versioner' ),
 	'UnreviewedPages' => array( 'Ogranskade sidor' ),
+	'UnstablePages' => array( 'Ostabila sidor' ),
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
 

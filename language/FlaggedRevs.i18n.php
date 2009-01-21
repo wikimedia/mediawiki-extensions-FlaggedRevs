@@ -4774,7 +4774,7 @@ ekkor: <i>$2</i> [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i> [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változást] kell ellenőrizni.',
 	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi kiemelt változat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablon- vagy képváltoztatások] várnak ellenőrzésre.',
-	'revreview-noflagged' => 'Az oldal még nem rendelkezik jelölt változatokkal, így a színvonalát valószínűleg még senki nem [[{{MediaWiki:Validationpage}}|ellenőrizte]].',
+	'revreview-noflagged' => 'A lapnak nincs jelölt változata, [[{{MediaWiki:Validationpage}}|ellenőrizetlen]].',
 	'revreview-note' => '[[User:$1]] az alábbi megjegyzéseket fűzte ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzése]] mellé:',
 	'revreview-notes' => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-oldrating' => 'Osztályozása:',
@@ -6019,6 +6019,7 @@ $messages['ko'] = array(
 	'hist-draft' => '초안 버전',
 	'hist-stable' => '검토된 판',
 	'hist-stable-user' => '[[User:$3|$3]]에 의해 [{{fullurl:$1|stableid=$2}} 검토됨]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} 자동적으로 검토됨]',
 	'review-logentry-app' => '[[$1]] 문서를 검토함',
 	'review-logentry-id' => '$1판',
 	'review-logentry-diff' => '안정 버전과의 차이',
@@ -6037,6 +6038,7 @@ $messages['ko'] = array(
 	'revreview-depth-4' => '알참',
 	'revreview-edit' => '초안 편집',
 	'revreview-flag' => '이 판을 검토하기',
+	'revreview-log' => '의견:',
 	'revreview-newest-basic' => '이 문서는 <i>$2</i>에 마지막으로 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 검토]되었습니다. ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} 검토된 모든 편집의 목록])
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3개의 편집]이 검토를 기다리고 있습니다.',
 	'revreview-patrol' => '이 편집을 검토된 것으로 표시',
@@ -6064,6 +6066,7 @@ $messages['ko'] = array(
 	'rights-editor-revoke' => '[[$1]]의 편집자 권한을 해제함',
 	'stable-logentry' => '[[$1]] 문서의 안정 버전을 설정함',
 	'stable-logentry2' => '[[$1]]의 안정 버전 설정을 초기화함',
+	'readerfeedback' => '이 문서에 대해 어떻게 생각하십니까?',
 	'readerfeedback-reliability' => '가독성',
 	'readerfeedback-completeness' => '완성도',
 	'readerfeedback-npov' => '중립성',
@@ -6079,7 +6082,10 @@ $messages['ko'] = array(
 	'revreview-filter-auto' => '자동',
 	'revreview-filter-manual' => '수동',
 	'revreview-statusfilter' => '상태:',
+	'revreview-tagfilter' => '태그:',
+	'revreview-reviewlink' => '검토',
 	'tooltip-ca-ratinghist' => '이 문서에 대한 평가',
+	'revreview-unlocked' => '이 문서에 보여지기 전에 편집은 검토를 필요로 하지 않습니다!',
 	'revreview-tt-review' => '이 문서를 검토',
 );
 
@@ -6329,6 +6335,29 @@ $messages['lt'] = array(
  */
 $messages['lv'] = array(
 	'revreview-revnotfound' => 'Meklētā vecā lapas versija netika atrasta. Lūdzu pārbaudi lietoto URL.',
+);
+
+/** Classical Chinese (文言)
+ * @author Itsmine
+ * @author Omnipaedista
+ */
+$messages['lzh'] = array(
+	'editor' => '分校官',
+	'flaggedrevs' => '校勘本',
+	'group-editor' => '分校官',
+	'group-editor-member' => '分校官',
+	'group-reviewer' => '總校官',
+	'group-reviewer-member' => '總校官',
+	'grouppage-editor' => '{{ns:project}}:分校官',
+	'grouppage-reviewer' => '{{ns:project}}:總校官',
+	'hist-draft' => '底本',
+	'hist-quality' => '校正本',
+	'hist-stable' => '初定本',
+	'revreview-accuracy-1' => '過目',
+	'revreview-accuracy-4' => '卓著',
+	'revreview-current' => '底本',
+	'revreview-draft-title' => '底本',
+	'revreview-revnotfound' => '查無舊審，惠核網址。',
 );
 
 /** Moksha (Мокшень)
@@ -7597,6 +7626,7 @@ $messages['oc'] = array(
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] per [[User:$3|$3]]',
 	'hist-stable' => 'Version visualizada',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} visada] per [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} revista automaticament]',
 	'review-diff2stable' => 'Vejatz las modificacions entre las versions establas e actualas.',
 	'review-logentry-app' => 'Revista [[$1]]',
 	'review-logentry-dis' => 'Version depreciada de [[$1]]',
@@ -11060,29 +11090,6 @@ $messages['yue'] = array(
 $messages['zea'] = array(
 	'revreview-revnotfound' => 'De opevrogen ouwe versie van deêze pagina is onvindbaer.
 Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
-);
-
-/** Classical Chinese (文言)
- * @author Itsmine
- * @author Omnipaedista
- */
-$messages['lzh'] = array(
-	'editor' => '分校官',
-	'flaggedrevs' => '校勘本',
-	'group-editor' => '分校官',
-	'group-editor-member' => '分校官',
-	'group-reviewer' => '總校官',
-	'group-reviewer-member' => '總校官',
-	'grouppage-editor' => '{{ns:project}}:分校官',
-	'grouppage-reviewer' => '{{ns:project}}:總校官',
-	'hist-draft' => '底本',
-	'hist-quality' => '校正本',
-	'hist-stable' => '初定本',
-	'revreview-accuracy-1' => '過目',
-	'revreview-accuracy-4' => '卓著',
-	'revreview-current' => '底本',
-	'revreview-draft-title' => '底本',
-	'revreview-revnotfound' => '查無舊審，惠核網址。',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
