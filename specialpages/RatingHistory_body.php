@@ -262,6 +262,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$totalVal = $totalCount = $n = 0;
 		// Define the data using the DB rows
 		list($res,$u,$maxC,$days) = $this->doQuery( $tag );
+		if( !$maxC ) return false;
 		// Label spacing
 		$int = intval( ceil($days/10) ); // 10 labels at most
 		while( $row = $res->fetchObject() ) {
@@ -362,6 +363,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$totalVal = $totalCount = $sd = $pts = $n = 0;
 		// Define the data using the DB rows
 		list($res,$u,$maxC,$days) = $this->doQuery( $tag );
+		if( !$maxC ) return false;
 		// Label spacing
 		$int = intval( ceil($days/10) ); // 10 labels at most
 		while( $row = $res->fetchObject() ) {
@@ -495,7 +497,8 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 			$upper = wfTimestamp( TS_UNIX, $upper );
 			$days = intval( ($upper - $lower)/86400 );
-			$ave = 1 + $total/$count; // Offset to [1,5]
+			if( $count )
+				$ave = 1 + $total/$count; // Offset to [1,5]
 			$res->seek( 0 ); // reset query row
 		}
 		return array($res,$ave,$maxC,$days);
