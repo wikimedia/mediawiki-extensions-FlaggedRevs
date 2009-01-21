@@ -11066,7 +11066,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author Itsmine
  * @author Omnipaedista
  */
-$messages['zh-classical'] = array(
+$messages['lzh'] = array(
 	'editor' => '分校官',
 	'flaggedrevs' => '校勘本',
 	'group-editor' => '分校官',
