@@ -70,7 +70,7 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function showTable() {
 		global $wgOut;
 		# Show latest month of results
-		$html = $this->getVoteAggregates( 31 );
+		$html = self::getVoteAggregates( $this->page, 31 );
 		if( $html ) {
 			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".$html );
 		}
@@ -619,7 +619,7 @@ class RatingHistory extends UnlistedSpecialPage
 		return $html;
 	}
 	
-	public function getVoteAggregates( $period ) {
+	public static function getVoteAggregates( $page, $period ) {
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
 		$cutoff_unixtime = time() - ($period * 24 * 3600);
@@ -628,14 +628,14 @@ class RatingHistory extends UnlistedSpecialPage
 		// Get the first revision possibly voted on in the range
 		$firstRevTS = $dbr->selectField( 'revision',
 			'rev_timestamp',
-			array( 'rev_page' => $this->page->getArticleId(), "rev_timestamp <= $cutoff" ),
+			array( 'rev_page' => $page->getArticleId(), "rev_timestamp <= $cutoff" ),
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp DESC' )
 		);
 		// Find average, median, deviation...
 		$res = $dbr->select( array( 'revision', 'reader_feedback' ),
 			array( 'rfb_ratings' ),
-			array( 'rev_page' => $this->page->getArticleId(),
+			array( 'rev_page' => $page->getArticleId(),
 				"rev_id = rfb_rev_id",
 				"rfb_timestamp >= $cutoff",
 				// Trigger INDEX usage
@@ -658,7 +658,7 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 		}
 		// Output multi-column list
-		$html = "<table class='fr_reader_feedback_stats wikitable' cellspacing='0'><tr>";
+		$html = "<table class='wikitable fr_reader_feedback_stats' cellspacing='0'><tr>";
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
 			$html .= '<th>'.wfMsgHtml("readerfeedback-$tag").'</th>';
 		}
@@ -711,11 +711,10 @@ class RatingHistory extends UnlistedSpecialPage
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
-		$tagTimestamp = $dbr->selectField( 'reader_feedback_pages', 
-			'rfp_touched',
+		$tagTimestamp = $dbr->selectField( 'reader_feedback_pages', 'rfp_touched',
 			array( 'rfp_page_id' => $this->page->getArticleId(), 'rfp_tag' => $tag ),
 			__METHOD__ );
-		$tagTimestamp = wfTimestamp( TS_MW, $tagTimestamp );
+		$tagTimestamp = wfTimestamp( TS_UNIX, $tagTimestamp );
 		$file_unixtime = filemtime($path);
 		# Check max cache time
 		$cutoff_unixtime = time() - (7 * 24 * 3600);
@@ -724,8 +723,7 @@ class RatingHistory extends UnlistedSpecialPage
 			return true;
 		}
 		# If there are new votes, graph is stale
-		$fileTimestamp = wfTimestamp( TS_MW, $file_unixtime );
-		return ( $fileTimestamp < $tagTimestamp);
+		return ( $file_unixtime < $tagTimestamp );
 	}
 	
 	/**

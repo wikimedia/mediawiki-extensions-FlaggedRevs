@@ -168,12 +168,16 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$dbw->begin();
 		$ok = ( $bot || $form->submit() ); // don't submit for mindless drones
 		$dbw->commit();
+		
+		wfLoadExtensionMessages( 'RatingHistory' );
 		if( $ok ) {
 			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
-				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) );
+				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) ) .
+				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n".RatingHistory::getVoteAggregates( $form->page, 31 );
 		} else {
 			return '<err#>'.wfMsgExt( 'readerfeedback-voted', array('parseinline'), 
-				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) );
+				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) ) .
+				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n".RatingHistory::getVoteAggregates( $form->page, 31 );
 		}
 	}
 	
