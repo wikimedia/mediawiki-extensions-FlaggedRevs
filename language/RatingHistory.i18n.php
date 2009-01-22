@@ -19,9 +19,12 @@ $messages['en'] = array(
 	'ratinghistory-year'    => 'last year',
 	'ratinghistory-3years'  => 'last 3 years',
 	'ratinghistory-chart'   => 'Reader feedback rating over time',
+	'ratinghistory-table'   => 'Overview of last month',
 	'ratinghistory-users'   => 'Users who gave ratings',
 	'ratinghistory-graph'   => '$2 of "$3" ($1 {{PLURAL:$1|review|reviews}})',
 	'readerfeedback-svg'    => 'View as SVG',
+	'ratinghistory-table-rating' => 'Rating',
+	'ratinghistory-table-votes'  => 'Votes',
 	'ratinghistory-none'    => 'There is not enough reader feedback data available for graphs at this time.',
 	'ratinghistory-legend'  => 'The \'\'\'daily average rating\'\'\' <font color="blue">\'\'(blue)\'\'</font> and 
 	\'\'\'running average rating\'\'\' <font color="green">\'\'(green)\'\'</font> are graphed below, by date. The 

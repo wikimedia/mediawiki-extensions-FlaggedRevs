@@ -63,7 +63,17 @@ class RatingHistory extends UnlistedSpecialPage
 		} else {
 			$wgOut->enableClientCache( false ); // don't show stale graphs
 		}
+		$this->showTable();
 		$this->showGraphs();
+	}
+	
+	protected function showTable() {
+		global $wgOut;
+		# Show latest month of results
+		$html = $this->getVoteAggregates( 31 );
+		if( $html ) {
+			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".$html );
+		}
 	}
 	
 	protected function showHeader() {
@@ -269,6 +279,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
+			if( !$row->rfh_count ) continue; // bad data
 			// Nudge values up by 1
 			$dayAve = 1 + (real)$row->rfh_total/(real)$row->rfh_count;
 			$cumAve = 1 + (real)$totalVal/(real)$totalCount;
@@ -371,6 +382,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
+			if( !$row->rfh_count ) continue; // bad data
 			// Nudge values up by 1 to fit [1,5]
 			$dayAve = 1 + (real)$row->rfh_total/(real)$row->rfh_count;
 			$sd += pow($dayAve - $u,2);
@@ -446,7 +458,7 @@ class RatingHistory extends UnlistedSpecialPage
 			</defs>';
 		*/
 		# Create the graph
-		$plot->init();
+		@$plot->init();
 		$plot->drawGraph();
 		$plot->polyLine('dave');
 		$plot->polyLine('rave');
@@ -607,13 +619,10 @@ class RatingHistory extends UnlistedSpecialPage
 		return $html;
 	}
 	
-	public function getVoteAggregates() {
-		if( $this->period > 93 ) {
-			return ''; // too big
-		}
+	public function getVoteAggregates( $period ) {
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = time() - ($period * 24 * 3600);
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Get the first revision possibly voted on in the range
@@ -649,19 +658,27 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 		}
 		// Output multi-column list
-		$html = "<table class='fr_reader_feedback_stats'><tr>";
-		$html .= '<tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>';
+		$html = "<table class='fr_reader_feedback_stats wikitable' cellspacing='0'><tr>";
+		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
+			$html .= '<th>'.wfMsgHtml("readerfeedback-$tag").'</th>';
+		}
+		$html .= '</tr><tr>';
 		foreach( $votes as $tag => $dist ) {
-			$html .= '<tr>';
-			$html .= '<td>'.wfMsgHtml("readerfeedback-$tag") . '</td>';
+			$html .= '<td><table>';
+			$html .= '<tr><th align="left">'.wfMsgHtml('ratinghistory-table-rating').'</th>';
+			for( $i = 1; $i <= 5; $i++ ) {
+				$html .= "<td class='fr-rating-option-".($i-1)."'>$i</td>";
+			}
+			$html .= '</tr><tr>';
+			$html .= '<th align="left">'.wfMsgHtml("ratinghistory-table-votes").'</th>';
 			$html .= '<td>'.$dist[0].'</td>';
 			$html .= '<td>'.$dist[1].'</td>';
 			$html .= '<td>'.$dist[2].'</td>';
 			$html .= '<td>'.$dist[3].'</td>';
 			$html .= '<td>'.$dist[4].'</td>';
-			$html .= "</tr>\n";
+			$html .= "</tr></table></td>\n";
 		}
-		$html .= "</tr></table>\n";
+		$html .= '</tr></table>';
 		return $html;
 	}
 	
