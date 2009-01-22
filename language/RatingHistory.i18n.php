@@ -422,9 +422,12 @@ $messages['he'] = array(
 	'ratinghistory-year' => 'השנה האחרונה',
 	'ratinghistory-3years' => '3 השנים האחרונות',
 	'ratinghistory-chart' => 'משוב דירוג קוראים לאורך זמן',
+	'ratinghistory-table' => 'סיכום הדירוגים בחודש האחרון',
 	'ratinghistory-users' => 'משתמשים שדירגו:',
 	'ratinghistory-graph' => '$2 מתוך "$3" ({{PLURAL:$1|דירוג אחד|$1 דירוגים}})',
 	'readerfeedback-svg' => 'הצגה כ־SVG',
+	'ratinghistory-table-rating' => 'דירוג',
+	'ratinghistory-table-votes' => 'הצבעות',
 	'ratinghistory-none' => 'אין כרגע מספיק מידע זמין של משוב קוראים ליצירת תרשימים',
 	'ratinghistory-legend' => "'''הדירוג הממוצע היומי''' <font color=\"blue\">'''(בכחול)'''</font> ו'''הדירוג הממוצע בתווך''' <font color=\"green\">'''(בירוק)'''</font> מוצגים בטבלאות למטה, לפי תאריך.
 '''הדירוג הממוצע בתווך''' הוא פשוט הממוצע לכל הדירוגים ''בתוך'' התווך הזה לכל יום.
