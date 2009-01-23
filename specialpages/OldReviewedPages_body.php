@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class OldReviewedPages extends SpecialPage
 {
     function __construct() {
-        parent::__construct( 'OldReviewedPages', 'unreviewedpages' );
+        parent::__construct( 'OldReviewedPages' );
 		// $this->includable( true );
 		wfLoadExtensionMessages( 'OldReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
@@ -16,10 +16,6 @@ class OldReviewedPages extends SpecialPage
     function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
 		$this->setHeaders();
-		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
-			$wgOut->permissionRequired( 'unreviewedpages' );
-			return;
-		}
 		$this->skin = $wgUser->getSkin();
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
@@ -44,7 +40,7 @@ class OldReviewedPages extends SpecialPage
 	}
 
 	function showList( $par ) {
-		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgUser, $wgFlaggedRevsNamespaces;
 		$limit = $this->parseParams( $par );
 		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category, 
 			$this->size, $this->watched );
@@ -55,7 +51,7 @@ class OldReviewedPages extends SpecialPage
 			$wgOut->addHTML( 
 				"<form action=\"$action\" method=\"get\">\n" .
 				'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
-				Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() )
+				Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() )
 			);
 			# Display dropdown as needed
 			if( count($wgFlaggedRevsNamespaces) > 1 ) {
@@ -66,8 +62,11 @@ class OldReviewedPages extends SpecialPage
 				Xml::input( 'category', 35, $this->category, array('id' => 'wpCategory') ) . '<br/>' .
 				Xml::label( wfMsg('oldreviewed-size'), 'wpSize' ) . '&nbsp;' .
 				Xml::input( 'size', 5, $this->size, array( 'id' => 'wpSize' ) ) . '&nbsp;' .
-				Xml::label( wfMsg('oldreviewed-watched'), 'wpWatched' ) . '&nbsp;' .
-				Xml::check( 'watched', $this->watched, array( 'id' => 'wpWatched' ) ) .
+				( $wgUser->getId() ?
+					Xml::label( wfMsg('oldreviewed-watched'), 'wpWatched' ) . '&nbsp;' .
+					Xml::check( 'watched', $this->watched, array( 'id' => 'wpWatched' ) )
+					: "" 
+				) .
 				'&nbsp;&nbsp;' . Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 				"</fieldset></form>"
 			);
@@ -173,17 +172,25 @@ class OldReviewedPages extends SpecialPage
 	}
 	
 	public function formatRow( $result ) {
-		global $wgLang;
+		global $wgLang, $wgUser;
 		
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$css = $stxt = $review = '';
 		$stxt = ChangesList::showCharacterDifference( $result->rev_len, $result->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
-				"diff=cur&oldid={$result->fp_stable}&diffonly=0" );
+			"diff=cur&oldid={$result->fp_stable}&diffonly=0" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		# Is anybody watching?
-		$uw = UnreviewedPages::usersWatching( $title );
+		if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
+			$uw = UnreviewedPages::usersWatching( $title );
+			$watching = $uw ? 
+				wfMsgExt('oldreviewedpages-watched','parsemag',$uw,$uw) : wfMsgHtml('oldreviewedpages-unwatched');
+			$watching = ' '.$watching;
+		} else {
+			$uw = -1;
+			$watching = ''; // leave out data
+		}
 		# Get how long the first unreviewed edit has been waiting...
 		if( $result->fp_pending_since ) {
 			static $currentTime;
@@ -207,10 +214,8 @@ class OldReviewedPages extends SpecialPage
 		} else {
 			$age = ""; // wtf?
 		}
-		$watching = $uw ? 
-			wfMsgExt("oldreviewedpages-watched",array('parsemag'),$uw,$uw) : wfMsgHtml("oldreviewedpages-unwatched");
 
-		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong> {$watching}</li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong>{$watching}</li>" );
 	}
 	
 	/**
@@ -232,7 +237,7 @@ class OldReviewedPages extends SpecialPage
 	}
 	
 	protected static function getLineClass( $hours, $uw ) {
-		if( !$uw )
+		if( $uw == 0 )
 			return 'fr-unreviewed-unwatched';
 		else
 			return "";
