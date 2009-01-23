@@ -14,7 +14,7 @@ $messages['en'] = array(
 	'unreviewed-category' => 'Category:',
 	'unreviewed-diff' => 'review',
 	'unreviewed-unwatched' => '(unwatched)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|user|users}} watching)',
+	'unreviewed-watched' => '($1 active {{PLURAL:$1|user|users}} watching)',
 	'unreviewed-list' => 'This page lists content pages that have not been reviewed.',
 	'unreviewed-none' => 'There are currently no pages meeting these criteria',
 );

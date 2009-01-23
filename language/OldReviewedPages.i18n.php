@@ -22,7 +22,7 @@ $messages['en'] = array(
 	'oldreviewed-diff' => 'review',
 	'oldreviewed-size' => 'Max change (bytes):',
 	'oldreviewedpages-unwatched' => '(unwatched)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|user|users}} watching)',
+	'oldreviewedpages-watched' => '($2 active {{PLURAL:$1|user|users}} watching)',
 );
 
 /** Message documentation (Message documentation)
