@@ -516,6 +516,16 @@ $aliases['sk'] = array(
 	'UnreviewedPages' => array( 'NeskontrolovanéStránky' ),
 );
 
+/** Albanian (Shqip) */
+$aliases['sq'] = array(
+	'ProblemPages' => array( 'FaqetProblem' ),
+	'RatingHistory' => array( 'HistoriaeVlerësimit' ),
+	'Stabilization' => array( 'Stabilizim' ),
+	'StablePages' => array( 'FaqetStabile' ),
+	'StableVersions' => array( 'VerzionetStabile' ),
+	'UnstablePages' => array( 'FaqetJoStabile' ),
+);
+
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  */

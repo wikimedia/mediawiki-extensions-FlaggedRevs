@@ -458,6 +458,13 @@ $messages['sk'] = array(
 	'unstablepages-config' => 'Nastavenie',
 );
 
+/** Albanian (Shqip)
+ * @author Puntori
+ */
+$messages['sq'] = array(
+	'unstablepages-config' => 'Konfigurim',
+);
+
 /** Swedish (Svenska)
  * @author Najami
  */

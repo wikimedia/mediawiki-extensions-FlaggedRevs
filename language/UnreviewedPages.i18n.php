@@ -991,6 +991,13 @@ $messages['sk'] = array(
 	'unreviewed-none' => 'Momentálne žiadne stránky nespĺňajú tieto kritériá',
 );
 
+/** Albanian (Shqip)
+ * @author Puntori
+ */
+$messages['sq'] = array(
+	'unreviewed-category' => 'Kategoria:',
+);
+
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic

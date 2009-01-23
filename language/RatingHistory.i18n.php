@@ -152,6 +152,7 @@ Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Viso
 );
 
 /** German (Deutsch)
+ * @author Als-Holder
  * @author ChrisiPK
  * @author Pill
  * @author Raimond Spekking
@@ -169,9 +170,12 @@ $messages['de'] = array(
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
 	'ratinghistory-chart' => 'Leserbewertungen über die Zeit',
+	'ratinghistory-table' => 'Überblick über die Seitenbewertungen des letzten Monats',
 	'ratinghistory-users' => 'Benutzer, die bewertet haben:',
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'readerfeedback-svg' => 'Als SVG ansehen',
+	'ratinghistory-table-rating' => 'Bewertung',
+	'ratinghistory-table-votes' => 'Stimmen',
 	'ratinghistory-none' => 'Es gibt noch nicht genug Seitenbewertungen durch Leser, um eine Grafik zu erstellen.',
 	'ratinghistory-legend' => "Der '''Bewertungs-Tagesdurchschnitt''' <font color=\"blue\">''(blau)''</font> und der '''Durchschnitt über den ausgewählten Zeitraum''' <font color=\"green\">''(grün)''</font> werden nachfolgend nach Datum sortiert angezeigt. Der '''Durchschnitt im ausgewählten Zeitraum''' ist der Durchschnitt aller Tagesbewertungen ''innerhalb'' dieser Zeitspanne.
 
@@ -196,9 +200,12 @@ $messages['dsb'] = array(
 	'ratinghistory-year' => 'slědne lěto',
 	'ratinghistory-3years' => 'slědne 3 lěta',
 	'ratinghistory-chart' => 'Pógódnośenja wót cytarjow pśez cas',
+	'ratinghistory-table' => 'Pśeglěd pógódnośenjow slědnego mjaseca',
 	'ratinghistory-users' => 'Wužywarje, kótarež su pógódnośili:',
 	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|pógódnośenje|pógódnośeni|pógódnośenja|pógódnośenjow}})',
 	'readerfeedback-svg' => 'Ako SVG zwobrazniś',
+	'ratinghistory-table-rating' => 'Pógódnośenje',
+	'ratinghistory-table-votes' => 'Głose',
 	'ratinghistory-none' => 'Tuchylu njejo dosć pógódnośenjow wót cytarjow, aby napórało grafiku.',
 	'ratinghistory-legend' => "'''Dnjowne pśerězne gódnośenje''' <font color=\"blue\">''(módry)''</font> a  
 '''pśerězne gódnośenje za wubrany cas''' <font color=\"green\">''(zeleny)''</font> zwobraznjujotej se dołojce pó datumje. '''Pśerězne gódnośenje za wubrany cas''' jo jadnorje pśerězk wšych dnjownych pógódnośenjow ''w'' toś tom casowem wótrězku kuždego dnja.
@@ -309,9 +316,12 @@ $messages['fr'] = array(
 	'ratinghistory-year' => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-chart' => 'Relecteur notant hors délai :',
+	'ratinghistory-table' => "Vue d'ensemble des notation le mois dernier",
 	'ratinghistory-users' => 'Utilisateurs qui ont fait des relectures',
 	'ratinghistory-graph' => '$2 sur « $3 » ($1 {{PLURAL:$1|relecture|relectures}})',
 	'readerfeedback-svg' => 'Voir en SVG',
+	'ratinghistory-table-rating' => 'Notation',
+	'ratinghistory-table-votes' => 'Votes',
 	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
 	'ratinghistory-legend' => "Les '''quotations journalières''' <font color=\"blue\">''(bleu)''</font> et
 la '''moyenne de quotation en cours''' <font color=\"green\">''(vert)''</font> de la notation sont dessinés, ci-dessous, par date. La
@@ -347,9 +357,12 @@ $messages['gl'] = array(
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos 3 anos',
 	'ratinghistory-chart' => 'Valoración da reacción do lector',
+	'ratinghistory-table' => 'Vista xeral das valoracións do mes pasado',
 	'ratinghistory-users' => 'Usuarios que valoraron páxinas',
 	'ratinghistory-graph' => '$2 de "$3" ({{PLURAL:$1|unha revisión|$1 revisións}})',
 	'readerfeedback-svg' => 'Ver como SVG',
+	'ratinghistory-table-rating' => 'Valoración',
+	'ratinghistory-table-votes' => 'Votos',
 	'ratinghistory-none' => 'Arestora non hai suficientes datos das reaccións dos lectores dispoñibles para as gráficas.',
 	'ratinghistory-legend' => "A '''valoración do promedio diario''' <font color=\"blue\">''(azul)''</font> e
 a '''valoración do promedio en curso''' <font color=\"green\">''(verde)''</font> están, por data, na gráfica de embaixo. A  
@@ -393,9 +406,12 @@ $messages['gsw'] = array(
 	'ratinghistory-year' => 'letscht Johr',
 	'ratinghistory-3years' => 'letschte drei Johr',
 	'ratinghistory-chart' => 'Bewärtige vu Läser im Zytruum',
+	'ratinghistory-table' => 'Iberblick iber d Sytebewärtige im letschte Monet',
 	'ratinghistory-users' => 'Benutzer, wu bewärtet hän:',
 	'ratinghistory-graph' => '$2 vu „$3“ ($1 {{PLURAL:$1|Bewärtig|Bewärtige}})',
 	'readerfeedback-svg' => 'As SVG aaluege',
+	'ratinghistory-table-rating' => 'Bewärtig',
+	'ratinghistory-table-votes' => 'Stimme',
 	'ratinghistory-none' => 'S git nonig gnue Sytebewärtige dur Läser zum e Grafik aazlege.',
 	'ratinghistory-legend' => "Dr '''Durchschnitt vu Bewärtige am Tag''' <font color=\"blue\">''(blau)''</font> un dr '''Durchschnitt iber dr usgwehlt Zytruum''' <font color=\"green\">''(grün)''</font> wäre do aazeigt no Datum sortiert.
 
@@ -453,9 +469,12 @@ $messages['hsb'] = array(
 	'ratinghistory-year' => 'loni',
 	'ratinghistory-3years' => 'zańdźene 3 lěta',
 	'ratinghistory-chart' => 'Pohódnoćenja wot čitarjow přez dobu',
+	'ratinghistory-table' => 'Přehlad wo pohódnoćenjach poslednjeho měsaca',
 	'ratinghistory-users' => 'Wužiwarjo, kotřiz su pohódnoćili:',
 	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|kontrola|kontroli|kontrole|kontrolow}})',
 	'readerfeedback-svg' => 'Jako SVG wobhladać',
+	'ratinghistory-table-rating' => 'Pohodnoćenje',
+	'ratinghistory-table-votes' => 'Hłosy',
 	'ratinghistory-none' => 'Za grafiki hišće dosć pohódnoćenjow wot čitarjow k dispoziciji njesteji',
 	'ratinghistory-legend' => "'''Dnjowe přerězne hódnoćenje''' <font color=\"blue\">''(módry)''</font> a '''běžne přerězne hódnoćenje''' <font color=\"green\">''(zeleny)''</font> stej deleka po datumje grafisce zwobraznjenej.
 
@@ -591,9 +610,12 @@ $messages['ja'] = array(
 	'ratinghistory-year' => '過去1年',
 	'ratinghistory-3years' => '過去3年',
 	'ratinghistory-chart' => '期間中の読者評価',
+	'ratinghistory-table' => '先月の評価の概観',
 	'ratinghistory-users' => '評価を行った利用者',
 	'ratinghistory-graph' => '「$3」の$2 ($1回の評価)',
 	'readerfeedback-svg' => 'SVGとして表示',
+	'ratinghistory-table-rating' => '評価',
+	'ratinghistory-table-votes' => '票数',
 	'ratinghistory-none' => '現時点ではグラフを表示するのに十分な読者評価データがありません。',
 	'ratinghistory-legend' => "日ごとの'''日間平均評価''' <font color=\"blue\">''(青)''</font> と'''移動平均評価''' <font color=\"green\">''(緑)''</font> を以下のグラフに表示します。'''移動平均評価'''とは単にこの期間中のすべての日間評価の平均のことです。
 
@@ -737,9 +759,12 @@ $messages['nl'] = array(
 	'ratinghistory-year' => 'afgelopen jaar',
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
 	'ratinghistory-chart' => 'Waardering van lezers in de tijd:',
+	'ratinghistory-table' => 'Overzicht van de waarderingen van vorige maand',
 	'ratinghistory-users' => 'Gebruikers die een waardering hebben gegeven',
 	'ratinghistory-graph' => '$2 van "$3" ($1 {{PLURAL:$1|waardering|waarderingen}})',
 	'readerfeedback-svg' => 'Als SVG bekijken',
+	'ratinghistory-table-rating' => 'Waardering',
+	'ratinghistory-table-votes' => 'Stemmen',
 	'ratinghistory-none' => 'Er is onvoldoende terugkoppeling van lezers aanwezig om een grafiek te maken.',
 	'ratinghistory-legend' => "De '''dagelijkse gemiddelde waardering''' <font color=\"blue\">''(blauw)''</font> en
 de '''gemiddelde waardering van de aangegeven periode''' <font color=\"green\">''(groen)''</font> staan hieronder in een grafiek op datum.
@@ -755,12 +780,14 @@ Het '''aantal waarderingen per dag''' <font color=\"red\">''(rood)''</font> word
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Takk for at du tok deg tid til å vurdera sida!</font>''",
 	'ratinghistory-period' => 'Tidsperiode:',
 	'ratinghistory-month' => 'siste månaden',
 	'ratinghistory-3months' => 'siste tre månader',
 	'ratinghistory-year' => 'siste året',
 	'ratinghistory-3years' => 'siste tre år',
 	'readerfeedback-svg' => 'Syn som SVG',
+	'ratinghistory-table-votes' => 'Røyster',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -870,9 +897,12 @@ $messages['pt'] = array(
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos três anos',
 	'ratinghistory-chart' => 'Avaliações dos leitores ao longo do tempo',
+	'ratinghistory-table' => 'Resumo das avaliações do último mês',
 	'ratinghistory-users' => 'Utilizadores que fizeram avaliações',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|avaliação|avaliações}})',
 	'readerfeedback-svg' => 'Ver como SVG',
+	'ratinghistory-table-rating' => 'Avaliação',
+	'ratinghistory-table-votes' => 'Votos',
 	'ratinghistory-none' => 'Ainda não há dados suficientes de avaliações dos leitores para mostrar gráficos.',
 	'ratinghistory-legend' => "A '''avaliação média diária''' <font color=\"blue\">''(azul)''</font> e a '''avaliação média acumulada''' <font color=\"green\">''(verde)''</font> estão apresentadas graficamente abaixo, por data. A '''avaliação média acumulada''' é apenas a média de todas as avaliações diárias ''dentro'' desta janela temporal para cada dia.
 
@@ -966,9 +996,12 @@ $messages['sk'] = array(
 	'ratinghistory-year' => 'posledný rok',
 	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-chart' => 'Hodnotenie čitateľov v čase',
+	'ratinghistory-table' => 'Prehľad minulomesačných hodnotení',
 	'ratinghistory-users' => 'Používatelia, ktorí ohodnotili stránku',
 	'ratinghistory-graph' => '$2 článku „$3” ($1 {{PLURAL:$1|kontrola|kontroly|kontrol}})',
 	'readerfeedback-svg' => 'Zobraziť ako SVG',
+	'ratinghistory-table-rating' => 'Hodnotenie',
+	'ratinghistory-table-votes' => 'Hlasy',
 	'ratinghistory-none' => 'Momentálne nie je dostupný dostatok údajov o spätnej väzbe používateľov nato, aby bolo možné vytvoriť grafy.',
 	'ratinghistory-legend' => "Dolu je podľa dátumu zobrazené '''denné priemerné hodnotenie''' <font color=\"blue\">''(modrou)''</font> a '''priemer vybraného intervalu''' <font color=\"green\">''(zelenou)''</font>. '''Priemer vybraného intervalu''' je jednoducho priemer denných hodnotení ''v rámci'' tohto časového intervalu za každý deň. Hodnoty hodnotenia sa interpretujú nasledovne:
 
@@ -976,6 +1009,20 @@ Mierka: '''[1]''' - Slabé; '''[2]''' - Nízke; '''[3]''' - Dobré; '''[4]''' - 
 
 Na grafe dolu je zobrazený '''počet kontrol za deň''' <font color=\"red\">''(červenou)''</font> v mierke ''1:\$1''.",
 	'right-feedback' => 'Stránku ohodnotíte pomocou formulára spätnej väzby',
+);
+
+/** Albanian (Shqip)
+ * @author Puntori
+ */
+$messages['sq'] = array(
+	'ratinghistory-tab' => 'vlerësimi',
+	'ratinghistory-link' => 'Vlerësimi i faqes',
+	'ratinghistory-month' => 'muajin e fundit',
+	'ratinghistory-3months' => '3 muajt e fundit',
+	'ratinghistory-year' => 'vitin e fundit',
+	'ratinghistory-3years' => '3 vitet e fundit',
+	'ratinghistory-table-rating' => 'Vlerësimi',
+	'ratinghistory-table-votes' => 'Votat',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -1048,9 +1095,12 @@ $messages['tl'] = array(
 	'ratinghistory-year' => 'nakaraang taon',
 	'ratinghistory-3years' => 'huling 3 mga taon',
 	'ratinghistory-chart' => "Balik-pahayag (''feedback'') na pangkaantasan mula sa mambabasa sa loob ng paglipas ng panahon",
+	'ratinghistory-table' => 'Pagsusuri ng mga kaantasan noong nakaraang buwan',
 	'ratinghistory-users' => 'Mga tagagamit na nagbigay ng pagaantas',
 	'ratinghistory-graph' => '$2 ng "$3" ($1 {{PLURAL:$1|pagsusuri|mga pagsusuri}})',
 	'readerfeedback-svg' => 'Tingnan bilang SVG',
+	'ratinghistory-table-rating' => 'Kaantasan',
+	'ratinghistory-table-votes' => 'Mga boto',
 	'ratinghistory-none' => 'Sa ngayon, walang makukuhang sapat na datong pambalik-pahayag para sa mga talangguhit (grap) mula sa mambabasa.',
 	'ratinghistory-legend' => "Ang '''pangaraw-araw na pangkaraniwang kaantasan''' <font color=\"blue\">''(bughaw)''</font> at  
 '''tumatakbong pangkaraniwang kaantasan''' <font color=\"green\">''(lunti)''</font> ay nakatalangguhit sa ibaba, ayon sa petsa. Ang  

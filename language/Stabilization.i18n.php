@@ -2091,6 +2091,29 @@ $messages['sk'] = array(
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
 );
 
+/** Albanian (Shqip)
+ * @author Puntori
+ */
+$messages['sq'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Stabilizimi i faqes',
+	'stabilization-page' => 'Emri i faqes:',
+	'stabilization-def2' => 'Versioni i tanishëm',
+	'stabilization-submit' => 'Konfirmo',
+	'stabilization-notexists' => 'Nuk ka faqe me emrin "[[:$1|$1]]".
+Asnjë konfigurim nuk është i mundshëm.',
+	'stabilization-notcontent' => 'Faqja "[[:$1|$1]]" nuk mund të rishqyrtohet.
+Asnjë konfigurim nuk është i mundshëm.',
+	'stabilization-comment' => 'Komenti:',
+	'stabilization-expiry' => 'Skadon:',
+	'stabilization-sel-short-0' => 'Kualiteti',
+	'stabilization-sel-short-1' => "S'ka",
+	'stabilization-def-short-0' => 'Tani',
+	'stabilize_expiry_invalid' => 'Datë jo vlefshme e skadimit.',
+	'stabilize_expiry_old' => 'Koha e skadimit tanimë ka kaluar.',
+	'stabilize-expiring' => 'skadon $1 (UTC)',
+);
+
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic

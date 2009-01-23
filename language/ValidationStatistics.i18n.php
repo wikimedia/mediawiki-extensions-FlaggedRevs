@@ -740,6 +740,13 @@ $messages['sk'] = array(
 	'validationstatistics-old' => 'Zastaralé',
 );
 
+/** Albanian (Shqip)
+ * @author Puntori
+ */
+$messages['sq'] = array(
+	'validationstatistics-total' => 'Faqet',
+);
+
 /** Swedish (Svenska)
  * @author M.M.S.
  */

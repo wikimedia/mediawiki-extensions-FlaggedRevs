@@ -837,6 +837,13 @@ $messages['sk'] = array(
 	'reviewedpages-best' => 'primárna revízia',
 );
 
+/** Albanian (Shqip)
+ * @author Puntori
+ */
+$messages['sq'] = array(
+	'reviewedpages-lev-1' => 'Kualiteti',
+);
+
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic

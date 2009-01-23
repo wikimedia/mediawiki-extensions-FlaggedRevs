@@ -2239,7 +2239,7 @@ $messages['dsb'] = array(
 	'review-logentry-diff' => 'rozdźěl k stabilnej wersiji',
 	'review-logpage' => 'Protokol pśespytowanjow',
 	'review-logpagetext' => 'To jo protokol změnow k statusoju [[{{MediaWiki:Validationpage}}|pśizwólowanja]] wersijow za wopśimjeśowe boki.
-Glěj [[Special:ReviewedPages|lisćinu pśeglědanych bokow]] za lisćinu pśizwólonych bokow.',
+Glědaj [[Special:ReviewedPages|lisćinu pśeglědanych bokow]] za lisćinu pśizwólonych bokow.',
 	'reviewer' => 'Pśespytowaŕ',
 	'revisionreview' => 'wersije pśespytowaś',
 	'revreview-accuracy' => 'Kradosć',
@@ -2283,7 +2283,7 @@ Nowozacytanje boka a nowopśeglědowanje móžo toś ten problem rozwězaś.",
 	'revreview-log' => 'Komentar:',
 	'revreview-main' => 'Musyš jadnotliwu wersiju wopśimjeśowego boka za pśeglědanje wubraś.
 
-Glěj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
+Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Aktualna pśeglědana wersija] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} wšykne]) jo se [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schwaliła] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] {{PLURAL:$3|trjeba|trjebatej|trjebaju|trjeba}} pśeglědanje.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Aktualna pśeglědana wersija] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} wšykne]) jo se [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schwaliła] <i>$2</i>.
@@ -9696,7 +9696,8 @@ $messages['te'] = array(
 	'stable-logentry' => '[[$1]]కి సుస్థిర కూర్పుని అమర్చారు',
 	'stable-logentry2' => '[[$1]]కి సుస్థిర కూర్పుని పునర్నిర్ణయించండి',
 	'stable-logpage' => 'సుస్థిర కూర్పుల లాగ్',
-	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల లాగ్',
+	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల చిట్టా.
+సుస్థిరమైన పేజీల యొక్క జాబితాని [[Special:StablePages|స్థిరమైన పేజీల జాబితా]] వద్ద చూడవచ్చు.',
 	'readerfeedback-success' => "'''ఈ పేజీని సమీక్షించినందుకు కృతజ్ఞతలు!''' ([$3 సందేహాలు లేదా సూచనలున్నాయా?]).",
 	'readerfeedback-finished' => 'ధన్యవాదాలు!',
 	'revreview-filter-all' => 'అన్నీ',
