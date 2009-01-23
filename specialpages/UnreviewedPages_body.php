@@ -109,21 +109,28 @@ class UnreviewedPages extends SpecialPage
 	public static function usersWatching( $title ) {
 		global $wgMiserMode;
 		$dbr = wfGetDB( DB_SLAVE );
+		$count = -1;
 		if( $wgMiserMode ) {
 			# Get a rough idea of size
 			$count = $dbr->estimateRowCount( 'watchlist', '*',
 				array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
 				__METHOD__ );
-			# If it is small, just COUNT() it, otherwise, stick with estimate...
-			if( $count <= 10 ) {
-				$count = $dbr->selectField( 'watchlist', 'COUNT(*)',
-					array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
-					__METHOD__ );
-			}
-		} else {
-			$count = $dbr->selectField( 'watchlist', 'COUNT(*)',
-				array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
-				__METHOD__ );
+		}
+		# If it is small, just COUNT() it, otherwise, stick with estimate...
+		if( $count == -1 || $count <= 10 ) {
+			global $wgCookieExpiration;
+			# Get number of active editors watchling this
+			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 3*$wgCookieExpiration );
+			$res = $dbr->select( array('watchlist','user'), '1',
+				array( 'wl_namespace' => $title->getNamespace(), 
+					'wl_title' => $title->getDBKey(),
+					'wl_user = user_id',
+					// logged in or out
+					'user_touched > '.$dbr->addQuotes( $cutoff ) ),
+				__METHOD__,
+				array( 'USE INDEX' => array('watchlist' => 'namespace_title') )
+			);
+			$count = $dbr->numRows($res);
 		}
 		return $count;
 	}

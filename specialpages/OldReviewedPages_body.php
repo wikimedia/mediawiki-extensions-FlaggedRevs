@@ -261,6 +261,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->size = $size ? $size : NULL;
 		$this->watched = (bool)$watched;
 		parent::__construct();
+		// Don't get to expensive
+		$this->mLimit = min( $this->mLimit, 500 );
 	}
 
 	function formatRow( $row ) {
