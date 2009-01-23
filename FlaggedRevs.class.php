@@ -551,10 +551,10 @@ class FlaggedRevs {
 	
 	/**
 	 * @param Article $article
-	 * @param int $revId
+	 * @param int $revId, the *stable* rev ID
 	 * @param bool $forUpdate, use master?
 	 * @return int
-	 * Get number of revs since a certain revision
+	 * Get number of revs since the stable revision
 	 */
 	public static function getRevCountSince( $article, $revId, $forUpdate=false ) {
 		global $wgMemc, $wgParserCacheExpireTime;
