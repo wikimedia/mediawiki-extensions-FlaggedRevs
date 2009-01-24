@@ -579,6 +579,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
 		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		// Use integral number of days to be consistent with graphs
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		// Get the first revision possibly voted on in the range
@@ -620,42 +621,57 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	public static function getVoteAggregates( $page, $period ) {
-		// Set cutoff time for period
-		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($period * 24 * 3600);
-		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
-		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
-		// Get the first revision possibly voted on in the range
-		$firstRevTS = $dbr->selectField( 'revision',
-			'rev_timestamp',
-			array( 'rev_page' => $page->getArticleId(), "rev_timestamp <= $cutoff" ),
-			__METHOD__,
-			array( 'ORDER BY' => 'rev_timestamp DESC' )
-		);
-		// Find average, median, deviation...
-		$res = $dbr->select( array( 'revision', 'reader_feedback' ),
-			array( 'rfb_ratings' ),
-			array( 'rev_page' => $page->getArticleId(),
-				"rev_id = rfb_rev_id",
-				"rfb_timestamp >= $cutoff",
-				// Trigger INDEX usage
-				"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
-			__METHOD__,
-			array( 'USE INDEX' => array('revision' => 'page_timestamp') )
-		);
-		// Init $median array
-		$votes = array();
-		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
-			$votes[$tag] = array( 0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0 );
+		global $wgMemc;
+		// Check cache
+		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId() );
+		$set = $wgMemc->get($key);
+		// Cutoff is at the 24 hour mark due to the way the aggregate schema
+		// groups ratings by data for graphs.
+		$now = time();
+		$cache_cutoff = $now - ($now % 86400);
+		if( is_array($set) && $set[1] > $cache_cutoff ) {
+			$votes = $set[0];
 		}
-		// Read votes and tally the numbers
-		while( $row = $dbr->fetchObject($res) ) {
-			$dims = FlaggedRevs::expandRatings( $row->rfb_ratings );
-			foreach( $dims as $tag => $val ) {
-				if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
-					$votes[$tag][$val]++;
+		// Do query, cache miss
+		if( !isset($votes) ) {
+			// Set cutoff time for period
+			$dbr = wfGetDB( DB_SLAVE );
+			$cutoff_unixtime = $now - ($period * 24 * 3600);
+			// Use integral number of days to be consistent with graphs
+			$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+			$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
+			// Get the first revision possibly voted on in the range
+			$firstRevTS = $dbr->selectField( 'revision',
+				'rev_timestamp',
+				array( 'rev_page' => $page->getArticleId(), "rev_timestamp <= $cutoff" ),
+				__METHOD__,
+				array( 'ORDER BY' => 'rev_timestamp DESC' )
+			);
+			// Find average, median, deviation...
+			$res = $dbr->select( array( 'revision', 'reader_feedback' ),
+				array( 'rfb_ratings' ),
+				array( 'rev_page' => $page->getArticleId(),
+					"rev_id = rfb_rev_id",
+					"rfb_timestamp >= $cutoff",
+					// Trigger INDEX usage
+					"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
+				__METHOD__,
+				array( 'USE INDEX' => array('revision' => 'page_timestamp') )
+			);
+			$votes = array();
+			foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
+				$votes[$tag] = array( 0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0 );
+			}
+			// Read votes and tally the numbers
+			while( $row = $dbr->fetchObject($res) ) {
+				$dims = FlaggedRevs::expandRatings( $row->rfb_ratings );
+				foreach( $dims as $tag => $val ) {
+					if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
+						$votes[$tag][$val]++;
+					}
 				}
 			}
+			$wgMemc->set( $key, array( $votes, $now ), 24*3600 );
 		}
 		// Output multi-column list
 		$html = "<table class='wikitable fr_reader_feedback_stats' cellspacing='0'><tr>";
