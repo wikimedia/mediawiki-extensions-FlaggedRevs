@@ -293,6 +293,11 @@ $aliases['km'] = array(
 	'ProblemPages' => array( 'ទំព័រមានបញ្ហា' ),
 );
 
+/** Korean (한국어) */
+$aliases['ko'] = array(
+	'ReaderFeedback' => array( '독자피드백' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

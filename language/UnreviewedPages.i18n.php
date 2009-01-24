@@ -23,6 +23,7 @@ $messages['en'] = array(
  * @author Darth Kule
  * @author Fryed-peach
  * @author Jon Harald Søby
+ * @author Raymond
  * @author Siebrand
  */
 $messages['qqq'] = array(
@@ -37,7 +38,7 @@ $messages['qqq'] = array(
 	'unreviewed-diff' => '{{Flagged Revs}}',
 	'unreviewed-unwatched' => '{{Flagged Revs}}',
 	'unreviewed-watched' => '{{Flagged Revs}}
-* $1 is the number of users that have the page on their watchlist',
+* $1 is the number of active users that have the page on their watchlist',
 	'unreviewed-list' => '{{Flagged Revs}}
 {{Identical|Content page}}',
 	'unreviewed-none' => '{{Flagged Revs}}',
@@ -237,7 +238,7 @@ $messages['de'] = array(
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'sichten',
 	'unreviewed-unwatched' => '(unbeobachtet)',
-	'unreviewed-watched' => '(von $1 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
+	'unreviewed-watched' => '(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)',
 	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht gesichtet wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 );
@@ -252,7 +253,7 @@ $messages['dsb'] = array(
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'pśeglědaś',
 	'unreviewed-unwatched' => '(njewobglědowany)',
-	'unreviewed-watched' => '(wót $1 {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} wobglědowany)',
+	'unreviewed-watched' => '(wót $1 {{PLURAL:$1|aktiwnego wužywarja|aktiwneju wužywarjowu|aktiwnych wužywarjow|aktiwnych wužywarjow}} wobglědowany)',
 	'unreviewed-list' => 'Toś ten bok nalistujo wopśimjeśowe boki, kótarež njejsu se pśeglědali.',
 	'unreviewed-none' => 'Njejsu tuchylu žedne boki, kótarež wótpówěduju toś tym kriterijam',
 );
@@ -292,7 +293,7 @@ $messages['es'] = array(
 	'unreviewed-category' => 'Categoría:',
 	'unreviewed-diff' => 'revisar',
 	'unreviewed-unwatched' => '(no vigilado)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} vigilando)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
 	'unreviewed-list' => 'Esta lista de páginas contiene páginas que no han sido revisadas',
 	'unreviewed-none' => 'No hay actualmente páginas que cumplan estos criterios',
 );
@@ -353,7 +354,7 @@ $messages['fr'] = array(
 	'unreviewed-category' => 'Catégorie :',
 	'unreviewed-diff' => 'révision',
 	'unreviewed-unwatched' => '(non suivi)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|utilisateur suit|utilisateurs suivent}} cette page)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilisateur actif suit|utilisateurs actifs suivent}} cette page)',
 	'unreviewed-list' => "Cette page liste les pages de contenu qui n'ont pas été révisés ou qui ont des révisions non vues.",
 	'unreviewed-none' => 'Il n’existe actuellellement aucune page respectant ces critères',
 );
@@ -393,7 +394,7 @@ $messages['gl'] = array(
 	'unreviewed-category' => 'Categoría:',
 	'unreviewed-diff' => 'revisión',
 	'unreviewed-unwatched' => '(sen vixiar)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} vixiando)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario activo|usuarios activos}} vixiando)',
 	'unreviewed-list' => 'Esta páxina lista as páxinas de contido que non foron revisadas.',
 	'unreviewed-none' => 'Actualmente non hai páxinas que coincidan con ese criterio',
 );
@@ -489,7 +490,7 @@ $messages['hsb'] = array(
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'přepruwować',
 	'unreviewed-unwatched' => '(njewobkedźbowany)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|wužiwar|wužiwarjej|wužiwarjo|wužiwarjow}} wobkedźbuja)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktiwny wužiwar wobkedźbuje|aktiwnaj wužiwarjej wobkedźbujetaj|aktiwni wužiwarjo wobkedźbuja|aktiwnych wužiwarjow wobkedźbuje}})',
 	'unreviewed-list' => 'Tuta strona nalistuje wobsahowe strony, kotrež hišće njejsu přepruwowane.',
 	'unreviewed-none' => 'Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja',
 );
@@ -579,7 +580,7 @@ $messages['ja'] = array(
 	'unreviewed-category' => 'カテゴリ:',
 	'unreviewed-diff' => '査読',
 	'unreviewed-unwatched' => '(未ウォッチ)',
-	'unreviewed-watched' => '($1人の利用者がウォッチ)',
+	'unreviewed-watched' => '($1人の活動中の利用者がウォッチ)',
 	'unreviewed-list' => 'これは査読を受けていない記事の一覧です。',
 	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
 );
@@ -664,7 +665,7 @@ $messages['ksh'] = array(
 	'unreviewed-category' => 'Saachjrupp:',
 	'unreviewed-diff' => 'nohkike',
 	'unreviewed-unwatched' => '(en keine Oppassleß)',
-	'unreviewed-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han}} se en de Opassliß)',
+	'unreviewed-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han|Keine hät}} se en de Opassliß)',
 	'unreviewed-list' => 'Di Leß hee zeich Atikelle, die noch nit nohjekik woode sen.',
 	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
 );
@@ -806,7 +807,7 @@ $messages['nl'] = array(
 	'unreviewed-category' => 'Categorie:',
 	'unreviewed-diff' => 'eindredactie',
 	'unreviewed-unwatched' => '(niet op een volglijst)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
+	'unreviewed-watched' => '($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
 	'unreviewed-list' => "Deze pagina geeft een overzicht van pagina's die nog geen eindredactie hebben gehad.",
 	'unreviewed-none' => "Er zijn geen pagina's die aan deze criteria voldoen",
 );
@@ -822,7 +823,7 @@ $messages['nn'] = array(
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'vurder',
 	'unreviewed-unwatched' => '(uovervaka)',
-	'unreviewed-watched' => '({{PLURAL:$1|éin brukar|$1 brukarar}} overvakar)',
+	'unreviewed-watched' => '({{PLURAL:$1|éin aktiv brukar|$1 aktive brukarar}} overvakar)',
 	'unreviewed-list' => 'Denne sida listar opp artiklar som manglar vurdering',
 	'unreviewed-none' => 'Det finst ingen sider som svarer til søkekriteira',
 );
@@ -886,7 +887,7 @@ $messages['pl'] = array(
 	'unreviewed-category' => 'Kategoria:',
 	'unreviewed-diff' => 'różn.',
 	'unreviewed-unwatched' => '(nieobserwowana)',
-	'unreviewed-watched' => '(obserwowana przez $1 {{PLURAL:$1|użytkownika|użytkowników}})',
+	'unreviewed-watched' => '(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
 	'unreviewed-list' => 'Poniżej znajduje się lista nieprzejrzanych stron.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 );
@@ -920,7 +921,7 @@ $messages['pt'] = array(
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'rever',
 	'unreviewed-unwatched' => '(não-vigiada)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
 	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
 	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
 );
@@ -942,7 +943,7 @@ $messages['roa-tara'] = array(
 	'unreviewed-category' => 'Categorije:',
 	'unreviewed-diff' => 'reviste',
 	'unreviewed-unwatched' => '(no condrollà)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|utende|utinde}} ca condrollene)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utende|utinde}} attive ca condrollene)',
 	'unreviewed-list' => "Sta pàgene elenghe tutte le pàggene cu le condenute ca non ge tènene 'na rivisitazione.",
 	'unreviewed-none' => "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
 );
@@ -1037,6 +1038,7 @@ $messages['su'] = array(
  * @author Jon Harald Søby
  * @author Lejonel
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'right-unreviewedpages' => 'Visa [[Special:UnreviewedPages|lista över ogranskade sidor]]',
@@ -1045,7 +1047,7 @@ $messages['sv'] = array(
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'granska',
 	'unreviewed-unwatched' => '(obevakad)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|användare|användare}} bevakar)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)',
 	'unreviewed-list' => 'Den här sidan listar innehållssidor som inte har granskats.',
 	'unreviewed-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 );
@@ -1091,7 +1093,7 @@ $messages['tl'] = array(
 	'unreviewed-category' => 'Kaurian:',
 	'unreviewed-diff' => 'suriing muli',
 	'unreviewed-unwatched' => '(hindi binabantayan)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagbabantay)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagmamasid)',
 	'unreviewed-list' => 'Nakatala sa pahinang ito ang mga pahina ng nilalaman na hindi pa nasusuring muli.',
 	'unreviewed-none' => 'Sa ngayon, wala pang mga pahinang nakakaabot sa ganitong mga kaurian (kategorya).',
 );
@@ -1108,7 +1110,7 @@ $messages['tr'] = array(
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'gözden geçir',
 	'unreviewed-unwatched' => '(izlenmiyor)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
+	'unreviewed-watched' => '($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
 	'unreviewed-list' => 'Bu sayfa, gözden geçirilmemiş içerik sayfalarını listeliyor.',
 	'unreviewed-none' => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 );
@@ -1123,7 +1125,7 @@ $messages['uk'] = array(
 	'unreviewed-category' => 'Категорія:',
 	'unreviewed-diff' => 'перевірити',
 	'unreviewed-unwatched' => '(не спостерігають)',
-	'unreviewed-watched' => '({{PLURAL:$1|стежить $1 користувач|стежать $1 користувачі|стежать $1 користувачів}})',
+	'unreviewed-watched' => '({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})',
 	'unreviewed-list' => 'На цій сторінці перераховані неперевірені статті.',
 	'unreviewed-none' => 'Зараз нема сторінок, що відповідають зазначеним критеріям',
 );

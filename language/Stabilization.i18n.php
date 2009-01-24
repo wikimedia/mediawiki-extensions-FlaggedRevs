@@ -610,14 +610,18 @@ $messages['es'] = array(
 	'stabilization-page' => 'Nombre de la página:',
 	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
 	'stabilization-select' => 'Selección de versión estable',
+	'stabilization-select2' => 'La última versión verificada',
+	'stabilization-def2' => 'La actual revisión',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-comment' => 'Comentario:',
 	'stabilization-sel-short-0' => 'Calidad',
 	'stabilization-sel-short-1' => 'Ninguno',
+	'stabilization-def-short' => 'Por defecto',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Estable',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
 	'stabilize_expiry_old' => 'Este tiempo de expiración ya ha pasado',
+	'stabilize-expiring' => 'caduca el $1 (UTC)',
 );
 
 /** Basque (Euskara)
@@ -1704,6 +1708,7 @@ Instellen is niet mogelijk.',
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
+	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidestabilisering',
 	'stabilization-text' => "'''Endra innstillingane nedanfor for å velja korleis den stabile versjonen av [[:$1|$1]] skal verta vald og synt.'''",
 	'stabilization-perm' => 'Brukarkontoen din har ikkje løyve til å endra innstillingane for stabile versjonar.
@@ -1713,6 +1718,7 @@ Her er dei noverande innstillingane for [[:$1|$1]]:',
 	'stabilization-select' => 'Val av stabil versjon',
 	'stabilization-select1' => 'Den siste kvalitetsversjonen om han finst; om ikkje, den siste vurderte versjonen',
 	'stabilization-select2' => 'Den siste vurderte versjonen',
+	'stabilization-select3' => 'Den siste urørde versjonen av sida. Om han ikkje finst, ta den siste kvalitetsversjonen eller den siste vurderte versjonen',
 	'stabilization-def' => 'Sideversjonen som skal verta nytta som standardvising',
 	'stabilization-def1' => 'Den stabile versjonen om han finst; om ikkje, den siste versjonen',
 	'stabilization-def2' => 'Den siste versjonen',
@@ -1722,13 +1728,16 @@ Ingen innstillingar kan verta gjort.',
 	'stabilization-notcontent' => 'Sida «[[:$1|$1]]» kan ikkje verta vurdert.
 Ingen innstillingar kan verta gjort.',
 	'stabilization-comment' => 'Kommentar:',
-	'stabilization-expiry' => 'Utgår:',
+	'stabilization-expiry' => 'Endar:',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
+	'stabilization-sel-short-2' => 'Urørd',
 	'stabilization-def-short' => '(standard)',
 	'stabilization-def-short-0' => 'Noverande',
 	'stabilization-def-short-1' => 'Stabil',
-	'stabilize-expiring' => 'utgår $1 (UTC)',
+	'stabilize_expiry_invalid' => 'Ugyldig sluttdato.',
+	'stabilize_expiry_old' => 'Sluttdatoen har alt vore.',
+	'stabilize-expiring' => 'endar $1 (UTC)',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

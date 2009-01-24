@@ -690,7 +690,9 @@ $messages['nn'] = array(
 	'reviewedpages-none' => 'Det finst ingen sider i denne lista',
 	'reviewedpages-lev-0' => 'Vurdert',
 	'reviewedpages-lev-1' => 'Kvalitet',
+	'reviewedpages-lev-2' => 'Utmerka',
 	'reviewedpages-all' => 'vurderte versjonar',
+	'reviewedpages-best' => 'beste versjon',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

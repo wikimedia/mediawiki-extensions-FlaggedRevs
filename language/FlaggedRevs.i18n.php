@@ -270,8 +270,12 @@ The accuracy "quality", as displayed on the page history after a revision with t
 The accuracy "sighted", as displayed on the page history after a revision with this setting.',
 	'hist-stable-user' => '{{Flagged Revs}}',
 	'review-diff2stable' => '{{Flagged Revs}}',
-	'review-logentry-app' => '{{Flagged Revs}}',
-	'review-logentry-dis' => '{{Flagged Revs}}',
+	'review-logentry-app' => '{{Flagged Revs}}
+* $1 is a page title
+* $2 is a version of page',
+	'review-logentry-dis' => '{{Flagged Revs}}
+* $1 is a page title
+* $2 is a version of page',
 	'review-logentry-id' => '{{Flagged Revs}}',
 	'review-logentry-diff' => '{{Flagged Revs}}',
 	'review-logpage' => '{{Flagged Revs}}',
@@ -2027,9 +2031,9 @@ $messages['de'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} gesichtet] von [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisch gesichtet]',
 	'review-diff2stable' => 'Unterschiede zwischen der markierten und der aktuellen Version ansehen',
-	'review-logentry-app' => 'markierte „[[$1]]“',
-	'review-logentry-dis' => 'entfernte eine Markierung von „[[$1]]“',
-	'review-logentry-id' => 'Versions-ID $1',
+	'review-logentry-app' => 'markierte Version $2 von „[[$1]]“',
+	'review-logentry-dis' => 'entfernte Markierung für Version $2 von „[[$1]]“',
+	'review-logentry-id' => 'ansehen',
 	'review-logentry-diff' => 'Unterschied zur gesichteten Version',
 	'review-logpage' => 'Versionsmarkierungs-Logbuch',
 	'review-logpagetext' => 'In diesem Logbuch werden die [[{{MediaWiki:Validationpage}}|Sichtungen und Prüfungen]] von Versionen protokolliert. Siehe die [[Special:ReviewedPages|Liste markierter Versionen]].',
@@ -2233,9 +2237,9 @@ $messages['dsb'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} pśeglědana] wót wužywarja [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} awtomatiski pśeglědany]',
 	'review-diff2stable' => 'Rozdźěle mjazy stabilneju a aktualneju wersiju se woglědaś',
-	'review-logentry-app' => 'jo [[$1]] pśespytał',
-	'review-logentry-dis' => 'jo wersiju wužywarja [[$1]] wótgódnośił',
-	'review-logentry-id' => 'wersijowy ID $1',
+	'review-logentry-app' => 'jo wersiju r$2 boka [[$1]] pśespytał',
+	'review-logentry-dis' => 'jo wersiju r$2 boka [[$1]] wótgódnośił',
+	'review-logentry-id' => 'woglědaś se',
 	'review-logentry-diff' => 'rozdźěl k stabilnej wersiji',
 	'review-logpage' => 'Protokol pśespytowanjow',
 	'review-logpagetext' => 'To jo protokol změnow k statusoju [[{{MediaWiki:Validationpage}}|pśizwólowanja]] wersijow za wopśimjeśowe boki.
@@ -2683,8 +2687,10 @@ $messages['es'] = array(
 	'hist-quality' => 'revisión de calidad',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]]',
 	'hist-stable' => 'Revisiones vistas',
-	'review-logentry-app' => 'revisado [[$1]]',
-	'review-logentry-dis' => 'depreciada una versión de [[$1]]',
+	'review-diff2stable' => 'Ver cambios entre la revisiones estable y actual',
+	'review-logentry-app' => 'revisado r$2 de [[$1]]',
+	'review-logentry-dis' => 'depreciada r$2 de [[$1]]',
+	'review-logentry-id' => 'Ver',
 	'reviewer' => 'Revisor',
 	'revisionreview' => 'Verificar revisiones',
 	'revreview-accuracy-0' => 'Desaprobado',
@@ -2743,6 +2749,7 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'revreview-selected' => "Revisión seleccionada de '''$1:'''",
 	'revreview-source' => 'fuente del borrador',
 	'revreview-stable' => 'Página estable',
+	'revreview-stable-title' => 'Página revisada',
 	'revreview-style' => 'Legibilidad',
 	'revreview-style-0' => 'Reprobada',
 	'revreview-style-1' => 'Aceptable',
@@ -3129,14 +3136,6 @@ $messages['fi'] = array(
 	'revreview-tt-review' => 'Arvioi tämä sivu',
 );
 
-/** Võro (Võro)
- * @author Võrok
- */
-$messages['vro'] = array(
-	'revreview-revnotfound' => 'Es lövväq su otsitut vanna kujjo.
-Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
-);
-
 /** French (Français)
  * @author Cedric31
  * @author Crochet.david
@@ -3146,6 +3145,7 @@ Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
  * @author Korrigan
  * @author McDutchie
  * @author Sherbrooke
+ * @author The RedBurn
  * @author Urhixidur
  * @author Verdy p
  * @author Zetud
@@ -3173,16 +3173,16 @@ $messages['fr'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} visée] par [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatiquement revue]',
 	'review-diff2stable' => 'Voir les modifications entre les versions stables et actuelles.',
-	'review-logentry-app' => 'Revue [[$1]]',
-	'review-logentry-dis' => 'Version dépréciée de [[$1]]',
-	'review-logentry-id' => 'Version ID $1',
+	'review-logentry-app' => 'a revu v$2 de [[$1]]',
+	'review-logentry-dis' => 'a déprécié v$2 de [[$1]]',
+	'review-logentry-id' => 'afficher',
 	'review-logentry-diff' => 'diff vers la version stable',
 	'review-logpage' => 'Journal des relectures',
 	'review-logpagetext' => 'Voici le journal des modifications du statut [[{{MediaWiki:Validationpage}}|d’approbation]] des révisions du contenu des pages.
 Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celles qui sont approuvées.',
 	'reviewer' => 'Réviseur',
 	'revisionreview' => 'Revoir versions',
-	'revreview-accuracy' => 'Précision',
+	'revreview-accuracy' => 'État&nbsp;',
 	'revreview-accuracy-0' => 'Non approuvée',
 	'revreview-accuracy-1' => 'Vue',
 	'revreview-accuracy-2' => 'Précise',
@@ -3232,10 +3232,10 @@ Le ''brouillon'' est visible ci-dessous. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&d
 	'revreview-patrol' => 'Marquer cette modification comme patrouillée',
 	'revreview-patrol-title' => 'Marquer comme patrouillé',
 	'revreview-patrolled' => 'La version sélectionnée de [[:$1|$1]] a été marquée comme patrouillée.',
-	'revreview-quality' => "C'est la dernière [[{{MediaWiki:Validationpage}}|version de qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.",
-	'revreview-quality-i' => 'Voici la dernière version de [[{{MediaWiki:Validationpage}}|qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>.
+	'revreview-quality' => "Ceci est la dernière [[{{MediaWiki:Validationpage}}|version de qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ébauche] peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|$3 changement attend|$3 changements attendent}}] une révision.",
+	'revreview-quality-i' => 'Ceci est la dernière version de [[{{MediaWiki:Validationpage}}|qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] sur <i>$2</i>.
 Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] comprend des [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changements de modèle ou d’image] en attente d’approbation.',
-	'revreview-quality-old' => 'Voici une version de [[{{MediaWiki:Validationpage}}|qualité]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} tous lister]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.
+	'revreview-quality-old' => 'Ceci est une version de [[{{MediaWiki:Validationpage}}|qualité]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} tous lister]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.
 De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifications] peuvent avoir été effectuées.',
 	'revreview-quality-same' => 'Ceci est la dernière version de [[{{MediaWiki:Validationpage}}|qualité]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvé] sur <i>$2</i>. La page peut être [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifiée].',
 	'revreview-quality-source' => 'Une [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version de qualité] de cette page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>, a été basée en dehors de cette version.',
@@ -3512,9 +3512,9 @@ $messages['gl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} revisado] por [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} revisado automaticamente]',
 	'review-diff2stable' => 'Ver os cambios entre as revisións estábel e a actual',
-	'review-logentry-app' => 'revisou "[[$1]]"',
-	'review-logentry-dis' => 'devaluou a versión de "[[$1]]"',
-	'review-logentry-id' => 'revisión ID $1',
+	'review-logentry-app' => 'revisou a r$2 de "[[$1]]"',
+	'review-logentry-dis' => 'devaluou a r$2 de "[[$1]]"',
+	'review-logentry-id' => 'ver',
 	'review-logentry-diff' => 'diferenzas coa versión estábel',
 	'review-logpage' => 'Rexistro de revisións',
 	'review-logpagetext' => 'Este é un rexistro dos cambios nas revisións de [[{{MediaWiki:Validationpage}}|aprobación]] do status para o contido das páxinas.
@@ -4506,9 +4506,9 @@ $messages['hsb'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} přehladany] wot [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisce přehladany]',
 	'review-diff2stable' => 'Rozdźěle mjez stabilnej a aktualnej wersiju wobhladać',
-	'review-logentry-app' => 'je $1 přepruwował',
-	'review-logentry-dis' => 'je wersiju wot $1 wothódnoćił',
-	'review-logentry-id' => 'Wersijowy ID $1',
+	'review-logentry-app' => 'je wersiju r$2 strony [[$1]] přepruwował',
+	'review-logentry-dis' => 'je wersiju r$2 strony $1 wothódnoćił',
+	'review-logentry-id' => 'wobhladać sej',
 	'review-logentry-diff' => 'Rozdźěl k stabilnej wersiji',
 	'review-logpage' => 'Protokol přepruwowanjow',
 	'review-logpagetext' => 'To je protokol změnow statusa  [[{{MediaWiki:Validationpage}}|schwalenja]] wersijow za nastawki.
@@ -5394,9 +5394,9 @@ $messages['ja'] = array(
 	'hist-stable-user' => '[[User:$3|$3]] によって[{{fullurl:$1|stableid=$2}} 採用]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} 自動採用]',
 	'review-diff2stable' => '採択版から最新版までの変更履歴を見る',
-	'review-logentry-app' => '[[$1]] を査読承認',
-	'review-logentry-dis' => '[[$1]] を査読の末、棄却',
-	'review-logentry-id' => '特定版ID $1',
+	'review-logentry-app' => '[[$1]] の版$2を査読承認',
+	'review-logentry-dis' => '[[$1]] の版$2を査読の末、棄却',
+	'review-logentry-id' => '表示',
 	'review-logentry-diff' => '安定版との差分',
 	'review-logpage' => '査読記録',
 	'review-logpagetext' => '記事の特定版に対する[[{{MediaWiki:Validationpage}}|承認]]状況の変更記録です。承認が済んだページのリストは[[Special:ReviewedPages|査読済みページ一覧]]を参照してください。',
@@ -6143,8 +6143,8 @@ $messages['lb'] = array(
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validéiert] vum [[User:$3|$3]]',
 	'hist-stable' => 'iwwerkuckte Versioun',
 	'review-diff2stable' => 'Ännerungen tëschent der stabiler an der aktueller Versioun',
-	'review-logentry-app' => 'nogekuckt [[$1]]',
-	'review-logentry-id' => 'Versiounsnummer $1',
+	'review-logentry-app' => 'r$2 vun der Säit [[$1]] nogekuckt',
+	'review-logentry-id' => 'weisen',
 	'review-logpage' => 'Lëscht vum Nokucken',
 	'reviewer' => 'Reviseur',
 	'revisionreview' => 'Versiounen nokucken',
@@ -7090,9 +7090,9 @@ $messages['nl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} gecontroleerd] door [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisch gecontroleerd]',
 	'review-diff2stable' => 'Verschillen tussen stabiele versie en werkversie bekijken',
-	'review-logentry-app' => 'heeft eindredactie gedaan voor [[$1]]',
-	'review-logentry-dis' => 'heeft een versie van [[$1]] lager beoordeeld',
-	'review-logentry-id' => 'versienummer $1',
+	'review-logentry-app' => 'heeft eindredactie gedaan voor versie $2 van [[$1]]',
+	'review-logentry-dis' => 'heeft versie $2 van [[$1]] lager beoordeeld',
+	'review-logentry-id' => 'bekijken',
 	'review-logentry-diff' => 'verschil met stabiele versie',
 	'review-logpage' => 'Eindredactielogboek',
 	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Validationpage}}|waarderingsstatus]] van versies van pagina's.
@@ -7272,32 +7272,46 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
+	'editor' => 'Skribent',
 	'flaggedrevs' => 'Vurderte versjonar',
+	'flaggedrevs-desc' => 'Gjev skribentar og meldarar evna til å godkjenna sideversjonar og stabilisera sider',
+	'flaggedrevs-pref-UI-0' => 'Nytt eit detaljert grensesnitt for stabile versjonar',
+	'flaggedrevs-pref-UI-1' => 'Nytt eit enkelt grensesnitt for stabile versjonar',
 	'flaggedrevs-prefs' => 'Stabile sider',
+	'flaggedrevs-prefs-stable' => 'Vis alltid den stabile versjonen av innhaldssidor (om ein finst)',
+	'flaggedrevs-prefs-watch' => 'Legg til sidene eg vurderer i overvakingslista mi',
+	'group-editor' => 'Skribentar',
+	'group-editor-member' => 'skribent',
 	'group-reviewer' => 'Meldarar',
 	'group-reviewer-member' => 'Meldar',
+	'grouppage-editor' => '{{ns:project}}:Skribentar',
 	'grouppage-reviewer' => '{{ns:project}}:Meldarar',
 	'hist-draft' => 'utkast',
 	'hist-quality' => 'kvalitetsversjon',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} godkjend] av [[User:$3|$3]]',
 	'hist-stable' => 'vurdert versjon',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} vurdert] av [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisk vurdert]',
 	'review-diff2stable' => 'Syn endringar mellom den stabile og den noverande versjonen',
-	'review-logentry-app' => 'vurderte [[$1]]',
-	'review-logentry-dis' => 'degraderte ein versjon av [[$1]]',
-	'review-logentry-id' => 'versjons-ID $1',
+	'review-logentry-app' => 'vurderte versjon $2 av [[$1]]',
+	'review-logentry-dis' => 'degraderte versjon $2 versjon av [[$1]]',
+	'review-logentry-id' => 'sjå',
 	'review-logentry-diff' => 'skilnad frå stabil versjon',
 	'review-logpage' => 'Vurderingslogg',
 	'review-logpagetext' => 'Dette er ein logg over endringar i [[{{MediaWiki:Validationpage}}|godkjenningsstoda]] til innhaldssider.
 Sjå [[Special:ReviewedPages|lista over vurderte sider]] for ei lista over godkjende sider.',
 	'reviewer' => 'Vurdert av',
+	'revisionreview' => 'Vurder sideversjonar',
 	'revreview-accuracy' => 'Vurdering',
 	'revreview-accuracy-0' => 'Ikkje godkjend',
 	'revreview-accuracy-1' => 'Vurdert',
 	'revreview-accuracy-2' => 'Nøyaktig',
 	'revreview-accuracy-3' => 'God kjeldetilvising',
+	'revreview-accuracy-4' => 'Utmerka',
 	'revreview-approved' => 'Godkjend',
 	'revreview-auto' => '(automatisk)',
+	'revreview-auto-w' => "Du endrar den stabile versjonen; endringar vert '''vurderte av seg sjølve'''.",
+	'revreview-auto-w-old' => "Du endrar ein vurdert versjon; endringar vert '''vurderte av seg sjølve'''.",
 	'revreview-basic' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] versjonen, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}}  vurdert] den <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|éi endring|$3 endringar}}] som ventar på vurdering.',
 	'revreview-basic-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] sideversjonen, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} vurdert] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mal- eller biletendringar] som ventar på vurdering.',
@@ -7343,6 +7357,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan h
 	'revreview-stable' => 'Stabil sida',
 	'revreview-stable-title' => 'Vurdert artikkel',
 	'revreview-stable1' => 'Du ynskjer kanskje å sjå [{{fullurl:$1|stableid=$2}} denne merkte versjonen] og sjå om han er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne sida.',
+	'revreview-stable2' => 'Du ynskjer kanskje å sjå den [{{fullurl:$1|stable=1}} stabile versjoen] av sida (om det enno finst ein).',
 	'revreview-submit' => 'Utfør',
 	'revreview-submitting' => 'Leverer …',
 	'revreview-finished' => 'Vurdering fullførd.',
@@ -7360,6 +7375,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan h
 	'right-movestable' => 'Flytta stabile sider',
 	'right-review' => 'Merkja sideversjonar som vurderte',
 	'right-validate' => 'Merkja sideversjonar som godkjende',
+	'rights-editor-revoke' => 'fjerna skribentrettane til [[$1]]',
 	'specialpages-group-quality' => 'Sikring av kvalitet',
 	'readerfeedback' => 'Kva tykkjer du om denne sida?',
 	'readerfeedback-text' => "''Ta gjerne nokre minutt for å vurdera denne sida nedanfor. Tilbakemeldinga di er verdifull og hjelper oss med å betra nettstaden vår.''",
@@ -7393,6 +7409,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan h
 	'tooltip-ca-current' => 'Syn det noverande utkastet til sida',
 	'tooltip-ca-stable' => 'Syn den stabile versjonen av sida',
 	'tooltip-ca-default' => 'Innstillingar for kvalitetssikring',
+	'tooltip-ca-ratinghist' => 'Lesarvurderingar av sida',
 	'revreview-locked' => 'Endringar må verta vurderte før dei vert synte på denne sida.',
 	'revreview-unlocked' => 'Endringar treng ikkje verta vurderte før dei vert synte på denne sida.',
 	'log-show-hide-review' => '$1 vurderingslogg',
@@ -7843,9 +7860,9 @@ $messages['pl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} przejrzana] przez użytkownika [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatycznie oznaczona jako przejrzana]',
 	'review-diff2stable' => 'Pokaż różnicę pomiędzy wersją oznaczoną a ostatnią',
-	'review-logentry-app' => 'przejrzał [[$1]]',
-	'review-logentry-dis' => 'wycofał wersję oznaczoną w [[$1]]',
-	'review-logentry-id' => 'wersja o ID $1',
+	'review-logentry-app' => 'przejrzał wersję $2 w [[$1]]',
+	'review-logentry-dis' => 'wycofał oznaczenie dla wersji $2 w [[$1]]',
+	'review-logentry-id' => 'zobacz',
 	'review-logentry-diff' => 'różnice do wersji przejrzanej',
 	'review-logpage' => 'Rejestr oznaczania',
 	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.
@@ -8172,9 +8189,9 @@ $messages['pt'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} analisada] por [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automaticamente analisada]',
 	'review-diff2stable' => 'Ver alterações entre a edição estável e a actual',
-	'review-logentry-app' => 'analisou [[$1]]',
-	'review-logentry-dis' => 'rebaixou uma edição de [[$1]]',
-	'review-logentry-id' => 'ID de edição: $1',
+	'review-logentry-app' => 'analisou a edição r$2 de [[$1]]',
+	'review-logentry-dis' => 'rebaixou a edição r$2 de [[$1]]',
+	'review-logentry-id' => 'ver',
 	'review-logentry-diff' => 'diferenças da versão estável',
 	'review-logpage' => 'Registo de análise de edições',
 	'review-logpagetext' => 'Este é um registo de alterações nas [[{{MediaWiki:Validationpage}}|análises]] de páginas de conteúdo.
@@ -8412,9 +8429,9 @@ $messages['roa-tara'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} viste] da [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} viste automaticamende]',
 	'review-diff2stable' => "Vide le cangiaminde 'mbrà le revisiune secure e corrende",
-	'review-logentry-app' => 'riviste [[$1]]',
-	'review-logentry-dis' => "schifete 'na versione de [[$1]]",
-	'review-logentry-id' => "ID d'a revisione $1",
+	'review-logentry-app' => 'riviste r$2 de [[$1]]',
+	'review-logentry-dis' => 'schifete r$2 de [[$1]]',
+	'review-logentry-id' => 'vide',
 	'review-logentry-diff' => 'diff pe stabbilità',
 	'review-logpage' => 'Archivie de le revisitaminde',
 	'reviewer' => 'Rivisitatore',
@@ -8482,6 +8499,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'right-stablesettings' => 'Configure cumme versiona secure quedde ca jè selezionete e visualizzete',
 	'right-validate' => 'Signe le revisiune cumme a validete',
 	'rights-editor-autosum' => 'auto promosse',
+	'rights-editor-revoke' => "'u state d'u cangiatore ha state scangellete da [[$1]]",
 	'specialpages-group-quality' => 'Assicurazione de qualità',
 	'stable-logpage' => 'Archivie de le stabilizzaziune',
 	'readerfeedback' => 'Ce pinze de sta pàgene?',
@@ -8514,6 +8532,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-reviewlink' => 'reviste',
 	'tooltip-ca-current' => "Vide 'a bozza corrende pe sta pàgene",
 	'tooltip-ca-stable' => "Vide 'a versiona secure pe sta pàgene",
+	'tooltip-ca-ratinghist' => 'Pundegge de le letture de sta pàgene',
 	'revreview-unlocked' => 'Le cangiaminde non ge richiedene le revisete apprime ca avènene fatte vedè sus a stà pàgene!',
 	'log-show-hide-review' => '$1 archivie de le rivisitaziune',
 	'revreview-tt-review' => 'Revide sta pàgene',
@@ -9409,7 +9428,7 @@ $messages['sv'] = array(
 	'review-diff2stable' => 'Visa ändringar mellan den stabila och den senaste versionen',
 	'review-logentry-app' => 'granskade [[$1]]',
 	'review-logentry-dis' => 'underkände en version av [[$1]]',
-	'review-logentry-id' => 'versions-ID $1',
+	'review-logentry-id' => 'visa',
 	'review-logentry-diff' => 'skillnad mot stabil',
 	'review-logpage' => 'Granskningslogg',
 	'review-logpagetext' => 'Det här är en logg över ändringar till [[{{MediaWiki:Validationpage}}|godkänningsstatus]] för innehållssidor.
@@ -9856,9 +9875,9 @@ $messages['tl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} namataan na] ni [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} kusang namataan]',
 	'review-diff2stable' => 'Tingnan ang mga pagbabago sa pagitan ng matatag at pangkasalukuyang mga pagbabago',
-	'review-logentry-app' => 'nasuri na ang [[$1]]',
-	'review-logentry-dis' => 'pinababa ang halaga/katuturan ng isang bersyon ng [[$1]]',
-	'review-logentry-id' => 'ID ng pagbabago $1',
+	'review-logentry-app' => 'nasuri na ang r$2 ng [[$1]]',
+	'review-logentry-dis' => 'bumaba ang halaga/katuturan ng r$2 ng [[$1]]',
+	'review-logentry-id' => 'tingnan',
 	'review-logentry-diff' => 'pagkakaiba sa may katatagan',
 	'review-logpage' => 'Talaan ng pagsusuri',
 	'review-logpagetext' => 'Isa itong talaan ng mga pagbabago sa kalagayan ng [[{{MediaWiki:Validationpage}}|pagpayag]] sa mga pahina ng nilalaman ng mga pagbabago.
@@ -10068,9 +10087,9 @@ $messages['tr'] = array(
 	'hist-stable-user' => '[[User:$3|$3]] tarafından [{{fullurl:$1|stableid=$2}} gözlendi]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} otomatik olarak gözlenmiş]',
 	'review-diff2stable' => 'Kararlı ve güncel revizyonlar arasındaki değişiklikleri göster',
-	'review-logentry-app' => '[[$1]] gözden geçirildi',
-	'review-logentry-dis' => '[[$1]] için bir sürüm yıprandı',
-	'review-logentry-id' => 'revizyon ID $1',
+	'review-logentry-app' => '[[$1]] için r$2 gözden geçirildi',
+	'review-logentry-dis' => '[[$1]] için r$2 yıprandı',
+	'review-logentry-id' => 'görüntüle',
 	'review-logentry-diff' => 'kararlı ile fark',
 	'review-logpage' => 'Günlüğü gözden geçir',
 	'review-logpagetext' => 'Bu, içerik sayfası revizyonlarının [[{{MediaWiki:Validationpage}}|kabul]] durumu değişiklikleri günlüğüdür.
@@ -10897,6 +10916,14 @@ kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULL
 	'tooltip-ca-stable' => 'Logön fomami fümöfik pada at',
 	'tooltip-ca-default' => 'Paramets tefü kalietitäxet',
 	'validationpage' => '{{ns:help}}:Padikontrolam',
+);
+
+/** Võro (Võro)
+ * @author Võrok
+ */
+$messages['vro'] = array(
+	'revreview-revnotfound' => 'Es lövväq su otsitut vanna kujjo.
+Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
 );
 
 /** Walloon (Walon) */

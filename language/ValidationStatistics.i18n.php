@@ -588,6 +588,7 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
+	'validationstatistics-users' => "'''{{SITENAME}}''' har på noverande tidspunkt {{PLURAL:$1|'''éin''' brukar|'''$1''' brukarar}} med [[{{MediaWiki:Validationpage}}|skribentrettar]] og {{PLURAL:$1|'''éin''' brukar|'''$2''' brukarar}} med [[{{MediaWiki:Validationpage}}|meldarrettar]].",
 	'validationstatistics-table' => "Statistikk for kvart namnerom er synt nedanfor, utanom omdirigeringssider.
 
 '''Merk:''' Fylgjande data vert mellomlagra i fleire timar og kan vera forelda.",
@@ -595,6 +596,7 @@ $messages['nn'] = array(
 	'validationstatistics-total' => 'Sider',
 	'validationstatistics-stable' => 'Vurdert',
 	'validationstatistics-latest' => 'Sist vurdert',
+	'validationstatistics-synced' => 'Synkronisert/Vurdert',
 	'validationstatistics-old' => 'Utdatert',
 );
 

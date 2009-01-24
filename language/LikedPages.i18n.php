@@ -230,7 +230,11 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'likedpages' => 'Sider vurderte som gode',
+	'likedpages-leg' => 'Finn sider vurderte som gode',
+	'likedpages-list' => 'Nedanfor er ei lista over sider sorterte etter lesarane sine vurderingar av dei.',
 	'likedpages-none' => 'Det finst ingen sider i denne lista',
+	'likedpages-graphs' => 'vurderingsdata',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

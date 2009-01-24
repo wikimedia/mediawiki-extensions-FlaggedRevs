@@ -28,6 +28,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Darth Kule
  * @author Jon Harald Søby
+ * @author Raymond
  * @author SPQRobin
  */
 $messages['qqq'] = array(
@@ -48,7 +49,7 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 	'oldreviewedpages-unwatched' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when nobody is watching the page.',
 	'oldreviewedpages-watched' => '{{Flagged Revs-small}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone is watching the page.',
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when actice users are watching the page.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -240,7 +241,7 @@ $messages['de'] = array(
 	'oldreviewed-diff' => 'sichten',
 	'oldreviewed-size' => 'Maximale Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
-	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|Benutzer|Benutzern}} beobachtet)',
+	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -261,7 +262,7 @@ $messages['dsb'] = array(
 	'oldreviewed-diff' => 'pśeglědaś',
 	'oldreviewed-size' => 'Maksimalna změna w bytach:',
 	'oldreviewedpages-unwatched' => '(njewobglědowany)',
-	'oldreviewedpages-watched' => '(Wót $2 {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} wobglědowany)',
+	'oldreviewedpages-watched' => '(Wót $2 {{PLURAL:$1|aktiwnego wužywarja|aktiwneju wužywarjowu|aktiwnych wužywarjow|aktiwnych wužywarjow}} wobglědowany)',
 );
 
 /** Greek (Ελληνικά)
@@ -314,7 +315,7 @@ $messages['es'] = array(
 	'oldreviewed-diff' => 'Revisado',
 	'oldreviewed-size' => 'Cambio máximo (bytes):',
 	'oldreviewedpages-unwatched' => '(no vigilado)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vigilando)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
 );
 
 /** Basque (Euskara)
@@ -385,7 +386,7 @@ $messages['fr'] = array(
 	'oldreviewed-diff' => 'relecture',
 	'oldreviewed-size' => 'Changement maximal de la taille (en octets) :',
 	'oldreviewedpages-unwatched' => '(non observé)',
-	'oldreviewedpages-watched' => "($2 {{PLURAL:$1|utilisateur|utilisateurs}} en train d'observer)",
+	'oldreviewedpages-watched' => "($1 {{PLURAL:$1|utilisateur actif|utilisateurs actifs}} en train d'observer)",
 );
 
 /** Irish (Gaeilge)
@@ -415,7 +416,7 @@ $messages['gl'] = array(
 	'oldreviewed-diff' => 'revisar',
 	'oldreviewed-size' => 'Tamaño máximo, en bytes, do cambio:',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} vixiando)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario activo|usuarios activos}} vixiando)',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -510,7 +511,7 @@ $messages['hsb'] = array(
 	'oldreviewed-diff' => 'kontrolować',
 	'oldreviewed-size' => 'Maksimalna změna (w bajtach):',
 	'oldreviewedpages-unwatched' => '(njewobkedźbowany)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|wužiwar wobkedźbuje|wužiwarjej wobkedźbujetaj|wužiwarjo wobkedźbuja|wužiwarjow wobkedźbuje}})',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktiwny wužiwar wobkedźbuje|aktiwnaj wužiwarjej wobkedźbujetaj|aktiwni wužiwarjo wobkedźbuja|aktiwnych wužiwarjow wobkedźbuje}})',
 );
 
 /** Hungarian (Magyar)
@@ -602,7 +603,7 @@ $messages['ja'] = array(
 	'oldreviewed-diff' => '査読',
 	'oldreviewed-size' => '変更量の上限 (バイト):',
 	'oldreviewedpages-unwatched' => '(未ウォッチ)',
-	'oldreviewedpages-watched' => '($2人の利用者がウォッチ)',
+	'oldreviewedpages-watched' => '($2人の活動中の利用者がウォッチ)',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -776,7 +777,7 @@ $messages['nl'] = array(
 	'oldreviewed-diff' => 'eindredactie',
 	'oldreviewed-size' => 'Maximale wijziging in aantal bytes:',
 	'oldreviewedpages-unwatched' => '(niet op een volglijst)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
+	'oldreviewedpages-watched' => '($2 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -797,7 +798,7 @@ $messages['nn'] = array(
 	'oldreviewed-diff' => 'vurder',
 	'oldreviewed-size' => 'Maksimal endring (byte):',
 	'oldreviewedpages-unwatched' => '(ikkje overvaka)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|éin brukar|$2 brukarar}} overvakar)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|éin aktiv brukar|$2 aktive brukarar}} overvakar)',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -861,7 +862,7 @@ $messages['pl'] = array(
 	'oldreviewed-diff' => 'różn.',
 	'oldreviewed-size' => 'Maksymalna liczba dodanych/usuniętych bajtów:',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
-	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|użytkownika|użytkowników}})',
+	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
 );
 
 /** Pashto (پښتو)
@@ -891,7 +892,7 @@ $messages['pt'] = array(
 	'oldreviewed-diff' => 'analisar',
 	'oldreviewed-size' => 'Tamanho máximo da alteração (em bytes):',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizador|utilizadores}} vigiando)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
 );
 
 /** Romanian (Română)
@@ -925,7 +926,7 @@ $messages['roa-tara'] = array(
 	'oldreviewed-diff' => 'riviste',
 	'oldreviewed-size' => "Cange 'a dimenzione massime de byte:",
 	'oldreviewedpages-unwatched' => '(no condrollà)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utende|utinde}} ca condrollene)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utende|utinde}} attive ca condrollene)',
 );
 
 /** Russian (Русский)
@@ -1049,7 +1050,7 @@ $messages['tl'] = array(
 	'oldreviewed-diff' => 'suriing muli',
 	'oldreviewed-size' => "Pinakamataas na bilang ng pagbabago (mga ''byte''):",
 	'oldreviewedpages-unwatched' => '(hindi minamatyagan/binabantayan)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|tagagamit|mga tagagamit}} nagmamatyag/nagbabantay)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagmamasid)',
 );
 
 /** Turkish (Türkçe)
@@ -1072,7 +1073,7 @@ $messages['tr'] = array(
 	'oldreviewed-diff' => 'gözden geçir',
 	'oldreviewed-size' => 'Max değişiklik (byte):',
 	'oldreviewedpages-unwatched' => '(izlenmiyor)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
+	'oldreviewedpages-watched' => '($2 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
 );
 
 /** Ukrainian (Українська)
@@ -1092,7 +1093,7 @@ $messages['uk'] = array(
 	'oldreviewed-diff' => 'перевірити',
 	'oldreviewed-size' => 'Максимальна зміна розміру в байтах:',
 	'oldreviewedpages-unwatched' => '(не спостерігають)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|спостерігає $2 користувач|спостерігають $2 користувачі|спостерігають $2 користувачів}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|спостерігає $2 активний користувач|спостерігають $2 активних користувачі|спостерігають $2 активних користувачів}})',
 );
 
 /** Vèneto (Vèneto)

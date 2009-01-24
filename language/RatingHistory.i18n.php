@@ -249,12 +249,15 @@ La '''nombro de kontrolo po tago''' <font color=\"red\">''(ruĝa)''</font> estas
  * @author Crazymadlover
  */
 $messages['es'] = array(
+	'ratinghistory-tab' => 'rating',
 	'ratinghistory-period' => 'Periodo de tiempo:',
 	'ratinghistory-month' => 'último mes',
 	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último año',
 	'ratinghistory-3years' => 'últimos 3 años',
 	'readerfeedback-svg' => 'Ver como SVG',
+	'ratinghistory-table-rating' => 'Rating',
+	'ratinghistory-table-votes' => 'Votos',
 );
 
 /** Basque (Euskara)
@@ -780,14 +783,31 @@ Het '''aantal waarderingen per dag''' <font color=\"red\">''(rood)''</font> word
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'ratinghistory' => 'Sidevurderingshistorikk',
+	'ratinghistory-leg' => 'Vurderingshistorikkdata for [[:$1|$1]]',
+	'ratinghistory-tab' => 'vurdering',
+	'ratinghistory-link' => 'Sidevurdering',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Takk for at du tok deg tid til å vurdera sida!</font>''",
 	'ratinghistory-period' => 'Tidsperiode:',
 	'ratinghistory-month' => 'siste månaden',
 	'ratinghistory-3months' => 'siste tre månader',
 	'ratinghistory-year' => 'siste året',
 	'ratinghistory-3years' => 'siste tre år',
+	'ratinghistory-chart' => 'Lesarvurdering over tid',
+	'ratinghistory-table' => 'Oversyn over vurderingar den siste månaden',
+	'ratinghistory-users' => 'Brukarar som vurderte sida',
+	'ratinghistory-graph' => '$2 for «$3» ({{PLURAL:$1|éi vurdering|$1 vurderingar}})',
 	'readerfeedback-svg' => 'Syn som SVG',
+	'ratinghistory-table-rating' => 'Vurdering',
 	'ratinghistory-table-votes' => 'Røyster',
+	'ratinghistory-none' => 'Det finst ikkje nok lesarvurderingar for grafkonstruering enno.',
+	'ratinghistory-legend' => "Den '''daglege gjennomsnittsvurderinga''' <font color=\"blue\">''(blått)''</font> og  
+'''gjennomsnittet for det valte intervallet''' per dag <font color=\"green\">''(grønt)''</font> er teikna inn på grafane under etter dato.
+
+Skala: '''[1]''' - Sers dårleg; '''[2]''' - Dårleg; '''[3]''' - OK; '''[4]''' - Bra; '''[5]''' - Sers bra;
+
+Talet på '''vurderingar per dag''' <font color=\"red\">''(raudt)''</font> er vist på grafane under med ein skala på  ''1:\$1''.",
+	'right-feedback' => 'Nytta tilbakemeldingsskjemaet for å vurdera ei sida',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -941,6 +961,7 @@ $messages['roa-tara'] = array(
 	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisione|revisiune}})',
 	'readerfeedback-svg' => 'Vide cumme a SVG',
+	'ratinghistory-table-votes' => 'Vote',
 	'ratinghistory-none' => "Non ge stonne abbastanza lettore ca onne lassete 'u feedback pe ccrejà 'nu grafeche jndr'à stu timbe.",
 	'ratinghistory-legend' => "'U '''pundegge medie sciurnaliere''' <font color=\"blue\">''(blue)''</font> e
 'u '''pundegge medie corrende''' <font color=\"green\">''(green)''</font> sonde disegnete aqquà sotte, pe date.
@@ -1127,9 +1148,12 @@ $messages['tr'] = array(
 	'ratinghistory-year' => 'son yıl',
 	'ratinghistory-3years' => 'son 3 yıl',
 	'ratinghistory-chart' => 'Zaman içindeki kullanıcı dönüt derecelendirmesi',
+	'ratinghistory-table' => 'Geçen ayın genel bakış değerlendirmeleri',
 	'ratinghistory-users' => 'Derecelendirme veren kullanıcılar',
 	'ratinghistory-graph' => '"$3" de $2 ($1 {{PLURAL:$1|gözden geçirme|gözden geçirme}})',
 	'readerfeedback-svg' => 'SVG olarak görüntüle',
+	'ratinghistory-table-rating' => 'Derecelendirme',
+	'ratinghistory-table-votes' => 'Oylar',
 	'ratinghistory-none' => 'Grafikler için şuanda yeterince okuyucu dönüt verisi yok.',
 	'ratinghistory-legend' => "'''Günlük ortalama derecelendirme''' <font color=\"blue\">''(mavi)''</font> ve
 '''Çalışma ortalama derecelendirme''' <font color=\"green\">''(yeşil)''</font> aşağıda tarihe göre çizildi.

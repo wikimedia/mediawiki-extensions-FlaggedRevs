@@ -278,16 +278,21 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'problempages' => 'Sider vurderte som dårlege',
+	'problempages-leg' => 'Finn sider vurderte som dårlege',
+	'problempages-list' => 'Nedanfor er ei lista over sider sorterte etter lesarane sine vurderingar av dei.',
 	'problempages-none' => 'Det finst ingen sider i denne lista',
+	'problempages-graphs' => 'vuderingsdata',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
 	'problempages' => 'Sider med lav vurdering',
 	'problempages-leg' => 'Finn sider med lav vurdering',
-	'problempages-list' => 'Nedenfor er en lite over sider sortert etter lesernes vurdering av dem',
+	'problempages-list' => 'Nedenfor er en liste over sider sortert etter lesernes vurdering av dem',
 	'problempages-none' => 'Det er ingen sider i denne listen',
 	'problempages-graphs' => 'vurderingsdata',
 );
