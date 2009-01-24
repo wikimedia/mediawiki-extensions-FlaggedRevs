@@ -164,6 +164,8 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
 		$talk = $form->page->getTalkPage();
 		
+		$tallyTable = RatingHistory::getVoteAggregates( $form->page, 31 );
+		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		$ok = ( $bot || $form->submit() ); // don't submit for mindless drones
@@ -173,11 +175,11 @@ class ReaderFeedback extends UnlistedSpecialPage
 		if( $ok ) {
 			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
 				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) ) .
-				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n".RatingHistory::getVoteAggregates( $form->page, 31 );
+				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n$tallyTable";
 		} else {
 			return '<err#>'.wfMsgExt( 'readerfeedback-voted', array('parseinline'), 
 				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) ) .
-				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n".RatingHistory::getVoteAggregates( $form->page, 31 );
+				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n$tallyTable";
 		}
 	}
 	

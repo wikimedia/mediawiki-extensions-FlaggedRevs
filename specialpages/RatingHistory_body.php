@@ -58,7 +58,7 @@ class RatingHistory extends UnlistedSpecialPage
 		/*
 		 * Allow client caching.
 		 */
-		if( !$this->doPurge && $wgOut->checkLastModified( $this->getTouched() ) ) {
+		if( !$this->doPurge && $wgOut->checkLastModified( self::getTouched($this->page) ) ) {
 			return; // Client cache fresh and headers sent, nothing more to do
 		} else {
 			$wgOut->enableClientCache( false ); // don't show stale graphs
@@ -623,14 +623,18 @@ class RatingHistory extends UnlistedSpecialPage
 	public static function getVoteAggregates( $page, $period ) {
 		global $wgMemc;
 		// Check cache
-		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId() );
+		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId(), $period );
 		$set = $wgMemc->get($key);
-		// Cutoff is at the 24 hour mark due to the way the aggregate schema
-		// groups ratings by data for graphs.
+		// Cutoff is at the 24 hour mark due to the way the aggregate 
+		// schema groups ratings by data for graphs.
 		$now = time();
 		$cache_cutoff = $now - ($now % 86400);
-		if( is_array($set) && $set[1] > $cache_cutoff ) {
-			$votes = $set[0];
+		if( is_array($set) ) {
+			list($val,$time) = $set;
+			$touched = wfTimestamp( TS_UNIX, self::getTouched($page) );
+			if( $time > $cache_cutoff && $time > $touched ) {
+				$votes = $val;
+			}
 		}
 		// Do query, cache miss
 		if( !isset($votes) ) {
@@ -744,13 +748,14 @@ class RatingHistory extends UnlistedSpecialPage
 	
 	/**
 	* Get highest touch timestamp of the tags. This uses a tiny filesort.
+	* @param $page Title
 	* @returns string
 	*/
-	public function getTouched() {
+	public static function getTouched( $page ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$tagTimestamp = $dbr->selectField( 'reader_feedback_pages', 
 			'MAX(rfp_touched)',
-			array( 'rfp_page_id' => $this->page->getArticleId() ),
+			array( 'rfp_page_id' => $page->getArticleId() ),
 			__METHOD__ );
 		return wfTimestamp( TS_MW, $tagTimestamp );
 	}
