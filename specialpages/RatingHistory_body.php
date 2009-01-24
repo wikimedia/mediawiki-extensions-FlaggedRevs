@@ -626,7 +626,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId(), $period );
 		$set = $wgMemc->get($key);
 		// Cutoff is at the 24 hour mark due to the way the aggregate 
-		// schema groups ratings by data for graphs.
+		// schema groups ratings by date for graphs.
 		$now = time();
 		$cache_cutoff = $now - ($now % 86400);
 		if( is_array($set) ) {
