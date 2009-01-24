@@ -267,7 +267,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->watched = (bool)$watched;
 		parent::__construct();
 		// Don't get to expensive
-		$this->mLimit = min( $this->mLimit, 500 );
+		$this->mLimitsShown = array( 20, 50, 100 );
+		$this->mLimit = min( $this->mLimit, 100 );
 	}
 
 	function formatRow( $row ) {

@@ -117,7 +117,7 @@ class UnreviewedPages extends SpecialPage
 				__METHOD__ );
 		}
 		# If it is small, just COUNT() it, otherwise, stick with estimate...
-		if( $count == -1 || $count <= 10 ) {
+		if( $count == -1 || $count <= 100 ) {
 			global $wgCookieExpiration;
 			# Get number of active editors watchling this
 			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 3*$wgCookieExpiration );
