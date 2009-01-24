@@ -3132,7 +3132,7 @@ $messages['fi'] = array(
 /** Võro (Võro)
  * @author Võrok
  */
-$messages['fiu-vro'] = array(
+$messages['vro'] = array(
 	'revreview-revnotfound' => 'Es lövväq su otsitut vanna kujjo.
 Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
 );
