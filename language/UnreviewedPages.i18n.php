@@ -442,7 +442,7 @@ $messages['he'] = array(
 	'unreviewed-category' => 'קטגוריה:',
 	'unreviewed-diff' => 'בדיקה',
 	'unreviewed-unwatched' => 'לא במעקב',
-	'unreviewed-watched' => '({{PLURAL:$1|משתמש אחד עוקב|$1 משתמשים עוקבים}})',
+	'unreviewed-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
 	'unreviewed-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו.',
 	'unreviewed-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
 );

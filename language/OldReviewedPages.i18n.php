@@ -470,7 +470,7 @@ $messages['he'] = array(
 	'oldreviewed-diff' => 'בדיקה',
 	'oldreviewed-size' => 'השינוי המירבי בגודל בבתים:',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|משתמש אחד עוקב|$2 משתמשים עוקבים}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$2 משתמשים פעילים עוקבים}})',
 );
 
 /** Hindi (हिन्दी)

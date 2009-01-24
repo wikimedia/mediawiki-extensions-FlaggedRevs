@@ -4024,9 +4024,9 @@ $messages['he'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} נצפתה] על ידי [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} נצפתה אוטומטית]',
 	'review-diff2stable' => 'הצגת ההבדלים בין הגרסה היציבה והגרסה הנוכחית',
-	'review-logentry-app' => 'בדק את [[$1]]',
-	'review-logentry-dis' => 'סימן גרסה של [[$1]] כבעייתית',
-	'review-logentry-id' => 'מספר גרסה $1',
+	'review-logentry-app' => 'בדק את גרסה $2 של [[$1]]',
+	'review-logentry-dis' => 'סימן את גרסה $2 של [[$1]] כבעייתית',
+	'review-logentry-id' => 'צפייה',
 	'review-logentry-diff' => 'השוואה לגרסה היציבה',
 	'review-logpage' => 'יומן בדיקת גרסאות',
 	'review-logpagetext' => 'זהו יומן השינויים ל[[{{MediaWiki:Validationpage}}|אישור]] מעמדן של גרסאות בדפי תוכן.
