@@ -6,15 +6,15 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class OldReviewedPages extends SpecialPage
 {
-    function __construct() {
-        parent::__construct( 'OldReviewedPages' );
+	public function __construct() {
+		parent::__construct( 'OldReviewedPages' );
 		// $this->includable( true );
 		wfLoadExtensionMessages( 'OldReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-    }
+	}
 
-    function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut;
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
@@ -39,7 +39,7 @@ class OldReviewedPages extends SpecialPage
 		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
 	}
 
-	function showList( $par ) {
+	public function showList( $par ) {
 		global $wgOut, $wgScript, $wgUser, $wgFlaggedRevsNamespaces;
 		$limit = $this->parseParams( $par );
 		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category, 

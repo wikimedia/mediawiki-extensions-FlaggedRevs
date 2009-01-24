@@ -6,13 +6,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class UnreviewedPages extends SpecialPage
 {
-    function __construct() {
+    public function __construct() {
         SpecialPage::SpecialPage( 'UnreviewedPages', 'unreviewedpages' );
 		wfLoadExtensionMessages( 'UnreviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
-    function execute( $par ) {
+    public function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
 		$this->setHeaders();
 		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
@@ -23,7 +23,7 @@ class UnreviewedPages extends SpecialPage
 		$this->showList( $wgRequest );
 	}
 
-	function showList( $wgRequest ) {
+	protected function showList( $wgRequest ) {
 		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
 		# If no NS given, then just use the first of $wgFlaggedRevsNamespaces
 		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
@@ -77,7 +77,7 @@ class UnreviewedPages extends SpecialPage
 		}
 	}
 	
-	function formatRow( $result ) {
+	public function formatRow( $result ) {
 		global $wgLang, $wgUser;
 		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no' );
@@ -120,7 +120,7 @@ class UnreviewedPages extends SpecialPage
 		if( $count == -1 || $count <= 100 ) {
 			global $wgCookieExpiration;
 			# Get number of active editors watchling this
-			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 3*$wgCookieExpiration );
+			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 2*$wgCookieExpiration );
 			$res = $dbr->select( array('watchlist','user'), '1',
 				array( 'wl_namespace' => $title->getNamespace(), 
 					'wl_title' => $title->getDBKey(),

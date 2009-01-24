@@ -6,13 +6,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class QualityOversight extends SpecialPage
 {
-    function __construct() {
+    public function __construct() {
         SpecialPage::SpecialPage( 'QualityOversight' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		wfLoadExtensionMessages( 'QualityOversight' );
     }
 
-    function execute( $par ) {
+    public function execute( $par ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsNamespaces, $wgFlaggedRevsOversightAge;
 		
 		$this->setHeaders();

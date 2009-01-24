@@ -6,14 +6,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class Stabilization extends UnlistedSpecialPage
 {
-    function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage( 'Stabilization', 'stablesettings' );
+	public function __construct() {
+		UnlistedSpecialPage::UnlistedSpecialPage( 'Stabilization', 'stablesettings' );
 		wfLoadExtensionMessages( 'Stabilization' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
-    function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut;
 
 		$confirm = $wgRequest->wasPosted() &&
 			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
@@ -80,7 +80,7 @@ class Stabilization extends UnlistedSpecialPage
 		}
 	}
 
-	function showSettings( $err = null ) {
+	protected function showSettings( $err = null ) {
 		global $wgOut, $wgTitle, $wgUser;
 
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
@@ -170,7 +170,7 @@ class Stabilization extends UnlistedSpecialPage
 		LogEventsList::showLogExtract( $wgOut, 'stable', $this->page->getPrefixedText() );
 	}
 
-	function submit() {
+	protected function submit() {
 		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
 
 		$changed = $reset = false;

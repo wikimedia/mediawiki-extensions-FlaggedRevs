@@ -13,12 +13,12 @@ class ReaderFeedback extends UnlistedSpecialPage
 	var $validatedParams = '';
 	var $commentary = '';
 	
-    function __construct() {
+    public function __construct() {
         UnlistedSpecialPage::UnlistedSpecialPage( 'ReaderFeedback', 'feedback' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
-    function execute( $par ) {
+    public function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
 		$confirm = $wgRequest->wasPosted() && $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
 		if( $wgUser->isAllowed( 'feedback' ) ) {

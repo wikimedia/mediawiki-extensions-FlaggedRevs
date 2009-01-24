@@ -6,13 +6,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class ValidationStatistics extends IncludableSpecialPage
 {
-	function __construct() {
+	public function __construct() {
 		IncludableSpecialPage::IncludableSpecialPage( 'ValidationStatistics' );
 		wfLoadExtensionMessages( 'ValidationStatistics' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
-	function execute( $par ) {
+	public function execute( $par ) {
 		global $wgRequest, $wgUser, $wgOut, $wgLang, $wgContLang, $wgFlaggedRevsNamespaces;
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
@@ -71,10 +71,12 @@ class ValidationStatistics extends IncludableSpecialPage
 						htmlspecialchars( $wgLang->formatnum( $row->total ) ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $row->reviewed ) . $wgContLang->getDirMark() ) . " <i>($percRev)</i>
+						htmlspecialchars( $wgLang->formatnum( $row->reviewed ) . 
+							$wgContLang->getDirMark() ) . " <i>($percRev)</i>
 					</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $row->synced ) . $wgContLang->getDirMark() ) . " <i>($percLatest)</i>
+						htmlspecialchars( $wgLang->formatnum( $row->synced ) . 
+							$wgContLang->getDirMark() ) . " <i>($percLatest)</i>
 					</td>
 					<td>" .
 						$percSynced .

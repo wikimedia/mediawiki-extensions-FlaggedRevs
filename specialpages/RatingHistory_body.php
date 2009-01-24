@@ -6,14 +6,14 @@ if( !defined( 'MEDIAWIKI' ) ) {
 
 class RatingHistory extends UnlistedSpecialPage
 {
-    function __construct() {
-        parent::__construct( 'RatingHistory', 'feedback' );
+	public function __construct() {
+		parent::__construct( 'RatingHistory', 'feedback' );
 		wfLoadExtensionMessages( 'RatingHistory' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-    }
+	}
 
-    function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut;
 		$this->setHeaders();
 		if( $wgUser->isAllowed( 'feedback' ) ) {
 			if( $wgUser->isBlocked() ) {

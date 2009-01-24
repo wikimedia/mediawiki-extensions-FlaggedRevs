@@ -23,12 +23,12 @@ class RevisionReview extends UnlistedSpecialPage
 	var $dims = array();
 	var $unapprovedTags = 0;
 	
-    function __construct() {
+    public function __construct() {
 		parent::__construct( 'RevisionReview', 'review' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
-    function execute( $par ) {
+    public function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
 		$confirm = $wgRequest->wasPosted() && $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
 		if( $wgUser->isAllowed( 'review' ) ) {

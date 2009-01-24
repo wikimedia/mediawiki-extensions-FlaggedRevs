@@ -6,14 +6,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class ReviewedPages extends SpecialPage
 {
-    function __construct() {
-        SpecialPage::SpecialPage( 'ReviewedPages' );
+	public function __construct() {
+		SpecialPage::SpecialPage( 'ReviewedPages' );
 		wfLoadExtensionMessages( 'ReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
-    function execute( $par ) {
-        global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
@@ -28,7 +28,7 @@ class ReviewedPages extends SpecialPage
 		$this->showPageList();
 	}
 
-	function showForm() {
+	public function showForm() {
 		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
 
 		$form = Xml::openElement( 'form',
@@ -47,7 +47,7 @@ class ReviewedPages extends SpecialPage
 		$wgOut->addHTML( $form );
 	}
 
-	function showPageList() {
+	protected function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 
 		$pager = new ReviewedPagesPager( $this, array(), $this->type, $this->namespace );
@@ -61,7 +61,7 @@ class ReviewedPages extends SpecialPage
 		}
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		global $wgLang, $wgUser;
 
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
@@ -69,10 +69,11 @@ class ReviewedPages extends SpecialPage
 
 		$stxt = '';
 		if( !is_null($size = $row->page_len) ) {
-			if($size == 0)
+			if( $size == 0 )
 				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
 			else
-				$stxt = ' <small>' . wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) ) . '</small>';
+				$stxt = ' <small>' . wfMsgExt('historysize', array('parsemag'),
+					$wgLang->formatNum( $size ) ) . '</small>';
 		}
 
 		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );

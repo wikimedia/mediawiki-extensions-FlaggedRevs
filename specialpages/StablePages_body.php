@@ -6,13 +6,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class StablePages extends SpecialPage
 {
-    function __construct() {
+	public function __construct() {
         SpecialPage::SpecialPage( 'StablePages' );
 		wfLoadExtensionMessages( 'StablePages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
-    function execute( $par ) {
+	public function execute( $par ) {
         global $wgRequest, $wgUser;
 		
 		$this->setHeaders();
@@ -24,7 +24,7 @@ class StablePages extends SpecialPage
 		$this->showPageList();
 	}
 	
-	function showForm() {
+	protected function showForm() {
 		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
 		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parseinline') ) );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
@@ -38,7 +38,7 @@ class StablePages extends SpecialPage
 		}
 	}
 
-	function showPageList() {
+	protected function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
@@ -52,7 +52,7 @@ class StablePages extends SpecialPage
 		}
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		global $wgLang, $wgUser;
 
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
