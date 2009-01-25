@@ -104,16 +104,24 @@ class Stabilization extends UnlistedSpecialPage
 		}
 
 		$special = SpecialPage::getTitleFor( 'Stabilization' );
-		$form .= Xml::openElement( 'form', array( 'name' => 'stabilization', 'action' => $special->getLocalUrl( ), 'method' => 'post' ) ).
+		$form .= Xml::openElement( 'form', array( 'name' => 'stabilization',
+			'action' => $special->getLocalUrl(), 'method' => 'post' ) ) .
 			Xml::fieldset( wfMsg( 'stabilization-def' ), false ) . "\n" .
-			Xml::radioLabel( wfMsg( 'stabilization-def1' ), 'mwStableconfig-override', 1, 'default-stable', 1 == $this->override, $off ) . '<br />' . "\n" .
-			Xml::radioLabel( wfMsg( 'stabilization-def2' ), 'mwStableconfig-override', 0, 'default-current', 0 == $this->override, $off ) . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-def1' ), 'mwStableconfig-override', 1,
+				'default-stable', 1 == $this->override, $off ) . '<br />' . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-def2' ), 'mwStableconfig-override', 0,
+				'default-current', 0 == $this->override, $off ) . "\n" .
 			Xml::closeElement( 'fieldset' ) .
 
 			Xml::fieldset( wfMsg( 'stabilization-select' ), false ) .
-			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'mwStableconfig-select', FLAGGED_VIS_NORMAL, 'stable-select1', FLAGGED_VIS_NORMAL == $this->select, $off ) . '<br />' . "\n" .
-			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'mwStableconfig-select', FLAGGED_VIS_LATEST, 'stable-select2', FLAGGED_VIS_LATEST == $this->select, $off ) . '<br />' . "\n" .
-			// Xml::radioLabel( wfMsg( 'stabilization-select3' ), 'mwStableconfig-select', FLAGGED_VIS_PRISTINE, 'stable-select3', FLAGGED_VIS_PRISTINE == $this->select, $off ) .
+			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'mwStableconfig-select', FLAGGED_VIS_NORMAL,
+				'stable-select1', FLAGGED_VIS_NORMAL == $this->select, $off ) . '<br />' . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'mwStableconfig-select', FLAGGED_VIS_LATEST,
+				'stable-select2', FLAGGED_VIS_LATEST == $this->select, $off ) . '<br />' . "\n" .
+			/* 
+			Xml::radioLabel( wfMsg( 'stabilization-select3' ), 'mwStableconfig-select', FLAGGED_VIS_PRISTINE,
+				'stable-select3', FLAGGED_VIS_PRISTINE == $this->select, $off ) .
+			*/
 			Xml::closeElement( 'fieldset' ) .
 
 			Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
