@@ -863,14 +863,14 @@ EOT;
 			FlaggedRevs::saveUserParams( $user->getId(), $p );
 		}
 		# Check if user edited enough content pages
+		$totalCheckedEditsNeeded = false;
 		if( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
-			wfProfileOut( __METHOD__ );
-			return true;
-		}
-		# Check if the user has enough sighted edits
-		if( $wgFlaggedRevsAutopromote['totalReviewedEdits'] > $p['reviewedEdits'] ) {
-			wfProfileOut( __METHOD__ );
-			return true;
+			# Check if the user has enough sighted edits
+			if( $wgFlaggedRevsAutopromote['totalReviewedEdits'] > $p['reviewedEdits'] ) {
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
+			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
 		if( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count($pages) ) {
@@ -1043,7 +1043,7 @@ EOT;
 			}
 		}
 		# Check implicitly sighted edits
-		if( $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
+		if( $totalCheckedEditsNeeded && $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array('revision','flaggedpages'), '1',
 				array( 'rev_user' => $user->getID(), 'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
