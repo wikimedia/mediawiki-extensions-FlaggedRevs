@@ -656,16 +656,6 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Update link tracking. This will trigger our hook to add stable links too...
 		$u->doUpdate();
-		
-		# Update user stats if this rev was not flagged
-		if( !$oldfrev && $rev->getRawUser() ) {
-			global $wgFlaggedRevsAutopromote;
-			$p = FlaggedRevs::getUserParams( $rev->getRawUser() );
-			$p['reviewedEdits'] = isset($p['reviewedEdits']) ? $p['reviewedEdits'] : 0;
-			$p['reviewedEdits']++;
-			if( $wgFlaggedRevsAutopromote['totalReviewedEdits'] >= $p['reviewedEdits'] )
-				FlaggedRevs::saveUserParams( $rev->getRawUser(), $p );
-		}
 
 		$dbw->commit();
 		# Purge cache/squids for this page and any page that uses it
