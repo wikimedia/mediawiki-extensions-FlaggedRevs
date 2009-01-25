@@ -337,7 +337,7 @@ $messages['fa'] = array(
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-category' => 'Luokka',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|käyttäjän|käyttäjän}} tarkkailema)',
+	'unreviewed-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
 );
 
@@ -525,7 +525,7 @@ $messages['ia'] = array(
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'revider',
 	'unreviewed-unwatched' => '(non observate)',
-	'unreviewed-watched' => '(observate per $1 {{PLURAL:$1|usator|usatores}})',
+	'unreviewed-watched' => '(observate per $1 {{PLURAL:$1|usator|usatores}} active)',
 	'unreviewed-list' => 'Iste pagina lista le paginas de contento que non ha essite revidite.',
 	'unreviewed-none' => 'Al momento il non ha paginas que corresponde a iste criterios',
 );
@@ -563,7 +563,7 @@ $messages['it'] = array(
 	'unreviewed-legend' => 'Elenco delle pagine non revisionate',
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-unwatched' => '(non osservata)',
-	'unreviewed-watched' => '(osservata da $1 {{PLURAL:$1|utente|utenti}})',
+	'unreviewed-watched' => '(osservata da $1 {{PLURAL:$1|utente attivo|utenti attivi}})',
 	'unreviewed-list' => 'Di seguito sono riportate le pagine che non sono state revisionate.',
 	'unreviewed-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 );
@@ -862,7 +862,7 @@ $messages['oc'] = array(
 	'unreviewed-category' => 'Categoria :',
 	'unreviewed-diff' => 'revision',
 	'unreviewed-unwatched' => '(pas observat)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizaire actiu seguís|utilizaires actius seguisson}} aquesta pagina)',
 	'unreviewed-list' => "Aquesta pagina fa la lista de las paginas que son pas estadas revisadas o qu'an de revisions pas vistas.",
 	'unreviewed-none' => 'Actualament, existís pas cap de pagina respectant aquestes critèris',
 );

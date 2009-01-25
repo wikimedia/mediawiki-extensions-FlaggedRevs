@@ -49,7 +49,7 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 	'oldreviewedpages-unwatched' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when nobody is watching the page.',
 	'oldreviewedpages-watched' => '{{Flagged Revs-small}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when actice users are watching the page.',
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when active users are watching the page.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -362,7 +362,7 @@ $messages['fi'] = array(
 	'oldreviewedpages-recent' => '(alle 1 tunti)',
 	'oldreviewed-category' => 'Luokka:',
 	'oldreviewedpages-unwatched' => '(tarkkailematon)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|käyttäjä|käyttäjää}} tarkkailee)',
+	'oldreviewedpages-watched' => '($2 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 );
 
 /** French (Français)
@@ -449,7 +449,7 @@ $messages['gsw'] = array(
 	'oldreviewed-diff' => 'as Fäldhieter aaluege',
 	'oldreviewed-size' => 'Maximali Änderigsgreßi in Byte:',
 	'oldreviewedpages-unwatched' => '(nit beobachtet)',
-	'oldreviewedpages-watched' => '(vu $2 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)',
+	'oldreviewedpages-watched' => '(vu $2 aktive {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)',
 );
 
 /** Hebrew (עברית)
@@ -579,7 +579,7 @@ $messages['it'] = array(
 	'oldreviewedpages-recent' => "(meno di un'ora)",
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewedpages-unwatched' => '(non osservata)',
-	'oldreviewedpages-watched' => '(osservata da $2 {{PLURAL:$1|utente|utenti}})',
+	'oldreviewedpages-watched' => '(osservata da $2 {{PLURAL:$1|utente attivo|utenti attivi}})',
 );
 
 /** Japanese (日本語)
@@ -839,7 +839,7 @@ $messages['oc'] = array(
 	'oldreviewed-diff' => 'relectura',
 	'oldreviewed-size' => 'Cambiament maximal de la talha (en octets) :',
 	'oldreviewedpages-unwatched' => '(pas observat)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizaire|utilizaires}} a observar)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)',
 );
 
 /** Polish (Polski)
@@ -1007,7 +1007,7 @@ $messages['sv'] = array(
 	'oldreviewed-diff' => 'granska',
 	'oldreviewed-size' => 'Maximal storleksändring i byte:',
 	'oldreviewedpages-unwatched' => '(obevakad)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|användare|användare}} bevakar)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)',
 );
 
 /** Telugu (తెలుగు)

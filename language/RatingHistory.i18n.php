@@ -846,9 +846,12 @@ $messages['oc'] = array(
 	'ratinghistory-year' => 'darrièra annada',
 	'ratinghistory-3years' => 'las 3 darrièras annadas',
 	'ratinghistory-chart' => 'Relector notant fòra relambi :',
+	'ratinghistory-table' => "Vista d'ensemble de las notations lo mes passat",
 	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas",
 	'ratinghistory-graph' => '$2 sus « $3 » ($1 {{PLURAL:$1|relector|relectors}})',
 	'readerfeedback-svg' => 'Veire en SVG',
+	'ratinghistory-table-rating' => 'Notacion',
+	'ratinghistory-table-votes' => 'Vòts',
 	'ratinghistory-none' => 'En aqueste moment, i a pas pro de lectors de donadas de notacion pels grafics.',
 	'ratinghistory-legend' => "Las quotacions jornalièras <font color=\"blue\">''(blau)''</font> e la '''mejana de quotacion en cors''' <font color=\"green\">''(verd)''</font> de la notacion son dessenhats çaijós, per data. La '''mejana de quotacion en cors''' es simplament la mejana de las qotacions de cada ''dins'' lo periòde de temps causit.
 
@@ -1077,9 +1080,12 @@ $messages['sv'] = array(
 	'ratinghistory-year' => 'senaste året',
 	'ratinghistory-3years' => 'senaste 3 åren',
 	'ratinghistory-chart' => 'Läsar-feedback-betyg över tiden',
+	'ratinghistory-table' => 'Översyn av betyg senaste månad',
 	'ratinghistory-users' => 'Användare som gav betyg',
 	'ratinghistory-graph' => '$2 av "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',
 	'readerfeedback-svg' => 'Visa som SVG',
+	'ratinghistory-table-rating' => 'Betyg',
+	'ratinghistory-table-votes' => 'Röster',
 	'ratinghistory-none' => 'Det finns för närvarande inte tillräckligt med feedbackdata tillgängligt från läsarna för grafer.',
 	'ratinghistory-legend' => "'''Dagliga genomsnittsbetyget''' <font color=\"blue\">''(blå)''</font> och '''löpande genomsnittsbetyg''' <font color=\"green\">''(grön)''</font> visas i grafform nedan, efter datum.
 Det '''löpande genomsnittsbetyget''' är helt enkelt genomsnittet av alla dagliga betyg ''inom'' denna tidsperiod för varje dag.
