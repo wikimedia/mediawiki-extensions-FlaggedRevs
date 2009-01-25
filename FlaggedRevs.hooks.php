@@ -931,7 +931,7 @@ EOT;
 			}
 		}
 		# See if the page actually has sufficient content...
-		if( $wgFlaggedRevsAutopromote['userpage'] ) {
+		if( $wgFlaggedRevsAutopromote['userpageBytes'] > 0 ) {
 			if( !$user->getUserPage()->exists() ) {
 				wfProfileOut( __METHOD__ );
 				return true;
