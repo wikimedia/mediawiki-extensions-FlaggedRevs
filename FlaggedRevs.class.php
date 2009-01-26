@@ -773,9 +773,22 @@ class FlaggedRevs {
 			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
 			# Keep this consistent across settings. 1 -> override, 0 -> don't
 			$override = $wgFlaggedRevsOverride ? 1 : 0;
-			# Keep this consistent across settings. 0 -> precedence, 0 -> none
-			$select = $wgFlaggedRevsPrecedence ? FLAGGED_VIS_NORMAL : FLAGGED_VIS_LATEST;
-			return array('select' => $select, 'override' => $override, 'expiry' => 'infinity');
+			# Keep this consistent across settings: 
+			## 2 = pristine -> quality -> stable; 
+			## 1 = quality -> stable
+			## 0 = none
+			switch( $wgFlaggedRevsPrecedence ) {
+				case 2:
+					$select = FLAGGED_VIS_PRISTINE;
+					break;
+				case 1:
+					$select = FLAGGED_VIS_NORMAL;
+					break;
+				default:
+					$select = FLAGGED_VIS_LATEST;
+					break;
+			}
+			return array( 'select' => $select, 'override' => $override, 'expiry' => 'infinity' );
 		}
 		return array('select' => $row->fpc_select, 'override' => $row->fpc_override,
 			'expiry' => $row->fpc_expiry );
