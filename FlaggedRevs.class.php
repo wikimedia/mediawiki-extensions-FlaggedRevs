@@ -219,6 +219,27 @@ class FlaggedRevs {
 		}
 	}
 	
+	/**
+	 * Get global revision status precedence settings
+	 * @return int
+	 */
+	public static function getPrecedence() {
+		global $wgFlaggedRevsPrecedence;
+		switch( $wgFlaggedRevsPrecedence )
+		{
+			case 2:
+				$select = FLAGGED_VIS_PRISTINE;
+				break;
+			case 1:
+				$select = FLAGGED_VIS_NORMAL;
+				break;
+			default:
+				$select = FLAGGED_VIS_LATEST;
+				break;
+		}
+		return $select;
+	}
+	
 	################# Parsing functions #################
 
 	/**
@@ -777,17 +798,7 @@ class FlaggedRevs {
 			## 2 = pristine -> quality -> stable; 
 			## 1 = quality -> stable
 			## 0 = none
-			switch( $wgFlaggedRevsPrecedence ) {
-				case 2:
-					$select = FLAGGED_VIS_PRISTINE;
-					break;
-				case 1:
-					$select = FLAGGED_VIS_NORMAL;
-					break;
-				default:
-					$select = FLAGGED_VIS_LATEST;
-					break;
-			}
+			$select = self::getPrecedence();
 			return array( 'select' => $select, 'override' => $override, 'expiry' => 'infinity' );
 		}
 		return array('select' => $row->fpc_select, 'override' => $row->fpc_override,
