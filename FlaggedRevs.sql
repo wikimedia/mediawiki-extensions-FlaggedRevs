@@ -63,8 +63,9 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
   -- Foreign key to page.page_id
   fpc_page_id integer NOT NULL,
   -- Integers to represent what to show by default:
-  -- 0: quality -> stable -> current
+  -- 0: quality -> stable
   -- 1: latest reviewed
+  -- 2: pristine -> quality -> stable
   fpc_select integer NOT NULL,
   -- Override the page?
   fpc_override bool NOT NULL,
