@@ -105,7 +105,7 @@ $messages['ar'] = array(
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewed-size' => 'أقصى تغيير (بايت):',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقب)',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -633,7 +633,7 @@ $messages['ko'] = array(
 	'oldreviewedpages-recent' => '(1시간 미만)',
 	'oldreviewed-category' => '분류:',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
-	'oldreviewedpages-watched' => '($2명의 사용자가 주시중입니다)',
+	'oldreviewedpages-watched' => '($2명의 활동적인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
 );
 
 /** Ripoarisch (Ripoarisch)

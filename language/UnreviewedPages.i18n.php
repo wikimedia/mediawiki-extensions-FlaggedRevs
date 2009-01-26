@@ -84,7 +84,7 @@ $messages['ar'] = array(
 	'unreviewed-category' => 'التصنيف:',
 	'unreviewed-diff' => 'مراجعة',
 	'unreviewed-unwatched' => '(غير مراقبة)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقبون)',
 	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتويات التي لم يتم مراجعتها.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 );
@@ -645,7 +645,7 @@ $messages['ko'] = array(
 	'unreviewedpages' => '검토되지 않은 문서',
 	'unreviewed-category' => '분류:',
 	'unreviewed-unwatched' => '(주시되지 않음)',
-	'unreviewed-watched' => '($1명의 사용자가 주시중)',
+	'unreviewed-watched' => '($1명의 활동중인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
 );
 
 /** Kinaray-a (Kinaray-a)
@@ -794,7 +794,7 @@ $messages['nds'] = array(
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'as nakeken marken',
 	'unreviewed-unwatched' => '(op keen Oppasslist)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|Bruker|Brukers}} passt op disse Sied op)',
+	'unreviewed-watched' => '($1 aktive {{PLURAL:$1|Bruker|Brukers}} passt op disse Sied op)',
 );
 
 /** Dutch (Nederlands)

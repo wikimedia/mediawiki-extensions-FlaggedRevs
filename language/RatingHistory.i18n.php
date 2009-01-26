@@ -53,9 +53,12 @@ $messages['ar'] = array(
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
+	'ratinghistory-table' => 'عرض تقييمات آخر شهر',
 	'ratinghistory-users' => 'المستخدمون الذين أعطوا تقييمات',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'readerfeedback-svg' => 'عرض كإس في جي',
+	'ratinghistory-table-rating' => 'تقييم',
+	'ratinghistory-table-votes' => 'أصوات',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات في هذا الوقت.',
 	'ratinghistory-legend' => "التقييم اليومي المتوسط <font color=\"blue\">''(أزرق)''</font> والتقييم المتوسط للفترة
 المختارة <font color=\"green\">''(أخضر)''</font> مرسومة بالأسفل، حسب التاريخ.
@@ -961,9 +964,11 @@ $messages['roa-tara'] = array(
 	'ratinghistory-year' => 'urteme anne',
 	'ratinghistory-3years' => 'urteme ttre anne',
 	'ratinghistory-chart' => "'U feedback lassete da ste lettore jè fore timbe massime",
+	'ratinghistory-table' => "Riepileghe de le pundegge de l'urteme mese",
 	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisione|revisiune}})',
 	'readerfeedback-svg' => 'Vide cumme a SVG',
+	'ratinghistory-table-rating' => 'Pundegge',
 	'ratinghistory-table-votes' => 'Vote',
 	'ratinghistory-none' => "Non ge stonne abbastanza lettore ca onne lassete 'u feedback pe ccrejà 'nu grafeche jndr'à stu timbe.",
 	'ratinghistory-legend' => "'U '''pundegge medie sciurnaliere''' <font color=\"blue\">''(blue)''</font> e
