@@ -449,7 +449,7 @@ $messages['oc'] = array(
 $messages['pl'] = array(
 	'stablepages' => 'Strony z domyślnie pokazywaną wersją oznaczoną',
 	'stablepages-stable' => 'wersja przejrzana',
-	'stablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, że wersja oznaczona jest pokazywana domyślnie dla czytelników.',
+	'stablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, by domyślnie czytelnikom prezentowana była wersja oznaczona.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );

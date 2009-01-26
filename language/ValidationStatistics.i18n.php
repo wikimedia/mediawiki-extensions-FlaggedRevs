@@ -637,11 +637,12 @@ $messages['oc'] = array(
 /** Polish (Polski)
  * @author Jwitos
  * @author Leinad
+ * @author Sp5uhe
  * @author Wpedzich
  */
 $messages['pl'] = array(
 	'validationstatistics' => 'Statystyki oznaczania',
-	'validationstatistics-users' => "W serwisie '''{{SITENAME}}''' aktualnie zarejestrowanych jest '''$1''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''$2''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].",
+	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' aktualnie zarejestrowanych jest '''$1''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''$2''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, z wyłączeniem przekierowań.
 
 '''Uwaga:''' poniższe dane są kopią z pamięci podręcznej sprzed nawet kilku godzin, mogą więc być nieaktualne.",
@@ -649,8 +650,8 @@ $messages['pl'] = array(
 	'validationstatistics-total' => 'Stron',
 	'validationstatistics-stable' => 'Przejrzanych',
 	'validationstatistics-latest' => 'Z ostatnią edycją oznaczoną jako przejrzana',
-	'validationstatistics-synced' => 'Zsynchronizowana/przejrzana',
-	'validationstatistics-old' => 'Wymagające ponownego oznaczenia jako przejrzane',
+	'validationstatistics-synced' => 'Zsynchronizowanych lub przejrzanych',
+	'validationstatistics-old' => 'Wymagających ponownego oznaczenia jako przejrzane',
 );
 
 /** Pashto (پښتو)

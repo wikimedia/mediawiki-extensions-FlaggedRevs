@@ -462,6 +462,7 @@ $messages['da'] = array(
 );
 
 /** German (Deutsch)
+ * @author Als-Holder
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -482,8 +483,10 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-submit' => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
 	'stabilization-notcontent' => 'Die Seite „[[:$1|$1]]“ kann nicht markiert werden. Konfiguration ist nicht möglich.',
-	'stabilization-comment' => 'Kommentar:',
+	'stabilization-comment' => 'Grund:',
+	'stabilization-otherreason' => 'Anderer Grund',
 	'stabilization-expiry' => 'Gültig bis:',
+	'stabilization-othertime' => 'Andere Zeit',
 	'stabilization-sel-short' => 'Priorität',
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'keine',
@@ -525,8 +528,10 @@ $messages['dsb'] = array(
 Žedna konfiguracija móžno.',
 	'stabilization-notcontent' => 'Bok "[[:$1|$1]]" njedajo se pśeglědaś.
 Žedna konfiguracija móžno.',
-	'stabilization-comment' => 'Komentar:',
+	'stabilization-comment' => 'Pśicyna:',
+	'stabilization-otherreason' => 'Druga pśicyna',
 	'stabilization-expiry' => 'Pśepadnjo:',
+	'stabilization-othertime' => 'Drugi cas',
 	'stabilization-sel-short' => 'Priorita',
 	'stabilization-sel-short-0' => 'Kwalita',
 	'stabilization-sel-short-1' => 'Žedna',
@@ -711,6 +716,7 @@ $messages['fi'] = array(
  * @author ChrisPtDe
  * @author Dereckson
  * @author Grondin
+ * @author IAlex
  * @author Juanpabl
  * @author Sherbrooke
  * @author Verdy p
@@ -732,8 +738,10 @@ $messages['fr'] = array(
 	'stabilization-submit' => 'Confirmer',
 	'stabilization-notexists' => "Il n'y a pas de page « [[:$1|$1]] », pas de paramétrage possible",
 	'stabilization-notcontent' => 'La page « [[:$1|$1]] » ne peut être révisée, pas de paramétrage possible',
-	'stabilization-comment' => 'Commentaire :',
+	'stabilization-comment' => 'Raison :',
+	'stabilization-otherreason' => 'Autre raison',
 	'stabilization-expiry' => 'Expire :',
+	'stabilization-othertime' => 'Autre temps',
 	'stabilization-sel-short' => 'Priorité',
 	'stabilization-sel-short-0' => 'Qualité',
 	'stabilization-sel-short-1' => 'Nulle',
@@ -875,8 +883,10 @@ Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-submit' => 'Bstätige',
 	'stabilization-notexists' => 'Es git kei Syte „[[:$1|$1]]“. Kei Yystellige megli.',
 	'stabilization-notcontent' => 'D Syte „[[:$1|$1]]“ cha nit vum Fäldhieter gsäh wäre. E Konfiguration isch nid megli.',
-	'stabilization-comment' => 'Kommentar:',
+	'stabilization-comment' => 'Grund:',
+	'stabilization-otherreason' => 'Andere Grund',
 	'stabilization-expiry' => 'Giltig bis:',
+	'stabilization-othertime' => 'Anderi Zyt',
 	'stabilization-sel-short' => 'Priorität',
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'keini',
@@ -1030,8 +1040,10 @@ $messages['hsb'] = array(
 	'stabilization-submit' => 'Potwjerdźić',
 	'stabilization-notexists' => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
 	'stabilization-notcontent' => 'Strona "[[:$1|$1]]" njeda so pruwować. Žana konfiguracija móžno.',
-	'stabilization-comment' => 'Komentar:',
+	'stabilization-comment' => 'Přičina:',
+	'stabilization-otherreason' => 'Druha přičina',
 	'stabilization-expiry' => 'Spadnje:',
+	'stabilization-othertime' => 'Druhi čas',
 	'stabilization-sel-short' => 'Priorita',
 	'stabilization-sel-short-0' => 'Kwalita',
 	'stabilization-sel-short-1' => 'Žana',
@@ -1691,8 +1703,10 @@ als die er niet is, dan de huidige versie',
 Instellen is niet mogelijk.',
 	'stabilization-notcontent' => 'U kunt geen eindredactie op de pagina "[[:$1|$1]]" doen.
 Instellen is niet mogelijk.',
-	'stabilization-comment' => 'Opmerking:',
+	'stabilization-comment' => 'Reden:',
+	'stabilization-otherreason' => 'Andere reden',
 	'stabilization-expiry' => 'Verloopt:',
+	'stabilization-othertime' => 'Andere tijd',
 	'stabilization-sel-short' => 'Voorrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',
 	'stabilization-sel-short-1' => 'Geen',
@@ -2372,8 +2386,10 @@ Narito ang pangkasalukuyang mga katakdaan para sa [[:$1|$1]]:',
 Walang maaaring maging pagkakaayos (konpigurasyon).',
 	'stabilization-notcontent' => 'Hindi masusuri ang "[[:$1|$1]]".
 Walang maaaring maging pagkakaayos (konpigurasyon).',
-	'stabilization-comment' => 'Puna (kumento):',
+	'stabilization-comment' => 'Dahilan:',
+	'stabilization-otherreason' => 'Ibang dahilan',
 	'stabilization-expiry' => 'Magtatapos sa:',
+	'stabilization-othertime' => 'Ibang oras',
 	'stabilization-sel-short' => 'Pagkakauna-una (pagkakasunud-sunod)',
 	'stabilization-sel-short-0' => 'Kaantasan ng uri (kalidad)',
 	'stabilization-sel-short-1' => 'Wala',

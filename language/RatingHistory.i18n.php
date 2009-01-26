@@ -868,6 +868,7 @@ Lo '''nombre de verificacion per jorn''' <font color=\"red\">''(roge)''</font> e
  * @author Holek
  * @author Jwitos
  * @author Leinad
+ * @author Sp5uhe
  * @author ToSter
  */
 $messages['pl'] = array(
@@ -882,9 +883,12 @@ $messages['pl'] = array(
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
 	'ratinghistory-chart' => 'Ocena czytelników w ostatnim czasie',
+	'ratinghistory-table' => 'Przegląd ocen z zeszłego miesiąca',
 	'ratinghistory-users' => 'Użytkownicy, którzy wystawili ocenę',
 	'ratinghistory-graph' => '$2 strony „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
 	'readerfeedback-svg' => 'Zobacz jako SVG',
+	'ratinghistory-table-rating' => 'Ocena',
+	'ratinghistory-table-votes' => 'Głosy',
 	'ratinghistory-none' => 'W tej chwil brak liczby ocen czytelników wystarczającej, by móc stworzyć wykresy.',
 	'ratinghistory-legend' => "Średnia dzienna ocena <font color=\"blue\">''(na niebiesko)''</font> i średnia w wybranym przedziale czasowym <font color=\"green\">''(na zielono)''</font> są przedstawione na wykresie poniżej, według daty. Średnia w wybranym przedziale czasowym to średnia dziennych ocen w tym przedziale czasowym.
 

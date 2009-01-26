@@ -395,12 +395,13 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Leinad
+ * @author Sp5uhe
  * @author ToSter
  */
 $messages['pl'] = array(
-	'unstablepages' => 'Strony z domyślnie pokazywaną wersją bieżącą',
+	'unstablepages' => 'Strony z domyślnie prezentowaną wersją bieżącą',
 	'unstablepages-stable' => 'wersja przejrzana',
-	'unstablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, że bieżąca wersja jest pokazywana domyślnie dla czytelników.',
+	'unstablepages-text' => 'Poniżej znajduje się lista stron tak skonfigurowanych, by czytelnikowi domyślnie prezentowana była ich bieżąca wersja.',
 	'unstablepages-none' => 'Brak stron na tej liście',
 	'unstablepages-config' => 'Konfiguracja',
 );

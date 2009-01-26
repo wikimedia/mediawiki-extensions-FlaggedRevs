@@ -968,7 +968,7 @@ $messages['sk'] = array(
 	'oldreviewed-diff' => 'skontrolovať',
 	'oldreviewed-size' => 'Max. veľkosť zmeny v bajtoch:',
 	'oldreviewedpages-unwatched' => '(nesledovaná)',
-	'oldreviewedpages-watched' => '(sleduje $2 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|sleduje $2 aktívny používateľ|sledujú $2 aktívni používatelia|sleduje $2 aktívnych používateľov}})',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)

@@ -987,7 +987,7 @@ $messages['sk'] = array(
 	'unreviewed-category' => 'Kategória:',
 	'unreviewed-diff' => 'kontrola',
 	'unreviewed-unwatched' => '(nesledovaná)',
-	'unreviewed-watched' => '(sleduje $1 {{PLURAL:$1|používateľ|používatelia|používateľov}})',
+	'unreviewed-watched' => '({{PLURAL:$1|sleduje $1 aktívny používateľ|sleduú $1 aktívni používatelia|sleduje $1 aktívnych používateľov}})',
 	'unreviewed-list' => 'Táto stránka obsahuje zoznam článkov, ktoré neboli skontrolované.',
 	'unreviewed-none' => 'Momentálne žiadne stránky nespĺňajú tieto kritériá',
 );
