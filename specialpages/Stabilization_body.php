@@ -108,6 +108,20 @@ class Stabilization extends UnlistedSpecialPage
 		} else {
 			$form = wfMsgExt( 'stabilization-text', array('parse'), $this->page->getPrefixedText() );
 		}
+		# Add some script
+		$wgOut->addScript( 
+			"<script type=\"text/javascript\">
+				function updateStabilizationDropdowns() {
+					val = document.getElementById('mwExpirySelection').value;
+					if( val == 'existing' )
+						document.getElementById('mwStabilize-expiry').value = ".Xml::encodeJsVar($this->expiry).";
+					else if( val == 'othertime' )
+						document.getElementById('mwStabilize-expiry').value = '';
+					else
+						document.getElementById('mwStabilize-expiry').value = val;
+					}
+			</script>"
+		);
 		# Borrow some protection messages for dropdowns
 		$reasonDropDown = Xml::listDropDown( 'wpReasonSelection',
 			wfMsgForContent( 'protect-dropdown' ),
@@ -166,7 +180,6 @@ class Stabilization extends UnlistedSpecialPage
 			Xml::openElement( 'table' );
 		# Add expiry dropdown
 		if( $showProtectOptions && $this->isAllowed ) {
-			$js = "if(this.value != 'othertime') document.getElementById('mwStabilize-expiry').value=this.value;";
 			$form .= "
 				<tr>
 					<td class='mw-label'>" .
@@ -177,7 +190,7 @@ class Stabilization extends UnlistedSpecialPage
 							array(
 								'id' => "mwExpirySelection",
 								'name' => "wpExpirySelection",
-								'onchange' => $js
+								'onchange' => "updateStabilizationDropdowns()"
 							) + $this->disabledAttrib,
 							$expiryFormOptions ) .
 					"</td>
