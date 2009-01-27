@@ -70,9 +70,9 @@ class Stabilization extends UnlistedSpecialPage
 			$this->select = $wgRequest->getInt( 'wpStableconfig-select' );
 			$this->override = intval( $wgRequest->getBool( 'wpStableconfig-override' ) );
 			// Custom expiry takes precedence
-			$this->expiry = $wgRequest->getText( 'wpStableconfig-expiry' );
+			$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
 			if( strlen($this->expiry) == 0 ) {
-				$this->expiry = $wgRequest->getVal( "wpExpirySelection" );
+				$this->expiry = $wgRequest->getVal( 'wpExpirySelection' );
 			}
 			// Custom reason takes precedence
 			$this->reason = strlen($this->reason) ? $this->reason : $this->reasonSelection;
@@ -267,9 +267,7 @@ class Stabilization extends UnlistedSpecialPage
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
 
-		if( $reset ) {
-			$expiry = Block::infinity(); // doesn't matter
-		} else if( $this->expiry == 'infinite' || $this->expiry == 'indefinite' ) {
+		if( $reset || $this->expiry == 'infinite' || $this->expiry == 'indefinite' ) {
 			$expiry = Block::infinity();
 		} else {
 			# Convert GNU-style date, on error returns -1 for PHP <5.1 and false for PHP >=5.1
