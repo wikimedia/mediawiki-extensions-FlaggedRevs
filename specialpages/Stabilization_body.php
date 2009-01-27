@@ -213,20 +213,20 @@ class Stabilization extends UnlistedSpecialPage
 			$watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' ) || $this->page->userIsWatching() );
 
-			$form .= '<tr>
+			$form .= ' <tr>
 					<td class="mw-label">' .
-						Xml::label( wfMsg( 'stabilization-comment' ), 'wpReason' ) .
+						xml::label( wfMsg('stabilization-comment'), 'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
-						Xml::input( 'wpReason', 70, $this->reason, array( 'id' => 'wpReason' ) ) .
+						$reasonDropDown .
 					'</td>
 				</tr>
 				<tr>
 					<td class="mw-label">' .
-						xml::label( wfMsg('stabilization-otherreason'), 'wpReasonSelection' ) .
+						Xml::label( wfMsg( 'stabilization-otherreason' ), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
-						$reasonDropDown .
+						Xml::input( 'wpReason', 70, $this->reason, array( 'id' => 'wpReason' ) ) .
 					'</td>
 				</tr>
 				<tr>
