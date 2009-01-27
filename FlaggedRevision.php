@@ -111,7 +111,6 @@ class FlaggedRevision {
 			$columns += self::selectTextFields();
 		}
 		$options = array();
-		$row = null;
 		# Short-circuit query
 		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
 		# Short-circuit query
@@ -127,11 +126,10 @@ class FlaggedRevision {
 					'fr_page_id = fp_page_id',
 					'fp_stable = fr_rev_id' ),
 				__METHOD__  );
-			if( !$row )
-				return null;
+			if( !$row ) return null;
 		} else {
-			if( $flags & FR_FOR_UPDATE )
-				$options[] = 'FOR UPDATE';
+			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			$row = null;
 			# Get visiblity settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
 			$dbw = wfGetDB( DB_MASTER );
@@ -144,18 +142,19 @@ class FlaggedRevision {
 						'fr_quality = 2',
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 					__METHOD__,
-					$options );
+					$options
+				);
 				# Looks like a plausible revision
-				$row = $prow ? $prow : null;
+				$row = $prow ? $prow : $row;
 			}
+			if( $row && $config['select'] == FLAGGED_VIS_PRISTINE ) {
+				// we have what we want already
 			# Look for the latest quality revision...
-			if( FlaggedRevs::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
-				// If we found a pristine rev above, this one must be newer, unless
-				// we specifically want pristine revs to have precedence...
-				$newerClause = ($row && $config['select'] != FLAGGED_VIS_PRISTINE) ?
-					"fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
+			} else if( FlaggedRevs::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
+				// If we found a pristine rev above, this one must be newer...
+				$newerClause = $row ? "fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
 				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $pageId,
@@ -163,9 +162,10 @@ class FlaggedRevision {
 						$newerClause,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 					__METHOD__,
-					$options );
+					$options
+				);
 				$row = $qrow ? $qrow : $row;
 			}
 			# Do we have one? If not, try the latest reviewed revision...
@@ -175,11 +175,11 @@ class FlaggedRevision {
 					array( 'fr_page_id' => $pageId,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 					__METHOD__,
-					$options );
-				if( !$row )
-					return null;
+					$options
+				);
+				if( !$row ) return null;
 			}
 		}
 		$frev = new FlaggedRevision( $row );
