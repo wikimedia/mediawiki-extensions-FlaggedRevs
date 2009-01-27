@@ -44,6 +44,7 @@ No configuration is possible.',
 );
 
 /** Message documentation (Message documentation)
+ * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Purodha
  * @author SPQRobin
@@ -80,7 +81,7 @@ Used on Special:Stabilization as an option for "Revision displayed on default pa
 	'stabilization-notexists' => '{{Flagged Revs}}',
 	'stabilization-notcontent' => '{{Flagged Revs}}',
 	'stabilization-comment' => '{{Flagged Revs}}
-{{Identical|Comment}}',
+{{Identical|Reason}}',
 	'stabilization-expiry' => '{{Flagged Revs}}
 {{Identical|Expires}}',
 	'stabilization-sel-short' => '{{Flagged Revs}}',
@@ -111,9 +112,19 @@ $3 is the correxponding time in the wiki's content language.
  */
 $messages['af'] = array(
 	'stabilization-page' => 'Bladsynaam:',
+	'stabilization-def2' => 'Die weergawe',
 	'stabilization-submit' => 'Bevestig',
-	'stabilization-comment' => 'Opmerking:',
+	'stabilization-comment' => 'Rede:',
+	'stabilization-otherreason' => 'Ander rede',
+	'stabilization-expiry' => 'Verval:',
+	'stabilization-othertime' => 'Aander tyd',
+	'stabilization-sel-short' => 'Voorrang',
+	'stabilization-sel-short-0' => 'Kwaliteit',
 	'stabilization-sel-short-1' => 'Geen',
+	'stabilization-sel-short-2' => 'Ongerep',
+	'stabilization-def-short' => 'Standaard',
+	'stabilization-def-short-0' => 'Huidig',
+	'stabilization-def-short-1' => 'Stabiel',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Die vervaldatum is reeds verby.',
 	'stabilize-expiring' => 'verval $1 (UTC)',
@@ -313,7 +324,7 @@ $messages['bcc'] = array(
  */
 $messages['be-tarask'] = array(
 	'stabilization-page' => 'Назва старонкі:',
-	'stabilization-comment' => 'Камэнтар:',
+	'stabilization-comment' => 'Прычына:',
 	'stabilization-sel-short-0' => 'Якасьць',
 );
 
@@ -385,8 +396,9 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'stabilization-page' => 'Naslov stranice:',
 	'stabilization-def2' => 'Trenutna revizija',
-	'stabilization-comment' => 'Komentar:',
+	'stabilization-comment' => 'Razlog:',
 	'stabilization-sel-short-1' => 'nema',
 	'stabilization-def-short' => 'Standardno',
 	'stabilization-def-short-0' => 'Trenutna',
@@ -827,8 +839,10 @@ $messages['gl'] = array(
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'Non hai unha páxina chamada "[[:$1|$1]]". A non configuración é posíbel.',
 	'stabilization-notcontent' => 'A páxina "[[:$1|$1]]" non pode ser revisada. A non configuración é posíbel.',
-	'stabilization-comment' => 'Comentario:',
+	'stabilization-comment' => 'Motivo:',
+	'stabilization-otherreason' => 'Outro motivo',
 	'stabilization-expiry' => 'Caducidade:',
+	'stabilization-othertime' => 'Outro tempo',
 	'stabilization-sel-short' => 'Precedencia',
 	'stabilization-sel-short-0' => 'Calidade',
 	'stabilization-sel-short-1' => 'Ningún',
@@ -1182,6 +1196,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Melos
  */
 $messages['it'] = array(
 	'stabilization' => 'Stabilizzazione pagina',
@@ -1199,7 +1214,7 @@ Qui ci sono le impostazioni attuali per [[:$1|$1]]:",
 Non è possibile effettuare la configurazione.',
 	'stabilization-notcontent' => 'La pagina "[[:$1|$1]]" non può essere revisionata.
 Non è possibile effettuare la configurazione.',
-	'stabilization-comment' => 'Commento:',
+	'stabilization-comment' => 'Motivazione:',
 	'stabilization-expiry' => 'Scadenza:',
 	'stabilization-sel-short' => 'Precedenza',
 	'stabilization-sel-short-0' => 'Qualità',
@@ -1235,8 +1250,10 @@ $messages['ja'] = array(
 	'stabilization-submit' => '設定',
 	'stabilization-notexists' => '「[[:$1|$1]]」に該当するページが存在しないため、設定できません。',
 	'stabilization-notcontent' => 'ページ「[[:$1|$1]]」は査読対象ではないため、設定できません。',
-	'stabilization-comment' => '変更内容の要約:',
+	'stabilization-comment' => '理由:',
+	'stabilization-otherreason' => '他の理由',
 	'stabilization-expiry' => '有効期限:',
+	'stabilization-othertime' => '他の日時',
 	'stabilization-sel-short' => '優先度',
 	'stabilization-sel-short-0' => '内容充実',
 	'stabilization-sel-short-1' => '不問',
@@ -1926,6 +1943,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Malafaya
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
@@ -1949,8 +1967,10 @@ se inexistente, exibir a edição actual',
 Não é possível configurá-la.',
 	'stabilization-notcontent' => 'A página "[[:$1|$1]]" não pode ser analisada.
 Não é possível configurá-la.',
-	'stabilization-comment' => 'Comentário:',
+	'stabilization-comment' => 'Motivo:',
+	'stabilization-otherreason' => 'Outro motivo',
 	'stabilization-expiry' => 'Expira em:',
+	'stabilization-othertime' => 'Outro tempo',
 	'stabilization-sel-short' => 'Precedência',
 	'stabilization-sel-short-0' => 'Qualidade',
 	'stabilization-sel-short-1' => 'Nenhum',
@@ -2001,8 +2021,10 @@ Chiste sonde le configuraziune corrende pe [[:$1|$1]]:",
 Nisciuna configurazione jè possibbele.',
 	'stabilization-notcontent' => '\'A pàgene "[[$1|$1]]" non ge pò essere reviste.
 Non ge stonne le configurazione.',
-	'stabilization-comment' => 'Commende:',
+	'stabilization-comment' => 'Mutive:',
+	'stabilization-otherreason' => 'Otre mutive',
 	'stabilization-expiry' => 'More:',
+	'stabilization-othertime' => 'Otre orarije',
 	'stabilization-sel-short' => 'Precedenze',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Ninde',
@@ -2104,8 +2126,10 @@ $messages['sk'] = array(
 	'stabilization-submit' => 'Potvrdiť',
 	'stabilization-notexists' => 'Neexistuje stránka s názvom „[[:$1|$1]]“. Konfigurácia nie je možná.',
 	'stabilization-notcontent' => 'Stránku „[[:$1|$1]]“ nie je možné skontrolovať. Konfigurácia nie je možná.',
-	'stabilization-comment' => 'Komentár:',
+	'stabilization-comment' => 'Dôvod:',
+	'stabilization-otherreason' => 'Iný dôvod',
 	'stabilization-expiry' => 'Vyprší:',
+	'stabilization-othertime' => 'Iný čas',
 	'stabilization-sel-short' => 'Precedencia',
 	'stabilization-sel-short-0' => 'Kvalita',
 	'stabilization-sel-short-1' => 'žiadna',
@@ -2238,6 +2262,7 @@ KOnfigurasi teu bisa dilarapkeun.',
 /** Swedish (Svenska)
  * @author Lejonel
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'stabilization-tab' => 'kvalitet',
@@ -2257,8 +2282,10 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-submit' => 'Bekräfta',
 	'stabilization-notexists' => 'Det finns ingen sida med titeln "[[:$1|$1]]". Inga inställningar kan göras.',
 	'stabilization-notcontent' => 'Sidan "[[:$1|$1]]" kan inte granskas. Inga inställningar kan göras.',
-	'stabilization-comment' => 'Kommentar:',
+	'stabilization-comment' => 'Anledning:',
+	'stabilization-otherreason' => 'Annan anledning',
 	'stabilization-expiry' => 'Varaktighet:',
+	'stabilization-othertime' => 'Annan tid',
 	'stabilization-sel-short' => 'Företräde',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
@@ -2408,6 +2435,7 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
  * @author Erkan Yilmaz
  * @author Joseph
  * @author Karduelis
+ * @author Srhat
  */
 $messages['tr'] = array(
 	'stabilization-tab' => 'vet',
@@ -2429,7 +2457,7 @@ $messages['tr'] = array(
 Yapılandırma mümkün değil.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" sayfası gözden geçirilemiyor.
 Yapılandırma mümkün değil.',
-	'stabilization-comment' => 'Açıklama',
+	'stabilization-comment' => 'Sebep:',
 	'stabilization-expiry' => 'Süresi bitiyor:',
 	'stabilization-sel-short' => 'Öncelik',
 	'stabilization-sel-short-0' => 'Kalite',

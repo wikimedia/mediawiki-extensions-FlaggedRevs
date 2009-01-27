@@ -665,6 +665,7 @@ $messages['ko'] = array(
 	'ratinghistory-year' => '지난 1년',
 	'ratinghistory-3years' => '지난 3년',
 	'readerfeedback-svg' => 'SVG로 보기',
+	'right-feedback' => '문서를 평가하는 피드백 양식을 이용',
 );
 
 /** Ripoarisch (Ripoarisch)

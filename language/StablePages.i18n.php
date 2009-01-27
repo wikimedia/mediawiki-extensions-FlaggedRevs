@@ -332,6 +332,8 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'stablepages' => '안정 문서',
 	'stablepages-stable' => '안정 버전',
+	'stablepages-text' => '다음은 독자들에게 보여 줄 안정 버전으로서의 기본 문서 내용을 어떻게 보여 줄 것인지 수동으로 설정된 문서의 목록입니다.',
+	'stablepages-none' => '이 목록에 문서가 없습니다.',
 	'stablepages-config' => '설정',
 );
 

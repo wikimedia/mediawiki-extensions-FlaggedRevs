@@ -197,6 +197,17 @@ $messages['ja'] = array(
 	'likedpages-graphs' => '評価データ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'likedpages' => '높게 평가된 문서',
+	'likedpages-leg' => '높게 평가된 문서 찾기',
+	'likedpages-list' => '다음은 독자의 평가에 따라 정렬된 문서의 목록입니다.',
+	'likedpages-none' => '이 목록에 문서가 없습니다.',
+	'likedpages-graphs' => '평가 데이터',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

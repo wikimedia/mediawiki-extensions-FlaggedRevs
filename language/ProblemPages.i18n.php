@@ -230,6 +230,17 @@ $messages['km'] = array(
 	'problempages-none' => 'មិនមានទំព័រនៅក្នុងបញ្ជីនេះទេ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'problempages' => '낮게 평가된 문서',
+	'problempages-leg' => '낮게 평가된 문서 찾기',
+	'problempages-list' => '다음은 독자의 평가에 따라 정렬된 문서의 목록입니다.',
+	'problempages-none' => '이 목록에 문서가 없습니다.',
+	'problempages-graphs' => '평가 데이터',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

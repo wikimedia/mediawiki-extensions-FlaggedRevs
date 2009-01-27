@@ -628,6 +628,7 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'oldreviewedpages' => '오래 전에 검토된 문서',
 	'oldreviewedpages-hours' => '($1시간 전)',
 	'oldreviewedpages-days' => '($1일 전)',
 	'oldreviewedpages-recent' => '(1시간 미만)',
