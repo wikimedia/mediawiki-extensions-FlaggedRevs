@@ -583,6 +583,8 @@ class RevisionReview extends UnlistedSpecialPage
 				$synced = false;
 			else if( $oldfrev->getComment() != $this->notes )
 				$synced = false;
+			else if( $oldfrev->getQuality() != $quality )
+				$synced = false;
 			# Don't review if the same
 			if( $synced ) {
 				wfProfileOut( __METHOD__ );
