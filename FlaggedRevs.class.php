@@ -767,7 +767,7 @@ class FlaggedRevs {
 	################# Page configuration functions #################
 
 	/**
-	 * Get visiblity restrictions on page
+	 * Get visibility restrictions on page
 	 * @param Title $title, page title
 	 * @param bool $forUpdate, use master DB?
 	 * @returns Array (select,override)
