@@ -58,22 +58,22 @@ class Stabilization extends UnlistedSpecialPage
 		# Reason
 		$this->reason = $wgRequest->getVal( 'wpReason' );
 		$this->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );
+		$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
+		$this->expirySelection = $wgRequest->getVal( 'wpExpirySelection' );
 		# Get visiblity settings...
 		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
 		$this->select = $this->config['select'];
 		$this->override = $this->config['override'];
 		# Make user readable date for GET requests
-		$this->expiry = $this->config['expiry'] !== 'infinity' ? 
+		$this->oldExpiry = $this->config['expiry'] !== 'infinity' ? 
 			wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
-		# Handle submissions
+		# Handle submission data
 		if( $wgRequest->wasPosted() ) {
 			$this->select = $wgRequest->getInt( 'wpStableconfig-select' );
 			$this->override = intval( $wgRequest->getBool( 'wpStableconfig-override' ) );
 			// Custom expiry takes precedence
-			$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
-			if( strlen($this->expiry) == 0 ) {
-				$this->expiry = $wgRequest->getVal( 'wpExpirySelection' );
-			}
+			$this->expiry = strlen($this->expiry) ? $this->expiry : $this->expirySelection;
+			if( $this->expiry == 'existing' ) $this->expiry = $this->oldExpiry;
 			// Custom reason takes precedence
 			$this->reason = strlen($this->reason) ? $this->reason : $this->reasonSelection;
 			// Validate precedence setting
@@ -114,12 +114,12 @@ class Stabilization extends UnlistedSpecialPage
 				function updateStabilizationDropdowns() {
 					val = document.getElementById('mwExpirySelection').value;
 					if( val == 'existing' )
-						document.getElementById('mwStabilize-expiry').value = ".Xml::encodeJsVar($this->expiry).";
+						document.getElementById('mwStabilize-expiry').value = ".Xml::encodeJsVar($this->oldExpiry).";
 					else if( val == 'othertime' )
 						document.getElementById('mwStabilize-expiry').value = '';
 					else
 						document.getElementById('mwStabilize-expiry').value = val;
-					}
+				}
 			</script>"
 		);
 		# Borrow some protection messages for dropdowns
@@ -188,25 +188,26 @@ class Stabilization extends UnlistedSpecialPage
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
 							array(
-								'id' => "mwExpirySelection",
-								'name' => "wpExpirySelection",
-								'onchange' => "updateStabilizationDropdowns()"
+								'id' => 'mwExpirySelection',
+								'name' => 'wpExpirySelection',
+								'onchange' => 'updateStabilizationDropdowns()',
 							) + $this->disabledAttrib,
 							$expiryFormOptions ) .
 					"</td>
 				</tr>";
 		}
 		# Add custom expiry field
-		$attribs = array( 'id' => "mwStabilize-expiry" ) + $this->disabledAttrib;
-			$form .= "
-				<tr>
-					<td class='mw-label'>" .
-						Xml::label( wfMsg('stabilization-othertime'), 'mwStabilize-expiry' ) .
-					'</td>
-					<td class="mw-input">' .
-						Xml::input( "mwStabilize-expiry", 50, $this->expiry, $attribs ) .
-					'</td>
-				</tr>';
+		$attribs = array( 'id' => "mwStabilize-expiry",
+			'onkeyup' => 'updateStabilizationDropdowns()' ) + $this->disabledAttrib;
+		$form .= "
+			<tr>
+				<td class='mw-label'>" .
+					Xml::label( wfMsg('stabilization-othertime'), 'mwStabilize-expiry' ) .
+				'</td>
+				<td class="mw-input">' .
+					Xml::input( "mwStabilize-expiry", 50, $this->expiry ? $this->expiry : $this->oldExpiry, $attribs ) .
+				'</td>
+			</tr>';
 		# Add comment input and submit button
 		if( $this->isAllowed ) {
 			$watchLabel = wfMsgExt( 'watchthis', array('parseinline') );
