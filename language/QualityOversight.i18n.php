@@ -256,7 +256,7 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'qualityoversight' => 'Kvalitetsoversikt',
-	'qualityoversight-list' => 'Denne sida syner dei siste godkjente og degraderte sideversjonar.',
+	'qualityoversight-list' => 'Denne sida syner dei siste godkjende og degraderte sideversjonane.',
 	'qualityoversight-legend' => 'Søk i loggen over dei siste vurderingane',
 );
 

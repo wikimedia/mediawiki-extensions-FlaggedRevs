@@ -621,7 +621,7 @@ $messages['km'] = array(
 	'oldreviewed-diff' => 'ពិនិត្យឡើងវិញ',
 	'oldreviewed-size' => 'បំលាស់ប្ដូរ​អតិបរមារ (បៃ):',
 	'oldreviewedpages-unwatched' => '(មិន​ត្រូវ​បាន​ដានដាន)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} កំពុង​តាមដាន)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} សកម្ម​កំពុង​តាមដាន)',
 );
 
 /** Korean (한국어)

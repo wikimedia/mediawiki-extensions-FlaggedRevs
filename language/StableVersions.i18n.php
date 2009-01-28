@@ -698,8 +698,8 @@ $messages['pl'] = array(
 	'stableversions' => 'Pokaż wersje oznaczone',
 	'stableversions-leg1' => 'Pokaż oznaczone wersje strony',
 	'stableversions-page' => 'Nazwa strony:',
-	'stableversions-none' => '"[[:$1]]" nie posiada wersji oznaczonych.',
-	'stableversions-list' => 'Lista wersji strony "[[:$1]]", które zostały oznaczone:',
+	'stableversions-none' => '„[[:$1]]” nie posiada wersji oznaczonych.',
+	'stableversions-list' => 'Wersje strony „[[:$1]]”, które zostały oznaczone:',
 	'stableversions-review' => '<i>$1</i>, oznaczona przez $2',
 );
 

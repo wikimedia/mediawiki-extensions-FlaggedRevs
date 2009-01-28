@@ -2233,6 +2233,9 @@ $messages['dsb'] = array(
 	'group-reviewer-member' => 'pśespytowaŕ',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Pśespytowaŕ',
+	'group-autoreview' => 'Awtomatiske pśeglědarje',
+	'group-autoreview-member' => 'awtomatiski pśeglědaŕ',
+	'grouppage-autoreview' => '{{ns:project}}:Awtomatiski pśeglědaŕ',
 	'hist-draft' => 'nacerjeńska wersija',
 	'hist-quality' => 'kwalitna wersija',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} wobwěsćona] wót wužywarja [[User:$3|$3]]',
@@ -3508,6 +3511,9 @@ $messages['gl'] = array(
 	'group-reviewer-member' => 'Revisor',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
+	'group-autoreview' => 'Autorrevisores',
+	'group-autoreview-member' => 'autorrevisor',
+	'grouppage-autoreview' => '{{ns:project}}:Autorrevisor',
 	'hist-draft' => 'revisión do borrador',
 	'hist-quality' => 'revisión de calidade',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validado] por [[User:$3|$3]]',
@@ -3798,12 +3804,15 @@ $messages['gsw'] = array(
 	'group-reviewer-member' => 'Priefer',
 	'grouppage-editor' => '{{ns:project}}:Fäldhieter',
 	'grouppage-reviewer' => '{{ns:project}}:Priefer',
+	'group-autoreview' => 'Autoreviewer',
+	'group-autoreview-member' => 'Autoreviewer',
+	'grouppage-autoreview' => '{{ns:project}}:Autoreviewer',
 	'hist-draft' => 'Entwurfsvèrsion',
 	'hist-quality' => 'priefti Version',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} prieft] vu [[User:$3|$3]]',
 	'hist-stable' => 'vum Fäldhieter aagluegti Version',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} aaglueget]: [[Benutzer:$3|$3]]',
-	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisch vum Fäldhieter aagluegt]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisch vum Fäldhieter aaglueget]',
 	'review-diff2stable' => 'Unterschid zwische dr vum Fäldhieter aagluegte un dr aktuälle Version aaluege',
 	'review-logentry-app' => 'markierti Version $2 vu „[[$1]]“',
 	'review-logentry-dis' => 'het d Markierig fir d Version $2 vu „[[$1]]“ usegnuh',
@@ -4502,6 +4511,9 @@ $messages['hsb'] = array(
 	'group-reviewer-member' => 'přehladowar',
 	'grouppage-editor' => '{{ns:project}}:Wobdźěłowar',
 	'grouppage-reviewer' => '{{ns:project}}:Přehladowar',
+	'group-autoreview' => 'Awotmatiscy kontrolerojo',
+	'group-autoreview-member' => 'awtomatiski kontroler',
+	'grouppage-autoreview' => '{{ns:project}}:Awtomatiski kontroler',
 	'hist-draft' => 'naćiskowa wersija',
 	'hist-quality' => 'pruwowana wersija',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} přepruwowany] wot [[User:$3|$3]]',
@@ -4718,6 +4730,7 @@ $messages['hu'] = array(
 	'hist-quality-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} kiemeltnek jelölte]',
 	'hist-stable' => 'megtekintett változat',
 	'hist-stable-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} megtekitettnek jelölte]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatikusan megtekintve]',
 	'review-diff2stable' => 'A rögzített és a legutóbbi változat közötti eltérések megtekintése',
 	'review-logentry-app' => 'ellenőrizte a(z) [[$1]] lapot',
 	'review-logentry-dis' => 'eltávolította a(z) [[$1]] lap egyik változatának értékelését',
@@ -5390,6 +5403,9 @@ $messages['ja'] = array(
 	'group-reviewer-member' => '査読者',
 	'grouppage-editor' => '{{ns:project}}:編集者',
 	'grouppage-reviewer' => '{{ns:project}}:査読者',
+	'group-autoreview' => '自動査読者',
+	'group-autoreview-member' => '自動査読者',
+	'grouppage-autoreview' => '{{ns:project}}:自動査読者',
 	'hist-draft' => '候補版',
 	'hist-quality' => '内容充実版',
 	'hist-quality-user' => '[[User:$3|$3]] によって[{{fullurl:$1|stableid=$2}} 判定]',
@@ -6352,7 +6368,7 @@ $messages['lv'] = array(
 	'revreview-revnotfound' => 'Meklētā vecā lapas versija netika atrasta. Lūdzu pārbaudi lietoto URL.',
 );
 
-/** Classical Chinese (文言)
+/** Literary Chinese (文言)
  * @author Itsmine
  * @author Omnipaedista
  */
@@ -6372,7 +6388,22 @@ $messages['lzh'] = array(
 	'revreview-accuracy-4' => '卓著',
 	'revreview-current' => '底本',
 	'revreview-draft-title' => '底本',
+	'revreview-noflagged' => '此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 修纂新稿]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 修纂新稿]]",
+	'revreview-quick-invalid' => '查無此錄',
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
+	'revreview-quick-see-basic' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 較二者之別])",
+	'revreview-quick-see-quality' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 較二者之別])",
+	'revreview-stable' => '校本',
+	'revreview-stable-title' => '初定本',
+	'revreview-submit' => '成',
+	'revreview-submitting' => '在處理',
+	'revreview-finished' => '成焉。',
 	'revreview-revnotfound' => '查無舊審，惠核網址。',
+	'revreview-filter-level-0' => '初定本',
+	'revreview-filter-level-1' => '校正本',
 );
 
 /** Moksha (Мокшень)
@@ -7080,6 +7111,7 @@ $messages['nds-nl'] = array(
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
+ * @author Tvdm
  */
 $messages['nl'] = array(
 	'editor' => 'Redacteur',
@@ -7098,6 +7130,9 @@ $messages['nl'] = array(
 	'group-reviewer-member' => 'eindredacteur',
 	'grouppage-editor' => '{{ns:project}}:Redacteur',
 	'grouppage-reviewer' => '{{ns:project}}:Eindredacteur',
+	'group-autoreview' => 'Automatische controleurs',
+	'group-autoreview-member' => 'automatische controleur',
+	'grouppage-autoreview' => '{{ns:project}}:Automatische controleur',
 	'hist-draft' => 'werkversie',
 	'hist-quality' => 'kwaliteitsversie',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} eindredactie] door [[User:$3|$3]]',
@@ -7388,7 +7423,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan h
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} syn vurdert artikkel]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} jamfør])",
 	'revreview-selected' => "Vald versjon av '''$1''':",
-	'revreview-source' => 'kjelda for utkastet',
+	'revreview-source' => 'kjeldetekst for utkast',
 	'revreview-stable' => 'Stabil sida',
 	'revreview-stable-title' => 'Vurdert artikkel',
 	'revreview-stable1' => 'Du ynskjer kanskje å sjå [{{fullurl:$1|stableid=$2}} denne merkte versjonen] og sjå om han er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne sida.',
@@ -7909,6 +7944,9 @@ $messages['pl'] = array(
 	'group-reviewer-member' => 'weryfikator',
 	'grouppage-editor' => '{{ns:project}}:Redaktorzy',
 	'grouppage-reviewer' => '{{ns:project}}:Weryfikatorzy',
+	'group-autoreview' => 'Automatycznie przeglądający',
+	'group-autoreview-member' => 'automatycznie przeglądający',
+	'grouppage-autoreview' => '{{ns:project}}:Automatycznie przeglądający',
 	'hist-draft' => 'wersja nieprzejrzana',
 	'hist-quality' => 'wersja zweryfikowana',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} zweryfikowana] przez użytkownika [[User:$3|$3]]',
@@ -8030,7 +8068,7 @@ By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny�
 	'revreview-update-includes' => "'''Niektóre szablony lub grafiki zostały uaktualnione:'''",
 	'revreview-update-none' => "Proszę [[{{MediaWiki:Validationpage}}|przejrzeć]] zmiany ''(patrz niżej)'' dokonane od momentu [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} oznaczenia] ostatniej wersji jako przejrzanej.",
 	'revreview-update-use' => "'''UWAGA:''' Jeśli którykolwiek z tych szablonów lub grafik posiada wersję zweryfikowaną, to zostanie ona użyta w wersji zweryfikowanej tej strony.",
-	'revreview-diffonly' => "''By zweryfikować stronę, proszę kliknąć na link \"bieżąca wersja\" i użyć formularza weryfikacji.''",
+	'revreview-diffonly' => "''By zweryfikować stronę, proszę kliknąć na link „bieżąca wersja” i użyć formularza weryfikacji.''",
 	'revreview-visibility' => "'''Ta strona ma aktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]], dla której można
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować] ustawienia.'''",
 	'revreview-visibility2' => "'''Ta strona nie ma aktualnej [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Strona może mieć
@@ -8238,6 +8276,9 @@ $messages['pt'] = array(
 	'group-reviewer-member' => 'Crítico',
 	'grouppage-editor' => '{{ns:project}}:{{int:group-editor}}',
 	'grouppage-reviewer' => '{{ns:project}}:{{int:group-reviewer}}',
+	'group-autoreview' => 'Autocríticos',
+	'group-autoreview-member' => 'autocríticos',
+	'grouppage-autoreview' => '{{ns:project}}:Autocrítico',
 	'hist-draft' => 'edição de rascunho',
 	'hist-quality' => 'edição confiável',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]]',
@@ -8478,6 +8519,9 @@ $messages['roa-tara'] = array(
 	'group-reviewer-member' => 'rivisitatore',
 	'grouppage-editor' => '{{ns:project}}:Editore',
 	'grouppage-reviewer' => '{{ns:project}}:Revisitatore',
+	'group-autoreview' => 'Autorevisure',
+	'group-autoreview-member' => 'autorevisore',
+	'grouppage-autoreview' => '{{ns:project}}:Autorevisore',
 	'hist-draft' => 'revisione terra-terra',
 	'hist-quality' => 'revisione de qualità',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validate] da [[User:$3|$3]]',
@@ -8549,6 +8593,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
 	'revreview-update-includes' => "'''Certe template/immagene onne state aggiornete:'''",
+	'revreview-diffonly' => "''Pe rivedè 'a pagène, cazze 'u collegamende d'a revisione \"revisiona corrende\" e ause 'u form de rivisitazione.''",
 	'right-autoreview' => 'Signe le revisiune cumme viste automaticamende',
 	'right-movestable' => 'Spuèste le pàggene secure',
 	'right-review' => 'Signe le revisiune cumme viste',
@@ -8588,6 +8633,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-reviewlink' => 'reviste',
 	'tooltip-ca-current' => "Vide 'a bozza corrende pe sta pàgene",
 	'tooltip-ca-stable' => "Vide 'a versiona secure pe sta pàgene",
+	'tooltip-ca-default' => "'Mbostaziune de l'assicurazione de qualitate",
 	'tooltip-ca-ratinghist' => 'Pundegge de le letture de sta pàgene',
 	'revreview-unlocked' => 'Le cangiaminde non ge richiedene le revisete apprime ca avènene fatte vedè sus a stà pàgene!',
 	'log-show-hide-review' => '$1 archivie de le rivisitaziune',
@@ -8962,6 +9008,9 @@ $messages['sk'] = array(
 	'group-reviewer-member' => 'Revízor',
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
 	'grouppage-reviewer' => '{{ns:project}}:Revízor',
+	'group-autoreview' => 'Autokontrolóri',
+	'group-autoreview-member' => 'autokontrolór',
+	'grouppage-autoreview' => '{{ns:project}}:Autokontrolór',
 	'hist-draft' => 'revízia - návrh',
 	'hist-quality' => 'kvalitná revízia',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} overil] [[User:$3|$3]]',

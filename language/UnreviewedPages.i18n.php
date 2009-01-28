@@ -414,7 +414,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'right-unreviewedpages' => 'Lueg d [[Special:UnreviewedPages|Lischt vu Syte, wu nonig gsichtet sin]]',
+	'right-unreviewedpages' => 'D [[Special:UnreviewedPages|Lischt vu Syte, wu nonig gsichtet sin]] aaluege',
 	'unreviewedpages' => 'Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewed-legend' => 'Lischt vu Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewed-category' => 'Kategori:',
@@ -634,7 +634,7 @@ $messages['km'] = array(
 	'unreviewed-category' => 'ចំណាត់ថ្នាក់ក្រុម ៖',
 	'unreviewed-diff' => 'មើលឡើងវិញ',
 	'unreviewed-unwatched' => '(មិន​ត្រូវ​បាន​តាមដាន)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|user|អ្នកប្រើប្រាស់}} ដែល​កំពុង​តាមដាន)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} កំពុង​តាមដាន)',
 );
 
 /** Korean (한국어)
@@ -709,6 +709,13 @@ $messages['li'] = array(
 $messages['lt'] = array(
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'Pakeitimai',
+);
+
+/** Literary Chinese (文言)
+ * @author Itsmine
+ */
+$messages['lzh'] = array(
+	'unreviewedpages' => '底本',
 );
 
 /** Macedonian (Македонски)
@@ -826,7 +833,7 @@ $messages['nn'] = array(
 	'unreviewed-unwatched' => '(uovervaka)',
 	'unreviewed-watched' => '({{PLURAL:$1|éin aktiv brukar|$1 aktive brukarar}} overvakar)',
 	'unreviewed-list' => 'Denne sida listar opp artiklar som manglar vurdering',
-	'unreviewed-none' => 'Det finst ingen sider som svarer til søkekriteira',
+	'unreviewed-none' => 'Det finst ingen sider som svarer til søkekriteria',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
