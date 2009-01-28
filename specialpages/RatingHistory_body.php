@@ -678,7 +678,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$wgMemc->set( $key, array( $votes, $now ), 24*3600 );
 		}
 		// Output multi-column list
-		$html = "<table class='wikitable fr_reader_feedback_stats' cellspacing='0'><tr>";
+		$html = "<table class='fr_reader_feedback_table' cellspacing='0'><tr>";
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
 			$html .= '<th>'.wfMsgHtml("readerfeedback-$tag").'</th>';
 		}

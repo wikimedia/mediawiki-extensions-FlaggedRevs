@@ -353,6 +353,15 @@
 	font-size: 90%;
 }
 
-.fr_reader_feedback_stats {
+.fr_reader_feedback_table {
+	margin: 1em 1em 1em 0;
+	background: #f9f9f9;
+	border: 1px #AAA solid;
+	border-collapse: collapse;
 	font-size: 85%;
+}
+
+.fr_reader_feedback_table th, .fr_reader_feedback_table td {
+	border: 1px #AAA solid;
+	padding: 0.3em;
 }
