@@ -51,15 +51,6 @@ function update_autopromote() {
 				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['uniqueContentPages'],50) )
 			);
 			$p['uniqueContentPages'] = $db->numRows( $sres );
-			# Get reviewed edits
-			$sres = $db->select( array('revision','flaggedrevs'), '1',
-				array( 'rev_user' => $user->getID(),
-					'fr_page_id = rev_page',
-					'fr_rev_id = rev_id' ),
-				__METHOD__,
-				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['totalReviewedEdits'],500) )
-			);
-			$p['reviewedEdits'] = $db->numRows( $sres );
 		
 			if( $oldp != $p ) {
 				FlaggedRevs::saveUserParams( $user->getId(), $p );
