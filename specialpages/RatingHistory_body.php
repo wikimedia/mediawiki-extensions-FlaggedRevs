@@ -691,7 +691,7 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 			$html .= '</tr><tr>';
 			$html .= '<th align="left">'.wfMsgHtml("ratinghistory-table-votes").'</th>';
-			$html .= '<td align="center">'. 111 .'</td>';
+			$html .= '<td align="center">'.$dist[0].'</td>';
 			$html .= '<td align="center">'.$dist[1].'</td>';
 			$html .= '<td align="center">'.$dist[2].'</td>';
 			$html .= '<td align="center">'.$dist[3].'</td>';
