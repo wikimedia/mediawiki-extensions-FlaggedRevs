@@ -164,14 +164,13 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$graphLink = SpecialPage::getTitleFor( 'RatingHistory' )->getFullUrl( 'target='.$form->page->getPrefixedUrl() );
 		$talk = $form->page->getTalkPage();
 		
+		wfLoadExtensionMessages( 'RatingHistory' );
 		$tallyTable = RatingHistory::getVoteAggregates( $form->page, 31 );
 		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		$ok = ( $bot || $form->submit() ); // don't submit for mindless drones
 		$dbw->commit();
-		
-		wfLoadExtensionMessages( 'RatingHistory' );
 		if( $ok ) {
 			return '<suc#>'.wfMsgExt( 'readerfeedback-success', array('parseinline'), 
 				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) ) .
