@@ -687,15 +687,15 @@ class RatingHistory extends UnlistedSpecialPage
 			$html .= '<td><table>';
 			$html .= '<tr><th align="left">'.wfMsgHtml('ratinghistory-table-rating').'</th>';
 			for( $i = 1; $i <= 5; $i++ ) {
-				$html .= "<td class='fr-rating-option-".($i-1)."'>$i</td>";
+				$html .= "<td align='center' class='fr-rating-option-".($i-1)."'>$i</td>";
 			}
 			$html .= '</tr><tr>';
 			$html .= '<th align="left">'.wfMsgHtml("ratinghistory-table-votes").'</th>';
-			$html .= '<td>'.$dist[0].'</td>';
-			$html .= '<td>'.$dist[1].'</td>';
-			$html .= '<td>'.$dist[2].'</td>';
-			$html .= '<td>'.$dist[3].'</td>';
-			$html .= '<td>'.$dist[4].'</td>';
+			$html .= '<td align="center">'. 111 .'</td>';
+			$html .= '<td align="center">'.$dist[1].'</td>';
+			$html .= '<td align="center">'.$dist[2].'</td>';
+			$html .= '<td align="center">'.$dist[3].'</td>';
+			$html .= '<td align="center">'.$dist[4].'</td>';
 			$html .= "</tr></table></td>\n";
 		}
 		$html .= '</tr></table>';
