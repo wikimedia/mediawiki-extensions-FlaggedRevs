@@ -55,7 +55,7 @@ class OldReviewedPages extends SpecialPage
 			);
 			# Display dropdown as needed
 			if( count($wgFlaggedRevsNamespaces) > 1 ) {
-				$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' );
+				$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' ) . '&nbsp;' );
 			}
 			$wgOut->addHTML(
 				Xml::label( wfMsg("oldreviewed-category"), 'wpCategory' ) . '&nbsp;' . 
@@ -258,8 +258,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		if( !is_null($namespace) ) {
 			$namespace = intval($namespace);
 		}
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		if( !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
+			$namespace = '';
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
@@ -290,7 +290,9 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';
 		$conds[] = 'fp_pending_since IS NOT NULL';
 		# Filter namespace
-		$conds['page_namespace'] = $this->namespace;
+		if( $this->namespace !== NULL ) {
+			$conds['page_namespace'] = $this->namespace;
+		}
 		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
 		# Filter by category
 		if( $this->category ) {

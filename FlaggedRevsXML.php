@@ -4,8 +4,10 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of reviewable namespaces
 	 * @param int $selected, namespace selected
+	 * @param $all Mixed: Value of an item denoting all namespaces, or null to omit
+	 * @returns string
 	 */
-	public static function getNamespaceMenu( $selected=null ) {
+	public static function getNamespaceMenu( $selected=null, $all=null ) {
 		global $wgContLang, $wgFlaggedRevsNamespaces;
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
@@ -20,9 +22,12 @@ class FlaggedRevsXML {
 		}
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = $wgContLang->getFormattedNamespaces();
+		if( !is_null($all) ) {
+			$arr = array( $all => wfMsg( 'namespacesall' ) ) + $arr; // should be first
+		}
 		foreach( $arr as $index => $name ) {
-			# Content only
-			if($index < NS_MAIN || !in_array($index, $wgFlaggedRevsNamespaces) ) {
+			# Content pages only (except 'all')
+			if( $index !== $all && !in_array($index, $wgFlaggedRevsNamespaces) ) {
 				continue;
 			}
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
