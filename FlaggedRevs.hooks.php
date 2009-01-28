@@ -1047,7 +1047,7 @@ EOT;
 			$res = $dbr->select( array('revision','flaggedpages'), '1',
 				array( 'rev_user' => $user->getID(), 'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
 				__METHOD__,
-				array( 'USE INDEX' => 'user_timestamp',
+				array( 'USE INDEX' => array('revision' => 'user_timestamp'),
 					'LIMIT' => $wgFlaggedRevsAutopromote['totalCheckedEdits'] )
 			);
 			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
