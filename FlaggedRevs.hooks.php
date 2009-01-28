@@ -865,6 +865,10 @@ EOT;
 		# Check if user edited enough content pages
 		$totalCheckedEditsNeeded = false;
 		if( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
+			if( !$wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
+				wfProfileOut( __METHOD__ );
+				return true;
+			}
 			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
