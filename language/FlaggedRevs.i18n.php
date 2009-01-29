@@ -699,6 +699,9 @@ $messages['ar'] = array(
 	'group-reviewer-member' => 'مراجع',
 	'grouppage-editor' => '{{ns:project}}:محرر',
 	'grouppage-reviewer' => '{{ns:project}}:مراجع',
+	'group-autoreview' => 'مراجعون تلقائيون',
+	'group-autoreview-member' => 'مراجع تلقائي',
+	'grouppage-autoreview' => '{{ns:project}}:مراجع تلقائي',
 	'hist-draft' => 'مراجعة مسودة',
 	'hist-quality' => 'مراجعة جودة',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطة [[User:$3|$3]]',
@@ -2832,6 +2835,7 @@ Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Bengoa
  * @author Kobazulo
  * @author Unai Fdz. de Betoño
@@ -3172,6 +3176,9 @@ $messages['fr'] = array(
 	'group-reviewer-member' => 'Réviseur',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
+	'group-autoreview' => 'Réviseurs automatiques',
+	'group-autoreview-member' => 'Réviseur automatique',
+	'grouppage-autoreview' => '{{ns:project}}:Réviseurs automatiques',
 	'hist-draft' => 'version brouillon',
 	'hist-quality' => 'version de qualité',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validée] par [[User:$3|$3]]',
@@ -3715,8 +3722,8 @@ $messages['grc'] = array(
 	'hist-draft' => 'πρόχειρος ἐπιθεώρησις',
 	'hist-quality' => 'ποιοτικὴ ἀναθεώρησις',
 	'hist-stable' => 'θεωρημένη ἀναθεώρησις',
-	'review-logentry-app' => 'Ἀναθεωρημένη [[$1]]',
-	'review-logentry-id' => 'ἀναθεώρησις ID $1',
+	'review-logentry-app' => 'Ἀναθεωρημένη r$2 τῆς [[$1]]',
+	'review-logentry-id' => 'Ὁρᾶν',
 	'review-logpage' => 'Ἀναθεωρήσεων κατάλογος',
 	'reviewer' => 'ἐπιθεωρητής',
 	'revisionreview' => 'ἐπιθεωρεῖν ἀναθεωρήσεις',
@@ -7327,6 +7334,7 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 $messages['nn'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Vurderte versjonar',
+	'flaggedrevs-backlog' => "Det er ei opphoping av [[Special:OldReviewedPages|utdaterte vurderte sider]]. '''Merksemda di trengst!'''",
 	'flaggedrevs-desc' => 'Gjev skribentar og meldarar evna til å godkjenna sideversjonar og stabilisera sider',
 	'flaggedrevs-pref-UI-0' => 'Nytt eit detaljert grensesnitt for stabile versjonar',
 	'flaggedrevs-pref-UI-1' => 'Nytt eit enkelt grensesnitt for stabile versjonar',
@@ -7339,6 +7347,9 @@ $messages['nn'] = array(
 	'group-reviewer-member' => 'Meldar',
 	'grouppage-editor' => '{{ns:project}}:Skribentar',
 	'grouppage-reviewer' => '{{ns:project}}:Meldarar',
+	'group-autoreview' => 'Automeldarar',
+	'group-autoreview-member' => 'automeldar',
+	'grouppage-autoreview' => '{{ns:project}}:Automeldarar',
 	'hist-draft' => 'utkast',
 	'hist-quality' => 'kvalitetsversjon',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} godkjend] av [[User:$3|$3]]',
@@ -7384,7 +7395,10 @@ Ein mal eller eit bilete kan ha vorte etterspurt utan ein spesifisert versjon. D
 	'revreview-depth-4' => 'Utmerka',
 	'revreview-draft-title' => 'Utkastsida',
 	'revreview-edit' => 'Endra utkast',
+	'revreview-editnotice' => "'''Endringar på denne sida vil verta inkluderte i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] so snart ein autorisert brukar godkjenner dei.'''",
 	'revreview-flag' => 'Vurder denne versjonen',
+	'revreview-edited' => "'''Endringar vil verta inkluderte i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] so snart ein autorisert brukar godkjenner dei.'''
+'''''Utkastet'' er vist nedanfor.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|Éi endring|$2 endringar}}] ventar på vurdering.",
 	'revreview-invalid' => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|vurderte]] versjonar svarer til den oppgjevne ID-en.",
 	'revreview-legend' => 'Vurder versjonsinnhald',
 	'revreview-log' => 'Kommentar:',
@@ -7523,7 +7537,7 @@ Ei lista over stabiliserte sider finst på [[Special:StablePages|lista over stab
 $messages['no'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Stabile versjoner',
-	'flaggedrevs-backlog' => "Det er [[Special:OldReviewedPages|utdaterte anmeldte sider]] i kø. '''Din oppmerksomhet trens!'''",
+	'flaggedrevs-backlog' => "Det er [[Special:OldReviewedPages|utdaterte anmeldte sider]] i kø. '''Din oppmerksomhet trengs!'''",
 	'flaggedrevs-desc' => 'Gir skribenter og anmeldere muligheten til å godkjenne sideversjoner og stabilisere sider',
 	'flaggedrevs-pref-UI-0' => 'Bruk detaljert grensesnitt for stabile versjoner',
 	'flaggedrevs-pref-UI-1' => 'Bruk enkelt grensesnitt for stabile versjoner',
@@ -8620,6 +8634,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'readerfeedback-submit' => 'Conferme',
 	'readerfeedback-main' => 'Sulamende le pàggene cu le condenute ponne essere valutete.',
 	'readerfeedback-success' => "'''Grazie pe avè reviste sta pàgene!''' ([$3 Commende o dumanne?]).",
+	'readerfeedback-voted' => "'''Pare proprie ca tu è già vutete pe sta pàgene''' ([$3 Commende o dumanne?]).",
 	'readerfeedback-submitting' => 'In conferme...',
 	'readerfeedback-finished' => "Grazie 'mbà",
 	'revreview-filter-all' => 'Tutte',
@@ -8650,6 +8665,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
  * @author Ferrer
  * @author Kaganer
  * @author Kalan
+ * @author Putnik
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -8674,6 +8690,7 @@ $messages['ru'] = array(
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} выверена] участником [[User:$3|$3]]',
 	'hist-stable' => 'досмотренная версия',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} досмотрена] участником [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} досмотрена автоматически]',
 	'review-diff2stable' => 'Показать различия между стабильной и текущей версиями',
 	'review-logentry-app' => 'проверена [[$1]]',
 	'review-logentry-dis' => 'устаревшая версия [[$1]]',
@@ -9976,6 +9993,9 @@ $messages['tl'] = array(
 	'group-reviewer-member' => 'tagapagsuri',
 	'grouppage-editor' => '{{ns:project}}:Patnugot',
 	'grouppage-reviewer' => '{{ns:project}}:Tagapagsuri',
+	'group-autoreview' => 'Mga kusang-tagapagsuri',
+	'group-autoreview-member' => 'Kusang-tagapagsuri',
+	'grouppage-autoreview' => '{{ns:project}}:Kusang-tagapagsuri',
 	'hist-draft' => 'balangkas ng pagbabago',
 	'hist-quality' => 'katangiang pangkagalingan ng pagbabago',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} pinatunayan] ni [[User:$3|$3]]',

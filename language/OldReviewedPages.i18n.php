@@ -931,6 +931,7 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (Русский)
+ * @author Putnik
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -948,7 +949,7 @@ $messages['ru'] = array(
 	'oldreviewed-diff' => 'проверить',
 	'oldreviewed-size' => 'Наибольшее изменение в байтах:',
 	'oldreviewedpages-unwatched' => '(не следят)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|следит $2 участник|следят $2 участника|следят $2 участников}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|следит $2 активный участник|следят $2 активных участника|следят $2 активных участников}})',
 );
 
 /** Slovak (Slovenčina)
