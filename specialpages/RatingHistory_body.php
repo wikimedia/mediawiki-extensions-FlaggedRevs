@@ -29,6 +29,7 @@ class RatingHistory extends UnlistedSpecialPage
 			return;
 		}
 		$this->skin = $wgUser->getSkin();
+		$this->doPurge = ('purge' === $wgRequest->getVal( 'action' ) && $wgUser->isAllowed('purge'));
 		# Our target page
 		$this->target = $wgRequest->getText( 'target' );
 		$this->page = Title::newFromUrl( $this->target );
@@ -36,11 +37,13 @@ class RatingHistory extends UnlistedSpecialPage
 		if( is_null($this->page) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
-		}
-		$this->doPurge = $wgUser->isAllowed( 'purge' ) && 'purge' === $wgRequest->getVal( 'action' );
-		if( !FlaggedRevs::isPageRateable( $this->page ) ) {
+		} else if( !FlaggedRevs::isPageRateable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('readerfeedback-main',array('parse')) );
 			return;
+		}
+		# Thank people who voted...
+		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
+			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parseinline') );
 		}
 		$period = $wgRequest->getInt( 'period' );
 		$validPeriods = array(31,93,365,1095);
@@ -49,12 +52,10 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		$this->period = $period;
 		$this->dScale = 20;
-		# Thank voters
-		if( ReaderFeedback::userAlreadyVoted( $this->page ) ) {
-			$wgOut->setSubtitle( wfMsgExt('ratinghistory-thanks','parseinline') );
-		}
+
 		$this->showForm();
-		$this->showHeader();
+		$this->showTable();
+		$this->showGraphHeader();
 		/*
 		 * Allow client caching.
 		 */
@@ -63,21 +64,21 @@ class RatingHistory extends UnlistedSpecialPage
 		} else {
 			$wgOut->enableClientCache( false ); // don't show stale graphs
 		}
-		$this->showTable();
 		$this->showGraphs();
 	}
 	
 	protected function showTable() {
 		global $wgOut;
 		# Show latest month of results
-		$html = self::getVoteAggregates( $this->page, 31 );
+		$html = self::getVoteAggregates( $this->page, $this->period );
 		if( $html ) {
 			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".$html );
 		}
 	}
 	
-	protected function showHeader() {
+	protected function showGraphHeader() {
 		global $wgOut;
+		$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-chart') . '</h2>' );
 		$wgOut->addWikiText( wfMsg('ratinghistory-legend',$this->dScale) );
 	}
 	
@@ -85,8 +86,8 @@ class RatingHistory extends UnlistedSpecialPage
 		global $wgOut, $wgTitle, $wgScript;
 		$form = Xml::openElement( 'form', array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset>";
-		$form .= "<legend>".wfMsgExt('ratinghistory-leg',array('parseinline'),
-			$this->page->getPrefixedText())."</legend>\n";
+		$form .= "<legend>".wfMsgExt( 'ratinghistory-leg',array('parseinline'),
+			$this->page->getPrefixedText() )."</legend>\n";
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
 		$form .= Xml::hidden( 'target', $this->page->getPrefixedDBKey() );
 		$form .= $this->getPeriodMenu( $this->period );
@@ -113,7 +114,6 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function showGraphs() {
 		global $wgOut;
 		$data = false;
-		$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-chart') . '</h2>' );
 		// Do each graphs for said time period
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			// Check if cached version is available.
@@ -573,8 +573,23 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	public function getUserList() {
+		global $wgMemc;
 		if( $this->period > 93 ) {
 			return ''; // too big
+		}
+		// Check cache
+		$key = wfMemcKey( 'flaggedrevs', 'ratingusers', $this->page->getArticleId(), $this->period );
+		$set = $wgMemc->get($key);
+		// Cutoff is at the 24 hour mark due to the way the aggregate 
+		// schema groups ratings by date for graphs.
+		$now = time();
+		$cache_cutoff = $now - ($now % 86400);
+		if( is_array($set) && count($set) == 2 ) {
+			list($html,$time) = $set;
+			$touched = wfTimestamp( TS_UNIX, self::getTouched($this->page) );
+			if( $time > $cache_cutoff && $time > $touched ) {
+				return $html;
+			}
 		}
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
@@ -617,11 +632,15 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 		}
 		$html .= "</tr></table>\n";
+		$wgMemc->set( $key, array( $html, $now ), 24*3600 );
 		return $html;
 	}
 	
 	public static function getVoteAggregates( $page, $period ) {
 		global $wgMemc;
+		if( $period > 93 ) {
+			return ''; // too big
+		}
 		// Check cache
 		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId(), $period );
 		$set = $wgMemc->get($key);
@@ -629,7 +648,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// schema groups ratings by date for graphs.
 		$now = time();
 		$cache_cutoff = $now - ($now % 86400);
-		if( is_array($set) ) {
+		if( is_array($set) && count($set) == 2 ) {
 			list($val,$time) = $set;
 			$touched = wfTimestamp( TS_UNIX, self::getTouched($page) );
 			if( $time > $cache_cutoff && $time > $touched ) {
