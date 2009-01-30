@@ -470,13 +470,15 @@ function efLoadFlaggedRevs() {
 	# Grant implicit autoreview rights to some users.
 	# This will include older users that choose not to be Editors.
 	global $wgAutopromote, $wgFlaggedRevsAutopromote, $wgImplicitGroups;
-	$wgAutopromote['autoreview'] = array( '&',
-		array( APCOND_EDITCOUNT, max($wgFlaggedRevsAutopromote['edits'],3000) ),
-		array( APCOND_AGE, max($wgFlaggedRevsAutopromote['days'],365)*24*3600 ),
-		array( APCOND_AGE_FROM_EDIT, max($wgFlaggedRevsAutopromote['days'],365)*24*3600 ),
-		array( APCOND_EMAILCONFIRMED, $wgFlaggedRevsAutopromote['email'] )
-	);
-	$wgImplicitGroups[] = 'autoreview';
+	if( is_array($wgFlaggedRevsAutopromote) ) {
+		$wgAutopromote['autoreview'] = array( '&',
+			array( APCOND_EDITCOUNT, max($wgFlaggedRevsAutopromote['edits'],3000) ),
+			array( APCOND_AGE, max($wgFlaggedRevsAutopromote['days'],365)*24*3600 ),
+			array( APCOND_AGE_FROM_EDIT, max($wgFlaggedRevsAutopromote['days'],365)*24*3600 ),
+			array( APCOND_EMAILCONFIRMED, $wgFlaggedRevsAutopromote['email'] )
+		);
+		$wgImplicitGroups[] = 'autoreview';
+	}
 }
 
 /* 
