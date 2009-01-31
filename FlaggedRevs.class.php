@@ -2,6 +2,8 @@
 
 class FlaggedRevs {
 	protected static $dimensions = array();
+	protected static $minQL = array();
+	protected static $minPL = array();
 	protected static $feedbackTags = array();
 	protected static $feedbackTagWeight = array();
 	protected static $loaded = false;
@@ -11,27 +13,46 @@ class FlaggedRevs {
 
 	public static function load() {
 		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsFeedbackTags;
-		if( self::$loaded ) {
-			return true;
-		}
+		if( self::$loaded ) return true;
 		# Assume true, then set to false if needed
 		if( !empty($wgFlaggedRevTags) ) {
 			self::$qualityVersions = true;
+			self::$pristineVersions = true;
 		}
-		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
+		foreach( $wgFlaggedRevTags as $tag => $levels ) {
+			# Sanity checks
 			$safeTag = htmlspecialchars($tag);
 			if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) || $safeTag !== $tag ) {
 				throw new MWException( 'FlaggedRevs given invalid tag name!' );
-			} else if( intval($minQL) != $minQL ) {
-				throw new MWException( 'FlaggedRevs given invalid tag value!' );
 			}
+			# Set FlaggedRevs tags
 			self::$dimensions[$tag] = array();
 			for( $i=0; $i <= $wgFlaggedRevValues; $i++ ) {
 				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
 			}
+			# Define "quality" and "pristine" reqs
+			if( is_array($levels) ) {
+				$minQL = $levels['quality'];
+				$minPL = $levels['pristine'];
+			# B/C, $levels is just an integer
+			} else {
+				global $wgFlaggedRevPristine;
+				$minQL = $levels;
+				$minPL = isset($wgFlaggedRevPristine) ? $wgFlaggedRevPristine : $wgFlaggedRevValues+1;
+			}
+			# Sanity checks
+			if( !is_integer($minQL) || !is_integer($minPL) ) {
+				throw new MWException( 'FlaggedRevs given invalid tag value!' );
+			}
 			if( $minQL > $wgFlaggedRevValues ) {
 				self::$qualityVersions = false;
+				self::$pristineVersions = false;
 			}
+			if( $minPL > $wgFlaggedRevValues ) {
+				self::$pristineVersions = false;
+			}
+			self::$minQL[$tag] = $minQL;
+			self::$minPL[$tag] = $minPL;
 		}
 		foreach( $wgFlaggedRevsFeedbackTags as $tag => $weight ) {
 			# Tag names used as part of file names. "Overall" tag is a
@@ -43,10 +64,6 @@ class FlaggedRevs {
 			for( $i=0; $i <= 4; $i++ ) {
 				self::$feedbackTags[$tag][$i] = "feedback-{$tag}-{$i}";
 			}
-		}
-		global $wgFlaggedRevPristine;
-		if( $wgFlaggedRevValues >= $wgFlaggedRevPristine ) {
-			self::$pristineVersions = true;
 		}
 
 		self::$loaded = true;
@@ -129,12 +146,39 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get the array of tag dimensions
+	 * Get the array of tag dimensions and level messages
 	 * @returns array
 	 */
 	public static function getDimensions() {
 		self::load();
 		return self::$dimensions;
+	}
+	
+	/**
+	 * Get min level this tag needs to be for a rev to be "quality"
+	 * @returns int
+	 */
+	public static function getMinQL( $tag ) {
+		self::load();
+		return self::$minQL[$tag];
+	}
+	
+	/**
+	 * Get min level this tag needs to be for a rev to be "pristine"
+	 * @returns int
+	 */
+	public static function getMinPL( $tag ) {
+		self::load();
+		return self::$minPL[$tag];
+	}
+	
+	/**
+	 * Get the array of tag dimensions
+	 * @returns array
+	 */
+	public static function getTags() {
+		self::load();
+		return array_keys( self::$dimensions );
 	}
 	
 	/**
@@ -823,10 +867,9 @@ class FlaggedRevs {
 	* @return bool, is this revision at quality condition?
 	*/
 	public static function isQuality( $flags ) {
-		global $wgFlaggedRevTags;
 		if( empty($flags) ) return false;
-		foreach( $wgFlaggedRevTags as $f => $v ) {
-			if( !isset($flags[$f]) || $v > $flags[$f] )
+		foreach( self::$dimensions as $f => $x ) {
+			if( !isset($flags[$f]) || self::$minQL[$f] > $flags[$f] )
 				return false;
 		}
 		return true;
@@ -837,10 +880,9 @@ class FlaggedRevs {
 	* @return bool, is this revision at optimal condition?
 	*/
 	public static function isPristine( $flags ) {
-		global $wgFlaggedRevTags, $wgFlaggedRevPristine;
 		if( empty($flags) ) return false;
-		foreach( $wgFlaggedRevTags as $f => $v ) {
-			if( !isset($flags[$f]) || $flags[$f] < $wgFlaggedRevPristine )
+		foreach( self::$dimensions as $f => $x ) {
+			if( !isset($flags[$f]) || self::$minPL[$f] > $flags[$f] )
 				return false;
 		}
 		return true;
@@ -1088,8 +1130,11 @@ class FlaggedRevs {
 	 */
 	public static function getJSTagParams() {
 		# Param to pass to JS function to know if tags are at quality level
-		global $wgFlaggedRevTags;
-		$params = array( 'tags' => (object)$wgFlaggedRevTags );
+		$tagsJS = array();
+		foreach( self::$dimensions as $tag => $x ) {
+			$tagsJS[$tag] = self::$minQL[$tag];
+		}
+		$params = array( 'tags' => (object)$tagsJS );
 		return Xml::encodeJsVar( (object)$params );
 	}
 	

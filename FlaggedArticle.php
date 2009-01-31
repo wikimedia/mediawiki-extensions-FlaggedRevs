@@ -945,7 +945,7 @@ class FlaggedArticle extends Article {
 			$synced = ($value === "true") ? true : false; // default as false to trigger query
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
-				global $wgParserCacheExpireTime, $wgUseStableImages;
+				global $wgParserCacheExpireTime;
 
 				$changeList = array();
 				$skin = $wgUser->getSkin();
@@ -990,7 +990,7 @@ class FlaggedArticle extends Article {
 					$changeList += $tmpChanges;
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'stableDiffs', 'images', (bool)$wgUseStableImages, $article->getId() );
+				$key = wfMemcKey( 'stableDiffs', 'images', $article->getId() );
 				$imgChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
 				if( empty($imgChanges) && !$synced ) {
 					$imgChanges = false; // don't use cache
@@ -998,27 +998,18 @@ class FlaggedArticle extends Article {
 
 				// Get list of each changed image...
 				if( $imgChanges === false ) {
-					global $wgUseStableImages;
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get images where the current and stable are not the same revision
-					if( $wgUseStableImages ) {
-						$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
-							array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
-							array( 'fi_rev_id' => $frev->getRevId() ),
-							__METHOD__,
-							array(), /* OPTIONS */
-							array( 'page' => array('LEFT JOIN','page_namespace = '. NS_FILE .' AND page_title = fi_name'),
-								'image' => array('LEFT JOIN','img_name = fi_name'),
-								'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
-								'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
-						);
-					// Get images that are newer than the ones of the stable version of this page
-					} else {
-						$ret = $dbr->select( 'flaggedimages',
-							array( 'fi_name', 'fi_img_timestamp' ),
-							array( 'fi_rev_id' => $frev->getRevId() ),
-							__METHOD__ );
-					}
+					$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
+						array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
+						array( 'fi_rev_id' => $frev->getRevId() ),
+						__METHOD__,
+						array(), /* OPTIONS */
+						array( 'page' => array('LEFT JOIN','page_namespace = '. NS_FILE .' AND page_title = fi_name'),
+							'image' => array('LEFT JOIN','img_name = fi_name'),
+							'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
+							'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
+					);
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
 						$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );

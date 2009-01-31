@@ -118,10 +118,6 @@ $wgFlaggedRevsAutoReviewNew = true;
 # select the current (unreviewed) revision.
 $wgUseCurrentTemplates = true;
 
-# When parsing a reviewed revision, if a file to be included has 
-# a stable version, then use that version. If there is none, then 
-# use the one specified when the reviewed revision was reviewed.
-$wgUseStableImages = true;
 # We may have file pages that do not have stable version. Given situational
 # inclusion of templates/files (such as a random featured image template), 
 # there may also be no sha-1/time for each file pointed to by the metadata 
@@ -132,13 +128,14 @@ $wgUseCurrentImages = true;
 # When setting up new dimensions or levels, you will need to add some
 # MediaWiki messages for the UI to show properly; any sysop can do this.
 # Define the tags we can use to rate an article, and set the minimum level
-# to have it become a "quality" version. "Quality" revisions take precedence
-# over other reviewed revisions
-$wgFlaggedRevTags = array( 'accuracy'=>2, 'depth'=>1, 'style'=>1 );
+# to have it become a "quality" or "pristine" version.
+$wgFlaggedRevTags = array(
+	'accuracy' => array( 'quality' => 2, 'pristine' => 4 ),
+	'depth'    => array( 'quality' => 1, 'pristine' => 4 ),
+	'style'    => array( 'quality' => 1, 'pristine' => 4 ),
+);
 # How high can we rate these revisions?
 $wgFlaggedRevValues = 3;
-# A revision with all tags rated at least to this level is considered "pristine"/"featured"
-$wgFlaggedRevPristine = 4;
 # Who can set what flags to what level? (use -1 or 0 for not at all)
 # This maps rights to the highest reviewable level for each tag.
 # Users cannot lower tags from a level they can't set

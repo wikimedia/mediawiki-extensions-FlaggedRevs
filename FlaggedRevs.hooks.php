@@ -379,8 +379,7 @@ EOT;
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
-		global $wgUseStableImages;
-		if( $wgUseStableImages && FlaggedRevs::isPageReviewable( $title ) ) {
+		if( FlaggedRevs::isPageReviewable( $title ) ) {
 			if( $srev = FlaggedRevision::newFromStable( $title ) ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
@@ -450,8 +449,7 @@ EOT;
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
-		global $wgUseStableImages;
-		if( $wgUseStableImages && FlaggedRevs::isPageReviewable( $nt ) ) {
+		if( FlaggedRevs::isPageReviewable( $nt ) ) {
 			if( $srev = FlaggedRevision::newFromStable( $nt ) ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
