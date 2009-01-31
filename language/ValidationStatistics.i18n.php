@@ -486,6 +486,9 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
+	'validationstatistics-table' => "넘겨주기 문서를 제외한 문서의 검토 통계가 이름공간별로 보여지고 있습니다.
+
+'''참고:''' 다음 데이터는 몇 시간마다 캐시되며 최신이 아닐 수도 있습니다.",
 	'validationstatistics-ns' => '이름공간',
 );
 
@@ -509,6 +512,9 @@ $messages['lb'] = array(
 	'validationstatistics' => 'Statistike vun de Validaiounen',
 	'validationstatistics-users' => "''{{SITENAME}}''' huet elo '''$1''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]]
 an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].",
+	'validationstatistics-table' => "Statistiken fir jidfer Nummraum sinn hei ënnedrënner, Viruleedungssäite sinn net berücksichtegt.
+
+'''Bemierkung:''' d'Donnéeën gi jeweils fir e puer Stonnen tësche gespäichert a sin dofir net ëmmer aktuell.",
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Validéiert',

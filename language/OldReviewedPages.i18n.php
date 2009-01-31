@@ -674,6 +674,7 @@ $messages['lb'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
+	'oldreviewedpages-stable' => 'прегледано',
 	'oldreviewedpages-quality' => 'квалитет',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
@@ -682,7 +683,7 @@ $messages['mk'] = array(
 	'oldreviewed-watched' => 'Во мојата листа на набљудувања',
 	'oldreviewed-diff' => 'преглед',
 	'oldreviewedpages-unwatched' => '(ненабљудувана)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|корисник|корисници}} набљудуваат)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|активен корисник набљудува|активни корисници набљудуваат}})',
 );
 
 /** Malayalam (മലയാളം)
@@ -858,10 +859,10 @@ $messages['pl'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|godzina|godziny|godzin}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dzień|dni}})',
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
-	'oldreviewed-category' => 'Kategoria:',
+	'oldreviewed-category' => 'Kategoria',
 	'oldreviewed-watched' => 'Z mojej listy obserwowanych',
 	'oldreviewed-diff' => 'różn.',
-	'oldreviewed-size' => 'Maksymalna liczba dodanych/usuniętych bajtów:',
+	'oldreviewed-size' => 'Maksymalna liczba dodanych lub usuniętych bajtów',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
 	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
 );

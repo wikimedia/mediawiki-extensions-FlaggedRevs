@@ -927,6 +927,7 @@ $messages['haw'] = array(
  * @author DoviJ
  * @author Ori229
  * @author Rotemliss
+ * @author YaronSh
  */
 $messages['he'] = array(
 	'stabilization-tab' => 'נבדק',
@@ -948,7 +949,7 @@ $messages['he'] = array(
 לא ניתן לבצע תצורה.',
 	'stabilization-notcontent' => 'אין אפשרות לבדוק את הדף "[[:$1|$1]]".
 לא ניתן לבצע תצורה.',
-	'stabilization-comment' => 'הערה:',
+	'stabilization-comment' => 'סיבה:',
 	'stabilization-otherreason' => 'סיבה אחרת',
 	'stabilization-expiry' => 'פקיעה:',
 	'stabilization-othertime' => 'זמן פקיעה אחר',
@@ -1077,6 +1078,7 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Gondnok
  * @author KossuthRad
  * @author Samat
  */
@@ -1100,7 +1102,8 @@ A(z) [[:$1|$1]] lapra vonatkozó jelenlegi beállítások:',
 Nem lehet a beállításokat módosítani.',
 	'stabilization-notcontent' => 'A(z) „[[:$1|$1]]” című lapot nem ellenőrizni.
 Nem lehet a beállításokat módosítani.',
-	'stabilization-comment' => 'Megjegyzés:',
+	'stabilization-comment' => 'Indok:',
+	'stabilization-otherreason' => 'Egyéb indok',
 	'stabilization-expiry' => 'Lejárat:',
 	'stabilization-sel-short' => 'Precendencia',
 	'stabilization-sel-short-0' => 'minőségi',
@@ -1541,8 +1544,10 @@ $messages['mk'] = array(
 Не е можно нагодување.',
 	'stabilization-notcontent' => 'Страницата "[[:$1|$1]]" не може да се оценува.
 Не е можно нагодување.',
-	'stabilization-comment' => 'Забелешка:',
+	'stabilization-comment' => 'Причина:',
+	'stabilization-otherreason' => 'Друга причина',
 	'stabilization-expiry' => 'Истекува:',
+	'stabilization-othertime' => 'Друго време',
 	'stabilization-sel-short' => 'Исклучок',
 	'stabilization-sel-short-0' => 'Квалитет',
 	'stabilization-sel-short-1' => 'Ништо',
@@ -1847,8 +1852,10 @@ $messages['oc'] = array(
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'I a pas de pagina « [[:$1|$1]] », pas de parametratge possible',
 	'stabilization-notcontent' => 'La pagina « [[:$1|$1]] » pòt pas èsser revisada, pas de parametratge possible',
-	'stabilization-comment' => 'Comentari :',
+	'stabilization-comment' => 'Rason :',
+	'stabilization-otherreason' => 'Autra rason',
 	'stabilization-expiry' => 'Expira :',
+	'stabilization-othertime' => 'Autre temps',
 	'stabilization-sel-short' => 'Prioritat',
 	'stabilization-sel-short-0' => 'Qualitat',
 	'stabilization-sel-short-1' => 'Nula',
@@ -1895,9 +1902,9 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-notexists' => 'Brak strony zatytułowanej „[[:$1|$1]]”. Nie jest możliwa jej konfiguracja.',
 	'stabilization-notcontent' => 'Strona „[[:$1|$1]]” nie może być oznaczona.
 Nie jest możliwa jej konfiguracja.',
-	'stabilization-comment' => 'Powód:',
+	'stabilization-comment' => 'Powód',
 	'stabilization-otherreason' => 'Inna przyczyna',
-	'stabilization-expiry' => 'Czas wygaśnięcia:',
+	'stabilization-expiry' => 'Czas wygaśnięcia',
 	'stabilization-othertime' => 'Innym razem',
 	'stabilization-sel-short' => 'Kolejność',
 	'stabilization-sel-short-0' => 'Zweryfikowana',
@@ -2467,7 +2474,9 @@ Yapılandırma mümkün değil.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" sayfası gözden geçirilemiyor.
 Yapılandırma mümkün değil.',
 	'stabilization-comment' => 'Sebep:',
+	'stabilization-otherreason' => 'Diğer sebep',
 	'stabilization-expiry' => 'Süresi bitiyor:',
+	'stabilization-othertime' => 'Diğer zaman',
 	'stabilization-sel-short' => 'Öncelik',
 	'stabilization-sel-short-0' => 'Kalite',
 	'stabilization-sel-short-1' => 'Hiçbiri',

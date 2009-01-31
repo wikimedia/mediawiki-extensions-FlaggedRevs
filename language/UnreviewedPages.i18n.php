@@ -191,10 +191,14 @@ $messages['bs'] = array(
  * @author Toniher
  */
 $messages['ca'] = array(
-	'right-unreviewedpages' => 'Vegeu la llista de pàgines no revisades',
+	'right-unreviewedpages' => 'Veure la [[Special:UnreviewedPages|llista de pàgines no revisades]]',
 	'unreviewedpages' => 'Pàgines per revisar',
+	'unreviewed-legend' => 'Llista de pàgines amb contingut no revisat',
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'revisió',
+	'unreviewed-unwatched' => '(no vigilat)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|usuari|usuaris}} actius vigilant)',
+	'unreviewed-list' => 'Aquesta pàgina llista el contingut de pàgines que no ha estat revisat.',
 	'unreviewed-none' => 'En aquest moment no hi ha pàgines que compleixin aquests criteris',
 );
 
@@ -728,7 +732,7 @@ $messages['mk'] = array(
 	'unreviewed-category' => 'Категорија:',
 	'unreviewed-diff' => 'преглед',
 	'unreviewed-unwatched' => '(ненабљудувана)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|корисник ја набљудува|корисници ја набљудуваат}})',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|активен корисник ја набљудува|активни корисници ја набљудуваат}})',
 	'unreviewed-list' => 'Оваа страница прикажува статии кои не се прегледани.',
 	'unreviewed-none' => 'Во моментов не постојат страници кои ги задоволуваат овие критериуми',
 );
@@ -892,11 +896,11 @@ $messages['pl'] = array(
 	'right-unreviewedpages' => 'Zobacz [[Special:UnreviewedPages|listę nieprzejrzanych stron]]',
 	'unreviewedpages' => 'Nieprzejrzane strony',
 	'unreviewed-legend' => 'Lista nieprzejrzanych stron',
-	'unreviewed-category' => 'Kategoria:',
+	'unreviewed-category' => 'Kategoria',
 	'unreviewed-diff' => 'różn.',
 	'unreviewed-unwatched' => '(nieobserwowana)',
 	'unreviewed-watched' => '(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
-	'unreviewed-list' => 'Poniżej znajduje się lista nieprzejrzanych stron.',
+	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 );
 
