@@ -986,7 +986,7 @@ class FlaggedRevs {
 	* LinksUpdate was already called via edit operations, so the page
 	* fields will be up to date. This updates the stable version.
 	*/
-	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $patrol = true ) {
+	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $auto=true ) {
 		global $wgMemc;
 		wfProfileIn( __METHOD__ );
 		# Default tags to level 1 for each dimension
@@ -1067,13 +1067,9 @@ class FlaggedRevs {
 			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
 			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
 		) );
-		$flaggedRevision->insertOn( $tmpset, $imgset, true );
-		# Mark as patrolled
-		if( $patrol ) {
-			RevisionReview::updateRecentChanges( $title, $rev->getId() );
-		}
+		$flaggedRevision->insertOn( $tmpset, $imgset, $auto );
 		# Update the article review log
-		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, true );
+		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...

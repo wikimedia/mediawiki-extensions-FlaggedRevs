@@ -666,38 +666,47 @@ EOT;
 	*/
 	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false, $user = null ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
-		# Get the user
-		$user = is_null($user) ? User::newFromId( $rev->getUser() ) : $user;
-		$checked = $wgRequest->getCheck('wpReviewEdit') && $user->isAllowed('review');
-		if( $checked ) {
-			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
-			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, null, false );
+		# Must be in reviewable namespace
+		$title = $article->getTitle();
+		if( !$rev || !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
+		}
+		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
+		# Get what was just the current revision ID
+		$prevRevId = $rev->getParentId();
+		$prevTimestamp = $flags = null;
+		# Get edit timestamp. Existance already valided by EditPage.php. If 
+		# not present, then it the rev shouldn't be saved, like null edits.
+		$editTimestamp = $wgRequest->getVal('wpEdittime');
+		# Get the user who made the edit
+		$user = is_null($user) ? User::newFromId( $rev->getUser() ) : $user;
+		# Is the page checked off to be reviewed?
+		if( $wgRequest->getCheck('wpReviewEdit') && $user->isAllowed('review') ) {
+			if( $prevRevId ) {
+				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK
+			}
+			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
+			# Don't do so if an edit was auto-merged in between though...
+			if( !$editTimestamp || !$prevTimestamp || $prevTimestamp == $editTimestamp ) {
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				return true;
+			}
 		}
 		# Auto-reviewing must be enabled
 		if( !$wgFlaggedRevsAutoReview ) return true;
 		# User must have the required permissions
-		if( !$user->isAllowed('autoreview') && !$user->isAllowed('bot') )
-			return true;
-		# If $baseRevId passed in, this is a null edit
-		$isNullEdit = $baseRevId ? true : false;
-		# Must be in reviewable namespace
-		$title = $article->getTitle();
-		if( !FlaggedRevs::isPageReviewable( $title ) ) {
+		if( !$user->isAllowed('autoreview') && !$user->isAllowed('bot') ) {
 			return true;
 		}
+		# If $baseRevId passed in, this is a null edit
+		$isNullEdit = $baseRevId ? true : false;
 		$frev = null;
 		$reviewableNewPage = false;
-		# Avoid extra DB hit and lag issues
-		$title->resetArticleID( $rev->getPage() );
-		# Get what was just the current revision ID
-		$prevRevId = $rev->getParentId();
 		# Get the revision ID the incoming one was based off...
 		if( !$baseRevId && $prevRevId ) {
-			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK			
-			# Get edit timestamp. Existance already valided by EditPage.php. If 
-			# not present, then it shouldn't be, like null edits.
-			$editTimestamp = $wgRequest->getVal('wpEdittime');
+			if( is_null($prevTimestamp) ) { // may already be set
+				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK
+			}
 			# The user just made an edit. The one before that should have
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
@@ -729,11 +738,9 @@ EOT;
 			# Assume basic flagging level unless this is a null edit
 			if( $isNullEdit ) {
 				$flags = $frev->getTags();
-			} else {
-				$flags = null;
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
-			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 		}
 		return true;
 	}
