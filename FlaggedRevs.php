@@ -47,7 +47,7 @@ if( !defined('FR_TEXT') )
 
 # Number of recent reviews to be a decent sample size
 if( !defined('READER_FEEDBACK_SIZE') )
-	define('READER_FEEDBACK_SIZE',25);
+	define('READER_FEEDBACK_SIZE',15);
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name'           => 'Flagged Revisions',
