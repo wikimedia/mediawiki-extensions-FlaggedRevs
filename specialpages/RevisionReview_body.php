@@ -265,7 +265,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * Show revision review form
 	 */
 	private function showRevision() {
-		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments, $wgFlaggedRevValues;
 
 		if( $this->unapprovedTags )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
@@ -294,9 +294,9 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$formradios = array();
 		# Dynamically contruct our radio options
-		foreach( $wgFlaggedRevTags as $tag => $minQL ) {
+		foreach( FlaggedRevs::getDimensions() as $tag => $x ) {
 			$formradios[$tag] = array();
-			for ($i=0; $i <= $wgFlaggedRevValues; $i++) {
+			for( $i=0; $i <= $wgFlaggedRevValues; $i++ ) {
 				$formradios[$tag][] = array( "revreview-$tag-$i", "wp$tag", $i );
 			}
 			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
@@ -770,14 +770,14 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @returns bool
 	 */
 	public static function userCanSetFlags( $flags, $oldflags = array() ) {
-		global $wgUser, $wgFlaggedRevTags, $wgFlaggedRevValues;
+		global $wgUser, $wgFlaggedRevValues;
 		
 		if( !$wgUser->isAllowed('review') ) {
 			return false;
 		}
 		# Check if all of the required site flags have a valid value
 		# that the user is allowed to set.
-		foreach( $wgFlaggedRevTags as $qal => $minQL ) {
+		foreach( FlaggedRevs::getDimensions() as $qal => $x ) {
 			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
 			if( !self::userCan($qal,$level) ) {
 				return false;
