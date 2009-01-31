@@ -1004,16 +1004,10 @@ class FlaggedRevs {
 		$tmpset = $imgset = array();
 		$poutput = false;
 
-		# Use master to avoid lag issues.
-		$latestID = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-		$latestID = $latestID ? $latestID : $rev->getId(); // new pages, page row not added yet
-
 		$title = $article->getTitle();
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
-		$parseId = ($rev->getId() == $latestID) ? null : $rev->getId();
-		# Parse the revision HTML output
-		$editInfo = $article->prepareTextForEdit( $text, $parseId );
+		$editInfo = $article->prepareTextForEdit( $text ); // Parse the revision HTML output
 		$poutput = $editInfo->output;
 		
 		# Get current stable version ID (for logging)
