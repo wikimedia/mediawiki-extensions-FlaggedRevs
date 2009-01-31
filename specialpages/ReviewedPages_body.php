@@ -13,7 +13,7 @@ class ReviewedPages extends SpecialPage
     }
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevValues, $wgFlaggedRevPristine;
+		global $wgRequest, $wgUser, $wgFlaggedRevPristine;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
