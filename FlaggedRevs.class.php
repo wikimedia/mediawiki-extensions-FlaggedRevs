@@ -12,7 +12,7 @@ class FlaggedRevs {
 	protected static $includeVersionCache = array();
 
 	public static function load() {
-		global $wgFlaggedRevTags, $wgFlaggedRevValues, $wgFlaggedRevsFeedbackTags;
+		global $wgFlaggedRevTags, $wgFlaggedRevsFeedbackTags;
 		if( self::$loaded ) return true;
 		# Assume true, then set to false if needed
 		if( !empty($wgFlaggedRevTags) ) {
@@ -25,30 +25,32 @@ class FlaggedRevs {
 			if( !preg_match('/^[a-zA-Z]{1,20}$/',$tag) || $safeTag !== $tag ) {
 				throw new MWException( 'FlaggedRevs given invalid tag name!' );
 			}
-			# Set FlaggedRevs tags
-			self::$dimensions[$tag] = array();
-			for( $i=0; $i <= $wgFlaggedRevValues; $i++ ) {
-				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
-			}
 			# Define "quality" and "pristine" reqs
 			if( is_array($levels) ) {
 				$minQL = $levels['quality'];
 				$minPL = $levels['pristine'];
-			# B/C, $levels is just an integer
+				$ratingLevels = $levels['levels'];
+			# B/C, $levels is just an integer (minQL)
 			} else {
-				global $wgFlaggedRevPristine;
+				global $wgFlaggedRevPristine, $wgFlaggedRevValues;
 				$minQL = $levels;
 				$minPL = isset($wgFlaggedRevPristine) ? $wgFlaggedRevPristine : $wgFlaggedRevValues+1;
+				$ratingLevels = isset($wgFlaggedRevValues) ? $wgFlaggedRevValues : 1;
+			}
+			# Set FlaggedRevs tags
+			self::$dimensions[$tag] = array();
+			for( $i=0; $i <= $ratingLevels; $i++ ) {
+				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
 			}
 			# Sanity checks
 			if( !is_integer($minQL) || !is_integer($minPL) ) {
 				throw new MWException( 'FlaggedRevs given invalid tag value!' );
 			}
-			if( $minQL > $wgFlaggedRevValues ) {
+			if( $minQL > $ratingLevels ) {
 				self::$qualityVersions = false;
 				self::$pristineVersions = false;
 			}
-			if( $minPL > $wgFlaggedRevValues ) {
+			if( $minPL > $ratingLevels ) {
 				self::$pristineVersions = false;
 			}
 			self::$minQL[$tag] = $minQL;

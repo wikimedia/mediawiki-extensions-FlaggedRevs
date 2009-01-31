@@ -127,15 +127,13 @@ $wgUseCurrentImages = true;
 
 # When setting up new dimensions or levels, you will need to add some
 # MediaWiki messages for the UI to show properly; any sysop can do this.
-# Define the tags we can use to rate an article, and set the minimum level
-# to have it become a "quality" or "pristine" version.
+# Define the tags we can use to rate an article, number of levels,
+# and set the minimum level to have it become a "quality" or "pristine" version.
 $wgFlaggedRevTags = array(
-	'accuracy' => array( 'quality' => 2, 'pristine' => 4 ),
-	'depth'    => array( 'quality' => 1, 'pristine' => 4 ),
-	'style'    => array( 'quality' => 1, 'pristine' => 4 ),
+	'accuracy' => array( 'levels' => 3, 'quality' => 2, 'pristine' => 4 ),
+	'depth'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
+	'style'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
 );
-# How high can we rate these revisions?
-$wgFlaggedRevValues = 3;
 # Who can set what flags to what level? (use -1 or 0 for not at all)
 # This maps rights to the highest reviewable level for each tag.
 # Users cannot lower tags from a level they can't set
