@@ -1129,6 +1129,7 @@ class FlaggedRevs {
 	 * Get JS script params for onloading
 	 */
 	public static function getJSTagParams() {
+		self::load();
 		# Param to pass to JS function to know if tags are at quality level
 		$tagsJS = array();
 		foreach( self::$dimensions as $tag => $x ) {
@@ -1142,6 +1143,7 @@ class FlaggedRevs {
 	 * Get JS script params for onloading
 	 */
 	public static function getJSFeedbackParams() {
+		self::load();
 		# Param to pass to JS function to know if tags are at quality level
 		global $wgFlaggedRevsFeedbackTags;
 		$params = array( 'tags' => (object)$wgFlaggedRevsFeedbackTags );
