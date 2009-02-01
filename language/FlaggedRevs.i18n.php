@@ -36,7 +36,7 @@ $messages['en'] = array(
 	'hist-autoreviewed'            => '[{{fullurl:$1|stableid=$2}} automatically sighted]',
 	'review-diff2stable'           => 'View changes between stable and current revisions',
 	'review-logentry-app'          => 'reviewed r$2 of [[$1]]',
-	'review-logentry-dis'          => 'depreciated r$2 of [[$1]]',
+	'review-logentry-dis'          => 'deprecated r$2 of [[$1]]',
 	'review-logentry-id'           => 'view',
 	'review-logentry-diff'         => 'diff to stable',
 	'review-logpage'               => 'Review log',
