@@ -1097,7 +1097,7 @@ class FlaggedRevs {
 			'fr_page_id'       => $rev->getPage(),
 			'fr_rev_id'	       => $rev->getId(),
 			'fr_user'	       => $user->getId(),
-			'fr_timestamp'     => wfTimestampNow(),
+			'fr_timestamp'     => $rev->getTimestamp(),
 			'fr_comment'       => "",
 			'fr_quality'       => $quality,
 			'fr_tags'	       => FlaggedRevision::flattenRevisionTags( $flags ),
