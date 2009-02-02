@@ -39,7 +39,7 @@ class Stabilization extends UnlistedSpecialPage
 
 		$isValid = true;
 		# Our target page
-		$this->target = $wgRequest->getText( 'page' );
+		$this->target = $wgRequest->getText( 'page', $par );
 		$this->page = Title::newFromUrl( $this->target );
 		# We need a page...
 		if( is_null($this->page) ) {
