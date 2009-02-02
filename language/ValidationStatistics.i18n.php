@@ -288,6 +288,10 @@ $messages['gl'] = array(
  */
 $messages['grc'] = array(
 	'validationstatistics' => 'Στατιστικὰ ἐπικυρώσεων',
+	'validationstatistics-users' => "Τὸ '''{{SITENAME}}''' νῦν ἔχει '''$1''' {{PLURAL:$1|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|μεταγραφέως]] καὶ '''$2''' {{PLURAL:$2|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|ἐπιθεωρητοῦ]].",
+	'validationstatistics-table' => "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ἐξαιρουμένων.
+
+'''Σημείωσις:''' τὰ ἀκόλουθα δεδομένα κρυπτὰ εἰσὶ ἐπὶ ὥρας τινὰς καὶ ἐνδεχομένως μὴ ἐνήμερα εἰσί.",
 	'validationstatistics-ns' => 'Ὀνοματεῖον',
 	'validationstatistics-total' => 'Δέλτοι',
 	'validationstatistics-stable' => 'Ἀναθεωρημένη',

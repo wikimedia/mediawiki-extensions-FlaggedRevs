@@ -2008,6 +2008,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
 );
 
 /** German (Deutsch)
+ * @author ChrisiPK
  * @author MF-Warburg
  * @author Melancholie
  * @author MichaelFrey
@@ -2030,6 +2031,9 @@ $messages['de'] = array(
 	'group-reviewer-member' => 'Prüfer',
 	'grouppage-editor' => '{{ns:project}}:Sichter',
 	'grouppage-reviewer' => '{{ns:project}}:Prüfer',
+	'group-autoreview' => 'Automatische Sichter',
+	'group-autoreview-member' => 'automatischer Sichter',
+	'grouppage-autoreview' => '{{ns:project}}:Automatischer Sichter',
 	'hist-draft' => 'Entwurfsversion',
 	'hist-quality' => 'geprüfte Version',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} geprüft] von [[User:$3|$3]]',
@@ -3195,7 +3199,7 @@ $messages['fr'] = array(
 Voir la liste [[Special:ReviewedPages|des pages relues]] pour une liste de celles qui sont approuvées.',
 	'reviewer' => 'Réviseur',
 	'revisionreview' => 'Revoir versions',
-	'revreview-accuracy' => 'État&nbsp;',
+	'revreview-accuracy' => 'État',
 	'revreview-accuracy-0' => 'Non approuvée',
 	'revreview-accuracy-1' => 'Vue',
 	'revreview-accuracy-2' => 'Précise',

@@ -321,6 +321,7 @@ $messages['grc'] = array(
 	'stableversions-leg1' => 'Ὕσταται ἐπιθεωρημέναι ἀναθεωρήσεις δέλτου τινός',
 	'stableversions-page' => 'Ὄνομα δέλτου:',
 	'stableversions-none' => 'Τὸ "[[:$1]]" οὐκ ἔχει ἐπιθεωρημένας ἀναθεωρήσεις.',
+	'stableversions-list' => 'Ἀκολουθεῖ κατάλογος μεταγραφῶν τοῦ [[:$1]] ἐπιθεωρημένων:',
 	'stableversions-review' => 'Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2',
 );
 

@@ -130,6 +130,24 @@ $aliases['de'] = array(
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
+/** Lower Sorbian (Dolnoserbski) */
+$aliases['dsb'] = array(
+	'LikedPages' => array( 'Kwalitne boki' ),
+	'OldReviewedPages' => array( 'Zasej njepśeglědane boki' ),
+	'ProblemPages' => array( 'Problematiske boki' ),
+	'QualityOversight' => array( 'Kwalitna kontrola' ),
+	'RatingHistory' => array( 'Stawizny pógódnośenjow' ),
+	'ReaderFeedback' => array( 'Pógódnośenja cytarjow' ),
+	'ReviewedPages' => array( 'Pśeglědane boki' ),
+	'RevisionReview' => array( 'Wersijowe pśeglědanje' ),
+	'Stabilization' => array( 'Stabilizacija' ),
+	'StablePages' => array( 'Stabilne boki' ),
+	'StableVersions' => array( 'Stabilne wersije' ),
+	'UnreviewedPages' => array( 'Njepśeglědane boki' ),
+	'UnstablePages' => array( 'Njestabilne boki' ),
+	'ValidationStatistics' => array( 'Statistika pśeglědanjow' ),
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -228,6 +246,24 @@ $aliases['hi'] = array(
 /** Croatian (Hrvatski) */
 $aliases['hr'] = array(
 	'StablePages' => array( 'Stabilne_stranice' ),
+);
+
+/** Upper Sorbian (Hornjoserbsce) */
+$aliases['hsb'] = array(
+	'LikedPages' => array( 'Kwalitne strony' ),
+	'OldReviewedPages' => array( 'Zaso njepřehladane strony' ),
+	'ProblemPages' => array( 'Problematiske strony' ),
+	'QualityOversight' => array( 'Kwalitna kontrola' ),
+	'RatingHistory' => array( 'Stawizny pohódnoćenjow' ),
+	'ReaderFeedback' => array( 'Pohódnoćenjow čitarjow' ),
+	'ReviewedPages' => array( 'Přehladane strony' ),
+	'RevisionReview' => array( 'Wersijowe přehladanje' ),
+	'Stabilization' => array( 'Stabilizacija' ),
+	'StablePages' => array( 'Stabilne strony' ),
+	'StableVersions' => array( 'Stabilne wersije' ),
+	'UnreviewedPages' => array( 'Njepřehladane strony' ),
+	'UnstablePages' => array( 'Njestabilne strony' ),
+	'ValidationStatistics' => array( 'Statistika přehladanjow' ),
 );
 
 /** Hungarian (Magyar) */
