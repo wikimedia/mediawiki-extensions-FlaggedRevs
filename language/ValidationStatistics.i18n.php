@@ -329,9 +329,11 @@ $messages['gsw'] = array(
 $messages['he'] = array(
 	'validationstatistics' => 'סטיסטיקת אישורים',
 	'validationstatistics-users' => "'''יש כרגע {{PLURAL:$1|משתמש '''אחד'''|'''$1''' משתמשים}} ב{{SITENAME}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]] ו{{PLURAL:$2|משתמש '''אחד'''|־'''$2''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].'''",
-	'validationstatistics-table' => "סטטיסטיקות לכל מרחב שם מוצגות להלן, תוך התעלמות מדפי הפניה.
+	'validationstatistics-time'   => 'ההמתנה הממוצעת עבור עריכות של מי ש\'\'אינם משתמשים\'\' היא \'\'\'$1\'\'\'. 
+	ההמתנה הממוצעת עבור [[Special:OldReviewedPages|דפים בדוקים ישנים]] היא \'\'\'$2\'\'\'.',
+	'validationstatistics-table'  => "סטטיסטיקות לכל מרחב שם מוצגות להלן, תוך '''התעלמות''' מדפי הפניה. דפים '''ישנים''' הם אלה עם עריכות חדשות יותר מהגרסה היציבה. אם הגרסה היציבה היא גם הגרסה האחרונה, הדף '''מסונכרן'''.
 
-'''הערה:''' הנתונים הבאים נשמרים למשך כמה שעות, וייתכן שאינם עדכניים.",
+'''הערה: הנתונים הבאים נשמרים למשך כמה שעות, וייתכן שאינם עדכניים.'''",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
 	'validationstatistics-stable' => 'עבר ביקורת',
