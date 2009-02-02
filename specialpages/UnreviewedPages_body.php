@@ -151,7 +151,7 @@ class UnreviewedPages extends SpecialPage
 			__METHOD__ );
 		$ratio = $pages/($pages - $reviewedpages);
 		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
-		return ($ratio <= 1000);
+		return ($ratio <= 500);
 	}
 }
 
