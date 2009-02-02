@@ -13,11 +13,12 @@ function update_flaggedrevs_stats() {
 	$dbCache->set( $keySQL, '1', $wgFlaggedRevsStatsAge );
 
 	$dbr = wfGetDB( DB_SLAVE );
-	list($page,$flaggedpages,$flaggedrevs_stats) = $dbr->tableNamesN('page','flaggedpages','flaggedrevs_stats');
+	list($page,$flaggedpages) = $dbr->tableNamesN('page','flaggedpages');
 	$ns = $dbr->makeList( $wgFlaggedRevsNamespaces );
-	if( empty($ns) ) {
-		return; // no SQL errors please :)
-	}
+	if( empty($ns) ) return; // no SQL errors please :)
+
+	print( "Updating flaggedrevs stats...\n" );
+
 	$ns_total = array();
 	$ns_reviewed = array();
 	$ns_synced = array();
@@ -50,11 +51,121 @@ function update_flaggedrevs_stats() {
 	while( $row = $dbr->fetchObject( $ret ) ) {
 		$ns_synced[$row->namespace] = intval($row->synced);
 	}
+	// Getting mean pending edit time
+	$now = time(); // current time in UNIX TS
+	$avePET = (int)$dbr->selectField( array('flaggedpages'),
+		"AVG( $now - UNIX_TIMESTAMP(fp_pending_since) )",
+		array( 'fp_pending_since IS NOT NULL' ),
+		__METHOD__
+	);
+	// Get the mean edit review time
+	$size = 1500; // Sample size
+	$seconds = $aveRT = 0;
+	# Only go so far back...otherwise we will get garbage values due to 
+	# the fact that FlaggedRevs wasn't enabled until after a while.
+	$installed = $dbr->selectField( 'logging', 'MIN(log_timestamp)', array('log_type' => 'review') );
+	if( !$installed ) $installed = $dbr->timestamp(); // now
+	# Get corresponding rev_id for better INDEX usage
+	$minRev = (int)$dbr->selectField( 'revision', 'rev_id', 
+		array( 'rev_timestamp >= '.$dbr->addQuotes($installed) ),
+		__METHOD__,
+		array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+	);
+	# Skip the most recent recent revs as they are likely to just 
+	# be WHERE condition misses. This also gives us more data to use.
+	# Lastly, we want to avoid bais that would make the time too low
+	# since new revisions could not have "took a long time to sight".
+	$worstLagTS = $dbr->timestamp(); // now
+	$last = '0';
+	while( true ) { // should almost always be ~1 pass
+		# Get the page with the worst pending lag...
+		$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
+			array( 'fp_page_id', 'fp_stable', 'fp_pending_since', 'fr_timestamp' ),
+			array( 
+				'fp_pending_since > '.$dbr->addQuotes($installed), // needs actual display lag
+				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable',
+				'fp_pending_since > '.$dbr->addQuotes($last), // skip failed rows
+			),
+			__METHOD__,
+			array( 'ORDER BY' => 'fp_pending_since ASC',
+				'USE INDEX' => array('flaggedpages' => 'fp_pending_since') )
+		);
+		if( !$row ) break;
+		# Find the newest revision at the time the page was reviewed,
+		# this is the one that *should* have been reviewed.
+		$idealRev = (int)$dbr->selectField( 'revision', 'rev_id', 
+			array( 'rev_page' => $row->fp_page_id, 
+				'rev_timestamp < '.$dbr->addQuotes($row->fr_timestamp) ),
+			__METHOD__,
+			array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )
+		);
+		# Fudge factor to prevent deliberate reviewing of non-current revisions
+		# from squeezing the range. Shouldn't effect anything otherwise.
+		if( $row->fp_stable >= $idealRev ) {
+			$worstLagTS = $row->fp_pending_since;
+			break;
+		} else {
+			$last = $row->fp_pending_since; // next iteration
+		}
+	}
+	# Get corresponding rev_id for better INDEX usage
+	$maxRev = (int)$dbr->selectField( 'revision', 'rev_id', 
+		array( 'rev_timestamp <= '.$dbr->addQuotes($worstLagTS) ),
+		__METHOD__,
+		array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )
+	);
+	$rows = $maxRev - $minRev; # rows to scan
+	$mod = 1; # Modulus
+	if( $rows >= 15000 ) {
+		$mod = 3; # Skip some rows to get better coverage
+		$minRev = $maxRev - 15000; # Limit rows to scan
+	}
+	# For edits that started off pending, how long do they take to get reviewed?
+	# Get the *first* reviewed rev *after* each RC item and get the average difference.
+	# Only do this for revisions to pages that *were* already logged as reviewed.
+	$sql = $dbr->selectSQLText( array('revision','flaggedrevs','page','logging'),
+		array( 'rev_timestamp AS rt', 'MIN(fr_timestamp) AS ft', 'MIN(log_timestamp) AS lt' ),
+		array(
+			"rev_id BETWEEN $minRev AND $maxRev", // Only go so far back...
+			'rev_user = 0', // IP edits (should start off unreviewed)
+			"(rev_id % $mod) = 0", // Better spread
+			'rev_timestamp >= '.$dbr->addQuotes($installed), // watch for imported revs!
+			'rev_timestamp <= '.$dbr->addQuotes($worstLagTS), // watch for imported revs!
+			'fr_page_id = rev_page AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp', // later reviewed
+			// Check that this page was stable at the time.
+			// Assumes that reviewed pages stay reviewed (reasonable).
+			'page_id = rev_page', // get the title
+			'log_namespace = page_namespace AND log_title = page_title',
+			'log_type = "review" AND log_timestamp < rev_timestamp',
+		),
+		__METHOD__,
+		array(
+			'GROUP BY'  => 'rev_id',
+			'ORDER BY'  => 'rev_id ASC', // slight bias avoidance, if any
+			'LIMIT'     => $size, // sample size
+			'USE INDEX' => array('flaggedrevs' => 'PRIMARY','logging' => 'page_time')
+		)
+	);
+	# Actually run the query...
+	$res = $dbr->doQuery( $sql, __METHOD__ );
+	if( $count = $dbr->numRows($res) ) {
+		# Get the sum of elapsed times
+		while( $row = $dbr->fetchObject($res) ) {
+			$seconds += wfTimestamp(TS_UNIX,$row->ft) - wfTimestamp(TS_UNIX,$row->rt);
+			#echo( $row->rt . "\t" . $row->ft . "\n" );
+		}
+		$aveRT = $seconds/$count; // average
+	}
+	// Save the data
 	$dbw = wfGetDB( DB_MASTER );
 	$dbw->begin();
-	// Create a small stats table if not present
+	// Create small stats tables if not present
+	list($flaggedrevs_stats,$flaggedrevs_stats2) = $dbr->tableNamesN('flaggedrevs_stats','flaggedrevs_stats2');
 	if( !$dbw->tableExists( 'flaggedrevs_stats' ) ) {
 		createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats );
+	}
+	if( !$dbw->tableExists( 'flaggedrevs_stats2' ) ) {
+		createFlaggedRevsStatsTable2( $dbw, $flaggedrevs_stats2 );
 	}
 	foreach( $wgFlaggedRevsNamespaces as $namespace ) {
 		$dbw->replace( 'flaggedrevs_stats',
@@ -66,22 +177,35 @@ function update_flaggedrevs_stats() {
 			__METHOD__
 		);
 	}
+	$dbw->replace( 'flaggedrevs_stats2', array('stat_id'),
+		array('stat_id' => 1, 'ave_review_time' => $aveRT, 'ave_pending_time' => $avePET),
+		__METHOD__
+	);
 	$dbw->commit();
 	// Stats are not up to date!
 	$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 	$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
 	$dbCache->delete( $keySQL );
-	print( "Done updating!\n" );
+	print( "...done updating!\n" );
 }
 
 function createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats ) {
 	$dbw->query( 
 		"CREATE TABLE $flaggedrevs_stats (
-			namespace  INTEGER NOT NULL DEFAULT 0,
-			total      INTEGER NOT NULL DEFAULT 0,
-			reviewed   INTEGER NOT NULL DEFAULT 0,
-			synced     INTEGER NOT NULL DEFAULT 0,
-			PRIMARY KEY (namespace)
+			namespace  INTEGER UNSIGNED NOT NULL DEFAULT 0 PRIMARY KEY,
+			total      INTEGER UNSIGNED NOT NULL DEFAULT 0,
+			reviewed   INTEGER UNSIGNED NOT NULL DEFAULT 0,
+			synced     INTEGER UNSIGNED NOT NULL DEFAULT 0
+		);"
+	);
+}
+
+function createFlaggedRevsStatsTable2( $dbw, $flaggedrevs_stats2 ) {
+	$dbw->query( 
+		"CREATE TABLE $flaggedrevs_stats2 (
+			stat_id          INTEGER UNSIGNED NOT NULL DEFAULT 1 PRIMARY KEY,
+			ave_review_time  INTEGER UNSIGNED NOT NULL DEFAULT 0,
+			ave_pending_time INTEGER UNSIGNED NOT NULL DEFAULT 0
 		);"
 	);
 }

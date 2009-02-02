@@ -22,15 +22,21 @@ class ValidationStatistics extends IncludableSpecialPage
 
 		$ec = $this->getEditorCount();
 		$rc = $this->getReviewerCount();
+		$mt = $this->getMeanReviewWait();
+		$pt = $this->getMeanPendingWait();
 
 		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), 
-			$wgLang->formatnum( $ec ), $wgLang->formatnum( $rc ) ) );
+			$wgLang->formatnum($ec), $wgLang->formatnum($rc) )
+		);
+		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
+			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt)  )
+		);
 
 		if( !$this->readyForQuery() ) {
 			return false;
 		}
 
-		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
+		$wgOut->addWikiText( '<hr/>' . wfMsg('validationstatistics-table') );
 		$wgOut->addHTML( Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) ) );
 		$wgOut->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
@@ -137,5 +143,15 @@ class ValidationStatistics extends IncludableSpecialPage
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
 			array( 'ug_group' => 'reviewer' ),
 			__METHOD__ );
+	}
+	
+	protected function getMeanReviewWait() {
+		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
+		return $this->db->selectField( 'flaggedrevs_stats2', 'ave_review_time' );
+	}
+	
+	protected function getMeanPendingWait() {
+		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
+		return $this->db->selectField( 'flaggedrevs_stats2', 'ave_pending_time' );
 	}
 }
