@@ -8,7 +8,7 @@ class OldReviewedPages extends SpecialPage
 {
 	public function __construct() {
 		parent::__construct( 'OldReviewedPages' );
-		// $this->includable( true );
+		$this->includable( true );
 		wfLoadExtensionMessages( 'OldReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
@@ -182,7 +182,7 @@ class OldReviewedPages extends SpecialPage
 			"diff=cur&oldid={$result->fp_stable}&diffonly=0" );
 		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		# Is anybody watching?
-		if( $wgUser->isAllowed( 'unreviewedpages' ) ) {
+		if( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$uw = UnreviewedPages::usersWatching( $title );
 			$watching = $uw ? 
 				wfMsgExt('oldreviewedpages-watched','parsemag',$uw,$uw) : wfMsgHtml('oldreviewedpages-unwatched');
