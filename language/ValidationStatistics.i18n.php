@@ -11,10 +11,11 @@ $messages['en'] = array(
 	'validationstatistics'        => 'Validation statistics',
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'$1\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights
 and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.',
-	'validationstatistics-time'   => 'The average wait for \'\'non-user\'\' edits is \'\'\'$1\'\'\'. 
-	The average lag for [[Special:OldReviewedPages|outdated pages]] is \'\'\'$2\'\'\'.',
-	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirects pages. ''Outdated'' pages are those
-	with edits newer than the stable version. If the stable version is also the lastest version, then the page is ''synced''.
+	'validationstatistics-time'   => 'The average wait for edits by \'\'users that have not logged in\'\' is \'\'\'$1\'\'\'. 
+The average lag for [[Special:OldReviewedPages|outdated pages]] is \'\'\'$2\'\'\'.',
+	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.
+''Outdated'' pages are those with edits newer than the stable version.
+If the stable version is also the lastest version, then the page is ''syncronized''.
 
 ''Note: the following data is cached for several hours and may not be up to date.''",
 	'validationstatistics-ns'     => 'Namespace',
