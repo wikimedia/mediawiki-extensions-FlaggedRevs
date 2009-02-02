@@ -130,12 +130,12 @@ class RatingHistory extends UnlistedSpecialPage
 			} else if( $sExt === 'png' ) {
 				$exists = $exists ? $exists : $this->makePngGraph($tag,$filePath);
 			}
+			if( $exists ) $data = true;
 			// Output plot/chart depending on final output file...
 			switch( self::getCachedFileExtension() )
 			{
 			case 'svg':
 				if( $exists ) {
-					$data = true;
 					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
 					$wgOut->addHTML( 
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
@@ -147,7 +147,6 @@ class RatingHistory extends UnlistedSpecialPage
 				break;
 			case 'png':
 				if( $exists ) {
-					$data = true;
 					// Add link for users with non-shitty browsers to see SVG itself
 					$viewLink = "";
 					if( $sExt === 'svg' ) {
@@ -166,14 +165,12 @@ class RatingHistory extends UnlistedSpecialPage
 				break;
 			default:
 				if( $exists ) {
-					$data = true;
 					$fp = @fopen( $filePath, 'r' );
 					$table = fread( $fp, filesize($filePath) );
 					@fclose( $fp );
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( $table . "\n" );
 				} else if( $table = $this->makeHTMLTable( $tag, $filePath ) ) {
-					$data = true;
 					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
 					$wgOut->addHTML( $table . "\n" );
 				}
