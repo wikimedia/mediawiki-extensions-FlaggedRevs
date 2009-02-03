@@ -10,6 +10,7 @@ function update_flaggedrevs_querycache() {
 	if( empty($wgFlaggedRevsNamespaces) ) {
 		return;
 	}
+	print( "UnreviewedPages..." );
 	$dbr = wfGetDB( DB_SLAVE );
 	$querycache = $dbr->tableName( 'querycache' );
 	# Find pages that should be listed...
@@ -51,5 +52,5 @@ function update_flaggedrevs_querycache() {
 	$dbw->delete( 'querycache_info', array( 'qci_type' => 'fr_unreviewedpages' ), __METHOD__ );
 	$dbw->insert( 'querycache_info', array( 'qci_type' => 'fr_unreviewedpages', 
 		'qci_timestamp' => $dbw->timestamp() ), __METHOD__ );
-	print( "Done updating unreviewed pages list!\n" );
+	print( "done!\n" );
 }

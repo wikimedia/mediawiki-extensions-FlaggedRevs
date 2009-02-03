@@ -528,6 +528,16 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 $wgAjaxExportList[] = 'ReaderFeedback::AjaxReview';
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
 
+# Cache update
+$wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';
+
+function efFlaggedRevsUnreviewedPagesUpdate() {
+	$base = dirname(__FILE__);
+	require_once( "$base/maintenance/updateQueryCache.inc" );
+	update_flaggedrevs_querycache(); 
+	require_once( "$base/maintenance/updateStats.inc" );
+	update_flaggedrevs_stats();
+}
 
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';

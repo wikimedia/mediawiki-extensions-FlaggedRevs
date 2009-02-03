@@ -17,7 +17,7 @@ function update_flaggedrevs_stats() {
 	$ns = $dbr->makeList( $wgFlaggedRevsNamespaces );
 	if( empty($ns) ) return; // no SQL errors please :)
 
-	print( "Updating flaggedrevs stats...\n" );
+	print( "ValidationStatistics..." );
 
 	$ns_total = array();
 	$ns_reviewed = array();
@@ -186,7 +186,7 @@ function update_flaggedrevs_stats() {
 	$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 	$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
 	$dbCache->delete( $keySQL );
-	print( "...done updating!\n" );
+	print( "done updating!\n" );
 }
 
 function createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats ) {
