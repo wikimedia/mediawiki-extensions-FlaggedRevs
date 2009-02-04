@@ -4078,6 +4078,7 @@ $messages['he'] = array(
 ייתכן שנעשו בה [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
 	'revreview-basic-same' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|נצפית]] האחרונה ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} הצגת הכול]), נבדקה ב־<i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה נצפית] של דף זה, ש[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
+	'revreview-blocked' => 'אינכם יכולים לבדוק גרסה זו כיוון שהחשבון שלכם חסום כרגע ([$1 פרטים])',
 	'revreview-changed' => "'''לא ניתן לבצע את הפעולה המבוקשת בגרסה זו של [[:$1|$1]].'''
 
 ייתכן שביקשתם תבנית או תמונה ללא ציון גרסה מסוימת.
