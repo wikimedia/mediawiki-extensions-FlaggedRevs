@@ -99,7 +99,7 @@ $messages['arz'] = array(
 	'unreviewed-category' => 'التصنيف:',
 	'unreviewed-diff' => 'مراجعة',
 	'unreviewed-unwatched' => '(غير مراقبة)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقبون)',
 	'unreviewed-list' => 'هذه الصفحة تعرض المقالات التى لم يتم مراجعتها.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 );

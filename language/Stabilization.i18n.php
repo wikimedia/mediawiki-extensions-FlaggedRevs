@@ -676,6 +676,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Momeni
  */
 $messages['fa'] = array(
 	'stabilization-tab' => '(کک)',
@@ -696,7 +697,9 @@ $messages['fa'] = array(
 	'stabilization-notexists' => 'صفحه‌ای با عنوان «[[:$1|$1]]» وجود ندارد. تنظیمات ممکن نیست.',
 	'stabilization-notcontent' => 'صفحه «[[:$1|$1]]» قابل بررسی نیست. تنظیمات ممکن نیست.',
 	'stabilization-comment' => 'توضیح:',
+	'stabilization-otherreason' => 'دلیل دیگر',
 	'stabilization-expiry' => 'انقضا:',
+	'stabilization-othertime' => 'زمان دیگر',
 	'stabilization-sel-short' => 'تقدم',
 	'stabilization-sel-short-0' => 'با کیفیت',
 	'stabilization-sel-short-1' => 'هیچ',

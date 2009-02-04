@@ -127,7 +127,7 @@ $messages['arz'] = array(
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewed-size' => 'تغيير الحد الاقصى لحجم البايت:',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم|مستخدم}} يراقب)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقب)',
 );
 
 /** Asturian (Asturianu)

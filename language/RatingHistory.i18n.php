@@ -281,6 +281,7 @@ $messages['eu'] = array(
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
+ * @author Momeni
  */
 $messages['fa'] = array(
 	'ratinghistory' => 'تاریخچهٔ ارزیابی صفحه',
@@ -293,8 +294,11 @@ $messages['fa'] = array(
 	'ratinghistory-3months' => '۳ ماه اخیر',
 	'ratinghistory-year' => 'سال پیش',
 	'ratinghistory-3years' => 'سه سال پیش',
+	'ratinghistory-chart' => 'ارزش‌دهی خوانندگان در طول زمان',
+	'ratinghistory-table' => 'بررسی اجمالی ارزش‌دهی خوانندگان',
 	'ratinghistory-users' => 'کاربرانی که درجه‌بندی کرده‌اند',
 	'ratinghistory-graph' => 'داده‌های ارزیابی از $1 {{PLURAL:$1|خواننده|خواننده}}',
+	'ratinghistory-table-rating' => 'ارزش‌دهی',
 	'ratinghistory-none' => 'در حال حاضر بازخورد کافی از خوانندگان برای نمایش نمودار وجود ندارد.',
 	'ratinghistory-legend' => "نمره متوسط روزانه <font color=\"blue\">''(آبی)''</font> و نمره متوسط برای بازهٔ زمانی انتخاب شده <font color=\"green\">''(سبز)''</font> در نمودار زیر، بر حسب تاریخ نشان داده شده‌اند. مقدار نمره‌ها به صورت زیر تعبیر می‌شود:
 
@@ -586,16 +590,22 @@ Skala: '''[1]''' - Buruk; '''[2]''' - Rendah; '''[3]''' - Cukup; '''[4]''' - Tin
  */
 $messages['it'] = array(
 	'ratinghistory' => 'Cronologia dei giudizi delle pagine',
-	'ratinghistory-leg' => 'Dati della cronologia dei giudizi',
+	'ratinghistory-leg' => 'Dati della cronologia dei giudizi per [[:$1|$1]]',
 	'ratinghistory-tab' => 'giudizio',
+	'ratinghistory-link' => 'Giudizio pagina',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Grazie per aver dedicato un momento al giudizio di questa pagina!</font>''",
 	'ratinghistory-period' => 'Periodo di tempo:',
 	'ratinghistory-month' => 'ultimo mese',
 	'ratinghistory-3months' => 'ultimi 3 mesi',
 	'ratinghistory-year' => 'ultimo anno',
 	'ratinghistory-3years' => 'ultimi 3 anni',
+	'ratinghistory-chart' => 'Giudizi dei lettori nel corso del tempo',
+	'ratinghistory-table' => 'Panoramica dei voti dei lettori',
 	'ratinghistory-users' => 'Utenti che hanno dato un giudizio',
 	'ratinghistory-graph' => '$2 di "$3" ($1 {{PLURAL:$1|revisione|revisioni}})',
+	'readerfeedback-svg' => 'Visualizza come SVG',
+	'ratinghistory-table-rating' => 'Giudizio',
+	'ratinghistory-table-votes' => 'Voti',
 	'ratinghistory-none' => 'Non sono disponibile sufficienti dati di feedback dei lettori per poter rappresentare dei grafici al momento.',
 	'ratinghistory-legend' => "I giudizi medi giornalieri <font color=\"blue\">''(blu)''</font> e gli intervalli dei giudizi medi selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. 
 
@@ -808,7 +818,7 @@ $messages['nn'] = array(
 	'readerfeedback-svg' => 'Syn som SVG',
 	'ratinghistory-table-rating' => 'Vurdering',
 	'ratinghistory-table-votes' => 'Røyster',
-	'ratinghistory-none' => 'Det finst ikkje nok lesarvurderingar for grafkonstruering enno.',
+	'ratinghistory-none' => 'Det finst på noverande tidspunkt ikkje nok lesarvurderingar til å teikna ein graf.',
 	'ratinghistory-legend' => "Den '''daglege gjennomsnittsvurderinga''' <font color=\"blue\">''(blått)''</font> og  
 '''gjennomsnittet for det valte intervallet''' per dag <font color=\"green\">''(grønt)''</font> er teikna inn på grafane under etter dato.
 
