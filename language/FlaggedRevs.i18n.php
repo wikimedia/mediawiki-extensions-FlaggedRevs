@@ -62,6 +62,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-basic-same'         => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
 	'revreview-basic-source'       => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sighted version] of this page, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
+	'revreview-blocked'            => 'You cannot review this revision because your account is currently blocked ([$1 details])',
 	'revreview-changed'            => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
 A template or image may have been requested when no specific version was specified.

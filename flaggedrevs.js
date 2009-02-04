@@ -342,7 +342,9 @@ wgAjaxReview.processResult = function(request) {
 	if( submit ) {
 		submit.value = wgAjaxReview.sentMsg;
 	}
-	wgAjaxReview.unlockForm();
+	if( response.indexOf('<suc#>') == 0 ) {
+		wgAjaxReview.unlockForm();
+	}
 	document.title = wgAjaxReview.actioncomplete;
 };
 

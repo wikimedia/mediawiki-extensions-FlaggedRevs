@@ -154,7 +154,11 @@ class RevisionReview extends UnlistedSpecialPage
 		// Basic permission check
 		if( $wgUser->isAllowed( 'review' ) ) {
 			if( $wgUser->isBlocked() ) {
-				return '<err#>';
+				wfLoadExtensionMessages( 'FlaggedRevs' );
+				$blocklist = SpecialPage::getTitleFor( 'Ipblocklist' );
+				$blocklog = $blocklist->getFullUrl( 'ip=' . urlencode('#'.$wgUser->getBlockId()) );
+				return '<err#><h2>'.wfMsgHtml('blockedtitle').'</h2>'.
+					wfMsgExt('revreview-blocked','parseinline',$blocklog);
 			}
 		} else {
 			return '<err#>';
