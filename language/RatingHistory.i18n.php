@@ -37,6 +37,13 @@ Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'
 	'right-feedback' => 'Use the feedback form to rate a page',
 );
 
+/** Message documentation (Message documentation)
+ * @author Boivie
+ */
+$messages['qqq'] = array(
+	'ratinghistory-ave' => 'Average',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author OsamaK
@@ -86,10 +93,14 @@ $messages['arz'] = array(
 	'ratinghistory-3months' => 'اخر 3 شهور',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
-	'ratinghistory-chart' => 'تقييم القراء عبر الزمن',
+	'ratinghistory-ave' => 'Avg: $1',
+	'ratinghistory-chart' => 'تقييمات القارئ على مر الزمن',
+	'ratinghistory-table' => 'عرض لتقييمات القارئ',
 	'ratinghistory-users' => 'اليوزرز اللي عملو تقييمات:',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'readerfeedback-svg' => 'اعرض SVG',
+	'ratinghistory-table-rating' => 'تقييم',
+	'ratinghistory-table-votes' => 'الاصوات',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
 	'ratinghistory-legend' => "'''التقييم اليومي المتوسط''' <font color=\"blue\">''(ازرق)''</font> و  
 '''التقييم المتوسط الجاري''' <font color=\"green\">''(اخضر)''</font> مرسومين تحت, على حسب التاريخ.   
@@ -140,6 +151,7 @@ $messages['bs'] = array(
 	'ratinghistory-3months' => 'zadnja 3 mjeseca',
 	'ratinghistory-year' => 'zadnja godina',
 	'ratinghistory-3years' => 'zadnje 3 godine',
+	'ratinghistory-ave' => 'Prosj: $1',
 	'ratinghistory-chart' => 'Rejtinzi čitaoca po vremenu',
 	'ratinghistory-table' => 'Pregled rejtinga čitaoca',
 	'ratinghistory-users' => 'Korisnici koji su dodijelili rejtinge',
@@ -207,6 +219,7 @@ $messages['dsb'] = array(
 	'ratinghistory-3months' => 'slědne 3 mjasece',
 	'ratinghistory-year' => 'slědne lěto',
 	'ratinghistory-3years' => 'slědne 3 lěta',
+	'ratinghistory-ave' => 'Pśerězk; $1',
 	'ratinghistory-chart' => 'Pógódnośenja cytarjow pśez cas',
 	'ratinghistory-table' => 'Pśeglěd pógódnośenjow cytarjow',
 	'ratinghistory-users' => 'Wužywarje, kótarež su pógódnośili:',
@@ -330,6 +343,7 @@ $messages['fr'] = array(
 	'ratinghistory-3months' => 'derniers 3 mois',
 	'ratinghistory-year' => 'dernière année',
 	'ratinghistory-3years' => 'les 3 dernières années',
+	'ratinghistory-ave' => 'Moyenne : $1',
 	'ratinghistory-chart' => 'Relecteur notant hors délai',
 	'ratinghistory-table' => "Vue d'ensemble des notation des lecteurs",
 	'ratinghistory-users' => 'Utilisateurs qui ont fait des relectures',
@@ -420,6 +434,7 @@ $messages['gsw'] = array(
 	'ratinghistory-3months' => 'letschti drei Monet',
 	'ratinghistory-year' => 'letscht Johr',
 	'ratinghistory-3years' => 'letschte drei Johr',
+	'ratinghistory-ave' => 'Durschnitt: $1',
 	'ratinghistory-chart' => 'Bewärtige vu Läser im Zytruum',
 	'ratinghistory-table' => 'Iberblick iber Sytebewärtigen',
 	'ratinghistory-users' => 'Benutzer, wu bewärtet hän:',
@@ -484,6 +499,7 @@ $messages['hsb'] = array(
 	'ratinghistory-3months' => 'zańdźene 3 měsacy',
 	'ratinghistory-year' => 'loni',
 	'ratinghistory-3years' => 'zańdźene 3 lěta',
+	'ratinghistory-ave' => 'Přerězk: $1',
 	'ratinghistory-chart' => 'Pohódnoćenja čitarjow přez dobu',
 	'ratinghistory-table' => 'Přehlad wo pohódnoćenjach čitarjow',
 	'ratinghistory-users' => 'Wužiwarjo, kotřiz su pohódnoćili:',
@@ -631,6 +647,7 @@ $messages['ja'] = array(
 	'ratinghistory-3months' => '過去3か月',
 	'ratinghistory-year' => '過去1年',
 	'ratinghistory-3years' => '過去3年',
+	'ratinghistory-ave' => '平均: $1',
 	'ratinghistory-chart' => '期間中の読者評価',
 	'ratinghistory-table' => '読者評価の概観',
 	'ratinghistory-users' => '評価を行った利用者',
@@ -769,6 +786,7 @@ $messages['nah'] = array(
 
 /** Dutch (Nederlands)
  * @author Siebrand
+ * @author Tvdm
  */
 $messages['nl'] = array(
 	'ratinghistory' => 'Geschiedenis paginawaardering',
@@ -781,6 +799,7 @@ $messages['nl'] = array(
 	'ratinghistory-3months' => 'laatste 3 maanden',
 	'ratinghistory-year' => 'afgelopen jaar',
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
+	'ratinghistory-ave' => 'Gemiddeld: $1',
 	'ratinghistory-chart' => 'Lezerswaardering in de tijd',
 	'ratinghistory-table' => 'Overzicht van de lezerswaarderingen',
 	'ratinghistory-users' => 'Gebruikers die een waardering hebben gegeven',
@@ -813,6 +832,7 @@ $messages['nn'] = array(
 	'ratinghistory-3months' => 'siste tre månader',
 	'ratinghistory-year' => 'siste året',
 	'ratinghistory-3years' => 'siste tre år',
+	'ratinghistory-ave' => 'Snitt: $1',
 	'ratinghistory-chart' => 'Lesarvurdering over tid',
 	'ratinghistory-table' => 'Oversyn over lesarvurderingar',
 	'ratinghistory-users' => 'Brukarar som vurderte sida',
@@ -899,6 +919,7 @@ $messages['pl'] = array(
 	'ratinghistory-3months' => 'ostatnie 3 miesiące',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
+	'ratinghistory-ave' => 'Średnia: $1',
 	'ratinghistory-chart' => 'Oceny czytelników w czasie',
 	'ratinghistory-table' => 'Przegląd ocen wystawionych przez czytelników',
 	'ratinghistory-users' => 'Użytkownicy, którzy wystawili ocenę',
@@ -943,6 +964,7 @@ $messages['pt'] = array(
 	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos três anos',
+	'ratinghistory-ave' => 'Média: $1',
 	'ratinghistory-chart' => 'Avaliações do leitor ao longo do tempo',
 	'ratinghistory-table' => 'Resumo das avaliações dos leitores',
 	'ratinghistory-users' => 'Utilizadores que fizeram avaliações',
@@ -1105,6 +1127,7 @@ $messages['sv'] = array(
 	'ratinghistory-3months' => 'senaste 3 månader',
 	'ratinghistory-year' => 'senaste året',
 	'ratinghistory-3years' => 'senaste 3 åren',
+	'ratinghistory-ave' => 'Snitt: $1',
 	'ratinghistory-chart' => 'Läsarbetyg över tiden',
 	'ratinghistory-table' => 'Översyn av läsarbetyg',
 	'ratinghistory-users' => 'Användare som gav betyg',
@@ -1147,6 +1170,7 @@ $messages['tl'] = array(
 	'ratinghistory-3months' => 'huling 3 mga buwan',
 	'ratinghistory-year' => 'nakaraang taon',
 	'ratinghistory-3years' => 'huling 3 mga taon',
+	'ratinghistory-ave' => 'Karaniwan: $1',
 	'ratinghistory-chart' => 'Mga pagaantas ng mambabasa sa paglipas ng panahon',
 	'ratinghistory-table' => 'Paglalarawan ng mga kaantasang bigay ng mambabasa',
 	'ratinghistory-users' => 'Mga tagagamit na nagbigay ng pagaantas',

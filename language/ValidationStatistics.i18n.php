@@ -203,8 +203,9 @@ kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|K
 $messages['es'] = array(
 	'validationstatistics' => 'Estadísticas de validación',
 	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''$1''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''$2''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].",
-	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, excluyendo páginas de redireccionamiento.
-
+	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, ''excluyendo'' páginas de redireccionamiento.
+''desactualizada'' aquellas páginas con ediciones más nuevas que la versión estable.
+Sila versión estable es también la última versión, entonces la página está ''sincronizada''.
 '''Nota:''' los siguientes datos son almacenados por varias horas y pueden no estar actualizados.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
@@ -533,7 +534,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'validationstatistics-users' => " De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met Rääsch, ene [[{{MediaWiki:Validationpage}}|Editor]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm [[{{MediaWiki:Validationpage}}|Reviewer]]-Rääsch.",
-	'validationstatistics-time' => "Die Dorschnitt för de Zick op Änderunge ze Waade, die nit vun enem Metmaacheer sin, es '''$1'''.
+	'validationstatistics-time' => "Die Dorschnitt för de Zick op Änderunge vun Namelose ze Waade, es '''$1'''.
 Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2'''.",
 	'validationstatistics-table' => "Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)
 
