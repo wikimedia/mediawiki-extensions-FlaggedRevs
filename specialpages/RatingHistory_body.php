@@ -55,7 +55,6 @@ class RatingHistory extends UnlistedSpecialPage
 
 		$this->showForm();
 		$this->showTable();
-		$this->showGraphHeader();
 		/*
 		 * Allow client caching.
 		 */
@@ -74,12 +73,6 @@ class RatingHistory extends UnlistedSpecialPage
 		if( $html ) {
 			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".$html );
 		}
-	}
-	
-	protected function showGraphHeader() {
-		global $wgOut;
-		$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-chart') . '</h2>' );
-		$wgOut->addWikiText( wfMsg('ratinghistory-legend',$this->dScale) );
 	}
 	
 	protected function showForm() {
@@ -114,6 +107,7 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function showGraphs() {
 		global $wgOut;
 		$data = false;
+		$html = '';
 		// Do each graphs for said time period
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			// Check if cached version is available.
@@ -136,13 +130,11 @@ class RatingHistory extends UnlistedSpecialPage
 			{
 			case 'svg':
 				if( $exists ) {
-					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" );
-					$wgOut->addHTML( 
+					$html .= "<h3>" . wfMsgHtml("readerfeedback-$tag") . "</h3>\n" .
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::element( 'embed', array('src' => $url, 'type' => 'image/svg+xml',
 							'class' => 'fr_reader_feedback_plot', 'width' => '1000', 'height' => '410') ) .
-						Xml::closeElement( 'div' ) . "\n"
-					);
+						Xml::closeElement( 'div' ) . "\n";
 				}
 				break;
 			case 'png':
@@ -154,13 +146,11 @@ class RatingHistory extends UnlistedSpecialPage
 						$viewLink = " <small>[<a href='".$svgUrl."'>".
 							wfMsgHtml("readerfeedback-svg")."</a>]</small>";
 					}
-					$wgOut->addHTML( "<h3>" . wfMsgHtml("readerfeedback-$tag") . "$viewLink</h3>\n" );
-					$wgOut->addHTML( 
+					$html .= "<h3>" . wfMsgHtml("readerfeedback-$tag") . "$viewLink</h3>\n" .
 						Xml::openElement( 'div', array('class' => 'fr_reader_feedback_graph') ) .
 						Xml::openElement( 'img', array('src' => $url,'alt' => $tag) ) . 
 						Xml::closeElement( 'img' ) .
-						Xml::closeElement( 'div' ) . "\n"
-					);
+						Xml::closeElement( 'div' ) . "\n";
 				}
 				break;
 			default:
@@ -168,29 +158,29 @@ class RatingHistory extends UnlistedSpecialPage
 					$fp = @fopen( $filePath, 'r' );
 					$table = fread( $fp, filesize($filePath) );
 					@fclose( $fp );
-					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
-					$wgOut->addHTML( $table . "\n" );
+					$html .= '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' . $table . "\n";
 				} else if( $table = $this->makeHTMLTable( $tag, $filePath ) ) {
-					$wgOut->addHTML( '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' );
-					$wgOut->addHTML( $table . "\n" );
+					$html .= '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' . $table . "\n";
 				}
 				break;
 			}
 		}
-		// Add recent voter list
+		// Add header
+		$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-chart') . '</h2>' );
 		if( $data ) {
+			// Add legend as needed
+			$wgOut->addWikiText( wfMsg('ratinghistory-legend',$this->dScale) );
+			// Add recent voter list
 			$userTable = $this->getUserList();
 			if( $userTable ) {
-				$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-users') . '</h2>' );
-				$wgOut->addHTML( 
+				$html .= '<h2>' . wfMsgHtml('ratinghistory-users') . '</h2>' .
 					Xml::openElement( 'div', array('class' => 'fr_reader_feedback_users') ) .
-					$userTable .
-					Xml::closeElement( 'div' ) . "\n"
-				);
+					$userTable . Xml::closeElement( 'div' ) . "\n";
 			}
 		} else {
-			$wgOut->addHTML( wfMsg('ratinghistory-none') );
+			$html .= wfMsg('ratinghistory-none');
 		}
+		$wgOut->addHTML( $html );
 	}
 	
 	/**
@@ -696,7 +686,10 @@ class RatingHistory extends UnlistedSpecialPage
 		// Output multi-column list
 		$html = "<table class='fr_reader_feedback_table' cellspacing='0'><tr>";
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
-			$html .= '<th>'.wfMsgHtml("readerfeedback-$tag").'</th>';
+			// Get tag average...
+			$dist = isset($votes[$tag]) ? $votes[$tag] : array();
+			$ave = ($dist[0] + 2*$dist[1] + 3*$dist[2] + 4*$dist[3] + 5*$dist[4])/array_sum($dist);
+			$html .= '<th>'.wfMsgHtml("readerfeedback-$tag").' <sup>['.round($ave,1).']</sup></th>';
 		}
 		$html .= '</tr><tr>';
 		foreach( $votes as $tag => $dist ) {
