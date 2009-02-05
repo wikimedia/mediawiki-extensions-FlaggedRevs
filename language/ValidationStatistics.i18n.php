@@ -15,7 +15,7 @@ and \'\'\'$2\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|
 The average lag for [[Special:OldReviewedPages|outdated pages]] is \'\'\'$2\'\'\'.',
 	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.
 ''Outdated'' pages are those with edits newer than the stable version.
-If the stable version is also the latest version, then the page is ''syncronized''.
+If the stable version is also the latest version, then the page is ''synchronized''.
 
 ''Note: the following data is cached for several hours and may not be up to date.''",
 	'validationstatistics-ns'     => 'Namespace',
