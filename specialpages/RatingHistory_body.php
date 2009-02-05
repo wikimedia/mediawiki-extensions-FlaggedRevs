@@ -624,7 +624,7 @@ class RatingHistory extends UnlistedSpecialPage
 	}
 	
 	public static function getVoteAggregates( $page, $period ) {
-		global $wgMemc;
+		global $wgLang, $wgMemc;
 		if( $period > 93 ) {
 			return ''; // too big
 		}
@@ -689,7 +689,9 @@ class RatingHistory extends UnlistedSpecialPage
 			// Get tag average...
 			$dist = isset($votes[$tag]) ? $votes[$tag] : array();
 			$ave = ($dist[0] + 2*$dist[1] + 3*$dist[2] + 4*$dist[3] + 5*$dist[4])/array_sum($dist);
-			$html .= '<th>'.wfMsgHtml("readerfeedback-$tag").' <sup>['.round($ave,1).']</sup></th>';
+			$ave = round($ave,1);
+			$html .= '<td align="center"><b>'.wfMsgHtml("readerfeedback-$tag").'</b>&nbsp;&nbsp;'.
+				'<sup>('.wfMsgHtml('ratinghistory-ave',$wgLang->formatNum($ave)).')</sup></td>';
 		}
 		$html .= '</tr><tr>';
 		foreach( $votes as $tag => $dist ) {
