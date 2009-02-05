@@ -37,7 +37,7 @@ function update_flaggedrevs( $start = null ) {
 				$quality = FlaggedRevs::isQuality( $tags ) ? 1 : 0;
 			}
 			$time = $sha1 = $file = null;
-			# Check for file version to see if stored the old way...
+			# Check for file version to see if it's stored the old way...
 			if( !$row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
 				$irow = $db->selectRow( 'flaggedimages',
 					array( 'fi_img_timestamp', 'fi_img_sha1' ),
@@ -89,7 +89,7 @@ function update_flaggedrevs( $start = null ) {
 }
 
 function update_flaggedpages( $start = null ) {
-	echo "Populating and correcting flaggedpages columns\n";
+	echo "Populating and correcting flaggedpages/flaggedpage_confic columns\n";
 	
 	$BATCH_SIZE = 500;
 	
@@ -112,26 +112,32 @@ function update_flaggedpages( $start = null ) {
 		$cond = "page_id BETWEEN $blockStart AND $blockEnd";
 		$res = $db->select( 'page', array('page_id','page_namespace','page_title','page_latest'), $cond, __FUNCTION__ );
 		# Go through and update the de-normalized references...
+		$db->begin();
 		foreach( $res as $row ) {
 			$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 			# Replaces new fields into flaggedpages
 			$frev = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
 			# Update fp_stable, fp_quality, and fp_reviewed
-			$db->begin();
 			if( $frev ) {
 				$article = new Article( $title );
 				FlaggedRevs::updateArticleOn( $article, $frev->getRevId(), $row->page_latest );
 			# Somethings broke? Delete the row...
 			} else {
-				$db->delete( 'flaggedpages', 
-					array( 'fp_page_id' => $row->page_id ),
-					__FUNCTION__ );
-				if( $db->affectedRows() > 0 )
-					$deleted++;
+				$db->delete( 'flaggedpages', array( 'fp_page_id' => $row->page_id ), __FUNCTION__ );
+				if( $db->affectedRows() > 0 ) $deleted++;
 			}
-			$db->commit();
 			$count++;
 		}
+		# Remove manual config settings that simply restate the site defaults
+		$db->delete( 'flaggedpage_config',
+			array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
+				'fpc_select'   => FlaggedRevs::getPrecedence(),
+				'fpc_override' => intval( FlaggedRevs::showStableByDefault() )
+			),
+			__FUNCTION__
+		);
+		$deleted = $deleted + $db->affectedRows();
+		$db->commit();
 		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE;
 		wfWaitForSlaves( 5 );
