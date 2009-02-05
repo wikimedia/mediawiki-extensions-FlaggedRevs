@@ -177,8 +177,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n$tallyTable";
 		} else {
 			return '<err#>'.wfMsgExt( 'readerfeedback-voted', array('parseinline'), 
-				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) ) .
-				'<h4>'.wfMsgHtml('ratinghistory-table')."</h4>\n$tallyTable";
+				$form->page->getPrefixedText(), $graphLink, $talk->getFullUrl( 'action=edit&section=new' ) );
 		}
 	}
 	
