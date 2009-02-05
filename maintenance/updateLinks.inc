@@ -89,7 +89,7 @@ function update_flaggedrevs( $start = null ) {
 }
 
 function update_flaggedpages( $start = null ) {
-	echo "Populating and correcting flaggedpages/flaggedpage_confic columns\n";
+	echo "Populating and correcting flaggedpages/flaggedpage_config columns\n";
 	
 	$BATCH_SIZE = 500;
 	
