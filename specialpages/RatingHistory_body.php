@@ -623,7 +623,7 @@ class RatingHistory extends UnlistedSpecialPage
 		return $html;
 	}
 	
-	public static function getVoteAggregates( $page, $period ) {
+	public static function getVoteAggregates( $page, $period, $add = array() ) {
 		global $wgLang, $wgMemc;
 		if( $period > 93 ) {
 			return ''; // too big
@@ -681,6 +681,12 @@ class RatingHistory extends UnlistedSpecialPage
 					}
 				}
 			}
+			// Tack on $add for display (used to avoid cache/lag)
+			foreach( $add as $tag => $val ) {
+				if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
+					$votes[$tag][$val]++;
+				}
+			}
 			$wgMemc->set( $key, array( $votes, $now ), 24*3600 );
 		}
 		// Output multi-column list
@@ -688,8 +694,13 @@ class RatingHistory extends UnlistedSpecialPage
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
 			// Get tag average...
 			$dist = isset($votes[$tag]) ? $votes[$tag] : array();
-			$ave = ($dist[0] + 2*$dist[1] + 3*$dist[2] + 4*$dist[3] + 5*$dist[4])/array_sum($dist);
-			$ave = round($ave,1);
+			$count = array_sum($dist);
+			if( $count ) {
+				$ave = ($dist[0] + 2*$dist[1] + 3*$dist[2] + 4*$dist[3] + 5*$dist[4])/$count;
+				$ave = round($ave,1);
+			} else {
+				$ave = '-'; // DIV by zero
+			}
 			$html .= '<td align="center"><b>'.wfMsgHtml("readerfeedback-$tag").'</b>&nbsp;&nbsp;'.
 				'<sup>('.wfMsgHtml('ratinghistory-ave',$wgLang->formatNum($ave)).')</sup></td>';
 		}
