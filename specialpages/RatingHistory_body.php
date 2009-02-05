@@ -365,7 +365,6 @@ class RatingHistory extends UnlistedSpecialPage
 		// Label spacing
 		$int = intval( ceil($days/10) ); // 10 labels at most
 		while( $row = $res->fetchObject() ) {
-			$pts++;
 			$totalVal += (int)$row->rfh_total;
 			$totalCount += (int)$row->rfh_count;
 			$dayCount = (real)$row->rfh_count;
@@ -405,6 +404,7 @@ class RatingHistory extends UnlistedSpecialPage
 			$lastDate = $row->rfh_date;
 			$lastDAve = $dayAve;
 			$lastRAve = $cumAve;
+			$pts++;
 		}
 		// Minimum sample size
 		if( $pts < 2 ) {
