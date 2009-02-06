@@ -33,9 +33,9 @@ class FlaggedRevs {
 			# B/C, $levels is just an integer (minQL)
 			} else {
 				global $wgFlaggedRevPristine, $wgFlaggedRevValues;
-				$minQL = $levels;
-				$minPL = isset($wgFlaggedRevPristine) ? $wgFlaggedRevPristine : $wgFlaggedRevValues+1;
 				$ratingLevels = isset($wgFlaggedRevValues) ? $wgFlaggedRevValues : 1;
+				$minQL = $levels; // an integer
+				$minPL = isset($wgFlaggedRevPristine) ? $wgFlaggedRevPristine : $ratingLevels+1;
 			}
 			# Set FlaggedRevs tags
 			self::$dimensions[$tag] = array();
@@ -67,7 +67,6 @@ class FlaggedRevs {
 				self::$feedbackTags[$tag][$i] = "feedback-{$tag}-{$i}";
 			}
 		}
-
 		self::$loaded = true;
 	}
 	
@@ -538,13 +537,13 @@ class FlaggedRevs {
 	*/	
 	public static function stableVersionIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
 		global $wgMemc, $wgEnableParserCache;
-		# Must be the same revision
-		if( $srev->getRevId() != $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE) ) {
+		# Must be the same revision as the current
+		if( $srev->getRevId() < $article->getTitle()->getLatestRevID() ) {
 			return false;
 		}
 		# Must have same file
 		if( $article instanceof ImagePage && $article->getFile() ) {
-			if( $srev->getFileTimestamp() != $article->getFile()->getTimestamp() ) {
+			if( $srev->getFileTimestamp() < $article->getFile()->getTimestamp() ) {
 				return false;
 			}
 		}
@@ -560,7 +559,7 @@ class FlaggedRevs {
 		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {
 			# Get parsed stable version
 			$stableOutput = self::getPageCache( $article );
-			if( $stableOutput==false ) {
+			if( $stableOutput == false ) {
 				$text = $srev->getRevText();
 	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
 	   			# Update the stable version cache
@@ -571,10 +570,21 @@ class FlaggedRevs {
 			global $wgUser, $wgParser;
 			# Get parsed current version
 			$parserCache = ParserCache::singleton();
-			$currentOutput = $parserCache->get( $article, $wgUser );
+			$currentOutput = false;
 			# If $text is set, then the stableOutput is new. In that case,
 			# the current must also be new to avoid sync goofs.
-			if( $currentOutput==false || isset($text) ) {
+			if( !isset($text) ) {
+				# Try anon user cache first...
+				if( $wgUser->getId() ) {
+					$anon = User::newFromId( 0 );
+					$currentOutput = $parserCache->get( $article, $anon );
+				}
+				# Cache for this user...
+				if( $currentOutput == false )
+					$currentOutput = $parserCache->get( $article, $wgUser );
+			}
+			# Regenerate the parser output as needed...
+			if( $currentOutput == false ) {
 				$rev = Revision::newFromTitle( $article->getTitle() );
 				$text = $rev ? $rev->getText() : false;
 				$title = $article->getTitle();
