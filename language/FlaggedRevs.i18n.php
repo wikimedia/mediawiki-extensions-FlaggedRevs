@@ -4221,6 +4221,7 @@ $messages['he'] = array(
 	'revreview-filter-manual' => 'ידנית',
 	'revreview-filter-level-0' => 'גרסאות שנצפו',
 	'revreview-filter-level-1' => 'גרסאות איכותיות',
+	'revreview-filter-level-2' => 'גרסאות טהורות',
 	'revreview-statusfilter' => 'מצב:',
 	'revreview-typefilter' => 'סוג:',
 	'revreview-tagfilter' => 'תווית:',

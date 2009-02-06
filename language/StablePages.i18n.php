@@ -234,6 +234,10 @@ $messages['he'] = array(
 	'stablepages-text' => 'זוהי רשימת הדפים שהוגדרו ידנית להציג את הגרסה היציבה כגרסת ברירת המחדל שתוצג לקוראים.',
 	'stablepages-none' => 'אין דפים ברשימה זו',
 	'stablepages-config' => 'תצורה',
+	'stablepages-prec-none' => 'ללא עדיפות',
+	'stablepages-prec-quality' => 'עדיפות לגרסאות איכותיות',
+	'stablepages-prec-pristine' => 'עדיפות לגרסאות טהורות',
+	'stablepages-precedence' => 'עדיפות:',
 );
 
 /** Hindi (हिन्दी)
