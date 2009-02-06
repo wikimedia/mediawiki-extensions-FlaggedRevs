@@ -1398,7 +1398,7 @@ EOT;
 	}
 	
 	public static function addBacklogNotice( &$notice ) {
-		global $wgUser, $wgTitle, $wgFlaggedRevsBacklog;
+		global $wgUser, $wgTitle, $wgFlaggedRevsNamespaces;
 		if( empty($wgTitle) ) {
 			return true; // nothing to do here
 		}
@@ -1406,8 +1406,9 @@ EOT;
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
 		if( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
+			$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
 			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
-			if( $unreviewed >= $wgFlaggedRevsBacklog ) {
+			if( ($unreviewed/$pages) > .02 ) {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";

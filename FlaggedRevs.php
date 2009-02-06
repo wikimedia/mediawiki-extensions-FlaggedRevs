@@ -75,7 +75,6 @@ $wgFlaggedRevsLowProfile = true;
 $wgFlaggedRevsNamespaces = array( NS_MAIN, NS_FILE, NS_TEMPLATE );
 # Patrollable namespaces (overridden by reviewable namespaces)
 $wgFlaggedRevsPatrolNamespaces = array();
-#$wgFlaggedRevsPatrolNamespaces = array( NS_CATEGORY, NS_FILE, NS_TEMPLATE );
 
 # Pages exempt from reviewing
 $wgFlaggedRevsWhitelist = array();
@@ -154,14 +153,6 @@ $wgReviewCodes = array();
 # Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
 $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs';
 
-# Lets some users access the review UI and set some flags
-$wgAvailableRights[] = 'review';
-$wgAvailableRights[] = 'validate'; # Let some users set higher settings
-$wgAvailableRights[] = 'autoreview';
-$wgAvailableRights[] = 'patrolmarks';
-$wgAvailableRights[] = 'autopatrolother';
-$wgAvailableRights[] = 'unreviewedpages';
-
 # Define our basic reviewer class
 $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
@@ -226,9 +217,6 @@ $wgFlaggedRevsLogInRC = false;
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 7 * 24 * 3600;
 
-# How many pages count as a backlog?
-$wgFlaggedRevsBacklog = 2000;
-
 # Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
 $wgFlaggedRevsVisible = array();
@@ -254,6 +242,15 @@ $wgFilterLogTypes['review'] = true;
 
 # End of configuration variables.
 #########
+
+# Lets some users access the review UI and set some flags
+$wgAvailableRights[] = 'review';
+$wgAvailableRights[] = 'validate'; # Let some users set higher settings
+$wgAvailableRights[] = 'autoreview';
+$wgAvailableRights[] = 'patrolmarks';
+$wgAvailableRights[] = 'autopatrolother';
+$wgAvailableRights[] = 'unreviewedpages';
+$wgAvailableRights[] = 'movestable';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
 $wgFlaggedRevStyleVersion = 53;
