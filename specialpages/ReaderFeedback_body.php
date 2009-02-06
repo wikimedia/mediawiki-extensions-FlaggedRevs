@@ -254,7 +254,8 @@ class ReaderFeedback extends UnlistedSpecialPage
 		global $wgUser;
 		$dbw = wfGetDB( DB_MASTER );
 		# Get date timestamp...
-		$date = str_pad( substr( wfTimestampNow(), 0, 8 ), 14, '0' );
+		$now = wfTimestampNow();
+		$date = str_pad( substr( $now, 0, 8 ), 14, '0' );
 		if( count($this->dims) == 0 )
 			return false;
 		$ratings = $this->flattenRatings( $this->dims );
@@ -277,7 +278,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 			'rfb_rev_id'    => $this->oldid,
 			'rfb_user'      => $wgUser->getId(),
 			'rfb_ip'        => $ip,
-			'rfb_timestamp' => $dbw->timestamp(),
+			'rfb_timestamp' => $dbw->timestamp( $now ),
 			'rfb_ratings'   => $ratings
 		);
 		# Make sure initial page data is there to begin with...
@@ -295,7 +296,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$dbw->insert( 'reader_feedback', $insertRow, __METHOD__, 'IGNORE' );
 		$dbw->insert( 'reader_feedback_history', $insertRows, __METHOD__, 'IGNORE' );
 		# Update aggregate data for this page over time...
-		$touched = $dbw->timestamp( wfTimestampNow() );
+		$touched = $dbw->timestamp( $now );
 		$overall = 0;
 		$insertRows = array();
 		foreach( $this->dims as $tag => $val ) {
