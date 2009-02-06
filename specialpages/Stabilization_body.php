@@ -77,7 +77,7 @@ class Stabilization extends UnlistedSpecialPage
 			// Custom reason takes precedence
 			$this->reason = strlen($this->reason) ? $this->reason : $this->reasonSelection;
 			// Validate precedence setting
-			$allowed = array(FLAGGED_VIS_NORMAL,FLAGGED_VIS_LATEST,FLAGGED_VIS_PRISTINE);
+			$allowed = array(FLAGGED_VIS_QUALITY,FLAGGED_VIS_LATEST,FLAGGED_VIS_PRISTINE);
 			if( $this->select && !in_array( $this->select, $allowed ) ) {
 				$isValid = false;
 			}
@@ -170,8 +170,8 @@ class Stabilization extends UnlistedSpecialPage
 			Xml::fieldset( wfMsg( 'stabilization-select' ), false ) .
 			Xml::radioLabel( wfMsg( 'stabilization-select3' ), 'wpStableconfig-select', FLAGGED_VIS_PRISTINE,
 				'stable-select3', FLAGGED_VIS_PRISTINE == $this->select, $this->disabledAttrib ) . '<br />' . "\n" .
-			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'wpStableconfig-select', FLAGGED_VIS_NORMAL,
-				'stable-select1', FLAGGED_VIS_NORMAL == $this->select, $this->disabledAttrib ) . '<br />' . "\n" .
+			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'wpStableconfig-select', FLAGGED_VIS_QUALITY,
+				'stable-select1', FLAGGED_VIS_QUALITY == $this->select, $this->disabledAttrib ) . '<br />' . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'wpStableconfig-select', FLAGGED_VIS_LATEST,
 				'stable-select2', FLAGGED_VIS_LATEST == $this->select, $this->disabledAttrib ) . '<br />' . "\n" .
 			Xml::closeElement( 'fieldset' ) .

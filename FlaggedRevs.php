@@ -29,8 +29,8 @@ if( defined('MW_HTML_FOR_DUMP') ) {
 }
 
 # Quality -> Sighted (default)
-if( !defined('FLAGGED_VIS_NORMAL') )
-	define('FLAGGED_VIS_NORMAL',0);
+if( !defined('FLAGGED_VIS_QUALITY') )
+	define('FLAGGED_VIS_QUALITY',0);
 # No precedence
 if( !defined('FLAGGED_VIS_LATEST') )
 	define('FLAGGED_VIS_LATEST',1);

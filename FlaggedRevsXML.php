@@ -63,7 +63,7 @@ class FlaggedRevsXML {
 		$s = Xml::openElement( 'select', array('name' => 'precedence','id' => 'wpPrecedence') );
 		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), FLAGGED_VIS_LATEST, $selected==FLAGGED_VIS_LATEST );
 		if( FlaggedRevs::qualityVersions() )
-			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), FLAGGED_VIS_NORMAL, $selected==FLAGGED_VIS_NORMAL );
+			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), FLAGGED_VIS_QUALITY, $selected==FLAGGED_VIS_QUALITY );
 		if( FlaggedRevs::pristineVersions() )
 			$s .= Xml::option( wfMsg( "revreview-filter-level-2" ), FLAGGED_VIS_PRISTINE, $selected==FLAGGED_VIS_PRISTINE );
 		$s .= Xml::closeElement('select')."\n";

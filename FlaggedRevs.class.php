@@ -277,7 +277,7 @@ class FlaggedRevs {
 				$select = FLAGGED_VIS_PRISTINE;
 				break;
 			case 1:
-				$select = FLAGGED_VIS_NORMAL;
+				$select = FLAGGED_VIS_QUALITY;
 				break;
 			default:
 				$select = FLAGGED_VIS_LATEST;
