@@ -205,8 +205,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		# Use page_latest if $revId not given
 		$revId = $revId ? $revId : $title->getLatestRevID( GAID_FOR_UPDATE );
 		$rev = Revision::newFromTitle( $title, $revId );
-		if( !$rev )
-			return false; // shouldn't happen; just in case
+		if( !$rev ) return false; // shouldn't happen; just in case
 		# Check if this revision is by this user...
 		if( $rev->getUserText() === $wgUser->getName() ) {
 			# Check if the previous revisions is theirs and they
@@ -223,10 +222,10 @@ class ReaderFeedback extends UnlistedSpecialPage
 		# Check if user already voted before...
 		$dbw = wfGetDB( DB_MASTER );
 		if( $wgUser->getId() ) {
-			$ipSafe = $dbw->strencode( wfGetIP() );
+			$ipSafe = $dbw->addQuotes( wfGetIP() );
 			$userVoted = $dbw->selectField( 'reader_feedback', '1', 
 				array( 'rfb_rev_id' => $revId, 
-					"(rfb_user = ".$wgUser->getId().") OR (rfb_user = 0 AND rfb_ip = '$ipSafe')" ), 
+					"(rfb_user = ".$wgUser->getId().") OR (rfb_user = 0 AND rfb_ip = $ipSafe)" ), 
 				__METHOD__ );
 			if( $userVoted ) {
 				return true;
