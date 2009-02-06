@@ -47,7 +47,7 @@ class FlaggedRevsXML {
 	 */
 	public static function getLevelMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$s = Xml::openElement( 'select', array('name' => 'level') );
+		$s = Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
 		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), 1, $selected===1 );
@@ -60,7 +60,7 @@ class FlaggedRevsXML {
 	
 	public static function getPrecedenceMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$s = Xml::openElement( 'select', array('name' => 'precedence') );
+		$s = Xml::openElement( 'select', array('name' => 'precedence','id' => 'wpPrecedence') );
 		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), FLAGGED_VIS_LATEST, $selected==FLAGGED_VIS_LATEST );
 		if( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), FLAGGED_VIS_NORMAL, $selected==FLAGGED_VIS_NORMAL );

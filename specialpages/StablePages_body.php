@@ -32,7 +32,7 @@ class StablePages extends SpecialPage
 			$form = Xml::openElement( 'form', array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('stablepages')."</legend>\n";
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
-			$form .= Xml::label( wfMsg('stablepages-precedence'), 'precedence', 'precedence' ) . '&nbsp;';
+			$form .= Xml::label( wfMsg('stablepages-precedence'), 'wpPrecedence' ) . '&nbsp;';
 			$form .= FlaggedRevsXML::getPrecedenceMenu( $this->precedence ) . '&nbsp;';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
 			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
