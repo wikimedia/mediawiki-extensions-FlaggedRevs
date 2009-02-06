@@ -51,6 +51,21 @@ class FlaggedRevsXML {
 		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), 1, $selected===1 );
+		# Pristine not tracked at sp:QualityOversight
+		#if( FlaggedRevs::pristineVersions() )
+		#	$s .= Xml::option( wfMsg( "revreview-filter-level-2" ), 2, $selected===2 );
+		$s .= Xml::closeElement('select')."\n";
+		return $s;
+	}
+	
+	public static function getPrecedenceMenu( $selected=null ) {
+		wfLoadExtensionMessages( 'FlaggedRevs' );
+		$s = Xml::openElement( 'select', array('name' => 'precedence') );
+		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), FLAGGED_VIS_LATEST, $selected==FLAGGED_VIS_LATEST );
+		if( FlaggedRevs::qualityVersions() )
+			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), FLAGGED_VIS_NORMAL, $selected==FLAGGED_VIS_NORMAL );
+		if( FlaggedRevs::pristineVersions() )
+			$s .= Xml::option( wfMsg( "revreview-filter-level-2" ), FLAGGED_VIS_PRISTINE, $selected==FLAGGED_VIS_PRISTINE );
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}

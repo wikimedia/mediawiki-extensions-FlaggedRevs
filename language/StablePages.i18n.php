@@ -8,11 +8,15 @@
 $messages = array();
 
 $messages['en'] = array(
-	'stablepages' => 'Stable pages',
-	'stablepages-stable' => 'stable version',
-	'stablepages-text' => 'Below is a list of pages manually configured to show the stable version as the default page content for viewers.',
-	'stablepages-none' => 'There are no pages in this list',
-	'stablepages-config' => 'Configuration',
+	'stablepages'               => 'Stable pages',
+	'stablepages-stable'        => 'stable version',
+	'stablepages-text'          => 'Below is a list of pages manually configured to show the stable version as the default page content for viewers.',
+	'stablepages-none'          => 'There are no pages in this list',
+	'stablepages-config'        => 'Configuration',
+	'stablepages-prec-none'     => 'no precedence',
+	'stablepages-prec-quality'  => 'quality precedence',
+	'stablepages-prec-pristine' => 'pristine precedence',
+	'stablepages-precedence'    => 'Precedence:',
 );
 
 /** Message documentation (Message documentation)
