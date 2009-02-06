@@ -1027,10 +1027,11 @@ class FlaggedArticle extends Article {
 					$changeList += $imgChanges;
 
 				# Some important information...
-				if( !empty($changeList) ) {
+				$notice = '';
+				if( count($changeList) > 0 ) {
 					$notice = '<br/>' . wfMsgExt('revreview-update-use', array('parseinline'));
-				} else {
-					$notice = "";
+				} else if( !$synced ) {
+					$wgMemc->delete($key); // bad key, said they were not synced
 				}
 
 				# If the user is allowed to review, prompt them!
