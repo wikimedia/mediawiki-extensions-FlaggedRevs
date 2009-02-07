@@ -111,34 +111,37 @@ function update_flaggedrevs_stats() {
 		'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 	);
 	# If the range doesn't have many rows (like on small wikis), use 30 days
-	if( $rows <= (2*$size) ) {
+	if( $rows <= (10*$size) ) {
 		$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 30*86400 );
 		# Approximate rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
 			'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 		);
 		# If the range doesn't have many rows (like on really small wikis), use 90 days
-		if( $rows <= (2*$size) ) {
+		if( $rows <= (10*$size) ) {
 			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
 		}
 	}
 	# Sanity check the starting timestamp
 	$minTS = max($minTS,$installed);
 	# Get correspond rev_ids to boundaries
-	$row = $dbr->selectRow( 'revision', array('MAX(rev_id) AS maxid','MIN(rev_id) AS minid'),
+	$minRev = (int)$dbr->selectField( 'revision', 'rev_id',
 		array( 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS) ),
-		__METHOD__
+		__METHOD__, array( 'ORDER BY' => 'rev_timestamp ASC' )
 	);
-	$minRev = isset($row->minid) ? intval($row->minid) : 0;
-	$maxRev = isset($row->maxid) ? intval($row->maxid) : 0;
+	$maxRev = (int)$dbr->selectField( 'revision', 'rev_id',
+		array( 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS) ),
+		__METHOD__, array( 'ORDER BY' => 'rev_timestamp DESC' )
+	);
 	# Modulus
 	$mod = intval($rows/$size);
-	$mod = max($mod/2,1); # Not all rows have rev_user = 0; also $mod >= 1
+	$mod = max($mod/10,1); # Not all rows have rev_user = 0; also $mod >= 1
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Get the *first* reviewed rev *after* each RC item and get the average difference.
 	# Only do this for revisions to pages that *were* already logged as reviewed.
 	$sql = $dbr->selectSQLText( array('revision','flaggedrevs','page','logging'),
-		array( 'rev_timestamp AS rt', 'MIN(fr_timestamp) AS ft', 'MIN(log_timestamp) AS lt' ),
+		array( 'UNIX_TIMESTAMP(rev_timestamp) AS rt', 'UNIX_TIMESTAMP(MIN(fr_timestamp)) AS ft',
+			'MIN(log_timestamp) AS lt' ),
 		array(
 			"rev_id BETWEEN $minRev AND $maxRev", // Better INDEX usage
 			'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS),
@@ -164,7 +167,7 @@ function update_flaggedrevs_stats() {
 	if( $count = $dbr->numRows($res) ) {
 		# Get the sum of elapsed times
 		while( $row = $dbr->fetchObject($res) ) {
-			$seconds += wfTimestamp(TS_UNIX,$row->ft) - wfTimestamp(TS_UNIX,$row->rt);
+			$seconds += ($row->ft - $row->rt);
 			#echo( "\nedit:".$row->rt . "\treviewed:" . $row->ft );
 		}
 		$aveRT = $seconds/$count; // average
