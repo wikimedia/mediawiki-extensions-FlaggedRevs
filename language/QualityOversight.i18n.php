@@ -296,6 +296,15 @@ $messages['pt'] = array(
 	'qualityoversight-legend' => 'Pesquisar nos registos de análises recentes',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'qualityoversight' => 'Observatório da qualidade',
+	'qualityoversight-list' => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
+	'qualityoversight-legend' => 'Pesquisar nos registros de análises recentes',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */

@@ -216,6 +216,7 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ramsis II
  */
 $messages['arz'] = array(
 	'stabilization-tab' => 'تج',
@@ -237,8 +238,10 @@ $messages['arz'] = array(
 لا ضبط ممكن.',
 	'stabilization-notcontent' => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها.
 لا ضبط ممكن.',
-	'stabilization-comment' => 'تعليق:',
+	'stabilization-comment' => 'السبب:',
+	'stabilization-otherreason' => 'سبب تانى',
 	'stabilization-expiry' => 'تنتهى:',
+	'stabilization-othertime' => 'وقت تانى',
 	'stabilization-sel-short' => 'تنفيذ',
 	'stabilization-sel-short-0' => 'جودة',
 	'stabilization-sel-short-1' => 'لا شيء',
@@ -647,6 +650,7 @@ $messages['es'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Kobazulo
  */
 $messages['eu'] = array(
@@ -655,7 +659,7 @@ $messages['eu'] = array(
 	'stabilization-leg' => 'Bertsio egonkorraren konfigurazioa berretsi',
 	'stabilization-select' => 'Bertsio egonkorraren aukeraketa',
 	'stabilization-submit' => 'Berretsi',
-	'stabilization-comment' => 'Iruzkina:',
+	'stabilization-comment' => 'Arrazoia:',
 	'stabilization-expiry' => 'Epemuga:',
 	'stabilization-sel-short-0' => 'Kalitatea',
 	'stabilization-def-short' => 'Lehenetsia',
@@ -1266,7 +1270,7 @@ $messages['ja'] = array(
 	'stabilization-sel-short' => '優先度',
 	'stabilization-sel-short-0' => '内容充実',
 	'stabilization-sel-short-1' => '不問',
-	'stabilization-sel-short-2' => '初期',
+	'stabilization-sel-short-2' => '原始',
 	'stabilization-def-short' => '既定表示',
 	'stabilization-def-short-0' => '最新版',
 	'stabilization-def-short-1' => '採択ページ',
@@ -1462,6 +1466,7 @@ $messages['lb'] = array(
 	'stabilization-def2' => 'Déi aktuell Versioun',
 	'stabilization-submit' => 'Confirméieren',
 	'stabilization-comment' => 'Grond:',
+	'stabilization-otherreason' => 'Anere Grond:',
 	'stabilization-sel-short' => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
@@ -2554,8 +2559,10 @@ se no ghe n'è, alora la revision corente",
 Nissuna configurassion xe possibile.',
 	'stabilization-notcontent' => 'La pagina "[[:$1|$1]]" no la pode èssar riesaminà.
 No se pode canbiar le inpostassion.',
-	'stabilization-comment' => 'Comento:',
+	'stabilization-comment' => 'Motivassion:',
+	'stabilization-otherreason' => 'Altro motivo',
 	'stabilization-expiry' => 'Scadensa:',
+	'stabilization-othertime' => 'Altra durata',
 	'stabilization-sel-short' => 'Preçedensa',
 	'stabilization-sel-short-0' => 'De qualità',
 	'stabilization-sel-short-1' => 'Nissuna',

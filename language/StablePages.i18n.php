@@ -57,6 +57,7 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ramsis II
  */
 $messages['arz'] = array(
 	'stablepages' => 'صفحات مستقرة',
@@ -64,6 +65,10 @@ $messages['arz'] = array(
 	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضى للمشاهدين.',
 	'stablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'stablepages-config' => 'ضبط',
+	'stablepages-prec-none' => 'من غير اولويه',
+	'stablepages-prec-quality' => 'اولوية الجوده',
+	'stablepages-prec-pristine' => 'اولوية الاصل',
+	'stablepages-precedence' => 'الاولويه:',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -123,6 +128,10 @@ $messages['dsb'] = array(
 	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su so manuelnje konfigurěrowali, aby pokazali stabilnu wersiju ako standardne wopśimjeśe za wobglědowarjow.',
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
+	'stablepages-prec-none' => 'žedna prědnosć',
+	'stablepages-prec-quality' => 'kwalitna prědnosć',
+	'stablepages-prec-pristine' => 'spócetna prědnosć',
+	'stablepages-precedence' => 'Prědnosć:',
 );
 
 /** Greek (Ελληνικά)
@@ -181,6 +190,7 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author IAlex
  * @author Verdy p
  */
 $messages['fr'] = array(
@@ -189,6 +199,10 @@ $messages['fr'] = array(
 	'stablepages-text' => 'Ci-dessous figure une liste de pages manuellement configurées pour ne montrer que la version stable comme contenu par défaut pour les lecteurs.',
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
+	'stablepages-prec-none' => 'aucune priorité',
+	'stablepages-prec-quality' => 'préférence pour la qualité',
+	'stablepages-prec-pristine' => 'priorité vierge',
+	'stablepages-precedence' => 'Préférence :',
 );
 
 /** Galician (Galego)
@@ -200,6 +214,10 @@ $messages['gl'] = array(
 	'stablepages-text' => 'Embaixo está a lista das páxinas configuradas manualmente para amosar a versión estábel como o contido da páxina por omisión para os que a ven.',
 	'stablepages-none' => 'Non hai páxinas nesta listaxe',
 	'stablepages-config' => 'Configuración',
+	'stablepages-prec-none' => 'sen prioridade',
+	'stablepages-prec-quality' => 'calidade prioritaria',
+	'stablepages-prec-pristine' => 'prioridade antiga',
+	'stablepages-precedence' => 'Prioridade:',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -220,6 +238,10 @@ $messages['gsw'] = array(
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byn ene di aagluegt Version as Standardinhalt aazeigt wird.',
 	'stablepages-none' => 'Die Lischt isch läär.',
 	'stablepages-config' => 'Konfiguration',
+	'stablepages-prec-none' => 'kei Rangfolg',
+	'stablepages-prec-quality' => 'Qualitätsrangfolg',
+	'stablepages-prec-pristine' => 'reini Rangfolg',
+	'stablepages-precedence' => 'Rangfolg:',
 );
 
 /** Hebrew (עברית)
@@ -267,6 +289,10 @@ $messages['hsb'] = array(
 	'stablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu stabilnu wersiju jako standardny wobsah strony za přehladowarjow pokazali',
 	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
 	'stablepages-config' => 'Konfiguracija',
+	'stablepages-prec-none' => 'žana prěnjosć',
+	'stablepages-prec-quality' => 'kwalitna prěnjosć',
+	'stablepages-prec-pristine' => 'prěnjotna prěnjosć',
+	'stablepages-precedence' => 'Prěnjosć:',
 );
 
 /** Hungarian (Magyar)
@@ -323,6 +349,10 @@ $messages['ja'] = array(
 	'stablepages-text' => '以下では安定版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
 	'stablepages-none' => '表示すべきページはありません',
 	'stablepages-config' => '設定',
+	'stablepages-prec-none' => '優先なし',
+	'stablepages-prec-quality' => '内容充実優先',
+	'stablepages-prec-pristine' => '原始優先',
+	'stablepages-precedence' => '優先順位:',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -416,6 +446,10 @@ $messages['nl'] = array(
 	'stablepages-text' => "Hier worden pagina's weergegeven waarvoor handmatig is ingesteld dat de stabiele versies standaard wordt weergegeven aan lezers.",
 	'stablepages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
 	'stablepages-config' => 'Instellingen',
+	'stablepages-prec-none' => 'geen voorrang',
+	'stablepages-prec-quality' => 'voorrang kwaliteit',
+	'stablepages-prec-pristine' => 'voorrang ongerept',
+	'stablepages-precedence' => 'Volgorde:',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -449,6 +483,10 @@ $messages['oc'] = array(
 	'stablepages-text' => 'Vaquí, çaijós, una lista de las pagians normalament configuradas per veire lo contengut de la version establa pels revisaires.',
 	'stablepages-none' => 'Existís pas cap de pagina dins aquesta lista',
 	'stablepages-config' => 'Configuracion',
+	'stablepages-prec-none' => 'pas cap de prioritat',
+	'stablepages-prec-quality' => 'preferéncia per la qualitat',
+	'stablepages-prec-pristine' => 'prioritat vèrja',
+	'stablepages-precedence' => 'Prioritat :',
 );
 
 /** Polish (Polski)
@@ -466,6 +504,7 @@ $messages['pl'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'stablepages' => 'Páginas estáveis',
@@ -473,6 +512,10 @@ $messages['pt'] = array(
 	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para exibirem a edição estável como conteúdo padrão a quem as acessar.',
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
+	'stablepages-prec-none' => 'sem precedência',
+	'stablepages-prec-quality' => 'precedência de qualidade',
+	'stablepages-prec-pristine' => 'precedência intocada',
+	'stablepages-precedence' => 'Precedência:',
 );
 
 /** Romanian (Română)
@@ -515,6 +558,10 @@ $messages['sk'] = array(
 	'stablepages-text' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa ako ich štandardný obsah zobrazovala čitateľom stabilná verzia.',
 	'stablepages-none' => 'Tento zoznam neobsahuje žiadne stránky.',
 	'stablepages-config' => 'Nastavenie',
+	'stablepages-prec-none' => 'bez precedencie',
+	'stablepages-prec-quality' => 'precedencia podľa kvality',
+	'stablepages-prec-pristine' => 'čistá precedencia',
+	'stablepages-precedence' => 'Precedencia:',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
@@ -529,6 +576,7 @@ $messages['sr-ec'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Boivie
  * @author M.M.S.
  */
 $messages['sv'] = array(
@@ -537,6 +585,10 @@ $messages['sv'] = array(
 	'stablepages-text' => 'Nedan visas en lista över sidor som manuellt ställts in att visa den stabila versionen som standardinnehåll för läsare.',
 	'stablepages-none' => 'Det finns inga sidor i denna lista',
 	'stablepages-config' => 'Konfigurering',
+	'stablepages-prec-none' => 'ingen rangordning',
+	'stablepages-prec-quality' => 'kvalitetsordning',
+	'stablepages-prec-pristine' => 'ursprunglig rangordning',
+	'stablepages-precedence' => 'Rangordning:',
 );
 
 /** Telugu (తెలుగు)
@@ -558,6 +610,10 @@ $messages['tl'] = array(
 	'stablepages-text' => 'Nasa ibaba ang isang talaan ng mga pahinang kinamay ang pagsasaayos upang maipakita ang matatag na bersyon bilang nakatakdang pahina ng nilalaman para sa mga tumatanaw.',
 	'stablepages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'stablepages-config' => 'Pagkakaayos (konpigurasyon)',
+	'stablepages-prec-none' => 'walang pagkakauna',
+	'stablepages-prec-quality' => 'pagkauna ng kataasan ng uri',
+	'stablepages-prec-pristine' => 'Pagkakaunang nasa orihinal na kalagayan',
+	'stablepages-precedence' => 'Pagkauna:',
 );
 
 /** Turkish (Türkçe)
@@ -569,6 +625,10 @@ $messages['tr'] = array(
 	'stablepages-text' => 'Aşağıdaki liste, ziyaretçilere geçerli sayfa içeriği olarak kararlı sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
 	'stablepages-none' => 'Bu listede hiç sayfa yok',
 	'stablepages-config' => 'Yapılandırma',
+	'stablepages-prec-none' => 'öncelik yok',
+	'stablepages-prec-quality' => 'kalite önceliği',
+	'stablepages-prec-pristine' => 'asıl öncelik',
+	'stablepages-precedence' => 'Öncelik:',
 );
 
 /** Ukrainian (Українська)

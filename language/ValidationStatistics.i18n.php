@@ -68,14 +68,19 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ramsis II
  */
 $messages['arz'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
 	'validationstatistics-users' => "'''{{SITENAME}}''' لديه حاليا '''$1''' {{PLURAL:$1|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|محرر]]
 و '''$2''' {{PLURAL:$2|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|مراجع]].",
-	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضة بالأسفل، لا يتضمن ذلك صفحات التحويل.
+	'validationstatistics-time' => "متوسط الانتظار فى التعديلات لـ''اليوزرات اللى ماسجلوش دخولهم'' هوه '''$1'''. 
+متوسط التأخير لـ [[Special:OldReviewedPages|الصفحات القديمه]] هوه '''$2'''.",
+	'validationstatistics-table' => "الاحصائيات لكل نطاق معروضه تحت ، ''من غير'' صفحات التحويل.
+الصفحات ''القديمه''  هى اللى بتبقا فيها تعديلات احدث من النسخه الثابته.
+لو النسخه الثابته هى نفسها اخر نسخه ، ساعتها الصفحه دى بتبقا ''متحدثه''.
 
-'''ملاحظة:''' البيانات التالية مخزنة لعدة ساعات وربما لا تكون محدثة.",
+''خد بالك: البيانات اللى تحت دى بتبقا متخزنه كذا ساعه و ممكن ما تكونش متحدثه.''",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
 	'validationstatistics-stable' => 'مراجع',
@@ -164,7 +169,7 @@ $messages['dsb'] = array(
 	'validationstatistics' => 'Pógódnośeńska statistika',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchylu '''$1''' {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami wobźěłowarja]]
 a '''$2''' {{PLURAL:$2|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami pśeglědowarja]].",
-	'validationstatistics-time' => "Pśerězne cakanje za změny ''njewužywarjow'' jo '''$1'''.
+	'validationstatistics-time' => "Pśerězne cakanje za změny wót ''wužywarjow, kótarež njejsu pśizjawjone'', jo '''$1'''.
 Pśerězne wokomuźenje za [[Special:OldReviewedPages|zestarjone boki]] jo '''$2'''.",
 	'validationstatistics-table' => "Slěduju statistiki za kuždy mjenjowy rum, ''bźez'' dalejpósrědnjenjow. ''Zestarjone'' boki su te ze změnami, kótarež su nowše ako stabilna wersija. Jolic stabilna wersija jo teke slědna wersija, ga bok jo ''synchronizěrowany''.
 
@@ -386,7 +391,7 @@ $messages['hsb'] = array(
 	'validationstatistics' => 'Pohódnoćenska statistika',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchwilu '''$1''' {{PLURAL:$1|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami wobdźěłowarja]]
 a '''$2''' {{PLURAL:$2|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami kontrolera]].",
-	'validationstatistics-time' => "Přerězne čakanje za změny ''njewužiwarjow'' je '''$1'''.
+	'validationstatistics-time' => "Přerězne čakanje za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'', je '''$1'''.
 Přerězne komdźenje za [[Special:OldReviewedPages|zestarjene strony]] je '''$2'''.",
 	'validationstatistics-table' => "Slěduja statistiki za kóždy mjenowy rum ''bjez'' daleposrědkowanjow. ''Zestarjene'' strony su te ze změnami, kotrež su nowše hač stabilna wersija. Jeli stabilna wersija je tež poslednja wersija, to strona je ''sychronizowana''.
 
@@ -679,7 +684,11 @@ $messages['no'] = array(
 $messages['oc'] = array(
 	'validationstatistics' => 'Estatisticas de validacion',
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''$1''' {{PLURAL:$1|utilizaire|utilizaires}} amb los dreches d’[[{{MediaWiki:Validationpage}}|editor]] e de '''$2''' {{PLURAL:$2|utilizaire|utilizaires}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].",
+	'validationstatistics-time' => "Lo temps mejan per las modificacions fachas per ''d'utilizaires que son pas connectats'' es de '''$1'''.
+Lo temps de retard mejan de las [[Special:OldReviewedPages|paginas obsolètas]] es de '''$2'''.",
 	'validationstatistics-table' => "Las estatisticas per cada espaci de nom son afichadas çaijós, a l’exclusion de las paginas de redireccion.
+Las paginas ''despassadas'' son las amb de modificacions mai recenta que la version establa.
+Se la version establa es la darrièra version, alara la pagina es ''sincronizada''.
 
 '''Nòta :''las donadas seguentas son amagadas pendent maitas oras e pòdon pas èsser mesas a jorn.",
 	'validationstatistics-ns' => 'Nom de l’espaci',
@@ -758,9 +767,12 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'validationstatistics' => 'Statisteche de validazione',
 	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''$1''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''$2''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].",
-	'validationstatistics-table' => "Le statisteche pe ogne niemspeise sonde mostrete aqquà sotte, 'scludenne le pàggene de redirezionaminde.
+	'validationstatistics-table' => "Le statisteche pe ogne namespace sonde mostrete aqquà sotte, 'scludenne le pàggene de redirezionaminde.
 
-'''Vide Bbuene:''' 'u date seguende jè chesciete pe quacche ore e non ge se pò aggiornà a 'na certa date.",
+''Non aggiornete'' sonde le pàggende cu cangiaminde cchiù nuève de chidde d'a versiona secure.
+Ce 'a versiona secura jè pure l'urtema versione, allore 'a pàgene jè ''singronizzete''.
+
+'''Vide Bbuene:''' 'u date seguende jè chesciate pe quacche ore e non ge se pò aggiornà a 'na certa date.",
 	'validationstatistics-ns' => 'Neimspeise',
 	'validationstatistics-total' => 'Pàggene',
 	'validationstatistics-stable' => 'Riviste',
