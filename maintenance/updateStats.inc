@@ -160,7 +160,7 @@ function update_flaggedrevs_stats() {
 			'GROUP BY'  => 'rev_id',
 			'ORDER BY'  => 'rev_id ASC', // slight bias avoidance, if any
 			'LIMIT'     => $size, // sample size
-			'USE INDEX' => array('flaggedrevs' => 'PRIMARY','logging' => 'page_time')
+			'USE INDEX' => array('revision' => array('PRIMARY','rev_id'),'flaggedrevs' => 'PRIMARY','logging' => 'page_time')
 		)
 	);
 	# Actually run the query...
