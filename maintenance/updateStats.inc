@@ -65,12 +65,6 @@ function update_flaggedrevs_stats() {
 	# the fact that FlaggedRevs wasn't enabled until after a while.
 	$installed = $dbr->selectField( 'logging', 'MIN(log_timestamp)', array('log_type' => 'review') );
 	if( !$installed ) $installed = $dbr->timestamp(); // now
-	# Get corresponding rev_id for better INDEX usage
-	$minRev = (int)$dbr->selectField( 'revision', 'rev_id', 
-		array( 'rev_timestamp >= '.$dbr->addQuotes($installed) ),
-		__METHOD__,
-		array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
-	);
 	# Skip the most recent recent revs as they are likely to just 
 	# be WHERE condition misses. This also gives us more data to use.
 	# Lastly, we want to avoid bais that would make the time too low
@@ -108,29 +102,48 @@ function update_flaggedrevs_stats() {
 			$last = $row->fp_pending_since; // next iteration
 		}
 	}
-	# Get corresponding rev_id for better INDEX usage
-	$maxRev = (int)$dbr->selectField( 'revision', 'rev_id', 
-		array( 'rev_timestamp <= '.$dbr->addQuotes($worstLagTS) ),
-		__METHOD__,
-		array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )
+	# Add a day for good measure to avoid bais
+	$maxTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 86400 );
+	# Use a one week time range
+	$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 7*86400 );
+	# Approximate the number rows to scan
+	$rows = $dbr->estimateRowCount( 'revision', '1',
+		'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 	);
-	$rows = $maxRev - $minRev; # rows to scan
-	$mod = 1; # Modulus
-	if( $rows >= 15000 ) {
-		$mod = 3; # Skip some rows to get better coverage
-		$minRev = $maxRev - 15000; # Limit rows to scan
+	# If the range doesn't have many rows (like on small wikis), use 30 days
+	if( $rows <= (2*$size) ) {
+		$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 30*86400 );
+		# Approximate rows to scan
+		$rows = $dbr->estimateRowCount( 'revision', '1',
+			'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
+		);
+		# If the range doesn't have many rows (like on really small wikis), use 90 days
+		if( $rows <= (2*$size) ) {
+			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
+		}
 	}
+	# Sanity check the staring timestamp
+	$minTS = max($minTS,$installed);
+	# Get correspond rev_ids to boundaries
+	$row = $dbr->selectRow( 'revision', array('MAX(rev_id) AS maxid','MIN(rev_id) AS minid'),
+		array( 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS) ),
+		__METHOD__
+	);
+	$minRev = isset($row->minid) ? intval($row->minid) : 0;
+	$maxRev = isset($row->maxid) ? intval($row->maxid) : 0;
+	# Modulus
+	$mod = intval($rows/$size);
+	$mod = max($mod/2,1); # Not all rows have rev_user = 0; also $mod >= 1
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Get the *first* reviewed rev *after* each RC item and get the average difference.
 	# Only do this for revisions to pages that *were* already logged as reviewed.
 	$sql = $dbr->selectSQLText( array('revision','flaggedrevs','page','logging'),
 		array( 'rev_timestamp AS rt', 'MIN(fr_timestamp) AS ft', 'MIN(log_timestamp) AS lt' ),
 		array(
-			"rev_id BETWEEN $minRev AND $maxRev", // Only go so far back...
+			"rev_id BETWEEN $minRev AND $maxRev", // Better INDEX usage
+			'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS),
 			'rev_user = 0', // IP edits (should start off unreviewed)
-			"(rev_id % $mod) = 0", // Better spread
-			'rev_timestamp >= '.$dbr->addQuotes($installed), // watch for imported revs!
-			'rev_timestamp <= '.$dbr->addQuotes($worstLagTS), // watch for imported revs!
+			($mod > 1) ? "(rev_id % $mod) = 0" : "1 = 1", // Better spread
 			'fr_page_id = rev_page AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp', // later reviewed
 			// Check that this page was stable at the time.
 			// Assumes that reviewed pages stay reviewed (reasonable).
@@ -152,7 +165,7 @@ function update_flaggedrevs_stats() {
 		# Get the sum of elapsed times
 		while( $row = $dbr->fetchObject($res) ) {
 			$seconds += wfTimestamp(TS_UNIX,$row->ft) - wfTimestamp(TS_UNIX,$row->rt);
-			#echo( $row->rt . "\t" . $row->ft . "\n" );
+			#echo( "\nedit:".$row->rt . "\treviewed:" . $row->ft );
 		}
 		$aveRT = $seconds/$count; // average
 	}
