@@ -111,31 +111,32 @@ function update_flaggedrevs_stats() {
 		'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 	);
 	# If the range doesn't have many rows (like on small wikis), use 30 days
-	if( $rows <= (10*$size) ) {
+	if( $rows <= (5*$size) ) {
 		$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 30*86400 );
 		# Approximate rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
 			'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 		);
 		# If the range doesn't have many rows (like on really small wikis), use 90 days
-		if( $rows <= (10*$size) ) {
+		if( $rows <= (5*$size) ) {
 			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
 		}
 	}
 	# Sanity check the starting timestamp
 	$minTS = max($minTS,$installed);
 	# Get correspond rev_ids to boundaries
+	$timeCondition = 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS);
 	$minRev = (int)$dbr->selectField( 'revision', 'rev_id',
-		array( 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS) ),
+		array( $timeCondition, 'rev_user' => 0 ),
 		__METHOD__, array( 'ORDER BY' => 'rev_timestamp ASC' )
 	);
 	$maxRev = (int)$dbr->selectField( 'revision', 'rev_id',
-		array( 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS) ),
+		array( $timeCondition, 'rev_user' => 0 ),
 		__METHOD__, array( 'ORDER BY' => 'rev_timestamp DESC' )
 	);
 	# Modulus
 	$mod = intval($rows/$size);
-	$mod = max($mod/10,1); # Not all rows have rev_user = 0; also $mod >= 1
+	$mod = max($mod/5,1); # $mod >= 1
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Get the *first* reviewed rev *after* each RC item and get the average difference.
 	# Only do this for revisions to pages that *were* already logged as reviewed.
@@ -144,7 +145,7 @@ function update_flaggedrevs_stats() {
 			'MIN(log_timestamp) AS lt' ),
 		array(
 			"rev_id BETWEEN $minRev AND $maxRev", // Better INDEX usage
-			'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS),
+			$timeCondition,
 			'rev_user = 0', // IP edits (should start off unreviewed)
 			($mod > 1) ? "(rev_id % $mod) = 0" : "1 = 1", // Better spread
 			'fr_page_id = rev_page AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp', // later reviewed
