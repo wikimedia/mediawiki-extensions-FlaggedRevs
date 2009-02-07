@@ -122,7 +122,7 @@ function update_flaggedrevs_stats() {
 			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
 		}
 	}
-	# Sanity check the staring timestamp
+	# Sanity check the starting timestamp
 	$minTS = max($minTS,$installed);
 	# Get correspond rev_ids to boundaries
 	$row = $dbr->selectRow( 'revision', array('MAX(rev_id) AS maxid','MIN(rev_id) AS minid'),
