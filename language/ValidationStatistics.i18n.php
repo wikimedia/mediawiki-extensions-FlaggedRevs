@@ -355,7 +355,7 @@ Dr durschnittlig Ruckstand uf [[Special:OldReviewedPages|veralteti Syten]] isch 
  */
 $messages['he'] = array(
 	'validationstatistics' => 'סטיסטיקת אישורים',
-	'validationstatistics-users' => "'''יש כרגע {{PLURAL:$1|משתמש '''אחד'''|'''$1''' משתמשים}} ב{{SITENAME}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]] ו{{PLURAL:$2|משתמש '''אחד'''|־'''$2''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].'''",
+	'validationstatistics-users' => "'''יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} ב{{SITENAME}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]] ו{{PLURAL:$2|משתמש '''[[Special:ListUsers/reviewer|אחד]]'''|־'''[[Special:ListUsers/reviewer|$2]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].'''",
 	'validationstatistics-time' => "ההמתנה הממוצעת עבור עריכות של ''משתמשים שלא נכנסו לחשבון'' היא '''$1'''. 
 ההמתנה הממוצעת עבור [[Special:OldReviewedPages|דפים בדוקים ישנים]] היא '''$2'''.",
 	'validationstatistics-table' => "סטטיסטיקות לכל מרחב שם מוצגות להלן, תוך '''התעלמות''' מדפי הפניה.
