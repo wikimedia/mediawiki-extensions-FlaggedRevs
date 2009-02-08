@@ -1054,7 +1054,7 @@ class FlaggedArticle extends Article {
 				}
 
 				# Set a key to note that someone is viewing this
-				if( $wgRequest->getInt('forreview') && $wgUser->isAllowed('review') ) {
+				if( $wgUser->isAllowed('review') ) {
 					$key = wfMemcKey( 'stableDiffs', 'underReview', $article->getId() );
 					$wgMemc->set( $key, '1', 10*60 ); // 10 min
 				}

@@ -179,7 +179,7 @@ class OldReviewedPages extends SpecialPage
 		$css = $stxt = $review = '';
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
-			"diff=cur&oldid={$row->fp_stable}&diffonly=0&forreview=1" );
+			"diff=cur&oldid={$row->fp_stable}&diffonly=0" );
 		$quality = $row->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		# Is anybody watching?
 		if( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
