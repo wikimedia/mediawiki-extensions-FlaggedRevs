@@ -697,14 +697,16 @@ EOT;
 			# Don't do so if an edit was auto-merged in between though...
 			if( !$editTimestamp || !$prevTimestamp || $prevTimestamp == $editTimestamp ) {
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
-				return true;
+				return true; // done!
 			}
 		}
-		# Auto-reviewing must be enabled
-		if( !$wgFlaggedRevsAutoReview ) return true;
-		# User must have the required permissions
-		if( !$user->isAllowed('autoreview') && !$user->isAllowed('bot') ) {
-			return true;
+		# Get sync cache key
+		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $rev->getPage() );
+		global $wgMemc, $wgParserCacheExpireTime;
+		# Auto-reviewing must be enabled and user must have the required permissions
+		if( !$wgFlaggedRevsAutoReview || (!$user->isAllowed('autoreview') && !$user->isAllowed('bot')) ) {
+			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
+			return true; // done! edit pending!
 		}
 		# If $baseRevId passed in, this is a null edit
 		$isNullEdit = $baseRevId ? true : false;
@@ -741,7 +743,7 @@ EOT;
 				$frev = FlaggedRevision::newFromTitle( $title, $prevRevId, FR_MASTER );
 			}
 		}
-		# Is this an edit directly to the stable version?
+		# Is this an edit directly to the stable version? Is it a new page?
 		if( $reviewableNewPage || !is_null($frev) ) {
 			# Assume basic flagging level unless this is a null edit
 			if( $isNullEdit ) {
@@ -749,6 +751,9 @@ EOT;
 			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
 			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+		} else {
+			# Done! edit pending!
+			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
 		}
 		return true;
 	}
