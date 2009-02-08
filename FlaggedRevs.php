@@ -419,6 +419,8 @@ $wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
 # Add diff url param alias
 $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
+# Check if a page is being reviewed
+$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
 
 # Add CSS/JS as needed
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';

@@ -214,7 +214,7 @@ class OldReviewedPages extends SpecialPage
 		} else {
 			$age = ""; // wtf?
 		}
-		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->page_id );
+		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->fp_stable, $row->page_latest );
 		$val = $wgMemc->get( $key );
 		$underReview = $val ? wfMsgHtml('oldreviewedpages-viewing') : '';
 
@@ -287,7 +287,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page', 'revision' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
-			'fp_pending_since','rev_len','page_id');
+			'fp_pending_since','rev_len','page_latest');
 		$conds[] = 'page_id = fp_page_id';
 		# Overconstrain rev_page to force PK use
 		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';

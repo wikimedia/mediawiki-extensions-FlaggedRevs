@@ -17,6 +17,7 @@ $messages['en'] = array(
 	'unreviewed-watched' => '($1 active {{PLURAL:$1|user|users}} watching)',
 	'unreviewed-list' => 'This page lists content pages that have not been reviewed.',
 	'unreviewed-none' => 'There are currently no pages meeting these criteria',
+	'unreviewed-viewing' => '(under review)',
 );
 
 /** Message documentation (Message documentation)

@@ -78,10 +78,11 @@ class UnreviewedPages extends SpecialPage
 	}
 	
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser;
+		global $wgLang, $wgUser, $wgMemc;
+
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no' );
-		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
+		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&forreview=1' );
+		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history&forreview=1' );
 		$css = $stxt = $review = '';
 		if( !is_null($size = $row->page_len) ) {
 			$stxt = ($size == 0)
@@ -99,7 +100,12 @@ class UnreviewedPages extends SpecialPage
 		} else {
 			$watching = "";
 		}
-		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching}</li>" );
+		$pageId = isset($row->page_id) ? $row->page_id : $row->qc_value;
+		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
+		$val = $wgMemc->get( $key );
+		$underReview = $val ? wfMsgHtml('unreviewed-viewing') : '';
+
+		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching} <b>{$underReview}</b></li>" );
 	}
 	
 	/**
@@ -191,7 +197,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			return $this->getQueryCacheInfo();
 		}
 		$conds = $this->mConds;
-		$fields = array('page_namespace','page_title','page_len');
+		$fields = array('page_namespace','page_title','page_len','page_id');
 		$conds[] = 'fp_page_id IS NULL';
 		# Reviewable pages only
 		$conds['page_namespace'] = $this->namespace;
@@ -209,7 +215,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$useIndex = array( 'categorylinks' => 'cl_sortkey' );
 		} else {
 			$tables = array( 'page', 'flaggedpages' );
-			$fields[] = 'page_id';
 			$this->mIndexField = 'page_title';
 			$useIndex = array( 'page' => 'name_title' );
 		}

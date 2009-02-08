@@ -91,6 +91,16 @@ EOT;
 		}
 		return true;
 	}
+	
+	public static function markUnderReview( &$output, &$article, &$title, &$user, &$request ) {
+		# Set a key to note that someone is viewing this
+		if( $request->getInt('forreview') && $user->isAllowed('review') ) {
+			global $wgMemc;
+			$key = wfMemcKey( 'unreviewedPages', 'underReview', $title->getArticleId() );
+			$wgMemc->set( $key, '1', 20*60 ); // 20 min
+		}
+		return true;
+	}
 
 	/**
 	* Update flaggedrevs table on revision restore
