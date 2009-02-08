@@ -451,6 +451,7 @@ $messages['he'] = array(
 	'unreviewed-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
 	'unreviewed-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו.',
 	'unreviewed-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
+	'unreviewed-viewing' => '(בבדיקה)',
 );
 
 /** Hindi (हिन्दी)

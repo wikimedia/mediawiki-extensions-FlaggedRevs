@@ -473,6 +473,7 @@ $messages['he'] = array(
 	'oldreviewed-size' => 'השינוי המירבי בגודל בבתים:',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$2 משתמשים פעילים עוקבים}})',
+	'oldreviewedpages-viewing' => '(בבדיקה)',
 );
 
 /** Hindi (हिन्दी)
