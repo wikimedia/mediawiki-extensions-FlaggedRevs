@@ -435,6 +435,24 @@ $aliases['nl'] = array(
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+$aliases['nn'] = array(
+	'LikedPages' => array( 'Lika sider' ),
+	'OldReviewedPages' => array( 'Gamle vurderte sider' ),
+	'ProblemPages' => array( 'Problemsider' ),
+	'QualityOversight' => array( 'Kvalitetsoversyn' ),
+	'RatingHistory' => array( 'Vurderingsoversyn' ),
+	'ReaderFeedback' => array( 'Vurderingshistorikk' ),
+	'ReviewedPages' => array( 'Vurderte sider' ),
+	'RevisionReview' => array( 'Versjonsvurdering' ),
+	'Stabilization' => array( 'Stabilisering' ),
+	'StablePages' => array( 'Stabile sider' ),
+	'StableVersions' => array( 'Stabile versjonar' ),
+	'UnreviewedPages' => array( 'Ikkje-vurderte sider' ),
+	'UnstablePages' => array( 'Ustabile sider' ),
+	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */

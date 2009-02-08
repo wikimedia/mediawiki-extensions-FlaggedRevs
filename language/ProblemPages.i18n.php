@@ -343,6 +343,17 @@ $messages['pt'] = array(
 	'problempages-graphs' => 'dados de avaliações',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'problempages' => 'Páginas com fraca avaliação',
+	'problempages-leg' => 'Pesquisar páginas com baixa avaliação',
+	'problempages-list' => 'Segue-se uma lista de páginas ordenada de acordo com a avaliação dos leitores.',
+	'problempages-none' => 'Não há páginas nesta listagem',
+	'problempages-graphs' => 'dados de avaliações',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  */

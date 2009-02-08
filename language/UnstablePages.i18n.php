@@ -417,6 +417,17 @@ $messages['pt'] = array(
 	'unstablepages-config' => 'Configuração',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'unstablepages' => 'Páginas instáveis',
+	'unstablepages-stable' => 'versão estável',
+	'unstablepages-text' => 'Abaixo encontra-se uma lista de página manualmente configuradas para mostrar aos leitores a versão rascunho como conteúdo da página por omissão.',
+	'unstablepages-none' => 'Não há páginas nesta lista',
+	'unstablepages-config' => 'Configuração',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  */

@@ -53,6 +53,10 @@ $messages['ar'] = array(
 	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضي للمشاهدين.',
 	'stablepages-none' => 'لا توجد صفحات في هذه القائمة',
 	'stablepages-config' => 'ضبط',
+	'stablepages-prec-none' => 'لا سابقة',
+	'stablepages-prec-quality' => 'سابقة جودة',
+	'stablepages-prec-pristine' => 'سابقة فائقة',
+	'stablepages-precedence' => 'سابقة:',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -461,6 +465,10 @@ $messages['nn'] = array(
 	'stablepages-text' => 'Under er ei lista over sider manuelt innstilte til å syna den stabile versjonen som standardinnhald for lesarar.',
 	'stablepages-none' => 'Det finst ingen sider i denne lista',
 	'stablepages-config' => 'Konfigurering',
+	'stablepages-prec-none' => 'inga prioritering',
+	'stablepages-prec-quality' => 'kvalitetsprioritering',
+	'stablepages-prec-pristine' => 'prioritering av urørde',
+	'stablepages-precedence' => 'Prioritering:',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -536,6 +544,10 @@ $messages['roa-tara'] = array(
 	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona secure cumme pàgene cu 'u condenute iniziele pe le visitatore.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
+	'stablepages-prec-none' => 'nisciuna in precedenze',
+	'stablepages-prec-quality' => "qualitate d'a precedende",
+	'stablepages-prec-pristine' => "ripristine d'a precedende",
+	'stablepages-precedence' => 'Precedenze:',
 );
 
 /** Russian (Русский)
