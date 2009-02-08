@@ -1233,7 +1233,7 @@ EOT;
 			# Try the cache...
 			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $title->getArticleId() );
 			$data = $wgMemc->get($key);
-			if( is_object($data) && $data->time > $article->getTouched() ) {
+			if( is_object($data) && $data->time >= $article->getTouched() ) {
 				list($ignoreRedirect,$target) = $data->value;
 				return true;
 			}
