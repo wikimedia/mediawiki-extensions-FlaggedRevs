@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'oldreviewed-size' => 'Max change (bytes):',
 	'oldreviewedpages-unwatched' => '(unwatched)',
 	'oldreviewedpages-watched' => '($2 active {{PLURAL:$1|user|users}} watching)',
+	'oldreviewedpages-viewing' => '(under review)',
 );
 
 /** Message documentation (Message documentation)

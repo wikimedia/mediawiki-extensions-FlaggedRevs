@@ -1052,6 +1052,12 @@ class FlaggedArticle extends Article {
 				if( !FlaggedRevision::newFromTitle( $diff->mTitle, $newRev->getID() ) ) {
 					$this->isDiffFromStable = true;
 				}
+
+				# Set a key to note that someone is viewing this
+				if( $wgRequest->getInt('forreview') && $wgUser->isAllowed('review') ) {
+					$key = wfMemcKey( 'stableDiffs', 'underReview', $article->getId() );
+					$wgMemc->set( $key, '1', 10*60 ); // 10 min
+				}
 			}
 		}
 		$newRevQ = FlaggedRevs::getRevQuality( $newRev->getTitle(), $newRev->getId() );

@@ -77,13 +77,13 @@ class UnreviewedPages extends SpecialPage
 		}
 	}
 	
-	public function formatRow( $result ) {
+	public function formatRow( $row ) {
 		global $wgLang, $wgUser;
-		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
+		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no' );
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
 		$css = $stxt = $review = '';
-		if( !is_null($size = $result->page_len) ) {
+		if( !is_null($size = $row->page_len) ) {
 			$stxt = ($size == 0)
 				? wfMsgHtml('historyempty')
 				: wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );

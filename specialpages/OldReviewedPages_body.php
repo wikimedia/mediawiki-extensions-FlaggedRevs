@@ -171,16 +171,16 @@ class OldReviewedPages extends SpecialPage
 		}
 	}
 	
-	public function formatRow( $result ) {
-		global $wgLang, $wgUser;
-		
-		$title = Title::makeTitle( $result->page_namespace, $result->page_title );
+	public function formatRow( $row ) {
+		global $wgLang, $wgUser, $wgMemc;
+
+		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$css = $stxt = $review = '';
-		$stxt = ChangesList::showCharacterDifference( $result->rev_len, $result->page_len );
+		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
-			"diff=cur&oldid={$result->fp_stable}&diffonly=0" );
-		$quality = $result->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
+			"diff=cur&oldid={$row->fp_stable}&diffonly=0&forreview=1" );
+		$quality = $row->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
 		# Is anybody watching?
 		if( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$uw = UnreviewedPages::usersWatching( $title );
@@ -192,10 +192,10 @@ class OldReviewedPages extends SpecialPage
 			$watching = ''; // leave out data
 		}
 		# Get how long the first unreviewed edit has been waiting...
-		if( $result->fp_pending_since ) {
+		if( $row->fp_pending_since ) {
 			static $currentTime;
 			$currentTime = wfTimestamp( TS_UNIX ); // now
-			$firstPendingTime = wfTimestamp( TS_UNIX, $result->fp_pending_since );
+			$firstPendingTime = wfTimestamp( TS_UNIX, $row->fp_pending_since );
 			$hours = ($currentTime - $firstPendingTime)/3600;
 			// After three days, just use days
 			if( $hours > (3*24) ) {
@@ -214,8 +214,11 @@ class OldReviewedPages extends SpecialPage
 		} else {
 			$age = ""; // wtf?
 		}
+		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->page_id );
+		$val = $wgMemc->get( $key );
+		$underReview = $val ? wfMsgHtml('oldreviewedpages-viewing') : '';
 
-		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <strong>[{$quality}]</strong>{$watching}</li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <b>[{$quality}]</b>{$watching} <b>{$underReview}</b></li>" );
 	}
 	
 	/**
@@ -284,7 +287,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page', 'revision' );
 		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
-			'fp_pending_since','rev_len');
+			'fp_pending_since','rev_len','page_id');
 		$conds[] = 'page_id = fp_page_id';
 		# Overconstrain rev_page to force PK use
 		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';
