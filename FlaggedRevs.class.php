@@ -514,19 +514,6 @@ class FlaggedRevs {
 	################# Synchronization and link update functions #################
 	
 	/**
-	* @param mixed $data Memc data returned
-	* @param Article $article
-	* @return mixed
-	* Return memc value if not expired
-	*/		
-	public static function getMemcValue( $data, $article ) {
-		if( is_object($data) && $data->time > $article->getTouched() ) {
-			return $data->value;
-		}
-		return false;
-	} 
-	
-	/**
 	* @param FlaggedRevision $srev, the stable revision
 	* @param Article $article
 	* @param ParserOutput $stableOutput, will fetch if not given
@@ -613,7 +600,7 @@ class FlaggedRevs {
 
 		return $synced;
 	}
-	
+
 	/**
 	 * @param string $val
 	 * @return obj array
@@ -624,6 +611,19 @@ class FlaggedRevs {
 		$data->value = $val;
 		$data->time = wfTimestampNow();
 		return $data;
+	}
+	
+	/**
+	* @param mixed $data Memc data returned
+	* @param Article $article
+	* @return mixed
+	* Return memc value if not expired
+	*/		
+	public static function getMemcValue( $data, $article ) {
+		if( is_object($data) && $data->time >= $article->getTouched() ) {
+			return $data->value;
+		}
+		return false;
 	}
 	
 	/**
