@@ -1031,7 +1031,7 @@ class FlaggedArticle extends Article {
 				if( count($changeList) > 0 ) {
 					$notice = '<br/>' . wfMsgExt('revreview-update-use', array('parseinline'));
 				} else if( !$synced ) {
-					$wgMemc->delete($key); // bad key, said they were not synced
+					$diff->mTitle->invalidateCache(); // bad cache, said they were not synced
 				}
 
 				# If the user is allowed to review, prompt them!
