@@ -1001,6 +1001,7 @@ $messages['roa-tara'] = array(
  * @author EugeneZelenko
  * @author Ferrer
  * @author Kaganer
+ * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(

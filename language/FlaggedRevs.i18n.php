@@ -8040,7 +8040,7 @@ W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] są [{{fullurl:{{FULL
 Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany].',
 	'revreview-basic-same' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Wersja przejrzana] tej strony, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>, jest oparta na tej wersji.',
-	'revreview-blocked' => 'Nie możesz oznaczyć tej wersji jako przejrzana, ponieważ Twoje konto jest obecnie zablokowane ([$1 szczegóły])',
+	'revreview-blocked' => 'Nie możesz oznaczyć tej wersji jako przejrzanej, ponieważ Twoje konto zostało zablokowane ([$1 szczegóły])',
 	'revreview-changed' => "'''Żądana czynność nie mogła zostać wykonana na tej wersji strony [[:$1|$1]].'''
 
 Zażądano szablonu lub grafiki, ale nie określono wersji.
@@ -8716,6 +8716,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
  * @author Kaganer
  * @author Kalan
  * @author Putnik
+ * @author Sergey kudryavtsev
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -8742,8 +8743,8 @@ $messages['ru'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} досмотрена] участником [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} досмотрена автоматически]',
 	'review-diff2stable' => 'Показать различия между стабильной и текущей версиями',
-	'review-logentry-app' => 'проверена [[$1]]',
-	'review-logentry-dis' => 'устаревшая версия [[$1]]',
+	'review-logentry-app' => 'проверена версия r$2 страницы [[$1]]',
+	'review-logentry-dis' => 'устаревшая версия r$2 страницы [[$1]]',
 	'review-logentry-id' => 'идентификатор версии $1',
 	'review-logentry-diff' => 'разница со стабильной',
 	'review-logpage' => 'Журнал проверок',
@@ -8769,6 +8770,7 @@ $messages['ru'] = array(
 Могли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} правки].',
 	'revreview-basic-same' => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>, была основана на этой версии.',
+	'revreview-blocked' => 'Вы не можете проверить эту версию, т.к. в настоящее время ваша учётная заблокированна ([$1 подробно])',
 	'revreview-changed' => "'''Запрошенное действие не может быть выполнено с этой версией страницы [[:$1|$1]].'''
 
 Возможно, шаблон или изображение были запрошены без указания конкретной версии.

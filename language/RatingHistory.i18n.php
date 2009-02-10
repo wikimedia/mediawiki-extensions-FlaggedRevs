@@ -60,6 +60,7 @@ $messages['ar'] = array(
 	'ratinghistory-3months' => 'أخر 3 شهور',
 	'ratinghistory-year' => 'آخر سنة',
 	'ratinghistory-3years' => 'آخر 3 سنوات',
+	'ratinghistory-ave' => 'المتوسط: $1',
 	'ratinghistory-chart' => 'تقييمات القراء عبر الزمن',
 	'ratinghistory-table' => 'عرض عام لتقييمات القراء',
 	'ratinghistory-users' => 'المستخدمون الذين أعطوا تقييمات',
@@ -96,19 +97,19 @@ $messages['arz'] = array(
 	'ratinghistory-ave' => 'Avg: $1',
 	'ratinghistory-chart' => 'تقييمات القارئ على مر الزمن',
 	'ratinghistory-table' => 'عرض لتقييمات القارئ',
-	'ratinghistory-users' => 'اليوزرز اللي عملو تقييمات:',
+	'ratinghistory-users' => 'اليوزرز اللى عملو تقييمات:',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
 	'readerfeedback-svg' => 'اعرض SVG',
 	'ratinghistory-table-rating' => 'تقييم',
 	'ratinghistory-table-votes' => 'الاصوات',
 	'ratinghistory-none' => 'لا توجد بيانات كافية من القراء متوفرة للرسومات فى هذا الوقت.',
-	'ratinghistory-legend' => "'''التقييم اليومي المتوسط''' <font color=\"blue\">''(ازرق)''</font> و  
+	'ratinghistory-legend' => "'''التقييم اليومى المتوسط''' <font color=\"blue\">''(ازرق)''</font> و  
 '''التقييم المتوسط الجاري''' <font color=\"green\">''(اخضر)''</font> مرسومين تحت, على حسب التاريخ.   
-'''التقييم المتوسط الجاري''' هوه ببساطه المتوسط بتاع كل التقييمات اليوميه ''في'' في الفترة دي من كل يوم.
+'''التقييم المتوسط الجاري''' هوه ببساطه المتوسط بتاع كل التقييمات اليوميه ''فى'' فى الفترة دى من كل يوم.
 
 المقاس: '''[1]''' - فقير; '''[2]''' - واطي; '''[3]''' - نص نص; '''[4]''' - عالى; '''[5]''' - ممتاز;
 
-'''عدد المراجعات في اليوم''' <font color=\"red\">''(احمر)''</font> معروضين في الجرافات اللي تحت, بمقاس ''1:\$1''.",
+'''عدد المراجعات فى اليوم''' <font color=\"red\">''(احمر)''</font> معروضين فى الجرافات اللى تحت, بمقاس ''1:\$1''.",
 	'right-feedback' => 'استخدام استمارة الآراء لتقييم صفحة',
 );
 
@@ -189,6 +190,7 @@ $messages['de'] = array(
 	'ratinghistory-3months' => 'letzte 3 Monate',
 	'ratinghistory-year' => 'letztes Jahr',
 	'ratinghistory-3years' => 'letzte drei Jahre',
+	'ratinghistory-ave' => 'Durchschnitt: $1',
 	'ratinghistory-chart' => 'Leserbewertungen über die Zeit',
 	'ratinghistory-table' => 'Überblick über die Leserbewertungen',
 	'ratinghistory-users' => 'Benutzer, die bewertet haben:',
@@ -385,6 +387,7 @@ $messages['gl'] = array(
 	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último ano',
 	'ratinghistory-3years' => 'últimos 3 anos',
+	'ratinghistory-ave' => 'Promedio: $1',
 	'ratinghistory-chart' => 'Valoración do lector',
 	'ratinghistory-table' => 'Vista xeral das valoracións dos lectores',
 	'ratinghistory-users' => 'Usuarios que valoraron páxinas',
@@ -920,7 +923,7 @@ $messages['pl'] = array(
 	'ratinghistory-3months' => 'ostatnie 3 miesiące',
 	'ratinghistory-year' => 'ostatni rok',
 	'ratinghistory-3years' => 'ostatnie 3 lata',
-	'ratinghistory-ave' => 'Średnia: $1',
+	'ratinghistory-ave' => 'Średnia $1',
 	'ratinghistory-chart' => 'Oceny czytelników w czasie',
 	'ratinghistory-table' => 'Przegląd ocen wystawionych przez czytelników',
 	'ratinghistory-users' => 'Użytkownicy, którzy wystawili ocenę',
@@ -1028,6 +1031,7 @@ Schele: '''[1]''' - Povere; '''[2]''' - Vasce; '''[3]''' - Medie; '''[4]''' - Ie
 
 /** Russian (Русский)
  * @author Ferrer
+ * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -1206,6 +1210,7 @@ $messages['tr'] = array(
 	'ratinghistory-3months' => 'son 3 ay',
 	'ratinghistory-year' => 'son yıl',
 	'ratinghistory-3years' => 'son 3 yıl',
+	'ratinghistory-ave' => 'Ort: $1',
 	'ratinghistory-chart' => 'Zaman içindeki kullanıcı değerlendirmesi',
 	'ratinghistory-table' => 'Kullanıcı değerlendirmelerine genel bakış',
 	'ratinghistory-users' => 'Derecelendirme veren kullanıcılar',

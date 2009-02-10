@@ -2063,6 +2063,7 @@ Non ge stonne le configurazione.',
 
 /** Russian (Русский)
  * @author Drbug
+ * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(

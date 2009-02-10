@@ -814,6 +814,7 @@ Ce 'a versiona secura jè pure l'urtema versione, allore 'a pàgene jè ''singro
  * @author AlexSm
  * @author Ferrer
  * @author Putnik
+ * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(

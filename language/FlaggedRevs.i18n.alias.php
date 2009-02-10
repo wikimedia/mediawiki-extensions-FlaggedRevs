@@ -356,7 +356,9 @@ $aliases['lb'] = array(
 /** Macedonian (Македонски) */
 $aliases['mk'] = array(
 	'LikedPages' => array( 'БараниСтраници' ),
+	'OldReviewedPages' => array( 'СтариОценетиСтраници' ),
 	'ProblemPages' => array( 'ПроблематичниСтраници' ),
+	'RatingHistory' => array( 'ИсторијаНаОценување' ),
 	'ReviewedPages' => array( 'ПрегледаниСтраници' ),
 	'Stabilization' => array( 'Стабилизација' ),
 	'StablePages' => array( 'СтабилниСтраници' ),
