@@ -713,7 +713,7 @@ Se la version establa es la darrièra version, alara la pagina es ''sincronizada
  */
 $messages['pl'] = array(
 	'validationstatistics' => 'Statystyki oznaczania',
-	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''$2''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].",
+	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].",
 	'validationstatistics-time' => "Średni czas oczekiwania edycji wykonanych przez ''niezalogowanych użytkowników'' wynosi '''$1'''.
 Średnie opóźnienie dla [[Special:OldReviewedPages|zdezaktualizowanych stron]] wynosi '''$2'''.",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.
@@ -757,6 +757,26 @@ Se a versão estável for também a mais recente, a página está '''sincronizad
 	'validationstatistics-latest' => 'Mais recente analisada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desactualizadas',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'validationstatistics' => 'Estatísticas de validações',
+	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] e '''$2''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]].",
+	'validationstatistics-time' => "O tempo médio de espera de edições por ''utilizadores não registrados'' é '''$1'''.   
+O atraso médio para [[Special:OldReviewedPages|páginas desatualizadas]] é '''$2'''.",
+	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento. Páginas '''desatualizadas''' são as com edições posteriores à versão estável.
+Se a versão estável for também a mais recente, a página está '''sincronizada'''.
+
+''Nota: os dados a seguir são armazenados em cache por várias horas e podem não estar atualizados.''",
+	'validationstatistics-ns' => 'Espaço nominal',
+	'validationstatistics-total' => 'Páginas',
+	'validationstatistics-stable' => 'Analisadas',
+	'validationstatistics-latest' => 'Mais recente analisada',
+	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
+	'validationstatistics-old' => 'Desatualizadas',
 );
 
 /** Romanian (Română)

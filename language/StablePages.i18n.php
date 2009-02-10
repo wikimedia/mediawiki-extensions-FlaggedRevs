@@ -114,13 +114,19 @@ $messages['cs'] = array(
 	'stablepages-config' => 'Konfigurace',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Umherirrender
+ */
 $messages['de'] = array(
 	'stablepages' => 'Liste individuell konfigurierter Seiten',
 	'stablepages-stable' => 'gesichtete Version',
 	'stablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
 	'stablepages-none' => 'Diese Liste ist leer.',
 	'stablepages-config' => 'Konfiguration',
+	'stablepages-prec-none' => 'keine Rangordnung',
+	'stablepages-prec-quality' => 'Qualitätsrangfolge',
+	'stablepages-prec-pristine' => 'ursprüngliche Rangordnung',
+	'stablepages-precedence' => 'Rangordnung:',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -515,6 +521,21 @@ $messages['pl'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
+	'stablepages' => 'Páginas estáveis',
+	'stablepages-stable' => 'edição estável',
+	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para exibirem a edição estável como conteúdo padrão a quem as acessar.',
+	'stablepages-none' => 'Não há páginas nesta lista',
+	'stablepages-config' => 'Configuração',
+	'stablepages-prec-none' => 'sem precedência',
+	'stablepages-prec-quality' => 'precedência de qualidade',
+	'stablepages-prec-pristine' => 'precedência intocada',
+	'stablepages-precedence' => 'Precedência:',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
 	'stablepages' => 'Páginas estáveis',
 	'stablepages-stable' => 'edição estável',
 	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para exibirem a edição estável como conteúdo padrão a quem as acessar.',

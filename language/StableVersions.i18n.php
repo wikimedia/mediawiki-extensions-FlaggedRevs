@@ -148,7 +148,10 @@ $messages['br'] = array(
  */
 $messages['ca'] = array(
 	'stableversions' => 'Vegeu les versions estables',
+	'stableversions-leg1' => "Llista d'edicions revisades per una pàgina",
 	'stableversions-page' => 'Nom de la pàgina:',
+	'stableversions-none' => '«[[:$1]]» no té edicions revisades.',
+	'stableversions-list' => 'A continuació hi ha una llista de les edicions de [[:$1]] que han estat revisades:',
 	'stableversions-review' => 'Revisat el <em>$1</em> per $2',
 );
 
@@ -729,6 +732,18 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'stableversions' => 'Ver edições estáveis',
 	'stableversions-leg1' => 'Listar as edições revistas de uma página',
+	'stableversions-page' => 'Título da página:',
+	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
+	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
+	'stableversions-review' => 'Analisada às <i>$1</i> por $2',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'stableversions' => 'Ver edições estáveis',
+	'stableversions-leg1' => 'Listar as edições analisadas de uma página',
 	'stableversions-page' => 'Título da página:',
 	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
 	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',

@@ -65,6 +65,14 @@ $messages['bg'] = array(
 	'qualityoversight' => 'Качествен надзор',
 );
 
+/** Catalan (Català)
+ * @author SMP
+ */
+$messages['ca'] = array(
+	'qualityoversight-list' => 'Aquesta pàgina llista les aprovacions i depreciacions recents de revisions.',
+	'qualityoversight-legend' => 'Cerca els registres de revisions recents',
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  * @author Umherirrender

@@ -771,6 +771,21 @@ $messages['pt'] = array(
 	'reviewedpages-best' => 'edição principal',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'reviewedpages' => 'Páginas analisadas',
+	'reviewedpages-leg' => 'Listar páginas que tenham sido analisadas em um nível específico',
+	'reviewedpages-list' => 'As páginas a seguir foram analisadas no nível especificado',
+	'reviewedpages-none' => 'Não há páginas nesta lista',
+	'reviewedpages-lev-0' => 'Objetiva',
+	'reviewedpages-lev-1' => 'Qualidade',
+	'reviewedpages-lev-2' => 'Exemplar',
+	'reviewedpages-all' => 'edições analisadas',
+	'reviewedpages-best' => 'edição principal',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  */

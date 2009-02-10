@@ -4736,6 +4736,7 @@ Lisćinu stabilizowanych stronow namakaš w [[Special:StablePages|lisćinje stab
 );
 
 /** Hungarian (Magyar)
+ * @author Adam78
  * @author Bdamokos
  * @author Bennó
  * @author Dani
@@ -4808,7 +4809,7 @@ egy dinamikus sablon más képet vagy sablont illeszt be egy paramétertől füg
 	'revreview-depth-4' => 'kiemelt',
 	'revreview-draft-title' => 'Nem ellenőrzött lap',
 	'revreview-edit' => 'Ellenőrizetlen változat szerkesztése',
-	'revreview-editnotice' => "'''Megjegyzés: a szerkesztéseid a lap következő [[{{MediaWiki:Validationpage}}|rögzített változatában]] fognak megjelenni, amint egy [[{{MediaWiki:Validationpage}}|járőr]] ellenőrízte őket.'''",
+	'revreview-editnotice' => "'''Megjegyzés: a szerkesztéseid a lap következő [[{{MediaWiki:Validationpage}}|rögzített változatában]] fognak megjelenni, amint egy [[{{MediaWiki:Validationpage}}|járőr]] ellenőrizte őket.'''",
 	'revreview-flag' => 'Változat ellenőrzése',
 	'revreview-edited' => "'''A szerkesztéseid akkor jelennek meg a [[{{MediaWiki:Validationpage}}|rögzített változatban]], ha egy szerkesztő ellenőrzi azt.'''
 '''A ''nem ellenőrzött változat'' lent látható.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 változtatás] vár megtekintésre.",

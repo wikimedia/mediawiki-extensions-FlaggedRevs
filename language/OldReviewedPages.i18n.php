@@ -130,6 +130,7 @@ $messages['arz'] = array(
 	'oldreviewed-size' => 'تغيير الحد الاقصى لحجم البايت:',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقب)',
+	'oldreviewedpages-viewing' => '(بيتراجع)',
 );
 
 /** Asturian (Asturianu)
@@ -227,6 +228,7 @@ $messages['cu'] = array(
  * @author Melancholie
  * @author Michawiki
  * @author Raimond Spekking
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'oldreviewedpages' => 'Alte, gesichtete Seiten',
@@ -244,6 +246,7 @@ $messages['de'] = array(
 	'oldreviewed-size' => 'Maximale Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
 	'oldreviewedpages-watched' => '(von $2 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)',
+	'oldreviewedpages-viewing' => '(wird überprüft)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -877,6 +880,7 @@ $messages['pl'] = array(
 	'oldreviewed-size' => 'Maksymalna liczba dodanych lub usuniętych bajtów',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
 	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
+	'oldreviewedpages-viewing' => '(w trakcie przeglądania)',
 );
 
 /** Pashto (پښتو)

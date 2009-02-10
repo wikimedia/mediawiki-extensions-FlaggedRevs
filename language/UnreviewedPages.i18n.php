@@ -93,6 +93,7 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ramsis II
  */
 $messages['arz'] = array(
 	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
@@ -104,6 +105,7 @@ $messages['arz'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقبون)',
 	'unreviewed-list' => 'هذه الصفحة تعرض المقالات التى لم يتم مراجعتها.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
+	'unreviewed-viewing' => '(بيتراجع)',
 );
 
 /** Asturian (Asturianu)
@@ -202,6 +204,7 @@ $messages['ca'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|usuari|usuaris}} actius vigilant)',
 	'unreviewed-list' => 'Aquesta pàgina llista el contingut de pàgines que no ha estat revisat.',
 	'unreviewed-none' => 'En aquest moment no hi ha pàgines que compleixin aquests criteris',
+	'unreviewed-viewing' => '(sota revisió)',
 );
 
 /** Czech (Česky)
@@ -236,6 +239,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Raimond Spekking
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'right-unreviewedpages' => 'Ansehen der [[Special:UnreviewedPages|Liste ungesichteter Seiten]]',
@@ -247,6 +251,7 @@ $messages['de'] = array(
 	'unreviewed-watched' => '(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)',
 	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht gesichtet wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
+	'unreviewed-viewing' => '(wird überprüft)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -914,6 +919,7 @@ $messages['pl'] = array(
 	'unreviewed-watched' => '(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
 	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
+	'unreviewed-viewing' => '(w trakcie przeglądania)',
 );
 
 /** Piedmontese (Piemontèis)
@@ -944,6 +950,22 @@ $messages['pt'] = array(
 	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'rever',
+	'unreviewed-unwatched' => '(não-vigiada)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
+	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
+	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
+	'unreviewed-viewing' => '(sob análise)',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'right-unreviewedpages' => 'Ver [[Special:UnreviewedPages|lista de páginas não analisadas]]',
+	'unreviewedpages' => 'Páginas não analisadas',
+	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
+	'unreviewed-category' => 'Categoria:',
+	'unreviewed-diff' => 'analisar',
 	'unreviewed-unwatched' => '(não-vigiada)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
 	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
