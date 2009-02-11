@@ -59,7 +59,7 @@ function update_flaggedrevs_stats() {
 		__METHOD__
 	);
 	// Get the mean edit review time
-	$size = 1500; // Sample size
+	$size = 15000; // Sample size
 	$seconds = $aveRT = 0;
 	# Only go so far back...otherwise we will get garbage values due to 
 	# the fact that FlaggedRevs wasn't enabled until after a while.
