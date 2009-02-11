@@ -8743,7 +8743,7 @@ $messages['ru'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} досмотрена] участником [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} досмотрена автоматически]',
 	'review-diff2stable' => 'Показать различия между стабильной и текущей версиями',
-	'review-logentry-app' => 'проверена версия r$2 страницы [[$1]]',
+	'review-logentry-app' => 'проверил версию r$2 страницы [[$1]]',
 	'review-logentry-dis' => 'устаревшая версия r$2 страницы [[$1]]',
 	'review-logentry-id' => 'идентификатор версии $1',
 	'review-logentry-diff' => 'разница со стабильной',
@@ -8770,7 +8770,7 @@ $messages['ru'] = array(
 Могли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} правки].',
 	'revreview-basic-same' => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>, была основана на этой версии.',
-	'revreview-blocked' => 'Вы не можете проверить эту версию, т.к. в настоящее время ваша учётная заблокированна ([$1 подробно])',
+	'revreview-blocked' => 'Вы не можете проверить эту версию, так как в настоящее время ваша учётная запись заблокированна ([$1 подробнее])',
 	'revreview-changed' => "'''Запрошенное действие не может быть выполнено с этой версией страницы [[:$1|$1]].'''
 
 Возможно, шаблон или изображение были запрошены без указания конкретной версии.
@@ -8827,9 +8827,10 @@ $messages['ru'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Выверенная страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} показать черновик]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Выверенная страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} показать черновик]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Выверенная страница]]'''",
-	'revreview-quick-see-basic' => "'''Черновик''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} показать страницу]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Черновик]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} показать страницу]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} сравнить])",
-	'revreview-quick-see-quality' => "'''Черновик''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} показать страницу]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} сравнить])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Черновик]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} показать страницу]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} сравнить])",
 	'revreview-selected' => "Выбранная версия '''$1:'''",
 	'revreview-source' => 'исходный текст черновика',
 	'revreview-stable' => 'Стабильная страница',
@@ -10482,7 +10483,7 @@ $messages['uk'] = array(
 	'hist-stable' => 'переглянута версія',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} переглянута] користувачем [[User:$3|$3]]',
 	'review-diff2stable' => 'Показати відмінності між стабільною і поточною версіями',
-	'review-logentry-app' => 'перевірена [[$1]]',
+	'review-logentry-app' => 'перевірив версію r$2 сторінки [[$1]]',
 	'review-logentry-dis' => 'застаріла версія [[$1]]',
 	'review-logentry-id' => 'ідентифікатор версії $1',
 	'review-logentry-diff' => 'різниця зі стабільною',

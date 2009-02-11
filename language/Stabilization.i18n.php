@@ -332,6 +332,7 @@ $messages['be-tarask'] = array(
 	'stabilization-submit' => 'Пацьвердзіць',
 	'stabilization-comment' => 'Прычына:',
 	'stabilization-sel-short-0' => 'Якасьць',
+	'stabilization-def-short' => 'Па змоўчваньні',
 );
 
 /** Bulgarian (Български)
@@ -2084,7 +2085,7 @@ $messages['ru'] = array(
 	'stabilization-submit' => 'Подтвердить',
 	'stabilization-notexists' => 'Отсутствует страница с названием «[[:$1|$1]]». Настройка невозможна.',
 	'stabilization-notcontent' => 'Страница «[[:$1|$1]]» не может быть проверена. Настройка невозможна.',
-	'stabilization-comment' => 'Примечание:',
+	'stabilization-comment' => 'Причина:',
 	'stabilization-expiry' => 'Истекает:',
 	'stabilization-sel-short' => 'Порядок следования',
 	'stabilization-sel-short-0' => 'Выверенная',
