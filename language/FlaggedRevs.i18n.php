@@ -201,7 +201,7 @@ Please check the URL you used to access this page.',
 	'revreview-filter-level-0'     => 'Sighted',
 	'revreview-filter-level-1'     => 'Quality',
 	'revreview-filter-level-2'     => 'Pristine',
-	'revreview-statusfilter'       => 'Status:',
+	'revreview-statusfilter'       => 'Status change:',
 	'revreview-typefilter'         => 'Type:',
 	'revreview-tagfilter'          => 'Tag:',
 	

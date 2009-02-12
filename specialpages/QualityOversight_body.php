@@ -71,7 +71,7 @@ class QualityOversight extends SpecialPage
 			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' .
 			FlaggedRevsXML::getLevelMenu( $this->level ) . '&nbsp;' .
-			Xml::inputLabel( wfMsg( 'specialloguserlabel' ), 'user', 'user', 15, $this->user ) . '&nbsp;' .
+			Xml::inputLabel( wfMsg( 'specialloguserlabel' ), 'user', 'user', 20, $this->user ) . '<br/>' .
 			FlaggedRevsXML::getStatusFilterMenu( $this->status ) . '&nbsp;' .
 			FlaggedRevsXML::getAutoFilterMenu( $this->automatic ) . '&nbsp;' .
 			Xml::submitButton( wfMsg( 'go' ) ) .
