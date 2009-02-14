@@ -782,7 +782,7 @@ class FlaggedRevs {
 			array( 'fr_page_id' => $title->getArticleID( $flags ),
 				'fr_rev_id' => $rev_id ),
 			__METHOD__,
-			array( 'FORCE INDEX' => 'PRIMARY' )
+			array( 'USE INDEX' => 'PRIMARY' )
 		);
 		return $quality;
 	}
