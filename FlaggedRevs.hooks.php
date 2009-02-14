@@ -832,6 +832,44 @@ EOT;
 		}
 		return true;
 	}
+	
+	/**
+	* Check for 'autoreview' permission. This lets people who opt-out as
+	* Editors still have their own edits automatically reviewed.
+	*/
+	public static function checkAutoPromote( $user, &$promote ) {
+		global $wgFlaggedRevsAutopromote;
+		wfProfileIn( __METHOD__ );
+		if( empty($wgFlaggedRevsAutopromote) || !$user->getId() || $user->isAllowed('autoreview') ) {
+			wfProfileOut( __METHOD__ );
+			return true; // not needed
+		}
+		# Check user email
+		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+		# Get requirments
+		$editsReq = max($wgFlaggedRevsAutopromote['edits'],3000);
+		$timeReq = max($wgFlaggedRevsAutopromote['days'],365);
+		# Check account age
+		$now = time();
+		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
+		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : NULL;
+		if( !is_null($userage) && $userage < $timeReq ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+		# Check user edit count. Should be stored.
+		if( $user->getEditCount() < $editsReq ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+		# Add the right
+		$promote[] = 'autoreview';
+		wfProfileOut( __METHOD__ );
+		return true;
+	}
 
 	/**
 	* Callback that autopromotes user according to the setting in
