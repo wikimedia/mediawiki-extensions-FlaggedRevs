@@ -726,6 +726,7 @@ $messages['lb'] = array(
 	'ratinghistory-year' => 'lescht Joer',
 	'ratinghistory-3years' => 'lescht 3 Joer',
 	'readerfeedback-svg' => 'Als SVG kucken',
+	'ratinghistory-table-votes' => 'Stëmmen',
 );
 
 /** Macedonian (Македонски)
@@ -1243,10 +1244,13 @@ $messages['uk'] = array(
 	'ratinghistory-3months' => 'останні 3 місяці',
 	'ratinghistory-year' => 'останній рік',
 	'ratinghistory-3years' => 'останні 3 роки',
+	'ratinghistory-ave' => 'Сер: $1',
 	'ratinghistory-chart' => 'Оцінки читачів за весь час',
 	'ratinghistory-users' => 'Оцінювачі',
 	'ratinghistory-graph' => '$2 з "$3" ($1 {{PLURAL:$1|перегляд|перегляди|переглядів}})',
 	'readerfeedback-svg' => 'Переглянути як SVG',
+	'ratinghistory-table-rating' => 'Рейтинг',
+	'ratinghistory-table-votes' => 'Голоси',
 	'ratinghistory-none' => "Недостатньо даних зворотного зв'язку читачів для графіків на цей час.",
 	'ratinghistory-legend' => "'''Середній рейтинг за добу''' <font color=\"blue\">''(синій)''</font> і  
 '''середній рейтинг за період''' <font color=\"green\">''(зелений)''</font> показані нижче за датою.

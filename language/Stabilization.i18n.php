@@ -566,13 +566,14 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'stabilization-tab' => 'εξωνυχιστικός έλεγχος',
 	'stabilization-page' => 'Όνομα σελίδας:',
 	'stabilization-submit' => 'Επιβεβαίωση',
-	'stabilization-comment' => 'Σχόλιο:',
+	'stabilization-comment' => 'Λόγος:',
 	'stabilization-expiry' => 'Λήγει:',
 	'stabilization-sel-short' => 'Προτεραιότητα',
 	'stabilization-sel-short-1' => 'Τίποτα',
@@ -2522,8 +2523,10 @@ $messages['uk'] = array(
 Налаштування неможливе.',
 	'stabilization-notcontent' => 'Сторінка «[[:$1|$1]]» не може бути перевірена.
 Налаштування неможливе.',
-	'stabilization-comment' => 'Коментар:',
+	'stabilization-comment' => 'Причина:',
+	'stabilization-otherreason' => 'Інша причина',
 	'stabilization-expiry' => 'Закінчується:',
+	'stabilization-othertime' => 'Інший час',
 	'stabilization-sel-short' => 'Порядок слідування',
 	'stabilization-sel-short-0' => 'Якісна',
 	'stabilization-sel-short-1' => 'Нема',

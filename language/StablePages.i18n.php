@@ -514,6 +514,10 @@ $messages['pl'] = array(
 	'stablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, by domyślnie czytelnikom prezentowana była wersja oznaczona.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
+	'stablepages-prec-none' => 'brak pierwszeństwa',
+	'stablepages-prec-quality' => 'pierwszeństwo dla zweryfikowanej',
+	'stablepages-prec-pristine' => 'pierwszeństwo dla nienaruszonej',
+	'stablepages-precedence' => 'Pierwszeństwo w wyświetlaniu',
 );
 
 /** Portuguese (Português)

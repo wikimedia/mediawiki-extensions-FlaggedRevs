@@ -84,10 +84,11 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Sanbec
  */
 $messages['es'] = array(
 	'likedpages-none' => 'No hay páginas en esta lista',
-	'likedpages-graphs' => 'Datos del rating',
+	'likedpages-graphs' => 'datos de valoración',
 );
 
 /** Persian (فارسی)

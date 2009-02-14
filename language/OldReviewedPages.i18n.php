@@ -322,6 +322,7 @@ $messages['es'] = array(
 	'oldreviewed-size' => 'Cambio máximo (bytes):',
 	'oldreviewedpages-unwatched' => '(no vigilado)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
+	'oldreviewedpages-viewing' => '(bajo revisión)',
 );
 
 /** Basque (Euskara)
@@ -1115,6 +1116,7 @@ $messages['uk'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дні|днів}})',
 	'oldreviewedpages-recent' => '(менше 1 години)',
 	'oldreviewed-category' => 'Категорія:',
+	'oldreviewed-watched' => 'З мого списку спостереження',
 	'oldreviewed-diff' => 'перевірити',
 	'oldreviewed-size' => 'Максимальна зміна розміру в байтах:',
 	'oldreviewedpages-unwatched' => '(не спостерігають)',

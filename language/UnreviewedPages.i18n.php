@@ -272,10 +272,13 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Omnipaedista
  */
 $messages['el'] = array(
 	'unreviewed-category' => 'Κατηγορία:',
-	'unreviewed-diff' => 'Αλλαγές',
+	'unreviewed-diff' => 'επιθεώρηση',
+	'unreviewed-unwatched' => '(δεν παρακολουθείται)',
+	'unreviewed-viewing' => '(υπό επιθεώρηση)',
 );
 
 /** Esperanto (Esperanto)
@@ -306,7 +309,7 @@ $messages['es'] = array(
 	'unreviewed-diff' => 'revisar',
 	'unreviewed-unwatched' => '(no vigilado)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
-	'unreviewed-list' => 'Esta lista de páginas contiene páginas que no han sido revisadas',
+	'unreviewed-list' => 'Esta lista contiene páginas que no han sido revisadas',
 	'unreviewed-none' => 'No hay actualmente páginas que cumplan estos criterios',
 );
 
@@ -690,11 +693,12 @@ $messages['ksh'] = array(
 );
 
 /** Latin (Latina)
+ * @author Omnipaedista
  * @author SPQRobin
  */
 $messages['la'] = array(
 	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'Cambiationes',
+	'unreviewed-diff' => 'cambiatio',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
