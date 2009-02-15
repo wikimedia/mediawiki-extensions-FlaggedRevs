@@ -60,7 +60,7 @@ function update_flaggedrevs_stats() {
 	);
 	// Get the mean edit review time
 	$size = 15000; // Sample size
-	$seconds = $aveRT = 0;
+	$seconds = $aveRT = $medianRT = 0;
 	# Only go so far back...otherwise we will get garbage values due to 
 	# the fact that FlaggedRevs wasn't enabled until after a while.
 	$installed = $dbr->selectField( 'logging', 'MIN(log_timestamp)', array('log_type' => 'review') );
@@ -140,38 +140,57 @@ function update_flaggedrevs_stats() {
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Get the *first* reviewed rev *after* each RC item and get the average difference.
 	# Only do this for revisions to pages that *were* already logged as reviewed.
-	$sql = $dbr->selectSQLText( array('revision','flaggedrevs','page','logging'),
-		array( 'UNIX_TIMESTAMP(rev_timestamp) AS rt', 'UNIX_TIMESTAMP(MIN(fr_timestamp)) AS ft',
-			'MIN(log_timestamp) AS lt' ),
+	$sql = $dbr->selectSQLText( array('revision','page','logging','flaggedrevs'),
+		array( 'UNIX_TIMESTAMP(rev_timestamp) AS rt', 'UNIX_TIMESTAMP(MIN(fr_timestamp)) AS ft', 'MIN(log_timestamp)' ),
 		array(
+			$timeCondition, // in time range
 			"rev_id BETWEEN $minRev AND $maxRev", // Better INDEX usage
-			$timeCondition,
 			'rev_user = 0', // IP edits (should start off unreviewed)
-			($mod > 1) ? "(rev_id % $mod) = 0" : "1 = 1", // Better spread
-			'fr_page_id = rev_page AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp', // later reviewed
-			// Check that this page was stable at the time.
-			// Assumes that reviewed pages stay reviewed (reasonable).
-			'page_id = rev_page', // get the title
-			'log_namespace = page_namespace AND log_title = page_title',
-			'log_type = "review" AND log_timestamp < rev_timestamp',
+			"(rev_id % $mod) = 0", // Better spread
 		),
 		__METHOD__,
 		array(
-			'GROUP BY'  => 'rev_id',
+			'GROUP BY'  => 'rev_id', // stats are for each edit and ID is unique
 			'ORDER BY'  => 'rev_id ASC', // slight bias avoidance, if any
 			'LIMIT'     => $size, // sample size
 			'USE INDEX' => array('revision' => array('PRIMARY','rev_id'),'flaggedrevs' => 'PRIMARY','logging' => 'page_time')
+		),
+		array( // Assumes title unchanged (reasonable).
+			'page' => array('INNER JOIN','page_id = rev_page'), // get the title
+			// Check that this page was stable at the time...
+			// Assumes that reviewed pages stay reviewed (reasonable).
+			'logging' => array('INNER JOIN','log_namespace = page_namespace AND log_title = page_title 
+				AND log_type = "review" AND log_timestamp < rev_timestamp'),
+			// Check *if* it was later reviewed
+			'flaggedrevs' => array('LEFT JOIN', 'fr_page_id = rev_page AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp'),
 		)
 	);
 	# Actually run the query...
 	$res = $dbr->doQuery( $sql, __METHOD__ );
 	if( $count = $dbr->numRows($res) ) {
+		$censored = 0;
+		$times = array();
 		# Get the sum of elapsed times
 		while( $row = $dbr->fetchObject($res) ) {
-			$seconds += ($row->ft - $row->rt);
+			# Reviewed: just subtract the times
+			if( $row->ft ) {
+				$seconds += ($row->ft - $row->rt);
+			# Not reviewed: censored data
+			} else {
+				$seconds += ($now - $row->rt);
+				$censored++;
+			}
+			$times[] = $seconds;
 			#echo( "\nedit:".$row->rt . "\treviewed:" . $row->ft );
 		}
-		$aveRT = $seconds/$count; // average
+		$aveRT = $seconds/($count - $censored); // sample mean
+		sort($times); // order smallest -> largest
+		// Sample median
+		if( count($times) % 2 == 0 ) {
+			$medianRT = ($times[count($times)/2-1] + $times[count($times)/2])/2;
+		} else {
+			$medianRT = $times[floor(count($times)/2)];
+		}
 	}
 	// Save the data
 	$dbw = wfGetDB( DB_MASTER );
@@ -195,7 +214,7 @@ function update_flaggedrevs_stats() {
 		);
 	}
 	$dbw->replace( 'flaggedrevs_stats2', array('stat_id'),
-		array('stat_id' => 1, 'ave_review_time' => $aveRT, 'ave_pending_time' => $avePET),
+		array('stat_id' => 1, 'ave_review_time' => $aveRT, 'med_review_time' => $medianRT, 'ave_pending_time' => $avePET),
 		__METHOD__
 	);
 	$dbw->commit();
@@ -222,6 +241,7 @@ function createFlaggedRevsStatsTable2( $dbw, $flaggedrevs_stats2 ) {
 		"CREATE TABLE $flaggedrevs_stats2 (
 			stat_id          INTEGER UNSIGNED NOT NULL DEFAULT 1 PRIMARY KEY,
 			ave_review_time  INTEGER UNSIGNED NOT NULL DEFAULT 0,
+			med_review_time  INTEGER UNSIGNED NOT NULL DEFAULT 0,
 			ave_pending_time INTEGER UNSIGNED NOT NULL DEFAULT 0
 		);"
 	);

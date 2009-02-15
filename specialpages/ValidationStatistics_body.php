@@ -23,13 +23,14 @@ class ValidationStatistics extends IncludableSpecialPage
 		$ec = $this->getEditorCount();
 		$rc = $this->getReviewerCount();
 		$mt = $this->getMeanReviewWait();
+		$mdt = $this->getMedianReviewWait();
 		$pt = $this->getMeanPendingWait();
 
 		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), 
 			$wgLang->formatnum($ec), $wgLang->formatnum($rc) )
 		);
 		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
-			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt)  )
+			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt), $wgLang->formatTimePeriod($mdt) )
 		);
 
 		if( !$this->readyForQuery() ) {
@@ -148,6 +149,11 @@ class ValidationStatistics extends IncludableSpecialPage
 	protected function getMeanReviewWait() {
 		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
 		return $this->db->selectField( 'flaggedrevs_stats2', 'ave_review_time' );
+	}
+	
+	protected function getMedianReviewWait() {
+		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
+		return $this->db->selectField( 'flaggedrevs_stats2', 'med_review_time' );
 	}
 	
 	protected function getMeanPendingWait() {
