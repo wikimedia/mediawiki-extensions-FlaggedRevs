@@ -688,6 +688,10 @@ $messages['vec'] = array(
 	'stablepages-text' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version stabile come contenuto de default par i visitatori.',
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
+	'stablepages-prec-none' => 'nissuna precedensa',
+	'stablepages-prec-quality' => 'precedensa par qualità',
+	'stablepages-prec-pristine' => 'precedensa originaria',
+	'stablepages-precedence' => 'Precedensa:',
 );
 
 /** Vietnamese (Tiếng Việt)

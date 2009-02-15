@@ -284,6 +284,23 @@ $aliases['hu'] = array(
 	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
 );
 
+/** Interlingua (Interlingua) */
+$aliases['ia'] = array(
+	'LikedPages' => array( 'PaginasLigate' ),
+	'OldReviewedPages' => array( 'PaginasReviditeAncian' ),
+	'ProblemPages' => array( 'PaginasProblematic' ),
+	'QualityOversight' => array( 'SupervisionDeQualitate' ),
+	'RatingHistory' => array( 'HistoriaDeEvalutationes' ),
+	'ReaderFeedback' => array( 'ReactionesDeLectores' ),
+	'ReviewedPages' => array( 'PaginasRevidite' ),
+	'RevisionReview' => array( 'RecensionDeVersiones' ),
+	'StablePages' => array( 'PaginasStabile' ),
+	'StableVersions' => array( 'VersionesStabile' ),
+	'UnreviewedPages' => array( 'PaginasNonRevidite' ),
+	'UnstablePages' => array( 'PaginasNonStabile' ),
+	'ValidationStatistics' => array( 'StatisticasDeValidation' ),
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */
@@ -485,7 +502,7 @@ $aliases['oc'] = array(
 	'StablePages' => array( 'Paginas establas', 'PaginasEstablas' ),
 	'StableVersions' => array( 'Versions establas', 'VersionsEstablas' ),
 	'UnreviewedPages' => array( 'Paginas pas relegidas', 'PaginasPasRelegidas' ),
-	'UnstablePages' => array( 'Paginas instablas', 'PaginasInstablas' ),
+	'UnstablePages' => array( 'Paginas instablas', 'PaginasInstablas', 'PaginasPas Relegidas' ),
 );
 
 /** Polish (Polski)
@@ -636,6 +653,24 @@ $aliases['sw'] = array(
 	'ValidationStatistics' => array( 'TakwimuIliyosahihi' ),
 );
 
+/** Tagalog (Tagalog) */
+$aliases['tl'] = array(
+	'LikedPages' => array( 'Nagustuhang mga pahina' ),
+	'OldReviewedPages' => array( 'Nasuring lumang mga pahina' ),
+	'ProblemPages' => array( 'Mga pahinang may suliranin' ),
+	'QualityOversight' => array( 'Maingat na pamamahala ng kalidad' ),
+	'RatingHistory' => array( 'Kasaysayan ng pag-aantas' ),
+	'ReaderFeedback' => array( 'Balik-ulat ng mambabasa' ),
+	'ReviewedPages' => array( 'Sinuring mga pahina' ),
+	'RevisionReview' => array( 'Pagsusuri ng pagbabago' ),
+	'Stabilization' => array( 'Pagpapatatag', 'pagpapatibay' ),
+	'StablePages' => array( 'Matatag na mga pahina' ),
+	'StableVersions' => array( 'Matatag na mga bersyon' ),
+	'UnreviewedPages' => array( 'Mga pahina hindi pa nasusuri' ),
+	'UnstablePages' => array( 'Hindi matatag na mga pahina' ),
+	'ValidationStatistics' => array( 'Mga estadistika ng pagtitiyak' ),
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */
@@ -646,6 +681,8 @@ $aliases['vec'] = array(
 	'StablePages' => array( 'PagineStabili' ),
 	'StableVersions' => array( 'VersionStabili' ),
 	'UnreviewedPages' => array( 'PagineNonRiesaminà' ),
+	'UnstablePages' => array( 'PagineMiaStabili' ),
+	'ValidationStatistics' => array( 'StatìstegheDeValidassion' ),
 );
 
 /** Vietnamese (Tiếng Việt)

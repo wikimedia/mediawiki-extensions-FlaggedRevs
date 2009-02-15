@@ -1142,6 +1142,7 @@ $messages['vec'] = array(
 	'oldreviewed-size' => 'Canbiamento massimo (in byte):',
 	'oldreviewedpages-unwatched' => '(non osservà)',
 	'oldreviewedpages-watched' => "($2 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
+	'oldreviewedpages-viewing' => '(in corso de revision)',
 );
 
 /** Vietnamese (Tiếng Việt)

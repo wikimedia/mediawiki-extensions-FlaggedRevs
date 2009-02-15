@@ -822,6 +822,8 @@ Ce 'a versiona secura jè pure l'urtema versione, allore 'a pàgene jè ''singro
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок',
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
+	'validationstatistics-time' => "Среднее ожидание правок от ''участников, которые не авторизовались'' равно '''$1'''.  
+Средняя задержка для [[Special:OldReviewedPages|устаревших страниц]] равна '''$2'''.",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён. Перенаправления из подсчётов исключены. 
 ''Устаревшими'' называются страницы, имеющие правки после стабильной версии.
 Если стабильная версия является последней, то страница называется ''синхронизированной''.

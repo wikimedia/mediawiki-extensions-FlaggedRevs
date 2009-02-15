@@ -1832,6 +1832,13 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
 );
 
+/** Novial (Novial)
+ * @author Malafaya
+ */
+$messages['nov'] = array(
+	'stabilization-comment' => 'Resone:',
+);
+
 /** Northern Sotho (Sesotho sa Leboa)
  * @author Mohau
  */
@@ -2065,6 +2072,7 @@ Non ge stonne le configurazione.',
 
 /** Russian (Русский)
  * @author Drbug
+ * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
@@ -2087,7 +2095,9 @@ $messages['ru'] = array(
 	'stabilization-notexists' => 'Отсутствует страница с названием «[[:$1|$1]]». Настройка невозможна.',
 	'stabilization-notcontent' => 'Страница «[[:$1|$1]]» не может быть проверена. Настройка невозможна.',
 	'stabilization-comment' => 'Причина:',
+	'stabilization-otherreason' => 'Другая причина',
 	'stabilization-expiry' => 'Истекает:',
+	'stabilization-othertime' => 'Другое время',
 	'stabilization-sel-short' => 'Порядок следования',
 	'stabilization-sel-short-0' => 'Выверенная',
 	'stabilization-sel-short-1' => 'Нет',

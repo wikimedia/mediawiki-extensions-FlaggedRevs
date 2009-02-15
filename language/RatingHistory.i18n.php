@@ -1032,6 +1032,7 @@ Schele: '''[1]''' - Povere; '''[2]''' - Vasce; '''[3]''' - Medie; '''[4]''' - Ie
 
 /** Russian (Русский)
  * @author Ferrer
+ * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
@@ -1046,10 +1047,14 @@ $messages['ru'] = array(
 	'ratinghistory-3months' => 'последние 3 месяца',
 	'ratinghistory-year' => 'последний год',
 	'ratinghistory-3years' => 'последние 3 года',
+	'ratinghistory-ave' => 'Средняя: $1',
 	'ratinghistory-chart' => 'Оценки читателей за всё время',
+	'ratinghistory-table' => 'Обзор оценок читателей',
 	'ratinghistory-users' => 'Участники, которые дали оценку',
 	'ratinghistory-graph' => '$2 из «$3» ($1 {{PLURAL:$1|оценка|оценки|оценок}})',
 	'readerfeedback-svg' => 'Просмотреть как SVG',
+	'ratinghistory-table-rating' => 'Оценка',
+	'ratinghistory-table-votes' => 'Голоса',
 	'ratinghistory-none' => 'В настоящее время набралось недостаточное количество читательских оценок для построения графика.',
 	'ratinghistory-legend' => "Ниже показаны '''среднесуточная оценка''' <font color=\"blue\">''(синий)''</font> и
 '''текущая средняя оценка''' <font color=\"green\">''(зелёный)''</font>.  '''Текущая средняя оценка''' — это среднее всех суточных оценок для данного промежутка времени каждого дня.

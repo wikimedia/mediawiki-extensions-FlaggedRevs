@@ -695,10 +695,11 @@ $messages['ksh'] = array(
 /** Latin (Latina)
  * @author Omnipaedista
  * @author SPQRobin
+ * @author UV
  */
 $messages['la'] = array(
 	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'cambiatio',
+	'unreviewed-diff' => 'review',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1200,6 +1201,7 @@ $messages['vec'] = array(
 	'unreviewed-watched' => "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
 	'unreviewed-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà.',
 	'unreviewed-none' => 'No ghe xe atualmente pagine che sodisfa sti criteri',
+	'unreviewed-viewing' => '(in corso de revision)',
 );
 
 /** Vietnamese (Tiếng Việt)
