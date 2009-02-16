@@ -12,7 +12,8 @@ $messages['en'] = array(
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'[[Special:ListUsers/editor|$1]]\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights
 and \'\'\'[[Special:ListUsers/reviewer|$2]]\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.',
 	'validationstatistics-time'   => 'The average wait for edits by \'\'users that have not logged in\'\' is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
-The average lag for [[Special:OldReviewedPages|outdated pages]] is \'\'\'$2\'\'\'.',
+
+The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.',
 	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.
 ''Outdated'' pages are those with edits newer than the stable version.
 If the stable version is also the latest version, then the page is ''synchronized''.
