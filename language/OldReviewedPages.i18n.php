@@ -152,6 +152,17 @@ $messages['ast'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|usuariu|usuarios}} vixilando)',
 );
 
+/** Bavarian (Boarisch)
+ * @author Man77
+ */
+$messages['bar'] = array(
+	'oldreviewedpages-none' => "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
+	'oldreviewedpages-days' => '($1 Tåg)',
+	'oldreviewedpages-recent' => '(weniga wia a Stund)',
+	'oldreviewed-watched' => 'auf meina Beobåchtungslistn',
+	'oldreviewedpages-unwatched' => '(ned beobåchtet)',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -299,7 +310,7 @@ $messages['eo'] = array(
 	'oldreviewed-diff' => 'kontroli',
 	'oldreviewed-size' => 'Maksimuma ŝanĝo de bitokoj:',
 	'oldreviewedpages-unwatched' => '(malatentita)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktiva uzanto|aktivaj uzantoj}} atentas)',
 );
 
 /** Spanish (Español)

@@ -1254,7 +1254,7 @@ $messages['zh-hans'] = array(
 	'unreviewed-category' => '分类:',
 	'unreviewed-diff' => '更改',
 	'unreviewed-unwatched' => '(未看)',
-	'unreviewed-watched' => '($1{{PLURAL:$1|位用户|位用户}}正在看)',
+	'unreviewed-watched' => '（$1位活跃用户正在监视)',
 	'unreviewed-list' => '这一页列示出还未复审或视察的页面修订。',
 	'unreviewed-none' => '这里现时没有页面合乎这些条件',
 );

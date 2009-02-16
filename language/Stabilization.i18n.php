@@ -608,7 +608,7 @@ se ĝi ne ekzistas, la nuna versio',
 Neniu konfiguro estas farebla.',
 	'stabilization-notcontent' => 'La paĝo "[[:$1|$1]]" ne estas kontrolebla.
 Neniu konfiguro eblas.',
-	'stabilization-comment' => 'Komento:',
+	'stabilization-comment' => 'Kialo:',
 	'stabilization-expiry' => 'Fintempo:',
 	'stabilization-sel-short' => 'Prioritato',
 	'stabilization-sel-short-0' => 'Kvalito',
