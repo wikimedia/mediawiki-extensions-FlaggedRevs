@@ -2438,6 +2438,7 @@ Lisćina stabilizěrowanych bokow dajo se w [[Special:StablePages|lisćinje stab
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Dead3y3
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -2445,16 +2446,16 @@ $messages['el'] = array(
 	'flaggedrevs-desc' => 'Δίνει τη δυνατότητα στους συντάκτες και τους επανεξεταστές να αξιολογίσουν εκδόσεις και να σταθεροποιήσουν σελίδες',
 	'flaggedrevs-prefs' => 'Σταθερότητα',
 	'group-editor' => 'Επεξεργαστές',
-	'group-editor-member' => 'Επεξεργαστής',
+	'group-editor-member' => 'συντάκτης',
 	'group-reviewer' => 'Επανεξεταστές',
-	'group-reviewer-member' => 'Επανεξεταστής',
+	'group-reviewer-member' => 'κριτικός',
 	'grouppage-editor' => '{{ns:project}}:Συντάκτης',
-	'grouppage-reviewer' => '((ns:project}}:Επανεξεταστής',
+	'grouppage-reviewer' => '{{ns:project}}:Κριτικός',
 	'hist-quality' => 'έκδοση ποιότητας',
 	'hist-stable' => 'θεάσιμη έκδοση',
-	'review-logentry-app' => 'αναθεωρημένο [[$1]]',
-	'reviewer' => 'Επανεξεταστής',
-	'revisionreview' => 'Θεώρηση εκδόσεων',
+	'review-logentry-app' => 'εξετάστηκε η r$2 της [[$1]]',
+	'reviewer' => 'Κριτικός',
+	'revisionreview' => 'Κριτική αναθεωρήσεων',
 	'revreview-accuracy' => 'Ακρίβεια',
 	'revreview-auto' => '(αυτόματο)',
 	'revreview-auto-w-old' => "Επεξεργάζεσαι μια παλιά αναθεωρημένη επανάληψη. Οι αλλαγές θα '''αναθεωρηθούν αυτόματα'''.",
@@ -2503,6 +2504,8 @@ $messages['eo'] = array(
 	'group-reviewer-member' => 'Kontrolanto',
 	'grouppage-editor' => '{{ns:project}}:Revizianto',
 	'grouppage-reviewer' => '{{ns:project}}:Kontrolanto',
+	'group-autoreview' => 'Aŭtomataj kontrolantoj',
+	'group-autoreview-member' => 'Aŭtomata kontrolanto',
 	'grouppage-autoreview' => '{{ns:project}}:Aŭtomata kontrolanto',
 	'hist-draft' => 'malneta versio',
 	'hist-quality' => 'kvalita versio',
@@ -2538,6 +2541,7 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] atendas [{{fullurl:{{FULLPAG
 Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble estis faritaj.',
 	'revreview-basic-same' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Reviziita versio] de ĉi tiu paĝo, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu versio.',
+	'revreview-blocked' => 'Vi ne povas kontroli ĉi tiun revizion ĉar via konto estas nune forbarita ([$1 detaloj])',
 	'revreview-changed' => "'''La petita ago ne povas esti farita por ĉi tiu versio de [[:$1|$1]].'''
 
 Ŝablono aŭ bildo verŝajne estis petita kiam nenia aparta versio estis petita.
@@ -2673,6 +2677,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'revreview-filter-manual' => 'Permana',
 	'revreview-filter-level-0' => 'Reviziitaj versioj',
 	'revreview-filter-level-1' => 'Bonkvalitaj versioj',
+	'revreview-filter-level-2' => 'Perfekta',
 	'revreview-statusfilter' => 'Statusa ŝanĝo:',
 	'revreview-typefilter' => 'Speco:',
 	'revreview-tagfilter' => 'Etikedo:',
@@ -4769,7 +4774,7 @@ $messages['hu'] = array(
 	'hist-quality' => 'kiemelt változat',
 	'hist-quality-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} kiemeltnek jelölte]',
 	'hist-stable' => 'megtekintett változat',
-	'hist-stable-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} megtekitettnek jelölte]',
+	'hist-stable-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} megtekintettnek jelölte]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatikusan megtekintve]',
 	'review-diff2stable' => 'A rögzített és a legutóbbi változat közötti eltérések megtekintése',
 	'review-logentry-app' => 'ellenőrizte a(z) [[$1]] lapot',

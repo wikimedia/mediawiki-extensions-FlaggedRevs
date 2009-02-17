@@ -104,6 +104,17 @@ $messages['dsb'] = array(
 	'unstablepages-config' => 'Konfiguracija',
 );
 
+/** Greek (Ελληνικά)
+ * @author Dead3y3
+ */
+$messages['el'] = array(
+	'unstablepages' => 'Ασταθείς σελίδες',
+	'unstablepages-stable' => 'σταθερή έκδοση',
+	'unstablepages-text' => 'Παρακάτω είναι ένας κατάλογος των σελίδων που είναι χειροκίνητα ρυθμισμένες να εμφανίζουν την πρόχειρη έκδοση ως το προεπιλεγμένο περιεχόμενο σελίδας για τους αναγνώστες.',
+	'unstablepages-none' => 'Δεν υπάρχουν σελίδες σε αυτό τον κατάλογο',
+	'unstablepages-config' => 'Ρύθμιση',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -158,11 +169,12 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'unstablepages' => 'Pages instables',
 	'unstablepages-stable' => 'version stable',
-	'unstablepages-text' => 'Ci-dessous se trouve une liste de pages configurées manuellement pour afficher la version brouillon comme contenu de page par défaut pour les relecteurs.',
+	'unstablepages-text' => 'Ci-dessous se trouve une liste des pages configurées manuellement pour que le contenu de leur version brouillon soit affiché par défaut pour les lecteurs.',
 	'unstablepages-none' => 'Il n’y a aucune page dans cette liste.',
 	'unstablepages-config' => 'Configuration',
 );

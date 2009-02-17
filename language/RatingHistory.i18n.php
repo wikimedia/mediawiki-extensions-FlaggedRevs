@@ -253,10 +253,14 @@ $messages['eo'] = array(
 	'ratinghistory-3months' => 'lastaj 3 monatoj',
 	'ratinghistory-year' => 'lasta jaro',
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
+	'ratinghistory-ave' => 'Avĝ: $1',
 	'ratinghistory-chart' => 'Taksado de legantaro trans tempo',
+	'ratinghistory-table' => 'Superrigardo pri taksado de legantoj',
 	'ratinghistory-users' => 'Uzantoj taksinte ĉi tiun paĝon:',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
 	'readerfeedback-svg' => 'Vidi kiel SVG',
+	'ratinghistory-table-rating' => 'Takso',
+	'ratinghistory-table-votes' => 'Voĉdonoj',
 	'ratinghistory-none' => 'Ne sufiĉas datenoj de legintoj por grafeoj ĉi-momente.',
 	'ratinghistory-legend' => "La '''tage averaĝa taksado''' <font color=\"blue\">''(blua)''</font> kaj 
 '''intervalaveraĝa taksado''' <font color=\"green\">''(verda)''</font> estas montrita en la jena grafeo, laŭ dato. La

@@ -566,22 +566,44 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Dead3y3
  * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'stabilization-tab' => 'εξωνυχιστικός έλεγχος',
+	'stabilization' => 'Σταθεροποίηση σελίδας',
+	'stabilization-text' => "'''Αλλάξτε τις ρυθμίσεις παρακάτω για να ρυθμίσετε πως η σταθερή έκδοση της σελίδας [[:$1|$1]] επιλέγεται και εμφανίζεται.'''",
+	'stabilization-perm' => 'Ο λογαριασμός σας δεν έχει δικαίωμα να αλλάξει την ρύθμιση σταθερής έκδοσης.
+Εδώ είναι οι τρέχουσες ρυθμίσεις για τη σελίδα [[:$1|$1]]:',
 	'stabilization-page' => 'Όνομα σελίδας:',
+	'stabilization-leg' => 'Επιβεβαιώστε ρυθμίσεις σταθερής έκδοσης',
+	'stabilization-select' => 'Επιλογή σταθερής έκδοσης',
+	'stabilization-select1' => 'Η τελευταία αναθεώρηση ποιότητας· αν δεν είναι παρούσα, τότε η τελευταία ιδωμένη',
+	'stabilization-select2' => 'Η τελευταία κριθείσα αναθεώρηση',
+	'stabilization-select3' => 'Η τελευταί μη αλλοιωμένη αναθεώρηση· αν δεν είναι παρούσα, τότε η τελευταία ποιότητας ή ιδωμένη',
+	'stabilization-def' => 'Αναθεώρηση εμφανιζόμενη στην προεπιλεγμένη εμφάνιση σελίδας',
+	'stabilization-def1' => 'Η σταθερή αναθεώρηση· αν δεν είναι παρούσα, τότε η τρέχουσα',
+	'stabilization-def2' => 'Η τρέχουσα αναθεώρηση',
 	'stabilization-submit' => 'Επιβεβαίωση',
+	'stabilization-notexists' => 'Δεν υπάρχει σελίδα αποκαλούμενη "[[:$1|$1]]".<br />
+Δεν είναι δυνατή καμία ρύθμιση.',
+	'stabilization-notcontent' => 'Η σελίδα "[[:$1|$1]]" δεν μπορεί να κριθεί.<br />
+Δεν είναι δυνατή καμία ρύθμιση.',
 	'stabilization-comment' => 'Λόγος:',
+	'stabilization-otherreason' => 'Άλλος λόγος',
 	'stabilization-expiry' => 'Λήγει:',
+	'stabilization-othertime' => 'Άλλος χρόνος',
 	'stabilization-sel-short' => 'Προτεραιότητα',
+	'stabilization-sel-short-0' => 'Ποιότητα',
 	'stabilization-sel-short-1' => 'Τίποτα',
-	'stabilization-def-short-0' => 'Τωρινό',
-	'stabilization-def-short-1' => 'Σταθερό',
+	'stabilization-sel-short-2' => 'Μη αλλοίωση',
+	'stabilization-def-short' => 'Προεπιλογή',
+	'stabilization-def-short-0' => 'Τρέχουσα',
+	'stabilization-def-short-1' => 'Σταθερή',
 	'stabilize_expiry_invalid' => 'Άκυρη ημερομηνία λήξης.',
 	'stabilize_expiry_old' => 'Η ημερομηνία λήξης έχει ήδη περάσει.',
-	'stabilize-expiring' => 'λήγει $1 (UTC)',
+	'stabilize-expiring' => 'λήγει στις $1 (UTC)',
 );
 
 /** Esperanto (Esperanto)
@@ -609,7 +631,9 @@ Neniu konfiguro estas farebla.',
 	'stabilization-notcontent' => 'La paĝo "[[:$1|$1]]" ne estas kontrolebla.
 Neniu konfiguro eblas.',
 	'stabilization-comment' => 'Kialo:',
+	'stabilization-otherreason' => 'Alia kialo',
 	'stabilization-expiry' => 'Fintempo:',
+	'stabilization-othertime' => 'Alia tempo',
 	'stabilization-sel-short' => 'Prioritato',
 	'stabilization-sel-short-0' => 'Kvalito',
 	'stabilization-sel-short-1' => 'Neniu',
@@ -1467,8 +1491,11 @@ $messages['lb'] = array(
 	'stabilization-def1' => 'déi stabil Versioun; oder wann et keng gëtt, déi aktuell Versioun',
 	'stabilization-def2' => 'Déi aktuell Versioun',
 	'stabilization-submit' => 'Confirméieren',
+	'stabilization-notexists' => 'D\'Säit "[[:$1|$1]]" gëtt et net.
+Keng Astellunge méiglech.',
 	'stabilization-comment' => 'Grond:',
 	'stabilization-otherreason' => 'Anere Grond:',
+	'stabilization-othertime' => 'Aner Zäit',
 	'stabilization-sel-short' => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',

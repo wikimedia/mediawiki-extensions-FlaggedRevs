@@ -185,6 +185,29 @@ Pśerězne wokomuźenje za [[Special:OldReviewedPages|zestarjone boki]] jo '''$2
 	'validationstatistics-old' => 'Zestarjone',
 );
 
+/** Greek (Ελληνικά)
+ * @author Dead3y3
+ */
+$messages['el'] = array(
+	'validationstatistics' => 'Στατιστικά επικύρωσης',
+	'validationstatistics-users' => "Ο ιστότοπος '''{{SITENAME}}''' αυτή τη στιγμή έχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Συντάκτη]]
+και '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Κριτικού]].",
+	'validationstatistics-time' => "Ο μέσος χρόνος αναμονής για επεξεργασίες από ''χρήστες που δεν έχουν συνδεθεί'' είναι '''$1'''· o διάμεσος είναι '''$3'''.
+
+Η μέση χρονική υστέρηση για [[Special:OldReviewedPages|σελίδες με επεξεργασίες που εκκρεμμούν κριτικής]] είναι '''$2'''.",
+	'validationstatistics-table' => "Στατιστικά για κάθε περιοχή ονομάτων φαίνονται παρακάτω, ''εξαιρουμένων'' σελίδων ανακατεύθυνσης.
+Οι ''παρωχημένες'' σελίδες είναι αυτές με επεξεργασίες νεότερες από την σταθερή έκδοση.
+Αν η σταθερή έκδοση είναι επίσης η τελευταία έκδοση, τότε η σελίδα είναι ''συγχρονισμένη''.
+
+''Σημείωση: τα ακόλουθα δεδομένα είναι αποθηκευμένα στην λανθάνουσα μνήμη για αρκετές ώρες και μπορεί να μην είναι ενημερωμένα.''",
+	'validationstatistics-ns' => 'Περιοχή ονομάτων',
+	'validationstatistics-total' => 'Σελίδες',
+	'validationstatistics-stable' => 'Κρίθηκαν',
+	'validationstatistics-latest' => 'Τελευταία κρίθηκαν',
+	'validationstatistics-synced' => 'Συγχρονισμένες/Κρίθηκαν',
+	'validationstatistics-old' => 'Παρωχημένες',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -804,7 +827,8 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'validationstatistics' => 'Statisteche de validazione',
 	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''$2''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].",
-	'validationstatistics-time' => "'A medie attese pe le cangiaminde da ''utinde ca non ge sonde colleghete'' jè '''$1'''.
+	'validationstatistics-time' => "'A medie attese pe le cangiaminde da ''utinde ca non ge sonde colleghete'' jè '''$1'''; 'a medie jè '''$3'''.
+
 'U timbe medie pe le [[Special:OldReviewedPages|pàggene non aggiornete]] jè '''$2'''.",
 	'validationstatistics-table' => "Le statisteche pe ogne namespace sonde mostrete aqquà sotte, 'scludenne le pàggene de redirezionaminde.
 
@@ -957,8 +981,8 @@ Ang karaniwang panahon ng pagkakaiwan para sa [[Special:OldReviewedPages|mga pah
 $messages['tr'] = array(
 	'validationstatistics' => 'Doğrulama istatistikleri',
 	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editor]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} ve [[{{MediaWiki:Validationpage}}|Reviewer]] yetkisine sahip '''$2''' {{PLURAL:$2|kullanıcı|kullanıcı}} bulunmaktadır.",
-	'validationstatistics-time' => "''Giriş yapmamış kullanıcılar'' tarafından değişiklikler için ortalama bekleme süresi '''$1'''.
-[[Special:OldReviewedPages|Eskimiş sayfalar]] için ortalama gecikme '''$2'''.",
+	'validationstatistics-time' => "''Giriş yapmamış kullanıcılar'' tarafından değişiklikler için ortalama bekleme süresi '''$1'''; orta değer '''$3'''.
+[[Special:OldReviewedPages|Gözden geçirilmemiş değişikliğe sahip sayfalar]] için ortalama gecikme '''$2'''.",
 	'validationstatistics-table' => "Her bir ad alanı için istatistikler aşağıda gösterilmiştir, yönlendirme sayfaları hariç.
 ''Eskimiş'' sayfalar kararlı sürümden sonra yeni değişikliğe sahip sayfalardır.
 Eğer kararlı sürüm aynı zamanda son sürümse, sayfa ''senkron'' olur.

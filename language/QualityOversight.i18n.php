@@ -65,6 +65,14 @@ $messages['bg'] = array(
 	'qualityoversight' => 'Качествен надзор',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'qualityoversight' => 'Nadzor kvalitete',
+	'qualityoversight-legend' => 'Traži nedavne zapise pregleda',
+);
+
 /** Catalan (Català)
  * @author SMP
  */

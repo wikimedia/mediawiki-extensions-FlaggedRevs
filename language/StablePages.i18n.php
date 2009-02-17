@@ -146,9 +146,18 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Dead3y3
  */
 $messages['el'] = array(
+	'stablepages' => 'Σταθερές σελίδες',
+	'stablepages-stable' => 'σταθερή έκδοση',
+	'stablepages-text' => 'Παρακάτω είναι ένας κατάλογος σελίδων χειροκίνητα ρυθμισμένων να εμφανίζουν την σταθερή έκδοση ως το προεπιλεγμένο περιεχόμενο σελίδας για τους αναγνώστες.',
 	'stablepages-none' => 'Δεν υπάρχουν σελίδες σε αυτή την λίστα',
+	'stablepages-config' => 'Ρύθμιση',
+	'stablepages-prec-none' => 'χωρίς προτεραιότητα',
+	'stablepages-prec-quality' => 'προτεραιότητα ποιότητας',
+	'stablepages-prec-pristine' => 'προτεραιότητα μη αλλοίωσης',
+	'stablepages-precedence' => 'Προτεραιότητα:',
 );
 
 /** Esperanto (Esperanto)
@@ -160,6 +169,10 @@ $messages['eo'] = array(
 	'stablepages-text' => 'Jen listo de paĝoj permane konfiguritaj montri la stabilan version kiel la defaŭltan paĝon por rigardantoj.',
 	'stablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'stablepages-config' => 'Konfiguro',
+	'stablepages-prec-none' => 'neniu prioritato',
+	'stablepages-prec-quality' => 'bonkvalita prioritato',
+	'stablepages-prec-pristine' => 'perfekta prioritato',
+	'stablepages-precedence' => 'Prioritato:',
 );
 
 /** Spanish (Español)

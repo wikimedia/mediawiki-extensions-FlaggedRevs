@@ -311,6 +311,7 @@ $messages['eo'] = array(
 	'oldreviewed-size' => 'Maksimuma ŝanĝo de bitokoj:',
 	'oldreviewedpages-unwatched' => '(malatentita)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktiva uzanto|aktivaj uzantoj}} atentas)',
+	'oldreviewedpages-viewing' => '(kontrolata)',
 );
 
 /** Spanish (Español)

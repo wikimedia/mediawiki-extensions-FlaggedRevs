@@ -272,13 +272,20 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Dead3y3
  * @author Omnipaedista
  */
 $messages['el'] = array(
+	'right-unreviewedpages' => 'Δείτε τον [[Special:UnreviewedPages|κατάλογο των σελίδων χωρίς κριτική]]',
+	'unreviewedpages' => 'Σελίδες χωρίς κριτική',
+	'unreviewed-legend' => 'Απαρίθμηση σελίδων περιεχομένου χωρίς κριτική',
 	'unreviewed-category' => 'Κατηγορία:',
-	'unreviewed-diff' => 'επιθεώρηση',
+	'unreviewed-diff' => 'κριτική',
 	'unreviewed-unwatched' => '(δεν παρακολουθείται)',
-	'unreviewed-viewing' => '(υπό επιθεώρηση)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|ενεργός χρήστης παρακολουθεί|ενεργοί χρήστες παρακολουθούν}})',
+	'unreviewed-list' => 'Αυτή η σελίδα απαριθμεί σελίδες περιεχομένων που δεν έχουν κριθεί.',
+	'unreviewed-none' => 'Αυτή τη στιγμή δεν υπάρχουν σελίδες που να ικανοποιούν αυτά τα κριτήρια',
+	'unreviewed-viewing' => '(υπό κριτική)',
 );
 
 /** Esperanto (Esperanto)
@@ -291,9 +298,10 @@ $messages['eo'] = array(
 	'unreviewed-category' => 'Kategorio:',
 	'unreviewed-diff' => 'kontrolo',
 	'unreviewed-unwatched' => '(malatentita)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|uzanto|uzantoj}} atentas)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktiva uzanto|aktivaj uzantoj}} atentas)',
 	'unreviewed-list' => 'Ĉi tiu paĝo montras enhavajn paĝojn kiuj ne estas kontrolitaj.',
 	'unreviewed-none' => 'Nune neniuj paĝoj kongruas tiun kriterion',
+	'unreviewed-viewing' => '(kontrolata)',
 );
 
 /** Spanish (Español)

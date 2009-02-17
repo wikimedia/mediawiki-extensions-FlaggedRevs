@@ -198,9 +198,15 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Dead3y3
  */
 $messages['el'] = array(
+	'stableversions' => 'Εμφάνιση σταθερών εκδόσεων',
+	'stableversions-leg1' => 'Απαρίθμηση κριθέντων αναθεωρήσεων για μια σελίδα',
 	'stableversions-page' => 'Όνομα σελίδας:',
+	'stableversions-none' => 'Η "[[:$1]]" δεν έχει αναθεωρήσεις που να έχουν κριθεί.',
+	'stableversions-list' => 'Ο ακόλουθος είναι ένα κατάλογος των αναθεωρήσεων της σελίδας [[:$1]] που έχουν κριθεί:',
+	'stableversions-review' => 'Κρίθηκε στις <i>$1</i> από τον/την $2',
 );
 
 /** Esperanto (Esperanto)
