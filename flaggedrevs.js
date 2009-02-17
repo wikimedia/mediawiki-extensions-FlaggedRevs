@@ -313,6 +313,10 @@ wgAjaxReview.unlockForm = function() {
 		return false;
 	}
 	submit.disabled = "";
+	var inputs = form.getElementsByTagName("input");
+	for( var i=0; i < inputs.length; i++) {
+		inputs[i].disabled = "";
+	}
 	if( notes ) {
 		notes.disabled = "";
 	}
