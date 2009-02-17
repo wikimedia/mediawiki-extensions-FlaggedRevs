@@ -286,19 +286,19 @@ $aliases['hu'] = array(
 
 /** Interlingua (Interlingua) */
 $aliases['ia'] = array(
-	'LikedPages' => array( 'PaginasLigate' ),
-	'OldReviewedPages' => array( 'PaginasReviditeAncian' ),
-	'ProblemPages' => array( 'PaginasProblematic' ),
-	'QualityOversight' => array( 'SupervisionDeQualitate' ),
-	'RatingHistory' => array( 'HistoriaDeEvalutationes' ),
-	'ReaderFeedback' => array( 'ReactionesDeLectores' ),
-	'ReviewedPages' => array( 'PaginasRevidite' ),
-	'RevisionReview' => array( 'RecensionDeVersiones' ),
-	'StablePages' => array( 'PaginasStabile' ),
-	'StableVersions' => array( 'VersionesStabile' ),
-	'UnreviewedPages' => array( 'PaginasNonRevidite' ),
-	'UnstablePages' => array( 'PaginasNonStabile' ),
-	'ValidationStatistics' => array( 'StatisticasDeValidation' ),
+	'LikedPages' => array( 'Paginas ligate' ),
+	'OldReviewedPages' => array( 'Paginas revidite ancian' ),
+	'ProblemPages' => array( 'Paginas problematic' ),
+	'QualityOversight' => array( 'Supervision de qualitate' ),
+	'RatingHistory' => array( 'Historia de evalutationes' ),
+	'ReaderFeedback' => array( 'Reactiones de lectores' ),
+	'ReviewedPages' => array( 'Paginas revidite' ),
+	'RevisionReview' => array( 'Recension de versiones' ),
+	'StablePages' => array( 'Paginas stabile' ),
+	'StableVersions' => array( 'Versiones stabile' ),
+	'UnreviewedPages' => array( 'Paginas non revidite' ),
+	'UnstablePages' => array( 'Paginas non stabile' ),
+	'ValidationStatistics' => array( 'Statisticas de validation' ),
 );
 
 /** Indonesian (Bahasa Indonesia)
