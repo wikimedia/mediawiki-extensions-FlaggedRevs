@@ -262,7 +262,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$namespace = intval($namespace);
 		}
 		if( !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = '';
+			$namespace = $wgFlaggedRevsNamespaces;
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
