@@ -253,7 +253,7 @@ $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 53;
+$wgFlaggedRevStyleVersion = 54;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -421,6 +421,8 @@ $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts'
 $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
 # Check if a page is being reviewed
 $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
+# Null edit review via checkbox
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 
 # Add CSS/JS as needed
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';

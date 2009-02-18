@@ -757,6 +757,34 @@ EOT;
 		}
 		return true;
 	}
+	
+	/**
+	* When an user makes a null-edit with the review checkbox ticked
+	*/
+	public static function maybeNullEditReview( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
+		global $wgRequest;
+		# Must be in reviewable namespace
+		$title = $article->getTitle();
+		# Revision must *be* null (null edit). We also need the user who made the edit.
+		if( !$user || $rev !== NULL || !FlaggedRevs::isPageReviewable( $title ) ) {
+			return true;
+		}
+		# Get the just the current revision ID
+		$rev = Revision::newFromTitle( $title );
+		$flags = null;
+		# Get edit timestamp, it must exist.
+		$editTimestamp = $wgRequest->getVal('wpEdittime');
+		# Is the page checked off to be reviewed?
+		if( $rev && $editTimestamp && $wgRequest->getCheck('wpReviewEdit') && $user->isAllowed('review') ) {
+			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
+			# Don't do so if an edit was auto-merged in between though...
+			if( $rev->getTimestamp() == $editTimestamp ) {
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				return true; // done!
+			}
+		}
+		return true;
+	}
 
 	/**
 	* When an edit is made to a page that can't be reviewed, autopatrol if allowed.
