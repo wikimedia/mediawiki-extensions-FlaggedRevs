@@ -161,7 +161,7 @@ function update_flaggedrevs_stats() {
 			'LIMIT'     => $size, // sample size
 			'USE INDEX' => array('revision' => array('PRIMARY','rev_id'),'flaggedrevs' => 'PRIMARY','logging' => 'page_time')
 		),
-		array( // Assumes title unchanged (reasonable).
+		array( // Assumes title unchanged (reasonable). Double-check NS though.
 			'page' => array('INNER JOIN',array('page_id = rev_page','page_namespace' => $wgFlaggedRevsNamespaces)),
 			// Check that this page was stable at the time...
 			// Assumes that reviewed pages stay reviewed (reasonable).
@@ -181,12 +181,12 @@ function update_flaggedrevs_stats() {
 			# Reviewed: just subtract the times
 			if( $row->ft ) {
 				$seconds += ($row->ft - $row->rt);
+				$times[] = ($row->ft - $row->rt);
 			# Not reviewed: censored data
 			} else {
 				$seconds += ($now - $row->rt);
 				$censored++;
 			}
-			$times[] = $seconds;
 			#echo( "\nedit:".$row->rt . "\treviewed:" . $row->ft );
 		}
 		$aveRT = $seconds/($count - $censored); // sample mean
