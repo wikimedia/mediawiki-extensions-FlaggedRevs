@@ -780,6 +780,16 @@ EOT;
 			# Don't do so if an edit was auto-merged in between though...
 			if( $rev->getTimestamp() == $editTimestamp ) {
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				$rcid = $rev->isUnpatrolled();
+				# Make sure it is now marked patrolled...
+				if( $rcid ) {
+					$dbw = wfGetDB( DB_MASTER );
+					$dbw->update( 'recentchanges',
+						array( 'rc_patrolled' => 1 ),
+						array( 'rc_id' => $rcid ),
+						__METHOD__
+					);
+				}
 				return true; // done!
 			}
 		}
