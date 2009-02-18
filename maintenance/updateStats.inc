@@ -53,10 +53,14 @@ function update_flaggedrevs_stats() {
 	}
 	// Getting mean pending edit time
 	$now = time(); // current time in UNIX TS
-	$avePET = (int)$dbr->selectField( array('flaggedpages'),
+	$avePET = (int)$dbr->selectField( array('flaggedpages','page'),
 		"AVG( $now - UNIX_TIMESTAMP(fp_pending_since) )",
-		array( 'fp_pending_since IS NOT NULL' ),
-		__METHOD__
+		array( 'fp_pending_since IS NOT NULL', 
+			'fp_page_id = page_id',
+			'page_namespace' => $wgFlaggedRevsNamespaces // Sanity check: must still be in proper NS
+		),
+		__METHOD__,
+		array( 'USE INDEX' => array('flaggedpages' => 'fp_pending_since') )
 	);
 	// Get the mean edit review time
 	$size = 15000; // Sample size
@@ -73,12 +77,14 @@ function update_flaggedrevs_stats() {
 	$last = '0';
 	while( true ) { // should almost always be ~1 pass
 		# Get the page with the worst pending lag...
-		$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
+		$row = $dbr->selectRow( array('flaggedpages','flaggedrevs','page'),
 			array( 'fp_page_id', 'fp_stable', 'fp_pending_since', 'fr_timestamp' ),
 			array( 
 				'fp_pending_since > '.$dbr->addQuotes($installed), // needs actual display lag
 				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable',
 				'fp_pending_since > '.$dbr->addQuotes($last), // skip failed rows
+				'page_id = fp_page_id', // get page title
+				'page_namespace' => $wgFlaggedRevsNamespaces // sanity check NS
 			),
 			__METHOD__,
 			array( 'ORDER BY' => 'fp_pending_since ASC',
@@ -156,7 +162,7 @@ function update_flaggedrevs_stats() {
 			'USE INDEX' => array('revision' => array('PRIMARY','rev_id'),'flaggedrevs' => 'PRIMARY','logging' => 'page_time')
 		),
 		array( // Assumes title unchanged (reasonable).
-			'page' => array('INNER JOIN','page_id = rev_page'), // get the title
+			'page' => array('INNER JOIN',array('page_id = rev_page','page_namespace' => $wgFlaggedRevsNamespaces)),
 			// Check that this page was stable at the time...
 			// Assumes that reviewed pages stay reviewed (reasonable).
 			'logging' => array('INNER JOIN','log_namespace = page_namespace AND log_title = page_title 
