@@ -258,9 +258,12 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		# Must be a content page...
 		global $wgFlaggedRevsNamespaces;
-		if( !is_null($namespace) ) {
+		if( is_null($namespace) ) {
+			$namespace = $wgFlaggedRevsNamespaces;
+		} else {
 			$namespace = intval($namespace);
 		}
+		# Sanity check
 		if( !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
 			$namespace = $wgFlaggedRevsNamespaces;
 		}
