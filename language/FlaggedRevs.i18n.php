@@ -4801,7 +4801,7 @@ Az elfogadott lapok listáját az [[Special:ReviewedPages|ellenőrzött lapok li
 	'revreview-basic-i' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i> A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} sablon- vagy képváltoztatások] várnak ellenőrzésre.',
 	'revreview-basic-old' => 'Ez egy [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} teljes lista]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve] <i>$2</i>-kor.
 Lehetnek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változtatások].',
-	'revreview-basic-same' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} teljes lista]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>',
+	'revreview-basic-same' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>',
 	'revreview-basic-source' => 'A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} megtekintett változata] ([{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} elfogadás] dátuma <i>$2</i>) ezen a verzión alapul.',
 	'revreview-changed' => "'''A kért művelet nem hajtható végre a(z) [[:$1|$1]] ezen változatán.'''
 
@@ -4818,7 +4818,7 @@ egy dinamikus sablon más képet vagy sablont illeszt be egy paramétertől füg
 	'revreview-edit' => 'Ellenőrizetlen változat szerkesztése',
 	'revreview-editnotice' => "'''Megjegyzés: a szerkesztéseid a lap következő [[{{MediaWiki:Validationpage}}|rögzített változatában]] fognak megjelenni, amint egy [[{{MediaWiki:Validationpage}}|járőr]] ellenőrizte őket.'''",
 	'revreview-flag' => 'Változat ellenőrzése',
-	'revreview-edited' => "'''A szerkesztéseid akkor jelennek meg a [[{{MediaWiki:Validationpage}}|rögzített változatban]], ha egy szerkesztő ellenőrzi azt.'''
+	'revreview-edited' => "'''A szerkesztéseid akkor jelennek meg a [[{{MediaWiki:Validationpage}}|rögzített változatban]], ha egy szerkesztő ellenőrizte.'''
 '''A ''nem ellenőrzött változat'' lent látható.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 változtatás] vár megtekintésre.",
 	'revreview-invalid' => "'''Érvénytelen cél:''' a megadott azonosító nem egy [[{{MediaWiki:Validationpage}}|ellenőrzött]] változat.",
 	'revreview-legend' => 'A változat tartalmának értékelése',
@@ -4828,7 +4828,7 @@ egy dinamikus sablon más képet vagy sablont illeszt be egy paramétertől füg
 Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi megtekintett változat]
 ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]
-ekkor: <i>$2</i> [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változást] kell ellenőrizni.',
+ekkor: <i>$2</i> ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változást] kell ellenőrizni).',
 	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi megtekintett változat] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} megjelölve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablonok vagy képek változtatásait] kell ellenőrizni.',
 	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi kiemelt változat]
@@ -4911,7 +4911,7 @@ Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrizetl
 	'stable-logpagetext' => 'Ez a lap a lapok [[{{MediaWiki:Validationpage}}|elfogadott változataiban]] történt változások
 naplója.',
 	'readerfeedback' => 'Mit gondolsz erről az oldalról?',
-	'readerfeedback-text' => "''Kérünk, szánj egy percet a cikk az értékelésére! A visszajelzések segítenek az oldal fejlesztésében.''",
+	'readerfeedback-text' => "''Arra kérünk, szánj egy percet a cikk értékelésére! A visszajelzések segítenek az oldal fejlesztésében.''",
 	'readerfeedback-reliability' => 'Megbízhatóság',
 	'readerfeedback-completeness' => 'Teljesség',
 	'readerfeedback-npov' => 'Tárgyilagosság',

@@ -68,6 +68,7 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Ghaly
  * @author Meno25
  * @author Ramsis II
  */
@@ -75,8 +76,8 @@ $messages['arz'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
 	'validationstatistics-users' => "'''{{SITENAME}}''' لديه حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|محرر]]
 و '''$2''' {{PLURAL:$2|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|مراجع]].",
-	'validationstatistics-time' => "متوسط الانتظار فى التعديلات لـ''اليوزرات اللى ماسجلوش دخولهم'' هوه '''$1'''. 
-متوسط التأخير لـ [[Special:OldReviewedPages|الصفحات القديمه]] هوه '''$2'''.",
+	'validationstatistics-time' => "متوسط انتظار التعديلات لـ''اليوزرات اللى ماسجلوش دخولهم'' هو '''$1'''. 
+متوسط التأخير لـ [[Special:OldReviewedPages|الصفحات القديمه]] هو '''$2'''.",
 	'validationstatistics-table' => "الاحصائيات لكل نطاق معروضه تحت ، ''من غير'' صفحات التحويل.
 الصفحات ''القديمه''  هى اللى بتبقا فيها تعديلات احدث من النسخه الثابته.
 لو النسخه الثابته هى نفسها اخر نسخه ، ساعتها الصفحه دى بتبقا ''متحدثه''.
@@ -216,6 +217,9 @@ $messages['eo'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun
 [[{{MediaWiki:Validationpage}}|Revizianto]]-rajtoj
 kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.",
+	'validationstatistics-time' => "La averaĝa atendotempo por redaktoj de ''nesalutita uzantoj'' estas '''$1'''; la mediano estas '''$3'''.
+
+La averaĝa atendotempo por [[Special:OldReviewedPages|paĝoj kun nekontrolitaj redaktoj farontaj]] estas '''$2'''.",
 	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, krom alidirektiloj.
 ''Neĝisdataj'' paĝoj estas tioj kun redaktoj pli novaj ol la plej stabila versio.
 Se la stabila versio ankaŭ estas la plej lasta versio, la paĝo estas ''sinkroniga''.
@@ -799,7 +803,7 @@ Se a versão estável for também a mais recente, a página está '''sincronizad
 $messages['pt-br'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
 	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] e '''$2''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]].",
-	'validationstatistics-time' => "O tempo médio de espera de edições por ''utilizadores não registrados'' é '''$1'''.   
+	'validationstatistics-time' => "O tempo médio de espera para edições feitas por ''utilizadores não registrados'' é '''$1'''; a mediana é '''$3'''.   
 O atraso médio para [[Special:OldReviewedPages|páginas desatualizadas]] é '''$2'''.",
 	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento. Páginas '''desatualizadas''' são as com edições posteriores à versão estável.
 Se a versão estável for também a mais recente, a página está '''sincronizada'''.
@@ -855,9 +859,9 @@ Ce 'a versiona secura jè pure l'urtema versione, allore 'a pàgene jè ''singro
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок',
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник|участника|участников}} имеют права [[{{MediaWiki:Validationpage}}|«проверяющего»]].",
-	'validationstatistics-time' => "Среднее ожидание правок от ''участников, которые не авторизовались'' равно '''$1''', медиана равна '''$3'''.
+	'validationstatistics-time' => "Среднее ожидание для правок от ''неавторизовавшихся участников'' равно '''$1'''; медиана равна '''$3'''.
 
-Средняя задержка для [[Special:OldReviewedPages|устаревших страниц]] равна '''$2'''.",
+Средняя задержка для [[Special:OldReviewedPages|страниц с недосмотренными правками]] равна '''$2'''.",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён. Перенаправления из подсчётов исключены. 
 ''Устаревшими'' называются страницы, имеющие правки после стабильной версии.
 Если стабильная версия является последней, то страница называется ''синхронизированной''.

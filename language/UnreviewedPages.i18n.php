@@ -430,9 +430,11 @@ $messages['gl'] = array(
  */
 $messages['grc'] = array(
 	'unreviewedpages' => 'Ἀνεπιθεώρηται δέλτοι',
+	'unreviewed-legend' => 'Κατάλογος ἀνεπισκοπήτων δέλτων περιεχομένων',
 	'unreviewed-category' => 'Κατηγορία:',
-	'unreviewed-diff' => 'ἀναθεωρεῖν',
+	'unreviewed-diff' => 'ἐπισκόπησις',
 	'unreviewed-unwatched' => '(ἀνεφορωμένη)',
+	'unreviewed-viewing' => '(ὑπὸ ἐπισκόπησιν)',
 );
 
 /** Swiss German (Alemannisch)
@@ -707,7 +709,7 @@ $messages['ksh'] = array(
  */
 $messages['la'] = array(
 	'unreviewed-category' => 'Categoria:',
-	'unreviewed-diff' => 'review',
+	'unreviewed-diff' => 'circumspectio',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1014,6 +1016,7 @@ $messages['roa-tara'] = array(
  * @author EugeneZelenko
  * @author Ferrer
  * @author Kaganer
+ * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
@@ -1027,6 +1030,7 @@ $messages['ru'] = array(
 	'unreviewed-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})',
 	'unreviewed-list' => 'На этой странице перечислены непроверенные статьи.',
 	'unreviewed-none' => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
+	'unreviewed-viewing' => '(проверяются)',
 );
 
 /** Yakut (Саха тыла)

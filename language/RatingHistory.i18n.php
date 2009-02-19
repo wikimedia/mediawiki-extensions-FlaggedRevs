@@ -425,6 +425,8 @@ $messages['grc'] = array(
 	'ratinghistory-year' => 'ὕστατον ἔτος',
 	'ratinghistory-3years' => 'ὕστατα 3 ἔτη',
 	'readerfeedback-svg' => 'Ὁρᾶν ὡς SVG',
+	'ratinghistory-table-rating' => 'Βάθμωσις',
+	'ratinghistory-table-votes' => 'Ψῆφοι',
 );
 
 /** Swiss German (Alemannisch)

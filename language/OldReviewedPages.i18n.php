@@ -927,6 +927,28 @@ $messages['pt'] = array(
 	'oldreviewedpages-viewing' => '(sob análise)',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
+	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
+	'oldreviewedpages-list' => 'Esta página lista as páginas analisadas que possuem edições pendentes.',
+	'oldreviewedpages-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
+	'oldreviewedpages-stable' => 'analisada',
+	'oldreviewedpages-quality' => 'confiável',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
+	'oldreviewedpages-recent' => '(menos de 1 hora)',
+	'oldreviewed-category' => 'Categoria:',
+	'oldreviewed-watched' => 'Na minha lista de vigiados',
+	'oldreviewed-diff' => 'analisar',
+	'oldreviewed-size' => 'Tamanho máximo da alteração (em bytes):',
+	'oldreviewedpages-unwatched' => '(não-vigiada)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} vigiando)',
+	'oldreviewedpages-viewing' => '(sob análise)',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  */
@@ -982,6 +1004,7 @@ $messages['ru'] = array(
 	'oldreviewed-size' => 'Наибольшее изменение в байтах:',
 	'oldreviewedpages-unwatched' => '(не следят)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|следит $2 активный участник|следят $2 активных участника|следят $2 активных участников}})',
+	'oldreviewedpages-viewing' => '(проверяются)',
 );
 
 /** Slovak (Slovenčina)
