@@ -71,7 +71,7 @@ function update_flaggedrevs_stats() {
 	if( !$installed ) $installed = $dbr->timestamp(); // now
 	# Skip the most recent recent revs as they are likely to just 
 	# be WHERE condition misses. This also gives us more data to use.
-	# Lastly, we want to avoid bais that would make the time too low
+	# Lastly, we want to avoid bias that would make the time too low
 	# since new revisions could not have "took a long time to sight".
 	$worstLagTS = $dbr->timestamp(); // now
 	$last = '0';
@@ -108,7 +108,7 @@ function update_flaggedrevs_stats() {
 			$last = $row->fp_pending_since; // next iteration
 		}
 	}
-	# Add a day for good measure to avoid bais
+	# Add a day for good measure to avoid bias
 	$maxTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 86400 );
 	# Use a one week time range
 	$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 7*86400 );
