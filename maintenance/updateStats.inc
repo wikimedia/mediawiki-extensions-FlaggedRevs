@@ -117,14 +117,14 @@ function update_flaggedrevs_stats() {
 		'rev_user=0 AND rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 	);
 	# If the range doesn't have many rows (like on small wikis), use 30 days
-	if( $rows <= (2*$size) ) {
+	if( $rows <= $size ) {
 		$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 30*86400 );
 		# Approximate rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
 			'rev_user=0 AND rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 		);
 		# If the range doesn't have many rows (like on really small wikis), use 90 days
-		if( $rows <= (2*$size) ) {
+		if( $rows <= $size ) {
 			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
 		}
 	}
@@ -142,7 +142,7 @@ function update_flaggedrevs_stats() {
 	);
 	# Modulus
 	$mod = intval($rows/$size);
-	$mod = max($mod/2,1); # $mod >= 1
+	$mod = max($mod,1); # $mod >= 1
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Get the *first* reviewed rev *after* each RC item and get the average difference.
 	# Only do this for revisions to pages that *were* already logged as reviewed.
