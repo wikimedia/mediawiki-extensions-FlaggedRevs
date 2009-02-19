@@ -119,10 +119,10 @@ class RatingHistory extends UnlistedSpecialPage
 			// Check if the output file is cached
 			$exists = !$this->fileExpired($tag,$filePath);
 			// ...if not, then regenerate it
-			if( $sExt === 'svg' ) {
-				$exists = $exists ? $exists : $this->makeSvgGraph($tag,$filePath);
-			} else if( $sExt === 'png' ) {
-				$exists = $exists ? $exists : $this->makePngGraph($tag,$filePath);
+			if( $sExt === 'svg' && !$exists ) {
+				$exists = $this->makeSvgGraph($tag,$filePath);
+			} else if( $sExt === 'png' && !$exists ) {
+				$exists = $this->makePngGraph($tag,$filePath);
 			}
 			if( $exists ) $data = true;
 			// Output plot/chart depending on final output file...
@@ -463,6 +463,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Rasterize due to IE suckage
 		$status = $svgHandler->rasterize( $svgPath, $filePath, 1000, 410 );
 		if( $status !== true ) {
+			throw new MWException( 'Could not write SVG file!' );
 			return false;
 		}
 		return true;
