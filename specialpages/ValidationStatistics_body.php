@@ -148,16 +148,19 @@ class ValidationStatistics extends IncludableSpecialPage
 	
 	protected function getMeanReviewWait() {
 		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
-		return $this->db->selectField( 'flaggedrevs_stats2', 'ave_review_time' );
+		$val = $this->db->selectField( 'flaggedrevs_stats2', 'ave_review_time' );
+		return ($val == false ? '-' : $val );
 	}
 	
 	protected function getMedianReviewWait() {
 		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
-		return $this->db->selectField( 'flaggedrevs_stats2', 'med_review_time' );
+		$val = $this->db->selectField( 'flaggedrevs_stats2', 'med_review_time' );
+		return ($val == false ? '-' : $val );
 	}
 	
 	protected function getMeanPendingWait() {
 		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
-		return $this->db->selectField( 'flaggedrevs_stats2', 'ave_pending_time' );
+		$val = $this->db->selectField( 'flaggedrevs_stats2', 'ave_pending_time' );
+		return ($val == false ? '-' : $val );
 	}
 }
