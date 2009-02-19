@@ -116,16 +116,24 @@ function update_flaggedrevs_stats() {
 	$rows = $dbr->estimateRowCount( 'revision', '1',
 		'rev_user=0 AND rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 	);
-	# If the range doesn't have many rows (like on small wikis), use 30 days
-	if( $rows <= $size ) {
-		$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 30*86400 );
+	# If the range doesn't have many rows (like on small wikis), use 14 days
+	if( $rows < 500 ) {
+		$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 14*86400 );
 		# Approximate rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
 			'rev_user=0 AND rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
 		);
-		# If the range doesn't have many rows (like on really small wikis), use 90 days
-		if( $rows <= $size ) {
-			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
+		# If the range doesn't have many rows (like on really small wikis), use 30 days
+		if( $rows <= 500 ) {
+			$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 30*86400 );
+			# Approximate rows to scan
+			$rows = $dbr->estimateRowCount( 'revision', '1',
+				'rev_user=0 AND rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS)
+			);
+			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
+			if( $rows <= 500 ) {
+				$minTS = $dbr->timestamp( wfTimestamp(TS_UNIX,$worstLagTS) - 90*86400 );
+			}
 		}
 	}
 	# Sanity check the starting timestamp
