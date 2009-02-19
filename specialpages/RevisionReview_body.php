@@ -601,7 +601,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Our review entry
  		$flaggedRevision = new FlaggedRevision( array(
 			'fr_rev_id'        => $rev->getId(),
-			'fr_page_id'       => $this->page->getArticleID(),
+			'fr_page_id'       => $rev->getPage(),
 			'fr_user'          => $wgUser->getId(),
 			'fr_timestamp'     => wfTimestampNow(),
 			'fr_comment'       => $this->notes,
@@ -614,6 +614,8 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$dbw->begin();
 		$flaggedRevision->insertOn( $tmpset, $imgset );
+		# Avoid any lag issues
+		$this->page->resetArticleId( $rev->getPage() );
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
 		# Update the article review log
@@ -802,12 +804,11 @@ class RevisionReview extends UnlistedSpecialPage
 		# Olders edits be marked as patrolled now...
 		$dbw->update( 'recentchanges',
 			array( 'rc_patrolled' => $patrol ? 1 : 0 ),
-			array( 'rc_namespace' => $title->getNamespace(),
-				'rc_title' => $title->getDBKey(),
+			array( 'rc_cur_id' => $title->getArticleId(),
 				$patrol ? "rc_this_oldid <= $revId" : "rc_this_oldid = $revId" ),
 			__METHOD__,
 			// Performance
-			array( 'USE INDEX' => 'rc_namespace_title', 'LIMIT' => 50 )
+			array( 'USE INDEX' => 'rc_cur_id', 'LIMIT' => 50 )
 		);
 		# New page patrol may be enabled. If so, the rc_id may be the first
 		# edit and not this one. If it is different, mark it too.
