@@ -348,11 +348,13 @@ EOT;
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time. If both, use the newest one.
 		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
-			$idP = $dbr->selectField( 'flaggedtemplates', 'ft_tmp_rev_id',
+			$idP = $dbr->selectField( 'flaggedtemplates',
+				'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->getRevisionId(),
 					'ft_namespace' => $title->getNamespace(),
 					'ft_title' => $title->getDBkey() ),
-				__METHOD__ );
+				__METHOD__
+			);
 			$id = ($id === false || $idP > $id) ? $idP : $id;
 		}
 		# If none specified, see if we are allowed to use the current revision
@@ -382,26 +384,35 @@ EOT;
 			return true;
 		}
 		$file = null;
+		$isKnownLocal = false; // local file on this wiki?
 		$dbr = wfGetDB( DB_SLAVE );
 		# Normalize NS_MEDIA to NS_FILE
-		$title = $nt->getNamespace() == NS_FILE ? $nt : Title::makeTitle( NS_FILE, $nt->getDBKey() );
+		if( $nt->getNamespace() == NS_MEDIA ) {
+			$title = Title::makeTitle( NS_FILE, $nt->getDBKey() );
+		} else {
+			$title =& $nt;
+		}
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
-		$sha1 = "";
+		$sha1 = '';
 		if( FlaggedRevs::isPageReviewable( $title ) ) {
-			if( $srev = FlaggedRevision::newFromStable( $title ) ) {
+			$srev = FlaggedRevision::newFromStable( $title );
+			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
+				$isKnownLocal = true; // must be local
 			}
 		}
 		# Check cache before doing another DB hit...
 		$params = FlaggedRevs::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBKey() );
 		if( is_array($params) ) {
-			list($timeP,$sha1) = $params;
+			list($timeP,$sha1P) = $params;
 			// Take the newest one...
 			if( !$time || $timeP > $time ) {
 				$time = $timeP;
+				$sha1 = $sha1P;
+				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
@@ -409,12 +420,14 @@ EOT;
 		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fi_rev_id' => $parser->getRevisionId(),
-					'fi_name' => $title->getDBkey() ),
-				__METHOD__ );
+				array( 'fi_rev_id' => $parser->getRevisionId(), 'fi_name' => $title->getDBkey() ),
+				__METHOD__
+			);
+			# Only the one picked at review time exists OR it is the newest...use it!
 			if( $row && ($time === false || $row->fi_img_timestamp > $time) ) {
 				$time = $row->fi_img_timestamp;
 				$sha1 = $row->fi_img_sha1;
+				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$time) ) : "";
@@ -437,9 +450,16 @@ EOT;
 		# Add image metadata to parser output
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
-		# Bug 15748, be lax about commons image sync status
-		$file = $file ? $file : self::getLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
-		if( $file && $file->exists() && $file->isLocal() && $time > $parser->mOutput->fr_newestImageTime ) {
+		# Check if this file is local or on a foreign repo...
+		if( $isKnownLocal ) {
+			$isLocalFile = true; // no need to check
+		} else {
+			$file = $file ? $file : self::getLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
+			$isLocalFile = $file && $file->exists() && $file->isLocal();
+		}
+		# Bug 15748, be lax about commons image sync status...
+		# When getting the max timestamp, just ignore the commons image timestamps.
+		if( $isLocalFile && $time > $parser->mOutput->fr_newestImageTime ) {
 			$parser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
@@ -454,24 +474,29 @@ EOT;
 			return true;
 		}
 		$file = null;
+		$isKnownLocal = false; // local file on this wiki?
 		$dbr = wfGetDB( DB_SLAVE );
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
 		if( FlaggedRevs::isPageReviewable( $nt ) ) {
-			if( $srev = FlaggedRevision::newFromStable( $nt ) ) {
+			$srev = FlaggedRevision::newFromStable( $title );
+			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
+				$isKnownLocal = true; // must be local
 			}
 		}
 		# Check cache before doing another DB hit...
 		$params = FlaggedRevs::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
 		if( is_array($params) ) {
-			list($timeP,$sha1) = $params;
+			list($timeP,$sha1P) = $params;
 			// Take the newest one...
 			if( !$time || $timeP > $time ) {
 				$time = $timeP;
+				$sha1 = $sha1P;
+				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
@@ -479,12 +504,14 @@ EOT;
 		if( !FlaggedRevs::useProcessCache( $ig->mRevisionId ) ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array('fi_rev_id' => $ig->mRevisionId,
-					'fi_name' => $nt->getDBkey() ),
-				__METHOD__ );
+				array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
+				__METHOD__
+			);
+			# Only the one picked at review time exists OR it is the newest...use it!
 			if( $row && ($time === false || $row->fi_img_timestamp > $time) ) {
 				$time = $row->fi_img_timestamp;
 				$sha1 = $row->fi_img_sha1;
+				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp(TS_MW,$time) ) : "";
@@ -507,9 +534,15 @@ EOT;
 		# Add image metadata to parser output
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
+		# Check if this file is local or on a foreign repo...
+		if( $isKnownLocal ) {
+			$isLocalFile = true; // no need to check
+		} else {
+			$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
+			$isLocalFile = $file && $file->exists() && $file->isLocal();
+		}
 		# Bug 15748, be lax about commons image sync status
-		$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
-		if( $file && $file->exists() && $file->isLocal() && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
+		if( $isLocalFile && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
 			$ig->mParser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
