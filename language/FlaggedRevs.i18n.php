@@ -2439,6 +2439,7 @@ Lisćina stabilizěrowanych bokow dajo se w [[Special:StablePages|lisćinje stab
  * @author Badseed
  * @author Consta
  * @author Dead3y3
+ * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -2458,7 +2459,7 @@ $messages['el'] = array(
 	'revisionreview' => 'Κριτική αναθεωρήσεων',
 	'revreview-accuracy' => 'Ακρίβεια',
 	'revreview-auto' => '(αυτόματο)',
-	'revreview-auto-w-old' => "Επεξεργάζεσαι μια παλιά αναθεωρημένη επανάληψη. Οι αλλαγές θα '''αναθεωρηθούν αυτόματα'''.",
+	'revreview-auto-w-old' => "Επεξεργάζεσαι μια παλιά επιθεωρημένη αναθεώρηση. Οι αλλαγές θα '''αναθεωρηθούν αυτόματα'''.",
 	'revreview-current' => 'Προσχέδιο',
 	'revreview-edit' => 'Επεξεργασία προσχεδίου',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',

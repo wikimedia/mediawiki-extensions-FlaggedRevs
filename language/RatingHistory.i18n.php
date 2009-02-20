@@ -992,6 +992,37 @@ O '''número de of análises por dia''' <font color=\"red\">''(vermelho)''</font
 	'right-feedback' => 'Use o formulário de feedback para avaliar uma página',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'ratinghistory' => 'Histórico de avaliações da página',
+	'ratinghistory-leg' => 'Histórico de dados de avaliações para [[:$1|$1]]',
+	'ratinghistory-tab' => 'avaliação',
+	'ratinghistory-link' => 'Avaliação da página',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Obrigado por reservar um momento para avaliar esta página!</font>''",
+	'ratinghistory-period' => 'Período de tempo:',
+	'ratinghistory-month' => 'último mês',
+	'ratinghistory-3months' => 'últimos 3 meses',
+	'ratinghistory-year' => 'último ano',
+	'ratinghistory-3years' => 'últimos três anos',
+	'ratinghistory-ave' => 'Média: $1',
+	'ratinghistory-chart' => 'Avaliações dos leitores ao longo do tempo',
+	'ratinghistory-table' => 'Resumo das avaliações dos leitores',
+	'ratinghistory-users' => 'Utilizadores que fizeram avaliações',
+	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|avaliação|avaliações}})',
+	'readerfeedback-svg' => 'Ver como SVG',
+	'ratinghistory-table-rating' => 'Avaliação',
+	'ratinghistory-table-votes' => 'Votos',
+	'ratinghistory-none' => 'Ainda não há dados suficientes de avaliações dos leitores para mostrar gráficos.',
+	'ratinghistory-legend' => "A '''avaliação média diária''' <font color=\"blue\">''(azul)''</font> e a '''avaliação média acumulada''' <font color=\"green\">''(verde)''</font> estão apresentadas graficamente abaixo, por data. A '''avaliação média acumulada''' é apenas a média de todas as avaliações diárias ''dentro'' desta janela temporal para cada dia.
+
+Escala: '''[1]''' - Péssima; '''[2]''' - Baixa; '''[3]''' - Razoável; '''[4]''' - Alta; '''[5]''' - Excelente;
+
+O '''número de análises por dia''' <font color=\"red\">''(vermelho)''</font> é mostrado nos gráficos abaixo, numa escala ''1:\$1''.",
+	'right-feedback' => 'Use o formulário de feedback para avaliar uma página',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  */

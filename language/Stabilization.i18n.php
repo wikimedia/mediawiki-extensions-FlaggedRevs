@@ -287,6 +287,13 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize-expiring' => "caduca'l $1 (UTC)",
 );
 
+/** Bavarian (Boarisch)
+ * @author Man77
+ */
+$messages['bar'] = array(
+	'stabilization-othertime' => 'Ãndare Zeid',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

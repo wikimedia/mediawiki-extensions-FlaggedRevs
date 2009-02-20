@@ -157,9 +157,12 @@ $messages['ast'] = array(
  */
 $messages['bar'] = array(
 	'oldreviewedpages-none' => "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
+	'oldreviewedpages-stable' => 'gsichtet',
 	'oldreviewedpages-days' => '($1 Tåg)',
 	'oldreviewedpages-recent' => '(weniga wia a Stund)',
 	'oldreviewed-watched' => 'auf meina Beobåchtungslistn',
+	'oldreviewed-diff' => 'sichtn',
+	'oldreviewed-size' => "Maximale Ändarungsgreß (in ''Bytes''):",
 	'oldreviewedpages-unwatched' => '(ned beobåchtet)',
 );
 
