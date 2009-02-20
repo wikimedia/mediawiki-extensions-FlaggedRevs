@@ -304,7 +304,7 @@ EOT;
 	* that was just changed in some way.
 	*/
 	public static function doCacheUpdate( $title ) {
-		$update = new FRCacheUpdate( $title, 'flaggedrevs_tracking' );
+		$update = new FRCacheUpdate( $title );
 		$update->doUpdate();
 		return true;
 	}
