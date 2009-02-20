@@ -481,7 +481,7 @@ EOT;
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
 		if( FlaggedRevs::isPageReviewable( $nt ) ) {
-			$srev = FlaggedRevision::newFromStable( $title );
+			$srev = FlaggedRevision::newFromStable( $nt );
 			if( $srev ) {
 				$time = $srev->getFileTimestamp();
 				$sha1 = $srev->getFileSha1();
