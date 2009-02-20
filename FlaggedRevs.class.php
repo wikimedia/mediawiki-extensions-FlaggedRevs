@@ -1039,6 +1039,10 @@ class FlaggedRevs {
 	* Automatically review an edit and add a log entry in the review log.
 	* LinksUpdate was already called via edit operations, so the page
 	* fields will be up to date. This updates the stable version.
+	*
+	* $auto is here for revisions checked off to be reviewed. Auto-review
+	* triggers on edit, but we don't want it to count as just automatic.
+	* This also makes it so the user's name shows up in the page history.
 	*/
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $auto=true ) {
 		global $wgMemc;

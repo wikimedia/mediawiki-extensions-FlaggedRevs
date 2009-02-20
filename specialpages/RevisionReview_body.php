@@ -368,7 +368,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$difflink = '(' . $this->skin->makeKnownLinkObj( $this->page, wfMsgHtml('diff'),
 			'&diff=' . $rev->getId() . '&oldid=prev' ) . ')';
 		$revlink = $this->skin->makeLinkObj( $this->page, $date, 'oldid=' . $rev->getId() );
-		return "<li> $difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
+		return "<li>$difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
 	}
 
 	public function submit() {
@@ -752,7 +752,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 */
 	public static function userCan( $tag, $value ) {
 		global $wgFlagRestrictions, $wgUser;
-
+		# No restrictions -> full access
 		if( !isset($wgFlagRestrictions[$tag]) )
 			return true;
 		# Validators always have full access
