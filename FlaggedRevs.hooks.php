@@ -325,10 +325,7 @@ EOT;
 	*/
 	public static function parserFetchStableTemplate( $parser, $title, &$skip, &$id ) {
 		# Trigger for stable version parsing only
-		if( !$parser || empty($parser->fr_isStable) )
-			return true;
-		# Special namespace ... ?
-		if( $title->getNamespace() < 0 ) {
+		if( !$parser || empty($parser->fr_isStable) || $title->getNamespace() < 0 ) {
 			return true;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
@@ -347,7 +344,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time. If both, use the newest one.
-		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
+		if( $parser->getRevisionId() && !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
 			$idP = $dbr->selectField( 'flaggedtemplates',
 				'ft_tmp_rev_id',
 				array( 'ft_rev_id' => $parser->getRevisionId(),
@@ -355,6 +352,7 @@ EOT;
 					'ft_title' => $title->getDBkey() ),
 				__METHOD__
 			);
+			# Take the newest (or only available) of the two
 			$id = ($id === false || $idP > $id) ? $idP : $id;
 		}
 		# If none specified, see if we are allowed to use the current revision
@@ -380,7 +378,7 @@ EOT;
 	*/
 	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( empty($parser->fr_isStable) ) {
+		if( empty($parser->fr_isStable) || $nt->getNamespace() < 0 ) {
 			return true;
 		}
 		$file = null;
@@ -389,6 +387,7 @@ EOT;
 		# Normalize NS_MEDIA to NS_FILE
 		if( $nt->getNamespace() == NS_MEDIA ) {
 			$title = Title::makeTitle( NS_FILE, $nt->getDBKey() );
+			$title->resetArticleId( $nt->getArticleId() ); // avoid extra queries
 		} else {
 			$title =& $nt;
 		}
@@ -417,7 +416,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
-		if( !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
+		if( $parser->getRevisionId() && !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->getRevisionId(), 'fi_name' => $title->getDBkey() ),
@@ -501,7 +500,7 @@ EOT;
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
-		if( !FlaggedRevs::useProcessCache( $ig->mRevisionId ) ) {
+		if( $ig->mRevisionId && !FlaggedRevs::useProcessCache( $ig->mRevisionId ) ) {
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
