@@ -2,19 +2,6 @@
 
 class FlaggedRevsHooks {
 	/**
-	* Remove 'autopatrol' rights. Reviewing revisions will patrol them as well.
-	*/
-	public static function stripPatrolRights( $user, &$rights ) {
-		# Use only our extension mechanisms
-		foreach( $rights as $n => $right ) {
-			if( $right == 'autopatrol' ) {
-				unset($rights[$n]);
-			}
-		}
-		return true;
-	}
-
-	/**
 	* Add FlaggedRevs css/js.
 	*/
 	public static function injectStyleAndJS() {
@@ -626,21 +613,22 @@ EOT;
 	}
 	
 	/**
-	* Don't let users pages pages not in $wgFlaggedRevsPatrolNamespaces
+	* Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
 	*/
 	public static function userCanPatrol( $title, $user, $action, &$result ) {
-		if( $action != 'patrol' || $result===false ) {
+		if( $result === false ) return true; // nothing to do
+		if( $action != 'patrol' && $action != 'autopatrol' ) {
 			return true;
 		}
 		# Pages in reviewable namespace can be patrolled IF reviewing
 		# is disabled for pages that don't show the stable by default.
 		# In such cases, we let people with 'review' rights patrol them.
-		if( FlaggedRevs::isPageReviewable($title) && !$user->isAllowed( 'review' ) ) {
+		if( FlaggedRevs::isPageReviewable($title) && !$user->isAllowed('review') ) {
 			$result = false;
 			return false;
 		}
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-		# The page must be in a patrollable namespace...
+		# The page must be in a patrollable namespace ($wgFlaggedRevsPatrolNamespaces)...
 		if( !$flaggedArticle->isPatrollable() ) {
 			global $wgUseNPPatrol;
 			# ...unless the page is not in a reviewable namespace and

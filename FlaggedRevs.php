@@ -341,9 +341,6 @@ $wgAutoloadClasses['ApiReview'] = $dir.'api/ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
 
 ######### Hook attachments #########
-# Remove stand-alone patrolling
-$wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::stripPatrolRights';
-
 # Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::autoPromoteUser';
 # Adds table link references to include ones from the stable version
