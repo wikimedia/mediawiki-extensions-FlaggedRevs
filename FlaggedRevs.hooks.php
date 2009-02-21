@@ -382,8 +382,7 @@ EOT;
 			return true;
 		}
 		$file = null;
-		$isKnownLocal = false; // local file on this wiki?
-		$dbr = wfGetDB( DB_SLAVE );
+		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Normalize NS_MEDIA to NS_FILE
 		if( $nt->getNamespace() == NS_MEDIA ) {
 			$title = Title::makeTitle( NS_FILE, $nt->getDBKey() );
@@ -397,8 +396,8 @@ EOT;
 		$sha1 = '';
 		if( FlaggedRevs::isPageReviewable( $title ) ) {
 			$srev = FlaggedRevision::newFromStable( $title );
-			if( $srev ) {
-				$time = $srev->getFileTimestamp();
+			if( $srev && $srev->getFileTimestamp() ) {
+				$time = $srev->getFileTimestamp(); // TS or null
 				$sha1 = $srev->getFileSha1();
 				$isKnownLocal = true; // must be local
 			}
@@ -417,6 +416,7 @@ EOT;
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
 		if( $parser->getRevisionId() && !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
+			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $parser->getRevisionId(), 'fi_name' => $title->getDBkey() ),
@@ -437,13 +437,13 @@ EOT;
 			if( $time === false ) {
 				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentImages ) {
-					$time = "0";
+					$time = "0"; // no image
 				} else {
 					$file = wfFindFile( $title );
 					$time = $file ? $file->getTimestamp() : "0"; // Use current
 				}
 			} else {
-				$time = "0";
+				$time = "0"; // no image (may trigger on review)
 			}
 		}
 		# Add image metadata to parser output
@@ -452,7 +452,8 @@ EOT;
 		# Check if this file is local or on a foreign repo...
 		if( $isKnownLocal ) {
 			$isLocalFile = true; // no need to check
-		} else {
+		# Load the image if needed (note that time === '0' means we have no image)
+		} else if( $time !== "0" ) {
 			$file = $file ? $file : self::getLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
@@ -473,16 +474,15 @@ EOT;
 			return true;
 		}
 		$file = null;
-		$isKnownLocal = false; // local file on this wiki?
-		$dbr = wfGetDB( DB_SLAVE );
+		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
 		if( FlaggedRevs::isPageReviewable( $nt ) ) {
 			$srev = FlaggedRevision::newFromStable( $nt );
-			if( $srev ) {
-				$time = $srev->getFileTimestamp();
+			if( $srev && $srev->getFileTimestamp() ) {
+				$time = $srev->getFileTimestamp(); // TS or null
 				$sha1 = $srev->getFileSha1();
 				$isKnownLocal = true; // must be local
 			}
@@ -501,6 +501,7 @@ EOT;
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
 		if( $ig->mRevisionId && !FlaggedRevs::useProcessCache( $ig->mRevisionId ) ) {
+			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
 				array('fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
@@ -521,13 +522,13 @@ EOT;
 			if( $time === false ) {
 				$ig->mParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
 				if( !$wgUseCurrentImages ) {
-					$time = "0";
+					$time = "0"; // no image
 				} else {
 					$file = wfFindFile( $nt );
 					$time = $file ? $file->getTimestamp() : "0";
 				}
 			} else {
-				$time = "0";
+				$time = "0"; // no image (may trigger on review)
 			}
 		}
 		# Add image metadata to parser output
@@ -536,7 +537,8 @@ EOT;
 		# Check if this file is local or on a foreign repo...
 		if( $isKnownLocal ) {
 			$isLocalFile = true; // no need to check
-		} else {
+		# Load the image if needed (note that time === '0' means we have no image)
+		} else if( $time !== "0" ) {
 			$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
