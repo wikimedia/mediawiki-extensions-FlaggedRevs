@@ -123,8 +123,6 @@ EOT;
 	* Update flaggedrevs table on article history merge
 	*/
 	public static function updateFromMerge( $sourceTitle, $destTitle ) {
-		wfProfileIn( __METHOD__ );
-	
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
@@ -151,7 +149,6 @@ EOT;
 		FlaggedRevs::titleLinksUpdate( $sourceTitle );
 		FlaggedRevs::titleLinksUpdate( $destTitle );
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 	
@@ -171,7 +168,6 @@ EOT;
 		if( !FlaggedRevs::isPageReviewable( $linksUpdate->mTitle ) ) {
 			return true;
 		}
-		wfProfileIn( __METHOD__ );
 		$dbw = wfGetDB( DB_MASTER );
 		$pageId = $linksUpdate->mTitle->getArticleId();
 		# Check if this page has a stable version...
@@ -181,7 +177,6 @@ EOT;
 		if( !$sv ) {
 			$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
 			$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Try the process cache...
@@ -239,7 +234,6 @@ EOT;
 		if( count($insertions) ) {
 			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 	
@@ -554,10 +548,9 @@ EOT;
 	*/
 	public static function parserInjectTimestamps( $parser, &$text ) {
 		# Don't trigger this for stable version parsing...it will do it separately.
-		if( !empty($parser->fr_isStable) )
+		if( !empty($parser->fr_isStable) ) {
 			return true;
-
-		wfProfileIn( __METHOD__ );
+		}
 		$maxRevision = 0;
 		# Record the max template revision ID
 		if( !empty($parser->mOutput->mTemplateIds) ) {
@@ -570,9 +563,8 @@ EOT;
 			}
 		}
 		$parser->mOutput->fr_newestTemplateID = $maxRevision;
-
-		$maxTimestamp = "0";
 		# Fetch the current timestamps of the images.
+		$maxTimestamp = "0";
 		if( !empty($parser->mOutput->mImages) ) {
 			foreach( $parser->mOutput->mImages as $filename => $x ) {
 				# FIXME: it would be nice not to double fetch these!
@@ -591,8 +583,6 @@ EOT;
 		}
 		# Record the max timestamp
 		$parser->mOutput->fr_newestImageTime = $maxTimestamp;
-
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -911,14 +901,11 @@ EOT;
 	*/
 	public static function checkAutoPromote( $user, &$promote ) {
 		global $wgFlaggedRevsAutopromote;
-		wfProfileIn( __METHOD__ );
 		if( empty($wgFlaggedRevsAutopromote) || !$user->getId() || $user->isAllowed('autoreview') ) {
-			wfProfileOut( __METHOD__ );
 			return true; // not needed
 		}
 		# Check user email
 		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Get requirments
@@ -929,17 +916,14 @@ EOT;
 		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
 		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : NULL;
 		if( !is_null($userage) && $userage < $timeReq ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check user edit count. Should be stored.
 		if( $user->getEditCount() < $editsReq ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Add the right
 		$promote[] = 'autoreview';
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -952,18 +936,15 @@ EOT;
 		if( empty($wgFlaggedRevsAutopromote) || !$rev || !$user->getId() )
 			return true;
 		# Check implicitly sighted edits
-		wfProfileIn( __METHOD__ );
 		# Grab current groups
 		$groups = $user->getGroups();
 		# Do not give this to current holders or bots
 		if( $user->isAllowed('bot') || in_array('editor',$groups) ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Do not re-add status if it was previously removed!
 		$p = FlaggedRevs::getUserParams( $user->getId() );
 		if( isset($p['demoted']) && $p['demoted'] ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Update any special counters for non-null revisions
@@ -996,29 +977,24 @@ EOT;
 		$totalCheckedEditsNeeded = false;
 		if( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
 			if( !$wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
 		if( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count($pages) ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check edit comment use
 		if( $wgFlaggedRevsAutopromote['editComments'] > $p['editComments'] ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check reverted edits
 		if( $wgFlaggedRevsAutopromote['maxRevertedEdits'] < $p['revertedEdits'] ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check user email
 		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check account age
@@ -1026,12 +1002,10 @@ EOT;
 		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
 		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : NULL;
 		if( !is_null($userage) && $userage < $wgFlaggedRevsAutopromote['days'] ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check user edit count. Should be stored.
 		if( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check if results are cached to avoid DB queries.
@@ -1039,12 +1013,10 @@ EOT;
 		$key = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getID() );
 		$value = $wgMemc->get( $key );
 		if( $value == 'true' ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Don't grant to currently blocked users...
 		if( $user->isBlocked() ) {
-			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		# Check if user was ever blocked before
@@ -1060,14 +1032,12 @@ EOT;
 			if( $blocked ) {
 				# Make a key to store the results
 				$wgMemc->set( $key, 'true', 3600*24*7 );
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
 		# See if the page actually has sufficient content...
 		if( $wgFlaggedRevsAutopromote['userpageBytes'] > 0 ) {
 			if( !$user->getUserPage()->exists() ) {
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
@@ -1076,7 +1046,6 @@ EOT;
 					'page_title' => $user->getUserPage()->getDBKey() ),
 				__METHOD__ );
 			if( $size < $wgFlaggedRevsAutopromote['userpageBytes'] ) {
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1110,7 +1079,6 @@ EOT;
 			if( $benchmarks < $needed ) {
 				# Make a key to store the results
 				$wgMemc->set( $key, 'true', 3600*24*$spacing*($benchmarks - $needed - 1) );
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1127,7 +1095,6 @@ EOT;
 			if( $shared ) {
 				# Make a key to store the results
 				$wgMemc->set( $key, 'true', 3600*24*7 );
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1143,7 +1110,6 @@ EOT;
 				array( 'USE INDEX' => 'rc_ns_usertext',
 					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
 			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['recentContent'] ) {
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1167,7 +1133,6 @@ EOT;
 					array( 'USE INDEX' => 'usertext_timestamp' ) );
 			}
 			if( $deletedEdits >= $minDiff ) {
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1181,7 +1146,6 @@ EOT;
 					'LIMIT' => $wgFlaggedRevsAutopromote['totalCheckedEdits'] )
 			);
 			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
-				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
@@ -1196,7 +1160,6 @@ EOT;
 			array( implode(', ',$groups), implode(', ',$newGroups) ) );
 		$user->addGroup('editor');
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 	
