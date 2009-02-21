@@ -88,7 +88,8 @@ class FlaggedRevision {
 				'rev_page = fr_page_id',
 				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
 			__METHOD__,
-			$options );
+			$options
+		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row ) {
 			$frev = new FlaggedRevision( $row );
@@ -124,8 +125,9 @@ class FlaggedRevision {
 				$columns,
 				array( 'fp_page_id' => $pageId,
 					'fr_page_id = fp_page_id',
-					'fp_stable = fr_rev_id' ),
-				__METHOD__  );
+					'fr_rev_id = fp_stable' ),
+				__METHOD__
+			);
 			if( !$row ) return null;
 		} else {
 			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
