@@ -2374,7 +2374,7 @@ Aby wótgódnośił wersiju, staj wšykne póla na "njeschwalony".',
 	'revreview-update-includes' => "'''Někotare pśedłogi/wobraze su se zaktualizěrowali:'''",
 	'revreview-update-none' => "Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' změny, kótarež su se pśewjadli, wót togo casa, ako stabilna wersija jo se [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} schwaliła].",
 	'revreview-update-use' => "'''GLĚDAJ:''' Jeli jadna z toś tych pśedłogow abo jaden z toś tych wobrazow ma stabilnu wersiju, pótom wužywa se južo w stabilnej wersiji boka.",
-	'revreview-diffonly' => "''Aby pśeglědał bok, klikni na wótkaz \"Aktualna wersija\" a wuž pśeglědański kašćik.''",
+	'revreview-diffonly' => "''Aby pśeglědał bok, klikni na wótkaz \"Aktualna wersija\" a wužyj pśeglědański kašćik.''",
 	'revreview-visibility' => "'''Toś ten bok ma zaktualizěrowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
 	'revreview-visibility2' => "'''Toś ten bok njama zaktualizěrowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
 	'revreview-revnotfound' => 'Njejo móžno było, wersiju togo boka namakaś, za kótaremž sy pytał. Pšosym kontrolěruj zapódanu URL.',
@@ -3561,7 +3561,7 @@ $messages['gl'] = array(
 	'review-logentry-diff' => 'diferenzas coa versión estábel',
 	'review-logpage' => 'Rexistro de revisións',
 	'review-logpagetext' => 'Este é un rexistro dos cambios nas revisións de [[{{MediaWiki:Validationpage}}|aprobación]] do status para o contido das páxinas.
-Vexa a [[Special:ReviewedPages|listaxe de páxinas revisadas]] para ver unha lista das páxinas aprobadas.',
+Vexa a [[Special:ReviewedPages|lista de páxinas revisadas]] para ver unha lista das páxinas aprobadas.',
 	'reviewer' => 'Revisor',
 	'revisionreview' => 'Examinar revisións',
 	'revreview-accuracy' => 'Exactitude',
@@ -3612,7 +3612,7 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión revisada] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amosar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Os cambios nos modelos/imaxes] precisan dunha revisión.',
 	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidade]
-	([{{fullurl:Special:Stableversions|páxina={{FULLPAGENAMEE}}}} de toda a listaxe]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]
+	([{{fullurl:Special:Stableversions|páxina={{FULLPAGENAMEE}}}} de toda a lista]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada]
 	 en <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|change|cambios}}] {{PLURAL:$3|needs|precisan}} revisión.',
 	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidade] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} amosar todas]) foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Os cambios nos modelos/imaxes changes] precisan dunha revisión.',
@@ -3690,7 +3690,7 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'stable-logentry2' => 'resetear a versión estábel para [[$1]]',
 	'stable-logpage' => 'Rexistro de versións estábeis',
 	'stable-logpagetext' => 'Este é un rexistro dos cambios da configuración da [[{{MediaWiki:Validationpage}}|versión estábel]] do contido das páxinas.
-Unha listaxe das páxinas estabilizadas pode ser atopada na [[Special:StablePages|listaxe de páxinas estábeis]].',
+Unha lista das páxinas estabilizadas pode ser atopada na [[Special:StablePages|lista de páxinas estábeis]].',
 	'readerfeedback' => 'Que pensa sobre esta páxina?',
 	'readerfeedback-text' => "''Por favor, tome un momento para valorar esta páxina. A súa impresión é valiosa e axúdanos a mellorar a nosa páxina web.''",
 	'readerfeedback-reliability' => 'Fiabilidade',

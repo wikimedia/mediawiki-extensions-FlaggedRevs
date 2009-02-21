@@ -310,9 +310,9 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'reviewedpages' => 'Páxinas revisadas',
-	'reviewedpages-leg' => 'Listaxe das páxinas revisadas a un certo nivel',
+	'reviewedpages-leg' => 'Lista das páxinas revisadas a un certo nivel',
 	'reviewedpages-list' => 'As seguintes páxinas foron revisadas a un nivel específico',
-	'reviewedpages-none' => 'Non hai páxinas nesta listaxe',
+	'reviewedpages-none' => 'Non hai páxinas nesta lista',
 	'reviewedpages-lev-0' => 'Revisado',
 	'reviewedpages-lev-1' => 'Calidade',
 	'reviewedpages-lev-2' => 'Destacado',

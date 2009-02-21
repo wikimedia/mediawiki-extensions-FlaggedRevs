@@ -236,7 +236,7 @@ $messages['dsb'] = array(
 Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojecy; '''[4]''' - Wusoki; '''[5]''' - Wuběrny;
 
 '''Licba pógódnośenjow na źeń''' <font color=\"red\">''(cerwjeny)''</font> pokazujo se dołojce na grafice, w měritku ''1:\$1''.",
-	'right-feedback' => 'Wuž pógódnośeński formular, aby pógódnośił bok',
+	'right-feedback' => 'Wužyj pógódnośeński formular, aby pógódnośił bok',
 );
 
 /** Esperanto (Esperanto)

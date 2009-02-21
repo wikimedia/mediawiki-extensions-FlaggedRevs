@@ -318,7 +318,7 @@ $messages['gl'] = array(
 	'stableversions-leg1' => 'Listar as revisións revisadas dunha páxina',
 	'stableversions-page' => 'Nome da páxina:',
 	'stableversions-none' => '"[[:$1]]" non ten revisións examinadas.',
-	'stableversions-list' => 'A seguinte é unha listaxe das revisións de "[[:$1]]" que foron revisadas:',
+	'stableversions-list' => 'A seguinte é unha lista das revisións de "[[:$1]]" que foron revisadas:',
 	'stableversions-review' => 'Revisado en <i>$1</i> por $2',
 );
 
