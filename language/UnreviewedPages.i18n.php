@@ -542,6 +542,7 @@ $messages['hu'] = array(
 	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} szerkesztő figyeli)',
 	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
+	'unreviewed-viewing' => '(ellenőrzés folyamatban)',
 );
 
 /** Interlingua (Interlingua)

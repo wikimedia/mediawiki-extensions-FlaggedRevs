@@ -51,10 +51,12 @@ $messages['bs'] = array(
 	'likedpages-none' => 'Nema stranica na ovom spisku',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Umherirrender
+ */
 $messages['de'] = array(
 	'likedpages' => 'Hoch bewertete Seiten',
-	'likedpages-leg' => 'Suche nach hoch bewerteten Seiten',
+	'likedpages-leg' => 'Hoch bewertete Seiten suchen',
 	'likedpages-list' => 'Es folgt eine Liste von Seiten, sortiert nach der Leserbewertung.',
 	'likedpages-none' => 'Diese Liste enthält keine Einträge.',
 	'likedpages-graphs' => 'Bewertungsdaten',

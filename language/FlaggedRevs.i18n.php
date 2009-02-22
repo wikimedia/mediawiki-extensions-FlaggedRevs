@@ -2110,7 +2110,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-note' => '[[User:$1|$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 	'revreview-notes' => 'Anzuzeigende Bemerkungen oder Notizen:',
 	'revreview-oldrating' => 'Bisherige Einstufung:',
-	'revreview-patrol' => 'Kontrolliere diese Änderung',
+	'revreview-patrol' => 'Diese Änderung als kontrolliert markieren',
 	'revreview-patrol-title' => 'Als kontrolliert markieren',
 	'revreview-patrolled' => 'Die ausgewählte Version von [[:$1|$1]] wurde kontrolliert.',
 	'revreview-quality' => 'Dies ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>.
@@ -2155,7 +2155,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-text' => 'Einer [[{{MediaWiki:Validationpage}}|gesichteten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren, nicht gesichteten Version gegeben.',
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Gesichtete Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
 	'revreview-toggle' => '(+/−)',
-	'revreview-toggle-title' => 'zeige/verstecke Details',
+	'revreview-toggle-title' => 'Details zeigen/verstecken',
 	'revreview-toolow' => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen, damit eine Version als gesichtet gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-update' => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.<br />
 '''Die folgenden Vorlagen und Dateien wurden verändert:'''",
@@ -2225,9 +2225,28 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
 
-/** German (formal address) (Deutsch (Sie-Form)) */
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Umherirrender
+ */
 $messages['de-formal'] = array(
+	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist sehr lang. Bitte helfen Sie mit, sie abzuarbeiten. Danke.',
+	'revreview-auto-w' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
+	'revreview-auto-w-old' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
+	'revreview-blocked' => 'Sie können diese Version nicht markieren, da Ihr Benutzerkonto zur Zeit gesperrt ist ([$1 Details])',
+	'revreview-main' => 'Sie müssen eine Artikelversion zur Markierung auswählen.
+
+Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
+	'revreview-stable1' => 'Möchten Sie die [{{fullurl:$1|stableid=$2}} soeben markierte Version] dieser Seite sehen, falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
+	'revreview-stable2' => 'Möchten Sie die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?',
+	'revreview-toolow' => 'Sie müssen für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen, damit eine Version als gesichtet gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
+	'revreview-diffonly' => "''Um diese Seite zu sichten, klicken Sie bitte auf den Link „Aktuelle Version“ und verwenden die Sichtungsbox dort.''",
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
+	'readerfeedback' => 'Was denken Sie über diese Seite?',
+	'readerfeedback-text' => "''Bitte nehmen Sie sich einen Moment Zeit und bewerten diese Seite. Ihre Rückmeldung ist wertvoll und hilft uns, das Angebot zu verbessern.''",
+	'readerfeedback-success' => "'''Danke für Ihre Bewertung dieser Seite.'''
+[$3 Kommentare oder Fragen?]",
+	'readerfeedback-voted' => "'''Sie haben scheinbar bereits eine Bewertung für diese Seite abgegeben.'''
+[$3 Kommentare oder Fragen?]",
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -4778,9 +4797,9 @@ $messages['hu'] = array(
 	'hist-stable-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} megtekintettnek jelölte]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatikusan megtekintve]',
 	'review-diff2stable' => 'A rögzített és a legutóbbi változat közötti eltérések megtekintése',
-	'review-logentry-app' => 'ellenőrizte a(z) [[$1]] lapot',
-	'review-logentry-dis' => 'eltávolította a(z) [[$1]] lap egyik változatának értékelését',
-	'review-logentry-id' => 'a változat azonosítója: $1',
+	'review-logentry-app' => 'ellenőrizte a(z) [[$1]] lap r$2 változatát',
+	'review-logentry-dis' => 'eltávolította a(z) [[$1]] lap r$2 változatának értékelését',
+	'review-logentry-id' => 'megnéz',
 	'review-logentry-diff' => 'változás a jelölthöz képest',
 	'review-logpage' => 'Ellenőrzési napló',
 	'review-logpagetext' => 'Ez az oldal a lapok változatainak [[{{MediaWiki:Validationpage}}|jelölési]] állapotában történt változásainak naplója.
@@ -10845,11 +10864,17 @@ Na lista de le pagine stabilizà se pol catarla in [[Special:StablePages|lista d
 	'readerfeedback-submitting' => "So' drio mandarlo...",
 	'readerfeedback-finished' => 'Grassie!',
 	'revreview-filter-all' => 'Tute',
+	'revreview-filter-approved' => 'Aprovà',
+	'revreview-filter-unapproved' => 'Mia aprovà',
+	'revreview-filter-auto' => 'Automatico',
+	'revreview-filter-manual' => 'Manuale',
+	'revreview-statusfilter' => 'Canbio de stato:',
 	'revreview-typefilter' => 'Tipo:',
 	'revreview-tagfilter' => 'Tag:',
 	'tooltip-ca-current' => 'Varda la bozza corente de sta pagina',
 	'tooltip-ca-stable' => 'Varda la version stabile de sta pagina',
 	'tooltip-ca-default' => 'Inpostassion par el controlo de qualità',
+	'log-show-hide-review' => '$1 registro de le revision',
 	'revreview-tt-review' => 'Revisiona sta pàxena',
 	'validationpage' => '{{ns:help}}:Validassion dele pàxene',
 );

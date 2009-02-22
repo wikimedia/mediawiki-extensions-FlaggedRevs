@@ -525,6 +525,14 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilize-expiring' => 'erlischt $1 (UTC)',
 );
 
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Umherirrender
+ */
+$messages['de-formal'] = array(
+	'stabilization-perm' => 'Sie haben nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
+Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
+);
+
 /** Zazaki (Zazaki)
  * @author Belekvor
  */

@@ -124,7 +124,7 @@ $messages['de'] = array(
 	'stablepages-none' => 'Diese Liste ist leer.',
 	'stablepages-config' => 'Konfiguration',
 	'stablepages-prec-none' => 'keine Rangordnung',
-	'stablepages-prec-quality' => 'Qualitätsrangfolge',
+	'stablepages-prec-quality' => 'Qualitätsrangordnung',
 	'stablepages-prec-pristine' => 'ursprüngliche Rangordnung',
 	'stablepages-precedence' => 'Rangordnung:',
 );
