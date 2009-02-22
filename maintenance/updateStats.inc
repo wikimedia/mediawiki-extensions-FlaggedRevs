@@ -205,7 +205,7 @@ function update_flaggedrevs_stats() {
 		$medianRT = $times[$rank];
 		// Make percentile tabulation data
 		$data = array();
-		$percentile = 30; // start at 30th
+		$percentile = 45; // start at 30th
 		while( $percentile < 100 ) {
 			$rank = round( $percentile*count($times)/100 + .5 ) - 1;
 			$data[$percentile] = $times[$rank];
