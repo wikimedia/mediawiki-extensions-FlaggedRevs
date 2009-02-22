@@ -13,7 +13,7 @@ class ValidationStatistics extends IncludableSpecialPage
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOut, $wgLang, $wgContLang, $wgFlaggedRevsNamespaces;
+		global $wgUser, $wgOut, $wgLang, $wgContLang;
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->db = wfGetDB( DB_SLAVE );
@@ -29,13 +29,34 @@ class ValidationStatistics extends IncludableSpecialPage
 		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), 
 			$wgLang->formatnum($ec), $wgLang->formatnum($rc) )
 		);
-		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
-			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt), $wgLang->formatTimePeriod($mdt) )
-		);
-
+		# Most of the output depends on background queries
 		if( !$this->readyForQuery() ) {
 			return false;
 		}
+
+		$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
+		$dbCache = wfGetCache( CACHE_DB );
+		$data = $dbCache->get( $key );
+		# Is there a review time table available?
+		if( is_array($data) ) {
+			$headerRows = $dataRows = '';
+			foreach( $data as $percentile => $perValue ) {
+				$headerRows .= "<th>P<sub>$percentile</sub></th>";
+				$dataRows .= '<td>'.$wgLang->formatTimePeriod($perValue).'</td>';
+			}
+			$reviewChart = "<table class='wikitable flaggedrevs_stats_table' style='white-space: nowrap;'>\n";
+			$reviewChart .= "<tr align='center'>$headerRows</tr>\n";
+			$reviewChart .= "<tr align='center'>$dataRows</tr>\n";
+			$reviewChart .= "</table>\n";
+		} else {
+			$reviewChart = '';
+		}
+
+		# Show review/pending time stats
+		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
+			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt),
+			$wgLang->formatTimePeriod($mdt), $reviewChart )
+		);
 
 		$wgOut->addWikiText( '<hr/>' . wfMsg('validationstatistics-table') );
 		$wgOut->addHTML( Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) ) );
@@ -49,6 +70,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		}
 		$wgOut->addHTML( "</tr>\n" );
 
+		global $wgFlaggedRevsNamespaces;
 		foreach( $wgFlaggedRevsNamespaces as $namespace ) {
 			$row = $this->db->selectRow( 'flaggedrevs_stats', '*', array('namespace' => $namespace) );
 			$NsText = $wgContLang->getFormattedNsText( $row->namespace );

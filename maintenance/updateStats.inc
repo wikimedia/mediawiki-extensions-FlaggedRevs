@@ -188,8 +188,9 @@ function update_flaggedrevs_stats() {
 		while( $row = $dbr->fetchObject($res) ) {
 			# Reviewed: just subtract the times
 			if( $row->ft ) {
-				$seconds += ($row->ft - $row->rt);
-				$times[] = ($row->ft - $row->rt);
+				$time = $row->ft - $row->rt;
+				$seconds += $time;
+				$times[] = $time;
 			# Not reviewed: censored data
 			} else {
 				$seconds += ($now - $row->rt);
@@ -200,11 +201,19 @@ function update_flaggedrevs_stats() {
 		$aveRT = $seconds/($count - $censored); // sample mean
 		sort($times); // order smallest -> largest
 		// Sample median
-		if( count($times) % 2 == 0 ) {
-			$medianRT = ($times[count($times)/2-1] + $times[count($times)/2])/2;
-		} else {
-			$medianRT = $times[floor(count($times)/2)];
+		$rank = round( count($times)/2 + .5 ) - 1;
+		$medianRT = $times[$rank];
+		// Make percentile tabulation data
+		$data = array();
+		$percentile = 30; // start at 30th
+		while( $percentile < 100 ) {
+			$rank = round( $percentile*count($times)/100 + .5 ) - 1;
+			$data[$percentile] = $times[$rank];
+			$percentile += 10;
 		}
+		$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
+		$dbCache = wfGetCache( CACHE_DB );
+		$dbCache->set( $key, $data, 30*24*3600 );
 	}
 	// Save the data
 	$dbw = wfGetDB( DB_MASTER );
@@ -239,6 +248,7 @@ function update_flaggedrevs_stats() {
 	print( "done updating!\n" );
 }
 
+// Per-Namespace stats
 function createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats ) {
 	$dbw->query( 
 		"CREATE TABLE $flaggedrevs_stats (
@@ -250,6 +260,7 @@ function createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats ) {
 	);
 }
 
+// General stats
 function createFlaggedRevsStatsTable2( $dbw, $flaggedrevs_stats2 ) {
 	$dbw->query( 
 		"CREATE TABLE $flaggedrevs_stats2 (
