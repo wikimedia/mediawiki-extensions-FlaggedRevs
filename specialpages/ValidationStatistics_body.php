@@ -41,7 +41,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		if( is_array($data) ) {
 			$headerRows = $dataRows = '';
 			foreach( $data as $percentile => $perValue ) {
-				$headerRows .= "<th>P<sub>$percentile</sub></th>";
+				$headerRows .= "<th>P<sub>".intval($percentile)."</sub></th>";
 				$dataRows .= '<td>'.$wgLang->formatTimePeriod($perValue).'</td>';
 			}
 			$reviewChart = "<table class='wikitable flaggedrevs_stats_table' style='white-space: nowrap;'>\n";
