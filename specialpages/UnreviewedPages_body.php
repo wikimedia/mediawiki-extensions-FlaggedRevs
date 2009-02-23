@@ -83,7 +83,7 @@ class UnreviewedPages extends SpecialPage
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&forreview=1' );
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history&forreview=1' );
-		$css = $stxt = $review = '';
+		$css = $stxt = $review = $underReview = '';
 		if( !is_null($size = $row->page_len) ) {
 			$stxt = ($size == 0)
 				? wfMsgHtml('historyempty')
@@ -103,9 +103,12 @@ class UnreviewedPages extends SpecialPage
 		$pageId = isset($row->page_id) ? $row->page_id : $row->qc_value;
 		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
 		$val = $wgMemc->get( $key );
-		$underReview = $val ? wfMsgHtml('unreviewed-viewing') : '';
+		# Show if a user is looking at this page
+		if( ($val = $wgMemc->get($key)) ) {
+			$underReview = " <b class='fr-under-review'>".wfMsgHtml('unreviewed-viewing').'</b>';
+		}
 
-		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching} <b>{$underReview}</b></li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching}{$underReview}</li>" );
 	}
 	
 	/**
