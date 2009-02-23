@@ -479,6 +479,7 @@ $messages['he'] = array(
 	'ratinghistory-3years' => 'שלוש השנים האחרונות',
 	'ratinghistory-ave' => 'ממוצע: $1',
 	'ratinghistory-chart' => 'דירוגי קוראים לאורך זמן',
+	'ratinghistory-purge' => 'ניקוי המטמון',
 	'ratinghistory-table' => 'סיכום דירוגי הקוראים',
 	'ratinghistory-users' => 'משתמשים שדירגו:',
 	'ratinghistory-graph' => '$2 מתוך "$3" ({{PLURAL:$1|דירוג אחד|$1 דירוגים}})',
