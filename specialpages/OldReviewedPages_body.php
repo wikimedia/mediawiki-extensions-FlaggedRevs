@@ -176,17 +176,22 @@ class OldReviewedPages extends SpecialPage
 
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
-		$css = $stxt = $review = '';
+		$css = $stxt = $review = $quality = $underReview = '';
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
 			"diff=cur&oldid={$row->fp_stable}&diffonly=0" );
-		$quality = $row->fp_quality ? wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
+		# Show quality level if there are several
+		if( FlaggedRevs::qualityVersions() ) {
+			$quality = $row->fp_quality ?
+				wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
+			$quality = " <b>[{$quality}]</b>";
+		}
 		# Is anybody watching?
 		if( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$uw = UnreviewedPages::usersWatching( $title );
 			$watching = $uw ? 
 				wfMsgExt('oldreviewedpages-watched','parsemag',$uw,$uw) : wfMsgHtml('oldreviewedpages-unwatched');
-			$watching = ' '.$watching;
+			$watching = " {$watching}";
 		} else {
 			$uw = -1;
 			$watching = ''; // leave out data
@@ -215,10 +220,12 @@ class OldReviewedPages extends SpecialPage
 			$age = ""; // wtf?
 		}
 		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->fp_stable, $row->page_latest );
-		$val = $wgMemc->get( $key );
-		$underReview = $val ? wfMsgHtml('oldreviewedpages-viewing') : '';
+		# Show if a user is looking at this page
+		if( ($val = $wgMemc->get($key)) ) {
+			$underReview = " <b class='fr-under-review'>".wfMsgHtml('oldreviewedpages-viewing').'</b>';
+		}
 
-		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i> <b>[{$quality}]</b>{$watching} <b>{$underReview}</b></li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i>{$quality}{$watching}{$underReview}</li>" );
 	}
 	
 	/**

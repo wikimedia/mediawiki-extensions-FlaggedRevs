@@ -274,6 +274,10 @@
 	background-color: #faebd7;
 }
 
+.fr-under-review {
+	background-color: yellow;
+}
+
 /* Review form */
 .flaggedrevs_reviewform {
 	background-color: #f9f9f9;
@@ -336,6 +340,7 @@
 	display: none;
 }
 
+/* Reader feedback form */
 .fr_reader_feedback_graph {
 	width: 100%; 
 	overflow: auto;

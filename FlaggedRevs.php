@@ -253,7 +253,7 @@ $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 54;
+$wgFlaggedRevStyleVersion = 55;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
