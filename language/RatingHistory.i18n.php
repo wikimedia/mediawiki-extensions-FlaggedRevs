@@ -193,6 +193,7 @@ $messages['de'] = array(
 	'ratinghistory-3years' => 'letzte 3 Jahre',
 	'ratinghistory-ave' => 'Durchschnitt: $1',
 	'ratinghistory-chart' => 'Leserbewertungen über die Zeit',
+	'ratinghistory-purge' => 'Cache leeren',
 	'ratinghistory-table' => 'Überblick über die Leserbewertungen',
 	'ratinghistory-users' => 'Benutzer, die bewertet haben:',
 	'ratinghistory-graph' => '$2 von „$3“ ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
@@ -224,6 +225,7 @@ $messages['dsb'] = array(
 	'ratinghistory-3years' => 'slědne 3 lěta',
 	'ratinghistory-ave' => 'Pśerězk; $1',
 	'ratinghistory-chart' => 'Pógódnośenja cytarjow pśez cas',
+	'ratinghistory-purge' => 'cache wuprozniś',
 	'ratinghistory-table' => 'Pśeglěd pógódnośenjow cytarjow',
 	'ratinghistory-users' => 'Wužywarje, kótarež su pógódnośili:',
 	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|pógódnośenje|pógódnośeni|pógódnośenja|pógódnośenjow}})',
@@ -256,6 +258,7 @@ $messages['eo'] = array(
 	'ratinghistory-3years' => 'lastaj 3 jaroj',
 	'ratinghistory-ave' => 'Avĝ: $1',
 	'ratinghistory-chart' => 'Taksado de legantaro trans tempo',
+	'ratinghistory-purge' => 'refreŝigi kaŝmemoron',
 	'ratinghistory-table' => 'Superrigardo pri taksado de legantoj',
 	'ratinghistory-users' => 'Uzantoj taksinte ĉi tiun paĝon:',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|kontrolo|kontroloj}})',
@@ -335,6 +338,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author Grondin
  * @author IAlex
  * @author Zetud
@@ -352,6 +356,7 @@ $messages['fr'] = array(
 	'ratinghistory-3years' => 'les 3 dernières années',
 	'ratinghistory-ave' => 'Moyenne : $1',
 	'ratinghistory-chart' => 'Relecteur notant hors délai',
+	'ratinghistory-purge' => 'purger le cache',
 	'ratinghistory-table' => "Vue d'ensemble des notation des lecteurs",
 	'ratinghistory-users' => 'Utilisateurs qui ont fait des relectures',
 	'ratinghistory-graph' => '$2 sur « $3 » ($1 {{PLURAL:$1|relecture|relectures}})',
@@ -394,6 +399,7 @@ $messages['gl'] = array(
 	'ratinghistory-3years' => 'últimos 3 anos',
 	'ratinghistory-ave' => 'Promedio: $1',
 	'ratinghistory-chart' => 'Valoración do lector',
+	'ratinghistory-purge' => 'limpar a caché',
 	'ratinghistory-table' => 'Vista xeral das valoracións dos lectores',
 	'ratinghistory-users' => 'Usuarios que valoraron páxinas',
 	'ratinghistory-graph' => '$2 de "$3" ({{PLURAL:$1|unha revisión|$1 revisións}})',
@@ -512,6 +518,7 @@ $messages['hsb'] = array(
 	'ratinghistory-3years' => 'zańdźene 3 lěta',
 	'ratinghistory-ave' => 'Přerězk: $1',
 	'ratinghistory-chart' => 'Pohódnoćenja čitarjow přez dobu',
+	'ratinghistory-purge' => 'pufrowak wuprózdnić',
 	'ratinghistory-table' => 'Přehlad wo pohódnoćenjach čitarjow',
 	'ratinghistory-users' => 'Wužiwarjo, kotřiz su pohódnoćili:',
 	'ratinghistory-graph' => '$2 z "$3" ($1 {{PLURAL:$1|kontrola|kontroli|kontrole|kontrolow}})',
@@ -535,6 +542,7 @@ Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojacy; '''[4]''' 
  * @author Dorgan
  * @author Glanthor Reviol
  * @author Gondnok
+ * @author Grin
  * @author Samat
  */
 $messages['hu'] = array(
@@ -548,10 +556,14 @@ $messages['hu'] = array(
 	'ratinghistory-3months' => 'utolsó 3 hónap',
 	'ratinghistory-year' => '1 év',
 	'ratinghistory-3years' => '3 év',
+	'ratinghistory-ave' => 'Átlag: $1',
 	'ratinghistory-chart' => 'Olvasói visszajelzések időrendben',
+	'ratinghistory-table' => 'Olvasói értékelések áttekintése',
 	'ratinghistory-users' => 'Szerkesztők, akik értékelték a lapot',
 	'ratinghistory-graph' => '$2 a „$3” oldalon ($1 {{PLURAL:$1|értékelés|értékelés}})',
 	'readerfeedback-svg' => 'Megtekintés SVG formátumban',
+	'ratinghistory-table-rating' => 'Értékelés',
+	'ratinghistory-table-votes' => 'Szavazatok',
 	'ratinghistory-none' => 'Jelenleg még nem áll rendelkezésre elég visszajelzés a grafikonok elkészítéséhez.',
 	'ratinghistory-legend' => "Alább a '''napi átlagos értékelés''' <font color=\"blue\">''(kék színnel)''</font> és a '''megadott időtartam alatti átlagos értékelés''' <font color=\"green\">''(zöld színnel)''</font> grafikonja látható, dátum szerint. A '''megadott időtartam alatti átlagos értékelés''' egyszerűen az összes napi értékelés átlaga a megadott időtartam '''alatt'''.
 
@@ -660,6 +672,7 @@ $messages['ja'] = array(
 	'ratinghistory-3years' => '過去3年',
 	'ratinghistory-ave' => '平均: $1',
 	'ratinghistory-chart' => '期間中の読者評価',
+	'ratinghistory-purge' => 'キャッシュ削除',
 	'ratinghistory-table' => '読者評価の概観',
 	'ratinghistory-users' => '評価を行った利用者',
 	'ratinghistory-graph' => '「$3」の$2 ($1回の評価)',
@@ -813,6 +826,7 @@ $messages['nl'] = array(
 	'ratinghistory-3years' => 'afgelopen 3 jaar',
 	'ratinghistory-ave' => 'Gemiddeld: $1',
 	'ratinghistory-chart' => 'Lezerswaardering in de tijd',
+	'ratinghistory-purge' => 'cache legen',
 	'ratinghistory-table' => 'Overzicht van de lezerswaarderingen',
 	'ratinghistory-users' => 'Gebruikers die een waardering hebben gegeven',
 	'ratinghistory-graph' => '$2 van "$3" ($1 {{PLURAL:$1|waardering|waarderingen}})',
@@ -846,6 +860,7 @@ $messages['nn'] = array(
 	'ratinghistory-3years' => 'siste tre år',
 	'ratinghistory-ave' => 'Snitt: $1',
 	'ratinghistory-chart' => 'Lesarvurdering over tid',
+	'ratinghistory-purge' => 'oppdater mellomlager',
 	'ratinghistory-table' => 'Oversyn over lesarvurderingar',
 	'ratinghistory-users' => 'Brukarar som vurderte sida',
 	'ratinghistory-graph' => '$2 for «$3» ({{PLURAL:$1|éi vurdering|$1 vurderingar}})',
@@ -979,6 +994,7 @@ $messages['pt'] = array(
 	'ratinghistory-3years' => 'últimos três anos',
 	'ratinghistory-ave' => 'Média: $1',
 	'ratinghistory-chart' => 'Avaliações do leitor ao longo do tempo',
+	'ratinghistory-purge' => 'limpar cache',
 	'ratinghistory-table' => 'Resumo das avaliações dos leitores',
 	'ratinghistory-users' => 'Utilizadores que fizeram avaliações',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|avaliação|avaliações}})',
@@ -1052,6 +1068,7 @@ $messages['roa-tara'] = array(
 	'ratinghistory-3years' => 'urteme ttre anne',
 	'ratinghistory-ave' => 'Medie: $1',
 	'ratinghistory-chart' => 'Pundegge de le lettore fore timbe massime',
+	'ratinghistory-purge' => "pulizze 'a cache",
 	'ratinghistory-table' => 'Riepileghe de le pundegge de le lettore',
 	'ratinghistory-users' => "Utinde ca onne date 'nu pundegge",
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisione|revisiune}})',
@@ -1181,6 +1198,7 @@ $messages['sv'] = array(
 	'ratinghistory-3years' => 'senaste 3 åren',
 	'ratinghistory-ave' => 'Snitt: $1',
 	'ratinghistory-chart' => 'Läsarbetyg över tiden',
+	'ratinghistory-purge' => 'uppdatera cache',
 	'ratinghistory-table' => 'Översyn av läsarbetyg',
 	'ratinghistory-users' => 'Användare som gav betyg',
 	'ratinghistory-graph' => '$2 av "$3" ($1 {{PLURAL:$1|granskning|granskningar}})',

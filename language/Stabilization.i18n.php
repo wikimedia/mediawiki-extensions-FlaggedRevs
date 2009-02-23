@@ -690,6 +690,13 @@ $messages['es'] = array(
 	'stabilize-expiring' => 'caduca el $1 (UTC)',
 );
 
+/** Estonian (Eesti)
+ * @author KalmerE.
+ */
+$messages['et'] = array(
+	'stabilization-submit' => 'Kinnita',
+);
+
 /** Basque (Euskara)
  * @author An13sa
  * @author Kobazulo

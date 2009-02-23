@@ -93,6 +93,17 @@ $messages['es'] = array(
 	'likedpages-graphs' => 'datos de valoración',
 );
 
+/** Basque (Euskara)
+ * @author Theklan
+ */
+$messages['eu'] = array(
+	'likedpages' => 'Balorazio oso ona duten orrialdeak',
+	'likedpages-leg' => 'Bilatu balorazio oso oneko orrialdeak',
+	'likedpages-list' => 'Azpian irakurtzailearen feedbak balorazioaren arabera ordenatutako orrialdeen zerrend abat dago.',
+	'likedpages-none' => 'Ez dago orrialderik zerrenda honetan',
+	'likedpages-graphs' => 'balorazio data',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
