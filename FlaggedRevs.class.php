@@ -1033,6 +1033,118 @@ class FlaggedRevs {
 		return $dims;
 	}
 	
+   	/**
+	* Get a table of the vote totals for a page
+	* @param Title $page
+	* @param int $period, number of days back
+	* @param array $add, optional vote to add on (used to visually avoid lag)
+	* @param string $cache, optional param to not use cache
+	* @returns string HTML table
+	*/	
+	public static function getVoteAggregates( $page, $period, $add = array(), $cache = 'useCache' ) {
+		global $wgLang, $wgMemc;
+		if( $period > 93 ) {
+			return ''; // too big
+		}
+		$votes = null;
+		$now = time();
+		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId(), $period );
+		// Check cache
+		if( $cache == 'useCache' ) {
+			$set = $wgMemc->get($key);
+			// Cutoff is at the 24 hour mark due to the way the aggregate 
+			// schema groups ratings by date for graphs.
+			$cache_cutoff = $now - ($now % 86400);
+			if( is_array($set) && count($set) == 2 ) {
+				list($val,$time) = $set;
+				$touched = wfTimestamp( TS_UNIX, RatingHistory::getTouched($page) );
+				if( $time > $cache_cutoff && $time > $touched ) {
+					$votes = $val;
+				}
+			}
+		}
+		// Do query, cache miss
+		if( !isset($votes) ) {
+			// Set cutoff time for period
+			$dbr = wfGetDB( DB_SLAVE );
+			$cutoff_unixtime = $now - ($period * 24 * 3600);
+			// Use integral number of days to be consistent with graphs
+			$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
+			$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
+			// Get the first revision possibly voted on in the range
+			$firstRevTS = $dbr->selectField( 'revision',
+				'rev_timestamp',
+				array( 'rev_page' => $page->getArticleId(), "rev_timestamp <= $cutoff" ),
+				__METHOD__,
+				array( 'ORDER BY' => 'rev_timestamp DESC' )
+			);
+			// Find average, median, deviation...
+			$res = $dbr->select( array( 'revision', 'reader_feedback' ),
+				array( 'rfb_ratings' ),
+				array( 'rev_page' => $page->getArticleId(),
+					"rev_id = rfb_rev_id",
+					"rfb_timestamp >= $cutoff",
+					// Trigger INDEX usage
+					"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
+				__METHOD__,
+				array( 'USE INDEX' => array('revision' => 'page_timestamp') )
+			);
+			$votes = array();
+			foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
+				$votes[$tag] = array( 0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0 );
+			}
+			// Read votes and tally the numbers
+			while( $row = $dbr->fetchObject($res) ) {
+				$dims = FlaggedRevs::expandRatings( $row->rfb_ratings );
+				foreach( $dims as $tag => $val ) {
+					if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
+						$votes[$tag][$val]++;
+					}
+				}
+			}
+			// Tack on $add for display (used to avoid cache/lag)
+			foreach( $add as $tag => $val ) {
+				if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
+					$votes[$tag][$val]++;
+				}
+			}
+			$wgMemc->set( $key, array( $votes, $now ), 24*3600 );
+		}
+		// Output multi-column list
+		$html = "<table class='fr_reader_feedback_table' cellspacing='0'><tr>";
+		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
+			// Get tag average...
+			$dist = isset($votes[$tag]) ? $votes[$tag] : array();
+			$count = array_sum($dist);
+			if( $count ) {
+				$ave = ($dist[0] + 2*$dist[1] + 3*$dist[2] + 4*$dist[3] + 5*$dist[4])/$count;
+				$ave = round($ave,1);
+			} else {
+				$ave = '-'; // DIV by zero
+			}
+			$html .= '<td align="center"><b>'.wfMsgHtml("readerfeedback-$tag").'</b>&nbsp;&nbsp;'.
+				'<sup>('.wfMsgHtml('ratinghistory-ave',$wgLang->formatNum($ave)).')</sup></td>';
+		}
+		$html .= '</tr><tr>';
+		foreach( $votes as $tag => $dist ) {
+			$html .= '<td><table>';
+			$html .= '<tr><th align="left">'.wfMsgHtml('ratinghistory-table-rating').'</th>';
+			for( $i = 1; $i <= 5; $i++ ) {
+				$html .= "<td align='center' class='fr-rating-option-".($i-1)."'>$i</td>";
+			}
+			$html .= '</tr><tr>';
+			$html .= '<th align="left">'.wfMsgHtml("ratinghistory-table-votes").'</th>';
+			$html .= '<td align="center">'.$dist[0].'</td>';
+			$html .= '<td align="center">'.$dist[1].'</td>';
+			$html .= '<td align="center">'.$dist[2].'</td>';
+			$html .= '<td align="center">'.$dist[3].'</td>';
+			$html .= '<td align="center">'.$dist[4].'</td>';
+			$html .= "</tr></table></td>\n";
+		}
+		$html .= '</tr></table>';
+		return $html;
+	}
+	
 	################# Auto-review function #################
 
 	/**

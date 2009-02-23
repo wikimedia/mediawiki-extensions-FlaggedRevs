@@ -165,7 +165,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 		$talk = $form->page->getTalkPage();
 		
 		wfLoadExtensionMessages( 'RatingHistory' );
-		$tallyTable = RatingHistory::getVoteAggregates( $form->page, 31, $form->dims );
+		$tallyTable = FlaggedRevs::getVoteAggregates( $form->page, 31, $form->dims );
 		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();

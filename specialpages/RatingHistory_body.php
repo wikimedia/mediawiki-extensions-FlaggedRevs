@@ -52,6 +52,8 @@ class RatingHistory extends UnlistedSpecialPage
 		}
 		$this->period = $period;
 		$this->dScale = 20;
+		
+		$this->now = time(); // one time for whole request
 
 		$this->showForm();
 		$this->showTable();
@@ -62,6 +64,7 @@ class RatingHistory extends UnlistedSpecialPage
 			return; // Client cache fresh and headers sent, nothing more to do
 		} else {
 			$wgOut->enableClientCache( false ); // don't show stale graphs
+			if( $this->doPurge ) $this->purgePage();
 		}
 		$this->showGraphs();
 	}
@@ -69,19 +72,21 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function showTable() {
 		global $wgOut;
 		# Show latest month of results
-		$html = self::getVoteAggregates( $this->page, $this->period );
+		$html = FlaggedRevs::getVoteAggregates( $this->page, $this->period, array(),
+			$this->doPurge ? 'skipCache' : 'useCache'
+		);
 		if( $html ) {
 			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".$html );
 		}
 	}
 	
 	protected function showForm() {
-		global $wgOut, $wgTitle, $wgScript;
+		global $wgOut, $wgScript;
 		$form = Xml::openElement( 'form', array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset>";
 		$form .= "<legend>".wfMsgExt( 'ratinghistory-leg',array('parseinline'),
 			$this->page->getPrefixedText() )."</legend>\n";
-		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
+		$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 		$form .= Xml::hidden( 'target', $this->page->getPrefixedDBKey() );
 		$form .= $this->getPeriodMenu( $this->period );
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
@@ -143,7 +148,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$viewLink = "";
 					if( $sExt === 'svg' ) {
 						$svgUrl = $this->getUrlPath( $tag, 'svg' );
-						$viewLink = " <small>[<a href='".$svgUrl."'>".
+						$viewLink = " <small>[<a href='".htmlspecialchars($svgUrl)."'>".
 							wfMsgHtml("readerfeedback-svg")."</a>]</small>";
 					}
 					$html .= "<h3>" . wfMsgHtml("readerfeedback-$tag") . "$viewLink</h3>\n" .
@@ -166,7 +171,12 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 		}
 		// Add header
-		$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-chart') . '</h2>' );
+		$purgeUrl = $this->getTitle()->getFullUrl( 'target='.$this->page->getPrefixedUrl().
+			"&period={$this->period}&action=purge" );
+		$purgeLink = " <small>[<a href='".htmlspecialchars($purgeUrl)."'>".
+			wfMsgHtml('ratinghistory-purge')."</a>]</small>";
+		// Add header for all the graphs below
+		$wgOut->addHTML( '<h2>' . wfMsgHtml('ratinghistory-chart') . "$purgeLink</h2>\n" );
 		if( $data ) {
 			// Add legend as needed
 			$wgOut->addWikiText( wfMsg('ratinghistory-legend',$this->dScale) );
@@ -472,7 +482,7 @@ class RatingHistory extends UnlistedSpecialPage
 	protected function doQuery( $tag ) {
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = $this->now - ($this->period * 24 * 3600);
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
 		$res = $dbr->select( 'reader_feedback_history',
@@ -560,28 +570,29 @@ class RatingHistory extends UnlistedSpecialPage
 		return $ext;
 	}
 	
-	public function getUserList() {
+	protected function getUserList() {
 		global $wgMemc;
 		if( $this->period > 93 ) {
 			return ''; // too big
 		}
-		// Check cache
 		$key = wfMemcKey( 'flaggedrevs', 'ratingusers', $this->page->getArticleId(), $this->period );
-		$set = $wgMemc->get($key);
-		// Cutoff is at the 24 hour mark due to the way the aggregate 
-		// schema groups ratings by date for graphs.
-		$now = time();
-		$cache_cutoff = $now - ($now % 86400);
-		if( is_array($set) && count($set) == 2 ) {
-			list($html,$time) = $set;
-			$touched = wfTimestamp( TS_UNIX, self::getTouched($this->page) );
-			if( $time > $cache_cutoff && $time > $touched ) {
-				return $html;
+		// Check cache
+		if( !$this->doPurge ) {
+			$set = $wgMemc->get($key);
+			// Cutoff is at the 24 hour mark due to the way the aggregate 
+			// schema groups ratings by date for graphs.
+			$cache_cutoff = $this->now - ($this->now % 86400);
+			if( is_array($set) && count($set) == 2 ) {
+				list($html,$time) = $set;
+				$touched = wfTimestamp( TS_UNIX, self::getTouched($this->page) );
+				if( $time > $cache_cutoff && $time > $touched ) {
+					return $html;
+				}
 			}
 		}
 		// Set cutoff time for period
 		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_unixtime = time() - ($this->period * 24 * 3600);
+		$cutoff_unixtime = $this->now - ($this->period * 24 * 3600);
 		// Use integral number of days to be consistent with graphs
 		$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
 		$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
@@ -620,108 +631,7 @@ class RatingHistory extends UnlistedSpecialPage
 			}
 		}
 		$html .= "</tr></table>\n";
-		$wgMemc->set( $key, array( $html, $now ), 24*3600 );
-		return $html;
-	}
-	
-	public static function getVoteAggregates( $page, $period, $add = array() ) {
-		global $wgLang, $wgMemc;
-		if( $period > 93 ) {
-			return ''; // too big
-		}
-		// Check cache
-		$key = wfMemcKey( 'flaggedrevs', 'ratingtally', $page->getArticleId(), $period );
-		$set = $wgMemc->get($key);
-		// Cutoff is at the 24 hour mark due to the way the aggregate 
-		// schema groups ratings by date for graphs.
-		$now = time();
-		$cache_cutoff = $now - ($now % 86400);
-		if( is_array($set) && count($set) == 2 ) {
-			list($val,$time) = $set;
-			$touched = wfTimestamp( TS_UNIX, self::getTouched($page) );
-			if( $time > $cache_cutoff && $time > $touched ) {
-				$votes = $val;
-			}
-		}
-		// Do query, cache miss
-		if( !isset($votes) ) {
-			// Set cutoff time for period
-			$dbr = wfGetDB( DB_SLAVE );
-			$cutoff_unixtime = $now - ($period * 24 * 3600);
-			// Use integral number of days to be consistent with graphs
-			$cutoff_unixtime = $cutoff_unixtime - ($cutoff_unixtime % 86400);
-			$cutoff = $dbr->addQuotes( wfTimestamp( TS_MW, $cutoff_unixtime ) );
-			// Get the first revision possibly voted on in the range
-			$firstRevTS = $dbr->selectField( 'revision',
-				'rev_timestamp',
-				array( 'rev_page' => $page->getArticleId(), "rev_timestamp <= $cutoff" ),
-				__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp DESC' )
-			);
-			// Find average, median, deviation...
-			$res = $dbr->select( array( 'revision', 'reader_feedback' ),
-				array( 'rfb_ratings' ),
-				array( 'rev_page' => $page->getArticleId(),
-					"rev_id = rfb_rev_id",
-					"rfb_timestamp >= $cutoff",
-					// Trigger INDEX usage
-					"rev_timestamp >= ".$dbr->addQuotes($firstRevTS) ),
-				__METHOD__,
-				array( 'USE INDEX' => array('revision' => 'page_timestamp') )
-			);
-			$votes = array();
-			foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
-				$votes[$tag] = array( 0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0 );
-			}
-			// Read votes and tally the numbers
-			while( $row = $dbr->fetchObject($res) ) {
-				$dims = FlaggedRevs::expandRatings( $row->rfb_ratings );
-				foreach( $dims as $tag => $val ) {
-					if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
-						$votes[$tag][$val]++;
-					}
-				}
-			}
-			// Tack on $add for display (used to avoid cache/lag)
-			foreach( $add as $tag => $val ) {
-				if( isset($votes[$tag]) && isset($votes[$tag][$val]) ) {
-					$votes[$tag][$val]++;
-				}
-			}
-			$wgMemc->set( $key, array( $votes, $now ), 24*3600 );
-		}
-		// Output multi-column list
-		$html = "<table class='fr_reader_feedback_table' cellspacing='0'><tr>";
-		foreach( FlaggedRevs::getFeedbackTags() as $tag => $w ) {
-			// Get tag average...
-			$dist = isset($votes[$tag]) ? $votes[$tag] : array();
-			$count = array_sum($dist);
-			if( $count ) {
-				$ave = ($dist[0] + 2*$dist[1] + 3*$dist[2] + 4*$dist[3] + 5*$dist[4])/$count;
-				$ave = round($ave,1);
-			} else {
-				$ave = '-'; // DIV by zero
-			}
-			$html .= '<td align="center"><b>'.wfMsgHtml("readerfeedback-$tag").'</b>&nbsp;&nbsp;'.
-				'<sup>('.wfMsgHtml('ratinghistory-ave',$wgLang->formatNum($ave)).')</sup></td>';
-		}
-		$html .= '</tr><tr>';
-		foreach( $votes as $tag => $dist ) {
-			$html .= '<td><table>';
-			$html .= '<tr><th align="left">'.wfMsgHtml('ratinghistory-table-rating').'</th>';
-			for( $i = 1; $i <= 5; $i++ ) {
-				$html .= "<td align='center' class='fr-rating-option-".($i-1)."'>$i</td>";
-			}
-			$html .= '</tr><tr>';
-			$html .= '<th align="left">'.wfMsgHtml("ratinghistory-table-votes").'</th>';
-			$html .= '<td align="center">'.$dist[0].'</td>';
-			$html .= '<td align="center">'.$dist[1].'</td>';
-			$html .= '<td align="center">'.$dist[2].'</td>';
-			$html .= '<td align="center">'.$dist[3].'</td>';
-			$html .= '<td align="center">'.$dist[4].'</td>';
-			$html .= "</tr></table></td>\n";
-		}
-		$html .= '</tr></table>';
+		$wgMemc->set( $key, array( $html, $this->now ), 24*3600 );
 		return $html;
 	}
 	
@@ -749,7 +659,7 @@ class RatingHistory extends UnlistedSpecialPage
 	* @param string $path, filepath to existing file
 	* @returns string
 	*/
-	public function fileExpired( $tag, $path ) {
+	protected function fileExpired( $tag, $path ) {
 		if( $this->doPurge || !file_exists($path) ) {
 			return true;
 		}
@@ -760,7 +670,7 @@ class RatingHistory extends UnlistedSpecialPage
 		$tagTimestamp = wfTimestamp( TS_UNIX, $tagTimestamp );
 		$file_unixtime = filemtime($path);
 		# Check max cache time
-		$cutoff_unixtime = time() - (7 * 24 * 3600);
+		$cutoff_unixtime = $this->now - (7 * 24 * 3600);
 		if( $file_unixtime < $cutoff_unixtime ) {
 			$this->purgePage();
 			return true;

@@ -20,6 +20,7 @@ $messages['en'] = array(
 	'ratinghistory-3years'  => 'last 3 years',
 	'ratinghistory-ave'     => 'Avg: $1',
 	'ratinghistory-chart'   => 'Reader ratings over time',
+	'ratinghistory-purge'   => 'purge cache',
 	'ratinghistory-table'   => 'Overview of reader ratings',
 	'ratinghistory-users'   => 'Users who gave ratings',
 	'ratinghistory-graph'   => '$2 of "$3" ($1 {{PLURAL:$1|review|reviews}})',
