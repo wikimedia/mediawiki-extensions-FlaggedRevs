@@ -63,6 +63,7 @@ $messages['ar'] = array(
 	'ratinghistory-3years' => 'آخر 3 سنوات',
 	'ratinghistory-ave' => 'المتوسط: $1',
 	'ratinghistory-chart' => 'تقييمات القراء عبر الزمن',
+	'ratinghistory-purge' => 'إفراغ الكاش',
 	'ratinghistory-table' => 'عرض عام لتقييمات القراء',
 	'ratinghistory-users' => 'المستخدمون الذين أعطوا تقييمات',
 	'ratinghistory-graph' => '$2 من "$3" ($1 {{PLURAL:$1|مراجعة|مراجعة}})',
@@ -155,6 +156,7 @@ $messages['bs'] = array(
 	'ratinghistory-3years' => 'zadnje 3 godine',
 	'ratinghistory-ave' => 'Prosj: $1',
 	'ratinghistory-chart' => 'Rejtinzi čitaoca po vremenu',
+	'ratinghistory-purge' => 'očisti keš',
 	'ratinghistory-table' => 'Pregled rejtinga čitaoca',
 	'ratinghistory-users' => 'Korisnici koji su dodijelili rejtinge',
 	'ratinghistory-graph' => '$2 od "$3" ($1 {{PLURAL:$1|pregled|pregleda}})',
@@ -452,6 +454,7 @@ $messages['gsw'] = array(
 	'ratinghistory-3years' => 'letschte drei Johr',
 	'ratinghistory-ave' => 'Durschnitt: $1',
 	'ratinghistory-chart' => 'Bewärtige vu Läser im Zytruum',
+	'ratinghistory-purge' => 'Cache lääre',
 	'ratinghistory-table' => 'Iberblick iber Sytebewärtigen',
 	'ratinghistory-users' => 'Benutzer, wu bewärtet hän:',
 	'ratinghistory-graph' => '$2 vu „$3“ ($1 {{PLURAL:$1|Bewärtig|Bewärtige}})',
@@ -587,10 +590,15 @@ $messages['ia'] = array(
 	'ratinghistory-3months' => 'ultime 3 menses',
 	'ratinghistory-year' => 'ultime anno',
 	'ratinghistory-3years' => 'ultime 3 annos',
+	'ratinghistory-ave' => 'Media: $1',
 	'ratinghistory-chart' => 'Evalutationes del lectores in le curso del tempore',
+	'ratinghistory-purge' => 'vacuar cache',
+	'ratinghistory-table' => 'Summario del evalutationes del lectores',
 	'ratinghistory-users' => 'Usatores qui ha facite evalutationes',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|evalutation|evalutationes}})',
 	'readerfeedback-svg' => 'Vider como SVG',
+	'ratinghistory-table-rating' => 'Evalutation',
+	'ratinghistory-table-votes' => 'Votos',
 	'ratinghistory-none' => 'Non es disponibile sufficiente datos de evalutationes de lectores pro poter facer graphicos al momento.',
 	'ratinghistory-legend' => "Le '''evalutation medie de cata die''' <font color=\"blue\">''(blau)''</font> e  
 '''evalutation medie currente''' <font color=\"green\">''(verde)''</font> es representate infra, per data. Le  
@@ -599,6 +607,7 @@ $messages['ia'] = array(
 Scala: '''[1]''' - Mal; '''[2]''' - Basse; '''[3]''' - Medie; '''[4]''' - Alte; '''[5]''' - Excellente;
 
 Le '''numero de evalutationes per die''' <font color=\"red\">''(rubie)''</font> es monstrate in le graphicos infra, in scala ''1:\$1''.",
+	'right-feedback' => 'Usa le formulario de reaction pro evalutar un pagina',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -949,6 +958,7 @@ $messages['pl'] = array(
 	'ratinghistory-3years' => 'ostatnie 3 lata',
 	'ratinghistory-ave' => 'Średnia $1',
 	'ratinghistory-chart' => 'Oceny czytelników w czasie',
+	'ratinghistory-purge' => 'odśwież pamięć podręczną',
 	'ratinghistory-table' => 'Przegląd ocen wystawionych przez czytelników',
 	'ratinghistory-users' => 'Użytkownicy, którzy wystawili ocenę',
 	'ratinghistory-graph' => '$2 strony „$3” ($1 {{PLURAL:$1|ocena|oceny|ocen}})',
@@ -1275,6 +1285,7 @@ $messages['tr'] = array(
 	'ratinghistory-3years' => 'son 3 yıl',
 	'ratinghistory-ave' => 'Ort: $1',
 	'ratinghistory-chart' => 'Zaman içindeki kullanıcı değerlendirmesi',
+	'ratinghistory-purge' => 'önbelleği boşalt',
 	'ratinghistory-table' => 'Kullanıcı değerlendirmelerine genel bakış',
 	'ratinghistory-users' => 'Derecelendirme veren kullanıcılar',
 	'ratinghistory-graph' => '"$3" de $2 ($1 {{PLURAL:$1|gözden geçirme|gözden geçirme}})',

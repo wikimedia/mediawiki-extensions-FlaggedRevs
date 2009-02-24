@@ -559,6 +559,7 @@ $messages['ia'] = array(
 	'unreviewed-watched' => '(observate per $1 {{PLURAL:$1|usator|usatores}} active)',
 	'unreviewed-list' => 'Iste pagina lista le paginas de contento que non ha essite revidite.',
 	'unreviewed-none' => 'Al momento il non ha paginas que corresponde a iste criterios',
+	'unreviewed-viewing' => '(sub revision)',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -1126,13 +1127,14 @@ $messages['sv'] = array(
  * @author వైజాసత్య
  */
 $messages['te'] = array(
-	'right-unreviewedpages' => 'సమీక్షించని పేజీల జాబితా',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|సమీక్షించని పేజీల జాబితా]]ని చూడండి',
 	'unreviewedpages' => 'సమీక్షించని పేజీలు',
 	'unreviewed-category' => 'వర్గం:',
 	'unreviewed-diff' => 'సమీక్షించండి',
 	'unreviewed-unwatched' => '(వీక్షణలో లేనివి)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|క్రియాశీల వాడుకరి|గురు క్రియాశీల వాడుకరులు}} వీక్షిస్తున్నారు)',
 	'unreviewed-list' => 'ఈ పేజీలో సమీక్షించని వ్యాసాలు లేదా కొత్త, సమీక్షించని కూర్పులున్న వ్యాసాలు ఉంటాయి.',
+	'unreviewed-viewing' => '(సమీక్షలో ఉంది)',
 );
 
 /** Tetum (Tetun)

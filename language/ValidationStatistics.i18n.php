@@ -59,7 +59,8 @@ $messages['ar'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
 	'validationstatistics-users' => "'''{{SITENAME}}''' لديه حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|محرر]]
 و '''$2''' {{PLURAL:$2|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|مراجع]].",
-	'validationstatistics-time' => "الانتظار المتوسط للتعديلات بواسطة ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.  
+	'validationstatistics-time' => "الانتظار المتوسط للتعديلات بواسطة ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
+$4
 التأخر المتوسط [[Special:OldReviewedPages|للصفحات القديمة]] هو '''$2'''.",
 	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضة بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.
 الصفحات ''القديمة'' هي تلك ذات تعديلات أجدد من النسخة المستقرة.
@@ -480,9 +481,14 @@ $messages['hu'] = array(
 $messages['ia'] = array(
 	'validationstatistics' => 'Statisticas de validation',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con derectos de [[{{MediaWiki:Validationpage}}|Contributor]] e '''$2''' {{PLURAL:$2|usator|usatores}} con derectos de [[{{MediaWiki:Validationpage}}|Revisor]].",
-	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, excludente le paginas de redirection.
+	'validationstatistics-time' => "Le tempore medie de attender pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
+$4
+Le tempore medie de retardo pro le [[Special:OldReviewedPages|paginas con modificationes non ancora revidite]] es '''$2'''.",
+	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, ''excludente'' le paginas de redirection.
+Le paginas ''obsolete'' es illos con modificationes plus nove que le version stabile.
+Si le version stabile es etiam le plus recente, alora le pagina es ''synchronisate''.
 
-'''Nota:''' le sequente datos es extrahite de un copia ''cache'' del base de datos, non actualisate in tempore real.",
+''Nota: le sequente datos es conservate in cache durante plure horas e pote esser obsolete.''",
 	'validationstatistics-ns' => 'Spatio de nomines',
 	'validationstatistics-total' => 'Paginas',
 	'validationstatistics-stable' => 'Revidite',

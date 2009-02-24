@@ -339,6 +339,10 @@ $messages['ia'] = array(
 	'stablepages-text' => 'Infra es un lista de paginas manualmente configurate de modo que le version stabile se monstra como le contento predefinite del pagina pro visitatores.',
 	'stablepages-none' => 'Il non ha paginas in iste lista',
 	'stablepages-config' => 'Configuration',
+	'stablepages-prec-none' => 'nulle precedentia',
+	'stablepages-prec-quality' => 'precedentia de qualitate',
+	'stablepages-prec-pristine' => 'precedentia de pristine',
+	'stablepages-precedence' => 'Precedentia:',
 );
 
 /** Indonesian (Bahasa Indonesia)
