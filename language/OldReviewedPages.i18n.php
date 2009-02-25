@@ -390,25 +390,26 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author IAlex
+ * @author PieRRoMaN
  * @author Verdy p
  * @author Yekrats
  */
 $messages['fr'] = array(
-	'oldreviewedpages' => 'Pages revues hors date',
-	'oldreviewedpages-legend' => 'Listes de pages revues avec des versions non visées.',
-	'oldreviewedpages-list' => 'Cette page liste des pages déjà revues mais ayant de nouvelles modifications.',
+	'oldreviewedpages' => 'Pages dont les révisions sont périmées',
+	'oldreviewedpages-legend' => 'Lister les pages revues avec des versions à réviser',
+	'oldreviewedpages-list' => 'Cette page liste des pages déjà revues qui comportent de nouvelles modifications.',
 	'oldreviewedpages-none' => 'Il n’existe actuellement aucune page respectant ces critères',
-	'oldreviewedpages-stable' => 'visé',
-	'oldreviewedpages-quality' => 'qualité',
+	'oldreviewedpages-stable' => 'révisée',
+	'oldreviewedpages-quality' => 'de qualité',
 	'oldreviewedpages-hours' => '($1 heure{{PLURAL:$1||s}})',
 	'oldreviewedpages-days' => '($1 jour{{PLURAL:$1||s}})',
 	'oldreviewedpages-recent' => '(moins d’une heure)',
 	'oldreviewed-category' => 'Catégorie :',
 	'oldreviewed-watched' => 'Dans ma liste de suivi',
 	'oldreviewed-diff' => 'relecture',
-	'oldreviewed-size' => 'Changement maximal de la taille (en octets) :',
-	'oldreviewedpages-unwatched' => '(non observé)',
-	'oldreviewedpages-watched' => "($1 {{PLURAL:$1|utilisateur actif|utilisateurs actifs}} en train d'observer)",
+	'oldreviewed-size' => 'Différence de taille maximale (en octets) :',
+	'oldreviewedpages-unwatched' => '(non suivie)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilisateur|utilisateurs}} suivent la page)',
 	'oldreviewedpages-viewing' => '(en révision)',
 );
 

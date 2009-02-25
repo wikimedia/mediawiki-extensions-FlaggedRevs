@@ -304,26 +304,27 @@ $messages['fi'] = array(
  * @author Grondin
  * @author IAlex
  * @author McDutchie
+ * @author PieRRoMaN
  * @author Verdy p
  * @author Zetud
  */
 $messages['fr'] = array(
 	'validationstatistics' => 'Statistiques de validation',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilisateur|utilisateurs}} avec les droits d’[[{{MediaWiki:Validationpage}}|éditeur]] et de '''$2''' {{PLURAL:$2|utilisateur|utilisateurs}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilisateur|utilisateurs}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''$2''' {{PLURAL:$2|utilisateur|utilisateurs}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].",
 	'validationstatistics-time' => "Le temps moyen pour les modifications faites par ''des utilisateurs qui ne sont pas connectés'' est de '''$1''' ; la médiane est '''$3'''.
 $4
-Le temps de retard moyen des [[Special:OldReviewedPages|pages obsolètes]] est de '''$2'''.",
-	'validationstatistics-table' => "Les statistiques pour chaque espace de nom sont affichées ci-dessous, à ''l’exclusion'' des pages de redirection.
-Les pages ''dépassées'' sont celles avec des modifications plus récente que la version stable.
+Le temps de retard moyen des [[Special:OldReviewedPages|pages comportant des modifications en attente de révision]] est de '''$2'''.",
+	'validationstatistics-table' => "Les statistiques pour chaque espace de noms sont affichées ci-dessous, à ''l’exclusion'' des pages de redirection.
+Les pages ''périmées'' sont celles avec des modifications plus récentes que la version stable.
 Si la version stable est la dernière version, alors la page est ''synchronisée''.
 
-''Note : les données suivantes sont cachées pendant plusieurs heures et ne peuvent pas être mises à jour.''",
+''Note : les données suivantes sont mises en cache pendant plusieurs heures et peuvent ne pas être à jour.''",
 	'validationstatistics-ns' => 'Espace de noms',
 	'validationstatistics-total' => 'Pages',
-	'validationstatistics-stable' => 'Relu',
-	'validationstatistics-latest' => 'Relu en tout dernier lieu',
-	'validationstatistics-synced' => 'Synchronisé/Relu',
-	'validationstatistics-old' => 'Désuet',
+	'validationstatistics-stable' => 'Révisée',
+	'validationstatistics-latest' => 'Révisée récemment',
+	'validationstatistics-synced' => 'Synchronisée/Révisée',
+	'validationstatistics-old' => 'Périmée',
 	'validationstatistics-nbr' => '$1&nbsp;%',
 );
 

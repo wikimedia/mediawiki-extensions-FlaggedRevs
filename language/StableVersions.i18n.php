@@ -278,13 +278,14 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author IAlex
+ * @author PieRRoMaN
  * @author Sherbrooke
  */
 $messages['fr'] = array(
 	'stableversions' => 'Visionner les versions stables',
 	'stableversions-leg1' => "Dernières révisions revues d'une page",
 	'stableversions-page' => 'Nom de la page :',
-	'stableversions-none' => "« [[:$1]] » n'a pas de versions révisées.",
+	'stableversions-none' => "« [[:$1]] » n'a pas de version révisée.",
 	'stableversions-list' => 'La liste qui suit contient des versions de « [[:$1]] » qui ont été révisées :',
 	'stableversions-review' => 'Révisée le <i>$1</i> par $2',
 );

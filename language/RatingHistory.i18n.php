@@ -343,38 +343,38 @@ $messages['fi'] = array(
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
+ * @author PieRRoMaN
  * @author Zetud
  */
 $messages['fr'] = array(
-	'ratinghistory' => 'Historique de la notation de la page',
-	'ratinghistory-leg' => 'Données de l’historique de la notation pour [[:$1|$1]]',
-	'ratinghistory-tab' => 'notation',
-	'ratinghistory-link' => 'Notation de la page',
-	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci pour nous avoir consacré du temps pour relire cette page !</font>''",
+	'ratinghistory' => "Historique de l'évaluation de la page",
+	'ratinghistory-leg' => 'Données de l’historique des évaluations pour [[:$1|$1]]',
+	'ratinghistory-tab' => 'évaluation',
+	'ratinghistory-link' => 'Évaluation de la page',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci d'avoir avoir consacré du temps pour relire cette page !</font>''",
 	'ratinghistory-period' => 'Période :',
 	'ratinghistory-month' => 'dernier mois',
-	'ratinghistory-3months' => 'derniers 3 mois',
+	'ratinghistory-3months' => '3 derniers mois',
 	'ratinghistory-year' => 'dernière année',
-	'ratinghistory-3years' => 'les 3 dernières années',
+	'ratinghistory-3years' => '3 dernières années',
 	'ratinghistory-ave' => 'Moyenne : $1',
-	'ratinghistory-chart' => 'Relecteur notant hors délai',
+	'ratinghistory-chart' => 'Évaluations par les lecteurs au cours du temps',
 	'ratinghistory-purge' => 'purger le cache',
-	'ratinghistory-table' => "Vue d'ensemble des notation des lecteurs",
-	'ratinghistory-users' => 'Utilisateurs qui ont fait des relectures',
+	'ratinghistory-table' => "Vue d'ensemble des évaluations par les lecteurs",
+	'ratinghistory-users' => 'Utilisateurs qui ont fait des évaluations',
 	'ratinghistory-graph' => '$2 sur « $3 » ($1 {{PLURAL:$1|relecture|relectures}})',
 	'readerfeedback-svg' => 'Voir en SVG',
-	'ratinghistory-table-rating' => 'Notation',
+	'ratinghistory-table-rating' => 'Évaluation',
 	'ratinghistory-table-votes' => 'Votes',
-	'ratinghistory-none' => 'En ce moment, il n’y a pas assez de lecteurs de données de notation pour les graphiques.',
-	'ratinghistory-legend' => "Les '''quotations journalières''' <font color=\"blue\">''(bleu)''</font> et
-la '''moyenne de quotation en cours''' <font color=\"green\">''(vert)''</font> de la notation sont dessinés, ci-dessous, par date. La
-'''moyenne de quotation en cours''' est simplement la moyenne des quotation de chaque ''dans'' la période de temps choisie.
+	'ratinghistory-none' => "Il n’y a pas suffisamment d'avis exprimés par des lecteurs pour établir des graphiques pour l'instant.",
+	'ratinghistory-legend' => "L''''évaluation moyenne quotidienne''' <font color=\"blue\">''(bleu)''</font> et
+l''''évaluation moyenne en cours''' <font color=\"green\">''(vert)''</font> sont représentées graphiquement ci-dessous, par date.
+L''''évaluation moyenne en cours''' est simplement la moyenne de toutes les évaluations quotidiennes ''dans'' la période du jour choisie.
 
+Échelle : '''[1]''' - Mauvais ; '''[2]''' - Médiocre ; '''[3]''' - Moyen ; '''[4]''' - Bon ; '''[5]''' - Excellent.
 
-'''[1]''' - Mauvais ; '''[2]''' - Médiocre ; '''[3]''' - Moyen ; '''[4]''' - Bon ; '''[5]''' - Excellent ;
-
-Le '''nombre de vérification par jour''' <font color=\"red\">''(rouge)''</font> sont affichées sur le graphe ci-dessous, avec une echelle ''1:\$1''.",
-	'right-feedback' => 'Utiliser le formulaire de soumission pour noter une page',
+Le '''nombre de relectures par jour''' <font color=\"red\">''(rouge)''</font> est affiché sur le graphe ci-dessous, avec une échelle ''1:\$1''.",
+	'right-feedback' => "Utiliser le formulaire de retour d'informations pour évaluer une page",
 );
 
 /** Irish (Gaeilge)
@@ -923,6 +923,7 @@ $messages['oc'] = array(
 	'ratinghistory-3years' => 'las 3 darrièras annadas',
 	'ratinghistory-ave' => 'Mejana : $1',
 	'ratinghistory-chart' => 'Relector notant fòra relambi',
+	'ratinghistory-purge' => "purgar l'amagatal",
 	'ratinghistory-table' => "Vista d'ensemble de las notations dels lectors",
 	'ratinghistory-users' => "Utilizaires qu'an fach de relecturas",
 	'ratinghistory-graph' => '$2 sus « $3 » ($1 {{PLURAL:$1|relector|relectors}})',
@@ -1036,6 +1037,7 @@ $messages['pt-br'] = array(
 	'ratinghistory-3years' => 'últimos três anos',
 	'ratinghistory-ave' => 'Média: $1',
 	'ratinghistory-chart' => 'Avaliações dos leitores ao longo do tempo',
+	'ratinghistory-purge' => 'limpar cache',
 	'ratinghistory-table' => 'Resumo das avaliações dos leitores',
 	'ratinghistory-users' => 'Utilizadores que fizeram avaliações',
 	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|avaliação|avaliações}})',
@@ -1147,6 +1149,7 @@ $messages['sk'] = array(
 	'ratinghistory-3years' => 'posledné 3 roky',
 	'ratinghistory-ave' => 'Priem: $1',
 	'ratinghistory-chart' => 'Hodnotenie čitateľov v čase',
+	'ratinghistory-purge' => 'vyčistiť vyrovnávaciu pamäť',
 	'ratinghistory-table' => 'Prehľad hodnotení čitateľmi',
 	'ratinghistory-users' => 'Používatelia, ktorí ohodnotili stránku',
 	'ratinghistory-graph' => '$2 článku „$3” ($1 {{PLURAL:$1|kontrola|kontroly|kontrol}})',
@@ -1252,6 +1255,7 @@ $messages['tl'] = array(
 	'ratinghistory-3years' => 'huling 3 mga taon',
 	'ratinghistory-ave' => 'Karaniwan: $1',
 	'ratinghistory-chart' => 'Mga pagaantas ng mambabasa sa paglipas ng panahon',
+	'ratinghistory-purge' => 'dalisayin ang nakakubling taguan',
 	'ratinghistory-table' => 'Paglalarawan ng mga kaantasang bigay ng mambabasa',
 	'ratinghistory-users' => 'Mga tagagamit na nagbigay ng pagaantas',
 	'ratinghistory-graph' => '$2 ng "$3" ($1 {{PLURAL:$1|pagsusuri|mga pagsusuri}})',

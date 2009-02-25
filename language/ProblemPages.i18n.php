@@ -121,13 +121,14 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author PieRRoMaN
  */
 $messages['fr'] = array(
-	'problempages' => 'Pages mal notées',
-	'problempages-leg' => 'Trouver les pages mal notées',
-	'problempages-list' => 'Voici, ci-dessous, une liste des pages triées en fonction de la notation de leurs lecteurs.',
+	'problempages' => 'Pages ayant des mauvaises évaluations',
+	'problempages-leg' => 'Trouver les pages ayant des évaluations faibles',
+	'problempages-list' => 'Voici une liste des pages triées suivant leur évaluation par les lecteurs.',
 	'problempages-none' => 'Il n’y a aucune page dans cette liste',
-	'problempages-graphs' => 'données de notation',
+	'problempages-graphs' => "données d'évaluation",
 );
 
 /** Galician (Galego)

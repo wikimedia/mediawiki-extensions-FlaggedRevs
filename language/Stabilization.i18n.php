@@ -788,6 +788,7 @@ $messages['fi'] = array(
  * @author Grondin
  * @author IAlex
  * @author Juanpabl
+ * @author PieRRoMaN
  * @author Sherbrooke
  * @author Verdy p
  */
@@ -800,7 +801,7 @@ $messages['fr'] = array(
 	'stabilization-leg' => 'Confirmer le paramétrage de la version stable',
 	'stabilization-select' => 'Sélection de la version stable',
 	'stabilization-select1' => 'La dernière version de qualité, sinon la dernière version vue',
-	'stabilization-select2' => 'La dernière révision vue',
+	'stabilization-select2' => 'La dernière version révisée',
 	'stabilization-select3' => 'La dernière version intacte ; en cas d’absence, la dernière de qualité ou relue.',
 	'stabilization-def' => "Version affichée lors de l'affichage par défaut de la page",
 	'stabilization-def1' => 'La version stable, sinon la version courante',
@@ -2046,6 +2047,47 @@ se inexistente, a mais recentemente analisada',
 	'stabilization-def1' => 'A edição estável; 
 se inexistente, exibir a edição actual',
 	'stabilization-def2' => 'A edição actual',
+	'stabilization-submit' => 'Confirmar',
+	'stabilization-notexists' => 'A página "[[:$1|$1]]" não existe.
+Não é possível configurá-la.',
+	'stabilization-notcontent' => 'A página "[[:$1|$1]]" não pode ser analisada.
+Não é possível configurá-la.',
+	'stabilization-comment' => 'Motivo:',
+	'stabilization-otherreason' => 'Outro motivo',
+	'stabilization-expiry' => 'Expira em:',
+	'stabilization-othertime' => 'Outro tempo',
+	'stabilization-sel-short' => 'Precedência',
+	'stabilization-sel-short-0' => 'Qualidade',
+	'stabilization-sel-short-1' => 'Nenhum',
+	'stabilization-sel-short-2' => 'Intocada',
+	'stabilization-def-short' => 'Padrão',
+	'stabilization-def-short-0' => 'Atual',
+	'stabilization-def-short-1' => 'Estável',
+	'stabilize_expiry_invalid' => 'Data de expiração inválida.',
+	'stabilize_expiry_old' => 'Este tempo de expiração já se encerrou.',
+	'stabilize-expiring' => 'expira às $1 (UTC)',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'stabilization-tab' => 'cgq',
+	'stabilization' => 'Configurações da Garantia de Qualidade',
+	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:$1|$1]] é selecionada e exibida.'''",
+	'stabilization-perm' => 'Sua conta não possui permissão para alterar as configurações de edições estáveis.
+Seguem-se as configurações para [[:$1|$1]]:',
+	'stabilization-page' => 'Nome da página:',
+	'stabilization-leg' => 'Confirmar a configuração da edição estável',
+	'stabilization-select' => 'Seleção da edição estável',
+	'stabilization-select1' => 'A última edição analisada como confiável;  
+se inexistente, a mais recentemente analisada',
+	'stabilization-select2' => 'A mais recentemente analisada',
+	'stabilization-select3' => 'A última revisão intocada; se não estiver presente, então a última de qualidade ou analisada',
+	'stabilization-def' => 'Edição exibida na visualização padrão de página',
+	'stabilization-def1' => 'A edição estável;  
+se inexistente, exibir a edição atual',
+	'stabilization-def2' => 'A edição atual',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'A página "[[:$1|$1]]" não existe.
 Não é possível configurá-la.',

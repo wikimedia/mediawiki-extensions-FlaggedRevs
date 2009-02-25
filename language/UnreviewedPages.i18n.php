@@ -367,19 +367,20 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author IAlex
+ * @author PieRRoMaN
  * @author Sherbrooke
  * @author Verdy p
  */
 $messages['fr'] = array(
 	'right-unreviewedpages' => 'Voir [[Special:UnreviewedPages|la liste des pages non révisées]]',
 	'unreviewedpages' => 'Pages non revues',
-	'unreviewed-legend' => 'Liste des pages de contenu non visés',
+	'unreviewed-legend' => 'Liste des pages de contenu non révisées',
 	'unreviewed-category' => 'Catégorie :',
 	'unreviewed-diff' => 'révision',
-	'unreviewed-unwatched' => '(non suivi)',
+	'unreviewed-unwatched' => '(non suivie)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utilisateur actif suit|utilisateurs actifs suivent}} cette page)',
-	'unreviewed-list' => "Cette page liste les pages de contenu qui n'ont pas été révisés ou qui ont des révisions non vues.",
-	'unreviewed-none' => 'Il n’existe actuellellement aucune page respectant ces critères',
+	'unreviewed-list' => "Cette page liste les pages de contenu qui n'ont pas été révisées.",
+	'unreviewed-none' => "Aucune page correspondant à ces critères n'a été trouvée",
 	'unreviewed-viewing' => '(en révision)',
 );
 
@@ -967,7 +968,7 @@ $messages['pt'] = array(
 	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'rever',
-	'unreviewed-unwatched' => '(não-vigiada)',
+	'unreviewed-unwatched' => '(não vigiada)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
 	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
 	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',

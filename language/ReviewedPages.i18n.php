@@ -276,17 +276,18 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Dereckson
  * @author Grondin
+ * @author PieRRoMaN
  */
 $messages['fr'] = array(
 	'reviewedpages' => 'Pages passées en revue',
 	'reviewedpages-leg' => 'Liste des pages passées en revue à un certain niveau',
 	'reviewedpages-list' => 'Les pages suivantes ont été passées en revue au niveau spécifié',
 	'reviewedpages-none' => 'Cette liste est vide',
-	'reviewedpages-lev-0' => 'Vu',
-	'reviewedpages-lev-1' => 'Qualité',
-	'reviewedpages-lev-2' => 'Mis en avant',
+	'reviewedpages-lev-0' => 'Visualisée',
+	'reviewedpages-lev-1' => 'De qualité',
+	'reviewedpages-lev-2' => 'Distinguée',
 	'reviewedpages-all' => 'versions passées en revue',
-	'reviewedpages-best' => 'Révision principale',
+	'reviewedpages-best' => 'version principale',
 );
 
 /** Franco-Provençal (Arpetan)

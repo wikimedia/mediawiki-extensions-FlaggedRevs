@@ -117,13 +117,14 @@ $messages['fa'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author PieRRoMaN
  */
 $messages['fr'] = array(
-	'likedpages' => 'Pages hautement notées',
-	'likedpages-leg' => 'Chercher les pages bien notées',
-	'likedpages-list' => 'Voici, ci-dessous, une liste des pages triée en fonction de leur notation.',
+	'likedpages' => 'Pages ayant des évaluations élevées',
+	'likedpages-leg' => 'Chercher les pages ayant des évaluations élevées',
+	'likedpages-list' => 'Voici une liste des pages triées suivant leur évaluation par les lecteurs.',
 	'likedpages-none' => 'Il n’existe aucune page dans cette liste',
-	'likedpages-graphs' => 'Données de notation',
+	'likedpages-graphs' => "Données d'évaluation",
 );
 
 /** Galician (Galego)

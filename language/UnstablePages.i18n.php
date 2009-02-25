@@ -169,10 +169,11 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author PieRRoMaN
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'unstablepages' => 'Pages instables',
+	'unstablepages' => 'Pages non stables',
 	'unstablepages-stable' => 'version stable',
 	'unstablepages-text' => 'Ci-dessous se trouve une liste des pages configurées manuellement pour que le contenu de leur version brouillon soit affiché par défaut pour les lecteurs.',
 	'unstablepages-none' => 'Il n’y a aucune page dans cette liste.',
