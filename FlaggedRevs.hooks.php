@@ -1372,15 +1372,21 @@ EOT;
 	}
 	
 	public static function addToRCQuery( &$conds, &$tables, &$join_conds, $opts ) {
-		$tables[] = 'flaggedpages';
-		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		global $wgUser;
+		if( $wgUser->isAllowed('review') ) {
+			$tables[] = 'flaggedpages';
+			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		}
 		return true;
 	}
 	
 	public static function addToWatchlistQuery( &$conds, &$tables, &$join_conds, &$fields ) {
-		$tables[] = 'flaggedpages';
-		$fields[] = 'fp_stable';
-		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		global $wgUser;
+		if( $wgUser->isAllowed('review') ) {
+			$tables[] = 'flaggedpages';
+			$fields[] = 'fp_stable';
+			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		}
 		return true;
 	}
 	

@@ -1078,7 +1078,7 @@ class FlaggedRevs {
 				__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp DESC' )
 			);
-			// Find average, median, deviation...
+			// Find average, median...
 			$res = $dbr->select( array( 'revision', 'reader_feedback' ),
 				array( 'rfb_ratings' ),
 				array( 'rev_page' => $page->getArticleId(),
