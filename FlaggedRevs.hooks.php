@@ -1349,7 +1349,9 @@ EOT;
 	}
 	
 	public static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
-		if( $file->isLocal() ) {
+		if( !$file->isLocal() ) return; // local files only
+		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
+		if( $flaggedArticle->isReviewable() ) {
 			$tables[] = 'flaggedrevs';
 			$fields[] = 'MAX(fr_quality) AS fr_quality';
 			# Avoid duplicate rows due to multiple revs with the same sha-1 key
