@@ -15,6 +15,17 @@ $messages['en'] = array(
 	'problempages-graphs' => 'rating data',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'problempages' => 'Hondoin arvoitud lehtpoled',
+	'problempages-leg' => 'Hondoin arvoitud lehtpoliden ecind',
+	'problempages-list' => 'Lugijoil järgetud heiden arvsanoiden mödhe lehtpoled (nimikirjutez).',
+	'problempages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'problempages-graphs' => 'andmused arvostelendas',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

@@ -45,6 +45,30 @@ This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatis
 	'validationstatistics-nbr' => 'Used for the percent numbers in the table of [http://en.wikinews.org/wiki/Special:ValidationStatistics Special:ValidationStatistics]',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'validationstatistics' => 'Kodvindoiden statistik',
+	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
+oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''$2''' {{plural:$1|kävutajal|kävutajil}} 
+oma [[{{MediaWiki:Validationpage}}|«kodvijan»]] oiktused.",
+	'validationstatistics-time' => "Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''$1'''; median om'''$3'''.
+$4
+Keskpidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden redakcijoidenke]] täht om '''$2'''.",
+	'validationstatistics-table' => "Alemba om anttud statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
+''Vanhtunuzikš'' kuctas lehtpolid, kudambad oma redaktiruidud jäl'ges stabilišt versijad.
+Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
+
+'''Homičend.''' Nece lehtpol' keširuiše. Andmusiden nägu voib olda vanhtunuden.",
+	'validationstatistics-ns' => 'Nimiavaruz',
+	'validationstatistics-total' => "Lehtpol't",
+	'validationstatistics-stable' => 'Kodvdud',
+	'validationstatistics-latest' => 'Tantoi kodvdud',
+	'validationstatistics-synced' => 'Kodvdud udes',
+	'validationstatistics-old' => 'Vanhtunuded',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */
@@ -261,6 +285,13 @@ Sila versión estable es también la última versión, entonces la página está
 	'validationstatistics-latest' => 'El último revisado',
 	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'desactualizado',
+);
+
+/** Estonian (Eesti)
+ * @author KalmerE.
+ */
+$messages['et'] = array(
+	'validationstatistics' => 'Kinnitatud statistika',
 );
 
 /** Basque (Euskara)
@@ -481,7 +512,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'validationstatistics' => 'Statisticas de validation',
-	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con derectos de [[{{MediaWiki:Validationpage}}|Contributor]] e '''$2''' {{PLURAL:$2|usator|usatores}} con derectos de [[{{MediaWiki:Validationpage}}|Revisor]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Redactor]] e '''$2''' {{PLURAL:$2|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Revisor]].",
 	'validationstatistics-time' => "Le tempore medie de attender pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
 $4
 Le tempore medie de retardo pro le [[Special:OldReviewedPages|paginas con modificationes non ancora revidite]] es '''$2'''.",

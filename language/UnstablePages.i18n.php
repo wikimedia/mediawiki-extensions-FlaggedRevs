@@ -28,6 +28,17 @@ $messages['qqq'] = array(
 {{Identical|Configuration}}',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'unstablepages' => 'Stabilitomad lehtpoled',
+	'unstablepages-stable' => 'Stabiline versii',
+	'unstablepages-text' => 'Kehtpoled, kudambiden täht om ičeksaz sätud järgenduz "ozutada mustkirjutuz augotižjärgendusen mödhe" (nimikirjutez).',
+	'unstablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'unstablepages-config' => 'Järgendused',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -68,6 +79,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bs'] = array(
 	'unstablepages' => 'Nestabilne stranice',
+	'unstablepages-stable' => 'stabilna verzija',
 );
 
 /** Czech (Česky)

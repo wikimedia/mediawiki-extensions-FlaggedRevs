@@ -37,6 +37,21 @@ $messages['qqq'] = array(
 	'reviewedpages-best' => '{{Flagged Revs}}',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'reviewedpages' => 'Kodvdud lehtpoled',
+	'reviewedpages-leg' => 'Lehtpoled, kudambad oma sanuded märitud arvsanan (nimikirjutez)',
+	'reviewedpages-list' => 'Nened lehtpoled oma kodvdud da arvosteldud ozutadud pindaks',
+	'reviewedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'reviewedpages-lev-0' => 'Arvosteldud',
+	'reviewedpages-lev-1' => 'Lopuližikš kodvdud',
+	'reviewedpages-lev-2' => 'Valitud',
+	'reviewedpages-all' => 'kodvdud versijad',
+	'reviewedpages-best' => 'parahim versii',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

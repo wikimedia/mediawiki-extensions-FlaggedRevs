@@ -106,6 +106,44 @@ $3 is the correxponding time in the wiki's content language.
 {{Identical|Expires $1 (UTC)}}",
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Lehtpolen stabilizacii',
+	'stabilization-text' => "'''Toižetagat järgendused, miše pätta, kut pidab ozutelda [[:$1|$1]]-lehtpolen stabiline versii.'''",
+	'stabilization-perm' => 'Teile ei ulotu oiktusid, miše toižetada stabiližen versijan ozutamižen järgendused.
+Naku oma nügüdläižed järgendused [[:$1|$1]]-lehtpolen täht:',
+	'stabilization-page' => 'Lehtpolen nimi:',
+	'stabilization-leg' => 'Stabiližen versijan järgendusiden vahvištoitand',
+	'stabilization-select' => 'Stabiližen versijan valičend',
+	'stabilization-select1' => 'Naku om veresemb kodvdud versii; ku mugošt ei ole, ka veresemb arvosteldud versijoišpäi.',
+	'stabilization-select2' => 'Veresemb kodvdud versii',
+	'stabilization-select3' => "Jäl'gmäine koskmatoi versii; ku mugošt ei ole, ka jäl'gmäine kodvdud vai arvosteldud versii.",
+	'stabilization-def' => 'Versii, kudambad ozutadas augotižjärgendusen mödhe',
+	'stabilization-def1' => 'Stabiline versii; ku mugošt ei ole, ka nügüdläine',
+	'stabilization-def2' => 'Nügüdläine versii',
+	'stabilization-submit' => 'Vahvištoitta',
+	'stabilization-notexists' => 'Ei ole "[[:$1|$1]]"-nimitadud lehtpolen versijad. Ei voi järgeta.',
+	'stabilization-notcontent' => '"[[:$1|$1]]"-lehtpol\'t ei voi kodvda.
+Ei voi järgeta.',
+	'stabilization-comment' => 'Sü:',
+	'stabilization-otherreason' => 'Toine sü:',
+	'stabilization-expiry' => 'Lopstrok:',
+	'stabilization-othertime' => 'Toine aig',
+	'stabilization-sel-short' => "Jäl'gendusen järgenduz.",
+	'stabilization-sel-short-0' => 'Kodvdud',
+	'stabilization-sel-short-1' => 'Ei ole',
+	'stabilization-sel-short-2' => 'Koskmatoi',
+	'stabilization-def-short' => 'Augotižjärgendusen mödhe',
+	'stabilization-def-short-0' => 'Nügüdläine',
+	'stabilization-def-short-1' => 'Stabiline',
+	'stabilize_expiry_invalid' => 'Petuzline lopstrok.',
+	'stabilize_expiry_old' => 'Nece tegendan lopmižen aig om jo männu.',
+	'stabilize-expiring' => 'lopiše aigal $1 (UTC)',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -412,7 +450,9 @@ $messages['br'] = array(
 $messages['bs'] = array(
 	'stabilization-page' => 'Naslov stranice:',
 	'stabilization-def2' => 'Trenutna revizija',
+	'stabilization-submit' => 'Potvrdi',
 	'stabilization-comment' => 'Razlog:',
+	'stabilization-otherreason' => 'Ostali razlozi',
 	'stabilization-sel-short-1' => 'nema',
 	'stabilization-def-short' => 'Standardno',
 	'stabilization-def-short-0' => 'Trenutna',

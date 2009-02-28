@@ -45,6 +45,39 @@ $messages['qqq'] = array(
 	'ratinghistory-ave' => 'Average',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'ratinghistory' => 'Lehtpolen arvostelendoiden aigkirj',
+	'ratinghistory-leg' => '[[:$1|$1]]-lehtpolen arvostelendistorijan andmused',
+	'ratinghistory-tab' => 'arvoind',
+	'ratinghistory-link' => 'Lehtpolen arvoind',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Kitäm, miše tö olet löudnu aigad necidä lehtpol't arvosteldes!</font>''",
+	'ratinghistory-period' => 'Aigan pord:',
+	'ratinghistory-month' => "jäl'gmäine ku",
+	'ratinghistory-3months' => "3 jäl'gmäšt kud",
+	'ratinghistory-year' => "jäl'gmäine voz'",
+	'ratinghistory-3years' => "3 jäl'gmäšt vot",
+	'ratinghistory-ave' => 'Keskmäine: $1',
+	'ratinghistory-chart' => 'Lugijan arvsanad kaikes aigas',
+	'ratinghistory-purge' => 'puhtastadud keš',
+	'ratinghistory-table' => 'Lugijoiden arvoindoiden ümbrikacund',
+	'ratinghistory-users' => 'Arvoinuded kävutajad',
+	'ratinghistory-graph' => '$2 ühthižes luguspäi «$3» ($1 {{PLURAL:$1|arvsana|arvsanad}})',
+	'readerfeedback-svg' => 'Kacta kut SVG',
+	'ratinghistory-table-rating' => 'Arvoind',
+	'ratinghistory-table-votes' => 'Äned',
+	'ratinghistory-none' => 'Ei ulotu lugijoiden arvsanoid grafikan tehtes.',
+	'ratinghistory-legend' => "Alemba oma ozutadud '''päivesenkeskmäine arvsana''' <font color=\"blue\">''(sinine)''</font> da '''nügüdläine keskmäine arvsana''' <font color=\"green\">''(vihand)''</font>.  
+'''Nügüdläižeks keskmäižeks arvsanaks''' kuctas päivesen arvsanoiden keskmäine lugu, kudamban lugedas kaikuččen päivän märitud pordas aigad.
+
+Pordhišt: '''[1]''' — hond; '''[2]''' — madal; '''[3]''' — keskmäine; '''[4]''' — hüvä; '''[5]''' — lujas hüvä;
+
+'''Kodvindoiden lugu päiväs''' <font color=\"red\">''(rusked)''</font> om ozutadud masštabas ''1:\$1''.",
+	'right-feedback' => 'Kävutagat arvostelendform lehtpoliden arvosteldes',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author OsamaK
@@ -288,6 +321,7 @@ $messages['es'] = array(
 	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último año',
 	'ratinghistory-3years' => 'últimos 3 años',
+	'ratinghistory-purge' => 'purgar cache',
 	'readerfeedback-svg' => 'Ver como SVG',
 	'ratinghistory-table-rating' => 'Rating',
 	'ratinghistory-table-votes' => 'Votos',

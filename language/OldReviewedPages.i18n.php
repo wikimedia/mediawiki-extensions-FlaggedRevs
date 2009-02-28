@@ -53,6 +53,28 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when active users are watching the page.',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'oldreviewedpages' => 'Vanhtunuded kodvdud lehtpoled',
+	'oldreviewedpages-legend' => 'Kodvdud lehtpoled kodvmatomiden versijoidenke - nimikirjutez',
+	'oldreviewedpages-list' => "Necil lehtpolel om niiden kodvdud lehtpoliden nimikirjutez, kudambid toižetadihe jäl'glopul.",
+	'oldreviewedpages-none' => "Nügüd' ei ole lehtpolid, kudambad sättudas neniden arvoimižidenke.",
+	'oldreviewedpages-stable' => 'arvosteldud',
+	'oldreviewedpages-quality' => 'lopuližikš kodvdud',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|čas|časud}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|päiv|päiväd}})',
+	'oldreviewedpages-recent' => '(vähemb 1 časud)',
+	'oldreviewed-category' => 'Kategorii:',
+	'oldreviewed-watched' => 'Minun kaclendnimikirjutesespäi',
+	'oldreviewed-diff' => 'kodvda',
+	'oldreviewed-size' => 'Maksimaline toižetuz (baitoiš):',
+	'oldreviewedpages-unwatched' => '(kaclematoi)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktivine kävutai|aktivišt kävutajad}} kaceltas)',
+	'oldreviewedpages-viewing' => '(kodvindan processas)',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */

@@ -45,6 +45,22 @@ $messages['qqq'] = array(
 	'unreviewed-none' => '{{Flagged Revs}}',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'right-unreviewedpages' => 'Lugeda [[Special:UnreviewedPages|kodvmatomiden lehtpoliden nimikirjutez]]',
+	'unreviewedpages' => 'Lehtpoled, kudambad ei olgoi kodvdud',
+	'unreviewed-legend' => 'Niiden lehtpoliden nimikirjutez, kudambad ei olgoi kodvdud ende',
+	'unreviewed-category' => 'Kategorii:',
+	'unreviewed-diff' => 'kodvda',
+	'unreviewed-unwatched' => '(ei ole kaceltud)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivine kävutai|aktivišt kävutajad}} kaceltas)',
+	'unreviewed-list' => 'Necil lehtpolel om kodvmatomiden lehtpoliden nimikirjutez.',
+	'unreviewed-none' => "Nügüd' ei ole lehtpolid, kudambad sättudas ningoižiden arvoimižidenke.",
+	'unreviewed-viewing' => "(lehtpoled, kudambad nügüd' kodvdas)",
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */

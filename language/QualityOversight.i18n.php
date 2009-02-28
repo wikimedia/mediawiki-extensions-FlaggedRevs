@@ -22,6 +22,15 @@ $messages['qqq'] = array(
 	'qualityoversight-legend' => '{{Flagged Revs}}',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'qualityoversight' => 'Ladun revizor',
+	'qualityoversight-list' => 'Necil lehtolel om tantoižiden vahvištusiden da ladunpindoiden heitmižiden nimikirjutez.',
+	'qualityoversight-legend' => 'Ecmine kodvindoiden aigkirjas',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

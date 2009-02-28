@@ -15,6 +15,17 @@ $messages['en'] = array(
 	'likedpages-graphs' => 'rating data',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'likedpages' => 'Korktas arvoitud lehtpoled',
+	'likedpages-leg' => 'Ectä korktas arvoitud lehtpoled',
+	'likedpages-list' => 'Alemba om nimikirjutez, kus lehtpoled oma järgetud lugijoiden arvsanoiden mödhe.',
+	'likedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid.',
+	'likedpages-graphs' => 'andmused arvostelendas',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
