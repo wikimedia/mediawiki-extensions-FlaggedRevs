@@ -1483,7 +1483,7 @@ EOT;
 	
 	public static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle, $wgFlaggedRevsNamespaces;
-		if( empty($wgTitle) ) {
+		if( empty($wgTitle) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true; // nothing to do here
 		}
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
