@@ -1500,6 +1500,16 @@ EOT;
 		}
 		return true;
 	}
+	
+	public static function stableDumpQuery( &$tables, &$opts, &$join ) {
+		global $wgFlaggedRevsNamespaces;
+		$tables = array('flaggedpages','page','revision');
+		$opts['ORDER BY'] = 'fp_page_id ASC';
+		$opts['USE INDEX'] = array( 'flaggedpages' => 'PRIMARY' );
+		$join['page'] = array('INNER JOIN',array('page_id = fp_page_id','page_namespace' => $wgFlaggedRevsNamespaces));
+		$join['revision'] = array('INNER JOIN','rev_page = fp_page_id AND rev_id = fp_stable');
+		return false; // final
+	}
 
 	public static function onParserTestTables( &$tables ) {
 		$tables[] = 'flaggedpages';

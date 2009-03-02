@@ -442,6 +442,8 @@ $wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
 # Special auto-promote
 $wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
 
+# Stable dump hook
+$wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
 #########
 
 function efLoadFlaggedRevs() {
