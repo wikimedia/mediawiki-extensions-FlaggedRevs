@@ -11,18 +11,18 @@ $messages['en'] = array(
 	'validationstatistics'        => 'Validation statistics',
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'[[Special:ListUsers/editor|$1]]\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights
 and \'\'\'[[Special:ListUsers/reviewer|$2]]\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.',
-	'validationstatistics-time'   => 'The average wait for edits by \'\'users that have not logged in\'\' is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
-$4
-The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.',
-	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.
-''Outdated'' pages are those with edits newer than the stable version.
-If the stable version is also the latest version, then the page is ''synchronized''.
+	'validationstatistics-time'   => '\'\'The following data is cached and may not be up to date.\'\'
 
-''Note: the following data is cached for several hours and may not be up to date.''",
+The average wait for edits by \'\'users that have not logged in\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
+$4
+The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.
+These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'synchronized\'\' if the [[{{MediaWiki:Validationpage}}|stable version]] is also the current draft version.
+Stable versions are revisions of pages checked by at least one established user.',
+	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',
 	'validationstatistics-stable' => 'Reviewed',
-	'validationstatistics-latest' => 'Latest reviewed',
+	'validationstatistics-latest' => 'Synced',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
 	'validationstatistics-nbr'    => '$1%', # only translate this message to other languages if you have to change it

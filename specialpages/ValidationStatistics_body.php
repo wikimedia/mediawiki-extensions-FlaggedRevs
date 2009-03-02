@@ -53,12 +53,12 @@ class ValidationStatistics extends IncludableSpecialPage
 		}
 
 		# Show review/pending time stats
-		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
+		$wgOut->addWikiText( '<hr/>' . wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
 			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt),
 			$wgLang->formatTimePeriod($mdt), $reviewChart )
 		);
 
-		$wgOut->addWikiText( '<hr/>' . wfMsg('validationstatistics-table') );
+		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
 		$wgOut->addHTML( Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) ) );
 		$wgOut->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
