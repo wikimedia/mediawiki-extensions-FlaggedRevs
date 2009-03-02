@@ -25,7 +25,6 @@ Stable versions are revisions of pages checked by at least one established user.
 	'validationstatistics-latest' => 'Synced',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
-	'validationstatistics-nbr'    => '$1%', # only translate this message to other languages if you have to change it
 );
 
 /** Message documentation (Message documentation)
@@ -42,7 +41,6 @@ This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatis
 * $4: a table in HTML syntax.',
 	'validationstatistics-ns' => '{{Identical|Namespace}}',
 	'validationstatistics-total' => '{{Identical|Pages}}',
-	'validationstatistics-nbr' => 'Used for the percent numbers in the table of [http://en.wikinews.org/wiki/Special:ValidationStatistics Special:ValidationStatistics]',
 );
 
 /** Veps (Vepsan kel')
@@ -197,7 +195,6 @@ Wenn die markierte Version auch die letzte Version ist, ist die Seite ''synchron
 	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-old' => 'Seiten mit ungesichteten Versionen',
-	'validationstatistics-nbr' => '$1&nbsp;%',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -527,7 +524,6 @@ Si le version stabile es etiam le plus recente, alora le pagina es ''synchronisa
 	'validationstatistics-latest' => 'Ultime revidite',
 	'validationstatistics-synced' => 'Synchronisate/Revidite',
 	'validationstatistics-old' => 'Obsolete',
-	'validationstatistics-nbr' => '$1%',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -600,7 +596,6 @@ $messages['jv'] = array(
 	'validationstatistics-latest' => 'Pungkasan dipriksa',
 	'validationstatistics-synced' => 'Wis disinkronaké/Wis dipriksa',
 	'validationstatistics-old' => 'Lawas',
-	'validationstatistics-nbr' => '$1%',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -638,7 +633,6 @@ Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher 
 '''Opjepaß:''' De Date hee noh sen för e paa Stond zweschespeichert, se künnte alsu nit janz de neuste sin.",
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge jesamp',
-	'validationstatistics-nbr' => '$1%',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1032,7 +1026,6 @@ Ang karaniwang panahon ng pagkakaiwan para sa [[Special:OldReviewedPages|mga pah
 	'validationstatistics-latest' => 'Pinakahuling nasuri',
 	'validationstatistics-synced' => 'Pinagsabay-sabay/Nasuri nang muli',
 	'validationstatistics-old' => 'Wala na sa panahon (luma)',
-	'validationstatistics-nbr' => '$1%',
 );
 
 /** Turkish (Türkçe)
