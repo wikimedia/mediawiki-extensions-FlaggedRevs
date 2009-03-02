@@ -181,6 +181,7 @@ function update_flaggedrevs_stats() {
 	);
 	# Actually run the query...
 	$res = $dbr->doQuery( $sql, __METHOD__ );
+	$data = array(); // percentiles
 	if( $count = $dbr->numRows($res) ) {
 		$censored = 0;
 		$times = array();
@@ -204,17 +205,17 @@ function update_flaggedrevs_stats() {
 		$rank = round( count($times)/2 + .5 ) - 1;
 		$medianRT = $times[$rank];
 		// Make percentile tabulation data
-		$data = array();
 		$percentile = 45; // start at 30th
 		while( $percentile < 100 ) {
 			$rank = round( $percentile*count($times)/100 + .5 ) - 1;
 			$data[$percentile] = $times[$rank];
 			$percentile += 10;
 		}
-		$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
-		$dbCache = wfGetCache( CACHE_DB );
-		$dbCache->set( $key, $data, 30*24*3600 );
 	}
+	// Cache percentiles
+	$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
+	$dbCache = wfGetCache( CACHE_DB );
+	$dbCache->set( $key, $data, 30*24*3600 );
 	// Save the data
 	$dbw = wfGetDB( DB_MASTER );
 	$dbw->begin();
