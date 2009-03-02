@@ -873,27 +873,7 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Add link to stable version of reviewed revisions
 	 */
-	public function addToHistLine( $history, $row, &$s ) {
-		global $wgUser;
-		# Non-content pages cannot be validated. Stable version must exist.
-		# Don't bother showing notice for deleted revs.
-		if( !$this->isReviewable() || !$this->getStableRev() )
-			return true;
-		$skin = $wgUser->getSkin();
-		list($link,$class) = FlaggedRevs::markHistoryRow( $this->parent->getTitle(), $row, $skin );
-		if( $link ) {
-			$s = "<span class='$class'>$s</span> <small>$link</small>";
-		}
-		return true;
-	}
-
-	 /**
-	 * Add link to stable version of reviewed revisions
-	 */
 	public function addToFileHistLine( $historyList, $file, &$s, &$css ) {
-		# Non-content pages cannot be validated. Stable version must exist.
-		if( !$this->isReviewable() || !$this->getStableRev() )
-			return true;
 		# Quality level for old versions selected all at once.
 		# Commons queries cannot be done all at once...
 		if( !$file->isOld() || !$file->isLocal() ) {

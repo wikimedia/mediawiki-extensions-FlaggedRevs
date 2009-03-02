@@ -1338,7 +1338,8 @@ EOT;
 	
 	public static function addToHistQuery( $pager, &$queryInfo ) {
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $pager->mPageHistory->getTitle() );
-		if( $flaggedArticle->isReviewable() ) {
+		# Non-content pages cannot be validated. Stable version must exist.
+		if( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			$queryInfo['tables'][] = 'flaggedrevs';
 			$queryInfo['fields'][] = 'fr_quality';
 			$queryInfo['fields'][] = 'fr_user';
@@ -1351,7 +1352,8 @@ EOT;
 	public static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
 		if( !$file->isLocal() ) return; // local files only
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
-		if( $flaggedArticle->isReviewable() ) {
+		# Non-content pages cannot be validated. Stable version must exist.
+		if( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			$tables[] = 'flaggedrevs';
 			$fields[] = 'MAX(fr_quality) AS fr_quality';
 			# Avoid duplicate rows due to multiple revs with the same sha-1 key
@@ -1393,7 +1395,16 @@ EOT;
 	}
 	
 	public static function addToHistLine( &$history, $row, &$s ) {
-		return FlaggedArticle::getInstance( $history->getArticle() )->addToHistLine( $history, $row, $s );
+		global $wgUser;
+		if( $row->rev_deleted & Revision::DELETED_TEXT )
+			return true; // Don't bother showing notice for deleted revs
+		$skin = $wgUser->getSkin();
+		# Add link to stable version of *this* rev, if any
+		list($link,$class) = FlaggedRevs::markHistoryRow( $history->getArticle()->getTitle(), $row, $skin );
+		if( $link ) {
+			$s = "<span class='$class'>$s</span> <small>$link</small>";
+		}
+		return true;
 	}
 	
 	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
