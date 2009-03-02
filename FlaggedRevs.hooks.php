@@ -1502,7 +1502,7 @@ EOT;
 		if( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
-			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', array('fp_reviewed' => 0), __METHOD__ );
+			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', 'fp_pending_since IS NOT NULL', __METHOD__ );
 			if( ($unreviewed/$pages) > .02 ) {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
