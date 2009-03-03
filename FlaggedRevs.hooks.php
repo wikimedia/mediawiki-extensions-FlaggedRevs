@@ -6,9 +6,10 @@ class FlaggedRevsHooks {
 	*/
 	public static function injectStyleAndJS() {
 		global $wgOut;
-		# Don't double-load
-		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) || !$wgOut->isArticleRelated() ) {
-			return true;
+		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) )
+			return true; # Don't double-load
+		if( !$wgOut->isArticleRelated() ) {
+			return self::InjectStyleForSpecial(); // try special page CSS?
 		}
 		$fa = FlaggedArticle::getGlobalInstance();
 		# Try to only add to relevant pages

@@ -422,10 +422,7 @@ $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 
 # Add CSS/JS as needed
-$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::injectStyleAndJS';
-$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::injectStyleAndJS';
-$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::injectStyleAndJS';
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::InjectStyleForSpecial';
+$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::injectStyleAndJS';
 
 # Cache updates
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
