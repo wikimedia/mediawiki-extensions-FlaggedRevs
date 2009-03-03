@@ -870,26 +870,6 @@ class FlaggedArticle extends Article {
 		return true;
 	}
 
-	 /**
-	 * Add link to stable version of reviewed revisions
-	 */
-	public function addToFileHistLine( $historyList, $file, &$s, &$css ) {
-		# Quality level for old versions selected all at once.
-		# Commons queries cannot be done all at once...
-		if( !$file->isOld() || !$file->isLocal() ) {
-			$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
-				array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
-				__METHOD__ );
-		} else {
-			$quality = is_null($file->quality) ? false : $file->quality;
-		}
-		# If reviewed, class the line
-		if( $quality !== false ) {
-			$css = FlaggedRevsXML::getQualityColor( $quality );
-		}
-		return true;
-	}
-
 	/**
 	 * @param FlaggedRevision $frev
 	 * @return string, revision review notes

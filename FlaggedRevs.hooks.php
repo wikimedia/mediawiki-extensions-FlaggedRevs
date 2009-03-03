@@ -1408,7 +1408,22 @@ EOT;
 	}
 	
 	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
-		return FlaggedArticle::getInstance( $hist->getImagePage() )->addToFileHistLine( $hist, $file, $s, $rowClass );
+		if( !$file->isVisible() )
+			return true; // Don't bother showing notice for deleted revs
+		# Quality level for old versions selected all at once.
+		# Commons queries cannot be done all at once...
+		if( !$file->isOld() || !$file->isLocal() ) {
+			$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
+				array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
+				__METHOD__ );
+		} else {
+			$quality = is_null($file->quality) ? false : $file->quality;
+		}
+		# If reviewed, class the line
+		if( $quality !== false ) {
+			$rowClass = FlaggedRevsXML::getQualityColor( $quality );
+		}
+		return true;
 	}
 	
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
