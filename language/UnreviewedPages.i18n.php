@@ -722,6 +722,13 @@ $messages['ksh'] = array(
 	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
 );
 
+/** Cornish (Kernewek)
+ * @author Kw-Moon
+ */
+$messages['kw'] = array(
+	'unreviewed-category' => 'Klasyans:',
+);
+
 /** Latin (Latina)
  * @author Omnipaedista
  * @author SPQRobin
@@ -1248,9 +1255,10 @@ $messages['vi'] = array(
 	'unreviewed-category' => 'Thể loại:',
 	'unreviewed-diff' => 'duyệt',
 	'unreviewed-unwatched' => '(chưa theo dõi)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|thành viên|thành viên}} tích cực đang theo dõi)',
 	'unreviewed-list' => 'Trang này liệt kê những trang nội dung chưa được duyệt.',
 	'unreviewed-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
+	'unreviewed-viewing' => '(đang duyệt)',
 );
 
 /** Volapük (Volapük)

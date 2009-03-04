@@ -51,7 +51,9 @@ $messages['vep'] = array(
 	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
 oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''$2''' {{plural:$1|kävutajal|kävutajil}} 
 oma [[{{MediaWiki:Validationpage}}|«kodvijan»]] oiktused.",
-	'validationstatistics-time' => "Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''$1'''; median om'''$3'''.
+	'validationstatistics-time' => "''Alemba anttud andmused oma keširuidud i sikš voidas olda vanhtunuzin.''
+
+Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''$1'''; median om'''$3'''.
 $4
 Keskpidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden redakcijoidenke]] täht om '''$2'''.",
 	'validationstatistics-table' => "Alemba om anttud statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
@@ -137,14 +139,11 @@ $messages['ast'] = array(
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
 	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і '''$2'''  {{PLURAL:$2|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«правяраючага»]].",
-	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за ''выключэньнем'' старонак-перанакіраваньняў.
-''Састарэлымі'' зьяўляюцца старонкі, якія маюць некалькі новых вэрсіяў у параўнаньні са стабільнай. Калі стабільная вэрсія — апошняя, тады старонка зьяўляецца ''сынхранізаванай''.
-
-''Заўвага: наступныя зьвесткі кэшуюцца на некалькі гадзінаў і могуць не адпавядаць цяперашнім.''",
+	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за ''выключэньнем'' старонак-перанакіраваньняў.",
 	'validationstatistics-ns' => 'Прастора назваў',
 	'validationstatistics-total' => 'Старонак',
 	'validationstatistics-stable' => 'Правераных',
-	'validationstatistics-latest' => 'Нядаўна правераных',
+	'validationstatistics-latest' => 'Сынхранізаваных',
 	'validationstatistics-synced' => 'Паўторна правераных',
 	'validationstatistics-old' => 'Састарэлых',
 );
@@ -512,18 +511,18 @@ $messages['hu'] = array(
 $messages['ia'] = array(
 	'validationstatistics' => 'Statisticas de validation',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Redactor]] e '''$2''' {{PLURAL:$2|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Revisor]].",
-	'validationstatistics-time' => "Le tempore medie de attender pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
-$4
-Le tempore medie de retardo pro le [[Special:OldReviewedPages|paginas con modificationes non ancora revidite]] es '''$2'''.",
-	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, ''excludente'' le paginas de redirection.
-Le paginas ''obsolete'' es illos con modificationes plus nove que le version stabile.
-Si le version stabile es etiam le plus recente, alora le pagina es ''synchronisate''.
+	'validationstatistics-time' => "''Le sequente datos ha essite recuperate del cache e pote esser obsolete.''
 
-''Nota: le sequente datos es conservate in cache durante plure horas e pote esser obsolete.''",
+Le tempore medie de attender pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
+$4
+Le tempore medie de retardo pro le [[Special:OldReviewedPages|paginas con modificationes attendente revision]] es '''$2'''.
+Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si le [[{{MediaWiki:Validationpage}}|version stabile]] es equalmente le version provisori actual.
+Le veriones stabile es versiones de paginas verificate per al minus un usator de bon reputation.",
+	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, ''excludente'' le paginas de redirection.",
 	'validationstatistics-ns' => 'Spatio de nomines',
 	'validationstatistics-total' => 'Paginas',
 	'validationstatistics-stable' => 'Revidite',
-	'validationstatistics-latest' => 'Ultime revidite',
+	'validationstatistics-latest' => 'Synchronisate',
 	'validationstatistics-synced' => 'Synchronisate/Revidite',
 	'validationstatistics-old' => 'Obsolete',
 );
@@ -569,12 +568,12 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'validationstatistics' => '判定統計',
 	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''人、[[{{MediaWiki:Validationpage}}|査読者]]権限をもつ利用者が '''$2'''人います。",
-	'validationstatistics-time' => "未登録利用者による編集の平均待ち時間は '''$1'''、中央値は '''$3'''です。
-$4
-[[Special:OldReviewedPages|古くなったページ]]の平均遅延時間は '''$2'''です。",
-	'validationstatistics-table' => "名前空間別の統計を以下に表示します。リダイレクトページは除いています。「最新版未査読」とは安定版以降に編集があったものです。安定版がまた最新版である場合、そのページは「最新版査読済」となります。
+	'validationstatistics-time' => "''以下の情報はキャッシュされたものであり、最新のものではない可能性があります。''
 
-'''注:''' データは数時間ほどキャッシュされるため、以下は最新のものではない可能性があります。",
+未登録利用者による編集の平均待ち時間は '''$1'''、中央値は '''$3'''です。
+$4
+[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。「最新版未査読」とは安定版以降に編集があったものです。[[{{MediaWiki:Validationpage}}|安定版]]がまた最新版である場合、そのページは「最新版査読済」となります。安定版とは、ページの版のうち、最低でも一人の公認された利用者によって検査された版のことです。",
+	'validationstatistics-table' => '名前空間別の統計を以下に表示します。リダイレクトページは除いています。',
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
 	'validationstatistics-stable' => '査読済',
@@ -637,6 +636,13 @@ Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher 
 	'validationstatistics-total' => 'Sigge jesamp',
 );
 
+/** Cornish (Kernewek)
+ * @author Kw-Moon
+ */
+$messages['kw'] = array(
+	'validationstatistics-total' => 'Folennow',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -644,11 +650,7 @@ $messages['lb'] = array(
 	'validationstatistics' => 'Statistike vun de Validaiounen',
 	'validationstatistics-users' => "''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]]
 an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].",
-	'validationstatistics-table' => "Statistike fir jidfer Nummraum sinn hei ënnedrënner, Viruleedungssäite sinn net berücksichtegt.
-''Outdated''-Säiten sinn déi déi mat Ännerungen déi méi nei sinn wéi déi stabil Versioun.
-Wann déi stabil Versioun och déi lescht Versioun ass, dann ass d'Säit ''synchroniséiert''.
-
-'''Bemierkung:''' d'Donnéeën gi jeweils fir e puer Stonnen tësche gespäichert a sin dofir net ëmmer aktuell.",
+	'validationstatistics-table' => 'Statistike fir jidfer Nummraum sinn hei ënnedrënner, Viruleedungssäite sinn net berücksichtegt.',
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Validéiert',
@@ -736,9 +738,14 @@ Stabiele versies zijn versies van pagina's die tenminste door een eindredacteur 
 $messages['nn'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
 	'validationstatistics-users' => "'''{{SITENAME}}''' har på noverande tidspunkt {{PLURAL:$1|'''éin''' brukar|'''[[Special:ListUsers/editor|$1]]''' brukarar}} med [[{{MediaWiki:Validationpage}}|skribentrettar]] og {{PLURAL:$1|'''éin''' brukar|'''$2''' brukarar}} med [[{{MediaWiki:Validationpage}}|meldarrettar]].",
-	'validationstatistics-time' => "Gjennomsnittleg ventetid for endringar av ''uinnlogga brukarar'' er '''$1'''. Medianen er '''$3'''.
+	'validationstatistics-time' => "''Fylgjande data er mellomlagra og kan vera uaktuell.''
+
+Gjennomsnittleg ventetid for endringar av ''uinnlogga brukarar'' til gjennomsyn er '''$1'''; medianen er '''$3'''.
 $4
-Gjennomsnittleg forseinking for [[Special:OldReviewedPages|utdaterte sider]] er '''$2'''.",
+Gjennomsnittleg forseinking for [[Special:OldReviewedPages|sider med endringar som ikkje er sett gjennom]] er '''$2'''.
+
+Desse sidene vert sett på som ''forelda''. På same vis vert sider rekna som ''synkronisert'' om den [[{{MediaWiki:Validationpage}}|stabile versjonen]] òg er den noverande utkast-versjonen.
+Stabile versjonar er sideversjonar for sider som er sjekka av minst ein etablert brukar.",
 	'validationstatistics-table' => "Statistikk for kvart namnerom er synt nedanfor, ''utanom'' omdirigeringssider.",
 	'validationstatistics-ns' => 'Namnerom',
 	'validationstatistics-total' => 'Sider',
@@ -771,18 +778,18 @@ $messages['no'] = array(
 $messages['oc'] = array(
 	'validationstatistics' => 'Estatisticas de validacion',
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizaire|utilizaires}} amb los dreches d’[[{{MediaWiki:Validationpage}}|editor]] e de '''$2''' {{PLURAL:$2|utilizaire|utilizaires}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].",
-	'validationstatistics-time' => "Lo temps mejan per las modificacions fachas per ''d'utilizaires que son pas connectats'' es de '''$1'''; la mediana es '''$3'''.
-$4
-Lo temps de retard mejan de las [[Special:OldReviewedPages|paginas obsolètas]] es de '''$2'''.",
-	'validationstatistics-table' => "Las estatisticas per cada espaci de nom son afichadas çaijós, a l’exclusion de las paginas de redireccion.
-Las paginas ''despassadas'' son las amb de modificacions mai recenta que la version establa.
-Se la version establa es la darrièra version, alara la pagina es ''sincronizada''.
+	'validationstatistics-time' => "''Las donadas seguentas son en amagatal e benlèu son pas a jorn.''
 
-'''Nòta :''las donadas seguentas son amagadas pendent maitas oras e pòdon pas èsser mesas a jorn.",
+Lo temps mejan per las modificacions fachas per ''d'utilizaires que son pas connectats'' es de '''$1'''; la mediana es '''$3'''.
+$4
+Lo temps de retard mejan per las [[Special:OldReviewedPages|paginas que contenon de modificacions pas relegidas en cors es '''$2'''.
+Aquestas paginas son consideradas ''perimidas''. Parièrament, las paginas son declaradas ''sincronizadas'' se la [[{{MediaWiki:Validationpage}}|version establa]] tanben es la version de borrolhon correnta.
+Las versions establas son de versions de paginas verificadas per al mens un utilizaire regular.",
+	'validationstatistics-table' => "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
 	'validationstatistics-ns' => 'Nom de l’espaci',
 	'validationstatistics-total' => 'Paginas',
 	'validationstatistics-stable' => 'Relegit',
-	'validationstatistics-latest' => 'Relegit en tot darrièr luòc',
+	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizat/Relegit',
 	'validationstatistics-old' => 'Desuet',
 );
@@ -928,18 +935,18 @@ $4
 $messages['sk'] = array(
 	'validationstatistics' => 'Štatistiky overenia',
 	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''$2''' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
-	'validationstatistics-time' => "Priemerné čakanie na úpravy ''anonymných používateľov'' je '''$1'''; medián je '''$3'''.  
-$4
-Priemerné oneskorenie [[Special:OldReviewedPages|zastaralých stránok]] je '''$2'''.",
-	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.
-''Zastaralé'' stránky sú tie, ktoré majú úpravy novšie ako stabilná verzia.
-Ak je stabilná verzia zároveň najnovšia, stránka sa nazýva ''synchronizovaná''.
+	'validationstatistics-time' => "''Nasledovné údaje pochádzajú z vyrovnávacej pamäte a nemusia byť aktuálne.''
 
-''Pozn.: nasledujúce údaje pochádzajú z vyrovnávacej pamäte a môžu byť niekoľko hodín staré.''",
+Priemerné čakanie na úpravy ''anonymných používateľov'' je '''$1'''; medián je '''$3'''.  
+$4
+Priemerné oneskorenie [[Special:OldReviewedPages|zastaralých stránok]] je '''$2'''.
+Tieto stránky sa považujú za ''zastaralé''. Podobne, stránky sa považujú za ''synchronozované'' ak je [[{{MediaWiki:Validationpage}}|stabilná verzia]] zároveň súčasný návrh.
+Stabilná verzia je revízia stránky, ktorú skontroloval aspoň jeden zo zavedených používateľov.",
+	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.",
 	'validationstatistics-ns' => 'Menný priestor',
 	'validationstatistics-total' => 'Stránky',
 	'validationstatistics-stable' => 'Skontrolované',
-	'validationstatistics-latest' => 'Posledné skontrolované',
+	'validationstatistics-latest' => 'Synchronizovaná',
 	'validationstatistics-synced' => 'Synchronizované/skontrolované',
 	'validationstatistics-old' => 'Zastaralé',
 );
@@ -1012,16 +1019,18 @@ $messages['tl'] = array(
 	'validationstatistics' => 'Mga estadistika ng pagpapatunay (balidasyon)',
 	'validationstatistics-users' => "Ang '''{{SITENAME}}''' ay  pangkasalukuyang may '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Patnugot]] 
 at '''$2''' {{PLURAL:$2|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Tagapagsuri]].",
-	'validationstatistics-time' => "Ang karaniwang panahon ng paghihintay para sa mga pagbabago ng ''tagagamit na hindi lumalagdang papasok'' ay '''$1'''; ang panggitnaan ay '''$3'''. 
-$4
-Ang karaniwang panahon ng pagkakaiwan para sa [[Special:OldReviewedPages|mga pahinang may nakabinbing pagsusuri ng mga pagbabago]] ay '''$2'''.",
-	'validationstatistics-table' => "Ipinapakita sa ibaba ang mga estadistika para sa bawat espasyo ng pangalan, ''hindi kasama'' ang mga pahinang tumuturo papunta sa ibang pahina (mga ''redirect''). Ang mga pahinang ''wala na sa panahon'' ay iyong mga pagbabagong mas bago pa kaysa matatag na bersyon.  Kung ang matatag na bersyon ang siya ring pinakahuling bersyon, nangangahulugang ''sumasabay'' na ang pahina.
+	'validationstatistics-time' => "''Ang sumusunod na dato ay nakatago at maaaring wala na sa panahon.''
 
-'''Paunawa:''' ang sumusunod na mga dato ay itinatagong nakakubli sa loob ng ilang mga oras at maaaring hindi nasa panahon.",
+Ang karaniwang panahon ng paghihintay para sa mga pagbabago ng ''mga tagagamit na hindi lumalagdang papasok'' na susuriin pa ay '''$1'''; ang panggitnaan ay '''$3'''. 
+$4
+Ang karaniwang panahon ng pagkakaiwan para sa [[Special:OldReviewedPages|mga pahinang may nakabinbing pagsusuri ng mga pagbabago]] ay '''$2'''.
+Ang mga pahinang ito itinuturing na ''wala na sa panahon''. Gayun din, ang mga pahina ay itinuturing na ''naisabay na'' kapag ang [[{{MediaWiki:Validationpage}}|matatag na bersyon]] ay siya ring pangkasalukuyang balangkas na bersyon.
+Ang matatatag na mga bersyon ay mga rebisyon ng mga pahinang nasuri ng kahit na isang kinikilalang tagagamit.",
+	'validationstatistics-table' => "Ipinapakita sa ibaba ang mga estadistika para sa bawat espasyo ng pangalan, ''hindi kasama'' ang mga pahinang tumuturo papunta sa ibang pahina.",
 	'validationstatistics-ns' => 'Espasyo ng pangalan',
 	'validationstatistics-total' => 'Mga pahina',
 	'validationstatistics-stable' => 'Nasuri na',
-	'validationstatistics-latest' => 'Pinakahuling nasuri',
+	'validationstatistics-latest' => 'Napagsabay na',
 	'validationstatistics-synced' => 'Pinagsabay-sabay/Nasuri nang muli',
 	'validationstatistics-old' => 'Wala na sa panahon (luma)',
 );

@@ -703,6 +703,14 @@ $messages['ksh'] = array(
 	'oldreviewedpages-watched' => '(bei $2 {{PLURAL:$1|Metmaacher|Metmaachere|keinem}} op de Oppassleß)',
 );
 
+/** Cornish (Kernewek)
+ * @author Kw-Moon
+ */
+$messages['kw'] = array(
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dydh|dydhyow}})',
+	'oldreviewed-category' => 'Klasyans:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -1225,7 +1233,8 @@ $messages['vi'] = array(
 	'oldreviewed-diff' => 'duyệt',
 	'oldreviewed-size' => 'Thay đổi lớn nhất (byte):',
 	'oldreviewedpages-unwatched' => '(chưa theo dõi)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} đang theo dõi)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|thành viên|thành viên}} tích cực đang theo dõi)',
+	'oldreviewedpages-viewing' => '(đang duyệt)',
 );
 
 /** Volapük (Volapük)

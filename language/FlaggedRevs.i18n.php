@@ -6423,6 +6423,13 @@ fottjeschmesse hät?',
 	'revreview-filter-all' => 'All',
 );
 
+/** Cornish (Kernewek)
+ * @author Kw-Moon
+ */
+$messages['kw'] = array(
+	'revreview-filter-all' => 'Oll',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  * @author UV
@@ -8860,7 +8867,10 @@ Vide 'a [[Special:ReviewedPages|liste de le pàggene riviste]] pe 'na liste de l
 	'revreview-auto' => '(automatiche)',
 	'revreview-auto-w' => "Tu ste cange 'a revisiona secure; le cangiaminde avènene '''automaticamende marchete cumme reviste'''.",
 	'revreview-auto-w-old' => "Tu ste cange 'na revisiona reviste; le cangiaminde avènene '''automaticamende marchete cumme reviste'''.",
+	'revreview-basic' => "Queste jè l'urtema revisiona [[{{MediaWiki:Validationpage}}|viste]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] ca aspettane 'na reviste",
 	'revreview-basic-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versiona visitete] de sta pàgene, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approvete] sus a <i>$2</i>, ere basete sus 'a sta revisione.",
+	'revreview-blocked' => "Tu non ge puè rivisità sta revisione purcè 'u cunde utende tue è blocchete ([$1 dettaglie])",
 	'revreview-current' => 'Bozze',
 	'revreview-depth' => 'Profunnetà',
 	'revreview-depth-0' => 'Scettate',
@@ -8908,6 +8918,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
 	'revreview-update-includes' => "'''Certe template/immagene onne state aggiornete:'''",
 	'revreview-diffonly' => "''Pe rivedè 'a pagène, cazze 'u collegamende d'a revisione \"revisiona corrende\" e ause 'u form de rivisitazione.''",
+	'right-autopatrolother' => "Signe automaticamende le revisiune ca non ge stonne jndr'à le namespace prengepàle cumme sorvegliate",
 	'right-autoreview' => 'Signe le revisiune cumme viste automaticamende',
 	'right-movestable' => 'Spuèste le pàggene secure',
 	'right-review' => 'Signe le revisiune cumme viste',
@@ -8916,8 +8927,11 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'rights-editor-autosum' => 'auto promosse',
 	'rights-editor-revoke' => "'u state d'u cangiatore ha state scangellete da [[$1]]",
 	'specialpages-group-quality' => 'Assicurazione de qualità',
+	'stable-logentry' => "configurete 'na versiona secure pe [[$1]]",
+	'stable-logentry2' => "azzere 'a versiona secure pe [[$1]]",
 	'stable-logpage' => 'Archivie de le stabilizzaziune',
 	'readerfeedback' => 'Ce pinze de sta pàgene?',
+	'readerfeedback-text' => "''Pe piacere pigghiate 'nu mumende pe dà 'nu pundegge a 'a pàgene d'aqquà sotte. 'A valutazione toje jè 'mbortande e 'n'aiute a aggiustà 'u site.''",
 	'readerfeedback-reliability' => 'Affedabbeletà',
 	'readerfeedback-completeness' => 'Combletezze',
 	'readerfeedback-npov' => 'Neutralità',
