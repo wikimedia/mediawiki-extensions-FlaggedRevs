@@ -261,7 +261,7 @@ Se la stabila versio ankaŭ estas la plej lasta versio, la paĝo estas ''sinkron
 	'validationstatistics-ns' => 'Nomspaco',
 	'validationstatistics-total' => 'Paĝoj',
 	'validationstatistics-stable' => 'Paĝoj kun almenaŭ unu revizio',
-	'validationstatistics-latest' => 'Laste reviziita',
+	'validationstatistics-latest' => 'Sinkronigita',
 	'validationstatistics-synced' => 'Ĝisdatigitaj/Reviziitaj',
 	'validationstatistics-old' => 'Malfreŝaj',
 );
@@ -341,7 +341,7 @@ $messages['fr'] = array(
 
 Le temps moyen de relecture des modifications par ''des utilisateurs non connectés'' est '''$1''' ; la valeur médiane est '''$3'''.
 $4
-Le délai moyen pour les [[Special:OldReviewedPages|pages qui contiennent des modifications non relues en cours est '''$2'''.
+Le délai moyen pour les [[Special:OldReviewedPages|pages qui contiennent des modifications non relues en cours]] est '''$2'''.
 Ces pages sont considérées ''périmées''. De même, les pages sont déclarées ''synchronisées'' si la [[{{MediaWiki:Validationpage}}|version stable]] est aussi la version de brouillon courante.
 Les versions stables sont des versions de pages vérifiées par au moins un utilisateur régulier.",
 	'validationstatistics-table' => "Les statistiques pour chaque espace de noms sont affichées ci-dessous, à ''l’exclusion'' des pages de redirection.",

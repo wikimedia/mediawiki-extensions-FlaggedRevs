@@ -431,7 +431,7 @@ $messages['fr'] = array(
 	'oldreviewed-diff' => 'relecture',
 	'oldreviewed-size' => 'Différence de taille maximale (en octets) :',
 	'oldreviewedpages-unwatched' => '(non suivie)',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilisateur|utilisateurs}} suivent la page)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilisateur|utilisateurs}} suivent la page)',
 	'oldreviewedpages-viewing' => '(en révision)',
 );
 
@@ -902,7 +902,7 @@ $messages['oc'] = array(
 	'oldreviewed-diff' => 'relectura',
 	'oldreviewed-size' => 'Cambiament maximal de la talha (en octets) :',
 	'oldreviewedpages-unwatched' => '(pas observat)',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)',
 	'oldreviewedpages-viewing' => '(en revision)',
 );
 
