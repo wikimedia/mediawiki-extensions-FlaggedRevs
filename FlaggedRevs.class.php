@@ -209,7 +209,7 @@ class FlaggedRevs {
 	public static function getTagMsg( $tag ) {
 		self::load();
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		return wfMsgHtml("revreview-$tag");
+		return wfMsgExt( "revreview-$tag", array( 'escapenoentities' ) );
 	}
 	
 	/**
