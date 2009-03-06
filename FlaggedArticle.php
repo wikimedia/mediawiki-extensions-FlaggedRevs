@@ -226,16 +226,16 @@ class FlaggedArticle extends Article {
 	 */
 	public function setPageContent( &$outputDone, &$pcache ) {
 		global $wgRequest, $wgOut, $wgUser, $wgLang;
-		# Only trigger for reviewable pages
-		if( !$this->isReviewable() ) {
-			return true;
-		}
 		# Only trigger on article view for content pages, not for protect/delete/hist...
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( ($action !='view' && $action !='purge') || !$this->parent->exists() )
 			return true;
 		# Do not clutter up diffs any further and leave archived versions alone...
 		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
+			return true;
+		}
+		# Only trigger for reviewable pages
+		if( !$this->isReviewable() ) {
 			return true;
 		}
 		# Load required messages
