@@ -1494,7 +1494,7 @@ class FlaggedArticle extends Article {
 
 		$action = $wgRequest->getVal( 'action', 'view' );
 		# Only trigger on article view for content pages, not for protect/delete/hist
-		if( ($action !='view' && $action !='purge') || !$wgUser->isAllowed( 'review' ) )
+		if( $action !='view' || !$wgUser->isAllowed( 'review' ) )
 			return true;
 		if( !$this->parent->exists() || !$this->isReviewable() )
 			return true;
