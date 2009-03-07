@@ -157,7 +157,7 @@ To depreciate a revision, set all fields to "unapproved".',
 	'revreview-visibility2'        => '\'\'\'This page does not have an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
 	'revreview-revnotfound'        => 'The old revision of the page you asked for could not be found.
 Please check the URL you used to access this page.',
-	'right-autopatrol'             => 'Automatically mark revisions in non-main namespaces patrolled',
+	#'right-autopatrol'             => 'Automatically mark revisions in non-main namespaces patrolled',
 	'right-autoreview'             => 'Automatically mark revisions as sighted',
 	'right-movestable'             => 'Move stable pages',
 	'right-review'                 => 'Mark revisions as sighted',
@@ -425,9 +425,9 @@ A kind of error shown when trying to review a revision with all settings on "una
 Appears above the protection form when the current version of the page is the stable version; otherwise {{msg-mw|revreview-visibility2}} is shown.',
 	'revreview-visibility2' => '{{Flagged Revs-small}}
 Appears on top of the protection form when the current version is not the stable version (or the page has no stable varsion at all); otherwise {{msg-mw|revreview-visibility}} is shown.',
-	'right-autopatrol' => '{{Flagged Revs}}
+	#'right-autopatrol' => '{{Flagged Revs}}
 
-{{doc-right}}',
+#{{doc-right}}',
 	'right-autoreview' => '{{Flagged Revs}}
 
 {{doc-right}}',
@@ -600,7 +600,7 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-visibility' => "'''Necil lehtpolel om udištadud [[{{MediaWiki:Validationpage}}|stabiline versii]]; sab toižetada [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} stabiližiden versijoiden ozutamižen järgendused].'''",
 	'revreview-visibility2' => "'''Necil lehtpolel ei ole udištadud [[{{MediaWiki:Validationpage}}|stabilišt versijad]]; sab toižetada [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} stabiližiden versijoiden ozutamižen järgendused].'''",
 	'revreview-revnotfound' => 'Ei voi löuta lehtpolen edelišt versijad. Olgat hüväd, kodvgat, om-ik oiged se kosketuz, kudamban tö olet kävutanuded necile lehtpolele tuldes.',
-	'right-autopatrol' => 'Znamoita avtomatižikš lehtpoliden versijad laptaližes nimiavaruses kut patruliruidud',
+	#'right-autopatrol' => 'Znamoita avtomatižikš lehtpoliden versijad laptaližes nimiavaruses kut patruliruidud',
 	'right-autoreview' => 'Znamoita avtomatižikš lehtpoliden versijad kut arvosteldud',
 	'right-movestable' => 'Puhthanikoiden udesnimitand',
 	'right-review' => 'Znamoita lehtpoliden versijad kut arvosteldud',
@@ -827,7 +827,7 @@ S'han feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} c
 	'revreview-visibility' => "'''Ista pachina tiene una [[{{MediaWiki:Validationpage}}|bersión estable]]; A suya confegurazión puede cambiar-se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} aquí].'''",
 	'revreview-revnotfound' => "No se pudo trobar a bersión antiga d'a pachina demandata.
 Por fabor, rebise l'adreza que fazió serbir t'aczeder á ista pachina.",
-	'right-autopatrol' => "Siñalar automaticament como patrullatas as rebisions difuera d'o espazio de nombres prenzipal",
+	#'right-autopatrol' => "Siñalar automaticament como patrullatas as rebisions difuera d'o espazio de nombres prenzipal",
 	'right-autoreview' => 'Siñalar as rebisions automaticament como superbisatas',
 	'right-movestable' => 'Tresladar as pachinas estables',
 	'right-review' => 'Siñalar as rebisions como superbisatas',
@@ -1011,7 +1011,7 @@ $messages['ar'] = array(
 	'revreview-visibility2' => "'''هذه الصفحة ليس لديها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
 	'revreview-revnotfound' => 'لم يتم العثور على المراجعة القديمة من الصفحة التي طلبتها.
 من فضلك تأكد من المسار الذي دخلت به إلى هذه الصفحة.',
-	'right-autopatrol' => 'التعليم تلقائيا على المراجعات في النطاقات غير الرئيسية كمراجعة',
+	#'right-autopatrol' => 'التعليم تلقائيا على المراجعات في النطاقات غير الرئيسية كمراجعة',
 	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمنظورة',
 	'right-movestable' => 'نقل الصفحات المستقرة',
 	'right-review' => 'التعليم على المراجعات كمنظورة',
@@ -1221,7 +1221,7 @@ $messages['arz'] = array(
 	'revreview-visibility2' => "'''هذه الصفحة ليس لديها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
 	'revreview-revnotfound' => 'ما لقيناش النسخة القديمة من الصفحة اللى طلبتها.
 لو سمحت تتأكد من اليوأرإل اللى دخلت بيه للصفحة دي.',
-	'right-autopatrol' => 'التعليم تلقائيا على المراجعات فى النطاقات غير الرئيسية كمراجعة',
+	#'right-autopatrol' => 'التعليم تلقائيا على المراجعات فى النطاقات غير الرئيسية كمراجعة',
 	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمنظورة',
 	'right-movestable' => 'نقل الصفحات المستقرة',
 	'right-review' => 'التعليم على المراجعات كمنظورة',
@@ -1512,7 +1512,7 @@ $messages['bcc'] = array(
 	'revreview-update-includes' => "'''لهتی تمپلتان/تصاویر په روچ بیتگین:'''",
 	'revreview-update-use' => "'''توجه:''' اگر هر یکی چه ای تمپلتان/تصاویر یک ثابتین نسخه ای هست،اچه آیی الان ته نسخه ثابت ای صفحه کامرز بیت.",
 	'revreview-revnotfound' => 'کدیمی بازبینی چه ای صفحه که شما لوٹیت ودیگ نه بوت. لطفا URL که شما په رستن په ای صفحه استفاده کنیت کنترلی کنیت.',
-	'right-autopatrol' => 'اتوماتیکی نشان بونت بازبینی آن ته نام فضایانء نظارتی',
+	#'right-autopatrol' => 'اتوماتیکی نشان بونت بازبینی آن ته نام فضایانء نظارتی',
 	'right-autoreview' => 'اتوماتیکی نشان کن بازبینیء په عنوان رویت بیتگین',
 	'right-movestable' => 'صفحات ثابت جاه په جاه کن',
 	'right-review' => 'بازبینی آن په عنوان رویت بیتگین نشان کن',
@@ -2345,7 +2345,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-visibility' => "'''Diese Seite hat eine aktualisierte [[{{MediaWiki:Validationpage}}|markierte Version]]; die Anzeigeeinstellungen können [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] werden.'''",
 	'revreview-visibility2' => "'''Diese Seite hat keine aktualisierte [[{{MediaWiki:Validationpage}}|markierte Version]]; die Anzeigeeinstellungen können [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] werden.'''",
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der du suchst, konnte nicht gefunden werden. Bitte überprüfe die URL dieser Seite.',
-	'right-autopatrol' => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
+	#'right-autopatrol' => 'Automatisches Markieren von Versionen im Nicht-Hauptnamensraum als kontrolliert',
 	'right-autoreview' => 'Automatisches Markieren von Versionen als gesichtet',
 	'right-movestable' => 'Verschieben von gesichteten und geprüften Seiten',
 	'right-review' => 'Markiere Versionen als gesichtet',
@@ -2576,7 +2576,7 @@ Aby wótgódnośił wersiju, staj wšykne póla na "njeschwalony".',
 	'revreview-visibility' => "'''Toś ten bok ma zaktualizěrowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
 	'revreview-visibility2' => "'''Toś ten bok njama zaktualizěrowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
 	'revreview-revnotfound' => 'Njejo móžno było, wersiju togo boka namakaś, za kótaremž sy pytał. Pšosym kontrolěruj zapódanu URL.',
-	'right-autopatrol' => 'Wersije zwenka głownego mjenjowego ruma ako doglědowane markěrowaś',
+	#'right-autopatrol' => 'Wersije zwenka głownego mjenjowego ruma ako doglědowane markěrowaś',
 	'right-autoreview' => 'Wersije awtomatiski ako pśeglědane markěrowaś',
 	'right-movestable' => 'Stabilne boki pśesunuś',
 	'right-review' => 'Wersije ako pśeglědane markěrowaś',
@@ -2834,7 +2834,7 @@ Malvalidigi version, faru ĉiujn kampojn kiel "malaprobita".',
 	'revreview-visibility2' => "'''Ĉi tiu paĝo ne havas ĝisdatan [[{{MediaWiki:Validationpage}}|stabilan version]]; preferoj pri stabileco estas [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureblaj].'''",
 	'revreview-revnotfound' => 'Ne eblis trovi malnovan version de la artikolo kiun vi petis.
 Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
-	'right-autopatrol' => 'Aŭtomate marki versiojn ekster la ĉefaj nomspacoj kiel patrolitajn',
+	#'right-autopatrol' => 'Aŭtomate marki versiojn ekster la ĉefaj nomspacoj kiel patrolitajn',
 	'right-autoreview' => 'Aŭtomate marki versiojn kiel reviziitajn',
 	'right-movestable' => 'Movi stabilajn paĝojn',
 	'right-review' => 'Marki versiojn kiel reviziitajn',
@@ -2999,7 +2999,7 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGE
 	'revreview-update-use' => "'''NOTA:''' si alguna de estas plantillas o imágenes tiene una versión estable, entonces ya se usa en la versión estable de esta página.",
 	'revreview-revnotfound' => 'No se pudo encontrar la revisión antigua de la página que ha solicitado.
 Por favor, revise la dirección que usó para acceder a esta página.',
-	'right-autopatrol' => 'Automáticamente marcar revisiones patrulladas fuera del espacio de nombres principal',
+	#'right-autopatrol' => 'Automáticamente marcar revisiones patrulladas fuera del espacio de nombres principal',
 	'right-autoreview' => 'Automáticamente marcar revisiones como vistas',
 	'right-movestable' => 'Mover páginas estables',
 	'right-review' => 'Marcar revisiones como vistas',
@@ -3251,7 +3251,7 @@ $messages['fa'] = array(
 	[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} تنظیم] است.',
 	'revreview-revnotfound' => 'نسخهٔ قدیمی‌ای از صفحه که درخواسته بودید یافت نشد.
 لطفاً URLی را که برای دسترسی به این صفحه استفاده کرده‌اید، بررسی کنید.',
-	'right-autopatrol' => 'زدن خودکار برچسب گشت خودکار به ویرایش‌های خارج از فضای نام اصلی',
+	#'right-autopatrol' => 'زدن خودکار برچسب گشت خودکار به ویرایش‌های خارج از فضای نام اصلی',
 	'right-autoreview' => 'علامت زدن خودکار نسخه‌ها به عنوان بررسی شده',
 	'right-movestable' => 'صفحه‌های با بیشترین پایداری',
 	'right-review' => 'علامت زدن نسخه‌ها به عنوان بررسی شده',
@@ -3527,7 +3527,7 @@ Pour déprécier une version, mettez tous les champs à « non approuvée ».',
 	'revreview-visibility2' => "'''Cette page ne possède pas de [[{{MediaWiki:Validationpage}}|version stable]]. Ses paramètres de stabilité peuvent être [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurés].'''",
 	'revreview-revnotfound' => "L'ancienne version de cette page que vous avez demandée n'a pas pu être retrouvée.
 Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
-	'right-autopatrol' => 'Marquer automatiquement comme patrouillées les versions dans les espaces de noms autres que le principal.',
+	#'right-autopatrol' => 'Marquer automatiquement comme patrouillées les versions dans les espaces de noms autres que le principal.',
 	'right-autoreview' => 'Marquer automatiquement les versions comme visualisées',
 	'right-movestable' => 'Renommer des pages stables',
 	'right-review' => 'Marquer les versions comme visualisées',
@@ -3882,7 +3882,7 @@ Para despreciar unha revisión, encha todos os campos con "sen aprobar".',
 	'revreview-visibility2' => "'''Esta páxina non ten unha [[{{MediaWiki:Validationpage}}|versión estábel]] actualizada; os parámetros de estabilidade desta páxina poden ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-revnotfound' => 'A revisión vella que pediu non se deu atopado.
 Por favor verifique o URL que utilizou para acceder a esta páxina.',
-	'right-autopatrol' => 'Marcar automaticamente como patrulladas as revisións nos espazos de nomes que non son principais',
+	#'right-autopatrol' => 'Marcar automaticamente como patrulladas as revisións nos espazos de nomes que non son principais',
 	'right-autoreview' => 'Marcar automaticamente as revisións como revisadas',
 	'right-movestable' => 'Mover páxinas estábeis',
 	'right-review' => 'Marcar as revisións como revisadas',
@@ -4172,7 +4172,7 @@ S cha syy, ass es scho neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-visibility' => "'''Die Syte het e aktualisierti [[{{MediaWiki:Validationpage}}|markierti Version]]; d Yystellige, wie si aazeigt wird, chenne [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] wäre.'''",
 	'revreview-visibility2' => "'''Die Syte het kei aktualisierti [[{{MediaWiki:Validationpage}}|markierti Version]]; d Yystellige, wie si aazeigt wird, chenne [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfiguriert] wäre.'''",
 	'revreview-revnotfound' => 'D Version vu däre Syte, wu Du gsuecht hesch, het nit chenne gfunde wäre. Bitte iberprief d URL vu däre Syte.',
-	'right-autopatrol' => 'Automatischs Markiere vu Versione im Nit-Hauptnamensruum as "vum Fäldhieter gsäh"',
+	#'right-autopatrol' => 'Automatischs Markiere vu Versione im Nit-Hauptnamensruum as "vum Fäldhieter gsäh"',
 	'right-autoreview' => 'Automatischs Markiere vu Versionen as "vum Fäldhieter gsäh"',
 	'right-movestable' => 'Verschiebe vu Syte, wu vum Fäldhieter gsäh un/oder prieft sin',
 	'right-review' => 'Markier Versione as "vum Fäldhieter gsäh"',
@@ -4401,7 +4401,7 @@ $messages['he'] = array(
 	'revreview-visibility' => "'''לדף זה יש [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מעודכנת; ניתן [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-visibility2' => "'''אין לדף זה [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מעודכנת; ניתן [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-revnotfound' => 'הגרסה הישנה של דף זה לא נמצאה. אנא בדקו את כתובת הקישור שהוביל אתכם הנה.',
-	'right-autopatrol' => 'סימון אוטומטי של שינויים כשינויים בדוקים במרחבי שם שאינם המרחב הראשי',
+	#'right-autopatrol' => 'סימון אוטומטי של שינויים כשינויים בדוקים במרחבי שם שאינם המרחב הראשי',
 	'right-autoreview' => 'סימון אוטומטי של גרסאות כגרסאות שנצפו',
 	'right-movestable' => 'העברת דפים יציבים',
 	'right-review' => 'סימון גרסאות כגרסאות שנצפו',
@@ -4596,7 +4596,7 @@ $messages['hi'] = array(
 	'revreview-update-use' => "'''सूचना:''' अगर इसमें से किसी साँचा/चित्रका स्थिर अवतरण हैं, तो वह इस पन्नेके स्थिर अवतरण में पहले से इस्तेमाल किया हुआ हैं।",
 	'revreview-visibility' => "'''इस पन्नेको एक [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] हैं, जो [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} बदला] जा सकता हैं।'''",
 	'revreview-revnotfound' => 'आपसे पूछा गया इस लेख का पुराना अवतरण नहीं मिल पाया। कॄपया आपने इस्तेमाल किये URL की जाँच करें।',
-	'right-autopatrol' => 'मुख्य नामस्थान छोडकर अन्य नामस्थानोंके पन्नोंके अवतरणोंपर अपने आप ध्यान रखने का मार्क करें',
+	#'right-autopatrol' => 'मुख्य नामस्थान छोडकर अन्य नामस्थानोंके पन्नोंके अवतरणोंपर अपने आप ध्यान रखने का मार्क करें',
 	'right-autoreview' => 'अवतरण देखें ऐसे अपनेआप मार्क करें',
 	'right-movestable' => 'स्थिर पन्नोंका स्थानांतरण करें',
 	'right-review' => 'अवतरण देखें ऐसे मार्क करें',
@@ -4891,7 +4891,7 @@ Je móžno, zo su so hižo nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-visibility' => "'''Tuta strona ma zaktualizowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja za stabilnosć strony dadźa so [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurować].'''",
 	'revreview-visibility2' => "'''Tuta strona nima zaktualizowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wo stabilnosći strony dadźa so [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigurować].'''",
 	'revreview-revnotfound' => 'Stara wersija strony, kotruž sy žadał, njeda so namakać. Prošu pruwuj URL, kiž sy wužiwał.',
-	'right-autopatrol' => 'Wersije zwonka hłowneho mjenoweho ruma jako dohladowane markěrować',
+	#'right-autopatrol' => 'Wersije zwonka hłowneho mjenoweho ruma jako dohladowane markěrować',
 	'right-autoreview' => 'Wersije awtomatisce jako přehladane markěrować',
 	'right-movestable' => 'Stabilne strony přesunyć',
 	'right-review' => 'Wersije jako přehladane markěrować',
@@ -5102,7 +5102,7 @@ Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrizetl
 	'revreview-visibility' => 'Az oldal aktuális változata [[{{MediaWiki:Validationpage}}|elfogadott]]; az elfogadott változat paramétereit [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} itt állíthatod be].',
 	'revreview-visibility2' => 'Az oldal aktuális változata nem [[{{MediaWiki:Validationpage}}|elfogadott]]; az elfogadott változat paramétereit [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} itt állíthatod be].',
 	'revreview-revnotfound' => 'A lap általad kért régi változatát nem találom. Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
-	'right-autopatrol' => 'változatok automatikus megjelölése nem főnévtérben',
+	#'right-autopatrol' => 'változatok automatikus megjelölése nem főnévtérben',
 	'right-autoreview' => 'változatok automatikusan megtekintettként jelölése',
 	'right-movestable' => 'stabil lapok átnevezése',
 	'right-review' => 'Megtekintettként jelölve',
@@ -5445,7 +5445,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-visibility' => "'''Halaman ini memiliki [[{{MediaWiki:Validationpage}}|versi stabil]] yang telah diperbaharui; preferensi untuk versi stabil dapat [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
 	'revreview-visibility2' => "'''Halaman ini tidak memiliki [[{{MediaWiki:Validationpage}}|versi stabil]] yang telah diperbarui; penampilan halaman stabil dapat [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
 	'revreview-revnotfound' => 'Revisi lama halaman yang Anda minta tidak dapat ditemukan. Silakan periksa URL yang digunakan untuk mengakses halaman ini.',
-	'right-autopatrol' => 'Menandai secara otomatis suntingan di ruang nama non-utama sebagai terpatroli',
+	#'right-autopatrol' => 'Menandai secara otomatis suntingan di ruang nama non-utama sebagai terpatroli',
 	'right-autoreview' => 'Menandai revisi sebagai terperiksa secara otomatis',
 	'right-movestable' => 'Pindahkan halaman-halaman stabil',
 	'right-review' => 'Menandai sebagai revisi terperiksa',
@@ -5628,7 +5628,7 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-visibility' => "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] aggiornata; le impostazioni della stabilità della pagina possono essere [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurate].'''",
 	'revreview-revnotfound' => 'La versione richiesta della pagina non è stata trovata.
 Verificare la URL usata per accedere a questa pagina.',
-	'right-autopatrol' => 'Segna automaticamente le versioni fuori dal namespace principale come verificate',
+	#'right-autopatrol' => 'Segna automaticamente le versioni fuori dal namespace principale come verificate',
 	'right-autoreview' => 'Segna automaticamente versioni come visionate',
 	'right-movestable' => 'Sposta pagine stabili',
 	'right-review' => 'Segna versioni come visionate',
@@ -5801,7 +5801,7 @@ $messages['ja'] = array(
 	'revreview-visibility' => "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|安定版]]があります。[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ページの安定度設定]は変更可能です。'''",
 	'revreview-visibility2' => "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|安定版]]がありません。[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ページの安定度設定]は変更可能です。'''",
 	'revreview-revnotfound' => 'あなたが要求したこのページの旧版は見つかりませんでした。このページにアクセスしたURLをもう一度確認してください。',
-	'right-autopatrol' => '標準名前空間以外で特定版を自動的にパトロール済みとマークする',
+	#'right-autopatrol' => '標準名前空間以外で特定版を自動的にパトロール済みとマークする',
 	'right-autoreview' => '特定版を自動的に採択する',
 	'right-movestable' => '安定ページを移動する',
 	'right-review' => '特定版を採択する',
@@ -6373,7 +6373,7 @@ $messages['ko'] = array(
 	'revreview-toggle-title' => '자세한 내용 보기/숨기기',
 	'revreview-update-includes' => "'''일부 틀이나 그림이 수정되었습니다:'''",
 	'revreview-revnotfound' => '문서의 해당 버전을 찾지 못했습니다. 접속 URL을 확인해 주세요.',
-	'right-autopatrol' => '일반 문서가 아닌 이름공간에서의 자신의 편집을 검토한 것으로 표시',
+	#'right-autopatrol' => '일반 문서가 아닌 이름공간에서의 자신의 편집을 검토한 것으로 표시',
 	'right-autoreview' => '자신의 편집을 자동적으로 검토',
 	'right-movestable' => '안정 문서를 옮기기',
 	'right-review' => '다른 사람의 편집을 검토',
@@ -6816,7 +6816,7 @@ $messages['mk'] = array(
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
-	'right-autopatrol' => 'Автоматско означување на ревизии како патролирани во именски простори различни од главниот именски простор',
+	#'right-autopatrol' => 'Автоматско означување на ревизии како патролирани во именски простори различни од главниот именски простор',
 	'right-autoreview' => 'Автоматско означување на ревизии како прегледани',
 	'right-movestable' => 'Преместување на стабилни страници',
 	'right-review' => 'Означување на ревизии како прегледани',
@@ -7132,7 +7132,7 @@ $messages['mr'] = array(
 	'revreview-visibility' => "'''या पानाला एक [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] आहे, जी [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} बदलली] जाऊ शकते.'''",
 	'revreview-revnotfound' => 'या पृष्ठाची तुम्ही मागविलेली जुनी आवृत्ती सापडली नाही.
 कृपया URL तपासून पहा.',
-	'right-autopatrol' => 'मुख्य नामविश्व सोडून इतर नामविश्वांतील पानांच्या आवृत्त्यांवर आपोआप लक्ष ठेवले म्हणून खूणा करा',
+	#'right-autopatrol' => 'मुख्य नामविश्व सोडून इतर नामविश्वांतील पानांच्या आवृत्त्यांवर आपोआप लक्ष ठेवले म्हणून खूणा करा',
 	'right-autoreview' => 'आवृत्त्या पाहिल्या म्हणून आपोआप खूणा करा',
 	'right-movestable' => 'स्थिर पानांचे स्थानांतरण करा',
 	'right-review' => 'आवृत्त्या पाहिल्या म्हणून खूण करा',
@@ -7292,7 +7292,7 @@ Untuk menggugurkan semakan ini, sila berikan penilaian "tidak disahkan" kepada s
 	'revreview-diffonly' => "''Sila klik pautan \"semakan semasa\" dan gunakan borang pemeriksaan untuk memeriksa laman ini.''",
 	'revreview-visibility' => "'''Laman ini mempunyai sebuah [[{{MediaWiki:Validationpage}}|versi stabil]]; tetapan baginya boleh [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} diubah].'''",
 	'revreview-revnotfound' => 'Semakan lama untuk laman yang anda minta tidak dapat dijumpai. Sila semak URL yang anda gunakan untuk mencapai laman ini.',
-	'right-autopatrol' => 'Menanda ronda semakan dalam ruang nama bukan utama secara automatik',
+	#'right-autopatrol' => 'Menanda ronda semakan dalam ruang nama bukan utama secara automatik',
 	'right-autoreview' => 'Menanda jenguk semakan secara automatik',
 	'right-movestable' => 'Memindahkan laman stabil',
 	'right-review' => 'Menanda jenguk semakan',
@@ -7558,7 +7558,7 @@ Stel alle velden in op "niet goedgekeurd" om de waardering van een versie te ver
 	'revreview-visibility2' => "'''Deze pagina heeft geen bijgewerkte [[{{MediaWiki:Validationpage}}|stabiele versie]]. U kunt hiervoor [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
 	'revreview-revnotfound' => 'De opgevraagde oude versie van deze pagina is onvindbaar.
 Controleer de URL die u gebruikte om naar deze pagina te gaan.',
-	'right-autopatrol' => 'Veries buiten de hoofdnaamruimte automatisch als gecontroleerd markeren',
+	#'right-autopatrol' => 'Veries buiten de hoofdnaamruimte automatisch als gecontroleerd markeren',
 	'right-autoreview' => 'Versies automatisch als gecontroleerd markeren',
 	'right-movestable' => "Stabiele pagina's hernoemen",
 	'right-review' => 'Versies als gecontroleerd markeren',
@@ -7761,7 +7761,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan h
 	'revreview-visibility' => "'''Denne sida har ein oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillingar for stabile sider kan ein [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} endra].'''",
 	'revreview-visibility2' => "'''Denna sida har ikkje ein oppdatert [[{{MediaWiki:Validationpage}}|stabil sideversjon]]; innstillingane hennar kan ein [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} endra].'''",
 	'revreview-revnotfound' => 'Den gamle versjonen av sida du spurde etter finst ikkje. Sjekk nettadressa du brukte for å komma deg åt denne sida.',
-	'right-autopatrol' => 'Automatisk merkja siderversjonar i namneromma utanom hovudnamerommet som patruljerte',
+	#'right-autopatrol' => 'Automatisk merkja siderversjonar i namneromma utanom hovudnamerommet som patruljerte',
 	'right-autoreview' => 'Automatisk merkja sideverjonar som vurderte',
 	'right-movestable' => 'Flytta stabile sider',
 	'right-review' => 'Merkja sideversjonar som vurderte',
@@ -7956,7 +7956,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-diffonly' => "''For å anmelde siden, klikk på versjonslenken «nåværende versjon» og bruk anmeldelsesskjemaet.''",
 	'revreview-visibility' => "'''Denne siden har en oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillinger for stabile sider kan [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureres].'''",
 	'revreview-revnotfound' => 'Den gamle versjon av siden du etterspurte finnes ikke. Kontroller adressen du brukte for å få adgang til denne siden.',
-	'right-autopatrol' => 'Automatisk merke sideversjoner i andre navnerom enn hovednavnerommet som patruljerte',
+	#'right-autopatrol' => 'Automatisk merke sideversjoner i andre navnerom enn hovednavnerommet som patruljerte',
 	'right-autoreview' => 'Merke sideversjoner som kontrollerte automatisk',
 	'right-movestable' => 'Flytte stabile sider',
 	'right-review' => 'Merke sideversjoner som kontrollerte',
@@ -8161,7 +8161,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-visibility' => "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version establa]],  sos paramètres d'estabilitat pòdon èsser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurats].",
 	'revreview-visibility2' => "'''Aquesta pagina dispausa pas de [[{{MediaWiki:Validationpage}}|version establa]] ; sos paramètres d'estabilitat pòdon èsser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurats].'''",
 	'revreview-revnotfound' => "La version precedenta d'aquesta pagina a pas pogut èsser retrobada. Verificatz l'URL qu'avètz utilizada per accedir a aquesta pagina.",
-	'right-autopatrol' => 'Marcar coma patrolhadas las versions dins los espacis de nom exceptat dins lo principal.',
+	#'right-autopatrol' => 'Marcar coma patrolhadas las versions dins los espacis de nom exceptat dins lo principal.',
 	'right-autoreview' => 'Marcar automaticament las versions coma visadas',
 	'right-movestable' => 'Desplaçar de paginas establas',
 	'right-review' => 'Marcar las versions coma visadas',
@@ -8390,7 +8390,7 @@ By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny�
 	'revreview-visibility2' => "'''Ta strona nie ma aktualnej [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Strona może mieć
 [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurowane] ustawienia.'''",
 	'revreview-revnotfound' => 'Żądana, starsza wersja strony nie została odnaleziona. Sprawdź użyty adres URL.',
-	'right-autopatrol' => 'Automatyczne oznaczanie przeglądanych wersji stron spoza głównej przestrzeni nazw jako przejrzane',
+	#'right-autopatrol' => 'Automatyczne oznaczanie przeglądanych wersji stron spoza głównej przestrzeni nazw jako przejrzane',
 	'right-autoreview' => 'Automatyczne oznaczanie własnych wersji jako przejrzane',
 	'right-movestable' => 'Przenoszenie przejrzanych i zweryfikowanych stron',
 	'right-review' => 'Oznaczanie wersji jako przejrzane',
@@ -8722,7 +8722,7 @@ Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
 	'revreview-visibility2' => "'''Esta página não possui uma [[{{MediaWiki:Validationpage}}|versão estável]] atualizada; os parâmetros disso podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-revnotfound' => 'A edição antiga desta página que foi requisitada não pôde ser encontrada.
 Verifique o URL que utilizou para aceder esta página.',
-	'right-autopatrol' => 'Marcar automaticamente as edições de espaços nominais "secundários" como patrulhadas',
+	#'right-autopatrol' => 'Marcar automaticamente as edições de espaços nominais "secundários" como patrulhadas',
 	'right-autoreview' => 'Marcar automaticamente as edições como analisadas',
 	'right-movestable' => 'Mover páginas estáveis',
 	'right-review' => 'Definir edições como analisadas',
@@ -8922,7 +8922,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-visibility2' => "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona secure]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurate].'''",
 	'revreview-revnotfound' => "'A vecchia revisione d'a pàgene ca tu è cerchete non ge se iacchije.
 Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
-	'right-autopatrol' => "Signe automaticamende le revisiune ca non ge stonne jndr'à le namespace prengepàle cumme sorvegliate",
+	#'right-autopatrol' => "Signe automaticamende le revisiune ca non ge stonne jndr'à le namespace prengepàle cumme sorvegliate",
 	'right-autoreview' => 'Signe le revisiune cumme viste automaticamende',
 	'right-movestable' => 'Spuèste le pàggene secure',
 	'right-review' => 'Signe le revisiune cumme viste',
@@ -9132,7 +9132,7 @@ $messages['ru'] = array(
 	'revreview-visibility' => "'''У этой страницы имеется обновлённая [[{{MediaWiki:Validationpage}}|стабильная версия]]; можно изменить [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настройки показа стабильных версий].'''",
 	'revreview-visibility2' => "'''У этой страницы нет обновлённой [[{{MediaWiki:Validationpage}}|стабильной версии]]; можно изменить [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настройки показа стабильных версий].'''",
 	'revreview-revnotfound' => 'Старая версия страницы не найдена. Пожалуйста, проверьте правильность ссылки, которую вы использовали для доступа к этой странице.',
-	'right-autopatrol' => 'автоматическая отметка версий страниц в неосновном пространстве имён как патрулированных',
+	#'right-autopatrol' => 'автоматическая отметка версий страниц в неосновном пространстве имён как патрулированных',
 	'right-autoreview' => 'автоматическая отметка версий страниц как досмотренных',
 	'right-movestable' => 'переименование чистовых версий',
 	'right-review' => 'отметка версий страниц как досмотренных',
@@ -9486,7 +9486,7 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-visibility2' => "'''Táto stránka nemá aktualizovanú [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} upraviť].'''",
 	'revreview-revnotfound' => 'Požadovaná staršia verzia stránky nebola nájdená.
 Prosím skontrolujte URL adresu, ktorú ste použili na prístup k tejto stránke.',
-	'right-autopatrol' => 'Automaticky označiť revízie mimo hlavného menného priestoru ako strážené',
+	#'right-autopatrol' => 'Automaticky označiť revízie mimo hlavného menného priestoru ako strážené',
 	'right-autoreview' => 'Automaticky označiť revízie ako videné',
 	'right-movestable' => 'Presunúť stabilné stránky',
 	'right-review' => 'Označiť revízie ako videné',
@@ -9643,7 +9643,7 @@ $messages['sr-ec'] = array(
 	'revreview-diffonly' => "''Та преглед стране кликни на линк \"тренутна верзија\" и користи форму за преглед.''",
 	'revreview-revnotfound' => 'Старија ревизија ове странице коју сте затражили није нађена.
 Молимо вас да проверите УРЛ који сте употребили да бисте приступили овој страници.',
-	'right-autopatrol' => 'Аутоматски означи верзије патролисаним ако нису у основном именском простору.',
+	#'right-autopatrol' => 'Аутоматски означи верзије патролисаним ако нису у основном именском простору.',
 	'right-autoreview' => 'Аутоматски означи верзије прегледаним.',
 	'right-movestable' => 'Преименуј стабилне стране.',
 	'right-review' => 'Означи верзије као прегледане.',
@@ -9996,7 +9996,7 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'revreview-visibility' => "'''Denna sida har en uppdaterad [[{{MediaWiki:Validationpage}}|stabil version]]; inställningarna för den kan [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureras].'''",
 	'revreview-visibility2' => "'''Denna sida har inte en uppdaterad [[{{MediaWiki:Validationpage}}|stabil version]]; inställningarna för den kan [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} konfigureras].'''",
 	'revreview-revnotfound' => 'Den gamla versionen av den sida du frågade efter kan inte hittas. Kontrollera den URL du använde för att nå den här sidan.',
-	'right-autopatrol' => 'Automatiskt märka sidversioner i andra namnrymder än huvudnamnrymden patrullerade',
+	#'right-autopatrol' => 'Automatiskt märka sidversioner i andra namnrymder än huvudnamnrymden patrullerade',
 	'right-autoreview' => 'Automatiskt märka sidversioner som synade',
 	'right-movestable' => 'Flytta stabila sidor',
 	'right-review' => 'Markera sidversioner som synade',
@@ -10459,7 +10459,7 @@ Upang mapababa ang halaga (antas) isang pagbabago, itakda ang lahat ng mga kahan
 ang mga katakdaang pangkatatagan ng pahina ay maaaring [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} isaayos].'''",
 	'revreview-revnotfound' => 'Hindi matagpuan ang hinihingi mong lumang pagbabago ng pahina.
 Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
-	'right-autopatrol' => 'Kusang tatakan ang mga pagbabagong nasa hindi pangunahing mga espasyo ng pangalan bilang napatrolya na',
+	#'right-autopatrol' => 'Kusang tatakan ang mga pagbabagong nasa hindi pangunahing mga espasyo ng pangalan bilang napatrolya na',
 	'right-autoreview' => 'Kusang tatakan ang mga pagbabago bilang namataan na',
 	'right-movestable' => 'Ilipat ang matatatag na mga pahina',
 	'right-review' => 'Tatakan ang mga pagbabago bilang namataan na',
@@ -10672,7 +10672,7 @@ Bir revizyonu aşındırmak için, tüm alanları "onaylanmamış" seçin.',
 	'revreview-visibility' => "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut; sayfa kararlılık ayarları [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	'revreview-visibility2' => "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] yoktur; sayfa kararlılık ayarları [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	'revreview-revnotfound' => "İstemiş olduğunuz sayfanın eski versiyonu bulunamadı. Lütfen bu sayfaya erişmekte kullandığınız URL'yi kontrol edin.",
-	'right-autopatrol' => 'Revizyonları, ana ad alanları dışında otomatik olarak gözlenmiş olarak işaretle',
+	#'right-autopatrol' => 'Revizyonları, ana ad alanları dışında otomatik olarak gözlenmiş olarak işaretle',
 	'right-autoreview' => 'Revizyonları otomatik olarak gözlenmiş işaretle',
 	'right-movestable' => 'Kararlı sayfaları taşı',
 	'right-review' => 'Revizyonları gözlenmiş olarak işaretle',
@@ -10879,7 +10879,7 @@ $messages['uk'] = array(
 	'revreview-visibility2' => "'''Ця сторінка не має оновленої [[{{MediaWiki:Validationpage}}|стабільної версії]]; налаштування стабілізації сторінки можуть бути [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} змінені].'''",
 	'revreview-revnotfound' => 'Неможливо знайти необхідну вам версію статті.
 Будь-ласка, перевірте правильність посилання, яке ви використовували для доступу до цієї статті.',
-	'right-autopatrol' => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
+	#'right-autopatrol' => 'Автоматичне позначення версій сторінок у неосновному просторі назв патрульованими',
 	'right-autoreview' => 'Автоматичне позначення версій сторінок переглянутими',
 	'right-movestable' => 'Перейменування стабільних версій',
 	'right-review' => 'Позначення версій сторінок переглянутими',
@@ -11077,7 +11077,7 @@ Par declassar na version, segna tuti i canpi come "Non aprovà".',
 	'revreview-visibility' => "'''Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version stabile]] ajornà; le inpostassion de stabilità de pàxena le pol èssar [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configuràe].'''",
 	'revreview-revnotfound' => "La version richiesta de ła pàxena no la xè mìa stà catà.
 Verifica l'URL che te doparà par açedere a sta pàxena.",
-	'right-autopatrol' => 'Marca automaticamente le revision come controlà in namespace diversi da quel prinçipal',
+	#'right-autopatrol' => 'Marca automaticamente le revision come controlà in namespace diversi da quel prinçipal',
 	'right-autoreview' => 'Marca automaticamente le revision come "viste"',
 	'right-movestable' => 'Sposta le pagine stabili',
 	'right-review' => 'Marca le revision come "viste"',
@@ -11264,7 +11264,7 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} n
 	'revreview-visibility' => "'''Trang này có một [[{{MediaWiki:Validationpage}}|bản ổn định]] đã được cập nhật; bạn có thể [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập độ ổn định cho trang.'''",
 	'revreview-visibility2' => "'''Trang này không có [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được cập nhật; có thể [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} thiết lập] sự ổn định của trang.'''",
 	'revreview-revnotfound' => 'Không thấy phiên bản trước của trang này. Xin kiểm tra lại.',
-	'right-autopatrol' => 'Tự động đánh dấu phiên bản trong không gian tên không phải bài viết đã tuần tra',
+	#'right-autopatrol' => 'Tự động đánh dấu phiên bản trong không gian tên không phải bài viết đã tuần tra',
 	'right-autoreview' => 'Tự động đánh dấu phiên bản là đã xem qua',
 	'right-movestable' => 'Di chuyển trang ổn định',
 	'right-review' => 'Đánh dấu phiên bản đã xem qua',
@@ -11590,7 +11590,7 @@ $messages['yue'] = array(
 	'revreview-visibility' => "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} 較]。'''",
 	'revreview-revnotfound' => '呢版無你要搵嗰個版本喎。
 唔該睇下條網址啱唔啱。',
-	'right-autopatrol' => '自動標示響非主空間名嘅修訂做已巡查嘅',
+	#'right-autopatrol' => '自動標示響非主空間名嘅修訂做已巡查嘅',
 	'right-autoreview' => '自動標示修訂做已視察過嘅',
 	'right-movestable' => '搬穩定頁',
 	'right-review' => '標示修訂做已視察嘅',
