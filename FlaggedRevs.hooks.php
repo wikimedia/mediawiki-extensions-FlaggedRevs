@@ -827,15 +827,18 @@ EOT;
 			}
 			return true;
 		}
-		// Can this be patrolled?
+		// Is this page in patrollable namespace?
 		$patrol = $record = false;
 		if( FlaggedRevs::isPagePatrollable( $rc->getTitle() ) ) {
-			$patrol = $wgUser->isAllowed('autopatrolother') || $wgUser->isAllowed('bot');
+			# Bots and users with 'autopatrol' have edits to patrolleable pages
+			# marked  automatically on edit.
+			$patrol = $wgUser->isAllowed('autopatrol') || $wgUser->isAllowed('bot');
 			$record = true;
 		} else {
 			global $wgUseNPPatrol;
 			# Mark patrolled by default unless this is a new page and new page patrol 
 			# is enabled (except when the user has 'autopatrol', then patrol it).
+			# This is just to avoid RC clutter for non-patrollable pages.
 			if( $wgUser->isAllowed('autopatrol') ) {
 				$patrol = true;
 				# Record patrolled new pages if $wgUseNPPatrol is on

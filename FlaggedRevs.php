@@ -158,7 +158,7 @@ $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['patrol']          = true;
-$wgGroupPermissions['editor']['autopatrolother'] = true;
+$wgGroupPermissions['editor']['autopatrol']      = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
 
 # Defines extra rights for advanced reviewer class
@@ -175,7 +175,7 @@ $wgGroupPermissions['sysop']['movestable'] = true;
 
 # Try to avoid flood by having autoconfirmed user edits to non-reviewable
 # namespaces autopatrolled.
-$wgGroupPermissions['autoconfirmed']['autopatrolother'] = true;
+$wgGroupPermissions['autoconfirmed']['autopatrol'] = true;
 
 # Implicit autoreview group
 $wgGroupPermissions['autoreview']['autoreview'] = true;
@@ -248,7 +248,6 @@ $wgAvailableRights[] = 'review';
 $wgAvailableRights[] = 'validate'; # Let some users set higher settings
 $wgAvailableRights[] = 'autoreview';
 $wgAvailableRights[] = 'patrolmarks';
-$wgAvailableRights[] = 'autopatrolother';
 $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
 
