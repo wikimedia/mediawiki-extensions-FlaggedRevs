@@ -215,7 +215,7 @@ $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 $wgFlaggedRevsLogInRC = false;
 
 # How far the logs for overseeing quality revisions and depreciations go
-$wgFlaggedRevsOversightAge = 14 * 24 * 3600;
+$wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 
 # Flagged revisions are always visible to users with rights below.
 # Use '*' for non-user accounts.
