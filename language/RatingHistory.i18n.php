@@ -789,6 +789,7 @@ $messages['lb'] = array(
 	'ratinghistory-3months' => 'lescht 3 Méint',
 	'ratinghistory-year' => 'lescht Joer',
 	'ratinghistory-3years' => 'lescht 3 Joer',
+	'ratinghistory-purge' => 'Tëschespäicher (Cache) eidelmaachen',
 	'readerfeedback-svg' => 'Als SVG kucken',
 	'ratinghistory-table-votes' => 'Stëmmen',
 );

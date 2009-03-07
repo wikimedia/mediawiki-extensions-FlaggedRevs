@@ -656,6 +656,13 @@ an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|V
 	'validationstatistics-stable' => 'Validéiert',
 );
 
+/** Eastern Mari (Олык Марий)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'validationstatistics-ns' => 'Лӱм-влакын кумдыкышт',
+);
+
 /** Macedonian (Македонски)
  * @author Brest
  */
@@ -857,17 +864,18 @@ Versões estáveis são revisões de páginas verificadas por pelo menos um util
 $messages['pt-br'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
 	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] e '''$2''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]].",
-	'validationstatistics-time' => "O tempo médio de espera para edições feitas por ''utilizadores não registrados'' é '''$1'''; a mediana é '''$3'''.   
-$4
-O atraso médio para [[Special:OldReviewedPages|páginas desatualizadas]] é '''$2'''.",
-	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento. Páginas '''desatualizadas''' são as com edições posteriores à versão estável.
-Se a versão estável for também a mais recente, a página está '''sincronizada'''.
+	'validationstatistics-time' => "''Os dados seguintes estão em cache e podem não estar atualizados.''
 
-''Nota: os dados a seguir são armazenados em cache por várias horas e podem não estar atualizados.''",
+O tempo médio de espera para edições feitas por ''utilizadores não autenticados'' serem revistas é '''$1'''; a mediana é '''$3'''.   
+$4
+O atraso médio para [[Special:OldReviewedPages|páginas com edições não revistas em espera]] é '''$2'''.
+Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] é também a versão rascunho atual.
+Versões estáveis são revisões de páginas verificadas por pelo menos um utilizador estabelecido.",
+	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Analisadas',
-	'validationstatistics-latest' => 'Mais recente analisada',
+	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
 );
