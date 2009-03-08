@@ -353,7 +353,7 @@ $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::updateFromRestore';
 $wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
 $wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFindStableFileTime';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
-$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserMakeStableImageLink';
+$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserMakeStableFileLink';
 # Additional parser versioning
 $wgHooks['ParserAfterTidy'][] = 'FlaggedRevsHooks::parserInjectTimestamps';
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps';

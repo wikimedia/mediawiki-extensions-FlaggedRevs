@@ -358,7 +358,7 @@ EOT;
 	/**
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
-	public static function parserMakeStableImageLink( $parser, $nt, &$skip, &$time, &$query=false ) {
+	public static function parserMakeStableFileLink( $parser, $nt, &$skip, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
 		if( empty($parser->fr_isStable) || $nt->getNamespace() < 0 ) {
 			return true;
