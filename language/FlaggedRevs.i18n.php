@@ -526,7 +526,23 @@ Kc. См. [[Special:ReviewedPages|kodvdud lehtpoliden nimikirjutez]].",
 	'revreview-auto' => '(avtomatižešti)',
 	'revreview-auto-w' => "Tö redaktiruit stabilišt versijad; vajehtused znamoitas '''avtomatižešti, kut kodvdud material'''.",
 	'revreview-auto-w-old' => "Tö redaktiruit arvosteldud versijad; vajehtused znamoitas '''avtomatižešti, kut arvosteldud material'''.",
+	'revreview-basic' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|kactud]] versii; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjutuses om] $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|toižetuz, kudamb|toižetust, kudambad}}] {{PLURAL:$3|varastab|varastadas}} kodvindad.",
+	'revreview-basic-i' => "Nece om jäl'gmäine [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} kactud] versii; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjuteses] om [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}toižetusid šablonoiš vai kuviš], kudambad varastadas kodvindad.",
+	'revreview-basic-old' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|kactud]] versii ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]), 
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ližatoižetusid].",
+	'revreview-basic-same' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|kactud]] versii ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]); 
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.",
+	'revreview-basic-source' => 'Necen lehtpolen [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kactud versii], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kudamban om kodvnu] <i>$2</i>, 
+om tehtud necen versijan alusel.',
 	'revreview-blocked' => "Teile ei sa kodva necidä versijad, sikš miše teiden registracii om nügüd' blokiruidud ($1 detalid)",
+	'revreview-changed' => "'''Necidä ei voi tehta necil lehtpolen [[:$1|$1]]-versijalpäi.'''
+
+Voib olda, šablon vai kuva oma znamoitud niiden konkretižita versijoita.
+Nece voinuiži tehtas, ku dinamine šablon mülütab toižen šablonan vai kuvan, a ned rippudas toižetunuden kodvindan augotižkurolpäi vajehtujas luguspäi.
+Udištagat lehtpol' i augotagat kodvindad udes, nece voib koheta problemad.",
 	'revreview-current' => 'Mustkirjutuz',
 	'revreview-depth' => 'Süvuz',
 	'revreview-depth-0' => 'ei ole ozutadud',
@@ -561,6 +577,16 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-patrol' => 'Znamoita nece toižetuz kut kodvdud',
 	'revreview-patrol-title' => 'Znamoita kut patruliruidud',
 	'revreview-patrolled' => 'Valitud versii [[:$1|$1]] om znamoitud kut patruliruidud.',
+	'revreview-quality' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|toižetuz|toižetust}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} mustkirjutuses] 
+{{PLURAL:$3|varastab|varastadas}} kodvindad.",
+	'revreview-quality-i' => "Nece om jäl'gmäine [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lophusai kodvdud] versii; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjutuses] om [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}toižetusid šabloniš vai kuviš], kudambid pidab kodvda.",
+	'revreview-quality-old' => 'Nece om [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]), 
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ližatoižetusid].',
+	'revreview-quality-same' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.",
+	'revreview-quality-source' => 'Necen lehtpolen [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} lophusai kodvdud versii,] [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>, om tehtud necen versijan alusel.',
 	'revreview-quality-title' => "Lophusai kodvdud lehtpol'",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Arvosteldud lehtpol']]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ozutada mustkirjutuz]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Arvosteldud lehtpol']]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ozutada mustkirjutuz]]",
@@ -591,7 +617,14 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-finished' => 'Kodvind om loptud!',
 	'revreview-successful' => "'''Valitud [[:$1|$1]]-versii om znamoitud satusekahas. ([{{fullurl:Special:Stableversions|page=$2}} stabiližiden versijoiden kacund])'''",
 	'revreview-successful2' => "'''Virg om heittud [[:$1|$1]]-versijaspäi.'''",
+	'revreview-text' => "''Augotižjärgendusen mödhe ozutadas lehtpoliden [[{{MediaWiki:Validationpage}}|stabiližed versijad]], ei udembad.''",
+	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabiližed versijad]] — lehtpoliden kodvdud versijad, kudambid voiži ozutada augotižjärgendusen mödhe.''",
 	'revreview-toggle-title' => 'ozutada/peitta detalid',
+	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "ei ole znamoitud", miše versii oliži vahvištadud kut kodvdud.
+Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
+	'revreview-update' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused''(ned ozutadas alemba)'', kudambid tehtihe jäl'ges stabiližen versijan
+[{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} seižutamišt].<br />
+'''Erased šablonad vai kuvad oma udištadud:'''",
 	'revreview-update-includes' => "'''Erased šablonad vai kuvad oma udištadud:'''",
 	'revreview-update-none' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] redakcijad ''(ned oma ozutadud alemba)'', kudambad oma tehtud stabiližen versijan
 [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} seižutamižen] jäl'ghe.",
@@ -600,7 +633,6 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-visibility' => "'''Necil lehtpolel om udištadud [[{{MediaWiki:Validationpage}}|stabiline versii]]; sab toižetada [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} stabiližiden versijoiden ozutamižen järgendused].'''",
 	'revreview-visibility2' => "'''Necil lehtpolel ei ole udištadud [[{{MediaWiki:Validationpage}}|stabilišt versijad]]; sab toižetada [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} stabiližiden versijoiden ozutamižen järgendused].'''",
 	'revreview-revnotfound' => 'Ei voi löuta lehtpolen edelišt versijad. Olgat hüväd, kodvgat, om-ik oiged se kosketuz, kudamban tö olet kävutanuded necile lehtpolele tuldes.',
-	#'right-autopatrol' => 'Znamoita avtomatižikš lehtpoliden versijad laptaližes nimiavaruses kut patruliruidud',
 	'right-autoreview' => 'Znamoita avtomatižikš lehtpoliden versijad kut arvosteldud',
 	'right-movestable' => 'Puhthanikoiden udesnimitand',
 	'right-review' => 'Znamoita lehtpoliden versijad kut arvosteldud',

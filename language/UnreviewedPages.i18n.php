@@ -720,6 +720,7 @@ $messages['ksh'] = array(
 	'unreviewed-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han|Keine hät}} se en de Opassliß)',
 	'unreviewed-list' => 'Di Leß hee zeich Atikelle, die noch nit nohjekik woode sen.',
 	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
+	'unreviewed-viewing' => '(weed nohjekik)',
 );
 
 /** Cornish (Kernewek)
