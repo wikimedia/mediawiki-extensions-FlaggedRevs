@@ -184,13 +184,17 @@ $aliases['fa'] = array(
  * @author Verdy p
  */
 $aliases['fr'] = array(
+	'LikedPages' => array( 'Pages appréciées' ),
 	'OldReviewedPages' => array( 'AnciennesPagesRelues' ),
 	'ProblemPages' => array( 'PagesProblematiques' ),
 	'QualityOversight' => array( 'SuperviseurQualité' ),
 	'ReviewedPages' => array( 'Pages révisées' ),
+	'RevisionReview' => array( 'Relecture des révisions' ),
 	'StablePages' => array( 'PagesStables' ),
 	'StableVersions' => array( 'VersionsStables' ),
 	'UnreviewedPages' => array( 'PagesNonRelues' ),
+	'UnstablePages' => array( 'Pages instables' ),
+	'ValidationStatistics' => array( 'Statistiques de validation' ),
 );
 
 /** Galician (Galego)
