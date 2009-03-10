@@ -105,6 +105,8 @@ $messages['eo'] = array(
  * @author Crazymadlover
  */
 $messages['es'] = array(
+	'problempages' => 'Páginas pobremente valoradas',
+	'problempages-leg' => 'Encontrar páginas subvaluadas',
 	'problempages-none' => 'No hay páginas en esta lista',
 	'problempages-graphs' => 'Datos de rating',
 );

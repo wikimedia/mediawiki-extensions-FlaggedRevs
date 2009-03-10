@@ -315,13 +315,20 @@ La '''nombro de kontrolo po tago''' <font color=\"red\">''(ruĝa)''</font> estas
  * @author Crazymadlover
  */
 $messages['es'] = array(
+	'ratinghistory' => 'Historial de valoración de página',
+	'ratinghistory-leg' => 'Datos de historial de valoración para [[:$1|$1]]',
 	'ratinghistory-tab' => 'rating',
+	'ratinghistory-link' => 'Valoración de página',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Gracias por tomarte un momento para revisar esta página!</font>''",
 	'ratinghistory-period' => 'Periodo de tiempo:',
 	'ratinghistory-month' => 'último mes',
 	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último año',
 	'ratinghistory-3years' => 'últimos 3 años',
 	'ratinghistory-purge' => 'purgar cache',
+	'ratinghistory-table' => 'vista general de valoraciones de los lectores',
+	'ratinghistory-users' => 'Usuarios que dieron valoraciones',
+	'ratinghistory-graph' => '$2 de "$3" ($1 {{PLURAL:$1|revisión|revisiones}})',
 	'readerfeedback-svg' => 'Ver como SVG',
 	'ratinghistory-table-rating' => 'Rating',
 	'ratinghistory-table-votes' => 'Votos',
@@ -776,6 +783,8 @@ $messages['ksh'] = array(
 	'ratinghistory-3months' => 'letzte drei Mohnd',
 	'ratinghistory-year' => 'letz Johr',
 	'ratinghistory-3years' => 'letz drei Johre',
+	'ratinghistory-ave' => 'Dorschnett: $1',
+	'ratinghistory-purge' => 'Donn der Zwescheshpeisher (der <i lang="en">cache</i>) leddisch maache',
 	'readerfeedback-svg' => 'Als en <code>SVG</code>-Dattei aanloore',
 );
 

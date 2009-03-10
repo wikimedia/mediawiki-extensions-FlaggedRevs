@@ -714,17 +714,30 @@ Neniu konfiguro eblas.',
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
 	'stabilization' => 'Estabilización de página',
-	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:$1|$1]] es seleccionada y mostrada.'''",
+	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:$1|$1]] es seleccionada y mostrada.'''
+
+Cuando cambie la configuración de ''selección de versión estable'' usar {{int:revreview-lev-quality}} o {{int:revreview-lev-pristine}} revisiones por defecto,
+asegúrese de verificar si hay realmente tales revisiones en la página, de otra manera se afectará ligeramente.",
 	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión estable. Aquí están las configuraciones actuales para [[:$1|$1]]:',
 	'stabilization-page' => 'Nombre de la página:',
 	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
 	'stabilization-select' => 'Selección de versión estable',
-	'stabilization-select2' => 'La última versión verificada',
+	'stabilization-select2' => 'La última {{int:revreview-lev-sighted}} versión',
+	'stabilization-def' => 'Revisión mostrada en la vista de página por defecto',
 	'stabilization-def2' => 'La actual revisión',
 	'stabilization-submit' => 'Confirmar',
+	'stabilization-notexists' => 'No hay una página llamada "[[:$1|$1]]".
+La configuración no es posible.',
+	'stabilization-notcontent' => 'La página "[[:$1|$1]]" no puede ser revisada.
+La configuración no es posible.',
 	'stabilization-comment' => 'Razón:',
+	'stabilization-otherreason' => 'Otra razón',
+	'stabilization-expiry' => 'Expira:',
+	'stabilization-othertime' => 'Otra vez',
+	'stabilization-sel-short' => 'Precedencia',
 	'stabilization-sel-short-0' => 'Calidad',
 	'stabilization-sel-short-1' => 'Ninguno',
+	'stabilization-sel-short-2' => 'Prístina',
 	'stabilization-def-short' => 'Por defecto',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Estable',
@@ -933,7 +946,7 @@ $messages['gl'] = array(
 	'stabilization-leg' => 'Confirmar as configuración da versión estábel',
 	'stabilization-select' => 'Selección da versión estábel',
 	'stabilization-select1' => 'A última revisión de calidade; se non se atopa, entón a vista máis recente.',
-	'stabilization-select2' => 'A última revisión vista',
+	'stabilization-select2' => 'A última revisión {{int:revreview-lev-sighted}}',
 	'stabilization-select3' => 'A última revisión intacta; se non a hai, a última de calidade ou revisada',
 	'stabilization-def' => 'Revisión que aparece por defecto na vista da páxina',
 	'stabilization-def1' => 'A revisión estábel, se non presente, entón a actual',
@@ -954,7 +967,7 @@ $messages['gl'] = array(
 	'stabilization-def-short-1' => 'Estábel',
 	'stabilize_expiry_invalid' => 'Data non válida de caducidade.',
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
-	'stabilize-expiring' => 'caduca $1 (UTC)',
+	'stabilize-expiring' => 'caduca o $2 ás $3 (UTC)',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -1147,13 +1160,15 @@ Slijede važeće postavke za [[:$1|$1]]:',
 $messages['hsb'] = array(
 	'stabilization-tab' => '(Kwalitne zawěsćenje)',
 	'stabilization' => 'Stabilizacija strony',
-	'stabilization-text' => "'''Změń nastajenja, zo by postajił, kak ma so stabilna wersija wot \"[[:\$1|\$1]]\" wubrać a zwobraznić.'''",
+	'stabilization-text' => "'''Změń slědowace nastajenja, zo by postajił, kak so stabilna wersija wot [[:$1|$1]] wuběra a zwobraznja.'''
+
+Hdyž konfiguraciju ''wuběra stabilneje wersije'' změniš, zo by wersije {{int:revreview-lev-quality}} abo {{int:revreview-lev-pristine}} po standardźe wužiwał, skontroluj, hač su woprawdźe tajke wersije w stronje, hewak změje mało wuskutka.",
 	'stabilization-perm' => 'Twoje wužiwarske konto nima trěbne prawo, zo by nastajenja stabilneje wersije změniło.
 	Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilization-page' => 'Mjeno strony:',
 	'stabilization-leg' => 'Nastajenja za stabilnu wersiju potwjerdźić',
 	'stabilization-select' => 'Wuběr stabilneje wersije',
-	'stabilization-select1' => 'Poslednja pruwowana wersija; jeli žana njeje, potom poslednja přehladana wersija',
+	'stabilization-select1' => 'Poslednja wersija {{int:revreview-lev-quality}}; jeli žana njeje, potom poslednja wersija {{int:revreview-lev-sighted}}',
 	'stabilization-select2' => 'Poslednja pruwowana wersija',
 	'stabilization-select3' => 'Poslednja prěnjotna wersija; jeli njeeksistuje, da poslednja přepruwowana abo přehladana wersiaj',
 	'stabilization-def' => 'Wersija zwobraznjena w normalnym napohledźe strony',
@@ -1539,7 +1554,11 @@ $messages['ksh'] = array(
 Et jit nix enzestelle.',
 	'stabilization-notcontent' => 'De Sigg met dämm Tittel „[[:$1|$1]]“ cannot be reviewed.
 Et jit nix enzestelle.',
+	'stabilization-comment' => 'Jrond:',
+	'stabilization-otherreason' => 'Ene andere Jrond',
 	'stabilization-def-short-0' => 'Von jetz',
+	'stabilize_expiry_invalid' => 'Dat Affloufdattum es nit jöltisch.',
+	'stabilize_expiry_old' => 'Dat Affloufdattum es ald förbei.',
 	'stabilize-expiring' => 'Leuf uß, am $2 öm $3 Uhr (UTC)',
 );
 
@@ -2755,8 +2774,10 @@ nếu không có, sẽ là bản hiện hành',
 Không thể cấu hình.',
 	'stabilization-notcontent' => 'Trang “[[:$1|$1]]” không thể được duyệt.
 Không thể cấu hình.',
-	'stabilization-comment' => 'Chi tiết:',
+	'stabilization-comment' => 'Lý do:',
+	'stabilization-otherreason' => 'Lý do khác',
 	'stabilization-expiry' => 'Thời hạn:',
+	'stabilization-othertime' => 'Thời gian khác',
 	'stabilization-sel-short' => 'Đi trước',
 	'stabilization-sel-short-0' => 'Chất lượng',
 	'stabilization-sel-short-1' => 'Không có',

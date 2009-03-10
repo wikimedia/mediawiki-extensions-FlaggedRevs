@@ -100,6 +100,8 @@ $messages['eo'] = array(
  * @author Sanbec
  */
 $messages['es'] = array(
+	'likedpages' => 'Páginas altamente valoradas',
+	'likedpages-leg' => 'Encontrar páginas altamente valoradas',
 	'likedpages-none' => 'No hay páginas en esta lista',
 	'likedpages-graphs' => 'datos de valoración',
 );

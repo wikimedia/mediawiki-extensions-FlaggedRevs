@@ -335,6 +335,7 @@ $messages['es'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
 	'unreviewed-list' => 'Esta lista contiene páginas que no han sido revisadas',
 	'unreviewed-none' => 'No hay actualmente páginas que cumplan estos criterios',
+	'unreviewed-viewing' => '(bajo revisión)',
 );
 
 /** Basque (Euskara)

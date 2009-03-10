@@ -154,8 +154,8 @@ $messages['dsb'] = array(
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
 	'stablepages-prec-none' => 'žedna prědnosć',
-	'stablepages-prec-quality' => 'kwalitna prědnosć',
-	'stablepages-prec-pristine' => 'spócetna prědnosć',
+	'stablepages-prec-quality' => 'prědnosć {{int:revreview-lev-quality}}',
+	'stablepages-prec-pristine' => 'prědnosć {{int:revreview-lev-pristine}}',
 	'stablepages-precedence' => 'Prědnosć:',
 );
 
@@ -199,6 +199,10 @@ $messages['es'] = array(
 	'stablepages-text' => 'Debajo hay una lista de páginas manualmente configuradas para mostrar la versión estable como la página de contenido por defecto para visitantes',
 	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
+	'stablepages-prec-none' => 'Sin precedencia',
+	'stablepages-prec-quality' => 'precedencia {{int:revreview-lev-quality}}',
+	'stablepages-prec-pristine' => 'precedencia {{int:revreview-lev-pristine}}',
+	'stablepages-precedence' => 'Precedencia:',
 );
 
 /** Basque (Euskara)
@@ -238,7 +242,7 @@ $messages['fr'] = array(
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
 	'stablepages-prec-none' => 'aucune priorité',
-	'stablepages-prec-quality' => 'préférence pour la qualité',
+	'stablepages-prec-quality' => 'préférence pour {{int:revreview-lev-quality}}',
 	'stablepages-prec-pristine' => 'priorité vierge',
 	'stablepages-precedence' => 'Préférence :',
 );
@@ -253,8 +257,8 @@ $messages['gl'] = array(
 	'stablepages-none' => 'Non hai páxinas nesta lista',
 	'stablepages-config' => 'Configuración',
 	'stablepages-prec-none' => 'sen prioridade',
-	'stablepages-prec-quality' => 'calidade prioritaria',
-	'stablepages-prec-pristine' => 'prioridade antiga',
+	'stablepages-prec-quality' => '{{int:revreview-lev-quality}} prioritaria',
+	'stablepages-prec-pristine' => '{{int:revreview-lev-pristine}} prioritaria',
 	'stablepages-precedence' => 'Prioridade:',
 );
 
@@ -295,7 +299,7 @@ $messages['he'] = array(
 	'stablepages-none' => 'אין דפים ברשימה זו',
 	'stablepages-config' => 'תצורה',
 	'stablepages-prec-none' => 'ללא עדיפות',
-	'stablepages-prec-quality'  => 'עדיפות לגרסה {{int:revreview-lev-quality}}',
+	'stablepages-prec-quality' => 'עדיפות לגרסה {{int:revreview-lev-quality}}',
 	'stablepages-prec-pristine' => 'עדיפות לגרסה {{int:revreview-lev-pristine}}',
 	'stablepages-precedence' => 'עדיפות:',
 );
@@ -328,8 +332,8 @@ $messages['hsb'] = array(
 	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
 	'stablepages-config' => 'Konfiguracija',
 	'stablepages-prec-none' => 'žana prěnjosć',
-	'stablepages-prec-quality' => 'kwalitna prěnjosć',
-	'stablepages-prec-pristine' => 'prěnjotna prěnjosć',
+	'stablepages-prec-quality' => 'prěnjosć {{int:revreview-lev-quality}}',
+	'stablepages-prec-pristine' => 'prěnjosć {{int:revreview-lev-pristine}}',
 	'stablepages-precedence' => 'Prěnjosć:',
 );
 
@@ -422,6 +426,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
+	'stablepages-config' => 'Enstellunge',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

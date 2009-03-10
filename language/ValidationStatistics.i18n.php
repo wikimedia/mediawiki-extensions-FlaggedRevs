@@ -250,9 +250,14 @@ $messages['eo'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun
 [[{{MediaWiki:Validationpage}}|Revizianto]]-rajtoj
 kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.",
-	'validationstatistics-time' => "La averaĝa atendotempo por redaktoj de ''nesalutita uzantoj'' estas '''$1'''; la mediano estas '''$3'''.
+	'validationstatistics-time' => "'' La jena dateno estas en kaŝmemoro kaj eble ne estas ĝisdata.''
+
+La averaĝa atendotempo por kontrolendaj redaktoj de ''nesalutita uzantoj'' estas '''$1'''; la mediano estas '''$3'''.
 $4
-La averaĝa atendotempo por [[Special:OldReviewedPages|paĝoj kun nekontrolitaj redaktoj farontaj]] estas '''$2'''.",
+La averaĝa atendotempo por [[Special:OldReviewedPages|paĝoj kun nekontrolitaj redaktoj farontaj]] estas '''$2'''.
+Ĉi tiuj paĝoj estas konsiderataj kiel ''malfreŝaj''. Ankaŭ, paĝoj estas konsiderata ''sinkrona'' se la 
+[[{{MediaWiki:Validationpage}}|stabila revizio]] ankaŭ estas la nuna netaĵo.
+Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita uzanto.",
 	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, krom alidirektiloj.
 ''Neĝisdataj'' paĝoj estas tioj kun redaktoj pli novaj ol la plej stabila versio.
 Se la stabila versio ankaŭ estas la plej lasta versio, la paĝo estas ''sinkroniga''.
@@ -1071,6 +1076,14 @@ Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontr
 $messages['uk'] = array(
 	'validationstatistics' => 'Статистика перевірок',
 	'validationstatistics-users' => "У {{grammar:locative|{{SITENAME}}}} зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]] і '''$2''' {{plural:$2|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«рецензент»]].",
+	'validationstatistics-time' => "''Нижченаведені дані взяті з кешу і можуть бути застарілими.''
+
+Середнє очікування редагувань від ''незареєстрованих користувачів'' рівне '''$1'''; медіана рівна '''$3'''.
+$4
+Середня затримка для [[Special:OldReviewedPages|сторінок з непереглянутими редагуваннями]] рівна '''$2'''.
+Ці сторінки вважаються ''застарілими''. Так само, сторінка вважається ''синхронізованою'', якщо її
+поточна версія є [[{{MediaWiki:Validationpage}}|стабільною]].
+Стабільні версії — версії, перевірені принаймні одним користувачем.",
 	'validationstatistics-table' => "Нижче наведена статистика по кожному простору назв. Перенаправлення не враховані.
 ''Застарілими'' називаються сторінки, які мають редагування після встановлення стабільної версії.
 Якщо стабільна версія є останньою, то сторінка називається ''синхронізованою''.
@@ -1079,24 +1092,31 @@ $messages['uk'] = array(
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',
 	'validationstatistics-stable' => 'Перевірені',
-	'validationstatistics-latest' => 'Нещодавно перевірені',
+	'validationstatistics-latest' => 'Синхронізовані',
 	'validationstatistics-synced' => 'Повторно перевірені',
 	'validationstatistics-old' => 'Застарілі',
 );
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Vinhtantran
  */
 $messages['vi'] = array(
 	'validationstatistics' => 'Thống kê phê chuẩn',
 	'validationstatistics-users' => "Hiện nay, '''[[Special:ListUsers/editor|$1]]''' thành viên tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và '''$2''' thành viên có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].",
-	'validationstatistics-table' => "Đây có thống kê về các không gian tên, trừ các trang đổi hướng.
+	'validationstatistics-time' => "''Dữ liệu sau được lưu vào bộ đệm và có thể đã lỗi thời.''
 
-'''Chú ý:''' Dữ liệu sau được nhớ đệm vài tiếng đồng hồ và có thể lỗi thời.",
+Thời gian chờ duyệt trung bình cho sửa đổi của ''thành viên không đăng nhập'' là '''$1'''; trung vị là '''$3'''.
+$4
+Độ trễ trung bình đối với [[Special:OldReviewedPages|trang có sửa đổi chưa duyệt]] là '''$2'''.
+Những trang sau được xem là ''lỗi thời''. Tương tự, những trang được xem là ''đã đồng bộ'' nếu
+[[{{MediaWiki:Validationpage}}|phiên bản ổn định]] cũng là phiên bản nháp hiện tại.
+Các bản ổn định là các phiên bản của trang đã được ít nhất một thành viên đầy đủ xem qua.",
+	'validationstatistics-table' => "Đây có thống kê về các không gian tên, ''trừ'' các trang đổi hướng.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',
 	'validationstatistics-stable' => 'Được duyệt',
-	'validationstatistics-latest' => 'Được duyệt gần đây',
+	'validationstatistics-latest' => 'Đã đồng bộ',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
 );
