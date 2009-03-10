@@ -81,8 +81,12 @@ EOT;
 	}
 	
 	public static function markUnderReview( &$output, &$article, &$title, &$user, &$request ) {
+		$action = $request->getVal( 'action', 'view' );
+		$reviewing = ( $action == 'history' ); // default
+		if( $action == 'view' && ($request->getInt('forreview') || $request->getInt('rcid')) )
+			$reviewing = true;
 		# Set a key to note that someone is viewing this
-		if( $request->getInt('forreview') && $user->isAllowed('review') ) {
+		if( $reviewing && $user->isAllowed('review') ) {
 			global $wgMemc;
 			$key = wfMemcKey( 'unreviewedPages', 'underReview', $title->getArticleId() );
 			$wgMemc->set( $key, '1', 20*60 ); // 20 min

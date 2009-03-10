@@ -82,7 +82,7 @@ class UnreviewedPages extends SpecialPage
 
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&forreview=1' );
-		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history&forreview=1' );
+		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
 		$css = $stxt = $review = $underReview = '';
 		if( !is_null($size = $row->page_len) ) {
 			$stxt = ($size == 0)
