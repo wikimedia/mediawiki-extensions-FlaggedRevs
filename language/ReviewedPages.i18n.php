@@ -372,9 +372,6 @@ $messages['he'] = array(
 	'reviewedpages-leg' => 'רשימת הדפים שאושרו עד רמה מסוימת',
 	'reviewedpages-list' => 'הדפים הבאים אושרו עד לרמה שצוינה',
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
-	'reviewedpages-lev-0' => 'נצפה',
-	'reviewedpages-lev-1' => 'איכותי',
-	'reviewedpages-lev-2' => 'מומלץ',
 	'reviewedpages-all' => 'גרסאות שנבדקו',
 	'reviewedpages-best' => 'הגרסה האיכותית ביותר',
 );

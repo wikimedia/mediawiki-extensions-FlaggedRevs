@@ -12,7 +12,7 @@ $messages['en'] = array(
 	'stabilization' => 'Page stabilization',
 	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'
 
-When changing the \'\'stable version selection\'\' configuration to use {{int:revreview-lev-quality}} or {{int:revreview-lev-pristine}} revisions by default, 
+When changing the \'\'stable version selection\'\' configuration to use {{int:revreview-lev-quality}} or {{int:revreview-lev-pristine}} revisions by default,
 be sure to check if there actually are such revisions in the page, otherwise it will have little affect.',
 	'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
@@ -1031,15 +1031,18 @@ $messages['haw'] = array(
 $messages['he'] = array(
 	'stabilization-tab' => 'נבדק',
 	'stabilization' => 'התייצבות הדף',
-	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:$1|$1]].'''",
+	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:$1|$1]].'''
+
+בעת השינוי ההגדרות של '''בחירת גרסה יציבה''' כך שייעשה שימוש בגרסה ה{{int:revreview-lev-quality}} או ה{{int:revreview-lev-pristine}} כברירת מחדל,
+אנא ודאו שבאמת קיימות גרסאות כאלה בדף, אחרת לא תהיה לכך השפעה רבה.",
 	'stabilization-perm' => 'אין לכם הרשאה לשנות את תצורת הגרסה היציבה.
 להלן ההגדרות הנוכחיות עבור [[:$1|$1]]:',
 	'stabilization-page' => 'שם הדף:',
 	'stabilization-leg' => 'אנא אשרו את הגדרות הגרסה היציבה',
 	'stabilization-select' => 'בחירת גרסה יציבה',
-	'stabilization-select1' => 'הגרסה האיכותית האחרונה; אם לא קיימת, הגרסה הנצפית האחרונה',
-	'stabilization-select2' => 'הגרסה הבדוקה האחרונה',
-	'stabilization-select3' => 'הגרסה המושלמת האחרונה; אם לא קיימת, הגרסה האיכותית או הנצפית האחרונה',
+	'stabilization-select1' => 'הגרסה ה{{int:revreview-lev-quality}} האחרונה; אם לא קיימת, הגרסה ה{{int:revreview-lev-sighted}} האחרונה',
+	'stabilization-select2' => 'הגרסה ה{{int:revreview-lev-sighted}} האחרונה',
+	'stabilization-select3' => 'הגרסה ה{{int:revreview-lev-pristine}} האחרונה; אם לא קיימת, הגרסה ה{{int:revreview-lev-quality}} או ה{{int:revreview-lev-sighted}} האחרונה',
 	'stabilization-def' => 'הגרסה המופיעה כברירת מחדל',
 	'stabilization-def1' => 'הגרסה היציבה; אם לא קיימת, הגרסה הנוכחית',
 	'stabilization-def2' => 'הגרסה הנוכחית',
