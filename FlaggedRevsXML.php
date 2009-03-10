@@ -48,9 +48,9 @@ class FlaggedRevsXML {
 	public static function getLevelMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
-		$s .= Xml::option( wfMsg( "revreview-lev-sighted" ), 0, $selected===0 );
+		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
-			$s .= Xml::option( wfMsg( "revreview-lev-quality" ), 1, $selected===1 );
+			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), 1, $selected===1 );
 		# Note: Pristine not tracked at sp:QualityOversight (counts as quality)
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
@@ -59,11 +59,11 @@ class FlaggedRevsXML {
 	public static function getPrecedenceMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = Xml::openElement( 'select', array('name' => 'precedence','id' => 'wpPrecedence') );
-		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), FLAGGED_VIS_LATEST, $selected==FLAGGED_VIS_LATEST );
+		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), FLAGGED_VIS_LATEST, $selected==FLAGGED_VIS_LATEST );
 		if( FlaggedRevs::qualityVersions() )
-			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), FLAGGED_VIS_QUALITY, $selected==FLAGGED_VIS_QUALITY );
+			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), FLAGGED_VIS_QUALITY, $selected==FLAGGED_VIS_QUALITY );
 		if( FlaggedRevs::pristineVersions() )
-			$s .= Xml::option( wfMsg( "revreview-filter-level-2" ), FLAGGED_VIS_PRISTINE, $selected==FLAGGED_VIS_PRISTINE );
+			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), FLAGGED_VIS_PRISTINE, $selected==FLAGGED_VIS_PRISTINE );
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
