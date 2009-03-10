@@ -183,7 +183,7 @@ class OldReviewedPages extends SpecialPage
 		# Show quality level if there are several
 		if( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->fp_quality ?
-				wfMsgHtml('oldreviewedpages-quality') : wfMsgHtml('oldreviewedpages-stable');
+				wfMsgHtml('revreview-lev-quality') : wfMsgHtml('revreview-lev-sighted');
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# Is anybody watching?

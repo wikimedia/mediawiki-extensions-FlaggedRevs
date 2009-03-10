@@ -48,12 +48,10 @@ class FlaggedRevsXML {
 	public static function getLevelMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
-		$s .= Xml::option( wfMsg( "revreview-filter-level-0" ), 0, $selected===0 );
+		$s .= Xml::option( wfMsg( "revreview-lev-sighted" ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
-			$s .= Xml::option( wfMsg( "revreview-filter-level-1" ), 1, $selected===1 );
-		# Pristine not tracked at sp:QualityOversight
-		#if( FlaggedRevs::pristineVersions() )
-		#	$s .= Xml::option( wfMsg( "revreview-filter-level-2" ), 2, $selected===2 );
+			$s .= Xml::option( wfMsg( "revreview-lev-quality" ), 1, $selected===1 );
+		# Note: Pristine not tracked at sp:QualityOversight (counts as quality)
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}

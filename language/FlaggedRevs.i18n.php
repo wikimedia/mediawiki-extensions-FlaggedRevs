@@ -198,12 +198,13 @@ Please check the URL you used to access this page.',
 	'revreview-filter-unapproved'  => 'Unapproved',
 	'revreview-filter-auto'        => 'Automatic',
 	'revreview-filter-manual'      => 'Manual',
-	'revreview-filter-level-0'     => 'Sighted',
-	'revreview-filter-level-1'     => 'Quality',
-	'revreview-filter-level-2'     => 'Pristine',
 	'revreview-statusfilter'       => 'Status change:',
 	'revreview-typefilter'         => 'Type:',
 	'revreview-tagfilter'          => 'Tag:',
+
+	'revreview-lev-sighted'        => 'sighted',
+	'revreview-lev-quality'        => 'quality',
+	'revreview-lev-pristine'       => 'pristine',
 	
 	'revreview-reviewlink'         => 'review',
 	
@@ -219,7 +220,7 @@ Please check the URL you used to access this page.',
 	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages
 	'accesskey-ca-stable'          => 'c', # do not translate or duplicate this message to other languages
 	
-	'log-show-hide-review'           => '$1 review log',
+	'log-show-hide-review'         => '$1 review log',
 	
 	'revreview-tt-review'          => 'Review this page',
 	'validationpage'               => '{{ns:help}}:Page validation',

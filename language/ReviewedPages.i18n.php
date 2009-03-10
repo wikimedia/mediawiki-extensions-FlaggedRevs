@@ -12,9 +12,9 @@ $messages['en'] = array(
 	'reviewedpages-leg' => 'List pages reviewed to a certain level',
 	'reviewedpages-list' => 'The following pages have been reviewed to the specified level',
 	'reviewedpages-none' => 'There are no pages in this list',
-	'reviewedpages-lev-0' => 'Sighted',
-	'reviewedpages-lev-1' => 'Quality',
-	'reviewedpages-lev-2' => 'Featured',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'reviewed versions',
 	'reviewedpages-best' => 'prime revision',
 );

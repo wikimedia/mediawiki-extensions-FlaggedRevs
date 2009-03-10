@@ -10,15 +10,18 @@ $messages = array();
 $messages['en'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Page stabilization',
-	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'',
+	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'
+
+When changing the \'\'stable version selection\'\' configuration to use {{int:revreview-lev-quality}} or {{int:revreview-lev-pristine}} revisions by default, 
+be sure to check if there actually are such revisions in the page, otherwise it will have little affect.',
 	'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
 	'stabilization-leg' => 'Confirm stable version settings',
 	'stabilization-select' => 'Stable version selection',
-	'stabilization-select1' => 'The latest quality revision; if not present, then the latest sighted one',
-	'stabilization-select2' => 'The latest reviewed revision',
-	'stabilization-select3' => 'The latest pristine revision; if not present, then the latest quality or sighted one',
+	'stabilization-select1' => 'The latest {{int:revreview-lev-quality}} revision; if not present, then the latest {{int:revreview-lev-sighted}} one',
+	'stabilization-select2' => 'The latest {{int:revreview-lev-sighted}} revision',
+	'stabilization-select3' => 'The latest {{int:revreview-lev-pristine}} revision; if not present, then the latest {{int:revreview-lev-quality}} or {{int:revreview-lev-sighted}} one',
 	'stabilization-def' => 'Revision displayed on default page view',
 	'stabilization-def1' => 'The stable revision; if not present, then the current one',
 	'stabilization-def2' => 'The current revision',
