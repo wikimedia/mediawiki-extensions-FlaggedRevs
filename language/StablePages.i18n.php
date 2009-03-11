@@ -14,8 +14,8 @@ $messages['en'] = array(
 	'stablepages-none'          => 'There are no pages in this list',
 	'stablepages-config'        => 'Configuration',
 	'stablepages-prec-none'     => 'no precedence',
-	'stablepages-prec-quality'  => '{{int:revreview-lev-quality}} precedence',
-	'stablepages-prec-pristine' => '{{int:revreview-lev-pristine}} precedence',
+	'stablepages-prec-quality'  => 'quality precedence',
+	'stablepages-prec-pristine' => 'pristine precedence',
 	'stablepages-precedence'    => 'Precedence:',
 );
 
