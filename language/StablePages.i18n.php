@@ -299,8 +299,8 @@ $messages['he'] = array(
 	'stablepages-none' => 'אין דפים ברשימה זו',
 	'stablepages-config' => 'תצורה',
 	'stablepages-prec-none' => 'ללא עדיפות',
-	'stablepages-prec-quality' => 'עדיפות לגרסה {{int:revreview-lev-quality}}',
-	'stablepages-prec-pristine' => 'עדיפות לגרסה {{int:revreview-lev-pristine}}',
+	'stablepages-prec-quality' => 'עדיפות לגרסאות איכותיות',
+	'stablepages-prec-pristine' => 'עדיפות לגרסאות מושלמות',
 	'stablepages-precedence' => 'עדיפות:',
 );
 
