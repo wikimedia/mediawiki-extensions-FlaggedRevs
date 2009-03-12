@@ -154,8 +154,8 @@ $messages['dsb'] = array(
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
 	'stablepages-prec-none' => 'žedna prědnosć',
-	'stablepages-prec-quality' => 'prědnosć {{int:revreview-lev-quality}}',
-	'stablepages-prec-pristine' => 'prědnosć {{int:revreview-lev-pristine}}',
+	'stablepages-prec-quality' => 'kwalitna prědnosć',
+	'stablepages-prec-pristine' => 'spócetna prědnosć',
 	'stablepages-precedence' => 'Prědnosć:',
 );
 
@@ -200,8 +200,8 @@ $messages['es'] = array(
 	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
 	'stablepages-prec-none' => 'Sin precedencia',
-	'stablepages-prec-quality' => 'precedencia {{int:revreview-lev-quality}}',
-	'stablepages-prec-pristine' => 'precedencia {{int:revreview-lev-pristine}}',
+	'stablepages-prec-quality' => 'precedencia de calidad',
+	'stablepages-prec-pristine' => 'precedencia prístina',
 	'stablepages-precedence' => 'Precedencia:',
 );
 
@@ -242,7 +242,7 @@ $messages['fr'] = array(
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
 	'stablepages-prec-none' => 'aucune priorité',
-	'stablepages-prec-quality' => 'préférence pour {{int:revreview-lev-quality}}',
+	'stablepages-prec-quality' => 'préférence pour la qualité',
 	'stablepages-prec-pristine' => 'priorité vierge',
 	'stablepages-precedence' => 'Préférence :',
 );
@@ -257,8 +257,8 @@ $messages['gl'] = array(
 	'stablepages-none' => 'Non hai páxinas nesta lista',
 	'stablepages-config' => 'Configuración',
 	'stablepages-prec-none' => 'sen prioridade',
-	'stablepages-prec-quality' => '{{int:revreview-lev-quality}} prioritaria',
-	'stablepages-prec-pristine' => '{{int:revreview-lev-pristine}} prioritaria',
+	'stablepages-prec-quality' => 'calidade prioritaria',
+	'stablepages-prec-pristine' => 'prioridade antiga',
 	'stablepages-precedence' => 'Prioridade:',
 );
 
@@ -275,7 +275,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'stablepages' => 'Lischt vu Syte, wu vum Fäldhieter gsäh sin',
+	'stablepages' => 'Lischt vu Syte, wu einzeln konfiguriert sin',
 	'stablepages-stable' => 'Vum Fäldhieter aagluegti Version',
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byn ene di aagluegt Version as Standardinhalt aazeigt wird.',
 	'stablepages-none' => 'Die Lischt isch läär.',
@@ -332,8 +332,8 @@ $messages['hsb'] = array(
 	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
 	'stablepages-config' => 'Konfiguracija',
 	'stablepages-prec-none' => 'žana prěnjosć',
-	'stablepages-prec-quality' => 'prěnjosć {{int:revreview-lev-quality}}',
-	'stablepages-prec-pristine' => 'prěnjosć {{int:revreview-lev-pristine}}',
+	'stablepages-prec-quality' => 'kwalitna prěnjosć',
+	'stablepages-prec-pristine' => 'prěnjotna prěnjosć',
 	'stablepages-precedence' => 'Prěnjosć:',
 );
 

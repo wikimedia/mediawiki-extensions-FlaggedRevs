@@ -60,7 +60,10 @@ Some skins (e.g. standard/classic) display an additional tab to control visibili
 	'stabilization' => '{{Flagged Revs-small}}
 Page title of Special:Stabilization.',
 	'stabilization-text' => '{{Flagged Revs-small}}
-Information displayed on Special:Stabilization.',
+
+Information displayed on Special:Stabilization.
+
+"stable version selection" is the same as {{msg-mw|Stabilization-select}}.',
 	'stabilization-perm' => '{{Flagged Revs-small}}
 Used on Special:Stabilization when the user has not the permission to change the settings.',
 	'stabilization-page' => '{{Flagged Revs}}
@@ -115,7 +118,10 @@ $3 is the correxponding time in the wiki's content language.
 $messages['vep'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Lehtpolen stabilizacii',
-	'stabilization-text' => "'''Toižetagat järgendused, miše pätta, kut pidab ozutelda [[:$1|$1]]-lehtpolen stabiline versii.'''",
+	'stabilization-text' => "'''Toižetagat järgendused, miše pätta, kut pidab valita da ozutelda [[:\$1|\$1]]-lehtpolen stabiline versii.'''
+
+Konz tö toižetat ''stabiližen versijan valičendan'' järgendused, miše kävutada \"laduline\" vai \"puhtaz\" 
+järgendusen mödhe, ka kodvgat, om-ik lehtpolel nigomid toižetusid, ika tö et sabustagoi metod.",
 	'stabilization-perm' => 'Teile ei ulotu oiktusid, miše toižetada stabiližen versijan ozutamižen järgendused.
 Naku oma nügüdläižed järgendused [[:$1|$1]]-lehtpolen täht:',
 	'stabilization-page' => 'Lehtpolen nimi:',
@@ -222,7 +228,10 @@ No ye posible confegurar-la.',
 $messages['ar'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المستقرة من [[:$1|$1]] يتم اختيارها وعرضها.'''",
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المستقرة من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
+
+عند تغيير ضبط ''اختيار النسخة المختارة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
+تأكد من التحقق من وجود مراجعات كهذه في الصفحة، وإلا فإن التغيير سيكون له تأثير ضعيف.",
 	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المستقرة.
 	هنا الإعدادات الحالية ل[[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
@@ -537,7 +546,9 @@ $messages['da'] = array(
 $messages['de'] = array(
 	'stabilization-tab' => 'Konfig.',
 	'stabilization' => 'Seitenkonfiguration',
-	'stabilization-text' => "'''Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''",
+	'stabilization-text' => "'''Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''
+
+Bei einer Änderung der Konfiguration der standardmäßig angezeigten Version auf „geprüft“ oder „ursprünglich“, sollte darauf geachtet werden, dass die Seite eine solche Version enthält, andernfalls hat die Änderung keine große Auswirkung.",
 	'stabilization-perm' => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
 Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page' => 'Seitenname:',
@@ -589,7 +600,9 @@ $messages['diq'] = array(
 $messages['dsb'] = array(
 	'stabilization-tab' => 'pśekontrolowaś',
 	'stabilization' => 'Stabilizacija boka',
-	'stabilization-text' => "'''Změń slědujuce nastajenja, aby póstajił, kak stabilna wersija wót [[:$1|$1]] se wuběra a zwobraznjujo.'''",
+	'stabilization-text' => "'''Změń slědujuce nastajenja, aby póstajił, kak se stabilna wersija wót [[:\$1|\$1]] wuběra a zwobraznjujo.'''
+
+Gaž změniš konfiguraciju ''wuběr stabilneje wersije'', aby wužywał \"kwalitnu\" abo \"spoćetnu\" wersiju pó standarźe, pśekontrolěruj, lěc jo tam napšawdu take wersije w boku, howac to njezmějo mało wustatkowanja.",
 	'stabilization-perm' => 'Twójo konto njama pšawo, aby změniło konfiguraciju stabilneje wersije. How su aktualne nastajenja za [[:$1|$1]]:',
 	'stabilization-page' => 'Mě boka:',
 	'stabilization-leg' => 'Nastajenja stabilneje wersije wobkšuśiś',
@@ -639,7 +652,7 @@ $messages['el'] = array(
 	'stabilization-select' => 'Επιλογή σταθερής έκδοσης',
 	'stabilization-select1' => 'Η τελευταία αναθεώρηση ποιότητας· αν δεν είναι παρούσα, τότε η τελευταία ιδωμένη',
 	'stabilization-select2' => 'Η τελευταία κριθείσα αναθεώρηση',
-	'stabilization-select3' => 'Η τελευταί μη αλλοιωμένη αναθεώρηση· αν δεν είναι παρούσα, τότε η τελευταία ποιότητας ή ιδωμένη',
+	'stabilization-select3' => 'Η τελευταία μη αλλοιωμένη αναθεώρηση· αν δεν είναι παρούσα, τότε η τελευταία ποιότητας ή ιδωμένη',
 	'stabilization-def' => 'Αναθεώρηση εμφανιζόμενη στην προεπιλεγμένη εμφάνιση σελίδας',
 	'stabilization-def1' => 'Η σταθερή αναθεώρηση· αν δεν είναι παρούσα, τότε η τρέχουσα',
 	'stabilization-def2' => 'Η τρέχουσα αναθεώρηση',
@@ -714,15 +727,15 @@ Neniu konfiguro eblas.',
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
 	'stabilization' => 'Estabilización de página',
-	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:$1|$1]] es seleccionada y mostrada.'''
+	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:\$1|\$1]] es seleccionada y mostrada.'''
 
-Cuando cambie la configuración de ''selección de versión estable'' usar {{int:revreview-lev-quality}} o {{int:revreview-lev-pristine}} revisiones por defecto,
+Cuando cambie la configuración de ''selección de versión estable'' usar revisiones de \"calidad\" o \"prístina\" por defecto,
 asegúrese de verificar si hay realmente tales revisiones en la página, de otra manera se afectará ligeramente.",
 	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión estable. Aquí están las configuraciones actuales para [[:$1|$1]]:',
 	'stabilization-page' => 'Nombre de la página:',
 	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
 	'stabilization-select' => 'Selección de versión estable',
-	'stabilization-select2' => 'La última {{int:revreview-lev-sighted}} versión',
+	'stabilization-select2' => 'La última versión verificada',
 	'stabilization-def' => 'Revisión mostrada en la vista de página por defecto',
 	'stabilization-def2' => 'La actual revisión',
 	'stabilization-submit' => 'Confirmar',
@@ -851,7 +864,9 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'stabilization-tab' => '(aq)',
 	'stabilization' => 'Stabilisation de la page',
-	'stabilization-text' => "'''Changer les paramètres ci-dessous pour ajuster l'affichage et la sélection de la version stable de [[:$1|$1]].'''",
+	'stabilization-text' => "'''Modifiez les paramètres ci-dessous pour définir la façon dont la version stable de [[:$1|$1]] est sélectionnée et affichée.'''
+
+Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les révisions « de qualité » ou « initiales » par défaut, assurez-vous qu'il y a effectivement de telles révisions dans la page, sinon les modifications n'auront pas d'incidence.",
 	'stabilization-perm' => "Votre compte n'a pas les droits pour changer les paramètres de la version stable. Voici les paramètres courants de [[:$1|$1]] :",
 	'stabilization-page' => 'Nom de la page :',
 	'stabilization-leg' => 'Confirmer le paramétrage de la version stable',
@@ -939,15 +954,18 @@ $messages['ga'] = array(
 $messages['gl'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilización da páxina',
-	'stabilization-text' => "'''Mude a configuración a continuación para axustar a forma na que a versión estábel de [[:$1|$1]] foi seleccionada e se amosa.'''",
+	'stabilization-text' => "'''Mude a configuración a continuación para axustar a forma na que a versión estábel de \"[[:\$1|\$1]]\" é seleccionada e mostrada.'''
+
+Ao cambiar a configuración da ''selección da versión estábel'' para usar as revisións de \"calidade\" ou unha \"previa\" por defecto,
+asegúrese de comprobar se en realidade existen tales revisións na páxina, pola contra o cambio afectará lixeiramente.",
 	'stabilization-perm' => 'A súa conta non ten permisos para mudar a configuración da versión estábel.
 	Esta é a configuración actual para [[:$1|$1]]:',
 	'stabilization-page' => 'Nome da páxina:',
 	'stabilization-leg' => 'Confirmar as configuración da versión estábel',
 	'stabilization-select' => 'Selección da versión estábel',
-	'stabilization-select1' => 'A última revisión de calidade; se non se atopa, entón a vista máis recente.',
-	'stabilization-select2' => 'A última revisión {{int:revreview-lev-sighted}}',
-	'stabilization-select3' => 'A última revisión intacta; se non a hai, a última de calidade ou revisada',
+	'stabilization-select1' => 'A última revisión de calidade; se non existe, entón a última revisada',
+	'stabilization-select2' => 'A última revisión revisada',
+	'stabilization-select3' => 'A última revisión previa; se non existe, entón a última de calidade ou revisada',
 	'stabilization-def' => 'Revisión que aparece por defecto na vista da páxina',
 	'stabilization-def1' => 'A revisión estábel, se non presente, entón a actual',
 	'stabilization-def2' => 'A revisión actual',
@@ -997,7 +1015,10 @@ $messages['grc'] = array(
 $messages['gsw'] = array(
 	'stabilization-tab' => 'Konfig.',
 	'stabilization' => 'Sytekonfiguration',
-	'stabilization-text' => "'''Tue d Yystellige ändere fir zum feschtzlege, wie di aagluegt Version vu „[[:$1|$1]]“ usgwehlt un aazeigt soll wäre.'''",
+	'stabilization-text' => "'''Tue d Yystellige ändere fir zum feschtzlege, wie di aagluegt Version vu „[[:\$1|\$1]]“ usgwehlt un aazeigt soll wäre.'''
+
+Wänn d Konfigieration vu dr ''Uuswahl vu dr Aagluegte Versione'' gändertet wird go \"priefti\" oder \"reini\" 
+Versione as Standard z neh, stell sicher, ass es aktuäll sonigi Versione git, sunscht het s keini großi Uuswirkig.",
 	'stabilization-perm' => 'Du hesch nid d Berächtigung, zum die Yystellige vu dr aagluegte Version z ändere.
 Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-page' => 'Sytename:',
@@ -1044,7 +1065,7 @@ $messages['haw'] = array(
 $messages['he'] = array(
 	'stabilization-tab' => 'נבדק',
 	'stabilization' => 'התייצבות הדף',
-	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:$1|$1]].'''
+	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:\$1|\$1]].'''
 
 בעת השינוי ההגדרות של '''בחירת גרסה יציבה''' כך שייעשה שימוש בגרסאות \"איכותיות\" או \"מושלמות\" כברירת מחדל,
 אנא ודאו שבאמת קיימות גרסאות כאלה בדף, אחרת לא תהיה לכך השפעה רבה.",
@@ -1160,15 +1181,15 @@ Slijede važeće postavke za [[:$1|$1]]:',
 $messages['hsb'] = array(
 	'stabilization-tab' => '(Kwalitne zawěsćenje)',
 	'stabilization' => 'Stabilizacija strony',
-	'stabilization-text' => "'''Změń slědowace nastajenja, zo by postajił, kak so stabilna wersija wot [[:$1|$1]] wuběra a zwobraznja.'''
+	'stabilization-text' => "'''Změń slědowace nastajenja, zo by postajił, kak so stabilna wersija wot [[:\$1|\$1]] wuběra a zwobraznja.'''
 
-Hdyž konfiguraciju ''wuběra stabilneje wersije'' změniš, zo by wersije {{int:revreview-lev-quality}} abo {{int:revreview-lev-pristine}} po standardźe wužiwał, skontroluj, hač su woprawdźe tajke wersije w stronje, hewak změje mało wuskutka.",
+Hdyž konfiguraciju ''wuběra stabilneje wersije'' změniš, zo by \"kwalitnu\" abo \"prěnjotnu\" wersiju po standardźe wužiwał, skontroluj, hač su woprawdźe tajke wersije w stronje, hewak změje mało wuskutka.",
 	'stabilization-perm' => 'Twoje wužiwarske konto nima trěbne prawo, zo by nastajenja stabilneje wersije změniło.
 	Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilization-page' => 'Mjeno strony:',
 	'stabilization-leg' => 'Nastajenja za stabilnu wersiju potwjerdźić',
 	'stabilization-select' => 'Wuběr stabilneje wersije',
-	'stabilization-select1' => 'Poslednja wersija {{int:revreview-lev-quality}}; jeli žana njeje, potom poslednja wersija {{int:revreview-lev-sighted}}',
+	'stabilization-select1' => 'Poslednja pruwowana wersija; jeli žana njeje, potom poslednja přehladana wersija',
 	'stabilization-select2' => 'Poslednja pruwowana wersija',
 	'stabilization-select3' => 'Poslednja prěnjotna wersija; jeli njeeksistuje, da poslednja přepruwowana abo přehladana wersiaj',
 	'stabilization-def' => 'Wersija zwobraznjena w normalnym napohledźe strony',
@@ -1361,14 +1382,16 @@ Non è possibile effettuare la configurazione.',
 $messages['ja'] = array(
 	'stabilization-tab' => '採択',
 	'stabilization' => 'ページの採択',
-	'stabilization-text' => "'''以下で [[:$1|$1]] の表示設定（採択ページをどのように決定するか）を変更します。'''",
+	'stabilization-text' => "'''以下で [[:$1|$1]] の安定版をどのように決定し表示するかを変更します。'''
+
+「安定版の選択」設定を、内容充実もしくは原始版を既定で使用するよう変更するさい、ページに該当する版が実際に存在することを確認してください。存在しない場合、設定の意味はほぼありません。",
 	'stabilization-perm' => 'あなたには権限がないため採択ページ設定を変更できません。現在の [[:$1|$1]] における設定は以下の通りです:',
 	'stabilization-page' => 'ページ名:',
 	'stabilization-leg' => '安定版の設定確認',
 	'stabilization-select' => '安定版の選択',
 	'stabilization-select1' => '最新の内容充実版、それがない場合は、最新の採用版',
 	'stabilization-select2' => '最新の査読済版',
-	'stabilization-select3' => '最新の原始版、それがない場合は、最新の内容充実版か採用版',
+	'stabilization-select3' => '最新の原始版、それがない場合は、最新の内容充実版もしくは採用版',
 	'stabilization-def' => 'ページに既定で表示する版',
 	'stabilization-def1' => '採択ページ、それがない場合は、最新版',
 	'stabilization-def2' => '最新版',
@@ -1874,13 +1897,17 @@ Instellen is niet mogelijk.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidestabilisering',
-	'stabilization-text' => "'''Endra innstillingane nedanfor for å velja korleis den stabile versjonen av [[:$1|$1]] skal verta vald og synt.'''",
+	'stabilization-text' => "'''Endra innstillingane nedanfor for å velja korleis den stabile versjonen av [[:\$1|\$1]] skal verta vald og synt.'''
+
+Når ein endrar oppsettet for ''stabil versjon valet'' til å nytta \"kvalitet\" eller \"reine\" revisjonar i utgangspunktet,
+må ein forsikra seg om at det er slike revisjonar i sida, elles vil endra ha liten verknad.",
 	'stabilization-perm' => 'Brukarkontoen din har ikkje løyve til å endra innstillingane for stabile versjonar.
 Her er dei noverande innstillingane for [[:$1|$1]]:',
 	'stabilization-page' => 'Sidenamn:',
@@ -1972,7 +1999,9 @@ $messages['nso'] = array(
 $messages['oc'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilizacion de la pagina',
-	'stabilization-text' => "'''Cambiar los paramètres çaijós per apondre l'afichatge e la seleccion de la version establa de [[:$1|$1]].'''",
+	'stabilization-text' => "'''Modificatz los paramètres çaijós per definir lo biais dont la version establa de [[:$1|$1]] es seleccionada e afichada.'''
+
+Quora configuratz la ''seleccion de la version establa'' per utilizar las revisions « de qualitat » o « inicialas » per defaut, asseguratz-vos qu'i a efièchament de talas revisions dins la pagina, siquenon las modificacions auràn pas d'incidéncia.",
 	'stabilization-perm' => 'Vòstre compte a pas los dreches per cambiar los paramètres de la version establa. Vaquí los paramètres corrents de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pagina :',
 	'stabilization-leg' => 'Confirmar lo parametratge de la version establa',
@@ -2098,12 +2127,15 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Configurações da Garantia de Qualidade',
-	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:$1|$1]] é selecionada e exibida.'''",
+	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:\$1|\$1]] é selecionada e exibida.'''
+
+Quanto alterar a configuração de ''seleção da versão estável'' para usar revisões \"qualidade\" ou \"intocada\" por defeito,
+certifique-se que verifica se realmente existem tais revisões na página, caso contrário a alteração terá pouco efeito.",
 	'stabilization-perm' => 'Sua conta não possui permissão para alterar as configurações de edições estáveis.
 Seguem-se as configurações para [[:$1|$1]]:',
 	'stabilization-page' => 'Nome da página:',
 	'stabilization-leg' => 'Confirmar a configuração da edição estável',
-	'stabilization-select' => 'Selecção da edição estável',
+	'stabilization-select' => 'Seleção da edição estável',
 	'stabilization-select1' => 'A última edição analisada como confiável; 
 se inexistente, a mais recentemente analisada',
 	'stabilization-select2' => 'A mais recentemente analisada',
@@ -2139,7 +2171,9 @@ Não é possível configurá-la.',
 $messages['pt-br'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Configurações da Garantia de Qualidade',
-	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:$1|$1]] é selecionada e exibida.'''",
+	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:\$1|\$1]] é selecionada e exibida.'''
+
+Ao mudar a configuração de ''seleção de versão estável'' para utilizar revisões \"confiáveis\" ou \"intocadas\" por padrão, tenha certeza de checar se de fato existem revisões assim na página, pois de outra maneira a mudança terá pouco efeito.",
 	'stabilization-perm' => 'Sua conta não possui permissão para alterar as configurações de edições estáveis.
 Seguem-se as configurações para [[:$1|$1]]:',
 	'stabilization-page' => 'Nome da página:',
@@ -2307,7 +2341,9 @@ $messages['sah'] = array(
 $messages['sk'] = array(
 	'stabilization-tab' => '(kk)',
 	'stabilization' => 'Stabilizácia stránky',
-	'stabilization-text' => "'''Voľby nižšie menia spôsob výberu a zobrazenia stabilnej verzie stránky [[:$1|$1]].'''",
+	'stabilization-text' => "'''|Tieto voľby menia spôsob výberu a zobrazenia stabilnej verzie stránky [[:$1|$1]].'''
+
+Pri zmene nastavenia ''výber stabilnej verzie'' aby sa používala štandardne „{{int:revreview-lev-quality}}“ alebo „{{int:revreview-lev-pristine}}“ revízia sa uistite, či skutočne existuje takáto revízia stránky, inak sa nastavenie neprejaví.",
 	'stabilization-perm' => 'Váš účet nemá oprávnenie meniť nastavenia stabilnej verzie. Tu sú súčasné nastavenia [[:$1|$1]]:',
 	'stabilization-page' => 'Názov stránky:',
 	'stabilization-leg' => 'Potvrdiť nastavenia stabilnej verzie',
@@ -2462,7 +2498,10 @@ KOnfigurasi teu bisa dilarapkeun.',
 $messages['sv'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidstabilisering',
-	'stabilization-text' => "'''Ändra inställningarna härunder för att bestämma hur den stabila versionen av [[:$1|$1]] ska väljas och visas.'''",
+	'stabilization-text' => "'''Ändra inställningarna härunder för att bestämma hur den stabila versionen av [[:$1|$1]] ska väljas och visas.'''
+
+När konfigurationen för ''val av stabil version'' ändras till användande av {{int:revreview-lev-quality}} eller {{int:revreview-lev-pristine}} som förval,
+kontrollera att det faktiskt finns sådana varianter i sidan, annars får det liten effekt.",
 	'stabilization-perm' => 'Ditt konto har inte behörighet att ändra inställningar för stabila sidversioner.
 Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-page' => 'Sidnamn:',
@@ -2635,7 +2674,9 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
 $messages['tr'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Sayfa kararlılaştırılması',
-	'stabilization-text' => "'''[[:$1|$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''",
+	'stabilization-text' => "'''[[:\$1|\$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
+
+Varsayılan olarak \"kalite\" ya da \"asıl\" revizyonlarını kullanmak için ''kararlı sürüm seçimi'' yapılandırmasını değiştirirken, sayfada böyle revizyonların olduğunu kontrol ettiğinize emin olun, aksi halde değişikliğin etkisi küçük olacaktır.",
 	'stabilization-perm' => 'Hesabınızın kararlı sürüm yapılandırmasını değiştirmeye izni yok.
 [[:$1|$1]] için şuanki ayarlar:',
 	'stabilization-page' => 'Sayfa adı:',
