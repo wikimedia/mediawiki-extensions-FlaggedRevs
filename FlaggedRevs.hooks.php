@@ -157,9 +157,6 @@ EOT;
 	* Inject stable links on LinksUpdate
 	*/
 	public static function extraLinksUpdate( $linksUpdate ) {
-		if( !FlaggedRevs::isPageReviewable( $linksUpdate->mTitle ) ) {
-			return true;
-		}
 		$dbw = wfGetDB( DB_MASTER );
 		$pageId = $linksUpdate->mTitle->getArticleId();
 		# Check if this page has a stable version...

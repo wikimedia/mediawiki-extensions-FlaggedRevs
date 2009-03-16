@@ -130,12 +130,16 @@ class FlaggedRevision {
 			);
 			if( !$row ) return null;
 		} else {
-			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			global $wgFlaggedRevsReviewForDefault;
 			$row = null;
 			# Get visiblity settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+			if( !$config['override'] && $wgFlaggedRevsReviewForDefault ) {
+				return $row; // page is not reviewable; no stable version
+			}
 			$dbw = wfGetDB( DB_MASTER );
 			$options['ORDER BY'] = 'fr_rev_id DESC';
+			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
 			# Look for the latest pristine revision...
 			if( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
