@@ -47,7 +47,9 @@ class FlaggedRevsXML {
 	 */
 	public static function getLevelMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$s = Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
+		$s = "<label for='wpLevel'>" . wfMsgHtml('revreview-levelfilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
+		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
 		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), 1, $selected===1 );
@@ -74,8 +76,8 @@ class FlaggedRevsXML {
 	 */
 	public static function getStatusFilterMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$s  = "<label for='status'>" . wfMsgHtml('revreview-statusfilter') . "</label>&nbsp;";
-		$s .= Xml::openElement( 'select', array('name' => 'status') );
+		$s = "<label for='wpStatus'>" . wfMsgHtml('revreview-statusfilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'status','id' => 'wpStatus') );
 		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
 		$s .= Xml::option( wfMsg( "revreview-filter-approved" ), 1, $selected===1 );
 		$s .= Xml::option( wfMsg( "revreview-filter-reapproved" ), 2, $selected===2 );
@@ -90,8 +92,8 @@ class FlaggedRevsXML {
 	 */
 	public static function getAutoFilterMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$s  = "<label for='approved'>" . wfMsgHtml('revreview-typefilter') . "</label>&nbsp;";
-		$s .= Xml::openElement( 'select', array('name' => 'automatic') );
+		$s = "<label for='wpApproved'>" . wfMsgHtml('revreview-typefilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'automatic','id' => 'wpApproved') );
 		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
 		$s .= Xml::option( wfMsg( "revreview-filter-manual" ), 0, $selected===0 );
 		$s .= Xml::option( wfMsg( "revreview-filter-auto" ), 1, $selected===1 );
@@ -105,8 +107,8 @@ class FlaggedRevsXML {
 	 */
 	public static function getTagMenu( $selected = '' ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$s  = "<label for='ratingtag'>" . wfMsgHtml('revreview-tagfilter') . "</label>&nbsp;";
-		$s .= Xml::openElement( 'select', array('name' => 'ratingtag', 'id' => 'ratingtag') );
+		$s  = "<label for='wpRatingTag'>" . wfMsgHtml('revreview-tagfilter') . "</label>&nbsp;";
+		$s .= Xml::openElement( 'select', array('name' => 'ratingtag', 'id' => 'wpRatingTag') );
 		foreach( FlaggedRevs::getFeedbackTags() as $tag => $weight ) {
 			$s .= Xml::option( wfMsg( "readerfeedback-$tag" ), $tag, $selected===$tag );
 		}

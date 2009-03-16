@@ -19,7 +19,7 @@ class QualityOversight extends SpecialPage
 		$wgOut->addHTML( wfMsgExt('qualityoversight-list', array('parse') ) );
 		
 		$this->namespace = $wgRequest->getInt( 'namespace' );
-		$this->level = $wgRequest->getInt( 'level' );
+		$this->level = $wgRequest->getIntOrNull( 'level' );
 		$this->status = $wgRequest->getIntOrNull( 'status' );
 		$this->automatic = $wgRequest->getIntOrNull( 'automatic' );
 		$this->user = $wgRequest->getVal( 'user' );

@@ -18,6 +18,7 @@ class OldReviewedPages extends SpecialPage
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
+		$this->level = $wgRequest->getIntOrNull( 'level' );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
 		$this->size = $wgRequest->getIntOrNull( 'size' );
 		$this->watched = $wgRequest->getCheck( 'watched' );
@@ -32,8 +33,9 @@ class OldReviewedPages extends SpecialPage
 	protected function setSyndicated() {
 		global $wgOut, $wgRequest;
 		$queryParams = array(
-			'namespace' => $wgRequest->getVal( 'namespace' ),
-			'category' => $wgRequest->getVal( 'category' )
+			'namespace' => $wgRequest->getIntOrNull( 'namespace' ),
+			'level'     => $wgRequest->getIntOrNull( 'level' ),
+			'category'  => $wgRequest->getVal( 'category' ),
 		);
 		$wgOut->setSyndicated( true );
 		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
@@ -42,8 +44,8 @@ class OldReviewedPages extends SpecialPage
 	public function showList( $par ) {
 		global $wgOut, $wgScript, $wgUser, $wgFlaggedRevsNamespaces;
 		$limit = $this->parseParams( $par );
-		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->category, 
-			$this->size, $this->watched );
+		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->level,
+			$this->category, $this->size, $this->watched );
 		$pager->mLimit = $limit ? $limit : $pager->mLimit;
 		// Viewing the page normally...
 		if( !$this->including() ) {
@@ -53,13 +55,16 @@ class OldReviewedPages extends SpecialPage
 				'<fieldset><legend>' . wfMsg('oldreviewedpages-legend') . '</legend>' .
 				Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() )
 			);
-			# Display dropdown as needed
+			# Display dropdowns as needed
 			if( count($wgFlaggedRevsNamespaces) > 1 ) {
 				$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' ) . '&nbsp;' );
 			}
+			if( FlaggedRevs::qualityVersions() ) {
+				$wgOut->addHTML( FlaggedRevsXML::getLevelMenu( $this->level ) . '&nbsp;' );
+			}
 			$wgOut->addHTML(
 				Xml::label( wfMsg("oldreviewed-category"), 'wpCategory' ) . '&nbsp;' . 
-				Xml::input( 'category', 35, $this->category, array('id' => 'wpCategory') ) . '<br/>' .
+				Xml::input( 'category', 30, $this->category, array('id' => 'wpCategory') ) . '<br/>' .
 				Xml::label( wfMsg('oldreviewed-size'), 'wpSize' ) . '&nbsp;' .
 				Xml::input( 'size', 5, $this->size, array( 'id' => 'wpSize' ) ) . '&nbsp;' .
 				( $wgUser->getId() ?
@@ -261,7 +266,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $category, $namespace;
 
-	function __construct( $form, $namespace, $category='', $size=NULL, $watched=false ) {
+	function __construct( $form, $namespace, $level=NULL, $category='', $size=NULL, $watched=false ) {
 		$this->mForm = $form;
 		# Must be a content page...
 		global $wgFlaggedRevsNamespaces;
@@ -275,6 +280,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$namespace = $wgFlaggedRevsNamespaces;
 		}
 		$this->namespace = $namespace;
+		$this->level = $level;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		$this->size = $size ? $size : NULL;
 		$this->watched = (bool)$watched;
@@ -307,6 +313,11 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$conds['page_namespace'] = $this->namespace;
 		}
 		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
+		# Filter by review level
+		if( !is_null($this->level) && $this->level >= 0 ) {
+			# 0 = sighted; 1 = quality/pristine
+			$conds[] = ( $this->level == 0 ) ? 'fp_quality = 0' : 'fp_quality >= 1';
+		}
 		# Filter by category
 		if( $this->category ) {
 			$tables[] = 'categorylinks';
