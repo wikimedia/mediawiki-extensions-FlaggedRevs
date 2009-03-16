@@ -750,8 +750,7 @@ class FlaggedArticle extends Article {
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( $action == 'protect' || $action == 'unprotect' ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
-			# Load special page name
-			wfLoadExtensionMessages( 'Stabilization' );
+			wfLoadExtensionMessages( 'Stabilization' ); // Load special page name
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
 			$frev = $this->getStableRev();
@@ -759,9 +758,13 @@ class FlaggedArticle extends Article {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
 					"</span>" );
-			} else {
+			} else if( $frev ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility2',array('parseinline'), $title->getPrefixedText() ) .
+					"</span>" );
+			} else {
+				$wgOut->prependHTML( "<span class='plainlinks'>" .
+					wfMsgExt( 'revreview-visibility3',array('parseinline'), $title->getPrefixedText() ) .
 					"</span>" );
 			}
 		}
@@ -1229,8 +1232,9 @@ class FlaggedArticle extends Article {
 		# Revision being displayed
 		$id = $wgOut->getRevisionId();
 		if( !$id ) {
-			if( !$this->isDiffFromStable ) // only safe to assume current if diff-to-stable
-				return false;
+			if( !$this->isDiffFromStable ) {
+				return false; // only safe to assume current if diff-to-stable
+			}
 			$id = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		}
 		# Load required messages
