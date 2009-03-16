@@ -259,11 +259,7 @@ La averaĝa atendotempo por [[Special:OldReviewedPages|paĝoj kun nekontrolitaj 
 Ĉi tiuj paĝoj estas konsiderataj kiel ''malfreŝaj''. Ankaŭ, paĝoj estas konsiderata ''sinkrona'' se la 
 [[{{MediaWiki:Validationpage}}|stabila revizio]] ankaŭ estas la nuna netaĵo.
 Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita uzanto.",
-	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, krom alidirektiloj.
-''Neĝisdataj'' paĝoj estas tioj kun redaktoj pli novaj ol la plej stabila versio.
-Se la stabila versio ankaŭ estas la plej lasta versio, la paĝo estas ''sinkroniga''.
-
-'''Notu:''' la jenaj datenoj estas en kaŝmemoro dum multaj horoj kaj eble ne estas ĝisdataj.",
+	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, ''krom'' alidirektiloj.",
 	'validationstatistics-ns' => 'Nomspaco',
 	'validationstatistics-total' => 'Paĝoj',
 	'validationstatistics-stable' => 'Paĝoj kun almenaŭ unu revizio',

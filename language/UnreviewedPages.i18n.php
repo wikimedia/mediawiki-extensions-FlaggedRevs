@@ -944,6 +944,7 @@ $messages['oc'] = array(
  * @author Amikeco
  */
 $messages['os'] = array(
+	'unreviewed-legend' => 'Басгарын кæй хъæуы, уыцы фæрсты номхыгъд',
 	'unreviewed-category' => 'Категори:',
 );
 

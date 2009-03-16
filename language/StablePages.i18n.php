@@ -740,6 +740,10 @@ $messages['vi'] = array(
 	'stablepages-text' => 'Dưới đây là danh sách các trang được cấu hình bằng tay để hiển thị bản ổn định làm nội dung trang mặc định đối với người xem.',
 	'stablepages-none' => 'Không có trang nào trong danh sách',
 	'stablepages-config' => 'Cấu hình',
+	'stablepages-prec-none' => 'không có bản trước',
+	'stablepages-prec-quality' => 'bản chất lượng trước',
+	'stablepages-prec-pristine' => 'bản sơ khai trước',
+	'stablepages-precedence' => 'Bản trước:',
 );
 
 /** Yue (粵語)
