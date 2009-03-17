@@ -144,6 +144,9 @@ $wgFlagRestrictions = array(
 	'style'	   => array( 'review' => 3 ),
 );
 
+# Restriction levels for auto-review right at Stabilization page
+$wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
+
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).
 # There must be two codes, and only the first two are checked.
@@ -549,6 +552,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewFields[] = array( 'flaggedpages', 'fp_pending_since', "$base/archives/patch-fp_pending_since.sql" );
 		$wgExtNewFields[] = array( 'reader_feedback', 'rfb_timestamp', "$base/archives/patch-rfb_timestamp.sql" );
 		$wgExtNewFields[] = array( 'reader_feedback', 'rfb_ratings', "$base/archives/patch-rfb_ratings.sql" );
+		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_level', "$base/archives/patch-fpc_level.sql" );
 	} else if( $wgDBtype == 'postgres' ) {
 		$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" ); // Initial install tables
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
@@ -559,6 +563,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'reader_feedback', "$base/postgres/patch-reader_feedback.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/postgres/patch-flaggedrevs_tracking.sql" );
 		$wgExtNewIndexes[] = array('flaggedpages', 'fp_pending_since', "$base/postgres/patch-fp_pending_since.sql" );
+		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_level', "TEXT NULL" );
 	}
 	return true;
 }

@@ -718,7 +718,18 @@ EOT;
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $rev->getPage() );
 		global $wgMemc, $wgParserCacheExpireTime;
 		# Auto-reviewing must be enabled and user must have the required permissions
-		if( !$wgFlaggedRevsAutoReview || (!$user->isAllowed('autoreview') && !$user->isAllowed('bot')) ) {
+		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') ) {
+			$isAllowed = false;
+		} else {
+			# Get autoreview restriction settings...
+			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+			# Convert Sysop -> protect
+			$right = ($config['autoreview'] === 'sysop') ? 'protect' : $config['autoreview'];
+			# Check if the user has the required right, if any
+			$isAllowed = !$right || $user->isAllowed($right);
+		}
+		# Auto-reviewing must be enabled and user must have the required permissions
+		if( !$isAllowed ) {
 			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
 			return true; // done! edit pending!
 		}
@@ -894,8 +905,13 @@ EOT;
 	*/
 	public static function checkAutoPromote( $user, &$promote ) {
 		global $wgFlaggedRevsAutopromote;
+		# Make sure bots always have autoreview
+		if( $user->isAllowed('bot') ) {
+			$promote[] = 'autoreview';
+			return true;
+		}
 		if( empty($wgFlaggedRevsAutopromote) || !$user->getId() || $user->isAllowed('autoreview') ) {
-			return true; // not needed
+			return true; // not needed or $wgFlaggedRevsAutopromote is off
 		}
 		# Check user email
 		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {

@@ -831,7 +831,7 @@ class FlaggedRevs {
 	public static function getPageVisibilitySettings( &$title, $forUpdate=false ) {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
-			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
+			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $title->getArticleID() ),
 			__METHOD__
 		);
@@ -855,10 +855,11 @@ class FlaggedRevs {
 			## 1 = quality -> stable
 			## 0 = none
 			$select = self::getPrecedence();
-			return array( 'select' => $select, 'override' => $override, 'expiry' => 'infinity' );
+			return array( 'select' => $select, 'override' => $override,
+				'autoreview' => '', 'expiry' => 'infinity' );
 		}
 		return array('select' => $row->fpc_select, 'override' => $row->fpc_override,
-			'expiry' => $row->fpc_expiry );
+			'autoreview' => $row->fpc_level, 'expiry' => $row->fpc_expiry );
 	}
 	
 	/**

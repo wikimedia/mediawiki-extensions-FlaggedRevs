@@ -64,6 +64,8 @@ class Stabilization extends UnlistedSpecialPage
 		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
 		$this->select = $this->config['select'];
 		$this->override = $this->config['override'];
+		# Get autoreview restrictions...
+		$this->autoreview = $this->config['autoreview'];
 		# Make user readable date for GET requests
 		$this->oldExpiry = $this->config['expiry'] !== 'infinity' ? 
 			wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
@@ -71,11 +73,14 @@ class Stabilization extends UnlistedSpecialPage
 		if( $wgRequest->wasPosted() ) {
 			$this->select = $wgRequest->getInt( 'wpStableconfig-select' );
 			$this->override = intval( $wgRequest->getBool( 'wpStableconfig-override' ) );
+			# Get autoreview restrictions...
+			$this->autoreview = $wgRequest->getVal( 'mwProtect-level-autoreview' );
 			// Custom expiry takes precedence
 			$this->expiry = strlen($this->expiry) ? $this->expiry : $this->expirySelection;
 			if( $this->expiry == 'existing' ) $this->expiry = $this->oldExpiry;
 			// Custom reason takes precedence
-			$this->reason = strlen($this->reason) ? $this->reason : $this->reasonSelection;
+			$this->reason = strlen($this->reason) || $this->reasonSelection == 'other' ?
+				$this->reason : $this->reasonSelection;
 			// Validate precedence setting
 			$allowed = array(FLAGGED_VIS_QUALITY,FLAGGED_VIS_LATEST,FLAGGED_VIS_PRISTINE);
 			if( $this->select && !in_array( $this->select, $allowed ) ) {
@@ -175,6 +180,10 @@ class Stabilization extends UnlistedSpecialPage
 			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'wpStableconfig-select', FLAGGED_VIS_LATEST,
 				'stable-select2', FLAGGED_VIS_LATEST == $this->select, $this->disabledAttrib ) . '<br />' . "\n" .
 			Xml::closeElement( 'fieldset' ) .
+			
+			Xml::fieldset( wfMsg( 'stabilization-restrict' ), false ) .
+			$this->buildSelector( $this->autoreview ) .
+			Xml::closeElement( 'fieldset' ) .
 
 			Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
 			Xml::openElement( 'table' );
@@ -256,18 +265,68 @@ class Stabilization extends UnlistedSpecialPage
 		$wgOut->addHTML( Xml::element( 'h2', NULL, htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
 		LogEventsList::showLogExtract( $wgOut, 'stable', $this->page->getPrefixedText() );
 	}
+	
+	protected function buildSelector( $selected ) {
+		global $wgUser, $wgFlaggedRevsRestrictionLevels;
+		$levels = array();
+		foreach( $wgFlaggedRevsRestrictionLevels as $key ) {
+			# Don't let them choose levels above their own (aka so they can still unprotect and edit the page).
+			# but only when the form isn't disabled
+			if( $key == 'sysop' ) {
+				// special case, rewrite sysop to protect and editprotected
+				if( !$wgUser->isAllowed('protect') && !$wgUser->isAllowed('editprotected') && $this->isAllowed )
+					continue;
+			} else {
+				if( !$wgUser->isAllowed($key) && $this->isAllowed )
+					continue;
+			}
+			$levels[] = $key;
+		}
+		$id = 'mwProtect-level-autoreview';
+		$attribs = array(
+			'id' => $id,
+			'name' => $id,
+			'size' => count( $levels ),
+		) + $this->disabledAttrib;
+
+		$out = Xml::openElement( 'select', $attribs );
+		foreach( $levels as $key ) {
+			$out .= Xml::option( $this->getOptionLabel( $key ), $key, $key == $selected );
+		}
+		$out .= Xml::closeElement( 'select' );
+		return $out;
+	}
+
+	/**
+	 * Prepare the label for a protection selector option
+	 *
+	 * @param string $permission Permission required
+	 * @return string
+	 */
+	protected function getOptionLabel( $permission ) {
+		if( $permission == '' ) {
+			return wfMsg( 'stabilization-restrict-none' );
+		} else {
+			$key = "protect-level-{$permission}";
+			$msg = wfMsg( $key );
+			if( wfEmptyMsg( $key, $msg ) )
+				$msg = wfMsg( 'protect-fallback', $permission );
+			return $msg;
+		}
+	}
 
 	protected function submit() {
-		global $wgOut, $wgUser, $wgParser, $wgFlaggedRevsOverride;
+		global $wgOut, $wgUser, $wgParser;
 
 		$changed = $reset = false;
 		$defaultPrecedence = FlaggedRevs::getPrecedence();
-		if( $this->select == $defaultPrecedence && $this->override == $wgFlaggedRevsOverride ) {
+		$defaultOverride = FlaggedRevs::showStableByDefault();
+		if( $this->select == $defaultPrecedence && $this->override == $defaultOverride && !$this->autoreview ) {
 			$reset = true; // we are going back to site defaults
 		}
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
-
+		# Parse expiry time given...
 		if( $reset || $this->expiry == 'infinite' || $this->expiry == 'indefinite' ) {
 			$expiry = Block::infinity();
 		} else {
@@ -287,9 +346,10 @@ class Stabilization extends UnlistedSpecialPage
 		$dbw = wfGetDB( DB_MASTER );
 		# Get current config
 		$row = $dbw->selectRow( 'flaggedpage_config',
-			array( 'fpc_select', 'fpc_override', 'fpc_expiry' ),
+			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $this->page->getArticleID() ),
-			__METHOD__ );
+			__METHOD__
+		);
 		# If setting to site default values, erase the row if there is one...
 		if( $row && $reset ) {
 			$dbw->delete( 'flaggedpage_config',
@@ -297,14 +357,17 @@ class Stabilization extends UnlistedSpecialPage
 				__METHOD__ );
 			$changed = ($dbw->affectedRows() != 0); // did this do anything?
 		# Otherwise, add a row unless we are just setting it as the site default, or it is the same the current one...
-		} else if( $this->select !=0 || $this->override != $wgFlaggedRevsOverride ) {
-			if( !$row || $row->fpc_select != $this->select || $row->fpc_override != $this->override || $row->fpc_expiry != $expiry ) {
+		} else if( !$reset ) {
+			if( !$row || $row->fpc_select != $this->select || $row->fpc_override != $this->override
+				|| $row->fpc_level != $this->autoreview || $row->fpc_expiry != $expiry )
+			{
 				$changed = true;
 				$dbw->replace( 'flaggedpage_config',
 					array( 'PRIMARY' ),
 					array( 'fpc_page_id' => $this->page->getArticleID(),
 						'fpc_select'   => $this->select,
 						'fpc_override' => $this->override,
+						'fpc_level'    => $this->autoreview,
 						'fpc_expiry'   => $expiry ),
 					__METHOD__ );
 			}
@@ -321,6 +384,9 @@ class Stabilization extends UnlistedSpecialPage
 				wfMsgForContent("stabilization-sel-short-{$this->select}");
 			$set[] = wfMsgForContent( "stabilization-def-short" ) . wfMsgForContent( 'colon-separator' ) .
 				wfMsgForContent("stabilization-def-short-{$this->override}");
+			if( strlen($this->autoreview) ) {
+				$set[] = "autoreview={$this->autoreview}";
+			}
 			$settings = '[' . implode(', ',$set). ']';
 
 			$reason = '';
@@ -373,7 +439,7 @@ class Stabilization extends UnlistedSpecialPage
 		# Take the user to the diff to make sure an outdated version isn't
 		# being set at the default. This is really an issue with configs
 		# that only let certain pages be reviewed.
-		if( $this->select != FLAGGED_VIS_LATEST ) {
+		if( $changed && $this->select != FLAGGED_VIS_LATEST ) {
 			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 			if( $frev && $frev->getRevId() != $latest ) {
 				$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
