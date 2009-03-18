@@ -15,6 +15,14 @@ $messages['en'] = array(
 	'likedpages-graphs' => 'rating data',
 );
 
+/** Message documentation (Message documentation)
+ * @author Pietrodn
+ */
+$messages['qqq'] = array(
+	'likedpages-list' => '{{identical|flaggedrevs-pagelist}}',
+	'likedpages-graphs' => '{{identical|flaggedrevs-graphs}}',
+);
+
 /** Veps (Vepsan kel')
  * @author Игорь Бродский
  */
@@ -212,6 +220,17 @@ $messages['id'] = array(
 	'likedpages-list' => 'Berikut adalah daftar halaman yang diurutkan menurut peringkat yang diberikan pembacanya.',
 	'likedpages-none' => 'Tidak ada halaman dalam daftar ini.',
 	'likedpages-graphs' => 'data pemeringkatan',
+);
+
+/** Italian (Italiano)
+ * @author Pietrodn
+ */
+$messages['it'] = array(
+	'likedpages' => 'Pagine più gettonate',
+	'likedpages-leg' => 'Trova le pagine più gettonate',
+	'likedpages-list' => 'Di seguito è riportato un elenco di pagine ordinate per il loro feedback da parte dei lettori.',
+	'likedpages-none' => 'Non ci sono pagine in questo elenco',
+	'likedpages-graphs' => 'dati delle valutazioni',
 );
 
 /** Japanese (日本語)

@@ -549,17 +549,24 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'validationstatistics' => 'Statistiche di convalidazione',
 	'validationstatistics-users' => "Al momento, su '''{{SITENAME}}''' {{PLURAL:$1|c'è '''[[Special:ListUsers/editor|$1]]''' utente|ci sono '''[[Special:ListUsers/editor|$1]]''' utenti}} con i diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''$2''' {{PLURAL:$2|utente|utenti}} con i diritti di [[{{MediaWiki:Validationpage}}|Revisore]].",
-	'validationstatistics-table' => "Le statistiche per ciascun namespace sono mostrate di seguito, ''a esclusione'' delle pagine di redirect. Le pagine ''non aggiornate'' sono quelle con edit più recenti della versione stabile. Se la versione stabile è anche la più recente alla la pagina è ''sincronizzata''.
+	'validationstatistics-time' => "''I dati seguenti sono cachati e potrebbero non essere aggiornati.''
 
-''Nota: i dati che seguono sono estratti da una copia ''cache'' del database, non aggiornati in tempo reale.''",
+L'attesa media per le modifiche da parte degli ''utenti che non hanno fatto il login'' è '''$1'''; la mediana è '''$3'''.
+$4
+Il ritardo medio per le [[Special:OldReviewedPages|pagine con modifiche non revisionate pendenti]] è '''$2'''.
+Queste pagine sono considerate ''obsolete''. Così pure, le pagine sono considerate ''sincronizzate'' se la [[{{MediaWiki:Validationpage}}|versione stabile]] è anche l'attuale versione di bozza.
+Le versioni stabili sono le versioni delle pagine controllate da almeno un utente autorevole.",
+	'validationstatistics-table' => "Le statistiche per ciascun namespace sono mostrate di seguito, ''a esclusione'' delle pagine di redirect.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
-	'validationstatistics-latest' => 'Ultime revisionate',
+	'validationstatistics-latest' => 'Sincronizzate',
+	'validationstatistics-synced' => 'Sincronizzate/Revisionate',
 	'validationstatistics-old' => 'Non aggiornate',
 );
 
@@ -812,14 +819,14 @@ Las versions establas son de versions de paginas verificadas per al mens un util
 $messages['pl'] = array(
 	'validationstatistics' => 'Statystyki oznaczania',
 	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].",
-	'validationstatistics-time' => "Średni czas oczekiwania edycji wykonanych przez ''niezalogowanych użytkowników'' wynosi '''$1''', a mediana '''$3'''.
-$4
-Średnie opóźnienie dla [[Special:OldReviewedPages|zdezaktualizowanych stron]] wynosi '''$2'''.",
-	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.
-''Zdezaktualizowane'' strony to takie, których najnowsza wersja nie została oznaczona.
-Jeśli najnowsza wersja strony jest wersją oznaczoną, wtedy strona jest ''zsynchronizowana''.
+	'validationstatistics-time' => "''Dane są buforowane i mogą być nieaktualne.''
 
-'''Uwaga:''' poniższe dane są kopią z pamięci podręcznej sprzed nawet kilku godzin, mogą więc być nieaktualne.",
+Średni czas oczekiwania na sprawdzenie edycji wykonanych przez ''niezalogowanych użytkowników'' wynosi '''$1''', a mediana '''$3'''.
+$4
+Średnie opóźnienie dla [[Special:OldReviewedPages|oczekujących na sprawdzenie edycji]] wynosi '''$2'''.
+Strony te uznawane są za ''zdezaktualizowane''. Podobnie za ''zsynchronizowane'' uznawane są strony jeśli ich [[{{MediaWiki:Validationpage}}|wersja przejrzana]] jest również aktualną wersją roboczą.
+Wersjami przejrzanymi są wersje oznaczone przez co najmniej jednego zaufanego użytkownika.",
+	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Stron',
 	'validationstatistics-stable' => 'Przejrzanych',

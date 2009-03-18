@@ -612,20 +612,23 @@ $messages['id'] = array(
 /** Italian (Italiano)
  * @author Darth Kule
  * @author Melos
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'oldreviewedpages' => 'Pagine non revisionate di recente',
 	'oldreviewedpages-legend' => 'Elenco delle pagine revisionate ma con versioni non revisionate',
 	'oldreviewedpages-list' => 'Di seguito sono elencate la pagine revisionate ma che hanno delle modifiche ancora da revisionare.',
 	'oldreviewedpages-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
-	'oldreviewedpages-stable' => 'visionata',
-	'oldreviewedpages-quality' => 'qualità',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|giorno|giorni}})',
 	'oldreviewedpages-recent' => "(meno di un'ora)",
 	'oldreviewed-category' => 'Categoria:',
+	'oldreviewed-watched' => 'Sulla mia watchlist',
+	'oldreviewed-diff' => 'revisiona',
+	'oldreviewed-size' => 'Cambiamento massimo (byte):',
 	'oldreviewedpages-unwatched' => '(non osservata)',
 	'oldreviewedpages-watched' => '(osservata da $2 {{PLURAL:$1|utente attivo|utenti attivi}})',
+	'oldreviewedpages-viewing' => '(sotto revisione)',
 );
 
 /** Japanese (日本語)

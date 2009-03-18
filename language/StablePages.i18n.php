@@ -377,6 +377,7 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'stablepages' => 'Pagine stabili',
@@ -384,6 +385,8 @@ $messages['it'] = array(
 	'stablepages-text' => 'Di seguito sono elencate le pagine configurate manualmente in modo tale da mostrare per default le versioni stabili ai visitatori.',
 	'stablepages-none' => 'Non ci sono pagine in questo elenco',
 	'stablepages-config' => 'Configurazione',
+	'stablepages-prec-none' => 'nessuna precendenza',
+	'stablepages-precedence' => 'Precedenza:',
 );
 
 /** Japanese (日本語)

@@ -478,14 +478,18 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'reviewedpages' => 'Pagine revisionate',
+	'reviewedpages-leg' => 'Elenca le pagine revisionate a un certo livello',
+	'reviewedpages-list' => 'Le seguenti pagine sono state revisionate al livello specificato',
 	'reviewedpages-none' => 'Non ci sono pagine in questo elenco',
 	'reviewedpages-lev-0' => 'Visionata',
 	'reviewedpages-lev-1' => 'Qualità',
 	'reviewedpages-lev-2' => 'Ottima',
 	'reviewedpages-all' => 'versioni revisionate',
+	'reviewedpages-best' => 'versione migliore',
 );
 
 /** Japanese (日本語)

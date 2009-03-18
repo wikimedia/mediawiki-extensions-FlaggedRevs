@@ -607,16 +607,19 @@ $messages['is'] = array(
 /** Italian (Italiano)
  * @author Darth Kule
  * @author Melos
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'right-unreviewedpages' => "Visualizza [[Special:UnreviewedPages|l'elenco delle pagine non revisionate]]",
 	'unreviewedpages' => 'Pagine non revisionate',
 	'unreviewed-legend' => 'Elenco delle pagine non revisionate',
 	'unreviewed-category' => 'Categoria:',
+	'unreviewed-diff' => 'revisiona',
 	'unreviewed-unwatched' => '(non osservata)',
 	'unreviewed-watched' => '(osservata da $1 {{PLURAL:$1|utente attivo|utenti attivi}})',
 	'unreviewed-list' => 'Di seguito sono riportate le pagine che non sono state revisionate.',
 	'unreviewed-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
+	'unreviewed-viewing' => '(sotto revisione)',
 );
 
 /** Japanese (日本語)

@@ -678,6 +678,7 @@ Skala: '''[1]''' - Buruk; '''[2]''' - Rendah; '''[3]''' - Cukup; '''[4]''' - Tin
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'ratinghistory' => 'Cronologia dei giudizi delle pagine',
@@ -690,7 +691,9 @@ $messages['it'] = array(
 	'ratinghistory-3months' => 'ultimi 3 mesi',
 	'ratinghistory-year' => 'ultimo anno',
 	'ratinghistory-3years' => 'ultimi 3 anni',
+	'ratinghistory-ave' => 'Media: $1',
 	'ratinghistory-chart' => 'Giudizi dei lettori nel corso del tempo',
+	'ratinghistory-purge' => 'pulisci la cache',
 	'ratinghistory-table' => 'Panoramica dei voti dei lettori',
 	'ratinghistory-users' => 'Utenti che hanno dato un giudizio',
 	'ratinghistory-graph' => '$2 di "$3" ($1 {{PLURAL:$1|revisione|revisioni}})',
@@ -698,9 +701,9 @@ $messages['it'] = array(
 	'ratinghistory-table-rating' => 'Giudizio',
 	'ratinghistory-table-votes' => 'Voti',
 	'ratinghistory-none' => 'Non sono disponibile sufficienti dati di feedback dei lettori per poter rappresentare dei grafici al momento.',
-	'ratinghistory-legend' => "I giudizi medi giornalieri <font color=\"blue\">''(blu)''</font> e gli intervalli dei giudizi medi selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. 
+	'ratinghistory-legend' => "I '''giudizi medi giornalieri''' <font color=\"blue\">''(blu)''</font> e gli '''intervalli dei giudizi medi''' selezionati <font color=\"green\">''(verde)''</font> sono rappresentati di seguito, in ordine di data. Gli '''intervalli dei giudizi medi''' sono semplicemente la media di tutti i giudizi giornalieri ''dentro'' questa finestra temporale per ogni giorno.
 
-'''[1]''' - Insufficiente; '''[2]''' - Mediocre; '''[3]''' - Discreto; '''[4]''' - Buono; '''[5]''' - Ottimo;
+Scala: '''[1]''' - Insufficiente; '''[2]''' - Mediocre; '''[3]''' - Discreto; '''[4]''' - Buono; '''[5]''' - Ottimo;
 
 Il '''numero di revisioni al giorno''' <font color=\"red\">''(rosso)''</font> è mostrato nel grafico di sotto, in scala ''1:\$1''.",
 	'right-feedback' => 'Usa il modulo di feedback per giudicare una pagina',

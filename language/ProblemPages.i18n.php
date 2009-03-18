@@ -15,6 +15,14 @@ $messages['en'] = array(
 	'problempages-graphs' => 'rating data',
 );
 
+/** Message documentation (Message documentation)
+ * @author Pietrodn
+ */
+$messages['qqq'] = array(
+	'problempages-list' => '{{identical|flaggedrevs-pagelist}}',
+	'problempages-graphs' => '{{identical|flaggedrevs-graphs}}',
+);
+
 /** Veps (Vepsan kel')
  * @author Игорь Бродский
  */
@@ -221,9 +229,14 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
+	'problempages' => 'Pagine valutate scarsamente',
+	'problempages-leg' => 'Trova pagine valutate scarsamente',
+	'problempages-list' => 'Di seguito è riportato un elenco di pagine ordinate per il loro feedback da parte dei lettori.',
 	'problempages-none' => 'Non ci sono pagine in questo elenco',
+	'problempages-graphs' => 'dati delle valutazioni',
 );
 
 /** Japanese (日本語)

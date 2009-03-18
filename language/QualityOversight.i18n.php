@@ -79,6 +79,7 @@ $messages['bg'] = array(
  */
 $messages['bs'] = array(
 	'qualityoversight' => 'Nadzor kvalitete',
+	'qualityoversight-list' => 'Ova stranica prikazuje nedavna odobrenja i uklanjanja revizija.',
 	'qualityoversight-legend' => 'Traži nedavne zapise pregleda',
 );
 
@@ -217,8 +218,11 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
+	'qualityoversight' => 'Supervisione della qualità',
+	'qualityoversight-list' => 'Questa pagina elenca le più recenti approvazioni e deprezzamenti delle revisioni.',
 	'qualityoversight-legend' => 'Cerca i log delle revisioni recenti',
 );
 
