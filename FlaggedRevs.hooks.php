@@ -784,9 +784,11 @@ EOT;
 	}
 	
 	/**
-	* When an user makes a null-edit with the review checkbox ticked
+	* When an user makes a null-edit we sometimes want to review it...
 	*/
-	public static function maybeNullEditReview( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
+	public static function maybeNullEditReview( $article, $user, &$text, &$summary, &$m, &$a, &$b,
+		&$f, $rev, &$s, $baseId )
+	{
 		global $wgRequest;
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
@@ -794,9 +796,18 @@ EOT;
 		if( !$user || $rev !== NULL || !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
 		}
-		# Get the just the current revision ID
+		# Get the current revision ID
 		$rev = Revision::newFromTitle( $title );
 		$flags = null;
+		# Is this a rollback/undo that didn't change anything?
+		if( $rev && $baseId ) {
+			$frev = FlaggedRevision::newFromTitle( $title, $baseId );
+			# Was the edit that we tried to revert to reviewed?
+			if( $frev ) {
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, true );
+				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
+			}
+		}
 		# Get edit timestamp, it must exist.
 		$editTimestamp = $wgRequest->getVal('wpEdittime');
 		# Is the page checked off to be reviewed?
@@ -805,16 +816,7 @@ EOT;
 			# Don't do so if an edit was auto-merged in between though...
 			if( $rev->getTimestamp() == $editTimestamp ) {
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
-				$rcid = $rev->isUnpatrolled();
-				# Make sure it is now marked patrolled...
-				if( $rcid ) {
-					$dbw = wfGetDB( DB_MASTER );
-					$dbw->update( 'recentchanges',
-						array( 'rc_patrolled' => 1 ),
-						array( 'rc_id' => $rcid ),
-						__METHOD__
-					);
-				}
+				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
 				return true; // done!
 			}
 		}

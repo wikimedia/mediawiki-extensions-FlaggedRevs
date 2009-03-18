@@ -820,6 +820,26 @@ class FlaggedRevs {
 		return $oldid;
 	}
 	
+	/**
+	 * Mark a revision as patrolled if needed
+	 * @param Revision $rev
+	 * @returns bool DB write query used
+	 */
+	public static function markRevisionPatrolled( $rev ) {
+		$rcid = $rev->isUnpatrolled();
+		# Make sure it is now marked patrolled...
+		if( $rcid ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->update( 'recentchanges',
+				array( 'rc_patrolled' => 1 ),
+				array( 'rc_id' => $rcid ),
+				__METHOD__
+			);
+			return true;
+		}
+		return false;
+	}
+	
 	################# Page configuration functions #################
 
 	/**
@@ -827,7 +847,7 @@ class FlaggedRevs {
 	 * @param Title $title, page title
 	 * @param bool $forUpdate, use master DB?
 	 * @returns Array (select,override)
-	*/
+	 */
 	public static function getPageVisibilitySettings( &$title, $forUpdate=false ) {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
