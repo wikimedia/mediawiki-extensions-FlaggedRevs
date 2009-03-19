@@ -21,8 +21,8 @@ class ReviewedPages extends SpecialPage
 		# Check if there is a featured level
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
 		$this->namespace = $wgRequest->getInt( 'namespace' );
-		$this->type = $wgRequest->getInt( 'level' );
-		$this->type = $this->type <= $maxType ? $this->type : 0;
+		$this->type = $wgRequest->getInt( 'level', -1 );
+		$this->type = min($this->type,$maxType);
 		
 		$this->showForm();
 		$this->showPageList();
@@ -38,7 +38,7 @@ class ReviewedPages extends SpecialPage
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 		}
-		$form .= self::getLevelMenu( $this->type );
+		$form .= FlaggedRevsXML::getLevelMenu( $this->type );
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
 		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
@@ -84,21 +84,6 @@ class ReviewedPages extends SpecialPage
 
 		return "<li>$link $stxt ($list) [$best]</li>";
 	}
-	
-	/**
-	* Get a selector of review levels
-	* @param int $selected, selected level
-	*/
-	public static function getLevelMenu( $selected=null ) {
-		$form = Xml::openElement( 'select', array('name' => 'level') );
-		$form .= Xml::option( wfMsg( "reviewedpages-lev-0" ), 0, $selected==0 );
-		if( FlaggedRevs::qualityVersions() )
-			$form .= Xml::option( wfMsg( "reviewedpages-lev-1" ), 1, $selected==1 );
-		if( FlaggedRevs::pristineVersions() )
-			$form .= Xml::option( wfMsg( "reviewedpages-lev-2" ), 2, $selected==2 );
-		$form .= Xml::closeElement('select')."\n";
-		return $form;
-	}
 }
 
 /**
@@ -131,13 +116,17 @@ class ReviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fp_page_id';
-		$conds['fp_quality'] = $this->type;
-		$conds['page_namespace'] = $this->namespace;
+		$index = 'PRIMARY';
+		if( $this->type >= 0 ) {
+			$conds['fp_quality'] = $this->type;
+			$index = 'fp_quality_page';
+		}
+		$conds['page_namespace'] = $this->namespace; // Sanity check NS
 		return array(
 			'tables' => array('flaggedpages','page'),
 			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
 			'conds'  => $conds,
-			'options' => array( 'USE INDEX' => array('flaggedpages' => 'fp_quality_page') )
+			'options' => array( 'USE INDEX' => array('flaggedpages' => $index) )
 		);
 	}
 

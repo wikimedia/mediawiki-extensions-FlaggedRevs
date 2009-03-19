@@ -70,7 +70,7 @@ class QualityOversight extends SpecialPage
 			'<fieldset><legend>' . wfMsgHtml('qualityoversight-legend') . '</legend><p>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' .
-			FlaggedRevsXML::getLevelMenu( $this->level ) . '&nbsp;' .
+			FlaggedRevsXML::getLevelMenu( $this->level, 'all', 1 ) . '&nbsp;' .
 			Xml::inputLabel( wfMsg( 'specialloguserlabel' ), 'user', 'user', 20, $this->user ) . '<br/>' .
 			FlaggedRevsXML::getStatusFilterMenu( $this->status ) . '&nbsp;' .
 			FlaggedRevsXML::getAutoFilterMenu( $this->automatic ) . '&nbsp;' .

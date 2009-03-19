@@ -44,15 +44,20 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of review levels
 	 * @param int $selected, selected level
+	 * @param bool $all all selector?
+	 * @param int $max max level?
 	 */
-	public static function getLevelMenu( $selected=null ) {
+	public static function getLevelMenu( $selected=null, $all='all', $max=2 ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='wpLevel'>" . wfMsgHtml('revreview-levelfilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
-		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
+		if( $all === 'all' )
+			$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
 		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), 1, $selected===1 );
+		if( $max >= 2 && FlaggedRevs::pristineVersions() )
+			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), 2, $selected===2 );
 		# Note: Pristine not tracked at sp:QualityOversight (counts as quality)
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
