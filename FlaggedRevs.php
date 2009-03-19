@@ -253,6 +253,7 @@ $wgAvailableRights[] = 'autoreview';
 $wgAvailableRights[] = 'patrolmarks';
 $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
+$wgAvailableRights[] = 'stablesettings';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
 $wgFlaggedRevStyleVersion = 55;
