@@ -1044,7 +1044,8 @@ $messages['ar'] = array(
 	'revreview-update-use' => "'''ملاحظة:''' لو أن أي من هذه القوالب/الصور لديها نسخة مستقرة، إذا فهي مستخدمة بالفعل في النسخة المستقرة لهذه الصفحة.",
 	'revreview-diffonly' => "''لمراجعة الصفحة، اضغط على وصلة مراجعة \"المراجعة الحالية\" واستخدم استمارة المراجعة.''",
 	'revreview-visibility' => "'''هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
-	'revreview-visibility2' => "'''هذه الصفحة ليس لديها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] محدثة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
+	'revreview-visibility2' => "'''هذه الصفحة بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]] قديمة؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
+	'revreview-visibility3' => "'''هذه الصفحة ليس بها [[{{MediaWiki:Validationpage}}|نسخة مستقرة]]؛ إعدادات استقرار الصفحة يمكن [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ضبطها].'''",
 	'revreview-revnotfound' => 'لم يتم العثور على المراجعة القديمة من الصفحة التي طلبتها.
 من فضلك تأكد من المسار الذي دخلت به إلى هذه الصفحة.',
 	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمنظورة',
@@ -1089,6 +1090,7 @@ $messages['ar'] = array(
 	'revreview-statusfilter' => 'تغير الحالة:',
 	'revreview-typefilter' => 'النوع:',
 	'revreview-tagfilter' => 'وسم:',
+	'revreview-levelfilter' => 'المستوى:',
 	'revreview-lev-sighted' => 'منظورة',
 	'revreview-lev-quality' => 'جودة',
 	'revreview-lev-pristine' => 'فائقة',
@@ -5557,8 +5559,12 @@ Voluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Spacebirdy
  */
 $messages['is'] = array(
+	'editor' => 'Ritstjóri',
+	'group-editor' => 'Ritstjórar',
+	'group-editor-member' => 'ritstjóri',
 	'revreview-accuracy' => 'Nákvæmni',
 	'revreview-auto' => '(sjálfkrafa)',
 	'revreview-current' => 'Uppkast',
@@ -8469,10 +8475,9 @@ By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny�
 	'revreview-update-none' => "Proszę [[{{MediaWiki:Validationpage}}|przejrzeć]] zmiany ''(patrz niżej)'' dokonane od momentu [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} oznaczenia] ostatniej wersji jako przejrzanej.",
 	'revreview-update-use' => "'''UWAGA:''' Jeśli którykolwiek z tych szablonów lub grafik posiada wersję zweryfikowaną, to zostanie ona użyta w wersji zweryfikowanej tej strony.",
 	'revreview-diffonly' => "''By zweryfikować stronę, proszę kliknąć na link „bieżąca wersja” i użyć formularza weryfikacji.''",
-	'revreview-visibility' => "'''Ta strona ma aktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]], dla której można
-[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować] ustawienia.'''",
-	'revreview-visibility2' => "'''Ta strona ma nieaktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Można
-[{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować ustawienia] metody określania wersji oznaczonej.'''",
+	'revreview-visibility' => "'''Ta strona posiada aktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji można [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować].'''",
+	'revreview-visibility2' => "'''Ta strona posiada nieaktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji można [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować].'''",
+	'revreview-visibility3' => "'''Ta strona nie posiada [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Sposób wyświetlania wersji można [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} skonfigurować].'''",
 	'revreview-revnotfound' => 'Żądana, starsza wersja strony nie została odnaleziona. Sprawdź użyty adres URL.',
 	'right-autoreview' => 'Automatyczne oznaczanie własnych wersji jako przejrzane',
 	'right-movestable' => 'Przenoszenie przejrzanych i zweryfikowanych stron',
@@ -8515,6 +8520,10 @@ Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 	'revreview-statusfilter' => 'Zmiana statusu',
 	'revreview-typefilter' => 'Sposób oznaczenia',
 	'revreview-tagfilter' => 'Znacznik',
+	'revreview-levelfilter' => 'Poziom:',
+	'revreview-lev-sighted' => 'przejrzane',
+	'revreview-lev-quality' => 'zweryfikowane',
+	'revreview-lev-pristine' => 'nienaruszone',
 	'revreview-reviewlink' => 'przejrzyj',
 	'tooltip-ca-current' => 'Zobacz bieżącą wersję roboczą tej strony',
 	'tooltip-ca-stable' => 'Zobacz wersję oznaczoną tej strony',

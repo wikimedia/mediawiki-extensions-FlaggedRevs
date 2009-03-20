@@ -823,7 +823,7 @@ $messages['pl'] = array(
 
 Średni czas oczekiwania na sprawdzenie edycji wykonanych przez ''niezalogowanych użytkowników'' wynosi '''$1''', a mediana '''$3'''.
 $4
-Średnie opóźnienie dla [[Special:OldReviewedPages|oczekujących na sprawdzenie edycji]] wynosi '''$2'''.
+Średnie opóźnienie dla [[Special:OldReviewedPages|oczekujących na przejrzenie edycji]] wynosi '''$2'''.
 Strony te uznawane są za ''zdezaktualizowane''. Podobnie za ''zsynchronizowane'' uznawane są strony jeśli ich [[{{MediaWiki:Validationpage}}|wersja przejrzana]] jest również aktualną wersją roboczą.
 Wersjami przejrzanymi są wersje oznaczone przez co najmniej jednego zaufanego użytkownika.",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
