@@ -22,7 +22,8 @@ class FRCacheUpdate {
 			return; // No duplicates...
 		# Fetch the IDs
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( $this->mTable, $this->getFromField(), $this->getToCondition(), __METHOD__ );
+		$res = $dbr->select( $this->mTable, $this->getFromField(),
+			$this->getToCondition(), __METHOD__ );
 		if( $dbr->numRows($res) > 0 ) {
 			# Do it right now?
 			if( $dbr->numRows($res) <= $this->mRowsPerJob ) {
@@ -78,7 +79,8 @@ class FRCacheUpdate {
 	}
 
 	public function getToCondition() {
-		return array( 'ftr_namespace' => $this->mTitle->getNamespace(), 'ftr_title' => $this->mTitle->getDBkey() );
+		return array( 'ftr_namespace' => $this->mTitle->getNamespace(),
+			'ftr_title' => $this->mTitle->getDBkey() );
 	}
 	
 	/**
@@ -106,7 +108,8 @@ class FRCacheUpdate {
             }
             if( count($ids) == 0 ) break;
             # Update page_touched
-            $dbw->update( 'page', array( 'page_touched' => $timestamp ), array( 'page_id' => $ids ), __METHOD__ );
+            $dbw->update( 'page', array( 'page_touched' => $timestamp ),
+				array( 'page_id' => $ids ), __METHOD__ );
             # Update static caches
             if( $wgUseSquid || $wgUseFileCache ) {
                 $titles = Title::newFromIDs( $ids );
