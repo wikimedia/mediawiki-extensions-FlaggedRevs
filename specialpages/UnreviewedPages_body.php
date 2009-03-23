@@ -81,7 +81,7 @@ class UnreviewedPages extends SpecialPage
 		global $wgLang, $wgUser, $wgMemc;
 
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&forreview=1' );
+		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&reviewform=1' );
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
 		$css = $stxt = $review = $underReview = '';
 		if( !is_null($size = $row->page_len) ) {

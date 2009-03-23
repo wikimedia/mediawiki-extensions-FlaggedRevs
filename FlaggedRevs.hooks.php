@@ -83,7 +83,7 @@ EOT;
 	public static function markUnderReview( &$output, &$article, &$title, &$user, &$request ) {
 		$action = $request->getVal( 'action', 'view' );
 		$reviewing = ( $action == 'history' ); // default
-		if( $action == 'view' && ($request->getInt('forreview') || $request->getInt('rcid')) )
+		if( $action == 'view' && ($request->getInt('reviewform') || $request->getInt('rcid')) )
 			$reviewing = true;
 		# Set a key to note that someone is viewing this
 		if( $reviewing && $user->isAllowed('review') ) {

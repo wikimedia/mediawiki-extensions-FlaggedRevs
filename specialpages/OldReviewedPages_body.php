@@ -184,7 +184,7 @@ class OldReviewedPages extends SpecialPage
 		$css = $stxt = $review = $quality = $underReview = '';
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
-			"diff=cur&oldid={$row->fp_stable}&diffonly=0" );
+			"diff=cur&oldid={$row->fp_stable}&reviewform=1&diffonly=0" );
 		# Show quality level if there are several
 		if( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->fp_quality ?
