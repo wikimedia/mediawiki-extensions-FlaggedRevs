@@ -39,10 +39,18 @@ Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'
 );
 
 /** Message documentation (Message documentation)
+ * @author Aotake
  * @author Boivie
  */
 $messages['qqq'] = array(
 	'ratinghistory-ave' => 'Average',
+	'ratinghistory-legend' => "<pre>
+'''[1]''' - {{int:readerfeedback-level-0}}
+'''[2]''' - {{int:readerfeedback-level-1}}
+'''[3]''' - {{int:readerfeedback-level-2}}
+'''[4]''' - {{int:readerfeedback-level-3}}
+'''[5]''' - {{int:readerfeedback-level-4}}
+</pre>",
 );
 
 /** Veps (Vepsan kel')
@@ -710,6 +718,7 @@ Il '''numero di revisioni al giorno''' <font color=\"red\">''(rosso)''</font> è
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  */
 $messages['ja'] = array(
@@ -735,7 +744,7 @@ $messages['ja'] = array(
 	'ratinghistory-none' => '現時点ではグラフを表示するのに十分な読者評価データがありません。',
 	'ratinghistory-legend' => "日ごとの'''日間平均評価''' <font color=\"blue\">''(青)''</font> と'''移動平均評価''' <font color=\"green\">''(緑)''</font> を以下のグラフに表示します。'''移動平均評価'''とは単にこの期間中のすべての日間評価の平均のことです。
 
-目盛り: '''[1]''' - 惨、'''[2]''' - 低、'''[3]''' - 可、'''[4]''' - 高、'''[5]''' - 優
+目盛り: '''[1]''' - {{int:readerfeedback-level-0}}、'''[2]''' - {{int:readerfeedback-level-1}}、'''[3]''' - {{int:readerfeedback-level-2}}、'''[4]''' - {{int:readerfeedback-level-3}}、'''[5]''' - {{int:readerfeedback-level-4}}
 
 '''日ごとの評価回数''' <font color=\"red\">''(赤)''</font> を以下のグラフに\$1分の1の縮尺で表示します。",
 	'right-feedback' => 'ページを評価するためのフォームを使用する',

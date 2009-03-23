@@ -471,8 +471,10 @@ $messages['id'] = array(
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Spacebirdy
  */
 $messages['is'] = array(
+	'reviewedpages-lev-0' => 'Yfirfarið',
 	'reviewedpages-lev-1' => 'Gæði',
 );
 
@@ -499,14 +501,14 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'reviewedpages' => '査読済みページ',
-	'reviewedpages-leg' => 'ページの査読結果レベル',
+	'reviewedpages-leg' => '査読により一定水準以上の評価を受けたページを一覧する',
 	'reviewedpages-list' => '以下は、査読結果が指定した水準にあるページです',
 	'reviewedpages-none' => '表示すべきページはありません',
-	'reviewedpages-lev-0' => '採用',
-	'reviewedpages-lev-1' => '内容充実',
-	'reviewedpages-lev-2' => '秀逸',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => '全査読済版',
-	'reviewedpages-best' => '優良版',
+	'reviewedpages-best' => '最良版',
 );
 
 /** Jutish (Jysk)

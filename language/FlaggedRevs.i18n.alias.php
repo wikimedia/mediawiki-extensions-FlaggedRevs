@@ -161,6 +161,11 @@ $aliases['eo'] = array(
 	'UnreviewedPages' => array( 'NekontrolitajPaĝoj' ),
 );
 
+/** Spanish (Español) */
+$aliases['es'] = array(
+	'UnreviewedPages' => array( 'Páginas_sin_revisar' ),
+);
+
 /** Persian (فارسی) */
 $aliases['fa'] = array(
 	'OldReviewedPages' => array( 'صفحه‌های_بازبینی_شده_قدیمی' ),

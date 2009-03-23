@@ -226,10 +226,13 @@ $messages['bg'] = array(
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Jordi Roqué
  * @author Paucabot
  */
 $messages['ca'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|hores}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dies}})',
 	'oldreviewedpages-recent' => "(menys d'una hora)",
 	'oldreviewed-category' => 'Categoria:',
 );

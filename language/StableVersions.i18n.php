@@ -461,11 +461,11 @@ $messages['it'] = array(
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'stableversions' => '安定版を見る',
-	'stableversions-leg1' => '査読済版を一覧表示する対象ページ',
+	'stableversions' => '固定版を表示',
+	'stableversions-leg1' => 'ページの査読済み版を一覧表示する',
 	'stableversions-page' => 'ページ名:',
 	'stableversions-none' => '「[[:$1]]」には査読済みの版がありません。',
-	'stableversions-list' => '以下は、「[[:$1]]」における査読済版の一覧です:',
+	'stableversions-list' => '以下は「[[:$1]]」の査読済み版の一覧です:',
 	'stableversions-review' => '査読日: <i>$1</i>、査読者: $2',
 );
 

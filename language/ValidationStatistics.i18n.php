@@ -164,6 +164,13 @@ $messages['bs'] = array(
 	'validationstatistics-total' => 'Stranice',
 );
 
+/** Catalan (Català)
+ * @author Aleator
+ */
+$messages['ca'] = array(
+	'validationstatistics-ns' => "Nom d'espai",
+);
+
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
@@ -571,6 +578,7 @@ Le versioni stabili sono le versioni delle pagine controllate da almeno un utent
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
  */
@@ -579,9 +587,9 @@ $messages['ja'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''人、[[{{MediaWiki:Validationpage}}|査読者]]権限をもつ利用者が '''$2'''人います。",
 	'validationstatistics-time' => "''以下の情報はキャッシュされたものであり、最新のものではない可能性があります。''
 
-未登録利用者による編集の平均待ち時間は '''$1'''、中央値は '''$3'''です。
+未登録利用者による編集の平均査読待ち時間は '''$1'''、中央値は '''$3'''です。
 $4
-[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。「最新版未査読」とは安定版以降に編集があったものです。[[{{MediaWiki:Validationpage}}|安定版]]がまた最新版である場合、そのページは「最新版査読済」となります。安定版とは、ページの版のうち、最低でも一人の公認された利用者によって検査された版のことです。",
+[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。このようなページは「最新版未査読」とされています。[[{{MediaWiki:Validationpage}}|固定版]]がまた最新版である場合、そのページは「最新版査読済」となります。固定版とは、最低でも一人の信頼されている利用者によって検査された版のことです。",
 	'validationstatistics-table' => '名前空間別の統計を以下に表示します。リダイレクトページは除いています。',
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',

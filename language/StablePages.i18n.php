@@ -390,17 +390,18 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  */
 $messages['ja'] = array(
-	'stablepages' => '安定ページ',
-	'stablepages-stable' => '安定版',
-	'stablepages-text' => '以下では安定版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
+	'stablepages' => '固定ページ',
+	'stablepages-stable' => '固定版',
+	'stablepages-text' => '以下は固定版を既定で閲覧者に表示するよう手動で設定されたページの一覧です。',
 	'stablepages-none' => '表示すべきページはありません',
 	'stablepages-config' => '設定',
 	'stablepages-prec-none' => '優先なし',
-	'stablepages-prec-quality' => '内容充実優先',
-	'stablepages-prec-pristine' => '原始優先',
+	'stablepages-prec-quality' => '{{int:revreview-lev-quality}}優先',
+	'stablepages-prec-pristine' => '{{int:revreview-lev-pristine}}優先',
 	'stablepages-precedence' => '優先順位:',
 );
 
