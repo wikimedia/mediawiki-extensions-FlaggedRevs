@@ -291,11 +291,12 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Dereckson
  * @author Grondin
+ * @author IAlex
  * @author PieRRoMaN
  */
 $messages['fr'] = array(
 	'reviewedpages' => 'Pages passées en revue',
-	'reviewedpages-leg' => 'Liste des pages passées en revue à un certain niveau',
+	'reviewedpages-leg' => 'Liste des pages par plus haut niveau',
 	'reviewedpages-list' => 'Les pages suivantes ont été passées en revue au niveau spécifié',
 	'reviewedpages-none' => 'Cette liste est vide',
 	'reviewedpages-lev-0' => 'Visualisée',
@@ -372,6 +373,9 @@ $messages['he'] = array(
 	'reviewedpages-leg' => 'רשימת הדפים שאושרו לפי הרמה הגבוהה ביותר',
 	'reviewedpages-list' => 'הדפים הבאים אושרו עד לרמה שצוינה',
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
+	'reviewedpages-lev-0' => 'נצפה',
+	'reviewedpages-lev-1' => 'איכותי',
+	'reviewedpages-lev-2' => 'מומלץ',
 	'reviewedpages-all' => 'גרסאות שנבדקו',
 	'reviewedpages-best' => 'הגרסה האיכותית ביותר',
 );

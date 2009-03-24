@@ -340,6 +340,7 @@ $messages['es'] = array(
 	'readerfeedback-svg' => 'Ver como SVG',
 	'ratinghistory-table-rating' => 'Rating',
 	'ratinghistory-table-votes' => 'Votos',
+	'right-feedback' => 'Usar el formulario de retroalimentación para valorar una página',
 );
 
 /** Basque (Euskara)
