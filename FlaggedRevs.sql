@@ -6,13 +6,13 @@
 -- Add page tracking table for flagged revisions
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpages (
   -- Foreign key to page.page_id
-  fp_page_id integer NOT NULL,
+  fp_page_id integer unsigned NOT NULL,
   -- Is the stable version synced?
   fp_reviewed bool NOT NULL default '0',
   -- When (or NULL) the first edit after the stable version was made
   fp_pending_since char(14) NULL,
   -- Foreign key to flaggedrevs.fr_rev_id
-  fp_stable integer NOT NULL,
+  fp_stable integer unsigned NOT NULL,
   -- The highest quality of the page's reviewed revisions.
   -- Note that this may not be set to display by default though.
   fp_quality tinyint(1) default NULL,
@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_pending (
 -- The template/file version data is stored in the next two tables
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs (
   -- Foreign key to page.page_id
-  fr_page_id integer NOT NULL,
+  fr_page_id integer unsigned NOT NULL,
   -- Foreign key to revision.rev_id
-  fr_rev_id integer NOT NULL,
+  fr_rev_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
   fr_user int(5) NOT NULL,
   fr_timestamp char(14) NOT NULL,
@@ -77,19 +77,19 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs (
 
 -- This stores all of our transclusion revision pointers
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedtemplates (
-  ft_rev_id integer NOT NULL,
+  ft_rev_id integer unsigned NOT NULL,
   -- Namespace and title of included page
   ft_namespace int NOT NULL default '0',
   ft_title varchar(255) binary NOT NULL default '',
   -- Revisions ID used when reviewed
-  ft_tmp_rev_id integer NULL,
+  ft_tmp_rev_id integer unsigned NULL,
   
   PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
 ) /*$wgDBTableOptions*/;
 
 -- This stores all of our image revision pointers
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
-  fi_rev_id integer NOT NULL,
+  fi_rev_id integer unsigned NOT NULL,
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
   -- Timestamp of image used when reviewed
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
 -- This stores settings on how to select the stable/default revision
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
   -- Foreign key to page.page_id
-  fpc_page_id integer NOT NULL,
+  fpc_page_id integer unsigned NOT NULL,
   -- Integers to represent what to show by default:
   -- 0: quality -> stable
   -- 1: latest reviewed
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
 
 -- Track includes/links only in stable versions
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_tracking (
-  ftr_from integer NOT NULL default '0',
+  ftr_from integer unsigned NOT NULL default '0',
   ftr_namespace int NOT NULL default '0',
   ftr_title varchar(255) binary NOT NULL default '',
   PRIMARY KEY (ftr_from,ftr_namespace,ftr_title),
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_tracking (
 -- This stores user demotions and stats
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
   -- Foreign key to user.user_id
-  frp_user_id integer NOT NULL,
+  frp_user_id integer unsigned NOT NULL,
   frp_user_params mediumblob NOT NULL,
   
   PRIMARY KEY (frp_user_id)
@@ -141,9 +141,9 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
 -- This stores reader feedback data to curb double-voting
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback (
   -- Foreign key to revision.rev_id
-  rfb_rev_id integer NOT NULL,
+  rfb_rev_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
-  rfb_user integer NOT NULL,
+  rfb_user integer unsigned NOT NULL,
   rfb_ip varchar(255) NOT NULL default '',
   rfb_timestamp char(14) NOT NULL default '',
   --Vote info
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback (
 -- This stores reader feedback data for a page over time
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback_history (
   -- Foreign key to page.page_id
-  rfh_page_id integer NOT NULL,
+  rfh_page_id integer unsigned NOT NULL,
   rfh_tag char(20) NOT NULL default '',
   rfh_total integer unsigned NOT NULL default 0,
   rfh_count integer unsigned NOT NULL default 0,
@@ -167,12 +167,12 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback_history (
 -- This stores reader feedback data for pages
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/reader_feedback_pages (
   -- Foreign key to page.page_id
-  rfp_page_id integer NOT NULL,
+  rfp_page_id integer unsigned NOT NULL,
   rfp_tag char(20) NOT NULL default '',
   -- Value in last few days (14)
   rfp_ave_val real NOT NULL default 0,
   -- And said total (used as threshold)
-  rfp_count integer NOT NULL default 0,
+  rfp_count integer unsigned NOT NULL default 0,
   rfp_touched char(14) NOT NULL default '',
   PRIMARY KEY (rfp_page_id,rfp_tag),
   INDEX rfp_tag_val_page (rfp_tag,rfp_ave_val,rfp_page_id)
