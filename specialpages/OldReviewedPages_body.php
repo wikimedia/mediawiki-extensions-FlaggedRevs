@@ -65,7 +65,7 @@ class OldReviewedPages extends SpecialPage
 				) .
 				( FlaggedRevs::qualityVersions() ?
 					"<span style='white-space: nowrap;'>" .
-					FlaggedRevsXML::getLevelMenu( $this->level ) . '</span> '
+					FlaggedRevsXML::getLevelMenu( $this->level, false ) . '</span> '
 					: ""
 				) .
 				( !FlaggedRevs::showStableByDefault() ?
@@ -334,9 +334,9 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		}
 		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
 		# Filter by review level
-		if( !is_null($this->level) && $this->level >= 0 ) {
+		if( $this->level >= 1 && $this->level <= 2 ) {
 			# 0 = sighted; 1 = quality/pristine
-			$conds[] = ( $this->level == 0 ) ? 'fp_quality = 0' : 'fp_quality >= 1';
+			$conds[] = "fp_quality >= {$this->level}";
 		}
 		# Filter by pages configured to be stable
 		if( $this->stable ) {
