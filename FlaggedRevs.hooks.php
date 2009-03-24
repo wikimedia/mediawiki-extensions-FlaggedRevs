@@ -182,7 +182,7 @@ EOT;
 			}
 		}
 		# Update page fields
-		FlaggedRevs::updateArticleOn( $article, $sv->getRevId() );
+		FlaggedRevs::updateArticleOn( $article, $sv->getRevision() );
 		# We only care about links that are only in the stable version
 		$links = array();
 		foreach( $parserOut->getLinks() as $ns => $titles ) {

@@ -675,13 +675,14 @@ class FlaggedRevs {
 	
  	/**
 	* @param Article $article
-	* @param Integer $revId, the stable version rev_id
+	* @param Revision $rev, the new stable version
 	* @param mixed $latest, the latest rev ID (optional)
-	* Updates the fp_stable and fp_reviewed fields
+	* Updates the flaggedpages fields
 	*/
-	public static function updateArticleOn( $article, $revId, $latest=NULL ) {
+	public static function updateArticleOn( $article, $rev, $latest=NULL ) {
 		if( !$article->getId() ) return true; // no bogus entries
-
+		$revId = $rev->getId();
+		# Get the latest revision ID
 		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		# Get the highest quality revision (not necessarily this one)
 		$dbw = wfGetDB( DB_MASTER );
@@ -697,7 +698,8 @@ class FlaggedRevs {
 		);
 		# Get the timestamp of the edit after the stable version (if any)
 		if( $lastID != $revId ) {
-			$timestamp = Revision::getTimestampFromId( $article->getTitle(), $revId );
+			# Get the latest revision ID
+			$timestamp = $rev->getTimestamp();
 			$nextTimestamp = $dbw->selectField( 'revision',
 				'rev_timestamp',
 				array( 'rev_page' => $article->getId(),
@@ -718,6 +720,48 @@ class FlaggedRevs {
 				'fp_pending_since' => $nextTimestamp ? $dbw->timestamp($nextTimestamp) : null ),
 			__METHOD__ 
 		);
+		# Alter pending edit tracking table
+		$data = array();
+		$level = self::pristineVersions() ? 2 : 1;
+		if( !self::qualityVersions() ) $level--;
+		# Update pending times for each level
+		while( $level >= 0 ) {
+			# Get the latest revision of this level...
+			$row = $dbw->selectRow( array('flaggedrevs','revision'),
+				array( 'fr_rev_id', 'rev_timestamp' ),
+				array( 'fr_page_id' => $article->getId(),
+					'fr_quality' => $level,
+					'rev_id = fr_rev_id',
+					'rev_page = fr_page_id',
+					'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+				__METHOD__,
+				array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) 
+			);
+			# If there is a revision of this level, track it...
+			if( $row ) {
+				$revId = intval( $row->fr_rev_id );
+				# Get the timestamp of the edit after this version (if any)
+				if( $lastID != $revId ) {
+					$nextTimestamp = $dbw->selectField( 'revision',
+						'rev_timestamp',
+						array( 'rev_page' => $article->getId(),
+							"rev_timestamp > ".$dbw->addQuotes( $row->rev_timestamp ) ),
+						__METHOD__,
+						array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+					);
+					$data[] = array(
+						'fpp_page_id'       => $article->getId(),
+						'fpp_quality'       => $level,
+						'fpp_rev_id'        => $revId,
+						'fpp_pending_since' => $nextTimestamp
+					);
+				}
+			}
+			$level--;
+		}
+		# Clear any old junk, and insert new rows
+		$dbw->delete( 'flaggedpage_pending', array('fpp_page_id' => $article->getId()), __METHOD__ );
+		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
 		# Updates the count cache
 		$count = self::getRevCountSince( $article, $revId, true );
 
@@ -1263,7 +1307,7 @@ class FlaggedRevs {
 			# Update stable cache
 			self::updatePageCache( $article, $poutput );
 			# Update page fields
-			self::updateArticleOn( $article, $rev->getId(), $rev->getId() );
+			self::updateArticleOn( $article, $rev, $rev->getId() );
 			# We can set the sync cache key already.
 			global $wgParserCacheExpireTime;
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );

@@ -18,7 +18,7 @@ class OldReviewedPages extends SpecialPage
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
-		$this->level = $wgRequest->getIntOrNull( 'level' );
+		$this->level = $wgRequest->getInt( 'level', -1 );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
 		$this->size = $wgRequest->getIntOrNull( 'size' );
 		$this->watched = $wgRequest->getCheck( 'watched' );
@@ -65,7 +65,7 @@ class OldReviewedPages extends SpecialPage
 				) .
 				( FlaggedRevs::qualityVersions() ?
 					"<span style='white-space: nowrap;'>" .
-					FlaggedRevsXML::getLevelMenu( $this->level, false ) . '</span> '
+					FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-stable' ) . '</span> '
 					: ""
 				) .
 				( !FlaggedRevs::showStableByDefault() ?
@@ -177,13 +177,13 @@ class OldReviewedPages extends SpecialPage
 	protected function feedItem( $row ) {
 		$title = Title::MakeTitle( $row->page_namespace, $row->page_title );
 		if( $title ) {
-			$date = $row->fp_pending_since;
+			$date = $row->pending_since;
 			$comments = $title->getTalkPage()->getFullURL();
 			$curRev = Revision::newFromTitle( $title );
 			return new FeedItem(
 				$title->getPrefixedText(),
-				FeedUtils::formatDiffRow( $title, $row->fp_stable, $curRev->getId(),
-					$row->fp_pending_since, $curRev->getComment() ),
+				FeedUtils::formatDiffRow( $title, $row->stable, $curRev->getId(),
+					$row->pending_since, $curRev->getComment() ),
 				$title->getFullURL(),
 				$date,
 				$curRev->getUserText(),
@@ -201,10 +201,10 @@ class OldReviewedPages extends SpecialPage
 		$css = $stxt = $review = $quality = $underReview = '';
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title, wfMsg('oldreviewed-diff'),
-			"diff=cur&oldid={$row->fp_stable}&reviewform=1&diffonly=0" );
+			"diff=cur&oldid={$row->stable}&reviewform=1&diffonly=0" );
 		# Show quality level if there are several
 		if( FlaggedRevs::qualityVersions() ) {
-			$quality = $row->fp_quality ?
+			$quality = $row->quality ?
 				wfMsgHtml('revreview-lev-quality') : wfMsgHtml('revreview-lev-sighted');
 			$quality = " <b>[{$quality}]</b>";
 		}
@@ -219,10 +219,10 @@ class OldReviewedPages extends SpecialPage
 			$watching = ''; // leave out data
 		}
 		# Get how long the first unreviewed edit has been waiting...
-		if( $row->fp_pending_since ) {
+		if( $row->pending_since ) {
 			static $currentTime;
 			$currentTime = wfTimestamp( TS_UNIX ); // now
-			$firstPendingTime = wfTimestamp( TS_UNIX, $row->fp_pending_since );
+			$firstPendingTime = wfTimestamp( TS_UNIX, $row->pending_since );
 			$hours = ($currentTime - $firstPendingTime)/3600;
 			// After three days, just use days
 			if( $hours > (3*24) ) {
@@ -241,7 +241,7 @@ class OldReviewedPages extends SpecialPage
 		} else {
 			$age = ""; // wtf?
 		}
-		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->fp_stable, $row->page_latest );
+		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->stable, $row->page_latest );
 		# Show if a user is looking at this page
 		if( ($val = $wgMemc->get($key)) ) {
 			$underReview = " <b class='fr-under-review'>".wfMsgHtml('oldreviewedpages-viewing').'</b>';
@@ -277,13 +277,13 @@ class OldReviewedPages extends SpecialPage
 }
 
 /**
- * Query to list out unreviewed pages
+ * Query to list out outdated reviewed pages
  */
 class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $category, $namespace;
 
-	function __construct( $form, $namespace, $level=0, $category='', $size=NULL,
+	function __construct( $form, $namespace, $level=-1, $category='', $size=NULL,
 		$watched=false, $stable=false )
 	{
 		$this->mForm = $form;
@@ -300,7 +300,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		}
 		$this->namespace = $namespace;
 		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
-		$this->level = ($level >= 1 && $level <= 2) ? $level : 0;
+		$this->level = ($level >= 0 && $level <= 2) ? $level : -1;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		$this->size = $size ? $size : NULL;
 		$this->watched = (bool)$watched;
@@ -322,34 +322,62 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		global $wgUser;
 		$conds = $this->mConds;
-		$tables = array( 'flaggedpages', 'page', 'revision' );
-		$fields = array( 'page_namespace','page_title','page_len','fp_stable',
-			'fp_quality', 'fp_pending_since','rev_len','page_latest' );
-		$conds[] = 'page_id = fp_page_id';
-		# Overconstrain rev_page to force PK use
-		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';
-		$conds[] = 'fp_pending_since IS NOT NULL';
+		$tables = array( 'page', 'revision' );
+		$fields = array('page_namespace','page_title','page_len','rev_len','page_latest');
+		# Show outdated "stable" versions
+		if( $this->level < 0 ) {
+			$tables[] = 'flaggedpages';
+			$fields[] = 'fp_stable AS stable';
+			$fields[] = 'fp_quality AS quality';
+			$fields[] = 'fp_pending_since AS pending_since';
+			$conds[] = 'page_id = fp_page_id';
+			# Overconstrain rev_page to force PK use
+			$conds[] = 'rev_page = page_id AND rev_id = fp_stable';
+			$conds[] = 'fp_pending_since IS NOT NULL';
+			$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
+			# Filter by pages configured to be stable
+			if( $this->stable ) {
+				$tables[] = 'flaggedpage_config';
+				$conds[] = 'fp_page_id = fpc_page_id';
+				$conds['fpc_override'] = 1;
+			}
+			# Filter by category
+			if( $this->category ) {
+				$tables[] = 'categorylinks';
+				$conds[] = 'cl_from = fp_page_id';
+				$conds['cl_to'] = $this->category;
+				$useIndex['categorylinks'] = 'cl_from';
+			}
+		# Show outdated version for a specific review level
+		} else {
+			$tables[] = 'flaggedpage_pending';
+			$fields[] = 'fpp_rev_id AS stable';
+			$fields[] = 'fpp_quality AS quality';
+			$fields[] = 'fpp_pending_since AS pending_since';
+			$conds[] = 'page_id = fpp_page_id';
+			# Overconstrain rev_page to force PK use
+			$conds[] = 'rev_page = page_id AND rev_id = fpp_rev_id';
+			$conds[] = 'fpp_pending_since IS NOT NULL';
+			$useIndex = array('flaggedpage_pending' => 'fpp_quality_pending','page' => 'PRIMARY');
+			# Filter by review level
+			$conds['fpp_quality'] = $this->level;
+			# Filter by pages configured to be stable
+			if( $this->stable ) {
+				$tables[] = 'flaggedpage_config';
+				$conds[] = 'fpp_page_id = fpc_page_id';
+				$conds['fpc_override'] = 1;
+			}
+			# Filter by category
+			if( $this->category ) {
+				$tables[] = 'categorylinks';
+				$conds[] = 'cl_from = fpp_page_id';
+				$conds['cl_to'] = $this->category;
+				$useIndex['categorylinks'] = 'cl_from';
+			}
+		}
 		# Filter namespace
 		if( $this->namespace !== NULL ) {
 			$conds['page_namespace'] = $this->namespace;
-		}
-		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
-		# Filter by review level
-		if( $this->level >= 1 ) {
-			$conds[] = "fp_quality >= {$this->level}";
-		}
-		# Filter by pages configured to be stable
-		if( $this->stable ) {
-			$tables[] = 'flaggedpage_config';
-			$conds[] = 'fp_page_id = fpc_page_id';
-			$conds['fpc_override'] = 1;
-		}
-		# Filter by category
-		if( $this->category ) {
-			$tables[] = 'categorylinks';
-			$conds[] = 'cl_from = page_id';
-			$conds['cl_to'] = $this->category;
-			$useIndex['categorylinks'] = 'cl_from';
 		}
 		# Filter by watchlist
 		if( $this->watched && ($uid = $wgUser->getId()) ) {
@@ -371,7 +399,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getIndexField() {
-		return 'fp_pending_since';
+		return 'pending_since';
 	}
 	
 	function getStartBody() {

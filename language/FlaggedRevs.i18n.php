@@ -194,6 +194,7 @@ Please check the URL you used to access this page.',
 	'readerfeedback-finished'      => 'Thank you!',
 	
 	'revreview-filter-all'         => 'all',
+	'revreview-filter-stable'      => 'stable',
 	'revreview-filter-approved'    => 'Approved',
 	'revreview-filter-reapproved'  => 'Re-approved',
 	'revreview-filter-unapproved'  => 'Unapproved',

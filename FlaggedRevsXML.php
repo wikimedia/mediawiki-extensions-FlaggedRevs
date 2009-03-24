@@ -44,15 +44,15 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of review levels
 	 * @param int $selected, selected level
-	 * @param bool $all all selector?
+	 * @param string $all, all selector msg?
 	 * @param int $max max level?
 	 */
-	public static function getLevelMenu( $selected=null, $all='all', $max=2 ) {
+	public static function getLevelMenu( $selected=null, $all='revreview-filter-all', $max=2 ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='wpLevel'>" . wfMsgHtml('revreview-levelfilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
-		if( $all === 'all' )
-			$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
+		if( $all !== false )
+			$s .= Xml::option( wfMsg( $all ), -1, $selected===-1 );
 		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), 0, $selected===0 );
 		if( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), 1, $selected===1 );
