@@ -9,7 +9,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'reviewedpages' => 'Reviewed pages',
-	'reviewedpages-leg' => 'List pages reviewed to a certain level',
+	'reviewedpages-leg' => 'List pages by highest level',
 	'reviewedpages-list' => 'The following pages have been reviewed to the specified level',
 	'reviewedpages-none' => 'There are no pages in this list',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
