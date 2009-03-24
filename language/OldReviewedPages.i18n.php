@@ -516,6 +516,7 @@ $messages['he'] = array(
 	'oldreviewedpages-recent' => 'פחות משעה',
 	'oldreviewed-category' => 'קטגוריה:',
 	'oldreviewed-watched' => 'ברשימת המעקב שלי',
+	'oldreviewed-stable' => 'יציב',
 	'oldreviewed-diff' => 'בדיקה',
 	'oldreviewed-size' => 'השינוי המירבי בגודל בבתים:',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',
