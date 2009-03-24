@@ -283,7 +283,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $category, $namespace;
 
-	function __construct( $form, $namespace, $level=NULL, $category='', $size=NULL,
+	function __construct( $form, $namespace, $level=0, $category='', $size=NULL,
 		$watched=false, $stable=false )
 	{
 		$this->mForm = $form;
@@ -299,7 +299,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$namespace = $wgFlaggedRevsNamespaces;
 		}
 		$this->namespace = $namespace;
-		$this->level = $level;
+		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
+		$this->level = ($level >= 1 && $level <= 2) ? $level : 0;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
 		$this->size = $size ? $size : NULL;
 		$this->watched = (bool)$watched;
@@ -322,8 +323,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		global $wgUser;
 		$conds = $this->mConds;
 		$tables = array( 'flaggedpages', 'page', 'revision' );
-		$fields = array('page_namespace','page_title','page_len','fp_stable','fp_quality',
-			'fp_pending_since','rev_len','page_latest');
+		$fields = array( 'page_namespace','page_title','page_len','fp_stable',
+			'fp_quality', 'fp_pending_since','rev_len','page_latest' );
 		$conds[] = 'page_id = fp_page_id';
 		# Overconstrain rev_page to force PK use
 		$conds[] = 'rev_page = fp_page_id AND rev_id = fp_stable';
@@ -334,8 +335,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		}
 		$useIndex = array('flaggedpages' => 'fp_pending_since','page' => 'PRIMARY');
 		# Filter by review level
-		if( $this->level >= 1 && $this->level <= 2 ) {
-			# 0 = sighted; 1 = quality/pristine
+		if( $this->level >= 1 ) {
 			$conds[] = "fp_quality >= {$this->level}";
 		}
 		# Filter by pages configured to be stable
@@ -359,7 +359,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$conds[] = 'page_title = wl_title';
 		}
 		# Filter by bytes changed
-		if( $this->size ) {
+		if( $this->size > 0 ) {
 			$conds[] = 'ABS(page_len - rev_len) < '.intval($this->size);
 		}
 		return array(
