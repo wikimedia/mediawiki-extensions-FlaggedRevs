@@ -236,7 +236,7 @@ class RevisionReview extends UnlistedSpecialPage
 			return '<err#>';
 		}
 		// Incomplete review?
-		if( !$form->oldid ) {
+		if( !$form->oldid || is_null($form->page) ) {
 			return '<err#>';
 		}
 		if( $form->unapprovedTags && $form->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
