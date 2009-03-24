@@ -369,7 +369,7 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'reviewedpages' => 'דפים שנבדקו',
-	'reviewedpages-leg' => 'רשימת הדפים שאושרו עד רמה מסוימת',
+	'reviewedpages-leg' => 'רשימת הדפים שאושרו לפי הרמה הגבוהה ביותר',
 	'reviewedpages-list' => 'הדפים הבאים אושרו עד לרמה שצוינה',
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
 	'reviewedpages-all' => 'גרסאות שנבדקו',
