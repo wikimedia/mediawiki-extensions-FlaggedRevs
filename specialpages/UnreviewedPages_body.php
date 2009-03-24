@@ -29,6 +29,7 @@ class UnreviewedPages extends SpecialPage
 		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
 		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
 		$category = trim( $wgRequest->getVal( 'category' ) );
+		$level = $wgRequest->getInt( 'level' );
 		$hideRedirs = $wgRequest->getBool( 'hideredirs', true );
 		
 		// show/hide links
@@ -43,12 +44,18 @@ class UnreviewedPages extends SpecialPage
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
 			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) . '<p>' );
+		# Add dropdowns as needed
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
+		if( FlaggedRevs::qualityVersions() ) {
+			$wgOut->addHTML( FlaggedRevsXML::getLevelMenu( $level, false, 1 ) . '&nbsp;' );
+		}
 		$wgOut->addHTML( 
+			"<span style='white-space: nowrap;'>" .
 			Xml::label( wfMsg("unreviewed-category"), 'category' ) . '&nbsp;' .
-			Xml::input( 'category', 30, $category, array('id' => 'category') ) . '<br/>' .
+			Xml::input( 'category', 30, $category, array('id' => 'category') ) . 
+			'</span><br/>' .
 			$showhideredirs . '&nbsp;&nbsp;' . 
 			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"
@@ -66,7 +73,7 @@ class UnreviewedPages extends SpecialPage
 				$wgOut->addHTML( wfMsg( 'perfcached' ) );
 			}
 		}
-		$pager = new UnreviewedPagesPager( $this, $live, $namespace, !$hideRedirs, $category );
+		$pager = new UnreviewedPagesPager( $this, $live, $namespace, !$hideRedirs, $category, $level );
 		if( $pager->getNumRows() ) {
 			$wgOut->addHTML( wfMsgExt('unreviewed-list', array('parse') ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -159,7 +166,7 @@ class UnreviewedPages extends SpecialPage
 			array('page_namespace' => $wgFlaggedRevsNamespaces), 
 			__METHOD__ );
 		$ratio = $pages/($pages - $reviewedpages);
-		# If dist. is normalized, # of rows scanned = $ratio * LIMIT (or until list runs out)
+		# If dist. is equal, # of rows scanned = $ratio * LIMIT (or until list runs out)
 		return ($ratio <= 500);
 	}
 }
@@ -171,7 +178,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $live, $namespace, $category, $showredirs;
 
-	function __construct( $form, $live, $namespace, $redirs=false, $category=NULL ) {
+	function __construct( $form, $live, $namespace, $redirs=false, $category=NULL, $level=0 ) {
 		$this->mForm = $form;
 		$this->live = (bool)$live;
 		# Must be a content page...
@@ -184,6 +191,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
+		$this->level = intval($level);
 		$this->showredirs = (bool)$redirs;
 		parent::__construct();
 		// Don't get to expensive
@@ -201,7 +209,12 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		$conds = $this->mConds;
 		$fields = array('page_namespace','page_title','page_len','page_id');
-		$conds[] = 'fp_page_id IS NULL';
+		# Filter by level
+		if( $this->level == 1 ) {
+			$conds[] = "fp_page_id IS NULL OR fp_quality = 0";
+		} else {
+			$conds[] = 'fp_page_id IS NULL';
+		}
 		# Reviewable pages only
 		$conds['page_namespace'] = $this->namespace;
 		# No redirects
@@ -233,10 +246,17 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	function getQueryCacheInfo() {
 		$conds = $this->mConds;
 		$fields = array('page_namespace','page_title','page_len','qc_value');
-		$conds['qc_type'] = 'fr_unreviewedpages';
+		# Re-join on flaggedpages to double-check since things
+		# could have changed since the cache date. Also, use
+		# the proper cache for this level.
+		if( $this->level == 1 ) {
+			$conds['qc_type'] = 'fr_unreviewedpages_q';
+			$conds[] = "fp_page_id IS NULL OR fp_quality < {$this->level}";
+		} else {
+			$conds['qc_type'] = 'fr_unreviewedpages';
+			$conds[] = 'fp_page_id IS NULL';
+		}
 		$conds[] = 'qc_value = page_id';
-		# Re-join on flaggedpages to double-check
-		$conds[] = 'fp_page_id IS NULL';
 		# Reviewable pages only
 		$conds['qc_namespace'] = $this->namespace;
 		# No redirects
