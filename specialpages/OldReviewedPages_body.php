@@ -348,6 +348,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 				$conds['cl_to'] = $this->category;
 				$useIndex['categorylinks'] = 'cl_from';
 			}
+			$this->mIndexField = 'fp_pending_since';
 		# Show outdated version for a specific review level
 		} else {
 			$tables[] = 'flaggedpage_pending';
@@ -374,7 +375,9 @@ class OldReviewedPagesPager extends AlphabeticPager {
 				$conds['cl_to'] = $this->category;
 				$useIndex['categorylinks'] = 'cl_from';
 			}
+			$this->mIndexField = 'fpp_pending_since';
 		}
+		$fields[] = $this->mIndexField; // Pager needs this
 		# Filter namespace
 		if( $this->namespace !== NULL ) {
 			$conds['page_namespace'] = $this->namespace;
@@ -399,7 +402,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	}
 
 	function getIndexField() {
-		return 'pending_since';
+		return $this->mIndexField;
 	}
 	
 	function getStartBody() {
