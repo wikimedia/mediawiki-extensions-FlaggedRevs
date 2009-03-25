@@ -1373,7 +1373,7 @@ EOT;
 	}
 	
 	public static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
-		if( !$file->isLocal() ) return; // local files only
+		if( !$file->isLocal() ) return true; // local files only
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
