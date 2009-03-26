@@ -4500,6 +4500,7 @@ $messages['he'] = array(
 	'readerfeedback-submitting' => 'נשלח...',
 	'readerfeedback-finished' => 'תודה!',
 	'revreview-filter-all' => 'הכול',
+	'revreview-filter-stable' => 'יציב',
 	'revreview-filter-approved' => 'מאושר',
 	'revreview-filter-reapproved' => 'אושר מחדש',
 	'revreview-filter-unapproved' => 'לא אושר',
