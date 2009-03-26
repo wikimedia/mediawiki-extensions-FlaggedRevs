@@ -37,21 +37,6 @@ $messages['qqq'] = array(
 	'reviewedpages-best' => '{{Flagged Revs}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'reviewedpages' => 'Kodvdud lehtpoled',
-	'reviewedpages-leg' => 'Lehtpoled, kudambad oma sanuded märitud arvsanan (nimikirjutez)',
-	'reviewedpages-list' => 'Nened lehtpoled oma kodvdud da arvosteldud ozutadud pindaks',
-	'reviewedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
-	'reviewedpages-lev-0' => 'Arvosteldud',
-	'reviewedpages-lev-1' => 'Lopuližikš kodvdud',
-	'reviewedpages-lev-2' => 'Valitud',
-	'reviewedpages-all' => 'kodvdud versijad',
-	'reviewedpages-best' => 'parahim versii',
-);
-
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -72,7 +57,7 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
-	'reviewedpages-leg' => 'عرض الصفحات المراجعة حتى مستوى معين',
+	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى',
 	'reviewedpages-list' => 'الصفحات التالية تمت مراجعتها حتى المستوى المحدد',
 	'reviewedpages-none' => 'لا توجد صفحات في هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
@@ -203,7 +188,7 @@ $messages['de'] = array(
  */
 $messages['dsb'] = array(
 	'reviewedpages' => 'Pśeglědane boki',
-	'reviewedpages-leg' => 'Lisćina bokow, kótarež su se pśeglědali za wěstym niwowom',
+	'reviewedpages-leg' => 'Boki pó nejwušej rowninje nalicyś',
 	'reviewedpages-list' => 'Slědujuce boki su se za pódanym niwowom pśeglědali',
 	'reviewedpages-none' => 'Toś ta lisćina njewopśimujo boki.',
 	'reviewedpages-lev-0' => 'Pśeglědany',
@@ -246,7 +231,7 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'reviewedpages' => 'Páginas revisadas',
-	'reviewedpages-leg' => 'Lista de páginas revisadas a un cierto nivel',
+	'reviewedpages-leg' => 'Lista de páginas por nivel más alto',
 	'reviewedpages-list' => 'Las siguientes páginas han sido revisadas al nivel especificado',
 	'reviewedpages-none' => 'No hay páginas en esta lista',
 	'reviewedpages-lev-0' => 'Visto',
@@ -327,7 +312,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'reviewedpages' => 'Páxinas revisadas',
-	'reviewedpages-leg' => 'Lista das páxinas revisadas a un certo nivel',
+	'reviewedpages-leg' => 'Lista as páxinas polo nivel máis alto',
 	'reviewedpages-list' => 'As seguintes páxinas foron revisadas a un nivel específico',
 	'reviewedpages-none' => 'Non hai páxinas nesta lista',
 	'reviewedpages-lev-0' => 'Revisado',
@@ -354,7 +339,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'reviewedpages' => 'Lischt vu dr Syte, wu vum Fäldhieter gsäh sin',
-	'reviewedpages-leg' => 'Lischt vu dr Syte, wu sicher vum Fäldhieter aagluegt sin',
+	'reviewedpages-leg' => 'D Syte no em hegschte Level uflischte',
 	'reviewedpages-list' => 'Die Syte sin gsichtet un hän dr Status, wu aagee isch, iberchu',
 	'reviewedpages-none' => 'Die Lischt isch läär.',
 	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
@@ -416,7 +401,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'reviewedpages' => 'Pruwowane strony',
-	'reviewedpages-leg' => 'Lisćina stronow přepruwowanych za wěstym niwowom',
+	'reviewedpages-leg' => 'Strony po najwyšej runinje nalistować',
 	'reviewedpages-list' => 'Slědowace strony buchu za podatu runinu přepruwowane',
 	'reviewedpages-none' => 'W tutej lisćinje strony njejsu',
 	'reviewedpages-lev-0' => 'Přehladany',
@@ -505,7 +490,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'reviewedpages' => '査読済みページ',
-	'reviewedpages-leg' => '査読により一定水準以上の評価を受けたページを一覧する',
+	'reviewedpages-leg' => 'もっとも高い評価を受けたページを一覧する',
 	'reviewedpages-list' => '以下は、査読結果が指定した水準にあるページです',
 	'reviewedpages-none' => '表示すべきページはありません',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
@@ -625,7 +610,7 @@ $messages['li'] = array(
  */
 $messages['mk'] = array(
 	'reviewedpages' => 'Оценувани страници',
-	'reviewedpages-leg' => 'Листа на страници оценувани до одредено ниво',
+	'reviewedpages-leg' => 'Листа на страници на највисоко ниво',
 	'reviewedpages-list' => 'Следните страници биле оценувани до наведеното ниво',
 	'reviewedpages-none' => 'Нема страници во оваа листа',
 	'reviewedpages-lev-0' => 'Прегледани',
@@ -693,7 +678,7 @@ $messages['nah'] = array(
  */
 $messages['nl'] = array(
 	'reviewedpages' => "Pagina's met eindredactie",
-	'reviewedpages-leg' => "Een lijst met pagina's met eindredactie tot het aangegeven niveau",
+	'reviewedpages-leg' => "Een lijst met pagina's met het hoogste niveau",
 	'reviewedpages-list' => "De volgende pagina's hebben eindredactie tot het aangegeven niveau",
 	'reviewedpages-none' => 'Geen resultaten',
 	'reviewedpages-lev-0' => 'Gecontroleerd',
@@ -746,7 +731,7 @@ $messages['nso'] = array(
  */
 $messages['oc'] = array(
 	'reviewedpages' => 'Pagina passadas en revista',
-	'reviewedpages-leg' => 'Lista de las paginas passadas en revista a un cèrt nivèl',
+	'reviewedpages-leg' => 'Lista de las paginas per nivèl pus naut',
 	'reviewedpages-list' => 'Las paginas seguentas son estadas passadas en revista al nivèl especificat',
 	'reviewedpages-none' => 'Aquesta lista es voida',
 	'reviewedpages-lev-0' => 'Vist',
@@ -762,7 +747,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'reviewedpages' => 'Przejrzane strony',
-	'reviewedpages-leg' => 'Lista oznaczonych stron',
+	'reviewedpages-leg' => 'Lista stron posortowana wg jakości',
 	'reviewedpages-list' => 'Poniższe strony zostały oznaczone i mają określony status',
 	'reviewedpages-none' => 'Brak stron na tej liście',
 	'reviewedpages-lev-0' => 'Przejrzane',
@@ -781,10 +766,11 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Malafaya
  */
 $messages['pt'] = array(
 	'reviewedpages' => 'Páginas analisadas',
-	'reviewedpages-leg' => 'Listar páginas que tenham sido analisadas em um nível específico',
+	'reviewedpages-leg' => 'Listar páginas por nível mais alto',
 	'reviewedpages-list' => 'As páginas a seguir foram analisadas no nível especificado',
 	'reviewedpages-none' => 'Não há páginas nesta lista',
 	'reviewedpages-lev-0' => 'Objetiva',
@@ -822,7 +808,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'reviewedpages' => 'Pàggene reviste',
-	'reviewedpages-leg' => "Liste de le pàggene riviste de 'nu certe levèlle",
+	'reviewedpages-leg' => 'Liste de le pàggene de levèlle cchiù ierte',
 	'reviewedpages-list' => "Le pàggene seguende onne state reviste sus a 'nu specifiche levèlle",
 	'reviewedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'reviewedpages-lev-0' => 'Viste',
@@ -867,7 +853,7 @@ $messages['sah'] = array(
  */
 $messages['sk'] = array(
 	'reviewedpages' => 'Skontrolované stránky',
-	'reviewedpages-leg' => 'Zoznam stránok skontrolovaných do určenej úrovne',
+	'reviewedpages-leg' => 'Zoznam stránok podľa najvyššej úrovne',
 	'reviewedpages-list' => 'Nasledujúce stránky boli skontrolované do určenej úrovne',
 	'reviewedpages-none' => 'V tomto zozname sa nenachýdzajú žiadne stránky',
 	'reviewedpages-lev-0' => 'Videná',
@@ -991,7 +977,7 @@ $messages['tl'] = array(
  */
 $messages['tr'] = array(
 	'reviewedpages' => 'Gözden geçirilmiş sayfalar',
-	'reviewedpages-leg' => 'Belirli bir seviyede gözden geçirilmiş sayfaları listele',
+	'reviewedpages-leg' => 'Sayfaları en yüksek seviyeye göre listele',
 	'reviewedpages-list' => 'Sıradaki sayfalar belirlenen seviyede gözden geçirilmiştir',
 	'reviewedpages-none' => 'Bu listede hiç sayfa yok',
 	'reviewedpages-lev-0' => 'Gözlenmiş',
@@ -1031,13 +1017,28 @@ $messages['vec'] = array(
 	'reviewedpages-best' => 'version prinçipal',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'reviewedpages' => 'Kodvdud lehtpoled',
+	'reviewedpages-leg' => 'Lehtpoled, kudambad oma sanuded märitud arvsanan (nimikirjutez)',
+	'reviewedpages-list' => 'Nened lehtpoled oma kodvdud da arvosteldud ozutadud pindaks',
+	'reviewedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'reviewedpages-lev-0' => 'Arvosteldud',
+	'reviewedpages-lev-1' => 'Lopuližikš kodvdud',
+	'reviewedpages-lev-2' => 'Valitud',
+	'reviewedpages-all' => 'kodvdud versijad',
+	'reviewedpages-best' => 'parahim versii',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Vinhtantran
  */
 $messages['vi'] = array(
 	'reviewedpages' => 'Các trang đã duyệt',
-	'reviewedpages-leg' => 'Liệt kê các trang được duyệt với một cấp độ nào đó',
+	'reviewedpages-leg' => 'Liệt kê các trang theo cấp độ cao nhất',
 	'reviewedpages-list' => 'Các trang sau đã được duyệt thành một cấp độ nào đó',
 	'reviewedpages-none' => 'Danh sách này không có trang nào',
 	'reviewedpages-lev-0' => 'Đã xem qua',

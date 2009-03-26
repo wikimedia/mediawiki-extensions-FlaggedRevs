@@ -33,21 +33,6 @@ $messages['qqq'] = array(
 {{Identical|Configuration}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'stablepages' => 'Stabiližed lehtpoled',
-	'stablepages-stable' => 'stabiline versii',
-	'stablepages-text' => 'Lehtpoled, kudambad oma järgetud ičeksaz, miše ozutada lugijoile stabiližid versijoid augotižjärgendusen mödhe - nimikirjutez:',
-	'stablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
-	'stablepages-config' => 'Järgendused',
-	'stablepages-prec-none' => 'ei ole tobmust',
-	'stablepages-prec-quality' => 'Ladun tobmuz',
-	'stablepages-prec-pristine' => 'koskmatomuden tobmuz',
-	'stablepages-precedence' => 'Tobmuz:',
-);
-
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -733,6 +718,21 @@ $messages['vec'] = array(
 	'stablepages-prec-quality' => 'precedensa par qualità',
 	'stablepages-prec-pristine' => 'precedensa originaria',
 	'stablepages-precedence' => 'Precedensa:',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'stablepages' => 'Stabiližed lehtpoled',
+	'stablepages-stable' => 'stabiline versii',
+	'stablepages-text' => 'Lehtpoled, kudambad oma järgetud ičeksaz, miše ozutada lugijoile stabiližid versijoid augotižjärgendusen mödhe - nimikirjutez:',
+	'stablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'stablepages-config' => 'Järgendused',
+	'stablepages-prec-none' => 'ei ole tobmust',
+	'stablepages-prec-quality' => 'Ladun tobmuz',
+	'stablepages-prec-pristine' => 'koskmatomuden tobmuz',
+	'stablepages-precedence' => 'Tobmuz:',
 );
 
 /** Vietnamese (Tiếng Việt)

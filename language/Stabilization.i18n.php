@@ -115,50 +115,6 @@ $3 is the correxponding time in the wiki's content language.
 {{Identical|Expires $1 (UTC)}}",
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'stabilization-tab' => 'vet',
-	'stabilization' => 'Lehtpolen stabilizacii',
-	'stabilization-text' => "'''Toižetagat järgendused, miše pätta, kut pidab valita da ozutelda [[:\$1|\$1]]-lehtpolen stabiline versii.'''
-
-Konz tö toižetat ''stabiližen versijan valičendan'' järgendused, miše kävutada \"laduline\" vai \"puhtaz\" 
-järgendusen mödhe, ka kodvgat, om-ik lehtpolel nigomid toižetusid, ika tö et sabustagoi metod.",
-	'stabilization-perm' => 'Teile ei ulotu oiktusid, miše toižetada stabiližen versijan ozutamižen järgendused.
-Naku oma nügüdläižed järgendused [[:$1|$1]]-lehtpolen täht:',
-	'stabilization-page' => 'Lehtpolen nimi:',
-	'stabilization-leg' => 'Stabiližen versijan järgendusiden vahvištoitand',
-	'stabilization-select' => 'Stabiližen versijan valičend',
-	'stabilization-select1' => 'Naku om veresemb kodvdud versii; ku mugošt ei ole, ka veresemb arvosteldud versijoišpäi.',
-	'stabilization-select2' => "Jäl'gmäine kodvdud versii, vahvištoitandan tazopindha kacmata",
-	'stabilization-select3' => "Jäl'gmäine koskmatoi versii; ku mugošt ei ole, ka jäl'gmäine kodvdud vai arvosteldud versii.",
-	'stabilization-def' => 'Versii, kudambad ozutadas augotižjärgendusen mödhe',
-	'stabilization-def1' => 'Stabiline versii; ku mugošt ei ole, ka nügüdläine',
-	'stabilization-def2' => 'Nügüdläine versii',
-	'stabilization-restrict' => 'Avtoarvostelendan kaidendused',
-	'stabilization-restrict-none' => 'Ei ole ližakaidendusid',
-	'stabilization-submit' => 'Vahvištoitta',
-	'stabilization-notexists' => 'Ei ole "[[:$1|$1]]"-nimitadud lehtpolen versijad. Ei voi järgeta.',
-	'stabilization-notcontent' => '"[[:$1|$1]]"-lehtpol\'t ei voi kodvda.
-Ei voi järgeta.',
-	'stabilization-comment' => 'Sü:',
-	'stabilization-otherreason' => 'Toine sü:',
-	'stabilization-expiry' => 'Lopstrok:',
-	'stabilization-othertime' => 'Toine aig',
-	'stabilization-sel-short' => "Jäl'gendusen järgenduz.",
-	'stabilization-sel-short-0' => 'Kodvdud',
-	'stabilization-sel-short-1' => 'Ei ole',
-	'stabilization-sel-short-2' => 'Koskmatoi',
-	'stabilization-def-short' => 'Augotižjärgendusen mödhe',
-	'stabilization-def-short-0' => 'Nügüdläine',
-	'stabilization-def-short-1' => 'Stabiline',
-	'stabilization-rest-short' => 'avtoarvostelend=$1',
-	'stabilize_expiry_invalid' => 'Petuzline lopstrok.',
-	'stabilize_expiry_old' => 'Nece tegendan lopmižen aig om jo männu.',
-	'stabilize-expiring' => 'lopiše aigal $1 (UTC)',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -1736,11 +1692,12 @@ $messages['mk'] = array(
 	'stabilization-leg' => 'Потврди нагодувања за стабилна верзија',
 	'stabilization-select' => 'Избор на стабилна верзија',
 	'stabilization-select1' => 'Последната квалитетна ревизија; ако не постои, тогаш последната прегледана',
-	'stabilization-select2' => 'Последната оценета ревизија',
+	'stabilization-select2' => 'Последната оценета ревизија, со оглед на нивото на валидација',
 	'stabilization-select3' => 'Последната нерасипана ревизија; ако не постои, тогаш последната квалитетна или прегледана.',
 	'stabilization-def' => 'Ревизија прикажана по основно при преглед на страница',
 	'stabilization-def1' => 'Стабилната ревизија; ако не постои, тогаш моменталната',
 	'stabilization-def2' => 'Моменталната ревизија',
+	'stabilization-restrict-none' => 'Нема дополнителни ограничувања',
 	'stabilization-submit' => 'Потврди',
 	'stabilization-notexists' => 'Нема страница насловена како "[[:$1|$1]]".
 Не е можно нагодување.',
@@ -2873,6 +2830,50 @@ No se pode canbiar le inpostassion.',
 	'stabilize_expiry_invalid' => 'Data de scadensa mìa valida.',
 	'stabilize_expiry_old' => 'Sta scadensa la xe zà passà.',
 	'stabilize-expiring' => 'scadensa $1 (UTC)',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Lehtpolen stabilizacii',
+	'stabilization-text' => "'''Toižetagat järgendused, miše pätta, kut pidab valita da ozutelda [[:\$1|\$1]]-lehtpolen stabiline versii.'''
+
+Konz tö toižetat ''stabiližen versijan valičendan'' järgendused, miše kävutada \"laduline\" vai \"puhtaz\" 
+järgendusen mödhe, ka kodvgat, om-ik lehtpolel nigomid toižetusid, ika tö et sabustagoi metod.",
+	'stabilization-perm' => 'Teile ei ulotu oiktusid, miše toižetada stabiližen versijan ozutamižen järgendused.
+Naku oma nügüdläižed järgendused [[:$1|$1]]-lehtpolen täht:',
+	'stabilization-page' => 'Lehtpolen nimi:',
+	'stabilization-leg' => 'Stabiližen versijan järgendusiden vahvištoitand',
+	'stabilization-select' => 'Stabiližen versijan valičend',
+	'stabilization-select1' => 'Naku om veresemb kodvdud versii; ku mugošt ei ole, ka veresemb arvosteldud versijoišpäi.',
+	'stabilization-select2' => "Jäl'gmäine kodvdud versii, vahvištoitandan tazopindha kacmata",
+	'stabilization-select3' => "Jäl'gmäine koskmatoi versii; ku mugošt ei ole, ka jäl'gmäine kodvdud vai arvosteldud versii.",
+	'stabilization-def' => 'Versii, kudambad ozutadas augotižjärgendusen mödhe',
+	'stabilization-def1' => 'Stabiline versii; ku mugošt ei ole, ka nügüdläine',
+	'stabilization-def2' => 'Nügüdläine versii',
+	'stabilization-restrict' => 'Avtoarvostelendan kaidendused',
+	'stabilization-restrict-none' => 'Ei ole ližakaidendusid',
+	'stabilization-submit' => 'Vahvištoitta',
+	'stabilization-notexists' => 'Ei ole "[[:$1|$1]]"-nimitadud lehtpolen versijad. Ei voi järgeta.',
+	'stabilization-notcontent' => '"[[:$1|$1]]"-lehtpol\'t ei voi kodvda.
+Ei voi järgeta.',
+	'stabilization-comment' => 'Sü:',
+	'stabilization-otherreason' => 'Toine sü:',
+	'stabilization-expiry' => 'Lopstrok:',
+	'stabilization-othertime' => 'Toine aig',
+	'stabilization-sel-short' => "Jäl'gendusen järgenduz.",
+	'stabilization-sel-short-0' => 'Kodvdud',
+	'stabilization-sel-short-1' => 'Ei ole',
+	'stabilization-sel-short-2' => 'Koskmatoi',
+	'stabilization-def-short' => 'Augotižjärgendusen mödhe',
+	'stabilization-def-short-0' => 'Nügüdläine',
+	'stabilization-def-short-1' => 'Stabiline',
+	'stabilization-rest-short' => 'avtoarvostelend=$1',
+	'stabilize_expiry_invalid' => 'Petuzline lopstrok.',
+	'stabilize_expiry_old' => 'Nece tegendan lopmižen aig om jo männu.',
+	'stabilize-expiring' => 'lopiše aigal $1 (UTC)',
 );
 
 /** Vietnamese (Tiếng Việt)

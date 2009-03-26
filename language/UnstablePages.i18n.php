@@ -28,17 +28,6 @@ $messages['qqq'] = array(
 {{Identical|Configuration}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'unstablepages' => 'Stabilitomad lehtpoled',
-	'unstablepages-stable' => 'Stabiline versii',
-	'unstablepages-text' => 'Kehtpoled, kudambiden täht om ičeksaz sätud järgenduz "ozutada mustkirjutuz augotižjärgendusen mödhe" (nimikirjutez).',
-	'unstablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
-	'unstablepages-config' => 'Järgendused',
-);
-
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -553,6 +542,17 @@ $messages['uk'] = array(
 	'unstablepages-text' => 'Нижче наведений список сторінок, для яких вручну встановлене налаштування показувати чорнову версію за замовчуванням.',
 	'unstablepages-none' => 'У цьому списку нема сторінок',
 	'unstablepages-config' => 'Налаштування',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'unstablepages' => 'Stabilitomad lehtpoled',
+	'unstablepages-stable' => 'Stabiline versii',
+	'unstablepages-text' => 'Kehtpoled, kudambiden täht om ičeksaz sätud järgenduz "ozutada mustkirjutuz augotižjärgendusen mödhe" (nimikirjutez).',
+	'unstablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'unstablepages-config' => 'Järgendused',
 );
 
 /** Vietnamese (Tiếng Việt)

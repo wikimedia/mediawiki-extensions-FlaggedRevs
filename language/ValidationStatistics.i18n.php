@@ -43,32 +43,6 @@ This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatis
 	'validationstatistics-total' => '{{Identical|Pages}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'validationstatistics' => 'Kodvindoiden statistik',
-	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
-oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''$2''' {{plural:$1|kävutajal|kävutajil}} 
-oma [[{{MediaWiki:Validationpage}}|«kodvijan»]] oiktused.",
-	'validationstatistics-time' => "''Alemba anttud andmused oma keširuidud i sikš voidas olda vanhtunuzin.''
-
-Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''$1'''; median om'''$3'''.
-$4
-Keskpidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden redakcijoidenke]] täht om '''$2'''.",
-	'validationstatistics-table' => "Alemba om anttud statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
-''Vanhtunuzikš'' kuctas lehtpolid, kudambad oma redaktiruidud jäl'ges stabilišt versijad.
-Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
-
-'''Homičend.''' Nece lehtpol' keširuiše. Andmusiden nägu voib olda vanhtunuden.",
-	'validationstatistics-ns' => 'Nimiavaruz',
-	'validationstatistics-total' => "Lehtpol't",
-	'validationstatistics-stable' => 'Kodvdud',
-	'validationstatistics-latest' => 'Tantoi kodvdud',
-	'validationstatistics-synced' => 'Kodvdud udes',
-	'validationstatistics-old' => 'Vanhtunuded',
-);
-
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */
@@ -406,7 +380,7 @@ $messages['grc'] = array(
 	'validationstatistics-ns' => 'Ὀνοματεῖον',
 	'validationstatistics-total' => 'Δέλτοι',
 	'validationstatistics-stable' => 'Ἀναθεωρημένη',
-	'validationstatistics-latest' => 'Ὑστάτη ἀναθεωρημένη',
+	'validationstatistics-latest' => 'Συγχρονισμένη',
 	'validationstatistics-synced' => 'Συγχρονισμένη/Ἐπιθεωρημένη',
 	'validationstatistics-old' => 'Ἀπηρχαιωμένη',
 );
@@ -628,14 +602,11 @@ $messages['km'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author Yknok29
  */
 $messages['ko'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
-	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서의 검토 통계가 이름공간별로 보여지고 있습니다.
-'''오래 된 문서'''는 안정 버전 이후에 편집이 있는 문서를 의미합니다.
-안정 버전이 마지막 버전이라면, 문서는 동기화될 것입니다.
-
-'''참고:''' 다음 데이터는 몇 시간마다 캐시되며 최신이 아닐 수도 있습니다.",
+	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서의 검토 통계가 이름공간별로 보여지고 있습니다.",
 	'validationstatistics-ns' => '이름공간',
 );
 
@@ -1103,6 +1074,32 @@ $4
 	'validationstatistics-latest' => 'Синхронізовані',
 	'validationstatistics-synced' => 'Повторно перевірені',
 	'validationstatistics-old' => 'Застарілі',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'validationstatistics' => 'Kodvindoiden statistik',
+	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
+oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''$2''' {{plural:$1|kävutajal|kävutajil}} 
+oma [[{{MediaWiki:Validationpage}}|«kodvijan»]] oiktused.",
+	'validationstatistics-time' => "''Alemba anttud andmused oma keširuidud i sikš voidas olda vanhtunuzin.''
+
+Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''$1'''; median om'''$3'''.
+$4
+Keskpidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden redakcijoidenke]] täht om '''$2'''.",
+	'validationstatistics-table' => "Alemba om anttud statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
+''Vanhtunuzikš'' kuctas lehtpolid, kudambad oma redaktiruidud jäl'ges stabilišt versijad.
+Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
+
+'''Homičend.''' Nece lehtpol' keširuiše. Andmusiden nägu voib olda vanhtunuden.",
+	'validationstatistics-ns' => 'Nimiavaruz',
+	'validationstatistics-total' => "Lehtpol't",
+	'validationstatistics-stable' => 'Kodvdud',
+	'validationstatistics-latest' => 'Tantoi kodvdud',
+	'validationstatistics-synced' => 'Kodvdud udes',
+	'validationstatistics-old' => 'Vanhtunuded',
 );
 
 /** Vietnamese (Tiếng Việt)
