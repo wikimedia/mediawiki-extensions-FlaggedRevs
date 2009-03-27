@@ -1083,7 +1083,6 @@ $messages['he'] = array(
 	'stabilization-def-short' => 'ברירת מחדל',
 	'stabilization-def-short-0' => 'נוכחי',
 	'stabilization-def-short-1' => 'יציב',
-	'stabilization-rest-short' => 'בדיקה אוטומטית=$1',
 	'stabilize_expiry_invalid' => 'תאריך הפקיעה אינו תקין.',
 	'stabilize_expiry_old' => 'תאריך הפקיעה כבר עבר.',
 	'stabilize-expiring' => 'פקיעה: $1 (UTC)',
