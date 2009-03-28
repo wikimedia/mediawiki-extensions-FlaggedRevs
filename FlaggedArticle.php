@@ -284,9 +284,11 @@ class FlaggedArticle extends Article {
 		}
 		// Is the page config altered?
 		if( $this->isPageLocked() ) {
-			$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
+			$prot = "<span class='fr-icon-locked' title=\"".
+				wfMsg('revreview-locked-title')."\"></span>";
 		} else if( $this->isPageUnlocked() ) {
-			$prot = "<span class='fr-icon-unlocked' title=\"".wfMsg('revreview-unlocked')."\"></span>";
+			$prot = "<span class='fr-icon-unlocked' title=\"".
+				wfMsg('revreview-unlocked-title')."\"></span>";
 		}
 		// Is there no stable version?
 		if( is_null($frev) ) {
@@ -567,6 +569,8 @@ class FlaggedArticle extends Article {
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if( !$this->isReviewable() || $this->limitedUI() )
 			return true;
+		# Show stabilization log
+		$this->showStabilityLog();
 		# Set new body html text as that of now
 		$tag = $warning = $prot = '';
 		# Check the newest stable version
@@ -602,9 +606,11 @@ class FlaggedArticle extends Article {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 				// Is the page config altered?
 				if( $this->isPageLocked() ) {
-					$prot = "<span class='fr-icon-locked' title=\"".wfMsg('revreview-locked')."\"></span>";
+					$prot = "<span class='fr-icon-locked' title=\"".
+						wfMsg('revreview-locked-title')."\"></span>";
 				} else if( $this->isPageUnlocked() ) {
-					$prot = "<span class='fr-icon-unlocked' title=\"".wfMsg('revreview-unlocked')."\"></span>";
+					$prot = "<span class='fr-icon-unlocked' title=\"".
+						wfMsg('revreview-unlocked-title')."\"></span>";
 				}
 				# Streamlined UI
 				if( FlaggedRevs::useSimpleUI() ) {
@@ -675,6 +681,27 @@ class FlaggedArticle extends Article {
 					"</table>" .
 					"</div>\n" );
 			}
+		}
+		return true;
+	}
+	
+	protected function showStabilityLog() {
+		global $wgOut;
+		# Only for pages manually made to be stable
+		if( $this->isPageLocked() ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
+			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
+			$wgOut->addWikiMsg( 'revreview-locked' );
+			LogEventsList::showLogExtract( $wgOut, 'stable',
+				$this->parent->getTitle()->getPrefixedText(), '', 1 );
+			$wgOut->addHTML( "</div>" );
+		} else if( $this->isPageUnlocked() ) {
+			wfLoadExtensionMessages( 'FlaggedRevs' );
+			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
+			$wgOut->addWikiMsg( 'revreview-unlocked' );
+			LogEventsList::showLogExtract( $wgOut, 'stable',
+				$this->parent->getTitle()->getPrefixedText(), '', 1 );
+			$wgOut->addHTML( "</div>" );
 		}
 		return true;
 	}
