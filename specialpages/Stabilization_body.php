@@ -46,10 +46,12 @@ class Stabilization extends UnlistedSpecialPage
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		} else if( !$this->page->exists() ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'), $this->page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
+				$this->page->getPrefixedText() ) );
 			return;
 		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'), $this->page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
+				$this->page->getPrefixedText() ) );
 			return;
 		}
 
@@ -99,7 +101,8 @@ class Stabilization extends UnlistedSpecialPage
 		global $wgOut, $wgLang, $wgUser;
 		# Must be a content page
 		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'), $this->page->getPrefixedText() ) );
+			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'),
+				$this->page->getPrefixedText() ) );
 			return;
 		}
 		# Add any error messages
@@ -119,7 +122,8 @@ class Stabilization extends UnlistedSpecialPage
 				function updateStabilizationDropdowns() {
 					val = document.getElementById('mwExpirySelection').value;
 					if( val == 'existing' )
-						document.getElementById('mwStabilize-expiry').value = ".Xml::encodeJsVar($this->oldExpiry).";
+						document.getElementById('mwStabilize-expiry').value = ".
+						Xml::encodeJsVar($this->oldExpiry).";
 					else if( val == 'othertime' )
 						document.getElementById('mwStabilize-expiry').value = '';
 					else
@@ -214,7 +218,8 @@ class Stabilization extends UnlistedSpecialPage
 					Xml::label( wfMsg('stabilization-othertime'), 'mwStabilize-expiry' ) .
 				'</td>
 				<td class="mw-input">' .
-					Xml::input( "mwStabilize-expiry", 50, $this->expiry ? $this->expiry : $this->oldExpiry, $attribs ) .
+					Xml::input( "mwStabilize-expiry", 50,
+						$this->expiry ? $this->expiry : $this->oldExpiry, $attribs ) .
 				'</td>
 			</tr>';
 		# Add comment input and submit button
@@ -243,7 +248,8 @@ class Stabilization extends UnlistedSpecialPage
 					<td></td>
 					<td class="mw-input">' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
-						"<label for='wpWatchthis'" . $this->skin->tooltipAndAccesskey( 'watch' ) . ">{$watchLabel}</label>" .
+						"<label for='wpWatchthis'" . $this->skin->tooltipAndAccesskey( 'watch' ) .
+							">{$watchLabel}</label>" .
 					'</td>
 				</tr>
 				<tr>
@@ -356,7 +362,8 @@ class Stabilization extends UnlistedSpecialPage
 				array( 'fpc_page_id' => $this->page->getArticleID() ),
 				__METHOD__ );
 			$changed = ($dbw->affectedRows() != 0); // did this do anything?
-		# Otherwise, add a row unless we are just setting it as the site default, or it is the same the current one...
+		# Otherwise, add a row unless we are just setting it as the site default,
+		# or it is the same the current one...
 		} else if( !$reset ) {
 			if( !$row || $row->fpc_select != $this->select || $row->fpc_override != $this->override
 				|| $row->fpc_level != $this->autoreview || $row->fpc_expiry != $expiry )
@@ -441,7 +448,7 @@ class Stabilization extends UnlistedSpecialPage
 		# that only let certain pages be reviewed.
 		if( $changed && $this->select != FLAGGED_VIS_LATEST ) {
 			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-			if( $frev && $frev->getRevId() != $latest ) {
+			if( $frev && $frev->getRevId() != $nullRevId ) {
 				$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
 			}
 		}
