@@ -300,6 +300,8 @@ $messages['es'] = array(
 	'ratinghistory-3months' => 'últimos 3 meses',
 	'ratinghistory-year' => 'último año',
 	'ratinghistory-3years' => 'últimos 3 años',
+	'ratinghistory-ave' => 'Promedio: $1',
+	'ratinghistory-chart' => 'Valoraciones de lectores a través del tiempo',
 	'ratinghistory-purge' => 'purgar cache',
 	'ratinghistory-table' => 'vista general de valoraciones de los lectores',
 	'ratinghistory-users' => 'Usuarios que dieron valoraciones',
@@ -307,6 +309,13 @@ $messages['es'] = array(
 	'readerfeedback-svg' => 'Ver como SVG',
 	'ratinghistory-table-rating' => 'Rating',
 	'ratinghistory-table-votes' => 'Votos',
+	'ratinghistory-none' => 'No hay suficientes datos de retroalimentación de lector disponible para gráficos en este momento.',
+	'ratinghistory-legend' => "La '''valoración promedio diaria''' <font color=\"blue\">''(azul)''</font> y
+'''valoración promedio de ejecución''' <font color=\"green\">''(verde)''</font> están graficados abajo, por fecha. 
+La  '''valoración promedio de ejecución''' es simplemente el promedio de todas las valoraciones diarias ''dentro'' de este marco temporal por cada día.
+
+Escala: '''[1]''' - Pobre; '''[2]''' - Bajo; '''[3]''' - Regular; '''[4]''' - Alto; '''[5]''' - Excelente;
+El '''número de revisiones por día''' <font color=\"red\">''(rojo)''</font> es mostrado en los gráficos de abajo, en una escala ''1:\$1''.",
 	'right-feedback' => 'Usar el formulario de retroalimentación para valorar una página',
 );
 
@@ -783,6 +792,15 @@ $messages['lb'] = array(
 	'ratinghistory-table-votes' => 'Stëmmen',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'ratinghistory-3years' => 'aafgeloupe 3 jaor',
+	'ratinghistory-graph' => '$2 van "$3" ($1 {{PLURAL:$1|waardering|waarderinge}})',
+	'readerfeedback-svg' => 'Bekiek es SVG',
+);
+
 /** Macedonian (Македонски)
  * @author Brest
  */
@@ -1141,6 +1159,7 @@ $messages['ru'] = array(
 	'ratinghistory-3years' => 'последние 3 года',
 	'ratinghistory-ave' => 'Средняя: $1',
 	'ratinghistory-chart' => 'Оценки читателей за всё время',
+	'ratinghistory-purge' => 'очистить кэш',
 	'ratinghistory-table' => 'Обзор оценок читателей',
 	'ratinghistory-users' => 'Участники, которые дали оценку',
 	'ratinghistory-graph' => '$2 из «$3» ($1 {{PLURAL:$1|оценка|оценки|оценок}})',

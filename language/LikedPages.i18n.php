@@ -23,17 +23,6 @@ $messages['qqq'] = array(
 	'likedpages-graphs' => '{{identical|flaggedrevs-graphs}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'likedpages' => 'Korktas arvoitud lehtpoled',
-	'likedpages-leg' => 'Ectä korktas arvoitud lehtpoled',
-	'likedpages-list' => 'Alemba om nimikirjutez, kus lehtpoled oma järgetud lugijoiden arvsanoiden mödhe.',
-	'likedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid.',
-	'likedpages-graphs' => 'andmused arvostelendas',
-);
-
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -110,6 +99,7 @@ $messages['eo'] = array(
 $messages['es'] = array(
 	'likedpages' => 'Páginas altamente valoradas',
 	'likedpages-leg' => 'Encontrar páginas altamente valoradas',
+	'likedpages-list' => 'Lo de abajo es una lista de páginas ordenadas por su valoración de retroalimentación de lector.',
 	'likedpages-none' => 'No hay páginas en esta lista',
 	'likedpages-graphs' => 'datos de valoración',
 );
@@ -259,7 +249,11 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'likedpages' => 'Als reschtesch joot enjeshtoofte Sigge',
+	'likedpages-leg' => 'Als reschtesch joot enjeshtoofte Sigge fenge',
+	'likedpages-list' => 'Hee küt en Leß met Sigge. Se es donoh zotteet, wi joot de Lesser se enjeshtoof han.',
 	'likedpages-none' => 'En dä Leß sin kein Sigge.',
+	'likedpages-graphs' => 'Date vum Enshtoofe',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -432,6 +426,17 @@ $messages['uk'] = array(
 	'likedpages-list' => "Нижче поданий список сторінок, відсортованих за оцінкою за допомогою зворотного зв'язку читачів.",
 	'likedpages-none' => 'У цьому списку нема сторінок',
 	'likedpages-graphs' => 'дані рейтингу',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'likedpages' => 'Korktas arvoitud lehtpoled',
+	'likedpages-leg' => 'Ectä korktas arvoitud lehtpoled',
+	'likedpages-list' => 'Alemba om nimikirjutez, kus lehtpoled oma järgetud lugijoiden arvsanoiden mödhe.',
+	'likedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid.',
+	'likedpages-graphs' => 'andmused arvostelendas',
 );
 
 /** Vietnamese (Tiếng Việt)

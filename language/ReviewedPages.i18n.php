@@ -170,10 +170,12 @@ $messages['cs'] = array(
 	'reviewedpages-best' => 'nejlepší verze',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Umherirrender
+ */
 $messages['de'] = array(
 	'reviewedpages' => 'Liste der gesichteten Seiten',
-	'reviewedpages-leg' => 'Liste der markierten Seiten',
+	'reviewedpages-leg' => 'Liste der Seiten mit höchstem Level',
 	'reviewedpages-list' => 'Die folgenden Seiten wurden markierten und haben den angegebenen Status erhalten',
 	'reviewedpages-none' => 'Die Liste ist leer.',
 	'reviewedpages-lev-0' => 'Gesichtet',
@@ -693,7 +695,7 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'reviewedpages' => 'Vurderte sider',
-	'reviewedpages-leg' => 'Syn sider vurderte som eit visst nivå',
+	'reviewedpages-leg' => 'List opp sider etter høgaste nivå',
 	'reviewedpages-list' => 'Dei fylgjande sidene har vortne vurderte som det oppgjevne nivået',
 	'reviewedpages-none' => 'Det finst ingen sider i denne lista',
 	'reviewedpages-lev-0' => 'Vurdert',
@@ -961,7 +963,7 @@ $messages['tg-cyrl'] = array(
  */
 $messages['tl'] = array(
 	'reviewedpages' => 'Nasuring mga pahina',
-	'reviewedpages-leg' => 'Nagtatala ng nasuring mga pahina magpahanggang sa isang tiyak/partikular na antas',
+	'reviewedpages-leg' => 'Nagtatala ng mga pahina ayon sa pinakamataas na antas',
 	'reviewedpages-list' => 'Nasuri na ang sumusunod na mga pahina magpahanggang sa tinukoy na antas',
 	'reviewedpages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'reviewedpages-lev-0' => 'Namataan na',

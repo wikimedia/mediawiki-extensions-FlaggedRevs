@@ -256,6 +256,13 @@ Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita u
 $messages['es'] = array(
 	'validationstatistics' => 'Estadísticas de validación',
 	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''$2''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].",
+	'validationstatistics-time' => "''los siguientes datos están en el cache y pueden no estar actualizados.''
+
+La espera promedio para ediciones de ''usuarios que no han iniciado sesión'' a ser revisado es '''$1'''; La media es '''$3'''.  
+$4
+El intervalo promedio para [[Special:OldReviewedPages|páginas con ediciones sin revisar pendientes]] es '''$2'''.
+Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas son consideradas ''sincronizadas'' si la [[{{MediaWiki:Validationpage}}|versión estable]] es también la versión borrador actual.
+Versiones estables son revisiones de páginas verificadas por al menos un usuario establecido.",
 	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, ''excluyendo'' páginas de redireccionamiento.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',

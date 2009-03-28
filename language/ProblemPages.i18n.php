@@ -23,17 +23,6 @@ $messages['qqq'] = array(
 	'problempages-graphs' => '{{identical|flaggedrevs-graphs}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'problempages' => 'Hondoin arvoitud lehtpoled',
-	'problempages-leg' => 'Hondoin arvoitud lehtpoliden ecind',
-	'problempages-list' => 'Lugijoil järgetud heiden arvsanoiden mödhe lehtpoled (nimikirjutez).',
-	'problempages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
-	'problempages-graphs' => 'andmused arvostelendas',
-);
-
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -115,6 +104,7 @@ $messages['eo'] = array(
 $messages['es'] = array(
 	'problempages' => 'Páginas pobremente valoradas',
 	'problempages-leg' => 'Encontrar páginas subvaluadas',
+	'problempages-list' => 'Lo de abajo es una lista de páginas ordenadas por su valoración de retroalimentación de lector.',
 	'problempages-none' => 'No hay páginas en esta lista',
 	'problempages-graphs' => 'Datos de rating',
 );
@@ -273,7 +263,11 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'problempages' => 'Als schlääsch enjeshtoofte Sigge',
+	'problempages-leg' => 'Als schlääsch enjeshtoofte Sigge fenge',
+	'problempages-list' => 'Hee küt en Leß met Sigge. Se es donoh zotteet, wi joot de Lesser se enjeshtoof han.',
 	'problempages-none' => 'En dä Leß sin kei Sigge dren.',
+	'problempages-graphs' => 'Date vum Enshtoofe',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -474,6 +468,17 @@ $messages['uk'] = array(
 	'problempages-list' => "Нижче поданий список сторінок, відсортованих за оцінкою за допомогою зворотного зв'язку читачів.",
 	'problempages-none' => 'У цьому списку нема сторінок',
 	'problempages-graphs' => 'дані рейтингу',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'problempages' => 'Hondoin arvoitud lehtpoled',
+	'problempages-leg' => 'Hondoin arvoitud lehtpoliden ecind',
+	'problempages-list' => 'Lugijoil järgetud heiden arvsanoiden mödhe lehtpoled (nimikirjutez).',
+	'problempages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
+	'problempages-graphs' => 'andmused arvostelendas',
 );
 
 /** Vietnamese (Tiếng Việt)
