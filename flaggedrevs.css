@@ -341,25 +341,25 @@
 }
 
 /* Reader feedback form */
-.fr_reader_feedback_graph {
-	width: 100%; 
-	overflow: auto;
-}
-
 .fr_reader_feedback_plot {
 	background-color: #F8F8F8;
 }
 
+.fr_reader_feedback_graph,
+.fr_reader_feedback_ratings,
+.fr_reader_feedback_users {
+	width: 100%; 
+	overflow: auto;
+}
+
 .fr_reader_feedback_users {
 	background-color: #F0F0F0;
-	width: 100%; 
 	max-height:410px;
-	overflow: auto;
 	font-size: 90%;
 }
 
 .fr_reader_feedback_table {
-	margin: 1em 1em 1em 0;
+	margin: .5em .5em .5em .5em;
 	background: #f9f9f9;
 	border: 1px #AAA solid;
 	border-collapse: collapse;

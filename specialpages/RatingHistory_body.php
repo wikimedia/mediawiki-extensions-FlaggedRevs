@@ -76,13 +76,15 @@ class RatingHistory extends UnlistedSpecialPage
 			$this->doPurge ? 'skipCache' : 'useCache'
 		);
 		if( $html ) {
-			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".$html );
+			$wgOut->addHTML( '<h2>'.wfMsgHtml('ratinghistory-table')."</h2>\n".
+				"<div class='fr_reader_feedback_ratings'>$html</div>" );
 		}
 	}
 	
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$form = Xml::openElement( 'form', array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
+		$form = Xml::openElement( 'form', array( 'name' => 'reviewedpages',
+			'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset>";
 		$form .= "<legend>".wfMsgExt( 'ratinghistory-leg',array('parseinline'),
 			$this->page->getPrefixedText() )."</legend>\n";
