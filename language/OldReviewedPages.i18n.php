@@ -559,10 +559,24 @@ $messages['hu'] = array(
 
 /** Interlingua (Interlingua)
  * @author Malafaya
+ * @author McDutchie
  */
 $messages['ia'] = array(
+	'oldreviewedpages' => 'Paginas revidite obsolete',
+	'oldreviewedpages-legend' => 'Listar le paginas revidite con versiones attendente revision',
+	'oldreviewedpages-list' => 'Iste pagina lista le paginas revidite que ha modificationes pendente.',
+	'oldreviewedpages-none' => 'Al momento non existe paginas que satisface iste criterios',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|die|dies}})',
+	'oldreviewedpages-recent' => '(minus de 1 hora)',
+	'oldreviewed-category' => 'Categoria:',
+	'oldreviewed-watched' => 'In mi observatorio',
+	'oldreviewed-stable' => 'Stabilisate',
+	'oldreviewed-diff' => 'revision',
+	'oldreviewed-size' => 'Cambio maxime (bytes):',
+	'oldreviewedpages-unwatched' => '(non observate)',
+	'oldreviewedpages-watched' => '(observate per $2 {{PLURAL:$1|usator|usatores}} active)',
+	'oldreviewedpages-viewing' => '(sub revision)',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -1055,13 +1069,12 @@ $messages['sv'] = array(
 	'oldreviewedpages-legend' => 'Visa granskade sidor med ogranskade sidversioner',
 	'oldreviewedpages-list' => 'Den här sidan visar granskade sidor som har väntande redigeringar.',
 	'oldreviewedpages-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
-	'oldreviewedpages-stable' => 'synad',
-	'oldreviewedpages-quality' => 'kvalitet',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagar}})',
 	'oldreviewedpages-recent' => '(mindre än 1 timme)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'På min bevakningslista',
+	'oldreviewed-stable' => 'Stabiliserad',
 	'oldreviewed-diff' => 'granska',
 	'oldreviewed-size' => 'Maximal storleksändring i byte:',
 	'oldreviewedpages-unwatched' => '(obevakad)',

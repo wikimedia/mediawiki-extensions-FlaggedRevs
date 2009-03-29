@@ -2735,6 +2735,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
  * @author Drini
  * @author Imre
  * @author Lin linao
+ * @author McDutchie
  * @author Sanbec
  */
 $messages['es'] = array(
@@ -2868,7 +2869,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:Special:Stableversions|page=$2}} ver versiones estables])'''",
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones estables]] son las predeterminadas para los lectores en vez de las más recientes.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Versiones estables]] son revisiones verificadas de las páginas y pueden ser configuradascomo contenido por defect para los visitantes.''",
+	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Versiones estables]] son revisiones verificadas de las páginas y pueden ser configuradas como contenido por defecto para los visitantes.''",
 	'revreview-toggle-title' => 'mostrar/ocultar detalles',
 	'revreview-toolow' => 'Debes al menos valorar cada uno de los atributos de abajo más alto que "desaprobado" para que la revisión sea considerada verificada.
 Para depreciar un arevisión, marque todos los campos como "desaprobado".',
@@ -3830,8 +3831,8 @@ Unha lista das páxinas estabilizadas pode ser atopada na [[Special:StablePages|
 	'tooltip-ca-stable' => 'Ver a versión estábel desta páxina',
 	'tooltip-ca-default' => 'Configuración de garantía da calidade',
 	'tooltip-ca-ratinghist' => 'Valoracións dos lectores desta páxina',
-	'revreview-locked-title' => 'As edicións deben estar revisadas antes de ser amosadas nesta páxina!',
-	'revreview-unlocked-title' => 'As edicións non requiren estar revisadas antes de ser amosadas nesta páxina!',
+	'revreview-locked-title' => 'As edicións deben ser revisadas antes de ser amosadas nesta páxina.',
+	'revreview-unlocked-title' => 'As edicións non requiren ser revisadas antes de ser amosadas nesta páxina.',
 	'revreview-locked' => 'As edicións deben estar revisadas antes de ser amosadas nesta páxina!',
 	'revreview-unlocked' => 'As edicións non requiren estar revisadas antes de ser amosadas nesta páxina!',
 	'log-show-hide-review' => '$1 o rexistro de revisións',
@@ -5197,6 +5198,34 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Version provisori]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vider pagina]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
+	'revreview-selected' => "Version seligite de '''$1:'''",
+	'revreview-source' => 'codice-fonte del version provisori',
+	'revreview-stable' => 'Pagina stabile',
+	'revreview-stable-title' => 'Pagina visitate',
+	'revreview-stable1' => 'Es suggerite vider [{{fullurl:$1|stableid=$2}} iste version marcate] pro determinar si illo es ora le [{{fullurl:$1|stable=1}} version stabile] de iste pagina.',
+	'revreview-stable2' => 'Tu pote vider le [{{fullurl:$1|stable=1}} version stabile] de iste pagina (si existe ancora).',
+	'revreview-style' => 'Legibilitate',
+	'revreview-style-0' => 'Non approbate',
+	'revreview-style-1' => 'Acceptabile',
+	'revreview-style-2' => 'Bon',
+	'revreview-style-3' => 'Concise',
+	'revreview-style-4' => 'Eminente',
+	'revreview-submit' => 'Submitter',
+	'revreview-submitting' => 'Submission in curso…',
+	'revreview-finished' => 'Revision complete!',
+	'revreview-successful' => "'''Le version de [[:$1|$1]] ha essite marcate con successo. ([{{fullurl:Special:Stableversions|page=$2}} vider versiones stabile])'''",
+	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
+	'revreview-text' => "Le ''[[{{MediaWiki:Validationpage}}|versiones stabile]] es le contento predefinite pro le lectores in loco del version le plus nove.",
+	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|versiones stabile]] es le versiones verificate del paginas e pote esser assignate como le contento predefinite pro le lectores.''",
+	'revreview-toggle-title' => 'revelar/celar detalios',
+	'revreview-toolow' => 'Tu debe al minus valorisar cata un del attributos in basso como plus alte que "non approbate" a fin que un version sia considerate como revidite.
+Pro depreciar un version, mitte tote le campos a "non approbate".',
+	'revreview-update' => "Per favor [[{{MediaWiki:Validationpage}}|revide]] omne modificationes ''(monstrate in basso)'' facite post le [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbation] del version stabile.<br />
+'''Alcun patronos/imagines ha essite actualisate:'''",
+	'revreview-update-includes' => "'''Alcun patronos/imagines ha essite actualisate:'''",
+	'revreview-update-none' => "Per favor [[{{MediaWiki:Validationpage}}|revide]] omne modificationes ''(monstrate in basso)'' facite post le [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approbation] del version stabile.",
+	'revreview-update-use' => "'''NOTA:''' Si alcun de iste patronos/imagines ha un version stabile, alora illo es ja usate in le version stabile de iste pagina.",
+	'revreview-diffonly' => "''Pro revider le pagina, clicca le ligamine \"version actual\" e usa le formulario de revision.''",
 	'revreview-revnotfound' => 'Impossibile trovar le version anterior del pagina que tu ha demandate.
 Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 	'readerfeedback' => 'Que pensa tu de iste pagina?',
@@ -7367,6 +7396,7 @@ $messages['nds-nl'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
  * @author Tvdm
@@ -7489,7 +7519,7 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wij
 	'revreview-source' => 'Brontekst werkversie',
 	'revreview-stable' => 'Stabiele versie',
 	'revreview-stable-title' => 'Gecontroleerde versie',
-	'revreview-stable1' => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} stabiele versie] is.',
+	'revreview-stable1' => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} stabiele versie] is.',
 	'revreview-stable2' => 'Wellicht wilt u de [{{fullurl:$1|stable=1}} stabiele versie] van deze pagina bekijken (als die er nog is).',
 	'revreview-style' => 'Leesbaarheid',
 	'revreview-style-0' => 'Niet goedgekeurd',
@@ -8412,7 +8442,7 @@ Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 	'tooltip-ca-stable' => 'Zobacz wersję oznaczoną tej strony',
 	'tooltip-ca-default' => 'Ustawienia mechanizmu zapewnienia jakości artykułów',
 	'tooltip-ca-ratinghist' => 'Oceny czytelników tej strony',
-	'revreview-locked-title' => 'Edycje muszą zostać oznaczone, zanim zostaną wyświetlone na tej stronie!',
+	'revreview-locked-title' => 'Edycje muszą zostać oznaczone, zanim zostaną wyświetlone na tej stronie.',
 	'revreview-unlocked-title' => 'Edycje nie wymagają oznaczenia, zanim zostaną wyświetlone na tej stronie.',
 	'revreview-locked' => 'Edycje muszą zostać oznaczone, zanim zostaną wyświetlone na tej stronie!',
 	'revreview-unlocked' => 'Edycje nie wymagają oznaczenia, zanim zostaną wyświetlone na tej stronie.',
@@ -8916,6 +8946,8 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'stable-logentry' => "configurete 'na versiona secure pe [[$1]]",
 	'stable-logentry2' => "azzere 'a versiona secure pe [[$1]]",
 	'stable-logpage' => 'Archivie de le stabilizzaziune',
+	'stable-logpagetext' => "Quiste jè 'n'archivije de le cangiaminde a 'a configurazione d'a [[{{MediaWiki:Validationpage}}|versiona secure]] de le vôsce.
+'Na liste de le pàggene stabbilizzate pò essere acchiate jndr'à [[Special:StablePages|liste de le pàggene secure]].",
 	'readerfeedback' => 'Ce pinze de sta pàgene?',
 	'readerfeedback-text' => "''Pe piacere pigghiate 'nu mumende pe dà 'nu pundegge a 'a pàgene d'aqquà sotte. 'A valutazione toje jè 'mbortande e 'n'aiute a aggiustà 'u site.''",
 	'readerfeedback-reliability' => 'Affedabbeletà',
@@ -8936,6 +8968,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'readerfeedback-submitting' => 'In conferme...',
 	'readerfeedback-finished' => "Grazie 'mbà",
 	'revreview-filter-all' => 'Tutte',
+	'revreview-filter-stable' => 'secure',
 	'revreview-filter-approved' => 'Approvete',
 	'revreview-filter-reapproved' => 'Riapprovete',
 	'revreview-filter-unapproved' => 'Non approvete',
@@ -10020,6 +10053,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'readerfeedback-submitting' => 'Skickar...',
 	'readerfeedback-finished' => 'Tack!',
 	'revreview-filter-all' => 'Alla',
+	'revreview-filter-stable' => 'stabil',
 	'revreview-filter-approved' => 'Godkända',
 	'revreview-filter-reapproved' => 'Åter godkända',
 	'revreview-filter-unapproved' => 'Ej godkända',
@@ -10028,6 +10062,7 @@ En lista över stabiliserade sidor kan hittas på [[Special:StablePages|listan �
 	'revreview-statusfilter' => 'Ändring av status:',
 	'revreview-typefilter' => 'Typ:',
 	'revreview-tagfilter' => 'Tag:',
+	'revreview-levelfilter' => 'Nivå:',
 	'revreview-lev-sighted' => 'synad',
 	'revreview-lev-quality' => 'kvalitet',
 	'revreview-lev-pristine' => 'ursprunglig',

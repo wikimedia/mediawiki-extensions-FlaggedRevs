@@ -529,7 +529,12 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'stableversions' => 'Nohjeloorte un makeete Versione aanloore',
+	'stableversions-leg1' => 'De Leß met de nohjeloorte un makeete Versione för en Sigg.',
 	'stableversions-page' => 'Sigge-Tittel:',
+	'stableversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjeloorte un makeete Versione.',
+	'stableversions-list' => 'Hee kütt {{PLURAL:$2||en Leß met|kei nohjeloorte un makeete Version vun}} dä Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjeloorte un makeete Version:|ier nohjeloorte un makeete Versione:|}}',
+	'stableversions-review' => 'Nohjeloort un makeet {{GENDER:$2|vum|vum|vun däm Metmaacher|vun däm|vun dä}} [[User:$2|$2]] aam/öm $1.',
 );
 
 /** Latin (Latina)

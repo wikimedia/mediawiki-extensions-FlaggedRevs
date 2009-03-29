@@ -435,7 +435,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'reviewedpages' => 'Paginas revidite',
-	'reviewedpages-leg' => 'Listar paginas revidite a un certe nivello',
+	'reviewedpages-leg' => 'Listar paginas per plus alte nivello',
 	'reviewedpages-list' => 'Le sequente paginas ha essite revidite al nivello specificate',
 	'reviewedpages-none' => 'Il non ha paginas in iste lista',
 	'reviewedpages-lev-0' => 'Revidite',
@@ -577,7 +577,12 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'reviewedpages' => 'Nohjeloorte un makeete Versione',
+	'reviewedpages-leg' => 'Sigge opleßte noh de hühßte Makeerung',
+	'reviewedpages-list' => 'Hee di Sigge sen nohjeloort un makeet, se sullte dat aanjejovve Nivo han',
 	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
+	'reviewedpages-all' => 'Nohjeloorte un makeete Versione',
+	'reviewedpages-best' => 'de neuste un et hühßte makeete Version',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -914,10 +919,11 @@ $messages['su'] = array(
 /** Swedish (Svenska)
  * @author Lejonel
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'reviewedpages' => 'Granskade sidor',
-	'reviewedpages-leg' => 'Lista granskade sidor med en viss nivå',
+	'reviewedpages-leg' => 'Lista sidor efter högsta nivå',
 	'reviewedpages-list' => 'Följande sidor har granskats, och har den angivna nivån',
 	'reviewedpages-none' => 'Den här listan innehåller inga sidor',
 	'reviewedpages-lev-0' => 'Synad',
