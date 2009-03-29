@@ -468,7 +468,7 @@ class RatingHistory extends UnlistedSpecialPage
 		// Write to file for cache
 		$svgPath = $this->getFilePath( $tag, 'svg' );
 		$svgHandler = new SvgHandler();
-		if( !@file_put_contents( $svgPath, $plot->svg ) ) {
+		if( @!file_put_contents( $svgPath, $plot->svg ) ) {
 			throw new MWException( 'Could not write SVG file!' );
 			return false;
 		}
