@@ -445,8 +445,8 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'oldreviewedpages-stable' => 'θεωρημένη',
-	'oldreviewedpages-quality' => 'ποιοτική δέλτος',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ὥρα|ὥραι}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ἡμέρα|ἡμέραι}})',
 	'oldreviewed-category' => 'Κατηγορία:',
 	'oldreviewed-diff' => 'θεωρεῖν',
 	'oldreviewedpages-unwatched' => '(ἀνεφορωμένη)',
@@ -952,13 +952,12 @@ $messages['pt-br'] = array(
 	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
 	'oldreviewedpages-list' => 'Esta página lista as páginas analisadas que possuem edições pendentes.',
 	'oldreviewedpages-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
-	'oldreviewedpages-stable' => 'analisada',
-	'oldreviewedpages-quality' => 'confiável',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewed-watched' => 'Na minha lista de vigiados',
+	'oldreviewed-stable' => 'Estabilizada',
 	'oldreviewed-diff' => 'analisar',
 	'oldreviewed-size' => 'Tamanho máximo da alteração (em bytes):',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',

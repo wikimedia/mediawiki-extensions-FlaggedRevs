@@ -2533,6 +2533,7 @@ KOnfigurasi teu bisa dilarapkeun.',
 );
 
 /** Swedish (Svenska)
+ * @author Boivie
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
@@ -2555,6 +2556,8 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-def' => 'Sidversion som används som standard när sidan visas',
 	'stabilization-def1' => 'Den stabila versionen om den finns, annars den senaste versionen',
 	'stabilization-def2' => 'Den senaste versionen',
+	'stabilization-restrict' => 'Begränsningar av automatgranskning',
+	'stabilization-restrict-none' => 'Inga extra begränsningar',
 	'stabilization-submit' => 'Bekräfta',
 	'stabilization-notexists' => 'Det finns ingen sida med titeln "[[:$1|$1]]". Inga inställningar kan göras.',
 	'stabilization-notcontent' => 'Sidan "[[:$1|$1]]" kan inte granskas. Inga inställningar kan göras.',

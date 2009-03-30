@@ -792,7 +792,7 @@ $messages['pt'] = array(
  */
 $messages['pt-br'] = array(
 	'reviewedpages' => 'Páginas analisadas',
-	'reviewedpages-leg' => 'Listar páginas que tenham sido analisadas em um nível específico',
+	'reviewedpages-leg' => 'Listar páginas por nível mais alto',
 	'reviewedpages-list' => 'As páginas a seguir foram analisadas no nível especificado',
 	'reviewedpages-none' => 'Não há páginas nesta lista',
 	'reviewedpages-lev-0' => 'Objetiva',

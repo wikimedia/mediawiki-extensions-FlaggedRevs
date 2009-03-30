@@ -248,12 +248,14 @@ $messages['gl'] = array(
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
  * @author Omnipaedista
  */
 $messages['grc'] = array(
 	'stablepages' => 'Σταθεραὶ δέλτοι',
 	'stablepages-stable' => 'σταθερὰ ἔκδοσις',
 	'stablepages-config' => 'Διαμόρφωσις',
+	'stablepages-precedence' => 'Προτεραιότης:',
 );
 
 /** Swiss German (Alemannisch)
