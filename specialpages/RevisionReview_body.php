@@ -762,7 +762,7 @@ class RevisionReview extends UnlistedSpecialPage
 	public static function userCan( $tag, $value, $config = array() ) {
 		global $wgFlagRestrictions, $wgUser;
 		# Levels may not apply for some pages
-		if( !self::levelAvailable( $tag, $value, $config ) )
+		if( $value > 0 && !self::levelAvailable( $tag, $value, $config ) )
 			return false;
 		# No restrictions -> full access
 		if( !isset($wgFlagRestrictions[$tag]) )
