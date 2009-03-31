@@ -57,8 +57,11 @@ class StableVersions extends UnlistedSpecialPage
 		global $wgLang, $wgUser;
 
 		$time = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->rev_timestamp), true );
-		$ftime = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
-		$review = wfMsgExt( 'stableversions-review', array( 'parseinline', 'replaceafter' ), $ftime,
+		$fdatim = $wgLang->timeanddate( wfTimestamp(TS_MW, $row->fr_timestamp), true );
+		$fdate = $wgLang->date( wfTimestamp(TS_MW, $row->fr_timestamp), true );
+		$ftime = $wgLang->time( wfTimestamp(TS_MW, $row->fr_timestamp), true );
+		$review = wfMsgExt( 'stableversions-review', array( 'parseinline', 'replaceafter' ),
+			$fdatim, $fdate, $ftime,
 			$this->skin->userLink( $row->fr_user, $row->user_name ) .
 			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ) );
 
