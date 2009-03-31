@@ -64,6 +64,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->addHTML( wfMsgExt('revreview-main',array('parse')) );
 			return;
 		}
+		# Get revision ID
 		$this->oldid = $wgRequest->getIntOrNull( 'oldid' );
 		if( !$this->oldid ) {
 			$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
@@ -104,8 +105,10 @@ class RevisionReview extends UnlistedSpecialPage
 				$this->dims[$tag] = 0;
 			}
 		}
+		$fa = FlaggedArticle::getTitleInstance( $this->page );
+		$this->config = $fa->getVisibilitySettings();
 		# Check permissions and validate
-		if( !$this->userCanSetFlags( $this->dims, $this->oflags ) ) {
+		if( !self::userCanSetFlags( $this->dims, $this->oflags, $this->config ) ) {
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
@@ -247,10 +250,16 @@ class RevisionReview extends UnlistedSpecialPage
 		if( $form->validatedParams !== $k ) {
 			return '<err#>';
 		}
+		// User must be able to edit this page
+		if( !$form->page->quickUserCan('edit') ) {
+			return '<err#>';
+		}
+		$fa = FlaggedArticle::getTitleInstance( $form->page );
+		$form->config = $fa->getVisibilitySettings();
 		# Get the revision's current flags, if any
 		$form->oflags = FlaggedRevs::getRevisionTags( $form->page, $form->oldid );
-		# Check permissions
-		if( !$form->page->quickUserCan('edit') || !$form->userCanSetFlags($form->dims,$form->oflags) ) {
+		# Check tag permissions
+		if( !self::userCanSetFlags($form->dims,$form->oflags,$form->config) ) {
 			return '<err#>';
 		}
 		list($approved,$status) = $form->submit();
@@ -382,7 +391,7 @@ class RevisionReview extends UnlistedSpecialPage
 			}
 		}
 		# Double-check permissions
-		if( !$this->page->quickUserCan('edit') || !$this->userCanSetFlags($this->dims,$this->oflags) ) {
+		if( !$this->page->quickUserCan('edit') || !self::userCanSetFlags($this->dims,$this->oflags,$this->config) ) {
 			return array($approved,false);
 		}
 		# We can only approve actual revisions...
@@ -750,8 +759,11 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param int $value
 	 * @returns bool
 	 */
-	public static function userCan( $tag, $value ) {
+	public static function userCan( $tag, $value, $config = array() ) {
 		global $wgFlagRestrictions, $wgUser;
+		# Levels may not apply for some pages
+		if( !self::levelAvailable( $tag, $value, $config ) )
+			return false;
 		# No restrictions -> full access
 		if( !isset($wgFlagRestrictions[$tag]) )
 			return true;
@@ -774,9 +786,10 @@ class RevisionReview extends UnlistedSpecialPage
 	 * to the given levels for each tag.
 	 * @param array $flags, suggested flags
 	 * @param array $oldflags, pre-existing flags
+	 * @param array $config, visibility settings
 	 * @returns bool
 	 */
-	public static function userCanSetFlags( $flags, $oldflags = array() ) {
+	public static function userCanSetFlags( $flags, $oldflags = array(), $config = array() ) {
 		global $wgUser;
 		if( !$wgUser->isAllowed('review') ) {
 			return false;
@@ -786,13 +799,22 @@ class RevisionReview extends UnlistedSpecialPage
 		foreach( FlaggedRevs::getDimensions() as $qal => $levels ) {
 			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
 			$highest = count($levels) - 1; // highest valid level
-			if( !self::userCan($qal,$level) ) {
+			if( !self::userCan($qal,$level,$config) ) {
 				return false;
 			} else if( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
 				return false;
 			} else if( $level < 0 || $level > $highest ) {
 				return false;
 			}
+		}
+		return true;
+	}
+	
+	public static function levelAvailable( $tag, $val, $config ) {
+		global $wgFlagAvailability;
+		if( isset($wgFlagAvailability[$tag]) && isset($wgFlagAvailability[$tag][$val]) ) {
+			$precedence = $wgFlagAvailability[$tag][$val];
+			return ( $config['select'] === $precedence );
 		}
 		return true;
 	}

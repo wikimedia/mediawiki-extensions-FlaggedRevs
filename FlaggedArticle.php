@@ -1300,6 +1300,7 @@ class FlaggedArticle extends Article {
 		}
 		$skin = $wgUser->getSkin();
 
+		$config = $this->getVisibilitySettings();
 		# Variable for sites with no flags, otherwise discarded
 		$approve = $wgRequest->getBool('wpApprove');
 		# See if the version being displayed is flagged...
@@ -1357,8 +1358,8 @@ class FlaggedArticle extends Article {
 			# else collect all quality levels of a flag current user can set
 			} else {
 				foreach( $levels as $i => $name ) {
-					if( !RevisionReview::userCan($quality, $i) ) {
-						break;
+					if( !RevisionReview::userCan($quality,$i,$config) ) {
+						continue; // skip this level
 					}
 					$label[$i] = $name;
 				}

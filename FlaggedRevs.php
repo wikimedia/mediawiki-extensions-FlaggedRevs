@@ -144,6 +144,14 @@ $wgFlagRestrictions = array(
 	'depth'	   => array( 'review' => 2 ),
 	'style'	   => array( 'review' => 3 ),
 );
+# Use this to make levels of flags only appear if the page configured to
+# select the stable version in a certain way. Array of tags=>level=>config.
+$wgFlagAvailability = array();
+/* (example usage)
+$wgFlagAvailability = array( 
+	'style' => array( 1=>FLAGGED_VIS_LATEST, 2=>FLAGGED_VIS_QUALITY )
+);
+*/
 
 # Restriction levels for auto-review right at Stabilization page
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );

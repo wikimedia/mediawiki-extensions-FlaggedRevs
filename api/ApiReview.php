@@ -78,7 +78,9 @@ class ApiReview extends ApiBase {
 
 		// Check if user is even allowed to set the flags
 		$form->oflags = FlaggedRevs::getRevisionTags( $title, $form->oldid );
-		if( !$title->quickUserCan('edit') || !$form->userCanSetFlags( $form->dims, $form->oflags ) )
+		$fa = FlaggedArticle::getTitleInstance( $form->page );
+		$form->config = $fa->getVisibilitySettings();
+		if( !$title->quickUserCan('edit') || !RevisionReview::userCanSetFlags($form->dims,$form->oflags,$form->config) )
 			$this->dieUsage( "You don't have the necessary rights to set the specified flags.", 'permissiondenied' );
 
 		// Now get the template and image parameters needed

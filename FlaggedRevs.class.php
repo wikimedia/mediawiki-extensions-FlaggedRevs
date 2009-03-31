@@ -922,7 +922,7 @@ class FlaggedRevs {
 			return array( 'select' => $select, 'override' => $override,
 				'autoreview' => '', 'expiry' => 'infinity' );
 		}
-		return array('select' => intval($row->fpc_select), 'override' => $row->fpc_override,
+		return array( 'select' => intval($row->fpc_select), 'override' => $row->fpc_override,
 			'autoreview' => $row->fpc_level, 'expiry' => $row->fpc_expiry );
 	}
 	
