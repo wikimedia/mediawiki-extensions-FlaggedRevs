@@ -21,6 +21,7 @@ function autoreview_current( $user, $db ) {
 	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$changed = 0;
+	$flags = null; // Assume basic flagging level
 	while( $blockEnd <= $end ) {
 		echo "...doing page_id from $blockStart to $blockEnd\n";
 		$cond = "page_id BETWEEN $blockStart AND $blockEnd";
@@ -36,11 +37,6 @@ function autoreview_current( $user, $db ) {
 			# Should exist, but to be safe...
 			if( !$frev && $rev && FlaggedRevs::isPageReviewable($title) ) {
 				$text = $rev->getText();
-				# Assume basic flagging level
-				$flags = array();
-				foreach( FlaggedRevs::getDimensions() as $tag => $minQL ) {
-					$flags[$tag] = 1;
-				}
 				$article = new Article( $title );
 				FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags, true );
 				$changed++;
