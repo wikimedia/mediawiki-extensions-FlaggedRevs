@@ -1512,7 +1512,7 @@ EOT;
 			return true; // not needed
 		}
 		$fa = FlaggedArticle::getTitleInstance( $editPage->getArticle() );
-		if( $fa->isReviewable() ) {
+		if( $fa->isReviewable() && !$fa->limitedUI() ) {
 			$srev = $fa->getStableRev();
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might

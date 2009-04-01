@@ -812,6 +812,7 @@ class RevisionReview extends UnlistedSpecialPage
 	
 	public static function levelAvailable( $tag, $val, $config ) {
 		global $wgFlagAvailability;
+		if( !array_key_exists('select',$config) ) return true;
 		if( isset($wgFlagAvailability[$tag]) && isset($wgFlagAvailability[$tag][$val]) ) {
 			$precedence = $wgFlagAvailability[$tag][$val];
 			return ( $config['select'] === $precedence );
