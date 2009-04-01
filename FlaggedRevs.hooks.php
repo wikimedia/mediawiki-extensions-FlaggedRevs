@@ -833,9 +833,12 @@ EOT;
 		}
 		// Is the page reviewable?
 		if( FlaggedRevs::isPageReviewable( $rc->getTitle() ) ) {
+			global $wgFlaggedRevsPatrolLevel;
 			# Note: pages in reviewable namespace with FR disabled
 			# won't autopatrol. May or may not be useful...
-			if( FlaggedRevs::revIsFlagged($rc->getTitle(),$rc->mAttribs['rc_this_oldid'],GAID_FOR_UPDATE) ) {
+			$quality = FlaggedRevs::getRevQuality( $rc->getTitle(),
+				$rc->mAttribs['rc_this_oldid'],GAID_FOR_UPDATE );
+			if( $quality !== false && $quality >= $wgFlaggedRevsPatrolLevel ) {
 				RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
 			}

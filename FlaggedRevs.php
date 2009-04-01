@@ -150,6 +150,10 @@ $wgFlagAvailability = array(
 );
 */
 
+# At what level of review do patrol marks go away?
+# 0 => sighted; 1 => quality; 2 => pristine
+$wgFlaggedRevsPatrolLevel = 0;
+
 # Restriction levels for auto-review right at Stabilization page
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 
