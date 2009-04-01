@@ -1352,13 +1352,16 @@ class FlaggedArticle extends Article {
 		# Loop through all different flag types
 		foreach( FlaggedRevs::getDimensions() as $quality => $levels ) {
 			$label = array();
-			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : 1;
+			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ?
+				$flags[$quality] : 1;
+			# Disabled form? Set the selected item label
 			if( $disabled ) {
 				$label[$selected] = $levels[$selected];
-			# else collect all quality levels of a flag current user can set
+			# Collect all quality levels of a flag current user can set
 			} else {
 				foreach( $levels as $i => $name ) {
 					if( !RevisionReview::userCan($quality,$i,$config) ) {
+						if( $selected == $i ) $selected++; // bump default
 						continue; // skip this level
 					}
 					$label[$i] = $name;
