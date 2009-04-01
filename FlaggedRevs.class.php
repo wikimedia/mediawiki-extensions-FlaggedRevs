@@ -813,9 +813,9 @@ class FlaggedRevs {
 			);
 			# If there is a revision of this level, track it...
 			if( $row ) {
-				$revId = intval( $row->fr_rev_id );
+				$id = intval( $row->fr_rev_id );
 				# Get the timestamp of the edit after this version (if any)
-				if( $lastID != $revId ) {
+				if( $lastID != $id ) {
 					$nextTimestamp = $dbw->selectField( 'revision',
 						'rev_timestamp',
 						array( 'rev_page' => $article->getId(),
@@ -826,7 +826,7 @@ class FlaggedRevs {
 					$data[] = array(
 						'fpp_page_id'       => $article->getId(),
 						'fpp_quality'       => $level,
-						'fpp_rev_id'        => $revId,
+						'fpp_rev_id'        => $od,
 						'fpp_pending_since' => $nextTimestamp
 					);
 				}
