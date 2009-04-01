@@ -826,7 +826,7 @@ class FlaggedRevs {
 					$data[] = array(
 						'fpp_page_id'       => $article->getId(),
 						'fpp_quality'       => $level,
-						'fpp_rev_id'        => $od,
+						'fpp_rev_id'        => $id,
 						'fpp_pending_since' => $nextTimestamp
 					);
 				}
