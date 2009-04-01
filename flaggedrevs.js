@@ -48,7 +48,8 @@ function updateRatingForm() {
 			// Update color. Opera does this already, and doing so
 			// seems to kill custom pretty opera skin form styling.
 			if( navigator.appName != 'Opera') {
-				levels[0].className = 'fr-rating-option-' + selectedlevel;
+				value = levels[0].getElementsByTagName('option')[selectedlevel].value;
+				levels[0].className = 'fr-rating-option-' + value;
 			}
 		} else if( levels[0].type == 'radio' ) {
 			for( i = 0; i < levels.length; i++ ) {
