@@ -325,7 +325,7 @@ class FlaggedArticle extends Article {
 		// requesting the stable revision ("&stableid=x"), defer to override
 		// behavior below, since it is the same as ("&stable=1").
 		if( $old ) {
-			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
+			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 			$text = $frev->getRevText();
 	   		$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
 			# Construct some tagging for non-printable outputs. Note that the pending
@@ -366,7 +366,7 @@ class FlaggedArticle extends Article {
 		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 		// set to override given the relevant conditions (like &action=protect).
 		} else if( !$stable && !$this->pageOverride() ) {
-			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
+			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 			$synced = false;
 			# We only care about syncing if not viewing an old stable version
 			if( $srev->getRevId() == $frev->getRevId() ) {
