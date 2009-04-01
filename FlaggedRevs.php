@@ -99,12 +99,9 @@ $wgFlaggedRevsExceptions = array( 'user' );
 $wgFlaggedRevsComments = false;
 # Redirect users out to review changes since stable version on save?
 $wgReviewChangesAfterEdit = true;
-# Auto-review edits directly to the stable version by reviewers?
-# Depending on how often templates are edited and by whom, this can possibly
-# allow for vandalism to slip in :/
-# Users should preview changes perhaps. This doesn't help much for section
-# editing, so they may also want to review the page afterwards.
-$wgFlaggedRevsAutoReview = true;
+# Allow auto-review edits directly to the stable version by reviewers?
+# 1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine
+$wgFlaggedRevsAutoReview = 1;
 # Auto-review new pages with the minimal level?
 $wgFlaggedRevsAutoReviewNew = true;
 

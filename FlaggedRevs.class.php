@@ -53,8 +53,8 @@ class FlaggedRevs {
 			if( $minPL > $ratingLevels ) {
 				self::$pristineVersions = false;
 			}
-			self::$minQL[$tag] = $minQL;
-			self::$minPL[$tag] = $minPL;
+			self::$minQL[$tag] = max($minQL,1);
+			self::$minPL[$tag] = max($minPL,1);
 		}
 		foreach( $wgFlaggedRevsFeedbackTags as $tag => $weight ) {
 			# Tag names used as part of file names. "Overall" tag is a
@@ -118,8 +118,7 @@ class FlaggedRevs {
 		# Viewer sees current by default (editors, insiders, ect...) ?
 		foreach( $wgFlaggedRevsExceptions as $group ) {
 			if( $group == 'user' ) {
-				if( !$wgUser->isAnon() )
-					return true;
+				return ( !$wgUser->isAnon() );
 			} else if( in_array( $group, $wgUser->getGroups() ) ) {
 				return true;
 			}
@@ -283,6 +282,81 @@ class FlaggedRevs {
 				break;
 		}
 		return $select;
+	}
+
+	/**
+	 * Get minimum sighted level tags
+	 * @return array
+	 */
+	public static function quickSightedTags() {
+		$flags = array();
+		foreach( self::getDimensions() as $tag => $minQL ) {
+			$flags[$tag] = 1;
+		}
+		return $flags;
+	}
+
+	/**
+	 * Get minimum sighted level tags
+	 * @return array
+	 */
+	public static function quickQualityTags() {
+		$flags = array();
+		foreach( self::getDimensions() as $tag => $minQL ) {
+			$flags[$tag] = self::$minQL[$tag];
+		}
+		return $flags;
+	}
+
+	/**
+	 * Get minimum sighted level tags
+	 * @return array
+	 */
+	public static function quickPristineTags() {
+		$flags = array();
+		foreach( self::getDimensions() as $tag => $minQL ) {
+			$flags[$tag] = self::$minPL[$tag];
+		}
+		return $flags;
+	}
+
+	/**
+	 * Get minimum tags that are closest to the quality level
+	 * given the site, page, and user rights limitations.
+	 * @return mixed array or null
+	 */
+	public static function getAutoReviewTags( $quality, $config = array() ) {
+		global $wgFlaggedRevsAutoReview;
+		if( !$wgFlaggedRevsAutoReview ) return null; // shouldn't happen
+		# Find the maximum auto-review quality level
+		$qal = min($wgFlaggedRevsAutoReview-1,$quality);
+		# Pristine auto-review?
+		if( $qal == 2 ) {
+			$flags = self::quickPristineTags();
+			# If tags are available and user can set them, we are done...
+			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
+				return $flags;
+			}
+			$qal--;
+		}
+		# Quality auto-review?
+		if( $qal == 1 ) {
+			$flags = self::quickQualityTags();
+			# If tags are available and user can set them, we are done...
+			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
+				return $flags;
+			}
+			$qal--;
+		}
+		# Sighted auto-review?
+		if( $qal == 0 ) {
+			$flags = self::quickSightedTags();
+			# If tags are available and user can set them, we are done...
+			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
+				return $flags;
+			}
+		}
+		return null;
 	}
 	
 	################# Parsing functions #################
@@ -644,11 +718,11 @@ class FlaggedRevs {
 		}
 		if( is_null($count) ) {
 			$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-			$count = $db->selectField( 'revision', 'COUNT(*)',
+			$count = (int)$db->selectField( 'revision', 'COUNT(*)',
 				array('rev_page' => $article->getId(), "rev_id > " . intval($revId) ),
 				__METHOD__ );
 			# Save to cache
-			$wgMemc->set( $key, intval($count), $wgParserCacheExpireTime );
+			$wgMemc->set( $key, $count, $wgParserCacheExpireTime );
 		}
 		return $count;
 	}
@@ -1221,14 +1295,22 @@ class FlaggedRevs {
 	* triggers on edit, but we don't want it to count as just automatic.
 	* This also makes it so the user's name shows up in the page history.
 	*/
-	public static function autoReviewEdit( $article, $user, $text, $rev, $flags, $auto=true ) {
+	public static function autoReviewEdit( $article, $user, $text, $rev, $flags=null, $auto=true ) {
 		global $wgMemc;
 		wfProfileIn( __METHOD__ );
-		# Default tags to level 1 for each dimension
+		$title = $article->getTitle();
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $title );
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
+		# Set the auto-review tags from the prior stable version.
+		# Normally, this should already be done and given here...
 		if( !is_array($flags) ) {
-			$flags = array();
-			foreach( self::getDimensions() as $tag => $minQL ) {
-				$flags[$tag] = 1;
+			if( $oldSv ) {
+				$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
+			}
+			# If all else fails, set each tag to level 1...
+			if( !is_array($flags) ) {
+				$flags = self::quickSightedTags();
 			}
 		}
 		$quality = 0;
@@ -1239,15 +1321,10 @@ class FlaggedRevs {
 		$tmpset = $imgset = array();
 		$poutput = false;
 
-		$title = $article->getTitle();
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
 		$editInfo = $article->prepareTextForEdit( $text ); // Parse the revision HTML output
 		$poutput = $editInfo->output;
-		
-		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $title );
-		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		# NS:title -> rev ID mapping
 		foreach( $poutput->mTemplateIds as $namespace => $titleAndID ) {
