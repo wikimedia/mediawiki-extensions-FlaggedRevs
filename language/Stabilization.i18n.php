@@ -609,6 +609,7 @@ Gaž změniš konfiguraciju ''wuběr stabilneje wersije'', aby wužywał \"kwali
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Crazymadlover
  * @author Dead3y3
  * @author Omnipaedista
  * @author ZaDiak
@@ -623,7 +624,7 @@ $messages['el'] = array(
 	'stabilization-leg' => 'Επιβεβαιώστε ρυθμίσεις σταθερής έκδοσης',
 	'stabilization-select' => 'Επιλογή σταθερής έκδοσης',
 	'stabilization-select1' => 'Η τελευταία αναθεώρηση ποιότητας· αν δεν είναι παρούσα, τότε η τελευταία ιδωμένη',
-	'stabilization-select2' => 'Η τελευταία κριθείσα αναθεώρηση',
+	'stabilization-select2' => 'Η τελευταία κριθείσα αναθεώρηση, ανεξάρτητα από το επίπεδο της επικύρωσης',
 	'stabilization-select3' => 'Η τελευταία μη αλλοιωμένη αναθεώρηση· αν δεν είναι παρούσα, τότε η τελευταία ποιότητας ή ιδωμένη',
 	'stabilization-def' => 'Αναθεώρηση εμφανιζόμενη στην προεπιλεγμένη εμφάνιση σελίδας',
 	'stabilization-def1' => 'Η σταθερή αναθεώρηση· αν δεν είναι παρούσα, τότε η τρέχουσα',

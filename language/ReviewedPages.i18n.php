@@ -202,11 +202,12 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Badseed
+ * @author Crazymadlover
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'reviewedpages' => 'Επιθεωρημένες σελίδες',
-	'reviewedpages-leg' => 'Λίστα σελίδων που έχουν αναθεωρηθεί σε ένα συγκεκριμένο επίπεδο',
+	'reviewedpages-leg' => 'Λίστα σελίδων το πιό υψηλό επίπεδο',
 	'reviewedpages-none' => 'Δεν υπάρχουν σελίδες σε αυτήν τη λίστα',
 	'reviewedpages-lev-1' => 'Ποιότητα',
 	'reviewedpages-all' => 'αναθεωρημένες εκδόσεις',
@@ -1030,7 +1031,7 @@ $messages['vec'] = array(
  */
 $messages['vep'] = array(
 	'reviewedpages' => 'Kodvdud lehtpoled',
-	'reviewedpages-leg' => 'Lehtpoled, kudambad oma sanuded märitud arvsanan (nimikirjutez)',
+	'reviewedpages-leg' => 'Lehtpoled, kudambad oma sanuded ülembaižen arvsanan (nimikirjutez)',
 	'reviewedpages-list' => 'Nened lehtpoled oma kodvdud da arvosteldud ozutadud pindaks',
 	'reviewedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
 	'reviewedpages-lev-0' => 'Arvosteldud',
