@@ -576,6 +576,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/postgres/patch-flaggedrevs_tracking.sql" );
 		$wgExtNewIndexes[] = array('flaggedpages', 'fp_pending_since', "$base/postgres/patch-fp_pending_since.sql" );
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_level', "TEXT NULL" );
+		$wgExtNewTables[] = array( 'flaggedpage_pending', "$base/postgres/patch-flaggedpage_pending.sql" );
 	}
 	return true;
 }
