@@ -8334,7 +8334,7 @@ Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Wersja robocza strony',
 	'revreview-edit' => 'Edytuj wersję roboczą',
-	'revreview-editnotice' => "'''Uwaga: Edycje dokonane na tej stronie zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''",
+	'revreview-editnotice' => "'''Uwaga! Edycje wykonane na tej stronie będą miały do momentu ich przejrzenia i akceptacji przez jednego z redaktorów status „[[{{MediaWiki:Validationpage}}|wersji roboczej]]”.'''",
 	'revreview-flag' => 'Oznacz tę wersję',
 	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''
 '''''Wersję roboczą'' pokazano poniżej.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] na sprawdzenie.",
