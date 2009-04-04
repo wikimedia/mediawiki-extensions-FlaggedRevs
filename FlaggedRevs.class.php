@@ -1305,12 +1305,11 @@ class FlaggedRevs {
 		# Set the auto-review tags from the prior stable version.
 		# Normally, this should already be done and given here...
 		if( !is_array($flags) ) {
-			if( $oldSv ) {
+			if( $oldSv ) { // use the last stable version if $flags not given
 				$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
 			}
-			# If all else fails, set each tag to level 1...
 			if( !is_array($flags) ) {
-				$flags = self::quickSightedTags();
+				return false; // can't auto-review this revision
 			}
 		}
 		$quality = 0;

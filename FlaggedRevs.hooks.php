@@ -710,8 +710,8 @@ EOT;
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
 			# Don't do so if an edit was auto-merged in between though...
 			if( !$editTimestamp || !$prevTimestamp || $prevTimestamp == $editTimestamp ) {
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
-				return true; // done!
+				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				if( $ok ) return true; // done!
 			}
 		}
 		# Get sync cache key
@@ -771,13 +771,13 @@ EOT;
 		# Is this an edit directly to the stable version? Is it a new page?
 		if( $reviewableNewPage || !is_null($frev) ) {
 			# Assume basic flagging level unless this is a null edit
-			if( $isNullEdit ) {
-				$flags = $frev->getTags();
-			}
+			if( $isNullEdit ) $flags = $frev->getTags();
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
-			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 		} else {
-			# Done! edit pending!
+			$ok = false;
+		}
+		if( !$ok ) { # Done! edit pending!
 			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
 		}
 		return true;
