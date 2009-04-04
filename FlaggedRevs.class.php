@@ -429,9 +429,10 @@ class FlaggedRevs {
 		global $wgUser, $parserMemc, $wgCacheEpoch;
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
-		if( !$article->getId() )
+		if( !$article->getId() ) {
+			wfProfileOut( __METHOD__ );
 			return null;
-
+		}
 		$parserCache = ParserCache::singleton();
 		$key = self::getCacheKey( $parserCache, $article, $wgUser );
 		# Get the cached HTML
@@ -1309,6 +1310,7 @@ class FlaggedRevs {
 				$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
 			}
 			if( !is_array($flags) ) {
+				wfProfileOut( __METHOD__ );
 				return false; // can't auto-review this revision
 			}
 		}
