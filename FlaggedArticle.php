@@ -687,7 +687,7 @@ class FlaggedArticle extends Article {
 	
 	protected function showStabilityLog() {
 		global $wgOut;
-		# Only for pages manually made to be stable
+		# Only for pages manually made to be stable...
 		if( $this->isPageLocked() ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
@@ -695,6 +695,7 @@ class FlaggedArticle extends Article {
 			LogEventsList::showLogExtract( $wgOut, 'stable',
 				$this->parent->getTitle()->getPrefixedText(), '', 1 );
 			$wgOut->addHTML( "</div>" );
+		# ...or unstable
 		} else if( $this->isPageUnlocked() ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
@@ -1329,6 +1330,7 @@ class FlaggedArticle extends Article {
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
 
+		# Show explanatory text
 		if( !FlaggedRevs::lowProfileUI() ) {
 			$msg = FlaggedRevs::showStableByDefault() ? 'revreview-text' : 'revreview-text2';
 			$form .= wfMsgExt( $msg, array('parse') );
@@ -1452,6 +1454,16 @@ class FlaggedArticle extends Article {
 		$form .= Xml::closeElement( 'span' );
 
 		$form .= Xml::closeElement( 'div' ) . "\n";
+		
+		# Show stability log if there is anything interesting...
+		if( $this->isPageLocked() ) {
+			$loglist = new LogEventsList( $wgUser->getSkin(), $wgOut, LogEventsList::NO_ACTION_LINK );
+			$pager = new LogPager( $loglist, 'stable', '', $this->parent->getTitle()->getPrefixedDBKey() );
+			$pager->mLimit = 1; // top item
+			if( ($logBody = $pager->getBody()) ) {
+				$form .= "<div><ul>$logBody</ul></div>";
+			}
+		}
 
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
