@@ -1461,7 +1461,7 @@ class FlaggedArticle extends Article {
 			$pager = new LogPager( $loglist, 'stable', '', $this->parent->getTitle()->getPrefixedDBKey() );
 			$pager->mLimit = 1; // top item
 			if( ($logBody = $pager->getBody()) ) {
-				$form .= "<div><ul>$logBody</ul></div>";
+				$form .= "<div><ul style='list-style:none; margin: 0;'>$logBody</ul></div>";
 			}
 		}
 
