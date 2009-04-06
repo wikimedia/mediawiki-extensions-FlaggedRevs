@@ -63,7 +63,7 @@ class StableVersions extends UnlistedSpecialPage
 			$fdatim,
  			$this->skin->userLink( $row->fr_user, $row->user_name ) .
  			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ),
-			$fdate, $ftime );
+			$fdate, $ftime, $row->user_name );
 
 		$lev = ( $row->fr_quality >=1 ) ? wfMsgHtml('hist-quality') : wfMsgHtml('hist-stable');
 		$link = $this->skin->makeKnownLinkObj( $this->page, $time,

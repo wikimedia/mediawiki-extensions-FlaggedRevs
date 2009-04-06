@@ -33,7 +33,8 @@ This message is used in the list of stable versions of a page (Special:Stablever
 Parameter $1 is the date and time of the review,
 parameter $2 is the username of the reviewing user, followed by a series of links.
 parameter $3 is the date of the review,
-parameter $4 is the time of the review.',
+parameter $4 is the time of the review,
+parameter $5 is the raw user name to be used with GENDER.',
 );
 
 /** Afrikaans (Afrikaans)
