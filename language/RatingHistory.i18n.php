@@ -252,6 +252,18 @@ Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojecy; '''[4]''' 
 	'right-feedback' => 'Wužyj pógódnośeński formular, aby pógódnośił bok',
 );
 
+/** Greek (Ελληνικά)
+ * @author Consta
+ */
+$messages['el'] = array(
+	'ratinghistory' => 'Ιστορικό βαθμολογίας σελίδας',
+	'ratinghistory-tab' => 'βαθμολογία',
+	'ratinghistory-link' => 'Σελίδα βαθμολογίας',
+	'ratinghistory-month' => 'τελευταίος μήνας',
+	'ratinghistory-3months' => 'τελευταίοι 3 μήνες',
+	'ratinghistory-table-rating' => 'Βαθμολογία',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

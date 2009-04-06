@@ -666,12 +666,14 @@ Jen la nunaj preferoj por [[:$1|$1]]:',
 	'stabilization-leg' => 'Konfirmi konfiguron de stabila versio',
 	'stabilization-select' => 'Elektado de stabila versio',
 	'stabilization-select1' => 'La lasta bonkvalita versio; se ĝi ne ekzistas, tiel la lasta reviziita versio.',
-	'stabilization-select2' => 'La lasta kontrolita versio',
+	'stabilization-select2' => 'La lasta kontrolita revizio, malgraŭ valideca nivelo',
 	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ reviziita versio.',
 	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
 	'stabilization-def1' => 'La stabila versio;
 se ĝi ne ekzistas, la nuna versio',
 	'stabilization-def2' => 'La nuna versio:',
+	'stabilization-restrict' => 'Limigoj de aŭtomata kontrolado',
+	'stabilization-restrict-none' => 'Neniuj pliaj limigoj',
 	'stabilization-submit' => 'Konfirmi',
 	'stabilization-notexists' => 'Neniu paĝo estas nomata "[[:$1|$1]]".
 Neniu konfiguro estas farebla.',
@@ -1254,7 +1256,7 @@ Nem lehet a beállításokat módosítani.',
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'stabilization-tab' => 'rev',
+	'stabilization-tab' => 'qualitate',
 	'stabilization' => 'Stabilisation de paginas',
 	'stabilization-text' => "'''Cambia le configurationes infra pro adjustar como le version stabile de [[:\$1|\$1]] es seligite e monstrate.'''
 
@@ -1264,10 +1266,10 @@ Ecce le configurationes actual pro [[:$1|$1]]:',
 	'stabilization-page' => 'Nomine del pagina:',
 	'stabilization-leg' => 'Confirmar configurationes de version stabile',
 	'stabilization-select' => 'Selection de version stabile',
-	'stabilization-select1' => 'Le ultime version de qualitate; si non presente, le ultime version revidite',
+	'stabilization-select1' => 'Le ultime version de qualitate; si non presente, le ultime version mirate',
 	'stabilization-select2' => 'Le ultime version revidite, independentemente del nivello de validation',
-	'stabilization-select3' => 'Le ultime version pristine; si non presente, le ultime version de qualitate o revidite',
-	'stabilization-def' => 'Version monstrate in visualisation predefinite de pagina',
+	'stabilization-select3' => 'Le ultime version pristine; si non presente, le ultime version de qualitate o mirate',
+	'stabilization-def' => 'Version monstrate in le visualisation predefinite del pagina',
 	'stabilization-def1' => 'Le version stabile; si non presente, le version actual',
 	'stabilization-def2' => 'Le version actual',
 	'stabilization-restrict' => 'Restrictiones de autorevision',

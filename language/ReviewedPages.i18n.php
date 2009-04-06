@@ -203,11 +203,12 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Crazymadlover
+ * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'reviewedpages' => 'Επιθεωρημένες σελίδες',
-	'reviewedpages-leg' => 'Λίστα σελίδων το πιό υψηλό επίπεδο',
+	'reviewedpages-leg' => 'Λίστα σελίδων κατά υψηλότερο επίπεδο',
 	'reviewedpages-none' => 'Δεν υπάρχουν σελίδες σε αυτήν τη λίστα',
 	'reviewedpages-lev-1' => 'Ποιότητα',
 	'reviewedpages-all' => 'αναθεωρημένες εκδόσεις',
@@ -218,7 +219,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'reviewedpages' => 'Kontrolitaj paĝoj',
-	'reviewedpages-leg' => 'Montri paĝojn kontrolitajn al aparta nivelo',
+	'reviewedpages-leg' => 'Montri paĝojn laŭ plej alta nivelo',
 	'reviewedpages-list' => 'La jenaj paĝoj estis kontrolita al la aparta nivelo.',
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'reviewedpages-lev-0' => 'Reviziita',
@@ -439,9 +440,9 @@ $messages['ia'] = array(
 	'reviewedpages-leg' => 'Listar paginas per plus alte nivello',
 	'reviewedpages-list' => 'Le sequente paginas ha essite revidite al nivello specificate',
 	'reviewedpages-none' => 'Il non ha paginas in iste lista',
-	'reviewedpages-lev-0' => 'Revidite',
+	'reviewedpages-lev-0' => 'Mirate',
 	'reviewedpages-lev-1' => 'Qualitate',
-	'reviewedpages-lev-2' => 'Eminente',
+	'reviewedpages-lev-2' => 'Pristine',
 	'reviewedpages-all' => 'versiones revidite',
 	'reviewedpages-best' => 'version principal',
 );

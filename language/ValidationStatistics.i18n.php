@@ -203,15 +203,20 @@ Stabilne wersije su wersije bokow, kótarež su wót nanejmjenjej jadnogo pśip�
 /** Greek (Ελληνικά)
  * @author Crazymadlover
  * @author Dead3y3
+ * @author Omnipaedista
  */
 $messages['el'] = array(
 	'validationstatistics' => 'Στατιστικά επικύρωσης',
 	'validationstatistics-users' => "Ο ιστότοπος '''{{SITENAME}}''' αυτή τη στιγμή έχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Συντάκτη]]
 και '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Κριτικού]].",
-	'validationstatistics-time' => "Ο μέσος χρόνος αναμονής για επεξεργασίες από ''χρήστες που δεν έχουν συνδεθεί'' είναι '''$1'''· o διάμεσος είναι '''$3'''.
+	'validationstatistics-time' => "''Τα ακόλουθα δεδομένα είναι λανθάνοντα και ενδέχεται να μην είναι ενημερωμένα.''
+
+Ο μέσος χρόνος αναμονής για επεξεργασίες από ''χρήστες που δεν έχουν συνδεθεί'' είναι '''$1'''· o διάμεσος είναι '''$3'''.
 $4
-Η μέση χρονική υστέρηση για [[Special:OldReviewedPages|σελίδες με επεξεργασίες που εκκρεμμούν κριτικής]] είναι '''$2'''.",
-	'validationstatistics-table' => "Στατιστικά για κάθε περιοχή ονομάτων φαίνονται παρακάτω, ''εξαιρουμένων'' σελίδων ανακατεύθυνσης.",
+Η μέση χρονική υστέρηση για [[Special:OldReviewedPages|σελίδες με επεξεργασίες που εκκρεμμούν κριτικής]] είναι '''$2'''.
+Αυτές οι σελίδες θεωρούνται ''μη ενημερωμένες''. Παρομοίως, οι σελίδες θεωρούνται ''συγχρονισμένες'' εάν η [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]] είναι επίσης η τρέχουσα πρὀχειρη έκδοση.
+Οι σταθερές εκδόσεις είναι αναθεωρήσεις σελίδων που ελέγχονται απὀ τουλάχιστον έναν καθιερωμένο χρήστη.",
+	'validationstatistics-table' => "Τα στατιστικά για κάθε περιοχή ονομάτων εμφανίζονται παρακάτω, των σελίδων ανακατεύθυνσης ''εξαιρουμένων''.",
 	'validationstatistics-ns' => 'Περιοχή ονομάτων',
 	'validationstatistics-total' => 'Σελίδες',
 	'validationstatistics-stable' => 'Κρίθηκαν',
@@ -382,9 +387,9 @@ $messages['grc'] = array(
 	'validationstatistics-table' => "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ''ἐξαιρουμένων''.",
 	'validationstatistics-ns' => 'Ὀνοματεῖον',
 	'validationstatistics-total' => 'Δέλτοι',
-	'validationstatistics-stable' => 'Ἀναθεωρημένη',
-	'validationstatistics-latest' => 'Συγχρονισμένη',
-	'validationstatistics-synced' => 'Συγχρονισμένη/Ἐπιθεωρημένη',
+	'validationstatistics-stable' => 'Ἀνατεθεωρημένη',
+	'validationstatistics-latest' => 'Συγκεχρονισμένη',
+	'validationstatistics-synced' => 'Συγκεχρονισμένη/Ἐπιτεθεωρημένη',
 	'validationstatistics-old' => 'Ἀπηρχαιωμένη',
 );
 
