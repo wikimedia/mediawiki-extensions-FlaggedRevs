@@ -4171,7 +4171,8 @@ $messages['haw'] = array(
 $messages['he'] = array(
 	'editor' => 'עורך',
 	'flaggedrevs' => 'גרסאות מסומנות',
-	'flaggedrevs-backlog' => "הצטברו דפים ב[[Special:OldReviewedPages|רשימת הדפים שנבדקו ושפג תוקפם]]. '''תשומת לבכם נדרשת!'''",
+	'flaggedrevs-backlog' => "הצטברו [[Special:OldReviewedPages|עריכות ממתינות]] בדפים שנבדקו. '''תשומת לבך נדרשת!'''",
+	'flaggedrevs-watched-pending'  => "יש [{{fullurl:Special:OldReviewedPages|watched=1}} עריכות ממתינות] בדפים שנבדקו הנמצאים ברשימת המעקב שלך. '''תשומת לבך נדרשת!'''",
 	'flaggedrevs-desc' => 'אפשרות לעורכים ולבודקי הדפים לאשר גרסאות ולייצב דפים',
 	'flaggedrevs-pref-UI-0' => 'שימוש בתצוגת גרסאות מסומנות מפורטת.',
 	'flaggedrevs-pref-UI-1' => 'שימוש בתצוגת גרסאות מסומנות פשוטה',
