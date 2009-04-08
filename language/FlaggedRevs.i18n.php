@@ -12,7 +12,8 @@ $messages = array();
 $messages['en'] = array(
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Flagged Revisions',
-	'flaggedrevs-backlog'          => 'There is currently a backlog at [[Special:OldReviewedPages|Outdated reviewed pages]]. \'\'\'Your attention is needed!\'\'\'',
+	'flaggedrevs-backlog'          => 'There is currently a backlog of [[Special:OldReviewedPages|pending edits]] to reviewed pages. \'\'\'Your attention is needed!\'\'\'',
+	'flaggedrevs-watched-pending'  => 'There are currently [{{fullurl:Special:OldReviewedPages|watched=1}} pending edits] to reviewed pages on your watchlist. \'\'\'Your attention is needed!\'\'\'',
 	'flaggedrevs-desc'             => 'Gives editors and reviewers the ability to validate revisions and stabilize pages',
 	'flaggedrevs-pref-UI-0'        => 'Use detailed stable version user interface',
 	'flaggedrevs-pref-UI-1'        => 'Use simple stable version user interface',

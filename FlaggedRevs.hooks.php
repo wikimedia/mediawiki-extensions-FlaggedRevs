@@ -1542,12 +1542,26 @@ EOT;
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
 		if( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
-			$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', 'fp_pending_since IS NOT NULL', __METHOD__ );
-			if( ($unreviewed/$pages) > .02 ) {
+			$watchedOutdated = $dbr->selectField( array('watchlist','page','flaggedpages'), '1',
+				array( 'wl_user' => $wgUser->getId(),
+					'wl_namespace = page_namespace', 'wl_title = page_title',
+					'fp_reviewed' => 0, 'fp_page_id = page_id'
+				), __METHOD__
+			);
+			# Give a notice if pages on the wachlist are outdated
+			if( $watchedOutdated ) {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
-				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
-					wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
+				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-watchlist-old-notice'>" . 
+					wfMsgExt('flaggedrevs-watched-pending',array('parseinline')) . "</div>";
+			# Otherwise, give a notice if there is a large backlog in general
+			} else {
+				$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+				$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', 'fp_pending_since IS NOT NULL', __METHOD__ );
+				if( ($unreviewed/$pages) > .02 ) {
+					wfLoadExtensionMessages( 'FlaggedRevs' );
+					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
+						wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
+				}
 			}
 		}
 		return true;
