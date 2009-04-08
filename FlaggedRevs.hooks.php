@@ -321,7 +321,9 @@ EOT;
 				__METHOD__ );
 		}
 		# Check cache before doing another DB hit...
-		$idP = FlaggedRevs::getTemplateIdFromCache( $parser->getRevisionId(), $title->getNamespace(), $title->getDBKey() );
+		$idP = FlaggedRevs::getTemplateIdFromCache( $parser->getRevisionId(),
+			$title->getNamespace(), $title->getDBKey() );
+		# Use the process cache key if it's newer or we have none yet
 		if( !is_null($idP) && (!$id || $idP > $id) ) {
 			$id = $idP;
 		}
@@ -418,7 +420,8 @@ EOT;
 			global $wgUseCurrentImages;
 			# If the DB found nothing...
 			if( $time === false ) {
-				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
+				# May want to give an error, so track these...
+				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
 				if( !$wgUseCurrentImages ) {
 					$time = "0"; // no image
 				} else {
@@ -503,7 +506,8 @@ EOT;
 			global $wgUseCurrentImages;
 			# If the DB found nothing...
 			if( $time === false ) {
-				$ig->mParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey(); // May want to give an error
+				# May want to give an error, so track these...
+				$ig->mParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey();
 				if( !$wgUseCurrentImages ) {
 					$time = "0"; // no image
 				} else {
