@@ -96,6 +96,13 @@ $messages['bg'] = array(
 	'stablepages-config' => 'Конфигурация',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'stablepages' => 'Stabilne stranice',
+);
+
 /** Catalan (Català)
  * @author Jordi Roqué
  * @author Paucabot

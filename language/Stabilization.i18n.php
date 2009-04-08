@@ -2668,10 +2668,12 @@ $messages['tg-cyrl'] = array(
 );
 
 /** Thai (ไทย)
+ * @author Octahedron80
  * @author Passawuth
  */
 $messages['th'] = array(
 	'stabilization-page' => 'ชื่อหน้า:',
+	'stabilization-comment' => 'เหตุผล:',
 );
 
 /** Tagalog (Tagalog)
