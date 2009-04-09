@@ -2673,6 +2673,7 @@ $messages['tg-cyrl'] = array(
  */
 $messages['th'] = array(
 	'stabilization-page' => 'ชื่อหน้า:',
+	'stabilization-submit' => 'ยืนยัน',
 	'stabilization-comment' => 'เหตุผล:',
 );
 

@@ -688,7 +688,8 @@ Puede trobar una lista de pachinas con bersions estables en [[Special:StablePage
 $messages['ar'] = array(
 	'editor' => 'محرر',
 	'flaggedrevs' => 'مراجعات معلمة',
-	'flaggedrevs-backlog' => "يوجد حاليا سجل تأخر في [[Special:OldReviewedPages|الصفحات المراجعة القديمة]]. '''انتباهك مطلوب!'''",
+	'flaggedrevs-backlog' => "يوجد حاليا سجل تأخر في [[Special:OldReviewedPages|التعديلات قيد الانتظار]] للصفحات المراجعة. 
+'''انتباهك مطلوب!'''",
 	'flaggedrevs-desc' => 'يعطي المحررين/المراجعين القدرة على التأكد من صحة النسخ وتثبيت الصفحات',
 	'flaggedrevs-pref-UI-0' => 'استخدم واجهة مستخدم لنسخة مستقرة مفصلة',
 	'flaggedrevs-pref-UI-1' => 'استخدم واجهة مستخدم لنسخة مستقرة بسيطة',
@@ -5091,7 +5092,8 @@ $messages['hy'] = array(
 $messages['ia'] = array(
 	'editor' => 'Redactor',
 	'flaggedrevs' => 'Marcaversiones',
-	'flaggedrevs-backlog' => "Il ha actualmente cargas in retardo in le [[Special:OldReviewedPages|lista de paginas revidite obsolete]]. '''Isto require tu attention!'''",
+	'flaggedrevs-backlog' => "Al momento il ha un accumulation de [[Special:OldReviewedPages|modificationes attendente]] a paginas revidite. '''Isto require tu attention!'''",
+	'flaggedrevs-watched-pending' => "Al momento il ha [{{fullurl:Special:OldReviewedPages|watched=1}} modificationes attendente] a paginas revidite in tu observatorio. '''Isto require tu attention!'''",
 	'flaggedrevs-desc' => 'Da al redactores e revisores le capacitate de validar versiones e stabilisar paginas',
 	'flaggedrevs-pref-UI-0' => 'Usar le version detaliate del interfacie de versiones stabile',
 	'flaggedrevs-pref-UI-1' => 'Usar le version simple del interfacie de versiones stabile',
@@ -7457,6 +7459,8 @@ $messages['nl'] = array(
 	'flaggedrevs' => 'Aangevinkte versies',
 	'flaggedrevs-backlog' => "Er is op dit moment een achterstand in de controle van [[Special:OldReviewedPages|pagina's met eindredactie die zijn bijgewerkt]]. 
 '''Uw aandacht is gewenst!'''",
+	'flaggedrevs-watched-pending' => "Er zijn op het moment [{{fullurl:Special:OldReviewedPages|watched=1}} bewerkingen op uw volglijst die wachten op eindredactie].
+'''Uw aandacht is gewenst!'''",
 	'flaggedrevs-desc' => 'Geeft redacteuren/controleurs de mogelijkheid versies te waarderen en stabiele versies aan te merken',
 	'flaggedrevs-pref-UI-0' => 'Gedetailleerde gebruikersinterface voor stabiele versies gebruiken',
 	'flaggedrevs-pref-UI-1' => 'Eenvoudige gebruikersinterface voor stabiele versies gebruiken',
@@ -8076,7 +8080,8 @@ $messages['nso'] = array(
 $messages['oc'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Revisions marcadas',
-	'flaggedrevs-backlog' => "I a presentament de prètfaches tardièrs dins la [[Special:OldReviewedPages|Lista de las paginas revisadas]]. '''Aquò necessita vòstra atencion !'''",
+	'flaggedrevs-backlog' => "I a actualament de prètfaches tardièrs dins la [[Special:OldReviewedPages|Lista de las modificacions en espèra]] de las paginas revisadas. '''Aquò necessita vòstra atencion !'''",
+	'flaggedrevs-watched-pending' => "I a actualament [{{fullurl:Special:OldReviewedPages|watched=1}} de modificacions en espèra] de paginas relegidas dins vòstra lista de seguit. '''Prestatz-i atencion !'''",
 	'flaggedrevs-desc' => "Balha la possibilitat als editors o als relectors de validar las modificacions e d'estabilizar las paginas.",
 	'flaggedrevs-pref-UI-0' => "Utilizar l’interfàcia d'utilizaire de la version establa detalhada",
 	'flaggedrevs-pref-UI-1' => "Utilizar una simpla interfàcia d'utilizaire establa",
@@ -10612,7 +10617,8 @@ Matatagpuan ang isang talaan ng napatatag na mga pahina mula sa [[Special:Stable
 $messages['tr'] = array(
 	'editor' => 'Editör',
 	'flaggedrevs' => 'İşaretli Değişiklikler',
-	'flaggedrevs-backlog' => "Şu anda [[Special:OldReviewedPages|eski gözden geçirilmiş sayfalar]]da birikmiş iş yükü var. '''İlginiz gerekiyor!'''",
+	'flaggedrevs-backlog' => "Şu anda, gözden geçirilmiş sayfalarda birikmiş [[Special:OldReviewedPages|bekleyen değişiklikler]] iş yükü var. '''İlginiz gerekiyor!'''",
+	'flaggedrevs-watched-pending' => "Şu anda izleme listenizdeki gözden geçirilmiş sayfaların [{{fullurl:Special:OldReviewedPages|watched=1}} bekleyen değişiklikleri] var. '''İlginiz gerekiyor!'''",
 	'flaggedrevs-desc' => 'Editörlere ve gözden geçirenlere, değişiklikleri doğrulama ve sayfaları kararlı hale getirme yeteneği verir',
 	'flaggedrevs-pref-UI-0' => 'Kararlı sürüm detaylı kullanıcı arayüzünü kullan',
 	'flaggedrevs-pref-UI-1' => 'Kararlı sürüm basit kullanıcı arayüzünü kullan',
