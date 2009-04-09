@@ -201,6 +201,17 @@ $messages['hu'] = array(
 	'likedpages-graphs' => 'értékelési adatok',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'likedpages' => 'Paginas con evalutation alte',
+	'likedpages-leg' => 'Cercar paginas con evalutation alte',
+	'likedpages-list' => 'Infra es un lista de paginas ordinate per evalutation del lectores.',
+	'likedpages-none' => 'Il non ha paginas in iste lista',
+	'likedpages-graphs' => 'datas de evalutation',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

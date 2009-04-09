@@ -1337,7 +1337,6 @@ $messages['bcc'] = array(
 	'revreview-update-includes' => "'''لهتی تمپلتان/تصاویر په روچ بیتگین:'''",
 	'revreview-update-use' => "'''توجه:''' اگر هر یکی چه ای تمپلتان/تصاویر یک ثابتین نسخه ای هست،اچه آیی الان ته نسخه ثابت ای صفحه کامرز بیت.",
 	'revreview-revnotfound' => 'کدیمی بازبینی چه ای صفحه که شما لوٹیت ودیگ نه بوت. لطفا URL که شما په رستن په ای صفحه استفاده کنیت کنترلی کنیت.',
-	#'right-autopatrol' => 'اتوماتیکی نشان بونت بازبینی آن ته نام فضایانء نظارتی',
 	'right-autoreview' => 'اتوماتیکی نشان کن بازبینیء په عنوان رویت بیتگین',
 	'right-movestable' => 'صفحات ثابت جاه په جاه کن',
 	'right-review' => 'بازبینی آن په عنوان رویت بیتگین نشان کن',
@@ -1369,8 +1368,6 @@ $messages['bcc'] = array(
 	'revreview-filter-unapproved' => 'تایید نه بوتگین',
 	'revreview-filter-auto' => 'اتوماتیک',
 	'revreview-filter-manual' => 'دستی',
-	'revreview-filter-level-0' => 'نسخ کهنه',
-	'revreview-filter-level-1' => 'نسخ کیفیت',
 	'revreview-statusfilter' => 'وضعیت:',
 	'revreview-typefilter' => 'نوع:',
 	'revreview-tagfilter' => 'برچسپ:',
@@ -6741,8 +6738,6 @@ $messages['lzh'] = array(
 	'revreview-submitting' => '在處理',
 	'revreview-finished' => '成焉。',
 	'revreview-revnotfound' => '查無舊審，惠核網址。',
-	'revreview-filter-level-0' => '初定本',
-	'revreview-filter-level-1' => '校正本',
 );
 
 /** Moksha (Мокшень)
@@ -6859,7 +6854,6 @@ $messages['mk'] = array(
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
-	#'right-autopatrol' => 'Автоматско означување на ревизии како патролирани во именски простори различни од главниот именски простор',
 	'right-autoreview' => 'Автоматско означување на ревизии како прегледани',
 	'right-movestable' => 'Преместување на стабилни страници',
 	'right-review' => 'Означување на ревизии како прегледани',
@@ -6891,8 +6885,6 @@ $messages['mk'] = array(
 	'revreview-filter-unapproved' => 'Неодобрени',
 	'revreview-filter-auto' => 'Автоматски',
 	'revreview-filter-manual' => 'Рачно',
-	'revreview-filter-level-0' => 'Прегледани ревизии',
-	'revreview-filter-level-1' => 'Квалитетни ревизии',
 	'revreview-statusfilter' => 'Статус:',
 	'revreview-typefilter' => 'Тип:',
 	'revreview-tagfilter' => 'Приврзок:',

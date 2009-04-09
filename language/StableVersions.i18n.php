@@ -963,6 +963,18 @@ $messages['vec'] = array(
 	'stableversions-review' => 'Riesaminà el <i>$1</i> da $2',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'stableversions' => 'Ozutada stabiližed versijad',
+	'stableversions-leg1' => 'Lehtpolen kodvdud versijoiden nimikirjutez',
+	'stableversions-page' => 'Lehtpolen nimi:',
+	'stableversions-none' => '"[[:$1]]"-lehtpolel ei ole kodvdud versijoid',
+	'stableversions-list' => 'Nened «[[:$1]]»-lehtpolen versijad oma kodvdud:',
+	'stableversions-review' => 'Om kodvdud datal <i>$1</i> $2-arvostelijal',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Vinhtantran

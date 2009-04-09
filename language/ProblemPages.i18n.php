@@ -206,6 +206,17 @@ $messages['hu'] = array(
 	'problempages-graphs' => 'értékelési adatok',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'problempages' => 'Paginas con evalutation basse',
+	'problempages-leg' => 'Trovar paginas con evalutation basse',
+	'problempages-list' => 'Infra es un lista de paginas ordinate per evaluation del lectores.',
+	'problempages-none' => 'Il non ha paginas in iste lista',
+	'problempages-graphs' => 'datos de evalutation',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Rex
  */

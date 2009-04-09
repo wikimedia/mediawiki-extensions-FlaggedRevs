@@ -28,6 +28,17 @@ $messages['qqq'] = array(
 {{Identical|Configuration}}',
 );
 
+/** Lower Silesian (Schläsch)
+ * @author Jonny84
+ */
+$messages['sli'] = array(
+	'unstablepages' => 'Unstabile Seiten',
+	'unstablepages-stable' => 'Stabile Version',
+	'unstablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit die Entwurfsversion als Standardinhalt für Leser angezeigt wird.',
+	'unstablepages-none' => 'De Liste ies leer.',
+	'unstablepages-config' => 'Konfiguration',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

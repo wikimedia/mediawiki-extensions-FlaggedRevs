@@ -22,15 +22,6 @@ $messages['qqq'] = array(
 	'qualityoversight-legend' => '{{Flagged Revs}}',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'qualityoversight' => 'Ladun revizor',
-	'qualityoversight-list' => 'Necil lehtolel om tantoižiden vahvištusiden da ladunpindoiden heitmižiden nimikirjutez.',
-	'qualityoversight-legend' => 'Ecmine kodvindoiden aigkirjas',
-);
-
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -205,6 +196,15 @@ $messages['hu'] = array(
 	'qualityoversight' => 'Minőségellenőrzés',
 	'qualityoversight-list' => 'Ez a lap a legutóbb végzett értékeléseket listázza.',
 	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
+);
+
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'qualityoversight' => 'Supervision de qualitate',
+	'qualityoversight-list' => 'Iste pagina lista le plus recente approbationes e depreciationes de versiones.',
+	'qualityoversight-legend' => 'Cercar in le registro de revisiones recente',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -414,6 +414,15 @@ $messages['vec'] = array(
 	'qualityoversight' => 'Controlo de qualità',
 	'qualityoversight-list' => 'Sta pagina la elenca le ultime aprovassion e i ultimi declassamenti de le version.',
 	'qualityoversight-legend' => 'Serca i registri de le revision reçenti',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'qualityoversight' => 'Ladun revizor',
+	'qualityoversight-list' => 'Necil lehtolel om tantoižiden vahvištusiden da ladunpindoiden heitmižiden nimikirjutez.',
+	'qualityoversight-legend' => 'Ecmine kodvindoiden aigkirjas',
 );
 
 /** Vietnamese (Tiếng Việt)
