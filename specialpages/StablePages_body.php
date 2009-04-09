@@ -26,7 +26,7 @@ class StablePages extends SpecialPage
 	}
 	
 	protected function showForm() {
-		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
 		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parseinline') ) );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$form = Xml::openElement( 'form', array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -35,7 +35,7 @@ class StablePages extends SpecialPage
 			$form .= Xml::label( wfMsg('stablepages-precedence'), 'wpPrecedence' ) . '&nbsp;';
 			$form .= FlaggedRevsXML::getPrecedenceMenu( $this->precedence ) . '&nbsp;';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
-			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
+			$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 			$form .= "</fieldset></form>\n";
 			$wgOut->addHTML( $form );
 		}

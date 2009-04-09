@@ -25,14 +25,14 @@ class Unstablepages extends SpecialPage
 	}
 	
 	protected function showForm() {
-		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
 		$wgOut->addHTML( wfMsgExt('unstablepages-text', array('parseinline') ) );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$form = Xml::openElement( 'form', array( 'name' => 'unstablepages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('unstablepages')."</legend>\n";
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
-			$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
+			$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 			$form .= "</fieldset></form>\n";
 			$wgOut->addHTML( $form );
 		}

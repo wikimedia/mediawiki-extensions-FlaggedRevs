@@ -24,7 +24,7 @@ class UnreviewedPages extends SpecialPage
 	}
 
 	protected function showList( $wgRequest ) {
-		global $wgOut, $wgScript, $wgTitle, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
 		# If no NS given, then just use the first of $wgFlaggedRevsNamespaces
 		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
 		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
@@ -43,7 +43,7 @@ class UnreviewedPages extends SpecialPage
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
-			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) . '<p>' );
+			Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . '<p>' );
 		# Add dropdowns as needed
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
