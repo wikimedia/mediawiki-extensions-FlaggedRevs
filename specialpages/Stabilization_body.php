@@ -23,14 +23,11 @@ class Stabilization extends UnlistedSpecialPage
 		# Let anyone view, but not submit...
 		if( $wgRequest->wasPosted() ) {
 			if( $wgUser->isBlocked( !$confirm ) ) {
-				$wgOut->blockedPage();
-				return;
+				return $wgOut->blockedPage();
 			} else if( !$this->isAllowed ) {
-				$wgOut->permissionRequired( 'stablesettings' );
-				return;
+				return $wgOut->permissionRequired( 'stablesettings' );
 			} else if( wfReadOnly() ) {
-				$wgOut->readOnlyPage();
-				return;
+				return $wgOut->readOnlyPage();
 			}
 		}
 
@@ -43,16 +40,13 @@ class Stabilization extends UnlistedSpecialPage
 		$this->page = Title::newFromUrl( $this->target );
 		# We need a page...
 		if( is_null($this->page) ) {
-			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
-			return;
+			return $wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 		} else if( !$this->page->exists() ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
+			return $wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
 				$this->page->getPrefixedText() ) );
-			return;
 		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
+			return $wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
-			return;
 		}
 
 		# Watch checkbox
@@ -89,7 +83,7 @@ class Stabilization extends UnlistedSpecialPage
 				$isValid = false;
 			}
 		}
-
+		// Show form or submit...
 		if( $isValid && $confirm ) {
 			$this->submit();
 		} else {
@@ -99,12 +93,6 @@ class Stabilization extends UnlistedSpecialPage
 
 	protected function showSettings( $err = null ) {
 		global $wgOut, $wgLang, $wgUser;
-		# Must be a content page
-		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'),
-				$this->page->getPrefixedText() ) );
-			return;
-		}
 		# Add any error messages
 		if( "" != $err ) {
 			$wgOut->setSubtitle( wfMsgHtml( 'formerror' ) );
@@ -322,7 +310,7 @@ class Stabilization extends UnlistedSpecialPage
 	}
 
 	protected function submit() {
-		global $wgOut, $wgUser, $wgParser;
+		global $wgOut, $wgUser, $wgContLang;
 
 		$changed = $reset = false;
 		$defaultPrecedence = FlaggedRevs::getPrecedence();
@@ -382,8 +370,6 @@ class Stabilization extends UnlistedSpecialPage
 		# Log if changed
 		# @FIXME: do this better
 		if( $changed ) {
-			global $wgContLang;
-
 			$log = new LogPage( 'stable' );
 			# ID, accuracy, depth, style
 			$set = array();
@@ -435,7 +421,7 @@ class Stabilization extends UnlistedSpecialPage
 		}
 		# Update the links tables as the stable version may now be the default page...
 		FlaggedRevs::titleLinksUpdate( $this->page );
-
+		# Apply watchlist checkbox value
 		if( $this->watchThis ) {
 			$wgUser->addWatch( $this->page );
 		} else {
