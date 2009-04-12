@@ -401,10 +401,10 @@ $messages['gsw'] = array(
 	'validationstatistics-users' => "{{SITENAME}} het '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]] un '''$2''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prieferrächt]].",
 	'validationstatistics-time' => "''Die Date stammen us em Cache un s cha syy, ass si nit aktuäll sin.''
 
-Di durschnittlig Wartezyt fir Bearbeitige vu ''Benutzer, wu nit aagmäldet sin'', wu no aagleugt sotte wäre, isch '''$1'''; dr Mittelwärt isch '''$3'''.
+Di durschnittlig Wartezyt fir Bearbeitige vu ''Benutzer, wu nit aagmäldet sin'', wu no aagluegt sotte wäre, isch '''$1'''; dr Mittelwärt isch '''$3'''.
 $4
 Dr durschnittlig Ruckstand uf [[Special:OldReviewedPages|veralteti Syten]] isch '''$2'''.
-Die Syte gälten as ''veraltet''. Ebeso gälte Syten as ''zytglych'' wänn di [[{{MediaWiki:Validationpage}}|aagluegt Version]] au di letscht Fassig isch.
+Die Syte gälten as ''veraltet''. Ebeso gälte Syten as ''zytglych'', wänn di [[{{MediaWiki:Validationpage}}|aagluegt Version]] au di letscht Fassig isch.
 Aagluegti Versione sin Versione vu Syte, wu vu zmindescht eim etablierte Benutzer aagluegt wore sin.",
 	'validationstatistics-table' => "Statischtike fir jede Namensruum wäre do unter zeigt, dervu ''usgnuu'' sin Wyterleitige.",
 	'validationstatistics-ns' => 'Namensruum',
@@ -616,6 +616,7 @@ $messages['ko'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
 	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서의 검토 통계가 이름공간별로 보여지고 있습니다.",
 	'validationstatistics-ns' => '이름공간',
+	'validationstatistics-total' => '페이지',
 );
 
 /** Ripoarisch (Ripoarisch)

@@ -63,6 +63,13 @@ $messages['bg'] = array(
 	'problempages' => 'Проблемни страници',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'problempages-none' => 'Nema stranica na ovom spisku',
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  * @author UV

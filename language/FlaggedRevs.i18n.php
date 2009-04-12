@@ -2741,7 +2741,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 $messages['es'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisiones verificadas',
-	'flaggedrevs-backlog' => "Actualmente hay un retraso en [[Special:OldReviewedPages|páginas revisadas obsoletas]]. '''¡Se necesita de tu atención!!''",
+	'flaggedrevs-backlog' => "Actualmente hay un retraso de [[Special:OldReviewedPages|ediciones pendientes]] a páginas revisadas. '''¡Se necesita de tu atención!!''",
 	'flaggedrevs-desc' => 'Da a los editores la habilidad de validar revisiones y estabilizar páginas',
 	'flaggedrevs-pref-UI-0' => 'Usar la versión detallada de la interfaz de versiones estables',
 	'flaggedrevs-pref-UI-1' => 'Usar la versión simple de la interfaz de versiones estables',
@@ -10376,6 +10376,7 @@ $messages['tg-cyrl'] = array(
  */
 $messages['th'] = array(
 	'editor' => 'ผู้้แก้ไข',
+	'group-editor-member' => 'ผู้แก้ไข',
 	'revreview-auto' => '(อัตโนมัติ)',
 	'revreview-revnotfound' => 'ไม่พบรุ่นการปรับปรุงรุ่นเก่าที่ต้องการ กรุณาตรวจสอบยูอาร์แอลที่ใช้เข้ามายังหน้านี้',
 	'revreview-filter-all' => 'ทั้งหมด',
@@ -11014,8 +11015,8 @@ $messages['uk'] = array(
 	'tooltip-ca-ratinghist' => 'Читацька оцінка цієї сторінки',
 	'revreview-locked-title' => 'Редагування мають бути перевірені перед тим, як будуть показані на цій сторінці!',
 	'revreview-unlocked-title' => 'Редагування не вимагають попередньої перевірки для відображення на цій сторінці!',
-	'revreview-locked' => 'Редагування мають бути перевірені перед тим, як будуть показані на цій сторінці!',
-	'revreview-unlocked' => 'Редагування не вимагають попередньої перевірки для відображення на цій сторінці!',
+	'revreview-locked' => 'Редагування мають бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані на цій сторінці.',
+	'revreview-unlocked' => 'Редагування не вимагають попередньої [[{{MediaWiki:Validationpage}}|перевірки]] перед тим, як будуть показані на цій сторінці.',
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'revreview-tt-review' => 'Перевірити цю сторінку',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',

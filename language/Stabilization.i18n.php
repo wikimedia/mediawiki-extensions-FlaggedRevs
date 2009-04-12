@@ -2662,6 +2662,7 @@ $messages['th'] = array(
 	'stabilization-page' => 'ชื่อหน้า:',
 	'stabilization-submit' => 'ยืนยัน',
 	'stabilization-comment' => 'เหตุผล:',
+	'stabilization-sel-short-1' => 'ไม่มี',
 );
 
 /** Tagalog (Tagalog)
