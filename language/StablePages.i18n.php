@@ -745,6 +745,7 @@ $messages['vep'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author Vinhtantran
  */
 $messages['vi'] = array(
@@ -755,7 +756,7 @@ $messages['vi'] = array(
 	'stablepages-config' => 'Cấu hình',
 	'stablepages-prec-none' => 'không có bản trước',
 	'stablepages-prec-quality' => 'bản chất lượng trước',
-	'stablepages-prec-pristine' => 'bản sơ khai trước',
+	'stablepages-prec-pristine' => 'bản trong sạch trước',
 	'stablepages-precedence' => 'Bản trước:',
 );
 

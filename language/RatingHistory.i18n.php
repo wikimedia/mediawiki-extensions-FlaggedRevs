@@ -1444,10 +1444,15 @@ $messages['vi'] = array(
 	'ratinghistory-3months' => '3 tháng qua',
 	'ratinghistory-year' => 'năm ngoái',
 	'ratinghistory-3years' => 'ba năm trước',
+	'ratinghistory-ave' => 'Trung bình: $1',
 	'ratinghistory-chart' => 'Đánh giá của độc giả qua thời gian',
+	'ratinghistory-purge' => 'tẩy sạch vùng nhớ đệm',
+	'ratinghistory-table' => 'Tóm tắt đánh giá của độc giả',
 	'ratinghistory-users' => 'Các thành viên đánh giá:',
 	'ratinghistory-graph' => '$2 của bài “$3” (theo $1 độc giả)',
 	'readerfeedback-svg' => 'Xem bản SVG',
+	'ratinghistory-table-rating' => 'Đánh giá',
+	'ratinghistory-table-votes' => 'Số phiếu',
 	'ratinghistory-none' => 'Hiện chưa có đủ dữ liệu đánh giá của độc giả để vẽ biểu thị.',
 	'ratinghistory-legend' => "Những biểu thị ở dưới trình bày '''đánh giá trung bình hàng ngày''' <font color=\"blue\">''(lam)''</font> và '''đánh giá trung bình đương thời''' <font color=\"green\">''(lục)''</font>, theo thời gian. '''Đánh giá trung bình đương thời''' chỉ là trung bình các đánh giá hàng ngày ''tại giai đoạn này'' vào mỗi ngày.
 
