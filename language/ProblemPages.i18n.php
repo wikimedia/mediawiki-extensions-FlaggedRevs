@@ -436,9 +436,10 @@ $messages['sk'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'problempages' => 'проблематичне стране',
+	'problempages' => 'Лоше оцењене стране',
 	'problempages-leg' => 'Претрага ниско оцењених страна.',
 	'problempages-list' => 'Испод се налази списак сортиран по оценама читалаца.',
 	'problempages-none' => 'Нема страна у овом списку.',

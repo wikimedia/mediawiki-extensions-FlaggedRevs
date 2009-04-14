@@ -832,7 +832,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'reviewedpages' => 'Проверенные страницы',
-	'reviewedpages-leg' => 'Список страниц, получивших определённую оценку',
+	'reviewedpages-leg' => 'Список страниц, по уровню оценки',
 	'reviewedpages-list' => 'Следующие страницы были проверены и оценены на указанный уровень',
 	'reviewedpages-none' => 'В данном списке отсутствуют страницы',
 	'reviewedpages-lev-0' => 'Досмотренная',
@@ -882,10 +882,11 @@ $messages['sq'] = array(
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'reviewedpages' => 'Прегледане странице',
-	'reviewedpages-leg' => 'Списак страна прегледаних до одређеног степена.',
+	'reviewedpages-leg' => 'Листа страна сортирана по броју прегледа, почев од највишег',
 	'reviewedpages-list' => 'Следеће стране су прегледане до одређеног степена.',
 	'reviewedpages-none' => 'Нема страна у овом списку.',
 	'reviewedpages-lev-0' => 'Прегледано',

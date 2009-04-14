@@ -7671,7 +7671,7 @@ Uw terugkoppeling is waardevol en helpt ons deze website te verbeteren.''",
 $messages['nn'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Vurderte versjonar',
-	'flaggedrevs-backlog' => "Det er ei opphoping av [[Special:OldReviewedPages|utdaterte vurderte sider]]. '''Merksemda di trengst!'''",
+	'flaggedrevs-backlog' => "Det er ei opphoping av [[Special:OldReviewedPages|utdaterte endringar]] i vurderte sider. '''Merksemda di trengst!'''",
 	'flaggedrevs-desc' => 'Gjev skribentar og meldarar evna til å godkjenna sideversjonar og stabilisera sider',
 	'flaggedrevs-pref-UI-0' => 'Nytt eit detaljert grensesnitt for stabile versjonar',
 	'flaggedrevs-pref-UI-1' => 'Nytt eit enkelt grensesnitt for stabile versjonar',
@@ -9061,7 +9061,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 $messages['ru'] = array(
 	'editor' => 'Досматривающий',
 	'flaggedrevs' => 'Отмеченные версии',
-	'flaggedrevs-backlog' => "Существует отставание в проверке страниц, см. [[Special:OldReviewedPages|Устаревшие проверенные страницы]]. '''Пожалуйста, обратите внимание!'''",
+	'flaggedrevs-backlog' => "Существует [[Special:OldReviewedPages|отставание в проверке]] страниц. '''Пожалуйста, обратите внимание!'''",
 	'flaggedrevs-desc' => 'Предоставление возможности редакторам/рецензентам проверять версии страниц и устанавливать стабильные версии',
 	'flaggedrevs-pref-UI-0' => 'Использовать подробный интерфейс стабильных версий',
 	'flaggedrevs-pref-UI-1' => 'Использовать простой интерфейс стабильных версий',
@@ -9200,7 +9200,7 @@ $messages['ru'] = array(
 	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Если какой-либо из этих шаблонов или изображений имеет стабильную версию, то она уже используется в стабильной версии этой страницы.",
 	'revreview-diffonly' => "''Чтобы проверить статью, нажмите на ссылку «текущая версия» и используйте форму проверки.''",
 	'revreview-visibility' => "'''У этой страницы имеется обновлённая [[{{MediaWiki:Validationpage}}|стабильная версия]]; можно изменить [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настройки показа стабильных версий].'''",
-	'revreview-visibility2' => "'''У этой страницы нет обновлённой [[{{MediaWiki:Validationpage}}|стабильной версии]]; можно изменить [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настройки показа стабильных версий].'''",
+	'revreview-visibility2' => "'''[[{{MediaWiki:Validationpage}}|Cтабильная версия]] этой страницы устарела; вы можете изменить [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} настройки] показа стабильных версий.'''",
 	'revreview-revnotfound' => 'Старая версия страницы не найдена. Пожалуйста, проверьте правильность ссылки, которую вы использовали для доступа к этой странице.',
 	'right-autoreview' => 'автоматическая отметка версий страниц как досмотренных',
 	'right-movestable' => 'переименование чистовых версий',
@@ -9635,6 +9635,7 @@ $messages['sq'] = array(
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'editor' => 'Уређивач',
@@ -9658,9 +9659,9 @@ $messages['sr-ec'] = array(
 	'hist-stable' => 'видна верзија',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} прегледано] од стране сарадника [[User:$3|$3]]',
 	'review-diff2stable' => 'Погледај измене између стабилне и текуће верзије.',
-	'review-logentry-app' => 'прегледан [[$1]]',
+	'review-logentry-app' => 'прегледао r$2 од [[$1]]',
 	'review-logentry-dis' => 'застарела верзија стране [[$1]]',
-	'review-logentry-id' => 'редни број верзије: $1',
+	'review-logentry-id' => 'преглед',
 	'review-logentry-diff' => 'diff према стабилној',
 	'review-logpage' => 'Лог прегледа чланка',
 	'reviewer' => 'Прегледач',
@@ -9682,7 +9683,7 @@ $messages['sr-ec'] = array(
 	'revreview-depth-2' => 'Умерено',
 	'revreview-depth-3' => 'Висок',
 	'revreview-depth-4' => 'Изабрани',
-	'revreview-draft-title' => 'Нацрт чланка',
+	'revreview-draft-title' => 'Страна скице',
 	'revreview-edit' => 'Уређивање нацрта',
 	'revreview-flag' => 'Преглед ове верзије',
 	'revreview-invalid' => "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
@@ -9715,7 +9716,9 @@ $messages['sr-ec'] = array(
 	'revreview-style-2' => 'Добар',
 	'revreview-style-3' => 'Тачан',
 	'revreview-style-4' => 'Изабрани',
-	'revreview-submit' => 'Приложи преглед',
+	'revreview-submit' => 'Пошаљи',
+	'revreview-submitting' => 'Слање...',
+	'revreview-finished' => 'Прегледање комплетно!',
 	'revreview-successful2' => "'''Успешно је скинута ознака са означене верзије стране [[:$1|$1]].'''",
 	'revreview-toggle-title' => 'прикажи/сакриј детаље',
 	'revreview-update-includes' => "'''Неки шаблони и/или слике су обновљени:'''",

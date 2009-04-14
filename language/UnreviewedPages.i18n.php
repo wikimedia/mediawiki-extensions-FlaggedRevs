@@ -1086,15 +1086,16 @@ $messages['sq'] = array(
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'right-unreviewedpages' => 'Види списак непрегледаних страна.',
+	'right-unreviewedpages' => 'Види [[Special:UnreviewedPages|списак непрегледаних страна]]',
 	'unreviewedpages' => 'Непрегледане стране.',
 	'unreviewed-legend' => 'Списак непрегледаних садржајних страна.',
 	'unreviewed-category' => 'Категорија:',
 	'unreviewed-diff' => 'преглед',
 	'unreviewed-unwatched' => '(ненадзирано)',
-	'unreviewed-list' => 'На овој страни се налази списак чланака који нису прегледани.',
+	'unreviewed-list' => 'Ово је списак страна које још нису прегледане.',
 	'unreviewed-none' => 'Не постоји ниједна страна која се поклапа са овим критеријима.',
 );
 

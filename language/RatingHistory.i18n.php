@@ -1236,10 +1236,11 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'ratinghistory' => 'Историја оцена стране.',
-	'ratinghistory-leg' => 'Историја оцењивања.',
+	'ratinghistory-leg' => 'Историја оцењивања за [[:$1|$1]]',
 	'ratinghistory-tab' => 'оцена',
 	'ratinghistory-period' => 'Раздобље:',
 	'ratinghistory-month' => 'последњи месец',
