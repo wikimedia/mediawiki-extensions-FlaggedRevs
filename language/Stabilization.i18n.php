@@ -603,6 +603,7 @@ Gaž změniš konfiguraciju ''wuběr stabilneje wersije'', aby wužywał \"kwali
 	'stabilize_expiry_invalid' => 'Njpłaśiwy datum pśepadnjenja.',
 	'stabilize_expiry_old' => 'Toś ten cas pśepadnjenja jo se južo minuł.',
 	'stabilize-expiring' => 'pśepadnjo $1 (UTC)',
+	'stabilization-review' => 'Aktualnu wersiju pśeglědaś',
 );
 
 /** Greek (Ελληνικά)
@@ -1208,6 +1209,7 @@ Hdyž konfiguraciju ''wuběra stabilneje wersije'' změniš, zo by \"kwalitnu\" 
 	'stabilize_expiry_invalid' => 'Njepłaćiwy datum spadnjenja.',
 	'stabilize_expiry_old' => 'Tutón čas spadnjenja je hižo zańdźeny.',
 	'stabilize-expiring' => 'spadnje $1 hodź. (UTC)',
+	'stabilization-review' => 'Aktualnu wersiju přepruwować',
 );
 
 /** Hungarian (Magyar)

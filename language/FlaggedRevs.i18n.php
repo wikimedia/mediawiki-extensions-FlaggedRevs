@@ -8635,7 +8635,8 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Edições Analisadas',
-	'flaggedrevs-backlog' => "Há actualmente um acúmulo de [[Special:OldReviewedPages|páginas analisadas desatualizadas]]. '''A sua ajuda será bem-vinda!'''",
+	'flaggedrevs-backlog' => "Há atualmente um acúmulo de [[Special:OldReviewedPages|edições pendentes]] a páginas analisadas. '''A sua atenção é necessária!'''",
+	'flaggedrevs-watched-pending' => "Há atualmente [{{fullurl:Special:OldReviewedPages|watched=1}} edições pendentes] a páginas analisadas na sua lista de páginas vigiadas. '''A sua atenção é necessária!'''",
 	'flaggedrevs-desc' => 'Dá aos {{int:group-editor}} e aos {{int:group-reviewer}} a possibilidade de verificarem edições e estabilizarem páginas',
 	'flaggedrevs-pref-UI-0' => 'Utilizar a interface de edições estáveis detalhada',
 	'flaggedrevs-pref-UI-1' => 'Utilizar a interface de edições estáveis simples',
@@ -9767,7 +9768,7 @@ $messages['sr-ec'] = array(
 	'accesskey-ca-current' => 'в',
 	'accesskey-ca-stable' => 'ц',
 	'revreview-tt-review' => 'Преглед ове стране.',
-	'validationpage' => '{{ns:help}}:Овера чланка',
+	'validationpage' => '{{ns:help}}:Валидација чланка',
 );
 
 /** latinica (latinica) */
