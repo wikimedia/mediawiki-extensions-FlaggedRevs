@@ -1002,7 +1002,8 @@ class FlaggedRevs {
 			if( !$expiry || $expiry < $now ) {
 				$row = null;
 				self::purgeExpiredConfigurations();
-				$title->invalidateCache();
+				self::titleLinksUpdate( $title ); // re-find stable version
+				$title->invalidateCache(); // purge squid/memcached
 			}
 		}
 		if( !$row ) {

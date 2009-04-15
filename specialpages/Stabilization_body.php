@@ -118,9 +118,7 @@ class Stabilization extends UnlistedSpecialPage
 					if( val == 'existing' )
 						document.getElementById('mwStabilize-expiry').value = ".
 						Xml::encodeJsVar($this->oldExpiry).";
-					else if( val == 'othertime' )
-						document.getElementById('mwStabilize-expiry').value = '';
-					else
+					else if( val != 'othertime' )
 						document.getElementById('mwStabilize-expiry').value = val;
 				}
 			</script>"
