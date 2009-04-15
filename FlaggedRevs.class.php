@@ -323,6 +323,22 @@ class FlaggedRevs {
 		}
 		return $flags;
 	}
+	
+	/**
+	 * Get minimum level tags for a tier
+	 * @return array
+	 */
+	public static function quickTags( $tier ) {
+		switch( $tier )
+		{
+			case 2:
+				return self::quickPristineTags();
+			case 1:
+				return self::quickQualityTags();
+			default:
+				return self::quickSightedTags();
+		}
+	}
 
 	/**
 	 * Get minimum tags that are closest to the quality level
@@ -1042,6 +1058,19 @@ class FlaggedRevs {
 				return false;
 		}
 		return true;
+	}
+	
+	/**
+	* @param Array $flags
+	* @return int, flagging tier
+	*/
+	public static function getLevelTier( $flags ) {
+		if( self::isPristine($flags ) )
+			return 2;
+		else if( self::isQuality($flags ) )
+			return 1;
+		else
+			return 0;
 	}
 	
 	/**
