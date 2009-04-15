@@ -1915,6 +1915,7 @@ Instellen is niet mogelijk.',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Deze vervaldatum is al verstreken.',
 	'stabilize-expiring' => 'vervalt $1 (UTC)',
+	'stabilization-review' => 'Eindredactie voor de huidige versie',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
