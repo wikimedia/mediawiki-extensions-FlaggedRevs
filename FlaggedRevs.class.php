@@ -273,7 +273,7 @@ class FlaggedRevs {
 		global $wgFlaggedRevsPrecedence;
 		if( is_null($config) )
 			$config = $wgFlaggedRevsPrecedence;
-		switch( $wgFlaggedRevsPrecedence )
+		switch( $config )
 		{
 			case 2:
 				$select = FLAGGED_VIS_PRISTINE;
