@@ -48,6 +48,10 @@ class Stabilization extends UnlistedSpecialPage
 			return $wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 		}
+		
+		# Users who cannot edit or review the page cannot set this
+		if( $this->isAllowed && !($this->page->userCan('edit') && $this->page->userCan('review')) )
+			$this->isAllowed = false;
 
 		# Watch checkbox
 		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
@@ -60,6 +64,8 @@ class Stabilization extends UnlistedSpecialPage
 		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
 		$this->select = $this->config['select'];
 		$this->override = $this->config['override'];
+		# Get auto-review option...
+		$this->reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
 		# Get autoreview restrictions...
 		$this->autoreview = $this->config['autoreview'];
 		# Make user readable date for GET requests
@@ -215,6 +221,7 @@ class Stabilization extends UnlistedSpecialPage
 			$watchLabel = wfMsgExt( 'watchthis', array('parseinline') );
 			$watchAttribs = array('accesskey' => wfMsg( 'accesskey-watch' ), 'id' => 'wpWatchthis');
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' ) || $this->page->userIsWatching() );
+			$reviewLabel = wfMsgExt( 'stabilization-review', array('parseinline') );
 
 			$form .= ' <tr>
 					<td class="mw-label">' .
@@ -235,6 +242,9 @@ class Stabilization extends UnlistedSpecialPage
 				<tr>
 					<td></td>
 					<td class="mw-input">' .
+						Xml::check( 'wpReviewthis', $this->reviewThis, array('id'=>'wpReviewthis') ) .
+						"<label for='wpReviewthis'>{$reviewLabel}</label>" .
+						'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
 						"<label for='wpWatchthis'" . $this->skin->tooltipAndAccesskey( 'watch' ) .
 							">{$watchLabel}</label>" .
@@ -311,7 +321,6 @@ class Stabilization extends UnlistedSpecialPage
 
 	protected function submit() {
 		global $wgOut, $wgUser, $wgContLang;
-
 		$changed = $reset = false;
 		$defaultPrecedence = FlaggedRevs::getPrecedence();
 		$defaultOverride = FlaggedRevs::showStableByDefault();
@@ -364,15 +373,18 @@ class Stabilization extends UnlistedSpecialPage
 						'fpc_override' => $this->override,
 						'fpc_level'    => $this->autoreview,
 						'fpc_expiry'   => $expiry ),
-					__METHOD__ );
+					__METHOD__
+				);
 			}
 		}
-		# Log if changed
-		# @FIXME: do this better
+		$query = '';
+		// Check if this actually changed anything...
 		if( $changed ) {
-			$log = new LogPage( 'stable' );
+			$id = $this->page->getArticleId();
+			$latest = $this->page->getLatestRevID( GAID_FOR_UPDATE );
 			# ID, accuracy, depth, style
 			$set = array();
+			# @FIXME: do this better
 			$set[] = wfMsgForContent( "stabilization-sel-short" ) . wfMsgForContent( 'colon-separator' ) .
 				wfMsgForContent("stabilization-sel-short-{$this->select}");
 			$set[] = wfMsgForContent( "stabilization-def-short" ) . wfMsgForContent( 'colon-separator' ) .
@@ -381,12 +393,10 @@ class Stabilization extends UnlistedSpecialPage
 				$set[] = "autoreview={$this->autoreview}";
 			}
 			$settings = '[' . implode(', ',$set). ']';
-
-			$reason = '';
 			# Append comment with settings (other than for resets)
+			$reason = '';
 			if( !$reset ) {
 				$reason = $this->reason ? "{$this->reason} $settings" : "$settings";
-
 				$encodedExpiry = Block::encodeExpiry($expiry, $dbw );
 				if( $encodedExpiry != 'infinity' ) {
 					$expiry_description = ' (' . wfMsgForContent( 'stabilize-expiring',
@@ -396,7 +406,8 @@ class Stabilization extends UnlistedSpecialPage
 					$reason .= "$expiry_description";
 				}
 			}
-
+			# Add log entry...
+			$log = new LogPage( 'stable' );
 			if( $reset ) {
 				$log->addEntry( 'reset', $this->page, $reason );
 				$type = "stable-logentry2";
@@ -404,13 +415,11 @@ class Stabilization extends UnlistedSpecialPage
 				$log->addEntry( 'config', $this->page, $reason );
 				$type = "stable-logentry";
 			}
+			# Build null-edit comment
 			$comment = $wgContLang->ucfirst( wfMsgForContent( $type, $this->page->getPrefixedText() ) );
 			if( $reason ) {
 				$comment .= ": $reason";
 			}
-
-			$id = $this->page->getArticleId();
-			$latest = $this->page->getLatestRevID( GAID_FOR_UPDATE );
 			# Insert a null revision
 			$nullRevision = Revision::newNullRevision( $dbw, $id, $comment, true );
 			$nullRevId = $nullRevision->insertOn( $dbw );
@@ -418,28 +427,40 @@ class Stabilization extends UnlistedSpecialPage
 			$article = new Article( $this->page );
 			$article->updateRevisionOn( $dbw, $nullRevision, $latest );
 			wfRunHooks( 'NewRevisionFromEditComplete', array($article, $nullRevision, $latest) );
+			
+			$invalidate = true;
+			# Take the user to the diff if an outdated version is being
+			# set as the default. This is really an issue with configs
+			# that only let certain pages be reviewed.
+			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+			$cfLevel = FlaggedRevs::getPrecedence( $this->select ); // desired level
+			// Is the page out of sync? Is there no stable version?
+			if( !$frev || $frev->getRevId() != $nullRevId || $frev->getQuality() != $cfLevel ) {
+				$flags = FlaggedRevs::quickTags( $cfLevel ); // desired flags
+				// Try to autoreview to this level...
+				if( $this->reviewThis && RevisionReview::userCanSetFlags($flags) ) {
+					$text = $nullRevision->getText();
+					FlaggedRevs::autoReviewEdit( $article, $wgUser, $text, $nullRevision, $flags, true );
+					$invalidate = false; // already done with auto-review
+				// ...otherwise, go to diff if possible
+				} else if( $frev ) {
+					$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0";
+				} else {
+					// can't autoreview and no diff to show...
+				}
+			}
+			# Update the links tables as the stable version may now be the default page...
+			if( $invalidate ) {
+				FlaggedRevs::titleLinksUpdate( $this->page );
+			}
 		}
-		# Update the links tables as the stable version may now be the default page...
-		FlaggedRevs::titleLinksUpdate( $this->page );
 		# Apply watchlist checkbox value
 		if( $this->watchThis ) {
 			$wgUser->addWatch( $this->page );
 		} else {
 			$wgUser->removeWatch( $this->page );
 		}
-
-		$query = '';
-		# Take the user to the diff to make sure an outdated version isn't
-		# being set at the default. This is really an issue with configs
-		# that only let certain pages be reviewed.
-		if( $changed && $this->select != FLAGGED_VIS_LATEST ) {
-			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-			if( $frev && $frev->getRevId() != $nullRevId ) {
-				$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
-			}
-		}
 		$wgOut->redirect( $this->page->getFullUrl( $query ) );
-
 		return true;
 	}
 }
