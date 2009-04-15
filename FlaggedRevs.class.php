@@ -264,11 +264,15 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get global revision status precedence settings
+	 * Get global revision status precedence setting
+	 * or a specific one if given configuration flags
+	 * @param int, config settings, optional
 	 * @return int
 	 */
-	public static function getPrecedence() {
+	public static function getPrecedence( $config = null ) {
 		global $wgFlaggedRevsPrecedence;
+		if( is_null($config) )
+			$config = $wgFlaggedRevsPrecedence;
 		switch( $wgFlaggedRevsPrecedence )
 		{
 			case 2:
