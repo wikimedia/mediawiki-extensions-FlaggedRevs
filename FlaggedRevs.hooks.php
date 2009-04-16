@@ -1408,8 +1408,9 @@ EOT;
 	public static function addToRCQuery( &$conds, &$tables, &$join_conds, $opts ) {
 		global $wgUser;
 		if( $wgUser->isAllowed('review') ) {
-			$tables[] = 'flaggedpages';
-			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+			$tables[] = 'flaggedpage_pending';
+			$join_conds['flaggedpage_pending'] = array( 'LEFT JOIN',
+				'fpp_page_id = rc_cur_id AND fpp_quality = '.FlaggedRevs::getPatrolLevel() );
 		}
 		return true;
 	}
@@ -1472,14 +1473,12 @@ EOT;
 	
 	public static function addTochangeListLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
 		global $wgUser;
-		if( $rc->getTitle()->getNamespace() < 0 || !isset($rc->mAttribs['fp_stable']) )
+		if( $rc->getTitle()->getNamespace() < 0 || !isset($rc->mAttribs['fpp_rev_id']) )
 			return true; // reviewed pages only
-		if( $unpatrolled && $wgUser->isAllowed('review') ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg('revreview-reviewlink'),
-				'oldid='.intval($rc->mAttribs['fp_stable']).'&diff=cur' );
-			$articlelink .= " <span class='mw-fr-reviewlink'>($rlink)</span>";
-		}
+		wfLoadExtensionMessages( 'FlaggedRevs' );
+		$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg('revreview-reviewlink'),
+			'oldid='.intval($rc->mAttribs['fpp_rev_id']).'&diff=cur' );
+		$articlelink .= " <span class='mw-fr-reviewlink'>($rlink)</span>";
 		return true;
 	}
 	

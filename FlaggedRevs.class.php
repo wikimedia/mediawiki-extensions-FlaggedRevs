@@ -287,6 +287,15 @@ class FlaggedRevs {
 		}
 		return $select;
 	}
+	
+	/**
+	 * Get minimum tier for a revision to count as patrolled
+	 * @return int
+	 */
+	public static function getPatrolLevel() {
+		global $wgFlaggedRevsPatrolLevel;
+		return intval($wgFlaggedRevsPatrolLevel);
+	}
 
 	/**
 	 * Get minimum sighted level tags
