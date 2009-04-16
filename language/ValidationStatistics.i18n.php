@@ -963,6 +963,14 @@ $messages['sq'] = array(
 	'validationstatistics-total' => 'Faqet',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'validationstatistics-ns' => 'Именски простор',
+	'validationstatistics-old' => 'Застарело',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.

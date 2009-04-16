@@ -1244,9 +1244,14 @@ $messages['sr-ec'] = array(
 	'ratinghistory-tab' => 'оцена',
 	'ratinghistory-period' => 'Раздобље:',
 	'ratinghistory-month' => 'последњи месец',
+	'ratinghistory-3months' => 'последња 3 месеца',
 	'ratinghistory-year' => 'последња година',
 	'ratinghistory-3years' => 'последње три године',
-	'ratinghistory-none' => 'Не постоје доступне оцене читалаца у овом тренутку.',
+	'ratinghistory-ave' => 'Средње: $1',
+	'ratinghistory-purge' => 'очисти кеш',
+	'readerfeedback-svg' => 'Види као SVG',
+	'ratinghistory-table-votes' => 'Гласови',
+	'ratinghistory-none' => 'Још увек нема довољно мишљења читалаца да би се формирали графикони.',
 );
 
 /** Swedish (Svenska)

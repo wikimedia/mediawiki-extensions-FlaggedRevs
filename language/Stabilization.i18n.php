@@ -226,6 +226,7 @@ $messages['ar'] = array(
 	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
+	'stabilization-review' => 'راجع النسخة الحالية',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -977,6 +978,7 @@ asegúrese de comprobar se en realidade existen tales revisións na páxina, pol
 	'stabilize_expiry_invalid' => 'Data non válida de caducidade.',
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
 	'stabilize-expiring' => 'caduca o $2 ás $3 (UTC)',
+	'stabilization-review' => 'Revisar a versión actual',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -1040,6 +1042,7 @@ Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilize_expiry_invalid' => 'Nid giltigs Ablaufdatum.',
 	'stabilize_expiry_old' => 'S Ablaufdatum isch iberschritte wore.',
 	'stabilize-expiring' => 'erlischt $1 (UTC)',
+	'stabilization-review' => 'Di aktuäll Version priefe',
 );
 
 /** Hawaiian (Hawai`i)
@@ -1295,6 +1298,7 @@ Nulle configuration es possibile.',
 	'stabilize_expiry_invalid' => 'Data de expiration invalide.',
 	'stabilize_expiry_old' => 'Iste tempore de expiration ha ja passate.',
 	'stabilize-expiring' => 'expira le $1 (UTC)',
+	'stabilization-review' => 'Revider le version actual',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -1429,6 +1433,7 @@ $messages['ja'] = array(
 	'stabilize_expiry_invalid' => '有効期限に不正な日時が設定されました。',
 	'stabilize_expiry_old' => '有効期限に指定された日時を過ぎています。',
 	'stabilize-expiring' => '有効期限: $1 (UTC)',
+	'stabilization-review' => '現在の版を査読する',
 );
 
 /** Jutish (Jysk)
@@ -2412,6 +2417,7 @@ Pri zmene nastavenia ''výber stabilnej verzie'' aby sa používala štandardne 
 	'stabilize_expiry_invalid' => 'Neplatný dátum vypršania.',
 	'stabilize_expiry_old' => 'Čas vypršania už prešiel.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
+	'stabilization-review' => 'Skontrolovať aktuálnu verziu',
 );
 
 /** Albanian (Shqip)
@@ -2456,10 +2462,12 @@ $messages['sr-ec'] = array(
 	'stabilization-def' => 'Верзија приказана на подразумеваном приказу стране.',
 	'stabilization-def1' => 'Стабилна верзија; ако не постоји, биће приказана тренутна.',
 	'stabilization-def2' => 'Тренутна верзија.',
+	'stabilization-restrict-none' => 'Без додатних ограничења',
 	'stabilization-submit' => 'Прихвати',
 	'stabilization-notexists' => 'Не постоји страна под именом "[[:$1|$1]]". Подешавање није могуће.',
 	'stabilization-notcontent' => 'Страна "[[:$1|$1]]" не може бити прегледана. Подешавање није могуће.',
 	'stabilization-comment' => 'Разлог:',
+	'stabilization-otherreason' => 'Други разлог',
 	'stabilization-expiry' => 'Истиче:',
 	'stabilization-sel-short' => 'Изузетак',
 	'stabilization-sel-short-0' => 'Квалитет',
@@ -2762,6 +2770,7 @@ Yapılandırma mümkün değil.',
 	'stabilize_expiry_invalid' => 'Geçersiz sona erme tarihi.',
 	'stabilize_expiry_old' => 'Sona erme tarihi zaten geçmiş.',
 	'stabilize-expiring' => '$1 (UTC) tarihinde sona eriyor',
+	'stabilization-review' => 'Geçerli sürümü gözden geçir',
 );
 
 /** Ukrainian (Українська)

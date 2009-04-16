@@ -503,6 +503,14 @@ $messages['sq'] = array(
 	'unstablepages-config' => 'Konfigurim',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'unstablepages-stable' => 'стабилна верзија',
+	'unstablepages-config' => 'Конфигурација',
+);
+
 /** Swedish (Svenska)
  * @author Najami
  */
