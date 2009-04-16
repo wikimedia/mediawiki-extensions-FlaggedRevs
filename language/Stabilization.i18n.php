@@ -1094,6 +1094,7 @@ $messages['he'] = array(
 	'stabilize_expiry_invalid' => 'תאריך הפקיעה אינו תקין.',
 	'stabilize_expiry_old' => 'תאריך הפקיעה כבר עבר.',
 	'stabilize-expiring' => 'פקיעה: $1 (UTC)',
+	'stabilization-review' => 'בדיקת הגרסה הנוכחית',
 );
 
 /** Hindi (हिन्दी)
