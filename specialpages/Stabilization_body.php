@@ -90,7 +90,7 @@ class Stabilization extends UnlistedSpecialPage
 			}
 		}
 		// Show form or submit...
-		if( $isValid && $confirm ) {
+		if( $this->isAllowed && $isValid && $confirm ) {
 			$this->submit();
 		} else {
 			$this->showSettings();
