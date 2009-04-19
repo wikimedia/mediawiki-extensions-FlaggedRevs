@@ -74,7 +74,7 @@ class FlaggedArticle extends Article {
 		global $wgUser, $wgRequest;
 		# This only applies to viewing content pages
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') || !$this->isReviewable() )
+		if( !self::isViewAction($action) || !$this->isReviewable() )
 			return false;
 		# Does not apply to diffs/old revision. Explicit requests
 		# for a certain stable version will be handled elsewhere.
@@ -97,6 +97,15 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		return false;
+	}
+	
+	 /**
+	 * Is this a view page action?
+	 * @param $action string
+	 * @returns bool
+	 */
+	protected static function isViewAction( $action ) {
+		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
 	}
 
 	 /**
@@ -243,7 +252,7 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgOut, $wgUser, $wgLang;
 		# Only trigger on article view for content pages, not for protect/delete/hist...
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') || !$this->parent->exists() )
+		if( !self::isViewAction($action) || !$this->parent->exists() )
 			return true;
 		# Do not clutter up diffs any further and leave archived versions alone...
 		if( $wgRequest->getVal('diff') || $wgRequest->getVal('oldid') ) {
@@ -750,7 +759,7 @@ class FlaggedArticle extends Article {
 		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') ) {
+		if( !self::isViewAction($action) ) {
 			return true;
 		}
 		$this->addQuickReview( $data, $wgRequest->getVal('diff'), false );
@@ -768,7 +777,7 @@ class FlaggedArticle extends Article {
 		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( ($action !='view' && $action !='purge') ) {
+		if( !self::isViewAction($action) ) {
 			return true;
 		}
 		if( $wgUser->isAllowed( 'feedback' ) ) {
@@ -881,7 +890,7 @@ class FlaggedArticle extends Article {
 			$draftTabCss = '';
 			$stableTabCss = 'selected';
 		// We are looking at the talk page or diffs/hist/oldids
-		} else if( !in_array($action,array('view','purge','edit')) || $skin->mTitle->isTalkPage() ) {
+		} else if( !(self::isViewAction($action) || $action=='edit') || $skin->mTitle->isTalkPage() ) {
 			$draftTabCss = '';
 			$stableTabCss = '';
 		// We are looking at the current revision or in edit mode
@@ -1564,8 +1573,9 @@ class FlaggedArticle extends Article {
 		global $wgUser, $wgRequest;
 
 		$action = $wgRequest->getVal( 'action', 'view' );
+		if( $action == 'purge' ) return true; // already purging!
 		# Only trigger on article view for content pages, not for protect/delete/hist
-		if( $action !='view' || !$wgUser->isAllowed( 'review' ) )
+		if( !self::isViewAction($action) || !$wgUser->isAllowed( 'review' ) )
 			return true;
 		if( !$this->parent->exists() || !$this->isReviewable() )
 			return true;
