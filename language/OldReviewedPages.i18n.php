@@ -272,12 +272,14 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Crazymadlover
  */
 $messages['el'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ώρα|ώρες}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ημέρα|ημέρες}})',
 	'oldreviewedpages-recent' => '(λιγότερο από 1 ώρα)',
 	'oldreviewed-category' => 'Κατηγορία:',
+	'oldreviewed-stable' => 'Σταθεροποιημένος',
 );
 
 /** Esperanto (Esperanto)
@@ -1131,6 +1133,7 @@ $messages['vec'] = array(
 	'oldreviewedpages-recent' => '(manco de 1 ora)',
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewed-watched' => 'Su i me osservati speciali',
+	'oldreviewed-stable' => 'Stabilixà',
 	'oldreviewed-diff' => 'riesamina',
 	'oldreviewed-size' => 'Canbiamento massimo (in byte):',
 	'oldreviewedpages-unwatched' => '(non osservà)',

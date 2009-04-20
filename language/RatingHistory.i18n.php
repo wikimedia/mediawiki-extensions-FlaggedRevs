@@ -254,6 +254,7 @@ Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojecy; '''[4]''' 
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Crazymadlover
  */
 $messages['el'] = array(
 	'ratinghistory' => 'Ιστορικό βαθμολογίας σελίδας',
@@ -261,7 +262,10 @@ $messages['el'] = array(
 	'ratinghistory-link' => 'Σελίδα βαθμολογίας',
 	'ratinghistory-month' => 'τελευταίος μήνας',
 	'ratinghistory-3months' => 'τελευταίοι 3 μήνες',
+	'ratinghistory-year' => 'πέρυσι',
+	'ratinghistory-3years' => 'τελευταία 3 έτη',
 	'ratinghistory-table-rating' => 'Βαθμολογία',
+	'ratinghistory-table-votes' => 'Ψηφοφορίες',
 );
 
 /** Esperanto (Esperanto)
@@ -793,15 +797,25 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'ratinghistory' => 'Entwécklung vun der Bewertung vun der Säit',
+	'ratinghistory-leg' => 'Entwécklung vun der Bewertung vun [[:$1|$1]] am Laf vun der Zäit',
+	'ratinghistory-tab' => 'Bewertung',
+	'ratinghistory-link' => 'Bewertung vun der Säit',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci datt Dir Iech en Ament Zäit huelt fir dës Säit nozekucken!</font>''",
 	'ratinghistory-period' => 'Zäitraum:',
 	'ratinghistory-month' => 'leschte Mount',
 	'ratinghistory-3months' => 'lescht 3 Méint',
 	'ratinghistory-year' => 'lescht Joer',
 	'ratinghistory-3years' => 'lescht 3 Joer',
+	'ratinghistory-chart' => 'Bewertunge vun de Liser am Laf vun der Zäit',
 	'ratinghistory-purge' => 'Tëschespäicher (Cache) eidelmaachen',
+	'ratinghistory-table' => 'Iwwerbléck vun de Bewertunge vu Lieser',
+	'ratinghistory-users' => 'Benotzer, déi bewert hunn',
+	'ratinghistory-graph' => '$2 vun "$3" ($1 {{PLURAL:$1|Bewertung|Bewertungen}})',
 	'readerfeedback-svg' => 'Als SVG kucken',
+	'ratinghistory-table-rating' => 'Bewertung',
 	'ratinghistory-table-votes' => 'Stëmmen',
+	'right-feedback' => 'De Feedback-Formulaire benotze fir eng Säit ze bewerten',
 );
 
 /** Limburgish (Limburgs)

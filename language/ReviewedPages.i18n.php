@@ -1018,7 +1018,7 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'reviewedpages' => 'Pagine riesaminà',
-	'reviewedpages-leg' => 'Elenca le pagine riesaminà fin a un çerto livèl',
+	'reviewedpages-leg' => 'Elenco de le pagine dal livèl pi alto',
 	'reviewedpages-list' => 'Le pagine seguenti le xe stà riesaminà fin al livèl indicà',
 	'reviewedpages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'reviewedpages-lev-0' => 'Rivardà',

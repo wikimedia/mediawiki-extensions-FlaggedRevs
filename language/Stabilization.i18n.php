@@ -53,6 +53,7 @@ No configuration is possible.',
  * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Purodha
+ * @author Robby
  * @author SPQRobin
  * @author Saper
  */
@@ -109,8 +110,8 @@ Used on Special:Stabilization as an option for "Revision displayed on default pa
 	'stabilize-expiring' => "{{Flagged Revs}}
 Used to indicate when something expires.
 $1 is a time stamp in the wiki's content language.
-$2 is the correxponding date in the wiki's content language.
-$3 is the correxponding time in the wiki's content language.
+$2 is the corresponding date in the wiki's content language.
+$3 is the corresponding time in the wiki's content language.
 
 {{Identical|Expires $1 (UTC)}}",
 );
@@ -745,6 +746,7 @@ La configuración no es posible.',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
 	'stabilize_expiry_old' => 'Este tiempo de expiración ya ha pasado',
 	'stabilize-expiring' => 'caduca el $1 (UTC)',
+	'stabilization-review' => 'Revisar la versión actual',
 );
 
 /** Estonian (Eesti)
@@ -884,6 +886,7 @@ Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les
 	'stabilize_expiry_invalid' => "Date d'expiration invalide.",
 	'stabilize_expiry_old' => "Cette durée d'expiration est déjà écoulée.",
 	'stabilize-expiring' => 'Expire le $1 (UTC)',
+	'stabilization-review' => 'Revoir la version courante',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -1625,6 +1628,7 @@ $messages['lb'] = array(
 	'stabilization-select2' => 'Déi lescht iwwerkuckte Versioun, ouni de Niveua vun der Validatioun a Betracht ze zéien',
 	'stabilization-def1' => 'déi stabil Versioun; oder wann et keng gëtt, déi aktuell Versioun',
 	'stabilization-def2' => 'Déi aktuell Versioun',
+	'stabilization-restrict-none' => 'Keng speziell Restriktiounen',
 	'stabilization-submit' => 'Confirméieren',
 	'stabilization-notexists' => 'D\'Säit "[[:$1|$1]]" gëtt et net.
 Keng Astellunge méiglech.',
@@ -1637,6 +1641,7 @@ Keng Astellunge méiglech.',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilization-review' => 'Déi aktuell Versioun nokucken',
 );
 
 /** Limburgish (Limburgs)
@@ -2061,6 +2066,7 @@ Quora configuratz la ''seleccion de la version establa'' per utilizar las revisi
 	'stabilize_expiry_invalid' => "Data d'expiracion invalida.",
 	'stabilize_expiry_old' => "Lo temps d'expiracion ja es passat.",
 	'stabilize-expiring' => 'expira $1 (UTC)',
+	'stabilization-review' => 'Tornar veire la version correnta',
 );
 
 /** Ossetic (Иронау)
@@ -2246,6 +2252,7 @@ Não é possível configurá-la.',
 	'stabilize_expiry_invalid' => 'Data de expiração inválida.',
 	'stabilize_expiry_old' => 'Este tempo de expiração já se encerrou.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
+	'stabilization-review' => 'Analisar a versão atual',
 );
 
 /** Romanian (Română)
@@ -2818,7 +2825,10 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'stabilization-tab' => 'c. q.',
 	'stabilization' => 'Stabilizassion de pagina',
-	'stabilization-text' => "'''Canbia le inpostassion qua soto par stabilir come la version stabile de [[:$1|$1]] la vegna selessionà e mostrà.'''",
+	'stabilization-text' => "'''Canbia le inpostassion qua soto par stabilir come la version stabile de [[:\$1|\$1]] la vegna selessionà e mostrà.'''
+
+Co te canbi la configurassion ''selession version stabile'' par doparar de default le revision \"qualità\" o \"imacolada\",
+assicùrete de controlar se efetivamente ghe sia ste revision in te la pagina, senò la modifica no la gavarà molto efeto.",
 	'stabilization-perm' => 'No ti gà i permessi necessari par canbiar le inpostassion de la version stabile.
 Chì ghe xe le inpostassion atuali par [[:$1|$1]]:',
 	'stabilization-page' => 'Nome de la pagina:',
@@ -2826,7 +2836,7 @@ Chì ghe xe le inpostassion atuali par [[:$1|$1]]:',
 	'stabilization-select' => 'Selession de la version stabile',
 	'stabilization-select1' => "L'ultima version de qualità;
 se no ghe n'è, alora l'ultima version rivardà",
-	'stabilization-select2' => "L'ultima version riesaminà",
+	'stabilization-select2' => "L'ultima version riesaminà, indipendentemente dal livèl de validassion",
 	'stabilization-select3' => "L'ultima version primitiva; se no ghe n'è, alora l'ultima version de qualità o l'ultima rivardà.",
 	'stabilization-def' => 'Version mostrà par default quando se varda la pagina',
 	'stabilization-def1' => "La revision stabile;

@@ -2472,6 +2472,7 @@ Lisćina stabilizěrowanych bokow dajo se w [[Special:StablePages|lisćinje stab
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Crazymadlover
  * @author Dead3y3
  * @author Omnipaedista
  * @author ZaDiak
@@ -2495,6 +2496,9 @@ $messages['el'] = array(
 	'revreview-auto' => '(αυτόματο)',
 	'revreview-auto-w-old' => "Επεξεργάζεσαι μια παλιά επιθεωρημένη αναθεώρηση. Οι αλλαγές θα '''αναθεωρηθούν αυτόματα'''.",
 	'revreview-current' => 'Προσχέδιο',
+	'revreview-depth' => 'Βάθος',
+	'revreview-depth-1' => 'Βασικός',
+	'revreview-depth-3' => 'Υψηλός',
 	'revreview-edit' => 'Επεξεργασία προσχεδίου',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-legend' => 'Βαθμολόγησε το περιεχόμενο της τροποποίησης',
@@ -2513,9 +2517,15 @@ $messages['el'] = array(
 	'readerfeedback-completeness' => 'Πληρότητα',
 	'readerfeedback-npov' => 'Ουδετερότητα',
 	'readerfeedback-presentation' => 'Παρουσίαση',
+	'readerfeedback-level-1' => 'Χαμηλός',
+	'readerfeedback-level-3' => 'Υψηλός',
 	'readerfeedback-level-4' => 'Τέλεια',
+	'readerfeedback-submit' => 'Υποβολή',
 	'readerfeedback-finished' => 'Σας ευχαριστούμε!',
+	'revreview-filter-stable' => 'σταθερός',
+	'revreview-filter-auto' => 'Αυτόματος',
 	'revreview-typefilter' => 'Τύπος:',
+	'revreview-levelfilter' => 'Επίπεδο:',
 	'tooltip-ca-current' => 'Δείτε το υπάρχον προσχέδιο για αυτή τη σελίδα',
 );
 
@@ -2744,6 +2754,7 @@ $messages['es'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisiones verificadas',
 	'flaggedrevs-backlog' => "Actualmente hay un retraso de [[Special:OldReviewedPages|ediciones pendientes]] a páginas revisadas. '''¡Se necesita de tu atención!!''",
+	'flaggedrevs-watched-pending' => "Hay actualmente [{{fullurl:Special:OldReviewedPages|watched=1}} ediciones pendientes] a páginas revisadas en tu lista de vigilancia. '''Se necesita tu atención!'''",
 	'flaggedrevs-desc' => 'Da a los editores la habilidad de validar revisiones y estabilizar páginas',
 	'flaggedrevs-pref-UI-0' => 'Usar la versión detallada de la interfaz de versiones estables',
 	'flaggedrevs-pref-UI-1' => 'Usar la versión simple de la interfaz de versiones estables',
@@ -6495,6 +6506,8 @@ Confirma URL paginae.',
 $messages['lb'] = array(
 	'editor' => 'Editeur',
 	'flaggedrevs' => 'Markéiert Versiounen',
+	'flaggedrevs-pref-UI-0' => 'Déi detailéiert Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
+	'flaggedrevs-pref-UI-1' => 'Déi einfach Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
 	'flaggedrevs-prefs' => 'Stabilitéit',
 	'flaggedrevs-prefs-stable' => "Ëmmer déi stabil Versioun vum Inhalt vun de Säiten ''par défaut'' weisen (wann et eng gëtt)",
 	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht derbäisetzen',
@@ -6531,6 +6544,7 @@ $messages['lb'] = array(
 	'revreview-log' => 'Bemierkung:',
 	'revreview-note' => '[[User:$1|$1]] huet dës Notize gemaach, wéi dës Versioun [[{{MediaWiki:Validationpage}}|nogekuckt gouf]]:',
 	'revreview-notes' => 'Bemierkungen oder Notizen fir unzeweisen:',
+	'revreview-oldrating' => 'Bewertung bis elo:',
 	'revreview-quality-title' => 'Qualitéitssäit',
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Iwwerkuckte Säit]]'''",
 	'revreview-quick-invalid' => "'''Ongëlteg Versiounsnummer'''",
@@ -6579,6 +6593,7 @@ $messages['lb'] = array(
 	'revreview-lev-quality' => 'Qualitéit',
 	'tooltip-ca-current' => 'Den aktuelle Brouillon vun dëser Säit weisen',
 	'tooltip-ca-stable' => 'Déi stabil Versioun vun dëser Säit gesinn',
+	'tooltip-ca-ratinghist' => 'Lieserbewertunge vun vun dëser Säit',
 	'revreview-tt-review' => 'Dës Säit nokucken',
 	'validationpage' => '{{ns:help}}:Validatioun vun der Säit',
 );
@@ -11037,7 +11052,7 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Revision marcade',
-	'flaggedrevs-backlog' => "Ghe xe del laoro aretrato da far su le [[Special:OldReviewedPages|pagine riesaminà tenpo adrìo]]. '''Ghe xe bisogno de la to atension!'''",
+	'flaggedrevs-backlog' => "Ghe xe del laoro aretrato da far su le [[Special:OldReviewedPages|ùltime modifiche]] de pagine riesaminà tenpo adrìo. '''Ghe xe bisogno de la to atension!'''",
 	'flaggedrevs-desc' => 'I contribudori e i revisori i pode controlar le revision e stabilizar le pagine',
 	'flaggedrevs-pref-UI-0' => "Dòpara l'interfacia utente de la version stabile detaglià",
 	'flaggedrevs-pref-UI-1' => "Dòpara l'interfacia utente de la version stabile sénpliçe",
