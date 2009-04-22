@@ -2904,6 +2904,7 @@ Ei voi järgeta.',
 	'stabilize_expiry_invalid' => 'Petuzline lopstrok.',
 	'stabilize_expiry_old' => 'Nece tegendan lopmižen aig om jo männu.',
 	'stabilize-expiring' => 'lopiše aigal $1 (UTC)',
+	'stabilization-review' => 'Arvostelda nügüdläine versii',
 );
 
 /** Vietnamese (Tiếng Việt)
