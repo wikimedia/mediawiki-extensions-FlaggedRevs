@@ -679,6 +679,7 @@ $messages['lb'] = array(
 	'oldreviewedpages-recent' => '(manner wéi 1 Stonn)',
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-watched' => 'Op menger Iwwerwaachungslëscht',
+	'oldreviewed-stable' => 'Stabiliséiert',
 	'oldreviewed-diff' => 'iwwerkucken',
 	'oldreviewed-size' => 'Maximal Ännerung (Bytes):',
 	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',

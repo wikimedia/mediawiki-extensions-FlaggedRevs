@@ -1973,6 +1973,7 @@ Ingen innstillingar kan verta gjorde.',
 	'stabilize_expiry_invalid' => 'Ugyldig sluttdato.',
 	'stabilize_expiry_old' => 'Sluttdatoen har alt vore.',
 	'stabilize-expiring' => 'endar $1 (UTC)',
+	'stabilization-review' => 'Vurder den noverande versjonen',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -2952,6 +2953,7 @@ Không thể cấu hình.',
 	'stabilize_expiry_invalid' => 'Thời hạn không hợp lệ.',
 	'stabilize_expiry_old' => 'Thời hạn đã qua.',
 	'stabilize-expiring' => 'hết hạn vào $1 (UTC)',
+	'stabilization-review' => 'Duyệt phiên bản hiện hành',
 );
 
 /** Volapük (Volapük)

@@ -202,6 +202,24 @@ $aliases['fr'] = array(
 	'ValidationStatistics' => array( 'Statistiques de validation' ),
 );
 
+/** Franco-Provençal (Arpetan) */
+$aliases['frp'] = array(
+	'LikedPages' => array( "Pâges qu'ont des èstimacions hôtes", 'PâgesQuOntDesÈstimacionsHôtes' ),
+	'OldReviewedPages' => array( 'Pâges que les vèrsions sont dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
+	'ProblemPages' => array( "Pâges qu'ont des crouyes èstimacions", 'PâgesQuOntDesCrouyesÈstimacions' ),
+	'QualityOversight' => array( 'Supèrvision de qualitât', 'SupèrvisionDeQualitât' ),
+	'RatingHistory' => array( "Historico de l'èstimacion de la pâge", 'HistoricoDeLÈstimacionDeLaPâge' ),
+	'ReaderFeedback' => array( 'Èstimacion' ),
+	'ReviewedPages' => array( 'Pâges rèvisâs', 'PâgesRèvisâs' ),
+	'RevisionReview' => array( 'Relèctura de les vèrsions', 'RelècturaDeLesVèrsions' ),
+	'Stabilization' => array( 'Stabilisacion' ),
+	'StablePages' => array( 'Pâges stâbles', 'PâgesStâbles' ),
+	'StableVersions' => array( 'Vèrsions stâbles', 'VèrsionsStâbles' ),
+	'UnreviewedPages' => array( 'Pâges pas rèvisâs', 'PâgesPasRèvisâs' ),
+	'UnstablePages' => array( 'Pâges enstâbles', 'PâgesEnstâbles' ),
+	'ValidationStatistics' => array( 'Statistiques de validacion', 'StatistiquesDeValidacion' ),
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
