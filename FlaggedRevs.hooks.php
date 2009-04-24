@@ -1193,44 +1193,35 @@ EOT;
 		return true;
 	}
 	
-	/**
-	* Add user preference to form HTML
-	*/
-	public static function injectPreferences( $form, $out ) {
-		$prefsHtml = FlaggedRevsXML::stabilityPreferences( $form );
-		$out->addHTML( $prefsHtml );
-		return true;
-	}
-	
-	/**
-	* Add user preference to form object based on submission
-	*/
-	public static function injectFormPreferences( $form, $request ) {
-		global $wgUser;
-		$form->mFlaggedRevsStable = $request->getInt( 'wpFlaggedRevsStable' );
-		$form->mFlaggedRevsSUI = $request->getInt( 'wpFlaggedRevsSUI' );
-		$form->mFlaggedRevsWatch = $wgUser->isAllowed( 'review' ) ? $request->getInt( 'wpFlaggedRevsWatch' ) : 0;
-		return true;
-	}
-	
-	/**
-	* Set preferences on form based on user settings
-	*/
-	public static function resetPreferences( $form, $user ) {
-		global $wgSimpleFlaggedRevsUI;
-		$form->mFlaggedRevsStable = $user->getOption( 'flaggedrevsstable' );
-		$form->mFlaggedRevsSUI = $user->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
-		$form->mFlaggedRevsWatch = $user->getOption( 'flaggedrevswatch' );
-		return true;
-	}
-	
-	/**
-	* Set user preferences into user object before it is applied to DB
-	*/
-	public static function savePreferences( $form, $user, &$msg ) {
-		$user->setOption( 'flaggedrevsstable', $form->validateInt( $form->mFlaggedRevsStable, 0, 1 ) );
-		$user->setOption( 'flaggedrevssimpleui', $form->validateInt( $form->mFlaggedRevsSUI, 0, 1 ) );
-		$user->setOption( 'flaggedrevswatch', $form->validateInt( $form->mFlaggedRevsWatch, 0, 1 ) );
+	/** Add user preferences */
+	public static function onGetPreferences( $user, &$preferences ) {
+		$preferences['flaggedrevsstable'] =
+			array(
+				'type' => 'toggle',
+				'section' => 'flaggedrevs',
+				'label-message' => 'flaggedrevs-prefs-stable',
+			);
+			
+		$preferences['flaggedrevssimpleui'] =
+			array(
+				'type' => 'radio',
+				'section' => 'flaggedrevs',
+				'label-message' => 'flaggedrevs-pref-UI',
+				'options' => array(
+					wfMsg( 'flaggedrevs-pref-UI-0' ) => 0,
+					wfMsg( 'flaggedrevs-pref-UI-1' ) => 1,
+				),
+			);
+		
+		if ($user->isAllowed( 'review' ) ) {
+			$preferences['flaggedrevswatch'] =
+				array(
+					'type' => 'toggle',
+					'section' => 'flaggedrevs',
+					'label-message' => 'flaggedrevs-pref-watch',
+				);
+		}
+		
 		return true;
 	}
 	

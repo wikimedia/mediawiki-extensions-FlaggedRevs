@@ -383,10 +383,7 @@ $wgHooks['LogLine'][] = 'FlaggedRevsHooks::reviewLogLine';
 # Disable auto-promotion for demoted users
 $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # Local user account preference
-$wgHooks['RenderPreferencesForm'][] = 'FlaggedRevsHooks::injectPreferences';
-$wgHooks['InitPreferencesForm'][] = 'FlaggedRevsHooks::injectFormPreferences';
-$wgHooks['ResetPreferences'][] = 'FlaggedRevsHooks::resetPreferences';
-$wgHooks['SavePreferences'][] = 'FlaggedRevsHooks::savePreferences';
+$wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
 # Rating link
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'FlaggedRevsHooks::addRatingLink';
 $wgHooks['SkinTemplateToolboxEnd'][] = 'FlaggedRevsHooks::ratingToolboxLink';
@@ -530,6 +527,10 @@ $wgLogActions['stable/reset'] = 'stable-logentry2';
 # AJAX functions
 $wgAjaxExportList[] = 'ReaderFeedback::AjaxReview';
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
+
+// Defaults for prefs
+$wgDefaultUserOptions['flaggedrevssimpleui'] = $wgSimpleFlaggedRevsUI;
+$wgDefaultUserOptions['flaggedrevsstable'] = true;
 
 # Cache update
 $wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';
