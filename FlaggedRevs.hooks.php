@@ -39,7 +39,8 @@ class FlaggedRevsHooks {
 		$ajaxReview = Xml::encodeJsVar( (object) array( 
 			'sendingMsg' => wfMsgHtml('revreview-submitting'), 
 			'sentMsg' => wfMsgHtml('revreview-finished'),
-			'actioncomplete' => wfMsgHtml('actioncomplete')
+			'actioncomplete' => wfMsgHtml('actioncomplete'),
+			'actionfailed' => wfMsgHtml('actionfailed')
 			)
 		);
 
@@ -790,8 +791,8 @@ EOT;
 	/**
 	* When an user makes a null-edit we sometimes want to review it...
 	*/
-	public static function maybeNullEditReview( $article, $user, &$text, &$summary, &$m, &$a, &$b,
-		&$f, $rev, &$s, $baseId )
+	public static function maybeNullEditReview( $article, $user, $text, $summary, $m, $a, $b,
+		$flags, $rev, &$status, $baseId )
 	{
 		global $wgRequest;
 		# Must be in reviewable namespace

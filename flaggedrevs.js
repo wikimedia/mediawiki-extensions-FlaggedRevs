@@ -235,7 +235,8 @@ if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
 	wgAjaxReview = {
 		sendingMsg: "Submitting...",
 		sentMsg: "Submitted",
-		actioncomplete: "Action complete"
+		actioncomplete: "Action complete",
+		actionfailed: "Action failed"
 	};
 }
 
@@ -349,8 +350,10 @@ wgAjaxReview.processResult = function(request) {
 	}
 	if( response.indexOf('<suc#>') == 0 ) {
 		wgAjaxReview.unlockForm();
+		document.title = wgAjaxReview.actioncomplete;
+	} else {
+		document.title = wgAjaxReview.actionfailed;
 	}
-	document.title = wgAjaxReview.actioncomplete;
 };
 
 wgAjaxReview.onLoad = function() {
