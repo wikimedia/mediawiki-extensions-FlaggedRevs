@@ -69,7 +69,7 @@ class FlaggedRevision {
 		# User master/slave as appropriate
 		if( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
-			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if( $flags & FR_FOR_UPDATE ) $options[] = 'LOCK IN SHARE MODE';
 		} else {
 			$db = wfGetDB( DB_SLAVE );
 		}
