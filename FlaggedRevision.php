@@ -69,8 +69,7 @@ class FlaggedRevision {
 		# User master/slave as appropriate
 		if( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
-			if( $flags & FR_FOR_UPDATE )
-				$options[] = 'FOR UPDATE';
+			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
 		} else {
 			$db = wfGetDB( DB_SLAVE );
 		}
@@ -86,7 +85,8 @@ class FlaggedRevision {
 				'fr_rev_id' => $revId,
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
-				'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+				'rev_deleted & '.Revision::DELETED_TEXT => 0
+			),
 			__METHOD__,
 			$options
 		);
@@ -125,7 +125,8 @@ class FlaggedRevision {
 				$columns,
 				array( 'fp_page_id' => $pageId,
 					'fr_page_id = fp_page_id',
-					'fr_rev_id = fp_stable' ),
+					'fr_rev_id = fp_stable'
+				),
 				__METHOD__
 			);
 			if( !$row ) return null;
@@ -139,7 +140,7 @@ class FlaggedRevision {
 			}
 			$dbw = wfGetDB( DB_MASTER );
 			$options['ORDER BY'] = 'fr_rev_id DESC';
-			if( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			if( $flags & FR_FOR_UPDATE ) $options[] = 'LOCK IN SHARE MODE';
 			# Look for the latest pristine revision...
 			if( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
@@ -148,7 +149,8 @@ class FlaggedRevision {
 						'fr_quality = 2',
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0
+					),
 					__METHOD__,
 					$options
 				);
@@ -168,7 +170,8 @@ class FlaggedRevision {
 						$newerClause,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0
+					),
 					__METHOD__,
 					$options
 				);
@@ -181,7 +184,8 @@ class FlaggedRevision {
 					array( 'fr_page_id' => $pageId,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
-						'rev_deleted & '.Revision::DELETED_TEXT => 0 ),
+						'rev_deleted & '.Revision::DELETED_TEXT => 0
+					),
 					__METHOD__,
 					$options
 				);
