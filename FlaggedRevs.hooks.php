@@ -1348,7 +1348,7 @@ EOT;
 	
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
-		if( $wgOut->isArticleRelated() && $fa = FlaggedArticle::getGlobalInstance() ) {
+		if( $wgOut->isArticleRelated() && ($fa = FlaggedArticle::getGlobalInstance()) ) {
 			$fa->addReviewNotes( $data );
 			$fa->addReviewForm( $data );
 			$fa->addFeedbackForm( $data );
