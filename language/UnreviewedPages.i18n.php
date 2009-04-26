@@ -876,7 +876,7 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'right-unreviewedpages' => 'Sjå [[Special:UnreviewedPages|lista over sider som ikkje er vurderte]]',
-	'unreviewedpages' => 'Sider som ikkje har vortne vurderte',
+	'unreviewedpages' => 'Sider som ikkje er vortne vurderte',
 	'unreviewed-legend' => 'List opp innhaldssider som ikkje er vurderte',
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'vurder',

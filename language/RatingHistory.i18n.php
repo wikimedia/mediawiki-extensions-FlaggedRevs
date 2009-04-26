@@ -807,6 +807,7 @@ $messages['lb'] = array(
 	'ratinghistory-3months' => 'lescht 3 Méint',
 	'ratinghistory-year' => 'lescht Joer',
 	'ratinghistory-3years' => 'lescht 3 Joer',
+	'ratinghistory-ave' => 'Duerchschnëtt: $1',
 	'ratinghistory-chart' => 'Bewertunge vun de Liser am Laf vun der Zäit',
 	'ratinghistory-purge' => 'Tëschespäicher (Cache) eidelmaachen',
 	'ratinghistory-table' => 'Iwwerbléck vun de Bewertunge vu Lieser',
