@@ -120,7 +120,7 @@ function update_flaggedpages( $start = null ) {
 			$frev = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
 			# Update fp_stable, fp_quality, and fp_reviewed
 			if( $frev ) {
-				FlaggedRevs::updateArticleOn( $article, $frev->getRevision(), $row->page_latest );
+				FlaggedRevs::updateStableVersion( $article, $frev->getRevision(), $row->page_latest );
 			# Somethings broke? Delete the row...
 			} else {
 				$db->delete( 'flaggedpages', array( 'fp_page_id' => $row->page_id ), __FUNCTION__ );

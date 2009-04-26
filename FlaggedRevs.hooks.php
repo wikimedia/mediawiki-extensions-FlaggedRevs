@@ -165,8 +165,9 @@ EOT;
 			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, FR_MASTER );
 		# Empty flagged revs data for this page if there is no stable version
 		if( !$sv ) {
-			$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
-			$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
+			$dbw->delete( 'flaggedpages', array('fp_page_id' => $pageId), __METHOD__ );
+			$dbw->delete( 'flaggedrevs_tracking', array('ftr_from' => $pageId), __METHOD__ );
+			$dbw->delete( 'flaggedpage_pending', array('fpp_page_id' => $pageId), __METHOD__ );
 			return true;
 		}
 		# Try the process cache...
@@ -183,7 +184,7 @@ EOT;
 			}
 		}
 		# Update page fields
-		FlaggedRevs::updateArticleOn( $article, $sv->getRevision() );
+		FlaggedRevs::updateStableVersion( $article, $sv->getRevision() );
 		# We only care about links that are only in the stable version
 		$links = array();
 		foreach( $parserOut->getLinks() as $ns => $titles ) {
