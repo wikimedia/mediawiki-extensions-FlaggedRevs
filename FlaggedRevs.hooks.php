@@ -1220,7 +1220,7 @@ EOT;
 				array(
 					'type' => 'toggle',
 					'section' => 'flaggedrevs',
-					'label-message' => 'flaggedrevs-pref-watch',
+					'label-message' => 'flaggedrevs-prefs-watch',
 				);
 		}
 		
