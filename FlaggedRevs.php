@@ -50,6 +50,7 @@ if( !defined('READER_FEEDBACK_SIZE') )
 	define('READER_FEEDBACK_SIZE',15);
 
 $wgExtensionCredits['specialpage'][] = array(
+	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
 	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
