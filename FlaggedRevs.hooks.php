@@ -905,7 +905,6 @@ EOT;
 				$p['revertedEdits']++;
 				FlaggedRevs::saveUserParams( $badrev->getRawUser(), $p );
 			}
-			
 		}
 		return true;
 	}
@@ -1238,7 +1237,7 @@ EOT;
 	* @param string $t timestamp of the log entry
 	* @return bool true
 	*/
-	public static function reviewLogLine( $type='', $action='', $title=null, $paramArray=array(), &$c='', &$r='' ) {
+	public static function reviewLogLine( $type='', $action='', $title=null, $paramArray=array(), &$c, &$r ) {
 		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
 		# Show link to page with oldid=x
 		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($paramArray[0]) ) {
@@ -1576,6 +1575,7 @@ EOT;
 	public static function onParserTestTables( &$tables ) {
 		$tables[] = 'flaggedpages';
 		$tables[] = 'flaggedrevs';
+		$tables[] = 'flaggedpage_pending';
 		$tables[] = 'flaggedpage_config';
 		$tables[] = 'flaggedtemplates';
 		$tables[] = 'flaggedimages';
