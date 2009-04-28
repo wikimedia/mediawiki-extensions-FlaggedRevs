@@ -886,7 +886,7 @@ $messages['sq'] = array(
  */
 $messages['sr-ec'] = array(
 	'reviewedpages' => 'Прегледане странице',
-	'reviewedpages-leg' => 'Листа страна сортирана по броју прегледа, почев од највишег',
+	'reviewedpages-leg' => 'Списак страна, сортиран од највишег нивоа',
 	'reviewedpages-list' => 'Следеће стране су прегледане до одређеног степена.',
 	'reviewedpages-none' => 'Нема страна у овом списку.',
 	'reviewedpages-lev-0' => 'Прегледано',

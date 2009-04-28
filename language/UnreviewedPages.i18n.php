@@ -1095,8 +1095,10 @@ $messages['sr-ec'] = array(
 	'unreviewed-category' => 'Категорија:',
 	'unreviewed-diff' => 'преглед',
 	'unreviewed-unwatched' => '(ненадзирано)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|активан корисник надгледа|акхивних корисника надгледају}})',
 	'unreviewed-list' => 'Ово је списак страна које још нису прегледане.',
 	'unreviewed-none' => 'Не постоји ниједна страна која се поклапа са овим критеријима.',
+	'unreviewed-viewing' => '(под прегледом)',
 );
 
 /** Seeltersk (Seeltersk)
