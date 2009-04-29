@@ -30,7 +30,7 @@ class ReviewedPages extends SpecialPage
 	}
 
 	public function showForm() {
-		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
 
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -51,7 +51,7 @@ class ReviewedPages extends SpecialPage
 		$form .= $showhideredirs . ' ';
 
 		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
-		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
+		$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 		$form .= "</fieldset></form>\n";
 
 		$wgOut->addHTML( $form );

@@ -278,7 +278,7 @@ class RevisionReview extends UnlistedSpecialPage
 	 * Show revision review form
 	 */
 	private function showRevision() {
-		global $wgOut, $wgUser, $wgTitle, $wgFlaggedRevComments;
+		global $wgOut, $wgUser, $wgFlaggedRevComments;
 
 		if( $this->unapprovedTags )
 			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
@@ -301,7 +301,7 @@ class RevisionReview extends UnlistedSpecialPage
 		if( FlaggedRevs::showStableByDefault() )
 			$wgOut->addWikiText( wfMsg('revreview-text') );
 			
-		$action = $wgTitle->escapeLocalUrl( 'action=submit' );
+		$action = $this->getTitle()->escapeLocalUrl( 'action=submit' );
 		$form = "<form name='RevisionReview' action='$action' method='post'>";
 		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
 

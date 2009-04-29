@@ -37,11 +37,11 @@ class ProblemPages extends SpecialPage
 	}
 
 	protected function showForm() {
-		global $wgOut, $wgTitle, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>".wfMsgHtml('problempages-leg')."</legend>\n";
-		$form .= Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() );
+		$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 		if( count($wgFlaggedRevsNamespaces) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 		}

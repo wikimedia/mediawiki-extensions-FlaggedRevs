@@ -64,11 +64,11 @@ class QualityOversight extends SpecialPage
 	}
 	
 	private function showForm() {
-		global $wgOut, $wgTitle, $wgScript;
+		global $wgOut, $wgScript;
 		$wgOut->addHTML( 
 			Xml::openElement( 'form', array('name' => 'qualityoversight','action' => $wgScript,'method' => 'get') ) .
 			'<fieldset><legend>' . wfMsgHtml('qualityoversight-legend') . '</legend><p>' .
-			Xml::hidden( 'title', $wgTitle->getPrefixedDBKey() ) .
+			Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;' .
 			( FlaggedRevs::qualityVersions() ?
 				FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-all', 1 ) . '&nbsp;'
