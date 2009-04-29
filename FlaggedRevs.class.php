@@ -1150,10 +1150,16 @@ class FlaggedRevs {
 	 * @param Row $row, from history page
 	 * @returns array (string,string)
 	 */
-	public static function markHistoryRow( $title, $row, $skin ) {
-		if( isset($row->fr_quality) && isset($row->fr_flags) ) {
+	public static function markHistoryRow( $title, $row ) {
+		global $wgUser;
+		if( !isset($row->fr_quality) ) {
+			return array("",""); // not reviewed
+		}
+		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+		if( $row->rev_deleted & Revision::DELETED_USER ) {
+			$link = "";
+		} else {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
-			$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 			$user = User::whois( $row->fr_user ); // FIXME: o(N)
 			$flags = explode(',',$row->fr_flags);
 			if( in_array('auto',$flags) ) {
@@ -1164,8 +1170,6 @@ class FlaggedRevs {
 			$st = $title->getPrefixedDBkey();
 			$link = "<span class='fr-$msg plainlinks'>[" .
 				wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user) . "]</span>";
-		} else {
-			return array("","");
 		}
 		return array($link,$css);
 	}

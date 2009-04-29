@@ -1418,15 +1418,14 @@ EOT;
 	}
 	
 	public static function addToHistLine( &$history, $row, &$s ) {
-		global $wgUser;
 		if( $row->rev_deleted & Revision::DELETED_TEXT )
 			return true; // Don't bother showing notice for deleted revs
-		$skin = $wgUser->getSkin();
 		# Add link to stable version of *this* rev, if any
-		list($link,$class) = FlaggedRevs::markHistoryRow( $history->getArticle()->getTitle(), $row, $skin );
-		if( $link ) {
-			$s = "<span class='$class'>$s</span> <small>$link</small>";
-		}
+		list($link,$class) = FlaggedRevs::markHistoryRow( $history->getArticle()->getTitle(), $row );
+		# Style the row as needed
+		if( $class ) $s = "<span class='$class'>$s</span>";
+		# Add stable old version link
+		if( $link ) $s .= " <small>$link</small>";
 		return true;
 	}
 	
