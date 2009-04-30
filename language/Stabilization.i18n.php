@@ -699,6 +699,7 @@ Neniu konfiguro eblas.',
 	'stabilize_expiry_invalid' => 'Nevalida findato.',
 	'stabilize_expiry_old' => 'Ĉi tiu findato jam estas pasita.',
 	'stabilize-expiring' => 'findato $1 (UTC)',
+	'stabilization-review' => 'Kontroli la nunan version',
 );
 
 /** Spanish (Español)
