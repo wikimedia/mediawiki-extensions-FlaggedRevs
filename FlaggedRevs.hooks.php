@@ -1218,7 +1218,7 @@ EOT;
 			$preferences['flaggedrevswatch'] =
 				array(
 					'type' => 'toggle',
-					'section' => 'flaggedrevs',
+					'section' => 'watchlist',
 					'label-message' => 'flaggedrevs-prefs-watch',
 				);
 		}
