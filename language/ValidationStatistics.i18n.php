@@ -113,6 +113,13 @@ $messages['ast'] = array(
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
 	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і '''$2'''  {{PLURAL:$2|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«правяраючага»]].",
+	'validationstatistics-time' => "''Наступныя зьвесткі кэшаваныя і могуць быць састарэлымі.''
+
+Сярэдняе чаканьне рэдагаваньняў ''удзельнікаў, якія не ўвайшлі ў сыстэму'' складае '''$1'''; а мэдыяна '''$3'''.  
+$4
+Сярэдняя затрымка для [[Special:OldReviewedPages|старонак з неправеранымі рэдагаваньнямі]] складае '''$2'''.
+Гэтыя старонкі лічацца ''састарэлымі''. У сваю чаргу, старонкі лічацца ''сынхранізаванымі'' калі  [[{{MediaWiki:Validationpage}}|стабільная вэрсія]] адначасова зьяўляецца бягучай чарнавой вэрсіяй.
+Стабільнымі вэрсіямі лічацца вэрсіі старонак правераныя хаця б адным удзельнікам з адпаведнымі правамі.",
 	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за ''выключэньнем'' старонак-перанакіраваньняў.",
 	'validationstatistics-ns' => 'Прастора назваў',
 	'validationstatistics-total' => 'Старонак',
@@ -651,6 +658,8 @@ an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|V
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Validéiert',
+	'validationstatistics-latest' => 'Synchroniséiert',
+	'validationstatistics-old' => 'Ofgelaf',
 );
 
 /** Eastern Mari (Олык Марий)

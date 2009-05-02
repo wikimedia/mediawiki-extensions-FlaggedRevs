@@ -115,7 +115,12 @@ $messages['bcl'] = array(
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
+	'stableversions' => 'Паказаць стабільныя вэрсіі',
+	'stableversions-leg1' => 'Сьпіс правераных вэрсіяў старонкі',
 	'stableversions-page' => 'Назва старонкі:',
+	'stableversions-none' => '«[[:$1]]» ня мае правераных вэрсіяў.',
+	'stableversions-list' => 'Наступныя вэрсіі старонкі [[:$1]] былі правераныя:',
+	'stableversions-review' => 'Правераная <i>$1</i> {{GENDER:$2|удзельнікам|удзельніцай}} $2',
 );
 
 /** Bulgarian (Български)

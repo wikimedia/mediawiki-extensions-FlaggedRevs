@@ -2209,6 +2209,7 @@ Não é possível configurá-la.',
 	'stabilize_expiry_invalid' => 'Data de expiração inválida.',
 	'stabilize_expiry_old' => 'Este tempo de expiração já se encerrou.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
+	'stabilization-review' => 'Analisar a versão atual',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -2313,6 +2314,7 @@ Non ge stonne le configurazione.',
 	'stabilize_expiry_invalid' => 'Date de scadenze errete.',
 	'stabilize_expiry_old' => 'Sta date de scadenze ha già passete.',
 	'stabilize-expiring' => "scade 'u $1 (UTC)",
+	'stabilization-review' => "Revide 'a versiona corrende",
 );
 
 /** Russian (Русский)
