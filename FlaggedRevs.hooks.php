@@ -81,7 +81,7 @@ EOT;
 		return true;
 	}
 	
-	public static function markUnderReview( &$output, &$article, &$title, &$user, &$request ) {
+	public static function markUnderReview( $output, $article, $title, $user, $request ) {
 		$action = $request->getVal( 'action', 'view' );
 		$reviewing = ( $action == 'history' ); // default
 		if( $action == 'view' && ($request->getInt('reviewform') || $request->getInt('rcid')) )
@@ -950,7 +950,7 @@ EOT;
 	* Callback that autopromotes user according to the setting in
 	* $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
-	public static function autoPromoteUser( $article, $user, &$text, &$summary, &$m, &$a, &$b, &$f, $rev ) {
+	public static function autoPromoteUser( $article, $user, $text, $summary, $m, $a, $b, &$f, $rev ) {
 		global $wgFlaggedRevsAutopromote, $wgMemc;
 		if( empty($wgFlaggedRevsAutopromote) || !$rev || !$user->getId() )
 			return true;
@@ -1257,7 +1257,7 @@ EOT;
 		return true;
 	}
 
-	public static function imagePageFindFile( &$imagePage, &$normalFile, &$displayFile ) {
+	public static function imagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		$fa = FlaggedArticle::getInstance( $imagePage );
 		$fa->imagePageFindFile( $normalFile, $displayFile );
 		return true;
@@ -1417,7 +1417,7 @@ EOT;
 		return true;
 	}
 	
-	public static function addToHistLine( &$history, $row, &$s ) {
+	public static function addToHistLine( $history, $row, &$s ) {
 		if( $row->rev_deleted & Revision::DELETED_TEXT )
 			return true; // Don't bother showing notice for deleted revs
 		# Add link to stable version of *this* rev, if any
@@ -1473,7 +1473,7 @@ EOT;
 		return true;
 	}
 	
-	public static function injectReviewDiffURLParams( &$article, &$sectionAnchor, &$extraQuery ) {
+	public static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
 		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
 	}
 	
