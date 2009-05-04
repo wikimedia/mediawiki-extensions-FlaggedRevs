@@ -145,12 +145,21 @@ EOT;
 		return true;
 	}
 	
+	/**
+	* Update flaggedrevs tracking tables
+	*/
 	public static function onArticleDelete( &$article, &$user, $reason, $id ) {
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpage_config',
-			array( 'fpc_page_id' => $article->getID() ),
-			__METHOD__
-		);
+		$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $id ), __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $id ), __METHOD__ );
+		return true;
+	}
+	
+	/**
+	* Update stable version selection
+	*/
+	public static function onRevisionDelete( &$title ) {
+		FlaggedRevs::titleLinksUpdate( $title );
 		return true;
 	}
 
