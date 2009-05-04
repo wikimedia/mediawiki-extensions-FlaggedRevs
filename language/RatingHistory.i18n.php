@@ -137,6 +137,24 @@ $messages['bcc'] = array(
 	'ratinghistory-none' => 'نظرات کاربری کافی په شرکتن گراف تا ای زمان نیستن',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'ratinghistory' => 'Гісторыя адзнак старонкі',
+	'ratinghistory-leg' => 'Зьвесткі па гісторыі адзнак для [[:$1|$1]]',
+	'ratinghistory-tab' => 'адзнака',
+	'ratinghistory-link' => 'Адзнака старонкі',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Дзякуй, за тое, што знайшлі час і адзначылі гэту старонку!</font>''",
+	'ratinghistory-period' => 'Пэрыяд часу:',
+	'ratinghistory-month' => 'апошні месяц',
+	'ratinghistory-3months' => 'апошнія 3 месяцы',
+	'ratinghistory-year' => 'апошні год',
+	'ratinghistory-3years' => 'апошнія 3 гады',
+	'ratinghistory-ave' => 'Сярэдняя: $1',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */

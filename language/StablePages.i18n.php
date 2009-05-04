@@ -86,6 +86,22 @@ $messages['bcc'] = array(
 	'stablepages-config' => 'تنظیمات',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'stablepages' => 'Стабільныя старонкі',
+	'stablepages-stable' => 'стабільная вэрсія',
+	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія ўручную настроеныя для паказу стабільнай вэрсіі па змоўчваньні для чытачоў.',
+	'stablepages-none' => 'У гэтым сьпісе няма старонак',
+	'stablepages-config' => 'Настройка',
+	'stablepages-prec-none' => 'няма першаснасьці',
+	'stablepages-prec-quality' => 'першаснасьць якасьці',
+	'stablepages-prec-pristine' => 'першаснасьць першапачатковасьці',
+	'stablepages-precedence' => 'Першаснасьць:',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */

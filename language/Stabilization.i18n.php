@@ -50,6 +50,7 @@ No configuration is possible.',
 );
 
 /** Message documentation (Message documentation)
+ * @author EugeneZelenko
  * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Purodha
@@ -92,6 +93,7 @@ Used on Special:Stabilization as an option for "Revision displayed on default pa
 	'stabilization-notcontent' => '{{Flagged Revs}}',
 	'stabilization-comment' => '{{Flagged Revs}}
 {{Identical|Reason}}',
+	'stabilization-otherreason' => '{{Identical|Other reason}}',
 	'stabilization-expiry' => '{{Flagged Revs}}
 {{Identical|Expires}}',
 	'stabilization-sel-short' => '{{Flagged Revs}}',
@@ -349,13 +351,47 @@ $messages['bcc'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  */
 $messages['be-tarask'] = array(
+	'stabilization-tab' => 'Бачная вэрсія старонкі',
+	'stabilization' => 'Стабілізацыя старонкі',
+	'stabilization-text' => "'''Устанавіце ніжэй, якім спосабам павінна выбірацца і адлюстроўвацца стабільнай вэрсія старонкі [[:$1|$1]].'''
+
+Калі будзеце зьмяняць устаноўкі ''выбару стабільнай вэрсіі'' для выкарыстаньня па змоўчваньні «праверанай» альбо «першапачатковай» вэрсіі, упэўніцеся што старонка мае такія вэрсіі, у адваротным выпадку зьмены не прынясуць значнага эфэкту.",
+	'stabilization-perm' => 'Ваш рахунак ня мае правоў для зьмены ўстановак стабільнай вэрсіі.
+Тут знаходзяцца цяперашнія ўстаноўкі для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва старонкі:',
+	'stabilization-leg' => 'Пацьвердзіць устаноўкі стабільнай вэрсіі',
+	'stabilization-select' => 'Выбар стабільнай вэрсіі',
+	'stabilization-select1' => 'Апошняя якасная вэрсія; калі яе няма, то самая апошняя з прагледжаных',
+	'stabilization-select2' => 'Апошняя правераная вэрсія, незалежна ад узроўню праверкі',
+	'stabilization-select3' => 'Апошняя першапачатковая вэрсія; калі яе няма, то апошняя якасная альбо прагледжаная',
+	'stabilization-def' => 'Вэрсія, якая паказваецца па змоўчваньні',
+	'stabilization-def1' => 'Стабільная вэрсія; калі яе не існуе, то цяперашняя',
+	'stabilization-def2' => 'Цяперашняя вэрсія',
+	'stabilization-restrict' => 'Абмежаваньні аўтаматычнай праверкі',
+	'stabilization-restrict-none' => 'Няма дадатковых абмежаваньняў',
 	'stabilization-submit' => 'Пацьвердзіць',
+	'stabilization-notexists' => 'Не існуе старонкі з назвай «[[:$1|$1]]».
+Немагчыма зьмяніць устаноўкі.',
+	'stabilization-notcontent' => 'Старонка «[[:$1|$1]]» ня можа быць правераная.
+Немагчыма зьмяніць устаноўкі.',
 	'stabilization-comment' => 'Прычына:',
+	'stabilization-otherreason' => 'Іншая прычына',
+	'stabilization-expiry' => 'Тэрмін:',
+	'stabilization-othertime' => 'Іншы час',
+	'stabilization-sel-short' => 'Першаснасьць',
 	'stabilization-sel-short-0' => 'Якасьць',
+	'stabilization-sel-short-1' => 'Няма',
+	'stabilization-sel-short-2' => 'Першапачатковая',
 	'stabilization-def-short' => 'Па змоўчваньні',
+	'stabilization-def-short-0' => 'Цяперашняя',
+	'stabilization-def-short-1' => 'Стабільная',
+	'stabilize_expiry_invalid' => 'Няслушны тэрмін.',
+	'stabilize_expiry_old' => 'Час сканчэньня ўжо прайшоў.',
+	'stabilize-expiring' => 'канчаецца $1 (UTC)',
+	'stabilization-review' => 'Праверыць цяперашнюю вэрсію',
 );
 
 /** Bulgarian (Български)
@@ -2594,6 +2630,7 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilize_expiry_invalid' => 'Ogiltig varaktighet.',
 	'stabilize_expiry_old' => 'Varaktigheten har redan löpt ut.',
 	'stabilize-expiring' => 'upphör den $1 (UTC)',
+	'stabilization-review' => 'Granska den nuvarande versionen',
 );
 
 /** Silesian (Ślůnski)

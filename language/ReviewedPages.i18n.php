@@ -112,6 +112,18 @@ $messages['bcc'] = array(
 	'reviewedpages-best' => 'بازبینی اصلی',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'reviewedpages' => 'Правераныя старонкі',
+	'reviewedpages-leg' => 'Сьпіс старонак адсартаваны па ўзроўню адзнакі',
+	'reviewedpages-list' => 'Наступныя старонкі былі правераны і маюць пазначаны ўзровень',
+	'reviewedpages-none' => 'У гэтым сьпісе няма старонак',
+	'reviewedpages-all' => 'правераныя вэрсіі',
+	'reviewedpages-best' => 'найлепшая вэрсія',
+);
+
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI

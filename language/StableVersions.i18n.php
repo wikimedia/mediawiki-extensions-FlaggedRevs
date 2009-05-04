@@ -152,6 +152,13 @@ $messages['br'] = array(
 	'stableversions-review' => "Adwelet d'an <i>$1</i> gant $2",
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'stableversions' => 'Pogledaj stabilne verzije',
+);
+
 /** Catalan (Català)
  * @author SMP
  * @author Toniher
