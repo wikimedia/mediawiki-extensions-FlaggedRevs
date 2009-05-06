@@ -378,7 +378,8 @@ class FlaggedRevision {
 	public function getTemplateVersions() {
 		$templates = array();
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'flaggedtemplates', '*', array('ft_rev_id' => $this->getRevId()), __METHOD__ );
+		$res = $dbr->select( 'flaggedtemplates', '*',
+			array('ft_rev_id' => $this->getRevId()), __METHOD__ );
 		while( $row = $res->fetchObject() ) {
 			if( !isset($templates[$row->ft_namespace]) ) {
 				$templates[$row->ft_namespace] = array();
@@ -394,7 +395,8 @@ class FlaggedRevision {
 	public function getFileVersions() {
 		$files = array();
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'flaggedimages', '*', array('fi_rev_id' => $this->getRevId()), __METHOD__ );
+		$res = $dbr->select( 'flaggedimages', '*',
+			array('fi_rev_id' => $this->getRevId()), __METHOD__ );
 		while( $row = $res->fetchObject() ) {
 			$files[$row->fi_name] = $row->fi_img_sha1;
 		}
