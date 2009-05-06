@@ -91,8 +91,9 @@ class OldReviewedPages extends SpecialPage
 			# Add filter options
 			$wgOut->addHTML( $form );
 			# Add list output
-			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse') ) );
-			if( $pager->getNumRows() ) {
+			$num = $pager->getNumRows();
+			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse', 'parsemag'), $num ) );
+			if( $num ) {
 				$wgOut->addHTML( $pager->getNavigationBar() );
 				$wgOut->addHTML( $pager->getBody() );
 				$wgOut->addHTML( $pager->getNavigationBar() );

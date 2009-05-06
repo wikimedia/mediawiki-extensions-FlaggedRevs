@@ -12,7 +12,7 @@ $messages['en'] = array(
 	'stableversions-leg1' => 'List reviewed revisions for a page',
 	'stableversions-page' => 'Page name:',
 	'stableversions-none' => '"[[:$1]]" has no reviewed revisions.',
-	'stableversions-list' => 'The following is a list of revisions of [[:$1]] that have been reviewed:',
+	'stableversions-list' => 'The following is a list of {{PLURAL:$2|the only revision|revisions}} of [[:$1]] that {{PLURAL:$2|has|have}} been reviewed:',
 	'stableversions-review' => 'Reviewed on <i>$1</i> by $2',
 );
 
@@ -27,7 +27,9 @@ The legend of the form used to select a page on Special:Stableversions.',
 {{Identical|Page name}}',
 	'stableversions-none' => '{{Flagged Revs}}
 Message is displayed on Special:Stableversions for pages that has no reviewed revisions. Parameter $1 is the pagename.',
-	'stableversions-list' => '{{Flagged Revs}}',
+	'stableversions-list' => '{{Flagged Revs}}
+Parameter $1 is a page title,
+Parameter $2 is the count of revisions following, to be used with PLURAL.',
 	'stableversions-review' => '{{Flagged Revs}}
 This message is used in the list of stable versions of a page (Special:Stableversions) to specify who has reviewed each version.
 Parameter $1 is the date and time of the review,

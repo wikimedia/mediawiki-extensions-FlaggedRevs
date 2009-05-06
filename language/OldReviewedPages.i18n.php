@@ -36,7 +36,8 @@ $messages['qqq'] = array(
 Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
 	'oldreviewedpages-legend' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.',
-	'oldreviewedpages-list' => '{{Flagged Revs}}',
+	'oldreviewedpages-list' => '{{Flagged Revs}}
+Parameter $1 is the number of pages going to be listed, to be used with PLURAL.',
 	'oldreviewedpages-none' => '{{Flagged Revs}}',
 	'oldreviewedpages-hours' => '{{Flagged Revs}}',
 	'oldreviewedpages-days' => '{{Flagged Revs}}',

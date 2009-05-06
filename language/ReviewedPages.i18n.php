@@ -10,7 +10,7 @@ $messages = array();
 $messages['en'] = array(
 	'reviewedpages' => 'Reviewed pages',
 	'reviewedpages-leg' => 'List pages by highest level',
-	'reviewedpages-list' => 'The following pages have been reviewed to the specified level',
+	'reviewedpages-list' => 'The following {{PLURAL:$1|page has|pages have}} been reviewed to the specified level',
 	'reviewedpages-none' => 'There are no pages in this list',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
@@ -26,7 +26,8 @@ $messages['en'] = array(
 $messages['qqq'] = array(
 	'reviewedpages' => '{{Flagged Revs}}',
 	'reviewedpages-leg' => '{{Flagged Revs}}',
-	'reviewedpages-list' => '{{Flagged Revs}}',
+	'reviewedpages-list' => '{{Flagged Revs}}
+Parameter $1 is the number of reviewed pages for use with PLURAL.',
 	'reviewedpages-none' => '{{Flagged Revs}}
 {{Identical|There are no pages in this list}}',
 	'reviewedpages-lev-0' => '{{Flagged Revs}}',

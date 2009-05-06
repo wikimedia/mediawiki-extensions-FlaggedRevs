@@ -61,8 +61,8 @@ class ReviewedPages extends SpecialPage
 		global $wgOut, $wgUser, $wgLang;
 
 		$pager = new ReviewedPagesPager( $this, array(), $this->type, $this->namespace, $this->hideRedirs );
-		if( $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse') ) );
+		if( $num = $pager->getNumRows() ) {
+			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse', 'parsemag'), $num ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
