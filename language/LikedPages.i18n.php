@@ -45,6 +45,18 @@ $messages['arz'] = array(
 	'likedpages-graphs' => 'بيانات التقييم',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'likedpages' => 'Высока адзначаныя старонкі',
+	'likedpages-leg' => 'Пошук высока адзначаных старонак',
+	'likedpages-list' => 'Ніжэй пададзены сьпіс старонак, адсартаваных па іх адзнацы чытачамі.',
+	'likedpages-none' => 'У гэтым сьпісе няма старонак',
+	'likedpages-graphs' => 'зьвесткі пра адзнаку',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */

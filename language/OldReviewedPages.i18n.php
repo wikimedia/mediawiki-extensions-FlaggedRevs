@@ -175,9 +175,24 @@ $messages['bcc'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  */
 $messages['be-tarask'] = array(
+	'oldreviewedpages' => 'Састарэлыя правераныя старонкі',
+	'oldreviewedpages-legend' => 'Сьпіс правераных старонак з неправеранымі вэрсіямі',
+	'oldreviewedpages-list' => 'На гэтай старонцы пададзены сьпіс правераных старонак, якія рэдагаваліся пасьля праверкі.',
+	'oldreviewedpages-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|гадзіна|гадзіны|гадзінаў}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|дзень|дні|дзён}})',
+	'oldreviewedpages-recent' => '(меней 1 гадзіны)',
 	'oldreviewed-category' => 'Катэгорыя:',
+	'oldreviewed-watched' => 'З майго сьпісу назіраньня',
+	'oldreviewed-stable' => 'Стабілізаваныя',
+	'oldreviewed-diff' => 'праверыць',
+	'oldreviewed-size' => 'Найбольшыя зьмены (байтаў):',
+	'oldreviewedpages-unwatched' => '(не назіраецца)',
+	'oldreviewedpages-watched' => '(назіраецца $2 {{PLURAL:$1|актыўным удзельнікам|актыўнымі ўдзельнікамі|актыўнымі ўдзельнікамі}})',
+	'oldreviewedpages-viewing' => '(правяраецца)',
 );
 
 /** Bulgarian (Български)
@@ -659,7 +674,7 @@ $messages['ksh'] = array(
 	'oldreviewed-watched' => 'En minge Oppassleß',
 	'oldreviewed-size' => 'Jüüßte Änderung vum Ömfang en <i lang="en">Bytes</i>:',
 	'oldreviewedpages-unwatched' => '(op keine Oppassleß)',
-	'oldreviewedpages-watched' => '(bei $2 {{PLURAL:$1|Metmaacher|Metmaachere|keinem}} op de Oppassleß)',
+	'oldreviewedpages-watched' => '(bei {{PLURAL:$1|einem aktive Metmaacher|$2 aktive Metmaachere|keinem aktive Metmaacher}} op de Oppassleß)',
 );
 
 /** Cornish (Kernewek)

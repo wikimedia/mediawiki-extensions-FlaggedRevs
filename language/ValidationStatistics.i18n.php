@@ -634,8 +634,9 @@ $messages['ksh'] = array(
 	'validationstatistics-time' => "Die Dorschnitt för de Zick op Änderunge vun Namelose ze Waade, es '''$1'''.
 Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2'''.",
 	'validationstatistics-table' => "Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)
-
-'''Opjepaß:''' De Date hee noh sen för e paa Stond zweschespeichert, se künnte alsu nit janz de neuste sin.",
+<!--
+'''Opjepaß:''' De Date hee noh sen för e paa Stond zweschespeichert, se künnte alsu nit janz de neuste sin.
+-->",
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge jesamp',
 );

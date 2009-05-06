@@ -1400,11 +1400,63 @@ $messages['be'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
+	'editor' => 'Рэдактар',
+	'flaggedrevs' => 'Пазначаныя вэрсіі',
+	'flaggedrevs-backlog' => "Існуе адставаньне ў [[Special:OldReviewedPages|праверцы рэдагаваньняў]] правераных старонак. '''Зьвярніце ўвагу!'''",
+	'flaggedrevs-watched-pending' => "Існуе адставаньне ў [{{fullurl:Special:OldReviewedPages|watched=1}} праверцы рэдагаваньняў] правераных старонак у Вашым сьпісе назіраньня. '''Зьвярніце ўвагу!'''",
+	'flaggedrevs-desc' => 'Дае магчымасьць рэдактарам і рэцэнзэнтам правяраць вэрсіі і стабілізаваць старонкі',
+	'flaggedrevs-pref-UI' => 'Інтэрфэйс стабільных вэрсіяў:',
+	'flaggedrevs-pref-UI-0' => 'Выкарыстоўваць падрабязны інтэрфэйс стабільных вэрсій',
+	'flaggedrevs-pref-UI-1' => 'Выкарыстоўваць просты інтэрфэйс стабільных вэрсій',
+	'prefs-flaggedrevs' => 'Стабільнасьць',
+	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць стабільную вэрсію старонак зьместу па змоўчваньні (калі яна існуе)',
+	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мной старонкі ў мой сьпіс назіраньня',
+	'group-editor' => 'Рэдактары',
+	'group-editor-member' => 'рэдактар',
+	'group-reviewer' => 'Рэцэнзэнты',
+	'group-reviewer-member' => 'рэцэнзэнт',
+	'grouppage-editor' => '{{ns:project}}:Рэдактар',
+	'grouppage-reviewer' => '{{ns:project}}:Рэцэнзэнт',
+	'group-autoreview' => 'Аўтаматычныя рэцэнзэнты',
+	'group-autoreview-member' => 'аўтаматычны рэцэнзэнт',
+	'grouppage-autoreview' => '{{ns:project}}:Аўтаматычны рэцэнзэнт',
+	'hist-draft' => 'чарнавая вэрсія',
+	'hist-quality' => 'якасная вэрсія',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} правераная] {{GENDER:$3|ўдзельнікам|ўдзельніцай}} [[User:$3|$3]]',
+	'hist-stable' => 'прагледжаная вэрсія',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} прагледжаная] {{GENDER:$3|ўдзельнікам|ўдзельніцай}} [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} прагледжаная аўтаматычна]',
+	'review-diff2stable' => 'Паказаць розьніцу паміж стабільнай і цяперашняй вэрсіямі',
+	'review-logentry-app' => 'праверыў вэрсію $2 старонкі [[$1]]',
+	'review-logentry-dis' => 'састарэлая вэрсія $2 старонкі [[$1]]',
+	'review-logentry-id' => 'прагляд',
+	'review-logentry-diff' => 'розьніца са стабільнай',
+	'review-logpage' => 'Журнал праверак',
+	'review-logpagetext' => 'Гэта журнал зьменаў вэрсіяў [[{{MediaWiki:Validationpage}}|зацьверджаных]] статусаў для старонак са зьместам.
+Глядзіце [[Special:ReviewedPages|сьпіс правераных старонак]].',
+	'reviewer' => 'Рэцэнзэнт',
+	'revisionreview' => 'Рэцэнзаваць вэрсіі',
+	'revreview-accuracy' => 'Дакладнасьць',
+	'revreview-accuracy-0' => 'Не зацьверджаная',
+	'revreview-accuracy-1' => 'Прагледжаная',
+	'revreview-accuracy-2' => 'Дакладная',
+	'revreview-accuracy-3' => 'Са спасылкамі на крыніцы',
+	'revreview-accuracy-4' => 'Выбраная',
+	'revreview-approved' => 'Зацьверджана',
+	'revreview-auto' => '(аўтаматычна)',
+	'revreview-auto-w' => "Вы рэдагуеце стабільную вэрсію, зьмены будуць '''аўтаматычна пазначаны як правераныя'''.",
+	'revreview-auto-w-old' => "Вы рэдагуеце правераную вэрсію, зьмены будуць '''аўтаматычна пазначаны як правераныя'''.",
 	'revreview-log' => 'Камэнтар:',
 	'revreview-revnotfound' => 'Ранейшая вэрсія гэтай старонкі ня знойдзеная. Праверце спасылку, празь якую Вы спрабавалі перайсьці на гэтую старонку.',
+	'readerfeedback-level-0' => 'Благая',
+	'readerfeedback-level-1' => 'Нізкая',
+	'readerfeedback-level-2' => 'Сярэдняя',
+	'readerfeedback-level-3' => 'Высокая',
+	'readerfeedback-level-4' => 'Выдатная',
 	'revreview-statusfilter' => 'Зьмена статусу:',
 );
 
@@ -2026,6 +2078,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author ChrisiPK
  * @author MF-Warburg
  * @author Melancholie
+ * @author Merlissimo
  * @author MichaelFrey
  * @author Raimond Spekking
  * @author Umherirrender
@@ -2037,7 +2090,6 @@ $messages['de'] = array(
 	'flaggedrevs-desc' => 'Markierte Versionen',
 	'flaggedrevs-pref-UI-0' => 'detaillierte Benutzerschnittstelle',
 	'flaggedrevs-pref-UI-1' => 'einfache Benutzerschnittstelle',
-	'flaggedrevs-prefs' => 'Markierte Versionen',
 	'flaggedrevs-prefs-stable' => 'Zeige als Standard immer die markierte Version einer Seite (falls vorhanden)',
 	'flaggedrevs-prefs-watch' => 'Selbst markierte Seiten automatisch beobachten',
 	'group-editor' => 'Sichter',
@@ -6517,6 +6569,7 @@ Confirma URL paginae.',
 $messages['lb'] = array(
 	'editor' => 'Editeur',
 	'flaggedrevs' => 'Markéiert Versiounen',
+	'flaggedrevs-pref-UI' => 'Interface vun de stabile Versiounen:',
 	'flaggedrevs-pref-UI-0' => 'Déi detailéiert Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
 	'flaggedrevs-pref-UI-1' => 'Déi einfach Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
 	'prefs-flaggedrevs' => 'Stabilitéit',
@@ -6557,6 +6610,9 @@ $messages['lb'] = array(
 	'revreview-note' => '[[User:$1|$1]] huet dës Notize gemaach, wéi dës Versioun [[{{MediaWiki:Validationpage}}|nogekuckt gouf]]:',
 	'revreview-notes' => 'Bemierkungen oder Notizen fir unzeweisen:',
 	'revreview-oldrating' => 'Bewertung bis elo:',
+	'revreview-patrol' => 'Dës Ännerung als iwwerkuckt markéieren',
+	'revreview-patrol-title' => 'Als iwwerkuckt markéieren',
+	'revreview-patrolled' => 'Déi erausgsichte Versioun vu(n) [[:$1|$1]] gouf als iwwerkuckt markéiert.',
 	'revreview-quality-title' => 'Qualitéitssäit',
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Iwwerkuckte Säit]]'''",
 	'revreview-quick-invalid' => "'''Ongëlteg Versiounsnummer'''",
@@ -6597,6 +6653,7 @@ $messages['lb'] = array(
 	'readerfeedback-level-3' => 'Héich',
 	'readerfeedback-level-4' => 'Exzellent',
 	'readerfeedback-submit' => 'Späicheren',
+	'readerfeedback-voted' => "'''Et schéngt wéi wann Dir dës Säit scho bewert hutt''' ([$3 Bemierkungen oder Froen?]).",
 	'readerfeedback-submitting' => 'Späicheren ...',
 	'readerfeedback-finished' => 'Merci!',
 	'revreview-filter-all' => 'All',
@@ -8336,11 +8393,10 @@ $messages['pam'] = array(
 $messages['pl'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Wersje oznaczone',
-	'flaggedrevs-backlog' => "[[Special:OldReviewedPages|Lista nieaktualnych przejrzanych wersji]] jest już bardzo długa. '''Potrzebna jest Twoja pomoc!'''",
+	'flaggedrevs-backlog' => "Mamy zaległości w sprawdzaniu [[Special:OldReviewedPages|zmian oczekujących]] na przejrzenie. '''Potrzebna jest Twoja pomoc!'''",
 	'flaggedrevs-desc' => 'Umożliwia redaktorom i weryfikatorom ocenę edycji oraz oznaczenie zweryfikowanej wersji strony',
 	'flaggedrevs-pref-UI-0' => 'Użyj szczegółowego interfejsu',
 	'flaggedrevs-pref-UI-1' => 'Użyj prostego interfejsu',
-	'flaggedrevs-prefs' => 'Wersje oznaczone',
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję oznaczoną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako przejrzane',
 	'group-editor' => 'Redaktorzy',

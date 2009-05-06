@@ -121,7 +121,7 @@ $messages['be-tarask'] = array(
 	'stableversions-leg1' => 'Сьпіс правераных вэрсіяў старонкі',
 	'stableversions-page' => 'Назва старонкі:',
 	'stableversions-none' => '«[[:$1]]» ня мае правераных вэрсіяў.',
-	'stableversions-list' => 'Наступныя вэрсіі старонкі [[:$1]] былі правераныя:',
+	'stableversions-list' => '{{PLURAL:$2|Наступная вэрсія|Наступныя вэрсіі}} старонкі [[:$1]] {{PLURAL:$2|была правераная|былі правераныя}}:',
 	'stableversions-review' => 'Правераная <i>$1</i> {{GENDER:$2|удзельнікам|удзельніцай}} $2',
 );
 
@@ -211,7 +211,7 @@ $messages['dsb'] = array(
 	'stableversions-leg1' => 'Lisćina pśeglědanych wersijow za bok',
 	'stableversions-page' => 'Mě boka:',
 	'stableversions-none' => '"[[:$1]]" njama pśeglědane wersije.',
-	'stableversions-list' => 'To jo lisćina wersijow wót [[:$1]], kótarež su se pśeglědali:',
+	'stableversions-list' => 'To jo lisćina {{PLURAL:$2|jadnučkeje wersije|wersijowu|wersijow|wersijow}} wót [[:$1]], {{PLURAL:$2|kótaraž jo se pśeglědała|kótarejž stej se pśeglědałej|kótarež su se pśeglědali|kótarež su se pśeglědali}}:',
 	'stableversions-review' => 'Pśeglědany <i>$1</i> wót $2',
 );
 
@@ -305,7 +305,7 @@ $messages['fr'] = array(
 	'stableversions-leg1' => "Dernières révisions revues d'une page",
 	'stableversions-page' => 'Nom de la page :',
 	'stableversions-none' => "« [[:$1]] » n'a pas de version révisée.",
-	'stableversions-list' => 'La liste qui suit contient des versions de « [[:$1]] » qui ont été révisées :',
+	'stableversions-list' => 'La liste qui suit contient {{PLURAL:$2|de la seule version|des versions}} de « [[:$1]] » qui {{PLURAL:$2|a été révisée|ont été révisées}} :',
 	'stableversions-review' => 'Révisée le <i>$1</i> par $2',
 );
 
@@ -338,7 +338,7 @@ $messages['gl'] = array(
 	'stableversions-leg1' => 'Listar as revisións revisadas dunha páxina',
 	'stableversions-page' => 'Nome da páxina:',
 	'stableversions-none' => '"[[:$1]]" non ten revisións examinadas.',
-	'stableversions-list' => 'A seguinte é unha lista das revisións de "[[:$1]]" que foron revisadas:',
+	'stableversions-list' => 'A seguinte é unha lista {{PLURAL:$2|da única revisión|das revisións}} de "[[:$1]]" que {{PLURAL:$2|foi revisada|foron revisadas}}:',
 	'stableversions-review' => 'Revisado en <i>$1</i> por $2',
 );
 
@@ -362,7 +362,7 @@ $messages['gsw'] = array(
 	'stableversions-leg1' => 'Lischt vu dr Versione fir e Artikel, wu vum Fäldhieter gsäh sin',
 	'stableversions-page' => 'Artikelname:',
 	'stableversions-none' => '„[[:$1]]“ het kei Versione, wu vum Fäldhieter gsäh sin.',
-	'stableversions-list' => 'Des isch d Lischt vu dr Versione vu [[:$1]], wu vum Fäldhieter gsäh sin:',
+	'stableversions-list' => 'Des isch d Lischt vu dr {{PLURAL:$2|Version|Versione}} vu [[:$1]], wu vum Fäldhieter aagluegt {{PLURAL:$2|isch|sin}}:',
 	'stableversions-review' => 'aagluegt <i>$1</i> dur $2',
 );
 
@@ -413,7 +413,7 @@ $messages['hsb'] = array(
 	'stableversions-leg1' => 'Přepruwowane wersije za nastawk nalistować',
 	'stableversions-page' => 'Mjeno nastawka',
 	'stableversions-none' => '[[:$1]] přepruwowane wersije nima.',
-	'stableversions-list' => 'To je lisćina přepruwowanych wersijow wot [[:$1]]:',
+	'stableversions-list' => 'Slědowaca lisćina je lisćina {{PLURAL:$2|jeničkeje wersije|wersijow|wersijow|wersijow}} [[:$1]], {{PLURAL:$2|bu přepruwowana|buštej přepruwowanej|buchu přepruwowane|buchu přepruwowane}}:',
 	'stableversions-review' => 'Dnja <i>$1</i> wot $2 přepruwowany',
 );
 
@@ -484,7 +484,7 @@ $messages['ja'] = array(
 	'stableversions-leg1' => 'ページの査読済み版を一覧表示する',
 	'stableversions-page' => 'ページ名:',
 	'stableversions-none' => '「[[:$1]]」には査読済みの版がありません。',
-	'stableversions-list' => '以下は「[[:$1]]」の査読済み版の一覧です:',
+	'stableversions-list' => '以下は「[[:$1]]」の査読済みの{{PLURAL:$2|唯一の版|版の一覧}}です:',
 	'stableversions-review' => '査読日: <i>$1</i>、査読者: $2',
 );
 
@@ -552,7 +552,7 @@ $messages['ksh'] = array(
 	'stableversions-leg1' => 'De Leß met de nohjeloorte un makeete Versione för en Sigg.',
 	'stableversions-page' => 'Sigge-Tittel:',
 	'stableversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjeloorte un makeete Versione.',
-	'stableversions-list' => 'Hee kütt {{PLURAL:$2||en Leß met|kei nohjeloorte un makeete Version vun}} dä Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjeloorte un makeete Version:|ier nohjeloorte un makeete Versione:|}}',
+	'stableversions-list' => 'Hee kütt {{PLURAL:$2|de|en Leß met dä|kei nohjeloorte un makeete Version vun dä}} Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjeloorte un makeete Version:|ier nohjeloorte un makeete Versione:|}}',
 	'stableversions-review' => 'Nohjeloort un makeet {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
 );
 
@@ -568,7 +568,11 @@ $messages['la'] = array(
  */
 $messages['lb'] = array(
 	'stableversions' => 'Weis déi stabil Versiounen',
+	'stableversions-leg1' => 'Lëscht vun den nogekuckte Versioune vun enger Säit',
 	'stableversions-page' => 'Säitenumm:',
+	'stableversions-none' => '"[[:$1]]" huet keng nogekuckte Versiounen.',
+	'stableversions-list' => 'Dëst ass eng Lëscht vun {{PLURAL:$2|der Versioun|de Verioune}} vun [[:$1]] déi nogekuckt {{PLURAL:$2|ginn ass|gi sinn}}:',
+	'stableversions-review' => 'Nogekuckt den <i>$1</i> vum $2',
 );
 
 /** Limburgish (Limburgs)
@@ -949,7 +953,7 @@ $messages['tr'] = array(
 	'stableversions-leg1' => 'Bir sayfa için gözden geçirilmiş revizyonları listele',
 	'stableversions-page' => 'Sayfa adı:',
 	'stableversions-none' => '"[[:$1]]" hiç gözden geçirilmiş revizyona sahip değil.',
-	'stableversions-list' => 'Sıradaki, [[:$1]] için gözden geçirilmiş revizyonlar listesidir:',
+	'stableversions-list' => 'Sıradaki, [[:$1]] için gözden geçirilmiş {{PLURAL:$2|tek revizyonun|revizyonların}} bir listesidir:',
 	'stableversions-review' => '$2 tarafından <i>$1</i> tarihinde gözden geçirildi',
 );
 

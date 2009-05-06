@@ -153,6 +153,22 @@ $messages['be-tarask'] = array(
 	'ratinghistory-year' => 'апошні год',
 	'ratinghistory-3years' => 'апошнія 3 гады',
 	'ratinghistory-ave' => 'Сярэдняя: $1',
+	'ratinghistory-chart' => 'Адзнакі чытачоў за ўвесь час',
+	'ratinghistory-purge' => 'ачысьціць кэш',
+	'ratinghistory-table' => 'Агляд адзнак чытачоў',
+	'ratinghistory-users' => 'Удзельнікі, якія паставілі адзнакі',
+	'ratinghistory-graph' => '$2 з «$3» ($1 {{PLURAL:$1|адзнака|адзнакі|адзнак}})',
+	'readerfeedback-svg' => 'Паказаць у фармаце SVG',
+	'ratinghistory-table-rating' => 'Адзнака',
+	'ratinghistory-table-votes' => 'Галасы',
+	'ratinghistory-none' => 'У гэты час недастаткова адзнак чытачоў для стварэньня графіка.',
+	'ratinghistory-legend' => "Ніжэй пададзеныя '''сярэднесутачная''' <font color=\"blue\">''(блакітны)''</font> і  
+'''цяперашняя сярэдняя''' <font color=\"green\">''(зялёны)''</font> адзнакі. '''Цяперашняя сярэдняя адзнака''' — сярэдняе значэньне ўсіх штодзённых адзнак ''за'' пэрыяд часу кожнага дня.
+
+Шкала: '''[1]''' - Благая; '''[2]''' - Нізкая; '''[3]''' - Сярэдняя; '''[4]''' - Высокая; '''[5]''' - Выдатная;
+
+'''Колькасьць праверак за дзень''' <font color=\"red\">''(чырвоны)''</font> паказана на графіку ніжэй, у маштабе ''1:\$1''.",
+	'right-feedback' => 'Выкарыстоўвайце форму зваротнай сувязі для адзнакі старонкі',
 );
 
 /** Bulgarian (Български)
@@ -809,6 +825,7 @@ $messages['ksh'] = array(
 	'ratinghistory-ave' => 'Dorschnett: $1',
 	'ratinghistory-purge' => 'Donn der Zwescheshpeisher (der <i lang="en">cache</i>) leddisch maache',
 	'readerfeedback-svg' => 'Als en <code>SVG</code>-Dattei aanloore',
+	'ratinghistory-table-votes' => 'Shtemme',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

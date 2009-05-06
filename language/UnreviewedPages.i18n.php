@@ -739,12 +739,14 @@ $messages['la'] = array(
 $messages['lb'] = array(
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lëscht vun den net iwwerkuckte Säite]] weisen',
 	'unreviewedpages' => 'Säit déi net nogekuckt ass',
+	'unreviewed-legend' => 'Lëscht vun den net nogekuckte Säiten',
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'iwwerkucken',
 	'unreviewed-unwatched' => '(net iwwerwaacht)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|Benotzer iwwerwaacht|Benotzer iwwerwaachen}})',
 	'unreviewed-list' => 'Op dëser Säit sti Säiten déi net nogekuckt goufen.',
 	'unreviewed-none' => 'Et gëtt keng Säiten, déi dene Critèren entspriechen déi Dir uginn hutt',
+	'unreviewed-viewing' => '(gëtt nogekuckt)',
 );
 
 /** Limburgish (Limburgs)

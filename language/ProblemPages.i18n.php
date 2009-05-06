@@ -56,6 +56,18 @@ $messages['bcc'] = array(
 	'problempages-graphs' => 'دیتای درجه بندی',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'problempages' => 'Нізка адзначаныя старонкі',
+	'problempages-leg' => 'Пошук старонак з нізкай адзнакай',
+	'problempages-list' => 'Ніжэй пададзены сьпіс старонак адсартаваных па іх адзнацы чытачамі.',
+	'problempages-none' => 'У гэтым сьпісе няма старонак',
+	'problempages-graphs' => 'зьвесткі пра адзнаку',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */

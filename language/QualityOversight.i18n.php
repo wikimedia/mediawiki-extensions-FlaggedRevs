@@ -58,6 +58,16 @@ $messages['bcc'] = array(
 	'qualityoversight-legend' => 'گردگ په آماران نوکین بازبینی',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'qualityoversight' => 'Кантроль якасьці',
+	'qualityoversight-list' => 'Гэта старонка ўтрымлівае сьпіс апошніх пацьверджаньняў і зьняцьцяў пацьверджаньняў узроўняў якасьці вэрсій.',
+	'qualityoversight-legend' => 'Пошук у журнале праверак',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */

@@ -114,12 +114,13 @@ $messages['bcc'] = array(
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
 	'reviewedpages' => 'Правераныя старонкі',
 	'reviewedpages-leg' => 'Сьпіс старонак адсартаваны па ўзроўню адзнакі',
-	'reviewedpages-list' => 'Наступныя старонкі былі правераны і маюць пазначаны ўзровень',
+	'reviewedpages-list' => '{{PLURAL:$1|Наступная старонка была правераная і мае|Наступныя старонкі былі правераны і маюць}} пазначаны ўзровень',
 	'reviewedpages-none' => 'У гэтым сьпісе няма старонак',
 	'reviewedpages-all' => 'правераныя вэрсіі',
 	'reviewedpages-best' => 'найлепшая вэрсія',
@@ -204,7 +205,7 @@ $messages['de'] = array(
 $messages['dsb'] = array(
 	'reviewedpages' => 'Pśeglědane boki',
 	'reviewedpages-leg' => 'Boki pó nejwušej rowninje nalicyś',
-	'reviewedpages-list' => 'Slědujuce boki su se za pódanym niwowom pśeglědali',
+	'reviewedpages-list' => '{{PLURAL:$1|Slědujucy bok jo se pśeglědał|Slědujucej boka stej se pśegłědałej|Slědujuce boki su se pśeglědali|Slědujuce boki su se pśeglědali}} za pódanu rowninu',
 	'reviewedpages-none' => 'Toś ta lisćina njewopśimujo boki.',
 	'reviewedpages-lev-0' => 'Pśeglědany',
 	'reviewedpages-lev-1' => 'Kwalita',
@@ -233,7 +234,7 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'reviewedpages' => 'Kontrolitaj paĝoj',
 	'reviewedpages-leg' => 'Montri paĝojn laŭ plej alta nivelo',
-	'reviewedpages-list' => 'La jenaj paĝoj estis kontrolita al la aparta nivelo.',
+	'reviewedpages-list' => 'La {{PLURAL:$1|jena paĝo estis kontrolita|jenaj paĝoj estis kontrolitaj}} al la specifa nivelo.',
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'reviewedpages-lev-0' => 'Reviziita',
 	'reviewedpages-lev-1' => 'Kvalito',
@@ -299,7 +300,7 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'reviewedpages' => 'Pages passées en revue',
 	'reviewedpages-leg' => 'Liste des pages par plus haut niveau',
-	'reviewedpages-list' => 'Les pages suivantes ont été passées en revue au niveau spécifié',
+	'reviewedpages-list' => '{{PLURAL:$1|La page suivante a été passé|Les pages suivantes ont été passées}} en revue au niveau spécifié',
 	'reviewedpages-none' => 'Cette liste est vide',
 	'reviewedpages-lev-0' => 'Visualisée',
 	'reviewedpages-lev-1' => 'De qualité',
@@ -330,7 +331,7 @@ $messages['frp'] = array(
 $messages['gl'] = array(
 	'reviewedpages' => 'Páxinas revisadas',
 	'reviewedpages-leg' => 'Lista as páxinas polo nivel máis alto',
-	'reviewedpages-list' => 'As seguintes páxinas foron revisadas a un nivel específico',
+	'reviewedpages-list' => '{{PLURAL:$1|A seguinte páxina foi revisada|As seguintes páxinas foron revisadas}} ao nivel especificado',
 	'reviewedpages-none' => 'Non hai páxinas nesta lista',
 	'reviewedpages-lev-0' => 'Revisado',
 	'reviewedpages-lev-1' => 'Calidade',
@@ -357,7 +358,7 @@ $messages['grc'] = array(
 $messages['gsw'] = array(
 	'reviewedpages' => 'Lischt vu dr Syte, wu vum Fäldhieter gsäh sin',
 	'reviewedpages-leg' => 'D Syte no em hegschte Level uflischte',
-	'reviewedpages-list' => 'Die Syte sin gsichtet un hän dr Status, wu aagee isch, iberchu',
+	'reviewedpages-list' => 'Die Syte {{PLURAL:$1|isch gsichtet un het|sin gsichtet un hän}} dr Status, wu aagee isch, iberchu',
 	'reviewedpages-none' => 'Die Lischt isch läär.',
 	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
 	'reviewedpages-lev-1' => 'Prieft',
@@ -419,7 +420,7 @@ $messages['hr'] = array(
 $messages['hsb'] = array(
 	'reviewedpages' => 'Pruwowane strony',
 	'reviewedpages-leg' => 'Strony po najwyšej runinje nalistować',
-	'reviewedpages-list' => 'Slědowace strony buchu za podatu runinu přepruwowane',
+	'reviewedpages-list' => '{{PLURAL:$1|Slědowaca strona bu za podatu runinu přepruwowana|Slědowacej stronje buštej za podatu runinu přepruwowanej|Slědowace strony buchu za podatu runinu přepruwowane|Slědowace strony buchu za podatu runinu přepruwowane}}',
 	'reviewedpages-none' => 'W tutej lisćinje strony njejsu',
 	'reviewedpages-lev-0' => 'Přehladany',
 	'reviewedpages-lev-1' => 'Kwalita',
@@ -605,10 +606,14 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'reviewedpages' => 'Lëscht vun den iwwerkuckte Säiten',
+	'reviewedpages-leg' => 'Lëscht vun de Säite mat dem héichste Niveau',
+	'reviewedpages-list' => 'Dës {{PLURAL:$1|Säit|Säite}} goufen nogekuckt an entspriechen dem héichste Niveau',
 	'reviewedpages-none' => 'Dës Lëscht ass eidel',
 	'reviewedpages-lev-0' => 'iwwerkuckt',
 	'reviewedpages-lev-1' => 'Qualitéit',
 	'reviewedpages-lev-2' => 'Exzellent',
+	'reviewedpages-all' => 'nogekuckte Versiounen',
+	'reviewedpages-best' => 'bescht Versioun',
 );
 
 /** Limburgish (Limburgs)
@@ -1002,7 +1007,7 @@ $messages['tl'] = array(
 $messages['tr'] = array(
 	'reviewedpages' => 'Gözden geçirilmiş sayfalar',
 	'reviewedpages-leg' => 'Sayfaları en yüksek seviyeye göre listele',
-	'reviewedpages-list' => 'Sıradaki sayfalar belirlenen seviyede gözden geçirilmiştir',
+	'reviewedpages-list' => 'Sıradaki {{PLURAL:$1|sayfa|sayfalar}} belirlenen seviyede gözden geçirilmiştir',
 	'reviewedpages-none' => 'Bu listede hiç sayfa yok',
 	'reviewedpages-lev-0' => 'Gözlenmiş',
 	'reviewedpages-lev-1' => 'Kalite',
