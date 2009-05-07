@@ -1261,7 +1261,8 @@ EOT;
 				$r = '(' . wfMsgHtml('review-logentry-diff') . ')';
 			}
 			$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-				wfMsgHtml('review-logentry-id',$paramArray[0]), "oldid={$paramArray[0]}&diff=prev") . ')';
+				wfMsgHtml('review-logentry-id',$paramArray[0]),
+				"oldid={$paramArray[0]}&diff=prev&diffonly=0") . ')';
 		}
 		return true;
 	}
