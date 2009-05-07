@@ -986,9 +986,12 @@ EOT;
 		if( $article->getTitle()->isContentPage() ) {
 			$pages = explode( ',', trim($p['uniqueContentPages']) ); // page IDs
 			# Don't let this get bloated for no reason
-			if( count($pages) < $wgFlaggedRevsAutopromote['uniqueContentPages'] && !in_array($article->getId(),$pages) ) {
+			if( count($pages) < $wgFlaggedRevsAutopromote['uniqueContentPages']
+				&& !in_array($article->getId(),$pages) )
+			{
 				$pages[] = $article->getId();
-				$p['uniqueContentPages'] = preg_replace('/^,/','',implode(',',$pages)); // clear any garbage
+				// Clear out any formatting garbage
+				$p['uniqueContentPages'] = preg_replace('/^,/','',implode(',',$pages));
 			}
 			$p['totalContentEdits'] += 1;
 			$changed = true;
@@ -1246,7 +1249,9 @@ EOT;
 	* @param string $t timestamp of the log entry
 	* @return bool true
 	*/
-	public static function reviewLogLine( $type='', $action='', $title=null, $paramArray=array(), &$c, &$r ) {
+	public static function reviewLogLine( $type='', $action='', $title=null,
+		$paramArray=array(), &$c, &$r )
+	{
 		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
 		# Show link to page with oldid=x
 		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($paramArray[0]) ) {
@@ -1542,9 +1547,11 @@ EOT;
 		if( empty($wgTitle) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true; // nothing to do here
 		}
+		if( !$wgUser->isAllowed('review') )
+			return true; // not relevant to user
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
-		if( $wgUser->isAllowed('review') && ($wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges)) ) {
+		if( $wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$watchedOutdated = $dbr->selectField( array('watchlist','page','flaggedpages'), '1',
 				array( 'wl_user' => $wgUser->getId(),
@@ -1559,8 +1566,10 @@ EOT;
 					wfMsgExt('flaggedrevs-watched-pending',array('parseinline')) . "</div>";
 			# Otherwise, give a notice if there is a large backlog in general
 			} else {
-				$pages = $dbr->estimateRowCount( 'page', '*', array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
-				$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*', 'fp_pending_since IS NOT NULL', __METHOD__ );
+				$pages = $dbr->estimateRowCount( 'page', '*',
+					array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+				$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*',
+					'fp_pending_since IS NOT NULL', __METHOD__ );
 				if( ($unreviewed/$pages) > .02 ) {
 					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
@@ -1576,7 +1585,9 @@ EOT;
 		$tables = array('flaggedpages','page','revision');
 		$opts['ORDER BY'] = 'fp_page_id ASC';
 		$opts['USE INDEX'] = array( 'flaggedpages' => 'PRIMARY' );
-		$join['page'] = array('INNER JOIN',array('page_id = fp_page_id','page_namespace' => $wgFlaggedRevsNamespaces));
+		$join['page'] = array( 'INNER JOIN',
+			array('page_id = fp_page_id','page_namespace' => $wgFlaggedRevsNamespaces)
+		);
 		$join['revision'] = array('INNER JOIN','rev_page = fp_page_id AND rev_id = fp_stable');
 		return false; // final
 	}

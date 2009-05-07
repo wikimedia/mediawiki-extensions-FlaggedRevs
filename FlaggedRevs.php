@@ -246,7 +246,12 @@ $wgFeedbackNamespaces = array();
 # Reader feedback tags, positive and negative. [a-zA-Z] tag names only.
 # Each tag has five levels, which 3 being average. The tag names are
 # mapped to their weight. This is used to determine the "worst"/"best" pages.
-$wgFlaggedRevsFeedbackTags = array( 'reliability' => 3, 'completeness' => 2, 'npov' => 2, 'presentation' => 1 );
+$wgFlaggedRevsFeedbackTags = array(
+	'reliability'  => 3,
+	'completeness' => 2,
+	'npov'         => 2,
+	'presentation' => 1
+);
 # How many seconds back should the average rating for a page be based on?
 $wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
 # How long before stats page is updated?
@@ -531,7 +536,7 @@ $wgAjaxExportList[] = 'ReaderFeedback::AjaxReview';
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
 
 // Defaults for prefs
-$wgDefaultUserOptions['flaggedrevssimpleui'] = $wgSimpleFlaggedRevsUI;
+$wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
 $wgDefaultUserOptions['flaggedrevsstable'] = true;
 
 # Cache update
