@@ -620,6 +620,8 @@ class RatingHistory extends UnlistedSpecialPage
 		);
 		// Output multi-column list
 		$total = $res->numRows();
+		if( $total < 2 )
+			return ''; // don't give away votes that easily
 		$columns = 4;
 		$count = 0;
 		$html = "<table class='fr_reader_feedback_users'><tr>";
