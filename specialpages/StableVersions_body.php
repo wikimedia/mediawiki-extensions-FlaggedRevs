@@ -42,7 +42,7 @@ class StableVersions extends UnlistedSpecialPage
 		}
 		$pager = new StableRevisionsPager( $this, array(), $this->page );
 		if( $num = $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse', 'parsemag'),
+			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'),
 				$this->page->getPrefixedText(), $num ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
