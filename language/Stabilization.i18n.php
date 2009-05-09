@@ -584,6 +584,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilize_expiry_invalid' => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
 	'stabilize-expiring' => 'erlischt $1 (UTC)',
+	'stabilization-review' => 'Überprüfe die aktuelle Version',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -1641,6 +1642,8 @@ Et jit nix enzestelle.',
 Et jit nix enzestelle.',
 	'stabilization-comment' => 'Jrond:',
 	'stabilization-otherreason' => 'Ene andere Jrond',
+	'stabilization-expiry' => 'Leuf uß:',
+	'stabilization-def-short' => 'Shtandatt',
 	'stabilization-def-short-0' => 'Von jetz',
 	'stabilize_expiry_invalid' => 'Dat Affloufdattum es nit jöltisch.',
 	'stabilize_expiry_old' => 'Dat Affloufdattum es ald förbei.',
@@ -1678,6 +1681,7 @@ Keng Astellunge méiglech.',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilize-expiring' => 'bis $1 (UTC)',
 	'stabilization-review' => 'Déi aktuell Versioun nokucken',
 );
 
@@ -2596,10 +2600,9 @@ KOnfigurasi teu bisa dilarapkeun.',
 $messages['sv'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidstabilisering',
-	'stabilization-text' => "'''Ändra inställningarna härunder för att bestämma hur den stabila versionen av [[:$1|$1]] ska väljas och visas.'''
+	'stabilization-text' => "'''Ändra inställningarna nedan för att bestämma hur den stabila versionen av [[:\$1|\$1]] ska väljas och visas.'''
 
-När konfigurationen för ''val av stabil version'' ändras till användande av {{int:revreview-lev-quality}} eller {{int:revreview-lev-pristine}} som förval,
-kontrollera att det faktiskt finns sådana varianter i sidan, annars får det liten effekt.",
+När konfigurationen för ''val av stabil version'' ändras till användande av \"kvalitet\" eller \"ursprungliga\" versioner efter standard, kontrollera att det faktiskt finns sådana varianter i sidan, annars får det liten effekt.",
 	'stabilization-perm' => 'Ditt konto har inte behörighet att ändra inställningar för stabila sidversioner.
 Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-page' => 'Sidnamn:',
@@ -2668,7 +2671,8 @@ $messages['te'] = array(
 	'stabilization-submit' => 'నిర్ధారించు',
 	'stabilization-notexists' => '"[[:$1|$1]]" అనే పేజీ లేదు. స్వరూపణం వీలుపడదు.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" అన్న పేజీని సమీక్షించ లేదు. ఎటువంటి స్వరూపణం వీలు కాదు.',
-	'stabilization-comment' => 'వ్యాఖ్య:',
+	'stabilization-comment' => 'కారణం:',
+	'stabilization-otherreason' => 'ఇతర కారణం',
 	'stabilization-expiry' => 'కాలంచెల్లు తేదీ:',
 	'stabilization-sel-short' => 'ప్రాధాన్యత',
 	'stabilization-sel-short-0' => 'నాణ్యత',

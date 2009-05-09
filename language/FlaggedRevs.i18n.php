@@ -1450,7 +1450,44 @@ $messages['be-tarask'] = array(
 	'revreview-auto' => '(аўтаматычна)',
 	'revreview-auto-w' => "Вы рэдагуеце стабільную вэрсію, зьмены будуць '''аўтаматычна пазначаны як правераныя'''.",
 	'revreview-auto-w-old' => "Вы рэдагуеце правераную вэрсію, зьмены будуць '''аўтаматычна пазначаны як правераныя'''.",
+	'revreview-basic' => 'Гэта апошняя [[{{MediaWiki:Validationpage}}|прагледжаная]] вэрсія, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.
+У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чарнавой вэрсіі] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|зьмена патрабуе|зьмены патрабуюць|зьменаў патрабуюць}}] рэцэнзаваньня.',
+	'revreview-basic-i' => 'Гэта апошняя [[{{MediaWiki:Validationpage}}|прагледжаная]] вэрсія, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.
+У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чарнавіку] ёсьць [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зьмены ў шаблёнах/выявах], якія патрабуюць праверкі.',
+	'revreview-basic-old' => 'Гэта [[{{MediaWiki:Validationpage}}|прагледжаная]] вэрсія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} сьпіс цалкам]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.
+Маглі быць зроблены новыя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} рэдагаваньні].',
+	'revreview-basic-same' => 'Гэта апошняя [[{{MediaWiki:Validationpage}}|прагледжаная]] вэрсія ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} сьпіс цалкам]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Прагледжаная вэрсія] гэтай старонкі, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>, была заснавана на гэтай вэрсіі.',
+	'revreview-blocked' => 'Вы ня можаце рэцэнзаваць гэтую вэрсію, таму што Ваш рахунак заблякаваны ([$1 падрабязнасьці])',
+	'revreview-changed' => "'''Запытанае дзеяньне ня можа быць зьдзейсьненае на гэтай вэрсіі старонкі [[:$1|$1]].'''
+
+Шаблён альбо выява маглі былі запытаныя, калі не была вызначаная вэрсія.
+Гэта магло здарыцца, калі дынамічны шаблён утрымлівае іншы шаблён альбо выяву, якія залежаць ад зьменнай, якая зьмянілася з пачатку рэцэнзаваньня гэтай старонкі.
+Абнавіце старонку і пачніце рэцэнзаваньне зноў, гэта можа вырашыць гэту праблему.",
+	'revreview-current' => 'Чарнавік',
+	'revreview-depth' => 'Паўната',
+	'revreview-depth-0' => 'Не зацьверджаная',
+	'revreview-depth-1' => 'Базавая',
+	'revreview-depth-2' => 'Сярэдняя',
+	'revreview-depth-3' => 'Высокая',
+	'revreview-depth-4' => 'Выбраная',
+	'revreview-draft-title' => 'Чарнавік старонкі',
+	'revreview-edit' => 'Рэдагаваць чарнавік',
+	'revreview-editnotice' => "'''Рэдагаваньні гэтай старонкі будуць уключаны ў [[{{MediaWiki:Validationpage}}|стабільную вэрсію]] пасьля таго, як іх прарэцэнзуе удзельнік з адпаведнымі правамі.'''",
+	'revreview-flag' => 'Праверыць гэту вэрсію',
+	'revreview-edited' => "'''Рэдагаваньні будуць уключаны ў [[{{MediaWiki:Validationpage}}|стабільную вэрсію]] пасьля таго, як іх прарэцэнзуе удзельнік з адпаведнымі правамі.'''
+''' ''Чарнавік'' паказаны ніжэй.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|зьмена патрабуе|зьмены патрабуюць|зьмены патрабуюць}}] рэцэнзаваньня.",
+	'revreview-invalid' => "'''Няслушная мэта:''' няма [[{{MediaWiki:Validationpage}}|рэцэнзаванай]] вэрсіі, якая адпавядае пададзенаму ідэнтыфікатару.",
+	'revreview-legend' => 'Адзнака зьместу вэрсіі',
 	'revreview-log' => 'Камэнтар:',
+	'revreview-main' => 'Вам неабходна выбраць адну з вэрсіяў старонкі для рэцэнзаваньня.
+
+Глядзіце [[Special:Unreviewedpages|сьпіс нерэцэнзаваных старонак]].',
+	'revreview-notes' => 'Назіраньні і камэнтары для паказу:',
+	'revreview-oldrating' => 'Атрыманая адзнака:',
+	'revreview-patrol' => 'Пазначыць гэтую зьмену як патруляваную',
+	'revreview-patrol-title' => 'Пазначыць як патруляваную',
+	'revreview-patrolled' => 'Выбраная вэрсія [[:$1|$1]] была пазначаная як патруляваная.',
 	'revreview-revnotfound' => 'Ранейшая вэрсія гэтай старонкі ня знойдзеная. Праверце спасылку, празь якую Вы спрабавалі перайсьці на гэтую старонку.',
 	'readerfeedback-level-0' => 'Благая',
 	'readerfeedback-level-1' => 'Нізкая',
@@ -2087,9 +2124,12 @@ $messages['de'] = array(
 	'editor' => 'Sichter',
 	'flaggedrevs' => 'Markierte Versionen',
 	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist sehr lang. Bitte hilf mit, sie abzuarbeiten. Danke.',
+	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:Special:OldReviewedPages|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf deiner Beobachtungsliste. '''Deine Aufmerksamkeit ist nötig!'''",
 	'flaggedrevs-desc' => 'Markierte Versionen',
+	'flaggedrevs-pref-UI' => 'Benutzeroberfläche der stabilen Versionen:',
 	'flaggedrevs-pref-UI-0' => 'detaillierte Benutzerschnittstelle',
 	'flaggedrevs-pref-UI-1' => 'einfache Benutzerschnittstelle',
+	'prefs-flaggedrevs' => 'Stabilität',
 	'flaggedrevs-prefs-stable' => 'Zeige als Standard immer die markierte Version einer Seite (falls vorhanden)',
 	'flaggedrevs-prefs-watch' => 'Selbst markierte Seiten automatisch beobachten',
 	'group-editor' => 'Sichter',
@@ -2294,6 +2334,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
  */
 $messages['de-formal'] = array(
 	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist sehr lang. Bitte helfen Sie mit, sie abzuarbeiten. Danke.',
+	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:Special:OldReviewedPages|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf Ihrer Beobachtungsliste. '''Ihre Aufmerksamkeit ist nötig!'''",
 	'revreview-auto-w' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-auto-w-old' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-blocked' => 'Sie können diese Version nicht markieren, da Ihr Benutzerkonto zur Zeit gesperrt ist ([$1 Details])',
@@ -6569,6 +6610,7 @@ Confirma URL paginae.',
 $messages['lb'] = array(
 	'editor' => 'Editeur',
 	'flaggedrevs' => 'Markéiert Versiounen',
+	'flaggedrevs-desc' => "Gëtt Editeuren a Benotzer déi Säiten nokucken d'Méiglechkeet fir d'Versiounen ze validéieren a Säiten ze stabiliséieren",
 	'flaggedrevs-pref-UI' => 'Interface vun de stabile Versiounen:',
 	'flaggedrevs-pref-UI-0' => 'Déi detailéiert Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
 	'flaggedrevs-pref-UI-1' => 'Déi einfach Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
@@ -6670,6 +6712,8 @@ $messages['lb'] = array(
 	'tooltip-ca-stable' => 'Déi stabil Versioun vun dëser Säit gesinn',
 	'tooltip-ca-default' => 'Astellunge vun der Qualitéits-Sécherung',
 	'tooltip-ca-ratinghist' => 'Lieserbewertunge vun vun dëser Säit',
+	'revreview-locked' => 'Ännerunge mussen [[{{MediaWiki:Validationpage}}|nogekuckt ginn]] éier se op dëser Säit ugewise ginn.',
+	'log-show-hide-review' => 'Logbuch vun den nogekucke Verisoune $1',
 	'revreview-tt-review' => 'Dës Säit nokucken',
 	'validationpage' => '{{ns:help}}:Validatioun vun der Säit',
 );
@@ -10257,7 +10301,6 @@ $messages['te'] = array(
 	'editor' => 'ఎడిటర్',
 	'flaggedrevs' => 'జండాపాతిన కూర్పులు',
 	'flaggedrevs-desc' => 'ఎడిటర్లకి/సమీక్షకులకి కూర్పులను సరిచూసే మరియు పేజీలను సుస్థిరపరచే వీలును కల్పిస్తుంది',
-	'flaggedrevs-prefs' => 'స్థిరత్వం',
 	'flaggedrevs-prefs-watch' => 'నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు',
 	'group-editor' => 'ఎడిటర్లు',
 	'group-editor-member' => 'ఎడిటర్',
@@ -10354,16 +10397,19 @@ $messages['te'] = array(
 	'stable-logpage' => 'సుస్థిర కూర్పుల లాగ్',
 	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల చిట్టా.
 సుస్థిరమైన పేజీల యొక్క జాబితాని [[Special:StablePages|స్థిరమైన పేజీల జాబితా]] వద్ద చూడవచ్చు.',
+	'readerfeedback-completeness' => 'సంపూర్ణత',
+	'readerfeedback-npov' => 'తటస్థత',
 	'readerfeedback-success' => "'''ఈ పేజీని సమీక్షించినందుకు కృతజ్ఞతలు!''' ([$3 సందేహాలు లేదా సూచనలున్నాయా?]).",
 	'readerfeedback-finished' => 'ధన్యవాదాలు!',
 	'revreview-filter-all' => 'అన్నీ',
 	'revreview-statusfilter' => 'స్థితి:',
 	'revreview-typefilter' => 'రకం:',
+	'revreview-levelfilter' => 'స్థాయి:',
 	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
 	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'tooltip-ca-default' => 'నాణ్యతా భరోసా అమరికలు',
 	'revreview-tt-review' => 'ఈ పేజీని సమీక్షించండి',
-	'validationpage' => '{{ns:help}}:వ్యాస మూల్యాంకన',
+	'validationpage' => '{{ns:help}}:పేజీ సరిచూత',
 );
 
 /** Tetum (Tetun)

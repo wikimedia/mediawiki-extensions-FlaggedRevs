@@ -1348,6 +1348,7 @@ $messages['te'] = array(
 	'ratinghistory-3months' => 'గత 3 నెలలు',
 	'ratinghistory-year' => 'గత సంవత్సరం',
 	'ratinghistory-3years' => 'గత 3 సంవత్సరాలు',
+	'ratinghistory-ave' => 'సగటు: $1',
 );
 
 /** Tagalog (Tagalog)

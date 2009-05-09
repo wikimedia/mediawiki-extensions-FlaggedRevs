@@ -66,7 +66,7 @@ $messages['ar'] = array(
 	'stableversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
 	'stableversions-page' => 'اسم الصفحة:',
 	'stableversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
-	'stableversions-list' => 'هذه قائمة بمراجعات صفحة [[:$1]] التي تمت مراجعتها:',
+	'stableversions-list' => 'هذه قائمة {{PLURAL:$2|بالمراجعة الوحيدة|بمراجعات}} صفحة [[:$1]] التي {{PLURAL:$2|تمت|تمت}} مراجعتها:',
 	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
 );
 
@@ -199,7 +199,7 @@ $messages['de'] = array(
 	'stableversions-leg1' => 'Liste der markierten Versionen für einen Artikel',
 	'stableversions-page' => 'Artikelname:',
 	'stableversions-none' => '„[[:$1]]“ hat keine markierten Versionen.',
-	'stableversions-list' => 'Dies ist die Liste der markierten Versionen von [[:$1]]:',
+	'stableversions-list' => 'Dies ist die Liste der {{PLURAL:$2|einzigen Version|Versionen}} von [[:$1]], die markiert {{PLURAL:$2|wurde|wurden}}:',
 	'stableversions-review' => 'markiert <i>$1</i> durch $2',
 );
 
@@ -218,13 +218,14 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Dead3y3
+ * @author Omnipaedista
  */
 $messages['el'] = array(
 	'stableversions' => 'Εμφάνιση σταθερών εκδόσεων',
 	'stableversions-leg1' => 'Απαρίθμηση κριθέντων αναθεωρήσεων για μια σελίδα',
 	'stableversions-page' => 'Όνομα σελίδας:',
 	'stableversions-none' => 'Η "[[:$1]]" δεν έχει αναθεωρήσεις που να έχουν κριθεί.',
-	'stableversions-list' => 'Ο ακόλουθος είναι ένα κατάλογος των αναθεωρήσεων της σελίδας [[:$1]] που έχουν κριθεί:',
+	'stableversions-list' => 'Ο ακόλουθος είναι ένας κατάλογος {{PLURAL:$2|της μοναδικής αναθεώρησης|των αναθεωρήσεων}} της σελίδας [[:$1]] που {{PLURAL:$2|έχει|έχουν}} κριθεί:',
 	'stableversions-review' => 'Κρίθηκε στις <i>$1</i> από τον/την $2',
 );
 
@@ -249,7 +250,7 @@ $messages['es'] = array(
 	'stableversions-leg1' => 'lista de revisiones verificadas para una página',
 	'stableversions-page' => 'Nombre de la página:',
 	'stableversions-none' => '"[[:$1]]" no tiene revisiones verificadas.',
-	'stableversions-list' => 'La siguiente es una lista de revisiones de [[:$1]] que han sido verificadas:',
+	'stableversions-list' => 'La siguiente es una lista de {{PLURAL:$2|la única revisión|revisiones}} de [[:$1]] que {{PLURAL:$2|ha|han}} sido verificadas:',
 	'stableversions-review' => 'Revisada en <i>$1</i> por $2',
 );
 
@@ -350,7 +351,7 @@ $messages['grc'] = array(
 	'stableversions-leg1' => 'Ὕσταται ἐπιθεωρημέναι ἀναθεωρήσεις δέλτου τινός',
 	'stableversions-page' => 'Ὄνομα δέλτου:',
 	'stableversions-none' => 'Τὸ "[[:$1]]" οὐκ ἔχει ἐπιθεωρημένας ἀναθεωρήσεις.',
-	'stableversions-list' => 'Ἀκολουθεῖ κατάλογος μεταγραφῶν τοῦ [[:$1]] ἐπιθεωρημένων:',
+	'stableversions-list' => 'Ἀκολουθεῖ κατάλογος {{PLURAL:$2|τῆς μεταγραφῆς|μεταγραφῶν}} {{PLURAL:$2|τῆς ἐπιτεθεωρημένης|ἐπιτεθεωρημένων}} τῆς [[:$1]]:',
 	'stableversions-review' => 'Ἐπιθεωρημένη τὴν <i>$1</i> ἐκ τοῦ $2',
 );
 
@@ -438,7 +439,7 @@ $messages['ia'] = array(
 	'stableversions-leg1' => 'Listar le versiones revidite de un pagina',
 	'stableversions-page' => 'Nomine del pagina:',
 	'stableversions-none' => '"[[:$1]]" non ha versiones revidite.',
-	'stableversions-list' => 'Lo sequente es un lista de versiones de [[:$1]] que ha essite revidite:',
+	'stableversions-list' => 'Ecce {{PLURAL:$2|le sol version|le lista del versiones}} de [[:$1]] que ha essite revidite:',
 	'stableversions-review' => 'Revidite le <i>$1</i> per $2',
 );
 
@@ -680,7 +681,7 @@ $messages['nl'] = array(
 	'stableversions-leg1' => 'Lijst van versies met eindredactie voor een pagina',
 	'stableversions-page' => 'Paginanaam:',
 	'stableversions-none' => '"[[:$1]]" heeft geen versies met eindredactie.',
-	'stableversions-list' => 'Hieronder staat een lijst met versies van [[:$1]] waarvoor eindredactie is uitgevoerd:',
+	'stableversions-list' => 'Hieronder staat {{PLURAL:$2|de versie|een lijst met versies}} van [[:$1]] waarvoor eindredactie is uitgevoerd:',
 	'stableversions-review' => 'Eindredactie uitgevoerd op <i>$1</i> door $2',
 );
 
@@ -738,7 +739,7 @@ $messages['pl'] = array(
 	'stableversions-leg1' => 'Pokaż oznaczone wersje strony',
 	'stableversions-page' => 'Nazwa strony:',
 	'stableversions-none' => '„[[:$1]]” nie posiada wersji oznaczonych.',
-	'stableversions-list' => 'Wersje strony „[[:$1]]”, które zostały oznaczone:',
+	'stableversions-list' => '{{PLURAL:$2|Wersja|Wersje}} strony „[[:$1]]”, {{PLURAL:$2|która została oznaczona|które zostały oznaczone:}}',
 	'stableversions-review' => '<i>$1</i>, oznaczona przez $2',
 );
 
@@ -763,13 +764,14 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'stableversions' => 'Ver edições estáveis',
 	'stableversions-leg1' => 'Listar as edições revistas de uma página',
 	'stableversions-page' => 'Título da página:',
 	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
-	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
+	'stableversions-list' => 'A seguir, {{PLURAL:$2|A única edição|uma lista das edições}} de "[[:$1]]" que {{PLURAL:$2|foi analisada|foram analisadas}}:',
 	'stableversions-review' => 'Analisada às <i>$1</i> por $2',
 );
 
@@ -781,7 +783,7 @@ $messages['pt-br'] = array(
 	'stableversions-leg1' => 'Listar as edições analisadas de uma página',
 	'stableversions-page' => 'Título da página:',
 	'stableversions-none' => '[[:$1]] não possui edições analisadas.',
-	'stableversions-list' => 'A seguir, uma lista das edições de "[[:$1]]" que foram analisadas:',
+	'stableversions-list' => 'A seguir, uma lista {{PLURAL:$2|da única edição de|das edições de}} "[[:$1]]" que {{PLURAL:$2|foi analisada|foram analisadas}}:',
 	'stableversions-review' => 'Analisada às <i>$1</i> por $2',
 );
 
@@ -837,20 +839,21 @@ $messages['sk'] = array(
 	'stableversions-leg1' => 'Zoznam skontrolovaných verzií stránky',
 	'stableversions-page' => 'Názov stránky',
 	'stableversions-none' => '[[:$1]] nemá skontrolované verzie.',
-	'stableversions-list' => 'Nasleduje zoznam verzií stránky [[:$1]], ktoré boli skontrolované:',
+	'stableversions-list' => 'Nasleduje zoznam {{PLURAL:$2|s jedinou revíziou|revízií}} stránky [[:$1]], {{PLURAL:$2|ktorá bola skontrolovaná|ktoré boli skontrolované}}:',
 	'stableversions-review' => 'Skontroloval <i>$1</i> $2',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'stableversions' => 'Погледај стабилне верзије',
 	'stableversions-leg1' => 'Списак прегледаних верзија за страну.',
 	'stableversions-page' => 'Име странице:',
 	'stableversions-none' => '"[[:$1]]" нема прегледаних верзија.',
-	'stableversions-list' => 'Испод се налази списак прегледаних верзија стране [[:$1]].',
+	'stableversions-list' => 'Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:',
 	'stableversions-review' => 'Прегледано на <i>$1</i> од стране сарадника $2.',
 );
 
@@ -877,13 +880,14 @@ $messages['su'] = array(
 /** Swedish (Svenska)
  * @author Lejonel
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'stableversions' => 'Visa stabila versioner',
 	'stableversions-leg1' => 'Lista granskade versioner av en sida',
 	'stableversions-page' => 'Sidnamn:',
 	'stableversions-none' => '"[[:$1]]" har inga granskade versioner.',
-	'stableversions-list' => 'Följande lista innehåller granskade versioner av "[[:$1]]":',
+	'stableversions-list' => 'Följande är en lista av {{PLURAL:$2|den enda versionen|versioner}} av [[:$1]] som har granskats:',
 	'stableversions-review' => 'Granskad den <i>$1</i> av $2',
 );
 
@@ -965,7 +969,7 @@ $messages['uk'] = array(
 	'stableversions-leg1' => 'Список перевірених версій сторінки',
 	'stableversions-page' => 'Назва сторінки:',
 	'stableversions-none' => '«[[:$1]]» не має перевірених версій.',
-	'stableversions-list' => 'Такі версії сторінки «[[:$1]]» були перевірені:',
+	'stableversions-list' => '{{PLURAL:$2|Лише одна версія сторінки «[[:$1]]» була перевірена|Такі версії сторінки «[[:$1]]» були перевірені}}:',
 	'stableversions-review' => 'Перевірена <i>$1</i> користувачем $2',
 );
 
@@ -1002,7 +1006,7 @@ $messages['vi'] = array(
 	'stableversions-leg1' => 'Liệt kê những bản đã được duyệt của một trang',
 	'stableversions-page' => 'Tên trang:',
 	'stableversions-none' => '"[[:$1]]" không có bản nào được duyệt.',
-	'stableversions-list' => 'Dưới đây là danh sách các phiên bản của [[:$1]] đã được duyệt:',
+	'stableversions-list' => 'Dưới đây là danh sách {{PLURAL:$2|phiên bản|các phiên bản}} của [[:$1]] đã được duyệt:',
 	'stableversions-review' => 'Đã được $2 duyệt vào <i>$1</i>',
 );
 

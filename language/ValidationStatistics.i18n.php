@@ -143,6 +143,7 @@ $messages['bg'] = array(
 $messages['bs'] = array(
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
+	'validationstatistics-old' => 'Zastarijelo',
 );
 
 /** Catalan (Català)
@@ -796,7 +797,7 @@ $messages['oc'] = array(
 
 Lo temps mejan per las modificacions fachas per ''d'utilizaires que son pas connectats'' es de '''$1'''; la mediana es '''$3'''.
 $4
-Lo temps de retard mejan per las [[Special:OldReviewedPages|paginas que contenon de modificacions pas relegidas en cors es '''$2'''.
+Lo temps de retard mejan per las [[Special:OldReviewedPages|paginas que contenon de modificacions pas relegidas en cors]] es '''$2'''.
 Aquestas paginas son consideradas ''perimidas''. Parièrament, las paginas son declaradas ''sincronizadas'' se la [[{{MediaWiki:Validationpage}}|version establa]] tanben es la version de borrolhon correnta.
 Las versions establas son de versions de paginas verificadas per al mens un utilizaire regular.",
 	'validationstatistics-table' => "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
