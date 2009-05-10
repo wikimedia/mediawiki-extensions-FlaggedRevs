@@ -370,11 +370,12 @@ $messages['gsw'] = array(
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotemliss
+ * @author YaronSh
  */
 $messages['he'] = array(
 	'reviewedpages' => 'דפים שנבדקו',
 	'reviewedpages-leg' => 'רשימת הדפים שאושרו לפי הרמה הגבוהה ביותר',
-	'reviewedpages-list' => 'הדפים הבאים אושרו עד לרמה שצוינה',
+	'reviewedpages-list' => '{{PLURAL:$1|הדף הבא אושר|הדפים הבאים אושרו}} עד לרמה שצוינה',
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
 	'reviewedpages-lev-0' => 'נצפה',
 	'reviewedpages-lev-1' => 'איכותי',

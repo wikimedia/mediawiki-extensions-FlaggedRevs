@@ -376,7 +376,7 @@ $messages['he'] = array(
 	'stableversions-leg1' => 'רשימת גרסאות הדף שנבדקו',
 	'stableversions-page' => 'שם הדף:',
 	'stableversions-none' => 'בדף "[[:$1]]" אין גרסאות שנבדקו.',
-	'stableversions-list' => 'להלן רשימת הגרסאות של "[[:$1]]" שנבדקו:',
+	'stableversions-list' => 'להלן {{PLURAL:$2|הגרסה היחידה|רשימת הגרסאות}} של [[:$1]] {{PLURAL:$2|שנבדקה|שנבדקו}}:',
 	'stableversions-review' => 'נבדקה בתאריך <i>$1</i> על ידי $2',
 );
 
