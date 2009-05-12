@@ -949,7 +949,7 @@ $messages['os'] = array(
  * @author ToSter
  */
 $messages['pl'] = array(
-	'right-unreviewedpages' => 'Zobacz [[Special:UnreviewedPages|listę nieprzejrzanych stron]]',
+	'right-unreviewedpages' => 'Dostęp do [[Special:UnreviewedPages|listy nieprzejrzanych stron]]',
 	'unreviewedpages' => 'Nieprzejrzane strony',
 	'unreviewed-legend' => 'Lista nieprzejrzanych stron',
 	'unreviewed-category' => 'Kategoria',

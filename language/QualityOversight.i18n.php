@@ -367,7 +367,7 @@ $messages['ru'] = array(
  */
 $messages['sk'] = array(
 	'qualityoversight' => 'kvalitný dozor',
-	'qualityoversight-list' => 'Táto stránka obsahuje zoznam všetkých posledných schválení kvalitných verzií ako aj znehodnotenia kvalitných revízií.',
+	'qualityoversight-list' => 'Táto stránka obsahuje zoznam všetkých posledných schválení kvalitných verzií ako aj zavrhnutí revízií.',
 	'qualityoversight-legend' => 'Hľadať v posledných záznamoch kontrol',
 );
 

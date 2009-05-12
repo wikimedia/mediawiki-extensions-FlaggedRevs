@@ -163,6 +163,7 @@ $messages['bs'] = array(
 
 /** Catalan (Català)
  * @author SMP
+ * @author Solde
  * @author Toniher
  */
 $messages['ca'] = array(
@@ -170,7 +171,7 @@ $messages['ca'] = array(
 	'stableversions-leg1' => "Llista d'edicions revisades per una pàgina",
 	'stableversions-page' => 'Nom de la pàgina:',
 	'stableversions-none' => '«[[:$1]]» no té edicions revisades.',
-	'stableversions-list' => 'A continuació hi ha una llista de les edicions de [[:$1]] que han estat revisades:',
+	'stableversions-list' => "A continuació hi ha la llista de {{PLURAL:$2|l'única edició|les edicions}} de [[:$1]] que {{PLURAL:$2|s'ha|s'han}} revisat:",
 	'stableversions-review' => 'Revisat el <em>$1</em> per $2',
 );
 
@@ -725,7 +726,7 @@ $messages['oc'] = array(
 	'stableversions-leg1' => "Darrièras revisions revistas d'una pagina",
 	'stableversions-page' => 'Nom de la pagina :',
 	'stableversions-none' => 'La lista que seguís conten de versions de « [[:$1]] » que son estadas revisadas :',
-	'stableversions-list' => 'La tièra que seguís conten de versions de « [[:$1]] » que son estadas revisadas :',
+	'stableversions-list' => "La lista que seguís conten {{PLURAL:$2|la sola version|de versions}} de « [[:$1]] » {{PLURAL:$2|qu'es estada revisada|que son estadas revisadas}} :",
 	'stableversions-review' => "Revisada lo ''$1'' per $2",
 );
 

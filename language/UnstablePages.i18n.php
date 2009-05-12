@@ -80,6 +80,7 @@ $messages['be-tarask'] = array(
 $messages['bs'] = array(
 	'unstablepages' => 'Nestabilne stranice',
 	'unstablepages-stable' => 'stabilna verzija',
+	'unstablepages-config' => 'Konfiguracija',
 );
 
 /** Czech (Česky)
