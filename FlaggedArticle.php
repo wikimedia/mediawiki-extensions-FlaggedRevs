@@ -76,9 +76,11 @@ class FlaggedArticle extends Article {
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( !self::isViewAction($action) || !$this->isReviewable() )
 			return false;
-		# Does not apply to diffs/old revision. Explicit requests
-		# for a certain stable version will be handled elsewhere.
-		if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') || $wgRequest->getVal('stableid') )
+		# Does not apply to diffs/old revision...
+		if( $wgRequest->getVal('oldid') || $wgRequest->getVal('diff') )
+			return false;
+		# Explicit requests  for a certain stable version handled elsewhere...
+		if( $wgRequest->getVal('stableid') )
 			return false;
 		# Check user preferences
 		if( $wgUser->getOption('flaggedrevsstable') )
@@ -235,7 +237,8 @@ class FlaggedArticle extends Article {
 			if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
 				$tag .= " " . FlaggedRevsXML::ratingToggle() . 
 					"<span id='mw-revisionratings' style='display:block;'><br/>" .
-					wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+					wfMsgHtml('revreview-oldrating') .
+					FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 			}
 			$tag = "<div id='mw-revisiontag-old' class='flaggedrevs_notice plainlinks noprint'>$tag</div>";
 			$wgOut->addHTML( $tag );
@@ -348,7 +351,8 @@ class FlaggedArticle extends Article {
 					$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
 					$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
 						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
-					$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince, true, false, $old );
+					$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince,
+								true, false, $old );
 				// Standard UI
 				} else {
 					$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
@@ -413,18 +417,21 @@ class FlaggedArticle extends Article {
 					}
 					$tooltip = wfMsgHtml($tooltip);
 					$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>$msgHTML";
-					$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince, $synced, $synced, $old );
+					$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince,
+								$synced, $synced, $old );
 				// Standard UI
 				} else {
 					if( $synced ) {
 						$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
 						$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 						$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-						$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
+						$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(),
+										$time, $revsSince );
 					} else {
 						$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 						$msg .= ($revsSince == 0) ? '-i' : '';
-						$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
+						$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(),
+										$time, $revsSince );
 					}
 					$tooltip = wfMsgHtml($tooltip);
 					$tag .= "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" . $msgHTML;
@@ -655,7 +662,9 @@ class FlaggedArticle extends Article {
 				return true;
 			}
 			# Don't show for old revisions, diff, preview, or undo.
-			if( $editPage->oldid || $editPage->section === "new" || in_array($editPage->formtype,array('diff','preview')) ) {
+			if( $editPage->oldid || $editPage->section === "new"
+				|| in_array($editPage->formtype,array('diff','preview')) )
+			{
 				return true; // nothing to show here
 			}
 			
@@ -683,8 +692,10 @@ class FlaggedArticle extends Article {
 					"<col class='diff-marker' />" .
 					"<col class='diff-content' />" .
 					"<tr>" .
-						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" . $leftNote . "</b></td>" .
-						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" . $rightNote . "</b></td>" .
+						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
+							$leftNote . "</b></td>" .
+						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
+							$rightNote . "</b></td>" .
 					"</tr>" .
 					$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
 					"</table>" .
@@ -732,12 +743,12 @@ class FlaggedArticle extends Article {
 		$category = $this->parent->getTitle()->getText();
 
 		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
-		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed, wfMsgHtml('unreviewedpages'),
-			'category=' . urlencode($category) );
+		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed,
+			wfMsgHtml('unreviewedpages'), 'category=' . urlencode($category) );
 
 		$oldreviewed = SpecialPage::getTitleFor( 'OldReviewedPages' );
-		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed, wfMsgHtml('oldreviewedpages'),
-			'category=' . urlencode($category) );
+		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed,
+			wfMsgHtml('oldreviewedpages'), 'category=' . urlencode($category) );
 
 		$wgOut->appendSubtitle("<span id='mw-category-oldreviewed'>$unreviewedLink / $oldreviewedLink</span>");
 
@@ -813,16 +824,16 @@ class FlaggedArticle extends Article {
 			$frev = $this->getStableRev();
 			if( $frev && $frev->getRevId() == $this->parent->getLatest() ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility',array('parseinline'), $title->getPrefixedText() ) .
-					"</span>" );
+					wfMsgExt( 'revreview-visibility',array('parseinline'),
+						$title->getPrefixedText() ) . "</span>" );
 			} else if( $frev ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility2',array('parseinline'), $title->getPrefixedText() ) .
-					"</span>" );
+					wfMsgExt( 'revreview-visibility2',array('parseinline'),
+						$title->getPrefixedText() ) . "</span>" );
 			} else {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility3',array('parseinline'), $title->getPrefixedText() ) .
-					"</span>" );
+					wfMsgExt( 'revreview-visibility3',array('parseinline'),
+						$title->getPrefixedText() ) . "</span>" );
 			}
 		}
 		return true;
@@ -1063,11 +1074,13 @@ class FlaggedArticle extends Article {
 				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
+						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.
+							$changeList.$notice.'</div>' );
 				} else if( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
-						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.$changeList.$notice.'</div>' );
+						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.
+							$changeList.$notice.'</div>' );
 				}
 				# Set flag for review form to tell it to autoselect tag settings from the
 				# old revision unless the current one is tagged to.
@@ -1519,7 +1532,8 @@ class FlaggedArticle extends Article {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$reviewTitle = SpecialPage::getTitleFor( 'ReaderFeedback' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
-		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action, 'id' => 'mw-feedbackform' ) );
+		$form = Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action,
+			'id' => 'mw-feedbackform' ) );
 		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
 		$form .= "<legend><strong>" . wfMsgHtml( 'readerfeedback' ) . "</strong></legend>\n";
 		# Avoid clutter
@@ -1532,7 +1546,8 @@ class FlaggedArticle extends Article {
 			$label = array();
 			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ? $flags[$quality] : -1;
 			$form .= "<b>" . Xml::label( wfMsgHtml("readerfeedback-$quality"), "wp$quality" ) . ":</b>";
-			$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality", 'onchange' => "updateFeedbackForm()" );
+			$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
+				'onchange' => "updateFeedbackForm()" );
 			$form .= '&nbsp;' . Xml::openElement( 'select', $attribs );
 			$levels = array_reverse($levels,true);
 			foreach( $levels as $i => $name ) {
