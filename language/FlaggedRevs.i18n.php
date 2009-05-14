@@ -9,6 +9,12 @@
 
 $messages = array();
 
+/** English (en)
+ * @author Purodha
+ * @author Raimond Spekking
+ * @author Siebrand
+ */
+
 $messages['en'] = array(
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Flagged Revisions',
@@ -59,7 +65,7 @@ $messages['en'] = array(
 	'revreview-basic'              => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|change|changes}}] awaiting review.',
 	'revreview-basic-i'            => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/image changes] awaiting review.',
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] awaiting review.',
 	'revreview-basic-old'          => 'This is a [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-basic-same'         => 'This is the latest [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
@@ -67,8 +73,8 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-blocked'            => 'You cannot review this revision because your account is currently blocked ([$1 details])',
 	'revreview-changed'            => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
-A template or image may have been requested when no specific version was specified.
-This can happen if a dynamic template transcludes another image or template depending on a variable that changed since you started reviewing this page.
+A template or file may have been requested when no specific version was specified.
+This can happen if a dynamic template transcludes another file or template depending on a variable that changed since you started reviewing this page.
 Refreshing the page and rereviewing can solve this problem.',
 	'revreview-current'            => 'Draft',
 	'revreview-depth'              => 'Depth',
@@ -93,11 +99,11 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-newest-basic'       => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|change|changes}}] {{PLURAL:$3|needs|need}} review.',
 	'revreview-newest-basic-i'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/image changes] need review.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] need review.',
 	'revreview-newest-quality'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|change|changes}}] {{PLURAL:$3|needs|need}} review.',
 	'revreview-newest-quality-i'   => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest quality revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/image changes] need review.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] need review.',
 	'revreview-noflagged'          => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been [[{{MediaWiki:Validationpage}}|checked]] for quality.',
 	'revreview-note'               => '[[User:$1|$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 	'revreview-notes'              => 'Observations or notes to display:',
@@ -108,7 +114,7 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-quality'            => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|change|changes}}] awaiting review.',
 	'revreview-quality-i'          => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/image changes] awaiting review.',
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] awaiting review.',
 	'revreview-quality-old'        => 'This is a [[{{MediaWiki:Validationpage}}|quality]]  revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-quality-same'       => 'This is the latest [[{{MediaWiki:Validationpage}}|quality]] revision ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
@@ -150,10 +156,10 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-toolow'             => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
 To depreciate a revision, set all fields to "unapproved".',
 	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any changes \'\'(shown below)\'\' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].<br />
-\'\'\'Some templates/images were updated:\'\'\'',
-	'revreview-update-includes'    => '\'\'\'Some templates/images were updated:\'\'\'',
+\'\'\'Some templates/files were updated:\'\'\'',
+	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
 	'revreview-update-none'        => 'Please [[{{MediaWiki:Validationpage}}|review]] any changes \'\'(shown below)\'\' made since the stable revision was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved].',
-	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' If any of these templates/images have a stable version, then it is already used in the stable version of this page.',
+	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' If any of these templates/files have a stable version, then it is already used in the stable version of this page.',
 	'revreview-diffonly'           => '\'\'To review the page, click the "current revision" revision link and use the review form.\'\'',
 	'revreview-visibility'         => '\'\'\'This page has an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
 	'revreview-visibility2'        => '\'\'\'This page has an outdated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
