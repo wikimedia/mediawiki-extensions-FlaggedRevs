@@ -380,6 +380,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author Grondin
  * @author IAlex
  * @author PieRRoMaN
@@ -400,7 +401,7 @@ $messages['fr'] = array(
 	'oldreviewed-diff' => 'relecture',
 	'oldreviewed-size' => 'Différence de taille maximale (en octets) :',
 	'oldreviewedpages-unwatched' => '(non suivie)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilisateur|utilisateurs}} suivent la page)',
+	'oldreviewedpages-watched' => '($2 utilisateur{{PLURAL:$1||s}} suivent la page)',
 	'oldreviewedpages-viewing' => '(en révision)',
 );
 

@@ -159,6 +159,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'stableversions' => 'Pogledaj stabilne verzije',
+	'stableversions-page' => 'Naslov stranice:',
 );
 
 /** Catalan (Català)
@@ -238,7 +239,7 @@ $messages['eo'] = array(
 	'stableversions-leg1' => 'Listigi kontrolitajn versiojn por paĝo',
 	'stableversions-page' => 'Nomo de paĝo:',
 	'stableversions-none' => '"[[:$1]]" havas neniujn kontrolitajn revizojn.',
-	'stableversions-list' => 'Jen listo de versioj de [[:$1]] kiuj estis kontrolitaj:',
+	'stableversions-list' => 'Jen listo de {{PLURAL:$2|la sola revizio|revizioj}} de [[:$1]] {{PLURAL:$2|kiu estas kontrolita|kiuj estis kontrolitaj}}:',
 	'stableversions-review' => 'Kontrolita <i>$1</i> de $2',
 );
 

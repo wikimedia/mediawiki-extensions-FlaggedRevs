@@ -120,7 +120,7 @@ $aliases['de'] = array(
 	'QualityOversight' => array( 'Markierungsübersicht' ),
 	'RatingHistory' => array( 'Bewertungsgeschichte' ),
 	'ReaderFeedback' => array( 'Bewertung' ),
-	'ReviewedPages' => array( 'Gesichtete Seiten', 'GesichteteSeiten' ),
+	'ReviewedPages' => array( 'Gesichtete Seiten' ),
 	'RevisionReview' => array( 'Versionsprüfung' ),
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
 	'StablePages' => array( 'Konfigurierte Seiten' ),
@@ -256,6 +256,15 @@ $aliases['gsw'] = array(
 	'UnreviewedPages' => array( 'Syte wu nit gsichtet sin' ),
 	'UnstablePages' => array( 'Syte wu nit konfiguriert sin' ),
 	'ValidationStatistics' => array( 'Markierigsstatischtik' ),
+);
+
+/** Gujarati (ગુજરાતી) */
+$aliases['gu'] = array(
+	'LikedPages' => array( 'જોડાયેલપાનાં' ),
+	'OldReviewedPages' => array( 'જુનારીવ્યુપાનાં' ),
+	'ReaderFeedback' => array( 'વાચકનોફીડબેક' ),
+	'ReviewedPages' => array( 'રીવ્યુપાનાં' ),
+	'RevisionReview' => array( 'આવૃત્તિરીવ્યુ' ),
 );
 
 /** Hindi (हिन्दी)

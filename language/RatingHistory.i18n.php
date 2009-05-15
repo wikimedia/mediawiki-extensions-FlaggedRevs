@@ -438,7 +438,7 @@ $messages['fr'] = array(
 	'ratinghistory-purge' => 'purger le cache',
 	'ratinghistory-table' => "Vue d'ensemble des évaluations par les lecteurs",
 	'ratinghistory-users' => 'Utilisateurs qui ont fait des évaluations',
-	'ratinghistory-graph' => '$2 sur « $3 » ($1 {{PLURAL:$1|relecture|relectures}})',
+	'ratinghistory-graph' => '$2 sur « $3 » ($1 relecture{{PLURAL:$1||s}})',
 	'readerfeedback-svg' => 'Voir en SVG',
 	'ratinghistory-table-rating' => 'Évaluation',
 	'ratinghistory-table-votes' => 'Votes',
@@ -851,6 +851,7 @@ $messages['lb'] = array(
 	'readerfeedback-svg' => 'Als SVG kucken',
 	'ratinghistory-table-rating' => 'Bewertung',
 	'ratinghistory-table-votes' => 'Stëmmen',
+	'ratinghistory-none' => 'Et gëtt zu dësem Zäitpunkt net genuch Bewertunge vu Lieser fir e Grafik opzestellen.',
 	'right-feedback' => 'De Feedback-Formulaire benotze fir eng Säit ze bewerten',
 );
 

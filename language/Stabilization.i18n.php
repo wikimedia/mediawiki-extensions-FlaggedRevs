@@ -1662,10 +1662,14 @@ $messages['la'] = array(
  */
 $messages['lb'] = array(
 	'stabilization' => 'Stabilisatioun vun der Säit',
+	'stabilization-perm' => "Äre Benotzerkont huet net d'Recht fir d'Astellung vun der stabileer Versioun z'änneren.
+Hei sinn déi aktuell Astellunge fir [[:$1|$1]]:",
 	'stabilization-page' => 'Säitennumm:',
 	'stabilization-leg' => "Confirméiert d'stabil-Versiouns-Astellungen",
 	'stabilization-select' => 'Auswiel vun der stabiler Versioun',
+	'stabilization-select1' => 'Déi lescht Qualitéitsversioun; wann net, dann déi lescht gepréifte Versioun',
 	'stabilization-select2' => 'Déi lescht iwwerkuckte Versioun, ouni de Niveua vun der Validatioun a Betracht ze zéien',
+	'stabilization-def' => 'Versioun déi als Standard beim Weise vun der Säit gewise gëtt',
 	'stabilization-def1' => 'déi stabil Versioun; oder wann et keng gëtt, déi aktuell Versioun',
 	'stabilization-def2' => 'Déi aktuell Versioun',
 	'stabilization-restrict-none' => 'Keng speziell Restriktiounen',
@@ -1674,6 +1678,7 @@ $messages['lb'] = array(
 Keng Astellunge méiglech.',
 	'stabilization-comment' => 'Grond:',
 	'stabilization-otherreason' => 'Anere Grond:',
+	'stabilization-expiry' => 'Valabel bis:',
 	'stabilization-othertime' => 'Aner Zäit',
 	'stabilization-sel-short' => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
