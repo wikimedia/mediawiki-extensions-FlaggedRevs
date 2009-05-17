@@ -424,6 +424,14 @@ Aagluegti Versione sin Versione vu Syte, wu vu zmindescht eim etablierte Benutze
 	'validationstatistics-old' => 'Syte mit Versione, wu nit vum Fäldhieter gsäh sin.',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author Dineshjk
+ */
+$messages['gu'] = array(
+	'validationstatistics-total' => 'પાનાં',
+	'validationstatistics-stable' => 'પરામર્શિત',
+);
+
 /** Hebrew (עברית)
  * @author Agbad
  * @author DoviJ

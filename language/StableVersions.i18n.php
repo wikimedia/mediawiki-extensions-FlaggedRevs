@@ -805,7 +805,7 @@ $messages['roa-tara'] = array(
 	'stableversions-leg1' => "Liste de le revisiune riviste pe 'na pàgene",
 	'stableversions-page' => "Nome d'a vôsce:",
 	'stableversions-none' => '"[[:$1]]" non ge tène revisiune de rivisitaminde.',
-	'stableversions-list' => "'A seguende jè 'a liste de le revisiune de [[:$1]] ca onne state reviste:",
+	'stableversions-list' => "'A seguende jè 'a liste de {{PLURAL:$2|'na sola revisione|revisiune}} de [[:$1]] ca {{PLURAL:$2|ha|onne}} state reviste:",
 	'stableversions-review' => 'Riviste sus a <i>$1</i> da $2',
 );
 
