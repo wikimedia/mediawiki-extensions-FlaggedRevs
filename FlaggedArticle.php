@@ -1309,12 +1309,16 @@ class FlaggedArticle extends Article {
 			if( !$this->isDiffFromStable ) {
 				return false; // only safe to assume current if diff-to-stable
 			}
-			$id = $this->parent->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+			$rev = Revision::newFromTitle( $this->parent->getTitle() );
+			$id = $rev->getId();
+		} else {
+			$rev = Revision::newFromTitle( $this->parent->getTitle(), $id );
 		}
+		
 		# Load required messages
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		# Must be a valid non-printable output
-		if( !$id || $wgOut->isPrintable() ) {
+		# Must be a valid non-printable output and revision must be public
+		if( $wgOut->isPrintable() || !$rev || $rev->isDeleted(Revision::DELETED_TEXT) ) {
 			return false;
 		}
 		$useCurrent = false;
