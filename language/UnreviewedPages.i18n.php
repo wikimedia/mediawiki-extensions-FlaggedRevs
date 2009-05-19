@@ -897,6 +897,7 @@ $messages['nn'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Harald Khan
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'right-unreviewedpages' => 'Vise [[Special:UnreviewedPages|liste over uanmeldte sider]]',
@@ -905,9 +906,10 @@ $messages['no'] = array(
 	'unreviewed-category' => 'Kategori:',
 	'unreviewed-diff' => 'anmeld',
 	'unreviewed-unwatched' => '(uovervåket)',
-	'unreviewed-watched' => '($1 overvåkende {{PLURAL:$1|bruker|brukere}})',
-	'unreviewed-list' => 'Denne siden viser artikler som ikke har blitt anmeldt.',
+	'unreviewed-watched' => '({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)',
+	'unreviewed-list' => 'Denne siden lister opp artikler som mangler vurdering.',
 	'unreviewed-none' => 'Det er ingen sider som passer med disse kriteriene',
+	'unreviewed-viewing' => '(under vurdering)',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)

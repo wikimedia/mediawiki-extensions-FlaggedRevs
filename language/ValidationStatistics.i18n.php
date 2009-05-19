@@ -148,9 +148,15 @@ $messages['bs'] = array(
 
 /** Catalan (Català)
  * @author Aleator
+ * @author Solde
  */
 $messages['ca'] = array(
+	'validationstatistics' => 'Estadístiques de validació',
 	'validationstatistics-ns' => "Nom d'espai",
+	'validationstatistics-total' => 'Pàgines',
+	'validationstatistics-stable' => "S'ha revisat",
+	'validationstatistics-latest' => 'Sincronitzat',
+	'validationstatistics-synced' => 'Sincornitzat/Revisat',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -781,17 +787,24 @@ Stabile versjonar er sideversjonar for sider som er sjekka av minst ein etablert
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
 	'validationstatistics-users' => "'''{{SITENAME}}''' har '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og '''$2''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].",
-	'validationstatistics-table' => "Statistikk for hvert navnerom vises nedenfor, utenom omdirigeringssider. ''Utdaterte'' sider er sider som or blitt endret siden siste stabile versjon. Om siste endring også er stabil er siden ''à jour''.
+	'validationstatistics-time' => "''Følgende data er mellomlagret og kan være utdatert.''
 
-'''Merk:''' Følgende data mellomlagres i flere timer og kan være foreldet.",
+Gjennomsnittlig ventetid for endringer av ''uinnlogga brukere'' til vurdering er '''$1'''; medianen er '''$3'''.
+$4
+Gjennomsnittlig forsinking for [[Special:OldReviewedPages|sider med endringer som ikke er vurdert]] er '''$2'''.
+
+Disse sidene blir sett på som ''foreldet''. På same måte blir sider regnet som ''synkronisert'' om den [[{{MediaWiki:Validationpage}}|stabile versjonen]] også er den nåværende utkast-versjonen.
+Stabile versjoner er sideversjoner for sider som er sjekket av minst en etablert bruker.",
+	'validationstatistics-table' => "Statistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.",
 	'validationstatistics-ns' => 'Navnerom',
 	'validationstatistics-total' => 'Sider',
 	'validationstatistics-stable' => 'Anmeldt',
-	'validationstatistics-latest' => 'Sist anmeldt',
+	'validationstatistics-latest' => 'Synkronisert',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
 	'validationstatistics-old' => 'Foreldet',
 );

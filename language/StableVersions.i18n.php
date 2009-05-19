@@ -702,13 +702,14 @@ $messages['nn'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'stableversions' => 'Vis stabile versjoner',
 	'stableversions-leg1' => 'List anmeldte versjoner av en side',
 	'stableversions-page' => 'Sidenavn:',
 	'stableversions-none' => '«[[:$1]]» har ingen anmeldte versjoner.',
-	'stableversions-list' => 'Følgende er en liste over anmeldte versjoner av [[:$1]]:',
+	'stableversions-list' => 'Følgende er en liste over {{PLURAL:$2|den eneste versjonen|versjonene}} av [[:$1]] som har blitt gjennomgått:',
 	'stableversions-review' => 'Anmeldt <i>$1</i> av $2',
 );
 

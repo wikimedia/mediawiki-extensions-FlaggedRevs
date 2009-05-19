@@ -217,6 +217,19 @@ Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Viso
 	'right-feedback' => 'Korištenje obrasca povratne veze za ocjenjivanje stranice',
 );
 
+/** Catalan (Català)
+ * @author Solde
+ */
+$messages['ca'] = array(
+	'ratinghistory-period' => 'Període de temps:',
+	'ratinghistory-month' => 'últim mes',
+	'ratinghistory-3months' => 'últims 3 mesos',
+	'ratinghistory-year' => 'últim any',
+	'ratinghistory-3years' => 'últims 3 anys',
+	'ratinghistory-ave' => 'Mig: $1',
+	'ratinghistory-table-votes' => 'Vots',
+);
+
 /** German (Deutsch)
  * @author Als-Holder
  * @author ChrisiPK

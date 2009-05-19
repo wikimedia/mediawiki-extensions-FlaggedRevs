@@ -734,11 +734,12 @@ $messages['nn'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author EivindJ
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'reviewedpages' => 'Anmeldte sider',
-	'reviewedpages-leg' => 'Vis sider anmeldt med et visst nivå',
-	'reviewedpages-list' => 'Følgende sider har blitt anmeldt, og har det angitte nivået',
+	'reviewedpages-leg' => 'List opp sider etter høyeste nivå',
+	'reviewedpages-list' => 'Følgende {{PLURAL:$1|side|sider}} har blitt vurdert og har det angitte nivået',
 	'reviewedpages-none' => 'Det er ingen sider i denne listen',
 	'reviewedpages-lev-0' => 'Sjekket',
 	'reviewedpages-lev-1' => 'Kvalitet',
