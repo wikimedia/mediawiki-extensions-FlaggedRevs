@@ -2025,6 +2025,7 @@ Ingen innstillingar kan verta gjorde.',
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author H92
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'stabilization-tab' => 'kvalitet',
@@ -2036,16 +2037,20 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-leg' => 'Bekreft innstillinger for stabile versjoner',
 	'stabilization-select' => 'Valg av stabil versjon',
 	'stabilization-select1' => 'Den siste kvalitetsrevisjonen hvis den finnes, ellers den siste synede versjonen',
-	'stabilization-select2' => 'Den siste undersøkte versjonen.',
+	'stabilization-select2' => 'Den siste vurderte versjonen, uansett kvalitetsnivå',
 	'stabilization-select3' => 'Den siste urørte versjonen av denne siden; om det ikke finnes, det siste kvalitetsversjonen eller den siste sjekkede versjonen',
 	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
 	'stabilization-def1' => 'Den stabile versjonen hvis den finnes, ellers den nyeste versjonen',
 	'stabilization-def2' => 'Den nyeste versjonen',
+	'stabilization-restrict' => 'Begrensninger av auto-vurdering',
+	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
 	'stabilization-submit' => 'Bekreft',
 	'stabilization-notexists' => 'Det er ingen side med tittelen «[[:$1|$1]]». Ingen innstillinger kan gjøres.',
 	'stabilization-notcontent' => 'Siden «[[:$1|$1]]» kan ikke bli undersøkt. Ingen innstillinger kan gjøres.',
-	'stabilization-comment' => 'Kommentar:',
+	'stabilization-comment' => 'Årsak:',
+	'stabilization-otherreason' => 'Annen årsak',
 	'stabilization-expiry' => 'Utgår:',
+	'stabilization-othertime' => 'Annen tid',
 	'stabilization-sel-short' => 'Presedens',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
@@ -2056,6 +2061,7 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilize_expiry_invalid' => 'Ugyldig varighet.',
 	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
+	'stabilization-review' => 'Vurder den nåværende versjonen',
 );
 
 /** Novial (Novial)
