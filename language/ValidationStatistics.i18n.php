@@ -646,15 +646,21 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'validationstatistics-users' => " De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met Rääsch, ene [[{{MediaWiki:Validationpage}}|Editor]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm [[{{MediaWiki:Validationpage}}|Reviewer]]-Rääsch.",
-	'validationstatistics-time' => "Die Dorschnitt för de Zick op Änderunge vun Namelose ze Waade, es '''$1'''.
-Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2'''.",
+	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met däm Rääsch, ene [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.",
+	'validationstatistics-time' => "Dä Dorschnitt för de Zick op Änderunge vun Namelose ze Waade, es '''$1''' Shtunde, Menutte, un Sekunde.
+Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2''' Shtunde, Menutte, un Sekunde.
+Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''. Jenou esu joot donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'' jellde, wann de [[{{MediaWiki:Validationpage}}|stable version]] och dä aktälle Äntworf es.
+Stable version
+es de Version vun en Sigg, di
+checked by at least one established user.",
 	'validationstatistics-table' => "Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)
 <!--
 '''Opjepaß:''' De Date hee noh sen för e paa Stond zweschespeichert, se künnte alsu nit janz de neuste sin.
 -->",
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge jesamp',
+	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
+	'validationstatistics-old' => 'Övverhollt',
 );
 
 /** Cornish (Kernewek)

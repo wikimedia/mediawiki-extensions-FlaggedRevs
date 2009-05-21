@@ -546,6 +546,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Als-Holder
+ * @author Purodha
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -566,7 +567,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-def1' => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version',
 	'stabilization-def2' => 'Die aktuelle Version',
 	'stabilization-restrict' => 'Begrenzt auf automatische Markierungen',
-	'stabilization-restrict-none' => 'Keine extra Begrenzungen',
+	'stabilization-restrict-none' => 'Keine zusätzlichen Einschränkungen',
 	'stabilization-submit' => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
 	'stabilization-notcontent' => 'Die Seite „[[:$1|$1]]“ kann nicht markiert werden. Konfiguration ist nicht möglich.',
@@ -1635,6 +1636,7 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'stabilization-page' => 'Name fun dä Sigg:',
 	'stabilization-def2' => 'De aktuelle Version',
+	'stabilization-restrict-none' => 'Kein zohsäzlejje Bescharänkunge',
 	'stabilization-submit' => 'Bestätije',
 	'stabilization-notexists' => 'Mer han kein Sigg met dämm Tittel „[[:$1|$1]]“.
 Et jit nix enzestelle.',
@@ -1643,6 +1645,10 @@ Et jit nix enzestelle.',
 	'stabilization-comment' => 'Jrond:',
 	'stabilization-otherreason' => 'Ene andere Jrond',
 	'stabilization-expiry' => 'Leuf uß:',
+	'stabilization-othertime' => 'En ander Zick',
+	'stabilization-sel-short' => 'Weeschteschkeit',
+	'stabilization-sel-short-1' => 'Kein',
+	'stabilization-sel-short-2' => 'orshprönglesch',
 	'stabilization-def-short' => 'Shtandatt',
 	'stabilization-def-short-0' => 'Von jetz',
 	'stabilize_expiry_invalid' => 'Dat Affloufdattum es nit jöltisch.',
