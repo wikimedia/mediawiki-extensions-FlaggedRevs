@@ -382,6 +382,17 @@ El '''número de revisiones por día''' <font color=\"red\">''(rojo)''</font> es
 	'right-feedback' => 'Usar el formulario de retroalimentación para valorar una página',
 );
 
+/** Estonian (Eesti)
+ * @author Silvar
+ */
+$messages['et'] = array(
+	'ratinghistory-period' => 'Ajavahemik:',
+	'ratinghistory-month' => 'viimasel kuul',
+	'ratinghistory-3months' => 'viimased 3 kuud',
+	'ratinghistory-year' => 'viimane aasta',
+	'ratinghistory-3years' => 'viimased 3 aastat',
+);
+
 /** Basque (Euskara)
  * @author Kobazulo
  */
@@ -1006,22 +1017,34 @@ Talet på '''vurderingar per dag''' <font color=\"red\">''(raudt)''</font> er vi
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'ratinghistory' => 'Sidens vurderingshistorikk',
-	'ratinghistory-leg' => 'Vurderingshistorikkdata',
+	'ratinghistory-leg' => 'Vurderingshistorikkdata for [[:$1|$1]]',
 	'ratinghistory-tab' => 'vurdering',
-	'ratinghistory-link' => 'Artikkelvurdering',
+	'ratinghistory-link' => 'Sidevurdering',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Takk for at du tar deg tid til å anmelde denne siden!</font>''",
 	'ratinghistory-period' => 'Tidsperiode:',
 	'ratinghistory-month' => 'siste måned',
+	'ratinghistory-3months' => 'siste 3 måneder',
 	'ratinghistory-year' => 'siste år',
 	'ratinghistory-3years' => 'siste tre år',
-	'ratinghistory-graph' => 'Gå gjennom data fra $1 {{PLURAL:$1|leser|lesere}}',
+	'ratinghistory-ave' => 'Snitt: $1',
+	'ratinghistory-chart' => 'Leservurderinger over tid',
+	'ratinghistory-purge' => 'oppdater mellomlager',
+	'ratinghistory-table' => 'Oversikt over leservurderinger',
+	'ratinghistory-users' => 'Brukere som vurderte siden',
+	'ratinghistory-graph' => '$2 av «$3» ({{PLURAL:$1|én vurdering|$1 vurderinger}})',
+	'readerfeedback-svg' => 'Vis som SVG',
+	'ratinghistory-table-rating' => 'Vurdering',
+	'ratinghistory-table-votes' => 'Stemmer',
 	'ratinghistory-none' => 'Det er ikke nok leservurderinger til å vise grafer ennå.',
-	'ratinghistory-legend' => "Det daglige gjennomsnittet (<font color=\"blue\">''blå''</font>) og gjennomsnittet for valgte intervall (<font color=\"green\">''grønn''</font>) vil vises i grafen nedenfor, etter dato. Vurderingsverdiene tolkes slik:
+	'ratinghistory-legend' => "Den '''daglige gjennomsnittsvurderingen''' <font color=\"blue\">''(blå)''</font> og '''løpende gjennomsnittsvurdering''' <font color=\"green\">''(grønn)''</font> vises i grafen under, etter dato. Den '''løpende gjennomsnittsvurderingen''' er rett og slett gjennomsnittet av all de daglige vurderingene ''innen'' denne tidsperioden for hver dag.
 
-'''[1]''' &ndash; Veldig dårlig; '''[2]''' &ndash; Dårlig; '''[3]''' &ndash; OK; '''[4]''' &ndash; Bra; '''[5]''' &ndash; Veldig bra;",
+Skala: '''[1]''' - Veldig dårlig; '''[2]''' - Dårlig; '''[3]''' - OK; '''[4]''' - Bra; '''[5]''' - Veldig bra;
+
+'''Antallet vurderinger per dag''' <font color=\"red\">''(rød)''</font> vises i grafen under, med skalaen ''1:\$1''.",
 	'right-feedback' => 'Bruke tilbakemeldingsskjemaet for å vurdere en side',
 );
 

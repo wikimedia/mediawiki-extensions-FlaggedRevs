@@ -28,17 +28,6 @@ $messages['qqq'] = array(
 {{Identical|Configuration}}',
 );
 
-/** Lower Silesian (Schläsch)
- * @author Jonny84
- */
-$messages['sli'] = array(
-	'unstablepages' => 'Unstabile Seiten',
-	'unstablepages-stable' => 'Stabile Version',
-	'unstablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit die Entwurfsversion als Standardinhalt für Leser angezeigt wird.',
-	'unstablepages-none' => 'De Liste ies leer.',
-	'unstablepages-config' => 'Konfiguration',
-);
-
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -80,6 +69,7 @@ $messages['be-tarask'] = array(
 $messages['bs'] = array(
 	'unstablepages' => 'Nestabilne stranice',
 	'unstablepages-stable' => 'stabilna verzija',
+	'unstablepages-none' => 'Nema stranica na ovom spisku',
 	'unstablepages-config' => 'Konfiguracija',
 );
 
@@ -409,6 +399,17 @@ $messages['nn'] = array(
 	'unstablepages-config' => 'Konfigurasjon',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['no'] = array(
+	'unstablepages' => 'Ustabile sider',
+	'unstablepages-stable' => 'stabil versjon',
+	'unstablepages-text' => 'Under er en liste over sider manuelt satt opp til å vise utkastet som standardsideinnhold for lesere.',
+	'unstablepages-none' => 'Det finnes ingen sider i denne listen',
+	'unstablepages-config' => 'Konfigurasjon',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -495,6 +496,17 @@ $messages['sk'] = array(
 	'unstablepages-text' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa zobrazovala ich verzia návrhu ako štandardná stránka s obsahom pre čitateľov.',
 	'unstablepages-none' => 'Tento zoznam neobsahuje žiadne stránky',
 	'unstablepages-config' => 'Nastavenie',
+);
+
+/** Lower Silesian (Schläsch)
+ * @author Jonny84
+ */
+$messages['sli'] = array(
+	'unstablepages' => 'Unstabile Seiten',
+	'unstablepages-stable' => 'Stabile Version',
+	'unstablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit die Entwurfsversion als Standardinhalt für Leser angezeigt wird.',
+	'unstablepages-none' => 'De Liste ies leer.',
+	'unstablepages-config' => 'Konfiguration',
 );
 
 /** Albanian (Shqip)

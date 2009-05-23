@@ -530,6 +530,7 @@ $messages['nn'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'stablepages' => 'Stabile sider',
@@ -537,6 +538,10 @@ $messages['no'] = array(
 	'stablepages-text' => 'Nedenfor er en liste over sider manuelt innstilt til å vise den stabile versjonen som standardinnhold for lesere.',
 	'stablepages-none' => 'Det er ingen sider i denne listen',
 	'stablepages-config' => 'Konfigurering',
+	'stablepages-prec-none' => 'ingen prioritering',
+	'stablepages-prec-quality' => 'Kvalitetsprioritering',
+	'stablepages-prec-pristine' => 'prioritering av urørte',
+	'stablepages-precedence' => 'Prioritering:',
 );
 
 /** Occitan (Occitan)

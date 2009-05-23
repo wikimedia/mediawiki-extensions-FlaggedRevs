@@ -141,6 +141,13 @@ $messages['bg'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'validationstatistics-time' => "''Slijedeći podaci su keširani i možda nisu ažurirani.''
+
+Prosječno čekanje na izmjenu od strane ''korisnika koji se nisu prijavili'' a izmjena čeka na pregled je '''$1'''; prosjek je '''$3'''.
+$4
+Prosječno kašnjenje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama]] je '''$2'''.
+Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sinhronizovanim'', ako je [[{{MediaWiki:Validationpage}}|stabilna verzija]] ujedno i trenutna verzija.
+Stabilne verzije su revizije stranica koje je provjerio najmanje jedan potvrđeni korisnik.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-old' => 'Zastarijelo',
@@ -646,19 +653,19 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'validationstatistics' => 'Shtatistike vun de Beschtätijunge för Sigge',
 	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met däm Rääsch, ene [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.",
-	'validationstatistics-time' => "Dä Dorschnitt för de Zick op Änderunge vun Namelose ze Waade, es '''$1''' Shtunde, Menutte, un Sekunde.
+	'validationstatistics-time' => "'''Opjepaß:''' ''De Date hee noh sen för e paa Stond zweschejespeichert, se künnte alsu nit janz de Neuste sin.''
+
+Dä Meddelwäät för de Zick op Änderunge vun namelose Metmaachere ze Waade, es '''$1''' Shtunde, Menutte, un Sekunde. Dä Medianwäät es '''$3''' Shtunde, Menutte, un Sekunde.
+$4
 Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2''' Shtunde, Menutte, un Sekunde.
-Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''. Jenou esu joot donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'' jellde, wann de [[{{MediaWiki:Validationpage}}|stable version]] och dä aktälle Äntworf es.
-Stable version
-es de Version vun en Sigg, di
-checked by at least one established user.",
-	'validationstatistics-table' => "Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)
-<!--
-'''Opjepaß:''' De Date hee noh sen för e paa Stond zweschespeichert, se künnte alsu nit janz de neuste sin.
--->",
+Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''. Jenou esu joot donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'' jellde, wann de [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]] och dä aktoälle Äntworf es. De <!-- Stable version --> {{int:stablepages-stable}} es de neuste Version vun en Sigg, di winnischßdens vun einem Metmaacher en Beschtäätejung hät.",
+	'validationstatistics-table' => 'Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)',
 	'validationstatistics-ns' => 'Appachtemang',
-	'validationstatistics-total' => 'Sigge jesamp',
+	'validationstatistics-total' => 'Sigge ensjesamp',
+	'validationstatistics-stable' => 'Ens nohjeloort',
+	'validationstatistics-latest' => 'A-juur',
 	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
 	'validationstatistics-old' => 'Övverhollt',
 );

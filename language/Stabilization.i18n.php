@@ -1635,6 +1635,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'stabilization-page' => 'Name fun dä Sigg:',
+	'stabilization-select2' => 'De neuste nohjeloorte Version, onafhängesch vun de Zoot Beschtäätejung',
 	'stabilization-def2' => 'De aktuelle Version',
 	'stabilization-restrict-none' => 'Kein zohsäzlejje Bescharänkunge',
 	'stabilization-submit' => 'Bestätije',
@@ -2036,7 +2037,10 @@ Ingen innstillingar kan verta gjorde.',
 $messages['no'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidestabilisering',
-	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den stabile versjonen av [[:$1|$1]] skal velges og vises.'''",
+	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den stabile versjonen av [[:$1|$1]] skal velges og vises.'''
+
+Når oppsettet for ''valg av stabil versjon'' endres til å bruke «kvalitet» eller «urørt» som standard,
+kontroller at det faktisk finnes slike versjoner av siden, ellers vil endringen ha liten effekt.",
 	'stabilization-perm' => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for stabile versjoner.
 Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-page' => 'Sidenavn:',

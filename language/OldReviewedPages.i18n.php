@@ -832,6 +832,7 @@ $messages['nn'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author EivindJ
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'oldreviewedpages' => 'Utdaterte anmeldte sider',
@@ -842,9 +843,13 @@ $messages['no'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dager}})',
 	'oldreviewedpages-recent' => '(under én time)',
 	'oldreviewed-category' => 'Kategori:',
+	'oldreviewed-watched' => 'På min overvåkningsliste',
+	'oldreviewed-stable' => 'Stabilisert',
 	'oldreviewed-diff' => 'anmeld',
+	'oldreviewed-size' => 'Maksimal endring (byte):',
 	'oldreviewedpages-unwatched' => '(ikke overvåket)',
-	'oldreviewedpages-watched' => '($2 overvåkende {{PLURAL:$1|bruker|brukere}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|én aktiv bruker|$2 aktive brukere}} overvåker)',
+	'oldreviewedpages-viewing' => '(under vurdering)',
 );
 
 /** Occitan (Occitan)

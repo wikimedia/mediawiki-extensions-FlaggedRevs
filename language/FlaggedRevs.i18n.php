@@ -1605,6 +1605,17 @@ $messages['be-tarask'] = array(
 	'revreview-lev-quality' => 'якасная',
 	'revreview-lev-pristine' => 'першапачатковая',
 	'revreview-reviewlink' => 'рэцэнзаваць',
+	'tooltip-ca-current' => 'Паглядзець бягучы чарнавік гэтай старонкі',
+	'tooltip-ca-stable' => 'Паглядзець стабільную вэрсію гэтай старонкі',
+	'tooltip-ca-default' => 'Налада кантролю якасьці',
+	'tooltip-ca-ratinghist' => 'Адзнака чытачамі гэтай старонкі',
+	'revreview-locked-title' => 'Рэдагаваньні павінны быць прагледжаны, перад тым, як будуць адлюстраваны на гэтай старонцы!',
+	'revreview-unlocked-title' => 'Рэдагаваньні не патрабуюць праверкі перад адлюстраваньнем на гэтай старонцы.',
+	'revreview-locked' => 'Рэдагаваньні павінны быць [[{{MediaWiki:Validationpage}}|правераны]] перад тым, як будуць адлюстраваны на гэтай старонцы.',
+	'revreview-unlocked' => 'Рэдагаваньні не патрабуюць [[{{MediaWiki:Validationpage}}|праверкі]] перад тым, як будуць адлюстраваны на гэтай старонцы.',
+	'log-show-hide-review' => '$1 журнал праверак',
+	'revreview-tt-review' => 'Праверыць гэту старонку',
+	'validationpage' => '{{ns:help}}:Праверка старонкі',
 );
 
 /** Bulgarian (Български)
@@ -3165,8 +3176,12 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'validationpage' => '{{ns:help}}:Validación de artículo',
 );
 
-/** Estonian (Eesti) */
+/** Estonian (Eesti)
+ * @author Silvar
+ */
 $messages['et'] = array(
+	'revreview-patrol' => 'Märgi see muudatus patrullituks',
+	'revreview-patrol-title' => 'Märgi patrullituks',
 	'revreview-style-1' => 'Vastuvõetav',
 	'revreview-revnotfound' => 'Teie poolt päritud vana redaktsiooni ei leitud.
 Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
@@ -6674,6 +6689,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'flaggedrevs-desc' => 'Määt et för de Metmaacher müjjelesch, de Versijone fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualität stabil ze hallde.',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} beschtäätesch] {{GENDER:$3|vum|vum|vum Metmaacher|vum|vun dä}} [[User:$3|$3]]',
 	'review-logentry-id' => 'beloore',
 	'review-logpage' => ' Review Logbooch',
 	'revreview-auto' => 'automattesch',
@@ -6682,6 +6698,7 @@ $messages['ksh'] = array(
 	'revreview-log' => 'Koot zosamme jefaß:',
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
 	'revreview-quick-invalid' => "'''Onjöltijje Versions-Nommer'''",
+	'revreview-selected' => "De ußjesoohte Version vun '''$1:'''",
 	'revreview-submit' => 'Lohß Jonn!',
 	'revreview-submitting' => 'Am Övverdraare&nbsp;…',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
@@ -6689,6 +6706,7 @@ $messages['ksh'] = array(
 	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
 op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
 fottjeschmesse hät?',
+	'right-validate' => 'Versione nohloore un beschtääteje',
 	'readerfeedback' => 'Wat dengkß De övver hee di Sigg?',
 	'readerfeedback-level-none' => '(onsescher)',
 	'readerfeedback-submit' => 'Lohß Jonn!',
@@ -6697,8 +6715,10 @@ fottjeschmesse hät?',
 	'revreview-filter-all' => 'All',
 	'revreview-filter-auto' => 'Automattesch',
 	'revreview-filter-manual' => 'Vun Hand',
+	'tooltip-ca-stable' => 'Donn de {{int:stablepages-stable}} vun dä Sigg he beloore',
 	'log-show-hide-review' => '$1 et Logbooch vum Sigge <i lang="en">review</i>',
 	'revreview-tt-review' => 'Review hee di Sigg',
+	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtätijunge Versione vun Sigge',
 );
 
 /** Cornish (Kernewek)
@@ -8148,15 +8168,19 @@ Ei lista over stabiliserte sider finst på [[Special:StablePages|lista over stab
  * @author Jon Harald Søby
  * @author Kph
  * @author Meno25
+ * @author Nghtwlkr
  * @author Stigmj
  */
 $messages['no'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Stabile versjoner',
-	'flaggedrevs-backlog' => "Det er [[Special:OldReviewedPages|utdaterte anmeldte sider]] i kø. '''Din oppmerksomhet trengs!'''",
+	'flaggedrevs-backlog' => "Det er en oppsamling av [[Special:OldReviewedPages|ventende endringer]] i kø for vurdering. '''Din oppmerksomhet trengs!'''",
+	'flaggedrevs-watched-pending' => "Det finnes [{{fullurl:Special:OldReviewedPages|watched=1}} ventende endringer] på vurderte sider i din overvåkningsliste. '''Din oppmerksomhet trengs!'''",
 	'flaggedrevs-desc' => 'Gir skribenter og anmeldere muligheten til å godkjenne sideversjoner og stabilisere sider',
+	'flaggedrevs-pref-UI' => 'Grensesnitt for stabil versjon:',
 	'flaggedrevs-pref-UI-0' => 'Bruk detaljert grensesnitt for stabile versjoner',
 	'flaggedrevs-pref-UI-1' => 'Bruk enkelt grensesnitt for stabile versjoner',
+	'prefs-flaggedrevs' => 'Stabilitet',
 	'flaggedrevs-prefs-stable' => 'Vis alltid den stabile versjonen av sider (om en slik finnes)',
 	'flaggedrevs-prefs-watch' => 'Legg til sider jeg anmelder i overvåkningslisten min',
 	'group-editor' => 'Skribenter',
@@ -8165,15 +8189,19 @@ $messages['no'] = array(
 	'group-reviewer-member' => 'Anmelder',
 	'grouppage-editor' => '{{ns:project}}:Skribenter',
 	'grouppage-reviewer' => '{{ns:project}}:Anmeldere',
+	'group-autoreview' => 'Autoanmeldere',
+	'group-autoreview-member' => 'autoanmelder',
+	'grouppage-autoreview' => '{{ns:project}}:Autoanmelder',
 	'hist-draft' => 'utkastversjon',
 	'hist-quality' => 'kvalitetsversjon',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} godkjent] av [[User:$3|$3]]',
 	'hist-stable' => 'kontrollert versjon',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} sjekket] av [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisk vurdert]',
 	'review-diff2stable' => 'Vis endringer mellom den stabile og den nåværende revisjonen',
-	'review-logentry-app' => 'anmeldte [[$1]]',
-	'review-logentry-dis' => 'degraderte en versjon av [[$1]]',
-	'review-logentry-id' => 'versjons-ID $1',
+	'review-logentry-app' => 'vurderte versjon $2 av [[$1]]',
+	'review-logentry-dis' => 'degraderte versjon $2 av [[$1]]',
+	'review-logentry-id' => 'vis',
 	'review-logentry-diff' => 'forskjell fra stabil versjon',
 	'review-logpage' => 'Anmeldingslogg',
 	'review-logpagetext' => 'Dette er en logg over endringer i [[{{MediaWiki:Validationpage}}|godkjenningsstatusen]] for innholdssider.
@@ -8191,14 +8219,18 @@ Se [[Special:ReviewedPages|listen over anmeldte sider]] for en liste over godkje
 	'revreview-auto-w' => "Du redigerer den stabile versjonen; endringer blir '''automatisk anmeldt'''.",
 	'revreview-auto-w-old' => "Du redigerer en anmeldt versjon; endringer blir '''automatisk anmeldt'''.",
 	'revreview-basic' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|sjekkede]] versjonen, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}}  sjekket] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|endring|endringer}}] som venter på anmelding.',
-	'revreview-basic-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|sjekkede]] sideversjonen, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mal- eller bildeendringer] som venter på anmeldelse.',
+	'revreview-basic-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] sideversjonen, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mal- eller bildeendringer] som venter på vurdering.',
 	'revreview-basic-old' => 'Dette er en [[{{MediaWiki:Validationpage}}|sjekket]] sideversjon ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} se alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
 Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] har blitt gjort.',
 	'revreview-basic-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|sjekkede]] sideversjonen ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} se alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.',
 	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sjekket versjon] av denne siden, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>, ble basert på denne versjonen.',
-	'revreview-changed' => "'''Den handlingen kan ikke utføres på denne versjonen av [[:$1|$1]].'''
+	'revreview-blocked' => 'Du kan ikke vurdere denne versjonen fordi kontoen din for tiden er blokkert ([$1 detaljer])',
+	'revreview-changed' => "'''Den etterspurte handlingen kan ikke utføres på denne versjonen av [[:$1|$1]].'''
 
-En mal eller et bilde kan ha blitt etterspurt uten noen spesifikk grunn. Dette kan skje om en mal inneholder et annet bilde eller en mal avhengig av en variabel som er blitt endret siden du begynte å anmelde siden. Å oppdatere siden og anmelde på nytt kan løse problemet.",
+En mal eller en fil kan ha blitt etterspurt uten noen spesifisert versjon.
+Dette kan skje om en dynamisk mal inneholder en annen fil eller en mal avhengig av en variabel som er blitt endret siden du begynte å vurdere siden.
+Å oppdatere siden og vurdere siden på nytt kan løse problemet.",
 	'revreview-current' => 'Utkast',
 	'revreview-depth' => 'Dybde',
 	'revreview-depth-0' => 'Ikke godkjent',
@@ -8206,8 +8238,9 @@ En mal eller et bilde kan ha blitt etterspurt uten noen spesifikk grunn. Dette k
 	'revreview-depth-2' => 'Middels',
 	'revreview-depth-3' => 'Høy',
 	'revreview-depth-4' => 'Utmerket',
-	'revreview-draft-title' => 'Artikkelutkast',
+	'revreview-draft-title' => 'Utkastside',
 	'revreview-edit' => 'Rediger utkast',
+	'revreview-editnotice' => "'''Endringer på denne siden vil bli inkludert i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] så snart en autorisert bruker godkjenner dem.'''",
 	'revreview-flag' => 'Anmeld denne sideversjonen',
 	'revreview-edited' => "'''Endringer vil legges til den [[{{MediaWiki:Validationpage}}|stabile versjonen]] når en etablert bruker sjekker den.
 ''Utkastet'' vises nedenfor.''' [{{fullurl:{{FULLPAGENAME}}|oldid=$1|diff=cur}} $2 {{PLURAL:$2|endring venter|endringer venter}}] på å bli sjekket.",
@@ -8219,10 +8252,11 @@ En mal eller et bilde kan ha blitt etterspurt uten noen spesifikk grunn. Dette k
 Se [[Special:Unreviewedpages|listen over uanmeldte sider]].',
 	'revreview-newest-basic' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste godkjente versjonen] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|endring|endringer}}] må vurderes.',
-	'revreview-newest-basic-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste godkjente versjonen] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Mal- eller bildeendringer] må vurderes.',
+	'revreview-newest-basic-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste vurderte versjonen] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Mal- eller filendringer] må vurderes.',
 	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikrede versjonen av siden]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|endring|endringer}}] må vurderes.',
-	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikrede versjonen av siden]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Mal- eller bildeendringer] må vurderes.',
+	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikrede versjonen av siden]  ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} vis alle]) ble [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Mal- eller filendringer] må vurderes.',
 	'revreview-noflagged' => "Det er ingen anmeldte versjoner av denne siden, så den har kanskje '''ikke''' blitt [[{{MediaWiki:Validationpage}}|kvalitetssjekket]].",
 	'revreview-note' => '[[User:$1|$1]] hadde følgende merknader under [[{{MediaWiki:Validationpage}}|anmeldelsen]] av denne sideversjonen:',
 	'revreview-notes' => 'Anmerkninger som vil vises:',
@@ -8232,8 +8266,8 @@ Se [[Special:Unreviewedpages|listen over uanmeldte sider]].',
 	'revreview-patrolled' => 'Den valgte versjonen av [[:$1|$1]] har blitt merket som patruljert.',
 	'revreview-quality' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|én endring|$3 endringer}}] som venter på anmeldelse.',
-	'revreview-quality-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} bilde- eller malendringer] som venter på anmeldelse.',
+	'revreview-quality-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] den <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mal- eller filendringer] som venter på anmeldelse.',
 	'revreview-quality-old' => 'Dette er en [[{{MediaWiki:Validationpage}}|kvalitetsversjon]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} se alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
 Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan ha blitt gjort.',
 	'revreview-quality-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} se alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.',
