@@ -925,8 +925,10 @@ Versões estáveis são revisões de páginas verificadas por pelo menos um util
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]] şi '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|recenzie]].",
 	'validationstatistics-ns' => 'Spaţiu de nume',
 	'validationstatistics-total' => 'Pagini',
 );

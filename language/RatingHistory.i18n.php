@@ -876,6 +876,13 @@ $messages['lb'] = array(
 	'ratinghistory-table-rating' => 'Bewertung',
 	'ratinghistory-table-votes' => 'Stëmmen',
 	'ratinghistory-none' => 'Et gëtt zu dësem Zäitpunkt net genuch Bewertunge vu Lieser fir e Grafik opzestellen.',
+	'ratinghistory-legend' => "Den '''Duerchschnëtt vun der deeglecher Bewertung''' <font color=\"blue\">''(blo)''</font> an '''momentanen Duerchschnëtt vun der Bewertung'''  <font color=\"green\">''(greng)''</font> sinn ënnendrënner grafesch pro Dag duergestallt.
+
+De '''momentanen Duerchschnëtt vun der Bewertung'''  ass einfach den Duerchschnëtt vun allen deeglech Bewertungen ''bannert'' dësem Zäitraum fir all Dag.
+
+Skala: '''[1]''' - Aarmeséileg; '''[2]''' - Niddreg; '''[3]''' - An der Rei; '''[4]''' - Héich; '''[5]''' - Exzellent;
+
+D''''Zuel vun de Bewertunge pro Dag''' <font color=\"red\">''(roud)''</font> gëtt am Grafik ënnedrënner gewisen, op enger ''1:\$1'' Skala.",
 	'right-feedback' => 'De Feedback-Formulaire benotze fir eng Säit ze bewerten',
 );
 
