@@ -333,7 +333,7 @@ EOT;
 		}
 		# Check cache before doing another DB hit...
 		$idP = FlaggedRevs::getTemplateIdFromCache( $parser->getRevisionId(),
-			$title->getNamespace(), $title->getDBKey() );
+			$title->getNamespace(), $title->getDBkey() );
 		# Use the process cache key if it's newer or we have none yet
 		if( !is_null($idP) && (!$id || $idP > $id) ) {
 			$id = $idP;
@@ -381,7 +381,7 @@ EOT;
 		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Normalize NS_MEDIA to NS_FILE
 		if( $nt->getNamespace() == NS_MEDIA ) {
-			$title = Title::makeTitle( NS_FILE, $nt->getDBKey() );
+			$title = Title::makeTitle( NS_FILE, $nt->getDBkey() );
 			$title->resetArticleId( $nt->getArticleId() ); // avoid extra queries
 		} else {
 			$title =& $nt;
@@ -399,7 +399,7 @@ EOT;
 			}
 		}
 		# Check cache before doing another DB hit...
-		$params = FlaggedRevs::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBKey() );
+		$params = FlaggedRevs::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBkey() );
 		if( is_array($params) ) {
 			list($timeP,$sha1P) = $params;
 			// Take the newest one...
@@ -485,7 +485,7 @@ EOT;
 			}
 		}
 		# Check cache before doing another DB hit...
-		$params = FlaggedRevs::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBKey() );
+		$params = FlaggedRevs::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBkey() );
 		if( is_array($params) ) {
 			list($timeP,$sha1P) = $params;
 			// Take the newest one...
@@ -1055,7 +1055,7 @@ EOT;
 			$dbr = wfGetDB( DB_SLAVE );
 			$blocked = $dbr->selectField( 'logging', '1',
 				array( 'log_namespace' => NS_USER, 
-					'log_title' => $user->getUserPage()->getDBKey(),
+					'log_title' => $user->getUserPage()->getDBkey(),
 					'log_type' => 'block',
 					'log_action' => 'block' ),
 				__METHOD__,
@@ -1074,7 +1074,7 @@ EOT;
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 			$size = $dbr->selectField( 'page', 'page_len',
 				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
-					'page_title' => $user->getUserPage()->getDBKey() ),
+					'page_title' => $user->getUserPage()->getDBkey() ),
 				__METHOD__ );
 			if( $size < $wgFlaggedRevsAutopromote['userpageBytes'] ) {
 				return true;

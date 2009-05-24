@@ -129,7 +129,7 @@ class UnreviewedPages extends SpecialPage
 		if( $wgMiserMode ) {
 			# Get a rough idea of size
 			$count = $dbr->estimateRowCount( 'watchlist', '*',
-				array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBKey() ),
+				array( 'wl_namespace' => $title->getNamespace(), 'wl_title' => $title->getDBkey() ),
 				__METHOD__ );
 		}
 		# If it is small, just COUNT() it, otherwise, stick with estimate...
@@ -139,7 +139,7 @@ class UnreviewedPages extends SpecialPage
 			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 2*$wgCookieExpiration );
 			$res = $dbr->select( array('watchlist','user'), '1',
 				array( 'wl_namespace' => $title->getNamespace(), 
-					'wl_title' => $title->getDBKey(),
+					'wl_title' => $title->getDBkey(),
 					'wl_user = user_id',
 					// logged in or out
 					'user_touched > '.$dbr->addQuotes( $cutoff ) ),
