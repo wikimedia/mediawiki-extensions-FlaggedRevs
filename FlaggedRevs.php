@@ -291,7 +291,7 @@ $wgAutoloadClasses['FRCacheUpdateJob'] = $dir.'FRCacheUpdate.php';
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRCacheUpdateJob';
 
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
-$wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.alias.php';
+$wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
