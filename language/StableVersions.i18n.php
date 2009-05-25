@@ -792,10 +792,13 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
 	'stableversions' => 'Vizualizaţi versiunile stabile',
+	'stableversions-leg1' => 'Afişează reviziile revizuite pentru o pagină',
 	'stableversions-page' => 'Numele paginii:',
+	'stableversions-none' => '"[[:$1]]" nu are revizii revizuite.',
 );
 
 /** Tarandíne (Tarandíne)

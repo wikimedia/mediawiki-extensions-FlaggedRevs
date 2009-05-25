@@ -1203,13 +1203,27 @@ O '''número de análises por dia''' <font color=\"red\">''(vermelho)''</font> �
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'ratinghistory' => 'Istoricul evaluării paginii',
+	'ratinghistory-leg' => 'Informaţii despre istoricul evaluarii pentru [[:$1|$1]]',
+	'ratinghistory-tab' => 'evaluare',
+	'ratinghistory-link' => 'Evaluarea paginii',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Mulţumim pentru că aţi revizuit această pagină!</font>''",
+	'ratinghistory-period' => 'Perioadă de timp:',
 	'ratinghistory-month' => 'ultima lună',
 	'ratinghistory-3months' => 'ultimele 3 luni',
 	'ratinghistory-year' => 'ultimul an',
 	'ratinghistory-3years' => 'ultimii 3 ani',
+	'ratinghistory-ave' => 'Medie: $1',
+	'ratinghistory-purge' => 'curăţa cache-ul',
+	'ratinghistory-table' => 'Privire de ansamblu asupra evaluării cititorilor',
 	'readerfeedback-svg' => 'Vizualizează drept SVG',
+	'ratinghistory-table-rating' => 'Evaluare',
+	'ratinghistory-table-votes' => 'Voturi',
+	'ratinghistory-none' => 'Nu există suficiente date disponibile pentru a genera grafice în acest moment.',
+	'right-feedback' => 'Folosiţi formularul de feedback-ul pentru a evalua o pagină',
 );
 
 /** Tarandíne (Tarandíne)

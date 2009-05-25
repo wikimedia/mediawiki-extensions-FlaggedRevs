@@ -241,6 +241,7 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author IAlex
+ * @author Mihai
  * @author Verdy p
  */
 $messages['fr'] = array(
@@ -252,7 +253,7 @@ $messages['fr'] = array(
 	'stablepages-prec-none' => 'aucune priorité',
 	'stablepages-prec-quality' => 'préférence pour la qualité',
 	'stablepages-prec-pristine' => 'priorité vierge',
-	'stablepages-precedence' => 'Préférence :',
+	'stablepages-precedence' => 'Prioritate:',
 );
 
 /** Galician (Galego)
@@ -609,11 +610,15 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
 	'stablepages' => 'Pagini stabile',
 	'stablepages-stable' => 'versiune stabilă',
 	'stablepages-none' => 'Nu există pagini în această listă',
+	'stablepages-config' => 'Configuraţie',
+	'stablepages-prec-none' => 'nicio prioritate',
+	'stablepages-prec-quality' => 'preferinţă pentru calitate',
 );
 
 /** Tarandíne (Tarandíne)

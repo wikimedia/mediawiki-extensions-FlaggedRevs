@@ -411,8 +411,12 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'problempages' => 'Pagini slab evaluate',
+	'problempages-leg' => 'Găsiţi pagini cu scoruri scăzute',
+	'problempages-list' => 'Mai jos este o listă de pagini sortate după evaluarea venită de la cititori.',
 	'problempages-none' => 'Nu există pagini în această listă',
 );
 

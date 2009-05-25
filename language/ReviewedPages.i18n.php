@@ -827,8 +827,10 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'reviewedpages' => 'Pagini revizuite',
 	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
 );

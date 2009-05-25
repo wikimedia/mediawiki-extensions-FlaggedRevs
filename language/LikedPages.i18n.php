@@ -369,8 +369,11 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'likedpages' => 'Pagini cu scoruri ridicate',
+	'likedpages-leg' => 'Găsiţi paginile cu scoruri ridicate',
 	'likedpages-none' => 'Nu există pagini în această listă',
 );
 

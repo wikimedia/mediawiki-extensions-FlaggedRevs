@@ -2321,17 +2321,30 @@ Não é possível configurá-la.',
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'stabilization-tab' => 'config.',
+	'stabilization-perm' => 'Contul tău nu are permisiunea de a schimba versiunea stabilă a configuraţiei.
+Iată configuraţia curentă pentru [[:$1|$1]]:',
 	'stabilization-page' => 'Numele paginii:',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
 	'stabilization-def2' => 'Revizia curentă',
 	'stabilization-submit' => 'Confirmă',
-	'stabilization-comment' => 'Comentariu:',
+	'stabilization-comment' => 'Motiv:',
+	'stabilization-otherreason' => 'Alt motiv',
 	'stabilization-expiry' => 'Expiră:',
+	'stabilization-othertime' => 'Altă dată',
+	'stabilization-sel-short' => 'Prioritate',
 	'stabilization-sel-short-0' => 'Calitate',
+	'stabilization-sel-short-1' => 'Nimic',
+	'stabilization-sel-short-2' => 'Intact',
+	'stabilization-def-short' => 'Implicit',
+	'stabilization-def-short-0' => 'Curent',
+	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
 	'stabilize-expiring' => 'expiră $1 (UTC)',
+	'stabilization-review' => 'Revizuieşte versiunea curentă',
 );
 
 /** Tarandíne (Tarandíne)

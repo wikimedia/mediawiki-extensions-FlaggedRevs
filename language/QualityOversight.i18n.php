@@ -344,6 +344,14 @@ $messages['pt-br'] = array(
 	'qualityoversight-legend' => 'Pesquisar nos registros de análises recentes',
 );
 
+/** Romanian (Română)
+ * @author Mihai
+ */
+$messages['ro'] = array(
+	'qualityoversight-list' => 'Această pagină afişează cele mai recente aprobări şi deprecieri ale reviziilor.',
+	'qualityoversight-legend' => 'Căutaţi jurnalele recente ale revizuirilor',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */

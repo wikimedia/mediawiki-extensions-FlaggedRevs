@@ -1016,9 +1016,14 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'unreviewedpages' => 'Pagini nerevizuite',
+	'unreviewed-legend' => 'Afişează pagini cu conţinut nerevizuit',
 	'unreviewed-category' => 'Categorie:',
+	'unreviewed-diff' => 'recenzie',
+	'unreviewed-unwatched' => '(neurmărit)',
 );
 
 /** Tarandíne (Tarandíne)
