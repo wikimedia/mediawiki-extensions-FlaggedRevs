@@ -75,7 +75,12 @@ class StablePages extends SpecialPage
 		}
 
 		if( $row->fpc_expiry != 'infinity' && strlen($row->fpc_expiry) ) {
-			$expiry_description = " (".wfMsgForContent( 'protect-expiring', $wgLang->timeanddate($row->fpc_expiry) ).")";
+			$expiry_description = " (" . wfMsgForContent(
+				'protect-expiring',
+				$wgLang->timeanddate( $row->fpc_expiry ),
+				$wgLang->date( $row->fpc_expiry ),
+				$wgLang->time( $row->fpc_expiry )
+			) . ")";
 		} else {
 			$expiry_description = "";
 		}
