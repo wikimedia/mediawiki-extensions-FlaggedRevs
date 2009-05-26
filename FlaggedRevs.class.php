@@ -275,10 +275,10 @@ class FlaggedRevs {
 			$config = $wgFlaggedRevsPrecedence;
 		switch( $config )
 		{
-			case 2:
+			case FR_PRISTINE:
 				$select = FLAGGED_VIS_PRISTINE;
 				break;
-			case 1:
+			case FR_QUALITY:
 				$select = FLAGGED_VIS_QUALITY;
 				break;
 			default:
@@ -340,9 +340,9 @@ class FlaggedRevs {
 	public static function quickTags( $tier ) {
 		switch( $tier )
 		{
-			case 2:
+			case FR_PRISTINE:
 				return self::quickPristineTags();
-			case 1:
+			case FR_QUALITY:
 				return self::quickQualityTags();
 			default:
 				return self::quickSightedTags();
@@ -360,7 +360,7 @@ class FlaggedRevs {
 		# Find the maximum auto-review quality level
 		$qal = min($wgFlaggedRevsAutoReview-1,$quality);
 		# Pristine auto-review?
-		if( $qal == 2 ) {
+		if( $qal == FR_PRISTINE ) {
 			$flags = self::quickPristineTags();
 			# If tags are available and user can set them, we are done...
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
@@ -369,7 +369,7 @@ class FlaggedRevs {
 			$qal--;
 		}
 		# Quality auto-review?
-		if( $qal == 1 ) {
+		if( $qal == FR_QUALITY ) {
 			$flags = self::quickQualityTags();
 			# If tags are available and user can set them, we are done...
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
@@ -378,7 +378,7 @@ class FlaggedRevs {
 			$qal--;
 		}
 		# Sighted auto-review?
-		if( $qal == 0 ) {
+		if( $qal == FR_SIGHTED ) {
 			$flags = self::quickSightedTags();
 			# If tags are available and user can set them, we are done...
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
@@ -837,8 +837,9 @@ class FlaggedRevs {
 	*/
 	public static function updatePendingList( $article, $latest = NULL ) {
 		$data = array();
-		$level = self::pristineVersions() ? 2 : 1;
-		if( !self::qualityVersions() ) $level--;
+		$level = self::pristineVersions() ? FR_PRISTINE : FR_QUALITY;
+		if( !self::qualityVersions() )
+			$level = FR_SIGHTED;
 		# Get the latest revision ID
 		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		$pageId = $article->getId();
@@ -1089,9 +1090,9 @@ class FlaggedRevs {
 	*/
 	public static function getLevelTier( $flags ) {
 		if( self::isPristine($flags ) )
-			return 2;
+			return FR_PRISTINE;
 		else if( self::isQuality($flags ) )
-			return 1;
+			return FR_QUALITY;
 		else
 			return 0;
 	}

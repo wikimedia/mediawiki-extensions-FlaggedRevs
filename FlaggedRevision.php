@@ -146,7 +146,7 @@ class FlaggedRevision {
 				$prow = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $pageId,
-						'fr_quality = 2',
+						'fr_quality = '.FR_PRISTINE,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',
 						'rev_deleted & '.Revision::DELETED_TEXT => 0
@@ -166,7 +166,7 @@ class FlaggedRevision {
 				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
 					$columns,
 					array( 'fr_page_id' => $pageId,
-						'fr_quality = 1',
+						'fr_quality = '.FR_QUALITY,
 						$newerClause,
 						'rev_id = fr_rev_id',
 						'rev_page = fr_page_id',

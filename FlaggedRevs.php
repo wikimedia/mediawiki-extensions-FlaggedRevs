@@ -38,12 +38,21 @@ if( !defined('FLAGGED_VIS_LATEST') )
 if( !defined('FLAGGED_VIS_PRISTINE') )
 	define('FLAGGED_VIS_PRISTINE',2);
 	
+# SELECT parameters...
 if( !defined('FR_FOR_UPDATE') )
 	define('FR_FOR_UPDATE',1);
 if( !defined('FR_MASTER') )
 	define('FR_MASTER',2);
 if( !defined('FR_TEXT') )
 	define('FR_TEXT',3);
+
+# Level constants...
+if( !defined('FR_SIGHTED') )
+	define('FR_SIGHTED',0);
+if( !defined('FR_QUALITY') )
+	define('FR_QUALITY',1);
+if( !defined('FR_PRISTINE') )
+	define('FR_PRISTINE',2);
 
 # Number of recent reviews to be a decent sample size
 if( !defined('READER_FEEDBACK_SIZE') )
