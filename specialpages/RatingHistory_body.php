@@ -160,11 +160,11 @@ class RatingHistory extends UnlistedSpecialPage
 						Xml::closeElement( 'div' ) . "\n";
 				}
 				break;
-			default:
+			default: // use html table
 				if( $exists ) {
-					$fp = @fopen( $filePath, 'r' );
+					$fp = fopen( $filePath, 'r' );
 					$table = fread( $fp, filesize($filePath) );
-					@fclose( $fp );
+					fclose( $fp );
 					$html .= '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' . $table . "\n";
 				} else if( $table = $this->makeHTMLTable( $tag, $filePath ) ) {
 					$html .= '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' . $table . "\n";
@@ -237,9 +237,9 @@ class RatingHistory extends UnlistedSpecialPage
 		$chart .= "</table>\n";
 		$chart .= Xml::closeElement( 'div' );
 		// Write to file for cache
-		$fp = @fopen( $filePath, 'w' );
-		@fwrite( $fp, $chart );
-		@fclose( $fp );
+		$fp = fopen( $filePath, 'w' );
+		fwrite( $fp, $chart );
+		fclose( $fp );
 		return $chart;
 	}
 	
