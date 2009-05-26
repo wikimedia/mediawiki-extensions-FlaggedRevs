@@ -2860,6 +2860,7 @@ Yapılandırma mümkün değil.',
 );
 
 /** Ukrainian (Українська)
+ * @author AS
  * @author Ahonc
  */
 $messages['uk'] = array(
@@ -2872,7 +2873,7 @@ $messages['uk'] = array(
 	'stabilization-leg' => 'Підтвердження налаштувань стабільної версії',
 	'stabilization-select' => 'Вибір стабільної версії',
 	'stabilization-select1' => 'Найсвіжіша якісна версія; якщо такої нема, то найсвіжіша переглянута',
-	'stabilization-select2' => 'Остання перевірена версія',
+	'stabilization-select2' => 'Остання перевірена версія, незалежно від рівня перевірки',
 	'stabilization-select3' => 'Остання недоторкана версія, якщо такої немає, то остання якісна або переглянута',
 	'stabilization-def' => 'Версія, що показується за замовчуванням',
 	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то поточна',

@@ -86,8 +86,10 @@ $messages['bs'] = array(
 
 /** Catalan (Català)
  * @author SMP
+ * @author Solde
  */
 $messages['ca'] = array(
+	'qualityoversight' => 'Visió de la qualitat',
 	'qualityoversight-list' => 'Aquesta pàgina llista les aprovacions i depreciacions recents de revisions.',
 	'qualityoversight-legend' => 'Cerca els registres de revisions recents',
 );

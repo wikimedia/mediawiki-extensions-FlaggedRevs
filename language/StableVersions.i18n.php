@@ -999,7 +999,7 @@ $messages['vep'] = array(
 	'stableversions-leg1' => 'Lehtpolen kodvdud versijoiden nimikirjutez',
 	'stableversions-page' => 'Lehtpolen nimi:',
 	'stableversions-none' => '"[[:$1]]"-lehtpolel ei ole kodvdud versijoid',
-	'stableversions-list' => 'Nened «[[:$1]]»-lehtpolen versijad oma kodvdud:',
+	'stableversions-list' => 'Naku om nimikirjutez, kudambas om [[:$1]]-lehtpolen {{PLURAL:$2|üksjäine kodvdud redakcii|kodvdud redakcijoid}}',
 	'stableversions-review' => 'Om kodvdud datal <i>$1</i> $2-arvostelijal',
 );
 

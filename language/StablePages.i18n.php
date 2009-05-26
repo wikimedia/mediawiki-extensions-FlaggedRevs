@@ -239,6 +239,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author Grondin
  * @author IAlex
  * @author Mihai
@@ -253,7 +254,7 @@ $messages['fr'] = array(
 	'stablepages-prec-none' => 'aucune priorité',
 	'stablepages-prec-quality' => 'préférence pour la qualité',
 	'stablepages-prec-pristine' => 'priorité vierge',
-	'stablepages-precedence' => 'Prioritate:',
+	'stablepages-precedence' => 'Préférence :',
 );
 
 /** Galician (Galego)
