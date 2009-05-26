@@ -297,10 +297,10 @@ class FlaggedArticle extends Article {
 		// Is the page config altered?
 		if( $this->isPageLocked() ) {
 			$prot = "<span class='fr-icon-locked' title=\"".
-				wfMsg('revreview-locked-title')."\"></span>";
+				wfMsgHtml('revreview-locked-title')."\"></span>";
 		} else if( $this->isPageUnlocked() ) {
 			$prot = "<span class='fr-icon-unlocked' title=\"".
-				wfMsg('revreview-unlocked-title')."\"></span>";
+				wfMsgHtml('revreview-unlocked-title')."\"></span>";
 		}
 		// Is there no stable version?
 		if( is_null($frev) ) {
@@ -623,10 +623,10 @@ class FlaggedArticle extends Article {
 				// Is the page config altered?
 				if( $this->isPageLocked() ) {
 					$prot = "<span class='fr-icon-locked' title=\"".
-						wfMsg('revreview-locked-title')."\"></span>";
+						wfMsgHtml('revreview-locked-title')."\"></span>";
 				} else if( $this->isPageUnlocked() ) {
 					$prot = "<span class='fr-icon-unlocked' title=\"".
-						wfMsg('revreview-unlocked-title')."\"></span>";
+						wfMsgHtml('revreview-unlocked-title')."\"></span>";
 				}
 				# Streamlined UI
 				if( FlaggedRevs::useSimpleUI() ) {
