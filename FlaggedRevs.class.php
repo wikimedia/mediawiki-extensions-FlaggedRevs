@@ -2,6 +2,7 @@
 
 class FlaggedRevs {
 	protected static $dimensions = array();
+	protected static $minSL = array();
 	protected static $minQL = array();
 	protected static $minPL = array();
 	protected static $feedbackTags = array();
@@ -55,6 +56,7 @@ class FlaggedRevs {
 			}
 			self::$minQL[$tag] = max($minQL,1);
 			self::$minPL[$tag] = max($minPL,1);
+			self::$minSL[$tag] = 1;
 		}
 		foreach( $wgFlaggedRevsFeedbackTags as $tag => $weight ) {
 			# Tag names used as part of file names. "Overall" tag is a
@@ -296,57 +298,27 @@ class FlaggedRevs {
 		global $wgFlaggedRevsPatrolLevel;
 		return intval($wgFlaggedRevsPatrolLevel);
 	}
-
-	/**
-	 * Get minimum sighted level tags
-	 * @return array
-	 */
-	public static function quickSightedTags() {
-		$flags = array();
-		foreach( self::getDimensions() as $tag => $minQL ) {
-			$flags[$tag] = 1;
-		}
-		return $flags;
-	}
-
-	/**
-	 * Get minimum sighted level tags
-	 * @return array
-	 */
-	public static function quickQualityTags() {
-		$flags = array();
-		foreach( self::getDimensions() as $tag => $minQL ) {
-			$flags[$tag] = self::$minQL[$tag];
-		}
-		return $flags;
-	}
-
-	/**
-	 * Get minimum sighted level tags
-	 * @return array
-	 */
-	public static function quickPristineTags() {
-		$flags = array();
-		foreach( self::getDimensions() as $tag => $minQL ) {
-			$flags[$tag] = self::$minPL[$tag];
-		}
-		return $flags;
-	}
 	
 	/**
 	 * Get minimum level tags for a tier
 	 * @return array
 	 */
 	public static function quickTags( $tier ) {
-		switch( $tier )
+		self::load();
+		switch( $tier ) // select reference levels
 		{
 			case FR_PRISTINE:
-				return self::quickPristineTags();
+				$minLevels = self::$minPL;
 			case FR_QUALITY:
-				return self::quickQualityTags();
+				$minLevels = self::$minQL;
 			default:
-				return self::quickSightedTags();
+				$minLevels = self::$minSL;
 		}
+		$flags = array();
+		foreach( self::getDimensions() as $tag => $x ) {
+			$flags[$tag] = $minLevels[$tag];
+		}
+		return $flags;
 	}
 
 	/**
@@ -366,7 +338,7 @@ class FlaggedRevs {
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
 				return $flags;
 			}
-			$qal--;
+			$qal = FR_QUALITY; // try lower level
 		}
 		# Quality auto-review?
 		if( $qal == FR_QUALITY ) {
@@ -375,7 +347,7 @@ class FlaggedRevs {
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
 				return $flags;
 			}
-			$qal--;
+			$qal = FR_SIGHTED; // try lower level
 		}
 		# Sighted auto-review?
 		if( $qal == FR_SIGHTED ) {
