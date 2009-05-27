@@ -2761,6 +2761,7 @@ $messages['eo'] = array(
 	'editor' => 'Revizianto',
 	'flaggedrevs' => 'Markitaj Versioj',
 	'flaggedrevs-backlog' => "Estas nune amaso de [[Special:OldReviewedPages|kontrolendaj redaktoj]] por kontrolitaj paĝoj. '''Via atento estas bezonata!'''",
+	'flaggedrevs-watched-pending' => "Estas nune [{{fullurl:Special:OldReviewedPages|watched=1}} atendaj redaktoj] esti kontrolita en via atentaro. '''Via atento estas bezonata!'''",
 	'flaggedrevs-desc' => 'Rajtigas al reviziantoj kaj kontrolantoj la kapablon validigi versiojn kaj stabiligi paĝojn',
 	'flaggedrevs-pref-UI' => 'Interfaco por stabila versio:',
 	'flaggedrevs-pref-UI-0' => 'Uzi detalan stabilan version por uzulinterfaco',
@@ -2805,8 +2806,8 @@ Rigardu la [[Special:ReviewedPages|liston de kontrolitaj paĝoj]] por listo de a
 	'revreview-auto-w-old' => "Vi redaktas kontrolitan version. Ŝanĝoj estos '''aŭtomate kontrolitaj'''.",
 	'revreview-basic' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] atendas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝon|ŝanĝojn}}].',
-	'revreview-basic-i' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
-La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] atendas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝablonajn/bildajn ŝanĝojn].',
+	'revreview-basic-i' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|vidita]] revizio, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] havas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝablonajn/bildajn ŝanĝojn] atendantajn kontroladon.',
 	'revreview-basic-old' => 'Jen [[{{MediaWiki:Validationpage}}|reviziita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble estis faritaj.',
 	'revreview-basic-same' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|reviziita]] versio ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.',
@@ -2815,8 +2816,7 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-changed' => "'''La petita ago ne povas esti farita por ĉi tiu versio de [[:$1|$1]].'''
 
 Ŝablono aŭ bildo verŝajne estis petita kiam nenia aparta versio estis petita.
-Ĉi tiel okazon se dinamika ŝablono transinkluzivas alian bildon aŭ ŝablono dependa de
-variablo kiu ŝanĝis ekde vi ekkontrolis ĉi tiun paĝon.
+Ĉi tiel povas okzi se malstatika ŝablono transinkluzivas alian dosieron aŭ ŝablonon depende de variablo kiu ŝanĝis ekde vi ekkontrolis ĉi tiun paĝon.
 Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'revreview-current' => 'Malneto',
 	'revreview-depth' => 'Profundeco',
