@@ -62,7 +62,7 @@ class LikedPages extends SpecialPage
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
-		} else if( $this->tag ) { // must select first...
+		} elseif( $this->tag ) { // must select first...
 			$wgOut->addHTML( wfMsgExt('likedpages-none', array('parse') ) );
 		}
 	}

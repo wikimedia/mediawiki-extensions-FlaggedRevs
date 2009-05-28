@@ -582,7 +582,7 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewFields[] = array( 'reader_feedback', 'rfb_ratings', "$base/archives/patch-rfb_ratings.sql" );
 		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_level', "$base/archives/patch-fpc_level.sql" );
 		$wgExtNewTables[] = array( 'flaggedpage_pending', "$base/archives/patch-flaggedpage_pending.sql" );
-	} else if( $wgDBtype == 'postgres' ) {
+	} elseif( $wgDBtype == 'postgres' ) {
 		$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" ); // Initial install tables
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
 		$wgExtNewIndexes[] = array('flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );

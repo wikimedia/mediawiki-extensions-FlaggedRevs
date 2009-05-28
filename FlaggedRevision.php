@@ -33,7 +33,7 @@ class FlaggedRevision {
 			$this->mTitle = isset($row->page_namespace) && isset($row->page_title) ?
 				Title::makeTitleSafe( $row->page_namespace, $row->page_title ) : null;
 			$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
-		} else if( is_array($row) ) {
+		} elseif( is_array($row) ) {
 			$this->mRevId = intval( $row['fr_rev_id'] );
 			$this->mPageId = intval( $row['fr_page_id'] );
 			$this->mTimestamp = $row['fr_timestamp'];
@@ -160,7 +160,7 @@ class FlaggedRevision {
 			if( $row && $config['select'] == FLAGGED_VIS_PRISTINE ) {
 				// we have what we want already
 			# Look for the latest quality revision...
-			} else if( FlaggedRevs::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
+			} elseif( FlaggedRevs::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
 				// If we found a pristine rev above, this one must be newer...
 				$newerClause = $row ? "fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
 				$qrow = $dbw->selectRow( array('flaggedrevs','revision'),
@@ -245,8 +245,8 @@ class FlaggedRevision {
 	 * @returns Array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
-		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment','fr_quality',
-			'fr_tags','fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
+		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment',
+			'fr_quality','fr_tags','fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
 	}
 	
 	/**

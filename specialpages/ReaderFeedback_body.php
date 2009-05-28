@@ -55,7 +55,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 			if( $this->dims[$tag] === NULL ) { // nothing sent at all :(
 				$wgOut->redirect( $this->page->getLocalUrl() );
 				return;
-			} else if( $this->dims[$tags] === -1 ) {
+			} elseif( $this->dims[$tags] === -1 ) {
 				$unsureCount++;
 			}
 		}
@@ -146,7 +146,7 @@ class ReaderFeedback extends UnlistedSpecialPage
 						$form->dims[$p] = intval($val);
 						if( $form->dims[$p] === NULL ) { // nothing sent at all :(
 							return '<err#>' . wfMsg('formerror'); // bad range
-						} else if( $form->dims[$p] === -1 ) {
+						} elseif( $form->dims[$p] === -1 ) {
 							$unsureCount++;
 						}
 					}

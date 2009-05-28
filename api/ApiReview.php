@@ -105,9 +105,9 @@ class ApiReview extends ApiBase {
 		list( $approved, $status ) = $form->submit();
 		if( $status === true ) {
 			$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'Success' ) );
-		} else if( $approved && is_array( $status ) ) {
+		} elseif( $approved && is_array( $status ) ) {
 			$this->dieUsage( "A sync failure has occured while reviewing. Please try again.", 'syncfailure' );
-		} else if( $approved ) {
+		} elseif( $approved ) {
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		} else {
 			$this->dieUsageMsg( array( 'unknownerror' ) );

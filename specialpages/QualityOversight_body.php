@@ -93,7 +93,7 @@ class QualityOversight extends SpecialPage
 			$actions['approve2'] = 0;
 			$actions['approve2-i'] = 0;
 			$actions['unapprove2'] = 0;
-		} else if( $this->level === 1 ) { // quality revisions
+		} elseif( $this->level === 1 ) { // quality revisions
 			$actions['approve'] = 0;
 			$actions['approve-a'] = 0;
 			$actions['approve-i'] = 0;
@@ -106,13 +106,13 @@ class QualityOversight extends SpecialPage
 			$actions['approve2'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
-		} else if( $this->status === 2 ) { // re-approved
+		} elseif( $this->status === 2 ) { // re-approved
 			$actions['approve-i'] = 0;
 			$actions['approve-ia'] = 0;
 			$actions['approve2-i'] = 0;
 			$actions['unapprove'] = 0;
 			$actions['unapprove2'] = 0;
-		} else if( $this->status === 3 ) { // depreciated
+		} elseif( $this->status === 3 ) { // depreciated
 			$actions['approve'] = 0;
 			$actions['approve-a'] = 0;
 			$actions['approve-i'] = 0;
@@ -123,7 +123,7 @@ class QualityOversight extends SpecialPage
 		if( $this->automatic === 0 ) { // manual review
 			$actions['approve-a'] = 0;
 			$actions['approve-ia'] = 0;
-		} else if( $this->automatic === 1 ) { // auto-reviewed
+		} elseif( $this->automatic === 1 ) { // auto-reviewed
 			$actions['approve'] = 0;
 			$actions['approve-i'] = 0;
 			$actions['approve2'] = 0;

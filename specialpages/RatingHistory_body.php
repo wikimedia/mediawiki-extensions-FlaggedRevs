@@ -37,7 +37,7 @@ class RatingHistory extends UnlistedSpecialPage
 		if( is_null($this->page) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
-		} else if( !FlaggedRevs::isPageRateable( $this->page ) ) {
+		} elseif( !FlaggedRevs::isPageRateable( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt('readerfeedback-main',array('parse')) );
 			return;
 		}
@@ -128,7 +128,7 @@ class RatingHistory extends UnlistedSpecialPage
 			// ...if not, then regenerate it
 			if( $sExt === 'svg' && !$exists ) {
 				$exists = $this->makeSvgGraph($tag,$filePath);
-			} else if( $sExt === 'png' && !$exists ) {
+			} elseif( $sExt === 'png' && !$exists ) {
 				$exists = $this->makePngGraph($tag,$filePath);
 			}
 			if( $exists ) $data = true;
@@ -166,7 +166,7 @@ class RatingHistory extends UnlistedSpecialPage
 					$table = fread( $fp, filesize($filePath) );
 					fclose( $fp );
 					$html .= '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' . $table . "\n";
-				} else if( $table = $this->makeHTMLTable( $tag, $filePath ) ) {
+				} elseif( $table = $this->makeHTMLTable( $tag, $filePath ) ) {
 					$html .= '<h2>' . wfMsgHtml("readerfeedback-$tag") . '</h2>' . $table . "\n";
 				}
 				break;
@@ -564,7 +564,7 @@ class RatingHistory extends UnlistedSpecialPage
 		global $wgSvgGraphDir, $wgPHPlotDir;
 		if( $wgSvgGraphDir ) {
 			$ext = 'svg';
-		} else if( $wgPHPlotDir ) {
+		} elseif( $wgPHPlotDir ) {
 			$ext = 'png';
 		} else {
 			$ext = 'html';

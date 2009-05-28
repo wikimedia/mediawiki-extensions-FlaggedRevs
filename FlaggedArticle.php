@@ -18,7 +18,7 @@ class FlaggedArticle extends Article {
 		global $wgArticle, $wgTitle;
 		if( !empty( $wgArticle ) ) {
 			return self::getInstance( $wgArticle );
-		} else if( !empty( $wgTitle ) ) {
+		} elseif( !empty( $wgTitle ) ) {
 			return self::getTitleInstance( $wgTitle );
 		}
 		return null;
@@ -95,7 +95,7 @@ class FlaggedArticle extends Article {
 			# Viewer sees stable by default
 			return !( $wgRequest->getIntOrNull('stable') === 0 );
 		# We are explicity requesting the stable version?
-		} else if( $wgRequest->getIntOrNull('stable') === 1 ) {
+		} elseif( $wgRequest->getIntOrNull('stable') === 1 ) {
 			return true;
 		}
 		return false;
@@ -172,7 +172,7 @@ class FlaggedArticle extends Article {
 		global $wgFlaggedRevsReviewForDefault;
 		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
 			return false;
-		} else if( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
+		} elseif( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
 			return false;
 		}
 		return true;
@@ -187,7 +187,7 @@ class FlaggedArticle extends Article {
 		global $wgFlaggedRevsReviewForDefault;
 		if( FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
 			return true;
-		} else if( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
+		} elseif( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
 			return true;
 		}
 		return false;
@@ -298,7 +298,7 @@ class FlaggedArticle extends Article {
 		if( $this->isPageLocked() ) {
 			$prot = "<span class='fr-icon-locked' title=\"".
 				wfMsgHtml('revreview-locked-title')."\"></span>";
-		} else if( $this->isPageUnlocked() ) {
+		} elseif( $this->isPageUnlocked() ) {
 			$prot = "<span class='fr-icon-unlocked' title=\"".
 				wfMsgHtml('revreview-unlocked-title')."\"></span>";
 		}
@@ -378,7 +378,7 @@ class FlaggedArticle extends Article {
 			$pcache = false;
 		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 		// set to override given the relevant conditions (like &action=protect).
-		} else if( !$stable && !$this->pageOverride() ) {
+		} elseif( !$stable && !$this->pageOverride() ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 			$synced = false;
 			# We only care about syncing if not viewing an old stable version
@@ -479,7 +479,7 @@ class FlaggedArticle extends Article {
 					if( $synced ) {
 						# uses messages 'revreview-quality-same', 'revreview-basic-same'
 						$msg .= '-same';
-					} else if( $revsSince == 0 ) {
+					} elseif( $revsSince == 0 ) {
 						# uses messages 'revreview-quality-i', 'revreview-basic-i'
 						$msg .= '-i';
 					}
@@ -502,9 +502,9 @@ class FlaggedArticle extends Article {
 		}
 		# Some checks for which tag CSS to use
 		if( FlaggedRevs::useSimpleUI() ) $tagClass = 'flaggedrevs_short';
-		else if( $simpleTag ) $tagClass = 'flaggedrevs_notice';
-		else if( $pristine ) $tagClass = 'flaggedrevs_pristine';
-		else if( $quality ) $tagClass = 'flaggedrevs_quality';
+		elseif( $simpleTag ) $tagClass = 'flaggedrevs_notice';
+		elseif( $pristine ) $tagClass = 'flaggedrevs_pristine';
+		elseif( $quality ) $tagClass = 'flaggedrevs_quality';
 		else $tagClass = 'flaggedrevs_basic';
 		# Wrap tag contents in a div
 		if( $tag !='' ) {
@@ -533,7 +533,7 @@ class FlaggedArticle extends Article {
 		$time = false;
 		if( $reqId = $wgRequest->getVal('stableid') ) {
 			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId );
-		} else if( $this->pageOverride() ) {
+		} elseif( $this->pageOverride() ) {
 			$frev = $this->getStableRev();
 		}
 		if( !is_null($frev) ) {
@@ -607,7 +607,7 @@ class FlaggedArticle extends Article {
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			# Let new users know about review procedure a tag
-			} else if( !$wgUser->getId() && $this->showStableByDefault() ) {
+			} elseif( !$wgUser->getId() && $this->showStableByDefault() ) {
 				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$warning = "<div id='mw-editwarningtag' class='flaggedrevs_editnotice plainlinks'>" .
 						wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
@@ -624,7 +624,7 @@ class FlaggedArticle extends Article {
 				if( $this->isPageLocked() ) {
 					$prot = "<span class='fr-icon-locked' title=\"".
 						wfMsgHtml('revreview-locked-title')."\"></span>";
-				} else if( $this->isPageUnlocked() ) {
+				} elseif( $this->isPageUnlocked() ) {
 					$prot = "<span class='fr-icon-unlocked' title=\"".
 						wfMsgHtml('revreview-unlocked-title')."\"></span>";
 				}
@@ -716,7 +716,7 @@ class FlaggedArticle extends Article {
 				$this->parent->getTitle()->getPrefixedText(), '', 1 );
 			$wgOut->addHTML( "</div>" );
 		# ...or unstable
-		} else if( $this->isPageUnlocked() ) {
+		} elseif( $this->isPageUnlocked() ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
 			$wgOut->addWikiMsg( 'revreview-unlocked' );
@@ -826,7 +826,7 @@ class FlaggedArticle extends Article {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility',array('parseinline'),
 						$title->getPrefixedText() ) . "</span>" );
-			} else if( $frev ) {
+			} elseif( $frev ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility2',array('parseinline'),
 						$title->getPrefixedText() ) . "</span>" );
@@ -901,7 +901,7 @@ class FlaggedArticle extends Article {
 			$draftTabCss = '';
 			$stableTabCss = 'selected';
 		// We are looking at the talk page or diffs/hist/oldids
-		} else if( !(self::isViewAction($action) || $action=='edit') || $skin->mTitle->isTalkPage() ) {
+		} elseif( !(self::isViewAction($action) || $action=='edit') || $skin->mTitle->isTalkPage() ) {
 			$draftTabCss = '';
 			$stableTabCss = '';
 		// We are looking at the current revision or in edit mode
@@ -1063,7 +1063,7 @@ class FlaggedArticle extends Article {
 				$notice = '';
 				if( count($changeList) > 0 ) {
 					$notice = '<br/>' . wfMsgExt('revreview-update-use', array('parseinline'));
-				} else if( !$synced ) {
+				} elseif( !$synced ) {
 					$diff->mTitle->invalidateCache(); // bad cache, said they were not synced
 				}
 
@@ -1071,12 +1071,12 @@ class FlaggedArticle extends Article {
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
 						wfMsgExt('revreview-update-none', array('parseinline')).$notice.'</div>' );
-				} else if( !empty($changeList) && $wgUser->isAllowed('review') ) {
+				} elseif( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
 						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.
 							$changeList.$notice.'</div>' );
-				} else if( !empty($changeList) ) {
+				} elseif( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
 					$wgOut->addHTML( "<div id='mw-difftostable' class='flaggedrevs_diffnotice plainlinks'>" .
 						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.
@@ -1409,7 +1409,7 @@ class FlaggedArticle extends Article {
 				}
 				$form .= Xml::closeElement('select')."\n";
 			# If there are more than two qualities (none, 1 and more) current user gets radio buttons
-			} else if( $quantity > 2 ) {
+			} elseif( $quantity > 2 ) {
 				foreach( $label as $i => $name ) {
 					$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
 					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i, "wp$quality".$i,

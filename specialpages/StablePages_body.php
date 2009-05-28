@@ -68,7 +68,7 @@ class StablePages extends SpecialPage
 
 		if( intval($row->fpc_select) === FLAGGED_VIS_PRISTINE ) {
 			$type = wfMsgHtml('stablepages-prec-pristine');
-		} else if( intval($row->fpc_select) === FLAGGED_VIS_QUALITY ) {
+		} elseif( intval($row->fpc_select) === FLAGGED_VIS_QUALITY ) {
 			$type = wfMsgHtml('stablepages-prec-quality');
 		} else {
 			$type = wfMsgHtml('stablepages-prec-none');

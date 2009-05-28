@@ -450,7 +450,7 @@ EOT;
 		if( $isKnownLocal ) {
 			$isLocalFile = true; // no need to check
 		# Load the image if needed (note that time === '0' means we have no image)
-		} else if( $time !== "0" ) {
+		} elseif( $time !== "0" ) {
 			$file = $file ? $file : self::getLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
@@ -536,7 +536,7 @@ EOT;
 		if( $isKnownLocal ) {
 			$isLocalFile = true; // no need to check
 		# Load the image if needed (note that time === '0' means we have no image)
-		} else if( $time !== "0" ) {
+		} elseif( $time !== "0" ) {
 			$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
@@ -775,7 +775,7 @@ EOT;
 		if( !$prevRevId ) {
 			$reviewableNewPage = (bool)$wgFlaggedRevsAutoReviewNew;
 		// Edits to existing pages
-		} else if( $baseRevId ) {
+		} elseif( $baseRevId ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
 			# If the base revision was not reviewed, check if the previous one was.
 			# This should catch null edits as well as normal ones.
@@ -1462,11 +1462,11 @@ EOT;
 		global $wgFlaggedRevsNamespaces;
 		if( !in_array($row->page_namespace,$wgFlaggedRevsNamespaces) ) {
 			// do nothing
-		} else if( isset($row->fr_quality) ) {
+		} elseif( isset($row->fr_quality) ) {
 			$ret = '<span class="'.FlaggedRevsXML::getQualityColor($row->fr_quality).'">'.$ret.'</span>';
-		} else if( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
+		} elseif( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
 			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
-		} else if( !isset($row->fp_stable) ) {
+		} elseif( !isset($row->fp_stable) ) {
 			$ret = '<span class="flaggedrevs-unreviewed2">'.$ret.'</span>';
 		}
 		return true;

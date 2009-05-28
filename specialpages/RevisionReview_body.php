@@ -99,7 +99,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
 			if( $this->dims[$tag] === 0 ) {
 				$this->unapprovedTags++;
-			} else if( is_null($this->dims[$tag]) ) {
+			} elseif( is_null($this->dims[$tag]) ) {
 				# This happens if we uncheck a checkbox
 				$this->unapprovedTags++;
 				$this->dims[$tag] = 0;
@@ -117,7 +117,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$valid = true;
 		if( $this->unapprovedTags && $this->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
 			$valid = false;
-		} else if( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
+		} elseif( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
 			$valid = false;
 		}
 		# Submit or display info on failure
@@ -128,11 +128,11 @@ class RevisionReview extends UnlistedSpecialPage
 				$wgOut->setPageTitle( wfMsgHtml('actioncomplete') );
 				$wgOut->addHTML( $this->showSuccess( $approved, true ) );
 			// Sync failure for flagging
-			} else if( is_array($status) && $approved ) {
+			} elseif( is_array($status) && $approved ) {
 				$wgOut->setPageTitle( wfMsgHtml('internalerror') );
 				$wgOut->addHTML( $this->showSyncFailure( $status, true ) );
 			// Failure for unflagging
-			} else if( $status === false && !$approved ) {
+			} elseif( $status === false && !$approved ) {
 				$wgOut->redirect( $this->page->getFullUrl() );
 			// Any other fail...
 			} else {
@@ -265,9 +265,9 @@ class RevisionReview extends UnlistedSpecialPage
 		list($approved,$status) = $form->submit();
 		if( $status === true ) {
 			return '<suc#>'.$form->showSuccess( $approved );
-		} else if( $approved && is_array($status) ) {
+		} elseif( $approved && is_array($status) ) {
 			return '<err#>'.$form->showSyncFailure( $status );
-		} else if( $approved ) {
+		} elseif( $approved ) {
 			return '<err#>' . wfMsg( 'revreview-revnotfound' );
 		} else { // hmmm?
 			return '<err#>';
@@ -589,15 +589,15 @@ class RevisionReview extends UnlistedSpecialPage
 			$synced = true;
 			if( $stableOutput->fr_newestImageTime != $flaggedOutput->fr_newestImageTime )
 				$synced = false;
-			else if( $stableOutput->fr_newestTemplateID != $flaggedOutput->fr_newestTemplateID )
+			elseif( $stableOutput->fr_newestTemplateID != $flaggedOutput->fr_newestTemplateID )
 				$synced = false;
-			else if( $oldfrev->getTags() != $flags )
+			elseif( $oldfrev->getTags() != $flags )
 				$synced = false;
-			else if( $oldfrev->getFileSha1() != @$fileData['sha1'] )
+			elseif( $oldfrev->getFileSha1() != @$fileData['sha1'] )
 				$synced = false;
-			else if( $oldfrev->getComment() != $this->notes )
+			elseif( $oldfrev->getComment() != $this->notes )
 				$synced = false;
-			else if( $oldfrev->getQuality() != $quality )
+			elseif( $oldfrev->getQuality() != $quality )
 				$synced = false;
 			# Don't review if the same
 			if( $synced ) {
@@ -653,7 +653,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$includesSynced = true;
 			if( $poutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 				$includesSynced = false;
-			} else if( $poutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
+			} elseif( $poutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
 				$includesSynced = false;
 			}
 			$u->fr_stableRev = $sv; // no need to re-fetch this!
@@ -801,9 +801,9 @@ class RevisionReview extends UnlistedSpecialPage
 			$highest = count($levels) - 1; // highest valid level
 			if( !self::userCan($qal,$level,$config) ) {
 				return false;
-			} else if( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
+			} elseif( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
 				return false;
-			} else if( $level < 0 || $level > $highest ) {
+			} elseif( $level < 0 || $level > $highest ) {
 				return false;
 			}
 		}
@@ -902,7 +902,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 'approve2' : 'approve';
 			if( !$stableId ) { // first time
 				$action .= $isAuto ? "-ia" : "-i";
-			} else if( $isAuto ) { // automatic
+			} elseif( $isAuto ) { // automatic
 				$action .= "-a";
 			}
 		} else { // depreciated

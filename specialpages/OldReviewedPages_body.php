@@ -230,7 +230,7 @@ class OldReviewedPages extends SpecialPage
 				$days = round($hours/24,0);
 				$age = wfMsgExt('oldreviewedpages-days',array('parsemag'),$days);
 			// If one or more hours, use hours
-			} else if( $hours >= 1 ) {
+			} elseif( $hours >= 1 ) {
 				$hours = round($hours,0);
 				$age = wfMsgExt('oldreviewedpages-hours',array('parsemag'),$hours);
 			} else {

@@ -24,9 +24,9 @@ class Stabilization extends UnlistedSpecialPage
 		if( $wgRequest->wasPosted() ) {
 			if( $wgUser->isBlocked( !$confirm ) ) {
 				return $wgOut->blockedPage();
-			} else if( !$this->isAllowed ) {
+			} elseif( !$this->isAllowed ) {
 				return $wgOut->permissionRequired( 'stablesettings' );
-			} else if( wfReadOnly() ) {
+			} elseif( wfReadOnly() ) {
 				return $wgOut->readOnlyPage();
 			}
 		}
@@ -41,10 +41,10 @@ class Stabilization extends UnlistedSpecialPage
 		# We need a page...
 		if( is_null($this->page) ) {
 			return $wgOut->showErrorPage( 'notargettitle', 'notargettext' );
-		} else if( !$this->page->exists() ) {
+		} elseif( !$this->page->exists() ) {
 			return $wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array('parseinline'),
 				$this->page->getPrefixedText() ) );
-		} else if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+		} elseif( !FlaggedRevs::isPageReviewable( $this->page ) ) {
 			return $wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 		}
@@ -118,7 +118,7 @@ class Stabilization extends UnlistedSpecialPage
 					if( val == 'existing' )
 						document.getElementById('mwStabilize-expiry').value = ".
 						Xml::encodeJsVar($this->oldExpiry).";
-					else if( val != 'othertime' )
+					elseif( val != 'othertime' )
 						document.getElementById('mwStabilize-expiry').value = val;
 				}
 			</script>"
@@ -359,7 +359,7 @@ class Stabilization extends UnlistedSpecialPage
 			$changed = ($dbw->affectedRows() != 0); // did this do anything?
 		# Otherwise, add a row unless we are just setting it as the site default,
 		# or it is the same the current one...
-		} else if( !$reset ) {
+		} elseif( !$reset ) {
 			if( !$row || $row->fpc_select != $this->select || $row->fpc_override != $this->override
 				|| $row->fpc_level != $this->autoreview || $row->fpc_expiry != $expiry )
 			{
@@ -441,7 +441,7 @@ class Stabilization extends UnlistedSpecialPage
 					FlaggedRevs::autoReviewEdit( $article, $wgUser, $text, $nullRevision, $flags, true );
 					$invalidate = false; // already done with auto-review
 				// ...otherwise, go to diff if possible
-				} else if( $frev ) {
+				} elseif( $frev ) {
 					$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0";
 				} else {
 					// can't autoreview and no diff to show...

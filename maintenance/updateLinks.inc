@@ -58,7 +58,7 @@ function update_flaggedrevs( $start = null ) {
 					$file = $crow ? $row->page_title : null;
 				}
 			# Leave it alone if already set
-			} else if( $row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
+			} elseif( $row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
 				$time = $row->fr_img_timestamp;
 				$sha1 = $row->fr_img_sha1;
 				$file = $row->fr_img_name;

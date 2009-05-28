@@ -541,7 +541,7 @@ class svgGraph {
       if ($this->rotTagsX == 0) {
         $transform = "transform='translate(0, $innerPadding)'";
         $this->svgPlot .= "<text text-anchor='middle' $transform dy='1em' x='$u' y='$bottom'>$text</text>\n";
-      } else if($this->rotTagsX > 0) {
+      } elseif($this->rotTagsX > 0) {
         $transform = "transform='translate(0, $innerPadding) rotate({$this->rotTagsX} $u $bottom)'";
         $this->svgPlot .= "<text text-anchor='start' $transform x='$u' y='$bottom'>$text</text>\n";
       } else {

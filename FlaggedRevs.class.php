@@ -121,7 +121,7 @@ class FlaggedRevs {
 		foreach( $wgFlaggedRevsExceptions as $group ) {
 			if( $group == 'user' ) {
 				return ( !$wgUser->isAnon() );
-			} else if( in_array( $group, $wgUser->getGroups() ) ) {
+			} elseif( in_array( $group, $wgUser->getGroups() ) ) {
 				return true;
 			}
 		}
@@ -615,7 +615,7 @@ class FlaggedRevs {
 		$value = self::getMemcValue( $wgMemc->get($key), $article );
 		if( $value === "true" ) {
 			return true;
-		} else if( $value === "false" ) {
+		} elseif( $value === "false" ) {
 			return false;
 		}
 		# If parseroutputs not given, fetch them...
@@ -663,7 +663,7 @@ class FlaggedRevs {
 		# If this is the case, the current revision will have a newer template or image version used somewhere. 
 		if( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
 			$synced = false;
-		} else if( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
+		} elseif( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
 			$synced = false;
 		} else {
 			$synced = true;
@@ -1063,7 +1063,7 @@ class FlaggedRevs {
 	public static function getLevelTier( $flags ) {
 		if( self::isPristine($flags ) )
 			return FR_PRISTINE;
-		else if( self::isQuality($flags ) )
+		elseif( self::isQuality($flags ) )
 			return FR_QUALITY;
 		else
 			return 0;

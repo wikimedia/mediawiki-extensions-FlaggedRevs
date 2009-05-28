@@ -207,7 +207,7 @@ class FlaggedRevsXML {
 		if( $pristine ) {
 			$tagClass = 'flaggedrevs-box3';
 			$color = 'flaggedrevs-color-3';
-		} else if( $quality ) {
+		} elseif( $quality ) {
 			$tagClass = 'flaggedrevs-box2';
 			$color = 'flaggedrevs-color-2';
 		} else {
@@ -218,7 +218,7 @@ class FlaggedRevsXML {
 		if( $synced ) {
 			$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
-		} else if( $old ) {
+		} elseif( $old ) {
 			$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time );
 		} else {
