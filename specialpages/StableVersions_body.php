@@ -41,7 +41,8 @@ class StableVersions extends UnlistedSpecialPage
 			return;
 		}
 		$pager = new StableRevisionsPager( $this, array(), $this->page );
-		if( $num = $pager->getNumRows() ) {
+		$num = $pager->getNumRows();
+		if( $num ) {
 			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'),
 				$this->page->getPrefixedText(), $num ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
