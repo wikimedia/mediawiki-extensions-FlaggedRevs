@@ -446,6 +446,11 @@ $aliases['ms'] = array(
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
+/** Maltese (Malti) */
+$aliases['mt'] = array(
+	'LikedPages' => array( 'PaġniMarbuta' ),
+);
+
 /** Erzya (Эрзянь) */
 $aliases['myv'] = array(
 	'LikedPages' => array( 'ВечкевиксЛопат' ),
