@@ -13,7 +13,7 @@ $messages['en'] = array(
 	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'
 
 When changing the \'\'stable version selection\'\' configuration to use "quality" or "pristine" revisions by default,
-be sure to check if there actually are such revisions in the page, otherwise the change will have little affect.',
+be sure to check if there actually are such revisions in the page, otherwise the change will have little effect.',
 	'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
