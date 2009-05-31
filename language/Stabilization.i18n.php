@@ -2184,6 +2184,7 @@ Nie jest możliwa jej konfiguracja.',
 	'stabilize_expiry_invalid' => 'Nieprawidłowa data wygaśnięcia.',
 	'stabilize_expiry_old' => 'Czas wygaśnięcia już upłynął.',
 	'stabilize-expiring' => 'wygasa $1 (UTC)',
+	'stabilization-review' => 'Oznacz jako przejrzaną aktualną wersję',
 );
 
 /** Piedmontese (Piemontèis)
