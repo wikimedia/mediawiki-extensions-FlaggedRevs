@@ -333,7 +333,7 @@ class FlaggedRevs {
 		$qal = min($wgFlaggedRevsAutoReview-1,$quality);
 		# Pristine auto-review?
 		if( $qal == FR_PRISTINE ) {
-			$flags = self::quickPristineTags();
+			$flags = self::quickTags( FR_PRISTINE );
 			# If tags are available and user can set them, we are done...
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
 				return $flags;
@@ -342,7 +342,7 @@ class FlaggedRevs {
 		}
 		# Quality auto-review?
 		if( $qal == FR_QUALITY ) {
-			$flags = self::quickQualityTags();
+			$flags = self::quickTags( FR_QUALITY );
 			# If tags are available and user can set them, we are done...
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
 				return $flags;
@@ -351,7 +351,7 @@ class FlaggedRevs {
 		}
 		# Sighted auto-review?
 		if( $qal == FR_SIGHTED ) {
-			$flags = self::quickSightedTags();
+			$flags = self::quickTags( FR_SIGHTED );
 			# If tags are available and user can set them, we are done...
 			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
 				return $flags;
@@ -1413,7 +1413,7 @@ class FlaggedRevs {
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...
-		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_FOR_UPDATE/*consistent*/ );
+		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_MASTER/*consistent*/ );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
 			self::updatePageCache( $article, $poutput );
