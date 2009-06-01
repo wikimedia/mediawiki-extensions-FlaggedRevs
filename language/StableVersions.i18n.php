@@ -195,14 +195,16 @@ $messages['cu'] = array(
 	'stableversions-page' => 'страни́цѧ и́мѧ',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Umherirrender
+ */
 $messages['de'] = array(
 	'stableversions' => 'Markierte Versionen',
 	'stableversions-leg1' => 'Liste der markierten Versionen für einen Artikel',
 	'stableversions-page' => 'Artikelname:',
 	'stableversions-none' => '„[[:$1]]“ hat keine markierten Versionen.',
 	'stableversions-list' => 'Dies ist die Liste der {{PLURAL:$2|einzigen Version|Versionen}} von [[:$1]], die markiert {{PLURAL:$2|wurde|wurden}}:',
-	'stableversions-review' => 'markiert <i>$1</i> durch $2',
+	'stableversions-review' => 'markiert am <i>$3, $4 Uhr</i> durch $2',
 );
 
 /** Lower Sorbian (Dolnoserbski)

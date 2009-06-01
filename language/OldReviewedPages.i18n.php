@@ -546,6 +546,7 @@ $messages['hu'] = array(
 	'oldreviewed-size' => 'Változás legfeljebb (bájtban):',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
 	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
+	'oldreviewedpages-viewing' => '(ellenőrzés alatt)',
 );
 
 /** Interlingua (Interlingua)

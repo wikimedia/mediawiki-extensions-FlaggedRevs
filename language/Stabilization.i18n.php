@@ -584,7 +584,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-def-short-1' => 'Markiert',
 	'stabilize_expiry_invalid' => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
-	'stabilize-expiring' => 'erlischt $1 (UTC)',
+	'stabilize-expiring' => 'erlischt am $2, $3 Uhr (UTC)',
 	'stabilization-review' => 'Überprüfe die aktuelle Version',
 );
 
