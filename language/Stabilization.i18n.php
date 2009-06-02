@@ -2860,6 +2860,13 @@ Yapılandırma mümkün değil.',
 	'stabilization-review' => 'Geçerli sürümü gözden geçir',
 );
 
+/** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
+ * @author Ерней
+ */
+$messages['tt-cyrl'] = array(
+	'stabilization-def-short' => 'Килешү буенча',
+);
+
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc

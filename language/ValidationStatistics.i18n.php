@@ -1173,7 +1173,7 @@ Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
  */
 $messages['vi'] = array(
 	'validationstatistics' => 'Thống kê phê chuẩn',
-	'validationstatistics-users' => "Hiện nay, '''[[Special:ListUsers/editor|$1]]''' thành viên tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và '''$2''' thành viên có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].",
+	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và ''''''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|thành viên|thành viên}} có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].",
 	'validationstatistics-time' => "''Dữ liệu sau được lưu vào bộ đệm và có thể đã lỗi thời.''
 
 Thời gian chờ duyệt trung bình cho sửa đổi của ''thành viên không đăng nhập'' là '''$1'''; trung vị là '''$3'''.
