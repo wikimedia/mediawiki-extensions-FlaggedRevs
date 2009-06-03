@@ -1917,7 +1917,9 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
  */
 $messages['bs'] = array(
 	'editor' => 'Uređivač',
+	'prefs-flaggedrevs' => 'Stabilnost',
 	'review-logentry-diff' => 'razlika od stabilne',
+	'revreview-accuracy' => 'Preciznost',
 	'revreview-depth' => 'Dubina',
 	'revreview-log' => 'Komentar:',
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
@@ -2243,6 +2245,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author Melancholie
  * @author Merlissimo
  * @author MichaelFrey
+ * @author Purodha
  * @author Raimond Spekking
  * @author Umherirrender
  */
@@ -2349,7 +2352,7 @@ Der [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] enthält [{{fullurl:{{FULLP
 Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] können vorgenommen worden sein.',
 	'revreview-quality-same' => "Dies ist die letzte [[{{MediaWiki:Validationpage}}|geprüfte]] Version, ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]''' werden.",
 	'revreview-quality-source' => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} geprüfte Version] dieser Seite, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>, basiert auf dieser Version.',
-	'revreview-quality-title' => 'Geprüfter Seite',
+	'revreview-quality-title' => 'Geprüfte Seite',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zur aktuellen Version])",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' ([{{fullurl:{{FULLPAGENAMEE}}|stable=0}} letzte unmarkierte Seite])",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''",
@@ -6699,15 +6702,26 @@ $messages['ksh'] = array(
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} beschtäätesch] {{GENDER:$3|vum|vum|vum Metmaacher|vum|vun dä}} [[User:$3|$3]]',
 	'review-logentry-id' => 'beloore',
 	'review-logpage' => ' Review Logbooch',
+	'revisionreview' => 'Versione nohprööfe',
+	'revreview-accuracy' => 'Jenouischkeit',
+	'revreview-accuracy-0' => 'nit frei jejovve',
 	'revreview-auto' => 'automattesch',
+	'revreview-current' => 'Äntworf',
 	'revreview-draft-title' => 'Äntworfs_Sigg',
 	'revreview-edit' => 'Dä Äntworf ändere',
 	'revreview-log' => 'Koot zosamme jefaß:',
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
+	'revreview-patrol' => 'Donn hee di Änderung als „nohjeloort“ makeere',
+	'revreview-patrol-title' => 'Als „nohjeloort“ makeere',
+	'revreview-patrolled' => 'De ußjewählte Version vun dä Sigg „[[:$1|$1]“ es als „nohjeloort“ makeet.',
+	'revreview-quality-title' => 'Qualitääts_Sigg',
 	'revreview-quick-invalid' => "'''Onjöltijje Versions-Nommer'''",
 	'revreview-selected' => "De ußjesoohte Version vun '''$1:'''",
+	'revreview-source' => 'Quell för ene Äntworf',
+	'revreview-style' => 'Lässbaakeit',
 	'revreview-submit' => 'Lohß Jonn!',
 	'revreview-submitting' => 'Am Övverdraare&nbsp;…',
+	'revreview-finished' => 'Fäädesch nohjeloort!',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
 	'revreview-update-includes' => "'''E paa Schabloone un/udder Dateije sin jeändert woode:'''",
 	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 

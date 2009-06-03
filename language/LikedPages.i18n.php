@@ -68,6 +68,7 @@ $messages['bg'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'likedpages' => 'Visoko ocijenjene stranice',
 	'likedpages-none' => 'Nema stranica na ovom spisku',
 );
 

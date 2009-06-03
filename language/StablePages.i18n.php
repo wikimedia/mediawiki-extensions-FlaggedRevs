@@ -443,6 +443,7 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',
+	'stablepages-precedence' => 'Reijefollsch vum Vörrang:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
