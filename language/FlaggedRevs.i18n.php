@@ -8970,6 +8970,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Lijealso
  * @author Malafaya
  * @author Waldir
  */
@@ -9112,9 +9113,9 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] possui [{{fullurl:{{FULLPAGE
 Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
 '''Algumas predefinições/imagens foram actualizadas:'''",
-	'revreview-update-includes' => "'''Algumas predefinições/imagens foram actualizadas:'''",
+	'revreview-update-includes' => "'''Algumas predefinições/ficheiros foram actualizados:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
-	'revreview-update-use' => "'''NOTA:''' Se alguma destas predefinições/imagens possui uma versão estável, então esta já é usada na versão estável desta página.",
+	'revreview-update-use' => "'''NOTA:''' Se alguma destas predefinições/ficheiros possui uma versão estável, então esta já é usada na versão estável desta página.",
 	'revreview-diffonly' => "''Para analisar a página, clique no link \"edição actual\" e utilize o formulário de análises.''",
 	'revreview-visibility' => "'''Esta página possui uma [[{{MediaWiki:Validationpage}}|edição estável]]; os parâmetros disso podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility2' => "'''Esta página não possui uma [[{{MediaWiki:Validationpage}}|versão estável]] atualizada; os parâmetros de estabilidade de páginas podem ser [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} configurados].'''",
@@ -9819,6 +9820,13 @@ $messages['se'] = array(
  */
 $messages['sei'] = array(
 	'revreview-revnotfound' => 'Janrevicion zode páhina zo me yahöx necoccebj yahöxom. Controlar URL zo me usadadde accesom jan páhina.',
+);
+
+/** Serbo-Croatian (Srpskohrvatski / Српскохрватски)
+ * @author OC Ripper
+ */
+$messages['sh'] = array(
+	'readerfeedback-submit' => 'Unesi',
 );
 
 /** Slovak (Slovenčina)
