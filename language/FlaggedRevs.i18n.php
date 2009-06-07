@@ -9382,7 +9382,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-stable' => 'Pàgena sicure',
 	'revreview-stable-title' => 'Pàgena viste',
 	'revreview-stable1' => "Tu puè vulè vedè [{{fullurl:$1|stableid=$2}} sta versiona marcate] e vide ce ijedde ète 'a [{{fullurl:$1|stable=1}} versiona secure] de sta pàgene.",
-	'revreview-stable2' => "Tu puè putè vedè 'a [{{fullurl:$1|stableid=$2}} versiona secure] de sta pàgene (ce ne stè almene une).",
+	'revreview-stable2' => "Tu puè putè vedè 'a [{{fullurl:$1|stable=1}} versiona secure] de sta pàgene (ce ne stè almene une).",
 	'revreview-style' => 'Leggibbilità',
 	'revreview-style-0' => 'Fasce schife, bocciete',
 	'revreview-style-1' => 'Accettabbele',
