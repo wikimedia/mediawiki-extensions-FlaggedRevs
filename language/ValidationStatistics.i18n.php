@@ -10,14 +10,18 @@ $messages = array();
 $messages['en'] = array(
 	'validationstatistics'        => 'Validation statistics',
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'[[Special:ListUsers/editor|$1]]\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights
-and \'\'\'[[Special:ListUsers/reviewer|$2]]\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.',
+and \'\'\'[[Special:ListUsers/reviewer|$2]]\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.
+
+Editors and Reviewers are established users that can spot check revisions to pages.',
 	'validationstatistics-time'   => '\'\'The following data is cached and may not be up to date.\'\'
+
+Edits that have been checked by established users are considered to be reviewed.
 
 The average wait for edits by \'\'users that have not logged in\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
 $4
 The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.
 These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'synchronized\'\' if the [[{{MediaWiki:Validationpage}}|stable version]] is also the current draft version.
-Stable versions are revisions of pages checked by at least one established user.',
+The stable version of a page is the newest revision that has been approved to show by default to all readers.',
 	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',
