@@ -268,8 +268,6 @@ Shown in [[Special:Version]] as a short description of this extension. Do not tr
 Option in [[Special:Preferences]]. See {{msg|flaggedrevs-pref-UI-1|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
 	'flaggedrevs-pref-UI-1' => '{{Flagged Revs-small}}
 Option in [[Special:Preferences]]. See {{msg|flaggedrevs-pref-UI-0|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
-	'flaggedrevs-prefs' => '{{Flagged Revs}}
-The tab in your [[Special:Preferences|preferences]]. See [http://de.wikipedia.org/w/index.php?title=Spezial:Einstellungen&uselang=en de.wikipedia] for an example.',
 	'flaggedrevs-prefs-stable' => '{{Flagged Revs}}
 {{Identical|Content page}}',
 	'flaggedrevs-prefs-watch' => '{{Flagged Revs}}',
@@ -319,10 +317,14 @@ A basic check on vandalism ("sighted" as "has been seen/checked"). This configur
 Because the user is in the group 'reviewer', any changes will automatically be reviewed. This would not be done when editing as a normal user or IP.",
 	'revreview-auto-w-old' => "{{Flagged Revs-small}}
 Because the user is in the group 'reviewer', any changes will automatically be reviewed. This would not be done when editing as a normal user or IP.",
-	'revreview-basic' => '{{Flagged Revs}}',
-	'revreview-basic-i' => '{{Flagged Revs}}',
-	'revreview-basic-old' => '{{Flagged Revs}}',
-	'revreview-basic-same' => '{{Flagged Revs}}',
+	'revreview-basic' => '{{Flagged Revs}}
+* Parameter $2 is the date of the approval',
+	'revreview-basic-i' => '{{Flagged Revs}}
+* Parameter $2 is the date of the approval',
+	'revreview-basic-old' => '{{Flagged Revs}}
+* Parameter $2 is the date of the approval',
+	'revreview-basic-same' => '{{Flagged Revs}}
+* Parameter $2 is the date of the approval',
 	'revreview-basic-source' => '{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old sighted version. 
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
@@ -2322,10 +2324,10 @@ Ein Neuladen der Seite und erneutes Speichern der Markierung kann das Problem be
 	'revreview-flag' => 'Markiere Version',
 	'revreview-edited' => 'Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version]] übernommen, sobald ein Benutzer mit Sichtungsrecht diese freigegeben hat.
 Es folgt die Anzeige der aktuellen, ungesichteten Version. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|Änderung steht|Änderungen stehen}}] zur Sichtung an.',
-	'revreview-invalid' => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|gesichtete]] Artikelversion der angegebenen Versions-ID.",
+	'revreview-invalid' => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|gesichtete]] Version zur angegebenden ID gefunden.",
 	'revreview-legend' => 'Inhalt der Version bewerten',
 	'revreview-log' => 'Kommentar:',
-	'revreview-main' => 'Du musst eine Artikelversion zur Markierung auswählen.
+	'revreview-main' => 'Du musst eine Version zur Markierung auswählen.
 
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letzte gesichtete Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} → alle]) wurde am <i>$2</i> [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} freigegeben].
@@ -2367,7 +2369,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vergleiche])",
 	'revreview-selected' => "Gewählte Version von '''$1:'''",
 	'revreview-source' => 'Quelltext',
-	'revreview-stable' => 'Artikel',
+	'revreview-stable' => 'Stabile Version',
 	'revreview-stable-title' => 'Gesichtete Seite',
 	'revreview-stable1' => 'Möchtest du die [{{fullurl:$1|stableid=$2}} soeben markierte Version] dieser Seite sehen, falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
 	'revreview-stable2' => 'Möchtest du die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?',
@@ -2380,7 +2382,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-submit' => 'Speichern',
 	'revreview-submitting' => 'Übertragung …',
 	'revreview-finished' => 'Markierung gesetzt',
-	'revreview-successful' => "'''Die ausgewählte Version des Artikels ''[[:$1|$1]]'' wurde erfolgreich als gesichtet markiert ([{{fullurl:Special:Stableversions|page=$2}} alle gesichteten Versionen dieses Artikels])'''.",
+	'revreview-successful' => "'''Die ausgewählte Version der Seite ''[[:$1|$1]]'' wurde erfolgreich als gesichtet markiert ([{{fullurl:Special:Stableversions|page=$2}} alle gesichteten Versionen dieser Seite])'''.",
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-text' => 'Einer [[{{MediaWiki:Validationpage}}|gesichteten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren, nicht gesichteten Version gegeben.',
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Gesichtete Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
@@ -2425,7 +2427,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'readerfeedback-level-3' => 'Gut',
 	'readerfeedback-level-4' => 'Sehr gut',
 	'readerfeedback-submit' => 'OK',
-	'readerfeedback-main' => 'Es können nur Artikel bewertet werden.',
+	'readerfeedback-main' => 'Es können nur Inhaltsseiten bewertet werden.',
 	'readerfeedback-success' => "'''Danke für deine Bewertung dieser Seite.'''
 [$3 Kommentare oder Fragen?]",
 	'readerfeedback-voted' => "'''Du hast scheinbar bereits eine Bewertung für diese Seite abgegeben.'''
@@ -2449,7 +2451,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'revreview-reviewlink' => 'sichten',
 	'tooltip-ca-current' => 'Ansehen der aktuellen, unmarkierten Seite',
 	'tooltip-ca-stable' => 'Ansehen der markierten Version dieser Seite',
-	'tooltip-ca-default' => 'Einstellungen der Artikel-Qualität',
+	'tooltip-ca-default' => 'Einstellungen Qualitätssicherung',
 	'tooltip-ca-ratinghist' => 'Leserbewertungen dieser Seite',
 	'revreview-locked-title' => 'Bearbeitungen müssen markiert werden, bevor sie auf dieser Seite angezeigt werden.',
 	'revreview-unlocked-title' => 'Bearbeitungen benötigen keine Markierung, bevor sie auf dieser Seite angezeigt werden.',
@@ -2469,7 +2471,7 @@ $messages['de-formal'] = array(
 	'revreview-auto-w' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-auto-w-old' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-blocked' => 'Sie können diese Version nicht markieren, da Ihr Benutzerkonto zur Zeit gesperrt ist ([$1 Details])',
-	'revreview-main' => 'Sie müssen eine Artikelversion zur Markierung auswählen.
+	'revreview-main' => 'Sie müssen eine Version zur Markierung auswählen.
 
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable1' => 'Möchten Sie die [{{fullurl:$1|stableid=$2}} soeben markierte Version] dieser Seite sehen, falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
@@ -6706,9 +6708,47 @@ $messages['ksh'] = array(
 	'revreview-accuracy' => 'Jenouischkeit',
 	'revreview-accuracy-0' => 'nit frei jejovve',
 	'revreview-auto' => 'automattesch',
+	'revreview-basic' => '
+Dat es de neuste [[{{MediaWiki:Validationpage}}|sighted]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung|Noch $3 Änderunge|Kein Änderung}}] aan hee däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] {{PLURAL:$3|shteiht noch|shtonn|shteiht mieh}} zom
+review
+aan.',
+	'revreview-basic-i' => '
+Dat es de neuste [[{{MediaWiki:Validationpage}}|sighted]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} <!--{{PLURAL:$3|Ein Änderung|Noch $3 Änderunge|Kein Änderung}}--> template/file changes] aan hee däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] {{PLURAL:$3|shteiht noch|shtonn|shteiht mieh}} zom
+review
+aan.',
+	'revreview-basic-old' => '
+Dat hee es en [[{{MediaWiki:Validationpage}}|sighted]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} alle oplesßte]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+Es müjjelesch, et künnt noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} neuer Änderunge] jevve.',
+	'revreview-basic-same' => '
+Dat hee es de neuste [[{{MediaWiki:Validationpage}}|sighted]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} Alle opleßte]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.',
+	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sighted Version] vun hee dä Sigg, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>, boud op hee di Version op.',
+	'revreview-blocked' => '
+Do kanns hee di Version nit
+review
+, weil Dinge Zohjang hee jraad jeshpert es. De kann Der de [$1 Einzelheite beloore].',
+	'revreview-changed' => "'''De jewönschte Akßuhn es nit müjjelesch för hee di Version vun [[:$1|$1]].'''
+
+En Datei udder Schablohn weed aanjefrooch woode sin, oohne dat en Version aanjejovve wohr.
+Dat kann passeeere, wann en Schablohn en ander Schablohn udder en Dattei enbengk, di vun enem Parrameeter afhange deiht, dä jeändert woohdt, zigg dämm De di Sigg hee ze
+review
+aanjefange haz.
+En Löhsung för dat Problehm künnt sinn, di Sigg neu ze laade un norr_ens ze
+review.",
 	'revreview-current' => 'Äntworf',
 	'revreview-draft-title' => 'Äntworfs_Sigg',
 	'revreview-edit' => 'Dä Äntworf ändere',
+	'revreview-editnotice' => "
+'''De Änderunge aan hee dä Sigg kumme bei de [[{{MediaWiki:Validationpage}}|stable Versione]], wann ene Metmaacher met dämm Rääsch dohzoh se dohför reviews.'''",
+	'revreview-flag' => '
+Donn hee di Version 
+review!',
+	'revreview-edited' => "
+'''Änderunge wähde en de [[{{MediaWiki:Validationpage}}|stable Version]] opjenumme, esubald ene Metmaacher met däm Rääsch dohzoh se reviews.'''
+Unge es '''dä ''Äntworf''''' ze sinn. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|Ein Änderung shteiht|$2 Änderunge shtonn|Kein Änderunge sheiht mieh}}] zom
+review
+aan.",
 	'revreview-log' => 'Koot zosamme jefaß:',
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
 	'revreview-patrol' => 'Donn hee di Änderung als „nohjeloort“ makeere',

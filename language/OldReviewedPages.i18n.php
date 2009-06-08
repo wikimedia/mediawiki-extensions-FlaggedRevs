@@ -207,6 +207,15 @@ $messages['bg'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'oldreviewedpages-recent' => '(manje od 1 sata)',
+);
+
 /** Catalan (Català)
  * @author Aleator
  * @author Jordi Roqué

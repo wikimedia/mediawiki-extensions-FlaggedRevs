@@ -425,6 +425,7 @@ $aliases['mk'] = array(
  * @author Kaustubh
  */
 $aliases['mr'] = array(
+	'LikedPages' => array( 'जोडलेलीपाने' ),
 	'OldReviewedPages' => array( 'जुनीतपासलेलीपाने' ),
 	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
 	'ReviewedPages' => array( 'तपासलेलीपाने' ),

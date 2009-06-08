@@ -200,8 +200,8 @@ $messages['cu'] = array(
  */
 $messages['de'] = array(
 	'stableversions' => 'Markierte Versionen',
-	'stableversions-leg1' => 'Liste der markierten Versionen für einen Artikel',
-	'stableversions-page' => 'Artikelname:',
+	'stableversions-leg1' => 'Liste der markierten Versionen für eine Seite',
+	'stableversions-page' => 'Seitenname:',
 	'stableversions-none' => '„[[:$1]]“ hat keine markierten Versionen.',
 	'stableversions-list' => 'Dies ist die Liste der {{PLURAL:$2|einzigen Version|Versionen}} von [[:$1]], die markiert {{PLURAL:$2|wurde|wurden}}:',
 	'stableversions-review' => 'markiert am <i>$3, $4 Uhr</i> durch $2',
