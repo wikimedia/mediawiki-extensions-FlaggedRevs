@@ -119,8 +119,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		}
 		$wgOut->addHTML( Xml::closeElement( 'table' ) );
 		
-		$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
-		$data = $dbCache->get( $key );
+		$data = $this->getTopFiveReviewers();
 		# Is there a top 5 user list?
 		if( is_array($data) && count($data) ) {
 			$wgOut->addWikiMsg( 'validationstatistics-utable' );
@@ -201,5 +200,33 @@ class ValidationStatistics extends IncludableSpecialPage
 		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
 		$val = $this->db->selectField( 'flaggedrevs_stats2', 'ave_pending_time' );
 		return ($val == false ? '-' : $val );
+	}
+	
+	protected function getTopFiveReviewers() {
+		$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
+		$dbCache = wfGetCache( CACHE_DB );
+		$data = $dbCache->get( $key );
+		if( is_array($data) )
+			return $data; // cache hit
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		$cutoff = $dbr->timestamp( time() - 3600 );
+		$res = $dbr->select( 'logging',
+			array('log_user','COUNT(*) AS reviews'),
+			array(
+				'log_type' => 'review', // page reviews
+				'log_action' => array('approve','approve2','approve-i','approve2-i'), // manual approvals
+				'log_timestamp >= '.$dbr->addQuotes( $cutoff ) // last hour
+			),
+			__METHOD__,
+			array( 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => 5 )
+		);
+		$data = array();
+		foreach( $res as $row ) {
+			$data[$row->log_user] = $row->reviews;
+		}
+		// Save/cache users
+		$dbCache->set( $key, $data, 3600 );
+		return $data;
 	}
 }
