@@ -93,7 +93,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-invalid'            => '\'\'\'Invalid target:\'\'\' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.',
 	'revreview-legend'             => 'Rate revision content',
 	'revreview-log'                => 'Comment:',
-	'revreview-main'               => 'You must select a particular revision from a content page in order to review.
+	'revreview-main'               => 'You must select a particular revision of a content page in order to review.
 
 See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-newest-basic'       => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest sighted revision] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
