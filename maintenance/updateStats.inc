@@ -212,9 +212,28 @@ function update_flaggedrevs_stats() {
 			$percentile += 10;
 		}
 	}
-	// Cache percentiles
+	// Save/cache percentiles
 	$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
 	$dbCache = wfGetCache( CACHE_DB );
+	$dbCache->set( $key, $data, 30*24*3600 );
+	// Get the top reviewer list
+	$cutoff = $dbr->timestamp( time() - 3600 );
+	$res = $dbr->select( 'logging',
+		array('log_user','COUNT(*) AS reviews'),
+		array(
+			'log_type' => 'review', // page reviews
+			'log_action' => array('approve','approve2','approve-i','approve2-i'), // manual approvals
+			'log_timestamp >= '.$dbr->addQuotes( $cutoff ) // last hour
+		),
+		__METHOD__,
+		array( 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => 5 )
+	);
+	$data = array();
+	foreach( $res as $row ) {
+		$data[$row->log_user] = $row->reviews;
+	}
+	// Save/cache users
+	$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
 	$dbCache->set( $key, $data, 30*24*3600 );
 	// Save the data
 	$dbw = wfGetDB( DB_MASTER );

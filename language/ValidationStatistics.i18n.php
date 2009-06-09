@@ -29,6 +29,9 @@ The stable version of a page is the newest revision that has been approved to sh
 	'validationstatistics-latest' => 'Synced',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
+	'validationstatistics-utable' => 'Below is the list of top 5 reviewers in the last hour.',
+	'validationstatistics-user'   => 'User',
+	'validationstatistics-reviews' => 'Reviews',
 );
 
 /** Message documentation (Message documentation)

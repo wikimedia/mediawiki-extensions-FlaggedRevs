@@ -38,7 +38,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		$dbCache = wfGetCache( CACHE_DB );
 		$data = $dbCache->get( $key );
 		# Is there a review time table available?
-		if( is_array($data) ) {
+		if( is_array($data) && count($data) ) {
 			$headerRows = $dataRows = '';
 			foreach( $data as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>".intval($percentile)."</sub></th>";
@@ -118,6 +118,23 @@ class ValidationStatistics extends IncludableSpecialPage
 			);
 		}
 		$wgOut->addHTML( Xml::closeElement( 'table' ) );
+		
+		$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
+		$data = $dbCache->get( $key );
+		# Is there a top 5 user list?
+		if( is_array($data) && count($data) ) {
+			$wgOut->addWikiMsg( 'validationstatistics-utable' );
+		
+			$reviewChart = "<table class='wikitable flaggedrevs_stats_table' style='white-space: nowrap;'>\n";
+			$reviewChart .= '<tr><th>'.wfMsgHtml('validationstatistics-user').
+				'</th><th>'.wfMsgHtml('validationstatistics-reviews').'</th></tr>';
+			foreach( $data as $userId => $reviews ) {
+				$reviewChart .= '<tr><td>'.htmlspecialchars(User::whois($userId)).
+					'</td><td>'.intval($reviews).'</td></tr>';
+			}
+			$reviewChart .= "</table>\n";
+			$wgOut->addHTML( $reviewChart );
+		}
 	}
 
 	protected function maybeUpdate() {
