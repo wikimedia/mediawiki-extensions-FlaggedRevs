@@ -460,7 +460,10 @@ $messages['gu'] = array(
  */
 $messages['he'] = array(
 	'validationstatistics' => 'סטיסטיקת אישורים',
-	'validationstatistics-users' => "'''יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} ב{{SITENAME}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]] ו{{PLURAL:$2|משתמש '''[[Special:ListUsers/reviewer|אחד]]'''|־'''[[Special:ListUsers/reviewer|$2]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].'''",
+	'validationstatistics-users' => "ב'''{{grammar:תחילית|{{SITENAME}}}}''' יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]]
+ו{{PLURAL:$2|משתמש '''[[Special:ListUsers/reviewer|אחד]]'''|־'''[[Special:ListUsers/reviewer|$2]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].
+
+עורכים ובודקי דפים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
 	'validationstatistics-time' => "'''המידע הבא הוא עותק שמור של המידע, ועשוי שלא להיות מעודכן.'''
 
 ההמתנה הממוצעת עבור עריכות של ''משתמשים שלא נכנסו לחשבון'' היא '''$1'''; חציון ההמתנה הוא '''$3'''. 
@@ -475,6 +478,9 @@ $4
 	'validationstatistics-latest' => 'מסונכרן',
 	'validationstatistics-synced' => 'סונכרנו/נבדקו',
 	'validationstatistics-old' => 'פג תוקף',
+	'validationstatistics-utable' => 'להלן רשימה של חמשת המשתמשים שבדקו הכי הרבה דפים בשעה האחרונה.',
+	'validationstatistics-user' => 'משתמש',
+	'validationstatistics-reviews' => 'בדיקות',
 );
 
 /** Croatian (Hrvatski)
