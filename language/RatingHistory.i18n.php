@@ -302,6 +302,7 @@ Skala: '''[1]''' - Špatny; '''[2]''' - Niski; '''[3]''' - Spokojecy; '''[4]''' 
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['el'] = array(
 	'ratinghistory' => 'Ιστορικό βαθμολογίας σελίδας',
@@ -311,6 +312,8 @@ $messages['el'] = array(
 	'ratinghistory-3months' => 'τελευταίοι 3 μήνες',
 	'ratinghistory-year' => 'πέρυσι',
 	'ratinghistory-3years' => 'τελευταία 3 έτη',
+	'ratinghistory-graph' => '$2 από "$3" ($1 {{PLURAL:$1|επιθεώρηση|επιθεωρήσεις}}',
+	'readerfeedback-svg' => 'Προβολή ως SVG',
 	'ratinghistory-table-rating' => 'Βαθμολογία',
 	'ratinghistory-table-votes' => 'Ψηφοφορίες',
 );

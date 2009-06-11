@@ -933,12 +933,15 @@ Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les
  */
 $messages['frp'] = array(
 	'stabilization-tab' => '(aq)',
-	'stabilization' => 'Stabilisacion de la pâge',
-	'stabilization-text' => "'''Changiér los paramètres ce-desot por ajustar l’afichâjo et la sèlèccion de la vèrsion stâbla de [[:$1|$1]].'''",
+	'stabilization' => 'Stabilisacion de la pâge.',
+	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion stâbla de [[:$1|$1]] est chouèsia et montrâ.'''
+
+Quand vos configurâd lo ''chouèx de la vèrsion stâbla'' por utilisar les vèrsions « de qualitât » ou ben « iniciâles » per dèfôt,
+assurâd-vos qu’y at verément de tâles vèrsions dens la pâge, ôtrament los changements aront pas de rèsultat.",
 	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion stâbla. Vê-que los paramètres corents de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pâge :',
-	'stabilization-leg' => 'Paramètrar la vèrsion stâbla d’una pâge',
-	'stabilization-select' => 'Coment la vèrsion stâbla est chouèsia/cièrdua',
+	'stabilization-leg' => 'Confirmar lo paramètrâjo de la vèrsion stâbla',
+	'stabilization-select' => 'Chouèx de la vèrsion stâbla',
 	'stabilization-select1' => 'La dèrriére vèrsion de qualitât, ôtrament la dèrriére vèrsion vua',
 	'stabilization-select2' => 'La dèrriére vèrsion vua',
 	'stabilization-def' => 'Vèrsion afichiê pendent l’afichâjo per dèfôt de la pâge',

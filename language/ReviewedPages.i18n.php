@@ -851,12 +851,13 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (Русский)
+ * @author Ferrer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'reviewedpages' => 'Проверенные страницы',
 	'reviewedpages-leg' => 'Список страниц, по уровню оценки',
-	'reviewedpages-list' => 'Следующие страницы были проверены и оценены на указанный уровень',
+	'reviewedpages-list' => '{{PLURAL:$1|Следующая страница была проверена и оценена|Следующие страницы были проверены и оценены}} на указанный уровень',
 	'reviewedpages-none' => 'В данном списке отсутствуют страницы',
 	'reviewedpages-lev-0' => 'Досмотренная',
 	'reviewedpages-lev-1' => 'Выверенная',

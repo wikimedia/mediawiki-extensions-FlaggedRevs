@@ -394,10 +394,16 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'right-unreviewedpages' => 'Vêre la [[Special:UnreviewedPages|lista de les pâges pas revues]].',
 	'unreviewedpages' => 'Pâges pas revues',
+	'unreviewed-legend' => 'Lista de les pâges de contegnu pas revues',
 	'unreviewed-category' => 'Catègorie :',
-	'unreviewed-diff' => 'Modificacions',
-	'unreviewed-list' => 'Ceta pâge liste los articllos qu’ont pas étâ rèvisâs ou qu’ont des vèrsions pas vues.',
+	'unreviewed-diff' => 'revêre',
+	'unreviewed-unwatched' => '(pas siuvua)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilisator actif siut|utilisators actifs siuvont}} ceta pâge)',
+	'unreviewed-list' => 'Ceta pâge liste les pâges de contegnu qu’ont pas étâ revues.',
+	'unreviewed-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
+	'unreviewed-viewing' => '(en rèvision)',
 );
 
 /** Western Frisian (Frysk)

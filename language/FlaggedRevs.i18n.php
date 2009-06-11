@@ -2709,7 +2709,7 @@ Lisćina stabilizěrowanych bokow dajo se w [[Special:StablePages|lisćinje stab
 $messages['el'] = array(
 	'editor' => 'Συντάκτης',
 	'flaggedrevs-desc' => 'Δίνει τη δυνατότητα στους συντάκτες και τους επανεξεταστές να αξιολογίσουν εκδόσεις και να σταθεροποιήσουν σελίδες',
-	'flaggedrevs-prefs' => 'Σταθερότητα',
+	'prefs-flaggedrevs' => 'Σταθερότητα',
 	'group-editor' => 'Επεξεργαστές',
 	'group-editor-member' => 'συντάκτης',
 	'group-reviewer' => 'Επανεξεταστές',
@@ -2739,6 +2739,7 @@ $messages['el'] = array(
 	'revreview-source' => 'Πηγή προσχεδίου',
 	'revreview-stable' => 'Σταθερή σελίδα',
 	'revreview-style' => 'Αναγνωσιμότητα',
+	'revreview-submitting' => 'Υποβολή ...',
 	'revreview-toggle-title' => 'εμφάνιση/απόκρυψη λεπτομερειών',
 	'revreview-revnotfound' => 'Η παλιά αναθεώρηση της σελίδας που ζητήσατε δεν ήταν δυνατόν να βρεθεί. Παρακαλούμε ελέγξτε τo URL που χρησιμοποιήσατε για να φτάσετε σε αυτήν τη σελίδα.',
 	'stable-logpage' => 'Αρχείο καταγραφής σταθερών εκδόσεων',
@@ -2746,11 +2747,13 @@ $messages['el'] = array(
 	'readerfeedback-completeness' => 'Πληρότητα',
 	'readerfeedback-npov' => 'Ουδετερότητα',
 	'readerfeedback-presentation' => 'Παρουσίαση',
+	'readerfeedback-level-none' => '(αβέβαιο)',
 	'readerfeedback-level-1' => 'Χαμηλός',
 	'readerfeedback-level-3' => 'Υψηλός',
 	'readerfeedback-level-4' => 'Τέλεια',
 	'readerfeedback-submit' => 'Υποβολή',
 	'readerfeedback-finished' => 'Σας ευχαριστούμε!',
+	'revreview-filter-all' => 'όλες',
 	'revreview-filter-stable' => 'σταθερός',
 	'revreview-filter-auto' => 'Αυτόματος',
 	'revreview-typefilter' => 'Τύπος:',
@@ -6700,6 +6703,14 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'flaggedrevs-backlog' => "
+Mer han em jraad ene Shtau en de [[Special:OldReviewedPages|Schlang met de Änderunge]] aan de
+reviewed
+Sigge. '''Ding Hülp weedt jebruch!'''",
+	'flaggedrevs-watched-pending' => "
+Mer han jraad [{{fullurl:Special:OldReviewedPages|watched=1}} pending Änderunge] aan de
+reviewed
+Sigge op Ding Oppassleß. '''Ding Hülp weedt jebruch!'''",
 	'flaggedrevs-desc' => 'Määt et för de Metmaacher müjjelesch, de Versijone fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualität stabil ze hallde.',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} beschtäätesch] {{GENDER:$3|vum|vum|vum Metmaacher|vum|vun dä}} [[User:$3|$3]]',
 	'review-logentry-id' => 'beloore',
@@ -6750,6 +6761,13 @@ Unge es '''dä ''Äntworf''''' ze sinn. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 review
 aan.",
 	'revreview-log' => 'Koot zosamme jefaß:',
+	'revreview-main' => '
+Do moß en beschtemmpte Version vun en Enhalts_Sigg ußsöhke, öm se ze
+review.
+
+Looer noh de [[Special:Unreviewedpages|Leß met de
+unreviewed
+Sigge]].',
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
 	'revreview-patrol' => 'Donn hee di Änderung als „nohjeloort“ makeere',
 	'revreview-patrol-title' => 'Als „nohjeloort“ makeere',
@@ -9520,8 +9538,10 @@ $messages['ru'] = array(
 	'flaggedrevs' => 'Отмеченные версии',
 	'flaggedrevs-backlog' => "Существует [[Special:OldReviewedPages|отставание в проверке]] страниц. '''Пожалуйста, обратите внимание!'''",
 	'flaggedrevs-desc' => 'Предоставление возможности редакторам/рецензентам проверять версии страниц и устанавливать стабильные версии',
+	'flaggedrevs-pref-UI' => 'Интерфейс стабильных версий:',
 	'flaggedrevs-pref-UI-0' => 'Использовать подробный интерфейс стабильных версий',
 	'flaggedrevs-pref-UI-1' => 'Использовать простой интерфейс стабильных версий',
+	'prefs-flaggedrevs' => 'Стабилизация',
 	'flaggedrevs-prefs-stable' => 'Всегда показывать стабильную версию по умолчанию (если таковая существует)',
 	'flaggedrevs-prefs-watch' => 'Добавлять проверенные мною страницы в список наблюдения',
 	'group-editor' => 'Досматривающие',

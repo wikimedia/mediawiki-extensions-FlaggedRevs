@@ -298,6 +298,7 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['el'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ώρα|ώρες}})',
@@ -305,6 +306,7 @@ $messages['el'] = array(
 	'oldreviewedpages-recent' => '(λιγότερο από 1 ώρα)',
 	'oldreviewed-category' => 'Κατηγορία:',
 	'oldreviewed-stable' => 'Σταθεροποιημένος',
+	'oldreviewed-diff' => 'επιθεώρηση',
 );
 
 /** Esperanto (Esperanto)

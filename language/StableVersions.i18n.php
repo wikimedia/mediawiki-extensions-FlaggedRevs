@@ -318,12 +318,12 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'stableversions' => 'Vèrsions stâbles',
-	'stableversions-leg1' => 'Dèrriéres vèrsions revues d’una pâge',
+	'stableversions' => 'Vêre les vèrsions stâbles',
+	'stableversions-leg1' => 'Montre una lista de les dèrriéres vèrsions revues d’una pâge.',
 	'stableversions-page' => 'Nom de la pâge :',
-	'stableversions-none' => '« [[:$1]] » at pas de vèrsions rèvisâs.',
-	'stableversions-list' => 'La lista que siut contint des vèrsions de « [[:$1]] » qu’ont étâ rèvisâs :',
-	'stableversions-review' => 'Rèvisâ lo <i>$1</i> per $2',
+	'stableversions-none' => '« [[:$1]] » at pas de vèrsion revua.',
+	'stableversions-list' => 'La lista que siut contint {{PLURAL:$2|la solèta vèrsion|des vèrsions}} de « [[:$1]] » qu’{{PLURAL:$2|at étâ revua|ont étâ revues}} :',
+	'stableversions-review' => 'Revua lo <i>$1</i> per $2',
 );
 
 /** Western Frisian (Frysk)
@@ -816,6 +816,7 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (Русский)
+ * @author Ferrer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -823,7 +824,7 @@ $messages['ru'] = array(
 	'stableversions-leg1' => 'Список проверенных версий страницы',
 	'stableversions-page' => 'Название страницы:',
 	'stableversions-none' => '«[[:$1]]» не имеет проверенных версий.',
-	'stableversions-list' => 'Следующие версии страницы «[[:$1]]» были проверены:',
+	'stableversions-list' => 'Следующий список {{PLURAL:$2|одной версии страницы|версий страниц}} «[[:$1]]» {{PLURAL:$2|была|были}} проверены:',
 	'stableversions-review' => 'Проверена <i>$1</i> участником $2',
 );
 
