@@ -252,9 +252,9 @@ $messages['ja'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'qualityoversight' => 'Övverseech övver de Versione met Enschätzunge för dänne ier Qualität',
+	'qualityoversight' => 'Övverseech övver de Versione met Enschätzunge för dänne ier Qualliteit',
 	'qualityoversight-list' => 'Hee die Sigg zeich en Leß met de neuste Zostimmunge un Afflehnunge vun bestemmpte Versione fun Sigge.',
-	'qualityoversight-legend' => 'En den neuste Qualitäts-Enschätzunge söke',
+	'qualityoversight-legend' => 'En de neuste Enschätzunge för de Qualliteit vun nojekik Sigge söke',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

@@ -87,6 +87,10 @@ Used on Special:Stabilization as an option for "Revision displayed on default pa
 This option has sub-options, see "How the stable version is selected".',
 	'stabilization-def2' => '{{Flagged Revs-small}}
 Used on Special:Stabilization as an option for "Revision displayed on default page view".',
+	'stabilization-restrict' => 'This means: "restrictions on automatic reviews" (\'\'it does not mean: 
+"automatically review the restrictions")
+
+See http://en.labs.wikimedia.org/wiki/Special:Stabilization/Main_Page for more information (you can give yourself review rights)',
 	'stabilization-submit' => '{{Flagged Revs}}
 {{Identical|Confirm}}',
 	'stabilization-notexists' => '{{Flagged Revs}}',
@@ -566,7 +570,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-def' => 'Angezeigte Version in der normalen Seitenansicht',
 	'stabilization-def1' => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version',
 	'stabilization-def2' => 'Die aktuelle Version',
-	'stabilization-restrict' => 'Begrenzt auf automatische Markierungen',
+	'stabilization-restrict' => 'Einschränkung der automatischen Markierung',
 	'stabilization-restrict-none' => 'Keine zusätzlichen Einschränkungen',
 	'stabilization-submit' => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
@@ -887,6 +891,7 @@ $messages['fi'] = array(
  * @author IAlex
  * @author Juanpabl
  * @author PieRRoMaN
+ * @author Purodha
  * @author Sherbrooke
  * @author Verdy p
  */
@@ -932,35 +937,45 @@ Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'stabilization-tab' => '(aq)',
+	'stabilization-tab' => 'Controlar',
 	'stabilization' => 'Stabilisacion de la pâge.',
 	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion stâbla de [[:$1|$1]] est chouèsia et montrâ.'''
 
-Quand vos configurâd lo ''chouèx de la vèrsion stâbla'' por utilisar les vèrsions « de qualitât » ou ben « iniciâles » per dèfôt,
-assurâd-vos qu’y at verément de tâles vèrsions dens la pâge, ôtrament los changements aront pas de rèsultat.",
-	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion stâbla. Vê-que los paramètres corents de [[:$1|$1]] :',
+Quand vos configurâd lo ''chouèx de la vèrsion stâbla'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » per dèfôt,
+assurâd-vos qu’y at verément de tâles vèrsions dens la pâge, ôtrament los changements aront gins de rèsultat.",
+	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion stâbla.
+Vê-que los paramètres d’ora de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pâge :',
-	'stabilization-leg' => 'Confirmar lo paramètrâjo de la vèrsion stâbla',
+	'stabilization-leg' => 'Confirmar los paramètres de la vèrsion stâbla',
 	'stabilization-select' => 'Chouèx de la vèrsion stâbla',
-	'stabilization-select1' => 'La dèrriére vèrsion de qualitât, ôtrament la dèrriére vèrsion vua',
-	'stabilization-select2' => 'La dèrriére vèrsion vua',
-	'stabilization-def' => 'Vèrsion afichiê pendent l’afichâjo per dèfôt de la pâge',
-	'stabilization-def1' => 'La vèrsion stâbla, ôtrament la vèrsion corenta',
-	'stabilization-def2' => 'La vèrsion corenta',
+	'stabilization-select1' => 'La dèrriére vèrsion de qualitât, ôtrament la dèrriére vèrsion revua',
+	'stabilization-select2' => 'La dèrriére vèrsion revua, sen tegnir compto du nivél de validacion',
+	'stabilization-select3' => 'La dèrriére vèrsion sen tache, ôtrament la dèrriére vèrsion de qualitât ou ben revua',
+	'stabilization-def' => 'Vèrsion montrâ pendent la visualisacion per dèfôt de la pâge',
+	'stabilization-def1' => 'La vèrsion stâbla, ôtrament la vèrsion d’ora',
+	'stabilization-def2' => 'La vèrsion d’ora',
+	'stabilization-restrict' => 'Rèstriccions sur les rèvisions ôtomatiques',
+	'stabilization-restrict-none' => 'Gins de rèstriccion de ples',
 	'stabilization-submit' => 'Confirmar',
-	'stabilization-notexists' => 'Y at pas de pâge « [[:$1|$1]] », pas de paramètrâjo possiblo.',
-	'stabilization-notcontent' => 'La pâge « [[:$1|$1]] » pôt pas étre rèvisâ, pas de paramètrâjo possiblo.',
-	'stabilization-comment' => 'Comentèro :',
+	'stabilization-notexists' => 'Y at gins de pâge « [[:$1|$1]] »,
+gins de configuracion possibla.',
+	'stabilization-notcontent' => 'La pâge « [[:$1|$1]] » pôt pas étre revua,
+gins de configuracion possibla.',
+	'stabilization-comment' => 'Rêson :',
+	'stabilization-otherreason' => 'Ôtra rêson',
 	'stabilization-expiry' => 'Èxpire :',
+	'stabilization-othertime' => 'Ôtro temps',
 	'stabilization-sel-short' => 'Prioritât',
-	'stabilization-sel-short-0' => 'Qualitât',
-	'stabilization-sel-short-1' => 'Nula',
+	'stabilization-sel-short-0' => 'De qualitât',
+	'stabilization-sel-short-1' => 'Niona',
+	'stabilization-sel-short-2' => 'Sen tache',
 	'stabilization-def-short' => 'Dèfôt',
-	'stabilization-def-short-0' => 'Corenta',
+	'stabilization-def-short-0' => 'D’ora',
 	'stabilization-def-short-1' => 'Stâbla',
 	'stabilize_expiry_invalid' => 'Dâta d’èxpiracion envalida.',
 	'stabilize_expiry_old' => 'Cél temps d’èxpiracion est ja passâ.',
 	'stabilize-expiring' => 'èxpire lo $1 (UTC)',
+	'stabilization-review' => 'Revêre la vèrsion d’ora',
 );
 
 /** Western Frisian (Frysk)
@@ -994,7 +1009,7 @@ $messages['gl'] = array(
 Ao cambiar a configuración da ''selección da versión estábel'' para usar as revisións de \"calidade\" ou unha \"previa\" por defecto,
 asegúrese de comprobar se en realidade existen tales revisións na páxina, pola contra o cambio afectará lixeiramente.",
 	'stabilization-perm' => 'A súa conta non ten permisos para mudar a configuración da versión estábel.
-	Esta é a configuración actual para [[:$1|$1]]:',
+Esta é a configuración actual de "[[:$1|$1]]":',
 	'stabilization-page' => 'Nome da páxina:',
 	'stabilization-leg' => 'Confirmar as configuración da versión estábel',
 	'stabilization-select' => 'Selección da versión estábel',
@@ -1002,9 +1017,9 @@ asegúrese de comprobar se en realidade existen tales revisións na páxina, pol
 	'stabilization-select2' => 'A última revisión revisada, malia o nivel de validación',
 	'stabilization-select3' => 'A última revisión previa; se non existe, entón a última de calidade ou revisada',
 	'stabilization-def' => 'Revisión que aparece por defecto na vista da páxina',
-	'stabilization-def1' => 'A revisión estábel, se non presente, entón a actual',
+	'stabilization-def1' => 'A revisión estábel; se non existe, entón a actual',
 	'stabilization-def2' => 'A revisión actual',
-	'stabilization-restrict' => 'Revisar automaticamente as restricións',
+	'stabilization-restrict' => 'Restricións nas revisións automáticas',
 	'stabilization-restrict-none' => 'Sen restricións extra',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'Non hai unha páxina chamada "[[:$1|$1]]". A non configuración é posíbel.',
@@ -1358,7 +1373,7 @@ $messages['id'] = array(
 	'stabilization-leg' => 'Konfirmasi konfigurasi versi stabil',
 	'stabilization-select' => 'Pemilihan versi stabil',
 	'stabilization-select1' => 'Revisi layak terakhir; jika tak ada, versi terperiksa terakhir',
-	'stabilization-select2' => 'Revisi stabil terakhir',
+	'stabilization-select2' => 'Revisi stabil terakhir, tanpa memandang tingkat validasi',
 	'stabilization-select3' => 'Revisi asli terakhir; jika tidak ada, versi layak atau terperiksa terakhir',
 	'stabilization-def' => 'Revisi yang ditampilkan sebagai tampilan baku halaman',
 	'stabilization-def1' => 'Revisi stabil; jika tak ada, revisi terkini',
@@ -1637,28 +1652,49 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'stabilization-text' => "'''Donn de Enshtellunge onge aanpasse, öm faßzelääje, wi de
+stable version
+vun [[:$1|$1]] ußjesöhk un aanjezeijsch weedt.'''
+
+Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandattmääßej_en {{int:revreview-lev-quality}} udder en {{int:revreview-lev-pristine}} jenumme weedt, dann jiv drop aach, dat di Sigg och su en Version hät. Söns weedt Ding Änderung wall winnisch ußmaache.",
+	'stabilization-perm' => 'Dir fäählt es Rääsch, de Enshtellunge för
+stable version
+ze ändere.
+Dat sin de aktoälle Enshtellunge för [[:$1|$1]]:',
 	'stabilization-page' => 'Name fun dä Sigg:',
-	'stabilization-select2' => 'De neuste nohjeloorte Version, onafhängesch vun de Zoot Beschtäätejung',
+	'stabilization-leg' => '
+Enshtellunge för
+stable version 
+beschtäätejje',
+	'stabilization-select1' => 'De neußte {{int:revreview-lev-quality}}, un wann et di nit jitt, dann donn de neußte {{int:revreview-lev-sighted}} nämme',
+	'stabilization-select2' => 'De neuste nohjekik Version, onafhängesch vun de Zoot Beschtäätejung',
+	'stabilization-select3' => 'De letzte {{int:revreview-lev-pristine}}, un wann et di nit jitt, dann donn de neußte {{int:revreview-lev-quality}} nämme udder de neußte {{int:revreview-lev-sighted}}',
+	'stabilization-def' => 'De Version, di shtanndatmääßesch aanjezeisch weed, wann Eine en Sigg opröhf',
+	'stabilization-def1' => 'De
+stable
+Verson, un wann et kein jitt, dann de aktoälle Version',
 	'stabilization-def2' => 'De aktuelle Version',
+	'stabilization-restrict' => 'Ennschrängkunge för et automattesch als nohjekik Makeere',
 	'stabilization-restrict-none' => 'Kein zohsäzlejje Bescharänkunge',
 	'stabilization-submit' => 'Bestätije',
 	'stabilization-notexists' => 'Mer han kein Sigg met dämm Tittel „[[:$1|$1]]“.
 Et jit nix enzestelle.',
-	'stabilization-notcontent' => 'De Sigg met dämm Tittel „[[:$1|$1]]“ cannot be reviewed.
-Et jit nix enzestelle.',
+	'stabilization-notcontent' => 'De Sigg met dämm Tittel „[[:$1|$1]]“ kam_mer nit nohkike.
+Et jidd och nix ennzeshtelle.',
 	'stabilization-comment' => 'Jrond:',
 	'stabilization-otherreason' => 'Ene andere Jrond',
 	'stabilization-expiry' => 'Leuf uß:',
 	'stabilization-othertime' => 'En ander Zick',
 	'stabilization-sel-short' => 'Weeschteschkeit',
-	'stabilization-sel-short-0' => 'Qualität',
+	'stabilization-sel-short-0' => 'Qualliteit',
 	'stabilization-sel-short-1' => 'Kein',
-	'stabilization-sel-short-2' => 'orshprönglesch',
+	'stabilization-sel-short-2' => 'Orshprönglesche',
 	'stabilization-def-short' => 'Shtandatt',
 	'stabilization-def-short-0' => 'Von jetz',
 	'stabilize_expiry_invalid' => 'Dat Affloufdattum es nit jöltisch.',
 	'stabilize_expiry_old' => 'Dat Affloufdattum es ald förbei.',
-	'stabilize-expiring' => 'Leuf uß, am $2 öm $3 Uhr (UTC)',
+	'stabilize-expiring' => 'leuf uß, am $2 öm $3 Uhr (UTC)',
+	'stabilization-review' => 'Donn de aktoälle Version nohkike',
 );
 
 /** Latin (Latina)
@@ -1962,7 +1998,7 @@ Als deze niet beschikbaar is, dan de laatste kwaliteitsversie of gecontroleerde 
 	'stabilization-def1' => 'De stabiele versie;
 als die er niet is, dan de huidige versie',
 	'stabilization-def2' => 'De werkversie',
-	'stabilization-restrict' => 'Beperkingen auto-eindredactie',
+	'stabilization-restrict' => 'Beperkingen op automatisch markeren voor eindredactie',
 	'stabilization-restrict-none' => 'Geen additionele beperkingen',
 	'stabilization-submit' => 'Bevestigen',
 	'stabilization-notexists' => 'Er is geen pagina "[[:$1|$1]]".
@@ -2398,6 +2434,7 @@ Non ge stonne le configurazione.',
 
 /** Russian (Русский)
  * @author Drbug
+ * @author Ferrer
  * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
@@ -2405,7 +2442,9 @@ Non ge stonne le configurazione.',
 $messages['ru'] = array(
 	'stabilization-tab' => '(кк)',
 	'stabilization' => 'Стабилизация страницы',
-	'stabilization-text' => "'''С помощью приведённых ниже настроек можно управлять выбором и отображением стабильной версии страницы [[:$1|$1]].'''",
+	'stabilization-text' => "'''С помощью приведённых ниже настроек можно управлять выбором и отображением стабильной версии страницы [[:$1|$1]].'''
+
+При установке параметра «выбор стабильной версии» в значения «качества» или «изначальности» по умолчанию, убедитесь, что у страницы существуют подобные версии, иначе настройка не возымеет действия.",
 	'stabilization-perm' => 'Вашей учётной записи не хватает прав, чтобы изменять настройки показа стабильной версии.
 Здесь приведены текущие настройки для [[:$1|$1]]:',
 	'stabilization-page' => 'Название страницы:',
@@ -2417,6 +2456,8 @@ $messages['ru'] = array(
 	'stabilization-def' => 'Версия, показываемая по умолчанию',
 	'stabilization-def1' => 'Стабильная версия; если нет, то текущая',
 	'stabilization-def2' => 'Текущая версия',
+	'stabilization-restrict' => 'Ограничения самодосмотра',
+	'stabilization-restrict-none' => 'Нет дополнительных ограничений',
 	'stabilization-submit' => 'Подтвердить',
 	'stabilization-notexists' => 'Отсутствует страница с названием «[[:$1|$1]]». Настройка невозможна.',
 	'stabilization-notcontent' => 'Страница «[[:$1|$1]]» не может быть проверена. Настройка невозможна.',
@@ -2434,6 +2475,7 @@ $messages['ru'] = array(
 	'stabilize_expiry_invalid' => 'Ошибочная дата истечения.',
 	'stabilize_expiry_old' => 'Указанное время окончания действия уже прошло.',
 	'stabilize-expiring' => 'истекает $1 (UTC)',
+	'stabilization-review' => 'Досмотр текущей версии',
 );
 
 /** Yakut (Саха тыла)

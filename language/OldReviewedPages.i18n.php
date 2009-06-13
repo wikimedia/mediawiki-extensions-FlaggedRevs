@@ -545,7 +545,6 @@ $messages['hsb'] = array(
 $messages['hu'] = array(
 	'oldreviewedpages' => 'Elavult ellenőrzött lapok',
 	'oldreviewedpages-legend' => 'Ellenőrizetlen változatokkal rendelkező lapok listája',
-	'oldreviewedpages-list' => 'Ezen a lapon azon ellenőrzött lapok listája látható, melyek ellenőrizetlen szerkesztésekkel rendelkeznek.',
 	'oldreviewedpages-none' => 'Jelenleg nincs a feltételeknek megfelelő lap.',
 	'oldreviewedpages-hours' => '({{PLURAL:$1|Egy|$1}} órája)',
 	'oldreviewedpages-days' => '({{PLURAL:$1|Egy|$1}} napja)',

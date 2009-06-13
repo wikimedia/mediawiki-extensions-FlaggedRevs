@@ -314,14 +314,14 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'reviewedpages' => 'Pâges passâs en revua',
-	'reviewedpages-leg' => 'Lista de les pâges passâs en revua a un cèrtin nivô',
-	'reviewedpages-list' => 'Les pâges siuventes ont étâ passâs en revua u nivô spècefiâ',
+	'reviewedpages-leg' => 'Montre una lista de les pâges per nivél ples hôt.',
+	'reviewedpages-list' => '{{PLURAL:$1|Ceta pâge at étâ passâ|Cetes pâges ont étâ passâs}} en revua u nivél spècefiâ',
 	'reviewedpages-none' => 'Ceta lista est voueda.',
-	'reviewedpages-lev-0' => 'Vu',
-	'reviewedpages-lev-1' => 'Qualitât',
-	'reviewedpages-lev-2' => 'Betâ en avant',
+	'reviewedpages-lev-0' => 'Revua',
+	'reviewedpages-lev-1' => 'De qualitât',
+	'reviewedpages-lev-2' => 'Sen tache',
 	'reviewedpages-all' => 'vèrsions passâs en revua',
-	'reviewedpages-best' => 'Dèrriére vèrsion la ples notâ',
+	'reviewedpages-best' => 'vèrsion principâla',
 );
 
 /** Galician (Galego)
@@ -467,8 +467,8 @@ $messages['ia'] = array(
  */
 $messages['id'] = array(
 	'reviewedpages' => 'Halaman tertinjau',
-	'reviewedpages-leg' => 'Daftar halaman yang telah ditinjau sampai tingkat tertentu',
-	'reviewedpages-list' => 'Halaman-halaman berikut telah ditinjau hingga tingkat tertentu',
+	'reviewedpages-leg' => 'Daftar halaman yang telah ditinjau menurut tingkat tertinggi',
+	'reviewedpages-list' => '{{PLURAL:$1|Halaman|Halaman-halaman}} berikut telah ditinjau hingga tingkat tertentu',
 	'reviewedpages-none' => 'Tak ada halaman pada daftar ini',
 	'reviewedpages-lev-0' => 'Terperiksa',
 	'reviewedpages-lev-1' => 'Layak',
@@ -594,12 +594,12 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'reviewedpages' => 'Nohjeloorte un makeete Versione',
+	'reviewedpages' => 'Nohjekik Versione',
 	'reviewedpages-leg' => 'Sigge opleßte noh de hühßte Makeerung',
-	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} nohjeloort un makeet, se {{PLURAL:$1|sullt dat|sullte dat|sullte et}} aanjejovve Nivo han',
+	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} nohjekik, se {{PLURAL:$1|sullt dat|sullte dat|sullte et}} aanjejovve Nivo han',
 	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
-	'reviewedpages-all' => 'Nohjeloorte un makeete Versione',
-	'reviewedpages-best' => 'de neuste un et hühßte makeete Version',
+	'reviewedpages-all' => 'nohjekik Versione',
+	'reviewedpages-best' => 'de neuste un aam hühßte enjeshtoof nohjekik Version',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

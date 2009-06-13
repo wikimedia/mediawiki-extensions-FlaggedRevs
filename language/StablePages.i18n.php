@@ -443,6 +443,9 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',
+	'stablepages-prec-quality' => '
+de {{int:revreview-lev-quality}} hät der Vürrang',
+	'stablepages-prec-pristine' => 'de {{int:revreview-lev-pristine}} hät der Vörrang',
 	'stablepages-precedence' => 'Reijefollsch vum Vörrang:',
 );
 
@@ -647,6 +650,10 @@ $messages['ru'] = array(
 	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ стабильной версии по умолчанию для читателей.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'Настройка',
+	'stablepages-prec-none' => 'без приоритета',
+	'stablepages-prec-quality' => 'приоритет качества',
+	'stablepages-prec-pristine' => 'приоритет изначальности',
+	'stablepages-precedence' => 'Приоритет:',
 );
 
 /** Slovak (Slovenčina)

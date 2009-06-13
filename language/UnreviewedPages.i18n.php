@@ -710,9 +710,9 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit nohjekikte Sigge]] aanloore',
-	'unreviewedpages' => 'De noch nit hohjekikte Sigge',
-	'unreviewed-legend' => 'Leß met de noch nit nohjekikte Sigge em Houp-Appachtemang',
+	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit aanjekikte Sigge]] aanloore',
+	'unreviewedpages' => 'De noch nit aanjekikte Sigge',
+	'unreviewed-legend' => 'Leß met de noch nit aanjekikte Sigge em Houp-Appachtemang',
 	'unreviewed-category' => 'Saachjrupp:',
 	'unreviewed-diff' => 'nohkike',
 	'unreviewed-unwatched' => '(en keine Oppassleß)',

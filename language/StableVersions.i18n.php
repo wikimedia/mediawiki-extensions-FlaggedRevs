@@ -321,7 +321,7 @@ $messages['frp'] = array(
 	'stableversions' => 'Vêre les vèrsions stâbles',
 	'stableversions-leg1' => 'Montre una lista de les dèrriéres vèrsions revues d’una pâge.',
 	'stableversions-page' => 'Nom de la pâge :',
-	'stableversions-none' => '« [[:$1]] » at pas de vèrsion revua.',
+	'stableversions-none' => '« [[:$1]] » at gins de vèrsion revua.',
 	'stableversions-list' => 'La lista que siut contint {{PLURAL:$2|la solèta vèrsion|des vèrsions}} de « [[:$1]] » qu’{{PLURAL:$2|at étâ revua|ont étâ revues}} :',
 	'stableversions-review' => 'Revua lo <i>$1</i> per $2',
 );
@@ -455,7 +455,7 @@ $messages['id'] = array(
 	'stableversions-leg1' => 'Menampilkan revisi tertinjau dari suatu halaman',
 	'stableversions-page' => 'Nama halaman:',
 	'stableversions-none' => '"[[:$1]]" tidak memiliki revisi tertinjau.',
-	'stableversions-list' => 'Berikut adalah daftar revisi yang telah ditinjau dari [[:$1]]:',
+	'stableversions-list' => 'Berikut adalah daftar {{PLURAL:$2|revisi|revisi-revisi}} dari [[:$1]] yang {{PLURAL:$2|telah|telah}} ditinjau:',
 	'stableversions-review' => 'Ditinjau pada <i>$1</i> oleh $2',
 );
 
@@ -553,12 +553,12 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stableversions' => 'Nohjeloorte un makeete Versione aanloore',
-	'stableversions-leg1' => 'De Leß met de nohjeloorte un makeete Versione för en Sigg.',
+	'stableversions' => ' stable, Nohjekik un makeete Versione aanloore',
+	'stableversions-leg1' => 'De Leß met de nohjekik Versione för en Sigg.',
 	'stableversions-page' => 'Sigge-Tittel:',
-	'stableversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjeloorte un makeete Versione.',
-	'stableversions-list' => 'Hee kütt {{PLURAL:$2|de|en Leß met dä|kei nohjeloorte un makeete Version vun dä}} Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjeloorte un makeete Version:|ier nohjeloorte un makeete Versione:|}}',
-	'stableversions-review' => 'Nohjeloort un makeet {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
+	'stableversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjekik Versione.',
+	'stableversions-list' => 'Hee kütt {{PLURAL:$2|de|en Leß met dä|kei nohjekik Version vun dä}} Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjekk Version:|ier nohjekik Versione:|}}',
+	'stableversions-review' => 'nohjekik {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
 );
 
 /** Latin (Latina)
@@ -824,7 +824,7 @@ $messages['ru'] = array(
 	'stableversions-leg1' => 'Список проверенных версий страницы',
 	'stableversions-page' => 'Название страницы:',
 	'stableversions-none' => '«[[:$1]]» не имеет проверенных версий.',
-	'stableversions-list' => 'Следующий список {{PLURAL:$2|одной версии страницы|версий страниц}} «[[:$1]]» {{PLURAL:$2|была|были}} проверены:',
+	'stableversions-list' => '{{PLURAL:$2|Была проверена следующая версия|Были проверены следующие версии}} страницы «[[:$1]]»:',
 	'stableversions-review' => 'Проверена <i>$1</i> участником $2',
 );
 
