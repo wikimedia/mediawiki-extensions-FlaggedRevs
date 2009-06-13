@@ -10,7 +10,6 @@ $messages = array();
 $messages['en'] = array(
 	'oldreviewedpages' => 'Outdated reviewed pages',
 	'oldreviewedpages-legend' => 'List reviewed pages with revisions pending review',
-	'oldreviewedpages-list' => 'This page lists reviewed pages that have pending edits.',
 	'oldreviewedpages-none' => 'There are currently no pages meeting these criteria',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hour|hours}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|day|days}})',

@@ -92,7 +92,6 @@ class OldReviewedPages extends SpecialPage
 			$wgOut->addHTML( $form );
 			# Add list output
 			$num = $pager->getNumRows();
-			$wgOut->addHTML( wfMsgExt('oldreviewedpages-list', array('parse'), $num ) );
 			if( $num ) {
 				$wgOut->addHTML( $pager->getNavigationBar() );
 				$wgOut->addHTML( $pager->getBody() );
