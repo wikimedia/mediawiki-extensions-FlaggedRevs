@@ -33,8 +33,7 @@ class ApiReview extends ApiBase {
 	 * except that it generates the template and image parameters itself.
 	 */
 	public function execute() {
-		global $wgUser;		
-		$this->getMain()->requestWriteMode();		
+		global $wgUser;
 		$params = $this->extractRequestParams();
 
 		// Check permissions
@@ -117,6 +116,10 @@ class ApiReview extends ApiBase {
 	public function mustBePosted() {
 		return true;
 	}
+	
+	public function isWriteMode() { 
+ 		return true; 
+ 	}
 
 	public function getAllowedParams() {
 		$pars = array(
