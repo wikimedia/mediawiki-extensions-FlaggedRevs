@@ -819,7 +819,7 @@ EOT;
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId );
 			# Was the edit that we tried to revert to reviewed?
 			if( $frev ) {
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, true );
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
 				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
 			}
 		}
