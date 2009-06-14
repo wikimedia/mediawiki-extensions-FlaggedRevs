@@ -911,7 +911,7 @@ Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les
 	'stabilization-def' => "Version affichée lors de l'affichage par défaut de la page",
 	'stabilization-def1' => 'La version stable, sinon la version courante',
 	'stabilization-def2' => 'La version courante',
-	'stabilization-restrict' => 'Revoir automatiquement les restrictions',
+	'stabilization-restrict' => 'Restrictions de relecture automatique',
 	'stabilization-restrict-none' => 'Pas de restriction supplémentaire',
 	'stabilization-submit' => 'Confirmer',
 	'stabilization-notexists' => "Il n'y a pas de page « [[:$1|$1]] », pas de paramétrage possible",

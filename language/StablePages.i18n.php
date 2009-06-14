@@ -257,6 +257,17 @@ $messages['fr'] = array(
 	'stablepages-precedence' => 'Préférence :',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'stablepages' => 'Pâges stâbles.',
+	'stablepages-stable' => 'vèrsion stâbla',
+	'stablepages-text' => 'Vê-que una lista de les pâges configurâs a la man por que lo contegnu de lor vèrsion stâbla seye montrâ per dèfôt por los liésors.',
+	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
+	'stablepages-config' => 'Configuracion',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */

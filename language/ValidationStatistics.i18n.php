@@ -413,6 +413,35 @@ Les versions stables sont des versions de pages vérifiées par au moins un util
 	'validationstatistics-reviews' => 'Relecteurs',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'validationstatistics' => 'Statistiques de validacion.',
+	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]] et '''[[Special:ListUsers/reviewer|$2]]''' utilisator{{PLURAL:$2||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|rèvisor]].
+
+Los contributors et los rèvisors sont des utilisators ètablis que pôvont controlar les rèvisions de les pâges.",
+	'validationstatistics-time' => "''Cetes balyês sont en cache et pôvont pas étre a jorn.''
+
+Los changements qu’ont étâ controlâs per des utilisators ètablis sont considèrâs coment revus.
+
+Lo temps moyen de rèvision des changements per des ''utilisators pas branchiês'' est '''$1''' ; la valor du méten est '''$3'''.  
+$4
+Lo dèlê moyen por les [[Special:OldReviewedPages|pâges que contegnont des changements pas revus en cors]] est '''$2'''.
+Celes pâges sont considèrâs ''dèpassâs''. De mémo, les pâges sont dècllarâs ''sincronisâs'' se la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]] est asse-ben la vèrsion de brolyon d’ora.
+Les vèrsions stâbles sont des vèrsions de pâges controlâs per u muens yon utilisator règuliér.",
+	'validationstatistics-table' => "Les statistiques por châque èspâço de nom sont montrâs ce-desot, a l’''èxcllusion'' de les pâges de redirèccion.",
+	'validationstatistics-ns' => 'Èspâço de nom',
+	'validationstatistics-total' => 'Pâges',
+	'validationstatistics-stable' => 'Revua',
+	'validationstatistics-latest' => 'Sincronisâ',
+	'validationstatistics-synced' => 'Sincronisâ / Revua',
+	'validationstatistics-old' => 'Dèpassâ',
+	'validationstatistics-utable' => 'Vê-que la lista des 5 mèlyors rèvisors dens l’hora passâ.',
+	'validationstatistics-user' => 'Utilisator',
+	'validationstatistics-reviews' => 'Rèvisions',
+);
+
 /** Irish (Gaeilge)
  * @author Alison
  */

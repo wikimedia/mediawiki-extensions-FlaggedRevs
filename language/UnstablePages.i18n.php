@@ -184,6 +184,17 @@ $messages['fr'] = array(
 	'unstablepages-config' => 'Configuration',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'unstablepages' => 'Pâges pas stâbles.',
+	'unstablepages-stable' => 'vèrsion stâbla',
+	'unstablepages-text' => 'Vê-que una lista de les pâges configurâs a la man por que lo contegnu de lor vèrsion brolyon seye montrâ per dèfôt por los liésors.',
+	'unstablepages-none' => 'Y at gins de pâge dens ceta lista.',
+	'unstablepages-config' => 'Configuracion',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
