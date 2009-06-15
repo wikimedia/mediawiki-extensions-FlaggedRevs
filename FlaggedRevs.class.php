@@ -1339,6 +1339,8 @@ class FlaggedRevs {
 		if( !is_array($flags) ) {
 			if( $oldSv ) { // use the last stable version if $flags not given
 				$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
+			} else { // new page? use minimal level
+				$flags = self::getAutoReviewTags( FR_SIGHTED );
 			}
 			if( !is_array($flags) ) {
 				wfProfileOut( __METHOD__ );
