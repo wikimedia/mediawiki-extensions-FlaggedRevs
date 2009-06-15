@@ -851,7 +851,7 @@ EOT;
 			global $wgFlaggedRevsPatrolLevel;
 			# Note: pages in reviewable namespace with FR disabled
 			# won't autopatrol. May or may not be useful...
-			$quality = FlaggedRevs::getRevQuality( $rc->getTitle(),
+			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'],
 				$rc->mAttribs['rc_this_oldid'],GAID_FOR_UPDATE );
 			if( $quality !== false && $quality >= $wgFlaggedRevsPatrolLevel ) {
 				RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
@@ -908,11 +908,11 @@ EOT;
 		if( $rev && $undid && $user->isAllowed('autoreview') ) {
 			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
 			# Don't count self-reverts
-			if( $badrev && $badrev->getRawUser() && $badrev->getRawUser() != $rev->getRawUser() ) {
-				$p = FlaggedRevs::getUserParams( $badrev->getRawUser() );
+			if( $badRev && $badRev->getRawUser() && $badRev->getRawUser() != $rev->getRawUser() ) {
+				$p = FlaggedRevs::getUserParams( $badRev->getRawUser() );
 				$p['revertedEdits'] = isset($p['revertedEdits']) ? $p['revertedEdits'] : 0;
 				$p['revertedEdits']++;
-				FlaggedRevs::saveUserParams( $badrev->getRawUser(), $p );
+				FlaggedRevs::saveUserParams( $badRev->getRawUser(), $p );
 			}
 		}
 		return true;

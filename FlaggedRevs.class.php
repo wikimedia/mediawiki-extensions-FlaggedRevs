@@ -903,22 +903,20 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * @param Title $title
+	 * @param int $page_id
 	 * @param int $rev_id
 	 * @param $flags, GAID_FOR_UPDATE
 	 * @returns mixed (int or false)
 	 * Get quality of a revision
 	 */
-	public static function getRevQuality( $title, $rev_id, $flags=0 ) {
+	public static function getRevQuality( $page_id, $rev_id, $flags=0 ) {
 		$db = ($flags & GAID_FOR_UPDATE) ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$quality = $db->selectField( 'flaggedrevs', 
+		return $db->selectField( 'flaggedrevs',
 			'fr_quality',
-			array( 'fr_page_id' => $title->getArticleID( $flags ),
-				'fr_rev_id' => $rev_id ),
+			array( 'fr_page_id' => $page_id, 'fr_rev_id' => $rev_id ),
 			__METHOD__,
 			array( 'USE INDEX' => 'PRIMARY' )
 		);
-		return $quality;
 	}
 	
 	/**
@@ -929,7 +927,7 @@ class FlaggedRevs {
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
 	public static function revIsFlagged( $title, $rev_id, $flags=0 ) {
-		$quality = self::getRevQuality( $title, $rev_id, $flags );
+		$quality = self::getRevQuality( $title->getArticleId(), $rev_id, $flags );
 		return ($quality !== false);
 	}
 	

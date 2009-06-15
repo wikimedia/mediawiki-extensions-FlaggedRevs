@@ -1095,8 +1095,8 @@ class FlaggedArticle extends Article {
 				}
 			}
 		}
-		$newRevQ = FlaggedRevs::getRevQuality( $newRev->getTitle(), $newRev->getId() );
-		$oldRevQ = $oldRev ? FlaggedRevs::getRevQuality( $newRev->getTitle(), $oldRev->getId() ) : false;
+		$newRevQ = FlaggedRevs::getRevQuality( $newRev->getPage(), $newRev->getId() );
+		$oldRevQ = $oldRev ? FlaggedRevs::getRevQuality( $newRev->getPage(), $oldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $oldRev ) {
 			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr>" );
