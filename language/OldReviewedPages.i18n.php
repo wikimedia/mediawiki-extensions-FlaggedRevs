@@ -35,8 +35,6 @@ $messages['qqq'] = array(
 Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
 	'oldreviewedpages-legend' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.',
-	'oldreviewedpages-list' => '{{Flagged Revs}}
-Parameter $1 is the number of pages going to be listed, to be used with PLURAL.',
 	'oldreviewedpages-none' => '{{Flagged Revs}}',
 	'oldreviewedpages-hours' => '{{Flagged Revs}}',
 	'oldreviewedpages-days' => '{{Flagged Revs}}',
@@ -505,7 +503,6 @@ $messages['gsw'] = array(
 $messages['he'] = array(
 	'oldreviewedpages' => 'דפים בדוקים ישנים',
 	'oldreviewedpages-legend' => 'רשימת דפים בדוקים עם גרסאות שלא נבדקו',
-	'oldreviewedpages-list' => 'דף זה מציג דפים שנבדקו, שיש להם עריכות הממתינות לבדיקה.',
 	'oldreviewedpages-none' => 'אין כרגע דפים שעונים על קריטריונים אלה',
 	'oldreviewedpages-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
 	'oldreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
