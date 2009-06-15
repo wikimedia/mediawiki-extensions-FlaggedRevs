@@ -151,6 +151,17 @@ $messages['fr'] = array(
 	'likedpages-graphs' => "Données d'évaluation",
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'likedpages' => 'Pâges qu’ont des èstimacions hôtes.',
+	'likedpages-leg' => 'Trovar les pâges qu’ont des èstimacions hôtes',
+	'likedpages-list' => 'Vê-que una lista de les pâges triyês d’aprés lor èstimacion per los liésors.',
+	'likedpages-none' => 'Y at gins de pâge dens ceta lista.',
+	'likedpages-graphs' => 'balyês d’èstimacion',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */

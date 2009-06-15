@@ -266,6 +266,10 @@ $messages['frp'] = array(
 	'stablepages-text' => 'Vê-que una lista de les pâges configurâs a la man por que lo contegnu de lor vèrsion stâbla seye montrâ per dèfôt por los liésors.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'stablepages-config' => 'Configuracion',
+	'stablepages-prec-none' => 'gins de prèference',
+	'stablepages-prec-quality' => 'prèference por la qualitât',
+	'stablepages-prec-pristine' => 'prèference sen tache',
+	'stablepages-precedence' => 'Prèference :',
 );
 
 /** Galician (Galego)

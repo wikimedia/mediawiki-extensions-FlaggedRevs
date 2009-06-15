@@ -415,6 +415,26 @@ $messages['fr'] = array(
 	'oldreviewedpages-viewing' => '(en révision)',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'oldreviewedpages' => 'Pâges que les rèvisions sont dèpassâs.',
+	'oldreviewedpages-legend' => 'Listar les pâges revues avouéc des vèrsions a revêre',
+	'oldreviewedpages-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
+	'oldreviewedpages-hours' => '($1 hor{{PLURAL:$1|a|es}})',
+	'oldreviewedpages-days' => '($1 jorn{{PLURAL:$1||s}})',
+	'oldreviewedpages-recent' => '(muens de yona hora)',
+	'oldreviewed-category' => 'Catègorie :',
+	'oldreviewed-watched' => 'Dens ma lista de survelyence',
+	'oldreviewed-stable' => 'Stabilisâ',
+	'oldreviewed-diff' => 'revêre',
+	'oldreviewed-size' => 'Difèrence de talye la ples grôssa (en octèts) :',
+	'oldreviewedpages-unwatched' => '(pas siuvua)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilisator actif siut|utilisators actifs siuvont}} ceta pâge)',
+	'oldreviewedpages-viewing' => '(en rèvision)',
+);
+
 /** Irish (Gaeilge)
  * @author Alison
  */
@@ -677,15 +697,19 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'oldreviewedpages' => 'Verbei nohjekik Sigge',
+	'oldreviewedpages-legend' => 'Leß met de nohjekik Sigge met neue Versione, di op et Nohkike waade',
 	'oldreviewedpages-none' => 'För der Momang paße jrad kei Sigge op die Ußwahl',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stund|Stunde}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Daach|Dähsch}})',
 	'oldreviewedpages-recent' => '(winnijer wie en Stund)',
 	'oldreviewed-category' => 'Saachjrupp:',
 	'oldreviewed-watched' => 'En minge Oppassleß',
+	'oldreviewed-diff' => 'nohkike',
 	'oldreviewed-size' => 'Jüüßte Änderung vum Ömfang en <i lang="en">Bytes</i>:',
 	'oldreviewedpages-unwatched' => '(op keine Oppassleß)',
 	'oldreviewedpages-watched' => '(bei {{PLURAL:$1|einem aktive Metmaacher|$2 aktive Metmaachere|keinem aktive Metmaacher}} op de Oppassleß)',
+	'oldreviewedpages-viewing' => '(weed nohjekik)',
 );
 
 /** Cornish (Kernewek)

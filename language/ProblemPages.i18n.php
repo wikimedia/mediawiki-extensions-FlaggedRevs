@@ -161,6 +161,17 @@ $messages['fr'] = array(
 	'problempages-graphs' => "données d'évaluation",
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'problempages' => 'Pâges qu’ont des crouyes èstimacions.',
+	'problempages-leg' => 'Trovar les pâges qu’ont des èstimacions fêbles',
+	'problempages-list' => 'Vê-que una lista de les pâges triyês d’aprés lor èstimacion per los liésors.',
+	'problempages-none' => 'Y at gins de pâge dens ceta lista.',
+	'problempages-graphs' => 'balyês d’èstimacion',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */

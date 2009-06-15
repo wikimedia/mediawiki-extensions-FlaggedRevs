@@ -792,6 +792,7 @@ Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''. Jenou esu joot do
 	'validationstatistics-latest' => 'A-juur',
 	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
 	'validationstatistics-old' => 'Övverhollt',
+	'validationstatistics-utable' => 'Hee dronger shteiht de Leß met de aktievste 5 unger de {{int:reviewer}} en de läzte Shtond.',
 );
 
 /** Cornish (Kernewek)
@@ -1081,13 +1082,17 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'validationstatistics' => 'Statisteche de validazione',
-	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''$2''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].",
-	'validationstatistics-time' => "'''U seguende date stè jndr'à cache e non g'avène aggiornate.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].
 
-'A medie attese pe le cangiaminde da ''utinde ca non ge sonde colleghete'' jè '''$1'''; 'a medie jè '''$3'''.
+Le cangiature e le revisure onne state stabbelite da l'utinde ca ponne verificà le revisiune de le pàggene.",
+	'validationstatistics-time' => "'''A seguende date stè jndr'à cache e non g'avène aggiornate.''
+
+Le cangiaminde ca onne state verificate da l'utinde stabbelite onne state conziderate riviste.
+
+'A medie attese pe le cangiaminde da ''utinde ca non ge sonde collegate'' jè '''$1'''; 'a medie jè '''$3'''.
 $4
 'U timbe medie pe le [[Special:OldReviewedPages|pàggene non aggiornete]] jè '''$2'''.
-Ste pàggene sonde conziderete ''scadute''. Pò, stonne le pàggene ca sonde conziderete ''singronizzate'' ce 'a [[{{MediaWiki:Validationpage}}|versiona secure]]  jè ppure 'a versiona attuale a bozza.
+Ste pàggene sonde conziderate ''scadute''. Pò, stonne le pàggene ca sonde conziderate ''singronizzate'' ce 'a [[{{MediaWiki:Validationpage}}|versiona secure]] jè ppure 'a versiona attuale a bozza.
 Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende stabbilite.",
 	'validationstatistics-table' => "Le statisteche pe ogne namespace sonde mostrete aqquà sotte, 'scludenne le pàggene de redirezionaminde.",
 	'validationstatistics-ns' => 'Neimspeise',
@@ -1096,6 +1101,9 @@ Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende st
 	'validationstatistics-latest' => 'Singronizzate',
 	'validationstatistics-synced' => 'Singronizzete/Riviste',
 	'validationstatistics-old' => "Non g'è aggiornete",
+	'validationstatistics-utable' => "Sotte ste 'na liste de le 5 cchiù 'mbortande revisure de l'urtema ore.",
+	'validationstatistics-user' => 'Utende',
+	'validationstatistics-reviews' => 'Reviste',
 );
 
 /** Russian (Русский)

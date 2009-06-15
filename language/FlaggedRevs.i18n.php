@@ -358,7 +358,8 @@ If an anonymous user edits a stable page, after saving the page he sees the draf
 	'revreview-newest-basic-i' => '{{Flagged Revs-small}}
 Used in the "flagged revs box" when you are viewing the latest draft version, but when there is a sighted revision, the stable version. 
 
-Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&stable=0 de.wikipedia].',
+Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&stable=0 de.wikipedia].
+* Note, the example seems not to work, currently.',
 	'revreview-newest-quality' => '{{Flagged Revs}}',
 	'revreview-newest-quality-i' => '{{Flagged Revs}}',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
@@ -454,7 +455,7 @@ Appears on top of the protection form when the page has no stable version at all
 {{doc-right}}',
 	'right-stablesettings' => '{{Flagged Revs}}
 
-{{doc-right}}',
+{{doc-right|stablesettings}}',
 	'right-validate' => '{{Flagged Revs}}
 
 {{doc-right}}',
@@ -6818,6 +6819,7 @@ $messages['ksh'] = array(
 	'flaggedrevs-backlog' => "Mer han em jraad ene Shtau en de [[Special:OldReviewedPages|Schlang met de Änderunge aan de Sigge]] för zem Nohkike. '''Ding Hülp weedt jebruch!'''",
 	'flaggedrevs-watched-pending' => "Mer han jraad [{{fullurl:Special:OldReviewedPages|watched=1}} noch nit nohjekik Änderunge] aan Sigge op Ding Oppassleß, wohvun ällder Versione ald nohjekik wohre. '''Ding Hülp weedt jebruch!'''",
 	'flaggedrevs-desc' => 'Määt et för de Metmaacher müjjelesch, de Versijone fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualität stabil ze hallde.',
+	'flaggedrevs-prefs-watch' => 'Dun ming selfs nohjekik Sigge automatisch för ming Oppassliss vürschlage',
 	'group-reviewer' => 'Nohkiker',
 	'group-reviewer-member' => 'Nohkiker',
 	'grouppage-reviewer' => '{{ns:project}}:Nohkiker',
@@ -6825,6 +6827,9 @@ $messages['ksh'] = array(
 	'group-autoreview-member' => 'Automattesch Nohkiker',
 	'grouppage-autoreview' => '{{ns:project}}:Automattesch Nohkiker',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} beschtäätesch] {{GENDER:$3|vum|vum|vum Metmaacher|vum|vun dä}} [[User:$3|$3]]',
+	'review-diff2stable' => 'Donn der Ongerscheid zwesche der
+sighted
+un dä aktoälle Version belooere',
 	'review-logentry-app' => 'hät de Version r$2 vun dä Sigg [[$1]] nohjekik',
 	'review-logentry-id' => 'beloore',
 	'review-logpage' => 'Logboch vum Versione Nohkike',
@@ -6839,6 +6844,11 @@ Sigge.',
 	'revisionreview' => 'Versione nohkike',
 	'revreview-accuracy' => 'Jenouischkeit',
 	'revreview-accuracy-0' => 'nit frei jejovve',
+	'revreview-accuracy-1' => 'Sighted',
+	'revreview-accuracy-2' => 'Akeraat, Enhallt jeprööf',
+	'revreview-accuracy-3' => 'Quelle jeprööf',
+	'revreview-accuracy-4' => 'Exzelänt',
+	'revreview-approved' => 'Freijejovve, Aanjenumme, Beshtäätesch',
 	'revreview-auto' => '(automattesch)',
 	'revreview-auto-w' => 'Do bes en
 stable
@@ -6872,28 +6882,72 @@ En Löhsung för dat Problehm künnt sinn, di Sigg neu ze laade un norr_ens vun 
 	'revreview-edited' => "
 '''Änderunge wähde en de [[{{MediaWiki:Validationpage}}|stable Version]] opjenumme, esubald ene Metmaacher met däm Rääsch dohzoh se nohkik.'''
 Unge es '''dä ''Äntworf''''' ze sinn. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|Ein Änderung shteiht|$2 Änderunge shtonn|Kein Änderunge sheiht mieh}}] zom Nohkike aan.",
+	'revreview-invalid' => "Dat es e '''onjöltesch Ziihl:''' kei [[{{MediaWiki:Validationpage}}|nohjekik]] Version paß met dä aanjejovve Kännong zesamme.",
+	'revreview-legend' => 'Noote för der Ennhalt jävve',
 	'revreview-log' => 'Koot zosamme jefaß:',
 	'revreview-main' => 'Do moß en beschtemmpte Version vun en Enhalts_Sigg ußsöhke, öm se ze
 nohzekike.
 
 Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
+	'revreview-newest-basic' => '
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste sighted Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung es|$3  Änderunge sin|Et es keij Änderung}}] op et Nohkike am waade.',
+	'revreview-newest-basic-i' => '
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste sighted Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderunge aan Schablohne un Datteije udder beeds] sin op et Nohkike am waade.',
+	'revreview-newest-quality' => '
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung es|$3  Änderunge sin|Et es ävver keij Änderung}}] op et Nohkike am waade.',
+	'revreview-newest-quality-i' => '
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderunge aan Schablohne udder Datteije udder beeds] sin op et Nohkike am waade.',
+	'revreview-noflagged' => "Mer han kei nohjekik Versione vun hee dä Sigg, dröm künnt dä ier Qualliteit '''nit''' [[{{MediaWiki:Validationpage}}|checked]] 
+sin.",
+	'revreview-note' => '{{GENDER:$1|Dä|Et|Dä Metmaacher|Dat|De}} [[User:$1|$1]] hät hee unge di Notiz [[{{MediaWiki:Validationpage}}|bemm Nohkike]] övver di Version hee faßjehallde:',
+	'revreview-notes' => 'Notiz för zem Zeije:',
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
 	'revreview-patrol' => 'Donn hee di Änderung als „nohjeloort“ makeere',
 	'revreview-patrol-title' => 'Als „nohjeloort“ makeere',
 	'revreview-patrolled' => 'De ußjewählte Version vun dä Sigg „[[:$1|$1]“ es als „nohjeloort“ makeet.',
+	'revreview-quality' => '
+Dat es de neuste  [[{{MediaWiki:Validationpage}}|quality]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|ein Änderung|$3  Änderunge |keij Änderung}}] op et Nohkike am waade.',
+	'revreview-quality-i' => '
+Dat es de neuste [[{{MediaWiki:Validationpage}}|quality]] Version, [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderunge aan Schablohne, udder Datteije, udder beeds] op et Nohkike aam waade.',
+	'revreview-quality-old' => '
+Dat hee es en [[{{MediaWiki:Validationpage}}|quality]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} All opleßte]), un wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.
+Et sinn_er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} neu Änderunge] drahn jemaat woode.',
+	'revreview-quality-same' => '
+Dat hee es de neuste [[{{MediaWiki:Validationpage}}|quality]] Version ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} All opleßte]), se wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>.',
+	'revreview-quality-source' => '
+En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} quality Version] vun dää Sigg wood [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] aam <i>$2</i>, se bout op di Version hee op.',
 	'revreview-quality-title' => 'Jeprööfte Qualliteitß-Sigg',
+	'revreview-quick-basic' => "
+'''[[{{MediaWiki:Validationpage}}|Sighted page]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}}  draft beloore]]",
+	'revreview-quick-basic-old' => "
+'''[[{{MediaWiki:Validationpage}}|Sighted Sigg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft belooere]]",
+	'revreview-quick-basic-same' => "
+'''[[{{MediaWiki:Validationpage}}|Sighted Sigg]]'''",
 	'revreview-quick-invalid' => "'''Onjöltijje Versions-Nommer'''",
+	'revreview-quick-none' => "
+'''[[{{MediaWiki:Validationpage}}|Aktoälle Version]]''' (nit nohjekik)",
 	'revreview-selected' => "De ußjesoohte Version vun '''$1:'''",
 	'revreview-source' => 'Quell för ene Äntworf',
 	'revreview-style' => 'Lässbaakeit',
 	'revreview-submit' => 'Lohß Jonn!',
 	'revreview-submitting' => 'Am Övverdraare&nbsp;…',
 	'revreview-finished' => 'Fäädesch nohjeloort!',
+	'revreview-toggle' => '(Ändere)',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
 	'revreview-update-includes' => "'''E paa Schabloone un/udder Dateije sin jeändert woode:'''",
 	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
 op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
 fottjeschmesse hät?',
+	'right-stablesettings' => '
+Enshtelle, wi en
+stable version
+beshtemmp un aanjezeish weed',
 	'right-validate' => 'Versione nohloore un beschtääteje',
 	'readerfeedback' => 'Wat dengkß De övver hee di Sigg?',
 	'readerfeedback-level-none' => '(onsescher)',

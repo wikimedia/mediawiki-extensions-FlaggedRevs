@@ -443,6 +443,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author ChrisPtDe
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
@@ -454,7 +455,7 @@ $messages['fr'] = array(
 	'ratinghistory-leg' => 'Données de l’historique des évaluations pour [[:$1|$1]]',
 	'ratinghistory-tab' => 'évaluation',
 	'ratinghistory-link' => 'Évaluation de la page',
-	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci d'avoir avoir consacré du temps pour relire cette page !</font>''",
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Merci d'avoir consacré du temps pour relire cette page !</font>''",
 	'ratinghistory-period' => 'Période :',
 	'ratinghistory-month' => 'dernier mois',
 	'ratinghistory-3months' => '3 derniers mois',
@@ -478,6 +479,40 @@ L''''évaluation moyenne en cours''' est simplement la moyenne de toutes les év
 
 Le '''nombre de relectures par jour''' <font color=\"red\">''(rouge)''</font> est affiché sur le graphe ci-dessous, avec une échelle ''1:\$1''.",
 	'right-feedback' => "Utiliser le formulaire de retour d'informations pour évaluer une page",
+);
+
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'ratinghistory' => 'Historico de l’èstimacion de la pâge.',
+	'ratinghistory-leg' => 'Balyês de l’historico de les èstimacions por [[:$1|$1]]',
+	'ratinghistory-tab' => 'èstimacion',
+	'ratinghistory-link' => 'Èstimacion de la pâge',
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Marci d’avêr consacrâ de temps por revêre ceta pâge !</font>''",
+	'ratinghistory-period' => 'Temps :',
+	'ratinghistory-month' => 'mês passâ',
+	'ratinghistory-3months' => '3 mês passâs',
+	'ratinghistory-year' => 'an passâ',
+	'ratinghistory-3years' => '3 ans passâs',
+	'ratinghistory-ave' => 'Moyena : $1',
+	'ratinghistory-chart' => 'Èstimacions per los liésors pendent lo temps',
+	'ratinghistory-purge' => 'purgiér lo cache',
+	'ratinghistory-table' => 'Vua d’ensemblo de les èstimacions per los liésors',
+	'ratinghistory-users' => 'Utilisators qu’ont fêt des èstimacions',
+	'ratinghistory-graph' => '$2 sur « $3 » ($1 rèvision{{PLURAL:$1||s}})',
+	'readerfeedback-svg' => 'Vêre en SVG',
+	'ratinghistory-table-rating' => 'Èstimacion',
+	'ratinghistory-table-votes' => 'Votos',
+	'ratinghistory-none' => 'Por lo moment, y at pas prod d’avis èxprimâs per des liésors por fâre vêre des diagramos.',
+	'ratinghistory-legend' => "L’'''èstimacion moyena de tôs los jorns''' <font color=\"blue\">''(blu)''</font> et
+l’'''èstimacion moyena en cors''' <font color=\"green\">''(vèrd)''</font> sont reprèsentâs desot fôrma de diagramo ce-desot, per dâta.
+L’'''èstimacion moyena en cors''' est simplament la moyena de totes les èstimacions de tôs los jorns ''dens'' lo temps chouèsi.
+
+Èchiéla : '''[1]''' - Crouyo ; '''[2]''' - Prod moyen ; '''[3]''' - Moyen ; '''[4]''' - Bon ; '''[5]''' - Famox.
+
+Lo '''nombro de rèvisions per jorn''' <font color=\"red\">''(rojo)''</font> est montrâ sur lo diagramo ce-desot, avouéc una èchiéla ''1:\$1''.",
+	'right-feedback' => 'Utilisar lo formulèro de retôrn d’enformacions por èstimar una pâge',
 );
 
 /** Irish (Gaeilge)
@@ -845,14 +880,22 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Ene schöne Dangk un märßie för et Nohkike!</font>''",
 	'ratinghistory-month' => 'letzt Mohnd',
 	'ratinghistory-3months' => 'letzte drei Mohnd',
 	'ratinghistory-year' => 'letz Johr',
 	'ratinghistory-3years' => 'letz drei Johre',
 	'ratinghistory-ave' => 'Dorschnett: $1',
 	'ratinghistory-purge' => 'Donn der Zwescheshpeisher (der <i lang="en">cache</i>) leddisch maache',
+	'ratinghistory-table' => 'Övverbleck övver de Lesser ier Enschäzunge',
 	'readerfeedback-svg' => 'Als en <code>SVG</code>-Dattei aanloore',
 	'ratinghistory-table-votes' => 'Shtemme',
+	'ratinghistory-legend' => "Dä '''dääschlesche Dorschnett vun de Enschäzunge''' <font color=\"blue\">''(en blou)''</font> un dä 
+'''loufende Dorschnett vun de Enschäzunge''' <font color=\"green\">''(en jröhn)''</font> sin unge opjemohlt, pro Dattum. Dä '''loufende Dorschnett''' es eijfach dä Dorschnett fun all dä dääschlesche Enschäzunge ''ennerhallef'' fun däm Zick_Afschnet för jeede Daach.
+
+Lejend fun de Enschäzunge: '''[1]''' = {{int:readerfeedback-level-0}}, '''[2]''' = {{int:readerfeedback-level-1}}, '''[3]''' = {{int:readerfeedback-level-2}}, '''[4]''' = {{int:readerfeedback-level-3}}, '''[5]''' = {{int:readerfeedback-level-4}}.
+
+Di '''Aanzahl, wi öff en Version nohjekik wood för jeede Daach''' <font color=\"red\">''(en rud)''</font> weed en dä Beldsche unge em Moohßshtaabs-Verhälltneß ''1:\$1'' jezeisch.",
 );
 
 /** Luxembourgish (Lëtzebuergesch)

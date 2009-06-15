@@ -150,6 +150,15 @@ $messages['fr'] = array(
 	'qualityoversight-legend' => 'Rechercher les journaux des révisions récentes',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'qualityoversight' => 'Supèrvision de qualitât.',
+	'qualityoversight-list' => 'Ceta pâge liste les novèles aprobacions et les dèprèciacions de les vèrsions.',
+	'qualityoversight-legend' => 'Rechèrchiér los jornals de les novèles rèvisions',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
