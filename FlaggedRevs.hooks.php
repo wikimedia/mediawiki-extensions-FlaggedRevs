@@ -1420,9 +1420,10 @@ EOT;
 	public static function addToWatchlistQuery( &$conds, &$tables, &$join_conds, &$fields ) {
 		global $wgUser;
 		if( $wgUser->isAllowed('review') ) {
-			$tables[] = 'flaggedpages';
-			$fields[] = 'fp_stable';
-			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+			$fields[] = 'fpp_rev_id';
+			$tables[] = 'flaggedpage_pending';
+			$join_conds['flaggedpage_pending'] = array( 'LEFT JOIN',
+				'fpp_page_id = rc_cur_id AND fpp_quality = '.FlaggedRevs::getPatrolLevel() );
 		}
 		return true;
 	}
