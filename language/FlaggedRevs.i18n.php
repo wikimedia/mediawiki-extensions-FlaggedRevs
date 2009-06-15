@@ -261,6 +261,7 @@ $messages['qqq'] = array(
 General title for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.
 * "flagged" in the sense of "has been seen, has been checked"',
 	'flaggedrevs-backlog' => '{{Flagged Revs}}',
+	'flaggedrevs-watched-pending' => 'Appears on top of watchlist and recent changes.',
 	'flaggedrevs-desc' => '{{Flagged Revs}}
 
 Shown in [[Special:Version]] as a short description of this extension. Do not translate links.',
@@ -446,13 +447,13 @@ Appears on top of the protection form when the current version is not the stable
 Appears on top of the protection form when the page has no stable version at all; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility2}} is shown.',
 	'right-autoreview' => '{{Flagged Revs}}
 
-{{doc-right}}',
+{{doc-right|autoreview}}',
 	'right-movestable' => '{{Flagged Revs}}
 
-{{doc-right}}',
+{{doc-right|movestable}}',
 	'right-review' => '{{Flagged Revs}}
 
-{{doc-right}}',
+{{doc-right|review}}',
 	'right-stablesettings' => '{{Flagged Revs}}
 
 {{doc-right|stablesettings}}',
@@ -6875,7 +6876,7 @@ Dat kann passeeere, wann en Schablohn en ander Schablohn udder en Dattei enbengk
 En Löhsung för dat Problehm künnt sinn, di Sigg neu ze laade un norr_ens vun füre nohzekike.",
 	'revreview-current' => 'Äntworf',
 	'revreview-draft-title' => 'Äntworfs_Sigg',
-	'revreview-edit' => 'Dä Äntworf ändere',
+	'revreview-edit' => 'Dä Äntworf verändere',
 	'revreview-editnotice' => "
 '''De Änderunge aan hee dä Sigg kumme bei de [[{{MediaWiki:Validationpage}}|stable Versione]], wann ene Metmaacher met dämm Rääsch dohzoh se dohför nohkik.'''",
 	'revreview-flag' => 'Donn hee di Version nohkike!',
@@ -6932,47 +6933,156 @@ En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} quality Version] vun dää Sigg wo
 	'revreview-quick-invalid' => "'''Onjöltijje Versions-Nommer'''",
 	'revreview-quick-none' => "
 '''[[{{MediaWiki:Validationpage}}|Aktoälle Version]]''' (nit nohjekik)",
+	'revreview-quick-quality' => "
+'''[[{{MediaWiki:Validationpage}}|Quality Sigg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft aanloore]]",
+	'revreview-quick-quality-old' => "
+'''[[{{MediaWiki:Validationpage}}|Quality Sigg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft aanloore]]",
+	'revreview-quick-quality-same' => "
+'''[[{{MediaWiki:Validationpage}}|Quality Sigg]]'''",
+	'revreview-quick-see-basic' => "
+'''[[{{MediaWiki:Validationpage}}|Draft]]''' [Donn de [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Sigg beloore]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} verjliische])",
+	'revreview-quick-see-quality' => "
+'''[[{{MediaWiki:Validationpage}}|Draft]]''' [Donn de [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Sigg belooere]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} verjliische])",
 	'revreview-selected' => "De ußjesoohte Version vun '''$1:'''",
 	'revreview-source' => 'Quell för ene Äntworf',
+	'revreview-stable' => '
+Stable
+Sigg',
+	'revreview-stable-title' => '
+Sighted
+Sigg',
+	'revreview-stable1' => '
+Velleisch wells De joh [{{fullurl:$1|stableid=$2}} hee di flagged Version] aankike un looere of se jez de [{{fullurl:$1|stable=1}} stable Version] vun dä Sigg es?',
+	'revreview-stable2' => '
+Velleisch wells De joh de [{{fullurl:$1|stableid=$2}} stable Version] aankike, wann noch ein doh es?',
 	'revreview-style' => 'Lässbaakeit',
+	'revreview-style-0' => '
+nit freijejovve',
+	'revreview-style-1' => '
+kammer bruche',
+	'revreview-style-2' => '
+joot',
+	'revreview-style-3' => '
+jenou',
+	'revreview-style-4' => '
+exzelänt',
 	'revreview-submit' => 'Lohß Jonn!',
 	'revreview-submitting' => 'Am Övverdraare&nbsp;…',
 	'revreview-finished' => 'Fäädesch nohjeloort!',
+	'revreview-successful' => "
+'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz successfully flagged. ([{{fullurl:Special:Stableversions|page=$2}} stable Versione aanloore])'''",
+	'revreview-successful2' => "
+'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz successfully unflagged.'''",
+	'revreview-text' => "
+''Nit de neuste Version is dat, wat shtanndatmääßesch för der Lesser aanjezeisch weedt, söndern de [[{{MediaWiki:Validationpage}}|stable Version]].''",
+	'revreview-text2' => "
+''De [[{{MediaWiki:Validationpage}}|stable Versione]] sin checked Versione vun Sigge, un künne enjeshtallt wääde als dat, wat shtanndatmääßesch för der Lesser aanjezeisch weedt.''",
 	'revreview-toggle' => '(Ändere)',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
-	'revreview-update-includes' => "'''E paa Schabloone un/udder Dateije sin jeändert woode:'''",
+	'revreview-update' => "
+Bes esu joot, un donn all de Änderunge [[{{MediaWiki:Validationpage}}|nohkike]] ''(unge opjeliß)'' di jemaat woode, zick de stable Version et letz [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] wood.<br />
+'''E paa Schablohne udder Datteije sin jeändert woode:'''",
+	'revreview-update-includes' => "'''E paa Schabloone udder Dateije udder beeds sin jeändert woode:'''",
+	'revreview-update-none' => "
+Bes esu joot, un donn all de Änderunge [[{{MediaWiki:Validationpage}}|nohkike]] ''(unge opjeliß)'' di jemaat woode, zick de stable Version et letz [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} approved] wood.",
+	'revreview-update-use' => "
+'''Opjepaß:''' Wann ein vun dä Schablohne udder Datteije en
+stable
+Version hät, dann weedt di ald en dä
+stable
+Version vun dä Sigg jebruch.",
+	'revreview-visibility' => "
+'''Hee di Sigg hät en jeänderte [[{{MediaWiki:Validationpage}}|stable Version]].
+De Ennshtellunge för de Sigge ier stability settings kam_mer [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ändere].'''",
+	'revreview-visibility2' => "
+'''Hee di Sigg hät en övverhollte [[{{MediaWiki:Validationpage}}|stable Version]].
+De Ennshtellunge för de Sigge ier stability settings kam_mer [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ändere].'''",
+	'revreview-visibility3' => "
+'''Hee di Sigg hät keij [[{{MediaWiki:Validationpage}}|stable Version]].
+De Ennshtellunge för de Sigge ier stability settings kam_mer [{{fullurl:Special:Stabilization|page={{FULLPAGENAMEE}}}} ändere].'''",
 	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
 op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
 fottjeschmesse hät?',
+	'right-autoreview' => '
+Versione vun Sigge automattesch als
+sighted
+makeere',
+	'right-movestable' => '
+stable
+Sigge ömnenne',
+	'right-review' => '
+Versione als
+sighted
+makeere',
 	'right-stablesettings' => '
 Enshtelle, wi en
 stable version
 beshtemmp un aanjezeish weed',
 	'right-validate' => 'Versione nohloore un beschtääteje',
+	'rights-editor-autosum' => 'automattesch zohjedeilt',
+	'rights-editor-revoke' => 'hät [[GENDER:$1|däm|däm|däm Metmaacher|däm|dä}} [[$1]] uß dä Metmaacher-Jrop
+editor
+eruß jenumme',
+	'specialpages-group-quality' => 'Sigge ier Qualliteit',
+	'stable-logentry' => 'hät de Enstellunge för et Versione-Aanzeije vun dä Sigg „[[:$1]]“ jeändert',
+	'stable-logentry2' => 'hät de Enstellunge för et Versione-Aanzeije vun dä Sigg „[[$1]]“ op der Shtanndatt retuur jesaz',
+	'stable-logpage' => 'Logboch vun de Sigge ier Versione
+Stability',
+	'stable-logpagetext' => 'Dat hee es et Logboch met de Änderunge aan de Enstellunge för de Sigge mem Ennhallt vum Wiki ier [[{{MediaWiki:Validationpage}}|stable Versione]].
+En Leß met de
+stabilized
+Sigge es op dä [[Special:StablePages|Leß met de stable Sigge]].',
 	'readerfeedback' => 'Wat dengkß De övver hee di Sigg?',
+	'readerfeedback-text' => "''Beß esu joot un donn Der ene Momang nämme, öm dä Sigg hee dronge Note ze jävve. Ding Enschäzung hät iere Wäät un hellef met, de Websigge hee bäßer ze maache.''",
+	'readerfeedback-reliability' => 'De Zohverläßeschkeit',
+	'readerfeedback-completeness' => 'De Vollschtändeschkeit',
+	'readerfeedback-npov' => 'De Onaffhängeschkeit',
+	'readerfeedback-presentation' => 'Der Presenteer',
+	'readerfeedback-overall' => 'Zersamme jenumme',
 	'readerfeedback-level-none' => '(onsescher)',
+	'readerfeedback-level-0' => 'Schlääsch',
+	'readerfeedback-level-1' => 'Jenöösch',
+	'readerfeedback-level-2' => 'Jeiht esu',
+	'readerfeedback-level-3' => 'Joot',
+	'readerfeedback-level-4' => 'Exzälänt',
 	'readerfeedback-submit' => 'Lohß Jonn!',
+	'readerfeedback-main' => 'Do kanns nur Sigge benote, woh em Wiki singe Enhalld drop shteiht.',
+	'readerfeedback-success' => "'''Mer bedanke uns för et Nohkike för hee di Sigg!''' — ([$3 Noch Bemerkunge udder Froore?])",
+	'readerfeedback-voted' => "'''Et süüht esu uß, als hätts De för hee di Sigg ald Note enjedraare.''' — ([$3 Noch Bemerkunge udder Froore?])",
 	'readerfeedback-submitting' => 'Am Övverdraare&nbsp;…',
 	'readerfeedback-finished' => 'Ene schöne Dangk och!',
 	'revreview-filter-all' => 'All',
+	'revreview-filter-stable' => '
+shtabil',
+	'revreview-filter-approved' => '
+Approved',
+	'revreview-filter-reapproved' => 'Noch ens udder widder {{lcfirst:{{int:revreview-filter-approved}}}}',
+	'revreview-filter-unapproved' => 'Nit mieh {{lcfirst:{{int:revreview-filter-approved}}}}',
 	'revreview-filter-auto' => 'Automattesch',
 	'revreview-filter-manual' => 'Vun Hand',
 	'revreview-statusfilter' => 'Änderung vum Zohshtand:',
 	'revreview-typefilter' => 'Zoot:',
+	'revreview-tagfilter' => 'Makeerung:',
 	'revreview-levelfilter' => 'Nivvoh:',
 	'revreview-lev-sighted' => 'dorschjelooerte Version',
 	'revreview-lev-quality' => 'jeprööfte Qualliteits-Version',
 	'revreview-lev-pristine' => 'orshprönglesche Version',
+	'revreview-reviewlink' => 'nohkike',
+	'tooltip-ca-current' => 'De aktoälle
+draft
+vun hee dä Sigg aanlooere',
 	'tooltip-ca-stable' => 'Donn de {{int:stablepages-stable}} vun dä Sigg he beloore',
 	'tooltip-ca-default' => 'Enshtellunge för de
 quality assurance',
-	'tooltip-ca-ratinghist' => 'Wi de Lesser hee di Sigg ennschäze',
+	'tooltip-ca-ratinghist' => 'Wi de Lesser hee di Sigg ennschäze un wat se ier för Note jävve',
 	'revreview-locked-title' => 'Änderunge möße aanjekik wääde, iih dat se op hee dä Sigg aanjezeish wääde.',
 	'revreview-unlocked-title' => 'Änderunge möße nit aanjekik wääde, iih dat se op hee dä Sigg aanjezeish wääde.',
 	'revreview-locked' => 'Änderunge möße [[{{MediaWiki:Validationpage}}|aanjekik wääde]], iih dat se op hee dä Sigg aanjezeish wääde.',
 	'revreview-unlocked' => 'Änderunge möße nit [[{{MediaWiki:Validationpage}}|aanjekik wääde]], iih dat se op hee dä Sigg aanjezeish wääde.',
-	'log-show-hide-review' => '$1 et Logbooch vum Sigge-Aankike',
-	'revreview-tt-review' => 'Hee di Sigg aankike',
+	'log-show-hide-review' => '$1 et {{int:review-logpage}}',
+	'revreview-tt-review' => 'Donn heh di Sigg nohkike',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtätijunge Versione vun Sigge',
 );
 
@@ -8876,10 +8986,12 @@ $messages['pl'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Wersje oznaczone',
 	'flaggedrevs-backlog' => "Mamy zaległości w sprawdzaniu [[Special:OldReviewedPages|zmian oczekujących]] na przejrzenie. '''Potrzebna jest Twoja pomoc!'''",
-	'flaggedrevs-watched-pending' => "Na liście obserwowanych posiadasz strony [{{fullurl:Special:OldReviewedPages|watched=1}} oczekujące na przejrzenie]. '''Potrzebna jest Twoja pomoc!'''",
+	'flaggedrevs-watched-pending' => "Na Twojej liście obserwowanych stron znajdują się strony [{{fullurl:Special:OldReviewedPages|watched=1}} oczekujące na przejrzenie]. '''Potrzebna jest Twoja pomoc!'''",
 	'flaggedrevs-desc' => 'Umożliwia redaktorom i weryfikatorom ocenę edycji oraz oznaczenie zweryfikowanej wersji strony',
+	'flaggedrevs-pref-UI' => 'Interfejs wersji oznaczonych:',
 	'flaggedrevs-pref-UI-0' => 'Użyj szczegółowego interfejsu',
 	'flaggedrevs-pref-UI-1' => 'Użyj prostego interfejsu',
+	'prefs-flaggedrevs' => 'Wersje oznaczone',
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję oznaczoną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako przejrzane',
 	'group-editor' => 'Redaktorzy',
@@ -9759,7 +9871,7 @@ $messages['ru'] = array(
 	'revreview-basic' => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|правка|правки|правок}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновика] {{PLURAL:$3|ожидает|ожидают|ожидают}} проверки.',
 	'revreview-basic-i' => 'Это последняя [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} досмотренная] версия; [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
-В [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновике] есть требующие проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}изменения в шаблонах или файлах].',
+В [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновике] есть требующие проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} изменения в шаблонах или файлах].',
 	'revreview-basic-old' => 'Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.
 Могли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} правки].',
 	'revreview-basic-same' => 'Это последняя [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:Special:Stableversions|page={{FULLPAGENAMEE}}}} список всех]); [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
