@@ -335,7 +335,7 @@ class FlaggedRevs {
 		if( $qal == FR_PRISTINE ) {
 			$flags = self::quickTags( FR_PRISTINE );
 			# If tags are available and user can set them, we are done...
-			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
+			if( self::userCanAutoSetFlags( $flags, array(), $config ) ) {
 				return $flags;
 			}
 			$qal = FR_QUALITY; // try lower level
@@ -344,7 +344,7 @@ class FlaggedRevs {
 		if( $qal == FR_QUALITY ) {
 			$flags = self::quickTags( FR_QUALITY );
 			# If tags are available and user can set them, we are done...
-			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
+			if( self::userCanAutoSetFlags( $flags, array(), $config ) ) {
 				return $flags;
 			}
 			$qal = FR_SIGHTED; // try lower level
@@ -353,11 +353,41 @@ class FlaggedRevs {
 		if( $qal == FR_SIGHTED ) {
 			$flags = self::quickTags( FR_SIGHTED );
 			# If tags are available and user can set them, we are done...
-			if( RevisionReview::userCanSetFlags( $flags, array(), $config ) ) {
+			if( self::userCanAutoSetFlags( $flags, array(), $config ) ) {
 				return $flags;
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Returns true if a user can auto-set $flags.
+	 * This checks if the user has the right to autoreview
+	 * to the given levels for each tag.
+	 * @param array $flags, suggested flags
+	 * @param array $oldflags, pre-existing flags
+	 * @param array $config, visibility settings
+	 * @returns bool
+	 */
+	public static function userCanAutoSetFlags( $flags, $oldflags = array(), $config = array() ) {
+		global $wgUser;
+		if( !$wgUser->isAllowed('autoreview') ) {
+			return false;
+		}
+		# Check if all of the required site flags have a valid value
+		# that the user is allowed to set.
+		foreach( FlaggedRevs::getDimensions() as $qal => $levels ) {
+			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
+			$highest = count($levels) - 1; // highest valid level
+			# Levels may not apply for some pages
+			if( $level > 0 && !RevisionReview::levelAvailable( $qal, $level, $config ) ) {
+				return false;
+			# Sanity check numeric range
+			} elseif( $level < 0 || $level > $highest ) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	################# Parsing functions #################
