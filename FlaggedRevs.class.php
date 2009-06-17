@@ -941,7 +941,7 @@ class FlaggedRevs {
 	 */
 	public static function getRevQuality( $page_id, $rev_id, $flags=0 ) {
 		$db = ($flags & GAID_FOR_UPDATE) ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		return $db->selectField( 'flaggedrevs',
+		return (int)$db->selectField( 'flaggedrevs',
 			'fr_quality',
 			array( 'fr_page_id' => $page_id, 'fr_rev_id' => $rev_id ),
 			__METHOD__,
