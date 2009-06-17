@@ -702,6 +702,8 @@ $messages['ksh'] = array(
 	'oldreviewedpages-recent' => '(winnijer wie en Stund)',
 	'oldreviewed-category' => 'Saachjrupp:',
 	'oldreviewed-watched' => 'En minge Oppassleß',
+	'oldreviewed-stable' => '
+Stabilized',
 	'oldreviewed-diff' => 'nohkike',
 	'oldreviewed-size' => 'Jüüßte Änderung vum Ömfang en <i lang="en">Bytes</i>:',
 	'oldreviewedpages-unwatched' => '(op keine Oppassleß)',

@@ -84,6 +84,9 @@ $4
 	'validationstatistics-latest' => 'محدث',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 	'validationstatistics-old' => 'قديمة',
+	'validationstatistics-utable' => 'بالأسفل قائمة بأعلى 5 مراجعين في الساعة الأخيرة.',
+	'validationstatistics-user' => 'المستخدم',
+	'validationstatistics-reviews' => 'مراجعات',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -778,13 +781,21 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'validationstatistics' => 'Shtatistike vun de Beschtätijunge för Sigge',
-	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met däm Rääsch, ene [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.",
+	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.
+
+{{int:group-editor}} un {{int:group-reviewer}} sin 
+established 
+Metmaacher, di 
+spot check 
+Version vun Sigge künne.",
 	'validationstatistics-time' => "'''Opjepaß:''' ''De Date hee noh sen för e paa Stond zweschejespeichert, se künnte alsu nit janz de Neuste sin.''
 
-Dä Meddelwäät för de Zick op Änderunge vun namelose Metmaachere ze Waade, es '''$1''' Shtunde, Menutte, un Sekunde. Dä Medianwäät es '''$3''' Shtunde, Menutte, un Sekunde.
+Dä Meddelwäät för de Zick för op Änderunge vun namelose Metmaachere ze Waade, es '''$1''' Shtunde, Menutte, un Sekunde. Dä Medianwäät es '''$3''' Shtunde, Menutte, un Sekunde.
 $4
 Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2''' Shtunde, Menutte, un Sekunde.
-Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''. Jenou esu joot donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'' jellde, wann de [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]] och dä aktoälle Äntworf es. De <!-- Stable version --> {{int:stablepages-stable}} es de neuste Version vun en Sigg, di winnischßdens vun einem Metmaacher en Beschtäätejung hät.",
+Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''.
+
+Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'' jellde, wann de [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]] och dä aktoälle Äntworf es. De {{int:stablepages-stable}} es de neuste Version vun en Sigg, di winnischßdens vun einem Metmaacher en Beschtäätejung hät.",
 	'validationstatistics-table' => 'Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)',
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge ensjesamp',
@@ -793,6 +804,8 @@ Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''. Jenou esu joot do
 	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
 	'validationstatistics-old' => 'Övverhollt',
 	'validationstatistics-utable' => 'Hee dronger shteiht de Leß met de aktievste 5 unger de {{int:reviewer}} en de läzte Shtond.',
+	'validationstatistics-user' => 'Metmaacher',
+	'validationstatistics-reviews' => 'Mole en Sigg op „nohjekik“ jesaz',
 );
 
 /** Cornish (Kernewek)
@@ -939,8 +952,12 @@ Stabile versjonar er sideversjonar for sider som er sjekka av minst ein etablert
  */
 $messages['no'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og '''$2''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og '''$2''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].
+
+Skribenter og Anmeldere er etablerte brukere som kan punktsjekke revisjoner på siden.",
 	'validationstatistics-time' => "''Følgende data er mellomlagret og kan være utdatert.''
+
+Endringer som har blitt sjekket av etablerte brukere blir ansett som vurderte.
 
 Gjennomsnittlig ventetid for endringer av ''uinnlogga brukere'' til vurdering er '''$1'''; medianen er '''$3'''.
 $4
@@ -955,6 +972,9 @@ Stabile versjoner er sideversjoner for sider som er sjekket av minst en etablert
 	'validationstatistics-latest' => 'Synkronisert',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
 	'validationstatistics-old' => 'Foreldet',
+	'validationstatistics-utable' => 'Under er en liste med de topp 5 anmelderne den siste timen.',
+	'validationstatistics-user' => 'Bruker',
+	'validationstatistics-reviews' => 'Anmeldelser',
 );
 
 /** Occitan (Occitan)
@@ -962,13 +982,17 @@ Stabile versjoner er sideversjoner for sider som er sjekket av minst en etablert
  */
 $messages['oc'] = array(
 	'validationstatistics' => 'Estatisticas de validacion',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizaire|utilizaires}} amb los dreches d’[[{{MediaWiki:Validationpage}}|editor]] e de '''$2''' {{PLURAL:$2|utilizaire|utilizaires}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].",
-	'validationstatistics-time' => "''Las donadas seguentas son en amagatal e benlèu son pas a jorn.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]] e de '''$2''' utilizaire{{PLURAL:$2||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].
 
-Lo temps mejan per las modificacions fachas per ''d'utilizaires que son pas connectats'' es de '''$1'''; la mediana es '''$3'''.
+Los contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
+	'validationstatistics-time' => "Las donadas seguentas son en amagatal e benlèu son pas a jorn.''
+
+Las modificacions que son estadas verificadas per d'utilizaires establits son consideradas coma relegidas.
+
+Lo temps de relectura mejan de las modificacions per ''d'utilizaires que son pas connectats'' es '''$1''' ; la valor mediana es '''$3'''.
 $4
-Lo temps de retard mejan per las [[Special:OldReviewedPages|paginas que contenon de modificacions pas relegidas en cors]] es '''$2'''.
-Aquestas paginas son consideradas ''perimidas''. Parièrament, las paginas son declaradas ''sincronizadas'' se la [[{{MediaWiki:Validationpage}}|version establa]] tanben es la version de borrolhon correnta.
+Lo relambi mejan per las [[Special:OldReviewedPages|paginas que contenon de modificacions pas relegidas en cors]] es '''$2'''.
+Aquelas paginas son consideradas ''perimidas''. Amai, las paginas son declaradas ''sincronizadas'' se la [[{{MediaWiki:Validationpage}}|version establa]] es tanben la version de borrolhon correnta.
 Las versions establas son de versions de paginas verificadas per al mens un utilizaire regular.",
 	'validationstatistics-table' => "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
 	'validationstatistics-ns' => 'Nom de l’espaci',
@@ -977,8 +1001,16 @@ Las versions establas son de versions de paginas verificadas per al mens un util
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizat/Relegit',
 	'validationstatistics-old' => 'Desuet',
+	'validationstatistics-utable' => 'Çaijós figuran los 5 melhors relectors dins la darrièra ora.',
 	'validationstatistics-user' => 'Utilizaire',
 	'validationstatistics-reviews' => 'Relectors',
+);
+
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'validationstatistics-ns' => 'Blatznaame',
 );
 
 /** Polish (Polski)

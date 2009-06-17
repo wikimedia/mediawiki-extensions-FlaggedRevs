@@ -41,6 +41,7 @@ Scale: \'\'\'[1]\'\'\' - Poor; \'\'\'[2]\'\'\' - Low; \'\'\'[3]\'\'\' - Fair; \'
 /** Message documentation (Message documentation)
  * @author Aotake
  * @author Boivie
+ * @author Purodha
  */
 $messages['qqq'] = array(
 	'ratinghistory-ave' => 'Average',
@@ -51,6 +52,7 @@ $messages['qqq'] = array(
 '''[4]''' - {{int:readerfeedback-level-3}}
 '''[5]''' - {{int:readerfeedback-level-4}}
 </pre>",
+	'right-feedback' => '{{doc-right|feedback}}',
 );
 
 /** Arabic (العربية)
@@ -880,22 +882,34 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'ratinghistory' => 'Verlouf vun de Enschäzunge',
+	'ratinghistory-leg' => 'Enschäzunge för de Sigg „[[:$1|$1]]“ en der Verjangeheit',
+	'ratinghistory-tab' => 'Enschäzung',
+	'ratinghistory-link' => 'Enschäzunge',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Ene schöne Dangk un märßie för et Nohkike!</font>''",
+	'ratinghistory-period' => 'Der Berett en der Zick:',
 	'ratinghistory-month' => 'letzt Mohnd',
 	'ratinghistory-3months' => 'letzte drei Mohnd',
 	'ratinghistory-year' => 'letz Johr',
 	'ratinghistory-3years' => 'letz drei Johre',
 	'ratinghistory-ave' => 'Dorschnett: $1',
+	'ratinghistory-chart' => 'afjejovve Enschäzunge över di Zick',
 	'ratinghistory-purge' => 'Donn der Zwescheshpeisher (der <i lang="en">cache</i>) leddisch maache',
 	'ratinghistory-table' => 'Övverbleck övver de Lesser ier Enschäzunge',
+	'ratinghistory-users' => 'Metmaacher, di Enschäzunge afjejovve udder Note för Sigge verdeilt han',
+	'ratinghistory-graph' => '
+$2 vun "$3" ({{PLURAL:$1|eine review|$1 reviews|keine review}})',
 	'readerfeedback-svg' => 'Als en <code>SVG</code>-Dattei aanloore',
+	'ratinghistory-table-rating' => 'Enschäzung',
 	'ratinghistory-table-votes' => 'Shtemme',
+	'ratinghistory-none' => 'Schad, mer han nit jenooch Enschäzunge vun de Metmaacher krääje, öm fö di Zick heh e Belldsche maache ze künne.',
 	'ratinghistory-legend' => "Dä '''dääschlesche Dorschnett vun de Enschäzunge''' <font color=\"blue\">''(en blou)''</font> un dä 
 '''loufende Dorschnett vun de Enschäzunge''' <font color=\"green\">''(en jröhn)''</font> sin unge opjemohlt, pro Dattum. Dä '''loufende Dorschnett''' es eijfach dä Dorschnett fun all dä dääschlesche Enschäzunge ''ennerhallef'' fun däm Zick_Afschnet för jeede Daach.
 
 Lejend fun de Enschäzunge: '''[1]''' = {{int:readerfeedback-level-0}}, '''[2]''' = {{int:readerfeedback-level-1}}, '''[3]''' = {{int:readerfeedback-level-2}}, '''[4]''' = {{int:readerfeedback-level-3}}, '''[5]''' = {{int:readerfeedback-level-4}}.
 
 Di '''Aanzahl, wi öff en Version nohjekik wood för jeede Daach''' <font color=\"red\">''(en rud)''</font> weed en dä Beldsche unge em Moohßshtaabs-Verhälltneß ''1:\$1'' jezeisch.",
+	'right-feedback' => 'Enschäzunge afjevve un Note för Sigge verdeile',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

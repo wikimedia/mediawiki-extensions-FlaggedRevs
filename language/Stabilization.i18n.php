@@ -472,6 +472,7 @@ $messages['bs'] = array(
 	'stabilization-submit' => 'Potvrdi',
 	'stabilization-comment' => 'Razlog:',
 	'stabilization-otherreason' => 'Ostali razlozi',
+	'stabilization-expiry' => 'Ističe:',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'nema',
 	'stabilization-def-short' => 'Standardno',
@@ -1652,27 +1653,20 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stabilization-text' => "'''Donn de Enshtellunge onge aanpasse, öm faßzelääje, wi de
-stable version
-vun [[:$1|$1]] ußjesöhk un aanjezeijsch weedt.'''
+	'stabilization-tab' => ' vet',
+	'stabilization' => 'Page stabilization',
+	'stabilization-text' => "'''Donn de Enshtellunge onge aanpasse, öm faßzelääje, wi de {{int:stablepages-stable}} vun [[:$1|$1]] ußjesöhk un aanjezeijsch weedt.'''
 
 Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandattmääßej_en {{int:revreview-lev-quality}} udder en {{int:revreview-lev-pristine}} jenumme weedt, dann jiv drop aach, dat di Sigg och su en Version hät. Söns weedt Ding Änderung wall winnisch ußmaache.",
-	'stabilization-perm' => 'Dir fäählt es Rääsch, de Enshtellunge för
-stable version
-ze ändere.
-Dat sin de aktoälle Enshtellunge för [[:$1|$1]]:',
+	'stabilization-perm' => 'Dir fäählt es Rääsch, de Enshtellunge för stable version ze ändere. Dat sin de aktoälle Enshtellunge för [[:$1|$1]]:',
 	'stabilization-page' => 'Name fun dä Sigg:',
-	'stabilization-leg' => '
-Enshtellunge för
-stable version 
-beschtäätejje',
+	'stabilization-leg' => 'Enshtellunge för de {{int:stablepages-stable}} vun en Sigg beschtäätejje',
+	'stabilization-select' => 'De {{int:stablepages-stable}} ußwähle',
 	'stabilization-select1' => 'De neußte {{int:revreview-lev-quality}}, un wann et di nit jitt, dann donn de neußte {{int:revreview-lev-sighted}} nämme',
 	'stabilization-select2' => 'De neuste nohjekik Version, onafhängesch vun de Zoot Beschtäätejung',
 	'stabilization-select3' => 'De letzte {{int:revreview-lev-pristine}}, un wann et di nit jitt, dann donn de neußte {{int:revreview-lev-quality}} nämme udder de neußte {{int:revreview-lev-sighted}}',
 	'stabilization-def' => 'De Version, di shtanndatmääßesch aanjezeisch weed, wann Eine en Sigg opröhf',
-	'stabilization-def1' => 'De
-stable
-Verson, un wann et kein jitt, dann de aktoälle Version',
+	'stabilization-def1' => 'De {{int:stablepages-stable}}, un wann et kein jitt, dann de aktoälle Version',
 	'stabilization-def2' => 'De aktuelle Version',
 	'stabilization-restrict' => 'Ennschrängkunge för et automattesch als nohjekik Makeere',
 	'stabilization-restrict-none' => 'Kein zohsäzlejje Bescharänkunge',
@@ -1691,6 +1685,8 @@ Et jidd och nix ennzeshtelle.',
 	'stabilization-sel-short-2' => 'Orshprönglesche',
 	'stabilization-def-short' => 'Shtandatt',
 	'stabilization-def-short-0' => 'Von jetz',
+	'stabilization-def-short-1' => '
+Stable',
 	'stabilize_expiry_invalid' => 'Dat Affloufdattum es nit jöltisch.',
 	'stabilize_expiry_old' => 'Dat Affloufdattum es ald förbei.',
 	'stabilize-expiring' => 'leuf uß, am $2 öm $3 Uhr (UTC)',
@@ -2177,6 +2173,13 @@ Quora configuratz la ''seleccion de la version establa'' per utilizar las revisi
  */
 $messages['os'] = array(
 	'stabilization-sel-short-1' => 'Нæй',
+);
+
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'stabilization-sel-short-1' => 'ken',
 );
 
 /** Polish (Polski)

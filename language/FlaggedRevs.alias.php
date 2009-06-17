@@ -195,9 +195,9 @@ $aliases['fr'] = array(
 	'QualityOversight' => array( 'SuperviseurQualité' ),
 	'ReviewedPages' => array( 'Pages révisées' ),
 	'RevisionReview' => array( 'Relecture des révisions' ),
-	'StablePages' => array( 'PagesStables' ),
-	'StableVersions' => array( 'VersionsStables' ),
-	'UnreviewedPages' => array( 'PagesNonRelues' ),
+	'StablePages' => array( 'Pages stables' ),
+	'StableVersions' => array( 'Versions stables' ),
+	'UnreviewedPages' => array( 'Pages non relues' ),
 	'UnstablePages' => array( 'Pages instables' ),
 	'ValidationStatistics' => array( 'Statistiques de validation' ),
 );
@@ -261,10 +261,14 @@ $aliases['gsw'] = array(
 /** Gujarati (ગુજરાતી) */
 $aliases['gu'] = array(
 	'LikedPages' => array( 'જોડાયેલપાનાં' ),
-	'OldReviewedPages' => array( 'જુનારીવ્યુપાનાં' ),
+	'OldReviewedPages' => array( 'જુનાં તપાસાયેલા પાનાં' ),
+	'ProblemPages' => array( 'સંદિગ્ધપાનાઓ' ),
+	'QualityOversight' => array( 'ગુણવતા દુર્લક્ષ' ),
 	'ReaderFeedback' => array( 'વાચકનોફીડબેક' ),
 	'ReviewedPages' => array( 'રીવ્યુપાનાં' ),
 	'RevisionReview' => array( 'આવૃત્તિરીવ્યુ' ),
+	'Stabilization' => array( 'સ્થિરતા' ),
+	'StablePages' => array( 'સ્થિરપાનાઓ' ),
 );
 
 /** Hindi (हिन्दी)

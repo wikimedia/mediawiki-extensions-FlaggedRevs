@@ -456,8 +456,12 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'stablepages' => 'Stable pages',
+	'stablepages-stable' => 'beshtändeje Version',
+	'stablepages-text' => 'Hee dronger kütt en Leß met Sigge, woh vun Hand enjshtallt es, dat de {{int:stablepages-stable}} ier Enhallt shtandatmäßesch för der Lesser aanjezeisch weedt.',
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',
+	'stablepages-prec-none' => 'keine Vürrang',
 	'stablepages-prec-quality' => '
 de {{int:revreview-lev-quality}} hät der Vürrang',
 	'stablepages-prec-pristine' => 'de {{int:revreview-lev-pristine}} hät der Vörrang',
