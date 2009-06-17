@@ -1564,8 +1564,16 @@ EOT;
 			} else {
 				$pages = $dbr->estimateRowCount( 'page', '*',
 					array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
-				$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*',
-					'fp_pending_since IS NOT NULL', __METHOD__ );
+				# For small wikis, just get the real numbers to avoid some bogus messages
+				if( $pages < 50 ) {
+					$pages = $dbr->selectField( 'page', 'COUNT(*)',
+						array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+					$unreviewed = $dbr->selectField( 'flaggedpages', 'COUNT(*)',
+						'fp_pending_since IS NOT NULL', __METHOD__ );
+				} else {
+					$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*',
+						'fp_pending_since IS NOT NULL', __METHOD__ );
+				}
 				if( ($unreviewed/$pages) > .02 ) {
 					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
