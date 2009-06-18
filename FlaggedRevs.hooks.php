@@ -1574,7 +1574,7 @@ EOT;
 					$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*',
 						'fp_pending_since IS NOT NULL', __METHOD__ );
 				}
-				if( ($unreviewed/$pages) > .02 ) {
+				if( $pages > 0 && ($unreviewed/$pages) > .02 ) {
 					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 						wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
