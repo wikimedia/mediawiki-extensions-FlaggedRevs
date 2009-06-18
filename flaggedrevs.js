@@ -337,29 +337,23 @@ wgAjaxReview.processResult = function(request) {
 		return;
 	}
 	var response = request.responseText;
-	var success = false;
 	if( msg = response.substr(6) ) {
 		jsMsg( msg, 'review' );
 		window.scroll(0,0);
-		success = true;
 	}
 	wgAjaxReview.inprogress = false;
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
 	var submit = document.getElementById("submitreview");
-	if( submit ) {
-		if( success )
-			submit.value = wgAjaxReview.sentMsgOk;
-		else
-			submit.value = wgAjaxReview.sentMsgBad;
-	}
 	if( response.indexOf('<suc#>') == 0 ) {
-		wgAjaxReview.unlockForm();
 		document.title = wgAjaxReview.actioncomplete;
+		if( submit ) submit.value = wgAjaxReview.sentMsgOk;
 	} else {
 		document.title = wgAjaxReview.actionfailed;
+		if( submit ) submit.value = wgAjaxReview.sentMsgBad;
 	}
+	wgAjaxReview.unlockForm();
 };
 
 wgAjaxReview.onLoad = function() {
