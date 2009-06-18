@@ -234,7 +234,8 @@ hookEvent("load", wgAjaxFeedback.onLoad);
 if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
 	wgAjaxReview = {
 		sendingMsg: "Submitting...",
-		sentMsg: "Submitted",
+		sentMsgOk: "Review complete!",
+		sentMsgBad: "Review failed!",
 		actioncomplete: "Action complete",
 		actionfailed: "Action failed"
 	};
@@ -336,9 +337,11 @@ wgAjaxReview.processResult = function(request) {
 		return;
 	}
 	var response = request.responseText;
+	var success = false;
 	if( msg = response.substr(6) ) {
 		jsMsg( msg, 'review' );
 		window.scroll(0,0);
+		success = true;
 	}
 	wgAjaxReview.inprogress = false;
 	if( wgAjaxReview.timeoutID ) {
@@ -346,7 +349,10 @@ wgAjaxReview.processResult = function(request) {
 	}
 	var submit = document.getElementById("submitreview");
 	if( submit ) {
-		submit.value = wgAjaxReview.sentMsg;
+		if( success )
+			submit.value = wgAjaxReview.sentMsgOk;
+		else
+			submit.value = wgAjaxReview.sentMsgBad;
 	}
 	if( response.indexOf('<suc#>') == 0 ) {
 		wgAjaxReview.unlockForm();
