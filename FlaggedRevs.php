@@ -203,6 +203,10 @@ $wgGroupPermissions['autoconfirmed']['autopatrol'] = true;
 # Implicit autoreview group
 $wgGroupPermissions['autoreview']['autoreview'] = true;
 
+# Bots are granted autoreview via hooks, mark in rights 
+# array so that it shows up in sp:ListGroupRights...
+$wgGroupPermissions['bot']['autoreview'] = true;
+
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
 # edits Y (spacing) days apart.
