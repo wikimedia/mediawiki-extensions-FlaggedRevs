@@ -852,7 +852,7 @@ EOT;
 			# Note: pages in reviewable namespace with FR disabled
 			# won't autopatrol. May or may not be useful...
 			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'],
-				$rc->mAttribs['rc_this_oldid'],GAID_FOR_UPDATE );
+				$rc->mAttribs['rc_this_oldid'], GAID_FOR_UPDATE );
 			if( $quality !== false && $quality >= $wgFlaggedRevsPatrolLevel ) {
 				RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
