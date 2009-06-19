@@ -220,6 +220,7 @@ Skala: '''[1]''' - Slab; '''[2]''' - Loš; '''[3]''' - Solidan; '''[4]''' - Viso
 );
 
 /** Catalan (Català)
+ * @author SMP
  * @author Solde
  */
 $messages['ca'] = array(
@@ -228,7 +229,7 @@ $messages['ca'] = array(
 	'ratinghistory-3months' => 'últims 3 mesos',
 	'ratinghistory-year' => 'últim any',
 	'ratinghistory-3years' => 'últims 3 anys',
-	'ratinghistory-ave' => 'Mig: $1',
+	'ratinghistory-ave' => 'Mit: $1',
 	'ratinghistory-table-votes' => 'Vots',
 );
 
@@ -314,7 +315,7 @@ $messages['el'] = array(
 	'ratinghistory-3months' => 'τελευταίοι 3 μήνες',
 	'ratinghistory-year' => 'πέρυσι',
 	'ratinghistory-3years' => 'τελευταία 3 έτη',
-	'ratinghistory-graph' => '$2 από "$3" ($1 {{PLURAL:$1|επιθεώρηση|επιθεωρήσεις}}',
+	'ratinghistory-graph' => '$2 από "$3" ($1 {{PLURAL:$1|επιθεώρηση|επιθεωρήσεις}})',
 	'readerfeedback-svg' => 'Προβολή ως SVG',
 	'ratinghistory-table-rating' => 'Βαθμολογία',
 	'ratinghistory-table-votes' => 'Ψηφοφορίες',

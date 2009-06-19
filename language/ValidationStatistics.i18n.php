@@ -108,7 +108,7 @@ $messages['arz'] = array(
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
 	'validationstatistics-stable' => 'مراجع',
-	'validationstatistics-latest' => 'مراجع أخيرا',
+	'validationstatistics-latest' => 'محدث',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 	'validationstatistics-old' => 'قديمة',
 );
@@ -181,6 +181,7 @@ Stabilna verzija je najnovija revizija stranice koja je provjerena i prikazuje s
 
 /** Catalan (Català)
  * @author Aleator
+ * @author SMP
  * @author Solde
  */
 $messages['ca'] = array(
@@ -189,7 +190,7 @@ $messages['ca'] = array(
 	'validationstatistics-total' => 'Pàgines',
 	'validationstatistics-stable' => "S'ha revisat",
 	'validationstatistics-latest' => 'Sincronitzat',
-	'validationstatistics-synced' => 'Sincornitzat/Revisat',
+	'validationstatistics-synced' => 'Sincronitzat/Revisat',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -805,7 +806,7 @@ Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'
 	'validationstatistics-old' => 'Övverhollt',
 	'validationstatistics-utable' => 'Hee dronger shteiht de Leß met de aktievste 5 unger de {{int:reviewer}} en de läzte Shtond.',
 	'validationstatistics-user' => 'Metmaacher',
-	'validationstatistics-reviews' => 'Mole en Sigg op „nohjekik“ jesaz',
+	'validationstatistics-reviews' => 'Mohlde en Sigg op „nohjekik“ jesaz',
 );
 
 /** Cornish (Kernewek)
@@ -829,6 +830,9 @@ Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune bä
 	'validationstatistics-stable' => 'Validéiert',
 	'validationstatistics-latest' => 'Synchroniséiert',
 	'validationstatistics-old' => 'Ofgelaf',
+	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat de 5 Benotzer, déi an der leschter Stonn am meeschte Bewertunge gemaach hunn.",
+	'validationstatistics-user' => 'Benotzer',
+	'validationstatistics-reviews' => 'Bewertungen',
 );
 
 /** Eastern Mari (Олык Марий)

@@ -296,11 +296,12 @@ $messages['fi'] = array(
  * @author Grondin
  * @author IAlex
  * @author PieRRoMaN
+ * @author Urhixidur
  */
 $messages['fr'] = array(
 	'reviewedpages' => 'Pages passées en revue',
 	'reviewedpages-leg' => 'Liste des pages par plus haut niveau',
-	'reviewedpages-list' => '{{PLURAL:$1|La page suivante a été passé|Les pages suivantes ont été passées}} en revue au niveau spécifié',
+	'reviewedpages-list' => '{{PLURAL:$1|La page suivante a été passée|Les pages suivantes ont été passées}} en revue au niveau spécifié',
 	'reviewedpages-none' => 'Cette liste est vide',
 	'reviewedpages-lev-0' => 'Visualisée',
 	'reviewedpages-lev-1' => 'De qualité',

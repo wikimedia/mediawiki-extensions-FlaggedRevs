@@ -22,6 +22,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
  * @author Jon Harald Søby
+ * @author Purodha
  */
 $messages['qqq'] = array(
 	'stablepages' => '{{Flagged Revs}}',
@@ -31,6 +32,10 @@ $messages['qqq'] = array(
 {{Identical|There are no pages in this list}}',
 	'stablepages-config' => '{{Flagged Revs}}
 {{Identical|Configuration}}',
+	'stablepages-prec-none' => '{{Flagged Revs}}',
+	'stablepages-prec-quality' => '{{Flagged Revs}}',
+	'stablepages-prec-pristine' => '{{Flagged Revs}}',
+	'stablepages-precedence' => '{{Flagged Revs}}',
 );
 
 /** Aragonese (Aragonés)
@@ -138,6 +143,7 @@ $messages['cs'] = array(
 );
 
 /** German (Deutsch)
+ * @author Purodha
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -456,14 +462,13 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stablepages' => 'Stable pages',
+	'stablepages' => 'Beshtändeje Sigge met einzel Enshtellunge',
 	'stablepages-stable' => 'beshtändeje Version',
 	'stablepages-text' => 'Hee dronger kütt en Leß met Sigge, woh vun Hand enjshtallt es, dat de {{int:stablepages-stable}} ier Enhallt shtandatmäßesch för der Lesser aanjezeisch weedt.',
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',
 	'stablepages-prec-none' => 'keine Vürrang',
-	'stablepages-prec-quality' => '
-de {{int:revreview-lev-quality}} hät der Vürrang',
+	'stablepages-prec-quality' => 'de {{int:revreview-lev-quality}} hät der Vürrang',
 	'stablepages-prec-pristine' => 'de {{int:revreview-lev-pristine}} hät der Vörrang',
 	'stablepages-precedence' => 'Reijefollsch vum Vörrang:',
 );

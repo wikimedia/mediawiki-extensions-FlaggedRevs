@@ -18,6 +18,7 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'stableversions' => '{{Flagged Revs}}',
@@ -32,11 +33,11 @@ Parameter $1 is a page title,
 Parameter $2 is the count of revisions following, to be used with PLURAL.',
 	'stableversions-review' => '{{Flagged Revs}}
 This message is used in the list of stable versions of a page (Special:Stableversions) to specify who has reviewed each version.
-Parameter $1 is the date and time of the review,
-parameter $2 is the username of the reviewing user, followed by a series of links.
-parameter $3 is the date of the review,
-parameter $4 is the time of the review,
-parameter $5 is the raw user name to be used with GENDER.',
+* $1 is the date and time of the review
+* $2 is the username of the reviewing user, followed by a series of links
+* $3 is the date of the review (optional)
+* $4 is the time of the review (optional)
+* $5 is the raw user name to be used with GENDER (optional)',
 );
 
 /** Afrikaans (Afrikaans)
@@ -553,7 +554,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stableversions' => ' stable, Nohjekik un makeete Versione aanloore',
+	'stableversions' => 'Beshtändeje Versione aanloore',
 	'stableversions-leg1' => 'De Leß met de nohjekik Versione för en Sigg.',
 	'stableversions-page' => 'Sigge-Tittel:',
 	'stableversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjekik Versione.',

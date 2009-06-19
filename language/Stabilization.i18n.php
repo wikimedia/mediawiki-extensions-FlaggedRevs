@@ -1654,11 +1654,11 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'stabilization-tab' => ' vet',
-	'stabilization' => 'Page stabilization',
+	'stabilization' => 'Enshtellunge för beschtändijje Sigge',
 	'stabilization-text' => "'''Donn de Enshtellunge onge aanpasse, öm faßzelääje, wi de {{int:stablepages-stable}} vun [[:$1|$1]] ußjesöhk un aanjezeijsch weedt.'''
 
-Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandattmääßej_en {{int:revreview-lev-quality}} udder en {{int:revreview-lev-pristine}} jenumme weedt, dann jiv drop aach, dat di Sigg och su en Version hät. Söns weedt Ding Änderung wall winnisch ußmaache.",
-	'stabilization-perm' => 'Dir fäählt es Rääsch, de Enshtellunge för stable version ze ändere. Dat sin de aktoälle Enshtellunge för [[:$1|$1]]:',
+Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandattmääßej_en {{int:revreview-lev-quality}} udder en {{int:revreview-lev-pristine}} jenumme weedt, dann jiv drop aach, dat di Sigg och su en Version hät. Söns weedt Ding Änderung wall winnisch ußmaache :-)",
+	'stabilization-perm' => 'Dir fäählt et Rääsch, de Enshtellunge för de beshtändijje Versione vun Sigge ze verändere. Dat hee sin de aktoälle Enshtellunge för di Sigg „[[:$1|$1]]“:',
 	'stabilization-page' => 'Name fun dä Sigg:',
 	'stabilization-leg' => 'Enshtellunge för de {{int:stablepages-stable}} vun en Sigg beschtäätejje',
 	'stabilization-select' => 'De {{int:stablepages-stable}} ußwähle',
@@ -1685,8 +1685,7 @@ Et jidd och nix ennzeshtelle.',
 	'stabilization-sel-short-2' => 'Orshprönglesche',
 	'stabilization-def-short' => 'Shtandatt',
 	'stabilization-def-short-0' => 'Von jetz',
-	'stabilization-def-short-1' => '
-Stable',
+	'stabilization-def-short-1' => 'Beshtändesch',
 	'stabilize_expiry_invalid' => 'Dat Affloufdattum es nit jöltisch.',
 	'stabilize_expiry_old' => 'Dat Affloufdattum es ald förbei.',
 	'stabilize-expiring' => 'leuf uß, am $2 öm $3 Uhr (UTC)',
@@ -2179,6 +2178,8 @@ $messages['os'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'stabilization-comment' => 'Grund:',
+	'stabilization-otherreason' => 'Annerer Grund',
 	'stabilization-sel-short-1' => 'ken',
 );
 
