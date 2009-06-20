@@ -196,7 +196,7 @@ class OldReviewedPages extends SpecialPage
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser, $wgMemc;
 
-		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$css = $stxt = $review = $quality = $underReview = '';
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
