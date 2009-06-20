@@ -13,6 +13,7 @@ $aliases = array();
 $aliases['en'] = array(
 	'LikedPages' => array( 'LikedPages' ),
 	'OldReviewedPages' => array( 'OldReviewedPages' ),
+	'ProblemChanges' => array( 'ProblemChanges' ),
 	'ProblemPages' => array( 'ProblemPages' ),
 	'QualityOversight' => array( 'QualityOversight' ),
 	'RatingHistory' => array( 'RatingHistory' ),
