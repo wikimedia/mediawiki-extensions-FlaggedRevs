@@ -336,6 +336,10 @@ $wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 $wgAutoloadClasses['OldReviewedPages'] = $dir . 'specialpages/OldReviewedPages_body.php';
 $wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
 $wgSpecialPageGroups['OldReviewedPages'] = 'quality';
+# Load "suspicious changes" pages list
+$wgAutoloadClasses['ProblemChanges'] = $dir . 'specialpages/ProblemChanges_body.php';
+$wgExtensionMessagesFiles['ProblemChanges'] = $langDir . 'ProblemChanges.i18n.php';
+$wgSpecialPageGroups['ProblemChanges'] = 'quality';
 # Load reviewed pages list
 $wgAutoloadClasses['ReviewedPages'] = $dir . 'specialpages/ReviewedPages_body.php';
 $wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
@@ -509,6 +513,7 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 		$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
 		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
+		$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
 		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 		$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
 		$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
