@@ -18,6 +18,9 @@ $messages['en'] = array(
 	'unreviewed-list' => 'This page lists content pages that have not been reviewed.',
 	'unreviewed-none' => 'There are currently no pages meeting these criteria',
 	'unreviewed-viewing' => '(under review)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hour|hours}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|day|days}})',
+	'unreviewed-recent' => '(less than 1 hour)',
 );
 
 /** Message documentation (Message documentation)

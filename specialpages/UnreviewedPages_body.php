@@ -87,7 +87,7 @@ class UnreviewedPages extends SpecialPage
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser, $wgMemc;
 
-		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&reviewform=1' );
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
 		$css = $stxt = $review = $underReview = '';
@@ -96,6 +96,22 @@ class UnreviewedPages extends SpecialPage
 				? wfMsgHtml('historyempty')
 				: wfMsgExt('historysize', array('parsemag'), $wgLang->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
+		}
+		# Get how long the first unreviewed edit has been waiting...
+		static $currentTime;
+		$currentTime = wfTimestamp( TS_UNIX ); // now
+		$firstPendingTime = wfTimestamp( TS_UNIX, $row->creation );
+		$hours = ($currentTime - $firstPendingTime)/3600;
+		// After three days, just use days
+		if( $hours > (3*24) ) {
+			$days = round($hours/24,0);
+			$age = wfMsgExt('unreviewed-days',array('parsemag'),$days);
+		// If one or more hours, use hours
+		} elseif( $hours >= 1 ) {
+			$hours = round($hours,0);
+			$age = wfMsgExt('unreviewed-hours',array('parsemag'),$hours);
+		} else {
+			$age = wfMsg('unreviewed-recent'); // hot off the press :)
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
 			$uw = self::usersWatching( $title );
@@ -115,7 +131,7 @@ class UnreviewedPages extends SpecialPage
 			$underReview = " <b class='fr-under-review'>".wfMsgHtml('unreviewed-viewing').'</b>';
 		}
 
-		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$watching}{$underReview}</li>" );
+		return( "<li{$css}>{$link} {$stxt} ({$hist}) {$review}{$age}{$watching}{$underReview}</li>" );
 	}
 	
 	/**
@@ -208,7 +224,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			return $this->getQueryCacheInfo();
 		}
 		$conds = $this->mConds;
-		$fields = array('page_namespace','page_title','page_len','page_id');
+		$fields = array('page_namespace','page_title','page_len','page_id',
+			'MIN(rev_timestamp) AS creation');
 		# Filter by level
 		if( $this->level == 1 ) {
 			$conds[] = "fp_page_id IS NULL OR fp_quality = 0";
@@ -223,29 +240,36 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		# Filter by category
 		if( $this->category ) {
-			$tables = array( 'categorylinks', 'page', 'flaggedpages' );
+			$tables = array( 'categorylinks', 'page', 'flaggedpages', 'revision' );
 			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
 			$this->mIndexField = 'cl_sortkey';
 			$useIndex = array( 'categorylinks' => 'cl_sortkey' );
+			$groupBy = 'cl_sortkey,cl_from';
 		} else {
-			$tables = array( 'page', 'flaggedpages' );
+			$tables = array( 'page', 'flaggedpages', 'revision' );
 			$this->mIndexField = 'page_title';
 			$useIndex = array( 'page' => 'name_title' );
+			$groupBy = 'page_title';
 		}
+		$useIndex['revision'] = 'page_timestamp'; // sigh...
 		return array(
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => $useIndex ),
-			'join_conds' => array( 'flaggedpages' => array('LEFT JOIN','fp_page_id=page_id') )
+			'options' => array( 'USE INDEX' => $useIndex, 'GROUP BY' => $groupBy ),
+			'join_conds' => array(
+				'revision'     => array('LEFT JOIN','rev_page=page_id'), // Get creation date
+				'flaggedpages' => array('LEFT JOIN','fp_page_id=page_id')
+			)
 		);
 	}
 	
 	function getQueryCacheInfo() {
 		$conds = $this->mConds;
-		$fields = array('page_namespace','page_title','page_len','qc_value');
+		$fields = array('page_namespace','page_title','page_len','qc_value',
+			'MIN(rev_timestamp) AS creation');
 		# Re-join on flaggedpages to double-check since things
 		# could have changed since the cache date. Also, use
 		# the proper cache for this level.
@@ -256,7 +280,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$conds['qc_type'] = 'fr_unreviewedpages';
 			$conds[] = 'fp_page_id IS NULL';
 		}
-		$conds[] = 'qc_value = page_id';
 		# Reviewable pages only
 		$conds['qc_namespace'] = $this->namespace;
 		# No redirects
@@ -266,18 +289,26 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->mIndexField = 'qc_value'; // page_id
 		# Filter by category
 		if( $this->category ) {
-			$tables = array( 'page', 'categorylinks', 'querycache', 'flaggedpages' );
+			$tables = array( 'page', 'categorylinks', 'querycache', 'flaggedpages', 'revision' );
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = qc_value'; // page_id
 		} else {
-			$tables = array( 'page', 'querycache', 'flaggedpages' );
+			$tables = array( 'page', 'querycache', 'flaggedpages', 'revision' );
 		}
+		$useIndex = array('querycache' => 'qc_type','page' => 'PRIMARY',
+			'revision' => 'page_timestamp'); // sigh...
 		return array(
 			'tables'  => $tables,
 			'fields'  => $fields,
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => array('querycache' => 'qc_type','page' => 'PRIMARY') ),
-			'join_conds' => array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = qc_value') )
+			'options' => array( 'USE INDEX' => $useIndex, 'GROUP BY' => 'qc_value' ),
+			'join_conds' => array(
+				'querycache'    => array('LEFT JOIN','qc_value=page_id'),
+				'revision'      => array('LEFT JOIN','rev_page=page_id'), // Get creation date
+				'flaggedpages'  => array('LEFT JOIN','fp_page_id=page_id'),
+				'categorylinks' => array('LEFT JOIN',
+					array('cl_from=page_id','cl_to'=>$this->category) )
+			)
 		);
 	}
 
