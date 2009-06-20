@@ -771,6 +771,10 @@ $messages['uk'] = array(
 	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ стабільної версії за замовчуванням для читачів.',
 	'stablepages-none' => 'У цьому списку нема сторінок',
 	'stablepages-config' => 'Налаштування',
+	'stablepages-prec-none' => 'без пріоритету',
+	'stablepages-prec-quality' => 'пріоритет якості',
+	'stablepages-prec-pristine' => 'пріоритет первинності',
+	'stablepages-precedence' => 'Пріоритет:',
 );
 
 /** Vèneto (Vèneto)

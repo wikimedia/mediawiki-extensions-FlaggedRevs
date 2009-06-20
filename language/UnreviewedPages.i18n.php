@@ -632,7 +632,7 @@ $messages['ja'] = array(
 	'unreviewed-category' => 'カテゴリ:',
 	'unreviewed-diff' => '査読',
 	'unreviewed-unwatched' => '(未ウォッチ)',
-	'unreviewed-watched' => '($1人の活動中の利用者がウォッチ)',
+	'unreviewed-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'unreviewed-list' => 'これは査読を受けていない記事の一覧です。',
 	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
 	'unreviewed-viewing' => '(査読中)',
@@ -884,6 +884,9 @@ $messages['nl'] = array(
 	'unreviewed-list' => "Deze pagina geeft een overzicht van pagina's die nog geen eindredactie hebben gehad.",
 	'unreviewed-none' => "Er zijn geen pagina's die aan deze criteria voldoen",
 	'unreviewed-viewing' => '(onder eindredactie)',
+	'unreviewed-hours' => '({{PLURAL:$1|één uur|$1 uur}})',
+	'unreviewed-days' => '({{PLURAL:$1|één dag|$1 dagen}})',
+	'unreviewed-recent' => '(minder dan één uur)',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)

@@ -645,10 +645,9 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'oldreviewedpages' => '古くなった査読済みページ',
 	'oldreviewedpages-legend' => '査読待ちの版のある査読済みページを一覧',
-	'oldreviewedpages-list' => 'このページは以前の査読以降に査読待ちの編集がなされたページを一覧します。',
 	'oldreviewedpages-none' => '現在、この基準に合うページはありません',
-	'oldreviewedpages-hours' => '($1時間)',
-	'oldreviewedpages-days' => '($1日)',
+	'oldreviewedpages-hours' => '($1{{PLURAL:$1|時間}})',
+	'oldreviewedpages-days' => '($1{{PLURAL:$1|日}})',
 	'oldreviewedpages-recent' => '(1時間未満)',
 	'oldreviewed-category' => 'カテゴリ:',
 	'oldreviewed-watched' => '自分のウォッチリストに含まれるもの',
@@ -656,7 +655,7 @@ $messages['ja'] = array(
 	'oldreviewed-diff' => '査読',
 	'oldreviewed-size' => '変更量の上限 (バイト):',
 	'oldreviewedpages-unwatched' => '(未ウォッチ)',
-	'oldreviewedpages-watched' => '($2人の活動中の利用者がウォッチ)',
+	'oldreviewedpages-watched' => '($2人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'oldreviewedpages-viewing' => '(査読中)',
 );
 
