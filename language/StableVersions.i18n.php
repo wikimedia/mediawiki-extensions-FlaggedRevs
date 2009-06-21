@@ -296,7 +296,7 @@ $messages['fi'] = array(
 	'stableversions-leg1' => 'Näytä sivun tarkastetut versiot',
 	'stableversions-page' => 'Sivun nimi',
 	'stableversions-none' => 'Sivusta ”[[:$1]]” ei ole tarkastettuja versioita.',
-	'stableversions-list' => 'Seuraavassa luettelossa on kaikki sivun [[:$1]] tarkastetut versiot:',
+	'stableversions-list' => 'Seuraavassa on luettelo {{PLURAL:$2|ainoasta versiosta, joka|versioista, jotka}} on tarkastettu kohteesta [[:$1]]:',
 	'stableversions-review' => '$2 arvioi sivun <i>$1</i>',
 );
 
@@ -991,7 +991,7 @@ $messages['vec'] = array(
 	'stableversions-leg1' => 'Elenca le version riesaminà de na pagina',
 	'stableversions-page' => 'Nome de la pagina:',
 	'stableversions-none' => '"[[:$1]]" no la gà version riesaminà.',
-	'stableversions-list' => 'Sta qua la xe na lista de le version de [[:$1]] che le xe stà riesaminà:',
+	'stableversions-list' => "Qua soto ghe xe {{PLURAL:$2|l'unica version|la lista de le version}} de [[:$1]] che {{PLURAL:$2|la|le}} xe stà riesaminà:",
 	'stableversions-review' => 'Riesaminà el <i>$1</i> da $2',
 );
 

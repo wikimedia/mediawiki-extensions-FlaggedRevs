@@ -898,8 +898,7 @@ $messages['ksh'] = array(
 	'ratinghistory-purge' => 'Donn der Zwescheshpeisher (der <i lang="en">cache</i>) leddisch maache',
 	'ratinghistory-table' => 'Övverbleck övver de Lesser ier Enschäzunge',
 	'ratinghistory-users' => 'Metmaacher, di Enschäzunge afjejovve udder Note för Sigge verdeilt han',
-	'ratinghistory-graph' => '
-$2 vun "$3" ({{PLURAL:$1|eine review|$1 reviews|keine review}})',
+	'ratinghistory-graph' => '$2 vun „$3“ ({{PLURAL:$1|eimohl|$1 mohl|keimohl}} Nohkike)',
 	'readerfeedback-svg' => 'Als en <code>SVG</code>-Dattei aanloore',
 	'ratinghistory-table-rating' => 'Enschäzung',
 	'ratinghistory-table-votes' => 'Shtemme',

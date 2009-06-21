@@ -260,6 +260,9 @@ $messages['de'] = array(
 	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht gesichtet wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 	'unreviewed-viewing' => '(wird überprüft)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
+	'unreviewed-recent' => '(weniger als 1 Stunde)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -276,6 +279,9 @@ $messages['dsb'] = array(
 	'unreviewed-list' => 'Toś ten bok nalistujo wopśimjeśowe boki, kótarež njejsu se pśeglědali.',
 	'unreviewed-none' => 'Njejsu tuchylu žedne boki, kótarež wótpówěduju toś tym kriterijam',
 	'unreviewed-viewing' => '(pśeglědujo se)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|goźina|goźinje|goźiny|goźin}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})',
+	'unreviewed-recent' => '(mjenjej ako 1 goźina)',
 );
 
 /** Greek (Ελληνικά)
@@ -391,6 +397,9 @@ $messages['fr'] = array(
 	'unreviewed-list' => "Cette page liste les pages de contenu qui n'ont pas été révisées.",
 	'unreviewed-none' => "Aucune page correspondant à ces critères n'a été trouvée",
 	'unreviewed-viewing' => '(en révision)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|heure|heures}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|jour|jours}})',
+	'unreviewed-recent' => "(moins d'une heure)",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -467,6 +476,9 @@ $messages['gsw'] = array(
 	'unreviewed-list' => 'Die Spezialsyte zeigt Syte, wu nonig vum Fäldhieter gsäh sin.',
 	'unreviewed-none' => 'S git kei Syte mit däne Kriterie, wu yygee wore sin.',
 	'unreviewed-viewing' => '(wird prieft)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|Stund|Stunde}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|Tag|Täg}})',
+	'unreviewed-recent' => '(weniger wie ei Stund)',
 );
 
 /** Hawaiian (Hawai`i)
@@ -539,6 +551,9 @@ $messages['hsb'] = array(
 	'unreviewed-list' => 'Tuta strona nalistuje wobsahowe strony, kotrež hišće njejsu přepruwowane.',
 	'unreviewed-none' => 'Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja',
 	'unreviewed-viewing' => '(pruwuje so)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})',
+	'unreviewed-recent' => '(mjenje hač 1 hodźina)',
 );
 
 /** Hungarian (Magyar)
@@ -723,6 +738,9 @@ $messages['ksh'] = array(
 	'unreviewed-list' => 'Di Leß hee zeich Atikelle, die noch nit nohjekik woode sen.',
 	'unreviewed-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
 	'unreviewed-viewing' => '(weed nohjekik)',
+	'unreviewed-hours' => '({{PLURAL:$1|ein Shtund|$1 Shtunde|nit ein Shtund}})',
+	'unreviewed-days' => '({{PLURAL:$1|eine Daach|$1 Dääsch|nit ens ene Daach}})',
+	'unreviewed-recent' => '(winnijer wie en Shtund)',
 );
 
 /** Cornish (Kernewek)
@@ -967,12 +985,15 @@ $messages['pl'] = array(
 	'unreviewedpages' => 'Nieprzejrzane strony',
 	'unreviewed-legend' => 'Lista nieprzejrzanych stron',
 	'unreviewed-category' => 'Kategoria',
-	'unreviewed-diff' => 'różn.',
+	'unreviewed-diff' => 'przejrzyj',
 	'unreviewed-unwatched' => '(nieobserwowana)',
 	'unreviewed-watched' => '(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
 	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'unreviewed-viewing' => '(w trakcie przeglądania)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|godzinę|godziny|godzin}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dzień|dni}})',
+	'unreviewed-recent' => '(mniej niż 1 godzinę)',
 );
 
 /** Piedmontese (Piemontèis)
@@ -1074,6 +1095,9 @@ $messages['ru'] = array(
 	'unreviewed-list' => 'На этой странице перечислены непроверенные статьи.',
 	'unreviewed-none' => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
 	'unreviewed-viewing' => '(проверяются)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
+	'unreviewed-recent' => '(менее, чем час назад)',
 );
 
 /** Yakut (Саха тыла)
@@ -1100,6 +1124,9 @@ $messages['sk'] = array(
 	'unreviewed-list' => 'Táto stránka obsahuje zoznam článkov, ktoré neboli skontrolované.',
 	'unreviewed-none' => 'Momentálne žiadne stránky nespĺňajú tieto kritériá',
 	'unreviewed-viewing' => '(kontroluje sa)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|deň|dni|dní}})',
+	'unreviewed-recent' => '(menej ako 1 hodina)',
 );
 
 /** Albanian (Shqip)
@@ -1230,6 +1257,9 @@ $messages['tr'] = array(
 	'unreviewed-list' => 'Bu sayfa, gözden geçirilmemiş içerik sayfalarını listeliyor.',
 	'unreviewed-none' => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 	'unreviewed-viewing' => '(gözden geçiriliyor)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|saat|saat}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|gün|gün}})',
+	'unreviewed-recent' => '(1 saatten az)',
 );
 
 /** Ukrainian (Українська)

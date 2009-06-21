@@ -1145,13 +1145,14 @@ Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende st
 /** Russian (Русский)
  * @author Ahonc
  * @author AlexSm
+ * @author Claymore
  * @author Ferrer
  * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'validationstatistics' => 'Статистика проверок',
+	'validationstatistics' => 'Статистика патрулирования',
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник имеет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«проверяющего»]].
 
 «Редакторы» и «проверяющие» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
@@ -1168,12 +1169,12 @@ $4
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
 	'validationstatistics-stable' => 'Проверенные',
-	'validationstatistics-latest' => 'Синхрон',
-	'validationstatistics-synced' => 'Перепроверенные',
+	'validationstatistics-latest' => 'Перепроверенные',
+	'validationstatistics-synced' => 'Доля перепроверенных в проверенных',
 	'validationstatistics-old' => 'Устаревшие',
-	'validationstatistics-utable' => 'Ниже приведен список из 5 наиболее активных проверяющих за последний час.',
+	'validationstatistics-utable' => 'Ниже приведен список из 5 наиболее активных патрулирующих за последний час.',
 	'validationstatistics-user' => 'Участник',
-	'validationstatistics-reviews' => 'Оценки',
+	'validationstatistics-reviews' => 'Патрулирований',
 );
 
 /** Slovak (Slovenčina)
