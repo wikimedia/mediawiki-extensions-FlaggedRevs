@@ -385,6 +385,7 @@ $wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
 # Clear dead config rows
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
 $wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete';
+$wgHooks['TitleMoveComplete'][] = 'FlaggedRevsHooks::updatePendingPostMove';
 # Check on undelete/merge for changes to stable version
 $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::updateFromMerge';
 $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::updateFromRestore';

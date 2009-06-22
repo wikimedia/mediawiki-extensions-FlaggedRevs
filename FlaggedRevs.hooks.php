@@ -163,6 +163,15 @@ EOT;
 		FlaggedRevs::titleLinksUpdate( $title );
 		return true;
 	}
+	
+	public static function updatePendingPostMove( &$otitle, &$ntitle, $user, $pageId ) {
+		$fa = FlaggedArticle::getTitleInstance( $ntitle );
+		// re-validate NS/config (new title may not be reviewable)
+		if( !$fa->isReviewable() || !$fa->getStableRev(FR_MASTER) ) {
+			self::clearDeadLinks( $pageId );
+		}
+		return true;
+	}
 
 	/**
 	* Inject stable links on LinksUpdate
@@ -171,14 +180,19 @@ EOT;
 		$dbw = wfGetDB( DB_MASTER );
 		$pageId = $linksUpdate->mTitle->getArticleId();
 		# Check if this page has a stable version...
-		$sv = isset($u->fr_stableRev) ? // Try the process cache...
-			$u->fr_stableRev : FlaggedRevision::newFromStable( $linksUpdate->mTitle, FR_MASTER );
+		if( isset($u->fr_stableRev) ) {
+			$sv = $u->fr_stableRev; // Try the process cache...
+		} else {
+			$fa = FlaggedArticle::getTitleInstance( $linksUpdate->mTitle );
+			if( $fa->isReviewable() ) { // re-validate NS/config
+				$sv = $fa->getStableRev( FR_MASTER );
+			} else {
+				$sv = null;
+			}
+		}
 		# Empty flagged revs data for this page if there is no stable version
 		if( !$sv ) {
-			$dbw->delete( 'flaggedpages', array('fp_page_id' => $pageId), __METHOD__ );
-			$dbw->delete( 'flaggedrevs_tracking', array('ftr_from' => $pageId), __METHOD__ );
-			$dbw->delete( 'flaggedpage_pending', array('fpp_page_id' => $pageId), __METHOD__ );
-			return true;
+			return self::clearDeadLinks( $pageId );
 		}
 		# Try the process cache...
 		$article = new Article( $linksUpdate->mTitle );
@@ -235,6 +249,14 @@ EOT;
 		if( count($insertions) ) {
 			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
+		return true;
+	}
+	
+	protected static function clearDeadLinks( $pageId ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpages', array('fp_page_id' => $pageId), __METHOD__ );
+		$dbw->delete( 'flaggedrevs_tracking', array('ftr_from' => $pageId), __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', array('fpp_page_id' => $pageId), __METHOD__ );
 		return true;
 	}
 	
