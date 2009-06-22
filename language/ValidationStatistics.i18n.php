@@ -1152,7 +1152,7 @@ Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende st
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'validationstatistics' => 'Статистика патрулирования',
+	'validationstatistics' => 'Статистика проверок',
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник имеет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«проверяющего»]].
 
 «Редакторы» и «проверяющие» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
@@ -1172,9 +1172,9 @@ $4
 	'validationstatistics-latest' => 'Перепроверенные',
 	'validationstatistics-synced' => 'Доля перепроверенных в проверенных',
 	'validationstatistics-old' => 'Устаревшие',
-	'validationstatistics-utable' => 'Ниже приведен список из 5 наиболее активных патрулирующих за последний час.',
+	'validationstatistics-utable' => 'Ниже приведен список из 5 наиболее активных выверяющих за последний час.',
 	'validationstatistics-user' => 'Участник',
-	'validationstatistics-reviews' => 'Патрулирований',
+	'validationstatistics-reviews' => 'Проверок',
 );
 
 /** Slovak (Slovenčina)

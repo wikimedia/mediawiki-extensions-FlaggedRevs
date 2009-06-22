@@ -296,7 +296,7 @@ $messages['fi'] = array(
 	'stableversions-leg1' => 'Näytä sivun tarkastetut versiot',
 	'stableversions-page' => 'Sivun nimi',
 	'stableversions-none' => 'Sivusta ”[[:$1]]” ei ole tarkastettuja versioita.',
-	'stableversions-list' => 'Seuraavassa on luettelo {{PLURAL:$2|ainoasta versiosta, joka|versioista, jotka}} on tarkastettu kohteesta [[:$1]]:',
+	'stableversions-list' => 'Seuraavassa on listattu {{PLURAL:$2|ainoa versio, joka|versiot, jotka}} on tarkastettu kohteesta [[:$1]]:',
 	'stableversions-review' => '$2 arvioi sivun <i>$1</i>',
 );
 

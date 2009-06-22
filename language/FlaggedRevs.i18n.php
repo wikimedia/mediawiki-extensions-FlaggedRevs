@@ -9137,7 +9137,7 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-submit' => 'Oznacz wersję',
 	'revreview-submitting' => 'Zapisywanie...',
 	'revreview-finished' => 'Oznaczanie zakończone!',
-	'revreview-failed' => 'Oznaczanie zakończone niepowodzeniem!',
+	'revreview-failed' => 'Oznaczanie nieudane!',
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Wersje przejrzane]] domyślnie prezentowane są czytelnikom, nawet jeśli istnieją nowsze, nieprzejrzane wersje.''",
@@ -9854,7 +9854,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'editor' => 'Патрулирующий',
+	'editor' => 'Досматривающий',
 	'flaggedrevs' => 'Отмеченные версии',
 	'flaggedrevs-backlog' => "Существует [[Special:OldReviewedPages|отставание в проверке]] страниц. '''Пожалуйста, обратите внимание!'''",
 	'flaggedrevs-watched-pending' => "В вашем списке наблюдения [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} присутствуют правки], ожидающие проверки. '''Пожалуйста, обратите внимание!'''",

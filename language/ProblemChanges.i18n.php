@@ -14,6 +14,24 @@ $messages['en'] = array(
 	'problemchanges-category' => 'Category:',
 );
 
+/** Message documentation (Message documentation)
+ * @author EugeneZelenko
+ */
+$messages['qqq'] = array(
+	'problemchanges-category' => '{{Identical|Category}}',
+);
+
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'problemchanges' => 'Рэцэнзаваць пазначаныя зьмены',
+	'problemchanges-legend' => 'Сьпіс рэцэнзаваных старонак з пазначанымі рэдагаваньнямі, якія чакаюць рэцэнзаваньня',
+	'problemchanges-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
+	'problemchanges-category' => 'Катэгорыя:',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
@@ -32,6 +50,16 @@ $messages['fr'] = array(
 	'problemchanges-legend' => 'Lister les pages relues avec des modifications balisées en attente de relecture',
 	'problemchanges-none' => "Il n'y a pour le moment aucune page satisfaisant ces critères",
 	'problemchanges-category' => 'Catégorie :',
+);
+
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'problemchanges' => 'Revêre los changements balisâs.',
+	'problemchanges-legend' => 'Listar les pâges revues avouéc des changements balisâs en atenta de rèvision',
+	'problemchanges-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
+	'problemchanges-category' => 'Catègorie :',
 );
 
 /** Swiss German (Alemannisch)
@@ -84,23 +112,35 @@ $messages['nl'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'problemchanges' => 'Tornar legir las modificacions balisadas',
+	'problemchanges-legend' => 'Listar las paginas relegidas amb de modificacions balisadas en espèra de relectura',
+	'problemchanges-none' => 'Pel moment, i a pas cap de pagina que satisfasca aqueles critèris',
+	'problemchanges-category' => 'Categoria :',
+);
+
 /** Polish (Polski)
  * @author Leinad
+ * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'problemchanges' => 'Przeglądanie wątpliwych zmian',
-	'problemchanges-legend' => 'Lista przejrzanych stron z oznakowanymi wersjami oczekującymi na przejrzenie',
+	'problemchanges-legend' => 'Lista przejrzanych stron z wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',
 );
 
 /** Russian (Русский)
  * @author Ferrer
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'problemchanges' => 'Досмотр отмеченных изменений',
 	'problemchanges-legend' => 'Список досмотренных страниц с отмеченными правками, ожидающих досмотра',
-	'problemchanges-none' => 'В настоящее время нет страниц, которые отвечают этим критериям',
+	'problemchanges-none' => 'В настоящее время нет отвечающих этим условиям страниц',
 	'problemchanges-category' => 'Категория:',
 );
 

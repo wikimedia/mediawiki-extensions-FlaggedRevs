@@ -160,6 +160,9 @@ $messages['be-tarask'] = array(
 	'unreviewed-list' => 'На гэтай старонцы знаходзіцца сьпіс неправераных старонак са зьместам.',
 	'unreviewed-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
 	'unreviewed-viewing' => '(праглядаюцца)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|гадзіна|гадзіны|гадзінаў}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|дзень|дні|дзён}})',
+	'unreviewed-recent' => '(меней за 1 гадзіну таму)',
 );
 
 /** Bulgarian (Български)
@@ -416,6 +419,9 @@ $messages['frp'] = array(
 	'unreviewed-list' => 'Ceta pâge liste les pâges de contegnu qu’ont pas étâ revues.',
 	'unreviewed-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'unreviewed-viewing' => '(en rèvision)',
+	'unreviewed-hours' => '($1 hor{{PLURAL:$1|a|es}})',
+	'unreviewed-days' => '($1 jorn{{PLURAL:$1||s}})',
+	'unreviewed-recent' => '(muens de yona hora)',
 );
 
 /** Western Frisian (Frysk)
@@ -964,6 +970,9 @@ $messages['oc'] = array(
 	'unreviewed-list' => "Aquesta pagina fa la lista de las paginas que son pas estadas revisadas o qu'an de revisions pas vistas.",
 	'unreviewed-none' => 'Actualament, existís pas cap de pagina respectant aquestes critèris',
 	'unreviewed-viewing' => '(en revision)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ora|oras}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|jorn|jorns}})',
+	'unreviewed-recent' => "(mens d'una ora)",
 );
 
 /** Ossetic (Иронау)
@@ -991,7 +1000,7 @@ $messages['pl'] = array(
 	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'unreviewed-viewing' => '(w trakcie przeglądania)',
-	'unreviewed-hours' => '($1 {{PLURAL:$1|godzinę|godziny|godzin}})',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|godzina|godziny|godzin}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|dzień|dni}})',
 	'unreviewed-recent' => '(mniej niż 1 godzinę)',
 );
@@ -1097,7 +1106,7 @@ $messages['ru'] = array(
 	'unreviewed-viewing' => '(проверяются)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
-	'unreviewed-recent' => '(менее, чем час назад)',
+	'unreviewed-recent' => '(менее, чем 1 час)',
 );
 
 /** Yakut (Саха тыла)
