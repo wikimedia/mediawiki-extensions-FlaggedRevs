@@ -330,7 +330,7 @@ class FlaggedArticle extends Article {
 		$flags = $frev->getTags();
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine =  FlaggedRevs::isPristine( $flags );
+		$pristine = FlaggedRevs::isPristine( $flags );
 		// Looking at some specific old stable revision ("&stableid=x")
 		// set to override given the relevant conditions. If the user is
 		// requesting the stable revision ("&stableid=x"), defer to override
@@ -380,7 +380,7 @@ class FlaggedArticle extends Article {
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine =  FlaggedRevs::isPristine( $flags );
+		$pristine = FlaggedRevs::isPristine( $flags );
 		$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 		$synced = false;
 		# We only care about syncing if not viewing an old stable version
@@ -464,7 +464,7 @@ class FlaggedArticle extends Article {
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine =  FlaggedRevs::isPristine( $flags );
+		$pristine = FlaggedRevs::isPristine( $flags );
 		$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 		$text = $frev->getRevText();
 	   	$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
@@ -517,7 +517,7 @@ class FlaggedArticle extends Article {
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine =  FlaggedRevs::isPristine( $flags );
+		$pristine = FlaggedRevs::isPristine( $flags );
 		# We will be looking at the reviewed revision...
 	   	$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
 		# Get parsed stable version
