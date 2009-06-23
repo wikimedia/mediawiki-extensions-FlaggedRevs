@@ -365,17 +365,18 @@ $aliases['id'] = array(
 $aliases['ja'] = array(
 	'LikedPages' => array( '評価の高いページ' ),
 	'OldReviewedPages' => array( '古くなった査読済みページ' ),
-	'ProblemPages' => array( '評価の低いページ', '問題のあるページ' ),
+	'ProblemChanges' => array( '問題の修正' ),
+	'ProblemPages' => array( '問題のあるページ', '評価の低いページ' ),
 	'QualityOversight' => array( '品質監督' ),
 	'RatingHistory' => array( '評価履歴', 'ページ評価履歴' ),
 	'ReaderFeedback' => array( '読者評価' ),
 	'ReviewedPages' => array( '査読済みページ' ),
 	'RevisionReview' => array( '特定版の査読' ),
-	'Stabilization' => array( '採択', 'ページの採択' ),
-	'StablePages' => array( '安定ページ' ),
-	'StableVersions' => array( '安定版', '採用版' ),
+	'Stabilization' => array( '固定', '採択', 'ページの採択' ),
+	'StablePages' => array( '固定ページ', '安定ページ', '採用ページ' ),
+	'StableVersions' => array( '固定版', '安定版', '採用版' ),
 	'UnreviewedPages' => array( '未査読ページ', '査読待ちページ' ),
-	'UnstablePages' => array( '非安定ページ' ),
+	'UnstablePages' => array( '未固定ページ', '非安定ページ' ),
 	'ValidationStatistics' => array( '判定統計' ),
 );
 

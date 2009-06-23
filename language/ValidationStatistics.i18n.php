@@ -1385,7 +1385,9 @@ Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
  */
 $messages['vi'] = array(
 	'validationstatistics' => 'Thống kê phê chuẩn',
-	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và ''''''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|thành viên|thành viên}} có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].",
+	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và ''''''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|thành viên|thành viên}} có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].
+
+Những Chủ bút và Người duyệt là người dùng từ lâu có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	'validationstatistics-time' => "''Dữ liệu sau được lưu vào bộ đệm và có thể đã lỗi thời.''
 
 Thời gian chờ duyệt trung bình cho sửa đổi của ''thành viên không đăng nhập'' là '''$1'''; trung vị là '''$3'''.
@@ -1393,7 +1395,7 @@ $4
 Độ trễ trung bình đối với [[Special:OldReviewedPages|trang có sửa đổi chưa duyệt]] là '''$2'''.
 Những trang sau được xem là ''lỗi thời''. Tương tự, những trang được xem là ''đã đồng bộ'' nếu
 [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] cũng là phiên bản nháp hiện tại.
-Các bản ổn định là các phiên bản của trang đã được ít nhất một thành viên đầy đủ xem qua.",
+Bản ổn định của một trang là phiên bản của trang đã được chấp nhận để hiển thị cho các độc giả theo mặc định.",
 	'validationstatistics-table' => "Đây có thống kê về các không gian tên, ''trừ'' các trang đổi hướng.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',
@@ -1401,6 +1403,7 @@ Các bản ổn định là các phiên bản của trang đã được ít nh�
 	'validationstatistics-latest' => 'Đã đồng bộ',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
+	'validationstatistics-user' => 'Người dùng',
 );
 
 /** Volapük (Volapük)

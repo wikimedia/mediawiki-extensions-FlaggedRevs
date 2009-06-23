@@ -476,7 +476,7 @@ $messages['it'] = array(
 	'stableversions-leg1' => 'Elenco delle versioni revisionate per una pagina',
 	'stableversions-page' => 'Nome della pagina:',
 	'stableversions-none' => '"[[:$1]]" non ha versioni revisionate.',
-	'stableversions-list' => 'Di seguito è riportato un elenco delle versioni di [[:$1]] che sono state revisionate:',
+	'stableversions-list' => "Di seguito è riportato un elenco {{PLURAL:$2|dell'unica versione|delle versioni}} di [[:$1]] che {{PLURAL:$2|è stata revisionata|sono state revisionate}}:",
 	'stableversions-review' => 'Revisionata il <i>$1</i> da $2',
 );
 

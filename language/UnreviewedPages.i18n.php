@@ -644,6 +644,7 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Hosiryuhosi
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -657,6 +658,9 @@ $messages['ja'] = array(
 	'unreviewed-list' => 'これは査読を受けていない記事の一覧です。',
 	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
 	'unreviewed-viewing' => '(査読中)',
+	'unreviewed-hours' => '($1 時間)',
+	'unreviewed-days' => '($1 日)',
+	'unreviewed-recent' => '(1時間未満)',
 );
 
 /** Jutish (Jysk)
@@ -1082,6 +1086,9 @@ $messages['roa-tara'] = array(
 	'unreviewed-list' => "Sta pàgene elenghe tutte le pàggene cu le condenute ca non ge tènene 'na rivisitazione.",
 	'unreviewed-none' => "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
 	'unreviewed-viewing' => '(sotte a rivisitazione)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ore|ore}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|sciurne|sciurne}})',
+	'unreviewed-recent' => "(mene de 'n'ore)",
 );
 
 /** Russian (Русский)
@@ -1334,6 +1341,9 @@ $messages['vi'] = array(
 	'unreviewed-list' => 'Trang này liệt kê những trang nội dung chưa được duyệt.',
 	'unreviewed-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
 	'unreviewed-viewing' => '(đang duyệt)',
+	'unreviewed-hours' => '($1 tiếng)',
+	'unreviewed-days' => '($1 ngày)',
+	'unreviewed-recent' => '(ít hơn 1 tiếng)',
 );
 
 /** Volapük (Volapük)

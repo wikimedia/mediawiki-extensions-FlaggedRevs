@@ -82,6 +82,17 @@ $messages['hsb'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Japanese (日本語)
+ * @author Fryed-peach
+ * @author Hosiryuhosi
+ */
+$messages['ja'] = array(
+	'problemchanges' => 'タグ付き編集を査読する',
+	'problemchanges-legend' => '査読待ちのタグ付き編集のある査読済みページの一覧',
+	'problemchanges-none' => '現時点でこれらの基準に合致するページはありません',
+	'problemchanges-category' => 'カテゴリ:',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */
@@ -133,6 +144,14 @@ $messages['pl'] = array(
 	'problemchanges-category' => 'Kategoria',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'problemchanges' => 'Revide le cangiaminde taggate',
+	'problemchanges-category' => 'Categorije:',
+);
+
 /** Russian (Русский)
  * @author Ferrer
  * @author Александр Сигачёв
@@ -169,5 +188,12 @@ $messages['tr'] = array(
 	'problemchanges-legend' => 'Etiketli değişiklikleri gözden geçirme bekleyen gözden geçirilmiş sayfaları listele',
 	'problemchanges-none' => 'Şu anda hiçbir sayfa bu kriterleri karşılamıyor',
 	'problemchanges-category' => 'Kategori:',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'problemchanges-category' => 'Thể loại:',
 );
 
