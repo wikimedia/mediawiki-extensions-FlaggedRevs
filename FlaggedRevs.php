@@ -279,7 +279,6 @@ $wgFilterLogTypes['review'] = true;
 $wgAvailableRights[] = 'review';
 $wgAvailableRights[] = 'validate'; # Let some users set higher settings
 $wgAvailableRights[] = 'autoreview';
-# FIXME: patrolmarks is not used
 $wgAvailableRights[] = 'patrolmarks';
 $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
