@@ -397,7 +397,7 @@ EOT;
 	*/
 	public static function parserMakeStableFileLink( $parser, $nt, &$skip, &$time, &$query=false ) {
 		# Trigger for stable version parsing only
-		if( empty($parser->fr_isStable) || $nt->getNamespace() < 0 ) {
+		if( empty($parser->fr_isStable) ) {
 			return true;
 		}
 		$file = null;
