@@ -820,7 +820,8 @@ class FlaggedArticle extends Article {
 		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if( !self::isViewAction($action) ) {
+		# Must be view/diff action...and title must not be ambiguous
+		if( !self::isViewAction($action) || !$wgRequest->getVal('title') ) {
 			return true;
 		}
 		$this->addQuickReview( $data, $wgRequest->getVal('diff'), false );
