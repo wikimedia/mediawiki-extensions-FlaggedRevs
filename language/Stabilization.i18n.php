@@ -1363,6 +1363,7 @@ Nulle configuration es possibile.',
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
@@ -1384,7 +1385,7 @@ $messages['id'] = array(
 Konfigurasi tak dapat diterapkan.',
 	'stabilization-notcontent' => 'Halaman "[[:$1|$1]]" tak dapat ditinjau.
 Konfigurasi tak dapat diterapkan.',
-	'stabilization-comment' => 'Komentar:',
+	'stabilization-comment' => 'Alasan:',
 	'stabilization-expiry' => 'Kadaluwarsa:',
 	'stabilization-sel-short' => 'Pengutamaan',
 	'stabilization-sel-short-0' => 'Layak',

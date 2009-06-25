@@ -453,6 +453,9 @@ $messages['gl'] = array(
 	'unreviewed-list' => 'Esta páxina lista as páxinas de contido que non foron revisadas.',
 	'unreviewed-none' => 'Actualmente non hai páxinas que coincidan con ese criterio',
 	'unreviewed-viewing' => '(en revisión)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|día|días}})',
+	'unreviewed-recent' => '(menos dunha hora)',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)

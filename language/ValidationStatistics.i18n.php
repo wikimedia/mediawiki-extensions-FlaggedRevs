@@ -434,8 +434,8 @@ $4
 Lo dèlê moyen por les [[Special:OldReviewedPages|pâges que contegnont des changements pas revus en cors]] est '''$2'''.
 Celes pâges sont considèrâs ''dèpassâs''. De mémo, les pâges sont dècllarâs ''sincronisâs'' se la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]] est asse-ben la vèrsion de brolyon d’ora.
 Les vèrsions stâbles sont des vèrsions de pâges controlâs per u muens yon utilisator règuliér.",
-	'validationstatistics-table' => "Les statistiques por châque èspâço de nom sont montrâs ce-desot, a l’''èxcllusion'' de les pâges de redirèccion.",
-	'validationstatistics-ns' => 'Èspâço de nom',
+	'validationstatistics-table' => "Les statistiques por châque èspâço de noms sont montrâs ce-desot, a l’''èxcllusion'' de les pâges de redirèccion.",
+	'validationstatistics-ns' => 'Èspâço de noms',
 	'validationstatistics-total' => 'Pâges',
 	'validationstatistics-stable' => 'Revua',
 	'validationstatistics-latest' => 'Sincronisâ',
@@ -514,7 +514,7 @@ $messages['gsw'] = array(
 	'validationstatistics' => 'Markierigsstatischtik',
 	'validationstatistics-users' => "'''{{SITENAME}}''' het '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]] un '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prieferrächt]].
 
-Scihter un Priefer sin Benutzer, wu Syte as preift chenne markiere.",
+Sichter un Priefer sin Benutzer, wu Syte as prieft chenne markiere.",
 	'validationstatistics-time' => "''Die Date stammen us em Cache un s cha syy, ass si nit aktuäll sin.''
 
 Bearbeitige, wu dur etablierti Benutzer aagluegt wore sin, sotte prieft wäre.

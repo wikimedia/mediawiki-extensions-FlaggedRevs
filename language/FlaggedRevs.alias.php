@@ -544,10 +544,12 @@ $aliases['no'] = array(
  * @author Cedric31
  */
 $aliases['oc'] = array(
+	'LikedPages' => array( 'PaginasQuAgradan', "Paginas qu'agradan" ),
 	'OldReviewedPages' => array( 'PaginasAncianasRelegidas' ),
 	'ProblemPages' => array( 'PaginasProblematicas' ),
 	'QualityOversight' => array( 'SupervisorQualitat' ),
 	'ReviewedPages' => array( 'Paginas revisadas', 'PaginasRevisadas' ),
+	'RevisionReview' => array( 'Relectura de las revisions' ),
 	'StablePages' => array( 'Paginas establas', 'PaginasEstablas' ),
 	'StableVersions' => array( 'Versions establas', 'VersionsEstablas' ),
 	'UnreviewedPages' => array( 'Paginas pas relegidas', 'PaginasPasRelegidas' ),

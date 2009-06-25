@@ -62,6 +62,16 @@ $messages['frp'] = array(
 	'problemchanges-category' => 'Catègorie :',
 );
 
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'problemchanges' => 'Revisar os cambios etiquetados',
+	'problemchanges-legend' => 'Listar as páxinas revisadas con edicións etiquetadas pendentes de revisión',
+	'problemchanges-none' => 'Actualmente non hai páxinas que reúnan estes criterios',
+	'problemchanges-category' => 'Categoría:',
+);
+
 /** Swiss German (Alemannisch)
  * @author Als-Holder
  */
@@ -80,6 +90,16 @@ $messages['hsb'] = array(
 	'problemchanges-legend' => 'Lisćina přepruwowanych stronow z markěrowanymi změnami, kotrež dyrbja so hišće přepruwować',
 	'problemchanges-none' => 'Strony, kotrež tutym kriterijam wotpowěduja, tuchwilu njejsu',
 	'problemchanges-category' => 'Kategorija:',
+);
+
+/** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
+ */
+$messages['id'] = array(
+	'problemchanges' => 'Periksa perubahan yang diberi tag',
+	'problemchanges-legend' => 'Daftarkan halaman yang diperiksa dengan suntingan dengan tag yang sedang menunggu diperiksa',
+	'problemchanges-none' => 'Saat ini tidak ada halaman yang memenuhi kriteria tersebut',
+	'problemchanges-category' => 'Kategori:',
 );
 
 /** Japanese (日本語)

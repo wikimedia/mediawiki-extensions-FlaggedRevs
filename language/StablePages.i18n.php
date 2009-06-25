@@ -398,14 +398,19 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
 	'stablepages' => 'Halaman stabil',
 	'stablepages-stable' => 'versi stabil',
-	'stablepages-text' => 'Di bawah ini adalah daftar halaman-halaman yang diset secara manual untuk menampilkan versi stabil sebagai tampilan baku isi bagi para pembaca.',
+	'stablepages-text' => 'Di bawah ini adalah daftar halaman yang dikonfigurasi secara manual untuk menampilkan versi stabil sebagai isi halaman baku bagi para pembaca.',
 	'stablepages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'stablepages-config' => 'Konfigurasi',
+	'stablepages-prec-none' => 'tidak ada preseden',
+	'stablepages-prec-quality' => 'preseden berkualitas',
+	'stablepages-prec-pristine' => 'preseden murni',
+	'stablepages-precedence' => 'Preseden:',
 );
 
 /** Italian (Italiano)

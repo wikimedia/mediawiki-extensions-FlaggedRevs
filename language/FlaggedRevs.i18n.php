@@ -5678,6 +5678,7 @@ Le paginas stabilisate se detalia in le [[Special:StablePages|lista de paginas s
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
@@ -5844,7 +5845,7 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'readerfeedback-voted' => "'''Tampaknya Anda sudah memberikan peringkat untuk halaman ini'''. ([$3 Komentar atau pertanyaan?])",
 	'readerfeedback-submitting' => 'Mengirimkan...',
 	'readerfeedback-finished' => 'Terima kasih!',
-	'revreview-filter-all' => 'Semua',
+	'revreview-filter-all' => 'semua',
 	'revreview-filter-approved' => 'Disetujui',
 	'revreview-filter-reapproved' => 'Disetujui kembali',
 	'revreview-filter-unapproved' => 'Tidak disetujui',

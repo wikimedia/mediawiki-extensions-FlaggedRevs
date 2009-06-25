@@ -248,6 +248,7 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
@@ -255,7 +256,7 @@ $messages['id'] = array(
 	'problempages-leg' => 'Cari halaman dengan nilai rendah',
 	'problempages-list' => 'Berikut adalah daftar halaman yang diurutkan menurut nilai yang diberikan pembacanya.',
 	'problempages-none' => 'Tidak adalah halaman dalam daftar ini',
-	'problempages-graphs' => 'data penilaian',
+	'problempages-graphs' => 'data pemeringkatan',
 );
 
 /** Italian (Italiano)
