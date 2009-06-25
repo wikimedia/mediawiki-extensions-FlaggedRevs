@@ -164,12 +164,29 @@ EOT;
 		return true;
 	}
 	
-	public static function updatePendingPostMove( &$otitle, &$ntitle, $user, $pageId ) {
+	/**
+	* Update pending revision table
+	* Autoreview pages moved into content NS
+	*/
+	public static function onTitleMoveComplete( &$otitle, &$ntitle, $user, $pageId ) {
+		global $wgFlaggedRevsAutoReviewNew;
 		$fa = FlaggedArticle::getTitleInstance( $ntitle );
-		// re-validate NS/config (new title may not be reviewable)
-		if( !$fa->isReviewable() || !$fa->getStableRev(FR_MASTER) ) {
-			self::clearDeadLinks( $pageId );
+		// Re-validate NS/config (new title may not be reviewable)
+		if( $fa->isReviewable() ) {
+			// Moved from non-reviewable to reviewable NS?
+			if( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('autoreview')
+				&& !FlaggedRevs::isPageReviewable( $otitle ) ) 
+			{
+				$article = new Article( $ntitle );
+				$rev = Revision::newFromTitle( $ntitle );
+				// Treat this kind of like a new page...
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev );
+				return true; // pending list handled
+			} else if( $fa->getStableRev(FR_MASTER) ) {
+				return true; // nothing to do
+			}
 		}
+		self::clearDeadLinks( $pageId );
 		return true;
 	}
 
