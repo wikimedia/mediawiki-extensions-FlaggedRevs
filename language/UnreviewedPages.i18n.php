@@ -512,6 +512,9 @@ $messages['he'] = array(
 	'unreviewed-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו.',
 	'unreviewed-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
 	'unreviewed-viewing' => '(בבדיקה)',
+	'unreviewed-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
+	'unreviewed-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
+	'unreviewed-recent' => '(פחות משעה)',
 );
 
 /** Hindi (हिन्दी)

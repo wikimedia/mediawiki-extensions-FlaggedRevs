@@ -82,6 +82,16 @@ $messages['gsw'] = array(
 	'problemchanges-category' => 'Kategorii:',
 );
 
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
+$messages['he'] = array(
+	'problemchanges' => 'בדיקת שינויים עם תגיות',
+	'problemchanges-legend' => 'רשימת הדפים הבדוקים עם עריכות עם תגיות הממתינות לבדיקה',
+	'problemchanges-none' => 'אין כרגע דפים המתאימים לקריטריונים אלה',
+	'problemchanges-category' => 'קטגוריה:',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
