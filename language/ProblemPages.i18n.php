@@ -254,7 +254,7 @@ $messages['ia'] = array(
 $messages['id'] = array(
 	'problempages' => 'Halaman dengan peringkat rendah',
 	'problempages-leg' => 'Cari halaman dengan nilai rendah',
-	'problempages-list' => 'Berikut adalah daftar halaman yang diurutkan menurut nilai yang diberikan pembacanya.',
+	'problempages-list' => 'Berikut adalah daftar halaman yang diurutkan menurut peringkat yang diberikan pembacanya.',
 	'problempages-none' => 'Tidak adalah halaman dalam daftar ini',
 	'problempages-graphs' => 'data pemeringkatan',
 );

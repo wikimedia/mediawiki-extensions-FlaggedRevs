@@ -607,18 +607,23 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
-	'right-unreviewedpages' => 'Tampilkan daftar halaman yang belum ditinjau',
+	'right-unreviewedpages' => 'Tampilkan [[Special:UnreviewedPages|daftar halaman yang belum ditinjau]]',
 	'unreviewedpages' => 'Halaman yang belum ditinjau',
-	'unreviewed-legend' => 'Daftar halaman-halaman konten yang belum ditinjau',
+	'unreviewed-legend' => 'Daftar halaman isi yang belum ditinjau',
 	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'Perubahan',
+	'unreviewed-diff' => 'meninjau',
 	'unreviewed-unwatched' => '(tidak dipantau)',
-	'unreviewed-watched' => '(dipantau $1 {{PLURAL:$1|pengguna|pengguna}})',
-	'unreviewed-list' => 'Halaman ini menampilkan daftar artikel yang belum ditinjau.',
+	'unreviewed-watched' => '(dipantau $1 {{PLURAL:$1|pengguna|pengguna}} aktif)',
+	'unreviewed-list' => 'Halaman ini menampilkan daftar halaman yang belum ditinjau.',
 	'unreviewed-none' => 'Tidak ada halaman yang sesuai dengan kriteria ini',
+	'unreviewed-viewing' => '(sedang ditinjau)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|jam|jam}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|hari|hari}})',
+	'unreviewed-recent' => '(kurang dari 1 jam)',
 );
 
 /** Icelandic (Íslenska)

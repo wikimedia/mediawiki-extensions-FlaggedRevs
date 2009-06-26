@@ -208,14 +208,17 @@ $messages['cu'] = array(
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
 	'validationstatistics-users' => "'''{{SITENAME}}''' hat '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]]
-und '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]].",
-	'validationstatistics-time' => "''Hinweis: Die folgenden Daten werden jeweils für mehrere Stunden zwischengespeichert und sind daher nicht immer aktuell.''
+und '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]].
+
+Sichter und Prüfer sind anerkannte Benutzer, die Versionen einer Seite überprüfen können.",
+	'validationstatistics-time' => "Hinweis: Die folgenden Daten werden jeweils für mehrere Stunden zwischengespeichert und sind daher nicht immer aktuell.''
 
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4
 Der durchschnittliche Rückstand auf [[Special:OldReviewedPages|veraltete Seiten]] beträgt '''$2'''.
-''Veraltete'' Seiten sind Seiten mit Bearbeitungen, die neuer als die markierte Version sind.
-Wenn die markierte Version auch die letzte Version ist, ist die Seite ''synchronisiert''.",
+''Veraltete'' Seiten sind Seiten mit Bearbeitungen, die neuer als die [[{{MediaWiki:Validationpage}}|markierte Version]] sind.
+Wenn die markierte Version auch die letzte Version ist, ist die Seite ''synchronisiert''.
+Die stabile Version einer Seite ist die neueste Version, die durch einen Sichter bestätigt wurde und als Standard allen Lesern angezeigt wird.",
 	'validationstatistics-table' => "Statistiken für jeden Namensraum, ''ausgenommen'' sind Weiterleitungen.",
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
@@ -668,6 +671,7 @@ Le version stabile de un pagina es  le version le plus nove que ha essite approb
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
@@ -676,15 +680,16 @@ $messages['id'] = array(
 '''$2''' {{PLURAL:$2|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Peninjau]].
 
 Editor dan Peninjau adalah para pengguna terpercaya yang dapat melakukan pemeriksaan revisi di setiap halaman.",
-	'validationstatistics-table' => "Statistik untuk setiap ruang nama ditampilkan di bawah ini, kecuali halaman pengalihan.
-
-'''Catatan''': Data di bawah ini diambil dari tembolok beberapa jam yang lalu dan mungkin belum mencakup data terbaru.",
+	'validationstatistics-table' => "Statistik untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Halaman',
 	'validationstatistics-stable' => 'Telah ditinjau',
-	'validationstatistics-latest' => 'Terakhir ditinjau',
+	'validationstatistics-latest' => 'Tersinkron',
 	'validationstatistics-synced' => 'Sinkron/Tertinjau',
 	'validationstatistics-old' => 'Usang',
+	'validationstatistics-utable' => 'Di bawah ini adalah daftar 5 peninjau selama satu jam terakhir.',
+	'validationstatistics-user' => 'Pengguna',
+	'validationstatistics-reviews' => 'Tinjauan',
 );
 
 /** Italian (Italiano)

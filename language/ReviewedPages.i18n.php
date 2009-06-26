@@ -464,16 +464,17 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
 	'reviewedpages' => 'Halaman tertinjau',
 	'reviewedpages-leg' => 'Daftar halaman yang telah ditinjau menurut tingkat tertinggi',
 	'reviewedpages-list' => '{{PLURAL:$1|Halaman|Halaman-halaman}} berikut telah ditinjau hingga tingkat tertentu',
-	'reviewedpages-none' => 'Tak ada halaman pada daftar ini',
+	'reviewedpages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'reviewedpages-lev-0' => 'Terperiksa',
 	'reviewedpages-lev-1' => 'Layak',
-	'reviewedpages-lev-2' => 'Terpilih',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versi tertinjau',
 	'reviewedpages-best' => 'revisi berperingkat tertinggi terakhir',
 );

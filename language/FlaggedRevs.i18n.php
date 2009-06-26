@@ -5683,7 +5683,7 @@ Le paginas stabilisate se detalia in le [[Special:StablePages|lista de paginas s
  * @author Rex
  */
 $messages['id'] = array(
-	'editor' => 'Editor',
+	'editor' => 'Penyunting',
 	'flaggedrevs' => 'Revisi bertanda',
 	'flaggedrevs-backlog' => "Terdapat [[Special:OldReviewedPages|halaman-halaman tertinjau yang telah usang]]. '''Perhatian Anda dibutuhkan!'''",
 	'flaggedrevs-desc' => 'Memberikan fasilitas bagi Editor atau Peninjau untuk memvalidasi versi-versi artikel dan menandai sebagai stabil',
@@ -5692,9 +5692,9 @@ $messages['id'] = array(
 	'flaggedrevs-prefs-stable' => 'Selalu tampilkan halaman versi stabil sebagai tampilan baku (jika ada)',
 	'flaggedrevs-prefs-watch' => 'Tambahkan halaman yang saya tinjau ke daftar pantauan',
 	'group-editor' => 'Editor',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => 'penyunting',
 	'group-reviewer' => 'Peninjau',
-	'group-reviewer-member' => 'Peninjau',
+	'group-reviewer-member' => 'peninjau',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Peninjau',
 	'hist-draft' => 'draf',
@@ -5777,12 +5777,12 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Terperiksa]]'''",
 	'revreview-quick-invalid' => "'''Nomor ID revisi tidak sah'''",
 	'revreview-quick-none' => "'''Terkini''' (belum ditinjau)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Layak]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lihat draf]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Layak]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lihat draf]]",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Halaman kualitas]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lihat draf]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Halaman kualitas]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lihat draf]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Layak]]'''",
-	'revreview-quick-see-basic' => "'''Draf''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lihat artikel]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Draf]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lihat halaman]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} bandingkan])",
-	'revreview-quick-see-quality' => "'''Draf''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lihat artikel]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Draf]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lihat halaman]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} bandingkan])",
 	'revreview-selected' => "Revisi terpilih dari '''$1:'''",
 	'revreview-source' => 'sumber draf',

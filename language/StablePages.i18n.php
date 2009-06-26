@@ -147,7 +147,7 @@ $messages['cs'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'stablepages' => 'Liste individuell konfigurierter Seiten',
+	'stablepages' => 'Konfigurierte Seiten',
 	'stablepages-stable' => 'gesichtete Version',
 	'stablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
 	'stablepages-none' => 'Diese Liste ist leer.',
