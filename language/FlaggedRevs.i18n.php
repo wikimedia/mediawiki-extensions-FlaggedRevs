@@ -5600,6 +5600,7 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes]
 	'revreview-submit' => 'Submitter',
 	'revreview-submitting' => 'Invio in curso…',
 	'revreview-finished' => 'Revision complete!',
+	'revreview-failed' => 'Revision falleva!',
 	'revreview-successful' => "'''Le version de [[:$1|$1]] ha essite marcate con successo. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} vider versiones stabile])'''",
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-text' => "Le ''[[{{MediaWiki:Validationpage}}|versiones stabile]] es le contento predefinite pro le lectores in loco del version le plus nove.",

@@ -604,6 +604,9 @@ $messages['ia'] = array(
 	'unreviewed-list' => 'Iste pagina lista le paginas de contento que non ha essite revidite.',
 	'unreviewed-none' => 'Al momento il non ha paginas que corresponde a iste criterios',
 	'unreviewed-viewing' => '(sub revision)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|die|dies}})',
+	'unreviewed-recent' => '(minus de un hora)',
 );
 
 /** Indonesian (Bahasa Indonesia)

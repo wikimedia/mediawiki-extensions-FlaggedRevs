@@ -102,6 +102,26 @@ $messages['hsb'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Hungarian (Magyar)
+ * @author Tgr
+ */
+$messages['hu'] = array(
+	'problemchanges' => 'Felcímkézett változtatások áttekintése',
+	'problemchanges-legend' => 'Ellenőrizetlen felcímkézett változtatásokat tartalmazó ellenőrzött lapok listája',
+	'problemchanges-none' => 'Jelenleg nincs a a feltételeknek megfelelő lap',
+	'problemchanges-category' => 'Kategória:',
+);
+
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'problemchanges' => 'Revider modificationes etiquettate',
+	'problemchanges-legend' => 'Listar le paginas revidite con modificationes etiquettate que attende revision',
+	'problemchanges-none' => 'Al momento il non ha paginas que satisface iste criterios',
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  */
