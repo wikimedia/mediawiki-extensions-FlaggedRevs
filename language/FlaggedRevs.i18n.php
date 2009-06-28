@@ -3216,7 +3216,6 @@ Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
 $messages['eu'] = array(
 	'editor' => 'Editorea',
 	'flaggedrevs' => 'Markatutako Berrikuspenak',
-	'flaggedrevs-prefs' => 'Egonkortasuna',
 	'group-editor' => 'Editoreak',
 	'group-editor-member' => 'editorea',
 	'revreview-accuracy' => 'Zehaztasuna',
@@ -6326,7 +6325,6 @@ $messages['jut'] = array(
  */
 $messages['jv'] = array(
 	'editor' => 'Éditor',
-	'flaggedrevs-prefs' => 'Stabilitas',
 	'revreview-style-0' => 'Ora disarujuki',
 	'revreview-style-1' => 'Lumayan',
 	'revreview-style-2' => 'Apik',
@@ -8097,7 +8095,6 @@ $messages['nah'] = array(
  */
 $messages['nds'] = array(
 	'flaggedrevs' => 'Tekente Versionen',
-	'flaggedrevs-prefs' => 'Stabilität',
 	'review-logentry-app' => 'hett de Version $2 vun „[[$1]]“ markeert',
 	'revreview-accuracy-2' => 'akraat',
 	'revreview-auto' => '(automaatsch)',
