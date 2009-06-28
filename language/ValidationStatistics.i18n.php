@@ -321,14 +321,17 @@ Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita u
  */
 $messages['es'] = array(
 	'validationstatistics' => 'Estadísticas de validación',
-	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''$2''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].",
-	'validationstatistics-time' => "''los siguientes datos están en el cache y pueden no estar actualizados.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].
+Editores and Revisores son usuarios establecidos que pueden verificar las revisiones a las páginas.",
+	'validationstatistics-time' => "''los siguientes datos están en el cache y pueden no ser actualizados.''
+
+Las ediciones que han sido verificadas por usuarios establecidos son consideradas revisadas.
 
 La espera promedio para ediciones de ''usuarios que no han iniciado sesión'' a ser revisado es '''$1'''; La media es '''$3'''.  
 $4
 El intervalo promedio para [[Special:OldReviewedPages|páginas con ediciones sin revisar pendientes]] es '''$2'''.
 Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas son consideradas ''sincronizadas'' si la [[{{MediaWiki:Validationpage}}|versión estable]] es también la versión borrador actual.
-Versiones estables son revisiones de páginas verificadas por al menos un usuario establecido.",
+La versión estable de una página es la revisión más nueva que ha sido aprobada para mostrar por defecto a todos los lectores.",
 	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, ''excluyendo'' páginas de redireccionamiento.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
@@ -396,7 +399,7 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'validationstatistics' => 'Statistiques de validation',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''$2''' utilisateur{{PLURAL:$2||s}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''[[Special:ListUsers/reviewer|$2]]''' utilisateur{{PLURAL:$2||s}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
 	'validationstatistics-time' => "''Les données suivantes sont en cache et peuvent ne pas être à jour.''
@@ -826,7 +829,7 @@ $messages['kw'] = array(
  */
 $messages['lb'] = array(
 	'validationstatistics' => 'Statistike vun de Validaiounen',
-	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]] an '''$2''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]] an '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].
 
 Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune bäi Säiten derbäisetze kënnen.",
 	'validationstatistics-table' => 'Statistike fir jidfer Nummraum sinn hei ënnedrënner, Viruleedungssäite sinn net berücksichtegt.',
@@ -991,7 +994,7 @@ Stabile versjoner er sideversjoner for sider som er sjekket av minst en etablert
  */
 $messages['oc'] = array(
 	'validationstatistics' => 'Estatisticas de validacion',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]] e de '''$2''' utilizaire{{PLURAL:$2||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]] e de '''[[Special:ListUsers/reviewer|$2]]''' utilizaire{{PLURAL:$2||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].
 
 Los contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
 	'validationstatistics-time' => "Las donadas seguentas son en amagatal e benlèu son pas a jorn.''
@@ -1116,6 +1119,7 @@ $messages['ro'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]] şi '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|recenzie]].",
 	'validationstatistics-ns' => 'Spaţiu de nume',
 	'validationstatistics-total' => 'Pagini',
+	'validationstatistics-user' => 'Utilizator',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1152,13 +1156,14 @@ Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende st
  * @author AlexSm
  * @author Claymore
  * @author Ferrer
+ * @author Lockal
  * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок',
-	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''$2''' {{plural:$2|участник имеет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«проверяющего»]].
+	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|участник имеет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«проверяющего»]].
 
 «Редакторы» и «проверяющие» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
 	'validationstatistics-time' => "''Приведённая ниже информация взята из кэша и может не соответствовать текущему состоянию.''
