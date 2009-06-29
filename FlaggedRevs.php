@@ -369,12 +369,16 @@ $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatis
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 # API Modules
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir.'api/FlaggedRevsApi.hooks.php';
+# OldReviewedPages for API
 $wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewedpages.php';
 $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
-
+# UnreviewedPages for API
+$wgAutoloadClasses['ApiQueryUnreviewedpages'] = $dir . 'api/ApiQueryUnreviewedpages.php';
+$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
+# ReviewedPages for API
 $wgAutoloadClasses['ApiQueryReviewedpages'] = $dir . 'api/ApiQueryReviewedpages.php';
 $wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
-
+# Flag meta-data for pags
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
 
