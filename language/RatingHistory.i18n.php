@@ -752,20 +752,21 @@ Le '''numero de evalutationes per die''' <font color=\"red\">''(rubie)''</font> 
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
 	'ratinghistory' => 'Sejarah penilaian halaman',
-	'ratinghistory-leg' => 'Data sejarah penilaian',
+	'ratinghistory-leg' => 'Data sejarah penilaian untuk [[:$1|$1]]',
 	'ratinghistory-tab' => 'penilaian',
-	'ratinghistory-link' => 'Peringkat artikel',
+	'ratinghistory-link' => 'Peringkat halaman',
 	'ratinghistory-thanks' => "''<font color=\"darkred\">Terima kasih Anda telah meninjau halaman ini!</font>''",
 	'ratinghistory-period' => 'Periode waktu:',
 	'ratinghistory-month' => 'bulan lalu',
 	'ratinghistory-year' => 'tahun lalu',
 	'ratinghistory-3years' => '3 tahun terakhir',
 	'ratinghistory-chart' => 'Peringkat pembaca dari waktu ke waktu',
-	'ratinghistory-users' => 'Pengguna yang meninjau halaman ini:',
+	'ratinghistory-users' => 'Pengguna yang memberi peringkat',
 	'ratinghistory-graph' => '$2 dari "$3" ($1 {{PLURAL:$1|tinjauan|tinjauan}})',
 	'ratinghistory-none' => 'Belum ada cukup umpan balik pembaca tersedia untuk membuat grafik pada saat ini.',
 	'ratinghistory-legend' => "'''Rata-rata peringkat harian''' <font color=\"blue\">''(biru)''</font> dan '''rata-rata peringkat interval''' <font color=\"green\">''(hijau)''</font> ditampilkan dalam grafik di bawah ini, menurut tanggal.

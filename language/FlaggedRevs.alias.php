@@ -346,18 +346,20 @@ $aliases['ia'] = array(
  * @author Rex
  */
 $aliases['id'] = array(
-	'LikedPages' => array( 'Halaman digemari' ),
-	'OldReviewedPages' => array( 'Tinjauan usang', 'HalamanTertinjauUsang' ),
+	'LikedPages' => array( 'Halaman yang digemari', 'HalamanDigemari' ),
+	'OldReviewedPages' => array( 'Halaman tertinjau usang', 'HalamanTertinjauUsang' ),
+	'ProblemChanges' => array( 'Perubahan masalah', 'PerubahanMasalah' ),
 	'ProblemPages' => array( 'Halaman bermasalah', 'HalamanBermasalah' ),
 	'QualityOversight' => array( 'Pemeriksaan kualitas', 'PemeriksaanKualitas' ),
-	'RatingHistory' => array( 'Sejarah penilaian' ),
-	'ReaderFeedback' => array( 'Umpan balik pembaca' ),
+	'RatingHistory' => array( 'Riwayat penilaian', 'RiwayatPenilaian' ),
+	'ReaderFeedback' => array( 'Umpan balik pembaca', 'UmpanBalikPembaca' ),
 	'ReviewedPages' => array( 'Halaman tertinjau', 'HalamanTertinjau' ),
-	'RevisionReview' => array( 'Tinjauan revisi' ),
+	'RevisionReview' => array( 'Tinjauan revisi', 'TinjauanRevisi' ),
 	'Stabilization' => array( 'Stabilisasi' ),
 	'StablePages' => array( 'Halaman stabil', 'HalamanStabil' ),
 	'StableVersions' => array( 'Versi stabil', 'VersiStabil' ),
 	'UnreviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
+	'UnstablePages' => array( 'Halaman tak stabil', 'HalamanTakStabil' ),
 	'ValidationStatistics' => array( 'Statistik validasi', 'StatistikValidasi' ),
 );
 

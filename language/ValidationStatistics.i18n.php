@@ -128,7 +128,7 @@ $messages['ast'] = array(
  */
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
-	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і '''$2'''  {{PLURAL:$2|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэцэнзэнта»]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і [[Special:ListUsers/reviewer|$2]]  {{PLURAL:$2|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэцэнзэнта»]].
 
 Рэдактары і рэцэнзэнты — удзельнікі са стажам, якія могуць правяраць зьмены старонак.",
 	'validationstatistics-time' => "''Наступныя зьвесткі кэшаваныя і могуць быць састарэлымі.''
@@ -1072,14 +1072,19 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
-	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] e '''$2''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]].",
-	'validationstatistics-time' => "''Os dados seguintes estão em cache e podem não estar atualizados.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] 
+e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Crítico]].
+
+Editores e Críticos são utilizadores estabelecidos que por verificar detalhadamente revisões de páginas.",
+	'validationstatistics-time' => "''Os seguintes dados estão em cache e podem não estar atualizados.''
+
+Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.
 
 O tempo médio de espera para edições feitas por ''utilizadores não autenticados'' serem revistas é '''$1'''; a mediana é '''$3'''.  
 $4
 O atraso médio para [[Special:OldReviewedPages|páginas com edições não revistas em espera]] é '''$2'''.
-Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] é também a versão rascunho atual.
-Versões estáveis são revisões de páginas verificadas por pelo menos um utilizador estabelecido.",
+Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] for também a versão rascunho atual.
+A versão estável de uma página é a revisão mais recente que foi aprovada para ser apresentada por defeito a todos os leitores.",
 	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
@@ -1309,7 +1314,7 @@ Ang matatatag na mga bersyon ay mga rebisyon ng mga pahinang nasuri ng kahit na 
  */
 $messages['tr'] = array(
 	'validationstatistics' => 'Doğrulama istatistikleri',
-	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editor]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} ve [[{{MediaWiki:Validationpage}}|Reviewer]] yetkisine sahip '''$2''' {{PLURAL:$2|kullanıcı|kullanıcı}} bulunmaktadır.
+	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} ve [[{{MediaWiki:Validationpage}}|İnceleyici]] yetkisine sahip '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|kullanıcı|kullanıcı}} bulunmaktadır.
 
 Editörler ve İnceleyiciler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	'validationstatistics-time' => "''Aşağıdaki veri önbelleklenmiştir ve güncel olmayabilir.''

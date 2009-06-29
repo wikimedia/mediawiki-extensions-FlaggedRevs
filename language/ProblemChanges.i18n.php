@@ -189,7 +189,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'problemchanges' => 'Przeglądanie wątpliwych zmian',
-	'problemchanges-legend' => 'Lista przejrzanych stron z wersjami oczekującymi na przejrzenie',
+	'problemchanges-legend' => 'Lista przejrzanych stron z oznakowanymi wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',
 );

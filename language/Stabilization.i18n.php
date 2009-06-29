@@ -1369,7 +1369,9 @@ Nulle configuration es possibile.',
 $messages['id'] = array(
 	'stabilization-tab' => 'cek',
 	'stabilization' => 'Pengaturan versi stabil halaman',
-	'stabilization-text' => "'''Konfigurasi pengaturan untuk menampilkan dan memilih versi stabil dari [[:$1|$1]].'''",
+	'stabilization-text' => "'''Ubah seting berikut untuk mengatur versi stabil yang dipilih dan ditampilkan.'''
+
+Saat mengubah konfigurasi ''pilihan versi stabil'', pastikan bahwa ada revisi yang dimaksud di halaman tersebut, jika tidak maka perubahannya tidak akan bermakna.",
 	'stabilization-perm' => 'Akun Anda tak memiliki hak untuk mengganti konfigurasi versi stabil. Berikut konfigurasi terkini dari [[:$1|$1]]:',
 	'stabilization-page' => 'Nama halaman:',
 	'stabilization-leg' => 'Konfirmasi konfigurasi versi stabil',
