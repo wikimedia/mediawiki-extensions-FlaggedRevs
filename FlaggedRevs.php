@@ -371,8 +371,13 @@ $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir.'api/FlaggedRevsApi.hooks.php';
 $wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewedpages.php';
 $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
+
+$wgAutoloadClasses['ApiQueryReviewedpages'] = $dir . 'api/ApiQueryReviewedpages.php';
+$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
+
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
+
 $wgAutoloadClasses['ApiReview'] = $dir.'api/ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
 
