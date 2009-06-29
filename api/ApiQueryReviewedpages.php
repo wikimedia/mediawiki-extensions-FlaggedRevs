@@ -50,6 +50,8 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhereFld( 'page_is_redirect', 1 );
 		if( $params['filterredir'] == 'nonredirects' )
 			$this->addWhereFld( 'page_is_redirect', 0 );
+		if( $params['filterlevel'] !== null )
+			$this->addWhereFld( 'fp_quality', $params['filterlevel'] );
 		$this->addWhereRange(
 			'fp_page_id',
 			$params['dir'],
@@ -149,11 +151,17 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 					'all'
 				)
 			),
+			'filterlevel' =>  array (
+				ApiBase::PARAM_DFLT => null,
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_MIN  => 0,
+				ApiBase::PARAM_MAX  => 2,
+			),
 			'limit' => array (
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
+				ApiBase::PARAM_MIN  => 1,
+				ApiBase::PARAM_MAX  => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			)
 		);
@@ -165,6 +173,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 			'end' => 'Stop listing at this page id.',
 			'namespace' => 'The namespaces to enumerate.',
 			'filterredir' => 'How to filter for redirects',
+			'filterlevel' => 'How to filter by quality (0=sighted,1=quality)',
 			'limit' => 'How many total pages to return.',
 			'dir' => array(
 				'In which direction to list.',
@@ -184,7 +193,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 	protected function getExamples() {
 		return array (
 			'Show a list of reviewed pages',
-			' api.php?action=query&list=reviewedpages&rpnamespace=0',
+			' api.php?action=query&list=reviewedpages&rpnamespace=0&rpfilterlevel=0',
 			'Show info about some reviewed pages',
 			' api.php?action=query&generator=reviewedpages&grplimit=4&prop=info',
 		);
