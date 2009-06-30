@@ -1018,7 +1018,7 @@ $messages['pl'] = array(
 	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'unreviewed-viewing' => '(w trakcie przeglądania)',
-	'unreviewed-hours' => '($1 {{PLURAL:$1|godzina|godziny|godzin}})',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|godzinę|godziny|godzin}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|dzień|dni}})',
 	'unreviewed-recent' => '(mniej niż 1 godzinę)',
 );

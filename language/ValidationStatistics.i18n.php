@@ -128,7 +128,7 @@ $messages['ast'] = array(
  */
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
-	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і [[Special:ListUsers/reviewer|$2]]  {{PLURAL:$2|удзельніка|удзельнікі|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэцэнзэнта»]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і [[Special:ListUsers/reviewer|$2]]  {{PLURAL:$2|удзельніка|удзельнікаў|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэцэнзэнта»]].
 
 Рэдактары і рэцэнзэнты — удзельнікі са стажам, якія могуць правяраць зьмены старонак.",
 	'validationstatistics-time' => "''Наступныя зьвесткі кэшаваныя і могуць быць састарэлымі.''
@@ -499,7 +499,7 @@ A versión estable dunha páxina é a revisión máis nova que foi aprobada para
 $messages['grc'] = array(
 	'validationstatistics' => 'Στατιστικὰ ἐπικυρώσεων',
 	'validationstatistics-users' => "Τὸ '''{{SITENAME}}''' νῦν ἔχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|μεταγραφέως]] 
-καὶ '''$2''' {{PLURAL:$2|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|ἐπιθεωρητοῦ]].
+καὶ '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|ἐπιθεωρητοῦ]].
 
 Μεταγραφεῖς καὶ ἐπιθεωρηταὶ καθιερωμένοι χρώμενοι εἰσὶν δυνάμενοι τὰς τῶν δέλτων ἀναθεωρήσεις ἐλέγχειν.",
 	'validationstatistics-table' => "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ''ἐξαιρουμένων''.",
@@ -509,6 +509,7 @@ $messages['grc'] = array(
 	'validationstatistics-latest' => 'Συγκεχρονισμένη',
 	'validationstatistics-synced' => 'Συγκεχρονισμένη/Ἐπιτεθεωρημένη',
 	'validationstatistics-old' => 'Ἀπηρχαιωμένη',
+	'validationstatistics-utable' => 'Κάτωθι ἐστὶ ὁ κατάλογος τῶν 5 κορυφαίων ἐπιθεωρητῶν τῇ ὑστάτη μίᾳ ὥρᾳ.',
 	'validationstatistics-user' => 'Χρώμενος',
 	'validationstatistics-reviews' => 'Ἐπιθεωρήσεις',
 );
@@ -752,14 +753,14 @@ $4
  */
 $messages['jv'] = array(
 	'validationstatistics' => 'Statistik validasi',
-	'validationstatistics-users' => "'''{{SITENAME}}''' wektu iki nduwé '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''$2''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].",
-	'validationstatistics-table' => "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor, kajaba kaca pangalihan.
+	'validationstatistics-users' => "'''{{SITENAME}}''' wektu iki duwé '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''[[Special:ListUsers/pamriksa|$2]]''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].
 
-'''Cathetan''': Data ing ngisor dijupuk saka ''cache'' sawetara jam kapungkur lan mbokmanawa ora cocog manèh.",
+Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan kaca.",
+	'validationstatistics-table' => "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor iki, ''kajaba'' kaca pangalihan.",
 	'validationstatistics-ns' => 'Bilik jeneng',
 	'validationstatistics-total' => 'Kaca',
 	'validationstatistics-stable' => 'Wis dipriksa',
-	'validationstatistics-latest' => 'Pungkasan dipriksa',
+	'validationstatistics-latest' => 'Wis disinkronaké',
 	'validationstatistics-synced' => 'Wis disinkronaké/Wis dipriksa',
 	'validationstatistics-old' => 'Lawas',
 );
@@ -1117,11 +1118,15 @@ Versões estáveis são revisões de páginas verificadas por pelo menos um util
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
  */
 $messages['ro'] = array(
-	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]] şi '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|recenzie]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]]
+şi '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|recenzie]].
+
+Editorii şi recenzorii sunt utilizatori stabiliţi care pot verifica modificările din pagini.",
 	'validationstatistics-ns' => 'Spaţiu de nume',
 	'validationstatistics-total' => 'Pagini',
 	'validationstatistics-user' => 'Utilizator',

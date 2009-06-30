@@ -42,6 +42,14 @@ $messages['dsb'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'problemchanges' => 'Revisar cambios etiquetados',
+	'problemchanges-category' => 'Categoría:',
+);
+
 /** French (Français)
  * @author IAlex
  */
@@ -127,7 +135,7 @@ $messages['ia'] = array(
  */
 $messages['id'] = array(
 	'problemchanges' => 'Periksa perubahan yang diberi tag',
-	'problemchanges-legend' => 'Daftarkan halaman yang diperiksa dengan suntingan dengan tag yang sedang menunggu diperiksa',
+	'problemchanges-legend' => 'Daftarkan halaman tertinjau dengan suntingan yang sedang menunggu tinjauan',
 	'problemchanges-none' => 'Saat ini tidak ada halaman yang memenuhi kriteria tersebut',
 	'problemchanges-category' => 'Kategori:',
 );
