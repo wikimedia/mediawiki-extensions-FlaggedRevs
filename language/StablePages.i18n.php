@@ -238,10 +238,13 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'stablepages' => 'Vakaat sivut',
 	'stablepages-stable' => 'vakaa versio',
+	'stablepages-none' => 'Tällä listalla ei ole sivuja.',
 );
 
 /** French (Français)

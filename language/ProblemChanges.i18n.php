@@ -50,6 +50,13 @@ $messages['es'] = array(
 	'problemchanges-category' => 'Categoría:',
 );
 
+/** Finnish (Suomi)
+ * @author Cimon Avaro
+ */
+$messages['fi'] = array(
+	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja jotka täyttävät nämä kriteerit',
+);
+
 /** French (Français)
  * @author IAlex
  */
@@ -171,6 +178,13 @@ $messages['lb'] = array(
 	'problemchanges-category' => 'Kategorie:',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aurora
+ */
+$messages['ms'] = array(
+	'problemchanges-category' => 'Kategori:',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -202,11 +216,20 @@ $messages['pl'] = array(
 	'problemchanges-category' => 'Kategoria',
 );
 
+/** Portuguese (Português)
+ * @author Malafaya
+ */
+$messages['pt'] = array(
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
 	'problemchanges' => 'Revide le cangiaminde taggate',
+	'problemchanges-legend' => 'Liste de le pàggene riviste cu le cangiaminde ca onne essere riviste taggate',
+	'problemchanges-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',
 	'problemchanges-category' => 'Categorije:',
 );
 

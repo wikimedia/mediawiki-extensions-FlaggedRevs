@@ -439,10 +439,23 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Oli hienoa, että jaksoit tarkistaa tämän sivun!</font>''",
+	'ratinghistory-period' => 'Aikajakso:',
+	'ratinghistory-month' => 'viime kuu',
+	'ratinghistory-3months' => 'viimeiset 3 kuukautta',
+	'ratinghistory-year' => 'viime vuosi',
+	'ratinghistory-3years' => 'viimeiset 3 vuotta',
+	'ratinghistory-ave' => 'Keskiarvo: $1',
+	'ratinghistory-chart' => 'Lukijoiden arviot tästä sivusta ajan suhteen taulukoituna',
+	'ratinghistory-purge' => 'tyhjennä välimuisti',
+	'ratinghistory-table' => 'Katsaus lukijoiden arvioinneista',
+	'ratinghistory-users' => 'Käyttäjät, jotka esittivät arvionsa',
 	'readerfeedback-svg' => 'Näytä SVG-muodossa',
+	'ratinghistory-none' => 'Ei ole tarpeeksi lukijanpalaute tietoja jotta taulukko voitaisiin esittää.',
 );
 
 /** French (Français)

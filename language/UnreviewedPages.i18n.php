@@ -371,15 +371,19 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Crt
  * @author Jaakonam
  * @author Nike
  */
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
+	'unreviewed-legend' => 'Luettelo tarkistamattomista sisältösivuista',
 	'unreviewed-category' => 'Luokka',
 	'unreviewed-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
+	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja jotka täyttävät nämä kriteerit',
+	'unreviewed-recent' => '(alle yksi tunti)',
 );
 
 /** French (Français)
@@ -535,15 +539,16 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author SpeedyGonsales
+ * @author Suradnik13
  */
 $messages['hr'] = array(
 	'right-unreviewedpages' => 'Gledanje [[Special:UnreviewedPages|popisa neocijenjenih stranica]]',
 	'unreviewedpages' => 'Neocijenjene stranice',
 	'unreviewed-legend' => 'Popis neocijenjenih sadržaja stranica',
 	'unreviewed-category' => 'Kategorija:',
-	'unreviewed-diff' => 'Promjene',
+	'unreviewed-diff' => 'pregledaj',
 	'unreviewed-unwatched' => '(nepraćeno)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|suradnik|suradnika}} prati)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivni suradnik|aktivnih suradnika}} prati)',
 	'unreviewed-list' => 'Ovo je popis sadržaja stranica koji nisu ocijenjeni.',
 	'unreviewed-none' => 'Trenutačno nema stranica koje se poklapaju s ovim kriterijima',
 );

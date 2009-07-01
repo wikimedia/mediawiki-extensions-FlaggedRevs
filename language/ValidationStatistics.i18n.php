@@ -376,16 +376,21 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Crt
  * @author Str4nd
  * @author Vililikku
  */
 $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
+	'validationstatistics-table' => "Alla on tilastot kullekin nimitilalle ''lukuun ottamatta'' uudelleenohjaus-sivuja.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',
+	'validationstatistics-latest' => 'Näkyvä sivu joka on tarkastettu',
 	'validationstatistics-old' => 'Vanhentunut',
+	'validationstatistics-utable' => 'Alla on lista viidestä ahkerimmasta arvioijasta edellisen tunnin aikana.',
+	'validationstatistics-user' => 'Käyttäjä',
 );
 
 /** French (Français)
@@ -584,13 +589,14 @@ $4
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Suradnik13
  */
 $messages['hr'] = array(
 	'validationstatistics' => 'Statistika pregledavanja',
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-stable' => 'Ocijenjeno',
-	'validationstatistics-latest' => 'Nedavno ocijenjeno',
+	'validationstatistics-latest' => 'Sinkronizirano',
 	'validationstatistics-synced' => 'Usklađeno/Ocijenjeno',
 	'validationstatistics-old' => 'Zastarjelo',
 );

@@ -289,6 +289,7 @@ $messages['fi'] = array(
 	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
 	'reviewedpages-lev-0' => 'Kertaalleen silmäilty',
 	'reviewedpages-lev-2' => 'Suositeltu',
+	'reviewedpages-all' => 'tarkistetut versiot',
 );
 
 /** French (Français)
@@ -403,17 +404,18 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dnik
  * @author SpeedyGonsales
+ * @author Suradnik13
  */
 $messages['hr'] = array(
 	'reviewedpages' => 'Ocijenjene stranice',
-	'reviewedpages-leg' => 'Prikaži popis stranica ocijenjenih ocjenom',
-	'reviewedpages-list' => 'Slijedeće stranice su ocijenjene ocjenom',
+	'reviewedpages-leg' => 'Prikaži stranice s najvišom ocjenom',
+	'reviewedpages-list' => '{{PLURAL:$1|Sljedeća stranica je ocjenjena|Sljedeće stranice su ocijenjene}} traženom ocjenom',
 	'reviewedpages-none' => 'Nema stranica u ovom popisu',
 	'reviewedpages-lev-0' => 'Pregledani članci',
 	'reviewedpages-lev-1' => 'Kvalitetni članci',
 	'reviewedpages-lev-2' => 'Izvrsni članci',
 	'reviewedpages-all' => 'ocjenjene verzije',
-	'reviewedpages-best' => 'posljednja najviše ocijenjena inačica',
+	'reviewedpages-best' => 'prvotna inačica',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

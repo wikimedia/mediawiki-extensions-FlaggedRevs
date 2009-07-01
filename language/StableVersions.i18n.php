@@ -401,13 +401,14 @@ $messages['hi'] = array(
  * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
+ * @author Suradnik13
  */
 $messages['hr'] = array(
 	'stableversions' => 'Vidi stabilne inačice',
 	'stableversions-leg1' => 'Prikaži pregledane inačice stranice',
 	'stableversions-page' => 'Ime stranice:',
 	'stableversions-none' => 'Članak "[[:$1]]" nema pregledanih inačica.',
-	'stableversions-list' => 'Slijedi popis inačica članka "[[:$1]]" koje su ocijenjene:',
+	'stableversions-list' => 'Slijedi popis {{PLURAL:$2|revizije|revizija}} od [[:$1]] {{PLURAL:$2|koja je ocijenjena|koje su ocijenjene}}:',
 	'stableversions-review' => 'Ocijenjeno <i>$1</i> od suradnika $2',
 );
 

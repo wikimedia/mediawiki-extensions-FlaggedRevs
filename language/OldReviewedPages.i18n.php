@@ -372,6 +372,7 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Huji
  * @author Jaakonam
  * @author Mobe
@@ -386,6 +387,7 @@ $messages['fi'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|päivä|päivää}})',
 	'oldreviewedpages-recent' => '(alle 1 tunti)',
 	'oldreviewed-category' => 'Luokka:',
+	'oldreviewed-watched' => 'Tarkkailulistallani',
 	'oldreviewedpages-unwatched' => '(tarkkailematon)',
 	'oldreviewedpages-watched' => '($2 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 );

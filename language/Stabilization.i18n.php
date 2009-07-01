@@ -874,15 +874,28 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'stabilization-perm' => 'Käyttäjätililläsi ei ole oikeutta muuttaa vakaiden versioiden konfiguraatiota.
+Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi',
+	'stabilization-leg' => 'Vahvista vakaiden versioiden asetukset',
+	'stabilization-select' => 'Vakaan version poiminta',
 	'stabilization-select2' => 'Uusin arvioitu versio',
+	'stabilization-def' => 'Versio joka oletusarvoisesti näytetään',
+	'stabilization-def1' => 'Vakaa versio; jos sellaista ei ole, ajantasainen versio',
 	'stabilization-def2' => 'Nykyinen versio',
+	'stabilization-restrict-none' => 'Ei lisärajauksia',
 	'stabilization-submit' => 'Vahvista',
-	'stabilization-comment' => 'Kommentti',
+	'stabilization-comment' => 'Syy:',
+	'stabilization-otherreason' => 'Muu syy',
+	'stabilization-expiry' => 'Vanhenee:',
 	'stabilization-sel-short-0' => 'Laatu',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Nykyinen',
 	'stabilization-def-short-1' => 'Vakaa',
+	'stabilize_expiry_invalid' => 'Virheellinen erääntymispäivä.',
+	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
+	'stabilize-expiring' => 'Erääntymispäivämäärä $1(UTC)',
+	'stabilization-review' => 'Tarkista nykyinen versio',
 );
 
 /** French (Français)
@@ -1204,6 +1217,7 @@ $messages['hi'] = array(
  * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
+ * @author Suradnik13
  */
 $messages['hr'] = array(
 	'stabilization-tab' => '(vi)',
@@ -1212,17 +1226,17 @@ $messages['hr'] = array(
 	'stabilization-perm' => 'Vaš suradnički račun nema prava mijenjanja stabilne inačice članka.
 Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Ime stranice:',
-	'stabilization-leg' => "Odredi važeću (''stabilnu'') inačicu članka",
-	'stabilization-select' => 'Kako je odabrana stabilna verzija',
+	'stabilization-leg' => 'Potvrdi postavke stabilne inačice',
+	'stabilization-select' => 'Odabir stabilne inačice',
 	'stabilization-select1' => 'Posljednja ocjena kvalitete; ukoliko je nije bilo, posljednje pregledavanje',
-	'stabilization-select2' => 'Posljednja ocijenjena inačica',
+	'stabilization-select2' => 'Posljednja ocijenjena inačica, bez obzira na stupanj provjere valjanosti',
 	'stabilization-def' => "Odabir inačice koja se prikazuje po ''defaultu''",
 	'stabilization-def1' => 'Stabilna inačica; ako je nema, trenutna',
 	'stabilization-def2' => 'Tekuća inačica',
 	'stabilization-submit' => 'Potvrdite',
 	'stabilization-notexists' => 'Ne postoji stranica "[[:$1|$1]]", te stoga nije moguće namještanje postavki za tu stranicu.',
 	'stabilization-notcontent' => 'Stranica "[[:$1|$1]]" ne može biti ocijenjena. Namještanje postavki nije moguće.',
-	'stabilization-comment' => 'Komentar:',
+	'stabilization-comment' => 'Razlog:',
 	'stabilization-expiry' => 'Istječe:',
 	'stabilization-sel-short' => 'Prvenstvo',
 	'stabilization-sel-short-0' => 'Kvaliteta',
@@ -1902,6 +1916,7 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Aurora
  * @author Aviator
  */
 $messages['ms'] = array(
@@ -1924,7 +1939,7 @@ Yang berikut ialah tetapan bagi [[:$1|$1]]:',
 Tetapan tidak boleh dibuat.',
 	'stabilization-notcontent' => 'Laman "[[:$1|$1]]" tidak boleh diperiksa.
 Tetapan tidak boleh dibuat.',
-	'stabilization-comment' => 'Ulasan:',
+	'stabilization-comment' => 'Alasan:',
 	'stabilization-expiry' => 'Tamat pada:',
 	'stabilization-sel-short' => 'Keutamaan',
 	'stabilization-sel-short-0' => 'Mutu',

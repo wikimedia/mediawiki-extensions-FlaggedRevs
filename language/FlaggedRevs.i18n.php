@@ -2987,6 +2987,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
  * @author Drini
  * @author Imre
  * @author Lin linao
+ * @author Locos epraix
  * @author McDutchie
  * @author Sanbec
  */
@@ -3120,6 +3121,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-finished' => '¡Revisión completa!',
+	'revreview-failed' => '¡Revisión fallida!',
 	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} ver versiones estables])'''",
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones estables]] son las predeterminadas para los lectores en vez de las más recientes.''",
@@ -3463,7 +3465,10 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'editor' => 'Muokkaaja',
 	'flaggedrevs' => 'Tarkastetut versiot',
+	'flaggedrevs-backlog' => "Tarkistettavissa sivuissa on tällä hetkellä [[Special: OldReviewedPages|pitkä jono muokkauksia]]. '''Olisi hyödyllistä jos ehtisit käsitellä niitä!'''",
+	'prefs-flaggedrevs' => 'Vakaus',
 	'flaggedrevs-prefs-watch' => 'Lisää tarkastetut sivut tarkkailulistalle.',
 	'group-editor' => 'muokkaajat',
 	'group-editor-member' => 'muokkaaja',
@@ -3471,6 +3476,10 @@ $messages['fi'] = array(
 	'group-reviewer-member' => 'arvioija',
 	'grouppage-editor' => '{{ns:project}}:Muokkaaja',
 	'grouppage-reviewer' => '{{ns:project}}:Arvioija',
+	'hist-draft' => 'kehitysluonnos versio',
+	'hist-quality' => 'laadukas versio',
+	'hist-stable' => 'katsastettu versio',
+	'review-diff2stable' => 'Näytä vakaan ja ajantasaisen version väliset eroavaisuudet',
 	'review-logentry-diff' => 'muutoslinkki vakaaseen versioon',
 	'reviewer' => 'Arvioija',
 	'revisionreview' => 'Arvioi versioita',
@@ -3482,10 +3491,15 @@ $messages['fi'] = array(
 	'revreview-accuracy-4' => 'Suositeltu',
 	'revreview-approved' => 'Hyväksytty',
 	'revreview-auto' => '(automaattinen)',
+	'revreview-auto-w' => 'Muokkaat vakaata versiota; muokkauksesi saavat välittömästi tarkastetun version arvon.',
+	'revreview-auto-w-old' => 'Olet muokkaamassa tarkistettua versiota; muokkauksesi saa välittömästi tarkastetun version arvon.',
+	'revreview-basic' => 'Tämä on uusin [[{{MediaWiki: Validationpage}}|katsastettu]] versio, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksymisaika] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Luonnosversioissa] on [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] arviointia odottamassa.',
+	'revreview-blocked' => 'Et voi arvioida tätä versiota, koska käyttäjätililläsi on tällä hetkellä esto voimassa ([$1 tarkat tiedot])',
 	'revreview-current' => 'Luonnos',
 	'revreview-depth-2' => 'Keskitasoa',
 	'revreview-draft-title' => 'Luonnossivu',
 	'revreview-edit' => 'Muokkaa luonnosta',
+	'revreview-editnotice' => "'''Tälle sivulle tehtävät muokkaukset sisällytetään [[{{MediaWiki:Validationpage}}|vakaaseen versioon]] kunhan valtuutettu käyttäjä on arvioinut ne.'''",
 	'revreview-flag' => 'Arvioi tämä versio',
 	'revreview-log' => 'Kommentti',
 	'revreview-oldrating' => 'Arvio oli:',
@@ -3508,8 +3522,15 @@ $messages['fi'] = array(
 	'readerfeedback-npov' => 'Neutraalius',
 	'readerfeedback-presentation' => 'Esittäminen',
 	'readerfeedback-overall' => 'Kokonaisvaikutelma',
+	'readerfeedback-level-none' => '(en osaa päättää)',
+	'readerfeedback-level-0' => 'Todella heikko',
+	'readerfeedback-level-1' => 'Alhainen',
+	'readerfeedback-level-2' => 'Kohtalainen',
+	'readerfeedback-level-3' => 'Hyvä',
+	'readerfeedback-level-4' => 'Todella mainio',
 	'readerfeedback-finished' => 'Kiitos!',
 	'revreview-filter-all' => 'Kaikki',
+	'revreview-filter-stable' => 'vakaat',
 	'revreview-reviewlink' => 'tarkasta',
 	'tooltip-ca-current' => 'Näytä tämän sivun nykyinen luonnosversio',
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
@@ -4920,6 +4941,7 @@ Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
  * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
+ * @author Suradnik13
  */
 $messages['hr'] = array(
 	'editor' => 'Urednik',
@@ -4933,9 +4955,9 @@ $messages['hr'] = array(
 	'hist-quality' => 'kvalitetna',
 	'hist-stable' => 'pregledana',
 	'review-diff2stable' => 'Promjene između važeće i trenutne inačice',
-	'review-logentry-app' => 'ocijenio [[$1]]',
-	'review-logentry-dis' => 'zastarjela inačica stranice [[$1]]',
-	'review-logentry-id' => 'ocjena broj $1',
+	'review-logentry-app' => 'ocijenjena r$2 od [[$1]]',
+	'review-logentry-dis' => 'zastarjela r$2 od [[$1]]',
+	'review-logentry-id' => 'prikaži',
 	'review-logpage' => 'Evidencija ocjenjivanja članaka',
 	'review-logpagetext' => 'Ovo je evidencija promjena [[{{MediaWiki:Validationpage}}|ocjena]] članaka.',
 	'reviewer' => 'Ocjenjivač',
@@ -4993,21 +5015,21 @@ možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FUL
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pregled]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi članak u izradi]]",
 	'revreview-quick-none' => "'''Važeća inačica''' (nema ocijenjenih inačica)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Ocjena]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi članak u izradi]]",
-	'revreview-quick-see-basic' => "'''Članak u izradi''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vidi važeću inačicu]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|promjena|promjene|promjena}}])",
-	'revreview-quick-see-quality' => "'''Članak u izradi''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vidi važeću inačicu]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|promjena|promjene|promjena}}])",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Članak u izradi]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vidi stranicu]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} usporedi])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Članak u izradi]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vidi stranicu]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} usporedi])",
 	'revreview-selected' => "Odabrane promjene '''$1:'''",
 	'revreview-source' => 'izvor članka u radu',
-	'revreview-stable' => 'Važeća inačica',
+	'revreview-stable' => 'Stabilna stranica',
 	'revreview-style' => 'Čitljivost',
 	'revreview-style-0' => 'Neodobren',
 	'revreview-style-1' => 'Prihvatljiv',
 	'revreview-style-2' => 'Dobar',
 	'revreview-style-3' => 'Vrlo dobar',
 	'revreview-style-4' => 'Izvrstan',
-	'revreview-submit' => 'Podnesi ocijenu',
-	'revreview-text' => "Važeća (''stabilna'') inačica stranice prikazuje se svima umjesto najnovije inačice.",
+	'revreview-submit' => 'Podnesi',
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne inačice]] stranice prikazuje se svima umjesto najnovije inačice.''",
 	'revreview-toolow' => 'Morate ocijeniti po svakom od donjih kriterija ocjenom višom od "Ne zadovoljava"
 da bi promjena bila pregledana/ocijenjena. U suprotnom, ostavite sve na "Ne zadovoljava".',
 	'revreview-update' => "Molim [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(prikazane dolje)'' učinjene od kad je  stabilna inačica [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena]. 
