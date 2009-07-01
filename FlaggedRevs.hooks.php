@@ -1513,7 +1513,7 @@ EOT;
 		return true;
 	}
 	
-	public static function addTochangeListLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
+	public static function addToChangeListLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
 		global $wgUser;
 		if( $rc->getTitle()->getNamespace() < 0 || !isset($rc->mAttribs['fpp_rev_id']) )
 			return true; // reviewed pages only
