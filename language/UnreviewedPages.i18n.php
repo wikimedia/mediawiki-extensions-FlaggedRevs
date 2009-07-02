@@ -382,7 +382,7 @@ $messages['fi'] = array(
 	'unreviewed-category' => 'Luokka',
 	'unreviewed-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
-	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja jotka täyttävät nämä kriteerit',
+	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä kriteerit',
 	'unreviewed-recent' => '(alle yksi tunti)',
 );
 
@@ -1048,6 +1048,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Lijealso
  * @author Malafaya
  */
 $messages['pt'] = array(
@@ -1061,6 +1062,7 @@ $messages['pt'] = array(
 	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
 	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
 	'unreviewed-viewing' => '(sob análise)',
+	'unreviewed-recent' => '(menos de uma hora)',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

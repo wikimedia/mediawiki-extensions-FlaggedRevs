@@ -52,9 +52,10 @@ $messages['es'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  */
 $messages['fi'] = array(
-	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja jotka täyttävät nämä kriteerit',
+	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä kriteerit',
 );
 
 /** French (Français)

@@ -3476,7 +3476,7 @@ $messages['fi'] = array(
 	'group-reviewer-member' => 'arvioija',
 	'grouppage-editor' => '{{ns:project}}:Muokkaaja',
 	'grouppage-reviewer' => '{{ns:project}}:Arvioija',
-	'hist-draft' => 'kehitysluonnos versio',
+	'hist-draft' => 'kehitysversio',
 	'hist-quality' => 'laadukas versio',
 	'hist-stable' => 'katsastettu versio',
 	'review-diff2stable' => 'Näytä vakaan ja ajantasaisen version väliset eroavaisuudet',
@@ -3522,7 +3522,7 @@ $messages['fi'] = array(
 	'readerfeedback-npov' => 'Neutraalius',
 	'readerfeedback-presentation' => 'Esittäminen',
 	'readerfeedback-overall' => 'Kokonaisvaikutelma',
-	'readerfeedback-level-none' => '(en osaa päättää)',
+	'readerfeedback-level-none' => '(epävarma)',
 	'readerfeedback-level-0' => 'Todella heikko',
 	'readerfeedback-level-1' => 'Alhainen',
 	'readerfeedback-level-2' => 'Kohtalainen',
@@ -6957,14 +6957,12 @@ nohzekike.
 
 Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-newest-basic' => '
-De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-sighted}}] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung es|$3  Änderunge sin|Et es keij Änderung}}] op et Nohkike am waade.',
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-sighted}}] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>. {{PLURAL:$3|||Et es}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung|$3 Änderunge|keij Änderung}}] {{PLURAL:$3|es|sin noch|}} op et Nohkike am waade.',
 	'revreview-newest-basic-i' => '
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-sighted}}] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderunge aan Schablohne un Datteije udder beeds] sin op et Nohkike am waade.',
 	'revreview-newest-quality' => '
-De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung es|$3  Änderunge sin|Et es ävver keij Änderung}}] op et Nohkike am waade.',
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>. {{PLURAL:$3|||Et es ävver}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ein Änderung|$3 Änderunge|keij Änderung}}] {{PLURAL:$3|es|sin|}} op et Nohkike am waade.',
 	'revreview-newest-quality-i' => '
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderunge aan Schablohne udder Datteije udder beeds] sin op et Nohkike am waade.',

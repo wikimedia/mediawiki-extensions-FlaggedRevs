@@ -383,7 +383,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
-	'validationstatistics-table' => "Alla on tilastot kullekin nimitilalle ''lukuun ottamatta'' uudelleenohjaus-sivuja.",
+	'validationstatistics-table' => "Alla on tilastot kaikille nimiavaruuksille ohjaussivuja ''lukuun ottamatta''.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',
@@ -1074,6 +1074,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Lijealso
  * @author Malafaya
  * @author Waldir
  */
@@ -1099,6 +1100,8 @@ A versão estável de uma página é a revisão mais recente que foi aprovada pa
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desactualizadas',
+	'validationstatistics-user' => 'Utilizador',
+	'validationstatistics-reviews' => 'Revisões',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
