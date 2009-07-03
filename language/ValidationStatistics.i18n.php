@@ -89,6 +89,14 @@ $4
 	'validationstatistics-reviews' => 'مراجعات',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'validationstatistics-ns' => 'ܚܩܠܐ',
+	'validationstatistics-total' => 'ܦܐܬܘܬ̈ܐ',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
  * @author Meno25

@@ -1222,7 +1222,9 @@ $messages['hi'] = array(
 $messages['hr'] = array(
 	'stabilization-tab' => '(vi)',
 	'stabilization' => 'Stabilizacija stranice',
-	'stabilization-text' => "'''Promijeni postavke kako će se važeća inačica članka [[:$1|$1]] prikazivati.'''",
+	'stabilization-text' => "'''Promijenite postavke kako biste prilagodili kako će stabilna inačica [[:\$1|\$1]] biti odabrana i prikazana.'''
+
+Kada mijenjate konfiguraciju ''odabir stabilne inačice'' kako bi se inačice \"kvalitetno\" ili \"davno\" rabile zadano, provjerite da li stvarno postoje takve inačice stranice, inače će promjene imati mali učinak.",
 	'stabilization-perm' => 'Vaš suradnički račun nema prava mijenjanja stabilne inačice članka.
 Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Ime stranice:',

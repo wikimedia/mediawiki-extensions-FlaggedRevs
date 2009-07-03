@@ -441,6 +441,7 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Nike
  * @author Str4nd
  */
 $messages['fi'] = array(
@@ -456,7 +457,7 @@ $messages['fi'] = array(
 	'ratinghistory-table' => 'Katsaus lukijoiden arvioinneista',
 	'ratinghistory-users' => 'Käyttäjät, jotka esittivät arvionsa',
 	'readerfeedback-svg' => 'Näytä SVG-muodossa',
-	'ratinghistory-none' => 'Ei ole tarpeeksi lukijanpalaute tietoja, jotta taulukko voitaisiin esittää.',
+	'ratinghistory-none' => 'Ei ole tarpeeksi lukijapalautetta, jotta taulukko voitaisiin esittää.',
 );
 
 /** French (Français)

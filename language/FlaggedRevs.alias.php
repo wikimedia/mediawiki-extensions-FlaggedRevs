@@ -184,6 +184,19 @@ $aliases['fa'] = array(
 	'ValidationStatistics' => array( 'آمار_تاییدها' ),
 );
 
+/** Finnish (Suomi) */
+$aliases['fi'] = array(
+	'LikedPages' => array( 'Laatusivut' ),
+	'ProblemChanges' => array( 'Muokkaukset joissa on epäselvyyksiä' ),
+	'ProblemPages' => array( 'Sivut joissa on epäselvyyksiä' ),
+	'ReaderFeedback' => array( 'Lukijapalaute' ),
+	'Stabilization' => array( 'Vakaaksi versioksi' ),
+	'StablePages' => array( 'Vakaat sivut' ),
+	'StableVersions' => array( 'Vakaat versiot' ),
+	'UnreviewedPages' => array( 'Arvioimattomat sivut' ),
+	'UnstablePages' => array( 'Epävakaat sivut' ),
+);
+
 /** French (Français)
  * @author Grondin
  * @author Sherbrooke

@@ -324,6 +324,7 @@ $messages['eo'] = array(
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Drini
+ * @author Locos epraix
  * @author Sanbec
  */
 $messages['es'] = array(
@@ -337,6 +338,9 @@ $messages['es'] = array(
 	'unreviewed-list' => 'Esta lista contiene páginas que no han sido revisadas',
 	'unreviewed-none' => 'No hay actualmente páginas que cumplan estos criterios',
 	'unreviewed-viewing' => '(bajo revisión)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|día|días}})',
+	'unreviewed-recent' => '(menos de 1 hora)',
 );
 
 /** Basque (Euskara)
@@ -382,7 +386,7 @@ $messages['fi'] = array(
 	'unreviewed-category' => 'Luokka',
 	'unreviewed-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
-	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä kriteerit',
+	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
 	'unreviewed-recent' => '(alle yksi tunti)',
 );
 

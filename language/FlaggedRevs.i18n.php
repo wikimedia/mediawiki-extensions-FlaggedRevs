@@ -4971,8 +4971,7 @@ $messages['hr'] = array(
 	'revreview-auto' => '(automatski)',
 	'revreview-auto-w' => "Uređujete važeću inačicu stranice, svaka vaša promjena biti će '''automatski ocijenjena'''.
 Možda želite pregledati vaše izmjene prije snimanja.",
-	'revreview-auto-w-old' => "Uređujete staru inačicu članka, svaka promjena bit će '''automatski ocijenjena'''.
-Možda želite pregledati vaše izmjene prije snimanja.",
+	'revreview-auto-w-old' => "Uređujete ocijenjenu inačicu članka, promjene će bit '''automatski ocijenjene'''.",
 	'revreview-basic' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|pregledana]] promjena,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Članak u radu]
 možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|promjena|promjene|promjena}}]
