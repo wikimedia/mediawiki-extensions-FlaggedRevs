@@ -408,10 +408,8 @@ $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps
 # Auto-reviewing
 $wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
-# Disallow moves of stable pages
-$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanMove';
-# Determine what pages can be patrolled
-$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanPatrol';
+# Determine what pages can be moved and patrolled
+$wgHooks['userCan'][] = 'FlaggedRevsHooks::onUserCan';
 # Log parameter
 $wgHooks['LogLine'][] = 'FlaggedRevsHooks::reviewLogLine';
 # Disable auto-promotion for demoted users

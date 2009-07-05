@@ -649,54 +649,49 @@ EOT;
 	}
 
 	/**
-	* Don't let users vandalize pages by moving them
+	* Check page move and patrol permissions for FlaggedRevs
 	*/
-	public static function userCanMove( $title, $user, $action, &$result ) {
-		if( $action != 'move' || $result===false || !FlaggedRevs::isPageReviewable($title) ) {
-			return true;
-		}
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-		if( !$flaggedArticle->showStableByDefault() ) {
-			return true;
-		}
-		if( $frev = $flaggedArticle->getStableRev() ) {
-			# Allow for only editors/reviewers to move this
-			if( !$user->isAllowed('review') && !$user->isAllowed('movestable') ) {
+	public static function onUserCan( $title, $user, $action, &$result ) {
+		if( $result === false || !$title->exists() )
+			return true; // nothing to do
+		# Don't let users vandalize pages by moving them...
+		if( $action === 'move' ) {
+			if( !FlaggedRevs::isPageReviewable($title) )
+				return true;
+			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+			# If the current shows be default anyway, nothing to do...
+			if( !$flaggedArticle->showStableByDefault() ) {
+				return true;
+			}
+			$frev = $flaggedArticle->getStableRev();
+			if( $frev && !$user->isAllowed('review') && !$user->isAllowed('movestable') ) {
+				# Allow for only editors/reviewers to move this page
 				$result = false;
 				return false;
 			}
-		}
-		return true;
-	}
-	
-	/**
-	* Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
-	*/
-	public static function userCanPatrol( $title, $user, $action, &$result ) {
-		if( $result === false ) return true; // nothing to do
-		if( $action != 'patrol' && $action != 'autopatrol' ) {
-			return true;
-		}
-		# Pages in reviewable namespace can be patrolled IF reviewing
-		# is disabled for pages that don't show the stable by default.
-		# In such cases, we let people with 'review' rights patrol them.
-		if( FlaggedRevs::isPageReviewable($title) && !$user->isAllowed('review') ) {
-			$result = false;
-			return false;
-		}
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-		# The page must be in a patrollable namespace ($wgFlaggedRevsPatrolNamespaces)...
-		if( !$flaggedArticle->isPatrollable() ) {
-			global $wgUseNPPatrol;
-			# ...unless the page is not in a reviewable namespace and
-			# new page patrol is enabled. In this scenario, any edits
-			# to pages outside of patrollable namespaces would already
-			# be auto-patrolled, except for the new page edits.
-			if( $wgUseNPPatrol && !$flaggedArticle->isReviewable() ) {
-				return true;
-			} else {
+		# Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
+		} else if( $action === 'patrol' || $action === 'autopatrol' ) {
+			# Pages in reviewable namespace can be patrolled IF reviewing
+			# is disabled for pages that don't show the stable by default.
+			# In such cases, we let people with 'review' rights patrol them.
+			if( FlaggedRevs::isPageReviewable($title) && !$user->isAllowed('review') ) {
 				$result = false;
 				return false;
+			}
+			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+			# The page must be in a patrollable namespace ($wgFlaggedRevsPatrolNamespaces)...
+			if( !$flaggedArticle->isPatrollable() ) {
+				global $wgUseNPPatrol;
+				# ...unless the page is not in a reviewable namespace and
+				# new page patrol is enabled. In this scenario, any edits
+				# to pages outside of patrollable namespaces would already
+				# be auto-patrolled, except for the new page edits.
+				if( $wgUseNPPatrol && !$flaggedArticle->isReviewable() ) {
+					return true;
+				} else {
+					$result = false;
+					return false;
+				}
 			}
 		}
 		return true;
