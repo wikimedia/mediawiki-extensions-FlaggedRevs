@@ -160,6 +160,13 @@ $messages['ja'] = array(
 	'problemchanges-category' => 'カテゴリ:',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author វ័ណថារិទ្ធ
+ */
+$messages['km'] = array(
+	'problemchanges-category' => 'ចំណាត់ថ្នាក់ក្រុម៖',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

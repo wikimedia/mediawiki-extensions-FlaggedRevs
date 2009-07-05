@@ -257,6 +257,13 @@ $messages['ja'] = array(
 	'qualityoversight-legend' => '最近の査読記録を検索',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author វ័ណថារិទ្ធ
+ */
+$messages['km'] = array(
+	'qualityoversight-legend' => 'ស្វែងរក​បញ្ជី​ត្រួតពិនិត្យ​ថ្មីៗ',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

@@ -7222,6 +7222,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-source' => 'Brouillon Quelltext',
 	'revreview-stable' => 'Stabil Säit',
 	'revreview-stable-title' => 'Iwwerkuckte Säit',
+	'revreview-stable2' => 'Dir wëllt vläicht déi [{{fullurl:$1|stable=1}} stabil Versioun] vun dëser Säit (wann et eng gëtt) gesinn.',
 	'revreview-style' => 'Liesbarkeet',
 	'revreview-style-1' => 'Akzeptabel',
 	'revreview-style-2' => 'Gudd',
