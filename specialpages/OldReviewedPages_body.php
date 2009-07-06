@@ -316,6 +316,12 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		return $this->mForm->formatRow( $row );
 	}
 	
+	function getDefaultQuery() {
+		$query = parent::getDefaultQuery();
+		$query['category'] = $this->category;
+		return $query;
+	}
+	
 	function getDefaultDirections() {
 		return false;
 	}
