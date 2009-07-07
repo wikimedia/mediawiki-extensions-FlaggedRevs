@@ -445,7 +445,7 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
-	'ratinghistory-thanks' => "''<font color=\"darkred\">Oli hienoa, että jaksoit tarkistaa tämän sivun!</font>''",
+	'ratinghistory-thanks' => "''<font color=\"darkred\">Kiitos, että tarkistit tämän sivun!</font>''",
 	'ratinghistory-period' => 'Aikajakso:',
 	'ratinghistory-month' => 'viime kuu',
 	'ratinghistory-3months' => 'viimeiset 3 kuukautta',

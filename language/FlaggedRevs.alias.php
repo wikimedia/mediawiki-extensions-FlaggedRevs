@@ -187,8 +187,8 @@ $aliases['fa'] = array(
 /** Finnish (Suomi) */
 $aliases['fi'] = array(
 	'LikedPages' => array( 'Laatusivut' ),
-	'ProblemChanges' => array( 'Muokkaukset joissa on epäselvyyksiä' ),
-	'ProblemPages' => array( 'Sivut joissa on epäselvyyksiä' ),
+	'ProblemChanges' => array( 'Ongelmalliset_muutokset' ),
+	'ProblemPages' => array( 'Ongelmalliset_sivut' ),
 	'ReaderFeedback' => array( 'Lukijapalaute' ),
 	'Stabilization' => array( 'Vakaaksi versioksi' ),
 	'StablePages' => array( 'Vakaat sivut' ),
@@ -440,6 +440,12 @@ $aliases['mk'] = array(
 	'UnreviewedPages' => array( 'НепрегледаниСтраници' ),
 	'UnstablePages' => array( 'НестабилниСтраници' ),
 	'ValidationStatistics' => array( 'ВалидацискиСтатистики' ),
+);
+
+/** Malayalam (മലയാളം) */
+$aliases['ml'] = array(
+	'StablePages' => array( 'സ്ഥിരതാളുകള്‍' ),
+	'UnstablePages' => array( 'അസ്ഥിരതാളുകള്‍' ),
 );
 
 /** Marathi (मराठी)

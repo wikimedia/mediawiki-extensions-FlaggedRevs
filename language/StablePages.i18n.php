@@ -490,6 +490,10 @@ $messages['lb'] = array(
 	'stablepages-text' => 'Hei ass eng Lëscht vu Säiten déi individuell konfiguréiert goufen, datt déi stabil Versioun als Standard Säiteninhalt ugewise gëtt.',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
+	'stablepages-prec-none' => 'Keng Prioritéit',
+	'stablepages-prec-quality' => "Proritéit fir d'Qualitéit",
+	'stablepages-prec-pristine' => 'Keng Prioritéit',
+	'stablepages-precedence' => 'Prioritéit:',
 );
 
 /** Macedonian (Македонски)

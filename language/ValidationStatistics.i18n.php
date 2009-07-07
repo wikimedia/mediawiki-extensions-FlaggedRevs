@@ -94,7 +94,7 @@ $4
  */
 $messages['arc'] = array(
 	'validationstatistics-ns' => 'ܚܩܠܐ',
-	'validationstatistics-total' => 'ܦܐܬܘܬ̈ܐ',
+	'validationstatistics-total' => 'ܦܐܬܬ̈ܐ',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
