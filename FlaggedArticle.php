@@ -962,7 +962,7 @@ class FlaggedArticle extends Article {
 		// Loads messages for flagged revisions UI
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		// Creates article object from title
-		$article = Article::newFromTitle( $title );
+		$article = new Article( $title );
 		// Gets the status of whether the article is the stable revision
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 		// Checks if this page is not a talk page and not the stable version
