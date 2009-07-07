@@ -431,6 +431,8 @@ $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
 # Sets tabs and permalink
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
+# Sets navigation
+$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation';
 # Add tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
 # Add review form and visiblity settings link

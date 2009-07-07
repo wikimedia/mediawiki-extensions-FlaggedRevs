@@ -1312,6 +1312,16 @@ EOT;
 		$fa = FlaggedArticle::getGlobalInstance();
 		if( $fa ) {
 			$fa->setActionTabs( $skin, $contentActions );
+			$fa->setViewTabs( $skin, $contentActions );
+		}
+		return true;
+	}
+
+	public static function setNavigation( $skin, &$links ) {
+		$fa = FlaggedArticle::getGlobalInstance();
+		if( $fa ) {
+			$fa->setActionTabs( $skin, $links['actions'] );
+			$fa->setViewTabs( $skin, $links['views'] );
 		}
 		return true;
 	}
@@ -1323,7 +1333,7 @@ EOT;
 		$flaggedArticle->setPageContent( $outputDone, $pcache );
 		return true;
 	}
-	
+
 	public static function addRatingLink( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 		$fa = FlaggedArticle::getTitleInstance( $skintemplate->mTitle );
 		# Add rating tab
