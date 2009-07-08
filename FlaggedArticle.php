@@ -904,11 +904,6 @@ class FlaggedArticle extends Article {
 			// Exits, since only reviewable pages need these tabs
 			return true;
 		}
-		/*
-		 * FIXME: IS THIS LOGIC CORRECT? IT DOES NOT MAKES SENSE THAT WE ONLY
-		 * PROVICE A STABLIZE TAB FOR PEOPLE WHTHOUT PROTECTION RIGHTS BUT WITH
-		 * AT LEAST ONE TAB AS SEEN HERE...
-		 */
 		// Checks if...
 		if (
 			// This page is not a talk page
@@ -916,10 +911,10 @@ class FlaggedArticle extends Article {
 			// User is allowed to stablize pages
 			$wgUser->isAllowed( 'stablesettings' ) &&
 			// Actions is an array
-			count( $actions ) &&
+			is_array( $actions ) &&
 			// A protect tab does not exist
 			!isset( $actions['protect'] ) &&
-			// An unprtect tab does not exist
+			// An unprotect tab does not exist
 			!isset( $actions['unprotect'] )
 		) {
 			// Loads messages for stabilization UI
