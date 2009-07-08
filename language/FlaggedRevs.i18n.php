@@ -7458,11 +7458,12 @@ Hamarino azafady ny URL nampiasainao hahatongavana eto amin'ity pejy ity.",
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
 	'editor' => 'Уредувач',
-	'flaggedrevs' => 'Означени ревизии',
+	'flaggedrevs' => 'Означени промени',
 	'flaggedrevs-desc' => 'Им дава можност на уредувачите и оценувачите да ги потврдат ревизиите и да ги стабилизираат страниците',
 	'flaggedrevs-pref-UI-0' => 'Користење на детален интерфејс на стабилна верзија.',
 	'flaggedrevs-pref-UI-1' => 'Користење на едноставен интерфејс на стабилна верзија.',

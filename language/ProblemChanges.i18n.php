@@ -32,6 +32,17 @@ $messages['be-tarask'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
+/** German (Deutsch)
+ * @author Khaledelmansoury
+ * @author Umherirrender
+ */
+$messages['de'] = array(
+	'problemchanges' => 'Nachprüfung der markierten Veränderungen',
+	'problemchanges-legend' => 'Liste der nachgeprüften Seiten mit markierten Bearbeitungen, für die noch eine Nachprüfung notwendig ist',
+	'problemchanges-none' => 'Es gibt zur Zeit keine Seiten, die diese Kriterien erfüllen',
+	'problemchanges-category' => 'Kategorie:',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
@@ -47,6 +58,8 @@ $messages['dsb'] = array(
  */
 $messages['es'] = array(
 	'problemchanges' => 'Revisar cambios etiquetados',
+	'problemchanges-legend' => 'Lista de páginas revisadas con ediciones etiquetadas pendientes de revisión',
+	'problemchanges-none' => 'No hay actualmente páginas que cumplan estos criterios',
 	'problemchanges-category' => 'Categoría:',
 );
 
