@@ -955,7 +955,8 @@ EOT;
 	
 	/**
 	* Check for 'autoreview' permission. This lets people who opt-out as
-	* Editors still have their own edits automatically reviewed.
+	* Editors still have their own edits automatically reviewed. Bot
+	* accounts are also handled here to make sure that can autoreview.
 	*/
 	public static function checkAutoPromote( $user, &$promote ) {
 		global $wgFlaggedRevsAutopromote;
@@ -966,10 +967,6 @@ EOT;
 		}
 		if( empty($wgFlaggedRevsAutopromote) || !$user->getId() || $user->isAllowed('autoreview') ) {
 			return true; // not needed or $wgFlaggedRevsAutopromote is off
-		}
-		# Check user email
-		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
-			return true;
 		}
 		# Get requirments
 		$editsReq = max($wgFlaggedRevsAutopromote['edits'],3000);
@@ -994,7 +991,7 @@ EOT;
 	* Callback that autopromotes user according to the setting in
 	* $wgFlaggedRevsAutopromote. This is not as efficient as it should be
 	*/
-	public static function autoPromoteUser( $article, $user, $text, $summary, $m, $a, $b, &$f, $rev ) {
+	public static function maybeMakeEditor( $article, $user, $text, $summary, $m, $a, $b, &$f, $rev ) {
 		global $wgFlaggedRevsAutopromote, $wgMemc;
 		if( empty($wgFlaggedRevsAutopromote) || !$rev || !$user->getId() )
 			return true;
@@ -1057,10 +1054,6 @@ EOT;
 		}
 		# Check reverted edits
 		if( $wgFlaggedRevsAutopromote['maxRevertedEdits'] < $p['revertedEdits'] ) {
-			return true;
-		}
-		# Check user email
-		if( $wgFlaggedRevsAutopromote['email'] && !$user->isEmailConfirmed() ) {
 			return true;
 		}
 		# Check account age

@@ -115,23 +115,6 @@ $wgFlaggedRevsAutoReview = 1;
 # Auto-review new pages with the minimal level?
 $wgFlaggedRevsAutoReviewNew = true;
 
-# We may have templates that do not have stable version. Given situational
-# inclusion of templates (such as parser functions that select template
-# X or Y depending), there may also be no revision ID for each template
-# pointed to by the metadata of how the article was when it was reviewed.
-# An example would be an article that selects a template based on time.
-# The template to be selected will change, and the metadata only points
-# to the reviewed revision ID of the old template. In such cases, we can s
-# select the current (unreviewed) revision.
-$wgUseCurrentTemplates = true;
-
-# We may have file pages that do not have stable version. Given situational
-# inclusion of templates/files (such as a random featured image template), 
-# there may also be no sha-1/time for each file pointed to by the metadata 
-# of how the article was when it was reviewed. In such cases, we can select 
-# the current (unreviewed) revision.
-$wgUseCurrentImages = true;
-
 # When setting up new dimensions or levels, you will need to add some
 # MediaWiki messages for the UI to show properly; any sysop can do this.
 # Define the tags we can use to rate an article, number of levels,
@@ -222,7 +205,6 @@ $wgFlaggedRevsAutopromote = array(
 	'totalCheckedEdits'   => 200, # ...Edits before the stable version of pages
 	'uniqueContentPages'  => 12, # $wgContentNamespaces unique pages edited
 	'editComments'        => 50, # how many edit comments used?
-	'email'	              => false, # user must be emailconfirmed?
 	'userpageBytes'       => 0, # userpage is needed? with what min size?
 	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
@@ -270,7 +252,22 @@ $wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
 # How long before stats page is updated?
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
-$wgFilterLogTypes['review'] = true;
+# We may have templates that do not have stable version. Given situational
+# inclusion of templates (such as parser functions that select template
+# X or Y depending), there may also be no revision ID for each template
+# pointed to by the metadata of how the article was when it was reviewed.
+# An example would be an article that selects a template based on time.
+# The template to be selected will change, and the metadata only points
+# to the reviewed revision ID of the old template. In such cases, we can s
+# select the current (unreviewed) revision.
+$wgUseCurrentTemplates = true;
+
+# We may have file pages that do not have stable version. Given situational
+# inclusion of templates/files (such as a random featured image template), 
+# there may also be no sha-1/time for each file pointed to by the metadata 
+# of how the article was when it was reviewed. In such cases, we can select 
+# the current (unreviewed) revision.
+$wgUseCurrentImages = true;
 
 # End of configuration variables.
 #########
@@ -387,7 +384,7 @@ $wgAPIModules['review'] = 'ApiReview';
 
 ######### Hook attachments #########
 # Autopromote Editors
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::autoPromoteUser';
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeMakeEditor';
 # Adds table link references to include ones from the stable version
 $wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
 # Clear dead config rows
@@ -540,6 +537,7 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 
 # Add review log
 $wgLogTypes[] = 'review';
+$wgFilterLogTypes['review'] = true;
 $wgLogNames['review'] = 'review-logpage';
 $wgLogHeaders['review'] = 'review-logpagetext';
 # Various actions are used for log filtering ...
