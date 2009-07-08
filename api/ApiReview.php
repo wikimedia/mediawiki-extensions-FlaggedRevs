@@ -82,24 +82,26 @@ class ApiReview extends ApiBase {
 		if( !$title->quickUserCan('edit') || !RevisionReview::userCanSetFlags($form->dims,$form->oflags,$form->config) )
 			$this->dieUsage( "You don't have the necessary rights to set the specified flags.", 'permissiondenied' );
 
-		// Now get the template and image parameters needed
-		// If it is the current revision, try the parser cache first
-		$article = new Article( $title, $revid );
-		if( $rev->isCurrent() ) {
-			$parserCache = ParserCache::singleton();
-			$parserOutput = $parserCache->get( $article, $wgUser );
+		if( $form->approve ) {
+			// Now get the template and image parameters needed
+			// If it is the current revision, try the parser cache first
+			$article = new Article( $title, $revid );
+			if( $rev->isCurrent() ) {
+				$parserCache = ParserCache::singleton();
+				$parserOutput = $parserCache->get( $article, $wgUser );
+			}
+			if( empty( $parserOutput ) ) {
+				// Miss, we have to reparse the page
+				global $wgParser;
+				$text = $article->getContent();
+				$options = FlaggedRevs::makeParserOptions();
+				$parserOutput = $wgParser->parse( $text, $title, $options );
+			}
+			// Set version parameters for review submission
+			list( $form->templateParams, $form->imageParams, $form->fileVersion ) =
+				FlaggedRevs::getIncludeParams( $article, $parserOutput->mTemplateIds, $parserOutput->fr_ImageSHA1Keys );
 		}
-		if( empty( $parserOutput ) ) {
-			// Miss, we have to reparse the page
-			global $wgParser;
-			$text = $article->getContent();
-			$options = FlaggedRevs::makeParserOptions();
-			$parserOutput = $wgParser->parse( $text, $title, $options );
-		}
-
-		list( $form->templateParams, $form->imageParams, $form->fileVersion ) =
-			FlaggedRevs::getIncludeParams( $article, $parserOutput->mTemplateIds, $parserOutput->fr_ImageSHA1Keys );
-
+		
 		// Do the actual review
 		list( $approved, $status ) = $form->submit();
 		if( $status === true ) {
