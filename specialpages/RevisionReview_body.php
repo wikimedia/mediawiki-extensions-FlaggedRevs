@@ -407,7 +407,7 @@ class RevisionReview extends UnlistedSpecialPage
 			$frev = FlaggedRevision::newFromTitle( $this->page, $this->oldid );
 			# If we can't find this flagged rev, return to page???
 			if( is_null($frev) ) {
-				return array($approved,false);
+				return array($approved,true);
 			}
 			$status = $this->unapproveRevision( $frev );
 		}
