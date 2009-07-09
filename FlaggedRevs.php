@@ -211,6 +211,23 @@ $wgFlaggedRevsAutopromote = array(
 	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
 );
 
+# Define when users get to have their own edits auto-reviewed
+# This can be used for newer, semi-trusted users to improve workflow.
+$wgFlaggedRevsAutoreview = array(
+	'days'	              => 30, # days since registration
+	'edits'	              => 50, # total edit count
+	'spacing'	          => 3, # spacing of edit intervals
+	'benchmarks'          => 7, # how many edit intervals are needed?
+	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
+	'totalContentEdits'   => 150, # $wgContentNamespaces edits OR...
+	'totalCheckedEdits'   => 50, # ...Edits before the stable version of pages
+	'uniqueContentPages'  => 8, # $wgContentNamespaces unique pages edited
+	'editComments'        => 30, # how many edit comments used?
+	'email'	              => false, # user must be emailconfirmed?
+	'neverBlocked'        => true, # Can users that were blocked be promoted?
+	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
+);
+
 # Special:Userrights settings
 ## Basic rights for Sysops
 $wgAddGroups['sysop'][] = 'editor';
