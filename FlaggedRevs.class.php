@@ -1181,21 +1181,28 @@ class FlaggedRevs {
 	*/
 	public static function getUserParams( $uid ) {
 		$dbw = wfGetDB( DB_MASTER );
-		$row = $dbw->selectRow( 'flaggedrevs_promote', 'frp_user_params',
+		$row = $dbw->selectRow( 'flaggedrevs_promote',
+			'frp_user_params',
 			array( 'frp_user_id' => $uid ),
-			__METHOD__ );
+			__METHOD__
+		);
 		# Parse params
-		$params = array();
+		$p = array(); // init
 		if( $row ) {
 			$flatPars = explode( "\n", trim($row->frp_user_params) );
 			foreach( $flatPars as $pair ) {
 				$m = explode( '=', trim($pair), 2 );
 				$key = $m[0];
 				$value = isset($m[1]) ? $m[1] : null;
-				$params[$key] = $value;
+				$p[$key] = $value;
 			}
 		}
-		return $params;
+		// Initialize fields as needed...
+		if( !isset($p['uniqueContentPages']) ) $p['uniqueContentPages'] = '';
+		if( !isset($p['totalContentEdits']) ) $p['totalContentEdits'] = 0;
+		if( !isset($p['editComments']) ) $p['editComments'] = 0;
+		if( !isset($p['revertedEdits']) ) $p['revertedEdits'] = 0;
+		return $p;
 	}
 	
    	/**
