@@ -986,16 +986,16 @@ EOT;
 	* accounts are also handled here to make sure that can autoreview.
 	*/
 	public static function checkAutoPromote( $user, &$promote ) {
-		global $wgFlaggedRevsAutoreview, $wgMemc;
+		global $wgFlaggedRevsAutoconfirm, $wgMemc;
 		# Make sure bots always have autoreview
 		if( $user->isAllowed('bot') ) {
 			$promote[] = 'autoreview';
 			return true;
 		}
-		# Check if $wgFlaggedRevsAutoreview is actually enabled
+		# Check if $wgFlaggedRevsAutoconfirm is actually enabled
 		# and that this is a logged-in user that doesn't already
 		# have the 'autoreview' permission
-		if( !$user->getId() || $user->isAllowed('autoreview') || empty($wgFlaggedRevsAutoreview) ) {
+		if( !$user->getId() || $user->isAllowed('autoreview') || empty($wgFlaggedRevsAutoconfirm) ) {
 			return true;
 		}
 		# Check if results are cached to avoid DB queries.
@@ -1003,7 +1003,7 @@ EOT;
 		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autoreview-skip', $user->getId() );
 		$value = $wgMemc->get( $APSkipKey );
 		if( $value == 'true' ) return true;
-		# Check $wgFlaggedRevsAutoreview settings...
+		# Check $wgFlaggedRevsAutoconfirm settings...
 		$now = time();
 		$userCreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
 		# User registration was not always tracked in DB...use null for such cases
@@ -1011,35 +1011,35 @@ EOT;
 		$p = FlaggedRevs::getUserParams( $user->getId() );
 		# Check if user edited enough content pages
 		$totalCheckedEditsNeeded = false;
-		if( $wgFlaggedRevsAutoreview['totalContentEdits'] > $p['totalContentEdits'] ) {
-			if( !$wgFlaggedRevsAutoreview['totalCheckedEdits'] ) {
+		if( $wgFlaggedRevsAutoconfirm['totalContentEdits'] > $p['totalContentEdits'] ) {
+			if( !$wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
 				return true;
 			}
 			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
 		$pages = explode( ',', trim($p['uniqueContentPages']) ); // page IDs
-		if( $wgFlaggedRevsAutoreview['uniqueContentPages'] > count($pages) ) {
+		if( $wgFlaggedRevsAutoconfirm['uniqueContentPages'] > count($pages) ) {
 			return true;
 		}
 		# Check edit comment use
-		if( $wgFlaggedRevsAutoreview['editComments'] > $p['editComments'] ) {
+		if( $wgFlaggedRevsAutoconfirm['editComments'] > $p['editComments'] ) {
 			return true;
 		}
 		# Check reverted edits
-		if( $wgFlaggedRevsAutoreview['maxRevertedEdits'] < $p['revertedEdits'] ) {
+		if( $wgFlaggedRevsAutoconfirm['maxRevertedEdits'] < $p['revertedEdits'] ) {
 			return true;
 		}
 		# Check account age
-		if( !is_null($userage) && $userage < $wgFlaggedRevsAutoreview['days'] ) {
+		if( !is_null($userage) && $userage < $wgFlaggedRevsAutoconfirm['days'] ) {
 			return true;
 		}
 		# Check user edit count. Should be stored.
-		if( $user->getEditCount() < $wgFlaggedRevsAutoreview['edits'] ) {
+		if( $user->getEditCount() < $wgFlaggedRevsAutoconfirm['edits'] ) {
 			return true;
 		}
 		# Check user email
-		if( $wgFlaggedRevsAutoreview['email'] && !$user->isEmailConfirmed() ) {
+		if( $wgFlaggedRevsAutoconfirm['email'] && !$user->isEmailConfirmed() ) {
 			return true;
 		}
 		# Don't grant to currently blocked users...
@@ -1047,7 +1047,7 @@ EOT;
 			return true;
 		}
 		# Check if user was ever blocked before
-		if( $wgFlaggedRevsAutoreview['neverBlocked'] ) {
+		if( $wgFlaggedRevsAutoconfirm['neverBlocked'] ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$blocked = $dbr->selectField( 'logging', '1',
 				array( 'log_namespace' => NS_USER, 
@@ -1064,15 +1064,15 @@ EOT;
 		}
 		# Check for edit spacing. This lets us know that the account has
 		# been used over N different days, rather than all in one lump.
-		if( $wgFlaggedRevsAutoreview['spacing'] > 0 && $wgFlaggedRevsAutoreview['benchmarks'] > 1 ) {
+		if( $wgFlaggedRevsAutoconfirm['spacing'] > 0 && $wgFlaggedRevsAutoconfirm['benchmarks'] > 1 ) {
 			$sTestKey = wfMemcKey( 'flaggedrevs', 'autoreview-spacing-ok', $user->getId() );
 			$value = $wgMemc->get( $sTestKey );
 			# Check if the user already passed this test via cache.
 			# If no cache key is available, then check the DB...
 			if( $value !== 'true' ) {
 				$pass = self::editSpacingCheck(
-					$wgFlaggedRevsAutoreview['spacing'],
-					$wgFlaggedRevsAutoreview['benchmarks'],
+					$wgFlaggedRevsAutoconfirm['spacing'],
+					$wgFlaggedRevsAutoconfirm['benchmarks'],
 					$user
 				);
 				# Make a key to store the results
@@ -1094,11 +1094,11 @@ EOT;
 	* $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	*/
 	public static function maybeMakeEditor( $article, $user, $text, $summary, $m, $a, $b, &$f, $rev ) {
-		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoreview, $wgMemc;
+		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm, $wgMemc;
 		# Ignore NULL edits or edits by anon users
 		if( !$rev || !$user->getId() ) return true;
 		# No sense in running counters if nothing uses them
-		if( empty($wgFlaggedRevsAutopromote) && empty($wgFlaggedRevsAutoreview) ) {
+		if( empty($wgFlaggedRevsAutopromote) && empty($wgFlaggedRevsAutoconfirm) ) {
 			return true;
 		}
 		$p = FlaggedRevs::getUserParams( $user->getId() );
@@ -1108,7 +1108,7 @@ EOT;
 		if( $article->getTitle()->isContentPage() ) {
 			$pages = explode( ',', trim($p['uniqueContentPages']) ); // page IDs
 			# Don't let this get bloated for no reason
-			# (assumes $wgFlaggedRevsAutopromote is stricter than $wgFlaggedRevsAutoreview)
+			# (assumes $wgFlaggedRevsAutopromote is stricter than $wgFlaggedRevsAutoconfirm)
 			if( count($pages) < $wgFlaggedRevsAutopromote['uniqueContentPages']
 				&& !in_array($article->getId(),$pages) )
 			{
@@ -1216,8 +1216,8 @@ EOT;
 			# If no cache key is available, then check the DB...
 			if( $value !== 'true' ) {
 				$pass = self::editSpacingCheck(
-					$wgFlaggedRevsAutoreview['spacing'],
-					$wgFlaggedRevsAutoreview['benchmarks'],
+					$wgFlaggedRevsAutopromote['spacing'],
+					$wgFlaggedRevsAutopromote['benchmarks'],
 					$user
 				);
 				# Make a key to store the results
