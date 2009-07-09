@@ -227,7 +227,6 @@ $wgFlaggedRevsAutoconfirm = array(
 	'editComments'        => 20, # how many edit comments used?
 	'email'	              => false, # user must be emailconfirmed?
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
-	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
 );
 */
 

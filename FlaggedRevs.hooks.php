@@ -1026,10 +1026,6 @@ EOT;
 		if( $wgFlaggedRevsAutoconfirm['editComments'] > $p['editComments'] ) {
 			return true;
 		}
-		# Check reverted edits
-		if( $wgFlaggedRevsAutoconfirm['maxRevertedEdits'] < $p['revertedEdits'] ) {
-			return true;
-		}
 		# Check account age
 		if( !is_null($userage) && $userage < $wgFlaggedRevsAutoconfirm['days'] ) {
 			return true;
