@@ -959,7 +959,7 @@ EOT;
 		# Check the oldest edit
 		$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 		$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-			array( 'rev_user' => $user->getID() ),
+			array( 'rev_user' => $user->getId() ),
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
 		);
@@ -970,7 +970,7 @@ EOT;
 		while( $lower && $benchmarks < $needed ) {
 			$next = wfTimestamp( TS_UNIX, $lower ) + $spacing;
 			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-				array( 'rev_user' => $user->getID(),
+				array( 'rev_user' => $user->getId(),
 					'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp($next) ) ),
 					__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
@@ -1700,7 +1700,7 @@ EOT;
 					$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*',
 						'fp_pending_since IS NOT NULL', __METHOD__ );
 				}
-				if( $pages > 0 && ($unreviewed/$pages) > .02 ) {
+				if( $unreviewed > .02*$pages ) {
 					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 						wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
