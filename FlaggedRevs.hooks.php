@@ -644,11 +644,11 @@ EOT;
 	* Check page move and patrol permissions for FlaggedRevs
 	*/
 	public static function onUserCan( $title, $user, $action, &$result ) {
-		if( $result === false || !$title->exists() )
+		if( $result === false )
 			return true; // nothing to do
 		# Don't let users vandalize pages by moving them...
 		if( $action === 'move' ) {
-			if( !FlaggedRevs::isPageReviewable($title) )
+			if( !FlaggedRevs::isPageReviewable($title) || !$title->exists() )
 				return true;
 			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
 			# If the current shows be default anyway, nothing to do...
