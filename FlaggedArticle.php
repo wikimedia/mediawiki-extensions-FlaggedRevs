@@ -855,37 +855,28 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
-	 * Modifies an array of action links, as used by SkinTemplateNavigation and
+	 * Modify an array of action links, as used by SkinTemplateNavigation and
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setActionTabs( $skin, &$actions ) {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 	
-		// Gets the title of the subject page
 		$title = $this->parent->getTitle()->getSubjectPage();
-		// Checks if page is not a reviewable page
 		if ( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() ) {
-			// Exits, since only reviewable pages need these tabs
+			// Exit, since only reviewable pages need these tabs
 			return true;
 		}
-		// Checks if...
+		// Check if we should show a stabilization tab
 		if (
-			// This page is not a talk page
 			!$skin->mTitle->isTalkPage() &&
-			// User is allowed to stablize pages
 			$wgUser->isAllowed( 'stablesettings' ) &&
-			// Actions is an array
 			is_array( $actions ) &&
-			// A protect tab does not exist
 			!isset( $actions['protect'] ) &&
-			// An unprotect tab does not exist
 			!isset( $actions['unprotect'] )
 		) {
-			// Loads messages for stabilization UI
 			wfLoadExtensionMessages( 'Stabilization' );
-			// Gets the title of the Stabilization special page
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
-			// Adds default tab to actions
+			// Add a tab
 			$actions['default'] = array(
 				'class' => false,
 				'text' => wfMsg( 'stabilization-tab' ),
@@ -894,77 +885,54 @@ class FlaggedArticle extends Article {
 				)
 			);
 		}
-		// Exit
 		return true;
 	}
 	
 	/**
-	 * Modifies an array of view links, as used by SkinTemplateNavigation and
+	 * Modify an array of view links, as used by SkinTemplateNavigation and
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setViewTabs( $skin, &$views ) {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		
-		// Gets the title of the subject page
 		$title = $this->parent->getTitle()->getSubjectPage();
-		// Gets the value of the action parameter, defaulting to view
 		$action = $wgRequest->getVal( 'action', 'view' );
-		// Gets the article instance of the page
 		$fa = FlaggedArticle::getTitleInstance( $title );
-		// Checks if article is not reviewable or the UI should be hidden
 		if ( !$fa->isReviewable() || $this->limitedUI() ) {
-			// Exits
+			// Exit, since this isn't a reviewable page or the UI is hidden
 			return true;
 		}
-		// Gets the stable revision
 	   	$srev = $this->getStableRev( $action == 'rollback' ? FR_MASTER : 0 );
-	   	// Checks if no stable revision exists
 	   	if( is_null( $srev ) ) {
-			// Exits
+			// Exit, since no stable revision exists
 			return true;
 		}
-		// Loads messages for flagged revisions UI
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		// Creates article object from title
 		$article = new Article( $title );
-		// Gets the status of whether the article is the stable revision
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
-		// Checks if this page is not a talk page and not the stable version
 	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
-	   		// Checks if there's an edit tab
 	   		if ( isset( $views['edit'] ) ) {
-	   			// Checks if we should show the stable version by default
 				if ( $this->showStableByDefault() ) {
-					// Changes the label of the edit button
 					$views['edit']['text'] = wfMsg('revreview-edit');
 				}
-				// Checks if revision overriding is OK
 				if ( $this->pageOverride() ) {
-					// Changes the href of the edit tab
 					$views['edit']['href'] = $title->getLocalUrl( 'action=edit' );
 				}
 	   		}
-	   		// Checks if there's a viewsource tab
 	   		if ( isset( $views['viewsource'] ) ) {
-	   			// Checks if we should show the stable version by default
 				if ( $this->showStableByDefault() ) {
-					// Changes the label of the viewsource button
 					$views['viewsource']['text'] = wfMsg('revreview-source');
 				}
-				// Checks if revision overriding is OK
 				if ( $this->pageOverride() ) {
-					// Changes the href of the viewsource tab
 					$views['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
 				}
 			}
 	   	}
-		// Checks if flagged revisions tabs should not be shown or the page is
-		// already the most current revision
-	 	if( !$wgFlaggedRevTabs || $synced ) {
-	 		// Exits
+	 	if ( !$wgFlaggedRevTabs || $synced ) {
+	 		// Exit, since either the flagged revisions tabs should not be shown
+	 		// or the page is already the most current revision
 	   		return true;
 	 	}
-	 	// Create set of tabs to be created
 	 	$tabs = array(
 	 		'stable' => array(
 				'text' => wfMsg( 'revreview-stable' ),
@@ -977,44 +945,36 @@ class FlaggedArticle extends Article {
 	 			'class' => ''
 	 		),
 	 	);
-		// Checks if revision overriding is OK and we are at the stable version
 		if ( $this->pageOverride() || $wgRequest->getVal( 'stableid' ) ) {
+			// We are looking a the stable version
 			$tabs['stable']['class'] = 'selected';
 		}
-		// Checks if...
 		elseif (
-			// This is a view or edit page
 			( self::isViewAction( $action ) || $action == 'edit' ) &&
-			// This is not a talk page
 			!$skin->mTitle->isTalkPage()
 		) {
 			// We are looking at the current revision or in edit mode
 			$tabs['current']['class'] = 'selected';
 		}
-		// Loops over each action tab
 		$first = true;
 		$newViews = array();
 		foreach ( $views as $tabAction => $data ) {
-			// Checks if this is the first tab
 			if ( $first ) {
 				if( $synced ) {
-					// Appends old tab to new tabs, thus keeping the first one
+					// Use existing first tabs when synced
 					$newViews[$tabAction] = $data;
 				} else {
-					// Appends new tabs, thus replacing the first one
+					// Use split current and stable tabs when not synced
 					$newViews['stable'] = $tabs['stable'];
 					$newViews['current'] = $tabs['current'];
 				}
-				// Marks first as false
 				$first = false;
 			} else {
-				// Appends old tab to new tabs
 				$newViews[$tabAction] = $data;
 			}
 	   	}
 	   	// Replaces old tabs with new tabs
 	   	$views = $newViews;
-	   	// Exits
 		return true;
 	}
 	
