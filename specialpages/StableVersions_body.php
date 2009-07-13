@@ -67,7 +67,7 @@ class StableVersions extends UnlistedSpecialPage
 			$fdate, $ftime, $row->user_name );
 
 		$lev = ( $row->fr_quality >=1 ) ? wfMsgHtml('hist-quality') : wfMsgHtml('hist-stable');
-		$link = $this->skin->makeKnownLinkObj( $this->page, $time,
+		$link = $this->skin->makeKnownLinkObj( $this->page, $ftime,
 			'stableid='.$row->fr_rev_id );
 
 		return '<li>'.$link.' ('.$review.') <strong>['.$lev.']</strong></li>';
