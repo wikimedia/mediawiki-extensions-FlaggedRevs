@@ -56,7 +56,7 @@ class StableVersions extends UnlistedSpecialPage
 
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser;
-
+		$rdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->rev_timestamp ), true );
 		$fdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$fdate = $wgLang->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$ftime = $wgLang->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
@@ -64,12 +64,10 @@ class StableVersions extends UnlistedSpecialPage
 			$fdatim,
  			$this->skin->userLink( $row->fr_user, $row->user_name ) .
  			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ),
-			$fdate, $ftime, $row->user_name );
-
+			$fdate, $ftime, $row->user_name
+		);
 		$lev = ( $row->fr_quality >=1 ) ? wfMsgHtml('hist-quality') : wfMsgHtml('hist-stable');
-		$link = $this->skin->makeKnownLinkObj( $this->page, $ftime,
-			'stableid='.$row->fr_rev_id );
-
+		$link = $this->skin->makeKnownLinkObj( $this->page, $rdatim, 'stableid='.$row->fr_rev_id );
 		return '<li>'.$link.' ('.$review.') <strong>['.$lev.']</strong></li>';
 	}
 }
