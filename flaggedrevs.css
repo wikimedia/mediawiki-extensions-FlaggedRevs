@@ -345,34 +345,3 @@
 .fr-hiddenform {
 	display: none;
 }
-
-/* Reader feedback form */
-.fr_reader_feedback_plot {
-	background-color: #F8F8F8;
-}
-
-.fr_reader_feedback_graph,
-.fr_reader_feedback_ratings,
-.fr_reader_feedback_users {
-	width: 100%; 
-	overflow: auto;
-}
-
-.fr_reader_feedback_users {
-	background-color: #F0F0F0;
-	max-height:410px;
-	font-size: 90%;
-}
-
-.fr_reader_feedback_table {
-	margin: .5em .5em .5em .5em;
-	background: #f9f9f9;
-	border: 1px #AAA solid;
-	border-collapse: collapse;
-	font-size: 85%;
-}
-
-.fr_reader_feedback_table th, .fr_reader_feedback_table td {
-	border: 1px #AAA solid;
-	padding: 0.3em;
-}

@@ -13,7 +13,7 @@ class FlaggedRevsHooks {
 		}
 		$fa = FlaggedArticle::getGlobalInstance();
 		# Try to only add to relevant pages
-		if( !$fa || (!$fa->isReviewable(true) && !$fa->isRateable() ) ) {
+		if( !$fa || !$fa->isReviewable(true) ) {
 			return true;
 		}
 		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
@@ -22,7 +22,6 @@ class FlaggedRevsHooks {
 		
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 		$rTags = FlaggedRevs::getJSTagParams();
-		$fTags = FlaggedRevs::getJSFeedbackParams();
 		$frev = $fa->getStableRev();
 		$stableId = $frev ? $frev->getRevId() : 0;
 
@@ -31,11 +30,6 @@ class FlaggedRevsHooks {
 
 		$wgOut->addExtensionStyle( $encCssFile );
 
-		$ajaxFeedback = Xml::encodeJsVar( (object) array( 
-			'sendingMsg' => wfMsgHtml('readerfeedback-submitting'), 
-			'sentMsg' => wfMsgHtml('readerfeedback-finished') 
-			)
-		);
 		$ajaxReview = Xml::encodeJsVar( (object) array( 
 			'sendingMsg' => wfMsgHtml('revreview-submitting'), 
 			'sentMsgOK' => wfMsgHtml('revreview-finished'),
@@ -48,9 +42,7 @@ class FlaggedRevsHooks {
 		$head = <<<EOT
 <script type="$wgJsMimeType">
 var wgFlaggedRevsParams = $rTags;
-var wgFlaggedRevsParams2 = $fTags;
 var wgStableRevisionId = $stableId;
-var wgAjaxFeedback = $ajaxFeedback
 var wgAjaxReview = $ajaxReview
 </script>
 <script type="$wgJsMimeType" src="$encJsFile"></script>
@@ -69,7 +61,7 @@ EOT;
 			return true;
 		}
 		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist', 'Recentchanges', 
-			'Contributions', 'RatingHistory' );
+			'Contributions' );
 		foreach( $spPages as $n => $key ) {
 			if( $wgTitle->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
@@ -1410,31 +1402,6 @@ EOT;
 		$flaggedArticle->setPageContent( $outputDone, $pcache );
 		return true;
 	}
-
-	public static function addRatingLink( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
-		$fa = FlaggedArticle::getTitleInstance( $skintemplate->mTitle );
-		# Add rating tab
-		if( $fa->isRateable() ) {
-			wfLoadExtensionMessages( 'RatingHistory' );
-			$nav_urls['ratinghist'] = array( 
-				'text' => wfMsg( 'ratinghistory-link' ),
-				'href' => $skintemplate->makeSpecialUrl( 'RatingHistory', 
-					"target=" . wfUrlencode( "{$skintemplate->thispage}" ) )
-			);
-		}
-		return true;
-	}
-	
-	public static function ratingToolboxLink( &$skin ) {
-		if( isset( $skin->data['nav_urls']['ratinghist'] ) ) {
-			?><li id="t-rating"><?php
-				?><a href="<?php echo htmlspecialchars( $skin->data['nav_urls']['ratinghist']['href'] ) ?>"><?php
-					echo $skin->msg( 'ratinghistory-link' );
-				?></a><?php
-			?></li><?php
-		}
-		return true;
-	}
 	
 	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target, &$article ) {
 		# Get an instance on the title ($wgTitle)
@@ -1484,7 +1451,6 @@ EOT;
 		if( $wgOut->isArticleRelated() && ($fa = FlaggedArticle::getGlobalInstance()) ) {
 			$fa->addReviewNotes( $data );
 			$fa->addReviewForm( $data );
-			$fa->addFeedbackForm( $data );
 			$fa->addVisibilityLink( $data );
 		}
 		return true;
@@ -1726,9 +1692,6 @@ EOT;
 		$tables[] = 'flaggedtemplates';
 		$tables[] = 'flaggedimages';
 		$tables[] = 'flaggedrevs_promote';
-		$tables[] = 'reader_feedback';
-		$tables[] = 'reader_feedback_history';
-		$tables[] = 'reader_feedback_pages';
 		$tables[] = 'flaggedrevs_tracking';
 		return true;
 	}

@@ -54,10 +54,6 @@ if( !defined('FR_QUALITY') )
 if( !defined('FR_PRISTINE') )
 	define('FR_PRISTINE',2);
 
-# Number of recent reviews to be a decent sample size
-if( !defined('READER_FEEDBACK_SIZE') )
-	define('READER_FEEDBACK_SIZE',15);
-
 $wgExtensionCredits['specialpage'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
@@ -251,24 +247,6 @@ $wgFlaggedRevsVisible = array();
 # If $wgFlaggedRevsVisible is populated, it is applied to talk pages too
 $wgFlaggedRevsTalkVisible = true;
 
-# Users that can use the feedback form.
-$wgGroupPermissions['*']['feedback'] = true;
-
-# Allow readers to rate pages in these namespaces
-$wgFeedbackNamespaces = array();
-#$wgFeedbackNamespaces = array( NS_MAIN );
-# Reader feedback tags, positive and negative. [a-zA-Z] tag names only.
-# Each tag has five levels, which 3 being average. The tag names are
-# mapped to their weight. This is used to determine the "worst"/"best" pages.
-$wgFlaggedRevsFeedbackTags = array(
-	'reliability'  => 3,
-	'completeness' => 2,
-	'npov'         => 2,
-	'presentation' => 1
-);
-# How many seconds back should the average rating for a page be based on?
-$wgFlaggedRevsFeedbackAge = 7 * 24 * 3600;
-# How long before stats page is updated?
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
 # We may have templates that do not have stable version. Given situational
@@ -331,8 +309,6 @@ $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
 # Load review UI
 $wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
-# Load reader feedback UI
-$wgAutoloadClasses['ReaderFeedback'] = $dir . 'specialpages/ReaderFeedback_body.php';
 
 # Load stableversions UI
 $wgAutoloadClasses['StableVersions'] = $dir . 'specialpages/StableVersions_body.php';
@@ -340,9 +316,6 @@ $wgExtensionMessagesFiles['StableVersions'] = $langDir . 'StableVersions.i18n.ph
 # Stable version config
 $wgAutoloadClasses['Stabilization'] = $dir . 'specialpages/Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
-# Page rating history
-$wgAutoloadClasses['RatingHistory'] = $dir . 'specialpages/RatingHistory_body.php';
-$wgExtensionMessagesFiles['RatingHistory'] = $langDir . 'RatingHistory.i18n.php';
 # Load unreviewed pages list
 $wgAutoloadClasses['UnreviewedPages'] = $dir . 'specialpages/UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
@@ -371,14 +344,6 @@ $wgSpecialPageGroups['UnstablePages'] = 'quality';
 $wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
-# To list ill-recieved pages
-$wgAutoloadClasses['ProblemPages'] = $dir . 'specialpages/ProblemPages_body.php';
-$wgExtensionMessagesFiles['ProblemPages'] = $langDir . 'ProblemPages.i18n.php';
-$wgSpecialPageGroups['ProblemPages'] = 'quality';
-# To list well-recieved pages
-$wgAutoloadClasses['LikedPages'] = $dir . 'specialpages/LikedPages_body.php';
-$wgExtensionMessagesFiles['LikedPages'] = $langDir . 'LikedPages.i18n.php';
-$wgSpecialPageGroups['LikedPages'] = 'quality';
 # Statistics
 $wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
@@ -432,9 +397,6 @@ $wgHooks['LogLine'][] = 'FlaggedRevsHooks::reviewLogLine';
 $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # Local user account preference
 $wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
-# Rating link
-$wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'FlaggedRevsHooks::addRatingLink';
-$wgHooks['SkinTemplateToolboxEnd'][] = 'FlaggedRevsHooks::ratingToolboxLink';
 # Show unreviewed pages links
 $wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
 # Backlog notice
@@ -531,7 +493,7 @@ function efLoadFlaggedRevs() {
  * Also sets $wgSpecialPages just to be consistent.
  */
 function efLoadFlaggedRevsSpecialPages( &$list ) {
-	global $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFeedbackNamespaces;
+	global $wgSpecialPages, $wgFlaggedRevsNamespaces;
 	if( !empty($wgFlaggedRevsNamespaces) ) {
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['StableVersions'] = $wgSpecialPages['StableVersions'] = 'StableVersions';
@@ -544,12 +506,6 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 		$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
 		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-	}
-	if( !empty($wgFeedbackNamespaces) ) {
-		$list['ReaderFeedback'] = $wgSpecialPages['ReaderFeedback'] = 'ReaderFeedback';
-		$list['RatingHistory'] = $wgSpecialPages['RatingHistory'] = 'RatingHistory';
-		$list['ProblemPages'] = $wgSpecialPages['ProblemPages'] = 'ProblemPages';
-		$list['LikedPages'] = $wgSpecialPages['LikedPages'] = 'LikedPages';
 	}
 	return true;
 }
@@ -577,7 +533,6 @@ $wgLogActions['stable/config'] = 'stable-logentry';
 $wgLogActions['stable/reset'] = 'stable-logentry2';
 
 # AJAX functions
-$wgAjaxExportList[] = 'ReaderFeedback::AjaxReview';
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
 
 // Defaults for prefs
@@ -611,11 +566,8 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
 		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
 		$wgExtNewFields[] = array( 'flaggedrevs', 'fr_img_name', "$base/archives/patch-fr_img_name.sql" );
-		$wgExtNewTables[] = array( 'reader_feedback', "$base/archives/patch-reader_feedback.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/archives/patch-flaggedrevs_tracking.sql" );
 		$wgExtNewFields[] = array( 'flaggedpages', 'fp_pending_since', "$base/archives/patch-fp_pending_since.sql" );
-		$wgExtNewFields[] = array( 'reader_feedback', 'rfb_timestamp', "$base/archives/patch-rfb_timestamp.sql" );
-		$wgExtNewFields[] = array( 'reader_feedback', 'rfb_ratings', "$base/archives/patch-rfb_ratings.sql" );
 		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_level', "$base/archives/patch-fpc_level.sql" );
 		$wgExtNewTables[] = array( 'flaggedpage_pending', "$base/archives/patch-flaggedpage_pending.sql" );
 	} elseif( $wgDBtype == 'postgres' ) {
@@ -625,7 +577,6 @@ function efFlaggedRevsSchemaUpdates() {
 		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
 		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
 		$wgExtNewIndexes[] = array('flaggedrevs', 'key_timestamp', "$base/postgres/patch-fr_img_name.sql" );
-		$wgExtNewTables[] = array( 'reader_feedback', "$base/postgres/patch-reader_feedback.sql" );
 		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/postgres/patch-flaggedrevs_tracking.sql" );
 		$wgExtNewIndexes[] = array('flaggedpages', 'fp_pending_since', "$base/postgres/patch-fp_pending_since.sql" );
 		$wgExtPGNewFields[] = array('flaggedpage_config', 'fpc_level', "TEXT NULL" );
