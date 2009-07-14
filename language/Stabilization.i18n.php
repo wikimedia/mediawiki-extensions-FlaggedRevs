@@ -697,6 +697,7 @@ $messages['el'] = array(
 	'stabilize_expiry_invalid' => 'Άκυρη ημερομηνία λήξης.',
 	'stabilize_expiry_old' => 'Η ημερομηνία λήξης έχει ήδη περάσει.',
 	'stabilize-expiring' => 'λήγει στις $1 (UTC)',
+	'stabilization-review' => 'Επιθεωρήστε τη τρέχουσα έκδοση',
 );
 
 /** Esperanto (Esperanto)
@@ -809,7 +810,7 @@ $messages['eu'] = array(
 	'stabilization-page' => 'Orrialdearen izenburua:',
 	'stabilization-leg' => 'Bertsio egonkorraren konfigurazioa berretsi',
 	'stabilization-select' => 'Bertsio egonkorraren aukeraketa',
-	'stabilization-submit' => 'Berretsi',
+	'stabilization-submit' => 'Baieztatu',
 	'stabilization-comment' => 'Arrazoia:',
 	'stabilization-expiry' => 'Epemuga:',
 	'stabilization-sel-short-0' => 'Kalitatea',

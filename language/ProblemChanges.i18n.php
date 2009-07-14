@@ -53,6 +53,13 @@ $messages['dsb'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Greek (Ελληνικά)
+ * @author Crazymadlover
+ */
+$messages['el'] = array(
+	'problemchanges-category' => 'Κατηγορία:',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  */

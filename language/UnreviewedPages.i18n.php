@@ -289,6 +289,7 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Crazymadlover
  * @author Dead3y3
  * @author Omnipaedista
  */
@@ -303,6 +304,9 @@ $messages['el'] = array(
 	'unreviewed-list' => 'Αυτή η σελίδα απαριθμεί σελίδες περιεχομένων που δεν έχουν κριθεί.',
 	'unreviewed-none' => 'Αυτή τη στιγμή δεν υπάρχουν σελίδες που να ικανοποιούν αυτά τα κριτήρια',
 	'unreviewed-viewing' => '(υπό κριτική)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ώρα|ώρες}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|ημέρα|ημέρες}})',
+	'unreviewed-recent' => '(λιγότερο από 1 ώρα)',
 );
 
 /** Esperanto (Esperanto)

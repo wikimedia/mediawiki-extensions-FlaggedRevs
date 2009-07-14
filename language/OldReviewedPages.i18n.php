@@ -307,6 +307,7 @@ $messages['el'] = array(
 	'oldreviewed-category' => 'Κατηγορία:',
 	'oldreviewed-stable' => 'Σταθεροποιημένος',
 	'oldreviewed-diff' => 'επιθεώρηση',
+	'oldreviewedpages-viewing' => '(υπό επιθεώρηση)',
 );
 
 /** Esperanto (Esperanto)

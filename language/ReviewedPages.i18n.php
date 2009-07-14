@@ -226,6 +226,7 @@ $messages['el'] = array(
 	'reviewedpages-none' => 'Δεν υπάρχουν σελίδες σε αυτήν τη λίστα',
 	'reviewedpages-lev-1' => 'Ποιότητα',
 	'reviewedpages-all' => 'αναθεωρημένες εκδόσεις',
+	'reviewedpages-best' => 'πρωταρχική αναθεώρηση',
 );
 
 /** Esperanto (Esperanto)
