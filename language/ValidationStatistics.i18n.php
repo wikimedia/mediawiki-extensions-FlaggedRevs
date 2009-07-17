@@ -808,18 +808,14 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'validationstatistics' => 'Shtatistike vun de Beschtätijunge för Sigge',
-	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang {{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaachere|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un {{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}} met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.
+	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un [[Special:ListUsers/reviewer|{{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.
 
-{{int:group-editor}} un {{int:group-reviewer}} sin 
-established 
-Metmaacher, di 
-spot check 
-Version vun Sigge künne.",
+{{int:group-editor}}, un {{int:group-reviewer}}, sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
 	'validationstatistics-time' => "'''Opjepaß:''' ''De Date hee noh sen för e paa Stond zweschejespeichert, se künnte alsu nit janz de Neuste sin.''
 
-Dä Meddelwäät för de Zick för op Änderunge vun namelose Metmaachere ze Waade, es '''$1''' Shtunde, Menutte, un Sekunde. Dä Medianwäät es '''$3''' Shtunde, Menutte, un Sekunde.
+Dä Meddelwäät för de Zick för op Änderunge vun namelose Metmaachere ze waade, es '''$1'''<!-- Shtunde, Menutte, un Sekunde-->. Dä Medianwäät es '''$3'''<!-- Shtunde, Menutte, un Sekunde-->.
 $4
-Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2''' Shtunde, Menutte, un Sekunde.
+Der Dorschnitt vun de Zick, wo [[Special:OldReviewedPages|ahl Sigge]] hengerher hingke, es '''$2'''<!-- Shtunde, Menutte, un Sekunde-->.
 Di Sigge sen ''{{lcfirst:{{int:validationstatistics-old}}}}''.
 
 Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'' jellde, wann de [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]] och dä aktoälle Äntworf es. De {{int:stablepages-stable}} es de neuste Version vun en Sigg, di winnischßdens vun einem Metmaacher en Beschtäätejung hät.",
@@ -827,12 +823,12 @@ Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge ensjesamp',
 	'validationstatistics-stable' => 'Aanjekik',
-	'validationstatistics-latest' => 'A-juur',
+	'validationstatistics-latest' => '<span style="white-space:nowrap">A-juur</span>',
 	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
 	'validationstatistics-old' => 'Övverhollt',
 	'validationstatistics-utable' => 'Hee dronger shteiht de Leß met de aktievste 5 unger de {{int:reviewer}} en de läzte Shtond.',
 	'validationstatistics-user' => 'Metmaacher',
-	'validationstatistics-reviews' => 'Mohlde en Sigg op „nohjekik“ jesaz',
+	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
 
 /** Cornish (Kernewek)
@@ -1295,6 +1291,7 @@ $messages['te'] = array(
 	'validationstatistics' => 'సరిచూత గణాంకాలు',
 	'validationstatistics-total' => 'పేజీలు',
 	'validationstatistics-old' => 'పాతవి',
+	'validationstatistics-reviews' => 'సమీక్షలు',
 );
 
 /** Tetum (Tetun)

@@ -46,6 +46,7 @@ $aliases['an'] = array(
 $aliases['ar'] = array(
 	'LikedPages' => array( 'صفحات_محبوبة' ),
 	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
+	'ProblemChanges' => array( 'تغييرات_المشاكل' ),
 	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'QualityOversight' => array( 'نظر_الجودة' ),
 	'RatingHistory' => array( 'تاريخ_التقييم' ),

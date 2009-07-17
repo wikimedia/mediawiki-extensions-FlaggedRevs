@@ -1251,6 +1251,9 @@ $messages['te'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|క్రియాశీల వాడుకరి|గురు క్రియాశీల వాడుకరులు}} వీక్షిస్తున్నారు)',
 	'unreviewed-list' => 'ఈ పేజీలో సమీక్షించని వ్యాసాలు లేదా కొత్త, సమీక్షించని కూర్పులున్న వ్యాసాలు ఉంటాయి.',
 	'unreviewed-viewing' => '(సమీక్షలో ఉంది)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
+	'unreviewed-recent' => '(ఒక గంట కంటే తక్కువ)',
 );
 
 /** Tetum (Tetun)

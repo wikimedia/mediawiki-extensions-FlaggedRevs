@@ -28,6 +28,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Darth Kule
  * @author Jon Harald Søby
+ * @author Purodha
  * @author Raymond
  * @author SPQRobin
  */
@@ -37,18 +38,40 @@ Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:Old
 	'oldreviewedpages-legend' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.',
 	'oldreviewedpages-list' => '{{Flagged Revs}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].
+
 Parameter $1 is the number of pages going to be listed, to be used with PLURAL.',
-	'oldreviewedpages-none' => '{{Flagged Revs}}',
-	'oldreviewedpages-hours' => '{{Flagged Revs}}',
-	'oldreviewedpages-days' => '{{Flagged Revs}}',
-	'oldreviewedpages-recent' => '{{Flagged Revs}}',
+	'oldreviewedpages-none' => '{{Flagged Revs}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
+	'oldreviewedpages-hours' => '{{Flagged Revs}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
+	'oldreviewedpages-days' => '{{Flagged Revs}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
+	'oldreviewedpages-recent' => '{{Flagged Revs}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
 	'oldreviewed-category' => '{{Flagged Revs}}
-{{Identical|Category}}',
-	'oldreviewed-diff' => '{{Flagged Revs}}',
+{{Identical|Category}}
+
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',
+	'oldreviewed-watched' => '{{Flagged Revs}}
+
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',
+	'oldreviewed-stable' => '{{Flagged Revs}}
+
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.
+Checkmarking the box next to this label will select pages having individual, per page, settings for the version to show to the average user.',
+	'oldreviewed-diff' => '{{Flagged Revs}}
+
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a link anchor going to the sighting page for a listed page.',
+	'oldreviewed-size' => '{{Flagged Revs}}
+
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',
 	'oldreviewedpages-unwatched' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when nobody is watching the page.',
 	'oldreviewedpages-watched' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when active users are watching the page.',
+	'oldreviewedpages-viewing' => '{{Flagged Revs-small}}
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone has recently requested the sighting page for a listed page.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -259,7 +282,7 @@ $messages['cu'] = array(
 $messages['de'] = array(
 	'oldreviewedpages' => 'Alte, gesichtete Seiten',
 	'oldreviewedpages-legend' => 'Liste gesichteter Seiten mit ungesichteten Versionen',
-	'oldreviewedpages-list' => 'Diese Spezialseite zeigt gesichtete Seiten, die noch ungesichtete Bearbeitungen haben.',
+	'oldreviewedpages-list' => 'Diese Spezialseite zeigt {{PLURAL:$1|eine gesichtete Seite|gesichtete Seiten}}, die noch ungesichtete Bearbeitungen {{PLURAL:$1|hat|haben}}.',
 	'oldreviewedpages-none' => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
@@ -404,7 +427,7 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'oldreviewedpages' => 'Pages dont les révisions sont périmées',
 	'oldreviewedpages-legend' => 'Lister les pages revues avec des versions à réviser',
-	'oldreviewedpages-list' => 'Cette page liste des pages déjà revues qui comportent de nouvelles modifications.',
+	'oldreviewedpages-list' => 'Cette page liste {{PLURAL:$1|une page déjà revue qui comporte|des pages déjà revues qui comportent}} de nouvelles modifications.',
 	'oldreviewedpages-none' => 'Il n’existe actuellement aucune page respectant ces critères',
 	'oldreviewedpages-hours' => '($1 heure{{PLURAL:$1||s}})',
 	'oldreviewedpages-days' => '($1 jour{{PLURAL:$1||s}})',
@@ -707,16 +730,16 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'oldreviewedpages' => 'Verbei nohjekik Sigge',
+	'oldreviewedpages' => 'Vörmols ens nohjekik jewääse Sigge',
 	'oldreviewedpages-legend' => 'Leß met de nohjekik Sigge met neue Versione, di op et Nohkike waade',
+	'oldreviewedpages-list' => 'Heh di Sigg zeijsch {{PLURAL:$1|en {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg|{{lcfirst:{{int:revreview-accuracy-1}}}}e Sigge|kei {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg}} met Änderunge, di noch nit nohjekik woode sen.',
 	'oldreviewedpages-none' => 'För der Momang paße jrad kei Sigge op die Ußwahl',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stund|Stunde}})',
+	'oldreviewedpages-hours' => '({{PLURAL:$1|en Stund|$1 Stunde|kein Stund}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Daach|Dähsch}})',
 	'oldreviewedpages-recent' => '(winnijer wie en Stund)',
 	'oldreviewed-category' => 'Saachjrupp:',
 	'oldreviewed-watched' => 'En minge Oppassleß',
-	'oldreviewed-stable' => '
-Stabilized',
+	'oldreviewed-stable' => 'Sigge met eije Enstellunge',
 	'oldreviewed-diff' => 'nohkike',
 	'oldreviewed-size' => 'Jüüßte Änderung vum Ömfang en <i lang="en">Bytes</i>:',
 	'oldreviewedpages-unwatched' => '(op keine Oppassleß)',

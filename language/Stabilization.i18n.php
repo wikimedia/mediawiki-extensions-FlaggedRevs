@@ -1674,11 +1674,11 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stabilization-tab' => ' vet',
+	'stabilization-tab' => 'Qualliteit',
 	'stabilization' => 'Enshtellunge för beschtändijje Sigge',
 	'stabilization-text' => "'''Donn de Enshtellunge onge aanpasse, öm faßzelääje, wi de {{int:stablepages-stable}} vun [[:$1|$1]] ußjesöhk un aanjezeijsch weedt.'''
 
-Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandattmääßej_en {{int:revreview-lev-quality}} udder en {{int:revreview-lev-pristine}} jenumme weedt, dann jiv drop aach, dat di Sigg och su en Version hät. Söns weedt Ding Änderung wall winnisch ußmaache :-)",
+Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandattmääßej_en {{int:revreview-lev-quality}} udder en {{int:revreview-lev-pristine}} jenumme weedt, dann jiv drop aach, dat di Sigg och su en Version hät. Söns weedt Ding Änderung wall winnisch ußmaache <!-- ( --> :-)",
 	'stabilization-perm' => 'Dir fäählt et Rääsch, de Enshtellunge för de beshtändijje Versione vun Sigge ze verändere. Dat hee sin de aktoälle Enshtellunge för di Sigg „[[:$1|$1]]“:',
 	'stabilization-page' => 'Name fun dä Sigg:',
 	'stabilization-leg' => 'Enshtellunge för de {{int:stablepages-stable}} vun en Sigg beschtäätejje',
@@ -1690,7 +1690,7 @@ Wann De de Enshtellung „{{int:stabilization-select}}“ änders, dat shtandatt
 	'stabilization-def1' => 'De {{int:stablepages-stable}}, un wann et kein jitt, dann de aktoälle Version',
 	'stabilization-def2' => 'De aktuelle Version',
 	'stabilization-restrict' => 'Ennschrängkunge för et automattesch als nohjekik Makeere',
-	'stabilization-restrict-none' => 'Kein zohsäzlejje Bescharänkunge',
+	'stabilization-restrict-none' => 'Kein zohsäzlejje Beschränkunge',
 	'stabilization-submit' => 'Bestätije',
 	'stabilization-notexists' => 'Mer han kein Sigg met dämm Tittel „[[:$1|$1]]“.
 Et jit nix enzestelle.',
@@ -2781,6 +2781,7 @@ $messages['te'] = array(
 	'stabilization-comment' => 'కారణం:',
 	'stabilization-otherreason' => 'ఇతర కారణం',
 	'stabilization-expiry' => 'కాలంచెల్లు తేదీ:',
+	'stabilization-othertime' => 'ఇతర సమయం',
 	'stabilization-sel-short' => 'ప్రాధాన్యత',
 	'stabilization-sel-short-0' => 'నాణ్యత',
 	'stabilization-sel-short-1' => 'ఏమీలేదు',
@@ -3134,7 +3135,7 @@ $messages['vo'] = array(
 	'stabilization-submit' => 'Fümedön',
 	'stabilization-notexists' => 'Pad tiädü "[[:$1|$1]]" no dabinon. Fomükam no mögon.',
 	'stabilization-notcontent' => 'Pad: "[[:$1|$1]]" no kanon pakrütön. Parametem nonik mögon.',
-	'stabilization-comment' => 'Küpet:',
+	'stabilization-comment' => 'Kod:',
 	'stabilization-expiry' => 'Dul jü:',
 	'stabilization-sel-short-0' => 'Kaliet',
 	'stabilization-sel-short-1' => 'Nonik',
