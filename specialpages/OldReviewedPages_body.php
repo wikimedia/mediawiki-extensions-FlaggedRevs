@@ -84,7 +84,7 @@ class OldReviewedPages extends SpecialPage
 					: ""
 				);
 			$form .= '<br/>' .
-				Xml::label( wfExt('oldreviewed-size', array('parse', 'escapenoentities') ), 'wpSize' ) .
+				Xml::label( wfMsg('oldreviewed-size'), 'wpSize' ) .
 				Xml::input( 'size', 4, $this->size, array( 'id' => 'wpSize' ) ) . ' ' .
 				Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
 				"</fieldset></form>";
