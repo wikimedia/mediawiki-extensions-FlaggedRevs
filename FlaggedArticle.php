@@ -455,6 +455,8 @@ class FlaggedArticle extends Article {
 		global $wgOut, $wgLang;
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
+		# Set display revision ID
+		$wgOut->setRevisionId( $frev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
@@ -491,7 +493,6 @@ class FlaggedArticle extends Article {
 		# Output HTML
 		$this->getReviewNotes( $frev );
 	   	$wgOut->addParserOutput( $parserOut );
-		$wgOut->setRevisionId( $frev->getRevId() );
 		# Index the stable version only
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
 	}
@@ -508,6 +509,8 @@ class FlaggedArticle extends Article {
 		global $wgOut, $wgLang;
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
+		# Set display revision ID
+		$wgOut->setRevisionId( $frev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
@@ -557,7 +560,6 @@ class FlaggedArticle extends Article {
 		# Output HTML
 		$this->getReviewNotes( $frev );
 	   	$wgOut->addParserOutput( $parserOut );
-		$wgOut->setRevisionId( $frev->getRevId() );
 	}
 
 	/**
