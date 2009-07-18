@@ -811,6 +811,9 @@ $messages['lb'] = array(
 	'unreviewed-list' => 'Op dëser Säit sti Säiten déi net nogekuckt goufen.',
 	'unreviewed-none' => 'Et gëtt keng Säiten, déi dene Critèren entspriechen déi Dir uginn hutt',
 	'unreviewed-viewing' => '(gëtt nogekuckt)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
+	'unreviewed-recent' => '(manner wéi 1 Stonn)',
 );
 
 /** Limburgish (Limburgs)
