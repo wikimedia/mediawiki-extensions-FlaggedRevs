@@ -40,13 +40,9 @@ $aliases['an'] = array(
  * @author Meno25
  */
 $aliases['ar'] = array(
-	'LikedPages' => array( 'صفحات_محبوبة' ),
 	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
 	'ProblemChanges' => array( 'تغييرات_المشاكل' ),
-	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'QualityOversight' => array( 'نظر_الجودة' ),
-	'RatingHistory' => array( 'تاريخ_التقييم' ),
-	'ReaderFeedback' => array( 'ملاحظات_القراء' ),
 	'ReviewedPages' => array( 'صفحات_مراجعة' ),
 	'RevisionReview' => array( 'مراجعة_نسخة' ),
 	'Stabilization' => array( 'استقرار' ),
@@ -61,12 +57,8 @@ $aliases['ar'] = array(
  * @author Meno25
  */
 $aliases['arz'] = array(
-	'LikedPages' => array( 'صفحات_محبوبة' ),
 	'OldReviewedPages' => array( 'صفحات_مراجعة_قديمة' ),
-	'ProblemPages' => array( 'صفحات_المشاكل' ),
 	'QualityOversight' => array( 'نظر_الجودة' ),
-	'RatingHistory' => array( 'تاريخ_التقييم' ),
-	'ReaderFeedback' => array( 'ملاحظات_القراء' ),
 	'ReviewedPages' => array( 'صفحات_مراجعة' ),
 	'RevisionReview' => array( 'مراجعة_نسخة' ),
 	'Stabilization' => array( 'استقرار' ),
@@ -82,7 +74,6 @@ $aliases['arz'] = array(
  */
 $aliases['bcc'] = array(
 	'OldReviewedPages' => array( 'صفحات-بازبینی-قدیمی' ),
-	'ProblemPages' => array( 'صفحات‌مشکل' ),
 	'QualityOversight' => array( 'رویت-کیفیت' ),
 	'ReviewedPages' => array( 'صفحات-بازبینی' ),
 	'StablePages' => array( 'صفحات-ثابت' ),
@@ -92,12 +83,8 @@ $aliases['bcc'] = array(
 
 /** Bosnian (Bosanski) */
 $aliases['bs'] = array(
-	'LikedPages' => array( 'OmiljeneStranice' ),
 	'OldReviewedPages' => array( 'StarePregledaneStranice' ),
-	'ProblemPages' => array( 'ProblematicneStranice' ),
 	'QualityOversight' => array( 'KvalitetNadzora' ),
-	'RatingHistory' => array( 'HistorijaRejtinga' ),
-	'ReaderFeedback' => array( 'PovratnaVezaCitaoca' ),
 	'ReviewedPages' => array( 'PregledaneStranice' ),
 	'RevisionReview' => array( 'PregledRevizija' ),
 	'Stabilization' => array( 'Stabilizacija' ),
@@ -112,12 +99,8 @@ $aliases['bs'] = array(
  * @author Raimond Spekking
  */
 $aliases['de'] = array(
-	'LikedPages' => array( 'Hoch bewertete Seiten' ),
 	'OldReviewedPages' => array( 'Seiten mit ungesichteten Versionen' ),
-	'ProblemPages' => array( 'Niedrig bewertete Seiten' ),
 	'QualityOversight' => array( 'Markierungsübersicht' ),
-	'RatingHistory' => array( 'Bewertungsgeschichte' ),
-	'ReaderFeedback' => array( 'Bewertung' ),
 	'ReviewedPages' => array( 'Gesichtete Seiten' ),
 	'RevisionReview' => array( 'Versionsprüfung' ),
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
@@ -130,12 +113,8 @@ $aliases['de'] = array(
 
 /** Lower Sorbian (Dolnoserbski) */
 $aliases['dsb'] = array(
-	'LikedPages' => array( 'Kwalitne boki' ),
 	'OldReviewedPages' => array( 'Zasej njepśeglědane boki' ),
-	'ProblemPages' => array( 'Problematiske boki' ),
 	'QualityOversight' => array( 'Kwalitna kontrola' ),
-	'RatingHistory' => array( 'Stawizny pógódnośenjow' ),
-	'ReaderFeedback' => array( 'Pógódnośenja cytarjow' ),
 	'ReviewedPages' => array( 'Pśeglědane boki' ),
 	'RevisionReview' => array( 'Wersijowe pśeglědanje' ),
 	'Stabilization' => array( 'Stabilizacija' ),
@@ -151,7 +130,6 @@ $aliases['dsb'] = array(
  */
 $aliases['eo'] = array(
 	'OldReviewedPages' => array( 'MalfreŝeKontrolitajPaĝoj' ),
-	'ProblemPages' => array( 'ProblemajPaĝoj' ),
 	'QualityOversight' => array( 'KvalitKontrolo' ),
 	'ReviewedPages' => array( 'KontrolitajPaĝoj' ),
 	'StablePages' => array( 'StabilajPaĝoj' ),
@@ -167,10 +145,7 @@ $aliases['es'] = array(
 /** Persian (فارسی) */
 $aliases['fa'] = array(
 	'OldReviewedPages' => array( 'صفحه‌های_بازبینی_شده_قدیمی' ),
-	'ProblemPages' => array( 'صفحه‌های_مشکل‌دار' ),
 	'QualityOversight' => array( 'نظارت_کیفی' ),
-	'RatingHistory' => array( 'تاریخچه_درجه‌بندی' ),
-	'ReaderFeedback' => array( 'بازخورد_خواننده' ),
 	'ReviewedPages' => array( 'صفحه‌های_بازبینی_شده' ),
 	'RevisionReview' => array( 'بازبینی_نسخه' ),
 	'Stabilization' => array( 'پایدارسازی' ),
@@ -183,10 +158,7 @@ $aliases['fa'] = array(
 
 /** Finnish (Suomi) */
 $aliases['fi'] = array(
-	'LikedPages' => array( 'Laatusivut' ),
 	'ProblemChanges' => array( 'Ongelmalliset_muutokset' ),
-	'ProblemPages' => array( 'Ongelmalliset_sivut' ),
-	'ReaderFeedback' => array( 'Lukijapalaute' ),
 	'Stabilization' => array( 'Vakaaksi versioksi' ),
 	'StablePages' => array( 'Vakaat sivut' ),
 	'StableVersions' => array( 'Vakaat versiot' ),
@@ -200,9 +172,7 @@ $aliases['fi'] = array(
  * @author Verdy p
  */
 $aliases['fr'] = array(
-	'LikedPages' => array( 'Pages appréciées' ),
 	'OldReviewedPages' => array( 'AnciennesPagesRelues' ),
-	'ProblemPages' => array( 'PagesProblematiques' ),
 	'QualityOversight' => array( 'SuperviseurQualité' ),
 	'ReviewedPages' => array( 'Pages révisées' ),
 	'RevisionReview' => array( 'Relecture des révisions' ),
@@ -215,12 +185,8 @@ $aliases['fr'] = array(
 
 /** Franco-Provençal (Arpetan) */
 $aliases['frp'] = array(
-	'LikedPages' => array( "Pâges qu'ont des èstimacions hôtes", 'PâgesQuOntDesÈstimacionsHôtes' ),
 	'OldReviewedPages' => array( 'Pâges que les vèrsions sont dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
-	'ProblemPages' => array( "Pâges qu'ont des crouyes èstimacions", 'PâgesQuOntDesCrouyesÈstimacions' ),
 	'QualityOversight' => array( 'Supèrvision de qualitât', 'SupèrvisionDeQualitât' ),
-	'RatingHistory' => array( "Historico de l'èstimacion de la pâge", 'HistoricoDeLÈstimacionDeLaPâge' ),
-	'ReaderFeedback' => array( 'Èstimacion' ),
 	'ReviewedPages' => array( 'Pâges revues', 'PâgesRevues' ),
 	'RevisionReview' => array( 'Relèctura de les vèrsions', 'RelècturaDeLesVèrsions' ),
 	'Stabilization' => array( 'Stabilisacion' ),
@@ -235,12 +201,8 @@ $aliases['frp'] = array(
  * @author Toliño
  */
 $aliases['gl'] = array(
-	'LikedPages' => array( 'Páxinas ligadas' ),
 	'OldReviewedPages' => array( 'Páxinas revisadas hai tempo' ),
-	'ProblemPages' => array( 'Páxinas problemáticas' ),
 	'QualityOversight' => array( 'Revisión de calidade' ),
-	'RatingHistory' => array( 'Valoración do historial' ),
-	'ReaderFeedback' => array( 'Impresión do lector' ),
 	'ReviewedPages' => array( 'Páxinas revisadas' ),
 	'RevisionReview' => array( 'Revisión da revisión' ),
 	'Stabilization' => array( 'Estabilización' ),
@@ -253,12 +215,8 @@ $aliases['gl'] = array(
 
 /** Swiss German (Alemannisch) */
 $aliases['gsw'] = array(
-	'LikedPages' => array( 'Syte wu am beschte bewärtet sin' ),
 	'OldReviewedPages' => array( 'Syte mit Versione wu nit gsichtet sin' ),
-	'ProblemPages' => array( 'Syte wu am nidrigschte bewärtet sin' ),
 	'QualityOversight' => array( 'Markierigsibersicht' ),
-	'RatingHistory' => array( 'Bewärtigsgschicht' ),
-	'ReaderFeedback' => array( 'Bewärtig' ),
 	'ReviewedPages' => array( 'Gsichteti Syte' ),
 	'RevisionReview' => array( 'Versionspriefig' ),
 	'Stabilization' => array( 'Sytekonfiguration' ),
@@ -271,11 +229,8 @@ $aliases['gsw'] = array(
 
 /** Gujarati (ગુજરાતી) */
 $aliases['gu'] = array(
-	'LikedPages' => array( 'જોડાયેલપાનાં' ),
 	'OldReviewedPages' => array( 'જુનાં તપાસાયેલા પાનાં' ),
-	'ProblemPages' => array( 'સંદિગ્ધપાનાઓ' ),
 	'QualityOversight' => array( 'ગુણવતા દુર્લક્ષ' ),
-	'ReaderFeedback' => array( 'વાચકનોફીડબેક' ),
 	'ReviewedPages' => array( 'રીવ્યુપાનાં' ),
 	'RevisionReview' => array( 'આવૃત્તિરીવ્યુ' ),
 	'Stabilization' => array( 'સ્થિરતા' ),
@@ -301,12 +256,8 @@ $aliases['hr'] = array(
 
 /** Upper Sorbian (Hornjoserbsce) */
 $aliases['hsb'] = array(
-	'LikedPages' => array( 'Kwalitne strony' ),
 	'OldReviewedPages' => array( 'Zaso njepřehladane strony' ),
-	'ProblemPages' => array( 'Problematiske strony' ),
 	'QualityOversight' => array( 'Kwalitna kontrola' ),
-	'RatingHistory' => array( 'Stawizny pohódnoćenjow' ),
-	'ReaderFeedback' => array( 'Pohódnoćenjow čitarjow' ),
 	'ReviewedPages' => array( 'Přehladane strony' ),
 	'RevisionReview' => array( 'Wersijowe přehladanje' ),
 	'Stabilization' => array( 'Stabilizacija' ),
@@ -319,12 +270,8 @@ $aliases['hsb'] = array(
 
 /** Hungarian (Magyar) */
 $aliases['hu'] = array(
-	'LikedPages' => array( 'Jónak ítélt lapok' ),
 	'OldReviewedPages' => array( 'Elavult ellenőrzött lapok', 'Régen ellenőrzött lapok' ),
-	'ProblemPages' => array( 'Rossznak ítélt lapok' ),
 	'QualityOversight' => array( 'Minőségellenőrzés' ),
-	'RatingHistory' => array( 'Értékeléstörténet' ),
-	'ReaderFeedback' => array( 'Olvasói visszajelzés' ),
 	'ReviewedPages' => array( 'Ellenőrzött lapok' ),
 	'RevisionReview' => array( 'Változat ellenőrzése' ),
 	'Stabilization' => array( 'Lap rögzítése' ),
@@ -337,12 +284,8 @@ $aliases['hu'] = array(
 
 /** Interlingua (Interlingua) */
 $aliases['ia'] = array(
-	'LikedPages' => array( 'Paginas ligate' ),
 	'OldReviewedPages' => array( 'Paginas revidite ancian' ),
-	'ProblemPages' => array( 'Paginas problematic' ),
 	'QualityOversight' => array( 'Supervision de qualitate' ),
-	'RatingHistory' => array( 'Historia de evalutationes' ),
-	'ReaderFeedback' => array( 'Reactiones de lectores' ),
 	'ReviewedPages' => array( 'Paginas revidite' ),
 	'RevisionReview' => array( 'Recension de versiones' ),
 	'StablePages' => array( 'Paginas stabile' ),
@@ -356,13 +299,9 @@ $aliases['ia'] = array(
  * @author Rex
  */
 $aliases['id'] = array(
-	'LikedPages' => array( 'Halaman yang digemari', 'HalamanDigemari' ),
 	'OldReviewedPages' => array( 'Halaman tertinjau usang', 'HalamanTertinjauUsang' ),
 	'ProblemChanges' => array( 'Perubahan masalah', 'PerubahanMasalah' ),
-	'ProblemPages' => array( 'Halaman bermasalah', 'HalamanBermasalah' ),
 	'QualityOversight' => array( 'Pemeriksaan kualitas', 'PemeriksaanKualitas' ),
-	'RatingHistory' => array( 'Riwayat penilaian', 'RiwayatPenilaian' ),
-	'ReaderFeedback' => array( 'Umpan balik pembaca', 'UmpanBalikPembaca' ),
 	'ReviewedPages' => array( 'Halaman tertinjau', 'HalamanTertinjau' ),
 	'RevisionReview' => array( 'Tinjauan revisi', 'TinjauanRevisi' ),
 	'Stabilization' => array( 'Stabilisasi' ),
@@ -375,13 +314,9 @@ $aliases['id'] = array(
 
 /** Japanese (日本語) */
 $aliases['ja'] = array(
-	'LikedPages' => array( '評価の高いページ' ),
 	'OldReviewedPages' => array( '古くなった査読済みページ' ),
 	'ProblemChanges' => array( '問題の修正' ),
-	'ProblemPages' => array( '問題のあるページ', '評価の低いページ' ),
 	'QualityOversight' => array( '品質監督' ),
-	'RatingHistory' => array( '評価履歴', 'ページ評価履歴' ),
-	'ReaderFeedback' => array( '読者評価' ),
 	'ReviewedPages' => array( '査読済みページ' ),
 	'RevisionReview' => array( '特定版の査読' ),
 	'Stabilization' => array( '固定', '採択', 'ページの採択' ),
@@ -392,28 +327,12 @@ $aliases['ja'] = array(
 	'ValidationStatistics' => array( '判定統計' ),
 );
 
-/** Khmer (ភាសាខ្មែរ)
- * @author Lovekhmer
- */
-$aliases['km'] = array(
-	'LikedPages' => array( 'ទំពរ​មាន​តំណភ្ជាប់' ),
-	'ProblemPages' => array( 'ទំព័រមានបញ្ហា' ),
-);
-
-/** Korean (한국어) */
-$aliases['ko'] = array(
-	'ReaderFeedback' => array( '독자피드백' ),
-);
-
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
 $aliases['lb'] = array(
-	'LikedPages' => array( 'Beléiwte Säiten' ),
-	'OldReviewedPages' => array( 'Sàite mat Versiounen déi net iwwerpréift sinn' ),
-	'ProblemPages' => array( 'Problematesch Säiten' ),
-	'RatingHistory' => array( 'Bewertung vun de Versiounen' ),
-	'ReaderFeedback' => array( 'Bewertung vun de Lieser' ),
+	'OldReviewedPages' => array( 'Säite mat Versiounen déi net iwwerpréift sinn' ),
+	'ProblemChanges' => array( 'Problematesch Ännerungen' ),
 	'ReviewedPages' => array( 'Säiten déi iwwerkuckt goufen' ),
 	'RevisionReview' => array( 'Versioun iwwerpréifen' ),
 	'Stabilization' => array( 'Stabilisatioun' ),
@@ -426,10 +345,7 @@ $aliases['lb'] = array(
 
 /** Macedonian (Македонски) */
 $aliases['mk'] = array(
-	'LikedPages' => array( 'БараниСтраници' ),
 	'OldReviewedPages' => array( 'СтариОценетиСтраници' ),
-	'ProblemPages' => array( 'ПроблематичниСтраници' ),
-	'RatingHistory' => array( 'ИсторијаНаОценување' ),
 	'ReviewedPages' => array( 'ПрегледаниСтраници' ),
 	'Stabilization' => array( 'Стабилизација' ),
 	'StablePages' => array( 'СтабилниСтраници' ),
@@ -449,7 +365,6 @@ $aliases['ml'] = array(
  * @author Kaustubh
  */
 $aliases['mr'] = array(
-	'LikedPages' => array( 'जोडलेलीपाने' ),
 	'OldReviewedPages' => array( 'जुनीतपासलेलीपाने' ),
 	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
 	'ReviewedPages' => array( 'तपासलेलीपाने' ),
@@ -463,7 +378,6 @@ $aliases['mr'] = array(
  */
 $aliases['ms'] = array(
 	'OldReviewedPages' => array( 'Laman diperiksa lapuk' ),
-	'ProblemPages' => array( 'Laman bermasalah' ),
 	'QualityOversight' => array( 'Kawalan mutu' ),
 	'ReviewedPages' => array( 'Laman diperiksa' ),
 	'StablePages' => array( 'Laman stabil' ),
@@ -471,25 +385,10 @@ $aliases['ms'] = array(
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
-/** Maltese (Malti) */
-$aliases['mt'] = array(
-	'LikedPages' => array( 'PaġniMarbuta' ),
-);
-
-/** Erzya (Эрзянь) */
-$aliases['myv'] = array(
-	'LikedPages' => array( 'ВечкевиксЛопат' ),
-	'ProblemPages' => array( 'ПроблемаМартоЛопат' ),
-);
-
 /** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
-	'LikedPages' => array( "Goeie_pagina's" ),
 	'OldReviewedPages' => array( "Pagina's_verouwerde_eindredactie" ),
-	'ProblemPages' => array( "Prebleem_pagina's" ),
 	'QualityOversight' => array( 'Kwaliteitscontrole' ),
-	'RatingHistory' => array( 'Warderingsgeschiedenisse' ),
-	'ReaderFeedback' => array( 'Lezerreactie' ),
 	'ReviewedPages' => array( 'Pagina_mit_eindredactie' ),
 	'RevisionReview' => array( 'Eindredactie_versies' ),
 	'Stabilization' => array( 'Stabilisasie' ),
@@ -504,13 +403,9 @@ $aliases['nds-nl'] = array(
  * @author Siebrand
  */
 $aliases['nl'] = array(
-	'LikedPages' => array( 'HoogGewaardeerdePaginas' ),
 	'OldReviewedPages' => array( 'PaginasVerouderdeEindredactie', "Pagina'sVerouderdeEindredactie" ),
 	'ProblemChanges' => array( 'ProblematischeWijzigingen' ),
-	'ProblemPages' => array( 'LaagGewaardeerdePaginas', 'ProbleemPaginas', "ProbleemPagina's" ),
 	'QualityOversight' => array( 'KwaliteitsControle' ),
-	'RatingHistory' => array( 'Waarderingsgeschiedenis' ),
-	'ReaderFeedback' => array( 'Lezersterugkoppeling' ),
 	'ReviewedPages' => array( 'PaginasMetEindredactie', "Pagina'sMetEindredactie" ),
 	'RevisionReview' => array( 'EindredactieVersies' ),
 	'Stabilization' => array( 'Stabilisatie' ),
@@ -523,12 +418,8 @@ $aliases['nl'] = array(
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
 $aliases['nn'] = array(
-	'LikedPages' => array( 'Lika sider' ),
 	'OldReviewedPages' => array( 'Gamle vurderte sider' ),
-	'ProblemPages' => array( 'Problemsider' ),
 	'QualityOversight' => array( 'Kvalitetsoversyn' ),
-	'RatingHistory' => array( 'Vurderingsoversyn' ),
-	'ReaderFeedback' => array( 'Vurderingshistorikk' ),
 	'ReviewedPages' => array( 'Vurderte sider' ),
 	'RevisionReview' => array( 'Versjonsvurdering' ),
 	'Stabilization' => array( 'Stabilisering' ),
@@ -543,12 +434,8 @@ $aliases['nn'] = array(
  * @author Jon Harald Søby
  */
 $aliases['no'] = array(
-	'LikedPages' => array( 'Godt likte sider' ),
 	'OldReviewedPages' => array( 'Gamle anmeldte sider' ),
-	'ProblemPages' => array( 'Problemsider' ),
 	'QualityOversight' => array( 'Kvalitetsoversikt' ),
-	'RatingHistory' => array( 'Vurderingshistorikk' ),
-	'ReaderFeedback' => array( 'Tilbakemeldinger' ),
 	'ReviewedPages' => array( 'Anmeldte sider' ),
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabile sider' ),
@@ -562,9 +449,7 @@ $aliases['no'] = array(
  * @author Cedric31
  */
 $aliases['oc'] = array(
-	'LikedPages' => array( 'PaginasQuAgradan', "Paginas qu'agradan" ),
 	'OldReviewedPages' => array( 'PaginasAncianasRelegidas' ),
-	'ProblemPages' => array( 'PaginasProblematicas' ),
 	'QualityOversight' => array( 'SupervisorQualitat' ),
 	'ReviewedPages' => array( 'Paginas revisadas', 'PaginasRevisadas' ),
 	'RevisionReview' => array( 'Relectura de las revisions' ),
@@ -578,13 +463,9 @@ $aliases['oc'] = array(
  * @author Sp5uhe
  */
 $aliases['pl'] = array(
-	'LikedPages' => array( 'Wysoko oceniane strony' ),
 	'OldReviewedPages' => array( 'Zdezaktualizowane przejrzane strony' ),
 	'ProblemChanges' => array( 'Wątpliwe zmiany' ),
-	'ProblemPages' => array( 'Nisko oceniane strony' ),
 	'QualityOversight' => array( 'Rejestr oznaczania wersji' ),
-	'RatingHistory' => array( 'Historia oceniania strony' ),
-	'ReaderFeedback' => array( 'Ocena czytelnika' ),
 	'ReviewedPages' => array( 'Przejrzane strony' ),
 	'RevisionReview' => array( 'Oznaczenie wersji' ),
 	'Stabilization' => array( 'Konfiguracja strony' ),
@@ -599,12 +480,8 @@ $aliases['pl'] = array(
  * @author 555
  */
 $aliases['pt'] = array(
-	'LikedPages' => array( 'Páginas aprovadas' ),
 	'OldReviewedPages' => array( 'Versões_antigas_de_páginas_analisadas' ),
-	'ProblemPages' => array( 'Páginas com problemas' ),
 	'QualityOversight' => array( 'Observatório_da_qualidade' ),
-	'RatingHistory' => array( 'Histórico de avaliações' ),
-	'ReaderFeedback' => array( 'Opinião do leitor' ),
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
 	'RevisionReview' => array( 'Revisão de edições' ),
 	'Stabilization' => array( 'Estabilização' ),
@@ -617,12 +494,8 @@ $aliases['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil) */
 $aliases['pt-br'] = array(
-	'LikedPages' => array( 'Páginas aprovadas' ),
 	'OldReviewedPages' => array( 'Versões_antigas_de_páginas_analisadas' ),
-	'ProblemPages' => array( 'Páginas com problemas' ),
 	'QualityOversight' => array( 'Observatório_da_qualidade' ),
-	'RatingHistory' => array( 'Histórico de avaliações' ),
-	'ReaderFeedback' => array( 'Opinião do leitor' ),
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
 	'RevisionReview' => array( 'Revisão de edições' ),
 	'Stabilization' => array( 'Estabilização' ),
@@ -635,12 +508,8 @@ $aliases['pt-br'] = array(
 
 /** Sanskrit (संस्कृत) */
 $aliases['sa'] = array(
-	'LikedPages' => array( 'इष्टपृष्ठ' ),
 	'OldReviewedPages' => array( 'पूर्वतनआवलोकीतपृष्ठ:' ),
-	'ProblemPages' => array( 'समस्यापृष्ठ' ),
 	'QualityOversight' => array( 'गुणपूर्णवृजावलोकन' ),
-	'RatingHistory' => array( 'मुल्यांकनइतिहास' ),
-	'ReaderFeedback' => array( 'वाचकप्रतिक्रिया' ),
 	'ReviewedPages' => array( 'समसमीक्षीतपृष्ठ:' ),
 	'RevisionReview' => array( 'आवृत्तीसमसमीक्षा' ),
 	'Stabilization' => array( 'स्वास्थ्य' ),
@@ -656,7 +525,6 @@ $aliases['sa'] = array(
  */
 $aliases['sk'] = array(
 	'OldReviewedPages' => array( 'StaréSkontrolovanéStránky' ),
-	'ProblemPages' => array( 'ProblémovéStránky' ),
 	'QualityOversight' => array( 'DohľadNadKvalitou' ),
 	'ReviewedPages' => array( 'SkontrolovanéStránky' ),
 	'StablePages' => array( 'StabilnéStránky' ),
@@ -666,8 +534,6 @@ $aliases['sk'] = array(
 
 /** Albanian (Shqip) */
 $aliases['sq'] = array(
-	'ProblemPages' => array( 'FaqetProblem' ),
-	'RatingHistory' => array( 'HistoriaeVlerësimit' ),
 	'Stabilization' => array( 'Stabilizim' ),
 	'StablePages' => array( 'FaqetStabile' ),
 	'StableVersions' => array( 'VerzionetStabile' ),
@@ -679,7 +545,6 @@ $aliases['sq'] = array(
  */
 $aliases['sr-ec'] = array(
 	'OldReviewedPages' => array( 'СтареПрегледанеСтране' ),
-	'ProblemPages' => array( 'ПроблематичнеСтране' ),
 	'QualityOversight' => array( 'НадгледањеКвалитета' ),
 	'ReviewedPages' => array( 'ПрегледанеСтране' ),
 	'StablePages' => array( 'СтабилнеСтране' ),
@@ -693,12 +558,8 @@ $aliases['sr-ec'] = array(
  * @author M.M.S.
  */
 $aliases['sv'] = array(
-	'LikedPages' => array( 'Länkade sidor' ),
 	'OldReviewedPages' => array( 'Gamla granskade sidor' ),
-	'ProblemPages' => array( 'Problemsidor' ),
 	'QualityOversight' => array( 'Kvalitetsöversikt' ),
-	'RatingHistory' => array( 'Betygshistorik' ),
-	'ReaderFeedback' => array( 'Läsarfeedback' ),
 	'ReviewedPages' => array( 'Granskade sidor' ),
 	'RevisionReview' => array( 'Versionsgranskning' ),
 	'Stabilization' => array( 'Stabilisering' ),
@@ -711,10 +572,7 @@ $aliases['sv'] = array(
 
 /** Swahili (Kiswahili) */
 $aliases['sw'] = array(
-	'LikedPages' => array( 'KurasaZilizounganishwa' ),
 	'OldReviewedPages' => array( 'KurasaZilizoonyeshwaAwali' ),
-	'ProblemPages' => array( 'KurasaZenyematatizo' ),
-	'RatingHistory' => array( 'HesabuHistoria' ),
 	'ReviewedPages' => array( 'OnyeshaKurasa' ),
 	'Stabilization' => array( 'Uimalishaji' ),
 	'StablePages' => array( 'KurasaImara' ),
@@ -725,12 +583,8 @@ $aliases['sw'] = array(
 
 /** Tagalog (Tagalog) */
 $aliases['tl'] = array(
-	'LikedPages' => array( 'Nagustuhang mga pahina' ),
 	'OldReviewedPages' => array( 'Nasuring lumang mga pahina' ),
-	'ProblemPages' => array( 'Mga pahinang may suliranin' ),
 	'QualityOversight' => array( 'Maingat na pamamahala ng kalidad' ),
-	'RatingHistory' => array( 'Kasaysayan ng pag-aantas' ),
-	'ReaderFeedback' => array( 'Balik-ulat ng mambabasa' ),
 	'ReviewedPages' => array( 'Sinuring mga pahina' ),
 	'RevisionReview' => array( 'Pagsusuri ng pagbabago' ),
 	'Stabilization' => array( 'Pagpapatatag', 'pagpapatibay' ),
