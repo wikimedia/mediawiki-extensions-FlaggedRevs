@@ -11,13 +11,9 @@ $aliases = array();
  * @author Aaron Schulz
  */
 $aliases['en'] = array(
-	'LikedPages' => array( 'LikedPages' ),
 	'OldReviewedPages' => array( 'OldReviewedPages' ),
 	'ProblemChanges' => array( 'ProblemChanges' ),
-	'ProblemPages' => array( 'ProblemPages' ),
 	'QualityOversight' => array( 'QualityOversight' ),
-	'RatingHistory' => array( 'RatingHistory' ),
-	'ReaderFeedback' => array( 'ReaderFeedback' ),
 	'ReviewedPages' => array( 'ReviewedPages' ),
 	'RevisionReview' => array( 'RevisionReview' ),
 	'Stabilization' => array( 'Stabilization', 'Stabilisation' ),
