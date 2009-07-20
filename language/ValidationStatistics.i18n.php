@@ -321,6 +321,7 @@ Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita u
 	'validationstatistics-latest' => 'Sinkronigita',
 	'validationstatistics-synced' => 'Ĝisdatigitaj/Reviziitaj',
 	'validationstatistics-old' => 'Malfreŝaj',
+	'validationstatistics-user' => 'Uzanto',
 );
 
 /** Spanish (Español)

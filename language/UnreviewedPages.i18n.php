@@ -323,6 +323,9 @@ $messages['eo'] = array(
 	'unreviewed-list' => 'Ĉi tiu paĝo montras enhavajn paĝojn kiuj ne estas kontrolitaj.',
 	'unreviewed-none' => 'Nune neniuj paĝoj kongruas tiun kriterion',
 	'unreviewed-viewing' => '(kontrolata)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|horo|horoj}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|tago|tagoj}})',
+	'unreviewed-recent' => '(malpli ol 1 horo)',
 );
 
 /** Spanish (Español)

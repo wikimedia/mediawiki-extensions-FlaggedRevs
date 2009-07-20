@@ -60,6 +60,13 @@ $messages['el'] = array(
 	'problemchanges-category' => 'Κατηγορία:',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'problemchanges-category' => 'Kategorio:',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  */
