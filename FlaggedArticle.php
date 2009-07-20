@@ -864,17 +864,17 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 	
 		$title = $this->parent->getTitle()->getSubjectPage();
-		if ( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() ) {
-			// Exit, since only reviewable pages need these tabs
-			return true;
+		if ( !FlaggedRevs::isPageReviewable( $title ) ) {
+			return true; // Only reviewable pages need these tabs
 		}
 		// Check if we should show a stabilization tab
 		if (
 			!$skin->mTitle->isTalkPage() &&
-			$wgUser->isAllowed( 'stablesettings' ) &&
 			is_array( $actions ) &&
 			!isset( $actions['protect'] ) &&
-			!isset( $actions['unprotect'] )
+			!isset( $actions['unprotect'] ) &&
+			$wgUser->isAllowed( 'stablesettings' ) &&
+			$title->exists()
 		) {
 			wfLoadExtensionMessages( 'Stabilization' );
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
@@ -910,8 +910,7 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$article = new Article( $title );
-		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
+		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->parent );
 	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
 	   		if ( isset( $views['edit'] ) ) {
 				if ( $this->showStableByDefault() ) {
@@ -950,8 +949,7 @@ class FlaggedArticle extends Article {
 		if ( $this->pageOverride() || $wgRequest->getVal( 'stableid' ) ) {
 			// We are looking a the stable version
 			$tabs['stable']['class'] = 'selected';
-		}
-		elseif (
+		} elseif (
 			( self::isViewAction( $action ) || $action == 'edit' ) &&
 			!$skin->mTitle->isTalkPage()
 		) {
