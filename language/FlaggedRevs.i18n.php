@@ -285,7 +285,7 @@ The accuracy "sighted", as displayed on the page history after a revision with t
 * $1 is a page title
 * $2 is a version of page',
 	'review-logentry-id' => '{{Flagged Revs}}
-{{Identical/View}}',
+{{Identical|View}}',
 	'review-logentry-diff' => '{{Flagged Revs}}',
 	'review-logpage' => '{{Flagged Revs}}',
 	'review-logpagetext' => '{{Flagged Revs}}

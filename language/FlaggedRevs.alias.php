@@ -327,6 +327,13 @@ $aliases['ja'] = array(
 	'ValidationStatistics' => array( '判定統計' ),
 );
 
+/** Ripoarisch (Ripoarisch) */
+$aliases['ksh'] = array(
+	'OldReviewedPages' => array( 'SiggeMetUnjesichVersione' ),
+	'ReviewedPages' => array( 'JesichSigge' ),
+	'UnreviewedPages' => array( 'UNjesichSigge' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -525,11 +532,16 @@ $aliases['sa'] = array(
  */
 $aliases['sk'] = array(
 	'OldReviewedPages' => array( 'StaréSkontrolovanéStránky' ),
+	'ProblemChanges' => array( 'ProblematickéZmeny' ),
 	'QualityOversight' => array( 'DohľadNadKvalitou' ),
 	'ReviewedPages' => array( 'SkontrolovanéStránky' ),
+	'RevisionReview' => array( 'KontrolaKontroly' ),
+	'Stabilization' => array( 'Stabilizácia' ),
 	'StablePages' => array( 'StabilnéStránky' ),
-	'StableVersions' => array( 'StabilnéVerzie' ),
+	'StableVersions' => array( 'StabilnéVerziea' ),
 	'UnreviewedPages' => array( 'NeskontrolovanéStránky' ),
+	'UnstablePages' => array( 'NestabilnéStránky' ),
+	'ValidationStatistics' => array( 'ŠtatistikaOverovania' ),
 );
 
 /** Albanian (Shqip) */

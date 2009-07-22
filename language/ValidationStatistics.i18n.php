@@ -1366,7 +1366,7 @@ Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontr
  */
 $messages['uk'] = array(
 	'validationstatistics' => 'Статистика перевірок',
-	'validationstatistics-users' => "У {{grammar:locative|{{SITENAME}}}} зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]] і '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«рецензент»]].
+	'validationstatistics-users' => "У проекті {{SITENAME}} зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]] і '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«рецензент»]].
 
 «Редактори» і «рецензенти» — користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
 	'validationstatistics-time' => "''Нижченаведені дані взяті з кешу і можуть бути застарілими.''
