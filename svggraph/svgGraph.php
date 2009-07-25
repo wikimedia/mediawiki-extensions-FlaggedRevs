@@ -715,8 +715,10 @@ class svgGraph {
       if ($max < 0) $factor = - pow(10, (floor(log10(abs($max))) + $resolution) );
       else $factor = pow(10, (floor(log10(abs($max))) - $resolution) );
     }
-    $max = $factor * @ceil($max / $factor);
-    $min = $factor * @floor($min / $factor);
+    wfSuppressWarnings();
+    $max = $factor * ceil($max / $factor);
+    $min = $factor * floor($min / $factor);
+    wfRestoreWarnings();
 
     return array('min' => $min, 'max' => $max);
   }
@@ -766,5 +768,3 @@ class svgGraph {
   }
 
 }
-
-?>
