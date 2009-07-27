@@ -8965,13 +8965,24 @@ Aggiorne 'a pàgene e repruève 'n'otra vote a fa 'na rivisita ca pò essere ca 
 	'revreview-depth-4' => 'Dettagliete',
 	'revreview-draft-title' => 'Pàgena bozza',
 	'revreview-edit' => "Cange 'a bozze",
+	'revreview-editnotice' => "'''Le cangiaminde a sta pàgene onne essere 'ngorporate jndr'à [[{{MediaWiki:Validationpage}}|versiona secure]] 'na vote ca 'n'utende autorizzate l'ha reviste'''.",
 	'revreview-flag' => 'Revide sta revisione',
+	'revreview-edited' => "'''Le cangiaminde onne essere 'ngorporate jndr'à [[{{MediaWiki:Validationpage}}|versiona secure]] 'na vote ca 'n'utende autorizzate l'ha reviste'''.
+''' 'A ''bozze'' ta stoche a fazze vedè aqquà sotte.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cangiamende ca ste aspette|cangiaminde ca sto aspettane}}] 'a revisione.",
 	'revreview-invalid' => "'''Destinazione invalide:''' nisciuna revisiona  [[{{MediaWiki:Validationpage}}|reviste]] corresponne a 'u codece (ID) inzerite.",
 	'revreview-legend' => "D'a 'nu pundegge a 'u condenute d'a revisione",
 	'revreview-log' => 'Commende:',
 	'revreview-main' => "Tu a selezionà ìna particolera revisione da 'na vosce pe fà 'na revisitazione.
 
 Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivisitete]].",
+	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona riviste] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] {{PLURAL:$3|abbesogne|abbesognene}} de 'na reviste.",
+	'revreview-newest-basic-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona riviste] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde sus a template/file] abbesognene de 'na reviste.",
+	'revreview-newest-quality' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona de qualità] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] {{PLURAL:$3|abbesogne|abbesognene}} de 'na reviste.",
+	'revreview-newest-quality-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona de qualità] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] abbesognene de 'na reviste.",
 	'revreview-note' => '[[User:$1|$1]] ha fatte le note seguende [[{{MediaWiki:Validationpage}}|revesetanne]] sta revisione:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',

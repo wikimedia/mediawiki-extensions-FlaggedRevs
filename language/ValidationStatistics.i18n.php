@@ -599,6 +599,14 @@ $4
 	'validationstatistics-reviews' => 'בדיקות',
 );
 
+/** Hiligaynon (Ilonggo)
+ * @author Tagimata
+ */
+$messages['hil'] = array(
+	'validationstatistics-total' => 'Mga Pahina',
+	'validationstatistics-user' => 'Naga-Usar',
+);
+
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Suradnik13
