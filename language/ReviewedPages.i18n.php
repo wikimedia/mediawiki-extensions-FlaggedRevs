@@ -162,6 +162,14 @@ $messages['br'] = array(
 	'reviewedpages-best' => 'adweladenn bennañ',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'reviewedpages-list' => '{{PLURAL:$1|Slijedeća stranica je provjerena|Slijedeće stranice su provjerene}} do određenog nivoa',
+	'reviewedpages-none' => 'Nema stranica na ovom spisku',
+);
+
 /** Catalan (Català)
  * @author Jordi Roqué
  */

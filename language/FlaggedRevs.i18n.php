@@ -6572,6 +6572,7 @@ Confirma URL paginae.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
@@ -6626,7 +6627,7 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-noflagged' => "Et gëtt keng nogekuckte Versioune vun dëser Säit, et kann also sinn datt hir Qualitéit '''net''' [[{{MediaWiki:Validationpage}}|nogekuckt]] gouf.",
 	'revreview-note' => '[[User:$1|$1]] huet dës Notize gemaach, wéi dës Versioun [[{{MediaWiki:Validationpage}}|nogekuckt gouf]]:',
 	'revreview-notes' => 'Bemierkungen oder Notizen fir unzeweisen:',
-	'revreview-oldrating' => 'Bewertung bis elo:',
+	'revreview-oldrating' => 'Bewäertung bis elo:',
 	'revreview-patrol' => 'Dës Ännerung als iwwerkuckt markéieren',
 	'revreview-patrol-title' => 'Als iwwerkuckt markéieren',
 	'revreview-patrolled' => 'Déi erausgsichte Versioun vu(n) [[:$1|$1]] gouf als iwwerkuckt markéiert.',
@@ -6651,6 +6652,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-style-4' => 'Exzellent',
 	'revreview-submit' => 'Späicheren',
 	'revreview-submitting' => 'Iwwerdroen …',
+	'revreview-finished' => 'Iwwerliesen ofgeschloss!',
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
 	'revreview-update-includes' => "'''Verschidde Schablounen/Fichiere goufen aktualiséiert:'''",
 	'revreview-update-use' => "'''Bemierkung:''' Wann eng vun dëse Schablounen/Fichieren eng stabil Versioun huet, da gëtt déi schonn an der stabiler Versioun vun dëser Säit benotzt.",
@@ -8983,11 +8985,21 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] {{PLURAL:$3|abbesogne|abbesognene}} de 'na reviste.",
 	'revreview-newest-quality-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona de qualità] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] abbesognene de 'na reviste.",
+	'revreview-noflagged' => "Non ge stonne revisiune reviste de sta pàgene, accussì '''non''' ge se pò [[{{MediaWiki:Validationpage}}|verificà]] 'a qualità.",
 	'revreview-note' => '[[User:$1|$1]] ha fatte le note seguende [[{{MediaWiki:Validationpage}}|revesetanne]] sta revisione:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',
 	'revreview-patrol' => 'Signe stu cangiamende cumme verifichete a funne',
 	'revreview-patrol-title' => 'Signe cumme verifichete a funne',
+	'revreview-patrolled' => "'A revisione selezionate de [[:$1|$1]] ha state marcate cumme condrollate.",
+	'revreview-quality' => "Queste jè l'urtema revisione [[{{MediaWiki:Validationpage}}|de qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende ca ste spette|cangiaminde ca stonne spettene}}] 'na reviste.",
+	'revreview-quality-i' => "Queste jè l'urtema revisione [[{{MediaWiki:Validationpage}}|de qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] ca stonne spettene 'na reviste.",
+	'revreview-quality-old' => "Queste jè 'na revisione [[{{MediaWiki:Validationpage}}|de qualità]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuève ponne essere fatte.",
+	'revreview-quality-same' => "Queste jè l'[[{{MediaWiki:Validationpage}}|urtema revisiona de qualità]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.",
+	'revreview-quality-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versione de qualità] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>, ere basate sus a stà revisione.",
 	'revreview-quality-title' => "Qualità d'a vôsce",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
@@ -8997,6 +9009,10 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]'''",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Bozza]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vide 'a pàgene]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} combronde])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Bozza]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vide 'a pàgene]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} combronde])",
 	'revreview-selected' => "Revisiona selezionete de '''$1:'''",
 	'revreview-source' => 'sorgende a bozza',
 	'revreview-stable' => 'Pàgena sicure',
@@ -9015,8 +9031,15 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-failed' => 'Revisiona fallite!',
 	'revreview-successful' => "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:Stableversions}}|pàgene=$2}} vide le versiune secure])'''",
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
+	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versiune secure]] sonde le pàggene normale pe le visitature quanne le pàggene so troppe nuève.''",
+	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|versiune secure]] sonde revisiune verificate de le pàggene e ponne essere 'mbostate cumme a pàggene de condenute pe le visitature.''",
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
+	'revreview-toolow' => 'Tu a almene valutà ogneune de le attrebbute ca stonne aqquà sotte cu \'nu vote cchiù ierte de "non approvate" respettanne \'a revisione pe essere conziderate reviste.
+Pe schefà \'na revisione, \'mboste tutte le cambe a "non approvate".',
+	'revreview-update' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a revisiona secure ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].<br />
+'''Alcune template e file onne state aggiornate:'''",
 	'revreview-update-includes' => "'''Certe template/file onne state aggiornate:'''",
+	'revreview-update-none' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a revisiona secure ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].",
 	'revreview-update-use' => "'''VIDE BBUENE:''' Ce quacche template/file tènene 'na versiona secure, allore onne state ausate jndr'à sta pàgene ausanne quedda versiona.",
 	'revreview-diffonly' => "''Pe rivedè 'a pagène, cazze 'u collegamende d'a revisione \"revisiona corrende\" e ause 'u form de rivisitazione.''",
 	'revreview-visibility' => "'''Sta pàgene tène 'na [[{{MediaWiki:Validationpage}}|versiona secure]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",

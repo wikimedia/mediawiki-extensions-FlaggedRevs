@@ -848,22 +848,23 @@ $messages['kw'] = array(
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
 	'validationstatistics' => 'Statistike vun de Validaiounen',
 	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]] an '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].
 
-Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune bäi Säiten derbäisetze kënnen.",
+Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune vu Säiten derbäisetze kënnen.",
 	'validationstatistics-table' => 'Statistike fir jidfer Nummraum sinn hei ënnedrënner, Viruleedungssäite sinn net berücksichtegt.',
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Validéiert',
 	'validationstatistics-latest' => 'Synchroniséiert',
 	'validationstatistics-old' => 'Ofgelaf',
-	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat de 5 Benotzer, déi an der leschter Stonn am meeschte Bewertunge gemaach hunn.",
+	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat de 5 Benotzer, déi an der leschter Stonn am meeschte Bewäertunge gemaach hunn.",
 	'validationstatistics-user' => 'Benotzer',
-	'validationstatistics-reviews' => 'Bewertungen',
+	'validationstatistics-reviews' => 'Bewäertungen',
 );
 
 /** Eastern Mari (Олык Марий)
@@ -1294,12 +1295,15 @@ $messages['ta'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Kiranmayee
  * @author Veeven
  */
 $messages['te'] = array(
 	'validationstatistics' => 'సరిచూత గణాంకాలు',
+	'validationstatistics-ns' => 'నేంస్పేసు',
 	'validationstatistics-total' => 'పేజీలు',
 	'validationstatistics-old' => 'పాతవి',
+	'validationstatistics-user' => 'వాడుకరి',
 	'validationstatistics-reviews' => 'సమీక్షలు',
 );
 

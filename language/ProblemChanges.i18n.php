@@ -32,6 +32,14 @@ $messages['be-tarask'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'problemchanges-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
+	'problemchanges-category' => 'Kategorija:',
+);
+
 /** German (Deutsch)
  * @author Khaledelmansoury
  * @author Umherirrender
