@@ -8463,6 +8463,7 @@ By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny�
 	'stable-logpagetext' => 'To jest rejestr zmian w konfiguracji stron posiadających [[{{MediaWiki:Validationpage}}|wersje przejrzane]].
 Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 	'revreview-filter-all' => 'wszystkie',
+	'revreview-filter-stable' => 'oznaczona',
 	'revreview-filter-approved' => 'oznaczone',
 	'revreview-filter-reapproved' => 'ponownie oznaczone',
 	'revreview-filter-unapproved' => 'odznaczone',

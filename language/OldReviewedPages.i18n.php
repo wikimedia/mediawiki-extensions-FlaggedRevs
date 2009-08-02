@@ -957,6 +957,7 @@ $messages['pl'] = array(
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
 	'oldreviewed-category' => 'Kategoria',
 	'oldreviewed-watched' => 'Z mojej listy obserwowanych',
+	'oldreviewed-stable' => 'Oznaczona',
 	'oldreviewed-diff' => 'przejrzyj',
 	'oldreviewed-size' => 'Maksymalna liczba dodanych lub usuniętych bajtów',
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
@@ -973,13 +974,14 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Capmo
  * @author Malafaya
  * @author Waldir
  */
 $messages['pt'] = array(
 	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
 	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
-	'oldreviewedpages-list' => 'Esta página lista as páginas analisadas que possuem edições pendentes.',
+	'oldreviewedpages-list' => 'Esta página lista {{PLURAL:$1|uma página analisada que possui|as páginas analisadas que possuem}} edições pendentes.',
 	'oldreviewedpages-none' => 'Actualmente não existem páginas que satisfaçam estes critérios',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
