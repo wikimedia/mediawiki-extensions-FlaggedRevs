@@ -355,6 +355,9 @@ $messages['es'] = array(
  */
 $messages['eu'] = array(
 	'unreviewed-category' => 'Kategoria:',
+	'unreviewed-hours' => '({{PLURAL:$1|Ordu bat|$1 ordu}})',
+	'unreviewed-days' => '({{PLURAL:$1|Egun bat|$1 egun}})',
+	'unreviewed-recent' => '(ordu bat baino gutxiago)',
 );
 
 /** Extremaduran (Estremeñu)

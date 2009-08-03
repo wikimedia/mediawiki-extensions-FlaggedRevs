@@ -3014,14 +3014,15 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 );
 
 /** Estonian (Eesti)
+ * @author Pikne
  * @author Silvar
  */
 $messages['et'] = array(
 	'revreview-patrol' => 'Märgi see muudatus patrullituks',
 	'revreview-patrol-title' => 'Märgi patrullituks',
 	'revreview-style-1' => 'Vastuvõetav',
-	'revreview-revnotfound' => 'Teie poolt päritud vana redaktsiooni ei leitud.
-Palun kontrollige aadressi, millel Te seda lehekülge leida püüdsite.',
+	'revreview-revnotfound' => 'Vana redaktsiooni, mille järele te pärisite, ei leitud.
+Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 );
 
 /** Basque (Euskara)

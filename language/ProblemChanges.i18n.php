@@ -85,6 +85,13 @@ $messages['es'] = array(
 	'problemchanges-category' => 'Categoría:',
 );
 
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'problemchanges-category' => 'Kategoria:',
+);
+
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt

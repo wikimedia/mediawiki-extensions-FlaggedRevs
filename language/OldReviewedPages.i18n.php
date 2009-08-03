@@ -376,6 +376,14 @@ $messages['es'] = array(
 	'oldreviewedpages-viewing' => '(bajo revisión)',
 );
 
+/** Basque (Euskara)
+ * @author Kobazulo
+ */
+$messages['eu'] = array(
+	'oldreviewedpages-recent' => '(ordu bat baino gutxiago)',
+	'oldreviewed-category' => 'Kategoria:',
+);
+
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
