@@ -172,6 +172,10 @@ $messages['bg'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'validationstatistics' => 'Statistike provjera',
+	'validationstatistics-users' => "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]] i '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|provjere]].
+
+Urednici i provjerivači su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
 	'validationstatistics-time' => "''Slijedeći podaci su keširani i možda nisu ažurirani.''
 
 Izmjene koje trebaju provjeriti potvrđeni korisnici smatraju se neprovjerenim.
@@ -183,8 +187,10 @@ Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sin
 Stabilna verzija je najnovija revizija stranice koja je provjerena i prikazuje se po prepostavljenom svim čitaocima.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
+	'validationstatistics-synced' => 'Sinhronizirano/provjereno',
 	'validationstatistics-old' => 'Zastarijelo',
 	'validationstatistics-user' => 'Korisnik',
+	'validationstatistics-reviews' => 'Pregledi',
 );
 
 /** Catalan (Català)
@@ -367,6 +373,7 @@ $messages['eu'] = array(
 	'validationstatistics' => 'Balioztatzeko estatistikak',
 	'validationstatistics-total' => 'Orrialdeak',
 	'validationstatistics-old' => 'Deseguneratua',
+	'validationstatistics-user' => 'Lankidea',
 );
 
 /** Persian (فارسی)
@@ -844,7 +851,7 @@ Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'validationstatistics-total' => 'Folennow',
+	'validationstatistics-total' => 'Folednow',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

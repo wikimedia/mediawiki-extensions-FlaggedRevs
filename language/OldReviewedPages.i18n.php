@@ -760,7 +760,7 @@ $messages['ksh'] = array(
  */
 $messages['kw'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dydh|dydhyow}})',
-	'oldreviewed-category' => 'Klasyans:',
+	'oldreviewed-category' => 'Clasyans:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

@@ -36,6 +36,8 @@ $messages['be-tarask'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'problemchanges' => 'Pregled označenih promjena',
+	'problemchanges-legend' => 'Spisak pregledanih stranica sa označenim izmjenama koje čekaju pregled',
 	'problemchanges-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
 	'problemchanges-category' => 'Kategorija:',
 );
