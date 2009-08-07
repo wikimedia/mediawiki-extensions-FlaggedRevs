@@ -1296,6 +1296,7 @@ Hdyž konfiguraciju ''wuběra stabilneje wersije'' změniš, zo by \"kwalitnu\" 
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Gondnok
  * @author KossuthRad
  * @author Samat
@@ -1315,6 +1316,7 @@ A(z) [[:$1|$1]] lapra vonatkozó jelenlegi beállítások:',
 	'stabilization-def' => 'Az alapértelmezettként megjelenített változat',
 	'stabilization-def1' => 'A jelölt változat; ha nincs, akkor a legutolsó',
 	'stabilization-def2' => 'A legutolsó változat',
+	'stabilization-restrict-none' => 'Nincsenek külön megkötések',
 	'stabilization-submit' => 'Megerősítés',
 	'stabilization-notexists' => 'Nincs „[[:$1|$1]]” című lap.
 Nem lehet a beállításokat módosítani.',
@@ -3180,6 +3182,13 @@ $messages['yue'] = array(
 	'stabilize_expiry_invalid' => '無效嘅到期日。',
 	'stabilize_expiry_old' => '到期日已經過咗。',
 	'stabilize-expiring' => '於 $1 (UTC) 到期',
+);
+
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author PhiLiP
+ */
+$messages['zh-hans'] = array(
+	'stabilization-otherreason' => '其他原因',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
