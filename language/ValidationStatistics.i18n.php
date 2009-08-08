@@ -851,7 +851,7 @@ Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'validationstatistics-total' => 'Folednow',
+	'validationstatistics-total' => 'Folennow',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
