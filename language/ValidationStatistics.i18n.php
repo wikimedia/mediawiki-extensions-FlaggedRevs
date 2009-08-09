@@ -809,6 +809,7 @@ $messages['km'] = array(
 );
 
 /** Korean (한국어)
+ * @author Klutzy
  * @author Kwj2772
  * @author Yknok29
  */
@@ -816,7 +817,7 @@ $messages['ko'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
 	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서의 검토 통계가 이름공간별로 보여지고 있습니다.",
 	'validationstatistics-ns' => '이름공간',
-	'validationstatistics-total' => '페이지',
+	'validationstatistics-total' => '문서 수',
 );
 
 /** Ripoarisch (Ripoarisch)
@@ -1054,6 +1055,7 @@ Las versions establas son de versions de paginas verificadas per al mens un util
  */
 $messages['pdc'] = array(
 	'validationstatistics-ns' => 'Blatznaame',
+	'validationstatistics-total' => 'Bledder',
 );
 
 /** Polish (Polski)

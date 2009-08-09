@@ -736,6 +736,13 @@ $messages['oc'] = array(
 	'stableversions-review' => "Revisada lo ''$1'' per $2",
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'stableversions-page' => 'Blatt-Naame:',
+);
+
 /** Polish (Polski)
  * @author Derbeth
  * @author Leinad

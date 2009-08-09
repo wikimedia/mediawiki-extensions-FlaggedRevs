@@ -491,8 +491,8 @@ $messages['af'] = array(
 	'revreview-approved' => 'Goedgekeur',
 	'revreview-auto' => '(outomaties)',
 	'revreview-log' => 'Opmerking:',
-	'revreview-patrol' => 'Merk die wysiging as gepatrolleer',
-	'revreview-patrol-title' => 'Merk as gepatrolleer',
+	'revreview-patrol' => 'Merk die wysiging as gekontroleer',
+	'revreview-patrol-title' => 'Merk as gekontroleer',
 	'revreview-toggle-title' => 'wys/versteek details',
 	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
 	'revreview-filter-all' => 'Alles',
@@ -3268,6 +3268,7 @@ $messages['fi'] = array(
 	'hist-quality' => 'laadukas versio',
 	'hist-stable' => 'katsastettu versio',
 	'review-diff2stable' => 'Näytä vakaan ja ajantasaisen version väliset eroavaisuudet',
+	'review-logentry-id' => 'näytä',
 	'review-logentry-diff' => 'muutoslinkki vakaaseen versioon',
 	'reviewer' => 'Arvioija',
 	'revisionreview' => 'Arvioi versioita',
@@ -3306,6 +3307,8 @@ $messages['fi'] = array(
 	'right-movestable' => 'Siirrä vakaat sivut',
 	'revreview-filter-all' => 'Kaikki',
 	'revreview-filter-stable' => 'vakaat',
+	'revreview-typefilter' => 'Tyyppi',
+	'revreview-levelfilter' => 'Taso',
 	'revreview-reviewlink' => 'tarkasta',
 	'tooltip-ca-current' => 'Näytä tämän sivun nykyinen luonnosversio',
 	'tooltip-ca-stable' => 'Näytä tämän sivun vakaa artikkeliversio',
@@ -6245,7 +6248,7 @@ $messages['km'] = array(
 	'revreview-submit' => 'ដាក់ស្នើ',
 	'revreview-submitting' => 'កំពុង​ដាក់ស្នើ...',
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ព័ត៌មានលំអិត',
-	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានធ្វើឱ្យទាន់សម័យរួចហើយ:'''",
+	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ៖'''",
 	'revreview-revnotfound' => 'កំណែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'revreview-filter-all' => 'ទាំងអស់',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
@@ -8286,7 +8289,10 @@ $messages['pam'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'revreview-depth-1' => 'eefach',
 	'revreview-log' => 'Comment:',
+	'revreview-style-2' => 'gans guud',
+	'revreview-filter-all' => 'All',
 );
 
 /** Polish (Polski)
@@ -8833,7 +8839,9 @@ $messages['rmy'] = array(
  * @author Mihai
  */
 $messages['ro'] = array(
+	'editor' => 'Editor',
 	'flaggedrevs' => 'Revizuiri marcate',
+	'prefs-flaggedrevs' => 'Stabilitate',
 	'group-editor' => 'Editori',
 	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Recenzenţi',
@@ -8843,12 +8851,14 @@ $messages['ro'] = array(
 	'group-autoreview' => 'Autorecenzenţi',
 	'group-autoreview-member' => 'autorecenzent',
 	'grouppage-autoreview' => '{{ns:project}}:Autorecenzent',
+	'review-logentry-id' => 'vezi',
 	'revreview-accuracy' => 'Acurateţe',
 	'revreview-accuracy-0' => 'Neaprobat',
 	'revreview-accuracy-1' => 'Văzut',
 	'revreview-accuracy-2' => 'Exact',
 	'revreview-accuracy-3' => 'Bine referenţiat',
 	'revreview-accuracy-4' => 'Remarcabil',
+	'revreview-approved' => 'Aprobat',
 	'revreview-auto' => '(automat)',
 	'revreview-current' => 'Schiţă',
 	'revreview-depth' => 'Profunzime',
@@ -8879,6 +8889,7 @@ $messages['ro'] = array(
 	'revreview-finished' => 'Revizuire completă!',
 	'revreview-toggle-title' => 'arată/ascunde detalii',
 	'revreview-revnotfound' => 'Versiunea mai veche a paginii pe care aţi cerut-o nu a fost găsită. Vă rugăm să verificaţi legătura pe care aţi folosit-o pentru a accesa această pagină.',
+	'rights-editor-autosum' => 'autopromovat',
 	'revreview-filter-all' => 'tot',
 	'revreview-filter-stable' => 'stabil',
 	'revreview-filter-approved' => 'Aprobat',
@@ -11438,6 +11449,7 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} n
 	'revreview-submit' => 'Đăng bản duyệt',
 	'revreview-submitting' => 'Đang gửi thông tin…',
 	'revreview-finished' => 'Duyệt xong!',
+	'revreview-failed' => 'Duyệt thất bại!',
 	'revreview-successful' => "'''Phiên bản của [[:$1|$1]] đã được gắn cờ. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} xem các phiên bản có cờ])'''",
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Phiên bản ổn định]] là nội dung trang mặc định mà người dùng nhìn thấy chứ không phải phiên bản mới nhất.''",

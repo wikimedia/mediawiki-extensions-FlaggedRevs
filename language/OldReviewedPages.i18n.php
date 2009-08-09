@@ -721,6 +721,13 @@ $messages['km'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} សកម្ម​កំពុង​តាមដាន)',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'oldreviewed-category' => 'ವರ್ಗ:',
+);
+
 /** Korean (한국어)
  * @author Kwj2772
  */
@@ -950,6 +957,16 @@ $messages['oc'] = array(
 	'oldreviewedpages-viewing' => '(en revision)',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Schtund|Schtund}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Daag|Daag}})',
+	'oldreviewedpages-recent' => '(wennicher ass 1 Schtund)',
+	'oldreviewed-watched' => 'Uff mei Watsch-Lischt',
+);
+
 /** Polish (Polski)
  * @author Leinad
  * @author McMonster
@@ -1010,7 +1027,7 @@ $messages['pt'] = array(
 $messages['pt-br'] = array(
 	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
 	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
-	'oldreviewedpages-list' => 'Esta página lista as páginas analisadas que possuem edições pendentes.',
+	'oldreviewedpages-list' => 'Esta página lista {{PLURAL:$1|uma página analisada que possui|as páginas analisadas que possuem}} edições pendentes.',
 	'oldreviewedpages-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
@@ -1279,7 +1296,7 @@ $messages['vep'] = array(
 $messages['vi'] = array(
 	'oldreviewedpages' => 'Các trang đã duyệt lỗi thời',
 	'oldreviewedpages-legend' => 'Liệt kê các trang đã duyệt có các phiên bản chưa duyệt',
-	'oldreviewedpages-list' => 'Trang này liệt kê những trang đã duyệt nhưng có các sửa đổi chờ duyệt.',
+	'oldreviewedpages-list' => 'Trang này liệt kê {{PLURAL:$1|một|những}} trang đã duyệt nhưng có các sửa đổi chờ duyệt.',
 	'oldreviewedpages-none' => 'Hiện không có trang này thỏa mãn tiêu chí này',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|giờ|giờ}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ngày|ngày}})',

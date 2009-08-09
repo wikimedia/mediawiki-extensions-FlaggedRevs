@@ -389,14 +389,18 @@ $messages['fa'] = array(
  * @author Crt
  * @author Jaakonam
  * @author Nike
+ * @author Str4nd
  */
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-legend' => 'Luettelo tarkistamattomista sisältösivuista',
 	'unreviewed-category' => 'Luokka',
+	'unreviewed-unwatched' => '(katsomaton)',
 	'unreviewed-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
 	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
 	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|päivä|päivää}})',
 	'unreviewed-recent' => '(alle yksi tunti)',
 );
 
@@ -748,6 +752,13 @@ $messages['km'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} កំពុង​តាមដាន)',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'unreviewed-category' => 'ವರ್ಗ:',
+);
+
 /** Korean (한국어)
  * @author Kwj2772
  */
@@ -1021,6 +1032,13 @@ $messages['oc'] = array(
 $messages['os'] = array(
 	'unreviewed-legend' => 'Басгарын кæй хъæуы, уыцы фæрсты номхыгъд',
 	'unreviewed-category' => 'Категори:',
+);
+
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'unreviewed-recent' => '(wennicher ass 1 Schtund)',
 );
 
 /** Polish (Polski)

@@ -98,9 +98,11 @@ $messages['eu'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Str4nd
  */
 $messages['fi'] = array(
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
+	'problemchanges-category' => 'Luokka',
 );
 
 /** French (Français)
@@ -209,6 +211,13 @@ $messages['ja'] = array(
  */
 $messages['km'] = array(
 	'problemchanges-category' => 'ចំណាត់ថ្នាក់ក្រុម៖',
+);
+
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'problemchanges-category' => 'ವರ್ಗ:',
 );
 
 /** Ripoarisch (Ripoarisch)
