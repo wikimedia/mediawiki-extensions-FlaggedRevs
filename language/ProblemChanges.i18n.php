@@ -21,6 +21,16 @@ $messages['qqq'] = array(
 	'problemchanges-category' => '{{Identical|Category}}',
 );
 
+/** Arabic (العربية)
+ * @author OsamaK
+ */
+$messages['ar'] = array(
+	'problemchanges' => 'راجع التغييرات الموسومة',
+	'problemchanges-legend' => 'اسرد الصفحات المراجعة ذات التعديلات التي تنتظر المراجعة',
+	'problemchanges-none' => 'لا توجد حاليًا صفحات توافق هذه المعايير',
+	'problemchanges-category' => 'التصنيف:',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -85,6 +95,13 @@ $messages['es'] = array(
 	'problemchanges-legend' => 'Lista de páginas revisadas con ediciones etiquetadas pendientes de revisión',
 	'problemchanges-none' => 'No hay actualmente páginas que cumplan estos criterios',
 	'problemchanges-category' => 'Categoría:',
+);
+
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'problemchanges-category' => 'Kategooria:',
 );
 
 /** Basque (Euskara)
@@ -195,6 +212,13 @@ $messages['id'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Italian (Italiano)
+ * @author Melos
+ */
+$messages['it'] = array(
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** Japanese (日本語)
  * @author Fryed-peach
  * @author Hosiryuhosi
@@ -257,6 +281,13 @@ $messages['nl'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'problemchanges-category' => 'Kategori:',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -314,6 +345,13 @@ $messages['sk'] = array(
 	'problemchanges-legend' => 'Vypísať zoznam skontrolovaných stránok s označenými úpravami čakajúcimi na kontrolu',
 	'problemchanges-none' => 'Momentálne neexistujú žiadne stránky zodpovedajúce týmto požiadavkám',
 	'problemchanges-category' => 'Kategória:',
+);
+
+/** Swedish (Svenska)
+ * @author Rotsee
+ */
+$messages['sv'] = array(
+	'problemchanges-category' => 'Kategori:',
 );
 
 /** Telugu (తెలుగు)

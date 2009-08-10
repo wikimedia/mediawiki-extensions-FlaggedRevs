@@ -536,6 +536,14 @@ $messages['sr-ec'] = array(
 	'unstablepages-config' => 'Конфигурација',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'unstablepages-stable' => 'stabilna verzija',
+	'unstablepages-config' => 'Konfiguracija',
+);
+
 /** Swedish (Svenska)
  * @author Najami
  */

@@ -933,6 +933,20 @@ $messages['sr-ec'] = array(
 	'reviewedpages-best' => 'најбоља верзија',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'reviewedpages' => 'Pregledane stranice',
+	'reviewedpages-leg' => 'Spisak strana, sortiran od najvišeg nivoa',
+	'reviewedpages-none' => 'Nema strana u ovom spisku.',
+	'reviewedpages-lev-0' => 'Pregledano',
+	'reviewedpages-lev-1' => 'Kvalitet',
+	'reviewedpages-lev-2' => 'Izabrani',
+	'reviewedpages-all' => 'pregledane verzije',
+	'reviewedpages-best' => 'najbolja verzija',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */

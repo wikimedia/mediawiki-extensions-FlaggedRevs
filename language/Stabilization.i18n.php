@@ -1474,6 +1474,7 @@ Non è possibile effettuare la configurazione.',
 	'stabilize_expiry_invalid' => 'Data di scadenza non valida.',
 	'stabilize_expiry_old' => 'La data di scadenza è già passata.',
 	'stabilize-expiring' => 'scadenza: $1 (UTC)',
+	'stabilization-review' => 'Revisiona la versione corrente',
 );
 
 /** Japanese (日本語)
@@ -1751,6 +1752,7 @@ Keng Astellunge méiglech.',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_expiry_invalid' => 'Net valabele Schlussdatum',
 	'stabilize-expiring' => 'bis $1 (UTC)',
 	'stabilization-review' => 'Déi aktuell Versioun nokucken',
 );
@@ -2639,6 +2641,40 @@ $messages['sr-ec'] = array(
 	'stabilize_expiry_invalid' => 'Лош датум истицања.',
 	'stabilize_expiry_old' => 'Време истицања је већ прошло.',
 	'stabilize-expiring' => 'истиче $1 (UTC)',
+);
+
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'stabilization-tab' => 'veteran',
+	'stabilization' => 'Stabilizacija strane',
+	'stabilization-perm' => 'Tvoj nalog nema dozvola za izmenu podešavanja za stabilne verzije. Trenutna podešavanja za stranu [[:$1|$1]] su:',
+	'stabilization-page' => 'Ime stranice:',
+	'stabilization-leg' => 'Potvrdi podešavanja za stabilne verzije.',
+	'stabilization-select' => 'Označavanje stabilnih verzija.',
+	'stabilization-select1' => 'Poslednja kvalitetna verzija; ako ne postoji, onda će biti prikazana poslednja pregledana.',
+	'stabilization-select3' => 'Poslednja nepokrvarena verzija; ako ne postoji, poslednja kvalitetna ili pregledana će biti prikazana.',
+	'stabilization-def' => 'Verzija prikazana na podrazumevanom prikazu strane.',
+	'stabilization-def1' => 'Stabilna verzija; ako ne postoji, biće prikazana trenutna.',
+	'stabilization-def2' => 'Trenutna verzija.',
+	'stabilization-restrict-none' => 'Bez dodatnih ograničenja',
+	'stabilization-submit' => 'Prihvati',
+	'stabilization-notexists' => 'Ne postoji strana pod imenom "[[:$1|$1]]". Podešavanje nije moguće.',
+	'stabilization-notcontent' => 'Strana "[[:$1|$1]]" ne može biti pregledana. Podešavanje nije moguće.',
+	'stabilization-comment' => 'Razlog:',
+	'stabilization-otherreason' => 'Drugi razlog',
+	'stabilization-expiry' => 'Ističe:',
+	'stabilization-sel-short' => 'Izuzetak',
+	'stabilization-sel-short-0' => 'Kvalitet',
+	'stabilization-sel-short-1' => 'Ništa',
+	'stabilization-sel-short-2' => 'Nepokvarenost',
+	'stabilization-def-short' => 'Osnovno',
+	'stabilization-def-short-0' => 'Trenutno',
+	'stabilization-def-short-1' => 'Stabilno',
+	'stabilize_expiry_invalid' => 'Loš datum isticanja.',
+	'stabilize_expiry_old' => 'Vreme isticanja je već prošlo.',
+	'stabilize-expiring' => 'ističe $1 (UTC)',
 );
 
 /** Seeltersk (Seeltersk)

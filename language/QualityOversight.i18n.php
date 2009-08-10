@@ -406,6 +406,15 @@ $messages['sr-ec'] = array(
 	'qualityoversight-legend' => 'Претрага лога скорих прегледа.',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'qualityoversight' => 'Nadgledanje kvaliteta',
+	'qualityoversight-list' => 'Na ovoj strani se nalazi spisak skoro odobrenih i potisnutih verzija.',
+	'qualityoversight-legend' => 'Pretraga loga skorih pregleda.',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.

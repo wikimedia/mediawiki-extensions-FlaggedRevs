@@ -718,6 +718,17 @@ $messages['sr-ec'] = array(
 	'stablepages-config' => 'Подешавање',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'stablepages' => 'Stabilne strane',
+	'stablepages-stable' => 'Stabilna verzija',
+	'stablepages-text' => 'Ispod se nalazi spisak strana ručno podešenih za prikaz stabilne verzije kao podrazumevane strane za čitače sadržaja.',
+	'stablepages-none' => 'Ne postoje strane u spisku.',
+	'stablepages-config' => 'Podešavanje',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.

@@ -875,6 +875,18 @@ $messages['sr-ec'] = array(
 	'stableversions-review' => 'Прегледано на <i>$1</i> од стране сарадника $2.',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'stableversions' => 'Pogledaj stabilne verzije',
+	'stableversions-leg1' => 'Spisak pregledanih verzija za stranu.',
+	'stableversions-page' => 'Ime stranice:',
+	'stableversions-none' => '"[[:$1]]" nema pregledanih verzija.',
+	'stableversions-list' => 'Sledi spisak {{PLURAL:$2|jedine revizije|revizija}} iz [[:$1]], {{PLURAL:$2|koja je pregledana|koje su pregledane}}:',
+	'stableversions-review' => 'Pregledano na <i>$1</i> od strane saradnika $2.',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */

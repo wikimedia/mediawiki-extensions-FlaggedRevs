@@ -108,12 +108,13 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  * @author Ouda
  */
 $messages['ar'] = array(
 	'oldreviewedpages' => 'صفحات مراجعة قديمة',
 	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
-	'oldreviewedpages-list' => 'هذه الصفحة تعرض الصفحات المراجعة التي بها تعديلات قيد الانتظار.',
+	'oldreviewedpages-list' => 'هذه الصفحة تعرض {{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}} تعديلات قيد الانتظار.',
 	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
@@ -1043,6 +1044,7 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
  */
@@ -1058,6 +1060,8 @@ $messages['ro'] = array(
 	'oldreviewed-watched' => 'În lista mea de urmărire',
 	'oldreviewed-stable' => 'Stabilit',
 	'oldreviewed-diff' => 'revizuire',
+	'oldreviewedpages-unwatched' => '(neurmărite)',
+	'oldreviewedpages-viewing' => '(în curs de revizuire)',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1139,15 +1143,29 @@ $messages['sr-ec'] = array(
 	'oldreviewedpages-unwatched' => '(ненадгледано)',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'oldreviewedpages' => 'Zastarele pregledane strane',
+	'oldreviewedpages-legend' => 'Spisak pregledanih strana sa nepregledanim verzijama.',
+	'oldreviewedpages-none' => 'Trenutno nema strana koje zadovoljavaju ove kriterije,',
+	'oldreviewedpages-recent' => '(manje od jednog časa)',
+	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-diff' => 'pregled',
+	'oldreviewedpages-unwatched' => '(nenadgledano)',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.
  * @author Najami
+ * @author Rotsee
  */
 $messages['sv'] = array(
 	'oldreviewedpages' => 'Föråldrade granskade sidor',
 	'oldreviewedpages-legend' => 'Visa granskade sidor med ogranskade sidversioner',
-	'oldreviewedpages-list' => 'Den här sidan visar granskade sidor som har väntande redigeringar.',
+	'oldreviewedpages-list' => 'Den här sidan visar {{PLURAL:$1|en granskad sida|granskade sidor}} med väntande redigeringar.',
 	'oldreviewedpages-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagar}})',

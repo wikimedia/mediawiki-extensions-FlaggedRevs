@@ -817,6 +817,7 @@ $messages['ar'] = array(
 	'revreview-submit' => 'إرسال',
 	'revreview-submitting' => 'جاري التنفيذ...',
 	'revreview-finished' => 'المراجعة انتهت!',
+	'revreview-failed' => 'فشلت المراجعة!',
 	'revreview-successful' => "'''مراجعة [[:$1|$1]] تم التعليم عليها بنجاح. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} عرض النسخ المستقرة])'''",
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هي محتوى الصفحة الافتراضي للمشاهدين بدلا من أحدث مراجعة.''",
@@ -8835,6 +8836,7 @@ $messages['rmy'] = array(
 
 /** Romanian (Română)
  * @author Emily
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
  */
@@ -8851,6 +8853,7 @@ $messages['ro'] = array(
 	'group-autoreview' => 'Autorecenzenţi',
 	'group-autoreview-member' => 'autorecenzent',
 	'grouppage-autoreview' => '{{ns:project}}:Autorecenzent',
+	'hist-quality' => 'revizie de calitate',
 	'review-logentry-id' => 'vezi',
 	'revreview-accuracy' => 'Acurateţe',
 	'revreview-accuracy-0' => 'Neaprobat',
@@ -9770,10 +9773,110 @@ $messages['sr-ec'] = array(
 	'validationpage' => '{{ns:help}}:Валидација чланка',
 );
 
-/** latinica (latinica) */
+/** latinica (latinica)
+ * @author Michaello
+ */
 $messages['sr-el'] = array(
+	'editor' => 'Uređivač',
+	'flaggedrevs' => 'Označene izmene',
+	'flaggedrevs-desc' => 'Daje urednicima i pregledačima mogućnost da overe verziju i stabilizuju stranu.',
+	'flaggedrevs-pref-UI-0' => 'Korišnjenje detaljnog interfejsa za stabilne verzije.',
+	'flaggedrevs-pref-UI-1' => 'Korišćenje jednostavnog interfejsa za stabilne verzije.',
+	'flaggedrevs-prefs-stable' => 'Podrazumevaj prikaz stabilnih verzija strana (ako postoje).',
+	'flaggedrevs-prefs-watch' => 'Dodaj strane koje sam pregledao u moj spisak nadgledanja.',
+	'group-editor' => 'Uređivači',
+	'group-editor-member' => 'Uređivač',
+	'group-reviewer' => 'Pregledači',
+	'group-reviewer-member' => 'Pregledač',
+	'grouppage-editor' => '{{ns:project}}:Uređivač',
+	'grouppage-reviewer' => '{{ns:project}}:Pregledač',
+	'hist-draft' => 'draft verzija',
+	'hist-quality' => 'kvalitetna verzija',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} overeno] od strane saradnika [[User:$3|$3]]',
+	'hist-stable' => 'vidna verzija',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} pregledano] od strane saradnika [[User:$3|$3]]',
+	'review-diff2stable' => 'Pogledaj izmene između stabilne i tekuće verzije.',
+	'review-logentry-app' => 'pregledao r$2 od [[$1]]',
+	'review-logentry-id' => 'pregled',
+	'review-logentry-diff' => 'diff prema stabilnoj',
+	'review-logpage' => 'Log pregleda članka',
+	'reviewer' => 'Pregledač',
+	'revisionreview' => 'Pregled verzija',
+	'revreview-accuracy' => 'Tačnost',
+	'revreview-accuracy-0' => 'Neodobrene',
+	'revreview-accuracy-1' => 'Pregledano',
+	'revreview-accuracy-2' => 'Tačno',
+	'revreview-accuracy-3' => 'Sa dobrim izvorima',
+	'revreview-accuracy-4' => 'Izabrani',
+	'revreview-approved' => 'odobreno',
+	'revreview-auto' => '(automatski)',
+	'revreview-auto-w' => "Menjaš stabilnu verziju; izmene će '''automatski biti označene kao pregledane'''.",
+	'revreview-auto-w-old' => "Menjaš pregledanu verziju; izmene će '''automatski biti označene kao pregledane'''.",
+	'revreview-current' => 'Nacrt',
+	'revreview-depth' => 'Dubina',
+	'revreview-depth-0' => 'Neodobreno',
+	'revreview-depth-1' => 'Osnovni',
+	'revreview-depth-2' => 'Umereno',
+	'revreview-depth-3' => 'Visok',
+	'revreview-depth-4' => 'Izabrani',
+	'revreview-draft-title' => 'Strana skice',
+	'revreview-edit' => 'Uređivanje nacrta',
+	'revreview-flag' => 'Pregled ove verzije',
+	'revreview-invalid' => "'''Loš cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] verzije ne poseduje dati redni broj.",
+	'revreview-legend' => 'Oceni verziju sadržaja',
+	'revreview-log' => 'Komentar:',
+	'revreview-note' => '[[User:$1|$1]] napravi sledeću belešku tokom [[{{MediaWiki:Validationpage}}|pregledanja]] ove verzije.',
+	'revreview-notes' => 'Mišljenja i beleške za prikaz:',
+	'revreview-oldrating' => 'Ocenjeno je:',
+	'revreview-patrol' => 'Označi ovu izmenu kao patroliranu.',
+	'revreview-patrol-title' => 'Označi kao patrolirano.',
+	'revreview-patrolled' => 'Sledeća izmena strane [[:$1|$1]] je obeležena patroliranom.',
+	'revreview-quality-title' => 'Kvalitetan članak',
+	'revreview-quick-invalid' => "'''Loš redni broj verzije!'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Trenutna verzija]]''' (nepregledana)",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetan članak]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi nacrt]]",
+	'revreview-selected' => "Označena verzija strane '''$1:'''",
+	'revreview-source' => 'izvor nacrta',
+	'revreview-stable' => 'Stabilna strana',
+	'revreview-stable2' => 'Možda želiš da vidiš [{{fullurl:$1|stable=1}} stabilnu veriju] ove strane (ako još uvek takva postoji).',
+	'revreview-style' => 'Čitljivost',
+	'revreview-style-0' => 'Neodobreno',
+	'revreview-style-1' => 'Prihvatljiv',
+	'revreview-style-2' => 'Dobar',
+	'revreview-style-3' => 'Tačan',
+	'revreview-style-4' => 'Izabrani',
+	'revreview-submit' => 'Pošalji',
+	'revreview-submitting' => 'Slanje...',
+	'revreview-finished' => 'Pregledanje kompletno!',
+	'revreview-toggle-title' => 'prikaži/sakrij detalje',
+	'revreview-diffonly' => "''Ta pregled strane klikni na link \"trenutna verzija\" i koristi formu za pregled.''",
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranici.',
+	'right-autoreview' => 'Automatski označi verzije pregledanim.',
+	'right-movestable' => 'Preimenuj stabilne strane.',
+	'right-review' => 'Označi verzije kao pregledane.',
+	'right-stablesettings' => 'Namesti označavanje i prikaz stabilnih verzija.',
+	'right-validate' => 'Označi verzije overenim.',
+	'rights-editor-autosum' => 'automatski napredovano',
+	'rights-editor-revoke' => 'uklonjen status urednika saradniku [[$1]]',
+	'specialpages-group-quality' => 'Obezbeđenje kvaliteta',
+	'stable-logentry' => 'omogućene stabilne verzije za saradnika [[$1]]',
+	'stable-logentry2' => 'poništi pristup stabilnim verzija za [[$1]]',
+	'stable-logpage' => 'Log stabilnosti',
+	'revreview-filter-all' => 'sve',
+	'revreview-filter-approved' => 'odobreno',
+	'revreview-filter-reapproved' => 'ponovo odobreno',
+	'revreview-filter-unapproved' => 'neodobreno',
+	'revreview-filter-auto' => 'automatski',
+	'revreview-filter-manual' => 'ručno',
+	'revreview-statusfilter' => 'Promena statusa:',
+	'revreview-typefilter' => 'Tip:',
+	'tooltip-ca-current' => 'Pregledaj tekući nacrt ove strane.',
+	'tooltip-ca-stable' => 'Pogledajte stabilnu verziju ove stranice',
+	'tooltip-ca-default' => 'Podešavanja obezbeđivanja kvaliteta.',
+	'revreview-ak-review' => 's',
+	'revreview-tt-review' => 'Pregled ove strane.',
+	'validationpage' => '{{ns:help}}:Validacija članka',
 );
 
 /** Seeltersk (Seeltersk)
@@ -9933,6 +10036,7 @@ Please check the URL you used to access this page.',
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Rotsee
  */
 $messages['sv'] = array(
 	'editor' => 'Redaktör',
@@ -9984,7 +10088,7 @@ Se [[Special:ReviewedPages|listan över granskade sidor]] för en lista över go
 	'revreview-basic' => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|synade]] versionen, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
 	'revreview-basic-i' => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|synade]] sidversionen, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mall och bild ändringar] som väntar på granskning.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mall- och bildändringar] som väntar på granskning.',
 	'revreview-basic-old' => 'Det här är en [[{{MediaWiki:Validationpage}}|synad]] sidversion ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} visa alla]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>.
 Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan ha gjorts.',
 	'revreview-basic-same' => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|synade]] sidversionen ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} visa alla]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>.',
@@ -10062,6 +10166,7 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'revreview-submit' => 'Spara',
 	'revreview-submitting' => 'Levererar...',
 	'revreview-finished' => 'Granskning slutförd!',
+	'revreview-failed' => 'Granskningen misslyckades!',
 	'revreview-successful' => "'''Vald sidversion av [[:$1|$1]] har flaggats. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} visa alla stabila sidversioner])'''",
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabila versioner]] är standardinnehåll i sidor i stället för den nyaste sidversionen.''",
@@ -10070,7 +10175,7 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'revreview-toolow' => 'Din bedömning av sidan måste vara högre än "ej godkänd" för alla egenskaper nedan för att versionen ska anses vara granskad. För att ta bort ett godkännande av en version, ange "ej godkänd" för alla egenskaper.',
 	'revreview-update' => "Var god [[{{MediaWiki:Validationpage}}|granska]] några ändringar ''(visas nedan)'' gjorda när den stabila versionen [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkändes].<br />
 '''Vissa mallar eller bilder har uppdaterats:'''",
-	'revreview-update-includes' => "'''Vissa mallar eller bilder har ändrats:'''",
+	'revreview-update-includes' => "'''Vissa mallar eller filer har ändrats:'''",
 	'revreview-update-none' => "Var god [[{{MediaWiki:Validationpage}}|review]] några ändringar ''(visas nedan)'' gjorda när den stabila versionen [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkändes].",
 	'revreview-update-use' => "'''NOTERA:''' Om någon av de här mallarna eller bilderna har en stabil version, är den redan använd i den stabila versionen av den här sidan.",
 	'revreview-diffonly' => "''För att granska sidan, klicka på versionslänken \"nuvarande version\" och använd granskningsformuläret.''",

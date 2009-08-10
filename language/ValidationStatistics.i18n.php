@@ -731,6 +731,7 @@ Editor dan Peninjau adalah para pengguna terpercaya yang dapat melakukan pemerik
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Melos
  * @author Pietrodn
  */
 $messages['it'] = array(
@@ -750,6 +751,7 @@ Le versioni stabili sono le versioni delle pagine controllate da almeno un utent
 	'validationstatistics-latest' => 'Sincronizzate',
 	'validationstatistics-synced' => 'Sincronizzate/Revisionate',
 	'validationstatistics-old' => 'Non aggiornate',
+	'validationstatistics-user' => 'Utente',
 );
 
 /** Japanese (日本語)
@@ -1272,9 +1274,18 @@ $messages['sr-ec'] = array(
 	'validationstatistics-old' => 'Застарело',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'validationstatistics-ns' => 'Imenski prostor',
+	'validationstatistics-old' => 'Zastarelo',
+);
+
 /** Swedish (Svenska)
  * @author Boivie
  * @author M.M.S.
+ * @author Rotsee
  */
 $messages['sv'] = array(
 	'validationstatistics' => 'Valideringsstatistik',
@@ -1293,6 +1304,9 @@ Stabila versioner är sidversioner för sidor som kollats av minst en etablerad 
 	'validationstatistics-latest' => 'Synkad',
 	'validationstatistics-synced' => 'Synkad/Granskad',
 	'validationstatistics-old' => 'Föråldrad',
+	'validationstatistics-utable' => 'Nedan listas de fem flitigaste granskarna den senaste timmen.',
+	'validationstatistics-user' => 'Användare',
+	'validationstatistics-reviews' => 'Granskningar',
 );
 
 /** Tamil (தமிழ்)

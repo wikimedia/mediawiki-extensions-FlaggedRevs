@@ -92,6 +92,9 @@ $messages['ar'] = array(
 	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتويات التي لم يتم مراجعتها.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 	'unreviewed-viewing' => '(تحت المراجعة)',
+	'unreviewed-hours' => '({{PLURAL:$1||ساعة واحد|ساعتان|$1 ساعات|$1 ساعة}})',
+	'unreviewed-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
+	'unreviewed-recent' => '(أقل من ساعة واحدة)',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -392,6 +395,7 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'right-unreviewedpages' => 'Nähdä [[Special:UnreviewedPages|luettelo arvioimattomista sivuista]]',
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-legend' => 'Luettelo tarkistamattomista sisältösivuista',
 	'unreviewed-category' => 'Luokka',
@@ -676,6 +680,9 @@ $messages['it'] = array(
 	'unreviewed-list' => 'Di seguito sono riportate le pagine che non sono state revisionate.',
 	'unreviewed-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 	'unreviewed-viewing' => '(sotto revisione)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ora|ore}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|giorno|giorni}})',
+	'unreviewed-recent' => '(meno di 1 ora)',
 );
 
 /** Japanese (日本語)
@@ -1226,6 +1233,22 @@ $messages['sr-ec'] = array(
 	'unreviewed-viewing' => '(под прегледом)',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|spisak nepregledanih strana]]',
+	'unreviewedpages' => 'Nepregledane strane.',
+	'unreviewed-legend' => 'Spisak nepregledanih sadržajnih strana.',
+	'unreviewed-category' => 'Kategorija:',
+	'unreviewed-diff' => 'pregled',
+	'unreviewed-unwatched' => '(nenadzirano)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivan korisnik nadgleda|akhivnih korisnika nadgledaju}})',
+	'unreviewed-list' => 'Ovo je spisak strana koje još nisu pregledane.',
+	'unreviewed-none' => 'Ne postoji nijedna strana koja se poklapa sa ovim kriterijima.',
+	'unreviewed-viewing' => '(pod pregledom)',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
@@ -1251,6 +1274,7 @@ $messages['su'] = array(
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Rotsee
  */
 $messages['sv'] = array(
 	'right-unreviewedpages' => 'Visa [[Special:UnreviewedPages|lista över ogranskade sidor]]',
@@ -1263,6 +1287,9 @@ $messages['sv'] = array(
 	'unreviewed-list' => 'Den här sidan listar innehållssidor som inte har granskats.',
 	'unreviewed-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'unreviewed-viewing' => '(granskas)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dag|dagar}})',
+	'unreviewed-recent' => '(mindre än en timme)',
 );
 
 /** Telugu (తెలుగు)
