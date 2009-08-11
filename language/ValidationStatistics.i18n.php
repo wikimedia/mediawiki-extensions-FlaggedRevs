@@ -624,12 +624,29 @@ $messages['hil'] = array(
  */
 $messages['hr'] = array(
 	'validationstatistics' => 'Statistika pregledavanja',
+	'validationstatistics-users' => "'''{{SITENAME}}''' trenutačno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|suradnika|suradnika}} s [[{{MediaWiki:Validationpage}}|uredničkim]] pravima
+i '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|suradnika|suradnika}} s [[{{MediaWiki:Validationpage}}|ocjenjivačkim]] pravima.
+
+Urednici i ocjenjivači su dokazani suradnici koji mogu provjeriti inačice stranice.",
+	'validationstatistics-time' => "''Sljedeći podaci su iz međuspremnika i možda nisu ažurirani.''
+
+Izmjene koje su provjerili dokazani suradnici smatraju se ocijenjenima.
+
+Prosječno čekanje da izmjene ''neprijavljenih suradnika'' budu ocijenjene je '''$1'''; srednja vrijednost je '''$3'''.  
+$4
+Prosječno zaostajanje za [[Special:OldReviewedPages|stranice s neriješenim neocijenjenim izmjenama]] je '''$2'''.
+Te se stranice smatraju ''zastarjelima''. Isto tako, stranice se smatraju ''sinkroniziranima'' ako je [[{{MediaWiki:Validationpage}}|stabilna inačica]] ujedno trenutačna inačica članka u radu.
+Stabilna inačica stranice je najnovija izmjena koja je odobrena kako bi se prikazivala kao zadana za sve čitatelje.",
+	'validationstatistics-table' => "Statistike za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-stable' => 'Ocijenjeno',
 	'validationstatistics-latest' => 'Sinkronizirano',
 	'validationstatistics-synced' => 'Usklađeno/Ocijenjeno',
 	'validationstatistics-old' => 'Zastarjelo',
+	'validationstatistics-utable' => 'Ispod je popis top 5 ocjenjivača u zadnjih sat vremena.',
+	'validationstatistics-user' => 'Suradnik',
+	'validationstatistics-reviews' => 'Ocijene',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

@@ -573,6 +573,10 @@ $messages['hr'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivni suradnik|aktivnih suradnika}} prati)',
 	'unreviewed-list' => 'Ovo je popis sadržaja stranica koji nisu ocijenjeni.',
 	'unreviewed-none' => 'Trenutačno nema stranica koje se poklapaju s ovim kriterijima',
+	'unreviewed-viewing' => '(u ocijenjivanju)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'unreviewed-recent' => '(manje od 1 sat)',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

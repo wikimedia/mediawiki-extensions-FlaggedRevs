@@ -573,6 +573,23 @@ $messages['hi'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
 );
 
+/** Croatian (Hrvatski)
+ * @author Suradnik13
+ */
+$messages['hr'] = array(
+	'oldreviewedpages' => 'Zastarjele ocjenjene stranice',
+	'oldreviewedpages-legend' => 'Popis ocjenjenih stranica s izmjenama koje čekaju ocjenu',
+	'oldreviewedpages-list' => 'Ova stranica navodi {{PLURAL:$1|ocjenjenu stranicu koja čeka|ocjenjene stranice koje čekaju}} uređivanja.',
+	'oldreviewedpages-none' => 'Trenutačno nema stranica koje zadovoljavaju ove kriterije',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'oldreviewedpages-recent' => '(manje od 1 sat)',
+	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-watched' => 'Na moj popis praćenja',
+	'oldreviewed-stable' => 'Stabilizirano',
+	'oldreviewed-diff' => 'ocijeni',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */

@@ -353,9 +353,18 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Suradnik13
  */
 $messages['hr'] = array(
+	'stablepages' => 'Stabilne stranice',
+	'stablepages-stable' => 'stabilna inačica',
+	'stablepages-text' => 'Ispod je popis stranica koje su ručno konfigurirane kako bi prikazivale stabilnu inačicu kao zadani sadržaj stranice za gledatelje.',
+	'stablepages-none' => 'Nema stranica u ovom popisu',
 	'stablepages-config' => 'Konfiguracija',
+	'stablepages-prec-none' => 'bez prvenstva',
+	'stablepages-prec-quality' => 'prvenstvo kvalitete',
+	'stablepages-prec-pristine' => 'zastarjelo prvenstvo',
+	'stablepages-precedence' => 'Prvenstvo:',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

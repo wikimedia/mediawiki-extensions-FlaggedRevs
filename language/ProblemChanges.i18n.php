@@ -172,6 +172,16 @@ $messages['he'] = array(
 	'problemchanges-category' => 'קטגוריה:',
 );
 
+/** Croatian (Hrvatski)
+ * @author Suradnik13
+ */
+$messages['hr'] = array(
+	'problemchanges' => 'Ocijeni označene promjene',
+	'problemchanges-legend' => 'Izlistaj ocjenjene stranice s oznakom izmjene čekaju ocjenu',
+	'problemchanges-none' => 'Trenutačno nema stranica koje zadovoljavaju ove kriterije',
+	'problemchanges-category' => 'Kategorija:',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -324,6 +334,13 @@ $messages['pt-br'] = array(
 	'problemchanges-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
 	'problemchanges-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
+);
+
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'problemchanges-category' => 'Categorie:',
 );
 
 /** Tarandíne (Tarandíne)

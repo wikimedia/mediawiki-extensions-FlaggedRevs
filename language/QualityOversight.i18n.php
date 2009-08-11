@@ -201,6 +201,15 @@ $messages['hi'] = array(
 	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।',
 );
 
+/** Croatian (Hrvatski)
+ * @author Suradnik13
+ */
+$messages['hr'] = array(
+	'qualityoversight' => 'Nadzor kvalitete',
+	'qualityoversight-list' => 'Ova stranica navodi najnovija odobrenja i snižavanja ocjena inačica.',
+	'qualityoversight-legend' => 'Pretraži evidencije nedavnih ocjena',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
