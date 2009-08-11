@@ -316,6 +316,16 @@ $messages['pt'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'problemchanges' => 'Analisar modificações etiquetadas',
+	'problemchanges-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
+	'problemchanges-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */

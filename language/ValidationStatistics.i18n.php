@@ -360,10 +360,14 @@ La versión estable de una página es la revisión más nueva que ha sido aproba
 );
 
 /** Estonian (Eesti)
+ * @author Avjoska
  * @author KalmerE.
  */
 $messages['et'] = array(
 	'validationstatistics' => 'Kinnitatud statistika',
+	'validationstatistics-ns' => 'Nimeruum',
+	'validationstatistics-total' => 'Leheküljed',
+	'validationstatistics-user' => 'Kasutaja',
 );
 
 /** Basque (Euskara)
@@ -914,6 +918,13 @@ $messages['ml'] = array(
 	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
 );
 
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
+$messages['mn'] = array(
+	'validationstatistics-ns' => 'Нэрний зай',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aviator
  */
@@ -1137,14 +1148,19 @@ A versão estável de uma página é a revisão mais recente que foi aprovada pa
  */
 $messages['pt-br'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
-	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] e '''$2''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]].",
-	'validationstatistics-time' => "''Os dados seguintes estão em cache e podem não estar atualizados.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]]  
+e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Crítico]].
+
+Editores e Críticos são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
+	'validationstatistics-time' => "''Os seguintes dados estão em cache e podem não estar atualizados.''
+
+Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.
 
 O tempo médio de espera para edições feitas por ''utilizadores não autenticados'' serem revistas é '''$1'''; a mediana é '''$3'''.   
 $4
 O atraso médio para [[Special:OldReviewedPages|páginas com edições não revistas em espera]] é '''$2'''.
-Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] é também a versão rascunho atual.
-Versões estáveis são revisões de páginas verificadas por pelo menos um utilizador estabelecido.",
+Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] for também a versão rascunho atual.
+A versão estável de uma página é a revisão mais recente que foi aprovada para ser apresentada por padrão a todos os leitores.",
 	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
@@ -1152,6 +1168,9 @@ Versões estáveis são revisões de páginas verificadas por pelo menos um util
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
+	'validationstatistics-utable' => 'Abaixo está uma lista dos 5 maiores analisadores na última hora.',
+	'validationstatistics-user' => 'Utilizador',
+	'validationstatistics-reviews' => 'Análises',
 );
 
 /** Romanian (Română)

@@ -6636,6 +6636,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-patrol' => 'Dës Ännerung als iwwerkuckt markéieren',
 	'revreview-patrol-title' => 'Als iwwerkuckt markéieren',
 	'revreview-patrolled' => 'Déi erausgsichte Versioun vu(n) [[:$1|$1]] gouf als iwwerkuckt markéiert.',
+	'revreview-quality' => "Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|Qualitéits]]-Versioun, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
+D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop {{PLURAL:$3|waard|waarden}} fir nogekuckt ze ginn.",
 	'revreview-quality-old' => "Dëst ass eng [[{{MediaWiki:Validationpage}}|Qualitéitsversioun]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} kuckt d'Lëscht]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
 Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kënne gemaach gi sinn.",
 	'revreview-quality-title' => 'Qualitéitssäit',

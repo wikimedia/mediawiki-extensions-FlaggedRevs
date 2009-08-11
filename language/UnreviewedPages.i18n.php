@@ -992,6 +992,7 @@ $messages['nn'] = array(
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
+ * @author Simny
  */
 $messages['no'] = array(
 	'right-unreviewedpages' => 'Vise [[Special:UnreviewedPages|liste over uanmeldte sider]]',
@@ -1004,6 +1005,7 @@ $messages['no'] = array(
 	'unreviewed-list' => 'Denne siden lister opp artikler som mangler vurdering.',
 	'unreviewed-none' => 'Det er ingen sider som passer med disse kriteriene',
 	'unreviewed-viewing' => '(under vurdering)',
+	'unreviewed-recent' => '(under én time)',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -1121,6 +1123,9 @@ $messages['pt-br'] = array(
 	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
 	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
 	'unreviewed-viewing' => '(sob análise)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dia|dias}})',
+	'unreviewed-recent' => '(menos de 1 hora)',
 );
 
 /** Romanian (Română)
