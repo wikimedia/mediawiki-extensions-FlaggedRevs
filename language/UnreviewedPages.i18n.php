@@ -1142,6 +1142,10 @@ $messages['ro'] = array(
 	'unreviewed-category' => 'Categorie:',
 	'unreviewed-diff' => 'recenzie',
 	'unreviewed-unwatched' => '(neurmărit)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizator activ  care urmăreşte|utilizatori activi care urmăresc}})',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|oră|ore}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|zi|zile}})',
+	'unreviewed-recent' => '(mai puţin de 1 oră)',
 );
 
 /** Tarandíne (Tarandíne)

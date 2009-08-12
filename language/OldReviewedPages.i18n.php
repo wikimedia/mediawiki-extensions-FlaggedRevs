@@ -1073,7 +1073,7 @@ $messages['pt-br'] = array(
 $messages['ro'] = array(
 	'oldreviewedpages' => 'Pagini revizuite expirate',
 	'oldreviewedpages-legend' => 'Lista de pagini revizuite, cu revizuiri în aşteptarea revizuirii',
-	'oldreviewedpages-list' => 'Această pagină afişează paginile revizuite care au modificări în așteptare.',
+	'oldreviewedpages-list' => 'Această pagină afişează {{PLURAL:$1|o pagină revizuită care are|paginile revizuite care au}} modificări în aşteptare.',
 	'oldreviewedpages-none' => 'Momentan nu există pagini care satisfac aceste criterii',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|zi|zile}})',
@@ -1083,6 +1083,7 @@ $messages['ro'] = array(
 	'oldreviewed-stable' => 'Stabilit',
 	'oldreviewed-diff' => 'revizuire',
 	'oldreviewedpages-unwatched' => '(neurmărite)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|utilizator activ care urmăreşte|utilizatori activi care urmăresc}})',
 	'oldreviewedpages-viewing' => '(în curs de revizuire)',
 );
 

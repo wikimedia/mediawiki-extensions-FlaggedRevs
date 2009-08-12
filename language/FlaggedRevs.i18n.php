@@ -4613,6 +4613,15 @@ Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
 $messages['hr'] = array(
 	'editor' => 'Urednik',
 	'flaggedrevs' => 'Označene promjene',
+	'flaggedrevs-backlog' => "Trenutačno postoji zaostatak  u [[Special:OldReviewedPages|uređivanjima na čekanju]] ocjenjenih stranica. '''Molimo obratite pozornost!'''",
+	'flaggedrevs-watched-pending' => "Trenutačno se nalaze [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} uređivanja na čekanju] ocjenjenih stranica na Vašem popisu praćenja. '''Molimo obratite pozornost!'''",
+	'flaggedrevs-desc' => 'Daje uređivačima i ocjenjivačima mogućnost potvrđivanja inačica i stabiliziranja stranica',
+	'flaggedrevs-pref-UI' => 'Stabilna inačica sučelja:',
+	'flaggedrevs-pref-UI-0' => 'Rabite detaljnu stabilnu inačicu korisničkog sučelja',
+	'flaggedrevs-pref-UI-1' => 'Rabite jednostavnu stabilnu inačicu korisničkog sučelja',
+	'prefs-flaggedrevs' => 'Stabilnost',
+	'flaggedrevs-prefs-stable' => 'Uvijek prikazuj kao zadano stabilnu inačicu stranica sa sadržajem (ako postoji)',
+	'flaggedrevs-prefs-watch' => 'Dodaj stranice koje ocijenim na moj popis praćenja',
 	'group-editor' => 'Urednici',
 	'group-editor-member' => 'Urednik',
 	'group-reviewer' => 'Ocjenjivači',
@@ -4644,14 +4653,15 @@ Pogledajte [[Special:ReviewedPages|popis ocjenjenih stranica]] za popis odobreni
 	'revreview-accuracy-2' => 'Dobar',
 	'revreview-accuracy-3' => 'Vrlo dobar (potkrijepljen izvorima)',
 	'revreview-accuracy-4' => 'Izvrstan',
+	'revreview-approved' => 'Odobreno',
 	'revreview-auto' => '(automatski)',
-	'revreview-auto-w' => "Uređujete važeću inačicu stranice, svaka vaša promjena biti će '''automatski ocijenjena'''.
-Možda želite pregledati vaše izmjene prije snimanja.",
+	'revreview-auto-w' => "Uređujete stabilnu inačicu stranice; izmjene će biti '''automatski ocijenjene'''.",
 	'revreview-auto-w-old' => "Uređujete ocijenjenu inačicu članka, promjene će bit '''automatski ocijenjene'''.",
 	'revreview-basic' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|pregledana]] promjena,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Članak u radu]
 možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|promjena|promjene|promjena}}]
 {{PLURAL:$3|čeka|čekaju|čeka}} ocjenjivanje.',
+	'revreview-blocked' => 'Ne možete ocijeniti ovu inačicu jer Vaš račun trenutačno blokiran ([$1 detalji])',
 	'revreview-changed' => "'''Traženu akciju nije moguće izvršiti na ovoj inačici stranice [[:$1|$1]].'''
 
 Tražen je predložak ili slika bez navođenja verzije. To se može dogoditi ukoliko
@@ -4664,7 +4674,9 @@ nakon što ste počeli ocjenjivati članak. Osvježavanje (Ctrl + R) može rije�
 	'revreview-depth-2' => 'Dobar',
 	'revreview-depth-3' => 'Vrlo dobar',
 	'revreview-depth-4' => 'Izvrstan',
+	'revreview-draft-title' => 'Članak u radu',
 	'revreview-edit' => 'Uredi članak u radu',
+	'revreview-editnotice' => "'''Izmjene ove stranice bit će uključena u [[{{MediaWiki:Validationpage}}|stabilnu inačicu]] kada ih ovlašteni suradnik ocijeni.'''",
 	'revreview-flag' => 'Ocijeni izmjenu',
 	'revreview-legend' => 'Ocijeni sadržaj inačice',
 	'revreview-log' => 'Komentar:',
@@ -4682,14 +4694,21 @@ dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {
 	'revreview-notes' => 'Primjedbe ili napomene koje treba prikazati:',
 	'revreview-oldrating' => 'Prethodna ocjena:',
 	'revreview-patrol' => 'Označi ovu izmjenu pregledanom',
+	'revreview-patrol-title' => 'Označi kao patrolirano',
 	'revreview-patrolled' => 'Odabrana izmjena stranice [[:$1|$1]] je označena pregledanom (patroliranom).',
 	'revreview-quality' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Članak u radu]
 možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|promjena|promjene|promjena}}]
 {{PLURAL:$3|čeka|čekaju|čeka}} ocjenjivanje.',
+	'revreview-quality-title' => 'Kvalitetna stranica',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pregled]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi članak u izradi]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pregled]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi članak u izradi]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pregled]]'''",
+	'revreview-quick-invalid' => "'''Nevažeći ID izmjene'''",
 	'revreview-quick-none' => "'''Važeća inačica''' (nema ocijenjenih inačica)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Ocjena]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi članak u izradi]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Ocjena]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi članak u izradi]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Ocjena]]'''",
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Članak u izradi]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vidi stranicu]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} usporedi])",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Članak u izradi]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vidi stranicu]]
@@ -4697,6 +4716,7 @@ možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FUL
 	'revreview-selected' => "Odabrane promjene '''$1:'''",
 	'revreview-source' => 'izvor članka u radu',
 	'revreview-stable' => 'Stabilna stranica',
+	'revreview-stable-title' => 'Pregledana stranica',
 	'revreview-style' => 'Čitljivost',
 	'revreview-style-0' => 'Neodobren',
 	'revreview-style-1' => 'Prihvatljiv',
@@ -4704,17 +4724,23 @@ možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FUL
 	'revreview-style-3' => 'Vrlo dobar',
 	'revreview-style-4' => 'Izvrstan',
 	'revreview-submit' => 'Podnesi',
+	'revreview-submitting' => 'Šaljem ...',
+	'revreview-finished' => 'Ocjenjivanje dovršeno!',
+	'revreview-failed' => 'Ocjenjivanje nije uspjelo!',
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne inačice]] stranice prikazuje se svima umjesto najnovije inačice.''",
+	'revreview-toggle-title' => 'prikaži/sakrij detalje',
 	'revreview-toolow' => 'Morate ocijeniti po svakom od donjih kriterija ocjenom višom od "Ne zadovoljava"
 da bi promjena bila pregledana/ocijenjena. U suprotnom, ostavite sve na "Ne zadovoljava".',
 	'revreview-update' => "Molim [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(prikazane dolje)'' učinjene od kad je  stabilna inačica [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena]. 
 
 '''Neki predlošci/slike su promijenjeni:'''",
+	'revreview-update-includes' => "'''Neki predlošci/datoteke su ažurirane:'''",
 	'revreview-update-none' => "Molim, [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(prikazane dolje)'' učinjene od kad je stabilna inačica [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena].",
 	'revreview-visibility' => 'Ovaj članak ima [[{{MediaWiki:Validationpage}}|važeću inačicu]], koja može biti
 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirana].',
 	'revreview-revnotfound' => 'Ne mogu pronaći staru izmjenu stranice koju ste zatražili.
 Molimo provjerite URL koji vas je doveo ovamo.',
+	'right-autoreview' => 'Automatski označavaj izmjene kao pregledane',
 	'rights-editor-autosum' => 'samopromoviran',
 	'rights-editor-revoke' => 'oduzet status urednika suradniku [[$1]]',
 	'specialpages-group-quality' => 'Osiguravanje kvalitete',
@@ -7161,6 +7187,7 @@ $messages['ml'] = array(
  * @author Chinneeb
  */
 $messages['mn'] = array(
+	'revreview-auto' => '(автоматаар)',
 	'revreview-revnotfound' => 'Таны орохыг хүссэн хуудасны хуучин засвар олдсонгүй. Энэ хуудас руу явахад хэрэглэсэн URL-ээ шалгана уу.',
 );
 
