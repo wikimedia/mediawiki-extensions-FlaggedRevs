@@ -226,6 +226,8 @@ $messages['id'] = array(
  * @author Melos
  */
 $messages['it'] = array(
+	'problemchanges' => 'Revisiona le modifiche che hanno etichette',
+	'problemchanges-none' => 'Al momento non ci sono pagine che soddisfino tale criterio.',
 	'problemchanges-category' => 'Categoria:',
 );
 

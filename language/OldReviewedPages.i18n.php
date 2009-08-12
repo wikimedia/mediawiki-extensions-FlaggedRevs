@@ -588,6 +588,10 @@ $messages['hr'] = array(
 	'oldreviewed-watched' => 'Na moj popis praćenja',
 	'oldreviewed-stable' => 'Stabilizirano',
 	'oldreviewed-diff' => 'ocijeni',
+	'oldreviewed-size' => 'Najveća promjena (bajtovi):',
+	'oldreviewedpages-unwatched' => '(nepraćeno)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktivni suradnik prati|aktivnih suradnika prate}})',
+	'oldreviewedpages-viewing' => '(u ocjenjivanju)',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -691,6 +695,7 @@ $messages['it'] = array(
 	'oldreviewedpages-recent' => "(meno di un'ora)",
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewed-watched' => 'Sulla mia watchlist',
+	'oldreviewed-stable' => 'Stabile',
 	'oldreviewed-diff' => 'revisiona',
 	'oldreviewed-size' => 'Cambiamento massimo (byte):',
 	'oldreviewedpages-unwatched' => '(non osservata)',
@@ -785,7 +790,7 @@ $messages['ksh'] = array(
  */
 $messages['kw'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
-	'oldreviewed-category' => 'Klasyans:',
+	'oldreviewed-category' => 'Klass:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

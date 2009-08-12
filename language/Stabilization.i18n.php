@@ -1066,6 +1066,7 @@ $messages['grc'] = array(
 	'stabilization-page' => 'Ὄνομα δέλτου:',
 	'stabilization-submit' => 'Κυροῦν',
 	'stabilization-comment' => 'Αἰτία:',
+	'stabilization-otherreason' => 'Ἑτέρα αἰτία',
 	'stabilization-expiry' => 'Λήγει:',
 	'stabilization-sel-short' => 'Προτεραιότης',
 	'stabilization-sel-short-0' => 'ποιοτικὴ',
@@ -1734,6 +1735,7 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'stabilization-tab' => 'Astellung',
 	'stabilization' => 'Stabilisatioun vun der Säit',
 	'stabilization-perm' => "Äre Benotzerkont huet net d'Recht fir d'Astellung vun der stabileer Versioun z'änneren.
 Hei sinn déi aktuell Astellunge fir [[:$1|$1]]:",
@@ -1749,6 +1751,8 @@ Hei sinn déi aktuell Astellunge fir [[:$1|$1]]:",
 	'stabilization-submit' => 'Confirméieren',
 	'stabilization-notexists' => 'D\'Säit "[[:$1|$1]]" gëtt et net.
 Keng Astellunge méiglech.',
+	'stabilization-notcontent' => 'D\'Säit "[[:$1|$1]]" kann net nogekuckt ginn.
+Et ass keng Konfiguratioun méiglech.',
 	'stabilization-comment' => 'Grond:',
 	'stabilization-otherreason' => 'Anere Grond:',
 	'stabilization-expiry' => 'Valabel bis:',
