@@ -3649,7 +3649,7 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changemen
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pâge revua]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vêde lo brolyon]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pâge revua]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vêde lo brolyon]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pâge revua]]'''",
-	'revreview-quick-invalid' => "'''Numerô de vèrsion fôx'''",
+	'revreview-quick-invalid' => "'''Numerô de la vèrsion fôx'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Vèrsion d’ora]]''' (pas revua)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pâge de qualitât]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vêde lo brolyon]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pâge de qualitât]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vêde lo brolyon]]",
@@ -8894,8 +8894,16 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
-/** Brazilian Portuguese (Português do Brasil) */
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Rafael Vargas
+ */
 $messages['pt-br'] = array(
+	'editor' => 'Editor',
+	'flaggedrevs' => 'Edições Analisadas',
+	'flaggedrevs-backlog' => "Há atualmente um acúmulo de [[Special:OldReviewedPages|edições pendentes]] a serem analisadas. '''A sua atenção é necessária!'''",
+	'flaggedrevs-watched-pending' => "Há atualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} edições pendentes] a serem análisadas em páginas na sua lista de páginas vigiadas. '''A sua atenção é necessária!'''",
+	'flaggedrevs-desc' => 'Dá aos {{int:group-editor}} e aos {{int:group-reviewer}} a possibilidade de verificarem edições e marcar páginas como estáveis.',
+	'flaggedrevs-pref-UI' => 'Interface da versão estável:',
 	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
 Por favor verifique a URL que você usou para acessar esta página.',
 );

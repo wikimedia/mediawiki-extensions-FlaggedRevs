@@ -305,8 +305,10 @@ $messages['nl'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Simny
  */
 $messages['no'] = array(
+	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
 	'problemchanges-category' => 'Kategori:',
 );
 
