@@ -52,6 +52,14 @@ $messages['bs'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'problemchanges-none' => 'Actualment no hi ha cap pàgina que compleixi els criteris',
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** German (Deutsch)
  * @author Khaledelmansoury
  * @author Umherirrender
@@ -75,8 +83,10 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['el'] = array(
+	'problemchanges' => 'Επιθεώρηση αλλαγών με ετικέτα',
 	'problemchanges-category' => 'Κατηγορία:',
 );
 

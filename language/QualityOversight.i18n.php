@@ -113,6 +113,13 @@ $messages['dsb'] = array(
 	'qualityoversight-legend' => 'W aktualnych protokolach kontrolow pytaś',
 );
 
+/** Greek (Ελληνικά)
+ * @author Omnipaedista
+ */
+$messages['el'] = array(
+	'qualityoversight' => 'Επόπτης ποιότητας',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -172,7 +179,9 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'qualityoversight' => 'παρόραμα ποιοτικῆς δέλτου',
+	'qualityoversight' => 'Ἐπιστάτης ποιότητος',
+	'qualityoversight-list' => 'Ἥδε ἡ δέλτος καταλέγει τὰς πλέον προσφάτους ἐπιδοκιμασίας καὶ ὑποτιμήσεις τῶν ἀναθεωρήσεων.',
+	'qualityoversight-legend' => 'Ζητεῖν προσφάτους καταλόγους ἐπιθεωρήσεων',
 );
 
 /** Swiss German (Alemannisch)

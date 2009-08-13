@@ -191,9 +191,19 @@ $messages['bn'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
+	'right-unreviewedpages' => "Sellet ouzh [[Special:UnreviewedPages|roll ar pajennoù n'int ket bet adwelet]]",
 	'unreviewedpages' => "Pajennoù n'int ket bet adwelet",
+	'unreviewed-legend' => "Rollañ a ra ar pajennoù n'int ket bet adwelet",
 	'unreviewed-category' => 'Rummad :',
-	'unreviewed-diff' => 'Kemmoù',
+	'unreviewed-diff' => 'adwelet',
+	'unreviewed-unwatched' => '(dievezhiet)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|implijer|implijer}} oberiant o evezhiañ ar bajenn-mañ)',
+	'unreviewed-list' => "War ar bajenn-mañ ez eus pajennoù danvez enno n'int ket bet adwelet.",
+	'unreviewed-none' => "Evit poent n'eus pajenn ebet a glotfe gant an dezverkoù-mañ",
+	'unreviewed-viewing' => '(o vezañ adwelet)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|eurvezh|eurvezh}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|deiz|deiz}})',
+	'unreviewed-recent' => "(nebeutoc'h eget 1 eurvezh)",
 );
 
 /** Bosnian (Bosanski)

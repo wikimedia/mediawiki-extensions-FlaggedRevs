@@ -325,12 +325,16 @@ $messages['dsb'] = array(
  * @author Omnipaedista
  */
 $messages['el'] = array(
+	'oldreviewedpages' => 'Μη ενημερωμένες επιθεωρημένες σελίδες',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ώρα|ώρες}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ημέρα|ημέρες}})',
 	'oldreviewedpages-recent' => '(λιγότερο από 1 ώρα)',
 	'oldreviewed-category' => 'Κατηγορία:',
+	'oldreviewed-watched' => 'Στη λίστα παρακολούθησής μου',
 	'oldreviewed-stable' => 'Σταθεροποιημένος',
 	'oldreviewed-diff' => 'επιθεώρηση',
+	'oldreviewedpages-unwatched' => '(δεν παρακολουθείται)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|χρήστης|χρήστες}} παρακολουθούν)',
 	'oldreviewedpages-viewing' => '(υπό επιθεώρηση)',
 );
 

@@ -74,6 +74,16 @@ $messages['bs'] = array(
 	'unstablepages-config' => 'Konfiguracija',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'unstablepages' => 'Pàgines no estables',
+	'unstablepages-stable' => 'Versió estable',
+	'unstablepages-none' => 'No hi ha pàgines en aquesta llista',
+	'unstablepages-config' => 'Configuració',
+);
+
 /** Czech (Česky)
  * @author Matěj Grabovský
  */

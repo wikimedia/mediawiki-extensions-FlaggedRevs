@@ -168,6 +168,21 @@ $messages['bg'] = array(
 	'validationstatistics-total' => 'Страници',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'validationstatistics' => 'Stadegoù kadarnaat',
+	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
+	'validationstatistics-ns' => 'Esaouenn anv',
+	'validationstatistics-total' => 'Pajennoù',
+	'validationstatistics-stable' => 'Adwelet',
+	'validationstatistics-old' => 'Dispredet',
+	'validationstatistics-utable' => 'A-is emañ roll ar 5 adlenner gwellañ en eurvezh diwezhañ.',
+	'validationstatistics-user' => 'Implijer',
+	'validationstatistics-reviews' => 'Adweladennoù',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
