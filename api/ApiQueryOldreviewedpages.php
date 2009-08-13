@@ -41,15 +41,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	private function run( $resultPageSet = null ) {
-		// Permission check
-		global $wgUser;
-		if ( !$wgUser->isAllowed( 'unreviewedpages' ) )
-			$this->dieUsage(
-				"You need the unreviewedpages right to request the list of"
-				." old reviewed pages.",
-				'permissiondenied'
-			);
-
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
