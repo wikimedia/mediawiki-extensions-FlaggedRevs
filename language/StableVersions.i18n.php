@@ -404,11 +404,11 @@ $messages['hi'] = array(
  * @author Suradnik13
  */
 $messages['hr'] = array(
-	'stableversions' => 'Vidi stabilne inačice',
-	'stableversions-leg1' => 'Prikaži pregledane inačice stranice',
+	'stableversions' => 'Pregled važeće inačice',
+	'stableversions-leg1' => 'Popis ocijenjenih inačica stranice',
 	'stableversions-page' => 'Ime stranice:',
-	'stableversions-none' => 'Članak "[[:$1]]" nema pregledanih inačica.',
-	'stableversions-list' => 'Slijedi popis {{PLURAL:$2|revizije|revizija}} od [[:$1]] {{PLURAL:$2|koja je ocijenjena|koje su ocijenjene}}:',
+	'stableversions-none' => 'Članak "[[:$1]]" nema ocijenjenih inačica.',
+	'stableversions-list' => 'Slijedi popis {{PLURAL:$2|jedne inačice|inačica}} od [[:$1]] {{PLURAL:$2|koja je ocijenjena|koje su ocijenjene}}:',
 	'stableversions-review' => 'Ocijenjeno <i>$1</i> od suradnika $2',
 );
 
@@ -610,6 +610,7 @@ $messages['mhr'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
@@ -617,7 +618,7 @@ $messages['mk'] = array(
 	'stableversions-leg1' => 'Листа на прегледани ревизии за страница',
 	'stableversions-page' => 'Наслов на страница:',
 	'stableversions-none' => '"[[:$1]]" нема прегледани ревизии.',
-	'stableversions-list' => 'Следи листа на ревизии од of [[:$1]] кои биле прегледани:',
+	'stableversions-list' => 'Ова е листа на {{PLURAL:$2|единствената ревизија|ревизиите}} на [[:$1]] {{PLURAL:$2|која е прегледана|кои се прегледани}}:',
 	'stableversions-review' => 'Прегледано на <i>$1</i> од страна на $2',
 );
 
@@ -929,6 +930,7 @@ $messages['ta'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Kiranmayee
  * @author Veeven
  */
 $messages['te'] = array(
@@ -936,7 +938,7 @@ $messages['te'] = array(
 	'stableversions-leg1' => 'పేజీ యొక్క సమీక్షిత కూర్పులను చూపించు',
 	'stableversions-page' => 'పేజీ పేరు:',
 	'stableversions-none' => '"[[:$1]]"కి సమీక్షిత కూర్పులేమీ లేవు.',
-	'stableversions-list' => 'క్రింద ఇచ్చినవి "[[:$1]]" యొక్క సమీక్షించని కూర్పుల జాబితా:',
+	'stableversions-list' => 'క్రింద ఇచ్చిన {{PLURAL:$2|కూర్పు|కూర్పులు}}  "[[:$1]]" యొక్క సమీక్షించబడిన {{PLURAL:$2|కూర్పు|కూర్పుల జాబితా}}:',
 	'stableversions-review' => '<i>$1</i> నాడు $2 సమీక్షించారు',
 );
 

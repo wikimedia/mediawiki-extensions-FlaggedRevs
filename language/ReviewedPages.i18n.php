@@ -647,12 +647,13 @@ $messages['li'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
 	'reviewedpages' => 'Оценувани страници',
 	'reviewedpages-leg' => 'Листа на страници на највисоко ниво',
-	'reviewedpages-list' => 'Следните страници биле оценувани до наведеното ниво',
+	'reviewedpages-list' => '{{PLURAL:$1|Следнава страница е прегледувана|Следниве страници се прегледувани}} до назначеното ниво',
 	'reviewedpages-none' => 'Нема страници во оваа листа',
 	'reviewedpages-lev-0' => 'Прегледани',
 	'reviewedpages-lev-1' => 'Квалитетни',

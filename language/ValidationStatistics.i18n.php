@@ -56,6 +56,18 @@ This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatis
 	'validationstatistics-reviews' => '{{FlaggedRevs}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'validationstatistics-ns' => 'Naamruimte',
+	'validationstatistics-total' => 'Bladsye',
+	'validationstatistics-latest' => 'Gesinchroniseerd',
+	'validationstatistics-old' => 'Verouderd',
+	'validationstatistics-user' => 'Gebruiker',
+	'validationstatistics-reviews' => 'Beoordelings',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */
@@ -650,8 +662,8 @@ Izmjene koje su provjerili dokazani suradnici smatraju se ocijenjenima.
 Prosječno čekanje da izmjene ''neprijavljenih suradnika'' budu ocijenjene je '''$1'''; srednja vrijednost je '''$3'''.  
 $4
 Prosječno zaostajanje za [[Special:OldReviewedPages|stranice s neriješenim neocijenjenim izmjenama]] je '''$2'''.
-Te se stranice smatraju ''zastarjelima''. Isto tako, stranice se smatraju ''sinkroniziranima'' ako je [[{{MediaWiki:Validationpage}}|stabilna inačica]] ujedno trenutačna inačica članka u radu.
-Stabilna inačica stranice je najnovija izmjena koja je odobrena kako bi se prikazivala kao zadana za sve čitatelje.",
+Te se stranice smatraju ''zastarjelima''. Isto tako, stranice se smatraju ''sinkroniziranima'' ako je [[{{MediaWiki:Validationpage}}|važeća inačica]] ujedno i trenutačna inačica u radu.
+Važeća inačica stranice je najnovija inačica koja je odobrena kako bi se prikazivala kao zadana za sve čitatelje.",
 	'validationstatistics-table' => "Statistike za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
@@ -921,19 +933,33 @@ $messages['mhr'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
 	'validationstatistics' => 'Валидациски статистики',
-	'validationstatistics-users' => "'''{{SITENAME}}''' во моментов има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|уредувачки]] права и '''$2''' {{PLURAL:$2|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|оценувачки]] права.",
-	'validationstatistics-table' => "Статистики за секој именски простор се прикажани подолу (без страници за пренасочување).
-'''Забелешка:''' следниве податоци се кеширани пред неколку часа и можеби не се баш најажурни.",
+	'validationstatistics-users' => "{{SITENAME}}''' во моментов има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|уредувачки]] права и [[Special:ListUsers/reviewer|$2]] {{PLURAL:$2|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|оценувачки]] права.
+
+Уредниците и оценувачите се докажани корисници кои можат да прегледуваат ревизии на страници.",
+	'validationstatistics-time' => "''Следниве податоци се кеширани и може да не се најнови.''
+
+Уредувањата кои се проверени од утврдени корисници се сметаат за прегледани.
+
+Просечното чекање за уредувања по ''ненајавени корисници'' кои треба да се прегледаат изнесува '''$1'''; средната вредност е '''$3'''.  
+$4
+Просечното задоцнување за [[Special:OldReviewedPages|страници со непрегледани уредувања во исчекување]] изнесува '''$2'''.
+Овие страници се сметаат за ''застарени''. Наспроти тоа, страниците се сметаат за ''синхронизирани'' ако [[{{MediaWiki:Validationpage}}|стабилната верзија]] е едновремено и моменталната работна верзија.
+Стабилната верзија на една страница е најновата ревизија која е одобрена за прикажување на сите читатели по основно.",
+	'validationstatistics-table' => "Подолу се прикажани статистики за секој именски простор, ''освен'' страници за пренасочување.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Страници',
 	'validationstatistics-stable' => 'Прегледани',
-	'validationstatistics-latest' => 'Последно прегледување',
+	'validationstatistics-latest' => 'Синхронизирано',
 	'validationstatistics-synced' => 'Синхронизирани/Прегледани',
 	'validationstatistics-old' => 'Застарени',
+	'validationstatistics-utable' => 'Еве листа на 5 најактивни прегледувачи во последниов час.',
+	'validationstatistics-user' => 'Корисник',
+	'validationstatistics-reviews' => 'Прегледи',
 );
 
 /** Malayalam (മലയാളം)
@@ -1376,6 +1402,9 @@ $messages['te'] = array(
 	'validationstatistics' => 'సరిచూత గణాంకాలు',
 	'validationstatistics-ns' => 'నేంస్పేసు',
 	'validationstatistics-total' => 'పేజీలు',
+	'validationstatistics-stable' => 'రివ్యూడ్',
+	'validationstatistics-latest' => 'సింకుడు',
+	'validationstatistics-synced' => 'సింకుడు/రివ్యూడ్',
 	'validationstatistics-old' => 'పాతవి',
 	'validationstatistics-user' => 'వాడుకరి',
 	'validationstatistics-reviews' => 'సమీక్షలు',

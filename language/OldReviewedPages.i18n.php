@@ -1208,6 +1208,7 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Kiranmayee
  * @author Veeven
  * @author వైజాసత్య
  */
@@ -1217,8 +1218,12 @@ $messages['te'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
 	'oldreviewedpages-recent' => '(1 గంట లోపల)',
 	'oldreviewed-category' => 'వర్గం:',
+	'oldreviewed-watched' => 'నా వీక్షణ జాబితా మీద',
+	'oldreviewed-stable' => 'నిలకడబరిచినది',
+	'oldreviewed-diff' => 'రివ్యూ',
 	'oldreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
+	'oldreviewedpages-viewing' => '(రివ్యూలో వుంది )',
 );
 
 /** Tetum (Tetun)

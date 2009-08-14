@@ -251,11 +251,12 @@ $messages['he'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Suradnik13
  */
 $messages['hr'] = array(
-	'unstablepages' => 'Nestabilne stranice',
-	'unstablepages-stable' => 'stabilna inačica',
-	'unstablepages-text' => 'Ovo je popis stranica kojima je ručno postavljen nacrt kao glavni sadržaj stranice za gledatelje.',
+	'unstablepages' => 'Nevažeće stranice',
+	'unstablepages-stable' => 'važeća inačica',
+	'unstablepages-text' => 'Ovo je popis stranica kojima je ručno postavljena inačica u radu kao glavni sadržaj stranice za gledatelje.',
 	'unstablepages-none' => 'Nema stranica na ovom popisu',
 	'unstablepages-config' => 'Konfiguracija',
 );
@@ -566,9 +567,12 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Kiranmayee
  * @author Veeven
  */
 $messages['te'] = array(
+	'unstablepages' => 'నిలకడ లేని పేజీలు',
+	'unstablepages-stable' => 'నిలకడైన కూర్పు',
 	'unstablepages-none' => 'ఈ జాబితాలో పేజీలేమీ లేవు',
 	'unstablepages-config' => 'స్వరూపణం',
 );

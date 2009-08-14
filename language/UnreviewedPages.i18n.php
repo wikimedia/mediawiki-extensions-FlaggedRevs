@@ -574,15 +574,15 @@ $messages['hi'] = array(
  * @author Suradnik13
  */
 $messages['hr'] = array(
-	'right-unreviewedpages' => 'Gledanje [[Special:UnreviewedPages|popisa neocijenjenih stranica]]',
+	'right-unreviewedpages' => 'Pregled [[Special:UnreviewedPages|popisa neocijenjenih stranica]]',
 	'unreviewedpages' => 'Neocijenjene stranice',
 	'unreviewed-legend' => 'Popis neocijenjenih sadržaja stranica',
 	'unreviewed-category' => 'Kategorija:',
-	'unreviewed-diff' => 'pregledaj',
+	'unreviewed-diff' => 'ocijeni',
 	'unreviewed-unwatched' => '(nepraćeno)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivni suradnik|aktivnih suradnika}} prati)',
 	'unreviewed-list' => 'Ovo je popis sadržaja stranica koji nisu ocijenjeni.',
-	'unreviewed-none' => 'Trenutačno nema stranica koje se poklapaju s ovim kriterijima',
+	'unreviewed-none' => 'Trenutačno nema stranica koje zadovoljavaju ovim kriterijima',
 	'unreviewed-viewing' => '(u ocijenjivanju)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|dan|dana}})',
@@ -1106,6 +1106,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Giro720
  * @author Lijealso
  * @author Malafaya
  */
@@ -1120,6 +1121,8 @@ $messages['pt'] = array(
 	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas.',
 	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
 	'unreviewed-viewing' => '(sob análise)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'unreviewed-recent' => '(menos de uma hora)',
 );
 

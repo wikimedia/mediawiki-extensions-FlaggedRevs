@@ -356,11 +356,11 @@ $messages['hi'] = array(
  * @author Suradnik13
  */
 $messages['hr'] = array(
-	'stablepages' => 'Stabilne stranice',
-	'stablepages-stable' => 'stabilna inačica',
-	'stablepages-text' => 'Ispod je popis stranica koje su ručno konfigurirane kako bi prikazivale stabilnu inačicu kao zadani sadržaj stranice za gledatelje.',
+	'stablepages' => 'Važeće stranice',
+	'stablepages-stable' => 'važeća inačica',
+	'stablepages-text' => 'Ispod je popis stranica koje su ručno podešene kako bi prikazivale važeću inačicu kao zadani sadržaj stranice za čitače sadržaja.',
 	'stablepages-none' => 'Nema stranica u ovom popisu',
-	'stablepages-config' => 'Konfiguracija',
+	'stablepages-config' => 'Postavka',
 	'stablepages-prec-none' => 'bez prvenstva',
 	'stablepages-prec-quality' => 'prvenstvo kvalitete',
 	'stablepages-prec-pristine' => 'zastarjelo prvenstvo',

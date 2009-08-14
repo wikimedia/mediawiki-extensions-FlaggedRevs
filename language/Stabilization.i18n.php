@@ -1222,16 +1222,16 @@ $messages['hi'] = array(
  * @author Suradnik13
  */
 $messages['hr'] = array(
-	'stabilization-tab' => '(vi)',
-	'stabilization' => 'Stabilizacija stranice',
-	'stabilization-text' => "'''Promijenite postavke kako biste prilagodili kako će stabilna inačica [[:\$1|\$1]] biti odabrana i prikazana.'''
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Stalnost stranice',
+	'stabilization-text' => "'''Promijenite postavke kako biste prilagodili kako će važeća inačica [[:\$1|\$1]] biti odabrana i prikazana.'''
 
-Kada mijenjate konfiguraciju ''odabir stabilne inačice'' kako bi se inačice \"kvalitetno\" ili \"davno\" rabile zadano, provjerite da li stvarno postoje takve inačice stranice, inače će promjene imati mali učinak.",
-	'stabilization-perm' => 'Vaš suradnički račun nema prava mijenjanja stabilne inačice članka.
+Kada mijenjate postavku ''odabir važeće inačice'' kako bi se inačice \"kvalitetno\" ili \"zastarjelo\" rabile kao zadano, provjerite da li stvarno postoje takve inačice stranice, inače će promjene imati mali učinak.",
+	'stabilization-perm' => 'Vaš suradnički račun nema prava mijenjanja važeće inačice članka.
 Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Ime stranice:',
-	'stabilization-leg' => 'Potvrdi postavke stabilne inačice',
-	'stabilization-select' => 'Odabir stabilne inačice',
+	'stabilization-leg' => 'Potvrdi postavke važeće inačice',
+	'stabilization-select' => 'Odabir važeće inačice',
 	'stabilization-select1' => 'Posljednja ocjena kvalitete; ukoliko je nije bilo, posljednje pregledavanje',
 	'stabilization-select2' => 'Posljednja ocijenjena inačica, bez obzira na stupanj provjere valjanosti',
 	'stabilization-select3' => 'Najnovija zastarjela inačica; ako ne postoji, tada najnoviju ocjenjenu ili pregledanu',
@@ -1829,7 +1829,10 @@ $messages['mhr'] = array(
 $messages['mk'] = array(
 	'stabilization-tab' => 'ветеран',
 	'stabilization' => 'Стабилизација на страница',
-	'stabilization-text' => "'''Промени ги нагодувањата подолу за тоа како стабилната верзија на [[:$1|$1]] ќе биде избрана и прикажана.'''",
+	'stabilization-text' => "'''Променете ги нагодувањата подолу за да наместите како стабилната верзија на [[:$1|$1]] ќе биде избрана и прикажана.'''
+
+Кога ја менувате конфигурацијата на ''изборот на стабилна верзија'' за да користи „квалитетна“ или „беспрекорна“ ревизии по основно,
+запаметете дека морате да проверите дали всушност постојат такви ревизии на страницата - во спротивно промената нема да има ефект.",
 	'stabilization-perm' => 'Вашата корисничка сметка нема дозвола за промена на конфигурацијата на стабилната верзија.
 Моментални нагодувања за [[:$1|$1]]:',
 	'stabilization-page' => 'Име на страница:',
@@ -1841,6 +1844,7 @@ $messages['mk'] = array(
 	'stabilization-def' => 'Ревизија прикажана по основно при преглед на страница',
 	'stabilization-def1' => 'Стабилната ревизија; ако не постои, тогаш моменталната',
 	'stabilization-def2' => 'Моменталната ревизија',
+	'stabilization-restrict' => 'Ограничувања на автопрегледувањето',
 	'stabilization-restrict-none' => 'Нема дополнителни ограничувања',
 	'stabilization-submit' => 'Потврди',
 	'stabilization-notexists' => 'Нема страница насловена како "[[:$1|$1]]".
@@ -1861,6 +1865,7 @@ $messages['mk'] = array(
 	'stabilize_expiry_invalid' => 'Погрешен датум на важност.',
 	'stabilize_expiry_old' => 'Времето на важност веќе е поминато.',
 	'stabilize-expiring' => 'истекува $1 (UTC)',
+	'stabilization-review' => 'Оценете ја моменталната верзија',
 );
 
 /** Malayalam (മലയാളം)
@@ -2810,6 +2815,7 @@ $messages['ta'] = array(
 
 /** Telugu (తెలుగు)
  * @author Chaduvari
+ * @author Kiranmayee
  * @author Veeven
  */
 $messages['te'] = array(
@@ -2825,6 +2831,7 @@ $messages['te'] = array(
 	'stabilization-def' => 'డిఫాల్టు పేజీ వ్యూలో చూపించే కూర్పు',
 	'stabilization-def1' => 'సుస్థిర కూర్పు; అది లేకపోతే, ప్రస్తుత కూర్పు',
 	'stabilization-def2' => 'ప్రస్తుత కూర్పు',
+	'stabilization-restrict-none' => 'మరిన్ని నిరోధాలు లేవు',
 	'stabilization-submit' => 'నిర్ధారించు',
 	'stabilization-notexists' => '"[[:$1|$1]]" అనే పేజీ లేదు. స్వరూపణం వీలుపడదు.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" అన్న పేజీని సమీక్షించ లేదు. ఎటువంటి స్వరూపణం వీలు కాదు.',
