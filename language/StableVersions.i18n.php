@@ -61,13 +61,14 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'stableversions' => 'عرض النسخ المستقرة',
 	'stableversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
 	'stableversions-page' => 'اسم الصفحة:',
 	'stableversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
-	'stableversions-list' => 'هذه قائمة {{PLURAL:$2|بالمراجعة الوحيدة|بمراجعات}} صفحة [[:$1]] التي {{PLURAL:$2|تمت|تمت}} مراجعتها:',
+	'stableversions-list' => 'هذه قائمة {{PLURAL:$2||بمراجعة|بمراجعتي|بمراجعات}} الصفحة [[:$1]] {{PLURAL:$2||التي تمت مراجعتها|اللتين تمت مراجعتهما|التي تمت مراجعتها}}:',
 	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
 );
 

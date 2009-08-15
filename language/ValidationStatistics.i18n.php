@@ -937,7 +937,7 @@ $messages['mhr'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'validationstatistics' => 'Валидациски статистики',
+	'validationstatistics' => 'Потврдни статистики',
 	'validationstatistics-users' => "{{SITENAME}}''' во моментов има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|уредувачки]] права и [[Special:ListUsers/reviewer|$2]] {{PLURAL:$2|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|оценувачки]] права.
 
 Уредниците и оценувачите се докажани корисници кои можат да прегледуваат ревизии на страници.",

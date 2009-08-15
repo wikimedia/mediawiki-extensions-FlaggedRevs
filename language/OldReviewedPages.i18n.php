@@ -116,8 +116,8 @@ $messages['ar'] = array(
 	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
 	'oldreviewedpages-list' => 'هذه الصفحة تعرض {{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}} تعديلات قيد الانتظار.',
 	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
+	'oldreviewedpages-hours' => '({{PLURAL:$1||ساعة واحد|ساعتان|$1 ساعات|$1 ساعة}})',
+	'oldreviewedpages-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
 	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
 	'oldreviewed-category' => 'تصنيف:',
 	'oldreviewed-watched' => 'على قائمة مراقبتي',
@@ -125,7 +125,7 @@ $messages['ar'] = array(
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewed-size' => 'أقصى تغيير (بايت):',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقب)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمون نشطون يراقبون|$1 مستخدمًا نشيطًا يراقبون|$1 مستخدم نشط يراقبون}})',
 	'oldreviewedpages-viewing' => '(تحت المراجعة)',
 );
 

@@ -298,6 +298,15 @@ $messages['lb'] = array(
 	'qualityoversight' => 'Qualitéits Iwwersiicht',
 );
 
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'qualityoversight' => 'Надгледување на квалитет',
+	'qualityoversight-list' => 'На оваа страница се наведени најновите одобренија и застарувања на ревизиите.',
+	'qualityoversight-legend' => 'Пребарување на дневници на скорешни прегледувања',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */

@@ -55,11 +55,12 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
 	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى',
-	'reviewedpages-list' => '{{PLURAL:$1|الصفحة|الصفحات}} التالية تمت مراجعتها حتى المستوى المحدد',
+	'reviewedpages-list' => 'تمت مراجعة {{PLURAL:$1||الصفحة التالية|الصفحتان التاليتان|الصفحات التالية}} حتى المستوى المحدد',
 	'reviewedpages-none' => 'لا توجد صفحات في هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
 	'reviewedpages-lev-1' => 'جودة',

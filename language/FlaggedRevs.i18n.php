@@ -688,7 +688,7 @@ $messages['ar'] = array(
 	'flaggedrevs' => 'مراجعات معلمة',
 	'flaggedrevs-backlog' => "يوجد حاليا سجل تأخر في [[Special:OldReviewedPages|التعديلات قيد الانتظار]] للصفحات المراجعة. 
 '''انتباهك مطلوب!'''",
-	'flaggedrevs-watched-pending' => "توجد حاليا [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تعديلات في الانتظار] لمراجعة الصفحات في قائمة مراقبتك '''انتباهك مطلوب !'''",
+	'flaggedrevs-watched-pending' => "توجد حاليا [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تعديلات في الانتظار] لمراجعة الصفحات في قائمة مراقبتك '''انتباهك مطلوب!'''",
 	'flaggedrevs-desc' => 'يعطي المحررين/المراجعين القدرة على التأكد من صحة النسخ وتثبيت الصفحات',
 	'flaggedrevs-pref-UI' => 'واجهة نسخة مستقرة:',
 	'flaggedrevs-pref-UI-0' => 'استخدم واجهة مستخدم لنسخة مستقرة مفصلة',
