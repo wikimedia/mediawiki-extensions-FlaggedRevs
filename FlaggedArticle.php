@@ -605,7 +605,7 @@ class FlaggedArticle extends Article {
 		}
 
 		$title = $this->parent->getTitle();
-		$displayFile = wfFindFile( $title, $time );
+		$displayFile = wfFindFile( $title, array( 'time' => $time ) );
 		# If none found, try current
 		if( !$displayFile ) {
 			wfDebug( __METHOD__.": {$title->getPrefixedDBkey()}: $time not found, using current\n" );
