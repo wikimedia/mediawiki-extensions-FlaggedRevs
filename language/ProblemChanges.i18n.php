@@ -82,11 +82,13 @@ $messages['dsb'] = array(
 );
 
 /** Greek (Ελληνικά)
+ * @author Consta
  * @author Crazymadlover
  * @author Omnipaedista
  */
 $messages['el'] = array(
 	'problemchanges' => 'Επιθεώρηση αλλαγών με ετικέτα',
+	'problemchanges-none' => 'Προς το παρόν δεν υπάρχουν σελίδες που πληρούν αυτά τα κριτήρια',
 	'problemchanges-category' => 'Κατηγορία:',
 );
 
@@ -284,6 +286,16 @@ $messages['lb'] = array(
 	'problemchanges-legend' => 'Lëscht vun den nogekuckte Säiten fir déi et mrkéiert Ännerunge gëtt déi nach nogekuckt sinn',
 	'problemchanges-none' => 'Et gëtt el keng Säiten déi dës Kriterien entspriechen',
 	'problemchanges-category' => 'Kategorie:',
+);
+
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'problemchanges' => 'Проверка на означени промени',
+	'problemchanges-legend' => 'Наведување на прегледани промени со означени уредувања со исчекување на проверка',
+	'problemchanges-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
+	'problemchanges-category' => 'Категорија:',
 );
 
 /** Malay (Bahasa Melayu)

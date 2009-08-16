@@ -5777,7 +5777,7 @@ $messages['ja'] = array(
 	'flaggedrevs-pref-UI-0' => '固定版情報を詳細表示する',
 	'flaggedrevs-pref-UI-1' => '固定版情報を簡単表示する',
 	'prefs-flaggedrevs' => '固定度',
-	'flaggedrevs-prefs-stable' => 'コンテンツページの既定表示を常に固定版にする (存在する場合)',
+	'flaggedrevs-prefs-stable' => 'コンテンツページの既定表示を常に固定版にする （存在する場合）',
 	'flaggedrevs-prefs-watch' => '自分が査読したページをウォッチリストに追加する',
 	'group-editor' => '編集者',
 	'group-editor-member' => '編集者',
@@ -5810,15 +5810,15 @@ $messages['ja'] = array(
 	'revreview-accuracy-3' => '検証性充分',
 	'revreview-accuracy-4' => '秀逸',
 	'revreview-approved' => '承認済',
-	'revreview-auto' => '(自動査読)',
+	'revreview-auto' => '（自動査読）',
 	'revreview-auto-w' => "あなたは固定版を編集しています。全ての変更は'''自動的に査読'''されます。",
 	'revreview-auto-w-old' => "あなたは査読された版を編集しています。全ての変更は'''自動的に査読'''されます。",
 	'revreview-basic' => 'これは最新の[[{{MediaWiki:Validationpage}}|一覧済み]]版で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補]には査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3件の{{PLURAL:$3|変更}}]があります。',
 	'revreview-basic-i' => 'これは最新の[[{{MediaWiki:Validationpage}}|一覧済み]]版で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補]には査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
-	'revreview-basic-old' => 'これは[[{{MediaWiki:Validationpage}}|一覧済み]]版 ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 変更]されているかもしれません。',
-	'revreview-basic-same' => 'これは最新の[[{{MediaWiki:Validationpage}}|一覧済み]]版([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示])で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
+	'revreview-basic-old' => 'これは[[{{MediaWiki:Validationpage}}|一覧済み]]版 （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 変更]されているかもしれません。',
+	'revreview-basic-same' => 'これは最新の[[{{MediaWiki:Validationpage}}|一覧済み]]版（[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]）で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
 	'revreview-basic-source' => '<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認された]このページの[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 一覧済み版]は、この版に基づいています。',
-	'revreview-blocked' => 'あなたはアカウントが現在ブロックされているため ([$1 詳細])、この版を査読できません',
+	'revreview-blocked' => 'あなたはアカウントが現在ブロックされているため （[$1 詳細]）、この版を査読できません',
 	'revreview-changed' => "'''[[:$1|$1]]のこの版に対して行おうとした操作を実行できませんでした'''
 
 版が特定されていない状態でテンプレートまたはファイルに対する処理要求が行われた可能性があります。変数に依存してファイルやテンプレートを呼び出している動的なテンプレートを利用しており、その変数がページの査読開始以降に変化した時にこのようなことが起こります。ページを再読み込みして再度査読を行えばこの問題は解決できます。",
@@ -5840,10 +5840,10 @@ $messages['ja'] = array(
 	'revreview-main' => '査読のためには対象記事から特定の版を選択する必要があります。
 
 [[Special:Unreviewedpages|未査読ページ一覧]]を参照してください。',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の一覧済み版] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が{{PLURAL:$3|必要な}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の{{PLURAL:$3|変更}}]があります。',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の一覧済み版] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が必要な[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の内容充実版] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が{{PLURAL:$3|必要な}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の{{PLURAL:$3|変更}}]があります。',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の内容充実版] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が必要な[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の一覧済み版] （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が{{PLURAL:$3|必要な}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の{{PLURAL:$3|変更}}]があります。',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の一覧済み版] （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が必要な[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の内容充実版] （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が{{PLURAL:$3|必要な}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の{{PLURAL:$3|変更}}]があります。',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最新の内容充実版] （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読が必要な[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
 	'revreview-noflagged' => "このページには査読済の版がなく、内容の[[{{MediaWiki:Validationpage}}|検査]]がされて'''いません'''。",
 	'revreview-note' => '[[User:$1|$1]] は、この版に以下の[[{{MediaWiki:Validationpage}}|査読意見]]を表明しています:',
 	'revreview-notes' => '査読意見または注意:',
@@ -5853,26 +5853,26 @@ $messages['ja'] = array(
 	'revreview-patrolled' => '選択された [[:$1|$1]] の特定版は、パトロール済みにマークされます。',
 	'revreview-quality' => 'これは最新の[[{{MediaWiki:Validationpage}}|内容充実]]版で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補]には査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の{{PLURAL:$3|変更}}]があります。',
 	'revreview-quality-i' => 'これは最新の[[{{MediaWiki:Validationpage}}|内容充実]]版で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補]には査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
-	'revreview-quality-old' => 'これは[[{{MediaWiki:Validationpage}}|内容充実]]版 ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 変更]されているかもしれません。',
-	'revreview-quality-same' => 'これは最新の[[{{MediaWiki:Validationpage}}|内容充実]]版 ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]) で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
+	'revreview-quality-old' => 'これは[[{{MediaWiki:Validationpage}}|内容充実]]版 （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 変更]されているかもしれません。',
+	'revreview-quality-same' => 'これは最新の[[{{MediaWiki:Validationpage}}|内容充実]]版 （[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 全て表示]） で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
 	'revreview-quality-source' => '<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認された]このページの[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 内容充実]版は、この版に基づいています。',
 	'revreview-quality-title' => '内容充実ページ',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|一覧済みページ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補を見る]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|一覧済みページ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補を見る]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|一覧済みページ]]'''",
 	'revreview-quick-invalid' => "'''無効な版指定'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|最新版]]''' (未査読)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|最新版]]''' （未査読）",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|内容充実ページ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補を見る]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|内容充実ページ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補を見る]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|内容充実ページ]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|採用候補]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 記事を見る]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 比較する])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|採用候補]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 記事を見る]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 比較する])",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|採用候補]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 記事を見る]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 比較する]）",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|採用候補]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 記事を見る]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 比較する]）",
 	'revreview-selected' => "'''$1''' の選択された特定版:",
 	'revreview-source' => '候補版のソース',
 	'revreview-stable' => '固定ページ',
 	'revreview-stable-title' => '一覧済みページ',
 	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} この判定済み版]を閲覧し、このページの現在の[{{fullurl:$1|stable=1}} 固定版]であるか確認することができます。',
-	'revreview-stable2' => 'このページの[{{fullurl:$1|stable=1}} 固定版]を閲覧することができます (存在する場合)。',
+	'revreview-stable2' => 'このページの[{{fullurl:$1|stable=1}} 固定版]を閲覧することができます （存在する場合）。',
 	'revreview-style' => '読みやすさ',
 	'revreview-style-0' => '未承認',
 	'revreview-style-1' => '許容範囲',
@@ -5883,15 +5883,15 @@ $messages['ja'] = array(
 	'revreview-submitting' => '送信中…',
 	'revreview-finished' => '査読完了',
 	'revreview-failed' => '査読失敗！',
-	'revreview-successful' => "'''[[:$1|$1]] の特定版の判定に成功しました。([{{fullurl:{{#Special:Stableversions}}|page=$2}} 固定版を閲覧])'''",
+	'revreview-successful' => "'''[[:$1|$1]] の特定版の判定に成功しました。（[{{fullurl:{{#Special:Stableversions}}|page=$2}} 固定版を閲覧]）'''",
 	'revreview-successful2' => "'''[[:$1|$1]] の特定版の判定取り消しに成功しました。'''",
 	'revreview-text' => "''閲覧者に既定で表示されるのは最新版ではなく[[{{MediaWiki:Validationpage}}|固定版]]です。''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|固定版]]はページの検査済みの版であり、閲覧者に既定で表示する内容として設定できます。''",
 	'revreview-toggle-title' => '詳細を表示または非表示',
 	'revreview-toolow' => '版を査読済みとするには、以下に示す全ての判定要素を「{{int:revreview-style-0}}」より高い評価にする必要があります。版を棄却する場合、全ての評価を「{{int:revreview-style-0}}」としてください。',
-	'revreview-update' => "固定版の[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認]以降になされた変更 (''下記参照'') を[[{{MediaWiki:Validationpage}}|査読]]してください。<br />'''更新されたテンプレートやファイルがあります:'''",
+	'revreview-update' => "固定版の[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認]以降になされた変更 （''下記参照''） を[[{{MediaWiki:Validationpage}}|査読]]してください。<br />'''更新されたテンプレートやファイルがあります:'''",
 	'revreview-update-includes' => "'''更新されたテンプレートやファイルがあります:'''",
-	'revreview-update-none' => "固定版の[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認]以降になされた変更 (''下記参照'') を[[{{MediaWiki:Validationpage}}|査読]]してください。",
+	'revreview-update-none' => "固定版の[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認]以降になされた変更 （''下記参照''） を[[{{MediaWiki:Validationpage}}|査読]]してください。",
 	'revreview-update-use' => "'''注:''' これらのテンプレートやファイルに固定版があれば、それはこのページの固定版で利用されています。",
 	'revreview-diffonly' => "''このページを査読するには、「最新版」リンクを辿って、査読フォームを使用します。''",
 	'revreview-visibility' => "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|固定版]]があります。ページの固定度設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更可能です]。'''",
@@ -6954,8 +6954,8 @@ $messages['lzh'] = array(
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 修纂新稿]]",
 	'revreview-quick-invalid' => '查無此錄',
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
-	'revreview-quick-see-basic' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 較二者之別])",
-	'revreview-quick-see-quality' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 較二者之別])",
+	'revreview-quick-see-basic' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 較二者之別]）",
+	'revreview-quick-see-quality' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 較二者之別]）",
 	'revreview-stable' => '校本',
 	'revreview-stable-title' => '初定本',
 	'revreview-submit' => '成',
@@ -7222,7 +7222,7 @@ $messages['ml'] = array(
  * @author Chinneeb
  */
 $messages['mn'] = array(
-	'revreview-auto' => '(автоматаар)',
+	'revreview-auto' => '（автоматаар）',
 	'revreview-revnotfound' => 'Таны орохыг хүссэн хуудасны хуучин засвар олдсонгүй. Энэ хуудас руу явахад хэрэглэсэн URL-ээ шалгана уу.',
 );
 
@@ -12070,7 +12070,7 @@ $messages['zh-hans'] = array(
 	'revreview-accuracy-3' => '有良好来源',
 	'revreview-accuracy-4' => '特色',
 	'revreview-approved' => '已被批准',
-	'revreview-auto' => '(自动)',
+	'revreview-auto' => '（自动）',
 	'revreview-auto-w' => "'''注意:''' 您现在是在稳定修订中作出更改，您的编辑将会自动被复审。
 	您可以在保存前先预览一下。",
 	'revreview-basic' => '这个是最后[[{{MediaWiki:Validationpage}}|视察过的]]修订，
@@ -12097,10 +12097,10 @@ $messages['zh-hans'] = array(
 
 	参看[[Special:Unreviewedpages]]去撷取未复审的页面。',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后视察过的修订]
-	([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 于<i>$2</i>曾经[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
+	（[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]） 于<i>$2</i>曾经[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]需要复审。',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后有质素的修订]
-	([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 于<i>$2</i>曾经[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
+	（[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]） 于<i>$2</i>曾经[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准过的]。
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]需要复审。',
 	'revreview-noflagged' => "这一页没有复审过的修订，它可能'''未'''[[{{MediaWiki:Validationpage}}|检查]]质量。",
 	'revreview-note' => '[[User:$1]]在这次修订中加入了以下的[[{{MediaWiki:Validationpage}}|复审]]注解:',
@@ -12128,7 +12128,7 @@ $messages['zh-hans'] = array(
 	'revreview-text' => '稳定版会设置成一页查看时的预设内容，而非最新的修订。',
 	'revreview-toolow' => '您一定要最少将下面每一项的属性评定高于"未批准"，去将一个修订复审。
 	要舍弃一个修订，设置全部栏位作"未批准"。',
-	'revreview-update' => '请复审自从于这页的稳定版以来的任何更改 (在下面显示) 。模版和图像亦可能同时更改。',
+	'revreview-update' => '请复审自从于这页的稳定版以来的任何更改 （在下面显示） 。模版和图像亦可能同时更改。',
 	'revreview-revnotfound' => '您请求的更早版本的修订记录没有找到。
 请检查您请求本页面用的 URL 是否正确。',
 	'validationpage' => '{{ns:help}}:文章确认',
@@ -12162,7 +12162,7 @@ $messages['zh-hant'] = array(
 	'revreview-accuracy-2' => '準確',
 	'revreview-accuracy-3' => '有良好來源',
 	'revreview-accuracy-4' => '特色',
-	'revreview-auto' => '(自動)',
+	'revreview-auto' => '（自動）',
 	'revreview-auto-w' => "'''注意:''' 您現在是在穩定修訂中作出更改，您的編輯將會自動被複審。
 	您可以在保存前先預覽一下。",
 	'revreview-basic' => '這個是最後[[{{MediaWiki:Validationpage}}|視察過的]]修訂，
@@ -12189,10 +12189,10 @@ $messages['zh-hant'] = array(
 
 	參看[[Special:Unreviewedpages]]去擷取未複審的頁面。',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過的修訂]
-	([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 於<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過的]。
+	（[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]） 於<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過的]。
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]需要複審。',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素的修訂]
-	([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 於<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過的]。
+	（[{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} 列示全部]） 於<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過的]。
 	 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]需要複審。',
 	'revreview-noflagged' => "這一頁沒有複審過的修訂，它可能'''未'''[[{{MediaWiki:Validationpage}}|檢查]]質量。",
 	'revreview-note' => '[[User:$1]]在這次修訂中加入了以下的[[{{MediaWiki:Validationpage}}|複審]]註解:',
@@ -12221,7 +12221,7 @@ $messages['zh-hant'] = array(
 	'revreview-text' => '穩定版會設定成一頁檢視時的預設內容，而非最新的修訂。',
 	'revreview-toolow' => '您一定要最少將下面每一項的屬性評定高於"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部欄位作"未批准"。',
-	'revreview-update' => '請複審自從於這頁的穩定版以來的任何更改 (在下面顯示) 。模版和圖像亦可能同時更改。',
+	'revreview-update' => '請複審自從於這頁的穩定版以來的任何更改 （在下面顯示） 。模版和圖像亦可能同時更改。',
 	'revreview-revnotfound' => '您請求的更早版本的修訂記錄沒有找到。
 請檢查您請求本頁面用的URL是否正確。',
 	'tooltip-ca-current' => '檢視本頁目前的草稿',

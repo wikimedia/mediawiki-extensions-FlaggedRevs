@@ -1525,7 +1525,7 @@ $messages['ja'] = array(
 	'stabilization-def-short-1' => '固定版',
 	'stabilize_expiry_invalid' => '有効期限に不正な日時が設定されました。',
 	'stabilize_expiry_old' => '有効期限に指定された日時を過ぎています。',
-	'stabilize-expiring' => '有効期限: $1 (UTC)',
+	'stabilize-expiring' => '有効期限: $1 （UTC）',
 	'stabilization-review' => '現在の版を査読する',
 );
 
@@ -3281,6 +3281,6 @@ $messages['zh-hant'] = array(
 	'stabilization-def-short-1' => '穩定',
 	'stabilize_expiry_invalid' => '無效的到期日。',
 	'stabilize_expiry_old' => '到期日已過。',
-	'stabilize-expiring' => '於 $1 (UTC) 到期',
+	'stabilize-expiring' => '於 $1 （UTC） 到期',
 );
 

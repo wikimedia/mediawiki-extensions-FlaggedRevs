@@ -506,6 +506,7 @@ $messages['lb'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
@@ -514,6 +515,10 @@ $messages['mk'] = array(
 	'stablepages-text' => 'Листа на страници рачно конфигурирани да ја прикажуваат содржината на стабилната верзија по основно за корисниците кои ја прегледуваат.',
 	'stablepages-none' => 'Нема страници во оваа листа',
 	'stablepages-config' => 'Конфигурација',
+	'stablepages-prec-none' => 'без предност',
+	'stablepages-prec-quality' => 'предност на квалитет',
+	'stablepages-prec-pristine' => 'предност на беспрекорност',
+	'stablepages-precedence' => 'Предност:',
 );
 
 /** Malayalam (മലയാളം)

@@ -1133,6 +1133,7 @@ $messages['pdc'] = array(
  * @author Jwitos
  * @author Leinad
  * @author Sp5uhe
+ * @author ToSter
  * @author Wpedzich
  */
 $messages['pl'] = array(
@@ -1147,7 +1148,7 @@ Edycje wykonane przez doświadczonych użytkowników są uznawane za przejrzane.
 Średni czas oczekiwania na sprawdzenie edycji wykonanych przez ''niezalogowanych użytkowników'' wynosi '''$1''', a mediana '''$3'''.
 $4
 Średnie opóźnienie dla [[Special:OldReviewedPages|oczekujących na przejrzenie edycji]] wynosi '''$2'''.
-Strony z takimi edycjami uznawane są za ''zdezaktualizowane''. Za ''zsynchronizowane'' uznawane są strony jeśli posiadają w historii [[{{MediaWiki:Validationpage}}|wersję oznaczoną]], ale ostatnio wykonana edycja jest wersją roboczą.
+Strony z takimi edycjami uznawane są za ''zdezaktualizowane''. Za ''zsynchronizowane'' uznawane są strony, jeśli posiadają w historii [[{{MediaWiki:Validationpage}}|wersję oznaczoną]], ale ostatnio wykonana edycja jest wersją roboczą.
 Wersja oznaczona strony to najnowsza wersja, która została zaakceptowana jako domyślnie prezentowana wszystkim czytelnikom.",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',

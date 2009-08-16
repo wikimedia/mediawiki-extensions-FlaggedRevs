@@ -711,14 +711,14 @@ $messages['ja'] = array(
 	'unreviewed-legend' => '未査読記事を一覧',
 	'unreviewed-category' => 'カテゴリ:',
 	'unreviewed-diff' => '査読',
-	'unreviewed-unwatched' => '(未ウォッチ)',
-	'unreviewed-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
+	'unreviewed-unwatched' => '（未ウォッチ）',
+	'unreviewed-watched' => '（$1人の活動中の{{PLURAL:$1|利用者}}がウォッチ）',
 	'unreviewed-list' => 'これは査読を受けていない記事の一覧です。',
 	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
-	'unreviewed-viewing' => '(査読中)',
-	'unreviewed-hours' => '($1 時間)',
-	'unreviewed-days' => '($1 日)',
-	'unreviewed-recent' => '(1時間未満)',
+	'unreviewed-viewing' => '（査読中）',
+	'unreviewed-hours' => '（$1 時間）',
+	'unreviewed-days' => '（$1 日）',
+	'unreviewed-recent' => '（1時間未満）',
 );
 
 /** Jutish (Jysk)
@@ -880,6 +880,7 @@ $messages['lzh'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
@@ -892,6 +893,10 @@ $messages['mk'] = array(
 	'unreviewed-watched' => '($1 {{PLURAL:$1|активен корисник ја набљудува|активни корисници ја набљудуваат}})',
 	'unreviewed-list' => 'Оваа страница прикажува статии кои не се прегледани.',
 	'unreviewed-none' => 'Во моментов не постојат страници кои ги задоволуваат овие критериуми',
+	'unreviewed-viewing' => '(во фаза на проверување)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|час|часа}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|ден|дена}})',
+	'unreviewed-recent' => '(помалку од 1 час)',
 );
 
 /** Malayalam (മലയാളം)
@@ -1491,8 +1496,8 @@ $messages['zh-hans'] = array(
 	'unreviewed-legend' => '列示未复审之内容页',
 	'unreviewed-category' => '分类:',
 	'unreviewed-diff' => '更改',
-	'unreviewed-unwatched' => '(未看)',
-	'unreviewed-watched' => '（$1位活跃用户正在监视)',
+	'unreviewed-unwatched' => '（未看）',
+	'unreviewed-watched' => '（$1位活跃用户正在监视）',
 	'unreviewed-list' => '这一页列示出还未复审或视察的页面修订。',
 	'unreviewed-none' => '这里现时没有页面合乎这些条件',
 );
@@ -1504,8 +1509,8 @@ $messages['zh-hant'] = array(
 	'unreviewed-legend' => '列示未複審之內容頁',
 	'unreviewed-category' => '分類:',
 	'unreviewed-diff' => '更改',
-	'unreviewed-unwatched' => '(未看)',
-	'unreviewed-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}正在看)',
+	'unreviewed-unwatched' => '（未看）',
+	'unreviewed-watched' => '（$1{{PLURAL:$1|位用戶|位用戶}}正在看）',
 	'unreviewed-list' => '這一頁列示出還未複審或視察的文章修訂。',
 	'unreviewed-none' => '這裏現時沒有頁面合乎這些條件',
 );
