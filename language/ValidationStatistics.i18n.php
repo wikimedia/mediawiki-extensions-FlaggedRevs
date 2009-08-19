@@ -1364,10 +1364,13 @@ $messages['sr-el'] = array(
  * @author Boivie
  * @author M.M.S.
  * @author Rotsee
+ * @author Skalman
  */
 $messages['sv'] = array(
 	'validationstatistics' => 'Valideringsstatistik',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|redaktörsrättigheter]] och '''$2''' {{PLURAL:$2|användare|användare}} med [[{{MediaWiki:Validationpage}}|granskningsrättigheter]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|redaktörsrättigheter]] och '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|användare|användare}} med [[{{MediaWiki:Validationpage}}|granskningsrättigheter]].
+
+Redaktörer och granskare är etablerade användare som kan granska sidversioner.",
 	'validationstatistics-time' => "''Följande data är cachad och kan vara inaktuell.''
 
 Genomsnittlig väntan för redigeringar av ''oinloggade användare'' för granskning är '''$1'''; medianen är '''$3'''.

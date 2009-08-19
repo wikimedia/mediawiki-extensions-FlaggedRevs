@@ -1324,6 +1324,7 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Kiranmayee
  * @author Veeven
  * @author వైజాసత్య
  */
@@ -1334,7 +1335,7 @@ $messages['te'] = array(
 	'unreviewed-diff' => 'సమీక్షించండి',
 	'unreviewed-unwatched' => '(వీక్షణలో లేనివి)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|క్రియాశీల వాడుకరి|గురు క్రియాశీల వాడుకరులు}} వీక్షిస్తున్నారు)',
-	'unreviewed-list' => 'ఈ పేజీలో సమీక్షించని వ్యాసాలు లేదా కొత్త, సమీక్షించని కూర్పులున్న వ్యాసాలు ఉంటాయి.',
+	'unreviewed-list' => 'ఈ పేజీలో సమీక్షించని వ్యాసాల జాబితా ప్రదర్సిన్పబడుతోంది.',
 	'unreviewed-viewing' => '(సమీక్షలో ఉంది)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',

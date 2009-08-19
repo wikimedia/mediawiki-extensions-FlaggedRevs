@@ -761,14 +761,15 @@ $messages['pl'] = array(
 
 /** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
+ * @author Dragonòt
  */
 $messages['pms'] = array(
-	'stableversions' => 'Version stàbij',
+	'stableversions' => 'Varda le version stàbij',
 	'stableversions-leg1' => 'Fé na lista dle version aprovà ëd na pàgina',
 	'stableversions-page' => 'Nòm dla pàgina',
 	'stableversions-none' => "[[:$1]] a l'ha pa gnun-a version revisionà.",
-	'stableversions-list' => "Costa-sì a l'é na lista ëd version ëd [[:$1]] ch'a son ëstaite revisionà:",
-	'stableversions-review' => 'Revisionà dël <i>$1</i>',
+	'stableversions-list' => "Costa-sì a l'é na lista ëd version ëd {{PLURAL:$2|na revision|le revision}} ëd [[:$1]] ch'a {{PLURAL:$2|l'é stàita|son ëstàite}}  revisionà:",
+	'stableversions-review' => 'Revisionà dël <i>$1</i> da $2',
 );
 
 /** Pashto (پښتو)

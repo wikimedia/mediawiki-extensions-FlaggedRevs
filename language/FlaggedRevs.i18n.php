@@ -11320,9 +11320,9 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} can
 Par declassar na version, segna tuti i canpi come "Non aprovà".',
 	'revreview-update' => "Par piaser [[{{MediaWiki:Validationpage}}|esamina]] tuti i canbiamenti ''(mostra qua soto)'' fati da quando la version stabile la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà].<br />
 '''Alcuni template e/o imagini i xe stà canbià:'''",
-	'revreview-update-includes' => "'''Alcuni template o imagini le xe stà agiornà:'''",
+	'revreview-update-includes' => "'''Alcuni template o file i xe stà agiornà:'''",
 	'revreview-update-none' => "Par piaser [[{{MediaWiki:Validationpage}}|esamina]] tuti i canbiamenti ''(mostra qua soto)'' fati da quando la version stabile la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà].",
-	'revreview-update-use' => "'''OCIO:''' Se qualchedun de sti template o imagini el gà na version stabile, alora el xe xà doparà in te la version stabile de sta pagina.",
+	'revreview-update-use' => "'''OCIO:''' Se qualchedun de sti template o file el gà na version stabile, alora el xe xà doparà in te la version stabile de sta pagina.",
 	'revreview-diffonly' => "''Par riesaminar la pagine, struca el colegamento \"revision corente\" e dòpara el modulo de riesame.''",
 	'revreview-visibility' => "'''Sta pagina la gà na [[{{MediaWiki:Validationpage}}|version stabile]] ajornà; le inpostassion de stabilità de pàxena le pol èssar [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configuràe].'''",
 	'revreview-revnotfound' => "La version richiesta de ła pàxena no la xè mìa stà catà.

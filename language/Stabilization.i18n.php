@@ -1391,14 +1391,16 @@ Nulle configuration es possibile.',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  * @author Rex
  */
 $messages['id'] = array(
 	'stabilization-tab' => 'cek',
 	'stabilization' => 'Pengaturan versi stabil halaman',
-	'stabilization-text' => "'''Ubah seting berikut untuk mengatur versi stabil yang dipilih dan ditampilkan.'''
+	'stabilization-text' => "'''Ubah seting berikut untuk mengatur versi stabil dari [[:\$1|\$1]] telah dipilih dan ditampilkan.'''
 
-Saat mengubah konfigurasi ''pilihan versi stabil'', pastikan bahwa ada revisi yang dimaksud di halaman tersebut, jika tidak maka perubahannya tidak akan bermakna.",
+Saat mengubah  konfigurasi ''pilihan versi stabil'' gunakan revisi \"berkualitas\" atau \"murni\" secara default,  
+pastikan untuk memeriksa apakah ada yang benar-benar seperti revisi di halaman, jika ada perubahan akan sedikit berpengaruh.",
 	'stabilization-perm' => 'Akun Anda tak memiliki hak untuk mengganti konfigurasi versi stabil. Berikut konfigurasi terkini dari [[:$1|$1]]:',
 	'stabilization-page' => 'Nama halaman:',
 	'stabilization-leg' => 'Konfirmasi konfigurasi versi stabil',
@@ -2732,7 +2734,10 @@ $messages['stq'] = array(
  */
 $messages['su'] = array(
 	'stabilization' => 'Stabilisasi halaman',
-	'stabilization-text' => "'''Robah setélan di handap pikeun nangtukeun cara milih jeung némbongkeun vérsi stabil [[:$1|$1]].'''",
+	'stabilization-text' => "''Robah seting katut pikeun mengatur vérsi stabil ti [[:\$1|\$1]] geus dipilih sarta ditémbongkeun.'''
+
+Waktu ngarobah konfigurasi  ''pilihan vérsi stabil'' gunakeun revisi \"kualitas\" atawa \"murni\" sacara default,   
+pastikan pikeun mariksa naha aya anu bener-bener kawas revisi di kaca, lamun aya parobahan baris saeutik pangaruhna.",
 	'stabilization-perm' => 'Rekening anjeun teu boga kawenangan pikeun ngarobah konfigurasi vérsi stabil.
 Setélan kiwari pikeun [[:$1|$1]] nyaéta:',
 	'stabilization-page' => 'Ngaran kaca:',
@@ -2743,7 +2748,7 @@ mun euweuh, paké vérsi kiwari',
 	'stabilization-submit' => 'Konfirmasi',
 	'stabilization-notexists' => 'Euweuh kaca nu ngaranna “[[:$1|$1]]”.
 KOnfigurasi teu bisa dilarapkeun.',
-	'stabilization-comment' => 'Kamandang:',
+	'stabilization-comment' => 'Alesan:',
 	'stabilization-expiry' => 'Kadaluwarsa:',
 	'stabilization-def-short' => 'Buhun',
 	'stabilization-def-short-0' => 'Kiwari',

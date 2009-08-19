@@ -371,6 +371,15 @@ $messages['pl'] = array(
 	'qualityoversight-legend' => 'Szukaj w rejestrze oznaczania wersji',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'qualityoversight' => 'Supervision ëd la qualità',
+	'qualityoversight-list' => 'Sta pàgina-sì a lista le aprovassion e mancà aprovassion pì ressente dle revision',
+	'qualityoversight-legend' => 'A serca ij registr ëd le revision ressente',
+);
+
 /** Portuguese (Português)
  * @author 555
  */
