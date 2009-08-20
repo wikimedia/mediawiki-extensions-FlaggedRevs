@@ -1457,7 +1457,14 @@ EOT;
 	}
 	
 	public static function addToHistQuery( $pager, &$queryInfo ) {
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $pager->mPageHistory->getTitle() );
+		if( isset( $pager->mPageHistory ) ) {
+			// 1.15 or before
+			$historyPage = $pager->mPageHistory;
+		} else {
+			// 1.16 after r55168
+			$historyPage = $pager->historyPage;
+		}
+		$flaggedArticle = FlaggedArticle::getTitleInstance( $historyPage->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			$queryInfo['tables'][] = 'flaggedrevs';
