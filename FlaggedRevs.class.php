@@ -648,9 +648,10 @@ class FlaggedRevs {
 			if( $currentOutput == false ) {
 				$rev = Revision::newFromTitle( $article->getTitle() );
 				$text = $rev ? $rev->getText() : false;
+				$id = $rev ? $rev->getId() : null;
 				$title = $article->getTitle();
 				$options = self::makeParserOptions();
-				$currentOutput = $wgParser->parse( $text, $title, $options );
+				$currentOutput = $wgParser->parse( $text, $title, $options, /*$lineStart*/true, /*$clearState*/true, $id );
 				# Might as well save the cache while we're at it
 				if( $wgEnableParserCache )
 					$parserCache->save( $currentOutput, $article, $wgUser );
