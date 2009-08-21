@@ -117,6 +117,17 @@ $messages['bg'] = array(
 	'stablepages-config' => 'Конфигурация',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'stablepages' => 'Pajennoù stabil',
+	'stablepages-stable' => 'stumm stabil',
+	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm stabil da bajenn danvez enni, dre ziouer.",
+	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
+	'stablepages-config' => 'Kefluniañ',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */

@@ -493,6 +493,7 @@ $messages['af'] = array(
 	'revreview-log' => 'Opmerking:',
 	'revreview-patrol' => 'Merk die wysiging as gekontroleer',
 	'revreview-patrol-title' => 'Merk as gekontroleer',
+	'revreview-submit' => 'Dien in',
 	'revreview-toggle-title' => 'wys/versteek details',
 	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
 	'revreview-filter-all' => 'Alles',
@@ -1733,9 +1734,9 @@ $messages['br'] = array(
 	'hist-quality' => 'perzhded ar stumm',
 	'hist-stable' => 'Stumm gwelet',
 	'review-diff2stable' => "Gwelet ar c'hemmoù etre ar stummoù stabil hag ar stummoù a-vremañ.",
-	'review-logentry-app' => 'Reizhet [[$1]]',
+	'review-logentry-app' => 'en deus adwelet r$2 eus [[$1]]',
 	'review-logentry-dis' => "Stumm dic'hizet eus [[$1]]",
-	'review-logentry-id' => 'Stumm ID $1',
+	'review-logentry-id' => 'gwelet',
 	'review-logpage' => 'Marilh an adweladennoù',
 	'review-logpagetext' => "Setu marilh ar c'hemmoù ber degaset [[{{MediaWiki:Validationpage}}|d'ar statud aprouiñ]] an adweladennoù.
 Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pajennoù aprouet.",
@@ -1805,7 +1806,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-style-2' => 'Mat',
 	'revreview-style-3' => 'Krenn',
 	'revreview-style-4' => 'Heverk',
-	'revreview-submit' => 'Enrollañ an adweladenn',
+	'revreview-submit' => 'Kas',
 	'revreview-toggle-title' => 'diskouez/kuzhat munudoù',
 	'revreview-update' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm stabil diwezhañ.
 
@@ -1814,10 +1815,11 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-revnotfound' => "N'eo ket bet kavet stumm kent ar bajenn-mañ. Gwiriit an URL lakaet ganeoc'h evit mont d'ar bajenn-mañ.",
 	'rights-editor-autosum' => 'emanvet',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
+	'revreview-filter-approved' => 'Aprouet',
 	'tooltip-ca-current' => "Gwelet brouilhed ar bajenn-mañ evel m'emañ evit poent",
 	'tooltip-ca-stable' => 'Gwelet stumm stabil ar bajenn',
 	'tooltip-ca-default' => 'Arventennoù Kontrolliñ ar Berzhded',
-	'validationpage' => '{{ns:help}} : Gwiriekaat ar pennad',
+	'validationpage' => '{{ns:help}}:Kadarnaat ar bajenn',
 );
 
 /** Bosnian (Bosanski)
@@ -2114,6 +2116,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Jens Liebenau
  * @author MF-Warburg
  * @author Melancholie
  * @author Merlissimo
@@ -2176,7 +2179,7 @@ Der [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] enthält [{{fullurl:{{FULLP
 Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] können vorgenommen worden sein.',
 	'revreview-basic-same' => "Dies ist die letzte [[{{MediaWiki:Validationpage}}|gesichtete]] Version, ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} zeige alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>. Die Seite kann '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bearbeitet]''' werden.",
 	'revreview-basic-source' => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gesichtete Version] dieser Seite, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben] am <i>$2</i>, basiert auf dieser Version.',
-	'revreview-blocked' => 'Du kannst diese Version nicht markieren, da dein Benutzerkonto zur Zeit gesperrt ist ([$1 Details])',
+	'revreview-blocked' => 'Du kannst diese Version nicht markieren, da dein Benutzerkonto zurzeit gesperrt ist ([$1 Details]).',
 	'revreview-changed' => "'''Die Aktion konnte nicht auf diese Version von [[:$1|$1]] angewendet werden.'''
 
 Eine Vorlage oder eine Datei wurden ohne spezifische Versionsnummer angefordert.
@@ -2312,6 +2315,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
+ * @author Jens Liebenau
  * @author Umherirrender
  */
 $messages['de-formal'] = array(
@@ -2319,7 +2323,7 @@ $messages['de-formal'] = array(
 	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf Ihrer Beobachtungsliste. '''Ihre Aufmerksamkeit ist nötig!'''",
 	'revreview-auto-w' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-auto-w-old' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
-	'revreview-blocked' => 'Sie können diese Version nicht markieren, da Ihr Benutzerkonto zur Zeit gesperrt ist ([$1 Details])',
+	'revreview-blocked' => 'Sie können diese Version nicht markieren, da Ihr Benutzerkonto zurzeit gesperrt ist ([$1 Details]).',
 	'revreview-main' => 'Sie müssen eine Version zur Markierung auswählen.
 
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
@@ -3313,6 +3317,7 @@ $messages['fi'] = array(
 	'revreview-toggle-title' => 'näytä tai piilota yksityiskohdat',
 	'revreview-revnotfound' => 'Pyytämääsi versiota ei löydy. Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-movestable' => 'Siirrä vakaat sivut',
+	'specialpages-group-quality' => 'Laadunvalvonta',
 	'revreview-filter-all' => 'Kaikki',
 	'revreview-filter-stable' => 'vakaat',
 	'revreview-filter-approved' => 'Hyväksytty',

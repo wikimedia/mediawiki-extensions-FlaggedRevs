@@ -452,14 +452,25 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'stabilization-page' => 'Anv ar bajenn :',
+	'stabilization-def1' => "Ar stumm stabil; ma n'eus hini ebet, lakaat ar stumm red",
+	'stabilization-def2' => 'Ar stumm red',
 	'stabilization-submit' => 'Kadarnaat',
-	'stabilization-comment' => 'Notenn :',
+	'stabilization-notexists' => 'N\'eus pajenn ebet anvet "[[:$1|$1]]".
+N\'haller ket kefluniañ netra.',
+	'stabilization-notcontent' => 'N\'hall ket ar bajenn "[[:$1|$1]]" bezañ adwelet.
+N\'haller ket kefluniañ netra.',
+	'stabilization-comment' => 'Abeg :',
+	'stabilization-otherreason' => 'Abeg all',
 	'stabilization-expiry' => "A ya d'e dermen",
+	'stabilization-othertime' => 'Mare all',
 	'stabilization-sel-short' => 'Kentwir',
 	'stabilization-sel-short-0' => 'Perzhded',
 	'stabilization-sel-short-1' => 'Hini ebet',
 	'stabilization-def-short' => 'Dre ziouer',
+	'stabilization-def-short-0' => 'Red',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_expiry_invalid' => 'Direizh eo an deiziad termen.',
+	'stabilization-review' => 'Adwelet ar stumm red',
 );
 
 /** Bosnian (Bosanski)

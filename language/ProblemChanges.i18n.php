@@ -21,6 +21,13 @@ $messages['qqq'] = array(
 	'problemchanges-category' => '{{Identical|Category}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'problemchanges-category' => 'Kategorie:',
+);
+
 /** Arabic (العربية)
  * @author OsamaK
  */
@@ -61,13 +68,14 @@ $messages['ca'] = array(
 );
 
 /** German (Deutsch)
+ * @author Jens Liebenau
  * @author Khaledelmansoury
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'problemchanges' => 'Nachprüfung der markierten Veränderungen',
 	'problemchanges-legend' => 'Liste der nachgeprüften Seiten mit markierten Bearbeitungen, für die noch eine Nachprüfung notwendig ist',
-	'problemchanges-none' => 'Es gibt zur Zeit keine Seiten, die diese Kriterien erfüllen',
+	'problemchanges-none' => 'Es gibt zurzeit keine Seiten, die diese Kriterien erfüllen.',
 	'problemchanges-category' => 'Kategorie:',
 );
 
@@ -343,6 +351,16 @@ $messages['pl'] = array(
 	'problemchanges-legend' => 'Lista przejrzanych stron z oznakowanymi wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'problemchanges' => 'Arvëdd ij cambi etichetà',
+	'problemchanges-legend' => 'Lista le pàgine revisionà con ëd le revision pendente ëd modìfiche etichetà',
+	'problemchanges-none' => 'A-i é pa al moment ëd pàgine che a sodisfo sto criteri-sì',
+	'problemchanges-category' => 'Categorìa:',
 );
 
 /** Portuguese (Português)

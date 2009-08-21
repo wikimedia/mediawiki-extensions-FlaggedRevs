@@ -63,6 +63,17 @@ $messages['be-tarask'] = array(
 	'unstablepages-config' => 'Канфігурацыя',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'unstablepages' => 'Pajennoù distabil',
+	'unstablepages-stable' => 'stumm stabil',
+	'unstablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit ma vefe diskwelet ar stumm brouilhed dre ziouer d'al lennerien.",
+	'unstablepages-none' => "N'eus pajenn ebet er roll-mañ",
+	'unstablepages-config' => 'Kefluniañ',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
