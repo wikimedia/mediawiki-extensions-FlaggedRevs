@@ -49,6 +49,16 @@ $messages['be-tarask'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'problemchanges' => "Adwelet ar c'hemmoù balizennet",
+	'problemchanges-legend' => "Rollañ ar pajennoù adwelet gant kemmoù balizennet a c'hortoz bezañ adlennet",
+	'problemchanges-none' => "N'eus pajenn ebet diouzh an dezverkoù-mañ evit poent",
+	'problemchanges-category' => 'Rummad :',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */

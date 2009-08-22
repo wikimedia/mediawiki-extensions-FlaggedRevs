@@ -38,6 +38,13 @@ $messages['qqq'] = array(
 	'stablepages-precedence' => '{{Flagged Revs}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'stablepages-config' => 'Voorkeure',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

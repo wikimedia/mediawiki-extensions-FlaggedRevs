@@ -28,6 +28,13 @@ $messages['qqq'] = array(
 {{Identical|Configuration}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'unstablepages-config' => 'Voorkeure',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

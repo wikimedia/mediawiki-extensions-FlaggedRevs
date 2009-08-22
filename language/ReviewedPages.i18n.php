@@ -38,6 +38,13 @@ Parameter $1 is the number of reviewed pages for use with PLURAL.',
 	'reviewedpages-best' => '{{Flagged Revs}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'reviewedpages-lev-2' => 'Uitgelig',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

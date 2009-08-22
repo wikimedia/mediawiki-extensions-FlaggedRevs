@@ -231,6 +231,27 @@ $messages['bg'] = array(
 	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'oldreviewedpages' => 'Pajennoù adlennet re bell zo',
+	'oldreviewedpages-legend' => 'Rollañ ar pajennoù adlennet gant stummoù da adwelet',
+	'oldreviewedpages-list' => 'War ar bajenn-mañ e kaver {{PLURAL:$1|ur bajenn adlennet|pajennoù adlennet}} zo bet degaset kemmoù enno abaoe.',
+	'oldreviewedpages-none' => "N'eus pajenn ebet diouzh an dezverkoù-mañ evit poent",
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|eur|eur}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|deiz|deiz}})',
+	'oldreviewedpages-recent' => "(1 eurvezh zo pe nebeutoc'h)",
+	'oldreviewed-category' => 'Rummad :',
+	'oldreviewed-watched' => 'War ma roll evezhiañ',
+	'oldreviewed-stable' => 'Stabilaet',
+	'oldreviewed-diff' => 'adlenn',
+	'oldreviewed-size' => 'Kemm brasañ (en oktedoù)',
+	'oldreviewedpages-unwatched' => '(anheuliet)',
+	'oldreviewedpages-watched' => '(pajenn heuliet gant $2 {{PLURAL:$1|implijer|implijer}} oberiant)',
+	'oldreviewedpages-viewing' => '(o vezañ adwelet)',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
