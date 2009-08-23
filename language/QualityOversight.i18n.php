@@ -75,6 +75,15 @@ $messages['bg'] = array(
 	'qualityoversight' => 'Качествен надзор',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'qualityoversight' => "Evezhiañ ouzh ar c'halite",
+	'qualityoversight-list' => 'Rollañ a ra ar bajenn-mañ asantadurioù ha dispriziadurioù diwezhañ ar stummoù.',
+	'qualityoversight-legend' => 'Klask marilhoù an adweladennoù diwezhañ',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
