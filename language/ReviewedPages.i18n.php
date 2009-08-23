@@ -925,7 +925,7 @@ $messages['sq'] = array(
 	'reviewedpages-lev-1' => 'Kualiteti',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -942,7 +942,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-best' => 'најбоља верзија',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(

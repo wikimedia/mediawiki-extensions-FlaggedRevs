@@ -495,6 +495,7 @@ $messages['af'] = array(
 	'revreview-log' => 'Opmerking:',
 	'revreview-patrol' => 'Merk die wysiging as gekontroleer',
 	'revreview-patrol-title' => 'Merk as gekontroleer',
+	'revreview-stable' => 'Stabiele bladsy',
 	'revreview-style-4' => 'Uitgelig',
 	'revreview-submit' => 'Dien in',
 	'revreview-toggle-title' => 'wys/versteek details',
@@ -7403,6 +7404,7 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Kurniasan
  */
 $messages['ms'] = array(
 	'editor' => 'Penyunting',
@@ -7425,7 +7427,7 @@ $messages['ms'] = array(
 	'hist-stable' => 'semakan dijenguk',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} dijenguk] oleh [[User:$3|$3]]',
 	'review-diff2stable' => 'Lihat perubahan antara semakan stabil dan semakan semasa',
-	'review-logentry-app' => 'memeriksa [[$1]]',
+	'review-logentry-app' => 'telah menyemak r$2 bagi [[$1]]',
 	'review-logentry-dis' => 'menggugurkan salah satu versi bagi [[$1]]',
 	'review-logentry-id' => 'ID semakan $1',
 	'review-logentry-diff' => 'beza dengan versi stabil',
@@ -9786,7 +9788,7 @@ $messages['sq'] = array(
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjehej.Ju lutem kontrolloni URL-in që përdorët për të ardhur tek kjo faqe.',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -9905,7 +9907,7 @@ $messages['sr-ec'] = array(
 	'validationpage' => '{{ns:help}}:Валидација чланка',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(

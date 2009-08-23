@@ -1178,7 +1178,7 @@ $messages['sk'] = array(
 	'oldreviewedpages-viewing' => '(kontroluje sa)',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  */
 $messages['sr-ec'] = array(
@@ -1192,7 +1192,7 @@ $messages['sr-ec'] = array(
 	'oldreviewedpages-unwatched' => '(ненадгледано)',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(

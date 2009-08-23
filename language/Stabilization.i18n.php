@@ -2635,7 +2635,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 	'stabilize-expiring' => 'skadon $1 (UTC)',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -2673,7 +2673,7 @@ $messages['sr-ec'] = array(
 	'stabilize-expiring' => 'истиче $1 (UTC)',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -3007,7 +3007,7 @@ Yapılandırma mümkün değil.',
 	'stabilization-review' => 'Geçerli sürümü gözden geçir',
 );
 
-/** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
  * @author Ерней
  */
 $messages['tt-cyrl'] = array(

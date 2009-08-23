@@ -864,7 +864,7 @@ $messages['sk'] = array(
 	'stableversions-review' => 'Skontroloval <i>$1</i> $2',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -878,7 +878,7 @@ $messages['sr-ec'] = array(
 	'stableversions-review' => 'Прегледано на <i>$1</i> од стране сарадника $2.',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(

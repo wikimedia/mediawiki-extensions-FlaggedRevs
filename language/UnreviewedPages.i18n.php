@@ -1246,7 +1246,7 @@ $messages['sq'] = array(
 	'unreviewed-category' => 'Kategoria:',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -1264,7 +1264,7 @@ $messages['sr-ec'] = array(
 	'unreviewed-viewing' => '(под прегледом)',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
