@@ -75,9 +75,12 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Arnobarnard
  * @author Naudefj
  */
 $messages['af'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|uur|ure}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dae}})',
 	'oldreviewedpages-recent' => '(minder as een uur)',
 	'oldreviewed-category' => 'Kategorie:',
 );
@@ -259,6 +262,8 @@ $messages['bs'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'oldreviewedpages-recent' => '(manje od 1 sata)',
+	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-stable' => 'Stabilizirano',
 );
 
 /** Catalan (Català)
@@ -1244,7 +1249,7 @@ $messages['te'] = array(
 	'oldreviewed-stable' => 'నిలకడబరిచినది',
 	'oldreviewed-diff' => 'రివ్యూ',
 	'oldreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
-	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
+	'oldreviewedpages-watched' => '($2 చేతన  {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)',
 	'oldreviewedpages-viewing' => '(రివ్యూలో వుంది )',
 );
 

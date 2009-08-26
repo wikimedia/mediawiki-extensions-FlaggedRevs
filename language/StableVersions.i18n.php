@@ -41,9 +41,11 @@ This message is used in the list of stable versions of a page (Special:Stablever
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Arnobarnard
  * @author Naudefj
  */
 $messages['af'] = array(
+	'stableversions' => 'Bekyk stabiele weergawes',
 	'stableversions-page' => 'Bladsynaam:',
 );
 
@@ -161,7 +163,11 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'stableversions' => 'Pogledaj stabilne verzije',
+	'stableversions-leg1' => 'Spisak pregledanih revizija stranice',
 	'stableversions-page' => 'Naslov stranice:',
+	'stableversions-none' => '"[[:$1]]" nema pregledanih revizija.',
+	'stableversions-list' => 'Ovo je spisak {{PLURAL:$2|jedne verzije|verzije|verzija}} od [[:$1]] {{PLURAL:$2|koja je pregledana|koje su pregledane}}:',
+	'stableversions-review' => 'Pregledano dana <i>$1</i> od strane $2',
 );
 
 /** Catalan (Català)

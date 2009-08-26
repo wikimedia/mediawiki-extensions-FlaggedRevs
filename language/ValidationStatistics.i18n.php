@@ -212,10 +212,14 @@ $4
 Prosječno kašnjenje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama]] je '''$2'''.
 Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sinhronizovanim'', ako je [[{{MediaWiki:Validationpage}}|stabilna verzija]] ujedno i trenutna verzija.
 Stabilna verzija je najnovija revizija stranice koja je provjerena i prikazuje se po prepostavljenom svim čitaocima.",
+	'validationstatistics-table' => "Statistike za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
+	'validationstatistics-stable' => 'Provjereno',
+	'validationstatistics-latest' => 'Sinhronizirano',
 	'validationstatistics-synced' => 'Sinhronizirano/provjereno',
 	'validationstatistics-old' => 'Zastarijelo',
+	'validationstatistics-utable' => 'Ispod je spisak 5 najboljih ocjenjivača u zadnjih sat vremena.',
 	'validationstatistics-user' => 'Korisnik',
 	'validationstatistics-reviews' => 'Pregledi',
 );

@@ -39,9 +39,12 @@ $messages['qqq'] = array(
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Arnobarnard
  * @author Naudefj
  */
 $messages['af'] = array(
+	'stablepages' => 'Stabiele bladsye',
+	'stablepages-stable' => 'stabiele weergawe',
 	'stablepages-config' => 'Voorkeure',
 );
 
@@ -140,6 +143,9 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'stablepages' => 'Stabilne stranice',
+	'stablepages-stable' => 'stabilna verzija',
+	'stablepages-none' => 'Nema stranica na ovom spisku',
+	'stablepages-config' => 'Podešavanje',
 );
 
 /** Catalan (Català)

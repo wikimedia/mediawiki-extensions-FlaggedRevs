@@ -174,8 +174,12 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'reviewedpages' => 'Provjerene stranice',
+	'reviewedpages-leg' => 'Spisak stranica po najvišem nivou',
 	'reviewedpages-list' => '{{PLURAL:$1|Slijedeća stranica je provjerena|Slijedeće stranice su provjerene}} do određenog nivoa',
 	'reviewedpages-none' => 'Nema stranica na ovom spisku',
+	'reviewedpages-all' => 'pregledane verzije',
+	'reviewedpages-best' => 'najkvalitetnija revizija',
 );
 
 /** Catalan (Català)

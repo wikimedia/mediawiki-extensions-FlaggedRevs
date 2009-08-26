@@ -29,9 +29,11 @@ $messages['qqq'] = array(
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Arnobarnard
  * @author Naudefj
  */
 $messages['af'] = array(
+	'unstablepages-stable' => 'stabiele weergawe',
 	'unstablepages-config' => 'Voorkeure',
 );
 
@@ -473,6 +475,14 @@ $messages['pl'] = array(
 	'unstablepages-text' => 'Poniżej znajduje się lista stron tak skonfigurowanych, by czytelnikom domyślnie prezentowana była ich wersja robocza.',
 	'unstablepages-none' => 'Brak stron na tej liście',
 	'unstablepages-config' => 'Konfiguracja',
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'unstablepages' => 'Pàgine anstàbij',
+	'unstablepages-config' => 'Configurassion',
 );
 
 /** Portuguese (Português)

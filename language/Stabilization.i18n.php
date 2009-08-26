@@ -3219,6 +3219,13 @@ $messages['vo'] = array(
 	'stabilize-expiring' => 'dulon jü $1 (UTC)',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'stabilization-comment' => 'אורזאַך:',
+);
+
 /** Yue (粵語)
  * @author Shinjiman
  */

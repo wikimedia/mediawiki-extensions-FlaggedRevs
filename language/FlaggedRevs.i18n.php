@@ -480,11 +480,14 @@ Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}<
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Arnobarnard
  * @author Naudefj
  */
 $messages['af'] = array(
 	'editor' => 'Redakteur',
+	'flaggedrevs-pref-UI' => 'Stabiele weergawe koppelvlak:',
 	'group-editor-member' => 'Redakteur',
+	'review-logentry-id' => 'bekyk',
 	'revreview-accuracy' => 'Akkuraatheid',
 	'revreview-accuracy-0' => 'Nie goedgekeur',
 	'revreview-accuracy-2' => 'Akkuraat',
@@ -500,8 +503,11 @@ $messages['af'] = array(
 	'revreview-submit' => 'Dien in',
 	'revreview-toggle-title' => 'wys/versteek details',
 	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
+	'right-movestable' => 'Skuif stabiele bladsye',
 	'revreview-filter-all' => 'Alles',
-	'revreview-statusfilter' => 'Status:',
+	'revreview-filter-stable' => 'stabiel',
+	'revreview-filter-approved' => 'Goedgekeur',
+	'revreview-statusfilter' => 'Status verandering:',
 	'revreview-typefilter' => 'Tipe:',
 );
 
@@ -1832,6 +1838,9 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 $messages['bs'] = array(
 	'editor' => 'Uređivač',
 	'prefs-flaggedrevs' => 'Stabilnost',
+	'flaggedrevs-prefs-watch' => 'Dodaj stranice koje sam pregledao na moj spisak praćenja',
+	'hist-quality' => 'provjerena revizija',
+	'review-logentry-id' => 'pregled',
 	'review-logentry-diff' => 'razlika od stabilne',
 	'revreview-accuracy' => 'Preciznost',
 	'revreview-depth' => 'Dubina',
@@ -6765,7 +6774,11 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Iwwerkuckte Säit]]'''",
 	'revreview-quick-invalid' => "'''Ongëlteg Versiounsnummer'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Aktuell Versioun]]''' (net iwwerkuckt)",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Qualitéitssäit]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung weisen]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Qualitéitssäit]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung weisen]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Qualitéitssäit]]'''",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Virbereedung]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Säit weisen]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vergläichen])",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Brouillon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Säit weisen]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vergläichen])",
 	'revreview-selected' => "Ausgewielte Versioune vun '''$1''':",
@@ -6782,6 +6795,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-submit' => 'Späicheren',
 	'revreview-submitting' => 'Iwwerdroen …',
 	'revreview-finished' => 'Iwwerliesen ofgeschloss!',
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn de Stanard-Säiteninhalt fir Notzer éischter wéi déi neiste Versioun.''",
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
 	'revreview-update-includes' => "'''Verschidde Schablounen/Fichiere goufen aktualiséiert:'''",
 	'revreview-update-use' => "'''Bemierkung:''' Wann eng vun dëse Schablounen/Fichieren eng stabil Versioun huet, da gëtt déi schonn an der stabiler Versioun vun dëser Säit benotzt.",
@@ -10381,7 +10395,8 @@ $messages['te'] = array(
 	'editor' => 'ఎడిటర్',
 	'flaggedrevs' => 'జండాపాతిన కూర్పులు',
 	'flaggedrevs-desc' => 'ఎడిటర్లకి/సమీక్షకులకి కూర్పులను సరిచూసే మరియు పేజీలను సుస్థిరపరచే వీలును కల్పిస్తుంది',
-	'prefs-flaggedrevs' => 'నిలకడ',
+	'flaggedrevs-pref-UI' => 'సుస్థిర కూర్పుఅంతర్ముఖము:',
+	'prefs-flaggedrevs' => 'సుస్థిరము',
 	'flaggedrevs-prefs-watch' => 'నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు',
 	'group-editor' => 'ఎడిటర్లు',
 	'group-editor-member' => 'ఎడిటర్',
@@ -10392,12 +10407,13 @@ $messages['te'] = array(
 	'group-autoreview' => 'ఆటో రివ్యూవర్స్',
 	'group-autoreview-member' => 'ఆటో రివ్యూవర్',
 	'grouppage-autoreview' => '{{ns:project}}:ఆటోరివ్యూవర్',
+	'hist-draft' => 'చిత్తుప్రతి కూర్పు',
 	'hist-quality' => 'నాణ్యమైన కూర్పు',
 	'hist-stable' => 'కనబడిన కూర్పు',
 	'review-diff2stable' => 'సుస్థిర మరియు ప్రస్తుత కూర్పుల మధ్య మార్పులను చూడండి',
 	'review-logentry-app' => '[[$1]] యొక్క $2 ప్రతిని సమీక్షించారు',
-	'review-logentry-dis' => '[[$1]] యొక్క ఓ కూర్పుని నిరాదరించారు',
-	'review-logentry-id' => 'కూర్పు ID $1',
+	'review-logentry-dis' => '[[$1]] యొక్క $2 కూర్పుని నిరాదరించారు',
+	'review-logentry-id' => 'చూడండి',
 	'review-logentry-diff' => 'సుస్థిర కూర్పుతో పోల్చిన వ్యత్యాసం',
 	'review-logpage' => 'సమీక్షల చిట్టా',
 	'review-logpagetext' => 'ఇది విషయపు పేజీల యొక్క వివిధ కూర్పుల [[{{MediaWiki:Validationpage}}|అనుమతి]] స్థితిలో జరిగిన మార్పుల చిట్టా.
@@ -10430,7 +10446,7 @@ $messages['te'] = array(
 	'revreview-log' => 'వ్యాఖ్య:',
 	'revreview-main' => 'సమీక్షించడానికి మీరు విషయపు పేజీ యొక్క ఓ నిర్ధిష్ట కూర్పుని ఎంచుకోవాలి.
 
-సమీక్షించని పేజీల జాబితా కొరకు [[Special:Unreviewedpages]]ని చూడండి.',
+[[Special:Unreviewedpages|సమీక్షించని పేజీల జాబితా]]ని చూడండి.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చిట్టచివరిగా కనబడిన ఈ కూర్పు] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} అన్నిటినీ చూపించు]) <i>$2</i> న  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|మార్పుకు|మార్పులకు}}] సమీక్ష {{PLURAL:$3|అవసరం|అవసరం}}.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చివరి నాణ్యతా కూర్పు] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} అన్నీ చూపించు]) <i>$2</i>న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించారు]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|1 మార్పు|$3 మార్పుల}}]ను సమీక్షించాలి.',
 	'revreview-noflagged' => "ఈ పేజీకి సమీక్షిత కూర్పులేమీ లేవు, కాబట్టి దీన్ని నాణ్యత కొరకు [[{{MediaWiki:Validationpage}}|సరిచూసి]] '''ఉండక'''పోవచ్చు.",
@@ -10443,14 +10459,16 @@ $messages['te'] = array(
 	'revreview-quality' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.',
 	'revreview-quality-same' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
 	'revreview-quality-title' => 'నాణ్యత పేజి',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|కనబడ్డాయి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతి]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన వ్యాసం]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని చూపించు]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|కనబడ్డాయి]]''' (సమీక్షించని మార్పులేమీ లేవు)",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని చూపించు]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని చూపించు]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]'''",
 	'revreview-quick-none' => "'''ప్రస్తుత''' (సమీక్షిత కూర్పులు లేవు)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ప్రతిని చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|మార్పు|మార్పులు}}])",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]''' (సమీక్షించని మార్పులు లేవు)",
-	'revreview-quick-see-basic' => "'''ప్రతి''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర పేజీని చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|మార్పు|మార్పులు}}])",
-	'revreview-quick-see-quality' => "'''ప్రతి''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర పేజీ చూడండి]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|మార్పు|మార్పులు}}])",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత పేజి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతిని చూడండి]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత పేజి]]''' (సమీక్షించని మార్పులు లేవు)",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]] 
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} తేడాలు చూడు])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]] 
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} తేడాలు చూడు])",
 	'revreview-selected' => "'''$1''' యొక్క ఎంచుకున్న కూర్పు:",
 	'revreview-source' => 'ప్రతి మూలం',
 	'revreview-stable' => 'సుస్థిర పేజీ',
@@ -10461,18 +10479,18 @@ $messages['te'] = array(
 	'revreview-style-2' => 'మంచి',
 	'revreview-style-3' => 'క్లుప్తం',
 	'revreview-style-4' => 'విశేషనీయం',
-	'revreview-submit' => 'సమీక్షని దాఖలు చెయ్యండి',
+	'revreview-submit' => 'దాఖలుచెయ్యి',
 	'revreview-finished' => 'రివ్యూ పూర్తిఅయింది',
 	'revreview-failed' => 'రివ్యూ తప్పింది',
-	'revreview-text' => 'పేజీలో విషయంగా కొత్త కూర్పులు కాకుండా సుస్థిర కూర్పులు కనిపిస్తాయి.',
+	'revreview-text' => 'కొత్త కూర్పులు కాకుండా [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పులు ]]కనిపిస్తాయి.',
 	'revreview-toggle-title' => 'వివరాలను చూపించు/దాచు',
 	'revreview-toolow' => 'ఓ కూర్పును సమీక్షించినట్లుగా భావించాలంటే కింద ఇచ్చిన గుణాలన్నిటినీ "సమ్మతించలేదు" కంటే ఉన్నతంగా రేటు చెయ్యాలి.',
 	'revreview-update' => "సుస్థిర కూర్పుని [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
 
-'''కొన్ని మూసలు/బొమ్మలను తాజాకరించారు:'''",
-	'revreview-update-includes' => "'''కొన్ని మూసలు/బొమ్మలను తాజాకరించారు:'''",
+'''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
+	'revreview-update-includes' => "'''కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:'''",
 	'revreview-update-none' => "సుస్థిర కూర్పుని [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత చేసిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].",
-	'revreview-visibility' => 'ఈ పేజీకి ఓ [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాన్ని [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].',
+	'revreview-visibility' => "'''ఈ పేజీకి ఒక క్రొత్త [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాని స్థిరత్వ సెట్టింగులను [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].'''",
 	'revreview-revnotfound' => 'మీరడిగిన పేజీ పాత కూర్పు దొరకలేదు. ఆ పేజీ కోసం మీరు వాడిన URLను సరిచూసుకోండి.',
 	'right-autoreview' => 'కూర్పులను గమనించినట్లుగా ఆటోమాటిగ్గా గుర్తించు',
 	'right-movestable' => 'స్థిరమైన పేజీలను తరలించు',
@@ -10487,6 +10505,9 @@ $messages['te'] = array(
 సుస్థిరమైన పేజీల యొక్క జాబితాని [[Special:StablePages|స్థిరమైన పేజీల జాబితా]] వద్ద చూడవచ్చు.',
 	'revreview-filter-all' => 'అన్నీ',
 	'revreview-filter-stable' => 'నిలకడ',
+	'revreview-filter-approved' => 'అనుమతించబడినది',
+	'revreview-filter-reapproved' => 'తిరిగి అనుతించబడినవి',
+	'revreview-filter-unapproved' => 'అనుమతించబడనివి',
 	'revreview-filter-auto' => 'ఆటోమాటిక్',
 	'revreview-filter-manual' => 'మాన్యువల్',
 	'revreview-statusfilter' => 'స్థితి మార్పు:',
