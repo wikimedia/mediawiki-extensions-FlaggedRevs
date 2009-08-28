@@ -259,11 +259,21 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'oldreviewedpages' => 'Zastarijele pregledane stranice',
+	'oldreviewedpages-legend' => 'Spisak pregledanih stranica sa revizijama koje čekaju na provjeru',
+	'oldreviewedpages-list' => 'Ova stranica prikazuje {{PLURAL:$1|pregledanu stranicu koja ima|pregledane stranice koje imaju}} izmjene na čekanju.',
+	'oldreviewedpages-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'oldreviewedpages-recent' => '(manje od 1 sata)',
 	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-watched' => 'Na moj spisku praćenja',
 	'oldreviewed-stable' => 'Stabilizirano',
+	'oldreviewed-diff' => 'pregled',
+	'oldreviewed-size' => 'Najveća izmjena (bajta):',
+	'oldreviewedpages-unwatched' => '(nepregledano)',
+	'oldreviewedpages-watched' => '($2 {{PLURAL:$1|aktivni korisnik|aktivna korisnika|aktivnih korisnika}} pregleda)',
+	'oldreviewedpages-viewing' => '(u provjeri)',
 );
 
 /** Catalan (Català)

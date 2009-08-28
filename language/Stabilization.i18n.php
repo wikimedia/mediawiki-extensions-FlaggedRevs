@@ -477,18 +477,44 @@ N\'haller ket kefluniañ netra.',
  * @author CERminator
  */
 $messages['bs'] = array(
+	'stabilization-tab' => 'konfig',
+	'stabilization' => 'Stabilizacija stranice',
+	'stabilization-text' => "'''Promijenite postavke ispod da biste podesili kako će se stabilna verzija stranice [[:$1|$1]] odabrati i prikazati.'''
+
+Kada mijenjate konfiguraciju ''odabir stabilne verzije''  za korištenje ''kvalitetnih'' ili ''starih'' revizija po prepostavljenom, provjerite da li zaista postoje takve revizije stranice, u suprotnom će promjena imati malo uticaja.",
+	'stabilization-perm' => 'Vaš račun nema dopuštenje da mijenja konfiguraciju stabilne verzije.
+Ovdje su trenutne postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Naslov stranice:',
+	'stabilization-leg' => 'Potvrdite postavke stabilne verzije',
+	'stabilization-select' => 'Odabir stabilne verzije',
+	'stabilization-select1' => 'Posljednja kvalitetna revizija, ako je nema, onda zadnja provjerena',
+	'stabilization-select2' => 'Posljednja pregledana revizija, bez obzira na nivo provjere',
+	'stabilization-select3' => 'Posljednja stara revizija, ako je nema, onda posljednja kvalitetna ili pregledana',
+	'stabilization-def' => 'Revizija prikazana kao pretpostavljena stranica',
+	'stabilization-def1' => 'Stabilna revizija, ako je nema, onda trenutna',
 	'stabilization-def2' => 'Trenutna revizija',
+	'stabilization-restrict' => 'Ograničenja za automatske preglede',
 	'stabilization-restrict-none' => 'Bez posebnih ograničenja',
 	'stabilization-submit' => 'Potvrdi',
+	'stabilization-notexists' => 'Nema stranice pod nazivom "[[:$1|$1]]".
+Nije moguća konfiguracija.',
+	'stabilization-notcontent' => 'Stranica "[[:$1|$1]]" ne može biti provjerena.
+Nije moguća konfiguracija.',
 	'stabilization-comment' => 'Razlog:',
 	'stabilization-otherreason' => 'Ostali razlozi',
 	'stabilization-expiry' => 'Ističe:',
+	'stabilization-othertime' => 'Ostali period',
+	'stabilization-sel-short' => 'Prvenstvo',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'nema',
+	'stabilization-sel-short-2' => 'Zastarijelo',
 	'stabilization-def-short' => 'Standardno',
 	'stabilization-def-short-0' => 'Trenutna',
+	'stabilization-def-short-1' => 'Stabilno',
+	'stabilize_expiry_invalid' => 'Nevaljan datum isticanja.',
+	'stabilize_expiry_old' => 'Ovo vrijeme isticanja je već prošlo.',
 	'stabilize-expiring' => 'ističe $1 (UTC)',
+	'stabilization-review' => 'Provjerite trenutnu verziju',
 );
 
 /** Catalan (Català)
@@ -2493,6 +2519,7 @@ Non ge stonne le configurazione.',
 );
 
 /** Russian (Русский)
+ * @author Claymore
  * @author Drbug
  * @author Ferrer
  * @author Putnik
@@ -2526,12 +2553,12 @@ $messages['ru'] = array(
 	'stabilization-expiry' => 'Истекает:',
 	'stabilization-othertime' => 'Другое время',
 	'stabilization-sel-short' => 'Порядок следования',
-	'stabilization-sel-short-0' => 'Выверенная',
-	'stabilization-sel-short-1' => 'Нет',
-	'stabilization-sel-short-2' => 'Нетронутая',
-	'stabilization-def-short' => 'По умолчанию',
-	'stabilization-def-short-0' => 'Текущая',
-	'stabilization-def-short-1' => 'Стабильная',
+	'stabilization-sel-short-0' => 'выверенная',
+	'stabilization-sel-short-1' => 'нет',
+	'stabilization-sel-short-2' => 'безупречная',
+	'stabilization-def-short' => 'по умолчанию',
+	'stabilization-def-short-0' => 'текущая',
+	'stabilization-def-short-1' => 'стабильная',
 	'stabilize_expiry_invalid' => 'Ошибочная дата истечения.',
 	'stabilize_expiry_old' => 'Указанное время окончания действия уже прошло.',
 	'stabilize-expiring' => 'истекает $1 (UTC)',

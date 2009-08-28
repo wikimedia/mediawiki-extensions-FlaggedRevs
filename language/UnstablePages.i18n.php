@@ -482,6 +482,9 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'unstablepages' => 'Pàgine anstàbij',
+	'unstablepages-stable' => 'vërsion stàbila',
+	'unstablepages-text' => 'Sota a-i é na lista ëd pàgine configurà manualment për mosté la vërsion sbòss com ël contnù ëd default ëd la pàgina për ij visitador.',
+	'unstablepages-none' => 'A-i é pa gnun-e pàgine an sta lista-sì',
 	'unstablepages-config' => 'Configurassion',
 );
 

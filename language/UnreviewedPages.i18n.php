@@ -210,7 +210,19 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'right-unreviewedpages' => 'Pregled [[Special:UnreviewedPages|spiska neprovjerenih stranica]]',
+	'unreviewedpages' => 'Neprovjerene stranice',
+	'unreviewed-legend' => 'Spisak nepregledanih stranica sadržaja',
 	'unreviewed-category' => 'Kategorija:',
+	'unreviewed-diff' => 'pregled',
+	'unreviewed-unwatched' => '(nepraćeno)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivni korisnik|aktivna korisnika|aktivnih korisnika}} pregleda)',
+	'unreviewed-list' => 'Ova stranica prikazuje stranice sadržaja koje još nisu pregledane.',
+	'unreviewed-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
+	'unreviewed-viewing' => '(u provjeri)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'unreviewed-recent' => '(manje od 1 sata)',
 );
 
 /** Catalan (Català)

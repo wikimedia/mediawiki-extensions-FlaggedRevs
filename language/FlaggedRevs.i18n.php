@@ -6743,6 +6743,7 @@ $messages['lb'] = array(
 	'revreview-accuracy-4' => 'Exzellent',
 	'revreview-auto' => '(automatesch)',
 	'revreview-auto-w-old' => "Dir ännert eng nogekuckte Versioun: Ännerunge ginn '''automatesch nogekuckt'''.",
+	'revreview-basic-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nogekuckt Versioun] vun dëser Säit [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-blocked' => 'Dir kënnt dës Versioun net nokucke well Äre Benotzerkont elo gespaart ass ([$1 Detailer])',
 	'revreview-current' => 'Virbereedung',
 	'revreview-depth' => 'Déift',

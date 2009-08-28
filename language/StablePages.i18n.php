@@ -144,8 +144,13 @@ $messages['br'] = array(
 $messages['bs'] = array(
 	'stablepages' => 'Stabilne stranice',
 	'stablepages-stable' => 'stabilna verzija',
+	'stablepages-text' => 'Ispod je spisak stranica koje su ručno postavljene da prikazuju stabilnu verziju kao pretpostavljenu stranicu sadržaja za čitaoce.',
 	'stablepages-none' => 'Nema stranica na ovom spisku',
 	'stablepages-config' => 'Podešavanje',
+	'stablepages-prec-none' => 'bez prednosti',
+	'stablepages-prec-quality' => 'poredak po kvalitetu',
+	'stablepages-prec-pristine' => 'prvobitni poredak',
+	'stablepages-precedence' => 'Prednost:',
 );
 
 /** Catalan (Català)
@@ -716,6 +721,7 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (Русский)
+ * @author Claymore
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -723,7 +729,7 @@ $messages['ru'] = array(
 	'stablepages-stable' => 'стабильная версия',
 	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ стабильной версии по умолчанию для читателей.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
-	'stablepages-config' => 'Настройка',
+	'stablepages-config' => 'настройка',
 	'stablepages-prec-none' => 'без приоритета',
 	'stablepages-prec-quality' => 'приоритет качества',
 	'stablepages-prec-pristine' => 'приоритет изначальности',
