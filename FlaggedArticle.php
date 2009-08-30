@@ -700,51 +700,52 @@ class FlaggedArticle extends Article {
 				$wgOut->addHTML( $tag . $warning );
 			}
 
-			if( $frev->getRevId() == $revId )
-				return true; // nothing to show here
-			# Show diff to stable, to make things less confusing.
-			if( !$wgUser->isAllowed('review') && !$this->showStableByDefaultUser() ) {
-				return true;
-			}
-			# Don't show for old revisions, diff, preview, or undo.
-			if( $editPage->oldid || $editPage->section === "new"
-				|| in_array($editPage->formtype,array('diff','preview')) )
-			{
-				return true; // nothing to show here
-			}
-			
-			# Conditions are met to show diff...
-			wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
-			$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-			$rClass = FlaggedRevsXML::getQualityColor( false );
-			$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-			$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-title')."]</span>";
-			$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
-			$text = $frev->getRevText();
-			# Are we editing a section?
-			$section = ($editPage->section == "") ? false : intval($editPage->section);
-			if( $section !== false ) {
-				$text = $this->parent->getSection( $text, $section );
-			}
-			if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
-				$diffEngine = new DifferenceEngine();
-				$diffEngine->showDiffStyle();
-				$wgOut->addHTML(
-					"<div>" .
-					"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
-					"<col class='diff-marker' />" .
-					"<col class='diff-content' />" .
-					"<col class='diff-marker' />" .
-					"<col class='diff-content' />" .
-					"<tr>" .
-						"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
-							$leftNote . "</b></td>" .
-						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
-							$rightNote . "</b></td>" .
-					"</tr>" .
-					$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
-					"</table>" .
-					"</div>\n" );
+			# Show diff to stable, to make things less confusing...
+			# This can be disabled via user preferences
+			if( $frev->getRevId() != $revId // changes were made
+				&& ($wgUser->isAllowed('review') || $this->showStableByDefaultUser()) // non-draft default, unless Editor
+				&& $wgUser->getBoolOption('flaggedrevseditdiffs') // not disable via prefs
+			) {
+				# Don't show for old revisions, diff, preview, or undo.
+				if( $editPage->oldid || $editPage->section === "new"
+					|| in_array($editPage->formtype,array('diff','preview')) )
+				{
+					return true; // nothing to show here
+				}
+				
+				# Conditions are met to show diff...
+				wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
+				$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+				$rClass = FlaggedRevsXML::getQualityColor( false );
+				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
+				$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-title')."]</span>";
+				$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
+				$text = $frev->getRevText();
+				# Are we editing a section?
+				$section = ($editPage->section == "") ? false : intval($editPage->section);
+				if( $section !== false ) {
+					$text = $this->parent->getSection( $text, $section );
+				}
+				if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
+					$diffEngine = new DifferenceEngine();
+					$diffEngine->showDiffStyle();
+					$wgOut->addHTML(
+						"<div>" .
+						"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
+						"<col class='diff-marker' />" .
+						"<col class='diff-content' />" .
+						"<col class='diff-marker' />" .
+						"<col class='diff-content' />" .
+						"<tr>" .
+							"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
+								$leftNote . "</b></td>" .
+							"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
+								$rightNote . "</b></td>" .
+						"</tr>" .
+						$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
+						"</table>" .
+						"</div>\n" );
+				}
 			}
 		}
 		return true;

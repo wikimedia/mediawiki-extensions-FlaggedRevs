@@ -27,6 +27,7 @@ $messages['en'] = array(
 	'prefs-flaggedrevs'            => 'Stability',
 	'flaggedrevs-prefs-stable'     => 'Always show the stable version of content pages by default (if there is one)',
 	'flaggedrevs-prefs-watch'      => 'Add pages I review to my watchlist',
+	'flaggedrevs-prefs-editdiffs'  => 'Show diff to stable when editing pages',
 	'group-editor'                 => 'Editors',
 	'group-editor-member'          => 'editor',
 	'group-reviewer'               => 'Reviewers',
