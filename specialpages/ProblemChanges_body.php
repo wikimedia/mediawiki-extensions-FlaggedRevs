@@ -21,6 +21,8 @@ class ProblemChanges extends SpecialPage
 		$this->level = $wgRequest->getInt( 'level', -1 );
 		$this->tag = trim( $wgRequest->getVal( 'tagfilter' ) );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
+		$catTitle = Title::newFromText( $this->category );
+		$this->category = is_null($catTitle) ? '' : $catTitle->getText();
 		$feedType = $wgRequest->getVal( 'feed' );
 		if( $feedType ) {
 			return $this->feed( $feedType );
