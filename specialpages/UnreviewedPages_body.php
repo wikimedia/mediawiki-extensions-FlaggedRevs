@@ -29,6 +29,8 @@ class UnreviewedPages extends SpecialPage
 		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
 		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
 		$category = trim( $wgRequest->getVal( 'category' ) );
+		$catTitle = Title::newFromText( $category );
+		$category = is_null($catTitle) ? '' : $catTitle->getText();
 		$level = $wgRequest->getInt( 'level' );
 		$hideRedirs = $wgRequest->getBool( 'hideredirs', true );
 		
