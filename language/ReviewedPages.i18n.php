@@ -164,6 +164,9 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'reviewedpages' => 'Pajennoù adwelet',
+	'reviewedpages-leg' => 'Rollañ ar pajennoù dre al live uhelañ',
+	'reviewedpages-list' => "Adlwelet eo bet ar {{PLURAL:$1|bajenn|pajennoù}} da-heul d'al live spisaet",
+	'reviewedpages-none' => "N'eus pajenn ebet er roll",
 	'reviewedpages-lev-1' => 'Perzhded',
 	'reviewedpages-lev-2' => 'Lakaet war wel',
 	'reviewedpages-all' => 'stummoù adwelet',
@@ -810,6 +813,18 @@ $messages['pl'] = array(
 	'reviewedpages-lev-2' => 'Doskonałe',
 	'reviewedpages-all' => 'wersje oznaczone',
 	'reviewedpages-best' => 'wersja najlepsza',
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'reviewedpages' => 'Pàgine revisionà',
+	'reviewedpages-leg' => 'Lista le pàgine dal livel pì àut',
+	'reviewedpages-list' => "{{PLURAL:$1|La pàgina sota a l'é stàita|Le pàgine sota a son stàite}} revisionà al livel spessifià",
+	'reviewedpages-none' => 'A-i é pa ëd pàgine an sta lista-sì',
+	'reviewedpages-all' => 'vërsion revisionà',
+	'reviewedpages-best' => 'rla mèj revision',
 );
 
 /** Pashto (پښتو)

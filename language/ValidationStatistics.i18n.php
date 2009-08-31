@@ -185,10 +185,25 @@ $messages['bg'] = array(
  */
 $messages['br'] = array(
 	'validationstatistics' => 'Stadegoù kadarnaat',
+	'validationstatistics-users' => "Evit ar poent, war'''{{SITENAME}}''' ez eus '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|implijer|implijer}} gantañ gwirioù [[{{MediaWiki:Validationpage}}|Aozer]]
+ha '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|implijer|implijer}} gantañ gwirioù [[{{MediaWiki:Validationpage}}|Adlenner]].
+
+Editors and Reviewers are established users that can spot check revisions to pages.",
+	'validationstatistics-time' => "''Krubuilhet eo ar roadennoù da-heul ha marteze n'int ket bet hizivaet.''
+
+Sellet e vez ouzh ar c'hemmoù bet gwiriet gant implijerien oberiant evel ouzh kemmoù bet adwelet.
+
+Amzer adlenn keitat ar c'hemmoù dre ''implijerien anluget'' da vezañ adwelet zo '''$1'''; '''$3''' eo an dalvoudenn greiz.
+$4
+An dale keitat evit ar [[Special:OldReviewedPages|pajennoù enno kemmoù da vezañ adlennet]] zo '''$2'''.
+Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' mard eo [[{{MediaWiki:Validationpage}}|ar stumm stabil]] ar stumm bouilhed red.
+Stumm stabil ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ diskouezet dre ziouer d'an holl lennerien.",
 	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
 	'validationstatistics-ns' => 'Esaouenn anv',
 	'validationstatistics-total' => 'Pajennoù',
 	'validationstatistics-stable' => 'Adwelet',
+	'validationstatistics-latest' => 'Sinkronelaet',
+	'validationstatistics-synced' => 'Sinkronelaet/Adwelet',
 	'validationstatistics-old' => 'Dispredet',
 	'validationstatistics-utable' => 'A-is emañ roll ar 5 adlenner gwellañ en eurvezh diwezhañ.',
 	'validationstatistics-user' => 'Implijer',
@@ -761,14 +776,24 @@ Le version stabile de un pagina es  le version le plus nove que ha essite approb
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  * @author Rex
  */
 $messages['id'] = array(
 	'validationstatistics' => 'Statistik validasi',
 	'validationstatistics-users' => "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Editor]] dan
-'''$2''' {{PLURAL:$2|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Peninjau]].
+'''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Peninjau]].
 
 Editor dan Peninjau adalah para pengguna terpercaya yang dapat melakukan pemeriksaan revisi di setiap halaman.",
+	'validationstatistics-time' => "''Data berikut ini diambil dari cache dan mungkin bukan terbaru.'' 
+
+Suntingan yang telah diperiksa oleh pengguna terpercaya dianggap telah ditinjau. 
+
+Rata-rata menunggu suntingan oleh ''pengguna yang belum masuk log'' untuk ditinjau adalah '' '$1'''; paling banyak adalah '''$3'''. 
+$4 
+Lag rata-rata untuk [[Special:OldReviewedPages|halaman dengan suntingan penundaan pemeriksaan]] adalah '''$2'''. 
+Halaman ini dianggap ''belum diperbaharui''. Demikian juga, halaman akan dianggap telah ''disinkronkan'' jika  [[{{MediaWiki:Validationpage}}|versi stabil]] merupakan versi rancangan saat ini. 
+Versi stabil suatu halaman adalah revisi terbaru yang telah disetujui untuk ditunjukkan secara default kepada semua pembaca.",
 	'validationstatistics-table' => "Statistik untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Halaman',
@@ -914,15 +939,24 @@ $messages['kw'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'validationstatistics' => 'Statistike vun de Validaiounen',
+	'validationstatistics' => 'Statistike vun de Validatiounen',
 	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]] an '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].
 
 Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune vu Säiten derbäisetze kënnen.",
+	'validationstatistics-time' => "Hiweis: Dës Donnéeë gi jeweils fir e puer Stonen tëschegespäichert a sinn dofir net ëmmer aktuell.''
+
+Déi duerchschnettleche Waardezäit fir Ännerungen, déi vun net ugemellte Benotzer kommen, ass '''$1'''; de Median ass '''$3'''.
+$4
+Den duerchschnettleche Réckstand op [[Special:OldReviewedPages|vereelste Säiten]] ass '''$2'''.
+''Vereelste'' Säite si Säite mat Ännerungen, déi méi nei wéi déi [[{{MediaWiki:Validationpage}}|markéiert Versioun]] sinn.
+Wann déi markéiert Versioun och déi lescht Versioun ass, as d'Säit ''synchroniséiert''.
+Déi stabil Versioun vun enger Säit ass déi neiste Versioun, déi durch en Editeur confirméiert guf an als Standard alle Lieser gewise gëtt.",
 	'validationstatistics-table' => 'Statistike fir jiddwer Nummraum sinn hei ënnendrënner, Viruleedungssäite sinn net berécksichtegt.',
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Validéiert',
 	'validationstatistics-latest' => 'Synchroniséiert',
+	'validationstatistics-synced' => 'Synchroniséiert/Nogekuckt',
 	'validationstatistics-old' => 'Ofgelaf',
 	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat de 5 Benotzer, déi an der leschter Stonn am meeschte Bewäertunge gemaach hunn.",
 	'validationstatistics-user' => 'Benotzer',
@@ -1176,6 +1210,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Giro720
  * @author Lijealso
  * @author Malafaya
  * @author Waldir
@@ -1202,6 +1237,7 @@ A versão estável de uma página é a revisão mais recente que foi aprovada pa
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desactualizadas',
+	'validationstatistics-utable' => 'Abaixo está a lista dos 5 revisores mais ativos na última hora.',
 	'validationstatistics-user' => 'Utilizador',
 	'validationstatistics-reviews' => 'Revisões',
 );

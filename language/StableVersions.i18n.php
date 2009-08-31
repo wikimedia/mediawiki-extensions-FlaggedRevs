@@ -154,7 +154,10 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'stableversions' => 'Gwelet ar stummoù stabil',
+	'stableversions-leg1' => 'Adweladennoù diwezhañ ur bajenn',
 	'stableversions-page' => 'Anv ar bajenn :',
+	'stableversions-none' => '"[[:$1]]" n\'eus stumm adwelet ebet dioutañ',
+	'stableversions-list' => 'War ar roll da-heul emañ {{PLURAL:$2|an adweladenn nemeti|eus an adweladennoù}} eus [[:$1]] hag {{PLURAL:$2|a zo bet|a zo bet}} adwelet :',
 	'stableversions-review' => "Adwelet d'an <i>$1</i> gant $2",
 );
 

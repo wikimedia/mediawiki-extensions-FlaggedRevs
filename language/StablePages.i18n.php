@@ -136,6 +136,10 @@ $messages['br'] = array(
 	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm stabil da bajenn danvez enni, dre ziouer.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
 	'stablepages-config' => 'Kefluniañ',
+	'stablepages-prec-none' => 'Tamm dibab gwellañ ebet',
+	'stablepages-prec-quality' => "Dibaboù gwellañ evit ar c'halite",
+	'stablepages-prec-pristine' => "Dibab gwellañ gwerc'h",
+	'stablepages-precedence' => 'Dibab gwellañ :',
 );
 
 /** Bosnian (Bosanski)

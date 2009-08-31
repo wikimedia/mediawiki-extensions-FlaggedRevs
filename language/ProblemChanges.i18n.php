@@ -374,9 +374,13 @@ $messages['pms'] = array(
 );
 
 /** Portuguese (Português)
+ * @author Giro720
  * @author Malafaya
  */
 $messages['pt'] = array(
+	'problemchanges' => 'Mudanças nas marcações de revisão',
+	'problemchanges-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
+	'problemchanges-none' => 'No momento não há páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
 );
 
