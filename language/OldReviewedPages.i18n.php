@@ -838,6 +838,7 @@ $messages['kw'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'oldreviewedpages' => 'Vereelste nogekuckte Säiten',
 	'oldreviewedpages-none' => 'Et gëtt elo keng Säiten déi dene Critèren entspriechen',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
