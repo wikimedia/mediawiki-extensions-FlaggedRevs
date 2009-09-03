@@ -1573,8 +1573,10 @@ EOT;
 	
 	public static function addToChangeListLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
 		global $wgUser;
-		if( $rc->getTitle()->getNamespace() < 0 || !isset($rc->mAttribs['fpp_rev_id']) )
-			return true; // reviewed pages only
+		if( empty($rc->mAttribs['fpp_rev_id']) )
+			return true; // page is not listed in pending edit table
+		if( !FlaggedRevs::isPageReviewable($rc->getTitle()) )
+			return true; // confirm that page is in reviewable namespace
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg('revreview-reviewlink'),
 			'oldid='.intval($rc->mAttribs['fpp_rev_id']).'&diff=cur' );
