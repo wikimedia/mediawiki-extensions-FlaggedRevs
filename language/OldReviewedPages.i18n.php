@@ -839,6 +839,8 @@ $messages['kw'] = array(
  */
 $messages['lb'] = array(
 	'oldreviewedpages' => 'Vereelste nogekuckte Säiten',
+	'oldreviewedpages-legend' => 'Lëscht vun den nogekuckte Säite mat net nogekuckte Versiounen',
+	'oldreviewedpages-list' => 'Op dëser Säit {{PLURAL:$1|steet eng nogekuckte Säit|stinn nogekuckte Säite}} mat Ännerungen am Suspens.',
 	'oldreviewedpages-none' => 'Et gëtt elo keng Säiten déi dene Critèren entspriechen',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Stonn|Stonnen}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
