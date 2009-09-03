@@ -242,7 +242,7 @@ function update_flaggedrevs_stats() {
 		__METHOD__
 	);
 	$dbw->commit();
-	// Stats are not up to date!
+	// Stats are now up to date!
 	$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 	$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
 	$dbCache->delete( $keySQL );
