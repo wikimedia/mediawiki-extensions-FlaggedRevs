@@ -127,6 +127,8 @@ $messages['dsb'] = array(
  */
 $messages['el'] = array(
 	'qualityoversight' => 'Επόπτης ποιότητας',
+	'qualityoversight-list' => 'Αυτή η σελίδα συγκαταλέγει τις πιο πρόσφατες εγκρίσεις και αποδοκιμασίες αναθεωρήσεων.',
+	'qualityoversight-legend' => 'Αναζήτηση στα αρχεία προσφάτων επιθεωρήσεων',
 );
 
 /** Esperanto (Esperanto)

@@ -346,6 +346,7 @@ $4
 	'validationstatistics-latest' => 'Συγχρονισμένος',
 	'validationstatistics-synced' => 'Συγχρονισμένες/Κρίθηκαν',
 	'validationstatistics-old' => 'Παρωχημένες',
+	'validationstatistics-utable' => 'Παρακάτω βρίσκεται η λίστα με τους 5 κορυφαίους επιθεωρητές κατά την τελευταία μία ώρα.',
 	'validationstatistics-user' => 'Χρήστης',
 	'validationstatistics-reviews' => 'Επιθεωρήσεις',
 );

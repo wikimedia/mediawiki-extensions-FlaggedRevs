@@ -903,11 +903,11 @@ $messages['sr-el'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
-	'stableversions' => 'Stoabile Versione',
+	'stableversions' => 'Stoabile Versione bekiekje',
 	'stableversions-leg1' => 'Lieste fon do wröigede Versione foar n Artikkel',
 	'stableversions-page' => 'Artikkelnoome:',
 	'stableversions-none' => '„[[:$1]]“ häd neen wröigede Versione.',
-	'stableversions-list' => 'Dit is ju Lieste fon do wröigede Versione fon „[[:$1]]“:',
+	'stableversions-list' => 'Dit is ju Lieste fon {{PLURAL:$2|ju eenpelde Version|do Versione}} fon [[:$1]], {{PLURAL:$2|ju der wröiged wuude|do der wröiged wuuden}}:',
 	'stableversions-review' => 'wröiged ap n <i>$1</i> truch $2',
 );
 

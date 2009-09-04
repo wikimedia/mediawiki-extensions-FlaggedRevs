@@ -1298,7 +1298,7 @@ $messages['sr-el'] = array(
 $messages['stq'] = array(
 	'unreviewedpages' => 'Nit wröigede Artikkele',
 	'unreviewed-category' => 'Kategorie:',
-	'unreviewed-diff' => 'Annerengen',
+	'unreviewed-diff' => 'sichtje',
 	'unreviewed-list' => 'Disse Siede wiest Artikkele, do der noch sieläärge nit wröiged wuuden of nit wröigede Versione hääbe.',
 );
 

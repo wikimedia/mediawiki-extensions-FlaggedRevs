@@ -982,7 +982,7 @@ $messages['sr-el'] = array(
  */
 $messages['stq'] = array(
 	'reviewedpages' => 'Wröigede Sieden',
-	'reviewedpages-leg' => 'Lieste fon do wröigede Sieden',
+	'reviewedpages-leg' => 'Lieste fon do Sieden mäd dän hoochste Level',
 	'reviewedpages-list' => 'Do foulgjende Sieden wuuden wröiged un hääbe dän anroate Stoatus kriegen',
 	'reviewedpages-none' => 'Ju Lieste is loos.',
 	'reviewedpages-lev-0' => 'Sieuwed',
