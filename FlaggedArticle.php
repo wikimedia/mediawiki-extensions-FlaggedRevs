@@ -1256,7 +1256,8 @@ class FlaggedArticle extends Article {
 		}
 		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revId ) );
 		$out->addHTML( "\n" . Xml::hidden( 'undidRev', 
-			empty($editPage->undidRev) ? 0 : $editPage->undidRev ) );
+			empty($editPage->undidRev) ? 0 : $editPage->undidRev )
+		);
 		return true;
 	}
 
