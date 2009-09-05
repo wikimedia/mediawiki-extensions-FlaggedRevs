@@ -665,6 +665,21 @@ $messages['pl'] = array(
 	'stablepages-precedence' => 'Pierwszeństwo w wyświetlaniu',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'stablepages' => 'Pàgine stabij',
+	'stablepages-stable' => 'Vërsion stàbil',
+	'stablepages-text' => 'Sota a-i é na lista ëd pàgine configurà manualment për mosté la vërsion stàbil com contnù ëd default ëd la pàgina për ij visitador.',
+	'stablepages-none' => 'A-i é pa gnun-e pàgine an sta lista-sì',
+	'stablepages-config' => 'Configurassion',
+	'stablepages-prec-none' => 'pa gnun-e precedense',
+	'stablepages-prec-quality' => 'precedensa ëd qualità',
+	'stablepages-prec-pristine' => 'precedensa pa contaminà',
+	'stablepages-precedence' => 'Precedensa:',
+);
+
 /** Portuguese (Português)
  * @author 555
  * @author Waldir

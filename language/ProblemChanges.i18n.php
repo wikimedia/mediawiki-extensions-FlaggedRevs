@@ -433,6 +433,15 @@ $messages['sk'] = array(
 	'problemchanges-category' => 'Kategória:',
 );
 
+/** Sundanese (Basa Sunda)
+ * @author Irwangatot
+ */
+$messages['su'] = array(
+	'problemchanges' => 'Pariksa parobahan nu diberé tanda',
+	'problemchanges-none' => 'Kiwari euweuh kaca anu minuhan kriteria kasebut',
+	'problemchanges-category' => 'Kategori:',
+);
+
 /** Swedish (Svenska)
  * @author Rotsee
  */
