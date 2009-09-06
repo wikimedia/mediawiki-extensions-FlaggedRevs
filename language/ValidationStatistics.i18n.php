@@ -1575,6 +1575,9 @@ Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
 	'validationstatistics-latest' => 'Tantoi kodvdud',
 	'validationstatistics-synced' => 'Kodvdud udes',
 	'validationstatistics-old' => 'Vanhtunuded',
+	'validationstatistics-utable' => "Alemba oma ozutadud 5 päarvostelijad jäl'gmäižes časus",
+	'validationstatistics-user' => 'Kävutai',
+	'validationstatistics-reviews' => 'Redakcijad',
 );
 
 /** Vietnamese (Tiếng Việt)

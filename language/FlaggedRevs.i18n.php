@@ -11579,6 +11579,7 @@ $messages['vep'] = array(
 	'prefs-flaggedrevs' => 'Stabiližuz',
 	'flaggedrevs-prefs-stable' => 'Kaiken ozutada augotižjärgendusen mödhe stabiline versii (ku se om)',
 	'flaggedrevs-prefs-watch' => 'Ližata minai kodvdud lehtpolid kaclendnimikirjuteshe',
+	'flaggedrevs-prefs-editdiffs' => 'Ozutada erod stabiližen versijanke lehtpolen redaktiruindan aigan',
 	'group-editor' => 'Redaktorad',
 	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Arvostelijad',
@@ -11653,7 +11654,7 @@ Kc. [[Special:Unreviewedpages|kodvmatomiden lehtpoliden nimikirjutez]].',
 	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Jäl'gmäine kodvdud versii] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvdihe] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|toižetuz|toižetust}}] {{PLURAL:$3|varastab}} kodvindad.",
 	'revreview-newest-basic-i' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Jäl'gmäine kodvdud versii] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvdihe] <i>$2</i>.
-Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižetused šablonoiš vai kuviš].",
+Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižetused šablonoiš vai failoiš].",
 	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Jäl'gmäine lophusai kodvdud versii] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvdihe] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|toižetuz|toižetust}}] {{PLURAL:$3|varastab}} kodvindad.",
 	'revreview-newest-quality-i' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Jäl'gmäine lophusai kodvdud versii] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvdihe] <i>$2</i>.
@@ -11703,6 +11704,7 @@ Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0
 	'revreview-submit' => 'Oigeta',
 	'revreview-submitting' => 'Oigendamine...',
 	'revreview-finished' => 'Kodvind om loptud!',
+	'revreview-failed' => 'Redakcii ei ole lopnus petusen tagut!',
 	'revreview-successful' => "'''Valitud [[:$1|$1]]-versii om znamoitud satusekahas. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} stabiližiden versijoiden kacund])'''",
 	'revreview-successful2' => "'''Virg om heittud [[:$1|$1]]-versijaspäi.'''",
 	'revreview-text' => "''Augotižjärgendusen mödhe ozutadas lehtpoliden [[{{MediaWiki:Validationpage}}|stabiližed versijad]], ei udembad.''",
@@ -11713,10 +11715,10 @@ Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
 	'revreview-update' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused''(ned ozutadas alemba)'', kudambid tehtihe jäl'ges stabiližen versijan
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamišt].<br />
 '''Erased šablonad vai kuvad oma udištadud:'''",
-	'revreview-update-includes' => "'''Erased šablonad vai kuvad oma udištadud:'''",
+	'revreview-update-includes' => "'''Erased šablonad/failad oma udištadud:'''",
 	'revreview-update-none' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] redakcijad ''(ned oma ozutadud alemba)'', kudambad oma tehtud stabiližen versijan
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamižen] jäl'ghe.",
-	'revreview-update-use' => "'''HOMAIČEND.''' Ku miččel-ni neniš šablonoišpäi vai kuvišpäi om stabiline versii, ka sidä kävutadas jo necen lehtpolen stabiližes versijas.",
+	'revreview-update-use' => "'''HOMAIČEND.''' Ku miččel-ni neniš šablonoišpäi vai failoišpäi om stabiline versii, ka sidä kävutadas jo necen lehtpolen stabiližes versijas.",
 	'revreview-diffonly' => "''Miše kodvda lehtpol't, paingat \"nügüdläine versii\"-kosketusele i kävutagat kodvindan form.''",
 	'revreview-visibility' => "'''Necil lehtpolel om udištadud [[{{MediaWiki:Validationpage}}|stabiline versii]]; sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} stabiližiden versijoiden ozutamižen järgendused].'''",
 	'revreview-visibility2' => "'''Necil lehtpolel ei ole udištadud [[{{MediaWiki:Validationpage}}|stabilišt versijad]]; 

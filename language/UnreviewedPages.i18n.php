@@ -1451,9 +1451,12 @@ $messages['vep'] = array(
 	'unreviewed-diff' => 'kodvda',
 	'unreviewed-unwatched' => '(ei ole kaceltud)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivine kävutai|aktivišt kävutajad}} kaceltas)',
-	'unreviewed-list' => 'Necil lehtpolel om kodvmatomiden lehtpoliden nimikirjutez.',
+	'unreviewed-list' => 'Necil lehtpolel om kodvmatomiden märitud pindhasai lehtpoliden nimikirjutez.',
 	'unreviewed-none' => "Nügüd' ei ole lehtpolid, kudambad sättudas ningoižiden arvoimižidenke.",
 	'unreviewed-viewing' => "(lehtpoled, kudambad nügüd' kodvdas)",
+	'unreviewed-hours' => '($1 {{PLURAL:$1|čas|časud}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|päiv|päiväd}})',
+	'unreviewed-recent' => '(vähemb časud)',
 );
 
 /** Vietnamese (Tiếng Việt)
