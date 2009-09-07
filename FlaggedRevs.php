@@ -493,7 +493,7 @@ function efLoadFlaggedRevs() {
  * Also sets $wgSpecialPages just to be consistent.
  */
 function efLoadFlaggedRevsSpecialPages( &$list ) {
-	global $wgSpecialPages, $wgFlaggedRevsNamespaces;
+	global $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride;
 	if( !empty($wgFlaggedRevsNamespaces) ) {
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['StableVersions'] = $wgSpecialPages['StableVersions'] = 'StableVersions';
@@ -502,10 +502,12 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 		$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
 		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
-		$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
-		$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
 		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
+		if( !$wgFlaggedRevsOverride )
+			$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
+		else
+			$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
 	}
 	return true;
 }
