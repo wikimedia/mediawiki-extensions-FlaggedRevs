@@ -723,14 +723,14 @@ $messages['ja'] = array(
 	'unreviewed-legend' => '未査読記事を一覧',
 	'unreviewed-category' => 'カテゴリ:',
 	'unreviewed-diff' => '査読',
-	'unreviewed-unwatched' => '（未ウォッチ）',
-	'unreviewed-watched' => '（$1人の活動中の{{PLURAL:$1|利用者}}がウォッチ）',
+	'unreviewed-unwatched' => '(未ウォッチ)',
+	'unreviewed-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'unreviewed-list' => 'これは指定した水準に達する査読結果を得ていない記事の一覧です。',
 	'unreviewed-none' => '現時点でこの基準に適合するページはありません',
-	'unreviewed-viewing' => '（査読中）',
-	'unreviewed-hours' => '（$1 時間）',
-	'unreviewed-days' => '（$1 日）',
-	'unreviewed-recent' => '（1時間未満）',
+	'unreviewed-viewing' => '(査読中)',
+	'unreviewed-hours' => '($1 時間)',
+	'unreviewed-days' => '($1 日)',
+	'unreviewed-recent' => '(1時間未満)',
 );
 
 /** Jutish (Jysk)
@@ -1095,7 +1095,7 @@ $messages['pl'] = array(
 	'unreviewed-diff' => 'przejrzyj',
 	'unreviewed-unwatched' => '(nieobserwowana)',
 	'unreviewed-watched' => '(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
-	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane.',
+	'unreviewed-list' => 'Poniżej znajduje się lista stron, które nie zostały przejrzane – nie uzyskały wybranego statusu.',
 	'unreviewed-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'unreviewed-viewing' => '(w trakcie przeglądania)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|godzinę|godziny|godzin}})',
@@ -1105,12 +1105,13 @@ $messages['pl'] = array(
 
 /** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
+ * @author Dragonòt
  */
 $messages['pms'] = array(
 	'unreviewedpages' => 'Pàgine dësrevisionà',
 	'unreviewed-category' => 'Categorìa:',
-	'unreviewed-diff' => 'Modìfiche',
-	'unreviewed-list' => "Costa-sì a l'é na lista d'artìcoj ch'a son anco' pa stait revisionà.",
+	'unreviewed-diff' => 'revision',
+	'unreviewed-list' => 'Sta pàgina-sì a lista le pàgine ëd contnù che a son pa ancó stàite revisionà al livel spessifià.',
 );
 
 /** Pashto (پښتو)
