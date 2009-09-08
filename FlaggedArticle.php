@@ -565,7 +565,7 @@ class FlaggedArticle extends Article {
 	/**
 	* @param FlaggedRevision $srev, stable version
 	* @param bool $quality, revision is quality
-	* Parser cache control deferred to caller
+	* @returns bool, diff added to output
 	*/	
 	protected function maybeShowTopDiff( $srev, $quality ) {
 		global $wgUser, $wgOut, $wgMemc;
@@ -613,8 +613,10 @@ class FlaggedArticle extends Article {
 				"</table>" .
 				"</div>\n"
 			);
+			$this->isDiffFromStable = true;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -876,7 +878,9 @@ class FlaggedArticle extends Article {
 		if( !self::isViewAction($action) || !$wgRequest->getVal('title') ) {
 			return true;
 		}
-		$this->addQuickReview( $data, $wgRequest->getVal('diff'), false );
+		# Place the form at the top or bottom as most convenient
+		$onTop = $wgRequest->getVal('diff') || $this->isDiffFromStable;
+		$this->addQuickReview( $data, $onTop, false );
 		return true;
 	}
 
@@ -1230,13 +1234,14 @@ class FlaggedArticle extends Article {
 
 	/**
 	* Add a link to patrol non-reviewable pages.
-	* Also add a diff to stable for other pages if possible.
+	* Also add a diff-to-stable for other pages if possible.
 	*/
 	public function addDiffLink( $diff, $oldRev, $newRev ) {
 		global $wgUser, $wgOut;
 		// Is there a stable version?
 		if( $oldRev && $this->isReviewable() ) {
 			$frev = $this->getStableRev();
+			# Is this a diff of the draft rev against the stable rev?
 			if( $frev && $frev->getRevId() == $oldRev->getID() && $newRev->isCurrent() ) {
 				$this->isDiffFromStable = true;
 			}
