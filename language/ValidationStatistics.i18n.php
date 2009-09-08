@@ -357,16 +357,20 @@ $4
 $messages['eo'] = array(
 	'validationstatistics' => 'Validigadaj statistikoj',
 	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun
-[[{{MediaWiki:Validationpage}}|Revizianto]]-rajtoj
-kaj '''$2''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.",
-	'validationstatistics-time' => "'' La jena dateno estas en kaŝmemoro kaj eble ne estas ĝisdata.''
+[[{{MediaWiki:Validationpage}}|Redaktanto]]-rajtoj
+kaj '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.
+
+Redaktantoj kaj Kontrolantoj estas establitaj uzantoj kiuj povas kontroli ŝanĝojn al paĝojn.",
+	'validationstatistics-time' => "''La jena datenoj estas en kaŝmemoro kaj eble ne estas ĝisdataj.''
+
+Redaktoj kontrolitaj de longdaŭraj uzantoj estas konsiderataj esti kontrolitaj.
 
 La averaĝa atendotempo por kontrolendaj redaktoj de ''nesalutita uzantoj'' estas '''$1'''; la mediano estas '''$3'''.
 $4
 La averaĝa atendotempo por [[Special:OldReviewedPages|paĝoj kun nekontrolitaj redaktoj farontaj]] estas '''$2'''.
 Ĉi tiuj paĝoj estas konsiderataj kiel ''malfreŝaj''. Ankaŭ, paĝoj estas konsiderata ''sinkrona'' se la 
-[[{{MediaWiki:Validationpage}}|stabila revizio]] ankaŭ estas la nuna netaĵo.
-Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita uzanto.",
+[[{{MediaWiki:Validationpage}}|stabila revizio]] ankaŭ estas la nuna neta versio.
+Stabila revizio de paĝo estas la plej nova revizio aprobita por montri al ĉiuj legantoj.",
 	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, ''krom'' alidirektiloj.",
 	'validationstatistics-ns' => 'Nomspaco',
 	'validationstatistics-total' => 'Paĝoj',
@@ -374,7 +378,9 @@ Stabilaj versioj estas revizioj de paĝoj kontrolita de almenaŭ unu establita u
 	'validationstatistics-latest' => 'Sinkronigita',
 	'validationstatistics-synced' => 'Ĝisdatigitaj/Reviziitaj',
 	'validationstatistics-old' => 'Malfreŝaj',
+	'validationstatistics-utable' => 'Jen listo de la plej aktivaj kontrolantoj dum la lasta horo.',
 	'validationstatistics-user' => 'Uzanto',
+	'validationstatistics-reviews' => 'Kontrolaĵoj',
 );
 
 /** Spanish (Español)
@@ -730,6 +736,7 @@ Stabilna wersija strony je najnowša wersija, kotraž je so wobkrućena, zo by s
  * @author Bdamokos
  * @author Dani
  * @author Dorgan
+ * @author Glanthor Reviol
  * @author Samat
  */
 $messages['hu'] = array(
@@ -741,9 +748,12 @@ $messages['hu'] = array(
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Oldalak',
 	'validationstatistics-stable' => 'Ellenőrzött',
-	'validationstatistics-latest' => 'Legutóbb ellenőrzött',
+	'validationstatistics-latest' => 'Szinkronizálva',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 	'validationstatistics-old' => 'Elavult',
+	'validationstatistics-utable' => 'Az alábbi lista az elmúlt óra öt legtöbbet ellenőrző szerkesztőjét mutatja.',
+	'validationstatistics-user' => 'Szerkesztő',
+	'validationstatistics-reviews' => 'Ellenőrzések',
 );
 
 /** Interlingua (Interlingua)
@@ -1557,13 +1567,15 @@ $4
 $messages['vep'] = array(
 	'validationstatistics' => 'Kodvindoiden statistik',
 	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
-oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''$2''' {{plural:$1|kävutajal|kävutajil}} 
+oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$1|kävutajal|kävutajil}} 
 oma [[{{MediaWiki:Validationpage}}|«kodvijan»]] oiktused.",
-	'validationstatistics-time' => "''Alemba anttud andmused oma keširuidud i sikš voidas olda vanhtunuzin.''
+	'validationstatistics-time' => "''Alemba anttud informacii om ottud kešaspäi i sikš voib olda vanhtunuden.''
 
-Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''$1'''; median om'''$3'''.
-$4
-Keskpidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden redakcijoidenke]] täht om '''$2'''.",
+Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''\$1'''; median om'''\$3'''.
+\$4
+Keskpidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden redakcijoidenke]] täht om '''\$2'''.
+Nened lehtpoled lugedas \"vanhtunuzil\". Ezmäks, lehtpoled lugedas \"sinhroniziruidud\", ku [[{{MediaWiki:Validationpage}}|stabiline versii]] om mugažo joksijan kodvversijan.
+Stabiližed versijad oma lehtpolen kaikiš udembad versijad, kudambad oma vahvištoittud, miše ozutada kaikile kävutajile augotižjärgendusen mödhe.",
 	'validationstatistics-table' => "Alemba om anttud statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
 ''Vanhtunuzikš'' kuctas lehtpolid, kudambad oma redaktiruidud jäl'ges stabilišt versijad.
 Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.

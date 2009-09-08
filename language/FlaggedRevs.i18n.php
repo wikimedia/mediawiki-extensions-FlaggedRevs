@@ -1949,6 +1949,7 @@ Da bi uklonili ocjenu revizije, postavite sva polja na ''neodobreno''.",
 Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'right-autoreview' => 'Automatsko označavanje revizija kao provjerenih',
 	'right-movestable' => 'Premještanje stabilnih stranica',
+	'right-review' => 'Označanje revizija pregledanim',
 	'right-stablesettings' => 'Postavljanje kako će biti odabrana i prikazana stabilna verzija',
 	'right-validate' => 'Označavanje revizija valjanim',
 	'rights-editor-autosum' => 'automatski unaprijeđeno',
@@ -2486,6 +2487,7 @@ $messages['dsb'] = array(
 	'flaggedrevs-prefs-stable' => 'Stabilnu wersiju wopśimjeśowych bokow pśecej ako standard pokazaś (jolic eksistěrujo)',
 	'flaggedrevs-prefs-watch' => 'Boki, kótarež pśeglědujom, wobglědowańkam pśidaś',
 	'flaggedrevs-prefs-editdiffs' => 'Pśi wobźěłowanju bokow rozdźěl k stabilnej wersiji pokazaś',
+	'flaggedrevs-prefs-viewdiffs' => 'Rozdźěl k stabilnej wersiji pokazaś, gaž se bokowe nacerjenja woglěduju',
 	'group-editor' => 'Editory',
 	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Pśespytowarje',
@@ -4973,6 +4975,7 @@ $messages['hsb'] = array(
 	'flaggedrevs-prefs-stable' => 'Stabilnu wersiju nastawkow přeco jako standard pokazać (jeli tajka eksistuje)',
 	'flaggedrevs-prefs-watch' => 'Přehladane strony wobkedźbować',
 	'flaggedrevs-prefs-editdiffs' => 'Při wobdźěłowanju stronow rozdźěl k stabilnej wersiji pokazać',
+	'flaggedrevs-prefs-viewdiffs' => 'Rozdźěl k stabilnej wersiji pokazać, hdyž so naćiski strony wobhladuja',
 	'group-editor' => 'wobdźěłowarjo',
 	'group-editor-member' => 'wobdźěłowar',
 	'group-reviewer' => 'Přehladowarjo',
@@ -6645,6 +6648,7 @@ $messages['ksh'] = array(
 	'flaggedrevs-prefs-stable' => 'Donn emmer shtanndatmääßesch de aktoälle {{int:stablepages-stable}} aanzeije, wann ein doh es.',
 	'flaggedrevs-prefs-watch' => 'Dun ming selfs nohjekik Sigge automatisch för ming Oppassliss vürschlage',
 	'flaggedrevs-prefs-editdiffs' => 'Zeisch der Ongerscheid zo de {{int:stablepages-stable}} beim Sigge Ändere',
+	'flaggedrevs-prefs-viewdiffs' => 'Zeisch der Ongerscheid noh de beschtändije Version wann De en Äntworfs_Sigg annloorß.',
 	'group-editor' => 'Redaktöre för et Sichte',
 	'group-editor-member' => '{{int:editor}}',
 	'group-reviewer' => 'Redaktöre för et Pröfe',
@@ -7833,6 +7837,7 @@ $messages['nl'] = array(
 	'flaggedrevs-prefs-stable' => "Altijd de stabiele versies van pagina's weergeven (als die bestaan)",
 	'flaggedrevs-prefs-watch' => "Pagina's waar ik eindredactie voor doe aan mijn volglijst toevoegen",
 	'flaggedrevs-prefs-editdiffs' => "Verschil met stabiele versie weergeven tijdens het bewerken van pagina's",
+	'flaggedrevs-prefs-viewdiffs' => 'Verschillen met stabiele versie weergeven bij het bekijken van werkversies',
 	'group-editor' => 'redacteuren',
 	'group-editor-member' => 'redacteur',
 	'group-reviewer' => 'eindredacteuren',
@@ -8634,6 +8639,7 @@ $messages['pl'] = array(
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję oznaczoną strony (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako przejrzane',
 	'flaggedrevs-prefs-editdiffs' => 'Podczas edytowania stron pokazuj różnice względem wersji oznaczonej',
+	'flaggedrevs-prefs-viewdiffs' => 'Podczas wyświetlania wersji roboczej pokazuj zmiany dokonane od ostatniego oznaczenia strony',
 	'group-editor' => 'Redaktorzy',
 	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Weryfikatorzy',
@@ -9453,6 +9459,7 @@ $messages['ru'] = array(
 	'flaggedrevs-prefs-stable' => 'Всегда показывать стабильную версию по умолчанию (если таковая существует)',
 	'flaggedrevs-prefs-watch' => 'Добавлять проверенные мною страницы в список наблюдения',
 	'flaggedrevs-prefs-editdiffs' => 'Показывать различия со стабильной версией при редактировании страниц',
+	'flaggedrevs-prefs-viewdiffs' => 'Показывать различия со стабильной версией при просмотре черновой версии',
 	'group-editor' => 'Досматривающие',
 	'group-editor-member' => 'досматривающий',
 	'group-reviewer' => 'Выверяющие',
@@ -11587,6 +11594,7 @@ $messages['vep'] = array(
 	'flaggedrevs-prefs-stable' => 'Kaiken ozutada augotižjärgendusen mödhe stabiline versii (ku se om)',
 	'flaggedrevs-prefs-watch' => 'Ližata minai kodvdud lehtpolid kaclendnimikirjuteshe',
 	'flaggedrevs-prefs-editdiffs' => 'Ozutada erod stabiližen versijanke lehtpolen redaktiruindan aigan',
+	'flaggedrevs-prefs-viewdiffs' => 'Ozutada erod stabiližen versijanke korvversijad kactes',
 	'group-editor' => 'Redaktorad',
 	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Arvostelijad',
@@ -11624,8 +11632,8 @@ Kc. См. [[Special:ReviewedPages|kodvdud lehtpoliden nimikirjutez]].",
 	'revreview-auto-w-old' => "Tö redaktiruit arvosteldud versijad; vajehtused znamoitas '''avtomatižešti, kut arvosteldud material'''.",
 	'revreview-basic' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|kactud]] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjutuses om] $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|toižetuz, kudamb|toižetust, kudambad}}] {{PLURAL:$3|varastab|varastadas}} kodvindad.",
-	'revreview-basic-i' => "Nece om jäl'gmäine [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} kactud] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjuteses] om [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}toižetusid šablonoiš vai kuviš], kudambad varastadas kodvindad.",
+	'revreview-basic-i' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|kactud]] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjuteses] om [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}toižetusid šablonoiš vai failoiš], kudambad varastadas kodvindad.",
 	'revreview-basic-old' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|kactud]] versii ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]), 
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
 Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ližatoižetusid].",
@@ -11634,9 +11642,9 @@ Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0
 	'revreview-basic-source' => 'Necen lehtpolen [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kactud versii], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kudamban om kodvnu] <i>$2</i>, 
 om tehtud necen versijan alusel.',
 	'revreview-blocked' => "Teile ei sa kodva necidä versijad, sikš miše teiden registracii om nügüd' blokiruidud ($1 detalid)",
-	'revreview-changed' => "'''Necidä ei voi tehta necil lehtpolen [[:$1|$1]]-versijalpäi.'''
+	'revreview-changed' => "'''Necidä tegendad ei voi tehta necil lehtpolen [[:$1|$1]]-versijalpäi.'''
 
-Voib olda, šablon vai kuva oma znamoitud niiden konkretižita versijoita.
+Voib olda, šablon vai fail oma znamoitud niiden konkretižita versijoita.
 Nece voinuiži tehtas, ku dinamine šablon mülütab toižen šablonan vai kuvan, a ned rippudas toižetunuden kodvindan augotižkurolpäi vajehtujas luguspäi.
 Udištagat lehtpol' i augotagat kodvindad udes, nece voib koheta problemad.",
 	'revreview-current' => 'Mustkirjutuz',
@@ -11665,7 +11673,7 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Jäl'gmäine lophusai kodvdud versii] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvdihe] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|toižetuz|toižetust}}] {{PLURAL:$3|varastab}} kodvindad.",
 	'revreview-newest-quality-i' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Jäl'gmäine lophusai kodvdud versii] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvdihe] <i>$2</i>.
-Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižetused šablonoiš vai kuviš].",
+Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižetused šablonoiš vai failoiš].",
 	'revreview-noflagged' => "Necil lehtpolel ei ole kodvdud versijoid. Nägub, sen lad '''ei ole völ''' [[{{MediaWiki:Validationpage}}|arvosteldud]].",
 	'revreview-note' => '[[User:$1|$1]] tegi mugoi homaičend necidä versijad [[{{MediaWiki:Validationpage}}|kodvdes]]:',
 	'revreview-notes' => 'Kaclendhomaičendad ozutandan täht:',
@@ -11676,8 +11684,8 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-quality' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|toižetuz|toižetust}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} mustkirjutuses] 
 {{PLURAL:$3|varastab|varastadas}} kodvindad.",
-	'revreview-quality-i' => "Nece om jäl'gmäine [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lophusai kodvdud] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjutuses] om [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}toižetusid šabloniš vai kuviš], kudambid pidab kodvda.",
+	'revreview-quality-i' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Mustkirjutuses] om [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}toižetusid šabloniš vai failoiš], kudambid pidab kodvda.",
 	'revreview-quality-old' => 'Nece om [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ühthine nimikirjutez]), 
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
 Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ližatoižetusid].',
@@ -11719,9 +11727,9 @@ Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0
 	'revreview-toggle-title' => 'ozutada/peitta detalid',
 	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "ei ole znamoitud", miše versii oliži vahvištadud kut kodvdud.
 Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
-	'revreview-update' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused''(ned ozutadas alemba)'', kudambid tehtihe jäl'ges stabiližen versijan
+	'revreview-update' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused'' (ned ozutadas alemba)'', kudambid tehtihe jäl'ges stabiližen versijan
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamišt].<br />
-'''Erased šablonad vai kuvad oma udištadud:'''",
+'''Erased šablonad vai failad oma udištadud:'''",
 	'revreview-update-includes' => "'''Erased šablonad/failad oma udištadud:'''",
 	'revreview-update-none' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] redakcijad ''(ned oma ozutadud alemba)'', kudambad oma tehtud stabiližen versijan
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamižen] jäl'ghe.",

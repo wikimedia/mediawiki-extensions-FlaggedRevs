@@ -658,6 +658,7 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Gondnok
  */
 $messages['hu'] = array(
@@ -670,10 +671,11 @@ $messages['hu'] = array(
 	'oldreviewedpages-recent' => '(kevesebb, mint egy órája)',
 	'oldreviewed-category' => 'Kategória:',
 	'oldreviewed-watched' => 'A figyelőlistámon',
+	'oldreviewed-stable' => 'Jelölt lapváltozat',
 	'oldreviewed-diff' => 'ellenőriz',
 	'oldreviewed-size' => 'Változás legfeljebb (bájtban):',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} szerkesztő figyeli)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|egy|$2}} aktív szerkesztő figyeli)',
 	'oldreviewedpages-viewing' => '(ellenőrzés alatt)',
 );
 

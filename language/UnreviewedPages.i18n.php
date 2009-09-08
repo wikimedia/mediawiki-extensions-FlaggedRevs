@@ -345,7 +345,7 @@ $messages['eo'] = array(
 	'unreviewed-diff' => 'kontrolo',
 	'unreviewed-unwatched' => '(malatentita)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktiva uzanto|aktivaj uzantoj}} atentas)',
-	'unreviewed-list' => 'Ĉi tiu paĝo montras enhavajn paĝojn kiuj ne estas kontrolitaj.',
+	'unreviewed-list' => 'Ĉi tiu paĝo montras enhavajn paĝojn kiuj ne estas kontrolitaj al la petita nivelo.',
 	'unreviewed-none' => 'Nune neniuj paĝoj kongruas tiun kriterion',
 	'unreviewed-viewing' => '(kontrolata)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|horo|horoj}})',
@@ -636,10 +636,13 @@ $messages['hu'] = array(
 	'unreviewed-category' => 'Kategória:',
 	'unreviewed-diff' => 'Eltérések',
 	'unreviewed-unwatched' => '(nem figyelt)',
-	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} szerkesztő figyeli)',
+	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)',
 	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 	'unreviewed-viewing' => '(megtekintés alatt)',
+	'unreviewed-hours' => '({{PLURAL:$1|egy|$1}} óra)',
+	'unreviewed-days' => '({{PLURAL:$1|egy|$1}} nap)',
+	'unreviewed-recent' => '(kevesebb mint egy órája)',
 );
 
 /** Interlingua (Interlingua)
@@ -1108,10 +1111,19 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
+	'right-unreviewedpages' => 'Varda [[Special:UnreviewedPages|lista dle pàgine pa revisionà]]',
 	'unreviewedpages' => 'Pàgine dësrevisionà',
+	'unreviewed-legend' => "Lista le pàgine 'd contnù pa revisionà",
 	'unreviewed-category' => 'Categorìa:',
 	'unreviewed-diff' => 'revision',
+	'unreviewed-unwatched' => '(pa tùa sot euj)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utent|utent}} ativ a la ten-o sot euj)',
 	'unreviewed-list' => 'Sta pàgina-sì a lista le pàgine ëd contnù che a son pa ancó stàite revisionà al livel spessifià.',
+	'unreviewed-none' => 'Al moment a-i é pa gnun-e pàgine che a sodisfo sti criteri-sì',
+	'unreviewed-viewing' => '(sota revision)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ora|ore}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|di|di}})',
+	'unreviewed-recent' => "(men che n'ora)",
 );
 
 /** Pashto (پښتو)
@@ -1190,7 +1202,7 @@ $messages['roa-tara'] = array(
 	'unreviewed-diff' => 'reviste',
 	'unreviewed-unwatched' => '(no condrollà)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utende|utinde}} attive ca condrollene)',
-	'unreviewed-list' => "Sta pàgene elenghe tutte le pàggene cu le condenute ca non ge tènene 'na rivisitazione.",
+	'unreviewed-list' => "Sta pàgene elenghe le pàggene cu le condenute ca non ge tènene 'na rivisitazione jndr'à 'u levèlle specificate.",
 	'unreviewed-none' => "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
 	'unreviewed-viewing' => '(sotte a rivisitazione)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|ore|ore}})',

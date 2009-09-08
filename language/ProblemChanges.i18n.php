@@ -115,6 +115,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'problemchanges' => 'Kontroli markitajn ŝanĝojn',
 	'problemchanges-category' => 'Kategorio:',
 );
 
