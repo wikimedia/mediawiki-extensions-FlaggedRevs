@@ -377,7 +377,11 @@ class FlaggedArticle extends Article {
 		$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 		# Get stable version sync status
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->parent );
-		if( $synced ) $this->getReviewNotes( $srev ); // Still the same
+		if( $synced ) {
+			$this->getReviewNotes( $srev ); // Still the same
+		} else {
+			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
+		}
 		$pending = '';
 		# Give notice to newer users if an unreviewed edit was completed...
 		if( !$synced && $wgRequest->getVal('shownotice') && !$wgUser->isAllowed('review') ) {
@@ -556,6 +560,61 @@ class FlaggedArticle extends Article {
 		# Output HTML
 		$this->getReviewNotes( $srev );
 	   	$wgOut->addParserOutput( $parserOut );
+	}
+
+	/**
+	* @param FlaggedRevision $srev, stable version
+	* @param bool $quality, revision is quality
+	* Parser cache control deferred to caller
+	*/	
+	protected function maybeShowTopDiff( $srev, $quality ) {
+		global $wgUser, $wgOut, $wgMemc;
+		if( !$wgUser->getBoolOption('flaggedrevsviewdiffs') )
+			return false; // nothing to do here
+		if( !$wgUser->isAllowed('review') )
+			return false; // does not apply to this user
+		# Diff should only show for the draft
+		$oldid = $this->parent->getOldIDFromRequest();
+		if( $oldid && $oldid != $this->parent->getLatest() ) {
+			return false; // not viewing the draft
+		}
+		# Conditions are met to show diff...
+		wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
+		$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+		$rClass = FlaggedRevsXML::getQualityColor( false );
+		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
+		$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-title')."]</span>";
+		$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
+		# Fetch the stable and draft revision text
+		$oText = $srev->getRevText();
+		if( $oText === false )
+			return false; // deleted revision or something?
+		$nText = $this->parent->getContent();
+		if( $nText === false )
+			return false; // deleted revision or something?
+		# Build diff at the top of the page
+		if( strcmp($oText,$nText) !== 0 ) {
+			$diffEngine = new DifferenceEngine();
+			$diffEngine->showDiffStyle();
+			$wgOut->addHTML(
+				"<div>" .
+				"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
+				"<col class='diff-marker' />" .
+				"<col class='diff-content' />" .
+				"<col class='diff-marker' />" .
+				"<col class='diff-content' />" .
+				"<tr>" .
+					"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
+						$leftNote . "</b></td>" .
+						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
+						$rightNote . "</b></td>" .
+				"</tr>" .
+				$diffEngine->generateDiffBody( $oText, $nText ) .
+				"</table>" .
+				"</div>\n"
+			);
+		}
+		return true;
 	}
 
 	/**
@@ -740,7 +799,8 @@ class FlaggedArticle extends Article {
 						"</tr>" .
 						$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
 						"</table>" .
-						"</div>\n" );
+						"</div>\n"
+					);
 				}
 			}
 		}

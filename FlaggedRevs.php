@@ -541,6 +541,7 @@ $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
 $wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
 $wgDefaultUserOptions['flaggedrevsstable'] = false;
 $wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
+$wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 
 # Cache update
 $wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';

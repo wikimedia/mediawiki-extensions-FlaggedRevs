@@ -1312,13 +1312,6 @@ EOT;
 	
 	/** Add user preferences */
 	public static function onGetPreferences( $user, &$preferences ) {
-		// Default versions...
-		$preferences['flaggedrevsstable'] =
-			array(
-				'type' => 'toggle',
-				'section' => 'flaggedrevs',
-				'label-message' => 'flaggedrevs-prefs-stable',
-			);
 		// Box or bar UI
 		$preferences['flaggedrevssimpleui'] =
 			array(
@@ -1330,22 +1323,35 @@ EOT;
 					wfMsg( 'flaggedrevs-pref-UI-1' ) => 1,
 				),
 			);
-		// Watching reviewed pages
-		if ($user->isAllowed( 'review' ) ) {
+		// Default versions...
+		$preferences['flaggedrevsstable'] =
+			array(
+				'type' => 'toggle',
+				'section' => 'flaggedrevs',
+				'label-message' => 'flaggedrevs-prefs-stable',
+			);
+		// Review-related rights...
+		if( $user->isAllowed( 'review' ) ) {
+			// Watching reviewed pages
 			$preferences['flaggedrevswatch'] =
 				array(
 					'type' => 'toggle',
 					'section' => 'watchlist/advancedwatchlist',
 					'label-message' => 'flaggedrevs-prefs-watch',
 				);
-		}
-		// Diff-to-stable on edit
-		if ($user->isAllowed( 'review' ) ) {
+			// Diff-to-stable on edit
 			$preferences['flaggedrevseditdiffs'] =
 				array(
 					'type' => 'toggle',
 					'section' => 'flaggedrevs',
 					'label-message' => 'flaggedrevs-prefs-editdiffs',
+				);
+			// Diff-to-stable on draft view
+			$preferences['flaggedrevsviewdiffs'] =
+				array(
+					'type' => 'toggle',
+					'section' => 'flaggedrevs',
+					'label-message' => 'flaggedrevs-prefs-viewdiffs',
 				);
 		}
 		return true;
