@@ -171,7 +171,7 @@ class FlaggedRevsXML {
     }
 
 	/**
-	 * @param Row $trev, flagged revision row
+	 * @param FlaggedRevision $frev, the stable version
 	 * @param string $html, the short message HTML
 	 * @param int $revsSince, revisions since review
 	 * @param bool $stable, are we referring to the stable revision?
