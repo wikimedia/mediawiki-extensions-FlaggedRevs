@@ -351,7 +351,7 @@ class Stabilization extends UnlistedSpecialPage
 			array( 'fpc_page_id' => $this->page->getArticleID() ),
 			__METHOD__
 		);
-		# If setting to site default values, erase the row if there is one...
+		# If setting to site default values and there is a row...erase it
 		if( $row && $reset ) {
 			$dbw->delete( 'flaggedpage_config',
 				array( 'fpc_page_id' => $this->page->getArticleID() ),
@@ -360,9 +360,12 @@ class Stabilization extends UnlistedSpecialPage
 		# Otherwise, add a row unless we are just setting it as the site default,
 		# or it is the same the current one...
 		} elseif( !$reset ) {
-			if( !$row || $row->fpc_select != $this->select || $row->fpc_override != $this->override
-				|| $row->fpc_level != $this->autoreview || $row->fpc_expiry != $expiry )
-			{
+			if( !$row // no previous config, or...
+				|| $row->fpc_select != $this->select // ...precedence changed, or...
+				|| $row->fpc_override != $this->override // ...override changed, or...
+				|| $row->fpc_level != $this->autoreview // ...autoreview level changed, or...
+				|| $row->fpc_expiry != $expiry // ...expiry changed
+			) {
 				$changed = true;
 				$dbw->replace( 'flaggedpage_config',
 					array( 'PRIMARY' ),

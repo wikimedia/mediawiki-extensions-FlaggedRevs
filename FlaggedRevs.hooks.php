@@ -766,9 +766,10 @@ EOT;
 			# Get autoreview restriction settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
 			# Convert Sysop -> protect
-			$right = ($config['autoreview'] === 'sysop') ? 'protect' : $config['autoreview'];
+			$right = ($config['autoreview'] === 'sysop') ?
+				'protect' : $config['autoreview'];
 			# Check if the user has the required right, if any
-			$isAllowed = !$right || $user->isAllowed($right);
+			$isAllowed = ($right == '' || $user->isAllowed($right));
 		}
 		# Auto-reviewing must be enabled and user must have the required permissions
 		if( !$isAllowed ) {
