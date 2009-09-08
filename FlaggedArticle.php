@@ -271,6 +271,7 @@ class FlaggedArticle extends Article {
 			$reqId = FlaggedRevs::getPrimeFlaggedRevId( $this->parent );
 		}
 		if( $stableId && $reqId ) {
+			# Treat requesting the stable version by ID as &stable=1
 			if( $reqId != $stableId ) {
 				$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $reqId, FR_TEXT );
 				$old = true; // old reviewed version requested by ID
@@ -335,10 +336,10 @@ class FlaggedArticle extends Article {
 		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 		// set to override given the relevant conditions (like &action=protect).
 		} elseif( !$stable && !$this->pageOverride() ) {
-			$this->showRegularVersion( $srev, $frev, $tag, $prot );
+			$this->showRegularVersion( $srev, $tag, $prot );
 		// The relevant conditions are met to override the page with the stable version.
 		} else {
-	   		$this->showStableVersion( $srev, $frev, $tag, $prot );
+	   		$this->showStableVersion( $srev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
 			$pcache = false;
 		}
@@ -361,32 +362,28 @@ class FlaggedArticle extends Article {
 	
 	/**
 	* @param $srev stable version
-	* @param $frev selected flagged revision
 	* @param $tag review box/bar info
 	* @param $prot protection notice
 	* Tag output function must be called by caller
 	* Parser cache control deferred to caller
 	*/
-	protected function showRegularVersion( $srev, $frev, &$tag, $prot ) {
+	protected function showRegularVersion( $srev, &$tag, $prot ) {
 		global $wgUser, $wgOut, $wgLang, $wgRequest;
-		$flags = $frev->getTags();
-		$time = $wgLang->date( $frev->getTimestamp(), true );
+		$flags = $srev->getTags();
+		$time = $wgLang->date( $srev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
 		$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
-		$synced = false;
-		# We only care about syncing if not viewing an old stable version
-		if( $srev->getRevId() == $frev->getRevId() ) {
-			$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent );
-			if( $synced ) $this->getReviewNotes( $frev ); // Still the same
-		}
+		# Get stable version sync status
+		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->parent );
+		if( $synced ) $this->getReviewNotes( $srev ); // Still the same
 		$pending = '';
 		# Give notice to newer users if an unreviewed edit was completed...
 		if( !$synced && $wgRequest->getVal('shownotice') && !$wgUser->isAllowed('review') ) {
 			$tooltip = wfMsgHtml('revreview-draft-title');
 			$pending = "{$prot}<span class='fr-icon-current' title=\"{$tooltip}\"></span>" .
-				wfMsgExt('revreview-edited',array('parseinline'),$frev->getRevId(),$revsSince);
+				wfMsgExt('revreview-edited',array('parseinline'),$srev->getRevId(),$revsSince);
 			$pending = "<div id='mw-reviewnotice' class='flaggedrevs_preview plainlinks'>$pending</div>";
 			# Notice should always use subtitle
 			$this->reviewNotice = $pending;
@@ -404,14 +401,14 @@ class FlaggedArticle extends Article {
 					$msg = $quality ? 'revreview-quick-quality-same' : 'revreview-quick-basic-same';
 					$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-					$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revsSince );
+					$msgHTML = wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $revsSince );
 				} else {
 					$msg = $quality ? 'revreview-quick-see-quality' : 'revreview-quick-see-basic';
-					$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revsSince );
+					$msgHTML = wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $revsSince );
 				}
 				$tooltip = wfMsgHtml($tooltip);
 				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>$msgHTML";
-				$tag .= FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince,
+				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML, $revsSince,
 							$synced, $synced, false );
 			// Standard UI
 			} else {
@@ -419,12 +416,12 @@ class FlaggedArticle extends Article {
 					$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
 					$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-					$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(),
+					$msgHTML = wfMsgExt( $msg, array('parseinline'), $srev->getRevId(),
 									$time, $revsSince );
 				} else {
 					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 					$msg .= ($revsSince == 0) ? '-i' : '';
-					$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(),
+					$msgHTML = wfMsgExt( $msg, array('parseinline'), $srev->getRevId(),
 									$time, $revsSince );
 				}
 				$tooltip = wfMsgHtml($tooltip);
@@ -499,32 +496,31 @@ class FlaggedArticle extends Article {
 
 	/**
 	* @param $srev stable version
-	* @param $frev selected flagged revision
 	* @param $tag review box/bar info
 	* @param $prot protection notice
 	* Tag output function must be called by caller
 	* Parser cache control deferred to caller
 	*/
-	protected function showStableVersion( $srev, $frev, &$tag, $prot ) {
+	protected function showStableVersion( $srev, &$tag, $prot ) {
 		global $wgOut, $wgLang;
-		$flags = $frev->getTags();
-		$time = $wgLang->date( $frev->getTimestamp(), true );
+		$flags = $srev->getTags();
+		$time = $wgLang->date( $srev->getTimestamp(), true );
 		# Set display revision ID
-		$wgOut->setRevisionId( $frev->getRevId() );
+		$wgOut->setRevisionId( $srev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
 		# We will be looking at the reviewed revision...
-	   	$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $frev->getRevId() );
+	   	$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 		# Get parsed stable version
 		$parserOut = FlaggedRevs::getPageCache( $this->parent );
 		if( $parserOut == false ) {
-			$text = $frev->getRevText();
-	   		$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $frev->getRevId() );
+			$text = $srev->getRevText();
+	   		$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $srev->getRevId() );
 	   		# Update the stable version cache
 			FlaggedRevs::updatePageCache( $this->parent, $parserOut );
 	   	}
-		$synced = FlaggedRevs::stableVersionIsSynced( $frev, $this->parent, $parserOut, null );
+		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->parent, $parserOut, null );
 		# Construct some tagging
 		if( !$wgOut->isPrintable() && !($this->lowProfileUI() && $synced) ) {
 			$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
@@ -536,8 +532,8 @@ class FlaggedArticle extends Article {
 				# uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
 				$msg = $synced ? "{$msg}-same" : $msg;
 				$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
-					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $revsSince );
-				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince, true, $synced );
+					wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $revsSince );
+				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $html, $revsSince, true, $synced );
 			// Standard UI
 			} else {
 				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
@@ -549,7 +545,7 @@ class FlaggedArticle extends Article {
 					$msg .= '-i';
 				}
 				$tag = "{$prot}<span class='{$class} plainlinks' title=\"{$tooltip}\"></span>" .
-					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
+					wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $time, $revsSince );
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
 					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
@@ -558,7 +554,7 @@ class FlaggedArticle extends Article {
 			}
 		}
 		# Output HTML
-		$this->getReviewNotes( $frev );
+		$this->getReviewNotes( $srev );
 	   	$wgOut->addParserOutput( $parserOut );
 	}
 
