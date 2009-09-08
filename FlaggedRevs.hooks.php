@@ -1649,10 +1649,14 @@ EOT;
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
 		if( $wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$watchedOutdated = $dbr->selectField( array('watchlist','page','flaggedpages'), '1',
-				array( 'wl_user' => $wgUser->getId(),
-					'wl_namespace = page_namespace', 'wl_title = page_title',
-					'fp_reviewed' => 0, 'fp_page_id = page_id'
+			$watchedOutdated = $dbr->selectField(
+				array('watchlist','page','flaggedpages'), '1',
+				array( 'wl_user' => $wgUser->getId(), // this user
+					'wl_namespace' => $wgFlaggedRevsNamespaces, // reviewable
+					'wl_namespace = page_namespace',
+					'wl_title = page_title',
+					'fp_page_id = page_id',
+					'fp_reviewed' => 0,  // edits pending
 				), __METHOD__
 			);
 			# Give a notice if pages on the wachlist are outdated
