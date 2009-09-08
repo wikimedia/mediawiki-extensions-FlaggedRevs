@@ -264,7 +264,7 @@ class FlaggedRevs {
 	 */
 	public static function getPatrolLevel() {
 		global $wgFlaggedRevsPatrolLevel;
-		return intval($wgFlaggedRevsPatrolLevel);
+		return (int)$wgFlaggedRevsPatrolLevel;
 	}
 	
 	/**
@@ -737,8 +737,9 @@ class FlaggedRevs {
 	public static function updateStableVersion( $article, $rev, $latest = NULL ) {
 		if( !$article->getId() )
 			return true; // no bogus entries
-		# Get the latest revision ID
-		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		# Get the latest revision ID if not set
+		if( !$latest )
+			$latest = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		# Get the highest quality revision (not necessarily this one)
 		$dbw = wfGetDB( DB_MASTER );
 		$maxQuality = $dbw->selectField( array('flaggedrevs','revision'),
@@ -753,7 +754,7 @@ class FlaggedRevs {
 		);
 		# Get the timestamp of the edit after the stable version (if any)
 		$revId = $rev->getId();
-		if( $lastID != $revId ) {
+		if( $latest != $revId ) {
 			# Get the latest revision ID
 			$timestamp = $rev->getTimestamp();
 			$nextTimestamp = $dbw->selectField( 'revision',
@@ -770,7 +771,7 @@ class FlaggedRevs {
 		$dbw->replace( 'flaggedpages',
 			array( 'fp_page_id' ),
 			array( 'fp_stable'     => $revId,
-				'fp_reviewed'      => ($lastID == $revId) ? 1 : 0,
+				'fp_reviewed'      => ($latest == $revId) ? 1 : 0,
 				'fp_quality'       => ($maxQuality === false) ? null : $maxQuality,
 				'fp_page_id'       => $article->getId(),
 				'fp_pending_since' => $nextTimestamp ? $dbw->timestamp($nextTimestamp) : null ),
@@ -791,8 +792,9 @@ class FlaggedRevs {
 		$level = self::pristineVersions() ? FR_PRISTINE : FR_QUALITY;
 		if( !self::qualityVersions() )
 			$level = FR_SIGHTED;
-		# Get the latest revision ID
-		$lastID = $latest ? $latest : $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		# Get the latest revision ID if not set
+		if( !$latest )
+			$latest = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		$pageId = $article->getId();
 		# Update pending times for each level
 		$dbw = wfGetDB( DB_MASTER );
@@ -813,7 +815,7 @@ class FlaggedRevs {
 			if( $row ) {
 				$id = intval( $row->fr_rev_id );
 				# Get the timestamp of the edit after this version (if any)
-				if( $lastID != $id ) {
+				if( $latest != $id ) {
 					$nextTimestamp = $dbw->selectField( 'revision',
 						'rev_timestamp',
 						array( 'rev_page' => $pageId,
