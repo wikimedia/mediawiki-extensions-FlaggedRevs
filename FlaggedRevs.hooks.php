@@ -32,7 +32,7 @@ class FlaggedRevsHooks {
 
 		$ajaxReview = Xml::encodeJsVar( (object) array( 
 			'sendingMsg' => wfMsgHtml('revreview-submitting'), 
-			'sentMsgOK' => wfMsgHtml('revreview-finished'),
+			'sentMsgOk' => wfMsgHtml('revreview-finished'),
 			'sentMsgBad' => wfMsgHtml('revreview-failed'),
 			'actioncomplete' => wfMsgHtml('actioncomplete'),
 			'actionfailed' => wfMsgHtml('actionfailed')
