@@ -116,6 +116,8 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'problemchanges' => 'Kontroli markitajn ŝanĝojn',
+	'problemchanges-legend' => 'Listigi kontrolitajn paĝojn kun markitaj kaj kontrolendaj redaktoj',
+	'problemchanges-none' => 'Estas nune neniuj paĝoj kongruante ĉi tiun kriterion',
 	'problemchanges-category' => 'Kategorio:',
 );
 
