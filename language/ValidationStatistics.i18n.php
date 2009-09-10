@@ -1211,6 +1211,35 @@ Wersja oznaczona strony to najnowsza wersja, która została zaakceptowana jako 
 	'validationstatistics-reviews' => 'Liczba oznaczeń',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'validationstatistics' => 'Statìstiche ëd validassion',
+	'validationstatistics-users' => "'''{{SITENAME}}''' al moment a l'ha '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utent|utent}} con drit d'[[{{MediaWiki:Validationpage}}|Editor]] 
+e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utent|utent}} con drit ëd [[{{MediaWiki:Validationpage}}|Revisor]].
+
+Editor e Revisor a son utent che a peulo controlé le revision a le pàgine.",
+	'validationstatistics-time' => "''Ij dat sota a son an cache e a podrìo esse pa agiornà.''
+
+Le modìfiche che a son ëstàite controlà da utent intrà a son considrà da esse revisionà.
+
+L'atesa media ëd le modìfiche fàite da j'''utent pa intrà'' për esse revisionà a l'é '''$1'''; la median-a a l'é '''$3'''.
+$4
+L'artard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà pendente]] a l'é '''$2'''. Le pàgine a son considrà '''veje'''. Ant la midema manera, le pàgine a son considrà '''sincronisà''' se la [[{{MediaWiki:Validationpage}}|vërsion stàbila]] a l'é ëdcò la vërsion sbòssa curenta.
+La vërsion stàbila ëd la pàgina a l'é la revision pì neuva che a l'é stàita aprovà për mosté a tùit ij visitador.",
+	'validationstatistics-table' => "Lë statìstiche për minca spassi nominal a son mostà sota, ''an gavand'' le pàgine ëd rediression.",
+	'validationstatistics-ns' => 'Spassi nominal',
+	'validationstatistics-total' => 'Pàgine',
+	'validationstatistics-stable' => 'Revisionà',
+	'validationstatistics-latest' => 'Sincronisà',
+	'validationstatistics-synced' => 'Sincronisà/Revisionà',
+	'validationstatistics-old' => 'Veje',
+	'validationstatistics-utable' => "Sota a-i é la lista dij prim 5 revisor ëd l'ùltima ora.",
+	'validationstatistics-user' => 'Utent',
+	'validationstatistics-reviews' => 'Revisor',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */

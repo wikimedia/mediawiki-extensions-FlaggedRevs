@@ -1890,6 +1890,10 @@ Pogledajte [[Special:ReviewedPages|spisak provjerenih stranica]] za spisak odobr
 	'revreview-auto-w-old' => "Uređujete provjerenu reviziju; izmjene koje napravite će '''automatski biti obilježene kao provjerene'''.",
 	'revreview-basic' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|provjerena]] revizija, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Radna verzija] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjenu|izmjene|izmjena}}] koje čekaju na pregled.',
+	'revreview-basic-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|provjerena]] revizija, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Radna verzija] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file izmjene] koje čekaju na provjeru.',
+	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|provjerena]] revizija ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} cijeli spisak]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] su napravljene.',
 	'revreview-basic-same' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|pregledana]] revizija ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} pregledana verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} je odobrena] dana <i>$2</i>, je bila zasnovana na ovoj reviziji.',
 	'revreview-blocked' => 'Ne možete provjeravati ovu reviziju jer je Vaš račun trenutno blokiran ([$1 detalji])',
@@ -1902,7 +1906,10 @@ Pogledajte [[Special:ReviewedPages|spisak provjerenih stranica]] za spisak odobr
 	'revreview-depth-4' => 'Odabrano',
 	'revreview-draft-title' => 'Radna stranica',
 	'revreview-edit' => 'Uredite radnu verziju',
+	'revreview-editnotice' => "'''Izmjene ove stranice će biti uključene u [[{{MediaWiki:Validationpage}}|stabilnu verziju]] tek kada ih pregleda potvrđeni korisnik.'''",
 	'revreview-flag' => 'Provjerite ovu reviziju',
+	'revreview-edited' => "'''Izmjene će biti uključene u [[{{MediaWiki:Validationpage}}|stabilnu verziju]] kada ih pregleda potvrđeni korisnik.'''
+'''''Radna verzija'' je prikazana ispod.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|izmjena čeka|izmjene čekaju}}] provjeru.",
 	'revreview-invalid' => "'''Nevaljan cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] revizija ne odgovara navedenom ID.",
 	'revreview-legend' => 'Ocijeni sadržaj revizije',
 	'revreview-log' => 'Komentar:',

@@ -472,6 +472,13 @@ $messages['sv'] = array(
 	'qualityoversight-legend' => 'Sök loggar för senaste granskningar',
 );
 
+/** Telugu (తెలుగు)
+ * @author Kiranmayee
+ */
+$messages['te'] = array(
+	'qualityoversight-legend' => 'దగ్గరలోని సమీక్షా లాగులను వెతకండి',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

@@ -362,6 +362,9 @@ $messages['dsb'] = array(
  */
 $messages['el'] = array(
 	'oldreviewedpages' => 'Μη ενημερωμένες επιθεωρημένες σελίδες',
+	'oldreviewedpages-legend' => 'Δημιουργία λίστας σελίδων με αναθεωρήσεις για τις οποίες εκκρεμεί επιθεώρηση',
+	'oldreviewedpages-list' => 'Αυτή η σελίδα περιλαμβάνει {{PLURAL:$1|μία επιθεωρημένη σελίδα για την οποίαν|επιθεωρημένες σελίδες για τις οποίες}} εκκρεμούν επεξεργασίες.',
+	'oldreviewedpages-none' => 'Προς το παρόν δεν υπάρχουν σελίδες που να πληρούν αυτά τα κριτήρια.',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ώρα|ώρες}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ημέρα|ημέρες}})',
 	'oldreviewedpages-recent' => '(λιγότερο από 1 ώρα)',
