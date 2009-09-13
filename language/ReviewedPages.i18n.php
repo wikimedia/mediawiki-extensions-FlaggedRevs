@@ -402,7 +402,7 @@ $messages['gsw'] = array(
 $messages['he'] = array(
 	'reviewedpages' => 'דפים שנבדקו',
 	'reviewedpages-leg' => 'רשימת הדפים שאושרו לפי הרמה הגבוהה ביותר',
-	'reviewedpages-list' => '{{PLURAL:$1|הדף הבא אושר|הדפים הבאים אושרו}} עד לרמה שצוינה',
+	'reviewedpages-list' => '{{PLURAL:$1|הדף הבא אושר|הדפים הבאים אושרו}} (לכל היותר) עד לרמה שצוינה.',
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
 	'reviewedpages-lev-0' => 'נצפה',
 	'reviewedpages-lev-1' => 'איכותי',
@@ -460,19 +460,20 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author KossuthRad
  * @author Samat
  */
 $messages['hu'] = array(
 	'reviewedpages' => 'Ellenőrzött lapok',
-	'reviewedpages-leg' => 'Ellenőrzött lapok listázása',
-	'reviewedpages-list' => 'Az alábbi lapok a megadott szinten vannak ellenőrízve.',
+	'reviewedpages-leg' => 'Lapok listázása a legmagasabb értékelési szintjük alapján',
+	'reviewedpages-list' => 'Az alábbi lapok legmagasabb értékelési szintje a megadott szint.',
 	'reviewedpages-none' => 'Nem található egyetlen lap sem a listában.',
-	'reviewedpages-lev-0' => 'megtekintett',
-	'reviewedpages-lev-1' => 'minőségi',
-	'reviewedpages-lev-2' => 'kiemelt',
-	'reviewedpages-all' => 'Ellenőrzött változatok',
-	'reviewedpages-best' => 'legjobb változat',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
+	'reviewedpages-all' => 'ellenőrzött változatok',
+	'reviewedpages-best' => 'kiemelkedő változat',
 );
 
 /** Interlingua (Interlingua)
@@ -1101,7 +1102,7 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'reviewedpages' => 'Pagine riesaminà',
 	'reviewedpages-leg' => 'Elenco de le pagine dal livèl pi alto',
-	'reviewedpages-list' => '{{PLURAL:$1|La pagina seguente la|Le pagine seguenti le}} xe stà riesaminà fin al livèl indicà',
+	'reviewedpages-list' => 'Sta pagina la elenca le pagine che xe stà riesaminà al massimo fin al livèl indicà.',
 	'reviewedpages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'reviewedpages-lev-0' => 'Rivardà',
 	'reviewedpages-lev-1' => 'De qualità',

@@ -666,15 +666,15 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'oldreviewedpages' => 'Elavult ellenőrzött lapok',
-	'oldreviewedpages-legend' => 'Ellenőrizetlen változatokkal rendelkező lapok listája',
-	'oldreviewedpages-list' => 'Ezen a lapon azon ellenőrzött lapok listája látható, melyek ellenőrizetlen szerkesztésekkel rendelkeznek.',
+	'oldreviewedpages-legend' => 'Ellenőrizetlen változatokkal rendelkező ellenőrzött lapok listája',
+	'oldreviewedpages-list' => 'Az alábbi lista az ellenőrizetlen szerkesztésekkel rendelkező {{PLURAL:$1|lapot|lapokat}} tartalmazza',
 	'oldreviewedpages-none' => 'Jelenleg nincs a feltételeknek megfelelő lap.',
 	'oldreviewedpages-hours' => '({{PLURAL:$1|Egy|$1}} órája)',
 	'oldreviewedpages-days' => '({{PLURAL:$1|Egy|$1}} napja)',
 	'oldreviewedpages-recent' => '(kevesebb, mint egy órája)',
 	'oldreviewed-category' => 'Kategória:',
 	'oldreviewed-watched' => 'A figyelőlistámon',
-	'oldreviewed-stable' => 'Jelölt lapváltozat',
+	'oldreviewed-stable' => 'Stabil változat',
 	'oldreviewed-diff' => 'ellenőriz',
 	'oldreviewed-size' => 'Változás legfeljebb (bájtban):',
 	'oldreviewedpages-unwatched' => '(nem figyelt)',
@@ -1060,6 +1060,27 @@ $messages['pl'] = array(
 	'oldreviewedpages-unwatched' => '(nieobserwowana)',
 	'oldreviewedpages-watched' => '(obserwowana przez $2 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})',
 	'oldreviewedpages-viewing' => '(w trakcie przeglądania)',
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'oldreviewedpages' => 'Pàgine revisionà da temp',
+	'oldreviewedpages-legend' => 'Lista le pàgine revisionà con vërsion pendente dle revision',
+	'oldreviewedpages-list' => 'Sta pàgina-sì a lista {{PLURAL:$1|na pàgina revisionà|le pàgine revisionà}} con modìfiche pendente.',
+	'oldreviewedpages-none' => 'Al moment a-i son pa gnun-e pàgine con sti criteri-sì',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|di|di}})',
+	'oldreviewedpages-recent' => '(men che 1 ora)',
+	'oldreviewed-category' => 'Categorìa:',
+	'oldreviewed-watched' => "An s'lòn ch'im ten d'euj",
+	'oldreviewed-stable' => 'Stabilisà',
+	'oldreviewed-diff' => 'revision-a',
+	'oldreviewed-size' => 'Màssim cambi (byte):',
+	'oldreviewedpages-unwatched' => '(pa tnùa sot euj)',
+	'oldreviewedpages-watched' => "($2 {{PLURAL:$1|utent|utent}} ativ ch'a ten-o sot euj)",
+	'oldreviewedpages-viewing' => '(sota revision)',
 );
 
 /** Pashto (پښتو)

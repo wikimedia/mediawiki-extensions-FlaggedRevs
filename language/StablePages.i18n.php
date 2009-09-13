@@ -417,14 +417,19 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Samat
  */
 $messages['hu'] = array(
-	'stablepages' => 'Rögzített lapok',
-	'stablepages-stable' => 'rögzített változat',
-	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amiket külön úgy állítottak be, hogy olvasójának alapértelmezettként a rögzített változat jelenjen meg.',
-	'stablepages-none' => 'Nem található egyetlen lap sem a listában.',
+	'stablepages' => 'Stabil lapok',
+	'stablepages-stable' => 'stabil változat',
+	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a stabil változat jelenjen meg.',
+	'stablepages-none' => 'Nem található egyetlen lap sem a listában',
 	'stablepages-config' => 'beállítás',
+	'stablepages-prec-none' => 'nincs precedencia',
+	'stablepages-prec-quality' => '„minőségi” szint szerinti rendezés',
+	'stablepages-prec-pristine' => '„kiemelkedő” szint szerinti rendezés',
+	'stablepages-precedence' => 'Precedencia:',
 );
 
 /** Interlingua (Interlingua)

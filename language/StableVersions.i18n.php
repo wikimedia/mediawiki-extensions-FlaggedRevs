@@ -436,15 +436,16 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Samat
  */
 $messages['hu'] = array(
-	'stableversions' => 'Megjelölt lapváltozatok',
-	'stableversions-leg1' => 'Oldal jelölt lapváltozatainak listája',
+	'stableversions' => 'Stabil változatok megjelenítése',
+	'stableversions-leg1' => 'Oldal ellenőrzött változatainak listája',
 	'stableversions-page' => 'A lap címe:',
-	'stableversions-none' => 'A(z) „[[:$1]]” nem rendelkezik jelölt lapváltozatokkal',
-	'stableversions-list' => 'A(z) „[[:$1]]” következő változatai lettek megjelölve:',
-	'stableversions-review' => 'megjelölte $2, <i>$1</i>-kor',
+	'stableversions-none' => 'A(z) „[[:$1]]” lapnak nincsenek ellenőrzött változatai.',
+	'stableversions-list' => 'Alább a(z) „[[:$1]]” lap azon {{PLURAL:$2|változata látható|változatai láthatóak}}, {{PLURAL:$2|amelyet|amelyeket}} ellenőriztek:',
+	'stableversions-review' => 'Ellenőrizte $2, <i>$1</i>-kor',
 );
 
 /** Interlingua (Interlingua)

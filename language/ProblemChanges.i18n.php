@@ -227,10 +227,11 @@ $messages['hsb'] = array(
 );
 
 /** Hungarian (Magyar)
+ * @author Glanthor Reviol
  * @author Tgr
  */
 $messages['hu'] = array(
-	'problemchanges' => 'Felcímkézett változtatások áttekintése',
+	'problemchanges' => 'Felcímkézett változtatások ellenőrzése',
 	'problemchanges-legend' => 'Ellenőrizetlen felcímkézett változtatásokat tartalmazó ellenőrzött lapok listája',
 	'problemchanges-none' => 'Jelenleg nincs a a feltételeknek megfelelő lap',
 	'problemchanges-category' => 'Kategória:',

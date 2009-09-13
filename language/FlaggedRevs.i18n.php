@@ -5200,6 +5200,8 @@ $messages['hu'] = array(
 	'prefs-flaggedrevs' => 'Jelölt lapváltozatok',
 	'flaggedrevs-prefs-stable' => 'A jelölt lapváltozat mutatása alapértelmezettként, ha létezik ilyen.',
 	'flaggedrevs-prefs-watch' => 'Az általam megjelölt lapok hozzáadása a figyelőlistámhoz',
+	'flaggedrevs-prefs-editdiffs' => 'Mutasd a stabil változattól való eltéréseket lapok szerkesztésekor',
+	'flaggedrevs-prefs-viewdiffs' => 'Mutasd a stabil változattól való eltéréseket nem ellenőrzött változatok megjelenítésekor',
 	'group-editor' => 'járőrök',
 	'group-editor-member' => 'járőr',
 	'group-reviewer' => 'lektorok',
@@ -5239,6 +5241,7 @@ Az elfogadott lapok listáját az [[Special:ReviewedPages|ellenőrzött lapok li
 Lehetnek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változtatások].',
 	'revreview-basic-same' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|megtekintett]] változat ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>',
 	'revreview-basic-source' => 'A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} megtekintett változata] ([{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadás] dátuma <i>$2</i>) ezen a verzión alapul.',
+	'revreview-blocked' => 'Nem ellenőrizheted ezt a változatot, mert a felhasználói fiókod jelenleg blokkolva van ([$1 részletek])',
 	'revreview-changed' => "'''A kért művelet nem hajtható végre a(z) [[:$1|$1]] ezen változatán.'''
 
 Egy sablon vagy kép lehetett kérve, miközben nem lett megadva adott változat. Ez akkor történhet meg, ha 
@@ -5297,10 +5300,10 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{full
 	'revreview-quick-quality' => "[[{{MediaWiki:Validationpage}}|Kiemelt szócikk]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változat megtekintése]]",
 	'revreview-quick-quality-old' => "[[{{MediaWiki:Validationpage}}|Kiemelt szócikk]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változat megtekintése]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kiemelt szócikk]]'''",
-	'revreview-quick-see-basic' => "'''Vázlat''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} elfogadott változat]]
-([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változások])",
-	'revreview-quick-see-quality' => "'''Vázlat''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} elfogadott változat]]
-([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változások])",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Nem ellenőrzött változat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lap mutatása]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} összehasonlítás])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Nem ellenőrzött változat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lap mutatása]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} összehasonlítás])",
 	'revreview-selected' => "A(z) '''$1''' jelenleg kiválasztott változata:",
 	'revreview-source' => 'Vázlat forrása',
 	'revreview-stable' => 'Rögzített változat',
@@ -5316,21 +5319,23 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{full
 	'revreview-submit' => 'Értékelés elküldése',
 	'revreview-submitting' => 'Küldés...',
 	'revreview-finished' => 'Az értékelés elkészült.',
+	'revreview-failed' => 'Az ellenőrzés meghiúsult!',
 	'revreview-successful' => "'''A(z) [[:$1|$1]] változatát sikeresen megjelölted! ([{{fullurl:{{#Special:Stableversions}}|page=$2}} megjelölt változatok megtekintése])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] változtatásról sikeresen eltávolítottad a jelölést.'''",
 	'revreview-text' => 'Az alapértelmezett beállítások szerint a rögzített változatok jelennek meg az újak helyett.',
+	'revreview-text2' => "''A [[{{MediaWiki:Validationpage}}|stabil változatok]] a lapok ellenőrzött változatai, és beállíthatóak alapértelmezett tartalomként az olvasóknak.''",
 	'revreview-toggle-title' => 'részletek mutatása/elrejtése',
 	'revreview-toolow' => "Ahhoz, hogy egy változatot ellenőrzöttnek jelölhess, mindenhol meg kell adnod valamilyen értékelést.
 Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrizetlen''re.",
-	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Ellenőrizd]] az alábbi változtatásokat, melyek az [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadott] változat óta készültek!
-
-'''Néhány sablon vagy kép frissítve lett:'''",
-	'revreview-update-includes' => "'''Néhány sablon vagy kép megváltozott:'''",
+	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Ellenőrizd]] az alábbi változtatásokat, melyek a stabil változat [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} jóváhagyása] óta történtek!<br />
+'''Néhány sablon vagy fájl frissítve lett:'''",
+	'revreview-update-includes' => "'''Néhány sablon vagy fájl megváltozott:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Ellenőrizz]] minden változtatást ''(lenn láthatóak)'', ami az [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadott] változat óta történt.",
-	'revreview-update-use' => "'''MEGJEGYZÉS:''' Ha a képek vagy a sablonok közül bármelyiknek van ellenőrzött változata, akkor már az volt használva a lap stabil változatán is.",
+	'revreview-update-use' => "'''Megjegyzés:''' ha a fájlok vagy a sablonok közül bármelyiknek van stabil változata, akkor a lap stabil változatán is az jelenik meg.",
 	'revreview-diffonly' => "''A lapváltozat értékeléséhez kattints a jelenlegi lapváltozat linkre, és használd az értékelő mezőt.''",
 	'revreview-visibility' => 'Az oldal aktuális változata [[{{MediaWiki:Validationpage}}|elfogadott]]; az elfogadott változat paramétereit [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt állíthatod be].',
 	'revreview-visibility2' => 'Az oldal aktuális változata nem [[{{MediaWiki:Validationpage}}|elfogadott]]; az elfogadott változat paramétereit [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt állíthatod be].',
+	'revreview-visibility3' => "'''Ennek a lapnak nincsen [[{{MediaWiki:Validationpage}}|stabil változata]]; a lapok stabil változatainak beállításai [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt módosíthatóak].'''",
 	'revreview-revnotfound' => 'A lap általad kért régi változatát nem találom. Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'right-autoreview' => 'változatok automatikusan megtekintettként jelölése',
 	'right-movestable' => 'stabil lapok átnevezése',
@@ -5346,13 +5351,18 @@ Ha törölni szeretnéd az értékelést, akkor állíts mindent ''ellenőrizetl
 	'stable-logpagetext' => 'Ez a lap a lapok [[{{MediaWiki:Validationpage}}|elfogadott változataiban]] történt változások
 naplója.',
 	'revreview-filter-all' => 'mind',
+	'revreview-filter-stable' => 'stabil',
 	'revreview-filter-approved' => 'ellenőrzött',
 	'revreview-filter-reapproved' => 'újraellenőrzött',
 	'revreview-filter-unapproved' => 'ellenőrizetlen',
 	'revreview-filter-auto' => 'automatikus',
 	'revreview-filter-manual' => 'kézi',
-	'revreview-statusfilter' => 'Állapot:',
+	'revreview-statusfilter' => 'Állapot változtatás:',
 	'revreview-typefilter' => 'Típus:',
+	'revreview-levelfilter' => 'Szint:',
+	'revreview-lev-sighted' => 'megtekintett',
+	'revreview-lev-quality' => 'minőségi',
+	'revreview-lev-pristine' => 'kiemelkedő',
 	'revreview-reviewlink' => 'ellenőriz',
 	'tooltip-ca-current' => 'Az oldal jelenlegi vázlatának megtekintése',
 	'tooltip-ca-stable' => 'Az oldal elfogadott változatának megtekintése',
@@ -5587,6 +5597,7 @@ $messages['id'] = array(
 	'flaggedrevs-prefs-stable' => 'Selalu tampilkan halaman versi stabil sebagai tampilan baku (jika ada)',
 	'flaggedrevs-prefs-watch' => 'Tambahkan halaman yang saya tinjau ke daftar pantauan',
 	'flaggedrevs-prefs-editdiffs' => 'Lihat perbedaan pada stabil ketika menyunting halaman',
+	'flaggedrevs-prefs-viewdiffs' => 'Lihat perbedaan ke stabil ketika melihat halaman konsep',
 	'group-editor' => 'Editor',
 	'group-editor-member' => 'penyunting',
 	'group-reviewer' => 'Peninjau',
@@ -6896,6 +6907,7 @@ $messages['lb'] = array(
 	'flaggedrevs-prefs-stable' => "Ëmmer déi stabil Versioun vum Inhalt vun de Säiten ''par défaut'' weisen (wann et eng gëtt)",
 	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht derbäisetzen',
 	'flaggedrevs-prefs-editdiffs' => 'Den Ënnerscheed mat der stabiler Versioun während dem Ännere weisen',
+	'flaggedrevs-prefs-viewdiffs' => "Den Ënnerscheed op déi stabil Versioun weise wann d'Virbereedung gekuckt gëtt",
 	'group-editor' => 'Editeuren',
 	'group-editor-member' => 'Editeur',
 	'group-reviewer' => 'Reviseuren',
@@ -6903,6 +6915,7 @@ $messages['lb'] = array(
 	'grouppage-editor' => '{{ns:project}}:Editeur',
 	'grouppage-reviewer' => '{{ns:project}}:Reviseur',
 	'group-autoreview' => 'Benotzer denen hir Ännerungen automatesch nogekuckt sinn',
+	'group-autoreview-member' => 'Benotzer den automatesch nokuckt',
 	'hist-draft' => 'Brouillonsversioun',
 	'hist-quality' => 'Qualitéitsversioun',
 	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validéiert] vum [[User:$3|$3]]',
@@ -9162,6 +9175,7 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author Luckas Blade
  * @author Rafael Vargas
  */
 $messages['pt-br'] = array(
@@ -9171,8 +9185,49 @@ $messages['pt-br'] = array(
 	'flaggedrevs-watched-pending' => "Há atualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} edições pendentes] a serem análisadas em páginas na sua lista de páginas vigiadas. '''A sua atenção é necessária!'''",
 	'flaggedrevs-desc' => 'Dá aos {{int:group-editor}} e aos {{int:group-reviewer}} a possibilidade de verificarem edições e marcar páginas como estáveis.',
 	'flaggedrevs-pref-UI' => 'Interface da versão estável:',
+	'prefs-flaggedrevs' => 'Estabilidade',
+	'flaggedrevs-prefs-stable' => 'Sempre mostrar a edição estável de uma página como padrão (se existir uma)',
+	'group-editor' => 'Editores',
+	'group-editor-member' => 'Editor',
+	'group-reviewer' => 'Críticos',
+	'group-reviewer-member' => 'Crítico',
+	'group-autoreview' => 'Autocríticos',
+	'group-autoreview-member' => 'autocrítico',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]]',
+	'review-diff2stable' => 'Ver alterações entre a edição estável e a atual',
+	'review-logpage' => 'Registro de análise de edições',
+	'reviewer' => 'Crítico',
+	'revisionreview' => 'Analisar edições',
+	'revreview-accuracy' => 'Precisão',
+	'revreview-accuracy-0' => 'Rejeitada',
+	'revreview-accuracy-2' => 'Precisa',
+	'revreview-approved' => 'Aprovada',
+	'revreview-auto' => '(automático)',
+	'revreview-auto-w' => "Você está editando a edição estável. Alterações serão '''automaticamente tidas como analisadas'''.",
+	'revreview-current' => 'Rascunho',
+	'revreview-depth-0' => 'Rejeitada',
+	'revreview-depth-1' => 'Básica',
+	'revreview-depth-2' => 'Razoável',
+	'revreview-depth-3' => 'Alta',
+	'revreview-edit' => 'Editar rascunho',
+	'revreview-flag' => 'Analisar esta edição',
+	'revreview-legend' => 'Avaliar conteúdo da edição',
+	'revreview-stable' => 'Página estável',
+	'revreview-stable2' => 'Você talvez queira ver a [{{fullurl:$1|stable=1}} edição estável] desta página (caso ainda exista uma).',
+	'revreview-style-0' => 'Rejeitada',
+	'revreview-style-1' => 'Aceitável',
+	'revreview-style-2' => 'Boa',
+	'revreview-toggle-title' => 'mostrar/esconder detalhes',
+	'revreview-update-includes' => "'''Algumas predefinições/arquivos foram atualizados:'''",
 	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
 Por favor verifique a URL que você usou para acessar esta página.',
+	'right-autoreview' => 'Marcar automaticamente as edições como analisadas',
+	'right-review' => 'Marcar edições como analisadas',
+	'rights-editor-revoke' => 'Removido estatuto de editor de [[$1]]',
+	'revreview-filter-stable' => 'estável',
+	'revreview-filter-manual' => 'Manual',
+	'revreview-typefilter' => 'Tipo:',
+	'revreview-levelfilter' => 'Nível:',
 );
 
 /** Quechua (Runa Simi) */

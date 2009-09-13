@@ -295,10 +295,11 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  */
 $messages['hu'] = array(
-	'unstablepages' => 'Rögzítetlen lapok',
-	'unstablepages-stable' => 'rögzített változat',
+	'unstablepages' => 'Nem stabil lapok',
+	'unstablepages-stable' => 'stabil változat',
 	'unstablepages-text' => 'Lent azon lapok listája található, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a legutolsó változat jelenjen meg.',
 	'unstablepages-none' => 'Nincsenek lapok a listában',
 	'unstablepages-config' => 'beállítás',

@@ -548,6 +548,7 @@ $messages['haw'] = array(
 /** Hebrew (עברית)
  * @author Rotemliss
  * @author StuB
+ * @author YaronSh
  */
 $messages['he'] = array(
 	'right-unreviewedpages' => 'צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נבדקו]]',
@@ -557,7 +558,7 @@ $messages['he'] = array(
 	'unreviewed-diff' => 'בדיקה',
 	'unreviewed-unwatched' => 'לא במעקב',
 	'unreviewed-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
-	'unreviewed-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו.',
+	'unreviewed-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו עד לרמה שצויינה.',
 	'unreviewed-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
 	'unreviewed-viewing' => '(בבדיקה)',
 	'unreviewed-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
@@ -634,12 +635,12 @@ $messages['hu'] = array(
 	'unreviewedpages' => 'Ellenőrizetlen lapok',
 	'unreviewed-legend' => 'Nem ellenőrzött tartalmú lapok listája',
 	'unreviewed-category' => 'Kategória:',
-	'unreviewed-diff' => 'Eltérések',
+	'unreviewed-diff' => 'ellenőrzés',
 	'unreviewed-unwatched' => '(nem figyelt)',
 	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)',
-	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve.',
+	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve egy megadott ellenőrzöttségi szintre.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
-	'unreviewed-viewing' => '(megtekintés alatt)',
+	'unreviewed-viewing' => '(ellenőrzés alatt)',
 	'unreviewed-hours' => '({{PLURAL:$1|egy|$1}} óra)',
 	'unreviewed-days' => '({{PLURAL:$1|egy|$1}} nap)',
 	'unreviewed-recent' => '(kevesebb mint egy órája)',
@@ -1449,9 +1450,12 @@ $messages['vec'] = array(
 	'unreviewed-diff' => 'esamina',
 	'unreviewed-unwatched' => '(non osservà)',
 	'unreviewed-watched' => "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
-	'unreviewed-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà.',
+	'unreviewed-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà fin al livèl indicà.',
 	'unreviewed-none' => 'No ghe xe atualmente pagine che sodisfa sti criteri',
 	'unreviewed-viewing' => '(in corso de revision)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ora|ore}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|zorno|zorni}})',
+	'unreviewed-recent' => "(manco de un'ora)",
 );
 
 /** Veps (Vepsan kel')
