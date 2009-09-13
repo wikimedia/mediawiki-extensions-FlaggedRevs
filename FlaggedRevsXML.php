@@ -217,7 +217,7 @@ class FlaggedRevsXML {
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
-		$box = "<table style='background: none;'>";
+		$box = "<table style='background: none; border-spacing: 0px;'>";
 		$box .= "<tr style='white-space:nowrap;'><td>$shtml&nbsp;&nbsp;</td>";
 		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
 		$box .= "<tr><td id='mw-revisionratings'>$html<br/>";
