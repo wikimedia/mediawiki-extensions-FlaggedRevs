@@ -46,6 +46,7 @@ class FlaggedRevsXML {
 	 * @param int $selected, selected level
 	 * @param string $all, all selector msg?
 	 * @param int $max max level?
+	 * @returns string
 	 */
 	public static function getLevelMenu( $selected=null, $all='revreview-filter-all', $max=2 ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
@@ -62,7 +63,12 @@ class FlaggedRevsXML {
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
-	
+
+	/**
+	 * Get a radio options of available precendents
+	 * @param int $selected, selected level
+	 * @returns string
+	 */	
 	public static function getPrecedenceMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = Xml::openElement( 'select', array('name' => 'precedence','id' => 'wpPrecedence') );
@@ -78,6 +84,7 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of "approved"/"unapproved"
 	 * @param int $selected, selected level
+	 * @returns string
 	 */
 	public static function getStatusFilterMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
@@ -94,6 +101,7 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of "auto"/"manual"
 	 * @param int $selected, selected level
+	 * @returns string
 	 */
 	public static function getAutoFilterMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
@@ -108,7 +116,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param int $quality
-	 * @return string, css color for this quality
+	 * @returns string, css color for this quality
 	 */
 	public static function getQualityColor( $quality ) {
 		if( $quality === false )
@@ -131,7 +139,7 @@ class FlaggedRevsXML {
 	 * @param array $flags
 	 * @param bool $prettybox
 	 * @param string $css, class to wrap box in
-	 * @return string
+	 * @returns string
 	 * Generates a review box/tag
 	 */
     public static function addTagRatings( $flags, $prettyBox = false, $css='' ) {
@@ -145,13 +153,13 @@ class FlaggedRevsXML {
 			$encValueText = wfMsgHtml("revreview-$quality-$level");
             $level = $flags[$quality];
             $minlevel = FlaggedRevs::getMinQL( $quality );
-            if( $level >= $minlevel )
+            if( $level >= $minlevel ) {
                 $classmarker = 2;
-            elseif( $level > 0 )
+            } elseif( $level > 0 ) {
                 $classmarker = 1;
-            else
+            } else {
                 $classmarker = 0;
-
+			}
             $levelmarker = $level * 20 + 20;
             if( $prettyBox ) {
             	$tag .= "<tr><td class='fr-text' valign='middle'>" . wfMsgHtml("revreview-$quality") .
@@ -177,7 +185,7 @@ class FlaggedRevsXML {
 	 * @param bool $stable, are we referring to the stable revision?
 	 * @param bool $synced, does stable=current and this is one of them?
 	 * @param bool $old, is this an old stable version?
-	 * @return string
+	 * @returns string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
 	public static function prettyRatingBox( $frev, $shtml, $revsSince, $stable=true, $synced=false, $old=false ) {
@@ -226,7 +234,6 @@ class FlaggedRevsXML {
 			$box .= self::addTagRatings( $flags, true, $color );
 		}
 		$box .= "</td><td></td></tr></table>";
-
         return $box;
 	}
 
@@ -235,46 +242,5 @@ class FlaggedRevsXML {
 		return "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" .
 			wfMsg( 'revreview-toggle' ) . "</a>";
-	}
-
-	/**
-	 * Add user preference to form HTML
-	 */
-	public static function stabilityPreferences( $form ) {
-		global $wgUser;
-		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$html = Xml::openElement( 'fieldset' ) .
-			Xml::element( 'legend', null, wfMsgHtml('flaggedrevs-prefs') ) .
-			Xml::openElement( 'table' ) .
-			Xml::openElement( 'tr' ) .
-				'<td>' . Xml::check( 'wpFlaggedRevsStable', $form->mFlaggedRevsStable,
-					array('id' => 'wpFlaggedRevsStable') ) . '</td><td> ' .
-					Xml::label( wfMsg( 'flaggedrevs-prefs-stable' ), 'wpFlaggedRevsStable' ) . '</td>' .
-			Xml::closeElement( 'tr' ) .
-			Xml::openElement( 'tr' ) .
-				'<td>' .
-					Xml::radio( 'wpFlaggedRevsSUI', 0, $form->mFlaggedRevsSUI==0, array('id' => 'standardUI') ) .
-				'</td><td> ' .
-					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-0'), 'standardUI' ) .
-				'</td>' .
-			Xml::closeElement( 'tr' ) .
-			Xml::openElement( 'tr' ) .
-				'<td>' .
-					Xml::radio( 'wpFlaggedRevsSUI', 1, $form->mFlaggedRevsSUI==1, array('id' => 'simpleUI') ) .
-				'</td><td> ' .
-					Xml::label( wfMsgHtml('flaggedrevs-pref-UI-1'), 'simpleUI' ) .
-				'</td>';
-		if( $wgUser->isAllowed( 'review' ) ) {
-			$html .= Xml::closeElement( 'tr' ) .
-				Xml::openElement( 'tr' ) . '<td><br/></td>' . Xml::closeElement( 'tr' ) .
-				Xml::openElement( 'tr' ) .
-					'<td>' . Xml::check( 'wpFlaggedRevsWatch', $form->mFlaggedRevsWatch, array('id' => 'wpFlaggedRevsWatch') ) .
-					'</td><td> ' . Xml::label( wfMsg( 'flaggedrevs-prefs-watch' ), 'wpFlaggedRevsWatch' ) . '</td>';
-		}
-		$html .= Xml::closeElement( 'tr' ) .
-			Xml::closeElement( 'table' ) .
-			Xml::closeElement( 'fieldset' );
-
-		return $html;
 	}
 }
