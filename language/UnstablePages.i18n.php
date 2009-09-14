@@ -422,6 +422,14 @@ $messages['ml'] = array(
 	'unstablepages-config' => 'ക്രമീകരണങ്ങള്‍',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Kurniasan
+ */
+$messages['ms'] = array(
+	'unstablepages' => 'Halaman tidak stabil',
+	'unstablepages-stable' => 'versi stabil',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

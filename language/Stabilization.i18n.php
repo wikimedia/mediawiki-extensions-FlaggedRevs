@@ -1384,7 +1384,7 @@ Nem lehet a beállításokat módosítani.',
 	'stabilize_expiry_invalid' => 'Hibás lejárati idő.',
 	'stabilize_expiry_old' => 'A megadott lejárati idő már elmúlt.',
 	'stabilize-expiring' => 'lejár $1-kor (UTC szerint)',
-	'stabilization-review' => 'Aktuális verzió ellenőrzése',
+	'stabilization-review' => 'Aktuális változat ellenőrzése',
 );
 
 /** Interlingua (Interlingua)

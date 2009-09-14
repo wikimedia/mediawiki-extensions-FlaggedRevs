@@ -9212,11 +9212,13 @@ $messages['pt-br'] = array(
 	'revreview-edit' => 'Editar rascunho',
 	'revreview-flag' => 'Analisar esta edição',
 	'revreview-legend' => 'Avaliar conteúdo da edição',
+	'revreview-patrol-title' => 'Marcar como patrulhada',
 	'revreview-stable' => 'Página estável',
 	'revreview-stable2' => 'Você talvez queira ver a [{{fullurl:$1|stable=1}} edição estável] desta página (caso ainda exista uma).',
 	'revreview-style-0' => 'Rejeitada',
 	'revreview-style-1' => 'Aceitável',
 	'revreview-style-2' => 'Boa',
+	'revreview-submitting' => 'Enviando...',
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
 	'revreview-update-includes' => "'''Algumas predefinições/arquivos foram atualizados:'''",
 	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
@@ -9228,6 +9230,7 @@ Por favor verifique a URL que você usou para acessar esta página.',
 	'revreview-filter-manual' => 'Manual',
 	'revreview-typefilter' => 'Tipo:',
 	'revreview-levelfilter' => 'Nível:',
+	'revreview-reviewlink' => 'analisar',
 );
 
 /** Quechua (Runa Simi) */

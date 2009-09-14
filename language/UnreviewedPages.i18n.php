@@ -643,7 +643,7 @@ $messages['hu'] = array(
 	'unreviewed-viewing' => '(ellenőrzés alatt)',
 	'unreviewed-hours' => '({{PLURAL:$1|egy|$1}} óra)',
 	'unreviewed-days' => '({{PLURAL:$1|egy|$1}} nap)',
-	'unreviewed-recent' => '(kevesebb mint egy órája)',
+	'unreviewed-recent' => '(kevesebb, mint egy órája)',
 );
 
 /** Interlingua (Interlingua)
