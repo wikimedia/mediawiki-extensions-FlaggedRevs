@@ -167,7 +167,7 @@ function update_flaggedrevs_stats() {
 			'GROUP BY'  => 'rev_id', // stats are for each edit and ID is unique
 			'ORDER BY'  => 'rev_id ASC', // slight bias avoidance, if any
 			'LIMIT'     => $size, // sample size
-			'USE INDEX' => array('flaggedrevs' => 'PRIMARY','logging' => 'page_time')
+			'USE INDEX' => array('page' => 'PRIMARY','flaggedrevs' => 'PRIMARY','logging' => 'page_time')
 		),
 		array( // Assumes title unchanged (reasonable). Double-check NS though.
 			'page' => array('INNER JOIN',array('page_id = rev_page','page_namespace' => $wgFlaggedRevsNamespaces)),
