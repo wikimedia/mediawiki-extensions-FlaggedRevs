@@ -948,11 +948,12 @@ Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
+ * @author Kernoweger
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'validationstatistics-total' => 'Folennow',
+	'validationstatistics-total' => 'Folednow',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

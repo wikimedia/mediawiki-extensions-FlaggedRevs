@@ -428,6 +428,8 @@ $messages['ml'] = array(
 $messages['ms'] = array(
 	'unstablepages' => 'Halaman tidak stabil',
 	'unstablepages-stable' => 'versi stabil',
+	'unstablepages-none' => 'Tiada halaman dalam senarai ini',
+	'unstablepages-config' => 'Tatarajah',
 );
 
 /** Dutch (Nederlands)

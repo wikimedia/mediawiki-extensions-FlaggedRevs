@@ -711,11 +711,12 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Kurniasan
  */
 $messages['ms'] = array(
 	'reviewedpages' => 'Laman diperiksa',
-	'reviewedpages-leg' => 'Senarai laman yang telah diperiksa pada suatu aras tertentu',
-	'reviewedpages-list' => 'Yang berikut ialah senarai laman yang telah diperiksa pada aras yang dinyatakan',
+	'reviewedpages-leg' => 'Senaraikan halaman mengikut tahap tertinggi',
+	'reviewedpages-list' => 'Halaman ini menyenaraikan halaman yang telah disemak (yang tertinggi) kepada tahap yang dinyatakan.',
 	'reviewedpages-none' => 'Tiada laman dalam senarai ini',
 	'reviewedpages-lev-0' => 'Dijenguk',
 	'reviewedpages-lev-1' => 'Bermutu',

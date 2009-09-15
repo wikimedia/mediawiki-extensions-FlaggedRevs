@@ -1992,6 +1992,7 @@ $messages['mr'] = array(
 /** Malay (Bahasa Melayu)
  * @author Aurora
  * @author Aviator
+ * @author Kurniasan
  */
 $messages['ms'] = array(
 	'stabilization-tab' => 'periksa',
@@ -2008,13 +2009,17 @@ Yang berikut ialah tetapan bagi [[:$1|$1]]:',
 	'stabilization-def' => 'Semakan yang dipaparkan ketika lalai',
 	'stabilization-def1' => 'Semakan stabil; jika tiada, semakan semasa',
 	'stabilization-def2' => 'Semakan semasa',
+	'stabilization-restrict' => 'Swa-semak pengehadan',
+	'stabilization-restrict-none' => 'Tiada pengehadan tambahan',
 	'stabilization-submit' => 'Sahkan',
 	'stabilization-notexists' => 'Tiada laman dengan nama "[[:$1|$1]]".
 Tetapan tidak boleh dibuat.',
 	'stabilization-notcontent' => 'Laman "[[:$1|$1]]" tidak boleh diperiksa.
 Tetapan tidak boleh dibuat.',
 	'stabilization-comment' => 'Alasan:',
+	'stabilization-otherreason' => 'Sebab lain',
 	'stabilization-expiry' => 'Tamat pada:',
+	'stabilization-othertime' => 'Waktu lain',
 	'stabilization-sel-short' => 'Keutamaan',
 	'stabilization-sel-short-0' => 'Mutu',
 	'stabilization-sel-short-1' => 'Tiada',
@@ -2025,6 +2030,7 @@ Tetapan tidak boleh dibuat.',
 	'stabilize_expiry_invalid' => 'Tarikh tamat tidak sah.',
 	'stabilize_expiry_old' => 'Waktu tamat telah pun berlalu.',
 	'stabilize-expiring' => 'tamat pada $1 (UTC)',
+	'stabilization-review' => 'Semak versi terkini',
 );
 
 /** Erzya (Эрзянь)

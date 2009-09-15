@@ -659,12 +659,13 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Kurniasan
  */
 $messages['ms'] = array(
 	'stableversions' => 'Lihat versi-versi stabil',
-	'stableversions-leg1' => 'Papar senarai versi yang telah diperiksa bagi sesebuah laman',
-	'stableversions-page' => 'Nama laman:',
-	'stableversions-none' => '"[[:$1]]" tidak mempunyai semakan yang telah diperiksa.',
+	'stableversions-leg1' => 'Senaraikan semakan tersemak bagi sesebuah halaman',
+	'stableversions-page' => 'Nama halaman:',
+	'stableversions-none' => '"[[:$1]]" tidak mempunyai semakan tersemak.',
 	'stableversions-list' => 'Yang berikut ialah senarai semakan yang telah diperiksa bagi laman [[:$1]]',
 	'stableversions-review' => 'Diperiksa pada <i>$1</i> oleh $2',
 );

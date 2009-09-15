@@ -831,12 +831,13 @@ $messages['ksh'] = array(
 	'oldreviewedpages-viewing' => '(weed nohjekik)',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
+ * @author Kernoweger
  * @author Kw-Moon
  */
 $messages['kw'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
-	'oldreviewed-category' => 'Klass:',
+	'oldreviewed-category' => 'Class:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -907,6 +908,7 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Kurniasan
  */
 $messages['ms'] = array(
 	'oldreviewedpages' => 'Laman diperiksa lapuk',
@@ -917,9 +919,13 @@ $messages['ms'] = array(
 	'oldreviewedpages-days' => '($1 hari)',
 	'oldreviewedpages-recent' => '(kurang dari sejam)',
 	'oldreviewed-category' => 'Kategori:',
+	'oldreviewed-watched' => 'Pada senarai pantau saya',
+	'oldreviewed-stable' => 'Distabilkan',
 	'oldreviewed-diff' => 'periksa',
+	'oldreviewed-size' => 'Perubahan maks. (bait):',
 	'oldreviewedpages-unwatched' => '(tidak dipantau)',
-	'oldreviewedpages-watched' => '(dipantau oleh $2 orang pengguna)',
+	'oldreviewedpages-watched' => '(dipantau {{PLURAL:$1|seorang|$2 orang}} pengguna aktif)',
+	'oldreviewedpages-viewing' => '(dalam semakan)',
 );
 
 /** Nahuatl (Nāhuatl)

@@ -834,11 +834,12 @@ $messages['ksh'] = array(
 	'unreviewed-recent' => '(winnijer wie en Shtund)',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
+ * @author Kernoweger
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'unreviewed-category' => 'Klass:',
+	'unreviewed-category' => 'Class:',
 );
 
 /** Latin (Latina)
@@ -950,17 +951,21 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Kurniasan
  */
 $messages['ms'] = array(
 	'right-unreviewedpages' => 'Lihat senarai laman yang belum diperiksa',
-	'unreviewedpages' => 'Laman belum diperiksa',
+	'unreviewedpages' => 'Halaman belum diperiksa',
 	'unreviewed-legend' => 'Senarai laman kandungan yang belum diperiksa',
 	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'periksa',
+	'unreviewed-diff' => 'semak',
 	'unreviewed-unwatched' => '(tidak dipantau)',
-	'unreviewed-watched' => '(dipantau oleh $1 orang pengguna)',
-	'unreviewed-list' => 'Yang berikut ialah senarai laman kandungan yang belum diperiksa.',
+	'unreviewed-watched' => '(dipantau oleh {{PLURAL:$1|seorang|$1 orang}} pengguna aktif)',
+	'unreviewed-list' => 'Halaman ini menyenaraikan halaman kandungan yang tidak lagi disemak kepada tahap yang dinyatakan.',
 	'unreviewed-none' => 'Tiada laman yang memenuhi kriteria ini',
+	'unreviewed-viewing' => '(dalam semakan)',
+	'unreviewed-hours' => '({{PLURAL:$1|sejam|$1 jam}})',
+	'unreviewed-recent' => '(kurang drpd. 1 jam)',
 );
 
 /** Erzya (Эрзянь)
