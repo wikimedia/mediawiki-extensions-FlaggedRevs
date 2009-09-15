@@ -9,7 +9,6 @@ class FlaggedRevsXML {
 	 */
 	public static function getNamespaceMenu( $selected=null, $all=null ) {
 		global $wgContLang, $wgFlaggedRevsNamespaces;
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
 		if( $selected !== '' ) {
 			if( is_null( $selected ) ) {
