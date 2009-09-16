@@ -3201,7 +3201,9 @@ $messages['eu'] = array(
 	'flaggedrevs' => 'Markatutako Berrikuspenak',
 	'group-editor' => 'Editoreak',
 	'group-editor-member' => 'editorea',
+	'review-logentry-id' => 'ikusi',
 	'revreview-accuracy' => 'Zehaztasuna',
+	'revreview-auto' => '(automatikoa)',
 	'revreview-draft-title' => 'Zirriborroa',
 	'revreview-log' => 'Iruzkina:',
 	'revreview-submit' => 'Bidali',
@@ -8465,6 +8467,7 @@ $messages['oc'] = array(
 	'flaggedrevs-prefs-stable' => "Afichar totjorn la version establa del contengut de las paginas per defaut (se n'existís una)",
 	'flaggedrevs-prefs-watch' => "Apond las paginas qu'ai revistas a ma lista de seguit.",
 	'flaggedrevs-prefs-editdiffs' => 'Far veire lo diff cap a la version establa quand modificatz de paginas',
+	'flaggedrevs-prefs-viewdiffs' => "Far veire lo diff cap a la revision establa quand los borrolhons d'una pagina son consultats",
 	'group-editor' => 'Contributors',
 	'group-editor-member' => 'Contributor',
 	'group-reviewer' => 'Revisors',
@@ -9241,8 +9244,11 @@ Por favor verifique a URL que você usou para acessar esta página.',
 	'revreview-reviewlink' => 'analisar',
 );
 
-/** Quechua (Runa Simi) */
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
 $messages['qu'] = array(
+	'review-logentry-app' => "[[$1]] p'anqapaq r$2 musuqchasqata qhawaykun",
 	'revreview-revnotfound' => "Mañakusqayki llamk'apusqaqa manam tarisqachu.
 Ama hina kaspa, kay p'anqap URL nisqa tiyayninta k'uskiriy.",
 );
