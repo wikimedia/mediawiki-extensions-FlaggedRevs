@@ -1286,7 +1286,7 @@ class FlaggedRevs {
 			$tagsJS[$tag] = self::$minQL[$tag];
 		}
 		$params = array( 'tags' => (object)$tagsJS );
-		return Xml::encodeJsVar( (object)$params );
+		return (object)$params;
 	}
 	
 	/**

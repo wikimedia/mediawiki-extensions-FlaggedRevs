@@ -445,6 +445,7 @@ $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 
 # Add CSS/JS as needed
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::injectStyleAndJS';
+$wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
 
 # Cache updates
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';

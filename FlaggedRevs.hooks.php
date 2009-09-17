@@ -17,38 +17,42 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-		# Load required messages
-		wfLoadExtensionMessages( 'FlaggedRevs' );
-		
 		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
-		$rTags = FlaggedRevs::getJSTagParams();
-		$frev = $fa->getStableRev();
-		$stableId = $frev ? $frev->getRevId() : 0;
-
+		# Get JS/CSS file locations
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
-
+		# Add CSS file
 		$wgOut->addExtensionStyle( $encCssFile );
-
-		$ajaxReview = Xml::encodeJsVar( (object) array( 
+		# Add JS file
+		$head = "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
+		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		return true;
+	}
+	
+	public static function injectGlobalJSVars( &$globalVars ) {
+		global $wgJsMimeType;
+		$fa = FlaggedArticle::getGlobalInstance();
+		# Try to only add to relevant pages
+		if( !$fa || !$fa->isReviewable(true) ) {
+			return true;
+		}
+		# Load required messages
+		wfLoadExtensionMessages( 'FlaggedRevs' );
+		# Get the review tags on this wiki
+		$rTags = FlaggedRevs::getJSTagParams();
+		# Get page-specific meta-data
+		$frev = $fa->getStableRev();
+		$stableId = $frev ? $frev->getRevId() : 0;
+		$ajaxReview = (object) array( 
 			'sendingMsg' => wfMsgHtml('revreview-submitting'), 
 			'sentMsgOk' => wfMsgHtml('revreview-finished'),
 			'sentMsgBad' => wfMsgHtml('revreview-failed'),
 			'actioncomplete' => wfMsgHtml('actioncomplete'),
 			'actionfailed' => wfMsgHtml('actionfailed')
-			)
 		);
-
-		$head = <<<EOT
-<script type="$wgJsMimeType">
-var wgFlaggedRevsParams = $rTags;
-var wgStableRevisionId = $stableId;
-var wgAjaxReview = $ajaxReview
-</script>
-<script type="$wgJsMimeType" src="$encJsFile"></script>
-
-EOT;
-		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		$globalVars['wgFlaggedRevsParams'] = $rTags;
+		$globalVars['wgStableRevisionId'] = $stableId;
+		$globalVars['wgAjaxReview'] = $ajaxReview;
 		return true;
 	}
 	
