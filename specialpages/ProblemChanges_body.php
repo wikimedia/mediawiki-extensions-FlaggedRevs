@@ -291,7 +291,7 @@ class ProblemChangesPager extends AlphabeticPager {
 		global $wgUser, $wgOldChangeTagsIndex;
 		$ctIndex = $wgOldChangeTagsIndex ? 'ct_rev_id' : 'change_tag_rev_tag';
 		$conds = $this->mConds;
-		$tables = array( 'page', 'revision', 'change_tag' );
+		$tables = array( 'revision', 'change_tag', 'page' );
 		$fields = array('page_namespace','page_title','page_latest');
 		# Show outdated "stable" versions
 		if( $this->level < 0 ) {
@@ -301,7 +301,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'fp_pending_since IS NOT NULL';
 			$conds[] = 'page_id = fp_page_id';
 			# Find revisions that are tagged as such
-			$conds[] = 'rev_page = page_id';
+			$conds[] = 'rev_page = fp_page_id';
 			$conds[] = 'rev_id > fp_stable';
 			$conds[] = 'ct_rev_id = rev_id';
 			$conds['ct_tag'] = $this->tag;
