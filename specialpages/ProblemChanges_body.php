@@ -289,7 +289,7 @@ class ProblemChangesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		global $wgUser, $wgOldChangeTagsIndex;
-		$ctIndex = $wgOldChangeTagsIndex ? 'ct_tag' : 'change_tag_rev_tag';
+		$ctIndex = $wgOldChangeTagsIndex ? 'ct_rev_id' : 'change_tag_rev_tag';
 		$conds = $this->mConds;
 		$tables = array( 'page', 'revision', 'change_tag' );
 		$fields = array('page_namespace','page_title','page_latest');
