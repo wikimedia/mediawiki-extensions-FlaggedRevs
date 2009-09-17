@@ -288,7 +288,8 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		global $wgUser;
+		global $wgUser, $wgOldChangeTagsIndex;
+		$ctIndex = $wgOldChangeTagsIndex ? 'ct_tag' : 'change_tag_rev_tag';
 		$conds = $this->mConds;
 		$tables = array( 'page', 'revision', 'change_tag' );
 		$fields = array('page_namespace','page_title','page_latest');
@@ -305,7 +306,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'ct_rev_id = rev_id';
 			$conds['ct_tag'] = $this->tag;
 			$useIndex = array('flaggedpages' => 'fp_pending_since',
-				'change_tag' => 'change_tag_rev_tag	');
+				'change_tag' => $ctIndex);
 			# Filter by category
 			if( $this->category ) {
 				array_unshift($tables,'categorylinks'); // order matters
@@ -329,7 +330,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id = ct_rev_id';
 			$conds['ct_tag'] = $this->tag;
 			$useIndex = array('flaggedpage_pending' => 'fpp_quality_pending',
-				'change_tag' => 'change_tag_rev_tag	');
+				'change_tag' => $ctIndex);
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by category
