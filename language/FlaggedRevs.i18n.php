@@ -1916,6 +1916,8 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] su nap
 	'revreview-main' => 'Morate odabrati određenu reviziju stranice sadržaja da biste je provjerili.
 
 Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Zadnja provjerena revizija] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]) je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene|izmjena}}] {{PLURAL:$3|čeka|čeka}} na provjeru.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} posljednja kvalitetna revizija] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]) je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene|izmjena}}] {{PLURAL:$3|čeka|čekaju|čeka}} na provjeru.',
 	'revreview-note' => '[[User:$1|$1]] je napravio slijedeće bilješke pri [[{{MediaWiki:Validationpage}}|pregledu]] ove revizije:',
@@ -1950,6 +1952,8 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-finished' => 'Pregled završen!',
 	'revreview-failed' => 'Pregled nije uspio!',
 	'revreview-successful2' => "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne stranice]] su standardne stranice sadržaja za čitaoce umjesto novih revizija.''",
+	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilne verzije]] su provjerene revizije stranica i mogu biti postavljene kao standardni sadržaj za čitaoce.''",
 	'revreview-toggle-title' => 'pokaži/sakrij detalje',
 	'revreview-toolow' => "Morate ocijeniti najmanje svaki od ispod navedenih ocjena više od ''neodobreno'' da bi se revizija smatrala pregledanom.
 Da bi uklonili ocjenu revizije, postavite sva polja na ''neodobreno''.",
@@ -2872,11 +2876,11 @@ La ''malneto'' estas montrita sube.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&dif
 Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta reviziita versio] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} listigi ĉiujn]) estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.',
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta reviziita versio] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta reviziita revizio] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝablonaj/bildaj ŝanĝoj] atendas kontrolon.',
 	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} plej lasta bonkvalita versio] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] bezonas kontrolon.',
-	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta kvalita versio] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lasta kvalita revizio] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]) estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ŝablonaj/bildaj ŝanĝoj] bezonas kontrolon.',
 	'revreview-noflagged' => "Estas neniuj versioj de ĉi tiu paĝo, do ĝi eble '''ne''' estis [[{{MediaWiki:Validationpage}}|kvalite kontrolita]].",
 	'revreview-note' => '[[User:$1|$1]] faris la jenan noton en [[{{MediaWiki:Validationpage}}|kontrolo]] de ĉi tiu versio:',
@@ -2887,7 +2891,7 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-patrolled' => 'La elektita versio de [[:$1|$1]] estis markita kiel patrolita.',
 	'revreview-quality' => 'Jen la plej lasta [[{{MediaWiki:Validationpage}}|bonkvalita]] versio, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] atendas kontrolon.',
-	'revreview-quality-i' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|bonkvalita]] versio, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-quality-i' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|bonkvalita]] revizio, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] atendas kontrolon de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝablonaj/bildaj ŝanĝoj].',
 	'revreview-quality-old' => 'Jen [[{{MediaWiki:Validationpage}}|bonkvalita]] versio ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble estis faritaj.',
@@ -2929,7 +2933,7 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-toggle-title' => 'montri/kaŝi detalojn',
 	'revreview-toolow' => 'Vi devas taksi ĉiun de la jenaj atribuoj almenaŭ pli alta ol "malaprobita" por versio esti konsiderata kiel kontrolita.
 Malvalidigi version, faru ĉiujn kampojn kiel "malaprobita".',
-	'revreview-update' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iuj ajn ŝanĝoj ''(sube montritaj)'' faritaj ekde la stabila versio estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita].<br />
+	'revreview-update' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn ajn ŝanĝojn ''(sube montritajn)'' faritajn ekde la stabila revizio estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita].<br />
 '''Iuj ŝablonoj/bildoj estis ĝisdatigitaj:'''",
 	'revreview-update-includes' => "'''Iuj ŝablonoj/bildoj estis ĝisdatigitaj:'''",
 	'revreview-update-none' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] ĉiujn ŝanĝojn ''(sube montritajn)'' faritajn post kiam la stabila versio estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita].",
@@ -11847,7 +11851,7 @@ sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}-le
 	'right-validate' => 'Znamoit lehtpoliden versijad kut lophusai kodvdud',
 	'rights-editor-autosum' => 'avtopanend',
 	'rights-editor-revoke' => 'Om anastanu arvostelijan statusan [[$1]]-kävutajalpäi',
-	'specialpages-group-quality' => 'Ladun tugedamine',
+	'specialpages-group-quality' => "Ladun pid'oitelemine",
 	'stable-logentry' => 'om pannu stabiližen versioniruindan [[$1]]:n täht',
 	'stable-logentry2' => 'om heitnu puhthanikan versioniruindan [[$1]]:n täht',
 	'stable-logpage' => 'Stabilizacijoiden aigkirj',
