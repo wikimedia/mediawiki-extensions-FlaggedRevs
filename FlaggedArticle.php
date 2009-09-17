@@ -959,6 +959,7 @@ class FlaggedArticle extends Article {
 		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
 		
 		$title = $this->parent->getTitle()->getSubjectPage();
+		$article = new Article( $title );
 		$action = $wgRequest->getVal( 'action', 'view' );
 		$fa = FlaggedArticle::getTitleInstance( $title );
 		if ( !$fa->isReviewable() || $this->limitedUI() ) {
@@ -971,7 +972,7 @@ class FlaggedArticle extends Article {
 			return true;
 		}
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->parent );
+		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
 	   		if ( isset( $views['edit'] ) ) {
 				if ( $this->showStableByDefault() ) {
