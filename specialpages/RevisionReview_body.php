@@ -379,17 +379,22 @@ class RevisionReview extends UnlistedSpecialPage
 		$revlink = $this->skin->makeLinkObj( $this->page, $date, 'oldid=' . $rev->getId() );
 		return "<li>$difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
 	}
+	
+	public function isApproval() {
+		# If all values are set to zero, this has been unapproved
+		if( !count( FlaggedRevs::getDimensions() ) && $this->approve ) {
+			return true; // no tags & approve param given
+		}
+		foreach( $this->dims as $quality => $value ) {
+			if( $value ) return true;
+		}
+		return false;
+	}
 
 	public function submit() {
 		global $wgUser;
 		# If all values are set to zero, this has been unapproved
-		$approved = !count( FlaggedRevs::getDimensions() ) && $this->approve;
-		foreach( $this->dims as $quality => $value ) {
-			if( $value ) {
-				$approved = true;
-				break;
-			}
-		}
+		$approved = $this->isApproval();
 		# Double-check permissions
 		if( !$this->page->quickUserCan('edit') || !self::userCanSetFlags($this->dims,$this->oflags,$this->config) ) {
 			return array($approved,false);

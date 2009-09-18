@@ -82,7 +82,7 @@ class ApiReview extends ApiBase {
 		if( !$title->quickUserCan('edit') || !RevisionReview::userCanSetFlags($form->dims,$form->oflags,$form->config) )
 			$this->dieUsage( "You don't have the necessary rights to set the specified flags.", 'permissiondenied' );
 
-		if( $form->approve ) {
+		if( $form->isApproval() ) {
 			// Now get the template and image parameters needed
 			// If it is the current revision, try the parser cache first
 			$article = new Article( $title, $revid );
