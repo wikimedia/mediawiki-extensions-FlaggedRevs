@@ -1443,8 +1443,10 @@ class FlaggedArticle extends Article {
 			if( !RevisionReview::userCanSetFlags( $oldFlags ) ) {
 				$flags = $oldFlags;
 			}
+			$encNotes = $srev->getComment();
 		} else {
 			$flags = $this->getFlagsForRevision( $id );
+			$encNotes = '';
 		}
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
@@ -1538,7 +1540,9 @@ class FlaggedArticle extends Article {
 			$form .= "<div id='mw-notebox'>\n";
 			$form .= "<p>".wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
-				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) . Xml::closeElement('textarea') . "\n";
+				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) .
+				htmlspecialchars( $encNotes ) .
+				Xml::closeElement('textarea') . "\n";
 			$form .= "</div>\n";
 		}
 
