@@ -470,6 +470,13 @@ $messages['tr'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** Veps (Vepsan kel')
  * @author Игорь Бродский
  */
