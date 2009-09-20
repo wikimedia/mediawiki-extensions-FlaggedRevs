@@ -6940,6 +6940,7 @@ $messages['lb'] = array(
 	'review-logpage' => 'Lëscht vum Nokucken',
 	'reviewer' => 'Reviseur',
 	'revisionreview' => 'Versiounen nokucken',
+	'revreview-accuracy' => 'Zoustand',
 	'revreview-accuracy-0' => 'Net fräiginn',
 	'revreview-accuracy-1' => 'Iwwerkuckt',
 	'revreview-accuracy-2' => 'Zoutreffend',
