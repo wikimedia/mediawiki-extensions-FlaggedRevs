@@ -245,7 +245,7 @@ class FlaggedArticle extends Article {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	public function setPageContent( &$outputDone, &$pcache ) {
-		global $wgRequest, $wgOut, $wgUser, $wgLang;
+		global $wgRequest, $wgOut, $wgUser, $wgLang, $wgContLang;
 		# Only trigger on article view for content pages, not for protect/delete/hist...
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( !self::isViewAction($action) || !$this->parent->exists() )
@@ -295,6 +295,8 @@ class FlaggedArticle extends Article {
 			$prot = "<span class='fr-icon-unlocked' title=\"".
 				wfMsgHtml('revreview-unlocked-title')."\"></span>";
 		}
+		// RTL langauges
+		$rtl = $wgContLang->isRTL() ? " rtl" : "";
 		// Is there no stable version?
 		if( is_null($frev) ) {
 			// Add "no reviewed version" tag, but not for printable output.
@@ -304,7 +306,7 @@ class FlaggedArticle extends Article {
 					$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
 					$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
 						wfMsgExt($msg,array('parseinline'));
-					$tag = "<div id='mw-revisiontag' class='flaggedrevs_short plainlinks noprint'>$tag</div>";
+					$tag = "<div id='mw-revisiontag' class='flaggedrevs_short{$rtl} plainlinks noprint'>$tag</div>";
 					$this->reviewNotice .= $tag;
 				// Standard UI
 				} else {
@@ -351,7 +353,7 @@ class FlaggedArticle extends Article {
 		else $tagClass = 'flaggedrevs_basic';
 		# Wrap tag contents in a div
 		if( $tag !='' ) {
-			$tag = "<div id='mw-revisiontag' class='$tagClass plainlinks noprint'>$tag</div>";
+			$tag = "<div id='mw-revisiontag' class='{$tagClass}{$rtl} plainlinks noprint'>$tag</div>";
 			$this->reviewNotice .= $tag;
 		}
 		# Show notice bar/icon
