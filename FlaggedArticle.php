@@ -1447,8 +1447,9 @@ class FlaggedArticle extends Article {
 			}
 			$encNotes = $srev->getComment();
 		} else {
-			$flags = $this->getFlagsForRevision( $id );
-			$encNotes = '';
+			$frev = FlaggedRevision::newFromTitle( $this->parent->getTitle(), $id );
+			$flags = $oldFlags;
+			$encNotes = $frev ? $frev->getComment() : ""; // pre-fill notes
 		}
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
