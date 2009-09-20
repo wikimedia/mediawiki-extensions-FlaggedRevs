@@ -207,8 +207,10 @@ wgAjaxReview.processResult = function(request) {
 	}
 	var response = request.responseText;
 	if( msg = response.substr(6) ) {
-		jsMsg( msg, 'review' );
-		window.scroll(0,0);
+		jsMsg( msg, 'review' ); // success notice
+		window.scroll(0,0); // scroll up to notice
+		tagBox = document.getElementById('mw-revisiontag');
+		if( tagBox ) tagBox.style.display = 'none'; // remove tag from draft
 	}
 	wgAjaxReview.inprogress = false;
 	if( wgAjaxReview.timeoutID ) {
