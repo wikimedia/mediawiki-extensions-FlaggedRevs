@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class Stabilization extends UnlistedSpecialPage
 {
 	public function __construct() {
-		UnlistedSpecialPage::UnlistedSpecialPage( 'Stabilization', 'stablesettings' );
+		parent::__construct( 'Stabilization', 'stablesettings' );
 		wfLoadExtensionMessages( 'Stabilization' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }

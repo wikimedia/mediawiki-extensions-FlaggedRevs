@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class UnreviewedPages extends SpecialPage
 {
     public function __construct() {
-        SpecialPage::SpecialPage( 'UnreviewedPages', 'unreviewedpages' );
+        parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
 		wfLoadExtensionMessages( 'UnreviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }

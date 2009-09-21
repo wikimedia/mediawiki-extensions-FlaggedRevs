@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class ReviewedPages extends SpecialPage
 {
 	public function __construct() {
-		SpecialPage::SpecialPage( 'ReviewedPages' );
+		parent::__construct( 'ReviewedPages' );
 		wfLoadExtensionMessages( 'ReviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }

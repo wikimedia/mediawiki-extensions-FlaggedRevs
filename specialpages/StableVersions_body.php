@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class StableVersions extends UnlistedSpecialPage
 {
     public function __construct() {
-        UnlistedSpecialPage::UnlistedSpecialPage( 'StableVersions' );
+        parent::__construct( 'StableVersions' );
 		wfLoadExtensionMessages( 'StableVersions' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }

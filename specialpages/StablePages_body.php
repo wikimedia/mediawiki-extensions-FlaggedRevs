@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class StablePages extends SpecialPage
 {
 	public function __construct() {
-        SpecialPage::SpecialPage( 'StablePages' );
+        parent::__construct( 'StablePages' );
 		wfLoadExtensionMessages( 'StablePages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }

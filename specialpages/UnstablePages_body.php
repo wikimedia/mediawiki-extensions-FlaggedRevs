@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class Unstablepages extends SpecialPage
 {
     public function __construct() {
-        SpecialPage::SpecialPage( 'UnstablePages' );
+        parent::__construct( 'UnstablePages' );
 		wfLoadExtensionMessages( 'UnstablePages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
     }

@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class ValidationStatistics extends IncludableSpecialPage
 {
 	public function __construct() {
-		IncludableSpecialPage::IncludableSpecialPage( 'ValidationStatistics' );
+		parent::__construct( 'ValidationStatistics' );
 		wfLoadExtensionMessages( 'ValidationStatistics' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
