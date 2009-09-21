@@ -131,11 +131,10 @@ class FlaggedRevision {
 			);
 			if( !$row ) return null;
 		} else {
-			global $wgFlaggedRevsReviewForDefault;
 			$row = null;
 			# Get visiblity settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
-			if( !$config['override'] && $wgFlaggedRevsReviewForDefault ) {
+			if( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
 				return $row; // page is not reviewable; no stable version
 			}
 			$dbw = wfGetDB( DB_MASTER );

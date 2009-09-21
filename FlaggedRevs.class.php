@@ -97,6 +97,15 @@ class FlaggedRevs {
 		global $wgFlaggedRevsOverride;
 		return (bool)$wgFlaggedRevsOverride;
 	}
+
+	/**
+	 * Does the review form only show for pages were the stable version is the default?
+	 * @returns bool
+	 */
+	public static function forDefaultVersionOnly() {
+		global $wgFlaggedRevsReviewForDefault;
+		return (bool)$wgFlaggedRevsReviewForDefault;
+	}
 	
 	/**
 	 * Should this user ignore the site and page default version settings?
