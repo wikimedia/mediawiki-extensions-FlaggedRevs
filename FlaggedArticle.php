@@ -135,8 +135,7 @@ class FlaggedArticle extends Article {
 	 * @returns bool
 	 */
 	public function limitedUI() {
-		global $wgFlaggedRevsUIForDefault;
-		return ( $wgFlaggedRevsUIForDefault && !$this->showStableByDefault() );
+		return ( FlaggedRevs::forDefaultVersionOnly() && !$this->showStableByDefault() );
 	}
 
 	/**
@@ -169,10 +168,9 @@ class FlaggedArticle extends Article {
 	 * @param bool $titleOnly, only check if title is in reviewable namespace
 	 */
 	public function isReviewable( $titleOnly = false ) {
-		global $wgFlaggedRevsReviewForDefault;
 		if( !FlaggedRevs::isPageReviewable( $this->parent->getTitle() ) ) {
 			return false;
-		} elseif( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
+		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly() && !$this->showStableByDefault() ) {
 			return false;
 		}
 		return true;
@@ -184,10 +182,9 @@ class FlaggedArticle extends Article {
 	* @return bool
 	*/
 	public function isPatrollable( $titleOnly = false ) {
-		global $wgFlaggedRevsReviewForDefault;
 		if( FlaggedRevs::isPagePatrollable( $this->parent->getTitle() ) ) {
 			return true;
-		} elseif( !$titleOnly && $wgFlaggedRevsReviewForDefault && !$this->showStableByDefault() ) {
+		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly() && !$this->showStableByDefault() ) {
 			return true;
 		}
 		return false;
@@ -924,8 +921,8 @@ class FlaggedArticle extends Article {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setActionTabs( $skin, &$actions ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
-	
+		global $wgRequest, $wgUser;
+
 		$title = $this->parent->getTitle()->getSubjectPage();
 		if ( !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true; // Only reviewable pages need these tabs
@@ -958,7 +955,7 @@ class FlaggedArticle extends Article {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setViewTabs( $skin, &$views ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
+		global $wgRequest, $wgUser;
 		
 		$title = $this->parent->getTitle()->getSubjectPage();
 		$article = new Article( $title );
@@ -993,7 +990,7 @@ class FlaggedArticle extends Article {
 				}
 			}
 	   	}
-	 	if ( !$wgFlaggedRevTabs || $synced ) {
+	 	if ( !FlaggedRevs::showVersionTabs() || $synced ) {
 	 		// Exit, since either the flagged revisions tabs should not be shown
 	 		// or the page is already the most current revision
 	   		return true;

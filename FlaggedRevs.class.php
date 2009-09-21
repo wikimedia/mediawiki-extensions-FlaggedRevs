@@ -88,6 +88,15 @@ class FlaggedRevs {
 		global $wgUser, $wgSimpleFlaggedRevsUI;
 		return $wgUser->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
 	}
+
+	/**
+	 * Should pages have stable/draft tabs when not synced?
+	 * @returns bool
+	 */
+	public static function showVersionTabs() {
+		global $wgFlaggedRevTabs;
+		return (bool)$wgFlaggedRevTabs;
+	}
 	
 	/**
 	 * Should this user see stable versions by default?
