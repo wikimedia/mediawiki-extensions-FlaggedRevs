@@ -366,9 +366,7 @@ $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
 
 $wgAutoloadClasses['ApiReview'] = $dir.'api/ApiReview.php';
-$wgAutoloadClasses['ApiStabilize'] = $dir.'api/ApiStabilize.php';
 $wgAPIModules['review'] = 'ApiReview';
-$wgAPIModules['stabilize'] = 'ApiStabilize';
 
 ######### Hook attachments #########
 # Autopromote Editors
