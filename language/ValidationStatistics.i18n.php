@@ -953,7 +953,7 @@ Dommet zopaß, donn Sigge als ''{{lcfirst:{{int:validationstatistics-latest}}}}'
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'validationstatistics-total' => 'Folednow',
+	'validationstatistics-total' => 'Folennow',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1443,9 +1443,13 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Михајло Анђелковић
+ * @author Обрадовић Горан
  */
 $messages['sr-ec'] = array(
+	'validationstatistics-table' => "Статистике за сваки именски простор су приказане испод, ''искључујући'' странице преусмерења.",
 	'validationstatistics-ns' => 'Именски простор',
+	'validationstatistics-total' => 'Странице',
+	'validationstatistics-latest' => 'Синхронизовано',
 	'validationstatistics-old' => 'Застарело',
 );
 

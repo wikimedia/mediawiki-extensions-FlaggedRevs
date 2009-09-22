@@ -836,7 +836,7 @@ $messages['ksh'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dedh|dedh}})',
 	'oldreviewed-category' => 'Class:',
 );
 
