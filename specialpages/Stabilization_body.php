@@ -30,14 +30,32 @@ class Stabilization extends UnlistedSpecialPage
 				return $wgOut->readOnlyPage();
 			}
 		}
-
+		# Set page title
 		$this->setHeaders();
+		
 		$this->skin = $wgUser->getSkin();
-
-		$isValid = true;
 		# Our target page
 		$this->target = $wgRequest->getText( 'page', $par );
-		$this->page = Title::newFromUrl( $this->target );
+		# Watch checkbox
+		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
+		# Reason
+		$this->reason = $wgRequest->getVal( 'wpReason' );
+		$this->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );
+		# Expiry
+		$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
+		$this->expirySelection = $wgRequest->getVal( 'wpExpirySelection' );
+		# Precedence
+		$this->select = $wgRequest->getInt( 'wpStableconfig-select' );
+		$this->override = (int)$wgRequest->getBool( 'wpStableconfig-override' );
+		# Get autoreview restrictions...
+		$this->autoreview = $wgRequest->getVal( 'mwProtect-level-autoreview' );
+		# Get auto-review option...
+		$this->reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
+		$this->wasPosted = $wgRequest->wasPosted();
+
+		# Fill in & validate some parameters
+		$isValid = $this->handleParams();
+
 		# We need a page...
 		if( is_null($this->page) ) {
 			return $wgOut->showErrorPage( 'notargettitle', 'notargettext' );
@@ -48,35 +66,44 @@ class Stabilization extends UnlistedSpecialPage
 			return $wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array('parseinline'),
 				$this->page->getPrefixedText() ) );
 		}
-		
-		# Users who cannot edit or review the page cannot set this
-		if( $this->isAllowed && !($this->page->userCan('edit') && $this->page->userCan('review')) )
-			$this->isAllowed = false;
 
-		# Watch checkbox
-		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
-		# Reason
-		$this->reason = $wgRequest->getVal( 'wpReason' );
-		$this->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );
-		$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
-		$this->expirySelection = $wgRequest->getVal( 'wpExpirySelection' );
-		# Get visiblity settings...
-		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
-		$this->select = $this->config['select'];
-		$this->override = $this->config['override'];
-		# Get auto-review option...
-		$this->reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
-		# Get autoreview restrictions...
-		$this->autoreview = $this->config['autoreview'];
-		# Make user readable date for GET requests
-		$this->oldExpiry = $this->config['expiry'] !== 'infinity' ? 
-			wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
-		# Handle submission data
-		if( $wgRequest->wasPosted() ) {
-			$this->select = $wgRequest->getInt( 'wpStableconfig-select' );
-			$this->override = intval( $wgRequest->getBool( 'wpStableconfig-override' ) );
+		# Users who cannot edit or review the page cannot set this
+		if( $this->isAllowed && !($this->page->userCan('edit') && $this->page->userCan('review')) ) {
+			$this->isAllowed = false;
+		}
+
+		// Show form or submit...
+		if( $this->isAllowed && $isValid && $confirm && $this->submit() ) {
+			$wgOut->redirect( $this->page->getFullUrl( $query ) );
+		} else {
+			$this->showSettings();
+		}
+	}
+	
+	/*
+	* Fetch and check parameters. Items may not all be set if false is returned.
+	* @returns bool success
+	*/
+	public function handleParams() {
+		# Our target page
+		$this->page = Title::newFromUrl( $this->target );
+		# We need a page...
+		if( is_null($this->page) ) {
+			return false; // can't continue
+		}
+		# If not posted, then fill in existing values/defaults
+		if( !$this->wasPosted ) {
+			# Get visiblity settings...
+			$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
+			$this->select = $this->config['select'];
+			$this->override = $this->config['override'];
 			# Get autoreview restrictions...
-			$this->autoreview = $wgRequest->getVal( 'mwProtect-level-autoreview' );
+			$this->autoreview = $this->config['autoreview'];
+			# Make user readable date for GET requests
+			$this->oldExpiry = $this->config['expiry'] !== 'infinity' ? 
+				wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
+		# Handle submission data
+		} else {
 			// Custom expiry takes precedence
 			$this->expiry = strlen($this->expiry) ? $this->expiry : $this->expirySelection;
 			if( $this->expiry == 'existing' ) $this->expiry = $this->oldExpiry;
@@ -86,15 +113,10 @@ class Stabilization extends UnlistedSpecialPage
 			// Validate precedence setting
 			$allowed = array(FLAGGED_VIS_QUALITY,FLAGGED_VIS_LATEST,FLAGGED_VIS_PRISTINE);
 			if( $this->select && !in_array( $this->select, $allowed ) ) {
-				$isValid = false;
+				return false; // invalid value
 			}
 		}
-		// Show form or submit...
-		if( $this->isAllowed && $isValid && $confirm ) {
-			$this->submit();
-		} else {
-			$this->showSettings();
-		}
+		return true;
 	}
 
 	protected function showSettings( $err = null ) {
@@ -118,7 +140,7 @@ class Stabilization extends UnlistedSpecialPage
 					if( val == 'existing' )
 						document.getElementById('mwStabilize-expiry').value = ".
 						Xml::encodeJsVar($this->oldExpiry).";
-					elseif( val != 'othertime' )
+					else if( val != 'othertime' )
 						document.getElementById('mwStabilize-expiry').value = val;
 				}
 			</script>"
@@ -317,8 +339,8 @@ class Stabilization extends UnlistedSpecialPage
 		}
 	}
 
-	protected function submit() {
-		global $wgOut, $wgUser, $wgContLang;
+	public function submit() {
+		global $wgUser, $wgContLang;
 		$changed = $reset = false;
 		$defaultPrecedence = FlaggedRevs::getPrecedence();
 		$defaultOverride = FlaggedRevs::showStableByDefault();
@@ -461,7 +483,6 @@ class Stabilization extends UnlistedSpecialPage
 		} else {
 			$wgUser->removeWatch( $this->page );
 		}
-		$wgOut->redirect( $this->page->getFullUrl( $query ) );
 		return true;
 	}
 }
