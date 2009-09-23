@@ -1312,7 +1312,7 @@ class FlaggedRevsHooks {
 			if( $u instanceof UserRightsProxy ) {
 				$params = FlaggedRevs::getUserParams( $u->getId(), $u->getDBName() );
 				$params['demoted'] = 1;
-				FlaggedRevs::saveUserParams( $u->getId(), $params, $dbname );
+				FlaggedRevs::saveUserParams( $u->getId(), $params, $u->getDBName() );
 			// On-wiki rights change
 			} else {
 				$params = FlaggedRevs::getUserParams( $u->getId() );
