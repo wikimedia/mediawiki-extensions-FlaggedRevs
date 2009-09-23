@@ -1308,9 +1308,17 @@ class FlaggedRevsHooks {
 	*/
 	public static function recordDemote( $u, $addgroup, $removegroup ) {
 		if( $removegroup && in_array('editor',$removegroup) ) {
-			$params = FlaggedRevs::getUserParams( $u->getId() );
-			$params['demoted'] = 1;
-			FlaggedRevs::saveUserParams( $u->getId(), $params );
+			// Cross-wiki rights change
+			if( $u instanceof UserRightsProxy ) {
+				$params = FlaggedRevs::getUserParams( $u->getId(), $u->getDBName() );
+				$params['demoted'] = 1;
+				FlaggedRevs::saveUserParams( $u->getId(), $params, $dbname );
+			// On-wiki rights change
+			} else {
+				$params = FlaggedRevs::getUserParams( $u->getId() );
+				$params['demoted'] = 1;
+				FlaggedRevs::saveUserParams( $u->getId(), $params );
+			}
 		}
 		return true;
 	}

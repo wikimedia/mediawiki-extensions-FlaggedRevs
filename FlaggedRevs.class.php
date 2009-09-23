@@ -1131,9 +1131,11 @@ class FlaggedRevs {
    	/**
 	* Get params for a user
 	* @param int $uid
+	* @param string $DBName, optional wiki name
+	* @returns Array $params
 	*/
-	public static function getUserParams( $uid ) {
-		$dbw = wfGetDB( DB_MASTER );
+	public static function getUserParams( $uid, $DBName = false ) {
+		$dbw = wfGetDB( DB_MASTER, array(), $DBName );
 		$row = $dbw->selectRow( 'flaggedrevs_promote',
 			'frp_user_params',
 			array( 'frp_user_id' => $uid ),
@@ -1161,14 +1163,16 @@ class FlaggedRevs {
    	/**
 	* Save params for a user
 	* @param int $uid
+	* @param string $DBName, optional wiki name
 	* @param Array $params
+	* @returns bool success
 	*/
-	public static function saveUserParams( $uid, $params ) {
+	public static function saveUserParams( $uid, $params, $DBName = false ) {
 		$flatParams = '';
 		foreach( $params as $key => $value ) {
 			$flatParams .= "{$key}={$value}\n";
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER, array(), $DBName );
 		$row = $dbw->replace( 'flaggedrevs_promote', 
 			array( 'frp_user_id' ),
 			array( 'frp_user_id' => $uid, 'frp_user_params' => trim($flatParams) ),
