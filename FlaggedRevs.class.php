@@ -1163,8 +1163,8 @@ class FlaggedRevs {
    	/**
 	* Save params for a user
 	* @param int $uid
-	* @param string $DBName, optional wiki name
 	* @param Array $params
+	* @param string $DBName, optional wiki name
 	* @returns bool success
 	*/
 	public static function saveUserParams( $uid, $params, $DBName = false ) {
