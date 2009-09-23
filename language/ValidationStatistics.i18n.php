@@ -1263,6 +1263,7 @@ La vërsion stàbila ëd la pàgina a l'é la revision pì neuva che a l'é stà
 $messages['ps'] = array(
 	'validationstatistics-ns' => 'نوم-تشيال',
 	'validationstatistics-total' => 'مخونه',
+	'validationstatistics-user' => 'کارن',
 );
 
 /** Portuguese (Português)
@@ -1666,7 +1667,9 @@ Bản ổn định của một trang là phiên bản của trang đã được 
 	'validationstatistics-latest' => 'Đã đồng bộ',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
+	'validationstatistics-utable' => 'Đây là danh sách top 5 người duyệt trong giờ qua.',
 	'validationstatistics-user' => 'Người dùng',
+	'validationstatistics-reviews' => 'Bản duyệt',
 );
 
 /** Volapük (Volapük)
@@ -1683,6 +1686,7 @@ $messages['vo'] = array(
 $messages['yi'] = array(
 	'validationstatistics-ns' => 'נאמענטייל',
 	'validationstatistics-total' => 'בלעטער',
+	'validationstatistics-user' => 'באַניצער',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

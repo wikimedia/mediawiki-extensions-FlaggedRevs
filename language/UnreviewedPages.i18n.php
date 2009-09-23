@@ -1138,6 +1138,8 @@ $messages['pms'] = array(
 $messages['ps'] = array(
 	'unreviewed-category' => 'وېشنيزه:',
 	'unreviewed-diff' => 'مخکتنه',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ساعت|ساعتونه}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
 );
 
 /** Portuguese (Português)
@@ -1494,7 +1496,7 @@ $messages['vi'] = array(
 	'unreviewed-diff' => 'duyệt',
 	'unreviewed-unwatched' => '(chưa theo dõi)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|thành viên|thành viên}} tích cực đang theo dõi)',
-	'unreviewed-list' => 'Trang này liệt kê những trang nội dung chưa được duyệt.',
+	'unreviewed-list' => 'Trang này liệt kê những trang nội dung chưa được duyệt thành cấp độ chỉ định.',
 	'unreviewed-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
 	'unreviewed-viewing' => '(đang duyệt)',
 	'unreviewed-hours' => '($1 tiếng)',

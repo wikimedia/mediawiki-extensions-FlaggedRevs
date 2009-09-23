@@ -378,6 +378,13 @@ $messages['pms'] = array(
 	'problemchanges-category' => 'Categorìa:',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'problemchanges-category' => 'وېشنيزه:',
+);
+
 /** Portuguese (Português)
  * @author Giro720
  * @author Malafaya
@@ -491,6 +498,9 @@ $messages['vep'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'problemchanges' => 'Duyệt các thay đổi được đánh dấu',
+	'problemchanges-legend' => 'Liệt kê các trang được duyệt có sửa đổi cần được duyệt',
+	'problemchanges-none' => 'Hiện không có trang nào hợp tiêu chuẩn này.',
 	'problemchanges-category' => 'Thể loại:',
 );
 

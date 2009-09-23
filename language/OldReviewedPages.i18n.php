@@ -1093,6 +1093,7 @@ $messages['pms'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
 	'oldreviewed-category' => 'وېشنيزه:',
 );
 

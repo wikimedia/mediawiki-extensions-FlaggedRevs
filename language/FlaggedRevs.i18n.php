@@ -781,12 +781,12 @@ $messages['ar'] = array(
 	'revreview-main' => 'يجب أن تختار مراجعة معينة من صفحة محتوى لمراجعتها.
 
 انظر [[Special:Unreviewedpages|قائمة الصفحات غير المراجعة]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة منظورة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] {{PLURAL:$3|يحتاج|يحتاج}} المراجعة.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة منظورة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} اسرد الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|لا تغييرات تحتاج|تغيير واحد يحتاج|تغييران يحتاجان|$3 تغييرات تحتاج|$3 تغييرًا يحتاج|$3 تغيير يحتاج}}] المراجعة.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة منظورة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/صورة] تحتاج المراجعة.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] {{PLURAL:$3|يحتاج|يحتاج}} المراجعة.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} اسرد الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|لا تغييرات تحتاج|تغيير واحد يحتاج|تغييران يحتاجان|$3 تغييرات تحتاج|$3 تغييرًا يحتاج|$3 تغيير يحتاج}}] المراجعة.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/صورة] تحتاج المراجعة.',
 	'revreview-noflagged' => "لا توجد مراجعة مراجعة لهذه الصفحة، لذا ربما '''لا''' تكون قد تم 
@@ -5992,6 +5992,7 @@ $messages['ja'] = array(
 	'flaggedrevs-pref-UI-0' => '固定版情報を詳細表示する',
 	'flaggedrevs-pref-UI-1' => '固定版情報を簡単表示する',
 	'prefs-flaggedrevs' => '固定度',
+	'prefs-flaggedrevs-ui' => '特定版の判定',
 	'flaggedrevs-prefs-stable' => 'コンテンツページの既定表示を常に固定版にする (存在する場合)',
 	'flaggedrevs-prefs-watch' => '自分が査読したページをウォッチリストに追加する',
 	'flaggedrevs-prefs-editdiffs' => 'ページ編集中に固定版との差分を表示する',
@@ -6917,6 +6918,7 @@ $messages['lb'] = array(
 	'flaggedrevs-pref-UI-0' => 'Déi detailéiert Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
 	'flaggedrevs-pref-UI-1' => 'Déi einfach Versioun vun der "Stabil-Versioun" Schnëttstell benotzen',
 	'prefs-flaggedrevs' => 'Stabilitéit',
+	'prefs-flaggedrevs-ui' => 'Markéiert Versiounen',
 	'flaggedrevs-prefs-stable' => "Ëmmer déi stabil Versioun vum Inhalt vun de Säiten ''par défaut'' weisen (wann et eng gëtt)",
 	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht derbäisetzen',
 	'flaggedrevs-prefs-editdiffs' => 'Den Ënnerscheed mat der stabiler Versioun während dem Ännere weisen',
@@ -7892,6 +7894,7 @@ $messages['nl'] = array(
 	'flaggedrevs-pref-UI-0' => 'Gedetailleerde gebruikersinterface voor stabiele versies gebruiken',
 	'flaggedrevs-pref-UI-1' => 'Eenvoudige gebruikersinterface voor stabiele versies gebruiken',
 	'prefs-flaggedrevs' => 'Stabiele versies',
+	'prefs-flaggedrevs-ui' => 'Stabiele versies',
 	'flaggedrevs-prefs-stable' => "Altijd de stabiele versies van pagina's weergeven (als die bestaan)",
 	'flaggedrevs-prefs-watch' => "Pagina's waar ik eindredactie voor doe aan mijn volglijst toevoegen",
 	'flaggedrevs-prefs-editdiffs' => "Verschil met stabiele versie weergeven tijdens het bewerken van pagina's",
@@ -11909,6 +11912,8 @@ $messages['vi'] = array(
 	'prefs-flaggedrevs' => 'Ổn định',
 	'flaggedrevs-prefs-stable' => 'Luôn hiển thị bản nội dung ổn định của trang theo mặc định (nếu có)',
 	'flaggedrevs-prefs-watch' => 'Thêm trang tôi duyệt vào danh sách theo dõi',
+	'flaggedrevs-prefs-editdiffs' => 'So sánh với phiên bản ổn định khi sửa đổi trang',
+	'flaggedrevs-prefs-viewdiffs' => 'So sánh với phiên bản ổn định khi xem trang nháp.',
 	'group-editor' => 'Người viêt bài',
 	'group-editor-member' => 'chủ bút',
 	'group-reviewer' => 'Người duyệt bài',
