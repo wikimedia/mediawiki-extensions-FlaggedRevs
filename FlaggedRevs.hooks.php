@@ -1329,7 +1329,7 @@ class FlaggedRevsHooks {
 		$preferences['flaggedrevssimpleui'] =
 			array(
 				'type' => 'radio',
-				'section' => 'flaggedrevs',
+				'section' => 'flaggedrevs/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-pref-UI',
 				'options' => array(
 					wfMsg( 'flaggedrevs-pref-UI-0' ) => 0,
@@ -1340,7 +1340,7 @@ class FlaggedRevsHooks {
 		$preferences['flaggedrevsstable'] =
 			array(
 				'type' => 'toggle',
-				'section' => 'flaggedrevs',
+				'section' => 'flaggedrevs/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-prefs-stable',
 			);
 		// Review-related rights...
@@ -1356,14 +1356,14 @@ class FlaggedRevsHooks {
 			$preferences['flaggedrevseditdiffs'] =
 				array(
 					'type' => 'toggle',
-					'section' => 'flaggedrevs',
+					'section' => 'flaggedrevs/flaggedrevs-ui',
 					'label-message' => 'flaggedrevs-prefs-editdiffs',
 				);
 			// Diff-to-stable on draft view
 			$preferences['flaggedrevsviewdiffs'] =
 				array(
 					'type' => 'toggle',
-					'section' => 'flaggedrevs',
+					'section' => 'flaggedrevs/flaggedrevs-ui',
 					'label-message' => 'flaggedrevs-prefs-viewdiffs',
 				);
 		}

@@ -25,6 +25,7 @@ $messages['en'] = array(
 	'flaggedrevs-pref-UI-0'        => 'Use detailed stable version user interface',
 	'flaggedrevs-pref-UI-1'        => 'Use simple stable version user interface',
 	'prefs-flaggedrevs'            => 'Stability',
+	'prefs-flaggedrevs-ui'         => 'Flagged revisions',
 	'flaggedrevs-prefs-stable'     => 'Always show the stable version of content pages by default (if there is one)',
 	'flaggedrevs-prefs-watch'      => 'Add pages I review to my watchlist',
 	'flaggedrevs-prefs-editdiffs'  => 'Show diff to stable when editing pages',
