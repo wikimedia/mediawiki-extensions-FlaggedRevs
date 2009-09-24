@@ -641,6 +641,7 @@ class FlaggedRevs {
 			# Get parsed stable version
 			$anon = new User(); // anon cache most likely to exist
 			$stableOutput = self::getPageCache( $article, $anon );
+			# Regenerate the parser output as needed...
 			if( $stableOutput == false ) {
 				$text = $srev->getRevText();
 	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
@@ -653,17 +654,11 @@ class FlaggedRevs {
 			# Get parsed current version
 			$parserCache = ParserCache::singleton();
 			$currentOutput = false;
+			$anon = new User(); // anon cache most likely to exist
 			# If $text is set, then the stableOutput is new. In that case,
 			# the current must also be new to avoid sync goofs.
 			if( !isset($text) ) {
-				# Try anon user cache first...
-				if( $wgUser->getId() ) {
-					$anon = User::newFromId( 0 );
-					$currentOutput = $parserCache->get( $article, $anon );
-				}
-				# Cache for this user...
-				if( $currentOutput == false )
-					$currentOutput = $parserCache->get( $article, $wgUser );
+				$currentOutput = $parserCache->get( $article, $anon );
 			}
 			# Regenerate the parser output as needed...
 			if( $currentOutput == false ) {
@@ -675,7 +670,7 @@ class FlaggedRevs {
 				$currentOutput = $wgParser->parse( $text, $title, $options, /*$lineStart*/true, /*$clearState*/true, $id );
 				# Might as well save the cache while we're at it
 				if( $wgEnableParserCache )
-					$parserCache->save( $currentOutput, $article, $wgUser );
+					$parserCache->save( $currentOutput, $article, $anon );
 			}
 		}
 		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
