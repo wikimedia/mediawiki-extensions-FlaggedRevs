@@ -4444,6 +4444,7 @@ $messages['he'] = array(
 	'flaggedrevs-pref-UI-0' => 'שימוש בתצוגת גרסאות מסומנות מפורטת.',
 	'flaggedrevs-pref-UI-1' => 'שימוש בתצוגת גרסאות מסומנות פשוטה',
 	'prefs-flaggedrevs' => 'יציבות',
+	'prefs-flaggedrevs-ui' => 'גרסאות מסומנות',
 	'flaggedrevs-prefs-stable' => 'הצגת הגרסה המסומנת כברירת מחדל בדפי תוכן (אם היא קיימת)',
 	'flaggedrevs-prefs-watch' => 'הוספת דפים שבדקתי לרשימת המעקב שלי',
 	'flaggedrevs-prefs-editdiffs' => 'הצגת ההבדל בין הגרסה הנוכחית לגרסה היציבה בעת עריכת דפים',
