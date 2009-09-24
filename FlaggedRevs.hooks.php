@@ -213,7 +213,8 @@ class FlaggedRevsHooks {
 			$parserOut = $linksUpdate->fr_stableParserOut;
 		} else {
 			# Try stable version cache. This should be updated before this is called.
-			$parserOut = FlaggedRevs::getPageCache( $article );
+			$anon = new User; // anon cache most likely to exist
+			$parserOut = FlaggedRevs::getPageCache( $article, $anon );
 			if( $parserOut === false ) {
 				$text = $sv->getRevText();
 				# Parse the text

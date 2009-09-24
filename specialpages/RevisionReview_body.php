@@ -653,7 +653,7 @@ class RevisionReview extends UnlistedSpecialPage
 			global $wgParserCacheExpireTime;
 			$this->page->invalidateCache();
 			# Update stable cache with the revision we reviewed
-			FlaggedRevs::updatePageCache( $article, $stableOutput );
+			FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
 			# We can set the sync cache key already
 			$includesSynced = true;
 			if( $poutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
@@ -669,12 +669,12 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		} else {
 			# Get the old stable cache
-			$stableOutput = FlaggedRevs::getPageCache( $article );
+			$stableOutput = FlaggedRevs::getPageCache( $article, $wgUser );
 			# Clear the cache...(for page histories)
 			$this->page->invalidateCache();
 			if( $stableOutput !== false ) {
 				# Reset stable cache if it existed, since we know it is the same.
-				FlaggedRevs::updatePageCache( $article, $stableOutput );
+				FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
 			}
 		}
 		# Update link tracking. This will trigger our hook to add stable links too...

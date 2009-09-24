@@ -439,11 +439,12 @@ class FlaggedRevs {
 	
 	/**
 	* @param Article $article
+	* @param User $user
 	* @return ParserOutput
 	* Get the page cache for the top stable revision of an article
 	*/
-	public static function getPageCache( $article ) {
-		global $wgUser, $parserMemc, $wgCacheEpoch;
+	public static function getPageCache( $article, $user ) {
+		global $parserMemc, $wgCacheEpoch;
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
 		if( !$article->getId() ) {
@@ -451,7 +452,7 @@ class FlaggedRevs {
 			return null;
 		}
 		$parserCache = ParserCache::singleton();
-		$key = self::getCacheKey( $parserCache, $article, $wgUser );
+		$key = self::getCacheKey( $parserCache, $article, $user );
 		# Get the cached HTML
 		wfDebug( "Trying parser cache $key\n" );
 		$value = $parserMemc->get( $key );
@@ -490,7 +491,7 @@ class FlaggedRevs {
 	/**
 	 * Like ParserCache::getKey() with stable-pcache instead of pcache
 	 */
-	public static function getCacheKey( $parserCache, $article, &$user ) {
+	public static function getCacheKey( $parserCache, $article, $user ) {
 		$key = $parserCache->getKey( $article, $user );
 		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
 		return $key;
@@ -498,17 +499,18 @@ class FlaggedRevs {
 
 	/**
 	* @param Article $article
-	* @param parerOutput $parserOut
+	* @param User $user
+	* @param parserOutput $parserOut
 	* Updates the stable cache of a page with the given $parserOut
 	*/
-	public static function updatePageCache( $article, $parserOut=null ) {
-		global $wgUser, $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
+	public static function updatePageCache( $article, $user, $parserOut=null ) {
+		global $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
 		# Make sure it is valid and $wgEnableParserCache is enabled
 		if( !$wgEnableParserCache || is_null($parserOut) )
 			return false;
 
 		$parserCache = ParserCache::singleton();
-		$key = self::getCacheKey( $parserCache, $article, $wgUser );
+		$key = self::getCacheKey( $parserCache, $article, $user );
 		# Add cache mark to HTML
 		$now = wfTimestampNow();
 		$parserOut->setCacheTime( $now );
@@ -637,12 +639,13 @@ class FlaggedRevs {
 		# If parseroutputs not given, fetch them...
 		if( is_null($stableOutput) || !isset($stableOutput->fr_newestTemplateID) ) {
 			# Get parsed stable version
-			$stableOutput = self::getPageCache( $article );
+			$anon = new User(); // anon cache most likely to exist
+			$stableOutput = self::getPageCache( $article, $anon );
 			if( $stableOutput == false ) {
 				$text = $srev->getRevText();
 	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
 	   			# Update the stable version cache
-				self::updatePageCache( $article, $stableOutput );
+				self::updatePageCache( $article, $anon, $stableOutput );
 	   		}
 		}
 		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
@@ -1281,7 +1284,7 @@ class FlaggedRevs {
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_MASTER/*consistent*/ );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
-			self::updatePageCache( $article, $poutput );
+			self::updatePageCache( $article, $user, $poutput );
 			# Update page fields
 			self::updateStableVersion( $article, $rev, $rev->getId() );
 			# We can set the sync cache key already.

@@ -505,7 +505,7 @@ class FlaggedArticle extends Article {
 	* Parser cache control deferred to caller
 	*/
 	protected function showStableVersion( $srev, &$tag, $prot ) {
-		global $wgOut, $wgLang;
+		global $wgOut, $wgLang, $wgUser;
 		$flags = $srev->getTags();
 		$time = $wgLang->date( $srev->getTimestamp(), true );
 		# Set display revision ID
@@ -516,12 +516,12 @@ class FlaggedArticle extends Article {
 		# We will be looking at the reviewed revision...
 	   	$revsSince = FlaggedRevs::getRevCountSince( $this->parent, $srev->getRevId() );
 		# Get parsed stable version
-		$parserOut = FlaggedRevs::getPageCache( $this->parent );
+		$parserOut = FlaggedRevs::getPageCache( $this->parent, $wgUser );
 		if( $parserOut == false ) {
 			$text = $srev->getRevText();
 	   		$parserOut = FlaggedRevs::parseStableText( $this->parent, $text, $srev->getRevId() );
 	   		# Update the stable version cache
-			FlaggedRevs::updatePageCache( $this->parent, $parserOut );
+			FlaggedRevs::updatePageCache( $this->parent, $wgUser, $parserOut );
 	   	}
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->parent, $parserOut, null );
 		# Construct some tagging
