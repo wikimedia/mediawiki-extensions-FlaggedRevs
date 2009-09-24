@@ -977,6 +977,19 @@ class FlaggedRevsHooks {
 		return ($benchmarks >= $needed );
 	}
 	
+	protected function previousBlockCheck( $user ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$blocked = $dbr->selectField( 'logging', '1',
+			array(
+				'log_namespace' => NS_USER, 
+				'log_title'     => $user->getUserPage()->getDBkey(),
+				'log_type'      => 'block',
+				'log_action'    => 'block' ),
+			__METHOD__,
+			array( 'USE INDEX' => 'page_time' )
+		);
+	}
+	
 	/**
 	* Check for 'autoreview' permission. This lets people who opt-out as
 	* Editors still have their own edits automatically reviewed. Bot
@@ -999,7 +1012,7 @@ class FlaggedRevsHooks {
 		# Checked basic, already available, promotion heuristics first...
 		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autoreview-skip', $user->getId() );
 		$value = $wgMemc->get( $APSkipKey );
-		if( $value == 'true' ) return true;
+		if( $value === 'true' ) return true;
 		# Check $wgFlaggedRevsAutoconfirm settings...
 		$now = time();
 		$userCreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
@@ -1041,14 +1054,7 @@ class FlaggedRevsHooks {
 		}
 		# Check if user was ever blocked before
 		if( $wgFlaggedRevsAutoconfirm['neverBlocked'] ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$blocked = $dbr->selectField( 'logging', '1',
-				array( 'log_namespace' => NS_USER, 
-					'log_title' => $user->getUserPage()->getDBkey(),
-					'log_type' => 'block',
-					'log_action' => 'block' ),
-				__METHOD__,
-				array( 'USE INDEX' => 'page_time' ) );
+			$blocked = self::previousBlockCheck( $user );
 			if( $blocked ) {
 				# Make a key to store the results
 				$wgMemc->set( $APSkipKey, 'true', 3600*24*7 );
@@ -1171,15 +1177,7 @@ class FlaggedRevsHooks {
 		}
 		# Check if user was ever blocked before
 		if( $wgFlaggedRevsAutopromote['neverBlocked'] ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$blocked = $dbr->selectField( 'logging', '1',
-				array( 'log_namespace' => NS_USER, 
-					'log_title' => $user->getUserPage()->getDBkey(),
-					'log_type' => 'block',
-					'log_action' => 'block' ),
-				__METHOD__,
-				array( 'USE INDEX' => 'page_time' )
-			);
+			$blocked = self::previousBlockCheck( $user );
 			if( $blocked ) {
 				# Make a key to store the results
 				$wgMemc->set( $APSkipKey, 'true', 3600*24*7 );
