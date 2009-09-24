@@ -979,7 +979,7 @@ class FlaggedRevsHooks {
 	
 	protected function previousBlockCheck( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$blocked = $dbr->selectField( 'logging', '1',
+		return (bool)$dbr->selectField( 'logging', '1',
 			array(
 				'log_namespace' => NS_USER, 
 				'log_title'     => $user->getUserPage()->getDBkey(),
