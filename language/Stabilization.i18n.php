@@ -1919,6 +1919,7 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Shijualex
  */
 $messages['ml'] = array(
@@ -1931,12 +1932,13 @@ $messages['ml'] = array(
 	'stabilization-select2' => 'അവസാനമായി സം‌ശോധനം നടത്തിയ പതിപ്പ്',
 	'stabilization-def' => 'താളിന്റെ സ്വതവേയുള്ള നിലയില്‍ പ്രദര്‍ശിപ്പിക്കുന്ന പതിപ്പ്',
 	'stabilization-def1' => 'സ്ഥിരതയുള്ള പതിപ്പ്;
-അതില്ലെങ്കില്‍ നിലവിലുള്ള പതിപ്പ്',
-	'stabilization-def2' => 'നിലവിലുള്ള പതിപ്പ്',
+അതില്ലെങ്കില്‍ നിലവിലുള്ള/കരട് പതിപ്പ്',
+	'stabilization-def2' => 'നിലവിലുള്ള/കരട് പതിപ്പ്',
 	'stabilization-submit' => 'സ്ഥിരീകരിക്കുക',
 	'stabilization-notexists' => '"[[:$1|$1]]". എന്ന ഒരു താള്‍ നിലവിലില്ല. ക്രമീകരണങ്ങള്‍ നടത്തുന്നതിനു സാദ്ധ്യമല്ല.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" എന്ന താള്‍ സം‌ശോധനം ചെയ്യുന്നതിനു സാദ്ധ്യമല്ല. ക്രമീകരണം അനുവദനീയമല്ല.',
-	'stabilization-comment' => 'അഭിപ്രായം:',
+	'stabilization-comment' => 'കാരണം:',
+	'stabilization-otherreason' => 'മറ്റു കാരണം',
 	'stabilization-expiry' => 'കാലാവധി:',
 	'stabilization-sel-short' => 'മുന്‍‌നടപ്പ്',
 	'stabilization-sel-short-0' => 'ഉന്നത നിലവാരം',

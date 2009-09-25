@@ -918,6 +918,7 @@ $messages['mk'] = array(
 
 /** Malayalam (മലയാളം)
  * @author Jacob.jose
+ * @author Praveenp
  * @author Sadik Khalid
  * @author Shijualex
  */
@@ -928,7 +929,7 @@ $messages['ml'] = array(
 	'unreviewed-category' => 'വര്‍ഗ്ഗം:',
 	'unreviewed-diff' => 'പരിശോധന',
 	'unreviewed-unwatched' => '(ശ്രദ്ധിക്കാത്തവ)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നുണ്ട്)',
+	'unreviewed-watched' => '({{PLURAL:$1|ഒരു സജീവ ഉപയോക്താവ്|$1 സജീവ ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നുണ്ട്)',
 	'unreviewed-list' => 'പരിശോധിക്കാത്ത ലേഖനങ്ങളുടെ പട്ടിക ഈ താളില്‍ പ്രദര്‍ശിപ്പിക്കുന്നു.',
 	'unreviewed-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
 );

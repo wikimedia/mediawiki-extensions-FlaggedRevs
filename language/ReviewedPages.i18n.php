@@ -277,9 +277,9 @@ $messages['es'] = array(
 	'reviewedpages-leg' => 'Lista de páginas por nivel más alto',
 	'reviewedpages-list' => 'Esta página lista páginas que han sido revisadas (al más alto) al nivel especificado.',
 	'reviewedpages-none' => 'No hay páginas en esta lista',
-	'reviewedpages-lev-0' => 'Visto',
-	'reviewedpages-lev-1' => 'Calidad',
-	'reviewedpages-lev-2' => 'Destacado',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versiones revisadas',
 	'reviewedpages-best' => 'revisión de primera',
 );
