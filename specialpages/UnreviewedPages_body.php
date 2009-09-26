@@ -6,14 +6,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class UnreviewedPages extends SpecialPage
 {
-    public function __construct() {
-        parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
+	public function __construct() {
+		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
 		wfLoadExtensionMessages( 'UnreviewedPages' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
-    }
+	}
 
-    public function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut;
 		$this->setHeaders();
 		if( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$wgOut->permissionRequired( 'unreviewedpages' );
@@ -70,7 +70,10 @@ class UnreviewedPages extends SpecialPage
 			if( $ts ) {
 				global $wgLang;
 				$ts = wfTimestamp(TS_MW,$ts);
-				$wgOut->addHTML( wfMsg( 'perfcachedts', $wgLang->timeanddate($ts) ) );
+				$td = $wgLang->timeanddate($ts);
+				$d = $wgLang->date($ts);
+				$t = $wgLang->time($ts);
+				$wgOut->addHTML( wfMsg( 'perfcachedts', $td, $d, $t ) );
 			} else {
 				$wgOut->addHTML( wfMsg( 'perfcached' ) );
 			}
@@ -137,9 +140,9 @@ class UnreviewedPages extends SpecialPage
 	}
 	
 	/**
-	* Get number of users watching a page. Max is 5.
-	* @param Title $title
-	*/
+	 * Get number of users watching a page. Max is 5.
+	 * @param Title $title
+	 */
 	public static function usersWatching( $title ) {
 		global $wgMiserMode;
 		$dbr = wfGetDB( DB_SLAVE );
@@ -170,8 +173,8 @@ class UnreviewedPages extends SpecialPage
 	}
 	
 	/**
-	* There may be many pages, most of which are reviewed
-	*/
+	 * There may be many pages, most of which are reviewed
+	 */
 	public static function generalQueryOK() {
 		global $wgFlaggedRevsNamespaces;
 		if( !wfQueriesMustScale() ) {
