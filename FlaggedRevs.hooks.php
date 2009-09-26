@@ -223,8 +223,17 @@ class FlaggedRevsHooks {
 		}
 		# Update page fields
 		FlaggedRevs::updateStableVersion( $article, $sv->getRevision() );
-		# We only care about links that are only in the stable version
+		# Get the list of categories that must be reviewed
+		$reviewedCats = array();
+		$msg = wfMsg( 'FlaggedRevs-stable-categories' );
+		if( !wfEmptyMsg( 'FlaggedRevs-stable-categories', $msg ) ) {
+			$list = explode("\n*","\n$msg");
+			foreach( $list as $category ) {
+				if( strlen($category) ) $reviewedCats[$category] = 1;
+			}
+		}
 		$links = array();
+		# Get any links that are only in the stable version...
 		foreach( $parserOut->getLinks() as $ns => $titles ) {
 			foreach( $titles as $title => $id ) {
 				if( !isset($linksUpdate->mLinks[$ns]) || !isset($linksUpdate->mLinks[$ns][$title]) ) {
@@ -232,11 +241,13 @@ class FlaggedRevsHooks {
 				}
 			}
 		}
+		# Get any images that are only in the stable version...
 		foreach( $parserOut->getImages() as $image => $n ) {
 			if( !isset($linksUpdate->mImages[$image]) ) {
 				self::addLink( $links, NS_FILE, $image );
 			}
 		}
+		# Get any templates that are only in the stable version...
 		foreach( $parserOut->getTemplates() as $ns => $titles ) {
 			foreach( $titles as $title => $id ) {
 				if( !isset($linksUpdate->mTemplates[$ns]) || !isset($linksUpdate->mTemplates[$ns][$title]) ) {
@@ -244,11 +255,24 @@ class FlaggedRevsHooks {
 				}
 			}
 		}
+		# Get any categories that are only in the stable version...
 		foreach( $parserOut->getCategories() as $category => $sort ) {
             if( !isset($linksUpdate->mCategories[$category]) ) {
-                self::addLink( $links, NS_CATEGORY, $category );
+				// Stable categories must remain until removed from the stable version
+				if( isset($reviewedCats[$category]) ) {
+					$linksUpdate->mCategories[$category] = $sort;
+				} else {
+					self::addLink( $links, NS_CATEGORY, $category );
+				}
 			}
         }
+		$stableCats = $parserOut->getCategories(); // from stable version
+		foreach( $reviewedCats as $category ) {
+			// Stable categories cannot be added until added to the stable version
+			if( isset($linksUpdate->mCategories[$category]) && !isset($stableCats[$category]) ) {
+				unset( $linksUpdate->mCategories[$category] );
+			}
+		}
 		# Get any link tracking changes
 		$existing = self::getExistingLinks( $pageId );
 		$insertions = self::getLinkInsertions( $existing, $links, $pageId );
