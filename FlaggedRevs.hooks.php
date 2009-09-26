@@ -229,6 +229,7 @@ class FlaggedRevsHooks {
 		if( !wfEmptyMsg( 'FlaggedRevs-stable-categories', $msg ) ) {
 			$list = explode("\n*","\n$msg");
 			foreach( $list as $category ) {
+				$category = trim($category);
 				if( strlen($category) ) $reviewedCats[$category] = 1;
 			}
 		}
