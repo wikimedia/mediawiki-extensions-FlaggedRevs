@@ -1111,7 +1111,7 @@ class FlaggedRevsHooks {
 		}
 		# Check implicitly sighted edits
 		if( $totalCheckedEditsNeeded && $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
-			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array('revision','flaggedpages'), '1',
 				array( 'rev_user' => $user->getId(), 'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
 				__METHOD__,
