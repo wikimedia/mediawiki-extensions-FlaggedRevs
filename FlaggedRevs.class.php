@@ -620,7 +620,7 @@ class FlaggedRevs {
 	* This function is pretty expensive...
 	*/	
 	public static function stableVersionIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
-		global $wgMemc, $wgEnableParserCache;
+		global $wgMemc, $wgEnableParserCache, $wgUser;
 		# Must be the same revision as the current
 		if( $srev->getRevId() < $article->getTitle()->getLatestRevID() ) {
 			return false;
@@ -644,6 +644,8 @@ class FlaggedRevs {
 			# Get parsed stable version
 			$anon = new User(); // anon cache most likely to exist
 			$stableOutput = self::getPageCache( $article, $anon );
+			if( $stableOutput === false && $wgUser->getId() )
+				$stableOutput = self::getPageCache( $article, $wgUser );
 			# Regenerate the parser output as needed...
 			if( $stableOutput == false ) {
 				$text = $srev->getRevText();
@@ -653,7 +655,7 @@ class FlaggedRevs {
 	   		}
 		}
 		if( is_null($currentOutput) || !isset($currentOutput->fr_newestTemplateID) ) {
-			global $wgUser, $wgParser;
+			global $wgParser;
 			# Get parsed current version
 			$parserCache = ParserCache::singleton();
 			$currentOutput = false;
@@ -662,6 +664,8 @@ class FlaggedRevs {
 			# the current must also be new to avoid sync goofs.
 			if( !isset($text) ) {
 				$currentOutput = $parserCache->get( $article, $anon );
+				if( $currentOutput === false && $wgUser->getId() )
+					$currentOutput = $parserCache->get( $article, $wgUser );
 			}
 			# Regenerate the parser output as needed...
 			if( $currentOutput == false ) {
@@ -1106,10 +1110,10 @@ class FlaggedRevs {
 	 * @returns array (string,string)
 	 */
 	public static function markHistoryRow( $title, $row ) {
-		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
-		if( $css === false ) {
+		if( !isset($row->fr_quality) ) {
 			return array("",""); // not reviewed
 		}
+		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$user = User::whois( $row->fr_user ); // FIXME: o(N)
 		$flags = explode(',',$row->fr_flags);
