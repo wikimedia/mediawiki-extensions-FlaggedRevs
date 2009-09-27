@@ -1106,26 +1106,21 @@ class FlaggedRevs {
 	 * @returns array (string,string)
 	 */
 	public static function markHistoryRow( $title, $row ) {
-		global $wgUser;
 		if( !isset($row->fr_quality) ) {
 			return array("",""); // not reviewed
 		}
 		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
-		if( $row->rev_deleted & Revision::DELETED_USER ) {
-			$link = "";
+		wfLoadExtensionMessages( 'FlaggedRevs' );
+		$user = User::whois( $row->fr_user ); // FIXME: o(N)
+		$flags = explode(',',$row->fr_flags);
+		if( in_array('auto',$flags) ) {
+			$msg = 'hist-autoreviewed';
 		} else {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			$user = User::whois( $row->fr_user ); // FIXME: o(N)
-			$flags = explode(',',$row->fr_flags);
-			if( in_array('auto',$flags) ) {
-				$msg = 'hist-autoreviewed';
-			} else {
-				$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
-			}
-			$st = $title->getPrefixedDBkey();
-			$link = "<span class='fr-$msg plainlinks'>[" .
-				wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user) . "]</span>";
+			$msg = ($row->fr_quality >= 1) ? 'hist-quality-user' : 'hist-stable-user';
 		}
+		$st = $title->getPrefixedDBkey();
+		$link = "<span class='fr-$msg plainlinks'>[" .
+			wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user) . "]</span>";
 		return array($link,$css);
 	}
 
