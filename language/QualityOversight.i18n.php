@@ -307,6 +307,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'qualityoversight' => 'Qualitéits Iwwersiicht',
+	'qualityoversight-list' => 'Op dëser Säit stinn déi rezenste Säiten déi fräigi goufen an denen hir Markéierung opgehuewe gouf.',
 	'qualityoversight-legend' => 'Am Logbuch vun den nogekuckte Säite sichen',
 );
 

@@ -688,10 +688,16 @@ $messages['id'] = array(
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Spacebirdy
  */
 $messages['is'] = array(
+	'right-unreviewedpages' => 'Skoða [[Special:UnreviewedPages|lista yfir óendurskoðaðar síður]]',
+	'unreviewedpages' => 'Óendurskoðaðar síður',
 	'unreviewed-category' => 'Flokkur:',
-	'unreviewed-diff' => 'Breytingar',
+	'unreviewed-diff' => 'endurskoða',
+	'unreviewed-unwatched' => '(án eftirlits)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|klukkustund|klukkustundir}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dagur|dagar}})',
 );
 
 /** Italian (Italiano)
@@ -1248,11 +1254,13 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Көрүллүбэтэх сирэйдэр тиһиктэрин]] көрүү',
 	'unreviewedpages' => 'Ырытыллыбатах сирэйдэр',
 	'unreviewed-legend' => 'Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрэ',
 	'unreviewed-category' => 'Категория:',
 	'unreviewed-diff' => 'тургутуу',
 	'unreviewed-unwatched' => '(кэтээбэттэр)',
+	'unreviewed-watched' => '($1 көхтөөх кыттааччы кэтиир)',
 	'unreviewed-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналамматах сирэйдэр көстөллөр.',
 	'unreviewed-none' => 'Эппит таһымҥар эппиэттиир ыстатыйа билигин суох эбит',
 	'unreviewed-viewing' => '(тургутуллаллар)',

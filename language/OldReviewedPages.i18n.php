@@ -726,6 +726,17 @@ $messages['id'] = array(
 	'oldreviewedpages-viewing' => '(sedang ditinjau)',
 );
 
+/** Icelandic (Íslenska)
+ * @author Spacebirdy
+ */
+$messages['is'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|klukkustund|klukkustundir}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dagur|dagar}})',
+	'oldreviewed-category' => 'Flokkur:',
+	'oldreviewed-diff' => 'endurskóða',
+	'oldreviewedpages-unwatched' => '(án eftirlits)',
+);
+
 /** Italian (Italiano)
  * @author Darth Kule
  * @author Melos
@@ -1217,6 +1228,7 @@ $messages['sah'] = array(
 	'oldreviewedpages-recent' => '(1 чаастан кылгас)',
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-watched' => 'Мин кэтиир сирэйдэрбиттэн',
+	'oldreviewedpages-unwatched' => '(кэтээбэттэр)',
 );
 
 /** Slovak (Slovenčina)

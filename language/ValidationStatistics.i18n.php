@@ -1424,6 +1424,7 @@ $messages['sah'] = array(
 	'validationstatistics-old' => 'Эргэрбит',
 	'validationstatistics-utable' => 'Бүтэһик чааска ордук көхтөөх 5 тургутааччы тиһигэ көстөр.',
 	'validationstatistics-user' => 'Кыттааччы',
+	'validationstatistics-reviews' => 'Бэрэбиэркэ',
 );
 
 /** Slovak (Slovenčina)

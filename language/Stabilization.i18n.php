@@ -2334,29 +2334,45 @@ Nie jest możliwa jej konfiguracja.',
 
 /** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
+ * @author Dragonòt
  */
 $messages['pms'] = array(
 	'stabilization-tab' => '(c.q.)',
 	'stabilization' => 'Stabilisassion dla pàgina',
-	'stabilization-text' => "'''Ch'a toca le regolassion ambelessì sota për rangé coma la version stàbila ëd [[:$1|$1]] a debia esse sërnùa e smonùa.'''",
+	'stabilization-text' => "'''Cambia le regolassion ambelessì sota për rangé coma la version stàbila ëd [[:\$1|\$1]] a debia esse sërnùa e smonùa.'''
+
+Quand as cambia la configurassion ëd la ''vërsion stàbila selessionà'' për dovré le revision ëd \"qualità\" o ëd \"imacolà\" për default,
+sicurte ëd controlé se al moment a-i fusso cole revision ant la pàgina, dasnò ël cambi a l'avrà un cit efet.",
 	'stabilization-perm' => "Sò cont a l'ha pa ij përmess dont a fa da manca për toché le regolassion dla version stàbila. Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
 	'stabilization-page' => 'Nòm dla pàgina:',
-	'stabilization-leg' => 'Regolé la version stàbila ëd na pàgina',
-	'stabilization-select' => 'Coma sërne la version stàbila',
+	'stabilization-leg' => 'Conferma le ampostassion ëd la vërsion stàbila',
+	'stabilization-select' => 'Precedensa ëd selession ëd la vërsion stàbila',
 	'stabilization-select1' => "Ùltima revision ëd qualità; s'a-i é nen cola, pijé l'ùltima controlà",
-	'stabilization-select2' => 'Ùltima revision controlà',
+	'stabilization-select2' => 'Ùltima revision controlà (sensa vardé ël livel ëd validassion)',
+	'stabilization-select3' => "Ùltima vërsion imacolà; peui l'ùltima ëd qualità; peui l'ultima vista",
 	'stabilization-def' => 'Revision da smon-e coma pàgina sòlita për la vos',
-	'stabilization-def1' => "la version stàbila, s'a-i n'a-i é gnun-a, pijé cola corenta",
-	'stabilization-def2' => 'la revision corenta',
+	'stabilization-def1' => "La version stàbila; s'a-i n'a-i é gnun-a, pijé cola corenta/sbòss",
+	'stabilization-def2' => 'La revision/sbòss corent',
+	'stabilization-restrict' => "Restrission d'auto-revision",
+	'stabilization-restrict-none' => 'Pa gnun-e restrission extra',
 	'stabilization-submit' => 'Confermé',
 	'stabilization-notexists' => 'A-i é pa gnun-a pàgina ch\'as ciama "[[:$1|$1]]". As peul nen regolé lòn ch\'a-i é nen.',
 	'stabilization-notcontent' => 'La pàgina "[[:$1|$1]]" as peul pa s-ciairesse. A-i é gnun-a regolassion ch\'as peula fesse.',
+	'stabilization-comment' => 'Rason:',
+	'stabilization-otherreason' => 'Autra rason:',
+	'stabilization-expiry' => 'A finiss:',
+	'stabilization-othertime' => 'Autra vira',
 	'stabilization-sel-short' => 'Precedensa',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Gnun-a',
+	'stabilization-sel-short-2' => 'Ancontaminà',
 	'stabilization-def-short' => 'Për sòlit',
 	'stabilization-def-short-0' => 'version corenta',
 	'stabilization-def-short-1' => 'version stàbila',
+	'stabilize_expiry_invalid' => 'Data fin pa bon-a.',
+	'stabilize_expiry_old' => "Sta data fin-sì a l'é già passà",
+	'stabilize-expiring' => 'A finiss $1 (UTC)',
+	'stabilization-review' => 'Revision-a la vërsion corenta',
 );
 
 /** Pashto (پښتو)
@@ -2607,6 +2623,7 @@ $messages['sah'] = array(
 	'stabilization-def' => 'Анаан этиллибэтэҕинэ көрдөрүллэр торум',
 	'stabilization-def1' => 'Халбаҥнаабат барыл; ол суох буоллаҕына - бүтэһик (харата)',
 	'stabilization-def2' => 'Бүтэһик барыл (харата)',
+	'stabilization-restrict-none' => 'Эбии хааччах суох',
 	'stabilization-submit' => 'Бигэргэтии',
 	'stabilization-notexists' => 'Маннык ааттаах сирэй «[[:$1|$1]]» суох. Онон уларытар кыах суох.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» сирэй ырытыллыбат. Онон туруорууларын уларытар сатаммат.',

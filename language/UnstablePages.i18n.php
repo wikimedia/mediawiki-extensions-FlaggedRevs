@@ -559,6 +559,7 @@ $messages['ru'] = array(
 $messages['sah'] = array(
 	'unstablepages' => 'Бигэргэтиллибэтэх барыллар',
 	'unstablepages-stable' => 'бигэ барыл',
+	'unstablepages-text' => 'Манна ыстатыйа харатын көрдөрөргө диэн туруоруулаах ыстатыйалар тиһиктэрэ бэриллэр.',
 	'unstablepages-none' => 'Бу тиһиккэ сирэйдэр суохтар',
 );
 
