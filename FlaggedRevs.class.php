@@ -1106,10 +1106,10 @@ class FlaggedRevs {
 	 * @returns array (string,string)
 	 */
 	public static function markHistoryRow( $title, $row ) {
-		if( !isset($row->fr_quality) ) {
+		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+		if( $css === false ) {
 			return array("",""); // not reviewed
 		}
-		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$user = User::whois( $row->fr_user ); // FIXME: o(N)
 		$flags = explode(',',$row->fr_flags);

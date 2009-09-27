@@ -1585,6 +1585,8 @@ class FlaggedRevsHooks {
 	public static function addToHistLine( $history, $row, &$s ) {
 		if( $row->rev_deleted & Revision::DELETED_TEXT )
 			return true; // Don't bother showing notice for deleted revs
+		if( !isset($row->fr_quality) )
+			return true; // Unreviewed
 		# Add link to stable version of *this* rev, if any
 		list($link,$class) = FlaggedRevs::markHistoryRow( $history->getArticle()->getTitle(), $row );
 		# Style the row as needed
