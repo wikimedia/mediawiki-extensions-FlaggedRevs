@@ -212,10 +212,13 @@ class FlaggedRevsHooks {
 		if( isset($linksUpdate->fr_stableParserOut) ) {
 			$parserOut = $linksUpdate->fr_stableParserOut;
 		} else {
+			global $wgUser;
 			# Try stable version cache. This should be updated before this is called.
 			$anon = new User; // anon cache most likely to exist
 			$parserOut = FlaggedRevs::getPageCache( $article, $anon );
-			if( $parserOut === false ) {
+			if( $parserOut == false && $wgUser->getId() )
+				$parserOut = FlaggedRevs::getPageCache( $article, $wgUser );
+			if( $parserOut == false ) {
 				$text = $sv->getRevText();
 				# Parse the text
 				$parserOut = FlaggedRevs::parseStableText( $article, $text, $sv->getRevId() );
