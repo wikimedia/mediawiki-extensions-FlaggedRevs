@@ -760,6 +760,20 @@ $messages['ru'] = array(
 	'stablepages-precedence' => 'Приоритет:',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'stablepages' => 'Тулхадыйбат (стабильнай) сирэйдэр',
+	'stablepages-stable' => 'тулхадыйбат сирэй',
+	'stablepages-none' => 'Бу тиһиккэ сирэйдэрэ суох',
+	'stablepages-config' => 'Туруоруута',
+	'stablepages-prec-none' => 'баһыйара (приоритета) суох',
+	'stablepages-prec-quality' => 'хаачыстыбата баһыйыылаах',
+	'stablepages-prec-pristine' => 'эрдэтээҥҥитэ баһыйыылаах',
+	'stablepages-precedence' => 'Баһыйыыта:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

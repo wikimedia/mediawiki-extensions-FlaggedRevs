@@ -434,6 +434,13 @@ $messages['ru'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'problemchanges-category' => 'Категория:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

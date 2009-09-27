@@ -916,8 +916,8 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'reviewedpages' => 'Ырытыллыбыт сирэйдэр',
-	'reviewedpages-leg' => 'Ханнык эмит сыананы ылбыт сирэйдэр испииһэктэрэ',
-	'reviewedpages-list' => 'Бу сирэйдэр сөптөөх сыананы ылбыттар',
+	'reviewedpages-leg' => 'Сирэйдэр тиһиктэрэ, сыанабыл таһымынан',
+	'reviewedpages-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналаммыт сирэйдэр көрдөрүлүннүлэр.',
 	'reviewedpages-none' => 'Испииһэк кураанах',
 	'reviewedpages-lev-0' => 'Көрүллүбүт',
 	'reviewedpages-lev-1' => 'Бэрэбиэркэлэммит',

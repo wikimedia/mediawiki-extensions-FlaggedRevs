@@ -859,7 +859,7 @@ $messages['sah'] = array(
 	'stableversions-leg1' => 'Сирэй ырытыллыбыт торумнарын испииһэгэ',
 	'stableversions-page' => 'Сирэй аата:',
 	'stableversions-none' => '"[[:$1]]" көрүллүбүт/бэрэбиэркэлэммит торумнара суох.',
-	'stableversions-list' => 'Сирэй бу "[[:$1]]" торумнара ырытыллыбыттар:',
+	'stableversions-list' => '"[[:$1]]" сирэй {{PLURAL:$2|бу барыла ырытыллыбыт|бу барыллара ырытыллыбыттар}}:',
 	'stableversions-review' => '$2 кыттааччы ырыппыт <i>$1</i>',
 );
 

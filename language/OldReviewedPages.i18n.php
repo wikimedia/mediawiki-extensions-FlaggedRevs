@@ -1208,6 +1208,17 @@ $messages['ru'] = array(
 	'oldreviewedpages-viewing' => '(проверяются)',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'oldreviewedpages-hours' => '($1 чаас)',
+	'oldreviewedpages-days' => '($1 хонук)',
+	'oldreviewedpages-recent' => '(1 чаастан кылгас)',
+	'oldreviewed-category' => 'Категория:',
+	'oldreviewed-watched' => 'Мин кэтиир сирэйдэрбиттэн',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

@@ -1410,6 +1410,22 @@ $4
 	'validationstatistics-reviews' => 'Проверок',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'validationstatistics' => 'Тургутуу статиистиката',
+	'validationstatistics-table' => "Аллара утаарыылартан ''ураты'' ааттар далларын статиистиката бэриллибит.",
+	'validationstatistics-ns' => 'Аат дала',
+	'validationstatistics-total' => 'Сирэй',
+	'validationstatistics-stable' => 'Тургутуллубут',
+	'validationstatistics-latest' => 'Хат тургутуллубут',
+	'validationstatistics-synced' => 'Хат тургутуллубуттар тургутуллубуттар истэригэр бырыаннара',
+	'validationstatistics-old' => 'Эргэрбит',
+	'validationstatistics-utable' => 'Бүтэһик чааска ордук көхтөөх 5 тургутааччы тиһигэ көстөр.',
+	'validationstatistics-user' => 'Кыттааччы',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

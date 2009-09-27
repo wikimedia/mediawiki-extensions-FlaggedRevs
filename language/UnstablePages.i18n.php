@@ -553,6 +553,15 @@ $messages['ru'] = array(
 	'unstablepages-config' => 'Настройка',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'unstablepages' => 'Бигэргэтиллибэтэх барыллар',
+	'unstablepages-stable' => 'бигэ барыл',
+	'unstablepages-none' => 'Бу тиһиккэ сирэйдэр суохтар',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

@@ -1249,9 +1249,16 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'unreviewedpages' => 'Ырытыллыбатах сирэйдэр',
+	'unreviewed-legend' => 'Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрэ',
 	'unreviewed-category' => 'Категория:',
-	'unreviewed-diff' => 'Уларыйыылар',
-	'unreviewed-list' => 'Бу көрүллүбэтэх (бэрэбиэркэлэммэтэх) сирэйдэр испииһэктэрэ.',
+	'unreviewed-diff' => 'тургутуу',
+	'unreviewed-unwatched' => '(кэтээбэттэр)',
+	'unreviewed-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналамматах сирэйдэр көстөллөр.',
+	'unreviewed-none' => 'Эппит таһымҥар эппиэттиир ыстатыйа билигин суох эбит',
+	'unreviewed-viewing' => '(тургутуллаллар)',
+	'unreviewed-hours' => '($1 чаас)',
+	'unreviewed-days' => '($1 {{PLURAL:$1|хонук|күн}})',
+	'unreviewed-recent' => '(1 чаастан кылгас)',
 );
 
 /** Slovak (Slovenčina)

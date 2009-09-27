@@ -5617,6 +5617,7 @@ $messages['id'] = array(
 	'flaggedrevs-pref-UI-0' => 'Gunakan antarmuka pengguna detail untuk versi stabil',
 	'flaggedrevs-pref-UI-1' => 'Gunakan antarmuka pengguna sederhana untuk versi stabil',
 	'prefs-flaggedrevs' => 'Stabilitas',
+	'prefs-flaggedrevs-ui' => 'Revisi yang dipanji',
 	'flaggedrevs-prefs-stable' => 'Selalu tampilkan halaman versi stabil sebagai tampilan baku (jika ada)',
 	'flaggedrevs-prefs-watch' => 'Tambahkan halaman yang saya tinjau ke daftar pantauan',
 	'flaggedrevs-prefs-editdiffs' => 'Lihat perbedaan pada stabil ketika menyunting halaman',
@@ -6966,6 +6967,8 @@ $messages['lb'] = array(
 	'revreview-auto' => '(automatesch)',
 	'revreview-auto-w' => "Dir ännert eng stabil Versioun, Ännerunge ginn '''automatesch nogekuckt'''.",
 	'revreview-auto-w-old' => "Dir ännert eng nogekuckte Versioun: Ännerunge ginn '''automatesch nogekuckt'''.",
+	'revreview-basic' => "Dëst ass déi leschten [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun,  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
+D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virberredung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi drop warden nogekuckt ze ginn.",
 	'revreview-basic-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nogekuckt Versioun] vun dëser Säit [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-blocked' => 'Dir kënnt dës Versioun net nokucke well Äre Benotzerkont elo gespaart ass ([$1 Detailer])',
 	'revreview-current' => 'Virbereedung',
@@ -6979,6 +6982,8 @@ $messages['lb'] = array(
 	'revreview-edit' => 'Virbereedung änneren',
 	'revreview-editnotice' => "'''Ännerungen op dëser Säit ginn an déi [[{{MediaWiki:Validationpage}}|stabil Versioun]] agebaut esoubal wéi en autoriséierte Benotzer se nogekuckt huet.'''",
 	'revreview-flag' => 'Dës Versioun nokucken',
+	'revreview-edited' => "'''D'Ännerunge ginn an d'[[{{MediaWiki:Validationpage}}|stabil Versioun]] integréiert esoubal wéi en autoriséierte Benotzer se nogekuckt huet.'''
+'''D'''Virberedung'' steet hei ënnendrënner.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|Ännerung ward|Ännerunge warden}}]  drop fir nogekuckt ze ginn.",
 	'revreview-legend' => 'Contenu vun der Versioun bewerten',
 	'revreview-log' => 'Bemierkung:',
 	'revreview-main' => "Dir musst eng prezis Versioun vun enger Inhaltssäit eraussichen fir se nokucken ze kënnen.
@@ -6995,6 +7000,7 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop {{PLURAL:$3|waard|waarden}} fir nogekuckt ze ginn.",
 	'revreview-quality-old' => "Dëst ass eng [[{{MediaWiki:Validationpage}}|Qualitéitsversioun]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} kuckt d'Lëscht]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
 Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kënne gemaach gi sinn.",
+	'revreview-quality-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Qualitéitsversioun] vun dëser Säit, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-quality-title' => 'Qualitéitssäit',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Nogekuckte Säit]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} kuckt déi aktuell Virbereedung]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Nogekuckte Säit]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}}  kuckt déi aktuell Virbereedung]]",
@@ -7025,6 +7031,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-finished' => 'Iwwerliesen ofgeschloss!',
 	'revreview-failed' => "D'Nokucken huet net fonctionnéiert!",
 	'revreview-successful' => "'''D'Versioun [[:$1|$1]] gouf nogekuckt. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} Déi stabil Versioune weisen])'''",
+	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn de Stanard-Säiteninhalt fir Notzer éischter wéi déi neiste Versioun.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn nogekuckte Versioune vu Säiten a kënnen als Standard-Säit fir Lieser agestallt ginn.''",
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
@@ -7368,6 +7375,7 @@ $messages['mk'] = array(
 
 /** Malayalam (മലയാളം)
  * @author Jacob.jose
+ * @author Praveenp
  * @author Shijualex
  */
 $messages['ml'] = array(
@@ -7385,7 +7393,7 @@ $messages['ml'] = array(
 	'hist-stable' => 'sighted പതിപ്പ്',
 	'review-diff2stable' => 'സ്ഥിരതയുള്ള പതിപ്പും നിലവിലുള്ള പതിപ്പും തമ്മിലുള്ള മാറ്റങ്ങള്‍ കാണുക',
 	'review-logentry-app' => 'സംശോധനം ചെയ്തു [[$1]]',
-	'review-logentry-id' => 'പതിപ്പിന്റെ ഐഡി $1',
+	'review-logentry-id' => 'കാണുക',
 	'review-logpage' => 'സംശോധന പ്രവര്‍ത്തരേഖ',
 	'reviewer' => 'സംശോധകന്‍',
 	'revisionreview' => 'പതിപ്പുകള്‍ സംശോധനം ചെയ്യുക',
@@ -7412,7 +7420,7 @@ $messages['ml'] = array(
 	'revreview-depth-2' => 'ഒരു വിധം നിലവാരമുള്ളത്',
 	'revreview-depth-3' => 'ഉന്നത നിലവാരമുള്ളത്',
 	'revreview-depth-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
-	'revreview-draft-title' => 'കരടു ലേഖനം',
+	'revreview-draft-title' => 'കരട് താൾ',
 	'revreview-edit' => 'കരട് തിരുത്തുക',
 	'revreview-flag' => 'ഈ പതിപ്പ് സംശോധനം ചെയ്യുക',
 	'revreview-edited' => "'''സ്ഥാപിതരായ ഉപയോക്താക്കള്‍ സം‌ശോധനം നിര്‍‌വഹിച്ചതിനു ശേഷം തിരുത്തലുകള്‍ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പിലേക്ക്]] ചേര്‍ക്കപ്പെടും. 
@@ -7463,12 +7471,13 @@ $messages['ml'] = array(
 	'revreview-style-2' => 'കൊള്ളാവുന്നത്',
 	'revreview-style-3' => 'സംക്ഷിപ്തമായത്',
 	'revreview-style-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
-	'revreview-submit' => 'സംശോധനം ചെയ്തത് സമര്‍പ്പിക്കുക',
+	'revreview-submit' => 'സമര്‍പ്പിക്കുക',
+	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
 	'revreview-toggle-title' => 'വിവരങ്ങള്‍ കാണിക്കുക/മറയ്ക്കുക',
 	'revreview-update' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു ശേഷം] വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)''. ദയവായി  [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യുക.
  
 '''ചില ഫലകങ്ങള്‍/ചിത്രങ്ങള്‍ പുതുക്കിയിട്ടുണ്ട്:'''",
-	'revreview-update-includes' => "'''ചില ഫലകങ്ങള്‍/ചിത്രങ്ങള്‍ പുതുക്കി:'''",
+	'revreview-update-includes' => "'''ചില ഫലകങ്ങള്‍/പ്രമാണങ്ങള്‍ പുതുക്കിയിരിക്കുന്നു:'''",
 	'revreview-update-none' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു ശേഷം]
 വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)'' [[{{MediaWiki:Validationpage}}|ദയവായി സംശോധനം ചെയ്യുക]].",
 	'revreview-revnotfound' => 'ഈ താളിന്റെ താങ്കള്‍ ആവശ്യപ്പെട്ട പഴയ പതിപ്പ് കാണ്മാനില്ല. ഈ താളിലെത്താന്‍ താങ്കളുപയോഗിച്ച URL ഒരിക്കല്‍ക്കൂടി പരിശോധിക്കുക.',
@@ -8490,6 +8499,7 @@ $messages['oc'] = array(
 	'flaggedrevs-pref-UI-0' => "Utilizar l’interfàcia d'utilizaire de la version establa detalhada",
 	'flaggedrevs-pref-UI-1' => "Utilizar una simpla interfàcia d'utilizaire establa",
 	'prefs-flaggedrevs' => 'Estabilitat',
+	'prefs-flaggedrevs-ui' => 'Revisions marcadas',
 	'flaggedrevs-prefs-stable' => "Afichar totjorn la version establa del contengut de las paginas per defaut (se n'existís una)",
 	'flaggedrevs-prefs-watch' => "Apond las paginas qu'ai revistas a ma lista de seguit.",
 	'flaggedrevs-prefs-editdiffs' => 'Far veire lo diff cap a la version establa quand modificatz de paginas',
@@ -9278,6 +9288,7 @@ $messages['qu'] = array(
 	'review-logentry-app' => "[[$1]] p'anqapaq r$2 musuqchasqata qhawaykun",
 	'revreview-revnotfound' => "Mañakusqayki llamk'apusqaqa manam tarisqachu.
 Ama hina kaspa, kay p'anqap URL nisqa tiyayninta k'uskiriy.",
+	'revreview-filter-all' => 'tukuy',
 );
 
 /** Romani (Romani)
@@ -9768,6 +9779,7 @@ $messages['sah'] = array(
 	'editor' => 'Көннөрөөччү',
 	'flaggedrevs' => 'Бэлиэтэммит торумнар',
 	'flaggedrevs-desc' => 'Эрэдээктэрдэргэ/ырытааччыларга сирэй торумнарын уонна сирэй стабилизациятын бигэргэтэр кыаҕы биэрэр',
+	'prefs-flaggedrevs' => 'Халбаҥнаабат гыныы (стабилизация)',
 	'group-editor' => 'Көннөрөөччүлэр',
 	'group-editor-member' => 'көннөрөөччү',
 	'group-reviewer' => 'Рецензеннар',
@@ -9807,6 +9819,7 @@ $messages['sah'] = array(
 	'revreview-depth-2' => 'Орто',
 	'revreview-depth-3' => 'Толору',
 	'revreview-depth-4' => 'Талыы-талба',
+	'revreview-draft-title' => 'Сирэй харата (черновига)',
 	'revreview-edit' => 'Черновигы уларытыы',
 	'revreview-flag' => 'торуму ырытыы',
 	'revreview-legend' => 'Торум ис хоһоонун сыаналааһын',
@@ -9832,6 +9845,7 @@ $messages['sah'] = array(
 	'revreview-quality-same' => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бэрэбиркэлэммит]] торум, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэрэбиэркэлэммит] <i>$2</i>. Сирэйгэ [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} көннөрүү оҥоруохха] сөп.',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Көрүллүбүт]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновигын көр]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Көрүлүннэ]]''' (көрүллүбэтэх уларытыылара суох)",
+	'revreview-quick-invalid' => "'''Сирэй барылын идентификатора алҕастаах'''",
 	'revreview-quick-none' => "'''Бүтэһик торум''' (ырытыллыбыт торума суох)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Кичэйэн көрүллүбүт]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновигын көр]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Бэрэбиэркэлэннэ]]''' (көрүллүбэтэх көннөрүүлэрэ суох)",
@@ -9854,12 +9868,16 @@ $messages['sah'] = array(
 	'revreview-visibility' => 'Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть  
 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} настроена].',
 	'revreview-revnotfound' => 'Бу сирэй урукку барыла булуллубата. Ыйынньыгы сыыһата суох суруйбуккун көр.',
+	'right-autoreview' => 'сирэйдэр барылларын аптамаатынан көрүллүбүт курдук оҥоруу',
+	'right-movestable' => 'халбаҥанаабат (стабильнай) барылы аатын уларытыы',
+	'right-review' => 'Барыллары көрүллүбүт курдук оҥорорго',
 	'rights-editor-autosum' => 'аптамаатынан анааһын',
 	'rights-editor-revoke' => 'эрэдээктэр статуһуттан бу кэмтэн босхоломмут: [[$1]]',
 	'stable-logentry' => 'установка чистового версионирования для [[$1]]',
 	'stable-logentry2' => 'сброс чистового версионирования для [[$1]]',
 	'stable-logpage' => 'Бүтэһик (чистовой) торумнар сурунааллара',
 	'stable-logpagetext' => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бигэргэтиллибит]] торумнар туруорууларын уларытыы сурунаала.',
+	'revreview-filter-all' => 'барыта',
 	'tooltip-ca-current' => 'Сирэй саҥа (бүтэһик) черновигын көрдөр',
 	'tooltip-ca-stable' => 'Бу сирэй чистовигын көрүү',
 	'tooltip-ca-default' => 'Хаачыстыба хонтуруолун туруоруулара',
@@ -11170,6 +11188,7 @@ $messages['tr'] = array(
 	'flaggedrevs-pref-UI-0' => 'Kararlı sürüm detaylı kullanıcı arayüzünü kullan',
 	'flaggedrevs-pref-UI-1' => 'Kararlı sürüm basit kullanıcı arayüzünü kullan',
 	'prefs-flaggedrevs' => 'Kararlılık',
+	'prefs-flaggedrevs-ui' => 'Bayraklı revizyonlar',
 	'flaggedrevs-prefs-stable' => 'Her zaman varsayılan olarak içerik sayfalarının kararlı sürümünü göster (eğer varsa)',
 	'flaggedrevs-prefs-watch' => 'İncelediğim sayfaları izleme listeme ekle',
 	'flaggedrevs-prefs-editdiffs' => 'Sayfaları değiştirirken kararlı sürüme göre farkı göster',
@@ -11916,7 +11935,7 @@ Kc. mugažo [[Special:StablePages|stabiližiden lehtpoliden nimikirjutez]].',
  */
 $messages['vi'] = array(
 	'editor' => 'Chủ bút',
-	'flaggedrevs' => 'Các bản được đánh dấu',
+	'flaggedrevs' => 'Phiên bản đánh dấu',
 	'flaggedrevs-backlog' => "Hiện đang lạc hậu về [[Special:OldReviewedPages|trang cần duyệt lại]]. '''Cần bạn chú ý!'''",
 	'flaggedrevs-watched-pending' => "Hiện có [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} sửa đổi chưa duyệt] tại trang đã duyệt trong danh sách theo dõi của bạn. '''Cần bạn chú ý!'''",
 	'flaggedrevs-desc' => 'Cung cấp cho người viết và người duyệt bài khả năng phê chuẩn phiên bản và ổn định trang',
@@ -11924,6 +11943,7 @@ $messages['vi'] = array(
 	'flaggedrevs-pref-UI-0' => 'Sử dụng giao diện người dùng phiên bản ổn định chi tiết',
 	'flaggedrevs-pref-UI-1' => 'Sử dụng giao diện người dùng phiên bản ổn định đơn giản',
 	'prefs-flaggedrevs' => 'Ổn định',
+	'prefs-flaggedrevs-ui' => 'Phiên bản đánh dấu',
 	'flaggedrevs-prefs-stable' => 'Luôn hiển thị bản nội dung ổn định của trang theo mặc định (nếu có)',
 	'flaggedrevs-prefs-watch' => 'Thêm trang tôi duyệt vào danh sách theo dõi',
 	'flaggedrevs-prefs-editdiffs' => 'So sánh với phiên bản ổn định khi sửa đổi trang',

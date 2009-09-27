@@ -307,6 +307,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'qualityoversight' => 'Qualitéits Iwwersiicht',
+	'qualityoversight-legend' => 'Am Logbuch vun den nogekuckte Säite sichen',
 );
 
 /** Macedonian (Македонски)
