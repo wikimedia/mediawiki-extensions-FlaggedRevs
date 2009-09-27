@@ -426,10 +426,13 @@ class FlaggedRevs {
 	
 	/**
 	* Get standard parser options
+	* @param User $user (optional)
+	* @returns ParserOptions
 	*/
-	public static function makeParserOptions() {
+	public static function makeParserOptions( $user = null ) {
 		global $wgUser;
-		$options = ParserOptions::newFromUser($wgUser);
+		$user = $user ? $user : $wgUser; // assume current
+		$options = ParserOptions::newFromUser( $user );
 		# Show inclusion/loop reports
 		$options->enableLimitReport();
 		# Fix bad HTML
@@ -666,7 +669,7 @@ class FlaggedRevs {
 				$text = $rev ? $rev->getText() : false;
 				$id = $rev ? $rev->getId() : null;
 				$title = $article->getTitle();
-				$options = self::makeParserOptions();
+				$options = self::makeParserOptions($anon);
 				$currentOutput = $wgParser->parse( $text, $title, $options, /*$lineStart*/true, /*$clearState*/true, $id );
 				# Might as well save the cache while we're at it
 				if( $wgEnableParserCache )
