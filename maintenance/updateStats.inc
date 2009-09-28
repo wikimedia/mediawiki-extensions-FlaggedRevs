@@ -138,17 +138,9 @@ function update_flaggedrevs_stats() {
 	}
 	# Sanity check the starting timestamp
 	$minTS = max($minTS,$installed);
-	# Get correspond rev_ids to boundaries
+	# Get timestamp boundaries
 	$timeCondition = 'rev_timestamp BETWEEN '.$dbr->addQuotes($minTS).' AND '.$dbr->addQuotes($maxTS);
-	$minRev = (int)$dbr->selectField( 'revision', 'rev_id',
-		array( $timeCondition, 'rev_user' => 0 ),
-		__METHOD__, array( 'ORDER BY' => 'rev_timestamp ASC' )
-	);
-	$maxRev = (int)$dbr->selectField( 'revision', 'rev_id',
-		array( $timeCondition, 'rev_user' => 0 ),
-		__METHOD__, array( 'ORDER BY' => 'rev_timestamp DESC' )
-	);
-	# Modulus
+	# Modulus (to spread out over range)
 	$mod = intval($rows/$size);
 	$mod = max($mod,1); # $mod >= 1
 	# For edits that started off pending, how long do they take to get reviewed?
@@ -158,7 +150,6 @@ function update_flaggedrevs_stats() {
 		array( 'UNIX_TIMESTAMP(rev_timestamp) AS rt', 'UNIX_TIMESTAMP(MIN(fr_timestamp)) AS ft', 'MIN(log_timestamp)' ),
 		array(
 			$timeCondition, // in time range
-			"rev_id BETWEEN $minRev AND $maxRev", // Better INDEX usage
 			'rev_user = 0', // IP edits (should start off unreviewed)
 			"(rev_id % $mod) = 0", // Better spread
 		),
@@ -176,7 +167,7 @@ function update_flaggedrevs_stats() {
 			'logging' => array('INNER JOIN','log_namespace = page_namespace AND log_title = page_title 
 				AND log_type = "review" AND log_timestamp < rev_timestamp'),
 			// Check *if* it was later reviewed
-			'flaggedrevs' => array('LEFT JOIN', 'fr_page_id = rev_page AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp'),
+			'flaggedrevs' => array('LEFT JOIN', 'fr_page_id = page_id AND fr_rev_id >= rev_id AND fr_timestamp > rev_timestamp'),
 		)
 	);
 	# Actually run the query...
