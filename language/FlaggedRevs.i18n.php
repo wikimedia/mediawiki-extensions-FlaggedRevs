@@ -6010,7 +6010,7 @@ $messages['ja'] = array(
 	'flaggedrevs-pref-UI-1' => '固定版情報を簡単表示する',
 	'prefs-flaggedrevs' => '固定度',
 	'prefs-flaggedrevs-ui' => '特定版の判定',
-	'flaggedrevs-prefs-stable' => 'コンテンツページの既定表示を常に固定版にする (存在する場合)',
+	'flaggedrevs-prefs-stable' => '記事の既定表示を常に固定版にする (存在する場合)',
 	'flaggedrevs-prefs-watch' => '自分が査読したページをウォッチリストに追加する',
 	'flaggedrevs-prefs-editdiffs' => 'ページ編集中に固定版との差分を表示する',
 	'flaggedrevs-prefs-viewdiffs' => 'ページ候補版を見ている際に固定版との差分を表示する',
@@ -8766,7 +8766,7 @@ Zobacz [[Special:ReviewedPages|listę oznaczonych stron]].',
 	'revreview-auto-w' => "Edytujesz wersję przejrzaną. Zmiany zostaną '''automatycznie oznaczone jako przejrzane'''.",
 	'revreview-auto-w-old' => "Edytujesz wersję przejrzaną. Zmiany zostaną '''automatycznie oznaczone jako przejrzane'''.",
 	'revreview-basic' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
-W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] {{PLURAL:$3|jest|są|jest}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}] {{PLURAL:$3|oczekującą|oczekujące|oczekujących}} na przejrzenie.',
+W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] {{PLURAL:$3|jest|są|jest}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana|zmiany|zmian}}] {{PLURAL:$3|oczekująca|oczekujące|oczekujących}} na przejrzenie.',
 	'revreview-basic-i' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
 W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] są [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany szablonów lub plików] oczekujące na przejrzenie.',
 	'revreview-basic-old' => 'To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
