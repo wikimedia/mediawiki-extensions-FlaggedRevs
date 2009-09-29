@@ -1416,23 +1416,25 @@ class FlaggedRevsHooks {
 	* @param string $action
 	* @param object $title
 	* @param array $params
+	* @param string $comment
+	* @param string $rv (review links)
 	* @return bool true
 	*/
-	public static function reviewLogLine( $type='', $action='', $title=null, $params=array() ) {
+	public static function reviewLogLine( $type, $action, $title=null, $params=array(), &$comment, &$rv ) {
 		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
 		# Show link to page with oldid=x
-		if( $type == 'review' && in_array($action,$actionsValid) && is_object($title) && isset($params[0]) ) {
+		if( $type == 'review' && is_object($title) && in_array($action,$actionsValid) && isset($params[0]) ) {
 			global $wgUser;
 			# Load required messages
 			wfLoadExtensionMessages( 'FlaggedRevs' );
 			# Don't show diff if param missing or rev IDs are the same
 			if( !empty($params[1]) && $params[0] != $params[1] ) {
-				$r = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
+				$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
 					"oldid={$params[1]}&diff={$params[0]}") . ') ';
 			} else {
-				$r = '(' . wfMsgHtml('review-logentry-diff') . ')';
+				$rv = '(' . wfMsgHtml('review-logentry-diff') . ')';
 			}
-			$r .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
+			$rv .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
 				wfMsgHtml('review-logentry-id',$params[0]),
 				"oldid={$params[0]}&diff=prev&diffonly=0") . ')';
 		}
