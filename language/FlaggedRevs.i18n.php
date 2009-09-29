@@ -24,6 +24,7 @@ $messages['en'] = array(
 	'flaggedrevs-pref-UI'          => 'Stable version interface:',
 	'flaggedrevs-pref-UI-0'        => 'Use detailed stable version user interface',
 	'flaggedrevs-pref-UI-1'        => 'Use simple stable version user interface',
+	'flaggedrevs-stable-categories' => '', # A asterix separated list of categories that must be reviewed; do not translate or duplicate this message to other languages
 	'prefs-flaggedrevs'            => 'Stability',
 	'prefs-flaggedrevs-ui'         => 'Flagged revisions',
 	'flaggedrevs-prefs-stable'     => 'Always show the stable version of content pages by default (if there is one)',

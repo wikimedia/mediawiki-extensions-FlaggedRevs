@@ -228,8 +228,8 @@ class FlaggedRevsHooks {
 		FlaggedRevs::updateStableVersion( $article, $sv->getRevision() );
 		# Get the list of categories that must be reviewed
 		$reviewedCats = array();
-		$msg = wfMsg( 'FlaggedRevs-stable-categories' );
-		if( !wfEmptyMsg( 'FlaggedRevs-stable-categories', $msg ) ) {
+		$msg = wfMsgForContent( 'flaggedrevs-stable-categories' );
+		if( !wfEmptyMsg( 'flaggedrevs-stable-categories', $msg ) ) {
 			$list = explode("\n*","\n$msg");
 			foreach( $list as $category ) {
 				$category = trim($category);
