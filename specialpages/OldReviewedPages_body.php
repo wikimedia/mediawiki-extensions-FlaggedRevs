@@ -20,7 +20,7 @@ class OldReviewedPages extends SpecialPage
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$this->level = $wgRequest->getInt( 'level', -1 );
 		$this->category = trim( $wgRequest->getVal( 'category' ) );
-		$catTitle = Title::newFromText( $this->category );
+		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $this->category );
 		$this->category = is_null($catTitle) ? '' : $catTitle->getText();
 		$this->size = $wgRequest->getIntOrNull( 'size' );
 		$this->watched = $wgRequest->getCheck( 'watched' );
