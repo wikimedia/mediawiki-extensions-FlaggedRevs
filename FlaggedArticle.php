@@ -574,7 +574,8 @@ class FlaggedArticle extends Article {
 			return false; // does not apply to this user
 		# Diff should only show for the draft
 		$oldid = $this->parent->getOldIDFromRequest();
-		if( $oldid && $oldid != $this->parent->getLatest() ) {
+		$latest = $this->parent->getLatest();
+		if( $oldid && $oldid != $latest ) {
 			return false; // not viewing the draft
 		}
 		# Conditions are met to show diff...
@@ -595,6 +596,13 @@ class FlaggedArticle extends Article {
 		if( strcmp($oText,$nText) !== 0 ) {
 			$diffEngine = new DifferenceEngine();
 			$diffEngine->showDiffStyle();
+			$n = $this->parent->getTitle()->countRevisionsBetween( $srev->getRevId(), $latest );
+			if( $n ) {
+				$multiNotice = "<tr><td colspan='4' align='center' class='diff-multi'>" .
+					wfMsgExt( 'diff-multi', array( 'parse' ), $n )."</td></tr>";
+			} else {
+				$multiNotice = '';
+			}
 			$wgOut->addHTML(
 				"<div>" .
 				"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
@@ -605,9 +613,10 @@ class FlaggedArticle extends Article {
 				"<tr>" .
 					"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
 						$leftNote . "</b></td>" .
-						"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
+					"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
 						$rightNote . "</b></td>" .
 				"</tr>" .
+				$multiNotice .
 				$diffEngine->generateDiffBody( $oText, $nText ) .
 				"</table>" .
 				"</div>\n"
