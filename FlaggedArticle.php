@@ -964,23 +964,23 @@ class FlaggedArticle extends Article {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setViewTabs( $skin, &$views ) {
-		global $wgRequest, $wgUser;
-		
-		$title = $this->parent->getTitle()->getSubjectPage();
+		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
+
+		$title = $this->parent->getTitle()->getSubjectPage(); // Get the actual content page
 		$article = new Article( $title );
 		$action = $wgRequest->getVal( 'action', 'view' );
 		$fa = FlaggedArticle::getTitleInstance( $title );
 		if ( !$fa->isReviewable() || $this->limitedUI() ) {
-			// Exit, since this isn't a reviewable page or the UI is hidden
+			// This isn't a reviewable page or the UI is hidden
 			return true;
 		}
 	   	$srev = $this->getStableRev( $action == 'rollback' ? FR_MASTER : 0 );
 	   	if( is_null( $srev ) ) {
-			// Exit, since no stable revision exists
-			return true;
+			return true; // No stable revision exists
 		}
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
+		// Set draft tab as needed...
 	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
 	   		if ( isset( $views['edit'] ) ) {
 				if ( $this->showStableByDefault() ) {
@@ -999,14 +999,14 @@ class FlaggedArticle extends Article {
 				}
 			}
 	   	}
-	 	if ( !FlaggedRevs::showVersionTabs() || $synced ) {
-	 		// Exit, since either the flagged revisions tabs should not be shown
+	 	if ( !$wgFlaggedRevTabs || $synced ) {
+	 		// Exit, since either the stable/draft tabs should not be shown
 	 		// or the page is already the most current revision
 	   		return true;
 	 	}
 	 	$tabs = array(
 	 		'stable' => array(
-				'text' => wfMsg( 'revreview-stable' ),
+				'text' => wfMsg( 'revreview-stable' ), // unused
 				'href' => $title->getLocalUrl( 'stable=1' ),
 	 			'class' => ''
 	 		),
@@ -1029,13 +1029,16 @@ class FlaggedArticle extends Article {
 		$first = true;
 		$newViews = array();
 		foreach ( $views as $tabAction => $data ) {
-			if ( $first ) {
+			// Very first tab (page link)
+			if( $first ) {
 				if( $synced ) {
 					// Use existing first tabs when synced
 					$newViews[$tabAction] = $data;
 				} else {
 					// Use split current and stable tabs when not synced
-					$newViews['stable'] = $tabs['stable'];
+					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
+					$newViews[$tabAction]['href'] = $tabs['stable']['href'];
+					$newViews[$tabAction]['class'] = $tabs['stable']['class'];
 					$newViews['current'] = $tabs['current'];
 				}
 				$first = false;
