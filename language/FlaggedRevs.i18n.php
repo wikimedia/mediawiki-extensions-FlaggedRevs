@@ -2107,14 +2107,14 @@ $messages['ch'] = array(
 );
 
 /** Crimean Turkish (Latin) (Qırımtatarca (Latin))
- * @author Alessandro
+ * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
 	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
 );
 
 /** Crimean Turkish (Cyrillic) (Qırımtatarca (Cyrillic))
- * @author Alessandro
+ * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
 	'revreview-revnotfound' => 'Саифенинъ эски версиясы тапылмады. Лютфен, бу саифеге кирмек ичюн къуллангъан багълантынъызнынъ догърулыгъыны тешкеринъиз.',
@@ -4668,7 +4668,7 @@ $messages['hi'] = array(
 	'review-diff2stable' => 'स्थिर और सद्य अवतरण में फर्क देखें',
 	'review-logentry-app' => '[[$1]] परखा गया',
 	'review-logentry-dis' => '[[$1]] के एक अवतरण का गुणांकन कम किया',
-	'review-logentry-id' => 'अवतरण क्र.: $2',
+	'review-logentry-id' => 'अवतरण क्र: $2',
 	'review-logpage' => 'रिव्ह्यू लॉग',
 	'review-logpagetext' => 'यह कंटेंट पन्नोंके अवतरणोंमें हुए बदलावोंके [[{{MediaWiki:Validationpage}}|परीक्षण]] की सूची हैं।
 प्रमाणित पन्नोंके सूची के लिये [[Special:ReviewedPages|जाँचे हुए पन्नोंकी सूची]] देखें।',
@@ -6006,6 +6006,7 @@ Un elenco di pagine stabilizzate può essere trovato all'[[Special:StablePages|e
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author JtFuruhata
+ * @author 青子守歌
  */
 $messages['ja'] = array(
 	'editor' => '編集者',
@@ -6040,8 +6041,8 @@ $messages['ja'] = array(
 	'review-diff2stable' => '固定版から最新版までの変更を見る',
 	'review-logentry-app' => '[[$1]] の版$2を査読承認',
 	'review-logentry-dis' => '[[$1]] の版$2を棄却',
-	'review-logentry-id' => '表示: $2',
-	'review-logentry-diff' => '固定版との差分',
+	'review-logentry-id' => '版: $2',
+	'review-logentry-diff' => '固定版との変更',
 	'review-logpage' => '査読記録',
 	'review-logpagetext' => '記事の特定版に対する[[{{MediaWiki:Validationpage}}|承認]]状況の変更記録です。承認が済んだページの一覧は[[Special:ReviewedPages|査読済みページ一覧]]を参照してください。',
 	'reviewer' => '査読者',
@@ -6904,7 +6905,7 @@ Mer han och en extra [[Special:StablePages|Leß met de beshtändeje Sigge un bes
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtätijunge Versione vun Sigge',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Kw-Moon
  */
 $messages['kw'] = array(
@@ -9810,7 +9811,7 @@ $messages['sah'] = array(
 	'review-diff2stable' => 'Чистовой уонна саҥа торумнар уратыларын көрүү',
 	'review-logentry-app' => 'ырытыллынна/ырытыллыбыт [[$1]]',
 	'review-logentry-dis' => '[[$1]] эргэрбит торума',
-	'review-logentry-id' =>  \торумун идентификатора: $2',
+	'review-logentry-id' => 'торумун идентификатора: $2',
 	'review-logentry-diff' => 'бигэ барылтан уратыта',
 	'review-logpage' => 'Рецензиялар сурунааллара',
 	'review-logpagetext' => 'Бу сирэйдэр торумнарын [[{{MediaWiki:Validationpage}}|бигэргэтиллибит]] уларытыыларын сурунаала.',
