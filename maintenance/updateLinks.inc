@@ -91,7 +91,7 @@ function update_flaggedrevs( $start = null ) {
 function update_flaggedpages( $start = null ) {
 	echo "Populating and correcting flaggedpages/flaggedpage_config columns\n";
 	
-	$BATCH_SIZE = 100;
+	$BATCH_SIZE = 300;
 	
 	$db = wfGetDB( DB_MASTER );
 	
