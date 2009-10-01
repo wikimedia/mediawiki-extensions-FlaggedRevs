@@ -778,7 +778,9 @@ class FlaggedRevsHooks {
 		# Get the user who made the edit
 		$user = is_null($user) ? User::newFromId( $rev->getUser() ) : $user;
 		# Is the page checked off to be reviewed?
+		# Autoreview if this is such a valid case...
 		if( $wgRequest->getCheck('wpReviewEdit') && $user->isAllowed('review') ) {
+			# Check wpEdittime against the previous edit for verification
 			if( $prevRevId ) {
 				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK
 			}
@@ -791,10 +793,9 @@ class FlaggedRevsHooks {
 		}
 		# Get sync cache key
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $rev->getPage() );
-		global $wgMemc, $wgParserCacheExpireTime;
 		# Auto-reviewing must be enabled and user must have the required permissions
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') ) {
-			$isAllowed = false;
+			$isAllowed = false; // trusted user
 		} else {
 			# Get autoreview restriction settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
@@ -803,11 +804,6 @@ class FlaggedRevsHooks {
 				'protect' : $config['autoreview'];
 			# Check if the user has the required right, if any
 			$isAllowed = ($right == '' || $user->isAllowed($right));
-		}
-		# Auto-reviewing must be enabled and user must have the required permissions
-		if( !$isAllowed ) {
-			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
-			return true; // done! edit pending!
 		}
 		# If $baseRevId passed in, this is a null edit
 		$isNullEdit = $baseRevId ? true : false;
@@ -832,6 +828,28 @@ class FlaggedRevsHooks {
 				$baseRevId = $prevRevId;
 			}
 		}
+		global $wgMemc, $wgParserCacheExpireTime;
+		# User must have the required permissions for all autoreview cases
+		# except for simple self-reversions.
+		if( !$isAllowed ) {
+			$srev = FlaggedRevision::newFromStable( $title, FR_MASTER );
+			# Check if this reverted to the stable version. Reverts to other reviewed
+			# revisions will not be allowed since we don't trust this user.
+			if( $srev && $baseRevId == $srev->getRevId() ) {
+				# Check that this user is ONLY reverting his/herself.
+				if( self::userWasLastAuthor($article,$baseRevId,$user) ) {
+					# Confirm the text; we can't trust this user.
+					if( $rev->getText() == $srev->getRevText() ) {
+						$flags = FlaggedRevs::quickTags( FR_SIGHTED );
+						$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+						if( $ok ) return true; // done!
+					}
+				}
+			}
+			# User does not have the permission for general autoreviewing...
+			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
+			return true; // done! edit pending!
+		}
 		// New pages
 		if( !$prevRevId ) {
 			$reviewableNewPage = (bool)$wgFlaggedRevsAutoReviewNew;
@@ -844,8 +862,8 @@ class FlaggedRevsHooks {
 				$frev = FlaggedRevision::newFromTitle( $title, $prevRevId, FR_MASTER );
 			}
 		}
-		# Is this an edit directly to the stable version? Is it a new page?
-		if( $reviewableNewPage || !is_null($frev) ) {
+		// Is this an edit directly to the stable version? Is it a new page?
+		if( $isAllowed && ($reviewableNewPage || !is_null($frev)) ) {
 			# Assume basic flagging level unless this is a null edit
 			if( $isNullEdit ) $flags = $frev->getTags();
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
@@ -857,6 +875,20 @@ class FlaggedRevsHooks {
 			$wgMemc->set( $key, FlaggedRevs::makeMemcObj('false'), $wgParserCacheExpireTime );
 		}
 		return true;
+	}
+	
+	/**
+	* Check if a user was the last author of the revisions of a page
+	*/
+	protected static function userWasLastAuthor( $article, $baseRevId, $user ) {
+		$dbw = wfGetDB( DB_MASTER );
+		return !$dbw->selectField( 'revision', '1',
+			array(
+				'rev_page' => $article->getId(),
+				'rev_id > '.intval($baseRevId),
+				'rev_user_text != '.$dbw->addQuotes($user->getName())
+			), __METHOD__
+		);
 	}
 	
 	/**
@@ -1006,6 +1038,9 @@ class FlaggedRevsHooks {
 		return ($benchmarks >= $needed );
 	}
 	
+	/**
+	* Checks if $user was previously blocked
+	*/
 	protected function previousBlockCheck( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		return (bool)$dbr->selectField( 'logging', '1',
