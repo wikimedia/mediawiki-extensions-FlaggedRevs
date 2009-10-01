@@ -849,7 +849,7 @@ class FlaggedRevs {
 				$ts = $higherLevelTS; // use previous (quality -> sighted)
 			}
 			# Get edits that actually are pending...
-			if( $latest > $id ) {
+			if( $id && $latest > $id ) {
 				# Get the timestamp of the edit after this version (if any)
 				$nextTimestamp = $dbw->selectField( 'revision',
 					'rev_timestamp',
