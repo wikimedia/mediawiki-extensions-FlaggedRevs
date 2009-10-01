@@ -823,6 +823,7 @@ class FlaggedRevs {
 		# Update pending times for each level, going from highest to lowest
 		$dbw = wfGetDB( DB_MASTER );
 		$higherLevelId = 0;
+		$higherLevelTS = '';
 		while( $level >= 0 ) {
 			# Get the latest revision of this level...
 			$row = $dbw->selectRow( array('flaggedrevs','revision'),
@@ -831,7 +832,8 @@ class FlaggedRevs {
 					'fr_quality' => $level,
 					'rev_id = fr_rev_id',
 					'rev_page = fr_page_id',
-					'rev_deleted & '.Revision::DELETED_TEXT => 0
+					'rev_deleted & '.Revision::DELETED_TEXT => 0,
+					'rev_id > '.intval($higherLevelId)
 				),
 				__METHOD__,
 				array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) 
@@ -840,24 +842,29 @@ class FlaggedRevs {
 			# Revisions reviewed to one level  count as reviewed
 			# at the lower levels (i.e. quality -> sighted).
 			if( $row ) {
-				$id = max( $higherLevelId, $row->fr_rev_id );
+				$id = $row->fr_rev_id;
+				$ts = $row->rev_timestamp;
+			} else {
+				$id = $higherLevelId; // use previous (quality -> sighted)
+				$ts = $higherLevelTS; // use previous (quality -> sighted)
+			}
+			# Get edits that actually are pending...
+			if( $latest > $id ) {
 				# Get the timestamp of the edit after this version (if any)
-				if( $latest > $id ) {
-					$nextTimestamp = $dbw->selectField( 'revision',
-						'rev_timestamp',
-						array( 'rev_page' => $pageId,
-							"rev_timestamp > ".$dbw->addQuotes( $row->rev_timestamp ) ),
-						__METHOD__,
-						array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
-					);
-					$data[] = array(
-						'fpp_page_id'       => $pageId,
-						'fpp_quality'       => $level,
-						'fpp_rev_id'        => $id,
-						'fpp_pending_since' => $nextTimestamp
-					);
-				}
+				$nextTimestamp = $dbw->selectField( 'revision',
+					'rev_timestamp',
+					array( 'rev_page' => $pageId, "rev_timestamp > ".$dbw->addQuotes($ts) ),
+					__METHOD__,
+					array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+				);
+				$data[] = array(
+					'fpp_page_id'       => $pageId,
+					'fpp_quality'       => $level,
+					'fpp_rev_id'        => $id,
+					'fpp_pending_since' => $nextTimestamp
+				);
 				$higherLevelId = $id;
+				$higherLevelTS = $ts;
 			}
 			$level--;
 		}
