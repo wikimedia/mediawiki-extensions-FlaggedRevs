@@ -816,11 +816,13 @@ class FlaggedRevs {
 		if( !self::qualityVersions() )
 			$level = FR_SIGHTED;
 		# Get the latest revision ID if not set
-		if( !$latest )
+		if( !$latest ) {
 			$latest = $article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
+		}
 		$pageId = $article->getId();
-		# Update pending times for each level
+		# Update pending times for each level, going from highest to lowest
 		$dbw = wfGetDB( DB_MASTER );
+		$higherLevelId = 0;
 		while( $level >= 0 ) {
 			# Get the latest revision of this level...
 			$row = $dbw->selectRow( array('flaggedrevs','revision'),
@@ -835,10 +837,12 @@ class FlaggedRevs {
 				array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 ) 
 			);
 			# If there is a revision of this level, track it...
+			# Revisions reviewed to one level  count as reviewed
+			# at the lower levels (i.e. quality -> sighted).
 			if( $row ) {
-				$id = intval( $row->fr_rev_id );
+				$id = max( $higherLevelId, $row->fr_rev_id );
 				# Get the timestamp of the edit after this version (if any)
-				if( $latest != $id ) {
+				if( $latest > $id ) {
 					$nextTimestamp = $dbw->selectField( 'revision',
 						'rev_timestamp',
 						array( 'rev_page' => $pageId,
@@ -853,6 +857,7 @@ class FlaggedRevs {
 						'fpp_pending_since' => $nextTimestamp
 					);
 				}
+				$higherLevelId = $id;
 			}
 			$level--;
 		}
