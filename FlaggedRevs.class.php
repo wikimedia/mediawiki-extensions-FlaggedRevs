@@ -1203,6 +1203,10 @@ class FlaggedRevs {
 	* $auto is here for revisions checked off to be reviewed. Auto-review
 	* triggers on edit, but we don't want it to count as just automatic.
 	* This also makes it so the user's name shows up in the page history.
+	*
+	* If $flags is given, then they will be the review tags. If not, the one
+	* from the stable version will be used or minimal tags if that's not possible.
+	* If no appropriate tags can be found, then the review will abort.
 	*/
 	public static function autoReviewEdit( $article, $user, $text, $rev, $flags=null, $auto=true ) {
 		global $wgMemc;
