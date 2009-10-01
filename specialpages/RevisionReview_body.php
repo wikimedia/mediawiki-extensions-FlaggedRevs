@@ -913,6 +913,8 @@ class RevisionReview extends UnlistedSpecialPage
 		} else { // depreciated
 			$action = FlaggedRevs::isQuality($oldDims) ? 'unapprove2' : 'unapprove';
 		}
-		$log->addEntry( $action, $title, $comment, array($revId,$stableId) );
+		$ts = Revision::getTimestampFromId( $title, $revId );
+		# Param format is <rev id,old stable id, rev timestamp>
+		$log->addEntry( $action, $title, $comment, array($revId,$stableId,$ts) );
 	}
 }

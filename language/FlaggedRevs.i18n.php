@@ -49,8 +49,8 @@ $messages['en'] = array(
 	'review-diff2stable'           => 'View changes between stable and current revisions',
 	'review-logentry-app'          => 'reviewed r$2 of [[$1]]',
 	'review-logentry-dis'          => 'deprecated r$2 of [[$1]]',
-	'review-logentry-id'           => 'view',
-	'review-logentry-diff'         => 'diff to stable',
+	'review-logentry-id'           => 'revision: $2',
+	'review-logentry-diff'         => 'changes to stable version',
 	'review-logpage'               => 'Review log',
 	'review-logpagetext'           => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.
 	See the [[Special:ReviewedPages|reviewed pages list]] for a list of approved pages.',
