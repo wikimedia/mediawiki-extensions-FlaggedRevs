@@ -278,7 +278,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'right-unreviewedpages' => 'Ansehen der [[Special:UnreviewedPages|Liste ungesichteter Seiten]]',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Liste der ungesichteten Seiten]] ansehen',
 	'unreviewedpages' => 'Ungesichtete Seiten',
 	'unreviewed-legend' => 'Liste ungesichteter Seiten',
 	'unreviewed-category' => 'Kategorie:',
@@ -1515,8 +1515,8 @@ $messages['vi'] = array(
 	'unreviewed-list' => 'Trang này liệt kê những trang nội dung chưa được duyệt thành cấp độ chỉ định.',
 	'unreviewed-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
 	'unreviewed-viewing' => '(đang duyệt)',
-	'unreviewed-hours' => '($1 tiếng)',
-	'unreviewed-days' => '($1 ngày)',
+	'unreviewed-hours' => '($1 tiếng){{PLURAL:$1||}}',
+	'unreviewed-days' => '($1 ngày){{PLURAL:$1||}}',
 	'unreviewed-recent' => '(ít hơn 1 tiếng)',
 );
 

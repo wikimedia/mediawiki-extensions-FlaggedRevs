@@ -1355,6 +1355,7 @@ $messages['tl'] = array(
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
  * @author Joseph
+ * @author Karduelis
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
@@ -1369,7 +1370,7 @@ $messages['tr'] = array(
 	'oldreviewed-watched' => 'İzleme listemde',
 	'oldreviewed-stable' => 'Kararlılaştırıldı',
 	'oldreviewed-diff' => 'gözden geçir',
-	'oldreviewed-size' => 'Max değişiklik (byte):',
+	'oldreviewed-size' => 'Azami değişiklik (bayt):',
 	'oldreviewedpages-unwatched' => '(izlenmiyor)',
 	'oldreviewedpages-watched' => '($2 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
 	'oldreviewedpages-viewing' => '(gözden geçiriliyor)',
