@@ -73,8 +73,13 @@ class Stabilization extends UnlistedSpecialPage
 		}
 
 		// Show form or submit...
-		if( $this->isAllowed && $isValid && $confirm && $this->submit() ) {
-			$wgOut->redirect( $this->page->getFullUrl( $query ) );
+		if( $this->isAllowed && $isValid && $confirm ) {
+			$status = $this->submit();
+			if( $status === true ) {
+				$wgOut->redirect( $this->page->getFullUrl( $query ) );
+			} else {
+				$this->showSettings( wfMsg($status) );
+			}
 		} else {
 			$this->showSettings();
 		}
@@ -91,17 +96,18 @@ class Stabilization extends UnlistedSpecialPage
 		if( is_null($this->page) ) {
 			return false; // can't continue
 		}
+		# Get old config
+		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
+		# Make user readable date for GET requests
+		$this->oldExpiry = $this->config['expiry'] !== 'infinity' ? 
+			wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
 		# If not posted, then fill in existing values/defaults
 		if( !$this->wasPosted ) {
 			# Get visiblity settings...
-			$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, true );
 			$this->select = $this->config['select'];
 			$this->override = $this->config['override'];
 			# Get autoreview restrictions...
 			$this->autoreview = $this->config['autoreview'];
-			# Make user readable date for GET requests
-			$this->oldExpiry = $this->config['expiry'] !== 'infinity' ? 
-				wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
 		# Handle submission data
 		} else {
 			// Custom expiry takes precedence
@@ -356,13 +362,11 @@ class Stabilization extends UnlistedSpecialPage
 			# Convert GNU-style date, on error returns -1 for PHP <5.1 and false for PHP >=5.1
 			$expiry = strtotime( $this->expiry );
 			if( $expiry < 0 || $expiry === false ) {
-				$this->showSettings( wfMsg( 'stabilize_expiry_invalid' ) );
-				return false;
+				return 'stabilize_expiry_invalid';
 			}
 			$expiry = wfTimestamp( TS_MW, $expiry );
 			if( $expiry < wfTimestampNow() ) {
-				$this->showSettings( wfMsg( 'stabilize_expiry_old' ) );
-				return false;
+				return 'stabilize_expiry_old';
 			}
 		}
 
