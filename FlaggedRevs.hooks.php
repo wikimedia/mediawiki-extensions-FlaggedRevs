@@ -1815,14 +1815,14 @@ class FlaggedRevsHooks {
 		# Can the user actually do anything?
 		$isAllowed = $wgUser->isAllowed('stablesettings');
 		$disabledAttrib = !$isAllowed ? array( 'disabled' => 'disabled' ) : array();
-		# Load request params...
-		$selected = $wgRequest->getVal( 'wpStabilityConfig' );
-		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
-		$reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
 		# Get the current config/expiry
 		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), true );
 		$oldExpiry = $config['expiry'] !== 'infinity' ? 
 			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
+		# Load request params...
+		$selected = $wgRequest->getVal( 'wpStabilityConfig', FlaggedRevs::getProtectionLevel($config) );
+		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
+		$reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
 		# Add some script for expiry dropdowns
 		$wgOut->addScript(
 			"<script type=\"text/javascript\">

@@ -57,11 +57,12 @@ class FlaggedRevs {
 			self::$minSL[$tag] = 1;
 		}
 		global $wgFlaggedRevsProtectLevels;
-		foreach( $wgFlaggedRevsProtectLevels as $level => $config ) {
+		foreach( $wgFlaggedRevsProtectLevels as $level => &$config ) {
 			# Sanity checks
 			if( !isset($config['select']) || !isset($config['override']) || !isset($config['autoreview']) ) {
 				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
 			}
+			$config['override'] = intval( $config['override'] ); // Type cleanup
 		}
 		self::$loaded = true;
 	}
@@ -156,7 +157,23 @@ class FlaggedRevs {
 	 */
 	public static function getProtectionLevels() {
 		global $wgFlaggedRevsProtectLevels;
+		self::load();
 		return $wgFlaggedRevsProtectLevels;
+	}
+	
+	/**
+	 * Find what protection level a config is in
+	 * @param array $config
+	 * @returns mixed (array/string)
+	 */
+	public static function getProtectionLevel( $config ) {
+		global $wgFlaggedRevsProtectLevels;
+		self::load();
+		unset( $config['expiry'] );
+		foreach( $wgFlaggedRevsProtectLevels as $level => $settings ) {
+			if( $config == $settings ) return $level;
+		}
+		return "none";
 	}
 
 	/**
