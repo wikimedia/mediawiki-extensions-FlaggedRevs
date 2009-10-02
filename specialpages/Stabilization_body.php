@@ -37,7 +37,7 @@ class Stabilization extends UnlistedSpecialPage
 		# Our target page
 		$this->target = $wgRequest->getText( 'page', $par );
 		# Watch checkbox
-		$this->watchThis = $wgRequest->getCheck( 'wpWatchthis' );
+		$this->watchThis = (bool)$wgRequest->getCheck( 'wpWatchthis' );
 		# Reason
 		$this->reason = $wgRequest->getVal( 'wpReason' );
 		$this->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );
@@ -138,7 +138,7 @@ class Stabilization extends UnlistedSpecialPage
 		} else {
 			$form = wfMsgExt( 'stabilization-text', array('parse'), $this->page->getPrefixedText() );
 		}
-		# Add some script
+		# Add some script for expiry dropdowns
 		$wgOut->addScript( 
 			"<script type=\"text/javascript\">
 				function updateStabilizationDropdowns() {
@@ -174,7 +174,7 @@ class Stabilization extends UnlistedSpecialPage
 				) . "\n";
 		}
 		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), "othertime" ) . "\n";
-		# Add custom levels
+		# Add custom levels (from MediaWiki message)
 		foreach( explode(',',$scExpiryOptions) as $option ) {
 			if( strpos($option,":") === false ) {
 				$show = $value = $option;
@@ -481,10 +481,10 @@ class Stabilization extends UnlistedSpecialPage
 				FlaggedRevs::titleLinksUpdate( $this->page );
 			}
 		}
-		# Apply watchlist checkbox value
-		if( $this->watchThis ) {
+		# Apply watchlist checkbox value (may be NULL)
+		if( $this->watchThis === true ) {
 			$wgUser->addWatch( $this->page );
-		} else {
+		} else if( $this->watchThis === false ) {
 			$wgUser->removeWatch( $this->page );
 		}
 		return true;
