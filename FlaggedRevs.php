@@ -143,6 +143,15 @@ $wgFlagAvailability = array(
 # 0 => sighted; 1 => quality; 2 => pristine
 $wgFlaggedRevsPatrolLevel = 0;
 
+# Stability levels, defined below, that appear in protection form
+$wgFlaggedRevsProtectLevels = array();
+/* (example usage)
+$wgFlaggedRevsProtectLevels = array(
+	'semi-review' => array('select' => FLAGGED_VIS_LATEST, 'override' => true, 'autoreview' => ''),
+	'intm-review' => array('select' => FLAGGED_VIS_LATEST, 'override' => true, 'autoreview' => 'review'),
+);
+*/
+
 # Restriction levels for auto-review right at Stabilization page
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 
@@ -417,6 +426,10 @@ $wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation';
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
 # Add review form and visiblity settings link
 $wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
+# Add protection form field
+$wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsHooks::onProtectionForm';
+$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsHooks::insertStabilityLog';
+$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
 # Mark items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsHooks::addToHistLine';
@@ -496,11 +509,12 @@ function efLoadFlaggedRevs() {
  * Also sets $wgSpecialPages just to be consistent.
  */
 function efLoadFlaggedRevsSpecialPages( &$list ) {
-	global $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride;
+	global $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
 	if( !empty($wgFlaggedRevsNamespaces) ) {
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['StableVersions'] = $wgSpecialPages['StableVersions'] = 'StableVersions';
-		$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
+		if( empty($wgFlaggedRevsProtectLevels) )
+			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
 		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 		$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';

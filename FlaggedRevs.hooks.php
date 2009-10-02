@@ -1805,6 +1805,173 @@ class FlaggedRevsHooks {
 		$join['revision'] = array('INNER JOIN','rev_page = fp_page_id AND rev_id = fp_stable');
 		return false; // final
 	}
+	
+	// Add radio of review "protection" options
+	// Code stolen from Stabilization (which was stolen from ProtectionForm)
+	public static function onProtectionForm( $article, &$output ) {
+		global $wgUser, $wgRequest, $wgOut, $wgLang;
+		if( !count( FlaggedRevs::getProtectionLevels() ) )
+			return true; // nothing to do
+		# Can the user actually do anything?
+		$isAllowed = $wgUser->isAllowed('stablesettings');
+		$disabledAttrib = !$isAllowed ? array( 'disabled' => 'disabled' ) : array();
+		# Load request params...
+		$selected = $wgRequest->getVal( 'wpStabilityConfig' );
+		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
+		$reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
+		# Get the current config/expiry
+		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), true );
+		$oldExpiry = $config['expiry'] !== 'infinity' ? 
+			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
+		# Add some script for expiry dropdowns
+		$wgOut->addScript(
+			"<script type=\"text/javascript\">
+				function updateStabilizationDropdowns() {
+					val = document.getElementById('mwExpirySelection').value;
+					if( val == 'existing' )
+						document.getElementById('mwStabilize-expiry').value = ".
+						Xml::encodeJsVar($oldExpiry).";
+					else if( val != 'othertime' )
+						document.getElementById('mwStabilize-expiry').value = val;
+				}
+			</script>"
+		);
+		# Add an extra row to the protection fieldset tables
+		$output .= "<tr><td>";
+		$output .= Xml::openElement( 'fieldset' );
+		$output .= Xml::element( 'legend', null, wfMsg('flaggedrevs-protect-legend') );
+		$output .= "<table>";
+		# Add a "no restrictions" level
+		$effectiveLevels = array( "none" => null );
+		$effectiveLevels += FlaggedRevs::getProtectionLevels();
+		# Show all restriction levels as radios...
+		foreach( $effectiveLevels as $level => $x ) {
+			$label = wfMsg( 'flaggedrevs-protect-'.$level );
+			// Default to the key itself if no UI message
+			if( wfEmptyMsg('flaggedrevs-protect-'.$level,$label) ) {
+				$label = 'flaggedrevs-protect-'.$level;
+			}
+			$output .= "<tr><td>" . Xml::radioLabel( $label, 'wpStabilityConfig', $level,
+				'wpStabilityConfig-'.$level, $level == $selected, $disabledAttrib ) . "</td></tr>";
+		}
+		$output .= "</table>";
+		# Get expiry dropdown
+		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
+		$showProtectOptions = ($scExpiryOptions !== '-' && $isAllowed);
+		# Add the current expiry as an option
+		$expiryFormOptions = '';
+		if( $config['expiry'] && $config['expiry'] != 'infinity' ) {
+			$timestamp = $wgLang->timeanddate( $config['expiry'] );
+			$d = $wgLang->date( $config['expiry'] );
+			$t = $wgLang->time( $config['expiry'] );
+			$expiryFormOptions .= 
+				Xml::option( 
+					wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ),
+					'existing',
+					$config['expiry'] == 'existing'
+				) . "\n";
+		}
+		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), "othertime" ) . "\n";
+		# Add custom levels (from MediaWiki message)
+		foreach( explode(',',$scExpiryOptions) as $option ) {
+			if( strpos($option,":") === false ) {
+				$show = $value = $option;
+			} else {
+				list($show, $value) = explode(":",$option);
+			}
+			$show = htmlspecialchars($show);
+			$value = htmlspecialchars($value);
+			$expiryFormOptions .= Xml::option( $show, $value, $config['expiry'] === $value ) . "\n";
+		}
+		# Add expiry dropdown to form
+		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
+		$showProtectOptions = ($scExpiryOptions !== '-' && $isAllowed);
+		$output .= "<table>"; // expiry table start
+		if( $showProtectOptions && $isAllowed ) {
+			$output .= "
+				<tr>
+					<td class='mw-label'>" .
+						Xml::label( wfMsg('stabilization-expiry'), 'mwExpirySelection' ) .
+					"</td>
+					<td class='mw-input'>" .
+						Xml::tags( 'select',
+							array(
+								'id' => 'mwExpirySelection',
+								'name' => 'wpExpirySelection',
+								'onchange' => 'updateStabilizationDropdowns()',
+							) + $disabledAttrib,
+							$expiryFormOptions ) .
+					"</td>
+				</tr>";
+		}
+		# Add custom expiry field to form
+		$attribs = array( 'id' => "mwStabilize-expiry",
+			'onkeyup' => 'updateStabilizationDropdowns()' ) + $disabledAttrib;
+		$output .= "
+			<tr>
+				<td class='mw-label'>" .
+					Xml::label( wfMsg('stabilization-othertime'), 'mwStabilize-expiry' ) .
+				'</td>
+				<td class="mw-input">' .
+					Xml::input( "mwStabilize-expiry", 50,
+						$expiry ? $expiry : $oldExpiry, $attribs ) .
+				'</td>
+			</tr>';
+		$output .= "</table>"; // expiry table end
+		# Add "review this page" checkbox
+		$reviewLabel = wfMsgExt( 'stabilization-review', array('parseinline') );
+		$output .= Xml::checkLabel( $reviewLabel, 'wpReviewthis', $reviewThis, array('id'=>'wpReviewthis') );
+		# Close field set and table row
+		$output .= Xml::closeElement( 'fieldset' );
+		$output .= "</td></tr>";
+		return true;
+	}
+	
+	// Add stability log extract to protection form
+	public static function insertStabilityLog( $article, $out ) {
+		# Show relevant lines from the stability log:
+		$out->addHTML( Xml::element( 'h2', null, LogPage::logName('stable') ) );
+		LogEventsList::showLogExtract( $out, 'stable', $article->getTitle()->getPrefixedText() );
+		return true;
+	}
+	
+	// Update stability config from request
+	public static function onProtectionSave( $article, &$errorMsg ) {
+		global $wgUser, $wgRequest;
+		if( wfReadOnly() || !$wgUser->isAllowed('stablesettings') ) {
+			return true; // user cannot change anything
+		}
+		$form = new Stabilization();
+		$form->target = $article->getTitle(); # Our target page
+		$form->watchThis = null; // protection form already has a watch check
+		$form->reviewThis = $wgRequest->getBool( 'wpReviewthis', true ); # Auto-review option
+		$form->reason = $wgRequest->getVal( 'wpReason' ); # Reason
+		$form->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );  # Reason dropdown
+		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
+		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
+		# Fill in config from the protection level...
+		$selected = $wgRequest->getVal( 'wpStabilityConfig' );
+		$levels = FlaggedRevs::getProtectionLevels();
+		if( $selected == "none" ) {
+			$form->select = FlaggedRevs::getPrecedence(); // default
+			$form->override = FlaggedRevs::showStableByDefault(); // default
+			$form->autoreview = ''; // default
+		} else if( isset($levels[$selected]) ) {
+			$form->select = $levels[$selected]['select'];
+			$form->override = $levels[$selected]['override'];
+			$form->autoreview = $levels[$selected]['autoreview'];
+		} else {
+			return false; // bad level
+		}
+		$form->wasPosted = $wgRequest->wasPosted();
+		if( $form->handleParams() ) {
+			$status = $form->submit();
+			if( $status !== true ) {
+				$errorMsg = wfMsg($status); // some error message
+			}
+		}
+		return true;
+	}
 
 	public static function onParserTestTables( &$tables ) {
 		$tables[] = 'flaggedpages';

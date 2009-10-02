@@ -897,6 +897,8 @@ class FlaggedArticle extends Article {
 	 */
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
+		if( FlaggedRevs::getProtectionLevels() )
+			return true; // simple custom levels set for action=protect
 		# Check only if the title is reviewable
 		if( !$this->isReviewable(true) ) {
 			return true;
@@ -931,7 +933,9 @@ class FlaggedArticle extends Article {
 	 */
 	public function setActionTabs( $skin, &$actions ) {
 		global $wgRequest, $wgUser;
-
+		if( FlaggedRevs::getProtectionLevels() ) {
+			return true; // simple custom levels set for action=protect
+		}
 		$title = $this->parent->getTitle()->getSubjectPage();
 		if ( !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true; // Only reviewable pages need these tabs

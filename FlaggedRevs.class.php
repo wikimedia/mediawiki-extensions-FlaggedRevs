@@ -56,6 +56,13 @@ class FlaggedRevs {
 			self::$minPL[$tag] = max($minPL,1);
 			self::$minSL[$tag] = 1;
 		}
+		global $wgFlaggedRevsProtectLevels;
+		foreach( $wgFlaggedRevsProtectLevels as $level => $config ) {
+			# Sanity checks
+			if( !isset($config['select']) || !isset($config['override']) || !isset($config['autoreview']) ) {
+				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
+			}
+		}
 		self::$loaded = true;
 	}
 	
@@ -142,6 +149,16 @@ class FlaggedRevs {
 		self::load();
 		return $wgFlaggedRevsLowProfile;
 	}
+	
+	/**
+	 * Get the site defined protection levels for review
+	 * @returns array
+	 */
+	public static function getProtectionLevels() {
+		global $wgFlaggedRevsProtectLevels;
+		return $wgFlaggedRevsProtectLevels;
+	}
+
 	/**
 	 * Should comments be allowed on pages and forms?
 	 * @returns bool
@@ -996,7 +1013,7 @@ class FlaggedRevs {
 	 * @param bool $forUpdate, use master DB?
 	 * @returns Array (select,override)
 	 */
-	public static function getPageVisibilitySettings( &$title, $forUpdate=false ) {
+	public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
 		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
