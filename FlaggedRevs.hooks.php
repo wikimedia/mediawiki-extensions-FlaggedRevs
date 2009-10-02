@@ -1920,7 +1920,10 @@ class FlaggedRevsHooks {
 		$output .= "</table>"; // expiry table end
 		# Add "review this page" checkbox
 		$reviewLabel = wfMsgExt( 'stabilization-review', array('parseinline') );
-		$output .= Xml::checkLabel( $reviewLabel, 'wpReviewthis', $reviewThis, array('id'=>'wpReviewthis') );
+		if( $wgUser->isAllowed('review') ) {
+			$output .= Xml::checkLabel( $reviewLabel, 'wpReviewthis', 'wpReviewthis',
+				$reviewThis, $disabledAttrib );
+		}
 		# Close field set and table row
 		$output .= Xml::closeElement( 'fieldset' );
 		$output .= "</td></tr>";
