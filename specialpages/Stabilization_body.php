@@ -85,9 +85,9 @@ class Stabilization extends UnlistedSpecialPage
 		}
 	}
 	
-	/*
+	/**
 	* Fetch and check parameters. Items may not all be set if false is returned.
-	* @returns bool success
+	* @return bool success
 	*/
 	public function handleParams() {
 		# Our target page
@@ -117,7 +117,7 @@ class Stabilization extends UnlistedSpecialPage
 			if( $this->reasonSelection != 'other' ) {
 				$comment = $this->reasonSelection; // start with dropdown reason
 				if( $this->reason != '' ) {
-					$comment .= ": {$this->reason}"; // append custom reason
+					$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason; // append custom reason
 				}
 			} else {
 				$comment = $this->reason; // just use custom reason
@@ -426,7 +426,7 @@ class Stabilization extends UnlistedSpecialPage
 			if( strlen($this->autoreview) ) {
 				$set[] = "autoreview={$this->autoreview}";
 			}
-			$settings = '[' . implode(', ',$set). ']';
+			$settings = '[' . $wgContLang->commaList( $set ) . ']';
 			# Append comment with settings (other than for resets)
 			$reason = $this->reason;
 			if( !$reset ) {
@@ -452,7 +452,7 @@ class Stabilization extends UnlistedSpecialPage
 			# Build null-edit comment
 			$comment = $wgContLang->ucfirst( wfMsgForContent( $type, $this->page->getPrefixedText() ) );
 			if( $reason ) {
-				$comment .= ": $reason";
+				$comment .= wfMsgForContent( 'colon-separator' ) . $reason;
 			}
 			# Insert a null revision
 			$nullRevision = Revision::newNullRevision( $dbw, $id, $comment, true );
