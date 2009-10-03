@@ -254,6 +254,7 @@ $wgFlaggedRevsVisible = array();
 # If $wgFlaggedRevsVisible is populated, it is applied to talk pages too
 $wgFlaggedRevsTalkVisible = true;
 
+# How long before Special:ValidationStatistics is updated
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
 # We may have templates that do not have stable version. Given situational
@@ -462,7 +463,7 @@ $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::injectStyleAndJS';
 $wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
 
-# Cache updates
+# Extra cache updates for stable versions
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
 
 # Duplicate flagged* tables in parserTests.php
