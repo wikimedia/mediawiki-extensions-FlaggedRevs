@@ -1948,8 +1948,8 @@ class FlaggedRevsHooks {
 		$form->target = $article->getTitle(); # Our target page
 		$form->watchThis = null; // protection form already has a watch check
 		$form->reviewThis = $wgRequest->getBool( 'wpReviewthis', true ); # Auto-review option
-		$form->reason = $wgRequest->getVal( 'wpReason' ); # Reason
-		$form->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );  # Reason dropdown
+		$form->reason = $wgRequest->getText( 'mwProtect-reason' ); # Reason
+		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' );  # Reason dropdown
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
 		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...
