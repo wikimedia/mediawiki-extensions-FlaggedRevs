@@ -521,11 +521,12 @@ Nije moguća konfiguracija.',
  * @author Aleator
  * @author Jordi Roqué
  * @author Paucabot
+ * @author Qllach
  * @author Toniher
  */
 $messages['ca'] = array(
 	'stabilization-page' => 'Nom de la pàgina:',
-	'stabilization-def2' => 'La revisió actual',
+	'stabilization-def2' => 'La revisió actual/esborrany',
 	'stabilization-submit' => 'Confirma',
 	'stabilization-notexists' => 'No hi ha cap pàgina que s\'anomeni "[[:$1|$1]]".
 No és possible fer cap configuració.',
@@ -672,9 +673,9 @@ Gaž změniš konfiguraciju ''wuběr stabilneje wersije'', aby wužywał \"kwali
 	'stabilization-notcontent' => 'Bok "[[:$1|$1]]" njedajo se pśeglědaś.
 Žedna konfiguracija móžno.',
 	'stabilization-comment' => 'Pśicyna:',
-	'stabilization-otherreason' => 'Druga pśicyna',
+	'stabilization-otherreason' => 'Druga pśicyna:',
 	'stabilization-expiry' => 'Pśepadnjo:',
-	'stabilization-othertime' => 'Drugi cas',
+	'stabilization-othertime' => 'Drugi cas:',
 	'stabilization-sel-short' => 'Priorita',
 	'stabilization-sel-short-0' => 'Kwalita',
 	'stabilization-sel-short-1' => 'Žedna',
@@ -1323,9 +1324,9 @@ Hdyž konfiguraciju ''wuběra stabilneje wersije'' změniš, zo by \"kwalitnu\" 
 	'stabilization-notexists' => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
 	'stabilization-notcontent' => 'Strona "[[:$1|$1]]" njeda so pruwować. Žana konfiguracija móžno.',
 	'stabilization-comment' => 'Přičina:',
-	'stabilization-otherreason' => 'Druha přičina',
+	'stabilization-otherreason' => 'Druha přičina:',
 	'stabilization-expiry' => 'Spadnje:',
-	'stabilization-othertime' => 'Druhi čas',
+	'stabilization-othertime' => 'Druhi čas:',
 	'stabilization-sel-short' => 'Priorita',
 	'stabilization-sel-short-0' => 'Kwalita',
 	'stabilization-sel-short-1' => 'Žana',
@@ -1805,7 +1806,7 @@ Et ass keng Konfiguratioun méiglech.',
 	'stabilization-comment' => 'Grond:',
 	'stabilization-otherreason' => 'Anere Grond:',
 	'stabilization-expiry' => 'Valabel bis:',
-	'stabilization-othertime' => 'Aner Zäit',
+	'stabilization-othertime' => 'Aner Zäit:',
 	'stabilization-sel-short' => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
@@ -2102,9 +2103,9 @@ Instellen is niet mogelijk.',
 	'stabilization-notcontent' => 'U kunt geen eindredactie op de pagina "[[:$1|$1]]" doen.
 Instellen is niet mogelijk.',
 	'stabilization-comment' => 'Reden:',
-	'stabilization-otherreason' => 'Andere reden',
+	'stabilization-otherreason' => 'Andere reden:',
 	'stabilization-expiry' => 'Vervallen:',
-	'stabilization-othertime' => 'Andere tijd',
+	'stabilization-othertime' => 'Andere tijd:',
 	'stabilization-sel-short' => 'Voorrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',
 	'stabilization-sel-short-1' => 'Geen',

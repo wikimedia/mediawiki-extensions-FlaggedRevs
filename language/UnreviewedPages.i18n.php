@@ -86,7 +86,7 @@ $messages['ar'] = array(
 	'unreviewedpages' => 'صفحات غير مراجعة',
 	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
 	'unreviewed-category' => 'التصنيف:',
-	'unreviewed-diff' => 'مراجعة',
+	'unreviewed-diff' => 'راجع',
 	'unreviewed-unwatched' => '(غير مراقبة)',
 	'unreviewed-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمون نشطون يراقبون|$1 مستخدمًا نشيطًا يراقبون|$1 مستخدم نشط يراقبون}})',
 	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتوى التي لم تتم مراجعتها لمستوى المحدد.',
@@ -227,6 +227,7 @@ $messages['bs'] = array(
 
 /** Catalan (Català)
  * @author Jordi Roqué
+ * @author Qllach
  * @author SMP
  * @author Toniher
  */
@@ -238,9 +239,10 @@ $messages['ca'] = array(
 	'unreviewed-diff' => 'revisió',
 	'unreviewed-unwatched' => '(no vigilat)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|usuari|usuaris}} actius vigilant)',
-	'unreviewed-list' => 'Aquesta pàgina llista el contingut de pàgines que no ha estat revisat.',
+	'unreviewed-list' => 'Aquesta pàgina llista les pàgines de contingut que no han estat revisades al nivell indicat.',
 	'unreviewed-none' => 'En aquest moment no hi ha pàgines que compleixin aquests criteris',
 	'unreviewed-viewing' => '(sota revisió)',
+	'unreviewed-recent' => "(menys d'una hora)",
 );
 
 /** Czech (Česky)
