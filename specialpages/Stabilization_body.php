@@ -114,8 +114,15 @@ class Stabilization extends UnlistedSpecialPage
 			$this->expiry = strlen($this->expiry) ? $this->expiry : $this->expirySelection;
 			if( $this->expiry == 'existing' ) $this->expiry = $this->oldExpiry;
 			// Custom reason takes precedence
-			$this->reason = strlen($this->reason) || $this->reasonSelection == 'other' ?
-				$this->reason : $this->reasonSelection;
+			if( $this->reasonSelection != 'other' ) {
+				$comment = $this->reasonSelection; // start with dropdown reason
+				if( $this->reason != '' ) {
+					$comment .= ": {$this->reason}"; // append custom reason
+				}
+			} else {
+				$comment = $this->reason; // just use custom reason
+			}
+			$this->reason = $comment;
 			// Validate precedence setting
 			$allowed = array(FLAGGED_VIS_QUALITY,FLAGGED_VIS_LATEST,FLAGGED_VIS_PRISTINE);
 			if( $this->select && !in_array( $this->select, $allowed ) ) {
@@ -421,7 +428,7 @@ class Stabilization extends UnlistedSpecialPage
 			}
 			$settings = '[' . implode(', ',$set). ']';
 			# Append comment with settings (other than for resets)
-			$reason = '';
+			$reason = $this->reason;
 			if( !$reset ) {
 				$reason = $this->reason ? "{$this->reason} $settings" : "$settings";
 				$encodedExpiry = Block::encodeExpiry($expiry, $dbw );
