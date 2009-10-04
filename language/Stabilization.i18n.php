@@ -57,6 +57,7 @@ No configuration is possible.',
  * @author Robby
  * @author SPQRobin
  * @author Saper
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
@@ -87,19 +88,23 @@ Used on Special:Stabilization as an option for "Revision displayed on default pa
 This option has sub-options, see "How the stable version is selected".',
 	'stabilization-def2' => '{{Flagged Revs-small}}
 Used on Special:Stabilization as an option for "Revision displayed on default page view".',
-	'stabilization-restrict' => 'This means: "restrictions on automatic reviews" (\'\'it does not mean: 
+	'stabilization-restrict' => '{{Flagged Revs}}
+This means: "restrictions on automatic reviews" (\'\'it does not mean: 
 "automatically review the restrictions")
 
 See http://en.labs.wikimedia.org/wiki/Special:Stabilization/Main_Page for more information (you can give yourself review rights)',
+	'stabilization-restrict-none' => '{{Flagged Revs}}',
 	'stabilization-submit' => '{{Flagged Revs}}
 {{Identical|Confirm}}',
 	'stabilization-notexists' => '{{Flagged Revs}}',
 	'stabilization-notcontent' => '{{Flagged Revs}}',
 	'stabilization-comment' => '{{Flagged Revs}}
 {{Identical|Reason}}',
-	'stabilization-otherreason' => '{{Identical|Other reason}}',
+	'stabilization-otherreason' => '{{Flagged Revs}}
+{{Identical|Other reason}}',
 	'stabilization-expiry' => '{{Flagged Revs}}
 {{Identical|Expires}}',
+	'stabilization-othertime' => '{{Flagged Revs}}',
 	'stabilization-sel-short' => '{{Flagged Revs}}',
 	'stabilization-sel-short-0' => '{{Flagged Revs}}',
 	'stabilization-sel-short-1' => '{{Flagged Revs}}
@@ -120,6 +125,7 @@ $2 is the corresponding date in the wiki's content language.
 $3 is the corresponding time in the wiki's content language.
 
 {{Identical|Expires $1 (UTC)}}",
+	'stabilization-review' => '{{Flagged Revs}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -589,6 +595,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Als-Holder
+ * @author Metalhead64
  * @author Purodha
  * @author Umherirrender
  */
@@ -615,9 +622,9 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
 	'stabilization-notcontent' => 'Die Seite „[[:$1|$1]]“ kann nicht markiert werden. Konfiguration ist nicht möglich.',
 	'stabilization-comment' => 'Grund:',
-	'stabilization-otherreason' => 'Anderer Grund',
+	'stabilization-otherreason' => 'Anderer Grund:',
 	'stabilization-expiry' => 'Gültig bis:',
-	'stabilization-othertime' => 'Andere Zeit',
+	'stabilization-othertime' => 'Andere Zeit:',
 	'stabilization-sel-short' => 'Priorität',
 	'stabilization-sel-short-0' => 'Qualität',
 	'stabilization-sel-short-1' => 'keine',
@@ -940,6 +947,7 @@ Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
 /** French (Français)
  * @author ChrisPtDe
  * @author Dereckson
+ * @author Dodoïste
  * @author Grondin
  * @author IAlex
  * @author Juanpabl
@@ -970,9 +978,9 @@ Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les
 	'stabilization-notexists' => "Il n'y a pas de page « [[:$1|$1]] », pas de paramétrage possible",
 	'stabilization-notcontent' => 'La page « [[:$1|$1]] » ne peut être révisée, pas de paramétrage possible',
 	'stabilization-comment' => 'Raison :',
-	'stabilization-otherreason' => 'Autre raison',
+	'stabilization-otherreason' => 'Autre raison :',
 	'stabilization-expiry' => 'Expire :',
-	'stabilization-othertime' => 'Autre temps',
+	'stabilization-othertime' => 'Autre temps :',
 	'stabilization-sel-short' => 'Priorité',
 	'stabilization-sel-short-0' => 'Qualité',
 	'stabilization-sel-short-1' => 'Nulle',
@@ -1078,9 +1086,9 @@ Esta é a configuración actual de "[[:$1|$1]]":',
 	'stabilization-notexists' => 'Non hai unha páxina chamada "[[:$1|$1]]". A non configuración é posíbel.',
 	'stabilization-notcontent' => 'A páxina "[[:$1|$1]]" non pode ser revisada. A non configuración é posíbel.',
 	'stabilization-comment' => 'Motivo:',
-	'stabilization-otherreason' => 'Outro motivo',
+	'stabilization-otherreason' => 'Outro motivo:',
 	'stabilization-expiry' => 'Caducidade:',
-	'stabilization-othertime' => 'Outro tempo',
+	'stabilization-othertime' => 'Outro tempo:',
 	'stabilization-sel-short' => 'Precedencia',
 	'stabilization-sel-short-0' => 'Calidade',
 	'stabilization-sel-short-1' => 'Ningún',
@@ -1372,9 +1380,9 @@ Nem lehet a beállításokat módosítani.',
 	'stabilization-notcontent' => 'A(z) „[[:$1|$1]]” című lapot nem ellenőrizni.
 Nem lehet a beállításokat módosítani.',
 	'stabilization-comment' => 'Indok:',
-	'stabilization-otherreason' => 'Egyéb indok',
+	'stabilization-otherreason' => 'Egyéb indok:',
 	'stabilization-expiry' => 'Lejárat:',
-	'stabilization-othertime' => 'Más időpont',
+	'stabilization-othertime' => 'Más időpont:',
 	'stabilization-sel-short' => 'Precendencia',
 	'stabilization-sel-short-0' => 'minőségi',
 	'stabilization-sel-short-1' => 'nincs',
@@ -1416,9 +1424,9 @@ Nulle configuration es possibile.',
 	'stabilization-notcontent' => 'Le pagina "[[:$1|$1]]" non pote esser revidite.
 Nulle configuration es possibile.',
 	'stabilization-comment' => 'Motivo:',
-	'stabilization-otherreason' => 'Altere motivo',
+	'stabilization-otherreason' => 'Altere motivo:',
 	'stabilization-expiry' => 'Expira:',
-	'stabilization-othertime' => 'Altere tempore',
+	'stabilization-othertime' => 'Altere tempore:',
 	'stabilization-sel-short' => 'Precedentia',
 	'stabilization-sel-short-0' => 'Qualitate',
 	'stabilization-sel-short-1' => 'Nulle',
@@ -1562,9 +1570,9 @@ $messages['ja'] = array(
 	'stabilization-notexists' => '「[[:$1|$1]]」というページは存在しないため、設定できません。',
 	'stabilization-notcontent' => 'ページ「[[:$1|$1]]」は査読対象ではないため、設定できません。',
 	'stabilization-comment' => '理由:',
-	'stabilization-otherreason' => '他の理由',
+	'stabilization-otherreason' => 'その他の理由:',
 	'stabilization-expiry' => '有効期限:',
-	'stabilization-othertime' => '他の日時',
+	'stabilization-othertime' => 'その他の日時:',
 	'stabilization-sel-short' => '優先度',
 	'stabilization-sel-short-0' => '{{int:revreview-lev-quality}}',
 	'stabilization-sel-short-1' => '不問',
@@ -1793,6 +1801,7 @@ Hei sinn déi aktuell Astellunge fir [[:$1|$1]]:",
 	'stabilization-select' => 'Priritéit vun der Auswiel vun der stabiler Versioun',
 	'stabilization-select1' => 'Déi lescht Qualitéitsversioun; wann net, dann déi lescht gepréifte Versioun',
 	'stabilization-select2' => 'Déi lescht iwwerkuckte Versioun, ouni de Niveua vun der Validatioun a Betracht ze zéien',
+	'stabilization-select3' => 'Déi lescht intakt Versioun; duerno déi lescht Qualitéitsversioun; duerno déi lescht nogekuckte Versioun',
 	'stabilization-def' => 'Versioun déi als Standard beim Weise vun der Säit gewise gëtt',
 	'stabilization-def1' => 'Déi stabil Versioun; oder wann et keng gëtt, déi aktuell/Virbereedung',
 	'stabilization-def2' => 'Déi aktuell Versioun',
@@ -1810,6 +1819,7 @@ Et ass keng Konfiguratioun méiglech.',
 	'stabilization-sel-short' => 'Priorititéit',
 	'stabilization-sel-short-0' => 'Qualitéit',
 	'stabilization-sel-short-1' => 'Keng',
+	'stabilization-sel-short-2' => 'Intakt',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Stabil',
@@ -2362,7 +2372,7 @@ sicurte ëd controlé se al moment a-i fusso cole revision ant la pàgina, dasn�
 	'stabilization-comment' => 'Rason:',
 	'stabilization-otherreason' => 'Autra rason:',
 	'stabilization-expiry' => 'A finiss:',
-	'stabilization-othertime' => 'Autra vira',
+	'stabilization-othertime' => 'Autra vira:',
 	'stabilization-sel-short' => 'Precedensa',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Gnun-a',
@@ -3067,9 +3077,9 @@ Yapılandırma mümkün değil.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" sayfası gözden geçirilemiyor.
 Yapılandırma mümkün değil.',
 	'stabilization-comment' => 'Sebep:',
-	'stabilization-otherreason' => 'Diğer sebep',
+	'stabilization-otherreason' => 'Diğer sebep:',
 	'stabilization-expiry' => 'Süresi bitiyor:',
-	'stabilization-othertime' => 'Diğer zaman',
+	'stabilization-othertime' => 'Diğer zaman:',
 	'stabilization-sel-short' => 'Öncelik',
 	'stabilization-sel-short-0' => 'Kalite',
 	'stabilization-sel-short-1' => 'Hiçbiri',
@@ -3248,9 +3258,9 @@ Không thể cấu hình.',
 	'stabilization-notcontent' => 'Trang “[[:$1|$1]]” không thể được duyệt.
 Không thể cấu hình.',
 	'stabilization-comment' => 'Lý do:',
-	'stabilization-otherreason' => 'Lý do khác',
+	'stabilization-otherreason' => 'Lý do khác:',
 	'stabilization-expiry' => 'Thời hạn:',
-	'stabilization-othertime' => 'Thời gian khác',
+	'stabilization-othertime' => 'Thời gian khác:',
 	'stabilization-sel-short' => 'Đi trước',
 	'stabilization-sel-short-0' => 'Chất lượng',
 	'stabilization-sel-short-1' => 'Không có',

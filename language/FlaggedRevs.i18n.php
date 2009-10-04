@@ -240,6 +240,7 @@ Please check the URL you used to access this page.',
  * @author SPQRobin
  * @author Siebrand
  * @author Tgr
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'editor' => '{{Flagged Revs}}
@@ -248,7 +249,8 @@ $messages['qqq'] = array(
 General title for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.
 * "flagged" in the sense of "has been seen, has been checked"',
 	'flaggedrevs-backlog' => '{{Flagged Revs}}',
-	'flaggedrevs-watched-pending' => 'Appears on top of watchlist and recent changes.',
+	'flaggedrevs-watched-pending' => '{{FlaggedRevs}}
+Appears on top of watchlist and recent changes.',
 	'flaggedrevs-desc' => '{{Flagged Revs}}
 
 Shown in [[Special:Version]] as a short description of this extension. Do not translate links.',
@@ -266,9 +268,12 @@ Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg
 This appears in [[Special:Preferences]]:
 * as an additional ''tab'', when JavaScript is enabled, or
 * as an additional ''section header'', when JavaScript is disabled",
+	'prefs-flaggedrevs-ui' => '{{Flagged Revs}}',
 	'flaggedrevs-prefs-stable' => '{{Flagged Revs}}
 {{Identical|Content page}}',
 	'flaggedrevs-prefs-watch' => '{{Flagged Revs}}',
+	'flaggedrevs-prefs-editdiffs' => '{{Flagged Revs}}',
+	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}',
 	'group-editor' => '{{Flagged Revs}}',
 	'group-editor-member' => '{{Flagged Revs}}
 {{Identical|Editor}}',
@@ -277,6 +282,9 @@ This appears in [[Special:Preferences]]:
 {{Identical|Reviewer}}',
 	'grouppage-editor' => '{{Flagged Revs}}',
 	'grouppage-reviewer' => '{{Flagged Revs}}',
+	'group-autoreview' => '{{Flagged Revs}}',
+	'group-autoreview-member' => '{{Flagged Revs}}',
+	'grouppage-autoreview' => '{{Flagged Revs}}',
 	'hist-draft' => '{{Flagged Revs}}',
 	'hist-quality' => '{{Flagged Revs-small}}
 The accuracy "quality", as displayed on the page history after a revision with this setting.',
@@ -284,6 +292,7 @@ The accuracy "quality", as displayed on the page history after a revision with t
 	'hist-stable' => '{{Flagged Revs-small}}
 The accuracy "sighted", as displayed on the page history after a revision with this setting.',
 	'hist-stable-user' => '{{Flagged Revs}}',
+	'hist-autoreviewed' => '{{Flagged Revs}}',
 	'review-diff2stable' => '{{Flagged Revs}}',
 	'review-logentry-app' => '{{Flagged Revs}}
 * $1 is a page title
@@ -327,6 +336,7 @@ Because the user is in the group 'reviewer', any changes will automatically be r
 Displayed on the top of a page when you are viewing an old sighted version. 
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
 * Parameter $2 is the date of the approval',
+	'revreview-blocked' => '{{Flagged Revs}}',
 	'revreview-changed' => '{{Flagged Revs}}',
 	'revreview-current' => '{{Flagged Revs}}',
 	'revreview-depth' => '{{Flagged Revs}}',
@@ -339,7 +349,8 @@ Displayed on the top of a page when you are viewing an old sighted version.
 	'revreview-draft-title' => '{{Flagged Revs}}',
 	'revreview-edit' => '{{Flagged Revs-small}}
 Users who see the stable version and not the draft version as page, have this message in the "edit" tab.',
-	'revreview-editnotice' => '{{Identical|Authorised user}}',
+	'revreview-editnotice' => '{{Flagged Revs}}
+{{Identical|Authorised user}}',
 	'revreview-flag' => '{{Flagged Revs-small}}
 * Title of the review box shown below a page (when you have the permission to review pages).',
 	'revreview-edited' => '{{Flagged Revs-small}}
@@ -419,6 +430,8 @@ The text on the submit button in the form used to review pages.
 {{Identical|Submit}}',
 	'revreview-submitting' => '{{flaggedrevs}}
 {{identical|submitting}}',
+	'revreview-finished' => '{{Flagged Revs}}',
+	'revreview-failed' => '{{Flagged Revs}}',
 	'revreview-successful' => '{{Flagged Revs-small}}
 Shown when a reviewer/editor has marked a revision as stable/sighted/... See also {{msg|revreview-successful2|pl=yes}}.',
 	'revreview-successful2' => '{{Flagged Revs-small}}
@@ -441,6 +454,7 @@ Appears above the protection form when the current version of the page is the st
 Appears on top of the protection form when the current version is not the stable version; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility3}} is shown.',
 	'revreview-visibility3' => '{{Flagged Revs-small}}
 Appears on top of the protection form when the page has no stable version at all; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility2}} is shown.',
+	'revreview-revnotfound' => '{{Flagged Revs}}',
 	'right-autoreview' => '{{Flagged Revs}}
 
 {{doc-right|autoreview}}',
@@ -467,6 +481,7 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 {{Identical|Content pages}}',
 	'revreview-filter-all' => '{{Flagged Revs}}
 {{Identical|All}}',
+	'revreview-filter-stable' => '{{Flagged Revs}}',
 	'revreview-filter-approved' => '{{Flagged Revs}}',
 	'revreview-filter-reapproved' => '{{Flagged Revs}}',
 	'revreview-filter-unapproved' => '{{Flagged Revs}}',
@@ -476,10 +491,22 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-typefilter' => '{{Flagged Revs}}
 
 {{Identical|Type}}',
+	'revreview-levelfilter' => '{{Flagged Revs}}',
+	'revreview-lev-sighted' => '{{Flagged Revs}}',
+	'revreview-lev-quality' => '{{Flagged Revs}}',
+	'revreview-lev-pristine' => '{{Flagged Revs}}',
+	'revreview-reviewlink' => '{{Flagged Revs}}',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
-	'log-show-hide-review' => '* $1 is one of {{msg|show}} or {{msg|hide}}',
+	'flaggedrevs-protect-legend' => '{{FlaggedRevs}}',
+	'flaggedrevs-protect-none' => '{{Flagged Revs}}',
+	'revreview-locked-title' => '{{Flagged Revs}}',
+	'revreview-unlocked-title' => '{{Flagged Revs}}',
+	'revreview-locked' => '{{Flagged Revs}}',
+	'revreview-unlocked' => '{{Flagged Revs}}',
+	'log-show-hide-review' => '{{Flagged Revs}}
+* $1 is one of {{msg|show}} or {{msg|hide}}',
 	'revreview-tt-review' => '{{Flagged Revs}}',
 	'validationpage' => "{{Flagged Revs-small}}
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}</nowiki></tt> part.",
@@ -2481,6 +2508,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'tooltip-ca-current' => 'Ansehen der aktuellen, unmarkierten Seite',
 	'tooltip-ca-stable' => 'Ansehen der markierten Version dieser Seite',
 	'tooltip-ca-default' => 'Einstellungen Qualitätssicherung',
+	'flaggedrevs-protect-legend' => 'Zustimmung zur Bearbeitung',
 	'flaggedrevs-protect-none' => 'Keine zusätzlichen Einschränkungen',
 	'revreview-locked-title' => 'Bearbeitungen müssen markiert werden, bevor sie auf dieser Seite angezeigt werden.',
 	'revreview-unlocked-title' => 'Bearbeitungen benötigen keine Markierung, bevor sie auf dieser Seite angezeigt werden.',
@@ -3470,7 +3498,7 @@ $messages['fi'] = array(
 	'hist-quality' => 'laadukas versio',
 	'hist-stable' => 'katsastettu versio',
 	'review-diff2stable' => 'Näytä vakaan ja ajantasaisen version väliset eroavaisuudet',
-	'review-logentry-id' => 'näytä: $2',
+	'review-logentry-id' => 'versio: $2',
 	'review-logentry-diff' => 'muutoslinkki vakaaseen versioon',
 	'reviewer' => 'Arvioija',
 	'revisionreview' => 'Arvioi versioita',
@@ -7111,6 +7139,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-levelfilter' => 'Niveau:',
 	'revreview-lev-sighted' => 'gesinn',
 	'revreview-lev-quality' => 'Qualitéit',
+	'revreview-lev-pristine' => 'intakt',
 	'revreview-reviewlink' => 'nokucken',
 	'tooltip-ca-current' => 'Den aktuelle Brouillon vun dëser Säit weisen',
 	'tooltip-ca-stable' => 'Déi stabil Versioun vun dëser Säit gesinn',

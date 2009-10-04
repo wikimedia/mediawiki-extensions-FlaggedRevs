@@ -41,6 +41,8 @@ The stable version of a page is the newest revision that has been approved to sh
  * @author Umherirrender
  */
 $messages['qqq'] = array(
+	'validationstatistics' => '{{Flagged Revs}}',
+	'validationstatistics-users' => '{{Flagged Revs}}',
 	'validationstatistics-time' => '{{FlaggedRevs}}
 This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatistik?uselang={{UILANGCODE}} Special:ValidationStatistics].
 
@@ -48,8 +50,15 @@ This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatis
 * $2: average lag in hhmmss
 * $3: the median in hhmmss
 * $4: a table in HTML syntax.',
-	'validationstatistics-ns' => '{{Identical|Namespace}}',
-	'validationstatistics-total' => '{{Identical|Pages}}',
+	'validationstatistics-table' => '{{Flagged Revs}}',
+	'validationstatistics-ns' => '{{Flagged Revs}}
+{{Identical|Namespace}}',
+	'validationstatistics-total' => '{{Flagged Revs}}
+{{Identical|Pages}}',
+	'validationstatistics-stable' => '{{Flagged Revs}}',
+	'validationstatistics-latest' => '{{Flagged Revs}}',
+	'validationstatistics-synced' => '{{Flagged Revs}}',
+	'validationstatistics-old' => '{{Flagged Revs}}',
 	'validationstatistics-utable' => '{{FlaggedRevs}}',
 	'validationstatistics-user' => '{{FlaggedRevs}}
 {{Identical|User}}',

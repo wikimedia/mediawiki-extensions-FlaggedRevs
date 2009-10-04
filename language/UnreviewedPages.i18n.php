@@ -29,6 +29,7 @@ $messages['en'] = array(
  * @author Jon Harald Søby
  * @author Raymond
  * @author Siebrand
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'right-unreviewedpages' => '{{Flagged Revs}}
@@ -46,6 +47,10 @@ $messages['qqq'] = array(
 	'unreviewed-list' => '{{Flagged Revs}}
 {{Identical|Content page}}',
 	'unreviewed-none' => '{{Flagged Revs}}',
+	'unreviewed-viewing' => '{{Flagged Revs}}',
+	'unreviewed-hours' => '{{Flagged Revs}}',
+	'unreviewed-days' => '{{Flagged Revs}}',
+	'unreviewed-recent' => '{{Flagged Revs}}',
 );
 
 /** Afrikaans (Afrikaans)
