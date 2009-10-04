@@ -795,7 +795,7 @@ class FlaggedRevsHooks {
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $rev->getPage() );
 		# Auto-reviewing must be enabled and user must have the required permissions
 		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') ) {
-			$isAllowed = false; // trusted user
+			$isAllowed = false; // untrusted user
 		} else {
 			# Get autoreview restriction settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
