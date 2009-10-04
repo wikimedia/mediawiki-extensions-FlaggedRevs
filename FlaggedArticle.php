@@ -825,7 +825,7 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
 			$wgOut->addWikiMsg( 'revreview-locked' );
 			LogEventsList::showLogExtract( $wgOut, 'stable',
-				$this->parent->getTitle()->getPrefixedText(), '', 1 );
+				$this->parent->getTitle()->getPrefixedText(), '', array('lim'=>1) );
 			$wgOut->addHTML( "</div>" );
 		# ...or unstable
 		} elseif( $this->isPageUnlocked() ) {
@@ -833,7 +833,7 @@ class FlaggedArticle extends Article {
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
 			$wgOut->addWikiMsg( 'revreview-unlocked' );
 			LogEventsList::showLogExtract( $wgOut, 'stable',
-				$this->parent->getTitle()->getPrefixedText(), '', 1 );
+				$this->parent->getTitle()->getPrefixedText(), '', array('lim'=>1) );
 			$wgOut->addHTML( "</div>" );
 		}
 		return true;
