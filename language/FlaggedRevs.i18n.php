@@ -1966,6 +1966,9 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene šablona/datoteka] čekaju na provjeru.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} posljednja kvalitetna revizija] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]) je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene|izmjena}}] {{PLURAL:$3|čeka|čekaju|čeka}} na provjeru.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja kvalitetna revizija] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]) je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Izmjene šablona/datoteke] čekaju na provjeru.',
+	'revreview-noflagged' => "Nema pregledanih revizija ove stranice, tako da '''ne može''' biti [[{{MediaWiki:Validationpage}}|provjerena]] u smislu kvaliteta.",
 	'revreview-note' => '[[User:$1|$1]] je napravio slijedeće bilješke pri [[{{MediaWiki:Validationpage}}|pregledu]] ove revizije:',
 	'revreview-notes' => 'Zapažanja i bilješke za prikaz:',
 	'revreview-oldrating' => 'Ocijenjeno je:',

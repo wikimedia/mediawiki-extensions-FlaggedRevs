@@ -729,9 +729,9 @@ $messages['el'] = array(
 	'stabilization-notcontent' => 'Η σελίδα "[[:$1|$1]]" δεν μπορεί να κριθεί.<br />
 Δεν είναι δυνατή καμία ρύθμιση.',
 	'stabilization-comment' => 'Λόγος:',
-	'stabilization-otherreason' => 'Άλλος λόγος',
+	'stabilization-otherreason' => 'Άλλος λόγος:',
 	'stabilization-expiry' => 'Λήγει:',
-	'stabilization-othertime' => 'Άλλος χρόνος',
+	'stabilization-othertime' => 'Άλλος χρόνος:',
 	'stabilization-sel-short' => 'Προτεραιότητα',
 	'stabilization-sel-short-0' => 'Ποιότητα',
 	'stabilization-sel-short-1' => 'Τίποτα',
