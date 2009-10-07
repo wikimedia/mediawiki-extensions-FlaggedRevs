@@ -107,7 +107,7 @@ class FlaggedArticle extends Article {
 	 * @returns bool
 	 */
 	protected static function isViewAction( $action ) {
-		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
+		return ( $action == 'view' || $action == 'purge' || $action == 'render' || $action == 'historysubmit' );
 	}
 
 	 /**
