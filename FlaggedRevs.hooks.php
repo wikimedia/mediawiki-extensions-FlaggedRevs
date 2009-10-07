@@ -1940,6 +1940,9 @@ class FlaggedRevsHooks {
 	// Update stability config from request
 	public static function onProtectionSave( $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
+		$levels = FlaggedRevs::getProtectionLevels();
+		if( empty($levels) )
+			return true; // simple custom levels set for action=protect
 		if( wfReadOnly() || !$wgUser->isAllowed('stablesettings') ) {
 			return true; // user cannot change anything
 		}
@@ -1953,7 +1956,6 @@ class FlaggedRevsHooks {
 		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...
 		$selected = $wgRequest->getVal( 'wpStabilityConfig' );
-		$levels = FlaggedRevs::getProtectionLevels();
 		if( $selected == "none" ) {
 			$form->select = FlaggedRevs::getPrecedence(); // default
 			$form->override = FlaggedRevs::showStableByDefault(); // default
