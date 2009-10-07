@@ -338,7 +338,8 @@ Displayed on the top of a page when you are viewing an old sighted version.
 * Parameter $2 is the date of the approval',
 	'revreview-blocked' => '{{Flagged Revs}}',
 	'revreview-changed' => '{{Flagged Revs}}',
-	'revreview-current' => '{{Flagged Revs}}',
+	'revreview-current' => '{{Flagged Revs}}
+{{Identical|Draft}}',
 	'revreview-depth' => '{{Flagged Revs}}',
 	'revreview-depth-0' => '{{Flagged Revs}}',
 	'revreview-depth-1' => '{{Flagged Revs}}',
@@ -527,6 +528,7 @@ $messages['af'] = array(
 	'revreview-accuracy-4' => 'Uitgelig',
 	'revreview-approved' => 'Goedgekeur',
 	'revreview-auto' => '(outomaties)',
+	'revreview-current' => 'Kladwerk',
 	'revreview-depth-4' => 'Uitgelig',
 	'revreview-log' => 'Opmerking:',
 	'revreview-patrol' => 'Merk die wysiging as gekontroleer',
@@ -1977,6 +1979,7 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-patrolled' => 'Odabrana revizija [[:$1|$1]] je označena kao patrolirana.',
 	'revreview-quality-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|kvalitetna]] revizija ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 Novih [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena] je od tada načinjeno.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kvalitetna verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, je zasnovana na ovoj reviziji.',
 	'revreview-quality-title' => 'Kvalitetna stranica',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pregledana stranica]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi radnu verziju]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Provjerena stranica]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} pogledaj radnu verziju]]",
@@ -1987,6 +1990,8 @@ Novih [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena] je od
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetna stranica]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi radnu verziju]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetna stranica]]'''",
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Radna verzija]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} pogledaj stranicu]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} usporedi])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Nacrt]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} pogledaj stranicu]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} usporedi])",
 	'revreview-selected' => "Odabrana revizija od '''$1:'''",
 	'revreview-source' => 'izvor radne verzije',
@@ -2002,12 +2007,15 @@ Novih [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena] je od
 	'revreview-submitting' => 'Šaljem...',
 	'revreview-finished' => 'Pregled završen!',
 	'revreview-failed' => 'Pregled nije uspio!',
+	'revreview-successful' => "'''Revizija od [[:$1|$1]] je uspješno označena. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} vidi stabilne verzije])'''",
 	'revreview-successful2' => "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne stranice]] su standardne stranice sadržaja za čitaoce umjesto novih revizija.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilne verzije]] su provjerene revizije stranica i mogu biti postavljene kao standardni sadržaj za čitaoce.''",
 	'revreview-toggle-title' => 'pokaži/sakrij detalje',
 	'revreview-toolow' => "Morate ocijeniti najmanje svaki od ispod navedenih ocjena više od ''neodobreno'' da bi se revizija smatrala pregledanom.
 Da bi uklonili ocjenu revizije, postavite sva polja na ''neodobreno''.",
+	'revreview-update' => "Molimo [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(pokazane ispod)'' načinjene od kada je stabilna verzija [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena].<br />
+'''Neki šabloni/datoteke su ažurirani:'''",
 	'revreview-update-includes' => "'''Neki šabloni/datoteke su ažurirani:'''",
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
@@ -8652,12 +8660,12 @@ Tornatz cargat la pagina e tornatz-la legir tornamai ; aquò deuriá corregir aq
 	'revreview-draft-title' => 'Borrolhon de pagina',
 	'revreview-edit' => 'Esbòs de modificacion',
 	'revreview-editnotice' => "'''Nòta : Las modificacions sus aquesta pagina seràn incorporada dins la [[{{MediaWiki:Validationpage}}|version establa]] un còp qu’un utilizaire abilitat las aurà relegidas.'''",
-	'revreview-flag' => 'Evaluar aquesta version',
+	'revreview-flag' => 'Avalorar aquesta version',
 	'revreview-edited' => "'''Las modificacions novèlas seràn incorporadas dins [[{{MediaWiki:Validationpage}}|la version establa]] un còp qu’un utilizaire autorizat las aurà relegidas.
 
 Lo ''borrolhon'' es visible çaijós. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modificacion espèra|modificacions espèran}}] una relectura.",
 	'revreview-invalid' => "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
-	'revreview-legend' => 'Evaluar lo contengut de la version',
+	'revreview-legend' => 'Avalorar lo contengut de la version',
 	'revreview-log' => 'Comentari al jornal :',
 	'revreview-main' => 'Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una tièra de paginas.',
 	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version vista] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.",
