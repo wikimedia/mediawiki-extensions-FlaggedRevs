@@ -1809,8 +1809,11 @@ class FlaggedRevsHooks {
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
 		global $wgUser, $wgRequest, $wgOut, $wgLang;
-		if( !count( FlaggedRevs::getProtectionLevels() ) )
+		if( !count( FlaggedRevs::getProtectionLevels() ) ) {
 			return true; // nothing to do
+		} else if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+			return true; // not a reviewable page
+		}
 		# Can the user actually do anything?
 		$isAllowed = $wgUser->isAllowed('stablesettings');
 		$disabledAttrib = !$isAllowed ? array( 'disabled' => 'disabled' ) : array();
@@ -1931,6 +1934,11 @@ class FlaggedRevsHooks {
 	
 	// Add stability log extract to protection form
 	public static function insertStabilityLog( $article, $out ) {
+		if( !count( FlaggedRevs::getProtectionLevels() ) ) {
+			return true; // nothing to do
+		} else if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+			return true; // not a reviewable page
+		}
 		# Show relevant lines from the stability log:
 		$out->addHTML( Xml::element( 'h2', null, LogPage::logName('stable') ) );
 		LogEventsList::showLogExtract( $out, 'stable', $article->getTitle()->getPrefixedText() );
@@ -1945,6 +1953,9 @@ class FlaggedRevsHooks {
 			return true; // simple custom levels set for action=protect
 		if( wfReadOnly() || !$wgUser->isAllowed('stablesettings') ) {
 			return true; // user cannot change anything
+		}
+		if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+			return true; // not a reviewable page
 		}
 		$form = new Stabilization();
 		$form->target = $article->getTitle(); # Our target page
