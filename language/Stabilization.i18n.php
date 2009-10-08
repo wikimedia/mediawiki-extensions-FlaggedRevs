@@ -1206,9 +1206,9 @@ $messages['he'] = array(
 	'stabilization-notcontent' => 'אין אפשרות לבדוק את הדף "[[:$1|$1]]".
 לא ניתן לבצע תצורה.',
 	'stabilization-comment' => 'סיבה:',
-	'stabilization-otherreason' => 'סיבה אחרת',
+	'stabilization-otherreason' => 'סיבה אחרת:',
 	'stabilization-expiry' => 'פקיעה:',
-	'stabilization-othertime' => 'זמן פקיעה אחר',
+	'stabilization-othertime' => 'זמן פקיעה אחר:',
 	'stabilization-sel-short' => 'קדימות',
 	'stabilization-sel-short-0' => 'איכות',
 	'stabilization-sel-short-1' => 'לא קיים',

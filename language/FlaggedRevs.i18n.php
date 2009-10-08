@@ -3044,6 +3044,8 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'tooltip-ca-current' => 'Vidi la nunan malneton de ĉi tiu paĝo',
 	'tooltip-ca-stable' => 'Rigardi la stabilan version de ĉi paĝo',
 	'tooltip-ca-default' => 'Konfiguro de kvalitkontrolo',
+	'flaggedrevs-protect-legend' => 'Aprobo de la redakto',
+	'flaggedrevs-protect-none' => 'Neniaj aldonaj limoj',
 	'revreview-locked-title' => 'Redaktoj devas esti kontrolitaj antaŭ montro de ĉi tiu paĝo!',
 	'revreview-unlocked-title' => 'Redaktoj ne devas esti kontrolitaj antaŭ montrante de ĉi tiu paĝo!',
 	'revreview-locked' => 'Redaktoj devas esti kontrolitaj antaŭ montro de ĉi tiu paĝo!',
@@ -6311,6 +6313,13 @@ $messages['jv'] = array(
 	'revreview-style-3' => 'Ringkes',
 	'revreview-style-4' => 'Pinilih',
 	'revreview-revnotfound' => 'Revisi lawas kaca sing panjenengan suwun ora bisa ditemokaké. Mangga priksanen URL sing digunakaké kanggo ngaksès kaca iki.',
+);
+
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'revreview-filter-all' => 'ყველა',
 );
 
 /** Kabyle (Taqbaylit)
@@ -10934,7 +10943,7 @@ $messages['te'] = array(
 	'specialpages-group-quality' => 'నాణ్యతా హామీ',
 	'stable-logentry' => '[[$1]]కి సుస్థిర కూర్పుని అమర్చారు',
 	'stable-logentry2' => '[[$1]]కి సుస్థిర కూర్పుని పునర్నిర్ణయించండి',
-	'stable-logpage' => 'సుస్థిర కూర్పుల లాగ్',
+	'stable-logpage' => 'సుస్థిర కూర్పుల చిట్టా',
 	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల చిట్టా.
 సుస్థిరమైన పేజీల యొక్క జాబితాని [[Special:StablePages|స్థిరమైన పేజీల జాబితా]] వద్ద చూడవచ్చు.',
 	'revreview-filter-all' => 'అన్నీ',
@@ -10953,7 +10962,7 @@ $messages['te'] = array(
 	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
 	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'tooltip-ca-default' => 'నాణ్యతా భరోసా అమరికలు',
-	'log-show-hide-review' => '$1 రివ్యూ లాగ్',
+	'log-show-hide-review' => 'సమీక్షల చిట్టాని $1',
 	'revreview-tt-review' => 'ఈ పేజీని సమీక్షించండి',
 	'validationpage' => '{{ns:help}}:పేజీ సరిచూత',
 );
