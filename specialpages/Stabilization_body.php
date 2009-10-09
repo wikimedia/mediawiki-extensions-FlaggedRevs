@@ -19,7 +19,6 @@ class Stabilization extends UnlistedSpecialPage
 			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
 		# Allow unprivileged users to at least view the settings
 		$this->isAllowed = $wgUser->isAllowed( 'stablesettings' );
-		$this->disabledAttrib = !$this->isAllowed ? array( 'disabled' => 'disabled' ) : array();
 		# Let anyone view, but not submit...
 		if( $wgRequest->wasPosted() ) {
 			if( $wgUser->isBlocked( !$confirm ) ) {
@@ -71,8 +70,10 @@ class Stabilization extends UnlistedSpecialPage
 		if( $this->isAllowed && !($this->page->userCan('edit') && $this->page->userCan('review')) ) {
 			$this->isAllowed = false;
 		}
-
-		// Show form or submit...
+		# Disable some elements as needed
+		$this->disabledAttrib = !$this->isAllowed ?
+			array( 'disabled' => 'disabled' ) : array();
+		# Show form or submit...
 		if( $this->isAllowed && $isValid && $confirm ) {
 			$status = $this->submit();
 			if( $status === true ) {
