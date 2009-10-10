@@ -1962,7 +1962,7 @@ $messages['ml'] = array(
 	'stabilization-def-short-1' => 'സ്ഥിരതയുള്ളത്',
 	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',
 	'stabilize_expiry_old' => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
-	'stabilize-expiring' => '$1 (UTC) നു കാലാവധി തീരുന്നു',
+	'stabilize-expiring' => 'കാലാവധി തീരുന്നത് - $1 (UTC)',
 );
 
 /** Marathi (मराठी)
@@ -2332,7 +2332,7 @@ Nie jest możliwa jej konfiguracja.',
 	'stabilization-comment' => 'Powód',
 	'stabilization-otherreason' => 'Inna przyczyna',
 	'stabilization-expiry' => 'Czas wygaśnięcia',
-	'stabilization-othertime' => 'Innym okres',
+	'stabilization-othertime' => 'Inny okres',
 	'stabilization-sel-short' => 'Kolejność',
 	'stabilization-sel-short-0' => 'Zweryfikowana',
 	'stabilization-sel-short-1' => 'Brak',
