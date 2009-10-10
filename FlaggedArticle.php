@@ -1,7 +1,8 @@
 <?php
 
 class FlaggedArticle extends Article {
-	public $isDiffFromStable = false;
+	protected $isDiffFromStable = false;
+	protected $isMultiPageDiff = false;
 	protected $stableRev = null;
 	protected $pageConfig = null;
 	protected $flags = null;
@@ -873,17 +874,21 @@ class FlaggedArticle extends Article {
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
 		# User must have review rights and page must be reviewable
-		if( !$wgUser->isAllowed('review')  || !$this->parent->exists() || !$this->isReviewable() ) {
+		if( !$wgUser->isAllowed('review') || !$this->parent->exists() || !$this->isReviewable() ) {
 			return true;
 		}
 		# Unobtrusive patrolling UI only shows forms if requested
 		if( !$wgRequest->getInt('reviewform') && $this->limitedUI() ) {
 			return true;
 		}
+		# Avoid multi-page diffs that are useless and misbehave (bug 19327)
+		if( $this->isMultiPageDiff ) {
+			return true;
+		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		# Must be view/diff action...and title must not be ambiguous
-		if( !self::isViewAction($action) || !$wgRequest->getVal('title') ) {
+		# Must be view/diff action...
+		if( !self::isViewAction($action) ) {
 			return true;
 		}
 		# Place the form at the top or bottom as most convenient
@@ -1249,18 +1254,34 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
+	* Set $this->isDiffFromStable and $this->isMultiPageDiff fields
+	*/
+	public function setViewFlags( $diff, $oldRev, $newRev ) {
+		if( $newRev && $oldRev ) {
+			// Is this a diff between two pages?
+			if( $newRev->getPage() != $oldRev->getPage() ) {
+				$this->isMultiPageDiff = true;
+			// Is there a stable version?
+			} else if( $this->isReviewable() ) {
+				$frev = $this->getStableRev();
+				// Is this a diff of the draft rev against the stable rev?
+				if( $frev && $frev->getRevId() == $oldRev->getId() && $newRev->isCurrent() ) {
+					$this->isDiffFromStable = true;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
 	* Add a link to patrol non-reviewable pages.
 	* Also add a diff-to-stable for other pages if possible.
 	*/
 	public function addDiffLink( $diff, $oldRev, $newRev ) {
 		global $wgUser, $wgOut;
 		// Is there a stable version?
-		if( $oldRev && $this->isReviewable() ) {
+		if( $newRev && $oldRev && $this->isReviewable() ) {
 			$frev = $this->getStableRev();
-			# Is this a diff of the draft rev against the stable rev?
-			if( $frev && $frev->getRevId() == $oldRev->getID() && $newRev->isCurrent() ) {
-				$this->isDiffFromStable = true;
-			}
 			# Give a link to the diff-to-stable if needed
 			if( $frev && !$this->isDiffFromStable ) {
 				$article = new Article( $newRev->getTitle() );

@@ -1707,6 +1707,7 @@ class FlaggedRevsHooks {
 	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $diff->getTitle() );
+		$flaggedArticle->setViewFlags( $diff, $oldRev, $newRev );
 		$flaggedArticle->addDiffLink( $diff, $oldRev, $newRev );
 		$flaggedArticle->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
 		return true;
