@@ -144,7 +144,7 @@ wgAjaxReview.ajaxCall = function() {
 		} else if( inputs[i].type == "submit" ) {
 			inputs[i].value = wgAjaxReview.sendingMsg;
 		} else if( inputs[i].type == "checkbox" ) {
-			args.push( inputs[i].name + "|" + (inputs[i].checked ? 1 : 0) );
+			args.push( inputs[i].name + "|" + (inputs[i].checked ? inputs[i].value : 0) );
 		} else if( inputs[i].type != "radio" || inputs[i].checked ) {
 			args.push( inputs[i].name + "|" + inputs[i].value );
 		}

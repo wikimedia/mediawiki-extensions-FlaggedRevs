@@ -759,16 +759,19 @@ class RevisionReview extends UnlistedSpecialPage
 	}
 
 	/**
-	 * Returns true if a user can do something
+	 * Returns true if a user can set $tag to $value.
 	 * @param string $tag
 	 * @param int $value
+	 * @param array $config (optional page config)
 	 * @returns bool
 	 */
-	public static function userCan( $tag, $value, $config = array() ) {
+	public static function userCan( $tag, $value, $config = null ) {
 		global $wgFlagRestrictions, $wgUser;
-		# Levels may not apply for some pages
-		if( $value > 0 && !self::levelAvailable( $tag, $value, $config ) )
+		# Levels may not apply for some pages.
+		# Skip this check if $config is not given.
+		if( !is_null($config) && !self::levelAvailable($tag,$value,$config) ) {
 			return false;
+		}
 		# No restrictions -> full access
 		if( !isset($wgFlagRestrictions[$tag]) )
 			return true;
@@ -794,30 +797,33 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @param array $config, visibility settings
 	 * @returns bool
 	 */
-	public static function userCanSetFlags( $flags, $oldflags = array(), $config = array() ) {
+	public static function userCanSetFlags( $flags, $oldflags = array(), $config = null ) {
 		global $wgUser;
-		if( !$wgUser->isAllowed('review') ) {
-			return false;
-		}
+		if( !$wgUser->isAllowed('review') )
+			return false; // User is not able to review pages
 		# Check if all of the required site flags have a valid value
 		# that the user is allowed to set.
 		foreach( FlaggedRevs::getDimensions() as $qal => $levels ) {
 			$level = isset($flags[$qal]) ? $flags[$qal] : 0;
 			$highest = count($levels) - 1; // highest valid level
 			if( !self::userCan($qal,$level,$config) ) {
-				return false;
+				return false; // user cannot set proposed flag
 			} elseif( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
-				return false;
+				return false; // user cannot change old flag
 			} elseif( $level < 0 || $level > $highest ) {
-				return false;
+				return false; // flag range is invalid
 			}
 		}
 		return true;
 	}
 	
+	// Check if a given level for a tag is available in $config
 	public static function levelAvailable( $tag, $val, $config ) {
 		global $wgFlagAvailability;
-		if( !array_key_exists('select',$config) ) return true;
+		if( $val == 0 )
+			return true; // unreviewed is always applicable
+		if( !array_key_exists('select',$config) )
+			return true; // missing config
 		if( isset($wgFlagAvailability[$tag]) && isset($wgFlagAvailability[$tag][$val]) ) {
 			$precedence = $wgFlagAvailability[$tag][$val];
 			return ( $config['select'] === $precedence );

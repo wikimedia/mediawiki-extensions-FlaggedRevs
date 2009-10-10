@@ -1563,7 +1563,8 @@ class FlaggedArticle extends Article {
 			} else {
 				# If disable, use the current flags; if none, then use the min flag.
 				$i = $disabled ? $selected : $minLevel;
-				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" ) + $toggle;
+				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
+				$attribs = $attribs + $toggle + array('value' => $minLevel);
 				$form .= Xml::checkLabel( wfMsg( "revreview-$label[$i]" ), "wp$quality", "wp$quality",
 					($selected == $i), $attribs ) . "\n";
 			}
