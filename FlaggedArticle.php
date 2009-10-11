@@ -1440,18 +1440,18 @@ class FlaggedArticle extends Article {
 	 */
 	public function addQuickReview( &$data, $top = false, $hide = false ) {
 		global $wgOut, $wgUser, $wgRequest;
-		# Revision being displayed
+		# Get the revision being displayed
 		$id = $wgOut->getRevisionId();
 		if( !$id ) {
 			if( !$this->isDiffFromStable ) {
 				return false; // only safe to assume current if diff-to-stable
+			} else {
+				$rev = Revision::newFromTitle( $this->parent->getTitle() );
+				$id = $rev->getId();
 			}
-			$rev = Revision::newFromTitle( $this->parent->getTitle() );
-			$id = $rev->getId();
 		} else {
 			$rev = Revision::newFromTitle( $this->parent->getTitle(), $id );
 		}
-		
 		# Load required messages
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Must be a valid non-printable output and revision must be public
@@ -1587,15 +1587,15 @@ class FlaggedArticle extends Article {
 				Xml::closeElement('textarea') . "\n";
 			$form .= "</div>\n";
 		}
-
+		# Get versions of templates/files used
 		$imageParams = $templateParams = $fileVersion = '';
 		if( $useCurrent ) {
-			global $wgUser, $wgParser, $wgEnableParserCache;
 			# Get parsed current version
 			$parserCache = ParserCache::singleton();
 			$article = $this->parent;
 			$currentOutput = $parserCache->get( $article, $wgUser );
-			if( $currentOutput==false ) {
+			if( $currentOutput == false ) {
+				global $wgParser, $wgEnableParserCache;
 				$text = $article->getContent();
 				$title = $article->getTitle();
 				$options = FlaggedRevs::makeParserOptions();

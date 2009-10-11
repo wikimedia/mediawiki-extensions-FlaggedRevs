@@ -809,7 +809,7 @@ class RevisionReview extends UnlistedSpecialPage
 			if( !self::userCan($qal,$level,$config) ) {
 				return false; // user cannot set proposed flag
 			} elseif( isset($oldflags[$qal]) && !self::userCan($qal,$oldflags[$qal]) ) {
-				return false; // user cannot change old flag
+				return false; // user cannot change old flag ($config is ignored here)
 			} elseif( $level < 0 || $level > $highest ) {
 				return false; // flag range is invalid
 			}
