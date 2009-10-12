@@ -493,6 +493,13 @@ $messages['ja'] = array(
 	'stablepages-precedence' => '優先順位:',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'stablepages-config' => 'კონფიგურაცია',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Thearith
  * @author គីមស៊្រុន

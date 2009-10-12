@@ -836,6 +836,13 @@ Versi stabil suatu halaman adalah revisi terbaru yang telah disetujui untuk ditu
 	'validationstatistics-reviews' => 'Tinjauan',
 );
 
+/** Icelandic (Íslenska)
+ * @author Spacebirdy
+ */
+$messages['is'] = array(
+	'validationstatistics-ns' => 'Nafnrými',
+);
+
 /** Italian (Italiano)
  * @author Darth Kule
  * @author Melos

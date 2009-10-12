@@ -1470,9 +1470,9 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-notcontent' => 'Halaman "[[:$1|$1]]" tak dapat ditinjau.
 Konfigurasi tak dapat diterapkan.',
 	'stabilization-comment' => 'Alasan:',
-	'stabilization-otherreason' => 'Alasan lain',
+	'stabilization-otherreason' => 'Alasan lain:',
 	'stabilization-expiry' => 'Kadaluwarsa:',
-	'stabilization-othertime' => 'Waktu lain',
+	'stabilization-othertime' => 'Waktu lain:',
 	'stabilization-sel-short' => 'Pengutamaan',
 	'stabilization-sel-short-0' => 'Layak',
 	'stabilization-sel-short-1' => 'Tidak ada',
@@ -1620,6 +1620,13 @@ Ekke konfiguråsje er mågleg.',
  */
 $messages['jv'] = array(
 	'stabilization-sel-short-0' => 'Kwalitas',
+);
+
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'stabilization-page' => 'გვერდის სახელი:',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
@@ -3171,9 +3178,9 @@ Nissuna configurassion xe possibile.',
 	'stabilization-notcontent' => 'La pagina "[[:$1|$1]]" no la pode èssar riesaminà.
 No se pode canbiar le inpostassion.',
 	'stabilization-comment' => 'Motivassion:',
-	'stabilization-otherreason' => 'Altro motivo',
+	'stabilization-otherreason' => 'Altro motivo:',
 	'stabilization-expiry' => 'Scadensa:',
-	'stabilization-othertime' => 'Altra durata',
+	'stabilization-othertime' => 'Altra durata:',
 	'stabilization-sel-short' => 'Preçedensa',
 	'stabilization-sel-short-0' => 'De qualità',
 	'stabilization-sel-short-1' => 'Nissuna',
