@@ -27,7 +27,8 @@ class ValidationStatistics extends IncludableSpecialPage
 		$pt = $this->getMeanPendingWait();
 		$timestamp = $this->getLastUpdate();
 		if( $timestamp != '-' ) {
-			$timestamp = $wgLang->timeanddate( $timestamp, true );
+			$date = $wgLang->date( $timestamp, true );
+			$time = $wgLang->time( $timestamp, true );
 		}
 
 		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), 
@@ -59,7 +60,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		# Show review/pending time stats
 		$wgOut->addWikiText( '<hr/>' . wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
 			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt),
-			$wgLang->formatTimePeriod($mdt), $reviewChart, $timestamp )
+			$wgLang->formatTimePeriod($mdt), $reviewChart, $date, $time )
 		);
 
 		$wgOut->addWikiText( wfMsg('validationstatistics-table') );

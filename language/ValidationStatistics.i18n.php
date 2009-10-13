@@ -13,7 +13,7 @@ $messages['en'] = array(
 and \'\'\'[[Special:ListUsers/reviewer|$2]]\'\'\' {{PLURAL:$2|user|users}} with [[{{MediaWiki:Validationpage}}|Reviewer]] rights.
 
 Editors and Reviewers are established users that can spot check revisions to pages.',
-	'validationstatistics-time'   => '\'\'The following data was last updated on $5.\'\'
+	'validationstatistics-time'   => '\'\'The following data was last updated on $5 at $6.\'\'
 
 Edits that have been checked by established users are considered to be reviewed.
 
