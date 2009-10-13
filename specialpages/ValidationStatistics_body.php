@@ -25,6 +25,10 @@ class ValidationStatistics extends IncludableSpecialPage
 		$mt = $this->getMeanReviewWait();
 		$mdt = $this->getMedianReviewWait();
 		$pt = $this->getMeanPendingWait();
+		$timestamp = $this->getLastUpdate();
+		if( $timestamp != '-' ) {
+			$timestamp = $wgLang->timeanddate( $timestamp, true );
+		}
 
 		$wgOut->addWikiText( wfMsgExt( 'validationstatistics-users', array( 'parsemag' ), 
 			$wgLang->formatnum($ec), $wgLang->formatnum($rc) )
@@ -55,7 +59,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		# Show review/pending time stats
 		$wgOut->addWikiText( '<hr/>' . wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
 			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt),
-			$wgLang->formatTimePeriod($mdt), $reviewChart )
+			$wgLang->formatTimePeriod($mdt), $reviewChart, $timestamp )
 		);
 
 		$wgOut->addWikiText( wfMsg('validationstatistics-table') );
@@ -199,6 +203,13 @@ class ValidationStatistics extends IncludableSpecialPage
 	protected function getMeanPendingWait() {
 		if( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
 		$val = $this->db->selectField( 'flaggedrevs_stats2', 'ave_pending_time' );
+		return ($val == false ? '-' : $val );
+	}
+	
+	protected function getLastUpdate() {
+		if( !$this->db->tableExists( 'querycache_info' ) ) return '-';
+		$val = $this->db->selectField( 'querycache_info', 'qci_timestamp',
+			array('qci_type' => 'validationstats') );
 		return ($val == false ? '-' : $val );
 	}
 	

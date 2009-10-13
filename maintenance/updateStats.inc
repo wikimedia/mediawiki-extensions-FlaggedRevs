@@ -232,6 +232,11 @@ function update_flaggedrevs_stats() {
 		array('stat_id' => 1, 'ave_review_time' => $aveRT, 'med_review_time' => $medianRT, 'ave_pending_time' => $avePET),
 		__METHOD__
 	);
+	// Update timestamp
+	$dbw->replace( 'querycache_info', array('qci_type'),
+		array('qci_type' => 'validationstats', 'qci_timestamp' => $dbw->timestamp()),
+		__METHOD__
+	);
 	$dbw->commit();
 	// Stats are now up to date!
 	$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
