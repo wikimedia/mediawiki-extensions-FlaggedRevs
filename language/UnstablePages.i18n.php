@@ -128,6 +128,17 @@ $messages['de'] = array(
 	'unstablepages-config' => 'Konfiguration',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'unstablepages' => 'Pelanê stabilize niyo',
+	'unstablepages-stable' => 'versiyonê stableyî',
+	'unstablepages-text' => 'Cor de yew liste esto ke pelan mucneno, aye pelan de configure biyo ke versiyonê darftî default pele mucneno/.',
+	'unstablepages-none' => 'Ena liste de yew pel zi çini yo',
+	'unstablepages-config' => 'Konfigurasyon',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

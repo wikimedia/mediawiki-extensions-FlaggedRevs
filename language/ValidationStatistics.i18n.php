@@ -300,6 +300,27 @@ Die stabile Version einer Seite ist die neueste Version, die durch einen Sichter
 	'validationstatistics-reviews' => 'Markierungen',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'validationstatistics' => 'Îstatîstîksê onay kerdişî',
+	'validationstatistics-users' => "'''{{SITENAME}}''' de nika '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Editor]]î
+u '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Kontrol kerdoğ]]î estê.
+
+Editorî u kontrol kerdoğî karberanê kihanyerê ke eşkenî pelan revize bike.",
+	'validationstatistics-table' => "Ser her cayênameyî rê îstatistiks bin de mucnayîyo, pelanê redreksiyonî ''nimucniyo\".",
+	'validationstatistics-ns' => 'Cayênameyî',
+	'validationstatistics-total' => 'Ripelî',
+	'validationstatistics-stable' => 'Kontrol biyo',
+	'validationstatistics-latest' => 'Rocaniye biyo',
+	'validationstatistics-synced' => 'Rocaniye biyo/Kontrol biyo',
+	'validationstatistics-old' => 'Hin nihebitiyeno',
+	'validationstatistics-utable' => 'Cor de yew liste est ke seatê penî de panc kontrol kerdoğî mucneno.',
+	'validationstatistics-user' => 'Karber',
+	'validationstatistics-reviews' => 'Revizyonî',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

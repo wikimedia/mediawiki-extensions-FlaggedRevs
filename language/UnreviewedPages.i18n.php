@@ -300,6 +300,19 @@ $messages['de'] = array(
 	'unreviewed-recent' => '(weniger als 1 Stunde)',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|listeyê ripelî ke kontrol nibiyê]] bivine',
+	'unreviewedpages' => 'Ripelî ke kontrol nibiyê',
+	'unreviewed-legend' => 'Listeyê tedeesteyî ke kontrol nibe',
+	'unreviewed-category' => 'Kategorî:',
+	'unreviewed-diff' => 'kontrol bike',
+	'unreviewed-unwatched' => '(seyr nibiye)',
+	'unreviewed-watched' => '($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
