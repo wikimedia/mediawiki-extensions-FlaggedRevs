@@ -3514,7 +3514,7 @@ $messages['fi'] = array(
 	'hist-stable' => 'katsastettu versio',
 	'review-diff2stable' => 'Näytä vakaan ja ajantasaisen version väliset eroavaisuudet',
 	'review-logentry-id' => 'versio: $2',
-	'review-logentry-diff' => 'muutoslinkki vakaaseen versioon',
+	'review-logentry-diff' => 'muutokset vakaaseen versioon',
 	'reviewer' => 'Arvioija',
 	'revisionreview' => 'Arvioi versioita',
 	'revreview-accuracy' => 'Paikkansapitävyys',
@@ -7600,7 +7600,7 @@ $messages['ml'] = array(
 	'tooltip-ca-current' => 'ഈ താളിന്റെ നിലവിലുള്ള കരട് കാണുക',
 	'tooltip-ca-stable' => 'ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് കാണുക',
 	'tooltip-ca-default' => 'ഗുണനിലവാര ഉറപ്പാക്കല്‍ ക്രമീകരണങ്ങള്‍',
-	'validationpage' => '{{ns:help}}:ലേഖനസാധുത',
+	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
 );
 
 /** Mongolian (Монгол)
@@ -12369,10 +12369,12 @@ $messages['wo'] = array(
 
 /** Yiddish (ייִדיש)
  * @author Yidel
+ * @author פוילישער
  */
 $messages['yi'] = array(
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
+	'revreview-filter-all' => 'אַלע',
 );
 
 /** Yue (粵語) */

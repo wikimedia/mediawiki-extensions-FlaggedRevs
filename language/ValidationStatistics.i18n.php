@@ -49,7 +49,9 @@ This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatis
 * $1: the average time in hhmmss
 * $2: average lag in hhmmss
 * $3: the median in hhmmss
-* $4: a table in HTML syntax.',
+* $4: a table in HTML syntax.
+* $5: the date of the last update
+* $6: the time of the last update',
 	'validationstatistics-table' => '{{Flagged Revs}}',
 	'validationstatistics-ns' => '{{Flagged Revs}}
 {{Identical|Namespace}}',
@@ -160,7 +162,7 @@ $messages['be-tarask'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і [[Special:ListUsers/reviewer|$2]]  {{PLURAL:$2|удзельніка|удзельнікаў|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэцэнзэнта»]].
 
 Рэдактары і рэцэнзэнты — удзельнікі са стажам, якія могуць правяраць зьмены старонак.",
-	'validationstatistics-time' => "''Наступныя зьвесткі кэшаваныя і могуць быць састарэлымі.''
+	'validationstatistics-time' => "''Наступныя зьвесткі апошні раз абнаўляліся $5 у $6.''
 
 Рэдагаваньні, якія былі правераны адпаведнымі ўдзельнікамі прыняты як рэцэнзаваныя.
 
@@ -280,7 +282,7 @@ $messages['de'] = array(
 und '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]].
 
 Sichter und Prüfer sind anerkannte Benutzer, die Versionen einer Seite überprüfen können.",
-	'validationstatistics-time' => "Hinweis: Die folgenden Daten werden jeweils für mehrere Stunden zwischengespeichert und sind daher nicht immer aktuell.''
+	'validationstatistics-time' => "''Die folgenden Daten wurden zuletzt am $5 um $6 Uhr aktualisiert.''
 
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4
@@ -330,7 +332,7 @@ $messages['dsb'] = array(
 a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami pśeglědowarja]].
 
 Wobźěłowarje a pséglědowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
-	'validationstatistics-time' => "''Slědujuce daty pufruju se a mógu njeaktualne byś.''
+	'validationstatistics-time' => "''Slědujuce daty su se $5 $6 slědny raz zaktualizěrowali.''
 
 Změny, kótarež su se pśekontrolowali wót etablěrowanych wužywarjow naglědaju se ako pśeglědane.
 
@@ -510,7 +512,7 @@ $messages['fr'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''[[Special:ListUsers/reviewer|$2]]''' utilisateur{{PLURAL:$2||s}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
-	'validationstatistics-time' => "''Les données suivantes sont en cache et peuvent ne pas être à jour.''
+	'validationstatistics-time' => "''Les données suivantes sont en cache et ont été mise à jour pour la dernière fois le $5 à $6.''
 
 Les modifications qui ont été vérifiées par des utilisateurs établis sont considérées comme relues.
 
@@ -578,7 +580,7 @@ dereitos de [[{{MediaWiki:Validationpage}}|editor]]
 e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usuario|usuarios}} con dereitos de [[{{MediaWiki:Validationpage}}|revisor]].
 
 Os editores e revisores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
-	'validationstatistics-time' => "''Os seguintes datos son da memoria caché e poden non estar actualizados.''
+	'validationstatistics-time' => "''Os seguintes datos foron actualizados o $5 ás $6.''
 
 As edicións que foron comprobadas polos usuarios autoconfirmados considéranse revisadas.
 
@@ -630,7 +632,7 @@ $messages['gsw'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' het '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]] un '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prieferrächt]].
 
 Sichter un Priefer sin Benutzer, wu Syte as prieft chenne markiere.",
-	'validationstatistics-time' => "''Die Date stammen us em Cache un s cha syy, ass si nit aktuäll sin.''
+	'validationstatistics-time' => "''Die Date sin s letscht Mol aktualisiert woren am $5 am $6.''
 
 Bearbeitige, wu dur etablierti Benutzer aagluegt wore sin, sotte prieft wäre.
 
@@ -741,9 +743,9 @@ $messages['hsb'] = array(
 a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|prawami přepruwowarja]].
 
 Wobdźěłowarjo a přepruwowarjo su etablěrowani wužiwarjo, kotřiž móžeja wersije stronow kontrolować.",
-	'validationstatistics-time' => "''Slědowace daty pufruja so a móžeja njeaktualne być.''
+	'validationstatistics-time' => "''Slědowace daty su so a $5 $6 posledni raz zaktualizwoali.''
 
-Změny, kotrež buchu wot etablěrowanych wužiwarjow skontrolowane , maja so za přepruwowane.
+Změny, kotrež buchu wot etablěrowanych wužiwarjow skontrolowane, maja so za přepruwowane.
 
 Přerězne čakanje za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'', kotrež dyrbi so pruwować, je '''$1'''; srjedźna hódnota je '''$3'''.
 $4
@@ -774,7 +776,7 @@ $messages['hu'] = array(
 	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|{{PLURAL:$1|egy|$1}}]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]], valamint '''[[Special:ListUsers/reviewer|{{PLURAL:$2|egy|$2}}]]''' [[{{MediaWiki:Validationpage}}|lektorjoggal]] rendelkező szerkesztője van.
 
 A járőrök és lektorok olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
-	'validationstatistics-time' => "''A következő adatok gyorsítótárból származnak, és lehet hogy nem frissek.''
+	'validationstatistics-time' => "''Az alábbi adatok utolsó frissítése: $5 $6''
 
 Azok a szerkesztések, amelyeket tapasztalt szerkesztők ellenőriztek, lektoráltnak tekinthetőek.
 
@@ -782,7 +784,6 @@ Az átlagos várakozási idő ''nem bejelentkezett szerkesztők'' szerkesztései
 $4
 Az átlagos átfutási idő [[Special:OldReviewedPages|megtekintésre váró szerkesztésekkel rendelkező lapoknál]] '''$2'''.
 Ezek a lapok ''elavultnak'' tekintendőek. Hasonlóképpen, a lapok ''szinkronizáltnak'' tekintendőek, ha a [[{{MediaWiki:Validationpage}}|stabil változat]] egyben a jelenlegi nem ellenőrzött változat (a lap utolsó változata).
-
 A lap stabil változata a legújabb elfogadott változat, amit alapértelmezetten látnak az olvasók.",
 	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott statisztika látható, az átirányítások ''nélkül''.",
 	'validationstatistics-ns' => 'Névtér',
@@ -804,15 +805,15 @@ $messages['ia'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Redactor]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Revisor]].
 
 Le Redactores e Revisores es usatores establite qui pote selectivemente verificar versiones de paginas.",
-	'validationstatistics-time' => "''Le sequente datos ha essite recuperate del cache e pote esser obsolete.''
+	'validationstatistics-time' => "''Le sequente datos ha essite actualisate le $5 a $6.''
 
 Le modificationes que ha essite verificate per usatores establite es considerate como revidite.
 
-Le tempore medie de attender pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
+Le periodo medie de attender revision pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
 $4
-Le tempore medie de retardo pro le [[Special:OldReviewedPages|paginas con modificationes attendente revision]] es '''$2'''.
-Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si le [[{{MediaWiki:Validationpage}}|version stabile]] es equalmente le version provisori actual.
-Le version stabile de un pagina es  le version le plus nove que ha essite approbate como le version initialmente monstrate a tote le lectores.",
+Le retardo medie pro le [[Special:OldReviewedPages|paginas con modificationes attendente revision]] es '''$2'''.
+Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si le [[{{MediaWiki:Validationpage}}|version stabile]] es tamben le version provisori actual.
+Le version stabile de un pagina es le version le plus nove que ha essite approbate como le version a monstrar como standard a tote le lectores.",
 	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, ''excludente'' le paginas de redirection.",
 	'validationstatistics-ns' => 'Spatio de nomines',
 	'validationstatistics-total' => 'Paginas',
@@ -899,7 +900,7 @@ $messages['ja'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|人}}、[[{{MediaWiki:Validationpage}}|査読者]]権限をもつ利用者が '''[[Special:ListUsers/reviewer|$2]]'''{{PLURAL:$2|人}}います。
 
 編集者と査読者はページの各版に対して抜き取り検査を行うことを認められた利用者です。",
-	'validationstatistics-time' => "''以下の情報はキャッシュされたものであり、最新のものではない可能性があります。''
+	'validationstatistics-time' => "''以下の情報は$5 $6に最終更新されました。''
 
 信頼されている利用者によって検査された編集は「査読済」とされます。
 
@@ -1002,13 +1003,12 @@ $messages['lb'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]] an '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].
 
 Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune vu Säiten derbäisetze kënnen.",
-	'validationstatistics-time' => "Hiweis: Dës Donnéeë gi jeweils fir e puer Stonen tëschegespäichert a sinn dofir net ëmmer aktuell.''
+	'validationstatistics-time' => "''Dës Donnéeë goufe fir d'lescht den $5 ëm $6 Auer aktualiséiert.''
 
-Déi duerchschnettleche Waardezäit fir Ännerungen, déi vun net ugemellte Benotzer kommen, ass '''$1'''; de Median ass '''$3'''.
+Déi duerchschnettlech Waardezäit fir Ännerungen, déi vun net ugemellte Benotzer kommen, ass '''$1'''; de Median ass '''$3'''.
 $4
 Den duerchschnettleche Réckstand op [[Special:OldReviewedPages|vereelste Säiten]] ass '''$2'''.
-''Vereelste'' Säite si Säite mat Ännerungen, déi méi nei wéi déi [[{{MediaWiki:Validationpage}}|markéiert Versioun]] sinn.
-Wann déi markéiert Versioun och déi lescht Versioun ass, as d'Säit ''synchroniséiert''.
+Dës Säite ginn als ''vereelst'' ugesinn. Säite ginn als ''synchroniséiert'' wann déi  [[{{MediaWiki:Validationpage}}|stabil Versioun]] och déi aktuell Virbereedung ass.
 Déi stabil Versioun vun enger Säit ass déi neiste Versioun, déi durch en Editeur confirméiert guf an als Standard alle Lieser gewise gëtt.",
 	'validationstatistics-table' => 'Statistike fir jiddwer Nummraum sinn hei ënnendrënner, Viruleedungssäite sinn net berécksichtegt.',
 	'validationstatistics-ns' => 'Nummraum',
@@ -1060,6 +1060,7 @@ $4
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Sadik Khalid
  */
 $messages['ml'] = array(
@@ -1071,6 +1072,7 @@ $messages['ml'] = array(
 	'validationstatistics-latest' => 'ഒടുവില്‍ പരിശോധിച്ചവ',
 	'validationstatistics-synced' => 'ഏകകാലികമാക്കിയവ/പരിശോധിച്ചവ',
 	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
+	'validationstatistics-user' => 'ഉപയോക്താവ്',
 );
 
 /** Mongolian (Монгол)
@@ -1116,7 +1118,7 @@ $messages['nl'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]] en '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|gebruiker|gebruikers}} met de rol [[{{MediaWiki:Validationpage}}|Eindredacteur]].
 
 Redacteuren en eindredacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
-	'validationstatistics-time' => "''De volgende gegevens komen uit een cache en kunnen verouderd zijn.''
+	'validationstatistics-time' => "'''De volgende gegevens zijn voor het laatst bijgewerkt op $5 om $6.'''
 
 Van een bewerking wordt aangenomen dat eindredactie is uitgevoerd als deze is gecontroleerd door een ervaren gebruiker.
 
@@ -1203,7 +1205,7 @@ $messages['oc'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]] e de '''[[Special:ListUsers/reviewer|$2]]''' utilizaire{{PLURAL:$2||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].
 
 Los contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
-	'validationstatistics-time' => "Las donadas seguentas son en amagatal e benlèu son pas a jorn.''
+	'validationstatistics-time' => "'''Las donadas seguentas son en amagatal e son estadas mesas a jorn pel darrièr còp lo $5 a $6.''
 
 Las modificacions que son estadas verificadas per d'utilizaires establits son consideradas coma relegidas.
 
@@ -1244,7 +1246,7 @@ $messages['pl'] = array(
 	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].
 
 Redaktorzy i weryfikatorzy to doświadczeni użytkownicy, którzy mogą oznaczać dowolne wersje stron.",
-	'validationstatistics-time' => "''Poniższe informacje są buforowane i mogą być nieaktualne.''
+	'validationstatistics-time' => "''Ostatnia aktualizacja danych na tej stronie miała miejsce $5 o godzinie $6.''
 
 Edycje wykonane przez doświadczonych użytkowników są uznawane za przejrzane.
 
@@ -1274,7 +1276,7 @@ $messages['pms'] = array(
 e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utent|utent}} con drit ëd [[{{MediaWiki:Validationpage}}|Revisor]].
 
 Editor e Revisor a son utent che a peulo controlé le revision a le pàgine.",
-	'validationstatistics-time' => "''Ij dat sota a son an cache e a podrìo esse pa agiornà.''
+	'validationstatistics-time' => "''Ij dat sota a son stàit modificà l'ùltima vira ël $5 a $6.''
 
 Le modìfiche che a son ëstàite controlà da utent intrà a son considrà da esse revisionà.
 
@@ -1426,7 +1428,7 @@ $messages['ru'] = array(
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|участник имеет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«проверяющего»]].
 
 «Редакторы» и «проверяющие» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
-	'validationstatistics-time' => "''Приведённая ниже информация взята из кэша и может не соответствовать текущему состоянию.''
+	'validationstatistics-time' => "''Приведённая ниже информация была обновлена $5 в $6.''
 
 Правки, отмеченные определёнными участниками, считаются проверенными.
 
@@ -1615,7 +1617,7 @@ $messages['tr'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} ve [[{{MediaWiki:Validationpage}}|İnceleyici]] yetkisine sahip '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|kullanıcı|kullanıcı}} bulunmaktadır.
 
 Editörler ve İnceleyiciler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
-	'validationstatistics-time' => "''Aşağıdaki veri önbelleklenmiştir ve güncel olmayabilir.''
+	'validationstatistics-time' => "''Aşağıdaki veri en son $5 $6 tarihinde güncellenmiştir.''
 
 Belirli kullanıcılar tarafından kontrol edilen değişiklikler, gözden geçirilmiş sayılırlar.
 
@@ -1706,7 +1708,9 @@ $messages['vi'] = array(
 	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và ''''''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|thành viên|thành viên}} có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].
 
 Những Chủ bút và Người duyệt là người dùng từ lâu có khả năng kiểm tra nhanh các thay đổi tại trang.",
-	'validationstatistics-time' => "''Dữ liệu sau được lưu vào bộ đệm và có thể đã lỗi thời.''
+	'validationstatistics-time' => "'''Dữ liệu sau được lưu vào bộ đệm vào $5 lúc $6.'''
+
+Sửa đổi được xem là “đã xuyệt” sau khi thành viên không mới tham gia kiểm tra nó.
 
 Thời gian chờ duyệt trung bình cho sửa đổi của ''thành viên không đăng nhập'' là '''$1'''; trung vị là '''$3'''.
 $4
