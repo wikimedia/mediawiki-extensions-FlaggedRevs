@@ -7597,9 +7597,18 @@ $messages['ml'] = array(
 	'rights-editor-revoke' => '[[$1]] എന്ന ഉപയോക്താവിന്റെ എഡിറ്റര്‍ അവകാശം പിന്‍‌വലിച്ചിരിക്കുന്നു',
 	'specialpages-group-quality' => 'ഗുണമേന്മാ ഉറപ്പ്',
 	'stable-logpage' => 'സ്ഥിരതയുടെ പ്രവര്‍ത്തനരേഖ',
+	'revreview-filter-all' => 'എല്ലാം',
+	'revreview-filter-stable' => 'സ്ഥിരതയുള്ളത്',
+	'revreview-statusfilter' => 'സ്ഥിതിയിലെ മാറ്റം:',
+	'revreview-typefilter' => 'തരം:',
+	'revreview-levelfilter' => 'തലം:',
+	'revreview-lev-quality' => 'ഗുണമേന്മ',
+	'revreview-reviewlink' => 'സംശോധനം',
 	'tooltip-ca-current' => 'ഈ താളിന്റെ നിലവിലുള്ള കരട് കാണുക',
 	'tooltip-ca-stable' => 'ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് കാണുക',
 	'tooltip-ca-default' => 'ഗുണനിലവാര ഉറപ്പാക്കല്‍ ക്രമീകരണങ്ങള്‍',
+	'flaggedrevs-protect-legend' => 'തിരുത്തലിന്റെ അംഗീകരണം',
+	'flaggedrevs-protect-none' => 'കൂടുതൽ നിയന്ത്രണങ്ങൾ ഇല്ല',
 	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
 );
 

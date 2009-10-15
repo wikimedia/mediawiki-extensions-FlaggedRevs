@@ -229,7 +229,7 @@ $messages['bs'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]] i '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|provjere]].
 
 Urednici i provjerivači su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
-	'validationstatistics-time' => "''Slijedeći podaci su keširani i možda nisu ažurirani.''
+	'validationstatistics-time' => "''Slijedeći podaci su posljednji put ažurirani dana $5 u $6 sati.''
 
 Izmjene koje trebaju provjeriti potvrđeni korisnici smatraju se neprovjerenim.
 
@@ -837,7 +837,7 @@ $messages['id'] = array(
 '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Peninjau]].
 
 Editor dan Peninjau adalah para pengguna terpercaya yang dapat melakukan pemeriksaan revisi di setiap halaman.",
-	'validationstatistics-time' => "''Data berikut ini diambil dari cache dan mungkin bukan terbaru.'' 
+	'validationstatistics-time' => "''Data berikut ini diperbaharui pada $5 saat $6.'' 
 
 Suntingan yang telah diperiksa oleh pengguna terpercaya dianggap telah ditinjau. 
 
