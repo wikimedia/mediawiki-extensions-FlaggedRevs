@@ -917,8 +917,11 @@ class FlaggedRevs {
 		global $wgUser, $wgParser;
 		# Update the links tables as the stable version may now be the default page...
 		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $wgUser );
-		if( $poutput==false ) {
+		$anon = new User(); // anon cache most likely to exist
+		$poutput = $parserCache->get( $article, $anon );
+		if( $poutput == false && $wgUser->getId() )
+			$poutput = $parserCache->get( $article, $wgUser );
+		if( $poutput == false ) {
 			$text = $article->getContent();
 			$options = self::makeParserOptions();
 			$poutput = $wgParser->parse($text, $article->getTitle(), $options);
