@@ -242,4 +242,79 @@ class FlaggedRevsXML {
 			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" .
 			wfMsg( 'revreview-toggle' ) . "</a>";
 	}
+	
+	/**
+	 * @param array $flags, selected flags
+	 * @param array $config, page config
+	 * @param bool $disabled, form disabled
+	 * @returns string
+	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
+	 */
+	public static function ratingInputs( $flags, $config, $disabled ) {
+		$form = '';
+		$toggle = $disabled ? array( 'disabled' => "disabled" ) : array();
+		$size = count(FlaggedRevs::getDimensions(),1) - count(FlaggedRevs::getDimensions());
+		# Loop through all different flag types
+		foreach( FlaggedRevs::getDimensions() as $quality => $levels ) {
+			$label = array(); // applicable tag levels
+			$minLevel = 1; // first non-zero level number
+			# Get current flag values or default if none
+			$selected = ( isset($flags[$quality]) && $flags[$quality] > 0 ) ?
+				$flags[$quality] : 1;
+			# Disabled form? Set the selected item label
+			if( $disabled ) {
+				$label[$selected] = $levels[$selected];
+			# Collect all quality levels of a flag current user can set
+			} else {
+				foreach( $levels as $i => $name ) {
+					# Some levels may be restricted or not applicable...
+					if( !RevisionReview::userCan($quality,$i,$config) ) {
+						if( $selected == $i ) $selected++; // bump default
+						continue; // skip this level
+					} else if( $i > 0 ) {
+						$minLevel = $i; // first non-zero level number
+					}
+					$label[$i] = $name;
+				}
+			}
+			$numLevels = count( $label );
+			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
+			$form .= "<b>" . Xml::tags( 'label', array( 'for' => "wp$quality" ),
+				FlaggedRevs::getTagMsg( $quality ) ) . ":</b>\n";
+			# If the sum of qualities of all flags is above 6, use drop down boxes
+			# 6 is an arbitrary value choosen according to screen space and usability
+			if( $size > 6 ) {
+				$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
+				$form .= Xml::openElement( 'select', $attribs );
+				foreach( $label as $i => $name ) {
+					$optionClass = array( 'class' => "fr-rating-option-$i" );
+					$form .= Xml::option( FlaggedRevs::getTagMsg($name), $i, ($i == $selected), $optionClass )."\n";
+				}
+				$form .= Xml::closeElement('select')."\n";
+			# If there are more than two levels, current user gets radio buttons
+			} elseif( $numLevels > 2 ) {
+				foreach( $label as $i => $name ) {
+					$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
+					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i, "wp$quality".$i,
+						($i == $selected), $attribs ) . "\n";
+				}
+			# Otherwise make checkboxes (two levels available for current user)
+			} else {
+				# If disable, use the current flags; if none, then use the min flag.
+				$i = $disabled ? $selected : $minLevel;
+				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
+				$attribs = $attribs + $toggle + array('value' => $minLevel);
+				$form .= Xml::checkLabel( wfMsg( "revreview-{$label[$i]}" ), "wp$quality", "wp$quality",
+					($selected == $i), $attribs ) . "\n";
+			}
+			$form .= Xml::closeElement( 'span' );
+		}
+		# If there were none, make one checkbox to approve/unapprove
+		if( FlaggedRevs::dimensionsEmpty() ) {
+			$form .= Xml::openElement( 'span', array('class' => 'fr-rating-options') ) . "\n";
+			$form .= Xml::checkLabel( wfMsg( "revreview-approved" ), "wpApprove", "wpApprove", 1 ) . "\n";
+			$form .= Xml::closeElement( 'span' );
+		}
+		return $form;
+	}
 }
