@@ -59,7 +59,7 @@ class FlaggedRevision {
 	 * @returns mixed FlaggedRevision (null on failure)
 	 * Will not return a revision if deleted
 	 */
-	public static function newFromTitle( $title, $revId, $flags = 0 ) {
+	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
 		$columns = self::selectFields();
 		# If we want the text, then get the text flags too
 		if( $flags & FR_TEXT ) {
@@ -118,7 +118,7 @@ class FlaggedRevision {
 		if( !$pageId ) {
 			return null;
 		}
-		# User master/slave as appropriate
+		# Quick slave queries...
 		if( !($flags & FR_FOR_UPDATE) && !($flags & FR_MASTER) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( array('flaggedpages','flaggedrevs'),
@@ -130,6 +130,7 @@ class FlaggedRevision {
 				__METHOD__
 			);
 			if( !$row ) return null;
+		# Master queries that skip the tracking table...
 		} else {
 			$row = null;
 			# Get visiblity settings...
