@@ -1516,7 +1516,7 @@ class FlaggedArticle extends Article {
 		}
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
-		$form .= FlaggedRevsXml::ratingInputs( $flags, $config, $disabled );
+		$form .= FlaggedRevsXML::ratingInputs( $flags, $config, $disabled );
 		$form .= Xml::closeElement( 'span' );
 
 		if( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
