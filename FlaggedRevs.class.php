@@ -57,6 +57,7 @@ class FlaggedRevs {
 			self::$minSL[$tag] = 1;
 		}
 		global $wgFlaggedRevsProtectLevels;
+		$wgFlaggedRevsProtectLevels = (array)$wgFlaggedRevsProtectLevels;
 		foreach( $wgFlaggedRevsProtectLevels as $level => &$config ) {
 			# Sanity checks
 			if( !isset($config['select']) || !isset($config['override']) || !isset($config['autoreview']) ) {

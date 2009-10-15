@@ -62,8 +62,13 @@ class StablePages extends SpecialPage
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 
 		$stitle = SpecialPage::getTitleFor( 'Stabilization' );
-		$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml('stablepages-config'),
-			'page=' . $title->getPrefixedUrl() );
+		if( count( FlaggedRevs::getProtectionLevels() ) ) {
+			$config = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('stablepages-config'),
+				'action=protect' );
+		} else {
+			$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml('stablepages-config'),
+				'page=' . $title->getPrefixedUrl() );
+		}
 		$stable = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('stablepages-stable'), 'stable=1' );
 
 		if( intval($row->fpc_select) === FLAGGED_VIS_PRISTINE ) {
