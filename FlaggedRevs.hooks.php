@@ -95,7 +95,7 @@ class FlaggedRevsHooks {
 	/**
 	* Update flaggedrevs table on revision restore
 	*/
-	public static function updateFromRestore( $title, $revision, $oldPageID ) {
+	public static function onRevisionRestore( $title, $revision, $oldPageID ) {
 		$dbw = wfGetDB( DB_MASTER );
 		# Some revisions may have had null rev_id values stored when deleted.
 		# This hook is called after insertOn() however, in which case it is set

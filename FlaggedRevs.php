@@ -389,7 +389,7 @@ $wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete'
 $wgHooks['TitleMoveComplete'][] = 'FlaggedRevsHooks::onTitleMoveComplete';
 # Check on undelete/merge for changes to stable version
 $wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::updateFromMerge';
-$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::updateFromRestore';
+$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::onRevisionRestore';
 # Parser hooks, selects the desired images/templates
 $wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
 $wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFindStableFileTime';
