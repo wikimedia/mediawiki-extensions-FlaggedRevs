@@ -379,6 +379,7 @@ class Stabilization extends UnlistedSpecialPage
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
+		$article = new Article( $this->page );
 		# Get current config
 		$row = $dbw->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
@@ -412,11 +413,16 @@ class Stabilization extends UnlistedSpecialPage
 				);
 			}
 		}
-		$query = '';
 		// Check if this actually changed anything...
 		if( $changed ) {
 			$id = $this->page->getArticleId();
 			$latest = $this->page->getLatestRevID( GAID_FOR_UPDATE );
+			# Config may have changed to allow stable versions...refresh page
+			# tracking to account for any hidden reviewed versions.
+			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+			if( $frev ) {
+				FlaggedRevs::updateStableVersion( $article, $frev->getRevision(), $latest );
+			}
 			# ID, accuracy, depth, style
 			$set = array();
 			# @FIXME: do this better
@@ -459,7 +465,6 @@ class Stabilization extends UnlistedSpecialPage
 			$nullRevision = Revision::newNullRevision( $dbw, $id, $comment, true );
 			$nullRevId = $nullRevision->insertOn( $dbw );
 			# Update page record and touch page
-			$article = new Article( $this->page );
 			$article->updateRevisionOn( $dbw, $nullRevision, $latest );
 			wfRunHooks( 'NewRevisionFromEditComplete', array($article, $nullRevision, $latest) );
 			
@@ -477,11 +482,6 @@ class Stabilization extends UnlistedSpecialPage
 					$text = $nullRevision->getText();
 					FlaggedRevs::autoReviewEdit( $article, $wgUser, $text, $nullRevision, $flags, true );
 					$invalidate = false; // already done with auto-review
-				// ...otherwise, go to diff if possible
-				} elseif( $frev ) {
-					$query = "oldid={$frev->getRevId()}&diff=cur&diffonly=0";
-				} else {
-					// can't autoreview and no diff to show...
 				}
 			}
 			# Update the links tables as the stable version may now be the default page...
