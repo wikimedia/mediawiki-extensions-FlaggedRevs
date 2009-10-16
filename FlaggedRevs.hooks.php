@@ -758,8 +758,10 @@ class FlaggedRevsHooks {
     }
 	
 	/**
-	* When an edit is made by a reviewer, if the current revision is the stable
-	* version, try to automatically review it.
+	* When an edit is made by a reviewer, if the base revision the
+	* edit was made from is the stable version, or the edit is a reversion
+	* to the stable version, then try to automatically review it.
+	* Also automatically review if the "review this revision" box is checked.
 	*/
 	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false, $user = null ) {
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
@@ -1445,40 +1447,42 @@ class FlaggedRevsHooks {
 	}
 	
 	/**
-	* Create revision link for log line entry
-	* @param string $type
-	* @param string $action
-	* @param object $title
-	* @param array $params
-	* @param string $comment
-	* @param string $rv (review links)
-	* @return bool true
+	* Create revision, diff, and history links for log line entry
 	*/
-	public static function reviewLogLine( $type, $action, $title=null, $params=array(), &$comment, &$rv ) {
-		if( $type != 'review' || !is_object($title) ) {
-			return true; // for review log only
-		}
-		$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
-		# Show link to page with oldid=x as well as the diff to the former stable rev.
-		# Param format is <rev id, last stable id, rev timestamp>.
-		if( in_array($action,$actionsValid) && isset($params[0]) ) {
-			global $wgUser, $wgLang;
-			$revId = (int)$params[0]; // the reviewed revision
-			# Load required messages
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			# Don't show diff if param missing or rev IDs are the same
-			if( !empty($params[1]) && $revId != $params[1] ) {
-				$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
-					"oldid={$params[1]}&diff={$revId}") . ') ';
-			} else {
-				$rv = '(' . wfMsgHtml('review-logentry-diff') . ')';
+	public static function reviewLogLine( $type, $action, $title=null, $params, &$comment, &$rv, $ts ) {
+		global $wgUser;
+		// Stability log
+		if( $type == 'stable' ) {
+			# Add history link showing edits right before the config change
+			$rv .= ' (' .
+				$wgUser->getSkin()->link( $title, wfMsgHtml('hist'),
+					array(),
+					array( 'action' => 'history', 'offset' => $ts )
+				) . ')';
+		// Review log
+		} else if( $type == 'review' && is_object($title) ) {
+			$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
+			# Show link to page with oldid=x as well as the diff to the former stable rev.
+			# Param format is <rev id, last stable id, rev timestamp>.
+			if( in_array($action,$actionsValid) && isset($params[0]) ) {
+				global $wgLang;
+				$revId = (int)$params[0]; // the reviewed revision
+				# Load required messages
+				wfLoadExtensionMessages( 'FlaggedRevs' );
+				# Don't show diff if param missing or rev IDs are the same
+				if( !empty($params[1]) && $revId != $params[1] ) {
+					$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
+						"oldid={$params[1]}&diff={$revId}") . ') ';
+				} else {
+					$rv = '(' . wfMsgHtml('review-logentry-diff') . ')';
+				}
+				# Show diff from this revision
+				$ts = empty($params[2]) ? Revision::getTimestampFromId($title,$revId) : $params[2];
+				$time = $wgLang->timeanddate( $ts );
+				$rv .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
+					wfMsgHtml('review-logentry-id',$revId,$time),
+					"oldid={$params[0]}&diff=prev&diffonly=0") . ')';
 			}
-			# Show diff from this revision
-			$ts = empty($params[2]) ? Revision::getTimestampFromId($title,$revId) : $params[2];
-			$time = $wgLang->timeanddate( $ts );
-			$rv .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-				wfMsgHtml('review-logentry-id',$revId,$time),
-				"oldid={$params[0]}&diff=prev&diffonly=0") . ')';
 		}
 		return true;
 	}
