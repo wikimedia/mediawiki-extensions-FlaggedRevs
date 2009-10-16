@@ -1450,7 +1450,7 @@ class FlaggedRevsHooks {
 	* Create revision, diff, and history links for log line entry
 	*/
 	public static function reviewLogLine( $type, $action, $title=null, $params, &$comment, &$rv, $ts ) {
-		global $wgUser;
+		global $wgUser, $wgLang;
 		// Stability log
 		if( $type == 'stable' ) {
 			# Add history link showing edits right before the config change
@@ -1465,19 +1465,20 @@ class FlaggedRevsHooks {
 			# Show link to page with oldid=x as well as the diff to the former stable rev.
 			# Param format is <rev id, last stable id, rev timestamp>.
 			if( in_array($action,$actionsValid) && isset($params[0]) ) {
-				global $wgLang;
 				$revId = (int)$params[0]; // the reviewed revision
 				# Load required messages
 				wfLoadExtensionMessages( 'FlaggedRevs' );
 				# Don't show diff if param missing or rev IDs are the same
 				if( !empty($params[1]) && $revId != $params[1] ) {
-					$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title, wfMsgHtml('review-logentry-diff'), 
+					$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title,
+						wfMsgHtml('review-logentry-diff'), 
 						"oldid={$params[1]}&diff={$revId}") . ') ';
 				} else {
 					$rv = '(' . wfMsgHtml('review-logentry-diff') . ')';
 				}
 				# Show diff from this revision
-				$ts = empty($params[2]) ? Revision::getTimestampFromId($title,$revId) : $params[2];
+				$ts = empty($params[2]) ?
+					Revision::getTimestampFromId($title,$revId) : $params[2];
 				$time = $wgLang->timeanddate( $ts );
 				$rv .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
 					wfMsgHtml('review-logentry-id',$revId,$time),
