@@ -449,7 +449,6 @@ class RevisionReview extends UnlistedSpecialPage
 	}
 	
 	private function showSyncFailure( $status, $showlinks=false ) {
-		global $wgOut;
 		$form = wfMsgExt( 'revreview-changed', array('parse'), $this->page->getPrefixedText() );
 		$form .= "<ul>";
 		foreach( $status as $n => $text ) {
