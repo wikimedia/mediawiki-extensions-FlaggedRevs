@@ -135,7 +135,7 @@ class FlaggedRevsHooks {
 					'fr_rev_id' => $revIDs ),
 				__METHOD__ );
 		}
-		# Update pages
+		# Update pages..stable version possibly lost to another page
 		FlaggedRevs::titleLinksUpdate( $sourceTitle );
 		FlaggedRevs::titleLinksUpdate( $destTitle );
 
@@ -1966,7 +1966,7 @@ class FlaggedRevsHooks {
 		$form = new Stabilization();
 		$form->target = $article->getTitle(); # Our target page
 		$form->watchThis = null; // protection form already has a watch check
-		$form->reviewThis = $wgRequest->getBool( 'wpReviewthis', true ); # Auto-review option
+		$form->reviewThis = $wgRequest->getBool( 'wpReviewthis' ); # Auto-review option
 		$form->reason = $wgRequest->getText( 'mwProtect-reason' ); # Reason
 		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' );  # Reason dropdown
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry

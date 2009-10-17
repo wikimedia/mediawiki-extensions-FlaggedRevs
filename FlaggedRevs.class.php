@@ -910,8 +910,7 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* Clears cache for a page when merges are done.
-	* We may have lost the stable revision to another page.
+	* Resets links for a page when changed (other than edits)
 	*/
 	public static function articleLinksUpdate( $article ) {
 		global $wgUser, $wgParser;
@@ -932,7 +931,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Clears cache for a page when revisiondelete/undelete is used
+	* Resets links for a page when changed (other than edits)
 	*/
 	public static function titleLinksUpdate( $title ) {
 		return self::articleLinksUpdate( new Article($title) );
