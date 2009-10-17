@@ -24,8 +24,10 @@ class RevisionReview extends UnlistedSpecialPage
 	var $unapprovedTags = 0;
 	
     public function __construct() {
+		global $wgUser;
 		parent::__construct( 'RevisionReview', 'review' );
 		wfLoadExtensionMessages( 'FlaggedRevs' );
+		$this->skin = $wgUser->getSkin();
     }
 
     public function execute( $par ) {
@@ -285,7 +287,6 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$wgOut->addWikiText( wfMsg( 'revreview-selected', $this->page->getPrefixedText() ) );
 
-		$this->skin = $wgUser->getSkin();
 		$rev = Revision::newFromTitle( $this->page, $this->oldid );
 		# Check if rev exists
 		# Do not mess with deleted revisions
@@ -438,10 +439,11 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= wfMsgExt( $msg, array('parse'), $this->page->getPrefixedUrl(), $this->oldid );
 		$form .= "</div>";
 		# Handy links to special pages
-		$sk = $wgUser->getSkin();
 		if( $showlinks && $wgUser->isAllowed( 'unreviewedpages' ) ) {
-			$form .= '<p>'.wfMsg( 'returnto', $sk->makeLinkObj( SpecialPage::getTitleFor( 'UnreviewedPages' ) ) ).'</p>';
-			$form .= '<p>'.wfMsg( 'returnto', $sk->makeLinkObj( SpecialPage::getTitleFor( 'OldReviewedPages' ) ) ).'</p>';
+			$form .= '<p>' . wfMsg( 'returnto',
+				$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'UnreviewedPages' ) ) ).'</p>';
+			$form .= '<p>' . wfMsg( 'returnto',
+				$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'OldReviewedPages' ) ) ).'</p>';
 		}
 		return $form;
 	}
@@ -455,7 +457,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		$form .= "</ul>";
 		if( $showlinks ) {
-			$form .= wfMsg( 'returnto', $sk->makeLinkObj( $this->page ) );
+			$form .= wfMsg( 'returnto', $this->skin->makeLinkObj( $this->page ) );
 		}
 		return $form;
 	}
