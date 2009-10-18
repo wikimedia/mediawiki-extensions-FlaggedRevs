@@ -199,6 +199,7 @@ No ye posible confegurar-la.',
 /** Arabic (العربية)
  * @author Alnokta
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'stabilization-tab' => 'تج',
@@ -226,9 +227,9 @@ $messages['ar'] = array(
 	'stabilization-notcontent' => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها.
 لا ضبط ممكن.',
 	'stabilization-comment' => 'السبب:',
-	'stabilization-otherreason' => 'سبب آخر',
+	'stabilization-otherreason' => 'سبب آخر:',
 	'stabilization-expiry' => 'تنتهي:',
-	'stabilization-othertime' => 'وقت آخر',
+	'stabilization-othertime' => 'وقت آخر:',
 	'stabilization-sel-short' => 'تنفيذ',
 	'stabilization-sel-short-0' => 'جودة',
 	'stabilization-sel-short-1' => 'لا شيء',
@@ -1961,7 +1962,7 @@ $messages['ml'] = array(
 	'stabilization-notexists' => '"[[:$1|$1]]". എന്ന ഒരു താള്‍ നിലവിലില്ല. ക്രമീകരണങ്ങള്‍ നടത്തുന്നതിനു സാദ്ധ്യമല്ല.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" എന്ന താള്‍ സം‌ശോധനം ചെയ്യുന്നതിനു സാദ്ധ്യമല്ല. ക്രമീകരണം അനുവദനീയമല്ല.',
 	'stabilization-comment' => 'കാരണം:',
-	'stabilization-otherreason' => 'മറ്റു കാരണം',
+	'stabilization-otherreason' => 'മറ്റു കാരണം:',
 	'stabilization-expiry' => 'കാലാവധി:',
 	'stabilization-sel-short' => 'മുന്‍‌നടപ്പ്',
 	'stabilization-sel-short-0' => 'ഉന്നത നിലവാരം',

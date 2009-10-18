@@ -200,14 +200,14 @@ $messages['br'] = array(
 ha '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|implijer|implijer}} gantañ gwirioù [[{{MediaWiki:Validationpage}}|Adlenner]].
 
 Editors and Reviewers are established users that can spot check revisions to pages.",
-	'validationstatistics-time' => "''Krubuilhet eo ar roadennoù da-heul ha marteze n'int ket bet hizivaet.''
+	'validationstatistics-time' => "''Hizivaet eo bet ar roadennoù da-heul d'an $5 da $6 da ziwezhañ.''
 
 Sellet e vez ouzh ar c'hemmoù bet gwiriet gant implijerien oberiant evel ouzh kemmoù bet adwelet.
 
 Amzer adlenn keitat ar c'hemmoù dre ''implijerien anluget'' da vezañ adwelet zo '''$1'''; '''$3''' eo an dalvoudenn greiz.
 $4
 An dale keitat evit ar [[Special:OldReviewedPages|pajennoù enno kemmoù da vezañ adlennet]] zo '''$2'''.
-Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' mard eo [[{{MediaWiki:Validationpage}}|ar stumm stabil]] ar stumm bouilhed red.
+Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' mard eo [[{{MediaWiki:Validationpage}}|ar stumm stabil]] ar stumm brouilhed red.
 Stumm stabil ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ diskouezet dre ziouer d'an holl lennerien.",
 	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
 	'validationstatistics-ns' => 'Esaouenn anv',
@@ -1066,6 +1066,7 @@ $4
 $messages['ml'] = array(
 	'validationstatistics' => 'സ്ഥിരീകരണ കണക്കുകള്‍',
 	'validationstatistics-users' => "'''{{SITENAME}}''' പദ്ധതിയില്‍ '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} [[{{MediaWiki:Validationpage}}|സംശോധകര്‍]] അധികാരമുള്ളവരും '''$2''' {{PLURAL:$2|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} [[{{MediaWiki:Validationpage}}|പരിശോധകര്‍]] അധികാരമുള്ളവരും നിലവിലുണ്ട്.",
+	'validationstatistics-table' => "ഓരോ നാമമേഖലയിലേയും സ്ഥിതിവിവരക്കണക്കുകൾ താഴെ കൊടുക്കുന്നു, തിരിച്ചുവിടൽ താളുകൾ ''ഒഴിവാക്കുന്നു''.",
 	'validationstatistics-ns' => 'നാമമേഖല',
 	'validationstatistics-total' => 'താളുകള്‍',
 	'validationstatistics-stable' => 'പരിശോധിച്ചവ',

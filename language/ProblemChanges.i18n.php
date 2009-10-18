@@ -321,6 +321,13 @@ $messages['mk'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'problemchanges-category' => 'വർഗ്ഗം:',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aurora
  */

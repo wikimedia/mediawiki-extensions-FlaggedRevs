@@ -764,7 +764,7 @@ $messages['ar'] = array(
 	'review-logentry-app' => 'راجع ن$2 من [[$1]]',
 	'review-logentry-dis' => 'أزال ن$2 من [[$1]]',
 	'review-logentry-id' => 'مراجعة: $2',
-	'review-logentry-diff' => 'الفرق للمستقرة',
+	'review-logentry-diff' => 'التغييرات عن النسخة المستقرة',
 	'review-logpage' => 'سجل المراجعة',
 	'review-logpagetext' => 'هذا سجل بالتغييرات في حالة [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.
 انظر [[Special:ReviewedPages|قائمة الصفحات المراجعة]] لقائمة بالصفحات المراجعة.',
@@ -820,8 +820,8 @@ $messages['ar'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/صورة] تحتاج المراجعة.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} اسرد الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|لا تغييرات تحتاج|تغيير واحد يحتاج|تغييران يحتاجان|$3 تغييرات تحتاج|$3 تغييرًا يحتاج|$3 تغيير يحتاج}}] المراجعة.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/صورة] تحتاج المراجعة.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} آخر مراجعة جودة] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} اعرض الكل]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات القوالب/الملفات] تحتاج المراجعة.',
 	'revreview-noflagged' => "لا توجد مراجعة مراجعة لهذه الصفحة، لذا ربما '''لا''' تكون قد تم 
 [[{{MediaWiki:Validationpage}}|التحقق من]] جودتها.",
 	'revreview-note' => '[[User:$1|$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه المراجعة:',
@@ -833,7 +833,7 @@ $messages['ar'] = array(
 	'revreview-quality' => 'هذه هي آخر مراجعة [[{{MediaWiki:Validationpage}}|جودة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغيير}}] بانتظار المراجعة.',
 	'revreview-quality-i' => 'هذه هي أحدث مراجعة [[{{MediaWiki:Validationpage}}|جودة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قوالب/صور] تنتظر المراجعة.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات على القوالب/الصور] تنتظر المراجعة.',
 	'revreview-quality-old' => 'هذه مراجعة [[{{MediaWiki:Validationpage}}|جودة]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات] جديدة ربما تكون قد حدثت.',
 	'revreview-quality-same' => 'هذه هي آخر مراجعة [[{{MediaWiki:Validationpage}}|جودة]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل])، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>.',
@@ -916,6 +916,7 @@ $messages['ar'] = array(
 	'tooltip-ca-current' => 'عرض المسودة الحالية لهذه الصفحة',
 	'tooltip-ca-stable' => 'عرض النسخة المستقرة لهذه الصفحة',
 	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
+	'flaggedrevs-protect-legend' => 'اعتماد التعديل',
 	'flaggedrevs-protect-none' => 'لا قيود أخرى',
 	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
@@ -3527,7 +3528,7 @@ $messages['fi'] = array(
 	'revreview-auto' => '(automaattinen)',
 	'revreview-auto-w' => 'Muokkaat vakaata versiota; muokkauksesi saavat välittömästi tarkastetun version arvon.',
 	'revreview-auto-w-old' => 'Olet muokkaamassa tarkistettua versiota; muokkauksesi saa välittömästi tarkastetun version arvon.',
-	'revreview-basic' => 'Tämä on uusin [[{{MediaWiki: Validationpage}}|katsastettu]] versio, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksymisaika] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Luonnosversioissa] on [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] arviointia odottamassa.',
+	'revreview-basic' => 'Tämä on uusin [[{{MediaWiki:Validationpage}}|katsastettu]] versio, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksymisaika] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Luonnosversioissa] on [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] arviointia odottamassa.',
 	'revreview-blocked' => 'Et voi arvioida tätä versiota, koska käyttäjätililläsi on tällä hetkellä esto voimassa ([$1 tarkat tiedot])',
 	'revreview-current' => 'Luonnos',
 	'revreview-depth-2' => 'Keskitasoa',
@@ -7504,7 +7505,8 @@ $messages['ml'] = array(
 	'hist-stable' => 'sighted പതിപ്പ്',
 	'review-diff2stable' => 'സ്ഥിരതയുള്ള പതിപ്പും നിലവിലുള്ള പതിപ്പും തമ്മിലുള്ള മാറ്റങ്ങള്‍ കാണുക',
 	'review-logentry-app' => '[[$1]] എന്നതാളിന്റെ r$2 പതിപ്പ് സംശോധനം ചെയ്തു',
-	'review-logentry-id' => 'കാണുക: $2',
+	'review-logentry-id' => 'നാൾപ്പതിപ്പ്: $2',
+	'review-logentry-diff' => 'സ്ഥിരതയുള്ള പതിപ്പിലേയ്ക്ക് മാറ്റുക',
 	'review-logpage' => 'സംശോധന പ്രവര്‍ത്തരേഖ',
 	'reviewer' => 'സംശോധകന്‍',
 	'revisionreview' => 'പതിപ്പുകള്‍ സംശോധനം ചെയ്യുക',
@@ -7553,6 +7555,7 @@ $messages['ml'] = array(
 	'revreview-notes' => 'പ്രദര്‍ശിപ്പിക്കാനുള്ള വിലയിരുത്തലുകള്‍/കുറിപ്പുകള്‍:',
 	'revreview-oldrating' => 'മൂല്യനിര്‍ണ്ണയ ഫലം:',
 	'revreview-patrol' => 'ഈ മാറ്റം റോന്തു ചുറ്റിയതായി രേഖപ്പെടുത്തി',
+	'revreview-patrol-title' => 'റോന്തുചുറ്റിയതായി അടയാളപ്പെടുത്തുക',
 	'revreview-patrolled' => '[[:$1|$1]]ന്റെ തിരഞ്ഞെടുത്ത പതിപ്പില്‍ റോന്തു ചുറ്റിയതായി രേഖപ്പെടുത്തി.',
 	'revreview-quality' => "ഈ ഏറ്റവും പുതിയ [[{{MediaWiki:Validationpage}}|ഉന്നത നിലവാരമുള്ള]] പതിപ്പ്, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചതാണ്‌].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് ലേഖനത്തിന്റെ] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|മാറ്റം|മാറ്റങ്ങള്‍}}] സം‌ശോധനത്തിനു തയ്യാറാണ്‌.",
@@ -7561,6 +7564,7 @@ $messages['ml'] = array(
 	'revreview-quality-old' => "ഈ [[{{MediaWiki:Validationpage}}|ഉന്നത നിലവാരമുള്ള]]  പതിപ്പ് ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} എല്ലാം പ്രദര്‍ശിപ്പിക്കുക]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചതാണ്]. പുതിയ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} മാറ്റങ്ങള്‍] വന്നിരിക്കാന്‍ സാദ്ധ്യതയുണ്ട്.",
 	'revreview-quality-same' => 'ഇതാണ്‌ ഏറ്റവും പുതിയ [[{{MediaWiki:Validationpage}}|ഉന്നത നിലവാരമുള്ള]] പതിപ്പ് ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} എല്ലാ പതിപ്പുകളും പ്രദര്‍ശിപ്പിക്കുക]), <i>$2</i>നു  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതാണ്].',
 	'revreview-quality-source' => "ഈ താളിന്റെ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} ഉന്നത നിലവാരമുള്ള ഒരു പതിപ്പ്], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചത്], ഈ പതിപ്പിനെ അടിസ്ഥാനമാക്കിയാണ്‌.",
+	'revreview-quality-title' => 'ഗുണമേന്മ താൾ',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|കണ്ടെത്തിയ ലേഖനം]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|കണ്ടെത്തിയ ലേഖനം]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Sighted ലേഖനം]]'''",
@@ -7584,6 +7588,8 @@ $messages['ml'] = array(
 	'revreview-style-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-submit' => 'സമര്‍പ്പിക്കുക',
 	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
+	'revreview-finished' => 'സംശോധനം സമ്പൂർണ്ണം!',
+	'revreview-failed' => 'സംശോധനം പരാജയം!',
 	'revreview-toggle-title' => 'വിവരങ്ങള്‍ കാണിക്കുക/മറയ്ക്കുക',
 	'revreview-update' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു ശേഷം] വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)''. ദയവായി  [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യുക.
  

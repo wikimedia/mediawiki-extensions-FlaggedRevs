@@ -128,7 +128,7 @@ $messages['ar'] = array(
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewed-size' => 'أقصى تغيير (بايت):',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
-	'oldreviewedpages-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمون نشطون يراقبون|$1 مستخدمًا نشيطًا يراقبون|$1 مستخدم نشط يراقبون}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطون يراقبون|$1 مستخدمًا نشيطًا يراقبون|$1 مستخدم نشط يراقبون}} $2)',
 	'oldreviewedpages-viewing' => '(تحت المراجعة)',
 );
 
@@ -897,6 +897,7 @@ $messages['ml'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|മണിക്കൂര്‍|മണിക്കൂറുകള്‍}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ദിവസം|ദിവസങ്ങള്‍}})',
 	'oldreviewedpages-recent' => '(1 മണിക്കൂറില്‍ താഴെ)',
+	'oldreviewed-category' => 'വർഗ്ഗം:',
 	'oldreviewedpages-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
 	'oldreviewedpages-watched' => '($2 സജീവ {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
 );
