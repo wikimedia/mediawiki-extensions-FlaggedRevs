@@ -393,7 +393,7 @@ $messages['eo'] = array(
 kaj '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.
 
 Redaktantoj kaj Kontrolantoj estas establitaj uzantoj kiuj povas kontroli ŝanĝojn al paĝojn.",
-	'validationstatistics-time' => "''La jena datenoj estas en kaŝmemoro kaj eble ne estas ĝisdataj.''
+	'validationstatistics-time' => "''La jenaj datenoj estis laste ĝisdatitaj je $5, $6.''
 
 Redaktoj kontrolitaj de longdaŭraj uzantoj estas konsiderataj esti kontrolitaj.
 

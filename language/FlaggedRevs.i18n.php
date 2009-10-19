@@ -7105,6 +7105,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-patrolled' => 'Déi erausgsichte Versioun vu(n) [[:$1|$1]] gouf als iwwerkuckt markéiert.',
 	'revreview-quality' => "Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|Qualitéits]]-Versioun, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop {{PLURAL:$3|waard|waarden}} fir nogekuckt ze ginn.",
+	'revreview-quality-i' => "Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|Qualitéitsversioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigeschalt] den <i>$2</i>.
+D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vum Modell oder de Fichieren], déi drop warde fir nogekuckt ze ginn.",
 	'revreview-quality-old' => "Dëst ass eng [[{{MediaWiki:Validationpage}}|Qualitéitsversioun]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} kuckt d'Lëscht]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
 Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kënne gemaach gi sinn.",
 	'revreview-quality-same' => 'Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|Qualitéits-]] Versioun ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} alleguer weisen]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.',
@@ -7148,6 +7150,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-update-use' => "'''Bemierkung:''' Wann eng vun dëse Schablounen/Fichieren eng stabil Versioun huet, da gëtt déi schonn an der stabiler Versioun vun dëser Säit benotzt.",
 	'revreview-diffonly' => "''Fir dës Säit nozekucken, klickt w.e.g. op de Link \"Aktuell Versioun\" a benotzt de Formulaire fir z'evaluéieren.",
 	'revreview-visibility' => "'''Dës Säit huet eng aktualiséiert [[{{MediaWiki:Validationpage}}|stabil Versioun]]; d'Astellunge vun der Stabilitéit kënnen op [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt ginn].'''",
+	'revreview-visibility2' => "'''Dës Säit huet eng vereelzte [[{{MediaWiki:Validationpage}}|stabil Versioun]]; D'Astellunge vun der Säitestabilitéit kënnen [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt ginn].'''",
 	'revreview-visibility3' => "'''Dës Säit huet keng [[{{MediaWiki:Validationpage}}|stabil Versioun]]; d'Astellunge vun der Sàitestabilitéit kënnen  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt] ginn.'''",
 	'revreview-revnotfound' => "Déi Versioun vun der Säit déi Dir gefrot hutt konnt net fonnt ginn. Kuckt d'URL no, déi Dir benotzt hutt fir op dës Säit ze kommen.",
 	'right-autoreview' => 'Versiounen automatesch als iwwerkuckt markéieren',
@@ -10881,7 +10884,7 @@ $messages['te'] = array(
 	'review-diff2stable' => 'సుస్థిర మరియు ప్రస్తుత కూర్పుల మధ్య మార్పులను చూడండి',
 	'review-logentry-app' => '[[$1]] యొక్క $2 ప్రతిని సమీక్షించారు',
 	'review-logentry-dis' => '[[$1]] యొక్క $2 కూర్పుని నిరాదరించారు',
-	'review-logentry-id' => 'చూడండి: $2',
+	'review-logentry-id' => 'కూర్పు: $2',
 	'review-logentry-diff' => 'సుస్థిర కూర్పుతో పోల్చిన వ్యత్యాసం',
 	'review-logpage' => 'సమీక్షల చిట్టా',
 	'review-logpagetext' => 'ఇది విషయపు పేజీల యొక్క వివిధ కూర్పుల [[{{MediaWiki:Validationpage}}|అనుమతి]] స్థితిలో జరిగిన మార్పుల చిట్టా.
