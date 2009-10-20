@@ -1958,12 +1958,14 @@ $messages['ml'] = array(
 	'stabilization-def1' => 'സ്ഥിരതയുള്ള പതിപ്പ്;
 അതില്ലെങ്കില്‍ നിലവിലുള്ള/കരട് പതിപ്പ്',
 	'stabilization-def2' => 'നിലവിലുള്ള/കരട് പതിപ്പ്',
+	'stabilization-restrict-none' => 'കൂടുതൽ പരിമിതപ്പെടുത്തലുകളില്ല',
 	'stabilization-submit' => 'സ്ഥിരീകരിക്കുക',
 	'stabilization-notexists' => '"[[:$1|$1]]". എന്ന ഒരു താള്‍ നിലവിലില്ല. ക്രമീകരണങ്ങള്‍ നടത്തുന്നതിനു സാദ്ധ്യമല്ല.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" എന്ന താള്‍ സം‌ശോധനം ചെയ്യുന്നതിനു സാദ്ധ്യമല്ല. ക്രമീകരണം അനുവദനീയമല്ല.',
 	'stabilization-comment' => 'കാരണം:',
 	'stabilization-otherreason' => 'മറ്റു കാരണം:',
 	'stabilization-expiry' => 'കാലാവധി:',
+	'stabilization-othertime' => 'മറ്റ് കാലയളവ്:',
 	'stabilization-sel-short' => 'മുന്‍‌നടപ്പ്',
 	'stabilization-sel-short-0' => 'ഉന്നത നിലവാരം',
 	'stabilization-sel-short-1' => 'ഒന്നുമില്ല',
@@ -1973,6 +1975,7 @@ $messages['ml'] = array(
 	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',
 	'stabilize_expiry_old' => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
 	'stabilize-expiring' => 'കാലാവധി തീരുന്നത് - $1 (UTC)',
+	'stabilization-review' => 'ഇപ്പോഴുള്ള പതിപ്പ് സംശോധനം ചെയ്യുക',
 );
 
 /** Marathi (मराठी)

@@ -567,6 +567,7 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Shijualex
  */
 $messages['ml'] = array(
@@ -575,6 +576,8 @@ $messages['ml'] = array(
 	'stablepages-text' => 'സ്ഥിരതയുള്ള പതിപ്പ് ഒരു താളിന്റെ സ്വതവെയുള്ള ഉള്ളടക്കമായി കാണിക്കുവാന്‍ കായികമായി ക്രമീകരണം ചെയ്യപ്പെട്ട താളുകള്‍ ആണ്‌ താഴെയുള്ള പട്ടികയില്‍.',
 	'stablepages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'stablepages-config' => 'ക്രമീകരണം',
+	'stablepages-prec-none' => 'യാതൊരു മുൻഗണനയുമില്ലാതെ',
+	'stablepages-prec-quality' => 'ഗുണമേന്മയ്ക്ക് മുൻഗണന',
 );
 
 /** Marathi (मराठी)

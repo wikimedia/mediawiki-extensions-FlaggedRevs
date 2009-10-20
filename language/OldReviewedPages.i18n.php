@@ -898,8 +898,13 @@ $messages['ml'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ദിവസം|ദിവസങ്ങള്‍}})',
 	'oldreviewedpages-recent' => '(1 മണിക്കൂറില്‍ താഴെ)',
 	'oldreviewed-category' => 'വർഗ്ഗം:',
+	'oldreviewed-watched' => 'ഞാൻ ശ്രദ്ധിക്കുന്നവയുടെ പട്ടികയിൽ',
+	'oldreviewed-stable' => 'സ്ഥിരതയുള്ളതാക്കിയിരിക്കുന്നു',
+	'oldreviewed-diff' => 'സംശോധനം',
+	'oldreviewed-size' => 'പരമാവധി മാറ്റങ്ങൾ (ബൈറ്റുകൾ):',
 	'oldreviewedpages-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
 	'oldreviewedpages-watched' => '($2 സജീവ {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
+	'oldreviewedpages-viewing' => '(സംശോധനം ചെയ്യുന്നു)',
 );
 
 /** Marathi (मराठी)
