@@ -2306,8 +2306,9 @@ $messages['os'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'stabilization-page' => 'Naame vum Blatt:',
 	'stabilization-comment' => 'Grund:',
-	'stabilization-otherreason' => 'Annerer Grund',
+	'stabilization-otherreason' => 'Annerer Grund:',
 	'stabilization-sel-short-1' => 'ken',
 );
 

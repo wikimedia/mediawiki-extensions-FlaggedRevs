@@ -320,6 +320,13 @@ $messages['mk'] = array(
 	'qualityoversight-legend' => 'Пребарување на дневници на скорешни прегледувања',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'qualityoversight-legend' => 'സമീപകാല സംശോധന രേഖകളിൽ തിരയുക',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */
