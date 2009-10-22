@@ -674,7 +674,7 @@ $messages['he'] = array(
 ו{{PLURAL:$2|משתמש '''[[Special:ListUsers/reviewer|אחד]]'''|־'''[[Special:ListUsers/reviewer|$2]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].
 
 עורכים ובודקי דפים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
-	'validationstatistics-time' => "'''המידע הבא הוא עותק שמור של המידע, ועשוי שלא להיות מעודכן.'''
+	'validationstatistics-time' => "'''המידע הבא עודכן לאחרונה ב־$6, $5.'''
 
 עריכות שנבדקו על ידי משתמשים ותיקים נחשבות לבדוקות.
 
