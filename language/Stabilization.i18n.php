@@ -1741,6 +1741,7 @@ $messages['ko'] = array(
 	'stabilization-text' => "'''[[:$1]] 문서의 어떤 버전이 선택되어 안정 버전으로 보이게 할 것인지에 대한 설정을 바꾸시려면 아래 양식을 이용해주세요.'''",
 	'stabilization-page' => '문서 이름:',
 	'stabilization-submit' => '확인',
+	'stabilization-comment' => '이유:',
 	'stabilization-expiry' => '기한:',
 	'stabilization-def-short' => '기본 설정',
 	'stabilize_expiry_invalid' => '기한을 잘못 입력하였습니다.',
