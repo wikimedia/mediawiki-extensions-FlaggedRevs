@@ -6724,6 +6724,7 @@ $messages['ko'] = array(
 	'group-reviewer' => '평론가',
 	'group-reviewer-member' => '평론가',
 	'grouppage-editor' => '{{ns:project}}:편집자',
+	'grouppage-reviewer' => '{{ns:project}}:평론가',
 	'hist-draft' => '초안 버전',
 	'hist-stable' => '검토된 판',
 	'hist-stable-user' => '[[User:$3|$3]]에 의해 [{{fullurl:$1|stableid=$2}} 검토됨]',
@@ -6739,6 +6740,7 @@ $messages['ko'] = array(
 	'revreview-auto' => '(자동)',
 	'revreview-auto-w' => "당신은 안정 버전을 편집하고 있습니다; 편집은 '''자동적으로 검토될 것입니다'''.",
 	'revreview-auto-w-old' => "당신은 검토된 판을 편집하고 있습니다; 편집은 '''자동적으로 검토될 것입니다'''.",
+	'revreview-blocked' => '당신의 계정이 차단되어 있기 때문에 이 판을 검토할 수 없습니다. ([$1 자세한 정보])',
 	'revreview-current' => '초안',
 	'revreview-depth' => '깊이',
 	'revreview-depth-1' => '기초적임',
@@ -6768,6 +6770,7 @@ $messages['ko'] = array(
 	'revreview-submit' => '보내기',
 	'revreview-submitting' => '보내는 중...',
 	'revreview-finished' => '검토 완료!',
+	'revreview-failed' => '검토 실패!',
 	'revreview-successful' => "'''[[:$1|$1]] 문서의 편집이 성공적으로 검토되었습니다. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} 안정 버전 보기])'''",
 	'revreview-toggle-title' => '자세한 내용 보기/숨기기',
 	'revreview-update-includes' => "'''일부 틀이나 파일이 수정되었습니다:'''",
@@ -6789,7 +6792,8 @@ $messages['ko'] = array(
 	'revreview-typefilter' => '유형:',
 	'revreview-reviewlink' => '검토',
 	'revreview-unlocked-title' => '이 문서에 보여지기 전에 편집은 검토를 필요로 하지 않습니다!',
-	'revreview-unlocked' => '이 문서에 보여지기 전에 편집은 검토를 필요로 하지 않습니다!',
+	'revreview-unlocked' => '이 문서에 보여지기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]를 필요로 하지 않습니다!',
+	'log-show-hide-review' => '문서 검토 기록 $1',
 	'revreview-tt-review' => '이 문서를 검토',
 );
 
@@ -7531,6 +7535,7 @@ $messages['ml'] = array(
 	'revreview-basic-old' => "ഈ [[{{MediaWiki:Validationpage}}|sighted]] പതിപ്പ് ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} എല്ലാം പ്രദര്‍ശിപ്പിക്കുക]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചതാണ്]. പുതിയ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} മാറ്റങ്ങള്‍] വന്നിരിക്കാന്‍ സാദ്ധ്യതയുണ്ട്.",
 	'revreview-basic-same' => 'ഈ ഏറ്റവും പുതിയ [[{{MediaWiki:Validationpage}}|sighted]] പതിപ്പ് ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} എല്ലാ പതിപ്പുകളും പ്രദര്‍ശിപ്പിക്കുക]), <i>$2</i>നു [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതാണ്] ഈ താള്‍.',
 	'revreview-basic-source' => "ഈ താളിന്റെ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}}  ഒരു sighted പതിപ്പ്], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചത്] ഈ പതിപ്പിനെ അടിസ്ഥാനമാക്കിയാണ്‌.",
+	'revreview-blocked' => 'താങ്കളുടെ അംഗത്വം ഇപ്പോൾ തടയപ്പെട്ടിരിക്കുന്നതിനാൽ താങ്കൾക്ക് ഈ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്യാൻ കഴിയില്ല ([$1 വിശദവിവരങ്ങൾ])',
 	'revreview-current' => 'കരട്',
 	'revreview-depth' => 'അഗാധത',
 	'revreview-depth-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
@@ -7547,6 +7552,9 @@ $messages['ml'] = array(
 	'revreview-invalid' => "'''അസാധുവായ ലക്ഷ്യം:''' തന്ന IDക്കു ചേരുന്ന [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത പതിപ്പുകള്‍]] ഒന്നും തന്നെയില്ല.",
 	'revreview-legend' => 'പതിപ്പിന്റെ ഉള്ളടക്കം വിലയിരുത്തുക',
 	'revreview-log' => 'അഭിപ്രായം:',
+	'revreview-main' => 'സംശോധനം ചെയ്യാനായി ഉള്ളടക്ക താളിന്റെ ഒരു പ്രത്യേക നാൾപ്പതിപ്പ് താങ്കൾ തിരഞ്ഞെടുക്കേണ്ടതാണ്.
+
+[[Special:Unreviewedpages|സംശോധനം ചെയ്യാത്ത താളുകളുടെ പട്ടിക]] കാണുക.',
 	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ഏറ്റവും പുതിയ sighted പതിപ്പ്] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} എല്ലാം പ്രദര്‍ശിപ്പിക്കുക])[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2''നു അംഗീകരിച്ചതാണ്‌].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|മാറ്റത്തിനു|മാറ്റങ്ങള്‍ക്ക്}}] {{PLURAL:$3|സംശോധനം വേണം|സംശോധനം വേണം}}.",
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ഏറ്റവും അവസാനത്തെ സൈറ്റഡ് പതിപ്പ്] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} എല്ലാം പ്രദര്‍ശിപ്പിക്കുക]) <i>$2</i> നാണ്‌ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചത്].
@@ -7596,9 +7604,9 @@ $messages['ml'] = array(
 	'revreview-finished' => 'സംശോധനം സമ്പൂർണ്ണം!',
 	'revreview-failed' => 'സംശോധനം പരാജയം!',
 	'revreview-toggle-title' => 'വിവരങ്ങള്‍ കാണിക്കുക/മറയ്ക്കുക',
-	'revreview-update' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു ശേഷം] വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)''. ദയവായി  [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യുക.
+	'revreview-update' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അനുമതി നൽകിയ ശേഷം] വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)'', ദയവായി  [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യുക.
  
-'''ചില ഫലകങ്ങള്‍/ചിത്രങ്ങള്‍ പുതുക്കിയിട്ടുണ്ട്:'''",
+'''ചില ഫലകങ്ങള്‍/പ്രമാണങ്ങള്‍ പുതുക്കിയിട്ടുണ്ട്:'''",
 	'revreview-update-includes' => "'''ചില ഫലകങ്ങള്‍/പ്രമാണങ്ങള്‍ പുതുക്കിയിരിക്കുന്നു:'''",
 	'revreview-update-none' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു ശേഷം]
 വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)'' [[{{MediaWiki:Validationpage}}|ദയവായി സംശോധനം ചെയ്യുക]].",
@@ -7611,6 +7619,9 @@ $messages['ml'] = array(
 	'stable-logpage' => 'സ്ഥിരതയുടെ പ്രവര്‍ത്തനരേഖ',
 	'revreview-filter-all' => 'എല്ലാം',
 	'revreview-filter-stable' => 'സ്ഥിരതയുള്ളത്',
+	'revreview-filter-approved' => 'അനുമതി നൽകിയിട്ടുണ്ട്',
+	'revreview-filter-reapproved' => 'വീണ്ടും അനുമതി നൽകിയിട്ടുണ്ട്',
+	'revreview-filter-unapproved' => 'അനുമതി നൽകിയിട്ടില്ല',
 	'revreview-statusfilter' => 'സ്ഥിതിയിലെ മാറ്റം:',
 	'revreview-typefilter' => 'തരം:',
 	'revreview-levelfilter' => 'തലം:',

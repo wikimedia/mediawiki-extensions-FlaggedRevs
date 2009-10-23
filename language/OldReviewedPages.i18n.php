@@ -813,12 +813,14 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'oldreviewedpages' => '오래 전에 검토된 문서',
+	'oldreviewedpages-none' => '조건에 맞는 문서가 없습니다.',
 	'oldreviewedpages-hours' => '($1시간 전)',
 	'oldreviewedpages-days' => '($1일 전)',
 	'oldreviewedpages-recent' => '(1시간 미만)',
 	'oldreviewed-category' => '분류:',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
 	'oldreviewedpages-watched' => '($2명의 활동적인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
+	'oldreviewedpages-viewing' => '(확인 중)',
 );
 
 /** Ripoarisch (Ripoarisch)

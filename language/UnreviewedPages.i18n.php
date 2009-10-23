@@ -828,10 +828,17 @@ $messages['kn'] = array(
 $messages['ko'] = array(
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|검토되지 않은 문서의 목록]]을 보기',
 	'unreviewedpages' => '검토되지 않은 문서',
+	'unreviewed-legend' => '검토되지 않은 문서 목록',
 	'unreviewed-category' => '분류:',
 	'unreviewed-diff' => '검토',
 	'unreviewed-unwatched' => '(주시되지 않음)',
 	'unreviewed-watched' => '($1명의 활동중인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
+	'unreviewed-list' => '이 특수 문서는 검토되지 않은 문서의 목록을 보여 주고 있습니다.',
+	'unreviewed-none' => '조건에 맞는 문서가 없습니다.',
+	'unreviewed-viewing' => '(확인 중)',
+	'unreviewed-hours' => '($1시간)',
+	'unreviewed-days' => '($1일)',
+	'unreviewed-recent' => '(1시간 미만)',
 );
 
 /** Kinaray-a (Kinaray-a)

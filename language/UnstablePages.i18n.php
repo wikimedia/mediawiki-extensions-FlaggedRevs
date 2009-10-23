@@ -386,6 +386,7 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'unstablepages-stable' => '안정 버전',
+	'unstablepages-text' => '다음은 초안 버전을 독자에게 기본 문서 버전으로 보여주도록 설정한 문서의 목록입니다.',
 	'unstablepages-none' => '이 목록에 문서가 없습니다.',
 	'unstablepages-config' => '설정',
 );

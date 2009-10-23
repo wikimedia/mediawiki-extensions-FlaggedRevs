@@ -423,7 +423,7 @@ $messages['es'] = array(
 	'validationstatistics' => 'Estadísticas de validación',
 	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].
 Editores and Revisores son usuarios establecidos que pueden verificar las revisiones a las páginas.",
-	'validationstatistics-time' => "''los siguientes datos están en el cache y pueden no ser actualizados.''
+	'validationstatistics-time' => "''los siguientes datos fueron actualizados por última vez en $5 en $6.''
 
 Las ediciones que han sido verificadas por usuarios establecidos son consideradas revisadas.
 
@@ -952,10 +952,23 @@ $messages['km'] = array(
  * @author Yknok29
  */
 $messages['ko'] = array(
-	'validationstatistics-users' => "'''{{SITENAME}}'''에는 $1명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 $2명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.",
+	'validationstatistics' => '검토 통계',
+	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[Special:ListUsers/editor|$1]]명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 [[Special:ListUsers/reviewer|$2]]명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.
+
+편집자와 평론자가 문서를 검토할 수 있습니다.",
+	'validationstatistics-time' => "'''다음의 수치는 $5 $6에 마지막으로 업데이트되었습니다.'''
+
+숙련된 사용자가 확인한 편집을 검토된 편집으로 간주합니다.
+
+'''로그인하지 않은 사용자'''의 편집의 평균 대기 시간은 '''$1'''이고 중앙값은 '''$3'''입니다.
+$4
+[[Special:OldReviewedPages|검토되지 않은 편집이 있는 문서]]의 검토 평균 대기 시간은 '''$2'''입니다.
+이 문서는 오래 전에 검토되었으며, [[{{MediaWiki:Validationpage}}|안정 버전]]이 현재 버전과 일치할 때 동기화되었다고 표현합니다.
+문서의 안정 버전이 모든 독자에게 기본적으로 보여질 것입니다.",
 	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서의 검토 통계가 이름공간별로 보여지고 있습니다.",
 	'validationstatistics-ns' => '이름공간',
 	'validationstatistics-total' => '문서 수',
+	'validationstatistics-user' => '사용자',
 );
 
 /** Ripoarisch (Ripoarisch)
