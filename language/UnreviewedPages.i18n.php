@@ -301,6 +301,7 @@ $messages['de'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Aspar
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -311,6 +312,12 @@ $messages['diq'] = array(
 	'unreviewed-diff' => 'kontrol bike',
 	'unreviewed-unwatched' => '(seyr nibiye)',
 	'unreviewed-watched' => '($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)',
+	'unreviewed-list' => 'no pel, sewiyeya ke waziyaya goreyê aye sewiya. pelê muhtewayê ke çım ser nêçariyayê liste keno.',
+	'unreviewed-none' => 'nê kriteran de peli çini',
+	'unreviewed-viewing' => '(kontrol beno)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|seet|seeti}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|roc|roci}})',
+	'unreviewed-recent' => '(1 seet ra kêm)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -965,6 +972,7 @@ $messages['ml'] = array(
 	'unreviewed-watched' => '({{PLURAL:$1|ഒരു സജീവ ഉപയോക്താവ്|$1 സജീവ ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നുണ്ട്)',
 	'unreviewed-list' => 'പരിശോധിക്കാത്ത ലേഖനങ്ങളുടെ പട്ടിക ഈ താളില്‍ പ്രദര്‍ശിപ്പിക്കുന്നു.',
 	'unreviewed-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
+	'unreviewed-viewing' => '(സംശോധനം ചെയ്യപ്പെടുന്നു)',
 	'unreviewed-hours' => '({{PLURAL:$1|ഒരു മണിക്കൂർ|$1 മണിക്കൂറുകൾ}})',
 	'unreviewed-days' => '({{PLURAL:$1|ഒരു ദിവസം|$1 ദിവസങ്ങൾ}})',
 	'unreviewed-recent' => '(ഒരു മണിക്കൂറിൽ കുറവു സമയം)',

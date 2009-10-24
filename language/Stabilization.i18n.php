@@ -650,9 +650,15 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 );
 
 /** Zazaki (Zazaki)
+ * @author Aspar
  * @author Belekvor
  */
 $messages['diq'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'istiqrar kerdışê peli',
+	'stabilization-text' => "'''[[:\$1|\$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
+
+Varsayılan olarak \"kalite\" ya da \"asıl\" revizyonlarını kullanmak için ''kararlı sürüm seçimi'' yapılandırmasını değiştirirken, sayfada böyle revizyonların olduğunu kontrol ettiğinize emin olun, aksi halde değişikliğin etkisi küçük olacaktır.",
 	'stabilization-sel-short-1' => 'çino',
 );
 

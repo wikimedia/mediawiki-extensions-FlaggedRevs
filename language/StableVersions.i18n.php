@@ -218,6 +218,18 @@ $messages['de'] = array(
 	'stableversions-review' => 'markiert am <i>$3, $4 Uhr</i> durch $2',
 );
 
+/** Zazaki (Zazaki)
+ * @author Aspar
+ */
+$messages['diq'] = array(
+	'stableversions' => 'versiyonan ramocın',
+	'stableversions-leg1' => 'qey yew peli revizyonê kontrol biyayeyan liste bıker',
+	'stableversions-page' => 'nameyê peli:',
+	'stableversions-none' => '"[[:$1]]" wayirê revizyonê konrol biyayeyan niyo.',
+	'stableversions-list' => 'Sıradaki, [[:$1]] için gözden geçirilmiş {{PLURAL:$2|tek revizyonun|revizyonların}} bir listesidir:',
+	'stableversions-review' => 'hetê $2 ra <i>$1</i> tarix de kontrol bı',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

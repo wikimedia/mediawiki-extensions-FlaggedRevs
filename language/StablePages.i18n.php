@@ -191,6 +191,21 @@ $messages['de'] = array(
 	'stablepages-precedence' => 'Rangordnung:',
 );
 
+/** Zazaki (Zazaki)
+ * @author Aspar
+ */
+$messages['diq'] = array(
+	'stablepages' => 'pelê istiqrar biyayeyi',
+	'stablepages-stable' => 'versiyonê istiqrar biyayeyi',
+	'stablepages-text' => 'Aşağıdaki liste, ziyaretçilere geçerli sayfa içeriği olarak kararlı sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
+	'stablepages-none' => 'na liste de pel çino',
+	'stablepages-config' => 'vıraştış',
+	'stablepages-prec-none' => 'pêşani çina',
+	'stablepages-prec-quality' => 'pêşaneyê qaliteyi',
+	'stablepages-prec-pristine' => 'pêşaneyê ewwil',
+	'stablepages-precedence' => 'pêşane:',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

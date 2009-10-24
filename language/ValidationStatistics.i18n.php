@@ -303,6 +303,7 @@ Die stabile Version einer Seite ist die neueste Version, die durch einen Sichter
 );
 
 /** Zazaki (Zazaki)
+ * @author Aspar
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -311,6 +312,15 @@ $messages['diq'] = array(
 u '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Kontrol kerdoğ]]î estê.
 
 Editorî u kontrol kerdoğî karberanê kihanyerê ke eşkenî pelan revize bike.",
+	'validationstatistics-time' => "''Aşağıdaki veri en son $5 $6 tarihinde güncellenmiştir.''
+
+Belirli kullanıcılar tarafından kontrol edilen değişiklikler, gözden geçirilmiş sayılırlar.
+
+''Giriş yapmamış kullanıcılar'' tarafından yapılan gözden geçirilecek değişiklikler için ortalama bekleme süresi '''$1'''; orta değer '''$3'''.
+$4
+[[Special:OldReviewedPages|Gözden geçirilmemiş değişikliğe sahip sayfalar]] için ortalama gecikme '''$2'''.
+Bu sayfalar ''eskimiş'' sayılırlar. Aynı şekilde, eğer [[{{MediaWiki:Validationpage}}|kararlı sürüm]] aynı zamanda güncel taslaksa, sayfa ''senkron'' sayılır.
+Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontrol edilmiş revizyonlarıdır.",
 	'validationstatistics-table' => "Ser her cayênameyî rê îstatistiks bin de mucnayîyo, pelanê redreksiyonî ''nimucniyo\".",
 	'validationstatistics-ns' => 'Cayênameyî',
 	'validationstatistics-total' => 'Ripelî',
@@ -541,13 +551,13 @@ $messages['frp'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]] et '''[[Special:ListUsers/reviewer|$2]]''' utilisator{{PLURAL:$2||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|rèvisor]].
 
 Los contributors et los rèvisors sont des utilisators ètablis que pôvont controlar les rèvisions de les pâges.",
-	'validationstatistics-time' => "''Cetes balyês sont en cache et pôvont pas étre a jorn.''
+	'validationstatistics-time' => "''Cetes balyês sont en cache et ont étâ betâs a jorn por lo dèrriér côp lo $5 a $6.''
 
 Los changements qu’ont étâ controlâs per des utilisators ètablis sont considèrâs coment revus.
 
-Lo temps moyen de rèvision des changements per des ''utilisators pas branchiês'' est '''$1''' ; la valor du méten est '''$3'''.  
+Lo temps moyen de rèvision des changements per des ''utilisators pas branchiês'' est '''$1''' ; la valor du méten est '''$3'''.
 $4
-Lo dèlê moyen por les [[Special:OldReviewedPages|pâges que contegnont des changements pas revus en cors]] est '''$2'''.
+Lo dèlê moyen por les [[Special:OldReviewedPages|pâges que contegnont des changements que sont aprés étre revus]] est '''$2'''.
 Celes pâges sont considèrâs ''dèpassâs''. De mémo, les pâges sont dècllarâs ''sincronisâs'' se la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]] est asse-ben la vèrsion de brolyon d’ora.
 Les vèrsions stâbles sont des vèrsions de pâges controlâs per u muens yon utilisator règuliér.",
 	'validationstatistics-table' => "Les statistiques por châque èspâço de noms sont montrâs ce-desot, a l’''èxcllusion'' de les pâges de redirèccion.",
@@ -1087,6 +1097,7 @@ $messages['ml'] = array(
 	'validationstatistics-synced' => 'ഏകകാലികമാക്കിയവ/പരിശോധിച്ചവ',
 	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
 	'validationstatistics-user' => 'ഉപയോക്താവ്',
+	'validationstatistics-reviews' => 'സംശോധനങ്ങൾ',
 );
 
 /** Mongolian (Монгол)
@@ -1680,6 +1691,15 @@ $4
 	'validationstatistics-utable' => "Нижче наведений список із п'яти найбільш активних редакторів за останню годину.",
 	'validationstatistics-user' => 'Користувач',
 	'validationstatistics-reviews' => 'Перевірок',
+);
+
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'validationstatistics-ns' => 'Namespace',
+	'validationstatistics-total' => 'Pagine',
+	'validationstatistics-user' => 'Utente',
 );
 
 /** Veps (Vepsan kel')
