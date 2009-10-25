@@ -1218,7 +1218,7 @@ class FlaggedArticle extends Article {
 		$oldRevQ = $oldRev ? FlaggedRevs::getRevQuality( $newRev->getPage(), $oldRev->getId() ) : false;
 		# Diff between two revisions
 		if( $oldRev ) {
-			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr>" );
+			$wgOut->addHTML( "<table class='fr-diff-ratings'><tr>" );
 
 			$class = FlaggedRevsXML::getQualityColor( $oldRevQ );
 			if( $oldRevQ !== false ) {
@@ -1246,7 +1246,7 @@ class FlaggedArticle extends Article {
 			} else {
 				$msg = 'hist-draft';
 			}
-			$wgOut->addHTML( "<table class='fr-diff-ratings' width='100%'><tr><td class='fr-$msg' align='center'>" );
+			$wgOut->addHTML( "<table class='fr-diff-ratings'><tr><td class='fr-$msg' align='center'>" );
 			$wgOut->addHTML( "<b>[" . wfMsgHtml( $msg ) . "]</b>" );
 			$wgOut->addHTML( '</td></tr></table>' );
 		}

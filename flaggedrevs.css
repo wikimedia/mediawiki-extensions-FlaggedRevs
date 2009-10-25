@@ -244,6 +244,7 @@
 .fr-diff-ratings {
 	font-size: 90%;
 	line-height: 1em;
+	width: 100%;
 }
 
 .fr-diff-to-stable {
