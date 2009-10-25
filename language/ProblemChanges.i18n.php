@@ -89,6 +89,16 @@ $messages['de'] = array(
 	'problemchanges-category' => 'Kategorie:',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'problemchanges' => 'Vuranayîşanê etiket biyo înan kontrol bike',
+	'problemchanges-legend' => 'Vurnayîşanê etiket biyo înan liste bike',
+	'problemchanges-none' => 'Ser ena kriteri de pelan çini yo',
+	'problemchanges-category' => 'Kategorî:',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

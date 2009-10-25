@@ -652,6 +652,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Belekvor
+ * @author Xoser
  */
 $messages['diq'] = array(
 	'stabilization-tab' => 'vet',
@@ -659,7 +660,39 @@ $messages['diq'] = array(
 	'stabilization-text' => "'''[[:\$1|\$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
 
 Varsayılan olarak \"kalite\" ya da \"asıl\" revizyonlarını kullanmak için ''kararlı sürüm seçimi'' yapılandırmasını değiştirirken, sayfada böyle revizyonların olduğunu kontrol ettiğinize emin olun, aksi halde değişikliğin etkisi küçük olacaktır.",
+	'stabilization-perm' => 'Hesabê tu rê destur çini yo ke stable versiyon confugration bivurne.
+Tiya de eyaranê penîyî qe [[:$1|$1]] esto:',
+	'stabilization-page' => 'Nameyê pelî:',
+	'stabilization-leg' => 'Eyaranê stable versionî testiq bike',
+	'stabilization-select' => 'Seleksiyonê stable versionî evelî',
+	'stabilization-select1' => 'Revizyonê kaliteyî tewr penî',
+	'stabilization-select2' => 'Revizyonê ke tewr peni de kontrol biyo (seviyeyê tewtiqî rê diket nikeno)',
+	'stabilization-select3' => 'Revizyinê tewr penî ke hewlo; tewr penî qalite ra; tewr penî sight ra',
+	'stabilization-def' => 'Vînayişê pelî de revizyon mucnayiyo',
+	'stabilization-def1' => 'Revizyonê stableyî; eka çini yo, peniyo/draftî',
+	'stabilization-def2' => 'Revizyonê penî/draftî',
+	'stabilization-restrict' => 'Restriksyonşê oto-kontrolî',
+	'stabilization-restrict-none' => 'Restriksiyonê bînî çini yo',
+	'stabilization-submit' => 'Konfirme bike',
+	'stabilization-notexists' => 'Yew pel ser "[[:$1|$1]]" çini yo. 
+Konfugure ni beno.',
+	'stabilization-notcontent' => 'Pel"[[:$1|$1]]" kontrol nibeno. 
+Konfugure ni beno.',
+	'stabilization-comment' => 'Sebeb:',
+	'stabilization-otherreason' => 'Sebebê bîn:',
+	'stabilization-expiry' => 'Qediyeno:',
+	'stabilization-othertime' => 'Wextê bîn:',
+	'stabilization-sel-short' => 'Ornek',
+	'stabilization-sel-short-0' => 'Qelite',
 	'stabilization-sel-short-1' => 'çino',
+	'stabilization-sel-short-2' => 'Hewl',
+	'stabilization-def-short' => 'Eyaranê tewr vernî',
+	'stabilization-def-short-0' => 'Penî',
+	'stabilization-def-short-1' => 'Sebit',
+	'stabilize_expiry_invalid' => 'Wextê qedîyayîş raşt niyo.',
+	'stabilize_expiry_old' => 'Wextê qedîyayîş penî de mend.',
+	'stabilize-expiring' => '$1 (UTC) de qediyeno',
+	'stabilization-review' => 'Versiyonê penî kontrol bike',
 );
 
 /** Lower Sorbian (Dolnoserbski)

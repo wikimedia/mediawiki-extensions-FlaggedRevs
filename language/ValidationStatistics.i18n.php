@@ -1061,9 +1061,9 @@ $messages['mk'] = array(
 	'validationstatistics-users' => "{{SITENAME}}''' во моментов има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|уредувачки]] права и [[Special:ListUsers/reviewer|$2]] {{PLURAL:$2|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|оценувачки]] права.
 
 Уредниците и оценувачите се докажани корисници кои можат да прегледуваат ревизии на страници.",
-	'validationstatistics-time' => "''Следниве податоци се кеширани и може да не се најнови.''
+	'validationstatistics-time' => "''Следниве податоци се ажурирани на $5 во $6.''
 
-Уредувањата кои се проверени од утврдени корисници се сметаат за прегледани.
+Уредувањата кои се проверени од утврдени корисници се сметаат за прегледани (оценети).
 
 Просечното чекање за уредувања по ''ненајавени корисници'' кои треба да се прегледаат изнесува '''$1'''; средната вредност е '''$3'''.  
 $4
@@ -1697,6 +1697,7 @@ $4
  * @author Candalua
  */
 $messages['vec'] = array(
+	'validationstatistics' => 'Statìsteghe de validassion',
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-user' => 'Utente',

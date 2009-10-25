@@ -2554,6 +2554,111 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Aspar
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'editor' => 'Redaktor',
+	'flaggedrevs' => 'Reviyanan ke flag biyo',
+	'flaggedrevs-backlog' => "pelê çımserçarnayeyi kop (kom) biyê [[Special:OldReviewedPages|neê vurnayişi paweyê]] . '''elaqayê şıma!'''",
+	'flaggedrevs-watched-pending' => "pelê çımserçarnayeyi yê listeya şıma de [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} tayê vurnayişi esti]. '''paweyê elaqaya şıma!'''",
+	'flaggedrevs-desc' => 'ına desthelatiyê vurnayişan dana editor u çımsernayoxan',
+	'flaggedrevs-pref-UI' => 'Kararlı sürüm arayüzü:',
+	'flaggedrevs-pref-UI-0' => 'Kararlı sürüm detaylı kullanıcı arayüzünü kullan',
+	'flaggedrevs-pref-UI-1' => 'Kararlı sürüm basit kullanıcı arayüzünü kullan',
+	'prefs-flaggedrevs' => 'istiqrariye',
+	'prefs-flaggedrevs-ui' => 'revizyonê alayin (beyraq)',
+	'flaggedrevs-prefs-stable' => 'Her zaman varsayılan olarak içerik sayfalarının kararlı sürümünü göster (eğer varsa)',
+	'flaggedrevs-prefs-watch' => 'pelê ke mı çım ser ra çarnayi kerdi bıerz listeya seyrkerdışê mı',
+	'flaggedrevs-prefs-editdiffs' => 'wexto ke mı pelan vurna ferqan ramocın',
+	'flaggedrevs-prefs-viewdiffs' => 'wexto ke mı pelan vurna ferqan mocneno ra',
+	'group-editor' => 'Nuştekaran',
+	'group-editor-member' => 'nuştekar',
+	'group-reviewer' => 'rexnekari',
+	'group-reviewer-member' => 'rexnekar',
+	'grouppage-editor' => '{{ns:project}}:Editor',
+	'grouppage-reviewer' => '{{ns:project}}:rexnekar',
+	'group-autoreview' => 'oto-çımserçarnayoxi',
+	'group-autoreview-member' => 'çımserçarnayox',
+	'grouppage-autoreview' => '{{ns:project}}:çımserçarnayox',
+	'hist-draft' => 'revizyonê projeyi',
+	'hist-quality' => 'revizyonê qaliteyi',
+	'hist-quality-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} tesdiq kerd]',
+	'hist-stable' => 'gözlenmiş revizyon',
+	'hist-stable-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} teqib kerd]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} otomatik teqib bı]',
+	'review-diff2stable' => 'vurnayişê benatê revizyonê rocane u istiqrarınan ramocın',
+	'review-logentry-app' => 'qey [[$1]] r$2 çımserçariya',
+	'review-logentry-dis' => 'qey [[$1]] r$2 tehrif bı',
+	'review-logentry-id' => 'revizyon: $2',
+	'review-logentry-diff' => 'vurnayişê ke seba versiyonê istiqrari biye',
+	'review-logpage' => 'roce ser çım bı çarn',
+	'review-logpagetext' => 'Bu, içerik sayfası revizyonlarının [[{{MediaWiki:Validationpage}}|kabul]] durumu değişiklikleri günlüğüdür.
+Kabul edilmiş sayfalar için [[Special:ReviewedPages|gözden geçirilmiş sayfalar listesi]]ne bakın.',
+	'reviewer' => 'rexnekar',
+	'revisionreview' => 'revizyonanê ser çım bıçarn',
+	'revreview-accuracy' => 'raştiye',
+	'revreview-accuracy-0' => 'tesdiq nêbiyo',
+	'revreview-accuracy-1' => 'teqib biyo',
+	'revreview-accuracy-2' => 'raşt',
+	'revreview-accuracy-3' => 'kafi derece de çıme diya cı',
+	'revreview-accuracy-4' => 'xusûsın',
+	'revreview-approved' => 'tesdiq biyaye',
+	'revreview-auto' => '(otomatik)',
+	'revreview-auto-w' => "şıma revizyonê istiqrarın vurneni; vurnayişi ''' bı otomatik çım çariyeni cı '''.",
+	'revreview-auto-w-old' => "şıma revizyonê çım ser çarnaye vurneni; vurnayişi ''' bı otomatik çım çariyeni cı '''.",
+	'revreview-basic' => 'no revizyon tewr peyin [[{{MediaWiki:Validationpage}}|teqib biyo]], <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} na proje de] tayê [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayişi|vurnayişi}}] paweyê çımserçarnayişê.',
+	'revreview-basic-i' => 'no revizyon [[{{MediaWiki:Validationpage}}|teqib biyo]], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} proje de] tayê [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişê şablon/dosyayi] paweyê çımserçarnayişi.',
+	'revreview-basic-old' => 'no yew revizyono [[{{MediaWiki:Validationpage}}|teqib biyayeyo]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]), <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+belka [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişê neweyi] biyê.',
+	'revreview-basic-same' => 'no revizyon tewr peyin [[{{MediaWiki:Validationpage}}|teqib biyo]]  ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]), <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} revizyonê no peli ], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo], no revizyon qıstas geriyayo.',
+	'revreview-blocked' => 'şıma nêeşkeni no revizyon ser çım bıçarni çunke hesabê şıma bloke biaye yo ([$1 teferruati])',
+	'revreview-changed' => "'''no pelê [[:$1|$1]] kariyo ke waziyayo no revizyon de tetbiq nêbeno.'''
+
+belka yew dosya yew şablon waziyayo ya zi yew revizyon nişane nêbiyo ey ra nêbeno.
+pel newe kerê ya zi newe ra çım ser bı çarnê belka problem hal bıbo.",
+	'revreview-current' => 'numune',
+	'revreview-depth' => 'xorani',
+	'revreview-depth-0' => 'tesdiq nêbiyaye',
+	'revreview-depth-1' => 'basit',
+	'revreview-depth-2' => 'weset',
+	'revreview-depth-3' => 'berz',
+	'revreview-depth-4' => 'xusûsın',
+	'revreview-draft-title' => 'pelê numuneyi',
+	'revreview-edit' => 'numune bıvurn',
+	'revreview-editnotice' => "'''vuriyayişê ke no pel de biyê, badê konrolê serkari daxil beno [[{{MediaWiki:Validationpage}}|revizyono istiqrarın]]'''",
+	'revreview-flag' => 'nop revizyon ser çım bıçarn',
+	'revreview-edited' => "'''vurnayişê ke no pel de biyê, badê kontrolê serkari daxil beno [[{{MediaWiki:Validationpage}}|revizyono istiqrarın]]'''
+'''''numune''cêr de yo'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|vurnayiş|vurnayiş}}] paweyê çımserçarnayiş o.",
+	'revreview-invalid' => "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
+	'revreview-legend' => "muhtewayê revizyoni bıd' reydayiş",
+	'revreview-log' => 'beyanat:',
+	'revreview-main' => 'qey çım ser çarnayişi, şıma gani pelê muhtewayi ra yew revizyon bıvıcini.
+
+bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} revizyono teqib biyaye yo tewr peyin] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]) <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayiş|vurnayiş}}] {{PLURAL:$3|gani konrol bıbo|gani konrol bıbo}}.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} revizyono teqib biyaye yo tewr peyin] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]) <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişê Şablon/dosyayi] gani konrol bıbo.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} revizyono qaliteyıno tewr peyin] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]) <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayiş|vurnayiş}}] {{PLURAL:$3|gani kontrol bıbo|gani kontrol bıbo}}.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} revizyono qaliteyıno tewr peyin] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]) <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişê şablon/dosyayi] gani newe ra konrol bıbo.',
+	'revreview-noflagged' => 'No pel de revizyono ke çım ser nêçariyayi çino, no sebeb ra qey qalite belka [[{{MediaWiki:Validationpage}}|checked]] biyo.',
+	'revreview-note' => '[[User:$1|$1]] no revizyon ser [[{{MediaWiki:Validationpage}}|çım çarna]] u no not verda:',
+	'revreview-notes' => 'tayê not u muşahedati ramociyeni:',
+	'revreview-oldrating' => 'derecekerdış:',
+	'revreview-patrol' => 'no vurnayiş muşahedebiyaye nişane bıker',
+	'revreview-patrol-title' => 'muşahedebiyaye nişane bıker',
+	'revreview-patrolled' => "revizyono ke qey [[:$1|$1]]'i vıciyayo muşahedebiyaye işaret biyo.",
+	'revreview-quality' => 'no revizyon, revizyono [[{{MediaWiki:Validationpage}}|qaliteyıno]] tewr peyin o, <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} qey siya kerdış] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayiş|vurnayiş}}] paweyê kontrol kerdışo.',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  * @author Nepl1

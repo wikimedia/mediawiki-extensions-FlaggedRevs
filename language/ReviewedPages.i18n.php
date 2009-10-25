@@ -222,6 +222,18 @@ $messages['de'] = array(
 	'reviewedpages-best' => 'letzte am höchsten bewertete Version',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'reviewedpages' => 'Pelanê ke kontrol biyo',
+	'reviewedpages-leg' => 'Pelanê ke tewr berzo înan ra yew liste viraz',
+	'reviewedpages-list' => 'Ena Pel de pelanê kontrol biyo (tewr berz) înan ra yew liste viraziyo.',
+	'reviewedpages-none' => 'Ena liste de pelan çini yo',
+	'reviewedpages-all' => 'versiyonan ke kontrol biyo',
+	'reviewedpages-best' => 'revizyonê primeyî',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
@@ -670,7 +682,7 @@ $messages['li'] = array(
 $messages['mk'] = array(
 	'reviewedpages' => 'Оценувани страници',
 	'reviewedpages-leg' => 'Листа на страници на највисоко ниво',
-	'reviewedpages-list' => '{{PLURAL:$1|Следнава страница е прегледувана|Следниве страници се прегледувани}} до назначеното ниво',
+	'reviewedpages-list' => 'На оваа страница се наведени страници кои се оценети (највисоко) до назначеното ниво.',
 	'reviewedpages-none' => 'Нема страници во оваа листа',
 	'reviewedpages-lev-0' => 'Прегледани',
 	'reviewedpages-lev-1' => 'Квалитетни',

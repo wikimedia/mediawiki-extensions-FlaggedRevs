@@ -113,6 +113,15 @@ $messages['de'] = array(
 	'qualityoversight-legend' => 'Suche in Versionsmarkierungen',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'qualityoversight' => 'Oversightê kaliteyî',
+	'qualityoversight-list' => 'Ena pel de revizyonan u testiqanê penî ser yew liste esto.',
+	'qualityoversight-legend' => 'Loganê kontrol penî de bigêre',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
