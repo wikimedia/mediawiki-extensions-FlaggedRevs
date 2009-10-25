@@ -289,26 +289,25 @@ class ProblemChangesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		global $wgUser, $wgOldChangeTagsIndex;
-		$ctIndex = $wgOldChangeTagsIndex ? 'ct_rev_id' : 'change_tag_rev_tag';
 		$conds = $this->mConds;
 		$tables = array( 'revision', 'change_tag', 'page' );
-		$fields = array('page_namespace','page_title','page_latest');
-		# Show outdated "stable" versions
+		$fields = array( 'page_namespace' , 'page_title', 'page_latest' );
+		$ctIndex = $wgOldChangeTagsIndex ? 'ct_rev_id' : 'change_tag_rev_tag';
+		# Show outdated "stable" pages
 		if( $this->level < 0 ) {
 			$fields[] = 'fp_stable AS stable';
 			$fields[] = 'fp_quality AS quality';
 			$fields[] = 'fp_pending_since AS pending_since';
-			$conds[] = 'fp_pending_since IS NOT NULL';
-			$conds[] = 'page_id = fp_page_id';
 			# Find revisions that are tagged as such
+			$conds[] = 'fp_pending_since IS NOT NULL';
 			$conds[] = 'rev_page = fp_page_id';
 			$conds[] = 'rev_id > fp_stable';
 			$conds[] = 'ct_rev_id = rev_id';
 			$conds['ct_tag'] = $this->tag;
-			$useIndex = array('flaggedpages' => 'fp_pending_since',
-				'change_tag' => $ctIndex);
+			$conds[] = 'page_id = fp_page_id';
+			$useIndex = array('flaggedpages' => 'fp_pending_since', 'change_tag' => $ctIndex);
 			# Filter by category
-			if( $this->category ) {
+			if( $this->category != '' ) {
 				array_unshift($tables,'categorylinks'); // order matters
 				$conds[] = 'cl_from = fp_page_id';
 				$conds['cl_to'] = $this->category;
@@ -317,7 +316,7 @@ class ProblemChangesPager extends AlphabeticPager {
 			array_unshift($tables,'flaggedpages'); // order matters
 			$this->mIndexField = 'fp_pending_since';
 			$groupBy = 'fp_pending_since,fp_page_id';
-		# Show outdated version for a specific review level
+		# Show outdated pages for a specific review level
 		} else {
 			$fields[] = 'fpp_rev_id AS stable';
 			$fields[] = 'fpp_quality AS quality';
