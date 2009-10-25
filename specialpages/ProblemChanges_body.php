@@ -191,7 +191,7 @@ class ProblemChanges extends SpecialPage
 		if( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$uw = UnreviewedPages::usersWatching( $title );
 			$watching = $uw
-				? wfMsgExt('oldreviewedpages-watched','parsemag',$uw,$uw)
+				? wfMsgExt( 'oldreviewedpages-watched', 'parsemag', $uw )
 				: wfMsgHtml('oldreviewedpages-unwatched');
 			$watching = " {$watching}";
 		} else {
