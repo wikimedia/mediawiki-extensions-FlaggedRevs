@@ -27,6 +27,7 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Darth Kule
+ * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Purodha
  * @author Raymond
@@ -62,7 +63,9 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 Checkmarking the box next to this label will select pages having individual, per page, settings for the version to show to the average user.',
 	'oldreviewed-diff' => '{{Flagged Revs}}
 
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a link anchor going to the sighting page for a listed page.',
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a link anchor going to the sighting page for a listed page.
+
+{{Identical|Review}}',
 	'oldreviewed-size' => '{{Flagged Revs}}
 
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',

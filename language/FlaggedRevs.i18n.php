@@ -496,7 +496,9 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-lev-sighted' => '{{Flagged Revs}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
-	'revreview-reviewlink' => '{{Flagged Revs}}',
+	'revreview-reviewlink' => '{{Flagged Revs}}
+
+{{Identical|Review}}',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
@@ -7281,6 +7283,7 @@ $messages['lb'] = array(
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virberredung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi drop warden nogekuckt ze ginn.",
 	'revreview-basic-i' => "Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vun der Schabloun respektiv dem Fichier] déi nach dropwarde fir nogekuckt ze ginn.",
+	'revreview-basic-same' => 'Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} alleguer weisen]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn ] den <i>$2</i>.',
 	'revreview-basic-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nogekuckt Versioun] vun dëser Säit [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-blocked' => 'Dir kënnt dës Versioun net nokucke well Äre Benotzerkont elo gespaart ass ([$1 Detailer])',
 	'revreview-current' => 'Virbereedung',
@@ -7402,6 +7405,7 @@ Eng Lëscht vun de stabiliséierte Säite kann op der [[Special:StablePages|Lës
 );
 
 /** Limburgish (Limburgs)
+ * @author Aelske
  * @author Matthias
  * @author Ooswesthoesbes
  */
@@ -7420,7 +7424,7 @@ $messages['li'] = array(
 	'review-diff2stable' => 'Verschille tusse stabiele en huidige versies bekijke',
 	'review-logentry-app' => 'bekeek [[$1]]',
 	'review-logentry-dis' => 'haet een versie van [[$1]] leger beoordeild',
-	'review-logentry-id' => 'versienummer: $2',
+	'review-logentry-id' => 'versienummer $1: $2',
 	'review-logpage' => 'Beoordeilingslogbook',
 	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Makevalidate-page}}|waarderingsstatus]] van versies van pagina's.",
 	'reviewer' => 'Bekieker',
@@ -7432,7 +7436,7 @@ $messages['li'] = array(
 	'revreview-accuracy-3' => 'Good van brónne veurzeen',
 	'revreview-accuracy-4' => 'Oetgelich',
 	'revreview-auto' => '(automatisch)',
-	'revreview-auto-w' => "'''Opmerking:''' u wijzigt de stabiele versie. Uw bewerkingen worden automatisch gecontroleerd. Controleer de voorvertoning voordat u de pagina opslaat.",
+	'revreview-auto-w' => "'''Opmerking:'''  Geer verandert de stabiele versie. Eur bewirkinge waere automatisch gecontroleerd. Controleer de veurvertuning veurdat geer de pagina opsjlaot.",
 	'revreview-auto-w-old' => "U bent een oude versie aan het bewerken, elke wijziging wordt '''automatisch beoordeeld'''.
 Controleer uw bewerking voordat u deze opslaat.",
 	'revreview-basic' => "Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeilde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
@@ -7465,7 +7469,7 @@ op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{P
 	'revreview-note' => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[{{MediaWiki:Validationpage}}|beoordeling]] van deze versie:',
 	'revreview-notes' => 'Weer te geve observaties of notities:',
 	'revreview-oldrating' => 'Woor gewardeerd es:',
-	'revreview-patrol' => 'Deze bewerking as gecontroleerd markere',
+	'revreview-patrol' => 'Dees bewirking as gecontroleerd markere',
 	'revreview-patrolled' => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
 	'revreview-quality' => "Dit is de letste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
 	'revreview-quality-same' => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>. De pagina is te [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerken].',
@@ -7494,7 +7498,7 @@ beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, 
 	'revreview-update' => 'Controleer alstublieft alle wijziginge die gemaakt zien seer de stabiele versie waar gecontroleerd. Enkele sjablone/aafbeeldinge werde gewijzigd:',
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Review]] ale angeringe ''(shown below)'' made since the stable revision was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved].",
 	'revreview-visibility' => 'Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]], die [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} aangepas] kan waere.',
-	'revreview-revnotfound' => 'De opgevraogde aw versie van dees pazjena is verzjwónde. Kontroleer estebleef de URL dieste gebroek höbs óm nao dees pazjena te gaon.',
+	'revreview-revnotfound' => 'De opgevraogde aw versie van dees pazjena is verdwene. Controleer estebleef de URL dies doe gebroek höbs óm nao dees pagina te gaon.',
 	'rights-editor-autosum' => 'automatisch gepromoveerd',
 	'rights-editor-revoke' => 'verwijderde redacteurstatus van [[$1]]',
 	'stable-logentry' => 'stabiele versies zijn ingesteld voor [[$1]]',
@@ -7602,8 +7606,8 @@ $messages['mk'] = array(
 	'review-diff2stable' => 'Види промени помеѓу стабилна и тековна ревизија',
 	'review-logentry-app' => 'оценето r$2 од [[$1]]',
 	'review-logentry-dis' => 'застарена r$2 од [[$1]]',
-	'review-logentry-id' => 'преглед: $2',
-	'review-logentry-diff' => 'разлика со стабилна',
+	'review-logentry-id' => 'ревизија: $2',
+	'review-logentry-diff' => 'разлика од стабилната верзија',
 	'review-logpage' => 'Дневник на прегледување',
 	'reviewer' => 'Оценувач',
 	'revisionreview' => 'Оценети ревизии',
@@ -7683,6 +7687,7 @@ $messages['mk'] = array(
 	'rights-editor-autosum' => 'автопромовиран',
 	'stable-logpage' => 'Дневник на стабилни страници',
 	'revreview-filter-all' => 'Сите',
+	'revreview-filter-stable' => 'стабилна',
 	'revreview-filter-approved' => 'Одобрени',
 	'revreview-filter-reapproved' => 'Ре-одобрени',
 	'revreview-filter-unapproved' => 'Неодобрени',
@@ -7690,6 +7695,10 @@ $messages['mk'] = array(
 	'revreview-filter-manual' => 'Рачно',
 	'revreview-statusfilter' => 'Променана статусот:',
 	'revreview-typefilter' => 'Тип:',
+	'revreview-levelfilter' => 'Ниво:',
+	'revreview-lev-sighted' => 'проверена',
+	'revreview-lev-quality' => 'квалитетна',
+	'revreview-lev-pristine' => 'првобитна',
 	'revreview-reviewlink' => 'оценка',
 	'tooltip-ca-current' => 'Преглед на тековна работна верзија на оваа страница',
 	'tooltip-ca-stable' => 'Преглед на стабилна верзија на оваа страница',

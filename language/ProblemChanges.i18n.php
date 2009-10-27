@@ -335,6 +335,7 @@ $messages['mk'] = array(
  * @author Praveenp
  */
 $messages['ml'] = array(
+	'problemchanges-none' => 'ഈ മാനദണ്ഡങ്ങളുമായി ഒത്തു പോകുന്ന താളുകൾ ഒന്നും ഇപ്പോൾ ലഭ്യമല്ല',
 	'problemchanges-category' => 'വർഗ്ഗം:',
 );
 

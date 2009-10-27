@@ -40,7 +40,9 @@ $messages['qqq'] = array(
 {{Identical|Content page}}',
 	'unreviewed-category' => '{{Flagged Revs}}
 {{Identical|Category}}',
-	'unreviewed-diff' => '{{Flagged Revs}}',
+	'unreviewed-diff' => '{{Flagged Revs}}
+
+{{Identical|Review}}',
 	'unreviewed-unwatched' => '{{Flagged Revs}}',
 	'unreviewed-watched' => '{{Flagged Revs}}
 * $1 is the number of active users that have the page on their watchlist',
