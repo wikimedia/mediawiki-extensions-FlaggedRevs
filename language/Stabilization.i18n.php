@@ -243,6 +243,13 @@ $messages['ar'] = array(
 	'stabilization-review' => 'راجع النسخة الحالية',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'stabilization-page' => 'ܫܡܐ ܕܦܐܬܐ:',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
  * @author Ramsis II
@@ -1995,7 +2002,7 @@ $messages['ml'] = array(
 	'stabilization-perm' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ ക്രമീകരണം മാറ്റുന്നതിനുള്ള അവകാശം താങ്കളുടെ അക്കൗണ്ടിനില്ല. [[:$1|$1]]ന്റെ നിലവിലുള്ള ക്രമീകരണം ഇവിടെ കാണാം:',
 	'stabilization-page' => 'താളിന്റെ പേര്‌:',
 	'stabilization-leg' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ ക്രമീകരണങ്ങള്‍ ഉറപ്പിക്കുക',
-	'stabilization-select' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ തിരഞ്ഞെടുക്കല്‍',
+	'stabilization-select' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ തിരഞ്ഞെടുക്കല്‍ മുൻഗണന',
 	'stabilization-select2' => 'അവസാനമായി സം‌ശോധനം നടത്തിയ പതിപ്പ്',
 	'stabilization-def' => 'താളിന്റെ സ്വതവേയുള്ള നിലയില്‍ പ്രദര്‍ശിപ്പിക്കുന്ന പതിപ്പ്',
 	'stabilization-def1' => 'സ്ഥിരതയുള്ള പതിപ്പ്;

@@ -74,6 +74,13 @@ $messages['ar'] = array(
 	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'stableversions-page' => 'ܫܡܐ ܕܦܐܬܐ:',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
  */

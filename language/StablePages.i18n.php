@@ -593,6 +593,7 @@ $messages['ml'] = array(
 	'stablepages-config' => 'ക്രമീകരണം',
 	'stablepages-prec-none' => 'യാതൊരു മുൻഗണനയുമില്ലാതെ',
 	'stablepages-prec-quality' => 'ഗുണമേന്മയ്ക്ക് മുൻഗണന',
+	'stablepages-precedence' => 'മുൻഗണന:',
 );
 
 /** Marathi (मराठी)
