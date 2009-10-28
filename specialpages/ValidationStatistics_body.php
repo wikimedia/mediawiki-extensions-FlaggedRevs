@@ -42,14 +42,25 @@ class ValidationStatistics extends IncludableSpecialPage
 		$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
 		$dbCache = wfGetCache( CACHE_DB );
 		$data = $dbCache->get( $key );
+		$data[1] = 10;
+		$data[2] = 20;
+		$data[3] = 30;
+		$data[4] = 40;
+		$data[5] = 50;
+		//$data[6] = 60;
+		$data[7] = 70;
+		$data[8] = 80;
 		# Is there a review time table available?
 		if( is_array($data) && count($data) ) {
 			$headerRows = $dataRows = '';
+			$colsCount = count( $data );
+			$headerRowsDesc = "<th colspan=$colsCount>Percentile/wait</th>";
 			foreach( $data as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>".intval($percentile)."</sub></th>";
 				$dataRows .= '<td>'.$wgLang->formatTimePeriod($perValue).'</td>';
 			}
 			$reviewChart = "<table class='wikitable flaggedrevs_stats_table' style='white-space: nowrap;'>\n";
+			$reviewChart .= "<tr align='center'>$headerRowsDesc</tr>\n";
 			$reviewChart .= "<tr align='center'>$headerRows</tr>\n";
 			$reviewChart .= "<tr align='center'>$dataRows</tr>\n";
 			$reviewChart .= "</table>\n";
@@ -58,7 +69,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		}
 
 		# Show review/pending time stats
-		$wgOut->addWikiText( '<hr/>' . wfMsgExt( 'validationstatistics-time', array( 'parsemag' ), 
+		$wgOut->addHTML( '<hr/>' . wfMsgExt( 'validationstatistics-time', array( 'parse' ), 
 			$wgLang->formatTimePeriod($mt), $wgLang->formatTimePeriod($pt),
 			$wgLang->formatTimePeriod($mdt), $reviewChart, $date, $time )
 		);
