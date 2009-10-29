@@ -692,11 +692,12 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Shijualex
  */
 $messages['ml'] = array(
 	'reviewedpages' => 'സംശോധനം നടന്ന താളുകള്‍',
-	'reviewedpages-leg' => 'ഒരു പ്രത്യേക തലം വരെ സംശോധനം ചെയ്ത താളുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
+	'reviewedpages-leg' => 'കൂടിയ തലം അനുസരിച്ചുള്ള താളുകളുടെ പട്ടിക',
 	'reviewedpages-list' => 'താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന താളുകള്‍ ഒരു പ്രത്യേക തലത്തിലുള്ള സം‌ശോധനം പൂര്‍ത്തിയാക്കിയിരിക്കുന്നു',
 	'reviewedpages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'reviewedpages-lev-0' => 'സൈറ്റഡ്',

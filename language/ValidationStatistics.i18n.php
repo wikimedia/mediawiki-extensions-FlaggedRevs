@@ -989,7 +989,7 @@ $messages['ksh'] = array(
 	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un [[Special:ListUsers/reviewer|{{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.
 
 {{int:group-editor}}, un {{int:group-reviewer}}, sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
-	'validationstatistics-time' => "'''Opjepaß:''' ''De Date hee noh sen för e paa Stond zweschejespeichert, se künnte alsu nit janz de Neuste sin.''
+	'validationstatistics-time' => "'''Opjepaß:''' ''De Date hee noh sen vum $5 öm $6 Uhr, se künnte alsu nit janz de Neuste sin.''
 
 Dä Meddelwäät för de Zick för op Änderunge vun namelose Metmaachere ze waade, es '''$1'''<!-- Shtunde, Menutte, un Sekunde-->. Dä Medianwäät es '''$3'''<!-- Shtunde, Menutte, un Sekunde-->.
 $4
@@ -1096,6 +1096,7 @@ $messages['ml'] = array(
 	'validationstatistics-latest' => 'ഒടുവില്‍ പരിശോധിച്ചവ',
 	'validationstatistics-synced' => 'ഏകകാലികമാക്കിയവ/പരിശോധിച്ചവ',
 	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
+	'validationstatistics-utable' => 'കഴിഞ്ഞ മണിക്കൂറിലെ ആദ്യ അഞ്ച് സംശോധകരുടെ പട്ടികയാണ് താഴെയുള്ളത്.',
 	'validationstatistics-user' => 'ഉപയോക്താവ്',
 	'validationstatistics-reviews' => 'സംശോധനങ്ങൾ',
 );
@@ -1497,7 +1498,7 @@ $messages['sah'] = array(
 $messages['sk'] = array(
 	'validationstatistics' => 'Štatistiky overenia',
 	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
-	'validationstatistics-time' => "''Nasledovné údaje pochádzajú z vyrovnávacej pamäte a nemusia byť aktuálne.''
+	'validationstatistics-time' => "''Nasledovné údaje boli naposledy aktualizované $5 o $6.''
 
 Priemerné čakanie na úpravy ''anonymných používateľov'' je '''$1'''; medián je '''$3'''.  
 $4
