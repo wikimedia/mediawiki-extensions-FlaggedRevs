@@ -2008,6 +2008,7 @@ $messages['ml'] = array(
 	'stabilization-def1' => 'സ്ഥിരതയുള്ള പതിപ്പ്;
 അതില്ലെങ്കില്‍ നിലവിലുള്ള/കരട് പതിപ്പ്',
 	'stabilization-def2' => 'നിലവിലുള്ള/കരട് പതിപ്പ്',
+	'stabilization-restrict' => 'പരിമിതപ്പെടുത്തലുകൾ സ്വയം പരിശോധന ചെയ്യുക',
 	'stabilization-restrict-none' => 'കൂടുതൽ പരിമിതപ്പെടുത്തലുകളില്ല',
 	'stabilization-submit' => 'സ്ഥിരീകരിക്കുക',
 	'stabilization-notexists' => '"[[:$1|$1]]". എന്ന ഒരു താള്‍ നിലവിലില്ല. ക്രമീകരണങ്ങള്‍ നടത്തുന്നതിനു സാദ്ധ്യമല്ല.',
