@@ -1324,8 +1324,9 @@ class FlaggedRevsHooks {
 					'rc_namespace' => $wgContentNamespaces ), 
 				__METHOD__, 
 				array( 'USE INDEX' => 'rc_ns_usertext',
-					'LIMIT' => $wgFlaggedRevsAutopromote['recentContent'] ) );
-			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['recentContent'] ) {
+					'LIMIT' => $wgFlaggedRevsAutopromote['recentContentEdits'] )
+			);
+			if( $dbr->numRows($res) < $wgFlaggedRevsAutopromote['recentContentEdits'] ) {
 				return true;
 			}
 		}
