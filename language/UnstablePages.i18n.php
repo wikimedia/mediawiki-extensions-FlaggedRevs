@@ -675,6 +675,15 @@ $messages['uk'] = array(
 	'unstablepages-config' => 'Налаштування',
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'unstablepages' => 'Pagine mia stabili',
+	'unstablepages-stable' => 'version stabile',
+	'unstablepages-none' => 'No ghe xe pagine su sta lista.',
+);
+
 /** Veps (Vepsan kel')
  * @author Игорь Бродский
  */

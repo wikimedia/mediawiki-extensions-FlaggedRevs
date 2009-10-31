@@ -1873,6 +1873,9 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'rights-editor-autosum' => 'emanvet',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
 	'revreview-filter-approved' => 'Aprouet',
+	'revreview-typefilter' => 'Seurt :',
+	'revreview-levelfilter' => 'Live :',
+	'revreview-reviewlink' => 'adwelet',
 	'tooltip-ca-current' => "Gwelet brouilhed ar bajenn-mañ evel m'emañ evit poent",
 	'tooltip-ca-stable' => 'Gwelet stumm stabil ar bajenn',
 	'tooltip-ca-default' => 'Arventennoù Kontrolliñ ar Berzhded',
@@ -7369,6 +7372,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'right-review' => 'Versiounen als iwwerkuckt markéieren',
 	'right-stablesettings' => 'Astelle wéi eng stabil Versioun erausgesicht an ugewise gëtt',
 	'right-validate' => 'Versiounen als validéiert markéieren',
+	'rights-editor-autosum' => 'automatesch promovéiert',
 	'rights-editor-revoke' => 'huet dem [[$1]] den Editeur-Statut ewechgeholl',
 	'specialpages-group-quality' => 'Qualitéitssécherung',
 	'stable-logentry' => 'huet stabil Versioune fir [[$1]] agestallt',
@@ -7715,8 +7719,14 @@ $messages['mk'] = array(
 $messages['ml'] = array(
 	'editor' => 'എഡിറ്റര്‍',
 	'flaggedrevs-desc' => 'എഡിറ്റര്‍മാര്‍ക്കും സം‌ശോധകര്‍ക്കും പതിപ്പുകള്‍ ഗുണപരിശോധന നടത്താനും താളുകള്‍ സ്ഥിരപ്പെടുത്താനുമുള്ള അവകാശം കൊടുക്കുന്നു.',
+	'flaggedrevs-pref-UI' => 'സ്ഥിരതയുള്ള പതിപ്പിനുള്ള ദൃശ്യമണ്ഡലം:',
+	'flaggedrevs-pref-UI-0' => 'സ്ഥിരതയുള്ള പതിപ്പിന് വിപുലമായ ഉപയോക്തൃ ദൃശ്യമണ്ഡലം ഉപയോഗിക്കുക',
+	'flaggedrevs-pref-UI-1' => 'സ്ഥിരതയുള്ള പതിപ്പിന് ലളിതമായ ഉപയോക്തൃ ദൃശ്യമണ്ഡലം ഉപയോഗിക്കുക',
 	'prefs-flaggedrevs' => 'സ്ഥിരത',
+	'flaggedrevs-prefs-stable' => 'ഉള്ളടക്ക താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് എപ്പോഴും സ്വതവേ പ്രദർശിപ്പിക്കുക (ഒന്നുണ്ടെങ്കിൽ)',
 	'flaggedrevs-prefs-watch' => 'ഞാന്‍ സം‌ശോധം ചെയ്യുന്ന താളുകള്‍ എന്റെ ശ്രദ്ധിക്കുന്ന താളുകളുടെ പട്ടികയിലേക്ക് ചേര്‍ക്കുക',
+	'flaggedrevs-prefs-editdiffs' => 'താളുകൾ തിരുത്തുമ്പോൾ സ്ഥിരതയുള്ളതുമായുള്ള വ്യത്യാസം പ്രദർശിപ്പിക്കുക',
+	'flaggedrevs-prefs-viewdiffs' => 'കരടുകൾ കാണുമ്പോൾ സ്ഥിരതയുള്ളതുമായുള്ള വ്യത്യാസം പ്രദർശിപ്പിക്കുക',
 	'group-editor' => 'എഡിറ്റര്‍മാര്‍',
 	'group-editor-member' => 'എഡിറ്റര്‍',
 	'group-reviewer' => 'സംശോധകര്‍',
@@ -8251,9 +8261,12 @@ $messages['nds'] = array(
 	'revreview-revnotfound' => 'De Version vun disse Siet, no de du söökst, kunn nich funnen warrn. Prööv de URL vun disse Siet.',
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
 $messages['nds-nl'] = array(
-	'revreview-revnotfound' => 'De op-evreugen ouwe versie van disse pagina is onvientbaor. Kiek de URL dee-j gebruken nao um naor disse pagina te gaon.',
+	'revreview-revnotfound' => 'De ouwe versie van disse pagina kon neet evunnen wönnen. 
+Kiek de URL nao dee-j gebruken um naor disse pagina te gaon.',
 );
 
 /** Dutch (Nederlands)

@@ -1701,6 +1701,7 @@ $messages['vec'] = array(
 	'validationstatistics' => 'Statìsteghe de validassion',
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
+	'validationstatistics-latest' => 'Sincronizà',
 	'validationstatistics-user' => 'Utente',
 );
 
