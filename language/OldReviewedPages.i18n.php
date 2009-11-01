@@ -899,17 +899,25 @@ $messages['lb'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
+	'oldreviewedpages' => 'Застарени проверени страници',
+	'oldreviewedpages-legend' => 'Листа на проверени страници со ревизии во исчекување на проверка',
+	'oldreviewedpages-list' => 'Оваа страница наведува {{PLURAL:$1|прегледана страница|прегледани страници}} со уредувања во исчекување на проверка.',
+	'oldreviewedpages-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
 	'oldreviewedpages-recent' => '(помалку од 1 час)',
 	'oldreviewed-category' => 'Категорија:',
 	'oldreviewed-watched' => 'Во мојата листа на набљудувања',
+	'oldreviewed-stable' => 'Стабилизирани',
 	'oldreviewed-diff' => 'преглед',
+	'oldreviewed-size' => 'Макс. промена (во бајти):',
 	'oldreviewedpages-unwatched' => '(ненабљудувана)',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|активен корисник набљудува|активни корисници набљудуваат}})',
+	'oldreviewedpages-viewing' => '(во проверка)',
 );
 
 /** Malayalam (മലയാളം)

@@ -1794,6 +1794,7 @@ $messages['br'] = array(
 	'review-logentry-app' => 'en deus adwelet r$2 eus [[$1]]',
 	'review-logentry-dis' => "Stumm dic'hizet eus [[$1]]",
 	'review-logentry-id' => 'gwelet: $2',
+	'review-logentry-diff' => "kemmoù d'ar stumm stabil",
 	'review-logpage' => 'Marilh an adweladennoù',
 	'review-logpagetext' => "Setu marilh ar c'hemmoù ber degaset [[{{MediaWiki:Validationpage}}|d'ar statud aprouiñ]] an adweladennoù.
 Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pajennoù aprouet.",
@@ -4289,7 +4290,7 @@ Novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] foron
 Un modelo ou ficheiro puido ser solicitado cando ningunha versión específica foi especificada.
 Isto pode ocorrer se un modelo dinámico transcribe outro modelo ou ficheiro dependendo dunha variable que cambiou desde que comezou a revisar esta páxina.
 Actualizar a páxina e volvela revisar pode resolver o problema.",
-	'revreview-current' => 'Proxecto',
+	'revreview-current' => 'Borrador',
 	'revreview-depth' => 'Profundidade',
 	'revreview-depth-0' => 'Sen aprobar',
 	'revreview-depth-1' => 'Básico',
@@ -7857,6 +7858,10 @@ $messages['ml'] = array(
 	'tooltip-ca-default' => 'ഗുണനിലവാര ഉറപ്പാക്കല്‍ ക്രമീകരണങ്ങള്‍',
 	'flaggedrevs-protect-legend' => 'തിരുത്തലിന്റെ അംഗീകരണം',
 	'flaggedrevs-protect-none' => 'കൂടുതൽ നിയന്ത്രണങ്ങൾ ഇല്ല',
+	'revreview-locked-title' => 'ഈ താളിലെ തിരുത്തലുകൾ പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് സംശോധനം ചെയ്യേണ്ടതാണ്.',
+	'revreview-unlocked-title' => 'ഈ താളിലെ തിരുത്തലുകൾ പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് സംശോധനം ചെയ്യേണ്ടതില്ല.',
+	'revreview-locked' => 'ഈ താളിൽ പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് തിരുത്തലുകൾ [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്തിരിക്കണം.',
+	'revreview-unlocked' => 'ഈ താളിൽ പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് തിരുത്തലുകൾ [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യേണ്ടതില്ല.',
 	'log-show-hide-review' => 'സംശോധന രേഖ $1',
 	'revreview-tt-review' => 'ഈ താൾ സംശോധനം ചെയ്യുക',
 	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
