@@ -7287,6 +7287,8 @@ $messages['lb'] = array(
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virberredung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi drop warden nogekuckt ze ginn.",
 	'revreview-basic-i' => "Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vun der Schabloun respektiv dem Fichier] déi nach dropwarde fir nogekuckt ze ginn.",
+	'revreview-basic-old' => 'Dëst ass eng [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ganz Lëscht]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
+Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kënnen an der Tëschenzäit gemaach gi sinn.',
 	'revreview-basic-same' => 'Dëst ass déi lescht [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} alleguer weisen]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn ] den <i>$2</i>.',
 	'revreview-basic-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nogekuckt Versioun] vun dëser Säit [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-blocked' => 'Dir kënnt dës Versioun net nokucke well Äre Benotzerkont elo gespaart ass ([$1 Detailer])',
@@ -7311,6 +7313,8 @@ D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPA
 Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-newest-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lescht nogekuckte Versioun] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigestallt] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerunge}}] {{PLURAL:$3|waart|waarden}} drop fir nogekuckt ze ginn.',
+	'revreview-newest-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lescht Qualitéitsversioun] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ganz Lëscht]) gouf de(n) <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerunge}}] {{PLURAL:$3|waard|waarden}} drop fir nogekuckt ze ginn.',
 	'revreview-noflagged' => "Et gëtt keng nogekuckte Versioune vun dëser Säit, et kann also sinn datt hir Qualitéit '''net''' [[{{MediaWiki:Validationpage}}|nogekuckt]] gouf.",
 	'revreview-note' => '[[User:$1|$1]] huet dës Notize gemaach, wéi dës Versioun [[{{MediaWiki:Validationpage}}|nogekuckt gouf]]:',
 	'revreview-notes' => 'Bemierkungen oder Notizen fir unzeweisen:',
@@ -7770,6 +7774,7 @@ $messages['ml'] = array(
 	'revreview-depth-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-draft-title' => 'കരട് താൾ',
 	'revreview-edit' => 'കരട് തിരുത്തുക',
+	'revreview-editnotice' => "'''ഈ താളിലെ തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരുപയോക്താവ് സംശോധനം ചെയ്ത ശേഷം [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പിലേയ്ക്ക്]] ചേർക്കുന്നതാണ്.'''",
 	'revreview-flag' => 'ഈ പതിപ്പ് സംശോധനം ചെയ്യുക',
 	'revreview-edited' => "'''സ്ഥാപിതരായ ഉപയോക്താക്കള്‍ സം‌ശോധനം നിര്‍‌വഹിച്ചതിനു ശേഷം തിരുത്തലുകള്‍ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പിലേക്ക്]] ചേര്‍ക്കപ്പെടും. 
 
@@ -7842,6 +7847,8 @@ $messages['ml'] = array(
 	'rights-editor-autosum' => 'യാന്ത്രികമായി സ്ഥാനക്കയറ്റം നല്‍കിയിരിക്കുന്നു',
 	'rights-editor-revoke' => '[[$1]] എന്ന ഉപയോക്താവിന്റെ എഡിറ്റര്‍ അവകാശം പിന്‍‌വലിച്ചിരിക്കുന്നു',
 	'specialpages-group-quality' => 'ഗുണമേന്മാ ഉറപ്പ്',
+	'stable-logentry' => '[[$1]] താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പാക്കൽ പ്രക്രിയ ക്രമീകരിച്ചിരിക്കുന്നു',
+	'stable-logentry2' => '[[$1]] താളിനെ സ്ഥിരതയുള്ള പതിപ്പാക്കൽ പുനഃക്രമീകരിക്കുക',
 	'stable-logpage' => 'സ്ഥിരതയുടെ പ്രവര്‍ത്തനരേഖ',
 	'revreview-filter-all' => 'എല്ലാം',
 	'revreview-filter-stable' => 'സ്ഥിരതയുള്ളത്',
