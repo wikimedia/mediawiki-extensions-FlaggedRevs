@@ -877,19 +877,22 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Gianfranco
  * @author Melos
  * @author Pietrodn
  */
 $messages['it'] = array(
 	'validationstatistics' => 'Statistiche di convalidazione',
-	'validationstatistics-users' => "Al momento, su '''{{SITENAME}}''' {{PLURAL:$1|c'è '''[[Special:ListUsers/editor|$1]]''' utente|ci sono '''[[Special:ListUsers/editor|$1]]''' utenti}} con i diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''$2''' {{PLURAL:$2|utente|utenti}} con i diritti di [[{{MediaWiki:Validationpage}}|Revisore]].",
-	'validationstatistics-time' => "''I dati seguenti sono cachati e potrebbero non essere aggiornati.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' ha attualmente '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Revisore]].",
+	'validationstatistics-time' => "''Ultimo aggiornamento dei dati seguenti effettuato il $5 alle $6.''
 
-L'attesa media per le modifiche da parte degli ''utenti che non hanno fatto il login'' è '''$1'''; la mediana è '''$3'''.
+Gli edit che sono stati controllati da utenti navigati sono considerati come verificati.
+
+Il tempo medio di attesa per la revisione degli edit di ''utenti non loggati'' è di '''$1'''; la media è di '''$3'''.  
 $4
-Il ritardo medio per le [[Special:OldReviewedPages|pagine con modifiche non revisionate pendenti]] è '''$2'''.
-Queste pagine sono considerate ''obsolete''. Così pure, le pagine sono considerate ''sincronizzate'' se la [[{{MediaWiki:Validationpage}}|versione stabile]] è anche l'attuale versione di bozza.
-Le versioni stabili sono le versioni delle pagine controllate da almeno un utente autorevole.",
+L'attesa media per [[Special:OldReviewedPages|pagine con edit non ancora controllati]] è di '''$2'''.
+Queste pagine sono considerate ''non aggiornate''. Allo stesso modo, le pagine sono considerate ''sincronizzate'' se la loro [[{{MediaWiki:Validationpage}}|versione stabile]] coincide con l'attuale versione di bozza.
+La versione stabile di una pagina è la revisione più recente fra quelle che sono state approvate per la visualizzazione a tutti i lettori.",
 	'validationstatistics-table' => "Le statistiche per ciascun namespace sono mostrate di seguito, ''a esclusione'' delle pagine di redirect.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
@@ -1418,7 +1421,7 @@ $messages['roa-tara'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].
 
 Le cangiature e le revisure onne state stabbelite da l'utinde ca ponne verificà le revisiune de le pàggene.",
-	'validationstatistics-time' => "'''A seguende date stè jndr'à cache e non g'avène aggiornate.''
+	'validationstatistics-time' => "'''A seguende date ha state aggiornate l'urtema vote 'u $5 a le $6.''
 
 Le cangiaminde ca onne state verificate da l'utinde stabbelite onne state conziderate riviste.
 

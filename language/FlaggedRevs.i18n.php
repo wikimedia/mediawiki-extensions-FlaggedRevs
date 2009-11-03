@@ -1777,6 +1777,7 @@ $messages['bqi'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'editor' => 'Skridaozer',
@@ -1873,6 +1874,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-revnotfound' => "N'eo ket bet kavet stumm kent ar bajenn-mañ. Gwiriit an URL lakaet ganeoc'h evit mont d'ar bajenn-mañ.",
 	'rights-editor-autosum' => 'emanvet',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
+	'revreview-filter-all' => 'pep tra',
 	'revreview-filter-approved' => 'Aprouet',
 	'revreview-typefilter' => 'Seurt :',
 	'revreview-levelfilter' => 'Live :',
@@ -6126,7 +6128,7 @@ $messages['is'] = array(
 $messages['it'] = array(
 	'editor' => 'Editore',
 	'flaggedrevs' => 'Verifica delle revisioni',
-	'flaggedrevs-backlog' => "C'è del lavoro arretrato nelle [[Special:OldReviewedPages|pagine non revisionate di recente]]. '''È necessaria la tua attenzione!'''",
+	'flaggedrevs-backlog' => "C'è attualmente un elenco di [[Special:OldReviewedPages|edit non controllati]] in pagine revisionate. '''È necessaria la tua attenzione!'''",
 	'flaggedrevs-desc' => 'Dà agli editori e ai revisori la possibilità di validare le revisioni e stabilizzare le pagine',
 	'flaggedrevs-pref-UI-0' => "Usa l'interfaccia utente dettagliata delle revisioni stabili",
 	'flaggedrevs-pref-UI-1' => "Usa l'interfaccia utente semplice delle revisioni stabili",
@@ -6148,8 +6150,8 @@ $messages['it'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} visionata] da [[User:$3|$3]]',
 	'review-diff2stable' => 'Visualizza i cambiamenti fra la versione stabile e la corrente',
 	'review-logentry-app' => 'ha revisionato r$2 di [[$1]]',
-	'review-logentry-id' => 'visualizza: $2',
-	'review-logentry-diff' => 'diff con stabile',
+	'review-logentry-id' => 'revisione: $2',
+	'review-logentry-diff' => 'differenze dalla versione stabile',
 	'review-logpage' => 'Log revisioni',
 	'reviewer' => 'Revisore',
 	'revisionreview' => 'Revisiona versioni',
@@ -6171,10 +6173,11 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}
 Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifiche].',
 	'revreview-basic-same' => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|visionata]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.",
 	'revreview-blocked' => 'Non puoi revisionare questa versione perché il tuo account è attualmente bloccato ([$1 dettagli])',
-	'revreview-changed' => "'''L'azione richiesta non può essere eseguita su questa versione di [[:$1|$1]].'''
+	'revreview-changed' => "'''L'azione richiesta non è stata eseguita su questa revisione di [[:$1|$1]].'''
 
-Un template o una immagine potrebbero essere state richieste quando nessuna versione era stata specificata. Ciò accade se un template dinamico include un'altra immagine o un template dipendente da una variabile che è cambiata da quando hai iniziato a revisionare questa pagina.
-Aggiornare la pagina e ricominciare la revisione potrebbero risolvere il problema.",
+Un template od un file potrebbero essere stati richiesti quando nessuna versione era stata specificata. 
+Ciò può accadere se un template dinamico include un'altro file od un template dipendente da una variabile che sia cambiata da quando hai iniziato a revisionare questa pagina.
+Aggiornare la pagina e ricominciare la revisione potrebbe risolvere il problema.",
 	'revreview-current' => 'Bozza',
 	'revreview-depth' => 'Esaustività',
 	'revreview-depth-0' => 'Non approvata',
@@ -6242,9 +6245,9 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-toggle-title' => 'mostra/nascondi dettagli',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche ''(mostrate di seguito)'' apportate da quanto la versione stabile è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata].<br />
 '''Alcuni template o file sono stati aggiornati:'''",
-	'revreview-update-includes' => "'''Alcuni template o immagini sono stati aggiornati:'''",
+	'revreview-update-includes' => "'''Alcuni template/file sono stati aggiornati:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche ''(mostrate di seguito)'' apportate da quando la versione stabile è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata].",
-	'revreview-update-use' => "'''NOTA:''' Se qualcuno di questi template o immagini hanno una versione stabile, allora è già usata nella versione stabile di questa pagina.",
+	'revreview-update-use' => "'''NOTA:''' Se qualcuno di questi template/file ha una versione stabile, allora è già usato nella versione stabile di questa pagina.",
 	'revreview-diffonly' => "''Per revisionare la pagina, fai clic sul link \"versione corrente\" e usa il modulo di revisione.''",
 	'revreview-visibility' => "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] aggiornata; le impostazioni della stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
 	'revreview-visibility2' => "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] obsoleta; le impostazioni di stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
@@ -7746,6 +7749,8 @@ $messages['ml'] = array(
 	'review-logentry-id' => 'നാൾപ്പതിപ്പ്: $2',
 	'review-logentry-diff' => 'സ്ഥിരതയുള്ള പതിപ്പിലേയ്ക്ക് മാറ്റുക',
 	'review-logpage' => 'സംശോധന പ്രവര്‍ത്തരേഖ',
+	'review-logpagetext' => 'ഉള്ളടക്ക താളുകളുടെ നാൾപ്പതിപ്പുകളുടെ [[{{MediaWiki:Validationpage}}|അംഗീകരണ]] സ്ഥിതിയുടെ മാറ്റങ്ങൾ ഉൾക്കൊള്ളുന്ന രേഖയാണിത്.
+അംഗീകരിച്ച താളുകളുടെ പട്ടികയ്ക്കായി [[Special:ReviewedPages|സംശോധനം ചെയ്ത താളുകൾ]] കാണുക.',
 	'reviewer' => 'സംശോധകന്‍',
 	'revisionreview' => 'പതിപ്പുകള്‍ സംശോധനം ചെയ്യുക',
 	'revreview-accuracy' => 'സൂക്ഷമത',
@@ -9801,8 +9806,8 @@ $messages['roa-tara'] = array(
 	'review-diff2stable' => "Vide le cangiaminde 'mbrà le revisiune secure e corrende",
 	'review-logentry-app' => 'riviste r$2 de [[$1]]',
 	'review-logentry-dis' => 'schifete r$2 de [[$1]]',
-	'review-logentry-id' => 'vide: $2',
-	'review-logentry-diff' => 'diff pe stabbilità',
+	'review-logentry-id' => 'revisione: $2',
+	'review-logentry-diff' => "cangiaminde da 'a versiona secure",
 	'review-logpage' => 'Archivie de le revisitaminde',
 	'review-logpagetext' => "Quiste jè 'n'archivije de le cangiaminde de le revisiune in state de [[{{MediaWiki:Validationpage}}|approvazione]] pe le vosce.
 Vide 'a [[Special:ReviewedPages|liste de le pàggene riviste]] pe 'na liste de le pàggene approvete.",
@@ -9951,6 +9956,8 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'tooltip-ca-current' => "Vide 'a bozza corrende pe sta pàgene",
 	'tooltip-ca-stable' => "Vide 'a versiona secure pe sta pàgene",
 	'tooltip-ca-default' => "'Mbostaziune de l'assicurazione de qualitate",
+	'flaggedrevs-protect-legend' => "Approvazione d'u cangiamende",
+	'flaggedrevs-protect-none' => 'Nisciuna restrizzione de cchiù',
 	'revreview-locked-title' => 'Le cangiaminde onne a essere riviste apprime de farle vedè sus a sta pàgene!',
 	'revreview-unlocked-title' => 'Le cangiaminde non ge richiedene le revisete apprime ca avènene fatte vedè sus a stà pàgene!',
 	'revreview-locked' => 'Le cangiaminde onne a essere riviste apprime de farle vedè sus a sta pàgene!',

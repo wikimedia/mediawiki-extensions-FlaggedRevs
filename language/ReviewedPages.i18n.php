@@ -530,11 +530,12 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Gianfranco
  * @author Pietrodn
  */
 $messages['it'] = array(
 	'reviewedpages' => 'Pagine revisionate',
-	'reviewedpages-leg' => 'Elenca le pagine revisionate a un certo livello',
+	'reviewedpages-leg' => 'Elenca le pagine per livello (decrescente)',
 	'reviewedpages-list' => 'Di seguito sono elencate le pagine che sono state revisionate (al massimo) al livello specificato.',
 	'reviewedpages-none' => 'Non ci sono pagine in questo elenco',
 	'reviewedpages-lev-0' => 'Visionata',

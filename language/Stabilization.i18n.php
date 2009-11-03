@@ -1547,6 +1547,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Gianfranco
  * @author Melos
  * @author Nemo bis
  * @author Pietrodn
@@ -1561,12 +1562,12 @@ assicurati di controllare se effettivamente ci siano nella pagina tali revisioni
 Qui ci sono le impostazioni attuali per [[:$1|$1]]:",
 	'stabilization-page' => 'Nome della pagina:',
 	'stabilization-leg' => 'Conferma le impostazioni della versione stabile',
-	'stabilization-select' => 'Selezione versione stabile',
+	'stabilization-select' => 'Priorità per la selezione della versione stabile',
 	'stabilization-select1' => "L'ultima versione di qualità; se non presente, allora l'ultima visionata",
 	'stabilization-select2' => "L'ultima versione revisionata, indipendentemente dal livello di validazione",
 	'stabilization-def' => 'Revisione visualizzata di default alla visita della pagina',
-	'stabilization-def1' => 'La versione stabile; se non presente, quella attuale',
-	'stabilization-def2' => 'La versione attuale',
+	'stabilization-def1' => 'La versione stabile; se non disponibile, quella attuale o la bozza',
+	'stabilization-def2' => 'La revisione/bozza attuale',
 	'stabilization-restrict' => "Restrizioni sull'auto-revisione",
 	'stabilization-restrict-none' => "Nessun'ulteriore restrizione",
 	'stabilization-submit' => 'Conferma',
@@ -1575,9 +1576,9 @@ Non è possibile effettuare la configurazione.',
 	'stabilization-notcontent' => 'La pagina "[[:$1|$1]]" non può essere revisionata.
 Non è possibile effettuare la configurazione.',
 	'stabilization-comment' => 'Motivo:',
-	'stabilization-otherreason' => 'Altro motivo',
+	'stabilization-otherreason' => 'Altro motivo:',
 	'stabilization-expiry' => 'Scadenza:',
-	'stabilization-othertime' => 'Altra durata',
+	'stabilization-othertime' => 'Altra durata:',
 	'stabilization-sel-short' => 'Precedenza',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Nessuna',
@@ -2619,9 +2620,9 @@ Nisciuna configurazione jè possibbele.',
 	'stabilization-notcontent' => '\'A pàgene "[[$1|$1]]" non ge pò essere reviste.
 Non ge stonne le configurazione.',
 	'stabilization-comment' => 'Mutive:',
-	'stabilization-otherreason' => 'Otre mutive',
+	'stabilization-otherreason' => 'Otre mutive:',
 	'stabilization-expiry' => 'More:',
-	'stabilization-othertime' => 'Otre orarije',
+	'stabilization-othertime' => 'Otre orarije:',
 	'stabilization-sel-short' => 'Precedenze',
 	'stabilization-sel-short-0' => 'Qualità',
 	'stabilization-sel-short-1' => 'Ninde',
