@@ -1405,7 +1405,7 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * @param int $revId
-	 * @eturns Array, output of the flags for a given revision
+	 * @returns Array, output of the flags for a given revision
 	 */
 	public function getFlagsForRevision( $revId ) {
 		# Cached results?
