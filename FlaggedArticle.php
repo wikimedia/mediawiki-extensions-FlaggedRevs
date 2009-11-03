@@ -8,7 +8,6 @@ class FlaggedArticle extends Article {
 	protected $flags = null;
 	protected $reviewNotice = '';
 	protected $reviewNotes = '';
-	protected $file = NULL;
 	protected $parent;
 
 	/**
