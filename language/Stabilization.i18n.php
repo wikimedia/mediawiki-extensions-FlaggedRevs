@@ -464,6 +464,7 @@ $messages['bn'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
@@ -476,7 +477,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-notcontent' => 'N\'hall ket ar bajenn "[[:$1|$1]]" bezañ adwelet.
 N\'haller ket kefluniañ netra.',
 	'stabilization-comment' => 'Abeg :',
-	'stabilization-otherreason' => 'Abeg all',
+	'stabilization-otherreason' => 'Abeg all :',
 	'stabilization-expiry' => "A ya d'e dermen",
 	'stabilization-othertime' => 'Mare all',
 	'stabilization-sel-short' => 'Kentwir',

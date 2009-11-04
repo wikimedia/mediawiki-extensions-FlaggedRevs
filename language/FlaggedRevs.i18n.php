@@ -1776,6 +1776,7 @@ $messages['bqi'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fohanno
  * @author Fulup
  * @author Y-M D
  */
@@ -1783,6 +1784,7 @@ $messages['br'] = array(
 	'editor' => 'Skridaozer',
 	'flaggedrevs' => 'Adweladennoù merket',
 	'flaggedrevs-desc' => "Reiñ a ra an tu d'ar reizherien pe d'an adlennerien da gadarnaat an degasadennoù ha da stabilaat ar pajennoù.",
+	'prefs-flaggedrevs' => 'Stabilded',
 	'group-editor' => 'Skridaozerien',
 	'group-editor-member' => 'Skridaozer',
 	'group-reviewer' => 'Reizherien',
@@ -1866,6 +1868,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-style-3' => 'Krenn',
 	'revreview-style-4' => 'Heverk',
 	'revreview-submit' => 'Kas',
+	'revreview-submitting' => 'O kas...',
 	'revreview-toggle-title' => 'diskouez/kuzhat munudoù',
 	'revreview-update' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm stabil diwezhañ.
 
@@ -1876,6 +1879,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'stable-logpage' => 'Marilh ar stummoù stabil',
 	'revreview-filter-all' => 'pep tra',
 	'revreview-filter-approved' => 'Aprouet',
+	'revreview-statusfilter' => 'Kemm statud :',
 	'revreview-typefilter' => 'Seurt :',
 	'revreview-levelfilter' => 'Live :',
 	'revreview-reviewlink' => 'adwelet',
