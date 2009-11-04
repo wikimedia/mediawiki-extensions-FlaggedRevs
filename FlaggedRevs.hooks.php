@@ -11,7 +11,7 @@ class FlaggedRevsHooks {
 		if( !$wgOut->isArticleRelated() ) {
 			return self::InjectStyleForSpecial(); // try special page CSS?
 		}
-		$fa = FlaggedArticle::getGlobalInstance();
+		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if( !$fa || !$fa->isReviewable(true) ) {
 			return true;
@@ -31,7 +31,7 @@ class FlaggedRevsHooks {
 	
 	public static function injectGlobalJSVars( &$globalVars ) {
 		global $wgJsMimeType;
-		$fa = FlaggedArticle::getGlobalInstance();
+		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if( !$fa || !$fa->isReviewable(true) ) {
 			return true;
@@ -173,10 +173,9 @@ class FlaggedRevsHooks {
 			if( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('autoreview')
 				&& !FlaggedRevs::isPageReviewable( $otitle ) ) 
 			{
-				$article = new Article( $ntitle );
 				$rev = Revision::newFromTitle( $ntitle );
 				// Treat this kind of like a new page...
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev );
+				FlaggedRevs::autoReviewEdit( $fa, $user, $rev->getText(), $rev );
 				return true; // pending list handled
 			} else if( $fa->getStableRev(FR_MASTER) ) {
 				return true; // nothing to do
@@ -745,8 +744,9 @@ class FlaggedRevsHooks {
         # config and URL params, the page can be overriden.
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
         if( !empty($wgTitle) && $wgTitle->equals( $title ) ) {
+			$view = FlaggedArticleView::singleton();
             // Cache stable version while we are at it.
-            if( $flaggedArticle->pageOverride() && $flaggedArticle->getStableRev() ) {
+            if( $view->pageOverride() && $flaggedArticle->getStableRev() ) {
                 $result = true;
             }
         } else {
@@ -1490,34 +1490,36 @@ class FlaggedRevsHooks {
 	}
 
 	public static function imagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
-		$fa = FlaggedArticle::getInstance( $imagePage );
-		$fa->imagePageFindFile( $normalFile, $displayFile );
+		$view = FlaggedArticleView::singleton();
+		$view->imagePageFindFile( $normalFile, $displayFile );
 		return true;
 	}
 
 	public static function setActionTabs( $skin, &$contentActions ) {
-		$fa = FlaggedArticle::getGlobalInstance();
-		if( $fa ) {
-			$fa->setActionTabs( $skin, $contentActions );
-			$fa->setViewTabs( $skin, $contentActions );
+		// Note: $wgArticle sometimes not set here
+		if( FlaggedArticleView::globalArticleInstance() != null ) {
+			$view = FlaggedArticleView::singleton();
+			$view->setActionTabs( $skin, $contentActions );
+			$view->setViewTabs( $skin, $contentActions );
 		}
 		return true;
 	}
 
 	public static function setNavigation( $skin, &$links ) {
-		$fa = FlaggedArticle::getGlobalInstance();
-		if( $fa ) {
-			$fa->setActionTabs( $skin, $links['actions'] );
-			$fa->setViewTabs( $skin, $links['views'] );
+		// Note: $wgArticle sometimes not set here
+		if( FlaggedArticleView::globalArticleInstance() != null ) {
+			$view = FlaggedArticleView::singleton();
+			$view->setActionTabs( $skin, $links['actions'] );
+			$view->setViewTabs( $skin, $links['views'] );
 		}
 		return true;
 	}
 
 	public static function onArticleViewHeader( &$article, &$outputDone, &$pcache ) {
-		$flaggedArticle = FlaggedArticle::getInstance( $article );
-		$flaggedArticle->maybeUpdateMainCache( $outputDone, $pcache );
-		$flaggedArticle->addStableLink( $outputDone, $pcache );
-		$flaggedArticle->setPageContent( $outputDone, $pcache );
+		$view = FlaggedArticleView::singleton();
+		$view->maybeUpdateMainCache( $outputDone, $pcache );
+		$view->addStableLink( $outputDone, $pcache );
+		$view->setPageContent( $outputDone, $pcache );
 		return true;
 	}
 	
@@ -1539,8 +1541,9 @@ class FlaggedRevsHooks {
 			}
 			$fa = FlaggedArticle::getTitleInstance( $title );
 			if( $srev = $fa->getStableRev() ) {
+				$view = FlaggedArticleView::singleton();
 				# If synced, nothing special here...
-				if( $srev->getRevId() != $article->getLatest() && $fa->pageOverride() ) {
+				if( $srev->getRevId() != $article->getLatest() && $view->pageOverride() ) {
 					$text = $srev->getRevText();
 					$redirect = $fa->followRedirectText( $text );
 					if( $redirect ) {
@@ -1557,19 +1560,24 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToEditView( &$editPage ) {
-		return FlaggedArticle::getInstance( $editPage->mArticle )->addToEditView( $editPage );
+		$view = FlaggedArticleView::singleton();
+		$view->addToEditView( $editPage );
+		return true;
 	}
 	
 	public static function onCategoryPageView( &$category ) {
-		return FlaggedArticle::getInstance( $category )->addToCategoryView();
+		$view = FlaggedArticleView::singleton();
+		$view->addToCategoryView();
+		return true;
 	}
 	
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
-		if( $wgOut->isArticleRelated() && ($fa = FlaggedArticle::getGlobalInstance()) ) {
-			$fa->addReviewNotes( $data );
-			$fa->addReviewForm( $data );
-			$fa->addVisibilityLink( $data );
+		if( $wgOut->isArticleRelated() && FlaggedArticleView::globalArticleInstance() != null ) {
+			$view = FlaggedArticleView::singleton();
+			$view->addReviewNotes( $data );
+			$view->addReviewForm( $data );
+			$view->addVisibilityLink( $data );
 		}
 		return true;
 	}
@@ -1696,7 +1704,9 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		return FlaggedArticle::getInstance( $article )->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
+		$view = FlaggedArticleView::singleton();
+		$view->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
+		return true;
 	}
 	
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
@@ -1712,15 +1722,17 @@ class FlaggedRevsHooks {
 
 	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $diff->getTitle() );
-		$flaggedArticle->setViewFlags( $diff, $oldRev, $newRev );
-		$flaggedArticle->addDiffLink( $diff, $oldRev, $newRev );
-		$flaggedArticle->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
+		$view = FlaggedArticleView::singleton();
+		$view->setViewFlags( $diff, $oldRev, $newRev );
+		$view->addDiffLink( $diff, $oldRev, $newRev );
+		$view->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
 		return true;
 	}
 
 	public static function addRevisionIDField( $editPage, $out ) {
-		return FlaggedArticle::getInstance( $editPage->mArticle )->addRevisionIDField( $editPage, $out );
+		$view = FlaggedArticleView::singleton();
+		$view->addRevisionIDField( $editPage, $out );
+		return true;
 	}
 	
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {

@@ -314,7 +314,9 @@ $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
 # Load general UI
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
-# Load context article stuff
+# Load web request context article stuff
+$wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
+# Load FlaggedArticle object class
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 # Load FlaggedRevision object class
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
