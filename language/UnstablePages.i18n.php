@@ -425,11 +425,13 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Sadik Khalid
  */
 $messages['ml'] = array(
 	'unstablepages' => 'സന്തുലിതമല്ലാത്ത താളുകള്‍',
 	'unstablepages-stable' => 'സന്തുലിതമായ പതിപ്പ്',
+	'unstablepages-text' => 'വായനക്കാർക്ക് ലഭിക്കുന്ന ഉള്ളടക്കം കരടാണെന്നു സ്വതവേ പ്രത്യക്ഷപ്പെടാൻ ഉപയോക്താക്കൾ സജ്ജീകരിച്ച താളുകളുടെ പട്ടികയാണ് താഴെ.',
 	'unstablepages-none' => 'ഈ പട്ടികയില്‍ താളുകളൊന്നുമില്ല',
 	'unstablepages-config' => 'ക്രമീകരണങ്ങള്‍',
 );

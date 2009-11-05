@@ -1488,6 +1488,7 @@ $messages['tr'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'right-unreviewedpages' => 'Перегляд списку [[Special:UnreviewedPages|непереглянутих сторінок]]',
@@ -1497,9 +1498,12 @@ $messages['uk'] = array(
 	'unreviewed-diff' => 'перевірити',
 	'unreviewed-unwatched' => '(не спостерігають)',
 	'unreviewed-watched' => '({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})',
-	'unreviewed-list' => 'На цій сторінці перераховані неперевірені статті.',
+	'unreviewed-list' => 'На цій сторінці перераховані статті, що не були оцінені на вказаний рівень.',
 	'unreviewed-none' => 'Зараз нема сторінок, що відповідають зазначеним критеріям',
 	'unreviewed-viewing' => '(перевіряється)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|година|години|годин}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|день|дні|днів}})',
+	'unreviewed-recent' => '(менше 1 години)',
 );
 
 /** Vèneto (Vèneto)
