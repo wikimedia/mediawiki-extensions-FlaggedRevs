@@ -104,7 +104,7 @@ class FlaggedRevision {
 		);
 		# Sorted from highest to lowest, so just take the first one if any
 		if( $row ) {
-			$frev = new FlaggedRevision( $row );
+			$frev = new self( $row );
 			$frev->mTitle = $title;
 			return $frev;
 		}
@@ -204,7 +204,7 @@ class FlaggedRevision {
 				if( !$row ) return null;
 			}
 		}
-		$frev = new FlaggedRevision( $row );
+		$frev = new self( $row );
 		$frev->mTitle = $title;
 		return $frev;
 	}

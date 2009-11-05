@@ -15,7 +15,7 @@ class FlaggedArticleView {
 	*/
 	public static function singleton() {
 		if( self::$instance == null ) {
-			self::$instance = new FlaggedArticleView();
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
