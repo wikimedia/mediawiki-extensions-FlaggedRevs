@@ -1743,7 +1743,7 @@ class FlaggedRevsHooks {
 		if( $wgFlaggedRevsAutoReviewNew && !$editPage->getArticle()->getId() ) {
 			return true; // not needed
 		}
-		$fa = FlaggedArticle::getTitleInstance( $editPage->getArticle() );
+		$fa = FlaggedArticleView::globalArticleInstance();
 		if( $fa->isReviewable() && !$fa->limitedUI() ) {
 			$srev = $fa->getStableRev();
 			# For pages with either no stable version, or an outdated one, let
