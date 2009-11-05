@@ -1,17 +1,28 @@
 <?php
-
+/**
+ * Class representing a stable version of a MediaWiki revision
+ * 
+ * This contains a page revision, a file version, and versions
+ * of templates and files (to determine template inclusion and thumbnails)
+ */
 class FlaggedRevision {
-	private $mTitle = null;
-	private $mRevId, $mPageId;
+	private $mRevision;			// base revision
+	private $mTemplates; 		// included template versions
+	private $mFiles;     		// included file versions
+	private $mFileSha1;      	// file version sha-1 (for revisions of File pages)
+	private $mFileTimestamp;	// file version timestamp (for revisions of File pages)
+	/* Flagging metadata */
 	private $mTimestamp;
 	private $mComment;
 	private $mQuality;
 	private $mTags;
-	private $mText = null;
 	private $mFlags;
-	private $mUser;
-	private $mRevision;
-	private $mFileName, $mFileSha1, $mFileTimestamp;
+	private $mUser;				// reviewing user
+	private $mFileName;			// file name when reviewed
+	/* Redundant fields for lazy-loading */
+	private $mTitle;
+	private $mPageId;
+	private $mRevId;
 
 	/**
 	 * @param Row $row (from database)
@@ -30,8 +41,9 @@ class FlaggedRevision {
 			$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
 			$this->mUser = intval( $row->fr_user );
 			# Optional fields
-			$this->mTitle = isset($row->page_namespace) && isset($row->page_title) ?
-				Title::makeTitleSafe( $row->page_namespace, $row->page_title ) : null;
+			$this->mTitle = isset($row->page_namespace) && isset($row->page_title)
+				? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
+				: null;
 			$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
 		} elseif( is_array($row) ) {
 			$this->mRevId = intval( $row['fr_rev_id'] );
@@ -293,12 +305,12 @@ class FlaggedRevision {
 	 * @returns Revision
 	 */
 	public function getRevision() {
-		if( !is_null($this->mRevision) )
-			return $this->mRevision;
-		# Get corresponding revision
-		$rev = Revision::newFromId( $this->mRevId );
-		# Save to cache
-		$this->mRevision = $rev ? $rev : false;
+		if( is_null($this->mRevision) ) {
+			# Get corresponding revision
+			$rev = Revision::newFromId( $this->mRevId );
+			# Save to cache
+			$this->mRevision = $rev ? $rev : false;
+		}
 		return $this->mRevision;
 	}
 	
@@ -371,36 +383,60 @@ class FlaggedRevision {
 	public function userCanSetFlags() {
 		return RevisionReview::userCanSetFlags( $this->mTags );
 	}
+
+	/**
+	 * Set template versions array
+	 * @param Array template versions (ns -> dbKey -> rev id)
+	 */	
+	public function setTemplateVersions( $templateVersions ) {
+		$this->mTemplates = $templateVersions;
+	}
 	
+	/**
+	 * Set file versions array
+	 * @param Array file versions (dbKey -> sha1)
+	 */	
+	public function setFileVersions( $fileVersions ) {
+		$this->mFiles = $fileVersions;
+	}
+
 	/**
 	 * @returns Array template versions (ns -> dbKey -> rev id)
 	 */	
 	public function getTemplateVersions() {
-		$templates = array();
-		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'flaggedtemplates', '*',
-			array('ft_rev_id' => $this->getRevId()), __METHOD__ );
-		while( $row = $res->fetchObject() ) {
-			if( !isset($templates[$row->ft_namespace]) ) {
-				$templates[$row->ft_namespace] = array();
+		if( $this->mTemplates == null ) {
+			$this->mTemplates = array();
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'flaggedtemplates', '*',
+				array( 'ft_rev_id' => $this->getRevId() ),
+				__METHOD__
+			);
+			while( $row = $res->fetchObject() ) {
+				if( !isset($this->mTemplates[$row->ft_namespace]) ) {
+					$this->mTemplates[$row->ft_namespace] = array();
+				}
+				$this->mTemplates[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
 			}
-			$templates[$row->ft_namespace][$row->ft_title] = $row->ft_tmp_rev_id;
 		}
-		return $templates;
+		return $this->mTemplates;
 	}
 	
 	/**
-	 * @returns Array template versions (dbKey -> sha1)
+	 * @returns Array file versions (dbKey -> sha1)
 	 */	
 	public function getFileVersions() {
-		$files = array();
-		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'flaggedimages', '*',
-			array('fi_rev_id' => $this->getRevId()), __METHOD__ );
-		while( $row = $res->fetchObject() ) {
-			$files[$row->fi_name] = $row->fi_img_sha1;
+		if( $this->mFiles == null ) {
+			$this->mFiles = array();
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'flaggedimages', '*',
+				array( 'fi_rev_id' => $this->getRevId() ),
+				__METHOD__
+			);
+			while( $row = $res->fetchObject() ) {
+				$this->mFiles[$row->fi_name] = $row->fi_img_sha1;
+			}
 		}
-		return $files;
+		return $this->mFiles;
 	}
 	
 	/**
