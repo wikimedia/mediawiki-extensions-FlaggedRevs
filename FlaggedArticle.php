@@ -1,7 +1,10 @@
 <?php
-
+/**
+ * Class representing a MediaWiki article and history
+ *
+ * Constructor not be called directly; use FlaggedArticle::getTitleInstance()
+ */
 class FlaggedArticle extends Article {
-	protected $parent;
 	# Process cache variables
 	protected $stableRev = null;
 	protected $pageConfig = null;
@@ -11,49 +14,21 @@ class FlaggedArticle extends Article {
 	const CACHE_MAX = 1000;
 
 	/**
-	 * Construct a new FlaggedArticle from its Article parent
-	 * Should not be called directly, use FlaggedArticle::getInstance()
-	 * @param Article $parent
+	 * Get a FlaggedArticle for a given title
 	 */
-	public function __construct( $parent ) {
-		# Perform normal Article construction
-		parent::__construct( $parent->mTitle );
-		# Link to given Article/ImagePage/CategoryPage for caching
-		$this->parent =& $parent;
-	}
-
-	/**
-	 * Get a FlaggedArticle for a given title.
-	 * getInstance() is preferred if you have an Article available.
-	 */
-	public static function getTitleInstance( $title ) {
+	public static function getTitleInstance( Title $title ) {
+		// Check if there is already an instance on this title
 		if( !isset( $title->flaggedRevsArticle ) ) {
-			$article = MediaWiki::articleFromTitle( $title );
-			$article->flaggedRevsArticle = new self( $article );
-			$title->flaggedRevsArticle =& $article->flaggedRevsArticle;
+			$title->flaggedRevsArticle = new self( $title );
 		}
 		return $title->flaggedRevsArticle;
 	}
 
 	/**
-	 * Get an instance of FlaggedArticle for a given Article or Title object
-	 * @param Article $article
+	 * Get a FlaggedArticle for a given article
 	 */
-	public static function getInstance( $article ) {
-		# If instance already cached, return it!
-		if( isset($article->flaggedRevsArticle) ) {
-			return $article->flaggedRevsArticle;
-		}
-		if( isset( $article->getTitle()->flaggedRevsArticle ) ) {
-			// Already have a FlaggedArticle cached in the Title object
-			$article->flaggedRevsArticle =& $article->getTitle()->flaggedRevsArticle;
-			$article->flaggedRevsArticle->parent =& $article;
-		} else {
-			// Create new FlaggedArticle
-			$article->flaggedRevsArticle = new self( $article );
-			$article->getTitle()->flaggedRevsArticle =& $article->flaggedRevsArticle;
-		}
-		return $article->flaggedRevsArticle;
+	public static function getArticleInstance( Article $article ) {
+		return self::getTitleInstance( $article->mTitle );
 	}
 
 	 /**

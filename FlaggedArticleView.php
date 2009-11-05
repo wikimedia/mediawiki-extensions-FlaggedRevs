@@ -38,10 +38,8 @@ class FlaggedArticleView {
 	 * or false if there isn't such a title
 	 */
 	public static function globalArticleInstance() {
-		global $wgArticle, $wgTitle;
-		if( !empty( $wgArticle ) ) {
-			return FlaggedArticle::getInstance( $wgArticle );
-		} elseif( !empty( $wgTitle ) ) {
+		global $wgTitle;
+		if( !empty( $wgTitle ) ) {
 			return FlaggedArticle::getTitleInstance( $wgTitle );
 		}
 		return null;

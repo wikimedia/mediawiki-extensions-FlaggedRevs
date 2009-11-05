@@ -1583,8 +1583,7 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToHistQuery( $pager, &$queryInfo ) {
-		$title = $pager->getArticle()->getTitle();
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+		$flaggedArticle = FlaggedArticle::getArticleInstance( $pager->getArticle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			$queryInfo['tables'][] = 'flaggedrevs';
