@@ -1841,6 +1841,9 @@ class FlaggedRevsHooks {
 			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
 		# Load request params...
 		$selected = $wgRequest->getVal( 'wpStabilityConfig', FlaggedRevs::getProtectionLevel($config) );
+		if( $selected == 'invalid' ) {
+			throw new MWException( 'This page has an undefined stability configuration!' );
+		}
 		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
 		$reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
 		# Add some script for expiry dropdowns

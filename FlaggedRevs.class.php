@@ -62,6 +62,8 @@ class FlaggedRevs {
 			# Sanity checks
 			if( !isset($config['select']) || !isset($config['override']) || !isset($config['autoreview']) ) {
 				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
+			} else if( $level == 'invalid' ) {
+				throw new MWException( 'FlaggedRevs given reserved $wgFlaggedRevsProtectLevels key!' );
 			}
 			$config['override'] = intval( $config['override'] ); // Type cleanup
 		}
@@ -148,7 +150,6 @@ class FlaggedRevs {
 	 */
 	public static function lowProfileUI() {
 		global $wgFlaggedRevsLowProfile;
-		self::load();
 		return $wgFlaggedRevsLowProfile;
 	}
 	
@@ -158,8 +159,16 @@ class FlaggedRevs {
 	 */
 	public static function getProtectionLevels() {
 		global $wgFlaggedRevsProtectLevels;
-		self::load();
+		self::load(); // validates levels
 		return $wgFlaggedRevsProtectLevels;
+	}
+
+	/**
+	 * Are there site defined protection levels for review
+	 * @returns bool
+	 */
+	public static function useProtectionLevels() {
+		return ( count( self::getProtectionLevels() ) > 0 );
 	}
 	
 	/**
@@ -168,13 +177,22 @@ class FlaggedRevs {
 	 * @returns mixed (array/string)
 	 */
 	public static function getProtectionLevel( $config ) {
-		global $wgFlaggedRevsProtectLevels;
-		self::load();
+		$validLevels = self::getProtectionLevels();
+		$defaultConfig = self::getDefaultVisibilitySettings();
+		# Remove expiry for quick comparisons
+		unset( $defaultConfig['expiry'] );
 		unset( $config['expiry'] );
-		foreach( $wgFlaggedRevsProtectLevels as $level => $settings ) {
-			if( $config == $settings ) return $level;
+		# Check if the page is not protected at all
+		if( $config == $defaultConfig ) {
+			return "none";
 		}
-		return "none";
+		# Otherwise, find the protection level
+		foreach( $validLevels as $level => $settings ) {
+			if( $config == $settings ) {
+				return $level;
+			}
+		}
+		return "invalid";
 	}
 
 	/**
@@ -183,7 +201,6 @@ class FlaggedRevs {
 	 */
 	public static function allowComments() {
 		global $wgFlaggedRevsComments;
-		self::load();
 		return $wgFlaggedRevsComments;
 	}
 	
@@ -229,7 +246,6 @@ class FlaggedRevs {
 	 * @returns string
 	 */
 	public static function getTagMsg( $tag ) {
-		self::load();
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		return wfMsgExt( "revreview-$tag", array( 'escapenoentities' ) );
 	}
@@ -294,8 +310,9 @@ class FlaggedRevs {
 	 */
 	public static function getPrecedence( $config = null ) {
 		global $wgFlaggedRevsPrecedence;
-		if( is_null($config) )
+		if( is_null($config) ) {
 			$config = $wgFlaggedRevsPrecedence;
+		}
 		switch( $config )
 		{
 			case FR_PRISTINE:
@@ -1034,7 +1051,7 @@ class FlaggedRevs {
 	 * @returns Array (select,override)
 	 */
 	public static function getPageVisibilitySettings( $title, $forUpdate=false ) {
-		$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$db = wfGetDB( $forUpdate ? DB_MASTER : DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $title->getArticleID() ),
@@ -1051,21 +1068,38 @@ class FlaggedRevs {
 				self::titleLinksUpdate( $title ); // re-find stable version
 				$title->invalidateCache(); // purge squid/memcached
 			}
+		} else {
+			return self::getDefaultVisibilitySettings();
 		}
-		if( !$row ) {
-			global $wgFlaggedRevsOverride, $wgFlaggedRevsPrecedence;
-			# Keep this consistent across settings. 1 -> override, 0 -> don't
-			$override = $wgFlaggedRevsOverride ? 1 : 0;
+		$config = array(
+			'select' 	 => intval($row->fpc_select),
+			'override'   => $row->fpc_override,
+			'autoreview' => $row->fpc_level,
+			'expiry'	 => $row->fpc_expiry
+		);
+		# If there are protection levels defined check if this is valid
+		if( self::useProtectionLevels() && self::getProtectionLevel($config) == 'invalid' ) {
+			return self::getDefaultVisibilitySettings(); // revert to none
+		}
+		return $config;
+	}
+
+	/**
+	 * Get default page configuration settings
+	 */	
+	public static function getDefaultVisibilitySettings() {
+		return array(
 			# Keep this consistent across settings: 
 			## 2 = pristine -> quality -> stable; 
 			## 1 = quality -> stable
 			## 0 = none
-			$select = self::getPrecedence();
-			return array( 'select' => $select, 'override' => $override,
-				'autoreview' => '', 'expiry' => 'infinity' );
-		}
-		return array( 'select' => intval($row->fpc_select), 'override' => $row->fpc_override,
-			'autoreview' => $row->fpc_level, 'expiry' => $row->fpc_expiry );
+			'select'     => self::getPrecedence(),
+			# Keep this consistent across settings:
+			## 1 -> override, 0 -> don't
+			'override'   => self::showStableByDefault() ? 1 : 0,
+			'autoreview' => '',
+			'expiry'     => 'infinity'
+		);
 	}
 	
 	/**

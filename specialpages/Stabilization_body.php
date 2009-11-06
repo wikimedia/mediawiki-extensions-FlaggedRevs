@@ -130,6 +130,17 @@ class Stabilization extends UnlistedSpecialPage
 				return false; // invalid value
 			}
 		}
+		# If we use protection levels, check that settings match one...
+		if( FlaggedRevs::useProtectionLevels() ) {
+			$config = array(
+				'select' 	 => $this->select,
+				'override'   => $this->override,
+				'autoreview' => $this->autoreview
+			);
+			if( FlaggedRevs::getProtectionLevel($config) == 'invalid' ) {
+				return false; // this is not a valid configuration
+			}
+		}
 		return true;
 	}
 
