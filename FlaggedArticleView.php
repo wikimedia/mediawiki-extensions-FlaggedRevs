@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Class representing a web view of a MediaWiki page
+ */
 class FlaggedArticleView {
 	protected $isDiffFromStable = false;
 	protected $isMultiPageDiff = false;
@@ -20,6 +22,7 @@ class FlaggedArticleView {
 		return self::$instance;
 	}
 	protected function __construct() {}
+	protected function __clone() {}
 
 	/*
 	* Load the global FlaggedArticle instance
