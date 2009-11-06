@@ -373,10 +373,14 @@ $wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 # ReviewedPages for API
 $wgAutoloadClasses['ApiQueryReviewedpages'] = $dir . 'api/ApiQueryReviewedpages.php';
 $wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
-# Flag meta-data for pages
+# Flag metadata for pages for API
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
+# Site flag config for API
+$wgAutoloadClasses['ApiFlagConfig'] = $dir . 'api/ApiFlagConfig.php';
+$wgAPIModules['flagconfig'] = 'ApiFlagConfig';
 
+# Page review module for API
 $wgAutoloadClasses['ApiReview'] = $dir.'api/ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
 
