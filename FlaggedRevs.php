@@ -93,7 +93,7 @@ $wgFlaggedRevsReviewForDefault = false;
 $wgFlaggedRevsUIForDefault = false;
 # Do quality revisions show instead of sighted if present by default?
 # Set to 2 to make "pristine" versions override quality revisions.
-$wgFlaggedRevsPrecedence = 1;
+$wgFlaggedRevsPrecedence = FR_QUALITY;
 # Revision tagging can slow development...
 # For example, the main user base may become complacent, perhaps treat flagged
 # pages as "done", or just be too lazy to click "current". We may just want non-user
