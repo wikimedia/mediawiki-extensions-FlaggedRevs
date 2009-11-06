@@ -1827,7 +1827,7 @@ class FlaggedRevsHooks {
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
 		global $wgUser, $wgRequest, $wgOut, $wgLang;
-		if( !count( FlaggedRevs::getProtectionLevels() ) ) {
+		if( !FlaggedRevs::useProtectionLevels() ) {
 			return true; // nothing to do
 		} else if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			return true; // not a reviewable page
@@ -1955,7 +1955,7 @@ class FlaggedRevsHooks {
 	
 	// Add stability log extract to protection form
 	public static function insertStabilityLog( $article, $out ) {
-		if( !count( FlaggedRevs::getProtectionLevels() ) ) {
+		if( !FlaggedRevs::useProtectionLevels() ) {
 			return true; // nothing to do
 		} else if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			return true; // not a reviewable page
