@@ -54,6 +54,7 @@ No configuration is possible.',
  * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Purodha
+ * @author Raymond
  * @author Robby
  * @author SPQRobin
  * @author Saper
