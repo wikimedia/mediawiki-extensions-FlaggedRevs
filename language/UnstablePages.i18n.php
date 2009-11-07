@@ -684,6 +684,7 @@ $messages['vec'] = array(
 	'unstablepages' => 'Pagine mia stabili',
 	'unstablepages-stable' => 'version stabile',
 	'unstablepages-none' => 'No ghe xe pagine su sta lista.',
+	'unstablepages-config' => 'Configurassion',
 );
 
 /** Veps (Vepsan kel')

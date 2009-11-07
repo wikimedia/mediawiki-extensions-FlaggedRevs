@@ -301,6 +301,13 @@ $messages['kn'] = array(
 	'problemchanges-category' => 'ವರ್ಗ:',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'problemchanges-category' => '분류:',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

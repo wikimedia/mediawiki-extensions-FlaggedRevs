@@ -1787,6 +1787,13 @@ $messages['yi'] = array(
 	'validationstatistics-user' => 'באַניצער',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
+ */
+$messages['zh-hans'] = array(
+	'validationstatistics' => '审核统计',
+);
+
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Tomchiukc
  */
