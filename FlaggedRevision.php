@@ -38,13 +38,15 @@ class FlaggedRevision {
 			# Image page revision relevant params
 			$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
 			$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
-			$this->mFileTimestamp = $row->fr_img_timestamp ? $row->fr_img_timestamp : null;
+			$this->mFileTimestamp = $row->fr_img_timestamp ?
+				$row->fr_img_timestamp : null;
 			$this->mUser = intval( $row->fr_user );
 			# Optional fields
 			$this->mTitle = isset($row->page_namespace) && isset($row->page_title)
 				? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
 				: null;
-			$this->mFlags = isset($row->fr_flags) ? explode(',',$row->fr_flags) : null;
+			$this->mFlags = isset($row->fr_flags) ?
+				explode(',',$row->fr_flags) : null;
 		} elseif( is_array($row) ) {
 			$this->mRevId = intval( $row['fr_rev_id'] );
 			$this->mPageId = intval( $row['fr_page_id'] );
@@ -55,10 +57,12 @@ class FlaggedRevision {
 			# Image page revision relevant params
 			$this->mFileName = $row['fr_img_name'] ? $row['fr_img_name'] : null;
 			$this->mFileSha1 = $row['fr_img_sha1'] ? $row['fr_img_sha1'] : null;
-			$this->mFileTimestamp = $row['fr_img_timestamp'] ? $row['fr_img_timestamp'] : null;
+			$this->mFileTimestamp = $row['fr_img_timestamp'] ?
+				$row['fr_img_timestamp'] : null;
 			$this->mUser = intval( $row['fr_user'] );
 			# Optional fields
-			$this->mFlags = isset($row['fr_flags']) ? explode(',',$row['fr_flags']) : null;
+			$this->mFlags = isset($row['fr_flags']) ?
+				explode(',',$row['fr_flags']) : null;
 		} else {
 			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
 		}
@@ -238,11 +242,14 @@ class FlaggedRevision {
 			'fr_img_sha1'      => $this->getFileSha1()
 		);
 		# Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ), $revRow, __METHOD__ );
+		$dbw->replace( 'flaggedrevs', array( array('fr_page_id','fr_rev_id') ),
+            $revRow, __METHOD__ );
 		# Clear out any previous garbage.
 		# We want to be able to use this for tracking...
-		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
-		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
+		$dbw->delete( 'flaggedtemplates',
+            array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
+		$dbw->delete( 'flaggedimages',
+            array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
 		# Update our versioning params
 		if( !empty($tmpRows) ) {
 			$dbw->insert( 'flaggedtemplates', $tmpRows, __METHOD__, 'IGNORE' );
@@ -257,8 +264,9 @@ class FlaggedRevision {
 	 * @returns Array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
-		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp','fr_comment',
-			'fr_quality','fr_tags','fr_img_name', 'fr_img_sha1', 'fr_img_timestamp');
+		return array('fr_rev_id','fr_page_id','fr_user','fr_timestamp',
+            'fr_comment', 'fr_quality','fr_tags','fr_img_name','fr_img_sha1',
+            'fr_img_timestamp');
 	}
 	
 	/**
@@ -471,7 +479,8 @@ class FlaggedRevision {
 				# Add only currently recognized ones
 				if( isset($flags[$tag]) ) {
 					# If a level was removed, default to the highest
-					$flags[$tag] = $value < count($levels) ? $value : count($levels)-1;
+					$flags[$tag] = $value < count($levels) ?
+						$value : count($levels)-1;
 				}
 			}
 		}
