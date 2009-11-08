@@ -59,10 +59,11 @@ class FlaggedRevs {
 		global $wgFlaggedRevsProtectLevels;
 		$wgFlaggedRevsProtectLevels = (array)$wgFlaggedRevsProtectLevels;
 		foreach( $wgFlaggedRevsProtectLevels as $level => &$config ) {
-			# Sanity checks
+			# Sanity check that the config is complete
 			if( !isset($config['select']) || !isset($config['override']) || !isset($config['autoreview']) ) {
 				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
-			} else if( $level == 'invalid' ) {
+			# Disallow reserved level names
+			} else if( $level == 'invalid' || $level == 'none' ) {
 				throw new MWException( 'FlaggedRevs given reserved $wgFlaggedRevsProtectLevels key!' );
 			}
 			$config['override'] = intval( $config['override'] ); // Type cleanup
@@ -155,7 +156,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Get the site defined protection levels for review
-	 * @returns array
+	 * @returns array (associative)
 	 */
 	public static function getProtectionLevels() {
 		global $wgFlaggedRevsProtectLevels;
