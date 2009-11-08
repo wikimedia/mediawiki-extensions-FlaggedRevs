@@ -1261,6 +1261,7 @@ Las versions establas son de versions de paginas verificadas per al mens un util
 $messages['pdc'] = array(
 	'validationstatistics-ns' => 'Blatznaame',
 	'validationstatistics-total' => 'Bledder',
+	'validationstatistics-user' => 'Yuuser',
 );
 
 /** Polish (Polski)
@@ -1337,6 +1338,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Giro720
+ * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
  * @author Waldir
@@ -1356,7 +1358,7 @@ $4
 O atraso médio para [[Special:OldReviewedPages|páginas com edições não revistas em espera]] é '''$2'''.
 Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] for também a versão rascunho atual.
 A versão estável de uma página é a revisão mais recente que foi aprovada para ser apresentada por defeito a todos os leitores.",
-	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento.",
+	'validationstatistics-table' => "São apresentadas abaixo estatísticas para cada espaço nominal, '''excluindo''' páginas de redireccionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Analisadas',

@@ -9433,6 +9433,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Giro720
+ * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
  * @author Waldir
@@ -9447,7 +9448,7 @@ $messages['pt'] = array(
 	'flaggedrevs-pref-UI-0' => 'Utilizar a interface de edições estáveis detalhada',
 	'flaggedrevs-pref-UI-1' => 'Utilizar a interface de edições estáveis simples',
 	'prefs-flaggedrevs' => 'Estabilidade',
-	'flaggedrevs-prefs-stable' => 'Sempre exibir a edição estável de uma página como conteúdo padrão (caso exista uma)',
+	'flaggedrevs-prefs-stable' => 'Apresentar sempre a edição estável (caso exista) das páginas como conteúdo padrão',
 	'flaggedrevs-prefs-watch' => 'Adicionar páginas analisadas por mim à minha lista de artigos vigiados',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar diferenças de edição em relação a versão estável enquanto edita-se as páginas',
 	'group-editor' => 'Editores',
@@ -9527,7 +9528,7 @@ Veja a [[Special:Unreviewedpages|lista de páginas por analisar]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} As alterações a predefinições/ficheiros] necessitam de revisão.',
 	'revreview-noflagged' => "Esta página não possui edições analisadas. Talvez ainda '''não''' tenha sido [[{{MediaWiki:Validationpage}}|verificada]] a sua qualidade.",
 	'revreview-note' => '[[User:$1|$1]] deixou as seguintes observações ao [[{{MediaWiki:Validationpage}}|analisar]] esta edição:',
-	'revreview-notes' => 'Observações ou notas a serem exibidas:',
+	'revreview-notes' => 'Observações ou notas a mostrar:',
 	'revreview-oldrating' => 'Esteve avaliada como:',
 	'revreview-patrol' => 'Marcar esta alteração como patrulhada',
 	'revreview-patrol-title' => 'Marcar como patrulhada',
@@ -9571,16 +9572,16 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] possui [{{fullurl:{{FULLPAGE
 	'revreview-failed' => 'Falha na releitura!',
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi assinalada com sucesso. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} ver edições estáveis])'''",
 	'revreview-successful2' => "'''A edição seleccionada de [[:$1|$1]] teve sua análise removida com sucesso.'''",
-	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são exibidas por padrão no lugar de edições mais recentes.'''",
-	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são edições em páginas que foram verificadas e que podem ser configuradas como conteúdo padrão a ser exibido.''",
+	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|versões estáveis]] são o conteúdo padrão para os leitores, em vez da revisão mais recente.'''",
+	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|versões estáveis]] são revisões verificadas e podem ser configuradas como o conteúdo padrão a apresentar aos leitores.''",
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
 	'revreview-toolow' => 'Você precisará atribuir, em cada um dos atributos, valores mais altos do que "rejeitada" para que uma edição seja considerada aprovada.
 
 Para rebaixar uma edição, defina todos os atributos como "rejeitada".',
-	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
+	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(mostradas abaixo)'' feitas desde que a revisão estável foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
 '''Algumas predefinições/ficheiros foram actualizados:'''",
 	'revreview-update-includes' => "'''Algumas predefinições/ficheiros foram actualizados:'''",
-	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
+	'revreview-update-none' => "Por favor, [[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(mostradas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
 	'revreview-update-use' => "'''NOTA:''' Se alguma destas predefinições/ficheiros possui uma versão estável, então esta já é usada na versão estável desta página.",
 	'revreview-diffonly' => "''Para analisar a página, clique no link \"edição actual\" e utilize o formulário de análises.''",
 	'revreview-visibility' => "'''Esta página possui uma [[{{MediaWiki:Validationpage}}|edição estável]]; os parâmetros disso podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
@@ -9591,7 +9592,7 @@ Verifique o URL que utilizou para aceder esta página.',
 	'right-autoreview' => 'Marcar automaticamente as edições como analisadas',
 	'right-movestable' => 'Mover páginas estáveis',
 	'right-review' => 'Definir edições como analisadas',
-	'right-stablesettings' => 'Configurar como a edição estável é definida e exibida',
+	'right-stablesettings' => 'Configurar como a edição estável é seleccionada e apresentada',
 	'right-validate' => 'Definir edições como confiáveis',
 	'rights-editor-autosum' => 'auto-promovido',
 	'rights-editor-revoke' => 'removidos privilégios de {{int:group-editor-member}} para [[$1]]',
@@ -9618,16 +9619,17 @@ Uma lista de páginas com conteúdo estabilizado pode ser encontrada na [[Specia
 	'tooltip-ca-current' => 'Ver o rascunho actual desta página',
 	'tooltip-ca-stable' => 'Ver a edição estável desta página',
 	'tooltip-ca-default' => 'Configurações da Garantia de Qualidade',
-	'revreview-locked-title' => 'As edições desta página precisam ser analisadas antes de serem exibidas!',
-	'revreview-unlocked-title' => 'As edições desta página não precisam ser analisadas antes de serem exibidas!',
-	'revreview-locked' => 'As edições desta página precisam ser analisadas antes de serem exibidas!',
-	'revreview-unlocked' => 'As edições desta página não precisam ser analisadas antes de serem exibidas!',
+	'revreview-locked-title' => 'As edições precisam de verificação antes de serem apresentadas nesta página.',
+	'revreview-unlocked-title' => 'As edições não precisam de verificação antes de serem apresentadas nesta página.',
+	'revreview-locked' => 'As edições precisam de [[{{MediaWiki:Validationpage}}|verificação]] antes de serem apresentadas nesta página.',
+	'revreview-unlocked' => 'As edições não precisam de [[{{MediaWiki:Validationpage}}|verificação]] antes de serem apresentadas nesta página.',
 	'log-show-hide-review' => '$1 registo de análises',
 	'revreview-tt-review' => 'Analise esta página',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author Hamilton Abreu
  * @author Luckas Blade
  * @author Rafael Vargas
  */
@@ -9665,6 +9667,7 @@ $messages['pt-br'] = array(
 	'revreview-edit' => 'Editar rascunho',
 	'revreview-flag' => 'Analisar esta edição',
 	'revreview-legend' => 'Avaliar conteúdo da edição',
+	'revreview-notes' => 'Observações ou notas a serem exibidas:',
 	'revreview-patrol-title' => 'Marcar como patrulhada',
 	'revreview-stable' => 'Página estável',
 	'revreview-stable2' => 'Você talvez queira ver a [{{fullurl:$1|stable=1}} edição estável] desta página (caso ainda exista uma).',
@@ -9672,18 +9675,28 @@ $messages['pt-br'] = array(
 	'revreview-style-1' => 'Aceitável',
 	'revreview-style-2' => 'Boa',
 	'revreview-submitting' => 'Enviando...',
+	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são exibidas por padrão no lugar de edições mais recentes.'''",
+	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são edições em páginas que foram verificadas e que podem ser configuradas como conteúdo padrão a ser exibido.''",
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
+	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
+'''Algumas predefinições/ficheiros foram actualizados:'''",
 	'revreview-update-includes' => "'''Algumas predefinições/arquivos foram atualizados:'''",
+	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{ns:special}}:Log|type=review&page={{FULLPAGENAMEE}}}} aprovada].",
 	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
 Por favor verifique a URL que você usou para acessar esta página.',
 	'right-autoreview' => 'Marcar automaticamente as edições como analisadas',
 	'right-review' => 'Marcar edições como analisadas',
+	'right-stablesettings' => 'Configurar como a edição estável é definida e exibida',
 	'rights-editor-revoke' => 'Removido estatuto de editor de [[$1]]',
 	'revreview-filter-stable' => 'estável',
 	'revreview-filter-manual' => 'Manual',
 	'revreview-typefilter' => 'Tipo:',
 	'revreview-levelfilter' => 'Nível:',
 	'revreview-reviewlink' => 'analisar',
+	'revreview-locked-title' => 'As edições desta página precisam ser analisadas antes de serem exibidas!',
+	'revreview-unlocked-title' => 'As edições desta página não precisam ser analisadas antes de serem exibidas!',
+	'revreview-locked' => 'As edições desta página precisam ser analisadas antes de serem exibidas!',
+	'revreview-unlocked' => 'As edições desta página não precisam ser analisadas antes de serem exibidas!',
 );
 
 /** Quechua (Runa Simi)

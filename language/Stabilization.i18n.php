@@ -427,8 +427,10 @@ $messages['bg'] = array(
 	'stabilization-def2' => 'Текущата версия',
 	'stabilization-submit' => 'Потвърждаване',
 	'stabilization-notexists' => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
-	'stabilization-comment' => 'Коментар:',
+	'stabilization-comment' => 'Причина:',
+	'stabilization-otherreason' => 'Друга причина:',
 	'stabilization-expiry' => 'Изтича на:',
+	'stabilization-othertime' => 'Друго време:',
 	'stabilization-sel-short' => 'Предимство',
 	'stabilization-sel-short-0' => 'Качество',
 	'stabilization-sel-short-1' => 'Никоя',
@@ -2473,16 +2475,17 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
  */
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Configurações da Garantia de Qualidade',
-	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:\$1|\$1]] é selecionada e exibida.'''
+	'stabilization-text' => "'''Altere as configurações abaixo para ajustar a forma como a versão estável de [[:\$1|\$1]] é seleccionada e apresentada.'''
 
-Quanto alterar a configuração de ''seleção da versão estável'' para usar revisões \"qualidade\" ou \"intocada\" por defeito,
-certifique-se que verifica se realmente existem tais revisões na página, caso contrário a alteração terá pouco efeito.",
+Quanto alterar a configuração da ''selecção da versão estável'' para que sejam usadas como padrão as revisões \"qualidade\" ou \"intocada\",
+verifique que essas revisões realmente existem na página, caso contrário a alteração terá pouco efeito.",
 	'stabilization-perm' => 'Sua conta não possui permissão para alterar as configurações de edições estáveis.
 Seguem-se as configurações para [[:$1|$1]]:',
 	'stabilization-page' => 'Nome da página:',
@@ -2492,9 +2495,8 @@ Seguem-se as configurações para [[:$1|$1]]:',
 se inexistente, a mais recentemente analisada',
 	'stabilization-select2' => 'A revisão mais recentemente analisada, independentemente do nível de validação',
 	'stabilization-select3' => 'A última revisão intocada; se não estiver presente, então a última de qualidade ou visionada',
-	'stabilization-def' => 'Edição exibida na visualização padrão de página',
-	'stabilization-def1' => 'A edição estável; 
-se inexistente, exibir a edição actual',
+	'stabilization-def' => 'Edição apresentada na visualização padrão da página',
+	'stabilization-def1' => 'A revisão estável; se inexistente, então a revisão actual/esboço',
 	'stabilization-def2' => 'A edição actual',
 	'stabilization-restrict' => 'Restrições de auto-revisão',
 	'stabilization-restrict-none' => 'Nenhuma restrição extra',

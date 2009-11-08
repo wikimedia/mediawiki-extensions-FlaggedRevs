@@ -713,12 +713,13 @@ $messages['pms'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Hamilton Abreu
  * @author Waldir
  */
 $messages['pt'] = array(
 	'stablepages' => 'Páginas estáveis',
 	'stablepages-stable' => 'edição estável',
-	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para exibirem a edição estável como conteúdo padrão a quem as acessar.',
+	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para apresentarem a edição estável como conteúdo padrão a quem as visitar.',
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
 	'stablepages-prec-none' => 'sem precedência',

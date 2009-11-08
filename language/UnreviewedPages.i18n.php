@@ -95,7 +95,7 @@ $messages['ar'] = array(
 	'unreviewed-category' => 'التصنيف:',
 	'unreviewed-diff' => 'راجع',
 	'unreviewed-unwatched' => '(غير مراقبة)',
-	'unreviewed-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطون يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})',
+	'unreviewed-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطين يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})',
 	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتوى التي لم تتم مراجعتها لمستوى المحدد.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 	'unreviewed-viewing' => '(تحت المراجعة)',
@@ -1134,6 +1134,8 @@ $messages['os'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'unreviewed-hours' => '($1 {{PLURAL:$1|Schtund|Schtund}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|Daag|Daag}})',
 	'unreviewed-recent' => '(wennicher ass 1 Schtund)',
 );
 
