@@ -7790,7 +7790,7 @@ $messages['ml'] = array(
 	'revreview-flag' => 'ഈ പതിപ്പ് സംശോധനം ചെയ്യുക',
 	'revreview-edited' => "'''സ്ഥാപിതരായ ഉപയോക്താക്കള്‍ സം‌ശോധനം നിര്‍‌വഹിച്ചതിനു ശേഷം തിരുത്തലുകള്‍ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പിലേക്ക്]] ചേര്‍ക്കപ്പെടും. 
 
-താഴെ ''കരട് പതിപ്പ്‍'' പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|മാറ്റം|മാറ്റങ്ങള്‍}}] സം‌ശോധനത്തിനായി തയ്യാറായിരിക്കുന്നു.",
+താഴെ ''കരട് പതിപ്പ്'' പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|മാറ്റം|മാറ്റങ്ങള്‍}}] സം‌ശോധനത്തിനായി തയ്യാറായിരിക്കുന്നു.",
 	'revreview-invalid' => "'''അസാധുവായ ലക്ഷ്യം:''' തന്ന IDക്കു ചേരുന്ന [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത പതിപ്പുകള്‍]] ഒന്നും തന്നെയില്ല.",
 	'revreview-legend' => 'പതിപ്പിന്റെ ഉള്ളടക്കം വിലയിരുത്തുക',
 	'revreview-log' => 'അഭിപ്രായം:',
@@ -7845,6 +7845,8 @@ $messages['ml'] = array(
 	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
 	'revreview-finished' => 'സംശോധനം സമ്പൂർണ്ണം!',
 	'revreview-failed' => 'സംശോധനം പരാജയം!',
+	'revreview-text' => "''പുതിയ പതിപ്പുണ്ടെങ്കിൽ കൂടി വായനക്കാർക്ക് സ്വതവേ ലഭ്യമാവുന്ന ഉള്ളടക്ക താളാണ് [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പുകൾ]].''",
+	'revreview-text2' => "'''വായനക്കാർക്ക് സ്വതവേ ലഭ്യമാവേണ്ട ഉള്ളടക്കം സജ്ജീകരിച്ചിട്ടുള്ള പരിശോധിക്കപ്പെട്ട നാൾപ്പതിപ്പുകളാണ് [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പുകൾ]].'''",
 	'revreview-toggle-title' => 'വിവരങ്ങള്‍ കാണിക്കുക/മറയ്ക്കുക',
 	'revreview-update' => "സ്ഥിരതയുള്ള പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അനുമതി നൽകിയ ശേഷം] വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)'', ദയവായി  [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യുക.
  
@@ -7854,6 +7856,9 @@ $messages['ml'] = array(
 വരുത്തിയ മാറ്റങ്ങള്‍ ''(താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു)'' [[{{MediaWiki:Validationpage}}|ദയവായി സംശോധനം ചെയ്യുക]].",
 	'revreview-update-use' => "'''ശ്രദ്ധിക്കുക:''' ഇവയിൽ ഏതെങ്കിലും ഫലകങ്ങൾക്കോ/പ്രമാണങ്ങൾക്കോ സ്ഥിരതയുള്ള പതിപ്പുണ്ടെങ്കിൽ, അത് ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പിൽ ഉപയോഗിക്കുന്നതായിരിക്കും.",
 	'revreview-diffonly' => "''താൾ സംശോധനം ചെയ്യാൻ, \"ഇപ്പോഴത്തെ പതിപ്പ്\" എന്ന പതിപ്പിലെ കണ്ണിയിൽ ഞെക്കി, സംശോധനം ചെയ്യുവാനുള്ള ഫോം ഉപയോഗിക്കുക.''",
+	'revreview-visibility' => "'''ഈ താളിനു പുതുക്കിയ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ഉണ്ട്; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
+	'revreview-visibility2' => "'''ഈ താളിനു പഴയ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ഉണ്ട്; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
+	'revreview-visibility3' => "'''ഈ താളിനു [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ഇല്ല; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
 	'revreview-revnotfound' => 'ഈ താളിന്റെ താങ്കള്‍ ആവശ്യപ്പെട്ട പഴയ പതിപ്പ് കാണ്മാനില്ല. ഈ താളിലെത്താന്‍ താങ്കളുപയോഗിച്ച URL ഒരിക്കല്‍ക്കൂടി പരിശോധിക്കുക.',
 	'right-movestable' => 'സ്ഥിരതയുള്ള താളുകള്‍ മാറ്റുക',
 	'right-stablesettings' => 'സ്ഥിരതയുള്ള പതിപ്പ് എപ്രകാരം തിരഞ്ഞെടുക്കണം എന്നും പ്രദർശിപ്പിക്കണം എന്നും ക്രമീകരിക്കുക',
@@ -7864,6 +7869,8 @@ $messages['ml'] = array(
 	'stable-logentry' => '[[$1]] താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പാക്കൽ പ്രക്രിയ ക്രമീകരിച്ചിരിക്കുന്നു',
 	'stable-logentry2' => '[[$1]] താളിനെ സ്ഥിരതയുള്ള പതിപ്പാക്കൽ പുനഃക്രമീകരിക്കുക',
 	'stable-logpage' => 'സ്ഥിരതയുടെ പ്രവര്‍ത്തനരേഖ',
+	'stable-logpagetext' => 'ഇത് ഉള്ളടക്ക താളുകളുടെ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ക്രമീകരണത്തിൽ ഉണ്ടാകുന്ന മാറ്റങ്ങളുടെ രേഖയാണ്.
+സ്ഥിരതയുള്ള താളുകളാക്കി മാറ്റിയവയുടെ പട്ടിക [[Special:StablePages|സ്ഥിരതയുള്ള പതിപ്പുകളുടെ പട്ടിക]] എന്ന താളിൽ ലഭ്യമാണ്.',
 	'revreview-filter-all' => 'എല്ലാം',
 	'revreview-filter-stable' => 'സ്ഥിരതയുള്ളത്',
 	'revreview-filter-approved' => 'അനുമതി നൽകിയിട്ടുണ്ട്',
@@ -9470,7 +9477,7 @@ $messages['pt'] = array(
 	'review-logentry-app' => 'analisou a edição r$2 de [[$1]]',
 	'review-logentry-dis' => 'rebaixou a edição r$2 de [[$1]]',
 	'review-logentry-id' => 'ver: $2',
-	'review-logentry-diff' => 'diferenças da versão estável',
+	'review-logentry-diff' => 'alterações à versão estável',
 	'review-logpage' => 'Registo de análise de edições',
 	'review-logpagetext' => 'Este é um registo de alterações nas [[{{MediaWiki:Validationpage}}|análises]] de páginas de conteúdo.
 Veja a [[Special:ReviewedPages|lista de páginas analisadas]] para uma listagem de páginas aprovadas.',
