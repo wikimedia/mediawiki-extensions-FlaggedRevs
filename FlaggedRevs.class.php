@@ -8,6 +8,8 @@ class FlaggedRevs {
 	protected static $loaded = false;
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
+	protected static $restrictionLevels = array();
+
 	protected static $includeVersionCache = array();
 
 	public static function load() {
@@ -67,6 +69,12 @@ class FlaggedRevs {
 				throw new MWException( 'FlaggedRevs given reserved $wgFlaggedRevsProtectLevels key!' );
 			}
 			$config['override'] = intval( $config['override'] ); // Type cleanup
+		}
+		global $wgFlaggedRevsRestrictionLevels;
+		# Make sure that there is a "none" level
+		self::$restrictionLevels = array_unique($wgFlaggedRevsRestrictionLevels);
+		if( !in_array('',self::$restrictionLevels) ) {
+			self::$restrictionLevels = array('') + self::$restrictionLevels;
 		}
 		self::$loaded = true;
 	}
@@ -194,6 +202,15 @@ class FlaggedRevs {
 			}
 		}
 		return "invalid";
+	}
+
+	/**
+	 * Get the autoreview restriction levels available
+	 * @returns array
+	 */	
+	public static function getRestrictionLevels() {
+		self::load();
+		return self::$restrictionLevels;
 	}
 
 	/**

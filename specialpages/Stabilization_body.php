@@ -347,9 +347,9 @@ class Stabilization extends UnlistedSpecialPage
 	}
 	
 	protected function buildSelector( $selected ) {
-		global $wgUser, $wgFlaggedRevsRestrictionLevels;
+		global $wgUser;
 		$levels = array();
-		foreach( $wgFlaggedRevsRestrictionLevels as $key ) {
+		foreach( FlaggedRevs::getRestrictionLevels() as $key ) {
 			# Don't let them choose levels they can't set, 
 			# but *show* them all when the form is disabled.
 			if( $this->isAllowed && !self::userCanSetAutoreviewLevel($key) ) {
