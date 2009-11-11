@@ -322,7 +322,9 @@ class FlaggedRevs {
 	
 	/**
 	 * Get global revision status precedence setting
-	 * or a specific one if given configuration flags
+	 * or a specific one if given configuration flags.
+	 * Returns one of FLAGGED_VIS_PRISTINE, FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST.
+	 *
 	 * @param int, config settings, optional
 	 * @return int
 	 */
@@ -1253,11 +1255,16 @@ class FlaggedRevs {
 				$p[$key] = $value;
 			}
 		}
-		// Initialize fields as needed...
-		if( !isset($p['uniqueContentPages']) ) $p['uniqueContentPages'] = '';
-		if( !isset($p['totalContentEdits']) ) $p['totalContentEdits'] = 0;
-		if( !isset($p['editComments']) ) $p['editComments'] = 0;
-		if( !isset($p['revertedEdits']) ) $p['revertedEdits'] = 0;
+		# Initialize fields as needed...
+		if( !isset($p['uniqueContentPages']) )
+			$p['uniqueContentPages'] = '';
+		if( !isset($p['totalContentEdits']) )
+			$p['totalContentEdits'] = 0;
+		if( !isset($p['editComments']) )
+			$p['editComments'] = 0;
+		if( !isset($p['revertedEdits']) )
+			$p['revertedEdits'] = 0;
+
 		return $p;
 	}
 	
