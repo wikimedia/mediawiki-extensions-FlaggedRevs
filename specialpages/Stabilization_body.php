@@ -38,7 +38,7 @@ class Stabilization extends UnlistedSpecialPage
 		# Watch checkbox
 		$this->watchThis = (bool)$wgRequest->getCheck( 'wpWatchthis' );
 		# Reason
-		$this->reason = $wgRequest->getVal( 'wpReason' );
+		$this->reason = $wgRequest->getText( 'wpReason' );
 		$this->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );
 		# Expiry
 		$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
@@ -161,6 +161,8 @@ class Stabilization extends UnlistedSpecialPage
 	*/
 	public static function userCanSetAutoreviewLevel( $right ) {
 		global $wgUser;
+		if( $right == '' )
+			return true; // no restrictions
 		# Don't let them choose levels above their own rights
 		if( $right == 'sysop' ) {
 			// special case, rewrite sysop to protect and editprotected
@@ -393,8 +395,9 @@ class Stabilization extends UnlistedSpecialPage
 		$changed = $reset = false;
 		$defaultPrecedence = FlaggedRevs::getPrecedence();
 		$defaultOverride = FlaggedRevs::showStableByDefault();
-		if( $this->select == $defaultPrecedence && $this->override == $defaultOverride && !$this->autoreview ) {
-			$reset = true; // we are going back to site defaults
+		if( $this->select == $defaultPrecedence && $this->override == $defaultOverride )
+		{
+			$reset = ($this->autoreview == ''); // we are going back to site defaults
 		}
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
@@ -425,7 +428,8 @@ class Stabilization extends UnlistedSpecialPage
 		if( $row && $reset ) {
 			$dbw->delete( 'flaggedpage_config',
 				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__ );
+				__METHOD__
+			);
 			$changed = ($dbw->affectedRows() != 0); // did this do anything?
 		# Otherwise, add a row unless we are just setting it as the site default,
 		# or it is the same the current one...
