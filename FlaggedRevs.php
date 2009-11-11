@@ -383,6 +383,9 @@ $wgAPIModules['flagconfig'] = 'ApiFlagConfig';
 # Page review module for API
 $wgAutoloadClasses['ApiReview'] = $dir.'api/ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
+# Stability config module for API
+$wgAutoloadClasses['ApiStabilize'] = $dir.'api/ApiStabilize.php';
+$wgAPIModules['stabilize'] = 'ApiStabilize';
 
 ######### Hook attachments #########
 # Autopromote Editors
