@@ -126,6 +126,10 @@ class Stabilization extends UnlistedSpecialPage
 				$comment = $this->reason; // just use custom reason
 			}
 			$this->reason = $comment;
+			// Make sure default version settings is 0 or 1
+			if( $this->override !== 0 && $this->override !== 1 ) {
+				return false;
+			}
 			// Validate precedence setting
 			$allowed = array(FLAGGED_VIS_QUALITY,FLAGGED_VIS_LATEST,FLAGGED_VIS_PRISTINE);
 			if( $this->select && !in_array( $this->select, $allowed ) ) {
