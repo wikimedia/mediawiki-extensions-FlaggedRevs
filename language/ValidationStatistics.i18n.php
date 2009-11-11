@@ -1349,7 +1349,7 @@ $messages['pt'] = array(
 e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Crítico]].
 
 Editores e Críticos são utilizadores estabelecidos que por verificar detalhadamente revisões de páginas.",
-	'validationstatistics-time' => "''Os seguintes dados estão em cache e podem não estar atualizados.''
+	'validationstatistics-time' => "''Os seguintes dados foram atualizados pela última vez a $5 às $6.''
 
 Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.
 

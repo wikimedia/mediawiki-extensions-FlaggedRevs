@@ -196,6 +196,13 @@ $messages['gl'] = array(
 	'problemchanges-category' => 'Categoría:',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'problemchanges-category' => 'Κατηγορία:',
+);
+
 /** Swiss German (Alemannisch)
  * @author Als-Holder
  */

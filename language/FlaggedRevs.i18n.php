@@ -7778,7 +7778,7 @@ $messages['ml'] = array(
 	'revreview-basic-source' => "ഈ താളിന്റെ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}}  ഒരു sighted പതിപ്പ്], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചത്] ഈ പതിപ്പിനെ അടിസ്ഥാനമാക്കിയാണ്‌.",
 	'revreview-blocked' => 'താങ്കളുടെ അംഗത്വം ഇപ്പോൾ തടയപ്പെട്ടിരിക്കുന്നതിനാൽ താങ്കൾക്ക് ഈ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്യാൻ കഴിയില്ല ([$1 വിശദവിവരങ്ങൾ])',
 	'revreview-current' => 'കരട്',
-	'revreview-depth' => 'അഗാധത',
+	'revreview-depth' => 'ആഴം',
 	'revreview-depth-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
 	'revreview-depth-1' => 'അടിസ്ഥാനപരമായത്',
 	'revreview-depth-2' => 'ഒരു വിധം നിലവാരമുള്ളത്',
