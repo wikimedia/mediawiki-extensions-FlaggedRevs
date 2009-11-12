@@ -970,7 +970,7 @@ $messages['sq'] = array(
 $messages['sr-ec'] = array(
 	'reviewedpages' => 'Прегледане странице',
 	'reviewedpages-leg' => 'Списак страна, сортиран од највишег нивоа',
-	'reviewedpages-list' => 'Следеће стране су прегледане до одређеног степена.',
+	'reviewedpages-list' => 'Ово је списак најкоментарисанијих страна.',
 	'reviewedpages-none' => 'Нема страна у овом списку.',
 	'reviewedpages-lev-0' => 'Прегледано',
 	'reviewedpages-lev-1' => 'Квалитет',
@@ -981,10 +981,12 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
+ * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
 	'reviewedpages' => 'Pregledane stranice',
 	'reviewedpages-leg' => 'Spisak strana, sortiran od najvišeg nivoa',
+	'reviewedpages-list' => 'Ovo je spisak najkomentarisanijih strana.',
 	'reviewedpages-none' => 'Nema strana u ovom spisku.',
 	'reviewedpages-lev-0' => 'Pregledano',
 	'reviewedpages-lev-1' => 'Kvalitet',

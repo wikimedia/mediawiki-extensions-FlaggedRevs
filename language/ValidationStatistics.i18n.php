@@ -1096,7 +1096,7 @@ $messages['ml'] = array(
 	'validationstatistics-ns' => 'നാമമേഖല',
 	'validationstatistics-total' => 'താളുകള്‍',
 	'validationstatistics-stable' => 'പരിശോധിച്ചവ',
-	'validationstatistics-latest' => 'ഒടുവില്‍ പരിശോധിച്ചവ',
+	'validationstatistics-latest' => 'ഏകതാനമാക്കിയിരിക്കുന്നു',
 	'validationstatistics-synced' => 'ഏകകാലികമാക്കിയവ/പരിശോധിച്ചവ',
 	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
 	'validationstatistics-utable' => 'കഴിഞ്ഞ മണിക്കൂറിലെ ആദ്യ അഞ്ച് സംശോധകരുടെ പട്ടികയാണ് താഴെയുള്ളത്.',
@@ -1545,7 +1545,10 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
+	'validationstatistics-table' => "Statistike za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmerenja.",
 	'validationstatistics-ns' => 'Imenski prostor',
+	'validationstatistics-total' => 'Stranice',
+	'validationstatistics-latest' => 'Sinhronizovano',
 	'validationstatistics-old' => 'Zastarelo',
 );
 

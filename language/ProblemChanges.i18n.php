@@ -350,6 +350,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'problemchanges' => 'റ്റാഗോടെയുള്ള മാറ്റങ്ങൾ സംശോധമ ചെയ്യുക',
+	'problemchanges-legend' => 'തിരുത്തലുകൾ സംശോധനം ചെയ്യണമെന്ന റ്റാഗുള്ള സംശോധനം ചെയ്യപ്പെട്ട താളുകൾ കാണുക',
 	'problemchanges-none' => 'ഈ മാനദണ്ഡങ്ങളുമായി ഒത്തു പോകുന്ന താളുകൾ ഒന്നും ഇപ്പോൾ ലഭ്യമല്ല',
 	'problemchanges-category' => 'വർഗ്ഗം:',
 );

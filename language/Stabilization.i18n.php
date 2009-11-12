@@ -2810,13 +2810,13 @@ $messages['sr-ec'] = array(
 	'stabilization-select3' => 'Последња непокрварена верзија; ако не постоји, последња квалитетна или прегледана ће бити приказана.',
 	'stabilization-def' => 'Верзија приказана на подразумеваном приказу стране.',
 	'stabilization-def1' => 'Стабилна верзија; ако не постоји, биће приказана тренутна.',
-	'stabilization-def2' => 'Тренутна верзија.',
+	'stabilization-def2' => 'Тренутни нацрт/ревизија',
 	'stabilization-restrict-none' => 'Без додатних ограничења',
 	'stabilization-submit' => 'Прихвати',
 	'stabilization-notexists' => 'Не постоји страна под именом "[[:$1|$1]]". Подешавање није могуће.',
 	'stabilization-notcontent' => 'Страна "[[:$1|$1]]" не може бити прегледана. Подешавање није могуће.',
 	'stabilization-comment' => 'Разлог:',
-	'stabilization-otherreason' => 'Други разлог',
+	'stabilization-otherreason' => 'Други разлог:',
 	'stabilization-expiry' => 'Истиче:',
 	'stabilization-sel-short' => 'Изузетак',
 	'stabilization-sel-short-0' => 'Квалитет',
@@ -2832,6 +2832,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
+ * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
 	'stabilization-tab' => 'veteran',
@@ -2844,13 +2845,13 @@ $messages['sr-el'] = array(
 	'stabilization-select3' => 'Poslednja nepokrvarena verzija; ako ne postoji, poslednja kvalitetna ili pregledana će biti prikazana.',
 	'stabilization-def' => 'Verzija prikazana na podrazumevanom prikazu strane.',
 	'stabilization-def1' => 'Stabilna verzija; ako ne postoji, biće prikazana trenutna.',
-	'stabilization-def2' => 'Trenutna verzija.',
+	'stabilization-def2' => 'Trenutni nacrt/revizija',
 	'stabilization-restrict-none' => 'Bez dodatnih ograničenja',
 	'stabilization-submit' => 'Prihvati',
 	'stabilization-notexists' => 'Ne postoji strana pod imenom "[[:$1|$1]]". Podešavanje nije moguće.',
 	'stabilization-notcontent' => 'Strana "[[:$1|$1]]" ne može biti pregledana. Podešavanje nije moguće.',
 	'stabilization-comment' => 'Razlog:',
-	'stabilization-otherreason' => 'Drugi razlog',
+	'stabilization-otherreason' => 'Drugi razlog:',
 	'stabilization-expiry' => 'Ističe:',
 	'stabilization-sel-short' => 'Izuzetak',
 	'stabilization-sel-short-0' => 'Kvalitet',
