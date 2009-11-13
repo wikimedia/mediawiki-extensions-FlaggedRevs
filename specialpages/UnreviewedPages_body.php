@@ -95,7 +95,7 @@ class UnreviewedPages extends SpecialPage
 		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&reviewform=1' );
 		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('hist'), 'action=history' );
-		$css = $stxt = $review = $underReview = '';
+		$stxt = $review = $underReview = $watching = '';
 		if( !is_null($size = $row->page_len) ) {
 			$stxt = ($size == 0)
 				? wfMsgHtml('historyempty')
@@ -120,14 +120,15 @@ class UnreviewedPages extends SpecialPage
 		}
 		if( $wgUser->isAllowed('unwatchedpages') ) {
 			$uw = self::usersWatching( $title );
-			$watching = $uw ?
-				wfMsgExt( 'unreviewed-watched', array('parsemag'), $uw ) : wfMsgHtml( 'unreviewed-unwatched' );
-			$watching = " $watching";
-			// Oh-noes!
-			$css = $uw ? "" : " class='fr-unreviewed-unwatched'";
+			$watching = $uw
+				? wfMsgExt( 'unreviewed-watched', array('parsemag'), $uw )
+				: wfMsgHtml( 'unreviewed-unwatched');
+			$watching = " $watching"; // Oh-noes!
 		} else {
-			$watching = "";
+			$uw = -1;
 		}
+		$css = self::getLineClass( $hours, $uw );
+		$css = $css ? " class='$css'" : "";
 		$pageId = isset($row->page_id) ? $row->page_id : $row->qc_value;
 		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
 		$val = $wgMemc->get( $key );
@@ -170,6 +171,17 @@ class UnreviewedPages extends SpecialPage
 			$count = $dbr->numRows($res);
 		}
 		return $count;
+	}
+	
+	protected static function getLineClass( $hours, $uw ) {
+		if( $uw == 0 )
+			return 'fr-unreviewed-unwatched';
+		else if( $hours > 20*24 )
+			return 'fr-pending-long2';
+		else if( $hours > 7*24 )
+			return 'fr-pending-long';
+		else
+			return "";
 	}
 	
 	/**
