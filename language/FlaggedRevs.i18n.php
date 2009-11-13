@@ -11614,11 +11614,12 @@ Matatagpuan ang isang talaan ng napatatag na mga pahina mula sa [[Special:Stable
  * @author Mach
  * @author Runningfridgesrule
  * @author Srhat
+ * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'editor' => 'Editör',
 	'flaggedrevs' => 'İşaretli Değişiklikler',
-	'flaggedrevs-backlog' => "Şu anda, gözden geçirilmiş sayfalarda birikmiş [[Special:OldReviewedPages|bekleyen değişiklikler]] iş yükü var. '''İlginiz gerekiyor!'''",
+	'flaggedrevs-backlog' => "Şu anda gözden geçirilmiş sayfalarda birikmiş [[Special:OldReviewedPages|bekleyen değişiklikler]] iş yükü var. '''İlgilenmeniz gerekiyor!'''",
 	'flaggedrevs-watched-pending' => "Şu anda izleme listenizdeki gözden geçirilmiş sayfaların [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bekleyen değişiklikleri] var. '''İlginiz gerekiyor!'''",
 	'flaggedrevs-desc' => 'Editörlere ve gözden geçirenlere, değişiklikleri doğrulama ve sayfaları kararlı hale getirme yeteneği verir',
 	'flaggedrevs-pref-UI' => 'Kararlı sürüm arayüzü:',

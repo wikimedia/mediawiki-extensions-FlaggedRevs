@@ -1345,10 +1345,10 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
-	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] 
+	'validationstatistics-users' => "A '''{{SITENAME}}''' possui, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] 
 e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Crítico]].
 
-Editores e Críticos são utilizadores estabelecidos que por verificar detalhadamente revisões de páginas.",
+Editores e Críticos são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
 	'validationstatistics-time' => "''Os seguintes dados foram atualizados pela última vez a $5 às $6.''
 
 Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.
