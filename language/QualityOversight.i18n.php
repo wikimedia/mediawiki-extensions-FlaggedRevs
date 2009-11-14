@@ -333,6 +333,7 @@ $messages['mk'] = array(
  * @author Praveenp
  */
 $messages['ml'] = array(
+	'qualityoversight' => 'ഗുണമേന്മാ മേൽനോട്ടം',
 	'qualityoversight-legend' => 'സമീപകാല സംശോധന രേഖകളിൽ തിരയുക',
 );
 

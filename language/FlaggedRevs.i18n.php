@@ -3489,7 +3489,7 @@ $messages['eu'] = array(
 	'flaggedrevs' => 'Markatutako Berrikuspenak',
 	'group-editor' => 'Editoreak',
 	'group-editor-member' => 'editorea',
-	'review-logentry-id' => 'ikusi: $2',
+	'review-logentry-id' => 'berrikuspena: $2',
 	'revreview-accuracy' => 'Zehaztasuna',
 	'revreview-auto' => '(automatikoa)',
 	'revreview-draft-title' => 'Zirriborroa',
@@ -3504,6 +3504,8 @@ $messages['eu'] = array(
 	'revreview-filter-manual' => 'Eskuzkoa',
 	'revreview-statusfilter' => 'Estatus aldaketa:',
 	'revreview-typefilter' => 'Mota:',
+	'revreview-levelfilter' => 'Maila:',
+	'revreview-lev-quality' => 'kalitatea',
 );
 
 /** Extremaduran (Estremeñu)
@@ -7835,6 +7837,7 @@ $messages['ml'] = array(
 	'revreview-selected' => "'''$1'''ന്റെ തിരഞ്ഞെടുത്ത പതിപ്പ്:",
 	'revreview-source' => 'കരടിന്റെ മൂലരൂപം കാണുക',
 	'revreview-stable' => 'സ്ഥിരതയുള്ള താള്‍',
+	'revreview-stable-title' => 'ദർശിച്ച താൾ',
 	'revreview-style' => 'വായനാസുഖം',
 	'revreview-style-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
 	'revreview-style-1' => 'സ്വീകാര്യമായത്',
@@ -7860,7 +7863,9 @@ $messages['ml'] = array(
 	'revreview-visibility2' => "'''ഈ താളിനു പഴയ [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ഉണ്ട്; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
 	'revreview-visibility3' => "'''ഈ താളിനു [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ഇല്ല; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
 	'revreview-revnotfound' => 'ഈ താളിന്റെ താങ്കള്‍ ആവശ്യപ്പെട്ട പഴയ പതിപ്പ് കാണ്മാനില്ല. ഈ താളിലെത്താന്‍ താങ്കളുപയോഗിച്ച URL ഒരിക്കല്‍ക്കൂടി പരിശോധിക്കുക.',
+	'right-autoreview' => 'നാൾപ്പതിപ്പുകൾ ദർശിച്ചതായി സ്വയം അടയാളപ്പെടുത്തുക',
 	'right-movestable' => 'സ്ഥിരതയുള്ള താളുകള്‍ മാറ്റുക',
+	'right-review' => 'നാൾപ്പതിപ്പുകൾ ദർശിച്ചതായി അടയാളപ്പെടുത്തുക',
 	'right-stablesettings' => 'സ്ഥിരതയുള്ള പതിപ്പ് എപ്രകാരം തിരഞ്ഞെടുക്കണം എന്നും പ്രദർശിപ്പിക്കണം എന്നും ക്രമീകരിക്കുക',
 	'right-validate' => 'സംശോധനങ്ങൾ പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക',
 	'rights-editor-autosum' => 'യാന്ത്രികമായി സ്ഥാനക്കയറ്റം നല്‍കിയിരിക്കുന്നു',
@@ -7880,6 +7885,7 @@ $messages['ml'] = array(
 	'revreview-statusfilter' => 'സ്ഥിതിയിലെ മാറ്റം:',
 	'revreview-typefilter' => 'തരം:',
 	'revreview-levelfilter' => 'തലം:',
+	'revreview-lev-sighted' => 'ദർശിച്ചവ',
 	'revreview-lev-quality' => 'ഗുണമേന്മ',
 	'revreview-reviewlink' => 'സംശോധനം',
 	'tooltip-ca-current' => 'ഈ താളിന്റെ നിലവിലുള്ള കരട് കാണുക',
