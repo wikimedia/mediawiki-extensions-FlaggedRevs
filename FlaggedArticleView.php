@@ -151,7 +151,7 @@ class FlaggedArticleView {
 			# Hide clutter
 			if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
 				$tag .= " " . FlaggedRevsXML::ratingToggle() . 
-					"<span id='mw-revisionratings' style='display:block;'><br/>" .
+					"<span id='mw-revisionratings' style='display:block;'><br />" .
 					wfMsgHtml('revreview-oldrating') .
 					FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 			}
@@ -359,7 +359,7 @@ class FlaggedArticleView {
 				# Hide clutter
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
+					$tag .= "<span id='mw-revisionratings' style='display:block;'><br />" .
 						wfMsgHtml('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 			}
@@ -412,7 +412,7 @@ class FlaggedArticleView {
 				# Hide clutter
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
+					$tag .= "<span id='mw-revisionratings' style='display:block;'><br />" .
 						wfMsgHtml('revreview-oldrating') .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
@@ -480,7 +480,7 @@ class FlaggedArticleView {
 					wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $time, $revsSince );
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br/>" .
+					$tag .= "<span id='mw-revisionratings' style='display:block;'><br />" .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 			}
@@ -688,7 +688,7 @@ class FlaggedArticleView {
 					# Hide clutter
 					if( !empty($flags) ) {
 						$tag .= " " . FlaggedRevsXML::ratingToggle();
-						$tag .= '<span id="mw-revisionratings" style="display:block;"><br/>' .
+						$tag .= '<span id="mw-revisionratings" style="display:block;"><br />' .
 							wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 					}
 					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
@@ -1008,9 +1008,9 @@ class FlaggedArticleView {
 		$this->load();
 		if( FlaggedRevs::allowComments() && $frev && $frev->getComment() ) {
 			wfLoadExtensionMessages( 'FlaggedRevs' );
-			$notes = "<br/><div class='flaggedrevs_notes plainlinks'>";
+			$notes = "<br /><div class='flaggedrevs_notes plainlinks'>";
 			$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
-			$notes .= '<br/><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
+			$notes .= '<br /><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
 			$this->reviewNotes = $notes;
 		}
 	}
@@ -1121,7 +1121,7 @@ class FlaggedArticleView {
 				# Some important information...
 				$notice = '';
 				if( count($changeList) > 0 ) {
-					$notice = '<br/>' . wfMsgExt('revreview-update-use', array('parseinline'));
+					$notice = '<br />' . wfMsgExt('revreview-update-use', array('parseinline'));
 				} elseif( !$synced ) {
 					$diff->mTitle->invalidateCache(); // bad cache, said they were not synced
 				}
@@ -1444,7 +1444,7 @@ class FlaggedArticleView {
 		# Hide comment if needed
 		if( !$disabled ) {
 			if( count(FlaggedRevs::getDimensions()) > 1 )
-				$form .= "<br/>"; // Don't put too much on one line
+				$form .= "<br />"; // Don't put too much on one line
 			$form .= "<span id='mw-commentbox' style='clear:both'>" . 
 				Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 40, '', 
 					array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";

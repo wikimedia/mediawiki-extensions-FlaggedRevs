@@ -57,7 +57,7 @@ class UnreviewedPages extends SpecialPage
 			"<span style='white-space: nowrap;'>" .
 			Xml::label( wfMsg("unreviewed-category"), 'category' ) . '&nbsp;' .
 			Xml::input( 'category', 30, $category, array('id' => 'category') ) . 
-			'</span><br/>' .
+			'</span><br />' .
 			$showhideredirs . '&nbsp;&nbsp;' . 
 			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
 			"</fieldset></form>"

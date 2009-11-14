@@ -67,7 +67,7 @@ class ProblemChanges extends SpecialPage
 				$form .= Xml::tags( 'td', array( 'class' => 'mw-label' ), $tagForm[0] );
 				$form .= Xml::tags( 'td', array( 'class' => 'mw-input' ), $tagForm[1] );
 			}
-			$form .= '<br/>' .
+			$form .= '<br />' .
 				Xml::label( wfMsg("problemchanges-category"), 'wpCategory' ) . '&nbsp;' .
 				Xml::input( 'category', 30, $this->category, array('id' => 'wpCategory') ) . ' ';
 			$form .= Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .

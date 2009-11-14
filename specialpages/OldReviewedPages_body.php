@@ -76,7 +76,7 @@ class OldReviewedPages extends SpecialPage
 					Xml::label( wfMsg('oldreviewed-stable'), 'wpStable' ) . '</span> '
 					: ""
 				);
-			if( $form ) $form .= '<br/>';
+			if( $form ) $form .= '<br />';
 			$form .=
 				Xml::label( wfMsg("oldreviewed-category"), 'wpCategory' ) . '&nbsp;' .
 				Xml::input( 'category', 30, $this->category, array('id' => 'wpCategory') ) . ' ' .
@@ -85,7 +85,7 @@ class OldReviewedPages extends SpecialPage
 					Xml::label( wfMsg('oldreviewed-watched'), 'wpWatched' ) . ' '
 					: ""
 				);
-			$form .= '<br/>' .
+			$form .= '<br />' .
 				Xml::label( wfMsg('oldreviewed-size'), 'wpSize' ) .
 				Xml::input( 'size', 4, $this->size, array( 'id' => 'wpSize' ) ) . ' ' .
 				Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .

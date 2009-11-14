@@ -227,7 +227,7 @@ class FlaggedRevsXML {
 		$box = "<table style='background: none; border-spacing: 0px;'>";
 		$box .= "<tr style='white-space:nowrap;'><td>$shtml&nbsp;&nbsp;</td>";
 		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
-		$box .= "<tr><td id='mw-revisionratings'>$html<br/>";
+		$box .= "<tr><td id='mw-revisionratings'>$html<br />";
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
 			$box .= self::addTagRatings( $flags, true, $color );

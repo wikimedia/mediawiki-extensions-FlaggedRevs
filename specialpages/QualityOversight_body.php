@@ -74,7 +74,7 @@ class QualityOversight extends SpecialPage
 				FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-all', 1 ) . '&nbsp;'
 				: ""
 			) .
-			Xml::inputLabel( wfMsg( 'specialloguserlabel' ), 'user', 'user', 20, $this->user ) . '<br/>' .
+			Xml::inputLabel( wfMsg( 'specialloguserlabel' ), 'user', 'user', 20, $this->user ) . '<br />' .
 			FlaggedRevsXML::getStatusFilterMenu( $this->status ) . '&nbsp;' .
 			FlaggedRevsXML::getAutoFilterMenu( $this->automatic ) . '&nbsp;' .
 			Xml::submitButton( wfMsg( 'go' ) ) .
