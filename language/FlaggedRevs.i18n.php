@@ -7322,6 +7322,8 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-newest-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lescht nogekuckte Versioun] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} list all]) was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigestallt] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerunge}}] {{PLURAL:$3|waart|waarden}} drop fir nogekuckt ze ginn.',
+	'revreview-newest-basic-i' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} leschten nogekuckte Versioun] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} all weisen]) gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schabloun/Fichier-Ännerungen] déi nach mussen nogekuckt ginn.',
 	'revreview-newest-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lescht Qualitéitsversioun] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} ganz Lëscht]) gouf de(n) <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerunge}}] {{PLURAL:$3|waard|waarden}} drop fir nogekuckt ze ginn.',
 	'revreview-noflagged' => "Et gëtt keng nogekuckte Versioune vun dëser Säit, et kann also sinn datt hir Qualitéit '''net''' [[{{MediaWiki:Validationpage}}|nogekuckt]] gouf.",
@@ -7732,11 +7734,13 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'editor' => 'എഡിറ്റര്‍',
+	'flaggedrevs' => 'പതാക ചേർത്ത നാൾപ്പതിപ്പുകൾ',
 	'flaggedrevs-desc' => 'എഡിറ്റര്‍മാര്‍ക്കും സം‌ശോധകര്‍ക്കും പതിപ്പുകള്‍ ഗുണപരിശോധന നടത്താനും താളുകള്‍ സ്ഥിരപ്പെടുത്താനുമുള്ള അവകാശം കൊടുക്കുന്നു.',
 	'flaggedrevs-pref-UI' => 'സ്ഥിരതയുള്ള പതിപ്പിനുള്ള ദൃശ്യമണ്ഡലം:',
 	'flaggedrevs-pref-UI-0' => 'സ്ഥിരതയുള്ള പതിപ്പിന് വിപുലമായ ഉപയോക്തൃ ദൃശ്യമണ്ഡലം ഉപയോഗിക്കുക',
 	'flaggedrevs-pref-UI-1' => 'സ്ഥിരതയുള്ള പതിപ്പിന് ലളിതമായ ഉപയോക്തൃ ദൃശ്യമണ്ഡലം ഉപയോഗിക്കുക',
 	'prefs-flaggedrevs' => 'സ്ഥിരത',
+	'prefs-flaggedrevs-ui' => 'പതാക ചേർത്ത നാൾപ്പതിപ്പുകൾ',
 	'flaggedrevs-prefs-stable' => 'ഉള്ളടക്ക താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് എപ്പോഴും സ്വതവേ പ്രദർശിപ്പിക്കുക (ഒന്നുണ്ടെങ്കിൽ)',
 	'flaggedrevs-prefs-watch' => 'ഞാന്‍ സം‌ശോധം ചെയ്യുന്ന താളുകള്‍ എന്റെ ശ്രദ്ധിക്കുന്ന താളുകളുടെ പട്ടികയിലേക്ക് ചേര്‍ക്കുക',
 	'flaggedrevs-prefs-editdiffs' => 'താളുകൾ തിരുത്തുമ്പോൾ സ്ഥിരതയുള്ളതുമായുള്ള വ്യത്യാസം പ്രദർശിപ്പിക്കുക',
@@ -7752,7 +7756,10 @@ $messages['ml'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:സ്വതവേ സംശോധനം ചെയ്യുന്നയാൾ',
 	'hist-draft' => 'കരടു പതിപ്പ്',
 	'hist-quality' => 'ഉന്നത നിലവാരമുള്ള പതിപ്പ്',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} മൂല്യനിർണ്ണയം] നടത്തിയത് [[User:$3|$3]]',
 	'hist-stable' => 'sighted പതിപ്പ്',
+	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} ദർശിച്ചത്] [[User:$3|$3]]',
+	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} സ്വയം ദർശിച്ചത്]',
 	'review-diff2stable' => 'സ്ഥിരതയുള്ള പതിപ്പും നിലവിലുള്ള പതിപ്പും തമ്മിലുള്ള മാറ്റങ്ങള്‍ കാണുക',
 	'review-logentry-app' => '[[$1]] എന്നതാളിന്റെ r$2 പതിപ്പ് സംശോധനം ചെയ്തു',
 	'review-logentry-id' => 'നാൾപ്പതിപ്പ്: $2',
@@ -7838,6 +7845,7 @@ $messages['ml'] = array(
 	'revreview-source' => 'കരടിന്റെ മൂലരൂപം കാണുക',
 	'revreview-stable' => 'സ്ഥിരതയുള്ള താള്‍',
 	'revreview-stable-title' => 'ദർശിച്ച താൾ',
+	'revreview-stable2' => 'ഈ താളിന്റെ [{{fullurl:$1|stable=1}} സ്ഥിരതയുള്ള പതിപ്പ്] താങ്കൾക്ക് കാണണമായിരിക്കും (ഒന്നുണ്ടെങ്കിൽ).',
 	'revreview-style' => 'വായനാസുഖം',
 	'revreview-style-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
 	'revreview-style-1' => 'സ്വീകാര്യമായത്',
@@ -7848,6 +7856,8 @@ $messages['ml'] = array(
 	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
 	'revreview-finished' => 'സംശോധനം സമ്പൂർണ്ണം!',
 	'revreview-failed' => 'സംശോധനം പരാജയം!',
+	'revreview-successful' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ പതാക വിജയകരമായി ചേർത്തിരിക്കുന്നു. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} സ്ഥിരതയുള്ള പതിപ്പുകൾ കാണുക])'''",
+	'revreview-successful2' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ നിന്നും പതാക വിജയകരമായി നീക്കിയിരിക്കുന്നു.'''",
 	'revreview-text' => "''പുതിയ പതിപ്പുണ്ടെങ്കിൽ കൂടി വായനക്കാർക്ക് സ്വതവേ ലഭ്യമാവുന്ന ഉള്ളടക്ക താളാണ് [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പുകൾ]].''",
 	'revreview-text2' => "'''വായനക്കാർക്ക് സ്വതവേ ലഭ്യമാവേണ്ട ഉള്ളടക്കം സജ്ജീകരിച്ചിട്ടുള്ള പരിശോധിക്കപ്പെട്ട നാൾപ്പതിപ്പുകളാണ് [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പുകൾ]].'''",
 	'revreview-toggle-title' => 'വിവരങ്ങള്‍ കാണിക്കുക/മറയ്ക്കുക',

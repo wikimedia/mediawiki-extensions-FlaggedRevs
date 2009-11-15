@@ -2490,7 +2490,7 @@ verifique que essas revisões realmente existem na página, caso contrário a al
 Seguem-se as configurações para [[:$1|$1]]:',
 	'stabilization-page' => 'Nome da página:',
 	'stabilization-leg' => 'Confirmar a configuração da edição estável',
-	'stabilization-select' => 'Seleção da edição estável',
+	'stabilization-select' => 'Precedência na selecção da versão estável',
 	'stabilization-select1' => 'A última edição analisada como confiável; 
 se inexistente, a mais recentemente analisada',
 	'stabilization-select2' => 'A revisão mais recentemente analisada, independentemente do nível de validação',
