@@ -868,6 +868,13 @@ Versi stabil suatu halaman adalah revisi terbaru yang telah disetujui untuk ditu
 	'validationstatistics-reviews' => 'Tinjauan',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'validationstatistics-user' => 'Uzanto',
+);
+
 /** Icelandic (Íslenska)
  * @author Spacebirdy
  */

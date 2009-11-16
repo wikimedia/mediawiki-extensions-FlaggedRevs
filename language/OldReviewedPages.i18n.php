@@ -750,6 +750,15 @@ $messages['id'] = array(
 	'oldreviewedpages-viewing' => '(sedang ditinjau)',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|horo|hori}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dio|dii}})',
+	'oldreviewed-category' => 'Kategorio:',
+);
+
 /** Icelandic (Íslenska)
  * @author Spacebirdy
  */

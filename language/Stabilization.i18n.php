@@ -1539,6 +1539,15 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-review' => 'Tinjau versi sekarang',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'stabilization-comment' => 'Motivo:',
+	'stabilization-otherreason' => 'Altra motivo:',
+	'stabilization-othertime' => 'Altra tempo:',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  */

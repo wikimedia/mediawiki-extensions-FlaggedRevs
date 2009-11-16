@@ -274,6 +274,13 @@ $messages['id'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'problemchanges-category' => 'Kategorio:',
+);
+
 /** Italian (Italiano)
  * @author Melos
  */

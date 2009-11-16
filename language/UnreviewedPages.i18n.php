@@ -715,6 +715,15 @@ $messages['id'] = array(
 	'unreviewed-recent' => '(kurang dari 1 jam)',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'unreviewed-category' => 'Kategorio:',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|horo|hori}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dio|dii}})',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  * @author Spacebirdy

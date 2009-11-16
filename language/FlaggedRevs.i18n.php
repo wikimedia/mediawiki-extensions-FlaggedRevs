@@ -1990,8 +1990,13 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-patrol' => 'Označi ovu izmjenu kao patroliranu',
 	'revreview-patrol-title' => 'Označeno kao patrolirano',
 	'revreview-patrolled' => 'Odabrana revizija [[:$1|$1]] je označena kao patrolirana.',
+	'revreview-quality' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|kvalitetna]] revizija, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Radna verzija] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjenu|izmjene|izmjena}}] koje čekaju provjeru.',
+	'revreview-quality-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|kvalitetna]] revizija, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Radna verzija] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} promjene na šablonu/datoteci] koje čekaju provjeru.',
 	'revreview-quality-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|kvalitetna]] revizija ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 Novih [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena] je od tada načinjeno.',
+	'revreview-quality-same' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|kvalitetna]] revizija ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kvalitetna verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, je zasnovana na ovoj reviziji.',
 	'revreview-quality-title' => 'Kvalitetna stranica',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pregledana stranica]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vidi radnu verziju]]",
@@ -2010,6 +2015,8 @@ Novih [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena] je od
 	'revreview-source' => 'izvor radne verzije',
 	'revreview-stable' => 'Stabilna stranica',
 	'revreview-stable-title' => 'Provjerena stranica',
+	'revreview-stable1' => 'Možda želite vidjeti [{{fullurl:$1|stableid=$2}} ovu označenu verziju] i provjeriti da li sada postoji [{{fullurl:$1|stable=1}} stabilna verzija] ove stranice.',
+	'revreview-stable2' => 'Možda bi htjeli pogledati [{{fullurl:$1|stable=1}} stabilnu verziju] ove stranice (ako ima takva).',
 	'revreview-style' => 'Čitljivost',
 	'revreview-style-0' => 'Neodobreno',
 	'revreview-style-1' => 'Prihvatljivo',
@@ -2030,6 +2037,12 @@ Da bi uklonili ocjenu revizije, postavite sva polja na ''neodobreno''.",
 	'revreview-update' => "Molimo [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene ''(pokazane ispod)'' načinjene od kada je stabilna verzija [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena].<br />
 '''Neki šabloni/datoteke su ažurirani:'''",
 	'revreview-update-includes' => "'''Neki šabloni/datoteke su ažurirani:'''",
+	'revreview-update-none' => "Molimo Vas [[{{MediaWiki:Validationpage}}|pregledajte]] sve izmjene ''(prikazane ispod)'' načinjene od kako je stabilna verzija [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena].",
+	'revreview-update-use' => "'''NAPOMENA:''' Ako neki od ovih šablona/datoteka ima stabilnu verziju, onda je već upotrebljena u stabilnoj verziji ove stranice.",
+	'revreview-diffonly' => "''Da provjerite stranicu, kliknite na \"trenutna revizija\" link za reviziju i koristite obrazac za provjeru.''",
+	'revreview-visibility' => "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|stabilnu verziju]]; postavke stabilnosti stranice mogu biti [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} podešene].'''",
+	'revreview-visibility2' => "'''Ova stranica je neažurirana [[{{MediaWiki:Validationpage}}|stabina verzija]]; postavke stabilnosti stranice mogu biti  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} podešene].'''",
+	'revreview-visibility3' => "'''Ova stranica nema [[{{MediaWiki:Validationpage}}|stabilnu verziju]]; postavke stabilnosti stranice mogu biti [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} podešene].'''",
 	'revreview-revnotfound' => 'Starija revizija ove stranice koju ste zatražili nije nađena.
 Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'right-autoreview' => 'Automatsko označavanje revizija kao provjerenih',
@@ -2039,7 +2052,12 @@ Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'right-validate' => 'Označavanje revizija valjanim',
 	'rights-editor-autosum' => 'automatski unaprijeđeno',
 	'rights-editor-revoke' => 'uklonjeni status uređivača iz [[$1]]',
+	'specialpages-group-quality' => 'Obezbjeđenje kvaliteta',
+	'stable-logentry' => 'konfigurirana stabilna verzija za [[$1]]',
+	'stable-logentry2' => 'poništi stabilnu verziju za [[$1]]',
 	'stable-logpage' => 'Zapisnik stabilnosti',
+	'stable-logpagetext' => 'Ovo je zapisnik izmjena na konfiguraciji [[{{MediaWiki:Validationpage}}|stabilne verzije]] stranice sadržaja.
+Spisak stabiliziranih stranica se može naći na [[Special:StablePages|spisku stabilnih stranica]].',
 	'revreview-filter-all' => 'Sve',
 	'revreview-filter-stable' => 'stabilno',
 	'revreview-filter-approved' => 'Odobreno',
@@ -2052,15 +2070,20 @@ Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'revreview-levelfilter' => 'Nivo:',
 	'revreview-lev-sighted' => 'provjereno',
 	'revreview-lev-quality' => 'kvalitet',
+	'revreview-lev-pristine' => 'prvobitno',
 	'revreview-reviewlink' => 'pregled',
 	'tooltip-ca-current' => 'Pogledajte trenutnu radnu verziju ove stranice',
 	'tooltip-ca-stable' => 'Pogledajte stabilnu verziju ove stranice',
+	'tooltip-ca-default' => 'Postavke obezbjeđivanja kvalitete',
+	'flaggedrevs-protect-legend' => 'Odobravanje izmjene',
 	'flaggedrevs-protect-none' => 'Nema dodatnih ograničenja',
 	'revreview-locked-title' => 'Izmjene moraju biti pregledane prije nego što budu prikazane na ovoj stranici.',
+	'revreview-unlocked-title' => 'Izmjene ne zahtjevaju provjeru prije nego što budu prikazane na ovoj stranici.',
 	'revreview-locked' => 'Izmjene moraju biti [[{{MediaWiki:Validationpage}}|pregledane]] prije prikazivanja na ovoj stranici.',
 	'revreview-unlocked' => 'Izmjene ne moraju biti [[{{MediaWiki:Validationpage}}|pregledane]] prije prikazivanja na ovoj stranici.',
 	'log-show-hide-review' => '$1 zapisnik pregledavanja',
 	'revreview-tt-review' => 'Pregledaj ovu stranicu',
+	'validationpage' => '{{ns:help}}:Provjera stranice',
 );
 
 /** Catalan (Català)
@@ -6093,10 +6116,16 @@ Daftar halaman yang ditandai stabil dapat ditemukan di [[Special:StablePages|daf
 	'validationpage' => '{{ns:help}}:Validasi halaman',
 );
 
-/** Ido (Ido) */
+/** Ido (Ido)
+ * @author Malafaya
+ */
 $messages['io'] = array(
+	'revreview-style-1' => 'Aceptebla',
+	'revreview-style-2' => 'Bona',
+	'revreview-style-3' => 'Konciza',
 	'revreview-revnotfound' => "L' anciena versiono di la pagino, quan vu demandis, ne povis trovesar.
 Voluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
+	'revreview-levelfilter' => 'Nivelo:',
 );
 
 /** Icelandic (Íslenska)
