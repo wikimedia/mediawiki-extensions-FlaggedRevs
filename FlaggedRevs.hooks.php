@@ -1827,7 +1827,7 @@ class FlaggedRevsHooks {
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
 		global $wgUser, $wgRequest, $wgOut, $wgLang;
-		if( !FlaggedRevs::useProtectionLevels() ) {
+		if( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // nothing to do
 		} else if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			return true; // not a reviewable page
@@ -1955,7 +1955,7 @@ class FlaggedRevsHooks {
 	
 	// Add stability log extract to protection form
 	public static function insertStabilityLog( $article, $out ) {
-		if( !FlaggedRevs::useProtectionLevels() ) {
+		if( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // nothing to do
 		} else if( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
 			return true; // not a reviewable page
@@ -1970,7 +1970,7 @@ class FlaggedRevsHooks {
 	public static function onProtectionSave( $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
 		$levels = FlaggedRevs::getProtectionLevels();
-		if( empty($levels) )
+		if( empty($levels) || !$article->exists() )
 			return true; // simple custom levels set for action=protect
 		if( wfReadOnly() || !$wgUser->isAllowed('stablesettings') ) {
 			return true; // user cannot change anything
