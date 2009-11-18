@@ -1860,7 +1860,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-quick-see-quality' => "'''Brouilhed''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gwelet ar pennad]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} keñveriañ])",
 	'revreview-source' => 'Mammenn ar brouilhed',
-	'revreview-stable' => 'Stabil',
+	'revreview-stable' => ' Pajenn stabil',
 	'revreview-style' => 'Lennuster',
 	'revreview-style-0' => 'Ket aprouet',
 	'revreview-style-1' => 'Degemeradus',
@@ -9504,6 +9504,7 @@ $messages['pt'] = array(
 	'flaggedrevs-prefs-stable' => 'Apresentar sempre a edição estável (caso exista) das páginas como conteúdo padrão',
 	'flaggedrevs-prefs-watch' => 'Adicionar páginas analisadas por mim à minha lista de artigos vigiados',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar diferenças de edição em relação a versão estável enquanto edita-se as páginas',
+	'flaggedrevs-prefs-viewdiffs' => 'Mostrar diferença para a versão estável ao ver rascunhos',
 	'group-editor' => 'Editores',
 	'group-editor-member' => 'Editor',
 	'group-reviewer' => 'Críticos',

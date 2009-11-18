@@ -482,7 +482,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-comment' => 'Abeg :',
 	'stabilization-otherreason' => 'Abeg all :',
 	'stabilization-expiry' => "A ya d'e dermen",
-	'stabilization-othertime' => 'Mare all',
+	'stabilization-othertime' => 'Mare all :',
 	'stabilization-sel-short' => 'Kentwir',
 	'stabilization-sel-short-0' => 'Perzhded',
 	'stabilization-sel-short-1' => 'Hini ebet',
@@ -3390,6 +3390,7 @@ $messages['vo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'stabilization-page' => 'בלאט נאמען:',
 	'stabilization-comment' => 'אורזאַך:',
 	'stabilization-sel-short-1' => 'קיין',
 );

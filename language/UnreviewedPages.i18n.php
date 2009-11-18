@@ -1586,6 +1586,13 @@ $messages['vo'] = array(
 	'unreviewed-list' => 'Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'unreviewed-category' => 'קאטעגאריע:',
+);
+
 /** Yue (粵語) */
 $messages['yue'] = array(
 	'right-unreviewedpages' => '去睇未複審版嘅表',

@@ -1088,6 +1088,13 @@ $messages['vo'] = array(
 	'stableversions-review' => 'Pekrüton tü <i>$1</i> fa geban: $2',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'stableversions-page' => 'בלאט נאמען:',
+);
+
 /** Yue (粵語) */
 $messages['yue'] = array(
 	'stableversions' => '穩定版',
