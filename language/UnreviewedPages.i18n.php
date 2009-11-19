@@ -1203,6 +1203,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Giro720
+ * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
  */
@@ -1214,7 +1215,7 @@ $messages['pt'] = array(
 	'unreviewed-diff' => 'rever',
 	'unreviewed-unwatched' => '(não vigiada)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
-	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram analisadas em certo nível.',
+	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram revistas até o nível escolhido.',
 	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
 	'unreviewed-viewing' => '(sob análise)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
