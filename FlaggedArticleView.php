@@ -635,12 +635,14 @@ class FlaggedArticleView {
 		# Check the newest stable version
 		$quality = 0;
 		if( $frev = $this->article->getStableRev() ) {
-			global $wgLang, $wgUser, $wgFlaggedRevsAutoReview;
+			global $wgLang, $wgUser;
 			# Find out revision id
 			$revId = $editPage->oldid ?
 				$editPage->oldid : $this->article->getLatest();
 			# If this will be autoreviewed, notify the user...
-			if( !FlaggedRevs::lowProfileUI() && $wgFlaggedRevsAutoReview && $wgUser->isAllowed('review') ) {
+			if( !FlaggedRevs::lowProfileUI() && FlaggedRevs::autoReviewEdits()
+				&& $wgUser->isAllowed('review')
+			) {
 				# If we are editing some reviewed revision, any changes this user
 				# makes will be autoreviewed...
 				$ofrev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revId );
@@ -1244,7 +1246,7 @@ class FlaggedArticleView {
 	* Only for people who can review and for pages that have a stable version.
 	*/
 	public function injectReviewDiffURLParams( &$sectionAnchor, &$extraQuery ) {
-		global $wgUser, $wgReviewChangesAfterEdit;
+		global $wgUser;
 		$this->load();
 		# Don't show this for pages that are not reviewable
 		if( !$this->article->isReviewable() || $this->article->getTitle()->isTalkPage() )
@@ -1255,10 +1257,11 @@ class FlaggedArticleView {
 		$frev = $this->article->getStableRev( FR_MASTER );
 		if( !$frev )
 			return true;
+		# Get latest revision Id (lag safe)
 		$latest = $this->article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
 		// If we are supposed to review after edit, and it was not autoreviewed,
 		// and the user can actually make new stable version, take us to the diff...
-		if( $wgReviewChangesAfterEdit && $frev && $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
+		if( FlaggedRevs::reviewAfterEdit() && $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
 			$extraQuery .= $extraQuery ? '&' : '';
 			$extraQuery .= "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
 		// ...otherwise, go to the current revision after completing an edit.

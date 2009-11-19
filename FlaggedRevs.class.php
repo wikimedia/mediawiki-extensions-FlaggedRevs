@@ -108,6 +108,34 @@ class FlaggedRevs {
 		global $wgUser, $wgSimpleFlaggedRevsUI;
 		return $wgUser->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
 	}
+	
+	/**
+	 * Redirect users out to review changes since stable version on save?
+	 * @returns bool
+	 */
+	public static function reviewAfterEdit() {
+		global $wgReviewChangesAfterEdit;
+		return (bool)$wgReviewChangesAfterEdit;
+	}
+		
+	/**
+	 * Allow auto-review edits directly to the stable version by reviewers?
+	 * (1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine)
+	 * @returns bool
+	 */
+	public static function autoReviewEdits() {
+		global $wgFlaggedRevsAutoReview;
+		return (int)$wgFlaggedRevsAutoReview;
+	}
+	
+	/**
+	 * Auto-review new pages with the minimal level?
+	 * @returns bool
+	 */
+	public static function autoReviewNewPages() {
+		global $wgFlaggedRevsAutoReviewNew;
+		return (bool)$wgFlaggedRevsAutoReviewNew;
+	}
 
 	/**
 	 * Should pages have stable/draft tabs when not synced?
@@ -250,12 +278,23 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get the array of tag dimensions
+	 * Get the associative array of tag dimensions
+	 * (tags => array(levels => msgkey))
 	 * @returns array
 	 */
 	public static function getTags() {
 		self::load();
 		return array_keys( self::$dimensions );
+	}
+
+	/**
+	 * Get the associative array of tag restrictions
+	 * (tags => array(rights => levels))
+	 * @returns array
+	 */
+	public static function getTagRestrictions() {
+		global $wgFlagRestrictions;
+		return $wgFlagRestrictions;
 	}
 	
 	/**
@@ -385,10 +424,10 @@ class FlaggedRevs {
 	 * @return mixed array or null
 	 */
 	public static function getAutoReviewTags( $quality, $config = array() ) {
-		global $wgFlaggedRevsAutoReview;
-		if( !$wgFlaggedRevsAutoReview ) return null; // shouldn't happen
+		if( !FlaggedRevs::autoReviewEdits() )
+			return null; // shouldn't happen
 		# Find the maximum auto-review quality level
-		$qal = min($wgFlaggedRevsAutoReview-1,$quality);
+		$qal = min(FlaggedRevs::autoReviewEdits()-1,$quality);
 		# Pristine auto-review?
 		if( $qal == FR_PRISTINE ) {
 			$flags = self::quickTags( FR_PRISTINE );
@@ -746,7 +785,8 @@ class FlaggedRevs {
 				$id = $rev ? $rev->getId() : null;
 				$title = $article->getTitle();
 				$options = self::makeParserOptions($anon);
-				$currentOutput = $wgParser->parse( $text, $title, $options, /*$lineStart*/true, /*$clearState*/true, $id );
+				$currentOutput = $wgParser->parse( $text, $title, $options,
+					/*$lineStart*/true, /*$clearState*/true, $id );
 				# Might as well save the cache while we're at it
 				if( $wgEnableParserCache )
 					$parserCache->save( $currentOutput, $article, $anon );

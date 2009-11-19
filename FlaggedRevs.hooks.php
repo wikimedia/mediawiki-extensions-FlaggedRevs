@@ -165,12 +165,11 @@ class FlaggedRevsHooks {
 	* Autoreview pages moved into content NS
 	*/
 	public static function onTitleMoveComplete( &$otitle, &$ntitle, $user, $pageId ) {
-		global $wgFlaggedRevsAutoReviewNew;
 		$fa = FlaggedArticle::getTitleInstance( $ntitle );
 		// Re-validate NS/config (new title may not be reviewable)
 		if( $fa->isReviewable() ) {
 			// Moved from non-reviewable to reviewable NS?
-			if( $wgFlaggedRevsAutoReviewNew && $user->isAllowed('autoreview')
+			if( FlaggedRevs::autoReviewNewPages() && $user->isAllowed('autoreview')
 				&& !FlaggedRevs::isPageReviewable( $otitle ) ) 
 			{
 				$rev = Revision::newFromTitle( $ntitle );
@@ -764,7 +763,7 @@ class FlaggedRevsHooks {
 	* Also automatically review if the "review this revision" box is checked.
 	*/
 	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false, $user = null ) {
-		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew, $wgRequest;
+		global $wgRequest;
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
 		if( !$rev || !FlaggedRevs::isPageReviewable( $title ) ) {
@@ -796,7 +795,7 @@ class FlaggedRevsHooks {
 		# Get sync cache key
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $rev->getPage() );
 		# Auto-reviewing must be enabled and user must have the required permissions
-		if( !$wgFlaggedRevsAutoReview || !$user->isAllowed('autoreview') ) {
+		if( !FlaggedRevs::autoReviewEdits() || !$user->isAllowed('autoreview') ) {
 			$isAllowed = false; // untrusted user
 		} else {
 			# Get autoreview restriction settings...
@@ -854,7 +853,7 @@ class FlaggedRevsHooks {
 		}
 		// New pages
 		if( !$prevRevId ) {
-			$reviewableNewPage = (bool)$wgFlaggedRevsAutoReviewNew;
+			$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
 		// Edits to existing pages
 		} elseif( $baseRevId ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
@@ -1735,11 +1734,11 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
-		global $wgUser, $wgRequest, $wgFlaggedRevsAutoReviewNew;
+		global $wgUser, $wgRequest;
 		if( !$wgUser->isAllowed('review') ) {
 			return true;
 		}
-		if( $wgFlaggedRevsAutoReviewNew && !$editPage->getArticle()->getId() ) {
+		if( FlaggedRevs::autoReviewNewPages() && !$editPage->getArticle()->getId() ) {
 			return true; // not needed
 		}
 		$fa = FlaggedArticleView::globalArticleInstance();

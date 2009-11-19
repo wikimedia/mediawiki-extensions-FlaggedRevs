@@ -767,21 +767,22 @@ class RevisionReview extends UnlistedSpecialPage
 	 * @returns bool
 	 */
 	public static function userCan( $tag, $value, $config = null ) {
-		global $wgFlagRestrictions, $wgUser;
+		global $wgUser;
+		$restrictions = FlaggedRevs::getTagRestrictions();
 		# Levels may not apply for some pages.
 		# Skip this check if $config is not given.
 		if( !is_null($config) && !self::levelAvailable($tag,$value,$config) ) {
 			return false;
 		}
 		# No restrictions -> full access
-		if( !isset($wgFlagRestrictions[$tag]) )
+		if( !isset($restrictions[$tag]) )
 			return true;
 		# Validators always have full access
 		if( $wgUser->isAllowed('validate') )
 			return true;
 		# Check if this user has any right that lets him/her set
 		# up to this particular value
-		foreach( $wgFlagRestrictions[$tag] as $right => $level ) {
+		foreach( $restrictions[$tag] as $right => $level ) {
 			if( $value <= $level && $level > 0 && $wgUser->isAllowed($right) ) {
 				return true;
 			}
