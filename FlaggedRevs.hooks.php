@@ -238,7 +238,9 @@ class FlaggedRevsHooks {
 		# Get any links that are only in the stable version...
 		foreach( $parserOut->getLinks() as $ns => $titles ) {
 			foreach( $titles as $title => $id ) {
-				if( !isset($linksUpdate->mLinks[$ns]) || !isset($linksUpdate->mLinks[$ns][$title]) ) {
+				if( !isset($linksUpdate->mLinks[$ns])
+					|| !isset($linksUpdate->mLinks[$ns][$title]) )
+				{
 					self::addLink( $links, $ns, $title );
 				}
 			}
@@ -252,7 +254,9 @@ class FlaggedRevsHooks {
 		# Get any templates that are only in the stable version...
 		foreach( $parserOut->getTemplates() as $ns => $titles ) {
 			foreach( $titles as $title => $id ) {
-				if( !isset($linksUpdate->mTemplates[$ns]) || !isset($linksUpdate->mTemplates[$ns][$title]) ) {
+				if( !isset($linksUpdate->mTemplates[$ns])
+					|| !isset($linksUpdate->mTemplates[$ns][$title]) )
+				{
 					self::addLink( $links, $ns, $title );
 				}
 			}
@@ -332,7 +336,8 @@ class FlaggedRevsHooks {
 	protected static function getLinkInsertions( $existing, $new, $pageId ) {
 		$arr = array();
 		foreach( $new as $ns => $dbkeys ) {
-			$diffs = isset( $existing[$ns] ) ? array_diff_key( $dbkeys, $existing[$ns] ) : $dbkeys;
+			$diffs = isset( $existing[$ns] ) ?
+				array_diff_key( $dbkeys, $existing[$ns] ) : $dbkeys;
 			foreach( $diffs as $dbk => $id ) {
 				$arr[] = array(
 					'ftr_from'      => $pageId,
@@ -418,7 +423,8 @@ class FlaggedRevsHooks {
 		if( !$id ) {
 			global $wgUseCurrentTemplates;
 			if( $id === false ) {
-				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // May want to give an error
+				// May want to give an error
+				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
 				if( !$wgUseCurrentTemplates ) {
 					$skip = true;
 				}
@@ -514,7 +520,8 @@ class FlaggedRevsHooks {
 			$isLocalFile = true; // no need to check
 		# Load the image if needed (note that time === '0' means we have no image)
 		} elseif( $time !== "0" ) {
-			$file = $file ? $file : self::getLocalFile( $title, $time ); # FIXME: would be nice not to double fetch!
+			# FIXME: would be nice not to double fetch!
+			$file = $file ? $file : self::getLocalFile( $title, $time );
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
 		# Bug 15748, be lax about commons image sync status...
@@ -600,7 +607,8 @@ class FlaggedRevsHooks {
 			$isLocalFile = true; // no need to check
 		# Load the image if needed (note that time === '0' means we have no image)
 		} elseif( $time !== "0" ) {
-			$file = $file ? $file : self::getLocalFile( $nt, $time ); # FIXME: would be nice not to double fetch!
+			# FIXME: would be nice not to double fetch!
+			$file = $file ? $file : self::getLocalFile( $nt, $time );
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
 		# Bug 15748, be lax about commons image sync status
@@ -658,10 +666,12 @@ class FlaggedRevsHooks {
 	*/
 	public static function outputInjectTimestamps( $out, $parserOut ) {
 		# Set first time
-		$out->fr_ImageSHA1Keys = isset($out->fr_ImageSHA1Keys) ? $out->fr_ImageSHA1Keys : array();
+		$out->fr_ImageSHA1Keys = isset($out->fr_ImageSHA1Keys) ?
+			$out->fr_ImageSHA1Keys : array();
 		# Leave as defaults if missing. Relevant things will be updated only when needed.
 		# We don't want to go around resetting caches all over the place if avoidable...
-		$imageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ? $parserOut->fr_ImageSHA1Keys : array();
+		$imageSHA1Keys = isset($parserOut->fr_ImageSHA1Keys) ?
+			$parserOut->fr_ImageSHA1Keys : array();
 		# Add on any new items
 		$out->fr_ImageSHA1Keys = wfArrayMerge( $out->fr_ImageSHA1Keys, $imageSHA1Keys );
 		return true;
@@ -788,7 +798,8 @@ class FlaggedRevsHooks {
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
 			# Don't do so if an edit was auto-merged in between though...
 			if( !$editTimestamp || !$prevTimestamp || $prevTimestamp == $editTimestamp ) {
-				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev,
+					$flags, false );
 				if( $ok ) return true; // done!
 			}
 		}
@@ -842,7 +853,8 @@ class FlaggedRevsHooks {
 					# Confirm the text; we can't trust this user.
 					if( $rev->getText() == $srev->getRevText() ) {
 						$flags = FlaggedRevs::quickTags( FR_SIGHTED );
-						$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+						$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(),
+							$rev, $flags );
 						if( $ok ) return true; // done!
 					}
 				}
@@ -895,9 +907,9 @@ class FlaggedRevsHooks {
 	/**
 	* When an user makes a null-edit we sometimes want to review it...
 	*/
-	public static function maybeNullEditReview( $article, $user, $text, $summary, $m, $a, $b,
-		$flags, $rev, &$status, $baseId )
-	{
+	public static function maybeNullEditReview(
+		$article, $user, $text, $summary, $m, $a, $b, $flags, $rev, &$status, $baseId
+	) {
 		global $wgRequest;
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
@@ -1151,7 +1163,8 @@ class FlaggedRevsHooks {
 		if( $totalCheckedEditsNeeded && $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array('revision','flaggedpages'), '1',
-				array( 'rev_user' => $user->getId(), 'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
+				array( 'rev_user' => $user->getId(),
+					'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
 				__METHOD__,
 				array( 'USE INDEX' => array('revision' => 'user_timestamp'),
 					'LIMIT' => $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] )
@@ -1169,10 +1182,13 @@ class FlaggedRevsHooks {
 	* Callback that autopromotes user according to the setting in
 	* $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	*/
-	public static function maybeMakeEditor( $article, $user, $text, $summary, $m, $a, $b, &$f, $rev ) {
+	public static function maybeMakeEditor(
+		$article, $user, $text, $summary, $m, $a, $b, &$f, $rev
+	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm, $wgMemc;
 		# Ignore NULL edits or edits by anon users
-		if( !$rev || !$user->getId() ) return true;
+		if( !$rev || !$user->getId() )
+			return true;
 		# No sense in running counters if nothing uses them
 		if( empty($wgFlaggedRevsAutopromote) && empty($wgFlaggedRevsAutoconfirm) ) {
 			return true;
@@ -1356,7 +1372,8 @@ class FlaggedRevsHooks {
 		if( $totalCheckedEditsNeeded && $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
 			$dbr = isset($dbr) ? $dbr : wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array('revision','flaggedpages'), '1',
-				array( 'rev_user' => $user->getId(), 'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
+				array( 'rev_user' => $user->getId(),
+					'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
 				__METHOD__,
 				array( 'USE INDEX' => array('revision' => 'user_timestamp'),
 					'LIMIT' => $wgFlaggedRevsAutopromote['totalCheckedEdits'] )
@@ -1449,7 +1466,9 @@ class FlaggedRevsHooks {
 	/**
 	* Create revision, diff, and history links for log line entry
 	*/
-	public static function reviewLogLine( $type, $action, $title=null, $params, &$comment, &$rv, $ts ) {
+	public static function reviewLogLine(
+		$type, $action, $title=null, $params, &$comment, &$rv, $ts
+	) {
 		global $wgUser, $wgLang;
 		// Stability log
 		if( $type == 'stable' ) {
@@ -1461,7 +1480,8 @@ class FlaggedRevsHooks {
 				) . ')';
 		// Review log
 		} else if( $type == 'review' && is_object($title) ) {
-			$actionsValid = array('approve','approve2','approve-a','approve2-a','unapprove','unapprove2');
+			$actionsValid = array('approve','approve2','approve-a',
+				'approve2-a','unapprove','unapprove2');
 			# Show link to page with oldid=x as well as the diff to the former stable rev.
 			# Param format is <rev id, last stable id, rev timestamp>.
 			if( in_array($action,$actionsValid) && isset($params[0]) ) {
@@ -1522,7 +1542,9 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
-	public static function overrideRedirect( &$title, $request, &$ignoreRedirect, &$target, &$article ) {
+	public static function overrideRedirect(
+		&$title, $request, &$ignoreRedirect, &$target, &$article
+	) {
 		# Get an instance on the title ($wgTitle)
 		if( !FlaggedRevs::isPageReviewable($title) ) {
 			return true;
@@ -1594,7 +1616,9 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
-	public static function addToFileHistQuery( $file, &$tables, &$fields, &$conds, &$opts, &$join_conds ) {
+	public static function addToFileHistQuery(
+		$file, &$tables, &$fields, &$conds, &$opts, &$join_conds
+	) {
 		if( !$file->isLocal() ) return true; // local files only
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
@@ -1603,7 +1627,8 @@ class FlaggedRevsHooks {
 			$fields[] = 'MAX(fr_quality) AS fr_quality';
 			# Avoid duplicate rows due to multiple revs with the same sha-1 key
 			$opts['GROUP BY'] = 'oi_name,oi_timestamp';
-			$join_conds['flaggedrevs'] = array( 'LEFT JOIN', 'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
+			$join_conds['flaggedrevs'] = array( 'LEFT JOIN',
+				'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
 		}
 		return true;
 	}
@@ -1612,7 +1637,8 @@ class FlaggedRevsHooks {
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
 		$queryInfo['fields'][] = 'fr_quality';
-		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_page_id = rev_page AND fr_rev_id = rev_id" );
+		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN',
+			"fr_page_id = rev_page AND fr_rev_id = rev_id" );
 		# Highlight unchecked content
 		$queryInfo['tables'][] = 'flaggedpages';
 		$queryInfo['fields'][] = 'fp_stable';
@@ -1662,8 +1688,10 @@ class FlaggedRevsHooks {
 		# Commons queries cannot be done all at once...
 		if( !$file->isOld() || !$file->isLocal() ) {
 			$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
-				array( 'fr_img_sha1' => $file->getSha1(), 'fr_img_timestamp' => $file->getTimestamp() ),
-				__METHOD__ );
+				array( 'fr_img_sha1' => $file->getSha1(),
+					'fr_img_timestamp' => $file->getTimestamp() ),
+				__METHOD__
+			);
 		} else {
 			$quality = is_null($file->quality) ? false : $file->quality;
 		}
@@ -1688,8 +1716,9 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
-	public static function addToChangeListLine( &$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched ) {
-		global $wgUser;
+	public static function addToChangeListLine(
+		&$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched
+	) {
 		if( empty($rc->mAttribs['fpp_rev_id']) )
 			return true; // page is not listed in pending edit table
 		if( !FlaggedRevs::isPageReviewable($rc->getTitle()) )
@@ -1839,7 +1868,8 @@ class FlaggedRevsHooks {
 		$oldExpiry = $config['expiry'] !== 'infinity' ? 
 			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
 		# Load request params...
-		$selected = $wgRequest->getVal( 'wpStabilityConfig', FlaggedRevs::getProtectionLevel($config) );
+		$selected = $wgRequest->getVal( 'wpStabilityConfig',
+			FlaggedRevs::getProtectionLevel($config) );
 		if( $selected == 'invalid' ) {
 			throw new MWException( 'This page has an undefined stability configuration!' );
 		}

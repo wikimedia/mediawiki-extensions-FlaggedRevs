@@ -328,7 +328,8 @@ class FlaggedRevs {
 		if( !isset(self::$dimensions[$tag]) )
 			return "";
 		# Return empty string if not there
-		return isset(self::$dimensions[$tag][$value]) ? self::$dimensions[$tag][$value] : "";
+		return isset(self::$dimensions[$tag][$value]) ?
+			self::$dimensions[$tag][$value] : "";
 	}
 	
 	/**
@@ -730,7 +731,9 @@ class FlaggedRevs {
 	* See if a flagged revision is synced with the current.
 	* This function is pretty expensive...
 	*/	
-	public static function stableVersionIsSynced( $srev, $article, $stableOutput=null, $currentOutput=null ) {
+	public static function stableVersionIsSynced(
+		$srev, $article, $stableOutput=null, $currentOutput=null
+	) {
 		global $wgMemc, $wgEnableParserCache, $wgUser;
 		# Must be the same revision as the current
 		if( $srev->getRevId() < $article->getTitle()->getLatestRevID() ) {

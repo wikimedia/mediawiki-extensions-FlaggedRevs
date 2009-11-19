@@ -31,7 +31,8 @@ class FlaggedRevsXML {
 			}
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
 			if( $index === $selected ) {
-				$s .= "\t" . Xml::element("option", array("value" => $index, "selected" => "selected"), $name) . "\n";
+				$s .= "\t" . Xml::element("option", array("value" => $index,
+					"selected" => "selected"), $name) . "\n";
 			} else {
 				$s .= "\t" . Xml::element("option", array("value" => $index), $name) . "\n";
 			}
@@ -71,11 +72,14 @@ class FlaggedRevsXML {
 	public static function getPrecedenceMenu( $selected=null ) {
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = Xml::openElement( 'select', array('name' => 'precedence','id' => 'wpPrecedence') );
-		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), FLAGGED_VIS_LATEST, $selected==FLAGGED_VIS_LATEST );
+		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), FLAGGED_VIS_LATEST,
+			$selected==FLAGGED_VIS_LATEST );
 		if( FlaggedRevs::qualityVersions() )
-			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), FLAGGED_VIS_QUALITY, $selected==FLAGGED_VIS_QUALITY );
+			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), FLAGGED_VIS_QUALITY,
+				$selected==FLAGGED_VIS_QUALITY );
 		if( FlaggedRevs::pristineVersions() )
-			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), FLAGGED_VIS_PRISTINE, $selected==FLAGGED_VIS_PRISTINE );
+			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), FLAGGED_VIS_PRISTINE,
+				$selected==FLAGGED_VIS_PRISTINE );
 		$s .= Xml::closeElement('select')."\n";
 		return $s;
 	}
@@ -187,7 +191,9 @@ class FlaggedRevsXML {
 	 * @returns string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
-	public static function prettyRatingBox( $frev, $shtml, $revsSince, $stable=true, $synced=false, $old=false ) {
+	public static function prettyRatingBox(
+		$frev, $shtml, $revsSince, $stable=true, $synced=false, $old=false
+	) {
 		global $wgLang;
 		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Get quality level
