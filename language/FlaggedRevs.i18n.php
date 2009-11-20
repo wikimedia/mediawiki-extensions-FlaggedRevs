@@ -7404,6 +7404,8 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn de Stanard-Säiteninhalt fir Notzer éischter wéi déi neiste Versioun.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn nogekuckte Versioune vu Säiten a kënnen als Standard-Säit fir Lieser agestallt ginn.''",
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
+	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi zënter, déi stabil Versioun  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigeschalt gouf], gemaach goufen.<br />
+'''Some templates/files were updated:'''",
 	'revreview-update-includes' => "'''Verschidde Schablounen/Fichiere goufen aktualiséiert:'''",
 	'revreview-update-none' => "W. e. g. jidfer Ännerung [[{{MediaWiki:Validationpage}}|nokucken]]  ''(déi ënnedrënner gewisen ass)'', déi zënter der [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} leschter nogekuckter Versioun] gemaach gouf.",
 	'revreview-update-use' => "'''Bemierkung:''' Wann eng vun dëse Schablounen/Fichieren eng stabil Versioun huet, da gëtt déi schonn an der stabiler Versioun vun dëser Säit benotzt.",
@@ -7791,6 +7793,7 @@ $messages['ml'] = array(
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} സ്വയം ദർശിച്ചത്]',
 	'review-diff2stable' => 'സ്ഥിരതയുള്ള പതിപ്പും നിലവിലുള്ള പതിപ്പും തമ്മിലുള്ള മാറ്റങ്ങള്‍ കാണുക',
 	'review-logentry-app' => '[[$1]] എന്നതാളിന്റെ r$2 പതിപ്പ് സംശോധനം ചെയ്തു',
+	'review-logentry-dis' => '[[41]-ൽ പിന്തള്ളപ്പെട്ട r$2',
 	'review-logentry-id' => 'നാൾപ്പതിപ്പ്: $2',
 	'review-logentry-diff' => 'സ്ഥിരതയുള്ള പതിപ്പിലേയ്ക്ക് മാറ്റുക',
 	'review-logpage' => 'സംശോധന പ്രവര്‍ത്തരേഖ',
