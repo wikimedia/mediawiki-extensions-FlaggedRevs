@@ -71,7 +71,7 @@ $messages['ar'] = array(
 	'stableversions-page' => 'اسم الصفحة:',
 	'stableversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
 	'stableversions-list' => 'هذه قائمة {{PLURAL:$2||بمراجعة|بمراجعتي|بمراجعات}} الصفحة [[:$1]] {{PLURAL:$2||التي تمت مراجعتها|اللتين تمت مراجعتهما|التي تمت مراجعتها}}:',
-	'stableversions-review' => 'تمت مراجعتها في <i>$1</i> بواسطة $2',
+	'stableversions-review' => '{{GENDER:$5|راجعها|راجعتها}} $2 في <i>$1</i>',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
