@@ -334,6 +334,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'qualityoversight' => 'ഗുണമേന്മാ മേൽനോട്ടം',
+	'qualityoversight-list' => 'ഈ താളിൽ നാൾപ്പതിപ്പുകളിൽ നടന്ന ഏറ്റവും പുതിയ അംഗീകരണങ്ങളും പിന്തള്ളലുകളും കാണാവുന്നതാണ്.',
 	'qualityoversight-legend' => 'സമീപകാല സംശോധന രേഖകളിൽ തിരയുക',
 );
 
