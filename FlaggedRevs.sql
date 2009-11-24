@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_pending (
   fpp_quality tinyint(1) NOT NULL,
   -- The last rev ID with this quality
   fpp_rev_id integer unsigned NOT NULL,
-  -- Time (or NULL) of the first edit after the last revision reviewed to this level
+  -- Time of the first edit after the last revision reviewed to this level
   fpp_pending_since char(14) NOT NULL,
   
   PRIMARY KEY (fpp_page_id,fpp_quality),
@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_tracking (
   ftr_from integer unsigned NOT NULL default '0',
   ftr_namespace int NOT NULL default '0',
   ftr_title varchar(255) binary NOT NULL default '',
+  
   PRIMARY KEY (ftr_from,ftr_namespace,ftr_title),
   INDEX namespace_title_from (ftr_namespace,ftr_title,ftr_from)
 ) /*$wgDBTableOptions*/;
