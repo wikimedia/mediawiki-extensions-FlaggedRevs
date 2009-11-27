@@ -399,8 +399,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 			$conds[] = 'page_title = wl_title';
 		}
 		# Filter by bytes changed
-		if( $this->size > 0 ) {
-			$conds[] = 'ABS(page_len - rev_len) < '.intval($this->size);
+		if( $this->size !== null && $this->size >= 0 ) {
+			$conds[] = 'ABS(page_len - rev_len) <= '.intval($this->size);
 		}
 		return array(
 			'tables'  => $tables,
