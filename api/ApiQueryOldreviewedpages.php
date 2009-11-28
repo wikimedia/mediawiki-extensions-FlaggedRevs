@@ -44,12 +44,17 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
-		$this->addTables( array( 'page', 'flaggedpages' ) );
+		$this->addTables( array( 'page', 'flaggedpages', 'revision' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
 		if( $params['filterredir'] == 'redirects' )
 			$this->addWhereFld( 'page_is_redirect', 1 );
 		if( $params['filterredir'] == 'nonredirects' )
 			$this->addWhereFld( 'page_is_redirect', 0 );
+		if( $params['maxsize'] !== null )
+			# Get absolute difference for comparison. ABS(x-y)
+			# is broken due to mysql unsigned int design.
+			$this->addWhere( 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= '.
+				intval($params['maxsize']) );
 		$this->addWhereRange(
 			'fp_pending_since',
 			$params['dir'],
@@ -57,8 +62,10 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$params['end']
 		);
 		$this->addWhere( 'page_id=fp_page_id' );
+		$this->addWhere( 'rev_id=fp_stable' );
 		if ( !isset( $params['start'] ) && !isset( $params['end'] ) )
 			$this->addWhere( 'fp_pending_since IS NOT NULL' );
+			
 		$this->addOption(
 			'USE INDEX',
 			array( 'flaggedpages' => 'fp_pending_since' )
@@ -70,6 +77,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				'page_namespace',
 				'page_title',
 				'page_latest',
+				'page_len',
+				'rev_len',
 				'fp_stable',
 				'fp_pending_since',
 				'fp_quality'
@@ -105,10 +114,10 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					'title' => $title->getPrefixedText(),
 					'revid' => intval( $row->page_latest ),
 					'stable_revid' => intval( $row->fp_stable ),
-					'pending_since' =>
-						wfTimestamp( TS_ISO_8601, $row->fp_pending_since ),
+					'pending_since' => wfTimestamp( TS_ISO_8601, $row->fp_pending_since ),
 					'flagged_level' => intval( $row->fp_quality ),
-					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality )
+					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality ),
+					'diff_size' => (int)$row->page_len - (int)$row->rev_len
 				);
 			} else {
 				$resultPageSet->processDbRow( $row );
@@ -139,6 +148,11 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					'older'
 				)
 			),
+			'maxsize' => array (
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_DFLT => null,
+				ApiBase::PARAM_MIN 	=> 0
+			),
 			'namespace' => array (
 				ApiBase::PARAM_DFLT =>
 					!$wgFlaggedRevsNamespaces ?
@@ -167,12 +181,13 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 
 	public function getParamDescription() {
 		return array (
-			'start' => 'Start listing at this timestamp.',
-			'end' => 'Stop listing at this timestamp.',
-			'namespace' => 'The namespaces to enumerate.',
-			'filterredir' => 'How to filter for redirects',
-			'limit' => 'How many total pages to return.',
-			'dir' => array(
+			'start' 	  	=> 'Start listing at this timestamp.',
+			'end'			=> 'Stop listing at this timestamp.',
+			'namespace' 	=> 'The namespaces to enumerate.',
+			'filterredir'	=> 'How to filter for redirects.',
+			'maxsize' 		=> 'Maximum character count change size.',
+			'limit' 		=> 'How many total pages to return.',
+			'dir' 			=> array(
 				'In which direction to list.',
 				'*newer: list the longest waiting pages first',
 				'*older: list the newest items first'

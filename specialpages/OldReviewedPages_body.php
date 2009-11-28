@@ -286,9 +286,9 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $category, $namespace;
 
-	function __construct( $form, $namespace, $level=-1, $category='', $size=NULL,
-		$watched=false, $stable=false )
-	{
+	function __construct(
+		$form, $namespace, $level=-1, $category='', $size=NULL, $watched=false, $stable=false
+	) {
 		$this->mForm = $form;
 		# Must be a content page...
 		global $wgFlaggedRevsNamespaces;
@@ -305,7 +305,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
 		$this->level = ($level >= 0 && $level <= 2) ? $level : -1;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;
-		$this->size = $size ? $size : NULL;
+		$this->size = ($size !== null) ? intval($size) : NULL;
 		$this->watched = (bool)$watched;
 		$this->stable = $stable && !FlaggedRevs::showStableByDefault();
 		parent::__construct();
@@ -400,7 +400,10 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		}
 		# Filter by bytes changed
 		if( $this->size !== null && $this->size >= 0 ) {
-			$conds[] = 'ABS(page_len - rev_len) <= '.intval($this->size);
+			# Get absolute difference for comparison. ABS(x-y)
+			# is broken due to mysql unsigned int design.
+			$conds[] = 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= '.
+				intval($this->size);
 		}
 		return array(
 			'tables'  => $tables,
