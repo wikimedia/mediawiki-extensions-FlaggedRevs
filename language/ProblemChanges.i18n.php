@@ -529,6 +529,7 @@ $messages['tr'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
+	'problemchanges-none' => 'Al momento no ghe xe pagine che sodisfa sti criteri',
 	'problemchanges-category' => 'Categoria:',
 );
 
