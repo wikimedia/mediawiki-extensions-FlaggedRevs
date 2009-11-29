@@ -41,6 +41,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	private function run( $resultPageSet = null ) {
+		global $wgUser;
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
@@ -55,6 +56,15 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			# is broken due to mysql unsigned int design.
 			$this->addWhere( 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= '.
 				intval($params['maxsize']) );
+		if( $params['filterwatched'] == 'watched' ) {
+			if( !($uid = $wgUser->getId()) ) {
+				$this->dieUsage('You must be logged-in to have a watchlist', 'notloggedin');
+			}
+			$this->addTables( 'watchlist' );
+			$this->addWhereFld( 'wl_user', $uid );
+			$this->addWhere( 'page_namespace = wl_namespace' );
+			$this->addWhere( 'page_title = wl_title' );
+		}
 		$this->addWhereRange(
 			'fp_pending_since',
 			$params['dir'],
@@ -143,31 +153,27 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			),
 			'dir' => array (
 				ApiBase::PARAM_DFLT => 'newer',
-				ApiBase::PARAM_TYPE => array (
-					'newer',
-					'older'
-				)
+				ApiBase::PARAM_TYPE => array( 'newer', 'older' )
 			),
 			'maxsize' => array (
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_DFLT => null,
 				ApiBase::PARAM_MIN 	=> 0
 			),
+			'filterwatched' => array (
+				ApiBase::PARAM_DFLT => 'all',
+				ApiBase::PARAM_TYPE => array( 'watched', 'all' )
+			),
 			'namespace' => array (
 				ApiBase::PARAM_DFLT =>
 					!$wgFlaggedRevsNamespaces ?
-					NS_MAIN :
-					$wgFlaggedRevsNamespaces[0],
+					NS_MAIN : $wgFlaggedRevsNamespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
 			),
 			'filterredir' => array (
 				ApiBase::PARAM_DFLT => 'all',
-				ApiBase::PARAM_TYPE => array (
-					'redirects',
-					'nonredirects',
-					'all'
-				)
+				ApiBase::PARAM_TYPE => array( 'redirects', 'nonredirects', 'all' )
 			),
 			'limit' => array (
 				ApiBase::PARAM_DFLT => 10,
@@ -186,6 +192,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'namespace' 	=> 'The namespaces to enumerate.',
 			'filterredir'	=> 'How to filter for redirects.',
 			'maxsize' 		=> 'Maximum character count change size.',
+			'filterwatched' => 'How to filter for pages on your watchlist.',
 			'limit' 		=> 'How many total pages to return.',
 			'dir' 			=> array(
 				'In which direction to list.',
