@@ -81,7 +81,9 @@ class FlaggedArticle extends Article {
 	public function isReviewable( $titleOnly = false ) {
 		if( !FlaggedRevs::isPageReviewable( $this->getTitle() ) ) {
 			return false;
-		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly() && !$this->showStableByDefault() ) {
+		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
+			&& !$this->showStableByDefault() )
+		{
 			return false;
 		}
 		return true;
@@ -95,7 +97,9 @@ class FlaggedArticle extends Article {
 	public function isPatrollable( $titleOnly = false ) {
 		if( FlaggedRevs::isPagePatrollable( $this->getTitle() ) ) {
 			return true;
-		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly() && !$this->showStableByDefault() ) {
+		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
+			&& !$this->showStableByDefault() )
+		{
 			return true;
 		}
 		return false;
