@@ -1104,6 +1104,7 @@ $messages['pdc'] = array(
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|Schtund|Schtund}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Daag|Daag}})',
 	'oldreviewedpages-recent' => '(wennicher ass 1 Schtund)',
+	'oldreviewed-category' => 'Abdeeling:',
 	'oldreviewed-watched' => 'Uff mei Watsch-Lischt',
 );
 

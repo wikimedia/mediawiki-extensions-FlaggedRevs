@@ -398,6 +398,13 @@ $messages['oc'] = array(
 	'problemchanges-category' => 'Categoria :',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'problemchanges-category' => 'Abdeeling:',
+);
+
 /** Polish (Polski)
  * @author Leinad
  * @author Sp5uhe

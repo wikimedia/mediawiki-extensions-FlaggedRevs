@@ -1143,6 +1143,7 @@ $messages['os'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'unreviewed-category' => 'Abdeeling:',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|Schtund|Schtund}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|Daag|Daag}})',
 	'unreviewed-recent' => '(wennicher ass 1 Schtund)',

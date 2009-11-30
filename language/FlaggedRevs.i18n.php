@@ -7930,6 +7930,7 @@ $messages['ml'] = array(
 	'revreview-filter-reapproved' => 'വീണ്ടും അനുമതി നൽകിയിട്ടുണ്ട്',
 	'revreview-filter-unapproved' => 'അനുമതി നൽകിയിട്ടില്ല',
 	'revreview-filter-auto' => 'സ്വയം പ്രവർത്തിതം',
+	'revreview-filter-manual' => 'മാനുഷികം',
 	'revreview-statusfilter' => 'സ്ഥിതിയിലെ മാറ്റം:',
 	'revreview-typefilter' => 'തരം:',
 	'revreview-levelfilter' => 'തലം:',
@@ -9157,7 +9158,7 @@ $messages['pam'] = array(
  */
 $messages['pdc'] = array(
 	'revreview-depth-1' => 'eefach',
-	'revreview-log' => 'Comment:',
+	'revreview-log' => 'Anmaerricking:',
 	'revreview-style-2' => 'gans guud',
 	'revreview-filter-all' => 'All',
 );
