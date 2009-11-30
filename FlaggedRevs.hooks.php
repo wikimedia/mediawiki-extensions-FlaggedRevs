@@ -1797,6 +1797,11 @@ class FlaggedRevsHooks {
 		}
 		if( !$wgUser->isAllowed('review') )
 			return true; // not relevant to user
+		if ( !count($wgFlaggedRevsNamespaces) ) {
+			return true; // No FlaggedRevs namespaces, it crashes here and
+			// I don't know the correct fix -- Andrew.
+		}
+		
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
 		if( $wgTitle->equals($watchlist) || $wgTitle->equals($recentchanges) ) {
