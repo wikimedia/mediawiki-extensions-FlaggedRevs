@@ -7277,6 +7277,7 @@ Confirma URL paginae.',
 $messages['lb'] = array(
 	'editor' => 'Editeur',
 	'flaggedrevs' => 'Markéiert Versiounen',
+	'flaggedrevs-backlog' => "D'Lëscht mat den [[Special:OldReviewedPages|Ännerungen déi drop waarden nogekuckt ze ginn]] ass elo besonnesch laang. '''Äer Mataarbecht gëtt gebraucht!'''",
 	'flaggedrevs-watched-pending' => "Et sinn elo [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} net nogekucken Ännerungen] vun nogekuckte Säiten op Ärer Iwwerwaachungslëscht. '''Är Opmierksamkeet gëtt gebraucht!'''",
 	'flaggedrevs-desc' => "Gëtt Editeuren a Benotzer déi Säiten nokucken d'Méiglechkeet fir d'Versiounen ze validéieren a Säiten ze stabiliséieren",
 	'flaggedrevs-pref-UI' => 'Interface vun de stabile Versiounen:',
