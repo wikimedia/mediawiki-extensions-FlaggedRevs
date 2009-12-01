@@ -1,16 +1,27 @@
 <?php
-
+/**
+ * Class containing utility functions for a FlaggedRevs environment
+ *
+ * Class is lazily-initialized, calling load() as needed
+ */
 class FlaggedRevs {
+	# Tag name/level config
 	protected static $dimensions = array();
 	protected static $minSL = array();
 	protected static $minQL = array();
 	protected static $minPL = array();
-	protected static $loaded = false;
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
+	# Namespace config
+	protected static $reviewNamespaces = array();
+	protected static $patrolNamespaces = array();
+	# Restriction levels/config
 	protected static $restrictionLevels = array();
-
+	protected static $protectionLevels = array();
+	# Temporary process cache variable
 	protected static $includeVersionCache = array();
+	
+	protected static $loaded = false;
 
 	public static function load() {
 		global $wgFlaggedRevTags;
@@ -60,15 +71,18 @@ class FlaggedRevs {
 		}
 		global $wgFlaggedRevsProtectLevels;
 		$wgFlaggedRevsProtectLevels = (array)$wgFlaggedRevsProtectLevels;
-		foreach( $wgFlaggedRevsProtectLevels as $level => &$config ) {
+		foreach( $wgFlaggedRevsProtectLevels as $level => $config ) {
 			# Sanity check that the config is complete
-			if( !isset($config['select']) || !isset($config['override']) || !isset($config['autoreview']) ) {
+			if( !isset($config['select']) || !isset($config['override'])
+				|| !isset($config['autoreview'])
+			) {
 				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
 			# Disallow reserved level names
 			} else if( $level == 'invalid' || $level == 'none' ) {
 				throw new MWException( 'FlaggedRevs given reserved $wgFlaggedRevsProtectLevels key!' );
 			}
 			$config['override'] = intval( $config['override'] ); // Type cleanup
+			self::$protectionLevels[$level] = $config;
 		}
 		global $wgFlaggedRevsRestrictionLevels;
 		# Make sure that there is a "none" level
@@ -76,6 +90,22 @@ class FlaggedRevs {
 		if( !in_array('',self::$restrictionLevels) ) {
 			self::$restrictionLevels = array('') + self::$restrictionLevels;
 		}
+		# Make sure no talk namespaces are in review namespace
+		global $wgFlaggedRevsNamespaces;
+		foreach( $wgFlaggedRevsNamespaces as $ns ) {
+			if( MWNamespace::isTalk($ns) ) {
+				throw new MWException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
+			} else if( $ns == NS_MEDIAWIKI ) {
+				throw new MWException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+			}
+		}
+		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
+		# Reviewable namespaces override patrolable ones
+		global $wgFlaggedRevsPatrolNamespaces;
+		self::$patrolNamespaces = array_diff(
+			$wgFlaggedRevsPatrolNamespaces, $wgFlaggedRevsNamespaces
+		);
+		
 		self::$loaded = true;
 	}
 	
@@ -195,9 +225,8 @@ class FlaggedRevs {
 	 * @returns array (associative)
 	 */
 	public static function getProtectionLevels() {
-		global $wgFlaggedRevsProtectLevels;
 		self::load(); // validates levels
-		return $wgFlaggedRevsProtectLevels;
+		return self::$protectionLevels;
 	}
 
 	/**
@@ -1075,12 +1104,16 @@ class FlaggedRevs {
 		# Get the highest quality revision (not necessarily this one).
 		$oldid = $dbr->selectField( array('flaggedrevs','revision'),
 			'fr_rev_id',
-			array( 'fr_page_id' => $article->getId(),
+			array(
+				'fr_page_id' => $article->getId(),
 				'rev_page = fr_page_id',
-				'rev_id = fr_rev_id'),
+				'rev_id = fr_rev_id'
+			),
 			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
-				'USE INDEX' => array('flaggedrevs' => 'page_qal_rev','revision' => 'PRIMARY') )
+			array(
+				'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
+				'USE INDEX' => array('flaggedrevs' => 'page_qal_rev','revision' => 'PRIMARY')
+			)
 		);
 		return $oldid;
 	}
@@ -1216,21 +1249,42 @@ class FlaggedRevs {
 		else
 			return 0;
 	}
+
+	/**
+	* Get the list of reviewable namespaces
+	* @return array
+	*/	
+	public static function getReviewNamespaces() {
+		self::load(); // validates namespaces
+		return self::$reviewNamespaces;
+	}
+	
+	/**
+	* Get the list of patrolable namespaces
+	* @return array
+	*/	
+	public static function getPatrolNamespaces() {
+		self::load(); // validates namespaces
+		return self::$patrolNamespaces;
+	}
+	
 	
 	/**
 	* Is this page in reviewable namespace?
+	* Note: this checks $wgFlaggedRevsWhitelist
 	* @param Title, $title
 	* @return bool
 	*/
 	public static function isPageReviewable( $title ) {
-		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsWhitelist;
-		# FIXME: Treat NS_MEDIA as NS_FILE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_FILE : $title->getNamespace();
+		global $wgFlaggedRevsWhitelist;
+		$namespaces = self::getReviewNamespaces();
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
+			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE
 		# Check for MW: pages and whitelist for exempt pages
-		if( $ns == NS_MEDIAWIKI || in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
+		if( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
 			return false;
 		}
-		return ( in_array($ns,$wgFlaggedRevsNamespaces) && !$title->isTalkPage() );
+		return ( in_array($ns,$namespaces) );
 	}
 	
 	/**
@@ -1239,14 +1293,10 @@ class FlaggedRevs {
 	* @return bool
 	*/
 	public static function isPagePatrollable( $title ) {
-		global $wgFlaggedRevsPatrolNamespaces;
-		# No collisions!
-		if( self::isPageReviewable($title) ) {
-			return false;
-		}
-		# FIXME: Treat NS_MEDIA as NS_FILE
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ? NS_FILE : $title->getNamespace();
-		return ( in_array($ns,$wgFlaggedRevsPatrolNamespaces) );
+		$namespaces = self::getPatrolNamespaces();
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
+			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE
+		return ( in_array($ns,$namespaces) );
 	}
 	
 	/**
