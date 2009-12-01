@@ -15,13 +15,13 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpages (
   fp_stable integer unsigned NOT NULL,
   -- The highest quality of the page's reviewed revisions.
   -- Note that this may not be set to display by default though.
-  fp_quality tinyint(1) default NULL,
-  
-  PRIMARY KEY (fp_page_id),
-  INDEX fp_reviewed_page (fp_reviewed,fp_page_id),
-  INDEX fp_quality_page (fp_quality,fp_page_id),
-  INDEX fp_pending_since (fp_pending_since)
+  fp_quality tinyint(1) default NULL
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/fp_page_id ON /*_*/flaggedpages (fp_page_id);
+CREATE INDEX /*i*/fp_reviewed_page ON /*_*/flaggedpages (fp_reviewed,fp_page_id);
+CREATE INDEX /*i*/fp_quality_page ON /*_*/flaggedpages (fp_quality,fp_page_id);
+CREATE INDEX /*i*/fp_pending_since ON /*_*/flaggedpages (fp_pending_since);
 
 -- Add tracking table for edits needing review (for all levels)
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_pending (
@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_pending (
   -- The last rev ID with this quality
   fpp_rev_id integer unsigned NOT NULL,
   -- Time of the first edit after the last revision reviewed to this level
-  fpp_pending_since char(14) NOT NULL,
-  
-  PRIMARY KEY (fpp_page_id,fpp_quality),
-  INDEX fpp_quality_pending (fpp_quality,fpp_pending_since)
+  fpp_pending_since char(14) NOT NULL
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/fpp_page_qal ON /*_*/flaggedpage_pending (fpp_page_id,fpp_quality);
+CREATE INDEX /*i*/fpp_quality_pending ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
 
 -- This stores all of our revision reviews; it is the main table
 -- The template/file version data is stored in the next two tables
@@ -68,12 +68,12 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs (
   -- Timestamp of file (when uploaded) (NULL if n/a)
   fr_img_timestamp char(14) NULL default NULL,
   -- Statistically unique SHA-1 key (NULL if n/a)
-  fr_img_sha1 varbinary(32) NULL default NULL,
-  
-  PRIMARY KEY (fr_page_id,fr_rev_id),
-  INDEX fr_img_sha1 (fr_img_sha1),
-  INDEX page_qal_rev (fr_page_id,fr_quality,fr_rev_id)
+  fr_img_sha1 varbinary(32) NULL default NULL
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/fr_page_rev ON /*_*/flaggedrevs (fr_page_id,fr_rev_id);
+CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
+CREATE INDEX /*i*/page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 
 -- This stores all of our transclusion revision pointers
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedtemplates (
@@ -82,10 +82,10 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedtemplates (
   ft_namespace int NOT NULL default '0',
   ft_title varchar(255) binary NOT NULL default '',
   -- Revisions ID used when reviewed
-  ft_tmp_rev_id integer unsigned NULL,
-  
-  PRIMARY KEY (ft_rev_id,ft_namespace,ft_title)
+  ft_tmp_rev_id integer unsigned NULL
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/ft_rev_namespace_title ON /*_*/flaggedtemplates (ft_rev_id,ft_namespace,ft_title);
 
 -- This stores all of our image revision pointers
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
   -- Timestamp of image used when reviewed
   fi_img_timestamp char(14) NOT NULL default '',
   -- Statistically unique SHA-1 key
-  fi_img_sha1 varbinary(32) NOT NULL default '',
-  
-  PRIMARY KEY (fi_rev_id,fi_name)
+  fi_img_sha1 varbinary(32) NOT NULL default ''
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/fi_rev_name ON /*_*/flaggedimages (fi_rev_id,fi_name);
 
 -- This stores settings on how to select the stable/default revision
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
@@ -114,28 +114,27 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
   -- The protection level (Sysop, etc) for autoreview
   fpc_level varbinary(60) NULL,
   -- Field for time-limited settings
-  fpc_expiry varbinary(14) NOT NULL default 'infinity',
-  
-  PRIMARY KEY (fpc_page_id),
-  INDEX (fpc_expiry)
+  fpc_expiry varbinary(14) NOT NULL default 'infinity'
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/fpc_page_id ON /*_*/flaggedpage_config (fpc_page_id);
+CREATE INDEX /*i*/fpc_expiry ON /*_*/flaggedpage_config (fpc_expiry);
 
 -- Track includes/links only in stable versions
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_tracking (
   ftr_from integer unsigned NOT NULL default '0',
   ftr_namespace int NOT NULL default '0',
-  ftr_title varchar(255) binary NOT NULL default '',
-  
-  PRIMARY KEY (ftr_from,ftr_namespace,ftr_title),
-  INDEX namespace_title_from (ftr_namespace,ftr_title,ftr_from)
+  ftr_title varchar(255) binary NOT NULL default ''
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/from_namespace_title ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
+CREATE INDEX /*i*/namespace_title_from ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 -- This stores user demotions and stats
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
   -- Foreign key to user.user_id
   frp_user_id integer unsigned NOT NULL,
-  frp_user_params mediumblob NOT NULL,
-  
-  PRIMARY KEY (frp_user_id)
+  frp_user_params mediumblob NOT NULL
 ) /*$wgDBTableOptions*/;
 
+CREATE UNIQUE INDEX /*i*/frp_user_id ON /*_*/flaggedrevs_promote (frp_user_id);
