@@ -45,7 +45,9 @@ class OldReviewedPages extends SpecialPage
 	}
 
 	public function showList( $par ) {
-		global $wgOut, $wgScript, $wgUser, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgUser;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		
 		$limit = $this->parseParams( $par );
 		$pager = new OldReviewedPagesPager( $this, $this->namespace, $this->level,
 			$this->category, $this->size, $this->watched, $this->stable );
@@ -60,7 +62,7 @@ class OldReviewedPages extends SpecialPage
 				Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() )
 			);
 			$form =
-				( count($wgFlaggedRevsNamespaces) > 1 ?
+				( count($namespaces) > 1 ?
 					"<span style='white-space: nowrap;'>" .
 					FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' ) . '</span> '
 					: ""
@@ -291,15 +293,15 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	) {
 		$this->mForm = $form;
 		# Must be a content page...
-		global $wgFlaggedRevsNamespaces;
+		$vnamespaces = FlaggedRevs::getReviewNamespaces();
 		if( is_null($namespace) ) {
-			$namespace = $wgFlaggedRevsNamespaces;
+			$namespace = $vnamespaces;
 		} else {
 			$namespace = intval($namespace);
 		}
 		# Sanity check
-		if( !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = $wgFlaggedRevsNamespaces;
+		if( !in_array($namespace,$vnamespaces) ) {
+			$namespace = $vnamespaces;
 		}
 		$this->namespace = $namespace;
 		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine

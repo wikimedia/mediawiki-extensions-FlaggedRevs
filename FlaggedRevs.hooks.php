@@ -1704,8 +1704,8 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
-		global $wgFlaggedRevsNamespaces;
-		if( !in_array($row->page_namespace,$wgFlaggedRevsNamespaces) ) {
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if( !in_array($row->page_namespace,$namespaces) ) {
 			// do nothing
 		} elseif( isset($row->fr_quality) ) {
 			$ret = '<span class="'.FlaggedRevsXML::getQualityColor($row->fr_quality).'">'.$ret.'</span>';
@@ -1791,16 +1791,16 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addBacklogNotice( &$notice ) {
-		global $wgUser, $wgTitle, $wgFlaggedRevsNamespaces;
+		global $wgUser, $wgTitle;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if ( !count($namespaces) ) {
+			return true; // nothing to have a backlog on
+		}
 		if( empty($wgTitle) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true; // nothing to do here
 		}
 		if( !$wgUser->isAllowed('review') )
 			return true; // not relevant to user
-		if ( !count($wgFlaggedRevsNamespaces) ) {
-			return true; // No FlaggedRevs namespaces, it crashes here and
-			// I don't know the correct fix -- Andrew.
-		}
 		
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
@@ -1809,7 +1809,7 @@ class FlaggedRevsHooks {
 			$watchedOutdated = $dbr->selectField(
 				array('watchlist','page','flaggedpages'), '1',
 				array( 'wl_user' => $wgUser->getId(), // this user
-					'wl_namespace' => $wgFlaggedRevsNamespaces, // reviewable
+					'wl_namespace' => $namespaces, // reviewable
 					'wl_namespace = page_namespace',
 					'wl_title = page_title',
 					'fp_page_id = page_id',
@@ -1824,11 +1824,11 @@ class FlaggedRevsHooks {
 			# Otherwise, give a notice if there is a large backlog in general
 			} else {
 				$pages = $dbr->estimateRowCount( 'page', '*',
-					array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+					array('page_namespace' => $namespaces), __METHOD__ );
 				# For small wikis, just get the real numbers to avoid some bogus messages
 				if( $pages < 50 ) {
 					$pages = $dbr->selectField( 'page', 'COUNT(*)',
-						array('page_namespace' => $wgFlaggedRevsNamespaces), __METHOD__ );
+						array('page_namespace' => $namespaces), __METHOD__ );
 					$unreviewed = $dbr->selectField( 'flaggedpages', 'COUNT(*)',
 						'fp_pending_since IS NOT NULL', __METHOD__ );
 				} else {
@@ -1846,12 +1846,12 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function stableDumpQuery( &$tables, &$opts, &$join ) {
-		global $wgFlaggedRevsNamespaces;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$tables = array('flaggedpages','page','revision');
 		$opts['ORDER BY'] = 'fp_page_id ASC';
 		$opts['USE INDEX'] = array( 'flaggedpages' => 'PRIMARY' );
 		$join['page'] = array( 'INNER JOIN',
-			array('page_id = fp_page_id','page_namespace' => $wgFlaggedRevsNamespaces)
+			array('page_id = fp_page_id','page_namespace' => $namespaces)
 		);
 		$join['revision'] = array('INNER JOIN','rev_page = fp_page_id AND rev_id = fp_stable');
 		return false; // final

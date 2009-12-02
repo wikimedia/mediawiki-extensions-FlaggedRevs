@@ -24,9 +24,10 @@ class UnreviewedPages extends SpecialPage
 	}
 
 	protected function showList( $wgRequest ) {
-		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
-		# If no NS given, then just use the first of $wgFlaggedRevsNamespaces
-		$defaultNS = empty($wgFlaggedRevsNamespaces) ? 0 : $wgFlaggedRevsNamespaces[0];
+		global $wgOut, $wgScript;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		$defaultNS = !$namespaces ? NS_MAIN : $namespaces[0];
+		
 		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
 		$category = trim( $wgRequest->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
@@ -47,7 +48,7 @@ class UnreviewedPages extends SpecialPage
 			'<fieldset><legend>' . wfMsg('unreviewed-legend') . '</legend>' .
 			Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . '<p>' );
 		# Add dropdowns as needed
-		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+		if( count($namespaces) > 1 ) {
 			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&nbsp;' );
 		}
 		if( FlaggedRevs::qualityVersions() ) {
@@ -188,16 +189,17 @@ class UnreviewedPages extends SpecialPage
 	 * There may be many pages, most of which are reviewed
 	 */
 	public static function generalQueryOK() {
-		global $wgFlaggedRevsNamespaces;
-		if( !wfQueriesMustScale() ) {
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if( !$namespaces || !wfQueriesMustScale() ) {
 			return true;
 		}
 		# Get est. of fraction of pages that are reviewed
 		$dbr = wfGetDB( DB_SLAVE );
 		$reviewedpages = $dbr->estimateRowCount( 'flaggedpages', '*', array(), __METHOD__ );
 		$pages = $dbr->estimateRowCount( 'page', '*', 
-			array('page_namespace' => $wgFlaggedRevsNamespaces), 
-			__METHOD__ );
+			array('page_namespace' => $namespaces), 
+			__METHOD__
+		);
 		$ratio = $pages/($pages - $reviewedpages);
 		# If dist. is equal, # of rows scanned = $ratio * LIMIT (or until list runs out)
 		return ($ratio <= 400);
@@ -215,12 +217,13 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		$this->live = (bool)$live;
 		# Must be a content page...
-		global $wgFlaggedRevsNamespaces;
+		
 		if( !is_null($namespace) ) {
 			$namespace = intval($namespace);
 		}
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0];
+		$vnamespaces = FlaggedRevs::getReviewNamespaces();
+		if( is_null($namespace) || !in_array($namespace,$vnamespaces) ) {
+			$namespace = !$vnamespaces ? -1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace(' ','_',$category) : NULL;

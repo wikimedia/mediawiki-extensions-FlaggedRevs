@@ -13,7 +13,7 @@ class QualityOversight extends SpecialPage
     }
 
     public function execute( $par ) {
-		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsNamespaces, $wgFlaggedRevsOversightAge;
+		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOversightAge;
 		
 		$this->setHeaders();
 		$wgOut->addHTML( wfMsgExt('qualityoversight-list', array('parse') ) );

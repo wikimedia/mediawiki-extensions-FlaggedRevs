@@ -26,9 +26,10 @@ class StablePages extends SpecialPage
 	}
 	
 	protected function showForm() {
-		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript;
 		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parseinline') ) );
-		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if( count($namespaces) > 1 ) {
 			$form = Xml::openElement( 'form', array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('stablepages')."</legend>\n";
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
@@ -104,12 +105,12 @@ class StablePagesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be a content page...
-		global $wgFlaggedRevsNamespaces;
 		if( !is_null($namespace) ) {
 			$namespace = intval($namespace);
 		}
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		$vnamespaces = FlaggedRevs::getReviewNamespaces();
+		if( is_null($namespace) || !in_array($namespace,$vnamespaces) ) {
+			$namespace = !$vnamespaces ? -1 : $vnamespaces[0]; 	 
 		}
 		$this->namespace = $namespace;
 		$this->precedence = $precedence;

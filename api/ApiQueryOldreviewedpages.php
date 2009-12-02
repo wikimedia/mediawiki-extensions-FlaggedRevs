@@ -143,7 +143,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	public function getAllowedParams() {
-		global $wgFlaggedRevsNamespaces;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return array (
 			'start' => array (
 				ApiBase::PARAM_TYPE => 'timestamp'
@@ -165,9 +165,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => array( 'watched', 'all' )
 			),
 			'namespace' => array (
-				ApiBase::PARAM_DFLT =>
-					!$wgFlaggedRevsNamespaces ?
-					NS_MAIN : $wgFlaggedRevsNamespaces[0],
+				ApiBase::PARAM_DFLT => !$namespaces ?
+					NS_MAIN : $namespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
 			),

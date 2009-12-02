@@ -30,7 +30,7 @@ class ReviewedPages extends SpecialPage
 	}
 
 	public function showForm() {
-		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript;
 
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -44,7 +44,8 @@ class ReviewedPages extends SpecialPage
 		);
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
-		if( count($wgFlaggedRevsNamespaces) > 1 ) {
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if( count($namespaces) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . ' ';
 		}
 		$form .= FlaggedRevsXML::getLevelMenu( $this->type ) . ' ';
@@ -108,12 +109,12 @@ class ReviewedPagesPager extends AlphabeticPager {
 		$this->mConds = $conds;
 		$this->type = $type;
 		# Must be a content page...
-		global $wgFlaggedRevsNamespaces;
 		if( !is_null($namespace) ) {
 			$namespace = intval($namespace);
 		}
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		$vnamespaces = FlaggedRevs::getReviewNamespaces();
+		if( is_null($namespace) || !in_array($namespace,$vnamespaces) ) {
+			$namespace = !$vnamespaces ? -1 : $vnamespaces[0]; 	 
 		}
 		$this->namespace = $namespace;
 		$this->hideRedirs = $hideRedirs;

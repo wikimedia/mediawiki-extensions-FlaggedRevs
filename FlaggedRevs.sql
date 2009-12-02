@@ -1,10 +1,10 @@
 -- (c) Aaron Schulz, 2007-2009, GPL
 -- Table structure for table `Flagged Revisions`
--- Replace /*$wgDBprefix*/ with the proper prefix
+-- Replace /*_*/ with the proper prefix
 -- Replace /*$wgDBTableOptions*/ with the correct options
 
 -- Add page tracking table for flagged revisions
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpages (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedpages (
   -- Foreign key to page.page_id
   fp_page_id integer unsigned NOT NULL,
   -- Is the stable version synced?
@@ -24,7 +24,7 @@ CREATE INDEX /*i*/fp_quality_page ON /*_*/flaggedpages (fp_quality,fp_page_id);
 CREATE INDEX /*i*/fp_pending_since ON /*_*/flaggedpages (fp_pending_since);
 
 -- Add tracking table for edits needing review (for all levels)
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_pending (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
   -- Foreign key to page.page_id
   fpp_page_id integer unsigned NOT NULL,
   -- The quality tier (0=stable, 1=quality, 2=pristine)
@@ -40,7 +40,7 @@ CREATE INDEX /*i*/fpp_quality_pending ON /*_*/flaggedpage_pending (fpp_quality,f
 
 -- This stores all of our revision reviews; it is the main table
 -- The template/file version data is stored in the next two tables
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   -- Foreign key to page.page_id
   fr_page_id integer unsigned NOT NULL,
   -- Foreign key to revision.rev_id
@@ -76,7 +76,7 @@ CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
 CREATE INDEX /*i*/page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
 
 -- This stores all of our transclusion revision pointers
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedtemplates (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
   ft_rev_id integer unsigned NOT NULL,
   -- Namespace and title of included page
   ft_namespace int NOT NULL default '0',
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedtemplates (
 CREATE UNIQUE INDEX /*i*/ft_rev_namespace_title ON /*_*/flaggedtemplates (ft_rev_id,ft_namespace,ft_title);
 
 -- This stores all of our image revision pointers
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedimages (
   fi_rev_id integer unsigned NOT NULL,
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedimages (
 CREATE UNIQUE INDEX /*i*/fi_rev_name ON /*_*/flaggedimages (fi_rev_id,fi_name);
 
 -- This stores settings on how to select the stable/default revision
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedpage_config (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_config (
   -- Foreign key to page.page_id
   fpc_page_id integer unsigned NOT NULL,
   -- Integers to represent what to show by default:
@@ -121,7 +121,7 @@ CREATE UNIQUE INDEX /*i*/fpc_page_id ON /*_*/flaggedpage_config (fpc_page_id);
 CREATE INDEX /*i*/fpc_expiry ON /*_*/flaggedpage_config (fpc_expiry);
 
 -- Track includes/links only in stable versions
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_tracking (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_tracking (
   ftr_from integer unsigned NOT NULL default '0',
   ftr_namespace int NOT NULL default '0',
   ftr_title varchar(255) binary NOT NULL default ''
@@ -131,7 +131,7 @@ CREATE UNIQUE INDEX /*i*/from_namespace_title ON /*_*/flaggedrevs_tracking (ftr_
 CREATE INDEX /*i*/namespace_title_from ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 -- This stores user demotions and stats
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/flaggedrevs_promote (
+CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
   -- Foreign key to user.user_id
   frp_user_id integer unsigned NOT NULL,
   frp_user_params mediumblob NOT NULL

@@ -25,10 +25,12 @@ class Unstablepages extends SpecialPage
 	}
 	
 	protected function showForm() {
-		global $wgOut, $wgScript, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$wgOut->addHTML( wfMsgExt('unstablepages-text', array('parseinline') ) );
-		if( count($wgFlaggedRevsNamespaces) > 1 ) {
-			$form = Xml::openElement( 'form', array( 'name' => 'unstablepages', 'action' => $wgScript, 'method' => 'get' ) );
+		if( count($namespaces) > 1 ) {
+			$form = Xml::openElement( 'form', array( 'name' => 'unstablepages',
+				'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('unstablepages')."</legend>\n";
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
@@ -88,12 +90,12 @@ class UnstablePagesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be a content page...
-		global $wgFlaggedRevsNamespaces;
 		if( !is_null($namespace) ) {
 			$namespace = intval($namespace);
 		}
-		if( is_null($namespace) || !in_array($namespace,$wgFlaggedRevsNamespaces) ) {
-			$namespace = empty($wgFlaggedRevsNamespaces) ? -1 : $wgFlaggedRevsNamespaces[0]; 	 
+		$vnamespaces = FlaggedRevs::getReviewNamespaces();
+		if( is_null($namespace) || !in_array($namespace,$vnamespaces) ) {
+			$namespace = !$vnamespaces ? -1 : $vnamespaces[0]; 	 
 		}
 		$this->namespace = $namespace;
 		parent::__construct();

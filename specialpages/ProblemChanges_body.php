@@ -43,7 +43,7 @@ class ProblemChanges extends SpecialPage
 	}
 
 	public function showList( $par ) {
-		global $wgOut, $wgScript, $wgUser, $wgFlaggedRevsNamespaces;
+		global $wgOut, $wgScript, $wgUser;
 		$limit = $this->parseParams( $par );
 		$pager = new ProblemChangesPager( $this, $this->level, $this->category, $this->tag );
 		// Apply limit if transcluded
@@ -267,8 +267,7 @@ class ProblemChangesPager extends AlphabeticPager {
 	{
 		$this->mForm = $form;
 		# Must be a content page...
-		global $wgFlaggedRevsNamespaces;
-		$this->namespace = $wgFlaggedRevsNamespaces;
+		$this->namespace = FlaggedRevs::getReviewNamespaces();
 		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
 		$this->level = ($level >= 0 && $level <= 2) ? $level : -1;
 		$this->tag = $tag;

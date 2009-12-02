@@ -8,7 +8,8 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function getNamespaceMenu( $selected=null, $all=null ) {
-		global $wgContLang, $wgFlaggedRevsNamespaces;
+		global $wgContLang;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$s = "<label for='namespace'>" . wfMsgHtml('namespace') . "</label>";
 		if( $selected !== '' ) {
 			if( is_null( $selected ) ) {
@@ -26,7 +27,7 @@ class FlaggedRevsXML {
 		}
 		foreach( $arr as $index => $name ) {
 			# Content pages only (except 'all')
-			if( $index !== $all && !in_array($index, $wgFlaggedRevsNamespaces) ) {
+			if( $index !== $all && !in_array($index, $namespaces) ) {
 				continue;
 			}
 			$name = $index !== 0 ? $name : wfMsg('blanknamespace');
@@ -225,7 +226,8 @@ class FlaggedRevsXML {
 			} else {
 				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
 			}
-			# uses messages 'revreview-quality-i', 'revreview-basic-i', 'revreview-newest-quality-i', 'revreview-newest-basic-i'
+			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
+			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ($revsSince == 0) ? '-i' : '';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		}
@@ -290,28 +292,32 @@ class FlaggedRevsXML {
 			# If the sum of qualities of all flags is above 6, use drop down boxes
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
-				$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality", 'onchange' => "updateRatingForm()" ) + $toggle;
+				$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
+					'onchange' => "updateRatingForm()" ) + $toggle;
 				$form .= Xml::openElement( 'select', $attribs );
 				foreach( $label as $i => $name ) {
 					$optionClass = array( 'class' => "fr-rating-option-$i" );
-					$form .= Xml::option( FlaggedRevs::getTagMsg($name), $i, ($i == $selected), $optionClass )."\n";
+					$form .= Xml::option( FlaggedRevs::getTagMsg($name), $i, ($i == $selected),
+						$optionClass )."\n";
 				}
 				$form .= Xml::closeElement('select')."\n";
 			# If there are more than two levels, current user gets radio buttons
 			} elseif( $numLevels > 2 ) {
 				foreach( $label as $i => $name ) {
-					$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
-					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i, "wp$quality".$i,
-						($i == $selected), $attribs ) . "\n";
+					$attribs = array( 'class' => "fr-rating-option-$i",
+						'onchange' => "updateRatingForm()" );
+					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i,
+						"wp$quality".$i, ($i == $selected), $attribs ) . "\n";
 				}
 			# Otherwise make checkboxes (two levels available for current user)
 			} else {
 				# If disable, use the current flags; if none, then use the min flag.
 				$i = $disabled ? $selected : $minLevel;
-				$attribs = array( 'class' => "fr-rating-option-$i", 'onchange' => "updateRatingForm()" );
+				$attribs = array( 'class' => "fr-rating-option-$i",
+					'onchange' => "updateRatingForm()" );
 				$attribs = $attribs + $toggle + array('value' => $minLevel);
-				$form .= Xml::checkLabel( wfMsg( "revreview-{$label[$i]}" ), "wp$quality", "wp$quality",
-					($selected == $i), $attribs ) . "\n";
+				$form .= Xml::checkLabel( wfMsg( "revreview-{$label[$i]}" ), "wp$quality",
+					"wp$quality", ($selected == $i), $attribs ) . "\n";
 			}
 			$form .= Xml::closeElement( 'span' );
 		}

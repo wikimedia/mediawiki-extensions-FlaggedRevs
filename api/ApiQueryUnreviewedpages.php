@@ -115,7 +115,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	public function getAllowedParams() {
-		global $wgFlaggedRevsNamespaces;
+		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return array (
 			'start' => array (
 				ApiBase::PARAM_TYPE => 'sring'
@@ -124,10 +124,8 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => 'string'
 			),
 			'namespace' => array (
-				ApiBase::PARAM_DFLT =>
-					!$wgFlaggedRevsNamespaces ?
-					NS_MAIN :
-					$wgFlaggedRevsNamespaces[0],
+				ApiBase::PARAM_DFLT => !$namespaces ?
+					NS_MAIN : $namespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
 			),

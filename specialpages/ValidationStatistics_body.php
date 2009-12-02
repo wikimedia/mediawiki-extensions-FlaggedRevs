@@ -75,8 +75,8 @@ class ValidationStatistics extends IncludableSpecialPage
 		}
 		$wgOut->addHTML( "</tr>\n" );
 
-		global $wgFlaggedRevsNamespaces;
-		foreach( $wgFlaggedRevsNamespaces as $namespace ) {
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		foreach( $namespaces as $namespace ) {
 			$row = $this->db->selectRow( 'flaggedrevs_stats', '*', array('namespace' => $namespace) );
 			$NsText = $wgContLang->getFormattedNsText( $row->namespace );
 			$NsText = $NsText ? $NsText : wfMsgHTML('blanknamespace');
