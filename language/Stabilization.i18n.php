@@ -1987,7 +1987,7 @@ $messages['mk'] = array(
 	'stabilization-submit' => 'Потврди',
 	'stabilization-notexists' => 'Нема страница насловена како "[[:$1|$1]]".
 Не е можно нагодување.',
-	'stabilization-notcontent' => 'Страницата "[[:$1|$1]]" не може да се оценува.
+	'stabilization-notcontent' => 'Страницата "[[:$1|$1]]" не може да се проверува.
 Не е можно нагодување.',
 	'stabilization-comment' => 'Причина:',
 	'stabilization-otherreason' => 'Друга причина:',
@@ -2003,7 +2003,7 @@ $messages['mk'] = array(
 	'stabilize_expiry_invalid' => 'Погрешен датум на важност.',
 	'stabilize_expiry_old' => 'Времето на важност веќе е поминато.',
 	'stabilize-expiring' => 'истекува $1 (UTC)',
-	'stabilization-review' => 'Оценете ја моменталната верзија',
+	'stabilization-review' => 'Провери ја моменталната верзија',
 );
 
 /** Malayalam (മലയാളം)

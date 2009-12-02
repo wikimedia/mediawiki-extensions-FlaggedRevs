@@ -681,14 +681,14 @@ $messages['li'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'reviewedpages' => 'Оценувани страници',
+	'reviewedpages' => 'Проверени страници',
 	'reviewedpages-leg' => 'Листа на страници на највисоко ниво',
 	'reviewedpages-list' => 'На оваа страница се наведени страници кои се оценети (највисоко) до назначеното ниво.',
 	'reviewedpages-none' => 'Нема страници во оваа листа',
 	'reviewedpages-lev-0' => 'Прегледани',
 	'reviewedpages-lev-1' => 'Квалитетни',
 	'reviewedpages-lev-2' => 'Одлични',
-	'reviewedpages-all' => 'оценувани верзии',
+	'reviewedpages-all' => 'проверени верзии',
 	'reviewedpages-best' => 'главна ревизија',
 );
 
