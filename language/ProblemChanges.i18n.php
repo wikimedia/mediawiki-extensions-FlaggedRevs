@@ -77,6 +77,13 @@ $messages['ca'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
+/** Czech (Česky)
+ * @author Kuvaly
+ */
+$messages['cs'] = array(
+	'problemchanges-category' => 'Kategorie:',
+);
+
 /** German (Deutsch)
  * @author Jens Liebenau
  * @author Khaledelmansoury

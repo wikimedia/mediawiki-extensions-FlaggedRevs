@@ -264,6 +264,14 @@ $messages['ca'] = array(
 	'validationstatistics-synced' => 'Sincronitzat/Revisat',
 );
 
+/** Czech (Česky)
+ * @author Kuvaly
+ */
+$messages['cs'] = array(
+	'validationstatistics-total' => 'Stránky',
+	'validationstatistics-user' => 'Uživatel',
+);
+
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
