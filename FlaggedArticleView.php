@@ -300,7 +300,6 @@ class FlaggedArticleView {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 		# Get stable version sync status
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article );
 		if( $synced ) {
@@ -311,6 +310,7 @@ class FlaggedArticleView {
 		$pending = '';
 		# Give notice to newer users if an unreviewed edit was completed...
 		if( !$synced && $wgRequest->getVal('shownotice') && !$wgUser->isAllowed('review') ) {
+			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$tooltip = wfMsgHtml('revreview-draft-title');
 			$pending = "{$prot}<span class='fr-icon-current' title=\"{$tooltip}\"></span>" .
 				wfMsgExt('revreview-edited',array('parseinline'),$srev->getRevId(),$revsSince);
@@ -323,6 +323,7 @@ class FlaggedArticleView {
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if( !$wgOut->isPrintable() && !$pending && !($this->article->lowProfileUI() && $synced) ) {
+			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$class = 'fr-icon-current'; // default
 			$tooltip = 'revreview-draft-title';
 			// Simple icon-based UI
@@ -388,7 +389,6 @@ class FlaggedArticleView {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 		$text = $frev->getRevText();
 	   	$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $frev->getRevId() );
 		# Construct some tagging for non-printable outputs. Note that the pending
@@ -399,6 +399,8 @@ class FlaggedArticleView {
 			$tooltip = wfMsgHtml($tooltip);
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
+				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
+				
 				$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
 				$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
 					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
@@ -442,8 +444,6 @@ class FlaggedArticleView {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		# We will be looking at the reviewed revision...
-	   	$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 		# Get parsed stable version
 		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
 		if( $parserOut == false ) {
@@ -455,6 +455,7 @@ class FlaggedArticleView {
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article, $parserOut, null );
 		# Construct some tagging
 		if( !$wgOut->isPrintable() && !($this->article->lowProfileUI() && $synced) ) {
+			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
 			$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 			$tooltip = wfMsgHtml($tooltip);
