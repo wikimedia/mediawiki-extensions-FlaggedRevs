@@ -469,11 +469,12 @@ $messages['bn'] = array(
 /** Breton (Brezhoneg)
  * @author Fohanno
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'stabilization-page' => 'Anv ar bajenn :',
 	'stabilization-def1' => "Ar stumm stabil; ma n'eus hini ebet, lakaat ar stumm red",
-	'stabilization-def2' => 'Ar stumm red',
+	'stabilization-def2' => 'Ar stumm red pe ar brouilh',
 	'stabilization-submit' => 'Kadarnaat',
 	'stabilization-notexists' => 'N\'eus pajenn ebet anvet "[[:$1|$1]]".
 N\'haller ket kefluniañ netra.',

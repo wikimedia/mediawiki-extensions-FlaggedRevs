@@ -183,6 +183,7 @@ $messages['bs'] = array(
 /** Catalan (Català)
  * @author SMP
  * @author Solde
+ * @author Ssola
  * @author Toniher
  */
 $messages['ca'] = array(
@@ -190,7 +191,7 @@ $messages['ca'] = array(
 	'stableversions-leg1' => "Llista d'edicions revisades per una pàgina",
 	'stableversions-page' => 'Nom de la pàgina:',
 	'stableversions-none' => '«[[:$1]]» no té edicions revisades.',
-	'stableversions-list' => "A continuació hi ha la llista de {{PLURAL:$2|l'única edició|les edicions}} de [[:$1]] que {{PLURAL:$2|s'ha|s'han}} revisat:",
+	'stableversions-list' => "A continuació hi ha la llista de {{PLURAL:$2|l'única modificació|les modificacions}} de [[:$1]] que {{PLURAL:$2|s'ha|s'han}} revisat:",
 	'stableversions-review' => 'Revisat el <em>$1</em> per $2',
 );
 

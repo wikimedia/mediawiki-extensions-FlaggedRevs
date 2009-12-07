@@ -933,6 +933,7 @@ $messages['ar'] = array(
  * @author Basharh
  */
 $messages['arc'] = array(
+	'revreview-filter-all' => 'ܟܠ',
 	'revreview-typefilter' => 'ܐܕܫܐ:',
 	'revreview-levelfilter' => 'ܫܘܝܐ:',
 );
@@ -1796,7 +1797,7 @@ $messages['br'] = array(
 	'review-diff2stable' => "Gwelet ar c'hemmoù etre ar stummoù stabil hag ar stummoù a-vremañ.",
 	'review-logentry-app' => 'en deus adwelet r$2 eus [[$1]]',
 	'review-logentry-dis' => "Stumm dic'hizet eus [[$1]]",
-	'review-logentry-id' => 'gwelet: $2',
+	'review-logentry-id' => 'adweladenn : $2',
 	'review-logentry-diff' => "kemmoù d'ar stumm stabil",
 	'review-logpage' => 'Marilh an adweladennoù',
 	'review-logpagetext' => "Setu marilh ar c'hemmoù ber degaset [[{{MediaWiki:Validationpage}}|d'ar statud aprouiñ]] an adweladennoù.
@@ -1847,7 +1848,8 @@ Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{F
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemmet]'''.",
 	'revreview-quality-source' => "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm a-feson] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, zo bet diazezet er-maez eus ar stumm-mañ.",
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|gwelet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
+	'revreview-quality-title' => 'Pajenn vat',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwelet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwelet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwelet]]'''",
 	'revreview-quick-invalid' => "'''Niverenn stumm direizh'''",
@@ -2094,6 +2096,7 @@ Spisak stabiliziranih stranica se može naći na [[Special:StablePages|spisku st
  * @author Qllach
  * @author SMP
  * @author Solde
+ * @author Ssola
  * @author Toniher
  */
 $messages['ca'] = array(
@@ -2123,7 +2126,7 @@ $messages['ca'] = array(
 	'revreview-approved' => 'Aprovat',
 	'revreview-auto' => '(automàtic)',
 	'revreview-auto-w' => "Esteu modificant una revisio estable; els canvis seran '''revisats automàticament'''.",
-	'revreview-auto-w-old' => "Esteu modificant una edició revisada; els canvis seran '''revisats automàticament'''.",
+	'revreview-auto-w-old' => "Esteu modificant una versió revisada; els canvis seran '''revisats automàticament'''.",
 	'revreview-basic' => "Aquesta és l'última versió [[{{MediaWiki:Validationpage}}|revisada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versió actual] és la que pot ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|canvi|canvis}}] {{PLURAL:$3|espera|esperen}} revisió.",
 	'revreview-current' => 'actual',
 	'revreview-depth-1' => 'Bàsic',
@@ -3084,6 +3087,8 @@ $messages['el'] = array(
 	'tooltip-ca-current' => 'Δείτε το υπάρχον προσχέδιο για αυτή τη σελίδα',
 	'tooltip-ca-stable' => 'Προβολή της σταθερής έκδοσης αυτής της σελίδας',
 	'tooltip-ca-default' => 'Παράμετροι επιβεβαίωσης ποιότητας',
+	'flaggedrevs-protect-legend' => 'Επιβεβαίωση επεξεργασίας',
+	'flaggedrevs-protect-none' => 'Κανένας πρόσθετος περιορισμός.',
 	'log-show-hide-review' => '$1 αρχείο επιθεωρήσεων',
 	'revreview-tt-review' => 'Επιθεώρηση αυτής της σελίδας',
 	'validationpage' => '{{ns:help}}:Επικύρωση σελίδας',
@@ -7639,6 +7644,7 @@ $messages['mk'] = array(
 	'editor' => 'Уредувач',
 	'flaggedrevs' => 'Означени ревизии',
 	'flaggedrevs-backlog' => "Моментално има заостаток во [[Special:OldReviewedPages|уредувањата во исчекување]] на проверените страници. '''Обратете внимание!'''",
+	'flaggedrevs-watched-pending' => "На вашата листа на набљудувања моментално има [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} уредувања во исчекување] да бидат прегледани. ''Потребно е вашето внимание!'''",
 	'flaggedrevs-desc' => 'Им дава можност на уредувачите и проверувачите да ги потврдат ревизиите и да ги стабилизираат страниците',
 	'flaggedrevs-pref-UI' => 'Интерфејс на стабилната верзија:',
 	'flaggedrevs-pref-UI-0' => 'Користење на детален интерфејс на стабилна верзија.',
@@ -7704,6 +7710,8 @@ $messages['mk'] = array(
 	'revreview-log' => 'Забелешка:',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последната прегледана ревизија] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} приказ на сите]) беше [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] {{PLURAL:$3|има|имаат}} потреба од проверка.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последната проверена ревизија] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} листа на сите]) беше [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+Потребна е проверка на [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} шаблони/податотеки].',
 	'revreview-oldrating' => 'Оценето со:',
 	'revreview-patrol' => 'Означи ја оваа промена како патролирана',
 	'revreview-patrol-title' => 'Означи како патролирано',
@@ -7738,7 +7746,9 @@ $messages['mk'] = array(
 	'revreview-submit' => 'Зачувај',
 	'revreview-submitting' => 'Зачувување ...',
 	'revreview-finished' => 'Комплетиран преглед!',
+	'revreview-failed' => 'Проверката не успеа!',
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
+	'revreview-update-includes' => "'''Некои шаблони/податотеки беа обновени:'''",
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
 	'right-autoreview' => 'Автоматско означување на ревизии како прегледани',
