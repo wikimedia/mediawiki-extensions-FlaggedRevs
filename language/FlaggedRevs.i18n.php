@@ -6571,7 +6571,10 @@ $messages['jv'] = array(
  * @author BRUTE
  */
 $messages['ka'] = array(
+	'revreview-log' => 'კომენტარი:',
+	'revreview-style-4' => 'რჩეული',
 	'revreview-filter-all' => 'ყველა',
+	'revreview-typefilter' => 'ტიპი:',
 );
 
 /** Kabyle (Taqbaylit)
@@ -7676,6 +7679,8 @@ $messages['mk'] = array(
 	'review-logentry-id' => 'ревизија: $2',
 	'review-logentry-diff' => 'разлика од стабилната верзија',
 	'review-logpage' => 'Дневник на прегледување',
+	'review-logpagetext' => 'Ова е дневник на промени во статусот на [[{{MediaWiki:Validationpage}}|потврдувањето]] на ревизиите на страниците.
+Погледајте ја [[Special:ReviewedPages|листата на прегледани страници]] за листа на одобрени страници.',
 	'reviewer' => 'Проверувач',
 	'revisionreview' => 'Провери ревизии',
 	'revreview-accuracy' => 'Точност',
@@ -7687,6 +7692,7 @@ $messages['mk'] = array(
 	'revreview-approved' => 'Одобрено',
 	'revreview-auto' => '(автоматски)',
 	'revreview-auto-w' => "Уредувате стабилна ревизија; промените ќе бидат '''автоматски означени како проверени'''.",
+	'revreview-auto-w-old' => "Уредувате проверена ревизија; промените ќе бидат '''автоматски проверени'''.",
 	'revreview-basic' => 'Ова се последните [[{{MediaWiki:Validationpage}}|прегледани]] ревизии, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрени] на <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Работната верзија] има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] кои чекаат проверка.',
 	'revreview-basic-i' => 'Ова е најновата [[{{MediaWiki:Validationpage}}|прегледана]] ревизија, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] од <i>$2</i>.
@@ -7695,6 +7701,12 @@ $messages['mk'] = array(
 Нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени] може да биле направени.',
 	'revreview-basic-same' => 'Ова е последната [[{{MediaWiki:Validationpage}}|прегледана]] ревизија ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} види ги сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрени] на <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Прегледана верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, се заснова на оваа ревизија.',
+	'revreview-blocked' => 'Не можете да ја проверите оваа ревизија бидејќи вашата сметка е моментално блокирана ([$1 повеќе])',
+	'revreview-changed' => "'''Побараното дејствие не може да се изведе на оваа ревизија на [[:$1|$1]].'''
+
+Може да бил побаран шаблон или податотека, без да биде назначена конкретна верзија.
+Ова може да се случи доколку еден динамички шаблон тансклудира друга податотека или шаблон зависно од променливата која се изменила откога сте започнале со проверката.
+Проблемот може да се реши со превчитување на страницата и нејзина повторна проверка.",
 	'revreview-current' => 'Нацрт',
 	'revreview-depth' => 'Длабочина',
 	'revreview-depth-0' => 'Неодобрена',
@@ -7704,14 +7716,27 @@ $messages['mk'] = array(
 	'revreview-depth-4' => 'Одлично',
 	'revreview-draft-title' => 'Работна страница',
 	'revreview-edit' => 'Уреди работна верзија',
+	'revreview-editnotice' => "'''Уредувањата на оваа страница ќе бидат вклучени во [[{{MediaWiki:Validationpage}}|стабилната верзија]] откако ќе ги провери надлежен корисник.'''",
 	'revreview-flag' => 'Провери ја оваа ревизија',
+	'revreview-edited' => "'''Уредувањата ќе бидат вклучени во [[{{MediaWiki:Validationpage}}|стабилната верзија]] откако ќе бидат прегледани од надлежен корисник.'''
+'''''Нацртот'' е прикажан подолу.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|change awaits|измени чекаат}}] да бидат проверени.",
 	'revreview-invalid' => "'''Погрешна цел:''' нема [[{{MediaWiki:Validationpage}}|проверени]] ревизии кои соодветствуваат на наведениот ид. бр.",
 	'revreview-legend' => 'Оцени ја содржината на ревизијата',
 	'revreview-log' => 'Забелешка:',
+	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за проверување.
+
+Погледајте ја [[Special:Unreviewedpages|листата на непроверени страници]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последната прегледана ревизија] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} приказ на сите]) беше [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] {{PLURAL:$3|има|имаат}} потреба од проверка.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последната проверена ревизија] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} листа на сите]) беше [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Потребна е проверка на [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} шаблони/податотеки].',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последната квалитетна ревизија] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} листа на сите]) беше [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|измена|измени}}] {{PLURAL:$3|има потреба|имаат потреба}} од проверка.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Последната квалитетна ревизија] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} листа на сите]) беше [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} измени на шаблони/податотеки] имаат потреба од проверка.',
+	'revreview-noflagged' => "Нема прегледани ревизии на оваа страница, па затоа таа веројатно '''не''' била [[{{MediaWiki:Validationpage}}|проверена]] за квалитет.",
+	'revreview-note' => '[[User:$1|$1]] ги направи следниве забелешки [[{{MediaWiki:Validationpage}}|проверувајќи]] ја оваа ревизија:',
+	'revreview-notes' => 'Набљудувања или белешки за прикажување:',
 	'revreview-oldrating' => 'Оценето со:',
 	'revreview-patrol' => 'Означи ја оваа промена како патролирана',
 	'revreview-patrol-title' => 'Означи како патролирано',
@@ -7720,6 +7745,10 @@ $messages['mk'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Работната везија] има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] кои чекаат проверка.',
 	'revreview-quality-i' => 'Ова е најновата ревизија за [[{{MediaWiki:Validationpage}}|квалитет]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Работната верзија] има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени во шаблон/слика] кои чекаат да бидат проверени.',
+	'revreview-quality-old' => 'Ова е [[{{MediaWiki:Validationpage}}|квалитетна]]  ревизија ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} листа на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+Може да се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} измени].',
+	'revreview-quality-same' => 'Ова е најновата [[{{MediaWiki:Validationpage}}|квалитетна]] ревизија ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} листа на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Квалитетна верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа верзија.',
 	'revreview-quality-title' => 'Квалитетна страница',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Прегледана страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види работна верзија]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Прегледана страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види работна верзија]]",
@@ -7737,6 +7766,8 @@ $messages['mk'] = array(
 	'revreview-source' => 'работна содржина',
 	'revreview-stable' => 'Стабилна страница',
 	'revreview-stable-title' => 'Прегледана страница',
+	'revreview-stable1' => 'Препорачуваме да ја погледате [{{fullurl:$1|stableid=$2}} оваа означена верзија] и да проверите дали таа сега е [{{fullurl:$1|stable=1}} стабилната верзија] на оваа страница.',
+	'revreview-stable2' => 'Препорачуваме да ја погледате [{{fullurl:$1|stable=1}} стабилната ревизија] на оваа страница (ако сè уште постои таква).',
 	'revreview-style' => 'Читливост',
 	'revreview-style-0' => 'Неодобрено',
 	'revreview-style-1' => 'Прифатливо',
@@ -7747,8 +7778,22 @@ $messages['mk'] = array(
 	'revreview-submitting' => 'Зачувување ...',
 	'revreview-finished' => 'Комплетиран преглед!',
 	'revreview-failed' => 'Проверката не успеа!',
+	'revreview-successful' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]]. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} преглед на стабилни верзии])'''",
+	'revreview-successful2' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]].'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Стабилните верзии]] се содржина на страниците наменета за прикажување, а не најновата ревизија.''",
+	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Стабилните верзии]] се проверени ревизии на страници и можат да се постават за прикажување по основно.''",
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
+	'revreview-toolow' => 'Мора да ги оцените долунаведените својства повисоко од "неодобрено" за ревизијата да се смета за проверена.
+За да ја отфрлите ревизијата, наместете ги сите полиња на "неодобрено".',
+	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Проверете]] ги промените ''(прикажани подолу)'' извршени од последното [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрување] на стабилната верзија.<br />
+'''Обновени се некои шаблони/податотеки:'''",
 	'revreview-update-includes' => "'''Некои шаблони/податотеки беа обновени:'''",
+	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Проверете]] ги промените ''(прикажани подолу)'' извршени од последното [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрување] на стабилната ревизија наваму.",
+	'revreview-update-use' => "'''БЕЛЕШКА:''' Доколку било кој од овие шаблони/податотеки има стабилна верзија, тогаш значи дека таа веќе се користи во стабилната верзија на оваа страница.",
+	'revreview-diffonly' => "''За да ја проверите страницата, кликнете на врската \"тековна ревизија\" и употребете го образецот за проверка.''",
+	'revreview-visibility' => "'''Оваа страница има обновена [[{{MediaWiki:Validationpage}}|стабилна верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
+	'revreview-visibility2' => "'''Оваа страница има застарена [[{{MediaWiki:Validationpage}}|стабилна верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
+	'revreview-visibility3' => "'''Оваа страница нема [[{{MediaWiki:Validationpage}}|стабилна верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
 	'right-autoreview' => 'Автоматско означување на ревизии како прегледани',
@@ -7759,8 +7804,11 @@ $messages['mk'] = array(
 	'rights-editor-autosum' => 'автопромовиран',
 	'rights-editor-revoke' => 'му го одзема статусот на уредник на [[$1]]',
 	'specialpages-group-quality' => 'Осигурување на квалитет',
+	'stable-logentry' => 'го конфигурираше стабилното верзионирање за [[$1]]',
 	'stable-logentry2' => 'го врати по основно стабилното верзионирање за [[$1]]',
 	'stable-logpage' => 'Дневник на стабилни страници',
+	'stable-logpagetext' => 'Ова е дневник на измени на конфигурацијата на [[{{MediaWiki:Validationpage}}|стабилните верзии]] на страниците.
+Листа на стабилизирани страници ќе најдете на [[Special:StablePages|листата на стабилни страници]].',
 	'revreview-filter-all' => 'Сите',
 	'revreview-filter-stable' => 'стабилна',
 	'revreview-filter-approved' => 'Одобрени',
