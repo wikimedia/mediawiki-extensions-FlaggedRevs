@@ -1369,11 +1369,11 @@ class FlaggedArticleView {
 			if( !RevisionReview::userCanSetFlags( $oldFlags ) ) {
 				$flags = $oldFlags;
 			}
-			$encNotes = $srev->getComment();
+			$reviewNotes = $srev->getComment();
 		} else {
 			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $id );
 			$flags = $oldFlags;
-			$encNotes = $frev ? $frev->getComment() : ""; // pre-fill notes
+			$reviewNotes = $frev ? $frev->getComment() : ""; // pre-fill notes
 		}
 
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
@@ -1414,7 +1414,7 @@ class FlaggedArticleView {
 			$form .= "<p>".wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
 				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) .
-				htmlspecialchars( $encNotes ) .
+				htmlspecialchars( $reviewNotes ) .
 				Xml::closeElement('textarea') . "\n";
 			$form .= "</div>\n";
 		}
