@@ -159,7 +159,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-toggle'             => '(+/-)',
 	'revreview-toggle-title'       => 'show/hide details',
 	'revreview-toolow'             => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
-To depreciate a revision, set all fields to "unapproved".',
+To deprecate a revision, set all fields to "unapproved".',
 	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any changes \'\'(shown below)\'\' made since the stable revision was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved].<br />
 \'\'\'Some templates/files were updated:\'\'\'',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
