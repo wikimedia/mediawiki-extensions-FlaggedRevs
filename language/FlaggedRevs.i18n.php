@@ -9855,6 +9855,7 @@ Por favor verifique a URL que você usou para acessar esta página.',
  */
 $messages['qu'] = array(
 	'review-logentry-app' => "[[$1]] p'anqapaq r$2 musuqchasqata qhawaykun",
+	'revreview-toggle-title' => 'Imaymanata rikuchiy/pakay',
 	'revreview-revnotfound' => "Mañakusqayki llamk'apusqaqa manam tarisqachu.
 Ama hina kaspa, kay p'anqap URL nisqa tiyayninta k'uskiriy.",
 	'revreview-filter-all' => 'tukuy',
