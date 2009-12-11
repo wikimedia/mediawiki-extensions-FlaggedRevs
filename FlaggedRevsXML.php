@@ -50,7 +50,6 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function getLevelMenu( $selected=null, $all='revreview-filter-all', $max=2 ) {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='wpLevel'>" . wfMsgHtml('revreview-levelfilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'level','id' => 'wpLevel') );
 		if( $all !== false )
@@ -71,7 +70,6 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */	
 	public static function getPrecedenceMenu( $selected=null ) {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = Xml::openElement( 'select', array('name' => 'precedence','id' => 'wpPrecedence') );
 		$s .= Xml::option( wfMsg( 'revreview-lev-sighted' ), FLAGGED_VIS_LATEST,
 			$selected==FLAGGED_VIS_LATEST );
@@ -91,7 +89,6 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function getStatusFilterMenu( $selected=null ) {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='wpStatus'>" . wfMsgHtml('revreview-statusfilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'status','id' => 'wpStatus') );
 		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
@@ -108,7 +105,6 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function getAutoFilterMenu( $selected=null ) {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$s = "<label for='wpApproved'>" . wfMsgHtml('revreview-typefilter') . "</label>&nbsp;";
 		$s .= Xml::openElement( 'select', array('name' => 'automatic','id' => 'wpApproved') );
 		$s .= Xml::option( wfMsg( "revreview-filter-all" ), -1, $selected===-1 );
@@ -147,7 +143,6 @@ class FlaggedRevsXML {
 	 * Generates a review box/tag
 	 */
     public static function addTagRatings( $flags, $prettyBox = false, $css='' ) {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
         $tag = '';
         if( $prettyBox ) {
         	$tag .= "<table id='mw-revisionratings-box' align='center' class='$css' cellpadding='0'>";
@@ -196,7 +191,6 @@ class FlaggedRevsXML {
 		$frev, $shtml, $revsSince, $stable=true, $synced=false, $old=false
 	) {
 		global $wgLang;
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Get quality level
 		$flags = $frev->getTags();
 		$quality = FlaggedRevs::isQuality( $flags );
@@ -245,7 +239,6 @@ class FlaggedRevsXML {
 	}
 
 	public static function ratingToggle() {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		return "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" .
 			wfMsg( 'revreview-toggle' ) . "</a>";

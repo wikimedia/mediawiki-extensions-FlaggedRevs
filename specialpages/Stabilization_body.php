@@ -8,8 +8,6 @@ class Stabilization extends UnlistedSpecialPage
 {
 	public function __construct() {
 		parent::__construct( 'Stabilization', 'stablesettings' );
-		wfLoadExtensionMessages( 'Stabilization' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
 	public function execute( $par ) {

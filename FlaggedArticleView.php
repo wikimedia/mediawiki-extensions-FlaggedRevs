@@ -142,7 +142,6 @@ class FlaggedArticleView {
 		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		if( !is_null($frev) ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$time = $wgLang->date( $frev->getTimestamp(), true );
 			$flags = $frev->getTags();
 			$quality = FlaggedRevs::isQuality( $flags );
@@ -181,8 +180,6 @@ class FlaggedArticleView {
 		if( !$this->article->isReviewable() ) {
 			return true;
 		}
-		# Load required messages
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$simpleTag = $old = $stable = false;
 		$tag = $prot = '';
 		# Check the newest stable version.
@@ -510,7 +507,6 @@ class FlaggedArticleView {
 			return false; // not viewing the draft
 		}
 		# Conditions are met to show diff...
-		wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
 		$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 		$rClass = FlaggedRevsXML::getQualityColor( false );
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
@@ -648,19 +644,16 @@ class FlaggedArticleView {
 				# makes will be autoreviewed...
 				$ofrev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revId );
 				if( !is_null($ofrev) ) {
-					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$msg = ( $revId==$frev->getRevId() ) ? 'revreview-auto-w' : 'revreview-auto-w-old';
 					$warning = "<div id='mw-autoreviewtag' class='flaggedrevs_warning plainlinks'>" .
 						wfMsgExt($msg,array('parseinline')) . "</div>";
 				}
 			# Let new users know about review procedure a tag
 			} elseif( !$wgUser->getId() && $this->article->showStableByDefault() ) {
-				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$warning = "<div id='mw-editwarningtag' class='flaggedrevs_editnotice plainlinks'>" .
 						wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
 			}
 			if( $frev->getRevId() != $revId ) {
-				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$time = $wgLang->date( $frev->getTimestamp(), true );
 				$flags = $frev->getTags();
 				if( FlaggedRevs::isQuality($flags) ) {
@@ -716,7 +709,6 @@ class FlaggedArticleView {
 				}
 				
 				# Conditions are met to show diff...
-				wfLoadExtensionMessages( 'FlaggedRevs' ); // load required messages
 				$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
 				$rClass = FlaggedRevsXML::getQualityColor( false );
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
@@ -759,7 +751,6 @@ class FlaggedArticleView {
 		$this->load();
 		# Only for pages manually made to be stable...
 		if( $this->article->isPageLocked() ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
 			$wgOut->addWikiMsg( 'revreview-locked' );
 			LogEventsList::showLogExtract( $wgOut, 'stable',
@@ -767,7 +758,6 @@ class FlaggedArticleView {
 			$wgOut->addHTML( "</div>" );
 		# ...or unstable
 		} elseif( $this->article->isPageUnlocked() ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
 			$wgOut->addWikiMsg( 'revreview-unlocked' );
 			LogEventsList::showLogExtract( $wgOut, 'stable',
@@ -786,11 +776,6 @@ class FlaggedArticleView {
 		if( !$wgUser->isAllowed( 'review' ) ) {
 			return true;
 		}
-		wfLoadExtensionMessages( 'FlaggedRevs' );
-		# Load special page names
-		wfLoadExtensionMessages( 'OldReviewedPages' );
-		wfLoadExtensionMessages( 'UnreviewedPages' );
-
 		$category = $this->article->getTitle()->getText();
 
 		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
@@ -850,8 +835,6 @@ class FlaggedArticleView {
 		}
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if( $action == 'protect' || $action == 'unprotect' ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
-			wfLoadExtensionMessages( 'Stabilization' ); // Load special page name
 			$title = SpecialPage::getTitleFor( 'Stabilization' );
 			# Give a link to the page to configure the stable version
 			$frev = $this->article->getStableRev();
@@ -895,7 +878,6 @@ class FlaggedArticleView {
 			$wgUser->isAllowed( 'stablesettings' ) &&
 			$title->exists()
 		) {
-			wfLoadExtensionMessages( 'Stabilization' );
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
 			// Add a tab
 			$actions['default'] = array(
@@ -929,7 +911,6 @@ class FlaggedArticleView {
 	   	if( is_null( $srev ) ) {
 			return true; // No stable revision exists
 		}
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
 		// Set draft tab as needed...
 	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
@@ -1010,7 +991,6 @@ class FlaggedArticleView {
 		global $wgUser;
 		$this->load();
 		if( FlaggedRevs::allowComments() && $frev && $frev->getComment() ) {
-			wfLoadExtensionMessages( 'FlaggedRevs' );
 			$notes = "<br /><div class='flaggedrevs_notes plainlinks'>";
 			$notes .= wfMsgExt('revreview-note', array('parseinline'), User::whoIs( $frev->getUser() ) );
 			$notes .= '<br /><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
@@ -1029,8 +1009,6 @@ class FlaggedArticleView {
 		# UI may be limited to unobtrusive patrolling system
 		if( $wgOut->isPrintable() || !$this->article->isReviewable() || $this->article->limitedUI() )
 			return true;
-		# Load required messages
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Check if this might be the diff to stable. If so, enhance it.
 		if( $newRev->isCurrent() && $oldRev ) {
 			$article = new Article( $newRev->getTitle() );
@@ -1232,7 +1210,6 @@ class FlaggedArticleView {
 				$article = new Article( $newRev->getTitle() );
 				# Is the stable revision using the same revision as the current?
 				if( $article->getLatest() != $frev->getRevId() ) {
-					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$patrol = '(' . $wgUser->getSkin()->makeKnownLinkObj( $newRev->getTitle(),
 						wfMsgHtml( 'review-diff2stable' ), "oldid={$frev->getRevId()}&diff=cur&diffonly=0" ) . ')';
 					$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>$patrol</div>" );
@@ -1342,8 +1319,6 @@ class FlaggedArticleView {
 		} else {
 			$rev = Revision::newFromTitle( $this->article->getTitle(), $id );
 		}
-		# Load required messages
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Must be a valid non-printable output and revision must be public
 		if( $wgOut->isPrintable() || !$rev || $rev->isDeleted(Revision::DELETED_TEXT) ) {
 			return false;

@@ -26,7 +26,6 @@ class RevisionReview extends UnlistedSpecialPage
     public function __construct() {
 		global $wgUser;
 		parent::__construct( 'RevisionReview', 'review' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$this->skin = $wgUser->getSkin();
     }
 
@@ -159,7 +158,6 @@ class RevisionReview extends UnlistedSpecialPage
 		// Basic permission check
 		if( $wgUser->isAllowed( 'review' ) ) {
 			if( $wgUser->isBlocked() ) {
-				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$blocklist = SpecialPage::getTitleFor( 'Ipblocklist' );
 				$blocklog = $blocklist->getFullUrl( 'ip=' . urlencode('#'.$wgUser->getBlockId()) );
 				return '<err#><h2>'.wfMsgHtml('blockedtitle').'</h2>'.
@@ -897,7 +895,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$revId, $stableId, $approve, $auto=false )
 	{
 		global $wgFlaggedRevsLogInRC;
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$log = new LogPage( 'review', $auto ? false : $wgFlaggedRevsLogInRC, $auto ? "skipUDP" : "UDP" );
 		# ID, accuracy, depth, style
 		$ratings = array();

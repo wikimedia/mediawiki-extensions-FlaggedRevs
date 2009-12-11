@@ -9,9 +9,6 @@ class ProblemChanges extends SpecialPage
 	public function __construct() {
 		parent::__construct( 'ProblemChanges' );
 		$this->includable( true );
-		wfLoadExtensionMessages( 'ProblemChanges' );
-		wfLoadExtensionMessages( 'OldReviewedPages' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	public function execute( $par ) {

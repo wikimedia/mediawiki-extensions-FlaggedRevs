@@ -8,8 +8,6 @@ class ValidationStatistics extends IncludableSpecialPage
 {
 	public function __construct() {
 		parent::__construct( 'ValidationStatistics' );
-		wfLoadExtensionMessages( 'ValidationStatistics' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	public function execute( $par ) {

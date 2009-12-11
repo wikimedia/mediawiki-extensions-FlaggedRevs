@@ -8,8 +8,6 @@ class UnreviewedPages extends SpecialPage
 {
 	public function __construct() {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
-		wfLoadExtensionMessages( 'UnreviewedPages' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	public function execute( $par ) {

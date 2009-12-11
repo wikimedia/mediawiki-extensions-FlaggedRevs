@@ -8,8 +8,6 @@ class StablePages extends SpecialPage
 {
 	public function __construct() {
         parent::__construct( 'StablePages' );
-		wfLoadExtensionMessages( 'StablePages' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
 	public function execute( $par ) {

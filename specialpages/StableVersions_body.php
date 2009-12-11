@@ -8,8 +8,6 @@ class StableVersions extends UnlistedSpecialPage
 {
     public function __construct() {
         parent::__construct( 'StableVersions' );
-		wfLoadExtensionMessages( 'StableVersions' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     public function execute( $par ) {

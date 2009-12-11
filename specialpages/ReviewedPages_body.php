@@ -8,8 +8,6 @@ class ReviewedPages extends SpecialPage
 {
 	public function __construct() {
 		parent::__construct( 'ReviewedPages' );
-		wfLoadExtensionMessages( 'ReviewedPages' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
 	public function execute( $par ) {

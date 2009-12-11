@@ -9,8 +9,6 @@ class OldReviewedPages extends SpecialPage
 	public function __construct() {
 		parent::__construct( 'OldReviewedPages' );
 		$this->includable( true );
-		wfLoadExtensionMessages( 'OldReviewedPages' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 	}
 
 	public function execute( $par ) {

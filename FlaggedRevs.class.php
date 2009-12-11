@@ -332,7 +332,6 @@ class FlaggedRevs {
 	 * @returns string
 	 */
 	public static function getTagMsg( $tag ) {
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		return wfMsgExt( "revreview-$tag", array( 'escapenoentities' ) );
 	}
 	
@@ -1310,7 +1309,6 @@ class FlaggedRevs {
 			return array("",""); // not reviewed
 		}
 		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$user = User::whois( $row->fr_user ); // FIXME: o(N)
 		$flags = explode(',',$row->fr_flags);
 		if( in_array('auto',$flags) ) {

@@ -8,8 +8,6 @@ class QualityOversight extends SpecialPage
 {
     public function __construct() {
         SpecialPage::SpecialPage( 'QualityOversight' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
-		wfLoadExtensionMessages( 'QualityOversight' );
     }
 
     public function execute( $par ) {

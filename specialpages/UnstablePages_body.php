@@ -8,8 +8,6 @@ class Unstablepages extends SpecialPage
 {
     public function __construct() {
         parent::__construct( 'UnstablePages' );
-		wfLoadExtensionMessages( 'UnstablePages' );
-		wfLoadExtensionMessages( 'FlaggedRevs' );
     }
 
     public function execute( $par ) {

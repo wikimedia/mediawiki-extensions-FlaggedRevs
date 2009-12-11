@@ -36,8 +36,6 @@ class FlaggedRevsHooks {
 		if( !$fa || !$fa->isReviewable(true) ) {
 			return true;
 		}
-		# Load required messages
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		# Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
 		# Get page-specific meta-data
@@ -1386,7 +1384,6 @@ class FlaggedRevsHooks {
 		$newGroups = $groups ;
 		array_push( $newGroups, 'editor' );
 
-		wfLoadExtensionMessages( 'FlaggedRevs' ); // load UI messages
 		global $wgFlaggedRevsAutopromoteInRC;
 		$log = new LogPage( 'rights', $wgFlaggedRevsAutopromoteInRC );
 		$log->addEntry( 'rights', $user->getUserPage(), wfMsg('rights-editor-autosum'),
@@ -1486,8 +1483,6 @@ class FlaggedRevsHooks {
 			# Param format is <rev id, last stable id, rev timestamp>.
 			if( in_array($action,$actionsValid) && isset($params[0]) ) {
 				$revId = (int)$params[0]; // the reviewed revision
-				# Load required messages
-				wfLoadExtensionMessages( 'FlaggedRevs' );
 				# Don't show diff if param missing or rev IDs are the same
 				if( !empty($params[1]) && $revId != $params[1] ) {
 					$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title,
@@ -1724,7 +1719,6 @@ class FlaggedRevsHooks {
 			return true; // page is not listed in pending edit table
 		if( !FlaggedRevs::isPageReviewable($rc->getTitle()) )
 			return true; // confirm that page is in reviewable namespace
-		wfLoadExtensionMessages( 'FlaggedRevs' );
 		$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg('revreview-reviewlink'),
 			'oldid='.intval($rc->mAttribs['fpp_rev_id']).'&diff=cur' );
 		$articlelink .= " <span class='mw-fr-reviewlink'>($rlink)</span>";
@@ -1778,7 +1772,6 @@ class FlaggedRevsHooks {
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
 			if( !$srev || $srev->getRevId() != $editPage->getArticle()->getLatest() ) {
-				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$checkboxes['reviewed'] = '';
 				$reviewLabel = wfMsgExt('revreview-flag', array('parseinline'));
 				$attribs = array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' );
@@ -1818,7 +1811,6 @@ class FlaggedRevsHooks {
 			);
 			# Give a notice if pages on the wachlist are outdated
 			if( $watchedOutdated ) {
-				wfLoadExtensionMessages( 'FlaggedRevs' );
 				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-watchlist-old-notice'>" . 
 					wfMsgExt('flaggedrevs-watched-pending',array('parseinline')) . "</div>";
 			# Otherwise, give a notice if there is a large backlog in general
@@ -1836,7 +1828,6 @@ class FlaggedRevsHooks {
 						'fp_pending_since IS NOT NULL', __METHOD__ );
 				}
 				if( $unreviewed > .02*$pages ) {
-					wfLoadExtensionMessages( 'FlaggedRevs' );
 					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 						wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
 				}
