@@ -6571,6 +6571,8 @@ $messages['jv'] = array(
  * @author BRUTE
  */
 $messages['ka'] = array(
+	'revreview-accuracy-4' => 'რჩეული',
+	'revreview-auto' => '(ავტომატიკური)',
 	'revreview-log' => 'კომენტარი:',
 	'revreview-style-4' => 'რჩეული',
 	'revreview-filter-all' => 'ყველა',
@@ -11431,6 +11433,7 @@ $messages['te'] = array(
 	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
 	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'tooltip-ca-default' => 'నాణ్యతా భరోసా అమరికలు',
+	'flaggedrevs-protect-none' => 'అదనపు నియంత్రణలు లేవు',
 	'log-show-hide-review' => 'సమీక్షల చిట్టాని $1',
 	'revreview-tt-review' => 'ఈ పేజీని సమీక్షించండి',
 	'validationpage' => '{{ns:help}}:పేజీ సరిచూత',
