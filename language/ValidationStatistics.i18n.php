@@ -189,6 +189,7 @@ $4
 $messages['bg'] = array(
 	'validationstatistics-ns' => 'Именно пространство',
 	'validationstatistics-total' => 'Страници',
+	'validationstatistics-user' => 'Потребител',
 );
 
 /** Breton (Brezhoneg)

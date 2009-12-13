@@ -72,6 +72,13 @@ $messages['be-tarask'] = array(
 	'unstablepages-config' => 'Канфігурацыя',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'unstablepages-stable' => 'устойчива версия',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  */
