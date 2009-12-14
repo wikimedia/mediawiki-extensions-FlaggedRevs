@@ -3188,6 +3188,7 @@ $messages['tt-cyrl'] = array(
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'stabilization-tab' => '(кя)',
@@ -3210,7 +3211,7 @@ $messages['uk'] = array(
 	'stabilization-notcontent' => 'Сторінка «[[:$1|$1]]» не може бути перевірена.
 Налаштування неможливе.',
 	'stabilization-comment' => 'Причина:',
-	'stabilization-otherreason' => 'Інша причина',
+	'stabilization-otherreason' => 'Інша причина:',
 	'stabilization-expiry' => 'Закінчується:',
 	'stabilization-othertime' => 'Інший час',
 	'stabilization-sel-short' => 'Порядок слідування',
