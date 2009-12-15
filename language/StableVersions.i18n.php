@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'stableversions' => 'View stable versions',
+	'stableversions' => 'View reviewed versions',
 	'stableversions-leg1' => 'List reviewed revisions for a page',
 	'stableversions-page' => 'Page name:',
 	'stableversions-none' => '"[[:$1]]" has no reviewed revisions.',

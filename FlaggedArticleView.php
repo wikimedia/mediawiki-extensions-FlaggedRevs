@@ -507,10 +507,10 @@ class FlaggedArticleView {
 			return false; // not viewing the draft
 		}
 		# Conditions are met to show diff...
-		$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+		$leftNote = $quality ? 'revreview-quality-rev' : 'revreview-sighted-rev';
 		$rClass = FlaggedRevsXML::getQualityColor( false );
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-		$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-title')."]</span>";
+		$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-rev')."]</span>";
 		$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
 		# Fetch the stable and draft revision text
 		$oText = $srev->getRevText();
@@ -692,7 +692,7 @@ class FlaggedArticleView {
 			}
 			# Output notice and warning for editors
 			if( $tag || $warning ) {
-				$wgOut->addHTML( $tag . $warning );
+				$wgOut->addHTML( $warning . $tag );
 			}
 
 			# Show diff to stable, to make things less confusing...
@@ -709,10 +709,10 @@ class FlaggedArticleView {
 				}
 				
 				# Conditions are met to show diff...
-				$leftNote = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+				$leftNote = $quality ? 'revreview-quality-rev' : 'revreview-sighted-rev';
 				$rClass = FlaggedRevsXML::getQualityColor( false );
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-				$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-title')."]</span>";
+				$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-rev')."]</span>";
 				$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
 				$text = $frev->getRevText();
 				# Are we editing a section?
