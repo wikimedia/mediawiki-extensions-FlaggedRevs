@@ -463,9 +463,15 @@ class Stabilization extends UnlistedSpecialPage
 			# ID, accuracy, depth, style
 			$set = array();
 			# @FIXME: do this better
-			$set[] = wfMsgForContent( "stabilization-sel-short" ) . wfMsgForContent( 'colon-separator' ) .
-				wfMsgForContent("stabilization-sel-short-{$this->select}");
-			$set[] = wfMsgForContent( "stabilization-def-short" ) . wfMsgForContent( 'colon-separator' ) .
+			// Precedence
+			if( FlaggedRevs::qualityVersions() ) {
+				$set[] = wfMsgForContent( 'stabilization-sel-short' ) .
+					wfMsgForContent( 'colon-separator' ) .
+					wfMsgForContent("stabilization-sel-short-{$this->select}");
+			}
+			// Default version
+			$set[] = wfMsgForContent( 'stabilization-def-short' ) .
+				wfMsgForContent( 'colon-separator' ) .
 				wfMsgForContent("stabilization-def-short-{$this->override}");
 			if( strlen($this->autoreview) ) {
 				$set[] = "autoreview={$this->autoreview}";
