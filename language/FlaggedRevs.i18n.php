@@ -6576,7 +6576,9 @@ $messages['ka'] = array(
 	'revreview-log' => 'კომენტარი:',
 	'revreview-style-4' => 'რჩეული',
 	'revreview-filter-all' => 'ყველა',
+	'revreview-statusfilter' => 'სტატუსის შეცვლა:',
 	'revreview-typefilter' => 'ტიპი:',
+	'revreview-locked-title' => 'ცვლილებები უნდა შემოწმდეს, სანამ აჩვენებენ ამ გვერდზე.',
 );
 
 /** Kabyle (Taqbaylit)
