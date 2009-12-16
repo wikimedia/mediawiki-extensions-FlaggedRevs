@@ -110,7 +110,8 @@ class FlaggedArticleView {
 	 * @returns bool
 	 */
 	protected static function isViewAction( $action ) {
-		return ( $action == 'view' || $action == 'purge' || $action == 'render' || $action == 'historysubmit' );
+		return ( $action == 'view' || $action == 'purge' || $action == 'render'
+			|| $action == 'historysubmit' );
 	}
 
 	 /**
@@ -193,7 +194,8 @@ class FlaggedArticleView {
 		if( $stableId && $reqId ) {
 			# Treat requesting the stable version by ID as &stable=1
 			if( $reqId != $stableId ) {
-				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId, FR_TEXT );
+				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(),
+					$reqId, FR_TEXT );
 				$old = true; // old reviewed version requested by ID
 				if( !$frev ) {
 					$wgOut->addWikiText( wfMsg('revreview-invalid') );
@@ -255,11 +257,15 @@ class FlaggedArticleView {
 			$this->showOldReviewedVersion( $srev, $frev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
 			$pcache = false;
+		// Stable version requested by ID or relevant conditions met to
+		// to override page view.
+		} else if( $stable || $this->pageOverride() ) {
+	   		$this->showStableVersion( $srev, $tag, $prot );
+			$outputDone = true; # Tell MW that parser output is done
+			$pcache = false;
 		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
-		// set to override given the relevant conditions (like &stable=0).
-		} elseif( !$stable && !$this->pageOverride() ) {
-			$this->showRegularVersion( $srev, $tag, $prot );
-		// The relevant conditions are met to override the page with the stable version.
+		// set to override given the relevant conditions (like &stable=0) or there
+		// is no stable version.
 		} else {
 	   		$this->showStableVersion( $srev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
@@ -304,7 +310,6 @@ class FlaggedArticleView {
 		} else {
 			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
-		$pending = '';
 		# If they are synced, do special styling
 		$simpleTag = !$synced;
 		# Give notice to newer users if an unreviewed edit was completed...
