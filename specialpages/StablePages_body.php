@@ -70,12 +70,17 @@ class StablePages extends SpecialPage
 		}
 		$stable = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('stablepages-stable'), 'stable=1' );
 
-		if( intval($row->fpc_select) === FLAGGED_VIS_PRISTINE ) {
-			$type = wfMsgHtml('stablepages-prec-pristine');
-		} elseif( intval($row->fpc_select) === FLAGGED_VIS_QUALITY ) {
-			$type = wfMsgHtml('stablepages-prec-quality');
-		} else {
-			$type = wfMsgHtml('stablepages-prec-none');
+		$type = '';
+		// Show precedence if there are several possible levels
+		if( FlaggedRevs::qualityVersions() ) {
+			if( intval($row->fpc_select) === FLAGGED_VIS_PRISTINE ) {
+				$type = wfMsgHtml('stablepages-prec-pristine');
+			} elseif( intval($row->fpc_select) === FLAGGED_VIS_QUALITY ) {
+				$type = wfMsgHtml('stablepages-prec-quality');
+			} else {
+				$type = wfMsgHtml('stablepages-prec-none');
+			}
+			$type = " (<b>{$type}</b>) ";
 		}
 
 		if( $row->fpc_expiry != 'infinity' && strlen($row->fpc_expiry) ) {
@@ -89,7 +94,7 @@ class StablePages extends SpecialPage
 			$expiry_description = "";
 		}
 
-		return "<li>{$link} ({$config}) [{$stable}] (<b>{$type}</b>) <i>{$expiry_description}</i></li>";
+		return "<li>{$link} ({$config}) [{$stable}]{$type}<i>{$expiry_description}</i></li>";
 	}
 }
 
