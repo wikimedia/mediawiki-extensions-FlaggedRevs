@@ -566,6 +566,7 @@ No és possible fer cap configuració.',
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung
+ * @author Mormegil
  */
 $messages['cs'] = array(
 	'stabilization-tab' => 'stabilizace',
@@ -583,7 +584,7 @@ $messages['cs'] = array(
 	'stabilization-submit' => 'Potvrdit',
 	'stabilization-notexists' => 'Neexistuje stránka "[[:$1|$1]]". Nastavení není možné.',
 	'stabilization-notcontent' => 'Stránka „[[:$1|$1]]“ nemůže být posouzena. Nastavení není možné.',
-	'stabilization-comment' => 'Komentář:',
+	'stabilization-comment' => 'Důvod:',
 	'stabilization-expiry' => 'Vyprší:',
 	'stabilization-sel-short' => 'Váha',
 	'stabilization-sel-short-0' => 'kvalitní',

@@ -507,11 +507,11 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
-	'validationstatistics-table' => "Alla on tilastot kaikille nimiavaruuksille ohjaussivuja ''lukuun ottamatta''.",
+	'validationstatistics-table' => "Alla on tilastot kaikille nimiavaruuksille ''lukuun ottamatta'' ohjaussivuja.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',
-	'validationstatistics-latest' => 'Näkyvä sivu joka on tarkastettu',
+	'validationstatistics-latest' => 'Näkyvä sivu, joka on tarkastettu',
 	'validationstatistics-old' => 'Vanhentunut',
 	'validationstatistics-utable' => 'Alla on lista viidestä ahkerimmasta arvioijasta edellisen tunnin aikana.',
 	'validationstatistics-user' => 'Käyttäjä',

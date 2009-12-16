@@ -128,7 +128,7 @@ $messages['bcl'] = array(
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
-	'stableversions' => 'Паказаць стабільныя вэрсіі',
+	'stableversions' => 'Паказаць рэцэнзаваныя вэрсіі',
 	'stableversions-leg1' => 'Сьпіс правераных вэрсіяў старонкі',
 	'stableversions-page' => 'Назва старонкі:',
 	'stableversions-none' => '«[[:$1]]» ня мае правераных вэрсіяў.',
@@ -158,6 +158,7 @@ $messages['bn'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'stableversions' => 'Gwelet ar stummoù stabil',
@@ -172,7 +173,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'stableversions' => 'Pogledaj stabilne verzije',
+	'stableversions' => 'Pogledaj pregledane verzije',
 	'stableversions-leg1' => 'Spisak pregledanih revizija stranice',
 	'stableversions-page' => 'Naslov stranice:',
 	'stableversions-none' => '"[[:$1]]" nema pregledanih revizija.',
@@ -337,7 +338,7 @@ $messages['fi'] = array(
  * @author Sherbrooke
  */
 $messages['fr'] = array(
-	'stableversions' => 'Visionner les versions stables',
+	'stableversions' => 'Visionner les versions relues',
 	'stableversions-leg1' => "Dernières révisions revues d'une page",
 	'stableversions-page' => 'Nom de la page :',
 	'stableversions-none' => "« [[:$1]] » n'a pas de version révisée.",
@@ -394,7 +395,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'stableversions' => 'Vum Fäldhieter aagluegti Versione',
+	'stableversions' => 'Priefti Versione aaluege',
 	'stableversions-leg1' => 'Lischt vu dr Versione fir e Artikel, wu vum Fäldhieter gsäh sin',
 	'stableversions-page' => 'Artikelname:',
 	'stableversions-none' => '„[[:$1]]“ het kei Versione, wu vum Fäldhieter gsäh sin.',
@@ -518,7 +519,7 @@ $messages['it'] = array(
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'stableversions' => '固定版を表示',
+	'stableversions' => '査読済みの版を表示',
 	'stableversions-leg1' => 'ページの査読済み版を一覧表示する',
 	'stableversions-page' => 'ページ名:',
 	'stableversions-none' => '「[[:$1]]」には査読済みの版がありません。',
@@ -658,7 +659,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'stableversions' => 'സ്ഥിരതയുള്ള പതിപ്പുകള്‍ കാണുക',
+	'stableversions' => 'സംശോധനം ചെയ്ത പതിപ്പുകള്‍ കാണുക',
 	'stableversions-leg1' => 'ഒരു താളിന്റെ സം‌ശോധനം ചെയ്യപ്പെട്ട പതിപ്പുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
 	'stableversions-page' => 'താളിന്റെ പേര്‌:',
 	'stableversions-none' => '"[[:$1]]"നു സംശോധനം നിര്‍‌വഹിച്ച പതിപ്പുകള്‍ ഒന്നുമില്ല.',
@@ -717,7 +718,7 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'stableversions' => 'Stabiele versies bekijken',
+	'stableversions' => 'Gecontroleerde versies bekijken',
 	'stableversions-leg1' => 'Lijst van versies met eindredactie voor een pagina',
 	'stableversions-page' => 'Paginanaam:',
 	'stableversions-none' => '"[[:$1]]" heeft geen versies met eindredactie.',
@@ -796,7 +797,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'stableversions' => 'Varda le version stàbij',
+	'stableversions' => 'Varda le version revisionà',
 	'stableversions-leg1' => 'Fé na lista dle version aprovà ëd na pàgina',
 	'stableversions-page' => 'Nòm dla pàgina',
 	'stableversions-none' => "[[:$1]] a l'ha pa gnun-a version revisionà.",
@@ -864,7 +865,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'stableversions' => 'Просмотреть чистовые версии',
+	'stableversions' => 'Показать проверенные версии',
 	'stableversions-leg1' => 'Список проверенных версий страницы',
 	'stableversions-page' => 'Название страницы:',
 	'stableversions-none' => '«[[:$1]]» не имеет проверенных версий.',
@@ -876,7 +877,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'stableversions' => 'Чистовой торумнара',
+	'stableversions' => 'Көрүллүбүт барыллары көрүү',
 	'stableversions-leg1' => 'Сирэй ырытыллыбыт торумнарын испииһэгэ',
 	'stableversions-page' => 'Сирэй аата:',
 	'stableversions-none' => '"[[:$1]]" көрүллүбүт/бэрэбиэркэлэммит торумнара суох.',
@@ -1043,7 +1044,7 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'stableversions' => 'Varda le version stabili',
+	'stableversions' => 'Varda le version riesaminà',
 	'stableversions-leg1' => 'Elenca le version riesaminà de na pagina',
 	'stableversions-page' => 'Nome de la pagina:',
 	'stableversions-none' => '"[[:$1]]" no la gà version riesaminà.',

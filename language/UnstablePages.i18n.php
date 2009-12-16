@@ -582,6 +582,7 @@ $messages['sah'] = array(
 	'unstablepages-stable' => 'бигэ барыл',
 	'unstablepages-text' => 'Манна ыстатыйа харатын көрдөрөргө диэн туруоруулаах ыстатыйалар тиһиктэрэ бэриллэр.',
 	'unstablepages-none' => 'Бу тиһиккэ сирэйдэр суохтар',
+	'unstablepages-config' => 'Туруоруута',
 );
 
 /** Slovak (Slovenčina)
