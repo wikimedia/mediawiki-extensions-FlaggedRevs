@@ -305,6 +305,8 @@ class FlaggedArticleView {
 			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
 		$pending = '';
+		# If they are synced, do special styling
+		$simpleTag = !$synced;
 		# Give notice to newer users if an unreviewed edit was completed...
 		if( !$synced && $wgRequest->getVal('shownotice') && !$wgUser->isAllowed('review') ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
@@ -314,12 +316,10 @@ class FlaggedArticleView {
 			$pending = "<div id='mw-reviewnotice' class='flaggedrevs_preview plainlinks'>$pending</div>";
 			# Notice should always use subtitle
 			$this->reviewNotice = $pending;
-		}
-		# If they are synced, do special styling
-		$simpleTag = !$synced;
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
-		if( !$wgOut->isPrintable() && !$pending && !($this->article->lowProfileUI() && $synced) ) {
+		# Also, if low profile UI is enabled and the page is synced, skip the tag.
+		} else if( !$wgOut->isPrintable() && !($this->article->lowProfileUI() && $synced) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$class = 'fr-icon-current'; // default
 			$tooltip = 'revreview-draft-title';

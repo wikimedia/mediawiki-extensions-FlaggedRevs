@@ -898,7 +898,7 @@ class FlaggedRevs {
 	* @param Article $article
 	* @param Revision $rev, the new stable version
 	* @param mixed $latest, the latest rev ID (optional)
-	* Updates the flaggedpages fields
+	* Updates the flaggedpages fields. Called on edit.
 	*/
 	public static function updateStableVersion( $article, $rev, $latest = NULL ) {
 		if( !$article->getId() )
@@ -943,6 +943,8 @@ class FlaggedRevs {
 				'fp_pending_since' => $nextTimestamp ? $dbw->timestamp($nextTimestamp) : null ),
 			__METHOD__ 
 		);
+		# Reset cache of # of unreviewed revs
+		self::getRevCountSince( $article, $revId, true );
 		# Alter pending edit tracking table
 		self::updatePendingList( $article, $latest );
 		return true;
