@@ -71,20 +71,19 @@ class ProblemChanges extends SpecialPage
 				"</fieldset></form>";
 			# Add filter options
 			$wgOut->addHTML( $form );
-			# Add list output (skip if no tag given)
-			$num = strlen($this->tag) && $pager->getNumRows();
-			if( $num ) {
+			# Add list output
+			if( $pager->getNumRows() ) {
 				$wgOut->addHTML( $pager->getNavigationBar() );
 				$wgOut->addHTML( $pager->getBody() );
 				$wgOut->addHTML( $pager->getNavigationBar() );
-			} else if( strlen($this->tag) ) {
+			} else {
 				$wgOut->addHTML( wfMsgExt('problemchanges-none', array('parse') ) );
 			}
 		// If this page is transcluded...
 		} else {
-			if( strlen($this->tag) && $pager->getNumRows() ) {
+			if( $pager->getNumRows() ) {
 				$wgOut->addHTML( $pager->getBody() );
-			} else if( strlen($this->tag) ) {
+			} else {
 				$wgOut->addHTML( wfMsgExt('problemchanges-none', array('parse') ) );
 			}
 		}
@@ -299,7 +298,9 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_page = fp_page_id';
 			$conds[] = 'rev_id > fp_stable';
 			$conds[] = 'ct_rev_id = rev_id';
-			$conds['ct_tag'] = $this->tag;
+			if( $this->tag != '' ) {
+				$conds['ct_tag'] = $this->tag;
+			}
 			$conds[] = 'page_id = fp_page_id';
 			$useIndex = array('flaggedpages' => 'fp_pending_since', 'change_tag' => $ctIndex);
 			# Filter by category

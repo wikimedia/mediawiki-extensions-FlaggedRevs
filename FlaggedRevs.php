@@ -519,22 +519,30 @@ function efLoadFlaggedRevs() {
  * Also sets $wgSpecialPages just to be consistent.
  */
 function efLoadFlaggedRevsSpecialPages( &$list ) {
-	global $wgSpecialPages, $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
+	global $wgSpecialPages, $wgUseTagFilter;
+	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
+	// Show special pages only if FlaggedRevs is enabled on some namespaces
 	if( !empty($wgFlaggedRevsNamespaces) ) {
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['StableVersions'] = $wgSpecialPages['StableVersions'] = 'StableVersions';
-		if( empty($wgFlaggedRevsProtectLevels) )
+		// Protect levels define allowed stability settings
+		if( empty($wgFlaggedRevsProtectLevels) ) {
 			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
+		}
 		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
-		$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
+		// Show tag filtered pending edit page if there are tags
+		if( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
+			$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
+		}
 		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-		if( !$wgFlaggedRevsOverride )
+		if( !$wgFlaggedRevsOverride ) {
 			$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
-		else
+		} else {
 			$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
+		}
 	}
 	return true;
 }
