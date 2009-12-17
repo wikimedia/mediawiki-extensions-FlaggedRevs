@@ -240,7 +240,8 @@ class FlaggedRevsXML {
 
 	public static function ratingToggle() {
 		return "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-			" onclick='toggleRevRatings()' title='" . wfMsgHtml('revreview-toggle-title') . "' >" .
+			" onclick='FlaggedRevs.toggleRevRatings()' title='" .
+			wfMsgHtml('revreview-toggle-title') . "' >" .
 			wfMsg( 'revreview-toggle' ) . "</a>";
 	}
 	
@@ -286,7 +287,7 @@ class FlaggedRevsXML {
 			# 6 is an arbitrary value choosen according to screen space and usability
 			if( $size > 6 ) {
 				$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
-					'onchange' => "updateRatingForm()" ) + $toggle;
+					'onchange' => "FlaggedRevs.updateRatingForm()" ) + $toggle;
 				$form .= Xml::openElement( 'select', $attribs );
 				foreach( $label as $i => $name ) {
 					$optionClass = array( 'class' => "fr-rating-option-$i" );
@@ -298,7 +299,7 @@ class FlaggedRevsXML {
 			} elseif( $numLevels > 2 ) {
 				foreach( $label as $i => $name ) {
 					$attribs = array( 'class' => "fr-rating-option-$i",
-						'onchange' => "updateRatingForm()" );
+						'onchange' => "FlaggedRevs.updateRatingForm()" );
 					$form .= Xml::radioLabel( FlaggedRevs::getTagMsg($name), "wp$quality", $i,
 						"wp$quality".$i, ($i == $selected), $attribs ) . "\n";
 				}
@@ -307,7 +308,7 @@ class FlaggedRevsXML {
 				# If disable, use the current flags; if none, then use the min flag.
 				$i = $disabled ? $selected : $minLevel;
 				$attribs = array( 'class' => "fr-rating-option-$i",
-					'onchange' => "updateRatingForm()" );
+					'onchange' => "FlaggedRevs.updateRatingForm()" );
 				$attribs = $attribs + $toggle + array('value' => $minLevel);
 				$form .= Xml::checkLabel( wfMsg( "revreview-{$label[$i]}" ), "wp$quality",
 					"wp$quality", ($selected == $i), $attribs ) . "\n";
