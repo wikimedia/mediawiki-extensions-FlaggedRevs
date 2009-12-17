@@ -210,8 +210,9 @@ Please check the URL you used to access this page.',
 	'tooltip-ca-stable'            => 'View the stable version of this page',
 	'tooltip-ca-default'           => 'Quality assurance settings',
 
-	'flaggedrevs-protect-legend'   => 'Edit approval',
-	'flaggedrevs-protect-none'     => 'No additional restrictions',
+	'flaggedrevs-protect-legend'   => 'Publish edits',
+	'flaggedrevs-protect-none'     => 'Allow all users',
+	'flaggedrevs-protect-basic'    => 'Default settings',
 	
 	'revreview-locked-title'       => 'Edits must be reviewed before being displayed on this page.',
 	'revreview-unlocked-title'     => 'Edits do not require review before being displayed on this page.',

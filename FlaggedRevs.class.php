@@ -186,12 +186,20 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Does the review form only show for pages were the stable version is the default?
+	 * Does FlaggedRevs only show for pages were the stable version is the default?
 	 * @returns bool
 	 */
 	public static function forDefaultVersionOnly() {
 		global $wgFlaggedRevsReviewForDefault;
 		return (bool)$wgFlaggedRevsReviewForDefault;
+	}
+
+	/**
+	 * Does FLaggedRevs only show for pages that have been set to do so?
+	 * @returns bool
+	 */	
+	public static function stableOnlyIfConfigured() {
+		return self::forDefaultVersionOnly() && !self::showStableByDefault();
 	}
 	
 	/**
@@ -1503,7 +1511,7 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get JS script params for onloading
+	 * Get JS script params
 	 */
 	public static function getJSTagParams() {
 		self::load();

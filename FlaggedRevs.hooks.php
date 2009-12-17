@@ -1889,21 +1889,32 @@ class FlaggedRevsHooks {
 		$output .= "<tr><td>";
 		$output .= Xml::openElement( 'fieldset' );
 		$output .= Xml::element( 'legend', null, wfMsg('flaggedrevs-protect-legend') );
-		$output .= "<table>";
 		# Add a "no restrictions" level
 		$effectiveLevels = array( "none" => null );
 		$effectiveLevels += FlaggedRevs::getProtectionLevels();
-		# Show all restriction levels as radios...
+		
+		$attribs = array(
+			'id' => 'mwStabilityConfig',
+			'name' => 'mwStabilityConfig',
+			'size' => count( $effectiveLevels ),
+		) + $disabledAttrib;
+		$output .= Xml::openElement( 'select', $attribs );
+		# Show all restriction levels in a select...
 		foreach( $effectiveLevels as $level => $x ) {
-			$label = wfMsg( 'flaggedrevs-protect-'.$level );
+			if( $level == 'none' ) {
+				$label = FlaggedRevs::stableOnlyIfConfigured()
+					? wfMsg( 'flaggedrevs-protect-none' )
+					: wfMsg( 'flaggedrevs-protect-basic' );
+			} else {
+				$label = wfMsg( 'flaggedrevs-protect-'.$level );
+			}
 			// Default to the key itself if no UI message
 			if( wfEmptyMsg('flaggedrevs-protect-'.$level,$label) ) {
 				$label = 'flaggedrevs-protect-'.$level;
 			}
-			$output .= "<tr><td>" . Xml::radioLabel( $label, 'wpStabilityConfig', $level,
-				'wpStabilityConfig-'.$level, $level == $selected, $disabledAttrib ) . "</td></tr>";
+			$output .= Xml::option( $label, $level, $level == $selected );
 		}
-		$output .= "</table>";
+		$output .= Xml::closeElement( 'select' );
 		# Get expiry dropdown
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
 		$showProtectOptions = ($scExpiryOptions !== '-' && $isAllowed);
@@ -2013,10 +2024,10 @@ class FlaggedRevsHooks {
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
 		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...
-		$selected = $wgRequest->getVal( 'wpStabilityConfig' );
+		$selected = $wgRequest->getVal( 'mwStabilityConfig' );
 		if( $selected == "none" ) {
 			$form->select = FlaggedRevs::getPrecedence(); // default
-			$form->override = FlaggedRevs::showStableByDefault(); // default
+			$form->override = (int)FlaggedRevs::showStableByDefault(); // default
 			$form->autoreview = ''; // default
 		} else if( isset($levels[$selected]) ) {
 			$form->select = $levels[$selected]['select'];
