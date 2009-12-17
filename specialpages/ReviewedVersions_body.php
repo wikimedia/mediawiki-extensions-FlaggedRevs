@@ -4,10 +4,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-class StableVersions extends UnlistedSpecialPage
+class ReviewedVersions extends UnlistedSpecialPage
 {
     public function __construct() {
-        parent::__construct( 'StableVersions' );
+        parent::__construct( 'ReviewedVersions' );
     }
 
     public function execute( $par ) {
@@ -34,20 +34,20 @@ class StableVersions extends UnlistedSpecialPage
 		global $wgOut, $wgUser;
 		# Must be a content page
 		if( !FlaggedRevs::isPageReviewable( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'),
+			$wgOut->addHTML( wfMsgExt('reviewedversions-none', array('parse'),
 				$this->page->getPrefixedText() ) );
 			return;
 		}
-		$pager = new StableRevisionsPager( $this, array(), $this->page );
+		$pager = new ReviewedVersionsPager( $this, array(), $this->page );
 		$num = $pager->getNumRows();
 		if( $num ) {
-			$wgOut->addHTML( wfMsgExt('stableversions-list', array('parse'),
+			$wgOut->addHTML( wfMsgExt('reviewedversions-list', array('parse'),
 				$this->page->getPrefixedText(), $num ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt('stableversions-none', array('parse'),
+			$wgOut->addHTML( wfMsgExt('reviewedversions-none', array('parse'),
 				$this->page->getPrefixedText() ) );
 		}
 	}
@@ -58,7 +58,7 @@ class StableVersions extends UnlistedSpecialPage
 		$fdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$fdate = $wgLang->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$ftime = $wgLang->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$review = wfMsgExt( 'stableversions-review', array( 'parseinline', 'replaceafter' ),
+		$review = wfMsgExt( 'reviewedversions-review', array( 'parseinline', 'replaceafter' ),
 			$fdatim,
  			$this->skin->userLink( $row->fr_user, $row->user_name ) .
  			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ),
@@ -73,7 +73,7 @@ class StableVersions extends UnlistedSpecialPage
 /**
  * Query to list out stable versions for a page
  */
-class StableRevisionsPager extends ReverseChronologicalPager {
+class ReviewedVersionsPager extends ReverseChronologicalPager {
 	public $mForm, $mConds;
 
 	function __construct( $form, $conds = array(), $title ) {

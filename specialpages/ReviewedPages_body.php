@@ -86,7 +86,7 @@ class ReviewedPages extends SpecialPage
 					$wgLang->formatNum( $size ) ) . '</small>';
 		}
 
-		$SVtitle = SpecialPage::getTitleFor( 'Stableversions' );
+		$SVtitle = SpecialPage::getTitleFor( 'ReviewedVersions' );
 		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-all'),
 			'page=' . $title->getPrefixedUrl() );
 		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('reviewedpages-best'),

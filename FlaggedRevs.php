@@ -324,9 +324,9 @@ $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 # Load review UI
 $wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
 
-# Load stableversions UI
-$wgAutoloadClasses['StableVersions'] = $dir . 'specialpages/StableVersions_body.php';
-$wgExtensionMessagesFiles['StableVersions'] = $langDir . 'StableVersions.i18n.php';
+# Load reviewed versions UI
+$wgAutoloadClasses['ReviewedVersions'] = $dir . 'specialpages/ReviewedVersions_body.php';
+$wgExtensionMessagesFiles['ReviewedVersions'] = $langDir . 'ReviewedVersions.i18n.php';
 # Stable version config
 $wgAutoloadClasses['Stabilization'] = $dir . 'specialpages/Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
@@ -524,7 +524,7 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 	// Show special pages only if FlaggedRevs is enabled on some namespaces
 	if( !empty($wgFlaggedRevsNamespaces) ) {
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
-		$list['StableVersions'] = $wgSpecialPages['StableVersions'] = 'StableVersions';
+		$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
 		// Protect levels define allowed stability settings
 		if( empty($wgFlaggedRevsProtectLevels) ) {
 			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
