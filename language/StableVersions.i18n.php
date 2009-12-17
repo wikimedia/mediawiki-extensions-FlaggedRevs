@@ -371,7 +371,7 @@ $messages['fy'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'stableversions' => 'Ver versións estábeis',
+	'stableversions' => 'Ver as versións revisadas',
 	'stableversions-leg1' => 'Listar as revisións revisadas dunha páxina',
 	'stableversions-page' => 'Nome da páxina:',
 	'stableversions-none' => '"[[:$1]]" non ten revisións examinadas.',
@@ -447,7 +447,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'stableversions' => 'Stabilne wersije wobhladać',
+	'stableversions' => 'Přepruwowane wersije wobhladać',
 	'stableversions-leg1' => 'Přepruwowane wersije za nastawk nalistować',
 	'stableversions-page' => 'Mjeno nastawka',
 	'stableversions-none' => '[[:$1]] přepruwowane wersije nima.',
@@ -473,7 +473,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'stableversions' => 'Vider versiones stabile',
+	'stableversions' => 'Vider versiones revidite',
 	'stableversions-leg1' => 'Listar le versiones revidite de un pagina',
 	'stableversions-page' => 'Nomine del pagina:',
 	'stableversions-none' => '"[[:$1]]" non ha versiones revidite.',
@@ -587,8 +587,8 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stableversions' => 'Beshtändeje Versione aanloore',
-	'stableversions-leg1' => 'De Leß met de nohjekik Versione för en Sigg.',
+	'stableversions' => 'Nohjekik Versione aanloore',
+	'stableversions-leg1' => 'Leß met de nohjekik Versione för en Sigg',
 	'stableversions-page' => 'Sigge-Tittel:',
 	'stableversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjekik Versione.',
 	'stableversions-list' => 'Hee kütt {{PLURAL:$2|de|en Leß met dä|kei nohjekik Version vun dä}} Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjekk Version:|ier nohjekik Versione:|}}',
@@ -606,7 +606,7 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'stableversions' => 'Weis déi stabil Versiounen',
+	'stableversions' => 'Déi nogekuckte Versioune weisen',
 	'stableversions-leg1' => 'Lëscht vun den nogekuckte Versioune vun enger Säit',
 	'stableversions-page' => 'Säitenumm:',
 	'stableversions-none' => '"[[:$1]]" huet keng nogekuckte Versiounen.',
@@ -646,11 +646,11 @@ $messages['mhr'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'stableversions' => 'Преглед на стабилни верзии',
-	'stableversions-leg1' => 'Листа на прегледани ревизии за страница',
+	'stableversions' => 'Преглед на проверени верзии',
+	'stableversions-leg1' => 'Листа на прегледани верзии на страница',
 	'stableversions-page' => 'Наслов на страница:',
-	'stableversions-none' => '"[[:$1]]" нема прегледани ревизии.',
-	'stableversions-list' => 'Ова е листа на {{PLURAL:$2|единствената ревизија|ревизиите}} на [[:$1]] {{PLURAL:$2|која е прегледана|кои се прегледани}}:',
+	'stableversions-none' => '„[[:$1]]“ нема прегледани верзии.',
+	'stableversions-list' => 'Ова е листа на {{PLURAL:$2|единствената верзија|верзиите}} на [[:$1]] {{PLURAL:$2|којашто е прегледана|коишто се прегледани}}:',
 	'stableversions-review' => 'Прегледано на <i>$1</i> од страна на $2',
 );
 
@@ -1069,7 +1069,7 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'stableversions' => 'Xem các phiên bản ổn định',
+	'stableversions' => 'Xem các phiên bản được duyệt',
 	'stableversions-leg1' => 'Liệt kê những bản đã được duyệt của một trang',
 	'stableversions-page' => 'Tên trang:',
 	'stableversions-none' => '"[[:$1]]" không có bản nào được duyệt.',

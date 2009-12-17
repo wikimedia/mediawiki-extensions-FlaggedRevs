@@ -689,7 +689,7 @@ $messages['mk'] = array(
 	'reviewedpages-lev-1' => 'Квалитетни',
 	'reviewedpages-lev-2' => 'Одлични',
 	'reviewedpages-all' => 'проверени верзии',
-	'reviewedpages-best' => 'главна ревизија',
+	'reviewedpages-best' => 'главна верзија',
 );
 
 /** Malayalam (മലയാളം)

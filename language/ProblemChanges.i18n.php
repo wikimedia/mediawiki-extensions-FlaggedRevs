@@ -44,7 +44,7 @@ $messages['ar'] = array(
  */
 $messages['be-tarask'] = array(
 	'problemchanges' => 'Рэцэнзаваць пазначаныя зьмены',
-	'problemchanges-legend' => 'Сьпіс рэцэнзаваных старонак з пазначанымі рэдагаваньнямі, якія чакаюць рэцэнзаваньня',
+	'problemchanges-legend' => 'Сьпіс старонак з пазначанымі рэдагаваньнямі, якія чакаюць рэцэнзаваньня',
 	'problemchanges-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
 	'problemchanges-category' => 'Катэгорыя:',
 );
@@ -64,7 +64,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'problemchanges' => 'Pregled označenih promjena',
-	'problemchanges-legend' => 'Spisak pregledanih stranica sa označenim izmjenama koje čekaju pregled',
+	'problemchanges-legend' => 'Spisak stranica sa označenim izmjenama koje čekaju pregled',
 	'problemchanges-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
 	'problemchanges-category' => 'Kategorija:',
 );
@@ -91,7 +91,7 @@ $messages['cs'] = array(
  */
 $messages['de'] = array(
 	'problemchanges' => 'Nachprüfung der markierten Veränderungen',
-	'problemchanges-legend' => 'Liste der nachgeprüften Seiten mit markierten Bearbeitungen, für die noch eine Nachprüfung notwendig ist',
+	'problemchanges-legend' => 'Liste der Seiten mit markierten Bearbeitungen, für die noch eine Nachprüfung notwendig ist',
 	'problemchanges-none' => 'Es gibt zurzeit keine Seiten, die diese Kriterien erfüllen.',
 	'problemchanges-category' => 'Kategorie:',
 );
@@ -175,10 +175,11 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author IAlex
+ * @author Peter17
  */
 $messages['fr'] = array(
 	'problemchanges' => 'Relire les modifications balisées',
-	'problemchanges-legend' => 'Lister les pages relues avec des modifications balisées en attente de relecture',
+	'problemchanges-legend' => 'Lister les pages avec des modifications balisées en attente de relecture',
 	'problemchanges-none' => "Il n'y a pour le moment aucune page satisfaisant ces critères",
 	'problemchanges-category' => 'Catégorie :',
 );
@@ -198,7 +199,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'problemchanges' => 'Revisar os cambios etiquetados',
-	'problemchanges-legend' => 'Listar as páxinas revisadas con edicións etiquetadas pendentes de revisión',
+	'problemchanges-legend' => 'Listar as páxinas con edicións etiquetadas pendentes de revisión',
 	'problemchanges-none' => 'Actualmente non hai páxinas que reúnan estes criterios',
 	'problemchanges-category' => 'Categoría:',
 );
@@ -215,7 +216,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'problemchanges' => 'Markierti Bearbeitige priefe',
-	'problemchanges-legend' => 'Lischt vu priefte Syte mit markierte Bearbeitige, wu nonig prieft sin',
+	'problemchanges-legend' => 'Lischt vu Syte mit markierte Bearbeitige, wu nonig prieft sin',
 	'problemchanges-none' => 'Zur Zyt träffe fir kei Syte die Kriterie zue',
 	'problemchanges-category' => 'Kategorii:',
 );
@@ -245,7 +246,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'problemchanges' => 'Markěrowane změny přepruwować',
-	'problemchanges-legend' => 'Lisćina přepruwowanych stronow z markěrowanymi změnami, kotrež dyrbja so hišće přepruwować',
+	'problemchanges-legend' => 'Lisćina stronow z markěrowanymi změnami, kotrež dyrbja so hišće přepruwować',
 	'problemchanges-none' => 'Strony, kotrež tutym kriterijam wotpowěduja, tuchwilu njejsu',
 	'problemchanges-category' => 'Kategorija:',
 );
@@ -266,7 +267,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'problemchanges' => 'Revider modificationes etiquettate',
-	'problemchanges-legend' => 'Listar le paginas revidite con modificationes etiquettate que attende revision',
+	'problemchanges-legend' => 'Listar paginas con modificationes etiquettate que attende revision',
 	'problemchanges-none' => 'Al momento il non ha paginas que satisface iste criterios',
 	'problemchanges-category' => 'Categoria:',
 );
@@ -303,7 +304,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'problemchanges' => 'タグ付き編集を査読する',
-	'problemchanges-legend' => '査読待ちのタグ付き編集のある査読済みページの一覧',
+	'problemchanges-legend' => '査読待ちのタグ付き編集のあるページの一覧',
 	'problemchanges-none' => '現時点でこれらの基準に合致するページはありません',
 	'problemchanges-category' => 'カテゴリ:',
 );
@@ -334,7 +335,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'problemchanges' => 'Makeete Änderunge nohkike',
-	'problemchanges-legend' => 'Donn de nohjekik Sigge met makeete Änderunge opleßte, woh di Änderunge noch nit nohjekik sen',
+	'problemchanges-legend' => 'Donn de Sigge met makeete Änderunge opleßte, woh di Änderunge noch nit nohjekik sen',
 	'problemchanges-none' => 'Mer han jraad kei Sigge, di met heh dänne Pungkte zor Ußwahl zosamme paße dähte.',
 	'problemchanges-category' => 'Zoot:',
 );
@@ -344,7 +345,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'problemchanges' => 'Markéiert Ännerunge bewerten',
-	'problemchanges-legend' => 'Lëscht vun den nogekuckte Säiten fir déi et mrkéiert Ännerunge gëtt déi nach nogekuckt sinn',
+	'problemchanges-legend' => 'Lëscht vun de markéierte Säiten déi nach net nogekuckt sinn',
 	'problemchanges-none' => 'Et gëtt el keng Säiten déi dës Kriterien entspriechen',
 	'problemchanges-category' => 'Kategorie:',
 );
@@ -354,7 +355,7 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'problemchanges' => 'Проверка на означени промени',
-	'problemchanges-legend' => 'Наведување на прегледани промени со означени уредувања со исчекување на проверка',
+	'problemchanges-legend' => 'Листа на прегледани промени со означени уредувања во исчекување на проверка',
 	'problemchanges-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'problemchanges-category' => 'Категорија:',
 );
@@ -364,7 +365,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'problemchanges' => 'റ്റാഗോടെയുള്ള മാറ്റങ്ങൾ സംശോധമ ചെയ്യുക',
-	'problemchanges-legend' => 'തിരുത്തലുകൾ സംശോധനം ചെയ്യണമെന്ന റ്റാഗുള്ള സംശോധനം ചെയ്യപ്പെട്ട താളുകൾ കാണുക',
+	'problemchanges-legend' => 'തിരുത്തലുകളിൽ സംശോധനം പ്രതിക്ഷിക്കുന്നവ എന്ന റ്റാഗുള്ള താളുകളുടെ പട്ടിക',
 	'problemchanges-none' => 'ഈ മാനദണ്ഡങ്ങളുമായി ഒത്തു പോകുന്ന താളുകൾ ഒന്നും ഇപ്പോൾ ലഭ്യമല്ല',
 	'problemchanges-category' => 'വർഗ്ഗം:',
 );
@@ -381,7 +382,7 @@ $messages['ms'] = array(
  */
 $messages['nl'] = array(
 	'problemchanges' => 'Eindredactie voor gelabelde wijzigingen',
-	'problemchanges-legend' => "Pagina's met eindredactie weergeven met gelabelde bewerkingen zonder eindredactie",
+	'problemchanges-legend' => "Pagina's met gelabelde bewerkingen zonder eindredactie weergeven",
 	'problemchanges-none' => "Er zijn geen pagina's die voldoen aan deze criteria",
 	'problemchanges-category' => 'Categorie:',
 );
@@ -428,7 +429,7 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'problemchanges' => 'Arvëdd ij cambi etichetà',
-	'problemchanges-legend' => 'Lista le pàgine revisionà con ëd le revision pendente ëd modìfiche etichetà',
+	'problemchanges-legend' => 'Lista le pàgine con ëd le revision pendente ëd modìfiche etichëttà',
 	'problemchanges-none' => 'A-i é pa al moment ëd pàgine che a sodisfo sto criteri-sì',
 	'problemchanges-category' => 'Categorìa:',
 );
@@ -484,7 +485,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'problemchanges' => 'Досмотр отмеченных изменений',
-	'problemchanges-legend' => 'Список досмотренных страниц с отмеченными правками, ожидающих досмотра',
+	'problemchanges-legend' => 'Список cтраниц с отмеченными правками, ожидающими проверки',
 	'problemchanges-none' => 'В настоящее время нет отвечающих этим условиям страниц',
 	'problemchanges-category' => 'Категория:',
 );
@@ -562,7 +563,7 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'problemchanges' => 'Duyệt các thay đổi được đánh dấu',
-	'problemchanges-legend' => 'Liệt kê các trang được duyệt có sửa đổi cần được duyệt',
+	'problemchanges-legend' => 'Liệt kê các trang có sửa đổi được đánh dấu mà cần được duyệt',
 	'problemchanges-none' => 'Hiện không có trang nào hợp tiêu chuẩn này.',
 	'problemchanges-category' => 'Thể loại:',
 );

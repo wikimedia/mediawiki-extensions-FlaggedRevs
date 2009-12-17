@@ -577,7 +577,7 @@ $messages['mk'] = array(
 	'stablepages-config' => 'Конфигурација',
 	'stablepages-prec-none' => 'без предност',
 	'stablepages-prec-quality' => 'предност на квалитет',
-	'stablepages-prec-pristine' => 'предност на беспрекорност',
+	'stablepages-prec-pristine' => 'предност на неизменетост',
 	'stablepages-precedence' => 'Предност:',
 );
 
