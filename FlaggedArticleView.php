@@ -267,9 +267,7 @@ class FlaggedArticleView {
 		// set to override given the relevant conditions (like &stable=0) or there
 		// is no stable version.
 		} else {
-	   		$this->showStableVersion( $srev, $tag, $prot );
-			$outputDone = true; # Tell MW that parser output is done
-			$pcache = false;
+	   		$this->showRegularVersion( $srev, $tag, $prot );
 		}
 		# Some checks for which tag CSS to use
 		if( FlaggedRevs::useSimpleUI() ) $tagClass = 'flaggedrevs_short';
