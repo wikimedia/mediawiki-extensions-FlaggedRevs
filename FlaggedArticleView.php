@@ -160,6 +160,18 @@ class FlaggedArticleView {
 		}
 		return true;
 	}
+	
+	/**
+	* @returns mixed int/false/null
+	*/
+	protected function getRequestedStableId() {
+		global $wgRequest;
+		$reqId = $wgRequest->getVal('stableid');
+		if( $reqId === "best" ) {
+			$reqId = FlaggedRevs::getPrimeFlaggedRevId( $this->article );
+		}
+		return $reqId;
+	}
 
 	 /**
 	 * Replaces a page with the last stable version if possible
@@ -184,30 +196,34 @@ class FlaggedArticleView {
 		$simpleTag = $old = $stable = false;
 		$tag = $prot = '';
 		# Check the newest stable version.
-		$frev = $srev = $this->article->getStableRev();
-		$stableId = $frev ? $frev->getRevId() : 0;
-		# Also, check for any explicitly requested old stable version...
-		$reqId = $wgRequest->getVal('stableid');
-		if( $reqId === "best" ) {
-			$reqId = FlaggedRevs::getPrimeFlaggedRevId( $this->article );
-		}
-		if( $stableId && $reqId ) {
+		$srev = $this->article->getStableRev();
+		$stableId = $srev ? $srev->getRevId() : 0;
+		$frev = $srev; // $frev is the revision we are looking at
+		# Check for any explicitly requested old stable version...
+		$reqId = $this->getRequestedStableId();
+		if( $reqId ) {
+			if( !$stableId ) {
+				$reqId = false; // must be invalid
 			# Treat requesting the stable version by ID as &stable=1
-			if( $reqId != $stableId ) {
+			} else if( $reqId != $stableId ) {
+				$old = true; // old reviewed version requested by ID
 				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(),
 					$reqId, FR_TEXT );
-				$old = true; // old reviewed version requested by ID
 				if( !$frev ) {
-					$wgOut->addWikiText( wfMsg('revreview-invalid') );
-					$wgOut->returnToMain( false, $this->article->getTitle() );
-					# Tell MW that parser output is done
-					$outputDone = true;
-					$pcache = false;
-					return true;
+					$reqId = false; // invalid ID given
 				}
 			} else {
 				$stable = true; // stable version requested by ID
 			}
+		}
+		// $reqId is null if nothing requested, false if invalid
+		if( $reqId === false ) {
+			$wgOut->addWikiText( wfMsg('revreview-invalid') );
+			$wgOut->returnToMain( false, $this->article->getTitle() );
+			# Tell MW that parser output is done
+			$outputDone = true;
+			$pcache = false;
+			return true;
 		}
 		// Is the page config altered?
 		if( $this->article->isPageLocked() ) {
@@ -217,28 +233,10 @@ class FlaggedArticleView {
 			$prot = "<span class='fr-icon-unlocked' title=\"".
 				wfMsgHtml('revreview-unlocked-title')."\"></span>";
 		}
-		// RTL langauges
-		$rtl = $wgContLang->isRTL() ? " rtl" : "";
 		// Is there no stable version?
 		if( is_null($frev) ) {
-			// Add "no reviewed version" tag, but not for printable output.
-			if( !$wgOut->isPrintable() ) {
-				// Simple icon-based UI
-				if( FlaggedRevs::useSimpleUI() ) {
-					$msg = $old ? 'revreview-quick-invalid' : 'revreview-quick-none';
-					$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
-						wfMsgExt($msg,array('parseinline'));
-					$tag = "<div id='mw-revisiontag' class='flaggedrevs_short{$rtl} plainlinks noprint'>$tag</div>";
-					$this->reviewNotice .= $tag;
-				// Standard UI
-				} else {
-					$msg = $old ? 'revreview-invalid' : 'revreview-noflagged';
-					$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
-						"{$prot}<span class='fr-icon-current plainlinks'></span>" .
-						wfMsgExt($msg, array('parseinline')) . "</div>";
-					$this->reviewNotice .= $tag;
-				}
-			}
+			# Add "no reviewed version" tag, but not for printable output
+			$this->showUnreviewedPage( $tag, $prot );
 			# Show notice bar/icon
 			$this->displayTag();
 			return true;
@@ -267,7 +265,7 @@ class FlaggedArticleView {
 		// set to override given the relevant conditions (like &stable=0) or there
 		// is no stable version.
 		} else {
-	   		$this->showRegularVersion( $srev, $tag, $prot );
+	   		$this->showDraftVersion( $srev, $tag, $prot );
 		}
 		# Some checks for which tag CSS to use
 		if( FlaggedRevs::useSimpleUI() ) $tagClass = 'flaggedrevs_short';
@@ -277,13 +275,43 @@ class FlaggedArticleView {
 		else $tagClass = 'flaggedrevs_basic';
 		# Wrap tag contents in a div
 		if( $tag != '' ) {
-			$tag = "<div id='mw-revisiontag' class='{$tagClass}{$rtl} plainlinks noprint'>$tag</div>";
+			$rtl = $wgContLang->isRTL() ? " rtl" : ""; // RTL langauges
+			$tag = "<div id='mw-revisiontag' class='{$tagClass}{$rtl} plainlinks noprint'>" .
+				"$tag</div>";
 			$this->reviewNotice .= $tag;
 		}
 		# Show notice bar/icon
 		$this->displayTag();
 
 		return true;
+	}
+
+	/**
+	* @param $tag review box/bar info
+	* @param $prot protection notice
+	* Tag output function must be called by caller
+	*/	
+	protected function showUnreviewedPage( $tag, $prot ) {
+		global $wgOut, $wgContLang;
+		if( $wgOut->isPrintable() )
+			return;
+		// Simple icon-based UI
+		if( FlaggedRevs::useSimpleUI() ) {
+			// RTL langauges
+			$rtl = $wgContLang->isRTL() ? " rtl" : "";
+			$msg = 'revreview-quick-none';
+			$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
+				wfMsgExt($msg,array('parseinline'));
+			$tag = "<div id='mw-revisiontag' class='flaggedrevs_short{$rtl} plainlinks noprint'>$tag</div>";
+			$this->reviewNotice .= $tag;
+		// Standard UI
+		} else {
+			$msg = 'revreview-noflagged';
+			$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
+				"{$prot}<span class='fr-icon-current plainlinks'></span>" .
+				wfMsgExt($msg, array('parseinline')) . "</div>";
+			$this->reviewNotice .= $tag;
+		}
 	}
 	
 	/**
@@ -293,7 +321,7 @@ class FlaggedArticleView {
 	* Tag output function must be called by caller
 	* Parser cache control deferred to caller
 	*/
-	protected function showRegularVersion( $srev, &$tag, $prot ) {
+	protected function showDraftVersion( $srev, &$tag, $prot ) {
 		global $wgUser, $wgOut, $wgLang, $wgRequest;
 		$this->load();
 		$flags = $srev->getTags();
