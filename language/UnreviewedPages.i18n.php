@@ -1407,6 +1407,7 @@ $messages['su'] = array(
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Per
  * @author Rotsee
  */
 $messages['sv'] = array(
@@ -1417,7 +1418,7 @@ $messages['sv'] = array(
 	'unreviewed-diff' => 'granska',
 	'unreviewed-unwatched' => '(obevakad)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)',
-	'unreviewed-list' => 'Den här sidan listar innehållssidor som inte har granskats.',
+	'unreviewed-list' => 'Den här sidan listar innehållssidor som inte har granskats till den angivna nivån.',
 	'unreviewed-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'unreviewed-viewing' => '(granskas)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|timme|timmar}})',

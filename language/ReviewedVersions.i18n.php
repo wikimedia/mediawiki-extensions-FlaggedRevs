@@ -371,12 +371,12 @@ $messages['fy'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'reviewedversions' => 'Ver versións estábeis',
+	'reviewedversions' => 'Ver as versións revisadas',
 	'reviewedversions-leg1' => 'Listar as revisións revisadas dunha páxina',
 	'reviewedversions-page' => 'Nome da páxina:',
 	'reviewedversions-none' => '"[[:$1]]" non ten revisións examinadas.',
-	'reviewedversions-list' => 'A seguinte é unha lista {{PLURAL:$2|da única revisión|das revisións}} de "[[:$1]]" que {{PLURAL:$2|foi revisada|foron revisadas}}:',
-	'reviewedversions-review' => 'Revisado en <i>$1</i> por $2',
+	'reviewedversions-list' => 'A continuación hai unha lista {{PLURAL:$2|coa única revisión|coas revisións}} de "[[:$1]]" que {{PLURAL:$2|foi revisada|foron revisadas}}:',
+	'reviewedversions-review' => 'Revisado o <i>$1</i> por $2',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -1126,3 +1126,4 @@ $messages['zh-hant'] = array(
 	'reviewedversions-list' => '以下是[[:$1]]已複審的修訂一覽:',
 	'reviewedversions-review' => '於<i>$1</i>複審',
 );
+

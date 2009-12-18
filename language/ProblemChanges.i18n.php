@@ -111,7 +111,7 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'problemchanges' => 'Markěrowane změny pśeglědaś',
-	'problemchanges-legend' => 'Lisćina pśeglědanych bokow z markěrowanymi změnami, kótarež hyšći njejsu pśeglědane',
+	'problemchanges-legend' => 'Lisćina bokow z markěrowanymi změnami, kótarež hyšći njejsu pśeglědane',
 	'problemchanges-none' => 'Tuchylu žedne boki njewótpowěduju toś tym kriterijam',
 	'problemchanges-category' => 'Kategorija:',
 );
@@ -502,7 +502,7 @@ $messages['sah'] = array(
  */
 $messages['sk'] = array(
 	'problemchanges' => 'Skontrolovať označené zmeny',
-	'problemchanges-legend' => 'Vypísať zoznam skontrolovaných stránok s označenými úpravami čakajúcimi na kontrolu',
+	'problemchanges-legend' => 'Vypísať zoznam stránok s označenými úpravami čakajúcimi na kontrolu',
 	'problemchanges-none' => 'Momentálne neexistujú žiadne stránky zodpovedajúce týmto požiadavkám',
 	'problemchanges-category' => 'Kategória:',
 );
@@ -535,7 +535,7 @@ $messages['te'] = array(
  */
 $messages['tr'] = array(
 	'problemchanges' => 'Etiketli değişiklikleri gözden geçir',
-	'problemchanges-legend' => 'Etiketli değişiklikleri gözden geçirme bekleyen gözden geçirilmiş sayfaları listele',
+	'problemchanges-legend' => 'Etiketli değişiklikleri gözden geçirme bekleyen sayfaları listele',
 	'problemchanges-none' => 'Şu anda hiçbir sayfa bu kriterleri karşılamıyor',
 	'problemchanges-category' => 'Kategori:',
 );

@@ -2946,6 +2946,7 @@ KOnfigurasi teu bisa dilarapkeun.',
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Per
  */
 $messages['sv'] = array(
 	'stabilization-tab' => 'kvalitet',
@@ -2970,9 +2971,9 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-notexists' => 'Det finns ingen sida med titeln "[[:$1|$1]]". Inga inställningar kan göras.',
 	'stabilization-notcontent' => 'Sidan "[[:$1|$1]]" kan inte granskas. Inga inställningar kan göras.',
 	'stabilization-comment' => 'Anledning:',
-	'stabilization-otherreason' => 'Annan anledning',
+	'stabilization-otherreason' => 'Annan anledning:',
 	'stabilization-expiry' => 'Varaktighet:',
-	'stabilization-othertime' => 'Annan tid',
+	'stabilization-othertime' => 'Annan tid:',
 	'stabilization-sel-short' => 'Företräde',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',

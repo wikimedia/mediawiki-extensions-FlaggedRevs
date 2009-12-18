@@ -1335,6 +1335,7 @@ $messages['sr-el'] = array(
  * @author Boivie
  * @author M.M.S.
  * @author Najami
+ * @author Per
  * @author Rotsee
  */
 $messages['sv'] = array(
