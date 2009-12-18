@@ -26,16 +26,23 @@ class StablePages extends SpecialPage
 	protected function showForm() {
 		global $wgOut, $wgScript;
 		$wgOut->addHTML( wfMsgExt('stablepages-text', array('parseinline') ) );
+		$fields = array();
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if( count($namespaces) > 1 ) {
+			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace );
+		}
+		if( FlaggedRevs::qualityVersions() ) {
+			$fields[] = Xml::label( wfMsg('stablepages-precedence'), 'wpPrecedence' ) .
+				'&nbsp;' . FlaggedRevsXML::getPrecedenceMenu( $this->precedence );
+		}
+		if( count($fields) ) {
 			$form = Xml::openElement( 'form', array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= "<fieldset><legend>".wfMsg('stablepages')."</legend>\n";
-			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
-			$form .= Xml::label( wfMsg('stablepages-precedence'), 'wpPrecedence' ) . '&nbsp;';
-			$form .= FlaggedRevsXML::getPrecedenceMenu( $this->precedence ) . '&nbsp;';
+			$form .= implode('&nbsp',$fields) . '&nbsp';
 			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
 			$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-			$form .= "</fieldset></form>\n";
+			$form .= "</fieldset>\n";
+			$form .= Xml::closeElement( 'form' );
 			$wgOut->addHTML( $form );
 		}
 	}

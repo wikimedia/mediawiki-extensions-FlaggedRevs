@@ -42,14 +42,20 @@ class ReviewedPages extends SpecialPage
 		);
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
+		$fields = array();
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if( count($namespaces) > 1 ) {
-			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . ' ';
+			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . ' ';
 		}
-		$form .= FlaggedRevsXML::getLevelMenu( $this->type ) . ' ';
-		$form .= $showhideredirs . ' ';
+		if( FlaggedRevs::qualityVersions() ) {
+			$fields[] = FlaggedRevsXML::getLevelMenu( $this->type ) . ' ';
+		}
+		$form .= implode(' ',$fields) . ' ';
+		$form .= $showhideredirs;
 
-		$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+		if( count($fields) ) {
+			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+		}
 		$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 		$form .= "</fieldset></form>\n";
 
