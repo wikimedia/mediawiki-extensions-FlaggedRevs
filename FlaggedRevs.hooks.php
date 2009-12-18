@@ -178,7 +178,7 @@ class FlaggedRevsHooks {
 				return true; // nothing to do
 			}
 		}
-		self::clearDeadLinks( $pageId );
+		FlaggedRevs::clearTrackingRows( $pageId );
 		return true;
 	}
 
@@ -201,7 +201,8 @@ class FlaggedRevsHooks {
 		}
 		# Empty flagged revs data for this page if there is no stable version
 		if( !$sv ) {
-			return self::clearDeadLinks( $pageId );
+			FlaggedRevs::clearTrackingRows( $pageId );
+			return true;
 		}
 		# Try the process cache...
 		$article = new Article( $linksUpdate->mTitle );
@@ -291,14 +292,6 @@ class FlaggedRevsHooks {
 		if( count($insertions) ) {
 			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 		}
-		return true;
-	}
-	
-	protected static function clearDeadLinks( $pageId ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpages', array('fp_page_id' => $pageId), __METHOD__ );
-		$dbw->delete( 'flaggedrevs_tracking', array('ftr_from' => $pageId), __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending', array('fpp_page_id' => $pageId), __METHOD__ );
 		return true;
 	}
 	

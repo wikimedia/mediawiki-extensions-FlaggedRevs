@@ -1322,6 +1322,17 @@ class FlaggedRevs {
 			wfMsgExt($msg,array('parseinline'),$st,$row->rev_id,$user) . "]</span>";
 		return array($link,$css);
 	}
+	
+   	/**
+	* Clear FlaggedRevs tracking tables for this page
+	* @param int $pageId
+	*/		
+	public static function clearTrackingRows( $pageId ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpages', array('fp_page_id' => $pageId), __METHOD__ );
+		$dbw->delete( 'flaggedrevs_tracking', array('ftr_from' => $pageId), __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', array('fpp_page_id' => $pageId), __METHOD__ );
+	}
 
    	/**
 	* Get params for a user
@@ -1486,16 +1497,19 @@ class FlaggedRevs {
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			# Update stable cache
 			self::updatePageCache( $article, $user, $poutput );
-			# Update page fields
+			# Update page tracking fields
 			self::updateStableVersion( $article, $rev, $rev->getId() );
 			# We can set the sync cache key already.
 			global $wgParserCacheExpireTime;
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
 			$data = FlaggedRevs::makeMemcObj( "true" );
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
-		} else {
+		} else if( $sv ) {
 			# Update tracking table
 			self::updatePendingList( $article, $rev->getId() );
+		} else {
+			# Weird case: autoreview when flaggedrevs is deactivated for page
+			self::clearTrackingRows( $article->getId() );
 		}
 		wfProfileOut( __METHOD__ );
 		return true;

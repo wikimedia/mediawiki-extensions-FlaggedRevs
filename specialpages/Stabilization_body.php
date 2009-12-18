@@ -523,8 +523,9 @@ class Stabilization extends UnlistedSpecialPage
 				// Try to autoreview to this level...
 				if( $this->reviewThis && RevisionReview::userCanSetFlags($flags) ) {
 					$text = $nullRevision->getText();
-					FlaggedRevs::autoReviewEdit( $article, $wgUser, $text, $nullRevision, $flags, true );
-					$invalidate = false; // already done with auto-review
+					// Invalidate cache if not already done with auto-review
+					$invalidate = !FlaggedRevs::autoReviewEdit( $article, $wgUser, $text,
+						$nullRevision, $flags, true );
 				}
 			}
 			# Update the links tables as the stable version may now be the default page...
