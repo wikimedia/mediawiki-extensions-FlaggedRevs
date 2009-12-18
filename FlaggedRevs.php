@@ -88,9 +88,6 @@ $wgFlaggedRevsWhitelist = array();
 $wgFlaggedRevsOverride = true;
 # Are pages only reviewable if the stable shows by default?
 $wgFlaggedRevsReviewForDefault = false;
-# Hide flaggedrevs UI unless the stable shows by default?
-# Pages are still reviewable from diffs/special pages.
-$wgFlaggedRevsUIForDefault = false;
 # Do quality revisions show instead of sighted if present by default?
 # Set to 2 to make "pristine" versions override quality revisions.
 $wgFlaggedRevsPrecedence = FR_QUALITY;
