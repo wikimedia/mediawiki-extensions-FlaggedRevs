@@ -1268,9 +1268,9 @@ class FlaggedArticleView {
 			return true;
 		# Get latest revision Id (lag safe)
 		$latest = $this->article->getTitle()->getLatestRevID(GAID_FOR_UPDATE);
-		// If we are supposed to review after edit, and it was not autoreviewed,
-		// and the user can actually make new stable version, take us to the diff...
-		if( FlaggedRevs::reviewAfterEdit() && $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
+		// If the edit was not autoreviewed, and the user can actually make a
+		// new stable version, then go to the diff...
+		if( $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
 			$extraQuery .= $extraQuery ? '&' : '';
 			$extraQuery .= "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
 		// ...otherwise, go to the current revision after completing an edit.

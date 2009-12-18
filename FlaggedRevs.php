@@ -100,8 +100,6 @@ $wgFlaggedRevsExceptions = array( 'user' );
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevsComments = false;
-# Redirect users out to review changes since stable version on save?
-$wgReviewChangesAfterEdit = true;
 # Allow auto-review edits directly to the stable version by reviewers?
 # 1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine
 $wgFlaggedRevsAutoReview = 1;

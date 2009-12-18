@@ -138,15 +138,6 @@ class FlaggedRevs {
 		global $wgUser, $wgSimpleFlaggedRevsUI;
 		return $wgUser->getOption( 'flaggedrevssimpleui', intval($wgSimpleFlaggedRevsUI) );
 	}
-	
-	/**
-	 * Redirect users out to review changes since stable version on save?
-	 * @returns bool
-	 */
-	public static function reviewAfterEdit() {
-		global $wgReviewChangesAfterEdit;
-		return (bool)$wgReviewChangesAfterEdit;
-	}
 		
 	/**
 	 * Allow auto-review edits directly to the stable version by reviewers?
