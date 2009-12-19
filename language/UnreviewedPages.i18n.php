@@ -1101,6 +1101,8 @@ $messages['no'] = array(
 	'unreviewed-list' => 'Denne siden lister opp artikler som mangler vurdering.',
 	'unreviewed-none' => 'Det er ingen sider som passer med disse kriteriene',
 	'unreviewed-viewing' => '(under vurdering)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|time|timer}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dag|dager}})',
 	'unreviewed-recent' => '(under én time)',
 );
 

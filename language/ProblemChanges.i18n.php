@@ -51,6 +51,7 @@ $messages['be-tarask'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'problemchanges' => "Adwelet ar c'hemmoù balizennet",
@@ -97,11 +98,12 @@ $messages['de'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
 	'problemchanges' => 'Vuranayîşanê etiket biyo înan kontrol bike',
-	'problemchanges-legend' => 'Vurnayîşanê etiket biyo înan liste bike',
+	'problemchanges-legend' => 'Pelanê ke be vurnayışi etiket biyê u seba çımraviyarnayışi pawenê lista ke',
 	'problemchanges-none' => 'Ser ena kriteri de pelan çini yo',
 	'problemchanges-category' => 'Kategorî:',
 );
@@ -274,10 +276,11 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author IvanLanin
  */
 $messages['id'] = array(
 	'problemchanges' => 'Periksa perubahan yang diberi tag',
-	'problemchanges-legend' => 'Daftarkan halaman tertinjau dengan suntingan yang sedang menunggu tinjauan',
+	'problemchanges-legend' => 'Daftarkan halaman dengan suntingan bertag menunggu tinjauan',
 	'problemchanges-none' => 'Saat ini tidak ada halaman yang memenuhi kriteria tersebut',
 	'problemchanges-category' => 'Kategori:',
 );
@@ -401,7 +404,7 @@ $messages['no'] = array(
  */
 $messages['oc'] = array(
 	'problemchanges' => 'Tornar legir las modificacions balisadas',
-	'problemchanges-legend' => 'Listar las paginas relegidas amb de modificacions balisadas en espèra de relectura',
+	'problemchanges-legend' => 'Listar las paginas amb de modificacions balisadas en espèra de relectura',
 	'problemchanges-none' => 'Pel moment, i a pas cap de pagina que satisfasca aqueles critèris',
 	'problemchanges-category' => 'Categoria :',
 );
@@ -419,7 +422,7 @@ $messages['pdc'] = array(
  */
 $messages['pl'] = array(
 	'problemchanges' => 'Przeglądanie wątpliwych zmian',
-	'problemchanges-legend' => 'Lista przejrzanych stron z oznakowanymi wersjami oczekującymi na przejrzenie',
+	'problemchanges-legend' => 'Lista stron z oznakowanymi wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',
 );

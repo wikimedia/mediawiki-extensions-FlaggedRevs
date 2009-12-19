@@ -473,7 +473,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'stabilization-page' => 'Anv ar bajenn :',
-	'stabilization-def1' => "Ar stumm stabil; ma n'eus hini ebet, lakaat ar stumm red",
+	'stabilization-def1' => "Ar stumm stabil ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhoñs",
 	'stabilization-def2' => 'Ar stumm red pe ar brouilh',
 	'stabilization-submit' => 'Kadarnaat',
 	'stabilization-notexists' => 'N\'eus pajenn ebet anvet "[[:$1|$1]]".
@@ -2289,9 +2289,9 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-notexists' => 'Det er ingen side med tittelen «[[:$1|$1]]». Ingen innstillinger kan gjøres.',
 	'stabilization-notcontent' => 'Siden «[[:$1|$1]]» kan ikke bli undersøkt. Ingen innstillinger kan gjøres.',
 	'stabilization-comment' => 'Årsak:',
-	'stabilization-otherreason' => 'Annen årsak',
+	'stabilization-otherreason' => 'Annen årsak:',
 	'stabilization-expiry' => 'Utgår:',
-	'stabilization-othertime' => 'Annen tid',
+	'stabilization-othertime' => 'Annen tid:',
 	'stabilization-sel-short' => 'Presedens',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',

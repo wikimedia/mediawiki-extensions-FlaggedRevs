@@ -1217,7 +1217,7 @@ Stabile versjonar er sideversjonar for sider som er sjekka av minst ein etablert
  */
 $messages['no'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og '''$2''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og ''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].
 
 Skribenter og Anmeldere er etablerte brukere som kan punktsjekke revisjoner på siden.",
 	'validationstatistics-time' => "''Følgende data er mellomlagret og kan være utdatert.''
