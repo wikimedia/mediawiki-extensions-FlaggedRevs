@@ -446,11 +446,12 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author Giro720
+ * @author Hamilton Abreu
  * @author Malafaya
  */
 $messages['pt'] = array(
 	'problemchanges' => 'Mudanças nas marcações de revisão',
-	'problemchanges-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
+	'problemchanges-legend' => 'Listar páginas com edições marcadas pendendo revisão',
 	'problemchanges-none' => 'No momento não há páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
 );
@@ -477,7 +478,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'problemchanges' => 'Revide le cangiaminde taggate',
-	'problemchanges-legend' => 'Liste de le pàggene riviste cu le cangiaminde ca onne essere riviste taggate',
+	'problemchanges-legend' => "Liste de le pàggene riviste cu le cangiaminde taggate aspettane 'na riviste",
 	'problemchanges-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',
 	'problemchanges-category' => 'Categorije:',
 );
