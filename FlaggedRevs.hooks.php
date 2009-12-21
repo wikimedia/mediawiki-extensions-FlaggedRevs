@@ -741,7 +741,8 @@ class FlaggedRevsHooks {
             return true;
         }
         # See if there is a stable version. Also, see if, given the page 
-        # config and URL params, the page can be overriden.
+        # config and URL params, the page can be overriden. The later
+		# only applies on page views of $title.
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
         if( !empty($wgTitle) && $wgTitle->equals( $title ) ) {
 			$view = FlaggedArticleView::singleton();
@@ -917,7 +918,7 @@ class FlaggedRevsHooks {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId );
 			# Was the edit that we tried to revert to reviewed?
 			if( $frev ) {
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
 			}
 		}
