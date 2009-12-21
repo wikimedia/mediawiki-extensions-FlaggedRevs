@@ -897,11 +897,11 @@ class FlaggedArticleView {
 			return true; // simple custom levels set for action=protect
 		}
 		$title = $this->article->getTitle()->getSubjectPage();
-		if ( !FlaggedRevs::isPageReviewable( $title ) ) {
+		if( !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true; // Only reviewable pages need these tabs
 		}
 		// Check if we should show a stabilization tab
-		if (
+		if(
 			!$skin->mTitle->isTalkPage() &&
 			is_array( $actions ) &&
 			!isset( $actions['protect'] ) &&
@@ -934,7 +934,7 @@ class FlaggedArticleView {
 		$fa = FlaggedArticle::getTitleInstance( $title );
 
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( !$fa->isReviewable() || $fa->limitedUI() ) {
+		if( !$fa->isReviewable() || $fa->limitedUI() ) {
 			return true; // Not a reviewable page or the UI is hidden
 		}
 		$flags = ($action == 'rollback') ? FR_MASTER : 0;
@@ -944,25 +944,25 @@ class FlaggedArticleView {
 		}
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $fa );
 		// Set draft tab as needed...
-	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
-	   		if ( isset( $views['edit'] ) ) {
-				if ( $fa->showStableByDefault() ) {
+	   	if( !$skin->mTitle->isTalkPage() && !$synced ) {
+	   		if( isset( $views['edit'] ) ) {
+				if( $fa->showStableByDefault() ) {
 					$views['edit']['text'] = wfMsg('revreview-edit');
 				}
-				if ( $this->pageOverride() ) {
+				if( $this->pageOverride() ) {
 					$views['edit']['href'] = $title->getLocalUrl( 'action=edit' );
 				}
 	   		}
-	   		if ( isset( $views['viewsource'] ) ) {
-				if ( $fa->showStableByDefault() ) {
+	   		if( isset( $views['viewsource'] ) ) {
+				if( $fa->showStableByDefault() ) {
 					$views['viewsource']['text'] = wfMsg('revreview-source');
 				}
-				if ( $this->pageOverride() ) {
+				if( $this->pageOverride() ) {
 					$views['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
 				}
 			}
 	   	}
-	 	if ( !FlaggedRevs::showVersionTabs() || $synced ) {
+	 	if( !FlaggedRevs::showVersionTabs() || $synced ) {
 	 		// Exit, since either the stable/draft tabs should not be shown
 	 		// or the page is already the most current revision
 	   		return true;
@@ -979,10 +979,10 @@ class FlaggedArticleView {
 	 			'class' => ''
 	 		),
 	 	);
-		if ( $this->pageOverride() || $wgRequest->getVal( 'stableid' ) ) {
+		if( $this->pageOverride() || $wgRequest->getVal( 'stableid' ) ) {
 			// We are looking a the stable version
 			$tabs['stable']['class'] = 'selected';
-		} elseif (
+		} elseif(
 			( self::isViewAction( $action ) || $action == 'edit' ) &&
 			!$skin->mTitle->isTalkPage()
 		) {
