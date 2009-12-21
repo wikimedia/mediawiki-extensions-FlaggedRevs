@@ -118,10 +118,8 @@ class FlaggedArticle extends Article {
 		if( !is_null($this->stableRev) ) {
 			return $this->stableRev;
 		}
-		# Get the content page, skip talk
-		$title = $this->getTitle()->getSubjectPage();
 		# Do we have one?
-		$srev = FlaggedRevision::newFromStable( $title, $flags );
+		$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
 		if( $srev ) {
 			$this->stableRev = $srev;
 			$this->flags[$srev->getRevId()] = $srev->getTags();

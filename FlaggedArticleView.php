@@ -927,26 +927,26 @@ class FlaggedArticleView {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setViewTabs( $skin, &$views ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevTabs;
+		global $wgRequest, $wgUser;
 		$this->load();
-
-		$title = $this->article->getTitle()->getSubjectPage(); // Get the actual content page
-		$article = new Article( $title );
-		$action = $wgRequest->getVal( 'action', 'view' );
+		// Get the actual content page
+		$title = $this->article->getTitle()->getSubjectPage();
 		$fa = FlaggedArticle::getTitleInstance( $title );
-		if ( !$fa->isReviewable() || $this->article->limitedUI() ) {
-			// This isn't a reviewable page or the UI is hidden
-			return true;
+
+		$action = $wgRequest->getVal( 'action', 'view' );
+		if ( !$fa->isReviewable() || $fa->limitedUI() ) {
+			return true; // Not a reviewable page or the UI is hidden
 		}
-	   	$srev = $this->article->getStableRev( $action == 'rollback' ? FR_MASTER : 0 );
-	   	if( is_null( $srev ) ) {
+		$flags = ($action == 'rollback') ? FR_MASTER : 0;
+		$srev = $fa->getStableRev( $flags );
+	   	if( !$srev ) {
 			return true; // No stable revision exists
 		}
-		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $article );
+		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $fa );
 		// Set draft tab as needed...
 	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
 	   		if ( isset( $views['edit'] ) ) {
-				if ( $this->article->showStableByDefault() ) {
+				if ( $fa->showStableByDefault() ) {
 					$views['edit']['text'] = wfMsg('revreview-edit');
 				}
 				if ( $this->pageOverride() ) {
@@ -954,7 +954,7 @@ class FlaggedArticleView {
 				}
 	   		}
 	   		if ( isset( $views['viewsource'] ) ) {
-				if ( $this->article->showStableByDefault() ) {
+				if ( $fa->showStableByDefault() ) {
 					$views['viewsource']['text'] = wfMsg('revreview-source');
 				}
 				if ( $this->pageOverride() ) {
@@ -962,7 +962,7 @@ class FlaggedArticleView {
 				}
 			}
 	   	}
-	 	if ( !$wgFlaggedRevTabs || $synced ) {
+	 	if ( !FlaggedRevs::showVersionTabs() || $synced ) {
 	 		// Exit, since either the stable/draft tabs should not be shown
 	 		// or the page is already the most current revision
 	   		return true;
