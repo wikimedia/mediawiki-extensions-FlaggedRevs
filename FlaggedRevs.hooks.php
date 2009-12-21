@@ -765,11 +765,12 @@ class FlaggedRevsHooks {
 	*/
 	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false, $user = null ) {
 		global $wgRequest;
-		# Must be in reviewable namespace
-		$title = $article->getTitle();
-		if( !$rev || !FlaggedRevs::isPageReviewable( $title ) ) {
+		# Edit must be non-null, and to a reviewable page
+		$fa = FlaggedArticle::getArticleInstance( $article );
+		if( !$rev || !$fa->isReviewable() ) {
 			return true;
 		}
+		$title = $article->getTitle();
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
@@ -1868,7 +1869,6 @@ class FlaggedRevsHooks {
 			throw new MWException( 'This page has an undefined stability configuration!' );
 		}
 		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
-		$reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
 		# Add some script for expiry dropdowns
 		$wgOut->addScript(
 			"<script type=\"text/javascript\">
@@ -1975,12 +1975,6 @@ class FlaggedRevsHooks {
 				'</td>
 			</tr>';
 		$output .= "</table>"; // expiry table end
-		# Add "review this page" checkbox
-		$reviewLabel = wfMsgExt( 'stabilization-review', array('parseinline') );
-		if( $wgUser->isAllowed('review') ) {
-			$output .= Xml::checkLabel( $reviewLabel, 'wpReviewthis', 'wpReviewthis',
-				$reviewThis, $disabledAttrib );
-		}
 		# Close field set and table row
 		$output .= Xml::closeElement( 'fieldset' );
 		$output .= "</td></tr>";
@@ -2014,8 +2008,7 @@ class FlaggedRevsHooks {
 		}
 		$form = new Stabilization();
 		$form->target = $article->getTitle(); # Our target page
-		$form->watchThis = null; // protection form already has a watch check
-		$form->reviewThis = $wgRequest->getBool( 'wpReviewthis' ); # Auto-review option
+		$form->watchThis = null; # protection form already has a watch check
 		$form->reason = $wgRequest->getText( 'mwProtect-reason' ); # Reason
 		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' );  # Reason dropdown
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
@@ -2026,10 +2019,12 @@ class FlaggedRevsHooks {
 			$form->select = FlaggedRevs::getPrecedence(); // default
 			$form->override = (int)FlaggedRevs::showStableByDefault(); // default
 			$form->autoreview = ''; // default
+			$form->reviewThis = false;
 		} else if( isset($levels[$selected]) ) {
 			$form->select = $levels[$selected]['select'];
 			$form->override = $levels[$selected]['override'];
 			$form->autoreview = $levels[$selected]['autoreview'];
+			$form->reviewThis = true; // auto-review; protection-like
 		} else {
 			return false; // bad level
 		}
