@@ -1822,8 +1822,8 @@ Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pa
 	'revreview-auto' => '(emgefre)',
 	'revreview-auto-w' => "O kemmañ ar stumm stabil emaoc'h; ''adlennet ent emgefre'' e vo ar c'hemmoù.",
 	'revreview-auto-w-old' => "O kemmañ ar stumm stabil emaoc'h; ''adlennet ent emgefre'' e vo ar c'hemmoù.",
-	'revreview-basic' => "Setu ar [[{{MediaWiki:Validationpage}}|stumm diwezhañ gwelet]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
-Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] a c'hortoz bezañ adwelet.",
+	'revreview-basic' => "Setu ar [[{{MediaWiki:Validationpage}}|stumm stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
+Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] kinniget.",
 	'revreview-basic-old' => "Hemañ zo ur stumm bet [[{{MediaWiki:Validationpage}}|gwelet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez zo bet graet.",
 	'revreview-basic-same' => "Setu an diwezhañ stumm bet [[{{MediaWiki:Validationpage}}|adwelet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
@@ -1849,6 +1849,7 @@ A-is emañ ar ''brouilhed''.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-noflagged' => "N'eus stumm reizhet ebet eus ar bajenn-mañ, setu marteze n'eo '''ket''' bet [[{{MediaWiki:Validationpage}}|gwiriekaet]] he ferzhioù.",
 	'revreview-note' => 'Skrivet eo bet an notennoù-mañ gant [[User:$1|$1]] e-ser [[{{MediaWiki:Validationpage}}|adwelet]] ar stumm :',
 	'revreview-oldrating' => 'E boentadur :',
+	'revreview-patrol-title' => 'Merkañ evel patrouilhet',
 	'revreview-patrolled' => 'Merket evel patrouilhet eo bet ar stumm diuzet eus [[:$1|$1]].',
 	'revreview-quality' => "Setu an diwezhañ stumm [[{{MediaWiki:Validationpage}}|a-feson]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] a c'hortoz bezañ adwelet.",
@@ -1859,6 +1860,7 @@ Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{F
 Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemmet]'''.",
 	'revreview-quality-source' => "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm a-feson] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, zo bet diazezet er-maez eus ar stumm-mañ.",
 	'revreview-quality-title' => 'Ur bajenn vat eo',
+	'revreview-quality-rev' => 'Adweladenn vat',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwelet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwelet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwelet]]'''",
@@ -1882,6 +1884,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-submit' => 'Kas',
 	'revreview-submitting' => 'O kas...',
 	'revreview-finished' => 'Graet eo bet an adweladenn !',
+	'revreview-failed' => 'Ur gudenn gant an adlenn !',
 	'revreview-toggle-title' => 'diskouez/kuzhat munudoù',
 	'revreview-update' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm stabil diwezhañ.
 
@@ -3807,7 +3810,7 @@ $messages['fi'] = array(
 	'revreview-blocked' => 'Et voi arvioida tätä versiota, koska käyttäjätililläsi on tällä hetkellä esto voimassa ([$1 tarkat tiedot])',
 	'revreview-current' => 'Luonnos',
 	'revreview-depth-2' => 'Keskitasoa',
-	'revreview-draft-title' => 'Luonnossivu',
+	'revreview-draft-title' => 'Tämä on luonnossivu',
 	'revreview-edit' => 'Muokkaa luonnosta',
 	'revreview-editnotice' => "'''Tälle sivulle tehtävät muokkaukset sisällytetään [[{{MediaWiki:Validationpage}}|vakaaseen versioon]] kunhan valtuutettu käyttäjä on arvioinut ne.'''",
 	'revreview-flag' => 'Arvioi tämä versio',
@@ -8033,7 +8036,7 @@ $messages['ml'] = array(
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} താരതമ്യം ചെയ്യുക])",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|കരട്]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരതയുള്ള പതിപ്പ്]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} താരതമ്യം ചെയ്യുക])",
-	'revreview-selected' => "'''$1'''ന്റെ തിരഞ്ഞെടുത്ത പതിപ്പ്:",
+	'revreview-selected' => "'''$1''' താളിന്റെ തിരഞ്ഞെടുത്ത പതിപ്പ്:",
 	'revreview-source' => 'കരടിന്റെ മൂലരൂപം കാണുക',
 	'revreview-stable' => 'സ്ഥിരതയുള്ള താള്‍',
 	'revreview-stable-title' => 'ഇത് ദർശിച്ച താൾ ആണ്',
@@ -8947,8 +8950,8 @@ $messages['no'] = array(
 	'review-diff2stable' => 'Vis endringer mellom den stabile og den nåværende revisjonen',
 	'review-logentry-app' => 'vurderte versjon $2 av [[$1]]',
 	'review-logentry-dis' => 'degraderte versjon $2 av [[$1]]',
-	'review-logentry-id' => 'vis: $2',
-	'review-logentry-diff' => 'forskjell fra stabil versjon',
+	'review-logentry-id' => 'revisjon: $2',
+	'review-logentry-diff' => 'endringer på stabil versjon',
 	'review-logpage' => 'Anmeldingslogg',
 	'review-logpagetext' => 'Dette er en logg over endringer i [[{{MediaWiki:Validationpage}}|godkjenningsstatusen]] for innholdssider.
 Se [[Special:ReviewedPages|listen over anmeldte sider]] for en liste over godkjente sider.',
@@ -8985,6 +8988,7 @@ Dette kan skje om en dynamisk mal inneholder en annen fil eller en mal avhengig 
 	'revreview-depth-3' => 'Høy',
 	'revreview-depth-4' => 'Utmerket',
 	'revreview-draft-title' => 'Dette er en utkastside',
+	'revreview-draft-rev' => 'Utkastversjon',
 	'revreview-edit' => 'Rediger utkast',
 	'revreview-editnotice' => "'''Endringer på denne siden vil bli inkludert i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] så snart en autorisert bruker godkjenner dem.'''",
 	'revreview-flag' => 'Anmeld denne sideversjonen',

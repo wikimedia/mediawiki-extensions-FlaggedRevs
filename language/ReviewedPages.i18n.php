@@ -127,7 +127,7 @@ $messages['bcc'] = array(
  */
 $messages['be-tarask'] = array(
 	'reviewedpages' => 'Правераныя старонкі',
-	'reviewedpages-leg' => 'Сьпіс старонак адсартаваны па ўзроўню адзнакі',
+	'reviewedpages-leg' => 'Сьпіс старонак адсартаваны па вышэйшаму ўзроўню адзнакі',
 	'reviewedpages-list' => 'На гэтай старонцы пададзены сьпіс старонак, якія рэцэнзаваліся на ўказаны ўзровень.',
 	'reviewedpages-none' => 'У гэтым сьпісе няма старонак',
 	'reviewedpages-all' => 'правераныя вэрсіі',
@@ -161,10 +161,11 @@ $messages['bn'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'reviewedpages' => 'Pajennoù adwelet',
-	'reviewedpages-leg' => 'Rollañ ar pajennoù dre al live uhelañ',
+	'reviewedpages-leg' => 'Rollañ ar pajennoù dre al live adlenn uhelañ',
 	'reviewedpages-list' => "Rollet eo war ar bajenn-mañ ar pajennoù bet adwelet (d'ar muiañ) d'al live spisaet.",
 	'reviewedpages-none' => "N'eus pajenn ebet er roll",
 	'reviewedpages-lev-1' => 'Perzhded',
@@ -178,7 +179,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'reviewedpages' => 'Provjerene stranice',
-	'reviewedpages-leg' => 'Spisak stranica po najvišem nivou',
+	'reviewedpages-leg' => 'Spisak stranica po najvišem nivou pregleda',
 	'reviewedpages-list' => 'Ova stranica prikazuje stranice koje su provjerene (najviše) do određenog nivoa.',
 	'reviewedpages-none' => 'Nema stranica na ovom spisku',
 	'reviewedpages-all' => 'pregledane verzije',
@@ -239,7 +240,7 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'reviewedpages' => 'Pśeglědane boki',
-	'reviewedpages-leg' => 'Boki pó nejwušej rowninje nalicyś',
+	'reviewedpages-leg' => 'Boki pó nejwušej pśespytowańskej rowninje nalicyś',
 	'reviewedpages-list' => 'Toś ten bok nalistujo boki, kótarež su se pśeglědali (w nejwušem paźe) na pódanej rowninje.',
 	'reviewedpages-none' => 'Toś ta lisćina njewopśimujo boki.',
 	'reviewedpages-lev-0' => 'Pśeglědany',
@@ -338,7 +339,7 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'reviewedpages' => 'Pages passées en revue',
-	'reviewedpages-leg' => 'Liste des pages par plus haut niveau',
+	'reviewedpages-leg' => 'Liste des pages par plus haut niveau de relecture',
 	'reviewedpages-list' => 'Cette page liste les pages ont été passées en revue (au plus) au niveau spécifié.',
 	'reviewedpages-none' => 'Cette liste est vide',
 	'reviewedpages-lev-0' => 'Visualisée',
@@ -460,7 +461,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'reviewedpages' => 'Pruwowane strony',
-	'reviewedpages-leg' => 'Strony po najwyšej runinje nalistować',
+	'reviewedpages-leg' => 'Strony po najwyšej pruwowanskej runinje nalistować',
 	'reviewedpages-list' => 'Tuta strona nalistuje strony, kotrež buchu (w najwyšim padźe) na podatej runinje přepruwowane.',
 	'reviewedpages-none' => 'W tutej lisćinje strony njejsu',
 	'reviewedpages-lev-0' => 'Přehladany',
@@ -552,7 +553,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'reviewedpages' => '査読済みページ',
-	'reviewedpages-leg' => 'もっとも高い評価を受けたページを一覧する',
+	'reviewedpages-leg' => '査読でもっとも高い評価を受けたページを一覧する',
 	'reviewedpages-list' => 'このページは査読結果が(最高で)指定した水準にあるページを一覧しています。',
 	'reviewedpages-none' => '表示すべきページはありません',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
@@ -650,7 +651,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'reviewedpages' => 'Lëscht vun den iwwerkuckte Säiten',
-	'reviewedpages-leg' => 'Lëscht vun de Säite mat dem héichste Niveau',
+	'reviewedpages-leg' => 'Lëscht vun de Säite mat dem héichste Niveau vum Iwwerliesen',
 	'reviewedpages-list' => 'Op dëser Säit sti Säiten déi nogekuckt goufen (amhéichsten) an entspriechen dem Niveau deen uginn ass.',
 	'reviewedpages-none' => 'Dës Lëscht ass eidel',
 	'reviewedpages-lev-0' => 'iwwerkuckt',
@@ -682,7 +683,7 @@ $messages['li'] = array(
  */
 $messages['mk'] = array(
 	'reviewedpages' => 'Проверени страници',
-	'reviewedpages-leg' => 'Листа на страници на највисоко ниво',
+	'reviewedpages-leg' => 'Листа на страници по највисоко ниво на оценка',
 	'reviewedpages-list' => 'На оваа страница се наведени страници кои се оценети (највисоко) до назначеното ниво.',
 	'reviewedpages-none' => 'Нема страници во оваа листа',
 	'reviewedpages-lev-0' => 'Прегледани',
@@ -698,7 +699,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'reviewedpages' => 'സംശോധനം നടന്ന താളുകള്‍',
-	'reviewedpages-leg' => 'കൂടിയ തലം അനുസരിച്ചുള്ള താളുകളുടെ പട്ടിക',
+	'reviewedpages-leg' => 'സംശോധന തലങ്ങളുടെ ക്രമമനുസരിച്ചുള്ള താളുകളുടെ പട്ടിക',
 	'reviewedpages-list' => 'താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന താളുകള്‍ ഒരു പ്രത്യേക തലത്തിലുള്ള (ഏറ്റവും കൂടുതൽ) സം‌ശോധനം പൂര്‍ത്തിയാക്കിയിരിക്കുന്നു.',
 	'reviewedpages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'reviewedpages-lev-0' => 'സൈറ്റഡ്',
@@ -752,7 +753,7 @@ $messages['nah'] = array(
  */
 $messages['nl'] = array(
 	'reviewedpages' => "Pagina's met eindredactie",
-	'reviewedpages-leg' => "Een lijst met pagina's met het hoogste niveau",
+	'reviewedpages-leg' => "Een lijst met pagina's met het hoogste controleniveau",
 	'reviewedpages-list' => "De volgende pagina's hebben eindredactie tot ten hoogste het aangegeven niveau.",
 	'reviewedpages-none' => 'Geen resultaten',
 	'reviewedpages-lev-0' => 'Gecontroleerd',

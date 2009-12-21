@@ -1220,14 +1220,13 @@ $messages['no'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og ''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].
 
 Skribenter og Anmeldere er etablerte brukere som kan punktsjekke revisjoner på siden.",
-	'validationstatistics-time' => "''Følgende data er mellomlagret og kan være utdatert.''
+	'validationstatistics-time' => "''Følgende data ble sist oppdatert $5, kl $6.''
 
 Endringer som har blitt sjekket av etablerte brukere blir ansett som vurderte.
 
 Gjennomsnittlig ventetid for endringer av ''uinnlogga brukere'' til vurdering er '''$1'''; medianen er '''$3'''.
 $4
-Gjennomsnittlig forsinking for [[Special:OldReviewedPages|sider med endringer som ikke er vurdert]] er '''$2'''.
-
+Gjennomsnittlig forsinkelse for [[Special:OldReviewedPages|sider med endringer som ikke er vurdert]] er '''$2'''.
 Disse sidene blir sett på som ''foreldet''. På same måte blir sider regnet som ''synkronisert'' om den [[{{MediaWiki:Validationpage}}|stabile versjonen]] også er den nåværende utkast-versjonen.
 Stabile versjoner er sideversjoner for sider som er sjekket av minst en etablert bruker.",
 	'validationstatistics-table' => "Statistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.",

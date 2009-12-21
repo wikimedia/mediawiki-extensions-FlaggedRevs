@@ -592,7 +592,7 @@ $messages['ksh'] = array(
 	'reviewedversions-page' => 'Sigge-Tittel:',
 	'reviewedversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjekik Versione.',
 	'reviewedversions-list' => 'Hee kütt {{PLURAL:$2|de|en Leß met dä|kei nohjekik Version vun dä}} Sigg „[[:$1]]“ {{PLURAL:$2|ier einzije nohjekk Version:|ier nohjekik Versione:|}}',
-	'reviewedversions-review' => 'nohjekik {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
+	'reviewedversions-review' => 'Nohjekik {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
 );
 
 /** Latin (Latina)
