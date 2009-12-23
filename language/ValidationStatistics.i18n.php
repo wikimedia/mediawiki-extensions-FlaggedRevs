@@ -91,15 +91,18 @@ $messages['am'] = array(
  */
 $messages['ar'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
-	'validationstatistics-users' => "'''{{SITENAME}}''' لديه حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|محرر]]
-و '''$2''' {{PLURAL:$2|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|مراجع]].",
-	'validationstatistics-time' => "''البيانات التالية مخزنة وربما لا تكون محدثة.''
+	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]] و '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|مراجع]].
+
+المحررون والمراجعون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
+	'validationstatistics-time' => "''البيانات التالية تم تحديثها آخر مرة في $5 الساعة $6.''
+
+التعديلات التي تم التحقق منها بواسطة المستخدمين المخولين يتم اعتبارها مراجعة.
 
 الانتظار المتوسط للتعديلات بواسطة ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
 $4
 التأخر المتوسط [[Special:OldReviewedPages|للصفحات ذات التعديلات غير المراجعة قيد الانتظار]] هو '''$2'''.
 هذه الصفحات تعتبر ''مخزنة''. وبالمثل، الصفحات تعتبر ''محدثة'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخة المستقرة]] هي أيضا نسخة المسودة الحالية.
-النسخ المستقرة هي نسخ الصفحات التي تم التحقق منها بواسطة مستخدم موثوق واحد على الأقل.",
+النسخة المستقرة لصفحة هي أجدد مراجعة تمت الموافقة عليها للعرض افتراضيا لكل القراء.",
 	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضة بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
@@ -1427,7 +1430,12 @@ $messages['ro'] = array(
 Editorii şi recenzorii sunt utilizatori stabiliţi care pot verifica modificările din pagini.",
 	'validationstatistics-ns' => 'Spaţiu de nume',
 	'validationstatistics-total' => 'Pagini',
+	'validationstatistics-stable' => 'Revizualizată',
+	'validationstatistics-latest' => 'Sincronizată',
+	'validationstatistics-synced' => 'Sincronizată/Revizualizată',
+	'validationstatistics-old' => 'Veche',
 	'validationstatistics-user' => 'Utilizator',
+	'validationstatistics-reviews' => 'Revizualizări',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1611,12 +1619,14 @@ $messages['ta'] = array(
  */
 $messages['te'] = array(
 	'validationstatistics' => 'సరిచూత గణాంకాలు',
+	'validationstatistics-table' => "ప్రతీ పేరుబరి యొక్క గణాంకాలు క్రింద చూపించాం, దారిమార్పు పేజీలని ''మినహాయించి''.",
 	'validationstatistics-ns' => 'నేంస్పేసు',
 	'validationstatistics-total' => 'పేజీలు',
 	'validationstatistics-stable' => 'రివ్యూడ్',
 	'validationstatistics-latest' => 'సింకుడు',
 	'validationstatistics-synced' => 'సింకుడు/రివ్యూడ్',
 	'validationstatistics-old' => 'పాతవి',
+	'validationstatistics-utable' => 'ఈ క్రిందిది గడచిన గంటలో 5గురు క్రియాశీల సమీక్షకుల యొక్క జాబితా.',
 	'validationstatistics-user' => 'వాడుకరి',
 	'validationstatistics-reviews' => 'సమీక్షలు',
 );
@@ -1633,6 +1643,16 @@ $messages['tet'] = array(
  */
 $messages['th'] = array(
 	'validationstatistics-ns' => 'เนมสเปซ',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'validationstatistics-ns' => 'At giňişligi',
+	'validationstatistics-total' => 'Sahypalar',
+	'validationstatistics-old' => 'Möwriti geçen',
+	'validationstatistics-user' => 'Ulanyjy',
 );
 
 /** Tagalog (Tagalog)
@@ -1812,6 +1832,8 @@ $messages['yi'] = array(
  */
 $messages['zh-hans'] = array(
 	'validationstatistics' => '审核统计',
+	'validationstatistics-ns' => '名字空间',
+	'validationstatistics-total' => '页',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

@@ -1003,6 +1003,13 @@ $messages['th'] = array(
 	'reviewedversions-page' => 'ชื่อหน้า:',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'reviewedversions-page' => 'Sahypa ady:',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

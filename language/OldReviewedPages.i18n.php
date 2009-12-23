@@ -227,6 +227,7 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Turin
  */
 $messages['bg'] = array(
 	'oldreviewedpages-none' => 'В момента не съществуватр страници, които да отговарят на тези критерии',
@@ -234,6 +235,7 @@ $messages['bg'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дни}})',
 	'oldreviewedpages-recent' => '(по-малко от 1 час)',
 	'oldreviewed-category' => 'Категория:',
+	'oldreviewed-watched' => 'В списъка ми за наблюдение',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
 );
 
@@ -443,6 +445,15 @@ $messages['es'] = array(
 	'oldreviewedpages-unwatched' => '(no vigilado)',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
 	'oldreviewedpages-viewing' => '(bajo revisión)',
+);
+
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'oldreviewedpages-recent' => '(alla 1 tunni)',
+	'oldreviewed-category' => 'Kategooria:',
+	'oldreviewed-watched' => 'Minu jälgimisloendis',
 );
 
 /** Basque (Euskara)
@@ -1061,7 +1072,7 @@ $messages['nn'] = array(
 $messages['no'] = array(
 	'oldreviewedpages' => 'Utdaterte anmeldte sider',
 	'oldreviewedpages-legend' => 'Vis anmeldte sider med uanmeldte sideversjoner',
-	'oldreviewedpages-list' => 'Denne siden viser anmeldte sider som har ventende redigeringer.',
+	'oldreviewedpages-list' => 'Denne siden lister opp {{PLURAL:$1|én vurdert side|vurderte sider}} som har ventende endringer.',
 	'oldreviewedpages-none' => 'Det er for tiden ingen sider som passer med disse kriteriene',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|time|timer}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dager}})',
@@ -1363,6 +1374,8 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'oldreviewedpages' => 'కాలంచెల్లిన పనఃసమీక్షించిన పేజీలు',
+	'oldreviewedpages-list' => 'వేచియున్న మార్పులు కలిగిన {{PLURAL:$1|ఒక సమీక్షిత పేజీని|సమీక్షిత పేజీలను}} ఈ పేజీ చూపిస్తుంది.',
+	'oldreviewedpages-none' => 'ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
 	'oldreviewedpages-recent' => '(1 గంట లోపల)',
@@ -1381,6 +1394,20 @@ $messages['te'] = array(
  */
 $messages['tet'] = array(
 	'oldreviewed-category' => 'Kategoria:',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sagat|sagat}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|gün|gün}})',
+	'oldreviewedpages-recent' => '(1 sagatdan az)',
+	'oldreviewed-category' => 'Kategoriýa:',
+	'oldreviewed-watched' => 'Gözegçilik sanawymda',
+	'oldreviewed-size' => 'Maksimum üýtgeşme (baýt):',
+	'oldreviewedpages-unwatched' => '(gözegçilikde däl)',
+	'oldreviewedpages-watched' => '($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)',
 );
 
 /** Tagalog (Tagalog)

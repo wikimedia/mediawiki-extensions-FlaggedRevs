@@ -135,12 +135,12 @@ $3 is the corresponding time in the wiki's content language.
  */
 $messages['af'] = array(
 	'stabilization-page' => 'Bladsynaam:',
-	'stabilization-def2' => 'Die weergawe',
+	'stabilization-def2' => 'Die huidige/werkweergawe',
 	'stabilization-submit' => 'Bevestig',
 	'stabilization-comment' => 'Rede:',
 	'stabilization-otherreason' => 'Ander rede:',
 	'stabilization-expiry' => 'Verval:',
-	'stabilization-othertime' => 'Aander tyd',
+	'stabilization-othertime' => 'Ander tyd:',
 	'stabilization-sel-short' => 'Voorrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',
 	'stabilization-sel-short-1' => 'Geen',
@@ -990,6 +990,7 @@ Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
 	'stabilization-otherreason' => 'Muu syy',
 	'stabilization-expiry' => 'Vanhenee:',
 	'stabilization-sel-short-0' => 'Laatu',
+	'stabilization-sel-short-1' => 'Ei mitään',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Nykyinen',
 	'stabilization-def-short-1' => 'Vakaa',
@@ -1063,13 +1064,13 @@ assurâd-vos qu’y at verément de tâles vèrsions dens la pâge, ôtrament lo
 Vê-que los paramètres d’ora de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pâge :',
 	'stabilization-leg' => 'Confirmar los paramètres de la vèrsion stâbla',
-	'stabilization-select' => 'Chouèx de la vèrsion stâbla',
+	'stabilization-select' => 'Prioritât de chouèx de la vèrsion stâbla',
 	'stabilization-select1' => 'La dèrriére vèrsion de qualitât, ôtrament la dèrriére vèrsion revua',
 	'stabilization-select2' => 'La dèrriére vèrsion revua, sen tegnir compto du nivél de validacion',
 	'stabilization-select3' => 'La dèrriére vèrsion sen tache, ôtrament la dèrriére vèrsion de qualitât ou ben revua',
 	'stabilization-def' => 'Vèrsion montrâ pendent la visualisacion per dèfôt de la pâge',
-	'stabilization-def1' => 'La vèrsion stâbla, ôtrament la vèrsion d’ora',
-	'stabilization-def2' => 'La vèrsion d’ora',
+	'stabilization-def1' => 'La vèrsion stâbla ; s’y en at pas, adonc cela d’ora ou ben lo brolyon',
+	'stabilization-def2' => 'La vèrsion d’ora ou ben lo brolyon',
 	'stabilization-restrict' => 'Rèstriccions sur les rèvisions ôtomatiques',
 	'stabilization-restrict-none' => 'Gins de rèstriccion de ples',
 	'stabilization-submit' => 'Confirmar',
@@ -1078,9 +1079,9 @@ gins de configuracion possibla.',
 	'stabilization-notcontent' => 'La pâge « [[:$1|$1]] » pôt pas étre revua,
 gins de configuracion possibla.',
 	'stabilization-comment' => 'Rêson :',
-	'stabilization-otherreason' => 'Ôtra rêson',
+	'stabilization-otherreason' => 'Ôtra rêson :',
 	'stabilization-expiry' => 'Èxpire :',
-	'stabilization-othertime' => 'Ôtro temps',
+	'stabilization-othertime' => 'Ôtro temps :',
 	'stabilization-sel-short' => 'Prioritât',
 	'stabilization-sel-short-0' => 'De qualitât',
 	'stabilization-sel-short-1' => 'Niona',
@@ -2276,13 +2277,13 @@ kontroller at det faktisk finnes slike versjoner av siden, ellers vil endringen 
 Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-page' => 'Sidenavn:',
 	'stabilization-leg' => 'Bekreft innstillinger for stabile versjoner',
-	'stabilization-select' => 'Valg av stabil versjon',
+	'stabilization-select' => 'Valg av stabil versjon har forrang',
 	'stabilization-select1' => 'Den siste kvalitetsrevisjonen hvis den finnes, ellers den siste synede versjonen',
 	'stabilization-select2' => 'Den siste vurderte versjonen, uansett kvalitetsnivå',
 	'stabilization-select3' => 'Den siste urørte versjonen av denne siden; om det ikke finnes, det siste kvalitetsversjonen eller den siste sjekkede versjonen',
 	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
-	'stabilization-def1' => 'Den stabile versjonen hvis den finnes, ellers den nyeste versjonen',
-	'stabilization-def2' => 'Den nyeste versjonen',
+	'stabilization-def1' => 'Den stabile versjonen; om den ikke finnes, utkast eller siste versjon',
+	'stabilization-def2' => 'Utkast eller siste versjon',
 	'stabilization-restrict' => 'Begrensninger av auto-vurdering',
 	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
 	'stabilization-submit' => 'Bekreft',
@@ -3090,6 +3091,20 @@ $messages['th'] = array(
 	'stabilization-sel-short-1' => 'ไม่มี',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'stabilization-page' => 'Sahypa ady:',
+	'stabilization-restrict-none' => 'Başga goşmaça çäklendirme ýok',
+	'stabilization-submit' => 'Tassykla',
+	'stabilization-comment' => 'Sebäp:',
+	'stabilization-otherreason' => 'Başga sebäp:',
+	'stabilization-expiry' => 'Gutarýan wagty:',
+	'stabilization-othertime' => 'Başga wagt:',
+	'stabilization-def-short' => 'Gaýybana',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
@@ -3438,9 +3453,12 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
+	'stabilization-page' => '页面标题：',
+	'stabilization-restrict-none' => '无其他限制',
 	'stabilization-submit' => '确认',
 	'stabilization-comment' => '原因：',
 	'stabilization-otherreason' => '其他原因',

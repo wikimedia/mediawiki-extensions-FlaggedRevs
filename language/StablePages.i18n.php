@@ -860,8 +860,17 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'stablepages' => 'స్థిరమైన పేజీలు',
+	'stablepages-stable' => 'సుస్థిర కూర్పు',
 	'stablepages-none' => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'stablepages-config' => 'స్వరూపణం',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'stablepages-none' => 'Bu sanawda hiç hili sahypa ýok',
+	'stablepages-config' => 'Konfigurasiýa',
 );
 
 /** Tagalog (Tagalog)

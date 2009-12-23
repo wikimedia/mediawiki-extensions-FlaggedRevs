@@ -66,7 +66,7 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
-	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى',
+	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى مراجعة',
 	'reviewedpages-list' => 'هذه الصفحة تعرض الصفحات التي تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
 	'reviewedpages-none' => 'لا توجد صفحات في هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
@@ -287,7 +287,7 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'reviewedpages' => 'Páginas revisadas',
-	'reviewedpages-leg' => 'Lista de páginas por nivel más alto',
+	'reviewedpages-leg' => 'Listar páginas por nivel más alto de revisión',
 	'reviewedpages-list' => 'Esta página lista páginas que han sido revisadas (al más alto) al nivel especificado.',
 	'reviewedpages-none' => 'No hay páginas en esta lista',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
@@ -354,8 +354,8 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'reviewedpages' => 'Pâges passâs en revua',
-	'reviewedpages-leg' => 'Montre una lista de les pâges per nivél ples hôt.',
-	'reviewedpages-list' => '{{PLURAL:$1|Ceta pâge at étâ passâ|Cetes pâges ont étâ passâs}} en revua u nivél spècefiâ',
+	'reviewedpages-leg' => 'Liste les pâges per nivél de rèvision ples hôt',
+	'reviewedpages-list' => 'Ceta pâge liste les pâges qu’ont étâ passâs en revua (u més) u nivél spècefiâ.',
 	'reviewedpages-none' => 'Ceta lista est voueda.',
 	'reviewedpages-lev-0' => 'Revua',
 	'reviewedpages-lev-1' => 'De qualitât',
@@ -370,7 +370,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'reviewedpages' => 'Páxinas revisadas',
-	'reviewedpages-leg' => 'Lista as páxinas polo nivel máis alto',
+	'reviewedpages-leg' => 'Lista as páxinas polo nivel máis alto de revisión',
 	'reviewedpages-list' => 'Esta páxina lista as páxinas que foron revisadas (polo maior) ao nivel especificado.',
 	'reviewedpages-none' => 'Non hai páxinas nesta lista',
 	'reviewedpages-lev-0' => 'Revisado',
@@ -397,7 +397,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'reviewedpages' => 'Lischt vu dr Syte, wu vum Fäldhieter gsäh sin',
-	'reviewedpages-leg' => 'D Syte no em hegschte Level uflischte',
+	'reviewedpages-leg' => 'D Syte no em hegschte Prief-Level uflischte',
 	'reviewedpages-list' => 'Die Syte zeigt Syte, wu uf em hegschte Nivo prieft sin.',
 	'reviewedpages-none' => 'Die Lischt isch läär.',
 	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
@@ -494,7 +494,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'reviewedpages' => 'Paginas revidite',
-	'reviewedpages-leg' => 'Listar paginas per plus alte nivello',
+	'reviewedpages-leg' => 'Listar paginas per plus alte nivello de revision',
 	'reviewedpages-list' => 'Iste pagina lista paginas que ha essite revidite (al maximo) al nivello specificate.',
 	'reviewedpages-none' => 'Il non ha paginas in iste lista',
 	'reviewedpages-lev-0' => 'Mirate',
@@ -506,11 +506,12 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author IvanLanin
  * @author Rex
  */
 $messages['id'] = array(
 	'reviewedpages' => 'Halaman tertinjau',
-	'reviewedpages-leg' => 'Daftar halaman yang telah ditinjau menurut tingkat tertinggi',
+	'reviewedpages-leg' => 'Daftar halaman menurut tingkat tinjauan tertinggi',
 	'reviewedpages-list' => 'Halaman berikut berisi daftar halaman yang telah ditinjau hingga tingkat tertentu',
 	'reviewedpages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'reviewedpages-lev-0' => 'Terperiksa',
@@ -785,8 +786,8 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'reviewedpages' => 'Anmeldte sider',
-	'reviewedpages-leg' => 'List opp sider etter høyeste nivå',
-	'reviewedpages-list' => 'Følgende {{PLURAL:$1|side|sider}} har blitt vurdert og har det angitte nivået',
+	'reviewedpages-leg' => 'List opp sider etter høyeste vurderingsnivå',
+	'reviewedpages-list' => 'Denne siden lister opp sider som har blitt vurdert (på sitt høyeste) til det spesifiserte nivået.',
 	'reviewedpages-none' => 'Det er ingen sider i denne listen',
 	'reviewedpages-lev-0' => 'Sjekket',
 	'reviewedpages-lev-1' => 'Kvalitet',
@@ -807,7 +808,7 @@ $messages['nso'] = array(
  */
 $messages['oc'] = array(
 	'reviewedpages' => 'Pagina passadas en revista',
-	'reviewedpages-leg' => 'Lista de las paginas per nivèl pus naut',
+	'reviewedpages-leg' => 'Lista de las paginas per nivèl de relectura mai naut',
 	'reviewedpages-list' => 'Aquesta pagina fa la lista de las paginas en revista (al mai) al nivèl especificat.',
 	'reviewedpages-none' => 'Aquesta lista es voida',
 	'reviewedpages-lev-0' => 'Visualizat',
@@ -855,12 +856,13 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Giro720
+ * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
  */
 $messages['pt'] = array(
 	'reviewedpages' => 'Páginas analisadas',
-	'reviewedpages-leg' => 'Listar páginas por nível mais alto',
+	'reviewedpages-leg' => 'Listar páginas por nível de revisão mais alto',
 	'reviewedpages-list' => 'Esta página lista as páginas que foram analisadas no nível especificado',
 	'reviewedpages-none' => 'Não há páginas nesta lista',
 	'reviewedpages-lev-0' => 'Objetiva',
@@ -886,6 +888,7 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
  */
@@ -893,6 +896,7 @@ $messages['ro'] = array(
 	'reviewedpages' => 'Pagini revizuite',
 	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
+	'reviewedpages-all' => 'versiuni revizuite',
 );
 
 /** Tarandíne (Tarandíne)
@@ -916,7 +920,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'reviewedpages' => 'Проверенные страницы',
-	'reviewedpages-leg' => 'Список страниц, по уровню оценки',
+	'reviewedpages-leg' => 'Список страниц по высшему уровню оценки',
 	'reviewedpages-list' => 'На этой странице перечислены страницы, которые были оценены на указанный уровень.',
 	'reviewedpages-none' => 'В данном списке отсутствуют страницы',
 	'reviewedpages-lev-0' => 'Досмотренная',
@@ -931,7 +935,7 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'reviewedpages' => 'Ырытыллыбыт сирэйдэр',
-	'reviewedpages-leg' => 'Сирэйдэр тиһиктэрэ, сыанабыл таһымынан',
+	'reviewedpages-leg' => 'Үрдүк сыанабылы ылбыт сирэйдэр тиһиктэрэ',
 	'reviewedpages-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналаммыт сирэйдэр көрдөрүлүннүлэр.',
 	'reviewedpages-none' => 'Испииһэк кураанах',
 	'reviewedpages-lev-0' => 'Көрүллүбүт',
@@ -946,7 +950,7 @@ $messages['sah'] = array(
  */
 $messages['sk'] = array(
 	'reviewedpages' => 'Skontrolované stránky',
-	'reviewedpages-leg' => 'Zoznam stránok podľa najvyššej úrovne',
+	'reviewedpages-leg' => 'Zoznam stránok podľa najvyššej úrovne kontroly',
 	'reviewedpages-list' => 'Táto stránka obsahuje zoznam článkov, ktoré boli skontrolované (najviac) do určenej úrovne.',
 	'reviewedpages-none' => 'V tomto zozname sa nenachýdzajú žiadne stránky',
 	'reviewedpages-lev-0' => 'Videná',
@@ -1086,10 +1090,11 @@ $messages['tl'] = array(
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
  * @author Joseph
+ * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'reviewedpages' => 'Gözden geçirilmiş sayfalar',
-	'reviewedpages-leg' => 'Sayfaları en yüksek seviyeye göre listele',
+	'reviewedpages-leg' => 'Sayfaları en yüksek inceleme seviyesine göre listele',
 	'reviewedpages-list' => 'Bu sayfa belirlenen seviyede (en yüksek) gözden geçirilmiş sayfaları listeler.',
 	'reviewedpages-none' => 'Bu listede hiç sayfa yok',
 	'reviewedpages-lev-0' => 'Gözlenmiş',

@@ -178,12 +178,14 @@ $messages['be-tarask'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Turin
  */
 $messages['bg'] = array(
 	'unreviewedpages' => 'Нерецензирани страници',
 	'unreviewed-category' => 'Категория:',
 	'unreviewed-diff' => 'Промени',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
+	'unreviewed-recent' => '(по-малко от час)',
 );
 
 /** Bengali (বাংলা)
@@ -493,7 +495,7 @@ $messages['frp'] = array(
 	'unreviewed-diff' => 'revêre',
 	'unreviewed-unwatched' => '(pas siuvua)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|utilisator actif siut|utilisators actifs siuvont}} ceta pâge)',
-	'unreviewed-list' => 'Ceta pâge liste les pâges de contegnu qu’ont pas étâ revues.',
+	'unreviewed-list' => 'Ceta pâge liste les pâges de contegnu qu’ont pas étâ revues avouéc lo nivél spècefiâ.',
 	'unreviewed-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'unreviewed-viewing' => '(en rèvision)',
 	'unreviewed-hours' => '($1 hor{{PLURAL:$1|a|es}})',
@@ -1098,7 +1100,7 @@ $messages['no'] = array(
 	'unreviewed-diff' => 'anmeld',
 	'unreviewed-unwatched' => '(uovervåket)',
 	'unreviewed-watched' => '({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)',
-	'unreviewed-list' => 'Denne siden lister opp artikler som mangler vurdering.',
+	'unreviewed-list' => 'Denne siden lister opp innholdssider som ikke har blitt vurdert til det spesifiserte nivået.',
 	'unreviewed-none' => 'Det er ingen sider som passer med disse kriteriene',
 	'unreviewed-viewing' => '(under vurdering)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|time|timer}})',
@@ -1442,6 +1444,7 @@ $messages['te'] = array(
 	'unreviewed-unwatched' => '(వీక్షణలో లేనివి)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|క్రియాశీల వాడుకరి|గురు క్రియాశీల వాడుకరులు}} వీక్షిస్తున్నారు)',
 	'unreviewed-list' => 'ఈ పేజీలో పేర్కొన్న స్థాయి వరకు సమీక్షించని వ్యాసాల జాబితా ప్రదర్సింపబడుతోంది.',
+	'unreviewed-none' => 'ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు',
 	'unreviewed-viewing' => '(సమీక్షలో ఉంది)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
@@ -1463,6 +1466,17 @@ $messages['tg-cyrl'] = array(
 	'unreviewed-category' => 'Гурӯҳ:',
 	'unreviewed-diff' => 'Тағйирот',
 	'unreviewed-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'unreviewed-category' => 'Kategoriýa:',
+	'unreviewed-unwatched' => '(gözegçilikde däl)',
+	'unreviewed-watched' => '($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)',
+	'unreviewed-days' => '($1 {{PLURAL:$1|gün|gün}})',
+	'unreviewed-recent' => '(1 sagatdan az)',
 );
 
 /** Tagalog (Tagalog)
@@ -1624,6 +1638,9 @@ $messages['zh-hans'] = array(
 	'unreviewed-watched' => '（$1位活跃用户正在监视）',
 	'unreviewed-list' => '这一页列示出还未复审或视察的页面修订。',
 	'unreviewed-none' => '这里现时没有页面合乎这些条件',
+	'unreviewed-hours' => '（$1 {{PLURAL:$1|小时|小时}}）',
+	'unreviewed-days' => '（$1 {{PLURAL:$1|天|天}}）',
+	'unreviewed-recent' => '（小于1小时）',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬) */

@@ -29,11 +29,12 @@ $messages['af'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Meno25
  * @author OsamaK
  */
 $messages['ar'] = array(
 	'problemchanges' => 'راجع التغييرات الموسومة',
-	'problemchanges-legend' => 'اسرد الصفحات المراجعة ذات التعديلات التي تنتظر المراجعة',
+	'problemchanges-legend' => 'اعرض الصفحات ذات التعديلات الموسومة التي تنتظر المراجعة',
 	'problemchanges-none' => 'لا توجد حاليًا صفحات توافق هذه المعايير',
 	'problemchanges-category' => 'التصنيف:',
 );
@@ -47,6 +48,13 @@ $messages['be-tarask'] = array(
 	'problemchanges-legend' => 'Сьпіс старонак з пазначанымі рэдагаваньнямі, якія чакаюць рэцэнзаваньня',
 	'problemchanges-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
 	'problemchanges-category' => 'Катэгорыя:',
+);
+
+/** Bulgarian (Български)
+ * @author Turin
+ */
+$messages['bg'] = array(
+	'problemchanges-category' => 'Категория:',
 );
 
 /** Breton (Brezhoneg)
@@ -145,7 +153,7 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'problemchanges' => 'Revisar cambios etiquetados',
-	'problemchanges-legend' => 'Lista de páginas revisadas con ediciones etiquetadas pendientes de revisión',
+	'problemchanges-legend' => 'Listar páginas con ediciones etiquetadas pendientes de revisión',
 	'problemchanges-none' => 'No hay actualmente páginas que cumplan estos criterios',
 	'problemchanges-category' => 'Categoría:',
 );
@@ -191,7 +199,7 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'problemchanges' => 'Revêre los changements balisâs.',
-	'problemchanges-legend' => 'Listar les pâges revues avouéc des changements balisâs en atenta de rèvision',
+	'problemchanges-legend' => 'Listar les pâges avouéc des changements balisâs en atenta de rèvision',
 	'problemchanges-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'problemchanges-category' => 'Catègorie :',
 );
@@ -392,9 +400,12 @@ $messages['nl'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Laaknor
  * @author Simny
  */
 $messages['no'] = array(
+	'problemchanges' => 'Se igjennom merkede endringer',
+	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',
 	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
 	'problemchanges-category' => 'Kategori:',
 );
@@ -531,7 +542,15 @@ $messages['sv'] = array(
  * @author Veeven
  */
 $messages['te'] = array(
+	'problemchanges-none' => 'ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు',
 	'problemchanges-category' => 'వర్గం:',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'problemchanges-category' => 'Kategoriýa:',
 );
 
 /** Turkish (Türkçe)

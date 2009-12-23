@@ -74,9 +74,11 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Turin
  */
 $messages['bg'] = array(
 	'unstablepages-stable' => 'устойчива версия',
+	'unstablepages-none' => 'Няма страници в този списък',
 );
 
 /** Breton (Brezhoneg)
@@ -544,12 +546,14 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
 	'unstablepages' => 'Pagini instabile',
 	'unstablepages-stable' => 'versiune stabilă',
 	'unstablepages-none' => 'Nu există pagini în această listă',
+	'unstablepages-config' => 'Configuraţie',
 );
 
 /** Tarandíne (Tarandíne)
@@ -652,6 +656,13 @@ $messages['te'] = array(
 	'unstablepages-config' => 'స్వరూపణం',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'unstablepages-config' => 'Konfigurasiýa',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
@@ -715,5 +726,14 @@ $messages['vi'] = array(
 	'unstablepages-text' => 'Đây là danh sách các trang được thiết lập để hiển thị phiên bản nháp theo mặc định.',
 	'unstablepages-none' => 'Không có trang nào trong danh sách',
 	'unstablepages-config' => 'Thiết lập',
+);
+
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
+ */
+$messages['zh-hans'] = array(
+	'unstablepages-text' => '以下页面已设置为默认显示草稿版本。',
+	'unstablepages-none' => '本列表中没有页面',
+	'unstablepages-config' => '配置',
 );
 
