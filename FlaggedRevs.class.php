@@ -1213,41 +1213,52 @@ class FlaggedRevs {
 
 	/**
 	* @param Array $flags
-	* @return bool, is this revision at quality condition?
+	* @return bool, is this revision at basic review condition?
+	*/
+	public static function isSighted( $flags ) {
+		return self::tagsAtLevel( $flags, self::$minSL );
+	}
+	
+	/**
+	* @param Array $flags
+	* @return bool, is this revision at quality review condition?
 	*/
 	public static function isQuality( $flags ) {
-		if( empty($flags) ) return false;
-		foreach( self::$dimensions as $f => $x ) {
-			if( !isset($flags[$f]) || self::$minQL[$f] > $flags[$f] )
-				return false;
-		}
-		return true;
+		return self::tagsAtLevel( $flags, self::$minQL );
 	}
 
 	/**
 	* @param Array $flags
-	* @return bool, is this revision at optimal condition?
+	* @return bool, is this revision at pristine review condition?
 	*/
 	public static function isPristine( $flags ) {
+		return self::tagsAtLevel( $flags, self::$minPL );
+	}
+	
+	// Checks if $flags meets $reqFlagLevels
+	protected static function tagsAtLevel( $flags, $reqFlagLevels ) {
 		if( empty($flags) ) return false;
 		foreach( self::$dimensions as $f => $x ) {
-			if( !isset($flags[$f]) || self::$minPL[$f] > $flags[$f] )
+			if( !isset($flags[$f]) || $reqFlagLevels[$f] > $flags[$f] )
 				return false;
 		}
 		return true;
 	}
 	
 	/**
+	* Get the quality tier of review flags
 	* @param Array $flags
-	* @return int, flagging tier
+	* @return int, flagging tier (-1 for non-sighted)
 	*/
 	public static function getLevelTier( $flags ) {
-		if( self::isPristine($flags ) )
+		if( self::isPristine( $flags ) )
 			return FR_PRISTINE;
-		elseif( self::isQuality($flags ) )
+		elseif( self::isQuality( $flags ) )
 			return FR_QUALITY;
+		elseif( self::isSighted( $flags ) )
+			return FR_SIGHTED;
 		else
-			return 0;
+			return -1;
 	}
 
 	/**
