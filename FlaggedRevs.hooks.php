@@ -1576,6 +1576,12 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
+	public static function addToHistView( &$article ) {
+		$view = FlaggedArticleView::singleton();
+		$view->addToHistView();
+		return true;
+	}
+	
 	public static function onCategoryPageView( &$category ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToCategoryView();

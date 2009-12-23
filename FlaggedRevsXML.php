@@ -323,4 +323,60 @@ class FlaggedRevsXML {
 		}
 		return $form;
 	}
+		
+	/*
+	* @param FlaggedArticle $flaggedArticle
+	* @returns string
+	* Creates CSS lock icon if page is locked/unlocked
+	*/	
+	public static function lockStatusIcon( $flaggedArticle ) {
+		if( $flaggedArticle->isPageLocked() ) {
+			return "<span class='fr-icon-locked' title=\"".
+				wfMsgHtml('revreview-locked-title')."\"></span>";
+		} elseif( $flaggedArticle->isPageUnlocked() ) {
+			return "<span class='fr-icon-unlocked' title=\"".
+				wfMsgHtml('revreview-unlocked-title')."\"></span>";
+		}
+	}
+	
+	/*
+	* @param FlaggedArticle $flaggedArticle
+	* @param FlaggedRevision $frev
+	* @param int $revsSince
+	* @returns string
+	* Creates "there are x pending edits" message in a div
+	*/
+	public static function pendingEditBox( $flaggedArticle, $frev, $revsSince ) {
+		global $wgLang;
+		$flags = $frev->getTags();
+		$quality = FlaggedRevs::isQuality( $flags );
+		$time = $wgLang->date( $frev->getTimestamp(), true );
+		// Is the page config altered?
+		$prot = self::lockStatusIcon( $flaggedArticle );
+		# Streamlined UI
+		if( FlaggedRevs::useSimpleUI() ) {
+			$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+			$msg .= ($revsSince == 0) ? '-i' : '';
+			$tag = "{$prot}<span class='fr-checkbox'></span>" .
+				wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
+			$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>" .
+				"$tag</div>";
+		# Standard UI
+		} else {
+			$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+			$msg .= ($revsSince == 0) ? '-i' : '';
+			$tag = "{$prot}<span class='fr-checkbox'></span>" .
+				wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
+			# Hide clutter
+			if( !empty($flags) ) {
+				$tag .= " " . FlaggedRevsXML::ratingToggle();
+				$tag .= '<span id="mw-revisionratings" style="display:block;"><br />' .
+					wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) .
+					'</span>';
+			}
+			$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>" .
+				"$tag</div>";
+		}
+		return $tag;
+	}
 }

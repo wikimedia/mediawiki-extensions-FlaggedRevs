@@ -226,13 +226,7 @@ class FlaggedArticleView {
 			return true;
 		}
 		// Is the page config altered?
-		if( $this->article->isPageLocked() ) {
-			$prot = "<span class='fr-icon-locked' title=\"".
-				wfMsgHtml('revreview-locked-title')."\"></span>";
-		} elseif( $this->article->isPageUnlocked() ) {
-			$prot = "<span class='fr-icon-unlocked' title=\"".
-				wfMsgHtml('revreview-unlocked-title')."\"></span>";
-		}
+		$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
 		// Is there no stable version?
 		if( is_null($frev) ) {
 			# Add "no reviewed version" tag, but not for printable output
@@ -648,7 +642,26 @@ class FlaggedArticleView {
 	}
 
 	/**
-	 * Adds latest stable version tag to page when editing
+	 * Adds stable version tags to page when viewing history
+	 */
+	public function addToHistView() {
+		global $wgOut, $wgLang;
+		$this->load();
+		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
+		if( !$this->article->isReviewable() || $this->article->limitedUI() )
+			return true;
+		# Add a notice if there are pending edits...
+		$frev = $this->article->getStableRev();
+		if( $frev && $frev->getRevId() < $this->article->getLatest() ) {
+			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
+			$tag = FlaggedRevsXML::pendingEditBox( $this->article, $frev, $revsSince );
+			$wgOut->addHTML( $tag );
+		}
+		return true;
+	}
+
+	/**
+	 * Adds stable version tags to page when editing
 	 */
 	public function addToEditView( $editPage ) {
 		global $wgRequest, $wgOut;
@@ -658,11 +671,11 @@ class FlaggedArticleView {
 			return true;
 		# Show stabilization log
 		$this->showStabilityLog();
-		# Set new body html text as that of now
 		$tag = $warning = $prot = '';
 		# Check the newest stable version
 		$quality = 0;
-		if( $frev = $this->article->getStableRev() ) {
+		$frev = $this->article->getStableRev();
+		if( $frev ) {
 			global $wgLang, $wgUser;
 			# Find out revision id
 			$revId = $editPage->oldid ?
@@ -684,42 +697,10 @@ class FlaggedArticleView {
 				$warning = "<div id='mw-editwarningtag' class='flaggedrevs_editnotice plainlinks'>" .
 						wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
 			}
+			# Add a notice if there are pending edits...
 			if( $frev->getRevId() != $revId ) {
-				$time = $wgLang->date( $frev->getTimestamp(), true );
-				$flags = $frev->getTags();
-				if( FlaggedRevs::isQuality($flags) ) {
-					$quality = FlaggedRevs::isPristine($flags) ? 2 : 1;
-				}
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
-				// Is the page config altered?
-				if( $this->article->isPageLocked() ) {
-					$prot = "<span class='fr-icon-locked' title=\"".
-						wfMsgHtml('revreview-locked-title')."\"></span>";
-				} elseif( $this->article->isPageUnlocked() ) {
-					$prot = "<span class='fr-icon-unlocked' title=\"".
-						wfMsgHtml('revreview-unlocked-title')."\"></span>";
-				}
-				# Streamlined UI
-				if( FlaggedRevs::useSimpleUI() ) {
-					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-					$msg .= ($revsSince == 0) ? '-i' : '';
-					$tag = "{$prot}<span class='fr-checkbox'></span>" .
-						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
-					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
-				# Standard UI
-				} else {
-					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-					$msg .= ($revsSince == 0) ? '-i' : '';
-					$tag = "{$prot}<span class='fr-checkbox'></span>" .
-						wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
-					# Hide clutter
-					if( !empty($flags) ) {
-						$tag .= " " . FlaggedRevsXML::ratingToggle();
-						$tag .= '<span id="mw-revisionratings" style="display:block;"><br />' .
-							wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
-					}
-					$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>$tag</div>";
-				}
+				$tag = FlaggedRevsXML::pendingEditBox( $this->article, $frev, $revsSince );
 			}
 			# Output notice and warning for editors
 			if( $tag || $warning ) {

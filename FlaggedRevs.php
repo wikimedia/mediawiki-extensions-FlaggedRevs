@@ -427,8 +427,10 @@ $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedire
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
 # Set navigation
 $wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation';
-# Add tags to edit view
+# Add notice tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
+# Add notice tags to history
+$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::addToHistView';
 # Add review form and visiblity settings link
 $wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
 # Add protection form field
