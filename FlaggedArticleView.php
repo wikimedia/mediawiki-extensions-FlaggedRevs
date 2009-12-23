@@ -678,8 +678,9 @@ class FlaggedArticleView {
 		if( $frev ) {
 			global $wgLang, $wgUser;
 			# Find out revision id
-			$revId = $editPage->oldid ?
-				$editPage->oldid : $this->article->getLatest();
+			$latestId = $this->article->getLatest();
+			$revId = $editPage->oldid ? $editPage->oldid : $latestId;
+			$isOld = ($revId != $latestId); // not the current rev?
 			# If this will be autoreviewed, notify the user...
 			if( !FlaggedRevs::lowProfileUI() && FlaggedRevs::autoReviewEdits()
 				&& $wgUser->isAllowed('review')
@@ -713,8 +714,8 @@ class FlaggedArticleView {
 				&& $this->showDiffOnEditUser() // stable default and user cannot review
 				&& $wgUser->getBoolOption('flaggedrevseditdiffs') // not disable via prefs
 			) {
-				# Don't show for old revisions, diff, preview, or undo.
-				if( $editPage->oldid || $editPage->section === "new"
+				# Don't show for old revisions, diff, preview, or undo
+				if( $isOld || $editPage->section === "new"
 					|| in_array($editPage->formtype,array('diff','preview')) )
 				{
 					return true; // nothing to show here
