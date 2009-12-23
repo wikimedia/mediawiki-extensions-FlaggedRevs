@@ -632,7 +632,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
 		# Update the article review log
-		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, true );
+		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
+			$this->comment, $this->oldid, $oldSvId, true );
 
 		# Update the links tables as the stable version may now be the default page.
 		# Try using the parser cache first since we didn't actually edit the current version.
@@ -711,7 +712,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 
 		# Update the article review log
-		self::updateLog( $this->page, $this->dims, $this->oflags, $this->comment, $this->oldid, $oldSvId, false );
+		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
+			$this->comment, $this->oldid, $oldSvId, false );
 
 		$article = new Article( $this->page );
 		# Update the links tables as a new stable version
@@ -878,48 +880,5 @@ class RevisionReview extends UnlistedSpecialPage
 		if( $maxID > $pout->fr_newestTemplateID ) {
 			$pout->fr_newestTemplateID = $maxID;
 		}
-	}
-
-	/**
-	 * Record a log entry on the action
-	 * @param Title $title
-	 * @param array $dims
-	 * @param array $oldDims
-	 * @param string $comment
-	 * @param int $revId, revision ID
-	 * @param int $stableId, prior stable revision ID
-	 * @param bool $approve, approved? (otherwise unapproved)
-	 * @param bool $auto
-	 */
-	public static function updateLog( $title, $dims, $oldDims, $comment, 
-		$revId, $stableId, $approve, $auto=false )
-	{
-		global $wgFlaggedRevsLogInRC;
-		$log = new LogPage( 'review', $auto ? false : $wgFlaggedRevsLogInRC, $auto ? "skipUDP" : "UDP" );
-		# ID, accuracy, depth, style
-		$ratings = array();
-		foreach( $dims as $quality => $level ) {
-			$ratings[] = wfMsgForContent( "revreview-$quality" ) . wfMsgForContent( 'colon-separator' ) . 
-				wfMsgForContent("revreview-$quality-$level");
-		}
-		$isAuto = ($auto && !FlaggedRevs::isQuality($dims)); // Paranoid check
-		if( $approve ) {
-			# Append comment with ratings
-			$comment = $isAuto ? wfMsgForContent('revreview-auto') : $comment; // override this
-			$rating = !empty($ratings) ? '[' . implode(', ',$ratings). ']' : '';
-			$comment .= $comment ? " $rating" : $rating;
-			# Sort into the proper action (useful for filtering)
-			$action = (FlaggedRevs::isQuality($dims) || FlaggedRevs::isQuality($oldDims)) ? 'approve2' : 'approve';
-			if( !$stableId ) { // first time
-				$action .= $isAuto ? "-ia" : "-i";
-			} elseif( $isAuto ) { // automatic
-				$action .= "-a";
-			}
-		} else { // depreciated
-			$action = FlaggedRevs::isQuality($oldDims) ? 'unapprove2' : 'unapprove';
-		}
-		$ts = Revision::getTimestampFromId( $title, $revId );
-		# Param format is <rev id,old stable id, rev timestamp>
-		$log->addEntry( $action, $title, $comment, array($revId,$stableId,$ts) );
 	}
 }

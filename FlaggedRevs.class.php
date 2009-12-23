@@ -12,6 +12,7 @@ class FlaggedRevs {
 	protected static $minPL = array();
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
+	protected static $binaryFlagging = false;
 	# Namespace config
 	protected static $reviewNamespaces = array();
 	protected static $patrolNamespaces = array();
@@ -30,6 +31,7 @@ class FlaggedRevs {
 		if( !empty($wgFlaggedRevTags) ) {
 			self::$qualityVersions = true;
 			self::$pristineVersions = true;
+			self::$binaryFlagging = (count($wgFlaggedRevTags) == 1);
 		}
 		foreach( $wgFlaggedRevTags as $tag => $levels ) {
 			# Sanity checks
@@ -45,14 +47,19 @@ class FlaggedRevs {
 			# B/C, $levels is just an integer (minQL)
 			} else {
 				global $wgFlaggedRevPristine, $wgFlaggedRevValues;
-				$ratingLevels = isset($wgFlaggedRevValues) ? $wgFlaggedRevValues : 1;
+				$ratingLevels = isset($wgFlaggedRevValues) ?
+					$wgFlaggedRevValues : 1;
 				$minQL = $levels; // an integer
-				$minPL = isset($wgFlaggedRevPristine) ? $wgFlaggedRevPristine : $ratingLevels+1;
+				$minPL = isset($wgFlaggedRevPristine) ?
+					$wgFlaggedRevPristine : $ratingLevels+1;
 			}
 			# Set FlaggedRevs tags
 			self::$dimensions[$tag] = array();
 			for( $i=0; $i <= $ratingLevels; $i++ ) {
 				self::$dimensions[$tag][$i] = "{$tag}-{$i}";
+			}
+			if( $ratingLevels > 1 ) {
+				self::$binaryFlagging = false; // more than one level
 			}
 			# Sanity checks
 			if( !is_integer($minQL) || !is_integer($minPL) ) {
@@ -110,6 +117,15 @@ class FlaggedRevs {
 	}
 	
 	################# Basic accessors #################
+
+	/**
+	 * Is there only one tag and it has only one level?
+	 * @returns bool
+	 */	
+	public static function binaryFlagging() {
+		self::load();
+		return self::$binaryFlagging;
+	}
 	
 	/**
 	 * Are quality versions enabled?
@@ -1500,7 +1516,8 @@ class FlaggedRevs {
 		) );
 		$flaggedRevision->insertOn( $tmpset, $imgset, $auto );
 		# Update the article review log
-		RevisionReview::updateLog( $title, $flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
+		FlaggedRevsLogs::updateLog( $title, $flags, array(), '', $rev->getId(),
+			$oldSvId, true, $auto );
 
 		# If we know that this is now the new stable version 
 		# (which it probably is), save it to the cache...

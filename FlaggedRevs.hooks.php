@@ -1455,45 +1455,17 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
-	/**
-	* Create revision, diff, and history links for log line entry
-	*/
-	public static function reviewLogLine(
+	public static function logLineLinks(
 		$type, $action, $title=null, $params, &$comment, &$rv, $ts
 	) {
-		global $wgUser, $wgLang;
+		if( !$title ) {
+			return true; // nothing to do
 		// Stability log
-		if( $type == 'stable' ) {
-			# Add history link showing edits right before the config change
-			$rv .= ' (' .
-				$wgUser->getSkin()->link( $title, wfMsgHtml('hist'),
-					array(),
-					array( 'action' => 'history', 'offset' => $ts )
-				) . ')';
+		} else if( $type == 'stable' ) {
+			$rv .= FlaggedRevsLogs::stabilityLogLinks( $title, $ts );
 		// Review log
-		} else if( $type == 'review' && is_object($title) ) {
-			$actionsValid = array('approve','approve2','approve-a',
-				'approve2-a','unapprove','unapprove2');
-			# Show link to page with oldid=x as well as the diff to the former stable rev.
-			# Param format is <rev id, last stable id, rev timestamp>.
-			if( in_array($action,$actionsValid) && isset($params[0]) ) {
-				$revId = (int)$params[0]; // the reviewed revision
-				# Don't show diff if param missing or rev IDs are the same
-				if( !empty($params[1]) && $revId != $params[1] ) {
-					$rv = '(' . $wgUser->getSkin()->makeKnownLinkObj( $title,
-						wfMsgHtml('review-logentry-diff'), 
-						"oldid={$params[1]}&diff={$revId}") . ') ';
-				} else {
-					$rv = '(' . wfMsgHtml('review-logentry-diff') . ')';
-				}
-				# Show diff from this revision
-				$ts = empty($params[2]) ?
-					Revision::getTimestampFromId($title,$revId) : $params[2];
-				$time = $wgLang->timeanddate( $ts );
-				$rv .= ' (' . $wgUser->getSkin()->makeKnownLinkObj( $title, 
-					wfMsgHtml('review-logentry-id',$revId,$time),
-					"oldid={$params[0]}&diff=prev&diffonly=0") . ')';
-			}
+		} else if( $type == 'review' && FlaggedRevsLogs::isReviewAction($action) ) {
+			$rv .= FlaggedRevsLogs::reviewLogLinks( $action, $title, $params );
 		}
 		return true;
 	}

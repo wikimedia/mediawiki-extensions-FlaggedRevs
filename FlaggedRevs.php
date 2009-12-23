@@ -298,6 +298,7 @@ $wgPHPlotDir = $dir . 'phplot-5.0.5';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir.'FlaggedRevs.class.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir.'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FlaggedRevsLogs'] = $dir.'FlaggedRevsLogs.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir.'FRCacheUpdate.php';
 $wgAutoloadClasses['FRCacheUpdateJob'] = $dir.'FRCacheUpdate.php';
 
@@ -408,7 +409,7 @@ $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditRevi
 # Determine what pages can be moved and patrolled
 $wgHooks['userCan'][] = 'FlaggedRevsHooks::onUserCan';
 # Log parameter
-$wgHooks['LogLine'][] = 'FlaggedRevsHooks::reviewLogLine';
+$wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
 # Disable auto-promotion for demoted users
 $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # Local user account preference
