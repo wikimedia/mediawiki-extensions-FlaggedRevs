@@ -12,7 +12,7 @@ class FlaggedRevs {
 	protected static $minPL = array();
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
-	protected static $binaryFlagging = false;
+	protected static $binaryFlagging = true;
 	# Namespace config
 	protected static $reviewNamespaces = array();
 	protected static $patrolNamespaces = array();
