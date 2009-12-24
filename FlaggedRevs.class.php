@@ -31,7 +31,7 @@ class FlaggedRevs {
 		if( !empty($wgFlaggedRevTags) ) {
 			self::$qualityVersions = true;
 			self::$pristineVersions = true;
-			self::$binaryFlagging = (count($wgFlaggedRevTags) == 1);
+			self::$binaryFlagging = (count($wgFlaggedRevTags) <= 1);
 		}
 		foreach( $wgFlaggedRevTags as $tag => $levels ) {
 			# Sanity checks
@@ -342,7 +342,7 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get the message name for a tag
+	 * Get the UI name for a tag
 	 * @param string $tag
 	 * @returns string
 	 */
@@ -357,11 +357,12 @@ class FlaggedRevs {
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
-		return isset(self::$dimensions[$tag]) ? self::$dimensions[$tag] : array();
+		return isset(self::$dimensions[$tag]) ?
+			self::$dimensions[$tag] : array();
 	}
 	
 	/**
-	 * Get the the message name for a value of a tag
+	 * Get the the UI name for a value of a tag
 	 * @param string $tag
 	 * @param int $value
 	 * @returns string
@@ -369,10 +370,12 @@ class FlaggedRevs {
 	public static function getTagValueMsg( $tag, $value ) {
 		self::load();
 		if( !isset(self::$dimensions[$tag]) )
-			return "";
+			return '';
+		if( !isset(self::$dimensions[$tag][$value]) )
+			return '';
 		# Return empty string if not there
-		return isset(self::$dimensions[$tag][$value]) ?
-			self::$dimensions[$tag][$value] : "";
+		return wfMsgExt( 'revreview-' . self::$dimensions[$tag][$value],
+			array( 'escapenoentities' ) );
 	}
 	
 	/**
