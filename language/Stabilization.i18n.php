@@ -566,6 +566,7 @@ No és possible fer cap configuració.',
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung
+ * @author Matěj Grabovský
  * @author Mormegil
  */
 $messages['cs'] = array(
@@ -577,24 +578,31 @@ $messages['cs'] = array(
 	'stabilization-leg' => 'Potvrdit nastavení stabilní verze',
 	'stabilization-select' => 'Výběr stabilní verze',
 	'stabilization-select1' => 'Poslední kvalitní verze; pokud není k dispozici pak poslední prohlédnutá',
-	'stabilization-select2' => 'Poslední posouzená verze',
+	'stabilization-select2' => 'Poslední posouzená verze (bez ohledu na úroveň oveření)',
+	'stabilization-select3' => 'Poslední čistá revize; pokud neexistuje, nejnovější kvalitní nebo prověřená',
 	'stabilization-def' => 'Verze zobrazená jako výchozí',
-	'stabilization-def1' => 'Stabilní verze',
-	'stabilization-def2' => 'Současná verze',
+	'stabilization-def1' => 'Stabilní revize; pokud neexistuje, je to současná revize/návrh',
+	'stabilization-def2' => 'Současná/návrhová verze',
+	'stabilization-restrict' => 'Omezení automatického posuzování',
+	'stabilization-restrict-none' => 'Žádná další omezení',
 	'stabilization-submit' => 'Potvrdit',
 	'stabilization-notexists' => 'Neexistuje stránka "[[:$1|$1]]". Nastavení není možné.',
 	'stabilization-notcontent' => 'Stránka „[[:$1|$1]]“ nemůže být posouzena. Nastavení není možné.',
 	'stabilization-comment' => 'Důvod:',
+	'stabilization-otherreason' => 'Jiný důvod:',
 	'stabilization-expiry' => 'Vyprší:',
+	'stabilization-othertime' => 'Jiný čas:',
 	'stabilization-sel-short' => 'Váha',
 	'stabilization-sel-short-0' => 'kvalitní',
 	'stabilization-sel-short-1' => 'žádná',
+	'stabilization-sel-short-2' => 'čistá',
 	'stabilization-def-short' => 'výchozí',
 	'stabilization-def-short-0' => 'současná',
 	'stabilization-def-short-1' => 'stabilní',
 	'stabilize_expiry_invalid' => 'Datum vypršení je chybné.',
 	'stabilize_expiry_old' => 'Čas vypršení již minul.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
+	'stabilization-review' => 'Posoudit aktuální verzi',
 );
 
 /** Danish (Dansk)
@@ -3221,7 +3229,7 @@ $messages['uk'] = array(
 	'stabilization-select3' => 'Остання недоторкана версія, якщо такої немає, то остання якісна або переглянута',
 	'stabilization-def' => 'Версія, що показується за замовчуванням',
 	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то поточна',
-	'stabilization-def2' => 'Поточна версія',
+	'stabilization-def2' => 'Поточна/чорнова версія',
 	'stabilization-submit' => 'Підтвердити',
 	'stabilization-notexists' => 'Відсутня сторінка з назвою «[[:$1|$1]]».
 Налаштування неможливе.',
@@ -3230,7 +3238,7 @@ $messages['uk'] = array(
 	'stabilization-comment' => 'Причина:',
 	'stabilization-otherreason' => 'Інша причина:',
 	'stabilization-expiry' => 'Закінчується:',
-	'stabilization-othertime' => 'Інший час',
+	'stabilization-othertime' => 'Інший час:',
 	'stabilization-sel-short' => 'Порядок слідування',
 	'stabilization-sel-short-0' => 'Якісна',
 	'stabilization-sel-short-1' => 'Нема',
@@ -3454,18 +3462,34 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
+ * @author Gaoxuewei
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
 	'stabilization-page' => '页面标题：',
+	'stabilization-restrict' => '自动审核限制',
 	'stabilization-restrict-none' => '无其他限制',
 	'stabilization-submit' => '确认',
+	'stabilization-notexists' => '页面"[[:$1|$1]]"不存在。
+无法进行设置。',
+	'stabilization-notcontent' => '页面"[[:$1|$1]]"不能被审核。
+无法进行设置。',
 	'stabilization-comment' => '原因：',
-	'stabilization-otherreason' => '其他原因',
+	'stabilization-otherreason' => '其他原因：',
+	'stabilization-expiry' => '到期：',
+	'stabilization-othertime' => '其他时间：',
+	'stabilization-sel-short' => '优先级',
+	'stabilization-sel-short-0' => '质量',
+	'stabilization-sel-short-1' => '无',
+	'stabilization-def-short' => '默认',
+	'stabilize_expiry_invalid' => '到期日设置无效。',
+	'stabilize_expiry_old' => '过期时间设置在过去了。',
+	'stabilize-expiring' => '失效时间 $1 (UTC)',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
+ * @author Gaoxuewei
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
@@ -3483,15 +3507,18 @@ $messages['zh-hant'] = array(
 	'stabilization-def' => '在預設頁視的修訂顯示',
 	'stabilization-def1' => '穩定修訂；如果未有，則是現時的',
 	'stabilization-def2' => '現時的修訂',
+	'stabilization-restrict' => '自動審核限制',
+	'stabilization-restrict-none' => '無其他限制',
 	'stabilization-submit' => '確認',
-	'stabilization-notexists' => '這裏是沒有一頁面名叫"[[:$1|$1]]"。
-沒有設定可以更改。',
-	'stabilization-notcontent' => '該頁面"[[:$1|$1]]"不可以複審。
-沒有設定可以更改。',
-	'stabilization-comment' => '註解:',
+	'stabilization-notexists' => '頁面"[[:$1|$1]]"不存在。
+無法進行設置。',
+	'stabilization-notcontent' => '頁面"[[:$1|$1]]"不能被審核。
+無法進行設置。',
+	'stabilization-comment' => '原因：',
+	'stabilization-otherreason' => '其他原因：',
 	'stabilization-expiry' => '到期:',
-	'stabilization-sel-short' => '優先',
-	'stabilization-sel-short-0' => '質素',
+	'stabilization-sel-short' => '優先級',
+	'stabilization-sel-short-0' => '質量',
 	'stabilization-sel-short-1' => '無',
 	'stabilization-sel-short-2' => '原始',
 	'stabilization-def-short' => '預設',

@@ -168,11 +168,18 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'stablepages' => 'Stabilní stránky',
 	'stablepages-stable' => 'stabilní verze',
+	'stablepages-text' => 'Níže je seznam stránek, které byly ručně nastaveny, aby se jako jejich výchozí obash zobrazovala jejich stabilní verze.',
+	'stablepages-none' => 'V tomto seznamu nejsou žádné stránky.',
 	'stablepages-config' => 'Konfigurace',
+	'stablepages-prec-none' => 'bez přednosti',
+	'stablepages-prec-quality' => 'přednost podle kvality',
+	'stablepages-prec-pristine' => 'čistá přednost',
+	'stablepages-precedence' => 'Přednost:',
 );
 
 /** German (Deutsch)
@@ -976,6 +983,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
@@ -984,9 +992,14 @@ $messages['zh-hans'] = array(
 	'stablepages-text' => '以下的页面列示出一些页面是手动地设置去显示稳定版作为观看者做预设页面版内容。',
 	'stablepages-none' => '没有页面在这个列表中',
 	'stablepages-config' => '设置',
+	'stablepages-prec-none' => '没有优先级',
+	'stablepages-prec-quality' => '质量优先级',
+	'stablepages-prec-pristine' => '原始优先级',
+	'stablepages-precedence' => '优先级：',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Gaoxuewei
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
@@ -995,5 +1008,9 @@ $messages['zh-hant'] = array(
 	'stablepages-text' => '以下的頁面列示出一些頁面是手動地設定去顯示穩定版作為觀看者做預設頁面版內容。',
 	'stablepages-none' => '沒有頁面在這個清單中',
 	'stablepages-config' => '設定',
+	'stablepages-prec-none' => '沒有優先級',
+	'stablepages-prec-quality' => '質量優先級',
+	'stablepages-prec-pristine' => '原始優先級',
+	'stablepages-precedence' => '優先級：',
 );
 

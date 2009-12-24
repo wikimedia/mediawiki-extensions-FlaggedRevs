@@ -130,15 +130,19 @@ $messages['arc'] = array(
  */
 $messages['arz'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
-	'validationstatistics-users' => "'''{{SITENAME}}''' لديه حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|محرر]]
-و '''$2''' {{PLURAL:$2|مستخدم|مستخدم}} بصلاحيات [[{{MediaWiki:Validationpage}}|مراجع]].",
-	'validationstatistics-time' => "متوسط انتظار التعديلات لـ''اليوزرات اللى ماسجلوش دخولهم'' هو '''$1'''. 
-متوسط التأخير لـ [[Special:OldReviewedPages|الصفحات القديمه]] هو '''$2'''.",
-	'validationstatistics-table' => "الاحصائيات لكل نطاق معروضه تحت ، ''من غير'' صفحات التحويل.
-الصفحات ''القديمه''  هى اللى بتبقا فيها تعديلات احدث من النسخه الثابته.
-لو النسخه الثابته هى نفسها اخر نسخه ، ساعتها الصفحه دى بتبقا ''متحدثه''.
+	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|محرر]] و '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|مراجع]].
 
-''خد بالك: البيانات اللى تحت دى بتبقا متخزنه كذا ساعه و ممكن ما تكونش متحدثه.''",
+المحررون والمراجعون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
+	'validationstatistics-time' => "''البيانات التاليه تم تحديثها آخر مره في $5 الساعه $6.''
+
+التعديلات التي تم التحقق منها بواسطه المستخدمين المخولين يتم اعتبارها مراجعه.
+
+الانتظار المتوسط للتعديلات بواسطه ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
+$4
+التأخر المتوسط [[Special:OldReviewedPages|للصفحات ذات التعديلات غير المراجعه قيد الانتظار]] هو '''$2'''.
+هذه الصفحات تعتبر ''مخزنه''. وبالمثل، الصفحات تعتبر ''محدثه'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخه المستقره]] هي أيضا نسخه المسوده الحاليه.
+النسخه المستقره لصفحه هي أجدد مراجعه تمت الموافقه عليها للعرض افتراضيا لكل القراء.",
+	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
 	'validationstatistics-stable' => 'مراجع',
@@ -270,10 +274,30 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Kuvaly
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
+	'validationstatistics' => 'Statistiky ověřování',
+	'validationstatistics-users' => "'''{{SITENAME}}''' má práve teď '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|editora]] a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|posuzovatele]].",
+	'validationstatistics-time' => "''Následující data byla naposledy aktualizována $5 v $6.''
+
+Editace zkontrolované pověřenými uživateli jsou považovány za prověřené.
+
+Průměrná čekací doba pro prověření editací ''anonymních uživatelů'' je '''$1'''; medián je '''$3'''.
+$4
+Průměrná prodleva [[Special:OldReviewedPages|stránky s neprověřenými editacemi]] je '''$2'''.
+Tyto stránky jsou považovány za ''zastaralé''. Podobně, stránky, u kterých je [[{{MediaWiki:Validationpage}}|stabilní verze]] stejná jako aktuální návrh, jsou považovány za ''synchronizované''.
+Stabilní verze stránky je nejnovější revize, která byla schválena pro výchozí zobrazování všem uživatelům.",
+	'validationstatistics-table' => "Níže jsou zobrazeny statistiky pro každý jmenný prostor ''kromě'' přesměrování.",
+	'validationstatistics-ns' => 'Jmenný prostor',
 	'validationstatistics-total' => 'Stránky',
+	'validationstatistics-stable' => 'Prověřeno',
+	'validationstatistics-latest' => 'Synchronizováno',
+	'validationstatistics-synced' => 'Synchronizováno/prověřeno',
+	'validationstatistics-old' => 'Zastaralé',
+	'validationstatistics-utable' => 'Níže je seznam 5 největších posuzovatelů za poslední hodinu.',
 	'validationstatistics-user' => 'Uživatel',
+	'validationstatistics-reviews' => 'Posouzení',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -1619,6 +1643,9 @@ $messages['ta'] = array(
  */
 $messages['te'] = array(
 	'validationstatistics' => 'సరిచూత గణాంకాలు',
+	'validationstatistics-users' => "'''{{SITENAME}}'''లో ప్రస్తుతం '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1| వాడుకరి|గురు వాడుకరులు}} [[{{MediaWiki:Validationpage}}|సంపాదకుల]] హక్కులతోనూ మరియు '''[[Special:ListUsers/reviewer|$2]]'''{{PLURAL:$2| వాడుకరి|గురు వాడుకరులు}}  [[{{MediaWiki:Validationpage}}|సమీక్షకుల]] హక్కులతోనూ ఉన్నారు.
+
+సంపాదకులు మరియు సమీక్షకులు అంటే పేజీలకు కూర్పులను ఎప్పటికప్పుడు సరిచూడగలిగిన నిర్ధారిత వాడుకరులు.",
 	'validationstatistics-table' => "ప్రతీ పేరుబరి యొక్క గణాంకాలు క్రింద చూపించాం, దారిమార్పు పేజీలని ''మినహాయించి''.",
 	'validationstatistics-ns' => 'నేంస్పేసు',
 	'validationstatistics-total' => 'పేజీలు',
@@ -1829,14 +1856,36 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
+ * @author Gaoxuewei
  */
 $messages['zh-hans'] = array(
 	'validationstatistics' => '审核统计',
+	'validationstatistics-users' => "'''{{SITENAME}}'''现在有'''[[Special:ListUsers/editor|$1]]'''个用户拥有[[{{MediaWiki:Validationpage}}|编辑]]权限，'''[[Special:ListUsers/reviewer|$2]]'''个用户拥有[[{{MediaWiki:Validationpage}}|审核]]权限。
+
+编辑和审核均为已确认的用户，他们可以检查各页面的修订情况。",
+	'validationstatistics-time' => "''下列信息于 $5 $6 进行了最后更新。''
+
+已确认用户核对过的编辑需要进行复审。
+
+''未登录用户''的编辑平均等待审核时间为'''$1'''；中值时间为'''$3'''。
+$4
+[[Special:OldReviewedPages|未审核的页面编辑等待]]平均滞后时间为'''$2'''。
+这些页面被认为''过期''了。同样的，如果[[{{MediaWiki:Validationpage}}|完美版本]]是目前的待定版本，这些页面就被认为''已同步''。
+页面的完美版本是被读者普遍接受的最新版本。",
+	'validationstatistics-table' => "各名称空间的统计信息显示如下，''不包含''转向页。",
 	'validationstatistics-ns' => '名字空间',
 	'validationstatistics-total' => '页',
+	'validationstatistics-stable' => '已复审',
+	'validationstatistics-latest' => '已同步',
+	'validationstatistics-synced' => '已同步/已复审',
+	'validationstatistics-old' => '已过期',
+	'validationstatistics-utable' => '如下列表是过去一小时内前5名审核者。',
+	'validationstatistics-user' => '用户',
+	'validationstatistics-reviews' => '审核者',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Gaoxuewei
  * @author Tomchiukc
  */
 $messages['zh-hant'] = array(
@@ -1844,5 +1893,24 @@ $messages['zh-hant'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''現時有'''[[Special:ListUsers/editor|$1]]'''個用戶具有[[{{MediaWiki:Validationpage}}|編輯]]的權限，而'''[[Special:ListUsers/reviewer|$2]]'''個用戶有[[{{MediaWiki:Validationpage}}|審定]]的權限。
 
 編輯及審定皆為已確認的用戶，並可以檢查各頁面的修定。",
+	'validationstatistics-time' => "''下列信息於 $5 $6 進行了最後更新。 ''
+
+已確認用戶核對過的編輯需要進行複審。
+
+''未登錄用戶''的編輯平均等待審核時間為'''$1'''；中值時間為'''$3'''。
+$4
+[[Special:OldReviewedPages|未審核的頁面編輯等待]]平均滯後時間為'''$2'''。
+這些頁面被認為''過期''了。同樣的，如果[[{{MediaWiki:Validationpage}}|完美版本]]是目前的待定版本，這些頁面就被認為''已同步''。
+頁面的完美版本是被讀者普遍接受的最新版本。",
+	'validationstatistics-table' => "各名稱空間的統計信息顯示如下，''不包含''轉向頁。",
+	'validationstatistics-ns' => '名稱空間',
+	'validationstatistics-total' => '頁面',
+	'validationstatistics-stable' => '已復審',
+	'validationstatistics-latest' => '已同步',
+	'validationstatistics-synced' => '已同步/已復審',
+	'validationstatistics-old' => '已過期',
+	'validationstatistics-utable' => '如下列表是過去一小時內前5名審核者。',
+	'validationstatistics-user' => '用戶',
+	'validationstatistics-reviews' => '審核者',
 );
 

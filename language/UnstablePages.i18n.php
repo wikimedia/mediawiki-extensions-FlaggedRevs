@@ -730,10 +730,24 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
+ * @author Gaoxuewei
  */
 $messages['zh-hans'] = array(
+	'unstablepages' => '不完善页面',
+	'unstablepages-stable' => '完美版本',
 	'unstablepages-text' => '以下页面已设置为默认显示草稿版本。',
 	'unstablepages-none' => '本列表中没有页面',
+	'unstablepages-config' => '配置',
+);
+
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Gaoxuewei
+ */
+$messages['zh-hant'] = array(
+	'unstablepages' => '不完善頁面',
+	'unstablepages-stable' => '完美版本',
+	'unstablepages-text' => '以下頁面已設置為默認顯示草稿版本。',
+	'unstablepages-none' => '本列表中沒有頁面',
 	'unstablepages-config' => '配置',
 );
 

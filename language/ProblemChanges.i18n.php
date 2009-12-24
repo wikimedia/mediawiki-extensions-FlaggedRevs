@@ -88,8 +88,12 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Kuvaly
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
+	'problemchanges' => 'Posoudit označené změny',
+	'problemchanges-legend' => 'Zobrazit seznam stránek s označenými úpravami čekajícími na posouzení',
+	'problemchanges-none' => 'Momentálně neexistují žádné stránky odpovídájící těmto požadavkům',
 	'problemchanges-category' => 'Kategorie:',
 );
 
@@ -589,5 +593,12 @@ $messages['vi'] = array(
 	'problemchanges-legend' => 'Liệt kê các trang có sửa đổi được đánh dấu mà cần được duyệt',
 	'problemchanges-none' => 'Hiện không có trang nào hợp tiêu chuẩn này.',
 	'problemchanges-category' => 'Thể loại:',
+);
+
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
+ */
+$messages['zh-hans'] = array(
+	'problemchanges-none' => '目前没有页面符合这些条件',
 );
 

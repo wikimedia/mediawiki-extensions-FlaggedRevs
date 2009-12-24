@@ -103,6 +103,15 @@ $messages['ca'] = array(
 	'qualityoversight-legend' => 'Cerca els registres de revisions recents',
 );
 
+/** Czech (Česky)
+ * @author Matěj Grabovský
+ */
+$messages['cs'] = array(
+	'qualityoversight' => 'Dozor na kvalitu',
+	'qualityoversight-list' => 'Tato stránka obsahuje seznam všech nedávných schválení kvalitních verzí a zastárání revizí.',
+	'qualityoversight-legend' => 'Hledat v nedávných záznamech posouzení',
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  * @author Umherirrender
@@ -563,11 +572,13 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
 	'qualityoversight' => '品质管理',
 	'qualityoversight-list' => '这个页面列示出最近核准修订以及最近品质修订之折旧。',
+	'qualityoversight-legend' => '搜索最近审核记录',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

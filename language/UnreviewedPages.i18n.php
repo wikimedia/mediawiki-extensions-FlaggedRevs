@@ -261,13 +261,19 @@ $messages['ca'] = array(
  * @author Mormegil
  */
 $messages['cs'] = array(
+	'right-unreviewedpages' => 'Zobrazit [[Special:UnreviewedPages|seznam neposouzených stránek]]',
 	'unreviewedpages' => 'Neposouzené stránky',
 	'unreviewed-legend' => 'Seznam neposouzených obsahových stránek',
 	'unreviewed-category' => 'Kategorie:',
 	'unreviewed-diff' => 'kontrola',
 	'unreviewed-unwatched' => '(nesledované)',
-	'unreviewed-watched' => '({{PLURAL:$1|sleduje|sledují|sleduje}} $1 {{PLURAL:$1|uživatel|uživatelé|uživatelů}})',
+	'unreviewed-watched' => '({{PLURAL:$1|sleduje|sledují|sleduje}} $1 {{PLURAL:$1|aktivní uživatel|aktivní uživatelé|aktivních uživatelů}})',
 	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
+	'unreviewed-none' => 'Momentálně neexistují žádné stránky splňující tato kritéria.',
+	'unreviewed-viewing' => '(kontroluje se)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodin}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|den|dny|dní}})',
+	'unreviewed-recent' => '(méně něž hodina)',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -1475,6 +1481,7 @@ $messages['tk'] = array(
 	'unreviewed-category' => 'Kategoriýa:',
 	'unreviewed-unwatched' => '(gözegçilikde däl)',
 	'unreviewed-watched' => '($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|sagat|sagat}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'unreviewed-recent' => '(1 sagatdan az)',
 );
@@ -1627,32 +1634,40 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
+ * @author Gaoxuewei
  */
 $messages['zh-hans'] = array(
-	'right-unreviewedpages' => '去看未复审页面之列表',
+	'right-unreviewedpages' => '查看[[Special:UnreviewedPages|未复审页面列表]]',
 	'unreviewedpages' => '未复审页面',
-	'unreviewed-legend' => '列示未复审之内容页',
-	'unreviewed-category' => '分类:',
-	'unreviewed-diff' => '更改',
-	'unreviewed-unwatched' => '（未看）',
-	'unreviewed-watched' => '（$1位活跃用户正在监视）',
-	'unreviewed-list' => '这一页列示出还未复审或视察的页面修订。',
-	'unreviewed-none' => '这里现时没有页面合乎这些条件',
+	'unreviewed-legend' => '未复审内容页面列表',
+	'unreviewed-category' => '分类：',
+	'unreviewed-diff' => '审核',
+	'unreviewed-unwatched' => '（未被监视）',
+	'unreviewed-watched' => '（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）',
+	'unreviewed-list' => '本页列出还未达到一定复审水平的内容页面。',
+	'unreviewed-none' => '目前没有页面合乎这些条件',
+	'unreviewed-viewing' => '（正在审核）',
 	'unreviewed-hours' => '（$1 {{PLURAL:$1|小时|小时}}）',
 	'unreviewed-days' => '（$1 {{PLURAL:$1|天|天}}）',
 	'unreviewed-recent' => '（小于1小时）',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Gaoxuewei
+ */
 $messages['zh-hant'] = array(
-	'right-unreviewedpages' => '去看未複審頁面之清單',
+	'right-unreviewedpages' => '查看[[Special:UnreviewedPages|未復審頁面列表]]',
 	'unreviewedpages' => '未複審頁面',
-	'unreviewed-legend' => '列示未複審之內容頁',
-	'unreviewed-category' => '分類:',
-	'unreviewed-diff' => '更改',
-	'unreviewed-unwatched' => '（未看）',
-	'unreviewed-watched' => '（$1{{PLURAL:$1|位用戶|位用戶}}正在看）',
-	'unreviewed-list' => '這一頁列示出還未複審或視察的文章修訂。',
-	'unreviewed-none' => '這裏現時沒有頁面合乎這些條件',
+	'unreviewed-legend' => '未復審內容頁面列表',
+	'unreviewed-category' => '分類：',
+	'unreviewed-diff' => '審核',
+	'unreviewed-unwatched' => '（未被監視）',
+	'unreviewed-watched' => '（$1位活躍{{PLURAL:$1|用戶|用戶}}正在監視）',
+	'unreviewed-list' => '本頁列出還未達到一定複審水平的內容頁面。',
+	'unreviewed-none' => '目前沒有頁面合乎這些條件',
+	'unreviewed-viewing' => '（正在審核）',
+	'unreviewed-hours' => '（$1 {{PLURAL:$1|小時|小時}}）',
+	'unreviewed-days' => '（$1 {{PLURAL:$1|天|天}}）',
+	'unreviewed-recent' => '（小於1小時）',
 );
 

@@ -81,8 +81,8 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
-	'reviewedpages-leg' => 'عرض الصفحات المراجعة حتى مستوى معين',
-	'reviewedpages-list' => 'الصفحات التالية تمت مراجعتها حتى المستوى المحدد',
+	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى مراجعة',
+	'reviewedpages-list' => 'هذه الصفحة تعرض الصفحات التى تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
 	'reviewedpages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
 	'reviewedpages-lev-1' => 'جودة',
@@ -904,7 +904,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'reviewedpages' => 'Pàggene reviste',
-	'reviewedpages-leg' => 'Liste de le pàggene de levèlle cchiù ierte',
+	'reviewedpages-leg' => 'Elenghe de le pàggene cu le levèlle cchiù ierte de revisite',
 	'reviewedpages-list' => "Sta pàgene elenghe le pàggene ca onne state reviste (le cchiù ierte) sus a 'nu specifiche levèlle.",
 	'reviewedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'reviewedpages-lev-0' => 'Viste',

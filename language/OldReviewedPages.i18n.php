@@ -300,12 +300,20 @@ $messages['ca'] = array(
  */
 $messages['cs'] = array(
 	'oldreviewedpages' => 'Zastaralé posouzené stránky',
+	'oldreviewedpages-legend' => 'Zobrazit seznam posouzených stránek s neprověřenými revizemi',
+	'oldreviewedpages-list' => 'Tato stránka obsahuje {{PLURAL:$1|posouzenou stránku, jejíž|seznam posouzených stránek, jejichž}} úpravy nebyly zatím prověřeny.',
+	'oldreviewedpages-none' => 'Momentálně neexistují žádné stránky odpovídající těmto kritériím',
 	'oldreviewedpages-hours' => '($1 {{plural:$1|hodina|hodiny|hodin}})',
 	'oldreviewedpages-days' => '($1 {{plural:$1|den|dny|dní}})',
 	'oldreviewedpages-recent' => '(méně než 1 hodina)',
 	'oldreviewed-category' => 'Kategorie:',
+	'oldreviewed-watched' => 'V mém seznamu sledovaných stránek',
+	'oldreviewed-stable' => 'Stabilizovaná',
+	'oldreviewed-diff' => 'posoudit',
+	'oldreviewed-size' => 'Maximální velikost změny (v bajtech):',
 	'oldreviewedpages-unwatched' => '(nesledované)',
-	'oldreviewedpages-watched' => '({{plural:$1|sleduje $1 uživatel|sledují $1 uživatelé|sleduje $1 uživatelů}})',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|sleduje $1 aktivní  auživatel|sledují $1 aktivní uživatelé|sleduje $1 aktivních uživatelů}})',
+	'oldreviewedpages-viewing' => '(posuzuje se)',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -1291,6 +1299,7 @@ $messages['sah'] = array(
 	'oldreviewedpages-recent' => '(1 чаастан кылгас)',
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-watched' => 'Мин кэтиир сирэйдэрбиттэн',
+	'oldreviewed-stable' => 'Бигэргэтиллибит',
 	'oldreviewedpages-unwatched' => '(кэтээбэттэр)',
 );
 
@@ -1566,6 +1575,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
  * @author Gzdavidwong
  * @author Shinjiman
  */
@@ -1578,10 +1588,12 @@ $messages['zh-hans'] = array(
 	'oldreviewedpages-days' => '（$1日）',
 	'oldreviewedpages-recent' => '（少于1小时）',
 	'oldreviewed-category' => '分类:',
+	'oldreviewed-watched' => '在我的监视列表上',
 	'oldreviewed-diff' => '复审',
 	'oldreviewed-size' => '最大变更（字节）：',
 	'oldreviewedpages-unwatched' => '（未看）',
-	'oldreviewedpages-watched' => '（$1{{PLURAL:$1|位用户|位用户}}正在看）',
+	'oldreviewedpages-watched' => '（在 $1 位{{PLURAL:$1|用户|用户}}监视列表中）',
+	'oldreviewedpages-viewing' => '（等待审核）',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

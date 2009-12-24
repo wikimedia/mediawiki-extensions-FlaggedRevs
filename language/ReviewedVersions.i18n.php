@@ -1114,14 +1114,16 @@ $messages['yue'] = array(
 	'reviewedversions-review' => '響<i>$1</i>複審過',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
+ */
 $messages['zh-hans'] = array(
 	'reviewedversions' => '稳定版',
 	'reviewedversions-leg1' => '列示一版已复审的修订',
 	'reviewedversions-page' => '页面名',
 	'reviewedversions-none' => '[[:$1]]没有已复审过的修订。',
-	'reviewedversions-list' => '以下是[[:$1]]已复审的修订一览:',
-	'reviewedversions-review' => '于<i>$1</i>复审',
+	'reviewedversions-list' => '以下是[[:$1]]{{PLURAL:$2|已|已}} 复审的{{PLURAL:$2|修订|修订}}列表:',
+	'reviewedversions-review' => '由 $2 于 <i>$1</i> 进行了复审',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬) */
