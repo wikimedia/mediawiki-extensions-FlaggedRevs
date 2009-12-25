@@ -20,7 +20,7 @@ FlaggedRevs.updateRatingForm = function() {
 	for( tag in wgFlaggedRevsParams.tags ) {
 		var controlName = "wp" + tag;
 		var levels = document.getElementsByName(controlName);
-		if( !levels.size ) continue;
+		if( !levels.length ) continue;
 		var selectedlevel = 0; // default
 	
 		if( levels[0].nodeName == 'SELECT' ) {
