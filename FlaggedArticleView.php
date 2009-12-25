@@ -1018,10 +1018,14 @@ class FlaggedArticleView {
 	public function addDiffNoticeAndIncludes( $diff, $oldRev, $newRev ) {
 		global $wgRequest, $wgUser, $wgOut, $wgMemc;
 		$this->load();
-		# Page must be reviewable. Exempt printer-friendly output.
-		# UI may be limited to unobtrusive patrolling system
-		if( $wgOut->isPrintable() || !$this->article->isReviewable() || $this->article->limitedUI() )
+		# Exempt printer-friendly output
+		if( $wgOut->isPrintable() ) {
 			return true;
+		}
+		# Page must be reviewable. UI may be limited to unobtrusive patrolling system.
+		if( !$this->article->isReviewable() || $this->article->limitedUI() ) {
+			return true;
+		}
 		# Check if this might be the diff to stable. If so, enhance it.
 		if( $newRev->isCurrent() && $oldRev ) {
 			$article = new Article( $newRev->getTitle() );
@@ -1215,24 +1219,28 @@ class FlaggedArticleView {
 	}
 
 	/**
-	* Add a link to patrol non-reviewable pages.
-	* Also add a diff-to-stable for other pages if possible.
+	* Add a link to diff-to-stable for reviewable pages
 	*/
 	public function addDiffLink( $diff, $oldRev, $newRev ) {
 		global $wgUser, $wgOut;
 		$this->load();
+		// Both revs must exists and the page must be reviewable
+		if( !$newRev || !$oldRev || !$this->article->isReviewable() ) {
+			return true; // nothing to do
+		}
 		// Is there a stable version?
-		if( $newRev && $oldRev && $this->article->isReviewable() ) {
-			$frev = $this->article->getStableRev();
-			# Give a link to the diff-to-stable if needed
-			if( $frev && !$this->isDiffFromStable ) {
-				$article = new Article( $newRev->getTitle() );
-				# Is the stable revision using the same revision as the current?
-				if( $article->getLatest() != $frev->getRevId() ) {
-					$patrol = '(' . $wgUser->getSkin()->makeKnownLinkObj( $newRev->getTitle(),
-						wfMsgHtml( 'review-diff2stable' ), "oldid={$frev->getRevId()}&diff=cur&diffonly=0" ) . ')';
-					$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>$patrol</div>" );
-				}
+		$frev = $this->article->getStableRev();
+		# Give a link to the diff-to-stable if needed
+		if( $frev && !$this->isDiffFromStable ) {
+			$article = new Article( $newRev->getTitle() );
+			# Is the stable revision using the same revision as the current?
+			if( $article->getLatest() != $frev->getRevId() ) {
+				$patrol .= $wgUser->getSkin()->makeKnownLinkObj(
+					$newRev->getTitle(),
+					wfMsgHtml( 'review-diff2stable' ),
+					"oldid={$frev->getRevId()}&diff=cur&diffonly=0"
+				);
+				$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>($patrol)</div>" );
 			}
 		}
 		return true;
@@ -1467,17 +1475,13 @@ class FlaggedArticleView {
 			$submitMsg = $frev
 				? 'revreview-submit-unreview'
 				: 'revreview-submit-review';
-			$titleMsg = $frev
-				? 'revreview-tt-unreview'
-				: 'revreview-tt-review';
 		} else {
 			$submitMsg = 'revreview-submit';
-			$titleMsg = 'revreview-tt-review';
 		}
 		$form .= Xml::submitButton( wfMsg($submitMsg),
 			array(
 				'id' => 'mw-submitreview', 'accesskey' => wfMsg('revreview-ak-review'),
-				'title' => wfMsg($titleMsg).' ['.wfMsg('revreview-ak-review').']'
+				'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']'
 			) + $toggle
 		);
 
@@ -1497,7 +1501,9 @@ class FlaggedArticleView {
 		# Pass this in if given; useful for new page patrol
 		$form .= Xml::hidden( 'rcid', $wgRequest->getVal('rcid') ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = RevisionReview::validationKey( $templateParams, $imageParams, $fileVersion, $id );
+		$checkCode = RevisionReview::validationKey(
+			$templateParams, $imageParams, $fileVersion, $id
+		);
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
 
 		$form .= Xml::closeElement( 'fieldset' );
