@@ -5,7 +5,7 @@ class FlaggedRevsHooks {
 	* Add FlaggedRevs css/js.
 	*/
 	public static function injectStyleAndJS() {
-		global $wgOut;
+		global $wgOut, $wgUser;
 		if( $wgOut->hasHeadItem( 'FlaggedRevs' ) )
 			return true; # Don't double-load
 		if( !$wgOut->isArticleRelated() ) {
@@ -23,8 +23,13 @@ class FlaggedRevsHooks {
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
 		# Add CSS file
 		$wgOut->addExtensionStyle( $encCssFile );
-		# Add JS file
+		# Add main JS file
 		$head = "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
+		# Add review form JS for reviewers
+		if( $wgUser->isAllowed('review') ) {
+			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
+			$head .= "\n<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
+		}
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
 	}

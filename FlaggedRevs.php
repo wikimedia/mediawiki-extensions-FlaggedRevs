@@ -157,7 +157,7 @@ $wgReviewCodes = array();
 
 # URL location for flaggedrevs.css and flaggedrevs.js
 # Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
-$wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs';
+$wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 
 # Define our basic reviewer class
 $wgGroupPermissions['editor']['review']          = true;
