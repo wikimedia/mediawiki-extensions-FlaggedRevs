@@ -30,7 +30,7 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function injectGlobalJSVars( &$globalVars ) {
-		global $wgJsMimeType;
+		global $wgUser;
 		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if( !$fa || !$fa->isReviewable(true) ) {
@@ -41,16 +41,21 @@ class FlaggedRevsHooks {
 		# Get page-specific meta-data
 		$frev = $fa->getStableRev();
 		$stableId = $frev ? $frev->getRevId() : 0;
-		$ajaxReview = (object) array( 
-			'sendingMsg' => wfMsgHtml('revreview-submitting'), 
-			'sentMsgOk' => wfMsgHtml('revreview-finished'),
-			'sentMsgBad' => wfMsgHtml('revreview-failed'),
+		$ajaxReview = (object) array(
+			'sendMsg'		 => wfMsgHtml('revreview-submit'),
+			'flagMsg'		 => wfMsgHtml('revreview-submit-review'),
+			'unflagMsg'		 => wfMsgHtml('revreview-submit-unreview'),
+			'flagLegMsg'	 => wfMsgHtml('revreview-flag'),
+			'unflagLegMsg'	 => wfMsgHtml('revreview-unflag'),
+			'sendingMsg'     => wfMsgHtml('revreview-submitting'),
 			'actioncomplete' => wfMsgHtml('actioncomplete'),
-			'actionfailed' => wfMsgHtml('actionfailed')
+			'actionfailed'   => wfMsgHtml('actionfailed')
 		);
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
 		$globalVars['wgStableRevisionId'] = $stableId;
-		$globalVars['wgAjaxReview'] = $ajaxReview;
+		if( $wgUser->isAllowed('review') ) {
+			$globalVars['wgAjaxReview'] = $ajaxReview; // language for AJAX form
+		}
 		return true;
 	}
 	

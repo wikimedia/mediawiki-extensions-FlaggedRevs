@@ -42,6 +42,7 @@ var FlaggedRevs = {
 		for( tag in wgFlaggedRevsParams.tags ) {
 			var controlName = "wp" + tag;
 			var levels = document.getElementsByName(controlName);
+			if( !levels.size ) continue;
 			var selectedlevel = 0; // default
 	
 			if( levels[0].nodeName == 'SELECT' ) {
@@ -83,8 +84,10 @@ var FlaggedRevs = {
 			notebox.style.display = quality ? 'inline' : 'none';
 		}
 		// If only a few levels are zero, don't show submit link
-		var submit = document.getElementById('submitreview');
-		submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
+		var submit = document.getElementById('mw-submitreview');
+		if( submit ) {
+			submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
+		}
 		// Clear note box data if not shown
 		var notes = document.getElementById('wpNotes');
 		if( notes ) {
@@ -104,9 +107,12 @@ addOnloadHook(FlaggedRevs.updateRatingForm);
 // These should have been initialized in the generated js
 if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
 	wgAjaxReview = {
+		sendMsg: "Submit",
 		sendingMsg: "Submitting...",
-		sentMsgOk: "Review complete!",
-		sentMsgBad: "Review failed!",
+		flagMsg: "Mark reviewed",
+		unflagMsg: "Mark unreviewed",
+		titleFlagMsg: "revreview-tt-review",
+		titleUnflagMsg: "revreview-tt-unreview",
 		actioncomplete: "Action complete",
 		actionfailed: "Action failed"
 	};
@@ -180,7 +186,7 @@ wgAjaxReview.ajaxCall = function() {
 
 wgAjaxReview.unlockForm = function() {
 	var form = document.getElementById("mw-reviewform");
-	var submit = document.getElementById("submitreview");
+	var submit = document.getElementById("mw-submitreview");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
 	if( !form || !submit ) {
@@ -219,19 +225,49 @@ wgAjaxReview.processResult = function(request) {
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
-	var submit = document.getElementById("submitreview");
+	var submit = document.getElementById("mw-submitreview");
+	var binaryState = document.getElementById("mw-reviewstate");
+	var legend = document.getElementById("mw-reviewformlegend");
+	var diffNotice = document.getElementById("mw-difftostable");
+	// On success...
 	if( response.indexOf('<suc#>') == 0 ) {
 		document.title = wgAjaxReview.actioncomplete;
-		if( submit ) submit.value = wgAjaxReview.sentMsgOk;
+		if( submit ) {
+			// If flagging is just binary, flip the form
+			if( binaryState ) {
+				binaryState.value = (binaryState.value ==1 ) ? 0 : 1;
+				// Revision was unflagged - switch to flagging form
+				if( binaryState.value == 1 ) {
+					legend.innerHTML = '<strong>'+wgAjaxReview.flagLegMsg+'</strong>';
+					submit.value = wgAjaxReview.flagMsg;
+				// Revision was flagged - switch to unflagging form
+				} else {
+					legend.innerHTML = '<strong>'+wgAjaxReview.unflagLegMsg+'</strong>';
+					submit.value = wgAjaxReview.unflagMsg;
+				}
+			} else {
+				submit.value = wgAjaxReview.sendMsg; // back to normal
+			}
+		}
+		// Hide "review this" box on diffs
+		if( diffNotice ) diffNotice.style.display = 'none';
+	// On failure...
 	} else {
 		document.title = wgAjaxReview.actionfailed;
-		if( submit ) submit.value = wgAjaxReview.sentMsgBad;
+		if( submit ) {
+			if( binaryState ) {
+				submit.value = binaryState.value ?
+					wgAjaxReview.flagMsg : wgAjaxReview.unflagMsg; // back to normal
+			} else {
+				submit.value = wgAjaxReview.sendMsg;
+			}
+		}
 	}
 	wgAjaxReview.unlockForm();
 };
 
 wgAjaxReview.onLoad = function() {
-	var submit = document.getElementById("submitreview");
+	var submit = document.getElementById("mw-submitreview");
 	if( submit ) {
 		submit.onclick = wgAjaxReview.ajaxCall;
 	}

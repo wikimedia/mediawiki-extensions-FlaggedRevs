@@ -16,6 +16,7 @@ $messages = array();
  */
 
 $messages['en'] = array(
+	'action-review'                => 'review revisions',
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Flagged Revisions',
 	'flaggedrevs-backlog'          => 'There is currently a backlog of [[Special:OldReviewedPages|pending edits]] to reviewed pages. \'\'\'Your attention is needed!\'\'\'',
@@ -75,7 +76,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAG
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-basic-same'         => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>.',
 	'revreview-basic-source'       => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sighted version] of this page, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
-	'revreview-blocked'            => 'You cannot review this revision because your account is currently blocked ([$1 details])',
+	'revreview-failed'             => "'''Unable to review this revision.''' The submission is incomplete or otherwise invalid.",
 	'revreview-changed'            => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
 A template or file may have been requested when no specific version was specified.
@@ -96,6 +97,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-edited'             => '\'\'\'Changes will go into the [[{{MediaWiki:Validationpage}}|stable version]] once an authorised user reviews them.\'\'\'
 The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 suggested {{PLURAL:$2|change|changes}}].',
 	'revreview-flag'               => 'Review this revision',
+	'revreview-unflag'             => 'Unreview this revision',
 	'revreview-invalid'            => '\'\'\'Invalid target:\'\'\' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.',
 	'revreview-legend'             => 'Rate revision content',
 	'revreview-log'                => 'Comment:',
@@ -153,9 +155,9 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-style-3'            => 'Concise',
 	'revreview-style-4'            => 'Featured',
 	'revreview-submit'             => 'Submit',
+	'revreview-submit-review'      => 'Mark reviewed',
+	'revreview-submit-unreview'    => 'Mark unreviewed',
 	'revreview-submitting'         => 'Submitting...',
-	'revreview-finished'           => 'Review complete!',
-	'revreview-failed'             => 'Review failed!',
 	'revreview-successful'         => '\'\'\'Revision of [[:$1|$1]] successfully flagged. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} view stable versions])\'\'\'',
 	'revreview-successful2'        => '\'\'\'Revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-text'               => '\'\'[[{{MediaWiki:Validationpage}}|Stable versions]] are the default page content for viewers rather than the newest revision.\'\'',
@@ -226,7 +228,7 @@ Please check the URL you used to access this page.',
 	
 	'log-show-hide-review'         => '$1 review log',
 	
-	'revreview-tt-review'          => 'Review this page',
+	'revreview-tt-review'          => 'Apply this status to this revision',
 	'validationpage'               => '{{ns:help}}:Page validation',
 );
 

@@ -82,7 +82,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$this->fileVersion = $wgRequest->getVal( 'fileVersion' );
 		$this->validatedParams = $wgRequest->getVal( 'validatedParams' );	
 		# Special token to discourage fiddling...
-		$k = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
+		$k = self::validationKey( $this->templateParams, $this->imageParams,
+			$this->fileVersion, $this->oldid );
 		if( $this->validatedParams !== $k ) {
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
@@ -155,19 +156,8 @@ class RevisionReview extends UnlistedSpecialPage
 	public static function AjaxReview( /*$args...*/ ) {
 		global $wgUser;
 		$args = func_get_args();
-		// Basic permission check
-		if( $wgUser->isAllowed( 'review' ) ) {
-			if( $wgUser->isBlocked() ) {
-				$blocklist = SpecialPage::getTitleFor( 'Ipblocklist' );
-				$blocklog = $blocklist->getFullUrl( 'ip=' . urlencode('#'.$wgUser->getBlockId()) );
-				return '<err#><h2>'.wfMsgHtml('blockedtitle').'</h2>'.
-					wfMsgExt('revreview-blocked','parseinline',$blocklog);
-			}
-		} else {
-			return '<err#>';
-		}
 		if( wfReadOnly() ) {
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		$tags = FlaggedRevs::getDimensions();
 		// Make review interface object
@@ -177,7 +167,7 @@ class RevisionReview extends UnlistedSpecialPage
 		foreach( $args as $x => $arg ) {
 			$set = explode('|',$arg,2);
 			if( count($set) != 2 ) {
-				return '<err#>';
+				return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 			}
 			list($par,$val) = $set;
 			switch( $par )
@@ -185,13 +175,13 @@ class RevisionReview extends UnlistedSpecialPage
 				case "target":
 					$form->page = Title::newFromUrl( $val );
 					if( is_null($form->page) || !FlaggedRevs::isPageReviewable( $form->page ) ) {
-						return '<err#>';
+						return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 					}
 					break;
 				case "oldid":
 					$form->oldid = intval( $val );
 					if( !$form->oldid ) {
-						return '<err#>';
+						return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 					}
 					break;
 				case "rcid":
@@ -220,7 +210,7 @@ class RevisionReview extends UnlistedSpecialPage
 					break;
 				case "wpEditToken":
 					if( !$wgUser->matchEditToken( $val ) ) {
-						return '<err#>';
+						return '<err#>' . wfMsgExt( 'sessionfailure', 'parseinline' );
 					}
 					break;
 				default:
@@ -234,25 +224,37 @@ class RevisionReview extends UnlistedSpecialPage
 					break;
 			}
 		}
+		// No page?
+		if( !$form->page ) {
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
+		}
+		// Basic permission check
+		$permErrors = $form->page->getUserPermissionsErrors( 'review', $wgUser );
+		if( !$permErrors ) {
+			// User must be able to edit this page
+			$permErrors = $form->page->getUserPermissionsErrors( 'edit', $wgUser );
+		}
+		if( $permErrors ) {
+			global $wgOut;
+			return '<err#>' . $wgOut->parse(
+				$wgOut->formatPermissionsErrorMessage( $permErrors, 'review' )
+			);
+		}
 		// Missing params?
 		if( count($form->dims) != count($tags) ) {
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		// Incomplete review?
 		if( !$form->oldid || is_null($form->page) ) {
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		if( $form->unapprovedTags && $form->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		} 
 		// Doesn't match up?
 		$k = self::validationKey( $form->templateParams, $form->imageParams, $form->fileVersion, $form->oldid );
 		if( $form->validatedParams !== $k ) {
-			return '<err#>';
-		}
-		// User must be able to edit this page
-		if( !$form->page->quickUserCan('edit') ) {
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		$fa = FlaggedArticle::getTitleInstance( $form->page );
 		$form->config = $fa->getVisibilitySettings();
@@ -260,7 +262,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form->oflags = FlaggedRevs::getRevisionTags( $form->page, $form->oldid );
 		# Check tag permissions
 		if( !self::userCanSetFlags($form->dims,$form->oflags,$form->config) ) {
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		list($approved,$status) = $form->submit();
 		if( $status === true ) {
@@ -270,7 +272,7 @@ class RevisionReview extends UnlistedSpecialPage
 		} elseif( $approved ) {
 			return '<err#>' . wfMsg( 'revreview-revnotfound' );
 		} else { // hmmm?
-			return '<err#>';
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 	}
 
@@ -312,7 +314,8 @@ class RevisionReview extends UnlistedSpecialPage
 			for( $i=0; $i < $x; $i++ ) {
 				$formradios[$tag][] = array( "revreview-$tag-$i", "wp$tag", $i );
 			}
-			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) . '</strong></td><td width=\'20\'></td>';
+			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) .
+				'</strong></td><td width=\'20\'></td>';
 		}
 		$hidden = array(
 			Xml::hidden( 'wpEditToken', $wgUser->editToken() ),
@@ -395,7 +398,9 @@ class RevisionReview extends UnlistedSpecialPage
 		# If all values are set to zero, this has been unapproved
 		$approved = $this->isApproval();
 		# Double-check permissions
-		if( !$this->page->quickUserCan('edit') || !self::userCanSetFlags($this->dims,$this->oflags,$this->config) ) {
+		if( !$this->page->quickUserCan('edit')
+			|| !self::userCanSetFlags($this->dims,$this->oflags,$this->config) )
+		{
 			return array($approved,false);
 		}
 		# We can only approve actual revisions...

@@ -1048,7 +1048,8 @@ class FlaggedArticleView {
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get templates where the current and stable are not the same revision
 					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-						array( 'ft_namespace', 'ft_title', 'fp_stable','ft_tmp_rev_id', 'page_latest' ),
+						array( 'ft_namespace', 'ft_title', 'fp_stable',
+							'ft_tmp_rev_id','page_latest' ),
 						array( 'ft_rev_id' => $frev->getRevId(),
 							'page_namespace = ft_namespace',
 							'page_title = ft_title' ),
@@ -1065,11 +1066,13 @@ class FlaggedArticleView {
 							$row->fp_stable : $row->ft_tmp_rev_id;
 						// compare to current
 						if( $revIdDraft > $revIdStable ) {
-							$tmpChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText(),
+							$tmpChanges[] = $skin->makeKnownLinkObj( $title,
+								$title->getPrefixedText(),
 								"diff=cur&oldid={$revIdStable}" );
 						}
 					}
-					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($tmpChanges), $wgParserCacheExpireTime );
+					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($tmpChanges),
+						$wgParserCacheExpireTime );
 				}
 				# Add set to list
 				if( $tmpChanges )
@@ -1086,15 +1089,18 @@ class FlaggedArticleView {
 				if( $imgChanges === false ) {
 					$dbr = wfGetDB( DB_SLAVE );
 					// Get images where the current and stable are not the same revision
-					$ret = $dbr->select( array('flaggedimages','page','image','flaggedpages','flaggedrevs'),
+					$ret = $dbr->select(
+						array( 'flaggedimages','page','image','flaggedpages','flaggedrevs' ),
 						array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
 						array( 'fi_rev_id' => $frev->getRevId() ),
 						__METHOD__,
 						array(), /* OPTIONS */
-						array( 'page' => array('LEFT JOIN','page_namespace = '. NS_FILE .' AND page_title = fi_name'),
+						array( 'page' => array('LEFT JOIN',
+								'page_namespace = '. NS_FILE .' AND page_title = fi_name'),
 							'image' => array('LEFT JOIN','img_name = fi_name'),
 							'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
-							'flaggedrevs' => array('LEFT JOIN','fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
+							'flaggedrevs' => array('LEFT JOIN',
+								'fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
 					);
 					$imgChanges = array();
 					while( $row = $dbr->fetchObject( $ret ) ) {
@@ -1320,6 +1326,9 @@ class FlaggedArticleView {
 	public function addQuickReview( &$data, $top = false, $hide = false ) {
 		global $wgOut, $wgUser, $wgRequest;
 		$this->load();
+		if( $wgOut->isPrintable() ) {
+			return false; // Must be on non-printable output 
+		}
 		# Get the revision being displayed
 		$id = $wgOut->getRevisionId();
 		if( !$id ) {
@@ -1332,13 +1341,13 @@ class FlaggedArticleView {
 		} else {
 			$rev = Revision::newFromTitle( $this->article->getTitle(), $id );
 		}
-		# Must be a valid non-printable output and revision must be public
-		if( $wgOut->isPrintable() || !$rev || $rev->isDeleted(Revision::DELETED_TEXT) ) {
+		# The revision must be valid and public
+		if( !$rev || $rev->isDeleted(Revision::DELETED_TEXT) ) {
 			return false;
 		}
 		$useCurrent = false;
 		if( !isset($wgOut->mTemplateIds) || !isset($wgOut->fr_ImageSHA1Keys) ) {
-			$useCurrent = true;
+			$useCurrent = true; // we need to get Ids from parser output
 		}
 		$skin = $wgUser->getSkin();
 
@@ -1346,7 +1355,10 @@ class FlaggedArticleView {
 		# Variable for sites with no flags, otherwise discarded
 		$approve = $wgRequest->getBool('wpApprove');
 		# See if the version being displayed is flagged...
-		$oldFlags = $this->article->getFlagsForRevision( $id );
+		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $id );
+		$oldFlags = $frev
+			? $frev->getTags() // existing tags
+			: FlaggedRevision::expandRevisionTags(''); // unset tags
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		if( $this->isDiffFromStable ) {
@@ -1359,11 +1371,12 @@ class FlaggedArticleView {
 			}
 			$reviewNotes = $srev->getComment();
 		} else {
-			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $id );
 			$flags = $oldFlags;
-			$reviewNotes = $frev ? $frev->getComment() : ""; // pre-fill notes
+			// Get existing notes to pre-fill field
+			$reviewNotes = $frev ? $frev->getComment() : "";
 		}
 
+		# Begin form...
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' );
@@ -1371,16 +1384,22 @@ class FlaggedArticleView {
 			$params['class'] = 'fr-hiddenform';
 		}
 		$form = Xml::openElement( 'form', $params );
-		$form .= Xml::openElement( 'fieldset', array('class' => 'flaggedrevs_reviewform noprint') );
-		$form .= "<legend><strong>" . wfMsgHtml( 'revreview-flag', $id ) . "</strong></legend>\n";
-
+		$form .= Xml::openElement( 'fieldset',
+			array('class' => 'flaggedrevs_reviewform noprint') );
+		# Add appropriate legend text
+		$legendMsg = ( FlaggedRevs::binaryFlagging() && $frev )
+			? 'revreview-unflag'
+			: 'revreview-flag';
+		$form .= Xml::openElement( 'legend', array('id' => 'mw-reviewformlegend') );
+		$form .= "<strong>" . wfMsgHtml( $legendMsg ) . "</strong>";
+		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		if( !FlaggedRevs::lowProfileUI() ) {
 			$msg = FlaggedRevs::showStableByDefault() ? 'revreview-text' : 'revreview-text2';
 			$form .= wfMsgExt( $msg, array('parse') );
 		}
 
-		# Current user has too few rights to change at least one flag, thus entire form disabled
+		# Disable form for unprivileged users
 		$uneditable = !$this->article->getTitle()->quickUserCan('edit');
 		$disabled = !RevisionReview::userCanSetFlags( $flags ) || $uneditable;
 		if( $disabled ) {
@@ -1392,11 +1411,12 @@ class FlaggedArticleView {
 				'id' => 'fr-rating-controls') );
 			$toggle = array();
 		}
+
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
-		$form .= FlaggedRevsXML::ratingInputs( $flags, $config, $disabled );
+		$form .= FlaggedRevsXML::ratingInputs( $flags, $config, $disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' );
-
+		# Add review notes input
 		if( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<div id='mw-notebox'>\n";
 			$form .= "<p>".wfMsgHtml( 'revreview-notes' ) . "</p>\n";
@@ -1406,6 +1426,7 @@ class FlaggedArticleView {
 				Xml::closeElement('textarea') . "\n";
 			$form .= "</div>\n";
 		}
+
 		# Get versions of templates/files used
 		$imageParams = $templateParams = $fileVersion = '';
 		if( $useCurrent ) {
@@ -1433,7 +1454,7 @@ class FlaggedArticleView {
 			FlaggedRevs::getIncludeParams( $this->article, $templateIDs, $imageSHA1Keys );
 
 		$form .= Xml::openElement( 'span', array('style' => 'white-space: nowrap;') );
-		# Hide comment if needed
+		# Hide comment input if needed
 		if( !$disabled ) {
 			if( count(FlaggedRevs::getDimensions()) > 1 )
 				$form .= "<br />"; // Don't put too much on one line
@@ -1441,25 +1462,27 @@ class FlaggedArticleView {
 				Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 40, '', 
 					array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-		$form .= Xml::submitButton( wfMsg('revreview-submit'),
+		# Add the submit button
+		if( FlaggedRevs::binaryFlagging() ) {
+			$submitMsg = $frev
+				? 'revreview-submit-unreview'
+				: 'revreview-submit-review';
+			$titleMsg = $frev
+				? 'revreview-tt-unreview'
+				: 'revreview-tt-review';
+		} else {
+			$submitMsg = 'revreview-submit';
+			$titleMsg = 'revreview-tt-review';
+		}
+		$form .= Xml::submitButton( wfMsg($submitMsg),
 			array(
-				'id' => 'submitreview', 'accesskey' => wfMsg('revreview-ak-review'),
-				'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']'
+				'id' => 'mw-submitreview', 'accesskey' => wfMsg('revreview-ak-review'),
+				'title' => wfMsg($titleMsg).' ['.wfMsg('revreview-ak-review').']'
 			) + $toggle
 		);
-		$form .= Xml::closeElement( 'span' );
 
+		$form .= Xml::closeElement( 'span' );
 		$form .= Xml::closeElement( 'div' ) . "\n";
-		
-		# Show stability log if there is anything interesting...
-		if( $this->article->isPageLocked() ) {
-			$loglist = new LogEventsList( $wgUser->getSkin(), $wgOut, LogEventsList::NO_ACTION_LINK );
-			$pager = new LogPager( $loglist, 'stable', '', $this->article->getTitle()->getPrefixedDBKey() );
-			$pager->mLimit = 1; // top item
-			if( ($logBody = $pager->getBody()) ) {
-				$form .= "<div><ul style='list-style:none; margin: 0;'>$logBody</ul></div>";
-			}
-		}
 
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
