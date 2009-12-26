@@ -142,7 +142,7 @@ $messages['ar'] = array(
 $messages['arz'] = array(
 	'oldreviewedpages' => 'صفحات مراجعة قديمة',
 	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
-	'oldreviewedpages-list' => 'هذه الصفحة تعرض الصفحات المراجعة التى بها تعديلات قيد الانتظار.',
+	'oldreviewedpages-list' => 'هذه الصفحة تعرض {{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}} تعديلات قيد الانتظار.',
 	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
@@ -177,7 +177,10 @@ $messages['ast'] = array(
  * @author Man77
  */
 $messages['bar'] = array(
+	'oldreviewedpages' => 'Åide, gsichtete Seitn',
+	'oldreviewedpages-legend' => 'Listn vu gsichtete Seitn mid nu ned gsichtete Veasionen',
 	'oldreviewedpages-none' => "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
+	'oldreviewedpages-hours' => '($1 Stund)',
 	'oldreviewedpages-days' => '($1 Tåg)',
 	'oldreviewedpages-recent' => '(weniga wia a Stund)',
 	'oldreviewed-watched' => 'auf meina Beobåchtungslistn',
@@ -1228,6 +1231,7 @@ $messages['pt-br'] = array(
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'oldreviewedpages' => 'Pagini revizuite expirate',
@@ -1241,6 +1245,7 @@ $messages['ro'] = array(
 	'oldreviewed-watched' => 'În lista mea de urmărire',
 	'oldreviewed-stable' => 'Stabilit',
 	'oldreviewed-diff' => 'revizuire',
+	'oldreviewed-size' => 'Schimbare maximă (baiţi):',
 	'oldreviewedpages-unwatched' => '(neurmărite)',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizator activ care urmăreşte|utilizatori activi care urmăresc}})',
 	'oldreviewedpages-viewing' => '(în curs de revizuire)',
@@ -1414,9 +1419,12 @@ $messages['tk'] = array(
 	'oldreviewedpages-recent' => '(1 sagatdan az)',
 	'oldreviewed-category' => 'Kategoriýa:',
 	'oldreviewed-watched' => 'Gözegçilik sanawymda',
+	'oldreviewed-stable' => 'Durnuklaşdyryldy',
+	'oldreviewed-diff' => 'gözden geçir',
 	'oldreviewed-size' => 'Maksimum üýtgeşme (baýt):',
 	'oldreviewedpages-unwatched' => '(gözegçilikde däl)',
 	'oldreviewedpages-watched' => '($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)',
+	'oldreviewedpages-viewing' => '(gözden geçirilýär)',
 );
 
 /** Tagalog (Tagalog)
@@ -1598,6 +1606,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Gzdavidwong
+ * @author Liangent
  * @author Shinjiman
  * @author Wrightbus
  */
@@ -1610,9 +1619,11 @@ $messages['zh-hant'] = array(
 	'oldreviewedpages-days' => '（$1日）',
 	'oldreviewedpages-recent' => '（少於1小時）',
 	'oldreviewed-category' => '分類:',
+	'oldreviewed-watched' => '在我的監視列表上',
 	'oldreviewed-diff' => '複審',
 	'oldreviewed-size' => '最大變動（位元組）：',
 	'oldreviewedpages-unwatched' => '（未看）',
 	'oldreviewedpages-watched' => '（$1{{PLURAL:$1|位用戶|位用戶}}正在看）',
+	'oldreviewedpages-viewing' => '（等待審核）',
 );
 

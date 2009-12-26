@@ -483,8 +483,10 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'problemchanges' => 'Revizualizaţi schimbările etichetate',
 	'problemchanges-category' => 'Categorie:',
 );
 
@@ -554,6 +556,7 @@ $messages['te'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'problemchanges' => 'Tegli üýtgeşmeleri gözden geçir',
 	'problemchanges-category' => 'Kategoriýa:',
 );
 
@@ -565,6 +568,13 @@ $messages['tr'] = array(
 	'problemchanges-legend' => 'Etiketli değişiklikleri gözden geçirme bekleyen sayfaları listele',
 	'problemchanges-none' => 'Şu anda hiçbir sayfa bu kriterleri karşılamıyor',
 	'problemchanges-category' => 'Kategori:',
+);
+
+/** Ukrainian (Українська)
+ * @author Prima klasy4na
+ */
+$messages['uk'] = array(
+	'problemchanges-category' => 'Категорія:',
 );
 
 /** Vèneto (Vèneto)
@@ -600,5 +610,12 @@ $messages['vi'] = array(
  */
 $messages['zh-hans'] = array(
 	'problemchanges-none' => '目前没有页面符合这些条件',
+);
+
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Liangent
+ */
+$messages['zh-hant'] = array(
+	'problemchanges-none' => '目前沒有頁面符合這些條件',
 );
 

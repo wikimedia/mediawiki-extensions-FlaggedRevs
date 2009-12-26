@@ -891,12 +891,15 @@ $messages['pt-br'] = array(
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'reviewedpages' => 'Pagini revizuite',
+	'reviewedpages-list' => 'Această pagină afişează paginile care au fost revizuite (la cel mai mare nivel) la nivelul specificat.',
 	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
 	'reviewedpages-all' => 'versiuni revizuite',
+	'reviewedpages-best' => 'prima revizie',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1070,6 +1073,18 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-lev-2' => 'Баргузида',
 	'reviewedpages-all' => 'нусхаҳои баррасӣ шуда',
 	'reviewedpages-best' => 'нусхаи беҳтарин',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'reviewedpages' => 'Gözden geçirilen sahypalar',
+	'reviewedpages-leg' => 'Sahypalary iň ýokary gözden geçirme derejesine göre sanawla',
+	'reviewedpages-list' => 'Bu sahypa görkezilen derejede (iň ýokary) gözden geçirilen sahypalary sanawlaýar.',
+	'reviewedpages-none' => 'Bu sanawda hiç hili sahypa ýok',
+	'reviewedpages-all' => 'gözden geçirilen wersiýalar',
+	'reviewedpages-best' => 'iň gowy wersiýa',
 );
 
 /** Tagalog (Tagalog)

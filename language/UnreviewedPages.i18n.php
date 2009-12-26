@@ -116,7 +116,7 @@ $messages['arz'] = array(
 	'unreviewed-diff' => 'مراجعة',
 	'unreviewed-unwatched' => '(غير مراقبة)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقبون)',
-	'unreviewed-list' => 'هذه الصفحة تعرض المقالات التى لم يتم مراجعتها.',
+	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتوى التى لم تتم مراجعتها لمستوى المحدد.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 	'unreviewed-viewing' => '(بيتراجع)',
 );
@@ -184,7 +184,9 @@ $messages['bg'] = array(
 	'unreviewedpages' => 'Нерецензирани страници',
 	'unreviewed-category' => 'Категория:',
 	'unreviewed-diff' => 'Промени',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|час|часа}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|ден|дни}})',
 	'unreviewed-recent' => '(по-малко от час)',
 );
 
@@ -1478,9 +1480,16 @@ $messages['tg-cyrl'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Gözden geçirilmedik sahypalaryň sanawyny]] görkez',
+	'unreviewedpages' => 'Gözden geçirilmedik sahypalar',
+	'unreviewed-legend' => 'Gözden geçirilmedik mazmunly sahypalary sanawla',
 	'unreviewed-category' => 'Kategoriýa:',
+	'unreviewed-diff' => 'gözden geçir',
 	'unreviewed-unwatched' => '(gözegçilikde däl)',
 	'unreviewed-watched' => '($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)',
+	'unreviewed-list' => 'Bu sahypa görkezilen derejä çenli gözden geçirilmedik mazmunly sahypalary sanawlaýar.',
+	'unreviewed-none' => 'Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok.',
+	'unreviewed-viewing' => '(gözden geçirilýär)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|sagat|sagat}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'unreviewed-recent' => '(1 sagatdan az)',

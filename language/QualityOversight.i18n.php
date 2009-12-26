@@ -508,6 +508,13 @@ $messages['te'] = array(
 	'qualityoversight-legend' => 'దగ్గరలోని సమీక్షా లాగులను వెతకండి',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'qualityoversight-legend' => 'Ýaňy-ýakyndaky gözden geçirme gündeliklerini gözle',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
@@ -582,10 +589,12 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Liangent
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'qualityoversight' => '品質管理',
 	'qualityoversight-list' => '這個頁面列示出最近核准修訂以及最近品質修訂之折舊。',
+	'qualityoversight-legend' => '搜索最近審核記錄',
 );
 

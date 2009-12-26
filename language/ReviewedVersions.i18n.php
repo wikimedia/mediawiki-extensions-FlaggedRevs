@@ -89,7 +89,7 @@ $messages['arz'] = array(
 	'reviewedversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
 	'reviewedversions-page' => 'اسم الصفحة:',
 	'reviewedversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
-	'reviewedversions-list' => 'هذه قائمة بمراجعات صفحة [[:$1]] التى تمت مراجعتها:',
+	'reviewedversions-list' => 'هذه قائمة {{PLURAL:$2||بمراجعة|بمراجعتي|بمراجعات}} الصفحة [[:$1]] {{PLURAL:$2||التى تمت مراجعتها|اللتين تمت مراجعتهما|التى تمت مراجعتها}}:',
 	'reviewedversions-review' => 'تمت مراجعتها فى <i>$1</i> بواسطة $2',
 );
 
@@ -1007,7 +1007,12 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'reviewedversions' => 'Gözden geçirilen wersiýalary görkez',
+	'reviewedversions-leg1' => 'Sahypa üçin gözden geçirilen wersiýalary sanawla',
 	'reviewedversions-page' => 'Sahypa ady:',
+	'reviewedversions-none' => '"[[:$1]]" sahypasynda hiç hili gözden geçirilen wersiýa ýok.',
+	'reviewedversions-list' => 'Aşakdaky sanaw [[:$1]] üçin gözden geçirilen {{PLURAL:$2|ýeke-täk wersiýanyň|wersiýalaryň}} sanawydyr:',
+	'reviewedversions-review' => '$2 tarapyndan <i>$1</i> senesinde gözden geçirildi',
 );
 
 /** Tagalog (Tagalog)

@@ -79,6 +79,7 @@ $messages['be-tarask'] = array(
 $messages['bg'] = array(
 	'unstablepages-stable' => 'устойчива версия',
 	'unstablepages-none' => 'Няма страници в този списък',
+	'unstablepages-config' => 'Настройка',
 );
 
 /** Breton (Brezhoneg)
@@ -660,6 +661,10 @@ $messages['te'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'unstablepages' => 'Durnuksyz sahypalar',
+	'unstablepages-stable' => 'durnukly wersiýa',
+	'unstablepages-text' => 'Aşakda garalama wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalryň sanawy görkezilýär.',
+	'unstablepages-none' => 'Bu sanawda hiç hili sahypa ýok.',
 	'unstablepages-config' => 'Konfigurasiýa',
 );
 

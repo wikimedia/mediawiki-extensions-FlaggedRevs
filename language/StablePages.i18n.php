@@ -753,6 +753,7 @@ $messages['pt-br'] = array(
 /** Romanian (Română)
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'stablepages' => 'Pagini stabile',
@@ -761,6 +762,7 @@ $messages['ro'] = array(
 	'stablepages-config' => 'Configuraţie',
 	'stablepages-prec-none' => 'nicio prioritate',
 	'stablepages-prec-quality' => 'preferinţă pentru calitate',
+	'stablepages-precedence' => 'Precedenţă',
 );
 
 /** Tarandíne (Tarandíne)
@@ -876,8 +878,15 @@ $messages['te'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'stablepages' => 'Durnuklu sahypalar',
+	'stablepages-stable' => 'durnukly wersiýa',
+	'stablepages-text' => 'Aşakda durnukly wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalaryň sanawy görkezilýär.',
 	'stablepages-none' => 'Bu sanawda hiç hili sahypa ýok',
 	'stablepages-config' => 'Konfigurasiýa',
+	'stablepages-prec-none' => 'öňürtilik ýok',
+	'stablepages-prec-quality' => 'hil öňürtiligi',
+	'stablepages-prec-pristine' => 'başky öňürtilik',
+	'stablepages-precedence' => 'Öňürtilik:',
 );
 
 /** Tagalog (Tagalog)

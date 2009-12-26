@@ -133,15 +133,15 @@ $messages['arz'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|محرر]] و '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|مراجع]].
 
 المحررون والمراجعون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
-	'validationstatistics-time' => "''البيانات التاليه تم تحديثها آخر مره في $5 الساعه $6.''
+	'validationstatistics-time' => "''البيانات التاليه تم تحديثها آخر مره فى $5 الساعه $6.''
 
-التعديلات التي تم التحقق منها بواسطه المستخدمين المخولين يتم اعتبارها مراجعه.
+التعديلات التى تم التحقق منها بواسطه المستخدمين المخولين يتم اعتبارها مراجعه.
 
 الانتظار المتوسط للتعديلات بواسطه ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
 $4
 التأخر المتوسط [[Special:OldReviewedPages|للصفحات ذات التعديلات غير المراجعه قيد الانتظار]] هو '''$2'''.
-هذه الصفحات تعتبر ''مخزنه''. وبالمثل، الصفحات تعتبر ''محدثه'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخه المستقره]] هي أيضا نسخه المسوده الحاليه.
-النسخه المستقره لصفحه هي أجدد مراجعه تمت الموافقه عليها للعرض افتراضيا لكل القراء.",
+هذه الصفحات تعتبر ''مخزنه''. وبالمثل، الصفحات تعتبر ''محدثه'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخه المستقره]] هى أيضا نسخه المسوده الحاليه.
+النسخه المستقره لصفحه هى أجدد مراجعه تمت الموافقه عليها للعرض افتراضيا لكل القراء.",
 	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
@@ -1027,6 +1027,17 @@ $4
 	'validationstatistics-user' => '사용자',
 );
 
+/** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Къарачайлы
+ */
+$messages['krc'] = array(
+	'validationstatistics' => 'Сынауну статистикасы',
+	'validationstatistics-users' => "'''{{SITENAME}}''' сайтда бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|къошулуучу|къошулуучу}} эм [[{{MediaWiki:Validationpage}}|Сынаучу]] хакълагъа ие
+'''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|къошулуучу|къошулуучу}} барды.
+
+Редакторла бла Сынаучула  белгили бетлеге сайлама сынау бардырыргъа эркиндиле.",
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */
@@ -1676,10 +1687,15 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'validationstatistics' => 'Barlama statistikalary',
 	'validationstatistics-ns' => 'At giňişligi',
 	'validationstatistics-total' => 'Sahypalar',
+	'validationstatistics-stable' => 'Gözden geçirilen',
+	'validationstatistics-latest' => 'Sinhronizirlenen',
+	'validationstatistics-synced' => 'Sinhronizirlenen/Gözden geçirilen',
 	'validationstatistics-old' => 'Möwriti geçen',
 	'validationstatistics-user' => 'Ulanyjy',
+	'validationstatistics-reviews' => 'Barlaglar',
 );
 
 /** Tagalog (Tagalog)
@@ -1886,6 +1902,7 @@ $4
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Gaoxuewei
+ * @author Mark85296341
  * @author Tomchiukc
  */
 $messages['zh-hant'] = array(
@@ -1893,7 +1910,7 @@ $messages['zh-hant'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''現時有'''[[Special:ListUsers/editor|$1]]'''個用戶具有[[{{MediaWiki:Validationpage}}|編輯]]的權限，而'''[[Special:ListUsers/reviewer|$2]]'''個用戶有[[{{MediaWiki:Validationpage}}|審定]]的權限。
 
 編輯及審定皆為已確認的用戶，並可以檢查各頁面的修定。",
-	'validationstatistics-time' => "''下列信息於 $5 $6 進行了最後更新。 ''
+	'validationstatistics-time' => "''下列資訊於 $5 $6 進行了最後更新。 ''
 
 已確認用戶核對過的編輯需要進行複審。
 
@@ -1902,7 +1919,7 @@ $4
 [[Special:OldReviewedPages|未審核的頁面編輯等待]]平均滯後時間為'''$2'''。
 這些頁面被認為''過期''了。同樣的，如果[[{{MediaWiki:Validationpage}}|完美版本]]是目前的待定版本，這些頁面就被認為''已同步''。
 頁面的完美版本是被讀者普遍接受的最新版本。",
-	'validationstatistics-table' => "各名稱空間的統計信息顯示如下，''不包含''轉向頁。",
+	'validationstatistics-table' => "各名稱空間的統計資訊顯示如下，''不包含''轉向頁。",
 	'validationstatistics-ns' => '名稱空間',
 	'validationstatistics-total' => '頁面',
 	'validationstatistics-stable' => '已復審',

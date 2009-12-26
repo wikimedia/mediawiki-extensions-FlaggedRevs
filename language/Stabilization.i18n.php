@@ -215,7 +215,7 @@ $messages['ar'] = array(
 	'stabilization-leg' => 'تأكيد إعدادات النسخة المستقرة',
 	'stabilization-select' => 'سابقة اختيار النسخة المستقرة',
 	'stabilization-select1' => 'آخر مراجعة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
-	'stabilization-select2' => 'آخر مراجعة مراجعة، بعض النظر عن مستوى التحقيق',
+	'stabilization-select2' => 'آخر مراجعة مراجعة (بعض النظر عن مستوى التحقيق)',
 	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
 	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
 	'stabilization-def1' => 'المراجعة المستقرة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
@@ -258,27 +258,30 @@ $messages['arc'] = array(
 $messages['arz'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التى بها النسخة المستقرة من [[:$1|$1]] يتم اختيارها وعرضها.'''",
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التى بها النسخة المستقرة من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
+
+عند تغيير ضبط ''اختيار النسخة المختارة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
+تأكد من التحقق من وجود مراجعات كهذه فى الصفحة، وإلا فإن التغيير سيكون له تأثير ضعيف.",
 	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المستقرة.
 هنا الإعدادات الحالية ل[[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
 	'stabilization-leg' => 'تأكيد إعدادات النسخة المستقرة',
-	'stabilization-select' => 'اختيار النسخة المستقرة',
+	'stabilization-select' => 'سابقة اختيار النسخة المستقرة',
 	'stabilization-select1' => 'آخر مراجعة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
-	'stabilization-select2' => 'آخر مراجعة مراجعة',
+	'stabilization-select2' => 'آخر مراجعة مراجعة (بعض النظر عن مستوى التحقيق)',
 	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
 	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
-	'stabilization-def1' => 'المراجعة المستقرة؛ لو غير موجودة، إذا المراجعة الحالية',
-	'stabilization-def2' => 'المراجعة الحالية',
+	'stabilization-def1' => 'المراجعة المستقرة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
+	'stabilization-def2' => 'المراجعة الحالية/المسودة',
 	'stabilization-submit' => 'تأكيد',
 	'stabilization-notexists' => 'لا توجد صفحة بالاسم "[[:$1|$1]]".
 لا ضبط ممكن.',
 	'stabilization-notcontent' => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها.
 لا ضبط ممكن.',
 	'stabilization-comment' => 'السبب:',
-	'stabilization-otherreason' => 'سبب تانى',
+	'stabilization-otherreason' => 'سبب تانى:',
 	'stabilization-expiry' => 'تنتهى:',
-	'stabilization-othertime' => 'وقت تانى',
+	'stabilization-othertime' => 'وقت تانى:',
 	'stabilization-sel-short' => 'تنفيذ',
 	'stabilization-sel-short-0' => 'جودة',
 	'stabilization-sel-short-1' => 'لا شيء',
@@ -328,7 +331,11 @@ Esta ye la configuración de [[:$1|$1]]:',
  * @author Man77
  */
 $messages['bar'] = array(
-	'stabilization-othertime' => 'Ãndare Zeid',
+	'stabilization-submit' => 'Bestäting',
+	'stabilization-comment' => 'Grund:',
+	'stabilization-otherreason' => 'Ãndara Grund:',
+	'stabilization-expiry' => 'Güit bis:',
+	'stabilization-othertime' => 'Ãndare Zeid:',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -1805,6 +1812,13 @@ $messages['km'] = array(
 	'stabilize-expiring' => 'ផុតកំណត់ម៉ោង $1 (UTC)',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'stabilization-comment' => 'ಕಾರಣ:',
+);
+
 /** Korean (한국어)
  * @author Kwj2772
  */
@@ -2592,14 +2606,20 @@ Não é possível configurá-la.',
 /** Romanian (Română)
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'stabilization-tab' => 'config.',
 	'stabilization-perm' => 'Contul tău nu are permisiunea de a schimba versiunea stabilă a configuraţiei.
 Iată configuraţia curentă pentru [[:$1|$1]]:',
 	'stabilization-page' => 'Numele paginii:',
+	'stabilization-leg' => 'Confirmaţi setările versiunii stabile',
+	'stabilization-select' => 'Precedenta selecţie a versiunii stabile',
+	'stabilization-def' => 'Revizie afişată pe vizualizarea paginii implicite',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
 	'stabilization-def2' => 'Revizia curentă',
+	'stabilization-restrict' => 'Restricţii pentru revizualizarea automată',
+	'stabilization-restrict-none' => 'Nicio restricţie suplimentară',
 	'stabilization-submit' => 'Confirmă',
 	'stabilization-comment' => 'Motiv:',
 	'stabilization-otherreason' => 'Alt motiv',
@@ -2613,6 +2633,7 @@ Iată configuraţia curentă pentru [[:$1|$1]]:',
 	'stabilization-def-short-0' => 'Curent',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
+	'stabilize_expiry_old' => 'Această dată de expirare a trecut deja.',
 	'stabilize-expiring' => 'expiră $1 (UTC)',
 	'stabilization-review' => 'Revizuieşte versiunea curentă',
 );
@@ -3104,13 +3125,26 @@ $messages['th'] = array(
  */
 $messages['tk'] = array(
 	'stabilization-page' => 'Sahypa ady:',
+	'stabilization-select' => 'Durnukly wersiýa saýlama öňürtiligi',
+	'stabilization-select2' => 'Iň soňky gözden geçirilen wersiýa (barlama derejesine seretmezden)',
+	'stabilization-def2' => 'Häzirki/garalama wersiýa',
 	'stabilization-restrict-none' => 'Başga goşmaça çäklendirme ýok',
 	'stabilization-submit' => 'Tassykla',
 	'stabilization-comment' => 'Sebäp:',
 	'stabilization-otherreason' => 'Başga sebäp:',
 	'stabilization-expiry' => 'Gutarýan wagty:',
 	'stabilization-othertime' => 'Başga wagt:',
+	'stabilization-sel-short' => 'Öňürtilik',
+	'stabilization-sel-short-0' => 'Hil',
+	'stabilization-sel-short-1' => 'Hiçbiri',
+	'stabilization-sel-short-2' => 'Başky',
 	'stabilization-def-short' => 'Gaýybana',
+	'stabilization-def-short-0' => 'Häzirki',
+	'stabilization-def-short-1' => 'Durnukly',
+	'stabilize_expiry_invalid' => 'Nädogry gutaryş senesi.',
+	'stabilize_expiry_old' => 'Gutaryş möhleti eýýäm geçipdir.',
+	'stabilize-expiring' => 'gutarýar $1 (UTC)',
+	'stabilization-review' => 'Häzirki wersiýany gözden geçir',
 );
 
 /** Tagalog (Tagalog)
@@ -3463,10 +3497,24 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
  * @author Gaoxuewei
+ * @author Liangent
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
+	'stabilization-tab' => '调查',
+	'stabilization' => '稳定页面',
+	'stabilization-text' => "'''更改以下的设定去调节所选择的[[:$1|$1]]之稳定版本如何显示。'''",
+	'stabilization-perm' => '您的账户并没有权限去更改稳定版本设定。
+呢度有现时[[:$1|$1]]的设定:',
 	'stabilization-page' => '页面标题：',
+	'stabilization-leg' => '确认稳定版本的设定',
+	'stabilization-select' => '稳定版本选择',
+	'stabilization-select1' => '最近有质素的修订；如果未有，则是最近视察过的',
+	'stabilization-select2' => '最近复审过的修订',
+	'stabilization-select3' => '最近原始的修订；如果未有，则是最近有质素或视察过的',
+	'stabilization-def' => '在预设页视的修订显示',
+	'stabilization-def1' => '稳定修订；如果未有，则是现时的',
+	'stabilization-def2' => '现时的修订',
 	'stabilization-restrict' => '自动审核限制',
 	'stabilization-restrict-none' => '无其他限制',
 	'stabilization-submit' => '确认',
@@ -3481,7 +3529,10 @@ $messages['zh-hans'] = array(
 	'stabilization-sel-short' => '优先级',
 	'stabilization-sel-short-0' => '质量',
 	'stabilization-sel-short-1' => '无',
+	'stabilization-sel-short-2' => '原始',
 	'stabilization-def-short' => '默认',
+	'stabilization-def-short-0' => '现时',
+	'stabilization-def-short-1' => '稳定',
 	'stabilize_expiry_invalid' => '到期日设置无效。',
 	'stabilize_expiry_old' => '过期时间设置在过去了。',
 	'stabilize-expiring' => '失效时间 $1 (UTC)',
@@ -3490,6 +3541,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
  * @author Gaoxuewei
+ * @author Liangent
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
@@ -3517,6 +3569,7 @@ $messages['zh-hant'] = array(
 	'stabilization-comment' => '原因：',
 	'stabilization-otherreason' => '其他原因：',
 	'stabilization-expiry' => '到期:',
+	'stabilization-othertime' => '其他時間：',
 	'stabilization-sel-short' => '優先級',
 	'stabilization-sel-short-0' => '質量',
 	'stabilization-sel-short-1' => '無',
