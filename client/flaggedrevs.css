@@ -73,7 +73,7 @@
 	right: 0px;
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	background-image: url(../FlaggedRevs/img/boxC.png);
+	background-image: url(../../FlaggedRevs/img/boxC.png);
 }
 
 .fr-marker-20,
@@ -87,19 +87,19 @@
 }
 
 .fr-marker-20 {
-	background-image: url(../FlaggedRevs/img/bar_20.png);
+	background-image: url(../../FlaggedRevs/img/bar_20.png);
 }
 .fr-marker-40 {
-	background-image: url(../FlaggedRevs/img/bar_40.png);
+	background-image: url(../../FlaggedRevs/img/bar_40.png);
 }
 .fr-marker-60 {
-	background-image: url(../FlaggedRevs/img/bar_60.png);
+	background-image: url(../../FlaggedRevs/img/bar_60.png);
 }
 .fr-marker-80 {
-	background-image: url(../FlaggedRevs/img/bar_80.png);
+	background-image: url(../../FlaggedRevs/img/bar_80.png);
 }
 .fr-marker-100 {
-	background-image: url(../FlaggedRevs/img/bar_100.png);
+	background-image: url(../../FlaggedRevs/img/bar_100.png);
 }
 
 /* Short User Interface */
@@ -145,19 +145,19 @@
 }
 
 .fr-value20 {
-	background-image: url(../FlaggedRevs/img/fr-marker-20.png);
+	background-image: url(../../FlaggedRevs/img/fr-marker-20.png);
 }
 .fr-value40 {
-	background-image: url(../FlaggedRevs/img/fr-marker-40.png);
+	background-image: url(../../FlaggedRevs/img/fr-marker-40.png);
 }
 .fr-value60 {
-	background-image: url(../FlaggedRevs/img/fr-marker-60.png);
+	background-image: url(../../FlaggedRevs/img/fr-marker-60.png);
 }
 .fr-value80 {
-	background-image: url(../FlaggedRevs/img/fr-marker-80.png);
+	background-image: url(../../FlaggedRevs/img/fr-marker-80.png);
 }
 .fr-value100 {
-	background-image: url(../FlaggedRevs/img/fr-marker-100.png);
+	background-image: url(../../FlaggedRevs/img/fr-marker-100.png);
 }
 
 .flaggedrevs-box0,
@@ -225,20 +225,20 @@
 	background-position: center center;
 }
 .fr-icon-current {
-	background-image: url(../FlaggedRevs/img/1.png);
+	background-image: url(../../FlaggedRevs/img/1.png);
 }
 .fr-icon-stable {
-	background-image: url(../FlaggedRevs/img/2.png);
+	background-image: url(../../FlaggedRevs/img/2.png);
 }
 .fr-icon-quality {
-	background-image: url(../FlaggedRevs/img/3.png);
+	background-image: url(../../FlaggedRevs/img/3.png);
 }
 .fr-icon-locked {
-	background-image: url(../FlaggedRevs/img/lock-closed.png);
+	background-image: url(../../FlaggedRevs/img/lock-closed.png);
 }
 .fr-icon-unlocked {
 	width: 23px;
-	background-image: url(../FlaggedRevs/img/lock-open.png);
+	background-image: url(../../FlaggedRevs/img/lock-open.png);
 }
 
 .fr-diff-ratings {

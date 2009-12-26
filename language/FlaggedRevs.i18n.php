@@ -92,9 +92,9 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-draft-title'        => 'This is a draft page',
 	'revreview-draft-rev'          => 'Draft revision',
 	'revreview-edit'               => 'Edit draft',
-	'revreview-editnotice'         => '\'\'\'Your changes will go into the [[{{MediaWiki:Validationpage}}|stable version]] once an authorised user reviews them.\'\'\'',
+	'revreview-editnotice'         => '\'\'\'Your changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'',
 	'revreview-flag'               => 'Review this revision',
-	'revreview-edited'             => '\'\'\'Changes will go into the [[{{MediaWiki:Validationpage}}|stable version]] once an authorised user reviews them.\'\'\'
+	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
 The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 suggested {{PLURAL:$2|change|changes}}].',
 	'revreview-flag'               => 'Review this revision',
 	'revreview-unflag'             => 'Unreview this revision',
