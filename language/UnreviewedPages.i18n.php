@@ -1476,6 +1476,14 @@ $messages['tg-cyrl'] = array(
 	'unreviewed-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'unreviewedpages' => 'Sahifahoi barrasī naşuda',
+	'unreviewed-category' => 'Gurūh:',
+);
+
 /** Turkmen (Türkmençe)
  * @author Hanberke
  */

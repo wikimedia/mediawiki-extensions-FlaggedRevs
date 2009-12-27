@@ -423,6 +423,7 @@ $messages['be-tarask'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Turin
  */
 $messages['bg'] = array(
 	'stabilization' => 'Устойчивост на страницата',
@@ -432,6 +433,7 @@ $messages['bg'] = array(
 	'stabilization-select2' => 'Последната рецензирана версия',
 	'stabilization-def1' => 'Устойчивата версия; ако няма такава, тогава текущата',
 	'stabilization-def2' => 'Текущата версия',
+	'stabilization-restrict-none' => 'Няма допълнителни ограничения',
 	'stabilization-submit' => 'Потвърждаване',
 	'stabilization-notexists' => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
 	'stabilization-comment' => 'Причина:',
@@ -498,6 +500,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-def-short-0' => 'Red',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Direizh eo an deiziad termen.',
+	'stabilize-expiring' => "Termenet d'an $1 (UTC)",
 	'stabilization-review' => 'Adwelet ar stumm red',
 );
 
@@ -3109,6 +3112,32 @@ $messages['tg-cyrl'] = array(
 	'stabilize-expiring' => 'Дар $1 (UTC) ба интиҳо мерасад',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'stabilization-tab' => 'sançiş',
+	'stabilization' => 'Pojdorsoziji sahifaho',
+	'stabilization-perm' => "Hisobi şumo içozati taƣjiri tanzimi nusxai pojdorro nadorad. Tanzimoti fe'lī baroi [[:$1|$1]]  cuninand:",
+	'stabilization-page' => 'Nomi sahifa:',
+	'stabilization-leg' => 'Tasdiqi tanzimi nusxai pojdor',
+	'stabilization-select1' => 'Oxirin nusxai bo kajfijat; agar on vuçud nadoşta boşad, pas on oxirin jake az barrasidaşuda ast',
+	'stabilization-def' => 'Nusxae ki dar holati peşfarz namoiş doda meşavad',
+	'stabilization-submit' => 'Tasdiq',
+	'stabilization-notexists' => 'Sahifae bo unvoni "[[:$1|$1]]" vuçud nadorad. Tanzimot mumkin nest.',
+	'stabilization-notcontent' => 'Sahifai "[[:$1|$1]]" qobili barrasī nest. Tanzimot mumkin nest.',
+	'stabilization-expiry' => 'Intiho:',
+	'stabilization-sel-short' => 'Taqdim',
+	'stabilization-sel-short-0' => 'Bo kajfijat',
+	'stabilization-sel-short-1' => 'Heç',
+	'stabilization-def-short' => 'Peşfarz',
+	'stabilization-def-short-0' => "Fe'lī",
+	'stabilization-def-short-1' => 'Pojdor',
+	'stabilize_expiry_invalid' => "Ta'rixi intihoiji ƣajrimiçoz.",
+	'stabilize_expiry_old' => "Ta'rixi intiho allakaj siparī şudaast.",
+	'stabilize-expiring' => 'Dar $1 (UTC) ba intiho merasad',
+);
+
 /** Thai (ไทย)
  * @author Octahedron80
  * @author Passawuth
@@ -3128,8 +3157,11 @@ $messages['tk'] = array(
 	'stabilization-select' => 'Durnukly wersiýa saýlama öňürtiligi',
 	'stabilization-select2' => 'Iň soňky gözden geçirilen wersiýa (barlama derejesine seretmezden)',
 	'stabilization-def2' => 'Häzirki/garalama wersiýa',
+	'stabilization-restrict' => 'Awto gözden geçirme çäklendirmeleri',
 	'stabilization-restrict-none' => 'Başga goşmaça çäklendirme ýok',
 	'stabilization-submit' => 'Tassykla',
+	'stabilization-notcontent' => '"[[:$1|$1]]" sahypasyny gözden geçirip bolmaýar.
+Konfigurirlemek mümkin däl.',
 	'stabilization-comment' => 'Sebäp:',
 	'stabilization-otherreason' => 'Başga sebäp:',
 	'stabilization-expiry' => 'Gutarýan wagty:',
@@ -3247,12 +3279,16 @@ $messages['tt-cyrl'] = array(
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
+ * @author NickK
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'stabilization-tab' => '(кя)',
 	'stabilization' => 'Стабілізація сторінки',
-	'stabilization-text' => "'''За допомогою наведених нижче налаштувань можна керувати вибором і відображенням стабільної версії сторінки [[:$1|$1]].'''",
+	'stabilization-text' => "'''Змініть наведені нижче налаштування, щоб змінити вибір і відображення стабільної версії [[:$1|$1]].'''
+
+Під час встановлення параметру ''вибір стабільної версії'' у значення «якісна» або «чиста» версія за замовчуванням,
+переконайтеся, що фактично є такі версії сторінки, інакше налаштування не матимуть ефекту.",
 	'stabilization-perm' => 'Вашому обліковому запису не вистачає прав, щоб змінювати налаштування показу стабільної версії.
 Тут наведені поточні налаштування для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва сторінки:',
@@ -3262,8 +3298,10 @@ $messages['uk'] = array(
 	'stabilization-select2' => 'Остання перевірена версія, незалежно від рівня перевірки',
 	'stabilization-select3' => 'Остання недоторкана версія, якщо такої немає, то остання якісна або переглянута',
 	'stabilization-def' => 'Версія, що показується за замовчуванням',
-	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то поточна',
+	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то поточна/чорнова',
 	'stabilization-def2' => 'Поточна/чорнова версія',
+	'stabilization-restrict' => 'Обмеження автоперевірки',
+	'stabilization-restrict-none' => 'Без додаткових обмежень',
 	'stabilization-submit' => 'Підтвердити',
 	'stabilization-notexists' => 'Відсутня сторінка з назвою «[[:$1|$1]]».
 Налаштування неможливе.',
@@ -3283,6 +3321,7 @@ $messages['uk'] = array(
 	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
 	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
 	'stabilize-expiring' => 'закінчується о $1 (UTC)',
+	'stabilization-review' => 'Перевірка поточної версії',
 );
 
 /** Vèneto (Vèneto)
@@ -3505,7 +3544,7 @@ $messages['zh-hans'] = array(
 	'stabilization' => '稳定页面',
 	'stabilization-text' => "'''更改以下的设定去调节所选择的[[:$1|$1]]之稳定版本如何显示。'''",
 	'stabilization-perm' => '您的账户并没有权限去更改稳定版本设定。
-呢度有现时[[:$1|$1]]的设定:',
+这是[[:$1|$1]]当前的设定：',
 	'stabilization-page' => '页面标题：',
 	'stabilization-leg' => '确认稳定版本的设定',
 	'stabilization-select' => '稳定版本选择',
@@ -3549,7 +3588,7 @@ $messages['zh-hant'] = array(
 	'stabilization' => '穩定頁面',
 	'stabilization-text' => "'''更改以下的設定去調節所選擇的[[:$1|$1]]之穩定版本如何顯示。'''",
 	'stabilization-perm' => '您的賬戶並沒有權限去更改穩定版本設定。
-呢度有現時[[:$1|$1]]的設定:',
+這是[[:$1|$1]]當前的設定：',
 	'stabilization-page' => '頁面名稱:',
 	'stabilization-leg' => '確認穩定版本的設定',
 	'stabilization-select' => '穩定版本選擇',

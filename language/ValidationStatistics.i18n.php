@@ -531,6 +531,7 @@ $messages['fa'] = array(
  * @author Crt
  * @author Str4nd
  * @author Vililikku
+ * @author ZeiP
  */
 $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
@@ -538,7 +539,7 @@ $messages['fi'] = array(
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',
-	'validationstatistics-latest' => 'Näkyvä sivu, joka on tarkastettu',
+	'validationstatistics-latest' => 'Sivu, jonka uusin versio on tarkastettu',
 	'validationstatistics-old' => 'Vanhentunut',
 	'validationstatistics-utable' => 'Alla on lista viidestä ahkerimmasta arvioijasta edellisen tunnin aikana.',
 	'validationstatistics-user' => 'Käyttäjä',
@@ -1688,12 +1689,26 @@ $messages['th'] = array(
  */
 $messages['tk'] = array(
 	'validationstatistics' => 'Barlama statistikalary',
+	'validationstatistics-users' => "'''{{SITENAME}}''' saýtynda häzirki wagtda [[{{MediaWiki:Validationpage}}|Redaktor]] hukugyna eýe '''[[Special:ListUsers/editor|$1]]''' sany {{PLURAL:$1|ulanyjy|ulanyjy}} hem-de [[{{MediaWiki:Validationpage}}|Gözden geçiriji]] hukugyna eýe '''[[Special:ListUsers/reviewer|$2]]''' sany {{PLURAL:$2|ulanyjy|ulanyjy}} bardyr.
+
+Redaktorlar we Gözden Geçirijiler sahypalara barlag wersiýasyny belläp bilýän kesgitli ulanyjylardyr.",
+	'validationstatistics-time' => "''Aşakdaky maglumat soňky gezek $6, $5  senesinde täzelenipdir.''
+
+Bellenilen ulanyjylar tarapyndan barlanylan özgerdişler gözden geçirilen diýlip hasap edilýär.
+
+''Sessiýa açmadyk ulanyjylar'' tarapyndan edilen gözden geçirilmeli özgerdişler üçin ortaça garaşmak möhleti '''$1'''; mediana '''$3'''.
+$4
+[[Special:OldReviewedPages|Gözden geçirilmedik özgerdişi bar sahypalar]] üçin ortaça gijikmä '''$2'''.
+Bu sahypalar ''möwriti geçen'' hasaplanýar. Edil şonuň ýaly hem, eger [[{{MediaWiki:Validationpage}}|durnukly wersiýa]] şol bir wagtyň özünde häzirki garalama wersiýa bolsa, onda sahypa ''sinhronizirlenen'' hasap edilýär.
+Durnukly wersiýalar sahypalaryň iň bolmanda bir sany kesgitli ulanyjy tarapyndan tassyklanylan wersiýalarydyr.",
+	'validationstatistics-table' => "Her bir at giňişligi üçin statistikalar aşakda görkezilýär, gönükdirme sahypalary ''degişli däl''.",
 	'validationstatistics-ns' => 'At giňişligi',
 	'validationstatistics-total' => 'Sahypalar',
 	'validationstatistics-stable' => 'Gözden geçirilen',
 	'validationstatistics-latest' => 'Sinhronizirlenen',
 	'validationstatistics-synced' => 'Sinhronizirlenen/Gözden geçirilen',
 	'validationstatistics-old' => 'Möwriti geçen',
+	'validationstatistics-utable' => 'Aşakdaky sanaw soňky bir sagadyň dowamyndaky iň işjeň 5 gözden geçirijiniň sanawydyr.',
 	'validationstatistics-user' => 'Ulanyjy',
 	'validationstatistics-reviews' => 'Barlaglar',
 );
@@ -1752,22 +1767,22 @@ Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontr
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'validationstatistics' => 'Статистика перевірок',
 	'validationstatistics-users' => "У проекті {{SITENAME}} зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]] і '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«рецензент»]].
 
 «Редактори» і «рецензенти» — користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
-	'validationstatistics-time' => "''Нижченаведені дані взяті з кешу і можуть бути застарілими.''
+	'validationstatistics-time' => "''Нижченаведені дані востаннє оновлювались $5 о $6.''
 
-Редагування, позначені спеціальними користувачами, вважаються перевіреними.
+Редагування, позначені визначеними користувачами, вважаються перевіреними.
 
-Середнє очікування редагувань від ''незареєстрованих користувачів'' рівне '''$1'''; медіана рівна '''$3'''.
+Середнє очікування перевірки редагувань ''незареєстрованих користувачів'' '''$1'''; серединне значення '''$3'''.
 $4
-Середня затримка для [[Special:OldReviewedPages|сторінок з непереглянутими редагуваннями]] рівна '''$2'''.
-Ці сторінки вважаються ''застарілими''. Так само, сторінка вважається ''синхронізованою'', якщо її
-поточна версія є [[{{MediaWiki:Validationpage}}|стабільною]].
-Стабільні версії — версії, перевірені принаймні одним користувачем.",
+Середня затримка для [[Special:OldReviewedPages|сторінок з непереглянутими редагуваннями]] дорівнює '''$2'''.
+Ці сторінки вважаються ''застарілими''. Так само сторінки вважаються ''синхронізованими'', якщо їх поточна чорнова версія водночас є [[{{MediaWiki:Validationpage}}|стабільною]].
+Стабільна версія сторінки — найновіша версія, затверджена для показу за замовчуванням усім читачам.",
 	'validationstatistics-table' => "Статистика для кожного простору назв показана нижче. ''Перенаправлення'' не враховані.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',

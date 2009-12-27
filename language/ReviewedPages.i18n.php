@@ -271,7 +271,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'reviewedpages' => 'Kontrolitaj paĝoj',
-	'reviewedpages-leg' => 'Montri paĝojn laŭ plej alta nivelo',
+	'reviewedpages-leg' => 'Montri paĝojn laŭ plej alta kontrolnivelo',
 	'reviewedpages-list' => 'Ĉi tiu paĝo montras paĝojn kontrolitajn (maksimume) al la petita nivelo.',
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'reviewedpages-lev-0' => 'Reviziita',
@@ -1075,6 +1075,16 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-best' => 'нусхаи беҳтарин',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'reviewedpages' => 'Sahifahoi barrasī naşuda',
+	'reviewedpages-none' => 'Sahifahoe dar in fehrist nest',
+	'reviewedpages-all' => 'nusxahoi barrasī şuda',
+	'reviewedpages-best' => 'nusxai behtarin',
+);
+
 /** Turkmen (Türkmençe)
  * @author Hanberke
  */
@@ -1121,11 +1131,12 @@ $messages['tr'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'reviewedpages' => 'Перевірені сторінки',
-	'reviewedpages-leg' => 'Список сторінок, що отримали певну оцінку',
-	'reviewedpages-list' => 'Такі сторінки були перевірені і оцінені на зазначений рівень',
+	'reviewedpages-leg' => 'Список сторінок з найвищим рівнем оцінки',
+	'reviewedpages-list' => 'Список сторінок, що були перевірені і оцінені на зазначений рівень',
 	'reviewedpages-none' => 'У цьому списку відсутні сторінки',
 	'reviewedpages-lev-0' => 'Переглянута',
 	'reviewedpages-lev-1' => 'Якісна',

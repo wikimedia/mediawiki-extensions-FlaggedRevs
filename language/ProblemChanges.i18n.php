@@ -147,7 +147,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'problemchanges' => 'Kontroli markitajn ŝanĝojn',
-	'problemchanges-legend' => 'Listigi kontrolitajn paĝojn kun markitaj kaj kontrolendaj redaktoj',
+	'problemchanges-legend' => 'Listigi paĝojn kun markitaj kaj kontrolendaj redaktoj',
 	'problemchanges-none' => 'Estas nune neniuj paĝoj kongruante ĉi tiun kriterion',
 	'problemchanges-category' => 'Kategorio:',
 );
@@ -557,6 +557,8 @@ $messages['te'] = array(
  */
 $messages['tk'] = array(
 	'problemchanges' => 'Tegli üýtgeşmeleri gözden geçir',
+	'problemchanges-legend' => 'Tegli özgerdişleri gözden geçirmeklige garaşýan sahypalary sanawla',
+	'problemchanges-none' => 'Häzirki wagtda hiç bir sahypa bu şertlere gabat gelmeýär',
 	'problemchanges-category' => 'Kategoriýa:',
 );
 
@@ -571,9 +573,13 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (Українська)
+ * @author NickK
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
+	'problemchanges' => 'Перегляд відмічених змін',
+	'problemchanges-legend' => 'Список сторінок із відзначеними редагуваннями в очікуванні перевірки',
+	'problemchanges-none' => 'Наразі немає сторінок, які відповідають цим критеріям',
 	'problemchanges-category' => 'Категорія:',
 );
 
@@ -607,9 +613,11 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Jimmy xu wrk
  */
 $messages['zh-hans'] = array(
 	'problemchanges-none' => '目前没有页面符合这些条件',
+	'problemchanges-category' => '分类:',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
@@ -617,5 +625,6 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'problemchanges-none' => '目前沒有頁面符合這些條件',
+	'problemchanges-category' => '分類:',
 );
 

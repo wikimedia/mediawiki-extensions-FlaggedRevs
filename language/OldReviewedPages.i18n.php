@@ -1414,6 +1414,10 @@ $messages['tet'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'oldreviewedpages' => 'Möwriti geçen gözden geçirilen sahypalar',
+	'oldreviewedpages-legend' => 'Gözden geçirmeklige garaşýan wersiýalary bar bolan gözden geçirilen sahypalary sanawla',
+	'oldreviewedpages-list' => 'Bu sahypa garaşýan özgerdişleri bar bolan gözden geçirilen {{PLURAL:$1|bir sahypany|sahypalary}} sanawlaýar.',
+	'oldreviewedpages-none' => 'Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sagat|sagat}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'oldreviewedpages-recent' => '(1 sagatdan az)',
@@ -1474,17 +1478,20 @@ $messages['tr'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author NickK
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'oldreviewedpages' => 'Застарілі перевірені сторінки',
 	'oldreviewedpages-legend' => 'Список перевірених сторінок з неперевіреними версіями',
-	'oldreviewedpages-list' => 'На цій сторінці перераховані перевірені сторінки, які в подальшому редагувались',
+	'oldreviewedpages-list' => 'На цій сторінці {{PLURAL:$1|зазначена перевірена сторінка, яка в подальшому редагувались|зазначені перевірені сторінки, які в подальшому редагувались}}',
 	'oldreviewedpages-none' => 'Зараз нема сторінок, що задовольняють цим умовам',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|година|години|годин}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дні|днів}})',
 	'oldreviewedpages-recent' => '(менше 1 години)',
 	'oldreviewed-category' => 'Категорія:',
 	'oldreviewed-watched' => 'З мого списку спостереження',
+	'oldreviewed-stable' => 'Стабілізовані',
 	'oldreviewed-diff' => 'перевірити',
 	'oldreviewed-size' => 'Максимальна зміна розміру в байтах:',
 	'oldreviewedpages-unwatched' => '(не спостерігають)',
@@ -1585,6 +1592,8 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
  * @author Gzdavidwong
+ * @author Jimmy xu wrk
+ * @author Liangent
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
@@ -1597,10 +1606,11 @@ $messages['zh-hans'] = array(
 	'oldreviewedpages-recent' => '（少于1小时）',
 	'oldreviewed-category' => '分类:',
 	'oldreviewed-watched' => '在我的监视列表上',
+	'oldreviewed-stable' => '稳定的',
 	'oldreviewed-diff' => '复审',
 	'oldreviewed-size' => '最大变更（字节）：',
 	'oldreviewedpages-unwatched' => '（未看）',
-	'oldreviewedpages-watched' => '（在 $1 位{{PLURAL:$1|用户|用户}}监视列表中）',
+	'oldreviewedpages-watched' => '（在$1位活跃用户的监视列表中）',
 	'oldreviewedpages-viewing' => '（等待审核）',
 );
 
@@ -1620,10 +1630,11 @@ $messages['zh-hant'] = array(
 	'oldreviewedpages-recent' => '（少於1小時）',
 	'oldreviewed-category' => '分類:',
 	'oldreviewed-watched' => '在我的監視列表上',
+	'oldreviewed-stable' => '穩定的',
 	'oldreviewed-diff' => '複審',
 	'oldreviewed-size' => '最大變動（位元組）：',
 	'oldreviewedpages-unwatched' => '（未看）',
-	'oldreviewedpages-watched' => '（$1{{PLURAL:$1|位用戶|位用戶}}正在看）',
+	'oldreviewedpages-watched' => '（在$1位活躍用戶的監視列表中）',
 	'oldreviewedpages-viewing' => '（等待審核）',
 );
 

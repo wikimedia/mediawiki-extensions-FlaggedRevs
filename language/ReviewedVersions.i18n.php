@@ -996,6 +996,18 @@ $messages['tg-cyrl'] = array(
 	'reviewedversions-review' => 'Дар <i>$1</i> аз тарафи $2 барраси шудааст',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'reviewedversions' => 'Nigaristani nusxahoi pojdor',
+	'reviewedversions-leg1' => 'Fehrist kardani nusxahoi barrasişudai jak sahifa',
+	'reviewedversions-page' => 'Nomi sahifa:',
+	'reviewedversions-none' => '"[[:$1]]" heç nusxai barrasişudae nadorad.',
+	'reviewedversions-list' => 'Dar zer fehristi az nusxahoi barrasişuda az [[:$1]]ro mebined:',
+	'reviewedversions-review' => 'Dar <i>$1</i> az tarafi $2 barrasi şudaast',
+);
+
 /** Thai (ไทย)
  * @author Passawuth
  */
@@ -1121,23 +1133,26 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Liangent
  */
 $messages['zh-hans'] = array(
 	'reviewedversions' => '稳定版',
 	'reviewedversions-leg1' => '列示一版已复审的修订',
 	'reviewedversions-page' => '页面名',
 	'reviewedversions-none' => '[[:$1]]没有已复审过的修订。',
-	'reviewedversions-list' => '以下是[[:$1]]{{PLURAL:$2|已|已}} 复审的{{PLURAL:$2|修订|修订}}列表:',
-	'reviewedversions-review' => '由 $2 于 <i>$1</i> 进行了复审',
+	'reviewedversions-list' => '以下是[[:$1]]已复审的修订列表：',
+	'reviewedversions-review' => '由$2于<i>$1</i>进行了复审',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Liangent
+ */
 $messages['zh-hant'] = array(
 	'reviewedversions' => '穩定版',
 	'reviewedversions-leg1' => '列示一版已複審的修訂',
 	'reviewedversions-page' => '頁面名',
 	'reviewedversions-none' => '[[:$1]]沒有已複審過的修訂。',
-	'reviewedversions-list' => '以下是[[:$1]]已複審的修訂一覽:',
-	'reviewedversions-review' => '於<i>$1</i>複審',
+	'reviewedversions-list' => '以下是[[:$1]]已複審的修訂列表：',
+	'reviewedversions-review' => '由$2於<i>$1</i>進行了複審',
 );
 

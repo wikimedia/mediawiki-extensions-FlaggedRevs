@@ -77,6 +77,7 @@ $messages['be-tarask'] = array(
  * @author Turin
  */
 $messages['bg'] = array(
+	'unstablepages' => 'Неустойчиви страници',
 	'unstablepages-stable' => 'устойчива версия',
 	'unstablepages-none' => 'Няма страници в този списък',
 	'unstablepages-config' => 'Настройка',
