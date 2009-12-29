@@ -604,12 +604,13 @@ $messages['sk'] = array(
 
 /** Lower Silesian (Schläsch)
  * @author Jonny84
+ * @author Schläsinger
  */
 $messages['sli'] = array(
-	'unstablepages' => 'Unstabile Seiten',
+	'unstablepages' => 'Unstabile Seyta',
 	'unstablepages-stable' => 'Stabile Version',
 	'unstablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit die Entwurfsversion als Standardinhalt für Leser angezeigt wird.',
-	'unstablepages-none' => 'De Liste ies leer.',
+	'unstablepages-none' => 'De Liste ies laar.',
 	'unstablepages-config' => 'Konfiguration',
 );
 

@@ -57,9 +57,16 @@ $messages['qqq'] = array(
 
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
+ * @author Naudefj
  */
 $messages['af'] = array(
 	'unreviewed-category' => 'Kategorie:',
+	'unreviewed-unwatched' => '(op geen dophoulys nie)',
+	'unreviewed-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
+	'unreviewed-none' => 'Daar is tans geen bladsye wat aan die kriteria voldoen nie',
+	'unreviewed-hours' => '({{PLURAL:$1|een uur|$1 ure}})',
+	'unreviewed-days' => '({{PLURAL:$1|een dag|$1 dae}})',
+	'unreviewed-recent' => '(minder as 1 uur)',
 );
 
 /** Amharic (አማርኛ)
@@ -270,7 +277,7 @@ $messages['cs'] = array(
 	'unreviewed-diff' => 'kontrola',
 	'unreviewed-unwatched' => '(nesledované)',
 	'unreviewed-watched' => '({{PLURAL:$1|sleduje|sledují|sleduje}} $1 {{PLURAL:$1|aktivní uživatel|aktivní uživatelé|aktivních uživatelů}})',
-	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny nebo mají nové, neposouzené, verze.',
+	'unreviewed-list' => 'Tato stránka obsahuje články, které nebyly posouzeny do určené úrovně.',
 	'unreviewed-none' => 'Momentálně neexistují žádné stránky splňující tato kritéria.',
 	'unreviewed-viewing' => '(kontroluje se)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodin}})',
@@ -412,6 +419,13 @@ $messages['es'] = array(
 	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|día|días}})',
 	'unreviewed-recent' => '(menos de 1 hora)',
+);
+
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'unreviewed-category' => 'Kategooria:',
 );
 
 /** Basque (Euskara)

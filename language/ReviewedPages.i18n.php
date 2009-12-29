@@ -43,6 +43,7 @@ Parameter $1 is the number of reviewed pages for use with PLURAL.',
  */
 $messages['af'] = array(
 	'reviewedpages-lev-2' => 'Uitgelig',
+	'reviewedpages-best' => 'beste weergawe',
 );
 
 /** Aragonese (Aragonés)
@@ -195,11 +196,12 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Li-sung
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'reviewedpages' => 'Posouzené stránky',
-	'reviewedpages-leg' => 'Seznam stránek posouzených s určitým celkovým hodnocením',
-	'reviewedpages-list' => 'Následující stránky byly posouzeny na určenou úroveň',
+	'reviewedpages-leg' => 'Seznam stránek podle nejvyšší úrovně posouzení',
+	'reviewedpages-list' => 'Tato stránka obsahuje seznam článků, které byly posouzeny (nejvíce) na určitou úroveň.',
 	'reviewedpages-none' => 'Žádná stránka neodpovídá',
 	'reviewedpages-lev-0' => 'prohlédnuté',
 	'reviewedpages-lev-1' => 'kvalitní',
@@ -209,11 +211,12 @@ $messages['cs'] = array(
 );
 
 /** German (Deutsch)
+ * @author Imre
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'reviewedpages' => 'Liste der gesichteten Seiten',
-	'reviewedpages-leg' => 'Liste der Seiten mit höchstem Level',
+	'reviewedpages-leg' => 'Seiten nach Prüfungsstufe auflisten',
 	'reviewedpages-list' => 'Diese Spezialseite zeigt Seiten, die bisher mit dem angegebenem Level als höchstes markiert wurden.',
 	'reviewedpages-none' => 'Die Liste ist leer.',
 	'reviewedpages-lev-0' => 'Gesichtet',
@@ -224,11 +227,12 @@ $messages['de'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
 	'reviewedpages' => 'Pelanê ke kontrol biyo',
-	'reviewedpages-leg' => 'Pelanê ke tewr berzo înan ra yew liste viraz',
+	'reviewedpages-leg' => 'Pelanê tewr zêdevêniyanan lista ke',
 	'reviewedpages-list' => 'Ena Pel de pelanê kontrol biyo (tewr berz) înan ra yew liste viraziyo.',
 	'reviewedpages-none' => 'Ena liste de pelan çini yo',
 	'reviewedpages-all' => 'versiyonan ke kontrol biyo',
@@ -824,7 +828,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'reviewedpages' => 'Przejrzane strony',
-	'reviewedpages-leg' => 'Lista stron posortowana wg jakości',
+	'reviewedpages-leg' => 'Lista stron posortowana według jakości',
 	'reviewedpages-list' => 'Poniższa strona zawiera {{PLURAL:$1|artykuł, który został oznaczony|listę artykułów, które zostały oznaczone (w większości)}} uzyskując określony status.',
 	'reviewedpages-none' => 'Brak stron na tej liście',
 	'reviewedpages-lev-0' => 'Przejrzane',

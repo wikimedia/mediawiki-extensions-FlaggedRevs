@@ -198,13 +198,14 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Li-sung
+ * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'reviewedversions' => 'Zobrazit stabilní verze',
 	'reviewedversions-leg1' => 'Přehled posouzených verzí stránky',
 	'reviewedversions-page' => 'Jméno stránky',
 	'reviewedversions-none' => '[[:$1]] nemá žádné posouzené verze.',
-	'reviewedversions-list' => 'Toto je seznam verzí stránky [[:$1]], které byly posouzeny:',
+	'reviewedversions-list' => 'Toto je seznam {{PLURAL:$2|jediné revize|revizí}} stránky [[:$1]], {{PLURAL:$2|která nebyla|které nebyly}} posouzeny:',
 	'reviewedversions-review' => 'Posouzeno <i>$1</i> uživatelem $2',
 );
 
@@ -216,6 +217,7 @@ $messages['cu'] = array(
 );
 
 /** German (Deutsch)
+ * @author Imre
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -224,7 +226,7 @@ $messages['de'] = array(
 	'reviewedversions-page' => 'Seitenname:',
 	'reviewedversions-none' => '„[[:$1]]“ hat keine markierten Versionen.',
 	'reviewedversions-list' => 'Dies ist die Liste der {{PLURAL:$2|einzigen Version|Versionen}} von [[:$1]], die markiert {{PLURAL:$2|wurde|wurden}}:',
-	'reviewedversions-review' => 'markiert am <i>$3, $4 Uhr</i> durch $2',
+	'reviewedversions-review' => 'Geprüft am <i>$1</i> durch $2',
 );
 
 /** Zazaki (Zazaki)
@@ -288,6 +290,13 @@ $messages['es'] = array(
 	'reviewedversions-none' => '"[[:$1]]" no tiene revisiones verificadas.',
 	'reviewedversions-list' => 'La siguiente es una lista de {{PLURAL:$2|la única revisión|revisiones}} de [[:$1]] que {{PLURAL:$2|ha|han}} sido verificadas:',
 	'reviewedversions-review' => 'Revisada en <i>$1</i> por $2',
+);
+
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'reviewedversions-page' => 'Lehekülje nimi:',
 );
 
 /** Basque (Euskara)

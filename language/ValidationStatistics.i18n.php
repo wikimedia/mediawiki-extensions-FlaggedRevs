@@ -192,10 +192,12 @@ $4
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Turin
  */
 $messages['bg'] = array(
 	'validationstatistics-ns' => 'Именно пространство',
 	'validationstatistics-total' => 'Страници',
+	'validationstatistics-stable' => 'Рецензирани',
 	'validationstatistics-user' => 'Потребител',
 );
 
@@ -1399,10 +1401,10 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'validationstatistics' => 'Estatísticas de validações',
-	'validationstatistics-users' => "A '''{{SITENAME}}''' possui, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] 
-e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Crítico]].
+	'validationstatistics-users' => "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] 
+e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Revisor]].
 
-Editores e Críticos são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
+Editores e Revisores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
 	'validationstatistics-time' => "''Os seguintes dados foram atualizados pela última vez a $5 às $6.''
 
 Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.

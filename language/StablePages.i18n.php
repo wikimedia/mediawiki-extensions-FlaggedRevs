@@ -45,7 +45,12 @@ $messages['qqq'] = array(
 $messages['af'] = array(
 	'stablepages' => 'Stabiele bladsye',
 	'stablepages-stable' => 'stabiele weergawe',
+	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie',
 	'stablepages-config' => 'Voorkeure',
+	'stablepages-prec-none' => 'geen voorrang',
+	'stablepages-prec-quality' => 'voorrang kwaliteit',
+	'stablepages-prec-pristine' => 'voorrang ongerep',
+	'stablepages-precedence' => 'Volgorde:',
 );
 
 /** Aragonese (Aragonés)

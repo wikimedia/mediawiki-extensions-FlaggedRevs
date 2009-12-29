@@ -134,9 +134,13 @@ $3 is the corresponding time in the wiki's content language.
  * @author Naudefj
  */
 $messages['af'] = array(
+	'stabilization' => 'Bladsy-stabilisasie',
 	'stabilization-page' => 'Bladsynaam:',
 	'stabilization-def2' => 'Die huidige/werkweergawe',
+	'stabilization-restrict-none' => 'Geen addisionele beperkinge',
 	'stabilization-submit' => 'Bevestig',
+	'stabilization-notexists' => 'Daar is geen bladsy genaamd "[[:$1|$1]]" nie.
+Geen konfigurasie is moontlik nie.',
 	'stabilization-comment' => 'Rede:',
 	'stabilization-otherreason' => 'Ander rede:',
 	'stabilization-expiry' => 'Verval:',
@@ -428,7 +432,7 @@ $messages['be-tarask'] = array(
 $messages['bg'] = array(
 	'stabilization' => 'Устойчивост на страницата',
 	'stabilization-page' => 'Име на страницата:',
-	'stabilization-leg' => 'Настройка на устойчивата версия на страницата',
+	'stabilization-leg' => 'Потвърждение на настройките за устойчива версия',
 	'stabilization-select1' => 'Последната качествена версия; ако няма такава, тогава последната прегледана',
 	'stabilization-select2' => 'Последната рецензирана версия',
 	'stabilization-def1' => 'Устойчивата версия; ако няма такава, тогава текущата',
@@ -482,8 +486,11 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'stabilization-page' => 'Anv ar bajenn :',
+	'stabilization-leg' => 'Kadarnaat an arventennañ evit ar stumm stabil',
 	'stabilization-def1' => "Ar stumm stabil ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhoñs",
 	'stabilization-def2' => 'Ar stumm red pe ar brouilh',
+	'stabilization-restrict' => 'Strishadurioù adweladennoù emgefre',
+	'stabilization-restrict-none' => 'Strishadurioù ouzhpenn ebet',
 	'stabilization-submit' => 'Kadarnaat',
 	'stabilization-notexists' => 'N\'eus pajenn ebet anvet "[[:$1|$1]]".
 N\'haller ket kefluniañ netra.',
@@ -500,6 +507,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-def-short-0' => 'Red',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Direizh eo an deiziad termen.',
+	'stabilize_expiry_old' => 'Tremenet eo dija an amzer termen-se.',
 	'stabilize-expiring' => "Termenet d'an $1 (UTC)",
 	'stabilization-review' => 'Adwelet ar stumm red',
 );
@@ -582,11 +590,13 @@ No és possible fer cap configuració.',
 $messages['cs'] = array(
 	'stabilization-tab' => 'stabilizace',
 	'stabilization' => 'Stabilizace stránky',
-	'stabilization-text' => "'''Změňte nastavení, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.'''",
+	'stabilization-text' => "'''Změňte nastavení níže pro přizpůsobení toho, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.'''
+
+Při změně nastavení ''přednost výběru stabilní verze'', aby se standardně používaly „kvalitní“ nebo „čisté“ revize se ujistěte, že skutečně existuje taková revize stránky, jinak se nastavení neprojeví.",
 	'stabilization-perm' => 'Tento účet nemá povoleno měnit nastavení stabilní verze. Níže je současné nastavení stránky [[:$1|$1]]:',
 	'stabilization-page' => 'Jméno stránky:',
 	'stabilization-leg' => 'Potvrdit nastavení stabilní verze',
-	'stabilization-select' => 'Výběr stabilní verze',
+	'stabilization-select' => 'Přednost výběru stabilní verze',
 	'stabilization-select1' => 'Poslední kvalitní verze; pokud není k dispozici pak poslední prohlédnutá',
 	'stabilization-select2' => 'Poslední posouzená verze (bez ohledu na úroveň oveření)',
 	'stabilization-select3' => 'Poslední čistá revize; pokud neexistuje, nejnovější kvalitní nebo prověřená',
@@ -913,10 +923,21 @@ La configuración no es posible.',
 );
 
 /** Estonian (Eesti)
+ * @author Avjoska
  * @author KalmerE.
  */
 $messages['et'] = array(
 	'stabilization-submit' => 'Kinnita',
+	'stabilization-comment' => 'Põhjus:',
+	'stabilization-otherreason' => 'Muu põhjus:',
+	'stabilization-expiry' => 'Aegub:',
+	'stabilization-othertime' => 'Muu aeg:',
+	'stabilization-sel-short' => 'Tähtsus',
+	'stabilization-sel-short-0' => 'Kvaliteet',
+	'stabilization-sel-short-2' => 'Algne',
+	'stabilization-def-short-0' => 'Praegune',
+	'stabilization-def-short-1' => 'Stabiilne',
+	'stabilize_expiry_invalid' => 'Vigane aegumistähtaeg.',
 );
 
 /** Basque (Euskara)
@@ -1007,6 +1028,7 @@ Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
 	'stabilization-comment' => 'Syy:',
 	'stabilization-otherreason' => 'Muu syy',
 	'stabilization-expiry' => 'Vanhenee:',
+	'stabilization-othertime' => 'Muu aika',
 	'stabilization-sel-short-0' => 'Laatu',
 	'stabilization-sel-short-1' => 'Ei mitään',
 	'stabilization-def-short' => 'Oletus',
@@ -3155,7 +3177,9 @@ $messages['th'] = array(
 $messages['tk'] = array(
 	'stabilization-page' => 'Sahypa ady:',
 	'stabilization-select' => 'Durnukly wersiýa saýlama öňürtiligi',
+	'stabilization-select1' => 'Iň täze ýokary hilli wersiýa; eger ýok bolsa iň täze äňedilen wersiýa',
 	'stabilization-select2' => 'Iň soňky gözden geçirilen wersiýa (barlama derejesine seretmezden)',
+	'stabilization-select3' => 'Iň täze başky wersiýa; eger ýok bolsa iň täze ýokary hillisi; eger ol hem ýok bolsa iň täze äňedilen wersiýa',
 	'stabilization-def2' => 'Häzirki/garalama wersiýa',
 	'stabilization-restrict' => 'Awto gözden geçirme çäklendirmeleri',
 	'stabilization-restrict-none' => 'Başga goşmaça çäklendirme ýok',
@@ -3287,7 +3311,7 @@ $messages['uk'] = array(
 	'stabilization' => 'Стабілізація сторінки',
 	'stabilization-text' => "'''Змініть наведені нижче налаштування, щоб змінити вибір і відображення стабільної версії [[:$1|$1]].'''
 
-Під час встановлення параметру ''вибір стабільної версії'' у значення «якісна» або «чиста» версія за замовчуванням,
+Під час встановлення параметра ''Порядок вибору стабільної версії'' у значення «якісна» або «чиста» версія за замовчуванням,
 переконайтеся, що фактично є такі версії сторінки, інакше налаштування не матимуть ефекту.",
 	'stabilization-perm' => 'Вашому обліковому запису не вистачає прав, щоб змінювати налаштування показу стабільної версії.
 Тут наведені поточні налаштування для [[:$1|$1]]:',

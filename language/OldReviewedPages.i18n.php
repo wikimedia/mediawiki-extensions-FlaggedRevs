@@ -86,6 +86,9 @@ $messages['af'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dae}})',
 	'oldreviewedpages-recent' => '(minder as een uur)',
 	'oldreviewed-category' => 'Kategorie:',
+	'oldreviewed-watched' => 'Op my dophoulys',
+	'oldreviewed-stable' => 'Stabiele weergawe',
+	'oldreviewedpages-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
 );
 
 /** Amharic (አማርኛ)
@@ -239,6 +242,7 @@ $messages['bg'] = array(
 	'oldreviewedpages-recent' => '(по-малко от 1 час)',
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-watched' => 'В списъка ми за наблюдение',
+	'oldreviewed-size' => 'Макс. промяна (в байтове):',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
 );
 
@@ -547,6 +551,7 @@ $messages['fr'] = array(
 $messages['frp'] = array(
 	'oldreviewedpages' => 'Pâges que les rèvisions sont dèpassâs.',
 	'oldreviewedpages-legend' => 'Listar les pâges revues avouéc des vèrsions a revêre',
+	'oldreviewedpages-list' => 'Ceta pâge liste {{PLURAL:$1|una pâge ja revua qu’at|des pâges ja revues qu’ont}} de novéls changements.',
 	'oldreviewedpages-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'oldreviewedpages-hours' => '($1 hor{{PLURAL:$1|a|es}})',
 	'oldreviewedpages-days' => '($1 jorn{{PLURAL:$1||s}})',
@@ -1305,7 +1310,11 @@ $messages['sah'] = array(
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-watched' => 'Мин кэтиир сирэйдэрбиттэн',
 	'oldreviewed-stable' => 'Бигэргэтиллибит',
+	'oldreviewed-diff' => 'тургутарга',
+	'oldreviewed-size' => 'Саамай ыйааһыннаах уларытыы (баайтынан):',
 	'oldreviewedpages-unwatched' => '(кэтээбэттэр)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|соҕотох көхтөөх|көхтөөх}} кыттааччы кэтиир)',
+	'oldreviewedpages-viewing' => '(тургутулла тураллар)',
 );
 
 /** Slovak (Slovenčina)
