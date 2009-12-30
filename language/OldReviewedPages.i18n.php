@@ -243,7 +243,8 @@ $messages['bg'] = array(
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-watched' => 'В списъка ми за наблюдение',
 	'oldreviewed-size' => 'Макс. промяна (в байтове):',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|наблюдаващ потребител|наблюдаващи потребители}})',
+	'oldreviewedpages-unwatched' => '(ненаблюдавано)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})',
 );
 
 /** Breton (Brezhoneg)
@@ -469,6 +470,8 @@ $messages['et'] = array(
 	'oldreviewedpages-recent' => '(alla 1 tunni)',
 	'oldreviewed-category' => 'Kategooria:',
 	'oldreviewed-watched' => 'Minu jälgimisloendis',
+	'oldreviewed-diff' => 'arvusta',
+	'oldreviewedpages-viewing' => '(arvustamisel)',
 );
 
 /** Basque (Euskara)
@@ -500,23 +503,29 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  * @author Huji
  * @author Jaakonam
  * @author Mobe
  * @author Nike
+ * @author ZeiP
  */
 $messages['fi'] = array(
 	'oldreviewedpages' => 'Vanhentuneet tarkastetut sivut',
 	'oldreviewedpages-legend' => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita.',
-	'oldreviewedpages-list' => 'Luettelo tarkastetuista sivuista, joihin on vielä odotettavissa muokkauksia.',
+	'oldreviewedpages-list' => 'Tämä sivu listaa {{PLURAL:$1|tarkistetun sivun|tarkistetut sivut}}, joilla on odottavia muokkauksia.',
 	'oldreviewedpages-none' => 'Ehdot täyttäviä sivuja ei ole',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|päivä|päivää}})',
 	'oldreviewedpages-recent' => '(alle 1 tunti)',
 	'oldreviewed-category' => 'Luokka:',
 	'oldreviewed-watched' => 'Tarkkailulistallani',
+	'oldreviewed-stable' => 'Vakaa',
+	'oldreviewed-diff' => 'arvioi',
+	'oldreviewed-size' => 'Enimmäismuutos (tavua):',
 	'oldreviewedpages-unwatched' => '(tarkkailematon)',
 	'oldreviewedpages-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
+	'oldreviewedpages-viewing' => '(arvioitavana)',
 );
 
 /** French (Français)

@@ -176,6 +176,14 @@ $messages['fa'] = array(
 	'qualityoversight-legend' => 'جستجوی سیاهه‌های بازبینی اخیر',
 );
 
+/** Finnish (Suomi)
+ * @author ZeiP
+ */
+$messages['fi'] = array(
+	'qualityoversight-list' => 'Tämä sivu listaa versioiden tuoreimmat hyväksynnät ja vanhenemiset.',
+	'qualityoversight-legend' => 'Hae tuoreista arviointilokeista',
+);
+
 /** French (Français)
  * @author Grondin
  * @author Verdy p

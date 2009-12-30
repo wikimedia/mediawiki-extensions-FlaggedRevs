@@ -436,7 +436,7 @@ $messages['bg'] = array(
 	'stabilization-select1' => 'Последната качествена версия; ако няма такава, тогава последната прегледана',
 	'stabilization-select2' => 'Последната рецензирана версия',
 	'stabilization-def1' => 'Устойчивата версия; ако няма такава, тогава текущата',
-	'stabilization-def2' => 'Текущата версия',
+	'stabilization-def2' => 'Текущата версия или чернова',
 	'stabilization-restrict-none' => 'Няма допълнителни ограничения',
 	'stabilization-submit' => 'Потвърждаване',
 	'stabilization-notexists' => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
@@ -485,6 +485,8 @@ $messages['bn'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
+	'stabilization-perm' => "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm stabil.
+Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-page' => 'Anv ar bajenn :',
 	'stabilization-leg' => 'Kadarnaat an arventennañ evit ar stumm stabil',
 	'stabilization-def1' => "Ar stumm stabil ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhoñs",
@@ -925,8 +927,10 @@ La configuración no es posible.',
 /** Estonian (Eesti)
  * @author Avjoska
  * @author KalmerE.
+ * @author Pikne
  */
 $messages['et'] = array(
+	'stabilization-page' => 'Lehekülje nimi:',
 	'stabilization-submit' => 'Kinnita',
 	'stabilization-comment' => 'Põhjus:',
 	'stabilization-otherreason' => 'Muu põhjus:',
@@ -935,9 +939,12 @@ $messages['et'] = array(
 	'stabilization-sel-short' => 'Tähtsus',
 	'stabilization-sel-short-0' => 'Kvaliteet',
 	'stabilization-sel-short-2' => 'Algne',
+	'stabilization-def-short' => 'Vaikimisi',
 	'stabilization-def-short-0' => 'Praegune',
 	'stabilization-def-short-1' => 'Stabiilne',
 	'stabilize_expiry_invalid' => 'Vigane aegumistähtaeg.',
+	'stabilize_expiry_old' => 'See aegumistähtaeg on juba möödunud.',
+	'stabilize-expiring' => 'aegumistähtajaga $1 (UTC)',
 );
 
 /** Basque (Euskara)
@@ -1012,25 +1019,31 @@ $messages['fa'] = array(
  * @author Crt
  * @author Nike
  * @author Str4nd
+ * @author ZeiP
  */
 $messages['fi'] = array(
+	'stabilization-tab' => 'tarkistus',
+	'stabilization' => 'Sivun vakaus',
 	'stabilization-perm' => 'Käyttäjätililläsi ei ole oikeutta muuttaa vakaiden versioiden konfiguraatiota.
 Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi',
 	'stabilization-leg' => 'Vahvista vakaiden versioiden asetukset',
-	'stabilization-select' => 'Vakaan version poiminta',
-	'stabilization-select2' => 'Uusin arvioitu versio',
+	'stabilization-select' => 'Vakaan version valintajärjestys',
+	'stabilization-select1' => 'Uusin laadukas versio; sitten uusin silmäilty',
+	'stabilization-select2' => 'Uusin arvioitu versio (riippumatta tarkistustasosta)',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
-	'stabilization-def1' => 'Vakaa versio; jos sellaista ei ole, ajantasainen versio',
-	'stabilization-def2' => 'Nykyinen versio',
+	'stabilization-def1' => 'Vakaa versio; jos sellaista ei ole, ajantasainen- tai luonnosversio',
+	'stabilization-def2' => 'Luonnos- tai nykyinen versio',
 	'stabilization-restrict-none' => 'Ei lisärajauksia',
 	'stabilization-submit' => 'Vahvista',
 	'stabilization-comment' => 'Syy:',
 	'stabilization-otherreason' => 'Muu syy',
 	'stabilization-expiry' => 'Vanhenee:',
 	'stabilization-othertime' => 'Muu aika',
+	'stabilization-sel-short' => 'Järjestys',
 	'stabilization-sel-short-0' => 'Laatu',
 	'stabilization-sel-short-1' => 'Ei mitään',
+	'stabilization-sel-short-2' => 'Koskematon',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Nykyinen',
 	'stabilization-def-short-1' => 'Vakaa',
@@ -3175,15 +3188,27 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Sahypa durnuklaşdyrma',
+	'stabilization-text' => "'''[[:\$1|\$1]] üçin durnukly wersiýanyň nähili saýlanmalydygyny we görkezilmelidigini sazlamak üçin sazlamalry üýtgediň.'''
+
+Gaýybana \"hil\" ýa-da \"başky\" wersiýalaryny ulanmak üçin ''durnukly wersiýa saýlamak''konfigurasiýasyny üýtgeden mahalyňyz, sahypada şeýle wersiýalaryň bardygyny barlandygyňyza göz ýetiriň, ýogsam üýtgeşmäniň täsiri az bolar.",
+	'stabilization-perm' => 'Hasabyňyzyň durnukly wersiýa konfigurasiýasyny üýtgetmäge rugsady ýok. 
+[[:$1|$1]] üçin häzirki sazlamalar:',
 	'stabilization-page' => 'Sahypa ady:',
+	'stabilization-leg' => 'Durnukly wersiýa sazlamalaryny tassykla',
 	'stabilization-select' => 'Durnukly wersiýa saýlama öňürtiligi',
 	'stabilization-select1' => 'Iň täze ýokary hilli wersiýa; eger ýok bolsa iň täze äňedilen wersiýa',
 	'stabilization-select2' => 'Iň soňky gözden geçirilen wersiýa (barlama derejesine seretmezden)',
 	'stabilization-select3' => 'Iň täze başky wersiýa; eger ýok bolsa iň täze ýokary hillisi; eger ol hem ýok bolsa iň täze äňedilen wersiýa',
+	'stabilization-def' => 'Gaýybana sahypa görkezişinde görkezilýän wersiýa',
+	'stabilization-def1' => 'Durnukly wersiýa; eger ýok bolsa, onda häzirki wersiýa/garalama',
 	'stabilization-def2' => 'Häzirki/garalama wersiýa',
 	'stabilization-restrict' => 'Awto gözden geçirme çäklendirmeleri',
 	'stabilization-restrict-none' => 'Başga goşmaça çäklendirme ýok',
 	'stabilization-submit' => 'Tassykla',
+	'stabilization-notexists' => '"[[:$1|$1]]" atlandyrylýan sahypa ýok.
+Konfigurasiýa mümkin däl.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" sahypasyny gözden geçirip bolmaýar.
 Konfigurirlemek mümkin däl.',
 	'stabilization-comment' => 'Sebäp:',

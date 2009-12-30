@@ -301,6 +301,15 @@ $messages['es'] = array(
 	'reviewedpages-best' => 'revisión de primera',
 );
 
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'reviewedpages' => 'Arvustatud leheküljed',
+	'reviewedpages-none' => 'Siin loendis ei ole lehekülgi',
+	'reviewedpages-all' => 'arvustatud versioonid',
+);
+
 /** Basque (Euskara)
  * @author Kobazulo
  */
@@ -325,9 +334,12 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author ZeiP
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
+	'reviewedpages-leg' => 'Listaa sivut korkeimman arviointitason mukaan',
+	'reviewedpages-list' => 'Tämä sivu listaa sivut jotka on arvioitu (korkeimmalle) annetulla tasolla.',
 	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
 	'reviewedpages-lev-0' => 'Kertaalleen silmäilty',
 	'reviewedpages-lev-2' => 'Suositeltu',
@@ -647,6 +659,9 @@ $messages['ksh'] = array(
 	'reviewedpages-leg' => 'Sigge opleßte noh de hühßte Makeerung',
 	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} nohjekik, se {{PLURAL:$1|sullt dat|sullte dat|sullte et}} aanjejovve Nivo han.',
 	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'nohjekik Versione',
 	'reviewedpages-best' => 'de neuste un aam hühßte enjeshtoof nohjekik Version',
 );
@@ -1097,6 +1112,7 @@ $messages['tk'] = array(
 	'reviewedpages-leg' => 'Sahypalary iň ýokary gözden geçirme derejesine göre sanawla',
 	'reviewedpages-list' => 'Bu sahypa görkezilen derejede (iň ýokary) gözden geçirilen sahypalary sanawlaýar.',
 	'reviewedpages-none' => 'Bu sanawda hiç hili sahypa ýok',
+	'reviewedpages-lev-2' => 'Saýlama',
 	'reviewedpages-all' => 'gözden geçirilen wersiýalar',
 	'reviewedpages-best' => 'iň gowy wersiýa',
 );

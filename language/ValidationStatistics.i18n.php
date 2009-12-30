@@ -500,7 +500,9 @@ $messages['et'] = array(
 	'validationstatistics' => 'Kinnitatud statistika',
 	'validationstatistics-ns' => 'Nimeruum',
 	'validationstatistics-total' => 'Leheküljed',
+	'validationstatistics-stable' => 'Arvustatud',
 	'validationstatistics-user' => 'Kasutaja',
+	'validationstatistics-reviews' => 'Arvustused',
 );
 
 /** Basque (Euskara)
@@ -537,14 +539,26 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
+	'validationstatistics-time' => "''Seuraavat tiedot päivitettiin viimeksi $5 kello $6.''
+
+Vakiintuneiden käyttäjien tarkistamat muutokset katsotaan arvioiduiksi.
+
+Keskiarvoinen viive ''sisäänkirjautumattomien käyttäjien'' muutoksien arvioimiseen on '''$1'''; mediaani on '''$3'''.
+$4
+Keskiarvoinen viive [[Special:OldReviewedPages|sivuille, joilla on arvioimattomia muokkauksia  odottamassa]] on '''$2'''.
+Nämä sivut katsotaan ''vanhentuneiksi''. Vastaavasti, sivut katsotaan ''synkronoiduiksi'' jos 
+[[{{MediaWiki:Validationpage}}|vakaa versio]] on myös uusin luonnosversio.
+Vakaa versio sivusta on uusin versio joka on hyväksytty näytettäväksi oletuksena kaikille lukijoille.",
 	'validationstatistics-table' => "Alla on tilastot kaikille nimiavaruuksille ''lukuun ottamatta'' ohjaussivuja.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',
 	'validationstatistics-latest' => 'Sivu, jonka uusin versio on tarkastettu',
+	'validationstatistics-synced' => 'Synkronoitu/arvioitu',
 	'validationstatistics-old' => 'Vanhentunut',
 	'validationstatistics-utable' => 'Alla on lista viidestä ahkerimmasta arvioijasta edellisen tunnin aikana.',
 	'validationstatistics-user' => 'Käyttäjä',
+	'validationstatistics-reviews' => 'Arviot',
 );
 
 /** French (Français)

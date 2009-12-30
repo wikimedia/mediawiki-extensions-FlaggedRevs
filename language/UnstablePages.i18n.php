@@ -217,11 +217,14 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Crt
  * @author Str4nd
+ * @author ZeiP
  */
 $messages['fi'] = array(
 	'unstablepages' => 'Epävakaat sivut',
 	'unstablepages-stable' => 'vakaa versio',
+	'unstablepages-text' => 'Alla on lista manuaalisesti asetetuista sivuista, joilla luonnosversio on oletussisältö lukijoille.',
 	'unstablepages-none' => 'Tällä listalla ei ole sivuja',
+	'unstablepages-config' => 'Asetukset',
 );
 
 /** French (Français)

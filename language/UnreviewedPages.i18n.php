@@ -191,7 +191,9 @@ $messages['bg'] = array(
 	'unreviewedpages' => 'Нерецензирани страници',
 	'unreviewed-category' => 'Категория:',
 	'unreviewed-diff' => 'Промени',
+	'unreviewed-unwatched' => '(ненаблюдавана)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})',
+	'unreviewed-none' => 'В момента не съществуват страници, отговарящи на дадените изисквания',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|ден|дни}})',
 	'unreviewed-recent' => '(по-малко от час)',
@@ -425,7 +427,11 @@ $messages['es'] = array(
  * @author Avjoska
  */
 $messages['et'] = array(
+	'unreviewedpages' => 'Arvustamata leheküljed',
 	'unreviewed-category' => 'Kategooria:',
+	'unreviewed-diff' => 'arvusta',
+	'unreviewed-viewing' => '(arvustamisel)',
+	'unreviewed-recent' => '(alla 1 tunni)',
 );
 
 /** Basque (Euskara)
@@ -468,16 +474,19 @@ $messages['fa'] = array(
  * @author Jaakonam
  * @author Nike
  * @author Str4nd
+ * @author ZeiP
  */
 $messages['fi'] = array(
 	'right-unreviewedpages' => 'Nähdä [[Special:UnreviewedPages|luettelo arvioimattomista sivuista]]',
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-legend' => 'Luettelo tarkistamattomista sisältösivuista',
 	'unreviewed-category' => 'Luokka',
+	'unreviewed-diff' => 'arvioi',
 	'unreviewed-unwatched' => '(tarkkailematon)',
 	'unreviewed-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
-	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu.',
+	'unreviewed-list' => 'Tämä on lista sivuista, joita ei ole arvioitu tietyllä tasolla.',
 	'unreviewed-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
+	'unreviewed-viewing' => '(arvioitavana)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|päivä|päivää}})',
 	'unreviewed-recent' => '(alle yksi tunti)',
