@@ -118,7 +118,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return array (
 			'start' => array (
-				ApiBase::PARAM_TYPE => 'sring'
+				ApiBase::PARAM_TYPE => 'string'
 			),
 			'end' => array (
 				ApiBase::PARAM_TYPE => 'string'

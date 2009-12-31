@@ -47,6 +47,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages', 'revision' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
+		$useIndex = array( 'flaggedpages' => 'fp_pending_since' );
 		if( $params['filterredir'] == 'redirects' )
 			$this->addWhereFld( 'page_is_redirect', 1 );
 		if( $params['filterredir'] == 'nonredirects' )
@@ -65,6 +66,12 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhere( 'page_namespace = wl_namespace' );
 			$this->addWhere( 'page_title = wl_title' );
 		}
+		if( $params['category'] != '' ) {
+			$this->addTables( 'categorylinks' );
+			$this->addWhere( 'cl_from = fp_page_id' );
+			$this->addWhereFld( 'cl_to', $params['category'] );
+			$useIndex['categorylinks'] = 'cl_from';
+		}
 		$this->addWhereRange(
 			'fp_pending_since',
 			$params['dir'],
@@ -76,10 +83,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		if ( !isset( $params['start'] ) && !isset( $params['end'] ) )
 			$this->addWhere( 'fp_pending_since IS NOT NULL' );
 			
-		$this->addOption(
-			'USE INDEX',
-			array( 'flaggedpages' => 'fp_pending_since' )
-		);
+		$this->addOption( 'USE INDEX', $useIndex );
 
 		if ( is_null( $resultPageSet ) ) {
 			$this->addFields( array (
@@ -170,6 +174,9 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
 			),
+			'category' => array(
+				ApiBase::PARAM_TYPE => 'string'
+			),
 			'filterredir' => array (
 				ApiBase::PARAM_DFLT => 'all',
 				ApiBase::PARAM_TYPE => array( 'redirects', 'nonredirects', 'all' )
@@ -191,6 +198,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'namespace' 	=> 'The namespaces to enumerate.',
 			'filterredir'	=> 'How to filter for redirects.',
 			'maxsize' 		=> 'Maximum character count change size.',
+			'category'      => 'Show pages only in the given category.',
 			'filterwatched' => 'How to filter for pages on your watchlist.',
 			'limit' 		=> 'How many total pages to return.',
 			'dir' 			=> array(

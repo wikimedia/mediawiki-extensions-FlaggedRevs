@@ -379,7 +379,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 				$conds['fpc_override'] = 1;
 			}
 			# Filter by category
-			if( $this->category ) {
+			if( $this->category != '' ) {
 				$tables[] = 'categorylinks';
 				$conds[] = 'cl_from = fpp_page_id';
 				$conds['cl_to'] = $this->category;
