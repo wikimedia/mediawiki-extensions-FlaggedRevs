@@ -143,20 +143,21 @@ $messages['ar'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'oldreviewedpages' => 'صفحات مراجعة قديمة',
-	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
-	'oldreviewedpages-list' => 'هذه الصفحة تعرض {{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}} تعديلات قيد الانتظار.',
+	'oldreviewedpages' => 'صفحات مراجعه قديمة',
+	'oldreviewedpages-legend' => 'عرض الصفحات المراجعه ذات المراجعات غير المراجعة',
+	'oldreviewedpages-list' => 'هذه الصفحه تعرض {{PLURAL:$1||صفحه مراجعه فيها|صفحتين مراجعتين فيهما|صفحات مراجعه فيها}} تعديلات قيد الانتظار.',
 	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعة|ساعة}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|يوم|يوم}})',
-	'oldreviewedpages-recent' => '(أقل من 1 ساعة)',
+	'oldreviewedpages-hours' => '({{PLURAL:$1||ساعه واحد|ساعتان|$1 ساعات|$1 ساعة}})',
+	'oldreviewedpages-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
+	'oldreviewedpages-recent' => '(أقل من ساعة)',
 	'oldreviewed-category' => 'تصنيف:',
-	'oldreviewed-watched' => 'فى ليستة المراقبه بتاعتى',
+	'oldreviewed-watched' => 'على قائمه مراقبتي',
+	'oldreviewed-stable' => 'مستقرة',
 	'oldreviewed-diff' => 'راجع',
-	'oldreviewed-size' => 'تغيير الحد الاقصى لحجم البايت:',
+	'oldreviewed-size' => 'أقصى تغيير (بايت):',
 	'oldreviewedpages-unwatched' => '(غير مراقبة)',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقب)',
-	'oldreviewedpages-viewing' => '(بيتراجع)',
+	'oldreviewedpages-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطين يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})',
+	'oldreviewedpages-viewing' => '(تحت المراجعة)',
 );
 
 /** Asturian (Asturianu)
@@ -465,13 +466,19 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author Avjoska
+ * @author Pikne
  */
 $messages['et'] = array(
+	'oldreviewedpages' => 'Iganenud ülevaadatud leheküljed',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|tund|tundi}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|päev|päeva}})',
 	'oldreviewedpages-recent' => '(alla 1 tunni)',
 	'oldreviewed-category' => 'Kategooria:',
 	'oldreviewed-watched' => 'Minu jälgimisloendis',
-	'oldreviewed-diff' => 'arvusta',
-	'oldreviewedpages-viewing' => '(arvustamisel)',
+	'oldreviewed-diff' => 'vaata üle',
+	'oldreviewedpages-unwatched' => '(jälgimata)',
+	'oldreviewedpages-watched' => '($1 aktiivse {{PLURAL:$1|kasutaja}} jälgitav)',
+	'oldreviewedpages-viewing' => '(ülevaatusel)',
 );
 
 /** Basque (Euskara)

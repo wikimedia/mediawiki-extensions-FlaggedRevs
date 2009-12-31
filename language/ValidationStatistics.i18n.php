@@ -140,7 +140,7 @@ $messages['arz'] = array(
 الانتظار المتوسط للتعديلات بواسطه ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
 $4
 التأخر المتوسط [[Special:OldReviewedPages|للصفحات ذات التعديلات غير المراجعه قيد الانتظار]] هو '''$2'''.
-هذه الصفحات تعتبر ''مخزنه''. وبالمثل، الصفحات تعتبر ''محدثه'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخه المستقره]] هى أيضا نسخه المسوده الحاليه.
+هذه الصفحات تعتبر ''مخزنة''. وبالمثل، الصفحات تعتبر ''محدثة'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخه المستقرة]] هى أيضا نسخه المسوده الحاليه.
 النسخه المستقره لصفحه هى أجدد مراجعه تمت الموافقه عليها للعرض افتراضيا لكل القراء.",
 	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
 	'validationstatistics-ns' => 'النطاق',
@@ -149,6 +149,9 @@ $4
 	'validationstatistics-latest' => 'محدث',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 	'validationstatistics-old' => 'قديمة',
+	'validationstatistics-utable' => 'بالأسفل قائمه بأعلى 5 مراجعين فى الساعه الأخيره.',
+	'validationstatistics-user' => 'المستخدم',
+	'validationstatistics-reviews' => 'مراجعات',
 );
 
 /** Asturian (Asturianu)
@@ -495,14 +498,17 @@ La versión estable de una página es la revisión más nueva que ha sido aproba
 /** Estonian (Eesti)
  * @author Avjoska
  * @author KalmerE.
+ * @author Pikne
  */
 $messages['et'] = array(
-	'validationstatistics' => 'Kinnitatud statistika',
+	'validationstatistics' => 'Ülevaatuse arvandmestik',
 	'validationstatistics-ns' => 'Nimeruum',
-	'validationstatistics-total' => 'Leheküljed',
-	'validationstatistics-stable' => 'Arvustatud',
+	'validationstatistics-total' => 'Lehekülgi',
+	'validationstatistics-stable' => 'Ülevaadatud',
+	'validationstatistics-old' => 'Iganenud',
+	'validationstatistics-utable' => 'Allpool on ülevaatajate esiviisik viimase tunni jaoks.',
 	'validationstatistics-user' => 'Kasutaja',
-	'validationstatistics-reviews' => 'Arvustused',
+	'validationstatistics-reviews' => 'Ülevaatamised',
 );
 
 /** Basque (Euskara)

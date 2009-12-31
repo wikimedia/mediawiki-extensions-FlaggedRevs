@@ -83,13 +83,13 @@ $messages['ar'] = array(
 $messages['arz'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
 	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى مراجعة',
-	'reviewedpages-list' => 'هذه الصفحة تعرض الصفحات التى تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
+	'reviewedpages-list' => 'هذه الصفحه تعرض الصفحات التى تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
 	'reviewedpages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
 	'reviewedpages-lev-1' => 'جودة',
 	'reviewedpages-lev-2' => 'مختارة',
 	'reviewedpages-all' => 'نسخ مراجعة',
-	'reviewedpages-best' => 'مراجعة فائقة',
+	'reviewedpages-best' => 'مراجعه فائقة',
 );
 
 /** Asturian (Asturianu)
@@ -303,11 +303,12 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author Avjoska
+ * @author Pikne
  */
 $messages['et'] = array(
-	'reviewedpages' => 'Arvustatud leheküljed',
+	'reviewedpages' => 'Ülevaadatud leheküljed',
 	'reviewedpages-none' => 'Siin loendis ei ole lehekülgi',
-	'reviewedpages-all' => 'arvustatud versioonid',
+	'reviewedpages-all' => 'ülevaadatud versioonid',
 );
 
 /** Basque (Euskara)
@@ -656,7 +657,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'reviewedpages' => 'Nohjekik Versione',
-	'reviewedpages-leg' => 'Sigge opleßte noh de hühßte Makeerung',
+	'reviewedpages-leg' => 'Sigge opleßte noh de Qualiteit, wi joot se nohjekik sin',
 	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} nohjekik, se {{PLURAL:$1|sullt dat|sullte dat|sullte et}} aanjejovve Nivo han.',
 	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-sighted}}',

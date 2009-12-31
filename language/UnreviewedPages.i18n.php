@@ -116,16 +116,19 @@ $messages['ar'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
+	'right-unreviewedpages' => 'رؤيه [[Special:UnreviewedPages|قائمه الصفحات غير المراجعة]]',
 	'unreviewedpages' => 'صفحات غير مراجعة',
 	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
 	'unreviewed-category' => 'التصنيف:',
-	'unreviewed-diff' => 'مراجعة',
+	'unreviewed-diff' => 'راجع',
 	'unreviewed-unwatched' => '(غير مراقبة)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|مستخدم نشط|مستخدم نشط}} يراقبون)',
-	'unreviewed-list' => 'هذه الصفحة تعرض صفحات المحتوى التى لم تتم مراجعتها لمستوى المحدد.',
+	'unreviewed-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطين يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})',
+	'unreviewed-list' => 'هذه الصفحه تعرض صفحات المحتوى التى لم تتم مراجعتها لمستوى المحدد.',
 	'unreviewed-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
-	'unreviewed-viewing' => '(بيتراجع)',
+	'unreviewed-viewing' => '(تحت المراجعة)',
+	'unreviewed-hours' => '({{PLURAL:$1||ساعه واحد|ساعتان|$1 ساعات|$1 ساعة}})',
+	'unreviewed-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
+	'unreviewed-recent' => '(أقل من ساعه واحدة)',
 );
 
 /** Asturian (Asturianu)
@@ -425,12 +428,19 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author Avjoska
+ * @author Pikne
  */
 $messages['et'] = array(
-	'unreviewedpages' => 'Arvustamata leheküljed',
+	'right-unreviewedpages' => 'Vaadata [[Special:UnreviewedPages|ülevaatamata lehekülgede loendit]]',
+	'unreviewedpages' => 'Ülevaatamata leheküljed',
+	'unreviewed-legend' => 'Ülevaatamata sisulehekülgede loend',
 	'unreviewed-category' => 'Kategooria:',
 	'unreviewed-diff' => 'arvusta',
-	'unreviewed-viewing' => '(arvustamisel)',
+	'unreviewed-unwatched' => '(jälgimata)',
+	'unreviewed-watched' => '($1 aktiivse {{PLURAL:$1|kasutaja}} jälgitav)',
+	'unreviewed-viewing' => '(ülevaatusel)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|tund|tundi}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|päev|päeva}})',
 	'unreviewed-recent' => '(alla 1 tunni)',
 );
 

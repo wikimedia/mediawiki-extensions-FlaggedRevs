@@ -86,11 +86,11 @@ $messages['arc'] = array(
  */
 $messages['arz'] = array(
 	'reviewedversions' => 'عرض النسخ المستقرة',
-	'reviewedversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
+	'reviewedversions-leg1' => 'عرض المراجعات المراجعه لصفحة',
 	'reviewedversions-page' => 'اسم الصفحة:',
-	'reviewedversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
-	'reviewedversions-list' => 'هذه قائمة {{PLURAL:$2||بمراجعة|بمراجعتي|بمراجعات}} الصفحة [[:$1]] {{PLURAL:$2||التى تمت مراجعتها|اللتين تمت مراجعتهما|التى تمت مراجعتها}}:',
-	'reviewedversions-review' => 'تمت مراجعتها فى <i>$1</i> بواسطة $2',
+	'reviewedversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعه.',
+	'reviewedversions-list' => 'هذه قائمه {{PLURAL:$2||بمراجعة|بمراجعتي|بمراجعات}} الصفحه [[:$1]] {{PLURAL:$2||التى تمت مراجعتها|اللتين تمت مراجعتهما|التى تمت مراجعتها}}:',
+	'reviewedversions-review' => '{{GENDER:$5|راجعها|راجعتها}} $2 فى <i>$1</i>',
 );
 
 /** Asturian (Asturianu)
@@ -294,9 +294,12 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author Avjoska
+ * @author Pikne
  */
 $messages['et'] = array(
 	'reviewedversions-page' => 'Lehekülje nimi:',
+	'reviewedversions-none' => 'Leheküljel "[[:$1]]" pole ülevaadatud redaktsioone.',
+	'reviewedversions-review' => '$2 vaatas lehekülje üle kuupäeval <i>$1</i>',
 );
 
 /** Basque (Euskara)

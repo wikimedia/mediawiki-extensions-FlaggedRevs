@@ -262,40 +262,43 @@ $messages['arc'] = array(
 $messages['arz'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التى بها النسخة المستقرة من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفيه التى بها النسخه المستقره من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
 
-عند تغيير ضبط ''اختيار النسخة المختارة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
-تأكد من التحقق من وجود مراجعات كهذه فى الصفحة، وإلا فإن التغيير سيكون له تأثير ضعيف.",
-	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المستقرة.
-هنا الإعدادات الحالية ل[[:$1|$1]]:',
+عند تغيير ضبط ''اختيار النسخه المختارة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
+تأكد من التحقق من وجود مراجعات كهذه فى الصفحه، وإلا فإن التغيير سيكون له تأثير ضعيف.",
+	'stabilization-perm' => 'حسابك لا يمتلك الصلاحيه لتغيير إعدادات النسخه المستقره.
+	هنا الإعدادات الحاليه ل[[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
-	'stabilization-leg' => 'تأكيد إعدادات النسخة المستقرة',
-	'stabilization-select' => 'سابقة اختيار النسخة المستقرة',
-	'stabilization-select1' => 'آخر مراجعة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
-	'stabilization-select2' => 'آخر مراجعة مراجعة (بعض النظر عن مستوى التحقيق)',
-	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
-	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
-	'stabilization-def1' => 'المراجعة المستقرة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
-	'stabilization-def2' => 'المراجعة الحالية/المسودة',
+	'stabilization-leg' => 'تأكيد إعدادات النسخه المستقرة',
+	'stabilization-select' => 'سابقه اختيار النسخه المستقرة',
+	'stabilization-select1' => 'آخر مراجعه جودة؛ لو غير موجوده، إذا آخر واحده منظورة',
+	'stabilization-select2' => 'آخر مراجعه مراجعه (بعض النظر عن مستوى التحقيق)',
+	'stabilization-select3' => 'آخر مراجعه فائقة؛ لو غير موجوده، إذا آخر مراجعه جوده أو منظورة',
+	'stabilization-def' => 'المراجعه المعروضه عند رؤيه الصفحه افتراضيا',
+	'stabilization-def1' => 'المراجعه المستقرة؛ لو غير موجوده، إذا المراجعه الحالية/المسودة',
+	'stabilization-def2' => 'المراجعه الحالية/المسودة',
+	'stabilization-restrict' => 'ضوابط المراجعه التلقائية',
+	'stabilization-restrict-none' => 'لا ضوابط إضافية',
 	'stabilization-submit' => 'تأكيد',
-	'stabilization-notexists' => 'لا توجد صفحة بالاسم "[[:$1|$1]]".
+	'stabilization-notexists' => 'لا توجد صفحه بالاسم "[[:$1|$1]]".
 لا ضبط ممكن.',
-	'stabilization-notcontent' => 'الصفحة "[[:$1|$1]]" لا يمكن مراجعتها.
+	'stabilization-notcontent' => 'الصفحه "[[:$1|$1]]" لا يمكن مراجعتها.
 لا ضبط ممكن.',
 	'stabilization-comment' => 'السبب:',
-	'stabilization-otherreason' => 'سبب تانى:',
-	'stabilization-expiry' => 'تنتهى:',
-	'stabilization-othertime' => 'وقت تانى:',
+	'stabilization-otherreason' => 'سبب آخر:',
+	'stabilization-expiry' => 'تنتهي:',
+	'stabilization-othertime' => 'وقت آخر:',
 	'stabilization-sel-short' => 'تنفيذ',
 	'stabilization-sel-short-0' => 'جودة',
 	'stabilization-sel-short-1' => 'لا شيء',
 	'stabilization-sel-short-2' => 'فائقة',
-	'stabilization-def-short' => 'افتراضى',
-	'stabilization-def-short-0' => 'حالى',
+	'stabilization-def-short' => 'افتراضي',
+	'stabilization-def-short-0' => 'حالي',
 	'stabilization-def-short-1' => 'مستقر',
 	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize-expiring' => 'تنتهى فى $1 (UTC)',
+	'stabilization-review' => 'راجع النسخه الحالية',
 );
 
 /** Asturian (Asturianu)
@@ -2597,6 +2600,7 @@ Não é possível configurá-la.',
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Luckas Blade
  */
 $messages['pt-br'] = array(
 	'stabilization-tab' => 'cgq',
@@ -2625,7 +2629,7 @@ Não é possível configurá-la.',
 	'stabilization-notcontent' => 'A página "[[:$1|$1]]" não pode ser analisada.
 Não é possível configurá-la.',
 	'stabilization-comment' => 'Motivo:',
-	'stabilization-otherreason' => 'Outro motivo',
+	'stabilization-otherreason' => 'Outro motivo:',
 	'stabilization-expiry' => 'Expira em:',
 	'stabilization-othertime' => 'Outro tempo',
 	'stabilization-sel-short' => 'Precedência',

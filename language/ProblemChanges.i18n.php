@@ -39,6 +39,16 @@ $messages['ar'] = array(
 	'problemchanges-category' => 'التصنيف:',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'problemchanges' => 'راجع التغييرات الموسومة',
+	'problemchanges-legend' => 'اعرض الصفحات ذات التعديلات الموسومه التى تنتظر المراجعة',
+	'problemchanges-none' => 'لا توجد حاليًا صفحات توافق هذه المعايير',
+	'problemchanges-category' => 'التصنيف:',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by

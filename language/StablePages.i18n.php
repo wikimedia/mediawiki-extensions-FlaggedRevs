@@ -85,14 +85,14 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'stablepages' => 'صفحات مستقرة',
-	'stablepages-stable' => 'نسخة مستقرة',
-	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضى للمشاهدين.',
+	'stablepages-stable' => 'نسخه مستقرة',
+	'stablepages-text' => 'بالأسفل قائمه الصفحات المضبوطه يدويا لتعرض النسخه المستقره كمحتوى الصفحه الافتراضى للمشاهدين.',
 	'stablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'stablepages-config' => 'ضبط',
-	'stablepages-prec-none' => 'من غير اولويه',
-	'stablepages-prec-quality' => 'اولوية الجوده',
-	'stablepages-prec-pristine' => 'اولوية الاصل',
-	'stablepages-precedence' => 'الاولويه:',
+	'stablepages-prec-none' => 'لا سابقة',
+	'stablepages-prec-quality' => 'سابقه جودة',
+	'stablepages-prec-pristine' => 'سابقه فائقة',
+	'stablepages-precedence' => 'سابقة:',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

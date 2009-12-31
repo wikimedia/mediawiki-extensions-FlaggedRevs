@@ -45,8 +45,8 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'qualityoversight' => 'نظر الجودة',
-	'qualityoversight-list' => 'هذه الصفحة تعرض عمليات الموافقة والإزالة الحديثة للمراجعات.',
-	'qualityoversight-legend' => 'ابحث فى سجلات المراجعة الحديثة',
+	'qualityoversight-list' => 'هذه الصفحه تعرض عمليات الموافقه والإزاله الحديثه للمراجعات.',
+	'qualityoversight-legend' => 'ابحث فى سجلات المراجعه الحديثة',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

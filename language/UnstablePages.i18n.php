@@ -53,8 +53,8 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'unstablepages' => 'صفحات غير مستقرة',
-	'unstablepages-stable' => 'نسخة مستقرة',
-	'unstablepages-text' => 'بالأسفل قائمة بالصفحات المضبوطة يدويا لعرض نسخة المسودة كمحتوى الصفحة الافتراضى للقراء.',
+	'unstablepages-stable' => 'نسخه مستقرة',
+	'unstablepages-text' => 'بالأسفل قائمه بالصفحات المضبوطه يدويا لعرض نسخه المسوده كمحتوى الصفحه الافتراضى للقراء.',
 	'unstablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'unstablepages-config' => 'ضبط',
 );
@@ -192,6 +192,13 @@ $messages['es'] = array(
 	'unstablepages-text' => 'Debajo hay una lista de páginas manualmente configuradas para mostrar la versión boceto como la página de contenido por defecto para visitantes.',
 	'unstablepages-none' => 'No hay páginas en esta lista',
 	'unstablepages-config' => 'Configuración',
+);
+
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'unstablepages-none' => 'Selles loendis ei ole lehekülgi',
 );
 
 /** Basque (Euskara)
