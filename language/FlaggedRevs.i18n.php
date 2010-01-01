@@ -240,6 +240,7 @@ Please check the URL you used to access this page.',
  * @author Fryed-peach
  * @author Huji
  * @author Jon Harald Søby
+ * @author Liangent
  * @author McDutchie
  * @author Meno25
  * @author Purodha
@@ -520,7 +521,7 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'revreview-tt-review' => '{{Flagged Revs}}',
 	'validationpage' => "{{Flagged Revs-small}}
-Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}</nowiki></tt> part.",
+Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
 
 /** Afrikaans (Afrikaans)
@@ -975,7 +976,7 @@ $messages['ar'] = array(
 	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
-	'revreview-unlocked' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
+	'revreview-unlocked' => 'التعديلات لا تتطلب [[{{MediaWiki:Validationpage}}|مراجعة]] قبل أن يتم عرضها في هذه الصفحة!',
 	'log-show-hide-review' => '$1 سجل المراجعة',
 	'revreview-tt-review' => 'طبق هذه الحالة على هذه المراجعة',
 	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
@@ -1193,7 +1194,7 @@ $messages['arz'] = array(
 	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
 	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
-	'revreview-unlocked' => 'التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!',
+	'revreview-unlocked' => 'التعديلات لا تتطلب [[{{MediaWiki:Validationpage}}|مراجعة]] قبل أن يتم عرضها في هذه الصفحة!',
 	'log-show-hide-review' => '$1 سجل المراجعة',
 	'revreview-tt-review' => 'طبق هذه الحاله على هذه المراجعة',
 	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
@@ -1286,7 +1287,6 @@ pue ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificáu]; [{{fullurl:{{FUL
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Destacada',
 	'revreview-submit' => 'Grabar revisión',
-	'revreview-finished' => '¡Revisión completa!',
 	'revreview-text' => "''Les [[{{MediaWiki:Validationpage}}|versiones estables]] son el conteníu por defeutu d'una vista de páxina en cuenta de la revisión más nueva.''",
 	'revreview-toolow' => 'Tienes que calificar tolos atributos d\'embaxo percima de "non aprobáu" pa qu\'una revisión seya considerada como revisada. Pa despreciar una revisión, pon tolos campos como "non aprobáu".',
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos ''(amosaos embaxo)'' fechos dende que la revisión estable foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada].<br />
@@ -2788,6 +2788,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
+ * @author Imre
  * @author Jens Liebenau
  * @author Umherirrender
  */
@@ -2796,13 +2797,15 @@ $messages['de-formal'] = array(
 	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf Ihrer Beobachtungsliste. '''Ihre Aufmerksamkeit ist nötig!'''",
 	'revreview-auto-w' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-auto-w-old' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
-	'revreview-blocked' => 'Sie können diese Version nicht markieren, da Ihr Benutzerkonto zurzeit gesperrt ist ([$1 Details]).',
 	'revreview-main' => 'Sie müssen eine Version zur Markierung auswählen.
 
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable1' => 'Möchten Sie die [{{fullurl:$1|stableid=$2}} soeben markierte Version] dieser Seite sehen, falls es jetzt die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite ist?',
 	'revreview-stable2' => 'Möchten Sie die [{{fullurl:$1|stable=1}} gesichtete Version] dieser Seite sehen (falls es noch eine gibt)?',
 	'revreview-toolow' => 'Sie müssen für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen, damit eine Version als gesichtet gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
+	'revreview-update' => "Bitte [[{{MediaWiki:Validationpage}}|sichten Sie]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.<br />
+'''Die folgenden Vorlagen und Dateien wurden verändert:'''",
+	'revreview-update-none' => "Bitte [[{{MediaWiki:Validationpage}}|sichten Sie]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.",
 	'revreview-diffonly' => "''Um diese Seite zu sichten, klicken Sie bitte auf den Link „Aktuelle Version“ und verwenden die Sichtungsbox dort.''",
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
 );
@@ -3794,6 +3797,15 @@ $messages['et'] = array(
 	'revreview-patrol' => 'Märgi see muudatus patrullituks',
 	'revreview-patrol-title' => 'Märgi patrullituks',
 	'revreview-patrolled' => 'Lehekülje [[:$1|$1]] valitud redaktsioon on kontrollituks märgitud.',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud lehekülg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vaata mustandit]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud lehekülg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vaata mustandit]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud lehekülg]]'''",
+	'revreview-quick-invalid' => "'''Vigane redaktsiooni ID'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Praegune redaktsioon]]''' (ülevaatamata)",
+	'revreview-selected' => "Lehekülje '''$1''' valitud redaktsioon:",
+	'revreview-source' => 'mustandi allikas',
+	'revreview-stable-title' => 'See on kord vaadatud lehekülg',
+	'revreview-sighted-rev' => 'Kord vaadatud redaktsioon',
 	'revreview-style' => 'Loetavus',
 	'revreview-style-0' => 'Heakskiiduta',
 	'revreview-style-1' => 'Vastuvõetav',
@@ -7856,6 +7868,8 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn de Stanard-Säiteninhalt fir Notzer éischter wéi déi neiste Versioun.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn nogekuckte Versioune vu Säiten a kënnen als Standard-Säit fir Lieser agestallt ginn.''",
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
+	'revreview-toolow' => 'Dir musst fir all Attribut hei ënnendrënner eng Bewertung ofginn déi besser ass wéi "net nogekuckt" fir datt eng Versioun kann als nogekuckt betruecht ginn.
+Fir eng Versioun ze refuséieren setzt all Felder op "net nogekuckt".',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi zënter, déi stabil Versioun  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigeschalt gouf], gemaach goufen.<br />
 '''Some templates/files were updated:'''",
 	'revreview-update-includes' => "'''Verschidde Schablounen/Fichiere goufen aktualiséiert:'''",
@@ -8065,7 +8079,6 @@ $messages['lzh'] = array(
 	'revreview-stable-title' => '初定本',
 	'revreview-submit' => '成',
 	'revreview-submitting' => '在處理',
-	'revreview-finished' => '成焉。',
 	'revreview-revnotfound' => '查無舊審，惠核網址。',
 );
 

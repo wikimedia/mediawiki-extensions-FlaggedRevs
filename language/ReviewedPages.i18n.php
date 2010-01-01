@@ -1050,11 +1050,12 @@ $messages['su'] = array(
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Per
  */
 $messages['sv'] = array(
 	'reviewedpages' => 'Granskade sidor',
-	'reviewedpages-leg' => 'Lista sidor efter högsta nivå',
-	'reviewedpages-list' => 'Följande {{PLURAL:$1|sida|sidor}} har granskats till den angivna nivån',
+	'reviewedpages-leg' => 'Lista sidor efter högsta granskningsnivå',
+	'reviewedpages-list' => 'Följande {{PLURAL:$1|sida|sidor}} har granskats till (högst) den angivna nivån.',
 	'reviewedpages-none' => 'Den här listan innehåller inga sidor',
 	'reviewedpages-lev-0' => 'Synad',
 	'reviewedpages-lev-1' => 'Kvalitet',

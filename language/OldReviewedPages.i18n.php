@@ -476,6 +476,7 @@ $messages['et'] = array(
 	'oldreviewed-category' => 'Kategooria:',
 	'oldreviewed-watched' => 'Minu jälgimisloendis',
 	'oldreviewed-diff' => 'vaata üle',
+	'oldreviewed-size' => 'Muudatuse ülemmäär baitides:',
 	'oldreviewedpages-unwatched' => '(jälgimata)',
 	'oldreviewedpages-watched' => '($1 aktiivse {{PLURAL:$1|kasutaja}} jälgitav)',
 	'oldreviewedpages-viewing' => '(ülevaatusel)',
