@@ -31,7 +31,8 @@ class RevisionReview extends UnlistedSpecialPage
 
     public function execute( $par ) {
         global $wgRequest, $wgUser, $wgOut;
-		$confirm = $wgRequest->wasPosted() && $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
+		$confirm = $wgRequest->wasPosted()
+			&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
 		if( $wgUser->isAllowed( 'review' ) ) {
 			if( $wgUser->isBlocked( !$confirm ) ) {
 				$wgOut->blockedPage();
@@ -150,7 +151,8 @@ class RevisionReview extends UnlistedSpecialPage
 	
 	private function retrieveNotes( $notes = '' ) {
 		global $wgUser;
-		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ? $notes : '';
+		$this->notes = ( FlaggedRevs::allowComments() && $wgUser->isAllowed('validate') ) ?
+			$notes : '';
 	}
 	
 	public static function AjaxReview( /*$args...*/ ) {
@@ -252,7 +254,8 @@ class RevisionReview extends UnlistedSpecialPage
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		} 
 		// Doesn't match up?
-		$k = self::validationKey( $form->templateParams, $form->imageParams, $form->fileVersion, $form->oldid );
+		$k = self::validationKey( $form->templateParams, $form->imageParams,
+			$form->fileVersion, $form->oldid );
 		if( $form->validatedParams !== $k ) {
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
@@ -361,7 +364,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
 		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = self::validationKey( $this->templateParams, $this->imageParams, $this->fileVersion, $rev->getId() );
+		$checkCode = self::validationKey( $this->templateParams, $this->imageParams,
+			$this->fileVersion, $rev->getId() );
 		$form .= Xml::hidden( 'validatedParams', $checkCode );
 		$form .= '</fieldset>';
 
@@ -379,7 +383,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$difflink = '(' . $this->skin->makeKnownLinkObj( $this->page, wfMsgHtml('diff'),
 			'&diff=' . $rev->getId() . '&oldid=prev' ) . ')';
 		$revlink = $this->skin->makeLinkObj( $this->page, $date, 'oldid=' . $rev->getId() );
-		return "<li>$difflink $revlink " . $this->skin->revUserLink($rev) . " " . $this->skin->revComment($rev) . "</li>";
+		return "<li>$difflink $revlink " . $this->skin->revUserLink($rev) . " " .
+			$this->skin->revComment($rev) . "</li>";
 	}
 	
 	public function isApproval() {
@@ -482,7 +487,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Our flags
 		$flags = $this->dims;
 		# Some validation vars to make sure nothing changed during
-		$lastTempID = 0;
+		$lastTempId = 0;
 		$lastImgTime = "0";
 		# Our template version pointers
 		$tmpset = $tmpParams = array();
@@ -501,8 +506,8 @@ class RevisionReview extends UnlistedSpecialPage
 			if( is_null($tmp_title) )
 				continue; // Page must be valid!
 
-			if( $rev_id > $lastTempID )
-				$lastTempID = $rev_id;
+			if( $rev_id > $lastTempId )
+				$lastTempId = $rev_id;
 
 			$tmpset[] = array(
 				'ft_rev_id' => $rev->getId(),
@@ -563,33 +568,33 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		# Is this rev already flagged?
 		$flaggedOutput = false;
-		if( $oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_TEXT | FR_MASTER ) ) {
-			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getRevText(), $oldfrev->getRevId() );
+		$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(),
+			FR_TEXT | FR_MASTER );
+		if( $oldfrev ) {
+			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getRevText(),
+				$oldfrev->getRevId() );
 		}
 		
 		# Be looser on includes for templates, since they don't matter much
 		# and strict checking breaks randomized images/metatemplates...(bug 14580)
 		global $wgUseCurrentTemplates, $wgUseCurrentImages;
-		$noMatch = ($rev->getTitle()->getNamespace() == NS_TEMPLATE && $wgUseCurrentTemplates && $wgUseCurrentImages);
+		$noMatch = ($rev->getTitle()->getNamespace() == NS_TEMPLATE
+			&& $wgUseCurrentTemplates && $wgUseCurrentImages);
 		
 		# Set our versioning params cache
 		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
-        # Get the expanded text and resolve all templates.
-		# Store $templateIDs and add it to final parser output later...
-        list($fulltext,$tmps,$tmpIDs,$err,$maxID) = FlaggedRevs::expandText( $rev->getText(), $rev->getTitle(), $rev->getId() );
-        if( !$noMatch && (!empty($err) || $maxID > $lastTempID) ) {
-			wfProfileOut( __METHOD__ );
-        	return $err;
-        }
-		# Parse the rest and check if it matches up
-		$stableOutput = FlaggedRevs::parseStableText( $article, $fulltext, $rev->getId() );
+		# Parse the text and check if all templates/files match up
+		$stableOutput = FlaggedRevs::parseStableText( $article, $rev->getText(), $rev->getId() );
 		$err =& $stableOutput->fr_includeErrors;
-		if( !$noMatch && (!empty($err) || $stableOutput->fr_newestImageTime > $lastImgTime) ) {
-			wfProfileOut( __METHOD__ );
-        	return $err;
+		if( !$noMatch ) { // template/files must all be specified
+			if( !empty($err)
+				|| $stableOutput->fr_newestImageTime > $lastImgTime
+				|| $stableOutput->fr_newestTemplateID > $lastTempId )
+			{
+				wfProfileOut( __METHOD__ );
+				return $err; // return templates/files with no version specified
+			}
         }
-		# Merge in template params from first phase of parsing...
-		$this->mergeTemplateParams( $stableOutput, $tmps, $tmpIDs, $maxID );
 		# Clear our versioning params cache
 		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		
@@ -644,7 +649,9 @@ class RevisionReview extends UnlistedSpecialPage
 		# Try using the parser cache first since we didn't actually edit the current version.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
-		if( !$poutput || !isset($poutput->fr_newestTemplateID) || !isset($poutput->fr_newestImageTime) ) {
+		if( !$poutput || !isset($poutput->fr_newestTemplateID)
+			|| !isset($poutput->fr_newestImageTime) )
+		{
 			$text = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
 			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
