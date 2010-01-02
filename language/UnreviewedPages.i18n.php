@@ -839,6 +839,16 @@ $messages['jv'] = array(
 	'unreviewed-category' => 'Kategori',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'unreviewed-category' => 'კატეგორია:',
+	'unreviewed-diff' => 'შემოწმება',
+	'unreviewed-days' => '($1 {{PLURAL:$1|დღე|დღე}})',
+	'unreviewed-recent' => '(1 საათზე ნაკლები)',
+);
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'unreviewedpages' => 'سىن بەرىلمەگەن بەتتەر',

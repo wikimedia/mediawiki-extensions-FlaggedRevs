@@ -1015,6 +1015,14 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
 	'validationstatistics-old' => 'Lawas',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'validationstatistics-total' => 'გვერდები',
+	'validationstatistics-user' => 'მომხმარებელი',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  * @author Thearith

@@ -1749,6 +1749,11 @@ $messages['jv'] = array(
  */
 $messages['ka'] = array(
 	'stabilization-page' => 'გვერდის სახელი:',
+	'stabilization-submit' => 'დამოწმება',
+	'stabilization-notexists' => 'არ არსებობს გვერდი სახელით "[[:$1|$1]]".
+კონფიგურაცია შეუძლებელია.',
+	'stabilization-comment' => 'მიზეზი:',
+	'stabilization-otherreason' => 'სხვა მიზეზი:',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
