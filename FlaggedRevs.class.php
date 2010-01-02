@@ -1437,8 +1437,9 @@ class FlaggedRevs {
 	* from the stable version will be used or minimal tags if that's not possible.
 	* If no appropriate tags can be found, then the review will abort.
 	*/
-	public static function autoReviewEdit( $article, $user, $text, $rev, $flags=null, $auto=true ) {
-		global $wgMemc;
+	public static function autoReviewEdit(
+		$article, $user, $text, $rev, $flags=null, $auto=true
+	) {
 		wfProfileIn( __METHOD__ );
 		$title = $article->getTitle();
 		# Get current stable version ID (for logging)
@@ -1474,9 +1475,9 @@ class FlaggedRevs {
 		foreach( $poutput->mTemplateIds as $namespace => $titleAndID ) {
 			foreach( $titleAndID as $dbkey => $id ) {
 				$tmpset[] = array(
-					'ft_rev_id' => $rev->getId(),
-					'ft_namespace' => $namespace,
-					'ft_title' => $dbkey,
+					'ft_rev_id' 	=> $rev->getId(),
+					'ft_namespace'  => $namespace,
+					'ft_title' 		=> $dbkey,
 					'ft_tmp_rev_id' => $id
 				);
 			}
@@ -1485,10 +1486,10 @@ class FlaggedRevs {
 		foreach( $poutput->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
 			foreach( $timeAndSHA1 as $time => $sha1 ) {
 				$imgset[] = array(
-					'fi_rev_id' => $rev->getId(),
-					'fi_name' => $dbkey,
-					'fi_img_timestamp' => $time,
-					'fi_img_sha1' => $sha1
+					'fi_rev_id' 		=> $rev->getId(),
+					'fi_name' 			=> $dbkey,
+					'fi_img_timestamp'  => $time,
+					'fi_img_sha1' 		=> $sha1
 				);
 			}
 		}
@@ -1496,7 +1497,8 @@ class FlaggedRevs {
 		# If this is an image page, store corresponding file info
 		$fileData = array();
 		if( $title->getNamespace() == NS_FILE ) {
-			$file = $article instanceof ImagePage ? $article->getFile() : wfFindFile($title);
+			$file = $article instanceof ImagePage ?
+				$article->getFile() : wfFindFile($title);
 			if( is_object($file) && $file->exists() ) {
 				$fileData['name'] = $title->getDBkey();
 				$fileData['timestamp'] = $file->getTimestamp();
@@ -1526,6 +1528,7 @@ class FlaggedRevs {
 		# (which it probably is), save it to the cache...
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_MASTER/*consistent*/ );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
+			global $wgMemc;
 			# Update stable cache
 			self::updatePageCache( $article, $user, $poutput );
 			# Update page tracking fields

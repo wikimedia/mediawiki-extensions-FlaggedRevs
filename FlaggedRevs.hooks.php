@@ -72,13 +72,15 @@ class FlaggedRevsHooks {
 		if( empty($wgTitle) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true;
 		}
-		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist', 'Recentchanges', 
-			'Contributions' );
+		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist',
+			'Recentchanges', 'Contributions' );
 		foreach( $spPages as $n => $key ) {
 			if( $wgTitle->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-				$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
-				$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
+				$stylePath = str_replace( '$wgScriptPath',
+					$wgScriptPath, $wgFlaggedRevsStylePath );
+				$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?" .
+					$wgFlaggedRevStyleVersion );
 				$wgOut->addExtensionStyle( $encCssFile );
 				break;
 			}
@@ -442,7 +444,9 @@ class FlaggedRevsHooks {
 	/**
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
-	public static function parserMakeStableFileLink( $parser, $nt, &$skip, &$time, &$query=false ) {
+	public static function parserMakeStableFileLink(
+		$parser, $nt, &$skip, &$time, &$query=false
+	) {
 		# Trigger for stable version parsing only
 		if( empty($parser->fr_isStable) ) {
 			return true;
@@ -469,7 +473,8 @@ class FlaggedRevsHooks {
 			}
 		}
 		# Check cache before doing another DB hit...
-		$params = FlaggedRevs::getFileVersionFromCache( $parser->getRevisionId(), $title->getDBkey() );
+		$params = FlaggedRevs::getFileVersionFromCache(
+			$parser->getRevisionId(), $title->getDBkey() );
 		if( is_array($params) ) {
 			list($timeP,$sha1P) = $params;
 			// Take the newest one...
@@ -481,7 +486,8 @@ class FlaggedRevsHooks {
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the image revision during review time. If both, use the newest one.
-		if( $parser->getRevisionId() && !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
+		$revId = $parser->getRevisionId();
+		if( $revId && !FlaggedRevs::useProcessCache( $revId ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$row = $dbr->selectRow( 'flaggedimages', 
 				array( 'fi_img_timestamp', 'fi_img_sha1' ),
@@ -647,11 +653,12 @@ class FlaggedRevsHooks {
 				$file = wfFindFile( Title::makeTitleSafe( NS_FILE, $filename ) );
 				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
 				if( $file ) {
+					$ts = $file->getTimestamp();
 					# Bug 15748, be lax about commons image sync status
-					if( $file->isLocal() && $file->getTimestamp() > $maxTimestamp ) {
-						$maxTimestamp = $file->getTimestamp();
+					if( $file->isLocal() && $ts > $maxTimestamp ) {
+						$maxTimestamp = $ts;
 					}
-					$parser->mOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
+					$parser->mOutput->fr_ImageSHA1Keys[$filename][$ts] = $file->getSha1();
 				} else {
 					$parser->mOutput->fr_ImageSHA1Keys[$filename]["0"] = '';
 				}
@@ -774,7 +781,9 @@ class FlaggedRevsHooks {
 	* to the stable version, then try to automatically review it.
 	* Also automatically review if the "review this revision" box is checked.
 	*/
-	public static function maybeMakeEditReviewed( $article, $rev, $baseRevId = false, $user = null ) {
+	public static function maybeMakeEditReviewed(
+		$article, $rev, $baseRevId = false, $user = null
+	) {
 		global $wgRequest;
 		# Edit must be non-null, and to a reviewable page
 		$fa = FlaggedArticle::getArticleInstance( $article );
@@ -935,11 +944,14 @@ class FlaggedRevsHooks {
 		# Get edit timestamp, it must exist.
 		$editTimestamp = $wgRequest->getVal('wpEdittime');
 		# Is the page checked off to be reviewed?
-		if( $rev && $editTimestamp && $wgRequest->getCheck('wpReviewEdit') && $user->isAllowed('review') ) {
+		if( $rev && $editTimestamp && $wgRequest->getCheck('wpReviewEdit')
+			&& $user->isAllowed('review') )
+		{
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
 			# Don't do so if an edit was auto-merged in between though...
 			if( $rev->getTimestamp() == $editTimestamp ) {
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags, false );
+				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(),
+					$rev, $flags, false );
 				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
 				return true; // done!
 			}
@@ -962,8 +974,9 @@ class FlaggedRevsHooks {
 			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'],
 				$rc->mAttribs['rc_this_oldid'], GAID_FOR_UPDATE );
 			if( $quality !== false && $quality >= FlaggedRevs::getPatrolLevel() ) {
-				RevisionReview::updateRecentChanges( $rc->getTitle(), $rc->mAttribs['rc_this_oldid'] );
-				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
+				RevisionReview::updateRecentChanges( $rc->getTitle(),
+					$rc->mAttribs['rc_this_oldid'] );
+				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;
 		}
@@ -1084,7 +1097,9 @@ class FlaggedRevsHooks {
 		# Check if $wgFlaggedRevsAutoconfirm is actually enabled
 		# and that this is a logged-in user that doesn't already
 		# have the 'autoreview' permission
-		if( !$user->getId() || $user->isAllowed('autoreview') || empty($wgFlaggedRevsAutoconfirm) ) {
+		if( !$user->getId() || $user->isAllowed('autoreview')
+			|| empty($wgFlaggedRevsAutoconfirm) )
+		{
 			return true;
 		}
 		# Check if results are cached to avoid DB queries.
@@ -1142,7 +1157,9 @@ class FlaggedRevsHooks {
 		}
 		# Check for edit spacing. This lets us know that the account has
 		# been used over N different days, rather than all in one lump.
-		if( $wgFlaggedRevsAutoconfirm['spacing'] > 0 && $wgFlaggedRevsAutoconfirm['benchmarks'] > 1 ) {
+		if( $wgFlaggedRevsAutoconfirm['spacing'] > 0
+			&& $wgFlaggedRevsAutoconfirm['benchmarks'] > 1 )
+		{
 			$sTestKey = wfMemcKey( 'flaggedrevs', 'autoreview-spacing-ok', $user->getId() );
 			$value = $wgMemc->get( $sTestKey );
 			# Check if the user already passed this test via cache.
@@ -1155,7 +1172,8 @@ class FlaggedRevsHooks {
 				);
 				# Make a key to store the results
 				if( !$pass ) {
-					$wgMemc->set( $APSkipKey, 'true', 3600*24*$spacing*($benchmarks - $needed - 1) );
+					$wgMemc->set( $APSkipKey, 'true',
+						3600*24*$spacing*($benchmarks - $needed - 1) );
 					return true;
 				} else {
 					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
@@ -1296,7 +1314,9 @@ class FlaggedRevsHooks {
 		}
 		# Check for edit spacing. This lets us know that the account has
 		# been used over N different days, rather than all in one lump.
-		if( $wgFlaggedRevsAutopromote['spacing'] > 0 && $wgFlaggedRevsAutopromote['benchmarks'] > 1 ) {
+		if( $wgFlaggedRevsAutopromote['spacing'] > 0
+			&& $wgFlaggedRevsAutopromote['benchmarks'] > 1 )
+		{
 			$sTestKey = wfMemcKey( 'flaggedrevs', 'autopromote-spacing-ok', $user->getId() );
 			$value = $wgMemc->get( $sTestKey );
 			# Check if the user already passed this test via cache.
@@ -1309,7 +1329,8 @@ class FlaggedRevsHooks {
 				);
 				# Make a key to store the results
 				if( !$pass ) {
-					$wgMemc->set( $APSkipKey, 'true', 3600*24*$spacing*($benchmarks - $needed - 1) );
+					$wgMemc->set( $APSkipKey, 'true',
+						3600*24*$spacing*($benchmarks - $needed - 1) );
 					return true;
 				} else {
 					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
@@ -1654,7 +1675,8 @@ class FlaggedRevsHooks {
 		if( !isset($row->fr_quality) )
 			return true; // Unreviewed
 		# Add link to stable version of *this* rev, if any
-		list($link,$class) = FlaggedRevs::markHistoryRow( $history->getArticle()->getTitle(), $row );
+		list($link,$class) = FlaggedRevs::markHistoryRow(
+			$history->getArticle()->getTitle(), $row );
 		# Style the row as needed
 		if( $class ) $s = "<span class='$class'>$s</span>";
 		# Add stable old version link
@@ -1690,7 +1712,8 @@ class FlaggedRevsHooks {
 		if( !in_array($row->page_namespace,$namespaces) ) {
 			// do nothing
 		} elseif( isset($row->fr_quality) ) {
-			$ret = '<span class="'.FlaggedRevsXML::getQualityColor($row->fr_quality).'">'.$ret.'</span>';
+			$ret = '<span class="'.FlaggedRevsXML::getQualityColor($row->fr_quality).
+				'">'.$ret.'</span>';
 		} elseif( isset($row->fp_stable) && $row->rev_id > $row->fp_stable ) {
 			$ret = '<span class="flaggedrevs-unreviewed">'.$ret.'</span>';
 		} elseif( !isset($row->fp_stable) ) {
@@ -1759,8 +1782,7 @@ class FlaggedRevsHooks {
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
 			if( !$srev || $srev->getRevId() != $editPage->getArticle()->getLatest() ) {
-				$checkboxes['reviewed'] = '';
-				$reviewLabel = wfMsgExt('revreview-flag', array('parseinline'));
+				$reviewLabel = wfMsgExt( 'revreview-check-flag', array('parseinline') );
 				$attribs = array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' );
 				$checkboxes['reviewed'] = Xml::check( 'wpReviewEdit', 
 					$wgRequest->getCheck('wpReviewEdit'), $attribs ) . 
@@ -1927,7 +1949,7 @@ class FlaggedRevsHooks {
 			}
 			$show = htmlspecialchars($show);
 			$value = htmlspecialchars($value);
-			$expiryFormOptions .= Xml::option( $show, $value, $config['expiry'] === $value ) . "\n";
+			$expiryFormOptions .= Xml::option( $show, $value, $config['expiry'] === $value )."\n";
 		}
 		# Add expiry dropdown to form
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
@@ -1999,7 +2021,7 @@ class FlaggedRevsHooks {
 		$form->target = $article->getTitle(); # Our target page
 		$form->watchThis = null; # protection form already has a watch check
 		$form->reason = $wgRequest->getText( 'mwProtect-reason' ); # Reason
-		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' );  # Reason dropdown
+		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' ); # Reason dropdown
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
 		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...

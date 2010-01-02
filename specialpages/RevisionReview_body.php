@@ -510,9 +510,9 @@ class RevisionReview extends UnlistedSpecialPage
 				$lastTempId = $rev_id;
 
 			$tmpset[] = array(
-				'ft_rev_id' => $rev->getId(),
-				'ft_namespace' => $tmp_title->getNamespace(),
-				'ft_title' => $tmp_title->getDBkey(),
+				'ft_rev_id' 	=> $rev->getId(),
+				'ft_namespace'  => $tmp_title->getNamespace(),
+				'ft_title' 		=> $tmp_title->getDBkey(),
 				'ft_tmp_rev_id' => $rev_id
 			);
 			if( !isset($tmpParams[$tmp_title->getNamespace()]) ) {
@@ -541,10 +541,10 @@ class RevisionReview extends UnlistedSpecialPage
 				$lastImgTime = $timestamp;
 
 			$imgset[] = array(
-				'fi_rev_id' => $rev->getId(),
-				'fi_name' => $img_title->getDBkey(),
-				'fi_img_timestamp' => $timestamp,
-				'fi_img_sha1' => $key
+				'fi_rev_id' 		=> $rev->getId(),
+				'fi_name' 			=> $img_title->getDBkey(),
+				'fi_img_timestamp'  => $timestamp,
+				'fi_img_sha1' 		=> $key
 			);
 			if( !isset($imgParams[$img_title->getDBkey()]) ) {
 				$imgParams[$img_title->getDBkey()] = array();
@@ -571,8 +571,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(),
 			FR_TEXT | FR_MASTER );
 		if( $oldfrev ) {
-			$flaggedOutput = FlaggedRevs::parseStableText( $article, $oldfrev->getRevText(),
-				$oldfrev->getRevId() );
+			$flaggedOutput = FlaggedRevs::parseStableText( $article,
+				$oldfrev->getRevText(), $oldfrev->getRevId() );
 		}
 		
 		# Be looser on includes for templates, since they don't matter much
@@ -649,12 +649,12 @@ class RevisionReview extends UnlistedSpecialPage
 		# Try using the parser cache first since we didn't actually edit the current version.
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $wgUser );
-		if( !$poutput || !isset($poutput->fr_newestTemplateID)
+		if( !$poutput
+			|| !isset($poutput->fr_newestTemplateID)
 			|| !isset($poutput->fr_newestImageTime) )
 		{
-			$text = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
-			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
+			$poutput = $wgParser->parse( $article->getContent(), $article->mTitle, $options );
 		}
 		# Prepare for a link tracking update
 		$u = new LinksUpdate( $this->page, $poutput );
@@ -694,7 +694,7 @@ class RevisionReview extends UnlistedSpecialPage
 
 		$dbw->commit();
 		# Purge cache/squids for this page and any page that uses it
-		Article::onArticleEdit( $article->getTitle() );
+		Article::onArticleEdit( $this->page );
 
 		wfProfileOut( __METHOD__ );
         return true;

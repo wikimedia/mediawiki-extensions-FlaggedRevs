@@ -93,7 +93,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-draft-rev'          => 'Draft revision',
 	'revreview-edit'               => 'Edit draft',
 	'revreview-editnotice'         => '\'\'\'Your changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'',
-	'revreview-flag'               => 'Review this revision',
+	'revreview-check-flag'         => 'Mark pending edits reviewed',
 	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
 The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 suggested {{PLURAL:$2|change|changes}}].',
 	'revreview-flag'               => 'Review this revision',
