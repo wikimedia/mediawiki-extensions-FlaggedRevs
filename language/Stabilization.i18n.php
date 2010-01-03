@@ -1754,6 +1754,8 @@ $messages['ka'] = array(
 კონფიგურაცია შეუძლებელია.',
 	'stabilization-comment' => 'მიზეზი:',
 	'stabilization-otherreason' => 'სხვა მიზეზი:',
+	'stabilization-othertime' => 'სხვა დრო:',
+	'stabilization-def-short-0' => 'მიმდინარე',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

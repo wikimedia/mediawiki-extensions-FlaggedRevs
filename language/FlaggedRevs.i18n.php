@@ -2891,9 +2891,10 @@ pel newe kerê ya zi newe ra çım ser bı çarnê belka problem hal bıbo.",
 	'revreview-draft-rev' => 'Çımraviyarnayışê vernuştey',
 	'revreview-edit' => 'numune bıvurn',
 	'revreview-editnotice' => "'''Vurnayışê şıma [[{{MediaWiki:Validationpage}}|neşr benê]] u yew karbero selahiyetdar ninan reyna [[{{MediaWiki:Validationpage}}|çım ra viyarneno]].'''",
-	'revreview-flag' => 'nop revizyon ser çım bıçarn',
+	'revreview-check-flag' => 'Vurnayışanê ke qontrol biyê nişan ke',
 	'revreview-edited' => "'''Vurnayışi [[{{MediaWiki:Validationpage}}|neşr benê]] u yew karbero selahiyetdar ninan reyna [[{{MediaWiki:Validationpage}}|çım ra viyarneno]].'''
 ''Vernuşte''o cêrên de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 teklifê {{PLURAL:$2|vurnayışi esto|vurnayışan estê}}].",
+	'revreview-flag' => 'nop revizyon ser çım bıçarn',
 	'revreview-unflag' => 'Enê çımraviyarnayışi qontrol meke',
 	'revreview-invalid' => "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
 	'revreview-legend' => "muhtewayê revizyoni bıd' reydayiş",
@@ -8377,6 +8378,10 @@ $messages['ml'] = array(
 	'revreview-basic-same' => 'ഇത് [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ആണ്, <i>$2</i>ന് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ദർശിച്ചിരിക്കുന്നു].',
 	'revreview-basic-source' => "ഈ താളിന്റെ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}}  ഒരു sighted പതിപ്പ്], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചത്] ഈ പതിപ്പിനെ അടിസ്ഥാനമാക്കിയാണ്‌.",
 	'revreview-failed' => "'''ഈ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്യാൻ കഴിയില്ല.''' സമർപ്പിക്കപ്പെട്ടത് അപൂർണ്ണമോ മറ്റുവിധത്തിൽ അസാധുവോ ആണ്.",
+	'revreview-changed' => "'''ആവശ്യപ്പെട്ട പ്രവൃത്തി [[:$1|$1]] താളിന്റെ ഈ നാൾപ്പതിപ്പിൽ ചെയ്യാൻ കഴിയില്ല.'''
+
+പ്രത്യേകിച്ചൊരു പതിപ്പ് വ്യക്തമാക്കാതെ ഒരു ഫലകമോ പ്രമാണമോ ആയിരിക്കണം ആവശ്യപ്പെട്ടത്.
+താങ്കൾ ഈ താളിൽ സംശോധനം ചെയ്യാൻ തുടങ്ങിയ ശേഷം, ഒരു ഫലകം തത്സമയമായി മറ്റൊരു പ്രമാണമോ ഫലകമോ ഒരു ചരത്തെ അടിസ്ഥാനമാക്കി മാറ്റിയതിനാലും ഇങ്ങനെ സംഭവിക്കാം. താൾ റിഫ്രഷ് ചെയ്ത് പുനഃസംശോധനം ചെയ്താൽ ഈ പ്രശ്നം പരിഹരിക്കാം.",
 	'revreview-current' => 'കരട്',
 	'revreview-depth' => 'ആഴം',
 	'revreview-depth-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
@@ -9322,6 +9327,7 @@ Ei lista over stabiliserte sider finst på [[Special:StablePages|lista over stab
  * @author Stigmj
  */
 $messages['no'] = array(
+	'action-review' => 'revidere revisjoner',
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Stabile versjoner',
 	'flaggedrevs-backlog' => "Det er en oppsamling av [[Special:OldReviewedPages|ventende endringer]] i kø for vurdering. '''Din oppmerksomhet trengs!'''",
@@ -9379,7 +9385,7 @@ Se [[Special:ReviewedPages|listen over anmeldte sider]] for en liste over godkje
 Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] har blitt gjort.',
 	'revreview-basic-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|sjekkede]] sideversjonen ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} se alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.',
 	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} sjekket versjon] av denne siden, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>, ble basert på denne versjonen.',
-	'revreview-failed' => 'Vurdering feilet!',
+	'revreview-failed' => "'''Kunne ikke revidere denne revisjonen.''' Innsendingen er ikke komplett eller er ugyldig på en annen måte.",
 	'revreview-changed' => "'''Den etterspurte handlingen kan ikke utføres på denne versjonen av [[:$1|$1]].'''
 
 En mal eller en fil kan ha blitt etterspurt uten noen spesifisert versjon.
@@ -9396,9 +9402,11 @@ Dette kan skje om en dynamisk mal inneholder en annen fil eller en mal avhengig 
 	'revreview-draft-rev' => 'Utkastversjon',
 	'revreview-edit' => 'Rediger utkast',
 	'revreview-editnotice' => "'''Dine endringer vil bli [[{{MediaWiki:Validationpage}}|publisert]] når en autorisert bruker har [[{{MediaWiki:Validationpage}}|revidert]] dem.'''",
-	'revreview-flag' => 'Anmeld denne sideversjonen',
+	'revreview-check-flag' => 'Merk ventende endringer som revidert',
 	'revreview-edited' => "'''Endringer vil bli [[{{MediaWiki:Validationpage}}|publisert]] når en autorisert bruker har [[{{MediaWiki:Validationpage}}|revidert]] dem.'''
 ''Utkastet'', vist under, inneholder [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur&diffonly=0}} {{PLURAL:$2|én foreslått endring|$2 foreslåtte endringer}}].",
+	'revreview-flag' => 'Anmeld denne sideversjonen',
+	'revreview-unflag' => 'Fjern revideringen av denne revisjonen',
 	'revreview-invalid' => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|anmeldte]] versjoner tilsvarer den angitte ID-en.",
 	'revreview-legend' => 'Vurder versjonens innhold',
 	'revreview-log' => 'Kommentar:',
@@ -9455,6 +9463,8 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-style-3' => 'Konsis',
 	'revreview-style-4' => 'Utmerket',
 	'revreview-submit' => 'Send',
+	'revreview-submit-review' => 'Merk som revidert',
+	'revreview-submit-unreview' => 'Merk som ikke revidert',
 	'revreview-submitting' => 'Leverer …',
 	'revreview-successful' => "'''Valgt versjon av [[:$1|$1]] har blitt merket. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} se alle stabile versjoner])'''",
 	'revreview-successful2' => "'''Valgt versjon av [[:$1|$1]] ble degradert.'''",
@@ -9510,7 +9520,7 @@ En liste over stabiliserte sider kan finnes på [[Special:StablePages|listen ove
 	'revreview-locked' => 'Redigeringer må anmeldes før de vises på denne siden.',
 	'revreview-unlocked' => 'Redigeringer må ikke anmeldes før de vises på denne siden.',
 	'log-show-hide-review' => '$1 vurderingslogg',
-	'revreview-tt-review' => 'Anmeld denne siden',
+	'revreview-tt-review' => 'Sette denne statusen til denne revisjonen',
 	'validationpage' => '{{ns:help}}:Sidegodkjenning',
 );
 
@@ -9751,8 +9761,10 @@ $messages['pdc'] = array(
  * @author Pimke
  * @author Sp5uhe
  * @author ToSter
+ * @author Wpedzich
  */
 $messages['pl'] = array(
+	'action-review' => 'przejrzyj wersje',
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Wersje oznaczone',
 	'flaggedrevs-backlog' => "Mamy zaległości w sprawdzaniu [[Special:OldReviewedPages|zmian oczekujących]] na przejrzenie. '''Potrzebna jest Twoja pomoc!'''",
@@ -9786,7 +9798,8 @@ $messages['pl'] = array(
 	'review-logentry-app' => 'przejrzał wersję [[$1]]',
 	'review-logentry-dis' => 'wycofał oznaczenie wersji [[$1]]',
 	'review-logentry-id' => 'zobacz wersję z $2',
-	'review-logentry-diff' => 'zmiany wykonane od ostatniego oznaczenia',
+	'review-logentry-diff' => 'przejrzane zmiany',
+	'review-logentry-diff2' => 'zmiany oznaczone jako nieprzejrzane',
 	'review-logpage' => 'Rejestr oznaczania',
 	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.
 Zobacz [[Special:ReviewedPages|listę oznaczonych stron]].',
@@ -9827,9 +9840,11 @@ Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'revreview-draft-rev' => 'Wersja robocza',
 	'revreview-edit' => 'Edytuj wersję roboczą',
 	'revreview-editnotice' => "'''Uwaga! Edycje wykonane na tej stronie będą miały do momentu ich przejrzenia i akceptacji przez jednego z redaktorów status „[[{{MediaWiki:Validationpage}}|wersji roboczej]]”.'''",
-	'revreview-flag' => 'Oznacz tę wersję',
+	'revreview-check-flag' => 'Oznacz oczekujące edycje jako przejrzane',
 	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''
 '''''Wersję roboczą'' pokazano poniżej.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] na sprawdzenie.",
+	'revreview-flag' => 'Oznacz tę wersję',
+	'revreview-unflag' => 'Oznacz tę edycje jako nieprzejrzaną',
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
 	'revreview-legend' => 'Oceń treść zmiany',
 	'revreview-log' => 'Komentarz:',
@@ -10081,6 +10096,7 @@ $messages['ps'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
+	'action-review' => 'fazer a revisão de edições',
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Edições Analisadas',
 	'flaggedrevs-backlog' => "Neste momento estão acumuladas [[Special:OldReviewedPages|edições pendentes]] às páginas revistas. '''É necessária a sua atenção!'''",
@@ -10157,9 +10173,11 @@ Recarregar a página e enviar uma nova análise poderá ser suficiente para cont
 	'revreview-draft-rev' => 'Edição rascunho',
 	'revreview-edit' => 'Editar rascunho',
 	'revreview-editnotice' => "'''As suas alterações serão [[{{MediaWiki:Validationpage}}|publicadas]] quando um utilizador autorizado as tiver [[{{MediaWiki:Validationpage}}|revisto]].'''",
-	'revreview-flag' => 'Analise esta edição',
+	'revreview-check-flag' => 'Marcar as edições pendentes como revistas',
 	'revreview-edited' => "'''As alterações serão [[{{MediaWiki:Validationpage}}|publicadas]] quando um utilizador autorizado as tiver [[{{MediaWiki:Validationpage}}|revisto]].'''
 O ''rascunho'', mostrado abaixo, contém [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|uma alteração|$2 alterações}}].",
+	'revreview-flag' => 'Analise esta edição',
+	'revreview-unflag' => 'Desfazer a revisão desta edição',
 	'revreview-invalid' => "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições verificadas]] correspondentes ao ID fornecido.",
 	'revreview-legend' => 'Avaliar conteúdo da edição',
 	'revreview-log' => 'Comentário:',
@@ -10215,6 +10233,8 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] tem [{{fullurl:{{FULLPAGENAM
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Exemplar',
 	'revreview-submit' => 'Enviar',
+	'revreview-submit-review' => 'Marcar como revisto',
+	'revreview-submit-unreview' => 'Marcar como não revisto',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi assinalada com sucesso. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver edições estáveis])'''",
 	'revreview-successful2' => "'''A edição seleccionada de [[:$1|$1]] teve sua análise removida com sucesso.'''",

@@ -334,6 +334,14 @@ $messages['ja'] = array(
 	'problemchanges-category' => 'カテゴリ:',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'problemchanges-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
+	'problemchanges-category' => 'კატეგორია:',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author វ័ណថារិទ្ធ
  */
