@@ -1546,9 +1546,10 @@ $messages['be-tarask'] = array(
 	'revreview-draft-rev' => 'Чарнавая вэрсія',
 	'revreview-edit' => 'Рэдагаваць чарнавік',
 	'revreview-editnotice' => "'''Вашыя рэдагаваньні [[{{MediaWiki:Validationpage}}|будуць апублікаваныя]] пасьля таго, як іх [[{{MediaWiki:Validationpage}}|прарэцэнзуе]] аўтарызаваны удзельнік.'''",
-	'revreview-flag' => 'Праверыць гэту вэрсію',
+	'revreview-check-flag' => 'Пазначыць рэдагаваньне як праверанае',
 	'revreview-edited' => "'''Рэдагаваньні будуць [[{{MediaWiki:Validationpage}}|апублікаваны]] пасьля таго, як іх [[{{MediaWiki:Validationpage}}|прарэцэнзуе]] аўтарызаваны удзельнік.'''
 ''Чарнавік'', паказаны ніжэй утрымлівае [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|прапанаваную зьмену|прапанаваных зьмены|прапанаваных зьменаў}}].",
+	'revreview-flag' => 'Праверыць гэту вэрсію',
 	'revreview-unflag' => 'Зьняць статус праверанай з гэтай вэрсіі',
 	'revreview-invalid' => "'''Няслушная мэта:''' няма [[{{MediaWiki:Validationpage}}|рэцэнзаванай]] вэрсіі, якая адпавядае пададзенаму ідэнтыфікатару.",
 	'revreview-legend' => 'Адзнака зьместу вэрсіі',
@@ -1675,6 +1676,7 @@ $messages['be-tarask'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Spiritia
  * @author Turin
  */
 $messages['bg'] = array(
@@ -1690,6 +1692,9 @@ $messages['bg'] = array(
 	'group-reviewer-member' => 'Рецензент',
 	'grouppage-editor' => '{{ns:project}}:Редактор',
 	'grouppage-reviewer' => '{{ns:project}}:Рецензент',
+	'group-autoreview' => 'Авторецензенти',
+	'group-autoreview-member' => 'авторецензент',
+	'grouppage-autoreview' => '{ns:project}}:Авторецензент',
 	'hist-draft' => 'чернова версия',
 	'hist-quality' => 'качествена версия',
 	'review-diff2stable' => 'Преглед на разликите между устойчивата и текущата версия',
@@ -2114,9 +2119,10 @@ Osvježavanje stranice i ponovno ocijenjivanje može riješiti ovaj problem.",
 	'revreview-draft-rev' => 'Radna revizija',
 	'revreview-edit' => 'Uredite radnu verziju',
 	'revreview-editnotice' => "'''Vaše izmjene će biti [[{{MediaWiki:Validationpage}}|objavljene]] tek kada ih [[{{MediaWiki:Validationpage}}|pregleda]] potvrđeni korisnik.'''",
-	'revreview-flag' => 'Provjerite ovu reviziju',
+	'revreview-check-flag' => 'Označavanje izmjena na čekanju provjerenim',
 	'revreview-edited' => "'''Izmjene će biti u [[{{MediaWiki:Validationpage}}|objavljene]] kada ih [[{{MediaWiki:Validationpage}}|pregleda]] potvrđeni korisnik.'''
 ''Radna verzija'', prikazana ispod, sadrži [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|izmjenu|izmjene|izmjena}}] za provjeru.",
+	'revreview-flag' => 'Provjerite ovu reviziju',
 	'revreview-unflag' => 'Označi ovu reviziju nepregledanom',
 	'revreview-invalid' => "'''Nevaljan cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] revizija ne odgovara navedenom ID.",
 	'revreview-legend' => 'Ocijeni sadržaj revizije',
@@ -7022,6 +7028,7 @@ $messages['ka'] = array(
 იხილეთ [[Special:Unreviewedpages|შეუმოწმებელი გვერდების სია]].',
 	'revreview-style-2' => 'კარგი',
 	'revreview-style-4' => 'რჩეული',
+	'revreview-toggle-title' => 'აჩვენე/დამალე დეტალები',
 	'revreview-filter-all' => 'ყველა',
 	'revreview-filter-auto' => 'ავტომატიკური',
 	'revreview-filter-manual' => 'ხელით',
@@ -10571,9 +10578,10 @@ Aggiorne 'a pàgene e repruève 'n'otra vote a fa 'na rivisita ca pò essere ca 
 	'revreview-draft-rev' => 'Revisione bozza',
 	'revreview-edit' => "Cange 'a bozze",
 	'revreview-editnotice' => "'''Le cangiaminde tune avènene [[{{MediaWiki:Validationpage}}|pubblecate]] 'na vote ca 'n'utende autorizzate l'ha [[{{MediaWiki:Validationpage}}|reviste]].'''",
-	'revreview-flag' => 'Revide sta revisione',
+	'revreview-check-flag' => 'Signe le cangiaminde pendende cumme reviste',
 	'revreview-edited' => "'''Le cangiaminde avènene [[{{MediaWiki:Validationpage}}|pubblecate]] 'na vote ca 'n'utende autorizzate l'ha [[{{MediaWiki:Validationpage}}|reviste]].'''
 'A ''bozze'' ta stoche a fazze vedè aqquà sotte, tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cangiamende ca ste aspette|cangiaminde ca stonne aspettane}}] 'a revisione.",
+	'revreview-flag' => 'Revide sta revisione',
 	'revreview-unflag' => 'Nò revedè sta revisione',
 	'revreview-invalid' => "'''Destinazione invalide:''' nisciuna revisiona  [[{{MediaWiki:Validationpage}}|reviste]] corresponne a 'u codece (ID) inzerite.",
 	'revreview-legend' => "D'a 'nu pundegge a 'u condenute d'a revisione",
@@ -10786,9 +10794,10 @@ $messages['ru'] = array(
 	'revreview-draft-rev' => 'Черновая версия',
 	'revreview-edit' => 'Править черновик',
 	'revreview-editnotice' => "'''Сделанные вами изменения [[{{MediaWiki:Validationpage}}|станут видны]] после их [[{{MediaWiki:Validationpage}}|проверки]] уполномоченным участником.'''",
-	'revreview-flag' => 'Проверить эту версию',
+	'revreview-check-flag' => 'Отметить все правки, ожидающие проверки, как проверенные',
 	'revreview-edited' => "'''Изменения будут включены в [[{{MediaWiki:Validationpage}}|стабильную версию]] только после их [[{{MediaWiki:Validationpage}}|проверки]] уполномоченным участником.'''
 Ниже показана ''черновая'' версия, в которой [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} предлагается $2 {{PLURAL:$2|изменение|изменения|изменений}}].",
+	'revreview-flag' => 'Проверить эту версию',
 	'revreview-unflag' => 'Стать отметку «проверена»',
 	'revreview-invalid' => "'''Ошибочная цель:''' не существует [[{{MediaWiki:Validationpage}}|проверенной]] версии страницы, соответствующей указанному идентификатору.",
 	'revreview-legend' => 'Оценки содержания версии',
