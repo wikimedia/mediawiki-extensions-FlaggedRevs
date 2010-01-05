@@ -694,25 +694,11 @@ class FlaggedArticleView {
 			$latestId = $this->article->getLatest();
 			$revId = $editPage->oldid ? $editPage->oldid : $latestId;
 			$isOld = ($revId != $latestId); // not the current rev?
-			# If this will be autoreviewed, notify the user...
-			if( !FlaggedRevs::lowProfileUI() && FlaggedRevs::autoReviewEdits()
-				&& $wgUser->isAllowed('review')
-			) {
-				# If we are editing some reviewed revision, any changes this user
-				# makes will be autoreviewed...
-				$ofrev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revId );
-				if( !is_null($ofrev) ) {
-					$msg = ( $revId==$frev->getRevId() ) ?
-						'revreview-auto-w' : 'revreview-auto-w-old';
-					$css = 'flaggedrevs_warning plainlinks';
-					$warning = "<div id='mw-autoreviewtag' class='$css'>" .
-						wfMsgExt($msg,array('parseinline')) . "</div>";
-				}
 			# Let new users know about review procedure a tag
-			} elseif( !$wgUser->getId() && $this->article->showStableByDefault() ) {
+			if( !$wgUser->getId() && $this->article->showStableByDefault() ) {
 				$css = 'flaggedrevs_editnotice plainlinks';
 				$warning = "<div id='mw-editwarningtag' class='$css'>" .
-						wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
+					wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
 			}
 			# Add a notice if there are pending edits...
 			if( $frev->getRevId() != $revId ) {

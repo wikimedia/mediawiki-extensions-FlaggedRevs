@@ -66,8 +66,6 @@ $messages['en'] = array(
 	'revreview-accuracy-4'         => 'Featured',
 	'revreview-approved'           => 'Approved',
 	'revreview-auto'               => '(automatic)',
-	'revreview-auto-w'             => 'You are editing the stable revision; changes will \'\'\'automatically be reviewed\'\'\'.',
-	'revreview-auto-w-old'         => 'You are editing a reviewed revision; changes will \'\'\'automatically be reviewed\'\'\'.',
 	'revreview-basic'              => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 suggested  {{PLURAL:$3|change|changes}}].',
 	'revreview-basic-i'            => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>.
@@ -330,10 +328,6 @@ A basic check on vandalism ("sighted" as "has been seen/checked"). This configur
 	'revreview-approved' => '{{Flagged Revs}}',
 	'revreview-auto' => '{{Flagged Revs}}
 {{Identical|Automatic}}',
-	'revreview-auto-w' => "{{Flagged Revs-small}}
-Because the user is in the group 'reviewer', any changes will automatically be reviewed. This would not be done when editing as a normal user or IP.",
-	'revreview-auto-w-old' => "{{Flagged Revs-small}}
-Because the user is in the group 'reviewer', any changes will automatically be reviewed. This would not be done when editing as a normal user or IP.",
 	'revreview-basic' => '{{Flagged Revs}}
 * Parameter $2 is the date of the approval',
 	'revreview-basic-i' => '{{Flagged Revs}}
