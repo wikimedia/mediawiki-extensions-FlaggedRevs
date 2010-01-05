@@ -43,6 +43,8 @@
 .flaggedrevs_editnotice {
 	font-size: 85%;
 	background-color: #f9f9f9;
+	text-align: left;
+	width: 100%;
 }
 .flaggedrevs_diffnotice {
 	font-size: 85%;

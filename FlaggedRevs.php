@@ -286,7 +286,7 @@ $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 63;
+$wgFlaggedRevStyleVersion = 64;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

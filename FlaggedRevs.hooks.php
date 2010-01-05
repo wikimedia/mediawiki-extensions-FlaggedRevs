@@ -30,6 +30,13 @@ class FlaggedRevsHooks {
 			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
 			$head .= "\n<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
 		}
+		# Set basic messages
+		$msgs = (object) array(
+			'revreviewDiffToggleShow' => wfMsgHtml('revreview-diff-toggle-show'),
+			'revreviewDiffToggleHide' => wfMsgHtml('revreview-diff-toggle-hide')
+		);
+		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
+			"FlaggedRevs.messages = ".Xml::encodeJsVar($msgs).";</script>";
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
 	}
@@ -46,19 +53,19 @@ class FlaggedRevsHooks {
 		# Get page-specific meta-data
 		$frev = $fa->getStableRev();
 		$stableId = $frev ? $frev->getRevId() : 0;
-		$ajaxReview = (object) array(
-			'sendMsg'		 => wfMsgHtml('revreview-submit'),
-			'flagMsg'		 => wfMsgHtml('revreview-submit-review'),
-			'unflagMsg'		 => wfMsgHtml('revreview-submit-unreview'),
-			'flagLegMsg'	 => wfMsgHtml('revreview-flag'),
-			'unflagLegMsg'	 => wfMsgHtml('revreview-unflag'),
-			'sendingMsg'     => wfMsgHtml('revreview-submitting'),
-			'actioncomplete' => wfMsgHtml('actioncomplete'),
-			'actionfailed'   => wfMsgHtml('actionfailed')
-		);
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
 		$globalVars['wgStableRevisionId'] = $stableId;
 		if( $wgUser->isAllowed('review') ) {
+			$ajaxReview = (object) array(
+				'sendMsg'		 => wfMsgHtml('revreview-submit'),
+				'flagMsg'		 => wfMsgHtml('revreview-submit-review'),
+				'unflagMsg'		 => wfMsgHtml('revreview-submit-unreview'),
+				'flagLegMsg'	 => wfMsgHtml('revreview-flag'),
+				'unflagLegMsg'	 => wfMsgHtml('revreview-unflag'),
+				'sendingMsg'     => wfMsgHtml('revreview-submitting'),
+				'actioncomplete' => wfMsgHtml('actioncomplete'),
+				'actionfailed'   => wfMsgHtml('actionfailed')
+			);
 			$globalVars['wgAjaxReview'] = $ajaxReview; // language for AJAX form
 		}
 		return true;
@@ -1820,7 +1827,7 @@ class FlaggedRevsHooks {
 			);
 			# Give a notice if pages on the wachlist are outdated
 			if( $watchedOutdated ) {
-				$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-watchlist-old-notice'>" . 
+				$notice .= "<div id='mw-fr-oldreviewed-notice' class='plainlinks fr-watchlist-old-notice'>" . 
 					wfMsgExt('flaggedrevs-watched-pending',array('parseinline')) . "</div>";
 			# Otherwise, give a notice if there is a large backlog in general
 			} else {
@@ -1837,7 +1844,7 @@ class FlaggedRevsHooks {
 						'fp_pending_since IS NOT NULL', __METHOD__ );
 				}
 				if( $unreviewed > .02*$pages ) {
-					$notice .= "<div id='mw-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
+					$notice .= "<div id='mw-fr-oldreviewed-notice' class='plainlinks fr-backlognotice'>" . 
 						wfMsgExt('flaggedrevs-backlog',array('parseinline')) . "</div>";
 				}
 			}

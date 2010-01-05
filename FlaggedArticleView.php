@@ -151,12 +151,12 @@ class FlaggedArticleView {
 			# Hide clutter
 			if( !FlaggedRevs::useSimpleUI() && !empty($flags) ) {
 				$tag .= " " . FlaggedRevsXML::ratingToggle() . 
-					"<span id='mw-revisionratings' style='display:block;'><br />" .
+					"<span id='mw-fr-revisionratings' style='display:block;'><br />" .
 					wfMsgHtml('revreview-oldrating') .
 					FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 			}
 			$css = 'flaggedrevs_notice plainlinks noprint';
-			$tag = "<div id='mw-revisiontag-old' class='$css'>$tag</div>";
+			$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
 			$wgOut->addHTML( $tag );
 		}
 		return true;
@@ -271,7 +271,7 @@ class FlaggedArticleView {
 		# Wrap tag contents in a div
 		if( $tag != '' ) {
 			$rtl = $wgContLang->isRTL() ? " rtl" : ""; // RTL langauges
-			$tag = "<div id='mw-revisiontag' class='{$tagClass}{$rtl} plainlinks noprint'>" .
+			$tag = "<div id='mw-fr-revisiontag' class='{$tagClass}{$rtl} plainlinks noprint'>" .
 				"$tag</div>";
 			$this->reviewNotice .= $tag;
 		}
@@ -297,13 +297,13 @@ class FlaggedArticleView {
 			$msg = 'revreview-quick-none';
 			$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
 				wfMsgExt($msg,array('parseinline'));
-			$tag = "<div id='mw-revisiontag' class='flaggedrevs_short{$rtl} plainlinks noprint'>" .
+			$tag = "<div id='mw-fr-revisiontag' class='flaggedrevs_short{$rtl} plainlinks noprint'>" .
 				"$tag</div>";
 			$this->reviewNotice .= $tag;
 		// Standard UI
 		} else {
 			$msg = 'revreview-noflagged';
-			$tag = "<div id='mw-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
+			$tag = "<div id='mw-fr-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
 				"{$prot}<span class='fr-icon-current plainlinks'></span>" .
 				wfMsgExt($msg, array('parseinline')) . "</div>";
 			$this->reviewNotice .= $tag;
@@ -340,7 +340,7 @@ class FlaggedArticleView {
 			$tooltip = wfMsgHtml('revreview-draft-title');
 			$pending = "{$prot}<span class='fr-icon-current' title=\"{$tooltip}\"></span>" .
 				wfMsgExt('revreview-edited',array('parseinline'),$srev->getRevId(),$revsSince);
-			$pending = "<div id='mw-reviewnotice' class='flaggedrevs_preview plainlinks'>" .
+			$pending = "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" .
 				"$pending</div>";
 			# Notice should always use subtitle
 			$this->reviewNotice = $pending;
@@ -397,7 +397,7 @@ class FlaggedArticleView {
 				# Hide clutter
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br />" .
+					$tag .= "<span id='mw-fr-revisionratings' style='display:block;'><br />" .
 						wfMsgHtml('revreview-oldrating') .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
@@ -457,7 +457,7 @@ class FlaggedArticleView {
 				# Hide clutter
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br />" .
+					$tag .= "<span id='mw-fr-revisionratings' style='display:block;'><br />" .
 						wfMsgHtml('revreview-oldrating') .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
@@ -531,7 +531,7 @@ class FlaggedArticleView {
 					wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $time, $revsSince );
 				if( !empty($flags) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-revisionratings' style='display:block;'><br />" .
+					$tag .= "<span id='mw-fr-revisionratings' style='display:block;'><br />" .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
 				}
 			}
@@ -673,16 +673,19 @@ class FlaggedArticleView {
 	 * Adds stable version tags to page when viewing history
 	 */
 	public function addToHistView() {
-		global $wgOut, $wgLang;
+		global $wgOut;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if( !$this->article->isReviewable() || $this->article->limitedUI() )
+		if( !$this->article->isReviewable() || $this->article->limitedUI() ) {
 			return true;
+		}
 		# Add a notice if there are pending edits...
 		$frev = $this->article->getStableRev();
 		if( $frev && $frev->getRevId() < $this->article->getLatest() ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
-			$tag = FlaggedRevsXML::pendingEditBox( $this->article, $frev, $revsSince );
+			$tag = "<div id='mw-fr-revisiontag-edit' class='flaggedrevs_notice plainlinks'>" .
+				FlaggedRevsXML::lockStatusIcon( $this->article ) . # flag protection icon as needed
+				FlaggedRevsXML::pendingEditNotice( $this->article, $frev, $revsSince ) . "</div>";
 			$wgOut->addHTML( $tag );
 		}
 		return true;
@@ -695,40 +698,38 @@ class FlaggedArticleView {
 		global $wgRequest, $wgOut, $wgLang, $wgUser;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if( !$this->article->isReviewable() || $this->article->limitedUI() )
+		if( !$this->article->isReviewable() || $this->article->limitedUI() ) {
 			return true;
-		# Show stabilization log
-		$this->showStabilityLog();
+		}
+		$items = array();
 		$tag = $warning = $prot = '';
+		# Show stabilization log
+		$log = $this->stabilityLogExcerpt();
+		if( $log ) $items[] = $log;
 		# Check the newest stable version
 		$quality = 0;
 		$frev = $this->article->getStableRev();
 		if( $frev ) {
+			$quality = $frev->getQuality();
 			# Find out revision id of base version
 			$latestId = $this->article->getLatest();
 			$revId = $editPage->oldid ? $editPage->oldid : $latestId;
 			$isOld = ($revId != $latestId); // not the current rev?
-			# Let new users know about review procedure a tag
-			if( !$wgUser->getId() && $this->article->showStableByDefault() ) {
-				$css = 'flaggedrevs_editnotice plainlinks';
-				$warning = "<div id='mw-editwarningtag' class='$css'>" .
-					wfMsgExt('revreview-editnotice',array('parseinline')) . "</div>";
+			# Let new users know about review procedure a tag.
+			# If the log excerpt was shown this is redundant.
+			if( !$log && !$wgUser->getId() && $this->article->showStableByDefault() ) {
+				$items[] = wfMsgExt( 'revreview-editnotice', array('parseinline') );
 			}
 			# Add a notice if there are pending edits...
 			if( $frev->getRevId() != $revId ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
-				$tag = FlaggedRevsXML::pendingEditBox( $this->article, $frev, $revsSince );
+				$items[] = FlaggedRevsXML::pendingEditNotice( $this->article, $frev, $revsSince );
 			}
-			# Output notice and warning for editors
-			if( $tag || $warning ) {
-				$wgOut->addHTML( $warning . $tag );
-			}
-
 			# Show diff to stable, to make things less confusing...
 			# This can be disabled via user preferences
 			if( $frev->getRevId() < $revId // changes were made
 				&& $this->showDiffOnEditUser() // stable default and user cannot review
-				&& $wgUser->getBoolOption('flaggedrevseditdiffs') // not disable via prefs
+				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
 			) {
 				# Don't show for old revisions, diff, preview, or undo
 				if( $isOld || $editPage->section === "new"
@@ -738,7 +739,9 @@ class FlaggedArticleView {
 				}
 				
 				# Conditions are met to show diff...
-				$leftNote = $quality ? 'revreview-quality-rev' : 'revreview-sighted-rev';
+				$leftNote = $quality
+					? 'revreview-quality-rev'
+					: 'revreview-sighted-rev';
 				$rClass = FlaggedRevsXML::getQualityColor( false );
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
 				$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-rev')."]</span>";
@@ -752,8 +755,10 @@ class FlaggedArticleView {
 				if( $text !== false && strcmp($text,$editPage->textbox1) !== 0 ) {
 					$diffEngine = new DifferenceEngine();
 					$diffEngine->showDiffStyle();
-					$wgOut->addHTML(
-						"<div>" .
+					$diffHtml =
+						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
+						FlaggedRevsXML::diffToggle() .
+						"<div id='mw-fr-stablediff'>" .
 						"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
 						"<col class='diff-marker' />" .
 						"<col class='diff-content' />" .
@@ -767,33 +772,42 @@ class FlaggedArticleView {
 						"</tr>" .
 						$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
 						"</table>" .
-						"</div>\n"
-					);
+						"</div>\n";
+					$items[] = $diffHtml;
 				}
+			}
+			# Output items
+			if( count($items) ) {
+				$html = "<table class='flaggedrevs_editnotice plainlinks'>";
+				foreach( $items as $item ) {
+					$html .= '<tr><td>'.$item.'</td></tr>';
+				}
+				$html .= '</table>';
+				$wgOut->addHTML( $html );
 			}
 		}
 		return true;
 	}
 	
-	protected function showStabilityLog() {
-		global $wgOut;
+	protected function stabilityLogExcerpt() {
 		$this->load();
+		$s = '';
 		# Only for pages manually made to be stable...
 		if( $this->article->isPageLocked() ) {
-			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
-			$wgOut->addWikiMsg( 'revreview-locked' );
-			LogEventsList::showLogExtract( $wgOut, 'stable',
+			$s = wfMsgExt( 'revreview-locked', 'parseinline' );
+			$logHtml = '';
+			LogEventsList::showLogExtract( $logHtml, 'stable',
 				$this->article->getTitle()->getPrefixedText(), '', array('lim'=>1) );
-			$wgOut->addHTML( "</div>" );
+			$s .= $logHtml;
 		# ...or unstable
 		} elseif( $this->article->isPageUnlocked() ) {
-			$wgOut->addHTML( "<div class='mw-warning-with-logexcerpt'>" );
-			$wgOut->addWikiMsg( 'revreview-unlocked' );
-			LogEventsList::showLogExtract( $wgOut, 'stable',
+			$s = wfMsgExt( 'revreview-unlocked', 'parseinline' );
+			$logHtml = '';
+			LogEventsList::showLogExtract( $logHtml, 'stable',
 				$this->article->getTitle()->getPrefixedText(), '', array('lim' => 1) );
-			$wgOut->addHTML( "</div>" );
+			$s .= $logHtml;
 		}
-		return true;
+		return $s;
 	}
 
 	/**
@@ -816,7 +830,7 @@ class FlaggedArticleView {
 			wfMsgHtml('oldreviewedpages'), 'category=' . urlencode($category) );
 
 		$wgOut->appendSubtitle(
-			"<span id='mw-category-oldreviewed'>$unreviewedLink / $oldreviewedLink</span>"
+			"<span id='mw-fr-category-oldreviewed'>$unreviewedLink / $oldreviewedLink</span>"
 		);
 		return true;
 	}
@@ -1156,16 +1170,16 @@ class FlaggedArticleView {
 				# If the user is allowed to review, prompt them!
 				$css = 'flaggedrevs_diffnotice plainlinks';
 				if( empty($changeList) && $wgUser->isAllowed('review') ) {
-					$wgOut->addHTML( "<div id='mw-difftostable' class='$css'>" .
+					$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
 						wfMsgExt('revreview-update-none', array('parseinline')).$notice.'</div>' );
 				} elseif( !empty($changeList) && $wgUser->isAllowed('review') ) {
 					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( "<div id='mw-difftostable' class='$css'>" .
+					$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
 						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.
 							$changeList.$notice.'</div>' );
 				} elseif( !empty($changeList) ) {
 					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( "<div id='mw-difftostable' class='$css'>" .
+					$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
 						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.
 							$changeList.$notice.'</div>' );
 				}
@@ -1417,7 +1431,7 @@ class FlaggedArticleView {
 		# Begin form...
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
-		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-reviewform' );
+		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' );
 		if( $hide ) {
 			$params['class'] = 'fr-hiddenform';
 		}
@@ -1428,7 +1442,7 @@ class FlaggedArticleView {
 		$legendMsg = ( FlaggedRevs::binaryFlagging() && $frev )
 			? 'revreview-unflag'
 			: 'revreview-flag';
-		$form .= Xml::openElement( 'legend', array('id' => 'mw-reviewformlegend') );
+		$form .= Xml::openElement( 'legend', array('id' => 'mw-fr-reviewformlegend') );
 		$form .= "<strong>" . wfMsgHtml( $legendMsg ) . "</strong>";
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
@@ -1451,12 +1465,12 @@ class FlaggedArticleView {
 		}
 
 		# Add main checkboxes/selects
-		$form .= Xml::openElement( 'span', array('id' => 'mw-ratingselects') );
+		$form .= Xml::openElement( 'span', array('id' => 'mw-fr-ratingselects') );
 		$form .= FlaggedRevsXML::ratingInputs( $flags, $config, $disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' );
 		# Add review notes input
 		if( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
-			$form .= "<div id='mw-notebox'>\n";
+			$form .= "<div id='mw-fr-notebox'>\n";
 			$form .= "<p>".wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$form .= Xml::openElement( 'textarea', array('name' => 'wpNotes', 'id' => 'wpNotes',
 				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80') ) .
@@ -1496,7 +1510,7 @@ class FlaggedArticleView {
 		if( !$disabled ) {
 			if( count(FlaggedRevs::getDimensions()) > 1 )
 				$form .= "<br />"; // Don't put too much on one line
-			$form .= "<span id='mw-commentbox' style='clear:both'>" . 
+			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" . 
 				Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 40, '', 
 					array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
@@ -1510,7 +1524,7 @@ class FlaggedArticleView {
 		}
 		$form .= Xml::submitButton( wfMsg($submitMsg),
 			array(
-				'id' => 'mw-submitreview', 'accesskey' => wfMsg('revreview-ak-review'),
+				'id' => 'mw-fr-submitreview', 'accesskey' => wfMsg('revreview-ak-review'),
 				'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']'
 			) + $toggle
 		);

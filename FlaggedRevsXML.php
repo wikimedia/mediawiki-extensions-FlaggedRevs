@@ -145,7 +145,7 @@ class FlaggedRevsXML {
     public static function addTagRatings( $flags, $prettyBox = false, $css='' ) {
         $tag = '';
         if( $prettyBox ) {
-        	$tag .= "<table id='mw-revisionratings-box' align='center' class='$css' cellpadding='0'>";
+        	$tag .= "<table id='mw-fr-revisionratings-box' align='center' class='$css' cellpadding='0'>";
 		}
 		foreach( FlaggedRevs::getDimensions() as $quality => $x ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
@@ -230,7 +230,7 @@ class FlaggedRevsXML {
 		$box = "<table style='background: none; border-spacing: 0px;'>";
 		$box .= "<tr style='white-space:nowrap;'><td>$shtml&nbsp;&nbsp;</td>";
 		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
-		$box .= "<tr><td id='mw-revisionratings'>$html<br />";
+		$box .= "<tr><td id='mw-fr-revisionratings'>$html<br />";
 		# Add ratings if there are any...
 		if( $stable && !empty($flags) ) {
 			$box .= self::addTagRatings( $flags, true, $color );
@@ -244,10 +244,21 @@ class FlaggedRevsXML {
 	 * Generates (+/-) JS toggle HTML
 	 */
 	public static function ratingToggle() {
-		return "<a id='mw-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
+		return "<a id='mw-fr-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
 			" onclick='FlaggedRevs.toggleRevRatings()' title='" .
 			wfMsgHtml('revreview-toggle-title') . "' >" .
 			wfMsg( 'revreview-toggle' ) . "</a>";
+	}
+	
+	/**
+	 * @returns string
+	 * Generates (+/-) JS toggle HTML
+	 */
+	public static function diffToggle() {
+		return "<a id='mw-fr-difftoggle' class='flaggedrevs_toggle' style='display:none;'" .
+			" onclick='FlaggedRevs.toggleDiff()' title='" .
+			wfMsgHtml('revreview-diff-toggle-title') . "' >" .
+			wfMsg( 'revreview-diff-toggle-show' ) . "</a>";
 	}
 	
 	/**
@@ -271,7 +282,7 @@ class FlaggedRevsXML {
 		if( FlaggedRevs::binaryFlagging() ) {
 			$inputName = empty($tags) ? 'wpApprove' : "wp{$tags[0]}";
 			return Xml::hidden( $inputName, $reviewed ? 0 : 1,
-				array('id' => 'mw-reviewstate') );
+				array('id' => 'mw-fr-reviewstate') );
 		}
 		$items = array();
 		# Build rating form...
@@ -388,36 +399,26 @@ class FlaggedRevsXML {
 	* @returns string
 	* Creates "there are x pending edits" message in a div
 	*/
-	public static function pendingEditBox( $flaggedArticle, $frev, $revsSince ) {
+	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
 		$flags = $frev->getTags();
 		$quality = FlaggedRevs::isQuality( $flags );
 		$time = $wgLang->date( $frev->getTimestamp(), true );
-		// Is the page config altered?
-		$prot = self::lockStatusIcon( $flaggedArticle );
-		# Streamlined UI
-		if( FlaggedRevs::useSimpleUI() ) {
-			$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-			$msg .= ($revsSince == 0) ? '-i' : '';
-			$tag = "{$prot}<span class='fr-checkbox'></span>" .
-				wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
-			$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>" .
-				"$tag</div>";
+		# Add message text for pending edits
+		$msg = $quality
+			? 'revreview-newest-quality'
+			: 'revreview-newest-basic';
+		$msg .= ($revsSince == 0) ? '-i' : '';
+		$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
 		# Standard UI
-		} else {
-			$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
-			$msg .= ($revsSince == 0) ? '-i' : '';
-			$tag = "{$prot}<span class='fr-checkbox'></span>" .
-				wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
+		if( !FlaggedRevs::useSimpleUI() ) {
 			# Hide clutter
 			if( !empty($flags) ) {
 				$tag .= " " . FlaggedRevsXML::ratingToggle();
-				$tag .= '<span id="mw-revisionratings" style="display:block;"><br />' .
+				$tag .= '<span id="mw-fr-revisionratings" style="display:block;"><br />' .
 					wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) .
 					'</span>';
 			}
-			$tag = "<div id='mw-revisiontag-edit' class='flaggedrevs_editnotice plainlinks'>" .
-				"$tag</div>";
 		}
 		return $tag;
 	}

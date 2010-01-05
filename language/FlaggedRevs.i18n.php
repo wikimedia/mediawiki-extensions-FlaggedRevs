@@ -47,6 +47,10 @@ $messages['en'] = array(
 	'hist-stable'                  => 'sighted revision',
 	'hist-stable-user'             => '[{{fullurl:$1|stableid=$2}} sighted] by [[User:$3|$3]]',
 	'hist-autoreviewed'            => '[{{fullurl:$1|stableid=$2}} automatically sighted]',
+	'review-edit-diff'             => '\'\'\'NOTICE: Some pending changes to the published version are incorporated into the edit form below.\'\'\'', 
+	'revreview-diff-toggle-show'   => '(show changes)',
+	'revreview-diff-toggle-hide'   => '(hide changes)',
+	'revreview-diff-toggle-title'  => 'Toggle display of changes between draft and the published version',
 	'review-diff2stable'           => 'View changes between stable and current revisions',
 	'review-logentry-app'          => 'reviewed a version of [[$1]]',
 	'review-logentry-dis'          => 'deprecated a version of [[$1]]',
@@ -67,7 +71,7 @@ $messages['en'] = array(
 	'revreview-approved'           => 'Approved',
 	'revreview-auto'               => '(automatic)',
 	'revreview-basic'              => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>.
-The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 suggested  {{PLURAL:$3|change|changes}}].',
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending  {{PLURAL:$3|change|changes}}].',
 	'revreview-basic-i'            => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] awaiting review.',
 	'revreview-basic-old'          => 'This is a [[{{MediaWiki:Validationpage}}|sighted]] revision ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
@@ -93,7 +97,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-editnotice'         => '\'\'\'Your changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'',
 	'revreview-check-flag'         => 'Mark pending edits reviewed',
 	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
-The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 suggested {{PLURAL:$2|change|changes}}].',
+The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}].',
 	'revreview-flag'               => 'Review this revision',
 	'revreview-unflag'             => 'Unreview this revision',
 	'revreview-invalid'            => '\'\'\'Invalid target:\'\'\' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.',
@@ -103,11 +107,11 @@ The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 
 See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-newest-basic'       => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>. The draft contains 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 suggested {{PLURAL:$3|change|changes}}].',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}].',
 	'revreview-newest-basic-i'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>. The draft contains 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] await review.',
 	'revreview-newest-quality'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The draft contains 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 suggested {{PLURAL:$3|change|changes}}].',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}].',
 	'revreview-newest-quality-i'   => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The draft contains 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] await review.',
 	'revreview-noflagged'          => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been [[{{MediaWiki:Validationpage}}|checked]] for quality.',
@@ -118,7 +122,7 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-patrol-title'       => 'Mark as patrolled',
 	'revreview-patrolled'          => 'The selected revision of [[:$1|$1]] has been marked as patrolled.',
 	'revreview-quality'            => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 suggested {{PLURAL:$3|change|changes}}] awaiting review.',
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}] awaiting review.',
 	'revreview-quality-i'          => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] awaiting review.',
 	'revreview-quality-old'        => 'This is a [[{{MediaWiki:Validationpage}}|quality]]  revision ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
@@ -215,10 +219,10 @@ Please check the URL you used to access this page.',
 	'flaggedrevs-protect-none'     => 'Allow all users',
 	'flaggedrevs-protect-basic'    => 'Default settings',
 	
-	'revreview-locked-title'       => 'Edits must be reviewed before being displayed on this page.',
-	'revreview-unlocked-title'     => 'Edits do not require review before being displayed on this page.',
-	'revreview-locked'             => 'Edits must be [[{{MediaWiki:Validationpage}}|reviewed]] before being displayed on this page.',
-	'revreview-unlocked'           => 'Edits do not require [[{{MediaWiki:Validationpage}}|review]] before being displayed on this page.',
+	'revreview-locked-title'       => 'Edits must be reviewed before being published on this page.',
+	'revreview-unlocked-title'     => 'Edits do not require review before being published on this page.',
+	'revreview-locked'             => '\'\'\'Edits must be [[{{MediaWiki:Validationpage}}|reviewed]] before being published on this page.\'\'\'',
+	'revreview-unlocked'           => 'Edits do not require [[{{MediaWiki:Validationpage}}|review]] before being published on this page.',
 	
 	'revreview-ak-review'          => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages
