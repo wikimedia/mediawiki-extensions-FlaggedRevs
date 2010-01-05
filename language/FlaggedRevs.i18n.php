@@ -3343,6 +3343,7 @@ $messages['el'] = array(
 
 /** Esperanto (Esperanto)
  * @author ArnoLagrange
+ * @author Castelobranco
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -3376,6 +3377,8 @@ $messages['eo'] = array(
 	'hist-stable' => 'reviziita versio',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} reviziita] de [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} aŭtomate reviziita]',
+	'revreview-diff-toggle-show' => '(montri ŝanĝojn)',
+	'revreview-diff-toggle-hide' => '(kaŝi ŝanĝojn)',
 	'review-diff2stable' => 'Vidi ŝanĝojn inter stabila kaj nuna versioj',
 	'review-logentry-app' => 'kontrolis revizion de [[$1]]',
 	'review-logentry-dis' => 'markis versio de [[$1]] kiel evitinda',
@@ -3395,8 +3398,6 @@ Rigardu la [[Special:ReviewedPages|liston de kontrolitaj paĝoj]] por listo de a
 	'revreview-accuracy-4' => 'Elstara',
 	'revreview-approved' => 'Konsentita',
 	'revreview-auto' => '(aŭtomata)',
-	'revreview-auto-w' => "Vi redaktas stabilan version. Ŝanĝoj estos '''aŭtomate kontrolitaj'''.",
-	'revreview-auto-w-old' => "Vi redaktas kontrolitan version. Ŝanĝoj estos '''aŭtomate kontrolitaj'''.",
 	'revreview-basic' => 'Jen la lasta [[{{MediaWiki:Validationpage}}|stabila versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] enhavasas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|proponitan ŝanĝon|proponitajn ŝanĝojn}}].',
 	'revreview-basic-i' => 'Jen la [[{{MediaWiki:Validationpage}}|stabila versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
@@ -3422,9 +3423,10 @@ Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'revreview-draft-rev' => 'Malneta revizio',
 	'revreview-edit' => 'Redakti malneton',
 	'revreview-editnotice' => "'''Viaj ŝanĝoj estos [[{{MediaWiki:Validationpage}}|publikigita]] post aŭtoritata uzanto [[{{MediaWiki:Validationpage}}|kontrolis]] ilin.'''",
-	'revreview-flag' => 'Marki ĉi tiun version',
+	'revreview-check-flag' => 'Marki ne-reviziitajn redaktojn.',
 	'revreview-edited' => "'''Ŝanĝoj estos [[{{MediaWiki:Validationpage}}|publikigita]] post kiam  aŭtorita uzanto [[{{MediaWiki:Validationpage}}|kontrolis]] ilin.'''
 La ''malneto'', jene montrita, enhavas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 petitajn {{PLURAL:$2|ŝanĝo|ŝanĝoj}}].",
+	'revreview-flag' => 'Marki ĉi tiun version',
 	'revreview-unflag' => 'Malkontroli ĉi tiun revizion',
 	'revreview-invalid' => "'''Nevalida celo:''' neniu [[{{MediaWiki:Validationpage}}|kontrolita]] versio kongruas la enigitan identigon.",
 	'revreview-legend' => 'Taksi enhavon de versio',
@@ -8375,8 +8377,6 @@ $messages['ml'] = array(
 	'revreview-accuracy-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-approved' => 'അംഗീകരിച്ചിരിക്കുന്നു',
 	'revreview-auto' => '(യാന്ത്രികം)',
-	'revreview-auto-w' => "താങ്കള്‍ സ്ഥിരതയുള്ള പതിപ്പാണു തിരുത്തുന്നത്; മാറ്റങ്ങള്‍ '''യാന്ത്രികമായി സം‌ശോധനം ചെയ്യപ്പെടും'''.",
-	'revreview-auto-w-old' => "താങ്കള്‍ സം‌ശോധം ചെയ്ത ഒരു പതിപ്പാണു തിരുത്തുന്നത്; മാറ്റങ്ങള്‍ '''യാന്ത്രികമായി സം‌ശോധനം ചെയ്യപ്പെടും'''.",
 	'revreview-basic' => 'ഇതൊരു [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ആണ്. [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}|ദർശിച്ച] പതിപ്പ്, <i>$2</i> തീയതിയിലുള്ളതാണ്. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരടിലെ] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|മാറ്റം|മാറ്റങ്ങള്‍}}] സം‌ശോധനത്തിനു തയ്യാറാണ്‌.',
 	'revreview-basic-i' => 'ഇത് [[{{MediaWiki:Validationpage}}|സ്ഥിരതയുള്ള പതിപ്പ്]] ആണ്. <i>$2</i>-നു ഇത് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ദർശിച്ചിരിക്കുന്നു]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരടിൽ] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ഫലക/പ്രമാണ മാറ്റങ്ങൾ] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
 	'revreview-basic-old' => "ഇതൊരു [[{{MediaWiki:Validationpage}}|ദർശിക്കപ്പെട്ട]] പതിപ്പ് ആണ് ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} എല്ലാം കാണുക]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചതാണ്]. പുതിയ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} മാറ്റങ്ങള്‍] വന്നിരിക്കാന്‍ സാദ്ധ്യതയുണ്ട്.",
@@ -8435,7 +8435,7 @@ $messages['ml'] = array(
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|ദർശിച്ച താൾ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|ദർശിച്ച താൾ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|ദർശിച്ച താൾ]]'''",
-	'revreview-quick-invalid' => "'''അസാധുവായ പതിപ്പ് ഐഡി'''",
+	'revreview-quick-invalid' => "'''അസാധുവായ പതിപ്പ് ഐ.ഡി.'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|നിലവിലുള്ള പതിപ്പ്]]''' (സം‌ശോധനം ചെയ്തിട്ടില്ല)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|ഗുണമേന്മയുള്ള താൾ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|ഗുണമേന്മയുള്ള താൾ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
