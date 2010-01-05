@@ -72,7 +72,7 @@ $wgSimpleFlaggedRevsUI = true;
 # Add stable/draft revision tabs. May be redundant due to the tags.
 # If you have an open wiki, with the simple UI, you may want to enable these.
 $wgFlaggedRevTabs = true;
-# For non-user visitors, only show tags/icons for *unreviewed* pages
+# For visitors, only show tags/icons for unreviewed/outdated pages
 $wgFlaggedRevsLowProfile = true;
 
 # Allowed namespaces of reviewable pages

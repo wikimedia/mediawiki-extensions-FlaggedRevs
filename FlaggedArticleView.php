@@ -353,7 +353,9 @@ class FlaggedArticleView {
 			$tooltip = 'revreview-draft-title';
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
-				if( $synced ) {
+				if( !$wgUser->getId() ) {
+					$msgHTML = ''; // Anons just see simple icons
+				} else if( $synced ) {
 					$msg = $quality
 						? 'revreview-quick-quality-same'
 						: 'revreview-quick-basic-same';
@@ -416,7 +418,7 @@ class FlaggedArticleView {
 	* Parser cache control deferred to caller
 	*/
 	protected function showOldReviewedVersion( $srev, $frev, &$tag, $prot ) {
-		global $wgOut, $wgLang;
+		global $wgUser, $wgOut, $wgLang;
 		$this->load();
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
@@ -436,12 +438,17 @@ class FlaggedArticleView {
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
-				
-				$msg = $quality ? 'revreview-quick-quality-old' : 'revreview-quick-basic-old';
-				$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
-					wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
-				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $html, $revsSince,
-							true, false, true );
+				if( !$wgUser->getId() ) {
+					$msgHTML = ''; // Anons just see simple icons
+				} else {
+					$msg = $quality
+						? 'revreview-quick-quality-old'
+						: 'revreview-quick-basic-old';
+					$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
+				}
+				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>{$msgHTML}";
+				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince,
+					true /*stable*/, false /*synced*/, true /*old*/ );
 			// Standard UI
 			} else {
 				$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
@@ -497,12 +504,19 @@ class FlaggedArticleView {
 			$tooltip = wfMsgHtml($tooltip);
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
-				$msg = $quality ? 'revreview-quick-quality' : 'revreview-quick-basic';
-				# uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
-				$msg = $synced ? "{$msg}-same" : $msg;
-				$html = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
-					wfMsgExt( $msg, array('parseinline'), $srev->getRevId(), $revsSince );
-				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $html, $revsSince, true, $synced );
+				if( !$wgUser->getId() ) {
+					$msgHTML = ''; // Anons just see simple icons
+				} else {
+					$msg = $quality
+						? 'revreview-quick-quality'
+						: 'revreview-quick-basic';
+					# Uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
+					$msg = $synced ? "{$msg}-same" : $msg;
+					$msgHTML = wfMsgExt( $msg, array('parseinline'),
+						$srev->getRevId(), $revsSince );
+				}
+				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>{$msgHTML}";
+				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML, $revsSince, true, $synced );
 			// Standard UI
 			} else {
 				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
