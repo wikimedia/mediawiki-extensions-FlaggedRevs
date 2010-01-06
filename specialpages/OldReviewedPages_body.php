@@ -192,7 +192,7 @@ class OldReviewedPages extends SpecialPage
 				$curRev->getUserText(),
 				$comments);
 		} else {
-			return NULL;
+			return null;
 		}
 	}
 	
@@ -287,7 +287,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 	private $category, $namespace;
 
 	function __construct(
-		$form, $namespace, $level=-1, $category='', $size=NULL, $watched=false, $stable=false
+		$form, $namespace, $level=-1, $category='', $size=null, $watched=false, $stable=false
 	) {
 		$this->mForm = $form;
 		# Must be a content page...
@@ -304,8 +304,8 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->namespace = $namespace;
 		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
 		$this->level = ($level >= 0 && $level <= 2) ? $level : -1;
-		$this->category = $category ? str_replace(' ','_',$category) : NULL;
-		$this->size = ($size !== null) ? intval($size) : NULL;
+		$this->category = $category ? str_replace(' ','_',$category) : null;
+		$this->size = ($size !== null) ? intval($size) : null;
 		$this->watched = (bool)$watched;
 		$this->stable = $stable && !FlaggedRevs::showStableByDefault()
 			&& !FlaggedRevs::forDefaultVersionOnly();
@@ -389,7 +389,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		}
 		$fields[] = $this->mIndexField; // Pager needs this
 		# Filter namespace
-		if( $this->namespace !== NULL ) {
+		if( $this->namespace !== null ) {
 			$conds['page_namespace'] = $this->namespace;
 		}
 		# Filter by watchlist

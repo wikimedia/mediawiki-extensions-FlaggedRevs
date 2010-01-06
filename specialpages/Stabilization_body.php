@@ -340,7 +340,7 @@ class Stabilization extends UnlistedSpecialPage
 
 		$wgOut->addHTML( $form );
 
-		$wgOut->addHTML( Xml::element( 'h2', NULL, htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
+		$wgOut->addHTML( Xml::element( 'h2', null, htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
 		LogEventsList::showLogExtract( $wgOut, 'stable', $this->page->getPrefixedText() );
 	}
 	

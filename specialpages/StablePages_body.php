@@ -111,7 +111,7 @@ class StablePages extends SpecialPage
 class StablePagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace;
 
-	function __construct( $form, $conds = array(), $namespace=0, $precedence=NULL ) {
+	function __construct( $form, $conds = array(), $namespace=0, $precedence=null ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be a content page...
@@ -135,7 +135,7 @@ class StablePagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
 		$conds['fpc_override'] = 1;
-		if( $this->precedence !== NULL && $this->precedence >= 0 ) {
+		if( $this->precedence !== null && $this->precedence >= 0 ) {
 			$conds['fpc_select'] = $this->precedence;
 		}
 		$conds['page_namespace'] = $this->namespace;

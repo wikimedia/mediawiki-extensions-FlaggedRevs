@@ -26,8 +26,8 @@ TEXT;
 
 error_reporting( E_ALL );
 
-$start = isset($options['start']) ? $options['start'] : NULL;
-$updateonly = isset($options['updateonly']) ? $options['updateonly'] : NULL;
+$start = isset($options['start']) ? $options['start'] : null;
+$updateonly = isset($options['updateonly']) ? $options['updateonly'] : null;
 
 $actions = array( 'revs', 'pages', 'templates', 'images' );
 if( $updateonly && in_array($updateonly,$actions) ) {

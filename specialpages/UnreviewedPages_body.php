@@ -211,7 +211,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds;
 	private $live, $namespace, $category, $showredirs;
 
-	function __construct( $form, $live, $namespace, $redirs=false, $category=NULL, $level=0 ) {
+	function __construct( $form, $live, $namespace, $redirs=false, $category=null, $level=0 ) {
 		$this->mForm = $form;
 		$this->live = (bool)$live;
 		# Must be a content page...
@@ -224,7 +224,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$namespace = !$vnamespaces ? -1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;
-		$this->category = $category ? str_replace(' ','_',$category) : NULL;
+		$this->category = $category ? str_replace(' ','_',$category) : null;
 		$this->level = intval($level);
 		$this->showredirs = (bool)$redirs;
 		parent::__construct();

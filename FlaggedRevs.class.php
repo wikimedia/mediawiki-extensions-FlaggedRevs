@@ -918,7 +918,7 @@ class FlaggedRevs {
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the flaggedpages fields. Called on edit.
 	*/
-	public static function updateStableVersion( $article, $rev, $latest = NULL ) {
+	public static function updateStableVersion( $article, $rev, $latest = null ) {
 		if( !$article->getId() )
 			return true; // no bogus entries
 		# Get the latest revision ID if not set
@@ -973,7 +973,7 @@ class FlaggedRevs {
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the flaggedpage_pending table
 	*/
-	public static function updatePendingList( $article, $latest = NULL ) {
+	public static function updatePendingList( $article, $latest = null ) {
 		$data = array();
 		$level = self::pristineVersions() ? FR_PRISTINE : FR_QUALITY;
 		if( !self::qualityVersions() )

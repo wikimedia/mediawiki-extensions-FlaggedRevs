@@ -165,7 +165,7 @@ class ProblemChanges extends SpecialPage
 				$comments
 			);
 		} else {
-			return NULL;
+			return null;
 		}
 	}
 	
@@ -267,7 +267,7 @@ class ProblemChangesPager extends AlphabeticPager {
 		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
 		$this->level = ($level >= 0 && $level <= 2) ? $level : -1;
 		$this->tag = $tag;
-		$this->category = $category ? str_replace(' ','_',$category) : NULL;
+		$this->category = $category ? str_replace(' ','_',$category) : null;
 		parent::__construct();
 		// Don't get to expensive
 		$this->mLimitsShown = array( 20, 50, 100 );

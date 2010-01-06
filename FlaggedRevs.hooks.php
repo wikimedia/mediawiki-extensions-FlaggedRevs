@@ -933,7 +933,7 @@ class FlaggedRevsHooks {
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
 		# Revision must *be* null (null edit). We also need the user who made the edit.
-		if( !$user || $rev !== NULL || !FlaggedRevs::isPageReviewable( $title ) ) {
+		if( !$user || $rev !== null || !FlaggedRevs::isPageReviewable( $title ) ) {
 			return true;
 		}
 		# Get the current revision ID
@@ -1118,7 +1118,7 @@ class FlaggedRevsHooks {
 		$now = time();
 		$userCreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
 		# User registration was not always tracked in DB...use null for such cases
-		$userage = $userCreation ? floor(($now - $userCreation) / 86400) : NULL;
+		$userage = $userCreation ? floor(($now - $userCreation) / 86400) : null;
 		$p = FlaggedRevs::getUserParams( $user->getId() );
 		# Check if user edited enough content pages
 		$totalCheckedEditsNeeded = false;
@@ -1284,7 +1284,7 @@ class FlaggedRevsHooks {
 		# Check account age
 		$now = time();
 		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
-		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : NULL;
+		$userage = $usercreation ? floor(($now - $usercreation) / 86400) : null;
 		if( !is_null($userage) && $userage < $wgFlaggedRevsAutopromote['days'] ) {
 			return true;
 		}
