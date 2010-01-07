@@ -1279,7 +1279,7 @@ class FlaggedArticleView {
 			$article = new Article( $newRev->getTitle() );
 			# Is the stable revision using the same revision as the current?
 			if( $article->getLatest() != $frev->getRevId() ) {
-				$patrol .= $wgUser->getSkin()->makeKnownLinkObj(
+				$patrol = $wgUser->getSkin()->makeKnownLinkObj(
 					$newRev->getTitle(),
 					wfMsgHtml( 'review-diff2stable' ),
 					"oldid={$frev->getRevId()}&diff=cur&diffonly=0"
