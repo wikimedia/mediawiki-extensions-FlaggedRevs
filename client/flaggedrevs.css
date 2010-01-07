@@ -1,14 +1,13 @@
 /* Every time you change this CSS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
 
 /* Standard User Interface */
-.flaggedrevs_basic,
-.flaggedrevs_quality,
-.flaggedrevs_pristine,
-.flaggedrevs_notice,
-.flaggedrevs_editnotice,
-.flaggedrevs_diffnotice,
-.flaggedrevs_warning,
-.flaggedrevs_preview {
+div.flaggedrevs_basic,
+div.flaggedrevs_quality,
+div.flaggedrevs_pristine,
+div.flaggedrevs_notice,
+div.flaggedrevs_diffnotice,
+div.flaggedrevs_preview,
+table.flaggedrevs_editnotice {
 	border: 1px solid #aaa;
 	padding: 5px;
 	font-weight: normal;
@@ -18,40 +17,34 @@
 	clear: both;
 }
 
-.flaggedrevs_basic {
+div.flaggedrevs_basic {
 	background-color: #f0f8ff;
 }
-.flaggedrevs_quality {
+div.flaggedrevs_quality {
 	background-color: #f0fff0;
 }
-.flaggedrevs_pristine {
+div.flaggedrevs_pristine {
 	background-color: #fffff0;
 }
-.flaggedrevs_notice {
+div.flaggedrevs_notice {
 	background-color: #f9f9f9;
 }
-.flaggedrevs_preview {
+div.flaggedrevs_preview {
 	background-color: #f9f9f9;
 	color: #8b0000;
 }
-
-.flaggedrevs_warning {
-	font-size: 85%;
-	background-color: #fffff0;
-	margin: 0em 1em 0em 0em;
-}
-.flaggedrevs_editnotice {
-	font-size: 85%;
+table.flaggedrevs_editnotice {
+	font-size: 90%;
 	background-color: #f9f9f9;
 	text-align: left;
 	width: 100%;
 }
-.flaggedrevs_diffnotice {
+div.flaggedrevs_diffnotice {
 	font-size: 85%;
 	background-color: #f9f9f9;
 }
 
-.flaggedrevs_notes {
+div.flaggedrevs_notes {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
 	padding: 5px;
@@ -63,19 +56,6 @@
 
 .fr-text-value {
 	width: 100px;
-}
-
-.fr-checkbox {
-	padding: 0px;
-	width: 16px;
-	height: 16px;
-	position: relative;
-	float: left;
-	top: 0px;
-	right: 0px;
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	background-image: url(../../FlaggedRevs/img/boxC.png);
 }
 
 .fr-marker-20,
@@ -105,7 +85,7 @@
 }
 
 /* Short User Interface */
-.flaggedrevs_short {
+div.flaggedrevs_short {
 	border: 0px;
 	background-color: #f9f9f9;
 	padding: 1px;
@@ -118,7 +98,7 @@
 	line-height: 16px;
 }
 
-.rtl .flaggedrevs_short {
+.rtl div.flaggedrevs_short {
 	float: left;
 	margin: 0 1em 0 0;
 }
@@ -162,29 +142,6 @@
 	background-image: url(../../FlaggedRevs/img/fr-marker-100.png);
 }
 
-.flaggedrevs-box0,
-.flaggedrevs-box1,
-.flaggedrevs-box2,
-.flaggedrevs-box3 {
-	border: 1px solid #aaa;
-	text-align: center;
-	font-size: 85%;
-	clear: both;
-}
-
-.flaggedrevs-box0 {
-	background-color: #f9f9f9;
-}
-.flaggedrevs-box1 {
-	background-color: #f0f8ff;
-}
-.flaggedrevs-box2 {
-	background-color: #f0fff0;
-}
-.flaggedrevs-box3 {
-	background-color: #fffff0;
-}
-
 /* Both User Interfaces */
 .flaggedrevs-color-0 {
 	background-color: #f9f9f9;
@@ -200,17 +157,21 @@
 }
 
 .flaggedrevs-unreviewed {
-	background-color: #fffff0;
+	background-color: #ffeeaa;
 }
 
 .flaggedrevs-unreviewed2 {
 	background-color: #faebd7;
 }
 
-.flaggedrevs_toggle {
+a.flaggedrevs_toggle {
 	color: blue;
 	white-space: nowrap;
 	cursor:pointer;
+}
+
+li.flaggedrevs_hist_stable {
+	margin-top: 2em;
 }
 
 .fr-icon-current,

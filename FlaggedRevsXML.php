@@ -199,13 +199,10 @@ class FlaggedRevsXML {
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Some checks for which tag CSS to use
 		if( $pristine ) {
-			$tagClass = 'flaggedrevs-box3';
 			$color = 'flaggedrevs-color-3';
 		} elseif( $quality ) {
-			$tagClass = 'flaggedrevs-box2';
 			$color = 'flaggedrevs-color-2';
 		} else {
-			$tagClass = 'flaggedrevs-box1';
 			$color = 'flaggedrevs-color-1';
 		}
         # Construct some tagging

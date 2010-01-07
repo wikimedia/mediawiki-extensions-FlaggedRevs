@@ -1676,14 +1676,35 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
-	public static function addToHistLine( $history, $row, &$s ) {
-		if( $row->rev_deleted & Revision::DELETED_TEXT )
-			return true; // Don't bother showing notice for deleted revs
-		if( !isset($row->fr_quality) )
-			return true; // Unreviewed
-		# Add link to stable version of *this* rev, if any
-		list($link,$class) = FlaggedRevs::markHistoryRow(
-			$history->getArticle()->getTitle(), $row );
+	public static function addToHistLine( $history, $row, &$s, &$liClasses ) {
+		$title = $history->getArticle()->getTitle();
+		if( !FlaggedRevs::isPageReviewable( $title ) ) {
+			return false; // nothing to do here
+		}
+		# Fetch and process cache the stable revision
+		if( !isset($history->fr_stableRevId) ) {
+			$frev = FlaggedRevision::newFromStable( $title );
+			$history->fr_stableRevId = $frev ? $frev->getRevId() : 0;
+		}
+		if( !$history->fr_stableRevId ) {
+			return false; // nothing to do here
+		}
+		// Unreviewed revision: highlight if pending
+		$link = $class = '';
+		if( !isset($row->fr_quality) ) {
+			if( $row->rev_id > $history->fr_stableRevId ) {
+				$class = 'flaggedrevs-unreviewed';
+				$link = '<strong>'.wfMsgHtml('revreview-hist-pending').'</strong>';
+			}
+		// Reviewed revision: highlight and add link
+		} else if( !($row->rev_deleted & Revision::DELETED_TEXT) ) {
+			# Add link to stable version of *this* rev, if any
+			list($link,$class) = FlaggedRevs::markHistoryRow( $title, $row );
+			# Space out and demark the stable revision
+			if( $row->rev_id == $history->fr_stableRevId ) {
+				$liClasses[] = 'flaggedrevs_hist_stable';
+			}
+		}
 		# Style the row as needed
 		if( $class ) $s = "<span class='$class'>$s</span>";
 		# Add stable old version link
