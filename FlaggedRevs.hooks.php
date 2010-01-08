@@ -1718,9 +1718,10 @@ class FlaggedRevsHooks {
 		# Quality level for old versions selected all at once.
 		# Commons queries cannot be done all at once...
 		if( !$file->isOld() || !$file->isLocal() ) {
-			$quality = wfGetDB(DB_SLAVE)->selectField( 'flaggedrevs', 'fr_quality',
+			$dbr = wfGetDB(DB_SLAVE);
+			$quality = $dbr->selectField( 'flaggedrevs', 'fr_quality',
 				array( 'fr_img_sha1' => $file->getSha1(),
-					'fr_img_timestamp' => $file->getTimestamp() ),
+					'fr_img_timestamp' => $dbr->timestamp( $file->getTimestamp() ) ),
 				__METHOD__
 			);
 		} else {
