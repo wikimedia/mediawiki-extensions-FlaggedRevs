@@ -389,7 +389,7 @@ class RevisionReview extends UnlistedSpecialPage
 	
 	public function isApproval() {
 		# If all values are set to zero, this has been unapproved
-		if( !count( FlaggedRevs::getDimensions() ) && $this->approve ) {
+		if( FlaggedRevs::dimensionsEmpty() && $this->approve ) {
 			return true; // no tags & approve param given
 		}
 		foreach( $this->dims as $quality => $value ) {

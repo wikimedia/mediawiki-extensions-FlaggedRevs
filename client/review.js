@@ -8,7 +8,7 @@
 * c) Also remove comment box clutter in case of invalid input.
 */
 FlaggedRevs.updateRatingForm = function() {
-	var ratingform = document.getElementById('mw-ratingselects');
+	var ratingform = document.getElementById('mw-fr-ratingselects');
 	if( !ratingform ) return;
 	var disabled = document.getElementById('fr-rating-controls-disabled');
 	if( disabled ) return;
@@ -57,12 +57,12 @@ FlaggedRevs.updateRatingForm = function() {
 		}
 	}
 	// Show note box only for quality revs
-	var notebox = document.getElementById('mw-notebox');
+	var notebox = document.getElementById('mw-fr-notebox');
 	if( notebox ) {
 		notebox.style.display = quality ? 'inline' : 'none';
 	}
 	// If only a few levels are zero, don't show submit link
-	var submit = document.getElementById('mw-submitreview');
+	var submit = document.getElementById('mw-fr-submitreview');
 	if( submit ) {
 		submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	}
@@ -102,7 +102,7 @@ wgAjaxReview.ajaxCall = function() {
 		wgAjaxReview.supported = false;
 		return true;
 	}
-	var form = document.getElementById("mw-reviewform");
+	var form = document.getElementById("mw-fr-reviewform");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
 	if( !form ) {
@@ -115,13 +115,17 @@ wgAjaxReview.ajaxCall = function() {
 	for( var i=0; i < inputs.length; i++) {
 		// Different input types may occur depending on tags...
 		if( inputs[i].name == "title" || inputs[i].name == "action" ) {
-			// No need to send these...
+			continue; // No need to send these...
 		} else if( inputs[i].type == "submit" ) {
 			inputs[i].value = wgAjaxReview.sendingMsg;
 		} else if( inputs[i].type == "checkbox" ) {
 			args.push( inputs[i].name + "|" + (inputs[i].checked ? inputs[i].value : 0) );
-		} else if( inputs[i].type != "radio" || inputs[i].checked ) {
-			args.push( inputs[i].name + "|" + inputs[i].value );
+		} else if( inputs[i].type == "radio" ) {
+			if( inputs[i].checked ) { // must be checked
+				args.push( inputs[i].name + "|" + inputs[i].value );
+			}
+		} else {
+			args.push( inputs[i].name + "|" + inputs[i].value ); // Includes text/hiddens...
 		}
 		inputs[i].disabled = "disabled";
 	}
@@ -152,8 +156,8 @@ wgAjaxReview.ajaxCall = function() {
 };
 
 wgAjaxReview.unlockForm = function() {
-	var form = document.getElementById("mw-reviewform");
-	var submit = document.getElementById("mw-submitreview");
+	var form = document.getElementById("mw-fr-reviewform");
+	var submit = document.getElementById("mw-fr-submitreview");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
 	if( !form || !submit ) {
@@ -185,17 +189,17 @@ wgAjaxReview.processResult = function(request) {
 	if( (msg = response.substr(6)) ) {
 		jsMsg( msg, 'review' ); // success notice
 		window.scroll(0,0); // scroll up to notice
-		tagBox = document.getElementById('mw-revisiontag');
+		tagBox = document.getElementById('mw-fr-revisiontag');
 		if( tagBox ) tagBox.style.display = 'none'; // remove tag from draft
 	}
 	wgAjaxReview.inprogress = false;
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
-	var submit = document.getElementById("mw-submitreview");
-	var binaryState = document.getElementById("mw-reviewstate");
-	var legend = document.getElementById("mw-reviewformlegend");
-	var diffNotice = document.getElementById("mw-difftostable");
+	var submit = document.getElementById("mw-fr-submitreview");
+	var binaryState = document.getElementById("mw-fr-reviewstate");
+	var legend = document.getElementById("mw-fr-reviewformlegend");
+	var diffNotice = document.getElementById("mw-fr-difftostable");
 	// On success...
 	if( response.indexOf('<suc#>') == 0 ) {
 		document.title = wgAjaxReview.actioncomplete;
@@ -234,7 +238,7 @@ wgAjaxReview.processResult = function(request) {
 };
 
 wgAjaxReview.onLoad = function() {
-	var submit = document.getElementById("mw-submitreview");
+	var submit = document.getElementById("mw-fr-submitreview");
 	if( submit ) {
 		submit.onclick = wgAjaxReview.ajaxCall;
 	}
