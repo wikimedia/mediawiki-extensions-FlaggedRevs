@@ -1057,6 +1057,10 @@ class FlaggedArticleView {
 		if( $wgOut->isPrintable() ) {
 			return true;
 		}
+		# Avoid multi-page diffs that are useless and misbehave (bug 19327)
+		if( $this->isMultiPageDiff ) {
+			return true;
+		}
 		# Page must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if( !$this->article->isReviewable() || $this->article->limitedUI() ) {
 			return true;
@@ -1064,52 +1068,26 @@ class FlaggedArticleView {
 		# Check if this might be the diff to stable. If so, enhance it.
 		if( $newRev->isCurrent() && $oldRev ) {
 			$article = new Article( $newRev->getTitle() );
-			# Try the sync value cache...
-			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-			$value = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
-			$synced = ($value === "true") ? true : false; // default as false to trigger query
 			$frev = $this->article->getStableRev();
 			if( $frev && $frev->getRevId() == $oldRev->getID() ) {
 				global $wgParserCacheExpireTime;
+				# Check the page sync value cache...
+				$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+				$value = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
+				$synced = ($value === "true") ? true : false; // default as false to trigger query
 
 				$changeList = array();
-				$skin = $wgUser->getSkin();
 
 				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
 				$key = wfMemcKey( 'stableDiffs', 'templates', $article->getId() );
 				$tmpChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
 				if( empty($tmpChanges) && !$synced ) {
-					$tmpChanges = false; // don't use cache
+					$tmpChanges = false; // don't use cache, it's not consistent
 				}
 
 				# Make a list of each changed template...
 				if( $tmpChanges === false ) {
-					$dbr = wfGetDB( DB_SLAVE );
-					// Get templates where the current and stable are not the same revision
-					$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
-						array( 'ft_namespace', 'ft_title', 'fp_stable',
-							'ft_tmp_rev_id','page_latest' ),
-						array( 'ft_rev_id' => $frev->getRevId(),
-							'page_namespace = ft_namespace',
-							'page_title = ft_title' ),
-						__METHOD__,
-						array(), /* OPTIONS */
-						array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
-					);
-					$tmpChanges = array();
-					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
-						$revIdDraft = $row->page_latest;
-						// stable time -> time when reviewed (unless the other is newer)
-						$revIdStable = isset($row->fp_stable) && $row->fp_stable >= $row->ft_tmp_rev_id ?
-							$row->fp_stable : $row->ft_tmp_rev_id;
-						// compare to current
-						if( $revIdDraft > $revIdStable ) {
-							$tmpChanges[] = $skin->makeKnownLinkObj( $title,
-								$title->getPrefixedText(),
-								"diff=cur&oldid={$revIdStable}" );
-						}
-					}
+					$tmpChanges = $this->fetchTemplateChanges( $frev );
 					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($tmpChanges),
 						$wgParserCacheExpireTime );
 				}
@@ -1121,38 +1099,12 @@ class FlaggedArticleView {
 				$key = wfMemcKey( 'stableDiffs', 'images', $article->getId() );
 				$imgChanges = FlaggedRevs::getMemcValue( $wgMemc->get($key), $article );
 				if( empty($imgChanges) && !$synced ) {
-					$imgChanges = false; // don't use cache
+					$imgChanges = false; // don't use cache, it's not consistent
 				}
 
 				// Get list of each changed image...
 				if( $imgChanges === false ) {
-					$dbr = wfGetDB( DB_SLAVE );
-					// Get images where the current and stable are not the same revision
-					$ret = $dbr->select(
-						array( 'flaggedimages','page','image','flaggedpages','flaggedrevs' ),
-						array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
-						array( 'fi_rev_id' => $frev->getRevId() ),
-						__METHOD__,
-						array(), /* OPTIONS */
-						array( 'page' => array('LEFT JOIN',
-								'page_namespace = '. NS_FILE .' AND page_title = fi_name'),
-							'image' => array('LEFT JOIN','img_name = fi_name'),
-							'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
-							'flaggedrevs' => array('LEFT JOIN',
-								'fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
-					);
-					$imgChanges = array();
-					while( $row = $dbr->fetchObject( $ret ) ) {
-						$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
-						// stable time -> time when reviewed (unless the other is newer)
-						$timestamp = isset($row->fr_img_timestamp) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
-							$row->fr_img_timestamp : $row->fi_img_timestamp;
-						// compare to current
-						$file = wfFindFile( $title );
-						if( $file && $file->getTimestamp() > $timestamp )
-							$imgChanges[] = $skin->makeKnownLinkObj( $title,
-								$title->getPrefixedText() );
-					}
+					$imgChanges = $this->fetchFileChanges( $frev );
 					$wgMemc->set( $key, FlaggedRevs::makeMemcObj($imgChanges),
 						$wgParserCacheExpireTime );
 				}
@@ -1168,25 +1120,24 @@ class FlaggedArticleView {
 				}
 
 				# If the user is allowed to review, prompt them!
-				$css = 'flaggedrevs_diffnotice plainlinks';
-				if( empty($changeList) && $wgUser->isAllowed('review') ) {
-					$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
-						wfMsgExt('revreview-update-none', array('parseinline')).$notice.'</div>' );
-				} elseif( !empty($changeList) && $wgUser->isAllowed('review') ) {
-					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
-						wfMsgExt('revreview-update', array('parseinline')).'&nbsp;'.
-							$changeList.$notice.'</div>' );
-				} elseif( !empty($changeList) ) {
-					$changeList = implode(', ',$changeList);
-					$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
-						wfMsgExt('revreview-update-includes', array('parseinline')).'&nbsp;'.
-							$changeList.$notice.'</div>' );
-				}
-				# Set flag for review form to tell it to autoselect tag settings from the
-				# old revision unless the current one is tagged to.
-				if( !FlaggedRevision::newFromTitle( $diff->mTitle, $newRev->getID() ) ) {
-					$this->isDiffFromStable = true;
+				# Only those if there is something to actually review.
+				if( count($changeList) || $newRev->getId() > $oldRev->getId() ) {
+					$css = 'flaggedrevs_diffnotice plainlinks';
+					if( empty($changeList) && $wgUser->isAllowed('review') ) {
+						$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
+							wfMsgExt('revreview-update-none', array('parseinline')) .
+								$notice . '</div>' );
+					} elseif( !empty($changeList) && $wgUser->isAllowed('review') ) {
+						$changeList = implode(', ',$changeList);
+						$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
+							wfMsgExt('revreview-update', array('parseinline')) .
+								'&nbsp;' . $changeList.$notice.'</div>' );
+					} elseif( !empty($changeList) ) {
+						$changeList = implode(', ',$changeList);
+						$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
+							wfMsgExt('revreview-update-includes', array('parseinline')) .
+								'&nbsp;' . $changeList.$notice.'</div>' );
+					}
 				}
 
 				# Set a key to note that someone is viewing this
@@ -1239,6 +1190,74 @@ class FlaggedArticleView {
 			);
 		}
 		return true;
+	}
+	
+	// Fetch template changes for a reviewed revision since review
+	protected function fetchTemplateChanges( $frev ) {
+		global $wgUser;
+		$skin = $wgUser->getSkin();
+		$dbr = wfGetDB( DB_SLAVE );
+		// Get templates where the current and stable are not the same revision
+		$ret = $dbr->select( array('flaggedtemplates','page','flaggedpages'),
+			array( 'ft_namespace', 'ft_title', 'fp_stable',
+				'ft_tmp_rev_id','page_latest' ),
+			array( 'ft_rev_id' => $frev->getRevId(),
+				'page_namespace = ft_namespace',
+				'page_title = ft_title' ),
+			__METHOD__,
+			array(), /* OPTIONS */
+			array( 'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id') )
+		);
+		$tmpChanges = array();
+		while( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
+			$revIdDraft = $row->page_latest;
+			// stable time -> time when reviewed (unless the other is newer)
+			$revIdStable = isset($row->fp_stable) && $row->fp_stable >= $row->ft_tmp_rev_id ?
+				$row->fp_stable : $row->ft_tmp_rev_id;
+			// compare to current
+			if( $revIdDraft > $revIdStable ) {
+				$tmpChanges[] = $skin->makeKnownLinkObj( $title,
+					$title->getPrefixedText(),
+					'diff=cur&oldid='.intval($revIdStable) );
+			}
+		}
+		return $tmpChanges;
+	}
+	
+	// Fetch file changes for a reviewed revision since review
+	protected function fetchFileChanges( $frev ) {
+		global $wgUser;
+		$skin = $wgUser->getSkin();
+		$dbr = wfGetDB( DB_SLAVE );
+		// Get images where the current and stable are not the same revision
+		$ret = $dbr->select(
+			array( 'flaggedimages','page','image','flaggedpages','flaggedrevs' ),
+			array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
+			array( 'fi_rev_id' => $frev->getRevId() ),
+				__METHOD__,
+			array(), /* OPTIONS */
+			array(
+				'page' => array('LEFT JOIN',
+					'page_namespace = '. NS_FILE .' AND page_title = fi_name'),
+				'image' => array('LEFT JOIN','img_name = fi_name'),
+				'flaggedpages' => array('LEFT JOIN','fp_page_id = page_id'),
+				'flaggedrevs' => array('LEFT JOIN',
+				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable') )
+			);
+		$imgChanges = array();
+		while( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
+			// stable time -> time when reviewed (unless the other is newer)
+			$timestamp = isset($row->fr_img_timestamp) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
+				$row->fr_img_timestamp : $row->fi_img_timestamp;
+			// compare to current
+			$file = wfFindFile( $title );
+			if( $file && $file->getTimestamp() > $timestamp ) {
+				$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+			}
+		}
+		return $imgChanges;
 	}
 
 	/**
@@ -1440,7 +1459,7 @@ class FlaggedArticleView {
 			array('class' => 'flaggedrevs_reviewform noprint') );
 		# Add appropriate legend text
 		$legendMsg = ( FlaggedRevs::binaryFlagging() && $frev )
-			? 'revreview-unflag'
+			? 'revreview-reflag'
 			: 'revreview-flag';
 		$form .= Xml::openElement( 'legend', array('id' => 'mw-fr-reviewformlegend') );
 		$form .= "<strong>" . wfMsgHtml( $legendMsg ) . "</strong>";
@@ -1514,20 +1533,8 @@ class FlaggedArticleView {
 				Xml::inputLabel( wfMsg('revreview-log'), 'wpReason', 'wpReason', 40, '', 
 					array('class' => 'fr-comment-box') ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
-		# Add the submit button
-		if( FlaggedRevs::binaryFlagging() ) {
-			$submitMsg = $frev
-				? 'revreview-submit-unreview'
-				: 'revreview-submit-review';
-		} else {
-			$submitMsg = 'revreview-submit';
-		}
-		$form .= Xml::submitButton( wfMsg($submitMsg),
-			array(
-				'id' => 'mw-fr-submitreview', 'accesskey' => wfMsg('revreview-ak-review'),
-				'title' => wfMsg('revreview-tt-review').' ['.wfMsg('revreview-ak-review').']'
-			) + $toggle
-		);
+		# Add the submit buttons
+		$form .= FlaggedRevsXML::ratingSubmitButtons( $frev, (bool)$toggle );
 
 		$form .= Xml::closeElement( 'span' );
 		$form .= Xml::closeElement( 'div' ) . "\n";

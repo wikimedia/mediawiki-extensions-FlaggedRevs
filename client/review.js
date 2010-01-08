@@ -117,7 +117,10 @@ wgAjaxReview.ajaxCall = function() {
 		if( inputs[i].name == "title" || inputs[i].name == "action" ) {
 			continue; // No need to send these...
 		} else if( inputs[i].type == "submit" ) {
-			inputs[i].value = wgAjaxReview.sendingMsg;
+			if( inputs[i].id == this.id ) {
+				inputs[i].value = wgAjaxReview.sendingMsg; // show that we are submitting
+				args.push( inputs[i].name + "|1" );
+			}
 		} else if( inputs[i].type == "checkbox" ) {
 			args.push( inputs[i].name + "|" + (inputs[i].checked ? inputs[i].value : 0) );
 		} else if( inputs[i].type == "radio" ) {
@@ -125,7 +128,7 @@ wgAjaxReview.ajaxCall = function() {
 				args.push( inputs[i].name + "|" + inputs[i].value );
 			}
 		} else {
-			args.push( inputs[i].name + "|" + inputs[i].value ); // Includes text/hiddens...
+			args.push( inputs[i].name + "|" + inputs[i].value ); // text/hiddens...
 		}
 		inputs[i].disabled = "disabled";
 	}
@@ -163,10 +166,11 @@ wgAjaxReview.unlockForm = function() {
 	if( !form || !submit ) {
 		return false;
 	}
-	submit.disabled = "";
 	var inputs = form.getElementsByTagName("input");
 	for( var i=0; i < inputs.length; i++) {
-		inputs[i].disabled = "";
+		if( inputs[i].type != 'submit' ) {
+			inputs[i].disabled = "";
+		}
 	}
 	if( notes ) {
 		notes.disabled = "";
@@ -196,28 +200,30 @@ wgAjaxReview.processResult = function(request) {
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
-	var submit = document.getElementById("mw-fr-submitreview");
+	var rsubmit = document.getElementById("mw-fr-submitreview");
+	var usubmit = document.getElementById("mw-fr-submitunreview");
 	var binaryState = document.getElementById("mw-fr-reviewstate");
 	var legend = document.getElementById("mw-fr-reviewformlegend");
 	var diffNotice = document.getElementById("mw-fr-difftostable");
 	// On success...
 	if( response.indexOf('<suc#>') == 0 ) {
 		document.title = wgAjaxReview.actioncomplete;
-		if( submit ) {
+		if( rsubmit ) {
+			rsubmit.disabled = ''; // unlock flag button
 			// If flagging is just binary, flip the form
-			if( binaryState ) {
-				binaryState.value = (binaryState.value ==1 ) ? 0 : 1;
-				// Revision was unflagged - switch to flagging form
-				if( binaryState.value == 1 ) {
+			if( usubmit ) {
+				// Revision was flagged
+				if( rsubmit.value == wgAjaxReview.sendingMsg ) {
+					legend.innerHTML = '<strong>'+wgAjaxReview.reflagLegMsg+'</strong>';
+					rsubmit.value = wgAjaxReview.flagMsg; // back to normal
+					usubmit.disabled = ''; // unlock unflag button
+				// Revision was unflagged
+				} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
 					legend.innerHTML = '<strong>'+wgAjaxReview.flagLegMsg+'</strong>';
-					submit.value = wgAjaxReview.flagMsg;
-				// Revision was flagged - switch to unflagging form
-				} else {
-					legend.innerHTML = '<strong>'+wgAjaxReview.unflagLegMsg+'</strong>';
-					submit.value = wgAjaxReview.unflagMsg;
+					usubmit.value = wgAjaxReview.unflagMsg; // back to normal
 				}
 			} else {
-				submit.value = wgAjaxReview.sendMsg; // back to normal
+				rsubmit.value = wgAjaxReview.sendMsg; // back to normal
 			}
 		}
 		// Hide "review this" box on diffs
@@ -225,12 +231,15 @@ wgAjaxReview.processResult = function(request) {
 	// On failure...
 	} else {
 		document.title = wgAjaxReview.actionfailed;
-		if( submit ) {
-			if( binaryState ) {
-				submit.value = binaryState.value ?
-					wgAjaxReview.flagMsg : wgAjaxReview.unflagMsg; // back to normal
-			} else {
-				submit.value = wgAjaxReview.sendMsg;
+		if( rsubmit ) {
+			rsubmit.disabled = ''; // unlock flag button
+			// Revision was flagged
+			if( rsubmit.value == wgAjaxReview.sendingMsg ) {
+				rsubmit.value = wgAjaxReview.flagMsg; // back to normal
+			// Revision was unflagged
+			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
+				usubmit.value = wgAjaxReview.unflagMsg; // back to normal
+				usubmit.disabled = ''; // unlock
 			}
 		}
 	}
@@ -238,9 +247,13 @@ wgAjaxReview.processResult = function(request) {
 };
 
 wgAjaxReview.onLoad = function() {
-	var submit = document.getElementById("mw-fr-submitreview");
-	if( submit ) {
-		submit.onclick = wgAjaxReview.ajaxCall;
+	var rsubmit = document.getElementById("mw-fr-submitreview");
+	if( rsubmit ) {
+		rsubmit.onclick = wgAjaxReview.ajaxCall;
+	}
+	var usubmit = document.getElementById("mw-fr-submitunreview");
+	if( usubmit ) {
+		usubmit.onclick = wgAjaxReview.ajaxCall;
 	}
 };
 

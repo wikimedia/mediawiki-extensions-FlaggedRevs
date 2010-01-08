@@ -13,6 +13,7 @@ class RevisionReview extends UnlistedSpecialPage
 	var $page = null;
 	var $rcid = 0;
 	var $approve = false;
+	var $unapprove = false;
 	var $oldid = 0;
 	var $templateParams = '';
 	var $imageParams = '';
@@ -53,12 +54,27 @@ class RevisionReview extends UnlistedSpecialPage
 			$wgOut->showErrorPage('notargettitle', 'notargettext' );
 			return;
 		}
-		# Param for sites with no tags, otherwise discarded
-		$this->approve = $wgRequest->getBool( 'wpApprove' );
+		# Param for sites with binary flagging
+		$this->approve = $wgRequest->getCheck( 'wpApprove' );
+		$this->unapprove = $wgRequest->getCheck( 'wpUnapprove' );
 		# Patrol the edit if requested...
 		$this->markReviewed();
 	}
 	
+	// implicit dims for binary flag case
+	public function implicitDims() {
+		$tag = FlaggedRevs::binaryTagName();
+		if( $tag ) {
+			if( $this->approve ) {
+				return array( $tag => 1 );
+			} else if( $this->unapprove ) {
+				return array( $tag => 0 );
+			}
+		}
+		return null;
+	}
+	
+	// non-JS submission code...
 	private function markReviewed() {
 		global $wgRequest, $wgOut, $wgUser;
 		# Must be in reviewable namespace
@@ -98,14 +114,19 @@ class RevisionReview extends UnlistedSpecialPage
 		# Get our accuracy/quality dimensions
 		$this->dims = array();
 		$this->unapprovedTags = 0;
-		foreach( FlaggedRevs::getDimensions() as $tag => $levels ) {
-			$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
-			if( $this->dims[$tag] === 0 ) {
-				$this->unapprovedTags++;
-			} elseif( is_null($this->dims[$tag]) ) {
-				# This happens if we uncheck a checkbox
-				$this->unapprovedTags++;
-				$this->dims[$tag] = 0;
+		# Fill in implicit tag data for binary flag case
+		if( $iDims = $this->implicitDims() ) {
+			$this->dims = $iDims;
+		} else {
+			foreach( FlaggedRevs::getDimensions() as $tag => $levels ) {
+				$this->dims[$tag] = $wgRequest->getIntOrNull( "wp$tag" );
+				if( $this->dims[$tag] === 0 ) {
+					$this->unapprovedTags++;
+				} elseif( is_null($this->dims[$tag]) ) {
+					# This happens if we uncheck a checkbox
+					$this->unapprovedTags++;
+					$this->dims[$tag] = 0;
+				}
 			}
 		}
 		$fa = FlaggedArticle::getTitleInstance( $this->page );
@@ -204,6 +225,9 @@ class RevisionReview extends UnlistedSpecialPage
 				case "wpApprove":
 					$form->approve = $val;
 					break;
+				case "wpUnapprove":
+					$form->unapprove = $val;
+					break;
 				case "wpReason":
 					$form->comment = $val;
 					break;
@@ -241,6 +265,10 @@ class RevisionReview extends UnlistedSpecialPage
 			return '<err#>' . $wgOut->parse(
 				$wgOut->formatPermissionsErrorMessage( $permErrors, 'review' )
 			);
+		}
+		# Fill in implicit tag data for binary flag case
+		if( $iDims = $form->implicitDims() ) {
+			$form->dims = $iDims;
 		}
 		// Missing params?
 		if( count($form->dims) != count($tags) ) {
@@ -281,8 +309,13 @@ class RevisionReview extends UnlistedSpecialPage
 
 	public function isApproval() {
 		# If all values are set to zero, this has been unapproved
-		if( FlaggedRevs::dimensionsEmpty() && $this->approve ) {
-			return true; // no tags & approve param given
+		if( FlaggedRevs::dimensionsEmpty() ) {
+			if( $this->approve && !$this->unapprove )
+				return true; // no tags & approve param given
+			if( $this->unapprove && !$this->approve )
+				return false;
+			else
+				return null; // nothing valid asserted
 		}
 		foreach( $this->dims as $quality => $value ) {
 			if( $value ) return true;
@@ -294,6 +327,9 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgUser;
 		# If all values are set to zero, this has been unapproved
 		$approved = $this->isApproval();
+		if( $approved === null ) {
+			return array(true,false); // user didn't say
+		}
 		# Double-check permissions
 		if( !$this->page->quickUserCan('edit')
 			|| !self::userCanSetFlags($this->dims,$this->oflags,$this->config) )

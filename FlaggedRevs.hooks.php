@@ -61,7 +61,7 @@ class FlaggedRevsHooks {
 				'flagMsg'		 => wfMsgHtml('revreview-submit-review'),
 				'unflagMsg'		 => wfMsgHtml('revreview-submit-unreview'),
 				'flagLegMsg'	 => wfMsgHtml('revreview-flag'),
-				'unflagLegMsg'	 => wfMsgHtml('revreview-unflag'),
+				'reflagLegMsg'	 => wfMsgHtml('revreview-reflag'),
 				'sendingMsg'     => wfMsgHtml('revreview-submitting'),
 				'actioncomplete' => wfMsgHtml('actioncomplete'),
 				'actionfailed'   => wfMsgHtml('actionfailed')

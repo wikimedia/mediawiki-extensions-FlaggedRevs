@@ -128,6 +128,18 @@ class FlaggedRevs {
 	}
 	
 	/**
+	 * If there only one tag and it has only one level, return it
+	 * @returns string
+	 */	
+	public static function binaryTagName() {
+		if( !self::binaryFlagging() ) {
+			return null;
+		}
+		$tags = array_keys(self::$dimensions);
+		return empty($tags) ? null : $tags[0];
+	}
+	
+	/**
 	 * Are quality versions enabled?
 	 * @returns bool
 	 */
