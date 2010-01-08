@@ -117,14 +117,17 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# We must at least rate each category as 1, the minimum
 		# Exception: we can rate ALL as unapproved to depreciate a revision
-		$valid = true;
 		if( $this->unapprovedTags && $this->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
-			$valid = false;
+			$wgOut->addWikiText( wfMsg( 'revreview-toolow' ) );
+			$wgOut->returnToMain( false, $this->page );
+			return;
 		} elseif( !$wgUser->matchEditToken( $wgRequest->getVal('wpEditToken') ) ) {
-			$valid = false;
+			$wgOut->addWikiText( wfMsg('sessionfailure') );
+			$wgOut->returnToMain( false, $this->page );
+			return;
 		}
 		# Submit or display info on failure
-		if( $valid && $wgRequest->wasPosted() ) {
+		if( $wgRequest->wasPosted() ) {
 			list($approved,$status) = $this->submit();
 			// Success for either flagging or unflagging
 			if( $status === true ) {
@@ -143,9 +146,6 @@ class RevisionReview extends UnlistedSpecialPage
 				$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 				$wgOut->returnToMain( false, $this->page );
 			}
-		# Show revision and form
-		} else {
-			$this->showRevision();
 		}
 	}
 	
@@ -279,114 +279,6 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 	}
 
-	/**
-	 * Show revision review form
-	 */
-	private function showRevision() {
-		global $wgOut, $wgUser, $wgFlaggedRevComments;
-
-		if( $this->unapprovedTags )
-			$wgOut->addWikiText( '<strong>' . wfMsg( 'revreview-toolow' ) . '</strong>' );
-
-		$wgOut->addWikiText( wfMsg( 'revreview-selected', $this->page->getPrefixedText() ) );
-
-		$rev = Revision::newFromTitle( $this->page, $this->oldid );
-		# Check if rev exists
-		# Do not mess with deleted revisions
-		if( !isset( $rev ) || $rev->mDeleted ) {
-			$wgOut->showErrorPage( 'internalerror', 'notargettitle', 'notargettext' );
-			return;
-		}
-
-		$wgOut->addHTML( "<ul>" );
-		$wgOut->addHTML( $this->historyLine( $rev ) );
-		$wgOut->addHTML( "</ul>" );
-
-		if( FlaggedRevs::showStableByDefault() )
-			$wgOut->addWikiText( wfMsg('revreview-text') );
-			
-		$action = $this->getTitle()->escapeLocalUrl( 'action=submit' );
-		$form = "<form name='RevisionReview' action='$action' method='post'>";
-		$form .= '<fieldset><legend>' . wfMsgHtml( 'revreview-legend' ) . '</legend><table><tr>';
-
-		$formradios = array();
-		# Dynamically contruct our radio options
-		foreach( FlaggedRevs::getDimensions() as $tag => $levels ) {
-			$formradios[$tag] = array();
-			$x = count($levels); // number of levels AND zero
-			for( $i=0; $i < $x; $i++ ) {
-				$formradios[$tag][] = array( "revreview-$tag-$i", "wp$tag", $i );
-			}
-			$form .= '<td><strong>' . wfMsgHtml( "revreview-$tag" ) .
-				'</strong></td><td width=\'20\'></td>';
-		}
-		$hidden = array(
-			Xml::hidden( 'wpEditToken', $wgUser->editToken() ),
-			Xml::hidden( 'target', $this->page->getPrefixedText() ),
-			Xml::hidden( 'oldid', $this->oldid ) 
-		);
-
-		$form .= '</tr><tr>';
-		foreach( $formradios as $set => $ratioset ) {
-			$form .= '<td>';
-			foreach( $ratioset as $item ) {
-				list( $message, $name, $field ) = $item;
-				# Don't give options the user can't set unless its the status quo
-				$attribs = array('id' => $name.$field);
-				if( !$this->userCan($set,$field) )
-					$attribs['disabled'] = 'true';
-				$form .= "<div>";
-				$form .= Xml::radio( $name, $field, ($field==$this->dims[$set]), $attribs );
-				$form .= Xml::label( wfMsg($message), $name.$field );
-				$form .= "</div>\n";
-			}
-			$form .= '</td><td width=\'20\'></td>';
-		}
-		$form .= '</tr></table></fieldset>';
-		# Add box to add live notes to a flagged revision
-		if( $wgFlaggedRevComments && $wgUser->isAllowed( 'validate' ) ) {
-			$form .= "<fieldset><legend>" . wfMsgHtml( 'revreview-notes' ) . "</legend>" .
-			"<textarea tabindex='1' name='wpNotes' id='wpNotes' rows='3' cols='80' style='width:100%'>" .
-			htmlspecialchars( $this->notes ) .
-			"</textarea></fieldset>";
-		}
-
-		$form .= '<fieldset><legend>' . wfMsgHtml('revisionreview') . '</legend>';
-		$form .= '<p>'.Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 60 ).'</p>';
-		$form .= '<p>'.Xml::submitButton( wfMsg( 'revreview-submit' ) ).'</p>';
-		foreach( $hidden as $item ) {
-			$form .= $item;
-		}
-		# Hack, versioning params
-		$form .= Xml::hidden( 'templateParams', $this->templateParams ) . "\n";
-		$form .= Xml::hidden( 'imageParams', $this->imageParams ) . "\n";
-		$form .= Xml::hidden( 'fileVersion', $this->fileVersion ) . "\n";
-		$form .= Xml::hidden( 'wpApprove', $this->approve ) . "\n";
-		$form .= Xml::hidden( 'rcid', $this->rcid ) . "\n";
-		# Special token to discourage fiddling...
-		$checkCode = self::validationKey( $this->templateParams, $this->imageParams,
-			$this->fileVersion, $rev->getId() );
-		$form .= Xml::hidden( 'validatedParams', $checkCode );
-		$form .= '</fieldset>';
-
-		$form .= '</form>';
-		$wgOut->addHTML( $form );
-	}
-
-	/**
-	 * @param Revision $rev
-	 * @return string
-	 */
-	private function historyLine( $rev ) {
-		global $wgContLang;
-		$date = $wgContLang->timeanddate( $rev->getTimestamp() );
-		$difflink = '(' . $this->skin->makeKnownLinkObj( $this->page, wfMsgHtml('diff'),
-			'&diff=' . $rev->getId() . '&oldid=prev' ) . ')';
-		$revlink = $this->skin->makeLinkObj( $this->page, $date, 'oldid=' . $rev->getId() );
-		return "<li>$difflink $revlink " . $this->skin->revUserLink($rev) . " " .
-			$this->skin->revComment($rev) . "</li>";
-	}
-	
 	public function isApproval() {
 		# If all values are set to zero, this has been unapproved
 		if( FlaggedRevs::dimensionsEmpty() && $this->approve ) {
@@ -869,28 +761,5 @@ class RevisionReview extends UnlistedSpecialPage
 			);
 		}
 		wfProfileOut( __METHOD__ );
-	}
-	
-	private function mergeTemplateParams( $pout, $tmps, $tmpIds, $maxID ) {
-		foreach( $tmps as $ns => $dbkey_id ) {
-			foreach( $dbkey_id as $dbkey => $pageid ) {
-				if( !isset($pout->mTemplates[$ns]) )
-					$pout->mTemplates[$ns] = array();
-				# Add in this template; overrides
-				$pout->mTemplates[$ns][$dbkey] = $pageid;
-			}
-		}
-		# Merge in template params from first phase of parsing...
-		foreach( $tmpIds as $ns => $dbkey_id ) {
-			foreach( $dbkey_id as $dbkey => $revid ) {
-				if( !isset($pout->mTemplateIds[$ns]) )
-					$pout->mTemplateIds[$ns] = array();
-				# Add in this template; overrides
-				$pout->mTemplateIds[$ns][$dbkey] = $revid;
-			}
-		}
-		if( $maxID > $pout->fr_newestTemplateID ) {
-			$pout->fr_newestTemplateID = $maxID;
-		}
 	}
 }

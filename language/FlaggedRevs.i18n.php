@@ -167,8 +167,10 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-text2'              => '\'\'[[{{MediaWiki:Validationpage}}|Stable versions]] are checked revisions of pages and can be set as the default content for viewers.\'\'',
 	'revreview-toggle'             => '(+/-)',
 	'revreview-toggle-title'       => 'show/hide details',
-	'revreview-toolow'             => 'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.
-To deprecate a revision, set all fields to "unapproved".',
+	'revreview-toolow'             => '\'\'\'You must at least rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.\'\'\'
+To deprecate a revision, set all fields to "unapproved".
+
+Please hit the "back" button in your browser and try again.',
 	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any changes \'\'(shown below)\'\' made since the stable revision was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved].<br />
 \'\'\'Some templates/files were updated:\'\'\'',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
