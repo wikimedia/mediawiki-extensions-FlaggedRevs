@@ -424,7 +424,11 @@ class FlaggedArticleView {
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
 		$text = $frev->getRevText();
-	   	$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $frev->getRevId() );
+		# Check if this is a redirect...
+		$redirHtml = $this->getRedirectHtml( $text );
+		if( $redirHtml == '' ) {
+			$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $frev->getRevId() );
+		}
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if( !$wgOut->isPrintable() ) {
@@ -461,7 +465,11 @@ class FlaggedArticleView {
 		}
 		# Output HTML
 		$this->setReviewNotes( $frev );
-	   	$wgOut->addParserOutput( $parserOut );
+	   	if( $redirHtml != '' ) {
+			$wgOut->addHtml( $redirHtml );
+		} else {
+			$wgOut->addParserOutput( $parserOut );
+		}
 		# Index the stable version only
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
 	}
@@ -489,11 +497,10 @@ class FlaggedArticleView {
 		if( $parserOut == false ) {
 			$text = $srev->getRevText();
 			# Check if this is a redirect...
-			$rTarget = $this->article->followRedirectText( $text );
-			if( $rTarget ) {
-				$redirHtml = $this->article->viewRedirect( $rTarget );
-			} else {
-				$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $srev->getRevId() );
+			$redirHtml = $this->getRedirectHtml( $text );
+			if( $redirHtml == '' ) {
+				$parserOut = FlaggedRevs::parseStableText(
+					$this->article, $text, $srev->getRevId() );
 				# Update the stable version cache
 				FlaggedRevs::updatePageCache( $this->article, $wgUser, $parserOut );
 			}
@@ -546,6 +553,14 @@ class FlaggedArticleView {
 		} else {
 			$wgOut->addParserOutput( $parserOut );
 		}
+	}
+	
+	protected function getRedirectHtml( $text ) {
+		$rTarget = $this->article->followRedirectText( $text );
+		if( $rTarget ) {
+			return $this->article->viewRedirect( $rTarget );
+		}
+		return '';
 	}
 
 	/**
