@@ -139,12 +139,14 @@ $messages['be-tarask'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Spiritia
  */
 $messages['bg'] = array(
 	'reviewedversions' => 'Преглед на устойчивите версии',
 	'reviewedversions-leg1' => 'Преглед на рецензираните версии на страницата',
 	'reviewedversions-page' => 'Име на страницата:',
 	'reviewedversions-none' => 'Страницата „[[:$1]]“ няма рецензирани версии.',
+	'reviewedversions-list' => 'Следва {{PLURAL:$2|единствената версия|списък на версиите}} на [[:$1]], {{PLURAL:$2|която е била рецензирана|които са били рецензирани}}:',
 	'reviewedversions-review' => 'Рецензирана на <i>$1</i> от $2',
 );
 

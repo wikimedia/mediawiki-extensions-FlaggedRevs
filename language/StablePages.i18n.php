@@ -888,7 +888,7 @@ $messages['te'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'stablepages' => 'Durnuklu sahypalar',
+	'stablepages' => 'Durnukly sahypalar',
 	'stablepages-stable' => 'durnukly wersiýa',
 	'stablepages-text' => 'Aşakda durnukly wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalaryň sanawy görkezilýär.',
 	'stablepages-none' => 'Bu sanawda hiç hili sahypa ýok',
