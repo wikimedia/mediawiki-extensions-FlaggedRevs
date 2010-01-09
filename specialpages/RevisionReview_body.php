@@ -512,7 +512,8 @@ class RevisionReview extends UnlistedSpecialPage
 		# Set our versioning params cache
 		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
 		# Parse the text and check if all templates/files match up
-		$stableOutput = FlaggedRevs::parseStableText( $article, $rev->getText(), $rev->getId() );
+		$text = $rev->getText();
+		$stableOutput = FlaggedRevs::parseStableText( $article, $text, $rev->getId() );
 		$err =& $stableOutput->fr_includeErrors;
 		if( !$noMatch ) { // template/files must all be specified
 			if( !empty($err)
@@ -592,8 +593,11 @@ class RevisionReview extends UnlistedSpecialPage
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			global $wgParserCacheExpireTime;
 			$this->page->invalidateCache();
-			# Update stable cache with the revision we reviewed
-			FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
+			# Update stable cache with the revision we reviewed.
+			# Don't cache redirects; it would go unused and complicate things.
+			if( !Title::newFromRedirect( $text ) ) {
+				FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
+			}
 			# We can set the sync cache key already
 			$includesSynced = true;
 			if( $poutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {

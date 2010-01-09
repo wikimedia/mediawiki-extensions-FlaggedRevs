@@ -224,8 +224,8 @@ Please check the URL you used to access this page.',
 	
 	'revreview-locked-title'       => 'Edits must be reviewed before being published on this page.',
 	'revreview-unlocked-title'     => 'Edits do not require review before being published on this page.',
-	'revreview-locked'             => '\'\'\'Edits must be [[{{MediaWiki:Validationpage}}|reviewed]] before being published on this page.\'\'\'',
-	'revreview-unlocked'           => 'Edits do not require [[{{MediaWiki:Validationpage}}|review]] before being published on this page.',
+	'revreview-locked'             => '\'\'\'Note:\'\'\' Edits must be [[{{MediaWiki:Validationpage}}|reviewed]] before being published on this page.',
+	'revreview-unlocked'           => '\'\'\'Note:\'\'\' Edits do not require [[{{MediaWiki:Validationpage}}|review]] before being published on this page.',
 	
 	'revreview-ak-review'          => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ca-current'         => 'v', # do not translate or duplicate this message to other languages

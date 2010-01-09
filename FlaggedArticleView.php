@@ -117,7 +117,7 @@ class FlaggedArticleView {
 	 /**
 	 * Output review notice
 	 */
-	protected function displayTag() {
+	public function displayTag() {
 		global $wgOut, $wgRequest;
 		$this->load();
 		// UI may be limited to unobtrusive patrolling system
@@ -232,8 +232,6 @@ class FlaggedArticleView {
 		if( is_null($frev) ) {
 			# Add "no reviewed version" tag, but not for printable output
 			$this->showUnreviewedPage( $tag, $prot );
-			# Show notice bar/icon
-			$this->displayTag();
 			return true;
 		}
 		# Get flags and date
@@ -275,8 +273,6 @@ class FlaggedArticleView {
 				"$tag</div>";
 			$this->reviewNotice .= $tag;
 		}
-		# Show notice bar/icon
-		$this->displayTag();
 
 		return true;
 	}
@@ -328,7 +324,7 @@ class FlaggedArticleView {
 		# Get stable version sync status
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article );
 		if( $synced ) {
-			$this->getReviewNotes( $srev ); // Still the same
+			$this->setReviewNotes( $srev ); // Still the same
 		} else {
 			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
@@ -464,7 +460,7 @@ class FlaggedArticleView {
 			}
 		}
 		# Output HTML
-		$this->getReviewNotes( $frev );
+		$this->setReviewNotes( $frev );
 	   	$wgOut->addParserOutput( $parserOut );
 		# Index the stable version only
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
@@ -488,12 +484,19 @@ class FlaggedArticleView {
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
 		# Get parsed stable version
+		$redirHtml = '';
 		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
 		if( $parserOut == false ) {
 			$text = $srev->getRevText();
-	   		$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $srev->getRevId() );
-	   		# Update the stable version cache
-			FlaggedRevs::updatePageCache( $this->article, $wgUser, $parserOut );
+			# Check if this is a redirect...
+			$rTarget = $this->article->followRedirectText( $text );
+			if( $rTarget ) {
+				$redirHtml = $this->article->viewRedirect( $rTarget );
+			} else {
+				$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $srev->getRevId() );
+				# Update the stable version cache
+				FlaggedRevs::updatePageCache( $this->article, $wgUser, $parserOut );
+			}
 	   	}
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article, $parserOut, null );
 		# Construct some tagging
@@ -537,8 +540,12 @@ class FlaggedArticleView {
 			}
 		}
 		# Output HTML
-		$this->getReviewNotes( $srev );
-	   	$wgOut->addParserOutput( $parserOut );
+		$this->setReviewNotes( $srev );
+		if( $redirHtml != '' ) {
+			$wgOut->addHtml( $redirHtml );
+		} else {
+			$wgOut->addParserOutput( $parserOut );
+		}
 	}
 
 	/**
@@ -1033,16 +1040,15 @@ class FlaggedArticleView {
 	 * @param FlaggedRevision $frev
 	 * @return string, revision review notes
 	 */
-	public function getReviewNotes( $frev ) {
+	public function setReviewNotes( $frev ) {
 		global $wgUser;
 		$this->load();
-		if( FlaggedRevs::allowComments() && $frev && $frev->getComment() ) {
-			$notes = "<br /><div class='flaggedrevs_notes plainlinks'>";
-			$notes .= wfMsgExt('revreview-note', array('parseinline'),
+		if( $frev && FlaggedRevs::allowComments() && $frev->getComment() != '' ) {
+			$this->reviewNotes = "<br /><div class='flaggedrevs_notes plainlinks'>";
+			$this->reviewNotes .= wfMsgExt('revreview-note', array('parseinline'),
 				User::whoIs( $frev->getUser() ) );
-			$notes .= '<br /><i>' . $wgUser->getSkin()->formatComment( $frev->getComment() ) .
-				'</i></div>';
-			$this->reviewNotes = $notes;
+			$this->reviewNotes .= '<br /><i>' .
+				$wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
 		}
 	}
 

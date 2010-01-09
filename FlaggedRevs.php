@@ -467,7 +467,7 @@ $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 
 # Add CSS/JS as needed
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::injectStyleAndJS';
+$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
 
 # Extra cache updates for stable versions

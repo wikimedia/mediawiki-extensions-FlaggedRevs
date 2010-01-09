@@ -1541,7 +1541,11 @@ class FlaggedRevs {
 		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_MASTER/*consistent*/ );
 		if( $sv && $sv->getRevId() == $rev->getId() ) {
 			global $wgMemc;
-			# Update stable cache
+			# Update stable page cache. Don't cache redirects;
+			# it would go unused and complicate things.
+			if( !Title::newFromRedirect( $text ) ) {
+				FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
+			}
 			self::updatePageCache( $article, $user, $poutput );
 			# Update page tracking fields
 			self::updateStableVersion( $article, $rev, $rev->getId() );

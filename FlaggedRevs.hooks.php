@@ -75,7 +75,7 @@ class FlaggedRevsHooks {
 	* Add FlaggedRevs css for relevant special pages.
 	*/
 	public static function InjectStyleForSpecial() {
-		global $wgTitle, $wgOut, $wgUser;
+		global $wgTitle, $wgOut;
 		if( empty($wgTitle) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true;
 		}
@@ -91,6 +91,18 @@ class FlaggedRevsHooks {
 				$wgOut->addExtensionStyle( $encCssFile );
 				break;
 			}
+		}
+		return true;
+	}
+	
+	public static function onBeforePageDisplay() {
+		global $wgOut;
+		if( $wgOut->isArticleRelated() ) {
+			$view = FlaggedArticleView::singleton();
+			$view->displayTag(); // show notice bar/icon in subtitle
+			self::injectStyleAndJS(); // full CSS/JS
+		} else {
+			self::InjectStyleForSpecial(); // try special page CSS
 		}
 		return true;
 	}
