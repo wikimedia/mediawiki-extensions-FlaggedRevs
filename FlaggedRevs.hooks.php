@@ -1689,17 +1689,18 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToHistLine( $history, $row, &$s, &$liClasses ) {
-		$title = $history->getArticle()->getTitle();
-		if( !FlaggedRevs::isPageReviewable( $title ) ) {
-			return false; // nothing to do here
+		$fa = FlaggedArticle::getArticleInstance( $history->getArticle() );
+		if( !$fa->isReviewable() ) {
+			return true; // nothing to do here
 		}
+		$title = $history->getArticle()->getTitle();
 		# Fetch and process cache the stable revision
 		if( !isset($history->fr_stableRevId) ) {
-			$frev = FlaggedRevision::newFromStable( $title );
+			$frev = $fa->getStableRev();
 			$history->fr_stableRevId = $frev ? $frev->getRevId() : 0;
 		}
 		if( !$history->fr_stableRevId ) {
-			return false; // nothing to do here
+			return true; // nothing to do here
 		}
 		// Unreviewed revision: highlight if pending
 		$link = $class = '';
@@ -1782,6 +1783,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
+	// diff=review param (bug 16923)
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if( $new === 'review' && isset($titleObj) ) {
 			$frev = FlaggedRevision::newFromStable( $titleObj );
