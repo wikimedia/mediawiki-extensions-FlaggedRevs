@@ -429,7 +429,7 @@ class FlaggedRevs {
 	public static function getPrecedence( $config = null ) {
 		global $wgFlaggedRevsPrecedence;
 		if( is_null($config) ) {
-			$config = $wgFlaggedRevsPrecedence;
+			$config = (int)$wgFlaggedRevsPrecedence;
 		}
 		switch( $config )
 		{
@@ -928,7 +928,7 @@ class FlaggedRevs {
 	* @param Article $article
 	* @param Revision $rev, the new stable version
 	* @param mixed $latest, the latest rev ID (optional)
-	* Updates the flaggedpages fields. Called on edit.
+	* Updates the tracking tables and pending edit count cache. Called on edit.
 	*/
 	public static function updateStableVersion( $article, $rev, $latest = null ) {
 		if( !$article->getId() )
@@ -1231,14 +1231,43 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Purge expired restrictions from the flaggedpage_config table
+	 * Purge expired restrictions from the flaggedpage_config table.
+	 * The stable version of pages may change and invalidation may be required.
 	 */
 	public static function purgeExpiredConfigurations() {
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpage_config',
+		$ret = $dbw->select( 'flaggedpage_config',
+			array( 'fpc_page_id', 'fpc_select' ),
 			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
 			__METHOD__
 		);
+		$pageIds = array();
+		$config = self::getDefaultVisibilitySettings(); // config is to be reset
+		while( $row = $dbw->fetchObject( $ret ) ) {
+			// If FlaggedRevs got "turned off" for this page (due to not
+			// having the stable version as the default), then clear it
+			// from the tracking tables...
+			if( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
+				self::clearTrackingRows( $row->fpc_page_id );
+			// Check if the new (default) config has a different way
+			// of selecting the stable version of this page...
+			} else if( $config['select'] !== intval($row->fpc_select) ) {
+				$title = Title::newFromId( $row->fpc_page_id, GAID_FOR_UPDATE );
+				// Determine the new stable version and update the tracking tables...
+				$srev = FlaggedRevision::newFromStable( $title, FR_MASTER, $config );
+				if( $srev ) {
+					$article = new Article( $title );
+					self::updateStableVersion( $article, $srev, $title->getArticleID() );
+				} else {
+					self::clearTrackingRows( $row->fpc_page_id ); // no stable version
+				}
+			}
+			$pageIds[] = $row->fpc_page_id;
+		}
+		// Clear the expired config for this pages
+		if( count($pageIds) ) {
+			$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $pageIds ), __METHOD__ );
+		}
 	}
 	
 	################# Other utility functions #################

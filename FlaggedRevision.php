@@ -119,9 +119,10 @@ class FlaggedRevision {
 	 * Get latest quality rev, if not, the latest reviewed one.
 	 * @param Title $title, page title
 	 * @param int $flags
+     * @param array $config, optional page config (use to skip queries)
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
-	public static function newFromStable( Title $title, $flags = 0 ) {
+	public static function newFromStable( Title $title, $flags = 0, $config = array() ) {
 		$columns = self::selectFields();
 		# If we want the text, then get the text flags too
 		if( $flags & FR_TEXT ) {
@@ -150,7 +151,9 @@ class FlaggedRevision {
 		} else {
 			$row = null;
 			# Get visiblity settings...
-			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+            if( empty($config) ) {
+                $config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+            }
 			if( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
 				return $row; // page is not reviewable; no stable version
 			}
