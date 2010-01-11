@@ -1195,7 +1195,8 @@ class FlaggedRevs {
 				self::titleLinksUpdate( $title ); // re-find stable version
 				$title->invalidateCache(); // purge squid/memcached
 			}
-		} else {
+		}
+		if( !$row ) {
 			return self::getDefaultVisibilitySettings();
 		}
 		$config = array(
