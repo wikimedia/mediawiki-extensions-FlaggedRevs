@@ -73,7 +73,7 @@ class ApiStabilize extends ApiBase {
 			$selected = $params['protectlevel'];
 			if( $selected == "none" ) {
 				$form->select = FlaggedRevs::getPrecedence(); // default
-				$form->override = (int)FlaggedRevs::showStableByDefault(); // default
+				$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 				$form->autoreview = ''; // default
 			} else if( isset($levels[$selected]) ) {
 				$form->select = $levels[$selected]['select'];

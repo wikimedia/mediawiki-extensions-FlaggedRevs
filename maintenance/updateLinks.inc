@@ -141,7 +141,7 @@ function update_flaggedpages( $start = null ) {
 		$db->delete( 'flaggedpage_config',
 			array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
 				'fpc_select'   => FlaggedRevs::getPrecedence(),
-				'fpc_override' => intval( FlaggedRevs::showStableByDefault() )
+				'fpc_override' => intval( FlaggedRevs::isStableShownByDefault() )
 			),
 			__FUNCTION__
 		);

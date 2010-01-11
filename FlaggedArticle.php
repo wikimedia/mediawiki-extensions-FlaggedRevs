@@ -35,7 +35,7 @@ class FlaggedArticle extends Article {
 	 * Is the stable version shown by default for this page?
 	 * @returns bool
 	 */
-	public function showStableByDefault() {
+	public function isStableShownByDefault() {
 		# Get page configuration
 		$config = $this->getVisibilitySettings();
 		return (bool)$config['override'];
@@ -46,7 +46,7 @@ class FlaggedArticle extends Article {
 	 * @returns bool
 	 */
 	public function limitedUI() {
-		return ( FlaggedRevs::forDefaultVersionOnly() && !$this->showStableByDefault() );
+		return ( FlaggedRevs::forDefaultVersionOnly() && !$this->isStableShownByDefault() );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class FlaggedArticle extends Article {
 	 * @returns bool
 	 */
 	public function isPageLocked() {
-		return ( !FlaggedRevs::showStableByDefault() && $this->showStableByDefault() );
+		return ( !FlaggedRevs::isStableShownByDefault() && $this->isStableShownByDefault() );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class FlaggedArticle extends Article {
 	 * @returns bool
 	 */
 	public function isPageUnlocked() {
-		return ( FlaggedRevs::showStableByDefault() && !$this->showStableByDefault() );
+		return ( FlaggedRevs::isStableShownByDefault() && !$this->isStableShownByDefault() );
 	}
 
 	/**
@@ -71,7 +71,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function lowProfileUI() {
 		return FlaggedRevs::lowProfileUI() &&
-			FlaggedRevs::showStableByDefault() == $this->showStableByDefault();
+			FlaggedRevs::isStableShownByDefault() == $this->isStableShownByDefault();
 	}
 
 	 /**
@@ -82,7 +82,7 @@ class FlaggedArticle extends Article {
 		if( !FlaggedRevs::isPageReviewable( $this->getTitle() ) ) {
 			return false;
 		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
-			&& !$this->showStableByDefault() )
+			&& !$this->isStableShownByDefault() )
 		{
 			return false;
 		}
@@ -98,7 +98,7 @@ class FlaggedArticle extends Article {
 		if( FlaggedRevs::isPagePatrollable( $this->getTitle() ) ) {
 			return true;
 		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
-			&& !$this->showStableByDefault() )
+			&& !$this->isStableShownByDefault() )
 		{
 			return true;
 		}

@@ -199,7 +199,7 @@ class FlaggedRevs {
 	 * Should this user see stable versions by default?
 	 * @returns bool
 	 */
-	public static function showStableByDefault() {
+	public static function isStableShownByDefault() {
 		global $wgFlaggedRevsOverride;
 		return (bool)$wgFlaggedRevsOverride;
 	}
@@ -218,7 +218,7 @@ class FlaggedRevs {
 	 * @returns bool
 	 */	
 	public static function stableOnlyIfConfigured() {
-		return self::forDefaultVersionOnly() && !self::showStableByDefault();
+		return self::forDefaultVersionOnly() && !self::isStableShownByDefault();
 	}
 	
 	/**
@@ -1223,7 +1223,7 @@ class FlaggedRevs {
 			'select'     => self::getPrecedence(),
 			# Keep this consistent across settings:
 			## 1 -> override, 0 -> don't
-			'override'   => self::showStableByDefault() ? 1 : 0,
+			'override'   => self::isStableShownByDefault() ? 1 : 0,
 			'autoreview' => '',
 			'expiry'     => 'infinity'
 		);

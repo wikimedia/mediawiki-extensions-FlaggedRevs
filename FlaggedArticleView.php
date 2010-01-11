@@ -88,7 +88,7 @@ class FlaggedArticleView {
 	 * Is this user shown the stable version by default for this page?
 	 * @returns bool
 	 */
-	public function showStableByDefaultUser() {
+	public function isStableShownByDefaultUser() {
 		$this->load();
 		$config = $this->article->getVisibilitySettings(); // page configuration
 		return ( $config['override'] && !FlaggedRevs::ignoreDefaultVersion() );
@@ -98,10 +98,10 @@ class FlaggedArticleView {
 	 * Is this user shown the diff-to-stable on edit for this page?
 	 * @returns bool
 	 */
-	public function showDiffOnEditUser() {
+	public function isDiffShownOnEdit() {
 		global $wgUser;
 		$this->load();
-		return ( $wgUser->isAllowed('review') || $this->showStableByDefaultUser() );
+		return ( $wgUser->isAllowed('review') || $this->isStableShownByDefaultUser() );
 	}
 
 	 /**
@@ -400,7 +400,7 @@ class FlaggedArticleView {
 			}
 		}
 		# Index the stable version only if it is the default
-		if( $this->article->showStableByDefault() ) {
+		if( $this->article->isStableShownByDefault() ) {
 			$wgOut->setRobotPolicy( 'noindex,nofollow' );
 		}
 	}
@@ -739,7 +739,7 @@ class FlaggedArticleView {
 			$isOld = ($revId != $latestId); // not the current rev?
 			# Let new users know about review procedure a tag.
 			# If the log excerpt was shown this is redundant.
-			if( !$log && !$wgUser->getId() && $this->article->showStableByDefault() ) {
+			if( !$log && !$wgUser->getId() && $this->article->isStableShownByDefault() ) {
 				$items[] = wfMsgExt( 'revreview-editnotice', array('parseinline') );
 			}
 			# Add a notice if there are pending edits...
@@ -750,7 +750,7 @@ class FlaggedArticleView {
 			# Show diff to stable, to make things less confusing...
 			# This can be disabled via user preferences
 			if( $frev->getRevId() < $revId // changes were made
-				&& $this->showDiffOnEditUser() // stable default and user cannot review
+				&& $this->isDiffShownOnEdit() // stable default and user cannot review
 				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
 			) {
 				# Don't show for old revisions, diff, preview, or undo
@@ -983,7 +983,7 @@ class FlaggedArticleView {
 		// Set draft tab as needed...
 	   	if( !$skin->mTitle->isTalkPage() && !$synced ) {
 	   		if( isset( $views['edit'] ) ) {
-				if( $fa->showStableByDefault() ) {
+				if( $fa->isStableShownByDefault() ) {
 					$views['edit']['text'] = wfMsg('revreview-edit');
 				}
 				if( $this->pageOverride() ) {
@@ -991,7 +991,7 @@ class FlaggedArticleView {
 				}
 	   		}
 	   		if( isset( $views['viewsource'] ) ) {
-				if( $fa->showStableByDefault() ) {
+				if( $fa->isStableShownByDefault() ) {
 					$views['viewsource']['text'] = wfMsg('revreview-source');
 				}
 				if( $this->pageOverride() ) {
@@ -1358,7 +1358,7 @@ class FlaggedArticleView {
 		} else {
 			if( $frev && $latest != $frev->getRevId() ) {
 				$extraQuery .= "stable=0";
-				if( !$wgUser->isAllowed('review') && $this->article->showStableByDefault() ) {
+				if( !$wgUser->isAllowed('review') && $this->article->isStableShownByDefault() ) {
 					$extraQuery .= "&shownotice=1";
 				}
 			}
@@ -1487,7 +1487,7 @@ class FlaggedArticleView {
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		if( !FlaggedRevs::lowProfileUI() ) {
-			$msg = FlaggedRevs::showStableByDefault() ? 'revreview-text' : 'revreview-text2';
+			$msg = FlaggedRevs::isStableShownByDefault() ? 'revreview-text' : 'revreview-text2';
 			$form .= wfMsgExt( $msg, array('parse') );
 		}
 

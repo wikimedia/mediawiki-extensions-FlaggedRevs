@@ -70,7 +70,7 @@ class OldReviewedPages extends SpecialPage
 					FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-stable' ) . '</span> '
 					: ""
 				) .
-				( (!FlaggedRevs::showStableByDefault() && !FlaggedRevs::forDefaultVersionOnly()) ?
+				( (!FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::forDefaultVersionOnly()) ?
 					"<span style='white-space: nowrap;'>" .
 					Xml::check( 'stable', $this->stable, array( 'id' => 'wpStable' ) ) .
 					Xml::label( wfMsg('oldreviewed-stable'), 'wpStable' ) . '</span> '
@@ -307,7 +307,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->category = $category ? str_replace(' ','_',$category) : null;
 		$this->size = ($size !== null) ? intval($size) : null;
 		$this->watched = (bool)$watched;
-		$this->stable = $stable && !FlaggedRevs::showStableByDefault()
+		$this->stable = $stable && !FlaggedRevs::isStableShownByDefault()
 			&& !FlaggedRevs::forDefaultVersionOnly();
 		parent::__construct();
 		// Don't get to expensive

@@ -392,7 +392,7 @@ class Stabilization extends UnlistedSpecialPage
 		global $wgUser, $wgContLang;
 		$changed = $reset = false;
 		$defaultPrecedence = FlaggedRevs::getPrecedence();
-		$defaultOverride = FlaggedRevs::showStableByDefault();
+		$defaultOverride = FlaggedRevs::isStableShownByDefault();
 		if( $this->select == $defaultPrecedence && $this->override == $defaultOverride )
 		{
 			$reset = ($this->autoreview == ''); // we are going back to site defaults

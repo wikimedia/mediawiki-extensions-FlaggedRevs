@@ -175,9 +175,7 @@ class FlaggedRevsHooks {
 	* Update flaggedrevs tracking tables
 	*/
 	public static function onArticleDelete( &$article, &$user, $reason, $id ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $id ), __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $id ), __METHOD__ );
+		FlaggedRevs::clearTrackingRows( $id );
 		return true;
 	}
 	
@@ -720,7 +718,7 @@ class FlaggedRevsHooks {
 				return true;
 			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
 			# If the current shows be default anyway, nothing to do...
-			if( !$flaggedArticle->showStableByDefault() ) {
+			if( !$flaggedArticle->isStableShownByDefault() ) {
 				return true;
 			}
 			$frev = $flaggedArticle->getStableRev();
@@ -1638,7 +1636,8 @@ class FlaggedRevsHooks {
 	public static function addToFileHistQuery(
 		$file, &$tables, &$fields, &$conds, &$opts, &$join_conds
 	) {
-		if( !$file->isLocal() ) return true; // local files only
+		if( !$file->isLocal() )
+			return true; // local files only
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
@@ -2071,7 +2070,7 @@ class FlaggedRevsHooks {
 		$selected = $wgRequest->getVal( 'mwStabilityConfig' );
 		if( $selected == "none" ) {
 			$form->select = FlaggedRevs::getPrecedence(); // default
-			$form->override = (int)FlaggedRevs::showStableByDefault(); // default
+			$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 			$form->autoreview = ''; // default
 			$form->reviewThis = false;
 		} else if( isset($levels[$selected]) ) {
