@@ -2,7 +2,7 @@
 /**
  * Class representing a MediaWiki article and history
  *
- * FlaggedArticle::getTitleInstance() prefered over constructor calls
+ * FlaggedArticle::getTitleInstance() is preferred over constructor calls
  */
 class FlaggedArticle extends Article {
 	# Process cache variables
