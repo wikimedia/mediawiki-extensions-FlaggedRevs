@@ -1240,15 +1240,16 @@ class FlaggedRevs {
 			array( 'fpc_page_id', 'fpc_select' ),
 			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
 			__METHOD__
+			// array( 'LOCK IN SHARE MODE' )
 		);
-		$pageIds = array();
+		$pageIds = $pagesClearTracking = array();
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		while( $row = $dbw->fetchObject( $ret ) ) {
 			// If FlaggedRevs got "turned off" for this page (due to not
 			// having the stable version as the default), then clear it
 			// from the tracking tables...
 			if( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
-				self::clearTrackingRows( $row->fpc_page_id );
+				$pagesClearTracking[] = $row->fpc_page_id; // no stable version
 			// Check if the new (default) config has a different way
 			// of selecting the stable version of this page...
 			} else if( $config['select'] !== intval($row->fpc_select) ) {
@@ -1259,7 +1260,7 @@ class FlaggedRevs {
 					$article = new Article( $title );
 					self::updateStableVersion( $article, $srev, $title->getArticleID() );
 				} else {
-					self::clearTrackingRows( $row->fpc_page_id ); // no stable version
+					$pagesClearTracking[] = $row->fpc_page_id; // no stable version
 				}
 			}
 			$pageIds[] = $row->fpc_page_id;
@@ -1267,6 +1268,10 @@ class FlaggedRevs {
 		// Clear the expired config for this pages
 		if( count($pageIds) ) {
 			$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $pageIds ), __METHOD__ );
+		}
+		// Clear the tracking rows where needed
+		if( count($pagesClearTracking) ) {
+			self::clearTrackingRows( $pagesClearTracking );
 		}
 	}
 	
@@ -1397,7 +1402,7 @@ class FlaggedRevs {
 	
    	/**
 	* Clear FlaggedRevs tracking tables for this page
-	* @param int $pageId
+	* @param mixed $pageId (int or array)
 	*/		
 	public static function clearTrackingRows( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
