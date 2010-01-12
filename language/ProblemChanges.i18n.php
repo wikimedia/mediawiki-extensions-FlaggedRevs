@@ -281,7 +281,7 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'problemchanges' => 'Felcímkézett változtatások ellenőrzése',
-	'problemchanges-legend' => 'Ellenőrizetlen felcímkézett változtatásokat tartalmazó ellenőrzött lapok listája',
+	'problemchanges-legend' => 'Ellenőrizetlen felcímkézett változtatásokat tartalmazó lapok listája',
 	'problemchanges-none' => 'Jelenleg nincs a a feltételeknek megfelelő lap',
 	'problemchanges-category' => 'Kategória:',
 );
