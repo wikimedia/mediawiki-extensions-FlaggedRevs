@@ -556,9 +556,13 @@ $messages['su'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Per
  * @author Rotsee
  */
 $messages['sv'] = array(
+	'problemchanges' => 'Granska märkta ändringar',
+	'problemchanges-legend' => 'Visa sidor med märkta ändringar som skall granskas',
+	'problemchanges-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'problemchanges-category' => 'Kategori:',
 );
 

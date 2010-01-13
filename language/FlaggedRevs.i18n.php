@@ -1615,8 +1615,10 @@ $messages['be-tarask'] = array(
 	'revreview-text' => "''Па змоўчваньні для чытачоў паказваюцца [[{{MediaWiki:Validationpage}}|стабільныя вэрсіі]] старонак замест найнавейшых.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Стабільныя вэрсіі]] — правераныя вэрсіі старонак, якія могуць паказвацца чытачам па змоўчваньні.''",
 	'revreview-toggle-title' => 'паказаць/схаваць падрабязнасьці',
-	'revreview-toolow' => 'Неабходна адзначыць кожны атрыбут адзнакай вышэй за «не адзначаная», каб вэрсія старонкі лічылася рэцэнзаванай.
-Каб зьняць адзнаку, устанавіце ўсе значэньні ў «не адзначаная».',
+	'revreview-toolow' => 'Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «не зацьверджаная», каб вэрсія старонкі лічылася рэцэнзаванай.
+Каб зьняць адзнаку, устанавіце ўсе значэньні ў «не зацьверджаная».
+
+Калі ласка, націсьніце ў Вашым браўзэры кнопку «вярнуцца» і паспрабуйце зноў.',
 	'revreview-update' => "Калі ласка, [[{{MediaWiki:Validationpage}}|прарэцэнзуйце]] усе зьмены ''(паказаныя ніжэй)'' зробленыя пасьля  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаньня] стабільнай вэрсіі.<br />
 '''Некаторыя шаблёны/файлы былі абноўленыя:'''",
 	'revreview-update-includes' => "'''Некаторыя шаблёны/файлы былі абноўленыя:'''",
@@ -1666,6 +1668,8 @@ $messages['be-tarask'] = array(
 	'revreview-unlocked' => 'Зьмены не патрабуюць [[{{MediaWiki:Validationpage}}|рэцэнзаваньня]] перад паказам на гэтай старонцы.',
 	'log-show-hide-review' => '$1 журнал рэцэнзаваньняў',
 	'revreview-tt-review' => 'Ужыць гэты статус для гэтай вэрсіі',
+	'revreview-tt-flag' => 'Пазначыць гэту вэрсію як правераную',
+	'revreview-tt-unflag' => 'Пазначыць гэту вэрсію як неправераную',
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
@@ -2861,6 +2865,11 @@ $messages['diq'] = array(
 	'hist-stable' => 'revîzyono muşahede bîyaye',
 	'hist-stable-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} teqib kerd]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} otomatik teqib bı]',
+	'revreview-hist-pending' => '[qontrol ho vindeno]',
+	'review-edit-diff' => "'''DIQET: Tay vurnayişan ke hama çap nibiya ho pedê nuştiş de ca geno.'''",
+	'revreview-diff-toggle-show' => '(vurnayişan bimocne)',
+	'revreview-diff-toggle-hide' => '(vurnayişan bivurne)',
+	'revreview-diff-toggle-title' => 'Toogle vurnayişan ke benate taslak u versiyanê çap biyaye mocnena',
 	'review-diff2stable' => 'vurnayişê benatê revizyonê rocane u istiqrarınan ramocın',
 	'review-logentry-app' => 'yew versiyonê [[$1]]i qontrol kerd',
 	'review-logentry-dis' => 'yew versiyonê [[$1]]i teklif nêbi',
@@ -6242,7 +6251,7 @@ $messages['ia'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:Autorevisor',
 	'hist-draft' => 'version provisori',
 	'hist-quality' => 'version de qualitate',
-	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validate] per [[User:$3|$3]]',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} approbate] per [[User:$3|$3]]',
 	'hist-stable' => 'version mirate',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} mirate] per [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automaticamente mirate]',
@@ -6360,8 +6369,10 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes]
 	'revreview-text' => "Le ''[[{{MediaWiki:Validationpage}}|versiones stabile]] es le contento predefinite pro le lectores in loco del version le plus nove.",
 	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|versiones stabile]] es le versiones verificate del paginas e pote esser assignate como le contento predefinite pro le lectores.''",
 	'revreview-toggle-title' => 'revelar/celar detalios',
-	'revreview-toolow' => 'Tu debe al minus valorisar cata un del attributos in basso como plus alte que "non approbate" a fin que un version sia considerate como revidite.
-Pro depreciar un version, mitte tote le campos a "non approbate".',
+	'revreview-toolow' => '\'\'\'Tu debe al minus valorisar cata un del attributos in basso como plus alte que "non approbate" a fin que un version sia considerate como revidite.\'\'\'
+Pro depreciar un version, mitte tote le campos a "non approbate".
+
+Per favor preme le button "retro" in tu navigator e reproba.',
 	'revreview-update' => "Per favor [[{{MediaWiki:Validationpage}}|revide]] omne modificationes ''(monstrate in basso)'' facite post le [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approbation] del version stabile.<br />
 '''Alcun patronos/files ha essite actualisate:'''",
 	'revreview-update-includes' => "'''Alcun patronos/files ha essite actualisate:'''",
@@ -11762,6 +11773,7 @@ Please check the URL you used to access this page.',
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Per
  * @author Rotsee
  */
 $messages['sv'] = array(
@@ -11792,10 +11804,10 @@ $messages['sv'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} synad] av [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableis=$2}} automatiskt synad]',
 	'review-diff2stable' => 'Visa ändringar mellan den stabila och den senaste versionen',
-	'review-logentry-app' => 'granskade version $2 av [[$1]]',
-	'review-logentry-dis' => 'degraderade version $2 av [[$1]]',
-	'review-logentry-id' => 'visa: $2',
-	'review-logentry-diff' => 'skillnad mot stabil',
+	'review-logentry-app' => 'granskat en version av [[$1]]',
+	'review-logentry-dis' => 'degraderade en version av [[$1]]',
+	'review-logentry-id' => 'version: $2',
+	'review-logentry-diff' => 'ändringar granskade',
 	'review-logpage' => 'Granskningslogg',
 	'review-logpagetext' => 'Det här är en logg över ändringar till [[{{MediaWiki:Validationpage}}|godkänningsstatus]] för innehållssidor.
 Se [[Special:ReviewedPages|listan över granskade sidor]] för en lista över godkända sidor.',
@@ -11828,7 +11840,7 @@ En mall eller bild har efterfrågats utan att någon specifik version angavs. De
 	'revreview-depth-2' => 'Medel',
 	'revreview-depth-3' => 'Hög',
 	'revreview-depth-4' => 'Utmärkt',
-	'revreview-draft-title' => 'Utkastsida',
+	'revreview-draft-title' => 'Detta är en utkastsida',
 	'revreview-edit' => 'Redigera utkast',
 	'revreview-editnotice' => "'''Notera: Redigeringar till den här sidan kommer att införlivas i den [[{{MediaWiki:Validationpage}}|stabila versionen]] när en etablerad användare granskar dem.'''",
 	'revreview-edited' => "'''Ändringar kommer att infogas i den [[{{MediaWiki:Validationpage}}|stabila versionen]] när en etablerad användare granskar dom.
@@ -12958,12 +12970,13 @@ $messages['uk'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:Авторедактор',
 	'hist-draft' => 'чорнова версія',
 	'hist-quality' => 'якісна версія',
-	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} вивірена] користувачем [[User:$3|$3]]',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} затверджена] користувачем [[User:$3|$3]]',
 	'hist-stable' => 'переглянута версія',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} переглянута] користувачем [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} автоматично переглянута]',
 	'revreview-diff-toggle-show' => '(показати зміни)',
 	'revreview-diff-toggle-hide' => '(сховати зміни)',
+	'revreview-diff-toggle-title' => 'Перемикання відображення змін між чорновою і опублікованою версіями',
 	'review-diff2stable' => 'Показати відмінності між стабільною і поточною версіями',
 	'review-logentry-app' => 'перевірив версію [[$1]]',
 	'review-logentry-dis' => 'позначив версію [[$1]] неприйнятною',
@@ -13079,8 +13092,10 @@ $messages['uk'] = array(
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Стабільні версії]] — це перевірені версії сторінок, можуть бути встановлені для показу за замовчуванням.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'показати/приховати подробиці',
-	'revreview-toolow' => 'Вам слід зазначити для всіх значень рівень, вищий, ніж «не зазначена», щоб версія сторінки вважалася перевіреною.
-Щоб зняти позначку перевіреної версії, встановіть усі значення в «не зазначена».',
+	'revreview-toolow' => "'''Вам слід зазначити для всіх значень рівень, вищий, ніж «не зазначена», щоб версія сторінки вважалася перевіреною.'''
+Щоб зняти позначку перевіреної версії, встановіть усі значення в «не зазначена».
+
+Будь ласка, натисніть кнопку «Назад» у браузері, щоб повторити дію.",
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі зміни ''(показані нижче)'', зроблені після [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затвердження] стабільної версії.<br />
 '''Деякі шаблони/файли були оновлені:'''",
 	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені:'''",
