@@ -206,6 +206,7 @@ li.flaggedrevs_hist_stable {
 
 .fr-diff-ratings {
 	font-size: 90%;
+	font-weight: bold;
 	line-height: 1em;
 	width: 100%;
 }

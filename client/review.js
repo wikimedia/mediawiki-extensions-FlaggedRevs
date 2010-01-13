@@ -45,7 +45,7 @@ FlaggedRevs.updateRatingForm = function() {
 		}
 	
 		// Get quality level for this tag
-		qualityLevel = wgFlaggedRevsParams.tags[tag];
+		qualityLevel = wgFlaggedRevsParams.tags[tag]['quality'];
 	
 		if( selectedlevel < qualityLevel ) {
 			quality = false; // not a quality review
@@ -189,22 +189,28 @@ wgAjaxReview.processResult = function(request) {
 	if( !wgAjaxReview.supported ) {
 		return;
 	}
-	var response = request.responseText;
-	if( (msg = response.substr(6)) ) {
-		jsMsg( msg, 'review' ); // success notice
-		window.scroll(0,0); // scroll up to notice
-		tagBox = document.getElementById('mw-fr-revisiontag');
-		if( tagBox ) tagBox.style.display = 'none'; // remove tag from draft
-	}
 	wgAjaxReview.inprogress = false;
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
+	var response = request.responseText;
+	var msg = response.substr(6); // remove <err#> or <suc#>
+	var regm = msg.match(/^<t#(\d)>/);
+	if( regm ) {
+		msg = msg.substr(5); // remove <t#x>
+	}
+	var tier = regm ? regm[1] : 0; // review tier
+	// Output any response message
+	if( msg.length ) {
+		jsMsg( msg, 'review' ); // success/failure notice
+		window.scroll(0,0); // scroll up to notice
+	}
 	var rsubmit = document.getElementById("mw-fr-submitreview");
 	var usubmit = document.getElementById("mw-fr-submitunreview");
-	var binaryState = document.getElementById("mw-fr-reviewstate");
 	var legend = document.getElementById("mw-fr-reviewformlegend");
 	var diffNotice = document.getElementById("mw-fr-difftostable");
+	var diffRightTier = document.getElementById('mw-fr-diff-rtier');
+	var tagBox = document.getElementById('mw-fr-revisiontag');
 	// On success...
 	if( response.indexOf('<suc#>') == 0 ) {
 		document.title = wgAjaxReview.actioncomplete;
@@ -228,6 +234,19 @@ wgAjaxReview.processResult = function(request) {
 		}
 		// Hide "review this" box on diffs
 		if( diffNotice ) diffNotice.style.display = 'none';
+		// Remove review tag from draft
+		if( tagBox ) tagBox.style.display = 'none';
+		// Set diff title messages
+		if( diffRightTier ) {
+			if( tier == 1 ) {
+				diffRightTier.innerHTML = '['+wgAjaxReview.sightedRev+']';
+			} else if( tier == 2 || tier == 3 ) {
+				diffRightTier.innerHTML = '['+wgAjaxReview.qualityRev+']';
+			} else {
+				diffRightTier.innerHTML = '['+wgAjaxReview.draftRev+']';
+			}
+			diffRightTier.className = 'flaggedrevs-color-'+tier;
+		}
 	// On failure...
 	} else {
 		document.title = wgAjaxReview.actionfailed;

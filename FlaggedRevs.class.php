@@ -1318,11 +1318,11 @@ class FlaggedRevs {
 	*/
 	public static function getLevelTier( $flags ) {
 		if( self::isPristine( $flags ) )
-			return FR_PRISTINE;
+			return FR_PRISTINE; // 2
 		elseif( self::isQuality( $flags ) )
-			return FR_QUALITY;
+			return FR_QUALITY; // 1
 		elseif( self::isSighted( $flags ) )
-			return FR_SIGHTED;
+			return FR_SIGHTED; // 0
 		else
 			return -1;
 	}
@@ -1608,7 +1608,10 @@ class FlaggedRevs {
 		# Param to pass to JS function to know if tags are at quality level
 		$tagsJS = array();
 		foreach( self::$dimensions as $tag => $x ) {
-			$tagsJS[$tag] = self::$minQL[$tag];
+			$tagsJS[$tag] = array();
+			$tagsJS[$tag]['levels'] = count($x)-1;
+			$tagsJS[$tag]['quality'] = self::$minQL[$tag];
+			$tagsJS[$tag]['pristine'] = self::$minPL[$tag];
 		}
 		$params = array( 'tags' => (object)$tagsJS );
 		return (object)$params;

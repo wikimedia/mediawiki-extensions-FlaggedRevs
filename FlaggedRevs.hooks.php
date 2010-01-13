@@ -64,7 +64,10 @@ class FlaggedRevsHooks {
 				'reflagLegMsg'	 => wfMsgHtml('revreview-reflag'),
 				'sendingMsg'     => wfMsgHtml('revreview-submitting'),
 				'actioncomplete' => wfMsgHtml('actioncomplete'),
-				'actionfailed'   => wfMsgHtml('actionfailed')
+				'actionfailed'	 => wfMsgHtml('actionfailed'),
+				'draftRev'  	 => wfMsgHtml('hist-draft'),
+				'sightedRev' 	 => wfMsgHtml('hist-stable'),
+				'qualityRev' 	 => wfMsgHtml('hist-quality'),
 			);
 			$globalVars['wgAjaxReview'] = $ajaxReview; // language for AJAX form
 		}

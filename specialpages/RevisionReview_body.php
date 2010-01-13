@@ -297,9 +297,10 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		list($approved,$status) = $form->submit();
 		if( $status === true ) {
-			return '<suc#>'.$form->showSuccess( $approved );
+			$tier = FlaggedRevs::getLevelTier($form->dims)+1; // shift to 0-3
+			return "<suc#><t#$tier>" . $form->showSuccess( $approved );
 		} elseif( $approved && is_array($status) ) {
-			return '<err#>'.$form->showSyncFailure( $status );
+			return '<err#>' . $form->showSyncFailure( $status );
 		} elseif( $approved ) {
 			return '<err#>' . wfMsg( 'revreview-revnotfound' );
 		} else { // hmmm?

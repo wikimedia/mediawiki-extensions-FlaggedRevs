@@ -284,8 +284,9 @@ class FlaggedArticleView {
 	*/	
 	protected function showUnreviewedPage( $tag, $prot ) {
 		global $wgOut, $wgContLang;
-		if( $wgOut->isPrintable() )
+		if( $wgOut->isPrintable() ) {
 			return;
+		}
 		// Simple icon-based UI
 		if( FlaggedRevs::useSimpleUI() ) {
 			// RTL langauges
@@ -293,13 +294,15 @@ class FlaggedArticleView {
 			$msg = 'revreview-quick-none';
 			$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
 				wfMsgExt($msg,array('parseinline'));
-			$tag = "<div id='mw-fr-revisiontag' class='flaggedrevs_short{$rtl} plainlinks noprint'>" .
+			$css = 'flaggedrevs_short{$rtl} plainlinks noprint';
+			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
 				"$tag</div>";
 			$this->reviewNotice .= $tag;
 		// Standard UI
 		} else {
 			$msg = 'revreview-noflagged';
-			$tag = "<div id='mw-fr-revisiontag' class='flaggedrevs_notice plainlinks noprint'>" .
+			$css = 'flaggedrevs_notice plainlinks noprint';
+			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
 				"{$prot}<span class='fr-icon-current plainlinks'></span>" .
 				wfMsgExt($msg, array('parseinline')) . "</div>";
 			$this->reviewNotice .= $tag;
@@ -372,31 +375,32 @@ class FlaggedArticleView {
 				}
 				$tooltip = wfMsgHtml($tooltip);
 				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>$msgHTML";
-				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML, $revsSince,
-							$synced, $synced, false );
+				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
+					$revsSince, 'draft', $synced, false );
 			// Standard UI
 			} else {
 				if( $synced ) {
-					$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
-					$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-					$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-					$msgHTML = wfMsgExt( $msg, array('parseinline'), $srev->getRevId(),
-									$time, $revsSince );
+					if( $quality ) {
+						$msg = 'revreview-quality-same';
+						$class = 'fr-icon-quality';
+						$tooltip = 'revreview-quality-title';
+					} else {
+						$msg = 'revreview-basic-same';
+						$class = 'fr-icon-stable';
+						$tooltip = 'revreview-stable-title';
+					}
+					$msgHTML = wfMsgExt( $msg, array('parseinline'),
+						$srev->getRevId(), $time, $revsSince );
 				} else {
-					$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+					$msg = $quality
+						? 'revreview-newest-quality'
+						: 'revreview-newest-basic';
 					$msg .= ($revsSince == 0) ? '-i' : '';
-					$msgHTML = wfMsgExt( $msg, array('parseinline'), $srev->getRevId(),
-									$time, $revsSince );
+					$msgHTML = wfMsgExt( $msg, array('parseinline'),
+						$srev->getRevId(), $time, $revsSince );
 				}
 				$tooltip = wfMsgHtml($tooltip);
 				$tag .= "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" . $msgHTML;
-				# Hide clutter
-				if( !empty($flags) ) {
-					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-fr-revisionratings' style='display:block;'><br />" .
-						wfMsgHtml('revreview-oldrating') .
-						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
-				}
 			}
 		}
 		# Index the stable version only if it is the default
@@ -432,9 +436,12 @@ class FlaggedArticleView {
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if( !$wgOut->isPrintable() ) {
-			$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-			$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
-			$tooltip = wfMsgHtml($tooltip);
+			$class = $quality ?
+				'fr-icon-quality' : 'fr-icon-stable';
+			$tooltip = $quality
+				? 'revreview-quality-title'
+				: 'revreview-stable-title';
+			$tooltip = wfMsgHtml( $tooltip );
 			// Simple icon-based UI
 			if( FlaggedRevs::useSimpleUI() ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
@@ -447,8 +454,8 @@ class FlaggedArticleView {
 					$msgHTML = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time );
 				}
 				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>{$msgHTML}";
-				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML, $revsSince,
-					true /*stable*/, false /*synced*/, true /*old*/ );
+				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
+					$revsSince, 'oldstable', false /*synced*/ );
 			// Standard UI
 			} else {
 				$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
@@ -526,7 +533,8 @@ class FlaggedArticleView {
 						$srev->getRevId(), $revsSince );
 				}
 				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>{$msgHTML}";
-				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML, $revsSince, true, $synced );
+				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
+					$revsSince, 'stable', $synced );
 			// Standard UI
 			} else {
 				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
@@ -582,11 +590,13 @@ class FlaggedArticleView {
 			return false; // not viewing the draft
 		}
 		# Conditions are met to show diff...
-		$leftNote = $quality ? 'revreview-quality-rev' : 'revreview-sighted-rev';
+		$leftNote = $quality ? 'hist-quality' : 'hist-stable';
 		$rClass = FlaggedRevsXML::getQualityColor( false );
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-		$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-rev')."]</span>";
-		$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
+		$rightNote = "<span id='mw-fr-diff-rtier' class='$rClass'>[" .
+			wfMsgHtml('hist-draft') . "]</span>";
+		$leftNote = "<span id='mw-fr-diff-ltier' class='$lClass'>[" .
+			wfMsgHtml($leftNote)."]</span>";
 		# Fetch the stable and draft revision text
 		$oText = $srev->getRevText();
 		if( $oText === false )
@@ -761,16 +771,17 @@ class FlaggedArticleView {
 				}
 				
 				# Conditions are met to show diff...
-				$leftNote = $quality
-					? 'revreview-quality-rev'
-					: 'revreview-sighted-rev';
+				$leftNote = $quality ? 'hist-quality' : 'hist-stable';
 				$rClass = FlaggedRevsXML::getQualityColor( false );
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-				$rightNote = "<span class='$rClass'>[".wfMsgHtml('revreview-draft-rev')."]</span>";
-				$leftNote = "<span class='$lClass'>[".wfMsgHtml($leftNote)."]</span>";
+				$rightNote = "<span id='mw-fr-diff-rtier' class='$rClass'>[".
+					wfMsgHtml('hist-draft')."]</span>";
+				$leftNote = "<span id='mw-fr-diff-ltier' class='$lClass'>[".
+					wfMsgHtml($leftNote)."]</span>";
 				$text = $frev->getRevText();
 				# Are we editing a section?
-				$section = ($editPage->section == "") ? false : intval($editPage->section);
+				$section = ($editPage->section == "") ?
+					false : intval($editPage->section);
 				if( $section !== false ) {
 					$text = $this->article->getSection( $text, $section );
 				}
@@ -1184,7 +1195,8 @@ class FlaggedArticleView {
 				$msg = 'hist-draft';
 			}
 			$wgOut->addHTML( "<td width='50%' align='center'>" );
-			$wgOut->addHTML( "<span class='$class'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
+			$wgOut->addHTML( "<span id='mw-fr-diff-ltier' class='$class'>[" .
+				wfMsgHtml( $msg ) . "]</span>" );
 
 			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
 			if( $newRevQ !== false ) {
@@ -1193,7 +1205,8 @@ class FlaggedArticleView {
 				$msg = 'hist-draft';
 			}
 			$wgOut->addHTML( "</td><td width='50%' align='center'>" );
-			$wgOut->addHTML( "<span class='$class'><b>[" . wfMsgHtml( $msg ) . "]</b></span>" );
+			$wgOut->addHTML( "<span id='mw-fr-diff-rtier' class='$class'>[" .
+				wfMsgHtml( $msg ) . "]</span>" );
 
 			$wgOut->addHTML( '</td></tr></table>' );
 		# New page "diffs" - just one rev
@@ -1203,11 +1216,12 @@ class FlaggedArticleView {
 			} else {
 				$msg = 'hist-draft';
 			}
+			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
 			$wgOut->addHTML(
 				"<table class='fr-diff-ratings'>" .
-				"<tr><td class='fr-$msg' align='center'>" .
-				'<b>[' . wfMsgHtml( $msg ) . ']</b>' .
-				'</td></tr></table>'
+				"<tr><td><span id='mw-fr-diff-rtier' class='$class' align='center'>" .
+				'[' . wfMsgHtml( $msg ) . ']' .
+				'</span></td></tr></table>'
 			);
 		}
 		return true;

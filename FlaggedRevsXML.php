@@ -179,17 +179,17 @@ class FlaggedRevsXML {
     }
 
 	/**
-	 * @param FlaggedRevision $frev, the stable version
+	 * @param FlaggedRevision $frev, the reviewed version
 	 * @param string $html, the short message HTML
 	 * @param int $revsSince, revisions since review
+	 * @param string $type (stable/draft/oldstable)
 	 * @param bool $stable, are we referring to the stable revision?
 	 * @param bool $synced, does stable=current and this is one of them?
-	 * @param bool $old, is this an old stable version?
 	 * @returns string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
 	public static function prettyRatingBox(
-		$frev, $shtml, $revsSince, $stable=true, $synced=false, $old=false
+		$frev, $shtml, $revsSince, $type='oldstable', $synced=false
 	) {
 		global $wgLang;
 		# Get quality level
@@ -206,17 +206,21 @@ class FlaggedRevsXML {
 			$color = 'flaggedrevs-color-1';
 		}
         # Construct some tagging
-		if( $synced ) {
-			$msg = $quality ? 'revreview-quality-same' : 'revreview-basic-same';
+		if( $synced && ($type == 'stable' || $type == 'draft') ) {
+			$msg = $quality ?
+				'revreview-quality-same' : 'revreview-basic-same';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
-		} elseif( $old ) {
-			$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
+		} elseif( $type == 'oldstable' ) {
+			$msg = $quality ?
+				'revreview-quality-old' : 'revreview-basic-old';
 			$html = wfMsgExt($msg, array('parseinline'), $frev->getRevId(), $time );
 		} else {
-			if( $stable ) {
-				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
-			} else {
-				$msg = $quality ? 'revreview-newest-quality' : 'revreview-newest-basic';
+			if( $type == 'stable' ) {
+				$msg = $quality ?
+					'revreview-quality' : 'revreview-basic';
+			} else { // draft
+				$msg = $quality ?
+					'revreview-newest-quality' : 'revreview-newest-basic';
 			}
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
@@ -228,8 +232,8 @@ class FlaggedRevsXML {
 		$box .= "<tr style='white-space:nowrap;'><td>$shtml&nbsp;&nbsp;</td>";
 		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
 		$box .= "<tr><td id='mw-fr-revisionratings'>$html<br />";
-		# Add ratings if there are any...
-		if( $stable && !empty($flags) ) {
+		# Add any rating tags as needed...
+		if( $flags && ($type == 'stable' || $type == 'oldstable') ) {
 			$box .= self::addTagRatings( $flags, true, $color );
 		}
 		$box .= "</td><td></td></tr></table>";
@@ -439,16 +443,6 @@ class FlaggedRevsXML {
 			: 'revreview-newest-basic';
 		$msg .= ($revsSince == 0) ? '-i' : '';
 		$tag = wfMsgExt( $msg, array('parseinline'), $frev->getRevId(), $time, $revsSince );
-		# Standard UI
-		if( !FlaggedRevs::useSimpleUI() ) {
-			# Hide clutter
-			if( !empty($flags) ) {
-				$tag .= " " . FlaggedRevsXML::ratingToggle();
-				$tag .= '<span id="mw-fr-revisionratings" style="display:block;"><br />' .
-					wfMsg('revreview-oldrating') . FlaggedRevsXML::addTagRatings( $flags ) .
-					'</span>';
-			}
-		}
 		return $tag;
 	}
 }
