@@ -36,7 +36,7 @@ class FlaggedRevsHooks {
 			'revreviewDiffToggleHide' => wfMsgHtml('revreview-diff-toggle-hide')
 		);
 		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
-			"FlaggedRevs.messages = ".Xml::encodeJsVar($msgs).";</script>";
+			"FlaggedRevs.messages = ".Xml::encodeJsVar($msgs).";</script>\n";
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
 	}
