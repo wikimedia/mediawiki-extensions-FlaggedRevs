@@ -123,7 +123,7 @@ function update_flaggedpages( $start = null ) {
 				FlaggedRevs::updateStableVersion( $article, $frev->getRevision(), $row->page_latest );
 			# Somethings broke? Delete the row...
 			} else {
-				$db->delete( 'flaggedpages', array( 'fp_page_id' => $row->page_id ), __FUNCTION__ );
+				FlaggedRevs::clearTrackingRows( $row->page_id );
 				if( $db->affectedRows() > 0 ) $deleted++;
 			}
 			# Get the latest revision
@@ -140,8 +140,9 @@ function update_flaggedpages( $start = null ) {
 		# Remove manual config settings that simply restate the site defaults
 		$db->delete( 'flaggedpage_config',
 			array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
-				'fpc_select'   => FlaggedRevs::getPrecedence(),
-				'fpc_override' => intval( FlaggedRevs::isStableShownByDefault() )
+				'fpc_select'   	=> FlaggedRevs::getPrecedence(),
+				'fpc_override' 	=> intval( FlaggedRevs::isStableShownByDefault() ),
+				'fpc_level' 	=> ''
 			),
 			__FUNCTION__
 		);
