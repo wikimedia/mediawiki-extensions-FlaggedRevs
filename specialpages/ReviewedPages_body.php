@@ -11,7 +11,7 @@ class ReviewedPages extends SpecialPage
     }
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgFlaggedRevPristine;
+		global $wgRequest, $wgUser;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
@@ -19,8 +19,8 @@ class ReviewedPages extends SpecialPage
 		# Check if there is a featured level
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
 		$this->namespace = $wgRequest->getInt( 'namespace' );
-		$this->type = $wgRequest->getInt( 'level', -1 );
-		$this->type = min($this->type,$maxType);
+		$this->type = $wgRequest->getInt( 'level', - 1 );
+		$this->type = min( $this->type, $maxType );
 		$this->hideRedirs = $wgRequest->getBool( 'hideredirs', true );
 		
 		$this->showForm();
@@ -32,7 +32,7 @@ class ReviewedPages extends SpecialPage
 
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>".wfMsg('reviewedpages-leg')."</legend>\n";
+		$form .= "<fieldset><legend>" . wfMsg( 'reviewedpages-leg' ) . "</legend>\n";
 
 		// show/hide links
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
@@ -44,17 +44,17 @@ class ReviewedPages extends SpecialPage
 
 		$fields = array();
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if( count($namespaces) > 1 ) {
+		if ( count( $namespaces ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . ' ';
 		}
-		if( FlaggedRevs::qualityVersions() ) {
+		if ( FlaggedRevs::qualityVersions() ) {
 			$fields[] = FlaggedRevsXML::getLevelMenu( $this->type ) . ' ';
 		}
-		$form .= implode(' ',$fields) . ' ';
+		$form .= implode( ' ', $fields ) . ' ';
 		$form .= $showhideredirs;
 
-		if( count($fields) ) {
-			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+		if ( count( $fields ) ) {
+			$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
 		}
 		$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 		$form .= "</fieldset></form>\n";
@@ -65,15 +65,16 @@ class ReviewedPages extends SpecialPage
 	protected function showPageList() {
 		global $wgOut, $wgUser, $wgLang;
 
-		$pager = new ReviewedPagesPager( $this, array(), $this->type, $this->namespace, $this->hideRedirs );
+		$pager = new ReviewedPagesPager( $this, array(), $this->type,
+			$this->namespace, $this->hideRedirs );
 		$num = $pager->getNumRows();
-		if( $num ) {
-			$wgOut->addHTML( wfMsgExt('reviewedpages-list', array('parse'), $num ) );
+		if ( $num ) {
+			$wgOut->addHTML( wfMsgExt( 'reviewedpages-list', array( 'parse' ), $num ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt('reviewedpages-none', array('parse') ) );
+			$wgOut->addHTML( wfMsgExt( 'reviewedpages-none', array( 'parse' ) ) );
 		}
 	}
 
@@ -84,18 +85,18 @@ class ReviewedPages extends SpecialPage
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 
 		$stxt = '';
-		if( !is_null($size = $row->page_len) ) {
-			if( $size == 0 )
-				$stxt = ' <small>' . wfMsgHtml('historyempty') . '</small>';
+		if ( !is_null( $size = $row->page_len ) ) {
+			if ( $size == 0 )
+				$stxt = ' <small>' . wfMsgHtml( 'historyempty' ) . '</small>';
 			else
-				$stxt = ' <small>' . wfMsgExt('historysize', array('parsemag'),
+				$stxt = ' <small>' . wfMsgExt( 'historysize', array( 'parsemag' ),
 					$wgLang->formatNum( $size ) ) . '</small>';
 		}
 
 		$SVtitle = SpecialPage::getTitleFor( 'ReviewedVersions' );
-		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml('reviewedpages-all'),
+		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml( 'reviewedpages-all' ),
 			'page=' . $title->getPrefixedUrl() );
-		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('reviewedpages-best'),
+		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'reviewedpages-best' ),
 			'stableid=best' );
 
 		return "<li>$link $stxt ($list) [$best]</li>";
@@ -108,17 +109,17 @@ class ReviewedPages extends SpecialPage
 class ReviewedPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $type;
 
-	function __construct( $form, $conds = array(), $type=0, $namespace=0, $hideRedirs=1 ) {
+	function __construct( $form, $conds = array(), $type = 0, $namespace = 0, $hideRedirs = 1 ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->type = $type;
 		# Must be a content page...
-		if( !is_null($namespace) ) {
-			$namespace = intval($namespace);
+		if ( !is_null( $namespace ) ) {
+			$namespace = intval( $namespace );
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
-		if( is_null($namespace) || !in_array($namespace,$vnamespaces) ) {
-			$namespace = !$vnamespaces ? -1 : $vnamespaces[0]; 	 
+		if ( is_null( $namespace ) || !in_array( $namespace, $vnamespaces ) ) {
+			$namespace = !$vnamespaces ? - 1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;
 		$this->hideRedirs = $hideRedirs;
@@ -134,19 +135,20 @@ class ReviewedPagesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fp_page_id';
 		$index = 'PRIMARY';
-		if( $this->type >= 0 ) {
+		if ( $this->type >= 0 ) {
 			$conds['fp_quality'] = $this->type;
 			$index = 'fp_quality_page';
 		}
-		if( $this->hideRedirs ) {
+		if ( $this->hideRedirs ) {
 			$conds['page_is_redirect'] = 0;
 		}
 		$conds['page_namespace'] = $this->namespace; // Sanity check NS
 		return array(
-			'tables' => array('flaggedpages','page'),
+			'tables' => array( 'flaggedpages', 'page' ),
 			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
 			'conds'  => $conds,
-			'options' => array( 'USE INDEX' => array('flaggedpages' => $index,'page' => 'PRIMARY') )
+			'options' => array( 'USE INDEX' => array( 'flaggedpages' => $index,
+				'page' => 'PRIMARY' ) )
 		);
 	}
 
@@ -158,7 +160,7 @@ class ReviewedPagesPager extends AlphabeticPager {
 		wfProfileIn( __METHOD__ );
 		# Do a link batch query
 		$lb = new LinkBatch();
-		while( $row = $this->mResult->fetchObject() ) {
+		while ( $row = $this->mResult->fetchObject() ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();

@@ -18,7 +18,7 @@ class FlaggedArticle extends Article {
 	 */
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title
-		if( !isset( $title->flaggedRevsArticle ) ) {
+		if ( !isset( $title->flaggedRevsArticle ) ) {
 			$title->flaggedRevsArticle = new self( $title );
 		}
 		return $title->flaggedRevsArticle;
@@ -79,9 +79,9 @@ class FlaggedArticle extends Article {
 	 * @param bool $titleOnly, only check if title is in reviewable namespace
 	 */
 	public function isReviewable( $titleOnly = false ) {
-		if( !FlaggedRevs::isPageReviewable( $this->getTitle() ) ) {
+		if ( !FlaggedRevs::isPageReviewable( $this->getTitle() ) ) {
 			return false;
-		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
+		} elseif ( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
 			&& !$this->isStableShownByDefault() )
 		{
 			return false;
@@ -95,9 +95,9 @@ class FlaggedArticle extends Article {
 	* @return bool
 	*/
 	public function isPatrollable( $titleOnly = false ) {
-		if( FlaggedRevs::isPagePatrollable( $this->getTitle() ) ) {
+		if ( FlaggedRevs::isPagePatrollable( $this->getTitle() ) ) {
 			return true;
-		} elseif( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
+		} elseif ( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
 			&& !$this->isStableShownByDefault() )
 		{
 			return true;
@@ -111,16 +111,16 @@ class FlaggedArticle extends Article {
 	 * @return Row
 	 */
 	public function getStableRev( $flags = 0 ) {
-		if( $this->stableRev === false ) {
+		if ( $this->stableRev === false ) {
 			return null; // We already looked and found nothing...
 		}
 		# Cached results available?
-		if( !is_null($this->stableRev) ) {
+		if ( !is_null( $this->stableRev ) ) {
 			return $this->stableRev;
 		}
 		# Do we have one?
 		$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
-		if( $srev ) {
+		if ( $srev ) {
 			$this->stableRev = $srev;
 			$this->flags[$srev->getRevId()] = $srev->getTags();
 			return $srev;
@@ -137,7 +137,7 @@ class FlaggedArticle extends Article {
 	*/
 	public function getVisibilitySettings( $forUpdate = false ) {
 		# Cached results available?
-		if( !is_null($this->pageConfig) ) {
+		if ( !is_null( $this->pageConfig ) ) {
 			return $this->pageConfig;
 		}
 		# Get the content page, skip talk
@@ -153,13 +153,13 @@ class FlaggedArticle extends Article {
 	 */
 	public function getFlagsForRevision( $revId ) {
 		# Cached results?
-		if( isset($this->flags[$revId]) ) {
+		if ( isset( $this->flags[$revId] ) ) {
 			return $this->flags[$revId];
 		}
 		# Get the flags
 		$flags = FlaggedRevs::getRevisionTags( $this->getTitle(), $revId );
 		# Don't let cache get too big
-		if( count($this->flags) >= self::CACHE_MAX ) {
+		if ( count( $this->flags ) >= self::CACHE_MAX ) {
 			$this->flags = array();
 		}
 		# Try to cache results

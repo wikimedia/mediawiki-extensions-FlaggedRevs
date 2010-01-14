@@ -25,13 +25,13 @@ class Unstablepages extends SpecialPage
 	protected function showForm() {
 		global $wgOut, $wgScript;
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		$wgOut->addHTML( wfMsgExt('unstablepages-text', array('parseinline') ) );
-		if( count($namespaces) > 1 ) {
+		$wgOut->addHTML( wfMsgExt( 'unstablepages-text', array( 'parseinline' ) ) );
+		if ( count( $namespaces ) > 1 ) {
 			$form = Xml::openElement( 'form', array( 'name' => 'unstablepages',
 				'action' => $wgScript, 'method' => 'get' ) );
-			$form .= "<fieldset><legend>".wfMsg('unstablepages')."</legend>\n";
+			$form .= "<fieldset><legend>" . wfMsg( 'unstablepages' ) . "</legend>\n";
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&nbsp;';
-			$form .= " ".Xml::submitButton( wfMsg( 'go' ) );
+			$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
 			$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 			$form .= "</fieldset></form>\n";
 			$wgOut->addHTML( $form );
@@ -43,12 +43,12 @@ class Unstablepages extends SpecialPage
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
 		$pager = new unstablepagesPager( $this, array(), $this->namespace );
-		if( $pager->getNumRows() ) {
+		if ( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt('unstablepages-none', array('parse') ) );
+			$wgOut->addHTML( wfMsgExt( 'unstablepages-none', array( 'parse' ) ) );
 		}
 	}
 
@@ -59,11 +59,11 @@ class Unstablepages extends SpecialPage
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 
 		$stitle = SpecialPage::getTitleFor( 'Stabilization' );
-		$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml('unstablepages-config'),
+		$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml( 'unstablepages-config' ),
 			'page=' . $title->getPrefixedUrl() );
-		$stable = $this->skin->makeKnownLinkObj( $title, wfMsgHtml('unstablepages-stable'),
+		$stable = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'unstablepages-stable' ),
 			'stable=1' );
-		if( $row->fpc_expiry != 'infinity' && strlen($row->fpc_expiry) ) {
+		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
 			$expiry_description = " (" . wfMsgForContent(
 				'protect-expiring',
 				$wgLang->timeanddate( $row->fpc_expiry ),
@@ -84,16 +84,16 @@ class Unstablepages extends SpecialPage
 class UnstablePagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace;
 
-	function __construct( $form, $conds = array(), $namespace=0 ) {
+	function __construct( $form, $conds = array(), $namespace = 0 ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be a content page...
-		if( !is_null($namespace) ) {
-			$namespace = intval($namespace);
+		if ( !is_null( $namespace ) ) {
+			$namespace = intval( $namespace );
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
-		if( is_null($namespace) || !in_array($namespace,$vnamespaces) ) {
-			$namespace = !$vnamespaces ? -1 : $vnamespaces[0]; 	 
+		if ( is_null( $namespace ) || !in_array( $namespace, $vnamespaces ) ) {
+			$namespace = !$vnamespaces ? - 1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;
 		parent::__construct();
@@ -109,7 +109,7 @@ class UnstablePagesPager extends AlphabeticPager {
 		$conds['fpc_override'] = 0;
 		$conds['page_namespace'] = $this->namespace;
 		return array(
-			'tables' => array('flaggedpage_config','page'),
+			'tables' => array( 'flaggedpage_config', 'page' ),
 			'fields' => 'page_namespace,page_title,fpc_expiry,fpc_page_id',
 			'conds'  => $conds,
 			'options' => array()
@@ -124,7 +124,7 @@ class UnstablePagesPager extends AlphabeticPager {
 		wfProfileIn( __METHOD__ );
 		# Do a link batch query
 		$lb = new LinkBatch();
-		while( $row = $this->mResult->fetchObject() ) {
+		while ( $row = $this->mResult->fetchObject() ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();
