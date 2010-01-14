@@ -262,7 +262,8 @@ class FlaggedRevsHooks {
 			$list = explode("\n*","\n$msg");
 			foreach( $list as $category ) {
 				$category = trim($category);
-				if( strlen($category) ) $reviewedCats[$category] = 1;
+				if( $category != '' )
+					$reviewedCats[$category] = 1;
 			}
 		}
 		$links = array();
@@ -431,12 +432,13 @@ class FlaggedRevsHooks {
 		}
 		# If there is no stable version (or that feature is not enabled), use
 		# the template revision during review time. If both, use the newest one.
-		if( $parser->getRevisionId() && !FlaggedRevs::useProcessCache( $parser->getRevisionId() ) ) {
+		$revId = $parser->getRevisionId();
+		if( $revId && !FlaggedRevs::useProcessCache( $revId ) ) {
 			$idP = $dbr->selectField( 'flaggedtemplates',
 				'ft_tmp_rev_id',
-				array( 'ft_rev_id' => $parser->getRevisionId(),
-					'ft_namespace' => $title->getNamespace(),
-					'ft_title' => $title->getDBkey() ),
+				array( 'ft_rev_id'  => $revId,
+					'ft_namespace'  => $title->getNamespace(),
+					'ft_title' 		=> $title->getDBkey() ),
 				__METHOD__
 			);
 			# Take the newest (or only available) of the two

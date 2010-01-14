@@ -622,7 +622,7 @@ class RevisionReview extends UnlistedSpecialPage
 				FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
 			}
 		}
-		# Update link tracking. This will trigger our hook to add stable links too...
+		# Update link tracking. This will trigger extraLinksUpdate()...
 		$u->doUpdate();
 
 		$dbw->commit();
