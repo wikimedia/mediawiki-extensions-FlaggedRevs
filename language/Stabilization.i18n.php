@@ -488,6 +488,7 @@ $messages['bn'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
+	'stabilization' => 'Stabiladur ar bajenn',
 	'stabilization-perm' => "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm stabil.
 Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-page' => 'Anv ar bajenn :',
@@ -508,6 +509,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-sel-short' => 'Kentwir',
 	'stabilization-sel-short-0' => 'Perzhded',
 	'stabilization-sel-short-1' => 'Hini ebet',
+	'stabilization-sel-short-2' => 'Anterin',
 	'stabilization-def-short' => 'Dre ziouer',
 	'stabilization-def-short-0' => 'Red',
 	'stabilization-def-short-1' => 'Stabil',

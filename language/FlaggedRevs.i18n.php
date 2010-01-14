@@ -1896,6 +1896,7 @@ $messages['br'] = array(
 	'prefs-flaggedrevs' => 'Stabilded',
 	'prefs-flaggedrevs-ui' => 'Adweladennoù merket',
 	'flaggedrevs-prefs-stable' => "Diskouez atav stumm stabil ar pajennoù dre ziouer (ma'z eus unan)",
+	'flaggedrevs-prefs-watch' => "Ouzhpennañ ar pajennoù a adwelan da'm roll evezhiañ.",
 	'group-editor' => 'Skridaozerien',
 	'group-editor-member' => 'Skridaozer',
 	'group-reviewer' => 'Reizherien',
@@ -2022,6 +2023,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-filter-all' => 'pep tra',
 	'revreview-filter-stable' => 'stabil',
 	'revreview-filter-approved' => 'Aprouet',
+	'revreview-filter-reapproved' => 'Aprouet a-nevez',
 	'revreview-filter-unapproved' => "N'eo ket aprouet",
 	'revreview-filter-auto' => 'Emgefre',
 	'revreview-filter-manual' => 'Gant an dorn',
@@ -2037,6 +2039,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'flaggedrevs-protect-legend' => "Embann ar c'hemmoù",
 	'flaggedrevs-protect-none' => 'Aotreañ an holl implijerien',
 	'flaggedrevs-protect-basic' => 'Arventennoù dre ziouer',
+	'revreview-locked-title' => "Ret eo d'an aozadennoù bezañ adwelet a-raok bezañ embannet war ar bajenn-mañ.",
 	'log-show-hide-review' => '$10$1 istor an adlennoù',
 	'revreview-tt-review' => "Lakaat ar statud-mañ d'ar stumm-mañ",
 	'revreview-tt-flag' => 'Merkañ an adweladenn-mañ evel adlennet',
@@ -7947,10 +7950,10 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn de Stanard-Säiteninhalt fir Notzer éischter wéi déi neiste Versioun.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn nogekuckte Versioune vu Säiten a kënnen als Standard-Säit fir Lieser agestallt ginn.''",
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
-	'revreview-toolow' => "'''Dir musst fir all Attribut hei ënnendrënner eng Bewertung ofginn déi besser ass wéi \"net nogekuckt\" fir datt eng Versioun kann als nogekuckt betruecht ginn.'''
+	'revreview-toolow' => "'''Dir musst fir all Attribut hei ënnendrënner eng Bewäertung ofginn déi besser ass wéi \"net nogekuckt\" fir datt eng Versioun kann als nogekuckt betruecht ginn.'''
 Fir eng Versioun ze refuséieren setzt all Felder op \"net nogekuckt\".
 
-Klickt w.e.g op den ''Zréck''-Knäppche vn Ärem Browser a versicht et nach eng kéier.",
+Klickt w.e.g op den ''Zréck''-Knäppche vun Ärem Browser a versicht et nach eng Kéier.",
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi zënter, déi stabil Versioun  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigeschalt gouf], gemaach goufen.<br />
 '''Some templates/files were updated:'''",
 	'revreview-update-includes' => "'''Verschidde Schablounen/Fichiere goufen aktualiséiert:'''",
@@ -13025,7 +13028,7 @@ $messages['uk'] = array(
 	'revreview-edited' => "Зміни будуть [[{{MediaWiki:Validationpage}}|опубліковані]], як тільки уповноважений користувач [[{{MediaWiki:Validationpage}}|перевірить]] їх.
 ''Чернетка,'' показана нижче, містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|запропоновану зміну|запропоновані зміни|запропонованих змін}}].",
 	'revreview-flag' => 'Перевірити цю версію',
-	'revreview-reflag' => 'Оновити/відмінити статус "перевірено" цієї версії',
+	'revreview-reflag' => 'Оновити/зняти позначку «перевірено» цієї версії',
 	'revreview-invalid' => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
 	'revreview-legend' => 'Оцінки вмісту версій',
 	'revreview-log' => 'Коментар:',
