@@ -8,7 +8,7 @@ div.flaggedrevs_notice,
 div.flaggedrevs_diffnotice,
 div.flaggedrevs_preview,
 table.flaggedrevs_editnotice {
-	border: 1px solid #aaa;
+	border: 2px solid #aaa;
 	padding: 5px;
 	font-weight: normal;
 	line-height: 1.5em;
