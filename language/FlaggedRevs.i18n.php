@@ -806,7 +806,7 @@ $messages['ar'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:مراجع تلقائي',
 	'hist-draft' => 'مراجعة مسودة',
 	'hist-quality' => 'مراجعة جودة',
-	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطة [[User:$3|$3]]',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} وافق] عليها [[User:$3|$3]]',
 	'hist-stable' => 'مراجعة منظورة',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} تم نظرها] بواسطة [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} منظورة تلقائيا]',
@@ -858,7 +858,7 @@ $messages['ar'] = array(
 	'revreview-edited' => "'''التغييرات [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''
 ''المسودة''، المعروضة بالأسفل، تحتوي على  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|تغيير|تغيير}}] مقترح.",
 	'revreview-flag' => 'راجع هذه المراجعة',
-	'revreview-reflag' => 'أزل مراجعة هذه المراجعة',
+	'revreview-reflag' => 'أعد مراجعة/أزل مراجعة هذه المراجعة',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعة [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
 	'revreview-legend' => 'قيم محتوى المراجعة',
 	'revreview-log' => 'تعليق:',
@@ -925,8 +925,10 @@ $messages['ar'] = array(
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هي محتوى الصفحة الافتراضي للمشاهدين بدلا من أحدث مراجعة.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هي مراجعات تم التحقق منها من الصفحات ويمكن ضبطها كالمحتوى الافتراضي للمشاهدين.''",
 	'revreview-toggle-title' => 'عرض/إخفاء التفاصيل',
-	'revreview-toolow' => 'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.
-لسحب تقييم مراجعة، اضبط كل الحقول ك "غير مقبولة".',
+	'revreview-toolow' => '\'\'\'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
+لسحب تقييم مراجعة، اضبط كل الحقول ك"غير مقبولة".
+
+من فضلك اضغط زر "رجوع" في متصفحك وحاول مجددا.',
 	'revreview-update' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات ''(معروضة بالأسفل)'' تمت منذ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتماد] المراجعة المستقرة.<br />
 '''بعض القوالب/الملفات تم تحديثها:'''",
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
@@ -1022,7 +1024,7 @@ $messages['arz'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:مراجع تلقائي',
 	'hist-draft' => 'مراجعه مسودة',
 	'hist-quality' => 'مراجعه جودة',
-	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطه [[User:$3|$3]]',
+	'hist-quality-user' => '[{{fullurl:$1|stableid=$2}} وافق] عليها [[User:$3|$3]]',
 	'hist-stable' => 'مراجعه منظورة',
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} تم نظرها] بواسطه [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} منظوره تلقائيا]',
@@ -1074,7 +1076,7 @@ $messages['arz'] = array(
 	'revreview-edited' => "'''التغييرات [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''
 ''المسودة''، المعروضه بالأسفل، تحتوى على  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|تغيير|تغيير}}] مقترح.",
 	'revreview-flag' => 'راجع هذه المراجعة',
-	'revreview-reflag' => 'أزل مراجعه هذه المراجعة',
+	'revreview-reflag' => 'أعد مراجعة/أزل مراجعه هذه المراجعة',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعه [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
 	'revreview-legend' => 'قيم محتوى المراجعة',
 	'revreview-log' => 'تعليق:',
@@ -1141,8 +1143,10 @@ $messages['arz'] = array(
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هى محتوى الصفحه الافتراضى للمشاهدين بدلا من أحدث مراجعه.''",
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هى مراجعات تم التحقق منها من الصفحات ويمكن ضبطها كالمحتوى الافتراضى للمشاهدين.''",
 	'revreview-toggle-title' => 'عرض/إخفاء التفاصيل',
-	'revreview-toolow' => 'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكى تعتبر المراجعه مراجعه.
-لسحب تقييم مراجعه، اضبط كل الحقول ك "غير مقبولة".',
+	'revreview-toolow' => '\'\'\'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
+لسحب تقييم مراجعة، اضبط كل الحقول ك"غير مقبولة".
+
+من فضلك اضغط زر "رجوع" في متصفحك وحاول مجددا.',
 	'revreview-update' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أيه تغييرات ''(معروضه بالأسفل)'' تمت منذ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتماد] المراجعه المستقره.<br />
 '''بعض القوالب/الملفات تم تحديثها:'''",
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
@@ -9884,7 +9888,7 @@ $messages['pl'] = array(
 	'hist-stable-user' => '[{{fullurl:$1|stableid=$2}} przejrzana] przez użytkownika [[User:$3|$3]]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatycznie oznaczona jako przejrzana]',
 	'revreview-hist-pending' => '[oczekuje na przejrzenie]',
-	'review-edit-diff' => "'''UWAGA: Zmiany dokonane od czasu ostatniego oznaczenia strony są uwzględnione w poniższym oknie edycji.'''",
+	'review-edit-diff' => "'''UWAGA — Zmiany wykonane od czasu ostatniego oznaczenia strony są uwzględnione w poniższym oknie edycji.'''",
 	'revreview-diff-toggle-show' => '(pokaż zmiany)',
 	'revreview-diff-toggle-hide' => '(ukryj zmiany)',
 	'revreview-diff-toggle-title' => 'Włącz/wyłącz wyświetlanie różnic między wersją roboczą a wersją oznaczoną',
@@ -10054,7 +10058,7 @@ Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 	'log-show-hide-review' => '$1 rejestr oznaczania',
 	'revreview-tt-review' => 'Ustaw ten status dla tej wersji',
 	'revreview-tt-flag' => 'Oznacz tę wersję jako przejrzaną',
-	'revreview-tt-unflag' => 'Wycofaj oznaczenie tej wersji jako przejrzana',
+	'revreview-tt-unflag' => 'Wycofaj oznaczenie tej wersji jako przejrzanej',
 	'validationpage' => '{{ns:help}}:Wersje oznaczone',
 );
 
