@@ -1438,11 +1438,11 @@ class FlaggedArticleView {
 		# Get the revision being displayed
 		$id = $wgOut->getRevisionId();
 		if ( !$id ) {
-			if ( !$this->isDiffFromStable ) {
-				return false; // only safe to assume current if diff-to-stable
-			} else {
+			if ( $this->isDiffFromStable ) {
 				$rev = Revision::newFromTitle( $this->article->getTitle() );
-				$id = $rev->getId();
+				$id = $rev->getId(); // if diff-to-stable, we know the revision is the current
+			} else {
+				return false; // only safe to assume current if diff-to-stable
 			}
 		} else {
 			$rev = Revision::newFromTitle( $this->article->getTitle(), $id );
@@ -1476,10 +1476,14 @@ class FlaggedArticleView {
 				$flags = $oldFlags;
 			}
 			$reviewNotes = $srev->getComment();
+			# Re-review button is need for template/file only review case
+			$allowRereview = ($srev->getRevId() == $id)
+				&& !FlaggedRevs::stableVersionIsSynced( $srev, $this->article );
 		} else {
 			$flags = $oldFlags;
 			// Get existing notes to pre-fill field
 			$reviewNotes = $frev ? $frev->getComment() : "";
+			$allowRereview = false; // re-review button
 		}
 
 		# Begin form...
@@ -1493,7 +1497,7 @@ class FlaggedArticleView {
 		$form .= Xml::openElement( 'fieldset',
 			array( 'class' => 'flaggedrevs_reviewform noprint' ) );
 		# Add appropriate legend text
-		$legendMsg = ( FlaggedRevs::binaryFlagging() && $frev )
+		$legendMsg = ( FlaggedRevs::binaryFlagging() && $allowRereview )
 			? 'revreview-reflag'
 			: 'revreview-flag';
 		$form .= Xml::openElement( 'legend', array( 'id' => 'mw-fr-reviewformlegend' ) );
@@ -1569,7 +1573,7 @@ class FlaggedArticleView {
 					array( 'class' => 'fr-comment-box' ) ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
 		# Add the submit buttons
-		$form .= FlaggedRevsXML::ratingSubmitButtons( $frev, (bool)$toggle );
+		$form .= FlaggedRevsXML::ratingSubmitButtons( $frev, (bool)$toggle, $allowRereview );
 
 		$form .= Xml::closeElement( 'span' );
 		$form .= Xml::closeElement( 'div' ) . "\n";

@@ -61,10 +61,12 @@ FlaggedRevs.updateRatingForm = function() {
 	if( notebox ) {
 		notebox.style.display = quality ? 'inline' : 'none';
 	}
-	// If only a few levels are zero, don't show submit link
-	var submit = document.getElementById('mw-fr-submitreview');
-	if( submit ) {
-		submit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
+	// If only a few levels are zero and there is only one
+	// submit button (for review/unreview), then disable it. 
+	var rsubmit = document.getElementById('mw-fr-submitreview');
+	var usubmit = document.getElementById('mw-fr-submitunreview');
+	if( rsubmit && !usubmit ) {
+		rsubmit.disabled = ( somezero && !allzero ) ? 'disabled' : '';
 	}
 	// Clear note box data if not shown
 	var notes = document.getElementById('wpNotes');
@@ -220,12 +222,12 @@ wgAjaxReview.processResult = function(request) {
 			if( usubmit ) {
 				// Revision was flagged
 				if( rsubmit.value == wgAjaxReview.sendingMsg ) {
-					legend.innerHTML = '<strong>'+wgAjaxReview.reflagLegMsg+'</strong>';
+					// For template review case go from re-review to review message
+					legend.innerHTML = '<strong>'+wgAjaxReview.flagLegMsg+'</strong>';
 					rsubmit.value = wgAjaxReview.flagMsg; // back to normal
 					usubmit.disabled = ''; // unlock unflag button
 				// Revision was unflagged
 				} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
-					legend.innerHTML = '<strong>'+wgAjaxReview.flagLegMsg+'</strong>';
 					usubmit.value = wgAjaxReview.unflagMsg; // back to normal
 				}
 			} else {

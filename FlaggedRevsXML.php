@@ -379,35 +379,35 @@ class FlaggedRevsXML {
 		return array( $labels, $minLevels );
 	}
 	
-	
-	public static function ratingSubmitButtons( $frev, $disabled ) {
+	// $synced param is used to force the review button to be usable
+	public static function ratingSubmitButtons( $frev, $disabled, $rereview = false ) {
 		$disAttrib = array( 'disabled' => 'disabled' );
 		# Add the submit button
 		if ( FlaggedRevs::binaryFlagging() ) {
 			# We may want to re-review to change the notes ($wgFlaggedRevsComments)
 			$s = Xml::submitButton( wfMsg( 'revreview-submit-review' ),
 				array(
-					'id' => 'mw-fr-submitreview',
+					'name'  	=> 'wpApprove',
+					'id' 		=> 'mw-fr-submitreview',
 					'accesskey' => wfMsg( 'revreview-ak-review' ),
-					'name'  => 'wpApprove',
-					'title' => wfMsg( 'revreview-tt-flag' ) . ' [' .
+					'title' 	=> wfMsg( 'revreview-tt-flag' ) . ' [' .
 						wfMsg( 'revreview-ak-review' ) . ']'
-				) + ( $disabled ? $disAttrib : array() )
+				) + ( ( $disabled || ($frev && !$rereview) ) ? $disAttrib : array() )
 			);
 			$s .= ' ';
 			$s .= Xml::submitButton( wfMsg( 'revreview-submit-unreview' ),
 				array(
-					'id' => 'mw-fr-submitunreview',
 					'name'  => 'wpUnapprove',
+					'id' 	=> 'mw-fr-submitunreview',
 					'title' => wfMsg( 'revreview-tt-unflag' )
 				) + ( ( $disabled || !$frev ) ? $disAttrib : array() )
 			);
 		} else {
 			$s = Xml::submitButton( wfMsg( 'revreview-submit' ),
 				array(
-					'id' => 'mw-fr-submitreview',
+					'id' 		=> 'mw-fr-submitreview',
 					'accesskey' => wfMsg( 'revreview-ak-review' ),
-					'title' => wfMsg( 'revreview-tt-review' ) . ' [' .
+					'title' 	=> wfMsg( 'revreview-tt-review' ) . ' [' .
 						wfMsg( 'revreview-ak-review' ) . ']'
 				) + ( $disabled ? $disAttrib : array() )
 			);
