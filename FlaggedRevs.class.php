@@ -1236,14 +1236,16 @@ class FlaggedRevs {
 	 */
 	public static function purgeExpiredConfigurations() {
 		$dbw = wfGetDB( DB_MASTER );
+		$pageIds = array();
+		$pagesClearTracking = $pagesRetrack = array();
+		$config = self::getDefaultVisibilitySettings(); // config is to be reset
+		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );
 		$ret = $dbw->select( 'flaggedpage_config',
 			array( 'fpc_page_id', 'fpc_select' ),
-			array( 'fpc_expiry < ' . $dbw->addQuotes( $dbw->timestamp() ) ),
+			array( 'fpc_expiry < ' . $encCutoff ),
 			__METHOD__
 			// array( 'LOCK IN SHARE MODE' )
 		);
-		$pageIds = $pagesClearTracking = array();
-		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		while ( $row = $dbw->fetchObject( $ret ) ) {
 			// If FlaggedRevs got "turned off" for this page (due to not
 			// having the stable version as the default), then clear it
@@ -1253,25 +1255,31 @@ class FlaggedRevs {
 			// Check if the new (default) config has a different way
 			// of selecting the stable version of this page...
 			} else if ( $config['select'] !== intval( $row->fpc_select ) ) {
-				$title = Title::newFromId( $row->fpc_page_id, GAID_FOR_UPDATE );
-				// Determine the new stable version and update the tracking tables...
-				$srev = FlaggedRevision::newFromStable( $title, FR_MASTER, $config );
-				if ( $srev ) {
-					$article = new Article( $title );
-					self::updateStableVersion( $article, $srev, $title->getArticleID() );
-				} else {
-					$pagesClearTracking[] = $row->fpc_page_id; // no stable version
-				}
+				$pagesRetrack[] = $row->fpc_page_id; // new stable version
 			}
-			$pageIds[] = $row->fpc_page_id;
+			$pageIds[] = $row->fpc_page_id; // page with expired config
 		}
-		// Clear the expired config for this pages
+		// Clear the expired config for these pages
 		if ( count( $pageIds ) ) {
-			$dbw->delete( 'flaggedpage_config', array( 'fpc_page_id' => $pageIds ), __METHOD__ );
+			$dbw->delete( 'flaggedpage_config',
+				array( 'fpc_page_id' => $pageIds, 'fpc_expiry < ' . $encCutoff ),
+				__METHOD__ );
 		}
 		// Clear the tracking rows where needed
 		if ( count( $pagesClearTracking ) ) {
 			self::clearTrackingRows( $pagesClearTracking );
+		}
+		// Find and track the new stable version where needed
+		foreach( $pagesRetrack as $pageId ) {
+			$title = Title::newFromId( $pageId, GAID_FOR_UPDATE );
+			// Determine the new stable version and update the tracking tables...
+			$srev = FlaggedRevision::newFromStable( $title, FR_MASTER, $config );
+			if ( $srev ) {
+				$article = new Article( $title );
+				self::updateStableVersion( $article, $srev, $title->getArticleID() );
+			} else {
+				self::clearTrackingRows( $pageId ); // no stable version
+			}
 		}
 	}
 	

@@ -424,7 +424,7 @@ $wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
 # Override redirect behavior...
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
-# Set tabs and permalink
+# Set page view tabs
 $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
 # Set navigation
 $wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation';

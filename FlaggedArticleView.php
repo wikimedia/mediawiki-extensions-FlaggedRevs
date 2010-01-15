@@ -939,7 +939,7 @@ class FlaggedArticleView {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setActionTabs( $skin, &$actions ) {
-		global $wgRequest, $wgUser;
+		global $wgUser;
 		$this->load();
 		if ( FlaggedRevs::getProtectionLevels() ) {
 			return true; // simple custom levels set for action=protect
