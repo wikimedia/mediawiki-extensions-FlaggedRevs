@@ -7,7 +7,9 @@ function update_flaggedrevs( $start = null ) {
 	
 	$db = wfGetDB( DB_MASTER );
 	
-	$start = $start ? $start : $db->selectField( 'revision', 'MIN(rev_id)', false, __FUNCTION__ );
+	if( $start === null ) {
+		$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __FUNCTION__ );
+	}
 	$end = $db->selectField( 'revision', 'MAX(rev_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
 		echo "...revision table seems to be empty.\n";
@@ -63,7 +65,11 @@ function update_flaggedrevs( $start = null ) {
 				$sha1 = $row->fr_img_sha1;
 				$file = $row->fr_img_name;
 			}
-			if( $file && ($file != $row->fr_img_name || $time != $row->fr_img_timestamp || $sha1 != $row->fr_img_sha1) ) {
+			if( $file &&
+				($file != $row->fr_img_name
+				|| $time != $row->fr_img_timestamp
+				|| $sha1 != $row->fr_img_sha1) )
+			{
 				$changed++;
 			} else if ( $quality != $row->fr_quality ) {
 				$changed++;
@@ -137,6 +143,7 @@ function update_flaggedpages( $start = null ) {
 			}
 			$count++;
 		}
+		$db->freeResult( $res );
 		# Remove manual config settings that simply restate the site defaults
 		$db->delete( 'flaggedpage_config',
 			array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
@@ -162,7 +169,9 @@ function update_flaggedtemplates( $start = null ) {
 	
 	$db = wfGetDB( DB_MASTER );
 	
-	$start = $start ? $start : $db->selectField( 'flaggedtemplates', 'MIN(ft_rev_id)', false, __FUNCTION__ );
+	if( $start === null ) {
+		$start = $db->selectField( 'flaggedtemplates', 'MIN(ft_rev_id)', false, __FUNCTION__ );
+	}
 	$end = $db->selectField( 'flaggedtemplates', 'MAX(ft_rev_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
 		echo "...flaggedtemplates table seems to be empty.\n";
@@ -182,7 +191,9 @@ function update_flaggedtemplates( $start = null ) {
 		foreach( $res as $row ) {
 			$revision = Revision::newFromId( $row->ft_rev_id );
 			# Replaces new fields into flaggedpages
-			$frev = $revision ? FlaggedRevision::newFromTitle( $revision->getTitle(), $row->ft_rev_id ) : null;
+			$frev = $revision
+				? FlaggedRevision::newFromTitle( $revision->getTitle(), $row->ft_rev_id )
+				: null;
 			# Somethings broke? Delete the row...
 			if( !$frev ) {
 				$db->begin();
@@ -195,6 +206,7 @@ function update_flaggedtemplates( $start = null ) {
 			}
 			$count++;
 		}
+		$db->freeResult( $res );
 		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE;
 		wfWaitForSlaves( 5 );
@@ -209,7 +221,9 @@ function update_flaggedimages( $start = null ) {
 	
 	$db = wfGetDB( DB_MASTER );
 	
-	$start = $start ? $start : $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __FUNCTION__ );
+	if( $start === null ) {
+		$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __FUNCTION__ );
+	}
 	$end = $db->selectField( 'flaggedimages', 'MAX(fi_rev_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
 		echo "...flaggedimages table seems to be empty.\n";
@@ -229,7 +243,9 @@ function update_flaggedimages( $start = null ) {
 		foreach( $res as $row ) {
 			$revision = Revision::newFromId( $row->fi_rev_id );
 			# Replaces new fields into flaggedpages
-			$frev = $revision ? FlaggedRevision::newFromTitle( $revision->getTitle(), $row->fi_rev_id ) : null;
+			$frev = $revision
+				? FlaggedRevision::newFromTitle( $revision->getTitle(), $row->fi_rev_id )
+				: null;
 			# Somethings broke? Delete the row...
 			if( !$frev ) {
 				$db->begin();
@@ -242,6 +258,7 @@ function update_flaggedimages( $start = null ) {
 			}
 			$count++;
 		}
+		$db->freeResult( $res );
 		$blockStart += $BATCH_SIZE;
 		$blockEnd += $BATCH_SIZE;
 		wfWaitForSlaves( 5 );
