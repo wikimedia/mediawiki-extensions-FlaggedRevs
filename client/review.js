@@ -217,7 +217,6 @@ wgAjaxReview.processResult = function(request) {
 	if( response.indexOf('<suc#>') == 0 ) {
 		document.title = wgAjaxReview.actioncomplete;
 		if( rsubmit ) {
-			rsubmit.disabled = ''; // unlock flag button
 			// If flagging is just binary, flip the form
 			if( usubmit ) {
 				// Revision was flagged
@@ -229,9 +228,11 @@ wgAjaxReview.processResult = function(request) {
 				// Revision was unflagged
 				} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
 					usubmit.value = wgAjaxReview.unflagMsg; // back to normal
+					rsubmit.disabled = ''; // unlock flag button
 				}
 			} else {
 				rsubmit.value = wgAjaxReview.sendMsg; // back to normal
+				rsubmit.disabled = ''; // unlock flag button
 			}
 		}
 		// Hide "review this" box on diffs
@@ -253,10 +254,10 @@ wgAjaxReview.processResult = function(request) {
 	} else {
 		document.title = wgAjaxReview.actionfailed;
 		if( rsubmit ) {
-			rsubmit.disabled = ''; // unlock flag button
 			// Revision was flagged
 			if( rsubmit.value == wgAjaxReview.sendingMsg ) {
 				rsubmit.value = wgAjaxReview.flagMsg; // back to normal
+				rsubmit.disabled = ''; // unlock flag button
 			// Revision was unflagged
 			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
 				usubmit.value = wgAjaxReview.unflagMsg; // back to normal
