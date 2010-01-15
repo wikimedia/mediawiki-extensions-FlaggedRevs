@@ -4,11 +4,8 @@
 div.flaggedrevs_basic,
 div.flaggedrevs_quality,
 div.flaggedrevs_pristine,
-div.flaggedrevs_notice,
-div.flaggedrevs_diffnotice,
-div.flaggedrevs_preview,
-table.flaggedrevs_editnotice {
-	border: 2px solid #aaa;
+div.flaggedrevs_notice {
+	border: 1px solid #aaa;
 	padding: 5px;
 	font-weight: normal;
 	line-height: 1.5em;
@@ -29,19 +26,30 @@ div.flaggedrevs_pristine {
 div.flaggedrevs_notice {
 	background-color: #f9f9f9;
 }
-div.flaggedrevs_preview {
-	background-color: #f9f9f9;
-	color: #8b0000;
-}
+
 table.flaggedrevs_editnotice {
 	font-size: 90%;
+	padding: 3px;
+	border: 2px solid #aaa;
 	background-color: #f9f9f9;
 	text-align: left;
 	width: 100%;
 }
+
+div.flaggedrevs_diffnotice,
+div.flaggedrevs_preview {
+	border: 1px solid #aaa;
+	padding: 5px;
+	text-align: center;
+	clear: both;
+}
 div.flaggedrevs_diffnotice {
 	font-size: 85%;
 	background-color: #f9f9f9;
+}
+div.flaggedrevs_preview {
+	background-color: #f9f9f9;
+	color: #8b0000;
 }
 
 div.flaggedrevs_notes {
