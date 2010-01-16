@@ -110,11 +110,11 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-newest-basic'       => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>. The draft contains 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}].',
 	'revreview-newest-basic-i'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sighted] on <i>$2</i>. The draft contains 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] await review.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] await review.',
 	'revreview-newest-quality'     => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The draft contains 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}].',
 	'revreview-newest-quality-i'   => 'The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>. The draft contains 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] await review.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] await review.',
 	'revreview-noflagged'          => 'There are no reviewed revisions of this page, so it may \'\'\'not\'\'\' have been [[{{MediaWiki:Validationpage}}|checked]] for quality.',
 	'revreview-note'               => '[[User:$1|$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
 	'revreview-notes'              => 'Observations or notes to display:',
