@@ -444,8 +444,8 @@ class FlaggedRevsXML {
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
 		$msg = $quality
-			? 'revreview-newest-quality'
-			: 'revreview-newest-basic';
+			? 'revreview-pending-quality'
+			: 'revreview-pending-basic';
 		$msg .= ( $revsSince == 0 ) ? '-i' : '';
 		$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );
 		return $tag;
