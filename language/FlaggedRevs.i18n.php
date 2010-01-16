@@ -2748,7 +2748,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-submit-review' => 'Als geprüft markieren',
 	'revreview-submit-unreview' => 'Als ungeprüft markieren',
 	'revreview-submitting' => 'Übertragung …',
-	'revreview-successful' => "'''Die ausgewählte Version der Seite ''[[:$1|$1]]'' wurde erfolgreich als gesichtet markiert ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alle gesichteten Versionen dieser Seite])'''.",
+	'revreview-successful' => "'''Die Version der Seite ''[[:$1|$1]]'' wurde erfolgreich markiert ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alle markierten Versionen dieser Seite])'''.",
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-text' => 'Einer [[{{MediaWiki:Validationpage}}|gesichteten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren, nicht gesichteten Version gegeben.',
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Gesichtete Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
@@ -12772,10 +12772,15 @@ $messages['tr'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:Oto-gözden geçirici',
 	'hist-draft' => 'taslak revizyonu',
 	'hist-quality' => 'kalite revizyon',
-	'hist-quality-user' => '[[User:$3|$3]] tarafından [{{fullurl:$1|stableid=$2}} doğrulandı]',
+	'hist-quality-user' => '[[User:$3|$3]] tarafından [{{fullurl:$1|stableid=$2}} onaylandı]',
 	'hist-stable' => 'gözlenmiş revizyon',
 	'hist-stable-user' => '[[User:$3|$3]] tarafından [{{fullurl:$1|stableid=$2}} gözlendi]',
 	'hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} otomatik olarak gözlenmiş]',
+	'revreview-hist-pending' => '[gözden geçirme bekliyor]',
+	'review-edit-diff' => "'''UYARI: Yayınlanan sürüme yapılan bazı bekleyen değişiklikler aşağıdaki değiştirme formuna eklenmiştir.'''",
+	'revreview-diff-toggle-show' => '(değişiklikleri göster)',
+	'revreview-diff-toggle-hide' => '(değişiklikleri gizle)',
+	'revreview-diff-toggle-title' => 'Taslak ve yayınlanmış sürümler arasındaki değişikliklerin görüntülenmesini değiştir',
 	'review-diff2stable' => 'Kararlı ve güncel revizyonlar arasındaki değişiklikleri göster',
 	'review-logentry-app' => '[[$1]] sayfasının bir sürümü incelendi',
 	'review-logentry-dis' => '[[$1]] sayfasının bir sürümü onaylanmadı',
@@ -12820,10 +12825,11 @@ Sayfayı yenilemek ve yeniden gözden geçirmek sorunu çözebilir.",
 	'revreview-draft-rev' => 'Taslak sürüm',
 	'revreview-edit' => 'Taslağı değiştir',
 	'revreview-editnotice' => "'''Değişiklikleriniz, yetkili bir kullanıcı [[{{MediaWiki:Validationpage}}|inceledikten]] sonra [[{{MediaWiki:Validationpage}}|yayınlanacak]].'''",
+	'revreview-check-flag' => 'Bekleyen değişiklikleri gözden geçirilmiş olarak işaretle',
 	'revreview-edited' => "'''Değişiklikler, yetkili bir kullanıcı [[{{MediaWiki:Validationpage}}|inceledikten]] sonra [[{{MediaWiki:Validationpage}}|yayınlanacak]].'''
 Aşağıda gösterilen ''taslak'', önerilmiş [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|değişikliği|değişikliği}}] içermektedir.",
 	'revreview-flag' => 'Bu revizyonu gözden geçir',
-	'revreview-reflag' => 'Bu revizyonu gözden geçirme',
+	'revreview-reflag' => 'Bu revizyonu tekrar gözden geçir/gözden geçirme',
 	'revreview-invalid' => "'''Geçersiz hedef:''' hiçbir [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] revizyon verilen ID'ye uymuyor.",
 	'revreview-legend' => 'Revizyon içeriğini oyla',
 	'revreview-log' => 'Açıklama:',
@@ -12890,8 +12896,10 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Kararlı sürümler]] sayfaların kontrol edilmiş revizyonlarıdır ve ziyaretçiler için varsayılan içerik olarak ayarlanabilir.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'detayları göster/gizle',
-	'revreview-toolow' => 'Bir revizyonun gözden geçirilmiş sayılabilmesi için aşağıdaki özniteliklerden en az birini "onaylanmamış"dan yüksek oylamalısınız.
-Bir revizyonu aşındırmak için, tüm alanları "onaylanmamış" seçin.',
+	'revreview-toolow' => '\'\'\'Bir revizyonun gözden geçirilmiş sayılabilmesi için aşağıdaki özniteliklerden en az birini "onaylanmamış"dan yüksek oylamalısınız.\'\'\'
+Bir revizyonu aşındırmak için, tüm alanları "onaylanmamış" seçin.
+
+Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.',
 	'revreview-update' => "Lütfen kararlı sürümün [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylandığından] beri yapılan her değişikliği ''(aşağıda gösterilmiş)'' [[{{MediaWiki:Validationpage}}|gözden geçirin]].<br />
 '''Bazı şablonlar/dosyalar güncellenmiş:'''",
 	'revreview-update-includes' => "'''Bazı şablonlar/dosyalar güncellenmiş:'''",
@@ -12941,6 +12949,8 @@ Kararlı sayfaları, [[Special:StablePages|kararlı sayfa listesinde]] bulabilir
 	'revreview-unlocked' => 'Bu sayfada gösterilmeden önce, değişikliklerin gözden geçirilmesine gerek yoktur!',
 	'log-show-hide-review' => 'gözden geçirme günlüğünü $1',
 	'revreview-tt-review' => 'Bu durumu bu revizyona uygula',
+	'revreview-tt-flag' => 'Bu revizyonu gözden geçirilmiş olarak işaretle',
+	'revreview-tt-unflag' => 'Bu revizyonu gözden geçirilmemiş olarak işaretle',
 	'validationpage' => '{{ns:help}}:Sayfa doğrulaması',
 );
 

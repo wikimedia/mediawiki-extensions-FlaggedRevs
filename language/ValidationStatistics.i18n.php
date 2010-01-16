@@ -1652,13 +1652,15 @@ $messages['sv'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|redaktörsrättigheter]] och '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|användare|användare}} med [[{{MediaWiki:Validationpage}}|granskningsrättigheter]].
 
 Redaktörer och granskare är etablerade användare som kan granska sidversioner.",
-	'validationstatistics-time' => "''Följande data är cachad och kan vara inaktuell.''
+	'validationstatistics-time' => "''Följande data uppdaterades senast $5, $6.''
+
+Redigeringar som har kollats av etablerade användare anses vara granskade.
 
 Genomsnittlig väntan för redigeringar av ''oinloggade användare'' för granskning är '''$1'''; medianen är '''$3'''.
 $4
-Genomsnittlig lag för [[Special:OldReviewedPages|Föråldrade granskade sidor]] är '''$2'''.
+Genomsnittlig lag för [[Special:OldReviewedPages|sidor med ogranskade ändringar]] är '''$2'''.
 Dessa sidor anses ''föråldrade''. Likaså anses sidor ''synkade'' om den [[{{MediaWiki:Validationpage}}|stabila versionen]] också är den nuvarande draft-versionen.
-Stabila versioner är sidversioner för sidor som kollats av minst en etablerad användare.",
+En sidas stabila version är den nyaste version som har blivit godkänd för att visas som default till alla läsare.",
 	'validationstatistics-table' => "Statistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor.",
 	'validationstatistics-ns' => 'Namnrymd',
 	'validationstatistics-total' => 'Sidor',
