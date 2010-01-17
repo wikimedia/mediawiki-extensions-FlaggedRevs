@@ -378,8 +378,14 @@ class FlaggedRevsXML {
 		}
 		return array( $labels, $minLevels );
 	}
-	
-	// $synced param is used to force the review button to be usable
+
+	/**
+	 * @param FlaggedRevision $frev, the flagged revision, if any
+	 * @param bool $disabled, is the form disabled?
+	 * @param bool $rereview, force the review button to be usable?
+	 * @returns string
+	 * Generates one or two button submit for the review form
+	 */
 	public static function ratingSubmitButtons( $frev, $disabled, $rereview = false ) {
 		$disAttrib = array( 'disabled' => 'disabled' );
 		# Add the submit button
