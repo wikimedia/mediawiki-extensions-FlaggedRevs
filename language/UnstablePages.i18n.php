@@ -217,6 +217,7 @@ $messages['eu'] = array(
 $messages['fa'] = array(
 	'unstablepages' => 'نسخه ناپایدار',
 	'unstablepages-stable' => 'نسخهٔ پایدار',
+	'unstablepages-text' => 'در زیر فهرستی از صفحه‌هایی را می‌بینید که به طور دستی تنظیم شده‌اند تا نسخه پیش‌نویس را به عنوان پیش‌فرض به بینندگان نمایش دهند.',
 	'unstablepages-none' => 'هیچ صفحه‌ای در در این فهرست وجود ندارد',
 	'unstablepages-config' => 'پیکربندی',
 );

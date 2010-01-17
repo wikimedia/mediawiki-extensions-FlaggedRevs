@@ -473,9 +473,13 @@ $messages['fa'] = array(
 	'unreviewed-category' => 'رده:',
 	'unreviewed-diff' => 'بازبینی',
 	'unreviewed-unwatched' => '(پیگیری نشده)',
-	'unreviewed-watched' => '(پیگیری شده توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
-	'unreviewed-list' => 'این صفحه فهرستی از مقاله‌هایی را نشان می‌دهد که بررسی نشده‌اند.',
+	'unreviewed-watched' => '(پیگیری فعال توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
+	'unreviewed-list' => 'این صفحه فهرستی از مقاله‌هایی را نشان می‌دهد که تا سطح مورد نظر بررسی نشده‌اند.',
 	'unreviewed-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
+	'unreviewed-viewing' => '(در حال بررسی)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|روز|روز}})',
+	'unreviewed-recent' => '(کمتر از ۱ ساعت)',
 );
 
 /** Finnish (Suomi)
