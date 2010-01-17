@@ -445,6 +445,9 @@ class FlaggedRevsXML {
 	*/
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
+		if( $revsSince < 1 ) {
+			return ''; // only for pending edits
+		}
 		$flags = $frev->getTags();
 		$quality = FlaggedRevs::isQuality( $flags );
 		$time = $wgLang->date( $frev->getTimestamp(), true );
@@ -452,7 +455,6 @@ class FlaggedRevsXML {
 		$msg = $quality
 			? 'revreview-pending-quality'
 			: 'revreview-pending-basic';
-		$msg .= ( $revsSince == 0 ) ? '-i' : '';
 		$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );
 		return $tag;
 	}
