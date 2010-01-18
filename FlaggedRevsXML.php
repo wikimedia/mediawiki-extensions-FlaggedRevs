@@ -232,7 +232,7 @@ class FlaggedRevsXML {
 		}
 		# Make fancy box...
 		$box = "<table style='background: none; border-spacing: 0px;'>";
-		$box .= "<tr style='white-space:nowrap;'><td>$shtml&nbsp;&nbsp;</td>";
+		$box .= "<tr style='white-space:nowrap;'><td>$shtml</td>";
 		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
 		$box .= "<tr><td id='mw-fr-revisionratings'>$html<br />";
 		# Add any rating tags as needed...
