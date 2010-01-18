@@ -441,7 +441,7 @@ class FlaggedRevsXML {
 	* @param FlaggedRevision $frev
 	* @param int $revsSince
 	* @returns string
-	* Creates "there are x pending edits" message in a div
+	* Creates "stable rev reviewed on"/"x pending edits" message
 	*/
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
@@ -449,10 +449,9 @@ class FlaggedRevsXML {
 			return ''; // only for pending edits
 		}
 		$flags = $frev->getTags();
-		$quality = FlaggedRevs::isQuality( $flags );
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits
-		$msg = $quality
+		$msg = FlaggedRevs::isQuality( $flags )
 			? 'revreview-pending-quality'
 			: 'revreview-pending-basic';
 		$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );

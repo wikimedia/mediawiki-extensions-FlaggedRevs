@@ -1605,6 +1605,12 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
+	public static function onNoSuchSection( &$editPage, &$s ) {
+		$view = FlaggedArticleView::singleton();
+		$view->addToNoSuchSection( $editPage, $s );
+		return true;
+	}
+	
 	public static function addToHistView( &$article ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToHistView();

@@ -430,6 +430,8 @@ $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation';
 # Add notice tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
+# Add draft link to section edit error
+$wgHooks['EditPageNoSuchSection'][] = 'FlaggedRevsHooks::onNoSuchSection';
 # Add notice tags to history
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::addToHistView';
 # Add review form and visiblity settings link
@@ -452,6 +454,7 @@ $wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuer
 $wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 # Page review on edit
 $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectReviewDiffURLParams';
+# Diff-to-stable
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Autoreview stuff
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
