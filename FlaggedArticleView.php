@@ -851,9 +851,11 @@ class FlaggedArticleView {
 		$frev = $this->article->getStableRev();
 		if( $frev ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
-			$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .
-				wfMsgExt( 'revreview-pending-nosection', array( 'parseinline' ),
-					$frev->getRevId(), $revsSince ) . "</div>";
+			if( $revsSince ) {
+				$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .
+					wfMsgExt( 'revreview-pending-nosection', array( 'parseinline' ),
+						$frev->getRevId(), $revsSince ) . "</div>";
+			}
 		}
 		return true;
 	}
