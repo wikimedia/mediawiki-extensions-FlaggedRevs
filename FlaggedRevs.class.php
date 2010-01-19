@@ -1394,20 +1394,23 @@ class FlaggedRevs {
 		if ( !isset( $row->fr_quality ) ) {
 			return array( "", "" ); // not reviewed
 		}
-		$css = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+		$liCss = FlaggedRevsXML::getQualityColor( $row->fr_quality );
 		$user = User::whois( $row->fr_user ); // FIXME: o(N)
 		$flags = explode( ',', $row->fr_flags );
 		if ( in_array( 'auto', $flags ) ) {
 			$msg = 'revreview-hist-autoreviewed';
+			$css = 'fr-hist-autoreviewed';
+		} elseif( $row->fr_quality >= 1 ) {
+			$msg = 'revreview-hist-quality-user';
+			$css = 'fr-hist-quality-user';
 		} else {
-			$msg = ( $row->fr_quality >= 1 )
-				? 'revreview-hist-quality-user'
-				: 'revreview-hist-basic-user';
+			$msg = 'revreview-hist-basic-user';
+			$css = 'fr-hist-basic-user';
 		}
 		$st = $title->getPrefixedDBkey();
-		$link = "<span class='fr-$msg plainlinks'>[" .
+		$link = "<span class='$css plainlinks'>[" .
 			wfMsgExt( $msg, array( 'parseinline' ), $st, $row->rev_id, $user ) . "]</span>";
-		return array( $link, $css );
+		return array( $link, $liCss );
 	}
 	
    	/**
@@ -1506,7 +1509,11 @@ class FlaggedRevs {
 		# Normally, this should already be done and given here...
 		if ( !is_array( $flags ) ) {
 			if ( $oldSv ) { // use the last stable version if $flags not given
-				$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
+				if( $user->isAllowed( 'bot' ) ) {
+					$flags = $oldSv->getTags(); // no change for bots
+				} else {
+					$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
+				}
 			} else { // new page? use minimal level
 				$flags = self::getAutoReviewTags( FR_SIGHTED );
 			}
