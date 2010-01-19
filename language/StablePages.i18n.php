@@ -133,11 +133,12 @@ $messages['bg'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
 	'stablepages' => 'Pajennoù stabil',
-	'stablepages-stable' => 'stumm stabil',
+	'stablepages-stable' => 'stumm embannet',
 	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm stabil da bajenn danvez enni, dre ziouer.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
 	'stablepages-config' => 'Kefluniañ',
@@ -321,8 +322,8 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'stablepages' => 'Pages stables',
-	'stablepages-stable' => 'version stable',
-	'stablepages-text' => 'Ci-dessous figure une liste de pages manuellement configurées pour ne montrer que la version stable comme contenu par défaut pour les lecteurs.',
+	'stablepages-stable' => 'version publiée',
+	'stablepages-text' => 'Ci-dessous figure une liste de pages manuellement configurées pour ne montrer que la version publiée comme contenu par défaut pour les lecteurs.',
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
 	'stablepages-prec-none' => 'aucune priorité',
@@ -351,8 +352,8 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'stablepages' => 'Páxinas estábeis',
-	'stablepages-stable' => 'versión estábel',
-	'stablepages-text' => 'Embaixo está a lista das páxinas configuradas manualmente para amosar a versión estábel como o contido da páxina por omisión para os que a ven.',
+	'stablepages-stable' => 'versión publicada',
+	'stablepages-text' => 'A continuación está a lista das páxinas configuradas manualmente para amosar a versión publicada como o contido da páxina por defecto para os lectores.',
 	'stablepages-none' => 'Non hai páxinas nesta lista',
 	'stablepages-config' => 'Configuración',
 	'stablepages-prec-none' => 'sen prioridade',
@@ -418,6 +419,7 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Ex13
  * @author Suradnik13
  */
 $messages['hr'] = array(
@@ -796,8 +798,8 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'stablepages' => 'Стабильные страницы',
-	'stablepages-stable' => 'стабильная версия',
-	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ стабильной версии по умолчанию для читателей.',
+	'stablepages-stable' => 'опубликованная версия',
+	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ опубликованной версии по умолчанию для читателей.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'настройка',
 	'stablepages-prec-none' => 'без приоритета',
@@ -811,7 +813,7 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'stablepages' => 'Тулхадыйбат (стабильнай) сирэйдэр',
-	'stablepages-stable' => 'тулхадыйбат сирэй',
+	'stablepages-stable' => 'бэчээттэммит барыл',
 	'stablepages-none' => 'Бу тиһиккэ сирэйдэрэ суох',
 	'stablepages-config' => 'Туруоруута',
 	'stablepages-prec-none' => 'баһыйара (приоритета) суох',

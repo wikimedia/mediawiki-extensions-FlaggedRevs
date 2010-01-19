@@ -859,7 +859,7 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'reviewedpages' => 'Pàgine revisionà',
-	'reviewedpages-leg' => 'Lista le pàgine dal livel pì àut',
+	'reviewedpages-leg' => 'Lista pàgine dal livel ëd revision pì àut',
 	'reviewedpages-list' => 'Sta pàgina-sì a lista le pàgine che a son stàite revisionà (al pì) al livel spessifià.',
 	'reviewedpages-none' => 'A-i é pa ëd pàgine an sta lista-sì',
 	'reviewedpages-all' => 'vërsion revisionà',

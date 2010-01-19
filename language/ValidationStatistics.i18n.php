@@ -577,7 +577,7 @@ Vakaa versio sivusta on uusin versio joka on hyväksytty näytettäväksi oletuk
  */
 $messages['fr'] = array(
 	'validationstatistics' => 'Statistiques de validation',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''[[Special:ListUsers/reviewer|$2]]''' utilisateur{{PLURAL:$2||s}} avec les droits de [[{{MediaWiki:Validationpage}}|relecteur]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''[[Special:ListUsers/reviewer|$2]]''' utilisateur{{PLURAL:$2||s}} disposant des droits de [[{{MediaWiki:Validationpage}}|relecteur]].
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
 	'validationstatistics-time' => "''Les données suivantes sont en cache et ont été mise à jour pour la dernière fois le $5 à $6.''
@@ -644,10 +644,9 @@ $messages['ga'] = array(
 $messages['gl'] = array(
 	'validationstatistics' => 'Estatísticas de validación',
 	'validationstatistics-users' => "Actualmente, '''{{SITENAME}}''' ten '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con
-dereitos de [[{{MediaWiki:Validationpage}}|editor]]
-e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usuario|usuarios}} con dereitos de [[{{MediaWiki:Validationpage}}|revisor]].
+dereitos de [[{{MediaWiki:Validationpage}}|editor]].
 
-Os editores e revisores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
+Os editores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
 	'validationstatistics-time' => "''Os seguintes datos foron actualizados o $5 ás $6.''
 
 As edicións que foron comprobadas polos usuarios autoconfirmados considéranse revisadas.
@@ -773,6 +772,7 @@ $messages['hil'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Ex13
  * @author Suradnik13
  */
 $messages['hr'] = array(
@@ -1386,9 +1386,8 @@ Wersja oznaczona strony to najnowsza wersja, która została zaakceptowana jako 
 $messages['pms'] = array(
 	'validationstatistics' => 'Statìstiche ëd validassion',
 	'validationstatistics-users' => "'''{{SITENAME}}''' al moment a l'ha '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utent|utent}} con drit d'[[{{MediaWiki:Validationpage}}|Editor]] 
-e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utent|utent}} con drit ëd [[{{MediaWiki:Validationpage}}|Revisor]].
 
-Editor e Revisor a son utent che a peulo controlé le revision a le pàgine.",
+J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
 	'validationstatistics-time' => "''Ij dat sota a son stàit modificà l'ùltima vira ël $5 a $6.''
 
 Le modìfiche che a son ëstàite controlà da utent intrà a son considrà da esse revisionà.
@@ -1544,9 +1543,9 @@ Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende st
  */
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок',
-	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«редактора»]] и '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|участник имеет|участника имеют|участников имеют}} права [[{{MediaWiki:Validationpage}}|«проверяющего»]].
+	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
 
-«Редакторы» и «проверяющие» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
+«Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
 	'validationstatistics-time' => "''Приведённая ниже информация была обновлена $5 в $6.''
 
 Правки, отмеченные определёнными участниками, считаются проверенными.

@@ -207,7 +207,7 @@ $messages['frp'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'qualityoversight' => 'Revisión de calidade',
+	'qualityoversight' => 'Rexistro avanzado de revisións',
 	'qualityoversight-list' => 'Esta páxina lista as aprobacións máis recentes así como os desprezos das revisións.',
 	'qualityoversight-legend' => 'Procurar rexistros de revisión recentes',
 );
@@ -248,6 +248,7 @@ $messages['hi'] = array(
 );
 
 /** Croatian (Hrvatski)
+ * @author Ex13
  * @author Suradnik13
  */
 $messages['hr'] = array(
@@ -423,7 +424,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'qualityoversight' => 'Supervision ëd la qualità',
+	'qualityoversight' => 'Registr ëd le revision avansà',
 	'qualityoversight-list' => 'Sta pàgina-sì a lista le aprovassion e mancà aprovassion pì ressente dle revision',
 	'qualityoversight-legend' => 'A serca ij registr ëd le revision ressente',
 );
@@ -467,7 +468,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'qualityoversight' => 'Ревизор качества',
+	'qualityoversight' => 'Журнал расширенных проверок',
 	'qualityoversight-list' => 'Эта страница содержит список недавних утверждений и снятий уровней качества версий.',
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
