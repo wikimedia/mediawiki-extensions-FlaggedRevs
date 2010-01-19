@@ -1510,7 +1510,7 @@ class FlaggedRevs {
 		if ( !is_array( $flags ) ) {
 			if ( $oldSv ) { // use the last stable version if $flags not given
 				if( $user->isAllowed( 'bot' ) ) {
-					$flags = $oldSv->getTags(); // no change for bots
+					$flags = $oldSv->getTags(); // no change for bot edits
 				} else {
 					$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
 				}

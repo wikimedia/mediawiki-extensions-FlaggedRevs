@@ -6,9 +6,7 @@ class FlaggedRevsLogs {
 	* $action is a valid review log action
 	*/
 	public static function isReviewAction( $action ) {
-		return in_array( $action,
-			array( 'approve', 'approve2', 'approve-a', 'approve2-a', 'unapprove', 'unapprove2' )
-		);
+		return preg_match( '/^(approve2?(-i|-a|-ia)?|unapprove2?)$/', $action );
 	}
 
 	/**

@@ -559,7 +559,9 @@ $wgLogActions['review/approve2']  = 'review-logentry-app'; // quality (again)
 $wgLogActions['review/approve-i']  = 'review-logentry-app'; // sighted (first time)
 $wgLogActions['review/approve2-i']  = 'review-logentry-app'; // quality (first time)
 $wgLogActions['review/approve-a']  = 'review-logentry-app'; // sighted (auto)
+$wgLogActions['review/approve2-a']  = 'review-logentry-app'; // quality (auto)
 $wgLogActions['review/approve-ia']  = 'review-logentry-app'; // sighted (initial & auto)
+$wgLogActions['review/approve2-ia']  = 'review-logentry-app'; // quality (initial & auto)
 $wgLogActions['review/unapprove'] = 'review-logentry-dis'; // was sighted
 $wgLogActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
 
