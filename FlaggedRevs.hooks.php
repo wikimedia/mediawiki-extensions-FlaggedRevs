@@ -1498,14 +1498,14 @@ class FlaggedRevsHooks {
 			$preferences['flaggedrevseditdiffs'] =
 				array(
 					'type' => 'toggle',
-					'section' => 'flaggedrevs/flaggedrevs-ui',
+					'section' => 'editing/advancedediting',
 					'label-message' => 'flaggedrevs-prefs-editdiffs',
 				);
 			// Diff-to-stable on draft view
 			$preferences['flaggedrevsviewdiffs'] =
 				array(
 					'type' => 'toggle',
-					'section' => 'flaggedrevs/flaggedrevs-ui',
+					'section' => 'misc/diffs',
 					'label-message' => 'flaggedrevs-prefs-viewdiffs',
 				);
 		}
