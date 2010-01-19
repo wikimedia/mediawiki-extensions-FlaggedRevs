@@ -65,8 +65,8 @@ class ReviewedVersions extends UnlistedSpecialPage
 			$fdate, $ftime, $row->user_name
 		);
 		$lev = ( $row->fr_quality >= 1 )
-			? wfMsgHtml( 'hist-quality' )
-			: wfMsgHtml( 'hist-stable' );
+			? wfMsgHtml( 'revreview-hist-quality' )
+			: wfMsgHtml( 'revreview-hist-basic' );
 		$link = $this->skin->makeKnownLinkObj( $this->page, $rdatim,
 			'stableid=' . $row->fr_rev_id );
 		return '<li>' . $link . ' (' . $review . ') <strong>[' . $lev . ']</strong></li>';

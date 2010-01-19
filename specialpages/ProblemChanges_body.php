@@ -182,7 +182,7 @@ class ProblemChanges extends SpecialPage
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->quality ?
-				wfMsgHtml( 'revreview-lev-quality' ) : wfMsgHtml( 'revreview-lev-sighted' );
+				wfMsgHtml( 'revreview-lev-quality' ) : wfMsgHtml( 'revreview-lev-basic' );
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# Is anybody watching?

@@ -363,7 +363,7 @@ class FlaggedArticleView {
 						: 'fr-icon-stable';
 					$tooltip = $quality
 						? 'revreview-quality-title'
-						: 'revreview-stable-title';
+						: 'revreview-basic-title';
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $revsSince );
 				} else {
@@ -387,7 +387,7 @@ class FlaggedArticleView {
 					} else {
 						$msg = 'revreview-basic-same';
 						$class = 'fr-icon-stable';
-						$tooltip = 'revreview-stable-title';
+						$tooltip = 'revreview-basic-title';
 					}
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $time, $revsSince );
@@ -440,7 +440,7 @@ class FlaggedArticleView {
 				'fr-icon-quality' : 'fr-icon-stable';
 			$tooltip = $quality
 				? 'revreview-quality-title'
-				: 'revreview-stable-title';
+				: 'revreview-basic-title';
 			$tooltip = wfMsgHtml( $tooltip );
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
@@ -517,7 +517,9 @@ class FlaggedArticleView {
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-			$tooltip = $quality ? 'revreview-quality-title' : 'revreview-stable-title';
+			$tooltip = $quality
+				? 'revreview-quality-title'
+				: 'revreview-basic-title';
 			$tooltip = wfMsgHtml( $tooltip );
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
@@ -590,11 +592,13 @@ class FlaggedArticleView {
 			return false; // not viewing the draft
 		}
 		# Conditions are met to show diff...
-		$leftNote = $quality ? 'hist-quality' : 'hist-stable';
+		$leftNote = $quality
+			? 'revreview-hist-quality'
+			: 'revreview-hist-basic';
 		$rClass = FlaggedRevsXML::getQualityColor( false );
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
 		$rightNote = "<span id='mw-fr-diff-rtier' class='$rClass'>[" .
-			wfMsgHtml( 'hist-draft' ) . "]</span>";
+			wfMsgHtml( 'revreview-hist-draft' ) . "]</span>";
 		$leftNote = "<span id='mw-fr-diff-ltier' class='$lClass'>[" .
 			wfMsgHtml( $leftNote ) . "]</span>";
 		# Fetch the stable and draft revision text
@@ -771,11 +775,13 @@ class FlaggedArticleView {
 				}
 				
 				# Conditions are met to show diff...
-				$leftNote = $quality ? 'hist-quality' : 'hist-stable';
+				$leftNote = $quality
+					? 'revreview-hist-quality'
+					: 'revreview-hist-basic';
 				$rClass = FlaggedRevsXML::getQualityColor( false );
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
 				$rightNote = "<span id='mw-fr-diff-rtier' class='$rClass'>[" .
-					wfMsgHtml( 'hist-draft' ) . "]</span>";
+					wfMsgHtml( 'revreview-hist-draft' ) . "]</span>";
 				$leftNote = "<span id='mw-fr-diff-ltier' class='$lClass'>[" .
 					wfMsgHtml( $leftNote ) . "]</span>";
 				$text = $frev->getRevText();
@@ -1207,9 +1213,9 @@ class FlaggedArticleView {
 
 			$class = FlaggedRevsXML::getQualityColor( $oldRevQ );
 			if ( $oldRevQ !== false ) {
-				$msg = $oldRevQ ? 'hist-quality' : 'hist-stable';
+				$msg = $oldRevQ ? 'revreview-hist-quality' : 'revreview-hist-basic';
 			} else {
-				$msg = 'hist-draft';
+				$msg = 'revreview-hist-draft';
 			}
 			$wgOut->addHTML( "<td width='50%' align='center'>" );
 			$wgOut->addHTML( "<span id='mw-fr-diff-ltier' class='$class'>[" .
@@ -1217,9 +1223,9 @@ class FlaggedArticleView {
 
 			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
 			if ( $newRevQ !== false ) {
-				$msg = $newRevQ ? 'hist-quality' : 'hist-stable';
+				$msg = $newRevQ ? 'revreview-hist-quality' : 'revreview-hist-basic';
 			} else {
-				$msg = 'hist-draft';
+				$msg = 'revreview-hist-draft';
 			}
 			$wgOut->addHTML( "</td><td width='50%' align='center'>" );
 			$wgOut->addHTML( "<span id='mw-fr-diff-rtier' class='$class'>[" .
@@ -1229,9 +1235,9 @@ class FlaggedArticleView {
 		# New page "diffs" - just one rev
 		} else {
 			if ( $newRevQ !== false ) {
-				$msg = $newRevQ ? 'hist-quality' : 'hist-stable';
+				$msg = $newRevQ ? 'revreview-hist-quality' : 'revreview-hist-basic';
 			} else {
-				$msg = 'hist-draft';
+				$msg = 'revreview-hist-draft';
 			}
 			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
 			$wgOut->addHTML(

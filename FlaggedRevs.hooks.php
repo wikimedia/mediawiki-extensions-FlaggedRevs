@@ -64,9 +64,9 @@ class FlaggedRevsHooks {
 				'sendingMsg'     => wfMsgHtml( 'revreview-submitting' ),
 				'actioncomplete' => wfMsgHtml( 'actioncomplete' ),
 				'actionfailed'	 => wfMsgHtml( 'actionfailed' ),
-				'draftRev'  	 => wfMsgHtml( 'hist-draft' ),
-				'sightedRev' 	 => wfMsgHtml( 'hist-stable' ),
-				'qualityRev' 	 => wfMsgHtml( 'hist-quality' ),
+				'draftRev'  	 => wfMsgHtml( 'revreview-hist-draft' ),
+				'sightedRev' 	 => wfMsgHtml( 'revreview-hist-basic' ),
+				'qualityRev' 	 => wfMsgHtml( 'revreview-hist-quality' ),
 			);
 			$globalVars['wgAjaxReview'] = $ajaxReview; // language for AJAX form
 		}

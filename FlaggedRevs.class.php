@@ -1398,9 +1398,11 @@ class FlaggedRevs {
 		$user = User::whois( $row->fr_user ); // FIXME: o(N)
 		$flags = explode( ',', $row->fr_flags );
 		if ( in_array( 'auto', $flags ) ) {
-			$msg = 'hist-autoreviewed';
+			$msg = 'revreview-hist-autoreviewed';
 		} else {
-			$msg = ( $row->fr_quality >= 1 ) ? 'hist-quality-user' : 'hist-stable-user';
+			$msg = ( $row->fr_quality >= 1 )
+				? 'revreview-hist-quality-user'
+				: 'revreview-hist-basic-user';
 		}
 		$st = $title->getPrefixedDBkey();
 		$link = "<span class='fr-$msg plainlinks'>[" .
