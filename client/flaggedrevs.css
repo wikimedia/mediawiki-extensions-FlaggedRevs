@@ -223,7 +223,7 @@ li.flaggedrevs_hist_stable {
 	line-height: 1em;
 }
 
-.fr-hist-stable-user,
+.fr-hist-basic-user,
 .fr-hist-quality-user,
 .fr-hist-autoreviewed {
 	font-weight: bold;
