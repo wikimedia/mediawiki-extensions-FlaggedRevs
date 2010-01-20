@@ -335,10 +335,9 @@ class FlaggedArticleView {
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot . FlaggedRevsXML::draftStatusIcon() .
 				wfMsgExt( 'revreview-edited', array( 'parseinline' ), $srev->getRevId(), $revsSince );
-			$pending = "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" .
-				"$pending</div>";
 			# Notice should always use subtitle
-			$this->reviewNotice = $pending;
+			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
+				"class='flaggedrevs_preview plainlinks'>$pending</div>";
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
@@ -361,9 +360,14 @@ class FlaggedArticleView {
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $revsSince );
 				}
-				$icon = $synced
-					? FlaggedRevsXML::stableStatusIcon( $quality )
-					: FlaggedRevsXML::draftStatusIcon();
+				$icon = '';
+				# Show if this the stable or draft, unless tabs already do that
+				# and there is only review tier (making icon redundant).
+				if ( !FlaggedRevs::showVersionTabs() || FlaggedRevs::qualityVersions() ) {
+					$icon = $synced
+						? FlaggedRevsXML::stableStatusIcon( $quality )
+						: FlaggedRevsXML::draftStatusIcon();
+				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
 					$revsSince, 'draft', $synced, false );
@@ -424,9 +428,14 @@ class FlaggedArticleView {
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if ( !$wgOut->isPrintable() ) {
-			$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
+				$icon = '';
+				# Show if this the stable or draft, unless tabs already do that
+				# and there is only review tier (making icon redundant).
+				if ( !FlaggedRevs::showVersionTabs() || FlaggedRevs::qualityVersions() ) {
+					$icon = FlaggedRevsXML::stableStatusIcon( $quality );
+				}
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 				if ( !$wgUser->getId() ) {
 					$msgHTML = ''; // Anons just see simple icons
@@ -441,7 +450,10 @@ class FlaggedArticleView {
 					$revsSince, 'oldstable', false /*synced*/ );
 			// Standard UI
 			} else {
-				$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
+				$icon = FlaggedRevsXML::stableStatusIcon( $quality );
+				$msg = $quality
+					? 'revreview-quality-old'
+					: 'revreview-basic-old';
 				$tag = $prot . $icon .
 					wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
 				# Hide clutter
@@ -499,9 +511,14 @@ class FlaggedArticleView {
 		# Construct some tagging
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
-			$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
+				$icon = '';
+				# Show if this the stable or draft, unless tabs already do that
+				# and there is only review tier (making icon redundant).
+				if ( !FlaggedRevs::showVersionTabs() || FlaggedRevs::qualityVersions() ) {
+					$icon = FlaggedRevsXML::stableStatusIcon( $quality );
+				}
 				if ( !$wgUser->getId() ) {
 					$msgHTML = ''; // Anons just see simple icons
 				} else {
@@ -518,6 +535,7 @@ class FlaggedArticleView {
 					$revsSince, 'stable', $synced );
 			// Standard UI
 			} else {
+				$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 				$msg = $quality ? 'revreview-quality' : 'revreview-basic';
 				if ( $synced ) {
 					# uses messages 'revreview-quality-same', 'revreview-basic-same'
