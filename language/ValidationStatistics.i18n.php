@@ -238,9 +238,9 @@ Stumm stabil ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ disko
  */
 $messages['bs'] = array(
 	'validationstatistics' => 'Statistike provjera',
-	'validationstatistics-users' => "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]] i '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|provjere]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]].
 
-Urednici i provjerivači su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
+Urednici su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
 	'validationstatistics-time' => "''Slijedeći podaci su posljednji put ažurirani dana $5 u $6 sati.''
 
 Izmjene koje trebaju provjeriti potvrđeni korisnici smatraju se neprovjerenim.
@@ -577,7 +577,7 @@ Vakaa versio sivusta on uusin versio joka on hyväksytty näytettäväksi oletuk
  */
 $messages['fr'] = array(
 	'validationstatistics' => 'Statistiques de validation',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]] et de '''[[Special:ListUsers/reviewer|$2]]''' utilisateur{{PLURAL:$2||s}} disposant des droits de [[{{MediaWiki:Validationpage}}|relecteur]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]].
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
 	'validationstatistics-time' => "''Les données suivantes sont en cache et ont été mise à jour pour la dernière fois le $5 à $6.''
@@ -1110,9 +1110,9 @@ $messages['kw'] = array(
  */
 $messages['lb'] = array(
 	'validationstatistics' => 'Statistike vun de Validatiounen',
-	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]] an '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Validatiounsrechter]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]].
 
-Editeuren a Valideure si confirméiert Benotzer déi iwwerpréifte Versioune vu Säiten derbäisetze kënnen.",
+Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäisetze kënnen.",
 	'validationstatistics-time' => "''Dës Donnéeë goufe fir d'lescht den $5 ëm $6 Auer aktualiséiert.''
 
 Déi duerchschnettlech Waardezäit fir Ännerungen, déi vun net ugemellte Benotzer kommen, ass '''$1'''; de Median ass '''$3'''.
@@ -1145,9 +1145,9 @@ $messages['mhr'] = array(
  */
 $messages['mk'] = array(
 	'validationstatistics' => 'Потврдни статистики',
-	'validationstatistics-users' => "{{SITENAME}}''' во моментов има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|уредувачки]] права и [[Special:ListUsers/reviewer|$2]] {{PLURAL:$2|корисник|корисници}} со [[{{MediaWiki:Validationpage}}|проверувачки]] права.
+	'validationstatistics-users' => "'''{{SITENAME}}''' моментално има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со права на „[[{{MediaWiki:Validationpage}}|Уредник]]“.
 
-Уредниците и проверувачите се докажани корисници кои можат да вршат проверки на верзии на страници.",
+Уредниците се докажани корисници кои можат да прават моментални проверки на ревизии на страници.",
 	'validationstatistics-time' => "''Следниве податоци се ажурирани на $5 во $6.''
 
 Уредувањата кои се проверени од утврдени корисници се сметаат за проверени.
@@ -1228,9 +1228,9 @@ $messages['myv'] = array(
  */
 $messages['nl'] = array(
 	'validationstatistics' => 'Eindredactiestatistieken',
-	'validationstatistics-users' => "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]] en '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|gebruiker|gebruikers}} met de rol [[{{MediaWiki:Validationpage}}|Eindredacteur]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]].
 
-Redacteuren en eindredacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
+Redacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
 	'validationstatistics-time' => "'''De volgende gegevens zijn voor het laatst bijgewerkt op $5 om $6.'''
 
 Van een bewerking wordt aangenomen dat eindredactie is uitgevoerd als deze is gecontroleerd door een ervaren gebruiker.
@@ -1285,9 +1285,9 @@ Stabile versjonar er sideversjonar for sider som er sjekka av minst ein etablert
  */
 $messages['no'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]] og ''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|anmelderrettigheter]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].
 
-Skribenter og Anmeldere er etablerte brukere som kan punktsjekke revisjoner på siden.",
+Skribenter er etablerte brukere som kan punktsjekke revisjoner på siden.",
 	'validationstatistics-time' => "''Følgende data ble sist oppdatert $5, kl $6.''
 
 Endringer som har blitt sjekket av etablerte brukere blir ansett som vurderte.
@@ -1647,9 +1647,9 @@ $messages['sr-el'] = array(
  */
 $messages['sv'] = array(
 	'validationstatistics' => 'Valideringsstatistik',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|redaktörsrättigheter]] och '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|användare|användare}} med [[{{MediaWiki:Validationpage}}|granskningsrättigheter]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|skribenträttigheter]].
 
-Redaktörer och granskare är etablerade användare som kan granska sidversioner.",
+Skribenter är etablerade användare som kan granska sidversioner.",
 	'validationstatistics-time' => "''Följande data uppdaterades senast $5, $6.''
 
 Redigeringar som har kollats av etablerade användare anses vara granskade.
@@ -1771,9 +1771,9 @@ Ang matatatag na mga bersyon ay mga rebisyon ng mga pahinang nasuri ng kahit na 
  */
 $messages['tr'] = array(
 	'validationstatistics' => 'Doğrulama istatistikleri',
-	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} ve [[{{MediaWiki:Validationpage}}|İnceleyici]] yetkisine sahip '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|kullanıcı|kullanıcı}} bulunmaktadır.
+	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} bulunmaktadır.
 
-Editörler ve İnceleyiciler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
+Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	'validationstatistics-time' => "''Aşağıdaki veri en son $5 $6 tarihinde güncellenmiştir.''
 
 Belirli kullanıcılar tarafından kontrol edilen değişiklikler, gözden geçirilmiş sayılırlar.

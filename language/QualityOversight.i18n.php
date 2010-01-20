@@ -77,9 +77,10 @@ $messages['bg'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
-	'qualityoversight' => "Evezhiañ ouzh ar c'halite",
+	'qualityoversight' => 'Marilh an adweladennoù aet war-raok',
 	'qualityoversight-list' => 'Rollañ a ra ar bajenn-mañ asantadurioù ha dispriziadurioù diwezhañ ar stummoù.',
 	'qualityoversight-legend' => 'Klask marilhoù an adweladennoù diwezhañ',
 );
@@ -333,7 +334,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'qualityoversight' => 'Qualitéits Iwwersiicht',
+	'qualityoversight' => 'Erweidert Logbuch vun den nogekuckte Versiounen',
 	'qualityoversight-list' => 'Op dëser Säit stinn déi rezenste Säiten déi fräigi goufen an denen hir Markéierung opgehuewe gouf.',
 	'qualityoversight-legend' => 'Am Logbuch vun den nogekuckte Säite sichen',
 );
@@ -342,7 +343,7 @@ $messages['lb'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'qualityoversight' => 'Надгледување на квалитет',
+	'qualityoversight' => 'Дневник на напредни проверки',
 	'qualityoversight-list' => 'На оваа страница се наведени најновите одобренија и застарувања на верзиите.',
 	'qualityoversight-legend' => 'Пребарување на дневници на скорешни прегледувања',
 );
@@ -351,7 +352,7 @@ $messages['mk'] = array(
  * @author Praveenp
  */
 $messages['ml'] = array(
-	'qualityoversight' => 'ഗുണമേന്മാ മേൽനോട്ടം',
+	'qualityoversight' => 'വിപുലീകൃത സംശോധന രേഖ',
 	'qualityoversight-list' => 'ഈ താളിൽ നാൾപ്പതിപ്പുകളിൽ നടന്ന ഏറ്റവും പുതിയ അംഗീകരണങ്ങളും പിന്തള്ളലുകളും കാണാവുന്നതാണ്.',
 	'qualityoversight-legend' => 'സമീപകാല സംശോധന രേഖകളിൽ തിരയുക',
 );
@@ -379,7 +380,7 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'qualityoversight' => 'Kwaliteitscontrole',
+	'qualityoversight' => 'Kwaliteitscontrolelogboek',
 	'qualityoversight-list' => "Op deze pagina's worden recent gecontroleerde kwaliteitsversies weergegeven en pagina's waarvoor de kwaliteit lager is ingesteld.",
 	'qualityoversight-legend' => 'Recente eindredactielogboeken bekijken',
 );
@@ -395,9 +396,10 @@ $messages['nn'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
-	'qualityoversight' => 'Oversikt over kvaliteten',
+	'qualityoversight' => 'Avansert revisjonslogg',
 	'qualityoversight-list' => 'Denne siden viser de siste godkjenninger og degraderinger av sideversjoner.',
 	'qualityoversight-legend' => 'Søk logger etter de siste anmeldelsene',
 );
@@ -505,7 +507,7 @@ $messages['sr-el'] = array(
  * @author M.M.S.
  */
 $messages['sv'] = array(
-	'qualityoversight' => 'Översikt över kvaliteten',
+	'qualityoversight' => 'Avancerad granskningslogg',
 	'qualityoversight-list' => 'Denna sida listar de senaste godkännandena och avskrivandena av versioner.',
 	'qualityoversight-legend' => 'Sök loggar för senaste granskningar',
 );
@@ -539,7 +541,7 @@ $messages['tl'] = array(
  * @author Joseph
  */
 $messages['tr'] = array(
-	'qualityoversight' => 'Kalite gözetimi',
+	'qualityoversight' => 'Gelişmiş gözden geçirme günlüğü',
 	'qualityoversight-list' => 'Bu sayfa, en yeni onaylamaları ve revizyonların yıpranmalarını listeler.',
 	'qualityoversight-legend' => 'Yakın zamandaki gözden geçirme günlüklerini ara',
 );
@@ -548,7 +550,7 @@ $messages['tr'] = array(
  * @author Ahonc
  */
 $messages['uk'] = array(
-	'qualityoversight' => 'Ревізор якості',
+	'qualityoversight' => 'Журнал розширених перевірок',
 	'qualityoversight-list' => 'Ця сторінка містить список нещодавніх затверджень і знять рівнів якості версій.',
 	'qualityoversight-legend' => 'Пошук у журналі перевірок',
 );
