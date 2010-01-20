@@ -294,7 +294,7 @@ class FlaggedArticleView {
 			$msg = 'revreview-quick-none';
 			$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
 				wfMsgExt( $msg, array( 'parseinline' ) );
-			$css = 'flaggedrevs_short{$rtl} plainlinks noprint';
+			$css = "flaggedrevs_short{$rtl} plainlinks noprint";
 			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
 				"$tag</div>";
 			$this->reviewNotice .= $tag;

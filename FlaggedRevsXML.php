@@ -248,10 +248,10 @@ class FlaggedRevsXML {
 	 * Generates (+/-) JS toggle HTML
 	 */
 	public static function ratingToggle() {
-		return "<a id='mw-fr-revisiontoggle' class='flaggedrevs_toggle' style='display:none;'" .
-			" onclick='FlaggedRevs.toggleRevRatings()' title='" .
-			wfMsgHtml( 'revreview-toggle-title' ) . "' >" .
-			wfMsg( 'revreview-toggle' ) . "</a>";
+		return '<a id="mw-fr-revisiontoggle" class="flaggedrevs_toggle" style="display:none;"' .
+			' onclick="FlaggedRevs.toggleRevRatings()" title="' .
+			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
+			wfMsgHtml( 'revreview-toggle' ) . '</a>';
 	}
 	
 	/**
@@ -259,10 +259,10 @@ class FlaggedRevsXML {
 	 * Generates (+/-) JS toggle HTML
 	 */
 	public static function diffToggle() {
-		return "<a id='mw-fr-difftoggle' class='flaggedrevs_toggle' style='display:none;'" .
-			" onclick='FlaggedRevs.toggleDiff()' title='" .
-			wfMsgHtml( 'revreview-diff-toggle-title' ) . "' >" .
-			wfMsg( 'revreview-diff-toggle-show' ) . "</a>";
+		return '<a id="mw-fr-difftoggle" class="flaggedrevs_toggle" style="display:none;"' .
+			' onclick="FlaggedRevs.toggleDiff()" title="' .
+			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
+			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
 	}
 	
 	/**
