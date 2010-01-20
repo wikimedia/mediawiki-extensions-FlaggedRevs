@@ -54,6 +54,14 @@ if ( !defined( 'FR_QUALITY' ) )
 if ( !defined( 'FR_PRISTINE' ) )
 	define( 'FR_PRISTINE', 2 );
 
+# Include settings
+if ( !defined( 'FR_INCLUDES_CURRENT' ) )
+	define( 'FR_INCLUDES_CURRENT', 0 );
+if ( !defined( 'FR_INCLUDES_FREEZE' ) )
+	define( 'FR_INCLUDES_FREEZE', 1 );
+if ( !defined( 'FR_INCLUDES_STABLE' ) )
+	define( 'FR_INCLUDES_STABLE', 2 );
+	
 $wgExtensionCredits['specialpage'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
@@ -251,6 +259,18 @@ $wgFlaggedRevsTalkVisible = true;
 
 # How long before Special:ValidationStatistics is updated
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
+
+# How to handle templates and files used in stable versions:
+# FR_INCLUDES_CURRENT
+#	Always use the current version of templates/files
+# FR_INCLUDES_FREEZE
+#	Use the version of templates/files that the page used when reviewed
+# FR_INCLUDES_STABLE
+# 	Use the stable version of templates/files that themselves have a stable version
+#	and the template/file version used at the time of review for those that don't have one
+$wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
+
+# NOTE: ignore the next two settings if set to FR_CURRENT_INCLUDES.
 
 # We may have templates that do not have stable version. Given situational
 # inclusion of templates (such as parser functions that select template

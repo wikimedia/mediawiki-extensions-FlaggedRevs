@@ -418,11 +418,16 @@ class FlaggedRevsHooks {
 		if ( !$parser || empty( $parser->fr_isStable ) || $title->getNamespace() < 0 ) {
 			return true;
 		}
+		if( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return true; // use the current version as normal
+		}
 		$dbr = wfGetDB( DB_SLAVE );
 		# Check for stable version of template if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
-		if ( FlaggedRevs::isPageReviewable( $title ) && $title->getArticleId() ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
+			&& FlaggedRevs::isPageReviewable( $title ) && $title->getArticleId() )
+		{
 			$id = $dbr->selectField( 'flaggedpages', 'fp_stable',
 				array( 'fp_page_id' => $title->getArticleId() ),
 				__METHOD__ );
@@ -477,6 +482,9 @@ class FlaggedRevsHooks {
 		if ( empty( $parser->fr_isStable ) ) {
 			return true;
 		}
+		if( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return true; // use the current version as normal
+		}
 		$file = null;
 		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Normalize NS_MEDIA to NS_FILE
@@ -490,7 +498,9 @@ class FlaggedRevsHooks {
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = '';
-		if ( FlaggedRevs::isPageReviewable( $title ) ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
+			&& FlaggedRevs::isPageReviewable( $title ) )
+		{
 			$srev = FlaggedRevision::newFromStable( $title );
 			if ( $srev && $srev->getFileTimestamp() ) {
 				$time = $srev->getFileTimestamp(); // TS or null
@@ -573,13 +583,18 @@ class FlaggedRevsHooks {
 		if ( empty( $ig->mParser->fr_isStable ) || $nt->getNamespace() != NS_FILE ) {
 			return true;
 		}
+		if( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return true; // use the current version as normal
+		}
 		$file = null;
 		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
-		if ( FlaggedRevs::isPageReviewable( $nt ) ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
+			&& FlaggedRevs::isPageReviewable( $nt ) )
+		{
 			$srev = FlaggedRevision::newFromStable( $nt );
 			if ( $srev && $srev->getFileTimestamp() ) {
 				$time = $srev->getFileTimestamp(); // TS or null

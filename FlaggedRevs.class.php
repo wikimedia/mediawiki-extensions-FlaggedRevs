@@ -239,6 +239,15 @@ class FlaggedRevs {
 	}
 	
 	/**
+	 * Return the include handling configuration
+	 * @returns int
+	 */
+	public static function inclusionSetting() {
+		global $wgFlaggedRevsHandleIncludes;
+		return $wgFlaggedRevsHandleIncludes;
+	}
+	
+	/**
 	 * Should tags only be shown for unreviewed content for this user?
 	 * @returns bool
 	 */
