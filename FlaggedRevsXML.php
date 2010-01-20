@@ -422,9 +422,33 @@ class FlaggedRevsXML {
 	}
 
 	/*
+	* Creates CSS draft page icon
+	* @returns string
+	*/
+	public static function draftStatusIcon() {
+		return '<span class="fr-icon-current" title="'.
+			wfMsgHtml( 'revreview-draft-title' ).'"></span>';
+	}
+	
+	/*
+	* Creates CSS stable page icon
+	* @param bool $isQuality
+	* @returns string
+	*/
+	public static function stableStatusIcon( $isQuality ) {
+		$class = $isQuality
+			? 'fr-icon-quality'
+			: 'fr-icon-stable';
+		$tooltip = $isQuality
+			? 'revreview-quality-title'
+			: 'revreview-basic-title';
+		return '<span class="'.$class.'" title="'. wfMsgHtml( $tooltip ).'"></span>';
+	}
+
+	/*
+	* Creates CSS lock icon if page is locked/unlocked
 	* @param FlaggedArticle $flaggedArticle
 	* @returns string
-	* Creates CSS lock icon if page is locked/unlocked
 	*/
 	public static function lockStatusIcon( $flaggedArticle ) {
 		if ( $flaggedArticle->isPageLocked() ) {

@@ -287,24 +287,20 @@ class FlaggedArticleView {
 		if ( $wgOut->isPrintable() ) {
 			return;
 		}
+		$icon = FlaggedRevsXML::draftStatusIcon();
 		// Simple icon-based UI
 		if ( FlaggedRevs::useSimpleUI() ) {
 			// RTL langauges
 			$rtl = $wgContLang->isRTL() ? " rtl" : "";
-			$msg = 'revreview-quick-none';
-			$tag .= "{$prot}<span class='fr-icon-current plainlinks'></span>" .
-				wfMsgExt( $msg, array( 'parseinline' ) );
+			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', array( 'parseinline' ) );
 			$css = "flaggedrevs_short{$rtl} plainlinks noprint";
-			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
-				"$tag</div>";
-			$this->reviewNotice .= $tag;
+			$this->reviewNotice .= "<div id='mw-fr-revisiontag' class='$css'>$tag</div>";
 		// Standard UI
 		} else {
-			$msg = 'revreview-noflagged';
 			$css = 'flaggedrevs_notice plainlinks noprint';
 			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
-				"{$prot}<span class='fr-icon-current plainlinks'></span>" .
-				wfMsgExt( $msg, array( 'parseinline' ) ) . "</div>";
+				$prot . $icon . wfMsgExt( 'revreview-noflagged', array( 'parseinline' ) ) .
+				"</div>";
 			$this->reviewNotice .= $tag;
 		}
 	}
@@ -312,7 +308,7 @@ class FlaggedArticleView {
 	/**
 	* @param $srev stable version
 	* @param $tag review box/bar info
-	* @param $prot protection notice
+	* @param $prot protection notice icon
 	* Tag output function must be called by caller
 	* Parser cache control deferred to caller
 	*/
@@ -337,7 +333,7 @@ class FlaggedArticleView {
 		if ( !$synced && $wgRequest->getVal( 'shownotice' ) && !$wgUser->isAllowed( 'review' ) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
-			$pending = "{$prot}<span class='fr-icon-current' title=\"{$tooltip}\"></span>" .
+			$pending = $prot . FlaggedRevsXML::draftStatusIcon() .
 				wfMsgExt( 'revreview-edited', array( 'parseinline' ), $srev->getRevId(), $revsSince );
 			$pending = "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" .
 				"$pending</div>";
@@ -348,8 +344,6 @@ class FlaggedArticleView {
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
 		} else if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
-			$class = 'fr-icon-current'; // default
-			$tooltip = 'revreview-draft-title';
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
 				if ( !$wgUser->getId() ) {
@@ -358,12 +352,6 @@ class FlaggedArticleView {
 					$msg = $quality
 						? 'revreview-quick-quality-same'
 						: 'revreview-quick-basic-same';
-					$class = $quality
-						? 'fr-icon-quality'
-						: 'fr-icon-stable';
-					$tooltip = $quality
-						? 'revreview-quality-title'
-						: 'revreview-basic-title';
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $revsSince );
 				} else {
@@ -373,8 +361,10 @@ class FlaggedArticleView {
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $revsSince );
 				}
-				$tooltip = wfMsgHtml( $tooltip );
-				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>$msgHTML";
+				$icon = $synced
+					? FlaggedRevsXML::stableStatusIcon( $quality )
+					: FlaggedRevsXML::draftStatusIcon();
+				$msgHTML = $prot . $icon . $msgHTML;
 				$tag .= FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
 					$revsSince, 'draft', $synced, false );
 			// Standard UI
@@ -382,12 +372,8 @@ class FlaggedArticleView {
 				if ( $synced ) {
 					if ( $quality ) {
 						$msg = 'revreview-quality-same';
-						$class = 'fr-icon-quality';
-						$tooltip = 'revreview-quality-title';
 					} else {
 						$msg = 'revreview-basic-same';
-						$class = 'fr-icon-stable';
-						$tooltip = 'revreview-basic-title';
 					}
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $time, $revsSince );
@@ -399,8 +385,10 @@ class FlaggedArticleView {
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $time, $revsSince );
 				}
-				$tooltip = wfMsgHtml( $tooltip );
-				$tag .= "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" . $msgHTML;
+				$icon = $synced
+					? FlaggedRevsXML::stableStatusIcon( $quality )
+					: FlaggedRevsXML::draftStatusIcon();
+				$tag .= $prot . $icon . $msgHTML;
 			}
 		}
 		# Index the stable version only if it is the default
@@ -413,7 +401,7 @@ class FlaggedArticleView {
 	* @param $srev stable version
 	* @param $frev selected flagged revision
 	* @param $tag review box/bar info
-	* @param $prot protection notice
+	* @param $prot protection notice icon
 	* Tag output function must be called by caller
 	* Parser cache control deferred to caller
 	*/
@@ -436,12 +424,7 @@ class FlaggedArticleView {
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if ( !$wgOut->isPrintable() ) {
-			$class = $quality ?
-				'fr-icon-quality' : 'fr-icon-stable';
-			$tooltip = $quality
-				? 'revreview-quality-title'
-				: 'revreview-basic-title';
-			$tooltip = wfMsgHtml( $tooltip );
+			$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
@@ -453,13 +436,13 @@ class FlaggedArticleView {
 						: 'revreview-quick-basic-old';
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
 				}
-				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>{$msgHTML}";
+				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
 					$revsSince, 'oldstable', false /*synced*/ );
 			// Standard UI
 			} else {
 				$msg = $quality ? 'revreview-quality-old' : 'revreview-basic-old';
-				$tag = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>" .
+				$tag = $prot . $icon .
 					wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
 				# Hide clutter
 				if ( !empty( $flags ) ) {
@@ -516,11 +499,7 @@ class FlaggedArticleView {
 		# Construct some tagging
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
-			$class = $quality ? 'fr-icon-quality' : 'fr-icon-stable';
-			$tooltip = $quality
-				? 'revreview-quality-title'
-				: 'revreview-basic-title';
-			$tooltip = wfMsgHtml( $tooltip );
+			$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
 				if ( !$wgUser->getId() ) {
@@ -534,7 +513,7 @@ class FlaggedArticleView {
 					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
 						$srev->getRevId(), $revsSince );
 				}
-				$msgHTML = "{$prot}<span class='{$class}' title=\"{$tooltip}\"></span>{$msgHTML}";
+				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
 					$revsSince, 'stable', $synced );
 			// Standard UI
@@ -547,7 +526,7 @@ class FlaggedArticleView {
 					# uses messages 'revreview-quality-i', 'revreview-basic-i'
 					$msg .= '-i';
 				}
-				$tag = "{$prot}<span class='{$class} plainlinks' title=\"{$tooltip}\"></span>" .
+				$tag = $prot . $icon .
 					wfMsgExt( $msg, array( 'parseinline' ), $srev->getRevId(), $time, $revsSince );
 				if ( !empty( $flags ) ) {
 					$tag .= " " . FlaggedRevsXML::ratingToggle();
