@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'unstablepages' => 'Unpublished pages',
+	'unstablepages' => 'Unstable pages',
 	'unstablepages-stable' => 'published version',
 	'unstablepages-text' => 'Below is a list of pages manually configured to show the draft version as the default page content for viewers.',
 	'unstablepages-none' => 'There are no pages in this list',

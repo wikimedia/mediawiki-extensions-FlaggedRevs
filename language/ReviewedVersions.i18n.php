@@ -32,7 +32,7 @@ Message is displayed on Special:ReviewedVersions for pages that has no reviewed 
 Parameter $1 is a page title,
 Parameter $2 is the count of revisions following, to be used with PLURAL.',
 	'reviewedversions-review' => '{{Flagged Revs}}
-This message is used in the list of published versions of a page (Special:ReviewedVersions) to specify who has reviewed each version.
+This message is used in the list of reviewed versions of a page (Special:ReviewedVersions) to specify who has reviewed each version.
 * $1 is the date and time of the review
 * $2 is the username of the reviewing user, followed by a series of links
 * $3 is the date of the review (optional)
