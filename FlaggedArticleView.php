@@ -737,7 +737,7 @@ class FlaggedArticleView {
 		$items = array();
 		$tag = $warning = $prot = '';
 		# Show stabilization log
-		$log = $this->stabilityLogExcerpt();
+		$log = $this->stabilityLogNotice();
 		if ( $log ) $items[] = $log;
 		# Check the newest stable version
 		$quality = 0;
@@ -825,7 +825,7 @@ class FlaggedArticleView {
 		return true;
 	}
 	
-	protected function stabilityLogExcerpt() {
+	protected function stabilityLogNotice() {
 		$this->load();
 		$s = '';
 		# Only for pages manually made to be stable...
@@ -1594,8 +1594,15 @@ class FlaggedArticleView {
 		}
 		# Add the submit buttons
 		$form .= FlaggedRevsXML::ratingSubmitButtons( $frev, (bool)$toggle, $allowRereview );
-
+		# Show stability log if there is anything interesting...
+		if( $this->article->isPageLocked() ) {
+			$form .= ' ' . FlaggedRevsXML::logToggle();
+		}
 		$form .= Xml::closeElement( 'span' );
+		# ..add the actual stability log body here
+	    if( $this->article->isPageLocked() ) {
+			$form .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
+		}
 		$form .= Xml::closeElement( 'div' ) . "\n";
 
 		# Hidden params

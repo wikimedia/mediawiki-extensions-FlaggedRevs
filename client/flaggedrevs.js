@@ -25,6 +25,14 @@ var FlaggedRevs = {
 				diff.style.display = 'none';
 			}
 		}
+		toggle = document.getElementById('mw-fr-logtoggle');
+		if( toggle ) {
+			toggle.style.display = 'inline';
+			var log = document.getElementById('mw-fr-logexcerpt');
+			if( log ) {
+				log.style.display = 'none';
+			}
+		}
 	},
 	
 	/* Toggles ratings */
@@ -52,6 +60,19 @@ var FlaggedRevs = {
 			diff.style.display = 'none';
 			if( toggle ) {
 				toggle.innerHTML = this.messages.revreviewDiffToggleShow;
+			}
+		}
+	},
+	
+	/* Toggles log excerpts */
+	'toggleLog': function() {
+		var log = document.getElementById('mw-fr-logexcerpt');
+		if( !log ) return;
+		var toggle = document.getElementById('mw-fr-logtoggle');
+		if( log.style.display == 'none' ) {
+			log.style.display = 'inline';
+			if( toggle ) {
+				toggle.innerHTML = '';
 			}
 		}
 	}

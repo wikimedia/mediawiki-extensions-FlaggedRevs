@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class containing cache update methods and job construction
+ * for the special case of purging pages due to links contained
+ * only in the stable version of pages
+ */
 class FRCacheUpdate {
 	public $mTitle, $mTable;
     public $mRowsPerJob, $mRowsPerQuery;

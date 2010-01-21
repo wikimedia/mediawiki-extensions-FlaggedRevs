@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Class containing utility XML functions for a FlaggedRevs.
+ * Includes functions for selectors, icons, notices, CSS, and form aspects.
+ */
 class FlaggedRevsXML {
 	/**
 	 * Get a selector of reviewable namespaces
@@ -242,7 +245,7 @@ class FlaggedRevsXML {
 		$box .= "</td><td></td></tr></table>";
         return $box;
 	}
-	
+
 	/**
 	 * @returns string
 	 * Generates (+/-) JS toggle HTML
@@ -253,7 +256,7 @@ class FlaggedRevsXML {
 			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-toggle' ) . '</a>';
 	}
-	
+
 	/**
 	 * @returns string
 	 * Generates (+/-) JS toggle HTML
@@ -263,6 +266,17 @@ class FlaggedRevsXML {
 			' onclick="FlaggedRevs.toggleDiff()" title="' .
 			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
+	}
+
+	/**
+	 * @returns string
+	 * Generates (+/-) JS toggle HTML
+	 */
+	public static function logToggle() {
+		return '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
+			' onclick="FlaggedRevs.toggleLog()" title="' .
+			wfMsgHtml( 'revreview-log-toggle-show' ) . '" >' .
+			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
 	}
 	
 	/**
@@ -480,5 +494,17 @@ class FlaggedRevsXML {
 			: 'revreview-pending-basic';
 		$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );
 		return $tag;
+	}
+
+	/*
+	* @param Article $article
+	* @returns string
+	* Creates a stability log excerpt
+	*/
+	public static function stabilityLogExcerpt( $article ) {
+		$logHtml = '';
+		LogEventsList::showLogExtract( $logHtml, 'stable',
+			$article->getTitle()->getPrefixedText(), '', array( 'lim' => 1 ) );
+		return "<div id=\"mw-fr-logexcerpt\">$logHtml</div>";
 	}
 }

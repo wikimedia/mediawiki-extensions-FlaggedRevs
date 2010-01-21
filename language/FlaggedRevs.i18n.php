@@ -52,6 +52,7 @@ $messages['en'] = array(
 	'revreview-diff-toggle-show'   => '(show changes)',
 	'revreview-diff-toggle-hide'   => '(hide changes)',
 	'revreview-diff-toggle-title'  => 'Toggle display of changes between draft and the published version',
+	'revreview-log-toggle-show'    => '(show stability log)',
 	'review-diff2stable'           => 'View pending changes to published version',
 	'review-logentry-app'          => 'reviewed a version of [[$1]]',
 	'review-logentry-dis'          => 'deprecated a version of [[$1]]',
