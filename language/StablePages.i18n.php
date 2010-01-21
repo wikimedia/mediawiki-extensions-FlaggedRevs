@@ -471,8 +471,8 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'stablepages' => 'Paginas stabile',
-	'stablepages-stable' => 'version stabile',
-	'stablepages-text' => 'Infra es un lista de paginas manualmente configurate de modo que le version stabile se monstra como le contento predefinite del pagina pro visitatores.',
+	'stablepages-stable' => 'version publicate',
+	'stablepages-text' => 'Infra es un lista de paginas manualmente configurate de sorta que le version publicate se monstra como le contento predefinite del pagina pro lectores.',
 	'stablepages-none' => 'Il non ha paginas in iste lista',
 	'stablepages-config' => 'Configuration',
 	'stablepages-prec-none' => 'nulle precedentia',
@@ -606,8 +606,8 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'stablepages' => 'സ്ഥിരതയുള്ള താളുകള്‍',
-	'stablepages-stable' => 'സ്ഥിരതയുള്ള പതിപ്പ്',
-	'stablepages-text' => 'സ്ഥിരതയുള്ള പതിപ്പ് ഒരു താളിന്റെ സ്വതവെയുള്ള ഉള്ളടക്കമായി കാണിക്കുവാന്‍ കായികമായി ക്രമീകരണം ചെയ്യപ്പെട്ട താളുകള്‍ ആണ്‌ താഴെയുള്ള പട്ടികയില്‍.',
+	'stablepages-stable' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ്',
+	'stablepages-text' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ് ഒരു താളിന്റെ സ്വതവെയുള്ള ഉള്ളടക്കമായി വായനക്കാരെ കാണിക്കുവാന്‍ സ്വതവേയല്ലാതെ ക്രമീകരണം ചെയ്യപ്പെട്ട താളുകള്‍ ആണ്‌ താഴെയുള്ള പട്ടികയില്‍.',
 	'stablepages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'stablepages-config' => 'ക്രമീകരണം',
 	'stablepages-prec-none' => 'യാതൊരു മുൻഗണനയുമില്ലാതെ',
@@ -934,10 +934,11 @@ $messages['tr'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'stablepages' => 'Стабільні сторінки',
-	'stablepages-stable' => 'стабільна версія',
+	'stablepages-stable' => 'опублікована версія',
 	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ опублікованої версії за замовчуванням для читачів.',
 	'stablepages-none' => 'У цьому списку нема сторінок',
 	'stablepages-config' => 'Налаштування',

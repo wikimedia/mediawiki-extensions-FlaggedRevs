@@ -280,7 +280,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'qualityoversight' => 'Supervision de qualitate',
+	'qualityoversight' => 'Registro de revisiones avantiate',
 	'qualityoversight-list' => 'Iste pagina lista le plus recente approbationes e depreciationes de versiones.',
 	'qualityoversight-legend' => 'Cercar in le registro de revisiones recente',
 );

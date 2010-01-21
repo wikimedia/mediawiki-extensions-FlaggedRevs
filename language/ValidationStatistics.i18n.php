@@ -870,9 +870,9 @@ A lap stabil változata a legújabb elfogadott változat, amit alapértelmezette
  */
 $messages['ia'] = array(
 	'validationstatistics' => 'Statisticas de validation',
-	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Redactor]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Revisor]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Redactor]].
 
-Le Redactores e Revisores es usatores establite qui pote selectivemente verificar versiones de paginas.",
+Le Redactores es usatores establite qui pote selectivemente verificar versiones de paginas.",
 	'validationstatistics-time' => "''Le sequente datos ha essite actualisate le $5 a $6.''
 
 Le modificationes que ha essite verificate per usatores establite es considerate como revidite.
@@ -1175,7 +1175,9 @@ $4
  */
 $messages['ml'] = array(
 	'validationstatistics' => 'സ്ഥിരീകരണ കണക്കുകള്‍',
-	'validationstatistics-users' => "'''{{SITENAME}}''' പദ്ധതിയില്‍ '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} [[{{MediaWiki:Validationpage}}|സംശോധകര്‍]] അധികാരമുള്ളവരും '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} [[{{MediaWiki:Validationpage}}|പരിശോധകര്‍]] അധികാരമുള്ളവരും ആണ്.",
+	'validationstatistics-users' => "{{SITENAME}}''' പദ്ധതിയില്‍ '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|ഉപയോക്താവിന്|ഉപയോക്താക്കള്‍ക്ക്}} [[{{MediaWiki:Validationpage}}|എഡിറ്റർ]] പദവിയുണ്ട്.
+
+താളുകളുടെ നാൾവഴികൾ പരിശോധിച്ച് തെറ്റുതിരുത്താൻ കഴിയുന്ന സ്ഥാപിത ഉപയോക്താക്കളാണ് എഡിറ്റർമാർ.",
 	'validationstatistics-table' => "ഓരോ നാമമേഖലയിലേയും സ്ഥിതിവിവരക്കണക്കുകൾ താഴെ കൊടുക്കുന്നു, തിരിച്ചുവിടൽ താളുകൾ ''ഒഴിവാക്കുന്നു''.",
 	'validationstatistics-ns' => 'നാമമേഖല',
 	'validationstatistics-total' => 'താളുകള്‍',
@@ -1419,6 +1421,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Alchimista
  * @author Giro720
  * @author Hamilton Abreu
  * @author Lijealso
