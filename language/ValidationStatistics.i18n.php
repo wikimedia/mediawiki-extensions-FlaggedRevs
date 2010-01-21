@@ -20,7 +20,7 @@ The average wait for edits by \'\'users that have not logged in\'\' to be review
 $4
 The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.
 These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'synchronized\'\' if there are no edits pending review.
-The stable version of a page is the newest revision that has been approved to show by default to all readers.',
+The published version of a page is the newest revision that has been approved to show by default to all readers.',
 	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',

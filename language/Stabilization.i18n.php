@@ -10,20 +10,20 @@ $messages = array();
 $messages['en'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Page stabilization',
-	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'
+	'stabilization-text' => '\'\'\'Change the settings below to adjust how the published version of [[:$1|$1]] is selected and displayed.\'\'\'
 
-When changing the \'\'stable version selection\'\' configuration to use "quality" or "pristine" revisions by default,
+When changing the \'\'published version selection\'\' configuration to use "quality" or "pristine" revisions by default,
 be sure to check if there actually are such revisions in the page, otherwise the change will have little effect.',
-	'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
+	'stabilization-perm' => 'Your account does not have permission to change the published version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
-	'stabilization-leg' => 'Confirm stable version settings',
-	'stabilization-select' => 'Stable version selection precedence',
+	'stabilization-leg' => 'Confirm published version settings',
+	'stabilization-select' => 'Published version selection precedence',
 	'stabilization-select1' => 'Latest quality revision; then latest sighted one',
 	'stabilization-select2' => 'Latest reviewed revision (regardless of validation level)',
 	'stabilization-select3' => 'Latest pristine revision; then latest quality one; then latest sighted one',
 	'stabilization-def' => 'Revision displayed on default page view',
-	'stabilization-def1' => 'The stable revision; if not present, then the current/draft one',
+	'stabilization-def1' => 'The published revision; if not present, then the current/draft one',
 	'stabilization-def2' => 'The current/draft revision',
 	'stabilization-restrict' => 'Auto-review restrictions',
 	'stabilization-restrict-none' => 'No extra restrictions',
@@ -42,7 +42,7 @@ No configuration is possible.',
 	'stabilization-sel-short-2' => 'Pristine',
 	'stabilization-def-short' => 'Default',
 	'stabilization-def-short-0' => 'Current',
-	'stabilization-def-short-1' => 'Stable',
+	'stabilization-def-short-1' => 'Published',
 	'stabilize_expiry_invalid' => 'Invalid expiration date.',
 	'stabilize_expiry_old' => 'This expiration time has already passed.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
@@ -63,7 +63,7 @@ No configuration is possible.',
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
 
-Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last sighted or stable version.',
+Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last sighted or published version.',
 	'stabilization' => '{{Flagged Revs-small}}
 Page title of Special:Stabilization.',
 	'stabilization-text' => '{{Flagged Revs-small}}
@@ -78,15 +78,15 @@ Used on Special:Stabilization when the user has not the permission to change the
 	'stabilization-leg' => '{{Flagged Revs}}',
 	'stabilization-select' => '{{Flagged Revs}}',
 	'stabilization-select1' => '{{Flagged Revs-small}}
-Used on Special:Stabilization as an option for "How the stable version is selected".',
+Used on Special:Stabilization as an option for "How the published version is selected".',
 	'stabilization-select2' => '{{Flagged Revs-small}}
-Used on Special:Stabilization as an option for "How the stable version is selected".',
+Used on Special:Stabilization as an option for "How the published version is selected".',
 	'stabilization-select3' => '{{Flagged Revs}}',
 	'stabilization-def' => '{{Flagged Revs}}',
 	'stabilization-def1' => '{{Flagged Revs-small}}
 Used on Special:Stabilization as an option for "Revision displayed on default page view".
 
-This option has sub-options, see "How the stable version is selected".',
+This option has sub-options, see "How the published version is selected".',
 	'stabilization-def2' => '{{Flagged Revs-small}}
 Used on Special:Stabilization as an option for "Revision displayed on default page view".',
 	'stabilization-restrict' => '{{Flagged Revs}}

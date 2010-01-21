@@ -8,8 +8,8 @@
 $messages = array();
 
 $messages['en'] = array(
-	'qualityoversight' 		  => 'Advanced review log',
-	'qualityoversight-list'   => 'This page lists the most recent approvals and deprecations of revisions.',
+	'qualityoversight' => 'Advanced review log',
+	'qualityoversight-list' => 'This page lists the most recent approvals and deprecations of revisions.',
 	'qualityoversight-legend' => 'Search recent review logs',
 );
 
