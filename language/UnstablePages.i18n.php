@@ -703,7 +703,7 @@ $messages['tl'] = array(
  */
 $messages['tr'] = array(
 	'unstablepages' => 'Kararsız sayfalar',
-	'unstablepages-stable' => 'kararlı versiyon',
+	'unstablepages-stable' => 'yayımlanmış sürüm',
 	'unstablepages-text' => 'Aşağıdaki liste, ziyaretçilere geçerli sayfa içeriği olarak taslak sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
 	'unstablepages-none' => 'Bu listede hiç sayfa yok',
 	'unstablepages-config' => 'Yapılandırma',

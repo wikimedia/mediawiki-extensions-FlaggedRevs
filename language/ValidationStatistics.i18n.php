@@ -774,7 +774,6 @@ $messages['hil'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'validationstatistics' => 'Statistika pregledavanja',
@@ -1787,8 +1786,8 @@ Belirli kullanıcılar tarafından kontrol edilen değişiklikler, gözden geçi
 ''Giriş yapmamış kullanıcılar'' tarafından yapılan gözden geçirilecek değişiklikler için ortalama bekleme süresi '''$1'''; orta değer '''$3'''.
 $4
 [[Special:OldReviewedPages|Gözden geçirilmemiş değişikliğe sahip sayfalar]] için ortalama gecikme '''$2'''.
-Bu sayfalar ''eskimiş'' sayılırlar. Aynı şekilde, eğer [[{{MediaWiki:Validationpage}}|kararlı sürüm]] aynı zamanda güncel taslaksa, sayfa ''senkron'' sayılır.
-Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontrol edilmiş revizyonlarıdır.",
+Bu sayfalar ''eskimiş'' sayılırlar. Aynı şekilde, eğer bekleyen değişiklik yoksa sayfa ''senkron'' sayılır.
+Bir sayfanın yayımlanmış sürümü, tüm okuyuculara varsayılan olarak gösterilmesi onaylanmış en yeni revizyondur.",
 	'validationstatistics-table' => "Her bir ad alanı için istatistikler aşağıda gösterilmiştir, yönlendirme sayfaları ''hariç''.",
 	'validationstatistics-ns' => 'Ad alanı',
 	'validationstatistics-total' => 'Sayfalar',
