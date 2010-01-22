@@ -589,8 +589,8 @@ $wgLogActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
 $wgLogTypes[] = 'stable';
 $wgLogNames['stable'] = 'stable-logpage';
 $wgLogHeaders['stable'] = 'stable-logpagetext';
-$wgLogActions['stable/config'] = 'stable-logentry';
-$wgLogActions['stable/reset'] = 'stable-logentry2';
+$wgLogActions['stable/config'] = 'stable-logentry-config';
+$wgLogActions['stable/reset'] = 'stable-logentry-reset';
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';

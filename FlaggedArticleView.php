@@ -363,7 +363,7 @@ class FlaggedArticleView {
 				$icon = '';
 				# Show if this the stable or draft, unless tabs already do that
 				# and there is only review tier (making icon redundant).
-				if ( !FlaggedRevs::showVersionTabs() || FlaggedRevs::qualityVersions() ) {
+				if ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() ) {
 					$icon = $synced
 						? FlaggedRevsXML::stableStatusIcon( $quality )
 						: FlaggedRevsXML::draftStatusIcon();
@@ -433,7 +433,7 @@ class FlaggedArticleView {
 				$icon = '';
 				# Show if this the stable or draft, unless tabs already do that
 				# and there is only review tier (making icon redundant).
-				if ( !FlaggedRevs::showVersionTabs() || FlaggedRevs::qualityVersions() ) {
+				if ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() ) {
 					$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 				}
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
@@ -516,7 +516,7 @@ class FlaggedArticleView {
 				$icon = '';
 				# Show if this the stable or draft, unless tabs already do that
 				# and there is only review tier (making icon redundant).
-				if ( !FlaggedRevs::showVersionTabs() || FlaggedRevs::qualityVersions() ) {
+				if ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() ) {
 					$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 				}
 				if ( !$wgUser->getId() ) {
@@ -1030,7 +1030,7 @@ class FlaggedArticleView {
 				}
 			}
 	   	}
-	 	if ( !FlaggedRevs::showVersionTabs() || $synced ) {
+	 	if ( !FlaggedRevs::versionTabsShown() || $synced ) {
 	 		// Exit, since either the stable/draft tabs should not be shown
 	 		// or the page is already the most current revision
 	   		return true;
@@ -1525,8 +1525,7 @@ class FlaggedArticleView {
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		if ( !FlaggedRevs::lowProfileUI() ) {
-			$msg = FlaggedRevs::isStableShownByDefault() ? 'revreview-text' : 'revreview-text2';
-			$form .= wfMsgExt( $msg, array( 'parse' ) );
+			$form .= wfMsgExt( 'revreview-text', array( 'parse' ) );
 		}
 
 		# Disable form for unprivileged users

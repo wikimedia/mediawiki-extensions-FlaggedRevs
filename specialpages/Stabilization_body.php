@@ -507,10 +507,10 @@ class Stabilization extends UnlistedSpecialPage
 			$log = new LogPage( 'stable' );
 			if ( $reset ) {
 				$log->addEntry( 'reset', $this->page, $reason );
-				$type = "stable-logentry2";
+				$type = "stable-logentry-reset";
 			} else {
 				$log->addEntry( 'config', $this->page, $reason );
-				$type = "stable-logentry";
+				$type = "stable-logentry-config";
 			}
 			# Build null-edit comment
 			$comment = $wgContLang->ucfirst(

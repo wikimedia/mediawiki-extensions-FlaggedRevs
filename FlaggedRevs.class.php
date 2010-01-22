@@ -190,7 +190,7 @@ class FlaggedRevs {
 	 * Should pages have stable/draft tabs when not synced?
 	 * @returns bool
 	 */
-	public static function showVersionTabs() {
+	public static function versionTabsShown() {
 		global $wgFlaggedRevTabs;
 		return (bool)$wgFlaggedRevTabs;
 	}
