@@ -112,7 +112,7 @@ $messages['bcc'] = array(
  */
 $messages['be-tarask'] = array(
 	'stablepages' => 'Стабільныя старонкі',
-	'stablepages-stable' => 'стабільная вэрсія',
+	'stablepages-stable' => 'апублікаваная вэрсія',
 	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія ўручную настроеныя для паказу стабільнай вэрсіі па змоўчваньні для чытачоў.',
 	'stablepages-none' => 'У гэтым сьпісе няма старонак',
 	'stablepages-config' => 'Канфігурацыя',
@@ -267,11 +267,12 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Translationista
  */
 $messages['es'] = array(
 	'stablepages' => 'Páginas estables',
-	'stablepages-stable' => 'versión estable',
-	'stablepages-text' => 'Debajo hay una lista de páginas manualmente configuradas para mostrar la versión estable como la página de contenido por defecto para visitantes',
+	'stablepages-stable' => 'versión publicada',
+	'stablepages-text' => 'Debajo hay una lista de páginas configuradas  manualmente para mostrar a los lectores la versión publicada como la página de contenido predeterminada.',
 	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
 	'stablepages-prec-none' => 'Sin precedencia',
@@ -641,7 +642,7 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'stablepages' => "Stabiele pagina's",
+	'stablepages' => "Gepubliceerde pagina's",
 	'stablepages-stable' => 'gepubliceerde versie',
 	'stablepages-text' => "Hier worden pagina's weergegeven waarvoor handmatig is ingesteld dat de gepubliceerde versies standaard wordt weergegeven voor lezers.",
 	'stablepages-none' => "Er zijn geen pagina's die aan de criteria voldoen",

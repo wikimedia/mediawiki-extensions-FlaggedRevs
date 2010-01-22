@@ -86,7 +86,7 @@ $messages['af'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dae}})',
 	'oldreviewedpages-recent' => '(minder as een uur)',
 	'oldreviewed-category' => 'Kategorie:',
-	'oldreviewed-watched' => 'Op my dophoulys',
+	'oldreviewed-watched' => 'Bladsye op my dophoulys',
 	'oldreviewed-stable' => 'Stabiele weergawe',
 	'oldreviewedpages-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
 );
@@ -223,7 +223,7 @@ $messages['be-tarask'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|дзень|дні|дзён}})',
 	'oldreviewedpages-recent' => '(меней 1 гадзіны)',
 	'oldreviewed-category' => 'Катэгорыя:',
-	'oldreviewed-watched' => 'З майго сьпісу назіраньня',
+	'oldreviewed-watched' => 'Старонкі з майго сьпісу назіраньня',
 	'oldreviewed-stable' => 'Стабілізаваныя',
 	'oldreviewed-diff' => 'праверыць',
 	'oldreviewed-size' => 'Найбольшыя зьмены (байтаў):',
@@ -553,7 +553,7 @@ $messages['fr'] = array(
 	'oldreviewedpages-days' => '($1 jour{{PLURAL:$1||s}})',
 	'oldreviewedpages-recent' => '(moins d’une heure)',
 	'oldreviewed-category' => 'Catégorie :',
-	'oldreviewed-watched' => 'Dans ma liste de suivi',
+	'oldreviewed-watched' => 'Pages dans ma liste de suivi',
 	'oldreviewed-stable' => 'Stabilisé',
 	'oldreviewed-diff' => 'relecture',
 	'oldreviewed-size' => 'Différence de taille maximale (en octets) :',
@@ -686,7 +686,7 @@ $messages['hi'] = array(
 );
 
 /** Croatian (Hrvatski)
- * @author Suradnik13
+ * @author Ex13
  */
 $messages['hr'] = array(
 	'oldreviewedpages' => 'Zastarjele ocjenjene stranice',
@@ -964,7 +964,7 @@ $messages['mk'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
 	'oldreviewedpages-recent' => '(помалку од 1 час)',
 	'oldreviewed-category' => 'Категорија:',
-	'oldreviewed-watched' => 'Во мојата листа на набљудувања',
+	'oldreviewed-watched' => 'Страници во мојата листа на набљудувања',
 	'oldreviewed-stable' => 'Стабилизирани',
 	'oldreviewed-diff' => 'преглед',
 	'oldreviewed-size' => 'Макс. промена (во бајти):',
@@ -1059,21 +1059,21 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'oldreviewedpages' => "Pagina's met eindredactie die bijgewerkt zijn",
-	'oldreviewedpages-legend' => "Lijst met pagina's met eindredactie en versies zonder eindredactie",
-	'oldreviewedpages-list' => "Op deze pagina {{PLURAL:$1|wordt de pagina|worden de pagina's}} met eindredactie weergegeven waarvoor nog te controleren versies zijn.",
+	'oldreviewedpages' => "Verouderde gecontroleerde pagina's",
+	'oldreviewedpages-legend' => "Lijst met gecontroleerde pagina's met ongecontroleerde versies",
+	'oldreviewedpages-list' => "Op deze pagina {{PLURAL:$1|wordt de gecontroleerde pagina|worden de gecontroleerde pagina's}} weergegeven waarvoor nog te controleren versies zijn.",
 	'oldreviewedpages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|uur|uur}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagen}})',
 	'oldreviewedpages-recent' => '(minder dan een uur)',
 	'oldreviewed-category' => 'Categorie:',
-	'oldreviewed-watched' => 'Op mijn volglijst',
+	'oldreviewed-watched' => "Pagina's op mijn volglijst",
 	'oldreviewed-stable' => 'Stabiele versie',
-	'oldreviewed-diff' => 'eindredactie',
+	'oldreviewed-diff' => 'controleren',
 	'oldreviewed-size' => 'Maximale wijziging in aantal bytes:',
 	'oldreviewedpages-unwatched' => '(niet op een volglijst)',
 	'oldreviewedpages-watched' => '($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
-	'oldreviewedpages-viewing' => '(onder eindredactie)',
+	'oldreviewedpages-viewing' => '(wordt gecontroleerd)',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -1176,6 +1176,7 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
@@ -1188,7 +1189,7 @@ $messages['pms'] = array(
 	'oldreviewedpages-recent' => '(men che 1 ora)',
 	'oldreviewed-category' => 'Categorìa:',
 	'oldreviewed-watched' => "An s'lòn ch'im ten d'euj",
-	'oldreviewed-stable' => 'Stabilisà',
+	'oldreviewed-stable' => 'Pàgine stàbij',
 	'oldreviewed-diff' => 'revision-a',
 	'oldreviewed-size' => 'Màssim cambi (byte):',
 	'oldreviewedpages-unwatched' => '(pa tnùa sot euj)',
@@ -1308,7 +1309,7 @@ $messages['ru'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
 	'oldreviewedpages-recent' => '(менее 1 часа)',
 	'oldreviewed-category' => 'Категория:',
-	'oldreviewed-watched' => 'Из моего списка наблюдения',
+	'oldreviewed-watched' => 'Страницы из моего списка наблюдения',
 	'oldreviewed-stable' => 'Стабилизированные',
 	'oldreviewed-diff' => 'проверить',
 	'oldreviewed-size' => 'Наибольшее изменение в байтах:',

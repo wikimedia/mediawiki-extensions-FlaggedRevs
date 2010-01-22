@@ -250,6 +250,7 @@ Please check the URL you used to access this page.',
  * @author Liangent
  * @author McDutchie
  * @author Meno25
+ * @author Prima klasy4na
  * @author Purodha
  * @author Raymond
  * @author Rex
@@ -362,15 +363,16 @@ Displayed on the top of a page when you are viewing an old sighted version.
 {{Identical|Featured}}',
 	'revreview-draft-title' => '{{Flagged Revs}}',
 	'revreview-edit' => '{{Flagged Revs-small}}
-Users who see the stable version and not the draft version as page, have this message in the "edit" tab.',
+Users who see the stable version and not the draft version as page, have this message in the "edit" tab.
+{{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
-	'revreview-flag' => '{{Flagged Revs-small}}
-* Title of the review box shown below a page (when you have the permission to review pages).',
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
 {{Identical|Authorised user}}',
+	'revreview-flag' => '{{Flagged Revs-small}}
+* Title of the review box shown below a page (when you have the permission to review pages).',
 	'revreview-invalid' => '{{Flagged Revs}}',
 	'revreview-legend' => '{{Flagged Revs}}',
 	'revreview-log' => '{{Flagged Revs}}
@@ -393,9 +395,6 @@ Additionnal notes and comments, see [[:Image:FlaggedRevs2.png]].',
 If <tt>$wgFlaggedRevsComments = true;</tt> there is a comment box to add any notes while reviewing the revision.',
 	'revreview-oldrating' => '{{Flagged Revs-small}}
 Used in the detailed version as label text for the ratings, see [http://translatewiki.net/w/images/8/84/FlaggedRevs.jpg this image] for an example.',
-	'revreview-patrol' => '{{Flagged Revs}}',
-	'revreview-patrol-title' => '{{Flagged Revs}}',
-	'revreview-patrolled' => '{{Flagged Revs}}',
 	'revreview-quality' => '{{Flagged Revs}}',
 	'revreview-quality-i' => '{{Flagged Revs}}',
 	'revreview-quality-old' => '{{Flagged Revs}}',
@@ -450,7 +449,6 @@ Shown when a reviewer/editor has marked a revision as stable/sighted/... See als
 Shown when a reviewer/editor has marked a stable/sighted/... revision as unstable/unsighted/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.',
 	'revreview-text' => "{{Flagged Revs-small}}
 Displayed in the review box for the reviewers' information.",
-	'revreview-text2' => '{{Flagged Revs}}',
 	'revreview-toggle-title' => '{{Flagged Revs-small}}
 Tooltip shown when hovering over <span style="color:blue;">(-/+)</span>.',
 	'revreview-toolow' => '{{Flagged Revs-small}}
@@ -559,13 +557,10 @@ $messages['af'] = array(
 	'revreview-log' => 'Opmerking:',
 	'revreview-notes' => 'Waarnemings of notas om te wys:',
 	'revreview-oldrating' => 'Word gewaardeer as:',
-	'revreview-patrol' => 'Merk die wysiging as gekontroleer',
-	'revreview-patrol-title' => 'Merk as gekontroleer',
-	'revreview-patrolled' => 'Die gekose weergawe van [[:$1|$1]] is as gekontroleerd gemerk.',
-	'revreview-quality-title' => "Dit is 'n kwaliteit bladsy",
+	'revreview-quality-title' => "Dit is 'n kwaliteitsweergawe van die bladsy",
 	'revreview-quick-invalid' => "'''Ongeldige weergawenommer'''",
 	'revreview-selected' => "Geselekteerde weergawe van '''$1:'''",
-	'revreview-stable' => 'Stabiele bladsy',
+	'revreview-stable' => 'Gepubliseerde bladsy',
 	'revreview-style-0' => 'Nie goedgekeur nie',
 	'revreview-style-1' => 'Aanvaarbaar',
 	'revreview-style-2' => 'Goed',
@@ -691,9 +686,6 @@ Mire-se [[Special:Unreviewedpages]] an que trobará una lista de pachinas sin re
 	'revreview-note' => '[[User:$1|$1]] ha feito as siguients notas mientres [[{{MediaWiki:Validationpage}}|rebisaba]] ista bersión:',
 	'revreview-notes' => "Obserbazions u notas t'amostrar:",
 	'revreview-oldrating' => 'A calificazión ye:',
-	'revreview-patrol' => 'Siñalar iste cambio como patrullato',
-	'revreview-patrol-title' => 'Siñalar como patrullato',
-	'revreview-patrolled' => "A bersión trigata de [[:$1|$1]] s'ha siñalata como patrullata.",
 	'revreview-quality' => 'Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|de calidat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
 O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] tiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambeo|cambeos}}] asperando una rebisión.',
 	'revreview-quality-i' => 'Ista ye a zaguera bersión [[{{MediaWiki:Validationpage}}|de calidat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
@@ -731,7 +723,6 @@ S'han feito nuebos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} c
 	'revreview-successful' => "'''S'ha siñalato a bersión trigata de [[:$1|$1]]. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} amostrar todas as bersions siñalatas])'''",
 	'revreview-successful2' => "'''S'ha sacato o siñal d'as bersions trigatas de [[:$1|$1]]'''",
 	'revreview-text' => "''As pachinas de conteniu que s'amuestran por defeuto son as [[{{MediaWiki:Validationpage}}|bersions estables]] en cuenta de as zagueras bersions.''",
-	'revreview-text2' => "As ''[[{{MediaWiki:Validationpage}}|bersions estables]] son bersions d'as pachinas que s'han comprebato y son o conteniu que s'amuestra por defeuto en os bisualizadors.''",
 	'revreview-toggle-title' => 'amostrar/amagar detalles',
 	'revreview-toolow' => 'Ta que a bersión se considere rebisata ha d\'abaluar toz os atribtos que s\'amuestran en o cobaixo con una calificazión mayor de "no aprebato". Ta depreziar a bersión, meta "no aprebato" en toz os campos.',
 	'revreview-update' => "Por fabor [[{{MediaWiki:Validationpage}}|rebise]] os cambios ''(que s'amuestran en o cobaixo)'' feitos dende que s'aprebó a [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bersión estable].<br />
@@ -878,9 +869,6 @@ $messages['ar'] = array(
 	'revreview-note' => '[[User:$1|$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه المراجعة:',
 	'revreview-notes' => 'الملاحظات للعرض:',
 	'revreview-oldrating' => 'تم تقييمها ك:',
-	'revreview-patrol' => 'علم على هذا التغيير كمراجع',
-	'revreview-patrol-title' => 'علم كمراجعة',
-	'revreview-patrolled' => 'المراجعة المختارة من [[:$1|$1]] تم التعليم عليها كمراجعة.',
 	'revreview-quality' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} التي تمت الموافقة عليها] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] تحتوي على [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير مقترح|تغييرات مقترحة}}] بانتظار المراجعة.',
 	'revreview-quality-i' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} التي تمت الموافقة عليها] في <i>$2</i>.
@@ -921,7 +909,6 @@ $messages['ar'] = array(
 	'revreview-successful' => "'''عُلّمت مراجعة [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هي محتوى الصفحة الافتراضي للمشاهدين بدلا من أحدث مراجعة.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هي مراجعات تم التحقق منها من الصفحات ويمكن ضبطها كالمحتوى الافتراضي للمشاهدين.''",
 	'revreview-toggle-title' => 'عرض/إخفاء التفاصيل',
 	'revreview-toolow' => '\'\'\'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
 لسحب تقييم مراجعة، اضبط كل الحقول ك"غير مقبولة".
@@ -1094,9 +1081,6 @@ $messages['arz'] = array(
 	'revreview-note' => '[[User:$1|$1]] كتب الملاحظات التاليه [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه المراجعة:',
 	'revreview-notes' => 'الملاحظات للعرض:',
 	'revreview-oldrating' => 'تم تقييمها ك:',
-	'revreview-patrol' => 'علم على هذا التغيير كمراجع',
-	'revreview-patrol-title' => 'علم كمراجعة',
-	'revreview-patrolled' => 'المراجعه المختاره من [[:$1|$1]] تم التعليم عليها كمراجعه.',
 	'revreview-quality' => 'هذه هى [[{{MediaWiki:Validationpage}}|النسخه المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} التى تمت الموافقه عليها] فى <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] تحتوى على [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير مقترح|تغييرات مقترحة}}] بانتظار المراجعه.',
 	'revreview-quality-i' => 'هذه هى [[{{MediaWiki:Validationpage}}|النسخه المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} التى تمت الموافقه عليها] فى <i>$2</i>.
@@ -1137,7 +1121,6 @@ $messages['arz'] = array(
 	'revreview-successful' => "'''عُلّمت مراجعه [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
 	'revreview-successful2' => "'''مراجعه [[:$1|$1]] تمت إزاله علمها بنجاح.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هى محتوى الصفحه الافتراضى للمشاهدين بدلا من أحدث مراجعه.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|النسخ المستقرة]] هى مراجعات تم التحقق منها من الصفحات ويمكن ضبطها كالمحتوى الافتراضى للمشاهدين.''",
 	'revreview-toggle-title' => 'عرض/إخفاء التفاصيل',
 	'revreview-toolow' => '\'\'\'يجب عليك على الأقل تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
 لسحب تقييم مراجعة، اضبط كل الحقول ك"غير مقبولة".
@@ -1261,8 +1244,6 @@ Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 	'revreview-note' => '[[User:$1|$1]] fizo les siguientes notes al [[{{MediaWiki:Validationpage}}|revisar]] esta revisión:',
 	'revreview-notes' => "Observaciones o notes p'amosar:",
 	'revreview-oldrating' => 'Foi calificáu:',
-	'revreview-patrol' => 'Marcar esti cambéu como supervisáu',
-	'revreview-patrolled' => 'La revisión seleicionada de [[:$1|$1]] marcóse como supervisada.',
 	'revreview-quality' => "Esta ye la cabera [[{{MediaWiki:Validationpage}}|quality]] revisión,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada]'l <i>$2</i>. El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador]
 pue ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificáu]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambéu|cambeos}}]
@@ -1378,9 +1359,6 @@ $messages['bcc'] = array(
 	'revreview-note' => '[[User:$1|$1]]جهلیگین یادداشتان هشتت په [[{{MediaWiki:Validationpage}}|reviewing]] ای بازبینی:',
 	'revreview-notes' => 'مشاهدات یا یادداشتان په پیش دارگ:',
 	'revreview-oldrating' => 'شی درجه بندی بوتت:',
-	'revreview-patrol' => ' ای تغییر نشان کن په داب گشتین',
-	'revreview-patrol-title' => 'نشان کن په داب گشتین',
-	'revreview-patrolled' => 'انتخابی بازبینی چه [[:$1|$1]] نشان بوتت په داب نظارت بوتگین',
 	'revreview-quality-title' => 'مقاله کیفیت',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}}به گند پیش نویس]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگرویت بیتگ مقاله]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} به گند پیش نویس]]",
@@ -1409,7 +1387,6 @@ $messages['bcc'] = array(
 	'revreview-successful' => "'''انتخابی بازبینی [[:$1|$1]]گون موفقیت نشان بوت. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} بچار کل نسخ نشان بوتگینء])'''",
 	'revreview-successful2' => "'''انتخاب بوتگین باز بینی [[:$1|$1]] گون موفقیت بی نشان بوت.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|نسخ ثابت]] پیشفرضین محتوای صفحه په چاروکاننت دات نوکین بازبینی آن..''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}ثابت نسخه]]بازبینی آن صفحات چک بیتنت و توننت به عنوان محتوای پیش فرض په بینندگان تنظیم بنت.''",
 	'revreview-toggle-title' => 'پیش دار/پناه کن جزییاتء',
 	'revreview-toolow' => 'شما بایدن حداقل هر یکی چه جهلگین نشانانء درجه بللیت گیشتر چه "unapproved" تا یک بازبینیء په داب چارتگین بیت.
 په نسخ کتن یک بازبینی کل فیلدانء په داب "unapproved" نشان کن.',
@@ -1490,9 +1467,9 @@ $messages['be-tarask'] = array(
 	'revreview-hist-draft' => 'чарнавая вэрсія',
 	'revreview-hist-quality' => 'якасная вэрсія',
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} зацьверджаная] [[User:$3|$3]]',
-	'revreview-hist-basic' => 'прагледжаная вэрсія',
-	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} прагледжаная] {{GENDER:$3|ўдзельнікам|ўдзельніцай}} [[User:$3|$3]]',
-	'revreview-hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} прагледжаная аўтаматычна]',
+	'revreview-hist-basic' => 'правераная вэрсія',
+	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} правераная] [[User:$3|$3]]',
+	'revreview-hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} правераная аўтаматычна]',
 	'revreview-hist-pending' => '[чакае праверкі]',
 	'review-edit-diff' => "'''ЗАЎВАГА: Некаторыя чакаючыя праверкі зьмены да апублікаванай вэрсіі былі далучаны да прыведзенай ніжэй формы рэдагаваньня.'''",
 	'revreview-diff-toggle-show' => '(паказаць зьмены)',
@@ -1540,7 +1517,7 @@ $messages['be-tarask'] = array(
 	'revreview-depth-4' => 'Выбраная',
 	'revreview-draft-title' => 'Гэта чарнавік старонкі',
 	'revreview-draft-rev' => 'Чарнавая вэрсія',
-	'revreview-edit' => 'Рэдагаваць чарнавік',
+	'revreview-edit' => 'Рэдагаваць',
 	'revreview-editnotice' => "'''Вашыя рэдагаваньні [[{{MediaWiki:Validationpage}}|будуць апублікаваныя]] пасьля таго, як іх [[{{MediaWiki:Validationpage}}|прарэцэнзуе]] аўтарызаваны удзельнік.'''",
 	'revreview-check-flag' => 'Пазначыць рэдагаваньне як праверанае',
 	'revreview-edited' => "'''Рэдагаваньні будуць [[{{MediaWiki:Validationpage}}|апублікаваны]] пасьля таго, як іх [[{{MediaWiki:Validationpage}}|прарэцэнзуе]] аўтарызаваны удзельнік.'''
@@ -1571,9 +1548,6 @@ $messages['be-tarask'] = array(
 	'revreview-note' => '[[User:$1|$1]] {{GENDER:$1|зрабіў|зрабіла}} наступныя камэнтары [[{{MediaWiki:Validationpage}}|пад час рэцэнзаваньня]] гэтай вэрсіі:',
 	'revreview-notes' => 'Назіраньні і камэнтары для паказу:',
 	'revreview-oldrating' => 'Атрыманая адзнака:',
-	'revreview-patrol' => 'Пазначыць гэтую зьмену як патруляваную',
-	'revreview-patrol-title' => 'Пазначыць як патруляваную',
-	'revreview-patrolled' => 'Выбраная вэрсія [[:$1|$1]] была пазначаная як патруляваная.',
 	'revreview-quality' => 'Гэтая [[{{MediaWiki:Validationpage}}|стабільная вэрсія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная]  <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Чарнавік] зьмяшчае [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|прапанаваную зьмену, якая патрабуе|прапанаваных зьмены, якія патрабуюць|прапанаваных зьменаў, якія патрабуюць рэцэнзаваньня}} рэцэнзаваньня].',
 	'revreview-quality-i' => 'Гэтая [[{{MediaWiki:Validationpage}}|стабільная вэрсія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.
@@ -1588,7 +1562,7 @@ $messages['be-tarask'] = array(
 	'revreview-quality-title' => 'Гэта якасная старонка',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Прагледжаная старонка]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} паказаць чарнавік]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Прагледжаная старонка]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} паказаць чарнавік]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Прагледжаная вэрсія]]'''",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Правераная старонка]]'''",
 	'revreview-quick-invalid' => "'''Няслушны ідэнтыфікатар вэрсіі'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Цяперашняя вэрсія]]''' (не рэцэнзавалася)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Якасная старонка]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} паказаць чарнавік]]",
@@ -1617,7 +1591,6 @@ $messages['be-tarask'] = array(
 	'revreview-successful' => "'''Вэрсія [[:$1|$1]] пасьпяхова пазначана. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} паказаць стабільныя вэрсіі])'''",
 	'revreview-successful2' => "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	'revreview-text' => "''Па змоўчваньні для чытачоў паказваюцца [[{{MediaWiki:Validationpage}}|стабільныя вэрсіі]] старонак замест найнавейшых.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Стабільныя вэрсіі]] — правераныя вэрсіі старонак, якія могуць паказвацца чытачам па змоўчваньні.''",
 	'revreview-toggle-title' => 'паказаць/схаваць падрабязнасьці',
 	'revreview-toolow' => 'Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «не зацьверджаная», каб вэрсія старонкі лічылася рэцэнзаванай.
 Каб зьняць адзнаку, устанавіце ўсе значэньні ў «не зацьверджаная».
@@ -1634,8 +1607,8 @@ $messages['be-tarask'] = array(
 	'revreview-visibility3' => "'''Гэтая старонка ня мае [[{{MediaWiki:Validationpage}}|стабільнай вэрсіі]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] устаноўкі стабільнай вэрсіі.'''",
 	'revreview-revnotfound' => 'Ранейшая вэрсія гэтай старонкі ня знойдзеная. Праверце спасылку, празь якую Вы спрабавалі перайсьці на гэтую старонку.',
 	'right-autoreview' => 'аўтаматычная адзнака вэрсій старонак як прагледжаных',
-	'right-movestable' => 'перанос стабільных старонак',
-	'right-review' => 'пазначэньне вэрсіяў як прагледжаных',
+	'right-movestable' => 'перанос апублікаваных старонак',
+	'right-review' => 'пазначэньне вэрсіяў як правераных',
 	'right-stablesettings' => 'канфігурацыя выбару і паказу стабільнай вэрсіі',
 	'right-validate' => 'пазначэньне вэрсіяў як правераных',
 	'rights-editor-autosum' => 'аўтаматычна прызначаны',
@@ -1647,7 +1620,7 @@ $messages['be-tarask'] = array(
 	'stable-logpagetext' => 'Гэты журнал зьменаў канфігурацыі [[{{MediaWiki:Validationpage}}|стабільных вэрсіяў]] старонак.
 Сьпіс стабільных вэрсіяў можна знайсьці [[Special:StablePages|тут]].',
 	'revreview-filter-all' => 'усе',
-	'revreview-filter-stable' => 'стабільная',
+	'revreview-filter-stable' => 'апублікаваная',
 	'revreview-filter-approved' => 'Зацьверджаныя',
 	'revreview-filter-reapproved' => 'Зноў зацьверджаныя',
 	'revreview-filter-unapproved' => 'Не зацьверджаныя',
@@ -1656,12 +1629,12 @@ $messages['be-tarask'] = array(
 	'revreview-statusfilter' => 'Зьмена статусу:',
 	'revreview-typefilter' => 'Тып:',
 	'revreview-levelfilter' => 'Узровень:',
-	'revreview-lev-basic' => 'прагледжаная',
+	'revreview-lev-basic' => 'правераная',
 	'revreview-lev-quality' => 'якасная',
 	'revreview-lev-pristine' => 'першапачатковая',
 	'revreview-reviewlink' => 'рэцэнзаваць',
 	'tooltip-ca-current' => 'Паказаць цяперашні чарнавік гэтай старонкі',
-	'tooltip-ca-stable' => 'Паказаць стабільную вэрсію гэтай старонкі',
+	'tooltip-ca-stable' => 'Паказаць апублікаваную вэрсію гэтай старонкі',
 	'tooltip-ca-default' => 'Устаноўкі падтрымкі якасьці',
 	'flaggedrevs-protect-legend' => 'Апублікаваць рэдагаваньні',
 	'flaggedrevs-protect-none' => 'Дазволіць усім удзельнікам',
@@ -1725,9 +1698,6 @@ $messages['bg'] = array(
 	'revreview-legend' => 'Оценка на съдържанието на версията',
 	'revreview-log' => 'Коментар:',
 	'revreview-oldrating' => 'Досегашна оценка:',
-	'revreview-patrol' => 'Отбелязване на промяната като проверена',
-	'revreview-patrol-title' => 'Отбелязване като проверена',
-	'revreview-patrolled' => 'Избраната версия на [[:$1|$1]] беше отбелязана като проверена.',
 	'revreview-quality-same' => 'Това е [[{{MediaWiki:Validationpage}}|стабилната версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] на <i>$2</i>.',
 	'revreview-quick-invalid' => "'''Невалиден номер на версия'''",
 	'revreview-quick-none' => "'''Текуща''' (няма рецензирани версии)",
@@ -1954,7 +1924,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-depth-4' => 'Heverk',
 	'revreview-draft-title' => 'Ur bajenn brouilhed eo homañ',
 	'revreview-draft-rev' => 'Adweladenn ar brouilhed',
-	'revreview-edit' => 'Brouilhed kemmoù',
+	'revreview-edit' => 'Kemmañ',
 	'revreview-edited' => "'''Ebarzhet e vo an degasadennoù er [[{{MediaWiki:Validationpage}}|stumm stabil]] ur wezh bet gwiriekaet gant un implijer aotreet.
 A-is emañ ar ''brouilhed''.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|change|kemm}}] a c'hortoz bezañ kadarnaet.",
 	'revreview-flag' => 'Adwelet an adweladenn',
@@ -1971,9 +1941,6 @@ A-is emañ ar ''brouilhed''.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-note' => 'Skrivet eo bet an notennoù-mañ gant [[User:$1|$1]] e-ser [[{{MediaWiki:Validationpage}}|adwelet]] ar stumm :',
 	'revreview-notes' => 'Evezhiadennoù ha notennoù da ziskouez :',
 	'revreview-oldrating' => 'E boentadur :',
-	'revreview-patrol' => "Merkañ ar c'hemm-mañ evel patrouilhet",
-	'revreview-patrol-title' => 'Merkañ evel patrouilhet',
-	'revreview-patrolled' => 'Merket evel patrouilhet eo bet ar stumm diuzet eus [[:$1|$1]].',
 	'revreview-quality' => "Setu an diwezhañ stumm [[{{MediaWiki:Validationpage}}|a-feson]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] a c'hortoz bezañ adwelet.",
 	'revreview-quality-old' => "Hemañ zo ur stumm [[{{MediaWiki:Validationpage}}|a-feson]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
@@ -2024,7 +1991,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'specialpages-group-quality' => 'Kretadur a-zoare',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
 	'revreview-filter-all' => 'pep tra',
-	'revreview-filter-stable' => 'stabil',
+	'revreview-filter-stable' => 'Embannet',
 	'revreview-filter-approved' => 'Aprouet',
 	'revreview-filter-reapproved' => 'Aprouet a-nevez',
 	'revreview-filter-unapproved' => "N'eo ket aprouet",
@@ -2160,9 +2127,6 @@ Radna verzija sadrži [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}
 	'revreview-note' => '[[User:$1|$1]] je napravio slijedeće bilješke pri [[{{MediaWiki:Validationpage}}|pregledu]] ove revizije:',
 	'revreview-notes' => 'Zapažanja i bilješke za prikaz:',
 	'revreview-oldrating' => 'Ocijenjeno je:',
-	'revreview-patrol' => 'Označi ovu izmjenu kao patroliranu',
-	'revreview-patrol-title' => 'Označeno kao patrolirano',
-	'revreview-patrolled' => 'Odabrana revizija [[:$1|$1]] je označena kao patrolirana.',
 	'revreview-quality' => 'Ovo je [[{{MediaWiki:Validationpage}}|stabilna verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Radna verzija] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjenu|izmjene|izmjena}}] koje čekaju provjeru.',
 	'revreview-quality-i' => 'Ovo je [[{{MediaWiki:Validationpage}}|stabilna verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
@@ -2203,7 +2167,6 @@ Novih [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena] je od
 	'revreview-successful' => "'''Revizija od [[:$1|$1]] je uspješno označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi stabilne verzije])'''",
 	'revreview-successful2' => "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne stranice]] su standardne stranice sadržaja za čitaoce umjesto novih revizija.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilne verzije]] su provjerene revizije stranica i mogu biti postavljene kao standardni sadržaj za čitaoce.''",
 	'revreview-toggle-title' => 'pokaži/sakrij detalje',
 	'revreview-toolow' => "'''Morate ocijeniti najmanje svaki od ispod navedenih ocjena više od ''neodobreno'' da bi se revizija smatrala pregledanom.'''
 Da bi uklonili ocjenu revizije, postavite sva polja na ''neodobreno''.
@@ -2316,9 +2279,6 @@ $messages['ca'] = array(
 	'revreview-noflagged' => "No hi ha versions revisades d'aquesta pàgina i, per tant, pot '''no''' haver estat [[{{MediaWiki:Validationpage}}|comprovada]] la seva qualitat.",
 	'revreview-note' => '[[User:$1|$1]] va fer les notes següents quan [[{{MediaWiki:Validationpage}}|va repassar]] aquesta revisió:',
 	'revreview-oldrating' => 'Estava valorada:',
-	'revreview-patrol' => 'Marca aquest canvi com a patrullat',
-	'revreview-patrol-title' => 'Marca com a patrullat',
-	'revreview-patrolled' => 'La revisió seleccionada de [[:$1|$1]] ha estat marcada com a patrullada.',
 	'revreview-quality' => "Aquesta és l'última versió [[{{MediaWiki:Validationpage}}|de qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versió actual] és la que pot ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|canvi|canvis}}] {{PLURAL:$3|espera|esperen}} revisió.",
 	'revreview-quality-old' => "Aquesta és una revisió de [[{{MediaWiki:Validationpage}}|qualitat]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} llista completa]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>.
 S'hi poden haver fet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} canvis].",
@@ -2481,9 +2441,6 @@ Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
 	'revreview-note' => 'Uživatel [[User:$1|$1]] doplnil své [[{{MediaWiki:Validationpage}}|posouzení]] této verze následující poznámkou:',
 	'revreview-notes' => 'Poznámky k zobrazení:',
 	'revreview-oldrating' => 'Bylo ohodnoceno:',
-	'revreview-patrol' => 'Označit tuto změnu jako prověřenou',
-	'revreview-patrol-title' => 'Označit jako prověřené',
-	'revreview-patrolled' => 'Vybraná verze stránky [[:$1|$1]] byla označena jako prověřená.',
 	'revreview-quality' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>. 
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|navrženou změnu|navržené změny|navržených změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.',
 	'revreview-quality-i' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
@@ -2524,7 +2481,6 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-successful' => "'''Vybraná revize stránky [[:$1|$1]] byla úspěšně označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobrazit stabilní verze])'''",
 	'revreview-successful2' => "'''Označení revize stránky [[:$1|$1]] bylo úspěšně zrušeno.'''",
 	'revreview-text' => "''Zobrazení [[{{MediaWiki:Validationpage}}|stabilních verzí]] je upřednostněno před nejnovějšími verzemi.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilní verze]] jsou zkontrolované revize stránek a mohou být nastaveny jako výchozí obsah pro uživatele.''",
 	'revreview-toggle-title' => 'skrýt/zobrazit detaily',
 	'revreview-toolow' => 'Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než "neschváleno". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení "neschváleno".',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Posuďte]] prosím všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.<br />
@@ -2711,9 +2667,6 @@ Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurfsversion] enthält [{{fullurl
 	'revreview-note' => '[[User:$1|$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
 	'revreview-notes' => 'Anzuzeigende Bemerkungen oder Notizen:',
 	'revreview-oldrating' => 'Bisherige Einstufung:',
-	'revreview-patrol' => 'Diese Änderung als kontrolliert markieren',
-	'revreview-patrol-title' => 'Als kontrolliert markieren',
-	'revreview-patrolled' => 'Die ausgewählte Version von [[:$1|$1]] wurde kontrolliert.',
 	'revreview-quality' => 'Dies ist die am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegebene] [[{{MediaWiki:Validationpage}}|geprüfte Version]]
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurfsversion] enthält [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}].',
 	'revreview-quality-i' => 'Dies ist die am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegebene] [[{{MediaWiki:Validationpage}}|geprüfte Version]].
@@ -2754,7 +2707,6 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-successful' => "'''Die Version der Seite ''[[:$1|$1]]'' wurde erfolgreich markiert ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alle markierten Versionen dieser Seite])'''.",
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-text' => 'Einer [[{{MediaWiki:Validationpage}}|gesichteten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren, nicht gesichteten Version gegeben.',
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Gesichtete Versionen]] können als Standardanzeige für Leser eingestellt werden.''",
 	'revreview-toggle' => '(+/−)',
 	'revreview-toggle-title' => 'Details zeigen/verstecken',
 	'revreview-toolow' => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen, damit eine Version als gesichtet gilt.
@@ -2824,8 +2776,6 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 $messages['de-formal'] = array(
 	'flaggedrevs-backlog' => 'Die [[Special:OldReviewedPages|Liste der Seiten mit ungesichteten Versionen]] ist sehr lang. Bitte helfen Sie mit, sie abzuarbeiten. Danke.',
 	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf Ihrer Beobachtungsliste. '''Ihre Aufmerksamkeit ist nötig!'''",
-	'revreview-auto-w' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
-	'revreview-auto-w-old' => "Sie bearbeiten eine gesichtete Version; Bearbeitungen werden '''automatisch als gesichtet''' markiert.",
 	'revreview-main' => 'Sie müssen eine Version zur Markierung auswählen.
 
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
@@ -2948,9 +2898,6 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-note' => '[[User:$1|$1]] no revizyon ser [[{{MediaWiki:Validationpage}}|çım çarna]] u no not verda:',
 	'revreview-notes' => 'tayê not u muşahedati ramociyeni:',
 	'revreview-oldrating' => 'derecekerdış:',
-	'revreview-patrol' => 'no vurnayiş muşahedebiyaye nişane bıker',
-	'revreview-patrol-title' => 'muşahedebiyaye nişane bıker',
-	'revreview-patrolled' => "revizyono ke qey [[:$1|$1]]'i vıciya, muşahedebiyaye işaret bı.",
 	'revreview-quality' => 'Eno [[{{MediaWiki:Validationpage}}|versiyono istıqrarın]]o ke, roca <i>$2</i>ine de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Vernuşte] de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 teklifê {{PLURAL:$3|vurnayışio ke çımraviyarnayışi paweno, esto|vurnayışanê ke çımraviyarnayışi pawenê, estê}}].',
 	'revreview-quality-i' => 'Eno [[{{MediaWiki:Validationpage}}|versiyono istıqrarın]]o ke, roca <i>$2</i>ine de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
@@ -2991,7 +2938,6 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 	'revreview-successful' => "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	'revreview-successful2' => "'''qey [[:$1|$1]] işaretê revizyoni bı serkewte wera diya.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Kararlı sürümler]] ziyaretçiler için, en yeni revizyon yerine varsayılan sayfa içeriğidir.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|versiyonê istiqrarıni]] revizyonê kontrolkerdeyê peli yê.''",
 	'revreview-toggle-title' => 'Detayan binume/bimocne',
 	'revreview-toolow' => 'Bir revizyonun gözden geçirilmiş sayılabilmesi için aşağıdaki özniteliklerden en az birini "onaylanmamış"dan yüksek oylamalısınız.
 Bir revizyonu aşındırmak için, tüm alanları "onaylanmamış" seçin.',
@@ -3154,9 +3100,6 @@ Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 	'revreview-note' => '[[User:$1|$1]] jo slědujuce pśipomnjeśa cynił, gaž jo [[{{MediaWiki:Validationpage}}|pśeglědował]] toś tu wersiju:',
 	'revreview-notes' => 'Pśispomneśa abo pśipiski, kótarež maju se zwobrazniś:',
 	'revreview-oldrating' => 'Doněntejšne pógódnośenje:',
-	'revreview-patrol' => 'Toś tu změnu ako doglědowanu markěrowaś',
-	'revreview-patrol-title' => 'Ako doglědowany markěrowaś',
-	'revreview-patrolled' => 'Wubrana wersija [[:$1|$1]] jo se markěrowała ako doglědowana.',
 	'revreview-quality' => 'To jo [[{{MediaWiki:Validationpage}}|stabilna wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Nacerjenje] wopśimujo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|naraźonu změnu, kótaraž caka|naraźonej změnje, kótarejž cakatej|naraźone změny, kótarež cakaju|naraźonych změnow, kótarež cakaju}}] na pśeglědanje.',
 	'revreview-quality-i' => 'To jo [[{{MediaWiki:Validationpage}}|stabilna wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>.
@@ -3197,7 +3140,6 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 	'revreview-successful' => "'''Wersija nastawka [[:$1|$1]] jo se wuspěšnje markěrowała. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije se woglědaś])'''",
 	'revreview-successful2' => "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne wersije]] su skerjej standardne bokowe wopśimjeśe za pśeglědowarjow ako nejnowša wersija.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilne wersije]] su pśekontrolěrowane wersije bokow a daju se ako standardne wopśimjeśe za pśeglědowarjow nastajiś.''",
 	'revreview-toggle-title' => 'drobnostki pokazaś/schowaś',
 	'revreview-toolow' => '\'\'\'Musyš nanejmjenjej kuždy ze slědujucych atributow wušej ako "njeschwalony" pógódnośiś, aby wersija płaśeła ako pśeglědana.\'\'\'
 Aby wótgódnośił wersiju, staj wšykne póla na "njeschwalony".
@@ -3318,8 +3260,6 @@ $messages['el'] = array(
 	'revreview-log' => 'Σχόλιο:',
 	'revreview-notes' => 'Εμφάνιση παρατηρήσεων ή σημειώσεων:',
 	'revreview-oldrating' => 'Βαθμολογήθηκε:',
-	'revreview-patrol' => 'Μάρκαρε αυτήν την αλλαγή ως ελεγμένη',
-	'revreview-patrol-title' => "Να σημειωθεί 'υπό παρακολούθηση'",
 	'revreview-quality-title' => 'Σελίδα ποιότητας',
 	'revreview-quick-invalid' => "'''Άκυρος κωδικός αναθεώρησης'''",
 	'revreview-selected' => "Επιλεγμένη έκδοση του '''$1:'''",
@@ -3477,9 +3417,6 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-note' => '[[User:$1|$1]] faris la jenan noton en [[{{MediaWiki:Validationpage}}|kontrolo]] de ĉi tiu versio:',
 	'revreview-notes' => 'Rimarko aŭ notoj por montri:',
 	'revreview-oldrating' => 'Ĝi estis taksita:',
-	'revreview-patrol' => 'Marki ĉi tiun ŝanĝon kiel patrolitan',
-	'revreview-patrol-title' => 'Marki kiel patrolitan',
-	'revreview-patrolled' => 'La elektita versio de [[:$1|$1]] estis markita kiel patrolita.',
 	'revreview-quality' => 'Jen la [[{{MediaWiki:Validationpage}}|stabila versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] enhavas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 petitajn {{PLURAL:$3|ŝanĝon|ŝanĝojn}}] atendante kontrolon.',
 	'revreview-quality-i' => 'Jen la [[{{MediaWiki:Validationpage}}|stabila revizio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
@@ -3520,7 +3457,6 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-successful' => "'''Tiu ĉi versio de [[:$1|$1]] estas markita kiel reviziita. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi ĉiujn markitajn versiojn])'''",
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilaj versioj]] estas la defaŭlta enhavo por vidantoj anstataŭ la lasta versio.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilaj versioj]] estas kontrolita versioj de paĝoj kaj povas defaŭlte montri tiun enhavon por legantoj.''",
 	'revreview-toggle-title' => 'montri/kaŝi detalojn',
 	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun de la jenaj atribuoj almenaŭ pli alta ol "Malkonsentita" por revizio esti konsiderata kiel kontrolita.\'\'\'
 Malvalidigi version, faru ĉiujn kampojn kiel "malaprobita".
@@ -3593,20 +3529,21 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
  * @author Translationista
  */
 $messages['es'] = array(
+	'action-review' => 'verificar revisiones',
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisiones verificadas',
 	'flaggedrevs-backlog' => "Actualmente hay un retraso de [[Special:OldReviewedPages|ediciones pendientes]] a páginas revisadas. '''¡Se necesita de tu atención!!''",
 	'flaggedrevs-watched-pending' => "Hay actualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] a páginas revisadas en tu lista de vigilancia. '''Se necesita tu atención!'''",
 	'flaggedrevs-desc' => 'Da a los editores la habilidad de validar revisiones y estabilizar páginas',
-	'flaggedrevs-pref-UI' => 'Interface de versión estable:',
+	'flaggedrevs-pref-UI' => 'Interfaz básica:',
 	'flaggedrevs-pref-UI-0' => 'Usar la versión detallada de la interfaz de versiones estables',
-	'flaggedrevs-pref-UI-1' => 'Usar la versión simple de la interfaz de versiones estables',
+	'flaggedrevs-pref-UI-1' => 'Use iconos pequeños y texto mínimo para mostrar el estado de aprobación de las páginas',
 	'prefs-flaggedrevs' => 'Estabilidad',
 	'prefs-flaggedrevs-ui' => 'Revisiones verificadas',
-	'flaggedrevs-prefs-stable' => 'Por defecto, muestra siempre la versión estable (si existe) de las páginas',
+	'flaggedrevs-prefs-stable' => 'Mostrar siempre la versión publicada de las páginas (si existe) de manera predeterminada',
 	'flaggedrevs-prefs-watch' => 'Añadir a mi lista de seguimiento las páginas que revise.',
-	'flaggedrevs-prefs-editdiffs' => 'Mostrar diferencias a estabilizar cuando edite páginas',
-	'flaggedrevs-prefs-viewdiffs' => 'Mostrar diferencias a estabilizar cuando se vea borradores de página',
+	'flaggedrevs-prefs-editdiffs' => 'Mostrar las diferencias de cambios pendientes al editar páginas',
+	'flaggedrevs-prefs-viewdiffs' => 'Mostrar las diferencias en los cambios pendientes al ver los borradores de páginas',
 	'group-editor' => 'Editores',
 	'group-editor-member' => 'Editor',
 	'group-reviewer' => 'Revisores',
@@ -3619,12 +3556,16 @@ $messages['es'] = array(
 	'revreview-hist-draft' => 'bosquejo de revisión',
 	'revreview-hist-quality' => 'revisión de calidad',
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]]',
-	'revreview-hist-basic' => 'Revisiones vistas',
-	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} observada] por [[User:$3|$3]]',
+	'revreview-hist-basic' => 'Revisión verificada',
+	'revreview-hist-basic-user' => '![{{fullurl:$1|stableid=$2}} revisada] por [[User:$3|$3]]',
 	'revreview-hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} observada automaticamente]',
+	'revreview-hist-pending' => '[a espera de revisión]',
+	'review-edit-diff' => "'''NOTA: En el formulario de edición que se muestra abajo se ha incorporado algunos cambios pendientes de aplicar a la versión publicada'''",
 	'revreview-diff-toggle-show' => '(mostrar cambios)',
 	'revreview-diff-toggle-hide' => '(esconder cambios)',
-	'review-diff2stable' => 'Ver cambios entre la revisiones estable y actual',
+	'revreview-diff-toggle-title' => 'Cambiar muestra de cambios entre borrador y la versión publicada',
+	'revreview-log-toggle-show' => '(mostrar registro de estabilidad)',
+	'review-diff2stable' => 'Ver los cambios pendientes de la versión publicada',
 	'review-logentry-app' => 'Revisado una versión de [[$1]]',
 	'review-logentry-dis' => 'desaprobada una versión de [[$1]]',
 	'review-logentry-id' => 'Revisión: $2',
@@ -3666,10 +3607,12 @@ Refrescar la página y volviendo a revisar puede solucionar este problema.",
 	'revreview-depth-4' => 'Destacado',
 	'revreview-draft-title' => 'Esta es una página esbozo',
 	'revreview-draft-rev' => 'Revisión borrador',
-	'revreview-edit' => 'Editar borrador',
+	'revreview-edit' => 'Editar',
 	'revreview-editnotice' => "'''Tus cambios serán [[{{MediaWiki:Validationpage}}|publicados]] una vez que un usuario autorizado los [[{{MediaWiki:Validationpage}}|revise]].'''",
+	'revreview-check-flag' => 'Marcar las ediciones revisadas pendientes',
 	'revreview-edited' => "'''Los cambios serán [[{{MediaWiki:Validationpage}}|publicados]] una vez que un usuario autorizado los [[{{MediaWiki:Validationpage}}|revise]]. ''' El ''borrador'' mostrado abajo, contiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambio|cambios}}] sugeridos.",
 	'revreview-flag' => 'Verificar esta revisión',
+	'revreview-reflag' => 'Volver a verificar esta revisión',
 	'revreview-invalid' => "'''Destino inválido:''' no hay  [[{{MediaWiki:Validationpage}}|versión revisada]] que corresponda a tal ID.",
 	'revreview-legend' => 'Valorar contenido de revisión',
 	'revreview-log' => 'Comentario:',
@@ -3688,9 +3631,6 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-note' => '[[User:$1|$1]] hizo las siguiente notas [[{{MediaWiki:Validationpage}}|verificando]] esta revisión:',
 	'revreview-notes' => 'Observaciones o notas a mostrar:',
 	'revreview-oldrating' => 'Fue calificada:',
-	'revreview-patrol' => 'Marcar este cambio como vigilado',
-	'revreview-patrol-title' => 'Marcar como vigilado',
-	'revreview-patrolled' => 'Las revisiones seleccionadas de [[:$1|$1]] han sido marcadas como patrulladas',
 	'revreview-quality' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
 El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] contiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] sugeridos esperando revisión.',
 	'revreview-quality-i' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>.
@@ -3702,7 +3642,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-quality-title' => 'Esta es una página de calidad',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver borrador]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|página vista]]'''",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Checked page]]'''",
 	'revreview-quick-invalid' => "'''ID de revisión inválido'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Versión actual]]''' (sin revisar)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
@@ -3726,11 +3666,11 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-style-4' => 'Destacado',
 	'revreview-submit' => 'Enviar',
 	'revreview-submit-review' => 'Marcar como revisado',
+	'revreview-submit-unreview' => 'Marcar no revisados',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones estables]] son las predeterminadas para los lectores en vez de las más recientes.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Versiones estables]] son revisiones verificadas de las páginas y pueden ser configuradas como contenido por defecto para los visitantes.''",
 	'revreview-toggle-title' => 'mostrar/ocultar detalles',
 	'revreview-toolow' => 'Debes al menos valorar cada uno de los atributos de abajo más alto que "desaprobado" para que la revisión sea considerada verificada.
 Para depreciar un arevisión, marque todos los campos como "desaprobado".',
@@ -3834,9 +3774,6 @@ $messages['et'] = array(
 	'revreview-edit' => 'Redigeeri mustandit',
 	'revreview-flag' => 'Redaktsiooni ülevaatamine',
 	'revreview-log' => 'Kommentaar:',
-	'revreview-patrol' => 'Märgi see muudatus patrullituks',
-	'revreview-patrol-title' => 'Märgi patrullituks',
-	'revreview-patrolled' => 'Lehekülje [[:$1|$1]] valitud redaktsioon on kontrollituks märgitud.',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud lehekülg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vaata mustandit]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud lehekülg]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vaata mustandit]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Kord vaadatud lehekülg]]'''",
@@ -4005,9 +3942,6 @@ $messages['fa'] = array(
 	'revreview-note' => '[[User:$1|$1]] این توضیحات را ضمن [[{{MediaWiki:Validationpage}}|بررسی]] این نسخه ثبت کرد:',
 	'revreview-notes' => 'مشاهدات یا ملاحظات',
 	'revreview-oldrating' => 'نمره داده شده:',
-	'revreview-patrol' => 'علامت زدن این تغییر به عنوان بررسی‌شده',
-	'revreview-patrol-title' => 'علامت گشت بزن',
-	'revreview-patrolled' => 'نسخهٔ انتخاب شده از [[:$1|$1]] به عنوان بررسی‌شده علامت خورده‌است.',
 	'revreview-quality' => 'این آخرین نسخه [[{{MediaWiki:Validationpage}}|باکیفیت]] است که در <i>$2</i>
 	[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش‌نویس]
 	قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} ویرایش] است؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغییر|تغییر}}]
@@ -4049,7 +3983,6 @@ $messages['fa'] = array(
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} مشاهدهٔ تمام نسخه‌های علامت‌دار])'''",
 	'revreview-successful2' => "'''پرچم نسخه‌های انتخابی از [[:$1|$1]] با موفقیت برداشته شد.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|نسخهٔ پایدار]]'' (و نه آخرین نسخه) هر صفحه به عنوان پیش‌فرض محتوای صفحه است.",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|نسخه‌های پایدار]] نسخه‌هایی از هر صفحه هستند که بررسی شده‌اند و می‌توان آن‌ها را به عنوان محتوای پیش‌فرض برای بینندگان تنظیم کرد..''",
 	'revreview-toggle' => '(+/−)',
 	'revreview-toggle-title' => 'نمایش/پنهان کردن جزئیات',
 	'revreview-toolow' => 'شما باید هر یک از موارد زیر را با درجه‌ای بیش از «تائیدنشده» علامت بزنید تا آن نسخه بررسی شده به حساب بیاید. برای مستهلک کردن یک نسخه، تمام موارد را «تائیدنشده» علامت بزنید.',
@@ -4171,9 +4104,6 @@ Katso [[Special:Unreviewedpages|lista arvioimattomista sivuista]].',
 	'revreview-note' => '[[User:$1|$1]] teki seuraavat muistiinpanot [[{{MediaWiki:Validationpage}}|arvioidessaan]] tätä versiota:',
 	'revreview-notes' => 'Huomioita tai muistiinpanoja näytettäväksi:',
 	'revreview-oldrating' => 'Arvio oli:',
-	'revreview-patrol' => 'Merkitse tämä muutos tarkastetuksi',
-	'revreview-patrol-title' => 'Merkitse tarkastetuksi',
-	'revreview-patrolled' => 'Valittu versio sivusta [[:$1|$1]] on merkitty katsotuksi.',
 	'revreview-quality-title' => 'Tämä on laadukas sivu',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Silmäilty sivu]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} näytä luonnos]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Silmäilty sivu]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} näytä luonnos]]",
@@ -4296,6 +4226,7 @@ $messages['fr'] = array(
 	'revreview-diff-toggle-show' => '(montrer les modifications)',
 	'revreview-diff-toggle-hide' => '(cacher les modifications)',
 	'revreview-diff-toggle-title' => "Basculer l'affichage des modifications entre le brouillon et la version publiée",
+	'revreview-log-toggle-show' => '(afficher le journal de stabilité)',
 	'review-diff2stable' => 'Voir les modifications en cours par rapport à la version publiée',
 	'review-logentry-app' => 'a relu une version de [[$1]]',
 	'review-logentry-dis' => 'a déprécié une version de [[$1]]',
@@ -4338,7 +4269,7 @@ Recharger la page et la relire de nouveau devrait corriger ce problème.",
 	'revreview-depth-4' => 'Remarquable',
 	'revreview-draft-title' => 'Ceci est une page de brouillon',
 	'revreview-draft-rev' => 'Révision brouillon',
-	'revreview-edit' => 'Modifier le brouillon',
+	'revreview-edit' => 'Modifier',
 	'revreview-editnotice' => "'''Vos modifications seront [[{{MediaWiki:Validationpage}}|publiées]]  une fois qu’un utilisateur disposant des droits nécessaires les aura [[{{MediaWiki:Validationpage}}|relues]].'''",
 	'revreview-check-flag' => 'Marquer les modifications en attente comme relues',
 	'revreview-edited' => "'''Les modifications seront [[{{MediaWiki:Validationpage}}|publiées]] dès qu'un utilisateur disposant des droits suffisants les aura [[{{MediaWiki:Validationpage}}|relues]].'''
@@ -4364,9 +4295,6 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-note' => '[[User:$1|$1]] a accompagné sa relecture des notes suivantes :',
 	'revreview-notes' => 'Observations et notes à afficher :',
 	'revreview-oldrating' => 'Son évaluation :',
-	'revreview-patrol' => 'Marquer cette modification comme patrouillée',
-	'revreview-patrol-title' => 'Marquer comme patrouillée',
-	'revreview-patrolled' => 'La version sélectionnée de [[:$1|$1]] a été marquée comme patrouillée.',
 	'revreview-quality' => 'Ceci est la [[{{MediaWiki:Validationpage}}|version publiée]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.
 Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] comporte [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 modification{{PLURAL:$3||s}}] nécessitant une relecture.',
 	'revreview-quality-i' => 'Ceci est la [[{{MediaWiki:Validationpage}}|version publiée]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.
@@ -4375,25 +4303,25 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouillon] comporte des [{{fullurl:{{
 De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifications] peuvent avoir été effectuées.",
 	'revreview-quality-same' => 'Ceci est la [[{{MediaWiki:Validationpage}}|version publiée]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.',
 	'revreview-quality-source' => "Une [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version de qualité] de cette page, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le ''$2'', est basée sur cette version.",
-	'revreview-quality-title' => 'Ceci est une page de qualité',
+	'revreview-quality-title' => 'Ceci est une version de qualité de cette page',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Page vérifiée]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} voir le brouillon en cours]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Page vérifiée]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} voir le brouillon en cours]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Page vérifiée]]'''",
 	'revreview-quick-invalid' => "'''Numéro de version incorrect'''",
-	'revreview-quick-none' => "'''Version actuelle''' (non relue)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Page de brouillon]]''' (non relue)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Page de qualité]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} voir le brouillon en cours]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Page de qualité]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} voir le brouillon en cours]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Page de qualité]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Brouillon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stable]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Brouillon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publiée]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparer])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Brouillon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stable]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Brouillon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publiée]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparer])",
 	'revreview-selected' => "Version choisie de '''$1 :'''",
-	'revreview-source' => 'Texte source du brouillon',
-	'revreview-stable' => 'Page stable',
-	'revreview-basic-title' => 'Ceci est une page vérifiée',
-	'revreview-stable1' => 'Vous souhaitez peut-être consulter [{{fullurl:$1|stableid=$2}} cette version marquée] pour voir si c’est maintenant la [{{fullurl:$1|stable=1}} version stable] de cette page.',
-	'revreview-stable2' => 'Vous souhaitez peut-être consulter [{{fullurl:$1|stable=1}} la version stable] de cette page (s’il en existe une).',
+	'revreview-source' => 'Source du brouillon',
+	'revreview-stable' => 'Page publiée',
+	'revreview-basic-title' => 'Ceci est une version vérifiée de cette page.',
+	'revreview-stable1' => 'Vous souhaitez peut-être consulter [{{fullurl:$1|stableid=$2}} cette version marquée] pour voir si c’est maintenant la [{{fullurl:$1|stable=1}} version publiée] de cette page.',
+	'revreview-stable2' => 'Vous souhaitez peut-être consulter [{{fullurl:$1|stable=1}} la version publiée] de cette page (s’il en existe une).',
 	'revreview-style' => 'Lisibilité',
 	'revreview-style-0' => 'Non approuvée',
 	'revreview-style-1' => 'Acceptable',
@@ -4406,8 +4334,7 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'revreview-submitting' => 'Soumission…',
 	'revreview-successful' => "'''La version sélectionnée de [[:$1|$1]] a été marquée avec succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} voir les versions stables])'''",
 	'revreview-successful2' => "'''Version de [[:$1|$1]] invalidée.'''",
-	'revreview-text' => "''Les [[{{MediaWiki:Validationpage}}|versions publiées]] sont utilisées comme contenu par défaut pour le lecteur au lieu des versions les plus récentes.''",
-	'revreview-text2' => "''Les [[{{MediaWiki:Validationpage}}|versions publiées]] sont les versions de pages vérifiées et peuvent être définies comme le contenu par défaut pour le lecteur.''",
+	'revreview-text' => "''Les [[{{MediaWiki:Validationpage}}|versions relues]] sont des versions vérifiées des pages utilisées pour déterminer la version publiée.''",
 	'revreview-toggle-title' => 'montrer/cacher les détails',
 	'revreview-toolow' => "'''Vous devez affecter une évaluation plus élevée que « non approuvée » pour que la relecture soit prise en compte.'''
 Pour déprécier une version, mettez tous les champs à « non approuvée ».
@@ -4417,7 +4344,7 @@ Veuillez utiliser le bouton « retour » de votre navigateur puis essayez de nou
 '''Quelques fichiers ou modèles ont été mis à jour :'''",
 	'revreview-update-includes' => "'''Quelques modèles ou fichiers ont été mis à jour :'''",
 	'revreview-update-none' => "Veuillez [[{{MediaWiki:Validationpage}}|relire]] les modifications effectuées ''(voir ci-dessous)'' depuis que la version publiée a été [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée].",
-	'revreview-update-use' => "'''Note :''' si ces modèles ou fichiers comportent une version stable, alors celle-ci est déjà utilisée dans la version stable de cette page.",
+	'revreview-update-use' => "'''Note :''' si ces modèles ou fichiers comportent une version publiée, alors celle-ci est déjà utilisée dans la version publiée de cette page.",
 	'revreview-diffonly' => "''Pour relire la page, cliquez sur le lien « version courante » et utilisez le formulaire de relecture.''",
 	'revreview-visibility' => "Cette page possède une [[{{MediaWiki:Validationpage}}|version publiée]]. Les paramètres de stabilité peuvent être [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurés].'''",
 	'revreview-visibility2' => "Cette page comporte une [[{{MediaWiki:Validationpage}}|version publiée]] périmée. Les paramètres de stabilité de la page peuvent être [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurés].'''",
@@ -4425,7 +4352,7 @@ Veuillez utiliser le bouton « retour » de votre navigateur puis essayez de nou
 	'revreview-revnotfound' => "L'ancienne version de cette page que vous avez demandée n'a pas pu être retrouvée.
 Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
 	'right-autoreview' => 'Marquer automatiquement les versions comme vérifiées',
-	'right-movestable' => 'Renommer des pages stables',
+	'right-movestable' => 'Renommer des pages publiées',
 	'right-review' => 'Marquer les versions comme vérifiées',
 	'right-stablesettings' => "Configurer les paramètres de sélection et d'affichage des versions publiées",
 	'right-validate' => 'Marquer les versions comme étant de « qualité »',
@@ -4438,7 +4365,7 @@ Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
 	'stable-logpagetext' => 'Voici le journal des modifications de la configuration des [[{{MediaWiki:Validationpage}}|versions publiées]] des pages.
 Vous pouvez également consulter la [[Special:StablePages|liste de pages stables]].',
 	'revreview-filter-all' => 'Tout',
-	'revreview-filter-stable' => 'stable',
+	'revreview-filter-stable' => 'publié',
 	'revreview-filter-approved' => 'Approuvé',
 	'revreview-filter-reapproved' => 'De nouveau approuvé',
 	'revreview-filter-unapproved' => 'Non approuvé',
@@ -4575,9 +4502,6 @@ Des [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changements de m
 	'revreview-note' => '[[User:$1|$1]] at ècrit cetes notes de [[{{MediaWiki:Validationpage}}|rèvision]] :',
 	'revreview-notes' => 'Remârques et notes a fâre vêre :',
 	'revreview-oldrating' => 'Son èstimacion :',
-	'revreview-patrol' => 'Marcar ceti changement coment survelyê',
-	'revreview-patrol-title' => 'Marcar coment survelyê',
-	'revreview-patrolled' => 'La vèrsion chouèsia de [[:$1|$1]] at étâ marcâ coment survelyê.',
 	'revreview-quality' => 'O est la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.
 Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brolyon] at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 changement{{PLURAL:$3||s}} conselyê{{PLURAL:$3||s}}] en atenta de rèvision.',
 	'revreview-quality-i' => 'O est la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.
@@ -4618,7 +4542,6 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changemen
 	'revreview-successful' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ marcâ avouéc reusséta ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vêde totes les vèrsions stâbles]).'''",
 	'revreview-successful2' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ envalidâ avouéc reusséta.'''",
 	'revreview-text' => "''Les [[{{MediaWiki:Validationpage}}|vèrsions stâbles]] sont utilisâs coment lo contegnu per dèfôt por lo liésor nan pas les vèrsions les ples novèles.''",
-	'revreview-text2' => "''Les [[{{MediaWiki:Validationpage}}|vèrsions stâbles]] sont les vèrsions controlâs de les pâges et pôvont étre dèfenies coment lo contegnu per dèfôt por lo liésor.''",
 	'revreview-toggle-title' => 'fâre vêre / cachiér los dètalys',
 	'revreview-toolow' => 'Vos dête afèctar una èstimacion ples hôta que « pas aprovâ » a châcun des atributs ce-desot por que la vèrsion seye considèrâ coment revua.
 Por dèprèciyér una vèrsion, betâd tôs los champs a « pas aprovâ ».',
@@ -4821,9 +4744,6 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-note' => '"[[User:$1|$1]]" fixo as seguintes notas [[{{MediaWiki:Validationpage}}|examinando]] esta revisión:',
 	'revreview-notes' => 'Observacións ou notas para amosar:',
 	'revreview-oldrating' => 'Valoración:',
-	'revreview-patrol' => 'Marcar este cambio como patrullado',
-	'revreview-patrol-title' => 'Marcar como patrullado',
-	'revreview-patrolled' => 'A revisión seleccionada de [[:$1|$1]] foi marcada como revisada.',
 	'revreview-quality' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] contén [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio pendente|cambios pendentes}}] agardando por unha revisión.',
 	'revreview-quality-i' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
@@ -4864,7 +4784,6 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cam
 	'revreview-successful' => "'''Examinouse con éxito a revisión de \"[[:\$1|\$1]]\". ([{{fullurl:{{#Special:ReviewedVersions}}|page=\$2}} ver as versións estábeis])'''",
 	'revreview-successful2' => "'''Retiouse con éxito o exame da revisión de \"[[:\$1|\$1]]\".'''",
 	'revreview-text' => "''As [[{{MediaWiki:Validationpage}}|versións publicadas]] utilízanse como os contidos por defecto ao ver unha páxina no canto da revisión máis recente.''",
-	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|versións publicadas]] son revisións comprobadas de páxinas e pódense fixar como os contidos por defecto para os lectores.''",
 	'revreview-toggle-title' => 'amosar/agochar detalles',
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos de embaixo cunha puntuación maior a "sen aprobar" para que unha revisión sexa considerada como revisada.\'\'\'
 Para rexeitar unha revisión, encha todos os campos con "sen aprobar".
@@ -4969,7 +4888,6 @@ $messages['grc'] = array(
 	'revreview-edit' => 'Προσχέδιον μεταγραφῆς',
 	'revreview-log' => 'Σχόλιον:',
 	'revreview-oldrating' => 'Ἐβαθμώθη:',
-	'revreview-patrol-title' => 'Σημαίνειν ὡς περιπολουμένην',
 	'revreview-quality' => "Ἥδε ἐστὶ ἡ [[{{MediaWiki:Validationpage}}|ποιοτικὴ ἔκδοσις]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ἐπικυρωμένη] κατὰ τὴν ''$2''. Ἡ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} πρόχειρη ἔκδοσις] περιέχει [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|$3 μεταβολὴν ἀναμένουσαν|$3 μεταβολὰς ἀναμένουσας}}] ἐπιθεώρησιν.",
 	'revreview-quality-title' => 'ποιοτικὴ ἔκδοσις',
 	'revreview-quick-invalid' => "'''Ἄκυρος ἀναθεώρησις ID'''",
@@ -5115,9 +5033,6 @@ In dr [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurfsversion] het s [{{fullurl:
 	'revreview-note' => '[[User:$1|$1]] het die [[{{MediaWiki:Validationpage}}|Priefnotiz]] zue däre Version gmacht:',
 	'revreview-notes' => 'Bemerkige oder Notize, wu sotte aazeigt wäre:',
 	'revreview-oldrating' => 'Yystufig bis jetz:',
-	'revreview-patrol' => 'Kontrollier die Änderig',
-	'revreview-patrol-title' => 'As kontrolliert markiere',
-	'revreview-patrolled' => 'Di usgwehlt Version vu [[:$1|$1]] isch vum Fäldhieter aagluegt wore.',
 	'revreview-quality' => 'Des isch di letscht [[{{MediaWiki:Validationpage}}|prieft]] Version, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee] am <i>$2</i>.
 
 Im [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] het s [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3   {{PLURAL:$3|Änderig, wu no vum Fäldhieter sott aagluegt wäre|Änderige, wu no vum Fäldhieter sotte aagluegt wäre}}].',
@@ -5159,7 +5074,6 @@ S cha syy, ass es scho neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-successful' => "'''Di usgwehlt Version vum Artikel ''[[:\$1|\$1]]'' isch as \"vum Fäldhieter gsäh\" markiert wore ([{{fullurl:{{#Special:ReviewedVersions}}|page=\$2}} alli aagluegte Versione vu däm Artikel])'''.",
 	'revreview-successful2' => "'''D Markierig vu dr Version vu [[:$1|$1]] isch ufghobe wore.'''",
 	'revreview-text' => 'E [[{{MediaWiki:Validationpage}}|vum Fäldhieter aagluegti Version]] wird bi dr Sytedarstellig bevorzugt vor ere neijere, nit aagluegte Version.',
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Vum Fäldhieter aagluegti Versione]] chenne as Standardaazeig fir Leser yygstellt wäre.''",
 	'revreview-toggle-title' => 'zeig/versteck Detail',
 	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „nit prieft“, ass e Version as \"vum Fäldhieter gsäh\" giltet.''' 
 Zum e Version z verwerfe, mien alli Attribut uf „nit prieft“ stoh.
@@ -5338,9 +5252,6 @@ $messages['he'] = array(
 	'revreview-note' => '[[User:$1|$1]] רשם את ההערות הבאות במהלך [[{{MediaWiki:Validationpage}}|בדיקה]] של גרסה זו:',
 	'revreview-notes' => 'תובנות או הערות להצגה:',
 	'revreview-oldrating' => 'קיבל דירוג של:',
-	'revreview-patrol' => 'סימון שינוי זה כבדוק',
-	'revreview-patrol-title' => 'סימון כבדוק',
-	'revreview-patrolled' => 'הגרסה שנבחרה של [[:$1|$1]] סומנה כבדוקה.',
 	'revreview-quality' => 'זו הגרסה ה[[{{MediaWiki:Validationpage}}|איכותית]] האחרונה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 ב[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} טיוטה] יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|הטעון אישור|הטעונים אישור}}.',
 	'revreview-quality-i' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|איכותית]] האחרונה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
@@ -5379,7 +5290,6 @@ $messages['he'] = array(
 	'revreview-successful' => "'''הגרסה של [[:$1|$1]] סומנה בהצלחה. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} צפייה בגרסאות היציבות])'''",
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
 	'revreview-text' => "'''[[{{MediaWiki:Validationpage}}|גרסאות יציבות]] מוצגות כברירת מחדל לקוראים במקום הגרסה האחרונה.'''",
-	'revreview-text2' => "'''[[{{MediaWiki:Validationpage}}|גרסאות יציבות]] הן גרסאות בדוקות של דפים וניתן לבחור שיוצגו כברירת מחדל לקוראים.'''",
 	'revreview-toggle-title' => 'הצגת/הסתרת פרטים',
 	'revreview-toolow' => 'עליכם לדרג כל אחת מהתכונות הבאות גבוה יותר מ"לא אושר" כדי שהגרסה תיחשב לגרסה שנבדקה.
 כדי לסמן גרסה מסויימת כבעייתית, אנא הגדירו את כל השדות ל"לא אושר".',
@@ -5518,9 +5428,6 @@ $messages['hi'] = array(
 	'revreview-note' => '[[User:$1|$1]] ने यह अवतरण [[{{MediaWiki:Validationpage}}|जाँचते समय]] निम्नलिखित सूचनायें दी हुई हैं:',
 	'revreview-notes' => 'आपके प्रेक्षण दर्शाने के लिये:',
 	'revreview-oldrating' => 'इसका गुणांकन:',
-	'revreview-patrol' => 'यह बदलाव देख लेने का मार्क करें',
-	'revreview-patrol-title' => 'जाँचने का मार्क करें',
-	'revreview-patrolled' => '[[:$1|$1]] के चुने हुए अवतरणपर गश्त देने का मार्क किया हैं।',
 	'revreview-quality' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं, जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|बदलाव है|बदलाव हैं}}] जिनकी जाँच बाकी हैं।',
 	'revreview-quality-i' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं, जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
@@ -5559,7 +5466,6 @@ $messages['hi'] = array(
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] नवीनतम अवतरणसे चुनने के बजाय मूल पाठ के हिसाब से चुना जाता हैं।''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] पन्नेके जाँचे हुए अवतरण होते हैं और देखनेवालोंके लिये अविचल पाठ दर्शाते हैं।''",
 	'revreview-toggle-title' => 'ज्यादा ज़ानकारी दर्शायें/छुपायें',
 	'revreview-toolow' => 'एक अवतरण को जाँचने का मार्क करने के लिये आपको नीचे लिखे हर पॅरॅमीटरको "अप्रमाणित" से उपरी दर्जा देना आवश्यक हैं।
 एक अवतरणका गुणांकन कम करने के लिये, निम्नलिखित सभी कॉलममें "अप्रमाणित" चुनें।',
@@ -5704,9 +5610,6 @@ dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {
 	'revreview-note' => '[[User:$1|$1]] je zabilježio slijedeće pri [[{{MediaWiki:Validationpage}}|ocjenjivanju]] ove inačice:',
 	'revreview-notes' => 'Primjedbe ili napomene koje treba prikazati:',
 	'revreview-oldrating' => 'Prethodna ocjena:',
-	'revreview-patrol' => 'Označi ovu izmjenu pregledanom',
-	'revreview-patrol-title' => 'Označi kao patrolirano',
-	'revreview-patrolled' => 'Odabrana izmjena stranice [[:$1|$1]] je označena pregledanom (patroliranom).',
 	'revreview-quality' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Članak u radu]
 možete [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} uređivati]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|promjena|promjene|promjena}}]
@@ -5749,7 +5652,6 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] su mo�
 	'revreview-successful' => "'''Inačica od [[:$1|$1]] uspješno je označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi važeće inačice])'''",
 	'revreview-successful2' => "'''Inačica od [[:$1|$1]] uspješno je označena.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne inačice]] stranice prikazuje se svima umjesto najnovije inačice.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Važeće inačice]] su provjerene inačice stranice i mogu biti postavljene kao zadani sadržaj za čitače stranice.''",
 	'revreview-toggle-title' => 'prikaži/sakrij detalje',
 	'revreview-toolow' => 'Morate ocijeniti po svakom od donjih kriterija ocjenom višom od "Ne zadovoljava"
 da bi promjena bila pregledana/ocijenjena. U suprotnom, ostavite sve na "Ne zadovoljava".',
@@ -5912,9 +5814,6 @@ Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-note' => '[[User:$1|$1]] činješe slědowace [[{{MediaWiki:Validationpage}}|pruwowanske noticy]] k tutej wersiji:',
 	'revreview-notes' => 'Wobkedźbowanja abo přispomnjenki, kotrež maja so pokazać:',
 	'revreview-oldrating' => 'Zastopnjowanje:',
-	'revreview-patrol' => 'Tutu změnu jako dohladowanu markěrować',
-	'revreview-patrol-title' => 'Jako dohladowany markěrować',
-	'revreview-patrolled' => 'Wubrana wersija bu wot [[:$1|$1]] bu jako dohladowana marěkrowana.',
 	'revreview-quality' => 'To je [[{{MediaWiki:Validationpage}}|stabilna wersija]],
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Naćisk] wobsahuje
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|namjetowanu změnu|namjetowanej změnje|namjetowane změny|namjetowanych změnow}}], {{PLURAL:$3|kotraž|kotrejž|kotrež|kotrež}} na přehladanje {{PLURAL:$3|čaka|čakatej|čakaja|čakaja}}.',
@@ -5956,7 +5855,6 @@ Je móžno, zo su so hižo nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-successful' => "'''Wersija [[:$1|$1]] je so wuspěšnje woznamjeniła. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije wobhladać])'''",
 	'revreview-successful2' => "'''Woznamjenjenje wersije [[:$1|$1]] je so wuspěšnje wotstroniło.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne wersije]] su skerje standardny wobsah strony za wobhladowarjow hač najnowša wersija.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilne wersije]] su skontrolowane wersije stronow a dadźa so jako standardny wobsah za wobhladowarjow nastajić.''",
 	'revreview-toggle-title' => 'Podrobnosće pokazać/schować',
 	'revreview-toolow' => "'''Dyrbiš znajmjeńša za kóždy z deleka naspomnjenych atributow wyše hač „njeschwaleny“ pohódnoćić,
 zo by so wersija jako přehladana woznamjeniła.'''
@@ -6127,9 +6025,6 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-note' => '[[User:$1|$1]] az alábbi megjegyzéseket fűzte ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzése]] mellé:',
 	'revreview-notes' => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-oldrating' => 'Értékelése:',
-	'revreview-patrol' => 'Változtatás ellenőrzöttnek jelölése',
-	'revreview-patrol-title' => 'Ellenőrzöttnek jelölés',
-	'revreview-patrolled' => '[[:$1|$1]] kiválasztott változata ellenőrzöttnek lett jelölve.',
 	'revreview-quality' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|minőségi]] változat, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>.
 A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|egy|$3}} változtatás] vár ellenőrzésre.',
 	'revreview-quality-i' => 'Ez a legutolsó [[{{MediaWiki:Validationpage}}|minőségi]] változat, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>.
@@ -6168,7 +6063,6 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{full
 	'revreview-successful' => "'''A(z) [[:$1|$1]] változatát sikeresen megjelölted. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabil változatok megjelenítése])'''",
 	'revreview-successful2' => "'''A(z) [[:$1|$1]] változatáról sikeresen eltávolítottad a jelölést.'''",
 	'revreview-text' => "''Az olvasóknak a [[{{MediaWiki:Validationpage}}|stabil változatok]] az alapértelmezett tartalmak a legújabb változat helyett.''",
-	'revreview-text2' => "''A [[{{MediaWiki:Validationpage}}|stabil változatok]] a lapok ellenőrzött változatai, és beállíthatóak alapértelmezett tartalomként az olvasóknak.''",
 	'revreview-toggle-title' => 'részletek megjelenítése/elrejtése',
 	'revreview-toolow' => 'Ahhoz, hogy egy változat ellenőrzöttnek tekinthető legyen, minimum minden alábbi tulajdonságot magasabbra kell értékelned a „nem elfogadott” szintnél. Ha el szeretnéd távolítani egy változat értékelését, akkor állíts minden mezőt „nem elfogadott”-ra.',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Ellenőrizd]] az alábbi változtatásokat, melyek a stabil változat [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} jóváhagyása] óta történtek!<br />
@@ -6347,9 +6241,6 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-note' => '[[User:$1|$1]] faceva le sequente notas [[{{MediaWiki:Validationpage}}|revidente]] iste version:',
 	'revreview-notes' => 'Observationes o notas a presentar:',
 	'revreview-oldrating' => 'Su evalutation:',
-	'revreview-patrol' => 'Marcar iste modification como patruliate',
-	'revreview-patrol-title' => 'Marcar como patruliate',
-	'revreview-patrolled' => 'Le version seligite de [[:$1|$1]] ha essite marcate como patruliate.',
 	'revreview-quality' => 'Iste es le [[{{MediaWiki:Validationpage}}|version publicate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
 Le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version provisori] contine [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modification|modificationes}}] attendente revision.',
 	'revreview-quality-i' => 'Iste es le [[{{MediaWiki:Validationpage}}|version stabile]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>.
@@ -6390,7 +6281,6 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes]
 	'revreview-successful' => "'''Le version de [[:$1|$1]] ha essite marcate con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vider versiones stabile])'''",
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-text' => "Le ''[[{{MediaWiki:Validationpage}}|versiones stabile]] es le contento predefinite pro le lectores in loco del version le plus nove.",
-	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|versiones stabile]] es le versiones verificate del paginas e pote esser assignate como le contento predefinite pro le lectores.''",
 	'revreview-toggle-title' => 'revelar/celar detalios',
 	'revreview-toolow' => '\'\'\'Tu debe al minus valorisar cata un del attributos in basso como plus alte que "non approbate" a fin que un version sia considerate como revidite.\'\'\'
 Pro depreciar un version, mitte tote le campos a "non approbate".
@@ -6551,9 +6441,6 @@ Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-note' => '[[User:$1]] memberikan catatan berikut sewaktu [[{{MediaWiki:Validationpage}}|meninjau]] revisi ini:',
 	'revreview-notes' => 'Pengamatan atau catatan untuk ditampilkan:',
 	'revreview-oldrating' => 'Memiliki rating:',
-	'revreview-patrol' => 'Tandai perubahan ini terpatroli',
-	'revreview-patrol-title' => 'Ditandai sebagai terpatroli',
-	'revreview-patrolled' => 'Revisi terpilih dari [[:$1|$1]] telah ditandai terpatroli.',
 	'revreview-quality' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 usulan {{PLURAL:$3|perubahan|perubahan}}] yang menunggu tinjauan.',
 	'revreview-quality-i' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] yang menunggu tinjauan.',
 	'revreview-quality-old' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|layak]] yang terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.
@@ -6592,7 +6479,6 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-successful' => "'''Revisi [[:$1|$1]] berhasil ditandai. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat revisi stabil])'''",
 	'revreview-successful2' => "'''Penandaan revisi [[:$1|$1]] berhasil dibatalkan.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Versi stabil]] diset sebagai isi tampilan baku halaman dan bukan revisi terakhir.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Versi stabil]] merupakan revisi-revisi halaman yang telah diperiksa dan dapat diset sebagai isi tampilan baku halaman bagi pembaca.''",
 	'revreview-toggle-title' => 'tampilkan/sembunyikan detail',
 	'revreview-toolow' => 'Anda harus memberi peringkat lebih tinggi dari "tak disetujui" dalam penilaian di bawah ini agar suatu revisi dapat dianggap telah ditinjau. Untuk menurunkan peringkat suatu revisi, berikan nilai "tak disetujui" pada semua penilaian.',
 	'revreview-update' => "Harap [[{{MediaWiki:Validationpage}}|meninjau]] semua perubahan ''(ditampilkan berikut)'' yang dibuat sejak revisi stabil [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui].<br />
@@ -6775,9 +6661,6 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-note' => '[[User:$1|$1]] ha commentato così la versione durante la [[{{MediaWiki:Validationpage}}|revisione]]:',
 	'revreview-notes' => 'Osservazioni o note da mostrare:',
 	'revreview-oldrating' => 'È stata giudicata:',
-	'revreview-patrol' => 'Segna questo cambiamento come verificato',
-	'revreview-patrol-title' => 'Segna come verificata',
-	'revreview-patrolled' => 'La versione di [[:$1|$1]] selezionata è stata segnata come verificata.',
 	'revreview-quality' => "Questa è l'ultima versione di [[{{MediaWiki:Validationpage}}|qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] che {{PLURAL:$3|attende|attendono}} una revisione.",
 	'revreview-quality-i' => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|di qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
@@ -6806,7 +6689,6 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-submitting' => 'Invio in corso...',
 	'revreview-successful' => "'''Versione di [[:$1|$1]] verificata con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visualizza versione stabile])'''",
 	'revreview-text' => "Le ''[[{{MediaWiki:Validationpage}}|versioni stabili]] sono i contenuti di default della pagina per i visitatori, invece della versione più recente.''",
-	'revreview-text2' => "Le ''[[{{MediaWiki:Validationpage}}|versioni stabili]] sono le versioni controllate delle pagina e possono essere impostate come contenuto di default per i visitatori.''",
 	'revreview-toggle-title' => 'mostra/nascondi dettagli',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche ''(mostrate di seguito)'' apportate da quanto la versione stabile è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata].<br />
 '''Alcuni template o file sono stati aggiornati:'''",
@@ -6950,9 +6832,6 @@ $messages['ja'] = array(
 	'revreview-note' => '[[User:$1|$1]] は、この版に以下の[[{{MediaWiki:Validationpage}}|査読意見]]を表明しています:',
 	'revreview-notes' => '査読意見または注意:',
 	'revreview-oldrating' => '査読結果:',
-	'revreview-patrol' => 'パトロール済みにマーク',
-	'revreview-patrol-title' => 'パトロール済みにマーク',
-	'revreview-patrolled' => '選択された [[:$1|$1]] の特定版は、パトロール済みにマークされます。',
 	'revreview-quality' => 'これは[[{{MediaWiki:Validationpage}}|固定版]]で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補]には査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の{{PLURAL:$3|変更}}提案]があります。',
 	'revreview-quality-i' => 'これは[[{{MediaWiki:Validationpage}}|安定版]]で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 採用候補]には査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
 	'revreview-quality-old' => 'これは[[{{MediaWiki:Validationpage}}|内容充実]]版 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 全て表示]) で、<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 変更]されているかもしれません。',
@@ -6988,7 +6867,6 @@ $messages['ja'] = array(
 	'revreview-successful' => "'''[[:$1|$1]] の特定版の判定に成功しました。([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 固定版を閲覧])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] の特定版の判定取り消しに成功しました。'''",
 	'revreview-text' => "''閲覧者に既定で表示されるのは最新版ではなく[[{{MediaWiki:Validationpage}}|固定版]]です。''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|固定版]]はページの検査済みの版であり、閲覧者に既定で表示する内容として設定できます。''",
 	'revreview-toggle-title' => '詳細を表示または非表示',
 	'revreview-toolow' => "'''版を査読済みとするには、以下に示すすべての判定要素を「{{int:revreview-style-0}}」より高い評価にする必要があります。'''版を棄却する場合、すべての評価を「{{int:revreview-style-0}}」としてください。
 
@@ -7197,7 +7075,6 @@ $messages['kk-arab'] = array(
 	'revreview-note' => '[[{{ns:user}}:$1]] بۇل نۇسقاعا  [[{{MediaWiki:Validationpage}}|سىن بەرگەندە]] كەلەسى اڭعارتۋلار جاسادى:',
 	'revreview-notes' => 'كورسەتىلەتىن پىكىرلەر مەن اڭعارتپالار:',
 	'revreview-oldrating' => 'بۇل مىنا باعا الدى:',
-	'revreview-patrolled' => '[[:$1|$1]] دەگەننىڭ بولەكتەلىنگەن نۇسقاسى كۇزەتتە دەپ بەلگىلەندى.',
 	'revreview-quality' => 'بۇل ەڭ سوڭعى [[{{MediaWiki:Validationpage}}|ساپالى]] نۇسقا,
 <i>$2</i> كەزىندە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بەكىتىلگەن]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} جوبا جازباسى]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} وزگەرتىلۋى] مۇمكىن; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|وزگەرىسى|وزگەرىسى}}]
@@ -7300,7 +7177,6 @@ $messages['kk-cyrl'] = array(
 	'revreview-note' => '[[{{ns:user}}:$1]] бұл нұсқаға  [[{{MediaWiki:Validationpage}}|сын бергенде]] келесі аңғартулар жасады:',
 	'revreview-notes' => 'Көрсетілетін пікірлер мен аңғартпалар:',
 	'revreview-oldrating' => 'Бұл мына баға алды:',
-	'revreview-patrolled' => '[[:$1|$1]] дегеннің бөлектелінген нұсқасы күзетте деп белгіленді.',
 	'revreview-quality' => 'Бұл ең соңғы [[{{MediaWiki:Validationpage}}|сапалы]] нұсқа,
 <i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілген]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Жоба жазбасы]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} өзгертілуі] мүмкін; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|өзгерісі|өзгерісі}}]
@@ -7403,7 +7279,6 @@ Sın berilmegen bet tizimi üşin [[{{ns:special}}:Unreviewedpages]] betin qara�
 	'revreview-note' => '[[{{ns:user}}:$1]] bul nusqağa  [[{{MediaWiki:Validationpage}}|sın bergende]] kelesi añğartwlar jasadı:',
 	'revreview-notes' => 'Körsetiletin pikirler men añğartpalar:',
 	'revreview-oldrating' => 'Bul mına bağa aldı:',
-	'revreview-patrolled' => '[[:$1|$1]] degenniñ bölektelingen nusqası küzette dep belgilendi.',
 	'revreview-quality' => 'Bul eñ soñğı [[{{MediaWiki:Validationpage}}|sapalı]] nusqa,
 <i>$2</i> kezinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bekitilgen]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Joba jazbası]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} özgertilwi] mümkin; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|özgerisi|özgerisi}}]
@@ -7470,7 +7345,6 @@ $messages['km'] = array(
 	'revreview-draft-title' => 'ទំព័រ​ព្រាង',
 	'revreview-edit' => 'កែប្រែសេចក្តីពង្រាង',
 	'revreview-log' => 'យោបល់៖',
-	'revreview-patrol-title' => 'សម្គាល់ថាបានតាមដាន',
 	'revreview-source' => 'ប្រភពសេចក្តីព្រាង',
 	'revreview-style-1' => 'អាចទទួលយកបាន',
 	'revreview-style-2' => 'ល្អ',
@@ -7540,9 +7414,6 @@ $messages['ko'] = array(
 	'revreview-newest-basic' => '이 문서는 <i>$2</i>에 마지막으로 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 검토]되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 검토된 모든 편집의 목록])
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3개의 편집]이 검토를 기다리고 있습니다.',
 	'revreview-note' => '[[User:$1|$1]] 사용자가 이 판을 [[{{MediaWiki:Validationpage}}|검토]]하면서 주석을 남겼습니다:',
-	'revreview-patrol' => '이 편집을 검토된 것으로 표시',
-	'revreview-patrol-title' => '검토된 것으로 표시',
-	'revreview-patrolled' => '[[:$1|$1]] 문서의 선택된 버전이 검토된 것으로 표시되었습니다.',
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|검토된 문서]]'''",
 	'revreview-quick-invalid' => "'''판 번호가 잘못되었습니다.'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|현재 판]]''' (검토되지 않음)",
@@ -7682,9 +7553,6 @@ Et sinn_er noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änd
 	'revreview-note' => '{{GENDER:$1|Dä|Et|Dä Metmaacher|Dat|De}} [[User:$1|$1]] hät [[{{MediaWiki:Validationpage}}|bemm Nohkike]] heh di Notiz övver heh di Version faßjehallde:',
 	'revreview-notes' => 'Notiz för zem Zeije:',
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
-	'revreview-patrol' => 'Donn hee di Änderung als „nohjeloort“ makeere',
-	'revreview-patrol-title' => 'Als „nohjeloort“ makeere',
-	'revreview-patrolled' => 'De ußjewählte Version vun dä Sigg „[[:$1|$1]]“ es als „nohjeloort“ makeet.',
 	'revreview-quality' => 'Dat es de neuste  [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Dä aktoälle Äntworf] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|ein Änderung|$3  Änderunge |keij Änderung}}] op et Nohkike am waade.',
 	'revreview-quality-i' => 'Dat es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}, {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
@@ -7723,7 +7591,6 @@ Et sinn_er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} neu Ände
 	'revreview-successful' => "'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz {{lcfirst:{{int:revreview-approved}}}}. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} De {{int:stablepages-stable}} aanloore])'''",
 	'revreview-successful2' => "'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz wider zeröck jeshtoof.'''",
 	'revreview-text' => "''Nit de neuste Version is dat, wat shtanndatmääßesch för der Lesser aanjezeisch weedt, söndern de aktoälle [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].''",
-	'revreview-text2' => "''De [[{{MediaWiki:Validationpage}}|beshtändeje Versione]] vun Sigge han en beshtemmpte jeprööfte Qualliteit, di för en Sigg enjeshtallt wood, domet se shtanndatmääßesch för der Lesser aanjezeisch weedt.''",
 	'revreview-toggle' => '(Ändere)',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
 	'revreview-toolow' => 'Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.',
@@ -7924,9 +7791,6 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-note' => '[[User:$1|$1]] huet dës Notize gemaach, wéi dës Versioun [[{{MediaWiki:Validationpage}}|nogekuckt gouf]]:',
 	'revreview-notes' => 'Bemierkungen oder Notizen fir unzeweisen:',
 	'revreview-oldrating' => 'Bewäertung bis elo:',
-	'revreview-patrol' => 'Dës Ännerung als iwwerkuckt markéieren',
-	'revreview-patrol-title' => 'Als iwwerkuckt markéieren',
-	'revreview-patrolled' => 'Déi erausgsichte Versioun vu(n) [[:$1|$1]] gouf als iwwerkuckt markéiert.',
 	'revreview-quality' => "Dëst ass d'[[{{MediaWiki:Validationpage}}|Stabil Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
 D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop {{PLURAL:$3|waard|waarde}} fir nogekuckt ze ginn.",
 	'revreview-quality-i' => "Dëst ass déi [[{{MediaWiki:Validationpage}}|stabil Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
@@ -7967,7 +7831,6 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-successful' => "'''D'Versioun [[:$1|$1]] gouf nogekuckt. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Déi stabil Versioune weisen])'''",
 	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn de Stanard-Säiteninhalt fir Notzer éischter wéi déi neiste Versioun.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabil Versioune]] sinn nogekuckte Versioune vu Säiten a kënnen als Standard-Säit fir Lieser agestallt ginn.''",
 	'revreview-toggle-title' => 'Detailer weisen/verstoppen',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei ënnendrënner eng Bewäertung ofginn déi besser ass wéi \"net nogekuckt\" fir datt eng Versioun kann als nogekuckt betruecht ginn.'''
 Fir eng Versioun ze refuséieren setzt all Felder op \"net nogekuckt\".
@@ -8089,8 +7952,6 @@ op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{P
 	'revreview-note' => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[{{MediaWiki:Validationpage}}|beoordeling]] van deze versie:',
 	'revreview-notes' => 'Weer te geve observaties of notities:',
 	'revreview-oldrating' => 'Woor gewardeerd es:',
-	'revreview-patrol' => 'Dees bewirking as gecontroleerd markere',
-	'revreview-patrolled' => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
 	'revreview-quality' => "Dit is de letste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
 	'revreview-quality-same' => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>. De pagina is te [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerken].',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Bekeke]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige versie bekieke]]",
@@ -8238,6 +8099,7 @@ $messages['mk'] = array(
 	'revreview-diff-toggle-show' => '(прикажи промени)',
 	'revreview-diff-toggle-hide' => '(сокриј промени)',
 	'revreview-diff-toggle-title' => 'Префлување на приказот на промените помеѓу работната и објавената верзија',
+	'revreview-log-toggle-show' => '(прикажи дневник на стабилизација)',
 	'review-diff2stable' => 'Покажи промени на објавената верзија во исчекување',
 	'review-logentry-app' => 'провери верзија на [[$1]]',
 	'review-logentry-dis' => 'означи како застарена верзија на [[$1]]',
@@ -8311,9 +8173,6 @@ $messages['mk'] = array(
 	'revreview-note' => '[[User:$1|$1]] ги направи следниве забелешки [[{{MediaWiki:Validationpage}}|проверувајќи]] ја оваа верзија:',
 	'revreview-notes' => 'Набљудувања или белешки за прикажување:',
 	'revreview-oldrating' => 'Оценето со:',
-	'revreview-patrol' => 'Означи ја оваа промена како патролирана',
-	'revreview-patrol-title' => 'Означи како патролирано',
-	'revreview-patrolled' => 'Избраната верзија на [[:$1|$1]] е означена како патролирана.',
 	'revreview-quality' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Работната везија] содржи [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена што чека проверка|промени што чекаат проверка}}].',
 	'revreview-quality-i' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
@@ -8322,7 +8181,7 @@ $messages['mk'] = array(
 Може да се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени].',
 	'revreview-quality-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Квалитетна верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа верзија.',
-	'revreview-quality-title' => 'Ова е квалитетна страница',
+	'revreview-quality-title' => 'Ова е квалитетна верзија на страницава',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Проверена страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види работна верзија]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Проверена страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види работна верзија]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Проверена страница]]'''",
@@ -8331,16 +8190,16 @@ $messages['mk'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} погледни работна верзија]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} погледни работна верзија]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна страница]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Работна верзија]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} стабилна верзија]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Работна верзија]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} објавена верзија]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} спореди])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Работна верзија]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} стабилна верзија]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Работна верзија]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} објавена верзија]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} спореди])",
 	'revreview-selected' => "Избрана верзија на '''$1:'''",
 	'revreview-source' => 'Извор на работната верзија',
-	'revreview-stable' => 'Стабилна страница',
-	'revreview-basic-title' => 'Ова е поверена страница',
-	'revreview-stable1' => 'Препорачуваме да ја погледате [{{fullurl:$1|stableid=$2}} оваа означена верзија] и да проверите дали таа сега е [{{fullurl:$1|stable=1}} стабилната верзија] на оваа страница.',
-	'revreview-stable2' => 'Препорачуваме да ја погледате [{{fullurl:$1|stable=1}} стабилната верзија] на оваа страница (ако сè уште постои таква).',
+	'revreview-stable' => 'Објавена страница',
+	'revreview-basic-title' => 'Ова е проверена верзија на страницава',
+	'revreview-stable1' => 'Препорачуваме да ја погледате [{{fullurl:$1|stableid=$2}} оваа означена верзија] и да проверите дали таа сега е [{{fullurl:$1|stable=1}} објавената верзија] на оваа страница.',
+	'revreview-stable2' => 'Препорачуваме да ја погледате [{{fullurl:$1|stable=1}} објавената верзија] на оваа страница (ако сè уште постои таква).',
 	'revreview-style' => 'Читливост',
 	'revreview-style-0' => 'Неодобрено',
 	'revreview-style-1' => 'Прифатливо',
@@ -8353,8 +8212,7 @@ $messages['mk'] = array(
 	'revreview-submitting' => 'Зачувување ...',
 	'revreview-successful' => "'''Успешно отстранета ознака од верзијата на [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} преглед на стабилни верзии])'''",
 	'revreview-successful2' => "'''Успешно отстранета ознака од верзијата на [[:$1|$1]].'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Објавените верзии]] се основната содржина на страниците наменета за прикажување, а не се најновата верзија.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Објавените верзии]] се проверени ревизии на страници и можат да се постават за прикажување по основно.''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Прегледани верзии]] се проверени верзии на страници според кои се определува објавената верзија.''",
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
 	'revreview-toolow' => "'''Долунаведените атрибути мора да ги оцените со нешто повисоко од „неодобрена“ за ревизијата да се смета за проверена.'''
 За да ја отфрлите ревизијата како застарена, поставете ги сите полиња како „неодобрено“.
@@ -8364,7 +8222,7 @@ $messages['mk'] = array(
 '''Подновени се некои шаблони/податотеки:'''",
 	'revreview-update-includes' => "'''Некои шаблони/податотеки беа обновени:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Прегледајте]] ги промените ''(прикажани подолу)'' извршени од последното [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрување] на објавена верзија наваму.",
-	'revreview-update-use' => "'''БЕЛЕШКА:''' Доколку било кој од овие шаблони/податотеки има стабилна верзија, тогаш значи дека таа веќе се користи во стабилната верзија на оваа страница.",
+	'revreview-update-use' => "'''НАПОМЕНА:''' Доколку било кој од овие шаблони/податотеки има објавена верзија, тогаш значи дека таа веќе се користи во објавената верзија на оваа страница.",
 	'revreview-diffonly' => "''За да ја проверите страницата, кликнете на врската „тековна верзија“ и употребете го образецот за проверка.''",
 	'revreview-visibility' => "'''Оваа страница има подновена [[{{MediaWiki:Validationpage}}|објавена верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
 	'revreview-visibility2' => "'''Оваа страница има застарена [[{{MediaWiki:Validationpage}}|објавена верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
@@ -8372,20 +8230,20 @@ $messages['mk'] = array(
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
 	'right-autoreview' => 'Автоматско означување на ревизии како проверени',
-	'right-movestable' => 'Преместување на стабилни страници',
+	'right-movestable' => 'Преместување на објавени страници',
 	'right-review' => 'Означување на ревизии како „проверени“',
 	'right-stablesettings' => 'Нагодување на изборот и приказот на објавената верзија',
 	'right-validate' => 'Означи ревизии како „квалитетни“',
 	'rights-editor-autosum' => 'автопромовиран',
 	'rights-editor-revoke' => 'му го одзема статусот на уредник на [[$1]]',
 	'specialpages-group-quality' => 'Осигурување на квалитет',
-	'stable-logentry-config' => 'го конфигурираше стабилното верзионирање за [[$1]]',
-	'stable-logentry-reset' => 'го врати по основно стабилното верзионирање за [[$1]]',
+	'stable-logentry-config' => 'го конфигурираше објавеното верзионирање за [[$1]]',
+	'stable-logentry-reset' => 'го врати по основно објавеното верзионирање за [[$1]]',
 	'stable-logpage' => 'Дневник на стабилни страници',
 	'stable-logpagetext' => 'Ова е дневник на промени на поставките на [[{{MediaWiki:Validationpage}}|објавената верзија]] на страниците.
 Листа на стабилизираните страници можете да најдете на [[Special:StablePages|листата на стабилни страници]].',
 	'revreview-filter-all' => 'Сите',
-	'revreview-filter-stable' => 'стабилна',
+	'revreview-filter-stable' => 'Објавена',
 	'revreview-filter-approved' => 'Одобрени',
 	'revreview-filter-reapproved' => 'Ре-одобрени',
 	'revreview-filter-unapproved' => 'Неодобрени',
@@ -8524,9 +8382,6 @@ $messages['ml'] = array(
 	'revreview-note' => '[[User:$1|$1]] എന്ന ഉപയോക്താവ് ഈ പതിപ്പ് [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്യുമ്പോള്‍]] താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന കുറിപ്പ് ചേര്‍ത്തിരുന്നു:',
 	'revreview-notes' => 'പ്രദര്‍ശിപ്പിക്കാനുള്ള വിലയിരുത്തലുകള്‍/കുറിപ്പുകള്‍:',
 	'revreview-oldrating' => 'മൂല്യനിര്‍ണ്ണയ ഫലം:',
-	'revreview-patrol' => 'ഈ മാറ്റം റോന്തു ചുറ്റിയതായി രേഖപ്പെടുത്തി',
-	'revreview-patrol-title' => 'റോന്തുചുറ്റിയതായി അടയാളപ്പെടുത്തുക',
-	'revreview-patrolled' => '[[:$1|$1]]ന്റെ തിരഞ്ഞെടുത്ത പതിപ്പില്‍ റോന്തു ചുറ്റിയതായി രേഖപ്പെടുത്തി.',
 	'revreview-quality' => 'ഇത് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ആണ്, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിക്കപ്പെട്ടത്] <i>$2</i>നു ആണ്. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരടിൽ] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
 	'revreview-quality-i' => 'ഇത് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ആണ്, <i>$2</i>-ന് ആണ് അംഗീകരിക്കപ്പെട്ടത്. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരടിൽ] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ഫലക/പ്രമാണ മാറ്റങ്ങൾ] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
 	'revreview-quality-old' => "ഇത് [[{{MediaWiki:Validationpage}}|നിലവാരമുള്ള]] പതിപ്പ് ആണ് ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} എല്ലാം കാണുക]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചതാണ്]. പുതിയ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} മാറ്റങ്ങള്‍] വന്നിരിക്കാന്‍ സാദ്ധ്യതയുണ്ട്.",
@@ -8541,16 +8396,16 @@ $messages['ml'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|ഗുണമേന്മയുള്ള താൾ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|ഗുണമേന്മയുള്ള താൾ]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} കരട് കാണുക]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|ഗുണമേന്മയുള്ള താൾ]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|കരട്]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരതയുള്ള പതിപ്പ്]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|കരട്]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} താരതമ്യം ചെയ്യുക])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|കരട്]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരതയുള്ള പതിപ്പ്]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|കരട്]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} താരതമ്യം ചെയ്യുക])",
 	'revreview-selected' => "'''$1''' താളിന്റെ തിരഞ്ഞെടുത്ത പതിപ്പ്:",
 	'revreview-source' => 'കരടിന്റെ മൂലരൂപം',
-	'revreview-stable' => 'സ്ഥിരതയുള്ള താള്‍',
+	'revreview-stable' => 'പ്രസിദ്ധീകരിച്ച താള്‍',
 	'revreview-basic-title' => 'ഇത് പരിശോധിച്ച താൾ ആണ്',
-	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} പതാക ചേർത്ത ഈ പതിപ്പ്] ആയിരിക്കാം താങ്കൾക്ക് കാണേണ്ടത് ഒപ്പം അത് ഈ താളിന്റെ [{{fullurl:$1|stable=1}} സ്ഥിരതയുള്ള പതിപ്പ്] ആയോ എന്നും കാണുക.',
-	'revreview-stable2' => 'ഈ താളിന്റെ [{{fullurl:$1|stable=1}} സ്ഥിരതയുള്ള പതിപ്പ്] താങ്കൾക്ക് കാണണമായിരിക്കും (ഒന്നുണ്ടെങ്കിൽ).',
+	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} പതാക ചേർത്ത ഈ പതിപ്പ്] ആയിരിക്കാം താങ്കൾക്ക് കാണേണ്ടത് ഒപ്പം അത് ഇപ്പോൾ [{{fullurl:$1|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] ആയോ എന്നും കാണുക.',
+	'revreview-stable2' => 'ഈ താളിന്റെ [{{fullurl:$1|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] താങ്കൾക്ക് കാണണമായിരിക്കും (ഒന്നുണ്ടെങ്കിൽ).',
 	'revreview-style' => 'വായനാസുഖം',
 	'revreview-style-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
 	'revreview-style-1' => 'സ്വീകാര്യമായത്',
@@ -8564,14 +8419,13 @@ $messages['ml'] = array(
 	'revreview-successful' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ പതാക വിജയകരമായി ചേർത്തിരിക്കുന്നു. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} സ്ഥിരതയുള്ള പതിപ്പുകൾ കാണുക])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ നിന്നും പതാക വിജയകരമായി നീക്കിയിരിക്കുന്നു.'''",
 	'revreview-text' => "''പുതിയ പതിപ്പുണ്ടെങ്കിൽ കൂടി വായനക്കാർക്ക് സ്വതവേ ലഭ്യമാവുന്ന ഉള്ളടക്ക താളാണ് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പുകൾ]].''",
-	'revreview-text2' => "'''വായനക്കാർക്ക് സ്വതവേ ലഭ്യമാവേണ്ട ഉള്ളടക്കം സജ്ജീകരിച്ചിട്ടുള്ള പരിശോധിക്കപ്പെട്ട നാൾപ്പതിപ്പുകളാണ് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പുകൾ]].'''",
 	'revreview-toggle-title' => 'വിവരങ്ങള്‍ കാണിക്കുക/മറയ്ക്കുക',
 	'revreview-update' => "പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു] ശേഷമുണ്ടായ മാറ്റങ്ങൾ ''(താഴെ കൊടുത്തിരിക്കുന്നു)'' ദയവായി [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്യുക]].<br />
  
 '''ചില ഫലകങ്ങള്‍/പ്രമാണങ്ങള്‍ പുതുക്കിയിട്ടുണ്ട്:'''",
 	'revreview-update-includes' => "'''ചില ഫലകങ്ങള്‍/പ്രമാണങ്ങള്‍ പുതുക്കിയിരിക്കുന്നു:'''",
 	'revreview-update-none' => "പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിച്ചതിനു] ശേഷമുണ്ടായ മാറ്റങ്ങൾ ''(താഴെ കൊടുത്തിരിക്കുന്നു)'' ദയവായി [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്യുക]].",
-	'revreview-update-use' => "'''ശ്രദ്ധിക്കുക:''' ഇവയിൽ ഏതെങ്കിലും ഫലകങ്ങൾക്കോ/പ്രമാണങ്ങൾക്കോ സ്ഥിരതയുള്ള പതിപ്പുണ്ടെങ്കിൽ, അത് ഈ താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പിൽ ഉപയോഗിക്കുന്നതായിരിക്കും.",
+	'revreview-update-use' => "'''ശ്രദ്ധിക്കുക:''' ഇവയിൽ ഏതെങ്കിലും ഫലകങ്ങൾക്കോ/പ്രമാണങ്ങൾക്കോ പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പുണ്ടെങ്കിൽ, അത് ഈ താളിന്റെ പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിൽ ഉപയോഗിക്കുന്നതായിരിക്കും.",
 	'revreview-diffonly' => "''താൾ സംശോധനം ചെയ്യാൻ, \"ഇപ്പോഴത്തെ പതിപ്പ്\" എന്ന പതിപ്പിലെ കണ്ണിയിൽ ഞെക്കി, സംശോധനം ചെയ്യുവാനുള്ള ഫോം ഉപയോഗിക്കുക.''",
 	'revreview-visibility' => "'''ഈ താളിനു പുതുക്കപ്പെട്ട [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിച്ച പതിപ്പ്]] ഉണ്ട്; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
 	'revreview-visibility2' => "'''ഈ താളിനു കാലഹരണപ്പെട്ട [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിച്ച പതിപ്പ്]] ഉണ്ട്; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
@@ -8591,7 +8445,7 @@ $messages['ml'] = array(
 	'stable-logpagetext' => 'ഇത് ഉള്ളടക്ക താളുകളുടെ [[{{MediaWiki:Validationpage}}|പരിശോധിക്കപ്പെട്ട പതിപ്പുകളുടെ]] ക്രമീകരണത്തിൽ ഉണ്ടാകുന്ന മാറ്റങ്ങളുടെ രേഖയാണ്.
 സ്ഥിരതയുള്ള താളുകളാക്കി മാറ്റിയവയുടെ പട്ടിക [[Special:StablePages|സ്ഥിരതയുള്ള പതിപ്പുകളുടെ പട്ടിക]] എന്ന താളിൽ ലഭ്യമാണ്.',
 	'revreview-filter-all' => 'എല്ലാം',
-	'revreview-filter-stable' => 'സ്ഥിരതയുള്ളത്',
+	'revreview-filter-stable' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ടത്',
 	'revreview-filter-approved' => 'അനുമതി നൽകിയിട്ടുണ്ട്',
 	'revreview-filter-reapproved' => 'വീണ്ടും അനുമതി നൽകിയിട്ടുണ്ട്',
 	'revreview-filter-unapproved' => 'അനുമതി നൽകിയിട്ടില്ല',
@@ -8625,6 +8479,7 @@ $messages['ml'] = array(
  */
 $messages['mn'] = array(
 	'revreview-auto' => '（автоматаар）',
+	'revreview-log' => 'Тайлбар:',
 	'revreview-revnotfound' => 'Таны орохыг хүссэн хуудасны хуучин засвар олдсонгүй. Энэ хуудас руу явахад хэрэглэсэн URL-ээ шалгана уу.',
 );
 
@@ -8714,9 +8569,6 @@ $messages['mr'] = array(
 	'revreview-note' => '[[User:$1|$1]] ने ही आवृत्ती [[{{MediaWiki:Validationpage}}|तपासताना]] खालील सूचना दिलेल्या आहेत:',
 	'revreview-notes' => 'आपली मते अथवा निष्कर्ष:',
 	'revreview-oldrating' => 'याचे गुणांकन:',
-	'revreview-patrol' => 'हा बदल पाहिला असल्याची खूण करा',
-	'revreview-patrol-title' => 'गस्त घातल्याची खूण करा',
-	'revreview-patrolled' => '[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर पहाण्याची नोंद केलेली आहे.',
 	'revreview-quality' => "ही नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे, जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.
 याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] आता '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} बदलता]''' येऊ शकते;
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची वाट पाहत आहोत.",
@@ -8756,7 +8608,6 @@ $messages['mr'] = array(
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सर्व खूणा केलेल्या आवृत्त्या पहा])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीची खूण काढली.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|स्थिर आवृत्त्या]] या एखाद्या पानाच्या नविनतम आवृत्तीमधून न घेता मूळ मजकूरावरुन घेतल्या जातात.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|स्थिर आवृत्त्या]] या पानाच्या तपासलेल्या आवृत्त्या असतात व बघणार्‍यांसाठी अविचल मजकूर दर्शवितात.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'जास्तीची माहिती दाखवा/लपवा',
 	'revreview-toolow' => 'एखादी आवृत्ती तपासलेली आहे अशी खूण करण्यासाठी तुम्ही खालील प्रत्येक पॅरॅमीटर्सना "अप्रमाणित" पेक्षा वरचा दर्जा देणे आवश्यक आहे.
@@ -8875,9 +8726,6 @@ Terdapat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan t
 	'revreview-note' => '[[User:$1|$1]] membuat catatan berikut ketika [[{{MediaWiki:Validationpage}}|memeriksa]] semakan ini:',
 	'revreview-notes' => 'Catatan:',
 	'revreview-oldrating' => 'Penilaian:',
-	'revreview-patrol' => 'Tanda ronda perubahan ini',
-	'revreview-patrol-title' => 'Tanda ronda',
-	'revreview-patrolled' => 'Semakan bagi [[:$1|$1]] yang anda pilih telah ditanda ronda.',
 	'revreview-quality' => 'Ini ialah semakan [[{{MediaWiki:Validationpage}}|bermutu]] terakhir, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disahkan] pada <i>$2</i>.
 Terdapat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 perubahan] pada [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draf] yang belum diperiksa.',
 	'revreview-quality-i' => 'Ini ialah semakan [[{{MediaWiki:Validationpage}}|bermutu]] terakhir, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disahkan] pada <i>$2</i>.
@@ -8916,7 +8764,6 @@ Beberapa [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan] 
 	'revreview-successful' => "'''Semakan bagi [[:$1|$1]] berjaya ditanda. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat semua versi stabil])'''",
 	'revreview-successful2' => "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Versi stabil]] ialah kandungan laman lalai yang menggantikan semakan terbaru untuk dipaparkan kepada pengunjung.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Versi stabil]] ialah semakan laman yang telah disahkan dan boleh dijadikan kandungan lalai untuk dipaparkan kepada pengunjung.''",
 	'revreview-toggle-title' => 'papar/sembunyi butiran',
 	'revreview-toolow' => 'Anda hendaklah memberi penilaian yang lebih tinggi daripada "tidak disahkan" kepada setiap kriteria di bawah.
 Untuk menggugurkan semakan ini, sila berikan penilaian "tidak disahkan" kepada semua kriteria.',
@@ -9005,8 +8852,6 @@ $messages['nds'] = array(
 	'revreview-depth' => 'Deep',
 	'revreview-depth-3' => 'hooch',
 	'revreview-log' => 'Kommentar:',
-	'revreview-patrol' => 'Dit Ännern as nakeken marken',
-	'revreview-patrol-title' => 'As nakeken marken',
 	'revreview-quick-invalid' => "'''Ungüllige Versions-ID'''",
 	'revreview-style' => 'Leesborkeit',
 	'revreview-style-2' => 'Good',
@@ -9029,12 +8874,12 @@ Kiek de URL nao dee-j gebruken um naor disse pagina te gaon.',
  * @author Tvdm
  */
 $messages['nl'] = array(
-	'action-review' => 'eindredactie uitvoeren',
+	'action-review' => 'controleren',
 	'editor' => 'Redacteur',
 	'flaggedrevs' => 'Aangevinkte versies',
-	'flaggedrevs-backlog' => "Er is op dit moment een achterstand in de controle van [[Special:OldReviewedPages|pagina's met eindredactie die zijn bijgewerkt]]. 
+	'flaggedrevs-backlog' => "Er is op dit moment een achterstand in de controle van [[Special:OldReviewedPages|verouderde gecontroleerde pagina's]]. 
 '''Uw aandacht is gewenst!'''",
-	'flaggedrevs-watched-pending' => "Er zijn op het moment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bewerkingen op uw volglijst die wachten op eindredactie].
+	'flaggedrevs-watched-pending' => "Er zijn op het moment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ongecontroleerde bewerkingen op uw volglijst].
 '''Uw aandacht is gewenst!'''",
 	'flaggedrevs-desc' => 'Geeft redacteuren en controleurs de mogelijkheid versies te waarderen en en als gepubliceerde versie aan te merken',
 	'flaggedrevs-pref-UI' => 'Basisinterface:',
@@ -9043,7 +8888,7 @@ $messages['nl'] = array(
 	'prefs-flaggedrevs' => 'Gepubliceerde versies',
 	'prefs-flaggedrevs-ui' => 'Gepubliceerde versies',
 	'flaggedrevs-prefs-stable' => "Altijd de gepubliceerde versies van pagina's weergeven (als die bestaan)",
-	'flaggedrevs-prefs-watch' => "Pagina's waar ik eindredactie voor doe aan mijn volglijst toevoegen",
+	'flaggedrevs-prefs-watch' => "Pagina's die ik controleer aan mijn volglijst toevoegen",
 	'flaggedrevs-prefs-editdiffs' => "Bij het bewerken van pagina's de ongecontroleerde verschillen met de gepubliceerde versie weergeven",
 	'flaggedrevs-prefs-viewdiffs' => 'Bij het bekijken van werkversies de verschillen met de gepubliceerde versie weergeven',
 	'group-editor' => 'redacteuren',
@@ -9061,23 +8906,23 @@ $messages['nl'] = array(
 	'revreview-hist-basic' => 'gecontroleerde versie',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} gecontroleerd] door [[User:$3|$3]]',
 	'revreview-hist-autoreviewed' => '[{{fullurl:$1|stableid=$2}} automatisch gecontroleerd]',
-	'revreview-hist-pending' => '[wacht op eindredactie]',
+	'revreview-hist-pending' => '[wacht op controle]',
 	'review-edit-diff' => "'''Let op: er zijn nog niet gecontroleerde wijzigingen ten opzichte van de gepubliceerde versie opgenomen in de paginatekst in het onderstaande bewerkingsvenster.'''",
 	'revreview-diff-toggle-show' => '(wijzigingen weergeven)',
 	'revreview-diff-toggle-hide' => '(wijzigingen verbergen)',
 	'revreview-diff-toggle-title' => 'De verschillen tussen de werkversie en de gepubliceerde versie weergeven of verbergen',
 	'revreview-log-toggle-show' => '(logboek gepubliceerde versies weergeven)',
 	'review-diff2stable' => 'Ongecontroleerde verschillen met de gepubliceerde versie bekijken',
-	'review-logentry-app' => 'heeft eindredactie gedaan voor een versie van [[$1]]',
+	'review-logentry-app' => 'heeft een versie van [[$1]] gecontroleerd',
 	'review-logentry-dis' => 'heeft een versie van [[$1]] ongeldig gemaakt',
 	'review-logentry-id' => 'versie: $2',
-	'review-logentry-diff' => 'wijzigingen met eindredactie',
+	'review-logentry-diff' => 'wijzigingen gecontroleerd',
 	'review-logentry-diff2' => 'verouderde wijzigingen',
-	'review-logpage' => 'Eindredactielogboek',
-	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Validationpage}}|waarderingsstatus]] van versies van pagina's.
-In de [[Special:ReviewedPages|lijst van pagina's met eindredactie]] staan de goedgekeurde pagina's.",
-	'reviewer' => 'Eindredacteur',
-	'revisionreview' => 'Eindredactie voor versies',
+	'review-logpage' => 'Controlelogboek',
+	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Validationpage}}|waarderingsstatus]] van pagina's.
+In de [[Special:ReviewedPages|lijst van gecontroleerde pagina's]] staan de goedgekeurde pagina's.",
+	'reviewer' => 'Controleur',
+	'revisionreview' => 'Versies controleren',
 	'revreview-accuracy' => 'Nauwkeurigheid',
 	'revreview-accuracy-0' => 'Niet goedgekeurd',
 	'revreview-accuracy-1' => 'Gecontroleerd',
@@ -9094,7 +8939,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie] bevat [{{fullurl:{{FULLPA
 Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wijzigingen] gemaakt zijn.',
 	'revreview-basic-same' => 'Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
 	'revreview-basic-source' => 'Een [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gecontroleerde versie] van deze pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>, is gebaseerd op deze versie.',
-	'revreview-failed' => "'''Het was niet mogelijk eindredactie voor deze versie in te stellen.'''
+	'revreview-failed' => "'''Het was niet mogelijk deze versie als gecontroleerd in te stellen.'''
 Het formulier was incompleet of bevatte ongeldige waarden.",
 	'revreview-changed' => "'''De gevraagde handeling kon niet uitgevoerd worden voor deze versie van [[:$1|$1]].'''
 	
@@ -9111,18 +8956,18 @@ Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen."
 	'revreview-draft-title' => 'Dit is een werkversie',
 	'revreview-draft-rev' => 'Werkversie',
 	'revreview-edit' => 'Bewerken',
-	'revreview-editnotice' => "'''Uw wijzigingen worden [[{{MediaWiki:Validationpage}}|gepubliceerd]] nadat een daartoe bevoegde gebruiker [[{{MediaWiki:Validationpage}}|eindredactie]] heeft uitgevoerd.'''",
-	'revreview-check-flag' => 'Te controleren bewerkingen als met eindredactie markeren',
+	'revreview-editnotice' => "'''Uw wijzigingen worden [[{{MediaWiki:Validationpage}}|gepubliceerd]] nadat een daartoe bevoegde gebruikerdeze heeft  [[{{MediaWiki:Validationpage}}|gecontroleerd]].'''",
+	'revreview-check-flag' => 'Te controleren bewerkingen als gecontroleerd markeren',
 	'revreview-edited' => "'''Wijzigingen worden [[{{MediaWiki:Validationpage}}|gepubliceerd]] als een eindredacteur ze [[{{MediaWiki:Validationpage}}|gecontroleerd]] heeft.'''
 De ''werkversie'' is hieronder te bekijken en deze bevat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 voorgestelde {{PLURAL:$2|wijziging|wijzigingen}}].",
-	'revreview-flag' => 'Eindredactie voor deze versie uitvoeren',
-	'revreview-reflag' => 'Eindredactie voor deze versie opnieuw uitvoeren',
-	'revreview-invalid' => "'''Ongeldige bestemming:''' er is geen versie met [[{{MediaWiki:Validationpage}}|eindredactie]] die overeenkomt met het opgegeven nummer.",
+	'revreview-flag' => 'Versie controleren',
+	'revreview-reflag' => 'Versie opnieuw controleren',
+	'revreview-invalid' => "'''Ongeldige bestemming:''' er is geen [[{{MediaWiki:Validationpage}}|gecontroleerde]] versie die overeenkomt met het opgegeven nummer.",
 	'revreview-legend' => 'Versieinhoud waarderen',
 	'revreview-log' => 'Opmerking:',
-	'revreview-main' => "U moet een specifieke versie van een pagina kiezen waarvoor u eindredactie wilt doen.
+	'revreview-main' => "U moet een specifieke versie van een pagina kiezen die u wilt controleren.
 
-Zie  de [[Special:Unreviewedpages|lijst met pagina's zonder eindredactie]].",
+Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
 De werkversie bevat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wijziging|wijzigingen}}].',
 	'revreview-newest-basic-i' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie ] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
@@ -9137,12 +8982,9 @@ De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie] bevat[{{fullurl:{{FULLPAG
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie] bevat[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wijziging|wijzigingen}}].',
 	'revreview-pending-nosection' => 'Bekijk de [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie] die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] bevat, om te zien of de paragraaf verplaatst of verwijderd is.',
 	'revreview-noflagged' => "Er zijn geen [[{{MediaWiki:Validationpage}}|gecontroleerde]] versies van deze pagina, dus die is wellicht '''niet''' [[{{MediaWiki:Validationpage}}|beoordeeld]] op kwaliteit.",
-	'revreview-note' => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[{{MediaWiki:Validationpage}}|eindredactie]] van deze versie:',
+	'revreview-note' => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[{{MediaWiki:Validationpage}}|controle]] van deze versie:',
 	'revreview-notes' => 'Weer te geven observaties of notities:',
 	'revreview-oldrating' => 'Werd gewaardeerd als:',
-	'revreview-patrol' => 'Deze bewerking als gecontroleerd markeren',
-	'revreview-patrol-title' => 'Als gecontroleerd markeren',
-	'revreview-patrolled' => 'De geselecteerde versie van [[:$1|$1]] is gemarkeerd als gecontroleerd.',
 	'revreview-quality' => 'Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie] bevat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wijziging|wijzigingen}}].',
 	'revreview-quality-i' => 'Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.
@@ -9151,7 +8993,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie] bevat [{{fullurl:{{FULLPA
 Er kunnen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wijzigingen] gemaakt zijn.',
 	'revreview-quality-same' => 'Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.',
 	'revreview-quality-source' => 'Een [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kwaliteitsversie] van deze pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>, is gebaseerd op deze versie.',
-	'revreview-quality-title' => 'Dit is een kwaliteitsversie',
+	'revreview-quality-title' => 'Dit is een kwaliteitsversie van deze pagina',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Gecontroleerde pagina]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie bekijken]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Gecontroleerde pagina]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie bekijken]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Gecontroleerde pagina]]'''",
@@ -9160,16 +9002,16 @@ Er kunnen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffon
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie bekijken]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} werkversie bekijken]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Werkversie]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Werkversie]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vergelijken])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Werkversie]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Werkversie]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vergelijken])",
 	'revreview-selected' => "Geselecteerde versie van '''$1:'''",
 	'revreview-source' => 'Brontekst werkversie',
-	'revreview-stable' => 'Gepubliceerde versie',
-	'revreview-basic-title' => 'Dit is een gecontroleerde pagina',
-	'revreview-stable1' => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} stabiele versie] is.',
-	'revreview-stable2' => 'Wellicht wilt u de [{{fullurl:$1|stable=1}} stabiele versie] van deze pagina bekijken (als die er nog is).',
+	'revreview-stable' => 'Gepubliceerde pagina',
+	'revreview-basic-title' => 'Dit is een gecontroleerde versie van deze pagina',
+	'revreview-stable1' => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} gepubliceerde versie] is.',
+	'revreview-stable2' => 'Wellicht wilt u de [{{fullurl:$1|stable=1}} gepubliceerde versie] van deze pagina bekijken (als die er nog is).',
 	'revreview-style' => 'Leesbaarheid',
 	'revreview-style-0' => 'Niet goedgekeurd',
 	'revreview-style-1' => 'Aanvaardbaar',
@@ -9177,13 +9019,12 @@ Er kunnen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffon
 	'revreview-style-3' => 'Bondig',
 	'revreview-style-4' => 'Uitgelicht',
 	'revreview-submit' => 'Opslaan',
-	'revreview-submit-review' => 'Als met eindredactie markeren',
-	'revreview-submit-unreview' => 'Als zonder eindredactie markeren',
+	'revreview-submit-review' => 'Als gecontroleerd markeren',
+	'revreview-submit-unreview' => 'Als ongecontroleerd markeren',
 	'revreview-submitting' => 'Bezig met opslaan…',
 	'revreview-successful' => "'''De versie van [[:$1|$1]] is gecontroleerd. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} gepubliceerde versies bekijken])'''",
 	'revreview-successful2' => "'''De versie van [[:$1|$1]] is als niet gepubliceerd aangemerkt.'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Gepubliceerde versies]] worden standaard weergegeven in plaats van de nieuwste versie.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Gepubliceerde versies]] zijn gecontroleerde versies van pagina's die standaard weergegeven kunnen worden voor lezers.''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Gecontroleerde versies]] worden standaard weergegeven in plaats van de nieuwste versie.''",
 	'revreview-toggle-title' => 'details weergeven/verbergen',
 	'revreview-toolow' => '\'\'\'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet gewaardeerd" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
 Stel alle velden in op "niet gewaardeerd" om de waardering van een versie te verwijderen.
@@ -9193,8 +9034,8 @@ Klik op de knop "Terug" in uw broser en probeer het opnieuw.',
 '''Enkele sjablonen of bestanden zijn gewijzigd:'''",
 	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Controleer]] de ''onderstaande'' wijzigingen die gemaakt zijn sinds de gepubliceerde versie is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd].",
-	'revreview-update-use' => "'''Let op:''' als een van deze sjablonen of bestanden een gvepubliceerde ersie heeft, dan wordt die al gebruikt in de gepubliceerde versie van deze pagina.",
-	'revreview-diffonly' => "''Klik voor eindredactie op de verwijzing \"huidige versie\" en gebruik het eindredactieformulier.''",
+	'revreview-update-use' => "'''Let op:''' als een van deze sjablonen of bestanden een gepubliceerde versie heeft, dan wordt die al gebruikt in de gepubliceerde versie van deze pagina.",
+	'revreview-diffonly' => "''Klik voor controle op de verwijzing \"huidige versie\" en gebruik het controleformulier.''",
 	'revreview-visibility' => "'''Deze pagina heeft een [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
 U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
 	'revreview-visibility2' => "'''Deze pagina heeft een verouderde [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
@@ -9213,11 +9054,11 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'specialpages-group-quality' => 'Kwaliteitscontrole',
 	'stable-logentry-config' => 'heeft gepubliceerde versies ingesteld voor [[$1]]',
 	'stable-logentry-reset' => 'heeft gepubliceerde versies opnieuw ingesteld voor [[$1]]',
-	'stable-logpage' => 'Logboek stabiele versies',
+	'stable-logpage' => 'Logboek gepubliceerde versies',
 	'stable-logpagetext' => "Dit is een logboek met wijzigingen aan de instellingen voor [[{{MediaWiki:Validationpage}}|gepubliceerde versies]] voor de inhoudsnaamruimten.
 Zie ook de [[Special:StablePages|lijst met pagina's met een gepubliceerde versie]].",
 	'revreview-filter-all' => 'Alles',
-	'revreview-filter-stable' => 'gepubliceerd',
+	'revreview-filter-stable' => 'Gepubliceerd',
 	'revreview-filter-approved' => 'Gekeurd',
 	'revreview-filter-reapproved' => 'Opnieuw gekeurd',
 	'revreview-filter-unapproved' => 'Niet gekeurd',
@@ -9229,21 +9070,21 @@ Zie ook de [[Special:StablePages|lijst met pagina's met een gepubliceerde versie
 	'revreview-lev-basic' => 'gecontroleerd',
 	'revreview-lev-quality' => 'kwaliteitsversie',
 	'revreview-lev-pristine' => 'onaangeroerd',
-	'revreview-reviewlink' => 'eindredactie',
+	'revreview-reviewlink' => 'controleren',
 	'tooltip-ca-current' => 'Werkversie van deze pagina bekijken',
 	'tooltip-ca-stable' => 'Gepubliceerde versie van deze pagina bekijken',
 	'tooltip-ca-default' => 'Instellingen kwaliteitsbewaking',
 	'flaggedrevs-protect-legend' => 'Bewerkingen publiceren',
 	'flaggedrevs-protect-none' => 'Alle gebruikers toestaan',
 	'flaggedrevs-protect-basic' => 'Standaardinstellingen',
-	'revreview-locked-title' => 'Bewerkingen op deze pagina behoeven eindredactie voordat ze weergegeven worden!',
-	'revreview-unlocked-title' => 'Bewerkingen op deze pagina behoeven geen eindredactie voordat ze weergegeven worden!',
-	'revreview-locked' => 'Bewerkingen op deze pagina behoeven eindredactie voordat ze weergegeven worden!',
-	'revreview-unlocked' => 'Bewerkingen op deze pagina behoeven geen eindredactie voordat ze weergegeven worden!',
+	'revreview-locked-title' => 'Bewerkingen aan deze pagina moetengecontroleerd worden voordat ze worden gepubliceerd.',
+	'revreview-unlocked-title' => 'Bewerkingen aan deze pagina hoeven niet gecontroleerd te worden voordat ze worden gepubliceerd.',
+	'revreview-locked' => "'''Let op:''' Bewerkingen aan deze pagina moeten [[{{MediaWiki:Validationpage}}|gecontroleerd]] worden voordat ze worden gepubliceerd.",
+	'revreview-unlocked' => "'''Let op:''' Bewerkingen aan deze pagina hoeven niet [[{{MediaWiki:Validationpage}}|gecontroleerd]] te worden voordat ze worden gepubliceerd.",
 	'log-show-hide-review' => 'Waarderingslogboek $1',
 	'revreview-tt-review' => 'Deze status voor deze versie instellen',
-	'revreview-tt-flag' => 'Deze versie als met eindredactie markeren',
-	'revreview-tt-unflag' => 'Markering met eindredactie van deze versie verwijderen',
+	'revreview-tt-flag' => 'Versie als gecontroleerd markeren',
+	'revreview-tt-unflag' => 'Versie als ongecontroleerd markeren',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
 
@@ -9334,9 +9175,6 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
 	'revreview-note' => '[[User:$1|$1]] gjorde fylgjande merknader under [[{{MediaWiki:Validationpage}}|vurderinga]] av denne sideversjonen:',
 	'revreview-notes' => 'Observasjonar eller merknader:',
 	'revreview-oldrating' => 'Vart vurdert som:',
-	'revreview-patrol' => 'Merk denne endringa som patruljert',
-	'revreview-patrol-title' => 'Merk som patruljert',
-	'revreview-patrolled' => 'Den valde versjonen av [[:$1|$1]] er vorten merkt som patruljert.',
 	'revreview-quality' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|éi endring|$3 endringar}}] som ventar på vurdering.',
 	'revreview-quality-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
@@ -9375,7 +9213,6 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan h
 	'revreview-successful' => "'''Vald versjon av [[:$1|$1]] har vorte merkt. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} sjå alle stabile versjonar])'''",
 	'revreview-successful2' => "'''Vald versjon av [[:$1|$1]] vart degradert.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabile sideversjonar]] er standardsideinnhald i staden for den siste versjonen.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabile sideversjonar]] er kontrollerte versjonar av sider og kan verta nytta som standardinnhald for lesarar.''",
 	'revreview-toggle-title' => 'syn/løyn detaljar',
 	'revreview-toolow' => 'Vurderinga di av sida lyt minst vera over «ikkje godkjend» for alle eigenskapane nedanfor for at versjonen skal kunna vera vurdert. For å degradera ein versjon, oppgje «ikkje godkjend» for alle eigenskapane.',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Vurder]] endringar ''(synte nedanfor)'' som er vortne gjort sidan den stabile versjonen vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend].<br />
@@ -9474,6 +9311,7 @@ $messages['no'] = array(
 	'revreview-diff-toggle-show' => '(vis endringer)',
 	'revreview-diff-toggle-hide' => '(gjem endringer)',
 	'revreview-diff-toggle-title' => 'Bytt mellom visning av endringer mellom utkast og publiserte versjoner',
+	'revreview-log-toggle-show' => '(vis stabilitetslogg)',
 	'review-diff2stable' => 'Vis den publiserte versjonens ventende endringer',
 	'review-logentry-app' => 'reviderte en versjon av [[$1]]',
 	'review-logentry-dis' => 'degraderte en versjon av [[$1]]',
@@ -9515,7 +9353,7 @@ Dette kan skje om en dynamisk mal inneholder en annen fil eller en mal avhengig 
 	'revreview-depth-4' => 'Utmerket',
 	'revreview-draft-title' => 'Dette er en utkastside',
 	'revreview-draft-rev' => 'Utkastversjon',
-	'revreview-edit' => 'Rediger utkast',
+	'revreview-edit' => 'Rediger',
 	'revreview-editnotice' => "'''Dine endringer vil bli [[{{MediaWiki:Validationpage}}|publisert]] når en autorisert bruker har [[{{MediaWiki:Validationpage}}|revidert]] dem.'''",
 	'revreview-check-flag' => 'Merk ventende endringer som revidert',
 	'revreview-edited' => "'''Endringer vil bli [[{{MediaWiki:Validationpage}}|publisert]] når en autorisert bruker har [[{{MediaWiki:Validationpage}}|revidert]] dem.'''
@@ -9539,9 +9377,6 @@ Se [[Special:Unreviewedpages|listen over uanmeldte sider]].',
 	'revreview-note' => '[[User:$1|$1]] hadde følgende merknader under [[{{MediaWiki:Validationpage}}|anmeldelsen]] av denne sideversjonen:',
 	'revreview-notes' => 'Anmerkninger som vil vises:',
 	'revreview-oldrating' => 'Den ble anmeldt som:',
-	'revreview-patrol' => 'Merk denne endringen som patruljert',
-	'revreview-patrol-title' => 'Merk som patruljert',
-	'revreview-patrolled' => 'Den valgte versjonen av [[:$1|$1]] har blitt merket som patruljert.',
 	'revreview-quality' => 'Dette er den [[{{MediaWiki:Validationpage}}|publiserte versjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] inneholder [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|én foreslått endring|$3 foreslåtte endringer}}] som venter på godkjenning.',
 	'revreview-quality-i' => 'Dette er den [[{{MediaWiki:Validationpage}}|publiserte versjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>.
@@ -9555,20 +9390,20 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Kontrollert side]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vis utkast]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Kontrollert side]]'''",
 	'revreview-quick-invalid' => "'''Ugyldig versjons-ID'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Siste versjon]]''' (ikke sjekket)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Utkastsside]]''' (ikke revidert)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsside]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vis utkast]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsside]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vis utkast]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsside]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil versjon]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publisert versjon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} sammenlign])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil versjon]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publisert versjon]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} sammenlign])",
 	'revreview-selected' => "Valgt versjon av '''$1''':",
-	'revreview-source' => 'utkastets kilde',
-	'revreview-stable' => 'Stabil side',
+	'revreview-source' => 'Utkastets kilde',
+	'revreview-stable' => 'Publisert side',
 	'revreview-basic-title' => 'Dette er en kontrollert side',
-	'revreview-stable1' => 'Du vil kanskje se [{{fullurl:$1|stableid=$2}} denne flaggede versjonen] og se om den er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne siden.',
-	'revreview-stable2' => 'Du vil kanskje se den [{{fullurl:$1|stable=1}} stabile versjoen] av denne siden (om det fortsatt er en).',
+	'revreview-stable1' => 'Du vil kanskje se [{{fullurl:$1|stableid=$2}} denne flaggede versjonen] og se om den nå er den [{{fullurl:$1|stable=1}} publiserte versjonen] av denne siden.',
+	'revreview-stable2' => 'Du vil kanskje se den [{{fullurl:$1|stable=1}} publiserte versjonen] av denne siden (om det fortsatt finnes en).',
 	'revreview-style' => 'Lesbarhet',
 	'revreview-style-0' => 'Ikke godkjent',
 	'revreview-style-1' => 'Akseptabel',
@@ -9582,7 +9417,6 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-successful' => "'''Valgt versjon av [[:$1|$1]] har blitt merket. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} se alle stabile versjoner])'''",
 	'revreview-successful2' => "'''Valgt versjon av [[:$1|$1]] ble degradert.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Publiserte versjoner]] er standard sideinnhold for lesere i stedet for den nyeste revisjonen.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Publiserte versjoner]] er kontrollerte revisjoner av sider og kan settes som standardinnhold for lesere.''",
 	'revreview-toggle-title' => 'vis/skjul detaljer',
 	'revreview-toolow' => "'''Du må vurdere hver av egenskapene under til høyere enn «ikke godkjent» for at revisjonen skal bli vurdert som revidert.'''
 For å degradere revisjonen, sett alle egenskapene til «ikke godkjent».
@@ -9592,27 +9426,27 @@ Vennligst klikk på «tilbake»-knappen i nettleseren og prøv igjen.",
 '''Enkelte maler eller filer har blitt oppdatert:'''",
 	'revreview-update-includes' => "'''Noen maler eller filer ble oppdatert:'''",
 	'revreview-update-none' => "Vennligst [[{{MediaWiki:Validationpage}}|revider]] endringene ''(vist nedenfor)'' som har blitt gjort siden den publiserte versjonen ble [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent].",
-	'revreview-update-use' => "'''MERK:''' Om noen av disse malene eller filene har en stabil versjon, er den allerede i bruk i den stabile versjonen av denne siden.",
+	'revreview-update-use' => "'''MERK:''' Om noen av disse malene eller filene har en publisert versjon er den allerede i bruk i den publiserte versjonen av denne siden.",
 	'revreview-diffonly' => "''For å anmelde siden, klikk på versjonslenken «nåværende versjon» og bruk anmeldelsesskjemaet.''",
 	'revreview-visibility' => "'''Denne siden har en oppdatert [[{{MediaWiki:Validationpage}}|publisert versjon]]; innstillinger for stabile sider kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endres].'''",
 	'revreview-visibility2' => "'''Denne siden har en utdatert [[{{MediaWiki:Validationpage}}|publisert versjon]]; innstillinger for sidestabilitet kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endres].'''",
 	'revreview-visibility3' => "'''Denne siden har ingen [[{{MediaWiki:Validationpage}}|publisert versjon]]; innstillinger for sidestabilitet kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endres].'''",
 	'revreview-revnotfound' => 'Den gamle versjon av siden du etterspurte finnes ikke. Kontroller adressen du brukte for å få adgang til denne siden.',
 	'right-autoreview' => 'Automatisk merk revisjoner som kontrollerte',
-	'right-movestable' => 'Flytte stabile sider',
+	'right-movestable' => 'Flytt publiserte sider',
 	'right-review' => 'Merk revisjoner som «kontrollert»',
 	'right-stablesettings' => 'Still inn hvordan den publiserte versjonen blir valgt og vist',
 	'right-validate' => 'Merk revisjoner som «kvalitet»',
 	'rights-editor-autosum' => 'automatisk forfremmet',
 	'rights-editor-revoke' => 'fjernet skribentstatus fra [[$1]]',
 	'specialpages-group-quality' => 'Kvalitetsforsikring',
-	'stable-logentry-config' => 'endret innstillinger for stabile versjoner av [[$1]]',
-	'stable-logentry-reset' => 'tilbakestilte innstillinger for stabile versjoner av [[$1]]',
+	'stable-logentry-config' => 'endret innstillinger for publiserte versjoner av [[$1]]',
+	'stable-logentry-reset' => 'tilbakestilte innstillinger for publiserte versjoner av [[$1]]',
 	'stable-logpage' => 'Versjonsstabiliseringslogg',
 	'stable-logpagetext' => 'Dette er en logg over endringene av den [[{{MediaWiki:Validationpage}}|publiserte versjonens]] konfigurasjon av innholdssider.
 En liste over stabiliserte sider kan finnes på [[Special:StablePages|listen over stabile sider]].',
 	'revreview-filter-all' => 'Alle',
-	'revreview-filter-stable' => 'stabil',
+	'revreview-filter-stable' => 'Publisert',
 	'revreview-filter-approved' => 'Godkjente',
 	'revreview-filter-reapproved' => 'Gjen-godkjente',
 	'revreview-filter-unapproved' => 'Ikke godkjente',
@@ -9746,9 +9580,6 @@ Lo ''borrolhon'' es visible çaijós. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff
 	'revreview-note' => '[[User:$1|$1]] a escrich aquestas nòtas de revision :',
 	'revreview-notes' => "Observacions e nòtas d'afichar :",
 	'revreview-oldrating' => 'Son puntatge :',
-	'revreview-patrol' => 'Marcar aquesta modificacion coma patrolhada',
-	'revreview-patrol-title' => 'Marcar coma patrolhada',
-	'revreview-patrolled' => 'La version seleccionada de [[:$1|$1]] es estada marcada coma patrolhada.',
 	'revreview-quality' => "Es la darrièra [[{{MediaWiki:Validationpage}}|version de qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.",
 	'revreview-quality-i' => 'Es la darrièra version [[{{MediaWiki:Validationpage}}|de qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>.
 Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] compòrta de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambiaments de modèls o de fichièrs] en espèra de relectura.',
@@ -9786,7 +9617,6 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-successful' => "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
 	'revreview-successful2' => "La version de [[:$1|$1]] a pogut se veire levar son drapèu amb succès.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versions establas]] son causidas per defaut pels revisaires puslèu que las mai recentas.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Las versions establas]] son las versions marcadas de las pagina e pòdon èsser parametradas coma lo contengut per defaut pels revisaires.''",
 	'revreview-toggle-title' => 'far veire/amagar los detalhs',
 	'revreview-toolow' => 'Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
@@ -9980,9 +9810,6 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-note' => '[[User:$1|$1]] dokonał(a) następujących komentarzy podczas [[{{MediaWiki:Validationpage}}|sprawdzania]] tej wersji:',
 	'revreview-notes' => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-oldrating' => 'Uzyskana ocena:',
-	'revreview-patrol' => 'Oznacz tę zmianę jako sprawdzoną',
-	'revreview-patrol-title' => 'Oznacz jako sprawdzone',
-	'revreview-patrolled' => 'Wybrana wersja [[:$1|$1]] została oznaczona jako sprawdzona.',
 	'revreview-quality' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja zweryfikowana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
 W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] {{PLURAL:$3|jest|są|jest}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}] {{PLURAL:$3|oczekującą|oczekujące|oczekujących}} na sprawdzenie.',
 	'revreview-quality-i' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja zweryfikowana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
@@ -10023,7 +9850,6 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Wersje przejrzane]] domyślnie prezentowane są czytelnikom, nawet jeśli istnieją nowsze, nieprzejrzane wersje.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Wersje przejrzane]] mogą być wyświetlane domyślnie czytelnikom.''",
 	'revreview-toggle-title' => 'pokaż lub ukryj szczegóły',
 	'revreview-toolow' => 'Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby uważać wersję za zweryfikowaną. 
 By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny“.',
@@ -10082,6 +9908,7 @@ Zobacz również [[Special:StablePages|listę skonfigurowanych stron]].',
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Bèrto 'd Sèra
  */
 $messages['pms'] = array(
@@ -10177,7 +10004,8 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
 	'stable-logentry-config' => 'regolà la version stàbila ëd [[$1]]',
 	'stable-logentry-reset' => 'azerà la version stàbila për [[$1]]',
 	'stable-logpage' => 'Registr dle version stàbij',
-	'stable-logpagetext' => "Cost-sì a l'é un registr dle modìfiche faite a la regolassion dla [[{{MediaWiki:Validationpage}}|version stàbil]] dle pàgine ëd contnù.",
+	'stable-logpagetext' => "Cost-sì a l'é un registr dle modìfiche fàite a la configurassion dla [[{{MediaWiki:Validationpage}}|version publicà]] dle pàgine ëd contnù.
+La lista dle pàgine ch'a l'han damanca ëd n'aprovassion editorial a resta ant la [[Special:StablePages|lista dle pàgine stàbij]].",
 	'tooltip-ca-current' => 'Vardé la bruta corenta dë sta pàgina-sì',
 	'tooltip-ca-stable' => 'Vardé la version stàbila dla pàgina',
 	'tooltip-ca-default' => 'Regolassion dij Contròj ëd Qualità',
@@ -10321,9 +10149,6 @@ Veja a [[Special:Unreviewedpages|lista de páginas por analisar]].',
 	'revreview-note' => '[[User:$1|$1]] deixou as seguintes observações ao [[{{MediaWiki:Validationpage}}|analisar]] esta edição:',
 	'revreview-notes' => 'Observações ou notas a mostrar:',
 	'revreview-oldrating' => 'Esteve avaliada como:',
-	'revreview-patrol' => 'Marcar esta alteração como patrulhada',
-	'revreview-patrol-title' => 'Marcar como patrulhada',
-	'revreview-patrolled' => 'A edição seleccionada de [[:$1|$1]] foi marcada como patrulhada.',
 	'revreview-quality' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão estável]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>.
 O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] contém [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|uma alteração|$3 alterações}}] {{PLURAL:$3|que aguarda|que aguardam}} revisão.',
 	'revreview-quality-i' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão estável]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>.
@@ -10364,7 +10189,6 @@ O [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} rascunho] tem [{{fullurl:{{FULLPAGENAM
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi assinalada com sucesso. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver edições estáveis])'''",
 	'revreview-successful2' => "'''A edição seleccionada de [[:$1|$1]] teve sua análise removida com sucesso.'''",
 	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|versões estáveis]] são o conteúdo padrão para os leitores, em vez da revisão mais recente.'''",
-	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|versões estáveis]] são revisões verificadas e podem ser configuradas como o conteúdo padrão a apresentar aos leitores.''",
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
 	'revreview-toolow' => "'''Precisa de classificar todos os atributos abaixo com valores mais altos do que \"rejeitada\", para que uma edição seja considerada revista.'''
 Para rejeitar uma revisão, classifique todos os atributos como \"rejeitada\".
@@ -10473,7 +10297,6 @@ O ''rascunho'' é mostrado a seguir.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=\$1&d
 	'revreview-flag' => 'Analisar esta edição',
 	'revreview-legend' => 'Avaliar conteúdo da edição',
 	'revreview-notes' => 'Observações ou notas a serem exibidas:',
-	'revreview-patrol-title' => 'Marcar como patrulhada',
 	'revreview-stable' => 'Página estável',
 	'revreview-stable2' => 'Você talvez queira ver a [{{fullurl:$1|stable=1}} edição estável] desta página (caso ainda exista uma).',
 	'revreview-style-0' => 'Rejeitada',
@@ -10481,7 +10304,6 @@ O ''rascunho'' é mostrado a seguir.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=\$1&d
 	'revreview-style-2' => 'Boa',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-text' => "'''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são exibidas por padrão no lugar de edições mais recentes.'''",
-	'revreview-text2' => "''As [[{{MediaWiki:Validationpage}}|edições estáveis]] são edições em páginas que foram verificadas e que podem ser configuradas como conteúdo padrão a ser exibido.''",
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
 	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações ''(exibidas abaixo)'' feitas desde que a edição estável foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada].<br />
 '''Algumas predefinições/ficheiros foram actualizados:'''",
@@ -10571,9 +10393,6 @@ $messages['ro'] = array(
 	'revreview-legend' => 'Conţinut rată de revizie',
 	'revreview-log' => 'Comentariu:',
 	'revreview-oldrating' => 'A fost evaluat:',
-	'revreview-patrol' => 'Marcaţi această modificare ca patrulată',
-	'revreview-patrol-title' => 'Marchează ca patrulat',
-	'revreview-patrolled' => 'Revizia selectată [[:$1|$1]] a fost marcată ca patrulată.',
 	'revreview-quality-title' => 'Pagină de calitate',
 	'revreview-source' => 'Sursa schiţei',
 	'revreview-stable' => 'Pagină stabilă',
@@ -10721,9 +10540,6 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-note' => '[[User:$1|$1]] ha fatte le note seguende [[{{MediaWiki:Validationpage}}|revesetanne]] sta revisione:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',
-	'revreview-patrol' => 'Signe stu cangiamende cumme verifichete a funne',
-	'revreview-patrol-title' => 'Signe cumme verifichete a funne',
-	'revreview-patrolled' => "'A revisione selezionate de [[:$1|$1]] ha state marcate cumme condrollate.",
 	'revreview-quality' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende ca ste spette|cangiaminde ca stonne spettene}}] 'na reviste.",
 	'revreview-quality-i' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
@@ -10764,7 +10580,6 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 	'revreview-successful' => "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:ReviewedVersions}}|pàgene=$2}} vide le versiune secure])'''",
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
 	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versiune secure]] sonde le pàggene normale pe le visitature quanne le pàggene so troppe nuève.''",
-	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|versiune secure]] sonde revisiune verificate de le pàggene e ponne essere 'mbostate cumme a pàggene de condenute pe le visitature.''",
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
 	'revreview-toolow' => "'''Tu a almene valutà ogneune de le attrebbute ca stonne aqquà sotte cu 'nu vote cchiù ierte de \"non approvate\" respettanne 'a revisione pe essere conziderate reviste.'''
 Pe sckefà 'na revisione, 'mboste tutte le cambe a \"non approvate\".
@@ -10948,9 +10763,6 @@ $messages['ru'] = array(
 	'revreview-note' => '[[User:$1|$1]] сделал следующее замечание, [[{{MediaWiki:Validationpage}}|проверяя]] эту версию:',
 	'revreview-notes' => 'Наблюдения и замечания для отображения:',
 	'revreview-oldrating' => 'Была оценена:',
-	'revreview-patrol' => 'Отметить это изменение как проверенное',
-	'revreview-patrol-title' => 'Отметить как патрулированную',
-	'revreview-patrolled' => 'Выбранная версия [[:$1|$1]] была отмечена как патрулированная.',
 	'revreview-quality' => 'Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} утверждённая] <i>$2</i>.
 В [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} черновой версии] {{PLURAL:$3|ожидает проверки|ожидают проверки|ожидают проверки}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|изменение|изменения|изменений}}].',
 	'revreview-quality-i' => 'Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} утверждённая] <i>$2</i>.
@@ -10959,7 +10771,7 @@ $messages['ru'] = array(
 Могли быть сделаны новые [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} правки].',
 	'revreview-quality-same' => 'Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} утверждённая] <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Выверенная версия] этой страницы, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>, была основана на этой версии.',
-	'revreview-quality-title' => 'Это выверенная страница',
+	'revreview-quality-title' => 'Это выверенная версия страницы',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Досмотренная страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} показать черновик]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Досмотренная страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} показать черновик]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Досмотренная страница]]'''",
@@ -10968,16 +10780,16 @@ $messages['ru'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Выверенная страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} показать черновик]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Выверенная страница]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} показать черновик]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Выверенная страница]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Черновая версия]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} стабильная версия]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Черновая версия]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} опубликованная версия]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} сравнить])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Черновая версия]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} стабильная версия]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Черновая версия]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} опубликованная версия]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} сравнить])",
 	'revreview-selected' => "Выбранная версия '''$1:'''",
 	'revreview-source' => 'Исходник черновика',
-	'revreview-stable' => 'Стабильная страница',
-	'revreview-basic-title' => 'Это досмотренная страница',
-	'revreview-stable1' => 'Возможно, вы хотите просмотреть [{{fullurl:$1|stableid=$2}} эту отмеченную версию] или [{{fullurl:$1|stable=1}} стабильную версию] этой страницы, если такая существует.',
-	'revreview-stable2' => 'Возможно, вы хотите просмотреть эту [{{fullurl:$1|stable=1}} стабильную версию] этой страницы (если таковая существует).',
+	'revreview-stable' => 'Опубликованная страница',
+	'revreview-basic-title' => 'Это досмотренная версия страницы',
+	'revreview-stable1' => 'Возможно, вы хотите просмотреть [{{fullurl:$1|stableid=$2}} эту отмеченную версию] или [{{fullurl:$1|stable=1}} опубликованную версию] этой страницы, если такая существует.',
+	'revreview-stable2' => 'Возможно, вы хотите просмотреть эту [{{fullurl:$1|stable=1}} опубликованную версию] этой страницы (если таковая существует).',
 	'revreview-style' => 'Читаемость',
 	'revreview-style-0' => 'не указана',
 	'revreview-style-1' => 'приемлемая',
@@ -10990,8 +10802,7 @@ $messages['ru'] = array(
 	'revreview-submitting' => 'Отправка…',
 	'revreview-successful' => "'''Выбранная версия [[:$1|$1]] успешно отмечена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} просмотр стабильных версий])'''",
 	'revreview-successful2' => "'''С выбранной версии [[:$1|$1]] снята пометка.'''",
-	'revreview-text' => "''По умолчанию установлен показ [[{{MediaWiki:Validationpage}}|опубликованных версий]] страниц, а не наиболее новых.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Опубликованные версии]] — досмотренные версии страниц, которые могут быть установлены для показа по умолчанию.''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Проверенные версии]] — отмеченные версии страниц, используемые для определения опубликованной версии.''",
 	'revreview-toggle-title' => 'показать/скрыть подробности',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «не утверждена», чтобы версия страницы считалась проверенной.'''
 Чтобы сбросить флаг проверки, установите все значения в «не утверждена».
@@ -11001,27 +10812,27 @@ $messages['ru'] = array(
 '''Некоторые шаблоны или файлы были обновлены:'''",
 	'revreview-update-includes' => "'''Некоторые шаблоны или файлы были обновлены:'''",
 	'revreview-update-none' => "Пожалуйста, [[{{MediaWiki:Validationpage}}|проверьте]] правки ''(показаны ниже)'', сделанные после  процедуры [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} утверждения].",
-	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Если какой-либо из этих шаблонов или файлов имеет стабильную версию, то она уже используется в стабильной версии этой страницы.",
+	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Если какой-либо из этих шаблонов или файлов имеет опубликованную версию, то она уже используется в опубликованной версии этой страницы.",
 	'revreview-diffonly' => "''Чтобы проверить статью, нажмите на ссылку «текущая версия» и используйте форму проверки.''",
 	'revreview-visibility' => "'''У этой страницы имеется обновлённая [[{{MediaWiki:Validationpage}}|опубликованная версия]]; настройки отображения опубликованных версий можно [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} изменить].'''",
 	'revreview-visibility2' => "'''У этой страницы имеется устаревшая [[{{MediaWiki:Validationpage}}|опубликованная версия]]; настройки отображения опубликованных версий можно [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} изменить].'''",
 	'revreview-visibility3' => "'''У этой страницы нет [[{{MediaWiki:Validationpage}}|опубликованной версии]]; настройки отображения опубликованных версий можно [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} изменить].'''",
 	'revreview-revnotfound' => 'Старая версия страницы не найдена. Пожалуйста, проверьте правильность ссылки, которую вы использовали для доступа к этой странице.',
 	'right-autoreview' => 'автоматическая отметка версий страниц как досмотренных',
-	'right-movestable' => 'переименование чистовых версий',
+	'right-movestable' => 'переименование опубликованных версий',
 	'right-review' => 'отметка версий страниц как досмотренных',
 	'right-stablesettings' => 'настройка выбора и показа опубликованной версии',
 	'right-validate' => 'отметка версий страниц как выверенных',
 	'rights-editor-autosum' => 'автоназначение',
 	'rights-editor-revoke' => 'снял статус досматривающего с [[$1]]',
 	'specialpages-group-quality' => 'Поддержка качества',
-	'stable-logentry-config' => 'установил стабильное версионирование для [[$1]]',
-	'stable-logentry-reset' => 'сбросил чистовое версионирование для [[$1]]',
+	'stable-logentry-config' => 'установил опубликованную версию для [[$1]]',
+	'stable-logentry-reset' => 'сбросил опубликованную версию для [[$1]]',
 	'stable-logpage' => 'Журнал стабилизаций',
 	'stable-logpagetext' => 'Это журнал изменений настроек [[{{MediaWiki:Validationpage}}|опубликованных версий]] страниц.
 Список стабилизированных страниц можно также найти в [[Special:StablePages|списке стабильных страниц]].',
 	'revreview-filter-all' => 'Все',
-	'revreview-filter-stable' => 'стабильная',
+	'revreview-filter-stable' => 'Опубликована',
 	'revreview-filter-approved' => 'Утверждённые',
 	'revreview-filter-reapproved' => 'Переутверждённые',
 	'revreview-filter-unapproved' => 'Неутверждённые',
@@ -11127,8 +10938,6 @@ $messages['sah'] = array(
 	'revreview-note' => '[[User:$1|$1]] бу торуму [[{{MediaWiki:Validationpage}}|ырыта]] олорон маннык эппит:',
 	'revreview-notes' => 'Көрдөрүллэр кэтээһиннэр уонна самычаанньалар:',
 	'revreview-oldrating' => 'Сыаналаммыт:',
-	'revreview-patrol' => 'Бу уларытыыны бэрэбиэркэлэммит курдук бэлиэтээһин',
-	'revreview-patrolled' => 'Талбыт торумуҥ [[:$1|$1]] бэрэбиэркэлэммит курдук бэлиэтэннэ.',
 	'revreview-quality' => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бэрэбиэркэлэммит]] торум,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит:] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Хойукку торумун] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} уларытыахха] сөп;
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|уларытыы|уларытыылар}}] ырытыллыыны {{PLURAL:$3|кэтэһэр|кэтэһэллэр}}.',
@@ -11339,9 +11148,6 @@ Pozri zoznam [[Special:Unreviewedpages|neskontrolovaných stránok]].',
 	'revreview-note' => '[[User:$1|$1]] urobil nasledovné poznámky počas [[{{MediaWiki:Validationpage}}|kontroly]] tejto verzie:',
 	'revreview-notes' => 'Pozorovania alebo poznámky, ktoré sa majú zobraziť:',
 	'revreview-oldrating' => 'Bolo ohodnotené ako:',
-	'revreview-patrol' => 'Označiť túto zmenu ako stráženú',
-	'revreview-patrol-title' => 'Označiť ako strážené',
-	'revreview-patrolled' => 'Vybraná revízia [[:$1|$1]] bola označená ako strážená.',
 	'revreview-quality' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|navrhovanú zmenu čakajúcu|navrhované zmeny čakajúce|navrhovaných zmien čakajúcich}}] na revíziu.',
 	'revreview-quality-i' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verziia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
@@ -11382,7 +11188,6 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-successful' => "'''Vybraná revízia [[:$1|$1]] bola úspešne označená. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobraziť stabilné verzie])'''",
 	'revreview-successful2' => "'''Označenie vybranej revízie [[:$1|$1]] bolo úspešne zrušené.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilné verzie]], nie najnovšie verzie, sú nastavené ako štandardný obsah stránky pre čitateľov.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabilné verzie]] sú skontrolované revízie stránok a je možné ich nastaviť ako štandardný obsah stránky pre čitateľov.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'zobraziť/skryť podrobnosti',
 	'revreview-toolow' => "'''Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako „neschválené“, aby bolo možné verziu považovať za skontrolovanú.'''
@@ -11512,9 +11317,6 @@ $messages['sr-ec'] = array(
 	'revreview-note' => '[[User:$1|$1]] направи следећу белешку током [[{{MediaWiki:Validationpage}}|прегледања]] ове верзије.',
 	'revreview-notes' => 'Мишљења и белешке за приказ:',
 	'revreview-oldrating' => 'Оцењено је:',
-	'revreview-patrol' => 'Означи ову измену као патролирану.',
-	'revreview-patrol-title' => 'Означи као патролирано.',
-	'revreview-patrolled' => 'Следећа измена стране [[:$1|$1]] је обележена патролираном.',
 	'revreview-quality-title' => 'Квалитетан чланак',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Прегледани чланак]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види нацрт]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Прегледани чланак]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види нацрт]]",
@@ -11624,9 +11426,6 @@ $messages['sr-el'] = array(
 	'revreview-note' => '[[User:$1|$1]] napravi sledeću belešku tokom [[{{MediaWiki:Validationpage}}|pregledanja]] ove verzije.',
 	'revreview-notes' => 'Mišljenja i beleške za prikaz:',
 	'revreview-oldrating' => 'Ocenjeno je:',
-	'revreview-patrol' => 'Označi ovu izmenu kao patroliranu.',
-	'revreview-patrol-title' => 'Označi kao patrolirano.',
-	'revreview-patrolled' => 'Sledeća izmena strane [[:$1|$1]] je obeležena patroliranom.',
 	'revreview-quality-title' => 'Kvalitetan članak',
 	'revreview-quick-invalid' => "'''Loš redni broj verzije!'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Trenutna verzija]]''' (nepregledana)",
@@ -11738,8 +11537,6 @@ Sjuch [[Special:Unreviewedpages]] foar ne Lieste fon nit pröiwede Versione.',
 	'revreview-note' => '[[User:$1|$1]] moakede ju foulgendje [[{{MediaWiki:Validationpage}}|Wröignotiz]] tou disse Version:',
 	'revreview-notes' => 'Antouwiesende Bemäärkengen un Notizen:',
 	'revreview-oldrating' => 'Iendeelenge bit nu:',
-	'revreview-patrol' => 'Markier disse Annerenge as kontrollierd',
-	'revreview-patrolled' => 'Ju uutwäälde Version fon [[:$1|S1]] wuude as kontrollierd markierd.',
 	'revreview-quality' => 'Dit is ju lääste [[{{MediaWiki:Validationpage}}|wröigede]] Version,
 	[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] ap n <i>$2</i>. Ju [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} apstuunse Version]
 	kon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided] wäide; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Version|Versione}}]
@@ -11917,9 +11714,6 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-note' => '[[User:$1|$1]] gjorde följande noteringar när den här sidversionen [[{{MediaWiki:Validationpage}}|granskades]]:',
 	'revreview-notes' => 'Anmärkningar eller noteringar som kommer visas:',
 	'revreview-oldrating' => 'Bedömningen var:',
-	'revreview-patrol' => 'Märk den här ändringen som patrullerad',
-	'revreview-patrol-title' => 'Markera som patrullerad',
-	'revreview-patrolled' => 'Den valda versionen av [[:$1|$1]] har märkts som patrullerad.',
 	'revreview-quality' => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|kvalitetsversionen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAME}}}} godkänd] den <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ändring|ändringar}}] väntar på granskning.',
 	'revreview-quality-i' => 'Det här är den senaste [[{{MediaWiki:Validationpage}}|kvalitetsversionen]] av sidan, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>.
@@ -11958,7 +11752,6 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'revreview-successful' => "'''Vald sidversion av [[:$1|$1]] har flaggats. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visa alla stabila sidversioner])'''",
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabila versioner]] är standardinnehåll i sidor i stället för den nyaste sidversionen.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabila versioner]] är kontrollerade versioner av sidor och kan ställas in som standardinnehåll för läsare.''",
 	'revreview-toggle-title' => 'visa/dölj detaljer',
 	'revreview-toolow' => 'Din bedömning av sidan måste vara högre än "ej godkänd" för alla egenskaper nedan för att versionen ska anses vara granskad. För att ta bort ett godkännande av en version, ange "ej godkänd" för alla egenskaper.',
 	'revreview-update' => "Var god [[{{MediaWiki:Validationpage}}|granska]] några ändringar ''(visas nedan)'' gjorda när den stabila versionen [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkändes].<br />
@@ -12096,9 +11889,6 @@ $messages['te'] = array(
 	'revreview-note' => 'ఈ కూర్పుని [[{{MediaWiki:Validationpage}}|సమీక్షిస్తూ]], [[User:$1|$1]] ఈ వ్యాఖ్యలు చేసారు:',
 	'revreview-notes' => 'చూపించాల్సిన గమనికలు:',
 	'revreview-oldrating' => 'రేటింగు:',
-	'revreview-patrol' => 'ఈ మార్పును నిఘాలో ఉన్నట్లుగా గుర్తించు',
-	'revreview-patrol-title' => 'పహారా చేయబడినట్టు గుర్తు పెట్టు',
-	'revreview-patrolled' => 'మీరు ఎంచుకున్న [[:$1|$1]] యొక్క కూర్పు నిఘాలో ఉంది.',
 	'revreview-quality' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.',
 	'revreview-quality-same' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
 	'revreview-quality-title' => 'నాణ్యత పేజి',
@@ -12237,8 +12027,6 @@ $messages['tg-cyrl'] = array(
 	'revreview-note' => '[[User:$1|$1]] ин тавзеҳотро зимни [[{{MediaWiki:Validationpage}}|баррасии]] нусха, сабт кард:',
 	'revreview-notes' => 'Мушоҳидот ё мулоҳизот:',
 	'revreview-oldrating' => 'Дараҷаи дода шуда:',
-	'revreview-patrol' => 'Аломат задании ин тағйир ба унвони баррасишуда',
-	'revreview-patrolled' => 'Нусхаи интихобшуда аз [[:$1|$1]] ба унвони баррасишуда аломат хӯрдааст.',
 	'revreview-quality' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|бокайфият]] аст, ки дар <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Пешнавис] қобили '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} вироиш аст]'''; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ  {{PLURAL:$3|аст|ҳастанд}}.",
 	'revreview-quality-same' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|бокайфият]] аст, ки дар  <i>$2</i> ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. Ин саҳифа қобили  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} тағйир]''' аст.",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ниг. пешнавис]]",
@@ -12326,8 +12114,6 @@ Baroi fehristi sahifahoi barrasişuda nigared ba [[Special:ReviewedPages|fehrist
 	'revreview-note' => '[[User:$1|$1]] in tavzehotro zimni [[{{MediaWiki:Validationpage}}|barrasii]] nusxa, sabt kard:',
 	'revreview-notes' => 'Muşohidot jo mulohizot:',
 	'revreview-oldrating' => 'Daraçai doda şuda:',
-	'revreview-patrol' => 'Alomat zadaniji in taƣjir ba unvoni barrasişuda',
-	'revreview-patrolled' => 'Nusxai intixobşuda az [[:$1|$1]] ba unvoni barrasişuda alomat xūrdaast.',
 	'revreview-quality-same' => "In oxirin nusxai  [[{{MediaWiki:Validationpage}}|bokajfijat]] ast, ki dar  <i>$2</i> ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. In sahifa qobili  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} taƣjir]''' ast.",
 	'revreview-quick-invalid' => "'''Nişonai nomū'tabari nusxa'''",
 	'revreview-quick-none' => "Nusxahoi vurudnaşudai '''Fe'lī'''' (na nusxahoi mururşuda)",
@@ -12486,9 +12272,6 @@ Aşakda görkezilen ''garalama'' teklip edilen [{{fullurl:{{FULLPAGENAMEE}}|oldi
 	'revreview-note' => '[[User:$1|$1]] bu wersiýany [[{{MediaWiki:Validationpage}}|gözden geçirip]] şu belligi goýdy:',
 	'revreview-notes' => 'Görkezilmeli gözegçilikler ýa-da bellikler:',
 	'revreview-oldrating' => 'Derejelendirildi:',
-	'revreview-patrol' => 'Bu üýtgeşmäni patrullandy diýip belle',
-	'revreview-patrol-title' => 'Patrullandy diýip belle',
-	'revreview-patrolled' => '[[:$1|$1]] üçin saýlanylan wersiýa patrullandy diýlip bellendi.',
 	'revreview-quality' => '[[{{MediaWiki:Validationpage}}|Durnukly wersiýa]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. 
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] teklip edilen $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.',
 	'revreview-quality-i' => '[[{{MediaWiki:Validationpage}}|Durnukly wersiýa]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. 
@@ -12529,7 +12312,6 @@ Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} üýtgeşmeler
 	'revreview-successful' => "'''[[:$1|$1]] wersiýasy şowly baýdaklandy. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} durnukly wersiýalary gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] wersiýasynyň baýdagy şowly aýryldy.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Durnukly wersiýalar]] zýyaratçylar üçin iň täze wersiýa derek gaýybana sahypa mazmunydyr.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Durnukly wersiýalar]] sahypalaryň barlanylan wersiýalarydyr we zýyaratçylar üçin ony gaýybana sahypa mazmuny hökmünde sazlamak bolýar.''",
 	'revreview-toggle-title' => 'jikme-jiklikleri görkez/gizle',
 	'revreview-toolow' => '\'\'\'Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine "tassyklanmadyk"dan ýokary ses bermeli\'\'\'. 
 Bir wersiýany köneltmek üçin ähli meýdançalary "tassyklanmadyk" diýip belläň.
@@ -12681,9 +12463,6 @@ Tingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring m
 	'revreview-note' => 'Gumawa (naglagay) si [[User:$1|$1]] ng sumusunod na mga pagtatala hinggil sa [[{{MediaWiki:Validationpage}}|muling pagsuri]] ng pagbabagong ito:',
 	'revreview-notes' => 'Mga puna o mga talang ipapakita (palilitawin):',
 	'revreview-oldrating' => 'Binigyan ito ng antas/halagang:',
-	'revreview-patrol' => 'Tatakan ang pagbabagong ito bilang napatrolya na',
-	'revreview-patrol-title' => 'Tatakan bilang napagtrolya na',
-	'revreview-patrolled' => 'Ang napiling pagbabago ng [[:$1|$1]] ay natatakan bilang napatrolya na.',
 	'revreview-quality' => 'Ito ang pinakahuling [[{{MediaWiki:Validationpage}}|may mataas na uri (kalidad)]] na pagbabago, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.
 Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} balangkas] ay may [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|pagbabagong|mga pagbabagong}}] naghihintay ng muling pagsusuri',
 	'revreview-quality-i' => 'It ang pinakahuling [[{{MediaWiki:Validationpage}}|may mataas na uring]] pagbabago, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.
@@ -12722,7 +12501,6 @@ Maaaring may bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 
 	'revreview-successful' => "'''Matagumpay na ang pagbabandila (pagtatatak) sa pagbabago ng [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} tingnan ang matatatag na mga bersyon])'''",
 	'revreview-successful2' => "'''Matagumpay ang pagtatanggal ng bandila (pagaalis ng tatak) sa pagbabago ng [[:$1|$1]].'''",
 	'revreview-text' => "''Ang [[{{MediaWiki:Validationpage}}|matatatag na mga bersyon]] ay ang likas na nakatakdang mga pahina ng nilalaman para sa mga tumatanaw sa halip na ang pinakabagong pagbabago.''",
-	'revreview-text2' => "''Ang [[{{MediaWiki:Validationpage}}|matatatag na mga bersyon]] ay nasuring mga pagbabago ng mga pahina at maaaring itakda bilang likas na nakatakdang nilalaman para sa mga tumatanaw.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'ipakita/itago ang mga detalye',
 	'revreview-toolow' => 'Dapat mong bigyan ng antas ang bawat isang katangiang nasa ibaba na mas mataas kaysa "hindi pinayagan" upang maisaalang-alang na masuring muli ang pagbabago.
@@ -12895,9 +12673,6 @@ Aşağıda gösterilen ''taslak'', önerilmiş [{{fullurl:{{FULLPAGENAMEE}}|oldi
 	'revreview-note' => '[[User:$1|$1]] bu revizyonu [[{{MediaWiki:Validationpage}}|gözden geçirerek]] şu notu bıraktı:',
 	'revreview-notes' => 'Görüntülenecek gözlem ve notlar:',
 	'revreview-oldrating' => 'Derecelendirme:',
-	'revreview-patrol' => 'Bu değişikliği gözlenmiş olarak işaretle',
-	'revreview-patrol-title' => 'Gözlenmiş olarak işaretle',
-	'revreview-patrolled' => '[[:$1|$1]] için seçilen revizyon gözlenmiş olarak işaretlendi.',
 	'revreview-quality' => 'Bu, <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanan] [[{{MediaWiki:Validationpage}}|kararlı sürümdür]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Taslak], incelenmeyi bekleyen önerilmiş [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|değişiklik|değişiklik}}] içermektedir.',
 	'revreview-quality-i' => 'Bu, <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanan] [[{{MediaWiki:Validationpage}}|kararlı sürümdür]].
@@ -12938,7 +12713,6 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 	'revreview-successful' => "'''[[:$1|$1]] için revizyonu başarıyla işaretlendi. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} kararlı sürümleri gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] için revizyonun işareti başarıyla kaldırıldı.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Kararlı sürümler]] ziyaretçiler için, en yeni revizyon yerine varsayılan sayfa içeriğidir.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Kararlı sürümler]] sayfaların kontrol edilmiş revizyonlarıdır ve ziyaretçiler için varsayılan içerik olarak ayarlanabilir.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'detayları göster/gizle',
 	'revreview-toolow' => '\'\'\'Bir revizyonun gözden geçirilmiş sayılabilmesi için aşağıdaki özniteliklerden en az birini "onaylanmamış"dan yüksek oylamalısınız.\'\'\'
@@ -13111,9 +12885,6 @@ $messages['uk'] = array(
 	'revreview-note' => '[[Користувач:$1|$1]] зробив наступний коментар, [[{{MediaWiki:Validationpage}}|перевіряючи]] цю версію:',
 	'revreview-notes' => 'Спостереження і коментарі для показу:',
 	'revreview-oldrating' => 'Була оцінена:',
-	'revreview-patrol' => 'Позначити цю зміну як перевірену',
-	'revreview-patrol-title' => 'Позначена як патрульована',
-	'revreview-patrolled' => 'Обрана версія [[:$1|$1]] була позначена як патрульована.',
 	'revreview-quality' => 'Це [[{{MediaWiki:Validationpage}}|стабільна версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоноване редагування|запропоновані редагування|запропонованих редагувань}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетки] {{PLURAL:$3|очікує|очікують|очікують}} на  перевірку.',
 	'revreview-quality-i' => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} якісна] версія; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
@@ -13154,7 +12925,6 @@ $messages['uk'] = array(
 	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх стабільних версій])'''",
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
 	'revreview-text' => "''За замовчуванням установлений показ [[{{MediaWiki:Validationpage}}|стабільних версій]] сторінок, а не найбільш нових.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Стабільні версії]] — це перевірені версії сторінок, можуть бути встановлені для показу за замовчуванням.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'показати/приховати подробиці',
 	'revreview-toolow' => "'''Вам слід зазначити для всіх значень рівень, вищий, ніж «не зазначена», щоб версія сторінки вважалася перевіреною.'''
@@ -13174,8 +12944,8 @@ $messages['uk'] = array(
 Будь-ласка, перевірте правильність посилання, яке ви використовували для доступу до цієї статті.',
 	'right-autoreview' => 'Автоматичне позначення версій сторінок як перевірених',
 	'right-movestable' => 'Перейменування стабільних версій',
-	'right-review' => 'Позначення версій сторінок переглянутими',
-	'right-stablesettings' => 'Налаштування вибору і відображення стабільної версії',
+	'right-review' => 'Позначення версій сторінок як "перевірених"',
+	'right-stablesettings' => 'Налаштування вибору і відображення опублікованої версії',
 	'right-validate' => 'Позначення версій сторінок вивіреними',
 	'rights-editor-autosum' => 'автопризначення',
 	'rights-editor-revoke' => 'зняв статус редактора з [[$1]]',
@@ -13302,9 +13072,6 @@ Ghe xe dele [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifich
 	'revreview-note' => '[[User:$1|$1]] el gà fato le seguenti anotassion [[{{MediaWiki:Validationpage}}|riesaminando]] sta version:',
 	'revreview-notes' => 'Osservassioni o note da far védar:',
 	'revreview-oldrating' => 'La xe stà giudicà:',
-	'revreview-patrol' => 'Segna sta modifica come ricontrolà',
-	'revreview-patrol-title' => 'Segna come patuglià',
-	'revreview-patrolled' => 'La version de [[:$1|$1]] selessionà la xe stà marcada come controlà.',
 	'revreview-quality' => "Sta qua la xe l'ultima version [[{{MediaWiki:Validationpage}}|de qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>.
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] la gà [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|modifica|modifiche}}] che speta de vegner esaminà.",
 	'revreview-quality-i' => "Sta qua la xe l'ultima version [[{{MediaWiki:Validationpage}}|de qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>.
@@ -13343,7 +13110,6 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} can
 	'revreview-successful' => "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda tute le version stabili])'''",
 	'revreview-successful2' => "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Le versioni stabili]] le xe el contenuto predefinìo par i visitatori, al posto de la version pi reçente.''",
-	'revreview-text2' => "''Le [[{{MediaWiki:Validationpage}}|version stabili]] le xe revisioni de pagine che xe stà controlà e che pode vegner mostrà come contenuto predefinìo par i visitatori.''",
 	'revreview-toggle-title' => 'mostra/scondi detagli',
 	'revreview-toolow' => 'Ti gà da segnar ognuno dei atributi qua soto piessè alto de "Non aprovà" perché la version la sia considerà riesaminà.
 Par declassar na version, segna tuti i canpi come "Non aprovà".',
@@ -13486,9 +13252,6 @@ Pidab kodvda [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} toižet
 	'revreview-note' => '[[User:$1|$1]] tegi mugoi homaičend necidä versijad [[{{MediaWiki:Validationpage}}|kodvdes]]:',
 	'revreview-notes' => 'Kaclendhomaičendad ozutandan täht:',
 	'revreview-oldrating' => 'Om arvosteldud:',
-	'revreview-patrol' => 'Znamoita nece toižetuz kut kodvdud',
-	'revreview-patrol-title' => 'Znamoita kut patruliruidud',
-	'revreview-patrolled' => 'Valitud versii [[:$1|$1]] om znamoitud kut patruliruidud.',
 	'revreview-quality' => "Nece om jäl'gmäine [[{{MediaWiki:Validationpage}}|lophusai kodvdud]] versii; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kodvii] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|toižetuz|toižetust}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} mustkirjutuses] 
 {{PLURAL:$3|varastab|varastadas}} kodvindad.",
@@ -13529,7 +13292,6 @@ Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0
 	'revreview-successful' => "'''Valitud [[:$1|$1]]-versii om znamoitud satusekahas. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabiližiden versijoiden kacund])'''",
 	'revreview-successful2' => "'''Virg om heittud [[:$1|$1]]-versijaspäi.'''",
 	'revreview-text' => "''Augotižjärgendusen mödhe ozutadas lehtpoliden [[{{MediaWiki:Validationpage}}|stabiližed versijad]], ei udembad.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Stabiližed versijad]] — lehtpoliden kodvdud versijad, kudambid voiži ozutada augotižjärgendusen mödhe.''",
 	'revreview-toggle-title' => 'ozutada/peitta detalid',
 	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "ei ole znamoitud", miše versii oliži vahvištadud kut kodvdud.
 Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
@@ -13682,9 +13444,6 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-note' => '[[User:$1|$1]] đã ghi chú như sau khi [[{{MediaWiki:Validationpage}}|duyệt]] bản này:',
 	'revreview-notes' => 'Nhận xét hoặc ghi chú sẽ hiển thị:',
 	'revreview-oldrating' => 'Được xếp hạng:',
-	'revreview-patrol' => 'Đánh dấu tuần tra sửa đổi này',
-	'revreview-patrol-title' => 'Đánh dấu đã tuần tra',
-	'revreview-patrolled' => 'Bản được chọn của [[:$1|$1]] đã được đánh dấu đã tuần tra.',
 	'revreview-quality' => 'Đây là bản [[{{MediaWiki:Validationpage}}|chất lượng]] mới nhất, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bản nháp] có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|thay đổi|thay đổi}}] chờ duyệt.',
 	'revreview-quality-i' => 'Đây là phiên bản [[{{MediaWiki:Validationpage}}|ổn định]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được chứng nhận] vào <i>$2</i>.
@@ -13722,7 +13481,6 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} n
 	'revreview-successful' => "'''Phiên bản của [[:$1|$1]] đã được gắn cờ. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} xem các phiên bản có cờ])'''",
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Phiên bản ổn định]] là nội dung trang mặc định mà người dùng nhìn thấy chứ không phải phiên bản mới nhất.''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|Bản ổn định]] được kiểm tra phiên bản của trang và có thể thiết lập làm nội dung mặc định cho người xem.''",
 	'revreview-toggle-title' => 'hiện/ẩn chi tiết',
 	'revreview-toolow' => 'Ít nhất bạn phải xếp hạng mỗi thuộc tính dưới đây cao hơn "chưa phê chuẩn" để một phiên bản có thể được xem là được duyệt.
 Để hạ cấp một phiên bản, hãy chọn tất cả các thuộc tính "chưa phê chuẩn".',
@@ -13830,8 +13588,6 @@ tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLU
 	'revreview-note' => '[[User:$1|$1]] äpenon küpetis sököl dü [[{{MediaWiki:Validationpage}}|krütam]] padafomama at:',
 	'revreview-notes' => 'Küpets ad pajonön:',
 	'revreview-oldrating' => 'Pädadilädon as:',
-	'revreview-patrol' => 'Malön votükami at as pezepöl',
-	'revreview-patrolled' => 'Fomam at pada: [[:$1|$1]] pefümükon.',
 	'revreview-quality' => 'Is logoy [[{{MediaWiki:Validationpage}}|krüti lätik tefü kaliet]], kel
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon] tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Riget]
 kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|votükam|votükams}} $3]
@@ -13991,9 +13747,6 @@ $messages['yue'] = array(
 	'revreview-note' => '[[User:$1]]響呢次修訂度加咗下面嘅[[{{MediaWiki:Validationpage}}|複審]]註解:',
 	'revreview-notes' => '要顯示嘅意見或註解:',
 	'revreview-oldrating' => '曾經評定為:',
-	'revreview-patrol' => '標示呢次更改做已巡查過嘅',
-	'revreview-patrol-title' => '標示做已巡查過嘅',
-	'revreview-patrolled' => '所選[[:$1|$1]]嘅修訂做已巡查過嘅。',
 	'revreview-quality' => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂，
 	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
 	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]等緊去複審。',
@@ -14031,7 +13784,6 @@ $messages['yue'] = array(
 	'revreview-successful' => "'''[[:$1|$1]]所選擇嘅修訂已經成功噉加旗。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 去睇全部加旗版])'''",
 	'revreview-successful2' => "'''[[:$1|$1]]所選擇嘅修訂已經成功噉減旗。'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|穩定版]]會設定做一版睇嗰陣嘅預設內容，而唔係最新嘅修訂。''",
-	'revreview-text2' => "''[[{{MediaWiki:Validationpage}}|穩定版]]會檢查一版嘅修訂同埋可以設定做觀者嘅預設內容。''",
 	'revreview-toggle-title' => '顯示/隱藏細節',
 	'revreview-toolow' => '你一定要最少將下面每一項嘅屬性評定高過"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部格做"未批准"。',
@@ -14156,9 +13908,6 @@ $messages['zh-hans'] = array(
 	'revreview-note' => '[[User:$1]]在这次修订中加入了以下的[[{{MediaWiki:Validationpage}}|复审]]注解:',
 	'revreview-notes' => '要显示的意见或注解:',
 	'revreview-oldrating' => '曾经评定为:',
-	'revreview-patrol' => '将修改标记为已巡查',
-	'revreview-patrol-title' => '标记为已巡查',
-	'revreview-patrolled' => '[[:$1|$1]]选中的编辑版本已被标识为已巡查。',
 	'revreview-quality' => '这个是最后[[{{MediaWiki:Validationpage}}|有质素的]]修订，
 	于<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 现时修订]
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]
@@ -14290,9 +14039,6 @@ $messages['zh-hant'] = array(
 	'revreview-note' => '[[User:$1]]在這次修訂中加入了以下的[[{{MediaWiki:Validationpage}}|複審]]註解:',
 	'revreview-notes' => '要顯示的意見或註解:',
 	'revreview-oldrating' => '曾經評定為:',
-	'revreview-patrol' => '將修改標記為已巡查',
-	'revreview-patrol-title' => '標記為已巡查',
-	'revreview-patrolled' => '[[:$1|$1]]選中的編輯版本已被標識為已巡查。',
 	'revreview-quality' => '這個是最後[[{{MediaWiki:Validationpage}}|有質素的]]修訂，
 	於<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 現時修訂]
 	可以[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} 更改]]；[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]

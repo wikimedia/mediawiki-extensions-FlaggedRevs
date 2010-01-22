@@ -256,7 +256,7 @@ $messages['he'] = array(
 );
 
 /** Croatian (Hrvatski)
- * @author Suradnik13
+ * @author Ex13
  */
 $messages['hr'] = array(
 	'problemchanges' => 'Ocijeni označene promjene',
@@ -414,8 +414,8 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'problemchanges' => 'Eindredactie voor gelabelde wijzigingen',
-	'problemchanges-legend' => "Pagina's met gelabelde bewerkingen zonder eindredactie weergeven",
+	'problemchanges' => 'Gelabelde wijzigingen controleren',
+	'problemchanges-legend' => "Ongecontroleerde pagina's met gelabelde bewerkingen weergeven",
 	'problemchanges-none' => "Er zijn geen pagina's die voldoen aan deze criteria",
 	'problemchanges-category' => 'Categorie:',
 );

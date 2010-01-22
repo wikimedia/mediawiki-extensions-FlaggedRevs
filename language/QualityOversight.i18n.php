@@ -161,9 +161,10 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Translationista
  */
 $messages['es'] = array(
-	'qualityoversight' => 'Vigilancia de calidad',
+	'qualityoversight' => 'Registro de revisión avanzado',
 	'qualityoversight-list' => 'Esta página enumera las más recientes aprobaciones y depreciaciones de revisiones.',
 	'qualityoversight-legend' => 'Buscar lista de revisiones recientes',
 );
@@ -382,7 +383,7 @@ $messages['ms'] = array(
 $messages['nl'] = array(
 	'qualityoversight' => 'Kwaliteitscontrolelogboek',
 	'qualityoversight-list' => "Op deze pagina's worden recent gecontroleerde kwaliteitsversies weergegeven en pagina's waarvoor de kwaliteit lager is ingesteld.",
-	'qualityoversight-legend' => 'Recente eindredactielogboeken bekijken',
+	'qualityoversight-legend' => 'Recente controlelogboeken doorzoeken',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)

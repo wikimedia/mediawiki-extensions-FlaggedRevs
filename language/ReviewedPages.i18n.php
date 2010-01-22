@@ -458,8 +458,8 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dnik
+ * @author Ex13
  * @author SpeedyGonsales
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'reviewedpages' => 'Ocijenjene stranice',
@@ -773,14 +773,14 @@ $messages['nah'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'reviewedpages' => "Pagina's met eindredactie",
+	'reviewedpages' => "Gecontroleerde pagina's",
 	'reviewedpages-leg' => "Een lijst met pagina's met het hoogste controleniveau",
-	'reviewedpages-list' => "De volgende pagina's hebben eindredactie tot ten hoogste het aangegeven niveau.",
+	'reviewedpages-list' => "De volgende pagina's zijn (op zijn hoogst) gecontroleerd tot het aangegeven niveau.",
 	'reviewedpages-none' => 'Geen resultaten',
 	'reviewedpages-lev-0' => 'Gecontroleerd',
 	'reviewedpages-lev-1' => 'Kwaliteit',
 	'reviewedpages-lev-2' => 'Uitgelicht',
-	'reviewedpages-all' => 'versies met eindredactie',
+	'reviewedpages-all' => 'gecontroleerde versies',
 	'reviewedpages-best' => 'beste versie',
 );
 

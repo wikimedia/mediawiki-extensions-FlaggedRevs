@@ -66,7 +66,7 @@ $messages['arz'] = array(
  */
 $messages['be-tarask'] = array(
 	'unstablepages' => 'Нестабільныя старонкі',
-	'unstablepages-stable' => 'стабільная вэрсія',
+	'unstablepages-stable' => 'апублікаваная вэрсія',
 	'unstablepages-text' => 'Ніжэй пададзены сьпіс старонак, у якіх уручную ўсталяваны паказ па змоўчаньні накіду старонкі для чытачоў.',
 	'unstablepages-none' => 'У гэтым сьпісе няма старонак',
 	'unstablepages-config' => 'Канфігурацыя',
@@ -85,10 +85,11 @@ $messages['bg'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'unstablepages' => 'Pajennoù distabil',
-	'unstablepages-stable' => 'stumm stabil',
+	'unstablepages-stable' => 'stumm embannet',
 	'unstablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit ma vefe diskwelet ar stumm brouilhed dre ziouer d'al lennerien.",
 	'unstablepages-none' => "N'eus pajenn ebet er roll-mañ",
 	'unstablepages-config' => 'Kefluniañ',
@@ -185,10 +186,11 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Translationista
  */
 $messages['es'] = array(
 	'unstablepages' => 'Páginas inestables',
-	'unstablepages-stable' => 'versión estable',
+	'unstablepages-stable' => 'versión publicada',
 	'unstablepages-text' => 'Debajo hay una lista de páginas manualmente configuradas para mostrar la versión boceto como la página de contenido por defecto para visitantes.',
 	'unstablepages-none' => 'No hay páginas en esta lista',
 	'unstablepages-config' => 'Configuración',
@@ -237,12 +239,13 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author IAlex
  * @author PieRRoMaN
  * @author Verdy p
  */
 $messages['fr'] = array(
 	'unstablepages' => 'Pages non stables',
-	'unstablepages-stable' => 'version stable',
+	'unstablepages-stable' => 'version publiée',
 	'unstablepages-text' => 'Ci-dessous se trouve une liste des pages configurées manuellement pour que le contenu de leur version brouillon soit affiché par défaut pour les lecteurs.',
 	'unstablepages-none' => 'Il n’y a aucune page dans cette liste.',
 	'unstablepages-config' => 'Configuration',
@@ -305,7 +308,7 @@ $messages['he'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
- * @author Suradnik13
+ * @author Ex13
  */
 $messages['hr'] = array(
 	'unstablepages' => 'Nevažeće stranice',
@@ -436,11 +439,12 @@ $messages['lb'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
 	'unstablepages' => 'Нестабилна страница',
-	'unstablepages-stable' => 'стабилна верзија',
+	'unstablepages-stable' => 'објавена верзија',
 	'unstablepages-text' => 'Следи листа на страници рачно конфигурирани кои прикажуваат работни верзии како основна содржина за прегледувачите.',
 	'unstablepages-none' => 'Нема страници во оваа листа',
 	'unstablepages-config' => 'Конфигурација',
@@ -452,7 +456,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'unstablepages' => 'സന്തുലിതമല്ലാത്ത താളുകള്‍',
-	'unstablepages-stable' => 'സന്തുലിതമായ പതിപ്പ്',
+	'unstablepages-stable' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്',
 	'unstablepages-text' => 'വായനക്കാർക്ക് ലഭിക്കുന്ന ഉള്ളടക്കം കരടാണെന്നു സ്വതവേ പ്രത്യക്ഷപ്പെടാൻ ഉപയോക്താക്കൾ സജ്ജീകരിച്ച താളുകളുടെ പട്ടികയാണ് താഴെ.',
 	'unstablepages-none' => 'ഈ പട്ടികയില്‍ താളുകളൊന്നുമില്ല',
 	'unstablepages-config' => 'ക്രമീകരണങ്ങള്‍',
@@ -473,7 +477,7 @@ $messages['ms'] = array(
  */
 $messages['nl'] = array(
 	'unstablepages' => "Instabiele pagina's",
-	'unstablepages-stable' => 'stabiele versie',
+	'unstablepages-stable' => 'gepubliceerde versie',
 	'unstablepages-text' => "Deze pagina bevat een lijst met pagina's waarvoor is ingesteld dat standaard de werkversie wordt weergegeven.",
 	'unstablepages-none' => "Er staan geen pagina's in deze lijst.",
 	'unstablepages-config' => 'Instellingen',
@@ -495,7 +499,7 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'unstablepages' => 'Ustabile sider',
-	'unstablepages-stable' => 'stabil versjon',
+	'unstablepages-stable' => 'publisert versjon',
 	'unstablepages-text' => 'Under er en liste over sider manuelt satt opp til å vise utkastet som standardsideinnhold for lesere.',
 	'unstablepages-none' => 'Det finnes ingen sider i denne listen',
 	'unstablepages-config' => 'Konfigurasjon',
@@ -526,11 +530,12 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
 	'unstablepages' => 'Pàgine anstàbij',
-	'unstablepages-stable' => 'vërsion stàbila',
+	'unstablepages-stable' => 'version publicà',
 	'unstablepages-text' => 'Sota a-i é na lista ëd pàgine configurà manualment për mosté la vërsion sbòss com ël contnù ëd default ëd la pàgina për ij visitador.',
 	'unstablepages-none' => 'A-i é pa gnun-e pàgine an sta lista-sì',
 	'unstablepages-config' => 'Configurassion',
@@ -586,7 +591,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'unstablepages' => 'Нестабильные страницы',
-	'unstablepages-stable' => 'стабильная версия',
+	'unstablepages-stable' => 'опубликованная версия',
 	'unstablepages-text' => 'Ниже приведён список страниц, для которых вручную установлена настройка показа по умолчанию черновой версии.',
 	'unstablepages-none' => 'В данном списке нет страниц',
 	'unstablepages-config' => 'Настройка',

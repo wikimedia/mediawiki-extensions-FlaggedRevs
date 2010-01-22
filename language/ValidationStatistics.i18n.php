@@ -468,20 +468,21 @@ Stabila revizio de paĝo estas la plej nova revizio aprobita por montri al ĉiuj
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Imre
+ * @author Translationista
  */
 $messages['es'] = array(
 	'validationstatistics' => 'Estadísticas de validación',
-	'validationstatistics-users' => "'''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]] y '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Revisor]].
-Editores and Revisores son usuarios establecidos que pueden verificar las revisiones a las páginas.",
-	'validationstatistics-time' => "''los siguientes datos fueron actualizados por última vez en $5 en $6.''
+	'validationstatistics-users' => "En '''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]].
+Los editores son usuarios establecidos que pueden verificar las revisiones de las páginas.",
+	'validationstatistics-time' => "''Los siguientes datos fueron actualizados por última vez en $5 en $6.''
 
 Las ediciones que han sido verificadas por usuarios establecidos son consideradas revisadas.
 
 La espera promedio para ediciones de ''usuarios que no han iniciado sesión'' a ser revisado es '''$1'''; La media es '''$3'''.  
 $4
 El intervalo promedio para [[Special:OldReviewedPages|páginas con ediciones sin revisar pendientes]] es '''$2'''.
-Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas son consideradas ''sincronizadas'' si la [[{{MediaWiki:Validationpage}}|versión estable]] es también la versión borrador actual.
-La versión estable de una página es la revisión más nueva que ha sido aprobada para mostrar por defecto a todos los lectores.",
+Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas se consideran ''sincronizadas'' si no hay ediciones a espera de ser revisadas.
+La versión publicada de una página es la revisión más nueva que ha sido aprobada para mostrar predeterminadamente a todos los lectores.",
 	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, ''excluyendo'' páginas de redireccionamiento.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
@@ -587,8 +588,8 @@ Les modifications qui ont été vérifiées par des utilisateurs établis sont c
 Le temps moyen de relecture des modifications par ''des utilisateurs non connectés'' est '''$1''' ; la valeur médiane est '''$3'''.
 $4
 Le délai moyen pour les [[Special:OldReviewedPages|pages qui contiennent des modifications non relues en cours]] est '''$2'''.
-Ces pages sont considérées ''périmées''. De même, les pages sont déclarées ''synchronisées'' si la [[{{MediaWiki:Validationpage}}|version stable]] est aussi la version de brouillon courante.
-Les versions stables sont des versions de pages vérifiées par au moins un utilisateur régulier.",
+Ces pages sont considérées ''périmées''. De même, les pages sont déclarées ''synchronisées'' s'il n'y a aucune modification qui attend une relecture.
+La version publiée est la version de la page la plus récente qui a été vérifiée pour être affichée par défaut à tous les lecteurs.",
 	'validationstatistics-table' => "Les statistiques pour chaque espace de noms sont affichées ci-dessous, à ''l’exclusion'' des pages de redirection.",
 	'validationstatistics-ns' => 'Espace de noms',
 	'validationstatistics-total' => 'Pages',
@@ -1025,9 +1026,10 @@ $messages['ka'] = array(
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
  * @author Thearith
+ * @author គីមស៊្រុន
  */
 $messages['km'] = array(
-	'validationstatistics-ns' => 'លំហឈ្មោះ',
+	'validationstatistics-ns' => 'ប្រភេទ',
 	'validationstatistics-total' => 'ទំព័រ',
 	'validationstatistics-old' => 'ហួសសម័យ',
 );
@@ -1155,8 +1157,8 @@ $messages['mk'] = array(
 Просечното чекање за уредувања направени од ''ненајавени корисници'' коишто треба да се прегледаат изнесува '''$1'''; средната вредност е '''$3'''.  
 $4
 Просечното задоцнување за [[Special:OldReviewedPages|страници со непроверени уредувања во исчекување]] изнесува '''$2'''.
-Овие страници се сметаат за ''застарени''. Наспроти тоа, страниците се сметаат за ''синхронизирани'' ако [[{{MediaWiki:Validationpage}}|стабилната верзија]] е едновремено и моментална работна верзија.
-Стабилната верзија на една страница е најновата верзија која е одобрена за прикажување на сите читатели по основно.",
+Овие страници се сметаат за ''застарени''. Наспроти тоа, страниците се сметаат за ''синхронизирани'' ако нема уредувања кои чекаат да бидат проверени.
+Објавената верзија на една страница е најновата верзија која е одобрена за прикажување на сите читатели по основно.",
 	'validationstatistics-table' => "Подолу се прикажани статистики за секој именски простор, ''освен'' страници за пренасочување.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Страници',
@@ -1229,27 +1231,27 @@ $messages['myv'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'validationstatistics' => 'Eindredactiestatistieken',
+	'validationstatistics' => 'Controlestatistieken',
 	'validationstatistics-users' => "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]].
 
 Redacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
 	'validationstatistics-time' => "'''De volgende gegevens zijn voor het laatst bijgewerkt op $5 om $6.'''
 
-Van een bewerking wordt aangenomen dat eindredactie is uitgevoerd als deze is gecontroleerd door een ervaren gebruiker.
+Een bewerking is gecontroleerd als deze is gecontroleerd door een ervaren gebruiker.
 
 De gemiddelde wachttijd voor bewerkingen door ''gebruikers die niet aangemeld zijn'' is '''$1'''; de mediaan is '''$3'''.
 $4
 De gemiddelde achterstand voor [[Special:OldReviewedPages|verouderde pagina's]] is '''$2'''.
 Deze pagina's worden beschouwd als ''verouderd''.
-Pagina's worden beschouwd als ''gesynchroniseerd'' als de [[{{MediaWiki:Validationpage}}|stabiele versie]] ook de werkversie is.
-Stabiele versies zijn versies van pagina's die tenminste door een eindredacteur zijn gekeurd.
-De stabiele versie van een pagina is de meeste recente versie waarvoor is aangegeven dat die standaard aan alle gebruikers aangeboden kan worden.",
+Pagina's worden beschouwd als ''gesynchroniseerd'' als er geen te controleren bewerkingen voor zijn.
+Gepubliceerde versies zijn versies van pagina's die tenminste door een eindredacteur zijn goedgekeurd.
+De gepubliceerde versie van een pagina is de meeste recente versie waarvoor is aangegeven dat die standaard aan alle gebruikers aangeboden kan worden.",
 	'validationstatistics-table' => "Hieronder staan statistieken voor iedere naamruimte, ''exclusief'' doorverwijzingen.",
 	'validationstatistics-ns' => 'Naamruimte',
 	'validationstatistics-total' => "Pagina's",
-	'validationstatistics-stable' => 'Eindredactie afgerond',
+	'validationstatistics-stable' => 'Gecontroleerd',
 	'validationstatistics-latest' => 'Gesynchroniseerd',
-	'validationstatistics-synced' => 'Gesynchroniseerd/Eindredactie',
+	'validationstatistics-synced' => 'Gesynchroniseerd/gecontroleerd',
 	'validationstatistics-old' => 'Verouderd',
 	'validationstatistics-utable' => 'In de onderstaande lijst worden de vijf meest actieve eindredacteuren.',
 	'validationstatistics-user' => 'Gebruiker',
@@ -1292,13 +1294,13 @@ $messages['no'] = array(
 Skribenter er etablerte brukere som kan punktsjekke revisjoner på siden.",
 	'validationstatistics-time' => "''Følgende data ble sist oppdatert $5, kl $6.''
 
-Endringer som har blitt sjekket av etablerte brukere blir ansett som vurderte.
+Endringer som har blitt sjekket av etablerte brukere blir ansett som godkjent.
 
-Gjennomsnittlig ventetid for endringer av ''uinnlogga brukere'' til vurdering er '''$1'''; medianen er '''$3'''.
+Gjennomsnittlig ventetid for at endringer som er utført av ''brukere som ikke har logget inn'' godkjennes, er '''$1'''; medianen er '''$3'''.
 $4
-Gjennomsnittlig forsinkelse for [[Special:OldReviewedPages|sider med endringer som ikke er vurdert]] er '''$2'''.
-Disse sidene blir sett på som ''foreldet''. På same måte blir sider regnet som ''synkronisert'' om den [[{{MediaWiki:Validationpage}}|stabile versjonen]] også er den nåværende utkast-versjonen.
-Stabile versjoner er sideversjoner for sider som er sjekket av minst en etablert bruker.",
+Gjennomsnittlig forsinkelse for [[Special:OldReviewedPages|sider med endringer som venter på godkjennelse]] er '''$2'''.
+Disse sidene blir sett på som ''utdaterte''. På same måte blir sider regnet som ''synkroniserte'' om det ikke er noen endringer som venter på godkjennelse.
+Den publiserte versjonen av en side er den nyeste revisjonen som har blitt godkjent for standardvisning for alle lesere.",
 	'validationstatistics-table' => "Statistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.",
 	'validationstatistics-ns' => 'Navnerom',
 	'validationstatistics-total' => 'Sider',
@@ -1383,6 +1385,7 @@ Wersja oznaczona strony to najnowsza wersja, która została zaakceptowana jako 
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
@@ -1392,12 +1395,12 @@ $messages['pms'] = array(
 J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
 	'validationstatistics-time' => "''Ij dat sota a son stàit modificà l'ùltima vira ël $5 a $6.''
 
-Le modìfiche che a son ëstàite controlà da utent intrà a son considrà da esse revisionà.
+Le modìfiche che a son ëstàite controlà da utent ëstàbij a son considerà revisionà.
 
-L'atesa media ëd le modìfiche fàite da j'''utent pa intrà'' për esse revisionà a l'é '''$1'''; la median-a a l'é '''$3'''.
+L'atèisa media ëd le modìfiche fàite da j'''utent nen rintrà ant ël sistema'' për esse revisionà a l'é '''$1'''; la mesan-a a l'é '''$3'''.
 $4
-L'artard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà pendente]] a l'é '''$2'''. Le pàgine a son considrà '''veje'''. Ant la midema manera, le pàgine a son considrà '''sincronisà''' se la [[{{MediaWiki:Validationpage}}|vërsion stàbila]] a l'é ëdcò la vërsion sbòssa curenta.
-La vërsion stàbila ëd la pàgina a l'é la revision pì neuva che a l'é stàita aprovà për mosté a tùit ij visitador.",
+Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà an cors]] a l'é '''$2'''. Ste pàgine a son considerà '''veje'''. Ant la midema manera, le pàgine a son considerà '''sincronisà''' s'a-i é gnun-a revision ëd modìfiche an cors.
+La version publicà dla pàgina a l'é la revision pì neuva che a l'é stàita aprovà da smon-e për stàndard a tùit ij visitador.",
 	'validationstatistics-table' => "Lë statìstiche për minca spassi nominal a son mostà sota, ''an gavand'' le pàgine ëd rediression.",
 	'validationstatistics-ns' => 'Spassi nominal',
 	'validationstatistics-total' => 'Pàgine',
@@ -1556,8 +1559,8 @@ $messages['ru'] = array(
 Среднее ожидание проверки правок ''непредставившихся участников'' равно '''$1'''; медиана равна '''$3'''.
 $4
 Средняя задержка для [[Special:OldReviewedPages|страниц с недосмотренными правками]] равна '''$2'''.
-Данные страницы считаются ''устаревшими''. В свою очередь, страницы считаются ''синхронизированными'', если [[{{MediaWiki:Validationpage}}|стабильная версия]] одновременно является текущей черновой версией.
-Стабильные версии — это наиболее новые версии страниц, из тех, которые были утверждены для показа по умолчанию всем читателям.",
+Данные страницы считаются ''устаревшими''. В свою очередь, страницы считаются ''синхронизированными'', если не существует правок, ожидающих проверки.
+Опубликованные версии — это наиболее новые версии страниц, из тех, которые были утверждены для показа по умолчанию всем читателям.",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён, ''исключая'' страницы перенаправлений.",
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',

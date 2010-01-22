@@ -659,8 +659,8 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Ex13
  * @author SpeedyGonsales
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'right-unreviewedpages' => 'Pregled [[Special:UnreviewedPages|popisa neocijenjenih stranica]]',
@@ -1109,16 +1109,16 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'right-unreviewedpages' => "[[Special:UnreviewedPages|Lijst van pagina's zonder eindredactie]] bekijken",
-	'unreviewedpages' => "Pagina's zonder eindredactie",
-	'unreviewed-legend' => "Lijst met pagina's zonder eindredactie",
+	'right-unreviewedpages' => "[[Special:UnreviewedPages|Lijst van ongecontroleerde pagina's]] bekijken",
+	'unreviewedpages' => "Ongecontroleerde pagina's",
+	'unreviewed-legend' => "Lijst met ongecontroleerde pagina's",
 	'unreviewed-category' => 'Categorie:',
-	'unreviewed-diff' => 'eindredactie',
+	'unreviewed-diff' => 'controle',
 	'unreviewed-unwatched' => '(niet op een volglijst)',
 	'unreviewed-watched' => '($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
-	'unreviewed-list' => "Deze pagina geeft een overzicht van pagina's die nog geen eindredactie hebben gehad tot een aangegeven niveau.",
+	'unreviewed-list' => "Deze pagina geeft een overzicht van ongecontroleerde pagina's tot het aangegeven niveau.",
 	'unreviewed-none' => "Er zijn geen pagina's die aan deze criteria voldoen",
-	'unreviewed-viewing' => '(onder eindredactie)',
+	'unreviewed-viewing' => '(wordt gecontroleerd)',
 	'unreviewed-hours' => '({{PLURAL:$1|één uur|$1 uur}})',
 	'unreviewed-days' => '({{PLURAL:$1|één dag|$1 dagen}})',
 	'unreviewed-recent' => '(minder dan één uur)',

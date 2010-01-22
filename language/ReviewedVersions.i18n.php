@@ -733,11 +733,11 @@ $messages['nds'] = array(
  */
 $messages['nl'] = array(
 	'reviewedversions' => 'Gecontroleerde versies bekijken',
-	'reviewedversions-leg1' => 'Lijst van versies met eindredactie voor een pagina',
+	'reviewedversions-leg1' => 'Lijst van gecontroleerde versies voor een pagina',
 	'reviewedversions-page' => 'Paginanaam:',
-	'reviewedversions-none' => '"[[:$1]]" heeft geen versies met eindredactie.',
-	'reviewedversions-list' => 'Hieronder staat {{PLURAL:$2|de versie|een lijst met versies}} van [[:$1]] waarvoor eindredactie is uitgevoerd:',
-	'reviewedversions-review' => 'Eindredactie uitgevoerd op <i>$1</i> door $2',
+	'reviewedversions-none' => '"[[:$1]]" heeft geen gecontroleerde versies',
+	'reviewedversions-list' => 'Hieronder staat {{PLURAL:$2|de versie|een lijst met gecontroleerde versies}} van [[:$1]]:',
+	'reviewedversions-review' => 'Gecontroleerd op <i>$1</i> door $2',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)

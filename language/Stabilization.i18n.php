@@ -420,7 +420,7 @@ $messages['be-tarask'] = array(
 	'stabilization-sel-short-2' => 'Першапачатковая',
 	'stabilization-def-short' => 'Па змоўчваньні',
 	'stabilization-def-short-0' => 'Цяперашняя',
-	'stabilization-def-short-1' => 'Стабільная',
+	'stabilization-def-short-1' => 'Апублікаваная',
 	'stabilize_expiry_invalid' => 'Няслушны тэрмін.',
 	'stabilize_expiry_old' => 'Час сканчэньня ўжо прайшоў.',
 	'stabilize-expiring' => 'канчаецца $1 (UTC)',
@@ -492,7 +492,7 @@ $messages['br'] = array(
 	'stabilization-perm' => "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm stabil.
 Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-page' => 'Anv ar bajenn :',
-	'stabilization-leg' => 'Kadarnaat an arventennañ evit ar stumm stabil',
+	'stabilization-leg' => 'Kadarnaat arventennoù ar stumm embannet',
 	'stabilization-def1' => "Ar stumm stabil ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhoñs",
 	'stabilization-def2' => 'Ar stumm red pe ar brouilh',
 	'stabilization-restrict' => 'Strishadurioù adweladennoù emgefre',
@@ -512,7 +512,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-sel-short-2' => 'Anterin',
 	'stabilization-def-short' => 'Dre ziouer',
 	'stabilization-def-short-0' => 'Red',
-	'stabilization-def-short-1' => 'Stabil',
+	'stabilization-def-short-1' => 'Embannet',
 	'stabilize_expiry_invalid' => 'Direizh eo an deiziad termen.',
 	'stabilize_expiry_old' => 'Tremenet eo dija an amzer termen-se.',
 	'stabilize-expiring' => "Termenet d'an $1 (UTC)",
@@ -887,6 +887,7 @@ Neniu konfiguro eblas.',
  * @author Imre
  * @author Kobazulo
  * @author Sanbec
+ * @author Translationista
  */
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
@@ -895,10 +896,11 @@ $messages['es'] = array(
 
 Cuando cambie la configuración de ''selección de versión estable'' usar revisiones de \"calidad\" o \"prístina\" por defecto,
 asegúrese de verificar si hay realmente tales revisiones en la página, de otra manera se afectará ligeramente.",
-	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión estable. Aquí están las configuraciones actuales para [[:$1|$1]]:',
+	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión publicada.
+La configuración actual es [[:$1|$1]]:',
 	'stabilization-page' => 'Nombre de la página:',
-	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
-	'stabilization-select' => 'Precedente de selección de versión estable',
+	'stabilization-leg' => 'Confirmar la configuración de la versión publicada',
+	'stabilization-select' => 'Precedencia de selección de versión publicada',
 	'stabilization-select1' => 'La última revisión de calidad; si no está presente, entonces la última observada',
 	'stabilization-select2' => 'La última versión verificada, a pesar del nivel de validación',
 	'stabilization-select3' => 'La última revisión prístina; si no está presente, entonces la última de calidad u observada',
@@ -922,7 +924,7 @@ La configuración no es posible.',
 	'stabilization-sel-short-2' => 'Prístina',
 	'stabilization-def-short' => 'Por defecto',
 	'stabilization-def-short-0' => 'Actual',
-	'stabilization-def-short-1' => 'Estable',
+	'stabilization-def-short-1' => 'Publicado',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
 	'stabilize_expiry_old' => 'Este tiempo de expiración ya ha pasado',
 	'stabilize-expiring' => 'caduca el $1 (UTC)',
@@ -1073,18 +1075,19 @@ Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
 $messages['fr'] = array(
 	'stabilization-tab' => '(aq)',
 	'stabilization' => 'Stabilisation de la page',
-	'stabilization-text' => "'''Modifiez les paramètres ci-dessous pour définir la façon dont la version stable de [[:$1|$1]] est sélectionnée et affichée.'''
+	'stabilization-text' => "'''Modifiez les paramètres ci-dessous pour définir la façon dont la version publiée de [[:$1|$1]] est sélectionnée et affichée.'''
 
-Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les révisions « de qualité » ou « initiales » par défaut, assurez-vous qu'il y a effectivement de telles révisions dans la page, sinon les modifications n'auront pas d'incidence.",
-	'stabilization-perm' => "Votre compte n'a pas les droits pour changer les paramètres de la version stable. Voici les paramètres courants de [[:$1|$1]] :",
+Lorsque vous configurez la ''sélection de la version publiée'' pour utiliser les révisions « de qualité » ou « initiales » par défaut, assurez-vous qu'il y a effectivement de telles révisions dans la page, sinon les modifications n'auront pas d'incidence.",
+	'stabilization-perm' => "Votre compte n'a pas les droits pour changer les paramètres de la version publiée.
+Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilization-page' => 'Nom de la page :',
-	'stabilization-leg' => 'Confirmer le paramétrage de la version stable',
-	'stabilization-select' => 'Priorité de sélection de version stable',
+	'stabilization-leg' => 'Confirmer le paramétrage de la version publiée',
+	'stabilization-select' => 'Priorité de sélection de version publiée',
 	'stabilization-select1' => 'La dernière version de qualité, sinon la dernière version vue',
 	'stabilization-select2' => 'La dernière version révisée, sans tenir compte du niveau de validation',
 	'stabilization-select3' => 'La dernière version intacte ; en cas d’absence, la dernière de qualité ou relue.',
 	'stabilization-def' => "Version affichée lors de l'affichage par défaut de la page",
-	'stabilization-def1' => "La révision stable ; s'il n'y en a pas, alors la courante ou le brouillon en cours",
+	'stabilization-def1' => "La révision publiée ; s'il n'y en a pas, alors la courante ou le brouillon en cours",
 	'stabilization-def2' => 'La révision courante ou le brouillon en cours',
 	'stabilization-restrict' => 'Restrictions de relecture automatique',
 	'stabilization-restrict-none' => 'Pas de restriction supplémentaire',
@@ -1101,7 +1104,7 @@ Lorsque vous configurez la ''sélection de la version stable'' pour utiliser les
 	'stabilization-sel-short-2' => 'Intacte',
 	'stabilization-def-short' => 'Défaut',
 	'stabilization-def-short-0' => 'Courante',
-	'stabilization-def-short-1' => 'Stable',
+	'stabilization-def-short-1' => 'Publié',
 	'stabilize_expiry_invalid' => "Date d'expiration invalide.",
 	'stabilize_expiry_old' => "Cette durée d'expiration est déjà écoulée.",
 	'stabilize-expiring' => 'Expire le $1 (UTC)',
@@ -1378,8 +1381,8 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
+ * @author Ex13
  * @author SpeedyGonsales
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'stabilization-tab' => 'vet',
@@ -2042,20 +2045,20 @@ $messages['mhr'] = array(
 $messages['mk'] = array(
 	'stabilization-tab' => 'конфиг.',
 	'stabilization' => 'Стабилизација на страница',
-	'stabilization-text' => "'''Променете ги нагодувањата подолу за да наместите како стабилната верзија на [[:$1|$1]] ќе биде избрана и прикажана.'''
+	'stabilization-text' => "'''Променете ги нагодувањата подолу за да наместите како објавената верзија на [[:$1|$1]] ќе биде избрана и прикажана.'''
 
-Кога ја менувате конфигурацијата на ''изборот на стабилна верзија'' за да користи верзии „квалитетна“ или „неменувана“ по основно,
-запаметете дека морате да проверите дали всушност постојат такви верзии на страницата - во спротивно промената нема да има ефект.",
-	'stabilization-perm' => 'Вашата корисничка сметка нема дозвола за промена на конфигурацијата на стабилната верзија.
-Моментални нагодувања за [[:$1|$1]]:',
+Кога ја менувате конфигурацијата на ''изборот на објавена верзија'' за да користи верзии „квалитетна“ или „неменувана“ по основно,
+запаметете дека морате да проверите дали всушност постојат такви ревизии на страницата - во спротивно промената нема да има ефект.",
+	'stabilization-perm' => 'Вашата сметка нема дозвола за промена на конфигурацијата на објавената верзија.
+Еве ги моменталните нагодувања за [[:$1|$1]]:',
 	'stabilization-page' => 'Име на страница:',
-	'stabilization-leg' => 'Потврди нагодувања за стабилна верзија',
-	'stabilization-select' => 'Редослед на избор на стабилна верзија',
+	'stabilization-leg' => 'Потврди нагодувања за објавена верзија',
+	'stabilization-select' => 'Редослед на избор на објавена верзија',
 	'stabilization-select1' => 'Последната квалитетна верзија; ако не постои, тогаш последната прегледана',
 	'stabilization-select2' => 'Последната прегледана верзија (без оглед на нивото на потврдување)',
 	'stabilization-select3' => 'Последната неменувана верзија; ако не постои, тогаш последната квалитетна или прегледана.',
 	'stabilization-def' => 'Верзија прикажана по основно при преглед на страница',
-	'stabilization-def1' => 'Стабилната верзија; ако не постои, тогаш моменталната/работната',
+	'stabilization-def1' => 'Објавената ревизија; ако не постои, тогаш моменталната/работната',
 	'stabilization-def2' => 'Моментална/работната верзија',
 	'stabilization-restrict' => 'Ограничувања на автопрегледувањето',
 	'stabilization-restrict-none' => 'Нема дополнителни ограничувања',
@@ -2074,7 +2077,7 @@ $messages['mk'] = array(
 	'stabilization-sel-short-2' => 'Нерасипана',
 	'stabilization-def-short' => 'Основно',
 	'stabilization-def-short-0' => 'Моментално',
-	'stabilization-def-short-1' => 'Стабилно',
+	'stabilization-def-short-1' => 'Објавена',
 	'stabilize_expiry_invalid' => 'Погрешен датум на важност.',
 	'stabilize_expiry_old' => 'Времето на важност веќе е поминато.',
 	'stabilize-expiring' => 'истекува $1 (UTC)',
@@ -2088,14 +2091,14 @@ $messages['mk'] = array(
 $messages['ml'] = array(
 	'stabilization-tab' => 'സ്ഥിരത',
 	'stabilization' => 'താളിന്റെ സ്ഥിരീകരണം',
-	'stabilization-perm' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ ക്രമീകരണം മാറ്റുന്നതിനുള്ള അവകാശം താങ്കളുടെ അംഗത്വത്തിനില്ല. [[:$1|$1]]ന്റെ നിലവിലുള്ള ക്രമീകരണം ഇവിടെ കാണാം:',
+	'stabilization-perm' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിന്റെ ക്രമീകരണം മാറ്റുന്നതിനുള്ള അവകാശം താങ്കളുടെ അംഗത്വത്തിനില്ല. [[:$1|$1]]ന്റെ നിലവിലുള്ള ക്രമീകരണം ഇവിടെ കാണാം:',
 	'stabilization-page' => 'താളിന്റെ പേര്‌:',
-	'stabilization-leg' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ ക്രമീകരണങ്ങള്‍ ഉറപ്പിക്കുക',
-	'stabilization-select' => 'സ്ഥിരതയുള്ള പതിപ്പിന്റെ തിരഞ്ഞെടുക്കല്‍ മുൻഗണന',
+	'stabilization-leg' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിന്റെ ക്രമീകരണങ്ങള്‍ സ്ഥിരീകരിക്കുക',
+	'stabilization-select' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പിന്റെ തിരഞ്ഞെടുക്കല്‍ മുൻഗണന',
 	'stabilization-select1' => 'ഒടുവിലത്തെ ഗുണനിലവാരമുള്ള നാൾപ്പതിപ്പ്, പിന്നീട് ഒടുവിൽ ദർശിച്ച പതിപ്പ്',
 	'stabilization-select2' => 'അവസാനമായി സം‌ശോധനം നടത്തിയ നാൾപ്പതിപ്പ് (മൂല്യനിർണ്ണയ തലം കണക്കിലെടുക്കുന്നില്ല)',
 	'stabilization-def' => 'താളിന്റെ സ്വതവേയുള്ള നിലയില്‍ പ്രദര്‍ശിപ്പിക്കുന്ന പതിപ്പ്',
-	'stabilization-def1' => 'സ്ഥിരതയുള്ള പതിപ്പ്;
+	'stabilization-def1' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്;
 അതില്ലെങ്കില്‍ നിലവിലുള്ള/കരട് പതിപ്പ്',
 	'stabilization-def2' => 'നിലവിലുള്ള/കരട് പതിപ്പ്',
 	'stabilization-restrict' => 'പരിമിതപ്പെടുത്തലുകൾ സ്വയം പരിശോധന ചെയ്യുക',
@@ -2112,7 +2115,7 @@ $messages['ml'] = array(
 	'stabilization-sel-short-1' => 'ഒന്നുമില്ല',
 	'stabilization-def-short' => 'സ്വതവെ',
 	'stabilization-def-short-0' => 'നിലവിലുള്ളത്',
-	'stabilization-def-short-1' => 'സ്ഥിരതയുള്ളത്',
+	'stabilization-def-short-1' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ടത്',
 	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',
 	'stabilize_expiry_old' => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
 	'stabilize-expiring' => 'കാലാവധി തീരുന്നത് - $1 (UTC)',
@@ -2245,29 +2248,29 @@ $messages['nds'] = array(
 $messages['nl'] = array(
 	'stabilization-tab' => '(er)',
 	'stabilization' => 'Paginastabilisatie',
-	'stabilization-text' => "'''Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:\$1|\$1]] geselecteerd en weergegeven wordt.'''
+	'stabilization-text' => "'''Wijzig de onderstaande instellingen om aan te passen hoe de gepubliceerde versie van [[:\$1|\$1]] geselecteerd en weergegeven wordt.'''
 
-Controleer of \"kwaliteitsversies\" of \"ongerepte versies\" van pagina's echt aanwezig zijn voordat u deze als ''stabiele versieselectie'' instelt, anders heeft de wijziging weinig effect.",
-	'stabilization-perm' => 'U hebt geen rechten om de instellingen voor de stabiele versie te wijzigen.
+Controleer of \"kwaliteitsversies\" of \"ongerepte versies\" van pagina's echt aanwezig zijn voordat u deze voor ''gepubliceerde versieselectie'' instelt, anders heeft de wijziging geen effect.",
+	'stabilization-perm' => 'U hebt geen rechten om de instellingen voor de gepubliceerde versie te wijzigen.
 Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-page' => 'Paginanaam:',
-	'stabilization-leg' => 'Instellingen stabiele versie bevestigen',
-	'stabilization-select' => 'Voorkeursversie stabiele versies',
+	'stabilization-leg' => 'Instellingen gepubliceerde versie bevestigen',
+	'stabilization-select' => 'Voorkeuren gepubliceerde versieselectie',
 	'stabilization-select1' => 'De laatste kwaliteitsversie;
 als die er niet is, dan de laatste gecontroleerde versie',
-	'stabilization-select2' => 'De laatste versie met eindredactie, onafhankelijk van het controleniveau',
+	'stabilization-select2' => 'De laatste gecontroleerde versie, onafhankelijk van het controleniveau',
 	'stabilization-select3' => 'De laatste ongerepte versie.
 Als deze niet beschikbaar is, dan de laatste kwaliteitsversie of gecontroleerde versie',
 	'stabilization-def' => 'Versie die standaard weergegeven wordt',
-	'stabilization-def1' => 'De stabiele versie;
+	'stabilization-def1' => 'De gepubliceerde versie;
 als die er niet is, dan de huidige/werkversie',
 	'stabilization-def2' => 'De huidige/werkversie',
-	'stabilization-restrict' => 'Beperkingen op automatisch markeren voor eindredactie',
+	'stabilization-restrict' => 'Beperkingen op automatisch gecontroleerd markeren',
 	'stabilization-restrict-none' => 'Geen additionele beperkingen',
 	'stabilization-submit' => 'Bevestigen',
 	'stabilization-notexists' => 'Er is geen pagina "[[:$1|$1]]".
 Instellen is niet mogelijk.',
-	'stabilization-notcontent' => 'U kunt geen eindredactie op de pagina "[[:$1|$1]]" doen.
+	'stabilization-notcontent' => 'U kunt de pagina "[[:$1|$1]]" niet controleren.
 Instellen is niet mogelijk.',
 	'stabilization-comment' => 'Reden:',
 	'stabilization-otherreason' => 'Andere reden:',
@@ -2279,11 +2282,11 @@ Instellen is niet mogelijk.',
 	'stabilization-sel-short-2' => 'Ongerept',
 	'stabilization-def-short' => 'Standaard',
 	'stabilization-def-short-0' => 'Huidig',
-	'stabilization-def-short-1' => 'Stabiel',
+	'stabilization-def-short-1' => 'Gepubliceerd',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Deze vervaldatum is al verstreken.',
 	'stabilize-expiring' => 'vervalt $1 (UTC)',
-	'stabilization-review' => 'Eindredactie voor de huidige versie',
+	'stabilization-review' => 'Huidige versie controleren',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -2341,20 +2344,20 @@ Ingen innstillingar kan verta gjorde.',
 $messages['no'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidestabilisering',
-	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den stabile versjonen av [[:$1|$1]] skal velges og vises.'''
+	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den publiserte versjonen av [[:$1|$1]] skal velges og vises.'''
 
-Når oppsettet for ''valg av stabil versjon'' endres til å bruke «kvalitet» eller «urørt» som standard,
-kontroller at det faktisk finnes slike versjoner av siden, ellers vil endringen ha liten effekt.",
-	'stabilization-perm' => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for stabile versjoner.
+Når innstillingene for ''valg av publisert versjon'' endres til å bruke «kvalitets»- eller «urørt»-revisjon som standard,
+kontrollér at det faktisk finnes slike revisjoner av siden, ellers vil endringen ha liten effekt.",
+	'stabilization-perm' => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for publiserte versjoner.
 Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-page' => 'Sidenavn:',
-	'stabilization-leg' => 'Bekreft innstillinger for stabile versjoner',
-	'stabilization-select' => 'Valg av stabil versjon har forrang',
+	'stabilization-leg' => 'Bekreft innstillinger for publiserte versjoner',
+	'stabilization-select' => 'Valg av publisert versjon har forrang',
 	'stabilization-select1' => 'Den siste kvalitetsrevisjonen hvis den finnes, ellers den siste synede versjonen',
 	'stabilization-select2' => 'Den siste vurderte versjonen, uansett kvalitetsnivå',
 	'stabilization-select3' => 'Den siste urørte versjonen av denne siden; om det ikke finnes, det siste kvalitetsversjonen eller den siste sjekkede versjonen',
 	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
-	'stabilization-def1' => 'Den stabile versjonen; om den ikke finnes, utkast eller siste versjon',
+	'stabilization-def1' => 'Den publiserte revisjonen; om den ikke finnes, utkast eller siste revisjon',
 	'stabilization-def2' => 'Utkast eller siste versjon',
 	'stabilization-restrict' => 'Begrensninger av auto-vurdering',
 	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
@@ -2371,7 +2374,7 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-sel-short-2' => 'Urørt',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Nåværende',
-	'stabilization-def-short-1' => 'Stabil',
+	'stabilization-def-short-1' => 'Publisert',
 	'stabilize_expiry_invalid' => 'Ugyldig varighet.',
 	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
@@ -2502,25 +2505,27 @@ Nie jest możliwa jej konfiguracja.',
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Bèrto 'd Sèra
  * @author Dragonòt
  */
 $messages['pms'] = array(
 	'stabilization-tab' => '(c.q.)',
 	'stabilization' => 'Stabilisassion dla pàgina',
-	'stabilization-text' => "'''Cambia le regolassion ambelessì sota për rangé coma la version stàbila ëd [[:\$1|\$1]] a debia esse sërnùa e smonùa.'''
+	'stabilization-text' => "'''Cangé le regolassion ambelessì sota për rangé coma la version publicà ëd [[:\$1|\$1]] a deva esse sërnùa e smonùa.'''
 
-Quand as cambia la configurassion ëd la ''vërsion stàbila selessionà'' për dovré le revision ëd \"qualità\" o ëd \"imacolà\" për default,
-sicurte ëd controlé se al moment a-i fusso cole revision ant la pàgina, dasnò ël cambi a l'avrà un cit efet.",
-	'stabilization-perm' => "Sò cont a l'ha pa ij përmess dont a fa da manca për toché le regolassion dla version stàbila. Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
+Quand as cambia la configurassion ëd la ''version publicà selessionà'' për dovré le revision ëd \"qualità\" o d' \"inissial\" për stàndard,
+ch'as sicura ëd controlé se al moment a-i son cole revision ant la pàgina, dësnò ël cangiament a servirà a pòch.",
+	'stabilization-perm' => "Sò cont a l'ha pa ij përmess për cangé la configurassion ëd la version publicà. 
+Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
 	'stabilization-page' => 'Nòm dla pàgina:',
-	'stabilization-leg' => 'Conferma le ampostassion ëd la vërsion stàbila',
-	'stabilization-select' => 'Precedensa ëd selession ëd la vërsion stàbila',
+	'stabilization-leg' => "Conferma j'ampostassion ëd la version publicà",
+	'stabilization-select' => 'Precedensa ëd selession ëd la version publicà',
 	'stabilization-select1' => "Ùltima revision ëd qualità; s'a-i é nen cola, pijé l'ùltima controlà",
 	'stabilization-select2' => 'Ùltima revision controlà (sensa vardé ël livel ëd validassion)',
 	'stabilization-select3' => "Ùltima vërsion imacolà; peui l'ùltima ëd qualità; peui l'ultima vista",
 	'stabilization-def' => 'Revision da smon-e coma pàgina sòlita për la vos',
-	'stabilization-def1' => "La version stàbila; s'a-i n'a-i é gnun-a, pijé cola corenta/sbòss",
+	'stabilization-def1' => "La version publicà; s'a-i é pa, antlora cola corenta/sbòss",
 	'stabilization-def2' => 'La revision/sbòss corent',
 	'stabilization-restrict' => "Restrission d'auto-revision",
 	'stabilization-restrict-none' => 'Pa gnun-e restrission extra',
@@ -2537,7 +2542,7 @@ sicurte ëd controlé se al moment a-i fusso cole revision ant la pàgina, dasn�
 	'stabilization-sel-short-2' => 'Ancontaminà',
 	'stabilization-def-short' => 'Për sòlit',
 	'stabilization-def-short-0' => 'version corenta',
-	'stabilization-def-short-1' => 'version stàbila',
+	'stabilization-def-short-1' => 'Publicà',
 	'stabilize_expiry_invalid' => 'Data fin pa bon-a.',
 	'stabilize_expiry_old' => "Sta data fin-sì a l'é già passà",
 	'stabilize-expiring' => 'A finiss $1 (UTC)',
@@ -2744,19 +2749,19 @@ Non ge stonne le configurazione.',
 $messages['ru'] = array(
 	'stabilization-tab' => '(кк)',
 	'stabilization' => 'Стабилизация страницы',
-	'stabilization-text' => "'''С помощью приведённых ниже настроек можно управлять выбором и отображением стабильной версии страницы [[:$1|$1]].'''
+	'stabilization-text' => "'''С помощью приведённых ниже настроек можно управлять выбором и отображением опубликованной версии страницы [[:$1|$1]].'''
 
-При установке параметра «выбор стабильной версии» в значения «качества» или «изначальности» по умолчанию, убедитесь, что у страницы существуют подобные версии, иначе настройка не возымеет действия.",
-	'stabilization-perm' => 'Вашей учётной записи не хватает прав, чтобы изменять настройки показа стабильной версии.
+При установке параметра «выбор опубликованной версии» в значения «качества» или «изначальности» по умолчанию, убедитесь, что у страницы существуют подобные версии, иначе настройка не возымеет действия.",
+	'stabilization-perm' => 'Вашей учётной записи не достаточно полномочий, для изменения настройки опубликованных версий.
 Здесь приведены текущие настройки для [[:$1|$1]]:',
 	'stabilization-page' => 'Название страницы:',
-	'stabilization-leg' => 'Подтверждение настроек стабильной версии',
-	'stabilization-select' => 'Порядок выбора стабильной версии',
+	'stabilization-leg' => 'Подтверждение настроек опубликованных версии',
+	'stabilization-select' => 'Порядок выбора опубликованной версии',
 	'stabilization-select1' => 'Самая свежая выверенная версия; если её нет, то самая свежая из досмотренных.',
 	'stabilization-select2' => 'Последняя проверенная версия, независимо от уровня проверки',
 	'stabilization-select3' => 'Последняя нетронутая версия; если нет, то последняя выверенная или досмотренная',
 	'stabilization-def' => 'Версия, показываемая по умолчанию',
-	'stabilization-def1' => 'Стабильная версия; если нет, то текущая (черновая)',
+	'stabilization-def1' => 'Опубликованная версия; если нет, то текущая (черновая)',
 	'stabilization-def2' => 'Текущая (черновая) версия',
 	'stabilization-restrict' => 'Ограничения самодосмотра',
 	'stabilization-restrict-none' => 'Нет дополнительных ограничений',
@@ -2773,7 +2778,7 @@ $messages['ru'] = array(
 	'stabilization-sel-short-2' => 'безупречная',
 	'stabilization-def-short' => 'по умолчанию',
 	'stabilization-def-short-0' => 'текущая',
-	'stabilization-def-short-1' => 'стабильная',
+	'stabilization-def-short-1' => 'Опубликованная',
 	'stabilize_expiry_invalid' => 'Ошибочная дата истечения.',
 	'stabilize_expiry_old' => 'Указанное время окончания действия уже прошло.',
 	'stabilize-expiring' => 'истекает $1 (UTC)',
