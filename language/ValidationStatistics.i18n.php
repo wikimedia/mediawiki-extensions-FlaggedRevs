@@ -90,9 +90,9 @@ $messages['am'] = array(
  */
 $messages['ar'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
-	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]] و '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|مراجع]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
 
-المحررون والمراجعون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
+المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
 	'validationstatistics-time' => "''البيانات التالية تم تحديثها آخر مرة في $5 الساعة $6.''
 
 التعديلات التي تم التحقق منها بواسطة المستخدمين المخولين يتم اعتبارها مراجعة.
@@ -100,8 +100,8 @@ $messages['ar'] = array(
 الانتظار المتوسط للتعديلات بواسطة ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
 $4
 التأخر المتوسط [[Special:OldReviewedPages|للصفحات ذات التعديلات غير المراجعة قيد الانتظار]] هو '''$2'''.
-هذه الصفحات تعتبر ''مخزنة''. وبالمثل، الصفحات تعتبر ''محدثة'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخة المستقرة]] هي أيضا نسخة المسودة الحالية.
-النسخة المستقرة لصفحة هي أجدد مراجعة تمت الموافقة عليها للعرض افتراضيا لكل القراء.",
+هذه الصفحات تعتبر ''مخزنة''. وبالمثل، الصفحات تعتبر ''محدثة'' لو لم تكن هناك تعديلات بانتظار المراجعة.
+النسخة المنشورة لصفحة هي أجدد مراجعة تمت الموافقة عليها للعرض افتراضيا لكل القراء.",
 	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضة بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
@@ -129,9 +129,9 @@ $messages['arc'] = array(
  */
 $messages['arz'] = array(
 	'validationstatistics' => 'إحصاءات التحقق',
-	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|محرر]] و '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|مراجع]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحيه [[{{MediaWiki:Validationpage}}|محرر]].
 
-المحررون والمراجعون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
+المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
 	'validationstatistics-time' => "''البيانات التاليه تم تحديثها آخر مره فى $5 الساعه $6.''
 
 التعديلات التى تم التحقق منها بواسطه المستخدمين المخولين يتم اعتبارها مراجعه.
@@ -139,8 +139,8 @@ $messages['arz'] = array(
 الانتظار المتوسط للتعديلات بواسطه ''المستخدمين الذين لم يسجلوا الدخول'' هو '''$1'''؛ المتوسط العام هو '''$3'''.
 $4
 التأخر المتوسط [[Special:OldReviewedPages|للصفحات ذات التعديلات غير المراجعه قيد الانتظار]] هو '''$2'''.
-هذه الصفحات تعتبر ''مخزنة''. وبالمثل، الصفحات تعتبر ''محدثة'' إذا كانت [[{{MediaWiki:Validationpage}}|النسخه المستقرة]] هى أيضا نسخه المسوده الحاليه.
-النسخه المستقره لصفحه هى أجدد مراجعه تمت الموافقه عليها للعرض افتراضيا لكل القراء.",
+هذه الصفحات تعتبر ''مخزنة''. وبالمثل، الصفحات تعتبر ''محدثة'' لو لم تكن هناك تعديلات بانتظار المراجعه.
+النسخه المنشوره لصفحه هى أجدد مراجعه تمت الموافقه عليها للعرض افتراضيا لكل القراء.",
 	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
@@ -655,9 +655,8 @@ As edicións que foron comprobadas polos usuarios autoconfirmados considéranse 
 O promedio de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; a media é de '''$3'''.  
 $4
 O promedio de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$2'''.
-Estas páxinas son consideradas ''obsoletas''. Do mesmo xeito, as páxinas son consideradas ''sincronizadas'' se a
-[[{{MediaWiki:Validationpage}}|versión estable]] é tamén a versión do borrador actual.
-A versión estable dunha páxina é a revisión máis nova que foi aprobada para mostrarlla por defecto a todos os lectores.",
+Estas páxinas son consideradas ''obsoletas''. Do mesmo xeito, as páxinas son consideradas ''sincronizadas'' se non hai edicións agardando unha revisión.
+A versión publicada dunha páxina é a revisión máis nova que foi aprobada para mostrarlla por defecto a todos os lectores.",
 	'validationstatistics-table' => "A continuación amósanse as estatísticas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.",
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
@@ -1119,8 +1118,8 @@ Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäis
 Déi duerchschnettlech Waardezäit fir Ännerungen, déi vun net ugemellte Benotzer kommen, ass '''$1'''; de Median ass '''$3'''.
 $4
 Den duerchschnettleche Réckstand op [[Special:OldReviewedPages|vereelste Säiten]] ass '''$2'''.
-Dës Säite ginn als ''vereelst'' ugesinn. Säite ginn als ''synchroniséiert'' wann déi  [[{{MediaWiki:Validationpage}}|stabil Versioun]] och déi aktuell Virbereedung ass.
-Déi stabil Versioun vun enger Säit ass déi neiste Versioun, déi durch en Editeur confirméiert guf an als Standard alle Lieser gewise gëtt.",
+Dës Säite ginn als ''vereelst'' ugesinn. Säite ginn als ''synchroniséiert'' wann et keng Ännerunge gëtt déi drop waarde fir nogekuckt ze ginn.
+Déi publizéiert Versioun vun enger Säit ass déi neiste Versioun, déi confirméiert gouf an als Standard alle Lieser gewise gëtt.",
 	'validationstatistics-table' => 'Statistike fir jiddwer Nummraum sinn hei ënnendrënner, Viruleedungssäite sinn net berécksichtegt.',
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
@@ -1806,18 +1805,18 @@ Bir sayfanın yayımlanmış sürümü, tüm okuyuculara varsayılan olarak gös
  */
 $messages['uk'] = array(
 	'validationstatistics' => 'Статистика перевірок',
-	'validationstatistics-users' => "У проекті {{SITENAME}} зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]] і '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$2|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«рецензент»]].
+	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
 
-«Редактори» і «рецензенти» — користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
+«Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
 	'validationstatistics-time' => "''Нижченаведені дані востаннє оновлювались $5 о $6.''
 
 Редагування, позначені визначеними користувачами, вважаються перевіреними.
 
 Середнє очікування перевірки редагувань ''незареєстрованих користувачів'' '''$1'''; серединне значення '''$3'''.
 $4
-Середня затримка для [[Special:OldReviewedPages|сторінок з непереглянутими редагуваннями]] дорівнює '''$2'''.
-Ці сторінки вважаються ''застарілими''. Так само сторінки вважаються ''синхронізованими'', якщо їх поточна чорнова версія водночас є [[{{MediaWiki:Validationpage}}|стабільною]].
-Стабільна версія сторінки — найновіша версія, затверджена для показу за замовчуванням усім читачам.",
+Середня затримка для [[Special:OldReviewedPages|сторінок з неперевіреними редагуваннями]] дорівнює '''$2'''.
+Ці сторінки вважаються ''застарілими''. Так само сторінки вважаються ''синхронізованими'', якщо немає неперевірених редагувань.
+Опублікована версія сторінки — найновіша версія, затверджена для показу за замовчуванням усім читачам.",
 	'validationstatistics-table' => "Статистика для кожного простору назв показана нижче. ''Перенаправлення'' не враховані.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',
@@ -1878,19 +1877,18 @@ Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
  */
 $messages['vi'] = array(
 	'validationstatistics' => 'Thống kê phê chuẩn',
-	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Chủ bút]] và ''''''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|thành viên|thành viên}} có quyền [[{{MediaWiki:Validationpage}}|Người duyệt]].
+	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Biên tập viên]].
 
-Những Chủ bút và Người duyệt là người dùng từ lâu có khả năng kiểm tra nhanh các thay đổi tại trang.",
+Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	'validationstatistics-time' => "'''Dữ liệu sau được lưu vào bộ đệm vào $5 lúc $6.'''
 
-Sửa đổi được xem là “đã xuyệt” sau khi thành viên không mới tham gia kiểm tra nó.
+Sửa đổi được xem là đã được duyệt sau khi có thành viên có kinh nghiệm kiểm lại nó.
 
 Thời gian chờ duyệt trung bình cho sửa đổi của ''thành viên không đăng nhập'' là '''$1'''; trung vị là '''$3'''.
 $4
-Độ trễ trung bình đối với [[Special:OldReviewedPages|trang có sửa đổi chưa duyệt]] là '''$2'''.
-Những trang sau được xem là ''lỗi thời''. Tương tự, những trang được xem là ''đã đồng bộ'' nếu
-[[{{MediaWiki:Validationpage}}|phiên bản ổn định]] cũng là phiên bản nháp hiện tại.
-Bản ổn định của một trang là phiên bản của trang đã được chấp nhận để hiển thị cho các độc giả theo mặc định.",
+Độ trễ trung bình đối với [[Special:OldReviewedPages|trang có sửa đổi chờ duyệt]] là '''$2'''.
+Những trang này được xem là ''lỗi thời''. Tương tự, những trang được xem là ''đã đồng bộ'' nếu không có sửa đổi nào đang chờ duyệt.
+Bản phát hành của một trang là phiên bản mới nhất của trang đã được chứng thực để hiển thị cho các độc giả theo mặc định.",
 	'validationstatistics-table' => "Đây có thống kê về các không gian tên, ''trừ'' các trang đổi hướng.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',

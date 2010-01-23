@@ -209,20 +209,20 @@ No ye posible confegurar-la.',
 $messages['ar'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المستقرة من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المنشورة من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
 
-عند تغيير ضبط ''اختيار النسخة المختارة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
+عند تغيير ضبط ''اختيار النسخة المنشورة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
 تأكد من التحقق من وجود مراجعات كهذه في الصفحة، وإلا فإن التغيير سيكون له تأثير ضعيف.",
-	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المستقرة.
-	هنا الإعدادات الحالية ل[[:$1|$1]]:',
+	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المنشورة.
+هنا الإعدادات الحالية ل[[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
-	'stabilization-leg' => 'تأكيد إعدادات النسخة المستقرة',
-	'stabilization-select' => 'سابقة اختيار النسخة المستقرة',
+	'stabilization-leg' => 'تأكيد إعدادات النسخة المنشورة',
+	'stabilization-select' => 'سابقة اختيار النسخة المنشورة',
 	'stabilization-select1' => 'آخر مراجعة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
 	'stabilization-select2' => 'آخر مراجعة مراجعة (بعض النظر عن مستوى التحقيق)',
 	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
 	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
-	'stabilization-def1' => 'المراجعة المستقرة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
+	'stabilization-def1' => 'المراجعة المنشورة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
 	'stabilization-def2' => 'المراجعة الحالية/المسودة',
 	'stabilization-restrict' => 'ضوابط المراجعة التلقائية',
 	'stabilization-restrict-none' => 'لا ضوابط إضافية',
@@ -241,7 +241,7 @@ $messages['ar'] = array(
 	'stabilization-sel-short-2' => 'فائقة',
 	'stabilization-def-short' => 'افتراضي',
 	'stabilization-def-short-0' => 'حالي',
-	'stabilization-def-short-1' => 'مستقر',
+	'stabilization-def-short-1' => 'منشورة',
 	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
@@ -262,20 +262,20 @@ $messages['arc'] = array(
 $messages['arz'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفيه التى بها النسخه المستقره من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفيه التى بها النسخه المنشوره من [[:\$1|\$1]] يتم اختيارها وعرضها.'''
 
-عند تغيير ضبط ''اختيار النسخه المختارة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
+عند تغيير ضبط ''اختيار النسخه المنشورة'' لاستخدام مراجعات \"الجودة\" أو \"الفائقة\" افتراضيا،
 تأكد من التحقق من وجود مراجعات كهذه فى الصفحه، وإلا فإن التغيير سيكون له تأثير ضعيف.",
-	'stabilization-perm' => 'حسابك لا يمتلك الصلاحيه لتغيير إعدادات النسخه المستقره.
-	هنا الإعدادات الحاليه ل[[:$1|$1]]:',
+	'stabilization-perm' => 'حسابك لا يمتلك الصلاحيه لتغيير إعدادات النسخه المنشوره.
+هنا الإعدادات الحاليه ل[[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
-	'stabilization-leg' => 'تأكيد إعدادات النسخه المستقرة',
-	'stabilization-select' => 'سابقه اختيار النسخه المستقرة',
-	'stabilization-select1' => 'آخر مراجعه جودة؛ لو غير موجوده، إذا آخر واحده منظورة',
+	'stabilization-leg' => 'تأكيد إعدادات النسخه المنشورة',
+	'stabilization-select' => 'سابقه اختيار النسخه المنشورة',
+	'stabilization-select1' => 'آخر مراجعه جوده؛ لو غير موجوده، إذا آخر واحده منظورة',
 	'stabilization-select2' => 'آخر مراجعه مراجعه (بعض النظر عن مستوى التحقيق)',
-	'stabilization-select3' => 'آخر مراجعه فائقة؛ لو غير موجوده، إذا آخر مراجعه جوده أو منظورة',
+	'stabilization-select3' => 'آخر مراجعه فائقه؛ لو غير موجوده، إذا آخر مراجعه جوده أو منظورة',
 	'stabilization-def' => 'المراجعه المعروضه عند رؤيه الصفحه افتراضيا',
-	'stabilization-def1' => 'المراجعه المستقرة؛ لو غير موجوده، إذا المراجعه الحالية/المسودة',
+	'stabilization-def1' => 'المراجعه المنشوره؛ لو غير موجوده، إذا المراجعه الحالية/المسودة',
 	'stabilization-def2' => 'المراجعه الحالية/المسودة',
 	'stabilization-restrict' => 'ضوابط المراجعه التلقائية',
 	'stabilization-restrict-none' => 'لا ضوابط إضافية',
@@ -294,7 +294,7 @@ $messages['arz'] = array(
 	'stabilization-sel-short-2' => 'فائقة',
 	'stabilization-def-short' => 'افتراضي',
 	'stabilization-def-short-0' => 'حالي',
-	'stabilization-def-short-1' => 'مستقر',
+	'stabilization-def-short-1' => 'منشورة',
 	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize-expiring' => 'تنتهى فى $1 (UTC)',
@@ -1182,20 +1182,20 @@ $messages['ga'] = array(
 $messages['gl'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilización da páxina',
-	'stabilization-text' => "'''Mude a configuración a continuación para axustar a forma na que a versión estábel de \"[[:\$1|\$1]]\" é seleccionada e mostrada.'''
+	'stabilization-text' => "'''Mude a configuración a continuación para axustar a forma na que a versión publicada de \"[[:\$1|\$1]]\" é seleccionada e mostrada.'''
 
-Ao cambiar a configuración da ''selección da versión estábel'' para usar as revisións de \"calidade\" ou unha \"previa\" por defecto,
+Ao cambiar a configuración da ''selección da versión publicada'' para usar as revisións de \"calidade\" ou unha \"previa\" por defecto,
 asegúrese de comprobar se en realidade existen tales revisións na páxina, pola contra o cambio afectará lixeiramente.",
-	'stabilization-perm' => 'A súa conta non ten permisos para mudar a configuración da versión estábel.
-Esta é a configuración actual de "[[:$1|$1]]":',
+	'stabilization-perm' => 'A súa conta non ten os permisos necesarios para mudar a configuración da versión publicada.
+Velaquí está a configuración actual de "[[:$1|$1]]":',
 	'stabilization-page' => 'Nome da páxina:',
-	'stabilization-leg' => 'Confirmar as configuración da versión estábel',
-	'stabilization-select' => 'Prioridade de selección da versión estábel',
+	'stabilization-leg' => 'Confirmar as configuración da versión publicada',
+	'stabilization-select' => 'Prioridade de selección da versión publicada',
 	'stabilization-select1' => 'A última revisión de calidade; se non existe, entón a última revisada',
 	'stabilization-select2' => 'A última revisión revisada, malia o nivel de validación',
 	'stabilization-select3' => 'A última revisión previa; se non existe, entón a última de calidade ou revisada',
 	'stabilization-def' => 'Revisión que aparece por defecto na vista da páxina',
-	'stabilization-def1' => 'A revisión estábel; se non existe, entón a actual ou o borrador',
+	'stabilization-def1' => 'A revisión publicada; se non existe, entón a actual ou o borrador',
 	'stabilization-def2' => 'A revisión actual ou o borrador',
 	'stabilization-restrict' => 'Restricións nas revisións automáticas',
 	'stabilization-restrict-none' => 'Sen restricións extra',
@@ -1212,7 +1212,7 @@ Esta é a configuración actual de "[[:$1|$1]]":',
 	'stabilization-sel-short-2' => 'Intacto',
 	'stabilization-def-short' => 'Por defecto',
 	'stabilization-def-short-0' => 'Actual',
-	'stabilization-def-short-1' => 'Estábel',
+	'stabilization-def-short-1' => 'Publicada',
 	'stabilize_expiry_invalid' => 'Data non válida de caducidade.',
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
 	'stabilize-expiring' => 'caduca o $2 ás $3 (UTC)',
@@ -1946,19 +1946,19 @@ $messages['la'] = array(
 $messages['lb'] = array(
 	'stabilization-tab' => 'Astellung',
 	'stabilization' => 'Stabilisatioun vun der Säit',
-	'stabilization-text' => "'''Ännert d'Astellungen ënnendrënner fir anzestellen wéi déi stabil Versioun vu(n)  [[:\$1|\$1]] erausgesicht an ugewise gëtt.'''
+	'stabilization-text' => "'''Ännert d'Astellungen ënnendrënner fir anzestellen wéi déi publizéiert Versioun vu(n)  [[:\$1|\$1]] erausgesicht an ugewise gëtt.'''
 
 Wann Dir d'Astellung fir ''d'Eraussiche vun der stabiler Versioun'' esou astellt datt Versioune \"Qualitéit'' oder ''Intakt'' als Standard ugewise ginn, da vergewëssert Iech dat et wierklech esou Versioune gëtt fir déi Säit, soss huet d'Ännerung wéineg Effekt.",
-	'stabilization-perm' => "Äre Benotzerkont huet net d'Recht fir d'Astellung vun der stabileer Versioun z'änneren.
+	'stabilization-perm' => "Äre Benotzerkont huet net d'Recht fir d'Astellung vun der publizéierter Versioun z'änneren.
 Hei sinn déi aktuell Astellunge fir [[:$1|$1]]:",
 	'stabilization-page' => 'Säitennumm:',
-	'stabilization-leg' => "Confirméiert d'stabil-Versiouns-Astellungen",
-	'stabilization-select' => 'Priritéit vun der Auswiel vun der stabiler Versioun',
+	'stabilization-leg' => "Confirméiert d'publizéiert-Versiouns-Astellungen",
+	'stabilization-select' => 'Prioritéit vun der Auswiel vun der publizéierter Versioun',
 	'stabilization-select1' => 'Déi lescht Qualitéitsversioun; wann net, dann déi lescht gepréifte Versioun',
 	'stabilization-select2' => 'Déi lescht iwwerkuckte Versioun, ouni de Niveua vun der Validatioun a Betracht ze zéien',
 	'stabilization-select3' => 'Déi lescht intakt Versioun; duerno déi lescht Qualitéitsversioun; duerno déi lescht nogekuckte Versioun',
 	'stabilization-def' => 'Versioun déi als Standard beim Weise vun der Säit gewise gëtt',
-	'stabilization-def1' => 'Déi stabil Versioun; oder wann et keng gëtt, déi aktuell/Virbereedung',
+	'stabilization-def1' => 'Déi publizéiert Versioun; oder wann et keng gëtt, déi aktuell/Virbereedung',
 	'stabilization-def2' => 'Déi aktuell Versioun',
 	'stabilization-restrict' => 'Limitatioune vumautomatesche Nokucken',
 	'stabilization-restrict-none' => 'Keng speziell Restriktiounen',
@@ -1977,7 +1977,7 @@ Et ass keng Konfiguratioun méiglech.',
 	'stabilization-sel-short-2' => 'Intakt',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
-	'stabilization-def-short-1' => 'Stabil',
+	'stabilization-def-short-1' => 'Publizéiert',
 	'stabilize_expiry_invalid' => 'Net valabele Schlussdatum',
 	'stabilize_expiry_old' => 'Den Oflafdatum ass schonn eriwwer.',
 	'stabilize-expiring' => 'bis $1 (UTC)',
@@ -3352,20 +3352,20 @@ $messages['tt-cyrl'] = array(
 $messages['uk'] = array(
 	'stabilization-tab' => '(кя)',
 	'stabilization' => 'Стабілізація сторінки',
-	'stabilization-text' => "'''Змініть наведені нижче налаштування, щоб змінити вибір і відображення стабільної версії [[:$1|$1]].'''
+	'stabilization-text' => "'''Змініть наведені нижче налаштування, щоб змінити вибір і відображення опублікованої версії [[:$1|$1]].'''
 
 Під час встановлення параметра ''Порядок вибору стабільної версії'' у значення «якісна» або «чиста» версія за замовчуванням,
 переконайтеся, що фактично є такі версії сторінки, інакше налаштування не матимуть ефекту.",
-	'stabilization-perm' => 'Вашому обліковому запису не вистачає прав, щоб змінювати налаштування показу стабільної версії.
+	'stabilization-perm' => 'Вашому обліковому запису не вистачає прав для зміни налаштувань опублікованої версії.
 Тут наведені поточні налаштування для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва сторінки:',
-	'stabilization-leg' => 'Підтвердження налаштувань стабільної версії',
-	'stabilization-select' => 'Порядок вибору стабільної версії',
+	'stabilization-leg' => 'Підтвердження налаштувань опублікованої версії',
+	'stabilization-select' => 'Порядок вибору опублікованої версії',
 	'stabilization-select1' => 'Найсвіжіша якісна версія; якщо такої нема, то найсвіжіша переглянута',
 	'stabilization-select2' => 'Остання перевірена версія, незалежно від рівня перевірки',
 	'stabilization-select3' => 'Остання недоторкана версія, якщо такої немає, то остання якісна або переглянута',
 	'stabilization-def' => 'Версія, що показується за замовчуванням',
-	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то поточна/чорнова',
+	'stabilization-def1' => 'Опублікована версія; якщо такої нема, то поточна/чорнова',
 	'stabilization-def2' => 'Поточна/чорнова версія',
 	'stabilization-restrict' => 'Обмеження автоперевірки',
 	'stabilization-restrict-none' => 'Без додаткових обмежень',
@@ -3384,7 +3384,7 @@ $messages['uk'] = array(
 	'stabilization-sel-short-2' => 'Недоторкана',
 	'stabilization-def-short' => 'Стандартно',
 	'stabilization-def-short-0' => 'Поточна',
-	'stabilization-def-short-1' => 'Стабільна',
+	'stabilization-def-short-1' => 'Опублікована',
 	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
 	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
 	'stabilize-expiring' => 'закінчується о $1 (UTC)',

@@ -35,7 +35,7 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'qualityoversight' => 'نظر الجودة',
+	'qualityoversight' => 'سجل المراجعة المتقدم',
 	'qualityoversight-list' => 'هذه الصفحة تعرض عمليات الموافقة والإزالة الحديثة للمراجعات.',
 	'qualityoversight-legend' => 'ابحث في سجلات المراجعة الحديثة',
 );
@@ -44,7 +44,7 @@ $messages['ar'] = array(
  * @author Meno25
  */
 $messages['arz'] = array(
-	'qualityoversight' => 'نظر الجودة',
+	'qualityoversight' => 'سجل المراجعه المتقدم',
 	'qualityoversight-list' => 'هذه الصفحه تعرض عمليات الموافقه والإزاله الحديثه للمراجعات.',
 	'qualityoversight-legend' => 'ابحث فى سجلات المراجعه الحديثة',
 );

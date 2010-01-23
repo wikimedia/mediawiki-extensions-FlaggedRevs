@@ -69,8 +69,8 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'stablepages' => 'صفحات مستقرة',
-	'stablepages-stable' => 'نسخة مستقرة',
-	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المستقرة كمحتوى الصفحة الافتراضي للمشاهدين.',
+	'stablepages-stable' => 'نسخة منشورة',
+	'stablepages-text' => 'بالأسفل قائمة الصفحات المضبوطة يدويا لتعرض النسخة المنشورة كمحتوى الصفحة الافتراضي للقراء.',
 	'stablepages-none' => 'لا توجد صفحات في هذه القائمة',
 	'stablepages-config' => 'ضبط',
 	'stablepages-prec-none' => 'لا سابقة',
@@ -85,8 +85,8 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'stablepages' => 'صفحات مستقرة',
-	'stablepages-stable' => 'نسخه مستقرة',
-	'stablepages-text' => 'بالأسفل قائمه الصفحات المضبوطه يدويا لتعرض النسخه المستقره كمحتوى الصفحه الافتراضى للمشاهدين.',
+	'stablepages-stable' => 'نسخه منشورة',
+	'stablepages-text' => 'بالأسفل قائمه الصفحات المضبوطه يدويا لتعرض النسخه المنشوره كمحتوى الصفحه الافتراضى للقراء.',
 	'stablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'stablepages-config' => 'ضبط',
 	'stablepages-prec-none' => 'لا سابقة',
@@ -985,8 +985,8 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'stablepages' => 'Trang ổn định',
-	'stablepages-stable' => 'bản ổn định',
-	'stablepages-text' => 'Dưới đây là danh sách các trang được cấu hình bằng tay để hiển thị bản ổn định làm nội dung trang mặc định đối với người xem.',
+	'stablepages-stable' => 'bản phát hành',
+	'stablepages-text' => 'Dưới đây là danh sách các trang được cấu hình bằng tay để hiển thị bản phát hành làm nội dung trang mặc định đối với người xem.',
 	'stablepages-none' => 'Không có trang nào trong danh sách',
 	'stablepages-config' => 'Cấu hình',
 	'stablepages-prec-none' => 'không có bản trước',

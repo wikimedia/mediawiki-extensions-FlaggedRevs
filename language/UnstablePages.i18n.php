@@ -42,7 +42,7 @@ $messages['af'] = array(
  */
 $messages['ar'] = array(
 	'unstablepages' => 'صفحات غير مستقرة',
-	'unstablepages-stable' => 'نسخة مستقرة',
+	'unstablepages-stable' => 'نسخة منشورة',
 	'unstablepages-text' => 'بالأسفل قائمة بالصفحات المضبوطة يدويا لعرض نسخة المسودة كمحتوى الصفحة الافتراضي للقراء.',
 	'unstablepages-none' => 'لا توجد صفحات في هذه القائمة',
 	'unstablepages-config' => 'ضبط',
@@ -53,7 +53,7 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'unstablepages' => 'صفحات غير مستقرة',
-	'unstablepages-stable' => 'نسخه مستقرة',
+	'unstablepages-stable' => 'نسخه منشورة',
 	'unstablepages-text' => 'بالأسفل قائمه بالصفحات المضبوطه يدويا لعرض نسخه المسوده كمحتوى الصفحه الافتراضى للقراء.',
 	'unstablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'unstablepages-config' => 'ضبط',
@@ -267,7 +267,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'unstablepages' => 'Páxinas non estables',
-	'unstablepages-stable' => 'versión estable',
+	'unstablepages-stable' => 'versión publicada',
 	'unstablepages-text' => 'Embaixo hai unha lista de páxinas configuradas manualmente para amosar aos lectores a versión borrador por omisión como páxina de contido.',
 	'unstablepages-none' => 'Non hai páxinas nesta lista',
 	'unstablepages-config' => 'Configuración',
@@ -432,7 +432,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'unstablepages' => 'Net stabil Versioun',
-	'unstablepages-stable' => 'stabil Versioun',
+	'unstablepages-stable' => 'publizéiert Versioun',
 	'unstablepages-text' => "Hei ass eng Lëscht vu Säiten déi manuell agestallt goufen fir déi provisoresch (draft) Versioun als Säit par defaut fir déi Leit déi d'Sàite nokucken (reviewers)",
 	'unstablepages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
 	'unstablepages-config' => 'Configuratioun',
@@ -711,10 +711,11 @@ $messages['tr'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'unstablepages' => 'Нестабільні сторінки',
-	'unstablepages-stable' => 'стабільна версія',
+	'unstablepages-stable' => 'опублікована версія',
 	'unstablepages-text' => 'Нижче наведений список сторінок, для яких вручну встановлене налаштування показувати чорнову версію за замовчуванням.',
 	'unstablepages-none' => 'У цьому списку нема сторінок',
 	'unstablepages-config' => 'Налаштування',

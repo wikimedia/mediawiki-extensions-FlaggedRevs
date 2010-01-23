@@ -849,6 +849,7 @@ $messages['jv'] = array(
 $messages['ka'] = array(
 	'unreviewed-category' => 'კატეგორია:',
 	'unreviewed-diff' => 'შემოწმება',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|დღე|დღე}})',
 	'unreviewed-recent' => '(1 საათზე ნაკლები)',
 );
