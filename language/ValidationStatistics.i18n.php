@@ -205,13 +205,13 @@ $messages['bg'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'validationstatistics' => 'Stadegoù kadarnaat',
-	'validationstatistics-users' => "Evit ar poent, war'''{{SITENAME}}''' ez eus '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|implijer|implijer}} gantañ gwirioù [[{{MediaWiki:Validationpage}}|Aozer]]
-ha '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|implijer|implijer}} gantañ gwirioù [[{{MediaWiki:Validationpage}}|Adlenner]].
+	'validationstatistics-users' => "Evit ar poent, war '''{{SITENAME}}''' ez eus '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|implijer gantañ|implijer ganto}} gwirioù [[{{MediaWiki:Validationpage}}|Aozer]]. 
 
-Editors and Reviewers are established users that can spot check revisions to pages.",
+An Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adweladennoù ar pajennoù.",
 	'validationstatistics-time' => "''Hizivaet eo bet ar roadennoù da-heul d'an $5 da $6 da ziwezhañ.''
 
 Sellet e vez ouzh ar c'hemmoù bet gwiriet gant implijerien oberiant evel ouzh kemmoù bet adwelet.
@@ -219,8 +219,8 @@ Sellet e vez ouzh ar c'hemmoù bet gwiriet gant implijerien oberiant evel ouzh k
 Amzer adlenn keitat ar c'hemmoù dre ''implijerien anluget'' da vezañ adwelet zo '''$1'''; '''$3''' eo an dalvoudenn greiz.
 $4
 An dale keitat evit ar [[Special:OldReviewedPages|pajennoù enno kemmoù da vezañ adlennet]] zo '''$2'''.
-Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' mard eo [[{{MediaWiki:Validationpage}}|ar stumm stabil]] ar stumm brouilhed red.
-Stumm stabil ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ diskouezet dre ziouer d'an holl lennerien.",
+Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' ma n'ez eus kemm ebet a rank bezañ adlennet.
+Stumm embannet ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ diskouezet dre ziouer d'an holl lennerien.",
 	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
 	'validationstatistics-ns' => 'Esaouenn anv',
 	'validationstatistics-total' => 'Pajennoù',

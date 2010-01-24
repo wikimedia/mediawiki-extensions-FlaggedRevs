@@ -135,11 +135,12 @@ $messages['bg'] = array(
 /** Breton (Brezhoneg)
  * @author Fohanno
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'stablepages' => 'Pajennoù stabil',
 	'stablepages-stable' => 'stumm embannet',
-	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm stabil da bajenn danvez enni, dre ziouer.",
+	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm embannet da bajenn danvez enni, dre ziouer.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
 	'stablepages-config' => 'Kefluniañ',
 	'stablepages-prec-none' => 'Tamm dibab gwellañ ebet',
@@ -883,7 +884,7 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'stablepages' => 'స్థిరమైన పేజీలు',
-	'stablepages-stable' => 'సుస్థిర కూర్పు',
+	'stablepages-stable' => 'ప్రచురిత కూర్పు',
 	'stablepages-none' => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'stablepages-config' => 'స్వరూపణం',
 );

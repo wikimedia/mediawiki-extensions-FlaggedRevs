@@ -489,11 +489,12 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'stabilization' => 'Stabiladur ar bajenn',
-	'stabilization-perm' => "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm stabil.
+	'stabilization-perm' => "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm embannet.
 Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-page' => 'Anv ar bajenn :',
 	'stabilization-leg' => 'Kadarnaat arventennoù ar stumm embannet',
-	'stabilization-def1' => "Ar stumm stabil ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhoñs",
+	'stabilization-select' => 'kentwir diuzadur ar stumm embannet',
+	'stabilization-def1' => "Ar stumm embannet ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhed",
 	'stabilization-def2' => 'Ar stumm red pe ar brouilh',
 	'stabilization-restrict' => 'Strishadurioù adweladennoù emgefre',
 	'stabilization-restrict-none' => 'Strishadurioù ouzhpenn ebet',
@@ -3120,7 +3121,7 @@ $messages['te'] = array(
 	'stabilization-sel-short-1' => 'ఏమీలేదు',
 	'stabilization-def-short' => 'డిఫాల్టు',
 	'stabilization-def-short-0' => 'ప్రస్తుత',
-	'stabilization-def-short-1' => 'సుస్థిరం',
+	'stabilization-def-short-1' => 'ప్రచురితం',
 	'stabilize_expiry_invalid' => 'తప్పుడు కాలపరిమితి తేదీ.',
 	'stabilize_expiry_old' => 'ఈ కాలం ఎప్పుడో చెల్లిపోయింది.',
 	'stabilize-expiring' => '$1 (UTC) నాడు కాలం చెల్లుతుంది',

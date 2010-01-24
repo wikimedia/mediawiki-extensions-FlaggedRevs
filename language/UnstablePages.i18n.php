@@ -431,7 +431,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'unstablepages' => 'Net stabil Versioun',
+	'unstablepages' => 'Net stabil Säiten',
 	'unstablepages-stable' => 'publizéiert Versioun',
 	'unstablepages-text' => "Hei ass eng Lëscht vu Säiten déi manuell agestallt goufen fir déi provisoresch (draft) Versioun als Säit par defaut fir déi Leit déi d'Sàite nokucken (reviewers)",
 	'unstablepages-none' => 'Et gëtt keng Säiten op dëser Lëscht',
@@ -671,7 +671,7 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'unstablepages' => 'నిలకడ లేని పేజీలు',
-	'unstablepages-stable' => 'నిలకడైన కూర్పు',
+	'unstablepages-stable' => 'ప్రచురిత కూర్పు',
 	'unstablepages-none' => 'ఈ జాబితాలో పేజీలేమీ లేవు',
 	'unstablepages-config' => 'స్వరూపణం',
 );
