@@ -335,7 +335,7 @@ class FlaggedArticleView {
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot . FlaggedRevsXML::draftStatusIcon() .
 				wfMsgExt( 'revreview-edited', array( 'parseinline' ), $srev->getRevId(), $revsSince );
-			$anchor = $wgRequest->getText( 'fromsection' );
+			$anchor = $wgRequest->getVal( 'fromsection' );
 			if( $anchor != null ) {
 				$section = str_replace( '_', ' ', $anchor ); // prettify
 				$pending .= wfMsgExt( 'revreview-edited-section', 'parse', $anchor, $section );
