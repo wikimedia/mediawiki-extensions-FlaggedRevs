@@ -100,6 +100,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-check-flag'         => 'Mark pending edits reviewed',
 	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
 The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}].',
+	'revreview-edited-section'     => 'Return to page section named "[[#$1|$2]]".',
 	'revreview-flag'               => 'Review this revision',
 	'revreview-reflag'             => 'Re-review this revision',
 	'revreview-invalid'            => '\'\'\'Invalid target:\'\'\' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.',

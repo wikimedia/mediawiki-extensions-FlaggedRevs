@@ -1806,9 +1806,9 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
-	public static function injectReviewDiffURLParams( $article, &$sectionAnchor, &$extraQuery ) {
+	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
 		$view = FlaggedArticleView::singleton();
-		$view->injectReviewDiffURLParams( $sectionAnchor, $extraQuery );
+		$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
 		return true;
 	}
 	

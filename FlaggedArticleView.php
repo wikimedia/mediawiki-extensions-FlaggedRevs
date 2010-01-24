@@ -335,6 +335,11 @@ class FlaggedArticleView {
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot . FlaggedRevsXML::draftStatusIcon() .
 				wfMsgExt( 'revreview-edited', array( 'parseinline' ), $srev->getRevId(), $revsSince );
+			$anchor = $wgRequest->getText( 'fromsection' );
+			if( $anchor != null ) {
+				$section = str_replace( '_', ' ', $anchor ); // prettify
+				$pending .= wfMsgExt( 'revreview-edited-section', 'parse', $anchor, $section );
+			}
 			# Notice should always use subtitle
 			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
 				"class='flaggedrevs_preview plainlinks'>$pending</div>";
@@ -1368,32 +1373,46 @@ class FlaggedArticleView {
 	* Redirect users out to review the changes to the stable version.
 	* Only for people who can review and for pages that have a stable version.
 	*/
-	public function injectReviewDiffURLParams( &$sectionAnchor, &$extraQuery ) {
+	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		global $wgUser;
 		$this->load();
 		# Don't show this for pages that are not reviewable
-		if ( !$this->article->isReviewable() || $this->article->getTitle()->isTalkPage() )
+		if ( !$this->article->isReviewable() ) {
 			return true;
-		# We may want to skip some UI elements
-		if ( $this->article->limitedUI() )
-			return true;
+		}
 		# Get the stable version, from master
 		$frev = $this->article->getStableRev( FR_MASTER );
-		if ( !$frev )
+		if ( !$frev ) {
 			return true;
+		}
 		# Get latest revision Id (lag safe)
 		$latest = $this->article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+		if ( $latest == $frev->getRevId() ) {
+			return true; // only for pages with pending edits
+		}
 		// If the edit was not autoreviewed, and the user can actually make a
 		// new stable version, then go to the diff...
-		if ( $latest > $frev->getRevId() && $frev->userCanSetFlags() ) {
+		if ( $frev->userCanSetFlags() ) {
 			$extraQuery .= $extraQuery ? '&' : '';
-			$extraQuery .= "oldid={$frev->getRevId()}&diff=cur&diffonly=0"; // override diff-only
+			// Override diffonly setting to make sure the content is shown
+			$extraQuery .= 'oldid='.intval($frev->getRevId()).'&diff=cur&diffonly=0';
 		// ...otherwise, go to the current revision after completing an edit.
+		// This allows for users to immediately see their changes.
 		} else {
-			if ( $frev && $latest != $frev->getRevId() ) {
-				$extraQuery .= "stable=0";
-				if ( !$wgUser->isAllowed( 'review' ) && $this->article->isStableShownByDefault() ) {
-					$extraQuery .= "&shownotice=1";
+			$extraQuery .= $extraQuery ? '&' : '';
+			$extraQuery .= 'stable=0';
+			// Show a notice at the top of the page for non-reviewers...
+			if ( !$wgUser->isAllowed( 'review' ) && $this->article->isStableShownByDefault() ) {
+				$extraQuery .= '&shownotice=1';
+				if( $sectionAnchor ) {
+					// Pass a section parameter in the URL as needed to add a link to
+					// the "your changes are pending" box on the top of the page...
+					$section = str_replace(
+						array( ':' , '.' ), array( '%3A', '%' ), // hack: reverse special encoding
+						substr( $sectionAnchor, 1 ) // remove the '#'
+					);
+					$extraQuery .= '&fromsection=' . $section;
+					$sectionAnchor = ''; // go to the top of the page to see notice
 				}
 			}
 		}

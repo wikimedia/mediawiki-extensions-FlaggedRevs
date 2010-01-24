@@ -473,7 +473,7 @@ $wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsHooks::addToChangeListL
 $wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
 $wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 # Page review on edit
-$wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectReviewDiffURLParams';
+$wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectPostEditURLParams';
 # Diff-to-stable
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Autoreview stuff
