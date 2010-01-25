@@ -504,11 +504,10 @@ class RevisionReview extends UnlistedSpecialPage
 				$oldfrev->getRevText(), $oldfrev->getRevId() );
 		}
 		
-		# Be looser on includes for templates, since they don't matter much
-		# and strict checking breaks randomized images/metatemplates...(bug 14580)
+		# Be loose on templates that includes other files/templates dynamically.
+		# Strict checking breaks randomized images/metatemplates...(bug 14580)
 		global $wgUseCurrentTemplates, $wgUseCurrentImages;
-		$noMatch = ( $rev->getTitle()->getNamespace() == NS_TEMPLATE
-			&& $wgUseCurrentTemplates && $wgUseCurrentImages );
+		$mustMatch = !( $wgUseCurrentTemplates && $wgUseCurrentImages );
 		
 		# Set our versioning params cache
 		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
@@ -516,7 +515,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$text = $rev->getText();
 		$stableOutput = FlaggedRevs::parseStableText( $article, $text, $rev->getId() );
 		$err =& $stableOutput->fr_includeErrors;
-		if ( !$noMatch ) { // template/files must all be specified
+		if ( $mustMatch ) { // if template/files must all be specified...
 			if ( !empty( $err )
 				|| $stableOutput->fr_newestImageTime > $lastImgTime
 				|| $stableOutput->fr_newestTemplateID > $lastTempId )
