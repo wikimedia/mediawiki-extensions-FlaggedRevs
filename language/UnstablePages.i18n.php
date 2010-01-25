@@ -542,11 +542,12 @@ $messages['pms'] = array(
 );
 
 /** Portuguese (Português)
+ * @author Hamilton Abreu
  * @author Malafaya
  */
 $messages['pt'] = array(
 	'unstablepages' => 'Páginas instáveis',
-	'unstablepages-stable' => 'versão estável',
+	'unstablepages-stable' => 'versão publicada',
 	'unstablepages-text' => 'Abaixo encontra-se uma lista de página manualmente configuradas para mostrar aos leitores a versão rascunho como conteúdo por defeito da página.',
 	'unstablepages-none' => 'Não há páginas nesta lista',
 	'unstablepages-config' => 'Configuração',

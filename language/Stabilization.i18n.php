@@ -526,14 +526,14 @@ N\'haller ket kefluniañ netra.',
 $messages['bs'] = array(
 	'stabilization-tab' => 'konfig',
 	'stabilization' => 'Stabilizacija stranice',
-	'stabilization-text' => "'''Promijenite postavke ispod da biste podesili kako će se stabilna verzija stranice [[:$1|$1]] odabrati i prikazati.'''
+	'stabilization-text' => "'''Promijenite postavke ispod da biste podesili kako će se stabilna verzija stranice [[:\$1|\$1]] odabrati i prikazati.'''
 
-Kada mijenjate konfiguraciju ''odabir stabilne verzije''  za korištenje ''kvalitetnih'' ili ''starih'' revizija po prepostavljenom, provjerite da li zaista postoje takve revizije stranice, u suprotnom će promjena imati malo uticaja.",
+Kada mijenjate konfiguraciju ''odabir stabilne verzije'' za korištenje \"kvalitetnih\" ili \"starih\" revizija po prepostavljenom, provjerite da li zaista postoje takve revizije stranice, u suprotnom će promjena imati malo uticaja.",
 	'stabilization-perm' => 'Vaš račun nema dopuštenje da mijenja konfiguraciju stabilne verzije.
 Ovdje su trenutne postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Naslov stranice:',
-	'stabilization-leg' => 'Potvrdite postavke stabilne verzije',
-	'stabilization-select' => 'Prioritet odabira stabilne verzije',
+	'stabilization-leg' => 'Potvrdite postavke objavljene verzije',
+	'stabilization-select' => 'Prioritet odabira objavljene verzije',
 	'stabilization-select1' => 'Posljednja kvalitetna revizija, ako je nema, onda zadnja provjerena',
 	'stabilization-select2' => 'Posljednja pregledana revizija, bez obzira na nivo provjere',
 	'stabilization-select3' => 'Posljednja stara revizija, ako je nema, onda posljednja kvalitetna ili pregledana',
@@ -557,7 +557,7 @@ Nije moguća konfiguracija.',
 	'stabilization-sel-short-2' => 'Zastarijelo',
 	'stabilization-def-short' => 'Standardno',
 	'stabilization-def-short-0' => 'Trenutna',
-	'stabilization-def-short-1' => 'Stabilno',
+	'stabilization-def-short-1' => 'Objavljeno',
 	'stabilize_expiry_invalid' => 'Nevaljan datum isticanja.',
 	'stabilize_expiry_old' => 'Ovo vrijeme isticanja je već prošlo.',
 	'stabilize-expiring' => 'ističe $1 (UTC)',

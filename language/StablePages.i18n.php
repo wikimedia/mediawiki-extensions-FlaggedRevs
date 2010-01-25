@@ -740,8 +740,8 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'stablepages' => 'Páginas estáveis',
-	'stablepages-stable' => 'edição estável',
-	'stablepages-text' => 'Segue-se uma lista das páginas que foram manualmente configuradas para apresentarem a edição estável como conteúdo padrão a quem as visitar.',
+	'stablepages-stable' => 'versão publicada',
+	'stablepages-text' => 'Segue-se uma lista das páginas configuradas manualmente para apresentarem, por omissão, a todos os leitores, a versão publicada.',
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
 	'stablepages-prec-none' => 'sem precedência',
