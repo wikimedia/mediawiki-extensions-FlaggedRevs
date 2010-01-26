@@ -225,7 +225,8 @@ li.flaggedrevs_hist_stable {
 
 .fr-hist-basic-user,
 .fr-hist-quality-user,
-.fr-hist-autoreviewed {
+.fr-hist-basic-auto,
+.fr-hist-quality-auto {
 	font-weight: bold;
 }
 

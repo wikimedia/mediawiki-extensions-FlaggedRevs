@@ -1393,35 +1393,6 @@ class FlaggedRevs {
 		return ( in_array( $ns, $namespaces ) );
 	}
 	
-	/**
-	 * Make stable version link and return the css
-	 * @param Title $title
-	 * @param Row $row, from history page
-	 * @returns array (string,string)
-	 */
-	public static function markHistoryRow( $title, $row ) {
-		if ( !isset( $row->fr_quality ) ) {
-			return array( "", "" ); // not reviewed
-		}
-		$liCss = FlaggedRevsXML::getQualityColor( $row->fr_quality );
-		$user = User::whois( $row->fr_user ); // FIXME: o(N)
-		$flags = explode( ',', $row->fr_flags );
-		if ( in_array( 'auto', $flags ) ) {
-			$msg = 'revreview-hist-autoreviewed';
-			$css = 'fr-hist-autoreviewed';
-		} elseif( $row->fr_quality >= 1 ) {
-			$msg = 'revreview-hist-quality-user';
-			$css = 'fr-hist-quality-user';
-		} else {
-			$msg = 'revreview-hist-basic-user';
-			$css = 'fr-hist-basic-user';
-		}
-		$st = $title->getPrefixedDBkey();
-		$link = "<span class='$css plainlinks'>[" .
-			wfMsgExt( $msg, array( 'parseinline' ), $st, $row->rev_id, $user ) . "]</span>";
-		return array( $link, $liCss );
-	}
-	
    	/**
 	* Clear FlaggedRevs tracking tables for this page
 	* @param mixed $pageId (int or array)

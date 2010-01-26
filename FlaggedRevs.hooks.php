@@ -1653,12 +1653,19 @@ class FlaggedRevsHooks {
 		$flaggedArticle = FlaggedArticle::getArticleInstance( $pager->getArticle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
+			# Highlight flaggedrevs
 			$queryInfo['tables'][] = 'flaggedrevs';
 			$queryInfo['fields'][] = 'fr_quality';
 			$queryInfo['fields'][] = 'fr_user';
 			$queryInfo['fields'][] = 'fr_flags';
 			$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN',
 				"fr_page_id = rev_page AND fr_rev_id = rev_id" );
+			# Find reviewer name. Sanity check that no extensions added a `user` query.
+			if( !in_array( 'user', $queryInfo['tables'] ) ) {
+				$queryInfo['tables'][] = 'user';
+				$queryInfo['fields'][] = 'user_name AS reviewer';
+				$queryInfo['join_conds']['user'] = array( 'LEFT JOIN', "user_id = fr_user" );
+			}
 		}
 		return true;
 	}
@@ -1666,8 +1673,9 @@ class FlaggedRevsHooks {
 	public static function addToFileHistQuery(
 		$file, &$tables, &$fields, &$conds, &$opts, &$join_conds
 	) {
-		if ( !$file->isLocal() )
+		if ( !$file->isLocal() ) {
 			return true; // local files only
+		}
 		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
@@ -1682,8 +1690,9 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToContribsQuery( $pager, &$queryInfo ) {
-		if ( FlaggedRevs::stableOnlyIfConfigured() )
+		if ( FlaggedRevs::stableOnlyIfConfigured() ) {
 			return true; // don't show colors if almost nothing will be highlighted
+		}
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
 		$queryInfo['fields'][] = 'fr_quality';
@@ -1741,7 +1750,7 @@ class FlaggedRevsHooks {
 		// Reviewed revision: highlight and add link
 		} else if ( !( $row->rev_deleted & Revision::DELETED_TEXT ) ) {
 			# Add link to stable version of *this* rev, if any
-			list( $link, $class ) = FlaggedRevs::markHistoryRow( $title, $row );
+			list( $link, $class ) = self::markHistoryRow( $title, $row );
 			# Space out and demark the stable revision
 			if ( $row->rev_id == $history->fr_stableRevId ) {
 				$liClasses[] = 'flaggedrevs_hist_stable';
@@ -1752,6 +1761,41 @@ class FlaggedRevsHooks {
 		# Add stable old version link
 		if ( $link ) $s .= " <small>$link</small>";
 		return true;
+	}
+	
+	
+	/**
+	 * Make stable version link and return the css
+	 * @param Title $title
+	 * @param Row $row, from history page
+	 * @returns array (string,string)
+	 */
+	protected static function markHistoryRow( $title, $row ) {
+		if ( !isset( $row->fr_quality ) ) {
+			return array( "", "" ); // not reviewed
+		}
+		$liCss = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+		$flags = explode( ',', $row->fr_flags );
+		if ( in_array( 'auto', $flags ) ) {
+			$msg = ( $row->fr_quality >= 1 )
+				? 'revreview-hist-quality-auto'
+				: 'revreview-hist-basic-auto';
+			$css = ( $row->fr_quality >= 1 )
+				? 'fr-hist-quality-auto'
+				: 'fr-hist-basic-auto';
+		} else {
+			$msg = ( $row->fr_quality >= 1 )
+				? 'revreview-hist-quality-user'
+				: 'revreview-hist-basic-user';
+			$css = ( $row->fr_quality >= 1 )
+				? 'fr-hist-quality-user'
+				: 'fr-hist-basic-user';
+		}
+		$name = isset($row->reviewer) ?
+			$row->reviewer : User::whoIs( $row->fr_user );
+		$link = wfMsgExt( $msg, 'parseinline', $title->getPrefixedDBkey(), $row->rev_id, $name );
+		$link = "<span class='$css plainlinks'>[$link]</span>";
+		return array( $link, $liCss );
 	}
 	
 	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
