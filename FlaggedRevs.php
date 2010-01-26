@@ -403,7 +403,7 @@ $wgAPIModules['review'] = 'ApiReview';
 $wgAutoloadClasses['ApiStabilize'] = $dir . 'api/ApiStabilize.php';
 $wgAPIModules['stabilize'] = 'ApiStabilize';
 
-# ######## Hook attachments #########
+# ######## Hook triggered data operations #########
 # Autopromote Editors
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeMakeEditor';
 # Adds table link references to include ones from the stable version
@@ -432,6 +432,25 @@ $wgHooks['userCan'][] = 'FlaggedRevsHooks::onUserCan';
 $wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
 # Disable auto-promotion for demoted users
 $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
+# User stats
+$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
+$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
+# Null edit review via checkbox
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
+# Special auto-promote
+$wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
+# Save stability settings
+$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
+
+# Actually register special pages
+$wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
+
+# Stable dump hook
+$wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
+# ########
+
+
+# ######## Hook triggered UI operations #########
 # Local user account preference
 $wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
 # Show unreviewed pages links
@@ -459,7 +478,6 @@ $wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
 # Add protection form field
 $wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsHooks::onProtectionForm';
 $wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsHooks::insertStabilityLog';
-$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
 # Mark items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsHooks::addToHistLine';
@@ -479,15 +497,10 @@ $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Autoreview stuff
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
 $wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
-# User stats
-$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
-$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
 # Add diff url param alias
 $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
-# Check if a page is being reviewed
+# Check if a page is currently being reviewed
 $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
-# Null edit review via checkbox
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 
 # Add CSS/JS as needed
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::onBeforePageDisplay';
@@ -502,14 +515,6 @@ $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 # Add flagging data to ApiQueryRevisions
 $wgHooks['APIGetAllowedParams'][] = 'FlaggedRevsApiHooks::addApiRevisionParams';
 $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
-
-# Actually register special pages
-$wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
-# Special auto-promote
-$wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
-
-# Stable dump hook
-$wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
 # ########
 
 function efLoadFlaggedRevs() {
