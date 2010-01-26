@@ -3429,7 +3429,7 @@ No se pode canbiar le inpostassion.',
 	'stabilization-sel-short-2' => 'Primitiva',
 	'stabilization-def-short' => 'Predefinìa',
 	'stabilization-def-short-0' => 'Atuale',
-	'stabilization-def-short-1' => 'Stabile',
+	'stabilization-def-short-1' => 'Publicà',
 	'stabilize_expiry_invalid' => 'Data de scadensa mìa valida.',
 	'stabilize_expiry_old' => 'Sta scadensa la xe zà passà.',
 	'stabilize-expiring' => 'scadensa $1 (UTC)',
@@ -3486,21 +3486,21 @@ Ei voi järgeta.',
 $messages['vi'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Ổn định trang',
-	'stabilization-text' => "'''Thay đổi thiết lập dưới đây để điều chỉnh cách phiên bản ổn định của [[:\$1|\$1]] sẽ được lựa chọn và hiển thị.'''
+	'stabilization-text' => "'''Thay đổi thiết lập dưới đây để điều chỉnh cách lựa chọn và hiển thị phiên bản công bố của [[:\$1|\$1]].'''
 
-Khi thay đổi cấu hình ''lựa chọn phiên bản ổn định'' để mặc định sử dụng các phiên bản \"chất lượng\" hoặc \"sơ khai\",
+Khi thay đổi cấu hình ''lựa chọn phiên bản công bố'' để mặc định sử dụng các phiên bản \"chất lượng\" hoặc \"sơ khai\",
 hãy nhớ kiểm tra xem thực sự có những phiên bản như vậy trong trang không, nếu không thay đổi đó sẽ có rất ít tác dụng.",
-	'stabilization-perm' => 'Tài khoản của bạn không có quyền thay đổi cấu hình phiên bản ổn định.
+	'stabilization-perm' => 'Tài khoản của bạn không có quyền thay đổi cấu hình phiên bản công bố.
 Dưới đây là các thiết lập hiện hành cho [[:$1|$1]]:',
 	'stabilization-page' => 'Tên trang:',
-	'stabilization-leg' => 'Xác nhận các thiết lập bản ổn định',
-	'stabilization-select' => 'Thứ tự lựa chọn bản ổn định',
+	'stabilization-leg' => 'Xác nhận các thiết lập bản công bố',
+	'stabilization-select' => 'Thứ tự lựa chọn bản công bố',
 	'stabilization-select1' => 'Bản chất lượng mới nhất;
 nếu không có, sẽ là bản đã xem qua mới nhất',
 	'stabilization-select2' => 'Bản đã duyệt mới nhất, bất kể mức độ phê chuẩn',
 	'stabilization-select3' => 'Phiên bản cổ xưa mới nhất; nếu không có, thì bản chất lượng hoặc đã xem qua mới nhất',
 	'stabilization-def' => 'Bản được hiển thị mặc định',
-	'stabilization-def1' => 'Phiên bản ổn định; nếu không có, sẽ là bản hiện hành.',
+	'stabilization-def1' => 'Phiên bản công bố; nếu không có, sẽ là bản hiện hành/bản nháp',
 	'stabilization-def2' => 'Phiên bản hiện hành',
 	'stabilization-restrict' => 'Hạn chế duyệt tự động',
 	'stabilization-restrict-none' => 'Không có hạn chế nào khác',

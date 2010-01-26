@@ -380,7 +380,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'stablepages' => 'Lischt vu Syte, wu einzeln konfiguriert sin',
-	'stablepages-stable' => 'Vum Fäldhieter aagluegti Version',
+	'stablepages-stable' => 'Vereffetligti Version',
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byn ene di aagluegt Version as Standardinhalt aazeigt wird.',
 	'stablepages-none' => 'Die Lischt isch läär.',
 	'stablepages-config' => 'Konfiguration',
@@ -955,7 +955,7 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'stablepages' => 'Pagine stabili',
-	'stablepages-stable' => 'version stabile',
+	'stablepages-stable' => 'version publicà',
 	'stablepages-text' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version stabile come contenuto de default par i visitatori.',
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',

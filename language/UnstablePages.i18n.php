@@ -288,7 +288,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'unstablepages' => 'Uustabili Syte',
-	'unstablepages-stable' => 'Stabili Version',
+	'unstablepages-stable' => 'Vereffetligti Version',
 	'unstablepages-text' => 'Do chunnt e Lischt mit Syte, wu vu Hand konfiguriert isch, ass dr Entwurf im Läser as Standardinhalt aazeigt wird.',
 	'unstablepages-none' => 'S het keini Syte in däre Lischt.',
 	'unstablepages-config' => 'Konfiguration',
@@ -727,7 +727,7 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'unstablepages' => 'Pagine mia stabili',
-	'unstablepages-stable' => 'version stabile',
+	'unstablepages-stable' => 'version publicà',
 	'unstablepages-none' => 'No ghe xe pagine su sta lista.',
 	'unstablepages-config' => 'Configurassion',
 );
@@ -745,10 +745,11 @@ $messages['vep'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Vinhtantran
  */
 $messages['vi'] = array(
 	'unstablepages' => 'Các trang không ổn định',
-	'unstablepages-stable' => 'phiên bản ổn định',
+	'unstablepages-stable' => 'bản công bố',
 	'unstablepages-text' => 'Đây là danh sách các trang được thiết lập để hiển thị phiên bản nháp theo mặc định.',
 	'unstablepages-none' => 'Không có trang nào trong danh sách',
 	'unstablepages-config' => 'Thiết lập',

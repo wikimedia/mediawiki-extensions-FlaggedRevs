@@ -434,10 +434,11 @@ $messages['pms'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'qualityoversight' => 'Observatório da qualidade',
-	'qualityoversight-list' => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
+	'qualityoversight' => 'Registo avançado de revisões',
+	'qualityoversight-list' => 'Esta página lista as mais recentes aprovações e despromoções de revisões.',
 	'qualityoversight-legend' => 'Pesquisar nos registos de análises recentes',
 );
 
