@@ -446,6 +446,7 @@ $messages['eo'] = array(
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Sanbec
+ * @author Translationista
  */
 $messages['es'] = array(
 	'oldreviewedpages' => 'Páginas revisadas desactualizadas',
@@ -456,7 +457,7 @@ $messages['es'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|días}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoría:',
-	'oldreviewed-watched' => 'En mi lista de vigilancia',
+	'oldreviewed-watched' => 'Páginas en mi lista de seguimiento',
 	'oldreviewed-stable' => 'Estabilizado',
 	'oldreviewed-diff' => 'Revisado',
 	'oldreviewed-size' => 'Cambio máximo (bytes):',
@@ -764,7 +765,7 @@ $messages['ia'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|die|dies}})',
 	'oldreviewedpages-recent' => '(minus de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
-	'oldreviewed-watched' => 'In mi observatorio',
+	'oldreviewed-watched' => 'Paginas in mi observatorio',
 	'oldreviewed-stable' => 'Stabilisate',
 	'oldreviewed-diff' => 'revision',
 	'oldreviewed-size' => 'Cambio maxime (bytes):',
@@ -927,8 +928,8 @@ $messages['ksh'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dedh|dedh}})',
-	'oldreviewed-category' => 'Class:',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
+	'oldreviewed-category' => 'Klass:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1539,7 +1540,7 @@ $messages['vec'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|giòrno|giòrni}})',
 	'oldreviewedpages-recent' => '(manco de 1 ora)',
 	'oldreviewed-category' => 'Categoria:',
-	'oldreviewed-watched' => 'Su i me osservati speciali',
+	'oldreviewed-watched' => "Pagine che tegno d'ocio",
 	'oldreviewed-stable' => 'Stabilixà',
 	'oldreviewed-diff' => 'riesamina',
 	'oldreviewed-size' => 'Canbiamento massimo (in byte):',

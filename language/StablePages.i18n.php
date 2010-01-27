@@ -195,7 +195,7 @@ $messages['cs'] = array(
  */
 $messages['de'] = array(
 	'stablepages' => 'Konfigurierte Seiten',
-	'stablepages-stable' => 'gesichtete Version',
+	'stablepages-stable' => 'veröffentlichte Version',
 	'stablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
 	'stablepages-none' => 'Diese Liste ist leer.',
 	'stablepages-config' => 'Konfiguration',
@@ -956,7 +956,7 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'stablepages' => 'Pagine stabili',
 	'stablepages-stable' => 'version publicà',
-	'stablepages-text' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version stabile come contenuto de default par i visitatori.',
+	'stablepages-text' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version publicà come contenuto de default par i letori.',
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
 	'stablepages-prec-none' => 'nissuna precedensa',

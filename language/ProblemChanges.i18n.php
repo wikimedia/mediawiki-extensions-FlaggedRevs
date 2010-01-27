@@ -609,6 +609,7 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
+	'problemchanges' => 'Verifica i canbiamenti segnà',
 	'problemchanges-none' => 'Al momento no ghe xe pagine che sodisfa sti criteri',
 	'problemchanges-category' => 'Categoria:',
 );

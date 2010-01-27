@@ -948,7 +948,7 @@ $messages['ksh'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'unreviewed-category' => 'Class:',
+	'unreviewed-category' => 'Klass:',
 );
 
 /** Latin (Latina)

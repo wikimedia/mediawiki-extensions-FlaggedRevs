@@ -895,8 +895,8 @@ $messages['es'] = array(
 	'stabilization' => 'Estabilización de página',
 	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:\$1|\$1]] es seleccionada y mostrada.'''
 
-Cuando cambie la configuración de ''selección de versión estable'' usar revisiones de \"calidad\" o \"prístina\" por defecto,
-asegúrese de verificar si hay realmente tales revisiones en la página, de otra manera se afectará ligeramente.",
+Cuando cambie la configuración de ''selección de versión publicada'' para usar revisiones de \"calidad\" o \"prístina\" predeterminadamente,
+asegúrese de verificar si hay realmente tales revisiones en la página; de lo contrario, surtirá poco efecto.",
 	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión publicada.
 La configuración actual es [[:$1|$1]]:',
 	'stabilization-page' => 'Nombre de la página:',
@@ -906,7 +906,7 @@ La configuración actual es [[:$1|$1]]:',
 	'stabilization-select2' => 'La última versión verificada, a pesar del nivel de validación',
 	'stabilization-select3' => 'La última revisión prístina; si no está presente, entonces la última de calidad u observada',
 	'stabilization-def' => 'Revisión mostrada en la vista de página por defecto',
-	'stabilization-def1' => 'La revisión estable; si no está presente, entonces la actual/borrador',
+	'stabilization-def1' => 'La revisión publicada; si no está presente, entonces la actual/borrador',
 	'stabilization-def2' => 'La revisión actual/borrador',
 	'stabilization-restrict' => 'Restricciones de autorevisión',
 	'stabilization-restrict-none' => 'Sin restricciones extra',
@@ -1522,17 +1522,17 @@ $messages['ia'] = array(
 	'stabilization' => 'Stabilisation de paginas',
 	'stabilization-text' => "'''Cambia le configurationes infra pro adjustar como le version stabile de [[:\$1|\$1]] es seligite e monstrate.'''
 
-Si tu cambia le configuration ''selection de version stabile'' a usar per predefinition le versiones \"de qualitate\" o \"pristine\", sia secur de verificar si existe de facto tal versiones del pagina, alteremente le cambio habera pauc effecto.",
-	'stabilization-perm' => 'Tu conto non ha le permission de cambiar le configuration de versiones stabile.
+Si tu cambia le configuration ''selection de version publicate'' a usar per predefinition le versiones \"de qualitate\" o \"pristine\", sia secur de verificar que existe de facto tal versiones del pagina, alteremente le cambio habera pauc effecto.",
+	'stabilization-perm' => 'Tu conto non ha le permission de cambiar le configuration del version publicate.
 Ecce le configurationes actual pro [[:$1|$1]]:',
 	'stabilization-page' => 'Nomine del pagina:',
-	'stabilization-leg' => 'Confirmar configurationes de version stabile',
-	'stabilization-select' => 'Prioritate de selection de version stabile',
+	'stabilization-leg' => 'Confirmar configuration del version publicate',
+	'stabilization-select' => 'Prioritate de selection del version publicate',
 	'stabilization-select1' => 'Le ultime version de qualitate; si non presente, le ultime version mirate',
 	'stabilization-select2' => 'Le ultime version revidite, independentemente del nivello de validation',
 	'stabilization-select3' => 'Le ultime version pristine; si non presente, le ultime version de qualitate o mirate',
 	'stabilization-def' => 'Version monstrate in le visualisation predefinite del pagina',
-	'stabilization-def1' => 'Le version stabile; si non presente, le version actual/provisori',
+	'stabilization-def1' => 'Le version publicate; si non presente, le version actual/provisori',
 	'stabilization-def2' => 'Le version actual/provisori',
 	'stabilization-restrict' => 'Restrictiones de autorevision',
 	'stabilization-restrict-none' => 'Nulle restriction extra',
@@ -1551,7 +1551,7 @@ Nulle configuration es possibile.',
 	'stabilization-sel-short-2' => 'Pristine',
 	'stabilization-def-short' => 'Predefinition',
 	'stabilization-def-short-0' => 'Actual',
-	'stabilization-def-short-1' => 'Stabile',
+	'stabilization-def-short-1' => 'Publicate',
 	'stabilize_expiry_invalid' => 'Data de expiration invalide.',
 	'stabilize_expiry_old' => 'Iste tempore de expiration ha ja passate.',
 	'stabilize-expiring' => 'expira le $1 (UTC)',
@@ -3398,22 +3398,24 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'stabilization-tab' => 'c. q.',
 	'stabilization' => 'Stabilizassion de pagina',
-	'stabilization-text' => "'''Canbia le inpostassion qua soto par stabilir come la version stabile de [[:\$1|\$1]] la vegna selessionà e mostrà.'''
+	'stabilization-text' => "'''Canbia le inpostassion qua soto par stabilir come la version publicà de [[:\$1|\$1]] la vegna selessionà e mostrà.'''
 
-Co te canbi la configurassion ''selession version stabile'' par doparar de default le revision \"qualità\" o \"imacolada\",
+Co te canbi la configurassion ''selession version publicà'' par doparar de default le revision \"qualità\" o \"primitiva\",
 assicùrete de controlar se efetivamente ghe sia ste revision in te la pagina, senò la modifica no la gavarà molto efeto.",
-	'stabilization-perm' => 'No ti gà i permessi necessari par canbiar le inpostassion de la version stabile.
+	'stabilization-perm' => 'No ti gà i permessi necessari par canbiar le inpostassion de la version publicà.
 Chì ghe xe le inpostassion atuali par [[:$1|$1]]:',
 	'stabilization-page' => 'Nome de la pagina:',
-	'stabilization-leg' => 'Conferma le inpostassion par la version stabile',
-	'stabilization-select' => 'Priorità de selession de la version stabile',
+	'stabilization-leg' => 'Conferma le inpostassion par la version publicà',
+	'stabilization-select' => 'Priorità de selession de la version publicà',
 	'stabilization-select1' => "L'ultima version de qualità;
 se no ghe n'è, alora l'ultima version rivardà",
 	'stabilization-select2' => "L'ultima version riesaminà, indipendentemente dal livèl de validassion",
 	'stabilization-select3' => "L'ultima version primitiva; se no ghe n'è, alora l'ultima version de qualità o l'ultima rivardà.",
 	'stabilization-def' => 'Version mostrà par default quando se varda la pagina',
-	'stabilization-def1' => "La revision stabile; se no ghe n'è, alora la revision o bozza atuale",
+	'stabilization-def1' => "La revision publicà; se no ghe n'è, alora la revision o bozza atuale",
 	'stabilization-def2' => 'La revision o bozza atuale',
+	'stabilization-restrict' => "Restrizioni su l'auto-revision",
+	'stabilization-restrict-none' => 'Nissun restrizion èstra',
 	'stabilization-submit' => 'Conferma',
 	'stabilization-notexists' => 'No ghe xe nissuna pagina che se ciama "[[:$1|$1]]".
 Nissuna configurassion xe possibile.',
@@ -3433,6 +3435,7 @@ No se pode canbiar le inpostassion.',
 	'stabilize_expiry_invalid' => 'Data de scadensa mìa valida.',
 	'stabilize_expiry_old' => 'Sta scadensa la xe zà passà.',
 	'stabilize-expiring' => 'scadensa $1 (UTC)',
+	'stabilization-review' => 'Verifica la version atuale',
 );
 
 /** Veps (Vepsan kel')

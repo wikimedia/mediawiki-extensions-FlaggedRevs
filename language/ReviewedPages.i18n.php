@@ -1172,7 +1172,7 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'reviewedpages' => 'Pagine riesaminà',
-	'reviewedpages-leg' => 'Elenco de le pagine dal livèl pi alto',
+	'reviewedpages-leg' => 'Elenco de le pagine dal livèl pi alto de revision',
 	'reviewedpages-list' => 'Sta pagina la elenca le pagine che xe stà riesaminà al massimo fin al livèl indicà.',
 	'reviewedpages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'reviewedpages-lev-0' => 'Rivardà',

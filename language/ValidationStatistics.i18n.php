@@ -879,8 +879,8 @@ Le modificationes que ha essite verificate per usatores establite es considerate
 Le periodo medie de attender revision pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
 $4
 Le retardo medie pro le [[Special:OldReviewedPages|paginas con modificationes attendente revision]] es '''$2'''.
-Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si le [[{{MediaWiki:Validationpage}}|version stabile]] es tamben le version provisori actual.
-Le version stabile de un pagina es le version le plus nove que ha essite approbate como le version a monstrar como standard a tote le lectores.",
+Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si il non ha modificationes attendente revision.
+Le version publicate de un pagina es le version le plus nove que ha essite approbate como le version a monstrar como standard a tote le lectores.",
 	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, ''excludente'' le paginas de redirection.",
 	'validationstatistics-ns' => 'Spatio de nomines',
 	'validationstatistics-total' => 'Paginas',
@@ -1833,10 +1833,18 @@ $4
  */
 $messages['vec'] = array(
 	'validationstatistics' => 'Statìsteghe de validassion',
+	'validationstatistics-users' => "'''{{SITENAME}}''' el gà atualmente '''[[Special:ListUsers/editor|$1]]'''  {{PLURAL:$1|utente|utenti}} con diriti de [[{{MediaWiki:Validationpage}}|revisor]].
+
+I revisori i xe utenti che pode verificar le revision de le pagine.",
+	'validationstatistics-table' => "Qua soto se cata le statìsteghe par ogni namespace, ''escluse'' le pagine de redirect.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
+	'validationstatistics-stable' => 'Ricontrolà',
 	'validationstatistics-latest' => 'Sincronizà',
+	'validationstatistics-synced' => 'Sincronizà/Ricontrolà',
+	'validationstatistics-old' => 'Mia ajornà',
 	'validationstatistics-user' => 'Utente',
+	'validationstatistics-reviews' => 'Revisioni',
 );
 
 /** Veps (Vepsan kel')

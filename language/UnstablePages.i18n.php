@@ -346,7 +346,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'unstablepages' => 'Paginas instabile',
-	'unstablepages-stable' => 'version stabile',
+	'unstablepages-stable' => 'version publicate',
 	'unstablepages-text' => 'Infra es un lista de paginas manualmente configurate de modo que le version provisori se monstra como le contento predefinite del pagina pro visitatores.',
 	'unstablepages-none' => 'Il non ha paginas in iste lista',
 	'unstablepages-config' => 'Configuration',
@@ -728,6 +728,7 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'unstablepages' => 'Pagine mia stabili',
 	'unstablepages-stable' => 'version publicà',
+	'unstablepages-text' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version de bozza come contenuto de default par i letori.',
 	'unstablepages-none' => 'No ghe xe pagine su sta lista.',
 	'unstablepages-config' => 'Configurassion',
 );

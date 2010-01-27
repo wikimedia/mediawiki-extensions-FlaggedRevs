@@ -561,7 +561,7 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'qualityoversight' => 'Controlo de qualità',
+	'qualityoversight' => 'Registro avansado de le revision',
 	'qualityoversight-list' => 'Sta pagina la elenca le ultime aprovassion e i ultimi declassamenti de le version.',
 	'qualityoversight-legend' => 'Serca i registri de le revision reçenti',
 );
