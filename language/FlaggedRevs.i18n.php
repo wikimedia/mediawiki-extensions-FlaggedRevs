@@ -98,7 +98,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-draft-rev'          => 'Draft revision',
 	'revreview-edit'               => 'Edit',
 	'revreview-editnotice'         => '\'\'\'Your changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'',
-	'revreview-check-flag'         => 'Mark pending edits reviewed',
+	'revreview-check-flag'         => 'Publish currently pending edits',
 	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
 The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}].',
 	'revreview-edited-section'     => 'Return to page section named "[[#$1|$2]]".',

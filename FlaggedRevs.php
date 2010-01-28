@@ -85,8 +85,6 @@ $wgFlaggedRevsLowProfile = true;
 
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN, NS_FILE, NS_TEMPLATE );
-# Patrollable namespaces (overridden by reviewable namespaces)
-$wgFlaggedRevsPatrolNamespaces = array();
 
 # Pages exempt from reviewing
 $wgFlaggedRevsWhitelist = array();
@@ -291,6 +289,9 @@ $wgUseCurrentImages = true;
 
 # End of configuration variables.
 # ########
+
+# Patrollable namespaces (overridden by reviewable namespaces)
+$wgFlaggedRevsPatrolNamespaces = array();
 
 # Bots are granted autoreview via hooks, mark in rights 
 # array so that it shows up in sp:ListGroupRights...

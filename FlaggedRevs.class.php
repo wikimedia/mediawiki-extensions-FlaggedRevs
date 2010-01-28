@@ -1354,7 +1354,7 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* Get the list of patrolable namespaces
+	* Get the list of patrollable namespaces
 	* @return array
 	*/
 	public static function getPatrolNamespaces() {
