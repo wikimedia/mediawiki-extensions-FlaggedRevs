@@ -696,7 +696,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'validationstatistics' => 'Markierigsstatischtik',
-	'validationstatistics-users' => "'''{{SITENAME}}''' het '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]] un '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prieferrächt]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' het '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]].
 
 Sichter un Priefer sin Benutzer, wu Syte as prieft chenne markiere.",
 	'validationstatistics-time' => "''Die Date sin s letscht Mol aktualisiert woren am $5 am $6.''
@@ -705,8 +705,8 @@ Bearbeitige, wu dur etablierti Benutzer aagluegt wore sin, sotte prieft wäre.
 
 Di durschnittlig Wartezyt fir Bearbeitige vu ''Benutzer, wu nit aagmäldet sin'', wu no aagluegt sotte wäre, isch '''$1'''; dr Mittelwärt isch '''$3'''.
 $4
-Dr durschnittlig Ruckstand uf [[Special:OldReviewedPages|veralteti Syten]] isch '''$2'''.
-Die Syte gälten as ''veraltet''. Ebeso gälte Syten as ''zytglych'', wänn di [[{{MediaWiki:Validationpage}}|aagluegt Version]] au di letscht Fassig isch.
+Dr durschnittlig Ruckstand uf [[Special:OldReviewedPages|Syte mit nit priefte hängige Änderige]] isch '''$2'''.
+Die Syte gälten as ''veraltet''. Ebeso gälte Syten as ''zytglych'', wänn s kei nit priefti hängigi Änderige het.
 Aagluegti Versione sin Versione vu Syte, wu vu zmindescht eim etablierte Benutzer aagluegt wore sin.",
 	'validationstatistics-table' => "Statischtike fir jede Namensruum wäre do unter zeigt, dervu ''usgnuu'' sin Wyterleitige.",
 	'validationstatistics-ns' => 'Namensruum',

@@ -395,13 +395,13 @@ $messages['be-tarask'] = array(
 	'stabilization-perm' => 'Ваш рахунак ня мае правоў для зьмены ўстановак стабільнай вэрсіі.
 Тут знаходзяцца цяперашнія ўстаноўкі для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва старонкі:',
-	'stabilization-leg' => 'Пацьвердзіць устаноўкі стабільнай вэрсіі',
-	'stabilization-select' => 'Парадак выбару стабільнай вэрсіі',
+	'stabilization-leg' => 'Пацьвердзіць устаноўкі апублікаванай вэрсіі',
+	'stabilization-select' => 'Парадак выбару апублікаванай вэрсіі',
 	'stabilization-select1' => 'Апошняя якасная вэрсія; калі яе няма, то самая апошняя з прагледжаных',
 	'stabilization-select2' => 'Апошняя правераная вэрсія, незалежна ад узроўню праверкі',
 	'stabilization-select3' => 'Апошняя першапачатковая вэрсія; калі яе няма, то апошняя якасная альбо прагледжаная',
 	'stabilization-def' => 'Вэрсія, якая паказваецца па змоўчваньні',
-	'stabilization-def1' => 'Стабільная вэрсія; калі яе не існуе, то цяперашняя/чарнавая',
+	'stabilization-def1' => 'Апублікаваная вэрсія; калі яе не існуе, то цяперашняя/чарнавая',
 	'stabilization-def2' => 'Цяперашняя/чарнавая вэрсія',
 	'stabilization-restrict' => 'Абмежаваньні аўтаматычнай праверкі',
 	'stabilization-restrict-none' => 'Няма дадатковых абмежаваньняў',
@@ -1248,20 +1248,20 @@ $messages['grc'] = array(
 $messages['gsw'] = array(
 	'stabilization-tab' => 'Konfig.',
 	'stabilization' => 'Sytekonfiguration',
-	'stabilization-text' => "'''Tue d Yystellige ändere fir zum feschtzlege, wie di aagluegt Version vu „[[:\$1|\$1]]“ usgwehlt un aazeigt soll wäre.'''
+	'stabilization-text' => "'''Tue d Yystellige ändere fir zum feschtzlege, wie di vereffetligt Version vu „[[:\$1|\$1]]“ usgwehlt un aazeigt soll wäre.'''
 
-Wänn d Konfigieration vu dr ''Uuswahl vu dr Aagluegte Versione'' gändertet wird go \"priefti\" oder \"reini\" 
+Wänn d Konfigieration vu dr ''Uuswahl vu dr vereffetligte Versione'' gändertet wird go \"priefti\" oder \"reini\" 
 Versione as Standard z neh, stell sicher, ass es aktuäll sonigi Versione git, sunscht het s keini großi Uuswirkig.",
-	'stabilization-perm' => 'Du hesch nid d Berächtigung, zum die Yystellige vu dr aagluegte Version z ändere.
+	'stabilization-perm' => 'Du hesch nid d Berächtigung, zum die Yystellige vu dr vereffetligte Version z ändere.
 Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-page' => 'Sytename:',
-	'stabilization-leg' => 'Yystellige vu dr aagluegte Version fir e Syte',
-	'stabilization-select' => 'Dr Vorrang fir aagluegti Versione feschtlege',
+	'stabilization-leg' => 'Yystellige vu dr vereffetligte Version fir e Syte',
+	'stabilization-select' => 'Dr Vorrang fir vereffetligti Versione feschtlege',
 	'stabilization-select1' => 'Di letscht prieft Version; wänn s keini het, no di letscht gsichtet Version',
 	'stabilization-select2' => 'Di letscht Version, wu vum Fäldhieter gsäh isch, uuabhängig vu dr Validierugsebeni',
 	'stabilization-select3' => 'Di letscht urspringlig Version; wänn s keini het, derno di letscht Version, wu vum Fäldhieter gsäh oder prieft isch',
 	'stabilization-def' => 'Version, wu in dr normale Syteaasicht aazeigt wird',
-	'stabilization-def1' => 'D Version, wu vum Fäldhieter gsäh isch; wänn s keini het, derno di aktuäll Version',
+	'stabilization-def1' => 'Di vereffetligt Version; wänn s keini het, derno di aktuäll Version/d Entwurfsversion',
 	'stabilization-def2' => 'Di aktuäll Version',
 	'stabilization-restrict' => 'Auto-Review-Yyschränkige',
 	'stabilization-restrict-none' => 'Keini extra Yyschränkige',
@@ -1278,7 +1278,7 @@ Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-sel-short-2' => 'urspringli',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuäll',
-	'stabilization-def-short-1' => 'Vum Fäldhieter gsäh',
+	'stabilization-def-short-1' => 'Vereffetligt',
 	'stabilize_expiry_invalid' => 'Nid giltigs Ablaufdatum.',
 	'stabilize_expiry_old' => 'S Ablaufdatum isch iberschritte wore.',
 	'stabilize-expiring' => 'erlischt $1 (UTC)',

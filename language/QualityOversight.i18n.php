@@ -227,7 +227,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'qualityoversight' => 'Ibersicht iber di priefte Versione',
+	'qualityoversight' => 'Logbuech vu dr Qualitetskontrolle',
 	'qualityoversight-list' => 'Die Syte zeigt di aktuälle Freigabe un dr Widerruef vu priefte Versione.',
 	'qualityoversight-legend' => 'Suech in Versionsmarkierige',
 );
