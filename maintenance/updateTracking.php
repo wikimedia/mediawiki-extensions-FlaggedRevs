@@ -8,10 +8,13 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 
 $options = array( 'updateonly', 'help', 'start' );
 require "$IP/maintenance/commandLine.inc";
-require dirname(__FILE__) . '/updateLinks.inc';
+require dirname(__FILE__) . '/updateTracking.inc';
 
 if( isset($options['help']) ) {
 	echo <<<TEXT
+Purpose:
+	Correct the data in the flaggedrevs tracking tables and
+	remove any extraneous template/file inclusion data.
 Usage:
     php updateLinks.php --help
     php updateLinks.php [--start <ID> | --updateonly <CALL> ]
