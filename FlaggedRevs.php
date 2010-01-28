@@ -404,61 +404,9 @@ $wgAPIModules['review'] = 'ApiReview';
 $wgAutoloadClasses['ApiStabilize'] = $dir . 'api/ApiStabilize.php';
 $wgAPIModules['stabilize'] = 'ApiStabilize';
 
-# ######## Hook triggered data operations #########
-# Autopromote Editors
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeMakeEditor';
-# Adds table link references to include ones from the stable version
-$wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
-# Clear dead config rows
-$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
-$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete';
-$wgHooks['TitleMoveComplete'][] = 'FlaggedRevsHooks::onTitleMoveComplete';
-# Check on undelete/merge for changes to stable version
-$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::updateFromMerge';
-$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::onRevisionRestore';
-# Parser hooks, selects the desired images/templates
-$wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
-$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFindStableFileTime';
-$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
-$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserMakeStableFileLink';
-# Additional parser versioning
-$wgHooks['ParserAfterTidy'][] = 'FlaggedRevsHooks::parserInjectTimestamps';
-$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps';
-# Auto-reviewing
-$wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
-$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
-# Determine what pages can be moved and patrolled
-$wgHooks['userCan'][] = 'FlaggedRevsHooks::onUserCan';
-# Log parameter
-$wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
-# Disable auto-promotion for demoted users
-$wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
-# User stats
-$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
-$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
-# Null edit review via checkbox
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
-# Special auto-promote
-$wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
-# Save stability settings
-$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
+######## HOOK TRIGGERED FUNCTIONS  #########
 
-# Actually register special pages
-$wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
-
-# Stable dump hook
-$wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
-# ########
-
-
-# ######## Hook triggered UI operations #########
-# Local user account preference
-$wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
-# Show unreviewed pages links
-$wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
-# Backlog notice
-$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevsHooks::addBacklogNotice';
-
+# ######## User interface #########
 # Override current revision, add patrol links, set cache...
 $wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
 $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
@@ -495,28 +443,87 @@ $wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectPostEditURLParams';
 # Diff-to-stable
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
+# Add diff=review url param alias
+$wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
 # Autoreview stuff
 $wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
 $wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
-# Add diff url param alias
-$wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
-# Check if a page is currently being reviewed
-$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
+# Local user account preference
+$wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
+# Show unreviewed pages links
+$wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
+# Backlog notice
+$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevsHooks::addBacklogNotice';
+# Review/stability log links
+$wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
 
 # Add CSS/JS as needed
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
 
-# Extra cache updates for stable versions
-$wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
-
-# Duplicate flagged* tables in parserTests.php
-$wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
-
 # Add flagging data to ApiQueryRevisions
 $wgHooks['APIGetAllowedParams'][] = 'FlaggedRevsApiHooks::addApiRevisionParams';
 $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
 # ########
+
+# ######## Parser #########
+# Parser hooks, selects the desired images/templates
+$wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
+$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
+$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserMakeStableFileLink';
+$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFindStableFileTime';
+# Additional parser versioning
+$wgHooks['ParserAfterTidy'][] = 'FlaggedRevsHooks::parserInjectTimestamps';
+$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps';
+# ########
+
+# ######## DB write operations #########
+# Autopromote Editors
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeMakeEditor';
+# Auto-reviewing
+$wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
+$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
+# Disable auto-promotion for demoted users
+$wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
+# User edit tallies
+$wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
+$wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
+# Null edit review via checkbox
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
+# Save stability settings
+$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
+# Extra cache updates for stable versions
+$wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
+# Updates stable version tracking data
+$wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
+# Clear dead config rows
+$wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
+$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete';
+$wgHooks['TitleMoveComplete'][] = 'FlaggedRevsHooks::onTitleMoveComplete';
+# Check on undelete/merge for changes to stable version
+$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::updateFromMerge';
+$wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::onRevisionRestore';
+# ########
+
+# ######## Other #########
+# Determine what pages can be moved and patrolled
+$wgHooks['userCan'][] = 'FlaggedRevsHooks::onUserCan';
+# Implicit autoreview rights group
+$wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
+
+# Check if a page is currently being reviewed
+$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
+
+# Actually register special pages
+$wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
+# Stable dump hook
+$wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
+
+# Duplicate flagged* tables in parserTests.php
+$wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
+# ########
+
+######## END HOOK TRIGGERED FUNCTIONS  #########
 
 function efLoadFlaggedRevs() {
 	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces, $wgFlaggedRevsVisible;
@@ -549,27 +556,28 @@ function efLoadFlaggedRevsSpecialPages( &$list ) {
 	global $wgSpecialPages, $wgUseTagFilter;
 	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
 	// Show special pages only if FlaggedRevs is enabled on some namespaces
-	if ( !empty( $wgFlaggedRevsNamespaces ) ) {
-		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
-		$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
-		// Protect levels define allowed stability settings
-		if ( empty( $wgFlaggedRevsProtectLevels ) ) {
-			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
-		}
-		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
-		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
-		// Show tag filtered pending edit page if there are tags
-		if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
-			$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
-		}
-		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
-		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
-		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-		if ( !$wgFlaggedRevsOverride ) {
-			$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
-		} else {
-			$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
-		}
+	if ( empty( $wgFlaggedRevsNamespaces ) ) {
+		return true;
+	}
+	$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
+	$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
+	// Protect levels define allowed stability settings
+	if ( empty( $wgFlaggedRevsProtectLevels ) ) {
+		$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
+	}
+	$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
+	$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
+	// Show tag filtered pending edit page if there are tags
+	if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
+		$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
+	}
+	$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+	$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
+	$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
+	if ( !$wgFlaggedRevsOverride ) {
+		$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
+	} else {
+		$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
 	}
 	return true;
 }
