@@ -168,18 +168,18 @@ $messages['ast'] = array(
  */
 $messages['be-tarask'] = array(
 	'validationstatistics' => 'Статыстыка праверак',
-	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэдактара»]] і [[Special:ListUsers/reviewer|$2]]  {{PLURAL:$2|удзельніка|удзельнікаў|удзельнікаў}} з правамі [[{{MediaWiki:Validationpage}}|«рэцэнзэнта»]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі «[[{{MediaWiki:Validationpage}}|рэдактара]]».
 
-Рэдактары і рэцэнзэнты — удзельнікі са стажам, якія могуць правяраць зьмены старонак.",
+Рэдактары — асобныя удзельнікі, якія могуць правяраць вэрсіі старонак.",
 	'validationstatistics-time' => "''Наступныя зьвесткі апошні раз абнаўляліся $5 у $6.''
 
-Рэдагаваньні, якія былі правераны адпаведнымі ўдзельнікамі прыняты як рэцэнзаваныя.
+Рэдагаваньні, якія былі правераны адпаведнымі ўдзельнікамі, прынятыя як рэцэнзаваныя.
 
 Сярэдняя затрымка паміж рэдагаваньнем і рэцэнзаваньнем  для ''ананімных удзельнікаў'' складае '''$1''', а мэдыяна '''$3'''.
 $4
 Сярэдняя затрымка для [[Special:OldReviewedPages|старонак з не рэцэнзаванымі рэдагаваньнямі]] складае '''$2'''.
-Гэтыя старонкі лічацца ''састарэлымі''. У сваю чаргу, старонкі лічацца ''сынхранізаванымі'' калі  [[{{MediaWiki:Validationpage}}|стабільная вэрсія]] адначасова зьяўляецца цяперашняй чарнавой вэрсіяй.
-Стабільнымі вэрсіямі лічацца вэрсіі старонак зацьверджаныя хаця б адным удзельнікам з адпаведнымі правамі.",
+Гэтыя старонкі лічацца ''састарэлымі''. У сваю чаргу, старонкі лічацца ''сынхранізаванымі'' калі  няма рэдагаваньняў, якія чакаюць праверкі.
+Апублікаваная вэрсія старонкі — вэрсія, якая была зацьверджаная для паказу па змоўчваньні ўсім чытачам.",
 	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за ''выключэньнем'' старонак-перанакіраваньняў.",
 	'validationstatistics-ns' => 'Прастора назваў',
 	'validationstatistics-total' => 'Старонак',
@@ -248,8 +248,8 @@ Izmjene koje trebaju provjeriti potvrđeni korisnici smatraju se neprovjerenim.
 Prosječno čekanje na izmjenu od strane ''korisnika koji se nisu prijavili'' a izmjena čeka na pregled je '''$1'''; prosjek je '''$3'''.
 $4
 Prosječno kašnjenje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama]] je '''$2'''.
-Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sinhronizovanim'', ako je [[{{MediaWiki:Validationpage}}|stabilna verzija]] ujedno i trenutna verzija.
-Stabilna verzija je najnovija revizija stranice koja je provjerena i prikazuje se po prepostavljenom svim čitaocima.",
+Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sinhronizovanim'', ako je nema izmjena koje čekaju na provjeru.
+Objavljenja verzija je najnovija revizija stranice koja je provjerena i prikazuje se po prepostavljenom svim čitaocima.",
 	'validationstatistics-table' => "Statistike za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',

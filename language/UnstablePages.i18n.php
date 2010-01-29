@@ -100,7 +100,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'unstablepages' => 'Nestabilne stranice',
-	'unstablepages-stable' => 'stabilna verzija',
+	'unstablepages-stable' => 'objavljena verzija',
 	'unstablepages-text' => 'Ispod je spisak stranica koje su ručno podešene da prikazuju nacrt verzije kao pretpostavljenu stranicu sadržaja za korisnike.',
 	'unstablepages-none' => 'Nema stranica na ovom spisku',
 	'unstablepages-config' => 'Konfiguracija',

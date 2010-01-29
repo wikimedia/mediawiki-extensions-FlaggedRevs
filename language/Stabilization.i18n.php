@@ -529,7 +529,7 @@ $messages['bs'] = array(
 	'stabilization-text' => "'''Promijenite postavke ispod da biste podesili kako će se stabilna verzija stranice [[:\$1|\$1]] odabrati i prikazati.'''
 
 Kada mijenjate konfiguraciju ''odabir stabilne verzije'' za korištenje \"kvalitetnih\" ili \"starih\" revizija po prepostavljenom, provjerite da li zaista postoje takve revizije stranice, u suprotnom će promjena imati malo uticaja.",
-	'stabilization-perm' => 'Vaš račun nema dopuštenje da mijenja konfiguraciju stabilne verzije.
+	'stabilization-perm' => '!Vaš račun nema dopuštenje da mijenja konfiguraciju objavljenje verzije.
 Ovdje su trenutne postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Naslov stranice:',
 	'stabilization-leg' => 'Potvrdite postavke objavljene verzije',
@@ -538,7 +538,7 @@ Ovdje su trenutne postavke za [[:$1|$1]]:',
 	'stabilization-select2' => 'Posljednja pregledana revizija, bez obzira na nivo provjere',
 	'stabilization-select3' => 'Posljednja stara revizija, ako je nema, onda posljednja kvalitetna ili pregledana',
 	'stabilization-def' => 'Revizija prikazana kao pretpostavljena stranica',
-	'stabilization-def1' => 'Stabilna revizija, ako je nema, onda trenutna/radna verzija',
+	'stabilization-def1' => 'Objavljena revizija, ako je nema, onda trenutna/radna verzija',
 	'stabilization-def2' => 'Trenutna/radna revizija',
 	'stabilization-restrict' => 'Ograničenja za automatske preglede',
 	'stabilization-restrict-none' => 'Bez posebnih ograničenja',
