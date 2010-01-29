@@ -49,8 +49,9 @@ class FlaggedArticleView {
 	}
 
 	/**
-	 * Does the config and current URL params allow
-	 * for overriding by stable revisions?
+	 * Do the config and current URL params allow
+	 * for content overriding by the stable version?
+	 * @returns bool
 	 */
 	public function pageOverride() {
 		global $wgUser, $wgRequest;
@@ -273,7 +274,19 @@ class FlaggedArticleView {
 				"$tag</div>";
 			$this->reviewNotice .= $tag;
 		}
-
+		return true;
+	}
+	
+	// For pages that have a stable version, index only that version
+	public function setRobotPolicy() {
+		global $wgOut;
+		if ( !$this->article->isReviewable() || !$this->article->getStableRev() ) {
+			return true; // page has no stable version
+		}
+		if ( !$this->pageOverride() && $this->article->isStableShownByDefault() ) {
+			# Index the stable version only if it is the default
+			$wgOut->setRobotPolicy( 'noindex,nofollow' );
+		}
 		return true;
 	}
 
@@ -400,10 +413,6 @@ class FlaggedArticleView {
 				$tag .= $prot . $icon . $msgHTML;
 			}
 		}
-		# Index the stable version only if it is the default
-		if ( $this->article->isStableShownByDefault() ) {
-			$wgOut->setRobotPolicy( 'noindex,nofollow' );
-		}
 	}
 	
 	/**
@@ -477,8 +486,6 @@ class FlaggedArticleView {
 		} else {
 			$wgOut->addParserOutput( $parserOut );
 		}
-		# Index the stable version only
-		$wgOut->setRobotPolicy( 'noindex,nofollow' );
 	}
 
 	/**

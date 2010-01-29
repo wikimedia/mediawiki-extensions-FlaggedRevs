@@ -457,8 +457,9 @@ $wgHooks['SiteNoticeAfter'][] = 'FlaggedRevsHooks::addBacklogNotice';
 # Review/stability log links
 $wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
 
-# Add CSS/JS as needed
+# Add CSS/JS and review notice
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::onBeforePageDisplay';
+# Add global JS vars
 $wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
 
 # Add flagging data to ApiQueryRevisions
@@ -483,13 +484,13 @@ $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeMakeEditor';
 # Auto-reviewing
 $wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
+# Null edit review via checkbox
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 # Disable auto-promotion for demoted users
 $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # User edit tallies
 $wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
-# Null edit review via checkbox
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
 # Save stability settings
 $wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
 # Extra cache updates for stable versions
@@ -516,6 +517,7 @@ $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
 
 # Actually register special pages
 $wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
+
 # Stable dump hook
 $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
 

@@ -97,11 +97,15 @@ class FlaggedRevsHooks {
 		return true;
 	}
 	
+	/*
+	* Add tag notice, CSS/JS, and set robots policy
+	*/
 	public static function onBeforePageDisplay() {
 		global $wgOut;
 		if ( $wgOut->isArticleRelated() ) {
 			$view = FlaggedArticleView::singleton();
 			$view->displayTag(); // show notice bar/icon in subtitle
+			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS(); // full CSS/JS
 		} else {
 			self::InjectStyleForSpecial(); // try special page CSS
