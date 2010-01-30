@@ -27,10 +27,12 @@ class FlaggedRevsLogs {
 		global $wgUser;
 		# Add history link showing edits right before the config change
 		$links = ' (';
-		$links .= $wgUser->getSkin()->link( $title,
+		$links .= $wgUser->getSkin()->link(
+			$title,
 			wfMsgHtml( 'hist' ),
 			array(),
-			array( 'action' => 'history', 'offset' => $timestamp ) );
+			array( 'action' => 'history', 'offset' => $timestamp )
+		);
 		$links .= ')';
 		return $links;
 	}
@@ -52,9 +54,11 @@ class FlaggedRevsLogs {
 					? 'review-logentry-diff2' // unreviewed
 					: 'review-logentry-diff'; // reviewed
 				$links .= '(';
-				$links .= $wgUser->getSkin()->makeKnownLinkObj( $title,
+				$links .= $wgUser->getSkin()->makeKnownLinkObj(
+					$title,
 					wfMsgHtml( $msg ),
-					"oldid={$oldStable}&diff={$revId}" );
+					"oldid={$oldStable}&diff={$revId}"
+				);
 				$links .= ')';
 			}
 			# Show a diff link to this revision
@@ -63,9 +67,11 @@ class FlaggedRevsLogs {
 				: $params[2];
 			$time = $wgLang->timeanddate( $ts );
 			$links .= ' (';
-			$links .= $wgUser->getSkin()->makeKnownLinkObj( $title,
+			$links .= $wgUser->getSkin()->makeKnownLinkObj(
+				$title,
 				wfMsgHtml( 'review-logentry-id', $revId, $time ),
-				"oldid={$revId}&diff=prev&diffonly=0" );
+				"oldid={$revId}&diff=prev&diffonly=0"
+			);
 			$links .= ')';
 		}
 		return $links;

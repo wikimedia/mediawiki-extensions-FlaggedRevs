@@ -413,9 +413,8 @@ $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
 # Override redirect behavior...
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
 # Set page view tabs
-$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs';
-# Set navigation
-$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation';
+$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs'; // Most skins
+$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation'; // Vector
 # Add notice tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
 # Add draft link to section edit error
