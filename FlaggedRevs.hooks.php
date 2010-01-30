@@ -4,12 +4,10 @@ class FlaggedRevsHooks {
 	/**
 	* Add FlaggedRevs css/js.
 	*/
-	public static function injectStyleAndJS() {
+	protected static function injectStyleAndJS() {
 		global $wgOut, $wgUser;
-		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) )
+		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
 			return true; # Don't double-load
-		if ( !$wgOut->isArticleRelated() ) {
-			return self::InjectStyleForSpecial(); // try special page CSS?
 		}
 		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
@@ -38,6 +36,7 @@ class FlaggedRevsHooks {
 		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
 			"FlaggedRevs.messages = " . Xml::encodeJsVar( $msgs ) . ";</script>\n";
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+
 		return true;
 	}
 	
@@ -76,7 +75,7 @@ class FlaggedRevsHooks {
 	/**
 	* Add FlaggedRevs css for relevant special pages.
 	*/
-	public static function InjectStyleForSpecial() {
+	protected static function injectStyleForSpecial() {
 		global $wgTitle, $wgOut;
 		if ( empty( $wgTitle ) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true;
@@ -108,21 +107,18 @@ class FlaggedRevsHooks {
 			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS(); // full CSS/JS
 		} else {
-			self::InjectStyleForSpecial(); // try special page CSS
+			self::injectStyleForSpecial(); // try special page CSS
 		}
 		return true;
 	}
 	
 	public static function markUnderReview( $output, $article, $title, $user, $request ) {
-		$action = $request->getVal( 'action', 'view' );
-		$reviewing = ( $action == 'history' ); // default
-		if ( $action == 'view'
-			&& ( $request->getInt( 'reviewform' ) || $request->getInt( 'rcid' ) ) )
-		{
-			$reviewing = true;
+		if( !$user->isAllowed( 'review' ) ) {
+			return true; // user cannot review
 		}
-		# Set a key to note that someone is viewing this
-		if ( $reviewing && $user->isAllowed( 'review' ) ) {
+		# Set a key to note when someone is reviewing this.
+		# NOTE: diff-to-stable views already handled elsewhere.
+		if ( $request->getInt( 'reviewing' ) || $request->getInt( 'rcid' ) ) {
 			global $wgMemc;
 			$key = wfMemcKey( 'unreviewedPages', 'underReview', $title->getArticleId() );
 			$wgMemc->set( $key, '1', 20 * 60 ); // 20 min
@@ -1896,7 +1892,7 @@ class FlaggedRevsHooks {
 			return true; // not needed
 		}
 		$fa = FlaggedArticleView::globalArticleInstance();
-		if ( $fa->isReviewable() && !$fa->limitedUI() ) {
+		if ( $fa->isReviewable() ) {
 			$srev = $fa->getStableRev();
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might

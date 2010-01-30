@@ -121,8 +121,8 @@ class FlaggedArticleView {
 	public function displayTag() {
 		global $wgOut, $wgRequest;
 		$this->load();
-		// UI may be limited to unobtrusive patrolling system
-		if ( $wgRequest->getVal( 'stableid' ) || !$this->article->limitedUI() ) {
+		// Sanity check that this is in reviewable namespace
+		if ( $this->article->isReviewable( true ) ) {
 			$wgOut->appendSubtitle( $this->reviewNotice );
 		}
 		return true;
@@ -136,9 +136,9 @@ class FlaggedArticleView {
 	public function addStableLink() {
 		global $wgRequest, $wgOut, $wgLang;
 		$this->load();
-		# Only for viewing old versions. UI may be limited to unobtrusive patrolling system.
-		if ( !$wgRequest->getVal( 'oldid' ) || $this->article->limitedUI() )
+		if ( !$this->article->isReviewable() || !$wgRequest->getVal( 'oldid' ) ) {
 			return true;
+		}
 		# We may have nav links like "direction=prev&oldid=x"
 		$revID = $this->article->getOldIDFromRequest();
 		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
@@ -721,7 +721,7 @@ class FlaggedArticleView {
 		global $wgOut;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if ( !$this->article->isReviewable() || $this->article->limitedUI() ) {
+		if ( !$this->article->isReviewable() ) {
 			return true;
 		}
 		# Add a notice if there are pending edits...
@@ -743,7 +743,7 @@ class FlaggedArticleView {
 		global $wgRequest, $wgOut, $wgLang, $wgUser;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if ( !$this->article->isReviewable() || $this->article->limitedUI() ) {
+		if ( !$this->article->isReviewable() ) {
 			return true;
 		}
 		$items = array();
@@ -912,10 +912,6 @@ class FlaggedArticleView {
 		{
 			return true;
 		}
-		# Unobtrusive patrolling UI only shows forms if requested
-		if ( !$wgRequest->getInt( 'reviewform' ) && $this->article->limitedUI() ) {
-			return true;
-		}
 		# Avoid multi-page diffs that are useless and misbehave (bug 19327)
 		if ( $this->isMultiPageDiff ) {
 			return true;
@@ -1014,7 +1010,7 @@ class FlaggedArticleView {
 		$fa = FlaggedArticle::getTitleInstance( $title );
 
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( !$fa->isReviewable() || $fa->limitedUI() ) {
+		if ( !$fa->isReviewable() ) {
 			return true; // Not a reviewable page or the UI is hidden
 		}
 		$flags = ( $action == 'rollback' ) ? FR_MASTER : 0;
@@ -1126,7 +1122,7 @@ class FlaggedArticleView {
 			return true;
 		}
 		# Page must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if ( !$this->article->isReviewable() || $this->article->limitedUI() ) {
+		if ( !$this->article->isReviewable() ) {
 			return true;
 		}
 		# Check if this might be the diff to stable. If so, enhance it.

@@ -92,10 +92,11 @@ class UnreviewedPages extends SpecialPage
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser, $wgMemc;
 
+		$stxt = $underReview = $watching = '';
 		$title = Title::newFromRow( $row );
-		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&reviewform=1' );
-		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'hist' ), 'action=history' );
-		$stxt = $review = $underReview = $watching = '';
+		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&reviewing=1' );
+		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'hist' ),
+			'action=history&reviewing=1' );
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
 				? wfMsgHtml( 'historyempty' )
@@ -110,13 +111,13 @@ class UnreviewedPages extends SpecialPage
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
-			$age = wfMsgExt( 'unreviewed-days', array( 'parsemag' ), $days );
+			$age = ' ' . wfMsgExt( 'unreviewed-days', array( 'parsemag' ), $days );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
 			$hours = round( $hours, 0 );
-			$age = wfMsgExt( 'unreviewed-hours', array( 'parsemag' ), $hours );
+			$age = ' ' . wfMsgExt( 'unreviewed-hours', array( 'parsemag' ), $hours );
 		} else {
-			$age = wfMsg( 'unreviewed-recent' ); // hot off the press :)
+			$age = ' ' . wfMsg( 'unreviewed-recent' ); // hot off the press :)
 		}
 		if ( $wgUser->isAllowed( 'unwatchedpages' ) ) {
 			$uw = self::usersWatching( $title );
@@ -133,13 +134,13 @@ class UnreviewedPages extends SpecialPage
 		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
 		$val = $wgMemc->get( $key );
 		# Show if a user is looking at this page
-		if ( ( $val = $wgMemc->get( $key ) ) ) {
+		if ( $val ) {
 			$underReview = " <b class='fr-under-review'>" .
 				wfMsgHtml( 'unreviewed-viewing' ) . '</b>';
 		}
 
 		return( "<li{$css}>{$link} {$stxt} ({$hist})" .
-			"{$review}{$age}{$watching}{$underReview}</li>" );
+			"{$age}{$watching}{$underReview}</li>" );
 	}
 	
 	/**

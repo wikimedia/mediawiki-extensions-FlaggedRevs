@@ -40,14 +40,6 @@ class FlaggedArticle extends Article {
 		$config = $this->getVisibilitySettings();
 		return (bool)$config['override'];
 	}
-	
-	 /**
-	 * Is most of the UI on this page to be hidden?
-	 * @returns bool
-	 */
-	public function limitedUI() {
-		return ( FlaggedRevs::forDefaultVersionOnly() && !$this->isStableShownByDefault() );
-	}
 
 	/**
 	 * Is this page less open than the site defaults?

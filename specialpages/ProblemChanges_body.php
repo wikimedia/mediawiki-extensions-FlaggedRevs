@@ -174,11 +174,12 @@ class ProblemChanges extends SpecialPage
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser, $wgMemc;
 
+		$css = $stxt = $quality = $underReview = '';
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title );
-		$css = $stxt = $review = $quality = $underReview = '';
-		$review = $this->skin->makeKnownLinkObj( $title, wfMsg( 'oldreviewed-diff' ),
-			"diff=cur&oldid={$row->stable}&reviewform=1&diffonly=0" );
+		$review = $this->skin->makeKnownLinkObj( $title,
+			wfMsg( 'oldreviewed-diff' ),
+			'diff=cur&oldid='.intval($row->stable).'&diffonly=0' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->quality ?
