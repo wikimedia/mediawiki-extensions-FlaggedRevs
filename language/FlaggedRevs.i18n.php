@@ -12852,20 +12852,20 @@ $messages['uk'] = array(
 	'revreview-accuracy-4' => 'вибрана',
 	'revreview-approved' => 'Перевірена',
 	'revreview-auto' => '(автоматично)',
-	'revreview-basic' => 'Це [[{{MediaWiki:Validationpage}}|стабільна версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+	'revreview-basic' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Чернетка] містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоновану зміну|запропонованих зміни|запропонованих змін}}].',
-	'revreview-basic-i' => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} переглянута] версія; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетці] є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни в шаблонах або зображеннях], що потребують перевірки.',
+	'revreview-basic-i' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Чернетка] містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни в шаблонах або зображеннях], що очікують перевірки.',
 	'revreview-basic-old' => 'Це [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 Могли бути зроблені нові [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} редагування].',
-	'revreview-basic-same' => 'Це остання [[{{MediaWiki:Validationpage}}|переглянута]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]); [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-basic-same' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Переглянута версія] цієї сторінки, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>, базується на цій версії.',
 	'revreview-failed' => "'''Не вдалося перевірити версію.''' Надані дані неповні або іншим чином недійсні.",
-	'revreview-changed' => "'''Запитана дія не може бути виконана з цією версією сторінки [[:$1|$1]].'''
+	'revreview-changed' => "'''Зазначена дія не може бути виконана з цією версією сторінки [[:$1|$1]].'''
 
-Можливо, шаблон або зображення були запитані без зазначення конкретної версії.
-Це могло статися, якщо динамічний шаблон включає інший шаблон або зображення, яке залежить від змінної, яка змінилася з моменту початку перевірки.
-Оновіть сторінку і почніть перевірку знову, це може вирішити проблему.",
+Можливо, вона містить шаблон або файл, які не мають зазначеної версії.
+Це могло статися, якщо динамічний шаблон включає інший шаблон або файл, що залежать від змінної, яка змінилася з моменту початку перевірки.
+Оновлення сторінки і повторна перевірка можуть вирішити цю проблему.",
 	'revreview-current' => 'Чернетка',
 	'revreview-depth' => 'Повнота',
 	'revreview-depth-0' => 'незазначена',
@@ -12953,7 +12953,7 @@ $messages['uk'] = array(
 '''Деякі шаблони/файли були оновлені:'''",
 	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені:'''",
 	'revreview-update-none' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] редагування ''(показані нижче)'', зроблені після [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} установки] стабільної версії.",
-	'revreview-update-use' => "'''ЗАУВАЖЕННЯ.''' Якщо якийсь із цих шаблонів або файлів має стабільну версію, то вона вже використовується у стабільній версії цієї сторінки.",
+	'revreview-update-use' => "'''ЗАУВАЖЕННЯ.''' Якщо будь-який із цих шаблонів або файлів має опубліковану версію, то вона вже використовується у опублікованій версії цієї сторінки.",
 	'revreview-visibility' => "'''Ця сторінка має [[{{MediaWiki:Validationpage}}|стабільну версію]], яка може бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} налаштована].'''",
 	'revreview-visibility2' => "'''Ця сторінка має застарілу [[{{MediaWiki:Validationpage}}|стабільну версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	'revreview-visibility3' => "'''Ця сторінка не має [[{{MediaWiki:Validationpage}}|опублікованої версії]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",

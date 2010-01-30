@@ -1660,8 +1660,8 @@ Redigeringar som har kollats av etablerade användare anses vara granskade.
 Genomsnittlig väntan för redigeringar av ''oinloggade användare'' för granskning är '''$1'''; medianen är '''$3'''.
 $4
 Genomsnittlig lag för [[Special:OldReviewedPages|sidor med ogranskade ändringar]] är '''$2'''.
-Dessa sidor anses ''föråldrade''. Likaså anses sidor ''synkade'' om den [[{{MediaWiki:Validationpage}}|stabila versionen]] också är den nuvarande draft-versionen.
-En sidas stabila version är den nyaste version som har blivit godkänd för att visas som default till alla läsare.",
+Dessa sidor anses ''föråldrade''. Likaså anses sidor ''synkade'' om inga redigeringar väntar på granskning.
+En sidas publicerade version är den nyaste version som har blivit godkänd för att visas som default till alla läsare.",
 	'validationstatistics-table' => "Statistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor.",
 	'validationstatistics-ns' => 'Namnrymd',
 	'validationstatistics-total' => 'Sidor',

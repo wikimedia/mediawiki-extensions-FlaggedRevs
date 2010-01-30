@@ -656,11 +656,12 @@ $messages['sr-el'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Boivie
  * @author Najami
  */
 $messages['sv'] = array(
 	'unstablepages' => 'Ostabila sidor',
-	'unstablepages-stable' => 'stabil version',
+	'unstablepages-stable' => 'publicerad version',
 	'unstablepages-text' => 'Nedan visas en lista över sidor som manuellt har konfigurerats att visa utkastet som standardsideinnehåll för läsare.',
 	'unstablepages-none' => 'Det finns inga sidor i den här listan',
 	'unstablepages-config' => 'Konfigurering',
