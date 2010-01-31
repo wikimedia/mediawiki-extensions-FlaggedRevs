@@ -33,6 +33,7 @@ class FlaggedArticleView {
 			if ( $this->article == null ) {
 				throw new MWException( 'FlaggedArticleViewer has no context article!' );
 			}
+			$this->loaded = true;
 		}
 	}
 
