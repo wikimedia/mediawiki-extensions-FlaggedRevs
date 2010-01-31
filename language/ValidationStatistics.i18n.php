@@ -512,10 +512,12 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Kobazulo
  */
 $messages['eu'] = array(
 	'validationstatistics' => 'Balioztatzeko estatistikak',
+	'validationstatistics-ns' => 'Izen-tartea',
 	'validationstatistics-total' => 'Orrialdeak',
 	'validationstatistics-old' => 'Deseguneratua',
 	'validationstatistics-user' => 'Lankidea',

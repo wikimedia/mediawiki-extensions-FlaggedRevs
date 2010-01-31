@@ -962,15 +962,15 @@ $messages['et'] = array(
 $messages['eu'] = array(
 	'stabilization' => 'Orrialdearen egonkortzea',
 	'stabilization-page' => 'Orrialdearen izenburua:',
-	'stabilization-leg' => 'Bertsio egonkorraren konfigurazioa berretsi',
-	'stabilization-select' => 'Bertsio egonkorraren aukeraketa',
+	'stabilization-leg' => 'Argitaratutako bertsioaren konfigurazioa berretsi',
+	'stabilization-select' => 'Argitaratutako bertsioaren aukeraketa',
 	'stabilization-submit' => 'Baieztatu',
 	'stabilization-comment' => 'Arrazoia:',
 	'stabilization-expiry' => 'Epemuga:',
 	'stabilization-sel-short-0' => 'Kalitatea',
 	'stabilization-def-short' => 'Lehenetsia',
 	'stabilization-def-short-0' => 'Oraingoa',
-	'stabilization-def-short-1' => 'Egonkorra',
+	'stabilization-def-short-1' => 'Argitaratua',
 );
 
 /** Extremaduran (Estremeñu)

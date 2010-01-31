@@ -204,11 +204,13 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Kobazulo
  */
 $messages['eu'] = array(
 	'unstablepages' => 'Orrialde ezegonkorrak',
-	'unstablepages-stable' => 'bertsio egonkorra',
+	'unstablepages-stable' => 'argitaratutako bertsioa',
+	'unstablepages-none' => 'Zerrenda honetan ez dago orrialderik',
 	'unstablepages-config' => 'Konfigurazioa',
 );
 

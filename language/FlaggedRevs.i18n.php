@@ -3827,6 +3827,8 @@ Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 $messages['eu'] = array(
 	'editor' => 'Editorea',
 	'flaggedrevs' => 'Markatutako Berrikuspenak',
+	'flaggedrevs-pref-UI' => 'Oinarrizko interfazea:',
+	'prefs-flaggedrevs' => 'Egonkortasuna',
 	'group-editor' => 'Editoreak',
 	'group-editor-member' => 'editorea',
 	'review-logentry-id' => 'berrikuspena: $2',
@@ -4040,6 +4042,7 @@ $messages['fa'] = array(
  * @author Crt
  * @author Jaakonam
  * @author Nike
+ * @author Silvonen
  * @author Str4nd
  * @author ZeiP
  */
@@ -4098,7 +4101,7 @@ $messages['fi'] = array(
 	'revreview-depth-3' => 'Korkea',
 	'revreview-draft-title' => 'Tämä on luonnossivu',
 	'revreview-draft-rev' => 'Luonnosversio',
-	'revreview-edit' => 'Muokkaa luonnosta',
+	'revreview-edit' => 'Muokkaa',
 	'revreview-editnotice' => "Muutoksesi julkaistaan [[{{MediaWiki:Validationpage}}|vakaassa versiossa]], kun valtuutettu käyttäjä on [[{{MediaWiki:Validationpage}}|arvioinut]] ne.'''",
 	'revreview-flag' => 'Arvioi tämä versio',
 	'revreview-reflag' => 'Muuta tai poista tämän version arviointi',
@@ -4137,7 +4140,6 @@ Merkitäksesi version vanhentuneeksi, merkitse kaikki kentät ”ei hyväksytyks
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'revreview-update-includes' => "'''Joitakin mallineita tai tiedostoja on päivitetty:'''",
 	'revreview-update-use' => "'''HUOMAA:''' Jos millään näistä mallineista tai tiedostoista on vakaa versio, sitä käytetään jo tämän sivun vakaassa versiossa.",
-	'revreview-diffonly' => "''Tarkistaaksesi sivun, napsauta ”nykyinen versio” -versiolinkkiä ja käytä arviointilomaketta.''",
 	'revreview-revnotfound' => 'Pyytämääsi versiota ei löydy. Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-autoreview' => 'Merkitä versiot automaattisesti tarkistetuiksi',
 	'right-movestable' => 'Siirrä vakaat sivut',
@@ -6031,7 +6033,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változtatás] vár ellenőrzésre.',
 	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} legutóbbi minőségi változat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} összes]); [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadva]: <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablon- vagy fájlváltoztatások] várnak ellenőrzésre.',
-	'revreview-noflagged' => "A lapnak nincs ellenőrzött változata, így lehet hogy '''nem''' [[{{MediaWiki:Validationpage}}|ellenőrizték]] a minőségét.",
+	'revreview-noflagged' => "A lapnak nincs ellenőrzött változata, lehet, hogy még '''egyáltalán nem''' [[{{MediaWiki:Validationpage}}|ellenőrizte]] senki a minőségét.",
 	'revreview-note' => '[[User:$1|$1]] az alábbi megjegyzéseket fűzte ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzése]] mellé:',
 	'revreview-notes' => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-oldrating' => 'Értékelése:',
@@ -6080,7 +6082,6 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nem ellenőrzött változaton] [{{full
 	'revreview-update-includes' => "'''Néhány sablon vagy fájl megváltozott:'''",
 	'revreview-update-none' => "[[{{MediaWiki:Validationpage}}|Ellenőrizz]] minden változtatást ''(alább láthatóak)'', ami a stabil változat [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} elfogadása] óta történt.",
 	'revreview-update-use' => "'''Megjegyzés:''' ha a fájlok vagy a sablonok közül bármelyiknek van stabil változata, akkor a lap stabil változatán is az jelenik meg.",
-	'revreview-diffonly' => "''A lap ellenőrzéséhez kattints az „aktuális változat” hivatkozásra, és használd az ellenőrző űrlapot.''",
 	'revreview-visibility' => "'''A lapnak van frissített [[{{MediaWiki:Validationpage}}|stabil változata]]; a lap stabilitásának paramétereit [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt állíthatod be].'''",
 	'revreview-visibility2' => "'''Ennek a lapnak elavult a [[{{MediaWiki:Validationpage}}|stabil változata]]; a lap stabilitásának paramétereit [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt állíthatod be].'''",
 	'revreview-visibility3' => "'''Ennek a lapnak nincsen [[{{MediaWiki:Validationpage}}|stabil változata]]; a lapok stabil változatainak beállításai [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} itt módosíthatóak].'''",
