@@ -1576,9 +1576,8 @@ class FlaggedRevs {
 			# Update stable page cache. Don't cache redirects;
 			# it would go unused and complicate things.
 			if ( !Title::newFromRedirect( $text ) ) {
-				FlaggedRevs::updatePageCache( $article, $wgUser, $stableOutput );
+				self::updatePageCache( $article, $user, $poutput  );
 			}
-			self::updatePageCache( $article, $user, $poutput );
 			# Update page tracking fields
 			self::updateStableVersion( $article, $rev, $rev->getId() );
 			# We can set the sync cache key already.
