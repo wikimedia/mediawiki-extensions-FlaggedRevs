@@ -1443,16 +1443,16 @@ $messages['be-tarask'] = array(
 	'flaggedrevs' => 'Пазначаныя вэрсіі',
 	'flaggedrevs-backlog' => "Існуе адставаньне ў [[Special:OldReviewedPages|праверцы рэдагаваньняў]] правераных старонак. '''Зьвярніце ўвагу!'''",
 	'flaggedrevs-watched-pending' => "Існуе адставаньне ў [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} праверцы рэдагаваньняў] правераных старонак у Вашым сьпісе назіраньня. '''Зьвярніце ўвагу!'''",
-	'flaggedrevs-desc' => 'Дае магчымасьць рэдактарам і рэцэнзэнтам правяраць вэрсіі і стабілізаваць старонкі',
-	'flaggedrevs-pref-UI' => 'Інтэрфэйс стабільных вэрсіяў:',
-	'flaggedrevs-pref-UI-0' => 'Выкарыстоўваць падрабязны інтэрфэйс стабільных вэрсій',
-	'flaggedrevs-pref-UI-1' => 'Выкарыстоўваць просты інтэрфэйс стабільных вэрсій',
+	'flaggedrevs-desc' => 'Дае рэдактарам і рэцэнзэнтам магчымасьць рэцэнзаваньня вэрсіяў і стабілізацыі старонак',
+	'flaggedrevs-pref-UI' => 'Асноўны інтэрфэйс:',
+	'flaggedrevs-pref-UI-0' => 'Выкарыстоўваць падрабязны інтэрфэйс для паказу статусу старонак',
+	'flaggedrevs-pref-UI-1' => 'Выкарыстоўваць мініятуры і мінімум тэксту для паказу статусу зацьверджаньня старонак',
 	'prefs-flaggedrevs' => 'Стабільнасьць',
 	'prefs-flaggedrevs-ui' => 'Пазначаныя вэрсіі',
-	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць стабільную вэрсію старонак зьместу па змоўчваньні (калі яна існуе)',
+	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць апублікаваную вэрсію старонак зьместу па змоўчваньні (калі яна існуе)',
 	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мной старонкі ў мой сьпіс назіраньня',
-	'flaggedrevs-prefs-editdiffs' => 'Паказваць адрозьненьні са стабільнай вэрсіяй пад час рэдагаваньня старонкі',
-	'flaggedrevs-prefs-viewdiffs' => 'Паказаць розьніцу са стабільнай вэрсіяй пад час прагляду чарнавіка',
+	'flaggedrevs-prefs-editdiffs' => 'Паказваць адрозьненьні паміж неправеранай і праверанай вэрсіямі пад час рэдагаваньня старонак',
+	'flaggedrevs-prefs-viewdiffs' => 'Паказаць розьніцу паміж праверанай і неправеранай вэрсіямі пад час прагляду чарнавікоў',
 	'group-editor' => 'Рэдактары',
 	'group-editor-member' => 'рэдактар',
 	'group-reviewer' => 'Рэцэнзэнты',
@@ -3532,6 +3532,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
  * @author Imre
  * @author Lin linao
  * @author Locos epraix
+ * @author Manuelt15
  * @author McDutchie
  * @author Sanbec
  * @author Translationista
@@ -3566,7 +3567,7 @@ $messages['es'] = array(
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] por [[User:$3|$3]]',
 	'revreview-hist-basic' => 'Revisión verificada',
 	'revreview-hist-basic-user' => '![{{fullurl:$1|stableid=$2}} revisada] por [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} observada automaticamente]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} revisada automaticamente]',
 	'revreview-hist-pending' => '[a espera de revisión]',
 	'review-edit-diff' => "'''NOTA: En el formulario de edición que se muestra abajo se ha incorporado algunos cambios pendientes de aplicar a la versión publicada'''",
 	'revreview-diff-toggle-show' => '(mostrar cambios)',

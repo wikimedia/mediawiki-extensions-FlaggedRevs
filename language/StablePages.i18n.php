@@ -113,7 +113,7 @@ $messages['bcc'] = array(
 $messages['be-tarask'] = array(
 	'stablepages' => 'Стабільныя старонкі',
 	'stablepages-stable' => 'апублікаваная вэрсія',
-	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія ўручную настроеныя для паказу стабільнай вэрсіі па змоўчваньні для чытачоў.',
+	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія ўручную настроеныя для паказу апублікаванай вэрсіі па змоўчваньні для чытачоў.',
 	'stablepages-none' => 'У гэтым сьпісе няма старонак',
 	'stablepages-config' => 'Канфігурацыя',
 	'stablepages-prec-none' => 'няма першаснасьці',
@@ -815,7 +815,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'stablepages' => 'Тулхадыйбат (стабильнай) сирэйдэр',
+	'stablepages' => 'Бигэргэтиллибит сирэйдэр',
 	'stablepages-stable' => 'бэчээттэммит барыл',
 	'stablepages-none' => 'Бу тиһиккэ сирэйдэрэ суох',
 	'stablepages-config' => 'Туруоруута',

@@ -63,7 +63,7 @@ $messages['bcc'] = array(
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
-	'qualityoversight' => 'Кантроль якасьці',
+	'qualityoversight' => 'Пашыраны журнал рэцэнзаваньняў',
 	'qualityoversight-list' => 'Гэта старонка ўтрымлівае сьпіс апошніх пацьверджаньняў і зьняцьцяў пацьверджаньняў узроўняў якасьці вэрсій.',
 	'qualityoversight-legend' => 'Пошук у журнале праверак',
 );
