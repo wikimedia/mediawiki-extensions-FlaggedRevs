@@ -1430,22 +1430,20 @@ class FlaggedArticleView {
 	public function addRevisionIDField( $editPage, $out ) {
 		global $wgRequest;
 		$this->load();
-		# Find out revision id
-		if ( $this->article->mRevision ) {
-	   		$revId = $this->article->mRevision->mId;
-		} else {
-			$latest = $this->article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
-	   		$revId = $latest;
-			wfDebug( 'FlaggedArticle::addRevisionIDField - ID not specified, assumed current' );
-	   	}
-		# If undoing a few consecutive top edits, we know the base ID
-		if ( $undo = $wgRequest->getIntOrNull( 'undo' ) ) {
-			$undoAfter = $wgRequest->getIntOrNull( 'undoafter' );
-			$latest = isset( $latest ) ?
-				$latest : $this->article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
-			if ( $undoAfter && $undo == $this->article->getLatest() ) {
-				$revId = $undoAfter;
-			}
+		$article = $editPage->getArticle(); // convenience
+		$latestId = $article->getLatest(); // current rev
+		# Find the ID of the revision being edited
+		$revId = $article->getOldID();
+		if( !$revId ) { // zero oldid => current revision
+			$revId = $latestId;
+		}
+		# If undoing a few consecutive top edits, we can treat this
+		# like a revert to a base revision...find its ID...
+		$undo = $wgRequest->getIntOrNull( 'undo' );
+		if ( $undo === $latestId ) {
+			# We are undoing all edits *after* some rev...get that rev's ID
+			$revId = $wgRequest->getInt( 'undoafter',
+				$article->getTitle()->getPreviousRevisionID( $latestId, GAID_FOR_UPDATE ) );
 		}
 		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revId ) );
 		$out->addHTML( "\n" . Xml::hidden( 'undidRev',
