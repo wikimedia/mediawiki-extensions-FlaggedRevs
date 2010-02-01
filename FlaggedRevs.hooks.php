@@ -734,8 +734,9 @@ class FlaggedRevsHooks {
 	* Check page move and patrol permissions for FlaggedRevs
 	*/
 	public static function onUserCan( $title, $user, $action, &$result ) {
-		if ( $result === false )
+		if ( $result === false ) {
 			return true; // nothing to do
+		}
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
 			if ( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
@@ -774,6 +775,18 @@ class FlaggedRevsHooks {
 					$result = false;
 					return false;
 				}
+			}
+		# Enforce autoreview restrictions
+		} else if( $action === 'autoreview' ) {
+			# Get autoreview restriction settings...
+			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+			# Convert Sysop -> protect
+			$right = ( $config['autoreview'] === 'sysop' ) ?
+				'protect' : $config['autoreview'];
+			# Check if the user has the required right, if any
+			if( $right != '' && !$user->isAllowed( $right ) ) {
+				$result = false;
+				return false;
 			}
 		}
 		return true;
@@ -831,130 +844,121 @@ class FlaggedRevsHooks {
 		if ( !$rev || !$fa->isReviewable() ) {
 			return true;
 		}
+		if ( !$user ) {
+			$user = User::newFromId( $rev->getUser() );
+		}
 		$title = $article->getTitle();
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
-		$prevTimestamp = $flags = null;
-		# Get edit timestamp. Existance already valided by EditPage.php. If 
-		# not present, then it the rev shouldn't be saved, like null edits.
+		$prevTimestamp = $frev = $flags = null;
+		# Get edit timestamp. Existance already validated by EditPage.php.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
-		# Get the user who made the edit
-		$user = is_null( $user ) ? User::newFromId( $rev->getUser() ) : $user;
-		# Is the page checked off to be reviewed?
-		# Autoreview if this is such a valid case...
+		# Is the page manually checked off to be reviewed?
 		if ( $wgRequest->getCheck( 'wpReviewEdit' ) && $user->isAllowed( 'review' ) ) {
 			# Check wpEdittime against the previous edit for verification
 			if ( $prevRevId ) {
-				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK
+				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
 			}
-			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
-			# Don't do so if an edit was auto-merged in between though...
+			# Review this revision of the page unless edit was auto-merged in between...
 			if ( !$editTimestamp || !$prevTimestamp || $prevTimestamp == $editTimestamp ) {
-				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev,
-					$flags, false );
+				# Note: articlesavecomplete hook does rc_patrolled bit
+				$ok = FlaggedRevs::autoReviewEdit(
+					$article, $user, $rev->getText(), $rev, $flags, false );
 				if ( $ok ) return true; // done!
 			}
 		}
-		# Get sync cache key
-		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $rev->getPage() );
-		# Auto-reviewing must be enabled and user must have the required permissions
-		if ( !FlaggedRevs::autoReviewEdits() || !$user->isAllowed( 'autoreview' ) ) {
-			$isAllowed = false; // untrusted user
-		} else {
-			# Get autoreview restriction settings...
-			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
-			# Convert Sysop -> protect
-			$right = ( $config['autoreview'] === 'sysop' ) ?
-				'protect' : $config['autoreview'];
-			# Check if the user has the required right, if any
-			$isAllowed = ( $right == '' || $user->isAllowed( $right ) );
+		# All cases below require auto-review of edits to be enabled
+		if( !FlaggedRevs::autoReviewEdits() ) {
+			return true;
 		}
-		# If $baseRevId passed in, this is a null edit
-		$isNullEdit = $baseRevId ? true : false;
-		$frev = null;
-		$reviewableNewPage = false;
+		# If a $baseRevId is passed in this is a null edit
+		$isNullEdit = (bool)$baseRevId;
 		# Get the revision ID the incoming one was based off...
 		if ( !$baseRevId && $prevRevId ) {
 			if ( is_null( $prevTimestamp ) ) { // may already be set
-				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId ); // use PK
+				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
 			}
 			# The user just made an edit. The one before that should have
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
-			# the baseRevId given from the client...
+			# the baseRevId given from the client.
 			if ( !$editTimestamp || $prevTimestamp == $editTimestamp ) {
 				$baseRevId = intval( trim( $wgRequest->getVal( 'baseRevId' ) ) );
 			}
-			# If baseRevId not given, assume the previous revision ID.
+			# If baseRevId not given, assume the previous revision ID (for bots).
 			# For auto-merges, this also occurs since the given ID is ignored.
-			# Also for bots that don't submit everything...
 			if ( !$baseRevId ) {
 				$baseRevId = $prevRevId;
 			}
 		}
-		global $wgMemc, $wgParserCacheExpireTime;
-		# User must have the required permissions for all autoreview cases
-		# except for simple self-reversions.
-		if ( !$isAllowed ) {
-			$srev = FlaggedRevision::newFromStable( $title, FR_MASTER );
-			# Check if this reverted to the stable version. Reverts to other reviewed
-			# revisions will not be allowed since we don't trust this user.
-			if ( $srev && $baseRevId == $srev->getRevId() ) {
-				# Check that this user is ONLY reverting his/herself.
-				if ( self::userWasLastAuthor( $article, $baseRevId, $user ) ) {
-					# Confirm the text; we can't trust this user.
-					if ( $rev->getText() == $srev->getRevText() ) {
-						$flags = FlaggedRevs::quickTags( FR_SIGHTED );
-						$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(),
-							$rev, $flags );
-						if ( $ok ) return true; // done!
-					}
-				}
-			}
-			# User does not have the permission for general autoreviewing...
-			$wgMemc->set( $key, FlaggedRevs::makeMemcObj( 'false' ), $wgParserCacheExpireTime );
-			return true; // done! edit pending!
+		# Self-reversions to the stable version by anyone can be auto-reviewed...
+		$srev = FlaggedRevision::newFromStable( $title, FR_MASTER );
+		if ( $srev && self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user ) ) {
+			$flags = $srev->getTags(); // use old tags
+			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+			return true; // done!
 		}
+		# Can this user auto-review this page?
+		$isAllowed = $title->getUserPermissionsErrors( 'autoreview', $user ) === array();
+		if ( !$isAllowed ) {
+			return true; // user does not have auto-review rights
+		}
+		$reviewableNewPage = false;
 		// New pages
 		if ( !$prevRevId ) {
 			$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
 		// Edits to existing pages
 		} elseif ( $baseRevId ) {
-			$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
-			# If the base revision was not reviewed, check if the previous one was.
-			# This should catch null edits as well as normal ones.
-			if ( !$frev ) {
-				$frev = FlaggedRevision::newFromTitle( $title, $prevRevId, FR_MASTER );
-			}
+			# Check if the base revision was reviewed...
+			$frev = ( $srev && $srev->getRevId() == $baseRevId )
+				? $srev // save ourselves a query
+				: FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
 		}
 		// Is this an edit directly to the stable version? Is it a new page?
 		if ( $isAllowed && ( $reviewableNewPage || !is_null( $frev ) ) ) {
-			# Assume basic flagging level unless this is a null edit
-			if ( $isNullEdit ) $flags = $frev->getTags();
+			if ( $isNullEdit && $frev ) {
+				$flags = $frev->getTags(); // Null edits always keep previous tags
+			}
 			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
-			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
-		} else {
-			$ok = false;
-		}
-		if ( !$ok ) { # Done! edit pending!
-			$wgMemc->set( $key, FlaggedRevs::makeMemcObj( 'false' ), $wgParserCacheExpireTime );
+			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 		}
 		return true;
 	}
 	
 	/**
-	* Check if a user was the last author of the revisions of a page
+	* Check if a user reverted himself to the stable version
 	*/
-	protected static function userWasLastAuthor( $article, $baseRevId, $user ) {
+	protected static function isSelfRevertToStable( $rev, $srev, $baseRevId, $user ) {
+		if( !$srev || $baseRevId != $srev->getRevId() ) {
+			return false; // user reports they are not the same
+		}
 		$dbw = wfGetDB( DB_MASTER );
-		return !$dbw->selectField( 'revision', '1',
+		# Such a revert requires 1+ revs between it and the stable
+		$revertedRevs = $dbw->selectField( 'revision', '1',
 			array(
-				'rev_page' => $article->getId(),
+				'rev_page' => $rev->getPage(),
+				'rev_id > ' . intval( $baseRevId ), // stable rev
+				'rev_id < ' . intval( $rev->getId() ), // this rev
+				'rev_user_text' => $user->getName()
+			), __METHOD__
+		);
+		if( !$revertedRevs ) {
+			return false; // can't be a revert
+		}
+		# Check that this user is ONLY reverting his/herself.
+		$otherUsers = $dbw->selectField( 'revision', '1',
+			array(
+				'rev_page' => $rev->getPage(),
 				'rev_id > ' . intval( $baseRevId ),
 				'rev_user_text != ' . $dbw->addQuotes( $user->getName() )
 			), __METHOD__
 		);
+		if( $otherUsers ) {
+			return false; // only looking for self-reverts
+		}
+		# Confirm the text because we can't trust this user.
+		return ( $rev->getText() == $srev->getRevText() );
 	}
 	
 	/**

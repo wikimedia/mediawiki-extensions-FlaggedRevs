@@ -507,7 +507,7 @@ $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::onRevisionRestore';
 
 # ######## Other #########
 # Determine what pages can be moved and patrolled
-$wgHooks['userCan'][] = 'FlaggedRevsHooks::onUserCan';
+$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 # Implicit autoreview rights group
 $wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
 
@@ -542,7 +542,7 @@ function efLoadFlaggedRevs() {
 	# Visibility - experimental
 	if ( !empty( $wgFlaggedRevsVisible ) ) {
 		global $wgHooks;
-		$wgHooks['userCan'][] = 'FlaggedRevsHooks::userCanView';
+		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::userCanView';
 	}
 	# Don't show autoreview group everywhere
 	global $wgImplicitGroups;
