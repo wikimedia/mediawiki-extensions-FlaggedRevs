@@ -435,9 +435,6 @@ $wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsHooks::addToFileHistLine';
 $wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsHooks::addToRCQuery';
 $wgHooks['SpecialWatchlistQuery'][] = 'FlaggedRevsHooks::addToWatchlistQuery';
 $wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsHooks::addToChangeListLine';
-# Mark items in user contribs
-$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
-$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 # Page review on edit
 $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectPostEditURLParams';
 # Diff-to-stable
@@ -515,7 +512,7 @@ $wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
 $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
 
 # Actually register special pages
-$wgHooks['SpecialPage_initList'][] = 'efLoadFlaggedRevsSpecialPages';
+$wgHooks['SpecialPage_initList'][] = 'FlaggedRevsHooks::defineSpecialPages';
 
 # Stable dump hook
 $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
@@ -523,6 +520,19 @@ $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 # ########
+
+function efSetFlaggedRevsConditionalHooks() {
+	global $wgHooks, $wgFlaggedRevsVisible;
+	# Mark items in user contribs
+	if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
+		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
+	}
+	# Visibility - experimental
+	if ( !empty( $wgFlaggedRevsVisible ) ) {
+		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::userCanView';
+	}
+}
 
 ######## END HOOK TRIGGERED FUNCTIONS  #########
 
@@ -539,48 +549,11 @@ function efLoadFlaggedRevs() {
 	if ( !empty( $wgFlaggedRevsNamespaces ) ) {
 		$wgUseRCPatrol = true;
 	}
-	# Visibility - experimental
-	if ( !empty( $wgFlaggedRevsVisible ) ) {
-		global $wgHooks;
-		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::userCanView';
-	}
+	# Load hooks that aren't always set
+	efSetFlaggedRevsConditionalHooks();
 	# Don't show autoreview group everywhere
 	global $wgImplicitGroups;
 	$wgImplicitGroups[] = 'autoreview';
-}
-
-/* 
- * Register FlaggedRevs special pages as needed. 
- * Also sets $wgSpecialPages just to be consistent.
- */
-function efLoadFlaggedRevsSpecialPages( &$list ) {
-	global $wgSpecialPages, $wgUseTagFilter;
-	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
-	// Show special pages only if FlaggedRevs is enabled on some namespaces
-	if ( empty( $wgFlaggedRevsNamespaces ) ) {
-		return true;
-	}
-	$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
-	$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
-	// Protect levels define allowed stability settings
-	if ( empty( $wgFlaggedRevsProtectLevels ) ) {
-		$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
-	}
-	$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
-	$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
-	// Show tag filtered pending edit page if there are tags
-	if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
-		$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
-	}
-	$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
-	$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
-	$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-	if ( !$wgFlaggedRevsOverride ) {
-		$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
-	} else {
-		$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
-	}
-	return true;
 }
 
 # Add review log

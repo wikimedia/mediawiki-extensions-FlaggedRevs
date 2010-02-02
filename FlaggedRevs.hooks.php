@@ -1,6 +1,40 @@
 <?php
 
 class FlaggedRevsHooks {
+	/* 
+	 * Register FlaggedRevs special pages as needed. 
+	 * Also sets $wgSpecialPages just to be consistent.
+	 */
+	public static function defineSpecialPages( &$list ) {
+		global $wgSpecialPages, $wgUseTagFilter;
+		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
+		// Show special pages only if FlaggedRevs is enabled on some namespaces
+		if ( empty( $wgFlaggedRevsNamespaces ) ) {
+			return true;
+		}
+		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
+		$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
+		// Protect levels define allowed stability settings
+		if ( empty( $wgFlaggedRevsProtectLevels ) ) {
+			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
+		}
+		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
+		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
+		// Show tag filtered pending edit page if there are tags
+		if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
+			$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
+		}
+		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
+		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
+		if ( !$wgFlaggedRevsOverride ) {
+			$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
+		} else {
+			$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
+		}
+		return true;
+	}
+
 	/**
 	* Add FlaggedRevs css/js.
 	*/
@@ -1694,9 +1728,6 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToContribsQuery( $pager, &$queryInfo ) {
-		if ( FlaggedRevs::stableOnlyIfConfigured() ) {
-			return true; // don't show colors if almost nothing will be highlighted
-		}
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
 		$queryInfo['fields'][] = 'fr_quality';
@@ -1828,8 +1859,6 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
-		if ( FlaggedRevs::stableOnlyIfConfigured() )
-			return true; // don't show colors if almost nothing will be highlighted
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( !in_array( $row->page_namespace, $namespaces ) ) {
 			// do nothing
