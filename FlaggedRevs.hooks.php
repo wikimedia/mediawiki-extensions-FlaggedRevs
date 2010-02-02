@@ -1740,23 +1740,26 @@ class FlaggedRevsHooks {
 		if ( !isset( $history->fr_stableRevId ) ) {
 			$frev = $fa->getStableRev();
 			$history->fr_stableRevId = $frev ? $frev->getRevId() : 0;
+			$history->fr_pendingRevs = false;
 		}
 		if ( !$history->fr_stableRevId ) {
 			return true; // nothing to do here
 		}
+		$revId = (int)$row->rev_id;
 		// Unreviewed revision: highlight if pending
 		$link = $class = '';
 		if ( !isset( $row->fr_quality ) ) {
-			if ( $row->rev_id > $history->fr_stableRevId ) {
+			if ( $revId > $history->fr_stableRevId ) {
 				$class = 'flaggedrevs-unreviewed';
 				$link = '<strong>' . wfMsgHtml( 'revreview-hist-pending' ) . '</strong>';
+				$history->fr_pendingRevs = true; // pending rev shown above stable
 			}
 		// Reviewed revision: highlight and add link
 		} else if ( !( $row->rev_deleted & Revision::DELETED_TEXT ) ) {
 			# Add link to stable version of *this* rev, if any
 			list( $link, $class ) = self::markHistoryRow( $title, $row );
 			# Space out and demark the stable revision
-			if ( $row->rev_id == $history->fr_stableRevId ) {
+			if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
 				$liClasses[] = 'flaggedrevs_hist_stable';
 			}
 		}
