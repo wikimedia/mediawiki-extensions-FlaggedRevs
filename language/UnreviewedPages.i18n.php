@@ -8,7 +8,6 @@
 $messages = array();
 
 $messages['en'] = array(
-	'right-unreviewedpages' => 'View [[Special:UnreviewedPages|list of unreviewed pages]]',
 	'unreviewedpages' => 'Unreviewed pages',
 	'unreviewed-legend' => 'List unreviewed content pages',
 	'unreviewed-category' => 'Category:',
