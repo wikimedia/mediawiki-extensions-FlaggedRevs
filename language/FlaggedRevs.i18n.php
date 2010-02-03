@@ -40,7 +40,7 @@ $messages['en'] = array(
 	'grouppage-reviewer'           => '{{ns:project}}:Reviewer',
 	'group-autoreview'             => 'Autochecked users',
 	'group-autoreview-member'      => 'autochecked users',
-	'grouppage-autoreview'         => '{{ns:project}}:Autoreviewer',
+	'grouppage-autoreview'         => '{{ns:project}}:Autochecked users',
 	'revreview-hist-draft'         => 'draft revision',
 	'revreview-hist-quality'       => 'quality revision',
 	'revreview-hist-quality-user'  => '[{{fullurl:$1|stableid=$2}} approved] by [[User:$3|$3]]',
